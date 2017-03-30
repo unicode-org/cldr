@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="ka"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | კლავიში | ნოლი | ნული</annotation>
+		<annotation cp="0⃣" type="tts">კლავიში ციფრით ნული</annotation>
+		<annotation cp="1⃣">1 | ერთი | კლავიში</annotation>
+		<annotation cp="1⃣" type="tts">კლავიში ციფრით ერთი</annotation>
+		<annotation cp="2⃣">2 | კლავიში | ორი</annotation>
+		<annotation cp="2⃣" type="tts">კლავიში ციფრით ორი</annotation>
+		<annotation cp="3⃣">3 | კლავიში | სამი</annotation>
+		<annotation cp="3⃣" type="tts">კლავიში ციფრით სამი</annotation>
+		<annotation cp="4⃣">4 | კლავიში | ოთხი</annotation>
+		<annotation cp="4⃣" type="tts">კლავიში ციფრით ოთხი</annotation>
+		<annotation cp="5⃣">5 | კლავიში | ხუთი</annotation>
+		<annotation cp="5⃣" type="tts">კლავიში ციფრით ხუთი</annotation>
+		<annotation cp="6⃣">6 | ექვსი | კლავიში</annotation>
+		<annotation cp="6⃣" type="tts">კლავიში ციფრით ექვსი</annotation>
+		<annotation cp="7⃣">7 | კლავიში | შვიდი</annotation>
+		<annotation cp="7⃣" type="tts">კლავიში ციფრით შვიდი</annotation>
+		<annotation cp="8⃣">8 | კლავიში | რვა</annotation>
+		<annotation cp="8⃣" type="tts">კლავიში ციფრით რვა</annotation>
+		<annotation cp="9⃣">9 | კლავიში | ცხრა</annotation>
+		<annotation cp="9⃣" type="tts">კლავიში ციფრით ცხრა</annotation>
+		<annotation cp="👶🏻">ბავშვი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👶🏻" type="tts">ბავშვი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👶🏼">ბავშვი | კანის ტიპი-3</annotation>
+		<annotation cp="👶🏼" type="tts">ბავშვი: კანის ტიპი-3</annotation>
+		<annotation cp="👶🏽">ბავშვი | კანის ტიპი-4</annotation>
+		<annotation cp="👶🏽" type="tts">ბავშვი: კანის ტიპი-4</annotation>
+		<annotation cp="👶🏾">ბავშვი | კანის ტიპი-5</annotation>
+		<annotation cp="👶🏾" type="tts">ბავშვი: კანის ტიპი-5</annotation>
+		<annotation cp="👶🏿">ბავშვი | კანის ტიპი-6</annotation>
+		<annotation cp="👶🏿" type="tts">ბავშვი: კანის ტიპი-6</annotation>
+		<annotation cp="👦🏻">მამრობითი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👦🏻" type="tts">ბიჭი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👦🏼">მამრობითი | კანის ტიპი-3</annotation>
+		<annotation cp="👦🏼" type="tts">ბიჭი: კანის ტიპი-3</annotation>
+		<annotation cp="👦🏽">მამრობითი | კანის ტიპი-4</annotation>
+		<annotation cp="👦🏽" type="tts">ბიჭი: კანის ტიპი-4</annotation>
+		<annotation cp="👦🏾">მამრობითი | კანის ტიპი-5</annotation>
+		<annotation cp="👦🏾" type="tts">ბიჭი: კანის ტიპი-5</annotation>
+		<annotation cp="👦🏿">მამრობითი | კანის ტიპი-6</annotation>
+		<annotation cp="👦🏿" type="tts">ბიჭი: კანის ტიპი-6</annotation>
+		<annotation cp="👧🏻">ზოდიაქო | ქალიშვილი | ქალწული | ჰოროსკოპი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👧🏻" type="tts">გოგო: კანის ტიპი-1-2</annotation>
+		<annotation cp="👧🏼">ზოდიაქო | ქალიშვილი | ქალწული | ჰოროსკოპი | კანის ტიპი-3</annotation>
+		<annotation cp="👧🏼" type="tts">გოგო: კანის ტიპი-3</annotation>
+		<annotation cp="👧🏽">ზოდიაქო | ქალიშვილი | ქალწული | ჰოროსკოპი | კანის ტიპი-4</annotation>
+		<annotation cp="👧🏽" type="tts">გოგო: კანის ტიპი-4</annotation>
+		<annotation cp="👧🏾">ზოდიაქო | ქალიშვილი | ქალწული | ჰოროსკოპი | კანის ტიპი-5</annotation>
+		<annotation cp="👧🏾" type="tts">გოგო: კანის ტიპი-5</annotation>
+		<annotation cp="👧🏿">ზოდიაქო | ქალიშვილი | ქალწული | ჰოროსკოპი | კანის ტიპი-6</annotation>
+		<annotation cp="👧🏿" type="tts">გოგო: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻">კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻" type="tts">კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼">კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼" type="tts">კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽">კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽" type="tts">კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾">კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾" type="tts">კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿">კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿" type="tts">კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻">ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻" type="tts">ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼">ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼" type="tts">ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽">ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽" type="tts">ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾">ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾" type="tts">ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿">ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿" type="tts">ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👴🏻">კაცი | მოხუცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👴🏻" type="tts">მოხუცი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👴🏼">კაცი | მოხუცი | კანის ტიპი-3</annotation>
+		<annotation cp="👴🏼" type="tts">მოხუცი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👴🏽">კაცი | მოხუცი | კანის ტიპი-4</annotation>
+		<annotation cp="👴🏽" type="tts">მოხუცი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👴🏾">კაცი | მოხუცი | კანის ტიპი-5</annotation>
+		<annotation cp="👴🏾" type="tts">მოხუცი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👴🏿">კაცი | მოხუცი | კანის ტიპი-6</annotation>
+		<annotation cp="👴🏿" type="tts">მოხუცი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👵🏻">მოხუცი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👵🏻" type="tts">მოხუცი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👵🏼">მოხუცი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👵🏼" type="tts">მოხუცი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👵🏽">მოხუცი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👵🏽" type="tts">მოხუცი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👵🏾">მოხუცი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👵🏾" type="tts">მოხუცი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👵🏿">მოხუცი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👵🏿" type="tts">მოხუცი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍⚕">ექთანი | ექიმი | თერაპევტი | კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">ექიმი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍⚕">ექთანი | ექიმი | თერაპევტი | კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">ექიმი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍⚕">ექთანი | ექიმი | თერაპევტი | კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">ექიმი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍⚕">ექთანი | ექიმი | თერაპევტი | კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">ექიმი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍⚕">ექთანი | ექიმი | თერაპევტი | კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">ექიმი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍⚕">ექთანი | ექიმი | თერაპევტი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">ექთანი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍⚕">ექთანი | ექიმი | თერაპევტი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">ექთანი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍⚕">ექთანი | ექიმი | თერაპევტი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">ექთანი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍⚕">ექთანი | ექიმი | თერაპევტი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">ექთანი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍⚕">ექთანი | ექიმი | თერაპევტი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">ექთანი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🎓">კაცი | მეცნიერი | სტუდენტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">სტუდენტი ბიჭი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🎓">კაცი | მეცნიერი | სტუდენტი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">სტუდენტი ბიჭი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🎓">კაცი | მეცნიერი | სტუდენტი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">სტუდენტი ბიჭი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🎓">კაცი | მეცნიერი | სტუდენტი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">სტუდენტი ბიჭი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🎓">კაცი | მეცნიერი | სტუდენტი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">სტუდენტი ბიჭი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🎓">მეცნიერი | სტუდენტი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">სტუდენტი გოგო: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🎓">მეცნიერი | სტუდენტი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">სტუდენტი გოგო: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🎓">მეცნიერი | სტუდენტი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">სტუდენტი გოგო: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🎓">მეცნიერი | სტუდენტი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">სტუდენტი გოგო: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🎓">მეცნიერი | სტუდენტი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">სტუდენტი გოგო: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🏫">ინსტრუქტორი | კაცი | მასწავლებელი | მეცნიერი | პროფესორი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">მასწავლებელი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🏫">ინსტრუქტორი | კაცი | მასწავლებელი | მეცნიერი | პროფესორი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">მასწავლებელი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🏫">ინსტრუქტორი | კაცი | მასწავლებელი | მეცნიერი | პროფესორი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">მასწავლებელი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🏫">ინსტრუქტორი | კაცი | მასწავლებელი | მეცნიერი | პროფესორი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">მასწავლებელი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🏫">ინსტრუქტორი | კაცი | მასწავლებელი | მეცნიერი | პროფესორი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">მასწავლებელი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🏫">ინსტრუქტორი | მასწავლებელი | მეცნიერი | პროფესორი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">მასწავლებელი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🏫">ინსტრუქტორი | მასწავლებელი | მეცნიერი | პროფესორი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">მასწავლებელი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🏫">ინსტრუქტორი | მასწავლებელი | მეცნიერი | პროფესორი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">მასწავლებელი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🏫">ინსტრუქტორი | მასწავლებელი | მეცნიერი | პროფესორი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">მასწავლებელი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🏫">ინსტრუქტორი | მასწავლებელი | მეცნიერი | პროფესორი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">მასწავლებელი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍⚖">კაცი | მოსამართლე | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">მოსამართლე კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍⚖">კაცი | მოსამართლე | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">მოსამართლე კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍⚖">კაცი | მოსამართლე | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">მოსამართლე კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍⚖">კაცი | მოსამართლე | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">მოსამართლე კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍⚖">კაცი | მოსამართლე | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">მოსამართლე კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍⚖">მოსამართლე | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">მოსამართლე ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍⚖">მოსამართლე | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">მოსამართლე ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍⚖">მოსამართლე | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">მოსამართლე ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍⚖">მოსამართლე | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">მოსამართლე ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍⚖">მოსამართლე | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">მოსამართლე ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🌾">კაცი | მებაღე | ფერმერი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">ფერმერი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🌾">კაცი | მებაღე | ფერმერი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">ფერმერი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🌾">კაცი | მებაღე | ფერმერი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">ფერმერი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🌾">კაცი | მებაღე | ფერმერი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">ფერმერი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🌾">კაცი | მებაღე | ფერმერი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">ფერმერი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🌾">მებაღე | ფერმერი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">ფერმერი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🌾">მებაღე | ფერმერი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">ფერმერი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🌾">მებაღე | ფერმერი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">ფერმერი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🌾">მებაღე | ფერმერი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">ფერმერი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🌾">მებაღე | ფერმერი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">ფერმერი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🍳">კაცი | მზარეული | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">მზარეული კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🍳">კაცი | მზარეული | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">მზარეული კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🍳">კაცი | მზარეული | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">მზარეული კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🍳">კაცი | მზარეული | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">მზარეული კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🍳">კაცი | მზარეული | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">მზარეული კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🍳">მზარეული | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">მზარეული ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🍳">მზარეული | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">მზარეული ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🍳">მზარეული | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">მზარეული ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🍳">მზარეული | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">მზარეული ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🍳">მზარეული | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">მზარეული ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🔧">ელექტრიკი | კაცი | მექანიკოსი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">მექანიკოსი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🔧">ელექტრიკი | კაცი | მექანიკოსი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">მექანიკოსი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🔧">ელექტრიკი | კაცი | მექანიკოსი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">მექანიკოსი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🔧">ელექტრიკი | კაცი | მექანიკოსი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">მექანიკოსი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🔧">ელექტრიკი | კაცი | მექანიკოსი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">მექანიკოსი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🔧">ელექტრიკი | მექანიკოსი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">მექანიკოსი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🔧">ელექტრიკი | მექანიკოსი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">მექანიკოსი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🔧">ელექტრიკი | მექანიკოსი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">მექანიკოსი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🔧">ელექტრიკი | მექანიკოსი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">მექანიკოსი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🔧">ელექტრიკი | მექანიკოსი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">მექანიკოსი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🏭">ინდუსტრია | კაცი | ქარხანა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">ქარხნის მუშაკი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🏭">ინდუსტრია | კაცი | ქარხანა | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">ქარხნის მუშაკი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🏭">ინდუსტრია | კაცი | ქარხანა | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">ქარხნის მუშაკი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🏭">ინდუსტრია | კაცი | ქარხანა | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">ქარხნის მუშაკი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🏭">ინდუსტრია | კაცი | ქარხანა | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">ქარხნის მუშაკი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🏭">ინდუსტრია | ქალი | ქარხანა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">ქარხნის მუშაკი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🏭">ინდუსტრია | ქალი | ქარხანა | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">ქარხნის მუშაკი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🏭">ინდუსტრია | ქალი | ქარხანა | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">ქარხნის მუშაკი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🏭">ინდუსტრია | ქალი | ქარხანა | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">ქარხნის მუშაკი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🏭">ინდუსტრია | ქალი | ქარხანა | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">ქარხნის მუშაკი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍💼">არქიტექტურა | ბიზნესი | კაცი | მენეჯერი | ოფისი | სამსახური | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">თანამშრომელი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍💼">არქიტექტურა | ბიზნესი | კაცი | მენეჯერი | ოფისი | სამსახური | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">თანამშრომელი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍💼">არქიტექტურა | ბიზნესი | კაცი | მენეჯერი | ოფისი | სამსახური | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">თანამშრომელი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍💼">არქიტექტურა | ბიზნესი | კაცი | მენეჯერი | ოფისი | სამსახური | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">თანამშრომელი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍💼">არქიტექტურა | ბიზნესი | კაცი | მენეჯერი | ოფისი | სამსახური | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">თანამშრომელი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍💼">არქიტექტურა | ბიზნესი | მენეჯერი | ოფისი | სამსახური | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">თანამშრომელი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍💼">არქიტექტურა | ბიზნესი | მენეჯერი | ოფისი | სამსახური | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">თანამშრომელი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍💼">არქიტექტურა | ბიზნესი | მენეჯერი | ოფისი | სამსახური | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">თანამშრომელი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍💼">არქიტექტურა | ბიზნესი | მენეჯერი | ოფისი | სამსახური | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">თანამშრომელი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍💼">არქიტექტურა | ბიზნესი | მენეჯერი | ოფისი | სამსახური | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">თანამშრომელი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🔬">ბილოგი | კაცი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქიმიკოსი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">მეცნიერი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🔬">ბილოგი | კაცი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქიმიკოსი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">მეცნიერი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🔬">ბილოგი | კაცი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქიმიკოსი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">მეცნიერი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🔬">ბილოგი | კაცი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქიმიკოსი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">მეცნიერი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🔬">ბილოგი | კაცი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქიმიკოსი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">მეცნიერი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🔬">ბილოგი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქალი | ქიმიკოსი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">მეცნიერი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🔬">ბილოგი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქალი | ქიმიკოსი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">მეცნიერი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🔬">ბილოგი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქალი | ქიმიკოსი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">მეცნიერი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🔬">ბილოგი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქალი | ქიმიკოსი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">მეცნიერი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🔬">ბილოგი | მათემატიკოსი | მეცნიერი | ფიზიკოსი | ქალი | ქიმიკოსი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">მეცნიერი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍💻">აიტიშნიკი | ბიჭი | დეველოპერი | კაცი | კოდერი | ლეპტოპი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">პროგრამისტი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍💻">აიტიშნიკი | ბიჭი | დეველოპერი | კაცი | კოდერი | ლეპტოპი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">პროგრამისტი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍💻">აიტიშნიკი | ბიჭი | დეველოპერი | კაცი | კოდერი | ლეპტოპი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">პროგრამისტი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍💻">აიტიშნიკი | ბიჭი | დეველოპერი | კაცი | კოდერი | ლეპტოპი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">პროგრამისტი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍💻">აიტიშნიკი | ბიჭი | დეველოპერი | კაცი | კოდერი | ლეპტოპი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">პროგრამისტი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍💻">აიტიშნიკი | გოგო | დეველოპერი | კოდერი | ლეპტოპი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">პროგრამისტი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍💻">აიტიშნიკი | გოგო | დეველოპერი | კოდერი | ლეპტოპი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">პროგრამისტი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍💻">აიტიშნიკი | გოგო | დეველოპერი | კოდერი | ლეპტოპი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">პროგრამისტი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍💻">აიტიშნიკი | გოგო | დეველოპერი | კოდერი | ლეპტოპი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">პროგრამისტი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍💻">აიტიშნიკი | გოგო | დეველოპერი | კოდერი | ლეპტოპი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">პროგრამისტი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🎤">ბიჭი | კაცი | მომღერალი | მსახიობი | როკერი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">მომღერალი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🎤">ბიჭი | კაცი | მომღერალი | მსახიობი | როკერი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">მომღერალი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🎤">ბიჭი | კაცი | მომღერალი | მსახიობი | როკერი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">მომღერალი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🎤">ბიჭი | კაცი | მომღერალი | მსახიობი | როკერი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">მომღერალი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🎤">ბიჭი | კაცი | მომღერალი | მსახიობი | როკერი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">მომღერალი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🎤">გოგო | მომღერალი | მსახიობი | როკერი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">მომღერალი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🎤">გოგო | მომღერალი | მსახიობი | როკერი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">მომღერალი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🎤">გოგო | მომღერალი | მსახიობი | როკერი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">მომღერალი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🎤">გოგო | მომღერალი | მსახიობი | როკერი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">მომღერალი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🎤">გოგო | მომღერალი | მსახიობი | როკერი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">მომღერალი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🎨">ბიჭი | კაცი | მხატვარი | პალიტრა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">მხატვარი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🎨">ბიჭი | კაცი | მხატვარი | პალიტრა | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">მხატვარი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🎨">ბიჭი | კაცი | მხატვარი | პალიტრა | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">მხატვარი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🎨">ბიჭი | კაცი | მხატვარი | პალიტრა | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">მხატვარი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🎨">ბიჭი | კაცი | მხატვარი | პალიტრა | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">მხატვარი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🎨">გოგო | მხატვარი | პალიტრა | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">მხატვარი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🎨">გოგო | მხატვარი | პალიტრა | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">მხატვარი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🎨">გოგო | მხატვარი | პალიტრა | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">მხატვარი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🎨">გოგო | მხატვარი | პალიტრა | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">მხატვარი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🎨">გოგო | მხატვარი | პალიტრა | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">მხატვარი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍✈">თვითმფრინავი | კაცი | პილოტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">პილოტი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍✈">თვითმფრინავი | კაცი | პილოტი | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">პილოტი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍✈">თვითმფრინავი | კაცი | პილოტი | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">პილოტი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍✈">თვითმფრინავი | კაცი | პილოტი | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">პილოტი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍✈">თვითმფრინავი | კაცი | პილოტი | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">პილოტი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍✈">თვითმფრინავი | პილოტი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">პილოტი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍✈">თვითმფრინავი | პილოტი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">პილოტი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍✈">თვითმფრინავი | პილოტი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">პილოტი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍✈">თვითმფრინავი | პილოტი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">პილოტი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍✈">თვითმფრინავი | პილოტი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">პილოტი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🚀">კაცი | კოსმოსი | რაკეტა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">ასტრონავტი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🚀">კაცი | კოსმოსი | რაკეტა | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">ასტრონავტი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🚀">კაცი | კოსმოსი | რაკეტა | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">ასტრონავტი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🚀">კაცი | კოსმოსი | რაკეტა | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">ასტრონავტი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🚀">კაცი | კოსმოსი | რაკეტა | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">ასტრონავტი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🚀">კოსმოსი | რაკეტა | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">ასტრონავტი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🚀">კოსმოსი | რაკეტა | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">ასტრონავტი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🚀">კოსმოსი | რაკეტა | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">ასტრონავტი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🚀">კოსმოსი | რაკეტა | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">ასტრონავტი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🚀">კოსმოსი | რაკეტა | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">ასტრონავტი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👨🏻‍🚒">კაცი მეხანძრე | კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">მეხანძრე კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👨🏼‍🚒">კაცი მეხანძრე | კანის ტიპი-3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">მეხანძრე კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👨🏽‍🚒">კაცი მეხანძრე | კანის ტიპი-4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">მეხანძრე კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👨🏾‍🚒">კაცი მეხანძრე | კანის ტიპი-5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">მეხანძრე კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👨🏿‍🚒">კაცი მეხანძრე | კანის ტიპი-6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">მეხანძრე კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👩🏻‍🚒">ქალი მეხანძრე | კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">მეხანძრე ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👩🏼‍🚒">ქალი მეხანძრე | კანის ტიპი-3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">მეხანძრე ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👩🏽‍🚒">ქალი მეხანძრე | კანის ტიპი-4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">მეხანძრე ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👩🏾‍🚒">ქალი მეხანძრე | კანის ტიპი-5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">მეხანძრე ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👩🏿‍🚒">ქალი მეხანძრე | კანის ტიპი-6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">მეხანძრე ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👮🏻">პოლიცია | კანის ტიპი-1-2</annotation>
+		<annotation cp="👮🏻" type="tts">პოლიციელი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👮🏼">პოლიცია | კანის ტიპი-3</annotation>
+		<annotation cp="👮🏼" type="tts">პოლიციელი: კანის ტიპი-3</annotation>
+		<annotation cp="👮🏽">პოლიცია | კანის ტიპი-4</annotation>
+		<annotation cp="👮🏽" type="tts">პოლიციელი: კანის ტიპი-4</annotation>
+		<annotation cp="👮🏾">პოლიცია | კანის ტიპი-5</annotation>
+		<annotation cp="👮🏾" type="tts">პოლიციელი: კანის ტიპი-5</annotation>
+		<annotation cp="👮🏿">პოლიცია | კანის ტიპი-6</annotation>
+		<annotation cp="👮🏿" type="tts">პოლიციელი: კანის ტიპი-6</annotation>
+		<annotation cp="👮🏻‍♂">კაცი | პოლიციელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">პოლიციელი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👮🏼‍♂">კაცი | პოლიციელი | კანის ტიპი-3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">პოლიციელი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👮🏽‍♂">კაცი | პოლიციელი | კანის ტიპი-4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">პოლიციელი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👮🏾‍♂">კაცი | პოლიციელი | კანის ტიპი-5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">პოლიციელი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👮🏿‍♂">კაცი | პოლიციელი | კანის ტიპი-6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">პოლიციელი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👮🏻‍♀">პოლიციელი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">პოლიციელი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👮🏼‍♀">პოლიციელი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">პოლიციელი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👮🏽‍♀">პოლიციელი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">პოლიციელი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👮🏾‍♀">პოლიციელი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">პოლიციელი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👮🏿‍♀">პოლიციელი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">პოლიციელი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🕵🏻">გამომძიებელი | ჯაშუში | კანის ტიპი-1-2</annotation>
+		<annotation cp="🕵🏻" type="tts">დეტექტივი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🕵🏼">გამომძიებელი | ჯაშუში | კანის ტიპი-3</annotation>
+		<annotation cp="🕵🏼" type="tts">დეტექტივი: კანის ტიპი-3</annotation>
+		<annotation cp="🕵🏽">გამომძიებელი | ჯაშუში | კანის ტიპი-4</annotation>
+		<annotation cp="🕵🏽" type="tts">დეტექტივი: კანის ტიპი-4</annotation>
+		<annotation cp="🕵🏾">გამომძიებელი | ჯაშუში | კანის ტიპი-5</annotation>
+		<annotation cp="🕵🏾" type="tts">დეტექტივი: კანის ტიპი-5</annotation>
+		<annotation cp="🕵🏿">გამომძიებელი | ჯაშუში | კანის ტიპი-6</annotation>
+		<annotation cp="🕵🏿" type="tts">დეტექტივი: კანის ტიპი-6</annotation>
+		<annotation cp="🕵🏻‍♂">დეტექტივი | კაცი | ჯაშუში | კანის ტიპი-1-2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">დეტექტივი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🕵🏼‍♂">დეტექტივი | კაცი | ჯაშუში | კანის ტიპი-3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">დეტექტივი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🕵🏽‍♂">დეტექტივი | კაცი | ჯაშუში | კანის ტიპი-4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">დეტექტივი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🕵🏾‍♂">დეტექტივი | კაცი | ჯაშუში | კანის ტიპი-5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">დეტექტივი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🕵🏿‍♂">დეტექტივი | კაცი | ჯაშუში | კანის ტიპი-6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">დეტექტივი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🕵🏻‍♀">დეტექტივი | ქალი | ჯაშუში | კანის ტიპი-1-2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">დეტექტივი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🕵🏼‍♀">დეტექტივი | ქალი | ჯაშუში | კანის ტიპი-3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">დეტექტივი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🕵🏽‍♀">დეტექტივი | ქალი | ჯაშუში | კანის ტიპი-4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">დეტექტივი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🕵🏾‍♀">დეტექტივი | ქალი | ჯაშუში | კანის ტიპი-5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">დეტექტივი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🕵🏿‍♀">დეტექტივი | ქალი | ჯაშუში | კანის ტიპი-6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">დეტექტივი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="💂🏻">დაცვა | კანის ტიპი-1-2</annotation>
+		<annotation cp="💂🏻" type="tts">ყარაული: კანის ტიპი-1-2</annotation>
+		<annotation cp="💂🏼">დაცვა | კანის ტიპი-3</annotation>
+		<annotation cp="💂🏼" type="tts">ყარაული: კანის ტიპი-3</annotation>
+		<annotation cp="💂🏽">დაცვა | კანის ტიპი-4</annotation>
+		<annotation cp="💂🏽" type="tts">ყარაული: კანის ტიპი-4</annotation>
+		<annotation cp="💂🏾">დაცვა | კანის ტიპი-5</annotation>
+		<annotation cp="💂🏾" type="tts">ყარაული: კანის ტიპი-5</annotation>
+		<annotation cp="💂🏿">დაცვა | კანის ტიპი-6</annotation>
+		<annotation cp="💂🏿" type="tts">ყარაული: კანის ტიპი-6</annotation>
+		<annotation cp="💂🏻‍♂">კაცი | მცველი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">მცველი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💂🏼‍♂">კაცი | მცველი | კანის ტიპი-3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">მცველი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="💂🏽‍♂">კაცი | მცველი | კანის ტიპი-4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">მცველი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="💂🏾‍♂">კაცი | მცველი | კანის ტიპი-5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">მცველი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="💂🏿‍♂">კაცი | მცველი | კანის ტიპი-6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">მცველი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="💂🏻‍♀">მცველი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">მცველი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💂🏼‍♀">მცველი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">მცველი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="💂🏽‍♀">მცველი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">მცველი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="💂🏾‍♀">მცველი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">მცველი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="💂🏿‍♀">მცველი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">მცველი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👷🏻">მუშა | მშენებლობა | ქუდი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👷🏻" type="tts">მშენებელი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👷🏼">მუშა | მშენებლობა | ქუდი | კანის ტიპი-3</annotation>
+		<annotation cp="👷🏼" type="tts">მშენებელი: კანის ტიპი-3</annotation>
+		<annotation cp="👷🏽">მუშა | მშენებლობა | ქუდი | კანის ტიპი-4</annotation>
+		<annotation cp="👷🏽" type="tts">მშენებელი: კანის ტიპი-4</annotation>
+		<annotation cp="👷🏾">მუშა | მშენებლობა | ქუდი | კანის ტიპი-5</annotation>
+		<annotation cp="👷🏾" type="tts">მშენებელი: კანის ტიპი-5</annotation>
+		<annotation cp="👷🏿">მუშა | მშენებლობა | ქუდი | კანის ტიპი-6</annotation>
+		<annotation cp="👷🏿" type="tts">მშენებელი: კანის ტიპი-6</annotation>
+		<annotation cp="👷🏻‍♂">კაცი | მუშა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">მუშა კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👷🏼‍♂">კაცი | მუშა | კანის ტიპი-3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">მუშა კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👷🏽‍♂">კაცი | მუშა | კანის ტიპი-4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">მუშა კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👷🏾‍♂">კაცი | მუშა | კანის ტიპი-5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">მუშა კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👷🏿‍♂">კაცი | მუშა | კანის ტიპი-6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">მუშა კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👷🏻‍♀">მუშა | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">მუშა ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👷🏼‍♀">მუშა | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">მუშა ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👷🏽‍♀">მუშა | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">მუშა ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👷🏾‍♀">მუშა | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">მუშა ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👷🏿‍♀">მუშა | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">მუშა ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🤴🏻">პრინცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤴🏻" type="tts">პრინცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤴🏼">პრინცი | კანის ტიპი-3</annotation>
+		<annotation cp="🤴🏼" type="tts">პრინცი: კანის ტიპი-3</annotation>
+		<annotation cp="🤴🏽">პრინცი | კანის ტიპი-4</annotation>
+		<annotation cp="🤴🏽" type="tts">პრინცი: კანის ტიპი-4</annotation>
+		<annotation cp="🤴🏾">პრინცი | კანის ტიპი-5</annotation>
+		<annotation cp="🤴🏾" type="tts">პრინცი: კანის ტიპი-5</annotation>
+		<annotation cp="🤴🏿">პრინცი | კანის ტიპი-6</annotation>
+		<annotation cp="🤴🏿" type="tts">პრინცი: კანის ტიპი-6</annotation>
+		<annotation cp="👸🏻">ზღაპარი | ფანტაზია | ფანტასტიკა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👸🏻" type="tts">პრინცესა: კანის ტიპი-1-2</annotation>
+		<annotation cp="👸🏼">ზღაპარი | ფანტაზია | ფანტასტიკა | კანის ტიპი-3</annotation>
+		<annotation cp="👸🏼" type="tts">პრინცესა: კანის ტიპი-3</annotation>
+		<annotation cp="👸🏽">ზღაპარი | ფანტაზია | ფანტასტიკა | კანის ტიპი-4</annotation>
+		<annotation cp="👸🏽" type="tts">პრინცესა: კანის ტიპი-4</annotation>
+		<annotation cp="👸🏾">ზღაპარი | ფანტაზია | ფანტასტიკა | კანის ტიპი-5</annotation>
+		<annotation cp="👸🏾" type="tts">პრინცესა: კანის ტიპი-5</annotation>
+		<annotation cp="👸🏿">ზღაპარი | ფანტაზია | ფანტასტიკა | კანის ტიპი-6</annotation>
+		<annotation cp="👸🏿" type="tts">პრინცესა: კანის ტიპი-6</annotation>
+		<annotation cp="👳🏻">კაცი | ჩალმა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👳🏻" type="tts">კაცი ჩალმით: კანის ტიპი-1-2</annotation>
+		<annotation cp="👳🏼">კაცი | ჩალმა | კანის ტიპი-3</annotation>
+		<annotation cp="👳🏼" type="tts">კაცი ჩალმით: კანის ტიპი-3</annotation>
+		<annotation cp="👳🏽">კაცი | ჩალმა | კანის ტიპი-4</annotation>
+		<annotation cp="👳🏽" type="tts">კაცი ჩალმით: კანის ტიპი-4</annotation>
+		<annotation cp="👳🏾">კაცი | ჩალმა | კანის ტიპი-5</annotation>
+		<annotation cp="👳🏾" type="tts">კაცი ჩალმით: კანის ტიპი-5</annotation>
+		<annotation cp="👳🏿">კაცი | ჩალმა | კანის ტიპი-6</annotation>
+		<annotation cp="👳🏿" type="tts">კაცი ჩალმით: კანის ტიპი-6</annotation>
+		<annotation cp="👳🏻‍♂">თავსაბურავი | კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">კაცი თავსაბურავით: კანის ტიპი-1-2</annotation>
+		<annotation cp="👳🏼‍♂">თავსაბურავი | კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">კაცი თავსაბურავით: კანის ტიპი-3</annotation>
+		<annotation cp="👳🏽‍♂">თავსაბურავი | კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">კაცი თავსაბურავით: კანის ტიპი-4</annotation>
+		<annotation cp="👳🏾‍♂">თავსაბურავი | კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">კაცი თავსაბურავით: კანის ტიპი-5</annotation>
+		<annotation cp="👳🏿‍♂">თავსაბურავი | კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">კაცი თავსაბურავით: კანის ტიპი-6</annotation>
+		<annotation cp="👳🏻‍♀">თავსაბურავი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">ქალი თავსაბურავით: კანის ტიპი-1-2</annotation>
+		<annotation cp="👳🏼‍♀">თავსაბურავი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">ქალი თავსაბურავით: კანის ტიპი-3</annotation>
+		<annotation cp="👳🏽‍♀">თავსაბურავი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">ქალი თავსაბურავით: კანის ტიპი-4</annotation>
+		<annotation cp="👳🏾‍♀">თავსაბურავი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">ქალი თავსაბურავით: კანის ტიპი-5</annotation>
+		<annotation cp="👳🏿‍♀">თავსაბურავი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">ქალი თავსაბურავით: კანის ტიპი-6</annotation>
+		<annotation cp="👲🏻">კაცი | ქუდი | ჩინური | კანის ტიპი-1-2</annotation>
+		<annotation cp="👲🏻" type="tts">კაცი ჩინური ქუდით: კანის ტიპი-1-2</annotation>
+		<annotation cp="👲🏼">კაცი | ქუდი | ჩინური | კანის ტიპი-3</annotation>
+		<annotation cp="👲🏼" type="tts">კაცი ჩინური ქუდით: კანის ტიპი-3</annotation>
+		<annotation cp="👲🏽">კაცი | ქუდი | ჩინური | კანის ტიპი-4</annotation>
+		<annotation cp="👲🏽" type="tts">კაცი ჩინური ქუდით: კანის ტიპი-4</annotation>
+		<annotation cp="👲🏾">კაცი | ქუდი | ჩინური | კანის ტიპი-5</annotation>
+		<annotation cp="👲🏾" type="tts">კაცი ჩინური ქუდით: კანის ტიპი-5</annotation>
+		<annotation cp="👲🏿">კაცი | ქუდი | ჩინური | კანის ტიპი-6</annotation>
+		<annotation cp="👲🏿" type="tts">კაცი ჩინური ქუდით: კანის ტიპი-6</annotation>
+		<annotation cp="👱🏻">ქერა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👱🏻" type="tts">ქერათმიანი პიროვნება: კანის ტიპი-1-2</annotation>
+		<annotation cp="👱🏼">ქერა | კანის ტიპი-3</annotation>
+		<annotation cp="👱🏼" type="tts">ქერათმიანი პიროვნება: კანის ტიპი-3</annotation>
+		<annotation cp="👱🏽">ქერა | კანის ტიპი-4</annotation>
+		<annotation cp="👱🏽" type="tts">ქერათმიანი პიროვნება: კანის ტიპი-4</annotation>
+		<annotation cp="👱🏾">ქერა | კანის ტიპი-5</annotation>
+		<annotation cp="👱🏾" type="tts">ქერათმიანი პიროვნება: კანის ტიპი-5</annotation>
+		<annotation cp="👱🏿">ქერა | კანის ტიპი-6</annotation>
+		<annotation cp="👱🏿" type="tts">ქერათმიანი პიროვნება: კანის ტიპი-6</annotation>
+		<annotation cp="👱🏻‍♂">კაცი | ქერა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">ქერათმიანი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👱🏼‍♂">კაცი | ქერა | კანის ტიპი-3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">ქერათმიანი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="👱🏽‍♂">კაცი | ქერა | კანის ტიპი-4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">ქერათმიანი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="👱🏾‍♂">კაცი | ქერა | კანის ტიპი-5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">ქერათმიანი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="👱🏿‍♂">კაცი | ქერა | კანის ტიპი-6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">ქერათმიანი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="👱🏻‍♀">ქალი | ქერა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">ქერათმიანი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👱🏼‍♀">ქალი | ქერა | კანის ტიპი-3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">ქერათმიანი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="👱🏽‍♀">ქალი | ქერა | კანის ტიპი-4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">ქერათმიანი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="👱🏾‍♀">ქალი | ქერა | კანის ტიპი-5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">ქერათმიანი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="👱🏿‍♀">ქალი | ქერა | კანის ტიპი-6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">ქერათმიანი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🤵🏻">კაცი | ნეფე | სმოკინგი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤵🏻" type="tts">კაცი სმოკინგით: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤵🏼">კაცი | ნეფე | სმოკინგი | კანის ტიპი-3</annotation>
+		<annotation cp="🤵🏼" type="tts">კაცი სმოკინგით: კანის ტიპი-3</annotation>
+		<annotation cp="🤵🏽">კაცი | ნეფე | სმოკინგი | კანის ტიპი-4</annotation>
+		<annotation cp="🤵🏽" type="tts">კაცი სმოკინგით: კანის ტიპი-4</annotation>
+		<annotation cp="🤵🏾">კაცი | ნეფე | სმოკინგი | კანის ტიპი-5</annotation>
+		<annotation cp="🤵🏾" type="tts">კაცი სმოკინგით: კანის ტიპი-5</annotation>
+		<annotation cp="🤵🏿">კაცი | ნეფე | სმოკინგი | კანის ტიპი-6</annotation>
+		<annotation cp="🤵🏿" type="tts">კაცი სმოკინგით: კანის ტიპი-6</annotation>
+		<annotation cp="👰🏻">ვუალი | პატარძალი | ფატა | ქორწილი | ქორწინება | კანის ტიპი-1-2</annotation>
+		<annotation cp="👰🏻" type="tts">პატარძალი ვუალით: კანის ტიპი-1-2</annotation>
+		<annotation cp="👰🏼">ვუალი | პატარძალი | ფატა | ქორწილი | ქორწინება | კანის ტიპი-3</annotation>
+		<annotation cp="👰🏼" type="tts">პატარძალი ვუალით: კანის ტიპი-3</annotation>
+		<annotation cp="👰🏽">ვუალი | პატარძალი | ფატა | ქორწილი | ქორწინება | კანის ტიპი-4</annotation>
+		<annotation cp="👰🏽" type="tts">პატარძალი ვუალით: კანის ტიპი-4</annotation>
+		<annotation cp="👰🏾">ვუალი | პატარძალი | ფატა | ქორწილი | ქორწინება | კანის ტიპი-5</annotation>
+		<annotation cp="👰🏾" type="tts">პატარძალი ვუალით: კანის ტიპი-5</annotation>
+		<annotation cp="👰🏿">ვუალი | პატარძალი | ფატა | ქორწილი | ქორწინება | კანის ტიპი-6</annotation>
+		<annotation cp="👰🏿" type="tts">პატარძალი ვუალით: კანის ტიპი-6</annotation>
+		<annotation cp="🤰🏻">ორსული | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤰🏻" type="tts">ორსული ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤰🏼">ორსული | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🤰🏼" type="tts">ორსული ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🤰🏽">ორსული | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🤰🏽" type="tts">ორსული ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🤰🏾">ორსული | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🤰🏾" type="tts">ორსული ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🤰🏿">ორსული | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🤰🏿" type="tts">ორსული ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👼🏻">ანგელოზი | ბავშვი | ზღაპარი | სახე | ფანტაზია | ფანტასტიკა | კანის ტიპი-1-2</annotation>
+		<annotation cp="👼🏻" type="tts">ბავშვი ანგელოზი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👼🏼">ანგელოზი | ბავშვი | ზღაპარი | სახე | ფანტაზია | ფანტასტიკა | კანის ტიპი-3</annotation>
+		<annotation cp="👼🏼" type="tts">ბავშვი ანგელოზი: კანის ტიპი-3</annotation>
+		<annotation cp="👼🏽">ანგელოზი | ბავშვი | ზღაპარი | სახე | ფანტაზია | ფანტასტიკა | კანის ტიპი-4</annotation>
+		<annotation cp="👼🏽" type="tts">ბავშვი ანგელოზი: კანის ტიპი-4</annotation>
+		<annotation cp="👼🏾">ანგელოზი | ბავშვი | ზღაპარი | სახე | ფანტაზია | ფანტასტიკა | კანის ტიპი-5</annotation>
+		<annotation cp="👼🏾" type="tts">ბავშვი ანგელოზი: კანის ტიპი-5</annotation>
+		<annotation cp="👼🏿">ანგელოზი | ბავშვი | ზღაპარი | სახე | ფანტაზია | ფანტასტიკა | კანის ტიპი-6</annotation>
+		<annotation cp="👼🏿" type="tts">ბავშვი ანგელოზი: კანის ტიპი-6</annotation>
+		<annotation cp="🎅🏻">აღნიშვნა | ახალი წელი | ზეიმი | ზღაპარი | თოვლის ბაბუა | მამა | სანტა | ფანტაზია | ფანტასტიკა | შობა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🎅🏻" type="tts">სანტა კლაუსი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🎅🏼">აღნიშვნა | ახალი წელი | ზეიმი | ზღაპარი | თოვლის ბაბუა | მამა | სანტა | ფანტაზია | ფანტასტიკა | შობა | კანის ტიპი-3</annotation>
+		<annotation cp="🎅🏼" type="tts">სანტა კლაუსი: კანის ტიპი-3</annotation>
+		<annotation cp="🎅🏽">აღნიშვნა | ახალი წელი | ზეიმი | ზღაპარი | თოვლის ბაბუა | მამა | სანტა | ფანტაზია | ფანტასტიკა | შობა | კანის ტიპი-4</annotation>
+		<annotation cp="🎅🏽" type="tts">სანტა კლაუსი: კანის ტიპი-4</annotation>
+		<annotation cp="🎅🏾">აღნიშვნა | ახალი წელი | ზეიმი | ზღაპარი | თოვლის ბაბუა | მამა | სანტა | ფანტაზია | ფანტასტიკა | შობა | კანის ტიპი-5</annotation>
+		<annotation cp="🎅🏾" type="tts">სანტა კლაუსი: კანის ტიპი-5</annotation>
+		<annotation cp="🎅🏿">აღნიშვნა | ახალი წელი | ზეიმი | ზღაპარი | თოვლის ბაბუა | მამა | სანტა | ფანტაზია | ფანტასტიკა | შობა | კანის ტიპი-6</annotation>
+		<annotation cp="🎅🏿" type="tts">სანტა კლაუსი: კანის ტიპი-6</annotation>
+		<annotation cp="🤶🏻">დედა | ქალბატონი კლაუსი | შობა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤶🏻" type="tts">ქალბატონი კლაუსი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤶🏼">დედა | ქალბატონი კლაუსი | შობა | კანის ტიპი-3</annotation>
+		<annotation cp="🤶🏼" type="tts">ქალბატონი კლაუსი: კანის ტიპი-3</annotation>
+		<annotation cp="🤶🏽">დედა | ქალბატონი კლაუსი | შობა | კანის ტიპი-4</annotation>
+		<annotation cp="🤶🏽" type="tts">ქალბატონი კლაუსი: კანის ტიპი-4</annotation>
+		<annotation cp="🤶🏾">დედა | ქალბატონი კლაუსი | შობა | კანის ტიპი-5</annotation>
+		<annotation cp="🤶🏾" type="tts">ქალბატონი კლაუსი: კანის ტიპი-5</annotation>
+		<annotation cp="🤶🏿">დედა | ქალბატონი კლაუსი | შობა | კანის ტიპი-6</annotation>
+		<annotation cp="🤶🏿" type="tts">ქალბატონი კლაუსი: კანის ტიპი-6</annotation>
+		<annotation cp="🙍🏻">ჟესტი | შეკრული | შეჭმუხნილი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙍🏻" type="tts">შეჭმუხნილი პიროვნება: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙍🏼">ჟესტი | შეკრული | შეჭმუხნილი | კანის ტიპი-3</annotation>
+		<annotation cp="🙍🏼" type="tts">შეჭმუხნილი პიროვნება: კანის ტიპი-3</annotation>
+		<annotation cp="🙍🏽">ჟესტი | შეკრული | შეჭმუხნილი | კანის ტიპი-4</annotation>
+		<annotation cp="🙍🏽" type="tts">შეჭმუხნილი პიროვნება: კანის ტიპი-4</annotation>
+		<annotation cp="🙍🏾">ჟესტი | შეკრული | შეჭმუხნილი | კანის ტიპი-5</annotation>
+		<annotation cp="🙍🏾" type="tts">შეჭმუხნილი პიროვნება: კანის ტიპი-5</annotation>
+		<annotation cp="🙍🏿">ჟესტი | შეკრული | შეჭმუხნილი | კანის ტიპი-6</annotation>
+		<annotation cp="🙍🏿" type="tts">შეჭმუხნილი პიროვნება: კანის ტიპი-6</annotation>
+		<annotation cp="🙍🏻‍♂">კაცი | ჟესტი | შეჭმუხნილი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">შეჭმუხნილი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙍🏼‍♂">კაცი | ჟესტი | შეჭმუხნილი | კანის ტიპი-3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">შეჭმუხნილი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🙍🏽‍♂">კაცი | ჟესტი | შეჭმუხნილი | კანის ტიპი-4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">შეჭმუხნილი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🙍🏾‍♂">კაცი | ჟესტი | შეჭმუხნილი | კანის ტიპი-5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">შეჭმუხნილი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🙍🏿‍♂">კაცი | ჟესტი | შეჭმუხნილი | კანის ტიპი-6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">შეჭმუხნილი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🙍🏻‍♀">ჟესტი | ქალი | შეჭმუხნილი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">შეჭმუხნილი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙍🏼‍♀">ჟესტი | ქალი | შეჭმუხნილი | კანის ტიპი-3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">შეჭმუხნილი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🙍🏽‍♀">ჟესტი | ქალი | შეჭმუხნილი | კანის ტიპი-4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">შეჭმუხნილი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🙍🏾‍♀">ჟესტი | ქალი | შეჭმუხნილი | კანის ტიპი-5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">შეჭმუხნილი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🙍🏿‍♀">ჟესტი | ქალი | შეჭმუხნილი | კანის ტიპი-6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">შეჭმუხნილი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🙎🏻">გაბერილი | ჟესტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙎🏻" type="tts">გაბერილი პიროვნება: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙎🏼">გაბერილი | ჟესტი | კანის ტიპი-3</annotation>
+		<annotation cp="🙎🏼" type="tts">გაბერილი პიროვნება: კანის ტიპი-3</annotation>
+		<annotation cp="🙎🏽">გაბერილი | ჟესტი | კანის ტიპი-4</annotation>
+		<annotation cp="🙎🏽" type="tts">გაბერილი პიროვნება: კანის ტიპი-4</annotation>
+		<annotation cp="🙎🏾">გაბერილი | ჟესტი | კანის ტიპი-5</annotation>
+		<annotation cp="🙎🏾" type="tts">გაბერილი პიროვნება: კანის ტიპი-5</annotation>
+		<annotation cp="🙎🏿">გაბერილი | ჟესტი | კანის ტიპი-6</annotation>
+		<annotation cp="🙎🏿" type="tts">გაბერილი პიროვნება: კანის ტიპი-6</annotation>
+		<annotation cp="🙎🏻‍♂">გაბუტული | კაცი | ჟესტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">გაბუტული კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙎🏼‍♂">გაბუტული | კაცი | ჟესტი | კანის ტიპი-3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">გაბუტული კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🙎🏽‍♂">გაბუტული | კაცი | ჟესტი | კანის ტიპი-4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">გაბუტული კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🙎🏾‍♂">გაბუტული | კაცი | ჟესტი | კანის ტიპი-5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">გაბუტული კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🙎🏿‍♂">გაბუტული | კაცი | ჟესტი | კანის ტიპი-6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">გაბუტული კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🙎🏻‍♀">გაბუტული | ჟესტი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">გაბუტული ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙎🏼‍♀">გაბუტული | ჟესტი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">გაბუტული ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🙎🏽‍♀">გაბუტული | ჟესტი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">გაბუტული ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🙎🏾‍♀">გაბუტული | ჟესტი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">გაბუტული ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🙎🏿‍♀">გაბუტული | ჟესტი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">გაბუტული ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🙅🏻">აკრძალვა | აკრძალულია | არა | ჟესტი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙅🏻" type="tts">ჟესტი „არა“: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙅🏼">აკრძალვა | აკრძალულია | არა | ჟესტი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🙅🏼" type="tts">ჟესტი „არა“: კანის ტიპი-3</annotation>
+		<annotation cp="🙅🏽">აკრძალვა | აკრძალულია | არა | ჟესტი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🙅🏽" type="tts">ჟესტი „არა“: კანის ტიპი-4</annotation>
+		<annotation cp="🙅🏾">აკრძალვა | აკრძალულია | არა | ჟესტი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🙅🏾" type="tts">ჟესტი „არა“: კანის ტიპი-5</annotation>
+		<annotation cp="🙅🏿">აკრძალვა | აკრძალულია | არა | ჟესტი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🙅🏿" type="tts">ჟესტი „არა“: კანის ტიპი-6</annotation>
+		<annotation cp="🙅🏻‍♂">აკრძალულია | არა | კაცი | ჟესტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">კაცი ჟესტით „არა“: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙅🏼‍♂">აკრძალულია | არა | კაცი | ჟესტი | კანის ტიპი-3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">კაცი ჟესტით „არა“: კანის ტიპი-3</annotation>
+		<annotation cp="🙅🏽‍♂">აკრძალულია | არა | კაცი | ჟესტი | კანის ტიპი-4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">კაცი ჟესტით „არა“: კანის ტიპი-4</annotation>
+		<annotation cp="🙅🏾‍♂">აკრძალულია | არა | კაცი | ჟესტი | კანის ტიპი-5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">კაცი ჟესტით „არა“: კანის ტიპი-5</annotation>
+		<annotation cp="🙅🏿‍♂">აკრძალულია | არა | კაცი | ჟესტი | კანის ტიპი-6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">კაცი ჟესტით „არა“: კანის ტიპი-6</annotation>
+		<annotation cp="🙅🏻‍♀">აკრძალულია | არა | ჟესტი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">ქალი ჟესტით „არა“: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙅🏼‍♀">აკრძალულია | არა | ჟესტი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">ქალი ჟესტით „არა“: კანის ტიპი-3</annotation>
+		<annotation cp="🙅🏽‍♀">აკრძალულია | არა | ჟესტი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">ქალი ჟესტით „არა“: კანის ტიპი-4</annotation>
+		<annotation cp="🙅🏾‍♀">აკრძალულია | არა | ჟესტი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">ქალი ჟესტით „არა“: კანის ტიპი-5</annotation>
+		<annotation cp="🙅🏿‍♀">აკრძალულია | არა | ჟესტი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">ქალი ჟესტით „არა“: კანის ტიპი-6</annotation>
+		<annotation cp="🙆🏻">კარგი | ჟესტი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙆🏻" type="tts">ჟესტი „კარგი“: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙆🏼">კარგი | ჟესტი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🙆🏼" type="tts">ჟესტი „კარგი“: კანის ტიპი-3</annotation>
+		<annotation cp="🙆🏽">კარგი | ჟესტი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🙆🏽" type="tts">ჟესტი „კარგი“: კანის ტიპი-4</annotation>
+		<annotation cp="🙆🏾">კარგი | ჟესტი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🙆🏾" type="tts">ჟესტი „კარგი“: კანის ტიპი-5</annotation>
+		<annotation cp="🙆🏿">კარგი | ჟესტი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🙆🏿" type="tts">ჟესტი „კარგი“: კანის ტიპი-6</annotation>
+		<annotation cp="🙆🏻‍♂">ok | კარგი | კაცი | ჟესტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">კაცი ჟესტით „კარგი“: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙆🏼‍♂">ok | კარგი | კაცი | ჟესტი | კანის ტიპი-3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">კაცი ჟესტით „კარგი“: კანის ტიპი-3</annotation>
+		<annotation cp="🙆🏽‍♂">ok | კარგი | კაცი | ჟესტი | კანის ტიპი-4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">კაცი ჟესტით „კარგი“: კანის ტიპი-4</annotation>
+		<annotation cp="🙆🏾‍♂">ok | კარგი | კაცი | ჟესტი | კანის ტიპი-5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">კაცი ჟესტით „კარგი“: კანის ტიპი-5</annotation>
+		<annotation cp="🙆🏿‍♂">ok | კარგი | კაცი | ჟესტი | კანის ტიპი-6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">კაცი ჟესტით „კარგი“: კანის ტიპი-6</annotation>
+		<annotation cp="🙆🏻‍♀">ok | კარგი | ჟესტი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">ქალი ჟესტით „კარგი“: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙆🏼‍♀">ok | კარგი | ჟესტი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">ქალი ჟესტით „კარგი“: კანის ტიპი-3</annotation>
+		<annotation cp="🙆🏽‍♀">ok | კარგი | ჟესტი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">ქალი ჟესტით „კარგი“: კანის ტიპი-4</annotation>
+		<annotation cp="🙆🏾‍♀">ok | კარგი | ჟესტი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">ქალი ჟესტით „კარგი“: კანის ტიპი-5</annotation>
+		<annotation cp="🙆🏿‍♀">ok | კარგი | ჟესტი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">ქალი ჟესტით „კარგი“: კანის ტიპი-6</annotation>
+		<annotation cp="💁🏻">დახმარება | ინფორმაცია | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💁🏻" type="tts">საინფორმაციო დახლის თანამშრომელი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💁🏼">დახმარება | ინფორმაცია | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="💁🏼" type="tts">საინფორმაციო დახლის თანამშრომელი: კანის ტიპი-3</annotation>
+		<annotation cp="💁🏽">დახმარება | ინფორმაცია | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="💁🏽" type="tts">საინფორმაციო დახლის თანამშრომელი: კანის ტიპი-4</annotation>
+		<annotation cp="💁🏾">დახმარება | ინფორმაცია | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="💁🏾" type="tts">საინფორმაციო დახლის თანამშრომელი: კანის ტიპი-5</annotation>
+		<annotation cp="💁🏿">დახმარება | ინფორმაცია | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="💁🏿" type="tts">საინფორმაციო დახლის თანამშრომელი: კანის ტიპი-6</annotation>
+		<annotation cp="💁🏻‍♂">დახრილ ხელი | კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">კაცი დახრილი ხელით: კანის ტიპი-1-2</annotation>
+		<annotation cp="💁🏼‍♂">დახრილ ხელი | კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">კაცი დახრილი ხელით: კანის ტიპი-3</annotation>
+		<annotation cp="💁🏽‍♂">დახრილ ხელი | კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">კაცი დახრილი ხელით: კანის ტიპი-4</annotation>
+		<annotation cp="💁🏾‍♂">დახრილ ხელი | კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">კაცი დახრილი ხელით: კანის ტიპი-5</annotation>
+		<annotation cp="💁🏿‍♂">დახრილ ხელი | კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">კაცი დახრილი ხელით: კანის ტიპი-6</annotation>
+		<annotation cp="💁🏻‍♀">დახრილ ხელი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">ქალი დახრილი ხელით: კანის ტიპი-1-2</annotation>
+		<annotation cp="💁🏼‍♀">დახრილ ხელი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">ქალი დახრილი ხელით: კანის ტიპი-3</annotation>
+		<annotation cp="💁🏽‍♀">დახრილ ხელი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">ქალი დახრილი ხელით: კანის ტიპი-4</annotation>
+		<annotation cp="💁🏾‍♀">დახრილ ხელი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">ქალი დახრილი ხელით: კანის ტიპი-5</annotation>
+		<annotation cp="💁🏿‍♀">დახრილ ხელი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">ქალი დახრილი ხელით: კანის ტიპი-6</annotation>
+		<annotation cp="🙋🏻">აწეული | ბედნიერი | ჟესტი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙋🏻" type="tts">ბედნიერი ხელაწეული პიროვნება: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙋🏼">აწეული | ბედნიერი | ჟესტი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🙋🏼" type="tts">ბედნიერი ხელაწეული პიროვნება: კანის ტიპი-3</annotation>
+		<annotation cp="🙋🏽">აწეული | ბედნიერი | ჟესტი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🙋🏽" type="tts">ბედნიერი ხელაწეული პიროვნება: კანის ტიპი-4</annotation>
+		<annotation cp="🙋🏾">აწეული | ბედნიერი | ჟესტი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🙋🏾" type="tts">ბედნიერი ხელაწეული პიროვნება: კანის ტიპი-5</annotation>
+		<annotation cp="🙋🏿">აწეული | ბედნიერი | ჟესტი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🙋🏿" type="tts">ბედნიერი ხელაწეული პიროვნება: კანის ტიპი-6</annotation>
+		<annotation cp="🙋🏻‍♂">კაცი | ჟესტი | ხელაწეული | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">ხელაწეული კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙋🏼‍♂">კაცი | ჟესტი | ხელაწეული | კანის ტიპი-3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">ხელაწეული კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🙋🏽‍♂">კაცი | ჟესტი | ხელაწეული | კანის ტიპი-4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">ხელაწეული კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🙋🏾‍♂">კაცი | ჟესტი | ხელაწეული | კანის ტიპი-5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">ხელაწეული კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🙋🏿‍♂">კაცი | ჟესტი | ხელაწეული | კანის ტიპი-6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">ხელაწეული კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🙋🏻‍♀">ჟესტი | ქალი | ხელაწეული | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">ხელაწეული ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙋🏼‍♀">ჟესტი | ქალი | ხელაწეული | კანის ტიპი-3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">ხელაწეული ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🙋🏽‍♀">ჟესტი | ქალი | ხელაწეული | კანის ტიპი-4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">ხელაწეული ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🙋🏾‍♀">ჟესტი | ქალი | ხელაწეული | კანის ტიპი-5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">ხელაწეული ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🙋🏿‍♀">ჟესტი | ქალი | ხელაწეული | კანის ტიპი-6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">ხელაწეული ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🙇🏻">ბოდიში | დახრა | პატიება | ჟესტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙇🏻" type="tts">თავდახრილი პიროვნება: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙇🏼">ბოდიში | დახრა | პატიება | ჟესტი | კანის ტიპი-3</annotation>
+		<annotation cp="🙇🏼" type="tts">თავდახრილი პიროვნება: კანის ტიპი-3</annotation>
+		<annotation cp="🙇🏽">ბოდიში | დახრა | პატიება | ჟესტი | კანის ტიპი-4</annotation>
+		<annotation cp="🙇🏽" type="tts">თავდახრილი პიროვნება: კანის ტიპი-4</annotation>
+		<annotation cp="🙇🏾">ბოდიში | დახრა | პატიება | ჟესტი | კანის ტიპი-5</annotation>
+		<annotation cp="🙇🏾" type="tts">თავდახრილი პიროვნება: კანის ტიპი-5</annotation>
+		<annotation cp="🙇🏿">ბოდიში | დახრა | პატიება | ჟესტი | კანის ტიპი-6</annotation>
+		<annotation cp="🙇🏿" type="tts">თავდახრილი პიროვნება: კანის ტიპი-6</annotation>
+		<annotation cp="🙇🏻‍♂">თავდახრილი | კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">თავდახრილი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙇🏼‍♂">თავდახრილი | კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">თავდახრილი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🙇🏽‍♂">თავდახრილი | კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">თავდახრილი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🙇🏾‍♂">თავდახრილი | კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">თავდახრილი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🙇🏿‍♂">თავდახრილი | კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">თავდახრილი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🙇🏻‍♀">თავდახრილი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">თავდახრილი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙇🏼‍♀">თავდახრილი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">თავდახრილი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🙇🏽‍♀">თავდახრილი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">თავდახრილი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🙇🏾‍♀">თავდახრილი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">თავდახრილი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🙇🏿‍♀">თავდახრილი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">თავდახრილი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🤦🏻">გაღიზიანება | სახე | ურწმუნოება | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤦🏻" type="tts">სახეზე ხელის აფარება: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤦🏼">გაღიზიანება | სახე | ურწმუნოება | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🤦🏼" type="tts">სახეზე ხელის აფარება: კანის ტიპი-3</annotation>
+		<annotation cp="🤦🏽">გაღიზიანება | სახე | ურწმუნოება | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🤦🏽" type="tts">სახეზე ხელის აფარება: კანის ტიპი-4</annotation>
+		<annotation cp="🤦🏾">გაღიზიანება | სახე | ურწმუნოება | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🤦🏾" type="tts">სახეზე ხელის აფარება: კანის ტიპი-5</annotation>
+		<annotation cp="🤦🏿">გაღიზიანება | სახე | ურწმუნოება | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🤦🏿" type="tts">სახეზე ხელის აფარება: კანის ტიპი-6</annotation>
+		<annotation cp="🤦🏻‍♂">კაცი | ჟესტი | ხელის აფარება | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">სახეზე ხელაფარებული კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤦🏼‍♂">კაცი | ჟესტი | ხელის აფარება | კანის ტიპი-3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">სახეზე ხელაფარებული კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🤦🏽‍♂">კაცი | ჟესტი | ხელის აფარება | კანის ტიპი-4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">სახეზე ხელაფარებული კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🤦🏾‍♂">კაცი | ჟესტი | ხელის აფარება | კანის ტიპი-5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">სახეზე ხელაფარებული კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🤦🏿‍♂">კაცი | ჟესტი | ხელის აფარება | კანის ტიპი-6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">სახეზე ხელაფარებული კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🤦🏻‍♀">ჟესტი | ქალი | ხელის აფარება | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">სახეზე ხელაფარებული ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤦🏼‍♀">ჟესტი | ქალი | ხელის აფარება | კანის ტიპი-3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">სახეზე ხელაფარებული ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🤦🏽‍♀">ჟესტი | ქალი | ხელის აფარება | კანის ტიპი-4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">სახეზე ხელაფარებული ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🤦🏾‍♀">ჟესტი | ქალი | ხელის აფარება | კანის ტიპი-5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">სახეზე ხელაფარებული ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🤦🏿‍♀">ჟესტი | ქალი | ხელის აფარება | კანის ტიპი-6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">სახეზე ხელაფარებული ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🤷🏻">გულგრილობა | ეჭვი | მხრების აჩეჩვა | უცოდინრობა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤷🏻" type="tts">მხრების აჩეჩვა: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤷🏼">გულგრილობა | ეჭვი | მხრების აჩეჩვა | უცოდინრობა | კანის ტიპი-3</annotation>
+		<annotation cp="🤷🏼" type="tts">მხრების აჩეჩვა: კანის ტიპი-3</annotation>
+		<annotation cp="🤷🏽">გულგრილობა | ეჭვი | მხრების აჩეჩვა | უცოდინრობა | კანის ტიპი-4</annotation>
+		<annotation cp="🤷🏽" type="tts">მხრების აჩეჩვა: კანის ტიპი-4</annotation>
+		<annotation cp="🤷🏾">გულგრილობა | ეჭვი | მხრების აჩეჩვა | უცოდინრობა | კანის ტიპი-5</annotation>
+		<annotation cp="🤷🏾" type="tts">მხრების აჩეჩვა: კანის ტიპი-5</annotation>
+		<annotation cp="🤷🏿">გულგრილობა | ეჭვი | მხრების აჩეჩვა | უცოდინრობა | კანის ტიპი-6</annotation>
+		<annotation cp="🤷🏿" type="tts">მხრების აჩეჩვა: კანის ტიპი-6</annotation>
+		<annotation cp="🤷🏻‍♂">კაცი | მხრების აჩეჩვა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">მხრების აჩეჩვა - კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤷🏼‍♂">კაცი | მხრების აჩეჩვა | კანის ტიპი-3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">მხრების აჩეჩვა - კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🤷🏽‍♂">კაცი | მხრების აჩეჩვა | კანის ტიპი-4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">მხრების აჩეჩვა - კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🤷🏾‍♂">კაცი | მხრების აჩეჩვა | კანის ტიპი-5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">მხრების აჩეჩვა - კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🤷🏿‍♂">კაცი | მხრების აჩეჩვა | კანის ტიპი-6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">მხრების აჩეჩვა - კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🤷🏻‍♀">მხრების აჩეჩვა | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">მხრების აჩეჩვა - ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤷🏼‍♀">მხრების აჩეჩვა | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">მხრების აჩეჩვა - ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🤷🏽‍♀">მხრების აჩეჩვა | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">მხრების აჩეჩვა - ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🤷🏾‍♀">მხრების აჩეჩვა | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">მხრების აჩეჩვა - ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🤷🏿‍♀">მხრების აჩეჩვა | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">მხრების აჩეჩვა - ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="💆🏻">მასაჟი | სალონი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💆🏻" type="tts">სახის მასაჟი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💆🏼">მასაჟი | სალონი | კანის ტიპი-3</annotation>
+		<annotation cp="💆🏼" type="tts">სახის მასაჟი: კანის ტიპი-3</annotation>
+		<annotation cp="💆🏽">მასაჟი | სალონი | კანის ტიპი-4</annotation>
+		<annotation cp="💆🏽" type="tts">სახის მასაჟი: კანის ტიპი-4</annotation>
+		<annotation cp="💆🏾">მასაჟი | სალონი | კანის ტიპი-5</annotation>
+		<annotation cp="💆🏾" type="tts">სახის მასაჟი: კანის ტიპი-5</annotation>
+		<annotation cp="💆🏿">მასაჟი | სალონი | კანის ტიპი-6</annotation>
+		<annotation cp="💆🏿" type="tts">სახის მასაჟი: კანის ტიპი-6</annotation>
+		<annotation cp="💆🏻‍♂">კაცი | სახის მასაჟი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">სახის მასაჟი - კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💆🏼‍♂">კაცი | სახის მასაჟი | კანის ტიპი-3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">სახის მასაჟი - კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="💆🏽‍♂">კაცი | სახის მასაჟი | კანის ტიპი-4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">სახის მასაჟი - კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="💆🏾‍♂">კაცი | სახის მასაჟი | კანის ტიპი-5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">სახის მასაჟი - კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="💆🏿‍♂">კაცი | სახის მასაჟი | კანის ტიპი-6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">სახის მასაჟი - კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="💆🏻‍♀">სახის მასაჟი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">სახის მასაჟი - ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💆🏼‍♀">სახის მასაჟი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">სახის მასაჟი - ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="💆🏽‍♀">სახის მასაჟი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">სახის მასაჟი - ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="💆🏾‍♀">სახის მასაჟი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">სახის მასაჟი - ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="💆🏿‍♀">სახის მასაჟი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">სახის მასაჟი - ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="💇🏻">სალონი | საპარიკმახერო | სილამაზე | კანის ტიპი-1-2</annotation>
+		<annotation cp="💇🏻" type="tts">თმის შეჭრა: კანის ტიპი-1-2</annotation>
+		<annotation cp="💇🏼">სალონი | საპარიკმახერო | სილამაზე | კანის ტიპი-3</annotation>
+		<annotation cp="💇🏼" type="tts">თმის შეჭრა: კანის ტიპი-3</annotation>
+		<annotation cp="💇🏽">სალონი | საპარიკმახერო | სილამაზე | კანის ტიპი-4</annotation>
+		<annotation cp="💇🏽" type="tts">თმის შეჭრა: კანის ტიპი-4</annotation>
+		<annotation cp="💇🏾">სალონი | საპარიკმახერო | სილამაზე | კანის ტიპი-5</annotation>
+		<annotation cp="💇🏾" type="tts">თმის შეჭრა: კანის ტიპი-5</annotation>
+		<annotation cp="💇🏿">სალონი | საპარიკმახერო | სილამაზე | კანის ტიპი-6</annotation>
+		<annotation cp="💇🏿" type="tts">თმის შეჭრა: კანის ტიპი-6</annotation>
+		<annotation cp="💇🏻‍♂">ვარცხნილობა | თმა | კაცი | პარიკმახერი | სალონი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">კაცის თმის შეჭრა: კანის ტიპი-1-2</annotation>
+		<annotation cp="💇🏼‍♂">ვარცხნილობა | თმა | კაცი | პარიკმახერი | სალონი | კანის ტიპი-3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">კაცის თმის შეჭრა: კანის ტიპი-3</annotation>
+		<annotation cp="💇🏽‍♂">ვარცხნილობა | თმა | კაცი | პარიკმახერი | სალონი | კანის ტიპი-4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">კაცის თმის შეჭრა: კანის ტიპი-4</annotation>
+		<annotation cp="💇🏾‍♂">ვარცხნილობა | თმა | კაცი | პარიკმახერი | სალონი | კანის ტიპი-5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">კაცის თმის შეჭრა: კანის ტიპი-5</annotation>
+		<annotation cp="💇🏿‍♂">ვარცხნილობა | თმა | კაცი | პარიკმახერი | სალონი | კანის ტიპი-6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">კაცის თმის შეჭრა: კანის ტიპი-6</annotation>
+		<annotation cp="💇🏻‍♀">ვარცხნილობა | თმა | პარიკმახერი | სალონი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">ქალის თმის შეჭრა: კანის ტიპი-1-2</annotation>
+		<annotation cp="💇🏼‍♀">ვარცხნილობა | თმა | პარიკმახერი | სალონი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">ქალის თმის შეჭრა: კანის ტიპი-3</annotation>
+		<annotation cp="💇🏽‍♀">ვარცხნილობა | თმა | პარიკმახერი | სალონი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">ქალის თმის შეჭრა: კანის ტიპი-4</annotation>
+		<annotation cp="💇🏾‍♀">ვარცხნილობა | თმა | პარიკმახერი | სალონი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">ქალის თმის შეჭრა: კანის ტიპი-5</annotation>
+		<annotation cp="💇🏿‍♀">ვარცხნილობა | თმა | პარიკმახერი | სალონი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">ქალის თმის შეჭრა: კანის ტიპი-6</annotation>
+		<annotation cp="🚶🏻">სიარული | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚶🏻" type="tts">ქვეითი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚶🏼">სიარული | კანის ტიპი-3</annotation>
+		<annotation cp="🚶🏼" type="tts">ქვეითი: კანის ტიპი-3</annotation>
+		<annotation cp="🚶🏽">სიარული | კანის ტიპი-4</annotation>
+		<annotation cp="🚶🏽" type="tts">ქვეითი: კანის ტიპი-4</annotation>
+		<annotation cp="🚶🏾">სიარული | კანის ტიპი-5</annotation>
+		<annotation cp="🚶🏾" type="tts">ქვეითი: კანის ტიპი-5</annotation>
+		<annotation cp="🚶🏿">სიარული | კანის ტიპი-6</annotation>
+		<annotation cp="🚶🏿" type="tts">ქვეითი: კანის ტიპი-6</annotation>
+		<annotation cp="🚶🏻‍♂">კაცი | სეირნობა | სიარული | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">მოსიარულე კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚶🏼‍♂">კაცი | სეირნობა | სიარული | კანის ტიპი-3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">მოსიარულე კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🚶🏽‍♂">კაცი | სეირნობა | სიარული | კანის ტიპი-4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">მოსიარულე კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🚶🏾‍♂">კაცი | სეირნობა | სიარული | კანის ტიპი-5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">მოსიარულე კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🚶🏿‍♂">კაცი | სეირნობა | სიარული | კანის ტიპი-6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">მოსიარულე კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🚶🏻‍♀">სეირნობა | სიარული | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">მოსიარულე ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚶🏼‍♀">სეირნობა | სიარული | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">მოსიარულე ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🚶🏽‍♀">სეირნობა | სიარული | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">მოსიარულე ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🚶🏾‍♀">სეირნობა | სიარული | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">მოსიარულე ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🚶🏿‍♀">სეირნობა | სიარული | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">მოსიარულე ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🏃🏻">მარათონი | სირბილი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏃🏻" type="tts">მორბენალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏃🏼">მარათონი | სირბილი | კანის ტიპი-3</annotation>
+		<annotation cp="🏃🏼" type="tts">მორბენალი: კანის ტიპი-3</annotation>
+		<annotation cp="🏃🏽">მარათონი | სირბილი | კანის ტიპი-4</annotation>
+		<annotation cp="🏃🏽" type="tts">მორბენალი: კანის ტიპი-4</annotation>
+		<annotation cp="🏃🏾">მარათონი | სირბილი | კანის ტიპი-5</annotation>
+		<annotation cp="🏃🏾" type="tts">მორბენალი: კანის ტიპი-5</annotation>
+		<annotation cp="🏃🏿">მარათონი | სირბილი | კანის ტიპი-6</annotation>
+		<annotation cp="🏃🏿" type="tts">მორბენალი: კანის ტიპი-6</annotation>
+		<annotation cp="🏃🏻‍♂">კაცი | მარათონი | სირბილი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">მორბენალი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏃🏼‍♂">კაცი | მარათონი | სირბილი | კანის ტიპი-3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">მორბენალი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🏃🏽‍♂">კაცი | მარათონი | სირბილი | კანის ტიპი-4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">მორბენალი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🏃🏾‍♂">კაცი | მარათონი | სირბილი | კანის ტიპი-5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">მორბენალი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🏃🏿‍♂">კაცი | მარათონი | სირბილი | კანის ტიპი-6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">მორბენალი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🏃🏻‍♀">მარათონი | სირბილი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">მორბენალი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏃🏼‍♀">მარათონი | სირბილი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">მორბენალი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🏃🏽‍♀">მარათონი | სირბილი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">მორბენალი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🏃🏾‍♀">მარათონი | სირბილი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">მორბენალი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🏃🏿‍♀">მარათონი | სირბილი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">მორბენალი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="💃🏻">ქალი | ცეკვა | კანის ტიპი-1-2</annotation>
+		<annotation cp="💃🏻" type="tts">მოცეკვავე ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💃🏼">ქალი | ცეკვა | კანის ტიპი-3</annotation>
+		<annotation cp="💃🏼" type="tts">მოცეკვავე ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="💃🏽">ქალი | ცეკვა | კანის ტიპი-4</annotation>
+		<annotation cp="💃🏽" type="tts">მოცეკვავე ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="💃🏾">ქალი | ცეკვა | კანის ტიპი-5</annotation>
+		<annotation cp="💃🏾" type="tts">მოცეკვავე ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="💃🏿">ქალი | ცეკვა | კანის ტიპი-6</annotation>
+		<annotation cp="💃🏿" type="tts">მოცეკვავე ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🕺🏻">კაცი | ცეკვა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🕺🏻" type="tts">მოცეკვავე კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🕺🏼">კაცი | ცეკვა | კანის ტიპი-3</annotation>
+		<annotation cp="🕺🏼" type="tts">მოცეკვავე კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🕺🏽">კაცი | ცეკვა | კანის ტიპი-4</annotation>
+		<annotation cp="🕺🏽" type="tts">მოცეკვავე კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🕺🏾">კაცი | ცეკვა | კანის ტიპი-5</annotation>
+		<annotation cp="🕺🏾" type="tts">მოცეკვავე კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🕺🏿">კაცი | ცეკვა | კანის ტიპი-6</annotation>
+		<annotation cp="🕺🏿" type="tts">მოცეკვავე კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🛀🏻">აბაზანა | სააბაზანო | კანის ტიპი-1-2</annotation>
+		<annotation cp="🛀🏻" type="tts">პიროვნება იღებს აბაზანას: კანის ტიპი-1-2</annotation>
+		<annotation cp="🛀🏼">აბაზანა | სააბაზანო | კანის ტიპი-3</annotation>
+		<annotation cp="🛀🏼" type="tts">პიროვნება იღებს აბაზანას: კანის ტიპი-3</annotation>
+		<annotation cp="🛀🏽">აბაზანა | სააბაზანო | კანის ტიპი-4</annotation>
+		<annotation cp="🛀🏽" type="tts">პიროვნება იღებს აბაზანას: კანის ტიპი-4</annotation>
+		<annotation cp="🛀🏾">აბაზანა | სააბაზანო | კანის ტიპი-5</annotation>
+		<annotation cp="🛀🏾" type="tts">პიროვნება იღებს აბაზანას: კანის ტიპი-5</annotation>
+		<annotation cp="🛀🏿">აბაზანა | სააბაზანო | კანის ტიპი-6</annotation>
+		<annotation cp="🛀🏿" type="tts">პიროვნება იღებს აბაზანას: კანის ტიპი-6</annotation>
+		<annotation cp="🛌🏻">სასტუმრო | ძილი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🛌🏻" type="tts">პიროვნება ლოგინში: კანის ტიპი-1-2</annotation>
+		<annotation cp="🛌🏼">სასტუმრო | ძილი | კანის ტიპი-3</annotation>
+		<annotation cp="🛌🏼" type="tts">პიროვნება ლოგინში: კანის ტიპი-3</annotation>
+		<annotation cp="🛌🏽">სასტუმრო | ძილი | კანის ტიპი-4</annotation>
+		<annotation cp="🛌🏽" type="tts">პიროვნება ლოგინში: კანის ტიპი-4</annotation>
+		<annotation cp="🛌🏾">სასტუმრო | ძილი | კანის ტიპი-5</annotation>
+		<annotation cp="🛌🏾" type="tts">პიროვნება ლოგინში: კანის ტიპი-5</annotation>
+		<annotation cp="🛌🏿">სასტუმრო | ძილი | კანის ტიპი-6</annotation>
+		<annotation cp="🛌🏿" type="tts">პიროვნება ლოგინში: კანის ტიპი-6</annotation>
+		<annotation cp="🕴🏻">ბიზნესი | კაცი | კოსტიუმი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🕴🏻" type="tts">ჰაერში გაჩერებული კაცი ბიზნეს კოსტიუმში: კანის ტიპი-1-2</annotation>
+		<annotation cp="🕴🏼">ბიზნესი | კაცი | კოსტიუმი | კანის ტიპი-3</annotation>
+		<annotation cp="🕴🏼" type="tts">ჰაერში გაჩერებული კაცი ბიზნეს კოსტიუმში: კანის ტიპი-3</annotation>
+		<annotation cp="🕴🏽">ბიზნესი | კაცი | კოსტიუმი | კანის ტიპი-4</annotation>
+		<annotation cp="🕴🏽" type="tts">ჰაერში გაჩერებული კაცი ბიზნეს კოსტიუმში: კანის ტიპი-4</annotation>
+		<annotation cp="🕴🏾">ბიზნესი | კაცი | კოსტიუმი | კანის ტიპი-5</annotation>
+		<annotation cp="🕴🏾" type="tts">ჰაერში გაჩერებული კაცი ბიზნეს კოსტიუმში: კანის ტიპი-5</annotation>
+		<annotation cp="🕴🏿">ბიზნესი | კაცი | კოსტიუმი | კანის ტიპი-6</annotation>
+		<annotation cp="🕴🏿" type="tts">ჰაერში გაჩერებული კაცი ბიზნეს კოსტიუმში: კანის ტიპი-6</annotation>
+		<annotation cp="🏇🏻">მხედარი | სადოღე ცხენი | ცხენი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏇🏻" type="tts">დოღი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏇🏼">მხედარი | სადოღე ცხენი | ცხენი | კანის ტიპი-3</annotation>
+		<annotation cp="🏇🏼" type="tts">დოღი: კანის ტიპი-3</annotation>
+		<annotation cp="🏇🏽">მხედარი | სადოღე ცხენი | ცხენი | კანის ტიპი-4</annotation>
+		<annotation cp="🏇🏽" type="tts">დოღი: კანის ტიპი-4</annotation>
+		<annotation cp="🏇🏾">მხედარი | სადოღე ცხენი | ცხენი | კანის ტიპი-5</annotation>
+		<annotation cp="🏇🏾" type="tts">დოღი: კანის ტიპი-5</annotation>
+		<annotation cp="🏇🏿">მხედარი | სადოღე ცხენი | ცხენი | კანის ტიპი-6</annotation>
+		<annotation cp="🏇🏿" type="tts">დოღი: კანის ტიპი-6</annotation>
+		<annotation cp="🏂🏻">თოვლი | თხილამური | სნოუბორდი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏂🏻" type="tts">სნოუბორდისტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏂🏼">თოვლი | თხილამური | სნოუბორდი | კანის ტიპი-3</annotation>
+		<annotation cp="🏂🏼" type="tts">სნოუბორდისტი: კანის ტიპი-3</annotation>
+		<annotation cp="🏂🏽">თოვლი | თხილამური | სნოუბორდი | კანის ტიპი-4</annotation>
+		<annotation cp="🏂🏽" type="tts">სნოუბორდისტი: კანის ტიპი-4</annotation>
+		<annotation cp="🏂🏾">თოვლი | თხილამური | სნოუბორდი | კანის ტიპი-5</annotation>
+		<annotation cp="🏂🏾" type="tts">სნოუბორდისტი: კანის ტიპი-5</annotation>
+		<annotation cp="🏂🏿">თოვლი | თხილამური | სნოუბორდი | კანის ტიპი-6</annotation>
+		<annotation cp="🏂🏿" type="tts">სნოუბორდისტი: კანის ტიპი-6</annotation>
+		<annotation cp="🏌🏻">ბურთი | გოლფი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏌🏻" type="tts">გოლფის მოთამაშე: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏌🏼">ბურთი | გოლფი | კანის ტიპი-3</annotation>
+		<annotation cp="🏌🏼" type="tts">გოლფის მოთამაშე: კანის ტიპი-3</annotation>
+		<annotation cp="🏌🏽">ბურთი | გოლფი | კანის ტიპი-4</annotation>
+		<annotation cp="🏌🏽" type="tts">გოლფის მოთამაშე: კანის ტიპი-4</annotation>
+		<annotation cp="🏌🏾">ბურთი | გოლფი | კანის ტიპი-5</annotation>
+		<annotation cp="🏌🏾" type="tts">გოლფის მოთამაშე: კანის ტიპი-5</annotation>
+		<annotation cp="🏌🏿">ბურთი | გოლფი | კანის ტიპი-6</annotation>
+		<annotation cp="🏌🏿" type="tts">გოლფის მოთამაშე: კანის ტიპი-6</annotation>
+		<annotation cp="🏌🏻‍♂">გოლფი | კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">გოლფის მოთამაშე კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏌🏼‍♂">გოლფი | კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">გოლფის მოთამაშე კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🏌🏽‍♂">გოლფი | კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">გოლფის მოთამაშე კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🏌🏾‍♂">გოლფი | კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">გოლფის მოთამაშე კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🏌🏿‍♂">გოლფი | კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">გოლფის მოთამაშე კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🏌🏻‍♀">გოლფი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">გოლფის მოთამაშე ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏌🏼‍♀">გოლფი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">გოლფის მოთამაშე ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🏌🏽‍♀">გოლფი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">გოლფის მოთამაშე ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🏌🏾‍♀">გოლფი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">გოლფის მოთამაშე ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🏌🏿‍♀">გოლფი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">გოლფის მოთამაშე ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🏄🏻">სერფინგი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏄🏻" type="tts">სერფერი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏄🏼">სერფინგი | კანის ტიპი-3</annotation>
+		<annotation cp="🏄🏼" type="tts">სერფერი: კანის ტიპი-3</annotation>
+		<annotation cp="🏄🏽">სერფინგი | კანის ტიპი-4</annotation>
+		<annotation cp="🏄🏽" type="tts">სერფერი: კანის ტიპი-4</annotation>
+		<annotation cp="🏄🏾">სერფინგი | კანის ტიპი-5</annotation>
+		<annotation cp="🏄🏾" type="tts">სერფერი: კანის ტიპი-5</annotation>
+		<annotation cp="🏄🏿">სერფინგი | კანის ტიპი-6</annotation>
+		<annotation cp="🏄🏿" type="tts">სერფერი: კანის ტიპი-6</annotation>
+		<annotation cp="🏄🏻‍♂">ბიჭი | კაცი | სერფინგი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">სერფერი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏄🏼‍♂">ბიჭი | კაცი | სერფინგი | კანის ტიპი-3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">სერფერი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🏄🏽‍♂">ბიჭი | კაცი | სერფინგი | კანის ტიპი-4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">სერფერი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🏄🏾‍♂">ბიჭი | კაცი | სერფინგი | კანის ტიპი-5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">სერფერი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🏄🏿‍♂">ბიჭი | კაცი | სერფინგი | კანის ტიპი-6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">სერფერი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🏄🏻‍♀">გოგო | სერფინგი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">სერფერი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏄🏼‍♀">გოგო | სერფინგი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">სერფერი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🏄🏽‍♀">გოგო | სერფინგი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">სერფერი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🏄🏾‍♀">გოგო | სერფინგი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">სერფერი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🏄🏿‍♀">გოგო | სერფინგი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">სერფერი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🚣🏻">გემი | ტრანსპორტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚣🏻" type="tts">ნავი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚣🏼">გემი | ტრანსპორტი | კანის ტიპი-3</annotation>
+		<annotation cp="🚣🏼" type="tts">ნავი: კანის ტიპი-3</annotation>
+		<annotation cp="🚣🏽">გემი | ტრანსპორტი | კანის ტიპი-4</annotation>
+		<annotation cp="🚣🏽" type="tts">ნავი: კანის ტიპი-4</annotation>
+		<annotation cp="🚣🏾">გემი | ტრანსპორტი | კანის ტიპი-5</annotation>
+		<annotation cp="🚣🏾" type="tts">ნავი: კანის ტიპი-5</annotation>
+		<annotation cp="🚣🏿">გემი | ტრანსპორტი | კანის ტიპი-6</annotation>
+		<annotation cp="🚣🏿" type="tts">ნავი: კანის ტიპი-6</annotation>
+		<annotation cp="🚣🏻‍♂">ნავი | სერფინგი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">ნიჩბოსანი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚣🏼‍♂">ნავი | სერფინგი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">ნიჩბოსანი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🚣🏽‍♂">ნავი | სერფინგი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">ნიჩბოსანი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🚣🏾‍♂">ნავი | სერფინგი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">ნიჩბოსანი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🚣🏿‍♂">ნავი | სერფინგი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">ნიჩბოსანი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🚣🏻‍♀">ნავი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">ნიჩბოსანი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚣🏼‍♀">ნავი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">ნიჩბოსანი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🚣🏽‍♀">ნავი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">ნიჩბოსანი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🚣🏾‍♀">ნავი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">ნიჩბოსანი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🚣🏿‍♀">ნავი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">ნიჩბოსანი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🏊🏻">ცურვა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏊🏻" type="tts">მოცურავე: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏊🏼">ცურვა | კანის ტიპი-3</annotation>
+		<annotation cp="🏊🏼" type="tts">მოცურავე: კანის ტიპი-3</annotation>
+		<annotation cp="🏊🏽">ცურვა | კანის ტიპი-4</annotation>
+		<annotation cp="🏊🏽" type="tts">მოცურავე: კანის ტიპი-4</annotation>
+		<annotation cp="🏊🏾">ცურვა | კანის ტიპი-5</annotation>
+		<annotation cp="🏊🏾" type="tts">მოცურავე: კანის ტიპი-5</annotation>
+		<annotation cp="🏊🏿">ცურვა | კანის ტიპი-6</annotation>
+		<annotation cp="🏊🏿" type="tts">მოცურავე: კანის ტიპი-6</annotation>
+		<annotation cp="🏊🏻‍♂">კაცი | ცურვა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">მოცურავე კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏊🏼‍♂">კაცი | ცურვა | კანის ტიპი-3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">მოცურავე კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🏊🏽‍♂">კაცი | ცურვა | კანის ტიპი-4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">მოცურავე კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🏊🏾‍♂">კაცი | ცურვა | კანის ტიპი-5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">მოცურავე კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🏊🏿‍♂">კაცი | ცურვა | კანის ტიპი-6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">მოცურავე კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🏊🏻‍♀">ქალი | ცურვა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">მოცურავე ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏊🏼‍♀">ქალი | ცურვა | კანის ტიპი-3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">მოცურავე ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🏊🏽‍♀">ქალი | ცურვა | კანის ტიპი-4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">მოცურავე ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🏊🏾‍♀">ქალი | ცურვა | კანის ტიპი-5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">მოცურავე ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🏊🏿‍♀">ქალი | ცურვა | კანის ტიპი-6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">მოცურავე ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="⛹🏻">ბურთი | კანის ტიპი-1-2</annotation>
+		<annotation cp="⛹🏻" type="tts">პიროვნება ბურთით: კანის ტიპი-1-2</annotation>
+		<annotation cp="⛹🏼">ბურთი | კანის ტიპი-3</annotation>
+		<annotation cp="⛹🏼" type="tts">პიროვნება ბურთით: კანის ტიპი-3</annotation>
+		<annotation cp="⛹🏽">ბურთი | კანის ტიპი-4</annotation>
+		<annotation cp="⛹🏽" type="tts">პიროვნება ბურთით: კანის ტიპი-4</annotation>
+		<annotation cp="⛹🏾">ბურთი | კანის ტიპი-5</annotation>
+		<annotation cp="⛹🏾" type="tts">პიროვნება ბურთით: კანის ტიპი-5</annotation>
+		<annotation cp="⛹🏿">ბურთი | კანის ტიპი-6</annotation>
+		<annotation cp="⛹🏿" type="tts">პიროვნება ბურთით: კანის ტიპი-6</annotation>
+		<annotation cp="⛹🏻‍♂">ბურთი | კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">კაცი ბურთით: კანის ტიპი-1-2</annotation>
+		<annotation cp="⛹🏼‍♂">ბურთი | კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">კაცი ბურთით: კანის ტიპი-3</annotation>
+		<annotation cp="⛹🏽‍♂">ბურთი | კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">კაცი ბურთით: კანის ტიპი-4</annotation>
+		<annotation cp="⛹🏾‍♂">ბურთი | კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">კაცი ბურთით: კანის ტიპი-5</annotation>
+		<annotation cp="⛹🏿‍♂">ბურთი | კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">კაცი ბურთით: კანის ტიპი-6</annotation>
+		<annotation cp="⛹🏻‍♀">ბურთი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">ქალი ბურთით: კანის ტიპი-1-2</annotation>
+		<annotation cp="⛹🏼‍♀">ბურთი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">ქალი ბურთით: კანის ტიპი-3</annotation>
+		<annotation cp="⛹🏽‍♀">ბურთი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">ქალი ბურთით: კანის ტიპი-4</annotation>
+		<annotation cp="⛹🏾‍♀">ბურთი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">ქალი ბურთით: კანის ტიპი-5</annotation>
+		<annotation cp="⛹🏿‍♀">ბურთი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">ქალი ბურთით: კანის ტიპი-6</annotation>
+		<annotation cp="🏋🏻">წონა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏋🏻" type="tts">ძალოსანი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏋🏼">წონა | კანის ტიპი-3</annotation>
+		<annotation cp="🏋🏼" type="tts">ძალოსანი: კანის ტიპი-3</annotation>
+		<annotation cp="🏋🏽">წონა | კანის ტიპი-4</annotation>
+		<annotation cp="🏋🏽" type="tts">ძალოსანი: კანის ტიპი-4</annotation>
+		<annotation cp="🏋🏾">წონა | კანის ტიპი-5</annotation>
+		<annotation cp="🏋🏾" type="tts">ძალოსანი: კანის ტიპი-5</annotation>
+		<annotation cp="🏋🏿">წონა | კანის ტიპი-6</annotation>
+		<annotation cp="🏋🏿" type="tts">ძალოსანი: კანის ტიპი-6</annotation>
+		<annotation cp="🏋🏻‍♂">კაცი | ძალოსნობა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">ძალოსანი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏋🏼‍♂">კაცი | ძალოსნობა | კანის ტიპი-3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">ძალოსანი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🏋🏽‍♂">კაცი | ძალოსნობა | კანის ტიპი-4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">ძალოსანი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🏋🏾‍♂">კაცი | ძალოსნობა | კანის ტიპი-5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">ძალოსანი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🏋🏿‍♂">კაცი | ძალოსნობა | კანის ტიპი-6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">ძალოსანი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🏋🏻‍♀">ქალი | ძალოსნობა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">ძალოსანი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🏋🏼‍♀">ქალი | ძალოსნობა | კანის ტიპი-3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">ძალოსანი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🏋🏽‍♀">ქალი | ძალოსნობა | კანის ტიპი-4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">ძალოსანი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🏋🏾‍♀">ქალი | ძალოსნობა | კანის ტიპი-5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">ძალოსანი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🏋🏿‍♀">ქალი | ძალოსნობა | კანის ტიპი-6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">ძალოსანი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🚴🏻">ველოსიპედი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚴🏻" type="tts">ველოსიპედისტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚴🏼">ველოსიპედი | კანის ტიპი-3</annotation>
+		<annotation cp="🚴🏼" type="tts">ველოსიპედისტი: კანის ტიპი-3</annotation>
+		<annotation cp="🚴🏽">ველოსიპედი | კანის ტიპი-4</annotation>
+		<annotation cp="🚴🏽" type="tts">ველოსიპედისტი: კანის ტიპი-4</annotation>
+		<annotation cp="🚴🏾">ველოსიპედი | კანის ტიპი-5</annotation>
+		<annotation cp="🚴🏾" type="tts">ველოსიპედისტი: კანის ტიპი-5</annotation>
+		<annotation cp="🚴🏿">ველოსიპედი | კანის ტიპი-6</annotation>
+		<annotation cp="🚴🏿" type="tts">ველოსიპედისტი: კანის ტიპი-6</annotation>
+		<annotation cp="🚴🏻‍♂">ველოსიპედი | კაცი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">კაცი ველოსიპედით: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚴🏼‍♂">ველოსიპედი | კაცი | კანის ტიპი-3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">კაცი ველოსიპედით: კანის ტიპი-3</annotation>
+		<annotation cp="🚴🏽‍♂">ველოსიპედი | კაცი | კანის ტიპი-4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">კაცი ველოსიპედით: კანის ტიპი-4</annotation>
+		<annotation cp="🚴🏾‍♂">ველოსიპედი | კაცი | კანის ტიპი-5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">კაცი ველოსიპედით: კანის ტიპი-5</annotation>
+		<annotation cp="🚴🏿‍♂">ველოსიპედი | კაცი | კანის ტიპი-6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">კაცი ველოსიპედით: კანის ტიპი-6</annotation>
+		<annotation cp="🚴🏻‍♀">ველოსიპედი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">ქალი ველოსიპედით: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚴🏼‍♀">ველოსიპედი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">ქალი ველოსიპედით: კანის ტიპი-3</annotation>
+		<annotation cp="🚴🏽‍♀">ველოსიპედი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">ქალი ველოსიპედით: კანის ტიპი-4</annotation>
+		<annotation cp="🚴🏾‍♀">ველოსიპედი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">ქალი ველოსიპედით: კანის ტიპი-5</annotation>
+		<annotation cp="🚴🏿‍♀">ველოსიპედი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">ქალი ველოსიპედით: კანის ტიპი-6</annotation>
+		<annotation cp="🚵🏻">ველოსიპედი | ველოსიპედისტი | მთა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚵🏻" type="tts">მთის ველოსიპედისტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚵🏼">ველოსიპედი | ველოსიპედისტი | მთა | კანის ტიპი-3</annotation>
+		<annotation cp="🚵🏼" type="tts">მთის ველოსიპედისტი: კანის ტიპი-3</annotation>
+		<annotation cp="🚵🏽">ველოსიპედი | ველოსიპედისტი | მთა | კანის ტიპი-4</annotation>
+		<annotation cp="🚵🏽" type="tts">მთის ველოსიპედისტი: კანის ტიპი-4</annotation>
+		<annotation cp="🚵🏾">ველოსიპედი | ველოსიპედისტი | მთა | კანის ტიპი-5</annotation>
+		<annotation cp="🚵🏾" type="tts">მთის ველოსიპედისტი: კანის ტიპი-5</annotation>
+		<annotation cp="🚵🏿">ველოსიპედი | ველოსიპედისტი | მთა | კანის ტიპი-6</annotation>
+		<annotation cp="🚵🏿" type="tts">მთის ველოსიპედისტი: კანის ტიპი-6</annotation>
+		<annotation cp="🚵🏻‍♂">კაცი | სამთო ველოსიპედი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">კაცი სამთო ველოსიპედით: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚵🏼‍♂">კაცი | სამთო ველოსიპედი | კანის ტიპი-3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">კაცი სამთო ველოსიპედით: კანის ტიპი-3</annotation>
+		<annotation cp="🚵🏽‍♂">კაცი | სამთო ველოსიპედი | კანის ტიპი-4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">კაცი სამთო ველოსიპედით: კანის ტიპი-4</annotation>
+		<annotation cp="🚵🏾‍♂">კაცი | სამთო ველოსიპედი | კანის ტიპი-5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">კაცი სამთო ველოსიპედით: კანის ტიპი-5</annotation>
+		<annotation cp="🚵🏿‍♂">კაცი | სამთო ველოსიპედი | კანის ტიპი-6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">კაცი სამთო ველოსიპედით: კანის ტიპი-6</annotation>
+		<annotation cp="🚵🏻‍♀">სამთო ველოსიპედი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">ქალი სამთო ველოსიპედით: კანის ტიპი-1-2</annotation>
+		<annotation cp="🚵🏼‍♀">სამთო ველოსიპედი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">ქალი სამთო ველოსიპედით: კანის ტიპი-3</annotation>
+		<annotation cp="🚵🏽‍♀">სამთო ველოსიპედი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">ქალი სამთო ველოსიპედით: კანის ტიპი-4</annotation>
+		<annotation cp="🚵🏾‍♀">სამთო ველოსიპედი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">ქალი სამთო ველოსიპედით: კანის ტიპი-5</annotation>
+		<annotation cp="🚵🏿‍♀">სამთო ველოსიპედი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">ქალი სამთო ველოსიპედით: კანის ტიპი-6</annotation>
+		<annotation cp="🤸🏻">ადამიანი | აკრობატიკა | სპორტი | ტანვარჯიში | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤸🏻" type="tts">აკრობატული ილეთი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤸🏼">ადამიანი | აკრობატიკა | სპორტი | ტანვარჯიში | კანის ტიპი-3</annotation>
+		<annotation cp="🤸🏼" type="tts">აკრობატული ილეთი: კანის ტიპი-3</annotation>
+		<annotation cp="🤸🏽">ადამიანი | აკრობატიკა | სპორტი | ტანვარჯიში | კანის ტიპი-4</annotation>
+		<annotation cp="🤸🏽" type="tts">აკრობატული ილეთი: კანის ტიპი-4</annotation>
+		<annotation cp="🤸🏾">ადამიანი | აკრობატიკა | სპორტი | ტანვარჯიში | კანის ტიპი-5</annotation>
+		<annotation cp="🤸🏾" type="tts">აკრობატული ილეთი: კანის ტიპი-5</annotation>
+		<annotation cp="🤸🏿">ადამიანი | აკრობატიკა | სპორტი | ტანვარჯიში | კანის ტიპი-6</annotation>
+		<annotation cp="🤸🏿" type="tts">აკრობატული ილეთი: კანის ტიპი-6</annotation>
+		<annotation cp="🤸🏻‍♂">აკრობატი | კაცი | სპორტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">აკრობატი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤸🏼‍♂">აკრობატი | კაცი | სპორტი | კანის ტიპი-3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">აკრობატი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🤸🏽‍♂">აკრობატი | კაცი | სპორტი | კანის ტიპი-4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">აკრობატი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🤸🏾‍♂">აკრობატი | კაცი | სპორტი | კანის ტიპი-5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">აკრობატი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🤸🏿‍♂">აკრობატი | კაცი | სპორტი | კანის ტიპი-6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">აკრობატი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🤸🏻‍♀">აკრობატი | სპორტი | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">აკრობატი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤸🏼‍♀">აკრობატი | სპორტი | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">აკრობატი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🤸🏽‍♀">აკრობატი | სპორტი | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">აკრობატი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🤸🏾‍♀">აკრობატი | სპორტი | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">აკრობატი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🤸🏿‍♀">აკრობატი | სპორტი | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">აკრობატი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🤽🏻">ადამიანი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤽🏻" type="tts">წყალბურთი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤽🏼">ადამიანი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-3</annotation>
+		<annotation cp="🤽🏼" type="tts">წყალბურთი: კანის ტიპი-3</annotation>
+		<annotation cp="🤽🏽">ადამიანი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-4</annotation>
+		<annotation cp="🤽🏽" type="tts">წყალბურთი: კანის ტიპი-4</annotation>
+		<annotation cp="🤽🏾">ადამიანი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-5</annotation>
+		<annotation cp="🤽🏾" type="tts">წყალბურთი: კანის ტიპი-5</annotation>
+		<annotation cp="🤽🏿">ადამიანი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-6</annotation>
+		<annotation cp="🤽🏿" type="tts">წყალბურთი: კანის ტიპი-6</annotation>
+		<annotation cp="🤽🏻‍♂">კაცი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">წყალბურთელი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤽🏼‍♂">კაცი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">წყალბურთელი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🤽🏽‍♂">კაცი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">წყალბურთელი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🤽🏾‍♂">კაცი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">წყალბურთელი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🤽🏿‍♂">კაცი | სპორტი | წყალბურთი | წყალი | კანის ტიპი-6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">წყალბურთელი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🤽🏻‍♀">სპორტი | ქალი | წყალბურთი | წყალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">წყალბურთელი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤽🏼‍♀">სპორტი | ქალი | წყალბურთი | წყალი | კანის ტიპი-3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">წყალბურთელი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🤽🏽‍♀">სპორტი | ქალი | წყალბურთი | წყალი | კანის ტიპი-4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">წყალბურთელი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🤽🏾‍♀">სპორტი | ქალი | წყალბურთი | წყალი | კანის ტიპი-5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">წყალბურთელი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🤽🏿‍♀">სპორტი | ქალი | წყალბურთი | წყალი | კანის ტიპი-6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">წყალბურთელი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🤾🏻">ადამიანი | ბურთი | სპორტი | ხელბურთი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤾🏻" type="tts">ხელბურთი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤾🏼">ადამიანი | ბურთი | სპორტი | ხელბურთი | კანის ტიპი-3</annotation>
+		<annotation cp="🤾🏼" type="tts">ხელბურთი: კანის ტიპი-3</annotation>
+		<annotation cp="🤾🏽">ადამიანი | ბურთი | სპორტი | ხელბურთი | კანის ტიპი-4</annotation>
+		<annotation cp="🤾🏽" type="tts">ხელბურთი: კანის ტიპი-4</annotation>
+		<annotation cp="🤾🏾">ადამიანი | ბურთი | სპორტი | ხელბურთი | კანის ტიპი-5</annotation>
+		<annotation cp="🤾🏾" type="tts">ხელბურთი: კანის ტიპი-5</annotation>
+		<annotation cp="🤾🏿">ადამიანი | ბურთი | სპორტი | ხელბურთი | კანის ტიპი-6</annotation>
+		<annotation cp="🤾🏿" type="tts">ხელბურთი: კანის ტიპი-6</annotation>
+		<annotation cp="🤾🏻‍♂">ბურთი | კაცი | სპორტი | ხელბურთი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">ხელბურთელი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤾🏼‍♂">ბურთი | კაცი | სპორტი | ხელბურთი | კანის ტიპი-3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">ხელბურთელი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🤾🏽‍♂">ბურთი | კაცი | სპორტი | ხელბურთი | კანის ტიპი-4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">ხელბურთელი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🤾🏾‍♂">ბურთი | კაცი | სპორტი | ხელბურთი | კანის ტიპი-5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">ხელბურთელი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🤾🏿‍♂">ბურთი | კაცი | სპორტი | ხელბურთი | კანის ტიპი-6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">ხელბურთელი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🤾🏻‍♀">ბურთი | სპორტი | ქალი | ხელბურთი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">ხელბურთელი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤾🏼‍♀">ბურთი | სპორტი | ქალი | ხელბურთი | კანის ტიპი-3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">ხელბურთელი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🤾🏽‍♀">ბურთი | სპორტი | ქალი | ხელბურთი | კანის ტიპი-4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">ხელბურთელი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🤾🏾‍♀">ბურთი | სპორტი | ქალი | ხელბურთი | კანის ტიპი-5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">ხელბურთელი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🤾🏿‍♀">ბურთი | სპორტი | ქალი | ხელბურთი | კანის ტიპი-6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">ხელბურთელი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="🤹🏻">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | უნარი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤹🏻" type="tts">ჟონგლიორობა: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤹🏼">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | უნარი | კანის ტიპი-3</annotation>
+		<annotation cp="🤹🏼" type="tts">ჟონგლიორობა: კანის ტიპი-3</annotation>
+		<annotation cp="🤹🏽">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | უნარი | კანის ტიპი-4</annotation>
+		<annotation cp="🤹🏽" type="tts">ჟონგლიორობა: კანის ტიპი-4</annotation>
+		<annotation cp="🤹🏾">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | უნარი | კანის ტიპი-5</annotation>
+		<annotation cp="🤹🏾" type="tts">ჟონგლიორობა: კანის ტიპი-5</annotation>
+		<annotation cp="🤹🏿">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | უნარი | კანის ტიპი-6</annotation>
+		<annotation cp="🤹🏿" type="tts">ჟონგლიორობა: კანის ტიპი-6</annotation>
+		<annotation cp="🤹🏻‍♂">ბალანსი | კაცი | პარალელური ქმედება | ჟონგლიორობა | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">ჟონგლიორი კაცი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤹🏼‍♂">ბალანსი | კაცი | პარალელური ქმედება | ჟონგლიორობა | კანის ტიპი-3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">ჟონგლიორი კაცი: კანის ტიპი-3</annotation>
+		<annotation cp="🤹🏽‍♂">ბალანსი | კაცი | პარალელური ქმედება | ჟონგლიორობა | კანის ტიპი-4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">ჟონგლიორი კაცი: კანის ტიპი-4</annotation>
+		<annotation cp="🤹🏾‍♂">ბალანსი | კაცი | პარალელური ქმედება | ჟონგლიორობა | კანის ტიპი-5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">ჟონგლიორი კაცი: კანის ტიპი-5</annotation>
+		<annotation cp="🤹🏿‍♂">ბალანსი | კაცი | პარალელური ქმედება | ჟონგლიორობა | კანის ტიპი-6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">ჟონგლიორი კაცი: კანის ტიპი-6</annotation>
+		<annotation cp="🤹🏻‍♀">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | ქალი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">ჟონგლიორი ქალი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤹🏼‍♀">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | ქალი | კანის ტიპი-3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">ჟონგლიორი ქალი: კანის ტიპი-3</annotation>
+		<annotation cp="🤹🏽‍♀">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | ქალი | კანის ტიპი-4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">ჟონგლიორი ქალი: კანის ტიპი-4</annotation>
+		<annotation cp="🤹🏾‍♀">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | ქალი | კანის ტიპი-5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">ჟონგლიორი ქალი: კანის ტიპი-5</annotation>
+		<annotation cp="🤹🏿‍♀">ბალანსი | პარალელური ქმედება | ჟონგლიორობა | ქალი | კანის ტიპი-6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">ჟონგლიორი ქალი: კანის ტიპი-6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">კურდღლის ყურები | მოცეკვავე | ქალები | ქალი</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">კოცნა, ქალი, კაცი</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">კაცი | წყვილი</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">კოცნა, კაცი, კაცი</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">ქალი | წყვილი</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">კოცნა, ქალი, ქალი</annotation>
+		<annotation cp="👩‍❤‍👨">გული | კაცი | სიყვარული | ქალი | წყვილი</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">წყვილი გულით, ქალი, კაცი</annotation>
+		<annotation cp="👨‍❤‍👨">გული | კაცი | სიყვარული | წყვილი</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">წყვილი გულით, კაცი, კაცი</annotation>
+		<annotation cp="👩‍❤‍👩">გული | სიყვარული | ქალი | წყვილი</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">წყვილი გულით, ქალი, ქალი</annotation>
+		<annotation cp="👨‍👩‍👦">ბავშვი | ბიჭი | დედა | მამა | ქალი</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">ოჯახი, კაცი, ქალი, ბიჭი</annotation>
+		<annotation cp="👨‍👩‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">ოჯახი, კაცი, ქალი, გოგო</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">ოჯახი, კაცი, ქალი, გოგო, ბიჭი</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">ოჯახი, კაცი, ქალი, ბიჭი, ბიჭი</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">ოჯახი, კაცი, ქალი, გოგო, გოგო</annotation>
+		<annotation cp="👨‍👨‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">ოჯახი, კაცი, კაცი, ბიჭი</annotation>
+		<annotation cp="👨‍👨‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">ოჯახი, კაცი, კაცი, გოგო</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">ოჯახი, კაცი, კაცი, გოგო, ბიჭი</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">ოჯახი, კაცი, კაცი, ბიჭი, ბიჭი</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">ოჯახი, კაცი, კაცი, გოგო, გოგო</annotation>
+		<annotation cp="👩‍👩‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">ოჯახი, ქალი, ქალი, ბიჭი</annotation>
+		<annotation cp="👩‍👩‍👧">ბავშვი | დედა | მამა | ქალი</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">ოჯახი, ქალი, ქალი, გოგო</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">ოჯახი, ქალი, ქალი, გოგო, ბიჭი</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">ოჯახი, ქალი, ქალი, ბიჭი, ბიჭი</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">ოჯახი, ქალი, ქალი, გოგო, გოგო</annotation>
+		<annotation cp="👨‍👦">ბავშვი | დედა | კაცი | მამა</annotation>
+		<annotation cp="👨‍👦" type="tts">ოჯახი, კაცი, ბიჭი</annotation>
+		<annotation cp="👨‍👦‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">ოჯახი, კაცი, ბიჭი, ბიჭი</annotation>
+		<annotation cp="👨‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👧" type="tts">ოჯახი, კაცი, გოგო</annotation>
+		<annotation cp="👨‍👧‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">ოჯახი, კაცი, გოგო, ბიჭი</annotation>
+		<annotation cp="👨‍👧‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">ოჯახი, კაცი, გოგო, გოგო</annotation>
+		<annotation cp="👩‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👦" type="tts">ოჯახი, ქალი, ბიჭი</annotation>
+		<annotation cp="👩‍👦‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">ოჯახი, ქალი, ბიჭი, ბიჭი</annotation>
+		<annotation cp="👩‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👧" type="tts">ოჯახი, ქალი, გოგო</annotation>
+		<annotation cp="👩‍👧‍👦">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">ოჯახი, ქალი, გოგო, ბიჭი</annotation>
+		<annotation cp="👩‍👧‍👧">ბავშვი | დედა | კაცი | მამა | ქალი</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">ოჯახი, ქალი, გოგო, გოგო</annotation>
+		<annotation cp="🤳🏻">კამერა | სელფი | ტელეფონი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤳🏻" type="tts">სელფი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤳🏼">კამერა | სელფი | ტელეფონი | კანის ტიპი-3</annotation>
+		<annotation cp="🤳🏼" type="tts">სელფი: კანის ტიპი-3</annotation>
+		<annotation cp="🤳🏽">კამერა | სელფი | ტელეფონი | კანის ტიპი-4</annotation>
+		<annotation cp="🤳🏽" type="tts">სელფი: კანის ტიპი-4</annotation>
+		<annotation cp="🤳🏾">კამერა | სელფი | ტელეფონი | კანის ტიპი-5</annotation>
+		<annotation cp="🤳🏾" type="tts">სელფი: კანის ტიპი-5</annotation>
+		<annotation cp="🤳🏿">კამერა | სელფი | ტელეფონი | კანის ტიპი-6</annotation>
+		<annotation cp="🤳🏿" type="tts">სელფი: კანის ტიპი-6</annotation>
+		<annotation cp="💪🏻">ბიცეფსი | კუნთები | სასაცილო | სხეული | ტანი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💪🏻" type="tts">მოხრილი ბიცეპსები: კანის ტიპი-1-2</annotation>
+		<annotation cp="💪🏼">ბიცეფსი | კუნთები | სასაცილო | სხეული | ტანი | კანის ტიპი-3</annotation>
+		<annotation cp="💪🏼" type="tts">მოხრილი ბიცეპსები: კანის ტიპი-3</annotation>
+		<annotation cp="💪🏽">ბიცეფსი | კუნთები | სასაცილო | სხეული | ტანი | კანის ტიპი-4</annotation>
+		<annotation cp="💪🏽" type="tts">მოხრილი ბიცეპსები: კანის ტიპი-4</annotation>
+		<annotation cp="💪🏾">ბიცეფსი | კუნთები | სასაცილო | სხეული | ტანი | კანის ტიპი-5</annotation>
+		<annotation cp="💪🏾" type="tts">მოხრილი ბიცეპსები: კანის ტიპი-5</annotation>
+		<annotation cp="💪🏿">ბიცეფსი | კუნთები | სასაცილო | სხეული | ტანი | კანის ტიპი-6</annotation>
+		<annotation cp="💪🏿" type="tts">მოხრილი ბიცეპსები: კანის ტიპი-6</annotation>
+		<annotation cp="👈🏻">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👈🏻" type="tts">ხელის ზურგიდან მარხცნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👈🏼">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👈🏼" type="tts">ხელის ზურგიდან მარხცნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-3</annotation>
+		<annotation cp="👈🏽">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👈🏽" type="tts">ხელის ზურგიდან მარხცნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-4</annotation>
+		<annotation cp="👈🏾">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👈🏾" type="tts">ხელის ზურგიდან მარხცნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-5</annotation>
+		<annotation cp="👈🏿">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👈🏿" type="tts">ხელის ზურგიდან მარხცნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-6</annotation>
+		<annotation cp="👉🏻">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👉🏻" type="tts">ხელის ზურგიდან მარჯვნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👉🏼">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-3</annotation>
+		<annotation cp="👉🏼" type="tts">ხელის ზურგიდან მარჯვნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-3</annotation>
+		<annotation cp="👉🏽">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-4</annotation>
+		<annotation cp="👉🏽" type="tts">ხელის ზურგიდან მარჯვნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-4</annotation>
+		<annotation cp="👉🏾">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-5</annotation>
+		<annotation cp="👉🏾" type="tts">ხელის ზურგიდან მარჯვნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-5</annotation>
+		<annotation cp="👉🏿">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-6</annotation>
+		<annotation cp="👉🏿" type="tts">ხელის ზურგიდან მარჯვნივ გაშვერილი საჩვენებელი თითი: კანის ტიპი-6</annotation>
+		<annotation cp="☝🏻">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="☝🏻" type="tts">ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-1-2</annotation>
+		<annotation cp="☝🏼">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="☝🏼" type="tts">ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-3</annotation>
+		<annotation cp="☝🏽">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="☝🏽" type="tts">ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-4</annotation>
+		<annotation cp="☝🏾">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="☝🏾" type="tts">ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-5</annotation>
+		<annotation cp="☝🏿">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="☝🏿" type="tts">ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-6</annotation>
+		<annotation cp="👆🏻">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👆🏻" type="tts">ხელის ზურგიდან ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👆🏼">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-3</annotation>
+		<annotation cp="👆🏼" type="tts">ხელის ზურგიდან ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-3</annotation>
+		<annotation cp="👆🏽">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-4</annotation>
+		<annotation cp="👆🏽" type="tts">ხელის ზურგიდან ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-4</annotation>
+		<annotation cp="👆🏾">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-5</annotation>
+		<annotation cp="👆🏾" type="tts">ხელის ზურგიდან ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-5</annotation>
+		<annotation cp="👆🏿">ზემოთ | თითი | მითითება | საჩვენებელი | სხეული | ტანი | ხელი | ხელის ზურგი | კანის ტიპი-6</annotation>
+		<annotation cp="👆🏿" type="tts">ხელის ზურგიდან ზემოთ აშვერილი საჩვენებელი თითი: კანის ტიპი-6</annotation>
+		<annotation cp="🖕🏻">თითი | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🖕🏻" type="tts">შუა თითი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🖕🏼">თითი | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🖕🏼" type="tts">შუა თითი: კანის ტიპი-3</annotation>
+		<annotation cp="🖕🏽">თითი | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🖕🏽" type="tts">შუა თითი: კანის ტიპი-4</annotation>
+		<annotation cp="🖕🏾">თითი | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🖕🏾" type="tts">შუა თითი: კანის ტიპი-5</annotation>
+		<annotation cp="🖕🏿">თითი | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🖕🏿" type="tts">შუა თითი: კანის ტიპი-6</annotation>
+		<annotation cp="👇🏻">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ქვემოთ | ხელი | ხელის ზურგი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👇🏻" type="tts">ხელის ზურგიდან ქვემოთ დაშვერილი საჩვენებელი თითი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👇🏼">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ქვემოთ | ხელი | ხელის ზურგი | კანის ტიპი-3</annotation>
+		<annotation cp="👇🏼" type="tts">ხელის ზურგიდან ქვემოთ დაშვერილი საჩვენებელი თითი: კანის ტიპი-3</annotation>
+		<annotation cp="👇🏽">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ქვემოთ | ხელი | ხელის ზურგი | კანის ტიპი-4</annotation>
+		<annotation cp="👇🏽" type="tts">ხელის ზურგიდან ქვემოთ დაშვერილი საჩვენებელი თითი: კანის ტიპი-4</annotation>
+		<annotation cp="👇🏾">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ქვემოთ | ხელი | ხელის ზურგი | კანის ტიპი-5</annotation>
+		<annotation cp="👇🏾" type="tts">ხელის ზურგიდან ქვემოთ დაშვერილი საჩვენებელი თითი: კანის ტიპი-5</annotation>
+		<annotation cp="👇🏿">თითი | მითითება | საჩვენებელი | სხეული | ტანი | ქვემოთ | ხელი | ხელის ზურგი | კანის ტიპი-6</annotation>
+		<annotation cp="👇🏿" type="tts">ხელის ზურგიდან ქვემოთ დაშვერილი საჩვენებელი თითი: კანის ტიპი-6</annotation>
+		<annotation cp="✌🏻">v | გამარჯვება | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="✌🏻" type="tts">გამარჯვების გამოხატვა ხელით: კანის ტიპი-1-2</annotation>
+		<annotation cp="✌🏼">v | გამარჯვება | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="✌🏼" type="tts">გამარჯვების გამოხატვა ხელით: კანის ტიპი-3</annotation>
+		<annotation cp="✌🏽">v | გამარჯვება | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="✌🏽" type="tts">გამარჯვების გამოხატვა ხელით: კანის ტიპი-4</annotation>
+		<annotation cp="✌🏾">v | გამარჯვება | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="✌🏾" type="tts">გამარჯვების გამოხატვა ხელით: კანის ტიპი-5</annotation>
+		<annotation cp="✌🏿">v | გამარჯვება | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="✌🏿" type="tts">გამარჯვების გამოხატვა ხელით: კანის ტიპი-6</annotation>
+		<annotation cp="🤞🏻">გადაჯვარედინება | თითი | იღბალი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤞🏻" type="tts">გადაჯვარედინებული თითები: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤞🏼">გადაჯვარედინება | თითი | იღბალი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🤞🏼" type="tts">გადაჯვარედინებული თითები: კანის ტიპი-3</annotation>
+		<annotation cp="🤞🏽">გადაჯვარედინება | თითი | იღბალი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🤞🏽" type="tts">გადაჯვარედინებული თითები: კანის ტიპი-4</annotation>
+		<annotation cp="🤞🏾">გადაჯვარედინება | თითი | იღბალი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🤞🏾" type="tts">გადაჯვარედინებული თითები: კანის ტიპი-5</annotation>
+		<annotation cp="🤞🏿">გადაჯვარედინება | თითი | იღბალი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🤞🏿" type="tts">გადაჯვარედინებული თითები: კანის ტიპი-6</annotation>
+		<annotation cp="🖖🏻">თითი | მისალმება | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🖖🏻" type="tts">ვულკანელების მისალმება: კანის ტიპი-1-2</annotation>
+		<annotation cp="🖖🏼">თითი | მისალმება | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🖖🏼" type="tts">ვულკანელების მისალმება: კანის ტიპი-3</annotation>
+		<annotation cp="🖖🏽">თითი | მისალმება | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🖖🏽" type="tts">ვულკანელების მისალმება: კანის ტიპი-4</annotation>
+		<annotation cp="🖖🏾">თითი | მისალმება | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🖖🏾" type="tts">ვულკანელების მისალმება: კანის ტიპი-5</annotation>
+		<annotation cp="🖖🏿">თითი | მისალმება | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🖖🏿" type="tts">ვულკანელების მისალმება: კანის ტიპი-6</annotation>
+		<annotation cp="🤘🏻">თითი | როკი | რქები | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤘🏻" type="tts">რქების ნიშანი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤘🏼">თითი | როკი | რქები | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🤘🏼" type="tts">რქების ნიშანი: კანის ტიპი-3</annotation>
+		<annotation cp="🤘🏽">თითი | როკი | რქები | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🤘🏽" type="tts">რქების ნიშანი: კანის ტიპი-4</annotation>
+		<annotation cp="🤘🏾">თითი | როკი | რქები | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🤘🏾" type="tts">რქების ნიშანი: კანის ტიპი-5</annotation>
+		<annotation cp="🤘🏿">თითი | როკი | რქები | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🤘🏿" type="tts">რქების ნიშანი: კანის ტიპი-6</annotation>
+		<annotation cp="🤙🏻">დარეკვა | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤙🏻" type="tts">„დამირეკე“ ჟესტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤙🏼">დარეკვა | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🤙🏼" type="tts">„დამირეკე“ ჟესტი: კანის ტიპი-3</annotation>
+		<annotation cp="🤙🏽">დარეკვა | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🤙🏽" type="tts">„დამირეკე“ ჟესტი: კანის ტიპი-4</annotation>
+		<annotation cp="🤙🏾">დარეკვა | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🤙🏾" type="tts">„დამირეკე“ ჟესტი: კანის ტიპი-5</annotation>
+		<annotation cp="🤙🏿">დარეკვა | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🤙🏿" type="tts">„დამირეკე“ ჟესტი: კანის ტიპი-6</annotation>
+		<annotation cp="🖐🏻">გაშლილი | თითი | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🖐🏻" type="tts">აწეული ხელი გაშლილი თითებით: კანის ტიპი-1-2</annotation>
+		<annotation cp="🖐🏼">გაშლილი | თითი | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🖐🏼" type="tts">აწეული ხელი გაშლილი თითებით: კანის ტიპი-3</annotation>
+		<annotation cp="🖐🏽">გაშლილი | თითი | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🖐🏽" type="tts">აწეული ხელი გაშლილი თითებით: კანის ტიპი-4</annotation>
+		<annotation cp="🖐🏾">გაშლილი | თითი | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🖐🏾" type="tts">აწეული ხელი გაშლილი თითებით: კანის ტიპი-5</annotation>
+		<annotation cp="🖐🏿">გაშლილი | თითი | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🖐🏿" type="tts">აწეული ხელი გაშლილი თითებით: კანის ტიპი-6</annotation>
+		<annotation cp="✋🏻">სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="✋🏻" type="tts">აწეული ხელი: კანის ტიპი-1-2</annotation>
+		<annotation cp="✋🏼">სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="✋🏼" type="tts">აწეული ხელი: კანის ტიპი-3</annotation>
+		<annotation cp="✋🏽">სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="✋🏽" type="tts">აწეული ხელი: კანის ტიპი-4</annotation>
+		<annotation cp="✋🏾">სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="✋🏾" type="tts">აწეული ხელი: კანის ტიპი-5</annotation>
+		<annotation cp="✋🏿">სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="✋🏿" type="tts">აწეული ხელი: კანის ტიპი-6</annotation>
+		<annotation cp="👌🏻">კარგი | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👌🏻" type="tts">ო'ქეის ჟესტი ხელით: კანის ტიპი-1-2</annotation>
+		<annotation cp="👌🏼">კარგი | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👌🏼" type="tts">ო'ქეის ჟესტი ხელით: კანის ტიპი-3</annotation>
+		<annotation cp="👌🏽">კარგი | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👌🏽" type="tts">ო'ქეის ჟესტი ხელით: კანის ტიპი-4</annotation>
+		<annotation cp="👌🏾">კარგი | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👌🏾" type="tts">ო'ქეის ჟესტი ხელით: კანის ტიპი-5</annotation>
+		<annotation cp="👌🏿">კარგი | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👌🏿" type="tts">ო'ქეის ჟესტი ხელით: კანის ტიპი-6</annotation>
+		<annotation cp="👍🏻">+1 | ზემოთ | სხეული | ტანი | ცერა | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👍🏻" type="tts">ცერა ზემოთ: კანის ტიპი-1-2</annotation>
+		<annotation cp="👍🏼">+1 | ზემოთ | სხეული | ტანი | ცერა | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👍🏼" type="tts">ცერა ზემოთ: კანის ტიპი-3</annotation>
+		<annotation cp="👍🏽">+1 | ზემოთ | სხეული | ტანი | ცერა | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👍🏽" type="tts">ცერა ზემოთ: კანის ტიპი-4</annotation>
+		<annotation cp="👍🏾">+1 | ზემოთ | სხეული | ტანი | ცერა | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👍🏾" type="tts">ცერა ზემოთ: კანის ტიპი-5</annotation>
+		<annotation cp="👍🏿">+1 | ზემოთ | სხეული | ტანი | ცერა | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👍🏿" type="tts">ცერა ზემოთ: კანის ტიპი-6</annotation>
+		<annotation cp="👎🏻">-1 | სხეული | ტანი | ქვემოთ | ცერა | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👎🏻" type="tts">ცერა ქვემოთ: კანის ტიპი-1-2</annotation>
+		<annotation cp="👎🏼">-1 | სხეული | ტანი | ქვემოთ | ცერა | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👎🏼" type="tts">ცერა ქვემოთ: კანის ტიპი-3</annotation>
+		<annotation cp="👎🏽">-1 | სხეული | ტანი | ქვემოთ | ცერა | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👎🏽" type="tts">ცერა ქვემოთ: კანის ტიპი-4</annotation>
+		<annotation cp="👎🏾">-1 | სხეული | ტანი | ქვემოთ | ცერა | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👎🏾" type="tts">ცერა ქვემოთ: კანის ტიპი-5</annotation>
+		<annotation cp="👎🏿">-1 | სხეული | ტანი | ქვემოთ | ცერა | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👎🏿" type="tts">ცერა ქვემოთ: კანის ტიპი-6</annotation>
+		<annotation cp="✊🏻">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="✊🏻" type="tts">აწეული მუშტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="✊🏼">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="✊🏼" type="tts">აწეული მუშტი: კანის ტიპი-3</annotation>
+		<annotation cp="✊🏽">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="✊🏽" type="tts">აწეული მუშტი: კანის ტიპი-4</annotation>
+		<annotation cp="✊🏾">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="✊🏾" type="tts">აწეული მუშტი: კანის ტიპი-5</annotation>
+		<annotation cp="✊🏿">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="✊🏿" type="tts">აწეული მუშტი: კანის ტიპი-6</annotation>
+		<annotation cp="👊🏻">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👊🏻" type="tts">მოახლოებული მუშტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👊🏼">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👊🏼" type="tts">მოახლოებული მუშტი: კანის ტიპი-3</annotation>
+		<annotation cp="👊🏽">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👊🏽" type="tts">მოახლოებული მუშტი: კანის ტიპი-4</annotation>
+		<annotation cp="👊🏾">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👊🏾" type="tts">მოახლოებული მუშტი: კანის ტიპი-5</annotation>
+		<annotation cp="👊🏿">დარტყმა | მუშტი | სხეული | ტანი | შეკრული | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👊🏿" type="tts">მოახლოებული მუშტი: კანის ტიპი-6</annotation>
+		<annotation cp="🤛🏻">მარცხნივ | მუშტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤛🏻" type="tts">მარცხნივ მიმართული მუშტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤛🏼">მარცხნივ | მუშტი | კანის ტიპი-3</annotation>
+		<annotation cp="🤛🏼" type="tts">მარცხნივ მიმართული მუშტი: კანის ტიპი-3</annotation>
+		<annotation cp="🤛🏽">მარცხნივ | მუშტი | კანის ტიპი-4</annotation>
+		<annotation cp="🤛🏽" type="tts">მარცხნივ მიმართული მუშტი: კანის ტიპი-4</annotation>
+		<annotation cp="🤛🏾">მარცხნივ | მუშტი | კანის ტიპი-5</annotation>
+		<annotation cp="🤛🏾" type="tts">მარცხნივ მიმართული მუშტი: კანის ტიპი-5</annotation>
+		<annotation cp="🤛🏿">მარცხნივ | მუშტი | კანის ტიპი-6</annotation>
+		<annotation cp="🤛🏿" type="tts">მარცხნივ მიმართული მუშტი: კანის ტიპი-6</annotation>
+		<annotation cp="🤜🏻">მარჯვნივ | მუშტი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤜🏻" type="tts">მარჯვნივ მიმართული მუშტი: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤜🏼">მარჯვნივ | მუშტი | კანის ტიპი-3</annotation>
+		<annotation cp="🤜🏼" type="tts">მარჯვნივ მიმართული მუშტი: კანის ტიპი-3</annotation>
+		<annotation cp="🤜🏽">მარჯვნივ | მუშტი | კანის ტიპი-4</annotation>
+		<annotation cp="🤜🏽" type="tts">მარჯვნივ მიმართული მუშტი: კანის ტიპი-4</annotation>
+		<annotation cp="🤜🏾">მარჯვნივ | მუშტი | კანის ტიპი-5</annotation>
+		<annotation cp="🤜🏾" type="tts">მარჯვნივ მიმართული მუშტი: კანის ტიპი-5</annotation>
+		<annotation cp="🤜🏿">მარჯვნივ | მუშტი | კანის ტიპი-6</annotation>
+		<annotation cp="🤜🏿" type="tts">მარჯვნივ მიმართული მუშტი: კანის ტიპი-6</annotation>
+		<annotation cp="🤚🏻">აწეული | ხელის ზურგი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🤚🏻" type="tts">აწეული ხელის ზურგიდან: კანის ტიპი-1-2</annotation>
+		<annotation cp="🤚🏼">აწეული | ხელის ზურგი | კანის ტიპი-3</annotation>
+		<annotation cp="🤚🏼" type="tts">აწეული ხელის ზურგიდან: კანის ტიპი-3</annotation>
+		<annotation cp="🤚🏽">აწეული | ხელის ზურგი | კანის ტიპი-4</annotation>
+		<annotation cp="🤚🏽" type="tts">აწეული ხელის ზურგიდან: კანის ტიპი-4</annotation>
+		<annotation cp="🤚🏾">აწეული | ხელის ზურგი | კანის ტიპი-5</annotation>
+		<annotation cp="🤚🏾" type="tts">აწეული ხელის ზურგიდან: კანის ტიპი-5</annotation>
+		<annotation cp="🤚🏿">აწეული | ხელის ზურგი | კანის ტიპი-6</annotation>
+		<annotation cp="🤚🏿" type="tts">აწეული ხელის ზურგიდან: კანის ტიპი-6</annotation>
+		<annotation cp="👋🏻">სხეული | ტალღა | ტანი | ქნევა | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👋🏻" type="tts">ხელის ქნევა: კანის ტიპი-1-2</annotation>
+		<annotation cp="👋🏼">სხეული | ტალღა | ტანი | ქნევა | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👋🏼" type="tts">ხელის ქნევა: კანის ტიპი-3</annotation>
+		<annotation cp="👋🏽">სხეული | ტალღა | ტანი | ქნევა | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👋🏽" type="tts">ხელის ქნევა: კანის ტიპი-4</annotation>
+		<annotation cp="👋🏾">სხეული | ტალღა | ტანი | ქნევა | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👋🏾" type="tts">ხელის ქნევა: კანის ტიპი-5</annotation>
+		<annotation cp="👋🏿">სხეული | ტალღა | ტანი | ქნევა | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👋🏿" type="tts">ხელის ქნევა: კანის ტიპი-6</annotation>
+		<annotation cp="✍🏻">სხეული | ტანი | წერა | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="✍🏻" type="tts">ხელი, რომელიც წერს: კანის ტიპი-1-2</annotation>
+		<annotation cp="✍🏼">სხეული | ტანი | წერა | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="✍🏼" type="tts">ხელი, რომელიც წერს: კანის ტიპი-3</annotation>
+		<annotation cp="✍🏽">სხეული | ტანი | წერა | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="✍🏽" type="tts">ხელი, რომელიც წერს: კანის ტიპი-4</annotation>
+		<annotation cp="✍🏾">სხეული | ტანი | წერა | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="✍🏾" type="tts">ხელი, რომელიც წერს: კანის ტიპი-5</annotation>
+		<annotation cp="✍🏿">სხეული | ტანი | წერა | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="✍🏿" type="tts">ხელი, რომელიც წერს: კანის ტიპი-6</annotation>
+		<annotation cp="👏🏻">სხეული | ტანი | ტაში | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👏🏻" type="tts">ხელები, რომლებიც ტაშს უკრავს: კანის ტიპი-1-2</annotation>
+		<annotation cp="👏🏼">სხეული | ტანი | ტაში | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👏🏼" type="tts">ხელები, რომლებიც ტაშს უკრავს: კანის ტიპი-3</annotation>
+		<annotation cp="👏🏽">სხეული | ტანი | ტაში | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👏🏽" type="tts">ხელები, რომლებიც ტაშს უკრავს: კანის ტიპი-4</annotation>
+		<annotation cp="👏🏾">სხეული | ტანი | ტაში | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👏🏾" type="tts">ხელები, რომლებიც ტაშს უკრავს: კანის ტიპი-5</annotation>
+		<annotation cp="👏🏿">სხეული | ტანი | ტაში | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👏🏿" type="tts">ხელები, რომლებიც ტაშს უკრავს: კანის ტიპი-6</annotation>
+		<annotation cp="👐🏻">სხეული | ტანი | ღია | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👐🏻" type="tts">გაშლილი ხელები: კანის ტიპი-1-2</annotation>
+		<annotation cp="👐🏼">სხეული | ტანი | ღია | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="👐🏼" type="tts">გაშლილი ხელები: კანის ტიპი-3</annotation>
+		<annotation cp="👐🏽">სხეული | ტანი | ღია | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="👐🏽" type="tts">გაშლილი ხელები: კანის ტიპი-4</annotation>
+		<annotation cp="👐🏾">სხეული | ტანი | ღია | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="👐🏾" type="tts">გაშლილი ხელები: კანის ტიპი-5</annotation>
+		<annotation cp="👐🏿">სხეული | ტანი | ღია | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="👐🏿" type="tts">გაშლილი ხელები: კანის ტიპი-6</annotation>
+		<annotation cp="🙌🏻">აღნიშვნა | აწეული | ზეიმი | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙌🏻" type="tts">ხელებაწეული პიროვნება: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙌🏼">აღნიშვნა | აწეული | ზეიმი | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🙌🏼" type="tts">ხელებაწეული პიროვნება: კანის ტიპი-3</annotation>
+		<annotation cp="🙌🏽">აღნიშვნა | აწეული | ზეიმი | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🙌🏽" type="tts">ხელებაწეული პიროვნება: კანის ტიპი-4</annotation>
+		<annotation cp="🙌🏾">აღნიშვნა | აწეული | ზეიმი | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🙌🏾" type="tts">ხელებაწეული პიროვნება: კანის ტიპი-5</annotation>
+		<annotation cp="🙌🏿">აღნიშვნა | აწეული | ზეიმი | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🙌🏿" type="tts">ხელებაწეული პიროვნება: კანის ტიპი-6</annotation>
+		<annotation cp="🙏🏻">გთხოვ | ერთად | თხოვნა | ლოცვა | მადლობა | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-1-2</annotation>
+		<annotation cp="🙏🏻" type="tts">ერთმანეთზე მიდებული ხელები: კანის ტიპი-1-2</annotation>
+		<annotation cp="🙏🏼">გთხოვ | ერთად | თხოვნა | ლოცვა | მადლობა | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-3</annotation>
+		<annotation cp="🙏🏼" type="tts">ერთმანეთზე მიდებული ხელები: კანის ტიპი-3</annotation>
+		<annotation cp="🙏🏽">გთხოვ | ერთად | თხოვნა | ლოცვა | მადლობა | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-4</annotation>
+		<annotation cp="🙏🏽" type="tts">ერთმანეთზე მიდებული ხელები: კანის ტიპი-4</annotation>
+		<annotation cp="🙏🏾">გთხოვ | ერთად | თხოვნა | ლოცვა | მადლობა | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-5</annotation>
+		<annotation cp="🙏🏾" type="tts">ერთმანეთზე მიდებული ხელები: კანის ტიპი-5</annotation>
+		<annotation cp="🙏🏿">გთხოვ | ერთად | თხოვნა | ლოცვა | მადლობა | ჟესტი | სხეული | ტანი | ხელი | კანის ტიპი-6</annotation>
+		<annotation cp="🙏🏿" type="tts">ერთმანეთზე მიდებული ხელები: კანის ტიპი-6</annotation>
+		<annotation cp="💅🏻">კოსმეტიკა | მანიკური | მოვლა | სხეული | ტანი | კანის ტიპი-1-2</annotation>
+		<annotation cp="💅🏻" type="tts">ფრჩხილების ლაქი: კანის ტიპი-1-2</annotation>
+		<annotation cp="💅🏼">კოსმეტიკა | მანიკური | მოვლა | სხეული | ტანი | კანის ტიპი-3</annotation>
+		<annotation cp="💅🏼" type="tts">ფრჩხილების ლაქი: კანის ტიპი-3</annotation>
+		<annotation cp="💅🏽">კოსმეტიკა | მანიკური | მოვლა | სხეული | ტანი | კანის ტიპი-4</annotation>
+		<annotation cp="💅🏽" type="tts">ფრჩხილების ლაქი: კანის ტიპი-4</annotation>
+		<annotation cp="💅🏾">კოსმეტიკა | მანიკური | მოვლა | სხეული | ტანი | კანის ტიპი-5</annotation>
+		<annotation cp="💅🏾" type="tts">ფრჩხილების ლაქი: კანის ტიპი-5</annotation>
+		<annotation cp="💅🏿">კოსმეტიკა | მანიკური | მოვლა | სხეული | ტანი | კანის ტიპი-6</annotation>
+		<annotation cp="💅🏿" type="tts">ფრჩხილების ლაქი: კანის ტიპი-6</annotation>
+		<annotation cp="👂🏻">სხეული | ტანი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👂🏻" type="tts">ყური: კანის ტიპი-1-2</annotation>
+		<annotation cp="👂🏼">სხეული | ტანი | კანის ტიპი-3</annotation>
+		<annotation cp="👂🏼" type="tts">ყური: კანის ტიპი-3</annotation>
+		<annotation cp="👂🏽">სხეული | ტანი | კანის ტიპი-4</annotation>
+		<annotation cp="👂🏽" type="tts">ყური: კანის ტიპი-4</annotation>
+		<annotation cp="👂🏾">სხეული | ტანი | კანის ტიპი-5</annotation>
+		<annotation cp="👂🏾" type="tts">ყური: კანის ტიპი-5</annotation>
+		<annotation cp="👂🏿">სხეული | ტანი | კანის ტიპი-6</annotation>
+		<annotation cp="👂🏿" type="tts">ყური: კანის ტიპი-6</annotation>
+		<annotation cp="👃🏻">სხეული | ტანი | კანის ტიპი-1-2</annotation>
+		<annotation cp="👃🏻" type="tts">ცხვირი: კანის ტიპი-1-2</annotation>
+		<annotation cp="👃🏼">სხეული | ტანი | კანის ტიპი-3</annotation>
+		<annotation cp="👃🏼" type="tts">ცხვირი: კანის ტიპი-3</annotation>
+		<annotation cp="👃🏽">სხეული | ტანი | კანის ტიპი-4</annotation>
+		<annotation cp="👃🏽" type="tts">ცხვირი: კანის ტიპი-4</annotation>
+		<annotation cp="👃🏾">სხეული | ტანი | კანის ტიპი-5</annotation>
+		<annotation cp="👃🏾" type="tts">ცხვირი: კანის ტიპი-5</annotation>
+		<annotation cp="👃🏿">სხეული | ტანი | კანის ტიპი-6</annotation>
+		<annotation cp="👃🏿" type="tts">ცხვირი: კანის ტიპი-6</annotation>
+		<annotation cp="#⃣">დიეზი | კლავიში | ფუნტი</annotation>
+		<annotation cp="#⃣" type="tts">ნომრის კლავიში</annotation>
+		<annotation cp="*⃣">ასტერისკი | ვარსკვლავი | კლავიში</annotation>
+		<annotation cp="*⃣" type="tts">ასტერისკის კლავიში</annotation>
+		<annotation cp="🇦🇨">დროშა</annotation>
+		<annotation cp="🇦🇨" type="tts">ამაღლების კუნძული</annotation>
+		<annotation cp="🇦🇩">დროშა</annotation>
+		<annotation cp="🇦🇩" type="tts">ანდორა</annotation>
+		<annotation cp="🇦🇪">დროშა</annotation>
+		<annotation cp="🇦🇪" type="tts">არაბთა გაერთიანებული საამიროები</annotation>
+		<annotation cp="🇦🇫">დროშა</annotation>
+		<annotation cp="🇦🇫" type="tts">ავღანეთი</annotation>
+		<annotation cp="🇦🇬">დროშა</annotation>
+		<annotation cp="🇦🇬" type="tts">ანტიგუა და ბარბუდა</annotation>
+		<annotation cp="🇦🇮">დროშა</annotation>
+		<annotation cp="🇦🇮" type="tts">ანგვილა</annotation>
+		<annotation cp="🇦🇱">დროშა</annotation>
+		<annotation cp="🇦🇱" type="tts">ალბანეთი</annotation>
+		<annotation cp="🇦🇲">დროშა</annotation>
+		<annotation cp="🇦🇲" type="tts">სომხეთი</annotation>
+		<annotation cp="🇦🇴">დროშა</annotation>
+		<annotation cp="🇦🇴" type="tts">ანგოლა</annotation>
+		<annotation cp="🇦🇶">დროშა</annotation>
+		<annotation cp="🇦🇶" type="tts">ანტარქტიკა</annotation>
+		<annotation cp="🇦🇷">დროშა</annotation>
+		<annotation cp="🇦🇷" type="tts">არგენტინა</annotation>
+		<annotation cp="🇦🇸">დროშა</annotation>
+		<annotation cp="🇦🇸" type="tts">ამერიკის სამოა</annotation>
+		<annotation cp="🇦🇹">დროშა</annotation>
+		<annotation cp="🇦🇹" type="tts">ავსტრია</annotation>
+		<annotation cp="🇦🇺">დროშა</annotation>
+		<annotation cp="🇦🇺" type="tts">ავსტრალია</annotation>
+		<annotation cp="🇦🇼">დროშა</annotation>
+		<annotation cp="🇦🇼" type="tts">არუბა</annotation>
+		<annotation cp="🇦🇽">დროშა</annotation>
+		<annotation cp="🇦🇽" type="tts">ალანდის კუნძულები</annotation>
+		<annotation cp="🇦🇿">დროშა</annotation>
+		<annotation cp="🇦🇿" type="tts">აზერბაიჯანი</annotation>
+		<annotation cp="🇧🇦">დროშა</annotation>
+		<annotation cp="🇧🇦" type="tts">ბოსნია და ჰერცეგოვინა</annotation>
+		<annotation cp="🇧🇧">დროშა</annotation>
+		<annotation cp="🇧🇧" type="tts">ბარბადოსი</annotation>
+		<annotation cp="🇧🇩">დროშა</annotation>
+		<annotation cp="🇧🇩" type="tts">ბანგლადეში</annotation>
+		<annotation cp="🇧🇪">დროშა</annotation>
+		<annotation cp="🇧🇪" type="tts">ბელგია</annotation>
+		<annotation cp="🇧🇫">დროშა</annotation>
+		<annotation cp="🇧🇫" type="tts">ბურკინა-ფასო</annotation>
+		<annotation cp="🇧🇬">დროშა</annotation>
+		<annotation cp="🇧🇬" type="tts">ბულგარეთი</annotation>
+		<annotation cp="🇧🇭">დროშა</annotation>
+		<annotation cp="🇧🇭" type="tts">ბაჰრეინი</annotation>
+		<annotation cp="🇧🇮">დროშა</annotation>
+		<annotation cp="🇧🇮" type="tts">ბურუნდი</annotation>
+		<annotation cp="🇧🇯">დროშა</annotation>
+		<annotation cp="🇧🇯" type="tts">ბენინი</annotation>
+		<annotation cp="🇧🇱">დროშა</annotation>
+		<annotation cp="🇧🇱" type="tts">სენ-ბართელმი</annotation>
+		<annotation cp="🇧🇲">დროშა</annotation>
+		<annotation cp="🇧🇲" type="tts">ბერმუდა</annotation>
+		<annotation cp="🇧🇳">დროშა</annotation>
+		<annotation cp="🇧🇳" type="tts">ბრუნეი</annotation>
+		<annotation cp="🇧🇴">დროშა</annotation>
+		<annotation cp="🇧🇴" type="tts">ბოლივია</annotation>
+		<annotation cp="🇧🇶">დროშა</annotation>
+		<annotation cp="🇧🇶" type="tts">კარიბის ნიდერლანდები</annotation>
+		<annotation cp="🇧🇷">დროშა</annotation>
+		<annotation cp="🇧🇷" type="tts">ბრაზილია</annotation>
+		<annotation cp="🇧🇸">დროშა</annotation>
+		<annotation cp="🇧🇸" type="tts">ბაჰამის კუნძულები</annotation>
+		<annotation cp="🇧🇹">დროშა</annotation>
+		<annotation cp="🇧🇹" type="tts">ბუტანი</annotation>
+		<annotation cp="🇧🇻">დროშა</annotation>
+		<annotation cp="🇧🇻" type="tts">ბუვე</annotation>
+		<annotation cp="🇧🇼">დროშა</annotation>
+		<annotation cp="🇧🇼" type="tts">ბოტსვანა</annotation>
+		<annotation cp="🇧🇾">დროშა</annotation>
+		<annotation cp="🇧🇾" type="tts">ბელარუსი</annotation>
+		<annotation cp="🇧🇿">დროშა</annotation>
+		<annotation cp="🇧🇿" type="tts">ბელიზი</annotation>
+		<annotation cp="🇨🇦">დროშა</annotation>
+		<annotation cp="🇨🇦" type="tts">კანადა</annotation>
+		<annotation cp="🇨🇨">დროშა</annotation>
+		<annotation cp="🇨🇨" type="tts">ქოქოსის (კილინგის) კუნძულები</annotation>
+		<annotation cp="🇨🇩">დროშა</annotation>
+		<annotation cp="🇨🇩" type="tts">კონგო - კინშასა</annotation>
+		<annotation cp="🇨🇫">დროშა</annotation>
+		<annotation cp="🇨🇫" type="tts">ცენტრალური აფრიკის რესპუბლიკა</annotation>
+		<annotation cp="🇨🇬">დროშა</annotation>
+		<annotation cp="🇨🇬" type="tts">კონგო - ბრაზავილი</annotation>
+		<annotation cp="🇨🇭">დროშა</annotation>
+		<annotation cp="🇨🇭" type="tts">შვეიცარია</annotation>
+		<annotation cp="🇨🇮">დროშა</annotation>
+		<annotation cp="🇨🇮" type="tts">კოტ-დივუარი</annotation>
+		<annotation cp="🇨🇰">დროშა</annotation>
+		<annotation cp="🇨🇰" type="tts">კუკის კუნძულები</annotation>
+		<annotation cp="🇨🇱">დროშა</annotation>
+		<annotation cp="🇨🇱" type="tts">ჩილე</annotation>
+		<annotation cp="🇨🇲">დროშა</annotation>
+		<annotation cp="🇨🇲" type="tts">კამერუნი</annotation>
+		<annotation cp="🇨🇳">დროშა</annotation>
+		<annotation cp="🇨🇳" type="tts">ჩინეთი</annotation>
+		<annotation cp="🇨🇴">დროშა</annotation>
+		<annotation cp="🇨🇴" type="tts">კოლუმბია</annotation>
+		<annotation cp="🇨🇵">დროშა</annotation>
+		<annotation cp="🇨🇵" type="tts">კლიპერტონის კუნძული</annotation>
+		<annotation cp="🇨🇷">დროშა</annotation>
+		<annotation cp="🇨🇷" type="tts">კოსტა-რიკა</annotation>
+		<annotation cp="🇨🇺">დროშა</annotation>
+		<annotation cp="🇨🇺" type="tts">კუბა</annotation>
+		<annotation cp="🇨🇻">დროშა</annotation>
+		<annotation cp="🇨🇻" type="tts">კაბო-ვერდე</annotation>
+		<annotation cp="🇨🇼">დროშა</annotation>
+		<annotation cp="🇨🇼" type="tts">კიურასაო</annotation>
+		<annotation cp="🇨🇽">დროშა</annotation>
+		<annotation cp="🇨🇽" type="tts">შობის კუნძული</annotation>
+		<annotation cp="🇨🇾">დროშა</annotation>
+		<annotation cp="🇨🇾" type="tts">კვიპროსი</annotation>
+		<annotation cp="🇨🇿">დროშა</annotation>
+		<annotation cp="🇨🇿" type="tts">ჩეხეთი</annotation>
+		<annotation cp="🇩🇪">დროშა</annotation>
+		<annotation cp="🇩🇪" type="tts">გერმანია</annotation>
+		<annotation cp="🇩🇬">დროშა</annotation>
+		<annotation cp="🇩🇬" type="tts">დიეგო-გარსია</annotation>
+		<annotation cp="🇩🇯">დროშა</annotation>
+		<annotation cp="🇩🇯" type="tts">ჯიბუტი</annotation>
+		<annotation cp="🇩🇰">დროშა</annotation>
+		<annotation cp="🇩🇰" type="tts">დანია</annotation>
+		<annotation cp="🇩🇲">დროშა</annotation>
+		<annotation cp="🇩🇲" type="tts">დომინიკა</annotation>
+		<annotation cp="🇩🇴">დროშა</annotation>
+		<annotation cp="🇩🇴" type="tts">დომინიკელთა რესპუბლიკა</annotation>
+		<annotation cp="🇩🇿">დროშა</annotation>
+		<annotation cp="🇩🇿" type="tts">ალჟირი</annotation>
+		<annotation cp="🇪🇦">დროშა</annotation>
+		<annotation cp="🇪🇦" type="tts">სეუტა და მელილა</annotation>
+		<annotation cp="🇪🇨">დროშა</annotation>
+		<annotation cp="🇪🇨" type="tts">ეკვადორი</annotation>
+		<annotation cp="🇪🇪">დროშა</annotation>
+		<annotation cp="🇪🇪" type="tts">ესტონეთი</annotation>
+		<annotation cp="🇪🇬">დროშა</annotation>
+		<annotation cp="🇪🇬" type="tts">ეგვიპტე</annotation>
+		<annotation cp="🇪🇭">დროშა</annotation>
+		<annotation cp="🇪🇭" type="tts">დასავლეთ საჰარა</annotation>
+		<annotation cp="🇪🇷">დროშა</annotation>
+		<annotation cp="🇪🇷" type="tts">ერიტრეა</annotation>
+		<annotation cp="🇪🇸">დროშა</annotation>
+		<annotation cp="🇪🇸" type="tts">ესპანეთი</annotation>
+		<annotation cp="🇪🇹">დროშა</annotation>
+		<annotation cp="🇪🇹" type="tts">ეთიოპია</annotation>
+		<annotation cp="🇪🇺">დროშა</annotation>
+		<annotation cp="🇪🇺" type="tts">ევროკავშირი</annotation>
+		<annotation cp="🇫🇮">დროშა</annotation>
+		<annotation cp="🇫🇮" type="tts">ფინეთი</annotation>
+		<annotation cp="🇫🇯">დროშა</annotation>
+		<annotation cp="🇫🇯" type="tts">ფიჯი</annotation>
+		<annotation cp="🇫🇰">დროშა</annotation>
+		<annotation cp="🇫🇰" type="tts">ფოლკლენდის კუნძულები</annotation>
+		<annotation cp="🇫🇲">დროშა</annotation>
+		<annotation cp="🇫🇲" type="tts">მიკრონეზია</annotation>
+		<annotation cp="🇫🇴">დროშა</annotation>
+		<annotation cp="🇫🇴" type="tts">ფარერის კუნძულები</annotation>
+		<annotation cp="🇫🇷">დროშა</annotation>
+		<annotation cp="🇫🇷" type="tts">საფრანგეთი</annotation>
+		<annotation cp="🇬🇦">დროშა</annotation>
+		<annotation cp="🇬🇦" type="tts">გაბონი</annotation>
+		<annotation cp="🇬🇧">დროშა</annotation>
+		<annotation cp="🇬🇧" type="tts">გაერთიანებული სამეფო</annotation>
+		<annotation cp="🇬🇩">დროშა</annotation>
+		<annotation cp="🇬🇩" type="tts">გრენადა</annotation>
+		<annotation cp="🇬🇪">დროშა</annotation>
+		<annotation cp="🇬🇪" type="tts">საქართველო</annotation>
+		<annotation cp="🇬🇫">დროშა</annotation>
+		<annotation cp="🇬🇫" type="tts">საფრანგეთის გვიანა</annotation>
+		<annotation cp="🇬🇬">დროშა</annotation>
+		<annotation cp="🇬🇬" type="tts">გერნსი</annotation>
+		<annotation cp="🇬🇭">დროშა</annotation>
+		<annotation cp="🇬🇭" type="tts">განა</annotation>
+		<annotation cp="🇬🇮">დროშა</annotation>
+		<annotation cp="🇬🇮" type="tts">გიბრალტარი</annotation>
+		<annotation cp="🇬🇱">დროშა</annotation>
+		<annotation cp="🇬🇱" type="tts">გრენლანდია</annotation>
+		<annotation cp="🇬🇲">დროშა</annotation>
+		<annotation cp="🇬🇲" type="tts">გამბია</annotation>
+		<annotation cp="🇬🇳">დროშა</annotation>
+		<annotation cp="🇬🇳" type="tts">გვინეა</annotation>
+		<annotation cp="🇬🇵">დროშა</annotation>
+		<annotation cp="🇬🇵" type="tts">გვადელუპა</annotation>
+		<annotation cp="🇬🇶">დროშა</annotation>
+		<annotation cp="🇬🇶" type="tts">ეკვატორული გვინეა</annotation>
+		<annotation cp="🇬🇷">დროშა</annotation>
+		<annotation cp="🇬🇷" type="tts">საბერძნეთი</annotation>
+		<annotation cp="🇬🇸">დროშა</annotation>
+		<annotation cp="🇬🇸" type="tts">სამხრეთ ჯორჯია და სამხრეთ სენდვიჩის კუნძულები</annotation>
+		<annotation cp="🇬🇹">დროშა</annotation>
+		<annotation cp="🇬🇹" type="tts">გვატემალა</annotation>
+		<annotation cp="🇬🇺">დროშა</annotation>
+		<annotation cp="🇬🇺" type="tts">გუამი</annotation>
+		<annotation cp="🇬🇼">დროშა</annotation>
+		<annotation cp="🇬🇼" type="tts">გვინეა-ბისაუ</annotation>
+		<annotation cp="🇬🇾">დროშა</annotation>
+		<annotation cp="🇬🇾" type="tts">გაიანა</annotation>
+		<annotation cp="🇭🇰">დროშა</annotation>
+		<annotation cp="🇭🇰" type="tts">ჰონკონგის სპეციალური ადმინისტრაციული რეგიონი ჩინეთი</annotation>
+		<annotation cp="🇭🇲">დროშა</annotation>
+		<annotation cp="🇭🇲" type="tts">ჰერდი და მაკდონალდის კუნძულები</annotation>
+		<annotation cp="🇭🇳">დროშა</annotation>
+		<annotation cp="🇭🇳" type="tts">ჰონდურასი</annotation>
+		<annotation cp="🇭🇷">დროშა</annotation>
+		<annotation cp="🇭🇷" type="tts">ხორვატია</annotation>
+		<annotation cp="🇭🇹">დროშა</annotation>
+		<annotation cp="🇭🇹" type="tts">ჰაიტი</annotation>
+		<annotation cp="🇭🇺">დროშა</annotation>
+		<annotation cp="🇭🇺" type="tts">უნგრეთი</annotation>
+		<annotation cp="🇮🇨">დროშა</annotation>
+		<annotation cp="🇮🇨" type="tts">კანარის კუნძულები</annotation>
+		<annotation cp="🇮🇩">დროშა</annotation>
+		<annotation cp="🇮🇩" type="tts">ინდონეზია</annotation>
+		<annotation cp="🇮🇪">დროშა</annotation>
+		<annotation cp="🇮🇪" type="tts">ირლანდია</annotation>
+		<annotation cp="🇮🇱">დროშა</annotation>
+		<annotation cp="🇮🇱" type="tts">ისრაელი</annotation>
+		<annotation cp="🇮🇲">დროშა</annotation>
+		<annotation cp="🇮🇲" type="tts">მენის კუნძული</annotation>
+		<annotation cp="🇮🇳">დროშა</annotation>
+		<annotation cp="🇮🇳" type="tts">ინდოეთი</annotation>
+		<annotation cp="🇮🇴">დროშა</annotation>
+		<annotation cp="🇮🇴" type="tts">ბრიტანეთის ტერიტორია ინდოეთის ოკეანეში</annotation>
+		<annotation cp="🇮🇶">დროშა</annotation>
+		<annotation cp="🇮🇶" type="tts">ერაყი</annotation>
+		<annotation cp="🇮🇷">დროშა</annotation>
+		<annotation cp="🇮🇷" type="tts">ირანი</annotation>
+		<annotation cp="🇮🇸">დროშა</annotation>
+		<annotation cp="🇮🇸" type="tts">ისლანდია</annotation>
+		<annotation cp="🇮🇹">დროშა</annotation>
+		<annotation cp="🇮🇹" type="tts">იტალია</annotation>
+		<annotation cp="🇯🇪">დროშა</annotation>
+		<annotation cp="🇯🇪" type="tts">ჯერსი</annotation>
+		<annotation cp="🇯🇲">დროშა</annotation>
+		<annotation cp="🇯🇲" type="tts">იამაიკა</annotation>
+		<annotation cp="🇯🇴">დროშა</annotation>
+		<annotation cp="🇯🇴" type="tts">იორდანია</annotation>
+		<annotation cp="🇯🇵">დროშა</annotation>
+		<annotation cp="🇯🇵" type="tts">იაპონია</annotation>
+		<annotation cp="🇰🇪">დროშა</annotation>
+		<annotation cp="🇰🇪" type="tts">კენია</annotation>
+		<annotation cp="🇰🇬">დროშა</annotation>
+		<annotation cp="🇰🇬" type="tts">ყირგიზეთი</annotation>
+		<annotation cp="🇰🇭">დროშა</annotation>
+		<annotation cp="🇰🇭" type="tts">კამბოჯა</annotation>
+		<annotation cp="🇰🇮">დროშა</annotation>
+		<annotation cp="🇰🇮" type="tts">კირიბატი</annotation>
+		<annotation cp="🇰🇲">დროშა</annotation>
+		<annotation cp="🇰🇲" type="tts">კომორის კუნძულები</annotation>
+		<annotation cp="🇰🇳">დროშა</annotation>
+		<annotation cp="🇰🇳" type="tts">სენტ-კიტსი და ნევისი</annotation>
+		<annotation cp="🇰🇵">დროშა</annotation>
+		<annotation cp="🇰🇵" type="tts">ჩრდილოეთ კორეა</annotation>
+		<annotation cp="🇰🇷">დროშა</annotation>
+		<annotation cp="🇰🇷" type="tts">სამხრეთ კორეა</annotation>
+		<annotation cp="🇰🇼">დროშა</annotation>
+		<annotation cp="🇰🇼" type="tts">ქუვეითი</annotation>
+		<annotation cp="🇰🇾">დროშა</annotation>
+		<annotation cp="🇰🇾" type="tts">კაიმანის კუნძულები</annotation>
+		<annotation cp="🇰🇿">დროშა</annotation>
+		<annotation cp="🇰🇿" type="tts">ყაზახეთი</annotation>
+		<annotation cp="🇱🇦">დროშა</annotation>
+		<annotation cp="🇱🇦" type="tts">ლაოსი</annotation>
+		<annotation cp="🇱🇧">დროშა</annotation>
+		<annotation cp="🇱🇧" type="tts">ლიბანი</annotation>
+		<annotation cp="🇱🇨">დროშა</annotation>
+		<annotation cp="🇱🇨" type="tts">სენტ-ლუსია</annotation>
+		<annotation cp="🇱🇮">დროშა</annotation>
+		<annotation cp="🇱🇮" type="tts">ლიხტენშტაინი</annotation>
+		<annotation cp="🇱🇰">დროშა</annotation>
+		<annotation cp="🇱🇰" type="tts">შრი-ლანკა</annotation>
+		<annotation cp="🇱🇷">დროშა</annotation>
+		<annotation cp="🇱🇷" type="tts">ლიბერია</annotation>
+		<annotation cp="🇱🇸">დროშა</annotation>
+		<annotation cp="🇱🇸" type="tts">ლესოთო</annotation>
+		<annotation cp="🇱🇹">დროშა</annotation>
+		<annotation cp="🇱🇹" type="tts">ლიტვა</annotation>
+		<annotation cp="🇱🇺">დროშა</annotation>
+		<annotation cp="🇱🇺" type="tts">ლუქსემბურგი</annotation>
+		<annotation cp="🇱🇻">დროშა</annotation>
+		<annotation cp="🇱🇻" type="tts">ლატვია</annotation>
+		<annotation cp="🇱🇾">დროშა</annotation>
+		<annotation cp="🇱🇾" type="tts">ლიბია</annotation>
+		<annotation cp="🇲🇦">დროშა</annotation>
+		<annotation cp="🇲🇦" type="tts">მაროკო</annotation>
+		<annotation cp="🇲🇨">დროშა</annotation>
+		<annotation cp="🇲🇨" type="tts">მონაკო</annotation>
+		<annotation cp="🇲🇩">დროშა</annotation>
+		<annotation cp="🇲🇩" type="tts">მოლდოვა</annotation>
+		<annotation cp="🇲🇪">დროშა</annotation>
+		<annotation cp="🇲🇪" type="tts">მონტენეგრო</annotation>
+		<annotation cp="🇲🇫">დროშა</annotation>
+		<annotation cp="🇲🇫" type="tts">სენ-მარტენი</annotation>
+		<annotation cp="🇲🇬">დროშა</annotation>
+		<annotation cp="🇲🇬" type="tts">მადაგასკარი</annotation>
+		<annotation cp="🇲🇭">დროშა</annotation>
+		<annotation cp="🇲🇭" type="tts">მარშალის კუნძულები</annotation>
+		<annotation cp="🇲🇰">დროშა</annotation>
+		<annotation cp="🇲🇰" type="tts">მაკედონია</annotation>
+		<annotation cp="🇲🇱">დროშა</annotation>
+		<annotation cp="🇲🇱" type="tts">მალი</annotation>
+		<annotation cp="🇲🇲">დროშა</annotation>
+		<annotation cp="🇲🇲" type="tts">მიანმარი (ბირმა)</annotation>
+		<annotation cp="🇲🇳">დროშა</annotation>
+		<annotation cp="🇲🇳" type="tts">მონღოლეთი</annotation>
+		<annotation cp="🇲🇴">დროშა</annotation>
+		<annotation cp="🇲🇴" type="tts">მაკაოს სპეციალური ადმინისტრაციული რეგიონი ჩინეთი</annotation>
+		<annotation cp="🇲🇵">დროშა</annotation>
+		<annotation cp="🇲🇵" type="tts">ჩრდილოეთ მარიანას კუნძულები</annotation>
+		<annotation cp="🇲🇶">დროშა</annotation>
+		<annotation cp="🇲🇶" type="tts">მარტინიკა</annotation>
+		<annotation cp="🇲🇷">დროშა</annotation>
+		<annotation cp="🇲🇷" type="tts">მავრიტანია</annotation>
+		<annotation cp="🇲🇸">დროშა</annotation>
+		<annotation cp="🇲🇸" type="tts">მონსერატი</annotation>
+		<annotation cp="🇲🇹">დროშა</annotation>
+		<annotation cp="🇲🇹" type="tts">მალტა</annotation>
+		<annotation cp="🇲🇺">დროშა</annotation>
+		<annotation cp="🇲🇺" type="tts">მავრიკი</annotation>
+		<annotation cp="🇲🇻">დროშა</annotation>
+		<annotation cp="🇲🇻" type="tts">მალდივები</annotation>
+		<annotation cp="🇲🇼">დროშა</annotation>
+		<annotation cp="🇲🇼" type="tts">მალავი</annotation>
+		<annotation cp="🇲🇽">დროშა</annotation>
+		<annotation cp="🇲🇽" type="tts">მექსიკა</annotation>
+		<annotation cp="🇲🇾">დროშა</annotation>
+		<annotation cp="🇲🇾" type="tts">მალაიზია</annotation>
+		<annotation cp="🇲🇿">დროშა</annotation>
+		<annotation cp="🇲🇿" type="tts">მოზამბიკი</annotation>
+		<annotation cp="🇳🇦">დროშა</annotation>
+		<annotation cp="🇳🇦" type="tts">ნამიბია</annotation>
+		<annotation cp="🇳🇨">დროშა</annotation>
+		<annotation cp="🇳🇨" type="tts">ახალი კალედონია</annotation>
+		<annotation cp="🇳🇪">დროშა</annotation>
+		<annotation cp="🇳🇪" type="tts">ნიგერი</annotation>
+		<annotation cp="🇳🇫">დროშა</annotation>
+		<annotation cp="🇳🇫" type="tts">ნორფოლკის კუნძული</annotation>
+		<annotation cp="🇳🇬">დროშა</annotation>
+		<annotation cp="🇳🇬" type="tts">ნიგერია</annotation>
+		<annotation cp="🇳🇮">დროშა</annotation>
+		<annotation cp="🇳🇮" type="tts">ნიკარაგუა</annotation>
+		<annotation cp="🇳🇱">დროშა</annotation>
+		<annotation cp="🇳🇱" type="tts">ნიდერლანდები</annotation>
+		<annotation cp="🇳🇴">დროშა</annotation>
+		<annotation cp="🇳🇴" type="tts">ნორვეგია</annotation>
+		<annotation cp="🇳🇵">დროშა</annotation>
+		<annotation cp="🇳🇵" type="tts">ნეპალი</annotation>
+		<annotation cp="🇳🇷">დროშა</annotation>
+		<annotation cp="🇳🇷" type="tts">ნაურუ</annotation>
+		<annotation cp="🇳🇺">დროშა</annotation>
+		<annotation cp="🇳🇺" type="tts">ნიუე</annotation>
+		<annotation cp="🇳🇿">დროშა</annotation>
+		<annotation cp="🇳🇿" type="tts">ახალი ზელანდია</annotation>
+		<annotation cp="🇴🇲">დროშა</annotation>
+		<annotation cp="🇴🇲" type="tts">ომანი</annotation>
+		<annotation cp="🇵🇦">დროშა</annotation>
+		<annotation cp="🇵🇦" type="tts">პანამა</annotation>
+		<annotation cp="🇵🇪">დროშა</annotation>
+		<annotation cp="🇵🇪" type="tts">პერუ</annotation>
+		<annotation cp="🇵🇫">დროშა</annotation>
+		<annotation cp="🇵🇫" type="tts">საფრანგეთის პოლინეზია</annotation>
+		<annotation cp="🇵🇬">დროშა</annotation>
+		<annotation cp="🇵🇬" type="tts">პაპუა-ახალი გვინეა</annotation>
+		<annotation cp="🇵🇭">დროშა</annotation>
+		<annotation cp="🇵🇭" type="tts">ფილიპინები</annotation>
+		<annotation cp="🇵🇰">დროშა</annotation>
+		<annotation cp="🇵🇰" type="tts">პაკისტანი</annotation>
+		<annotation cp="🇵🇱">დროშა</annotation>
+		<annotation cp="🇵🇱" type="tts">პოლონეთი</annotation>
+		<annotation cp="🇵🇲">დროშა</annotation>
+		<annotation cp="🇵🇲" type="tts">სენ-პიერი და მიკელონი</annotation>
+		<annotation cp="🇵🇳">დროშა</annotation>
+		<annotation cp="🇵🇳" type="tts">პიტკერნის კუნძულები</annotation>
+		<annotation cp="🇵🇷">დროშა</annotation>
+		<annotation cp="🇵🇷" type="tts">პუერტო-რიკო</annotation>
+		<annotation cp="🇵🇸">დროშა</annotation>
+		<annotation cp="🇵🇸" type="tts">პალესტინის ტერიტორიები</annotation>
+		<annotation cp="🇵🇹">დროშა</annotation>
+		<annotation cp="🇵🇹" type="tts">პორტუგალია</annotation>
+		<annotation cp="🇵🇼">დროშა</annotation>
+		<annotation cp="🇵🇼" type="tts">პალაუ</annotation>
+		<annotation cp="🇵🇾">დროშა</annotation>
+		<annotation cp="🇵🇾" type="tts">პარაგვაი</annotation>
+		<annotation cp="🇶🇦">დროშა</annotation>
+		<annotation cp="🇶🇦" type="tts">კატარი</annotation>
+		<annotation cp="🇷🇪">დროშა</annotation>
+		<annotation cp="🇷🇪" type="tts">რეუნიონი</annotation>
+		<annotation cp="🇷🇴">დროშა</annotation>
+		<annotation cp="🇷🇴" type="tts">რუმინეთი</annotation>
+		<annotation cp="🇷🇸">დროშა</annotation>
+		<annotation cp="🇷🇸" type="tts">სერბეთი</annotation>
+		<annotation cp="🇷🇺">დროშა</annotation>
+		<annotation cp="🇷🇺" type="tts">რუსეთი</annotation>
+		<annotation cp="🇷🇼">დროშა</annotation>
+		<annotation cp="🇷🇼" type="tts">რუანდა</annotation>
+		<annotation cp="🇸🇦">დროშა</annotation>
+		<annotation cp="🇸🇦" type="tts">საუდის არაბეთი</annotation>
+		<annotation cp="🇸🇧">დროშა</annotation>
+		<annotation cp="🇸🇧" type="tts">სოლომონის კუნძულები</annotation>
+		<annotation cp="🇸🇨">დროშა</annotation>
+		<annotation cp="🇸🇨" type="tts">სეიშელის კუნძულები</annotation>
+		<annotation cp="🇸🇩">დროშა</annotation>
+		<annotation cp="🇸🇩" type="tts">სუდანი</annotation>
+		<annotation cp="🇸🇪">დროშა</annotation>
+		<annotation cp="🇸🇪" type="tts">შვედეთი</annotation>
+		<annotation cp="🇸🇬">დროშა</annotation>
+		<annotation cp="🇸🇬" type="tts">სინგაპური</annotation>
+		<annotation cp="🇸🇭">დროშა</annotation>
+		<annotation cp="🇸🇭" type="tts">წმინდა ელენეს კუნძული</annotation>
+		<annotation cp="🇸🇮">დროშა</annotation>
+		<annotation cp="🇸🇮" type="tts">სლოვენია</annotation>
+		<annotation cp="🇸🇯">დროშა</annotation>
+		<annotation cp="🇸🇯" type="tts">შპიცბერგენი და იან-მაიენი</annotation>
+		<annotation cp="🇸🇰">დროშა</annotation>
+		<annotation cp="🇸🇰" type="tts">სლოვაკეთი</annotation>
+		<annotation cp="🇸🇱">დროშა</annotation>
+		<annotation cp="🇸🇱" type="tts">სიერა-ლეონე</annotation>
+		<annotation cp="🇸🇲">დროშა</annotation>
+		<annotation cp="🇸🇲" type="tts">სან-მარინო</annotation>
+		<annotation cp="🇸🇳">დროშა</annotation>
+		<annotation cp="🇸🇳" type="tts">სენეგალი</annotation>
+		<annotation cp="🇸🇴">დროშა</annotation>
+		<annotation cp="🇸🇴" type="tts">სომალი</annotation>
+		<annotation cp="🇸🇷">დროშა</annotation>
+		<annotation cp="🇸🇷" type="tts">სურინამი</annotation>
+		<annotation cp="🇸🇸">დროშა</annotation>
+		<annotation cp="🇸🇸" type="tts">სამხრეთ სუდანი</annotation>
+		<annotation cp="🇸🇹">დროშა</annotation>
+		<annotation cp="🇸🇹" type="tts">სან-ტომე და პრინსიპი</annotation>
+		<annotation cp="🇸🇻">დროშა</annotation>
+		<annotation cp="🇸🇻" type="tts">სალვადორი</annotation>
+		<annotation cp="🇸🇽">დროშა</annotation>
+		<annotation cp="🇸🇽" type="tts">სინტ-მარტენი</annotation>
+		<annotation cp="🇸🇾">დროშა</annotation>
+		<annotation cp="🇸🇾" type="tts">სირია</annotation>
+		<annotation cp="🇸🇿">დროშა</annotation>
+		<annotation cp="🇸🇿" type="tts">სვაზილენდი</annotation>
+		<annotation cp="🇹🇦">დროშა</annotation>
+		<annotation cp="🇹🇦" type="tts">ტრისტან-და-კუნია</annotation>
+		<annotation cp="🇹🇨">დროშა</annotation>
+		<annotation cp="🇹🇨" type="tts">თერქს-ქაიქოსის კუნძულები</annotation>
+		<annotation cp="🇹🇩">დროშა</annotation>
+		<annotation cp="🇹🇩" type="tts">ჩადი</annotation>
+		<annotation cp="🇹🇫">დროშა</annotation>
+		<annotation cp="🇹🇫" type="tts">ფრანგული სამხრეთის ტერიტორიები</annotation>
+		<annotation cp="🇹🇬">დროშა</annotation>
+		<annotation cp="🇹🇬" type="tts">ტოგო</annotation>
+		<annotation cp="🇹🇭">დროშა</annotation>
+		<annotation cp="🇹🇭" type="tts">ტაილანდი</annotation>
+		<annotation cp="🇹🇯">დროშა</annotation>
+		<annotation cp="🇹🇯" type="tts">ტაჯიკეთი</annotation>
+		<annotation cp="🇹🇰">დროშა</annotation>
+		<annotation cp="🇹🇰" type="tts">ტოკელაუ</annotation>
+		<annotation cp="🇹🇱">დროშა</annotation>
+		<annotation cp="🇹🇱" type="tts">ტიმორ-ლესტე</annotation>
+		<annotation cp="🇹🇲">დროშა</annotation>
+		<annotation cp="🇹🇲" type="tts">თურქმენეთი</annotation>
+		<annotation cp="🇹🇳">დროშა</annotation>
+		<annotation cp="🇹🇳" type="tts">ტუნისი</annotation>
+		<annotation cp="🇹🇴">დროშა</annotation>
+		<annotation cp="🇹🇴" type="tts">ტონგა</annotation>
+		<annotation cp="🇹🇷">დროშა</annotation>
+		<annotation cp="🇹🇷" type="tts">თურქეთი</annotation>
+		<annotation cp="🇹🇹">დროშა</annotation>
+		<annotation cp="🇹🇹" type="tts">ტრინიდადი და ტობაგო</annotation>
+		<annotation cp="🇹🇻">დროშა</annotation>
+		<annotation cp="🇹🇻" type="tts">ტუვალუ</annotation>
+		<annotation cp="🇹🇼">დროშა</annotation>
+		<annotation cp="🇹🇼" type="tts">ტაივანი</annotation>
+		<annotation cp="🇹🇿">დროშა</annotation>
+		<annotation cp="🇹🇿" type="tts">ტანზანია</annotation>
+		<annotation cp="🇺🇦">დროშა</annotation>
+		<annotation cp="🇺🇦" type="tts">უკრაინა</annotation>
+		<annotation cp="🇺🇬">დროშა</annotation>
+		<annotation cp="🇺🇬" type="tts">უგანდა</annotation>
+		<annotation cp="🇺🇲">დროშა</annotation>
+		<annotation cp="🇺🇲" type="tts">აშშ-ის შორეული კუნძულები</annotation>
+		<annotation cp="🇺🇳">დროშა</annotation>
+		<annotation cp="🇺🇳" type="tts">გაერო</annotation>
+		<annotation cp="🇺🇸">დროშა</annotation>
+		<annotation cp="🇺🇸" type="tts">ამერიკის შეერთებული შტატები</annotation>
+		<annotation cp="🇺🇾">დროშა</annotation>
+		<annotation cp="🇺🇾" type="tts">ურუგვაი</annotation>
+		<annotation cp="🇺🇿">დროშა</annotation>
+		<annotation cp="🇺🇿" type="tts">უზბეკეთი</annotation>
+		<annotation cp="🇻🇦">დროშა</annotation>
+		<annotation cp="🇻🇦" type="tts">ქალაქი ვატიკანი</annotation>
+		<annotation cp="🇻🇨">დროშა</annotation>
+		<annotation cp="🇻🇨" type="tts">სენტ-ვინსენტი და გრენადინები</annotation>
+		<annotation cp="🇻🇪">დროშა</annotation>
+		<annotation cp="🇻🇪" type="tts">ვენესუელა</annotation>
+		<annotation cp="🇻🇬">დროშა</annotation>
+		<annotation cp="🇻🇬" type="tts">ბრიტანეთის ვირჯინის კუნძულები</annotation>
+		<annotation cp="🇻🇮">დროშა</annotation>
+		<annotation cp="🇻🇮" type="tts">აშშ-ის ვირჯინის კუნძულები</annotation>
+		<annotation cp="🇻🇳">დროშა</annotation>
+		<annotation cp="🇻🇳" type="tts">ვიეტნამი</annotation>
+		<annotation cp="🇻🇺">დროშა</annotation>
+		<annotation cp="🇻🇺" type="tts">ვანუატუ</annotation>
+		<annotation cp="🇼🇫">დროშა</annotation>
+		<annotation cp="🇼🇫" type="tts">უოლისი და ფუტუნა</annotation>
+		<annotation cp="🇼🇸">დროშა</annotation>
+		<annotation cp="🇼🇸" type="tts">სამოა</annotation>
+		<annotation cp="🇽🇰">დროშა</annotation>
+		<annotation cp="🇽🇰" type="tts">კოსოვო</annotation>
+		<annotation cp="🇾🇪">დროშა</annotation>
+		<annotation cp="🇾🇪" type="tts">იემენი</annotation>
+		<annotation cp="🇾🇹">დროშა</annotation>
+		<annotation cp="🇾🇹" type="tts">მაიოტა</annotation>
+		<annotation cp="🇿🇦">დროშა</annotation>
+		<annotation cp="🇿🇦" type="tts">სამხრეთ აფრიკის რესპუბლიკა</annotation>
+		<annotation cp="🇿🇲">დროშა</annotation>
+		<annotation cp="🇿🇲" type="tts">ზამბია</annotation>
+		<annotation cp="🇿🇼">დროშა</annotation>
+		<annotation cp="🇿🇼" type="tts">ზიმბაბვე</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">დროშა</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">ინგლისი</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">დროშა</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">შოტლანდია</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">დროშა</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">უელსი</annotation>
+	</annotations>
+</ldml>

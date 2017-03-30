@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="nl"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | cijfer | nul | toets</annotation>
+		<annotation cp="0⃣" type="tts">cijfer nul (toets)</annotation>
+		<annotation cp="1⃣">1 | cijfer | toets | één</annotation>
+		<annotation cp="1⃣" type="tts">cijfer één (toets)</annotation>
+		<annotation cp="2⃣">2 | cijfer | toets | twee</annotation>
+		<annotation cp="2⃣" type="tts">cijfer twee (toets)</annotation>
+		<annotation cp="3⃣">3 | cijfer | drie | toets</annotation>
+		<annotation cp="3⃣" type="tts">cijfer drie (toets)</annotation>
+		<annotation cp="4⃣">4 | cijfer | toets | vier</annotation>
+		<annotation cp="4⃣" type="tts">cijfer vier (toets)</annotation>
+		<annotation cp="5⃣">5 | cijfer | toets | vijf</annotation>
+		<annotation cp="5⃣" type="tts">cijfer vijf (toets)</annotation>
+		<annotation cp="6⃣">6 | cijfer | toets | zes</annotation>
+		<annotation cp="6⃣" type="tts">cijfer zes (toets)</annotation>
+		<annotation cp="7⃣">7 | cijfer | toets | zeven</annotation>
+		<annotation cp="7⃣" type="tts">cijfer zeven (toets)</annotation>
+		<annotation cp="8⃣">8 | acht | cijfer | toets</annotation>
+		<annotation cp="8⃣" type="tts">cijfer acht (toets)</annotation>
+		<annotation cp="9⃣">9 | cijfer | negen | toets</annotation>
+		<annotation cp="9⃣" type="tts">cijfer negen (toets)</annotation>
+		<annotation cp="👶🏻">baby | kindje | huidtype 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">baby: huidtype 1–2</annotation>
+		<annotation cp="👶🏼">baby | kindje | huidtype 3</annotation>
+		<annotation cp="👶🏼" type="tts">baby: huidtype 3</annotation>
+		<annotation cp="👶🏽">baby | kindje | huidtype 4</annotation>
+		<annotation cp="👶🏽" type="tts">baby: huidtype 4</annotation>
+		<annotation cp="👶🏾">baby | kindje | huidtype 5</annotation>
+		<annotation cp="👶🏾" type="tts">baby: huidtype 5</annotation>
+		<annotation cp="👶🏿">baby | kindje | huidtype 6</annotation>
+		<annotation cp="👶🏿" type="tts">baby: huidtype 6</annotation>
+		<annotation cp="👦🏻">jongen | huidtype 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">jongen: huidtype 1–2</annotation>
+		<annotation cp="👦🏼">jongen | huidtype 3</annotation>
+		<annotation cp="👦🏼" type="tts">jongen: huidtype 3</annotation>
+		<annotation cp="👦🏽">jongen | huidtype 4</annotation>
+		<annotation cp="👦🏽" type="tts">jongen: huidtype 4</annotation>
+		<annotation cp="👦🏾">jongen | huidtype 5</annotation>
+		<annotation cp="👦🏾" type="tts">jongen: huidtype 5</annotation>
+		<annotation cp="👦🏿">jongen | huidtype 6</annotation>
+		<annotation cp="👦🏿" type="tts">jongen: huidtype 6</annotation>
+		<annotation cp="👧🏻">maagd | sterrenbeeld | huidtype 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">meisje: huidtype 1–2</annotation>
+		<annotation cp="👧🏼">maagd | sterrenbeeld | huidtype 3</annotation>
+		<annotation cp="👧🏼" type="tts">meisje: huidtype 3</annotation>
+		<annotation cp="👧🏽">maagd | sterrenbeeld | huidtype 4</annotation>
+		<annotation cp="👧🏽" type="tts">meisje: huidtype 4</annotation>
+		<annotation cp="👧🏾">maagd | sterrenbeeld | huidtype 5</annotation>
+		<annotation cp="👧🏾" type="tts">meisje: huidtype 5</annotation>
+		<annotation cp="👧🏿">maagd | sterrenbeeld | huidtype 6</annotation>
+		<annotation cp="👧🏿" type="tts">meisje: huidtype 6</annotation>
+		<annotation cp="👨🏻">man | huidtype 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">man: huidtype 1–2</annotation>
+		<annotation cp="👨🏼">man | huidtype 3</annotation>
+		<annotation cp="👨🏼" type="tts">man: huidtype 3</annotation>
+		<annotation cp="👨🏽">man | huidtype 4</annotation>
+		<annotation cp="👨🏽" type="tts">man: huidtype 4</annotation>
+		<annotation cp="👨🏾">man | huidtype 5</annotation>
+		<annotation cp="👨🏾" type="tts">man: huidtype 5</annotation>
+		<annotation cp="👨🏿">man | huidtype 6</annotation>
+		<annotation cp="👨🏿" type="tts">man: huidtype 6</annotation>
+		<annotation cp="👩🏻">vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">vrouw: huidtype 1–2</annotation>
+		<annotation cp="👩🏼">vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼" type="tts">vrouw: huidtype 3</annotation>
+		<annotation cp="👩🏽">vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽" type="tts">vrouw: huidtype 4</annotation>
+		<annotation cp="👩🏾">vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾" type="tts">vrouw: huidtype 5</annotation>
+		<annotation cp="👩🏿">vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿" type="tts">vrouw: huidtype 6</annotation>
+		<annotation cp="👴🏻">man | oud | ouder | huidtype 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">oudere man: huidtype 1–2</annotation>
+		<annotation cp="👴🏼">man | oud | ouder | huidtype 3</annotation>
+		<annotation cp="👴🏼" type="tts">oudere man: huidtype 3</annotation>
+		<annotation cp="👴🏽">man | oud | ouder | huidtype 4</annotation>
+		<annotation cp="👴🏽" type="tts">oudere man: huidtype 4</annotation>
+		<annotation cp="👴🏾">man | oud | ouder | huidtype 5</annotation>
+		<annotation cp="👴🏾" type="tts">oudere man: huidtype 5</annotation>
+		<annotation cp="👴🏿">man | oud | ouder | huidtype 6</annotation>
+		<annotation cp="👴🏿" type="tts">oudere man: huidtype 6</annotation>
+		<annotation cp="👵🏻">oud | ouder | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">oudere vrouw: huidtype 1–2</annotation>
+		<annotation cp="👵🏼">oud | ouder | vrouw | huidtype 3</annotation>
+		<annotation cp="👵🏼" type="tts">oudere vrouw: huidtype 3</annotation>
+		<annotation cp="👵🏽">oud | ouder | vrouw | huidtype 4</annotation>
+		<annotation cp="👵🏽" type="tts">oudere vrouw: huidtype 4</annotation>
+		<annotation cp="👵🏾">oud | ouder | vrouw | huidtype 5</annotation>
+		<annotation cp="👵🏾" type="tts">oudere vrouw: huidtype 5</annotation>
+		<annotation cp="👵🏿">oud | ouder | vrouw | huidtype 6</annotation>
+		<annotation cp="👵🏿" type="tts">oudere vrouw: huidtype 6</annotation>
+		<annotation cp="👨🏻‍⚕">arts | dokter | man | verpleger | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">mannelijke dokter: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">arts | dokter | man | verpleger | huidtype 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">mannelijke dokter: huidtype 3</annotation>
+		<annotation cp="👨🏽‍⚕">arts | dokter | man | verpleger | huidtype 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">mannelijke dokter: huidtype 4</annotation>
+		<annotation cp="👨🏾‍⚕">arts | dokter | man | verpleger | huidtype 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">mannelijke dokter: huidtype 5</annotation>
+		<annotation cp="👨🏿‍⚕">arts | dokter | man | verpleger | huidtype 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">mannelijke dokter: huidtype 6</annotation>
+		<annotation cp="👩🏻‍⚕">arts | dokter | verpleegster | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">vrouwelijke dokter: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">arts | dokter | verpleegster | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">vrouwelijke dokter: huidtype 3</annotation>
+		<annotation cp="👩🏽‍⚕">arts | dokter | verpleegster | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">vrouwelijke dokter: huidtype 4</annotation>
+		<annotation cp="👩🏾‍⚕">arts | dokter | verpleegster | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">vrouwelijke dokter: huidtype 5</annotation>
+		<annotation cp="👩🏿‍⚕">arts | dokter | verpleegster | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">vrouwelijke dokter: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🎓">jongen | man | scholier | student | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">student: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">jongen | man | scholier | student | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">student: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🎓">jongen | man | scholier | student | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">student: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🎓">jongen | man | scholier | student | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">student: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🎓">jongen | man | scholier | student | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">student: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🎓">meisje | scholiere | studente | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">studente: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">meisje | scholiere | studente | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">studente: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🎓">meisje | scholiere | studente | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">studente: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🎓">meisje | scholiere | studente | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">studente: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🎓">meisje | scholiere | studente | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">studente: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🏫">docent | leraar | meester | professor | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">docent: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">docent | leraar | meester | professor | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">docent: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🏫">docent | leraar | meester | professor | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">docent: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🏫">docent | leraar | meester | professor | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">docent: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🏫">docent | leraar | meester | professor | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">docent: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🏫">docente | juf | lerares | professor | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">docente: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">docente | juf | lerares | professor | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">docente: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🏫">docente | juf | lerares | professor | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">docente: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🏫">docente | juf | lerares | professor | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">docente: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🏫">docente | juf | lerares | professor | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">docente: huidtype 6</annotation>
+		<annotation cp="👨🏻‍⚖">man | rechter | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">mannelijke rechter: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">man | rechter | huidtype 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">mannelijke rechter: huidtype 3</annotation>
+		<annotation cp="👨🏽‍⚖">man | rechter | huidtype 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">mannelijke rechter: huidtype 4</annotation>
+		<annotation cp="👨🏾‍⚖">man | rechter | huidtype 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">mannelijke rechter: huidtype 5</annotation>
+		<annotation cp="👨🏿‍⚖">man | rechter | huidtype 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">mannelijke rechter: huidtype 6</annotation>
+		<annotation cp="👩🏻‍⚖">rechter | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">vrouwelijke rechter: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">rechter | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">vrouwelijke rechter: huidtype 3</annotation>
+		<annotation cp="👩🏽‍⚖">rechter | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">vrouwelijke rechter: huidtype 4</annotation>
+		<annotation cp="👩🏾‍⚖">rechter | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">vrouwelijke rechter: huidtype 5</annotation>
+		<annotation cp="👩🏿‍⚖">rechter | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">vrouwelijke rechter: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🌾">boer | man | tuinder | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">boer: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">boer | man | tuinder | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">boer: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🌾">boer | man | tuinder | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">boer: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🌾">boer | man | tuinder | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">boer: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🌾">boer | man | tuinder | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">boer: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🌾">boerin | tuinder | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">boerin: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">boerin | tuinder | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">boerin: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🌾">boerin | tuinder | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">boerin: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🌾">boerin | tuinder | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">boerin: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🌾">boerin | tuinder | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">boerin: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🍳">chefkok | kok | man | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">kok: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">chefkok | kok | man | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">kok: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🍳">chefkok | kok | man | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">kok: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🍳">chefkok | kok | man | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">kok: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🍳">chefkok | kok | man | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">kok: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🍳">chefkok | kok | kokkin | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">kokkin: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">chefkok | kok | kokkin | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">kokkin: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🍳">chefkok | kok | kokkin | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">kokkin: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🍳">chefkok | kok | kokkin | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">kokkin: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🍳">chefkok | kok | kokkin | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">kokkin: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🔧">elektricien | loodgieter | man | monteur | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">mannelijke monteur: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">elektricien | loodgieter | man | monteur | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">mannelijke monteur: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🔧">elektricien | loodgieter | man | monteur | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">mannelijke monteur: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🔧">elektricien | loodgieter | man | monteur | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">mannelijke monteur: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🔧">elektricien | loodgieter | man | monteur | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">mannelijke monteur: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🔧">elektricien | loodgieter | monteur | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">vrouwelijke monteur: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">elektricien | loodgieter | monteur | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">vrouwelijke monteur: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🔧">elektricien | loodgieter | monteur | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">vrouwelijke monteur: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🔧">elektricien | loodgieter | monteur | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">vrouwelijke monteur: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🔧">elektricien | loodgieter | monteur | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">vrouwelijke monteur: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🏭">arbeider | man | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">arbeider: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">arbeider | man | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">arbeider: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🏭">arbeider | man | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">arbeider: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🏭">arbeider | man | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">arbeider: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🏭">arbeider | man | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">arbeider: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🏭">arbeidster | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">arbeidster: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">arbeidster | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">arbeidster: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🏭">arbeidster | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">arbeidster: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🏭">arbeidster | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">arbeidster: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🏭">arbeidster | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">arbeidster: huidtype 6</annotation>
+		<annotation cp="👨🏻‍💼">architect | kantoor | man | manager | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">kantoormedewerker: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍💼">architect | kantoor | man | manager | huidtype 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">kantoormedewerker: huidtype 3</annotation>
+		<annotation cp="👨🏽‍💼">architect | kantoor | man | manager | huidtype 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">kantoormedewerker: huidtype 4</annotation>
+		<annotation cp="👨🏾‍💼">architect | kantoor | man | manager | huidtype 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">kantoormedewerker: huidtype 5</annotation>
+		<annotation cp="👨🏿‍💼">architect | kantoor | man | manager | huidtype 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">kantoormedewerker: huidtype 6</annotation>
+		<annotation cp="👩🏻‍💼">architect | kantoor | manager | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">kantoormedewerkster: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍💼">architect | kantoor | manager | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">kantoormedewerkster: huidtype 3</annotation>
+		<annotation cp="👩🏽‍💼">architect | kantoor | manager | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">kantoormedewerkster: huidtype 4</annotation>
+		<annotation cp="👩🏾‍💼">architect | kantoor | manager | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">kantoormedewerkster: huidtype 5</annotation>
+		<annotation cp="👩🏿‍💼">architect | kantoor | manager | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">kantoormedewerkster: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">natuurwetenschapper: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">natuurwetenschapper: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">natuurwetenschapper: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">natuurwetenschapper: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">natuurwetenschapper: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">natuurwetenschapster: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">natuurwetenschapster: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">natuurwetenschapster: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">natuurwetenschapster: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🔬">bioloog | natuurkundige | scheikundige | wetenschapper | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">natuurwetenschapster: huidtype 6</annotation>
+		<annotation cp="👨🏻‍💻">man | ontwikkelaar | programmeur | techneut | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">techneut: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍💻">man | ontwikkelaar | programmeur | techneut | huidtype 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">techneut: huidtype 3</annotation>
+		<annotation cp="👨🏽‍💻">man | ontwikkelaar | programmeur | techneut | huidtype 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">techneut: huidtype 4</annotation>
+		<annotation cp="👨🏾‍💻">man | ontwikkelaar | programmeur | techneut | huidtype 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">techneut: huidtype 5</annotation>
+		<annotation cp="👨🏿‍💻">man | ontwikkelaar | programmeur | techneut | huidtype 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">techneut: huidtype 6</annotation>
+		<annotation cp="👩🏻‍💻">ontwikkelaar | programmeur | techneut | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">techneute: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍💻">ontwikkelaar | programmeur | techneut | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">techneute: huidtype 3</annotation>
+		<annotation cp="👩🏽‍💻">ontwikkelaar | programmeur | techneut | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">techneute: huidtype 4</annotation>
+		<annotation cp="👩🏾‍💻">ontwikkelaar | programmeur | techneut | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">techneute: huidtype 5</annotation>
+		<annotation cp="👩🏿‍💻">ontwikkelaar | programmeur | techneut | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">techneute: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🎤">acteur | entertainer | ster | zanger | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">zanger: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">acteur | entertainer | ster | zanger | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">zanger: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🎤">acteur | entertainer | ster | zanger | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">zanger: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🎤">acteur | entertainer | ster | zanger | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">zanger: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🎤">acteur | entertainer | ster | zanger | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">zanger: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🎤">actrice | entertainer | ster | zangeres | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">zangeres: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">actrice | entertainer | ster | zangeres | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">zangeres: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🎤">actrice | entertainer | ster | zangeres | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">zangeres: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🎤">actrice | entertainer | ster | zangeres | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">zangeres: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🎤">actrice | entertainer | ster | zangeres | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">zangeres: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🎨">kunstenaar | palet | schilder | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">kunstenaar: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">kunstenaar | palet | schilder | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">kunstenaar: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🎨">kunstenaar | palet | schilder | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">kunstenaar: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🎨">kunstenaar | palet | schilder | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">kunstenaar: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🎨">kunstenaar | palet | schilder | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">kunstenaar: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🎨">kunstenares | palet | schilderes | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">kunstenares: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">kunstenares | palet | schilderes | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">kunstenares: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🎨">kunstenares | palet | schilderes | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">kunstenares: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🎨">kunstenares | palet | schilderes | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">kunstenares: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🎨">kunstenares | palet | schilderes | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">kunstenares: huidtype 6</annotation>
+		<annotation cp="👨🏻‍✈">man | piloot | vliegtuig | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">piloot: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍✈">man | piloot | vliegtuig | huidtype 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">piloot: huidtype 3</annotation>
+		<annotation cp="👨🏽‍✈">man | piloot | vliegtuig | huidtype 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">piloot: huidtype 4</annotation>
+		<annotation cp="👨🏾‍✈">man | piloot | vliegtuig | huidtype 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">piloot: huidtype 5</annotation>
+		<annotation cp="👨🏿‍✈">man | piloot | vliegtuig | huidtype 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">piloot: huidtype 6</annotation>
+		<annotation cp="👩🏻‍✈">pilote | vliegtuig | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">pilote: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍✈">pilote | vliegtuig | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">pilote: huidtype 3</annotation>
+		<annotation cp="👩🏽‍✈">pilote | vliegtuig | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">pilote: huidtype 4</annotation>
+		<annotation cp="👩🏾‍✈">pilote | vliegtuig | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">pilote: huidtype 5</annotation>
+		<annotation cp="👩🏿‍✈">pilote | vliegtuig | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">pilote: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🚀">astronaut | man | raket | ruimte | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">astronaut: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">astronaut | man | raket | ruimte | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">astronaut: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🚀">astronaut | man | raket | ruimte | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">astronaut: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🚀">astronaut | man | raket | ruimte | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">astronaut: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🚀">astronaut | man | raket | ruimte | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">astronaut: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🚀">astronaute | raket | ruimte | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">astronaute: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">astronaute | raket | ruimte | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">astronaute: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🚀">astronaute | raket | ruimte | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">astronaute: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🚀">astronaute | raket | ruimte | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">astronaute: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🚀">astronaute | raket | ruimte | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">astronaute: huidtype 6</annotation>
+		<annotation cp="👨🏻‍🚒">brandweerman | brandweerwagen | man | huidtype 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">brandweerman: huidtype 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">brandweerman | brandweerwagen | man | huidtype 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">brandweerman: huidtype 3</annotation>
+		<annotation cp="👨🏽‍🚒">brandweerman | brandweerwagen | man | huidtype 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">brandweerman: huidtype 4</annotation>
+		<annotation cp="👨🏾‍🚒">brandweerman | brandweerwagen | man | huidtype 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">brandweerman: huidtype 5</annotation>
+		<annotation cp="👨🏿‍🚒">brandweerman | brandweerwagen | man | huidtype 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">brandweerman: huidtype 6</annotation>
+		<annotation cp="👩🏻‍🚒">brandweervrouw | brandweerwagen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">brandweervrouw: huidtype 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">brandweervrouw | brandweerwagen | vrouw | huidtype 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">brandweervrouw: huidtype 3</annotation>
+		<annotation cp="👩🏽‍🚒">brandweervrouw | brandweerwagen | vrouw | huidtype 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">brandweervrouw: huidtype 4</annotation>
+		<annotation cp="👩🏾‍🚒">brandweervrouw | brandweerwagen | vrouw | huidtype 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">brandweervrouw: huidtype 5</annotation>
+		<annotation cp="👩🏿‍🚒">brandweervrouw | brandweerwagen | vrouw | huidtype 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">brandweervrouw: huidtype 6</annotation>
+		<annotation cp="👮🏻">agent | mensen | politie | huidtype 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">politieagent: huidtype 1–2</annotation>
+		<annotation cp="👮🏼">agent | mensen | politie | huidtype 3</annotation>
+		<annotation cp="👮🏼" type="tts">politieagent: huidtype 3</annotation>
+		<annotation cp="👮🏽">agent | mensen | politie | huidtype 4</annotation>
+		<annotation cp="👮🏽" type="tts">politieagent: huidtype 4</annotation>
+		<annotation cp="👮🏾">agent | mensen | politie | huidtype 5</annotation>
+		<annotation cp="👮🏾" type="tts">politieagent: huidtype 5</annotation>
+		<annotation cp="👮🏿">agent | mensen | politie | huidtype 6</annotation>
+		<annotation cp="👮🏿" type="tts">politieagent: huidtype 6</annotation>
+		<annotation cp="👮🏻‍♂">agent | man | politie | huidtype 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">mannelijke politieagent: huidtype 1–2</annotation>
+		<annotation cp="👮🏼‍♂">agent | man | politie | huidtype 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">mannelijke politieagent: huidtype 3</annotation>
+		<annotation cp="👮🏽‍♂">agent | man | politie | huidtype 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">mannelijke politieagent: huidtype 4</annotation>
+		<annotation cp="👮🏾‍♂">agent | man | politie | huidtype 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">mannelijke politieagent: huidtype 5</annotation>
+		<annotation cp="👮🏿‍♂">agent | man | politie | huidtype 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">mannelijke politieagent: huidtype 6</annotation>
+		<annotation cp="👮🏻‍♀">agent | politie | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">vrouwelijke politiepolitieagent: huidtype 1–2</annotation>
+		<annotation cp="👮🏼‍♀">agent | politie | vrouw | huidtype 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">vrouwelijke politiepolitieagent: huidtype 3</annotation>
+		<annotation cp="👮🏽‍♀">agent | politie | vrouw | huidtype 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">vrouwelijke politiepolitieagent: huidtype 4</annotation>
+		<annotation cp="👮🏾‍♀">agent | politie | vrouw | huidtype 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">vrouwelijke politiepolitieagent: huidtype 5</annotation>
+		<annotation cp="👮🏿‍♀">agent | politie | vrouw | huidtype 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">vrouwelijke politiepolitieagent: huidtype 6</annotation>
+		<annotation cp="🕵🏻">speurder | spion | huidtype 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">detective: huidtype 1–2</annotation>
+		<annotation cp="🕵🏼">speurder | spion | huidtype 3</annotation>
+		<annotation cp="🕵🏼" type="tts">detective: huidtype 3</annotation>
+		<annotation cp="🕵🏽">speurder | spion | huidtype 4</annotation>
+		<annotation cp="🕵🏽" type="tts">detective: huidtype 4</annotation>
+		<annotation cp="🕵🏾">speurder | spion | huidtype 5</annotation>
+		<annotation cp="🕵🏾" type="tts">detective: huidtype 5</annotation>
+		<annotation cp="🕵🏿">speurder | spion | huidtype 6</annotation>
+		<annotation cp="🕵🏿" type="tts">detective: huidtype 6</annotation>
+		<annotation cp="🕵🏻‍♂">detective | man | speurder | spion | huidtype 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">mannelijke speurder: huidtype 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">detective | man | speurder | spion | huidtype 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">mannelijke speurder: huidtype 3</annotation>
+		<annotation cp="🕵🏽‍♂">detective | man | speurder | spion | huidtype 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">mannelijke speurder: huidtype 4</annotation>
+		<annotation cp="🕵🏾‍♂">detective | man | speurder | spion | huidtype 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">mannelijke speurder: huidtype 5</annotation>
+		<annotation cp="🕵🏿‍♂">detective | man | speurder | spion | huidtype 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">mannelijke speurder: huidtype 6</annotation>
+		<annotation cp="🕵🏻‍♀">detective | speurder | spionne | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">vrouwelijke speurder: huidtype 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">detective | speurder | spionne | vrouw | huidtype 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">vrouwelijke speurder: huidtype 3</annotation>
+		<annotation cp="🕵🏽‍♀">detective | speurder | spionne | vrouw | huidtype 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">vrouwelijke speurder: huidtype 4</annotation>
+		<annotation cp="🕵🏾‍♀">detective | speurder | spionne | vrouw | huidtype 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">vrouwelijke speurder: huidtype 5</annotation>
+		<annotation cp="🕵🏿‍♀">detective | speurder | spionne | vrouw | huidtype 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">vrouwelijke speurder: huidtype 6</annotation>
+		<annotation cp="💂🏻">mensen | wachter | huidtype 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">bewaker: huidtype 1–2</annotation>
+		<annotation cp="💂🏼">mensen | wachter | huidtype 3</annotation>
+		<annotation cp="💂🏼" type="tts">bewaker: huidtype 3</annotation>
+		<annotation cp="💂🏽">mensen | wachter | huidtype 4</annotation>
+		<annotation cp="💂🏽" type="tts">bewaker: huidtype 4</annotation>
+		<annotation cp="💂🏾">mensen | wachter | huidtype 5</annotation>
+		<annotation cp="💂🏾" type="tts">bewaker: huidtype 5</annotation>
+		<annotation cp="💂🏿">mensen | wachter | huidtype 6</annotation>
+		<annotation cp="💂🏿" type="tts">bewaker: huidtype 6</annotation>
+		<annotation cp="💂🏻‍♂">man | wachter | huidtype 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">mannelijke wachter: huidtype 1–2</annotation>
+		<annotation cp="💂🏼‍♂">man | wachter | huidtype 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">mannelijke wachter: huidtype 3</annotation>
+		<annotation cp="💂🏽‍♂">man | wachter | huidtype 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">mannelijke wachter: huidtype 4</annotation>
+		<annotation cp="💂🏾‍♂">man | wachter | huidtype 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">mannelijke wachter: huidtype 5</annotation>
+		<annotation cp="💂🏿‍♂">man | wachter | huidtype 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">mannelijke wachter: huidtype 6</annotation>
+		<annotation cp="💂🏻‍♀">vrouw | wachter | huidtype 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">vrouwelijke wachter: huidtype 1–2</annotation>
+		<annotation cp="💂🏼‍♀">vrouw | wachter | huidtype 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">vrouwelijke wachter: huidtype 3</annotation>
+		<annotation cp="💂🏽‍♀">vrouw | wachter | huidtype 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">vrouwelijke wachter: huidtype 4</annotation>
+		<annotation cp="💂🏾‍♀">vrouw | wachter | huidtype 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">vrouwelijke wachter: huidtype 5</annotation>
+		<annotation cp="💂🏿‍♀">vrouw | wachter | huidtype 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">vrouwelijke wachter: huidtype 6</annotation>
+		<annotation cp="👷🏻">bouw | helm | klusser | huidtype 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">bouwvakker: huidtype 1–2</annotation>
+		<annotation cp="👷🏼">bouw | helm | klusser | huidtype 3</annotation>
+		<annotation cp="👷🏼" type="tts">bouwvakker: huidtype 3</annotation>
+		<annotation cp="👷🏽">bouw | helm | klusser | huidtype 4</annotation>
+		<annotation cp="👷🏽" type="tts">bouwvakker: huidtype 4</annotation>
+		<annotation cp="👷🏾">bouw | helm | klusser | huidtype 5</annotation>
+		<annotation cp="👷🏾" type="tts">bouwvakker: huidtype 5</annotation>
+		<annotation cp="👷🏿">bouw | helm | klusser | huidtype 6</annotation>
+		<annotation cp="👷🏿" type="tts">bouwvakker: huidtype 6</annotation>
+		<annotation cp="👷🏻‍♂">bouw | bouwvakker | man | huidtype 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">mannelijke bouwvakker: huidtype 1–2</annotation>
+		<annotation cp="👷🏼‍♂">bouw | bouwvakker | man | huidtype 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">mannelijke bouwvakker: huidtype 3</annotation>
+		<annotation cp="👷🏽‍♂">bouw | bouwvakker | man | huidtype 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">mannelijke bouwvakker: huidtype 4</annotation>
+		<annotation cp="👷🏾‍♂">bouw | bouwvakker | man | huidtype 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">mannelijke bouwvakker: huidtype 5</annotation>
+		<annotation cp="👷🏿‍♂">bouw | bouwvakker | man | huidtype 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">mannelijke bouwvakker: huidtype 6</annotation>
+		<annotation cp="👷🏻‍♀">bouw | bouwvakker | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">vrouwelijke bouwvakker: huidtype 1–2</annotation>
+		<annotation cp="👷🏼‍♀">bouw | bouwvakker | vrouw | huidtype 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">vrouwelijke bouwvakker: huidtype 3</annotation>
+		<annotation cp="👷🏽‍♀">bouw | bouwvakker | vrouw | huidtype 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">vrouwelijke bouwvakker: huidtype 4</annotation>
+		<annotation cp="👷🏾‍♀">bouw | bouwvakker | vrouw | huidtype 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">vrouwelijke bouwvakker: huidtype 5</annotation>
+		<annotation cp="👷🏿‍♀">bouw | bouwvakker | vrouw | huidtype 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">vrouwelijke bouwvakker: huidtype 6</annotation>
+		<annotation cp="🤴🏻">prins | huidtype 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">prins: huidtype 1–2</annotation>
+		<annotation cp="🤴🏼">prins | huidtype 3</annotation>
+		<annotation cp="🤴🏼" type="tts">prins: huidtype 3</annotation>
+		<annotation cp="🤴🏽">prins | huidtype 4</annotation>
+		<annotation cp="🤴🏽" type="tts">prins: huidtype 4</annotation>
+		<annotation cp="🤴🏾">prins | huidtype 5</annotation>
+		<annotation cp="🤴🏾" type="tts">prins: huidtype 5</annotation>
+		<annotation cp="🤴🏿">prins | huidtype 6</annotation>
+		<annotation cp="🤴🏿" type="tts">prins: huidtype 6</annotation>
+		<annotation cp="👸🏻">fantasie | mensen | sprookje | huidtype 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">prinses: huidtype 1–2</annotation>
+		<annotation cp="👸🏼">fantasie | mensen | sprookje | huidtype 3</annotation>
+		<annotation cp="👸🏼" type="tts">prinses: huidtype 3</annotation>
+		<annotation cp="👸🏽">fantasie | mensen | sprookje | huidtype 4</annotation>
+		<annotation cp="👸🏽" type="tts">prinses: huidtype 4</annotation>
+		<annotation cp="👸🏾">fantasie | mensen | sprookje | huidtype 5</annotation>
+		<annotation cp="👸🏾" type="tts">prinses: huidtype 5</annotation>
+		<annotation cp="👸🏿">fantasie | mensen | sprookje | huidtype 6</annotation>
+		<annotation cp="👸🏿" type="tts">prinses: huidtype 6</annotation>
+		<annotation cp="👳🏻">man | man met een tulband | mensen | tulband | huidtype 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">man met tulband: huidtype 1–2</annotation>
+		<annotation cp="👳🏼">man | man met een tulband | mensen | tulband | huidtype 3</annotation>
+		<annotation cp="👳🏼" type="tts">man met tulband: huidtype 3</annotation>
+		<annotation cp="👳🏽">man | man met een tulband | mensen | tulband | huidtype 4</annotation>
+		<annotation cp="👳🏽" type="tts">man met tulband: huidtype 4</annotation>
+		<annotation cp="👳🏾">man | man met een tulband | mensen | tulband | huidtype 5</annotation>
+		<annotation cp="👳🏾" type="tts">man met tulband: huidtype 5</annotation>
+		<annotation cp="👳🏿">man | man met een tulband | mensen | tulband | huidtype 6</annotation>
+		<annotation cp="👳🏿" type="tts">man met tulband: huidtype 6</annotation>
+		<annotation cp="👳🏻‍♂">man | tulband | huidtype 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">mannelijke tulbanddrager: huidtype 1–2</annotation>
+		<annotation cp="👳🏼‍♂">man | tulband | huidtype 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">mannelijke tulbanddrager: huidtype 3</annotation>
+		<annotation cp="👳🏽‍♂">man | tulband | huidtype 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">mannelijke tulbanddrager: huidtype 4</annotation>
+		<annotation cp="👳🏾‍♂">man | tulband | huidtype 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">mannelijke tulbanddrager: huidtype 5</annotation>
+		<annotation cp="👳🏿‍♂">man | tulband | huidtype 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">mannelijke tulbanddrager: huidtype 6</annotation>
+		<annotation cp="👳🏻‍♀">tulband | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">vrouwelijke tulbanddrager: huidtype 1–2</annotation>
+		<annotation cp="👳🏼‍♀">tulband | vrouw | huidtype 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">vrouwelijke tulbanddrager: huidtype 3</annotation>
+		<annotation cp="👳🏽‍♀">tulband | vrouw | huidtype 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">vrouwelijke tulbanddrager: huidtype 4</annotation>
+		<annotation cp="👳🏾‍♀">tulband | vrouw | huidtype 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">vrouwelijke tulbanddrager: huidtype 5</annotation>
+		<annotation cp="👳🏿‍♀">tulband | vrouw | huidtype 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">vrouwelijke tulbanddrager: huidtype 6</annotation>
+		<annotation cp="👲🏻">gua pi mao | hoed | hoedje | man | mensen | huidtype 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">man met chinees hoedje: huidtype 1–2</annotation>
+		<annotation cp="👲🏼">gua pi mao | hoed | hoedje | man | mensen | huidtype 3</annotation>
+		<annotation cp="👲🏼" type="tts">man met chinees hoedje: huidtype 3</annotation>
+		<annotation cp="👲🏽">gua pi mao | hoed | hoedje | man | mensen | huidtype 4</annotation>
+		<annotation cp="👲🏽" type="tts">man met chinees hoedje: huidtype 4</annotation>
+		<annotation cp="👲🏾">gua pi mao | hoed | hoedje | man | mensen | huidtype 5</annotation>
+		<annotation cp="👲🏾" type="tts">man met chinees hoedje: huidtype 5</annotation>
+		<annotation cp="👲🏿">gua pi mao | hoed | hoedje | man | mensen | huidtype 6</annotation>
+		<annotation cp="👲🏿" type="tts">man met chinees hoedje: huidtype 6</annotation>
+		<annotation cp="👱🏻">blond | mensen | huidtype 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">blond persoon: huidtype 1–2</annotation>
+		<annotation cp="👱🏼">blond | mensen | huidtype 3</annotation>
+		<annotation cp="👱🏼" type="tts">blond persoon: huidtype 3</annotation>
+		<annotation cp="👱🏽">blond | mensen | huidtype 4</annotation>
+		<annotation cp="👱🏽" type="tts">blond persoon: huidtype 4</annotation>
+		<annotation cp="👱🏾">blond | mensen | huidtype 5</annotation>
+		<annotation cp="👱🏾" type="tts">blond persoon: huidtype 5</annotation>
+		<annotation cp="👱🏿">blond | mensen | huidtype 6</annotation>
+		<annotation cp="👱🏿" type="tts">blond persoon: huidtype 6</annotation>
+		<annotation cp="👱🏻‍♂">blond | man | huidtype 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blonde man: huidtype 1–2</annotation>
+		<annotation cp="👱🏼‍♂">blond | man | huidtype 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blonde man: huidtype 3</annotation>
+		<annotation cp="👱🏽‍♂">blond | man | huidtype 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blonde man: huidtype 4</annotation>
+		<annotation cp="👱🏾‍♂">blond | man | huidtype 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blonde man: huidtype 5</annotation>
+		<annotation cp="👱🏿‍♂">blond | man | huidtype 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blonde man: huidtype 6</annotation>
+		<annotation cp="👱🏻‍♀">blond | blondine | vrouw | huidtype 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blonde vrouw: huidtype 1–2</annotation>
+		<annotation cp="👱🏼‍♀">blond | blondine | vrouw | huidtype 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blonde vrouw: huidtype 3</annotation>
+		<annotation cp="👱🏽‍♀">blond | blondine | vrouw | huidtype 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blonde vrouw: huidtype 4</annotation>
+		<annotation cp="👱🏾‍♀">blond | blondine | vrouw | huidtype 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blonde vrouw: huidtype 5</annotation>
+		<annotation cp="👱🏿‍♀">blond | blondine | vrouw | huidtype 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blonde vrouw: huidtype 6</annotation>
+		<annotation cp="🤵🏻">bruidegom | man | smoking | tuxedo | huidtype 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">man in smoking: huidtype 1–2</annotation>
+		<annotation cp="🤵🏼">bruidegom | man | smoking | tuxedo | huidtype 3</annotation>
+		<annotation cp="🤵🏼" type="tts">man in smoking: huidtype 3</annotation>
+		<annotation cp="🤵🏽">bruidegom | man | smoking | tuxedo | huidtype 4</annotation>
+		<annotation cp="🤵🏽" type="tts">man in smoking: huidtype 4</annotation>
+		<annotation cp="🤵🏾">bruidegom | man | smoking | tuxedo | huidtype 5</annotation>
+		<annotation cp="🤵🏾" type="tts">man in smoking: huidtype 5</annotation>
+		<annotation cp="🤵🏿">bruidegom | man | smoking | tuxedo | huidtype 6</annotation>
+		<annotation cp="🤵🏿" type="tts">man in smoking: huidtype 6</annotation>
+		<annotation cp="👰🏻">gesluierde bruid | huwelijk | mensen | sluier | huidtype 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">bruid: huidtype 1–2</annotation>
+		<annotation cp="👰🏼">gesluierde bruid | huwelijk | mensen | sluier | huidtype 3</annotation>
+		<annotation cp="👰🏼" type="tts">bruid: huidtype 3</annotation>
+		<annotation cp="👰🏽">gesluierde bruid | huwelijk | mensen | sluier | huidtype 4</annotation>
+		<annotation cp="👰🏽" type="tts">bruid: huidtype 4</annotation>
+		<annotation cp="👰🏾">gesluierde bruid | huwelijk | mensen | sluier | huidtype 5</annotation>
+		<annotation cp="👰🏾" type="tts">bruid: huidtype 5</annotation>
+		<annotation cp="👰🏿">gesluierde bruid | huwelijk | mensen | sluier | huidtype 6</annotation>
+		<annotation cp="👰🏿" type="tts">bruid: huidtype 6</annotation>
+		<annotation cp="🤰🏻">vrouw | zwanger | huidtype 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">zwangere vrouw: huidtype 1–2</annotation>
+		<annotation cp="🤰🏼">vrouw | zwanger | huidtype 3</annotation>
+		<annotation cp="🤰🏼" type="tts">zwangere vrouw: huidtype 3</annotation>
+		<annotation cp="🤰🏽">vrouw | zwanger | huidtype 4</annotation>
+		<annotation cp="🤰🏽" type="tts">zwangere vrouw: huidtype 4</annotation>
+		<annotation cp="🤰🏾">vrouw | zwanger | huidtype 5</annotation>
+		<annotation cp="🤰🏾" type="tts">zwangere vrouw: huidtype 5</annotation>
+		<annotation cp="🤰🏿">vrouw | zwanger | huidtype 6</annotation>
+		<annotation cp="🤰🏿" type="tts">zwangere vrouw: huidtype 6</annotation>
+		<annotation cp="👼🏻">baby | engel | fantasie | gezicht | sprookje | huidtype 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">baby-engel: huidtype 1–2</annotation>
+		<annotation cp="👼🏼">baby | engel | fantasie | gezicht | sprookje | huidtype 3</annotation>
+		<annotation cp="👼🏼" type="tts">baby-engel: huidtype 3</annotation>
+		<annotation cp="👼🏽">baby | engel | fantasie | gezicht | sprookje | huidtype 4</annotation>
+		<annotation cp="👼🏽" type="tts">baby-engel: huidtype 4</annotation>
+		<annotation cp="👼🏾">baby | engel | fantasie | gezicht | sprookje | huidtype 5</annotation>
+		<annotation cp="👼🏾" type="tts">baby-engel: huidtype 5</annotation>
+		<annotation cp="👼🏿">baby | engel | fantasie | gezicht | sprookje | huidtype 6</annotation>
+		<annotation cp="👼🏿" type="tts">baby-engel: huidtype 6</annotation>
+		<annotation cp="🎅🏻">fantasie | feest | kerst | kerstmis | sprookje | viering | huidtype 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">kerstman: huidtype 1–2</annotation>
+		<annotation cp="🎅🏼">fantasie | feest | kerst | kerstmis | sprookje | viering | huidtype 3</annotation>
+		<annotation cp="🎅🏼" type="tts">kerstman: huidtype 3</annotation>
+		<annotation cp="🎅🏽">fantasie | feest | kerst | kerstmis | sprookje | viering | huidtype 4</annotation>
+		<annotation cp="🎅🏽" type="tts">kerstman: huidtype 4</annotation>
+		<annotation cp="🎅🏾">fantasie | feest | kerst | kerstmis | sprookje | viering | huidtype 5</annotation>
+		<annotation cp="🎅🏾" type="tts">kerstman: huidtype 5</annotation>
+		<annotation cp="🎅🏿">fantasie | feest | kerst | kerstmis | sprookje | viering | huidtype 6</annotation>
+		<annotation cp="🎅🏿" type="tts">kerstman: huidtype 6</annotation>
+		<annotation cp="🤶🏻">kerstmis | kerstvrouw | moedertje kerst | huidtype 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">de kerstvrouw: huidtype 1–2</annotation>
+		<annotation cp="🤶🏼">kerstmis | kerstvrouw | moedertje kerst | huidtype 3</annotation>
+		<annotation cp="🤶🏼" type="tts">de kerstvrouw: huidtype 3</annotation>
+		<annotation cp="🤶🏽">kerstmis | kerstvrouw | moedertje kerst | huidtype 4</annotation>
+		<annotation cp="🤶🏽" type="tts">de kerstvrouw: huidtype 4</annotation>
+		<annotation cp="🤶🏾">kerstmis | kerstvrouw | moedertje kerst | huidtype 5</annotation>
+		<annotation cp="🤶🏾" type="tts">de kerstvrouw: huidtype 5</annotation>
+		<annotation cp="🤶🏿">kerstmis | kerstvrouw | moedertje kerst | huidtype 6</annotation>
+		<annotation cp="🤶🏿" type="tts">de kerstvrouw: huidtype 6</annotation>
+		<annotation cp="🙍🏻">gebaar | persoon | huidtype 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">fronsend persoon: huidtype 1–2</annotation>
+		<annotation cp="🙍🏼">gebaar | persoon | huidtype 3</annotation>
+		<annotation cp="🙍🏼" type="tts">fronsend persoon: huidtype 3</annotation>
+		<annotation cp="🙍🏽">gebaar | persoon | huidtype 4</annotation>
+		<annotation cp="🙍🏽" type="tts">fronsend persoon: huidtype 4</annotation>
+		<annotation cp="🙍🏾">gebaar | persoon | huidtype 5</annotation>
+		<annotation cp="🙍🏾" type="tts">fronsend persoon: huidtype 5</annotation>
+		<annotation cp="🙍🏿">gebaar | persoon | huidtype 6</annotation>
+		<annotation cp="🙍🏿" type="tts">fronsend persoon: huidtype 6</annotation>
+		<annotation cp="🙍🏻‍♂">frons | man | uitdrukking | huidtype 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">fronsende man: huidtype 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">frons | man | uitdrukking | huidtype 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">fronsende man: huidtype 3</annotation>
+		<annotation cp="🙍🏽‍♂">frons | man | uitdrukking | huidtype 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">fronsende man: huidtype 4</annotation>
+		<annotation cp="🙍🏾‍♂">frons | man | uitdrukking | huidtype 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">fronsende man: huidtype 5</annotation>
+		<annotation cp="🙍🏿‍♂">frons | man | uitdrukking | huidtype 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">fronsende man: huidtype 6</annotation>
+		<annotation cp="🙍🏻‍♀">frons | uitdrukking | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">fronsende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">frons | uitdrukking | vrouw | huidtype 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">fronsende vrouw: huidtype 3</annotation>
+		<annotation cp="🙍🏽‍♀">frons | uitdrukking | vrouw | huidtype 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">fronsende vrouw: huidtype 4</annotation>
+		<annotation cp="🙍🏾‍♀">frons | uitdrukking | vrouw | huidtype 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">fronsende vrouw: huidtype 5</annotation>
+		<annotation cp="🙍🏿‍♀">frons | uitdrukking | vrouw | huidtype 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">fronsende vrouw: huidtype 6</annotation>
+		<annotation cp="🙎🏻">gebaar | persoon | huidtype 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">pruilend persoon: huidtype 1–2</annotation>
+		<annotation cp="🙎🏼">gebaar | persoon | huidtype 3</annotation>
+		<annotation cp="🙎🏼" type="tts">pruilend persoon: huidtype 3</annotation>
+		<annotation cp="🙎🏽">gebaar | persoon | huidtype 4</annotation>
+		<annotation cp="🙎🏽" type="tts">pruilend persoon: huidtype 4</annotation>
+		<annotation cp="🙎🏾">gebaar | persoon | huidtype 5</annotation>
+		<annotation cp="🙎🏾" type="tts">pruilend persoon: huidtype 5</annotation>
+		<annotation cp="🙎🏿">gebaar | persoon | huidtype 6</annotation>
+		<annotation cp="🙎🏿" type="tts">pruilend persoon: huidtype 6</annotation>
+		<annotation cp="🙎🏻‍♂">man | pruilen | uitdrukking | huidtype 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">pruilende man: huidtype 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">man | pruilen | uitdrukking | huidtype 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">pruilende man: huidtype 3</annotation>
+		<annotation cp="🙎🏽‍♂">man | pruilen | uitdrukking | huidtype 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">pruilende man: huidtype 4</annotation>
+		<annotation cp="🙎🏾‍♂">man | pruilen | uitdrukking | huidtype 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">pruilende man: huidtype 5</annotation>
+		<annotation cp="🙎🏿‍♂">man | pruilen | uitdrukking | huidtype 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">pruilende man: huidtype 6</annotation>
+		<annotation cp="🙎🏻‍♀">pruilen | uitdrukking | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">pruilende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">pruilen | uitdrukking | vrouw | huidtype 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">pruilende vrouw: huidtype 3</annotation>
+		<annotation cp="🙎🏽‍♀">pruilen | uitdrukking | vrouw | huidtype 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">pruilende vrouw: huidtype 4</annotation>
+		<annotation cp="🙎🏾‍♀">pruilen | uitdrukking | vrouw | huidtype 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">pruilende vrouw: huidtype 5</annotation>
+		<annotation cp="🙎🏿‍♀">pruilen | uitdrukking | vrouw | huidtype 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">pruilende vrouw: huidtype 6</annotation>
+		<annotation cp="🙅🏻">fout | gebaar | gezicht | hand | nee | niet | verboden | huidtype 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">Fout-gebaar: huidtype 1–2</annotation>
+		<annotation cp="🙅🏼">fout | gebaar | gezicht | hand | nee | niet | verboden | huidtype 3</annotation>
+		<annotation cp="🙅🏼" type="tts">Fout-gebaar: huidtype 3</annotation>
+		<annotation cp="🙅🏽">fout | gebaar | gezicht | hand | nee | niet | verboden | huidtype 4</annotation>
+		<annotation cp="🙅🏽" type="tts">Fout-gebaar: huidtype 4</annotation>
+		<annotation cp="🙅🏾">fout | gebaar | gezicht | hand | nee | niet | verboden | huidtype 5</annotation>
+		<annotation cp="🙅🏾" type="tts">Fout-gebaar: huidtype 5</annotation>
+		<annotation cp="🙅🏿">fout | gebaar | gezicht | hand | nee | niet | verboden | huidtype 6</annotation>
+		<annotation cp="🙅🏿" type="tts">Fout-gebaar: huidtype 6</annotation>
+		<annotation cp="🙅🏻‍♂">gebaar | hand | man | niet ok | huidtype 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">man gebaart niet ok: huidtype 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">gebaar | hand | man | niet ok | huidtype 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">man gebaart niet ok: huidtype 3</annotation>
+		<annotation cp="🙅🏽‍♂">gebaar | hand | man | niet ok | huidtype 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">man gebaart niet ok: huidtype 4</annotation>
+		<annotation cp="🙅🏾‍♂">gebaar | hand | man | niet ok | huidtype 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">man gebaart niet ok: huidtype 5</annotation>
+		<annotation cp="🙅🏿‍♂">gebaar | hand | man | niet ok | huidtype 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">man gebaart niet ok: huidtype 6</annotation>
+		<annotation cp="🙅🏻‍♀">gebaar | hand | niet ok | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">vrouw gebaart niet ok: huidtype 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">gebaar | hand | niet ok | vrouw | huidtype 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">vrouw gebaart niet ok: huidtype 3</annotation>
+		<annotation cp="🙅🏽‍♀">gebaar | hand | niet ok | vrouw | huidtype 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">vrouw gebaart niet ok: huidtype 4</annotation>
+		<annotation cp="🙅🏾‍♀">gebaar | hand | niet ok | vrouw | huidtype 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">vrouw gebaart niet ok: huidtype 5</annotation>
+		<annotation cp="🙅🏿‍♀">gebaar | hand | niet ok | vrouw | huidtype 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">vrouw gebaart niet ok: huidtype 6</annotation>
+		<annotation cp="🙆🏻">alles goed | gebaar | hand | oké | huidtype 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">Oké-gebaar: huidtype 1–2</annotation>
+		<annotation cp="🙆🏼">alles goed | gebaar | hand | oké | huidtype 3</annotation>
+		<annotation cp="🙆🏼" type="tts">Oké-gebaar: huidtype 3</annotation>
+		<annotation cp="🙆🏽">alles goed | gebaar | hand | oké | huidtype 4</annotation>
+		<annotation cp="🙆🏽" type="tts">Oké-gebaar: huidtype 4</annotation>
+		<annotation cp="🙆🏾">alles goed | gebaar | hand | oké | huidtype 5</annotation>
+		<annotation cp="🙆🏾" type="tts">Oké-gebaar: huidtype 5</annotation>
+		<annotation cp="🙆🏿">alles goed | gebaar | hand | oké | huidtype 6</annotation>
+		<annotation cp="🙆🏿" type="tts">Oké-gebaar: huidtype 6</annotation>
+		<annotation cp="🙆🏻‍♂">gebaar | hand | man | ok | huidtype 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">man gebaart ok: huidtype 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">gebaar | hand | man | ok | huidtype 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">man gebaart ok: huidtype 3</annotation>
+		<annotation cp="🙆🏽‍♂">gebaar | hand | man | ok | huidtype 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">man gebaart ok: huidtype 4</annotation>
+		<annotation cp="🙆🏾‍♂">gebaar | hand | man | ok | huidtype 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">man gebaart ok: huidtype 5</annotation>
+		<annotation cp="🙆🏿‍♂">gebaar | hand | man | ok | huidtype 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">man gebaart ok: huidtype 6</annotation>
+		<annotation cp="🙆🏻‍♀">gebaar | hand | ok | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">vrouw gebaart ok: huidtype 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">gebaar | hand | ok | vrouw | huidtype 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">vrouw gebaart ok: huidtype 3</annotation>
+		<annotation cp="🙆🏽‍♀">gebaar | hand | ok | vrouw | huidtype 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">vrouw gebaart ok: huidtype 4</annotation>
+		<annotation cp="🙆🏾‍♀">gebaar | hand | ok | vrouw | huidtype 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">vrouw gebaart ok: huidtype 5</annotation>
+		<annotation cp="🙆🏿‍♀">gebaar | hand | ok | vrouw | huidtype 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">vrouw gebaart ok: huidtype 6</annotation>
+		<annotation cp="💁🏻">enthousiast | hand | hulp | informatie | mensen | huidtype 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">medewerker van infobalie: huidtype 1–2</annotation>
+		<annotation cp="💁🏼">enthousiast | hand | hulp | informatie | mensen | huidtype 3</annotation>
+		<annotation cp="💁🏼" type="tts">medewerker van infobalie: huidtype 3</annotation>
+		<annotation cp="💁🏽">enthousiast | hand | hulp | informatie | mensen | huidtype 4</annotation>
+		<annotation cp="💁🏽" type="tts">medewerker van infobalie: huidtype 4</annotation>
+		<annotation cp="💁🏾">enthousiast | hand | hulp | informatie | mensen | huidtype 5</annotation>
+		<annotation cp="💁🏾" type="tts">medewerker van infobalie: huidtype 5</annotation>
+		<annotation cp="💁🏿">enthousiast | hand | hulp | informatie | mensen | huidtype 6</annotation>
+		<annotation cp="💁🏿" type="tts">medewerker van infobalie: huidtype 6</annotation>
+		<annotation cp="💁🏻‍♂">hand | man | pols | uitdagend | huidtype 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">man knikt pols: huidtype 1–2</annotation>
+		<annotation cp="💁🏼‍♂">hand | man | pols | uitdagend | huidtype 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">man knikt pols: huidtype 3</annotation>
+		<annotation cp="💁🏽‍♂">hand | man | pols | uitdagend | huidtype 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">man knikt pols: huidtype 4</annotation>
+		<annotation cp="💁🏾‍♂">hand | man | pols | uitdagend | huidtype 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">man knikt pols: huidtype 5</annotation>
+		<annotation cp="💁🏿‍♂">hand | man | pols | uitdagend | huidtype 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">man knikt pols: huidtype 6</annotation>
+		<annotation cp="💁🏻‍♀">hand | pols | uitdagend | vrouw | huidtype 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">vrouw knikt pols: huidtype 1–2</annotation>
+		<annotation cp="💁🏼‍♀">hand | pols | uitdagend | vrouw | huidtype 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">vrouw knikt pols: huidtype 3</annotation>
+		<annotation cp="💁🏽‍♀">hand | pols | uitdagend | vrouw | huidtype 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">vrouw knikt pols: huidtype 4</annotation>
+		<annotation cp="💁🏾‍♀">hand | pols | uitdagend | vrouw | huidtype 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">vrouw knikt pols: huidtype 5</annotation>
+		<annotation cp="💁🏿‍♀">hand | pols | uitdagend | vrouw | huidtype 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">vrouw knikt pols: huidtype 6</annotation>
+		<annotation cp="🙋🏻">blij | gebaar | hand omhoog | persoon | persoon met hand omhoog | huidtype 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">blij persoon die hand opsteekt: huidtype 1–2</annotation>
+		<annotation cp="🙋🏼">blij | gebaar | hand omhoog | persoon | persoon met hand omhoog | huidtype 3</annotation>
+		<annotation cp="🙋🏼" type="tts">blij persoon die hand opsteekt: huidtype 3</annotation>
+		<annotation cp="🙋🏽">blij | gebaar | hand omhoog | persoon | persoon met hand omhoog | huidtype 4</annotation>
+		<annotation cp="🙋🏽" type="tts">blij persoon die hand opsteekt: huidtype 4</annotation>
+		<annotation cp="🙋🏾">blij | gebaar | hand omhoog | persoon | persoon met hand omhoog | huidtype 5</annotation>
+		<annotation cp="🙋🏾" type="tts">blij persoon die hand opsteekt: huidtype 5</annotation>
+		<annotation cp="🙋🏿">blij | gebaar | hand omhoog | persoon | persoon met hand omhoog | huidtype 6</annotation>
+		<annotation cp="🙋🏿" type="tts">blij persoon die hand opsteekt: huidtype 6</annotation>
+		<annotation cp="🙋🏻‍♂">gebaar | hand opsteken | man | huidtype 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">man steekt hand op: huidtype 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">gebaar | hand opsteken | man | huidtype 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">man steekt hand op: huidtype 3</annotation>
+		<annotation cp="🙋🏽‍♂">gebaar | hand opsteken | man | huidtype 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">man steekt hand op: huidtype 4</annotation>
+		<annotation cp="🙋🏾‍♂">gebaar | hand opsteken | man | huidtype 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">man steekt hand op: huidtype 5</annotation>
+		<annotation cp="🙋🏿‍♂">gebaar | hand opsteken | man | huidtype 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">man steekt hand op: huidtype 6</annotation>
+		<annotation cp="🙋🏻‍♀">gebaar | hand opsteken | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">vrouw steekt hand op: huidtype 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">gebaar | hand opsteken | vrouw | huidtype 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">vrouw steekt hand op: huidtype 3</annotation>
+		<annotation cp="🙋🏽‍♀">gebaar | hand opsteken | vrouw | huidtype 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">vrouw steekt hand op: huidtype 4</annotation>
+		<annotation cp="🙋🏾‍♀">gebaar | hand opsteken | vrouw | huidtype 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">vrouw steekt hand op: huidtype 5</annotation>
+		<annotation cp="🙋🏿‍♀">gebaar | hand opsteken | vrouw | huidtype 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">vrouw steekt hand op: huidtype 6</annotation>
+		<annotation cp="🙇🏻">buiging | diepe buiging | excuses | gebaar | persoon | sorry | huidtype 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">persoon die buiging maakt: huidtype 1–2</annotation>
+		<annotation cp="🙇🏼">buiging | diepe buiging | excuses | gebaar | persoon | sorry | huidtype 3</annotation>
+		<annotation cp="🙇🏼" type="tts">persoon die buiging maakt: huidtype 3</annotation>
+		<annotation cp="🙇🏽">buiging | diepe buiging | excuses | gebaar | persoon | sorry | huidtype 4</annotation>
+		<annotation cp="🙇🏽" type="tts">persoon die buiging maakt: huidtype 4</annotation>
+		<annotation cp="🙇🏾">buiging | diepe buiging | excuses | gebaar | persoon | sorry | huidtype 5</annotation>
+		<annotation cp="🙇🏾" type="tts">persoon die buiging maakt: huidtype 5</annotation>
+		<annotation cp="🙇🏿">buiging | diepe buiging | excuses | gebaar | persoon | sorry | huidtype 6</annotation>
+		<annotation cp="🙇🏿" type="tts">persoon die buiging maakt: huidtype 6</annotation>
+		<annotation cp="🙇🏻‍♂">buiging | excuses | gebaar | man | huidtype 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">man buigt diep: huidtype 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">buiging | excuses | gebaar | man | huidtype 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">man buigt diep: huidtype 3</annotation>
+		<annotation cp="🙇🏽‍♂">buiging | excuses | gebaar | man | huidtype 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">man buigt diep: huidtype 4</annotation>
+		<annotation cp="🙇🏾‍♂">buiging | excuses | gebaar | man | huidtype 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">man buigt diep: huidtype 5</annotation>
+		<annotation cp="🙇🏿‍♂">buiging | excuses | gebaar | man | huidtype 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">man buigt diep: huidtype 6</annotation>
+		<annotation cp="🙇🏻‍♀">buiging | excuses | gebaar | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">vrouw buigt diep: huidtype 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">buiging | excuses | gebaar | vrouw | huidtype 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">vrouw buigt diep: huidtype 3</annotation>
+		<annotation cp="🙇🏽‍♀">buiging | excuses | gebaar | vrouw | huidtype 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">vrouw buigt diep: huidtype 4</annotation>
+		<annotation cp="🙇🏾‍♀">buiging | excuses | gebaar | vrouw | huidtype 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">vrouw buigt diep: huidtype 5</annotation>
+		<annotation cp="🙇🏿‍♀">buiging | excuses | gebaar | vrouw | huidtype 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">vrouw buigt diep: huidtype 6</annotation>
+		<annotation cp="🤦🏻">ergernis | gezicht | ongeloof | palm | huidtype 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">gezicht met hand bedekken: huidtype 1–2</annotation>
+		<annotation cp="🤦🏼">ergernis | gezicht | ongeloof | palm | huidtype 3</annotation>
+		<annotation cp="🤦🏼" type="tts">gezicht met hand bedekken: huidtype 3</annotation>
+		<annotation cp="🤦🏽">ergernis | gezicht | ongeloof | palm | huidtype 4</annotation>
+		<annotation cp="🤦🏽" type="tts">gezicht met hand bedekken: huidtype 4</annotation>
+		<annotation cp="🤦🏾">ergernis | gezicht | ongeloof | palm | huidtype 5</annotation>
+		<annotation cp="🤦🏾" type="tts">gezicht met hand bedekken: huidtype 5</annotation>
+		<annotation cp="🤦🏿">ergernis | gezicht | ongeloof | palm | huidtype 6</annotation>
+		<annotation cp="🤦🏿" type="tts">gezicht met hand bedekken: huidtype 6</annotation>
+		<annotation cp="🤦🏻‍♂">ergernis | fascepalm | man | ongeloof | huidtype 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">man doet facepalm: huidtype 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">ergernis | fascepalm | man | ongeloof | huidtype 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">man doet facepalm: huidtype 3</annotation>
+		<annotation cp="🤦🏽‍♂">ergernis | fascepalm | man | ongeloof | huidtype 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">man doet facepalm: huidtype 4</annotation>
+		<annotation cp="🤦🏾‍♂">ergernis | fascepalm | man | ongeloof | huidtype 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">man doet facepalm: huidtype 5</annotation>
+		<annotation cp="🤦🏿‍♂">ergernis | fascepalm | man | ongeloof | huidtype 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">man doet facepalm: huidtype 6</annotation>
+		<annotation cp="🤦🏻‍♀">ergernis | fascepalm | ongeloof | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">vrouw doet facepalm: huidtype 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">ergernis | fascepalm | ongeloof | vrouw | huidtype 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">vrouw doet facepalm: huidtype 3</annotation>
+		<annotation cp="🤦🏽‍♀">ergernis | fascepalm | ongeloof | vrouw | huidtype 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">vrouw doet facepalm: huidtype 4</annotation>
+		<annotation cp="🤦🏾‍♀">ergernis | fascepalm | ongeloof | vrouw | huidtype 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">vrouw doet facepalm: huidtype 5</annotation>
+		<annotation cp="🤦🏿‍♀">ergernis | fascepalm | ongeloof | vrouw | huidtype 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">vrouw doet facepalm: huidtype 6</annotation>
+		<annotation cp="🤷🏻">nou en | onschuld | onverschillig | schouderophalen | twijfel | huidtype 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">schouders ophalen: huidtype 1–2</annotation>
+		<annotation cp="🤷🏼">nou en | onschuld | onverschillig | schouderophalen | twijfel | huidtype 3</annotation>
+		<annotation cp="🤷🏼" type="tts">schouders ophalen: huidtype 3</annotation>
+		<annotation cp="🤷🏽">nou en | onschuld | onverschillig | schouderophalen | twijfel | huidtype 4</annotation>
+		<annotation cp="🤷🏽" type="tts">schouders ophalen: huidtype 4</annotation>
+		<annotation cp="🤷🏾">nou en | onschuld | onverschillig | schouderophalen | twijfel | huidtype 5</annotation>
+		<annotation cp="🤷🏾" type="tts">schouders ophalen: huidtype 5</annotation>
+		<annotation cp="🤷🏿">nou en | onschuld | onverschillig | schouderophalen | twijfel | huidtype 6</annotation>
+		<annotation cp="🤷🏿" type="tts">schouders ophalen: huidtype 6</annotation>
+		<annotation cp="🤷🏻‍♂">man | onverschillig | twijfel | weet niet | huidtype 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">man haalt schouders op: huidtype 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">man | onverschillig | twijfel | weet niet | huidtype 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">man haalt schouders op: huidtype 3</annotation>
+		<annotation cp="🤷🏽‍♂">man | onverschillig | twijfel | weet niet | huidtype 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">man haalt schouders op: huidtype 4</annotation>
+		<annotation cp="🤷🏾‍♂">man | onverschillig | twijfel | weet niet | huidtype 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">man haalt schouders op: huidtype 5</annotation>
+		<annotation cp="🤷🏿‍♂">man | onverschillig | twijfel | weet niet | huidtype 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">man haalt schouders op: huidtype 6</annotation>
+		<annotation cp="🤷🏻‍♀">onverschillig | twijfel | vrouw | weet niet | huidtype 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">vrouw haalt schouders op: huidtype 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">onverschillig | twijfel | vrouw | weet niet | huidtype 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">vrouw haalt schouders op: huidtype 3</annotation>
+		<annotation cp="🤷🏽‍♀">onverschillig | twijfel | vrouw | weet niet | huidtype 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">vrouw haalt schouders op: huidtype 4</annotation>
+		<annotation cp="🤷🏾‍♀">onverschillig | twijfel | vrouw | weet niet | huidtype 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">vrouw haalt schouders op: huidtype 5</annotation>
+		<annotation cp="🤷🏿‍♀">onverschillig | twijfel | vrouw | weet niet | huidtype 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">vrouw haalt schouders op: huidtype 6</annotation>
+		<annotation cp="💆🏻">massage | salon | huidtype 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">gezichtsmassage: huidtype 1–2</annotation>
+		<annotation cp="💆🏼">massage | salon | huidtype 3</annotation>
+		<annotation cp="💆🏼" type="tts">gezichtsmassage: huidtype 3</annotation>
+		<annotation cp="💆🏽">massage | salon | huidtype 4</annotation>
+		<annotation cp="💆🏽" type="tts">gezichtsmassage: huidtype 4</annotation>
+		<annotation cp="💆🏾">massage | salon | huidtype 5</annotation>
+		<annotation cp="💆🏾" type="tts">gezichtsmassage: huidtype 5</annotation>
+		<annotation cp="💆🏿">massage | salon | huidtype 6</annotation>
+		<annotation cp="💆🏿" type="tts">gezichtsmassage: huidtype 6</annotation>
+		<annotation cp="💆🏻‍♂">gezichtmassage | man | huidtype 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">man krijgt gezichtsmassage: huidtype 1–2</annotation>
+		<annotation cp="💆🏼‍♂">gezichtmassage | man | huidtype 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">man krijgt gezichtsmassage: huidtype 3</annotation>
+		<annotation cp="💆🏽‍♂">gezichtmassage | man | huidtype 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">man krijgt gezichtsmassage: huidtype 4</annotation>
+		<annotation cp="💆🏾‍♂">gezichtmassage | man | huidtype 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">man krijgt gezichtsmassage: huidtype 5</annotation>
+		<annotation cp="💆🏿‍♂">gezichtmassage | man | huidtype 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">man krijgt gezichtsmassage: huidtype 6</annotation>
+		<annotation cp="💆🏻‍♀">gezichtmassage | vrouw | huidtype 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">vrouw krijgt gezichtsmassage: huidtype 1–2</annotation>
+		<annotation cp="💆🏼‍♀">gezichtmassage | vrouw | huidtype 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">vrouw krijgt gezichtsmassage: huidtype 3</annotation>
+		<annotation cp="💆🏽‍♀">gezichtmassage | vrouw | huidtype 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">vrouw krijgt gezichtsmassage: huidtype 4</annotation>
+		<annotation cp="💆🏾‍♀">gezichtmassage | vrouw | huidtype 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">vrouw krijgt gezichtsmassage: huidtype 5</annotation>
+		<annotation cp="💆🏿‍♀">gezichtmassage | vrouw | huidtype 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">vrouw krijgt gezichtsmassage: huidtype 6</annotation>
+		<annotation cp="💇🏻">kapper | kapsalon | salon | huidtype 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">haar knippen: huidtype 1–2</annotation>
+		<annotation cp="💇🏼">kapper | kapsalon | salon | huidtype 3</annotation>
+		<annotation cp="💇🏼" type="tts">haar knippen: huidtype 3</annotation>
+		<annotation cp="💇🏽">kapper | kapsalon | salon | huidtype 4</annotation>
+		<annotation cp="💇🏽" type="tts">haar knippen: huidtype 4</annotation>
+		<annotation cp="💇🏾">kapper | kapsalon | salon | huidtype 5</annotation>
+		<annotation cp="💇🏾" type="tts">haar knippen: huidtype 5</annotation>
+		<annotation cp="💇🏿">kapper | kapsalon | salon | huidtype 6</annotation>
+		<annotation cp="💇🏿" type="tts">haar knippen: huidtype 6</annotation>
+		<annotation cp="💇🏻‍♂">kapsel | knippen | man | huidtype 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">man wordt geknipt: huidtype 1–2</annotation>
+		<annotation cp="💇🏼‍♂">kapsel | knippen | man | huidtype 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">man wordt geknipt: huidtype 3</annotation>
+		<annotation cp="💇🏽‍♂">kapsel | knippen | man | huidtype 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">man wordt geknipt: huidtype 4</annotation>
+		<annotation cp="💇🏾‍♂">kapsel | knippen | man | huidtype 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">man wordt geknipt: huidtype 5</annotation>
+		<annotation cp="💇🏿‍♂">kapsel | knippen | man | huidtype 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">man wordt geknipt: huidtype 6</annotation>
+		<annotation cp="💇🏻‍♀">kapsel | knippen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">vrouw wordt geknipt: huidtype 1–2</annotation>
+		<annotation cp="💇🏼‍♀">kapsel | knippen | vrouw | huidtype 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">vrouw wordt geknipt: huidtype 3</annotation>
+		<annotation cp="💇🏽‍♀">kapsel | knippen | vrouw | huidtype 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">vrouw wordt geknipt: huidtype 4</annotation>
+		<annotation cp="💇🏾‍♀">kapsel | knippen | vrouw | huidtype 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">vrouw wordt geknipt: huidtype 5</annotation>
+		<annotation cp="💇🏿‍♀">kapsel | knippen | vrouw | huidtype 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">vrouw wordt geknipt: huidtype 6</annotation>
+		<annotation cp="🚶🏻">lopen | wandelaar | wandelen | huidtype 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">voetganger: huidtype 1–2</annotation>
+		<annotation cp="🚶🏼">lopen | wandelaar | wandelen | huidtype 3</annotation>
+		<annotation cp="🚶🏼" type="tts">voetganger: huidtype 3</annotation>
+		<annotation cp="🚶🏽">lopen | wandelaar | wandelen | huidtype 4</annotation>
+		<annotation cp="🚶🏽" type="tts">voetganger: huidtype 4</annotation>
+		<annotation cp="🚶🏾">lopen | wandelaar | wandelen | huidtype 5</annotation>
+		<annotation cp="🚶🏾" type="tts">voetganger: huidtype 5</annotation>
+		<annotation cp="🚶🏿">lopen | wandelaar | wandelen | huidtype 6</annotation>
+		<annotation cp="🚶🏿" type="tts">voetganger: huidtype 6</annotation>
+		<annotation cp="🚶🏻‍♂">lopen | man | wandelen | huidtype 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">wandelende man: huidtype 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">lopen | man | wandelen | huidtype 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">wandelende man: huidtype 3</annotation>
+		<annotation cp="🚶🏽‍♂">lopen | man | wandelen | huidtype 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">wandelende man: huidtype 4</annotation>
+		<annotation cp="🚶🏾‍♂">lopen | man | wandelen | huidtype 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">wandelende man: huidtype 5</annotation>
+		<annotation cp="🚶🏿‍♂">lopen | man | wandelen | huidtype 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">wandelende man: huidtype 6</annotation>
+		<annotation cp="🚶🏻‍♀">lopen | vrouw | wandelen | huidtype 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">wandelende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">lopen | vrouw | wandelen | huidtype 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">wandelende vrouw: huidtype 3</annotation>
+		<annotation cp="🚶🏽‍♀">lopen | vrouw | wandelen | huidtype 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">wandelende vrouw: huidtype 4</annotation>
+		<annotation cp="🚶🏾‍♀">lopen | vrouw | wandelen | huidtype 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">wandelende vrouw: huidtype 5</annotation>
+		<annotation cp="🚶🏿‍♀">lopen | vrouw | wandelen | huidtype 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">wandelende vrouw: huidtype 6</annotation>
+		<annotation cp="🏃🏻">hardlopen | marathon | sport | huidtype 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">hardloper: huidtype 1–2</annotation>
+		<annotation cp="🏃🏼">hardlopen | marathon | sport | huidtype 3</annotation>
+		<annotation cp="🏃🏼" type="tts">hardloper: huidtype 3</annotation>
+		<annotation cp="🏃🏽">hardlopen | marathon | sport | huidtype 4</annotation>
+		<annotation cp="🏃🏽" type="tts">hardloper: huidtype 4</annotation>
+		<annotation cp="🏃🏾">hardlopen | marathon | sport | huidtype 5</annotation>
+		<annotation cp="🏃🏾" type="tts">hardloper: huidtype 5</annotation>
+		<annotation cp="🏃🏿">hardlopen | marathon | sport | huidtype 6</annotation>
+		<annotation cp="🏃🏿" type="tts">hardloper: huidtype 6</annotation>
+		<annotation cp="🏃🏻‍♂">hardlopen | man | marathon | rennen | huidtype 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">rennende man: huidtype 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">hardlopen | man | marathon | rennen | huidtype 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">rennende man: huidtype 3</annotation>
+		<annotation cp="🏃🏽‍♂">hardlopen | man | marathon | rennen | huidtype 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">rennende man: huidtype 4</annotation>
+		<annotation cp="🏃🏾‍♂">hardlopen | man | marathon | rennen | huidtype 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">rennende man: huidtype 5</annotation>
+		<annotation cp="🏃🏿‍♂">hardlopen | man | marathon | rennen | huidtype 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">rennende man: huidtype 6</annotation>
+		<annotation cp="🏃🏻‍♀">hardlopen | marathon | rennen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">rennende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">hardlopen | marathon | rennen | vrouw | huidtype 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">rennende vrouw: huidtype 3</annotation>
+		<annotation cp="🏃🏽‍♀">hardlopen | marathon | rennen | vrouw | huidtype 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">rennende vrouw: huidtype 4</annotation>
+		<annotation cp="🏃🏾‍♀">hardlopen | marathon | rennen | vrouw | huidtype 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">rennende vrouw: huidtype 5</annotation>
+		<annotation cp="🏃🏿‍♀">hardlopen | marathon | rennen | vrouw | huidtype 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">rennende vrouw: huidtype 6</annotation>
+		<annotation cp="💃🏻">dansen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">dansende vrouw: huidtype 1–2</annotation>
+		<annotation cp="💃🏼">dansen | vrouw | huidtype 3</annotation>
+		<annotation cp="💃🏼" type="tts">dansende vrouw: huidtype 3</annotation>
+		<annotation cp="💃🏽">dansen | vrouw | huidtype 4</annotation>
+		<annotation cp="💃🏽" type="tts">dansende vrouw: huidtype 4</annotation>
+		<annotation cp="💃🏾">dansen | vrouw | huidtype 5</annotation>
+		<annotation cp="💃🏾" type="tts">dansende vrouw: huidtype 5</annotation>
+		<annotation cp="💃🏿">dansen | vrouw | huidtype 6</annotation>
+		<annotation cp="💃🏿" type="tts">dansende vrouw: huidtype 6</annotation>
+		<annotation cp="🕺🏻">dans | dansen | disco | man | huidtype 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">dansende man: huidtype 1–2</annotation>
+		<annotation cp="🕺🏼">dans | dansen | disco | man | huidtype 3</annotation>
+		<annotation cp="🕺🏼" type="tts">dansende man: huidtype 3</annotation>
+		<annotation cp="🕺🏽">dans | dansen | disco | man | huidtype 4</annotation>
+		<annotation cp="🕺🏽" type="tts">dansende man: huidtype 4</annotation>
+		<annotation cp="🕺🏾">dans | dansen | disco | man | huidtype 5</annotation>
+		<annotation cp="🕺🏾" type="tts">dansende man: huidtype 5</annotation>
+		<annotation cp="🕺🏿">dans | dansen | disco | man | huidtype 6</annotation>
+		<annotation cp="🕺🏿" type="tts">dansende man: huidtype 6</annotation>
+		<annotation cp="🛀🏻">bad | badkuip | huidtype 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">persoon in bad: huidtype 1–2</annotation>
+		<annotation cp="🛀🏼">bad | badkuip | huidtype 3</annotation>
+		<annotation cp="🛀🏼" type="tts">persoon in bad: huidtype 3</annotation>
+		<annotation cp="🛀🏽">bad | badkuip | huidtype 4</annotation>
+		<annotation cp="🛀🏽" type="tts">persoon in bad: huidtype 4</annotation>
+		<annotation cp="🛀🏾">bad | badkuip | huidtype 5</annotation>
+		<annotation cp="🛀🏾" type="tts">persoon in bad: huidtype 5</annotation>
+		<annotation cp="🛀🏿">bad | badkuip | huidtype 6</annotation>
+		<annotation cp="🛀🏿" type="tts">persoon in bad: huidtype 6</annotation>
+		<annotation cp="🛌🏻">hotel | slapen | huidtype 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">persoon in bed: huidtype 1–2</annotation>
+		<annotation cp="🛌🏼">hotel | slapen | huidtype 3</annotation>
+		<annotation cp="🛌🏼" type="tts">persoon in bed: huidtype 3</annotation>
+		<annotation cp="🛌🏽">hotel | slapen | huidtype 4</annotation>
+		<annotation cp="🛌🏽" type="tts">persoon in bed: huidtype 4</annotation>
+		<annotation cp="🛌🏾">hotel | slapen | huidtype 5</annotation>
+		<annotation cp="🛌🏾" type="tts">persoon in bed: huidtype 5</annotation>
+		<annotation cp="🛌🏿">hotel | slapen | huidtype 6</annotation>
+		<annotation cp="🛌🏿" type="tts">persoon in bed: huidtype 6</annotation>
+		<annotation cp="🕴🏻">kostuum | man | pak | zakelijk | zaken | huidtype 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">zwevende man in zakenpak: huidtype 1–2</annotation>
+		<annotation cp="🕴🏼">kostuum | man | pak | zakelijk | zaken | huidtype 3</annotation>
+		<annotation cp="🕴🏼" type="tts">zwevende man in zakenpak: huidtype 3</annotation>
+		<annotation cp="🕴🏽">kostuum | man | pak | zakelijk | zaken | huidtype 4</annotation>
+		<annotation cp="🕴🏽" type="tts">zwevende man in zakenpak: huidtype 4</annotation>
+		<annotation cp="🕴🏾">kostuum | man | pak | zakelijk | zaken | huidtype 5</annotation>
+		<annotation cp="🕴🏾" type="tts">zwevende man in zakenpak: huidtype 5</annotation>
+		<annotation cp="🕴🏿">kostuum | man | pak | zakelijk | zaken | huidtype 6</annotation>
+		<annotation cp="🕴🏿" type="tts">zwevende man in zakenpak: huidtype 6</annotation>
+		<annotation cp="🏇🏻">jockey | paard | racen | renpaard | huidtype 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">paardenraces: huidtype 1–2</annotation>
+		<annotation cp="🏇🏼">jockey | paard | racen | renpaard | huidtype 3</annotation>
+		<annotation cp="🏇🏼" type="tts">paardenraces: huidtype 3</annotation>
+		<annotation cp="🏇🏽">jockey | paard | racen | renpaard | huidtype 4</annotation>
+		<annotation cp="🏇🏽" type="tts">paardenraces: huidtype 4</annotation>
+		<annotation cp="🏇🏾">jockey | paard | racen | renpaard | huidtype 5</annotation>
+		<annotation cp="🏇🏾" type="tts">paardenraces: huidtype 5</annotation>
+		<annotation cp="🏇🏿">jockey | paard | racen | renpaard | huidtype 6</annotation>
+		<annotation cp="🏇🏿" type="tts">paardenraces: huidtype 6</annotation>
+		<annotation cp="🏂🏻">ski | sneeuw | snowboard | huidtype 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">snowboarder: huidtype 1–2</annotation>
+		<annotation cp="🏂🏼">ski | sneeuw | snowboard | huidtype 3</annotation>
+		<annotation cp="🏂🏼" type="tts">snowboarder: huidtype 3</annotation>
+		<annotation cp="🏂🏽">ski | sneeuw | snowboard | huidtype 4</annotation>
+		<annotation cp="🏂🏽" type="tts">snowboarder: huidtype 4</annotation>
+		<annotation cp="🏂🏾">ski | sneeuw | snowboard | huidtype 5</annotation>
+		<annotation cp="🏂🏾" type="tts">snowboarder: huidtype 5</annotation>
+		<annotation cp="🏂🏿">ski | sneeuw | snowboard | huidtype 6</annotation>
+		<annotation cp="🏂🏿" type="tts">snowboarder: huidtype 6</annotation>
+		<annotation cp="🏌🏻">bal | golf | huidtype 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">golfer: huidtype 1–2</annotation>
+		<annotation cp="🏌🏼">bal | golf | huidtype 3</annotation>
+		<annotation cp="🏌🏼" type="tts">golfer: huidtype 3</annotation>
+		<annotation cp="🏌🏽">bal | golf | huidtype 4</annotation>
+		<annotation cp="🏌🏽" type="tts">golfer: huidtype 4</annotation>
+		<annotation cp="🏌🏾">bal | golf | huidtype 5</annotation>
+		<annotation cp="🏌🏾" type="tts">golfer: huidtype 5</annotation>
+		<annotation cp="🏌🏿">bal | golf | huidtype 6</annotation>
+		<annotation cp="🏌🏿" type="tts">golfer: huidtype 6</annotation>
+		<annotation cp="🏌🏻‍♂">golfen | man | huidtype 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">golfende man: huidtype 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">golfen | man | huidtype 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">golfende man: huidtype 3</annotation>
+		<annotation cp="🏌🏽‍♂">golfen | man | huidtype 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">golfende man: huidtype 4</annotation>
+		<annotation cp="🏌🏾‍♂">golfen | man | huidtype 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">golfende man: huidtype 5</annotation>
+		<annotation cp="🏌🏿‍♂">golfen | man | huidtype 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">golfende man: huidtype 6</annotation>
+		<annotation cp="🏌🏻‍♀">golfen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">golfende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">golfen | vrouw | huidtype 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">golfende vrouw: huidtype 3</annotation>
+		<annotation cp="🏌🏽‍♀">golfen | vrouw | huidtype 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">golfende vrouw: huidtype 4</annotation>
+		<annotation cp="🏌🏾‍♀">golfen | vrouw | huidtype 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">golfende vrouw: huidtype 5</annotation>
+		<annotation cp="🏌🏿‍♀">golfen | vrouw | huidtype 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">golfende vrouw: huidtype 6</annotation>
+		<annotation cp="🏄🏻">surfen | huidtype 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">surfer: huidtype 1–2</annotation>
+		<annotation cp="🏄🏼">surfen | huidtype 3</annotation>
+		<annotation cp="🏄🏼" type="tts">surfer: huidtype 3</annotation>
+		<annotation cp="🏄🏽">surfen | huidtype 4</annotation>
+		<annotation cp="🏄🏽" type="tts">surfer: huidtype 4</annotation>
+		<annotation cp="🏄🏾">surfen | huidtype 5</annotation>
+		<annotation cp="🏄🏾" type="tts">surfer: huidtype 5</annotation>
+		<annotation cp="🏄🏿">surfen | huidtype 6</annotation>
+		<annotation cp="🏄🏿" type="tts">surfer: huidtype 6</annotation>
+		<annotation cp="🏄🏻‍♂">man | surfen | huidtype 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">surfende man: huidtype 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">man | surfen | huidtype 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">surfende man: huidtype 3</annotation>
+		<annotation cp="🏄🏽‍♂">man | surfen | huidtype 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">surfende man: huidtype 4</annotation>
+		<annotation cp="🏄🏾‍♂">man | surfen | huidtype 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">surfende man: huidtype 5</annotation>
+		<annotation cp="🏄🏿‍♂">man | surfen | huidtype 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">surfende man: huidtype 6</annotation>
+		<annotation cp="🏄🏻‍♀">surfen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">surfende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">surfen | vrouw | huidtype 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">surfende vrouw: huidtype 3</annotation>
+		<annotation cp="🏄🏽‍♀">surfen | vrouw | huidtype 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">surfende vrouw: huidtype 4</annotation>
+		<annotation cp="🏄🏾‍♀">surfen | vrouw | huidtype 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">surfende vrouw: huidtype 5</annotation>
+		<annotation cp="🏄🏿‍♀">surfen | vrouw | huidtype 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">surfende vrouw: huidtype 6</annotation>
+		<annotation cp="🚣🏻">boot | voertuig | huidtype 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">roeiboot: huidtype 1–2</annotation>
+		<annotation cp="🚣🏼">boot | voertuig | huidtype 3</annotation>
+		<annotation cp="🚣🏼" type="tts">roeiboot: huidtype 3</annotation>
+		<annotation cp="🚣🏽">boot | voertuig | huidtype 4</annotation>
+		<annotation cp="🚣🏽" type="tts">roeiboot: huidtype 4</annotation>
+		<annotation cp="🚣🏾">boot | voertuig | huidtype 5</annotation>
+		<annotation cp="🚣🏾" type="tts">roeiboot: huidtype 5</annotation>
+		<annotation cp="🚣🏿">boot | voertuig | huidtype 6</annotation>
+		<annotation cp="🚣🏿" type="tts">roeiboot: huidtype 6</annotation>
+		<annotation cp="🚣🏻‍♂">man | roeien | huidtype 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">roeiende man: huidtype 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">man | roeien | huidtype 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">roeiende man: huidtype 3</annotation>
+		<annotation cp="🚣🏽‍♂">man | roeien | huidtype 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">roeiende man: huidtype 4</annotation>
+		<annotation cp="🚣🏾‍♂">man | roeien | huidtype 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">roeiende man: huidtype 5</annotation>
+		<annotation cp="🚣🏿‍♂">man | roeien | huidtype 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">roeiende man: huidtype 6</annotation>
+		<annotation cp="🚣🏻‍♀">roeien | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">roeiende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">roeien | vrouw | huidtype 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">roeiende vrouw: huidtype 3</annotation>
+		<annotation cp="🚣🏽‍♀">roeien | vrouw | huidtype 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">roeiende vrouw: huidtype 4</annotation>
+		<annotation cp="🚣🏾‍♀">roeien | vrouw | huidtype 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">roeiende vrouw: huidtype 5</annotation>
+		<annotation cp="🚣🏿‍♀">roeien | vrouw | huidtype 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">roeiende vrouw: huidtype 6</annotation>
+		<annotation cp="🏊🏻">zwemmen | huidtype 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">zwemmer: huidtype 1–2</annotation>
+		<annotation cp="🏊🏼">zwemmen | huidtype 3</annotation>
+		<annotation cp="🏊🏼" type="tts">zwemmer: huidtype 3</annotation>
+		<annotation cp="🏊🏽">zwemmen | huidtype 4</annotation>
+		<annotation cp="🏊🏽" type="tts">zwemmer: huidtype 4</annotation>
+		<annotation cp="🏊🏾">zwemmen | huidtype 5</annotation>
+		<annotation cp="🏊🏾" type="tts">zwemmer: huidtype 5</annotation>
+		<annotation cp="🏊🏿">zwemmen | huidtype 6</annotation>
+		<annotation cp="🏊🏿" type="tts">zwemmer: huidtype 6</annotation>
+		<annotation cp="🏊🏻‍♂">man | zwemmer | huidtype 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">zwemmende man: huidtype 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">man | zwemmer | huidtype 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">zwemmende man: huidtype 3</annotation>
+		<annotation cp="🏊🏽‍♂">man | zwemmer | huidtype 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">zwemmende man: huidtype 4</annotation>
+		<annotation cp="🏊🏾‍♂">man | zwemmer | huidtype 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">zwemmende man: huidtype 5</annotation>
+		<annotation cp="🏊🏿‍♂">man | zwemmer | huidtype 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">zwemmende man: huidtype 6</annotation>
+		<annotation cp="🏊🏻‍♀">vrouw | zwemmer | zwemster | huidtype 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">zwemmende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">vrouw | zwemmer | zwemster | huidtype 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">zwemmende vrouw: huidtype 3</annotation>
+		<annotation cp="🏊🏽‍♀">vrouw | zwemmer | zwemster | huidtype 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">zwemmende vrouw: huidtype 4</annotation>
+		<annotation cp="🏊🏾‍♀">vrouw | zwemmer | zwemster | huidtype 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">zwemmende vrouw: huidtype 5</annotation>
+		<annotation cp="🏊🏿‍♀">vrouw | zwemmer | zwemster | huidtype 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">zwemmende vrouw: huidtype 6</annotation>
+		<annotation cp="⛹🏻">bal | huidtype 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">persoon met bal: huidtype 1–2</annotation>
+		<annotation cp="⛹🏼">bal | huidtype 3</annotation>
+		<annotation cp="⛹🏼" type="tts">persoon met bal: huidtype 3</annotation>
+		<annotation cp="⛹🏽">bal | huidtype 4</annotation>
+		<annotation cp="⛹🏽" type="tts">persoon met bal: huidtype 4</annotation>
+		<annotation cp="⛹🏾">bal | huidtype 5</annotation>
+		<annotation cp="⛹🏾" type="tts">persoon met bal: huidtype 5</annotation>
+		<annotation cp="⛹🏿">bal | huidtype 6</annotation>
+		<annotation cp="⛹🏿" type="tts">persoon met bal: huidtype 6</annotation>
+		<annotation cp="⛹🏻‍♂">bal | man | huidtype 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">man met bal: huidtype 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">bal | man | huidtype 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">man met bal: huidtype 3</annotation>
+		<annotation cp="⛹🏽‍♂">bal | man | huidtype 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">man met bal: huidtype 4</annotation>
+		<annotation cp="⛹🏾‍♂">bal | man | huidtype 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">man met bal: huidtype 5</annotation>
+		<annotation cp="⛹🏿‍♂">bal | man | huidtype 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">man met bal: huidtype 6</annotation>
+		<annotation cp="⛹🏻‍♀">bal | vrouw | huidtype 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">vrouw met bal: huidtype 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">bal | vrouw | huidtype 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">vrouw met bal: huidtype 3</annotation>
+		<annotation cp="⛹🏽‍♀">bal | vrouw | huidtype 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">vrouw met bal: huidtype 4</annotation>
+		<annotation cp="⛹🏾‍♀">bal | vrouw | huidtype 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">vrouw met bal: huidtype 5</annotation>
+		<annotation cp="⛹🏿‍♀">bal | vrouw | huidtype 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">vrouw met bal: huidtype 6</annotation>
+		<annotation cp="🏋🏻">gewicht | heffer | huidtype 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">gewichtheffer: huidtype 1–2</annotation>
+		<annotation cp="🏋🏼">gewicht | heffer | huidtype 3</annotation>
+		<annotation cp="🏋🏼" type="tts">gewichtheffer: huidtype 3</annotation>
+		<annotation cp="🏋🏽">gewicht | heffer | huidtype 4</annotation>
+		<annotation cp="🏋🏽" type="tts">gewichtheffer: huidtype 4</annotation>
+		<annotation cp="🏋🏾">gewicht | heffer | huidtype 5</annotation>
+		<annotation cp="🏋🏾" type="tts">gewichtheffer: huidtype 5</annotation>
+		<annotation cp="🏋🏿">gewicht | heffer | huidtype 6</annotation>
+		<annotation cp="🏋🏿" type="tts">gewichtheffer: huidtype 6</annotation>
+		<annotation cp="🏋🏻‍♂">gewichtheffen | man | huidtype 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">gewichtheffende man: huidtype 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">gewichtheffen | man | huidtype 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">gewichtheffende man: huidtype 3</annotation>
+		<annotation cp="🏋🏽‍♂">gewichtheffen | man | huidtype 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">gewichtheffende man: huidtype 4</annotation>
+		<annotation cp="🏋🏾‍♂">gewichtheffen | man | huidtype 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">gewichtheffende man: huidtype 5</annotation>
+		<annotation cp="🏋🏿‍♂">gewichtheffen | man | huidtype 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">gewichtheffende man: huidtype 6</annotation>
+		<annotation cp="🏋🏻‍♀">gewichtheffen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">gewichtheffende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">gewichtheffen | vrouw | huidtype 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">gewichtheffende vrouw: huidtype 3</annotation>
+		<annotation cp="🏋🏽‍♀">gewichtheffen | vrouw | huidtype 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">gewichtheffende vrouw: huidtype 4</annotation>
+		<annotation cp="🏋🏾‍♀">gewichtheffen | vrouw | huidtype 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">gewichtheffende vrouw: huidtype 5</annotation>
+		<annotation cp="🏋🏿‍♀">gewichtheffen | vrouw | huidtype 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">gewichtheffende vrouw: huidtype 6</annotation>
+		<annotation cp="🚴🏻">fiets | fietsen | wielrennen | wielrenner | huidtype 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">fietser: huidtype 1–2</annotation>
+		<annotation cp="🚴🏼">fiets | fietsen | wielrennen | wielrenner | huidtype 3</annotation>
+		<annotation cp="🚴🏼" type="tts">fietser: huidtype 3</annotation>
+		<annotation cp="🚴🏽">fiets | fietsen | wielrennen | wielrenner | huidtype 4</annotation>
+		<annotation cp="🚴🏽" type="tts">fietser: huidtype 4</annotation>
+		<annotation cp="🚴🏾">fiets | fietsen | wielrennen | wielrenner | huidtype 5</annotation>
+		<annotation cp="🚴🏾" type="tts">fietser: huidtype 5</annotation>
+		<annotation cp="🚴🏿">fiets | fietsen | wielrennen | wielrenner | huidtype 6</annotation>
+		<annotation cp="🚴🏿" type="tts">fietser: huidtype 6</annotation>
+		<annotation cp="🚴🏻‍♂">fietser | man | huidtype 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">fietsende man: huidtype 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">fietser | man | huidtype 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">fietsende man: huidtype 3</annotation>
+		<annotation cp="🚴🏽‍♂">fietser | man | huidtype 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">fietsende man: huidtype 4</annotation>
+		<annotation cp="🚴🏾‍♂">fietser | man | huidtype 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">fietsende man: huidtype 5</annotation>
+		<annotation cp="🚴🏿‍♂">fietser | man | huidtype 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">fietsende man: huidtype 6</annotation>
+		<annotation cp="🚴🏻‍♀">fietser | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">fietsende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">fietser | vrouw | huidtype 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">fietsende vrouw: huidtype 3</annotation>
+		<annotation cp="🚴🏽‍♀">fietser | vrouw | huidtype 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">fietsende vrouw: huidtype 4</annotation>
+		<annotation cp="🚴🏾‍♀">fietser | vrouw | huidtype 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">fietsende vrouw: huidtype 5</annotation>
+		<annotation cp="🚴🏿‍♀">fietser | vrouw | huidtype 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">fietsende vrouw: huidtype 6</annotation>
+		<annotation cp="🚵🏻">berg | fiets | fietsen | fietser | wielrenner | huidtype 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">mountainbiker: huidtype 1–2</annotation>
+		<annotation cp="🚵🏼">berg | fiets | fietsen | fietser | wielrenner | huidtype 3</annotation>
+		<annotation cp="🚵🏼" type="tts">mountainbiker: huidtype 3</annotation>
+		<annotation cp="🚵🏽">berg | fiets | fietsen | fietser | wielrenner | huidtype 4</annotation>
+		<annotation cp="🚵🏽" type="tts">mountainbiker: huidtype 4</annotation>
+		<annotation cp="🚵🏾">berg | fiets | fietsen | fietser | wielrenner | huidtype 5</annotation>
+		<annotation cp="🚵🏾" type="tts">mountainbiker: huidtype 5</annotation>
+		<annotation cp="🚵🏿">berg | fiets | fietsen | fietser | wielrenner | huidtype 6</annotation>
+		<annotation cp="🚵🏿" type="tts">mountainbiker: huidtype 6</annotation>
+		<annotation cp="🚵🏻‍♂">man | mountainbiker | huidtype 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">man op mountainbike: huidtype 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">man | mountainbiker | huidtype 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">man op mountainbike: huidtype 3</annotation>
+		<annotation cp="🚵🏽‍♂">man | mountainbiker | huidtype 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">man op mountainbike: huidtype 4</annotation>
+		<annotation cp="🚵🏾‍♂">man | mountainbiker | huidtype 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">man op mountainbike: huidtype 5</annotation>
+		<annotation cp="🚵🏿‍♂">man | mountainbiker | huidtype 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">man op mountainbike: huidtype 6</annotation>
+		<annotation cp="🚵🏻‍♀">mountainbiker | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">vrouw op mountainbike: huidtype 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">mountainbiker | vrouw | huidtype 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">vrouw op mountainbike: huidtype 3</annotation>
+		<annotation cp="🚵🏽‍♀">mountainbiker | vrouw | huidtype 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">vrouw op mountainbike: huidtype 4</annotation>
+		<annotation cp="🚵🏾‍♀">mountainbiker | vrouw | huidtype 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">vrouw op mountainbike: huidtype 5</annotation>
+		<annotation cp="🚵🏿‍♀">mountainbiker | vrouw | huidtype 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">vrouw op mountainbike: huidtype 6</annotation>
+		<annotation cp="🤸🏻">gymnastiek | persoon | rad | radslag | sport | huidtype 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">radslag: huidtype 1–2</annotation>
+		<annotation cp="🤸🏼">gymnastiek | persoon | rad | radslag | sport | huidtype 3</annotation>
+		<annotation cp="🤸🏼" type="tts">radslag: huidtype 3</annotation>
+		<annotation cp="🤸🏽">gymnastiek | persoon | rad | radslag | sport | huidtype 4</annotation>
+		<annotation cp="🤸🏽" type="tts">radslag: huidtype 4</annotation>
+		<annotation cp="🤸🏾">gymnastiek | persoon | rad | radslag | sport | huidtype 5</annotation>
+		<annotation cp="🤸🏾" type="tts">radslag: huidtype 5</annotation>
+		<annotation cp="🤸🏿">gymnastiek | persoon | rad | radslag | sport | huidtype 6</annotation>
+		<annotation cp="🤸🏿" type="tts">radslag: huidtype 6</annotation>
+		<annotation cp="🤸🏻‍♂">man | radslag | huidtype 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">man doet radslag: huidtype 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">man | radslag | huidtype 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">man doet radslag: huidtype 3</annotation>
+		<annotation cp="🤸🏽‍♂">man | radslag | huidtype 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">man doet radslag: huidtype 4</annotation>
+		<annotation cp="🤸🏾‍♂">man | radslag | huidtype 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">man doet radslag: huidtype 5</annotation>
+		<annotation cp="🤸🏿‍♂">man | radslag | huidtype 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">man doet radslag: huidtype 6</annotation>
+		<annotation cp="🤸🏻‍♀">radslag | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">vrouw doet radslag: huidtype 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">radslag | vrouw | huidtype 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">vrouw doet radslag: huidtype 3</annotation>
+		<annotation cp="🤸🏽‍♀">radslag | vrouw | huidtype 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">vrouw doet radslag: huidtype 4</annotation>
+		<annotation cp="🤸🏾‍♀">radslag | vrouw | huidtype 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">vrouw doet radslag: huidtype 5</annotation>
+		<annotation cp="🤸🏿‍♀">radslag | vrouw | huidtype 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">vrouw doet radslag: huidtype 6</annotation>
+		<annotation cp="🤽🏻">persoon | polo | sport | water | huidtype 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">waterpolo: huidtype 1–2</annotation>
+		<annotation cp="🤽🏼">persoon | polo | sport | water | huidtype 3</annotation>
+		<annotation cp="🤽🏼" type="tts">waterpolo: huidtype 3</annotation>
+		<annotation cp="🤽🏽">persoon | polo | sport | water | huidtype 4</annotation>
+		<annotation cp="🤽🏽" type="tts">waterpolo: huidtype 4</annotation>
+		<annotation cp="🤽🏾">persoon | polo | sport | water | huidtype 5</annotation>
+		<annotation cp="🤽🏾" type="tts">waterpolo: huidtype 5</annotation>
+		<annotation cp="🤽🏿">persoon | polo | sport | water | huidtype 6</annotation>
+		<annotation cp="🤽🏿" type="tts">waterpolo: huidtype 6</annotation>
+		<annotation cp="🤽🏻‍♂">man | waterpolo | huidtype 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">waterpoloër: huidtype 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">man | waterpolo | huidtype 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">waterpoloër: huidtype 3</annotation>
+		<annotation cp="🤽🏽‍♂">man | waterpolo | huidtype 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">waterpoloër: huidtype 4</annotation>
+		<annotation cp="🤽🏾‍♂">man | waterpolo | huidtype 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">waterpoloër: huidtype 5</annotation>
+		<annotation cp="🤽🏿‍♂">man | waterpolo | huidtype 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">waterpoloër: huidtype 6</annotation>
+		<annotation cp="🤽🏻‍♀">vrouw | waterpolo | huidtype 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">waterpolooster: huidtype 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">vrouw | waterpolo | huidtype 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">waterpolooster: huidtype 3</annotation>
+		<annotation cp="🤽🏽‍♀">vrouw | waterpolo | huidtype 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">waterpolooster: huidtype 4</annotation>
+		<annotation cp="🤽🏾‍♀">vrouw | waterpolo | huidtype 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">waterpolooster: huidtype 5</annotation>
+		<annotation cp="🤽🏿‍♀">vrouw | waterpolo | huidtype 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">waterpolooster: huidtype 6</annotation>
+		<annotation cp="🤾🏻">bal | handbal | persoon | sport | huidtype 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">handbal: huidtype 1–2</annotation>
+		<annotation cp="🤾🏼">bal | handbal | persoon | sport | huidtype 3</annotation>
+		<annotation cp="🤾🏼" type="tts">handbal: huidtype 3</annotation>
+		<annotation cp="🤾🏽">bal | handbal | persoon | sport | huidtype 4</annotation>
+		<annotation cp="🤾🏽" type="tts">handbal: huidtype 4</annotation>
+		<annotation cp="🤾🏾">bal | handbal | persoon | sport | huidtype 5</annotation>
+		<annotation cp="🤾🏾" type="tts">handbal: huidtype 5</annotation>
+		<annotation cp="🤾🏿">bal | handbal | persoon | sport | huidtype 6</annotation>
+		<annotation cp="🤾🏿" type="tts">handbal: huidtype 6</annotation>
+		<annotation cp="🤾🏻‍♂">handballen | man | huidtype 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">handballer: huidtype 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">handballen | man | huidtype 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">handballer: huidtype 3</annotation>
+		<annotation cp="🤾🏽‍♂">handballen | man | huidtype 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">handballer: huidtype 4</annotation>
+		<annotation cp="🤾🏾‍♂">handballen | man | huidtype 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">handballer: huidtype 5</annotation>
+		<annotation cp="🤾🏿‍♂">handballen | man | huidtype 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">handballer: huidtype 6</annotation>
+		<annotation cp="🤾🏻‍♀">handballen | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">handbalster: huidtype 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">handballen | vrouw | huidtype 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">handbalster: huidtype 3</annotation>
+		<annotation cp="🤾🏽‍♀">handballen | vrouw | huidtype 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">handbalster: huidtype 4</annotation>
+		<annotation cp="🤾🏾‍♀">handballen | vrouw | huidtype 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">handbalster: huidtype 5</annotation>
+		<annotation cp="🤾🏿‍♀">handballen | vrouw | huidtype 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">handbalster: huidtype 6</annotation>
+		<annotation cp="🤹🏻">balans | jongleur | multitasken | vaardigheid | huidtype 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">jongleren: huidtype 1–2</annotation>
+		<annotation cp="🤹🏼">balans | jongleur | multitasken | vaardigheid | huidtype 3</annotation>
+		<annotation cp="🤹🏼" type="tts">jongleren: huidtype 3</annotation>
+		<annotation cp="🤹🏽">balans | jongleur | multitasken | vaardigheid | huidtype 4</annotation>
+		<annotation cp="🤹🏽" type="tts">jongleren: huidtype 4</annotation>
+		<annotation cp="🤹🏾">balans | jongleur | multitasken | vaardigheid | huidtype 5</annotation>
+		<annotation cp="🤹🏾" type="tts">jongleren: huidtype 5</annotation>
+		<annotation cp="🤹🏿">balans | jongleur | multitasken | vaardigheid | huidtype 6</annotation>
+		<annotation cp="🤹🏿" type="tts">jongleren: huidtype 6</annotation>
+		<annotation cp="🤹🏻‍♂">jongleren | man | huidtype 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">jonglerende man: huidtype 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">jongleren | man | huidtype 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">jonglerende man: huidtype 3</annotation>
+		<annotation cp="🤹🏽‍♂">jongleren | man | huidtype 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">jonglerende man: huidtype 4</annotation>
+		<annotation cp="🤹🏾‍♂">jongleren | man | huidtype 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">jonglerende man: huidtype 5</annotation>
+		<annotation cp="🤹🏿‍♂">jongleren | man | huidtype 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">jonglerende man: huidtype 6</annotation>
+		<annotation cp="🤹🏻‍♀">jongleren | vrouw | huidtype 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">jonglerende vrouw: huidtype 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">jongleren | vrouw | huidtype 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">jonglerende vrouw: huidtype 3</annotation>
+		<annotation cp="🤹🏽‍♀">jongleren | vrouw | huidtype 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">jonglerende vrouw: huidtype 4</annotation>
+		<annotation cp="🤹🏾‍♀">jongleren | vrouw | huidtype 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">jonglerende vrouw: huidtype 5</annotation>
+		<annotation cp="🤹🏿‍♀">jongleren | vrouw | huidtype 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">jonglerende vrouw: huidtype 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">man | paar | stel | vrouw</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">kussende man en vrouw</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">mannen | paar | stel</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">kussende mannen</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">paar | stel | vrouwen</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">kussende vrouwen</annotation>
+		<annotation cp="👩‍❤‍👨">hart | man | stel | vrouw</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">hart, vrouw, man</annotation>
+		<annotation cp="👨‍❤‍👨">hart | mannen | stel</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">hart, man, man</annotation>
+		<annotation cp="👩‍❤‍👩">hart | stel | vrouwen</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">hart, vrouw, vrouw</annotation>
+		<annotation cp="👨‍👩‍👦">gezin | jongen</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">gezin, man, vrouw, jongen</annotation>
+		<annotation cp="👨‍👩‍👧">gezin | meisje</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">gezin, man, vrouw, meisje</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">gezin | jongen | meisje</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">gezin, man, vrouw, meisje, jongen</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">gezin | jongens</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">gezin, man, vrouw, jongen, jongen</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">gezin | meisjes</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">gezin, man, vrouw, meisje, meisje</annotation>
+		<annotation cp="👨‍👨‍👦">gezin | jongen | mannen</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">gezin, man, man, jongen</annotation>
+		<annotation cp="👨‍👨‍👧">gezin | mannen | meisje</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">gezin, man, man, meisje</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">gezin | jongen | mannen | meisje</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">gezin, man, man, meisje, jongen</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">gezin | jongens | mannen</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">gezin, man, man, jongen, jongen</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">gezin | mannen | meisjes</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">gezin, man, man, meisje, meisje</annotation>
+		<annotation cp="👩‍👩‍👦">gezin | jongen | vrouwen</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">gezin, vrouw, vrouw, jongen</annotation>
+		<annotation cp="👩‍👩‍👧">gezin | meisje | vrouwen</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">gezin, vrouw, vrouw, meisje</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">gezin | jongen | meisje | vrouwen</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">gezin, vrouw, vrouw, meisje, jongen</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">gezin | jongens | vrouwen</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">gezin, vrouw, vrouw, jongen, jongen</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">gezin | meisjes | vrouwen</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">gezin, vrouw, vrouw, meisje, meisje</annotation>
+		<annotation cp="👨‍👦">gezin | jongen | man</annotation>
+		<annotation cp="👨‍👦" type="tts">gezin, man, jongen</annotation>
+		<annotation cp="👨‍👦‍👦">gezin | jongens | man</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">gezin, man, jongen, jongen</annotation>
+		<annotation cp="👨‍👧">gezin | man | meisje</annotation>
+		<annotation cp="👨‍👧" type="tts">gezin, man, meisje</annotation>
+		<annotation cp="👨‍👧‍👦">gezin | jongen | man | meisje</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">gezin, man, meisje, jongen</annotation>
+		<annotation cp="👨‍👧‍👧">gezin | man | meisjes</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">gezin, man, meisje, meisje</annotation>
+		<annotation cp="👩‍👦">gezin | jongen | vrouw</annotation>
+		<annotation cp="👩‍👦" type="tts">gezin, vrouw, jongen</annotation>
+		<annotation cp="👩‍👦‍👦">gezin | jongens | vrouw</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">gezin, vrouw, jongen, jongen</annotation>
+		<annotation cp="👩‍👧">gezin | meisje | vrouw</annotation>
+		<annotation cp="👩‍👧" type="tts">gezin, vrouw, meisje</annotation>
+		<annotation cp="👩‍👧‍👦">gezin | jongen | meisje | vrouw</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">gezin, vrouw, meisje, jongen</annotation>
+		<annotation cp="👩‍👧‍👧">gezin | meisjes | vrouw</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">gezin, vrouw, meisje, meisje</annotation>
+		<annotation cp="🤳🏻">camera | selfie | telefoon | huidtype 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: huidtype 1–2</annotation>
+		<annotation cp="🤳🏼">camera | selfie | telefoon | huidtype 3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: huidtype 3</annotation>
+		<annotation cp="🤳🏽">camera | selfie | telefoon | huidtype 4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: huidtype 4</annotation>
+		<annotation cp="🤳🏾">camera | selfie | telefoon | huidtype 5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: huidtype 5</annotation>
+		<annotation cp="🤳🏿">camera | selfie | telefoon | huidtype 6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: huidtype 6</annotation>
+		<annotation cp="💪🏻">biceps | lichaam | spannen | spier | spierbal | strip | huidtype 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">gespannen biceps: huidtype 1–2</annotation>
+		<annotation cp="💪🏼">biceps | lichaam | spannen | spier | spierbal | strip | huidtype 3</annotation>
+		<annotation cp="💪🏼" type="tts">gespannen biceps: huidtype 3</annotation>
+		<annotation cp="💪🏽">biceps | lichaam | spannen | spier | spierbal | strip | huidtype 4</annotation>
+		<annotation cp="💪🏽" type="tts">gespannen biceps: huidtype 4</annotation>
+		<annotation cp="💪🏾">biceps | lichaam | spannen | spier | spierbal | strip | huidtype 5</annotation>
+		<annotation cp="💪🏾" type="tts">gespannen biceps: huidtype 5</annotation>
+		<annotation cp="💪🏿">biceps | lichaam | spannen | spier | spierbal | strip | huidtype 6</annotation>
+		<annotation cp="💪🏿" type="tts">gespannen biceps: huidtype 6</annotation>
+		<annotation cp="👈🏻">hand | lichaam | vinger | vinger wijst naar links | wijsvinger | wijzen | wijzend | huidtype 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">wijsvinger wijst naar links: huidtype 1–2</annotation>
+		<annotation cp="👈🏼">hand | lichaam | vinger | vinger wijst naar links | wijsvinger | wijzen | wijzend | huidtype 3</annotation>
+		<annotation cp="👈🏼" type="tts">wijsvinger wijst naar links: huidtype 3</annotation>
+		<annotation cp="👈🏽">hand | lichaam | vinger | vinger wijst naar links | wijsvinger | wijzen | wijzend | huidtype 4</annotation>
+		<annotation cp="👈🏽" type="tts">wijsvinger wijst naar links: huidtype 4</annotation>
+		<annotation cp="👈🏾">hand | lichaam | vinger | vinger wijst naar links | wijsvinger | wijzen | wijzend | huidtype 5</annotation>
+		<annotation cp="👈🏾" type="tts">wijsvinger wijst naar links: huidtype 5</annotation>
+		<annotation cp="👈🏿">hand | lichaam | vinger | vinger wijst naar links | wijsvinger | wijzen | wijzend | huidtype 6</annotation>
+		<annotation cp="👈🏿" type="tts">wijsvinger wijst naar links: huidtype 6</annotation>
+		<annotation cp="👉🏻">hand | lichaam | vinger | vinger wijst naar rechts | wijsvinger | wijzen | wijzend | huidtype 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">wijsvinger wijst naar rechts: huidtype 1–2</annotation>
+		<annotation cp="👉🏼">hand | lichaam | vinger | vinger wijst naar rechts | wijsvinger | wijzen | wijzend | huidtype 3</annotation>
+		<annotation cp="👉🏼" type="tts">wijsvinger wijst naar rechts: huidtype 3</annotation>
+		<annotation cp="👉🏽">hand | lichaam | vinger | vinger wijst naar rechts | wijsvinger | wijzen | wijzend | huidtype 4</annotation>
+		<annotation cp="👉🏽" type="tts">wijsvinger wijst naar rechts: huidtype 4</annotation>
+		<annotation cp="👉🏾">hand | lichaam | vinger | vinger wijst naar rechts | wijsvinger | wijzen | wijzend | huidtype 5</annotation>
+		<annotation cp="👉🏾" type="tts">wijsvinger wijst naar rechts: huidtype 5</annotation>
+		<annotation cp="👉🏿">hand | lichaam | vinger | vinger wijst naar rechts | wijsvinger | wijzen | wijzend | huidtype 6</annotation>
+		<annotation cp="👉🏿" type="tts">wijsvinger wijst naar rechts: huidtype 6</annotation>
+		<annotation cp="☝🏻">hand | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">wijsvinger wijst omhoog: huidtype 1–2</annotation>
+		<annotation cp="☝🏼">hand | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 3</annotation>
+		<annotation cp="☝🏼" type="tts">wijsvinger wijst omhoog: huidtype 3</annotation>
+		<annotation cp="☝🏽">hand | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 4</annotation>
+		<annotation cp="☝🏽" type="tts">wijsvinger wijst omhoog: huidtype 4</annotation>
+		<annotation cp="☝🏾">hand | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 5</annotation>
+		<annotation cp="☝🏾" type="tts">wijsvinger wijst omhoog: huidtype 5</annotation>
+		<annotation cp="☝🏿">hand | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 6</annotation>
+		<annotation cp="☝🏿" type="tts">wijsvinger wijst omhoog: huidtype 6</annotation>
+		<annotation cp="👆🏻">backhand | hand | hand met rug naar voren | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">wijsvinger wijst omhoog met hand andersom: huidtype 1–2</annotation>
+		<annotation cp="👆🏼">backhand | hand | hand met rug naar voren | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 3</annotation>
+		<annotation cp="👆🏼" type="tts">wijsvinger wijst omhoog met hand andersom: huidtype 3</annotation>
+		<annotation cp="👆🏽">backhand | hand | hand met rug naar voren | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 4</annotation>
+		<annotation cp="👆🏽" type="tts">wijsvinger wijst omhoog met hand andersom: huidtype 4</annotation>
+		<annotation cp="👆🏾">backhand | hand | hand met rug naar voren | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 5</annotation>
+		<annotation cp="👆🏾" type="tts">wijsvinger wijst omhoog met hand andersom: huidtype 5</annotation>
+		<annotation cp="👆🏿">backhand | hand | hand met rug naar voren | lichaam | omhoog | vinger | wijsvinger | wijzen | wijzend | huidtype 6</annotation>
+		<annotation cp="👆🏿" type="tts">wijsvinger wijst omhoog met hand andersom: huidtype 6</annotation>
+		<annotation cp="🖕🏻">hand | lichaam | vinger | huidtype 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">middelvinger: huidtype 1–2</annotation>
+		<annotation cp="🖕🏼">hand | lichaam | vinger | huidtype 3</annotation>
+		<annotation cp="🖕🏼" type="tts">middelvinger: huidtype 3</annotation>
+		<annotation cp="🖕🏽">hand | lichaam | vinger | huidtype 4</annotation>
+		<annotation cp="🖕🏽" type="tts">middelvinger: huidtype 4</annotation>
+		<annotation cp="🖕🏾">hand | lichaam | vinger | huidtype 5</annotation>
+		<annotation cp="🖕🏾" type="tts">middelvinger: huidtype 5</annotation>
+		<annotation cp="🖕🏿">hand | lichaam | vinger | huidtype 6</annotation>
+		<annotation cp="🖕🏿" type="tts">middelvinger: huidtype 6</annotation>
+		<annotation cp="👇🏻">backhand | hand | hand met rug naar voren | lichaam | omlaag | vinger | wijsvinger | wijzen | wijzend | huidtype 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">wijsvinger wijst omlaag: huidtype 1–2</annotation>
+		<annotation cp="👇🏼">backhand | hand | hand met rug naar voren | lichaam | omlaag | vinger | wijsvinger | wijzen | wijzend | huidtype 3</annotation>
+		<annotation cp="👇🏼" type="tts">wijsvinger wijst omlaag: huidtype 3</annotation>
+		<annotation cp="👇🏽">backhand | hand | hand met rug naar voren | lichaam | omlaag | vinger | wijsvinger | wijzen | wijzend | huidtype 4</annotation>
+		<annotation cp="👇🏽" type="tts">wijsvinger wijst omlaag: huidtype 4</annotation>
+		<annotation cp="👇🏾">backhand | hand | hand met rug naar voren | lichaam | omlaag | vinger | wijsvinger | wijzen | wijzend | huidtype 5</annotation>
+		<annotation cp="👇🏾" type="tts">wijsvinger wijst omlaag: huidtype 5</annotation>
+		<annotation cp="👇🏿">backhand | hand | hand met rug naar voren | lichaam | omlaag | vinger | wijsvinger | wijzen | wijzend | huidtype 6</annotation>
+		<annotation cp="👇🏿" type="tts">wijsvinger wijst omlaag: huidtype 6</annotation>
+		<annotation cp="✌🏻">hand | lichaam | v | vredesteken | huidtype 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">V-teken: huidtype 1–2</annotation>
+		<annotation cp="✌🏼">hand | lichaam | v | vredesteken | huidtype 3</annotation>
+		<annotation cp="✌🏼" type="tts">V-teken: huidtype 3</annotation>
+		<annotation cp="✌🏽">hand | lichaam | v | vredesteken | huidtype 4</annotation>
+		<annotation cp="✌🏽" type="tts">V-teken: huidtype 4</annotation>
+		<annotation cp="✌🏾">hand | lichaam | v | vredesteken | huidtype 5</annotation>
+		<annotation cp="✌🏾" type="tts">V-teken: huidtype 5</annotation>
+		<annotation cp="✌🏿">hand | lichaam | v | vredesteken | huidtype 6</annotation>
+		<annotation cp="✌🏿" type="tts">V-teken: huidtype 6</annotation>
+		<annotation cp="🤞🏻">gekruist | geluk | hand | vinger | wensen | huidtype 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">duimen: huidtype 1–2</annotation>
+		<annotation cp="🤞🏼">gekruist | geluk | hand | vinger | wensen | huidtype 3</annotation>
+		<annotation cp="🤞🏼" type="tts">duimen: huidtype 3</annotation>
+		<annotation cp="🤞🏽">gekruist | geluk | hand | vinger | wensen | huidtype 4</annotation>
+		<annotation cp="🤞🏽" type="tts">duimen: huidtype 4</annotation>
+		<annotation cp="🤞🏾">gekruist | geluk | hand | vinger | wensen | huidtype 5</annotation>
+		<annotation cp="🤞🏾" type="tts">duimen: huidtype 5</annotation>
+		<annotation cp="🤞🏿">gekruist | geluk | hand | vinger | wensen | huidtype 6</annotation>
+		<annotation cp="🤞🏿" type="tts">duimen: huidtype 6</annotation>
+		<annotation cp="🖖🏻">hand | lichaam | spock | vinger | vulcan | huidtype 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">vulcangroet: huidtype 1–2</annotation>
+		<annotation cp="🖖🏼">hand | lichaam | spock | vinger | vulcan | huidtype 3</annotation>
+		<annotation cp="🖖🏼" type="tts">vulcangroet: huidtype 3</annotation>
+		<annotation cp="🖖🏽">hand | lichaam | spock | vinger | vulcan | huidtype 4</annotation>
+		<annotation cp="🖖🏽" type="tts">vulcangroet: huidtype 4</annotation>
+		<annotation cp="🖖🏾">hand | lichaam | spock | vinger | vulcan | huidtype 5</annotation>
+		<annotation cp="🖖🏾" type="tts">vulcangroet: huidtype 5</annotation>
+		<annotation cp="🖖🏿">hand | lichaam | spock | vinger | vulcan | huidtype 6</annotation>
+		<annotation cp="🖖🏿" type="tts">vulcangroet: huidtype 6</annotation>
+		<annotation cp="🤘🏻">hand | hoorns | lichaam | rock on | vinger | huidtype 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">teken van duivelshoorns: huidtype 1–2</annotation>
+		<annotation cp="🤘🏼">hand | hoorns | lichaam | rock on | vinger | huidtype 3</annotation>
+		<annotation cp="🤘🏼" type="tts">teken van duivelshoorns: huidtype 3</annotation>
+		<annotation cp="🤘🏽">hand | hoorns | lichaam | rock on | vinger | huidtype 4</annotation>
+		<annotation cp="🤘🏽" type="tts">teken van duivelshoorns: huidtype 4</annotation>
+		<annotation cp="🤘🏾">hand | hoorns | lichaam | rock on | vinger | huidtype 5</annotation>
+		<annotation cp="🤘🏾" type="tts">teken van duivelshoorns: huidtype 5</annotation>
+		<annotation cp="🤘🏿">hand | hoorns | lichaam | rock on | vinger | huidtype 6</annotation>
+		<annotation cp="🤘🏿" type="tts">teken van duivelshoorns: huidtype 6</annotation>
+		<annotation cp="🤙🏻">bellen | hand | huidtype 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">hand voor bel mij: huidtype 1–2</annotation>
+		<annotation cp="🤙🏼">bellen | hand | huidtype 3</annotation>
+		<annotation cp="🤙🏼" type="tts">hand voor bel mij: huidtype 3</annotation>
+		<annotation cp="🤙🏽">bellen | hand | huidtype 4</annotation>
+		<annotation cp="🤙🏽" type="tts">hand voor bel mij: huidtype 4</annotation>
+		<annotation cp="🤙🏾">bellen | hand | huidtype 5</annotation>
+		<annotation cp="🤙🏾" type="tts">hand voor bel mij: huidtype 5</annotation>
+		<annotation cp="🤙🏿">bellen | hand | huidtype 6</annotation>
+		<annotation cp="🤙🏿" type="tts">hand voor bel mij: huidtype 6</annotation>
+		<annotation cp="🖐🏻">gespreid | hand | lichaam | vinger | huidtype 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">hand omhoog met gespreide vingers: huidtype 1–2</annotation>
+		<annotation cp="🖐🏼">gespreid | hand | lichaam | vinger | huidtype 3</annotation>
+		<annotation cp="🖐🏼" type="tts">hand omhoog met gespreide vingers: huidtype 3</annotation>
+		<annotation cp="🖐🏽">gespreid | hand | lichaam | vinger | huidtype 4</annotation>
+		<annotation cp="🖐🏽" type="tts">hand omhoog met gespreide vingers: huidtype 4</annotation>
+		<annotation cp="🖐🏾">gespreid | hand | lichaam | vinger | huidtype 5</annotation>
+		<annotation cp="🖐🏾" type="tts">hand omhoog met gespreide vingers: huidtype 5</annotation>
+		<annotation cp="🖐🏿">gespreid | hand | lichaam | vinger | huidtype 6</annotation>
+		<annotation cp="🖐🏿" type="tts">hand omhoog met gespreide vingers: huidtype 6</annotation>
+		<annotation cp="✋🏻">hand | lichaam | huidtype 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">hand omhoog: huidtype 1–2</annotation>
+		<annotation cp="✋🏼">hand | lichaam | huidtype 3</annotation>
+		<annotation cp="✋🏼" type="tts">hand omhoog: huidtype 3</annotation>
+		<annotation cp="✋🏽">hand | lichaam | huidtype 4</annotation>
+		<annotation cp="✋🏽" type="tts">hand omhoog: huidtype 4</annotation>
+		<annotation cp="✋🏾">hand | lichaam | huidtype 5</annotation>
+		<annotation cp="✋🏾" type="tts">hand omhoog: huidtype 5</annotation>
+		<annotation cp="✋🏿">hand | lichaam | huidtype 6</annotation>
+		<annotation cp="✋🏿" type="tts">hand omhoog: huidtype 6</annotation>
+		<annotation cp="👌🏻">OK | hand | lichaam | huidtype 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">OK-teken: huidtype 1–2</annotation>
+		<annotation cp="👌🏼">OK | hand | lichaam | huidtype 3</annotation>
+		<annotation cp="👌🏼" type="tts">OK-teken: huidtype 3</annotation>
+		<annotation cp="👌🏽">OK | hand | lichaam | huidtype 4</annotation>
+		<annotation cp="👌🏽" type="tts">OK-teken: huidtype 4</annotation>
+		<annotation cp="👌🏾">OK | hand | lichaam | huidtype 5</annotation>
+		<annotation cp="👌🏾" type="tts">OK-teken: huidtype 5</annotation>
+		<annotation cp="👌🏿">OK | hand | lichaam | huidtype 6</annotation>
+		<annotation cp="👌🏿" type="tts">OK-teken: huidtype 6</annotation>
+		<annotation cp="👍🏻">+1 | duim | hand | lichaam | omhoog | huidtype 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">duim omhoog: huidtype 1–2</annotation>
+		<annotation cp="👍🏼">+1 | duim | hand | lichaam | omhoog | huidtype 3</annotation>
+		<annotation cp="👍🏼" type="tts">duim omhoog: huidtype 3</annotation>
+		<annotation cp="👍🏽">+1 | duim | hand | lichaam | omhoog | huidtype 4</annotation>
+		<annotation cp="👍🏽" type="tts">duim omhoog: huidtype 4</annotation>
+		<annotation cp="👍🏾">+1 | duim | hand | lichaam | omhoog | huidtype 5</annotation>
+		<annotation cp="👍🏾" type="tts">duim omhoog: huidtype 5</annotation>
+		<annotation cp="👍🏿">+1 | duim | hand | lichaam | omhoog | huidtype 6</annotation>
+		<annotation cp="👍🏿" type="tts">duim omhoog: huidtype 6</annotation>
+		<annotation cp="👎🏻">-1 | duim | hand | lichaam | omlaag | huidtype 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">duim omlaag: huidtype 1–2</annotation>
+		<annotation cp="👎🏼">-1 | duim | hand | lichaam | omlaag | huidtype 3</annotation>
+		<annotation cp="👎🏼" type="tts">duim omlaag: huidtype 3</annotation>
+		<annotation cp="👎🏽">-1 | duim | hand | lichaam | omlaag | huidtype 4</annotation>
+		<annotation cp="👎🏽" type="tts">duim omlaag: huidtype 4</annotation>
+		<annotation cp="👎🏾">-1 | duim | hand | lichaam | omlaag | huidtype 5</annotation>
+		<annotation cp="👎🏾" type="tts">duim omlaag: huidtype 5</annotation>
+		<annotation cp="👎🏿">-1 | duim | hand | lichaam | omlaag | huidtype 6</annotation>
+		<annotation cp="👎🏿" type="tts">duim omlaag: huidtype 6</annotation>
+		<annotation cp="✊🏻">gebald | hand | lichaam | stoot | vuist | huidtype 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">vuist omhoog: huidtype 1–2</annotation>
+		<annotation cp="✊🏼">gebald | hand | lichaam | stoot | vuist | huidtype 3</annotation>
+		<annotation cp="✊🏼" type="tts">vuist omhoog: huidtype 3</annotation>
+		<annotation cp="✊🏽">gebald | hand | lichaam | stoot | vuist | huidtype 4</annotation>
+		<annotation cp="✊🏽" type="tts">vuist omhoog: huidtype 4</annotation>
+		<annotation cp="✊🏾">gebald | hand | lichaam | stoot | vuist | huidtype 5</annotation>
+		<annotation cp="✊🏾" type="tts">vuist omhoog: huidtype 5</annotation>
+		<annotation cp="✊🏿">gebald | hand | lichaam | stoot | vuist | huidtype 6</annotation>
+		<annotation cp="✊🏿" type="tts">vuist omhoog: huidtype 6</annotation>
+		<annotation cp="👊🏻">gebald | hand | lichaam | stoot | vuist | huidtype 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">gebalde vuist: huidtype 1–2</annotation>
+		<annotation cp="👊🏼">gebald | hand | lichaam | stoot | vuist | huidtype 3</annotation>
+		<annotation cp="👊🏼" type="tts">gebalde vuist: huidtype 3</annotation>
+		<annotation cp="👊🏽">gebald | hand | lichaam | stoot | vuist | huidtype 4</annotation>
+		<annotation cp="👊🏽" type="tts">gebalde vuist: huidtype 4</annotation>
+		<annotation cp="👊🏾">gebald | hand | lichaam | stoot | vuist | huidtype 5</annotation>
+		<annotation cp="👊🏾" type="tts">gebalde vuist: huidtype 5</annotation>
+		<annotation cp="👊🏿">gebald | hand | lichaam | stoot | vuist | huidtype 6</annotation>
+		<annotation cp="👊🏿" type="tts">gebalde vuist: huidtype 6</annotation>
+		<annotation cp="🤛🏻">linksom | vuist | huidtype 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">vuist naar links: huidtype 1–2</annotation>
+		<annotation cp="🤛🏼">linksom | vuist | huidtype 3</annotation>
+		<annotation cp="🤛🏼" type="tts">vuist naar links: huidtype 3</annotation>
+		<annotation cp="🤛🏽">linksom | vuist | huidtype 4</annotation>
+		<annotation cp="🤛🏽" type="tts">vuist naar links: huidtype 4</annotation>
+		<annotation cp="🤛🏾">linksom | vuist | huidtype 5</annotation>
+		<annotation cp="🤛🏾" type="tts">vuist naar links: huidtype 5</annotation>
+		<annotation cp="🤛🏿">linksom | vuist | huidtype 6</annotation>
+		<annotation cp="🤛🏿" type="tts">vuist naar links: huidtype 6</annotation>
+		<annotation cp="🤜🏻">rechtsom | vuist | huidtype 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">vuist naar rechts: huidtype 1–2</annotation>
+		<annotation cp="🤜🏼">rechtsom | vuist | huidtype 3</annotation>
+		<annotation cp="🤜🏼" type="tts">vuist naar rechts: huidtype 3</annotation>
+		<annotation cp="🤜🏽">rechtsom | vuist | huidtype 4</annotation>
+		<annotation cp="🤜🏽" type="tts">vuist naar rechts: huidtype 4</annotation>
+		<annotation cp="🤜🏾">rechtsom | vuist | huidtype 5</annotation>
+		<annotation cp="🤜🏾" type="tts">vuist naar rechts: huidtype 5</annotation>
+		<annotation cp="🤜🏿">rechtsom | vuist | huidtype 6</annotation>
+		<annotation cp="🤜🏿" type="tts">vuist naar rechts: huidtype 6</annotation>
+		<annotation cp="🤚🏻">hand | handrug | opgestoken | huidtype 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">achterzijde opgestoken hand: huidtype 1–2</annotation>
+		<annotation cp="🤚🏼">hand | handrug | opgestoken | huidtype 3</annotation>
+		<annotation cp="🤚🏼" type="tts">achterzijde opgestoken hand: huidtype 3</annotation>
+		<annotation cp="🤚🏽">hand | handrug | opgestoken | huidtype 4</annotation>
+		<annotation cp="🤚🏽" type="tts">achterzijde opgestoken hand: huidtype 4</annotation>
+		<annotation cp="🤚🏾">hand | handrug | opgestoken | huidtype 5</annotation>
+		<annotation cp="🤚🏾" type="tts">achterzijde opgestoken hand: huidtype 5</annotation>
+		<annotation cp="🤚🏿">hand | handrug | opgestoken | huidtype 6</annotation>
+		<annotation cp="🤚🏿" type="tts">achterzijde opgestoken hand: huidtype 6</annotation>
+		<annotation cp="👋🏻">hand | lichaam | zwaai | zwaaien | huidtype 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">zwaaiende hand: huidtype 1–2</annotation>
+		<annotation cp="👋🏼">hand | lichaam | zwaai | zwaaien | huidtype 3</annotation>
+		<annotation cp="👋🏼" type="tts">zwaaiende hand: huidtype 3</annotation>
+		<annotation cp="👋🏽">hand | lichaam | zwaai | zwaaien | huidtype 4</annotation>
+		<annotation cp="👋🏽" type="tts">zwaaiende hand: huidtype 4</annotation>
+		<annotation cp="👋🏾">hand | lichaam | zwaai | zwaaien | huidtype 5</annotation>
+		<annotation cp="👋🏾" type="tts">zwaaiende hand: huidtype 5</annotation>
+		<annotation cp="👋🏿">hand | lichaam | zwaai | zwaaien | huidtype 6</annotation>
+		<annotation cp="👋🏿" type="tts">zwaaiende hand: huidtype 6</annotation>
+		<annotation cp="✍🏻">hand | lichaam | schrijven | huidtype 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">schrijvende hand: huidtype 1–2</annotation>
+		<annotation cp="✍🏼">hand | lichaam | schrijven | huidtype 3</annotation>
+		<annotation cp="✍🏼" type="tts">schrijvende hand: huidtype 3</annotation>
+		<annotation cp="✍🏽">hand | lichaam | schrijven | huidtype 4</annotation>
+		<annotation cp="✍🏽" type="tts">schrijvende hand: huidtype 4</annotation>
+		<annotation cp="✍🏾">hand | lichaam | schrijven | huidtype 5</annotation>
+		<annotation cp="✍🏾" type="tts">schrijvende hand: huidtype 5</annotation>
+		<annotation cp="✍🏿">hand | lichaam | schrijven | huidtype 6</annotation>
+		<annotation cp="✍🏿" type="tts">schrijvende hand: huidtype 6</annotation>
+		<annotation cp="👏🏻">hand | klappen | lichaam | huidtype 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">klappende handen: huidtype 1–2</annotation>
+		<annotation cp="👏🏼">hand | klappen | lichaam | huidtype 3</annotation>
+		<annotation cp="👏🏼" type="tts">klappende handen: huidtype 3</annotation>
+		<annotation cp="👏🏽">hand | klappen | lichaam | huidtype 4</annotation>
+		<annotation cp="👏🏽" type="tts">klappende handen: huidtype 4</annotation>
+		<annotation cp="👏🏾">hand | klappen | lichaam | huidtype 5</annotation>
+		<annotation cp="👏🏾" type="tts">klappende handen: huidtype 5</annotation>
+		<annotation cp="👏🏿">hand | klappen | lichaam | huidtype 6</annotation>
+		<annotation cp="👏🏿" type="tts">klappende handen: huidtype 6</annotation>
+		<annotation cp="👐🏻">hand | lichaam | open | huidtype 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">open handen: huidtype 1–2</annotation>
+		<annotation cp="👐🏼">hand | lichaam | open | huidtype 3</annotation>
+		<annotation cp="👐🏼" type="tts">open handen: huidtype 3</annotation>
+		<annotation cp="👐🏽">hand | lichaam | open | huidtype 4</annotation>
+		<annotation cp="👐🏽" type="tts">open handen: huidtype 4</annotation>
+		<annotation cp="👐🏾">hand | lichaam | open | huidtype 5</annotation>
+		<annotation cp="👐🏾" type="tts">open handen: huidtype 5</annotation>
+		<annotation cp="👐🏿">hand | lichaam | open | huidtype 6</annotation>
+		<annotation cp="👐🏿" type="tts">open handen: huidtype 6</annotation>
+		<annotation cp="🙌🏻">beide handen | beide handen omhoog | feest | gebaar | hand | handen | hoera | lichaam | omhoog | huidtype 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">persoon die beide handen omhoog steekt: huidtype 1–2</annotation>
+		<annotation cp="🙌🏼">beide handen | beide handen omhoog | feest | gebaar | hand | handen | hoera | lichaam | omhoog | huidtype 3</annotation>
+		<annotation cp="🙌🏼" type="tts">persoon die beide handen omhoog steekt: huidtype 3</annotation>
+		<annotation cp="🙌🏽">beide handen | beide handen omhoog | feest | gebaar | hand | handen | hoera | lichaam | omhoog | huidtype 4</annotation>
+		<annotation cp="🙌🏽" type="tts">persoon die beide handen omhoog steekt: huidtype 4</annotation>
+		<annotation cp="🙌🏾">beide handen | beide handen omhoog | feest | gebaar | hand | handen | hoera | lichaam | omhoog | huidtype 5</annotation>
+		<annotation cp="🙌🏾" type="tts">persoon die beide handen omhoog steekt: huidtype 5</annotation>
+		<annotation cp="🙌🏿">beide handen | beide handen omhoog | feest | gebaar | hand | handen | hoera | lichaam | omhoog | huidtype 6</annotation>
+		<annotation cp="🙌🏿" type="tts">persoon die beide handen omhoog steekt: huidtype 6</annotation>
+		<annotation cp="🙏🏻">alsjeblieft | bedankt | bidden | biddend | buigen | dank | gebaar | gebed | gevouwen | hand | lichaam | vragen | huidtype 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">gevouwen handen: huidtype 1–2</annotation>
+		<annotation cp="🙏🏼">alsjeblieft | bedankt | bidden | biddend | buigen | dank | gebaar | gebed | gevouwen | hand | lichaam | vragen | huidtype 3</annotation>
+		<annotation cp="🙏🏼" type="tts">gevouwen handen: huidtype 3</annotation>
+		<annotation cp="🙏🏽">alsjeblieft | bedankt | bidden | biddend | buigen | dank | gebaar | gebed | gevouwen | hand | lichaam | vragen | huidtype 4</annotation>
+		<annotation cp="🙏🏽" type="tts">gevouwen handen: huidtype 4</annotation>
+		<annotation cp="🙏🏾">alsjeblieft | bedankt | bidden | biddend | buigen | dank | gebaar | gebed | gevouwen | hand | lichaam | vragen | huidtype 5</annotation>
+		<annotation cp="🙏🏾" type="tts">gevouwen handen: huidtype 5</annotation>
+		<annotation cp="🙏🏿">alsjeblieft | bedankt | bidden | biddend | buigen | dank | gebaar | gebed | gevouwen | hand | lichaam | vragen | huidtype 6</annotation>
+		<annotation cp="🙏🏿" type="tts">gevouwen handen: huidtype 6</annotation>
+		<annotation cp="💅🏻">cosmetica | lichaam | manicure | nagel | nagellak | verzorging | huidtype 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">nagels lakken: huidtype 1–2</annotation>
+		<annotation cp="💅🏼">cosmetica | lichaam | manicure | nagel | nagellak | verzorging | huidtype 3</annotation>
+		<annotation cp="💅🏼" type="tts">nagels lakken: huidtype 3</annotation>
+		<annotation cp="💅🏽">cosmetica | lichaam | manicure | nagel | nagellak | verzorging | huidtype 4</annotation>
+		<annotation cp="💅🏽" type="tts">nagels lakken: huidtype 4</annotation>
+		<annotation cp="💅🏾">cosmetica | lichaam | manicure | nagel | nagellak | verzorging | huidtype 5</annotation>
+		<annotation cp="💅🏾" type="tts">nagels lakken: huidtype 5</annotation>
+		<annotation cp="💅🏿">cosmetica | lichaam | manicure | nagel | nagellak | verzorging | huidtype 6</annotation>
+		<annotation cp="💅🏿" type="tts">nagels lakken: huidtype 6</annotation>
+		<annotation cp="👂🏻">lichaam | huidtype 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">oor: huidtype 1–2</annotation>
+		<annotation cp="👂🏼">lichaam | huidtype 3</annotation>
+		<annotation cp="👂🏼" type="tts">oor: huidtype 3</annotation>
+		<annotation cp="👂🏽">lichaam | huidtype 4</annotation>
+		<annotation cp="👂🏽" type="tts">oor: huidtype 4</annotation>
+		<annotation cp="👂🏾">lichaam | huidtype 5</annotation>
+		<annotation cp="👂🏾" type="tts">oor: huidtype 5</annotation>
+		<annotation cp="👂🏿">lichaam | huidtype 6</annotation>
+		<annotation cp="👂🏿" type="tts">oor: huidtype 6</annotation>
+		<annotation cp="👃🏻">lichaam | huidtype 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">neus: huidtype 1–2</annotation>
+		<annotation cp="👃🏼">lichaam | huidtype 3</annotation>
+		<annotation cp="👃🏼" type="tts">neus: huidtype 3</annotation>
+		<annotation cp="👃🏽">lichaam | huidtype 4</annotation>
+		<annotation cp="👃🏽" type="tts">neus: huidtype 4</annotation>
+		<annotation cp="👃🏾">lichaam | huidtype 5</annotation>
+		<annotation cp="👃🏾" type="tts">neus: huidtype 5</annotation>
+		<annotation cp="👃🏿">lichaam | huidtype 6</annotation>
+		<annotation cp="👃🏿" type="tts">neus: huidtype 6</annotation>
+		<annotation cp="#⃣">hekje | toets</annotation>
+		<annotation cp="#⃣" type="tts">hekje (toets)</annotation>
+		<annotation cp="*⃣">sterretje | toets</annotation>
+		<annotation cp="*⃣" type="tts">sterretje (toets)</annotation>
+		<annotation cp="🇦🇨">vlag</annotation>
+		<annotation cp="🇦🇨" type="tts">Ascension</annotation>
+		<annotation cp="🇦🇩">vlag</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">vlag</annotation>
+		<annotation cp="🇦🇪" type="tts">Verenigde Arabische Emiraten</annotation>
+		<annotation cp="🇦🇫">vlag</annotation>
+		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇬">vlag</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua en Barbuda</annotation>
+		<annotation cp="🇦🇮">vlag</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">vlag</annotation>
+		<annotation cp="🇦🇱" type="tts">Albanië</annotation>
+		<annotation cp="🇦🇲">vlag</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenië</annotation>
+		<annotation cp="🇦🇴">vlag</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">vlag</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarctica</annotation>
+		<annotation cp="🇦🇷">vlag</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentinië</annotation>
+		<annotation cp="🇦🇸">vlag</annotation>
+		<annotation cp="🇦🇸" type="tts">Amerikaans-Samoa</annotation>
+		<annotation cp="🇦🇹">vlag</annotation>
+		<annotation cp="🇦🇹" type="tts">Oostenrijk</annotation>
+		<annotation cp="🇦🇺">vlag</annotation>
+		<annotation cp="🇦🇺" type="tts">Australië</annotation>
+		<annotation cp="🇦🇼">vlag</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">vlag</annotation>
+		<annotation cp="🇦🇽" type="tts">Åland</annotation>
+		<annotation cp="🇦🇿">vlag</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbeidzjan</annotation>
+		<annotation cp="🇧🇦">vlag</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnië en Herzegovina</annotation>
+		<annotation cp="🇧🇧">vlag</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">vlag</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">vlag</annotation>
+		<annotation cp="🇧🇪" type="tts">België</annotation>
+		<annotation cp="🇧🇫">vlag</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">vlag</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgarije</annotation>
+		<annotation cp="🇧🇭">vlag</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrein</annotation>
+		<annotation cp="🇧🇮">vlag</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">vlag</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">vlag</annotation>
+		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇲">vlag</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">vlag</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇴">vlag</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇶">vlag</annotation>
+		<annotation cp="🇧🇶" type="tts">Caribisch Nederland</annotation>
+		<annotation cp="🇧🇷">vlag</annotation>
+		<annotation cp="🇧🇷" type="tts">Brazilië</annotation>
+		<annotation cp="🇧🇸">vlag</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahama’s</annotation>
+		<annotation cp="🇧🇹">vlag</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇻">vlag</annotation>
+		<annotation cp="🇧🇻" type="tts">Bouveteiland</annotation>
+		<annotation cp="🇧🇼">vlag</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">vlag</annotation>
+		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
+		<annotation cp="🇧🇿">vlag</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">vlag</annotation>
+		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇨">vlag</annotation>
+		<annotation cp="🇨🇨" type="tts">Cocoseilanden</annotation>
+		<annotation cp="🇨🇩">vlag</annotation>
+		<annotation cp="🇨🇩" type="tts">Congo-Kinshasa</annotation>
+		<annotation cp="🇨🇫">vlag</annotation>
+		<annotation cp="🇨🇫" type="tts">Centraal-Afrikaanse Republiek</annotation>
+		<annotation cp="🇨🇬">vlag</annotation>
+		<annotation cp="🇨🇬" type="tts">Congo-Brazzaville</annotation>
+		<annotation cp="🇨🇭">vlag</annotation>
+		<annotation cp="🇨🇭" type="tts">Zwitserland</annotation>
+		<annotation cp="🇨🇮">vlag</annotation>
+		<annotation cp="🇨🇮" type="tts">Ivoorkust</annotation>
+		<annotation cp="🇨🇰">vlag</annotation>
+		<annotation cp="🇨🇰" type="tts">Cookeilanden</annotation>
+		<annotation cp="🇨🇱">vlag</annotation>
+		<annotation cp="🇨🇱" type="tts">Chili</annotation>
+		<annotation cp="🇨🇲">vlag</annotation>
+		<annotation cp="🇨🇲" type="tts">Kameroen</annotation>
+		<annotation cp="🇨🇳">vlag</annotation>
+		<annotation cp="🇨🇳" type="tts">China</annotation>
+		<annotation cp="🇨🇴">vlag</annotation>
+		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇵">vlag</annotation>
+		<annotation cp="🇨🇵" type="tts">Clipperton</annotation>
+		<annotation cp="🇨🇷">vlag</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">vlag</annotation>
+		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇻">vlag</annotation>
+		<annotation cp="🇨🇻" type="tts">Kaapverdië</annotation>
+		<annotation cp="🇨🇼">vlag</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">vlag</annotation>
+		<annotation cp="🇨🇽" type="tts">Christmaseiland</annotation>
+		<annotation cp="🇨🇾">vlag</annotation>
+		<annotation cp="🇨🇾" type="tts">Cyprus</annotation>
+		<annotation cp="🇨🇿">vlag</annotation>
+		<annotation cp="🇨🇿" type="tts">Tsjechische Republiek</annotation>
+		<annotation cp="🇩🇪">vlag</annotation>
+		<annotation cp="🇩🇪" type="tts">Duitsland</annotation>
+		<annotation cp="🇩🇬">vlag</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">vlag</annotation>
+		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇰">vlag</annotation>
+		<annotation cp="🇩🇰" type="tts">Denemarken</annotation>
+		<annotation cp="🇩🇲">vlag</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇴">vlag</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominicaanse Republiek</annotation>
+		<annotation cp="🇩🇿">vlag</annotation>
+		<annotation cp="🇩🇿" type="tts">Algerije</annotation>
+		<annotation cp="🇪🇦">vlag</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta en Melilla</annotation>
+		<annotation cp="🇪🇨">vlag</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇪">vlag</annotation>
+		<annotation cp="🇪🇪" type="tts">Estland</annotation>
+		<annotation cp="🇪🇬">vlag</annotation>
+		<annotation cp="🇪🇬" type="tts">Egypte</annotation>
+		<annotation cp="🇪🇭">vlag</annotation>
+		<annotation cp="🇪🇭" type="tts">Westelijke Sahara</annotation>
+		<annotation cp="🇪🇷">vlag</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇸">vlag</annotation>
+		<annotation cp="🇪🇸" type="tts">Spanje</annotation>
+		<annotation cp="🇪🇹">vlag</annotation>
+		<annotation cp="🇪🇹" type="tts">Ethiopië</annotation>
+		<annotation cp="🇪🇺">vlag</annotation>
+		<annotation cp="🇪🇺" type="tts">Europese Unie</annotation>
+		<annotation cp="🇫🇮">vlag</annotation>
+		<annotation cp="🇫🇮" type="tts">Finland</annotation>
+		<annotation cp="🇫🇯">vlag</annotation>
+		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇰">vlag</annotation>
+		<annotation cp="🇫🇰" type="tts">Falklandeilanden</annotation>
+		<annotation cp="🇫🇲">vlag</annotation>
+		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
+		<annotation cp="🇫🇴">vlag</annotation>
+		<annotation cp="🇫🇴" type="tts">Faeröer</annotation>
+		<annotation cp="🇫🇷">vlag</annotation>
+		<annotation cp="🇫🇷" type="tts">Frankrijk</annotation>
+		<annotation cp="🇬🇦">vlag</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">vlag</annotation>
+		<annotation cp="🇬🇧" type="tts">Verenigd Koninkrijk</annotation>
+		<annotation cp="🇬🇩">vlag</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">vlag</annotation>
+		<annotation cp="🇬🇪" type="tts">Georgië</annotation>
+		<annotation cp="🇬🇫">vlag</annotation>
+		<annotation cp="🇬🇫" type="tts">Frans-Guyana</annotation>
+		<annotation cp="🇬🇬">vlag</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇭">vlag</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">vlag</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">vlag</annotation>
+		<annotation cp="🇬🇱" type="tts">Groenland</annotation>
+		<annotation cp="🇬🇲">vlag</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇳">vlag</annotation>
+		<annotation cp="🇬🇳" type="tts">Guinee</annotation>
+		<annotation cp="🇬🇵">vlag</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇶">vlag</annotation>
+		<annotation cp="🇬🇶" type="tts">Equatoriaal-Guinea</annotation>
+		<annotation cp="🇬🇷">vlag</annotation>
+		<annotation cp="🇬🇷" type="tts">Griekenland</annotation>
+		<annotation cp="🇬🇸">vlag</annotation>
+		<annotation cp="🇬🇸" type="tts">Zuid-Georgia en Zuidelijke Sandwicheilanden</annotation>
+		<annotation cp="🇬🇹">vlag</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">vlag</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">vlag</annotation>
+		<annotation cp="🇬🇼" type="tts">Guinee-Bissau</annotation>
+		<annotation cp="🇬🇾">vlag</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">vlag</annotation>
+		<annotation cp="🇭🇰" type="tts">Hongkong SAR van China</annotation>
+		<annotation cp="🇭🇲">vlag</annotation>
+		<annotation cp="🇭🇲" type="tts">Heard en McDonaldeilanden</annotation>
+		<annotation cp="🇭🇳">vlag</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">vlag</annotation>
+		<annotation cp="🇭🇷" type="tts">Kroatië</annotation>
+		<annotation cp="🇭🇹">vlag</annotation>
+		<annotation cp="🇭🇹" type="tts">Haïti</annotation>
+		<annotation cp="🇭🇺">vlag</annotation>
+		<annotation cp="🇭🇺" type="tts">Hongarije</annotation>
+		<annotation cp="🇮🇨">vlag</annotation>
+		<annotation cp="🇮🇨" type="tts">Canarische Eilanden</annotation>
+		<annotation cp="🇮🇩">vlag</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonesië</annotation>
+		<annotation cp="🇮🇪">vlag</annotation>
+		<annotation cp="🇮🇪" type="tts">Ierland</annotation>
+		<annotation cp="🇮🇱">vlag</annotation>
+		<annotation cp="🇮🇱" type="tts">Israël</annotation>
+		<annotation cp="🇮🇲">vlag</annotation>
+		<annotation cp="🇮🇲" type="tts">Isle of Man</annotation>
+		<annotation cp="🇮🇳">vlag</annotation>
+		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇴">vlag</annotation>
+		<annotation cp="🇮🇴" type="tts">Britse Gebieden in de Indische Oceaan</annotation>
+		<annotation cp="🇮🇶">vlag</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">vlag</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">vlag</annotation>
+		<annotation cp="🇮🇸" type="tts">IJsland</annotation>
+		<annotation cp="🇮🇹">vlag</annotation>
+		<annotation cp="🇮🇹" type="tts">Italië</annotation>
+		<annotation cp="🇯🇪">vlag</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">vlag</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇴">vlag</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordanië</annotation>
+		<annotation cp="🇯🇵">vlag</annotation>
+		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇰🇪">vlag</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenia</annotation>
+		<annotation cp="🇰🇬">vlag</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgizië</annotation>
+		<annotation cp="🇰🇭">vlag</annotation>
+		<annotation cp="🇰🇭" type="tts">Cambodja</annotation>
+		<annotation cp="🇰🇮">vlag</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">vlag</annotation>
+		<annotation cp="🇰🇲" type="tts">Comoren</annotation>
+		<annotation cp="🇰🇳">vlag</annotation>
+		<annotation cp="🇰🇳" type="tts">Saint Kitts en Nevis</annotation>
+		<annotation cp="🇰🇵">vlag</annotation>
+		<annotation cp="🇰🇵" type="tts">Noord-Korea</annotation>
+		<annotation cp="🇰🇷">vlag</annotation>
+		<annotation cp="🇰🇷" type="tts">Zuid-Korea</annotation>
+		<annotation cp="🇰🇼">vlag</annotation>
+		<annotation cp="🇰🇼" type="tts">Koeweit</annotation>
+		<annotation cp="🇰🇾">vlag</annotation>
+		<annotation cp="🇰🇾" type="tts">Kaaimaneilanden</annotation>
+		<annotation cp="🇰🇿">vlag</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazachstan</annotation>
+		<annotation cp="🇱🇦">vlag</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">vlag</annotation>
+		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇨">vlag</annotation>
+		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇮">vlag</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">vlag</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">vlag</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇸">vlag</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">vlag</annotation>
+		<annotation cp="🇱🇹" type="tts">Litouwen</annotation>
+		<annotation cp="🇱🇺">vlag</annotation>
+		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇻">vlag</annotation>
+		<annotation cp="🇱🇻" type="tts">Letland</annotation>
+		<annotation cp="🇱🇾">vlag</annotation>
+		<annotation cp="🇱🇾" type="tts">Libië</annotation>
+		<annotation cp="🇲🇦">vlag</annotation>
+		<annotation cp="🇲🇦" type="tts">Marokko</annotation>
+		<annotation cp="🇲🇨">vlag</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">vlag</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldavië</annotation>
+		<annotation cp="🇲🇪">vlag</annotation>
+		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇫">vlag</annotation>
+		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇬">vlag</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">vlag</annotation>
+		<annotation cp="🇲🇭" type="tts">Marshalleilanden</annotation>
+		<annotation cp="🇲🇰">vlag</annotation>
+		<annotation cp="🇲🇰" type="tts">Macedonië</annotation>
+		<annotation cp="🇲🇱">vlag</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">vlag</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanmar (Birma)</annotation>
+		<annotation cp="🇲🇳">vlag</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolië</annotation>
+		<annotation cp="🇲🇴">vlag</annotation>
+		<annotation cp="🇲🇴" type="tts">Macau SAR van China</annotation>
+		<annotation cp="🇲🇵">vlag</annotation>
+		<annotation cp="🇲🇵" type="tts">Noordelijke Marianen</annotation>
+		<annotation cp="🇲🇶">vlag</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇷">vlag</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritanië</annotation>
+		<annotation cp="🇲🇸">vlag</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">vlag</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">vlag</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">vlag</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldiven</annotation>
+		<annotation cp="🇲🇼">vlag</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">vlag</annotation>
+		<annotation cp="🇲🇽" type="tts">Mexico</annotation>
+		<annotation cp="🇲🇾">vlag</annotation>
+		<annotation cp="🇲🇾" type="tts">Maleisië</annotation>
+		<annotation cp="🇲🇿">vlag</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
+		<annotation cp="🇳🇦">vlag</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibië</annotation>
+		<annotation cp="🇳🇨">vlag</annotation>
+		<annotation cp="🇳🇨" type="tts">Nieuw-Caledonië</annotation>
+		<annotation cp="🇳🇪">vlag</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">vlag</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolk</annotation>
+		<annotation cp="🇳🇬">vlag</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇮">vlag</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">vlag</annotation>
+		<annotation cp="🇳🇱" type="tts">Nederland</annotation>
+		<annotation cp="🇳🇴">vlag</annotation>
+		<annotation cp="🇳🇴" type="tts">Noorwegen</annotation>
+		<annotation cp="🇳🇵">vlag</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">vlag</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">vlag</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">vlag</annotation>
+		<annotation cp="🇳🇿" type="tts">Nieuw-Zeeland</annotation>
+		<annotation cp="🇴🇲">vlag</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">vlag</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">vlag</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">vlag</annotation>
+		<annotation cp="🇵🇫" type="tts">Frans-Polynesië</annotation>
+		<annotation cp="🇵🇬">vlag</annotation>
+		<annotation cp="🇵🇬" type="tts">Papoea-Nieuw-Guinea</annotation>
+		<annotation cp="🇵🇭">vlag</annotation>
+		<annotation cp="🇵🇭" type="tts">Filipijnen</annotation>
+		<annotation cp="🇵🇰">vlag</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">vlag</annotation>
+		<annotation cp="🇵🇱" type="tts">Polen</annotation>
+		<annotation cp="🇵🇲">vlag</annotation>
+		<annotation cp="🇵🇲" type="tts">Saint-Pierre en Miquelon</annotation>
+		<annotation cp="🇵🇳">vlag</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitcairneilanden</annotation>
+		<annotation cp="🇵🇷">vlag</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇸">vlag</annotation>
+		<annotation cp="🇵🇸" type="tts">Palestijnse gebieden</annotation>
+		<annotation cp="🇵🇹">vlag</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇼">vlag</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">vlag</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">vlag</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">vlag</annotation>
+		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇴">vlag</annotation>
+		<annotation cp="🇷🇴" type="tts">Roemenië</annotation>
+		<annotation cp="🇷🇸">vlag</annotation>
+		<annotation cp="🇷🇸" type="tts">Servië</annotation>
+		<annotation cp="🇷🇺">vlag</annotation>
+		<annotation cp="🇷🇺" type="tts">Rusland</annotation>
+		<annotation cp="🇷🇼">vlag</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">vlag</annotation>
+		<annotation cp="🇸🇦" type="tts">Saoedi-Arabië</annotation>
+		<annotation cp="🇸🇧">vlag</annotation>
+		<annotation cp="🇸🇧" type="tts">Salomonseilanden</annotation>
+		<annotation cp="🇸🇨">vlag</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychellen</annotation>
+		<annotation cp="🇸🇩">vlag</annotation>
+		<annotation cp="🇸🇩" type="tts">Soedan</annotation>
+		<annotation cp="🇸🇪">vlag</annotation>
+		<annotation cp="🇸🇪" type="tts">Zweden</annotation>
+		<annotation cp="🇸🇬">vlag</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇭">vlag</annotation>
+		<annotation cp="🇸🇭" type="tts">Sint-Helena</annotation>
+		<annotation cp="🇸🇮">vlag</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovenië</annotation>
+		<annotation cp="🇸🇯">vlag</annotation>
+		<annotation cp="🇸🇯" type="tts">Spitsbergen en Jan Mayen</annotation>
+		<annotation cp="🇸🇰">vlag</annotation>
+		<annotation cp="🇸🇰" type="tts">Slowakije</annotation>
+		<annotation cp="🇸🇱">vlag</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">vlag</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">vlag</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">vlag</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalië</annotation>
+		<annotation cp="🇸🇷">vlag</annotation>
+		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇸">vlag</annotation>
+		<annotation cp="🇸🇸" type="tts">Zuid-Soedan</annotation>
+		<annotation cp="🇸🇹">vlag</annotation>
+		<annotation cp="🇸🇹" type="tts">Sao Tomé en Principe</annotation>
+		<annotation cp="🇸🇻">vlag</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">vlag</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint-Maarten</annotation>
+		<annotation cp="🇸🇾">vlag</annotation>
+		<annotation cp="🇸🇾" type="tts">Syrië</annotation>
+		<annotation cp="🇸🇿">vlag</annotation>
+		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇹🇦">vlag</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">vlag</annotation>
+		<annotation cp="🇹🇨" type="tts">Turks- en Caicoseilanden</annotation>
+		<annotation cp="🇹🇩">vlag</annotation>
+		<annotation cp="🇹🇩" type="tts">Tsjaad</annotation>
+		<annotation cp="🇹🇫">vlag</annotation>
+		<annotation cp="🇹🇫" type="tts">Franse Gebieden in de zuidelijke Indische Oceaan</annotation>
+		<annotation cp="🇹🇬">vlag</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">vlag</annotation>
+		<annotation cp="🇹🇭" type="tts">Thailand</annotation>
+		<annotation cp="🇹🇯">vlag</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadzjikistan</annotation>
+		<annotation cp="🇹🇰">vlag</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">vlag</annotation>
+		<annotation cp="🇹🇱" type="tts">Oost-Timor</annotation>
+		<annotation cp="🇹🇲">vlag</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">vlag</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunesië</annotation>
+		<annotation cp="🇹🇴">vlag</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">vlag</annotation>
+		<annotation cp="🇹🇷" type="tts">Turkije</annotation>
+		<annotation cp="🇹🇹">vlag</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad en Tobago</annotation>
+		<annotation cp="🇹🇻">vlag</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">vlag</annotation>
+		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇿">vlag</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇺🇦">vlag</annotation>
+		<annotation cp="🇺🇦" type="tts">Oekraïne</annotation>
+		<annotation cp="🇺🇬">vlag</annotation>
+		<annotation cp="🇺🇬" type="tts">Oeganda</annotation>
+		<annotation cp="🇺🇲">vlag</annotation>
+		<annotation cp="🇺🇲" type="tts">Kleine afgelegen eilanden van de Verenigde Staten</annotation>
+		<annotation cp="🇺🇳">vlag</annotation>
+		<annotation cp="🇺🇳" type="tts">verenigde naties</annotation>
+		<annotation cp="🇺🇸">vlag</annotation>
+		<annotation cp="🇺🇸" type="tts">Verenigde Staten</annotation>
+		<annotation cp="🇺🇾">vlag</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">vlag</annotation>
+		<annotation cp="🇺🇿" type="tts">Oezbekistan</annotation>
+		<annotation cp="🇻🇦">vlag</annotation>
+		<annotation cp="🇻🇦" type="tts">Vaticaanstad</annotation>
+		<annotation cp="🇻🇨">vlag</annotation>
+		<annotation cp="🇻🇨" type="tts">Saint Vincent en de Grenadines</annotation>
+		<annotation cp="🇻🇪">vlag</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">vlag</annotation>
+		<annotation cp="🇻🇬" type="tts">Britse Maagdeneilanden</annotation>
+		<annotation cp="🇻🇮">vlag</annotation>
+		<annotation cp="🇻🇮" type="tts">Amerikaanse Maagdeneilanden</annotation>
+		<annotation cp="🇻🇳">vlag</annotation>
+		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇺">vlag</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">vlag</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis en Futuna</annotation>
+		<annotation cp="🇼🇸">vlag</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">vlag</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">vlag</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇹">vlag</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">vlag</annotation>
+		<annotation cp="🇿🇦" type="tts">Zuid-Afrika</annotation>
+		<annotation cp="🇿🇲">vlag</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇼">vlag</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">vlag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Engeland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">vlag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Schotland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">vlag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+	</annotations>
+</ldml>

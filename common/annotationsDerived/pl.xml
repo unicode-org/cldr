@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="pl"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | zero</annotation>
+		<annotation cp="0⃣" type="tts">przycisk – cyfra zero</annotation>
+		<annotation cp="1⃣">1 | jeden</annotation>
+		<annotation cp="1⃣" type="tts">przycisk – cyfra jeden</annotation>
+		<annotation cp="2⃣">2 | dwa</annotation>
+		<annotation cp="2⃣" type="tts">przycisk – cyfra dwa</annotation>
+		<annotation cp="3⃣">3 | trzy</annotation>
+		<annotation cp="3⃣" type="tts">przycisk – cyfra trzy</annotation>
+		<annotation cp="4⃣">4 | cztery</annotation>
+		<annotation cp="4⃣" type="tts">przycisk – cyfra cztery</annotation>
+		<annotation cp="5⃣">5 | pięć</annotation>
+		<annotation cp="5⃣" type="tts">przycisk – cyfra pięć</annotation>
+		<annotation cp="6⃣">6 | sześć</annotation>
+		<annotation cp="6⃣" type="tts">przycisk – cyfra sześć</annotation>
+		<annotation cp="7⃣">7 | siedem</annotation>
+		<annotation cp="7⃣" type="tts">przycisk – cyfra siedem</annotation>
+		<annotation cp="8⃣">8 | osiem</annotation>
+		<annotation cp="8⃣" type="tts">przycisk – cyfra osiem</annotation>
+		<annotation cp="9⃣">9 | dziewięć</annotation>
+		<annotation cp="9⃣" type="tts">przycisk – cyfra dziewięć</annotation>
+		<annotation cp="👶🏻">dziecko | typ skóry 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">niemowlę: typ skóry 1–2</annotation>
+		<annotation cp="👶🏼">dziecko | typ skóry 3</annotation>
+		<annotation cp="👶🏼" type="tts">niemowlę: typ skóry 3</annotation>
+		<annotation cp="👶🏽">dziecko | typ skóry 4</annotation>
+		<annotation cp="👶🏽" type="tts">niemowlę: typ skóry 4</annotation>
+		<annotation cp="👶🏾">dziecko | typ skóry 5</annotation>
+		<annotation cp="👶🏾" type="tts">niemowlę: typ skóry 5</annotation>
+		<annotation cp="👶🏿">dziecko | typ skóry 6</annotation>
+		<annotation cp="👶🏿" type="tts">niemowlę: typ skóry 6</annotation>
+		<annotation cp="👦🏻">chłopiec | typ skóry 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">chłopiec: typ skóry 1–2</annotation>
+		<annotation cp="👦🏼">chłopiec | typ skóry 3</annotation>
+		<annotation cp="👦🏼" type="tts">chłopiec: typ skóry 3</annotation>
+		<annotation cp="👦🏽">chłopiec | typ skóry 4</annotation>
+		<annotation cp="👦🏽" type="tts">chłopiec: typ skóry 4</annotation>
+		<annotation cp="👦🏾">chłopiec | typ skóry 5</annotation>
+		<annotation cp="👦🏾" type="tts">chłopiec: typ skóry 5</annotation>
+		<annotation cp="👦🏿">chłopiec | typ skóry 6</annotation>
+		<annotation cp="👦🏿" type="tts">chłopiec: typ skóry 6</annotation>
+		<annotation cp="👧🏻">dziewica | panna | zodiak | typ skóry 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">dziewczynka: typ skóry 1–2</annotation>
+		<annotation cp="👧🏼">dziewica | panna | zodiak | typ skóry 3</annotation>
+		<annotation cp="👧🏼" type="tts">dziewczynka: typ skóry 3</annotation>
+		<annotation cp="👧🏽">dziewica | panna | zodiak | typ skóry 4</annotation>
+		<annotation cp="👧🏽" type="tts">dziewczynka: typ skóry 4</annotation>
+		<annotation cp="👧🏾">dziewica | panna | zodiak | typ skóry 5</annotation>
+		<annotation cp="👧🏾" type="tts">dziewczynka: typ skóry 5</annotation>
+		<annotation cp="👧🏿">dziewica | panna | zodiak | typ skóry 6</annotation>
+		<annotation cp="👧🏿" type="tts">dziewczynka: typ skóry 6</annotation>
+		<annotation cp="👨🏻">mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼">mężczyzna | typ skóry 3</annotation>
+		<annotation cp="👨🏼" type="tts">mężczyzna: typ skóry 3</annotation>
+		<annotation cp="👨🏽">mężczyzna | typ skóry 4</annotation>
+		<annotation cp="👨🏽" type="tts">mężczyzna: typ skóry 4</annotation>
+		<annotation cp="👨🏾">mężczyzna | typ skóry 5</annotation>
+		<annotation cp="👨🏾" type="tts">mężczyzna: typ skóry 5</annotation>
+		<annotation cp="👨🏿">mężczyzna | typ skóry 6</annotation>
+		<annotation cp="👨🏿" type="tts">mężczyzna: typ skóry 6</annotation>
+		<annotation cp="👩🏻">kobieta | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">kobieta: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼">kobieta | typ skóry 3</annotation>
+		<annotation cp="👩🏼" type="tts">kobieta: typ skóry 3</annotation>
+		<annotation cp="👩🏽">kobieta | typ skóry 4</annotation>
+		<annotation cp="👩🏽" type="tts">kobieta: typ skóry 4</annotation>
+		<annotation cp="👩🏾">kobieta | typ skóry 5</annotation>
+		<annotation cp="👩🏾" type="tts">kobieta: typ skóry 5</annotation>
+		<annotation cp="👩🏿">kobieta | typ skóry 6</annotation>
+		<annotation cp="👩🏿" type="tts">kobieta: typ skóry 6</annotation>
+		<annotation cp="👴🏻">mnich | staruszek | starzec | typ skóry 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">dziadek: typ skóry 1–2</annotation>
+		<annotation cp="👴🏼">mnich | staruszek | starzec | typ skóry 3</annotation>
+		<annotation cp="👴🏼" type="tts">dziadek: typ skóry 3</annotation>
+		<annotation cp="👴🏽">mnich | staruszek | starzec | typ skóry 4</annotation>
+		<annotation cp="👴🏽" type="tts">dziadek: typ skóry 4</annotation>
+		<annotation cp="👴🏾">mnich | staruszek | starzec | typ skóry 5</annotation>
+		<annotation cp="👴🏾" type="tts">dziadek: typ skóry 5</annotation>
+		<annotation cp="👴🏿">mnich | staruszek | starzec | typ skóry 6</annotation>
+		<annotation cp="👴🏿" type="tts">dziadek: typ skóry 6</annotation>
+		<annotation cp="👵🏻">kobieta | staruszka | typ skóry 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">babcia: typ skóry 1–2</annotation>
+		<annotation cp="👵🏼">kobieta | staruszka | typ skóry 3</annotation>
+		<annotation cp="👵🏼" type="tts">babcia: typ skóry 3</annotation>
+		<annotation cp="👵🏽">kobieta | staruszka | typ skóry 4</annotation>
+		<annotation cp="👵🏽" type="tts">babcia: typ skóry 4</annotation>
+		<annotation cp="👵🏾">kobieta | staruszka | typ skóry 5</annotation>
+		<annotation cp="👵🏾" type="tts">babcia: typ skóry 5</annotation>
+		<annotation cp="👵🏿">kobieta | staruszka | typ skóry 6</annotation>
+		<annotation cp="👵🏿" type="tts">babcia: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍⚕">lekarz | mężczyzna | terapeuta | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">lekarz: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">lekarz | mężczyzna | terapeuta | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">lekarz: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍⚕">lekarz | mężczyzna | terapeuta | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">lekarz: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍⚕">lekarz | mężczyzna | terapeuta | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">lekarz: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍⚕">lekarz | mężczyzna | terapeuta | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">lekarz: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍⚕">kobieta | lekarka | terapeutka | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">lekarka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">kobieta | lekarka | terapeutka | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">lekarka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍⚕">kobieta | lekarka | terapeutka | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">lekarka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍⚕">kobieta | lekarka | terapeutka | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">lekarka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍⚕">kobieta | lekarka | terapeutka | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">lekarka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🎓">mężczyzna | student | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">student: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">mężczyzna | student | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">student: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🎓">mężczyzna | student | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">student: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🎓">mężczyzna | student | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">student: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🎓">mężczyzna | student | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">student: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🎓">kobieta | studentka | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">studentka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">kobieta | studentka | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">studentka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🎓">kobieta | studentka | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">studentka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🎓">kobieta | studentka | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">studentka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🎓">kobieta | studentka | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">studentka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🏫">mężczyzna | nauczyciel | profesor | wykładowca | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">nauczyciel: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">mężczyzna | nauczyciel | profesor | wykładowca | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">nauczyciel: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🏫">mężczyzna | nauczyciel | profesor | wykładowca | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">nauczyciel: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🏫">mężczyzna | nauczyciel | profesor | wykładowca | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">nauczyciel: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🏫">mężczyzna | nauczyciel | profesor | wykładowca | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">nauczyciel: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🏫">kobieta | nauczycielka | profesor | wykładowczyni | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">nauczycielka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">kobieta | nauczycielka | profesor | wykładowczyni | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">nauczycielka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🏫">kobieta | nauczycielka | profesor | wykładowczyni | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">nauczycielka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🏫">kobieta | nauczycielka | profesor | wykładowczyni | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">nauczycielka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🏫">kobieta | nauczycielka | profesor | wykładowczyni | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">nauczycielka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍⚖">mężczyzna | sędzia | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">sędzia mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">mężczyzna | sędzia | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">sędzia mężczyzna: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍⚖">mężczyzna | sędzia | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">sędzia mężczyzna: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍⚖">mężczyzna | sędzia | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">sędzia mężczyzna: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍⚖">mężczyzna | sędzia | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">sędzia mężczyzna: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍⚖">kobieta | sędzina | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">sędzia kobieta: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">kobieta | sędzina | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">sędzia kobieta: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍⚖">kobieta | sędzina | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">sędzia kobieta: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍⚖">kobieta | sędzina | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">sędzia kobieta: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍⚖">kobieta | sędzina | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">sędzia kobieta: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🌾">farmer | mężczyzna | ogrodnik | rolnik | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">rolnik: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">farmer | mężczyzna | ogrodnik | rolnik | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">rolnik: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🌾">farmer | mężczyzna | ogrodnik | rolnik | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">rolnik: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🌾">farmer | mężczyzna | ogrodnik | rolnik | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">rolnik: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🌾">farmer | mężczyzna | ogrodnik | rolnik | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">rolnik: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🌾">farmerka | kobieta | ogrodniczka | rolniczka | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">rolniczka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">farmerka | kobieta | ogrodniczka | rolniczka | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">rolniczka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🌾">farmerka | kobieta | ogrodniczka | rolniczka | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">rolniczka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🌾">farmerka | kobieta | ogrodniczka | rolniczka | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">rolniczka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🌾">farmerka | kobieta | ogrodniczka | rolniczka | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">rolniczka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🍳">kucharz | mężczyzna | szef kuchni | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">kucharz: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">kucharz | mężczyzna | szef kuchni | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">kucharz: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🍳">kucharz | mężczyzna | szef kuchni | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">kucharz: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🍳">kucharz | mężczyzna | szef kuchni | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">kucharz: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🍳">kucharz | mężczyzna | szef kuchni | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">kucharz: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🍳">kobieta | kucharka | szef kuchni | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">kucharka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">kobieta | kucharka | szef kuchni | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">kucharka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🍳">kobieta | kucharka | szef kuchni | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">kucharka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🍳">kobieta | kucharka | szef kuchni | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">kucharka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🍳">kobieta | kucharka | szef kuchni | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">kucharka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🔧">elektryk | hydraulik | mechanik | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">elektryk: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">elektryk | hydraulik | mechanik | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">elektryk: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🔧">elektryk | hydraulik | mechanik | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">elektryk: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🔧">elektryk | hydraulik | mechanik | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">elektryk: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🔧">elektryk | hydraulik | mechanik | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">elektryk: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🔧">elektryk | hydraulik | kobieta | mechanik | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">kobieta elektryk: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">elektryk | hydraulik | kobieta | mechanik | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">kobieta elektryk: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🔧">elektryk | hydraulik | kobieta | mechanik | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">kobieta elektryk: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🔧">elektryk | hydraulik | kobieta | mechanik | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">kobieta elektryk: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🔧">elektryk | hydraulik | kobieta | mechanik | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">kobieta elektryk: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🏭">fabryka | montażysta | mężczyzna | pracownik | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">pracownik fabryki: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">fabryka | montażysta | mężczyzna | pracownik | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">pracownik fabryki: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🏭">fabryka | montażysta | mężczyzna | pracownik | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">pracownik fabryki: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🏭">fabryka | montażysta | mężczyzna | pracownik | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">pracownik fabryki: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🏭">fabryka | montażysta | mężczyzna | pracownik | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">pracownik fabryki: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🏭">fabryka | kobieta | montażystka | pracownica | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">pracownica fabryki: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">fabryka | kobieta | montażystka | pracownica | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">pracownica fabryki: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🏭">fabryka | kobieta | montażystka | pracownica | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">pracownica fabryki: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🏭">fabryka | kobieta | montażystka | pracownica | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">pracownica fabryki: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🏭">fabryka | kobieta | montażystka | pracownica | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">pracownica fabryki: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍💼">architekt | biuro | biznesmen | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">pracownik biurowy: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍💼">architekt | biuro | biznesmen | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">pracownik biurowy: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍💼">architekt | biuro | biznesmen | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">pracownik biurowy: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍💼">architekt | biuro | biznesmen | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">pracownik biurowy: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍💼">architekt | biuro | biznesmen | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">pracownik biurowy: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍💼">architekt | biuro | bizneswoman | kobieta | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">pracownica biurowa: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍💼">architekt | biuro | bizneswoman | kobieta | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">pracownica biurowa: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍💼">architekt | biuro | bizneswoman | kobieta | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">pracownica biurowa: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍💼">architekt | biuro | bizneswoman | kobieta | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">pracownica biurowa: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍💼">architekt | biuro | bizneswoman | kobieta | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">pracownica biurowa: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🔬">biolog | chemik | inżynier | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">naukowiec: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">biolog | chemik | inżynier | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">naukowiec: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🔬">biolog | chemik | inżynier | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">naukowiec: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🔬">biolog | chemik | inżynier | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">naukowiec: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🔬">biolog | chemik | inżynier | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">naukowiec: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🔬">biolog | chemik | inżynier | kobieta | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">kobieta naukowiec: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">biolog | chemik | inżynier | kobieta | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">kobieta naukowiec: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🔬">biolog | chemik | inżynier | kobieta | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">kobieta naukowiec: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🔬">biolog | chemik | inżynier | kobieta | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">kobieta naukowiec: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🔬">biolog | chemik | inżynier | kobieta | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">kobieta naukowiec: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍💻">mężczyzna | oprogramowanie | programista | wynalazca | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">technolog: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍💻">mężczyzna | oprogramowanie | programista | wynalazca | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">technolog: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍💻">mężczyzna | oprogramowanie | programista | wynalazca | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">technolog: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍💻">mężczyzna | oprogramowanie | programista | wynalazca | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">technolog: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍💻">mężczyzna | oprogramowanie | programista | wynalazca | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">technolog: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍💻">kobieta | oprogramowanie | programistka | wynalazczyni | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">kobieta technolog: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍💻">kobieta | oprogramowanie | programistka | wynalazczyni | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">kobieta technolog: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍💻">kobieta | oprogramowanie | programistka | wynalazczyni | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">kobieta technolog: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍💻">kobieta | oprogramowanie | programistka | wynalazczyni | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">kobieta technolog: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍💻">kobieta | oprogramowanie | programistka | wynalazczyni | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">kobieta technolog: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🎤">aktor | mężczyzna | piosenkarz | rock | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">piosenkarz: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">aktor | mężczyzna | piosenkarz | rock | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">piosenkarz: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🎤">aktor | mężczyzna | piosenkarz | rock | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">piosenkarz: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🎤">aktor | mężczyzna | piosenkarz | rock | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">piosenkarz: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🎤">aktor | mężczyzna | piosenkarz | rock | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">piosenkarz: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🎤">aktorka | kobieta | piosenkarka | rock | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">piosenkarka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">aktorka | kobieta | piosenkarka | rock | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">piosenkarka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🎤">aktorka | kobieta | piosenkarka | rock | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">piosenkarka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🎤">aktorka | kobieta | piosenkarka | rock | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">piosenkarka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🎤">aktorka | kobieta | piosenkarka | rock | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">piosenkarka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🎨">artysta | mężczyzna | paleta | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">artysta: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">artysta | mężczyzna | paleta | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">artysta: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🎨">artysta | mężczyzna | paleta | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">artysta: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🎨">artysta | mężczyzna | paleta | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">artysta: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🎨">artysta | mężczyzna | paleta | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">artysta: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🎨">artystka | kobieta | paleta | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">artystka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">artystka | kobieta | paleta | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">artystka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🎨">artystka | kobieta | paleta | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">artystka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🎨">artystka | kobieta | paleta | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">artystka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🎨">artystka | kobieta | paleta | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">artystka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍✈">mężczyzna | pilot | samolot | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">pilot: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍✈">mężczyzna | pilot | samolot | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">pilot: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍✈">mężczyzna | pilot | samolot | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">pilot: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍✈">mężczyzna | pilot | samolot | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">pilot: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍✈">mężczyzna | pilot | samolot | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">pilot: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍✈">kobieta | pilot | samolot | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">kobieta pilot: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍✈">kobieta | pilot | samolot | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">kobieta pilot: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍✈">kobieta | pilot | samolot | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">kobieta pilot: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍✈">kobieta | pilot | samolot | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">kobieta pilot: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍✈">kobieta | pilot | samolot | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">kobieta pilot: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🚀">astronauta | kosmos | mężczyzna | rakieta | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">astronauta: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">astronauta | kosmos | mężczyzna | rakieta | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">astronauta: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🚀">astronauta | kosmos | mężczyzna | rakieta | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">astronauta: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🚀">astronauta | kosmos | mężczyzna | rakieta | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">astronauta: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🚀">astronauta | kosmos | mężczyzna | rakieta | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">astronauta: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🚀">astronautka | kobieta | kosmos | rakieta | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">astronautka: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">astronautka | kobieta | kosmos | rakieta | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">astronautka: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🚀">astronautka | kobieta | kosmos | rakieta | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">astronautka: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🚀">astronautka | kobieta | kosmos | rakieta | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">astronautka: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🚀">astronautka | kobieta | kosmos | rakieta | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">astronautka: typ skóry 6</annotation>
+		<annotation cp="👨🏻‍🚒">mężczyzna | strażak | wóz strażacki | typ skóry 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">strażak: typ skóry 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">mężczyzna | strażak | wóz strażacki | typ skóry 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">strażak: typ skóry 3</annotation>
+		<annotation cp="👨🏽‍🚒">mężczyzna | strażak | wóz strażacki | typ skóry 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">strażak: typ skóry 4</annotation>
+		<annotation cp="👨🏾‍🚒">mężczyzna | strażak | wóz strażacki | typ skóry 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">strażak: typ skóry 5</annotation>
+		<annotation cp="👨🏿‍🚒">mężczyzna | strażak | wóz strażacki | typ skóry 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">strażak: typ skóry 6</annotation>
+		<annotation cp="👩🏻‍🚒">kobieta | strażak | wóz strażacki | typ skóry 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">kobieta strażak: typ skóry 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">kobieta | strażak | wóz strażacki | typ skóry 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">kobieta strażak: typ skóry 3</annotation>
+		<annotation cp="👩🏽‍🚒">kobieta | strażak | wóz strażacki | typ skóry 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">kobieta strażak: typ skóry 4</annotation>
+		<annotation cp="👩🏾‍🚒">kobieta | strażak | wóz strażacki | typ skóry 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">kobieta strażak: typ skóry 5</annotation>
+		<annotation cp="👩🏿‍🚒">kobieta | strażak | wóz strażacki | typ skóry 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">kobieta strażak: typ skóry 6</annotation>
+		<annotation cp="👮🏻">oficer | typ skóry 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">policjant: typ skóry 1–2</annotation>
+		<annotation cp="👮🏼">oficer | typ skóry 3</annotation>
+		<annotation cp="👮🏼" type="tts">policjant: typ skóry 3</annotation>
+		<annotation cp="👮🏽">oficer | typ skóry 4</annotation>
+		<annotation cp="👮🏽" type="tts">policjant: typ skóry 4</annotation>
+		<annotation cp="👮🏾">oficer | typ skóry 5</annotation>
+		<annotation cp="👮🏾" type="tts">policjant: typ skóry 5</annotation>
+		<annotation cp="👮🏿">oficer | typ skóry 6</annotation>
+		<annotation cp="👮🏿" type="tts">policjant: typ skóry 6</annotation>
+		<annotation cp="👮🏻‍♂">glina | mężczyzna | oficer | policjant | typ skóry 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">mężczyzna policjant: typ skóry 1–2</annotation>
+		<annotation cp="👮🏼‍♂">glina | mężczyzna | oficer | policjant | typ skóry 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">mężczyzna policjant: typ skóry 3</annotation>
+		<annotation cp="👮🏽‍♂">glina | mężczyzna | oficer | policjant | typ skóry 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">mężczyzna policjant: typ skóry 4</annotation>
+		<annotation cp="👮🏾‍♂">glina | mężczyzna | oficer | policjant | typ skóry 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">mężczyzna policjant: typ skóry 5</annotation>
+		<annotation cp="👮🏿‍♂">glina | mężczyzna | oficer | policjant | typ skóry 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">mężczyzna policjant: typ skóry 6</annotation>
+		<annotation cp="👮🏻‍♀">glina | kobieta | oficer | policjantka | typ skóry 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">policjantka: typ skóry 1–2</annotation>
+		<annotation cp="👮🏼‍♀">glina | kobieta | oficer | policjantka | typ skóry 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">policjantka: typ skóry 3</annotation>
+		<annotation cp="👮🏽‍♀">glina | kobieta | oficer | policjantka | typ skóry 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">policjantka: typ skóry 4</annotation>
+		<annotation cp="👮🏾‍♀">glina | kobieta | oficer | policjantka | typ skóry 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">policjantka: typ skóry 5</annotation>
+		<annotation cp="👮🏿‍♀">glina | kobieta | oficer | policjantka | typ skóry 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">policjantka: typ skóry 6</annotation>
+		<annotation cp="🕵🏻">szpieg | śledczy | typ skóry 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">detektyw: typ skóry 1–2</annotation>
+		<annotation cp="🕵🏼">szpieg | śledczy | typ skóry 3</annotation>
+		<annotation cp="🕵🏼" type="tts">detektyw: typ skóry 3</annotation>
+		<annotation cp="🕵🏽">szpieg | śledczy | typ skóry 4</annotation>
+		<annotation cp="🕵🏽" type="tts">detektyw: typ skóry 4</annotation>
+		<annotation cp="🕵🏾">szpieg | śledczy | typ skóry 5</annotation>
+		<annotation cp="🕵🏾" type="tts">detektyw: typ skóry 5</annotation>
+		<annotation cp="🕵🏿">szpieg | śledczy | typ skóry 6</annotation>
+		<annotation cp="🕵🏿" type="tts">detektyw: typ skóry 6</annotation>
+		<annotation cp="🕵🏻‍♂">detektyw | mężczyzna | szpieg | typ skóry 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">mężczyzna detektyw: typ skóry 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">detektyw | mężczyzna | szpieg | typ skóry 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">mężczyzna detektyw: typ skóry 3</annotation>
+		<annotation cp="🕵🏽‍♂">detektyw | mężczyzna | szpieg | typ skóry 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">mężczyzna detektyw: typ skóry 4</annotation>
+		<annotation cp="🕵🏾‍♂">detektyw | mężczyzna | szpieg | typ skóry 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">mężczyzna detektyw: typ skóry 5</annotation>
+		<annotation cp="🕵🏿‍♂">detektyw | mężczyzna | szpieg | typ skóry 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">mężczyzna detektyw: typ skóry 6</annotation>
+		<annotation cp="🕵🏻‍♀">detektyw | kobieta | szpieg | typ skóry 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">kobieta detektyw: typ skóry 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">detektyw | kobieta | szpieg | typ skóry 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">kobieta detektyw: typ skóry 3</annotation>
+		<annotation cp="🕵🏽‍♀">detektyw | kobieta | szpieg | typ skóry 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">kobieta detektyw: typ skóry 4</annotation>
+		<annotation cp="🕵🏾‍♀">detektyw | kobieta | szpieg | typ skóry 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">kobieta detektyw: typ skóry 5</annotation>
+		<annotation cp="🕵🏿‍♀">detektyw | kobieta | szpieg | typ skóry 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">kobieta detektyw: typ skóry 6</annotation>
+		<annotation cp="💂🏻">strażnik | typ skóry 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">gwardzista: typ skóry 1–2</annotation>
+		<annotation cp="💂🏼">strażnik | typ skóry 3</annotation>
+		<annotation cp="💂🏼" type="tts">gwardzista: typ skóry 3</annotation>
+		<annotation cp="💂🏽">strażnik | typ skóry 4</annotation>
+		<annotation cp="💂🏽" type="tts">gwardzista: typ skóry 4</annotation>
+		<annotation cp="💂🏾">strażnik | typ skóry 5</annotation>
+		<annotation cp="💂🏾" type="tts">gwardzista: typ skóry 5</annotation>
+		<annotation cp="💂🏿">strażnik | typ skóry 6</annotation>
+		<annotation cp="💂🏿" type="tts">gwardzista: typ skóry 6</annotation>
+		<annotation cp="💂🏻‍♂">gwardzista | mężczyzna | strażnik | typ skóry 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">mężczyzna gwardzista: typ skóry 1–2</annotation>
+		<annotation cp="💂🏼‍♂">gwardzista | mężczyzna | strażnik | typ skóry 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">mężczyzna gwardzista: typ skóry 3</annotation>
+		<annotation cp="💂🏽‍♂">gwardzista | mężczyzna | strażnik | typ skóry 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">mężczyzna gwardzista: typ skóry 4</annotation>
+		<annotation cp="💂🏾‍♂">gwardzista | mężczyzna | strażnik | typ skóry 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">mężczyzna gwardzista: typ skóry 5</annotation>
+		<annotation cp="💂🏿‍♂">gwardzista | mężczyzna | strażnik | typ skóry 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">mężczyzna gwardzista: typ skóry 6</annotation>
+		<annotation cp="💂🏻‍♀">gwardzistka | kobieta | strażniczka | typ skóry 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">gwardzistka: typ skóry 1–2</annotation>
+		<annotation cp="💂🏼‍♀">gwardzistka | kobieta | strażniczka | typ skóry 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">gwardzistka: typ skóry 3</annotation>
+		<annotation cp="💂🏽‍♀">gwardzistka | kobieta | strażniczka | typ skóry 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">gwardzistka: typ skóry 4</annotation>
+		<annotation cp="💂🏾‍♀">gwardzistka | kobieta | strażniczka | typ skóry 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">gwardzistka: typ skóry 5</annotation>
+		<annotation cp="💂🏿‍♀">gwardzistka | kobieta | strażniczka | typ skóry 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">gwardzistka: typ skóry 6</annotation>
+		<annotation cp="👷🏻">budowlaniec | kask | typ skóry 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">robotnik: typ skóry 1–2</annotation>
+		<annotation cp="👷🏼">budowlaniec | kask | typ skóry 3</annotation>
+		<annotation cp="👷🏼" type="tts">robotnik: typ skóry 3</annotation>
+		<annotation cp="👷🏽">budowlaniec | kask | typ skóry 4</annotation>
+		<annotation cp="👷🏽" type="tts">robotnik: typ skóry 4</annotation>
+		<annotation cp="👷🏾">budowlaniec | kask | typ skóry 5</annotation>
+		<annotation cp="👷🏾" type="tts">robotnik: typ skóry 5</annotation>
+		<annotation cp="👷🏿">budowlaniec | kask | typ skóry 6</annotation>
+		<annotation cp="👷🏿" type="tts">robotnik: typ skóry 6</annotation>
+		<annotation cp="👷🏻‍♂">budowlaniec | mężczyzna | robotnik | typ skóry 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">budowlaniec: typ skóry 1–2</annotation>
+		<annotation cp="👷🏼‍♂">budowlaniec | mężczyzna | robotnik | typ skóry 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">budowlaniec: typ skóry 3</annotation>
+		<annotation cp="👷🏽‍♂">budowlaniec | mężczyzna | robotnik | typ skóry 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">budowlaniec: typ skóry 4</annotation>
+		<annotation cp="👷🏾‍♂">budowlaniec | mężczyzna | robotnik | typ skóry 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">budowlaniec: typ skóry 5</annotation>
+		<annotation cp="👷🏿‍♂">budowlaniec | mężczyzna | robotnik | typ skóry 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">budowlaniec: typ skóry 6</annotation>
+		<annotation cp="👷🏻‍♀">budowlaniec | kobieta | robotnik | typ skóry 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">kobieta budowlaniec: typ skóry 1–2</annotation>
+		<annotation cp="👷🏼‍♀">budowlaniec | kobieta | robotnik | typ skóry 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">kobieta budowlaniec: typ skóry 3</annotation>
+		<annotation cp="👷🏽‍♀">budowlaniec | kobieta | robotnik | typ skóry 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">kobieta budowlaniec: typ skóry 4</annotation>
+		<annotation cp="👷🏾‍♀">budowlaniec | kobieta | robotnik | typ skóry 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">kobieta budowlaniec: typ skóry 5</annotation>
+		<annotation cp="👷🏿‍♀">budowlaniec | kobieta | robotnik | typ skóry 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">kobieta budowlaniec: typ skóry 6</annotation>
+		<annotation cp="🤴🏻">książę | typ skóry 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">książę: typ skóry 1–2</annotation>
+		<annotation cp="🤴🏼">książę | typ skóry 3</annotation>
+		<annotation cp="🤴🏼" type="tts">książę: typ skóry 3</annotation>
+		<annotation cp="🤴🏽">książę | typ skóry 4</annotation>
+		<annotation cp="🤴🏽" type="tts">książę: typ skóry 4</annotation>
+		<annotation cp="🤴🏾">książę | typ skóry 5</annotation>
+		<annotation cp="🤴🏾" type="tts">książę: typ skóry 5</annotation>
+		<annotation cp="🤴🏿">książę | typ skóry 6</annotation>
+		<annotation cp="🤴🏿" type="tts">książę: typ skóry 6</annotation>
+		<annotation cp="👸🏻">bajka | baśń | królewna | typ skóry 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">księżniczka: typ skóry 1–2</annotation>
+		<annotation cp="👸🏼">bajka | baśń | królewna | typ skóry 3</annotation>
+		<annotation cp="👸🏼" type="tts">księżniczka: typ skóry 3</annotation>
+		<annotation cp="👸🏽">bajka | baśń | królewna | typ skóry 4</annotation>
+		<annotation cp="👸🏽" type="tts">księżniczka: typ skóry 4</annotation>
+		<annotation cp="👸🏾">bajka | baśń | królewna | typ skóry 5</annotation>
+		<annotation cp="👸🏾" type="tts">księżniczka: typ skóry 5</annotation>
+		<annotation cp="👸🏿">bajka | baśń | królewna | typ skóry 6</annotation>
+		<annotation cp="👸🏿" type="tts">księżniczka: typ skóry 6</annotation>
+		<annotation cp="👳🏻">mężczyzna | turban | typ skóry 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">osoba w turbanie: typ skóry 1–2</annotation>
+		<annotation cp="👳🏼">mężczyzna | turban | typ skóry 3</annotation>
+		<annotation cp="👳🏼" type="tts">osoba w turbanie: typ skóry 3</annotation>
+		<annotation cp="👳🏽">mężczyzna | turban | typ skóry 4</annotation>
+		<annotation cp="👳🏽" type="tts">osoba w turbanie: typ skóry 4</annotation>
+		<annotation cp="👳🏾">mężczyzna | turban | typ skóry 5</annotation>
+		<annotation cp="👳🏾" type="tts">osoba w turbanie: typ skóry 5</annotation>
+		<annotation cp="👳🏿">mężczyzna | turban | typ skóry 6</annotation>
+		<annotation cp="👳🏿" type="tts">osoba w turbanie: typ skóry 6</annotation>
+		<annotation cp="👳🏻‍♂">mężczyzna | turban | typ skóry 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">mężczyzna w turbanie: typ skóry 1–2</annotation>
+		<annotation cp="👳🏼‍♂">mężczyzna | turban | typ skóry 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">mężczyzna w turbanie: typ skóry 3</annotation>
+		<annotation cp="👳🏽‍♂">mężczyzna | turban | typ skóry 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">mężczyzna w turbanie: typ skóry 4</annotation>
+		<annotation cp="👳🏾‍♂">mężczyzna | turban | typ skóry 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">mężczyzna w turbanie: typ skóry 5</annotation>
+		<annotation cp="👳🏿‍♂">mężczyzna | turban | typ skóry 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">mężczyzna w turbanie: typ skóry 6</annotation>
+		<annotation cp="👳🏻‍♀">kobieta | turban | typ skóry 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">kobieta w turbanie: typ skóry 1–2</annotation>
+		<annotation cp="👳🏼‍♀">kobieta | turban | typ skóry 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">kobieta w turbanie: typ skóry 3</annotation>
+		<annotation cp="👳🏽‍♀">kobieta | turban | typ skóry 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">kobieta w turbanie: typ skóry 4</annotation>
+		<annotation cp="👳🏾‍♀">kobieta | turban | typ skóry 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">kobieta w turbanie: typ skóry 5</annotation>
+		<annotation cp="👳🏿‍♀">kobieta | turban | typ skóry 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">kobieta w turbanie: typ skóry 6</annotation>
+		<annotation cp="👲🏻">chińska czapka | czapka | gua pi mao | typ skóry 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">człowiek w chińskiej czapce: typ skóry 1–2</annotation>
+		<annotation cp="👲🏼">chińska czapka | czapka | gua pi mao | typ skóry 3</annotation>
+		<annotation cp="👲🏼" type="tts">człowiek w chińskiej czapce: typ skóry 3</annotation>
+		<annotation cp="👲🏽">chińska czapka | czapka | gua pi mao | typ skóry 4</annotation>
+		<annotation cp="👲🏽" type="tts">człowiek w chińskiej czapce: typ skóry 4</annotation>
+		<annotation cp="👲🏾">chińska czapka | czapka | gua pi mao | typ skóry 5</annotation>
+		<annotation cp="👲🏾" type="tts">człowiek w chińskiej czapce: typ skóry 5</annotation>
+		<annotation cp="👲🏿">chińska czapka | czapka | gua pi mao | typ skóry 6</annotation>
+		<annotation cp="👲🏿" type="tts">człowiek w chińskiej czapce: typ skóry 6</annotation>
+		<annotation cp="👱🏻">blondyn | typ skóry 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">młody człowiek: typ skóry 1–2</annotation>
+		<annotation cp="👱🏼">blondyn | typ skóry 3</annotation>
+		<annotation cp="👱🏼" type="tts">młody człowiek: typ skóry 3</annotation>
+		<annotation cp="👱🏽">blondyn | typ skóry 4</annotation>
+		<annotation cp="👱🏽" type="tts">młody człowiek: typ skóry 4</annotation>
+		<annotation cp="👱🏾">blondyn | typ skóry 5</annotation>
+		<annotation cp="👱🏾" type="tts">młody człowiek: typ skóry 5</annotation>
+		<annotation cp="👱🏿">blondyn | typ skóry 6</annotation>
+		<annotation cp="👱🏿" type="tts">młody człowiek: typ skóry 6</annotation>
+		<annotation cp="👱🏻‍♂">blondyn | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blondyn: typ skóry 1–2</annotation>
+		<annotation cp="👱🏼‍♂">blondyn | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blondyn: typ skóry 3</annotation>
+		<annotation cp="👱🏽‍♂">blondyn | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blondyn: typ skóry 4</annotation>
+		<annotation cp="👱🏾‍♂">blondyn | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blondyn: typ skóry 5</annotation>
+		<annotation cp="👱🏿‍♂">blondyn | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blondyn: typ skóry 6</annotation>
+		<annotation cp="👱🏻‍♀">blondynka | kobieta | typ skóry 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blondynka: typ skóry 1–2</annotation>
+		<annotation cp="👱🏼‍♀">blondynka | kobieta | typ skóry 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blondynka: typ skóry 3</annotation>
+		<annotation cp="👱🏽‍♀">blondynka | kobieta | typ skóry 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blondynka: typ skóry 4</annotation>
+		<annotation cp="👱🏾‍♀">blondynka | kobieta | typ skóry 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blondynka: typ skóry 5</annotation>
+		<annotation cp="👱🏿‍♀">blondynka | kobieta | typ skóry 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blondynka: typ skóry 6</annotation>
+		<annotation cp="🤵🏻">elegancja | pan młody | smoking | typ skóry 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">smoking: typ skóry 1–2</annotation>
+		<annotation cp="🤵🏼">elegancja | pan młody | smoking | typ skóry 3</annotation>
+		<annotation cp="🤵🏼" type="tts">smoking: typ skóry 3</annotation>
+		<annotation cp="🤵🏽">elegancja | pan młody | smoking | typ skóry 4</annotation>
+		<annotation cp="🤵🏽" type="tts">smoking: typ skóry 4</annotation>
+		<annotation cp="🤵🏾">elegancja | pan młody | smoking | typ skóry 5</annotation>
+		<annotation cp="🤵🏾" type="tts">smoking: typ skóry 5</annotation>
+		<annotation cp="🤵🏿">elegancja | pan młody | smoking | typ skóry 6</annotation>
+		<annotation cp="🤵🏿" type="tts">smoking: typ skóry 6</annotation>
+		<annotation cp="👰🏻">welon | wesele | ślub | typ skóry 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">panna młoda: typ skóry 1–2</annotation>
+		<annotation cp="👰🏼">welon | wesele | ślub | typ skóry 3</annotation>
+		<annotation cp="👰🏼" type="tts">panna młoda: typ skóry 3</annotation>
+		<annotation cp="👰🏽">welon | wesele | ślub | typ skóry 4</annotation>
+		<annotation cp="👰🏽" type="tts">panna młoda: typ skóry 4</annotation>
+		<annotation cp="👰🏾">welon | wesele | ślub | typ skóry 5</annotation>
+		<annotation cp="👰🏾" type="tts">panna młoda: typ skóry 5</annotation>
+		<annotation cp="👰🏿">welon | wesele | ślub | typ skóry 6</annotation>
+		<annotation cp="👰🏿" type="tts">panna młoda: typ skóry 6</annotation>
+		<annotation cp="🤰🏻">ciąża | kobieta w ciąży | typ skóry 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">ciężarna: typ skóry 1–2</annotation>
+		<annotation cp="🤰🏼">ciąża | kobieta w ciąży | typ skóry 3</annotation>
+		<annotation cp="🤰🏼" type="tts">ciężarna: typ skóry 3</annotation>
+		<annotation cp="🤰🏽">ciąża | kobieta w ciąży | typ skóry 4</annotation>
+		<annotation cp="🤰🏽" type="tts">ciężarna: typ skóry 4</annotation>
+		<annotation cp="🤰🏾">ciąża | kobieta w ciąży | typ skóry 5</annotation>
+		<annotation cp="🤰🏾" type="tts">ciężarna: typ skóry 5</annotation>
+		<annotation cp="🤰🏿">ciąża | kobieta w ciąży | typ skóry 6</annotation>
+		<annotation cp="🤰🏿" type="tts">ciężarna: typ skóry 6</annotation>
+		<annotation cp="👼🏻">bajka | buzia aniołka | fantasy | typ skóry 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">aniołek: typ skóry 1–2</annotation>
+		<annotation cp="👼🏼">bajka | buzia aniołka | fantasy | typ skóry 3</annotation>
+		<annotation cp="👼🏼" type="tts">aniołek: typ skóry 3</annotation>
+		<annotation cp="👼🏽">bajka | buzia aniołka | fantasy | typ skóry 4</annotation>
+		<annotation cp="👼🏽" type="tts">aniołek: typ skóry 4</annotation>
+		<annotation cp="👼🏾">bajka | buzia aniołka | fantasy | typ skóry 5</annotation>
+		<annotation cp="👼🏾" type="tts">aniołek: typ skóry 5</annotation>
+		<annotation cp="👼🏿">bajka | buzia aniołka | fantasy | typ skóry 6</annotation>
+		<annotation cp="👼🏿" type="tts">aniołek: typ skóry 6</annotation>
+		<annotation cp="🎅🏻">boże narodzenie | legenda | święta | święty mikołaj | typ skóry 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">Święty Mikołaj: typ skóry 1–2</annotation>
+		<annotation cp="🎅🏼">boże narodzenie | legenda | święta | święty mikołaj | typ skóry 3</annotation>
+		<annotation cp="🎅🏼" type="tts">Święty Mikołaj: typ skóry 3</annotation>
+		<annotation cp="🎅🏽">boże narodzenie | legenda | święta | święty mikołaj | typ skóry 4</annotation>
+		<annotation cp="🎅🏽" type="tts">Święty Mikołaj: typ skóry 4</annotation>
+		<annotation cp="🎅🏾">boże narodzenie | legenda | święta | święty mikołaj | typ skóry 5</annotation>
+		<annotation cp="🎅🏾" type="tts">Święty Mikołaj: typ skóry 5</annotation>
+		<annotation cp="🎅🏿">boże narodzenie | legenda | święta | święty mikołaj | typ skóry 6</annotation>
+		<annotation cp="🎅🏿" type="tts">Święty Mikołaj: typ skóry 6</annotation>
+		<annotation cp="🤶🏻">mikołaj | mikołajowa | święta | typ skóry 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">pani mikołajowa: typ skóry 1–2</annotation>
+		<annotation cp="🤶🏼">mikołaj | mikołajowa | święta | typ skóry 3</annotation>
+		<annotation cp="🤶🏼" type="tts">pani mikołajowa: typ skóry 3</annotation>
+		<annotation cp="🤶🏽">mikołaj | mikołajowa | święta | typ skóry 4</annotation>
+		<annotation cp="🤶🏽" type="tts">pani mikołajowa: typ skóry 4</annotation>
+		<annotation cp="🤶🏾">mikołaj | mikołajowa | święta | typ skóry 5</annotation>
+		<annotation cp="🤶🏾" type="tts">pani mikołajowa: typ skóry 5</annotation>
+		<annotation cp="🤶🏿">mikołaj | mikołajowa | święta | typ skóry 6</annotation>
+		<annotation cp="🤶🏿" type="tts">pani mikołajowa: typ skóry 6</annotation>
+		<annotation cp="🙍🏻">smutek na twarzy | smutny | typ skóry 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">smutek: typ skóry 1–2</annotation>
+		<annotation cp="🙍🏼">smutek na twarzy | smutny | typ skóry 3</annotation>
+		<annotation cp="🙍🏼" type="tts">smutek: typ skóry 3</annotation>
+		<annotation cp="🙍🏽">smutek na twarzy | smutny | typ skóry 4</annotation>
+		<annotation cp="🙍🏽" type="tts">smutek: typ skóry 4</annotation>
+		<annotation cp="🙍🏾">smutek na twarzy | smutny | typ skóry 5</annotation>
+		<annotation cp="🙍🏾" type="tts">smutek: typ skóry 5</annotation>
+		<annotation cp="🙍🏿">smutek na twarzy | smutny | typ skóry 6</annotation>
+		<annotation cp="🙍🏿" type="tts">smutek: typ skóry 6</annotation>
+		<annotation cp="🙍🏻‍♂">mężczyzna | zmarszczone brwi | typ skóry 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">mężczyzna marszczący brwi: typ skóry 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">mężczyzna | zmarszczone brwi | typ skóry 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">mężczyzna marszczący brwi: typ skóry 3</annotation>
+		<annotation cp="🙍🏽‍♂">mężczyzna | zmarszczone brwi | typ skóry 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">mężczyzna marszczący brwi: typ skóry 4</annotation>
+		<annotation cp="🙍🏾‍♂">mężczyzna | zmarszczone brwi | typ skóry 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">mężczyzna marszczący brwi: typ skóry 5</annotation>
+		<annotation cp="🙍🏿‍♂">mężczyzna | zmarszczone brwi | typ skóry 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">mężczyzna marszczący brwi: typ skóry 6</annotation>
+		<annotation cp="🙍🏻‍♀">kobieta | zmarszczone brwi | typ skóry 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">kobieta marszcząca brwi: typ skóry 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">kobieta | zmarszczone brwi | typ skóry 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">kobieta marszcząca brwi: typ skóry 3</annotation>
+		<annotation cp="🙍🏽‍♀">kobieta | zmarszczone brwi | typ skóry 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">kobieta marszcząca brwi: typ skóry 4</annotation>
+		<annotation cp="🙍🏾‍♀">kobieta | zmarszczone brwi | typ skóry 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">kobieta marszcząca brwi: typ skóry 5</annotation>
+		<annotation cp="🙍🏿‍♀">kobieta | zmarszczone brwi | typ skóry 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">kobieta marszcząca brwi: typ skóry 6</annotation>
+		<annotation cp="🙎🏻">buźka | kapryśna | mina | niezadowolona | typ skóry 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">kapryśna mina: typ skóry 1–2</annotation>
+		<annotation cp="🙎🏼">buźka | kapryśna | mina | niezadowolona | typ skóry 3</annotation>
+		<annotation cp="🙎🏼" type="tts">kapryśna mina: typ skóry 3</annotation>
+		<annotation cp="🙎🏽">buźka | kapryśna | mina | niezadowolona | typ skóry 4</annotation>
+		<annotation cp="🙎🏽" type="tts">kapryśna mina: typ skóry 4</annotation>
+		<annotation cp="🙎🏾">buźka | kapryśna | mina | niezadowolona | typ skóry 5</annotation>
+		<annotation cp="🙎🏾" type="tts">kapryśna mina: typ skóry 5</annotation>
+		<annotation cp="🙎🏿">buźka | kapryśna | mina | niezadowolona | typ skóry 6</annotation>
+		<annotation cp="🙎🏿" type="tts">kapryśna mina: typ skóry 6</annotation>
+		<annotation cp="🙎🏻‍♂">mężczyzna | nadąsany | niezadowolony | typ skóry 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">nadąsany mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">mężczyzna | nadąsany | niezadowolony | typ skóry 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">nadąsany mężczyzna: typ skóry 3</annotation>
+		<annotation cp="🙎🏽‍♂">mężczyzna | nadąsany | niezadowolony | typ skóry 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">nadąsany mężczyzna: typ skóry 4</annotation>
+		<annotation cp="🙎🏾‍♂">mężczyzna | nadąsany | niezadowolony | typ skóry 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">nadąsany mężczyzna: typ skóry 5</annotation>
+		<annotation cp="🙎🏿‍♂">mężczyzna | nadąsany | niezadowolony | typ skóry 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">nadąsany mężczyzna: typ skóry 6</annotation>
+		<annotation cp="🙎🏻‍♀">kobieta | nadąsana | niezadowolona | typ skóry 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">nadąsana kobieta: typ skóry 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">kobieta | nadąsana | niezadowolona | typ skóry 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">nadąsana kobieta: typ skóry 3</annotation>
+		<annotation cp="🙎🏽‍♀">kobieta | nadąsana | niezadowolona | typ skóry 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">nadąsana kobieta: typ skóry 4</annotation>
+		<annotation cp="🙎🏾‍♀">kobieta | nadąsana | niezadowolona | typ skóry 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">nadąsana kobieta: typ skóry 5</annotation>
+		<annotation cp="🙎🏿‍♀">kobieta | nadąsana | niezadowolona | typ skóry 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">nadąsana kobieta: typ skóry 6</annotation>
+		<annotation cp="🙅🏻">nie wolno | zakaz | typ skóry 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">nie: typ skóry 1–2</annotation>
+		<annotation cp="🙅🏼">nie wolno | zakaz | typ skóry 3</annotation>
+		<annotation cp="🙅🏼" type="tts">nie: typ skóry 3</annotation>
+		<annotation cp="🙅🏽">nie wolno | zakaz | typ skóry 4</annotation>
+		<annotation cp="🙅🏽" type="tts">nie: typ skóry 4</annotation>
+		<annotation cp="🙅🏾">nie wolno | zakaz | typ skóry 5</annotation>
+		<annotation cp="🙅🏾" type="tts">nie: typ skóry 5</annotation>
+		<annotation cp="🙅🏿">nie wolno | zakaz | typ skóry 6</annotation>
+		<annotation cp="🙅🏿" type="tts">nie: typ skóry 6</annotation>
+		<annotation cp="🙅🏻‍♂">mężczyzna | nie | ręce | zakaz | typ skóry 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">mężczyzna pokazujący „nie”: typ skóry 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">mężczyzna | nie | ręce | zakaz | typ skóry 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">mężczyzna pokazujący „nie”: typ skóry 3</annotation>
+		<annotation cp="🙅🏽‍♂">mężczyzna | nie | ręce | zakaz | typ skóry 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">mężczyzna pokazujący „nie”: typ skóry 4</annotation>
+		<annotation cp="🙅🏾‍♂">mężczyzna | nie | ręce | zakaz | typ skóry 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">mężczyzna pokazujący „nie”: typ skóry 5</annotation>
+		<annotation cp="🙅🏿‍♂">mężczyzna | nie | ręce | zakaz | typ skóry 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">mężczyzna pokazujący „nie”: typ skóry 6</annotation>
+		<annotation cp="🙅🏻‍♀">kobieta | nie | ręce | zakaz | typ skóry 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">kobieta pokazująca „nie”: typ skóry 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">kobieta | nie | ręce | zakaz | typ skóry 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">kobieta pokazująca „nie”: typ skóry 3</annotation>
+		<annotation cp="🙅🏽‍♀">kobieta | nie | ręce | zakaz | typ skóry 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">kobieta pokazująca „nie”: typ skóry 4</annotation>
+		<annotation cp="🙅🏾‍♀">kobieta | nie | ręce | zakaz | typ skóry 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">kobieta pokazująca „nie”: typ skóry 5</annotation>
+		<annotation cp="🙅🏿‍♀">kobieta | nie | ręce | zakaz | typ skóry 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">kobieta pokazująca „nie”: typ skóry 6</annotation>
+		<annotation cp="🙆🏻">ojej | zachwyt | zaskoczenie | typ skóry 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">ojej!: typ skóry 1–2</annotation>
+		<annotation cp="🙆🏼">ojej | zachwyt | zaskoczenie | typ skóry 3</annotation>
+		<annotation cp="🙆🏼" type="tts">ojej!: typ skóry 3</annotation>
+		<annotation cp="🙆🏽">ojej | zachwyt | zaskoczenie | typ skóry 4</annotation>
+		<annotation cp="🙆🏽" type="tts">ojej!: typ skóry 4</annotation>
+		<annotation cp="🙆🏾">ojej | zachwyt | zaskoczenie | typ skóry 5</annotation>
+		<annotation cp="🙆🏾" type="tts">ojej!: typ skóry 5</annotation>
+		<annotation cp="🙆🏿">ojej | zachwyt | zaskoczenie | typ skóry 6</annotation>
+		<annotation cp="🙆🏿" type="tts">ojej!: typ skóry 6</annotation>
+		<annotation cp="🙆🏻‍♂">mężczyzna | ojej | ręce | zachwyt | typ skóry 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">mężczyzna pokazujący „ojej!”: typ skóry 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">mężczyzna | ojej | ręce | zachwyt | typ skóry 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">mężczyzna pokazujący „ojej!”: typ skóry 3</annotation>
+		<annotation cp="🙆🏽‍♂">mężczyzna | ojej | ręce | zachwyt | typ skóry 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">mężczyzna pokazujący „ojej!”: typ skóry 4</annotation>
+		<annotation cp="🙆🏾‍♂">mężczyzna | ojej | ręce | zachwyt | typ skóry 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">mężczyzna pokazujący „ojej!”: typ skóry 5</annotation>
+		<annotation cp="🙆🏿‍♂">mężczyzna | ojej | ręce | zachwyt | typ skóry 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">mężczyzna pokazujący „ojej!”: typ skóry 6</annotation>
+		<annotation cp="🙆🏻‍♀">kobieta | ojej | ręce | zachwyt | typ skóry 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">kobieta pokazująca „ojej!”: typ skóry 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">kobieta | ojej | ręce | zachwyt | typ skóry 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">kobieta pokazująca „ojej!”: typ skóry 3</annotation>
+		<annotation cp="🙆🏽‍♀">kobieta | ojej | ręce | zachwyt | typ skóry 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">kobieta pokazująca „ojej!”: typ skóry 4</annotation>
+		<annotation cp="🙆🏾‍♀">kobieta | ojej | ręce | zachwyt | typ skóry 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">kobieta pokazująca „ojej!”: typ skóry 5</annotation>
+		<annotation cp="🙆🏿‍♀">kobieta | ojej | ręce | zachwyt | typ skóry 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">kobieta pokazująca „ojej!”: typ skóry 6</annotation>
+		<annotation cp="💁🏻">pomoc | pomocna dłoń | pomogę | życzliwy | typ skóry 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">życzliwa osoba: typ skóry 1–2</annotation>
+		<annotation cp="💁🏼">pomoc | pomocna dłoń | pomogę | życzliwy | typ skóry 3</annotation>
+		<annotation cp="💁🏼" type="tts">życzliwa osoba: typ skóry 3</annotation>
+		<annotation cp="💁🏽">pomoc | pomocna dłoń | pomogę | życzliwy | typ skóry 4</annotation>
+		<annotation cp="💁🏽" type="tts">życzliwa osoba: typ skóry 4</annotation>
+		<annotation cp="💁🏾">pomoc | pomocna dłoń | pomogę | życzliwy | typ skóry 5</annotation>
+		<annotation cp="💁🏾" type="tts">życzliwa osoba: typ skóry 5</annotation>
+		<annotation cp="💁🏿">pomoc | pomocna dłoń | pomogę | życzliwy | typ skóry 6</annotation>
+		<annotation cp="💁🏿" type="tts">życzliwa osoba: typ skóry 6</annotation>
+		<annotation cp="💁🏻‍♂">mężczyzna | otwarta dłoń | typ skóry 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">mężczyzna z otwartą dłonią: typ skóry 1–2</annotation>
+		<annotation cp="💁🏼‍♂">mężczyzna | otwarta dłoń | typ skóry 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">mężczyzna z otwartą dłonią: typ skóry 3</annotation>
+		<annotation cp="💁🏽‍♂">mężczyzna | otwarta dłoń | typ skóry 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">mężczyzna z otwartą dłonią: typ skóry 4</annotation>
+		<annotation cp="💁🏾‍♂">mężczyzna | otwarta dłoń | typ skóry 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">mężczyzna z otwartą dłonią: typ skóry 5</annotation>
+		<annotation cp="💁🏿‍♂">mężczyzna | otwarta dłoń | typ skóry 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">mężczyzna z otwartą dłonią: typ skóry 6</annotation>
+		<annotation cp="💁🏻‍♀">kobieta | otwarta dłoń | typ skóry 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">kobieta z otwartą dłonią: typ skóry 1–2</annotation>
+		<annotation cp="💁🏼‍♀">kobieta | otwarta dłoń | typ skóry 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">kobieta z otwartą dłonią: typ skóry 3</annotation>
+		<annotation cp="💁🏽‍♀">kobieta | otwarta dłoń | typ skóry 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">kobieta z otwartą dłonią: typ skóry 4</annotation>
+		<annotation cp="💁🏾‍♀">kobieta | otwarta dłoń | typ skóry 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">kobieta z otwartą dłonią: typ skóry 5</annotation>
+		<annotation cp="💁🏿‍♀">kobieta | otwarta dłoń | typ skóry 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">kobieta z otwartą dłonią: typ skóry 6</annotation>
+		<annotation cp="🙋🏻">ręka do góry | witaj! | typ skóry 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">hej!: typ skóry 1–2</annotation>
+		<annotation cp="🙋🏼">ręka do góry | witaj! | typ skóry 3</annotation>
+		<annotation cp="🙋🏼" type="tts">hej!: typ skóry 3</annotation>
+		<annotation cp="🙋🏽">ręka do góry | witaj! | typ skóry 4</annotation>
+		<annotation cp="🙋🏽" type="tts">hej!: typ skóry 4</annotation>
+		<annotation cp="🙋🏾">ręka do góry | witaj! | typ skóry 5</annotation>
+		<annotation cp="🙋🏾" type="tts">hej!: typ skóry 5</annotation>
+		<annotation cp="🙋🏿">ręka do góry | witaj! | typ skóry 6</annotation>
+		<annotation cp="🙋🏿" type="tts">hej!: typ skóry 6</annotation>
+		<annotation cp="🙋🏻‍♂">gest | hej | mężczyzna | powitanie | typ skóry 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">mężczyzna z uniesioną ręką: typ skóry 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">gest | hej | mężczyzna | powitanie | typ skóry 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">mężczyzna z uniesioną ręką: typ skóry 3</annotation>
+		<annotation cp="🙋🏽‍♂">gest | hej | mężczyzna | powitanie | typ skóry 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">mężczyzna z uniesioną ręką: typ skóry 4</annotation>
+		<annotation cp="🙋🏾‍♂">gest | hej | mężczyzna | powitanie | typ skóry 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">mężczyzna z uniesioną ręką: typ skóry 5</annotation>
+		<annotation cp="🙋🏿‍♂">gest | hej | mężczyzna | powitanie | typ skóry 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">mężczyzna z uniesioną ręką: typ skóry 6</annotation>
+		<annotation cp="🙋🏻‍♀">gest | hej | kobieta | powitanie | typ skóry 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">kobieta z uniesioną ręką: typ skóry 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">gest | hej | kobieta | powitanie | typ skóry 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">kobieta z uniesioną ręką: typ skóry 3</annotation>
+		<annotation cp="🙋🏽‍♀">gest | hej | kobieta | powitanie | typ skóry 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">kobieta z uniesioną ręką: typ skóry 4</annotation>
+		<annotation cp="🙋🏾‍♀">gest | hej | kobieta | powitanie | typ skóry 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">kobieta z uniesioną ręką: typ skóry 5</annotation>
+		<annotation cp="🙋🏿‍♀">gest | hej | kobieta | powitanie | typ skóry 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">kobieta z uniesioną ręką: typ skóry 6</annotation>
+		<annotation cp="🙇🏻">opuszczona głowa | przepraszam | przykro mi | typ skóry 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">głęboki ukłon: typ skóry 1–2</annotation>
+		<annotation cp="🙇🏼">opuszczona głowa | przepraszam | przykro mi | typ skóry 3</annotation>
+		<annotation cp="🙇🏼" type="tts">głęboki ukłon: typ skóry 3</annotation>
+		<annotation cp="🙇🏽">opuszczona głowa | przepraszam | przykro mi | typ skóry 4</annotation>
+		<annotation cp="🙇🏽" type="tts">głęboki ukłon: typ skóry 4</annotation>
+		<annotation cp="🙇🏾">opuszczona głowa | przepraszam | przykro mi | typ skóry 5</annotation>
+		<annotation cp="🙇🏾" type="tts">głęboki ukłon: typ skóry 5</annotation>
+		<annotation cp="🙇🏿">opuszczona głowa | przepraszam | przykro mi | typ skóry 6</annotation>
+		<annotation cp="🙇🏿" type="tts">głęboki ukłon: typ skóry 6</annotation>
+		<annotation cp="🙇🏻‍♂">gest | mężczyzna | przepraszam | ukłon | typ skóry 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">mężczyzna w głębokim ukłonie: typ skóry 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">gest | mężczyzna | przepraszam | ukłon | typ skóry 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">mężczyzna w głębokim ukłonie: typ skóry 3</annotation>
+		<annotation cp="🙇🏽‍♂">gest | mężczyzna | przepraszam | ukłon | typ skóry 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">mężczyzna w głębokim ukłonie: typ skóry 4</annotation>
+		<annotation cp="🙇🏾‍♂">gest | mężczyzna | przepraszam | ukłon | typ skóry 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">mężczyzna w głębokim ukłonie: typ skóry 5</annotation>
+		<annotation cp="🙇🏿‍♂">gest | mężczyzna | przepraszam | ukłon | typ skóry 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">mężczyzna w głębokim ukłonie: typ skóry 6</annotation>
+		<annotation cp="🙇🏻‍♀">gest | kobieta | przepraszam | ukłon | typ skóry 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">kobieta w głębokim ukłonie: typ skóry 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">gest | kobieta | przepraszam | ukłon | typ skóry 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">kobieta w głębokim ukłonie: typ skóry 3</annotation>
+		<annotation cp="🙇🏽‍♀">gest | kobieta | przepraszam | ukłon | typ skóry 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">kobieta w głębokim ukłonie: typ skóry 4</annotation>
+		<annotation cp="🙇🏾‍♀">gest | kobieta | przepraszam | ukłon | typ skóry 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">kobieta w głębokim ukłonie: typ skóry 5</annotation>
+		<annotation cp="🙇🏿‍♀">gest | kobieta | przepraszam | ukłon | typ skóry 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">kobieta w głębokim ukłonie: typ skóry 6</annotation>
+		<annotation cp="🤦🏻">niedowierzanie | załamanie | typ skóry 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">załamka: typ skóry 1–2</annotation>
+		<annotation cp="🤦🏼">niedowierzanie | załamanie | typ skóry 3</annotation>
+		<annotation cp="🤦🏼" type="tts">załamka: typ skóry 3</annotation>
+		<annotation cp="🤦🏽">niedowierzanie | załamanie | typ skóry 4</annotation>
+		<annotation cp="🤦🏽" type="tts">załamka: typ skóry 4</annotation>
+		<annotation cp="🤦🏾">niedowierzanie | załamanie | typ skóry 5</annotation>
+		<annotation cp="🤦🏾" type="tts">załamka: typ skóry 5</annotation>
+		<annotation cp="🤦🏿">niedowierzanie | załamanie | typ skóry 6</annotation>
+		<annotation cp="🤦🏿" type="tts">załamka: typ skóry 6</annotation>
+		<annotation cp="🤦🏻‍♂">brak słów | mężczyzna | niedowierzanie | załamka | typ skóry 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">mężczyzna uderzający się w czoło: typ skóry 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">brak słów | mężczyzna | niedowierzanie | załamka | typ skóry 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">mężczyzna uderzający się w czoło: typ skóry 3</annotation>
+		<annotation cp="🤦🏽‍♂">brak słów | mężczyzna | niedowierzanie | załamka | typ skóry 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">mężczyzna uderzający się w czoło: typ skóry 4</annotation>
+		<annotation cp="🤦🏾‍♂">brak słów | mężczyzna | niedowierzanie | załamka | typ skóry 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">mężczyzna uderzający się w czoło: typ skóry 5</annotation>
+		<annotation cp="🤦🏿‍♂">brak słów | mężczyzna | niedowierzanie | załamka | typ skóry 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">mężczyzna uderzający się w czoło: typ skóry 6</annotation>
+		<annotation cp="🤦🏻‍♀">brak słów | kobieta | niedowierzanie | załamka | typ skóry 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">kobieta uderzająca się w czoło: typ skóry 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">brak słów | kobieta | niedowierzanie | załamka | typ skóry 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">kobieta uderzająca się w czoło: typ skóry 3</annotation>
+		<annotation cp="🤦🏽‍♀">brak słów | kobieta | niedowierzanie | załamka | typ skóry 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">kobieta uderzająca się w czoło: typ skóry 4</annotation>
+		<annotation cp="🤦🏾‍♀">brak słów | kobieta | niedowierzanie | załamka | typ skóry 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">kobieta uderzająca się w czoło: typ skóry 5</annotation>
+		<annotation cp="🤦🏿‍♀">brak słów | kobieta | niedowierzanie | załamka | typ skóry 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">kobieta uderzająca się w czoło: typ skóry 6</annotation>
+		<annotation cp="🤷🏻">niewiedza | obojętność | wątpliwość | typ skóry 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">wzruszenie ramion: typ skóry 1–2</annotation>
+		<annotation cp="🤷🏼">niewiedza | obojętność | wątpliwość | typ skóry 3</annotation>
+		<annotation cp="🤷🏼" type="tts">wzruszenie ramion: typ skóry 3</annotation>
+		<annotation cp="🤷🏽">niewiedza | obojętność | wątpliwość | typ skóry 4</annotation>
+		<annotation cp="🤷🏽" type="tts">wzruszenie ramion: typ skóry 4</annotation>
+		<annotation cp="🤷🏾">niewiedza | obojętność | wątpliwość | typ skóry 5</annotation>
+		<annotation cp="🤷🏾" type="tts">wzruszenie ramion: typ skóry 5</annotation>
+		<annotation cp="🤷🏿">niewiedza | obojętność | wątpliwość | typ skóry 6</annotation>
+		<annotation cp="🤷🏿" type="tts">wzruszenie ramion: typ skóry 6</annotation>
+		<annotation cp="🤷🏻‍♂">mężczyzna | obojętność | wzruszenie ramion | wątpliwość | typ skóry 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">mężczyzna wzruszający ramionami: typ skóry 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">mężczyzna | obojętność | wzruszenie ramion | wątpliwość | typ skóry 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">mężczyzna wzruszający ramionami: typ skóry 3</annotation>
+		<annotation cp="🤷🏽‍♂">mężczyzna | obojętność | wzruszenie ramion | wątpliwość | typ skóry 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">mężczyzna wzruszający ramionami: typ skóry 4</annotation>
+		<annotation cp="🤷🏾‍♂">mężczyzna | obojętność | wzruszenie ramion | wątpliwość | typ skóry 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">mężczyzna wzruszający ramionami: typ skóry 5</annotation>
+		<annotation cp="🤷🏿‍♂">mężczyzna | obojętność | wzruszenie ramion | wątpliwość | typ skóry 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">mężczyzna wzruszający ramionami: typ skóry 6</annotation>
+		<annotation cp="🤷🏻‍♀">kobieta | obojętność | wzruszenie ramion | wątpliwość | typ skóry 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">kobieta wzruszająca ramionami: typ skóry 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">kobieta | obojętność | wzruszenie ramion | wątpliwość | typ skóry 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">kobieta wzruszająca ramionami: typ skóry 3</annotation>
+		<annotation cp="🤷🏽‍♀">kobieta | obojętność | wzruszenie ramion | wątpliwość | typ skóry 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">kobieta wzruszająca ramionami: typ skóry 4</annotation>
+		<annotation cp="🤷🏾‍♀">kobieta | obojętność | wzruszenie ramion | wątpliwość | typ skóry 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">kobieta wzruszająca ramionami: typ skóry 5</annotation>
+		<annotation cp="🤷🏿‍♀">kobieta | obojętność | wzruszenie ramion | wątpliwość | typ skóry 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">kobieta wzruszająca ramionami: typ skóry 6</annotation>
+		<annotation cp="💆🏻">kosmetyczka | masaż | salon masażu | typ skóry 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">masaż głowy: typ skóry 1–2</annotation>
+		<annotation cp="💆🏼">kosmetyczka | masaż | salon masażu | typ skóry 3</annotation>
+		<annotation cp="💆🏼" type="tts">masaż głowy: typ skóry 3</annotation>
+		<annotation cp="💆🏽">kosmetyczka | masaż | salon masażu | typ skóry 4</annotation>
+		<annotation cp="💆🏽" type="tts">masaż głowy: typ skóry 4</annotation>
+		<annotation cp="💆🏾">kosmetyczka | masaż | salon masażu | typ skóry 5</annotation>
+		<annotation cp="💆🏾" type="tts">masaż głowy: typ skóry 5</annotation>
+		<annotation cp="💆🏿">kosmetyczka | masaż | salon masażu | typ skóry 6</annotation>
+		<annotation cp="💆🏿" type="tts">masaż głowy: typ skóry 6</annotation>
+		<annotation cp="💆🏻‍♂">głowa | masaż | mężczyzna | twarz | typ skóry 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">mężczyzna podczas masażu twarzy: typ skóry 1–2</annotation>
+		<annotation cp="💆🏼‍♂">głowa | masaż | mężczyzna | twarz | typ skóry 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">mężczyzna podczas masażu twarzy: typ skóry 3</annotation>
+		<annotation cp="💆🏽‍♂">głowa | masaż | mężczyzna | twarz | typ skóry 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">mężczyzna podczas masażu twarzy: typ skóry 4</annotation>
+		<annotation cp="💆🏾‍♂">głowa | masaż | mężczyzna | twarz | typ skóry 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">mężczyzna podczas masażu twarzy: typ skóry 5</annotation>
+		<annotation cp="💆🏿‍♂">głowa | masaż | mężczyzna | twarz | typ skóry 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">mężczyzna podczas masażu twarzy: typ skóry 6</annotation>
+		<annotation cp="💆🏻‍♀">głowa | kobieta | masaż | twarz | typ skóry 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">kobieta podczas masażu twarzy: typ skóry 1–2</annotation>
+		<annotation cp="💆🏼‍♀">głowa | kobieta | masaż | twarz | typ skóry 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">kobieta podczas masażu twarzy: typ skóry 3</annotation>
+		<annotation cp="💆🏽‍♀">głowa | kobieta | masaż | twarz | typ skóry 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">kobieta podczas masażu twarzy: typ skóry 4</annotation>
+		<annotation cp="💆🏾‍♀">głowa | kobieta | masaż | twarz | typ skóry 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">kobieta podczas masażu twarzy: typ skóry 5</annotation>
+		<annotation cp="💆🏿‍♀">głowa | kobieta | masaż | twarz | typ skóry 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">kobieta podczas masażu twarzy: typ skóry 6</annotation>
+		<annotation cp="💇🏻">cięcie włosów | fryzjerka | fryzura | typ skóry 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">fryzjer: typ skóry 1–2</annotation>
+		<annotation cp="💇🏼">cięcie włosów | fryzjerka | fryzura | typ skóry 3</annotation>
+		<annotation cp="💇🏼" type="tts">fryzjer: typ skóry 3</annotation>
+		<annotation cp="💇🏽">cięcie włosów | fryzjerka | fryzura | typ skóry 4</annotation>
+		<annotation cp="💇🏽" type="tts">fryzjer: typ skóry 4</annotation>
+		<annotation cp="💇🏾">cięcie włosów | fryzjerka | fryzura | typ skóry 5</annotation>
+		<annotation cp="💇🏾" type="tts">fryzjer: typ skóry 5</annotation>
+		<annotation cp="💇🏿">cięcie włosów | fryzjerka | fryzura | typ skóry 6</annotation>
+		<annotation cp="💇🏿" type="tts">fryzjer: typ skóry 6</annotation>
+		<annotation cp="💇🏻‍♂">fryzura | mężczyzna | strzyżenie | typ skóry 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">mężczyzna podczas strzyżenia: typ skóry 1–2</annotation>
+		<annotation cp="💇🏼‍♂">fryzura | mężczyzna | strzyżenie | typ skóry 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">mężczyzna podczas strzyżenia: typ skóry 3</annotation>
+		<annotation cp="💇🏽‍♂">fryzura | mężczyzna | strzyżenie | typ skóry 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">mężczyzna podczas strzyżenia: typ skóry 4</annotation>
+		<annotation cp="💇🏾‍♂">fryzura | mężczyzna | strzyżenie | typ skóry 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">mężczyzna podczas strzyżenia: typ skóry 5</annotation>
+		<annotation cp="💇🏿‍♂">fryzura | mężczyzna | strzyżenie | typ skóry 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">mężczyzna podczas strzyżenia: typ skóry 6</annotation>
+		<annotation cp="💇🏻‍♀">fryzura | kobieta | strzyżenie | typ skóry 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">kobieta podczas strzyżenia: typ skóry 1–2</annotation>
+		<annotation cp="💇🏼‍♀">fryzura | kobieta | strzyżenie | typ skóry 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">kobieta podczas strzyżenia: typ skóry 3</annotation>
+		<annotation cp="💇🏽‍♀">fryzura | kobieta | strzyżenie | typ skóry 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">kobieta podczas strzyżenia: typ skóry 4</annotation>
+		<annotation cp="💇🏾‍♀">fryzura | kobieta | strzyżenie | typ skóry 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">kobieta podczas strzyżenia: typ skóry 5</annotation>
+		<annotation cp="💇🏿‍♀">fryzura | kobieta | strzyżenie | typ skóry 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">kobieta podczas strzyżenia: typ skóry 6</annotation>
+		<annotation cp="🚶🏻">iść | na piechotę | piechur | pieszo | spacer | typ skóry 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">pieszy: typ skóry 1–2</annotation>
+		<annotation cp="🚶🏼">iść | na piechotę | piechur | pieszo | spacer | typ skóry 3</annotation>
+		<annotation cp="🚶🏼" type="tts">pieszy: typ skóry 3</annotation>
+		<annotation cp="🚶🏽">iść | na piechotę | piechur | pieszo | spacer | typ skóry 4</annotation>
+		<annotation cp="🚶🏽" type="tts">pieszy: typ skóry 4</annotation>
+		<annotation cp="🚶🏾">iść | na piechotę | piechur | pieszo | spacer | typ skóry 5</annotation>
+		<annotation cp="🚶🏾" type="tts">pieszy: typ skóry 5</annotation>
+		<annotation cp="🚶🏿">iść | na piechotę | piechur | pieszo | spacer | typ skóry 6</annotation>
+		<annotation cp="🚶🏿" type="tts">pieszy: typ skóry 6</annotation>
+		<annotation cp="🚶🏻‍♂">chodzenie | mężczyzna | piechur | spacer | typ skóry 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">idący mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">chodzenie | mężczyzna | piechur | spacer | typ skóry 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">idący mężczyzna: typ skóry 3</annotation>
+		<annotation cp="🚶🏽‍♂">chodzenie | mężczyzna | piechur | spacer | typ skóry 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">idący mężczyzna: typ skóry 4</annotation>
+		<annotation cp="🚶🏾‍♂">chodzenie | mężczyzna | piechur | spacer | typ skóry 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">idący mężczyzna: typ skóry 5</annotation>
+		<annotation cp="🚶🏿‍♂">chodzenie | mężczyzna | piechur | spacer | typ skóry 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">idący mężczyzna: typ skóry 6</annotation>
+		<annotation cp="🚶🏻‍♀">chodzenie | kobieta | piechur | spacer | typ skóry 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">idąca kobieta: typ skóry 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">chodzenie | kobieta | piechur | spacer | typ skóry 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">idąca kobieta: typ skóry 3</annotation>
+		<annotation cp="🚶🏽‍♀">chodzenie | kobieta | piechur | spacer | typ skóry 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">idąca kobieta: typ skóry 4</annotation>
+		<annotation cp="🚶🏾‍♀">chodzenie | kobieta | piechur | spacer | typ skóry 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">idąca kobieta: typ skóry 5</annotation>
+		<annotation cp="🚶🏿‍♀">chodzenie | kobieta | piechur | spacer | typ skóry 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">idąca kobieta: typ skóry 6</annotation>
+		<annotation cp="🏃🏻">bieg | bieganie | maraton | pośpiech | typ skóry 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">biegacz: typ skóry 1–2</annotation>
+		<annotation cp="🏃🏼">bieg | bieganie | maraton | pośpiech | typ skóry 3</annotation>
+		<annotation cp="🏃🏼" type="tts">biegacz: typ skóry 3</annotation>
+		<annotation cp="🏃🏽">bieg | bieganie | maraton | pośpiech | typ skóry 4</annotation>
+		<annotation cp="🏃🏽" type="tts">biegacz: typ skóry 4</annotation>
+		<annotation cp="🏃🏾">bieg | bieganie | maraton | pośpiech | typ skóry 5</annotation>
+		<annotation cp="🏃🏾" type="tts">biegacz: typ skóry 5</annotation>
+		<annotation cp="🏃🏿">bieg | bieganie | maraton | pośpiech | typ skóry 6</annotation>
+		<annotation cp="🏃🏿" type="tts">biegacz: typ skóry 6</annotation>
+		<annotation cp="🏃🏻‍♂">bieg | bieganie | maraton | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">biegnący mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">bieg | bieganie | maraton | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">biegnący mężczyzna: typ skóry 3</annotation>
+		<annotation cp="🏃🏽‍♂">bieg | bieganie | maraton | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">biegnący mężczyzna: typ skóry 4</annotation>
+		<annotation cp="🏃🏾‍♂">bieg | bieganie | maraton | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">biegnący mężczyzna: typ skóry 5</annotation>
+		<annotation cp="🏃🏿‍♂">bieg | bieganie | maraton | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">biegnący mężczyzna: typ skóry 6</annotation>
+		<annotation cp="🏃🏻‍♀">bieg | bieganie | kobieta | maraton | typ skóry 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">biegnąca kobieta: typ skóry 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">bieg | bieganie | kobieta | maraton | typ skóry 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">biegnąca kobieta: typ skóry 3</annotation>
+		<annotation cp="🏃🏽‍♀">bieg | bieganie | kobieta | maraton | typ skóry 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">biegnąca kobieta: typ skóry 4</annotation>
+		<annotation cp="🏃🏾‍♀">bieg | bieganie | kobieta | maraton | typ skóry 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">biegnąca kobieta: typ skóry 5</annotation>
+		<annotation cp="🏃🏿‍♀">bieg | bieganie | kobieta | maraton | typ skóry 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">biegnąca kobieta: typ skóry 6</annotation>
+		<annotation cp="💃🏻">taniec | tańczyć | typ skóry 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">tancerka: typ skóry 1–2</annotation>
+		<annotation cp="💃🏼">taniec | tańczyć | typ skóry 3</annotation>
+		<annotation cp="💃🏼" type="tts">tancerka: typ skóry 3</annotation>
+		<annotation cp="💃🏽">taniec | tańczyć | typ skóry 4</annotation>
+		<annotation cp="💃🏽" type="tts">tancerka: typ skóry 4</annotation>
+		<annotation cp="💃🏾">taniec | tańczyć | typ skóry 5</annotation>
+		<annotation cp="💃🏾" type="tts">tancerka: typ skóry 5</annotation>
+		<annotation cp="💃🏿">taniec | tańczyć | typ skóry 6</annotation>
+		<annotation cp="💃🏿" type="tts">tancerka: typ skóry 6</annotation>
+		<annotation cp="🕺🏻">taniec | tańczyć | typ skóry 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">tancerz: typ skóry 1–2</annotation>
+		<annotation cp="🕺🏼">taniec | tańczyć | typ skóry 3</annotation>
+		<annotation cp="🕺🏼" type="tts">tancerz: typ skóry 3</annotation>
+		<annotation cp="🕺🏽">taniec | tańczyć | typ skóry 4</annotation>
+		<annotation cp="🕺🏽" type="tts">tancerz: typ skóry 4</annotation>
+		<annotation cp="🕺🏾">taniec | tańczyć | typ skóry 5</annotation>
+		<annotation cp="🕺🏾" type="tts">tancerz: typ skóry 5</annotation>
+		<annotation cp="🕺🏿">taniec | tańczyć | typ skóry 6</annotation>
+		<annotation cp="🕺🏿" type="tts">tancerz: typ skóry 6</annotation>
+		<annotation cp="🛀🏻">kąpiel | wanna | typ skóry 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">kąpiel w wannie: typ skóry 1–2</annotation>
+		<annotation cp="🛀🏼">kąpiel | wanna | typ skóry 3</annotation>
+		<annotation cp="🛀🏼" type="tts">kąpiel w wannie: typ skóry 3</annotation>
+		<annotation cp="🛀🏽">kąpiel | wanna | typ skóry 4</annotation>
+		<annotation cp="🛀🏽" type="tts">kąpiel w wannie: typ skóry 4</annotation>
+		<annotation cp="🛀🏾">kąpiel | wanna | typ skóry 5</annotation>
+		<annotation cp="🛀🏾" type="tts">kąpiel w wannie: typ skóry 5</annotation>
+		<annotation cp="🛀🏿">kąpiel | wanna | typ skóry 6</annotation>
+		<annotation cp="🛀🏿" type="tts">kąpiel w wannie: typ skóry 6</annotation>
+		<annotation cp="🛌🏻">hotel | nocleg | sen | typ skóry 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">osoba w łóżku: typ skóry 1–2</annotation>
+		<annotation cp="🛌🏼">hotel | nocleg | sen | typ skóry 3</annotation>
+		<annotation cp="🛌🏼" type="tts">osoba w łóżku: typ skóry 3</annotation>
+		<annotation cp="🛌🏽">hotel | nocleg | sen | typ skóry 4</annotation>
+		<annotation cp="🛌🏽" type="tts">osoba w łóżku: typ skóry 4</annotation>
+		<annotation cp="🛌🏾">hotel | nocleg | sen | typ skóry 5</annotation>
+		<annotation cp="🛌🏾" type="tts">osoba w łóżku: typ skóry 5</annotation>
+		<annotation cp="🛌🏿">hotel | nocleg | sen | typ skóry 6</annotation>
+		<annotation cp="🛌🏿" type="tts">osoba w łóżku: typ skóry 6</annotation>
+		<annotation cp="🕴🏻">biznesmen | garnitur | lewitacja | lewitować | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">lewitujący mężczyzna w garniturze: typ skóry 1–2</annotation>
+		<annotation cp="🕴🏼">biznesmen | garnitur | lewitacja | lewitować | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="🕴🏼" type="tts">lewitujący mężczyzna w garniturze: typ skóry 3</annotation>
+		<annotation cp="🕴🏽">biznesmen | garnitur | lewitacja | lewitować | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="🕴🏽" type="tts">lewitujący mężczyzna w garniturze: typ skóry 4</annotation>
+		<annotation cp="🕴🏾">biznesmen | garnitur | lewitacja | lewitować | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="🕴🏾" type="tts">lewitujący mężczyzna w garniturze: typ skóry 5</annotation>
+		<annotation cp="🕴🏿">biznesmen | garnitur | lewitacja | lewitować | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="🕴🏿" type="tts">lewitujący mężczyzna w garniturze: typ skóry 6</annotation>
+		<annotation cp="🏇🏻">jeździec | koń | wyścigi konne | typ skóry 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">dżokej: typ skóry 1–2</annotation>
+		<annotation cp="🏇🏼">jeździec | koń | wyścigi konne | typ skóry 3</annotation>
+		<annotation cp="🏇🏼" type="tts">dżokej: typ skóry 3</annotation>
+		<annotation cp="🏇🏽">jeździec | koń | wyścigi konne | typ skóry 4</annotation>
+		<annotation cp="🏇🏽" type="tts">dżokej: typ skóry 4</annotation>
+		<annotation cp="🏇🏾">jeździec | koń | wyścigi konne | typ skóry 5</annotation>
+		<annotation cp="🏇🏾" type="tts">dżokej: typ skóry 5</annotation>
+		<annotation cp="🏇🏿">jeździec | koń | wyścigi konne | typ skóry 6</annotation>
+		<annotation cp="🏇🏿" type="tts">dżokej: typ skóry 6</annotation>
+		<annotation cp="🏂🏻">snowboard | typ skóry 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">snowboardzista: typ skóry 1–2</annotation>
+		<annotation cp="🏂🏼">snowboard | typ skóry 3</annotation>
+		<annotation cp="🏂🏼" type="tts">snowboardzista: typ skóry 3</annotation>
+		<annotation cp="🏂🏽">snowboard | typ skóry 4</annotation>
+		<annotation cp="🏂🏽" type="tts">snowboardzista: typ skóry 4</annotation>
+		<annotation cp="🏂🏾">snowboard | typ skóry 5</annotation>
+		<annotation cp="🏂🏾" type="tts">snowboardzista: typ skóry 5</annotation>
+		<annotation cp="🏂🏿">snowboard | typ skóry 6</annotation>
+		<annotation cp="🏂🏿" type="tts">snowboardzista: typ skóry 6</annotation>
+		<annotation cp="🏌🏻">golf | piłka | typ skóry 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">golfista: typ skóry 1–2</annotation>
+		<annotation cp="🏌🏼">golf | piłka | typ skóry 3</annotation>
+		<annotation cp="🏌🏼" type="tts">golfista: typ skóry 3</annotation>
+		<annotation cp="🏌🏽">golf | piłka | typ skóry 4</annotation>
+		<annotation cp="🏌🏽" type="tts">golfista: typ skóry 4</annotation>
+		<annotation cp="🏌🏾">golf | piłka | typ skóry 5</annotation>
+		<annotation cp="🏌🏾" type="tts">golfista: typ skóry 5</annotation>
+		<annotation cp="🏌🏿">golf | piłka | typ skóry 6</annotation>
+		<annotation cp="🏌🏿" type="tts">golfista: typ skóry 6</annotation>
+		<annotation cp="🏌🏻‍♂">golf | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">mężczyzna grający w golfa: typ skóry 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">golf | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">mężczyzna grający w golfa: typ skóry 3</annotation>
+		<annotation cp="🏌🏽‍♂">golf | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">mężczyzna grający w golfa: typ skóry 4</annotation>
+		<annotation cp="🏌🏾‍♂">golf | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">mężczyzna grający w golfa: typ skóry 5</annotation>
+		<annotation cp="🏌🏿‍♂">golf | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">mężczyzna grający w golfa: typ skóry 6</annotation>
+		<annotation cp="🏌🏻‍♀">golf | kobieta | typ skóry 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">kobieta grająca w golfa: typ skóry 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">golf | kobieta | typ skóry 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">kobieta grająca w golfa: typ skóry 3</annotation>
+		<annotation cp="🏌🏽‍♀">golf | kobieta | typ skóry 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">kobieta grająca w golfa: typ skóry 4</annotation>
+		<annotation cp="🏌🏾‍♀">golf | kobieta | typ skóry 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">kobieta grająca w golfa: typ skóry 5</annotation>
+		<annotation cp="🏌🏿‍♀">golf | kobieta | typ skóry 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">kobieta grająca w golfa: typ skóry 6</annotation>
+		<annotation cp="🏄🏻">deska | fale | surfing | typ skóry 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">surfer: typ skóry 1–2</annotation>
+		<annotation cp="🏄🏼">deska | fale | surfing | typ skóry 3</annotation>
+		<annotation cp="🏄🏼" type="tts">surfer: typ skóry 3</annotation>
+		<annotation cp="🏄🏽">deska | fale | surfing | typ skóry 4</annotation>
+		<annotation cp="🏄🏽" type="tts">surfer: typ skóry 4</annotation>
+		<annotation cp="🏄🏾">deska | fale | surfing | typ skóry 5</annotation>
+		<annotation cp="🏄🏾" type="tts">surfer: typ skóry 5</annotation>
+		<annotation cp="🏄🏿">deska | fale | surfing | typ skóry 6</annotation>
+		<annotation cp="🏄🏿" type="tts">surfer: typ skóry 6</annotation>
+		<annotation cp="🏄🏻‍♂">deska | mężczyzna | surfing | typ skóry 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">surfujący mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">deska | mężczyzna | surfing | typ skóry 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">surfujący mężczyzna: typ skóry 3</annotation>
+		<annotation cp="🏄🏽‍♂">deska | mężczyzna | surfing | typ skóry 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">surfujący mężczyzna: typ skóry 4</annotation>
+		<annotation cp="🏄🏾‍♂">deska | mężczyzna | surfing | typ skóry 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">surfujący mężczyzna: typ skóry 5</annotation>
+		<annotation cp="🏄🏿‍♂">deska | mężczyzna | surfing | typ skóry 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">surfujący mężczyzna: typ skóry 6</annotation>
+		<annotation cp="🏄🏻‍♀">deska | kobieta | surfing | typ skóry 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">surfująca kobieta: typ skóry 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">deska | kobieta | surfing | typ skóry 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">surfująca kobieta: typ skóry 3</annotation>
+		<annotation cp="🏄🏽‍♀">deska | kobieta | surfing | typ skóry 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">surfująca kobieta: typ skóry 4</annotation>
+		<annotation cp="🏄🏾‍♀">deska | kobieta | surfing | typ skóry 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">surfująca kobieta: typ skóry 5</annotation>
+		<annotation cp="🏄🏿‍♀">deska | kobieta | surfing | typ skóry 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">surfująca kobieta: typ skóry 6</annotation>
+		<annotation cp="🚣🏻">pojazd | łódka | typ skóry 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">łódź: typ skóry 1–2</annotation>
+		<annotation cp="🚣🏼">pojazd | łódka | typ skóry 3</annotation>
+		<annotation cp="🚣🏼" type="tts">łódź: typ skóry 3</annotation>
+		<annotation cp="🚣🏽">pojazd | łódka | typ skóry 4</annotation>
+		<annotation cp="🚣🏽" type="tts">łódź: typ skóry 4</annotation>
+		<annotation cp="🚣🏾">pojazd | łódka | typ skóry 5</annotation>
+		<annotation cp="🚣🏾" type="tts">łódź: typ skóry 5</annotation>
+		<annotation cp="🚣🏿">pojazd | łódka | typ skóry 6</annotation>
+		<annotation cp="🚣🏿" type="tts">łódź: typ skóry 6</annotation>
+		<annotation cp="🚣🏻‍♂">mężczyzna | wiosłowanie | łódka | typ skóry 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">wiosłujący mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">mężczyzna | wiosłowanie | łódka | typ skóry 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">wiosłujący mężczyzna: typ skóry 3</annotation>
+		<annotation cp="🚣🏽‍♂">mężczyzna | wiosłowanie | łódka | typ skóry 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">wiosłujący mężczyzna: typ skóry 4</annotation>
+		<annotation cp="🚣🏾‍♂">mężczyzna | wiosłowanie | łódka | typ skóry 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">wiosłujący mężczyzna: typ skóry 5</annotation>
+		<annotation cp="🚣🏿‍♂">mężczyzna | wiosłowanie | łódka | typ skóry 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">wiosłujący mężczyzna: typ skóry 6</annotation>
+		<annotation cp="🚣🏻‍♀">kobieta | wiosłowanie | łódka | typ skóry 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">wiosłująca kobieta: typ skóry 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">kobieta | wiosłowanie | łódka | typ skóry 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">wiosłująca kobieta: typ skóry 3</annotation>
+		<annotation cp="🚣🏽‍♀">kobieta | wiosłowanie | łódka | typ skóry 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">wiosłująca kobieta: typ skóry 4</annotation>
+		<annotation cp="🚣🏾‍♀">kobieta | wiosłowanie | łódka | typ skóry 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">wiosłująca kobieta: typ skóry 5</annotation>
+		<annotation cp="🚣🏿‍♀">kobieta | wiosłowanie | łódka | typ skóry 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">wiosłująca kobieta: typ skóry 6</annotation>
+		<annotation cp="🏊🏻">kraulem | pływak | typ skóry 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">pływanie: typ skóry 1–2</annotation>
+		<annotation cp="🏊🏼">kraulem | pływak | typ skóry 3</annotation>
+		<annotation cp="🏊🏼" type="tts">pływanie: typ skóry 3</annotation>
+		<annotation cp="🏊🏽">kraulem | pływak | typ skóry 4</annotation>
+		<annotation cp="🏊🏽" type="tts">pływanie: typ skóry 4</annotation>
+		<annotation cp="🏊🏾">kraulem | pływak | typ skóry 5</annotation>
+		<annotation cp="🏊🏾" type="tts">pływanie: typ skóry 5</annotation>
+		<annotation cp="🏊🏿">kraulem | pływak | typ skóry 6</annotation>
+		<annotation cp="🏊🏿" type="tts">pływanie: typ skóry 6</annotation>
+		<annotation cp="🏊🏻‍♂">kraul | mężczyzna | pływanie | typ skóry 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">pływający mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">kraul | mężczyzna | pływanie | typ skóry 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">pływający mężczyzna: typ skóry 3</annotation>
+		<annotation cp="🏊🏽‍♂">kraul | mężczyzna | pływanie | typ skóry 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">pływający mężczyzna: typ skóry 4</annotation>
+		<annotation cp="🏊🏾‍♂">kraul | mężczyzna | pływanie | typ skóry 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">pływający mężczyzna: typ skóry 5</annotation>
+		<annotation cp="🏊🏿‍♂">kraul | mężczyzna | pływanie | typ skóry 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">pływający mężczyzna: typ skóry 6</annotation>
+		<annotation cp="🏊🏻‍♀">kobieta | kraul | pływanie | typ skóry 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">pływająca kobieta: typ skóry 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">kobieta | kraul | pływanie | typ skóry 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">pływająca kobieta: typ skóry 3</annotation>
+		<annotation cp="🏊🏽‍♀">kobieta | kraul | pływanie | typ skóry 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">pływająca kobieta: typ skóry 4</annotation>
+		<annotation cp="🏊🏾‍♀">kobieta | kraul | pływanie | typ skóry 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">pływająca kobieta: typ skóry 5</annotation>
+		<annotation cp="🏊🏿‍♀">kobieta | kraul | pływanie | typ skóry 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">pływająca kobieta: typ skóry 6</annotation>
+		<annotation cp="⛹🏻">kozłować | piłka | typ skóry 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">osoba z piłką: typ skóry 1–2</annotation>
+		<annotation cp="⛹🏼">kozłować | piłka | typ skóry 3</annotation>
+		<annotation cp="⛹🏼" type="tts">osoba z piłką: typ skóry 3</annotation>
+		<annotation cp="⛹🏽">kozłować | piłka | typ skóry 4</annotation>
+		<annotation cp="⛹🏽" type="tts">osoba z piłką: typ skóry 4</annotation>
+		<annotation cp="⛹🏾">kozłować | piłka | typ skóry 5</annotation>
+		<annotation cp="⛹🏾" type="tts">osoba z piłką: typ skóry 5</annotation>
+		<annotation cp="⛹🏿">kozłować | piłka | typ skóry 6</annotation>
+		<annotation cp="⛹🏿" type="tts">osoba z piłką: typ skóry 6</annotation>
+		<annotation cp="⛹🏻‍♂">kozłowanie | mężczyzna | piłka | typ skóry 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">mężczyzna z piłką: typ skóry 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">kozłowanie | mężczyzna | piłka | typ skóry 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">mężczyzna z piłką: typ skóry 3</annotation>
+		<annotation cp="⛹🏽‍♂">kozłowanie | mężczyzna | piłka | typ skóry 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">mężczyzna z piłką: typ skóry 4</annotation>
+		<annotation cp="⛹🏾‍♂">kozłowanie | mężczyzna | piłka | typ skóry 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">mężczyzna z piłką: typ skóry 5</annotation>
+		<annotation cp="⛹🏿‍♂">kozłowanie | mężczyzna | piłka | typ skóry 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">mężczyzna z piłką: typ skóry 6</annotation>
+		<annotation cp="⛹🏻‍♀">kobieta | kozłowanie | piłka | typ skóry 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">kobieta z piłką: typ skóry 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">kobieta | kozłowanie | piłka | typ skóry 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">kobieta z piłką: typ skóry 3</annotation>
+		<annotation cp="⛹🏽‍♀">kobieta | kozłowanie | piłka | typ skóry 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">kobieta z piłką: typ skóry 4</annotation>
+		<annotation cp="⛹🏾‍♀">kobieta | kozłowanie | piłka | typ skóry 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">kobieta z piłką: typ skóry 5</annotation>
+		<annotation cp="⛹🏿‍♀">kobieta | kozłowanie | piłka | typ skóry 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">kobieta z piłką: typ skóry 6</annotation>
+		<annotation cp="🏋🏻">atleta | typ skóry 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">ciężarowiec: typ skóry 1–2</annotation>
+		<annotation cp="🏋🏼">atleta | typ skóry 3</annotation>
+		<annotation cp="🏋🏼" type="tts">ciężarowiec: typ skóry 3</annotation>
+		<annotation cp="🏋🏽">atleta | typ skóry 4</annotation>
+		<annotation cp="🏋🏽" type="tts">ciężarowiec: typ skóry 4</annotation>
+		<annotation cp="🏋🏾">atleta | typ skóry 5</annotation>
+		<annotation cp="🏋🏾" type="tts">ciężarowiec: typ skóry 5</annotation>
+		<annotation cp="🏋🏿">atleta | typ skóry 6</annotation>
+		<annotation cp="🏋🏿" type="tts">ciężarowiec: typ skóry 6</annotation>
+		<annotation cp="🏋🏻‍♂">ciężar | ciężarowiec | mężczyzna | typ skóry 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">mężczyzna podnoszący ciężary: typ skóry 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">ciężar | ciężarowiec | mężczyzna | typ skóry 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">mężczyzna podnoszący ciężary: typ skóry 3</annotation>
+		<annotation cp="🏋🏽‍♂">ciężar | ciężarowiec | mężczyzna | typ skóry 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">mężczyzna podnoszący ciężary: typ skóry 4</annotation>
+		<annotation cp="🏋🏾‍♂">ciężar | ciężarowiec | mężczyzna | typ skóry 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">mężczyzna podnoszący ciężary: typ skóry 5</annotation>
+		<annotation cp="🏋🏿‍♂">ciężar | ciężarowiec | mężczyzna | typ skóry 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">mężczyzna podnoszący ciężary: typ skóry 6</annotation>
+		<annotation cp="🏋🏻‍♀">ciężar | ciężarowiec | kobieta | typ skóry 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">kobieta podnosząca ciężary: typ skóry 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">ciężar | ciężarowiec | kobieta | typ skóry 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">kobieta podnosząca ciężary: typ skóry 3</annotation>
+		<annotation cp="🏋🏽‍♀">ciężar | ciężarowiec | kobieta | typ skóry 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">kobieta podnosząca ciężary: typ skóry 4</annotation>
+		<annotation cp="🏋🏾‍♀">ciężar | ciężarowiec | kobieta | typ skóry 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">kobieta podnosząca ciężary: typ skóry 5</annotation>
+		<annotation cp="🏋🏿‍♀">ciężar | ciężarowiec | kobieta | typ skóry 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">kobieta podnosząca ciężary: typ skóry 6</annotation>
+		<annotation cp="🚴🏻">kolarz | peleton | rower | typ skóry 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">rowerzysta: typ skóry 1–2</annotation>
+		<annotation cp="🚴🏼">kolarz | peleton | rower | typ skóry 3</annotation>
+		<annotation cp="🚴🏼" type="tts">rowerzysta: typ skóry 3</annotation>
+		<annotation cp="🚴🏽">kolarz | peleton | rower | typ skóry 4</annotation>
+		<annotation cp="🚴🏽" type="tts">rowerzysta: typ skóry 4</annotation>
+		<annotation cp="🚴🏾">kolarz | peleton | rower | typ skóry 5</annotation>
+		<annotation cp="🚴🏾" type="tts">rowerzysta: typ skóry 5</annotation>
+		<annotation cp="🚴🏿">kolarz | peleton | rower | typ skóry 6</annotation>
+		<annotation cp="🚴🏿" type="tts">rowerzysta: typ skóry 6</annotation>
+		<annotation cp="🚴🏻‍♂">jazda | mężczyzna | rower | typ skóry 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">mężczyzna na rowerze: typ skóry 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">jazda | mężczyzna | rower | typ skóry 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">mężczyzna na rowerze: typ skóry 3</annotation>
+		<annotation cp="🚴🏽‍♂">jazda | mężczyzna | rower | typ skóry 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">mężczyzna na rowerze: typ skóry 4</annotation>
+		<annotation cp="🚴🏾‍♂">jazda | mężczyzna | rower | typ skóry 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">mężczyzna na rowerze: typ skóry 5</annotation>
+		<annotation cp="🚴🏿‍♂">jazda | mężczyzna | rower | typ skóry 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">mężczyzna na rowerze: typ skóry 6</annotation>
+		<annotation cp="🚴🏻‍♀">jazda | kobieta | rower | typ skóry 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">kobieta na rowerze: typ skóry 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">jazda | kobieta | rower | typ skóry 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">kobieta na rowerze: typ skóry 3</annotation>
+		<annotation cp="🚴🏽‍♀">jazda | kobieta | rower | typ skóry 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">kobieta na rowerze: typ skóry 4</annotation>
+		<annotation cp="🚴🏾‍♀">jazda | kobieta | rower | typ skóry 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">kobieta na rowerze: typ skóry 5</annotation>
+		<annotation cp="🚴🏿‍♀">jazda | kobieta | rower | typ skóry 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">kobieta na rowerze: typ skóry 6</annotation>
+		<annotation cp="🚵🏻">górski | rower | rowerzysta | typ skóry 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">kolarz górski: typ skóry 1–2</annotation>
+		<annotation cp="🚵🏼">górski | rower | rowerzysta | typ skóry 3</annotation>
+		<annotation cp="🚵🏼" type="tts">kolarz górski: typ skóry 3</annotation>
+		<annotation cp="🚵🏽">górski | rower | rowerzysta | typ skóry 4</annotation>
+		<annotation cp="🚵🏽" type="tts">kolarz górski: typ skóry 4</annotation>
+		<annotation cp="🚵🏾">górski | rower | rowerzysta | typ skóry 5</annotation>
+		<annotation cp="🚵🏾" type="tts">kolarz górski: typ skóry 5</annotation>
+		<annotation cp="🚵🏿">górski | rower | rowerzysta | typ skóry 6</annotation>
+		<annotation cp="🚵🏿" type="tts">kolarz górski: typ skóry 6</annotation>
+		<annotation cp="🚵🏻‍♂">jazda | mężczyzna | rower górski | typ skóry 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">mężczyzna na rowerze górskim: typ skóry 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">jazda | mężczyzna | rower górski | typ skóry 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">mężczyzna na rowerze górskim: typ skóry 3</annotation>
+		<annotation cp="🚵🏽‍♂">jazda | mężczyzna | rower górski | typ skóry 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">mężczyzna na rowerze górskim: typ skóry 4</annotation>
+		<annotation cp="🚵🏾‍♂">jazda | mężczyzna | rower górski | typ skóry 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">mężczyzna na rowerze górskim: typ skóry 5</annotation>
+		<annotation cp="🚵🏿‍♂">jazda | mężczyzna | rower górski | typ skóry 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">mężczyzna na rowerze górskim: typ skóry 6</annotation>
+		<annotation cp="🚵🏻‍♀">jazda | kobieta | rower górski | typ skóry 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">kobieta na rowerze górskim: typ skóry 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">jazda | kobieta | rower górski | typ skóry 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">kobieta na rowerze górskim: typ skóry 3</annotation>
+		<annotation cp="🚵🏽‍♀">jazda | kobieta | rower górski | typ skóry 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">kobieta na rowerze górskim: typ skóry 4</annotation>
+		<annotation cp="🚵🏾‍♀">jazda | kobieta | rower górski | typ skóry 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">kobieta na rowerze górskim: typ skóry 5</annotation>
+		<annotation cp="🚵🏿‍♀">jazda | kobieta | rower górski | typ skóry 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">kobieta na rowerze górskim: typ skóry 6</annotation>
+		<annotation cp="🤸🏻">gimnastyka | gwiazda | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">osoba robiąca gwiazdę: typ skóry 1–2</annotation>
+		<annotation cp="🤸🏼">gimnastyka | gwiazda | sport | typ skóry 3</annotation>
+		<annotation cp="🤸🏼" type="tts">osoba robiąca gwiazdę: typ skóry 3</annotation>
+		<annotation cp="🤸🏽">gimnastyka | gwiazda | sport | typ skóry 4</annotation>
+		<annotation cp="🤸🏽" type="tts">osoba robiąca gwiazdę: typ skóry 4</annotation>
+		<annotation cp="🤸🏾">gimnastyka | gwiazda | sport | typ skóry 5</annotation>
+		<annotation cp="🤸🏾" type="tts">osoba robiąca gwiazdę: typ skóry 5</annotation>
+		<annotation cp="🤸🏿">gimnastyka | gwiazda | sport | typ skóry 6</annotation>
+		<annotation cp="🤸🏿" type="tts">osoba robiąca gwiazdę: typ skóry 6</annotation>
+		<annotation cp="🤸🏻‍♂">gimnastyka | gwiazda | mężczyzna | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">mężczyzna robiący gwiazdę: typ skóry 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">gimnastyka | gwiazda | mężczyzna | sport | typ skóry 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">mężczyzna robiący gwiazdę: typ skóry 3</annotation>
+		<annotation cp="🤸🏽‍♂">gimnastyka | gwiazda | mężczyzna | sport | typ skóry 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">mężczyzna robiący gwiazdę: typ skóry 4</annotation>
+		<annotation cp="🤸🏾‍♂">gimnastyka | gwiazda | mężczyzna | sport | typ skóry 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">mężczyzna robiący gwiazdę: typ skóry 5</annotation>
+		<annotation cp="🤸🏿‍♂">gimnastyka | gwiazda | mężczyzna | sport | typ skóry 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">mężczyzna robiący gwiazdę: typ skóry 6</annotation>
+		<annotation cp="🤸🏻‍♀">gimnastyka | gwiazda | kobieta | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">kobieta robiąca gwiazdę: typ skóry 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">gimnastyka | gwiazda | kobieta | sport | typ skóry 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">kobieta robiąca gwiazdę: typ skóry 3</annotation>
+		<annotation cp="🤸🏽‍♀">gimnastyka | gwiazda | kobieta | sport | typ skóry 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">kobieta robiąca gwiazdę: typ skóry 4</annotation>
+		<annotation cp="🤸🏾‍♀">gimnastyka | gwiazda | kobieta | sport | typ skóry 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">kobieta robiąca gwiazdę: typ skóry 5</annotation>
+		<annotation cp="🤸🏿‍♀">gimnastyka | gwiazda | kobieta | sport | typ skóry 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">kobieta robiąca gwiazdę: typ skóry 6</annotation>
+		<annotation cp="🤽🏻">gra | piłka | sport | woda | typ skóry 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">piłka wodna: typ skóry 1–2</annotation>
+		<annotation cp="🤽🏼">gra | piłka | sport | woda | typ skóry 3</annotation>
+		<annotation cp="🤽🏼" type="tts">piłka wodna: typ skóry 3</annotation>
+		<annotation cp="🤽🏽">gra | piłka | sport | woda | typ skóry 4</annotation>
+		<annotation cp="🤽🏽" type="tts">piłka wodna: typ skóry 4</annotation>
+		<annotation cp="🤽🏾">gra | piłka | sport | woda | typ skóry 5</annotation>
+		<annotation cp="🤽🏾" type="tts">piłka wodna: typ skóry 5</annotation>
+		<annotation cp="🤽🏿">gra | piłka | sport | woda | typ skóry 6</annotation>
+		<annotation cp="🤽🏿" type="tts">piłka wodna: typ skóry 6</annotation>
+		<annotation cp="🤽🏻‍♂">mężczyzna | piłka | piłka wodna | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">mężczyzna grający w piłkę wodną: typ skóry 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">mężczyzna | piłka | piłka wodna | sport | typ skóry 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">mężczyzna grający w piłkę wodną: typ skóry 3</annotation>
+		<annotation cp="🤽🏽‍♂">mężczyzna | piłka | piłka wodna | sport | typ skóry 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">mężczyzna grający w piłkę wodną: typ skóry 4</annotation>
+		<annotation cp="🤽🏾‍♂">mężczyzna | piłka | piłka wodna | sport | typ skóry 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">mężczyzna grający w piłkę wodną: typ skóry 5</annotation>
+		<annotation cp="🤽🏿‍♂">mężczyzna | piłka | piłka wodna | sport | typ skóry 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">mężczyzna grający w piłkę wodną: typ skóry 6</annotation>
+		<annotation cp="🤽🏻‍♀">kobieta | piłka | piłka wodna | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">kobieta grająca w piłkę wodną: typ skóry 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">kobieta | piłka | piłka wodna | sport | typ skóry 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">kobieta grająca w piłkę wodną: typ skóry 3</annotation>
+		<annotation cp="🤽🏽‍♀">kobieta | piłka | piłka wodna | sport | typ skóry 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">kobieta grająca w piłkę wodną: typ skóry 4</annotation>
+		<annotation cp="🤽🏾‍♀">kobieta | piłka | piłka wodna | sport | typ skóry 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">kobieta grająca w piłkę wodną: typ skóry 5</annotation>
+		<annotation cp="🤽🏿‍♀">kobieta | piłka | piłka wodna | sport | typ skóry 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">kobieta grająca w piłkę wodną: typ skóry 6</annotation>
+		<annotation cp="🤾🏻">gra | piłka | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">piłka ręczna: typ skóry 1–2</annotation>
+		<annotation cp="🤾🏼">gra | piłka | sport | typ skóry 3</annotation>
+		<annotation cp="🤾🏼" type="tts">piłka ręczna: typ skóry 3</annotation>
+		<annotation cp="🤾🏽">gra | piłka | sport | typ skóry 4</annotation>
+		<annotation cp="🤾🏽" type="tts">piłka ręczna: typ skóry 4</annotation>
+		<annotation cp="🤾🏾">gra | piłka | sport | typ skóry 5</annotation>
+		<annotation cp="🤾🏾" type="tts">piłka ręczna: typ skóry 5</annotation>
+		<annotation cp="🤾🏿">gra | piłka | sport | typ skóry 6</annotation>
+		<annotation cp="🤾🏿" type="tts">piłka ręczna: typ skóry 6</annotation>
+		<annotation cp="🤾🏻‍♂">mężczyzna | piłka ręczna | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">mężczyzna grający w piłkę ręczną: typ skóry 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">mężczyzna | piłka ręczna | sport | typ skóry 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">mężczyzna grający w piłkę ręczną: typ skóry 3</annotation>
+		<annotation cp="🤾🏽‍♂">mężczyzna | piłka ręczna | sport | typ skóry 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">mężczyzna grający w piłkę ręczną: typ skóry 4</annotation>
+		<annotation cp="🤾🏾‍♂">mężczyzna | piłka ręczna | sport | typ skóry 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">mężczyzna grający w piłkę ręczną: typ skóry 5</annotation>
+		<annotation cp="🤾🏿‍♂">mężczyzna | piłka ręczna | sport | typ skóry 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">mężczyzna grający w piłkę ręczną: typ skóry 6</annotation>
+		<annotation cp="🤾🏻‍♀">kobieta | piłka ręczna | sport | typ skóry 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">kobieta grająca w piłkę ręczną: typ skóry 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">kobieta | piłka ręczna | sport | typ skóry 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">kobieta grająca w piłkę ręczną: typ skóry 3</annotation>
+		<annotation cp="🤾🏽‍♀">kobieta | piłka ręczna | sport | typ skóry 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">kobieta grająca w piłkę ręczną: typ skóry 4</annotation>
+		<annotation cp="🤾🏾‍♀">kobieta | piłka ręczna | sport | typ skóry 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">kobieta grająca w piłkę ręczną: typ skóry 5</annotation>
+		<annotation cp="🤾🏿‍♀">kobieta | piłka ręczna | sport | typ skóry 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">kobieta grająca w piłkę ręczną: typ skóry 6</annotation>
+		<annotation cp="🤹🏻">cyrk | spryt | żonglerka | żonglerz | typ skóry 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">żonglerka: typ skóry 1–2</annotation>
+		<annotation cp="🤹🏼">cyrk | spryt | żonglerka | żonglerz | typ skóry 3</annotation>
+		<annotation cp="🤹🏼" type="tts">żonglerka: typ skóry 3</annotation>
+		<annotation cp="🤹🏽">cyrk | spryt | żonglerka | żonglerz | typ skóry 4</annotation>
+		<annotation cp="🤹🏽" type="tts">żonglerka: typ skóry 4</annotation>
+		<annotation cp="🤹🏾">cyrk | spryt | żonglerka | żonglerz | typ skóry 5</annotation>
+		<annotation cp="🤹🏾" type="tts">żonglerka: typ skóry 5</annotation>
+		<annotation cp="🤹🏿">cyrk | spryt | żonglerka | żonglerz | typ skóry 6</annotation>
+		<annotation cp="🤹🏿" type="tts">żonglerka: typ skóry 6</annotation>
+		<annotation cp="🤹🏻‍♂">mężczyzna | żonglerka | żonglowanie | typ skóry 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">żonglujący mężczyzna: typ skóry 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">mężczyzna | żonglerka | żonglowanie | typ skóry 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">żonglujący mężczyzna: typ skóry 3</annotation>
+		<annotation cp="🤹🏽‍♂">mężczyzna | żonglerka | żonglowanie | typ skóry 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">żonglujący mężczyzna: typ skóry 4</annotation>
+		<annotation cp="🤹🏾‍♂">mężczyzna | żonglerka | żonglowanie | typ skóry 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">żonglujący mężczyzna: typ skóry 5</annotation>
+		<annotation cp="🤹🏿‍♂">mężczyzna | żonglerka | żonglowanie | typ skóry 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">żonglujący mężczyzna: typ skóry 6</annotation>
+		<annotation cp="🤹🏻‍♀">kobieta | żonglerka | żonglowanie | typ skóry 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">żonglująca kobieta: typ skóry 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">kobieta | żonglerka | żonglowanie | typ skóry 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">żonglująca kobieta: typ skóry 3</annotation>
+		<annotation cp="🤹🏽‍♀">kobieta | żonglerka | żonglowanie | typ skóry 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">żonglująca kobieta: typ skóry 4</annotation>
+		<annotation cp="🤹🏾‍♀">kobieta | żonglerka | żonglowanie | typ skóry 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">żonglująca kobieta: typ skóry 5</annotation>
+		<annotation cp="🤹🏿‍♀">kobieta | żonglerka | żonglowanie | typ skóry 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">żonglująca kobieta: typ skóry 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">kobieta | mężczyzna | para | pocałunek</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">pocałunek między kobietą i mężczyzną</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">mężczyźni | para | pocałunek</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">pocałunek między mężczyznami</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">kobiety | para | pocałunek</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">pocałunek między kobietami</annotation>
+		<annotation cp="👩‍❤‍👨">kobieta | mężczyzna | para | serce</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">kobieta, mężczyzna i serce</annotation>
+		<annotation cp="👨‍❤‍👨">mężczyźni | para | serce</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">dwóch mężczyzn i serce</annotation>
+		<annotation cp="👩‍❤‍👩">kobiety | para | serce</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">dwie kobiety i serce</annotation>
+		<annotation cp="👨‍👩‍👦">chłopiec | dziecko | matka | ojciec</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">mężczyzna i kobieta z chłopcem</annotation>
+		<annotation cp="👨‍👩‍👧">dziecko | dziewczynka | matka | ojciec</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">mężczyzna i kobieta z dziewczynką</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">chłopiec | dziewczynka | matka | ojciec</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">mężczyzna i kobieta z chłopcem i dziewczynką</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">chłopcy | dziecko | matka | ojciec</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">mężczyzna i kobieta z dwoma chłopcami</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">dzieci | dziewczynki | matka | ojciec</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">mężczyzna i kobieta z dwiema dziewczynkami</annotation>
+		<annotation cp="👨‍👨‍👦">chłopiec | dziecko | mężczyźni | ojcowie</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">dwóch mężczyzn z chłopcem</annotation>
+		<annotation cp="👨‍👨‍👧">dziecko | dziewczynka | mężczyźni | ojcowie</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">dwóch mężczyzn z dziewczynką</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">chłopiec | dziewczynka | mężczyźni | ojcowie</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">dwóch mężczyzn z chłopcem i dziewczynką</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">chłopcy | mężczyźni | ojcowie</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">dwóch mężczyzn z dwoma chłopcami</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">dziewczynki | mężczyźni | ojcowie</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">dwóch mężczyzn z dwiema dziewczynkami</annotation>
+		<annotation cp="👩‍👩‍👦">chłopiec | dziecko | kobiety | matki</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">dwie kobiety z chłopcem</annotation>
+		<annotation cp="👩‍👩‍👧">dziecko | dziewczynka | kobiety | matki</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">dwie kobiety z dziewczynką</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">chłopiec | dziewczynka | kobiety | matki</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">dwie kobiety z chłopcem i dziewczynką</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">chłopcy | kobiety | matki</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">dwie kobiety z dwoma chłopcami</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">dziewczynki | kobiety | matki</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">dwie kobiety z dwiema dziewczynkami</annotation>
+		<annotation cp="👨‍👦">chłopiec | mężczyzna | ojciec</annotation>
+		<annotation cp="👨‍👦" type="tts">mężczyzna z chłopcem</annotation>
+		<annotation cp="👨‍👦‍👦">chłopcy | mężczyzna | ojciec</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">mężczyzna z dwoma chłopcami</annotation>
+		<annotation cp="👨‍👧">dziewczynka | mężczyzna | ojciec</annotation>
+		<annotation cp="👨‍👧" type="tts">mężczyzna z dziewczynką</annotation>
+		<annotation cp="👨‍👧‍👦">chłopiec | dziewczynka | mężczyzna | ojciec</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">mężczyzna z chłopcem i dziewczynką</annotation>
+		<annotation cp="👨‍👧‍👧">dziewczynki | mężczyzna | ojciec</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">mężczyzna z dwiema dziewczynkami</annotation>
+		<annotation cp="👩‍👦">chłopiec | kobieta | matka</annotation>
+		<annotation cp="👩‍👦" type="tts">kobieta z chłopcem</annotation>
+		<annotation cp="👩‍👦‍👦">chłopcy | kobieta | matka</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">kobieta z dwoma chłopcami</annotation>
+		<annotation cp="👩‍👧">dziewczynka | kobieta | matka</annotation>
+		<annotation cp="👩‍👧" type="tts">kobieta z dziewczynką</annotation>
+		<annotation cp="👩‍👧‍👦">chłopiec | dziewczynka | kobieta | matka</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">kobieta z chłopcem i dziewczynką</annotation>
+		<annotation cp="👩‍👧‍👧">dziewczynki | kobieta | matka</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">kobieta z dwiema dziewczynkami</annotation>
+		<annotation cp="🤳🏻">aparat | selfie | telefon | zdjęcie | typ skóry 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: typ skóry 1–2</annotation>
+		<annotation cp="🤳🏼">aparat | selfie | telefon | zdjęcie | typ skóry 3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: typ skóry 3</annotation>
+		<annotation cp="🤳🏽">aparat | selfie | telefon | zdjęcie | typ skóry 4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: typ skóry 4</annotation>
+		<annotation cp="🤳🏾">aparat | selfie | telefon | zdjęcie | typ skóry 5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: typ skóry 5</annotation>
+		<annotation cp="🤳🏿">aparat | selfie | telefon | zdjęcie | typ skóry 6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: typ skóry 6</annotation>
+		<annotation cp="💪🏻">mięśnie | muskularny | muskuły | silny | siła | typ skóry 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">biceps: typ skóry 1–2</annotation>
+		<annotation cp="💪🏼">mięśnie | muskularny | muskuły | silny | siła | typ skóry 3</annotation>
+		<annotation cp="💪🏼" type="tts">biceps: typ skóry 3</annotation>
+		<annotation cp="💪🏽">mięśnie | muskularny | muskuły | silny | siła | typ skóry 4</annotation>
+		<annotation cp="💪🏽" type="tts">biceps: typ skóry 4</annotation>
+		<annotation cp="💪🏾">mięśnie | muskularny | muskuły | silny | siła | typ skóry 5</annotation>
+		<annotation cp="💪🏾" type="tts">biceps: typ skóry 5</annotation>
+		<annotation cp="💪🏿">mięśnie | muskularny | muskuły | silny | siła | typ skóry 6</annotation>
+		<annotation cp="💪🏿" type="tts">biceps: typ skóry 6</annotation>
+		<annotation cp="👈🏻">lewa strona | palec | w lewo | wskazujący | typ skóry 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">palec w lewo: typ skóry 1–2</annotation>
+		<annotation cp="👈🏼">lewa strona | palec | w lewo | wskazujący | typ skóry 3</annotation>
+		<annotation cp="👈🏼" type="tts">palec w lewo: typ skóry 3</annotation>
+		<annotation cp="👈🏽">lewa strona | palec | w lewo | wskazujący | typ skóry 4</annotation>
+		<annotation cp="👈🏽" type="tts">palec w lewo: typ skóry 4</annotation>
+		<annotation cp="👈🏾">lewa strona | palec | w lewo | wskazujący | typ skóry 5</annotation>
+		<annotation cp="👈🏾" type="tts">palec w lewo: typ skóry 5</annotation>
+		<annotation cp="👈🏿">lewa strona | palec | w lewo | wskazujący | typ skóry 6</annotation>
+		<annotation cp="👈🏿" type="tts">palec w lewo: typ skóry 6</annotation>
+		<annotation cp="👉🏻">palec | prawa strona | w prawo | wskazujący | typ skóry 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">palec w prawo: typ skóry 1–2</annotation>
+		<annotation cp="👉🏼">palec | prawa strona | w prawo | wskazujący | typ skóry 3</annotation>
+		<annotation cp="👉🏼" type="tts">palec w prawo: typ skóry 3</annotation>
+		<annotation cp="👉🏽">palec | prawa strona | w prawo | wskazujący | typ skóry 4</annotation>
+		<annotation cp="👉🏽" type="tts">palec w prawo: typ skóry 4</annotation>
+		<annotation cp="👉🏾">palec | prawa strona | w prawo | wskazujący | typ skóry 5</annotation>
+		<annotation cp="👉🏾" type="tts">palec w prawo: typ skóry 5</annotation>
+		<annotation cp="👉🏿">palec | prawa strona | w prawo | wskazujący | typ skóry 6</annotation>
+		<annotation cp="👉🏿" type="tts">palec w prawo: typ skóry 6</annotation>
+		<annotation cp="☝🏻">do góry | góra | palec | w górę | wskazujący | typ skóry 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">palec wskazujący w górę: typ skóry 1–2</annotation>
+		<annotation cp="☝🏼">do góry | góra | palec | w górę | wskazujący | typ skóry 3</annotation>
+		<annotation cp="☝🏼" type="tts">palec wskazujący w górę: typ skóry 3</annotation>
+		<annotation cp="☝🏽">do góry | góra | palec | w górę | wskazujący | typ skóry 4</annotation>
+		<annotation cp="☝🏽" type="tts">palec wskazujący w górę: typ skóry 4</annotation>
+		<annotation cp="☝🏾">do góry | góra | palec | w górę | wskazujący | typ skóry 5</annotation>
+		<annotation cp="☝🏾" type="tts">palec wskazujący w górę: typ skóry 5</annotation>
+		<annotation cp="☝🏿">do góry | góra | palec | w górę | wskazujący | typ skóry 6</annotation>
+		<annotation cp="☝🏿" type="tts">palec wskazujący w górę: typ skóry 6</annotation>
+		<annotation cp="👆🏻">do góry | góra | palec | w górę | wskazujący | typ skóry 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">palec w górę: typ skóry 1–2</annotation>
+		<annotation cp="👆🏼">do góry | góra | palec | w górę | wskazujący | typ skóry 3</annotation>
+		<annotation cp="👆🏼" type="tts">palec w górę: typ skóry 3</annotation>
+		<annotation cp="👆🏽">do góry | góra | palec | w górę | wskazujący | typ skóry 4</annotation>
+		<annotation cp="👆🏽" type="tts">palec w górę: typ skóry 4</annotation>
+		<annotation cp="👆🏾">do góry | góra | palec | w górę | wskazujący | typ skóry 5</annotation>
+		<annotation cp="👆🏾" type="tts">palec w górę: typ skóry 5</annotation>
+		<annotation cp="👆🏿">do góry | góra | palec | w górę | wskazujący | typ skóry 6</annotation>
+		<annotation cp="👆🏿" type="tts">palec w górę: typ skóry 6</annotation>
+		<annotation cp="🖕🏻">gest | wulgarny gest | typ skóry 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">środkowy palec: typ skóry 1–2</annotation>
+		<annotation cp="🖕🏼">gest | wulgarny gest | typ skóry 3</annotation>
+		<annotation cp="🖕🏼" type="tts">środkowy palec: typ skóry 3</annotation>
+		<annotation cp="🖕🏽">gest | wulgarny gest | typ skóry 4</annotation>
+		<annotation cp="🖕🏽" type="tts">środkowy palec: typ skóry 4</annotation>
+		<annotation cp="🖕🏾">gest | wulgarny gest | typ skóry 5</annotation>
+		<annotation cp="🖕🏾" type="tts">środkowy palec: typ skóry 5</annotation>
+		<annotation cp="🖕🏿">gest | wulgarny gest | typ skóry 6</annotation>
+		<annotation cp="🖕🏿" type="tts">środkowy palec: typ skóry 6</annotation>
+		<annotation cp="👇🏻">dół | na dół | palec | w dół | wskazujący | typ skóry 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">palec w dół: typ skóry 1–2</annotation>
+		<annotation cp="👇🏼">dół | na dół | palec | w dół | wskazujący | typ skóry 3</annotation>
+		<annotation cp="👇🏼" type="tts">palec w dół: typ skóry 3</annotation>
+		<annotation cp="👇🏽">dół | na dół | palec | w dół | wskazujący | typ skóry 4</annotation>
+		<annotation cp="👇🏽" type="tts">palec w dół: typ skóry 4</annotation>
+		<annotation cp="👇🏾">dół | na dół | palec | w dół | wskazujący | typ skóry 5</annotation>
+		<annotation cp="👇🏾" type="tts">palec w dół: typ skóry 5</annotation>
+		<annotation cp="👇🏿">dół | na dół | palec | w dół | wskazujący | typ skóry 6</annotation>
+		<annotation cp="👇🏿" type="tts">palec w dół: typ skóry 6</annotation>
+		<annotation cp="✌🏻">gest zwycięstwa | znak V | znak Victorii | typ skóry 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">gest V: typ skóry 1–2</annotation>
+		<annotation cp="✌🏼">gest zwycięstwa | znak V | znak Victorii | typ skóry 3</annotation>
+		<annotation cp="✌🏼" type="tts">gest V: typ skóry 3</annotation>
+		<annotation cp="✌🏽">gest zwycięstwa | znak V | znak Victorii | typ skóry 4</annotation>
+		<annotation cp="✌🏽" type="tts">gest V: typ skóry 4</annotation>
+		<annotation cp="✌🏾">gest zwycięstwa | znak V | znak Victorii | typ skóry 5</annotation>
+		<annotation cp="✌🏾" type="tts">gest V: typ skóry 5</annotation>
+		<annotation cp="✌🏿">gest zwycięstwa | znak V | znak Victorii | typ skóry 6</annotation>
+		<annotation cp="✌🏿" type="tts">gest V: typ skóry 6</annotation>
+		<annotation cp="🤞🏻">kciuki | powodzenia | trzymać | typ skóry 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">trzymam kciuki: typ skóry 1–2</annotation>
+		<annotation cp="🤞🏼">kciuki | powodzenia | trzymać | typ skóry 3</annotation>
+		<annotation cp="🤞🏼" type="tts">trzymam kciuki: typ skóry 3</annotation>
+		<annotation cp="🤞🏽">kciuki | powodzenia | trzymać | typ skóry 4</annotation>
+		<annotation cp="🤞🏽" type="tts">trzymam kciuki: typ skóry 4</annotation>
+		<annotation cp="🤞🏾">kciuki | powodzenia | trzymać | typ skóry 5</annotation>
+		<annotation cp="🤞🏾" type="tts">trzymam kciuki: typ skóry 5</annotation>
+		<annotation cp="🤞🏿">kciuki | powodzenia | trzymać | typ skóry 6</annotation>
+		<annotation cp="🤞🏿" type="tts">trzymam kciuki: typ skóry 6</annotation>
+		<annotation cp="🖖🏻">dłoń | palce | wolkański | typ skóry 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">pozdrowienie wolkańskie: typ skóry 1–2</annotation>
+		<annotation cp="🖖🏼">dłoń | palce | wolkański | typ skóry 3</annotation>
+		<annotation cp="🖖🏼" type="tts">pozdrowienie wolkańskie: typ skóry 3</annotation>
+		<annotation cp="🖖🏽">dłoń | palce | wolkański | typ skóry 4</annotation>
+		<annotation cp="🖖🏽" type="tts">pozdrowienie wolkańskie: typ skóry 4</annotation>
+		<annotation cp="🖖🏾">dłoń | palce | wolkański | typ skóry 5</annotation>
+		<annotation cp="🖖🏾" type="tts">pozdrowienie wolkańskie: typ skóry 5</annotation>
+		<annotation cp="🖖🏿">dłoń | palce | wolkański | typ skóry 6</annotation>
+		<annotation cp="🖖🏿" type="tts">pozdrowienie wolkańskie: typ skóry 6</annotation>
+		<annotation cp="🤘🏻">rocker | rogi | znak rockersów | typ skóry 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">gest rogów: typ skóry 1–2</annotation>
+		<annotation cp="🤘🏼">rocker | rogi | znak rockersów | typ skóry 3</annotation>
+		<annotation cp="🤘🏼" type="tts">gest rogów: typ skóry 3</annotation>
+		<annotation cp="🤘🏽">rocker | rogi | znak rockersów | typ skóry 4</annotation>
+		<annotation cp="🤘🏽" type="tts">gest rogów: typ skóry 4</annotation>
+		<annotation cp="🤘🏾">rocker | rogi | znak rockersów | typ skóry 5</annotation>
+		<annotation cp="🤘🏾" type="tts">gest rogów: typ skóry 5</annotation>
+		<annotation cp="🤘🏿">rocker | rogi | znak rockersów | typ skóry 6</annotation>
+		<annotation cp="🤘🏿" type="tts">gest rogów: typ skóry 6</annotation>
+		<annotation cp="🤙🏻">dzwonić | telefonować | typ skóry 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">zadzwoń do mnie: typ skóry 1–2</annotation>
+		<annotation cp="🤙🏼">dzwonić | telefonować | typ skóry 3</annotation>
+		<annotation cp="🤙🏼" type="tts">zadzwoń do mnie: typ skóry 3</annotation>
+		<annotation cp="🤙🏽">dzwonić | telefonować | typ skóry 4</annotation>
+		<annotation cp="🤙🏽" type="tts">zadzwoń do mnie: typ skóry 4</annotation>
+		<annotation cp="🤙🏾">dzwonić | telefonować | typ skóry 5</annotation>
+		<annotation cp="🤙🏾" type="tts">zadzwoń do mnie: typ skóry 5</annotation>
+		<annotation cp="🤙🏿">dzwonić | telefonować | typ skóry 6</annotation>
+		<annotation cp="🤙🏿" type="tts">zadzwoń do mnie: typ skóry 6</annotation>
+		<annotation cp="🖐🏻">otwarta dłoń wszystkie palce | palce | rozpostarte palce | typ skóry 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">uniesiona otwarta dłoń: typ skóry 1–2</annotation>
+		<annotation cp="🖐🏼">otwarta dłoń wszystkie palce | palce | rozpostarte palce | typ skóry 3</annotation>
+		<annotation cp="🖐🏼" type="tts">uniesiona otwarta dłoń: typ skóry 3</annotation>
+		<annotation cp="🖐🏽">otwarta dłoń wszystkie palce | palce | rozpostarte palce | typ skóry 4</annotation>
+		<annotation cp="🖐🏽" type="tts">uniesiona otwarta dłoń: typ skóry 4</annotation>
+		<annotation cp="🖐🏾">otwarta dłoń wszystkie palce | palce | rozpostarte palce | typ skóry 5</annotation>
+		<annotation cp="🖐🏾" type="tts">uniesiona otwarta dłoń: typ skóry 5</annotation>
+		<annotation cp="🖐🏿">otwarta dłoń wszystkie palce | palce | rozpostarte palce | typ skóry 6</annotation>
+		<annotation cp="🖐🏿" type="tts">uniesiona otwarta dłoń: typ skóry 6</annotation>
+		<annotation cp="✋🏻">dłoń | stop | uwaga | typ skóry 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">podniesiona dłoń: typ skóry 1–2</annotation>
+		<annotation cp="✋🏼">dłoń | stop | uwaga | typ skóry 3</annotation>
+		<annotation cp="✋🏼" type="tts">podniesiona dłoń: typ skóry 3</annotation>
+		<annotation cp="✋🏽">dłoń | stop | uwaga | typ skóry 4</annotation>
+		<annotation cp="✋🏽" type="tts">podniesiona dłoń: typ skóry 4</annotation>
+		<annotation cp="✋🏾">dłoń | stop | uwaga | typ skóry 5</annotation>
+		<annotation cp="✋🏾" type="tts">podniesiona dłoń: typ skóry 5</annotation>
+		<annotation cp="✋🏿">dłoń | stop | uwaga | typ skóry 6</annotation>
+		<annotation cp="✋🏿" type="tts">podniesiona dłoń: typ skóry 6</annotation>
+		<annotation cp="👌🏻">znak OK | typ skóry 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">gest OK: typ skóry 1–2</annotation>
+		<annotation cp="👌🏼">znak OK | typ skóry 3</annotation>
+		<annotation cp="👌🏼" type="tts">gest OK: typ skóry 3</annotation>
+		<annotation cp="👌🏽">znak OK | typ skóry 4</annotation>
+		<annotation cp="👌🏽" type="tts">gest OK: typ skóry 4</annotation>
+		<annotation cp="👌🏾">znak OK | typ skóry 5</annotation>
+		<annotation cp="👌🏾" type="tts">gest OK: typ skóry 5</annotation>
+		<annotation cp="👌🏿">znak OK | typ skóry 6</annotation>
+		<annotation cp="👌🏿" type="tts">gest OK: typ skóry 6</annotation>
+		<annotation cp="👍🏻">OK | brawo | lubię | podoba mi się | typ skóry 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">kciuk w górę: typ skóry 1–2</annotation>
+		<annotation cp="👍🏼">OK | brawo | lubię | podoba mi się | typ skóry 3</annotation>
+		<annotation cp="👍🏼" type="tts">kciuk w górę: typ skóry 3</annotation>
+		<annotation cp="👍🏽">OK | brawo | lubię | podoba mi się | typ skóry 4</annotation>
+		<annotation cp="👍🏽" type="tts">kciuk w górę: typ skóry 4</annotation>
+		<annotation cp="👍🏾">OK | brawo | lubię | podoba mi się | typ skóry 5</annotation>
+		<annotation cp="👍🏾" type="tts">kciuk w górę: typ skóry 5</annotation>
+		<annotation cp="👍🏿">OK | brawo | lubię | podoba mi się | typ skóry 6</annotation>
+		<annotation cp="👍🏿" type="tts">kciuk w górę: typ skóry 6</annotation>
+		<annotation cp="👎🏻">brzydkie | nie lubię | nie podoba mi się | typ skóry 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">kciuk w dół: typ skóry 1–2</annotation>
+		<annotation cp="👎🏼">brzydkie | nie lubię | nie podoba mi się | typ skóry 3</annotation>
+		<annotation cp="👎🏼" type="tts">kciuk w dół: typ skóry 3</annotation>
+		<annotation cp="👎🏽">brzydkie | nie lubię | nie podoba mi się | typ skóry 4</annotation>
+		<annotation cp="👎🏽" type="tts">kciuk w dół: typ skóry 4</annotation>
+		<annotation cp="👎🏾">brzydkie | nie lubię | nie podoba mi się | typ skóry 5</annotation>
+		<annotation cp="👎🏾" type="tts">kciuk w dół: typ skóry 5</annotation>
+		<annotation cp="👎🏿">brzydkie | nie lubię | nie podoba mi się | typ skóry 6</annotation>
+		<annotation cp="👎🏿" type="tts">kciuk w dół: typ skóry 6</annotation>
+		<annotation cp="✊🏻">pięść | uniesiona | zaciśnięta | typ skóry 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">uniesiona pięść: typ skóry 1–2</annotation>
+		<annotation cp="✊🏼">pięść | uniesiona | zaciśnięta | typ skóry 3</annotation>
+		<annotation cp="✊🏼" type="tts">uniesiona pięść: typ skóry 3</annotation>
+		<annotation cp="✊🏽">pięść | uniesiona | zaciśnięta | typ skóry 4</annotation>
+		<annotation cp="✊🏽" type="tts">uniesiona pięść: typ skóry 4</annotation>
+		<annotation cp="✊🏾">pięść | uniesiona | zaciśnięta | typ skóry 5</annotation>
+		<annotation cp="✊🏾" type="tts">uniesiona pięść: typ skóry 5</annotation>
+		<annotation cp="✊🏿">pięść | uniesiona | zaciśnięta | typ skóry 6</annotation>
+		<annotation cp="✊🏿" type="tts">uniesiona pięść: typ skóry 6</annotation>
+		<annotation cp="👊🏻">cios pięścią | pięść | prawy prosty | sierpowy | zaciśnięta pięść | typ skóry 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">pięść od przodu: typ skóry 1–2</annotation>
+		<annotation cp="👊🏼">cios pięścią | pięść | prawy prosty | sierpowy | zaciśnięta pięść | typ skóry 3</annotation>
+		<annotation cp="👊🏼" type="tts">pięść od przodu: typ skóry 3</annotation>
+		<annotation cp="👊🏽">cios pięścią | pięść | prawy prosty | sierpowy | zaciśnięta pięść | typ skóry 4</annotation>
+		<annotation cp="👊🏽" type="tts">pięść od przodu: typ skóry 4</annotation>
+		<annotation cp="👊🏾">cios pięścią | pięść | prawy prosty | sierpowy | zaciśnięta pięść | typ skóry 5</annotation>
+		<annotation cp="👊🏾" type="tts">pięść od przodu: typ skóry 5</annotation>
+		<annotation cp="👊🏿">cios pięścią | pięść | prawy prosty | sierpowy | zaciśnięta pięść | typ skóry 6</annotation>
+		<annotation cp="👊🏿" type="tts">pięść od przodu: typ skóry 6</annotation>
+		<annotation cp="🤛🏻">cios | pięść | uderzenie z prawej | typ skóry 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">prawy sierpowy: typ skóry 1–2</annotation>
+		<annotation cp="🤛🏼">cios | pięść | uderzenie z prawej | typ skóry 3</annotation>
+		<annotation cp="🤛🏼" type="tts">prawy sierpowy: typ skóry 3</annotation>
+		<annotation cp="🤛🏽">cios | pięść | uderzenie z prawej | typ skóry 4</annotation>
+		<annotation cp="🤛🏽" type="tts">prawy sierpowy: typ skóry 4</annotation>
+		<annotation cp="🤛🏾">cios | pięść | uderzenie z prawej | typ skóry 5</annotation>
+		<annotation cp="🤛🏾" type="tts">prawy sierpowy: typ skóry 5</annotation>
+		<annotation cp="🤛🏿">cios | pięść | uderzenie z prawej | typ skóry 6</annotation>
+		<annotation cp="🤛🏿" type="tts">prawy sierpowy: typ skóry 6</annotation>
+		<annotation cp="🤜🏻">cios | pięść | uderzenie z lewej | typ skóry 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">lewy sierpowy: typ skóry 1–2</annotation>
+		<annotation cp="🤜🏼">cios | pięść | uderzenie z lewej | typ skóry 3</annotation>
+		<annotation cp="🤜🏼" type="tts">lewy sierpowy: typ skóry 3</annotation>
+		<annotation cp="🤜🏽">cios | pięść | uderzenie z lewej | typ skóry 4</annotation>
+		<annotation cp="🤜🏽" type="tts">lewy sierpowy: typ skóry 4</annotation>
+		<annotation cp="🤜🏾">cios | pięść | uderzenie z lewej | typ skóry 5</annotation>
+		<annotation cp="🤜🏾" type="tts">lewy sierpowy: typ skóry 5</annotation>
+		<annotation cp="🤜🏿">cios | pięść | uderzenie z lewej | typ skóry 6</annotation>
+		<annotation cp="🤜🏿" type="tts">lewy sierpowy: typ skóry 6</annotation>
+		<annotation cp="🤚🏻">powitanie | pozdrowienie | pożegnanie | uniesiona dłoń | typ skóry 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">cześć: typ skóry 1–2</annotation>
+		<annotation cp="🤚🏼">powitanie | pozdrowienie | pożegnanie | uniesiona dłoń | typ skóry 3</annotation>
+		<annotation cp="🤚🏼" type="tts">cześć: typ skóry 3</annotation>
+		<annotation cp="🤚🏽">powitanie | pozdrowienie | pożegnanie | uniesiona dłoń | typ skóry 4</annotation>
+		<annotation cp="🤚🏽" type="tts">cześć: typ skóry 4</annotation>
+		<annotation cp="🤚🏾">powitanie | pozdrowienie | pożegnanie | uniesiona dłoń | typ skóry 5</annotation>
+		<annotation cp="🤚🏾" type="tts">cześć: typ skóry 5</annotation>
+		<annotation cp="🤚🏿">powitanie | pozdrowienie | pożegnanie | uniesiona dłoń | typ skóry 6</annotation>
+		<annotation cp="🤚🏿" type="tts">cześć: typ skóry 6</annotation>
+		<annotation cp="👋🏻">machająca dłoń | typ skóry 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">machanie dłonią: typ skóry 1–2</annotation>
+		<annotation cp="👋🏼">machająca dłoń | typ skóry 3</annotation>
+		<annotation cp="👋🏼" type="tts">machanie dłonią: typ skóry 3</annotation>
+		<annotation cp="👋🏽">machająca dłoń | typ skóry 4</annotation>
+		<annotation cp="👋🏽" type="tts">machanie dłonią: typ skóry 4</annotation>
+		<annotation cp="👋🏾">machająca dłoń | typ skóry 5</annotation>
+		<annotation cp="👋🏾" type="tts">machanie dłonią: typ skóry 5</annotation>
+		<annotation cp="👋🏿">machająca dłoń | typ skóry 6</annotation>
+		<annotation cp="👋🏿" type="tts">machanie dłonią: typ skóry 6</annotation>
+		<annotation cp="✍🏻">pisać | pisać odręcznie | piszę | typ skóry 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">pisząca dłoń: typ skóry 1–2</annotation>
+		<annotation cp="✍🏼">pisać | pisać odręcznie | piszę | typ skóry 3</annotation>
+		<annotation cp="✍🏼" type="tts">pisząca dłoń: typ skóry 3</annotation>
+		<annotation cp="✍🏽">pisać | pisać odręcznie | piszę | typ skóry 4</annotation>
+		<annotation cp="✍🏽" type="tts">pisząca dłoń: typ skóry 4</annotation>
+		<annotation cp="✍🏾">pisać | pisać odręcznie | piszę | typ skóry 5</annotation>
+		<annotation cp="✍🏾" type="tts">pisząca dłoń: typ skóry 5</annotation>
+		<annotation cp="✍🏿">pisać | pisać odręcznie | piszę | typ skóry 6</annotation>
+		<annotation cp="✍🏿" type="tts">pisząca dłoń: typ skóry 6</annotation>
+		<annotation cp="👏🏻">brawa | klaskanie | klaskać | oklaski | typ skóry 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">brawo: typ skóry 1–2</annotation>
+		<annotation cp="👏🏼">brawa | klaskanie | klaskać | oklaski | typ skóry 3</annotation>
+		<annotation cp="👏🏼" type="tts">brawo: typ skóry 3</annotation>
+		<annotation cp="👏🏽">brawa | klaskanie | klaskać | oklaski | typ skóry 4</annotation>
+		<annotation cp="👏🏽" type="tts">brawo: typ skóry 4</annotation>
+		<annotation cp="👏🏾">brawa | klaskanie | klaskać | oklaski | typ skóry 5</annotation>
+		<annotation cp="👏🏾" type="tts">brawo: typ skóry 5</annotation>
+		<annotation cp="👏🏿">brawa | klaskanie | klaskać | oklaski | typ skóry 6</annotation>
+		<annotation cp="👏🏿" type="tts">brawo: typ skóry 6</annotation>
+		<annotation cp="👐🏻">puste ręce | złapać | typ skóry 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">otwarte dłonie: typ skóry 1–2</annotation>
+		<annotation cp="👐🏼">puste ręce | złapać | typ skóry 3</annotation>
+		<annotation cp="👐🏼" type="tts">otwarte dłonie: typ skóry 3</annotation>
+		<annotation cp="👐🏽">puste ręce | złapać | typ skóry 4</annotation>
+		<annotation cp="👐🏽" type="tts">otwarte dłonie: typ skóry 4</annotation>
+		<annotation cp="👐🏾">puste ręce | złapać | typ skóry 5</annotation>
+		<annotation cp="👐🏾" type="tts">otwarte dłonie: typ skóry 5</annotation>
+		<annotation cp="👐🏿">puste ręce | złapać | typ skóry 6</annotation>
+		<annotation cp="👐🏿" type="tts">otwarte dłonie: typ skóry 6</annotation>
+		<annotation cp="🙌🏻">hura! | super | typ skóry 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">hurra!: typ skóry 1–2</annotation>
+		<annotation cp="🙌🏼">hura! | super | typ skóry 3</annotation>
+		<annotation cp="🙌🏼" type="tts">hurra!: typ skóry 3</annotation>
+		<annotation cp="🙌🏽">hura! | super | typ skóry 4</annotation>
+		<annotation cp="🙌🏽" type="tts">hurra!: typ skóry 4</annotation>
+		<annotation cp="🙌🏾">hura! | super | typ skóry 5</annotation>
+		<annotation cp="🙌🏾" type="tts">hurra!: typ skóry 5</annotation>
+		<annotation cp="🙌🏿">hura! | super | typ skóry 6</annotation>
+		<annotation cp="🙌🏿" type="tts">hurra!: typ skóry 6</annotation>
+		<annotation cp="🙏🏻">złożone ręce | typ skóry 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">modlitwa: typ skóry 1–2</annotation>
+		<annotation cp="🙏🏼">złożone ręce | typ skóry 3</annotation>
+		<annotation cp="🙏🏼" type="tts">modlitwa: typ skóry 3</annotation>
+		<annotation cp="🙏🏽">złożone ręce | typ skóry 4</annotation>
+		<annotation cp="🙏🏽" type="tts">modlitwa: typ skóry 4</annotation>
+		<annotation cp="🙏🏾">złożone ręce | typ skóry 5</annotation>
+		<annotation cp="🙏🏾" type="tts">modlitwa: typ skóry 5</annotation>
+		<annotation cp="🙏🏿">złożone ręce | typ skóry 6</annotation>
+		<annotation cp="🙏🏿" type="tts">modlitwa: typ skóry 6</annotation>
+		<annotation cp="💅🏻">ciało | kosmetyki | lakierować paznokcie | manicure | pielęgnacja | typ skóry 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">lakier do paznokci: typ skóry 1–2</annotation>
+		<annotation cp="💅🏼">ciało | kosmetyki | lakierować paznokcie | manicure | pielęgnacja | typ skóry 3</annotation>
+		<annotation cp="💅🏼" type="tts">lakier do paznokci: typ skóry 3</annotation>
+		<annotation cp="💅🏽">ciało | kosmetyki | lakierować paznokcie | manicure | pielęgnacja | typ skóry 4</annotation>
+		<annotation cp="💅🏽" type="tts">lakier do paznokci: typ skóry 4</annotation>
+		<annotation cp="💅🏾">ciało | kosmetyki | lakierować paznokcie | manicure | pielęgnacja | typ skóry 5</annotation>
+		<annotation cp="💅🏾" type="tts">lakier do paznokci: typ skóry 5</annotation>
+		<annotation cp="💅🏿">ciało | kosmetyki | lakierować paznokcie | manicure | pielęgnacja | typ skóry 6</annotation>
+		<annotation cp="💅🏿" type="tts">lakier do paznokci: typ skóry 6</annotation>
+		<annotation cp="👂🏻">ciało | typ skóry 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">ucho: typ skóry 1–2</annotation>
+		<annotation cp="👂🏼">ciało | typ skóry 3</annotation>
+		<annotation cp="👂🏼" type="tts">ucho: typ skóry 3</annotation>
+		<annotation cp="👂🏽">ciało | typ skóry 4</annotation>
+		<annotation cp="👂🏽" type="tts">ucho: typ skóry 4</annotation>
+		<annotation cp="👂🏾">ciało | typ skóry 5</annotation>
+		<annotation cp="👂🏾" type="tts">ucho: typ skóry 5</annotation>
+		<annotation cp="👂🏿">ciało | typ skóry 6</annotation>
+		<annotation cp="👂🏿" type="tts">ucho: typ skóry 6</annotation>
+		<annotation cp="👃🏻">ciało | typ skóry 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">nos: typ skóry 1–2</annotation>
+		<annotation cp="👃🏼">ciało | typ skóry 3</annotation>
+		<annotation cp="👃🏼" type="tts">nos: typ skóry 3</annotation>
+		<annotation cp="👃🏽">ciało | typ skóry 4</annotation>
+		<annotation cp="👃🏽" type="tts">nos: typ skóry 4</annotation>
+		<annotation cp="👃🏾">ciało | typ skóry 5</annotation>
+		<annotation cp="👃🏾" type="tts">nos: typ skóry 5</annotation>
+		<annotation cp="👃🏿">ciało | typ skóry 6</annotation>
+		<annotation cp="👃🏿" type="tts">nos: typ skóry 6</annotation>
+		<annotation cp="#⃣">hash | krzyżyk | płotek</annotation>
+		<annotation cp="#⃣" type="tts">przycisk – krzyżyk</annotation>
+		<annotation cp="*⃣">gwiazdka</annotation>
+		<annotation cp="*⃣" type="tts">przycisk – gwiazdka</annotation>
+		<annotation cp="🇦🇨">flaga</annotation>
+		<annotation cp="🇦🇨" type="tts">Wyspa Wniebowstąpienia</annotation>
+		<annotation cp="🇦🇩">flaga</annotation>
+		<annotation cp="🇦🇩" type="tts">Andora</annotation>
+		<annotation cp="🇦🇪">flaga</annotation>
+		<annotation cp="🇦🇪" type="tts">Zjednoczone Emiraty Arabskie</annotation>
+		<annotation cp="🇦🇫">flaga</annotation>
+		<annotation cp="🇦🇫" type="tts">Afganistan</annotation>
+		<annotation cp="🇦🇬">flaga</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua i Barbuda</annotation>
+		<annotation cp="🇦🇮">flaga</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">flaga</annotation>
+		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇲">flaga</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇴">flaga</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">flaga</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktyka</annotation>
+		<annotation cp="🇦🇷">flaga</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentyna</annotation>
+		<annotation cp="🇦🇸">flaga</annotation>
+		<annotation cp="🇦🇸" type="tts">Samoa Amerykańskie</annotation>
+		<annotation cp="🇦🇹">flaga</annotation>
+		<annotation cp="🇦🇹" type="tts">Austria</annotation>
+		<annotation cp="🇦🇺">flaga</annotation>
+		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇼">flaga</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">flaga</annotation>
+		<annotation cp="🇦🇽" type="tts">Wyspy Alandzkie</annotation>
+		<annotation cp="🇦🇿">flaga</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbejdżan</annotation>
+		<annotation cp="🇧🇦">flaga</annotation>
+		<annotation cp="🇧🇦" type="tts">Bośnia i Hercegowina</annotation>
+		<annotation cp="🇧🇧">flaga</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">flaga</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesz</annotation>
+		<annotation cp="🇧🇪">flaga</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgia</annotation>
+		<annotation cp="🇧🇫">flaga</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">flaga</annotation>
+		<annotation cp="🇧🇬" type="tts">Bułgaria</annotation>
+		<annotation cp="🇧🇭">flaga</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrajn</annotation>
+		<annotation cp="🇧🇮">flaga</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">flaga</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">flaga</annotation>
+		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇲">flaga</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermudy</annotation>
+		<annotation cp="🇧🇳">flaga</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇴">flaga</annotation>
+		<annotation cp="🇧🇴" type="tts">Boliwia</annotation>
+		<annotation cp="🇧🇶">flaga</annotation>
+		<annotation cp="🇧🇶" type="tts">Niderlandy Karaibskie</annotation>
+		<annotation cp="🇧🇷">flaga</annotation>
+		<annotation cp="🇧🇷" type="tts">Brazylia</annotation>
+		<annotation cp="🇧🇸">flaga</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahamy</annotation>
+		<annotation cp="🇧🇹">flaga</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇻">flaga</annotation>
+		<annotation cp="🇧🇻" type="tts">Wyspa Bouveta</annotation>
+		<annotation cp="🇧🇼">flaga</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">flaga</annotation>
+		<annotation cp="🇧🇾" type="tts">Białoruś</annotation>
+		<annotation cp="🇧🇿">flaga</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">flaga</annotation>
+		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇨">flaga</annotation>
+		<annotation cp="🇨🇨" type="tts">Wyspy Kokosowe</annotation>
+		<annotation cp="🇨🇩">flaga</annotation>
+		<annotation cp="🇨🇩" type="tts">Demokratyczna Republika Konga</annotation>
+		<annotation cp="🇨🇫">flaga</annotation>
+		<annotation cp="🇨🇫" type="tts">Republika Środkowoafrykańska</annotation>
+		<annotation cp="🇨🇬">flaga</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongo</annotation>
+		<annotation cp="🇨🇭">flaga</annotation>
+		<annotation cp="🇨🇭" type="tts">Szwajcaria</annotation>
+		<annotation cp="🇨🇮">flaga</annotation>
+		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇰">flaga</annotation>
+		<annotation cp="🇨🇰" type="tts">Wyspy Cooka</annotation>
+		<annotation cp="🇨🇱">flaga</annotation>
+		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇲">flaga</annotation>
+		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇳">flaga</annotation>
+		<annotation cp="🇨🇳" type="tts">Chiny</annotation>
+		<annotation cp="🇨🇴">flaga</annotation>
+		<annotation cp="🇨🇴" type="tts">Kolumbia</annotation>
+		<annotation cp="🇨🇵">flaga</annotation>
+		<annotation cp="🇨🇵" type="tts">Clipperton</annotation>
+		<annotation cp="🇨🇷">flaga</annotation>
+		<annotation cp="🇨🇷" type="tts">Kostaryka</annotation>
+		<annotation cp="🇨🇺">flaga</annotation>
+		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇻">flaga</annotation>
+		<annotation cp="🇨🇻" type="tts">Republika Zielonego Przylądka</annotation>
+		<annotation cp="🇨🇼">flaga</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">flaga</annotation>
+		<annotation cp="🇨🇽" type="tts">Wyspa Bożego Narodzenia</annotation>
+		<annotation cp="🇨🇾">flaga</annotation>
+		<annotation cp="🇨🇾" type="tts">Cypr</annotation>
+		<annotation cp="🇨🇿">flaga</annotation>
+		<annotation cp="🇨🇿" type="tts">Czechy</annotation>
+		<annotation cp="🇩🇪">flaga</annotation>
+		<annotation cp="🇩🇪" type="tts">Niemcy</annotation>
+		<annotation cp="🇩🇬">flaga</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">flaga</annotation>
+		<annotation cp="🇩🇯" type="tts">Dżibuti</annotation>
+		<annotation cp="🇩🇰">flaga</annotation>
+		<annotation cp="🇩🇰" type="tts">Dania</annotation>
+		<annotation cp="🇩🇲">flaga</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominika</annotation>
+		<annotation cp="🇩🇴">flaga</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominikana</annotation>
+		<annotation cp="🇩🇿">flaga</annotation>
+		<annotation cp="🇩🇿" type="tts">Algieria</annotation>
+		<annotation cp="🇪🇦">flaga</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta i Melilla</annotation>
+		<annotation cp="🇪🇨">flaga</annotation>
+		<annotation cp="🇪🇨" type="tts">Ekwador</annotation>
+		<annotation cp="🇪🇪">flaga</annotation>
+		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇬">flaga</annotation>
+		<annotation cp="🇪🇬" type="tts">Egipt</annotation>
+		<annotation cp="🇪🇭">flaga</annotation>
+		<annotation cp="🇪🇭" type="tts">Sahara Zachodnia</annotation>
+		<annotation cp="🇪🇷">flaga</annotation>
+		<annotation cp="🇪🇷" type="tts">Erytrea</annotation>
+		<annotation cp="🇪🇸">flaga</annotation>
+		<annotation cp="🇪🇸" type="tts">Hiszpania</annotation>
+		<annotation cp="🇪🇹">flaga</annotation>
+		<annotation cp="🇪🇹" type="tts">Etiopia</annotation>
+		<annotation cp="🇪🇺">flaga</annotation>
+		<annotation cp="🇪🇺" type="tts">Unia Europejska</annotation>
+		<annotation cp="🇫🇮">flaga</annotation>
+		<annotation cp="🇫🇮" type="tts">Finlandia</annotation>
+		<annotation cp="🇫🇯">flaga</annotation>
+		<annotation cp="🇫🇯" type="tts">Fidżi</annotation>
+		<annotation cp="🇫🇰">flaga</annotation>
+		<annotation cp="🇫🇰" type="tts">Falklandy</annotation>
+		<annotation cp="🇫🇲">flaga</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikronezja</annotation>
+		<annotation cp="🇫🇴">flaga</annotation>
+		<annotation cp="🇫🇴" type="tts">Wyspy Owcze</annotation>
+		<annotation cp="🇫🇷">flaga</annotation>
+		<annotation cp="🇫🇷" type="tts">Francja</annotation>
+		<annotation cp="🇬🇦">flaga</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">flaga</annotation>
+		<annotation cp="🇬🇧" type="tts">Wielka Brytania</annotation>
+		<annotation cp="🇬🇩">flaga</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">flaga</annotation>
+		<annotation cp="🇬🇪" type="tts">Gruzja</annotation>
+		<annotation cp="🇬🇫">flaga</annotation>
+		<annotation cp="🇬🇫" type="tts">Gujana Francuska</annotation>
+		<annotation cp="🇬🇬">flaga</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇭">flaga</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">flaga</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">flaga</annotation>
+		<annotation cp="🇬🇱" type="tts">Grenlandia</annotation>
+		<annotation cp="🇬🇲">flaga</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇳">flaga</annotation>
+		<annotation cp="🇬🇳" type="tts">Gwinea</annotation>
+		<annotation cp="🇬🇵">flaga</annotation>
+		<annotation cp="🇬🇵" type="tts">Gwadelupa</annotation>
+		<annotation cp="🇬🇶">flaga</annotation>
+		<annotation cp="🇬🇶" type="tts">Gwinea Równikowa</annotation>
+		<annotation cp="🇬🇷">flaga</annotation>
+		<annotation cp="🇬🇷" type="tts">Grecja</annotation>
+		<annotation cp="🇬🇸">flaga</annotation>
+		<annotation cp="🇬🇸" type="tts">Georgia Południowa i Sandwich Południowy</annotation>
+		<annotation cp="🇬🇹">flaga</annotation>
+		<annotation cp="🇬🇹" type="tts">Gwatemala</annotation>
+		<annotation cp="🇬🇺">flaga</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">flaga</annotation>
+		<annotation cp="🇬🇼" type="tts">Gwinea Bissau</annotation>
+		<annotation cp="🇬🇾">flaga</annotation>
+		<annotation cp="🇬🇾" type="tts">Gujana</annotation>
+		<annotation cp="🇭🇰">flaga</annotation>
+		<annotation cp="🇭🇰" type="tts">SRA Hongkong (Chiny)</annotation>
+		<annotation cp="🇭🇲">flaga</annotation>
+		<annotation cp="🇭🇲" type="tts">Wyspy Heard i McDonalda</annotation>
+		<annotation cp="🇭🇳">flaga</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">flaga</annotation>
+		<annotation cp="🇭🇷" type="tts">Chorwacja</annotation>
+		<annotation cp="🇭🇹">flaga</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">flaga</annotation>
+		<annotation cp="🇭🇺" type="tts">Węgry</annotation>
+		<annotation cp="🇮🇨">flaga</annotation>
+		<annotation cp="🇮🇨" type="tts">Wyspy Kanaryjskie</annotation>
+		<annotation cp="🇮🇩">flaga</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonezja</annotation>
+		<annotation cp="🇮🇪">flaga</annotation>
+		<annotation cp="🇮🇪" type="tts">Irlandia</annotation>
+		<annotation cp="🇮🇱">flaga</annotation>
+		<annotation cp="🇮🇱" type="tts">Izrael</annotation>
+		<annotation cp="🇮🇲">flaga</annotation>
+		<annotation cp="🇮🇲" type="tts">Wyspa Man</annotation>
+		<annotation cp="🇮🇳">flaga</annotation>
+		<annotation cp="🇮🇳" type="tts">Indie</annotation>
+		<annotation cp="🇮🇴">flaga</annotation>
+		<annotation cp="🇮🇴" type="tts">Brytyjskie Terytorium Oceanu Indyjskiego</annotation>
+		<annotation cp="🇮🇶">flaga</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">flaga</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">flaga</annotation>
+		<annotation cp="🇮🇸" type="tts">Islandia</annotation>
+		<annotation cp="🇮🇹">flaga</annotation>
+		<annotation cp="🇮🇹" type="tts">Włochy</annotation>
+		<annotation cp="🇯🇪">flaga</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">flaga</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamajka</annotation>
+		<annotation cp="🇯🇴">flaga</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordania</annotation>
+		<annotation cp="🇯🇵">flaga</annotation>
+		<annotation cp="🇯🇵" type="tts">Japonia</annotation>
+		<annotation cp="🇰🇪">flaga</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenia</annotation>
+		<annotation cp="🇰🇬">flaga</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgistan</annotation>
+		<annotation cp="🇰🇭">flaga</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodża</annotation>
+		<annotation cp="🇰🇮">flaga</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">flaga</annotation>
+		<annotation cp="🇰🇲" type="tts">Komory</annotation>
+		<annotation cp="🇰🇳">flaga</annotation>
+		<annotation cp="🇰🇳" type="tts">Saint Kitts i Nevis</annotation>
+		<annotation cp="🇰🇵">flaga</annotation>
+		<annotation cp="🇰🇵" type="tts">Korea Północna</annotation>
+		<annotation cp="🇰🇷">flaga</annotation>
+		<annotation cp="🇰🇷" type="tts">Korea Południowa</annotation>
+		<annotation cp="🇰🇼">flaga</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuwejt</annotation>
+		<annotation cp="🇰🇾">flaga</annotation>
+		<annotation cp="🇰🇾" type="tts">Kajmany</annotation>
+		<annotation cp="🇰🇿">flaga</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazachstan</annotation>
+		<annotation cp="🇱🇦">flaga</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">flaga</annotation>
+		<annotation cp="🇱🇧" type="tts">Liban</annotation>
+		<annotation cp="🇱🇨">flaga</annotation>
+		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇮">flaga</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">flaga</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">flaga</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇸">flaga</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">flaga</annotation>
+		<annotation cp="🇱🇹" type="tts">Litwa</annotation>
+		<annotation cp="🇱🇺">flaga</annotation>
+		<annotation cp="🇱🇺" type="tts">Luksemburg</annotation>
+		<annotation cp="🇱🇻">flaga</annotation>
+		<annotation cp="🇱🇻" type="tts">Łotwa</annotation>
+		<annotation cp="🇱🇾">flaga</annotation>
+		<annotation cp="🇱🇾" type="tts">Libia</annotation>
+		<annotation cp="🇲🇦">flaga</annotation>
+		<annotation cp="🇲🇦" type="tts">Maroko</annotation>
+		<annotation cp="🇲🇨">flaga</annotation>
+		<annotation cp="🇲🇨" type="tts">Monako</annotation>
+		<annotation cp="🇲🇩">flaga</annotation>
+		<annotation cp="🇲🇩" type="tts">Mołdawia</annotation>
+		<annotation cp="🇲🇪">flaga</annotation>
+		<annotation cp="🇲🇪" type="tts">Czarnogóra</annotation>
+		<annotation cp="🇲🇫">flaga</annotation>
+		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇬">flaga</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">flaga</annotation>
+		<annotation cp="🇲🇭" type="tts">Wyspy Marshalla</annotation>
+		<annotation cp="🇲🇰">flaga</annotation>
+		<annotation cp="🇲🇰" type="tts">Macedonia</annotation>
+		<annotation cp="🇲🇱">flaga</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">flaga</annotation>
+		<annotation cp="🇲🇲" type="tts">Mjanma (Birma)</annotation>
+		<annotation cp="🇲🇳">flaga</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇴">flaga</annotation>
+		<annotation cp="🇲🇴" type="tts">SRA Makau (Chiny)</annotation>
+		<annotation cp="🇲🇵">flaga</annotation>
+		<annotation cp="🇲🇵" type="tts">Mariany Północne</annotation>
+		<annotation cp="🇲🇶">flaga</annotation>
+		<annotation cp="🇲🇶" type="tts">Martynika</annotation>
+		<annotation cp="🇲🇷">flaga</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauretania</annotation>
+		<annotation cp="🇲🇸">flaga</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">flaga</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">flaga</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">flaga</annotation>
+		<annotation cp="🇲🇻" type="tts">Malediwy</annotation>
+		<annotation cp="🇲🇼">flaga</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">flaga</annotation>
+		<annotation cp="🇲🇽" type="tts">Meksyk</annotation>
+		<annotation cp="🇲🇾">flaga</annotation>
+		<annotation cp="🇲🇾" type="tts">Malezja</annotation>
+		<annotation cp="🇲🇿">flaga</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambik</annotation>
+		<annotation cp="🇳🇦">flaga</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇨">flaga</annotation>
+		<annotation cp="🇳🇨" type="tts">Nowa Kaledonia</annotation>
+		<annotation cp="🇳🇪">flaga</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">flaga</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolk</annotation>
+		<annotation cp="🇳🇬">flaga</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇮">flaga</annotation>
+		<annotation cp="🇳🇮" type="tts">Nikaragua</annotation>
+		<annotation cp="🇳🇱">flaga</annotation>
+		<annotation cp="🇳🇱" type="tts">Holandia</annotation>
+		<annotation cp="🇳🇴">flaga</annotation>
+		<annotation cp="🇳🇴" type="tts">Norwegia</annotation>
+		<annotation cp="🇳🇵">flaga</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">flaga</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">flaga</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">flaga</annotation>
+		<annotation cp="🇳🇿" type="tts">Nowa Zelandia</annotation>
+		<annotation cp="🇴🇲">flaga</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">flaga</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">flaga</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">flaga</annotation>
+		<annotation cp="🇵🇫" type="tts">Polinezja Francuska</annotation>
+		<annotation cp="🇵🇬">flaga</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua-Nowa Gwinea</annotation>
+		<annotation cp="🇵🇭">flaga</annotation>
+		<annotation cp="🇵🇭" type="tts">Filipiny</annotation>
+		<annotation cp="🇵🇰">flaga</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">flaga</annotation>
+		<annotation cp="🇵🇱" type="tts">Polska</annotation>
+		<annotation cp="🇵🇲">flaga</annotation>
+		<annotation cp="🇵🇲" type="tts">Saint-Pierre i Miquelon</annotation>
+		<annotation cp="🇵🇳">flaga</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitcairn</annotation>
+		<annotation cp="🇵🇷">flaga</annotation>
+		<annotation cp="🇵🇷" type="tts">Portoryko</annotation>
+		<annotation cp="🇵🇸">flaga</annotation>
+		<annotation cp="🇵🇸" type="tts">Terytoria Palestyńskie</annotation>
+		<annotation cp="🇵🇹">flaga</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugalia</annotation>
+		<annotation cp="🇵🇼">flaga</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">flaga</annotation>
+		<annotation cp="🇵🇾" type="tts">Paragwaj</annotation>
+		<annotation cp="🇶🇦">flaga</annotation>
+		<annotation cp="🇶🇦" type="tts">Katar</annotation>
+		<annotation cp="🇷🇪">flaga</annotation>
+		<annotation cp="🇷🇪" type="tts">Reunion</annotation>
+		<annotation cp="🇷🇴">flaga</annotation>
+		<annotation cp="🇷🇴" type="tts">Rumunia</annotation>
+		<annotation cp="🇷🇸">flaga</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇺">flaga</annotation>
+		<annotation cp="🇷🇺" type="tts">Rosja</annotation>
+		<annotation cp="🇷🇼">flaga</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">flaga</annotation>
+		<annotation cp="🇸🇦" type="tts">Arabia Saudyjska</annotation>
+		<annotation cp="🇸🇧">flaga</annotation>
+		<annotation cp="🇸🇧" type="tts">Wyspy Salomona</annotation>
+		<annotation cp="🇸🇨">flaga</annotation>
+		<annotation cp="🇸🇨" type="tts">Seszele</annotation>
+		<annotation cp="🇸🇩">flaga</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇪">flaga</annotation>
+		<annotation cp="🇸🇪" type="tts">Szwecja</annotation>
+		<annotation cp="🇸🇬">flaga</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapur</annotation>
+		<annotation cp="🇸🇭">flaga</annotation>
+		<annotation cp="🇸🇭" type="tts">Wyspa Świętej Heleny</annotation>
+		<annotation cp="🇸🇮">flaga</annotation>
+		<annotation cp="🇸🇮" type="tts">Słowenia</annotation>
+		<annotation cp="🇸🇯">flaga</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard i Jan Mayen</annotation>
+		<annotation cp="🇸🇰">flaga</annotation>
+		<annotation cp="🇸🇰" type="tts">Słowacja</annotation>
+		<annotation cp="🇸🇱">flaga</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">flaga</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">flaga</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">flaga</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇷">flaga</annotation>
+		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇸">flaga</annotation>
+		<annotation cp="🇸🇸" type="tts">Sudan Południowy</annotation>
+		<annotation cp="🇸🇹">flaga</annotation>
+		<annotation cp="🇸🇹" type="tts">Wyspy Świętego Tomasza i Książęca</annotation>
+		<annotation cp="🇸🇻">flaga</annotation>
+		<annotation cp="🇸🇻" type="tts">Salwador</annotation>
+		<annotation cp="🇸🇽">flaga</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇾">flaga</annotation>
+		<annotation cp="🇸🇾" type="tts">Syria</annotation>
+		<annotation cp="🇸🇿">flaga</annotation>
+		<annotation cp="🇸🇿" type="tts">Suazi</annotation>
+		<annotation cp="🇹🇦">flaga</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">flaga</annotation>
+		<annotation cp="🇹🇨" type="tts">Turks i Caicos</annotation>
+		<annotation cp="🇹🇩">flaga</annotation>
+		<annotation cp="🇹🇩" type="tts">Czad</annotation>
+		<annotation cp="🇹🇫">flaga</annotation>
+		<annotation cp="🇹🇫" type="tts">Francuskie Terytoria Południowe i Antarktyczne</annotation>
+		<annotation cp="🇹🇬">flaga</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">flaga</annotation>
+		<annotation cp="🇹🇭" type="tts">Tajlandia</annotation>
+		<annotation cp="🇹🇯">flaga</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadżykistan</annotation>
+		<annotation cp="🇹🇰">flaga</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">flaga</annotation>
+		<annotation cp="🇹🇱" type="tts">Timor Wschodni</annotation>
+		<annotation cp="🇹🇲">flaga</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">flaga</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunezja</annotation>
+		<annotation cp="🇹🇴">flaga</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">flaga</annotation>
+		<annotation cp="🇹🇷" type="tts">Turcja</annotation>
+		<annotation cp="🇹🇹">flaga</annotation>
+		<annotation cp="🇹🇹" type="tts">Trynidad i Tobago</annotation>
+		<annotation cp="🇹🇻">flaga</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">flaga</annotation>
+		<annotation cp="🇹🇼" type="tts">Tajwan</annotation>
+		<annotation cp="🇹🇿">flaga</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇺🇦">flaga</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇬">flaga</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">flaga</annotation>
+		<annotation cp="🇺🇲" type="tts">Dalekie Wyspy Mniejsze Stanów Zjednoczonych</annotation>
+		<annotation cp="🇺🇳">flaga</annotation>
+		<annotation cp="🇺🇳" type="tts">Organizacja Narodów Zjednoczonych</annotation>
+		<annotation cp="🇺🇸">flaga</annotation>
+		<annotation cp="🇺🇸" type="tts">Stany Zjednoczone</annotation>
+		<annotation cp="🇺🇾">flaga</annotation>
+		<annotation cp="🇺🇾" type="tts">Urugwaj</annotation>
+		<annotation cp="🇺🇿">flaga</annotation>
+		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇻🇦">flaga</annotation>
+		<annotation cp="🇻🇦" type="tts">Watykan</annotation>
+		<annotation cp="🇻🇨">flaga</annotation>
+		<annotation cp="🇻🇨" type="tts">Saint Vincent i Grenadyny</annotation>
+		<annotation cp="🇻🇪">flaga</annotation>
+		<annotation cp="🇻🇪" type="tts">Wenezuela</annotation>
+		<annotation cp="🇻🇬">flaga</annotation>
+		<annotation cp="🇻🇬" type="tts">Brytyjskie Wyspy Dziewicze</annotation>
+		<annotation cp="🇻🇮">flaga</annotation>
+		<annotation cp="🇻🇮" type="tts">Wyspy Dziewicze Stanów Zjednoczonych</annotation>
+		<annotation cp="🇻🇳">flaga</annotation>
+		<annotation cp="🇻🇳" type="tts">Wietnam</annotation>
+		<annotation cp="🇻🇺">flaga</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">flaga</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis i Futuna</annotation>
+		<annotation cp="🇼🇸">flaga</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">flaga</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosowo</annotation>
+		<annotation cp="🇾🇪">flaga</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇹">flaga</annotation>
+		<annotation cp="🇾🇹" type="tts">Majotta</annotation>
+		<annotation cp="🇿🇦">flaga</annotation>
+		<annotation cp="🇿🇦" type="tts">Republika Południowej Afryki</annotation>
+		<annotation cp="🇿🇲">flaga</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇼">flaga</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">flaga</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Anglia</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">flaga</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Szkocja</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">flaga</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Walia</annotation>
+	</annotations>
+</ldml>

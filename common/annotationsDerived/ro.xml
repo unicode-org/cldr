@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="ro"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | tastă | zero</annotation>
+		<annotation cp="0⃣" type="tts">tastă zero</annotation>
+		<annotation cp="1⃣">1 | tastă | unu</annotation>
+		<annotation cp="1⃣" type="tts">tastă unu</annotation>
+		<annotation cp="2⃣">2 | doi | tastă</annotation>
+		<annotation cp="2⃣" type="tts">tastă doi</annotation>
+		<annotation cp="3⃣">3 | tastă | trei</annotation>
+		<annotation cp="3⃣" type="tts">tastă trei</annotation>
+		<annotation cp="4⃣">4 | patru | tastă</annotation>
+		<annotation cp="4⃣" type="tts">tastă patru</annotation>
+		<annotation cp="5⃣">5 | cinci | tastă</annotation>
+		<annotation cp="5⃣" type="tts">tastă cinci</annotation>
+		<annotation cp="6⃣">6 | tastă | șase</annotation>
+		<annotation cp="6⃣" type="tts">tastă șase</annotation>
+		<annotation cp="7⃣">7 | tastă | șapte</annotation>
+		<annotation cp="7⃣" type="tts">tastă șapte</annotation>
+		<annotation cp="8⃣">8 | opt | tastă</annotation>
+		<annotation cp="8⃣" type="tts">tastă opt</annotation>
+		<annotation cp="9⃣">9 | nouă | tastă</annotation>
+		<annotation cp="9⃣" type="tts">tastă nouă</annotation>
+		<annotation cp="👶🏻">copil | mic | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👶🏻" type="tts">bebeluș: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👶🏼">copil | mic | ten nunața 3</annotation>
+		<annotation cp="👶🏼" type="tts">bebeluș: ten nunața 3</annotation>
+		<annotation cp="👶🏽">copil | mic | ten nuanța 4</annotation>
+		<annotation cp="👶🏽" type="tts">bebeluș: ten nuanța 4</annotation>
+		<annotation cp="👶🏾">copil | mic | ten nuanța 5</annotation>
+		<annotation cp="👶🏾" type="tts">bebeluș: ten nuanța 5</annotation>
+		<annotation cp="👶🏿">copil | mic | ten nuanța 6</annotation>
+		<annotation cp="👶🏿" type="tts">bebeluș: ten nuanța 6</annotation>
+		<annotation cp="👦🏻">copil | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👦🏻" type="tts">băiat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👦🏼">copil | ten nunața 3</annotation>
+		<annotation cp="👦🏼" type="tts">băiat: ten nunața 3</annotation>
+		<annotation cp="👦🏽">copil | ten nuanța 4</annotation>
+		<annotation cp="👦🏽" type="tts">băiat: ten nuanța 4</annotation>
+		<annotation cp="👦🏾">copil | ten nuanța 5</annotation>
+		<annotation cp="👦🏾" type="tts">băiat: ten nuanța 5</annotation>
+		<annotation cp="👦🏿">copil | ten nuanța 6</annotation>
+		<annotation cp="👦🏿" type="tts">băiat: ten nuanța 6</annotation>
+		<annotation cp="👧🏻">copil | fecioară | tânără | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👧🏻" type="tts">fată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👧🏼">copil | fecioară | tânără | ten nunața 3</annotation>
+		<annotation cp="👧🏼" type="tts">fată: ten nunața 3</annotation>
+		<annotation cp="👧🏽">copil | fecioară | tânără | ten nuanța 4</annotation>
+		<annotation cp="👧🏽" type="tts">fată: ten nuanța 4</annotation>
+		<annotation cp="👧🏾">copil | fecioară | tânără | ten nuanța 5</annotation>
+		<annotation cp="👧🏾" type="tts">fată: ten nuanța 5</annotation>
+		<annotation cp="👧🏿">copil | fecioară | tânără | ten nuanța 6</annotation>
+		<annotation cp="👧🏿" type="tts">fată: ten nuanța 6</annotation>
+		<annotation cp="👨🏻">adult | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻" type="tts">bărbat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼">adult | ten nunața 3</annotation>
+		<annotation cp="👨🏼" type="tts">bărbat: ten nunața 3</annotation>
+		<annotation cp="👨🏽">adult | ten nuanța 4</annotation>
+		<annotation cp="👨🏽" type="tts">bărbat: ten nuanța 4</annotation>
+		<annotation cp="👨🏾">adult | ten nuanța 5</annotation>
+		<annotation cp="👨🏾" type="tts">bărbat: ten nuanța 5</annotation>
+		<annotation cp="👨🏿">adult | ten nuanța 6</annotation>
+		<annotation cp="👨🏿" type="tts">bărbat: ten nuanța 6</annotation>
+		<annotation cp="👩🏻">adult | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻" type="tts">femeie: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼">adult | ten nunața 3</annotation>
+		<annotation cp="👩🏼" type="tts">femeie: ten nunața 3</annotation>
+		<annotation cp="👩🏽">adult | ten nuanța 4</annotation>
+		<annotation cp="👩🏽" type="tts">femeie: ten nuanța 4</annotation>
+		<annotation cp="👩🏾">adult | ten nuanța 5</annotation>
+		<annotation cp="👩🏾" type="tts">femeie: ten nuanța 5</annotation>
+		<annotation cp="👩🏿">adult | ten nuanța 6</annotation>
+		<annotation cp="👩🏿" type="tts">femeie: ten nuanța 6</annotation>
+		<annotation cp="👴🏻">bărbat | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👴🏻" type="tts">bătrân: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👴🏼">bărbat | ten nunața 3</annotation>
+		<annotation cp="👴🏼" type="tts">bătrân: ten nunața 3</annotation>
+		<annotation cp="👴🏽">bărbat | ten nuanța 4</annotation>
+		<annotation cp="👴🏽" type="tts">bătrân: ten nuanța 4</annotation>
+		<annotation cp="👴🏾">bărbat | ten nuanța 5</annotation>
+		<annotation cp="👴🏾" type="tts">bătrân: ten nuanța 5</annotation>
+		<annotation cp="👴🏿">bărbat | ten nuanța 6</annotation>
+		<annotation cp="👴🏿" type="tts">bătrân: ten nuanța 6</annotation>
+		<annotation cp="👵🏻">femeie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👵🏻" type="tts">bătrână: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👵🏼">femeie | ten nunața 3</annotation>
+		<annotation cp="👵🏼" type="tts">bătrână: ten nunața 3</annotation>
+		<annotation cp="👵🏽">femeie | ten nuanța 4</annotation>
+		<annotation cp="👵🏽" type="tts">bătrână: ten nuanța 4</annotation>
+		<annotation cp="👵🏾">femeie | ten nuanța 5</annotation>
+		<annotation cp="👵🏾" type="tts">bătrână: ten nuanța 5</annotation>
+		<annotation cp="👵🏿">femeie | ten nuanța 6</annotation>
+		<annotation cp="👵🏿" type="tts">bătrână: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍⚕">bărbat | doctor | medical | terapeut | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">bărbat profesie medicală: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍⚕">bărbat | doctor | medical | terapeut | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">bărbat profesie medicală: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍⚕">bărbat | doctor | medical | terapeut | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">bărbat profesie medicală: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍⚕">bărbat | doctor | medical | terapeut | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">bărbat profesie medicală: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍⚕">bărbat | doctor | medical | terapeut | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">bărbat profesie medicală: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍⚕">doctor | femeie | medical | soră medicală | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">femeie profesie medicală: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍⚕">doctor | femeie | medical | soră medicală | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">femeie profesie medicală: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍⚕">doctor | femeie | medical | soră medicală | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">femeie profesie medicală: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍⚕">doctor | femeie | medical | soră medicală | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">femeie profesie medicală: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍⚕">doctor | femeie | medical | soră medicală | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">femeie profesie medicală: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🎓">absolvent | student | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">student: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🎓">absolvent | student | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">student: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🎓">absolvent | student | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">student: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🎓">absolvent | student | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">student: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🎓">absolvent | student | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">student: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🎓">absolventă | studentă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">studentă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🎓">absolventă | studentă | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">studentă: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🎓">absolventă | studentă | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">studentă: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🎓">absolventă | studentă | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">studentă: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🎓">absolventă | studentă | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">studentă: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🏫">instructor | profesor | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">profesor: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🏫">instructor | profesor | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">profesor: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🏫">instructor | profesor | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">profesor: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🏫">instructor | profesor | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">profesor: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🏫">instructor | profesor | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">profesor: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🏫">instructor | profesoară | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">profesoară: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🏫">instructor | profesoară | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">profesoară: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🏫">instructor | profesoară | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">profesoară: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🏫">instructor | profesoară | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">profesoară: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🏫">instructor | profesoară | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">profesoară: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍⚖">balanță | judecător | justiție | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">judecător: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍⚖">balanță | judecător | justiție | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">judecător: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍⚖">balanță | judecător | justiție | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">judecător: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍⚖">balanță | judecător | justiție | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">judecător: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍⚖">balanță | judecător | justiție | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">judecător: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍⚖">balanță | judecătoare | justiție | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">judecătoare: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍⚖">balanță | judecătoare | justiție | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">judecătoare: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍⚖">balanță | judecătoare | justiție | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">judecătoare: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍⚖">balanță | judecătoare | justiție | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">judecătoare: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍⚖">balanță | judecătoare | justiție | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">judecătoare: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🌾">agricultor | fermier | grădinar | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">fermier: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🌾">agricultor | fermier | grădinar | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">fermier: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🌾">agricultor | fermier | grădinar | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">fermier: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🌾">agricultor | fermier | grădinar | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">fermier: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🌾">agricultor | fermier | grădinar | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">fermier: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🌾">agricultoare | fermieră | grădinar | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">fermieră: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🌾">agricultoare | fermieră | grădinar | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">fermieră: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🌾">agricultoare | fermieră | grădinar | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">fermieră: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🌾">agricultoare | fermieră | grădinar | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">fermieră: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🌾">agricultoare | fermieră | grădinar | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">fermieră: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🍳">bucătar | bucătărie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">bucătar: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🍳">bucătar | bucătărie | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">bucătar: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🍳">bucătar | bucătărie | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">bucătar: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🍳">bucătar | bucătărie | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">bucătar: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🍳">bucătar | bucătărie | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">bucătar: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🍳">bucătăreasă | bucătărie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">bucătăreasă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🍳">bucătăreasă | bucătărie | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">bucătăreasă: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🍳">bucătăreasă | bucătărie | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">bucătăreasă: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🍳">bucătăreasă | bucătărie | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">bucătăreasă: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🍳">bucătăreasă | bucătărie | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">bucătăreasă: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🔧">electrician | instalator | mecanic | meșter | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">mecanic: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🔧">electrician | instalator | mecanic | meșter | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">mecanic: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🔧">electrician | instalator | mecanic | meșter | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">mecanic: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🔧">electrician | instalator | mecanic | meșter | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">mecanic: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🔧">electrician | instalator | mecanic | meșter | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">mecanic: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🔧">electrician | femeie | instalator | mecanic | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">femeie mecanic: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🔧">electrician | femeie | instalator | mecanic | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">femeie mecanic: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🔧">electrician | femeie | instalator | mecanic | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">femeie mecanic: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🔧">electrician | femeie | instalator | mecanic | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">femeie mecanic: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🔧">electrician | femeie | instalator | mecanic | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">femeie mecanic: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🏭">fabrică | industrial | muncitor | întrunire | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">muncitor: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🏭">fabrică | industrial | muncitor | întrunire | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">muncitor: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🏭">fabrică | industrial | muncitor | întrunire | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">muncitor: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🏭">fabrică | industrial | muncitor | întrunire | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">muncitor: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🏭">fabrică | industrial | muncitor | întrunire | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">muncitor: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🏭">fabrică | industrial | muncitoare | întrunire | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">muncitoare: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🏭">fabrică | industrial | muncitoare | întrunire | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">muncitoare: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🏭">fabrică | industrial | muncitoare | întrunire | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">muncitoare: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🏭">fabrică | industrial | muncitoare | întrunire | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">muncitoare: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🏭">fabrică | industrial | muncitoare | întrunire | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">muncitoare: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍💼">arhitect | birou | business | manager | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">funcționar: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍💼">arhitect | birou | business | manager | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">funcționar: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍💼">arhitect | birou | business | manager | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">funcționar: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍💼">arhitect | birou | business | manager | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">funcționar: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍💼">arhitect | birou | business | manager | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">funcționar: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍💼">arhitect | birou | business | manager | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">funcționară: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍💼">arhitect | birou | business | manager | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">funcționară: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍💼">arhitect | birou | business | manager | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">funcționară: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍💼">arhitect | birou | business | manager | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">funcționară: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍💼">arhitect | birou | business | manager | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">funcționară: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🔬">biolog | chimist | fizician | matematician | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">om de știință: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🔬">biolog | chimist | fizician | matematician | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">om de știință: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🔬">biolog | chimist | fizician | matematician | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">om de știință: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🔬">biolog | chimist | fizician | matematician | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">om de știință: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🔬">biolog | chimist | fizician | matematician | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">om de știință: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🔬">biolog | chimist | fizician | matematician | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">femeie om de știință: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🔬">biolog | chimist | fizician | matematician | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">femeie om de știință: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🔬">biolog | chimist | fizician | matematician | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">femeie om de știință: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🔬">biolog | chimist | fizician | matematician | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">femeie om de știință: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🔬">biolog | chimist | fizician | matematician | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">femeie om de știință: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍💻">dezvoltator | programator | software | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">specialist IT: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍💻">dezvoltator | programator | software | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">specialist IT: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍💻">dezvoltator | programator | software | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">specialist IT: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍💻">dezvoltator | programator | software | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">specialist IT: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍💻">dezvoltator | programator | software | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">specialist IT: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍💻">dezvoltator | femeie programator | software | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">specialistă IT: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍💻">dezvoltator | femeie programator | software | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">specialistă IT: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍💻">dezvoltator | femeie programator | software | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">specialistă IT: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍💻">dezvoltator | femeie programator | software | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">specialistă IT: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍💻">dezvoltator | femeie programator | software | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">specialistă IT: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🎤">actor | comediant | rock | star | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">cântăreț: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🎤">actor | comediant | rock | star | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">cântăreț: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🎤">actor | comediant | rock | star | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">cântăreț: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🎤">actor | comediant | rock | star | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">cântăreț: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🎤">actor | comediant | rock | star | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">cântăreț: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🎤">actriță | comediant | rock | star | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">cântăreață: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🎤">actriță | comediant | rock | star | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">cântăreață: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🎤">actriță | comediant | rock | star | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">cântăreață: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🎤">actriță | comediant | rock | star | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">cântăreață: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🎤">actriță | comediant | rock | star | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">cântăreață: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🎨">artist | paletă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">artist: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🎨">artist | paletă | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">artist: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🎨">artist | paletă | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">artist: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🎨">artist | paletă | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">artist: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🎨">artist | paletă | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">artist: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🎨">artistă | paletă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">artistă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🎨">artistă | paletă | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">artistă: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🎨">artistă | paletă | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">artistă: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🎨">artistă | paletă | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">artistă: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🎨">artistă | paletă | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">artistă: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍✈">avion | pilot | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">pilot: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍✈">avion | pilot | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">pilot: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍✈">avion | pilot | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">pilot: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍✈">avion | pilot | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">pilot: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍✈">avion | pilot | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">pilot: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍✈">avion | femeie pilot | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">femeie pilot: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍✈">avion | femeie pilot | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">femeie pilot: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍✈">avion | femeie pilot | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">femeie pilot: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍✈">avion | femeie pilot | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">femeie pilot: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍✈">avion | femeie pilot | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">femeie pilot: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🚀">astronaut | rachetă | spațiu | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">astronaut: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🚀">astronaut | rachetă | spațiu | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">astronaut: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🚀">astronaut | rachetă | spațiu | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">astronaut: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🚀">astronaut | rachetă | spațiu | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">astronaut: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🚀">astronaut | rachetă | spațiu | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">astronaut: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🚀">femeie astronaut | rachetă | spațiu | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">femeie astronaut: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🚀">femeie astronaut | rachetă | spațiu | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">femeie astronaut: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🚀">femeie astronaut | rachetă | spațiu | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">femeie astronaut: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🚀">femeie astronaut | rachetă | spațiu | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">femeie astronaut: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🚀">femeie astronaut | rachetă | spațiu | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">femeie astronaut: ten nuanța 6</annotation>
+		<annotation cp="👨🏻‍🚒">mașină de pompieri | pompier | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">pompier: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👨🏼‍🚒">mașină de pompieri | pompier | ten nunața 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">pompier: ten nunața 3</annotation>
+		<annotation cp="👨🏽‍🚒">mașină de pompieri | pompier | ten nuanța 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">pompier: ten nuanța 4</annotation>
+		<annotation cp="👨🏾‍🚒">mașină de pompieri | pompier | ten nuanța 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">pompier: ten nuanța 5</annotation>
+		<annotation cp="👨🏿‍🚒">mașină de pompieri | pompier | ten nuanța 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">pompier: ten nuanța 6</annotation>
+		<annotation cp="👩🏻‍🚒">femeie pompier | mașină de pompieri | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">femeie pompier: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👩🏼‍🚒">femeie pompier | mașină de pompieri | ten nunața 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">femeie pompier: ten nunața 3</annotation>
+		<annotation cp="👩🏽‍🚒">femeie pompier | mașină de pompieri | ten nuanța 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">femeie pompier: ten nuanța 4</annotation>
+		<annotation cp="👩🏾‍🚒">femeie pompier | mașină de pompieri | ten nuanța 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">femeie pompier: ten nuanța 5</annotation>
+		<annotation cp="👩🏿‍🚒">femeie pompier | mașină de pompieri | ten nuanța 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">femeie pompier: ten nuanța 6</annotation>
+		<annotation cp="👮🏻">justiție | om | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👮🏻" type="tts">polițist: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👮🏼">justiție | om | ten nunața 3</annotation>
+		<annotation cp="👮🏼" type="tts">polițist: ten nunața 3</annotation>
+		<annotation cp="👮🏽">justiție | om | ten nuanța 4</annotation>
+		<annotation cp="👮🏽" type="tts">polițist: ten nuanța 4</annotation>
+		<annotation cp="👮🏾">justiție | om | ten nuanța 5</annotation>
+		<annotation cp="👮🏾" type="tts">polițist: ten nuanța 5</annotation>
+		<annotation cp="👮🏿">justiție | om | ten nuanța 6</annotation>
+		<annotation cp="👮🏿" type="tts">polițist: ten nuanța 6</annotation>
+		<annotation cp="👮🏻‍♂">poliție | polițist | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">polițist bărbat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👮🏼‍♂">poliție | polițist | ten nunața 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">polițist bărbat: ten nunața 3</annotation>
+		<annotation cp="👮🏽‍♂">poliție | polițist | ten nuanța 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">polițist bărbat: ten nuanța 4</annotation>
+		<annotation cp="👮🏾‍♂">poliție | polițist | ten nuanța 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">polițist bărbat: ten nuanța 5</annotation>
+		<annotation cp="👮🏿‍♂">poliție | polițist | ten nuanța 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">polițist bărbat: ten nuanța 6</annotation>
+		<annotation cp="👮🏻‍♀">poliție | polițistă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">polițistă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👮🏼‍♀">poliție | polițistă | ten nunața 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">polițistă: ten nunața 3</annotation>
+		<annotation cp="👮🏽‍♀">poliție | polițistă | ten nuanța 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">polițistă: ten nuanța 4</annotation>
+		<annotation cp="👮🏾‍♀">poliție | polițistă | ten nuanța 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">polițistă: ten nuanța 5</annotation>
+		<annotation cp="👮🏿‍♀">poliție | polițistă | ten nuanța 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">polițistă: ten nuanța 6</annotation>
+		<annotation cp="🕵🏻">investigație | lupă | pălărie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕵🏻" type="tts">detectiv: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕵🏼">investigație | lupă | pălărie | ten nunața 3</annotation>
+		<annotation cp="🕵🏼" type="tts">detectiv: ten nunața 3</annotation>
+		<annotation cp="🕵🏽">investigație | lupă | pălărie | ten nuanța 4</annotation>
+		<annotation cp="🕵🏽" type="tts">detectiv: ten nuanța 4</annotation>
+		<annotation cp="🕵🏾">investigație | lupă | pălărie | ten nuanța 5</annotation>
+		<annotation cp="🕵🏾" type="tts">detectiv: ten nuanța 5</annotation>
+		<annotation cp="🕵🏿">investigație | lupă | pălărie | ten nuanța 6</annotation>
+		<annotation cp="🕵🏿" type="tts">detectiv: ten nuanța 6</annotation>
+		<annotation cp="🕵🏻‍♂">copoi | detectiv | spion | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">detectiv bărbat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕵🏼‍♂">copoi | detectiv | spion | ten nunața 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">detectiv bărbat: ten nunața 3</annotation>
+		<annotation cp="🕵🏽‍♂">copoi | detectiv | spion | ten nuanța 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">detectiv bărbat: ten nuanța 4</annotation>
+		<annotation cp="🕵🏾‍♂">copoi | detectiv | spion | ten nuanța 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">detectiv bărbat: ten nuanța 5</annotation>
+		<annotation cp="🕵🏿‍♂">copoi | detectiv | spion | ten nuanța 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">detectiv bărbat: ten nuanța 6</annotation>
+		<annotation cp="🕵🏻‍♀">femeie detectiv | spioană | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">femeie detectiv: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕵🏼‍♀">femeie detectiv | spioană | ten nunața 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">femeie detectiv: ten nunața 3</annotation>
+		<annotation cp="🕵🏽‍♀">femeie detectiv | spioană | ten nuanța 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">femeie detectiv: ten nuanța 4</annotation>
+		<annotation cp="🕵🏾‍♀">femeie detectiv | spioană | ten nuanța 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">femeie detectiv: ten nuanța 5</annotation>
+		<annotation cp="🕵🏿‍♀">femeie detectiv | spioană | ten nuanța 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">femeie detectiv: ten nuanța 6</annotation>
+		<annotation cp="💂🏻">căciulă | om | pază | protecție | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💂🏻" type="tts">gardă regală: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💂🏼">căciulă | om | pază | protecție | ten nunața 3</annotation>
+		<annotation cp="💂🏼" type="tts">gardă regală: ten nunața 3</annotation>
+		<annotation cp="💂🏽">căciulă | om | pază | protecție | ten nuanța 4</annotation>
+		<annotation cp="💂🏽" type="tts">gardă regală: ten nuanța 4</annotation>
+		<annotation cp="💂🏾">căciulă | om | pază | protecție | ten nuanța 5</annotation>
+		<annotation cp="💂🏾" type="tts">gardă regală: ten nuanța 5</annotation>
+		<annotation cp="💂🏿">căciulă | om | pază | protecție | ten nuanța 6</annotation>
+		<annotation cp="💂🏿" type="tts">gardă regală: ten nuanța 6</annotation>
+		<annotation cp="💂🏻‍♂">gardă | paznic | protecție | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">gardian: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💂🏼‍♂">gardă | paznic | protecție | ten nunața 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">gardian: ten nunața 3</annotation>
+		<annotation cp="💂🏽‍♂">gardă | paznic | protecție | ten nuanța 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">gardian: ten nuanța 4</annotation>
+		<annotation cp="💂🏾‍♂">gardă | paznic | protecție | ten nuanța 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">gardian: ten nuanța 5</annotation>
+		<annotation cp="💂🏿‍♂">gardă | paznic | protecție | ten nuanța 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">gardian: ten nuanța 6</annotation>
+		<annotation cp="💂🏻‍♀">femeie paznic | gardă | protecție | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">femeie gardian: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💂🏼‍♀">femeie paznic | gardă | protecție | ten nunața 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">femeie gardian: ten nunața 3</annotation>
+		<annotation cp="💂🏽‍♀">femeie paznic | gardă | protecție | ten nuanța 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">femeie gardian: ten nuanța 4</annotation>
+		<annotation cp="💂🏾‍♀">femeie paznic | gardă | protecție | ten nuanța 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">femeie gardian: ten nuanța 5</annotation>
+		<annotation cp="💂🏿‍♀">femeie paznic | gardă | protecție | ten nuanța 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">femeie gardian: ten nuanța 6</annotation>
+		<annotation cp="👷🏻">construcții | muncă | om | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👷🏻" type="tts">constructor: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👷🏼">construcții | muncă | om | ten nunața 3</annotation>
+		<annotation cp="👷🏼" type="tts">constructor: ten nunața 3</annotation>
+		<annotation cp="👷🏽">construcții | muncă | om | ten nuanța 4</annotation>
+		<annotation cp="👷🏽" type="tts">constructor: ten nuanța 4</annotation>
+		<annotation cp="👷🏾">construcții | muncă | om | ten nuanța 5</annotation>
+		<annotation cp="👷🏾" type="tts">constructor: ten nuanța 5</annotation>
+		<annotation cp="👷🏿">construcții | muncă | om | ten nuanța 6</annotation>
+		<annotation cp="👷🏿" type="tts">constructor: ten nuanța 6</annotation>
+		<annotation cp="👷🏻‍♂">construcții | muncitor | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">constructor bărbat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👷🏼‍♂">construcții | muncitor | ten nunața 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">constructor bărbat: ten nunața 3</annotation>
+		<annotation cp="👷🏽‍♂">construcții | muncitor | ten nuanța 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">constructor bărbat: ten nuanța 4</annotation>
+		<annotation cp="👷🏾‍♂">construcții | muncitor | ten nuanța 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">constructor bărbat: ten nuanța 5</annotation>
+		<annotation cp="👷🏿‍♂">construcții | muncitor | ten nuanța 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">constructor bărbat: ten nuanța 6</annotation>
+		<annotation cp="👷🏻‍♀">construcții | muncitor | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">femeie constructor: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👷🏼‍♀">construcții | muncitor | ten nunața 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">femeie constructor: ten nunața 3</annotation>
+		<annotation cp="👷🏽‍♀">construcții | muncitor | ten nuanța 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">femeie constructor: ten nuanța 4</annotation>
+		<annotation cp="👷🏾‍♀">construcții | muncitor | ten nuanța 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">femeie constructor: ten nuanța 5</annotation>
+		<annotation cp="👷🏿‍♀">construcții | muncitor | ten nuanța 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">femeie constructor: ten nuanța 6</annotation>
+		<annotation cp="🤴🏻">principe | prinț | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤴🏻" type="tts">prinț: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤴🏼">principe | prinț | ten nunața 3</annotation>
+		<annotation cp="🤴🏼" type="tts">prinț: ten nunața 3</annotation>
+		<annotation cp="🤴🏽">principe | prinț | ten nuanța 4</annotation>
+		<annotation cp="🤴🏽" type="tts">prinț: ten nuanța 4</annotation>
+		<annotation cp="🤴🏾">principe | prinț | ten nuanța 5</annotation>
+		<annotation cp="🤴🏾" type="tts">prinț: ten nuanța 5</annotation>
+		<annotation cp="🤴🏿">principe | prinț | ten nuanța 6</annotation>
+		<annotation cp="🤴🏿" type="tts">prinț: ten nuanța 6</annotation>
+		<annotation cp="👸🏻">fantezie | fată | poveste | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👸🏻" type="tts">prințesă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👸🏼">fantezie | fată | poveste | ten nunața 3</annotation>
+		<annotation cp="👸🏼" type="tts">prințesă: ten nunața 3</annotation>
+		<annotation cp="👸🏽">fantezie | fată | poveste | ten nuanța 4</annotation>
+		<annotation cp="👸🏽" type="tts">prințesă: ten nuanța 4</annotation>
+		<annotation cp="👸🏾">fantezie | fată | poveste | ten nuanța 5</annotation>
+		<annotation cp="👸🏾" type="tts">prințesă: ten nuanța 5</annotation>
+		<annotation cp="👸🏿">fantezie | fată | poveste | ten nuanța 6</annotation>
+		<annotation cp="👸🏿" type="tts">prințesă: ten nuanța 6</annotation>
+		<annotation cp="👳🏻">bărbat | turban | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👳🏻" type="tts">persoană cu turban: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👳🏼">bărbat | turban | ten nunața 3</annotation>
+		<annotation cp="👳🏼" type="tts">persoană cu turban: ten nunața 3</annotation>
+		<annotation cp="👳🏽">bărbat | turban | ten nuanța 4</annotation>
+		<annotation cp="👳🏽" type="tts">persoană cu turban: ten nuanța 4</annotation>
+		<annotation cp="👳🏾">bărbat | turban | ten nuanța 5</annotation>
+		<annotation cp="👳🏾" type="tts">persoană cu turban: ten nuanța 5</annotation>
+		<annotation cp="👳🏿">bărbat | turban | ten nuanța 6</annotation>
+		<annotation cp="👳🏿" type="tts">persoană cu turban: ten nuanța 6</annotation>
+		<annotation cp="👳🏻‍♂">bărbat | turban | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">bărbat cu turban: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👳🏼‍♂">bărbat | turban | ten nunața 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">bărbat cu turban: ten nunața 3</annotation>
+		<annotation cp="👳🏽‍♂">bărbat | turban | ten nuanța 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">bărbat cu turban: ten nuanța 4</annotation>
+		<annotation cp="👳🏾‍♂">bărbat | turban | ten nuanța 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">bărbat cu turban: ten nuanța 5</annotation>
+		<annotation cp="👳🏿‍♂">bărbat | turban | ten nuanța 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">bărbat cu turban: ten nuanța 6</annotation>
+		<annotation cp="👳🏻‍♀">femeie | turban | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">femeie cu turban: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👳🏼‍♀">femeie | turban | ten nunața 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">femeie cu turban: ten nunața 3</annotation>
+		<annotation cp="👳🏽‍♀">femeie | turban | ten nuanța 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">femeie cu turban: ten nuanța 4</annotation>
+		<annotation cp="👳🏾‍♀">femeie | turban | ten nuanța 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">femeie cu turban: ten nuanța 5</annotation>
+		<annotation cp="👳🏿‍♀">femeie | turban | ten nuanța 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">femeie cu turban: ten nuanța 6</annotation>
+		<annotation cp="👲🏻">bărbat | china | pălărie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👲🏻" type="tts">bărbat cu pălărie chinezească: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👲🏼">bărbat | china | pălărie | ten nunața 3</annotation>
+		<annotation cp="👲🏼" type="tts">bărbat cu pălărie chinezească: ten nunața 3</annotation>
+		<annotation cp="👲🏽">bărbat | china | pălărie | ten nuanța 4</annotation>
+		<annotation cp="👲🏽" type="tts">bărbat cu pălărie chinezească: ten nuanța 4</annotation>
+		<annotation cp="👲🏾">bărbat | china | pălărie | ten nuanța 5</annotation>
+		<annotation cp="👲🏾" type="tts">bărbat cu pălărie chinezească: ten nuanța 5</annotation>
+		<annotation cp="👲🏿">bărbat | china | pălărie | ten nuanța 6</annotation>
+		<annotation cp="👲🏿" type="tts">bărbat cu pălărie chinezească: ten nuanța 6</annotation>
+		<annotation cp="👱🏻">blond | om | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👱🏻" type="tts">persoană blondă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👱🏼">blond | om | ten nunața 3</annotation>
+		<annotation cp="👱🏼" type="tts">persoană blondă: ten nunața 3</annotation>
+		<annotation cp="👱🏽">blond | om | ten nuanța 4</annotation>
+		<annotation cp="👱🏽" type="tts">persoană blondă: ten nuanța 4</annotation>
+		<annotation cp="👱🏾">blond | om | ten nuanța 5</annotation>
+		<annotation cp="👱🏾" type="tts">persoană blondă: ten nuanța 5</annotation>
+		<annotation cp="👱🏿">blond | om | ten nuanța 6</annotation>
+		<annotation cp="👱🏿" type="tts">persoană blondă: ten nuanța 6</annotation>
+		<annotation cp="👱🏻‍♂">blond | bărbat | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">bărbat blond: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👱🏼‍♂">blond | bărbat | ten nunața 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">bărbat blond: ten nunața 3</annotation>
+		<annotation cp="👱🏽‍♂">blond | bărbat | ten nuanța 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">bărbat blond: ten nuanța 4</annotation>
+		<annotation cp="👱🏾‍♂">blond | bărbat | ten nuanța 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">bărbat blond: ten nuanța 5</annotation>
+		<annotation cp="👱🏿‍♂">blond | bărbat | ten nuanța 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">bărbat blond: ten nuanța 6</annotation>
+		<annotation cp="👱🏻‍♀">blondă | femeie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">femeie blondă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👱🏼‍♀">blondă | femeie | ten nunața 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">femeie blondă: ten nunața 3</annotation>
+		<annotation cp="👱🏽‍♀">blondă | femeie | ten nuanța 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">femeie blondă: ten nuanța 4</annotation>
+		<annotation cp="👱🏾‍♀">blondă | femeie | ten nuanța 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">femeie blondă: ten nuanța 5</annotation>
+		<annotation cp="👱🏿‍♀">blondă | femeie | ten nuanța 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">femeie blondă: ten nuanța 6</annotation>
+		<annotation cp="🤵🏻">bărbat | frac | mire | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤵🏻" type="tts">bărbat în frac: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤵🏼">bărbat | frac | mire | ten nunața 3</annotation>
+		<annotation cp="🤵🏼" type="tts">bărbat în frac: ten nunața 3</annotation>
+		<annotation cp="🤵🏽">bărbat | frac | mire | ten nuanța 4</annotation>
+		<annotation cp="🤵🏽" type="tts">bărbat în frac: ten nuanța 4</annotation>
+		<annotation cp="🤵🏾">bărbat | frac | mire | ten nuanța 5</annotation>
+		<annotation cp="🤵🏾" type="tts">bărbat în frac: ten nuanța 5</annotation>
+		<annotation cp="🤵🏿">bărbat | frac | mire | ten nuanța 6</annotation>
+		<annotation cp="🤵🏿" type="tts">bărbat în frac: ten nuanța 6</annotation>
+		<annotation cp="👰🏻">femeie | nuntă | voal | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👰🏻" type="tts">mireasă cu voal: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👰🏼">femeie | nuntă | voal | ten nunața 3</annotation>
+		<annotation cp="👰🏼" type="tts">mireasă cu voal: ten nunața 3</annotation>
+		<annotation cp="👰🏽">femeie | nuntă | voal | ten nuanța 4</annotation>
+		<annotation cp="👰🏽" type="tts">mireasă cu voal: ten nuanța 4</annotation>
+		<annotation cp="👰🏾">femeie | nuntă | voal | ten nuanța 5</annotation>
+		<annotation cp="👰🏾" type="tts">mireasă cu voal: ten nuanța 5</annotation>
+		<annotation cp="👰🏿">femeie | nuntă | voal | ten nuanța 6</annotation>
+		<annotation cp="👰🏿" type="tts">mireasă cu voal: ten nuanța 6</annotation>
+		<annotation cp="🤰🏻">femeie | gravidă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤰🏻" type="tts">femeie însărcinată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤰🏼">femeie | gravidă | ten nunața 3</annotation>
+		<annotation cp="🤰🏼" type="tts">femeie însărcinată: ten nunața 3</annotation>
+		<annotation cp="🤰🏽">femeie | gravidă | ten nuanța 4</annotation>
+		<annotation cp="🤰🏽" type="tts">femeie însărcinată: ten nuanța 4</annotation>
+		<annotation cp="🤰🏾">femeie | gravidă | ten nuanța 5</annotation>
+		<annotation cp="🤰🏾" type="tts">femeie însărcinată: ten nuanța 5</annotation>
+		<annotation cp="🤰🏿">femeie | gravidă | ten nuanța 6</annotation>
+		<annotation cp="🤰🏿" type="tts">femeie însărcinată: ten nuanța 6</annotation>
+		<annotation cp="👼🏻">aripi | aureolă | copil | fantezie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👼🏻" type="tts">bebeluș îngeraș: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👼🏼">aripi | aureolă | copil | fantezie | ten nunața 3</annotation>
+		<annotation cp="👼🏼" type="tts">bebeluș îngeraș: ten nunața 3</annotation>
+		<annotation cp="👼🏽">aripi | aureolă | copil | fantezie | ten nuanța 4</annotation>
+		<annotation cp="👼🏽" type="tts">bebeluș îngeraș: ten nuanța 4</annotation>
+		<annotation cp="👼🏾">aripi | aureolă | copil | fantezie | ten nuanța 5</annotation>
+		<annotation cp="👼🏾" type="tts">bebeluș îngeraș: ten nuanța 5</annotation>
+		<annotation cp="👼🏿">aripi | aureolă | copil | fantezie | ten nuanța 6</annotation>
+		<annotation cp="👼🏿" type="tts">bebeluș îngeraș: ten nuanța 6</annotation>
+		<annotation cp="🎅🏻">barbă | căciulă | poveste | sărbătoare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🎅🏻" type="tts">moș crăciun: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🎅🏼">barbă | căciulă | poveste | sărbătoare | ten nunața 3</annotation>
+		<annotation cp="🎅🏼" type="tts">moș crăciun: ten nunața 3</annotation>
+		<annotation cp="🎅🏽">barbă | căciulă | poveste | sărbătoare | ten nuanța 4</annotation>
+		<annotation cp="🎅🏽" type="tts">moș crăciun: ten nuanța 4</annotation>
+		<annotation cp="🎅🏾">barbă | căciulă | poveste | sărbătoare | ten nuanța 5</annotation>
+		<annotation cp="🎅🏾" type="tts">moș crăciun: ten nuanța 5</annotation>
+		<annotation cp="🎅🏿">barbă | căciulă | poveste | sărbătoare | ten nuanța 6</annotation>
+		<annotation cp="🎅🏿" type="tts">moș crăciun: ten nuanța 6</annotation>
+		<annotation cp="🤶🏻">Crăciun | doamna Crăciun | mamă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤶🏻" type="tts">doamna Crăciun: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤶🏼">Crăciun | doamna Crăciun | mamă | ten nunața 3</annotation>
+		<annotation cp="🤶🏼" type="tts">doamna Crăciun: ten nunața 3</annotation>
+		<annotation cp="🤶🏽">Crăciun | doamna Crăciun | mamă | ten nuanța 4</annotation>
+		<annotation cp="🤶🏽" type="tts">doamna Crăciun: ten nuanța 4</annotation>
+		<annotation cp="🤶🏾">Crăciun | doamna Crăciun | mamă | ten nuanța 5</annotation>
+		<annotation cp="🤶🏾" type="tts">doamna Crăciun: ten nuanța 5</annotation>
+		<annotation cp="🤶🏿">Crăciun | doamna Crăciun | mamă | ten nuanța 6</annotation>
+		<annotation cp="🤶🏿" type="tts">doamna Crăciun: ten nuanța 6</annotation>
+		<annotation cp="🙍🏻">expresie facială | sprâncene | supărare | încruntare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙍🏻" type="tts">persoană încruntată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙍🏼">expresie facială | sprâncene | supărare | încruntare | ten nunața 3</annotation>
+		<annotation cp="🙍🏼" type="tts">persoană încruntată: ten nunața 3</annotation>
+		<annotation cp="🙍🏽">expresie facială | sprâncene | supărare | încruntare | ten nuanța 4</annotation>
+		<annotation cp="🙍🏽" type="tts">persoană încruntată: ten nuanța 4</annotation>
+		<annotation cp="🙍🏾">expresie facială | sprâncene | supărare | încruntare | ten nuanța 5</annotation>
+		<annotation cp="🙍🏾" type="tts">persoană încruntată: ten nuanța 5</annotation>
+		<annotation cp="🙍🏿">expresie facială | sprâncene | supărare | încruntare | ten nuanța 6</annotation>
+		<annotation cp="🙍🏿" type="tts">persoană încruntată: ten nuanța 6</annotation>
+		<annotation cp="🙍🏻‍♂">bărbat | expresie facială | încruntare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">bărbat încruntat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙍🏼‍♂">bărbat | expresie facială | încruntare | ten nunața 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">bărbat încruntat: ten nunața 3</annotation>
+		<annotation cp="🙍🏽‍♂">bărbat | expresie facială | încruntare | ten nuanța 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">bărbat încruntat: ten nuanța 4</annotation>
+		<annotation cp="🙍🏾‍♂">bărbat | expresie facială | încruntare | ten nuanța 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">bărbat încruntat: ten nuanța 5</annotation>
+		<annotation cp="🙍🏿‍♂">bărbat | expresie facială | încruntare | ten nuanța 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">bărbat încruntat: ten nuanța 6</annotation>
+		<annotation cp="🙍🏻‍♀">expresie facială | femeie | încruntare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">femeie încruntată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙍🏼‍♀">expresie facială | femeie | încruntare | ten nunața 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">femeie încruntată: ten nunața 3</annotation>
+		<annotation cp="🙍🏽‍♀">expresie facială | femeie | încruntare | ten nuanța 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">femeie încruntată: ten nuanța 4</annotation>
+		<annotation cp="🙍🏾‍♀">expresie facială | femeie | încruntare | ten nuanța 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">femeie încruntată: ten nuanța 5</annotation>
+		<annotation cp="🙍🏿‍♀">expresie facială | femeie | încruntare | ten nuanța 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">femeie încruntată: ten nuanța 6</annotation>
+		<annotation cp="🙎🏻">expresie facială | îmbufnare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙎🏻" type="tts">persoană bosumflată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙎🏼">expresie facială | îmbufnare | ten nunața 3</annotation>
+		<annotation cp="🙎🏼" type="tts">persoană bosumflată: ten nunața 3</annotation>
+		<annotation cp="🙎🏽">expresie facială | îmbufnare | ten nuanța 4</annotation>
+		<annotation cp="🙎🏽" type="tts">persoană bosumflată: ten nuanța 4</annotation>
+		<annotation cp="🙎🏾">expresie facială | îmbufnare | ten nuanța 5</annotation>
+		<annotation cp="🙎🏾" type="tts">persoană bosumflată: ten nuanța 5</annotation>
+		<annotation cp="🙎🏿">expresie facială | îmbufnare | ten nuanța 6</annotation>
+		<annotation cp="🙎🏿" type="tts">persoană bosumflată: ten nuanța 6</annotation>
+		<annotation cp="🙎🏻‍♂">bosumflare | bărbat | expresie facială | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">bărbat bosumflat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙎🏼‍♂">bosumflare | bărbat | expresie facială | ten nunața 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">bărbat bosumflat: ten nunața 3</annotation>
+		<annotation cp="🙎🏽‍♂">bosumflare | bărbat | expresie facială | ten nuanța 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">bărbat bosumflat: ten nuanța 4</annotation>
+		<annotation cp="🙎🏾‍♂">bosumflare | bărbat | expresie facială | ten nuanța 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">bărbat bosumflat: ten nuanța 5</annotation>
+		<annotation cp="🙎🏿‍♂">bosumflare | bărbat | expresie facială | ten nuanța 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">bărbat bosumflat: ten nuanța 6</annotation>
+		<annotation cp="🙎🏻‍♀">bosumflare | expresie facială | femeie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">femeie bosumflată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙎🏼‍♀">bosumflare | expresie facială | femeie | ten nunața 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">femeie bosumflată: ten nunața 3</annotation>
+		<annotation cp="🙎🏽‍♀">bosumflare | expresie facială | femeie | ten nuanța 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">femeie bosumflată: ten nuanța 4</annotation>
+		<annotation cp="🙎🏾‍♀">bosumflare | expresie facială | femeie | ten nuanța 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">femeie bosumflată: ten nuanța 5</annotation>
+		<annotation cp="🙎🏿‍♀">bosumflare | expresie facială | femeie | ten nuanța 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">femeie bosumflată: ten nuanța 6</annotation>
+		<annotation cp="🙅🏻">gest | interzis | mâini | nu | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙅🏻" type="tts">gestul nu: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙅🏼">gest | interzis | mâini | nu | ten nunața 3</annotation>
+		<annotation cp="🙅🏼" type="tts">gestul nu: ten nunața 3</annotation>
+		<annotation cp="🙅🏽">gest | interzis | mâini | nu | ten nuanța 4</annotation>
+		<annotation cp="🙅🏽" type="tts">gestul nu: ten nuanța 4</annotation>
+		<annotation cp="🙅🏾">gest | interzis | mâini | nu | ten nuanța 5</annotation>
+		<annotation cp="🙅🏾" type="tts">gestul nu: ten nuanța 5</annotation>
+		<annotation cp="🙅🏿">gest | interzis | mâini | nu | ten nuanța 6</annotation>
+		<annotation cp="🙅🏿" type="tts">gestul nu: ten nuanța 6</annotation>
+		<annotation cp="🙅🏻‍♂">gest | interzis | mâini | nu | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">bărbat gesticulează interdicție: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙅🏼‍♂">gest | interzis | mâini | nu | ten nunața 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">bărbat gesticulează interdicție: ten nunața 3</annotation>
+		<annotation cp="🙅🏽‍♂">gest | interzis | mâini | nu | ten nuanța 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">bărbat gesticulează interdicție: ten nuanța 4</annotation>
+		<annotation cp="🙅🏾‍♂">gest | interzis | mâini | nu | ten nuanța 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">bărbat gesticulează interdicție: ten nuanța 5</annotation>
+		<annotation cp="🙅🏿‍♂">gest | interzis | mâini | nu | ten nuanța 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">bărbat gesticulează interdicție: ten nuanța 6</annotation>
+		<annotation cp="🙅🏻‍♀">gest | interzis | mâini | nu | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">femeie gesticulează interdicție: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙅🏼‍♀">gest | interzis | mâini | nu | ten nunața 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">femeie gesticulează interdicție: ten nunața 3</annotation>
+		<annotation cp="🙅🏽‍♀">gest | interzis | mâini | nu | ten nuanța 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">femeie gesticulează interdicție: ten nuanța 4</annotation>
+		<annotation cp="🙅🏾‍♀">gest | interzis | mâini | nu | ten nuanța 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">femeie gesticulează interdicție: ten nuanța 5</annotation>
+		<annotation cp="🙅🏿‍♀">gest | interzis | mâini | nu | ten nuanța 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">femeie gesticulează interdicție: ten nuanța 6</annotation>
+		<annotation cp="🙆🏻">acord | gest | ok | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙆🏻" type="tts">gestul ok: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙆🏼">acord | gest | ok | ten nunața 3</annotation>
+		<annotation cp="🙆🏼" type="tts">gestul ok: ten nunața 3</annotation>
+		<annotation cp="🙆🏽">acord | gest | ok | ten nuanța 4</annotation>
+		<annotation cp="🙆🏽" type="tts">gestul ok: ten nuanța 4</annotation>
+		<annotation cp="🙆🏾">acord | gest | ok | ten nuanța 5</annotation>
+		<annotation cp="🙆🏾" type="tts">gestul ok: ten nuanța 5</annotation>
+		<annotation cp="🙆🏿">acord | gest | ok | ten nuanța 6</annotation>
+		<annotation cp="🙆🏿" type="tts">gestul ok: ten nuanța 6</annotation>
+		<annotation cp="🙆🏻‍♂">gest | mâini | ok | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">bărbat gesticulează ok: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙆🏼‍♂">gest | mâini | ok | ten nunața 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">bărbat gesticulează ok: ten nunața 3</annotation>
+		<annotation cp="🙆🏽‍♂">gest | mâini | ok | ten nuanța 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">bărbat gesticulează ok: ten nuanța 4</annotation>
+		<annotation cp="🙆🏾‍♂">gest | mâini | ok | ten nuanța 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">bărbat gesticulează ok: ten nuanța 5</annotation>
+		<annotation cp="🙆🏿‍♂">gest | mâini | ok | ten nuanța 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">bărbat gesticulează ok: ten nuanța 6</annotation>
+		<annotation cp="🙆🏻‍♀">gest | mâini | ok | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">femeie gesticulează ok: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙆🏼‍♀">gest | mâini | ok | ten nunața 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">femeie gesticulează ok: ten nunața 3</annotation>
+		<annotation cp="🙆🏽‍♀">gest | mâini | ok | ten nuanța 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">femeie gesticulează ok: ten nuanța 4</annotation>
+		<annotation cp="🙆🏾‍♀">gest | mâini | ok | ten nuanța 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">femeie gesticulează ok: ten nuanța 5</annotation>
+		<annotation cp="🙆🏿‍♀">gest | mâini | ok | ten nuanța 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">femeie gesticulează ok: ten nuanța 6</annotation>
+		<annotation cp="💁🏻">ajutor | asistență | informații | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💁🏻" type="tts">persoană de la informații: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💁🏼">ajutor | asistență | informații | ten nunața 3</annotation>
+		<annotation cp="💁🏼" type="tts">persoană de la informații: ten nunața 3</annotation>
+		<annotation cp="💁🏽">ajutor | asistență | informații | ten nuanța 4</annotation>
+		<annotation cp="💁🏽" type="tts">persoană de la informații: ten nuanța 4</annotation>
+		<annotation cp="💁🏾">ajutor | asistență | informații | ten nuanța 5</annotation>
+		<annotation cp="💁🏾" type="tts">persoană de la informații: ten nuanța 5</annotation>
+		<annotation cp="💁🏿">ajutor | asistență | informații | ten nuanța 6</annotation>
+		<annotation cp="💁🏿" type="tts">persoană de la informații: ten nuanța 6</annotation>
+		<annotation cp="💁🏻‍♂">asistență | bărbat | exuberant | informații | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">bărbat de la informații: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💁🏼‍♂">asistență | bărbat | exuberant | informații | ten nunața 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">bărbat de la informații: ten nunața 3</annotation>
+		<annotation cp="💁🏽‍♂">asistență | bărbat | exuberant | informații | ten nuanța 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">bărbat de la informații: ten nuanța 4</annotation>
+		<annotation cp="💁🏾‍♂">asistență | bărbat | exuberant | informații | ten nuanța 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">bărbat de la informații: ten nuanța 5</annotation>
+		<annotation cp="💁🏿‍♂">asistență | bărbat | exuberant | informații | ten nuanța 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">bărbat de la informații: ten nuanța 6</annotation>
+		<annotation cp="💁🏻‍♀">asistență | exuberantă | femeie | informații | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">femeie de la informații: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💁🏼‍♀">asistență | exuberantă | femeie | informații | ten nunața 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">femeie de la informații: ten nunața 3</annotation>
+		<annotation cp="💁🏽‍♀">asistență | exuberantă | femeie | informații | ten nuanța 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">femeie de la informații: ten nuanța 4</annotation>
+		<annotation cp="💁🏾‍♀">asistență | exuberantă | femeie | informații | ten nuanța 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">femeie de la informații: ten nuanța 5</annotation>
+		<annotation cp="💁🏿‍♀">asistență | exuberantă | femeie | informații | ten nuanța 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">femeie de la informații: ten nuanța 6</annotation>
+		<annotation cp="🙋🏻">gest | mână | ridicat | veselie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙋🏻" type="tts">persoană veselă, cu mâna sus: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙋🏼">gest | mână | ridicat | veselie | ten nunața 3</annotation>
+		<annotation cp="🙋🏼" type="tts">persoană veselă, cu mâna sus: ten nunața 3</annotation>
+		<annotation cp="🙋🏽">gest | mână | ridicat | veselie | ten nuanța 4</annotation>
+		<annotation cp="🙋🏽" type="tts">persoană veselă, cu mâna sus: ten nuanța 4</annotation>
+		<annotation cp="🙋🏾">gest | mână | ridicat | veselie | ten nuanța 5</annotation>
+		<annotation cp="🙋🏾" type="tts">persoană veselă, cu mâna sus: ten nuanța 5</annotation>
+		<annotation cp="🙋🏿">gest | mână | ridicat | veselie | ten nuanța 6</annotation>
+		<annotation cp="🙋🏿" type="tts">persoană veselă, cu mâna sus: ten nuanța 6</annotation>
+		<annotation cp="🙋🏻‍♂">bărbat | gest | mână ridicată | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">bărbat ridică mâna: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙋🏼‍♂">bărbat | gest | mână ridicată | ten nunața 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">bărbat ridică mâna: ten nunața 3</annotation>
+		<annotation cp="🙋🏽‍♂">bărbat | gest | mână ridicată | ten nuanța 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">bărbat ridică mâna: ten nuanța 4</annotation>
+		<annotation cp="🙋🏾‍♂">bărbat | gest | mână ridicată | ten nuanța 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">bărbat ridică mâna: ten nuanța 5</annotation>
+		<annotation cp="🙋🏿‍♂">bărbat | gest | mână ridicată | ten nuanța 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">bărbat ridică mâna: ten nuanța 6</annotation>
+		<annotation cp="🙋🏻‍♀">femeie | gest | mână ridicată | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">femeie ridică mâna: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙋🏼‍♀">femeie | gest | mână ridicată | ten nunața 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">femeie ridică mâna: ten nunața 3</annotation>
+		<annotation cp="🙋🏽‍♀">femeie | gest | mână ridicată | ten nuanța 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">femeie ridică mâna: ten nuanța 4</annotation>
+		<annotation cp="🙋🏾‍♀">femeie | gest | mână ridicată | ten nuanța 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">femeie ridică mâna: ten nuanța 5</annotation>
+		<annotation cp="🙋🏿‍♀">femeie | gest | mână ridicată | ten nuanța 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">femeie ridică mâna: ten nuanța 6</annotation>
+		<annotation cp="🙇🏻">respect | scuză | înclinare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙇🏻" type="tts">persoană care se înclină: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙇🏼">respect | scuză | înclinare | ten nunața 3</annotation>
+		<annotation cp="🙇🏼" type="tts">persoană care se înclină: ten nunața 3</annotation>
+		<annotation cp="🙇🏽">respect | scuză | înclinare | ten nuanța 4</annotation>
+		<annotation cp="🙇🏽" type="tts">persoană care se înclină: ten nuanța 4</annotation>
+		<annotation cp="🙇🏾">respect | scuză | înclinare | ten nuanța 5</annotation>
+		<annotation cp="🙇🏾" type="tts">persoană care se înclină: ten nuanța 5</annotation>
+		<annotation cp="🙇🏿">respect | scuză | înclinare | ten nuanța 6</annotation>
+		<annotation cp="🙇🏿" type="tts">persoană care se înclină: ten nuanța 6</annotation>
+		<annotation cp="🙇🏻‍♂">gest | respect | scuză | înclinare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">bărbat se înclină: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙇🏼‍♂">gest | respect | scuză | înclinare | ten nunața 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">bărbat se înclină: ten nunața 3</annotation>
+		<annotation cp="🙇🏽‍♂">gest | respect | scuză | înclinare | ten nuanța 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">bărbat se înclină: ten nuanța 4</annotation>
+		<annotation cp="🙇🏾‍♂">gest | respect | scuză | înclinare | ten nuanța 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">bărbat se înclină: ten nuanța 5</annotation>
+		<annotation cp="🙇🏿‍♂">gest | respect | scuză | înclinare | ten nuanța 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">bărbat se înclină: ten nuanța 6</annotation>
+		<annotation cp="🙇🏻‍♀">gest | respect | scuză | înclinare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">femeie se înclină: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙇🏼‍♀">gest | respect | scuză | înclinare | ten nunața 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">femeie se înclină: ten nunața 3</annotation>
+		<annotation cp="🙇🏽‍♀">gest | respect | scuză | înclinare | ten nuanța 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">femeie se înclină: ten nuanța 4</annotation>
+		<annotation cp="🙇🏾‍♀">gest | respect | scuză | înclinare | ten nuanța 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">femeie se înclină: ten nuanța 5</annotation>
+		<annotation cp="🙇🏿‍♀">gest | respect | scuză | înclinare | ten nuanța 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">femeie se înclină: ten nuanța 6</annotation>
+		<annotation cp="🤦🏻">exasperare | față | incredibil | palmă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤦🏻" type="tts">palmă peste față: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤦🏼">exasperare | față | incredibil | palmă | ten nunața 3</annotation>
+		<annotation cp="🤦🏼" type="tts">palmă peste față: ten nunața 3</annotation>
+		<annotation cp="🤦🏽">exasperare | față | incredibil | palmă | ten nuanța 4</annotation>
+		<annotation cp="🤦🏽" type="tts">palmă peste față: ten nuanța 4</annotation>
+		<annotation cp="🤦🏾">exasperare | față | incredibil | palmă | ten nuanța 5</annotation>
+		<annotation cp="🤦🏾" type="tts">palmă peste față: ten nuanța 5</annotation>
+		<annotation cp="🤦🏿">exasperare | față | incredibil | palmă | ten nuanța 6</annotation>
+		<annotation cp="🤦🏿" type="tts">palmă peste față: ten nuanța 6</annotation>
+		<annotation cp="🤦🏻‍♂">bărbat | exasperare | incredibil | palmă peste față | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">bărbat își dă o palmă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤦🏼‍♂">bărbat | exasperare | incredibil | palmă peste față | ten nunața 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">bărbat își dă o palmă: ten nunața 3</annotation>
+		<annotation cp="🤦🏽‍♂">bărbat | exasperare | incredibil | palmă peste față | ten nuanța 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">bărbat își dă o palmă: ten nuanța 4</annotation>
+		<annotation cp="🤦🏾‍♂">bărbat | exasperare | incredibil | palmă peste față | ten nuanța 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">bărbat își dă o palmă: ten nuanța 5</annotation>
+		<annotation cp="🤦🏿‍♂">bărbat | exasperare | incredibil | palmă peste față | ten nuanța 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">bărbat își dă o palmă: ten nuanța 6</annotation>
+		<annotation cp="🤦🏻‍♀">exasperare | femeie | incredibil | palmă peste față | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">femeie își dă o palmă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤦🏼‍♀">exasperare | femeie | incredibil | palmă peste față | ten nunața 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">femeie își dă o palmă: ten nunața 3</annotation>
+		<annotation cp="🤦🏽‍♀">exasperare | femeie | incredibil | palmă peste față | ten nuanța 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">femeie își dă o palmă: ten nuanța 4</annotation>
+		<annotation cp="🤦🏾‍♀">exasperare | femeie | incredibil | palmă peste față | ten nuanța 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">femeie își dă o palmă: ten nuanța 5</annotation>
+		<annotation cp="🤦🏿‍♀">exasperare | femeie | incredibil | palmă peste față | ten nuanța 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">femeie își dă o palmă: ten nuanța 6</annotation>
+		<annotation cp="🤷🏻">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤷🏻" type="tts">ridicat din umeri: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤷🏼">ignoranță | indiferență | ridicare din umeri | îndoială | ten nunața 3</annotation>
+		<annotation cp="🤷🏼" type="tts">ridicat din umeri: ten nunața 3</annotation>
+		<annotation cp="🤷🏽">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 4</annotation>
+		<annotation cp="🤷🏽" type="tts">ridicat din umeri: ten nuanța 4</annotation>
+		<annotation cp="🤷🏾">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 5</annotation>
+		<annotation cp="🤷🏾" type="tts">ridicat din umeri: ten nuanța 5</annotation>
+		<annotation cp="🤷🏿">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 6</annotation>
+		<annotation cp="🤷🏿" type="tts">ridicat din umeri: ten nuanța 6</annotation>
+		<annotation cp="🤷🏻‍♂">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">bărbat ridică din umeri: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤷🏼‍♂">ignoranță | indiferență | ridicare din umeri | îndoială | ten nunața 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">bărbat ridică din umeri: ten nunața 3</annotation>
+		<annotation cp="🤷🏽‍♂">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">bărbat ridică din umeri: ten nuanța 4</annotation>
+		<annotation cp="🤷🏾‍♂">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">bărbat ridică din umeri: ten nuanța 5</annotation>
+		<annotation cp="🤷🏿‍♂">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">bărbat ridică din umeri: ten nuanța 6</annotation>
+		<annotation cp="🤷🏻‍♀">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">femeie ridică din umeri: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤷🏼‍♀">ignoranță | indiferență | ridicare din umeri | îndoială | ten nunața 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">femeie ridică din umeri: ten nunața 3</annotation>
+		<annotation cp="🤷🏽‍♀">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">femeie ridică din umeri: ten nuanța 4</annotation>
+		<annotation cp="🤷🏾‍♀">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">femeie ridică din umeri: ten nuanța 5</annotation>
+		<annotation cp="🤷🏿‍♀">ignoranță | indiferență | ridicare din umeri | îndoială | ten nuanța 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">femeie ridică din umeri: ten nuanța 6</annotation>
+		<annotation cp="💆🏻">masaj | relaxare | salon | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💆🏻" type="tts">masaj facial: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💆🏼">masaj | relaxare | salon | ten nunața 3</annotation>
+		<annotation cp="💆🏼" type="tts">masaj facial: ten nunața 3</annotation>
+		<annotation cp="💆🏽">masaj | relaxare | salon | ten nuanța 4</annotation>
+		<annotation cp="💆🏽" type="tts">masaj facial: ten nuanța 4</annotation>
+		<annotation cp="💆🏾">masaj | relaxare | salon | ten nuanța 5</annotation>
+		<annotation cp="💆🏾" type="tts">masaj facial: ten nuanța 5</annotation>
+		<annotation cp="💆🏿">masaj | relaxare | salon | ten nuanța 6</annotation>
+		<annotation cp="💆🏿" type="tts">masaj facial: ten nuanța 6</annotation>
+		<annotation cp="💆🏻‍♂">bărbat | față | masaj facial | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">bărbat primește masaj facial: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💆🏼‍♂">bărbat | față | masaj facial | ten nunața 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">bărbat primește masaj facial: ten nunața 3</annotation>
+		<annotation cp="💆🏽‍♂">bărbat | față | masaj facial | ten nuanța 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">bărbat primește masaj facial: ten nuanța 4</annotation>
+		<annotation cp="💆🏾‍♂">bărbat | față | masaj facial | ten nuanța 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">bărbat primește masaj facial: ten nuanța 5</annotation>
+		<annotation cp="💆🏿‍♂">bărbat | față | masaj facial | ten nuanța 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">bărbat primește masaj facial: ten nuanța 6</annotation>
+		<annotation cp="💆🏻‍♀">față | femeie | masaj facial | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">femeie primește masaj facial: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💆🏼‍♀">față | femeie | masaj facial | ten nunața 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">femeie primește masaj facial: ten nunața 3</annotation>
+		<annotation cp="💆🏽‍♀">față | femeie | masaj facial | ten nuanța 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">femeie primește masaj facial: ten nuanța 4</annotation>
+		<annotation cp="💆🏾‍♀">față | femeie | masaj facial | ten nuanța 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">femeie primește masaj facial: ten nuanța 5</annotation>
+		<annotation cp="💆🏿‍♀">față | femeie | masaj facial | ten nuanța 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">femeie primește masaj facial: ten nuanța 6</annotation>
+		<annotation cp="💇🏻">coafor | foarfecă | păr | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💇🏻" type="tts">tunsoare: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💇🏼">coafor | foarfecă | păr | ten nunața 3</annotation>
+		<annotation cp="💇🏼" type="tts">tunsoare: ten nunața 3</annotation>
+		<annotation cp="💇🏽">coafor | foarfecă | păr | ten nuanța 4</annotation>
+		<annotation cp="💇🏽" type="tts">tunsoare: ten nuanța 4</annotation>
+		<annotation cp="💇🏾">coafor | foarfecă | păr | ten nuanța 5</annotation>
+		<annotation cp="💇🏾" type="tts">tunsoare: ten nuanța 5</annotation>
+		<annotation cp="💇🏿">coafor | foarfecă | păr | ten nuanța 6</annotation>
+		<annotation cp="💇🏿" type="tts">tunsoare: ten nuanța 6</annotation>
+		<annotation cp="💇🏻‍♂">bărbat | coafor | tunsoare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">bărbat se tunde: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💇🏼‍♂">bărbat | coafor | tunsoare | ten nunața 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">bărbat se tunde: ten nunața 3</annotation>
+		<annotation cp="💇🏽‍♂">bărbat | coafor | tunsoare | ten nuanța 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">bărbat se tunde: ten nuanța 4</annotation>
+		<annotation cp="💇🏾‍♂">bărbat | coafor | tunsoare | ten nuanța 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">bărbat se tunde: ten nuanța 5</annotation>
+		<annotation cp="💇🏿‍♂">bărbat | coafor | tunsoare | ten nuanța 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">bărbat se tunde: ten nuanța 6</annotation>
+		<annotation cp="💇🏻‍♀">coafor | femeie | tunsoare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">femeie se tunde: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💇🏼‍♀">coafor | femeie | tunsoare | ten nunața 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">femeie se tunde: ten nunața 3</annotation>
+		<annotation cp="💇🏽‍♀">coafor | femeie | tunsoare | ten nuanța 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">femeie se tunde: ten nuanța 4</annotation>
+		<annotation cp="💇🏾‍♀">coafor | femeie | tunsoare | ten nuanța 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">femeie se tunde: ten nuanța 5</annotation>
+		<annotation cp="💇🏿‍♀">coafor | femeie | tunsoare | ten nuanța 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">femeie se tunde: ten nuanța 6</annotation>
+		<annotation cp="🚶🏻">deplasare | mers | plimbare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚶🏻" type="tts">pieton: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚶🏼">deplasare | mers | plimbare | ten nunața 3</annotation>
+		<annotation cp="🚶🏼" type="tts">pieton: ten nunața 3</annotation>
+		<annotation cp="🚶🏽">deplasare | mers | plimbare | ten nuanța 4</annotation>
+		<annotation cp="🚶🏽" type="tts">pieton: ten nuanța 4</annotation>
+		<annotation cp="🚶🏾">deplasare | mers | plimbare | ten nuanța 5</annotation>
+		<annotation cp="🚶🏾" type="tts">pieton: ten nuanța 5</annotation>
+		<annotation cp="🚶🏿">deplasare | mers | plimbare | ten nuanța 6</annotation>
+		<annotation cp="🚶🏿" type="tts">pieton: ten nuanța 6</annotation>
+		<annotation cp="🚶🏻‍♂">bărbat | mers | plimbare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">bărbat în mers: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚶🏼‍♂">bărbat | mers | plimbare | ten nunața 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">bărbat în mers: ten nunața 3</annotation>
+		<annotation cp="🚶🏽‍♂">bărbat | mers | plimbare | ten nuanța 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">bărbat în mers: ten nuanța 4</annotation>
+		<annotation cp="🚶🏾‍♂">bărbat | mers | plimbare | ten nuanța 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">bărbat în mers: ten nuanța 5</annotation>
+		<annotation cp="🚶🏿‍♂">bărbat | mers | plimbare | ten nuanța 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">bărbat în mers: ten nuanța 6</annotation>
+		<annotation cp="🚶🏻‍♀">femeie | mers | plimbare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">femeie în mers: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚶🏼‍♀">femeie | mers | plimbare | ten nunața 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">femeie în mers: ten nunața 3</annotation>
+		<annotation cp="🚶🏽‍♀">femeie | mers | plimbare | ten nuanța 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">femeie în mers: ten nuanța 4</annotation>
+		<annotation cp="🚶🏾‍♀">femeie | mers | plimbare | ten nuanța 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">femeie în mers: ten nuanța 5</annotation>
+		<annotation cp="🚶🏿‍♀">femeie | mers | plimbare | ten nuanța 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">femeie în mers: ten nuanța 6</annotation>
+		<annotation cp="🏃🏻">alergare | fugă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏃🏻" type="tts">alergător: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏃🏼">alergare | fugă | ten nunața 3</annotation>
+		<annotation cp="🏃🏼" type="tts">alergător: ten nunața 3</annotation>
+		<annotation cp="🏃🏽">alergare | fugă | ten nuanța 4</annotation>
+		<annotation cp="🏃🏽" type="tts">alergător: ten nuanța 4</annotation>
+		<annotation cp="🏃🏾">alergare | fugă | ten nuanța 5</annotation>
+		<annotation cp="🏃🏾" type="tts">alergător: ten nuanța 5</annotation>
+		<annotation cp="🏃🏿">alergare | fugă | ten nuanța 6</annotation>
+		<annotation cp="🏃🏿" type="tts">alergător: ten nuanța 6</annotation>
+		<annotation cp="🏃🏻‍♂">alergare | bărbat | fugă | maraton | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">bărbat alergând: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏃🏼‍♂">alergare | bărbat | fugă | maraton | ten nunața 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">bărbat alergând: ten nunața 3</annotation>
+		<annotation cp="🏃🏽‍♂">alergare | bărbat | fugă | maraton | ten nuanța 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">bărbat alergând: ten nuanța 4</annotation>
+		<annotation cp="🏃🏾‍♂">alergare | bărbat | fugă | maraton | ten nuanța 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">bărbat alergând: ten nuanța 5</annotation>
+		<annotation cp="🏃🏿‍♂">alergare | bărbat | fugă | maraton | ten nuanța 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">bărbat alergând: ten nuanța 6</annotation>
+		<annotation cp="🏃🏻‍♀">alergare | femeie | fugă | maraton | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">femeie alergând: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏃🏼‍♀">alergare | femeie | fugă | maraton | ten nunața 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">femeie alergând: ten nunața 3</annotation>
+		<annotation cp="🏃🏽‍♀">alergare | femeie | fugă | maraton | ten nuanța 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">femeie alergând: ten nuanța 4</annotation>
+		<annotation cp="🏃🏾‍♀">alergare | femeie | fugă | maraton | ten nuanța 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">femeie alergând: ten nuanța 5</annotation>
+		<annotation cp="🏃🏿‍♀">alergare | femeie | fugă | maraton | ten nuanța 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">femeie alergând: ten nuanța 6</annotation>
+		<annotation cp="💃🏻">dans | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💃🏻" type="tts">dansatoare: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💃🏼">dans | ten nunața 3</annotation>
+		<annotation cp="💃🏼" type="tts">dansatoare: ten nunața 3</annotation>
+		<annotation cp="💃🏽">dans | ten nuanța 4</annotation>
+		<annotation cp="💃🏽" type="tts">dansatoare: ten nuanța 4</annotation>
+		<annotation cp="💃🏾">dans | ten nuanța 5</annotation>
+		<annotation cp="💃🏾" type="tts">dansatoare: ten nuanța 5</annotation>
+		<annotation cp="💃🏿">dans | ten nuanța 6</annotation>
+		<annotation cp="💃🏿" type="tts">dansatoare: ten nuanța 6</annotation>
+		<annotation cp="🕺🏻">bărbat | dans | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕺🏻" type="tts">dansator: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕺🏼">bărbat | dans | ten nunața 3</annotation>
+		<annotation cp="🕺🏼" type="tts">dansator: ten nunața 3</annotation>
+		<annotation cp="🕺🏽">bărbat | dans | ten nuanța 4</annotation>
+		<annotation cp="🕺🏽" type="tts">dansator: ten nuanța 4</annotation>
+		<annotation cp="🕺🏾">bărbat | dans | ten nuanța 5</annotation>
+		<annotation cp="🕺🏾" type="tts">dansator: ten nuanța 5</annotation>
+		<annotation cp="🕺🏿">bărbat | dans | ten nuanța 6</annotation>
+		<annotation cp="🕺🏿" type="tts">dansator: ten nuanța 6</annotation>
+		<annotation cp="🛀🏻">cadă | om | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🛀🏻" type="tts">persoană care face baie: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🛀🏼">cadă | om | ten nunața 3</annotation>
+		<annotation cp="🛀🏼" type="tts">persoană care face baie: ten nunața 3</annotation>
+		<annotation cp="🛀🏽">cadă | om | ten nuanța 4</annotation>
+		<annotation cp="🛀🏽" type="tts">persoană care face baie: ten nuanța 4</annotation>
+		<annotation cp="🛀🏾">cadă | om | ten nuanța 5</annotation>
+		<annotation cp="🛀🏾" type="tts">persoană care face baie: ten nuanța 5</annotation>
+		<annotation cp="🛀🏿">cadă | om | ten nuanța 6</annotation>
+		<annotation cp="🛀🏿" type="tts">persoană care face baie: ten nuanța 6</annotation>
+		<annotation cp="🛌🏻">om | pat | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🛌🏻" type="tts">persoană în pat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🛌🏼">om | pat | ten nunața 3</annotation>
+		<annotation cp="🛌🏼" type="tts">persoană în pat: ten nunața 3</annotation>
+		<annotation cp="🛌🏽">om | pat | ten nuanța 4</annotation>
+		<annotation cp="🛌🏽" type="tts">persoană în pat: ten nuanța 4</annotation>
+		<annotation cp="🛌🏾">om | pat | ten nuanța 5</annotation>
+		<annotation cp="🛌🏾" type="tts">persoană în pat: ten nuanța 5</annotation>
+		<annotation cp="🛌🏿">om | pat | ten nuanța 6</annotation>
+		<annotation cp="🛌🏿" type="tts">persoană în pat: ten nuanța 6</annotation>
+		<annotation cp="🕴🏻">afaceri | bărbat | costum | plutire | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕴🏻" type="tts">bărbat la costum, levitând: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🕴🏼">afaceri | bărbat | costum | plutire | ten nunața 3</annotation>
+		<annotation cp="🕴🏼" type="tts">bărbat la costum, levitând: ten nunața 3</annotation>
+		<annotation cp="🕴🏽">afaceri | bărbat | costum | plutire | ten nuanța 4</annotation>
+		<annotation cp="🕴🏽" type="tts">bărbat la costum, levitând: ten nuanța 4</annotation>
+		<annotation cp="🕴🏾">afaceri | bărbat | costum | plutire | ten nuanța 5</annotation>
+		<annotation cp="🕴🏾" type="tts">bărbat la costum, levitând: ten nuanța 5</annotation>
+		<annotation cp="🕴🏿">afaceri | bărbat | costum | plutire | ten nuanța 6</annotation>
+		<annotation cp="🕴🏿" type="tts">bărbat la costum, levitând: ten nuanța 6</annotation>
+		<annotation cp="🏇🏻">cai | concurs | cursă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏇🏻" type="tts">curse de cai: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏇🏼">cai | concurs | cursă | ten nunața 3</annotation>
+		<annotation cp="🏇🏼" type="tts">curse de cai: ten nunața 3</annotation>
+		<annotation cp="🏇🏽">cai | concurs | cursă | ten nuanța 4</annotation>
+		<annotation cp="🏇🏽" type="tts">curse de cai: ten nuanța 4</annotation>
+		<annotation cp="🏇🏾">cai | concurs | cursă | ten nuanța 5</annotation>
+		<annotation cp="🏇🏾" type="tts">curse de cai: ten nuanța 5</annotation>
+		<annotation cp="🏇🏿">cai | concurs | cursă | ten nuanța 6</annotation>
+		<annotation cp="🏇🏿" type="tts">curse de cai: ten nuanța 6</annotation>
+		<annotation cp="🏂🏻">placă | zăpadă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏂🏻" type="tts">snow-boarder: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏂🏼">placă | zăpadă | ten nunața 3</annotation>
+		<annotation cp="🏂🏼" type="tts">snow-boarder: ten nunața 3</annotation>
+		<annotation cp="🏂🏽">placă | zăpadă | ten nuanța 4</annotation>
+		<annotation cp="🏂🏽" type="tts">snow-boarder: ten nuanța 4</annotation>
+		<annotation cp="🏂🏾">placă | zăpadă | ten nuanța 5</annotation>
+		<annotation cp="🏂🏾" type="tts">snow-boarder: ten nuanța 5</annotation>
+		<annotation cp="🏂🏿">placă | zăpadă | ten nuanța 6</annotation>
+		<annotation cp="🏂🏿" type="tts">snow-boarder: ten nuanța 6</annotation>
+		<annotation cp="🏌🏻">jucător | om | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏌🏻" type="tts">jucător de golf: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏌🏼">jucător | om | ten nunața 3</annotation>
+		<annotation cp="🏌🏼" type="tts">jucător de golf: ten nunața 3</annotation>
+		<annotation cp="🏌🏽">jucător | om | ten nuanța 4</annotation>
+		<annotation cp="🏌🏽" type="tts">jucător de golf: ten nuanța 4</annotation>
+		<annotation cp="🏌🏾">jucător | om | ten nuanța 5</annotation>
+		<annotation cp="🏌🏾" type="tts">jucător de golf: ten nuanța 5</annotation>
+		<annotation cp="🏌🏿">jucător | om | ten nuanța 6</annotation>
+		<annotation cp="🏌🏿" type="tts">jucător de golf: ten nuanța 6</annotation>
+		<annotation cp="🏌🏻‍♂">bărbat | golf | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">bărbat joacă golf: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏌🏼‍♂">bărbat | golf | ten nunața 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">bărbat joacă golf: ten nunața 3</annotation>
+		<annotation cp="🏌🏽‍♂">bărbat | golf | ten nuanța 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">bărbat joacă golf: ten nuanța 4</annotation>
+		<annotation cp="🏌🏾‍♂">bărbat | golf | ten nuanța 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">bărbat joacă golf: ten nuanța 5</annotation>
+		<annotation cp="🏌🏿‍♂">bărbat | golf | ten nuanța 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">bărbat joacă golf: ten nuanța 6</annotation>
+		<annotation cp="🏌🏻‍♀">femeie | golf | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">femeie joacă golf: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏌🏼‍♀">femeie | golf | ten nunața 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">femeie joacă golf: ten nunața 3</annotation>
+		<annotation cp="🏌🏽‍♀">femeie | golf | ten nuanța 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">femeie joacă golf: ten nuanța 4</annotation>
+		<annotation cp="🏌🏾‍♀">femeie | golf | ten nuanța 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">femeie joacă golf: ten nuanța 5</annotation>
+		<annotation cp="🏌🏿‍♀">femeie | golf | ten nuanța 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">femeie joacă golf: ten nuanța 6</annotation>
+		<annotation cp="🏄🏻">ocean | placă | valuri | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏄🏻" type="tts">surfer: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏄🏼">ocean | placă | valuri | ten nunața 3</annotation>
+		<annotation cp="🏄🏼" type="tts">surfer: ten nunața 3</annotation>
+		<annotation cp="🏄🏽">ocean | placă | valuri | ten nuanța 4</annotation>
+		<annotation cp="🏄🏽" type="tts">surfer: ten nuanța 4</annotation>
+		<annotation cp="🏄🏾">ocean | placă | valuri | ten nuanța 5</annotation>
+		<annotation cp="🏄🏾" type="tts">surfer: ten nuanța 5</annotation>
+		<annotation cp="🏄🏿">ocean | placă | valuri | ten nuanța 6</annotation>
+		<annotation cp="🏄🏿" type="tts">surfer: ten nuanța 6</annotation>
+		<annotation cp="🏄🏻‍♂">bărbat | surfing | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">bărbat la surfing: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏄🏼‍♂">bărbat | surfing | ten nunața 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">bărbat la surfing: ten nunața 3</annotation>
+		<annotation cp="🏄🏽‍♂">bărbat | surfing | ten nuanța 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">bărbat la surfing: ten nuanța 4</annotation>
+		<annotation cp="🏄🏾‍♂">bărbat | surfing | ten nuanța 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">bărbat la surfing: ten nuanța 5</annotation>
+		<annotation cp="🏄🏿‍♂">bărbat | surfing | ten nuanța 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">bărbat la surfing: ten nuanța 6</annotation>
+		<annotation cp="🏄🏻‍♀">femeie | surfing | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">femeie la surfing: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏄🏼‍♀">femeie | surfing | ten nunața 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">femeie la surfing: ten nunața 3</annotation>
+		<annotation cp="🏄🏽‍♀">femeie | surfing | ten nuanța 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">femeie la surfing: ten nuanța 4</annotation>
+		<annotation cp="🏄🏾‍♀">femeie | surfing | ten nuanța 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">femeie la surfing: ten nuanța 5</annotation>
+		<annotation cp="🏄🏿‍♀">femeie | surfing | ten nuanța 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">femeie la surfing: ten nuanța 6</annotation>
+		<annotation cp="🚣🏻">barcă | vâsle | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚣🏻" type="tts">barcă cu vâsle: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚣🏼">barcă | vâsle | ten nunața 3</annotation>
+		<annotation cp="🚣🏼" type="tts">barcă cu vâsle: ten nunața 3</annotation>
+		<annotation cp="🚣🏽">barcă | vâsle | ten nuanța 4</annotation>
+		<annotation cp="🚣🏽" type="tts">barcă cu vâsle: ten nuanța 4</annotation>
+		<annotation cp="🚣🏾">barcă | vâsle | ten nuanța 5</annotation>
+		<annotation cp="🚣🏾" type="tts">barcă cu vâsle: ten nuanța 5</annotation>
+		<annotation cp="🚣🏿">barcă | vâsle | ten nuanța 6</annotation>
+		<annotation cp="🚣🏿" type="tts">barcă cu vâsle: ten nuanța 6</annotation>
+		<annotation cp="🚣🏻‍♂">barcă | bărbat | vâsle | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">bărbat cu barcă cu vâsle: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚣🏼‍♂">barcă | bărbat | vâsle | ten nunața 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">bărbat cu barcă cu vâsle: ten nunața 3</annotation>
+		<annotation cp="🚣🏽‍♂">barcă | bărbat | vâsle | ten nuanța 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">bărbat cu barcă cu vâsle: ten nuanța 4</annotation>
+		<annotation cp="🚣🏾‍♂">barcă | bărbat | vâsle | ten nuanța 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">bărbat cu barcă cu vâsle: ten nuanța 5</annotation>
+		<annotation cp="🚣🏿‍♂">barcă | bărbat | vâsle | ten nuanța 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">bărbat cu barcă cu vâsle: ten nuanța 6</annotation>
+		<annotation cp="🚣🏻‍♀">barcă | femeie | vâsle | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">femeie cu barcă cu vâsle: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚣🏼‍♀">barcă | femeie | vâsle | ten nunața 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">femeie cu barcă cu vâsle: ten nunața 3</annotation>
+		<annotation cp="🚣🏽‍♀">barcă | femeie | vâsle | ten nuanța 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">femeie cu barcă cu vâsle: ten nuanța 4</annotation>
+		<annotation cp="🚣🏾‍♀">barcă | femeie | vâsle | ten nuanța 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">femeie cu barcă cu vâsle: ten nuanța 5</annotation>
+		<annotation cp="🚣🏿‍♀">barcă | femeie | vâsle | ten nuanța 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">femeie cu barcă cu vâsle: ten nuanța 6</annotation>
+		<annotation cp="🏊🏻">apă | înot | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏊🏻" type="tts">înotător: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏊🏼">apă | înot | ten nunața 3</annotation>
+		<annotation cp="🏊🏼" type="tts">înotător: ten nunața 3</annotation>
+		<annotation cp="🏊🏽">apă | înot | ten nuanța 4</annotation>
+		<annotation cp="🏊🏽" type="tts">înotător: ten nuanța 4</annotation>
+		<annotation cp="🏊🏾">apă | înot | ten nuanța 5</annotation>
+		<annotation cp="🏊🏾" type="tts">înotător: ten nuanța 5</annotation>
+		<annotation cp="🏊🏿">apă | înot | ten nuanța 6</annotation>
+		<annotation cp="🏊🏿" type="tts">înotător: ten nuanța 6</annotation>
+		<annotation cp="🏊🏻‍♂">bărbat | înot | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">bărbat înoată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏊🏼‍♂">bărbat | înot | ten nunața 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">bărbat înoată: ten nunața 3</annotation>
+		<annotation cp="🏊🏽‍♂">bărbat | înot | ten nuanța 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">bărbat înoată: ten nuanța 4</annotation>
+		<annotation cp="🏊🏾‍♂">bărbat | înot | ten nuanța 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">bărbat înoată: ten nuanța 5</annotation>
+		<annotation cp="🏊🏿‍♂">bărbat | înot | ten nuanța 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">bărbat înoată: ten nuanța 6</annotation>
+		<annotation cp="🏊🏻‍♀">femeie | înot | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">femeie înoată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏊🏼‍♀">femeie | înot | ten nunața 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">femeie înoată: ten nunața 3</annotation>
+		<annotation cp="🏊🏽‍♀">femeie | înot | ten nuanța 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">femeie înoată: ten nuanța 4</annotation>
+		<annotation cp="🏊🏾‍♀">femeie | înot | ten nuanța 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">femeie înoată: ten nuanța 5</annotation>
+		<annotation cp="🏊🏿‍♀">femeie | înot | ten nuanța 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">femeie înoată: ten nuanța 6</annotation>
+		<annotation cp="⛹🏻">minge | om | ten nuanțele 1 – 2</annotation>
+		<annotation cp="⛹🏻" type="tts">persoană cu minge: ten nuanțele 1 – 2</annotation>
+		<annotation cp="⛹🏼">minge | om | ten nunața 3</annotation>
+		<annotation cp="⛹🏼" type="tts">persoană cu minge: ten nunața 3</annotation>
+		<annotation cp="⛹🏽">minge | om | ten nuanța 4</annotation>
+		<annotation cp="⛹🏽" type="tts">persoană cu minge: ten nuanța 4</annotation>
+		<annotation cp="⛹🏾">minge | om | ten nuanța 5</annotation>
+		<annotation cp="⛹🏾" type="tts">persoană cu minge: ten nuanța 5</annotation>
+		<annotation cp="⛹🏿">minge | om | ten nuanța 6</annotation>
+		<annotation cp="⛹🏿" type="tts">persoană cu minge: ten nuanța 6</annotation>
+		<annotation cp="⛹🏻‍♂">bărbat | minge | ten nuanțele 1 – 2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">bărbat cu minge: ten nuanțele 1 – 2</annotation>
+		<annotation cp="⛹🏼‍♂">bărbat | minge | ten nunața 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">bărbat cu minge: ten nunața 3</annotation>
+		<annotation cp="⛹🏽‍♂">bărbat | minge | ten nuanța 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">bărbat cu minge: ten nuanța 4</annotation>
+		<annotation cp="⛹🏾‍♂">bărbat | minge | ten nuanța 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">bărbat cu minge: ten nuanța 5</annotation>
+		<annotation cp="⛹🏿‍♂">bărbat | minge | ten nuanța 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">bărbat cu minge: ten nuanța 6</annotation>
+		<annotation cp="⛹🏻‍♀">femeie | minge | ten nuanțele 1 – 2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">femeie cu minge: ten nuanțele 1 – 2</annotation>
+		<annotation cp="⛹🏼‍♀">femeie | minge | ten nunața 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">femeie cu minge: ten nunața 3</annotation>
+		<annotation cp="⛹🏽‍♀">femeie | minge | ten nuanța 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">femeie cu minge: ten nuanța 4</annotation>
+		<annotation cp="⛹🏾‍♀">femeie | minge | ten nuanța 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">femeie cu minge: ten nuanța 5</annotation>
+		<annotation cp="⛹🏿‍♀">femeie | minge | ten nuanța 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">femeie cu minge: ten nuanța 6</annotation>
+		<annotation cp="🏋🏻">greutăți | ridicare | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏋🏻" type="tts">halterofil: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏋🏼">greutăți | ridicare | sport | ten nunața 3</annotation>
+		<annotation cp="🏋🏼" type="tts">halterofil: ten nunața 3</annotation>
+		<annotation cp="🏋🏽">greutăți | ridicare | sport | ten nuanța 4</annotation>
+		<annotation cp="🏋🏽" type="tts">halterofil: ten nuanța 4</annotation>
+		<annotation cp="🏋🏾">greutăți | ridicare | sport | ten nuanța 5</annotation>
+		<annotation cp="🏋🏾" type="tts">halterofil: ten nuanța 5</annotation>
+		<annotation cp="🏋🏿">greutăți | ridicare | sport | ten nuanța 6</annotation>
+		<annotation cp="🏋🏿" type="tts">halterofil: ten nuanța 6</annotation>
+		<annotation cp="🏋🏻‍♂">bărbat | greutăți | haltere | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">bărbat cu haltere: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏋🏼‍♂">bărbat | greutăți | haltere | ten nunața 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">bărbat cu haltere: ten nunața 3</annotation>
+		<annotation cp="🏋🏽‍♂">bărbat | greutăți | haltere | ten nuanța 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">bărbat cu haltere: ten nuanța 4</annotation>
+		<annotation cp="🏋🏾‍♂">bărbat | greutăți | haltere | ten nuanța 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">bărbat cu haltere: ten nuanța 5</annotation>
+		<annotation cp="🏋🏿‍♂">bărbat | greutăți | haltere | ten nuanța 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">bărbat cu haltere: ten nuanța 6</annotation>
+		<annotation cp="🏋🏻‍♀">bărbat | greutăți | haltere | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">femeie cu haltere: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🏋🏼‍♀">bărbat | greutăți | haltere | ten nunața 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">femeie cu haltere: ten nunața 3</annotation>
+		<annotation cp="🏋🏽‍♀">bărbat | greutăți | haltere | ten nuanța 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">femeie cu haltere: ten nuanța 4</annotation>
+		<annotation cp="🏋🏾‍♀">bărbat | greutăți | haltere | ten nuanța 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">femeie cu haltere: ten nuanța 5</annotation>
+		<annotation cp="🏋🏿‍♀">bărbat | greutăți | haltere | ten nuanța 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">femeie cu haltere: ten nuanța 6</annotation>
+		<annotation cp="🚴🏻">ciclism | transport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚴🏻" type="tts">persoană pe bicicletă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚴🏼">ciclism | transport | ten nunața 3</annotation>
+		<annotation cp="🚴🏼" type="tts">persoană pe bicicletă: ten nunața 3</annotation>
+		<annotation cp="🚴🏽">ciclism | transport | ten nuanța 4</annotation>
+		<annotation cp="🚴🏽" type="tts">persoană pe bicicletă: ten nuanța 4</annotation>
+		<annotation cp="🚴🏾">ciclism | transport | ten nuanța 5</annotation>
+		<annotation cp="🚴🏾" type="tts">persoană pe bicicletă: ten nuanța 5</annotation>
+		<annotation cp="🚴🏿">ciclism | transport | ten nuanța 6</annotation>
+		<annotation cp="🚴🏿" type="tts">persoană pe bicicletă: ten nuanța 6</annotation>
+		<annotation cp="🚴🏻‍♂">bicicletă | ciclist | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">biciclist: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚴🏼‍♂">bicicletă | ciclist | ten nunața 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">biciclist: ten nunața 3</annotation>
+		<annotation cp="🚴🏽‍♂">bicicletă | ciclist | ten nuanța 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">biciclist: ten nuanța 4</annotation>
+		<annotation cp="🚴🏾‍♂">bicicletă | ciclist | ten nuanța 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">biciclist: ten nuanța 5</annotation>
+		<annotation cp="🚴🏿‍♂">bicicletă | ciclist | ten nuanța 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">biciclist: ten nuanța 6</annotation>
+		<annotation cp="🚴🏻‍♀">bicicletă | ciclistă | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">biciclistă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚴🏼‍♀">bicicletă | ciclistă | ten nunața 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">biciclistă: ten nunața 3</annotation>
+		<annotation cp="🚴🏽‍♀">bicicletă | ciclistă | ten nuanța 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">biciclistă: ten nuanța 4</annotation>
+		<annotation cp="🚴🏾‍♀">bicicletă | ciclistă | ten nuanța 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">biciclistă: ten nuanța 5</annotation>
+		<annotation cp="🚴🏿‍♀">bicicletă | ciclistă | ten nuanța 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">biciclistă: ten nuanța 6</annotation>
+		<annotation cp="🚵🏻">ciclism | munte | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚵🏻" type="tts">ciclist montan: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚵🏼">ciclism | munte | ten nunața 3</annotation>
+		<annotation cp="🚵🏼" type="tts">ciclist montan: ten nunața 3</annotation>
+		<annotation cp="🚵🏽">ciclism | munte | ten nuanța 4</annotation>
+		<annotation cp="🚵🏽" type="tts">ciclist montan: ten nuanța 4</annotation>
+		<annotation cp="🚵🏾">ciclism | munte | ten nuanța 5</annotation>
+		<annotation cp="🚵🏾" type="tts">ciclist montan: ten nuanța 5</annotation>
+		<annotation cp="🚵🏿">ciclism | munte | ten nuanța 6</annotation>
+		<annotation cp="🚵🏿" type="tts">ciclist montan: ten nuanța 6</annotation>
+		<annotation cp="🚵🏻‍♂">bicicletă | ciclist | montan | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">biciclist montan: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚵🏼‍♂">bicicletă | ciclist | montan | ten nunața 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">biciclist montan: ten nunața 3</annotation>
+		<annotation cp="🚵🏽‍♂">bicicletă | ciclist | montan | ten nuanța 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">biciclist montan: ten nuanța 4</annotation>
+		<annotation cp="🚵🏾‍♂">bicicletă | ciclist | montan | ten nuanța 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">biciclist montan: ten nuanța 5</annotation>
+		<annotation cp="🚵🏿‍♂">bicicletă | ciclist | montan | ten nuanța 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">biciclist montan: ten nuanța 6</annotation>
+		<annotation cp="🚵🏻‍♀">bicicletă | ciclistă | montan | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">biciclistă montană: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🚵🏼‍♀">bicicletă | ciclistă | montan | ten nunața 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">biciclistă montană: ten nunața 3</annotation>
+		<annotation cp="🚵🏽‍♀">bicicletă | ciclistă | montan | ten nuanța 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">biciclistă montană: ten nuanța 4</annotation>
+		<annotation cp="🚵🏾‍♀">bicicletă | ciclistă | montan | ten nuanța 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">biciclistă montană: ten nuanța 5</annotation>
+		<annotation cp="🚵🏿‍♀">bicicletă | ciclistă | montan | ten nuanța 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">biciclistă montană: ten nuanța 6</annotation>
+		<annotation cp="🤸🏻">gimnastică | om | roata țiganului | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤸🏻" type="tts">roata țiganului: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤸🏼">gimnastică | om | roata țiganului | sport | ten nunața 3</annotation>
+		<annotation cp="🤸🏼" type="tts">roata țiganului: ten nunața 3</annotation>
+		<annotation cp="🤸🏽">gimnastică | om | roata țiganului | sport | ten nuanța 4</annotation>
+		<annotation cp="🤸🏽" type="tts">roata țiganului: ten nuanța 4</annotation>
+		<annotation cp="🤸🏾">gimnastică | om | roata țiganului | sport | ten nuanța 5</annotation>
+		<annotation cp="🤸🏾" type="tts">roata țiganului: ten nuanța 5</annotation>
+		<annotation cp="🤸🏿">gimnastică | om | roata țiganului | sport | ten nuanța 6</annotation>
+		<annotation cp="🤸🏿" type="tts">roata țiganului: ten nuanța 6</annotation>
+		<annotation cp="🤸🏻‍♂">bărbat | gimnastică | roata | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">bărbat face roata: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤸🏼‍♂">bărbat | gimnastică | roata | sport | ten nunața 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">bărbat face roata: ten nunața 3</annotation>
+		<annotation cp="🤸🏽‍♂">bărbat | gimnastică | roata | sport | ten nuanța 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">bărbat face roata: ten nuanța 4</annotation>
+		<annotation cp="🤸🏾‍♂">bărbat | gimnastică | roata | sport | ten nuanța 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">bărbat face roata: ten nuanța 5</annotation>
+		<annotation cp="🤸🏿‍♂">bărbat | gimnastică | roata | sport | ten nuanța 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">bărbat face roata: ten nuanța 6</annotation>
+		<annotation cp="🤸🏻‍♀">femeie | gimnastică | roata | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">femeie face roata: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤸🏼‍♀">femeie | gimnastică | roata | sport | ten nunața 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">femeie face roata: ten nunața 3</annotation>
+		<annotation cp="🤸🏽‍♀">femeie | gimnastică | roata | sport | ten nuanța 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">femeie face roata: ten nuanța 4</annotation>
+		<annotation cp="🤸🏾‍♀">femeie | gimnastică | roata | sport | ten nuanța 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">femeie face roata: ten nuanța 5</annotation>
+		<annotation cp="🤸🏿‍♀">femeie | gimnastică | roata | sport | ten nuanța 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">femeie face roata: ten nuanța 6</annotation>
+		<annotation cp="🤽🏻">apă | om | polo | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤽🏻" type="tts">polo pe apă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤽🏼">apă | om | polo | sport | ten nunața 3</annotation>
+		<annotation cp="🤽🏼" type="tts">polo pe apă: ten nunața 3</annotation>
+		<annotation cp="🤽🏽">apă | om | polo | sport | ten nuanța 4</annotation>
+		<annotation cp="🤽🏽" type="tts">polo pe apă: ten nuanța 4</annotation>
+		<annotation cp="🤽🏾">apă | om | polo | sport | ten nuanța 5</annotation>
+		<annotation cp="🤽🏾" type="tts">polo pe apă: ten nuanța 5</annotation>
+		<annotation cp="🤽🏿">apă | om | polo | sport | ten nuanța 6</annotation>
+		<annotation cp="🤽🏿" type="tts">polo pe apă: ten nuanța 6</annotation>
+		<annotation cp="🤽🏻‍♂">bărbat | polo pe apă | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">jucător polo pe apă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤽🏼‍♂">bărbat | polo pe apă | sport | ten nunața 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">jucător polo pe apă: ten nunața 3</annotation>
+		<annotation cp="🤽🏽‍♂">bărbat | polo pe apă | sport | ten nuanța 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">jucător polo pe apă: ten nuanța 4</annotation>
+		<annotation cp="🤽🏾‍♂">bărbat | polo pe apă | sport | ten nuanța 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">jucător polo pe apă: ten nuanța 5</annotation>
+		<annotation cp="🤽🏿‍♂">bărbat | polo pe apă | sport | ten nuanța 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">jucător polo pe apă: ten nuanța 6</annotation>
+		<annotation cp="🤽🏻‍♀">femeie | polo pe apă | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">jucătoare polo pe apă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤽🏼‍♀">femeie | polo pe apă | sport | ten nunața 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">jucătoare polo pe apă: ten nunața 3</annotation>
+		<annotation cp="🤽🏽‍♀">femeie | polo pe apă | sport | ten nuanța 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">jucătoare polo pe apă: ten nuanța 4</annotation>
+		<annotation cp="🤽🏾‍♀">femeie | polo pe apă | sport | ten nuanța 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">jucătoare polo pe apă: ten nuanța 5</annotation>
+		<annotation cp="🤽🏿‍♀">femeie | polo pe apă | sport | ten nuanța 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">jucătoare polo pe apă: ten nuanța 6</annotation>
+		<annotation cp="🤾🏻">handbal | minge | om | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤾🏻" type="tts">handbal: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤾🏼">handbal | minge | om | sport | ten nunața 3</annotation>
+		<annotation cp="🤾🏼" type="tts">handbal: ten nunața 3</annotation>
+		<annotation cp="🤾🏽">handbal | minge | om | sport | ten nuanța 4</annotation>
+		<annotation cp="🤾🏽" type="tts">handbal: ten nuanța 4</annotation>
+		<annotation cp="🤾🏾">handbal | minge | om | sport | ten nuanța 5</annotation>
+		<annotation cp="🤾🏾" type="tts">handbal: ten nuanța 5</annotation>
+		<annotation cp="🤾🏿">handbal | minge | om | sport | ten nuanța 6</annotation>
+		<annotation cp="🤾🏿" type="tts">handbal: ten nuanța 6</annotation>
+		<annotation cp="🤾🏻‍♂">bărbat | handbal | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">handbalist: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤾🏼‍♂">bărbat | handbal | sport | ten nunața 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">handbalist: ten nunața 3</annotation>
+		<annotation cp="🤾🏽‍♂">bărbat | handbal | sport | ten nuanța 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">handbalist: ten nuanța 4</annotation>
+		<annotation cp="🤾🏾‍♂">bărbat | handbal | sport | ten nuanța 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">handbalist: ten nuanța 5</annotation>
+		<annotation cp="🤾🏿‍♂">bărbat | handbal | sport | ten nuanța 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">handbalist: ten nuanța 6</annotation>
+		<annotation cp="🤾🏻‍♀">femeie | handbal | sport | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">handbalistă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤾🏼‍♀">femeie | handbal | sport | ten nunața 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">handbalistă: ten nunața 3</annotation>
+		<annotation cp="🤾🏽‍♀">femeie | handbal | sport | ten nuanța 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">handbalistă: ten nuanța 4</annotation>
+		<annotation cp="🤾🏾‍♀">femeie | handbal | sport | ten nuanța 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">handbalistă: ten nuanța 5</annotation>
+		<annotation cp="🤾🏿‍♀">femeie | handbal | sport | ten nuanța 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">handbalistă: ten nuanța 6</annotation>
+		<annotation cp="🤹🏻">abilitate | echilibru | jongla | multitask | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤹🏻" type="tts">jonglerie: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤹🏼">abilitate | echilibru | jongla | multitask | ten nunața 3</annotation>
+		<annotation cp="🤹🏼" type="tts">jonglerie: ten nunața 3</annotation>
+		<annotation cp="🤹🏽">abilitate | echilibru | jongla | multitask | ten nuanța 4</annotation>
+		<annotation cp="🤹🏽" type="tts">jonglerie: ten nuanța 4</annotation>
+		<annotation cp="🤹🏾">abilitate | echilibru | jongla | multitask | ten nuanța 5</annotation>
+		<annotation cp="🤹🏾" type="tts">jonglerie: ten nuanța 5</annotation>
+		<annotation cp="🤹🏿">abilitate | echilibru | jongla | multitask | ten nuanța 6</annotation>
+		<annotation cp="🤹🏿" type="tts">jonglerie: ten nuanța 6</annotation>
+		<annotation cp="🤹🏻‍♂">bărbat | jongla | multitasking | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">jongler: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤹🏼‍♂">bărbat | jongla | multitasking | ten nunața 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">jongler: ten nunața 3</annotation>
+		<annotation cp="🤹🏽‍♂">bărbat | jongla | multitasking | ten nuanța 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">jongler: ten nuanța 4</annotation>
+		<annotation cp="🤹🏾‍♂">bărbat | jongla | multitasking | ten nuanța 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">jongler: ten nuanța 5</annotation>
+		<annotation cp="🤹🏿‍♂">bărbat | jongla | multitasking | ten nuanța 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">jongler: ten nuanța 6</annotation>
+		<annotation cp="🤹🏻‍♀">femeie | jongla | multitasking | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">femeie jongler: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤹🏼‍♀">femeie | jongla | multitasking | ten nunața 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">femeie jongler: ten nunața 3</annotation>
+		<annotation cp="🤹🏽‍♀">femeie | jongla | multitasking | ten nuanța 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">femeie jongler: ten nuanța 4</annotation>
+		<annotation cp="🤹🏾‍♀">femeie | jongla | multitasking | ten nuanța 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">femeie jongler: ten nuanța 5</annotation>
+		<annotation cp="🤹🏿‍♀">femeie | jongla | multitasking | ten nuanța 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">femeie jongler: ten nuanța 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">cuplu | iubire | femeie | bărbat</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">sărut: femeie, bărbat</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">cuplu | iubire | bărbat</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">sărut: bărbat, bărbat</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">cuplu | iubire | femeie</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">sărut: femeie, femeie</annotation>
+		<annotation cp="👩‍❤‍👨">cuplu | doi | iubire | femeie | bărbat</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">cuplu cu inimă: femeie, bărbat</annotation>
+		<annotation cp="👨‍❤‍👨">cuplu | doi | iubire | bărbat</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">cuplu cu inimă: bărbat, bărbat</annotation>
+		<annotation cp="👩‍❤‍👩">cuplu | doi | iubire | femeie</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">cuplu cu inimă: femeie, femeie</annotation>
+		<annotation cp="👨‍👩‍👦">copil | mamă | tată | bărbat | femeie | băiat</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">familie: bărbat, femeie, băiat</annotation>
+		<annotation cp="👨‍👩‍👧">copil | mamă | tată | bărbat | femeie | fată</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">familie: bărbat, femeie, fată</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">copil | mamă | tată | bărbat | femeie | fată | băiat</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">familie: bărbat, femeie, fată, băiat</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">copil | mamă | tată | bărbat | femeie | băiat</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">familie: bărbat, femeie, băiat, băiat</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">copil | mamă | tată | bărbat | femeie | fată</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">familie: bărbat, femeie, fată, fată</annotation>
+		<annotation cp="👨‍👨‍👦">copil | mamă | tată | bărbat | băiat</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">familie: bărbat, bărbat, băiat</annotation>
+		<annotation cp="👨‍👨‍👧">copil | mamă | tată | bărbat | fată</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">familie: bărbat, bărbat, fată</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">copil | mamă | tată | bărbat | fată | băiat</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">familie: bărbat, bărbat, fată, băiat</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">copil | mamă | tată | bărbat | băiat</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">familie: bărbat, bărbat, băiat, băiat</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">copil | mamă | tată | bărbat | fată</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">familie: bărbat, bărbat, fată, fată</annotation>
+		<annotation cp="👩‍👩‍👦">copil | mamă | tată | femeie | băiat</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">familie: femeie, femeie, băiat</annotation>
+		<annotation cp="👩‍👩‍👧">copil | mamă | tată | femeie | fată</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">familie: femeie, femeie, fată</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">copil | mamă | tată | femeie | fată | băiat</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">familie: femeie, femeie, fată, băiat</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">copil | mamă | tată | femeie | băiat</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">familie: femeie, femeie, băiat, băiat</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">copil | mamă | tată | femeie | fată</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">familie: femeie, femeie, fată, fată</annotation>
+		<annotation cp="👨‍👦">copil | mamă | tată | bărbat | băiat</annotation>
+		<annotation cp="👨‍👦" type="tts">familie: bărbat, băiat</annotation>
+		<annotation cp="👨‍👦‍👦">copil | mamă | tată | bărbat | băiat</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">familie: bărbat, băiat, băiat</annotation>
+		<annotation cp="👨‍👧">copil | mamă | tată | bărbat | fată</annotation>
+		<annotation cp="👨‍👧" type="tts">familie: bărbat, fată</annotation>
+		<annotation cp="👨‍👧‍👦">copil | mamă | tată | bărbat | fată | băiat</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">familie: bărbat, fată, băiat</annotation>
+		<annotation cp="👨‍👧‍👧">copil | mamă | tată | bărbat | fată</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">familie: bărbat, fată, fată</annotation>
+		<annotation cp="👩‍👦">copil | mamă | tată | femeie | băiat</annotation>
+		<annotation cp="👩‍👦" type="tts">familie: femeie, băiat</annotation>
+		<annotation cp="👩‍👦‍👦">copil | mamă | tată | femeie | băiat</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">familie: femeie, băiat, băiat</annotation>
+		<annotation cp="👩‍👧">copil | mamă | tată | femeie | fată</annotation>
+		<annotation cp="👩‍👧" type="tts">familie: femeie, fată</annotation>
+		<annotation cp="👩‍👧‍👦">copil | mamă | tată | femeie | fată | băiat</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">familie: femeie, fată, băiat</annotation>
+		<annotation cp="👩‍👧‍👧">copil | mamă | tată | femeie | fată</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">familie: femeie, fată, fată</annotation>
+		<annotation cp="🤳🏻">aparat de fotografiat | selfie | telefon | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤳🏼">aparat de fotografiat | selfie | telefon | ten nunața 3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: ten nunața 3</annotation>
+		<annotation cp="🤳🏽">aparat de fotografiat | selfie | telefon | ten nuanța 4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: ten nuanța 4</annotation>
+		<annotation cp="🤳🏾">aparat de fotografiat | selfie | telefon | ten nuanța 5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: ten nuanța 5</annotation>
+		<annotation cp="🤳🏿">aparat de fotografiat | selfie | telefon | ten nuanța 6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: ten nuanța 6</annotation>
+		<annotation cp="💪🏻">amuzant | corp | forță | mușchi | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💪🏻" type="tts">biceps flexat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💪🏼">amuzant | corp | forță | mușchi | ten nunața 3</annotation>
+		<annotation cp="💪🏼" type="tts">biceps flexat: ten nunața 3</annotation>
+		<annotation cp="💪🏽">amuzant | corp | forță | mușchi | ten nuanța 4</annotation>
+		<annotation cp="💪🏽" type="tts">biceps flexat: ten nuanța 4</annotation>
+		<annotation cp="💪🏾">amuzant | corp | forță | mușchi | ten nuanța 5</annotation>
+		<annotation cp="💪🏾" type="tts">biceps flexat: ten nuanța 5</annotation>
+		<annotation cp="💪🏿">amuzant | corp | forță | mușchi | ten nuanța 6</annotation>
+		<annotation cp="💪🏿" type="tts">biceps flexat: ten nuanța 6</annotation>
+		<annotation cp="👈🏻">deget | dosul palmei | mână | stânga | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👈🏻" type="tts">deget indicând spre stânga: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👈🏼">deget | dosul palmei | mână | stânga | ten nunața 3</annotation>
+		<annotation cp="👈🏼" type="tts">deget indicând spre stânga: ten nunața 3</annotation>
+		<annotation cp="👈🏽">deget | dosul palmei | mână | stânga | ten nuanța 4</annotation>
+		<annotation cp="👈🏽" type="tts">deget indicând spre stânga: ten nuanța 4</annotation>
+		<annotation cp="👈🏾">deget | dosul palmei | mână | stânga | ten nuanța 5</annotation>
+		<annotation cp="👈🏾" type="tts">deget indicând spre stânga: ten nuanța 5</annotation>
+		<annotation cp="👈🏿">deget | dosul palmei | mână | stânga | ten nuanța 6</annotation>
+		<annotation cp="👈🏿" type="tts">deget indicând spre stânga: ten nuanța 6</annotation>
+		<annotation cp="👉🏻">deget | dosul palmei | dreapta | mână | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👉🏻" type="tts">deget indicând spre dreapta: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👉🏼">deget | dosul palmei | dreapta | mână | ten nunața 3</annotation>
+		<annotation cp="👉🏼" type="tts">deget indicând spre dreapta: ten nunața 3</annotation>
+		<annotation cp="👉🏽">deget | dosul palmei | dreapta | mână | ten nuanța 4</annotation>
+		<annotation cp="👉🏽" type="tts">deget indicând spre dreapta: ten nuanța 4</annotation>
+		<annotation cp="👉🏾">deget | dosul palmei | dreapta | mână | ten nuanța 5</annotation>
+		<annotation cp="👉🏾" type="tts">deget indicând spre dreapta: ten nuanța 5</annotation>
+		<annotation cp="👉🏿">deget | dosul palmei | dreapta | mână | ten nuanța 6</annotation>
+		<annotation cp="👉🏿" type="tts">deget indicând spre dreapta: ten nuanța 6</annotation>
+		<annotation cp="☝🏻">deget | indicator | sus | ten nuanțele 1 – 2</annotation>
+		<annotation cp="☝🏻" type="tts">index indicând în sus: ten nuanțele 1 – 2</annotation>
+		<annotation cp="☝🏼">deget | indicator | sus | ten nunața 3</annotation>
+		<annotation cp="☝🏼" type="tts">index indicând în sus: ten nunața 3</annotation>
+		<annotation cp="☝🏽">deget | indicator | sus | ten nuanța 4</annotation>
+		<annotation cp="☝🏽" type="tts">index indicând în sus: ten nuanța 4</annotation>
+		<annotation cp="☝🏾">deget | indicator | sus | ten nuanța 5</annotation>
+		<annotation cp="☝🏾" type="tts">index indicând în sus: ten nuanța 5</annotation>
+		<annotation cp="☝🏿">deget | indicator | sus | ten nuanța 6</annotation>
+		<annotation cp="☝🏿" type="tts">index indicând în sus: ten nuanța 6</annotation>
+		<annotation cp="👆🏻">arătător | deget | dosul palmei | sus | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👆🏻" type="tts">dosul palmei cu index arătând în sus: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👆🏼">arătător | deget | dosul palmei | sus | ten nunața 3</annotation>
+		<annotation cp="👆🏼" type="tts">dosul palmei cu index arătând în sus: ten nunața 3</annotation>
+		<annotation cp="👆🏽">arătător | deget | dosul palmei | sus | ten nuanța 4</annotation>
+		<annotation cp="👆🏽" type="tts">dosul palmei cu index arătând în sus: ten nuanța 4</annotation>
+		<annotation cp="👆🏾">arătător | deget | dosul palmei | sus | ten nuanța 5</annotation>
+		<annotation cp="👆🏾" type="tts">dosul palmei cu index arătând în sus: ten nuanța 5</annotation>
+		<annotation cp="👆🏿">arătător | deget | dosul palmei | sus | ten nuanța 6</annotation>
+		<annotation cp="👆🏿" type="tts">dosul palmei cu index arătând în sus: ten nuanța 6</annotation>
+		<annotation cp="🖕🏻">deget | gest | insultă | mijlociu | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🖕🏻" type="tts">degetul mijlociu: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🖕🏼">deget | gest | insultă | mijlociu | ten nunața 3</annotation>
+		<annotation cp="🖕🏼" type="tts">degetul mijlociu: ten nunața 3</annotation>
+		<annotation cp="🖕🏽">deget | gest | insultă | mijlociu | ten nuanța 4</annotation>
+		<annotation cp="🖕🏽" type="tts">degetul mijlociu: ten nuanța 4</annotation>
+		<annotation cp="🖕🏾">deget | gest | insultă | mijlociu | ten nuanța 5</annotation>
+		<annotation cp="🖕🏾" type="tts">degetul mijlociu: ten nuanța 5</annotation>
+		<annotation cp="🖕🏿">deget | gest | insultă | mijlociu | ten nuanța 6</annotation>
+		<annotation cp="🖕🏿" type="tts">degetul mijlociu: ten nuanța 6</annotation>
+		<annotation cp="👇🏻">arătător | deget | dosul palmei | jos | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👇🏻" type="tts">dosul palmei cu index arătând în jos: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👇🏼">arătător | deget | dosul palmei | jos | ten nunața 3</annotation>
+		<annotation cp="👇🏼" type="tts">dosul palmei cu index arătând în jos: ten nunața 3</annotation>
+		<annotation cp="👇🏽">arătător | deget | dosul palmei | jos | ten nuanța 4</annotation>
+		<annotation cp="👇🏽" type="tts">dosul palmei cu index arătând în jos: ten nuanța 4</annotation>
+		<annotation cp="👇🏾">arătător | deget | dosul palmei | jos | ten nuanța 5</annotation>
+		<annotation cp="👇🏾" type="tts">dosul palmei cu index arătând în jos: ten nuanța 5</annotation>
+		<annotation cp="👇🏿">arătător | deget | dosul palmei | jos | ten nuanța 6</annotation>
+		<annotation cp="👇🏿" type="tts">dosul palmei cu index arătând în jos: ten nuanța 6</annotation>
+		<annotation cp="✌🏻">deget | mână | victorie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="✌🏻" type="tts">semnul victoriei: ten nuanțele 1 – 2</annotation>
+		<annotation cp="✌🏼">deget | mână | victorie | ten nunața 3</annotation>
+		<annotation cp="✌🏼" type="tts">semnul victoriei: ten nunața 3</annotation>
+		<annotation cp="✌🏽">deget | mână | victorie | ten nuanța 4</annotation>
+		<annotation cp="✌🏽" type="tts">semnul victoriei: ten nuanța 4</annotation>
+		<annotation cp="✌🏾">deget | mână | victorie | ten nuanța 5</annotation>
+		<annotation cp="✌🏾" type="tts">semnul victoriei: ten nuanța 5</annotation>
+		<annotation cp="✌🏿">deget | mână | victorie | ten nuanța 6</annotation>
+		<annotation cp="✌🏿" type="tts">semnul victoriei: ten nuanța 6</annotation>
+		<annotation cp="🤞🏻">deget | mână | noroc | încrucișare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤞🏻" type="tts">degete încrucișate: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤞🏼">deget | mână | noroc | încrucișare | ten nunața 3</annotation>
+		<annotation cp="🤞🏼" type="tts">degete încrucișate: ten nunața 3</annotation>
+		<annotation cp="🤞🏽">deget | mână | noroc | încrucișare | ten nuanța 4</annotation>
+		<annotation cp="🤞🏽" type="tts">degete încrucișate: ten nuanța 4</annotation>
+		<annotation cp="🤞🏾">deget | mână | noroc | încrucișare | ten nuanța 5</annotation>
+		<annotation cp="🤞🏾" type="tts">degete încrucișate: ten nuanța 5</annotation>
+		<annotation cp="🤞🏿">deget | mână | noroc | încrucișare | ten nuanța 6</annotation>
+		<annotation cp="🤞🏿" type="tts">degete încrucișate: ten nuanța 6</annotation>
+		<annotation cp="🖖🏻">deget | salut | spock | vulcan | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🖖🏻" type="tts">salut vulcanian: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🖖🏼">deget | salut | spock | vulcan | ten nunața 3</annotation>
+		<annotation cp="🖖🏼" type="tts">salut vulcanian: ten nunața 3</annotation>
+		<annotation cp="🖖🏽">deget | salut | spock | vulcan | ten nuanța 4</annotation>
+		<annotation cp="🖖🏽" type="tts">salut vulcanian: ten nuanța 4</annotation>
+		<annotation cp="🖖🏾">deget | salut | spock | vulcan | ten nuanța 5</annotation>
+		<annotation cp="🖖🏾" type="tts">salut vulcanian: ten nuanța 5</annotation>
+		<annotation cp="🖖🏿">deget | salut | spock | vulcan | ten nuanța 6</annotation>
+		<annotation cp="🖖🏿" type="tts">salut vulcanian: ten nuanța 6</annotation>
+		<annotation cp="🤘🏻">coarne | deget | mână | rock | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤘🏻" type="tts">semnul cu coarne: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤘🏼">coarne | deget | mână | rock | ten nunața 3</annotation>
+		<annotation cp="🤘🏼" type="tts">semnul cu coarne: ten nunața 3</annotation>
+		<annotation cp="🤘🏽">coarne | deget | mână | rock | ten nuanța 4</annotation>
+		<annotation cp="🤘🏽" type="tts">semnul cu coarne: ten nuanța 4</annotation>
+		<annotation cp="🤘🏾">coarne | deget | mână | rock | ten nuanța 5</annotation>
+		<annotation cp="🤘🏾" type="tts">semnul cu coarne: ten nuanța 5</annotation>
+		<annotation cp="🤘🏿">coarne | deget | mână | rock | ten nuanța 6</annotation>
+		<annotation cp="🤘🏿" type="tts">semnul cu coarne: ten nuanța 6</annotation>
+		<annotation cp="🤙🏻">apela | mână | suna | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤙🏻" type="tts">semnul sună-mă: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤙🏼">apela | mână | suna | ten nunața 3</annotation>
+		<annotation cp="🤙🏼" type="tts">semnul sună-mă: ten nunața 3</annotation>
+		<annotation cp="🤙🏽">apela | mână | suna | ten nuanța 4</annotation>
+		<annotation cp="🤙🏽" type="tts">semnul sună-mă: ten nuanța 4</annotation>
+		<annotation cp="🤙🏾">apela | mână | suna | ten nuanța 5</annotation>
+		<annotation cp="🤙🏾" type="tts">semnul sună-mă: ten nuanța 5</annotation>
+		<annotation cp="🤙🏿">apela | mână | suna | ten nuanța 6</annotation>
+		<annotation cp="🤙🏿" type="tts">semnul sună-mă: ten nuanța 6</annotation>
+		<annotation cp="🖐🏻">deget | deschis | mână | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🖐🏻" type="tts">mână ridicată cu degetele depărtate: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🖐🏼">deget | deschis | mână | ten nunața 3</annotation>
+		<annotation cp="🖐🏼" type="tts">mână ridicată cu degetele depărtate: ten nunața 3</annotation>
+		<annotation cp="🖐🏽">deget | deschis | mână | ten nuanța 4</annotation>
+		<annotation cp="🖐🏽" type="tts">mână ridicată cu degetele depărtate: ten nuanța 4</annotation>
+		<annotation cp="🖐🏾">deget | deschis | mână | ten nuanța 5</annotation>
+		<annotation cp="🖐🏾" type="tts">mână ridicată cu degetele depărtate: ten nuanța 5</annotation>
+		<annotation cp="🖐🏿">deget | deschis | mână | ten nuanța 6</annotation>
+		<annotation cp="🖐🏿" type="tts">mână ridicată cu degetele depărtate: ten nuanța 6</annotation>
+		<annotation cp="✋🏻">mână | sus | ten nuanțele 1 – 2</annotation>
+		<annotation cp="✋🏻" type="tts">mână ridicată: ten nuanțele 1 – 2</annotation>
+		<annotation cp="✋🏼">mână | sus | ten nunața 3</annotation>
+		<annotation cp="✋🏼" type="tts">mână ridicată: ten nunața 3</annotation>
+		<annotation cp="✋🏽">mână | sus | ten nuanța 4</annotation>
+		<annotation cp="✋🏽" type="tts">mână ridicată: ten nuanța 4</annotation>
+		<annotation cp="✋🏾">mână | sus | ten nuanța 5</annotation>
+		<annotation cp="✋🏾" type="tts">mână ridicată: ten nuanța 5</annotation>
+		<annotation cp="✋🏿">mână | sus | ten nuanța 6</annotation>
+		<annotation cp="✋🏿" type="tts">mână ridicată: ten nuanța 6</annotation>
+		<annotation cp="👌🏻">gest | mână | ok | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👌🏻" type="tts">semnul ok: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👌🏼">gest | mână | ok | ten nunața 3</annotation>
+		<annotation cp="👌🏼" type="tts">semnul ok: ten nunața 3</annotation>
+		<annotation cp="👌🏽">gest | mână | ok | ten nuanța 4</annotation>
+		<annotation cp="👌🏽" type="tts">semnul ok: ten nuanța 4</annotation>
+		<annotation cp="👌🏾">gest | mână | ok | ten nuanța 5</annotation>
+		<annotation cp="👌🏾" type="tts">semnul ok: ten nuanța 5</annotation>
+		<annotation cp="👌🏿">gest | mână | ok | ten nuanța 6</annotation>
+		<annotation cp="👌🏿" type="tts">semnul ok: ten nuanța 6</annotation>
+		<annotation cp="👍🏻">apreciere | da | mână | pozitiv | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👍🏻" type="tts">așa da: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👍🏼">apreciere | da | mână | pozitiv | ten nunața 3</annotation>
+		<annotation cp="👍🏼" type="tts">așa da: ten nunața 3</annotation>
+		<annotation cp="👍🏽">apreciere | da | mână | pozitiv | ten nuanța 4</annotation>
+		<annotation cp="👍🏽" type="tts">așa da: ten nuanța 4</annotation>
+		<annotation cp="👍🏾">apreciere | da | mână | pozitiv | ten nuanța 5</annotation>
+		<annotation cp="👍🏾" type="tts">așa da: ten nuanța 5</annotation>
+		<annotation cp="👍🏿">apreciere | da | mână | pozitiv | ten nuanța 6</annotation>
+		<annotation cp="👍🏿" type="tts">așa da: ten nuanța 6</annotation>
+		<annotation cp="👎🏻">mână | negativ | nu | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👎🏻" type="tts">așa nu: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👎🏼">mână | negativ | nu | ten nunața 3</annotation>
+		<annotation cp="👎🏼" type="tts">așa nu: ten nunața 3</annotation>
+		<annotation cp="👎🏽">mână | negativ | nu | ten nuanța 4</annotation>
+		<annotation cp="👎🏽" type="tts">așa nu: ten nuanța 4</annotation>
+		<annotation cp="👎🏾">mână | negativ | nu | ten nuanța 5</annotation>
+		<annotation cp="👎🏾" type="tts">așa nu: ten nuanța 5</annotation>
+		<annotation cp="👎🏿">mână | negativ | nu | ten nuanța 6</annotation>
+		<annotation cp="👎🏿" type="tts">așa nu: ten nuanța 6</annotation>
+		<annotation cp="✊🏻">amenințare | lovitură | pumn | strâns | ten nuanțele 1 – 2</annotation>
+		<annotation cp="✊🏻" type="tts">pumn ridicat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="✊🏼">amenințare | lovitură | pumn | strâns | ten nunața 3</annotation>
+		<annotation cp="✊🏼" type="tts">pumn ridicat: ten nunața 3</annotation>
+		<annotation cp="✊🏽">amenințare | lovitură | pumn | strâns | ten nuanța 4</annotation>
+		<annotation cp="✊🏽" type="tts">pumn ridicat: ten nuanța 4</annotation>
+		<annotation cp="✊🏾">amenințare | lovitură | pumn | strâns | ten nuanța 5</annotation>
+		<annotation cp="✊🏾" type="tts">pumn ridicat: ten nuanța 5</annotation>
+		<annotation cp="✊🏿">amenințare | lovitură | pumn | strâns | ten nuanța 6</annotation>
+		<annotation cp="✊🏿" type="tts">pumn ridicat: ten nuanța 6</annotation>
+		<annotation cp="👊🏻">lovitură | pumn | încleștare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👊🏻" type="tts">lovitură de pumn: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👊🏼">lovitură | pumn | încleștare | ten nunața 3</annotation>
+		<annotation cp="👊🏼" type="tts">lovitură de pumn: ten nunața 3</annotation>
+		<annotation cp="👊🏽">lovitură | pumn | încleștare | ten nuanța 4</annotation>
+		<annotation cp="👊🏽" type="tts">lovitură de pumn: ten nuanța 4</annotation>
+		<annotation cp="👊🏾">lovitură | pumn | încleștare | ten nuanța 5</annotation>
+		<annotation cp="👊🏾" type="tts">lovitură de pumn: ten nuanța 5</annotation>
+		<annotation cp="👊🏿">lovitură | pumn | încleștare | ten nuanța 6</annotation>
+		<annotation cp="👊🏿" type="tts">lovitură de pumn: ten nuanța 6</annotation>
+		<annotation cp="🤛🏻">pumn | spre stânga | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤛🏻" type="tts">pumn spre stânga: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤛🏼">pumn | spre stânga | ten nunața 3</annotation>
+		<annotation cp="🤛🏼" type="tts">pumn spre stânga: ten nunața 3</annotation>
+		<annotation cp="🤛🏽">pumn | spre stânga | ten nuanța 4</annotation>
+		<annotation cp="🤛🏽" type="tts">pumn spre stânga: ten nuanța 4</annotation>
+		<annotation cp="🤛🏾">pumn | spre stânga | ten nuanța 5</annotation>
+		<annotation cp="🤛🏾" type="tts">pumn spre stânga: ten nuanța 5</annotation>
+		<annotation cp="🤛🏿">pumn | spre stânga | ten nuanța 6</annotation>
+		<annotation cp="🤛🏿" type="tts">pumn spre stânga: ten nuanța 6</annotation>
+		<annotation cp="🤜🏻">pumn | spre dreapta | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤜🏻" type="tts">pumn spre dreapta: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤜🏼">pumn | spre dreapta | ten nunața 3</annotation>
+		<annotation cp="🤜🏼" type="tts">pumn spre dreapta: ten nunața 3</annotation>
+		<annotation cp="🤜🏽">pumn | spre dreapta | ten nuanța 4</annotation>
+		<annotation cp="🤜🏽" type="tts">pumn spre dreapta: ten nuanța 4</annotation>
+		<annotation cp="🤜🏾">pumn | spre dreapta | ten nuanța 5</annotation>
+		<annotation cp="🤜🏾" type="tts">pumn spre dreapta: ten nuanța 5</annotation>
+		<annotation cp="🤜🏿">pumn | spre dreapta | ten nuanța 6</annotation>
+		<annotation cp="🤜🏿" type="tts">pumn spre dreapta: ten nuanța 6</annotation>
+		<annotation cp="🤚🏻">dosul palmei | ridicat | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤚🏻" type="tts">dosul palmei ridicat: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🤚🏼">dosul palmei | ridicat | ten nunața 3</annotation>
+		<annotation cp="🤚🏼" type="tts">dosul palmei ridicat: ten nunața 3</annotation>
+		<annotation cp="🤚🏽">dosul palmei | ridicat | ten nuanța 4</annotation>
+		<annotation cp="🤚🏽" type="tts">dosul palmei ridicat: ten nuanța 4</annotation>
+		<annotation cp="🤚🏾">dosul palmei | ridicat | ten nuanța 5</annotation>
+		<annotation cp="🤚🏾" type="tts">dosul palmei ridicat: ten nuanța 5</annotation>
+		<annotation cp="🤚🏿">dosul palmei | ridicat | ten nuanța 6</annotation>
+		<annotation cp="🤚🏿" type="tts">dosul palmei ridicat: ten nuanța 6</annotation>
+		<annotation cp="👋🏻">despărțire | mână | semn | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👋🏻" type="tts">la revedere: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👋🏼">despărțire | mână | semn | ten nunața 3</annotation>
+		<annotation cp="👋🏼" type="tts">la revedere: ten nunața 3</annotation>
+		<annotation cp="👋🏽">despărțire | mână | semn | ten nuanța 4</annotation>
+		<annotation cp="👋🏽" type="tts">la revedere: ten nuanța 4</annotation>
+		<annotation cp="👋🏾">despărțire | mână | semn | ten nuanța 5</annotation>
+		<annotation cp="👋🏾" type="tts">la revedere: ten nuanța 5</annotation>
+		<annotation cp="👋🏿">despărțire | mână | semn | ten nuanța 6</annotation>
+		<annotation cp="👋🏿" type="tts">la revedere: ten nuanța 6</annotation>
+		<annotation cp="✍🏻">mână | scris | ten nuanțele 1 – 2</annotation>
+		<annotation cp="✍🏻" type="tts">mână scriind: ten nuanțele 1 – 2</annotation>
+		<annotation cp="✍🏼">mână | scris | ten nunața 3</annotation>
+		<annotation cp="✍🏼" type="tts">mână scriind: ten nunața 3</annotation>
+		<annotation cp="✍🏽">mână | scris | ten nuanța 4</annotation>
+		<annotation cp="✍🏽" type="tts">mână scriind: ten nuanța 4</annotation>
+		<annotation cp="✍🏾">mână | scris | ten nuanța 5</annotation>
+		<annotation cp="✍🏾" type="tts">mână scriind: ten nuanța 5</annotation>
+		<annotation cp="✍🏿">mână | scris | ten nuanța 6</annotation>
+		<annotation cp="✍🏿" type="tts">mână scriind: ten nuanța 6</annotation>
+		<annotation cp="👏🏻">mâini | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👏🏻" type="tts">aplauze: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👏🏼">mâini | ten nunața 3</annotation>
+		<annotation cp="👏🏼" type="tts">aplauze: ten nunața 3</annotation>
+		<annotation cp="👏🏽">mâini | ten nuanța 4</annotation>
+		<annotation cp="👏🏽" type="tts">aplauze: ten nuanța 4</annotation>
+		<annotation cp="👏🏾">mâini | ten nuanța 5</annotation>
+		<annotation cp="👏🏾" type="tts">aplauze: ten nuanța 5</annotation>
+		<annotation cp="👏🏿">mâini | ten nuanța 6</annotation>
+		<annotation cp="👏🏿" type="tts">aplauze: ten nuanța 6</annotation>
+		<annotation cp="👐🏻">curat | deschis | mâini | nevinovăție | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👐🏻" type="tts">cu mâinile curate: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👐🏼">curat | deschis | mâini | nevinovăție | ten nunața 3</annotation>
+		<annotation cp="👐🏼" type="tts">cu mâinile curate: ten nunața 3</annotation>
+		<annotation cp="👐🏽">curat | deschis | mâini | nevinovăție | ten nuanța 4</annotation>
+		<annotation cp="👐🏽" type="tts">cu mâinile curate: ten nuanța 4</annotation>
+		<annotation cp="👐🏾">curat | deschis | mâini | nevinovăție | ten nuanța 5</annotation>
+		<annotation cp="👐🏾" type="tts">cu mâinile curate: ten nuanța 5</annotation>
+		<annotation cp="👐🏿">curat | deschis | mâini | nevinovăție | ten nuanța 6</annotation>
+		<annotation cp="👐🏿" type="tts">cu mâinile curate: ten nuanța 6</annotation>
+		<annotation cp="🙌🏻">exclamare | mâini | ridicat | sărbătoare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙌🏻" type="tts">persoană cu mâinile sus: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙌🏼">exclamare | mâini | ridicat | sărbătoare | ten nunața 3</annotation>
+		<annotation cp="🙌🏼" type="tts">persoană cu mâinile sus: ten nunața 3</annotation>
+		<annotation cp="🙌🏽">exclamare | mâini | ridicat | sărbătoare | ten nuanța 4</annotation>
+		<annotation cp="🙌🏽" type="tts">persoană cu mâinile sus: ten nuanța 4</annotation>
+		<annotation cp="🙌🏾">exclamare | mâini | ridicat | sărbătoare | ten nuanța 5</annotation>
+		<annotation cp="🙌🏾" type="tts">persoană cu mâinile sus: ten nuanța 5</annotation>
+		<annotation cp="🙌🏿">exclamare | mâini | ridicat | sărbătoare | ten nuanța 6</annotation>
+		<annotation cp="🙌🏿" type="tts">persoană cu mâinile sus: ten nuanța 6</annotation>
+		<annotation cp="🙏🏻">mulțumiri | mâini | rugăciune | înclinare | ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙏🏻" type="tts">mâini unite: ten nuanțele 1 – 2</annotation>
+		<annotation cp="🙏🏼">mulțumiri | mâini | rugăciune | înclinare | ten nunața 3</annotation>
+		<annotation cp="🙏🏼" type="tts">mâini unite: ten nunața 3</annotation>
+		<annotation cp="🙏🏽">mulțumiri | mâini | rugăciune | înclinare | ten nuanța 4</annotation>
+		<annotation cp="🙏🏽" type="tts">mâini unite: ten nuanța 4</annotation>
+		<annotation cp="🙏🏾">mulțumiri | mâini | rugăciune | înclinare | ten nuanța 5</annotation>
+		<annotation cp="🙏🏾" type="tts">mâini unite: ten nuanța 5</annotation>
+		<annotation cp="🙏🏿">mulțumiri | mâini | rugăciune | înclinare | ten nuanța 6</annotation>
+		<annotation cp="🙏🏿" type="tts">mâini unite: ten nuanța 6</annotation>
+		<annotation cp="💅🏻">manechiură | ojă | unghie | ten nuanțele 1 – 2</annotation>
+		<annotation cp="💅🏻" type="tts">ojă pe unghii: ten nuanțele 1 – 2</annotation>
+		<annotation cp="💅🏼">manechiură | ojă | unghie | ten nunața 3</annotation>
+		<annotation cp="💅🏼" type="tts">ojă pe unghii: ten nunața 3</annotation>
+		<annotation cp="💅🏽">manechiură | ojă | unghie | ten nuanța 4</annotation>
+		<annotation cp="💅🏽" type="tts">ojă pe unghii: ten nuanța 4</annotation>
+		<annotation cp="💅🏾">manechiură | ojă | unghie | ten nuanța 5</annotation>
+		<annotation cp="💅🏾" type="tts">ojă pe unghii: ten nuanța 5</annotation>
+		<annotation cp="💅🏿">manechiură | ojă | unghie | ten nuanța 6</annotation>
+		<annotation cp="💅🏿" type="tts">ojă pe unghii: ten nuanța 6</annotation>
+		<annotation cp="👂🏻">auz | cap | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👂🏻" type="tts">ureche: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👂🏼">auz | cap | ten nunața 3</annotation>
+		<annotation cp="👂🏼" type="tts">ureche: ten nunața 3</annotation>
+		<annotation cp="👂🏽">auz | cap | ten nuanța 4</annotation>
+		<annotation cp="👂🏽" type="tts">ureche: ten nuanța 4</annotation>
+		<annotation cp="👂🏾">auz | cap | ten nuanța 5</annotation>
+		<annotation cp="👂🏾" type="tts">ureche: ten nuanța 5</annotation>
+		<annotation cp="👂🏿">auz | cap | ten nuanța 6</annotation>
+		<annotation cp="👂🏿" type="tts">ureche: ten nuanța 6</annotation>
+		<annotation cp="👃🏻">miros | ten nuanțele 1 – 2</annotation>
+		<annotation cp="👃🏻" type="tts">nas: ten nuanțele 1 – 2</annotation>
+		<annotation cp="👃🏼">miros | ten nunața 3</annotation>
+		<annotation cp="👃🏼" type="tts">nas: ten nunața 3</annotation>
+		<annotation cp="👃🏽">miros | ten nuanța 4</annotation>
+		<annotation cp="👃🏽" type="tts">nas: ten nuanța 4</annotation>
+		<annotation cp="👃🏾">miros | ten nuanța 5</annotation>
+		<annotation cp="👃🏾" type="tts">nas: ten nuanța 5</annotation>
+		<annotation cp="👃🏿">miros | ten nuanța 6</annotation>
+		<annotation cp="👃🏿" type="tts">nas: ten nuanța 6</annotation>
+		<annotation cp="#⃣">diez | număr</annotation>
+		<annotation cp="#⃣" type="tts">tastă număr</annotation>
+		<annotation cp="*⃣">asterisc | steluță</annotation>
+		<annotation cp="*⃣" type="tts">tastă asterisc</annotation>
+		<annotation cp="🇦🇨">steag</annotation>
+		<annotation cp="🇦🇨" type="tts">Insula Ascension</annotation>
+		<annotation cp="🇦🇩">steag</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">steag</annotation>
+		<annotation cp="🇦🇪" type="tts">Emiratele Arabe Unite</annotation>
+		<annotation cp="🇦🇫">steag</annotation>
+		<annotation cp="🇦🇫" type="tts">Afganistan</annotation>
+		<annotation cp="🇦🇬">steag</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua și Barbuda</annotation>
+		<annotation cp="🇦🇮">steag</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">steag</annotation>
+		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇲">steag</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇴">steag</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">steag</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarctica</annotation>
+		<annotation cp="🇦🇷">steag</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇸">steag</annotation>
+		<annotation cp="🇦🇸" type="tts">Samoa Americană</annotation>
+		<annotation cp="🇦🇹">steag</annotation>
+		<annotation cp="🇦🇹" type="tts">Austria</annotation>
+		<annotation cp="🇦🇺">steag</annotation>
+		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇼">steag</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">steag</annotation>
+		<annotation cp="🇦🇽" type="tts">Insulele Åland</annotation>
+		<annotation cp="🇦🇿">steag</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbaidjan</annotation>
+		<annotation cp="🇧🇦">steag</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnia și Herțegovina</annotation>
+		<annotation cp="🇧🇧">steag</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">steag</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">steag</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgia</annotation>
+		<annotation cp="🇧🇫">steag</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">steag</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgaria</annotation>
+		<annotation cp="🇧🇭">steag</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇮">steag</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">steag</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">steag</annotation>
+		<annotation cp="🇧🇱" type="tts">Sfântul Bartolomeu</annotation>
+		<annotation cp="🇧🇲">steag</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">steag</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇴">steag</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇶">steag</annotation>
+		<annotation cp="🇧🇶" type="tts">Insulele Caraibe Olandeze</annotation>
+		<annotation cp="🇧🇷">steag</annotation>
+		<annotation cp="🇧🇷" type="tts">Brazilia</annotation>
+		<annotation cp="🇧🇸">steag</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇹">steag</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇻">steag</annotation>
+		<annotation cp="🇧🇻" type="tts">Insula Bouvet</annotation>
+		<annotation cp="🇧🇼">steag</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">steag</annotation>
+		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
+		<annotation cp="🇧🇿">steag</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">steag</annotation>
+		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇨">steag</annotation>
+		<annotation cp="🇨🇨" type="tts">Insulele Cocos (Keeling)</annotation>
+		<annotation cp="🇨🇩">steag</annotation>
+		<annotation cp="🇨🇩" type="tts">Congo - Kinshasa</annotation>
+		<annotation cp="🇨🇫">steag</annotation>
+		<annotation cp="🇨🇫" type="tts">Republica Centrafricană</annotation>
+		<annotation cp="🇨🇬">steag</annotation>
+		<annotation cp="🇨🇬" type="tts">Congo - Brazzaville</annotation>
+		<annotation cp="🇨🇭">steag</annotation>
+		<annotation cp="🇨🇭" type="tts">Elveția</annotation>
+		<annotation cp="🇨🇮">steag</annotation>
+		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇰">steag</annotation>
+		<annotation cp="🇨🇰" type="tts">Insulele Cook</annotation>
+		<annotation cp="🇨🇱">steag</annotation>
+		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇲">steag</annotation>
+		<annotation cp="🇨🇲" type="tts">Camerun</annotation>
+		<annotation cp="🇨🇳">steag</annotation>
+		<annotation cp="🇨🇳" type="tts">China</annotation>
+		<annotation cp="🇨🇴">steag</annotation>
+		<annotation cp="🇨🇴" type="tts">Columbia</annotation>
+		<annotation cp="🇨🇵">steag</annotation>
+		<annotation cp="🇨🇵" type="tts">Insula Clipperton</annotation>
+		<annotation cp="🇨🇷">steag</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">steag</annotation>
+		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇻">steag</annotation>
+		<annotation cp="🇨🇻" type="tts">Capul Verde</annotation>
+		<annotation cp="🇨🇼">steag</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">steag</annotation>
+		<annotation cp="🇨🇽" type="tts">Insula Christmas</annotation>
+		<annotation cp="🇨🇾">steag</annotation>
+		<annotation cp="🇨🇾" type="tts">Cipru</annotation>
+		<annotation cp="🇨🇿">steag</annotation>
+		<annotation cp="🇨🇿" type="tts">Cehia</annotation>
+		<annotation cp="🇩🇪">steag</annotation>
+		<annotation cp="🇩🇪" type="tts">Germania</annotation>
+		<annotation cp="🇩🇬">steag</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">steag</annotation>
+		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇰">steag</annotation>
+		<annotation cp="🇩🇰" type="tts">Danemarca</annotation>
+		<annotation cp="🇩🇲">steag</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇴">steag</annotation>
+		<annotation cp="🇩🇴" type="tts">Republica Dominicană</annotation>
+		<annotation cp="🇩🇿">steag</annotation>
+		<annotation cp="🇩🇿" type="tts">Algeria</annotation>
+		<annotation cp="🇪🇦">steag</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta și Melilla</annotation>
+		<annotation cp="🇪🇨">steag</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇪">steag</annotation>
+		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇬">steag</annotation>
+		<annotation cp="🇪🇬" type="tts">Egipt</annotation>
+		<annotation cp="🇪🇭">steag</annotation>
+		<annotation cp="🇪🇭" type="tts">Sahara Occidentală</annotation>
+		<annotation cp="🇪🇷">steag</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritreea</annotation>
+		<annotation cp="🇪🇸">steag</annotation>
+		<annotation cp="🇪🇸" type="tts">Spania</annotation>
+		<annotation cp="🇪🇹">steag</annotation>
+		<annotation cp="🇪🇹" type="tts">Etiopia</annotation>
+		<annotation cp="🇪🇺">steag</annotation>
+		<annotation cp="🇪🇺" type="tts">Uniunea Europeană</annotation>
+		<annotation cp="🇫🇮">steag</annotation>
+		<annotation cp="🇫🇮" type="tts">Finlanda</annotation>
+		<annotation cp="🇫🇯">steag</annotation>
+		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇰">steag</annotation>
+		<annotation cp="🇫🇰" type="tts">Insulele Falkland</annotation>
+		<annotation cp="🇫🇲">steag</annotation>
+		<annotation cp="🇫🇲" type="tts">Micronezia</annotation>
+		<annotation cp="🇫🇴">steag</annotation>
+		<annotation cp="🇫🇴" type="tts">Insulele Feroe</annotation>
+		<annotation cp="🇫🇷">steag</annotation>
+		<annotation cp="🇫🇷" type="tts">Franța</annotation>
+		<annotation cp="🇬🇦">steag</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">steag</annotation>
+		<annotation cp="🇬🇧" type="tts">Regatul Unit</annotation>
+		<annotation cp="🇬🇩">steag</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">steag</annotation>
+		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇫">steag</annotation>
+		<annotation cp="🇬🇫" type="tts">Guyana Franceză</annotation>
+		<annotation cp="🇬🇬">steag</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇭">steag</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">steag</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">steag</annotation>
+		<annotation cp="🇬🇱" type="tts">Groenlanda</annotation>
+		<annotation cp="🇬🇲">steag</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇳">steag</annotation>
+		<annotation cp="🇬🇳" type="tts">Guineea</annotation>
+		<annotation cp="🇬🇵">steag</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadelupa</annotation>
+		<annotation cp="🇬🇶">steag</annotation>
+		<annotation cp="🇬🇶" type="tts">Guineea Ecuatorială</annotation>
+		<annotation cp="🇬🇷">steag</annotation>
+		<annotation cp="🇬🇷" type="tts">Grecia</annotation>
+		<annotation cp="🇬🇸">steag</annotation>
+		<annotation cp="🇬🇸" type="tts">Georgia de Sud și Insulele Sandwich de Sud</annotation>
+		<annotation cp="🇬🇹">steag</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">steag</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">steag</annotation>
+		<annotation cp="🇬🇼" type="tts">Guineea-Bissau</annotation>
+		<annotation cp="🇬🇾">steag</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">steag</annotation>
+		<annotation cp="🇭🇰" type="tts">R.A.S. Hong Kong a Chinei</annotation>
+		<annotation cp="🇭🇲">steag</annotation>
+		<annotation cp="🇭🇲" type="tts">Insula Heard și Insulele McDonald</annotation>
+		<annotation cp="🇭🇳">steag</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">steag</annotation>
+		<annotation cp="🇭🇷" type="tts">Croația</annotation>
+		<annotation cp="🇭🇹">steag</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">steag</annotation>
+		<annotation cp="🇭🇺" type="tts">Ungaria</annotation>
+		<annotation cp="🇮🇨">steag</annotation>
+		<annotation cp="🇮🇨" type="tts">Insulele Canare</annotation>
+		<annotation cp="🇮🇩">steag</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonezia</annotation>
+		<annotation cp="🇮🇪">steag</annotation>
+		<annotation cp="🇮🇪" type="tts">Irlanda</annotation>
+		<annotation cp="🇮🇱">steag</annotation>
+		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇲">steag</annotation>
+		<annotation cp="🇮🇲" type="tts">Insula Man</annotation>
+		<annotation cp="🇮🇳">steag</annotation>
+		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇴">steag</annotation>
+		<annotation cp="🇮🇴" type="tts">Teritoriul Britanic din Oceanul Indian</annotation>
+		<annotation cp="🇮🇶">steag</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">steag</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">steag</annotation>
+		<annotation cp="🇮🇸" type="tts">Islanda</annotation>
+		<annotation cp="🇮🇹">steag</annotation>
+		<annotation cp="🇮🇹" type="tts">Italia</annotation>
+		<annotation cp="🇯🇪">steag</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">steag</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇴">steag</annotation>
+		<annotation cp="🇯🇴" type="tts">Iordania</annotation>
+		<annotation cp="🇯🇵">steag</annotation>
+		<annotation cp="🇯🇵" type="tts">Japonia</annotation>
+		<annotation cp="🇰🇪">steag</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇬">steag</annotation>
+		<annotation cp="🇰🇬" type="tts">Kârgâzstan</annotation>
+		<annotation cp="🇰🇭">steag</annotation>
+		<annotation cp="🇰🇭" type="tts">Cambodgia</annotation>
+		<annotation cp="🇰🇮">steag</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">steag</annotation>
+		<annotation cp="🇰🇲" type="tts">Comore</annotation>
+		<annotation cp="🇰🇳">steag</annotation>
+		<annotation cp="🇰🇳" type="tts">Saint Kitts și Nevis</annotation>
+		<annotation cp="🇰🇵">steag</annotation>
+		<annotation cp="🇰🇵" type="tts">Coreea de Nord</annotation>
+		<annotation cp="🇰🇷">steag</annotation>
+		<annotation cp="🇰🇷" type="tts">Coreea de Sud</annotation>
+		<annotation cp="🇰🇼">steag</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuweit</annotation>
+		<annotation cp="🇰🇾">steag</annotation>
+		<annotation cp="🇰🇾" type="tts">Insulele Cayman</annotation>
+		<annotation cp="🇰🇿">steag</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazahstan</annotation>
+		<annotation cp="🇱🇦">steag</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">steag</annotation>
+		<annotation cp="🇱🇧" type="tts">Liban</annotation>
+		<annotation cp="🇱🇨">steag</annotation>
+		<annotation cp="🇱🇨" type="tts">Sfânta Lucia</annotation>
+		<annotation cp="🇱🇮">steag</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">steag</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">steag</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇸">steag</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">steag</annotation>
+		<annotation cp="🇱🇹" type="tts">Lituania</annotation>
+		<annotation cp="🇱🇺">steag</annotation>
+		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇻">steag</annotation>
+		<annotation cp="🇱🇻" type="tts">Letonia</annotation>
+		<annotation cp="🇱🇾">steag</annotation>
+		<annotation cp="🇱🇾" type="tts">Libia</annotation>
+		<annotation cp="🇲🇦">steag</annotation>
+		<annotation cp="🇲🇦" type="tts">Maroc</annotation>
+		<annotation cp="🇲🇨">steag</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">steag</annotation>
+		<annotation cp="🇲🇩" type="tts">Republica Moldova</annotation>
+		<annotation cp="🇲🇪">steag</annotation>
+		<annotation cp="🇲🇪" type="tts">Muntenegru</annotation>
+		<annotation cp="🇲🇫">steag</annotation>
+		<annotation cp="🇲🇫" type="tts">Sfântul Martin</annotation>
+		<annotation cp="🇲🇬">steag</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagascar</annotation>
+		<annotation cp="🇲🇭">steag</annotation>
+		<annotation cp="🇲🇭" type="tts">Insulele Marshall</annotation>
+		<annotation cp="🇲🇰">steag</annotation>
+		<annotation cp="🇲🇰" type="tts">Republica Macedonia</annotation>
+		<annotation cp="🇲🇱">steag</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">steag</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanmar (Birmania)</annotation>
+		<annotation cp="🇲🇳">steag</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇴">steag</annotation>
+		<annotation cp="🇲🇴" type="tts">R.A.S. Macao a Chinei</annotation>
+		<annotation cp="🇲🇵">steag</annotation>
+		<annotation cp="🇲🇵" type="tts">Insulele Mariane de Nord</annotation>
+		<annotation cp="🇲🇶">steag</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinica</annotation>
+		<annotation cp="🇲🇷">steag</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇸">steag</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">steag</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">steag</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">steag</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldive</annotation>
+		<annotation cp="🇲🇼">steag</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">steag</annotation>
+		<annotation cp="🇲🇽" type="tts">Mexic</annotation>
+		<annotation cp="🇲🇾">steag</annotation>
+		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇿">steag</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambic</annotation>
+		<annotation cp="🇳🇦">steag</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇨">steag</annotation>
+		<annotation cp="🇳🇨" type="tts">Noua Caledonie</annotation>
+		<annotation cp="🇳🇪">steag</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">steag</annotation>
+		<annotation cp="🇳🇫" type="tts">Insula Norfolk</annotation>
+		<annotation cp="🇳🇬">steag</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇮">steag</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">steag</annotation>
+		<annotation cp="🇳🇱" type="tts">Țările de Jos</annotation>
+		<annotation cp="🇳🇴">steag</annotation>
+		<annotation cp="🇳🇴" type="tts">Norvegia</annotation>
+		<annotation cp="🇳🇵">steag</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">steag</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">steag</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">steag</annotation>
+		<annotation cp="🇳🇿" type="tts">Noua Zeelandă</annotation>
+		<annotation cp="🇴🇲">steag</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">steag</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">steag</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">steag</annotation>
+		<annotation cp="🇵🇫" type="tts">Polinezia Franceză</annotation>
+		<annotation cp="🇵🇬">steag</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua-Noua Guinee</annotation>
+		<annotation cp="🇵🇭">steag</annotation>
+		<annotation cp="🇵🇭" type="tts">Filipine</annotation>
+		<annotation cp="🇵🇰">steag</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">steag</annotation>
+		<annotation cp="🇵🇱" type="tts">Polonia</annotation>
+		<annotation cp="🇵🇲">steag</annotation>
+		<annotation cp="🇵🇲" type="tts">Saint-Pierre și Miquelon</annotation>
+		<annotation cp="🇵🇳">steag</annotation>
+		<annotation cp="🇵🇳" type="tts">Insulele Pitcairn</annotation>
+		<annotation cp="🇵🇷">steag</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇸">steag</annotation>
+		<annotation cp="🇵🇸" type="tts">Teritoriile Palestiniene</annotation>
+		<annotation cp="🇵🇹">steag</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugalia</annotation>
+		<annotation cp="🇵🇼">steag</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">steag</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">steag</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">steag</annotation>
+		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇴">steag</annotation>
+		<annotation cp="🇷🇴" type="tts">România</annotation>
+		<annotation cp="🇷🇸">steag</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇺">steag</annotation>
+		<annotation cp="🇷🇺" type="tts">Rusia</annotation>
+		<annotation cp="🇷🇼">steag</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">steag</annotation>
+		<annotation cp="🇸🇦" type="tts">Arabia Saudită</annotation>
+		<annotation cp="🇸🇧">steag</annotation>
+		<annotation cp="🇸🇧" type="tts">Insulele Solomon</annotation>
+		<annotation cp="🇸🇨">steag</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
+		<annotation cp="🇸🇩">steag</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇪">steag</annotation>
+		<annotation cp="🇸🇪" type="tts">Suedia</annotation>
+		<annotation cp="🇸🇬">steag</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇭">steag</annotation>
+		<annotation cp="🇸🇭" type="tts">Sfânta Elena</annotation>
+		<annotation cp="🇸🇮">steag</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovenia</annotation>
+		<annotation cp="🇸🇯">steag</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard și Jan Mayen</annotation>
+		<annotation cp="🇸🇰">steag</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovacia</annotation>
+		<annotation cp="🇸🇱">steag</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">steag</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">steag</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">steag</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇷">steag</annotation>
+		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇸">steag</annotation>
+		<annotation cp="🇸🇸" type="tts">Sudanul de Sud</annotation>
+		<annotation cp="🇸🇹">steag</annotation>
+		<annotation cp="🇸🇹" type="tts">Sao Tomé și Príncipe</annotation>
+		<annotation cp="🇸🇻">steag</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">steag</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint-Maarten</annotation>
+		<annotation cp="🇸🇾">steag</annotation>
+		<annotation cp="🇸🇾" type="tts">Siria</annotation>
+		<annotation cp="🇸🇿">steag</annotation>
+		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇹🇦">steag</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">steag</annotation>
+		<annotation cp="🇹🇨" type="tts">Insulele Turks și Caicos</annotation>
+		<annotation cp="🇹🇩">steag</annotation>
+		<annotation cp="🇹🇩" type="tts">Ciad</annotation>
+		<annotation cp="🇹🇫">steag</annotation>
+		<annotation cp="🇹🇫" type="tts">Teritoriile Australe și Antarctice Franceze</annotation>
+		<annotation cp="🇹🇬">steag</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">steag</annotation>
+		<annotation cp="🇹🇭" type="tts">Thailanda</annotation>
+		<annotation cp="🇹🇯">steag</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadjikistan</annotation>
+		<annotation cp="🇹🇰">steag</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">steag</annotation>
+		<annotation cp="🇹🇱" type="tts">Timorul de Est</annotation>
+		<annotation cp="🇹🇲">steag</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">steag</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇴">steag</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">steag</annotation>
+		<annotation cp="🇹🇷" type="tts">Turcia</annotation>
+		<annotation cp="🇹🇹">steag</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad și Tobago</annotation>
+		<annotation cp="🇹🇻">steag</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">steag</annotation>
+		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇿">steag</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇺🇦">steag</annotation>
+		<annotation cp="🇺🇦" type="tts">Ucraina</annotation>
+		<annotation cp="🇺🇬">steag</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">steag</annotation>
+		<annotation cp="🇺🇲" type="tts">Insulele Îndepărtate ale S.U.A.</annotation>
+		<annotation cp="🇺🇳">steag</annotation>
+		<annotation cp="🇺🇳" type="tts">Națiunile Unite</annotation>
+		<annotation cp="🇺🇸">steag</annotation>
+		<annotation cp="🇺🇸" type="tts">Statele Unite ale Americii</annotation>
+		<annotation cp="🇺🇾">steag</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">steag</annotation>
+		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇻🇦">steag</annotation>
+		<annotation cp="🇻🇦" type="tts">Statul Cetății Vaticanului</annotation>
+		<annotation cp="🇻🇨">steag</annotation>
+		<annotation cp="🇻🇨" type="tts">Saint Vincent și Grenadinele</annotation>
+		<annotation cp="🇻🇪">steag</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">steag</annotation>
+		<annotation cp="🇻🇬" type="tts">Insulele Virgine Britanice</annotation>
+		<annotation cp="🇻🇮">steag</annotation>
+		<annotation cp="🇻🇮" type="tts">Insulele Virgine Americane</annotation>
+		<annotation cp="🇻🇳">steag</annotation>
+		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇺">steag</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">steag</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis și Futuna</annotation>
+		<annotation cp="🇼🇸">steag</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">steag</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">steag</annotation>
+		<annotation cp="🇾🇪" type="tts">Yemen</annotation>
+		<annotation cp="🇾🇹">steag</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">steag</annotation>
+		<annotation cp="🇿🇦" type="tts">Africa de Sud</annotation>
+		<annotation cp="🇿🇲">steag</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇼">steag</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">steag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Anglia</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">steag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Scoția</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">steag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Țara Galilor</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="nb"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | null | nummertast</annotation>
+		<annotation cp="0⃣" type="tts">nummertast null</annotation>
+		<annotation cp="1⃣">1 | nummertast | én</annotation>
+		<annotation cp="1⃣" type="tts">nummertast én</annotation>
+		<annotation cp="2⃣">2 | nummertast | to</annotation>
+		<annotation cp="2⃣" type="tts">nummertast to</annotation>
+		<annotation cp="3⃣">3 | nummertast | tre</annotation>
+		<annotation cp="3⃣" type="tts">nummertast tre</annotation>
+		<annotation cp="4⃣">4 | fire | nummertast</annotation>
+		<annotation cp="4⃣" type="tts">nummertast fire</annotation>
+		<annotation cp="5⃣">5 | fem | nummertast</annotation>
+		<annotation cp="5⃣" type="tts">nummertast fem</annotation>
+		<annotation cp="6⃣">6 | nummertast | seks</annotation>
+		<annotation cp="6⃣" type="tts">nummertast seks</annotation>
+		<annotation cp="7⃣">7 | nummertast | syv</annotation>
+		<annotation cp="7⃣" type="tts">nummertast sju</annotation>
+		<annotation cp="8⃣">8 | nummertast | åtte</annotation>
+		<annotation cp="8⃣" type="tts">nummertast åtte</annotation>
+		<annotation cp="9⃣">9 | ni | nummertast</annotation>
+		<annotation cp="9⃣" type="tts">nummertast ni</annotation>
+		<annotation cp="👶🏻">menneske | hud type 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">baby: hud type 1–2</annotation>
+		<annotation cp="👶🏼">menneske | hud type 3</annotation>
+		<annotation cp="👶🏼" type="tts">baby: hud type 3</annotation>
+		<annotation cp="👶🏽">menneske | hud type 4</annotation>
+		<annotation cp="👶🏽" type="tts">baby: hud type 4</annotation>
+		<annotation cp="👶🏾">menneske | hud type 5</annotation>
+		<annotation cp="👶🏾" type="tts">baby: hud type 5</annotation>
+		<annotation cp="👶🏿">menneske | hud type 6</annotation>
+		<annotation cp="👶🏿" type="tts">baby: hud type 6</annotation>
+		<annotation cp="👦🏻">menneske | hud type 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">gutt: hud type 1–2</annotation>
+		<annotation cp="👦🏼">menneske | hud type 3</annotation>
+		<annotation cp="👦🏼" type="tts">gutt: hud type 3</annotation>
+		<annotation cp="👦🏽">menneske | hud type 4</annotation>
+		<annotation cp="👦🏽" type="tts">gutt: hud type 4</annotation>
+		<annotation cp="👦🏾">menneske | hud type 5</annotation>
+		<annotation cp="👦🏾" type="tts">gutt: hud type 5</annotation>
+		<annotation cp="👦🏿">menneske | hud type 6</annotation>
+		<annotation cp="👦🏿" type="tts">gutt: hud type 6</annotation>
+		<annotation cp="👧🏻">menneske | hud type 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">jente: hud type 1–2</annotation>
+		<annotation cp="👧🏼">menneske | hud type 3</annotation>
+		<annotation cp="👧🏼" type="tts">jente: hud type 3</annotation>
+		<annotation cp="👧🏽">menneske | hud type 4</annotation>
+		<annotation cp="👧🏽" type="tts">jente: hud type 4</annotation>
+		<annotation cp="👧🏾">menneske | hud type 5</annotation>
+		<annotation cp="👧🏾" type="tts">jente: hud type 5</annotation>
+		<annotation cp="👧🏿">menneske | hud type 6</annotation>
+		<annotation cp="👧🏿" type="tts">jente: hud type 6</annotation>
+		<annotation cp="👨🏻">menneske | hud type 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">mann: hud type 1–2</annotation>
+		<annotation cp="👨🏼">menneske | hud type 3</annotation>
+		<annotation cp="👨🏼" type="tts">mann: hud type 3</annotation>
+		<annotation cp="👨🏽">menneske | hud type 4</annotation>
+		<annotation cp="👨🏽" type="tts">mann: hud type 4</annotation>
+		<annotation cp="👨🏾">menneske | hud type 5</annotation>
+		<annotation cp="👨🏾" type="tts">mann: hud type 5</annotation>
+		<annotation cp="👨🏿">menneske | hud type 6</annotation>
+		<annotation cp="👨🏿" type="tts">mann: hud type 6</annotation>
+		<annotation cp="👩🏻">menneske | hud type 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">kvinne: hud type 1–2</annotation>
+		<annotation cp="👩🏼">menneske | hud type 3</annotation>
+		<annotation cp="👩🏼" type="tts">kvinne: hud type 3</annotation>
+		<annotation cp="👩🏽">menneske | hud type 4</annotation>
+		<annotation cp="👩🏽" type="tts">kvinne: hud type 4</annotation>
+		<annotation cp="👩🏾">menneske | hud type 5</annotation>
+		<annotation cp="👩🏾" type="tts">kvinne: hud type 5</annotation>
+		<annotation cp="👩🏿">menneske | hud type 6</annotation>
+		<annotation cp="👩🏿" type="tts">kvinne: hud type 6</annotation>
+		<annotation cp="👴🏻">eldre | mann | menneske | hud type 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">eldre mann: hud type 1–2</annotation>
+		<annotation cp="👴🏼">eldre | mann | menneske | hud type 3</annotation>
+		<annotation cp="👴🏼" type="tts">eldre mann: hud type 3</annotation>
+		<annotation cp="👴🏽">eldre | mann | menneske | hud type 4</annotation>
+		<annotation cp="👴🏽" type="tts">eldre mann: hud type 4</annotation>
+		<annotation cp="👴🏾">eldre | mann | menneske | hud type 5</annotation>
+		<annotation cp="👴🏾" type="tts">eldre mann: hud type 5</annotation>
+		<annotation cp="👴🏿">eldre | mann | menneske | hud type 6</annotation>
+		<annotation cp="👴🏿" type="tts">eldre mann: hud type 6</annotation>
+		<annotation cp="👵🏻">eldre | kvinne | menneske | hud type 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">eldre kvinne: hud type 1–2</annotation>
+		<annotation cp="👵🏼">eldre | kvinne | menneske | hud type 3</annotation>
+		<annotation cp="👵🏼" type="tts">eldre kvinne: hud type 3</annotation>
+		<annotation cp="👵🏽">eldre | kvinne | menneske | hud type 4</annotation>
+		<annotation cp="👵🏽" type="tts">eldre kvinne: hud type 4</annotation>
+		<annotation cp="👵🏾">eldre | kvinne | menneske | hud type 5</annotation>
+		<annotation cp="👵🏾" type="tts">eldre kvinne: hud type 5</annotation>
+		<annotation cp="👵🏿">eldre | kvinne | menneske | hud type 6</annotation>
+		<annotation cp="👵🏿" type="tts">eldre kvinne: hud type 6</annotation>
+		<annotation cp="👨🏻‍⚕">doktor | helsevesen | lege | mann | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">mannlig lege: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">doktor | helsevesen | lege | mann | hud type 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">mannlig lege: hud type 3</annotation>
+		<annotation cp="👨🏽‍⚕">doktor | helsevesen | lege | mann | hud type 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">mannlig lege: hud type 4</annotation>
+		<annotation cp="👨🏾‍⚕">doktor | helsevesen | lege | mann | hud type 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">mannlig lege: hud type 5</annotation>
+		<annotation cp="👨🏿‍⚕">doktor | helsevesen | lege | mann | hud type 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">mannlig lege: hud type 6</annotation>
+		<annotation cp="👩🏻‍⚕">doktor | helsevesen | kvinne | lege | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">kvinnelig lege: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">doktor | helsevesen | kvinne | lege | hud type 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">kvinnelig lege: hud type 3</annotation>
+		<annotation cp="👩🏽‍⚕">doktor | helsevesen | kvinne | lege | hud type 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">kvinnelig lege: hud type 4</annotation>
+		<annotation cp="👩🏾‍⚕">doktor | helsevesen | kvinne | lege | hud type 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">kvinnelig lege: hud type 5</annotation>
+		<annotation cp="👩🏿‍⚕">doktor | helsevesen | kvinne | lege | hud type 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">kvinnelig lege: hud type 6</annotation>
+		<annotation cp="👨🏻‍🎓">mann | skole | student | universitet | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">mannlig student: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">mann | skole | student | universitet | hud type 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">mannlig student: hud type 3</annotation>
+		<annotation cp="👨🏽‍🎓">mann | skole | student | universitet | hud type 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">mannlig student: hud type 4</annotation>
+		<annotation cp="👨🏾‍🎓">mann | skole | student | universitet | hud type 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">mannlig student: hud type 5</annotation>
+		<annotation cp="👨🏿‍🎓">mann | skole | student | universitet | hud type 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">mannlig student: hud type 6</annotation>
+		<annotation cp="👩🏻‍🎓">kvinne | skole | student | universitet | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">kvinnelig student: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">kvinne | skole | student | universitet | hud type 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">kvinnelig student: hud type 3</annotation>
+		<annotation cp="👩🏽‍🎓">kvinne | skole | student | universitet | hud type 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">kvinnelig student: hud type 4</annotation>
+		<annotation cp="👩🏾‍🎓">kvinne | skole | student | universitet | hud type 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">kvinnelig student: hud type 5</annotation>
+		<annotation cp="👩🏿‍🎓">kvinne | skole | student | universitet | hud type 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">kvinnelig student: hud type 6</annotation>
+		<annotation cp="👨🏻‍🏫">lærer | mann | skole | undervisning | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">mannlig lærer: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">lærer | mann | skole | undervisning | hud type 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">mannlig lærer: hud type 3</annotation>
+		<annotation cp="👨🏽‍🏫">lærer | mann | skole | undervisning | hud type 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">mannlig lærer: hud type 4</annotation>
+		<annotation cp="👨🏾‍🏫">lærer | mann | skole | undervisning | hud type 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">mannlig lærer: hud type 5</annotation>
+		<annotation cp="👨🏿‍🏫">lærer | mann | skole | undervisning | hud type 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">mannlig lærer: hud type 6</annotation>
+		<annotation cp="👩🏻‍🏫">kvinne | lærer | skole | undervisning | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">kvinnelig lærer: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">kvinne | lærer | skole | undervisning | hud type 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">kvinnelig lærer: hud type 3</annotation>
+		<annotation cp="👩🏽‍🏫">kvinne | lærer | skole | undervisning | hud type 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">kvinnelig lærer: hud type 4</annotation>
+		<annotation cp="👩🏾‍🏫">kvinne | lærer | skole | undervisning | hud type 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">kvinnelig lærer: hud type 5</annotation>
+		<annotation cp="👩🏿‍🏫">kvinne | lærer | skole | undervisning | hud type 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">kvinnelig lærer: hud type 6</annotation>
+		<annotation cp="👨🏻‍⚖">dommer | jus | mann | rettssak | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">mannlig dommer: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">dommer | jus | mann | rettssak | hud type 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">mannlig dommer: hud type 3</annotation>
+		<annotation cp="👨🏽‍⚖">dommer | jus | mann | rettssak | hud type 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">mannlig dommer: hud type 4</annotation>
+		<annotation cp="👨🏾‍⚖">dommer | jus | mann | rettssak | hud type 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">mannlig dommer: hud type 5</annotation>
+		<annotation cp="👨🏿‍⚖">dommer | jus | mann | rettssak | hud type 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">mannlig dommer: hud type 6</annotation>
+		<annotation cp="👩🏻‍⚖">dommer | jus | kvinne | rettssak | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">kvinnelig dommer: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">dommer | jus | kvinne | rettssak | hud type 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">kvinnelig dommer: hud type 3</annotation>
+		<annotation cp="👩🏽‍⚖">dommer | jus | kvinne | rettssak | hud type 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">kvinnelig dommer: hud type 4</annotation>
+		<annotation cp="👩🏾‍⚖">dommer | jus | kvinne | rettssak | hud type 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">kvinnelig dommer: hud type 5</annotation>
+		<annotation cp="👩🏿‍⚖">dommer | jus | kvinne | rettssak | hud type 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">kvinnelig dommer: hud type 6</annotation>
+		<annotation cp="👨🏻‍🌾">bonde | dyrke | jordbruk | mann | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">mannlig bonde: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">bonde | dyrke | jordbruk | mann | hud type 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">mannlig bonde: hud type 3</annotation>
+		<annotation cp="👨🏽‍🌾">bonde | dyrke | jordbruk | mann | hud type 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">mannlig bonde: hud type 4</annotation>
+		<annotation cp="👨🏾‍🌾">bonde | dyrke | jordbruk | mann | hud type 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">mannlig bonde: hud type 5</annotation>
+		<annotation cp="👨🏿‍🌾">bonde | dyrke | jordbruk | mann | hud type 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">mannlig bonde: hud type 6</annotation>
+		<annotation cp="👩🏻‍🌾">bonde | dyrke | jordbruk | kvinne | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">kvinnelig bonde: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">bonde | dyrke | jordbruk | kvinne | hud type 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">kvinnelig bonde: hud type 3</annotation>
+		<annotation cp="👩🏽‍🌾">bonde | dyrke | jordbruk | kvinne | hud type 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">kvinnelig bonde: hud type 4</annotation>
+		<annotation cp="👩🏾‍🌾">bonde | dyrke | jordbruk | kvinne | hud type 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">kvinnelig bonde: hud type 5</annotation>
+		<annotation cp="👩🏿‍🌾">bonde | dyrke | jordbruk | kvinne | hud type 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">kvinnelig bonde: hud type 6</annotation>
+		<annotation cp="👨🏻‍🍳">mann | matlaging | restaurant | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">mannlig kokk: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">mann | matlaging | restaurant | hud type 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">mannlig kokk: hud type 3</annotation>
+		<annotation cp="👨🏽‍🍳">mann | matlaging | restaurant | hud type 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">mannlig kokk: hud type 4</annotation>
+		<annotation cp="👨🏾‍🍳">mann | matlaging | restaurant | hud type 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">mannlig kokk: hud type 5</annotation>
+		<annotation cp="👨🏿‍🍳">mann | matlaging | restaurant | hud type 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">mannlig kokk: hud type 6</annotation>
+		<annotation cp="👩🏻‍🍳">kvinne | matlaging | restaurant | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">kvinnelig kokk: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">kvinne | matlaging | restaurant | hud type 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">kvinnelig kokk: hud type 3</annotation>
+		<annotation cp="👩🏽‍🍳">kvinne | matlaging | restaurant | hud type 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">kvinnelig kokk: hud type 4</annotation>
+		<annotation cp="👩🏾‍🍳">kvinne | matlaging | restaurant | hud type 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">kvinnelig kokk: hud type 5</annotation>
+		<annotation cp="👩🏿‍🍳">kvinne | matlaging | restaurant | hud type 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">kvinnelig kokk: hud type 6</annotation>
+		<annotation cp="👨🏻‍🔧">bil | mann | mekaniker | motor | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">mannlig mekaniker: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">bil | mann | mekaniker | motor | hud type 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">mannlig mekaniker: hud type 3</annotation>
+		<annotation cp="👨🏽‍🔧">bil | mann | mekaniker | motor | hud type 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">mannlig mekaniker: hud type 4</annotation>
+		<annotation cp="👨🏾‍🔧">bil | mann | mekaniker | motor | hud type 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">mannlig mekaniker: hud type 5</annotation>
+		<annotation cp="👨🏿‍🔧">bil | mann | mekaniker | motor | hud type 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">mannlig mekaniker: hud type 6</annotation>
+		<annotation cp="👩🏻‍🔧">bil | kvinne | mekaniker | motor | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">kvinnelig mekaniker: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">bil | kvinne | mekaniker | motor | hud type 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">kvinnelig mekaniker: hud type 3</annotation>
+		<annotation cp="👩🏽‍🔧">bil | kvinne | mekaniker | motor | hud type 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">kvinnelig mekaniker: hud type 4</annotation>
+		<annotation cp="👩🏾‍🔧">bil | kvinne | mekaniker | motor | hud type 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">kvinnelig mekaniker: hud type 5</annotation>
+		<annotation cp="👩🏿‍🔧">bil | kvinne | mekaniker | motor | hud type 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">kvinnelig mekaniker: hud type 6</annotation>
+		<annotation cp="👨🏻‍🏭">fabrikk | industri | mann | produksjon | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">mannlig industriarbeider: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">fabrikk | industri | mann | produksjon | hud type 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">mannlig industriarbeider: hud type 3</annotation>
+		<annotation cp="👨🏽‍🏭">fabrikk | industri | mann | produksjon | hud type 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">mannlig industriarbeider: hud type 4</annotation>
+		<annotation cp="👨🏾‍🏭">fabrikk | industri | mann | produksjon | hud type 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">mannlig industriarbeider: hud type 5</annotation>
+		<annotation cp="👨🏿‍🏭">fabrikk | industri | mann | produksjon | hud type 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">mannlig industriarbeider: hud type 6</annotation>
+		<annotation cp="👩🏻‍🏭">fabrikk | industri | kvinne | produksjon | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">kvinnelig industriarbeider: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">fabrikk | industri | kvinne | produksjon | hud type 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">kvinnelig industriarbeider: hud type 3</annotation>
+		<annotation cp="👩🏽‍🏭">fabrikk | industri | kvinne | produksjon | hud type 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">kvinnelig industriarbeider: hud type 4</annotation>
+		<annotation cp="👩🏾‍🏭">fabrikk | industri | kvinne | produksjon | hud type 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">kvinnelig industriarbeider: hud type 5</annotation>
+		<annotation cp="👩🏿‍🏭">fabrikk | industri | kvinne | produksjon | hud type 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">kvinnelig industriarbeider: hud type 6</annotation>
+		<annotation cp="👨🏻‍💼">kontor | mann | næringsliv | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">mannlig kontorarbeider: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍💼">kontor | mann | næringsliv | hud type 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">mannlig kontorarbeider: hud type 3</annotation>
+		<annotation cp="👨🏽‍💼">kontor | mann | næringsliv | hud type 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">mannlig kontorarbeider: hud type 4</annotation>
+		<annotation cp="👨🏾‍💼">kontor | mann | næringsliv | hud type 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">mannlig kontorarbeider: hud type 5</annotation>
+		<annotation cp="👨🏿‍💼">kontor | mann | næringsliv | hud type 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">mannlig kontorarbeider: hud type 6</annotation>
+		<annotation cp="👩🏻‍💼">kontor | kvinne | næringsliv | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">kvinnelig kontorarbeider: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍💼">kontor | kvinne | næringsliv | hud type 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">kvinnelig kontorarbeider: hud type 3</annotation>
+		<annotation cp="👩🏽‍💼">kontor | kvinne | næringsliv | hud type 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">kvinnelig kontorarbeider: hud type 4</annotation>
+		<annotation cp="👩🏾‍💼">kontor | kvinne | næringsliv | hud type 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">kvinnelig kontorarbeider: hud type 5</annotation>
+		<annotation cp="👩🏿‍💼">kontor | kvinne | næringsliv | hud type 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">kvinnelig kontorarbeider: hud type 6</annotation>
+		<annotation cp="👨🏻‍🔬">kjemi | laboratorium | mann | vitenskap | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">mannlig forsker: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">kjemi | laboratorium | mann | vitenskap | hud type 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">mannlig forsker: hud type 3</annotation>
+		<annotation cp="👨🏽‍🔬">kjemi | laboratorium | mann | vitenskap | hud type 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">mannlig forsker: hud type 4</annotation>
+		<annotation cp="👨🏾‍🔬">kjemi | laboratorium | mann | vitenskap | hud type 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">mannlig forsker: hud type 5</annotation>
+		<annotation cp="👨🏿‍🔬">kjemi | laboratorium | mann | vitenskap | hud type 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">mannlig forsker: hud type 6</annotation>
+		<annotation cp="👩🏻‍🔬">kjemi | kvinne | laboratorium | vitenskap | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">kvinnelig forsker: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">kjemi | kvinne | laboratorium | vitenskap | hud type 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">kvinnelig forsker: hud type 3</annotation>
+		<annotation cp="👩🏽‍🔬">kjemi | kvinne | laboratorium | vitenskap | hud type 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">kvinnelig forsker: hud type 4</annotation>
+		<annotation cp="👩🏾‍🔬">kjemi | kvinne | laboratorium | vitenskap | hud type 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">kvinnelig forsker: hud type 5</annotation>
+		<annotation cp="👩🏿‍🔬">kjemi | kvinne | laboratorium | vitenskap | hud type 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">kvinnelig forsker: hud type 6</annotation>
+		<annotation cp="👨🏻‍💻">IT | data | mann | teknologi | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">mannlig IT-ekspert: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍💻">IT | data | mann | teknologi | hud type 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">mannlig IT-ekspert: hud type 3</annotation>
+		<annotation cp="👨🏽‍💻">IT | data | mann | teknologi | hud type 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">mannlig IT-ekspert: hud type 4</annotation>
+		<annotation cp="👨🏾‍💻">IT | data | mann | teknologi | hud type 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">mannlig IT-ekspert: hud type 5</annotation>
+		<annotation cp="👨🏿‍💻">IT | data | mann | teknologi | hud type 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">mannlig IT-ekspert: hud type 6</annotation>
+		<annotation cp="👩🏻‍💻">IT | data | kvinne | teknologi | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">kvinnelig IT-ekspert: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍💻">IT | data | kvinne | teknologi | hud type 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">kvinnelig IT-ekspert: hud type 3</annotation>
+		<annotation cp="👩🏽‍💻">IT | data | kvinne | teknologi | hud type 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">kvinnelig IT-ekspert: hud type 4</annotation>
+		<annotation cp="👩🏾‍💻">IT | data | kvinne | teknologi | hud type 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">kvinnelig IT-ekspert: hud type 5</annotation>
+		<annotation cp="👩🏿‍💻">IT | data | kvinne | teknologi | hud type 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">kvinnelig IT-ekspert: hud type 6</annotation>
+		<annotation cp="👨🏻‍🎤">artist | konsert | mann | sanger | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">mannlig artist: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">artist | konsert | mann | sanger | hud type 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">mannlig artist: hud type 3</annotation>
+		<annotation cp="👨🏽‍🎤">artist | konsert | mann | sanger | hud type 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">mannlig artist: hud type 4</annotation>
+		<annotation cp="👨🏾‍🎤">artist | konsert | mann | sanger | hud type 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">mannlig artist: hud type 5</annotation>
+		<annotation cp="👨🏿‍🎤">artist | konsert | mann | sanger | hud type 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">mannlig artist: hud type 6</annotation>
+		<annotation cp="👩🏻‍🎤">artist | konsert | kvinne | sangerinne | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">kvinnelig artist: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">artist | konsert | kvinne | sangerinne | hud type 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">kvinnelig artist: hud type 3</annotation>
+		<annotation cp="👩🏽‍🎤">artist | konsert | kvinne | sangerinne | hud type 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">kvinnelig artist: hud type 4</annotation>
+		<annotation cp="👩🏾‍🎤">artist | konsert | kvinne | sangerinne | hud type 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">kvinnelig artist: hud type 5</annotation>
+		<annotation cp="👩🏿‍🎤">artist | konsert | kvinne | sangerinne | hud type 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">kvinnelig artist: hud type 6</annotation>
+		<annotation cp="👨🏻‍🎨">kunstner | maler | mann | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">mannlig kunstner: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">kunstner | maler | mann | hud type 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">mannlig kunstner: hud type 3</annotation>
+		<annotation cp="👨🏽‍🎨">kunstner | maler | mann | hud type 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">mannlig kunstner: hud type 4</annotation>
+		<annotation cp="👨🏾‍🎨">kunstner | maler | mann | hud type 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">mannlig kunstner: hud type 5</annotation>
+		<annotation cp="👨🏿‍🎨">kunstner | maler | mann | hud type 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">mannlig kunstner: hud type 6</annotation>
+		<annotation cp="👩🏻‍🎨">kunstner | kvinne | maler | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">kvinnelig kunstner: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">kunstner | kvinne | maler | hud type 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">kvinnelig kunstner: hud type 3</annotation>
+		<annotation cp="👩🏽‍🎨">kunstner | kvinne | maler | hud type 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">kvinnelig kunstner: hud type 4</annotation>
+		<annotation cp="👩🏾‍🎨">kunstner | kvinne | maler | hud type 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">kvinnelig kunstner: hud type 5</annotation>
+		<annotation cp="👩🏿‍🎨">kunstner | kvinne | maler | hud type 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">kvinnelig kunstner: hud type 6</annotation>
+		<annotation cp="👨🏻‍✈">fly | mann | pilot | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">mannlig pilot: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍✈">fly | mann | pilot | hud type 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">mannlig pilot: hud type 3</annotation>
+		<annotation cp="👨🏽‍✈">fly | mann | pilot | hud type 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">mannlig pilot: hud type 4</annotation>
+		<annotation cp="👨🏾‍✈">fly | mann | pilot | hud type 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">mannlig pilot: hud type 5</annotation>
+		<annotation cp="👨🏿‍✈">fly | mann | pilot | hud type 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">mannlig pilot: hud type 6</annotation>
+		<annotation cp="👩🏻‍✈">fly | kvinne | pilot | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">kvinnelig pilot: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍✈">fly | kvinne | pilot | hud type 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">kvinnelig pilot: hud type 3</annotation>
+		<annotation cp="👩🏽‍✈">fly | kvinne | pilot | hud type 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">kvinnelig pilot: hud type 4</annotation>
+		<annotation cp="👩🏾‍✈">fly | kvinne | pilot | hud type 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">kvinnelig pilot: hud type 5</annotation>
+		<annotation cp="👩🏿‍✈">fly | kvinne | pilot | hud type 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">kvinnelig pilot: hud type 6</annotation>
+		<annotation cp="👨🏻‍🚀">astronaut | mann | romfart | verdensrommet | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">mannlig astronaut: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">astronaut | mann | romfart | verdensrommet | hud type 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">mannlig astronaut: hud type 3</annotation>
+		<annotation cp="👨🏽‍🚀">astronaut | mann | romfart | verdensrommet | hud type 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">mannlig astronaut: hud type 4</annotation>
+		<annotation cp="👨🏾‍🚀">astronaut | mann | romfart | verdensrommet | hud type 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">mannlig astronaut: hud type 5</annotation>
+		<annotation cp="👨🏿‍🚀">astronaut | mann | romfart | verdensrommet | hud type 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">mannlig astronaut: hud type 6</annotation>
+		<annotation cp="👩🏻‍🚀">astronaut | kvinne | romfart | verdensrommet | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">kvinnelig astronaut: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">astronaut | kvinne | romfart | verdensrommet | hud type 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">kvinnelig astronaut: hud type 3</annotation>
+		<annotation cp="👩🏽‍🚀">astronaut | kvinne | romfart | verdensrommet | hud type 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">kvinnelig astronaut: hud type 4</annotation>
+		<annotation cp="👩🏾‍🚀">astronaut | kvinne | romfart | verdensrommet | hud type 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">kvinnelig astronaut: hud type 5</annotation>
+		<annotation cp="👩🏿‍🚀">astronaut | kvinne | romfart | verdensrommet | hud type 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">kvinnelig astronaut: hud type 6</annotation>
+		<annotation cp="👨🏻‍🚒">brannkonstabel | brannmann | brannvesenet | mann | hud type 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">mannlig brannkonstabel: hud type 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">brannkonstabel | brannmann | brannvesenet | mann | hud type 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">mannlig brannkonstabel: hud type 3</annotation>
+		<annotation cp="👨🏽‍🚒">brannkonstabel | brannmann | brannvesenet | mann | hud type 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">mannlig brannkonstabel: hud type 4</annotation>
+		<annotation cp="👨🏾‍🚒">brannkonstabel | brannmann | brannvesenet | mann | hud type 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">mannlig brannkonstabel: hud type 5</annotation>
+		<annotation cp="👨🏿‍🚒">brannkonstabel | brannmann | brannvesenet | mann | hud type 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">mannlig brannkonstabel: hud type 6</annotation>
+		<annotation cp="👩🏻‍🚒">brannkonstabel | brannmann | brannvesenet | kvinne | hud type 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">kvinnelig brannkonstabel: hud type 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">brannkonstabel | brannmann | brannvesenet | kvinne | hud type 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">kvinnelig brannkonstabel: hud type 3</annotation>
+		<annotation cp="👩🏽‍🚒">brannkonstabel | brannmann | brannvesenet | kvinne | hud type 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">kvinnelig brannkonstabel: hud type 4</annotation>
+		<annotation cp="👩🏾‍🚒">brannkonstabel | brannmann | brannvesenet | kvinne | hud type 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">kvinnelig brannkonstabel: hud type 5</annotation>
+		<annotation cp="👩🏿‍🚒">brannkonstabel | brannmann | brannvesenet | kvinne | hud type 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">kvinnelig brannkonstabel: hud type 6</annotation>
+		<annotation cp="👮🏻">menneske | politi | tjenestemann | hud type 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">politimann: hud type 1–2</annotation>
+		<annotation cp="👮🏼">menneske | politi | tjenestemann | hud type 3</annotation>
+		<annotation cp="👮🏼" type="tts">politimann: hud type 3</annotation>
+		<annotation cp="👮🏽">menneske | politi | tjenestemann | hud type 4</annotation>
+		<annotation cp="👮🏽" type="tts">politimann: hud type 4</annotation>
+		<annotation cp="👮🏾">menneske | politi | tjenestemann | hud type 5</annotation>
+		<annotation cp="👮🏾" type="tts">politimann: hud type 5</annotation>
+		<annotation cp="👮🏿">menneske | politi | tjenestemann | hud type 6</annotation>
+		<annotation cp="👮🏿" type="tts">politimann: hud type 6</annotation>
+		<annotation cp="👮🏻‍♂">lov | mann | politi | politibetjent | hud type 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">mannlig politibetjent: hud type 1–2</annotation>
+		<annotation cp="👮🏼‍♂">lov | mann | politi | politibetjent | hud type 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">mannlig politibetjent: hud type 3</annotation>
+		<annotation cp="👮🏽‍♂">lov | mann | politi | politibetjent | hud type 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">mannlig politibetjent: hud type 4</annotation>
+		<annotation cp="👮🏾‍♂">lov | mann | politi | politibetjent | hud type 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">mannlig politibetjent: hud type 5</annotation>
+		<annotation cp="👮🏿‍♂">lov | mann | politi | politibetjent | hud type 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">mannlig politibetjent: hud type 6</annotation>
+		<annotation cp="👮🏻‍♀">kvinne | lov | politi | politibetjent | hud type 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">kvinnelig politibetjent: hud type 1–2</annotation>
+		<annotation cp="👮🏼‍♀">kvinne | lov | politi | politibetjent | hud type 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">kvinnelig politibetjent: hud type 3</annotation>
+		<annotation cp="👮🏽‍♀">kvinne | lov | politi | politibetjent | hud type 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">kvinnelig politibetjent: hud type 4</annotation>
+		<annotation cp="👮🏾‍♀">kvinne | lov | politi | politibetjent | hud type 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">kvinnelig politibetjent: hud type 5</annotation>
+		<annotation cp="👮🏿‍♀">kvinne | lov | politi | politibetjent | hud type 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">kvinnelig politibetjent: hud type 6</annotation>
+		<annotation cp="🕵🏻">spion | hud type 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">detektiv: hud type 1–2</annotation>
+		<annotation cp="🕵🏼">spion | hud type 3</annotation>
+		<annotation cp="🕵🏼" type="tts">detektiv: hud type 3</annotation>
+		<annotation cp="🕵🏽">spion | hud type 4</annotation>
+		<annotation cp="🕵🏽" type="tts">detektiv: hud type 4</annotation>
+		<annotation cp="🕵🏾">spion | hud type 5</annotation>
+		<annotation cp="🕵🏾" type="tts">detektiv: hud type 5</annotation>
+		<annotation cp="🕵🏿">spion | hud type 6</annotation>
+		<annotation cp="🕵🏿" type="tts">detektiv: hud type 6</annotation>
+		<annotation cp="🕵🏻‍♂">etterforske | forbrytelse | mann | privatdetektiv | hud type 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">mannlig privatdetektiv: hud type 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">etterforske | forbrytelse | mann | privatdetektiv | hud type 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">mannlig privatdetektiv: hud type 3</annotation>
+		<annotation cp="🕵🏽‍♂">etterforske | forbrytelse | mann | privatdetektiv | hud type 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">mannlig privatdetektiv: hud type 4</annotation>
+		<annotation cp="🕵🏾‍♂">etterforske | forbrytelse | mann | privatdetektiv | hud type 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">mannlig privatdetektiv: hud type 5</annotation>
+		<annotation cp="🕵🏿‍♂">etterforske | forbrytelse | mann | privatdetektiv | hud type 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">mannlig privatdetektiv: hud type 6</annotation>
+		<annotation cp="🕵🏻‍♀">etterforske | forbrytelse | kvinne | privatdetektiv | hud type 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">kvinnelig privatdetektiv: hud type 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">etterforske | forbrytelse | kvinne | privatdetektiv | hud type 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">kvinnelig privatdetektiv: hud type 3</annotation>
+		<annotation cp="🕵🏽‍♀">etterforske | forbrytelse | kvinne | privatdetektiv | hud type 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">kvinnelig privatdetektiv: hud type 4</annotation>
+		<annotation cp="🕵🏾‍♀">etterforske | forbrytelse | kvinne | privatdetektiv | hud type 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">kvinnelig privatdetektiv: hud type 5</annotation>
+		<annotation cp="🕵🏿‍♀">etterforske | forbrytelse | kvinne | privatdetektiv | hud type 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">kvinnelig privatdetektiv: hud type 6</annotation>
+		<annotation cp="💂🏻">menneske | vaktmann | hud type 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">gardist: hud type 1–2</annotation>
+		<annotation cp="💂🏼">menneske | vaktmann | hud type 3</annotation>
+		<annotation cp="💂🏼" type="tts">gardist: hud type 3</annotation>
+		<annotation cp="💂🏽">menneske | vaktmann | hud type 4</annotation>
+		<annotation cp="💂🏽" type="tts">gardist: hud type 4</annotation>
+		<annotation cp="💂🏾">menneske | vaktmann | hud type 5</annotation>
+		<annotation cp="💂🏾" type="tts">gardist: hud type 5</annotation>
+		<annotation cp="💂🏿">menneske | vaktmann | hud type 6</annotation>
+		<annotation cp="💂🏿" type="tts">gardist: hud type 6</annotation>
+		<annotation cp="💂🏻‍♂">England | garde | gardist | mann | hud type 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">mannlig gardist: hud type 1–2</annotation>
+		<annotation cp="💂🏼‍♂">England | garde | gardist | mann | hud type 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">mannlig gardist: hud type 3</annotation>
+		<annotation cp="💂🏽‍♂">England | garde | gardist | mann | hud type 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">mannlig gardist: hud type 4</annotation>
+		<annotation cp="💂🏾‍♂">England | garde | gardist | mann | hud type 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">mannlig gardist: hud type 5</annotation>
+		<annotation cp="💂🏿‍♂">England | garde | gardist | mann | hud type 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">mannlig gardist: hud type 6</annotation>
+		<annotation cp="💂🏻‍♀">England | garde | gardist | kvinne | hud type 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">kvinnelig gardist: hud type 1–2</annotation>
+		<annotation cp="💂🏼‍♀">England | garde | gardist | kvinne | hud type 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">kvinnelig gardist: hud type 3</annotation>
+		<annotation cp="💂🏽‍♀">England | garde | gardist | kvinne | hud type 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">kvinnelig gardist: hud type 4</annotation>
+		<annotation cp="💂🏾‍♀">England | garde | gardist | kvinne | hud type 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">kvinnelig gardist: hud type 5</annotation>
+		<annotation cp="💂🏿‍♀">England | garde | gardist | kvinne | hud type 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">kvinnelig gardist: hud type 6</annotation>
+		<annotation cp="👷🏻">anlegg | arbeider | menneske | hud type 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">anleggsarbeider: hud type 1–2</annotation>
+		<annotation cp="👷🏼">anlegg | arbeider | menneske | hud type 3</annotation>
+		<annotation cp="👷🏼" type="tts">anleggsarbeider: hud type 3</annotation>
+		<annotation cp="👷🏽">anlegg | arbeider | menneske | hud type 4</annotation>
+		<annotation cp="👷🏽" type="tts">anleggsarbeider: hud type 4</annotation>
+		<annotation cp="👷🏾">anlegg | arbeider | menneske | hud type 5</annotation>
+		<annotation cp="👷🏾" type="tts">anleggsarbeider: hud type 5</annotation>
+		<annotation cp="👷🏿">anlegg | arbeider | menneske | hud type 6</annotation>
+		<annotation cp="👷🏿" type="tts">anleggsarbeider: hud type 6</annotation>
+		<annotation cp="👷🏻‍♂">bygg | ingeniør | mann | hud type 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">mannlig ingeniør: hud type 1–2</annotation>
+		<annotation cp="👷🏼‍♂">bygg | ingeniør | mann | hud type 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">mannlig ingeniør: hud type 3</annotation>
+		<annotation cp="👷🏽‍♂">bygg | ingeniør | mann | hud type 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">mannlig ingeniør: hud type 4</annotation>
+		<annotation cp="👷🏾‍♂">bygg | ingeniør | mann | hud type 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">mannlig ingeniør: hud type 5</annotation>
+		<annotation cp="👷🏿‍♂">bygg | ingeniør | mann | hud type 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">mannlig ingeniør: hud type 6</annotation>
+		<annotation cp="👷🏻‍♀">bygg | ingeniør | kvinne | hud type 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">kvinnelig ingeniør: hud type 1–2</annotation>
+		<annotation cp="👷🏼‍♀">bygg | ingeniør | kvinne | hud type 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">kvinnelig ingeniør: hud type 3</annotation>
+		<annotation cp="👷🏽‍♀">bygg | ingeniør | kvinne | hud type 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">kvinnelig ingeniør: hud type 4</annotation>
+		<annotation cp="👷🏾‍♀">bygg | ingeniør | kvinne | hud type 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">kvinnelig ingeniør: hud type 5</annotation>
+		<annotation cp="👷🏿‍♀">bygg | ingeniør | kvinne | hud type 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">kvinnelig ingeniør: hud type 6</annotation>
+		<annotation cp="🤴🏻">prins | hud type 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">prins: hud type 1–2</annotation>
+		<annotation cp="🤴🏼">prins | hud type 3</annotation>
+		<annotation cp="🤴🏼" type="tts">prins: hud type 3</annotation>
+		<annotation cp="🤴🏽">prins | hud type 4</annotation>
+		<annotation cp="🤴🏽" type="tts">prins: hud type 4</annotation>
+		<annotation cp="🤴🏾">prins | hud type 5</annotation>
+		<annotation cp="🤴🏾" type="tts">prins: hud type 5</annotation>
+		<annotation cp="🤴🏿">prins | hud type 6</annotation>
+		<annotation cp="🤴🏿" type="tts">prins: hud type 6</annotation>
+		<annotation cp="👸🏻">eventyr | menneske | hud type 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">prinsesse: hud type 1–2</annotation>
+		<annotation cp="👸🏼">eventyr | menneske | hud type 3</annotation>
+		<annotation cp="👸🏼" type="tts">prinsesse: hud type 3</annotation>
+		<annotation cp="👸🏽">eventyr | menneske | hud type 4</annotation>
+		<annotation cp="👸🏽" type="tts">prinsesse: hud type 4</annotation>
+		<annotation cp="👸🏾">eventyr | menneske | hud type 5</annotation>
+		<annotation cp="👸🏾" type="tts">prinsesse: hud type 5</annotation>
+		<annotation cp="👸🏿">eventyr | menneske | hud type 6</annotation>
+		<annotation cp="👸🏿" type="tts">prinsesse: hud type 6</annotation>
+		<annotation cp="👳🏻">menneske | hud type 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">mann med turban: hud type 1–2</annotation>
+		<annotation cp="👳🏼">menneske | hud type 3</annotation>
+		<annotation cp="👳🏼" type="tts">mann med turban: hud type 3</annotation>
+		<annotation cp="👳🏽">menneske | hud type 4</annotation>
+		<annotation cp="👳🏽" type="tts">mann med turban: hud type 4</annotation>
+		<annotation cp="👳🏾">menneske | hud type 5</annotation>
+		<annotation cp="👳🏾" type="tts">mann med turban: hud type 5</annotation>
+		<annotation cp="👳🏿">menneske | hud type 6</annotation>
+		<annotation cp="👳🏿" type="tts">mann med turban: hud type 6</annotation>
+		<annotation cp="👳🏻‍♂">mann | turban | hud type 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">turbankledd mann: hud type 1–2</annotation>
+		<annotation cp="👳🏼‍♂">mann | turban | hud type 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">turbankledd mann: hud type 3</annotation>
+		<annotation cp="👳🏽‍♂">mann | turban | hud type 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">turbankledd mann: hud type 4</annotation>
+		<annotation cp="👳🏾‍♂">mann | turban | hud type 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">turbankledd mann: hud type 5</annotation>
+		<annotation cp="👳🏿‍♂">mann | turban | hud type 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">turbankledd mann: hud type 6</annotation>
+		<annotation cp="👳🏻‍♀">kvinne | turban | hud type 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">turbankledd kvinne: hud type 1–2</annotation>
+		<annotation cp="👳🏼‍♀">kvinne | turban | hud type 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">turbankledd kvinne: hud type 3</annotation>
+		<annotation cp="👳🏽‍♀">kvinne | turban | hud type 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">turbankledd kvinne: hud type 4</annotation>
+		<annotation cp="👳🏾‍♀">kvinne | turban | hud type 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">turbankledd kvinne: hud type 5</annotation>
+		<annotation cp="👳🏿‍♀">kvinne | turban | hud type 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">turbankledd kvinne: hud type 6</annotation>
+		<annotation cp="👲🏻">mann med gua pi mao | menneske | hud type 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">mann med lue: hud type 1–2</annotation>
+		<annotation cp="👲🏼">mann med gua pi mao | menneske | hud type 3</annotation>
+		<annotation cp="👲🏼" type="tts">mann med lue: hud type 3</annotation>
+		<annotation cp="👲🏽">mann med gua pi mao | menneske | hud type 4</annotation>
+		<annotation cp="👲🏽" type="tts">mann med lue: hud type 4</annotation>
+		<annotation cp="👲🏾">mann med gua pi mao | menneske | hud type 5</annotation>
+		<annotation cp="👲🏾" type="tts">mann med lue: hud type 5</annotation>
+		<annotation cp="👲🏿">mann med gua pi mao | menneske | hud type 6</annotation>
+		<annotation cp="👲🏿" type="tts">mann med lue: hud type 6</annotation>
+		<annotation cp="👱🏻">blond | menneske | hud type 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">blond person: hud type 1–2</annotation>
+		<annotation cp="👱🏼">blond | menneske | hud type 3</annotation>
+		<annotation cp="👱🏼" type="tts">blond person: hud type 3</annotation>
+		<annotation cp="👱🏽">blond | menneske | hud type 4</annotation>
+		<annotation cp="👱🏽" type="tts">blond person: hud type 4</annotation>
+		<annotation cp="👱🏾">blond | menneske | hud type 5</annotation>
+		<annotation cp="👱🏾" type="tts">blond person: hud type 5</annotation>
+		<annotation cp="👱🏿">blond | menneske | hud type 6</annotation>
+		<annotation cp="👱🏿" type="tts">blond person: hud type 6</annotation>
+		<annotation cp="👱🏻‍♂">blond | mann | hud type 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blond mann: hud type 1–2</annotation>
+		<annotation cp="👱🏼‍♂">blond | mann | hud type 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blond mann: hud type 3</annotation>
+		<annotation cp="👱🏽‍♂">blond | mann | hud type 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blond mann: hud type 4</annotation>
+		<annotation cp="👱🏾‍♂">blond | mann | hud type 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blond mann: hud type 5</annotation>
+		<annotation cp="👱🏿‍♂">blond | mann | hud type 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blond mann: hud type 6</annotation>
+		<annotation cp="👱🏻‍♀">blond | blondine | kvinne | hud type 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blond kvinne: hud type 1–2</annotation>
+		<annotation cp="👱🏼‍♀">blond | blondine | kvinne | hud type 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blond kvinne: hud type 3</annotation>
+		<annotation cp="👱🏽‍♀">blond | blondine | kvinne | hud type 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blond kvinne: hud type 4</annotation>
+		<annotation cp="👱🏾‍♀">blond | blondine | kvinne | hud type 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blond kvinne: hud type 5</annotation>
+		<annotation cp="👱🏿‍♀">blond | blondine | kvinne | hud type 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blond kvinne: hud type 6</annotation>
+		<annotation cp="🤵🏻">brudgom | mann | smoking | hud type 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">mann i smoking: hud type 1–2</annotation>
+		<annotation cp="🤵🏼">brudgom | mann | smoking | hud type 3</annotation>
+		<annotation cp="🤵🏼" type="tts">mann i smoking: hud type 3</annotation>
+		<annotation cp="🤵🏽">brudgom | mann | smoking | hud type 4</annotation>
+		<annotation cp="🤵🏽" type="tts">mann i smoking: hud type 4</annotation>
+		<annotation cp="🤵🏾">brudgom | mann | smoking | hud type 5</annotation>
+		<annotation cp="🤵🏾" type="tts">mann i smoking: hud type 5</annotation>
+		<annotation cp="🤵🏿">brudgom | mann | smoking | hud type 6</annotation>
+		<annotation cp="🤵🏿" type="tts">mann i smoking: hud type 6</annotation>
+		<annotation cp="👰🏻">brud med slør | bryllup | mennesker | slør | hud type 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">brud: hud type 1–2</annotation>
+		<annotation cp="👰🏼">brud med slør | bryllup | mennesker | slør | hud type 3</annotation>
+		<annotation cp="👰🏼" type="tts">brud: hud type 3</annotation>
+		<annotation cp="👰🏽">brud med slør | bryllup | mennesker | slør | hud type 4</annotation>
+		<annotation cp="👰🏽" type="tts">brud: hud type 4</annotation>
+		<annotation cp="👰🏾">brud med slør | bryllup | mennesker | slør | hud type 5</annotation>
+		<annotation cp="👰🏾" type="tts">brud: hud type 5</annotation>
+		<annotation cp="👰🏿">brud med slør | bryllup | mennesker | slør | hud type 6</annotation>
+		<annotation cp="👰🏿" type="tts">brud: hud type 6</annotation>
+		<annotation cp="🤰🏻">gravid | kvinne | hud type 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">gravid kvinne: hud type 1–2</annotation>
+		<annotation cp="🤰🏼">gravid | kvinne | hud type 3</annotation>
+		<annotation cp="🤰🏼" type="tts">gravid kvinne: hud type 3</annotation>
+		<annotation cp="🤰🏽">gravid | kvinne | hud type 4</annotation>
+		<annotation cp="🤰🏽" type="tts">gravid kvinne: hud type 4</annotation>
+		<annotation cp="🤰🏾">gravid | kvinne | hud type 5</annotation>
+		<annotation cp="🤰🏾" type="tts">gravid kvinne: hud type 5</annotation>
+		<annotation cp="🤰🏿">gravid | kvinne | hud type 6</annotation>
+		<annotation cp="🤰🏿" type="tts">gravid kvinne: hud type 6</annotation>
+		<annotation cp="👼🏻">ansikt | engel | eventyr | hud type 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">babyengel: hud type 1–2</annotation>
+		<annotation cp="👼🏼">ansikt | engel | eventyr | hud type 3</annotation>
+		<annotation cp="👼🏼" type="tts">babyengel: hud type 3</annotation>
+		<annotation cp="👼🏽">ansikt | engel | eventyr | hud type 4</annotation>
+		<annotation cp="👼🏽" type="tts">babyengel: hud type 4</annotation>
+		<annotation cp="👼🏾">ansikt | engel | eventyr | hud type 5</annotation>
+		<annotation cp="👼🏾" type="tts">babyengel: hud type 5</annotation>
+		<annotation cp="👼🏿">ansikt | engel | eventyr | hud type 6</annotation>
+		<annotation cp="👼🏿" type="tts">babyengel: hud type 6</annotation>
+		<annotation cp="🎅🏻">feiring | jul | nissefar | nissen | hud type 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">julenissen: hud type 1–2</annotation>
+		<annotation cp="🎅🏼">feiring | jul | nissefar | nissen | hud type 3</annotation>
+		<annotation cp="🎅🏼" type="tts">julenissen: hud type 3</annotation>
+		<annotation cp="🎅🏽">feiring | jul | nissefar | nissen | hud type 4</annotation>
+		<annotation cp="🎅🏽" type="tts">julenissen: hud type 4</annotation>
+		<annotation cp="🎅🏾">feiring | jul | nissefar | nissen | hud type 5</annotation>
+		<annotation cp="🎅🏾" type="tts">julenissen: hud type 5</annotation>
+		<annotation cp="🎅🏿">feiring | jul | nissefar | nissen | hud type 6</annotation>
+		<annotation cp="🎅🏿" type="tts">julenissen: hud type 6</annotation>
+		<annotation cp="🤶🏻">jul | mor | nisse | hud type 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">julenissemor: hud type 1–2</annotation>
+		<annotation cp="🤶🏼">jul | mor | nisse | hud type 3</annotation>
+		<annotation cp="🤶🏼" type="tts">julenissemor: hud type 3</annotation>
+		<annotation cp="🤶🏽">jul | mor | nisse | hud type 4</annotation>
+		<annotation cp="🤶🏽" type="tts">julenissemor: hud type 4</annotation>
+		<annotation cp="🤶🏾">jul | mor | nisse | hud type 5</annotation>
+		<annotation cp="🤶🏾" type="tts">julenissemor: hud type 5</annotation>
+		<annotation cp="🤶🏿">jul | mor | nisse | hud type 6</annotation>
+		<annotation cp="🤶🏿" type="tts">julenissemor: hud type 6</annotation>
+		<annotation cp="🙍🏻">person | person rynker brynene | hud type 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">rynker brynene: hud type 1–2</annotation>
+		<annotation cp="🙍🏼">person | person rynker brynene | hud type 3</annotation>
+		<annotation cp="🙍🏼" type="tts">rynker brynene: hud type 3</annotation>
+		<annotation cp="🙍🏽">person | person rynker brynene | hud type 4</annotation>
+		<annotation cp="🙍🏽" type="tts">rynker brynene: hud type 4</annotation>
+		<annotation cp="🙍🏾">person | person rynker brynene | hud type 5</annotation>
+		<annotation cp="🙍🏾" type="tts">rynker brynene: hud type 5</annotation>
+		<annotation cp="🙍🏿">person | person rynker brynene | hud type 6</annotation>
+		<annotation cp="🙍🏿" type="tts">rynker brynene: hud type 6</annotation>
+		<annotation cp="🙍🏻‍♂">mann | rynke | skeptisk | hud type 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">skeptisk mann: hud type 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">mann | rynke | skeptisk | hud type 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">skeptisk mann: hud type 3</annotation>
+		<annotation cp="🙍🏽‍♂">mann | rynke | skeptisk | hud type 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">skeptisk mann: hud type 4</annotation>
+		<annotation cp="🙍🏾‍♂">mann | rynke | skeptisk | hud type 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">skeptisk mann: hud type 5</annotation>
+		<annotation cp="🙍🏿‍♂">mann | rynke | skeptisk | hud type 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">skeptisk mann: hud type 6</annotation>
+		<annotation cp="🙍🏻‍♀">kvinne | rynke | skeptisk | hud type 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">skeptisk kvinne: hud type 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">kvinne | rynke | skeptisk | hud type 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">skeptisk kvinne: hud type 3</annotation>
+		<annotation cp="🙍🏽‍♀">kvinne | rynke | skeptisk | hud type 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">skeptisk kvinne: hud type 4</annotation>
+		<annotation cp="🙍🏾‍♀">kvinne | rynke | skeptisk | hud type 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">skeptisk kvinne: hud type 5</annotation>
+		<annotation cp="🙍🏿‍♀">kvinne | rynke | skeptisk | hud type 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">skeptisk kvinne: hud type 6</annotation>
+		<annotation cp="🙎🏻">fjes | kyssende person | hud type 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">snurpemunn: hud type 1–2</annotation>
+		<annotation cp="🙎🏼">fjes | kyssende person | hud type 3</annotation>
+		<annotation cp="🙎🏼" type="tts">snurpemunn: hud type 3</annotation>
+		<annotation cp="🙎🏽">fjes | kyssende person | hud type 4</annotation>
+		<annotation cp="🙎🏽" type="tts">snurpemunn: hud type 4</annotation>
+		<annotation cp="🙎🏾">fjes | kyssende person | hud type 5</annotation>
+		<annotation cp="🙎🏾" type="tts">snurpemunn: hud type 5</annotation>
+		<annotation cp="🙎🏿">fjes | kyssende person | hud type 6</annotation>
+		<annotation cp="🙎🏿" type="tts">snurpemunn: hud type 6</annotation>
+		<annotation cp="🙎🏻‍♂">kyss | mann | trutmunn | hud type 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">mann med trutmunn: hud type 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">kyss | mann | trutmunn | hud type 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">mann med trutmunn: hud type 3</annotation>
+		<annotation cp="🙎🏽‍♂">kyss | mann | trutmunn | hud type 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">mann med trutmunn: hud type 4</annotation>
+		<annotation cp="🙎🏾‍♂">kyss | mann | trutmunn | hud type 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">mann med trutmunn: hud type 5</annotation>
+		<annotation cp="🙎🏿‍♂">kyss | mann | trutmunn | hud type 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">mann med trutmunn: hud type 6</annotation>
+		<annotation cp="🙎🏻‍♀">kvinne | kyss | trutmunn | hud type 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">kvinne med trutmunn: hud type 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">kvinne | kyss | trutmunn | hud type 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">kvinne med trutmunn: hud type 3</annotation>
+		<annotation cp="🙎🏽‍♀">kvinne | kyss | trutmunn | hud type 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">kvinne med trutmunn: hud type 4</annotation>
+		<annotation cp="🙎🏾‍♀">kvinne | kyss | trutmunn | hud type 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">kvinne med trutmunn: hud type 5</annotation>
+		<annotation cp="🙎🏿‍♀">kvinne | kyss | trutmunn | hud type 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">kvinne med trutmunn: hud type 6</annotation>
+		<annotation cp="🙅🏻">forbudt | nei | hud type 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">ikke bra: hud type 1–2</annotation>
+		<annotation cp="🙅🏼">forbudt | nei | hud type 3</annotation>
+		<annotation cp="🙅🏼" type="tts">ikke bra: hud type 3</annotation>
+		<annotation cp="🙅🏽">forbudt | nei | hud type 4</annotation>
+		<annotation cp="🙅🏽" type="tts">ikke bra: hud type 4</annotation>
+		<annotation cp="🙅🏾">forbudt | nei | hud type 5</annotation>
+		<annotation cp="🙅🏾" type="tts">ikke bra: hud type 5</annotation>
+		<annotation cp="🙅🏿">forbudt | nei | hud type 6</annotation>
+		<annotation cp="🙅🏿" type="tts">ikke bra: hud type 6</annotation>
+		<annotation cp="🙅🏻‍♂">avbryt | mann | stopp | hud type 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">mann med hendene i kors: hud type 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">avbryt | mann | stopp | hud type 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">mann med hendene i kors: hud type 3</annotation>
+		<annotation cp="🙅🏽‍♂">avbryt | mann | stopp | hud type 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">mann med hendene i kors: hud type 4</annotation>
+		<annotation cp="🙅🏾‍♂">avbryt | mann | stopp | hud type 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">mann med hendene i kors: hud type 5</annotation>
+		<annotation cp="🙅🏿‍♂">avbryt | mann | stopp | hud type 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">mann med hendene i kors: hud type 6</annotation>
+		<annotation cp="🙅🏻‍♀">avbryt | kvinne | stopp | hud type 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">kvinne med hendene i kors: hud type 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">avbryt | kvinne | stopp | hud type 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">kvinne med hendene i kors: hud type 3</annotation>
+		<annotation cp="🙅🏽‍♀">avbryt | kvinne | stopp | hud type 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">kvinne med hendene i kors: hud type 4</annotation>
+		<annotation cp="🙅🏾‍♀">avbryt | kvinne | stopp | hud type 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">kvinne med hendene i kors: hud type 5</annotation>
+		<annotation cp="🙅🏿‍♀">avbryt | kvinne | stopp | hud type 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">kvinne med hendene i kors: hud type 6</annotation>
+		<annotation cp="🙆🏻">bevegelse | fjes | greit | hud type 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">OK-bevegelse: hud type 1–2</annotation>
+		<annotation cp="🙆🏼">bevegelse | fjes | greit | hud type 3</annotation>
+		<annotation cp="🙆🏼" type="tts">OK-bevegelse: hud type 3</annotation>
+		<annotation cp="🙆🏽">bevegelse | fjes | greit | hud type 4</annotation>
+		<annotation cp="🙆🏽" type="tts">OK-bevegelse: hud type 4</annotation>
+		<annotation cp="🙆🏾">bevegelse | fjes | greit | hud type 5</annotation>
+		<annotation cp="🙆🏾" type="tts">OK-bevegelse: hud type 5</annotation>
+		<annotation cp="🙆🏿">bevegelse | fjes | greit | hud type 6</annotation>
+		<annotation cp="🙆🏿" type="tts">OK-bevegelse: hud type 6</annotation>
+		<annotation cp="🙆🏻‍♂">hendene på hodet | mann | hud type 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">mann med hendene på hodet: hud type 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">hendene på hodet | mann | hud type 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">mann med hendene på hodet: hud type 3</annotation>
+		<annotation cp="🙆🏽‍♂">hendene på hodet | mann | hud type 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">mann med hendene på hodet: hud type 4</annotation>
+		<annotation cp="🙆🏾‍♂">hendene på hodet | mann | hud type 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">mann med hendene på hodet: hud type 5</annotation>
+		<annotation cp="🙆🏿‍♂">hendene på hodet | mann | hud type 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">mann med hendene på hodet: hud type 6</annotation>
+		<annotation cp="🙆🏻‍♀">hendene på hodet | kvinne | hud type 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">kvinne med hendene på hodet: hud type 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">hendene på hodet | kvinne | hud type 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">kvinne med hendene på hodet: hud type 3</annotation>
+		<annotation cp="🙆🏽‍♀">hendene på hodet | kvinne | hud type 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">kvinne med hendene på hodet: hud type 4</annotation>
+		<annotation cp="🙆🏾‍♀">hendene på hodet | kvinne | hud type 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">kvinne med hendene på hodet: hud type 5</annotation>
+		<annotation cp="🙆🏿‍♀">hendene på hodet | kvinne | hud type 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">kvinne med hendene på hodet: hud type 6</annotation>
+		<annotation cp="💁🏻">hjelp | informasjon | menneske | hud type 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">informasjonsskranke: hud type 1–2</annotation>
+		<annotation cp="💁🏼">hjelp | informasjon | menneske | hud type 3</annotation>
+		<annotation cp="💁🏼" type="tts">informasjonsskranke: hud type 3</annotation>
+		<annotation cp="💁🏽">hjelp | informasjon | menneske | hud type 4</annotation>
+		<annotation cp="💁🏽" type="tts">informasjonsskranke: hud type 4</annotation>
+		<annotation cp="💁🏾">hjelp | informasjon | menneske | hud type 5</annotation>
+		<annotation cp="💁🏾" type="tts">informasjonsskranke: hud type 5</annotation>
+		<annotation cp="💁🏿">hjelp | informasjon | menneske | hud type 6</annotation>
+		<annotation cp="💁🏿" type="tts">informasjonsskranke: hud type 6</annotation>
+		<annotation cp="💁🏻‍♂">hjelpe | informasjon | mann | hud type 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">hjelpende mann: hud type 1–2</annotation>
+		<annotation cp="💁🏼‍♂">hjelpe | informasjon | mann | hud type 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">hjelpende mann: hud type 3</annotation>
+		<annotation cp="💁🏽‍♂">hjelpe | informasjon | mann | hud type 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">hjelpende mann: hud type 4</annotation>
+		<annotation cp="💁🏾‍♂">hjelpe | informasjon | mann | hud type 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">hjelpende mann: hud type 5</annotation>
+		<annotation cp="💁🏿‍♂">hjelpe | informasjon | mann | hud type 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">hjelpende mann: hud type 6</annotation>
+		<annotation cp="💁🏻‍♀">hjelpe | informasjon | kvinne | hud type 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">hjelpende kvinne: hud type 1–2</annotation>
+		<annotation cp="💁🏼‍♀">hjelpe | informasjon | kvinne | hud type 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">hjelpende kvinne: hud type 3</annotation>
+		<annotation cp="💁🏽‍♀">hjelpe | informasjon | kvinne | hud type 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">hjelpende kvinne: hud type 4</annotation>
+		<annotation cp="💁🏾‍♀">hjelpe | informasjon | kvinne | hud type 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">hjelpende kvinne: hud type 5</annotation>
+		<annotation cp="💁🏿‍♀">hjelpe | informasjon | kvinne | hud type 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">hjelpende kvinne: hud type 6</annotation>
+		<annotation cp="🙋🏻">hånd | person | rekker opp | hud type 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">rekker opp hånden: hud type 1–2</annotation>
+		<annotation cp="🙋🏼">hånd | person | rekker opp | hud type 3</annotation>
+		<annotation cp="🙋🏼" type="tts">rekker opp hånden: hud type 3</annotation>
+		<annotation cp="🙋🏽">hånd | person | rekker opp | hud type 4</annotation>
+		<annotation cp="🙋🏽" type="tts">rekker opp hånden: hud type 4</annotation>
+		<annotation cp="🙋🏾">hånd | person | rekker opp | hud type 5</annotation>
+		<annotation cp="🙋🏾" type="tts">rekker opp hånden: hud type 5</annotation>
+		<annotation cp="🙋🏿">hånd | person | rekker opp | hud type 6</annotation>
+		<annotation cp="🙋🏿" type="tts">rekker opp hånden: hud type 6</annotation>
+		<annotation cp="🙋🏻‍♂">mann | rekke opp hånden | hud type 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">mann med armen i været: hud type 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">mann | rekke opp hånden | hud type 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">mann med armen i været: hud type 3</annotation>
+		<annotation cp="🙋🏽‍♂">mann | rekke opp hånden | hud type 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">mann med armen i været: hud type 4</annotation>
+		<annotation cp="🙋🏾‍♂">mann | rekke opp hånden | hud type 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">mann med armen i været: hud type 5</annotation>
+		<annotation cp="🙋🏿‍♂">mann | rekke opp hånden | hud type 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">mann med armen i været: hud type 6</annotation>
+		<annotation cp="🙋🏻‍♀">kvinne | rekke opp hånden | hud type 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">kvinne med armen i været: hud type 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">kvinne | rekke opp hånden | hud type 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">kvinne med armen i været: hud type 3</annotation>
+		<annotation cp="🙋🏽‍♀">kvinne | rekke opp hånden | hud type 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">kvinne med armen i været: hud type 4</annotation>
+		<annotation cp="🙋🏾‍♀">kvinne | rekke opp hånden | hud type 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">kvinne med armen i været: hud type 5</annotation>
+		<annotation cp="🙋🏿‍♀">kvinne | rekke opp hånden | hud type 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">kvinne med armen i været: hud type 6</annotation>
+		<annotation cp="🙇🏻">beklager | legger meg flat | menneske | hud type 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">unnskyld: hud type 1–2</annotation>
+		<annotation cp="🙇🏼">beklager | legger meg flat | menneske | hud type 3</annotation>
+		<annotation cp="🙇🏼" type="tts">unnskyld: hud type 3</annotation>
+		<annotation cp="🙇🏽">beklager | legger meg flat | menneske | hud type 4</annotation>
+		<annotation cp="🙇🏽" type="tts">unnskyld: hud type 4</annotation>
+		<annotation cp="🙇🏾">beklager | legger meg flat | menneske | hud type 5</annotation>
+		<annotation cp="🙇🏾" type="tts">unnskyld: hud type 5</annotation>
+		<annotation cp="🙇🏿">beklager | legger meg flat | menneske | hud type 6</annotation>
+		<annotation cp="🙇🏿" type="tts">unnskyld: hud type 6</annotation>
+		<annotation cp="🙇🏻‍♂">beklagelse | bukk | mann | unnskyld | hud type 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">bukkende mann: hud type 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">beklagelse | bukk | mann | unnskyld | hud type 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">bukkende mann: hud type 3</annotation>
+		<annotation cp="🙇🏽‍♂">beklagelse | bukk | mann | unnskyld | hud type 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">bukkende mann: hud type 4</annotation>
+		<annotation cp="🙇🏾‍♂">beklagelse | bukk | mann | unnskyld | hud type 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">bukkende mann: hud type 5</annotation>
+		<annotation cp="🙇🏿‍♂">beklagelse | bukk | mann | unnskyld | hud type 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">bukkende mann: hud type 6</annotation>
+		<annotation cp="🙇🏻‍♀">beklagelse | bukk | kvinne | unnskyld | hud type 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">bukkende kvinne: hud type 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">beklagelse | bukk | kvinne | unnskyld | hud type 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">bukkende kvinne: hud type 3</annotation>
+		<annotation cp="🙇🏽‍♀">beklagelse | bukk | kvinne | unnskyld | hud type 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">bukkende kvinne: hud type 4</annotation>
+		<annotation cp="🙇🏾‍♀">beklagelse | bukk | kvinne | unnskyld | hud type 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">bukkende kvinne: hud type 5</annotation>
+		<annotation cp="🙇🏿‍♀">beklagelse | bukk | kvinne | unnskyld | hud type 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">bukkende kvinne: hud type 6</annotation>
+		<annotation cp="🤦🏻">ansikt | fjes | irritasjon | panne | vantro | hud type 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">slå seg på pannen: hud type 1–2</annotation>
+		<annotation cp="🤦🏼">ansikt | fjes | irritasjon | panne | vantro | hud type 3</annotation>
+		<annotation cp="🤦🏼" type="tts">slå seg på pannen: hud type 3</annotation>
+		<annotation cp="🤦🏽">ansikt | fjes | irritasjon | panne | vantro | hud type 4</annotation>
+		<annotation cp="🤦🏽" type="tts">slå seg på pannen: hud type 4</annotation>
+		<annotation cp="🤦🏾">ansikt | fjes | irritasjon | panne | vantro | hud type 5</annotation>
+		<annotation cp="🤦🏾" type="tts">slå seg på pannen: hud type 5</annotation>
+		<annotation cp="🤦🏿">ansikt | fjes | irritasjon | panne | vantro | hud type 6</annotation>
+		<annotation cp="🤦🏿" type="tts">slå seg på pannen: hud type 6</annotation>
+		<annotation cp="🤦🏻‍♂">facepalm | mann | oppgitt | hud type 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">oppgitt mann: hud type 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">facepalm | mann | oppgitt | hud type 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">oppgitt mann: hud type 3</annotation>
+		<annotation cp="🤦🏽‍♂">facepalm | mann | oppgitt | hud type 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">oppgitt mann: hud type 4</annotation>
+		<annotation cp="🤦🏾‍♂">facepalm | mann | oppgitt | hud type 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">oppgitt mann: hud type 5</annotation>
+		<annotation cp="🤦🏿‍♂">facepalm | mann | oppgitt | hud type 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">oppgitt mann: hud type 6</annotation>
+		<annotation cp="🤦🏻‍♀">facepalm | kvinne | oppgitt | hud type 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">oppgitt kvinne: hud type 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">facepalm | kvinne | oppgitt | hud type 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">oppgitt kvinne: hud type 3</annotation>
+		<annotation cp="🤦🏽‍♀">facepalm | kvinne | oppgitt | hud type 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">oppgitt kvinne: hud type 4</annotation>
+		<annotation cp="🤦🏾‍♀">facepalm | kvinne | oppgitt | hud type 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">oppgitt kvinne: hud type 5</annotation>
+		<annotation cp="🤦🏿‍♀">facepalm | kvinne | oppgitt | hud type 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">oppgitt kvinne: hud type 6</annotation>
+		<annotation cp="🤷🏻">likegyldighet | skuldertrekning | tvil | hud type 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">skuldertrekning: hud type 1–2</annotation>
+		<annotation cp="🤷🏼">likegyldighet | skuldertrekning | tvil | hud type 3</annotation>
+		<annotation cp="🤷🏼" type="tts">skuldertrekning: hud type 3</annotation>
+		<annotation cp="🤷🏽">likegyldighet | skuldertrekning | tvil | hud type 4</annotation>
+		<annotation cp="🤷🏽" type="tts">skuldertrekning: hud type 4</annotation>
+		<annotation cp="🤷🏾">likegyldighet | skuldertrekning | tvil | hud type 5</annotation>
+		<annotation cp="🤷🏾" type="tts">skuldertrekning: hud type 5</annotation>
+		<annotation cp="🤷🏿">likegyldighet | skuldertrekning | tvil | hud type 6</annotation>
+		<annotation cp="🤷🏿" type="tts">skuldertrekning: hud type 6</annotation>
+		<annotation cp="🤷🏻‍♂">mann | uvitende | hud type 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">uvitende mann: hud type 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">mann | uvitende | hud type 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">uvitende mann: hud type 3</annotation>
+		<annotation cp="🤷🏽‍♂">mann | uvitende | hud type 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">uvitende mann: hud type 4</annotation>
+		<annotation cp="🤷🏾‍♂">mann | uvitende | hud type 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">uvitende mann: hud type 5</annotation>
+		<annotation cp="🤷🏿‍♂">mann | uvitende | hud type 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">uvitende mann: hud type 6</annotation>
+		<annotation cp="🤷🏻‍♀">kvinne | uvitende | hud type 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">uvitende kvinne: hud type 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">kvinne | uvitende | hud type 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">uvitende kvinne: hud type 3</annotation>
+		<annotation cp="🤷🏽‍♀">kvinne | uvitende | hud type 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">uvitende kvinne: hud type 4</annotation>
+		<annotation cp="🤷🏾‍♀">kvinne | uvitende | hud type 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">uvitende kvinne: hud type 5</annotation>
+		<annotation cp="🤷🏿‍♀">kvinne | uvitende | hud type 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">uvitende kvinne: hud type 6</annotation>
+		<annotation cp="💆🏻">massasje | skjønnhetssalong | hud type 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">ansiktsmassasje: hud type 1–2</annotation>
+		<annotation cp="💆🏼">massasje | skjønnhetssalong | hud type 3</annotation>
+		<annotation cp="💆🏼" type="tts">ansiktsmassasje: hud type 3</annotation>
+		<annotation cp="💆🏽">massasje | skjønnhetssalong | hud type 4</annotation>
+		<annotation cp="💆🏽" type="tts">ansiktsmassasje: hud type 4</annotation>
+		<annotation cp="💆🏾">massasje | skjønnhetssalong | hud type 5</annotation>
+		<annotation cp="💆🏾" type="tts">ansiktsmassasje: hud type 5</annotation>
+		<annotation cp="💆🏿">massasje | skjønnhetssalong | hud type 6</annotation>
+		<annotation cp="💆🏿" type="tts">ansiktsmassasje: hud type 6</annotation>
+		<annotation cp="💆🏻‍♂">avslapning | hodemassasje | mann | velvære | hud type 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">mann som får hodemassasje: hud type 1–2</annotation>
+		<annotation cp="💆🏼‍♂">avslapning | hodemassasje | mann | velvære | hud type 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">mann som får hodemassasje: hud type 3</annotation>
+		<annotation cp="💆🏽‍♂">avslapning | hodemassasje | mann | velvære | hud type 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">mann som får hodemassasje: hud type 4</annotation>
+		<annotation cp="💆🏾‍♂">avslapning | hodemassasje | mann | velvære | hud type 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">mann som får hodemassasje: hud type 5</annotation>
+		<annotation cp="💆🏿‍♂">avslapning | hodemassasje | mann | velvære | hud type 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">mann som får hodemassasje: hud type 6</annotation>
+		<annotation cp="💆🏻‍♀">avslapning | hodemassasje | kvinne | velvære | hud type 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">kvinne som får hodemassasje: hud type 1–2</annotation>
+		<annotation cp="💆🏼‍♀">avslapning | hodemassasje | kvinne | velvære | hud type 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">kvinne som får hodemassasje: hud type 3</annotation>
+		<annotation cp="💆🏽‍♀">avslapning | hodemassasje | kvinne | velvære | hud type 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">kvinne som får hodemassasje: hud type 4</annotation>
+		<annotation cp="💆🏾‍♀">avslapning | hodemassasje | kvinne | velvære | hud type 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">kvinne som får hodemassasje: hud type 5</annotation>
+		<annotation cp="💆🏿‍♀">avslapning | hodemassasje | kvinne | velvære | hud type 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">kvinne som får hodemassasje: hud type 6</annotation>
+		<annotation cp="💇🏻">salong | skjønnhet | skjønnhetssalong | hud type 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">hårklipp: hud type 1–2</annotation>
+		<annotation cp="💇🏼">salong | skjønnhet | skjønnhetssalong | hud type 3</annotation>
+		<annotation cp="💇🏼" type="tts">hårklipp: hud type 3</annotation>
+		<annotation cp="💇🏽">salong | skjønnhet | skjønnhetssalong | hud type 4</annotation>
+		<annotation cp="💇🏽" type="tts">hårklipp: hud type 4</annotation>
+		<annotation cp="💇🏾">salong | skjønnhet | skjønnhetssalong | hud type 5</annotation>
+		<annotation cp="💇🏾" type="tts">hårklipp: hud type 5</annotation>
+		<annotation cp="💇🏿">salong | skjønnhet | skjønnhetssalong | hud type 6</annotation>
+		<annotation cp="💇🏿" type="tts">hårklipp: hud type 6</annotation>
+		<annotation cp="💇🏻‍♂">frisør | hårklipp | mann | sveis | hud type 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">mann som får hårklipp: hud type 1–2</annotation>
+		<annotation cp="💇🏼‍♂">frisør | hårklipp | mann | sveis | hud type 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">mann som får hårklipp: hud type 3</annotation>
+		<annotation cp="💇🏽‍♂">frisør | hårklipp | mann | sveis | hud type 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">mann som får hårklipp: hud type 4</annotation>
+		<annotation cp="💇🏾‍♂">frisør | hårklipp | mann | sveis | hud type 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">mann som får hårklipp: hud type 5</annotation>
+		<annotation cp="💇🏿‍♂">frisør | hårklipp | mann | sveis | hud type 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">mann som får hårklipp: hud type 6</annotation>
+		<annotation cp="💇🏻‍♀">frisyre | frisør | hårklipp | mann | hud type 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">kvinne som får hårklipp: hud type 1–2</annotation>
+		<annotation cp="💇🏼‍♀">frisyre | frisør | hårklipp | mann | hud type 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">kvinne som får hårklipp: hud type 3</annotation>
+		<annotation cp="💇🏽‍♀">frisyre | frisør | hårklipp | mann | hud type 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">kvinne som får hårklipp: hud type 4</annotation>
+		<annotation cp="💇🏾‍♀">frisyre | frisør | hårklipp | mann | hud type 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">kvinne som får hårklipp: hud type 5</annotation>
+		<annotation cp="💇🏿‍♀">frisyre | frisør | hårklipp | mann | hud type 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">kvinne som får hårklipp: hud type 6</annotation>
+		<annotation cp="🚶🏻">gående | hud type 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">fotgjenger: hud type 1–2</annotation>
+		<annotation cp="🚶🏼">gående | hud type 3</annotation>
+		<annotation cp="🚶🏼" type="tts">fotgjenger: hud type 3</annotation>
+		<annotation cp="🚶🏽">gående | hud type 4</annotation>
+		<annotation cp="🚶🏽" type="tts">fotgjenger: hud type 4</annotation>
+		<annotation cp="🚶🏾">gående | hud type 5</annotation>
+		<annotation cp="🚶🏾" type="tts">fotgjenger: hud type 5</annotation>
+		<annotation cp="🚶🏿">gående | hud type 6</annotation>
+		<annotation cp="🚶🏿" type="tts">fotgjenger: hud type 6</annotation>
+		<annotation cp="🚶🏻‍♂">fotgjenger | gå | mann | hud type 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">mannlig fotgjenger: hud type 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">fotgjenger | gå | mann | hud type 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">mannlig fotgjenger: hud type 3</annotation>
+		<annotation cp="🚶🏽‍♂">fotgjenger | gå | mann | hud type 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">mannlig fotgjenger: hud type 4</annotation>
+		<annotation cp="🚶🏾‍♂">fotgjenger | gå | mann | hud type 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">mannlig fotgjenger: hud type 5</annotation>
+		<annotation cp="🚶🏿‍♂">fotgjenger | gå | mann | hud type 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">mannlig fotgjenger: hud type 6</annotation>
+		<annotation cp="🚶🏻‍♀">fotgjenger | gå | kvinne | hud type 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">kvinnelig fotgjenger: hud type 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">fotgjenger | gå | kvinne | hud type 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">kvinnelig fotgjenger: hud type 3</annotation>
+		<annotation cp="🚶🏽‍♀">fotgjenger | gå | kvinne | hud type 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">kvinnelig fotgjenger: hud type 4</annotation>
+		<annotation cp="🚶🏾‍♀">fotgjenger | gå | kvinne | hud type 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">kvinnelig fotgjenger: hud type 5</annotation>
+		<annotation cp="🚶🏿‍♀">fotgjenger | gå | kvinne | hud type 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">kvinnelig fotgjenger: hud type 6</annotation>
+		<annotation cp="🏃🏻">jogger | jogging | løper | marathon | sport | hud type 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">løping: hud type 1–2</annotation>
+		<annotation cp="🏃🏼">jogger | jogging | løper | marathon | sport | hud type 3</annotation>
+		<annotation cp="🏃🏼" type="tts">løping: hud type 3</annotation>
+		<annotation cp="🏃🏽">jogger | jogging | løper | marathon | sport | hud type 4</annotation>
+		<annotation cp="🏃🏽" type="tts">løping: hud type 4</annotation>
+		<annotation cp="🏃🏾">jogger | jogging | løper | marathon | sport | hud type 5</annotation>
+		<annotation cp="🏃🏾" type="tts">løping: hud type 5</annotation>
+		<annotation cp="🏃🏿">jogger | jogging | løper | marathon | sport | hud type 6</annotation>
+		<annotation cp="🏃🏿" type="tts">løping: hud type 6</annotation>
+		<annotation cp="🏃🏻‍♂">jogge | løpe | mann | hud type 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">mannlig løper: hud type 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">jogge | løpe | mann | hud type 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">mannlig løper: hud type 3</annotation>
+		<annotation cp="🏃🏽‍♂">jogge | løpe | mann | hud type 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">mannlig løper: hud type 4</annotation>
+		<annotation cp="🏃🏾‍♂">jogge | løpe | mann | hud type 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">mannlig løper: hud type 5</annotation>
+		<annotation cp="🏃🏿‍♂">jogge | løpe | mann | hud type 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">mannlig løper: hud type 6</annotation>
+		<annotation cp="🏃🏻‍♀">jogge | kvinne | løpe | hud type 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">kvinnelig løper: hud type 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">jogge | kvinne | løpe | hud type 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">kvinnelig løper: hud type 3</annotation>
+		<annotation cp="🏃🏽‍♀">jogge | kvinne | løpe | hud type 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">kvinnelig løper: hud type 4</annotation>
+		<annotation cp="🏃🏾‍♀">jogge | kvinne | løpe | hud type 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">kvinnelig løper: hud type 5</annotation>
+		<annotation cp="🏃🏿‍♀">jogge | kvinne | løpe | hud type 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">kvinnelig løper: hud type 6</annotation>
+		<annotation cp="💃🏻">dans | menneske | hud type 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">dansende kvinne: hud type 1–2</annotation>
+		<annotation cp="💃🏼">dans | menneske | hud type 3</annotation>
+		<annotation cp="💃🏼" type="tts">dansende kvinne: hud type 3</annotation>
+		<annotation cp="💃🏽">dans | menneske | hud type 4</annotation>
+		<annotation cp="💃🏽" type="tts">dansende kvinne: hud type 4</annotation>
+		<annotation cp="💃🏾">dans | menneske | hud type 5</annotation>
+		<annotation cp="💃🏾" type="tts">dansende kvinne: hud type 5</annotation>
+		<annotation cp="💃🏿">dans | menneske | hud type 6</annotation>
+		<annotation cp="💃🏿" type="tts">dansende kvinne: hud type 6</annotation>
+		<annotation cp="🕺🏻">dans | mann | hud type 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">dansende mann: hud type 1–2</annotation>
+		<annotation cp="🕺🏼">dans | mann | hud type 3</annotation>
+		<annotation cp="🕺🏼" type="tts">dansende mann: hud type 3</annotation>
+		<annotation cp="🕺🏽">dans | mann | hud type 4</annotation>
+		<annotation cp="🕺🏽" type="tts">dansende mann: hud type 4</annotation>
+		<annotation cp="🕺🏾">dans | mann | hud type 5</annotation>
+		<annotation cp="🕺🏾" type="tts">dansende mann: hud type 5</annotation>
+		<annotation cp="🕺🏿">dans | mann | hud type 6</annotation>
+		<annotation cp="🕺🏿" type="tts">dansende mann: hud type 6</annotation>
+		<annotation cp="🛀🏻">bad | badekar | hud type 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">person i badekar: hud type 1–2</annotation>
+		<annotation cp="🛀🏼">bad | badekar | hud type 3</annotation>
+		<annotation cp="🛀🏼" type="tts">person i badekar: hud type 3</annotation>
+		<annotation cp="🛀🏽">bad | badekar | hud type 4</annotation>
+		<annotation cp="🛀🏽" type="tts">person i badekar: hud type 4</annotation>
+		<annotation cp="🛀🏾">bad | badekar | hud type 5</annotation>
+		<annotation cp="🛀🏾" type="tts">person i badekar: hud type 5</annotation>
+		<annotation cp="🛀🏿">bad | badekar | hud type 6</annotation>
+		<annotation cp="🛀🏿" type="tts">person i badekar: hud type 6</annotation>
+		<annotation cp="🛌🏻">hotell | sove | hud type 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">person i seng: hud type 1–2</annotation>
+		<annotation cp="🛌🏼">hotell | sove | hud type 3</annotation>
+		<annotation cp="🛌🏼" type="tts">person i seng: hud type 3</annotation>
+		<annotation cp="🛌🏽">hotell | sove | hud type 4</annotation>
+		<annotation cp="🛌🏽" type="tts">person i seng: hud type 4</annotation>
+		<annotation cp="🛌🏾">hotell | sove | hud type 5</annotation>
+		<annotation cp="🛌🏾" type="tts">person i seng: hud type 5</annotation>
+		<annotation cp="🛌🏿">hotell | sove | hud type 6</annotation>
+		<annotation cp="🛌🏿" type="tts">person i seng: hud type 6</annotation>
+		<annotation cp="🕴🏻">business | dress | forretningsmann | mann | hud type 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">svevende mann i dress: hud type 1–2</annotation>
+		<annotation cp="🕴🏼">business | dress | forretningsmann | mann | hud type 3</annotation>
+		<annotation cp="🕴🏼" type="tts">svevende mann i dress: hud type 3</annotation>
+		<annotation cp="🕴🏽">business | dress | forretningsmann | mann | hud type 4</annotation>
+		<annotation cp="🕴🏽" type="tts">svevende mann i dress: hud type 4</annotation>
+		<annotation cp="🕴🏾">business | dress | forretningsmann | mann | hud type 5</annotation>
+		<annotation cp="🕴🏾" type="tts">svevende mann i dress: hud type 5</annotation>
+		<annotation cp="🕴🏿">business | dress | forretningsmann | mann | hud type 6</annotation>
+		<annotation cp="🕴🏿" type="tts">svevende mann i dress: hud type 6</annotation>
+		<annotation cp="🏇🏻">hest | jockey | løp | sport | veddeløpshest | hud type 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">veddeløp: hud type 1–2</annotation>
+		<annotation cp="🏇🏼">hest | jockey | løp | sport | veddeløpshest | hud type 3</annotation>
+		<annotation cp="🏇🏼" type="tts">veddeløp: hud type 3</annotation>
+		<annotation cp="🏇🏽">hest | jockey | løp | sport | veddeløpshest | hud type 4</annotation>
+		<annotation cp="🏇🏽" type="tts">veddeløp: hud type 4</annotation>
+		<annotation cp="🏇🏾">hest | jockey | løp | sport | veddeløpshest | hud type 5</annotation>
+		<annotation cp="🏇🏾" type="tts">veddeløp: hud type 5</annotation>
+		<annotation cp="🏇🏿">hest | jockey | løp | sport | veddeløpshest | hud type 6</annotation>
+		<annotation cp="🏇🏿" type="tts">veddeløp: hud type 6</annotation>
+		<annotation cp="🏂🏻">snowboard | snowboarding | snøbrett | snøbrettkjøring | vintersport | hud type 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">snowboarder: hud type 1–2</annotation>
+		<annotation cp="🏂🏼">snowboard | snowboarding | snøbrett | snøbrettkjøring | vintersport | hud type 3</annotation>
+		<annotation cp="🏂🏼" type="tts">snowboarder: hud type 3</annotation>
+		<annotation cp="🏂🏽">snowboard | snowboarding | snøbrett | snøbrettkjøring | vintersport | hud type 4</annotation>
+		<annotation cp="🏂🏽" type="tts">snowboarder: hud type 4</annotation>
+		<annotation cp="🏂🏾">snowboard | snowboarding | snøbrett | snøbrettkjøring | vintersport | hud type 5</annotation>
+		<annotation cp="🏂🏾" type="tts">snowboarder: hud type 5</annotation>
+		<annotation cp="🏂🏿">snowboard | snowboarding | snøbrett | snøbrettkjøring | vintersport | hud type 6</annotation>
+		<annotation cp="🏂🏿" type="tts">snowboarder: hud type 6</annotation>
+		<annotation cp="🏌🏻">ball | golf | hud type 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">golfspiller: hud type 1–2</annotation>
+		<annotation cp="🏌🏼">ball | golf | hud type 3</annotation>
+		<annotation cp="🏌🏼" type="tts">golfspiller: hud type 3</annotation>
+		<annotation cp="🏌🏽">ball | golf | hud type 4</annotation>
+		<annotation cp="🏌🏽" type="tts">golfspiller: hud type 4</annotation>
+		<annotation cp="🏌🏾">ball | golf | hud type 5</annotation>
+		<annotation cp="🏌🏾" type="tts">golfspiller: hud type 5</annotation>
+		<annotation cp="🏌🏿">ball | golf | hud type 6</annotation>
+		<annotation cp="🏌🏿" type="tts">golfspiller: hud type 6</annotation>
+		<annotation cp="🏌🏻‍♂">golf | golfspiller | mann | hud type 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">mannlig golfspiller: hud type 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">golf | golfspiller | mann | hud type 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">mannlig golfspiller: hud type 3</annotation>
+		<annotation cp="🏌🏽‍♂">golf | golfspiller | mann | hud type 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">mannlig golfspiller: hud type 4</annotation>
+		<annotation cp="🏌🏾‍♂">golf | golfspiller | mann | hud type 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">mannlig golfspiller: hud type 5</annotation>
+		<annotation cp="🏌🏿‍♂">golf | golfspiller | mann | hud type 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">mannlig golfspiller: hud type 6</annotation>
+		<annotation cp="🏌🏻‍♀">golf | golfspiller | kvinne | hud type 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">kvinnelig golfspiller: hud type 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">golf | golfspiller | kvinne | hud type 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">kvinnelig golfspiller: hud type 3</annotation>
+		<annotation cp="🏌🏽‍♀">golf | golfspiller | kvinne | hud type 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">kvinnelig golfspiller: hud type 4</annotation>
+		<annotation cp="🏌🏾‍♀">golf | golfspiller | kvinne | hud type 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">kvinnelig golfspiller: hud type 5</annotation>
+		<annotation cp="🏌🏿‍♀">golf | golfspiller | kvinne | hud type 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">kvinnelig golfspiller: hud type 6</annotation>
+		<annotation cp="🏄🏻">sport | surfer | hud type 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">surfing: hud type 1–2</annotation>
+		<annotation cp="🏄🏼">sport | surfer | hud type 3</annotation>
+		<annotation cp="🏄🏼" type="tts">surfing: hud type 3</annotation>
+		<annotation cp="🏄🏽">sport | surfer | hud type 4</annotation>
+		<annotation cp="🏄🏽" type="tts">surfing: hud type 4</annotation>
+		<annotation cp="🏄🏾">sport | surfer | hud type 5</annotation>
+		<annotation cp="🏄🏾" type="tts">surfing: hud type 5</annotation>
+		<annotation cp="🏄🏿">sport | surfer | hud type 6</annotation>
+		<annotation cp="🏄🏿" type="tts">surfing: hud type 6</annotation>
+		<annotation cp="🏄🏻‍♂">mann | surfer | hud type 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">mannlig surfer: hud type 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">mann | surfer | hud type 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">mannlig surfer: hud type 3</annotation>
+		<annotation cp="🏄🏽‍♂">mann | surfer | hud type 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">mannlig surfer: hud type 4</annotation>
+		<annotation cp="🏄🏾‍♂">mann | surfer | hud type 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">mannlig surfer: hud type 5</annotation>
+		<annotation cp="🏄🏿‍♂">mann | surfer | hud type 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">mannlig surfer: hud type 6</annotation>
+		<annotation cp="🏄🏻‍♀">kvinne | surfer | hud type 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">kvinnelig surfer: hud type 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">kvinne | surfer | hud type 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">kvinnelig surfer: hud type 3</annotation>
+		<annotation cp="🏄🏽‍♀">kvinne | surfer | hud type 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">kvinnelig surfer: hud type 4</annotation>
+		<annotation cp="🏄🏾‍♀">kvinne | surfer | hud type 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">kvinnelig surfer: hud type 5</annotation>
+		<annotation cp="🏄🏿‍♀">kvinne | surfer | hud type 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">kvinnelig surfer: hud type 6</annotation>
+		<annotation cp="🚣🏻">båt | fartøy | hud type 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">robåt: hud type 1–2</annotation>
+		<annotation cp="🚣🏼">båt | fartøy | hud type 3</annotation>
+		<annotation cp="🚣🏼" type="tts">robåt: hud type 3</annotation>
+		<annotation cp="🚣🏽">båt | fartøy | hud type 4</annotation>
+		<annotation cp="🚣🏽" type="tts">robåt: hud type 4</annotation>
+		<annotation cp="🚣🏾">båt | fartøy | hud type 5</annotation>
+		<annotation cp="🚣🏾" type="tts">robåt: hud type 5</annotation>
+		<annotation cp="🚣🏿">båt | fartøy | hud type 6</annotation>
+		<annotation cp="🚣🏿" type="tts">robåt: hud type 6</annotation>
+		<annotation cp="🚣🏻‍♂">båt | mann | ro | robåt | hud type 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">mann i robåt: hud type 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">båt | mann | ro | robåt | hud type 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">mann i robåt: hud type 3</annotation>
+		<annotation cp="🚣🏽‍♂">båt | mann | ro | robåt | hud type 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">mann i robåt: hud type 4</annotation>
+		<annotation cp="🚣🏾‍♂">båt | mann | ro | robåt | hud type 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">mann i robåt: hud type 5</annotation>
+		<annotation cp="🚣🏿‍♂">båt | mann | ro | robåt | hud type 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">mann i robåt: hud type 6</annotation>
+		<annotation cp="🚣🏻‍♀">båt | kvinne | ro | robåt | hud type 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">kvinne i robåt: hud type 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">båt | kvinne | ro | robåt | hud type 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">kvinne i robåt: hud type 3</annotation>
+		<annotation cp="🚣🏽‍♀">båt | kvinne | ro | robåt | hud type 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">kvinne i robåt: hud type 4</annotation>
+		<annotation cp="🚣🏾‍♀">båt | kvinne | ro | robåt | hud type 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">kvinne i robåt: hud type 5</annotation>
+		<annotation cp="🚣🏿‍♀">båt | kvinne | ro | robåt | hud type 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">kvinne i robåt: hud type 6</annotation>
+		<annotation cp="🏊🏻">sport | svømme | svømmer | hud type 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">svømming: hud type 1–2</annotation>
+		<annotation cp="🏊🏼">sport | svømme | svømmer | hud type 3</annotation>
+		<annotation cp="🏊🏼" type="tts">svømming: hud type 3</annotation>
+		<annotation cp="🏊🏽">sport | svømme | svømmer | hud type 4</annotation>
+		<annotation cp="🏊🏽" type="tts">svømming: hud type 4</annotation>
+		<annotation cp="🏊🏾">sport | svømme | svømmer | hud type 5</annotation>
+		<annotation cp="🏊🏾" type="tts">svømming: hud type 5</annotation>
+		<annotation cp="🏊🏿">sport | svømme | svømmer | hud type 6</annotation>
+		<annotation cp="🏊🏿" type="tts">svømming: hud type 6</annotation>
+		<annotation cp="🏊🏻‍♂">mann | svømme | svømmer | hud type 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">mannlig svømmer: hud type 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">mann | svømme | svømmer | hud type 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">mannlig svømmer: hud type 3</annotation>
+		<annotation cp="🏊🏽‍♂">mann | svømme | svømmer | hud type 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">mannlig svømmer: hud type 4</annotation>
+		<annotation cp="🏊🏾‍♂">mann | svømme | svømmer | hud type 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">mannlig svømmer: hud type 5</annotation>
+		<annotation cp="🏊🏿‍♂">mann | svømme | svømmer | hud type 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">mannlig svømmer: hud type 6</annotation>
+		<annotation cp="🏊🏻‍♀">kvinne | svømme | svømmer | hud type 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">kvinnelig svømmer: hud type 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">kvinne | svømme | svømmer | hud type 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">kvinnelig svømmer: hud type 3</annotation>
+		<annotation cp="🏊🏽‍♀">kvinne | svømme | svømmer | hud type 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">kvinnelig svømmer: hud type 4</annotation>
+		<annotation cp="🏊🏾‍♀">kvinne | svømme | svømmer | hud type 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">kvinnelig svømmer: hud type 5</annotation>
+		<annotation cp="🏊🏿‍♀">kvinne | svømme | svømmer | hud type 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">kvinnelig svømmer: hud type 6</annotation>
+		<annotation cp="⛹🏻">ball | hud type 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">person med ball: hud type 1–2</annotation>
+		<annotation cp="⛹🏼">ball | hud type 3</annotation>
+		<annotation cp="⛹🏼" type="tts">person med ball: hud type 3</annotation>
+		<annotation cp="⛹🏽">ball | hud type 4</annotation>
+		<annotation cp="⛹🏽" type="tts">person med ball: hud type 4</annotation>
+		<annotation cp="⛹🏾">ball | hud type 5</annotation>
+		<annotation cp="⛹🏾" type="tts">person med ball: hud type 5</annotation>
+		<annotation cp="⛹🏿">ball | hud type 6</annotation>
+		<annotation cp="⛹🏿" type="tts">person med ball: hud type 6</annotation>
+		<annotation cp="⛹🏻‍♂">ballsport | mann | hud type 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">mann med ball: hud type 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">ballsport | mann | hud type 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">mann med ball: hud type 3</annotation>
+		<annotation cp="⛹🏽‍♂">ballsport | mann | hud type 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">mann med ball: hud type 4</annotation>
+		<annotation cp="⛹🏾‍♂">ballsport | mann | hud type 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">mann med ball: hud type 5</annotation>
+		<annotation cp="⛹🏿‍♂">ballsport | mann | hud type 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">mann med ball: hud type 6</annotation>
+		<annotation cp="⛹🏻‍♀">ballsport | kvinne | hud type 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">kvinne med ball: hud type 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">ballsport | kvinne | hud type 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">kvinne med ball: hud type 3</annotation>
+		<annotation cp="⛹🏽‍♀">ballsport | kvinne | hud type 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">kvinne med ball: hud type 4</annotation>
+		<annotation cp="⛹🏾‍♀">ballsport | kvinne | hud type 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">kvinne med ball: hud type 5</annotation>
+		<annotation cp="⛹🏿‍♀">ballsport | kvinne | hud type 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">kvinne med ball: hud type 6</annotation>
+		<annotation cp="🏋🏻">løfter | vekt | hud type 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">vektløfter: hud type 1–2</annotation>
+		<annotation cp="🏋🏼">løfter | vekt | hud type 3</annotation>
+		<annotation cp="🏋🏼" type="tts">vektløfter: hud type 3</annotation>
+		<annotation cp="🏋🏽">løfter | vekt | hud type 4</annotation>
+		<annotation cp="🏋🏽" type="tts">vektløfter: hud type 4</annotation>
+		<annotation cp="🏋🏾">løfter | vekt | hud type 5</annotation>
+		<annotation cp="🏋🏾" type="tts">vektløfter: hud type 5</annotation>
+		<annotation cp="🏋🏿">løfter | vekt | hud type 6</annotation>
+		<annotation cp="🏋🏿" type="tts">vektløfter: hud type 6</annotation>
+		<annotation cp="🏋🏻‍♂">bodybuilding | mann | vektløfter | hud type 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">mannlig vektløfter: hud type 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">bodybuilding | mann | vektløfter | hud type 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">mannlig vektløfter: hud type 3</annotation>
+		<annotation cp="🏋🏽‍♂">bodybuilding | mann | vektløfter | hud type 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">mannlig vektløfter: hud type 4</annotation>
+		<annotation cp="🏋🏾‍♂">bodybuilding | mann | vektløfter | hud type 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">mannlig vektløfter: hud type 5</annotation>
+		<annotation cp="🏋🏿‍♂">bodybuilding | mann | vektløfter | hud type 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">mannlig vektløfter: hud type 6</annotation>
+		<annotation cp="🏋🏻‍♀">bodybuilding | kvinne | vektløfting | hud type 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">kvinnelig vektløfter: hud type 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">bodybuilding | kvinne | vektløfting | hud type 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">kvinnelig vektløfter: hud type 3</annotation>
+		<annotation cp="🏋🏽‍♀">bodybuilding | kvinne | vektløfting | hud type 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">kvinnelig vektløfter: hud type 4</annotation>
+		<annotation cp="🏋🏾‍♀">bodybuilding | kvinne | vektløfting | hud type 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">kvinnelig vektløfter: hud type 5</annotation>
+		<annotation cp="🏋🏿‍♀">bodybuilding | kvinne | vektløfting | hud type 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">kvinnelig vektløfter: hud type 6</annotation>
+		<annotation cp="🚴🏻">sykkel | hud type 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">syklist: hud type 1–2</annotation>
+		<annotation cp="🚴🏼">sykkel | hud type 3</annotation>
+		<annotation cp="🚴🏼" type="tts">syklist: hud type 3</annotation>
+		<annotation cp="🚴🏽">sykkel | hud type 4</annotation>
+		<annotation cp="🚴🏽" type="tts">syklist: hud type 4</annotation>
+		<annotation cp="🚴🏾">sykkel | hud type 5</annotation>
+		<annotation cp="🚴🏾" type="tts">syklist: hud type 5</annotation>
+		<annotation cp="🚴🏿">sykkel | hud type 6</annotation>
+		<annotation cp="🚴🏿" type="tts">syklist: hud type 6</annotation>
+		<annotation cp="🚴🏻‍♂">mann | sykle | syklist | hud type 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">mannlig syklist: hud type 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">mann | sykle | syklist | hud type 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">mannlig syklist: hud type 3</annotation>
+		<annotation cp="🚴🏽‍♂">mann | sykle | syklist | hud type 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">mannlig syklist: hud type 4</annotation>
+		<annotation cp="🚴🏾‍♂">mann | sykle | syklist | hud type 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">mannlig syklist: hud type 5</annotation>
+		<annotation cp="🚴🏿‍♂">mann | sykle | syklist | hud type 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">mannlig syklist: hud type 6</annotation>
+		<annotation cp="🚴🏻‍♀">kvinne | sykle | syklist | hud type 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">kvinnelig syklist: hud type 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">kvinne | sykle | syklist | hud type 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">kvinnelig syklist: hud type 3</annotation>
+		<annotation cp="🚴🏽‍♀">kvinne | sykle | syklist | hud type 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">kvinnelig syklist: hud type 4</annotation>
+		<annotation cp="🚴🏾‍♀">kvinne | sykle | syklist | hud type 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">kvinnelig syklist: hud type 5</annotation>
+		<annotation cp="🚴🏿‍♀">kvinne | sykle | syklist | hud type 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">kvinnelig syklist: hud type 6</annotation>
+		<annotation cp="🚵🏻">mountainbike | hud type 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">fjellsyklist: hud type 1–2</annotation>
+		<annotation cp="🚵🏼">mountainbike | hud type 3</annotation>
+		<annotation cp="🚵🏼" type="tts">fjellsyklist: hud type 3</annotation>
+		<annotation cp="🚵🏽">mountainbike | hud type 4</annotation>
+		<annotation cp="🚵🏽" type="tts">fjellsyklist: hud type 4</annotation>
+		<annotation cp="🚵🏾">mountainbike | hud type 5</annotation>
+		<annotation cp="🚵🏾" type="tts">fjellsyklist: hud type 5</annotation>
+		<annotation cp="🚵🏿">mountainbike | hud type 6</annotation>
+		<annotation cp="🚵🏿" type="tts">fjellsyklist: hud type 6</annotation>
+		<annotation cp="🚵🏻‍♂">mann | terrengsykkel | hud type 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">mann på terrengsykkel: hud type 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">mann | terrengsykkel | hud type 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">mann på terrengsykkel: hud type 3</annotation>
+		<annotation cp="🚵🏽‍♂">mann | terrengsykkel | hud type 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">mann på terrengsykkel: hud type 4</annotation>
+		<annotation cp="🚵🏾‍♂">mann | terrengsykkel | hud type 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">mann på terrengsykkel: hud type 5</annotation>
+		<annotation cp="🚵🏿‍♂">mann | terrengsykkel | hud type 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">mann på terrengsykkel: hud type 6</annotation>
+		<annotation cp="🚵🏻‍♀">kvinne | terrengsykkel | hud type 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">kvinne på terrengsykkel: hud type 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">kvinne | terrengsykkel | hud type 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">kvinne på terrengsykkel: hud type 3</annotation>
+		<annotation cp="🚵🏽‍♀">kvinne | terrengsykkel | hud type 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">kvinne på terrengsykkel: hud type 4</annotation>
+		<annotation cp="🚵🏾‍♀">kvinne | terrengsykkel | hud type 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">kvinne på terrengsykkel: hud type 5</annotation>
+		<annotation cp="🚵🏿‍♀">kvinne | terrengsykkel | hud type 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">kvinne på terrengsykkel: hud type 6</annotation>
+		<annotation cp="🤸🏻">gym | gymnastikk | person | slå hjul | sport | hud type 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">slå hjul: hud type 1–2</annotation>
+		<annotation cp="🤸🏼">gym | gymnastikk | person | slå hjul | sport | hud type 3</annotation>
+		<annotation cp="🤸🏼" type="tts">slå hjul: hud type 3</annotation>
+		<annotation cp="🤸🏽">gym | gymnastikk | person | slå hjul | sport | hud type 4</annotation>
+		<annotation cp="🤸🏽" type="tts">slå hjul: hud type 4</annotation>
+		<annotation cp="🤸🏾">gym | gymnastikk | person | slå hjul | sport | hud type 5</annotation>
+		<annotation cp="🤸🏾" type="tts">slå hjul: hud type 5</annotation>
+		<annotation cp="🤸🏿">gym | gymnastikk | person | slå hjul | sport | hud type 6</annotation>
+		<annotation cp="🤸🏿" type="tts">slå hjul: hud type 6</annotation>
+		<annotation cp="🤸🏻‍♂">mann | slå hjul | hud type 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">mann som slår hjul: hud type 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">mann | slå hjul | hud type 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">mann som slår hjul: hud type 3</annotation>
+		<annotation cp="🤸🏽‍♂">mann | slå hjul | hud type 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">mann som slår hjul: hud type 4</annotation>
+		<annotation cp="🤸🏾‍♂">mann | slå hjul | hud type 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">mann som slår hjul: hud type 5</annotation>
+		<annotation cp="🤸🏿‍♂">mann | slå hjul | hud type 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">mann som slår hjul: hud type 6</annotation>
+		<annotation cp="🤸🏻‍♀">kvinne | slå hjul | hud type 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">kvinne som slår hjul: hud type 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">kvinne | slå hjul | hud type 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">kvinne som slår hjul: hud type 3</annotation>
+		<annotation cp="🤸🏽‍♀">kvinne | slå hjul | hud type 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">kvinne som slår hjul: hud type 4</annotation>
+		<annotation cp="🤸🏾‍♀">kvinne | slå hjul | hud type 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">kvinne som slår hjul: hud type 5</annotation>
+		<annotation cp="🤸🏿‍♀">kvinne | slå hjul | hud type 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">kvinne som slår hjul: hud type 6</annotation>
+		<annotation cp="🤽🏻">person | polo | sport | vann | hud type 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">vannpolo: hud type 1–2</annotation>
+		<annotation cp="🤽🏼">person | polo | sport | vann | hud type 3</annotation>
+		<annotation cp="🤽🏼" type="tts">vannpolo: hud type 3</annotation>
+		<annotation cp="🤽🏽">person | polo | sport | vann | hud type 4</annotation>
+		<annotation cp="🤽🏽" type="tts">vannpolo: hud type 4</annotation>
+		<annotation cp="🤽🏾">person | polo | sport | vann | hud type 5</annotation>
+		<annotation cp="🤽🏾" type="tts">vannpolo: hud type 5</annotation>
+		<annotation cp="🤽🏿">person | polo | sport | vann | hud type 6</annotation>
+		<annotation cp="🤽🏿" type="tts">vannpolo: hud type 6</annotation>
+		<annotation cp="🤽🏻‍♂">mann | vannpolo | hud type 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">mannlig vannpolospiller: hud type 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">mann | vannpolo | hud type 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">mannlig vannpolospiller: hud type 3</annotation>
+		<annotation cp="🤽🏽‍♂">mann | vannpolo | hud type 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">mannlig vannpolospiller: hud type 4</annotation>
+		<annotation cp="🤽🏾‍♂">mann | vannpolo | hud type 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">mannlig vannpolospiller: hud type 5</annotation>
+		<annotation cp="🤽🏿‍♂">mann | vannpolo | hud type 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">mannlig vannpolospiller: hud type 6</annotation>
+		<annotation cp="🤽🏻‍♀">kvinne | vannpolo | hud type 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">kvinnelig vannpolospiller: hud type 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">kvinne | vannpolo | hud type 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">kvinnelig vannpolospiller: hud type 3</annotation>
+		<annotation cp="🤽🏽‍♀">kvinne | vannpolo | hud type 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">kvinnelig vannpolospiller: hud type 4</annotation>
+		<annotation cp="🤽🏾‍♀">kvinne | vannpolo | hud type 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">kvinnelig vannpolospiller: hud type 5</annotation>
+		<annotation cp="🤽🏿‍♀">kvinne | vannpolo | hud type 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">kvinnelig vannpolospiller: hud type 6</annotation>
+		<annotation cp="🤾🏻">ball | håndball | person | sport | hud type 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">håndball: hud type 1–2</annotation>
+		<annotation cp="🤾🏼">ball | håndball | person | sport | hud type 3</annotation>
+		<annotation cp="🤾🏼" type="tts">håndball: hud type 3</annotation>
+		<annotation cp="🤾🏽">ball | håndball | person | sport | hud type 4</annotation>
+		<annotation cp="🤾🏽" type="tts">håndball: hud type 4</annotation>
+		<annotation cp="🤾🏾">ball | håndball | person | sport | hud type 5</annotation>
+		<annotation cp="🤾🏾" type="tts">håndball: hud type 5</annotation>
+		<annotation cp="🤾🏿">ball | håndball | person | sport | hud type 6</annotation>
+		<annotation cp="🤾🏿" type="tts">håndball: hud type 6</annotation>
+		<annotation cp="🤾🏻‍♂">håndball | mann | hud type 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">mannlig håndballspiller: hud type 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">håndball | mann | hud type 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">mannlig håndballspiller: hud type 3</annotation>
+		<annotation cp="🤾🏽‍♂">håndball | mann | hud type 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">mannlig håndballspiller: hud type 4</annotation>
+		<annotation cp="🤾🏾‍♂">håndball | mann | hud type 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">mannlig håndballspiller: hud type 5</annotation>
+		<annotation cp="🤾🏿‍♂">håndball | mann | hud type 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">mannlig håndballspiller: hud type 6</annotation>
+		<annotation cp="🤾🏻‍♀">håndball | kvinne | hud type 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">kvinnelig håndballspiller: hud type 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">håndball | kvinne | hud type 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">kvinnelig håndballspiller: hud type 3</annotation>
+		<annotation cp="🤾🏽‍♀">håndball | kvinne | hud type 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">kvinnelig håndballspiller: hud type 4</annotation>
+		<annotation cp="🤾🏾‍♀">håndball | kvinne | hud type 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">kvinnelig håndballspiller: hud type 5</annotation>
+		<annotation cp="🤾🏿‍♀">håndball | kvinne | hud type 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">kvinnelig håndballspiller: hud type 6</annotation>
+		<annotation cp="🤹🏻">balanse | ferdighet | multitasking | sjonglering | hud type 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">sjonglering: hud type 1–2</annotation>
+		<annotation cp="🤹🏼">balanse | ferdighet | multitasking | sjonglering | hud type 3</annotation>
+		<annotation cp="🤹🏼" type="tts">sjonglering: hud type 3</annotation>
+		<annotation cp="🤹🏽">balanse | ferdighet | multitasking | sjonglering | hud type 4</annotation>
+		<annotation cp="🤹🏽" type="tts">sjonglering: hud type 4</annotation>
+		<annotation cp="🤹🏾">balanse | ferdighet | multitasking | sjonglering | hud type 5</annotation>
+		<annotation cp="🤹🏾" type="tts">sjonglering: hud type 5</annotation>
+		<annotation cp="🤹🏿">balanse | ferdighet | multitasking | sjonglering | hud type 6</annotation>
+		<annotation cp="🤹🏿" type="tts">sjonglering: hud type 6</annotation>
+		<annotation cp="🤹🏻‍♂">mann | sirkus | sjonglere | hud type 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">mannlig sjonglør: hud type 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">mann | sirkus | sjonglere | hud type 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">mannlig sjonglør: hud type 3</annotation>
+		<annotation cp="🤹🏽‍♂">mann | sirkus | sjonglere | hud type 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">mannlig sjonglør: hud type 4</annotation>
+		<annotation cp="🤹🏾‍♂">mann | sirkus | sjonglere | hud type 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">mannlig sjonglør: hud type 5</annotation>
+		<annotation cp="🤹🏿‍♂">mann | sirkus | sjonglere | hud type 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">mannlig sjonglør: hud type 6</annotation>
+		<annotation cp="🤹🏻‍♀">kvinne | sirkus | sjonglere | hud type 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">kvinnelig sjonglør: hud type 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">kvinne | sirkus | sjonglere | hud type 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">kvinnelig sjonglør: hud type 3</annotation>
+		<annotation cp="🤹🏽‍♀">kvinne | sirkus | sjonglere | hud type 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">kvinnelig sjonglør: hud type 4</annotation>
+		<annotation cp="🤹🏾‍♀">kvinne | sirkus | sjonglere | hud type 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">kvinnelig sjonglør: hud type 5</annotation>
+		<annotation cp="🤹🏿‍♀">kvinne | sirkus | sjonglere | hud type 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">kvinnelig sjonglør: hud type 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">kyssing | mennesker | romantikk | kvinne | mann</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">kyss: kvinne, mann</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">kyssing | mennesker | romantikk | mann</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">kyss: mann, mann</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">kyssing | mennesker | romantikk | kvinne</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">kyss: kvinne, kvinne</annotation>
+		<annotation cp="👩‍❤‍👨">hjerte | mennesker | par med hjerte | romantikk | kvinne | mann</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">par: kvinne, mann</annotation>
+		<annotation cp="👨‍❤‍👨">hjerte | mennesker | par med hjerte | romantikk | mann</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">par: mann, mann</annotation>
+		<annotation cp="👩‍❤‍👩">hjerte | mennesker | par med hjerte | romantikk | kvinne</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">par: kvinne, kvinne</annotation>
+		<annotation cp="👨‍👩‍👦">barn | far | mennesker | mor | mann | kvinne | gutt</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">familie: mann, kvinne, gutt</annotation>
+		<annotation cp="👨‍👩‍👧">barn | far | mennesker | mor | mann | kvinne | jente</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">familie: mann, kvinne, jente</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">barn | far | mennesker | mor | mann | kvinne | jente | gutt</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">familie: mann, kvinne, jente, gutt</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">barn | far | mennesker | mor | mann | kvinne | gutt</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">familie: mann, kvinne, gutt, gutt</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">barn | far | mennesker | mor | mann | kvinne | jente</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">familie: mann, kvinne, jente, jente</annotation>
+		<annotation cp="👨‍👨‍👦">barn | far | mennesker | mor | mann | gutt</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">familie: mann, mann, gutt</annotation>
+		<annotation cp="👨‍👨‍👧">barn | far | mennesker | mor | mann | jente</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">familie: mann, mann, jente</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">barn | far | mennesker | mor | mann | jente | gutt</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">familie: mann, mann, jente, gutt</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">barn | far | mennesker | mor | mann | gutt</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">familie: mann, mann, gutt, gutt</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">barn | far | mennesker | mor | mann | jente</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">familie: mann, mann, jente, jente</annotation>
+		<annotation cp="👩‍👩‍👦">barn | far | mennesker | mor | kvinne | gutt</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">familie: kvinne, kvinne, gutt</annotation>
+		<annotation cp="👩‍👩‍👧">barn | far | mennesker | mor | kvinne | jente</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">familie: kvinne, kvinne, jente</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">barn | far | mennesker | mor | kvinne | jente | gutt</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">familie: kvinne, kvinne, jente, gutt</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">barn | far | mennesker | mor | kvinne | gutt</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">familie: kvinne, kvinne, gutt, gutt</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">barn | far | mennesker | mor | kvinne | jente</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">familie: kvinne, kvinne, jente, jente</annotation>
+		<annotation cp="👨‍👦">barn | far | mennesker | mor | mann | gutt</annotation>
+		<annotation cp="👨‍👦" type="tts">familie: mann, gutt</annotation>
+		<annotation cp="👨‍👦‍👦">barn | far | mennesker | mor | mann | gutt</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">familie: mann, gutt, gutt</annotation>
+		<annotation cp="👨‍👧">barn | far | mennesker | mor | mann | jente</annotation>
+		<annotation cp="👨‍👧" type="tts">familie: mann, jente</annotation>
+		<annotation cp="👨‍👧‍👦">barn | far | mennesker | mor | mann | jente | gutt</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">familie: mann, jente, gutt</annotation>
+		<annotation cp="👨‍👧‍👧">barn | far | mennesker | mor | mann | jente</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">familie: mann, jente, jente</annotation>
+		<annotation cp="👩‍👦">barn | far | mennesker | mor | kvinne | gutt</annotation>
+		<annotation cp="👩‍👦" type="tts">familie: kvinne, gutt</annotation>
+		<annotation cp="👩‍👦‍👦">barn | far | mennesker | mor | kvinne | gutt</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">familie: kvinne, gutt, gutt</annotation>
+		<annotation cp="👩‍👧">barn | far | mennesker | mor | kvinne | jente</annotation>
+		<annotation cp="👩‍👧" type="tts">familie: kvinne, jente</annotation>
+		<annotation cp="👩‍👧‍👦">barn | far | mennesker | mor | kvinne | jente | gutt</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">familie: kvinne, jente, gutt</annotation>
+		<annotation cp="👩‍👧‍👧">barn | far | mennesker | mor | kvinne | jente</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">familie: kvinne, jente, jente</annotation>
+		<annotation cp="🤳🏻">kamera | selfie | telefon | hud type 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: hud type 1–2</annotation>
+		<annotation cp="🤳🏼">kamera | selfie | telefon | hud type 3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: hud type 3</annotation>
+		<annotation cp="🤳🏽">kamera | selfie | telefon | hud type 4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: hud type 4</annotation>
+		<annotation cp="🤳🏾">kamera | selfie | telefon | hud type 5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: hud type 5</annotation>
+		<annotation cp="🤳🏿">kamera | selfie | telefon | hud type 6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: hud type 6</annotation>
+		<annotation cp="💪🏻">fleks | muskel | muskelfleksing | sterk | tegneserie | hud type 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">biceps: hud type 1–2</annotation>
+		<annotation cp="💪🏼">fleks | muskel | muskelfleksing | sterk | tegneserie | hud type 3</annotation>
+		<annotation cp="💪🏼" type="tts">biceps: hud type 3</annotation>
+		<annotation cp="💪🏽">fleks | muskel | muskelfleksing | sterk | tegneserie | hud type 4</annotation>
+		<annotation cp="💪🏽" type="tts">biceps: hud type 4</annotation>
+		<annotation cp="💪🏾">fleks | muskel | muskelfleksing | sterk | tegneserie | hud type 5</annotation>
+		<annotation cp="💪🏾" type="tts">biceps: hud type 5</annotation>
+		<annotation cp="💪🏿">fleks | muskel | muskelfleksing | sterk | tegneserie | hud type 6</annotation>
+		<annotation cp="💪🏿" type="tts">biceps: hud type 6</annotation>
+		<annotation cp="👈🏻">finger | pekende finger | peker venstre | hud type 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">finger som peker mot venstre: hud type 1–2</annotation>
+		<annotation cp="👈🏼">finger | pekende finger | peker venstre | hud type 3</annotation>
+		<annotation cp="👈🏼" type="tts">finger som peker mot venstre: hud type 3</annotation>
+		<annotation cp="👈🏽">finger | pekende finger | peker venstre | hud type 4</annotation>
+		<annotation cp="👈🏽" type="tts">finger som peker mot venstre: hud type 4</annotation>
+		<annotation cp="👈🏾">finger | pekende finger | peker venstre | hud type 5</annotation>
+		<annotation cp="👈🏾" type="tts">finger som peker mot venstre: hud type 5</annotation>
+		<annotation cp="👈🏿">finger | pekende finger | peker venstre | hud type 6</annotation>
+		<annotation cp="👈🏿" type="tts">finger som peker mot venstre: hud type 6</annotation>
+		<annotation cp="👉🏻">finger | pekende finger | peker opp | hud type 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">finger som peker mot høyre: hud type 1–2</annotation>
+		<annotation cp="👉🏼">finger | pekende finger | peker opp | hud type 3</annotation>
+		<annotation cp="👉🏼" type="tts">finger som peker mot høyre: hud type 3</annotation>
+		<annotation cp="👉🏽">finger | pekende finger | peker opp | hud type 4</annotation>
+		<annotation cp="👉🏽" type="tts">finger som peker mot høyre: hud type 4</annotation>
+		<annotation cp="👉🏾">finger | pekende finger | peker opp | hud type 5</annotation>
+		<annotation cp="👉🏾" type="tts">finger som peker mot høyre: hud type 5</annotation>
+		<annotation cp="👉🏿">finger | pekende finger | peker opp | hud type 6</annotation>
+		<annotation cp="👉🏿" type="tts">finger som peker mot høyre: hud type 6</annotation>
+		<annotation cp="☝🏻">finger | hånd | kropp | opp | peke | pekefinger | hud type 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">pekefinger som peker opp: hud type 1–2</annotation>
+		<annotation cp="☝🏼">finger | hånd | kropp | opp | peke | pekefinger | hud type 3</annotation>
+		<annotation cp="☝🏼" type="tts">pekefinger som peker opp: hud type 3</annotation>
+		<annotation cp="☝🏽">finger | hånd | kropp | opp | peke | pekefinger | hud type 4</annotation>
+		<annotation cp="☝🏽" type="tts">pekefinger som peker opp: hud type 4</annotation>
+		<annotation cp="☝🏾">finger | hånd | kropp | opp | peke | pekefinger | hud type 5</annotation>
+		<annotation cp="☝🏾" type="tts">pekefinger som peker opp: hud type 5</annotation>
+		<annotation cp="☝🏿">finger | hånd | kropp | opp | peke | pekefinger | hud type 6</annotation>
+		<annotation cp="☝🏿" type="tts">pekefinger som peker opp: hud type 6</annotation>
+		<annotation cp="👆🏻">finger | pekende finger | peker opp | hud type 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">oppoverpekende finger: hud type 1–2</annotation>
+		<annotation cp="👆🏼">finger | pekende finger | peker opp | hud type 3</annotation>
+		<annotation cp="👆🏼" type="tts">oppoverpekende finger: hud type 3</annotation>
+		<annotation cp="👆🏽">finger | pekende finger | peker opp | hud type 4</annotation>
+		<annotation cp="👆🏽" type="tts">oppoverpekende finger: hud type 4</annotation>
+		<annotation cp="👆🏾">finger | pekende finger | peker opp | hud type 5</annotation>
+		<annotation cp="👆🏾" type="tts">oppoverpekende finger: hud type 5</annotation>
+		<annotation cp="👆🏿">finger | pekende finger | peker opp | hud type 6</annotation>
+		<annotation cp="👆🏿" type="tts">oppoverpekende finger: hud type 6</annotation>
+		<annotation cp="🖕🏻">finger | hånd | kropp | hud type 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">langfinger: hud type 1–2</annotation>
+		<annotation cp="🖕🏼">finger | hånd | kropp | hud type 3</annotation>
+		<annotation cp="🖕🏼" type="tts">langfinger: hud type 3</annotation>
+		<annotation cp="🖕🏽">finger | hånd | kropp | hud type 4</annotation>
+		<annotation cp="🖕🏽" type="tts">langfinger: hud type 4</annotation>
+		<annotation cp="🖕🏾">finger | hånd | kropp | hud type 5</annotation>
+		<annotation cp="🖕🏾" type="tts">langfinger: hud type 5</annotation>
+		<annotation cp="🖕🏿">finger | hånd | kropp | hud type 6</annotation>
+		<annotation cp="🖕🏿" type="tts">langfinger: hud type 6</annotation>
+		<annotation cp="👇🏻">finger | pekende finger | peker ned | hud type 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">nedoverpekende finger: hud type 1–2</annotation>
+		<annotation cp="👇🏼">finger | pekende finger | peker ned | hud type 3</annotation>
+		<annotation cp="👇🏼" type="tts">nedoverpekende finger: hud type 3</annotation>
+		<annotation cp="👇🏽">finger | pekende finger | peker ned | hud type 4</annotation>
+		<annotation cp="👇🏽" type="tts">nedoverpekende finger: hud type 4</annotation>
+		<annotation cp="👇🏾">finger | pekende finger | peker ned | hud type 5</annotation>
+		<annotation cp="👇🏾" type="tts">nedoverpekende finger: hud type 5</annotation>
+		<annotation cp="👇🏿">finger | pekende finger | peker ned | hud type 6</annotation>
+		<annotation cp="👇🏿" type="tts">nedoverpekende finger: hud type 6</annotation>
+		<annotation cp="✌🏻">peace-tegn | hud type 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">seierstegn: hud type 1–2</annotation>
+		<annotation cp="✌🏼">peace-tegn | hud type 3</annotation>
+		<annotation cp="✌🏼" type="tts">seierstegn: hud type 3</annotation>
+		<annotation cp="✌🏽">peace-tegn | hud type 4</annotation>
+		<annotation cp="✌🏽" type="tts">seierstegn: hud type 4</annotation>
+		<annotation cp="✌🏾">peace-tegn | hud type 5</annotation>
+		<annotation cp="✌🏾" type="tts">seierstegn: hud type 5</annotation>
+		<annotation cp="✌🏿">peace-tegn | hud type 6</annotation>
+		<annotation cp="✌🏿" type="tts">seierstegn: hud type 6</annotation>
+		<annotation cp="🤞🏻">finger | hell | hånd | kryss | hud type 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">kryssede fingre: hud type 1–2</annotation>
+		<annotation cp="🤞🏼">finger | hell | hånd | kryss | hud type 3</annotation>
+		<annotation cp="🤞🏼" type="tts">kryssede fingre: hud type 3</annotation>
+		<annotation cp="🤞🏽">finger | hell | hånd | kryss | hud type 4</annotation>
+		<annotation cp="🤞🏽" type="tts">kryssede fingre: hud type 4</annotation>
+		<annotation cp="🤞🏾">finger | hell | hånd | kryss | hud type 5</annotation>
+		<annotation cp="🤞🏾" type="tts">kryssede fingre: hud type 5</annotation>
+		<annotation cp="🤞🏿">finger | hell | hånd | kryss | hud type 6</annotation>
+		<annotation cp="🤞🏿" type="tts">kryssede fingre: hud type 6</annotation>
+		<annotation cp="🖖🏻">finger | hånd | kropp | vulcan | hud type 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">Vulcan-hilsen: hud type 1–2</annotation>
+		<annotation cp="🖖🏼">finger | hånd | kropp | vulcan | hud type 3</annotation>
+		<annotation cp="🖖🏼" type="tts">Vulcan-hilsen: hud type 3</annotation>
+		<annotation cp="🖖🏽">finger | hånd | kropp | vulcan | hud type 4</annotation>
+		<annotation cp="🖖🏽" type="tts">Vulcan-hilsen: hud type 4</annotation>
+		<annotation cp="🖖🏾">finger | hånd | kropp | vulcan | hud type 5</annotation>
+		<annotation cp="🖖🏾" type="tts">Vulcan-hilsen: hud type 5</annotation>
+		<annotation cp="🖖🏿">finger | hånd | kropp | vulcan | hud type 6</annotation>
+		<annotation cp="🖖🏿" type="tts">Vulcan-hilsen: hud type 6</annotation>
+		<annotation cp="🤘🏻">finger | horn | hånd | kropp | hud type 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">rock’n’roll: hud type 1–2</annotation>
+		<annotation cp="🤘🏼">finger | horn | hånd | kropp | hud type 3</annotation>
+		<annotation cp="🤘🏼" type="tts">rock’n’roll: hud type 3</annotation>
+		<annotation cp="🤘🏽">finger | horn | hånd | kropp | hud type 4</annotation>
+		<annotation cp="🤘🏽" type="tts">rock’n’roll: hud type 4</annotation>
+		<annotation cp="🤘🏾">finger | horn | hånd | kropp | hud type 5</annotation>
+		<annotation cp="🤘🏾" type="tts">rock’n’roll: hud type 5</annotation>
+		<annotation cp="🤘🏿">finger | horn | hånd | kropp | hud type 6</annotation>
+		<annotation cp="🤘🏿" type="tts">rock’n’roll: hud type 6</annotation>
+		<annotation cp="🤙🏻">hånd | ringe | hud type 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">ring meg-hånd: hud type 1–2</annotation>
+		<annotation cp="🤙🏼">hånd | ringe | hud type 3</annotation>
+		<annotation cp="🤙🏼" type="tts">ring meg-hånd: hud type 3</annotation>
+		<annotation cp="🤙🏽">hånd | ringe | hud type 4</annotation>
+		<annotation cp="🤙🏽" type="tts">ring meg-hånd: hud type 4</annotation>
+		<annotation cp="🤙🏾">hånd | ringe | hud type 5</annotation>
+		<annotation cp="🤙🏾" type="tts">ring meg-hånd: hud type 5</annotation>
+		<annotation cp="🤙🏿">hånd | ringe | hud type 6</annotation>
+		<annotation cp="🤙🏿" type="tts">ring meg-hånd: hud type 6</annotation>
+		<annotation cp="🖐🏻">finger | hånd | kropp | spredt | hud type 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">flat hånd med spredte fingre: hud type 1–2</annotation>
+		<annotation cp="🖐🏼">finger | hånd | kropp | spredt | hud type 3</annotation>
+		<annotation cp="🖐🏼" type="tts">flat hånd med spredte fingre: hud type 3</annotation>
+		<annotation cp="🖐🏽">finger | hånd | kropp | spredt | hud type 4</annotation>
+		<annotation cp="🖐🏽" type="tts">flat hånd med spredte fingre: hud type 4</annotation>
+		<annotation cp="🖐🏾">finger | hånd | kropp | spredt | hud type 5</annotation>
+		<annotation cp="🖐🏾" type="tts">flat hånd med spredte fingre: hud type 5</annotation>
+		<annotation cp="🖐🏿">finger | hånd | kropp | spredt | hud type 6</annotation>
+		<annotation cp="🖐🏿" type="tts">flat hånd med spredte fingre: hud type 6</annotation>
+		<annotation cp="✋🏻">flat hånd | håndflate | hud type 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">hevet hånd: hud type 1–2</annotation>
+		<annotation cp="✋🏼">flat hånd | håndflate | hud type 3</annotation>
+		<annotation cp="✋🏼" type="tts">hevet hånd: hud type 3</annotation>
+		<annotation cp="✋🏽">flat hånd | håndflate | hud type 4</annotation>
+		<annotation cp="✋🏽" type="tts">hevet hånd: hud type 4</annotation>
+		<annotation cp="✋🏾">flat hånd | håndflate | hud type 5</annotation>
+		<annotation cp="✋🏾" type="tts">hevet hånd: hud type 5</annotation>
+		<annotation cp="✋🏿">flat hånd | håndflate | hud type 6</annotation>
+		<annotation cp="✋🏿" type="tts">hevet hånd: hud type 6</annotation>
+		<annotation cp="👌🏻">OK | OK-hånd | hånd | tegn | hud type 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">OK-tegn: hud type 1–2</annotation>
+		<annotation cp="👌🏼">OK | OK-hånd | hånd | tegn | hud type 3</annotation>
+		<annotation cp="👌🏼" type="tts">OK-tegn: hud type 3</annotation>
+		<annotation cp="👌🏽">OK | OK-hånd | hånd | tegn | hud type 4</annotation>
+		<annotation cp="👌🏽" type="tts">OK-tegn: hud type 4</annotation>
+		<annotation cp="👌🏾">OK | OK-hånd | hånd | tegn | hud type 5</annotation>
+		<annotation cp="👌🏾" type="tts">OK-tegn: hud type 5</annotation>
+		<annotation cp="👌🏿">OK | OK-hånd | hånd | tegn | hud type 6</annotation>
+		<annotation cp="👌🏿" type="tts">OK-tegn: hud type 6</annotation>
+		<annotation cp="👍🏻">hånd | tegn | tommel | hud type 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">tommel opp: hud type 1–2</annotation>
+		<annotation cp="👍🏼">hånd | tegn | tommel | hud type 3</annotation>
+		<annotation cp="👍🏼" type="tts">tommel opp: hud type 3</annotation>
+		<annotation cp="👍🏽">hånd | tegn | tommel | hud type 4</annotation>
+		<annotation cp="👍🏽" type="tts">tommel opp: hud type 4</annotation>
+		<annotation cp="👍🏾">hånd | tegn | tommel | hud type 5</annotation>
+		<annotation cp="👍🏾" type="tts">tommel opp: hud type 5</annotation>
+		<annotation cp="👍🏿">hånd | tegn | tommel | hud type 6</annotation>
+		<annotation cp="👍🏿" type="tts">tommel opp: hud type 6</annotation>
+		<annotation cp="👎🏻">hånd | tegn | tommel | hud type 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">tommel ned: hud type 1–2</annotation>
+		<annotation cp="👎🏼">hånd | tegn | tommel | hud type 3</annotation>
+		<annotation cp="👎🏼" type="tts">tommel ned: hud type 3</annotation>
+		<annotation cp="👎🏽">hånd | tegn | tommel | hud type 4</annotation>
+		<annotation cp="👎🏽" type="tts">tommel ned: hud type 4</annotation>
+		<annotation cp="👎🏾">hånd | tegn | tommel | hud type 5</annotation>
+		<annotation cp="👎🏾" type="tts">tommel ned: hud type 5</annotation>
+		<annotation cp="👎🏿">hånd | tegn | tommel | hud type 6</annotation>
+		<annotation cp="👎🏿" type="tts">tommel ned: hud type 6</annotation>
+		<annotation cp="✊🏻">knyttet neve | neve | hud type 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">hevet knyttneve: hud type 1–2</annotation>
+		<annotation cp="✊🏼">knyttet neve | neve | hud type 3</annotation>
+		<annotation cp="✊🏼" type="tts">hevet knyttneve: hud type 3</annotation>
+		<annotation cp="✊🏽">knyttet neve | neve | hud type 4</annotation>
+		<annotation cp="✊🏽" type="tts">hevet knyttneve: hud type 4</annotation>
+		<annotation cp="✊🏾">knyttet neve | neve | hud type 5</annotation>
+		<annotation cp="✊🏾" type="tts">hevet knyttneve: hud type 5</annotation>
+		<annotation cp="✊🏿">knyttet neve | neve | hud type 6</annotation>
+		<annotation cp="✊🏿" type="tts">hevet knyttneve: hud type 6</annotation>
+		<annotation cp="👊🏻">hånd | neve | hud type 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">knyttet neve: hud type 1–2</annotation>
+		<annotation cp="👊🏼">hånd | neve | hud type 3</annotation>
+		<annotation cp="👊🏼" type="tts">knyttet neve: hud type 3</annotation>
+		<annotation cp="👊🏽">hånd | neve | hud type 4</annotation>
+		<annotation cp="👊🏽" type="tts">knyttet neve: hud type 4</annotation>
+		<annotation cp="👊🏾">hånd | neve | hud type 5</annotation>
+		<annotation cp="👊🏾" type="tts">knyttet neve: hud type 5</annotation>
+		<annotation cp="👊🏿">hånd | neve | hud type 6</annotation>
+		<annotation cp="👊🏿" type="tts">knyttet neve: hud type 6</annotation>
+		<annotation cp="🤛🏻">neve | venstre | venstrevendt | hud type 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">venstrevendt neve: hud type 1–2</annotation>
+		<annotation cp="🤛🏼">neve | venstre | venstrevendt | hud type 3</annotation>
+		<annotation cp="🤛🏼" type="tts">venstrevendt neve: hud type 3</annotation>
+		<annotation cp="🤛🏽">neve | venstre | venstrevendt | hud type 4</annotation>
+		<annotation cp="🤛🏽" type="tts">venstrevendt neve: hud type 4</annotation>
+		<annotation cp="🤛🏾">neve | venstre | venstrevendt | hud type 5</annotation>
+		<annotation cp="🤛🏾" type="tts">venstrevendt neve: hud type 5</annotation>
+		<annotation cp="🤛🏿">neve | venstre | venstrevendt | hud type 6</annotation>
+		<annotation cp="🤛🏿" type="tts">venstrevendt neve: hud type 6</annotation>
+		<annotation cp="🤜🏻">høyre | høyrevendt | neve | hud type 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">høyrevendt neve: hud type 1–2</annotation>
+		<annotation cp="🤜🏼">høyre | høyrevendt | neve | hud type 3</annotation>
+		<annotation cp="🤜🏼" type="tts">høyrevendt neve: hud type 3</annotation>
+		<annotation cp="🤜🏽">høyre | høyrevendt | neve | hud type 4</annotation>
+		<annotation cp="🤜🏽" type="tts">høyrevendt neve: hud type 4</annotation>
+		<annotation cp="🤜🏾">høyre | høyrevendt | neve | hud type 5</annotation>
+		<annotation cp="🤜🏾" type="tts">høyrevendt neve: hud type 5</annotation>
+		<annotation cp="🤜🏿">høyre | høyrevendt | neve | hud type 6</annotation>
+		<annotation cp="🤜🏿" type="tts">høyrevendt neve: hud type 6</annotation>
+		<annotation cp="🤚🏻">håndbak | løftet | hud type 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">løftet håndbak: hud type 1–2</annotation>
+		<annotation cp="🤚🏼">håndbak | løftet | hud type 3</annotation>
+		<annotation cp="🤚🏼" type="tts">løftet håndbak: hud type 3</annotation>
+		<annotation cp="🤚🏽">håndbak | løftet | hud type 4</annotation>
+		<annotation cp="🤚🏽" type="tts">løftet håndbak: hud type 4</annotation>
+		<annotation cp="🤚🏾">håndbak | løftet | hud type 5</annotation>
+		<annotation cp="🤚🏾" type="tts">løftet håndbak: hud type 5</annotation>
+		<annotation cp="🤚🏿">håndbak | løftet | hud type 6</annotation>
+		<annotation cp="🤚🏿" type="tts">løftet håndbak: hud type 6</annotation>
+		<annotation cp="👋🏻">vinke | vinking | hud type 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">vinkede hånd: hud type 1–2</annotation>
+		<annotation cp="👋🏼">vinke | vinking | hud type 3</annotation>
+		<annotation cp="👋🏼" type="tts">vinkede hånd: hud type 3</annotation>
+		<annotation cp="👋🏽">vinke | vinking | hud type 4</annotation>
+		<annotation cp="👋🏽" type="tts">vinkede hånd: hud type 4</annotation>
+		<annotation cp="👋🏾">vinke | vinking | hud type 5</annotation>
+		<annotation cp="👋🏾" type="tts">vinkede hånd: hud type 5</annotation>
+		<annotation cp="👋🏿">vinke | vinking | hud type 6</annotation>
+		<annotation cp="👋🏿" type="tts">vinkede hånd: hud type 6</annotation>
+		<annotation cp="✍🏻">hånd | kropp | skrive | hud type 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">skrivende hånd: hud type 1–2</annotation>
+		<annotation cp="✍🏼">hånd | kropp | skrive | hud type 3</annotation>
+		<annotation cp="✍🏼" type="tts">skrivende hånd: hud type 3</annotation>
+		<annotation cp="✍🏽">hånd | kropp | skrive | hud type 4</annotation>
+		<annotation cp="✍🏽" type="tts">skrivende hånd: hud type 4</annotation>
+		<annotation cp="✍🏾">hånd | kropp | skrive | hud type 5</annotation>
+		<annotation cp="✍🏾" type="tts">skrivende hånd: hud type 5</annotation>
+		<annotation cp="✍🏿">hånd | kropp | skrive | hud type 6</annotation>
+		<annotation cp="✍🏿" type="tts">skrivende hånd: hud type 6</annotation>
+		<annotation cp="👏🏻">hender | klapping | hud type 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">klappende hender: hud type 1–2</annotation>
+		<annotation cp="👏🏼">hender | klapping | hud type 3</annotation>
+		<annotation cp="👏🏼" type="tts">klappende hender: hud type 3</annotation>
+		<annotation cp="👏🏽">hender | klapping | hud type 4</annotation>
+		<annotation cp="👏🏽" type="tts">klappende hender: hud type 4</annotation>
+		<annotation cp="👏🏾">hender | klapping | hud type 5</annotation>
+		<annotation cp="👏🏾" type="tts">klappende hender: hud type 5</annotation>
+		<annotation cp="👏🏿">hender | klapping | hud type 6</annotation>
+		<annotation cp="👏🏿" type="tts">klappende hender: hud type 6</annotation>
+		<annotation cp="👐🏻">hender | åpne | hud type 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">åpne hender: hud type 1–2</annotation>
+		<annotation cp="👐🏼">hender | åpne | hud type 3</annotation>
+		<annotation cp="👐🏼" type="tts">åpne hender: hud type 3</annotation>
+		<annotation cp="👐🏽">hender | åpne | hud type 4</annotation>
+		<annotation cp="👐🏽" type="tts">åpne hender: hud type 4</annotation>
+		<annotation cp="👐🏾">hender | åpne | hud type 5</annotation>
+		<annotation cp="👐🏾" type="tts">åpne hender: hud type 5</annotation>
+		<annotation cp="👐🏿">hender | åpne | hud type 6</annotation>
+		<annotation cp="👐🏿" type="tts">åpne hender: hud type 6</annotation>
+		<annotation cp="🙌🏻">begge hender | feirer | feiring | rekker begge armene i været | hud type 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">hurra: hud type 1–2</annotation>
+		<annotation cp="🙌🏼">begge hender | feirer | feiring | rekker begge armene i været | hud type 3</annotation>
+		<annotation cp="🙌🏼" type="tts">hurra: hud type 3</annotation>
+		<annotation cp="🙌🏽">begge hender | feirer | feiring | rekker begge armene i været | hud type 4</annotation>
+		<annotation cp="🙌🏽" type="tts">hurra: hud type 4</annotation>
+		<annotation cp="🙌🏾">begge hender | feirer | feiring | rekker begge armene i været | hud type 5</annotation>
+		<annotation cp="🙌🏾" type="tts">hurra: hud type 5</annotation>
+		<annotation cp="🙌🏿">begge hender | feirer | feiring | rekker begge armene i været | hud type 6</annotation>
+		<annotation cp="🙌🏿" type="tts">hurra: hud type 6</annotation>
+		<annotation cp="🙏🏻">be | ber | bevegelse | bønn | hånd | hud type 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">foldede hender: hud type 1–2</annotation>
+		<annotation cp="🙏🏼">be | ber | bevegelse | bønn | hånd | hud type 3</annotation>
+		<annotation cp="🙏🏼" type="tts">foldede hender: hud type 3</annotation>
+		<annotation cp="🙏🏽">be | ber | bevegelse | bønn | hånd | hud type 4</annotation>
+		<annotation cp="🙏🏽" type="tts">foldede hender: hud type 4</annotation>
+		<annotation cp="🙏🏾">be | ber | bevegelse | bønn | hånd | hud type 5</annotation>
+		<annotation cp="🙏🏾" type="tts">foldede hender: hud type 5</annotation>
+		<annotation cp="🙏🏿">be | ber | bevegelse | bønn | hånd | hud type 6</annotation>
+		<annotation cp="🙏🏿" type="tts">foldede hender: hud type 6</annotation>
+		<annotation cp="💅🏻">kosmetikk | manikyr | negl | neglelakk | hud type 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">neglpleie: hud type 1–2</annotation>
+		<annotation cp="💅🏼">kosmetikk | manikyr | negl | neglelakk | hud type 3</annotation>
+		<annotation cp="💅🏼" type="tts">neglpleie: hud type 3</annotation>
+		<annotation cp="💅🏽">kosmetikk | manikyr | negl | neglelakk | hud type 4</annotation>
+		<annotation cp="💅🏽" type="tts">neglpleie: hud type 4</annotation>
+		<annotation cp="💅🏾">kosmetikk | manikyr | negl | neglelakk | hud type 5</annotation>
+		<annotation cp="💅🏾" type="tts">neglpleie: hud type 5</annotation>
+		<annotation cp="💅🏿">kosmetikk | manikyr | negl | neglelakk | hud type 6</annotation>
+		<annotation cp="💅🏿" type="tts">neglpleie: hud type 6</annotation>
+		<annotation cp="👂🏻">kropp | hud type 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">øre: hud type 1–2</annotation>
+		<annotation cp="👂🏼">kropp | hud type 3</annotation>
+		<annotation cp="👂🏼" type="tts">øre: hud type 3</annotation>
+		<annotation cp="👂🏽">kropp | hud type 4</annotation>
+		<annotation cp="👂🏽" type="tts">øre: hud type 4</annotation>
+		<annotation cp="👂🏾">kropp | hud type 5</annotation>
+		<annotation cp="👂🏾" type="tts">øre: hud type 5</annotation>
+		<annotation cp="👂🏿">kropp | hud type 6</annotation>
+		<annotation cp="👂🏿" type="tts">øre: hud type 6</annotation>
+		<annotation cp="👃🏻">fjes | kropp | hud type 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">nese: hud type 1–2</annotation>
+		<annotation cp="👃🏼">fjes | kropp | hud type 3</annotation>
+		<annotation cp="👃🏼" type="tts">nese: hud type 3</annotation>
+		<annotation cp="👃🏽">fjes | kropp | hud type 4</annotation>
+		<annotation cp="👃🏽" type="tts">nese: hud type 4</annotation>
+		<annotation cp="👃🏾">fjes | kropp | hud type 5</annotation>
+		<annotation cp="👃🏾" type="tts">nese: hud type 5</annotation>
+		<annotation cp="👃🏿">fjes | kropp | hud type 6</annotation>
+		<annotation cp="👃🏿" type="tts">nese: hud type 6</annotation>
+		<annotation cp="#⃣">nummertegn</annotation>
+		<annotation cp="#⃣" type="tts">nummertast nummertegn</annotation>
+		<annotation cp="*⃣">asterisk | keycap | stjerne</annotation>
+		<annotation cp="*⃣" type="tts">nummertast stjerne</annotation>
+		<annotation cp="🇦🇨">flagg</annotation>
+		<annotation cp="🇦🇨" type="tts">Ascension</annotation>
+		<annotation cp="🇦🇩">flagg</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">flagg</annotation>
+		<annotation cp="🇦🇪" type="tts">De forente arabiske emirater</annotation>
+		<annotation cp="🇦🇫">flagg</annotation>
+		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇬">flagg</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua og Barbuda</annotation>
+		<annotation cp="🇦🇮">flagg</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">flagg</annotation>
+		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇲">flagg</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇴">flagg</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">flagg</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktis</annotation>
+		<annotation cp="🇦🇷">flagg</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇸">flagg</annotation>
+		<annotation cp="🇦🇸" type="tts">Amerikansk Samoa</annotation>
+		<annotation cp="🇦🇹">flagg</annotation>
+		<annotation cp="🇦🇹" type="tts">Østerrike</annotation>
+		<annotation cp="🇦🇺">flagg</annotation>
+		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇼">flagg</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">flagg</annotation>
+		<annotation cp="🇦🇽" type="tts">Åland</annotation>
+		<annotation cp="🇦🇿">flagg</annotation>
+		<annotation cp="🇦🇿" type="tts">Aserbajdsjan</annotation>
+		<annotation cp="🇧🇦">flagg</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnia-Hercegovina</annotation>
+		<annotation cp="🇧🇧">flagg</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">flagg</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">flagg</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgia</annotation>
+		<annotation cp="🇧🇫">flagg</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">flagg</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgaria</annotation>
+		<annotation cp="🇧🇭">flagg</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇮">flagg</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">flagg</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">flagg</annotation>
+		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇲">flagg</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">flagg</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇴">flagg</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇶">flagg</annotation>
+		<annotation cp="🇧🇶" type="tts">Karibisk Nederland</annotation>
+		<annotation cp="🇧🇷">flagg</annotation>
+		<annotation cp="🇧🇷" type="tts">Brasil</annotation>
+		<annotation cp="🇧🇸">flagg</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇹">flagg</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇻">flagg</annotation>
+		<annotation cp="🇧🇻" type="tts">Bouvetøya</annotation>
+		<annotation cp="🇧🇼">flagg</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">flagg</annotation>
+		<annotation cp="🇧🇾" type="tts">Hviterussland</annotation>
+		<annotation cp="🇧🇿">flagg</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">flagg</annotation>
+		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇨">flagg</annotation>
+		<annotation cp="🇨🇨" type="tts">Kokosøyene</annotation>
+		<annotation cp="🇨🇩">flagg</annotation>
+		<annotation cp="🇨🇩" type="tts">Kongo-Kinshasa</annotation>
+		<annotation cp="🇨🇫">flagg</annotation>
+		<annotation cp="🇨🇫" type="tts">Den sentralafrikanske republikk</annotation>
+		<annotation cp="🇨🇬">flagg</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongo-Brazzaville</annotation>
+		<annotation cp="🇨🇭">flagg</annotation>
+		<annotation cp="🇨🇭" type="tts">Sveits</annotation>
+		<annotation cp="🇨🇮">flagg</annotation>
+		<annotation cp="🇨🇮" type="tts">Elfenbenskysten</annotation>
+		<annotation cp="🇨🇰">flagg</annotation>
+		<annotation cp="🇨🇰" type="tts">Cookøyene</annotation>
+		<annotation cp="🇨🇱">flagg</annotation>
+		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇲">flagg</annotation>
+		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇳">flagg</annotation>
+		<annotation cp="🇨🇳" type="tts">Kina</annotation>
+		<annotation cp="🇨🇴">flagg</annotation>
+		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇵">flagg</annotation>
+		<annotation cp="🇨🇵" type="tts">Clippertonøya</annotation>
+		<annotation cp="🇨🇷">flagg</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">flagg</annotation>
+		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇻">flagg</annotation>
+		<annotation cp="🇨🇻" type="tts">Kapp Verde</annotation>
+		<annotation cp="🇨🇼">flagg</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">flagg</annotation>
+		<annotation cp="🇨🇽" type="tts">Christmasøya</annotation>
+		<annotation cp="🇨🇾">flagg</annotation>
+		<annotation cp="🇨🇾" type="tts">Kypros</annotation>
+		<annotation cp="🇨🇿">flagg</annotation>
+		<annotation cp="🇨🇿" type="tts">Tsjekkia</annotation>
+		<annotation cp="🇩🇪">flagg</annotation>
+		<annotation cp="🇩🇪" type="tts">Tyskland</annotation>
+		<annotation cp="🇩🇬">flagg</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">flagg</annotation>
+		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇰">flagg</annotation>
+		<annotation cp="🇩🇰" type="tts">Danmark</annotation>
+		<annotation cp="🇩🇲">flagg</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇴">flagg</annotation>
+		<annotation cp="🇩🇴" type="tts">Den dominikanske republikk</annotation>
+		<annotation cp="🇩🇿">flagg</annotation>
+		<annotation cp="🇩🇿" type="tts">Algerie</annotation>
+		<annotation cp="🇪🇦">flagg</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta og Melilla</annotation>
+		<annotation cp="🇪🇨">flagg</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇪">flagg</annotation>
+		<annotation cp="🇪🇪" type="tts">Estland</annotation>
+		<annotation cp="🇪🇬">flagg</annotation>
+		<annotation cp="🇪🇬" type="tts">Egypt</annotation>
+		<annotation cp="🇪🇭">flagg</annotation>
+		<annotation cp="🇪🇭" type="tts">Vest-Sahara</annotation>
+		<annotation cp="🇪🇷">flagg</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇸">flagg</annotation>
+		<annotation cp="🇪🇸" type="tts">Spania</annotation>
+		<annotation cp="🇪🇹">flagg</annotation>
+		<annotation cp="🇪🇹" type="tts">Etiopia</annotation>
+		<annotation cp="🇪🇺">flagg</annotation>
+		<annotation cp="🇪🇺" type="tts">EU</annotation>
+		<annotation cp="🇫🇮">flagg</annotation>
+		<annotation cp="🇫🇮" type="tts">Finland</annotation>
+		<annotation cp="🇫🇯">flagg</annotation>
+		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇰">flagg</annotation>
+		<annotation cp="🇫🇰" type="tts">Falklandsøyene</annotation>
+		<annotation cp="🇫🇲">flagg</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikronesiaføderasjonen</annotation>
+		<annotation cp="🇫🇴">flagg</annotation>
+		<annotation cp="🇫🇴" type="tts">Færøyene</annotation>
+		<annotation cp="🇫🇷">flagg</annotation>
+		<annotation cp="🇫🇷" type="tts">Frankrike</annotation>
+		<annotation cp="🇬🇦">flagg</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">flagg</annotation>
+		<annotation cp="🇬🇧" type="tts">Storbritannia</annotation>
+		<annotation cp="🇬🇩">flagg</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">flagg</annotation>
+		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇫">flagg</annotation>
+		<annotation cp="🇬🇫" type="tts">Fransk Guyana</annotation>
+		<annotation cp="🇬🇬">flagg</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇭">flagg</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">flagg</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">flagg</annotation>
+		<annotation cp="🇬🇱" type="tts">Grønland</annotation>
+		<annotation cp="🇬🇲">flagg</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇳">flagg</annotation>
+		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇵">flagg</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇶">flagg</annotation>
+		<annotation cp="🇬🇶" type="tts">Ekvatorial-Guinea</annotation>
+		<annotation cp="🇬🇷">flagg</annotation>
+		<annotation cp="🇬🇷" type="tts">Hellas</annotation>
+		<annotation cp="🇬🇸">flagg</annotation>
+		<annotation cp="🇬🇸" type="tts">Sør-Georgia og Sør-Sandwichøyene</annotation>
+		<annotation cp="🇬🇹">flagg</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">flagg</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">flagg</annotation>
+		<annotation cp="🇬🇼" type="tts">Guinea-Bissau</annotation>
+		<annotation cp="🇬🇾">flagg</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">flagg</annotation>
+		<annotation cp="🇭🇰" type="tts">Hongkong S.A.R. Kina</annotation>
+		<annotation cp="🇭🇲">flagg</annotation>
+		<annotation cp="🇭🇲" type="tts">Heard- og McDonaldøyene</annotation>
+		<annotation cp="🇭🇳">flagg</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">flagg</annotation>
+		<annotation cp="🇭🇷" type="tts">Kroatia</annotation>
+		<annotation cp="🇭🇹">flagg</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">flagg</annotation>
+		<annotation cp="🇭🇺" type="tts">Ungarn</annotation>
+		<annotation cp="🇮🇨">flagg</annotation>
+		<annotation cp="🇮🇨" type="tts">Kanariøyene</annotation>
+		<annotation cp="🇮🇩">flagg</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇪">flagg</annotation>
+		<annotation cp="🇮🇪" type="tts">Irland</annotation>
+		<annotation cp="🇮🇱">flagg</annotation>
+		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇲">flagg</annotation>
+		<annotation cp="🇮🇲" type="tts">Man</annotation>
+		<annotation cp="🇮🇳">flagg</annotation>
+		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇴">flagg</annotation>
+		<annotation cp="🇮🇴" type="tts">Det britiske territoriet i Indiahavet</annotation>
+		<annotation cp="🇮🇶">flagg</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">flagg</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">flagg</annotation>
+		<annotation cp="🇮🇸" type="tts">Island</annotation>
+		<annotation cp="🇮🇹">flagg</annotation>
+		<annotation cp="🇮🇹" type="tts">Italia</annotation>
+		<annotation cp="🇯🇪">flagg</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">flagg</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇴">flagg</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordan</annotation>
+		<annotation cp="🇯🇵">flagg</annotation>
+		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇰🇪">flagg</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇬">flagg</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgisistan</annotation>
+		<annotation cp="🇰🇭">flagg</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodsja</annotation>
+		<annotation cp="🇰🇮">flagg</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">flagg</annotation>
+		<annotation cp="🇰🇲" type="tts">Komorene</annotation>
+		<annotation cp="🇰🇳">flagg</annotation>
+		<annotation cp="🇰🇳" type="tts">Saint Kitts og Nevis</annotation>
+		<annotation cp="🇰🇵">flagg</annotation>
+		<annotation cp="🇰🇵" type="tts">Nord-Korea</annotation>
+		<annotation cp="🇰🇷">flagg</annotation>
+		<annotation cp="🇰🇷" type="tts">Sør-Korea</annotation>
+		<annotation cp="🇰🇼">flagg</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇾">flagg</annotation>
+		<annotation cp="🇰🇾" type="tts">Caymanøyene</annotation>
+		<annotation cp="🇰🇿">flagg</annotation>
+		<annotation cp="🇰🇿" type="tts">Kasakhstan</annotation>
+		<annotation cp="🇱🇦">flagg</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">flagg</annotation>
+		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇨">flagg</annotation>
+		<annotation cp="🇱🇨" type="tts">St. Lucia</annotation>
+		<annotation cp="🇱🇮">flagg</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">flagg</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">flagg</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇸">flagg</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">flagg</annotation>
+		<annotation cp="🇱🇹" type="tts">Litauen</annotation>
+		<annotation cp="🇱🇺">flagg</annotation>
+		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇻">flagg</annotation>
+		<annotation cp="🇱🇻" type="tts">Latvia</annotation>
+		<annotation cp="🇱🇾">flagg</annotation>
+		<annotation cp="🇱🇾" type="tts">Libya</annotation>
+		<annotation cp="🇲🇦">flagg</annotation>
+		<annotation cp="🇲🇦" type="tts">Marokko</annotation>
+		<annotation cp="🇲🇨">flagg</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">flagg</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇪">flagg</annotation>
+		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇫">flagg</annotation>
+		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇬">flagg</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">flagg</annotation>
+		<annotation cp="🇲🇭" type="tts">Marshalløyene</annotation>
+		<annotation cp="🇲🇰">flagg</annotation>
+		<annotation cp="🇲🇰" type="tts">Makedonia</annotation>
+		<annotation cp="🇲🇱">flagg</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">flagg</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇳">flagg</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇴">flagg</annotation>
+		<annotation cp="🇲🇴" type="tts">Macao S.A.R. Kina</annotation>
+		<annotation cp="🇲🇵">flagg</annotation>
+		<annotation cp="🇲🇵" type="tts">Nord-Marianene</annotation>
+		<annotation cp="🇲🇶">flagg</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇷">flagg</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇸">flagg</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">flagg</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">flagg</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">flagg</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldivene</annotation>
+		<annotation cp="🇲🇼">flagg</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">flagg</annotation>
+		<annotation cp="🇲🇽" type="tts">Mexico</annotation>
+		<annotation cp="🇲🇾">flagg</annotation>
+		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇿">flagg</annotation>
+		<annotation cp="🇲🇿" type="tts">Mosambik</annotation>
+		<annotation cp="🇳🇦">flagg</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇨">flagg</annotation>
+		<annotation cp="🇳🇨" type="tts">Ny-Caledonia</annotation>
+		<annotation cp="🇳🇪">flagg</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">flagg</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolkøya</annotation>
+		<annotation cp="🇳🇬">flagg</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇮">flagg</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">flagg</annotation>
+		<annotation cp="🇳🇱" type="tts">Nederland</annotation>
+		<annotation cp="🇳🇴">flagg</annotation>
+		<annotation cp="🇳🇴" type="tts">Norge</annotation>
+		<annotation cp="🇳🇵">flagg</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">flagg</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">flagg</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">flagg</annotation>
+		<annotation cp="🇳🇿" type="tts">New Zealand</annotation>
+		<annotation cp="🇴🇲">flagg</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">flagg</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">flagg</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">flagg</annotation>
+		<annotation cp="🇵🇫" type="tts">Fransk Polynesia</annotation>
+		<annotation cp="🇵🇬">flagg</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua Ny-Guinea</annotation>
+		<annotation cp="🇵🇭">flagg</annotation>
+		<annotation cp="🇵🇭" type="tts">Filippinene</annotation>
+		<annotation cp="🇵🇰">flagg</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">flagg</annotation>
+		<annotation cp="🇵🇱" type="tts">Polen</annotation>
+		<annotation cp="🇵🇲">flagg</annotation>
+		<annotation cp="🇵🇲" type="tts">St. Pierre og Miquelon</annotation>
+		<annotation cp="🇵🇳">flagg</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitcairn</annotation>
+		<annotation cp="🇵🇷">flagg</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇸">flagg</annotation>
+		<annotation cp="🇵🇸" type="tts">Det palestinske området</annotation>
+		<annotation cp="🇵🇹">flagg</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇼">flagg</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">flagg</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">flagg</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">flagg</annotation>
+		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇴">flagg</annotation>
+		<annotation cp="🇷🇴" type="tts">Romania</annotation>
+		<annotation cp="🇷🇸">flagg</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇺">flagg</annotation>
+		<annotation cp="🇷🇺" type="tts">Russland</annotation>
+		<annotation cp="🇷🇼">flagg</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">flagg</annotation>
+		<annotation cp="🇸🇦" type="tts">Saudi-Arabia</annotation>
+		<annotation cp="🇸🇧">flagg</annotation>
+		<annotation cp="🇸🇧" type="tts">Salomonøyene</annotation>
+		<annotation cp="🇸🇨">flagg</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychellene</annotation>
+		<annotation cp="🇸🇩">flagg</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇪">flagg</annotation>
+		<annotation cp="🇸🇪" type="tts">Sverige</annotation>
+		<annotation cp="🇸🇬">flagg</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇭">flagg</annotation>
+		<annotation cp="🇸🇭" type="tts">St. Helena</annotation>
+		<annotation cp="🇸🇮">flagg</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovenia</annotation>
+		<annotation cp="🇸🇯">flagg</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard og Jan Mayen</annotation>
+		<annotation cp="🇸🇰">flagg</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovakia</annotation>
+		<annotation cp="🇸🇱">flagg</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">flagg</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">flagg</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">flagg</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇷">flagg</annotation>
+		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇸">flagg</annotation>
+		<annotation cp="🇸🇸" type="tts">Sør-Sudan</annotation>
+		<annotation cp="🇸🇹">flagg</annotation>
+		<annotation cp="🇸🇹" type="tts">São Tomé og Príncipe</annotation>
+		<annotation cp="🇸🇻">flagg</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">flagg</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇾">flagg</annotation>
+		<annotation cp="🇸🇾" type="tts">Syria</annotation>
+		<annotation cp="🇸🇿">flagg</annotation>
+		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇹🇦">flagg</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">flagg</annotation>
+		<annotation cp="🇹🇨" type="tts">Turks- og Caicosøyene</annotation>
+		<annotation cp="🇹🇩">flagg</annotation>
+		<annotation cp="🇹🇩" type="tts">Tsjad</annotation>
+		<annotation cp="🇹🇫">flagg</annotation>
+		<annotation cp="🇹🇫" type="tts">De franske sørterritorier</annotation>
+		<annotation cp="🇹🇬">flagg</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">flagg</annotation>
+		<annotation cp="🇹🇭" type="tts">Thailand</annotation>
+		<annotation cp="🇹🇯">flagg</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadsjikistan</annotation>
+		<annotation cp="🇹🇰">flagg</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">flagg</annotation>
+		<annotation cp="🇹🇱" type="tts">Øst-Timor</annotation>
+		<annotation cp="🇹🇲">flagg</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">flagg</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇴">flagg</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">flagg</annotation>
+		<annotation cp="🇹🇷" type="tts">Tyrkia</annotation>
+		<annotation cp="🇹🇹">flagg</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad og Tobago</annotation>
+		<annotation cp="🇹🇻">flagg</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">flagg</annotation>
+		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇿">flagg</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇺🇦">flagg</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇬">flagg</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">flagg</annotation>
+		<annotation cp="🇺🇲" type="tts">USAs ytre øyer</annotation>
+		<annotation cp="🇺🇳">flagg</annotation>
+		<annotation cp="🇺🇳" type="tts">FN</annotation>
+		<annotation cp="🇺🇸">flagg</annotation>
+		<annotation cp="🇺🇸" type="tts">USA</annotation>
+		<annotation cp="🇺🇾">flagg</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">flagg</annotation>
+		<annotation cp="🇺🇿" type="tts">Usbekistan</annotation>
+		<annotation cp="🇻🇦">flagg</annotation>
+		<annotation cp="🇻🇦" type="tts">Vatikanstaten</annotation>
+		<annotation cp="🇻🇨">flagg</annotation>
+		<annotation cp="🇻🇨" type="tts">St. Vincent og Grenadinene</annotation>
+		<annotation cp="🇻🇪">flagg</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">flagg</annotation>
+		<annotation cp="🇻🇬" type="tts">De britiske jomfruøyene</annotation>
+		<annotation cp="🇻🇮">flagg</annotation>
+		<annotation cp="🇻🇮" type="tts">De amerikanske jomfruøyene</annotation>
+		<annotation cp="🇻🇳">flagg</annotation>
+		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇺">flagg</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">flagg</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis og Futuna</annotation>
+		<annotation cp="🇼🇸">flagg</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">flagg</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">flagg</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇹">flagg</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">flagg</annotation>
+		<annotation cp="🇿🇦" type="tts">Sør-Afrika</annotation>
+		<annotation cp="🇿🇲">flagg</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇼">flagg</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">flagg</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">England</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">flagg</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Skottland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">flagg</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+	</annotations>
+</ldml>

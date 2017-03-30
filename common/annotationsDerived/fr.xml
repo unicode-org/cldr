@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="fr"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">keycap</annotation>
+		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
+		<annotation cp="1⃣">keycap</annotation>
+		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
+		<annotation cp="2⃣">keycap</annotation>
+		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
+		<annotation cp="3⃣">keycap</annotation>
+		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
+		<annotation cp="4⃣">keycap</annotation>
+		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
+		<annotation cp="5⃣">keycap</annotation>
+		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
+		<annotation cp="6⃣">keycap</annotation>
+		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
+		<annotation cp="7⃣">keycap</annotation>
+		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
+		<annotation cp="8⃣">keycap</annotation>
+		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
+		<annotation cp="9⃣">keycap</annotation>
+		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
+		<annotation cp="👶🏻">bébé | peau 1</annotation>
+		<annotation cp="👶🏻" type="tts">bébé: peau 1</annotation>
+		<annotation cp="👶🏼">bébé | peau 2</annotation>
+		<annotation cp="👶🏼" type="tts">bébé: peau 2</annotation>
+		<annotation cp="👶🏽">bébé | peau 3</annotation>
+		<annotation cp="👶🏽" type="tts">bébé: peau 3</annotation>
+		<annotation cp="👶🏾">bébé | peau 4</annotation>
+		<annotation cp="👶🏾" type="tts">bébé: peau 4</annotation>
+		<annotation cp="👶🏿">bébé | peau 5</annotation>
+		<annotation cp="👶🏿" type="tts">bébé: peau 5</annotation>
+		<annotation cp="👦🏻">garçon | masculin | peau 1</annotation>
+		<annotation cp="👦🏻" type="tts">garçon: peau 1</annotation>
+		<annotation cp="👦🏼">garçon | masculin | peau 2</annotation>
+		<annotation cp="👦🏼" type="tts">garçon: peau 2</annotation>
+		<annotation cp="👦🏽">garçon | masculin | peau 3</annotation>
+		<annotation cp="👦🏽" type="tts">garçon: peau 3</annotation>
+		<annotation cp="👦🏾">garçon | masculin | peau 4</annotation>
+		<annotation cp="👦🏾" type="tts">garçon: peau 4</annotation>
+		<annotation cp="👦🏿">garçon | masculin | peau 5</annotation>
+		<annotation cp="👦🏿" type="tts">garçon: peau 5</annotation>
+		<annotation cp="👧🏻">vierge | zodiaque | peau 1</annotation>
+		<annotation cp="👧🏻" type="tts">fille: peau 1</annotation>
+		<annotation cp="👧🏼">vierge | zodiaque | peau 2</annotation>
+		<annotation cp="👧🏼" type="tts">fille: peau 2</annotation>
+		<annotation cp="👧🏽">vierge | zodiaque | peau 3</annotation>
+		<annotation cp="👧🏽" type="tts">fille: peau 3</annotation>
+		<annotation cp="👧🏾">vierge | zodiaque | peau 4</annotation>
+		<annotation cp="👧🏾" type="tts">fille: peau 4</annotation>
+		<annotation cp="👧🏿">vierge | zodiaque | peau 5</annotation>
+		<annotation cp="👧🏿" type="tts">fille: peau 5</annotation>
+		<annotation cp="👨🏻">homme | peau 1</annotation>
+		<annotation cp="👨🏻" type="tts">homme: peau 1</annotation>
+		<annotation cp="👨🏼">homme | peau 2</annotation>
+		<annotation cp="👨🏼" type="tts">homme: peau 2</annotation>
+		<annotation cp="👨🏽">homme | peau 3</annotation>
+		<annotation cp="👨🏽" type="tts">homme: peau 3</annotation>
+		<annotation cp="👨🏾">homme | peau 4</annotation>
+		<annotation cp="👨🏾" type="tts">homme: peau 4</annotation>
+		<annotation cp="👨🏿">homme | peau 5</annotation>
+		<annotation cp="👨🏿" type="tts">homme: peau 5</annotation>
+		<annotation cp="👩🏻">femme | peau 1</annotation>
+		<annotation cp="👩🏻" type="tts">femme: peau 1</annotation>
+		<annotation cp="👩🏼">femme | peau 2</annotation>
+		<annotation cp="👩🏼" type="tts">femme: peau 2</annotation>
+		<annotation cp="👩🏽">femme | peau 3</annotation>
+		<annotation cp="👩🏽" type="tts">femme: peau 3</annotation>
+		<annotation cp="👩🏾">femme | peau 4</annotation>
+		<annotation cp="👩🏾" type="tts">femme: peau 4</annotation>
+		<annotation cp="👩🏿">femme | peau 5</annotation>
+		<annotation cp="👩🏿" type="tts">femme: peau 5</annotation>
+		<annotation cp="👴🏻">homme | âgé | peau 1</annotation>
+		<annotation cp="👴🏻" type="tts">homme âgé: peau 1</annotation>
+		<annotation cp="👴🏼">homme | âgé | peau 2</annotation>
+		<annotation cp="👴🏼" type="tts">homme âgé: peau 2</annotation>
+		<annotation cp="👴🏽">homme | âgé | peau 3</annotation>
+		<annotation cp="👴🏽" type="tts">homme âgé: peau 3</annotation>
+		<annotation cp="👴🏾">homme | âgé | peau 4</annotation>
+		<annotation cp="👴🏾" type="tts">homme âgé: peau 4</annotation>
+		<annotation cp="👴🏿">homme | âgé | peau 5</annotation>
+		<annotation cp="👴🏿" type="tts">homme âgé: peau 5</annotation>
+		<annotation cp="👵🏻">femme | âgée | peau 1</annotation>
+		<annotation cp="👵🏻" type="tts">femme âgée: peau 1</annotation>
+		<annotation cp="👵🏼">femme | âgée | peau 2</annotation>
+		<annotation cp="👵🏼" type="tts">femme âgée: peau 2</annotation>
+		<annotation cp="👵🏽">femme | âgée | peau 3</annotation>
+		<annotation cp="👵🏽" type="tts">femme âgée: peau 3</annotation>
+		<annotation cp="👵🏾">femme | âgée | peau 4</annotation>
+		<annotation cp="👵🏾" type="tts">femme âgée: peau 4</annotation>
+		<annotation cp="👵🏿">femme | âgée | peau 5</annotation>
+		<annotation cp="👵🏿" type="tts">femme âgée: peau 5</annotation>
+		<annotation cp="👨🏻‍⚕">docteur | homme | infirmier | santé | peau 1</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">homme profession médicale: peau 1</annotation>
+		<annotation cp="👨🏼‍⚕">docteur | homme | infirmier | santé | peau 2</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">homme profession médicale: peau 2</annotation>
+		<annotation cp="👨🏽‍⚕">docteur | homme | infirmier | santé | peau 3</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">homme profession médicale: peau 3</annotation>
+		<annotation cp="👨🏾‍⚕">docteur | homme | infirmier | santé | peau 4</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">homme profession médicale: peau 4</annotation>
+		<annotation cp="👨🏿‍⚕">docteur | homme | infirmier | santé | peau 5</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">homme profession médicale: peau 5</annotation>
+		<annotation cp="👩🏻‍⚕">docteur | femme | infirmière | santé | peau 1</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">femme profession médicale: peau 1</annotation>
+		<annotation cp="👩🏼‍⚕">docteur | femme | infirmière | santé | peau 2</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">femme profession médicale: peau 2</annotation>
+		<annotation cp="👩🏽‍⚕">docteur | femme | infirmière | santé | peau 3</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">femme profession médicale: peau 3</annotation>
+		<annotation cp="👩🏾‍⚕">docteur | femme | infirmière | santé | peau 4</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">femme profession médicale: peau 4</annotation>
+		<annotation cp="👩🏿‍⚕">docteur | femme | infirmière | santé | peau 5</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">femme profession médicale: peau 5</annotation>
+		<annotation cp="👨🏻‍🎓">diplômé | homme | étudiant | peau 1</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">étudiant: peau 1</annotation>
+		<annotation cp="👨🏼‍🎓">diplômé | homme | étudiant | peau 2</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">étudiant: peau 2</annotation>
+		<annotation cp="👨🏽‍🎓">diplômé | homme | étudiant | peau 3</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">étudiant: peau 3</annotation>
+		<annotation cp="👨🏾‍🎓">diplômé | homme | étudiant | peau 4</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">étudiant: peau 4</annotation>
+		<annotation cp="👨🏿‍🎓">diplômé | homme | étudiant | peau 5</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">étudiant: peau 5</annotation>
+		<annotation cp="👩🏻‍🎓">diplômée | femme | étudiante | peau 1</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">étudiante: peau 1</annotation>
+		<annotation cp="👩🏼‍🎓">diplômée | femme | étudiante | peau 2</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">étudiante: peau 2</annotation>
+		<annotation cp="👩🏽‍🎓">diplômée | femme | étudiante | peau 3</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">étudiante: peau 3</annotation>
+		<annotation cp="👩🏾‍🎓">diplômée | femme | étudiante | peau 4</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">étudiante: peau 4</annotation>
+		<annotation cp="👩🏿‍🎓">diplômée | femme | étudiante | peau 5</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">étudiante: peau 5</annotation>
+		<annotation cp="👨🏻‍🏫">homme | instituteur | instructeur | professeur | peau 1</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">professeur: peau 1</annotation>
+		<annotation cp="👨🏼‍🏫">homme | instituteur | instructeur | professeur | peau 2</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">professeur: peau 2</annotation>
+		<annotation cp="👨🏽‍🏫">homme | instituteur | instructeur | professeur | peau 3</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">professeur: peau 3</annotation>
+		<annotation cp="👨🏾‍🏫">homme | instituteur | instructeur | professeur | peau 4</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">professeur: peau 4</annotation>
+		<annotation cp="👨🏿‍🏫">homme | instituteur | instructeur | professeur | peau 5</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">professeur: peau 5</annotation>
+		<annotation cp="👩🏻‍🏫">femme | institutrice | instructrice | professeure | peau 1</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">professeure: peau 1</annotation>
+		<annotation cp="👩🏼‍🏫">femme | institutrice | instructrice | professeure | peau 2</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">professeure: peau 2</annotation>
+		<annotation cp="👩🏽‍🏫">femme | institutrice | instructrice | professeure | peau 3</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">professeure: peau 3</annotation>
+		<annotation cp="👩🏾‍🏫">femme | institutrice | instructrice | professeure | peau 4</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">professeure: peau 4</annotation>
+		<annotation cp="👩🏿‍🏫">femme | institutrice | instructrice | professeure | peau 5</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">professeure: peau 5</annotation>
+		<annotation cp="👨🏻‍⚖">balance | homme | justice | peau 1</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">juge homme: peau 1</annotation>
+		<annotation cp="👨🏼‍⚖">balance | homme | justice | peau 2</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">juge homme: peau 2</annotation>
+		<annotation cp="👨🏽‍⚖">balance | homme | justice | peau 3</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">juge homme: peau 3</annotation>
+		<annotation cp="👨🏾‍⚖">balance | homme | justice | peau 4</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">juge homme: peau 4</annotation>
+		<annotation cp="👨🏿‍⚖">balance | homme | justice | peau 5</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">juge homme: peau 5</annotation>
+		<annotation cp="👩🏻‍⚖">balance | femme | juge | peau 1</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">juge femme: peau 1</annotation>
+		<annotation cp="👩🏼‍⚖">balance | femme | juge | peau 2</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">juge femme: peau 2</annotation>
+		<annotation cp="👩🏽‍⚖">balance | femme | juge | peau 3</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">juge femme: peau 3</annotation>
+		<annotation cp="👩🏾‍⚖">balance | femme | juge | peau 4</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">juge femme: peau 4</annotation>
+		<annotation cp="👩🏿‍⚖">balance | femme | juge | peau 5</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">juge femme: peau 5</annotation>
+		<annotation cp="👨🏻‍🌾">agriculteur | fermier | homme | jardinier | peau 1</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">fermier: peau 1</annotation>
+		<annotation cp="👨🏼‍🌾">agriculteur | fermier | homme | jardinier | peau 2</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">fermier: peau 2</annotation>
+		<annotation cp="👨🏽‍🌾">agriculteur | fermier | homme | jardinier | peau 3</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">fermier: peau 3</annotation>
+		<annotation cp="👨🏾‍🌾">agriculteur | fermier | homme | jardinier | peau 4</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">fermier: peau 4</annotation>
+		<annotation cp="👨🏿‍🌾">agriculteur | fermier | homme | jardinier | peau 5</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">fermier: peau 5</annotation>
+		<annotation cp="👩🏻‍🌾">agricultrice | femme | fermière | jardinière | peau 1</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">fermière: peau 1</annotation>
+		<annotation cp="👩🏼‍🌾">agricultrice | femme | fermière | jardinière | peau 2</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">fermière: peau 2</annotation>
+		<annotation cp="👩🏽‍🌾">agricultrice | femme | fermière | jardinière | peau 3</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">fermière: peau 3</annotation>
+		<annotation cp="👩🏾‍🌾">agricultrice | femme | fermière | jardinière | peau 4</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">fermière: peau 4</annotation>
+		<annotation cp="👩🏿‍🌾">agricultrice | femme | fermière | jardinière | peau 5</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">fermière: peau 5</annotation>
+		<annotation cp="👨🏻‍🍳">chef | cuisinier | homme | peau 1</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">cuisinier: peau 1</annotation>
+		<annotation cp="👨🏼‍🍳">chef | cuisinier | homme | peau 2</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">cuisinier: peau 2</annotation>
+		<annotation cp="👨🏽‍🍳">chef | cuisinier | homme | peau 3</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">cuisinier: peau 3</annotation>
+		<annotation cp="👨🏾‍🍳">chef | cuisinier | homme | peau 4</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">cuisinier: peau 4</annotation>
+		<annotation cp="👨🏿‍🍳">chef | cuisinier | homme | peau 5</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">cuisinier: peau 5</annotation>
+		<annotation cp="👩🏻‍🍳">chef | cuisinière | femme | peau 1</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">cuisinière: peau 1</annotation>
+		<annotation cp="👩🏼‍🍳">chef | cuisinière | femme | peau 2</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">cuisinière: peau 2</annotation>
+		<annotation cp="👩🏽‍🍳">chef | cuisinière | femme | peau 3</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">cuisinière: peau 3</annotation>
+		<annotation cp="👩🏾‍🍳">chef | cuisinière | femme | peau 4</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">cuisinière: peau 4</annotation>
+		<annotation cp="👩🏿‍🍳">chef | cuisinière | femme | peau 5</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">cuisinière: peau 5</annotation>
+		<annotation cp="👨🏻‍🔧">homme | mécanique | plombier | électricien | peau 1</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">mécanicien: peau 1</annotation>
+		<annotation cp="👨🏼‍🔧">homme | mécanique | plombier | électricien | peau 2</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">mécanicien: peau 2</annotation>
+		<annotation cp="👨🏽‍🔧">homme | mécanique | plombier | électricien | peau 3</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">mécanicien: peau 3</annotation>
+		<annotation cp="👨🏾‍🔧">homme | mécanique | plombier | électricien | peau 4</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">mécanicien: peau 4</annotation>
+		<annotation cp="👨🏿‍🔧">homme | mécanique | plombier | électricien | peau 5</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">mécanicien: peau 5</annotation>
+		<annotation cp="👩🏻‍🔧">femme | mécanique | plombier | électricienne | peau 1</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">mécanicienne: peau 1</annotation>
+		<annotation cp="👩🏼‍🔧">femme | mécanique | plombier | électricienne | peau 2</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">mécanicienne: peau 2</annotation>
+		<annotation cp="👩🏽‍🔧">femme | mécanique | plombier | électricienne | peau 3</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">mécanicienne: peau 3</annotation>
+		<annotation cp="👩🏾‍🔧">femme | mécanique | plombier | électricienne | peau 4</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">mécanicienne: peau 4</annotation>
+		<annotation cp="👩🏿‍🔧">femme | mécanique | plombier | électricienne | peau 5</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">mécanicienne: peau 5</annotation>
+		<annotation cp="👨🏻‍🏭">assemblage | industrie | ouvrier | usine | peau 1</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">ouvrier: peau 1</annotation>
+		<annotation cp="👨🏼‍🏭">assemblage | industrie | ouvrier | usine | peau 2</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">ouvrier: peau 2</annotation>
+		<annotation cp="👨🏽‍🏭">assemblage | industrie | ouvrier | usine | peau 3</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">ouvrier: peau 3</annotation>
+		<annotation cp="👨🏾‍🏭">assemblage | industrie | ouvrier | usine | peau 4</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">ouvrier: peau 4</annotation>
+		<annotation cp="👨🏿‍🏭">assemblage | industrie | ouvrier | usine | peau 5</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">ouvrier: peau 5</annotation>
+		<annotation cp="👩🏻‍🏭">assemblage | industrie | ouvrière | usine | peau 1</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">ouvrière: peau 1</annotation>
+		<annotation cp="👩🏼‍🏭">assemblage | industrie | ouvrière | usine | peau 2</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">ouvrière: peau 2</annotation>
+		<annotation cp="👩🏽‍🏭">assemblage | industrie | ouvrière | usine | peau 3</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">ouvrière: peau 3</annotation>
+		<annotation cp="👩🏾‍🏭">assemblage | industrie | ouvrière | usine | peau 4</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">ouvrière: peau 4</annotation>
+		<annotation cp="👩🏿‍🏭">assemblage | industrie | ouvrière | usine | peau 5</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">ouvrière: peau 5</annotation>
+		<annotation cp="👨🏻‍💼">affaires | architecte | bureau | homme | peau 1</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">employé de bureau: peau 1</annotation>
+		<annotation cp="👨🏼‍💼">affaires | architecte | bureau | homme | peau 2</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">employé de bureau: peau 2</annotation>
+		<annotation cp="👨🏽‍💼">affaires | architecte | bureau | homme | peau 3</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">employé de bureau: peau 3</annotation>
+		<annotation cp="👨🏾‍💼">affaires | architecte | bureau | homme | peau 4</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">employé de bureau: peau 4</annotation>
+		<annotation cp="👨🏿‍💼">affaires | architecte | bureau | homme | peau 5</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">employé de bureau: peau 5</annotation>
+		<annotation cp="👩🏻‍💼">affaires | architecte | bureau | femme | peau 1</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">employée de bureau: peau 1</annotation>
+		<annotation cp="👩🏼‍💼">affaires | architecte | bureau | femme | peau 2</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">employée de bureau: peau 2</annotation>
+		<annotation cp="👩🏽‍💼">affaires | architecte | bureau | femme | peau 3</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">employée de bureau: peau 3</annotation>
+		<annotation cp="👩🏾‍💼">affaires | architecte | bureau | femme | peau 4</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">employée de bureau: peau 4</annotation>
+		<annotation cp="👩🏿‍💼">affaires | architecte | bureau | femme | peau 5</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">employée de bureau: peau 5</annotation>
+		<annotation cp="👨🏻‍🔬">chimiste | homme | scientifique | peau 1</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">scientifique homme: peau 1</annotation>
+		<annotation cp="👨🏼‍🔬">chimiste | homme | scientifique | peau 2</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">scientifique homme: peau 2</annotation>
+		<annotation cp="👨🏽‍🔬">chimiste | homme | scientifique | peau 3</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">scientifique homme: peau 3</annotation>
+		<annotation cp="👨🏾‍🔬">chimiste | homme | scientifique | peau 4</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">scientifique homme: peau 4</annotation>
+		<annotation cp="👨🏿‍🔬">chimiste | homme | scientifique | peau 5</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">scientifique homme: peau 5</annotation>
+		<annotation cp="👩🏻‍🔬">chimiste | femme | scientifique | peau 1</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">scientifique femme: peau 1</annotation>
+		<annotation cp="👩🏼‍🔬">chimiste | femme | scientifique | peau 2</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">scientifique femme: peau 2</annotation>
+		<annotation cp="👩🏽‍🔬">chimiste | femme | scientifique | peau 3</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">scientifique femme: peau 3</annotation>
+		<annotation cp="👩🏾‍🔬">chimiste | femme | scientifique | peau 4</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">scientifique femme: peau 4</annotation>
+		<annotation cp="👩🏿‍🔬">chimiste | femme | scientifique | peau 5</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">scientifique femme: peau 5</annotation>
+		<annotation cp="👨🏻‍💻">développeur | homme | logiciels | technologie | peau 1</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">informaticien: peau 1</annotation>
+		<annotation cp="👨🏼‍💻">développeur | homme | logiciels | technologie | peau 2</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">informaticien: peau 2</annotation>
+		<annotation cp="👨🏽‍💻">développeur | homme | logiciels | technologie | peau 3</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">informaticien: peau 3</annotation>
+		<annotation cp="👨🏾‍💻">développeur | homme | logiciels | technologie | peau 4</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">informaticien: peau 4</annotation>
+		<annotation cp="👨🏿‍💻">développeur | homme | logiciels | technologie | peau 5</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">informaticien: peau 5</annotation>
+		<annotation cp="👩🏻‍💻">développeuse | femme | logiciels | technologie | peau 1</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">informaticienne: peau 1</annotation>
+		<annotation cp="👩🏼‍💻">développeuse | femme | logiciels | technologie | peau 2</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">informaticienne: peau 2</annotation>
+		<annotation cp="👩🏽‍💻">développeuse | femme | logiciels | technologie | peau 3</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">informaticienne: peau 3</annotation>
+		<annotation cp="👩🏾‍💻">développeuse | femme | logiciels | technologie | peau 4</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">informaticienne: peau 4</annotation>
+		<annotation cp="👩🏿‍💻">développeuse | femme | logiciels | technologie | peau 5</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">informaticienne: peau 5</annotation>
+		<annotation cp="👨🏻‍🎤">artiste | chanteur | rock | star | peau 1</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">chanteur: peau 1</annotation>
+		<annotation cp="👨🏼‍🎤">artiste | chanteur | rock | star | peau 2</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">chanteur: peau 2</annotation>
+		<annotation cp="👨🏽‍🎤">artiste | chanteur | rock | star | peau 3</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">chanteur: peau 3</annotation>
+		<annotation cp="👨🏾‍🎤">artiste | chanteur | rock | star | peau 4</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">chanteur: peau 4</annotation>
+		<annotation cp="👨🏿‍🎤">artiste | chanteur | rock | star | peau 5</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">chanteur: peau 5</annotation>
+		<annotation cp="👩🏻‍🎤">artiste | chanteuse | rock | star | peau 1</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">chanteuse: peau 1</annotation>
+		<annotation cp="👩🏼‍🎤">artiste | chanteuse | rock | star | peau 2</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">chanteuse: peau 2</annotation>
+		<annotation cp="👩🏽‍🎤">artiste | chanteuse | rock | star | peau 3</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">chanteuse: peau 3</annotation>
+		<annotation cp="👩🏾‍🎤">artiste | chanteuse | rock | star | peau 4</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">chanteuse: peau 4</annotation>
+		<annotation cp="👩🏿‍🎤">artiste | chanteuse | rock | star | peau 5</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">chanteuse: peau 5</annotation>
+		<annotation cp="👨🏻‍🎨">artiste | homme | palette | peau 1</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">artiste homme: peau 1</annotation>
+		<annotation cp="👨🏼‍🎨">artiste | homme | palette | peau 2</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">artiste homme: peau 2</annotation>
+		<annotation cp="👨🏽‍🎨">artiste | homme | palette | peau 3</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">artiste homme: peau 3</annotation>
+		<annotation cp="👨🏾‍🎨">artiste | homme | palette | peau 4</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">artiste homme: peau 4</annotation>
+		<annotation cp="👨🏿‍🎨">artiste | homme | palette | peau 5</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">artiste homme: peau 5</annotation>
+		<annotation cp="👩🏻‍🎨">artiste | femme | palette | peau 1</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">artiste femme: peau 1</annotation>
+		<annotation cp="👩🏼‍🎨">artiste | femme | palette | peau 2</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">artiste femme: peau 2</annotation>
+		<annotation cp="👩🏽‍🎨">artiste | femme | palette | peau 3</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">artiste femme: peau 3</annotation>
+		<annotation cp="👩🏾‍🎨">artiste | femme | palette | peau 4</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">artiste femme: peau 4</annotation>
+		<annotation cp="👩🏿‍🎨">artiste | femme | palette | peau 5</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">artiste femme: peau 5</annotation>
+		<annotation cp="👨🏻‍✈">avion | homme | pilote | peau 1</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">pilote homme: peau 1</annotation>
+		<annotation cp="👨🏼‍✈">avion | homme | pilote | peau 2</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">pilote homme: peau 2</annotation>
+		<annotation cp="👨🏽‍✈">avion | homme | pilote | peau 3</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">pilote homme: peau 3</annotation>
+		<annotation cp="👨🏾‍✈">avion | homme | pilote | peau 4</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">pilote homme: peau 4</annotation>
+		<annotation cp="👨🏿‍✈">avion | homme | pilote | peau 5</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">pilote homme: peau 5</annotation>
+		<annotation cp="👩🏻‍✈">avion | femme | pilote | peau 1</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">pilote femme: peau 1</annotation>
+		<annotation cp="👩🏼‍✈">avion | femme | pilote | peau 2</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">pilote femme: peau 2</annotation>
+		<annotation cp="👩🏽‍✈">avion | femme | pilote | peau 3</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">pilote femme: peau 3</annotation>
+		<annotation cp="👩🏾‍✈">avion | femme | pilote | peau 4</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">pilote femme: peau 4</annotation>
+		<annotation cp="👩🏿‍✈">avion | femme | pilote | peau 5</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">pilote femme: peau 5</annotation>
+		<annotation cp="👨🏻‍🚀">astronaute | espace | fusée | homme | peau 1</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">astronaute homme: peau 1</annotation>
+		<annotation cp="👨🏼‍🚀">astronaute | espace | fusée | homme | peau 2</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">astronaute homme: peau 2</annotation>
+		<annotation cp="👨🏽‍🚀">astronaute | espace | fusée | homme | peau 3</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">astronaute homme: peau 3</annotation>
+		<annotation cp="👨🏾‍🚀">astronaute | espace | fusée | homme | peau 4</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">astronaute homme: peau 4</annotation>
+		<annotation cp="👨🏿‍🚀">astronaute | espace | fusée | homme | peau 5</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">astronaute homme: peau 5</annotation>
+		<annotation cp="👩🏻‍🚀">astronaute | espace | femme | fusée | peau 1</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">astronaute femme: peau 1</annotation>
+		<annotation cp="👩🏼‍🚀">astronaute | espace | femme | fusée | peau 2</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">astronaute femme: peau 2</annotation>
+		<annotation cp="👩🏽‍🚀">astronaute | espace | femme | fusée | peau 3</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">astronaute femme: peau 3</annotation>
+		<annotation cp="👩🏾‍🚀">astronaute | espace | femme | fusée | peau 4</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">astronaute femme: peau 4</annotation>
+		<annotation cp="👩🏿‍🚀">astronaute | espace | femme | fusée | peau 5</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">astronaute femme: peau 5</annotation>
+		<annotation cp="👨🏻‍🚒">camion de pompiers | homme | pompier | peau 1</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">pompier homme: peau 1</annotation>
+		<annotation cp="👨🏼‍🚒">camion de pompiers | homme | pompier | peau 2</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">pompier homme: peau 2</annotation>
+		<annotation cp="👨🏽‍🚒">camion de pompiers | homme | pompier | peau 3</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">pompier homme: peau 3</annotation>
+		<annotation cp="👨🏾‍🚒">camion de pompiers | homme | pompier | peau 4</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">pompier homme: peau 4</annotation>
+		<annotation cp="👨🏿‍🚒">camion de pompiers | homme | pompier | peau 5</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">pompier homme: peau 5</annotation>
+		<annotation cp="👩🏻‍🚒">camion de pompiers | femme | pompier | peau 1</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">pompier femme: peau 1</annotation>
+		<annotation cp="👩🏼‍🚒">camion de pompiers | femme | pompier | peau 2</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">pompier femme: peau 2</annotation>
+		<annotation cp="👩🏽‍🚒">camion de pompiers | femme | pompier | peau 3</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">pompier femme: peau 3</annotation>
+		<annotation cp="👩🏾‍🚒">camion de pompiers | femme | pompier | peau 4</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">pompier femme: peau 4</annotation>
+		<annotation cp="👩🏿‍🚒">camion de pompiers | femme | pompier | peau 5</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">pompier femme: peau 5</annotation>
+		<annotation cp="👮🏻">flic | officier | police | peau 1</annotation>
+		<annotation cp="👮🏻" type="tts">policier: peau 1</annotation>
+		<annotation cp="👮🏼">flic | officier | police | peau 2</annotation>
+		<annotation cp="👮🏼" type="tts">policier: peau 2</annotation>
+		<annotation cp="👮🏽">flic | officier | police | peau 3</annotation>
+		<annotation cp="👮🏽" type="tts">policier: peau 3</annotation>
+		<annotation cp="👮🏾">flic | officier | police | peau 4</annotation>
+		<annotation cp="👮🏾" type="tts">policier: peau 4</annotation>
+		<annotation cp="👮🏿">flic | officier | police | peau 5</annotation>
+		<annotation cp="👮🏿" type="tts">policier: peau 5</annotation>
+		<annotation cp="👮🏻‍♂">flic | homme | officier | police | peau 1</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">officier de police: peau 1</annotation>
+		<annotation cp="👮🏼‍♂">flic | homme | officier | police | peau 2</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">officier de police: peau 2</annotation>
+		<annotation cp="👮🏽‍♂">flic | homme | officier | police | peau 3</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">officier de police: peau 3</annotation>
+		<annotation cp="👮🏾‍♂">flic | homme | officier | police | peau 4</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">officier de police: peau 4</annotation>
+		<annotation cp="👮🏿‍♂">flic | homme | officier | police | peau 5</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">officier de police: peau 5</annotation>
+		<annotation cp="👮🏻‍♀">femme | flic | officier | police | peau 1</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">policière: peau 1</annotation>
+		<annotation cp="👮🏼‍♀">femme | flic | officier | police | peau 2</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">policière: peau 2</annotation>
+		<annotation cp="👮🏽‍♀">femme | flic | officier | police | peau 3</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">policière: peau 3</annotation>
+		<annotation cp="👮🏾‍♀">femme | flic | officier | police | peau 4</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">policière: peau 4</annotation>
+		<annotation cp="👮🏿‍♀">femme | flic | officier | police | peau 5</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">policière: peau 5</annotation>
+		<annotation cp="🕵🏻">détective | enquêteur | espion | peau 1</annotation>
+		<annotation cp="🕵🏻" type="tts">détective: peau 1</annotation>
+		<annotation cp="🕵🏼">détective | enquêteur | espion | peau 2</annotation>
+		<annotation cp="🕵🏼" type="tts">détective: peau 2</annotation>
+		<annotation cp="🕵🏽">détective | enquêteur | espion | peau 3</annotation>
+		<annotation cp="🕵🏽" type="tts">détective: peau 3</annotation>
+		<annotation cp="🕵🏾">détective | enquêteur | espion | peau 4</annotation>
+		<annotation cp="🕵🏾" type="tts">détective: peau 4</annotation>
+		<annotation cp="🕵🏿">détective | enquêteur | espion | peau 5</annotation>
+		<annotation cp="🕵🏿" type="tts">détective: peau 5</annotation>
+		<annotation cp="🕵🏻‍♂">détective | enquêteur | espion | homme | peau 1</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">détective homme: peau 1</annotation>
+		<annotation cp="🕵🏼‍♂">détective | enquêteur | espion | homme | peau 2</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">détective homme: peau 2</annotation>
+		<annotation cp="🕵🏽‍♂">détective | enquêteur | espion | homme | peau 3</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">détective homme: peau 3</annotation>
+		<annotation cp="🕵🏾‍♂">détective | enquêteur | espion | homme | peau 4</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">détective homme: peau 4</annotation>
+		<annotation cp="🕵🏿‍♂">détective | enquêteur | espion | homme | peau 5</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">détective homme: peau 5</annotation>
+		<annotation cp="🕵🏻‍♀">détective | enquêteur | espionne | femme | peau 1</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">détective femme: peau 1</annotation>
+		<annotation cp="🕵🏼‍♀">détective | enquêteur | espionne | femme | peau 2</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">détective femme: peau 2</annotation>
+		<annotation cp="🕵🏽‍♀">détective | enquêteur | espionne | femme | peau 3</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">détective femme: peau 3</annotation>
+		<annotation cp="🕵🏾‍♀">détective | enquêteur | espionne | femme | peau 4</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">détective femme: peau 4</annotation>
+		<annotation cp="🕵🏿‍♀">détective | enquêteur | espionne | femme | peau 5</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">détective femme: peau 5</annotation>
+		<annotation cp="💂🏻">garde | peau 1</annotation>
+		<annotation cp="💂🏻" type="tts">garde: peau 1</annotation>
+		<annotation cp="💂🏼">garde | peau 2</annotation>
+		<annotation cp="💂🏼" type="tts">garde: peau 2</annotation>
+		<annotation cp="💂🏽">garde | peau 3</annotation>
+		<annotation cp="💂🏽" type="tts">garde: peau 3</annotation>
+		<annotation cp="💂🏾">garde | peau 4</annotation>
+		<annotation cp="💂🏾" type="tts">garde: peau 4</annotation>
+		<annotation cp="💂🏿">garde | peau 5</annotation>
+		<annotation cp="💂🏿" type="tts">garde: peau 5</annotation>
+		<annotation cp="💂🏻‍♂">garde | homme | peau 1</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">garde homme: peau 1</annotation>
+		<annotation cp="💂🏼‍♂">garde | homme | peau 2</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">garde homme: peau 2</annotation>
+		<annotation cp="💂🏽‍♂">garde | homme | peau 3</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">garde homme: peau 3</annotation>
+		<annotation cp="💂🏾‍♂">garde | homme | peau 4</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">garde homme: peau 4</annotation>
+		<annotation cp="💂🏿‍♂">garde | homme | peau 5</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">garde homme: peau 5</annotation>
+		<annotation cp="💂🏻‍♀">femme | garde | peau 1</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">garde femme: peau 1</annotation>
+		<annotation cp="💂🏼‍♀">femme | garde | peau 2</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">garde femme: peau 2</annotation>
+		<annotation cp="💂🏽‍♀">femme | garde | peau 3</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">garde femme: peau 3</annotation>
+		<annotation cp="💂🏾‍♀">femme | garde | peau 4</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">garde femme: peau 4</annotation>
+		<annotation cp="💂🏿‍♀">femme | garde | peau 5</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">garde femme: peau 5</annotation>
+		<annotation cp="👷🏻">bâtiment | casque | ouvrier | peau 1</annotation>
+		<annotation cp="👷🏻" type="tts">ouvrier du bâtiment: peau 1</annotation>
+		<annotation cp="👷🏼">bâtiment | casque | ouvrier | peau 2</annotation>
+		<annotation cp="👷🏼" type="tts">ouvrier du bâtiment: peau 2</annotation>
+		<annotation cp="👷🏽">bâtiment | casque | ouvrier | peau 3</annotation>
+		<annotation cp="👷🏽" type="tts">ouvrier du bâtiment: peau 3</annotation>
+		<annotation cp="👷🏾">bâtiment | casque | ouvrier | peau 4</annotation>
+		<annotation cp="👷🏾" type="tts">ouvrier du bâtiment: peau 4</annotation>
+		<annotation cp="👷🏿">bâtiment | casque | ouvrier | peau 5</annotation>
+		<annotation cp="👷🏿" type="tts">ouvrier du bâtiment: peau 5</annotation>
+		<annotation cp="👷🏻‍♂">bâtiment | homme | ouvrier | peau 1</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">ouvrier du bâtiment homme: peau 1</annotation>
+		<annotation cp="👷🏼‍♂">bâtiment | homme | ouvrier | peau 2</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">ouvrier du bâtiment homme: peau 2</annotation>
+		<annotation cp="👷🏽‍♂">bâtiment | homme | ouvrier | peau 3</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">ouvrier du bâtiment homme: peau 3</annotation>
+		<annotation cp="👷🏾‍♂">bâtiment | homme | ouvrier | peau 4</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">ouvrier du bâtiment homme: peau 4</annotation>
+		<annotation cp="👷🏿‍♂">bâtiment | homme | ouvrier | peau 5</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">ouvrier du bâtiment homme: peau 5</annotation>
+		<annotation cp="👷🏻‍♀">bâtiment | femme | ouvrière | peau 1</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">ouvrier du bâtiment femme: peau 1</annotation>
+		<annotation cp="👷🏼‍♀">bâtiment | femme | ouvrière | peau 2</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">ouvrier du bâtiment femme: peau 2</annotation>
+		<annotation cp="👷🏽‍♀">bâtiment | femme | ouvrière | peau 3</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">ouvrier du bâtiment femme: peau 3</annotation>
+		<annotation cp="👷🏾‍♀">bâtiment | femme | ouvrière | peau 4</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">ouvrier du bâtiment femme: peau 4</annotation>
+		<annotation cp="👷🏿‍♀">bâtiment | femme | ouvrière | peau 5</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">ouvrier du bâtiment femme: peau 5</annotation>
+		<annotation cp="🤴🏻">prince | peau 1</annotation>
+		<annotation cp="🤴🏻" type="tts">prince: peau 1</annotation>
+		<annotation cp="🤴🏼">prince | peau 2</annotation>
+		<annotation cp="🤴🏼" type="tts">prince: peau 2</annotation>
+		<annotation cp="🤴🏽">prince | peau 3</annotation>
+		<annotation cp="🤴🏽" type="tts">prince: peau 3</annotation>
+		<annotation cp="🤴🏾">prince | peau 4</annotation>
+		<annotation cp="🤴🏾" type="tts">prince: peau 4</annotation>
+		<annotation cp="🤴🏿">prince | peau 5</annotation>
+		<annotation cp="🤴🏿" type="tts">prince: peau 5</annotation>
+		<annotation cp="👸🏻">fantastique | peau 1</annotation>
+		<annotation cp="👸🏻" type="tts">princesse: peau 1</annotation>
+		<annotation cp="👸🏼">fantastique | peau 2</annotation>
+		<annotation cp="👸🏼" type="tts">princesse: peau 2</annotation>
+		<annotation cp="👸🏽">fantastique | peau 3</annotation>
+		<annotation cp="👸🏽" type="tts">princesse: peau 3</annotation>
+		<annotation cp="👸🏾">fantastique | peau 4</annotation>
+		<annotation cp="👸🏾" type="tts">princesse: peau 4</annotation>
+		<annotation cp="👸🏿">fantastique | peau 5</annotation>
+		<annotation cp="👸🏿" type="tts">princesse: peau 5</annotation>
+		<annotation cp="👳🏻">turban | peau 1</annotation>
+		<annotation cp="👳🏻" type="tts">personne avec turban: peau 1</annotation>
+		<annotation cp="👳🏼">turban | peau 2</annotation>
+		<annotation cp="👳🏼" type="tts">personne avec turban: peau 2</annotation>
+		<annotation cp="👳🏽">turban | peau 3</annotation>
+		<annotation cp="👳🏽" type="tts">personne avec turban: peau 3</annotation>
+		<annotation cp="👳🏾">turban | peau 4</annotation>
+		<annotation cp="👳🏾" type="tts">personne avec turban: peau 4</annotation>
+		<annotation cp="👳🏿">turban | peau 5</annotation>
+		<annotation cp="👳🏿" type="tts">personne avec turban: peau 5</annotation>
+		<annotation cp="👳🏻‍♂">homme | turban | peau 1</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">homme avec turban: peau 1</annotation>
+		<annotation cp="👳🏼‍♂">homme | turban | peau 2</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">homme avec turban: peau 2</annotation>
+		<annotation cp="👳🏽‍♂">homme | turban | peau 3</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">homme avec turban: peau 3</annotation>
+		<annotation cp="👳🏾‍♂">homme | turban | peau 4</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">homme avec turban: peau 4</annotation>
+		<annotation cp="👳🏿‍♂">homme | turban | peau 5</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">homme avec turban: peau 5</annotation>
+		<annotation cp="👳🏻‍♀">femme | turban | peau 1</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">femme avec turban: peau 1</annotation>
+		<annotation cp="👳🏼‍♀">femme | turban | peau 2</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">femme avec turban: peau 2</annotation>
+		<annotation cp="👳🏽‍♀">femme | turban | peau 3</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">femme avec turban: peau 3</annotation>
+		<annotation cp="👳🏾‍♀">femme | turban | peau 4</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">femme avec turban: peau 4</annotation>
+		<annotation cp="👳🏿‍♀">femme | turban | peau 5</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">femme avec turban: peau 5</annotation>
+		<annotation cp="👲🏻">casquette mao | chapeau | homme | peau 1</annotation>
+		<annotation cp="👲🏻" type="tts">homme avec casquette chinoise: peau 1</annotation>
+		<annotation cp="👲🏼">casquette mao | chapeau | homme | peau 2</annotation>
+		<annotation cp="👲🏼" type="tts">homme avec casquette chinoise: peau 2</annotation>
+		<annotation cp="👲🏽">casquette mao | chapeau | homme | peau 3</annotation>
+		<annotation cp="👲🏽" type="tts">homme avec casquette chinoise: peau 3</annotation>
+		<annotation cp="👲🏾">casquette mao | chapeau | homme | peau 4</annotation>
+		<annotation cp="👲🏾" type="tts">homme avec casquette chinoise: peau 4</annotation>
+		<annotation cp="👲🏿">casquette mao | chapeau | homme | peau 5</annotation>
+		<annotation cp="👲🏿" type="tts">homme avec casquette chinoise: peau 5</annotation>
+		<annotation cp="👱🏻">blond | peau 1</annotation>
+		<annotation cp="👱🏻" type="tts">personne blonde: peau 1</annotation>
+		<annotation cp="👱🏼">blond | peau 2</annotation>
+		<annotation cp="👱🏼" type="tts">personne blonde: peau 2</annotation>
+		<annotation cp="👱🏽">blond | peau 3</annotation>
+		<annotation cp="👱🏽" type="tts">personne blonde: peau 3</annotation>
+		<annotation cp="👱🏾">blond | peau 4</annotation>
+		<annotation cp="👱🏾" type="tts">personne blonde: peau 4</annotation>
+		<annotation cp="👱🏿">blond | peau 5</annotation>
+		<annotation cp="👱🏿" type="tts">personne blonde: peau 5</annotation>
+		<annotation cp="👱🏻‍♂">blond | homme | peau 1</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blond: peau 1</annotation>
+		<annotation cp="👱🏼‍♂">blond | homme | peau 2</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blond: peau 2</annotation>
+		<annotation cp="👱🏽‍♂">blond | homme | peau 3</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blond: peau 3</annotation>
+		<annotation cp="👱🏾‍♂">blond | homme | peau 4</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blond: peau 4</annotation>
+		<annotation cp="👱🏿‍♂">blond | homme | peau 5</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blond: peau 5</annotation>
+		<annotation cp="👱🏻‍♀">blond | femme | peau 1</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blonde: peau 1</annotation>
+		<annotation cp="👱🏼‍♀">blond | femme | peau 2</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blonde: peau 2</annotation>
+		<annotation cp="👱🏽‍♀">blond | femme | peau 3</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blonde: peau 3</annotation>
+		<annotation cp="👱🏾‍♀">blond | femme | peau 4</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blonde: peau 4</annotation>
+		<annotation cp="👱🏿‍♀">blond | femme | peau 5</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blonde: peau 5</annotation>
+		<annotation cp="🤵🏻">homme | smoking | peau 1</annotation>
+		<annotation cp="🤵🏻" type="tts">smoking: peau 1</annotation>
+		<annotation cp="🤵🏼">homme | smoking | peau 2</annotation>
+		<annotation cp="🤵🏼" type="tts">smoking: peau 2</annotation>
+		<annotation cp="🤵🏽">homme | smoking | peau 3</annotation>
+		<annotation cp="🤵🏽" type="tts">smoking: peau 3</annotation>
+		<annotation cp="🤵🏾">homme | smoking | peau 4</annotation>
+		<annotation cp="🤵🏾" type="tts">smoking: peau 4</annotation>
+		<annotation cp="🤵🏿">homme | smoking | peau 5</annotation>
+		<annotation cp="🤵🏿" type="tts">smoking: peau 5</annotation>
+		<annotation cp="👰🏻">mariage | mariée | voile | peau 1</annotation>
+		<annotation cp="👰🏻" type="tts">mariée avec voile: peau 1</annotation>
+		<annotation cp="👰🏼">mariage | mariée | voile | peau 2</annotation>
+		<annotation cp="👰🏼" type="tts">mariée avec voile: peau 2</annotation>
+		<annotation cp="👰🏽">mariage | mariée | voile | peau 3</annotation>
+		<annotation cp="👰🏽" type="tts">mariée avec voile: peau 3</annotation>
+		<annotation cp="👰🏾">mariage | mariée | voile | peau 4</annotation>
+		<annotation cp="👰🏾" type="tts">mariée avec voile: peau 4</annotation>
+		<annotation cp="👰🏿">mariage | mariée | voile | peau 5</annotation>
+		<annotation cp="👰🏿" type="tts">mariée avec voile: peau 5</annotation>
+		<annotation cp="🤰🏻">enceinte | femme | peau 1</annotation>
+		<annotation cp="🤰🏻" type="tts">femme enceinte: peau 1</annotation>
+		<annotation cp="🤰🏼">enceinte | femme | peau 2</annotation>
+		<annotation cp="🤰🏼" type="tts">femme enceinte: peau 2</annotation>
+		<annotation cp="🤰🏽">enceinte | femme | peau 3</annotation>
+		<annotation cp="🤰🏽" type="tts">femme enceinte: peau 3</annotation>
+		<annotation cp="🤰🏾">enceinte | femme | peau 4</annotation>
+		<annotation cp="🤰🏾" type="tts">femme enceinte: peau 4</annotation>
+		<annotation cp="🤰🏿">enceinte | femme | peau 5</annotation>
+		<annotation cp="🤰🏿" type="tts">femme enceinte: peau 5</annotation>
+		<annotation cp="👼🏻">ange | bébé | fantastique | visage | peau 1</annotation>
+		<annotation cp="👼🏻" type="tts">bébé ange: peau 1</annotation>
+		<annotation cp="👼🏼">ange | bébé | fantastique | visage | peau 2</annotation>
+		<annotation cp="👼🏼" type="tts">bébé ange: peau 2</annotation>
+		<annotation cp="👼🏽">ange | bébé | fantastique | visage | peau 3</annotation>
+		<annotation cp="👼🏽" type="tts">bébé ange: peau 3</annotation>
+		<annotation cp="👼🏾">ange | bébé | fantastique | visage | peau 4</annotation>
+		<annotation cp="👼🏾" type="tts">bébé ange: peau 4</annotation>
+		<annotation cp="👼🏿">ange | bébé | fantastique | visage | peau 5</annotation>
+		<annotation cp="👼🏿" type="tts">bébé ange: peau 5</annotation>
+		<annotation cp="🎅🏻">noël | père | peau 1</annotation>
+		<annotation cp="🎅🏻" type="tts">père noël: peau 1</annotation>
+		<annotation cp="🎅🏼">noël | père | peau 2</annotation>
+		<annotation cp="🎅🏼" type="tts">père noël: peau 2</annotation>
+		<annotation cp="🎅🏽">noël | père | peau 3</annotation>
+		<annotation cp="🎅🏽" type="tts">père noël: peau 3</annotation>
+		<annotation cp="🎅🏾">noël | père | peau 4</annotation>
+		<annotation cp="🎅🏾" type="tts">père noël: peau 4</annotation>
+		<annotation cp="🎅🏿">noël | père | peau 5</annotation>
+		<annotation cp="🎅🏿" type="tts">père noël: peau 5</annotation>
+		<annotation cp="🤶🏻">Noël | mère | peau 1</annotation>
+		<annotation cp="🤶🏻" type="tts">mère Noël: peau 1</annotation>
+		<annotation cp="🤶🏼">Noël | mère | peau 2</annotation>
+		<annotation cp="🤶🏼" type="tts">mère Noël: peau 2</annotation>
+		<annotation cp="🤶🏽">Noël | mère | peau 3</annotation>
+		<annotation cp="🤶🏽" type="tts">mère Noël: peau 3</annotation>
+		<annotation cp="🤶🏾">Noël | mère | peau 4</annotation>
+		<annotation cp="🤶🏾" type="tts">mère Noël: peau 4</annotation>
+		<annotation cp="🤶🏿">Noël | mère | peau 5</annotation>
+		<annotation cp="🤶🏿" type="tts">mère Noël: peau 5</annotation>
+		<annotation cp="🙍🏻">froncer | sourcils | peau 1</annotation>
+		<annotation cp="🙍🏻" type="tts">personne étonnée: peau 1</annotation>
+		<annotation cp="🙍🏼">froncer | sourcils | peau 2</annotation>
+		<annotation cp="🙍🏼" type="tts">personne étonnée: peau 2</annotation>
+		<annotation cp="🙍🏽">froncer | sourcils | peau 3</annotation>
+		<annotation cp="🙍🏽" type="tts">personne étonnée: peau 3</annotation>
+		<annotation cp="🙍🏾">froncer | sourcils | peau 4</annotation>
+		<annotation cp="🙍🏾" type="tts">personne étonnée: peau 4</annotation>
+		<annotation cp="🙍🏿">froncer | sourcils | peau 5</annotation>
+		<annotation cp="🙍🏿" type="tts">personne étonnée: peau 5</annotation>
+		<annotation cp="🙍🏻‍♂">froncement | geste | homme | peau 1</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">homme mécontent: peau 1</annotation>
+		<annotation cp="🙍🏼‍♂">froncement | geste | homme | peau 2</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">homme mécontent: peau 2</annotation>
+		<annotation cp="🙍🏽‍♂">froncement | geste | homme | peau 3</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">homme mécontent: peau 3</annotation>
+		<annotation cp="🙍🏾‍♂">froncement | geste | homme | peau 4</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">homme mécontent: peau 4</annotation>
+		<annotation cp="🙍🏿‍♂">froncement | geste | homme | peau 5</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">homme mécontent: peau 5</annotation>
+		<annotation cp="🙍🏻‍♀">femme | froncement | geste | peau 1</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">femme mécontente: peau 1</annotation>
+		<annotation cp="🙍🏼‍♀">femme | froncement | geste | peau 2</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">femme mécontente: peau 2</annotation>
+		<annotation cp="🙍🏽‍♀">femme | froncement | geste | peau 3</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">femme mécontente: peau 3</annotation>
+		<annotation cp="🙍🏾‍♀">femme | froncement | geste | peau 4</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">femme mécontente: peau 4</annotation>
+		<annotation cp="🙍🏿‍♀">femme | froncement | geste | peau 5</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">femme mécontente: peau 5</annotation>
+		<annotation cp="🙎🏻">bouder | moue | peau 1</annotation>
+		<annotation cp="🙎🏻" type="tts">personne qui boude: peau 1</annotation>
+		<annotation cp="🙎🏼">bouder | moue | peau 2</annotation>
+		<annotation cp="🙎🏼" type="tts">personne qui boude: peau 2</annotation>
+		<annotation cp="🙎🏽">bouder | moue | peau 3</annotation>
+		<annotation cp="🙎🏽" type="tts">personne qui boude: peau 3</annotation>
+		<annotation cp="🙎🏾">bouder | moue | peau 4</annotation>
+		<annotation cp="🙎🏾" type="tts">personne qui boude: peau 4</annotation>
+		<annotation cp="🙎🏿">bouder | moue | peau 5</annotation>
+		<annotation cp="🙎🏿" type="tts">personne qui boude: peau 5</annotation>
+		<annotation cp="🙎🏻‍♂">boude | geste | homme | peau 1</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">boudeur: peau 1</annotation>
+		<annotation cp="🙎🏼‍♂">boude | geste | homme | peau 2</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">boudeur: peau 2</annotation>
+		<annotation cp="🙎🏽‍♂">boude | geste | homme | peau 3</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">boudeur: peau 3</annotation>
+		<annotation cp="🙎🏾‍♂">boude | geste | homme | peau 4</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">boudeur: peau 4</annotation>
+		<annotation cp="🙎🏿‍♂">boude | geste | homme | peau 5</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">boudeur: peau 5</annotation>
+		<annotation cp="🙎🏻‍♀">boude | femme | geste | peau 1</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">boudeuse: peau 1</annotation>
+		<annotation cp="🙎🏼‍♀">boude | femme | geste | peau 2</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">boudeuse: peau 2</annotation>
+		<annotation cp="🙎🏽‍♀">boude | femme | geste | peau 3</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">boudeuse: peau 3</annotation>
+		<annotation cp="🙎🏾‍♀">boude | femme | geste | peau 4</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">boudeuse: peau 4</annotation>
+		<annotation cp="🙎🏿‍♀">boude | femme | geste | peau 5</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">boudeuse: peau 5</annotation>
+		<annotation cp="🙅🏻">interdit | peau 1</annotation>
+		<annotation cp="🙅🏻" type="tts">geste d’interdiction: peau 1</annotation>
+		<annotation cp="🙅🏼">interdit | peau 2</annotation>
+		<annotation cp="🙅🏼" type="tts">geste d’interdiction: peau 2</annotation>
+		<annotation cp="🙅🏽">interdit | peau 3</annotation>
+		<annotation cp="🙅🏽" type="tts">geste d’interdiction: peau 3</annotation>
+		<annotation cp="🙅🏾">interdit | peau 4</annotation>
+		<annotation cp="🙅🏾" type="tts">geste d’interdiction: peau 4</annotation>
+		<annotation cp="🙅🏿">interdit | peau 5</annotation>
+		<annotation cp="🙅🏿" type="tts">geste d’interdiction: peau 5</annotation>
+		<annotation cp="🙅🏻‍♂">geste | homme | interdit | main | peau 1</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">homme faisant un geste d’interdiction: peau 1</annotation>
+		<annotation cp="🙅🏼‍♂">geste | homme | interdit | main | peau 2</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">homme faisant un geste d’interdiction: peau 2</annotation>
+		<annotation cp="🙅🏽‍♂">geste | homme | interdit | main | peau 3</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">homme faisant un geste d’interdiction: peau 3</annotation>
+		<annotation cp="🙅🏾‍♂">geste | homme | interdit | main | peau 4</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">homme faisant un geste d’interdiction: peau 4</annotation>
+		<annotation cp="🙅🏿‍♂">geste | homme | interdit | main | peau 5</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">homme faisant un geste d’interdiction: peau 5</annotation>
+		<annotation cp="🙅🏻‍♀">femme | geste | interdit | main | peau 1</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">femme faisant un geste d’interdiction: peau 1</annotation>
+		<annotation cp="🙅🏼‍♀">femme | geste | interdit | main | peau 2</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">femme faisant un geste d’interdiction: peau 2</annotation>
+		<annotation cp="🙅🏽‍♀">femme | geste | interdit | main | peau 3</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">femme faisant un geste d’interdiction: peau 3</annotation>
+		<annotation cp="🙅🏾‍♀">femme | geste | interdit | main | peau 4</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">femme faisant un geste d’interdiction: peau 4</annotation>
+		<annotation cp="🙅🏿‍♀">femme | geste | interdit | main | peau 5</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">femme faisant un geste d’interdiction: peau 5</annotation>
+		<annotation cp="🙆🏻">non | peau 1</annotation>
+		<annotation cp="🙆🏻" type="tts">geste d’accord: peau 1</annotation>
+		<annotation cp="🙆🏼">non | peau 2</annotation>
+		<annotation cp="🙆🏼" type="tts">geste d’accord: peau 2</annotation>
+		<annotation cp="🙆🏽">non | peau 3</annotation>
+		<annotation cp="🙆🏽" type="tts">geste d’accord: peau 3</annotation>
+		<annotation cp="🙆🏾">non | peau 4</annotation>
+		<annotation cp="🙆🏾" type="tts">geste d’accord: peau 4</annotation>
+		<annotation cp="🙆🏿">non | peau 5</annotation>
+		<annotation cp="🙆🏿" type="tts">geste d’accord: peau 5</annotation>
+		<annotation cp="🙆🏻‍♂">geste d’accord | homme | main | ok | peau 1</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">homme faisant un geste d’accord: peau 1</annotation>
+		<annotation cp="🙆🏼‍♂">geste d’accord | homme | main | ok | peau 2</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">homme faisant un geste d’accord: peau 2</annotation>
+		<annotation cp="🙆🏽‍♂">geste d’accord | homme | main | ok | peau 3</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">homme faisant un geste d’accord: peau 3</annotation>
+		<annotation cp="🙆🏾‍♂">geste d’accord | homme | main | ok | peau 4</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">homme faisant un geste d’accord: peau 4</annotation>
+		<annotation cp="🙆🏿‍♂">geste d’accord | homme | main | ok | peau 5</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">homme faisant un geste d’accord: peau 5</annotation>
+		<annotation cp="🙆🏻‍♀">femme | geste d’accord | main | ok | peau 1</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">femme faisant un geste d’accord: peau 1</annotation>
+		<annotation cp="🙆🏼‍♀">femme | geste d’accord | main | ok | peau 2</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">femme faisant un geste d’accord: peau 2</annotation>
+		<annotation cp="🙆🏽‍♀">femme | geste d’accord | main | ok | peau 3</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">femme faisant un geste d’accord: peau 3</annotation>
+		<annotation cp="🙆🏾‍♀">femme | geste d’accord | main | ok | peau 4</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">femme faisant un geste d’accord: peau 4</annotation>
+		<annotation cp="🙆🏿‍♀">femme | geste d’accord | main | ok | peau 5</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">femme faisant un geste d’accord: peau 5</annotation>
+		<annotation cp="💁🏻">ok | peau 1</annotation>
+		<annotation cp="💁🏻" type="tts">assistance: peau 1</annotation>
+		<annotation cp="💁🏼">ok | peau 2</annotation>
+		<annotation cp="💁🏼" type="tts">assistance: peau 2</annotation>
+		<annotation cp="💁🏽">ok | peau 3</annotation>
+		<annotation cp="💁🏽" type="tts">assistance: peau 3</annotation>
+		<annotation cp="💁🏾">ok | peau 4</annotation>
+		<annotation cp="💁🏾" type="tts">assistance: peau 4</annotation>
+		<annotation cp="💁🏿">ok | peau 5</annotation>
+		<annotation cp="💁🏿" type="tts">assistance: peau 5</annotation>
+		<annotation cp="💁🏻‍♂">homme | paume vers le haut | peau 1</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">homme paume vers le haut: peau 1</annotation>
+		<annotation cp="💁🏼‍♂">homme | paume vers le haut | peau 2</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">homme paume vers le haut: peau 2</annotation>
+		<annotation cp="💁🏽‍♂">homme | paume vers le haut | peau 3</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">homme paume vers le haut: peau 3</annotation>
+		<annotation cp="💁🏾‍♂">homme | paume vers le haut | peau 4</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">homme paume vers le haut: peau 4</annotation>
+		<annotation cp="💁🏿‍♂">homme | paume vers le haut | peau 5</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">homme paume vers le haut: peau 5</annotation>
+		<annotation cp="💁🏻‍♀">femme | paume vers le haut | peau 1</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">femme paume vers le haut: peau 1</annotation>
+		<annotation cp="💁🏼‍♀">femme | paume vers le haut | peau 2</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">femme paume vers le haut: peau 2</annotation>
+		<annotation cp="💁🏽‍♀">femme | paume vers le haut | peau 3</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">femme paume vers le haut: peau 3</annotation>
+		<annotation cp="💁🏾‍♀">femme | paume vers le haut | peau 4</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">femme paume vers le haut: peau 4</annotation>
+		<annotation cp="💁🏿‍♀">femme | paume vers le haut | peau 5</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">femme paume vers le haut: peau 5</annotation>
+		<annotation cp="🙋🏻">content | geste | levée | main | peau 1</annotation>
+		<annotation cp="🙋🏻" type="tts">personne qui lève la main: peau 1</annotation>
+		<annotation cp="🙋🏼">content | geste | levée | main | peau 2</annotation>
+		<annotation cp="🙋🏼" type="tts">personne qui lève la main: peau 2</annotation>
+		<annotation cp="🙋🏽">content | geste | levée | main | peau 3</annotation>
+		<annotation cp="🙋🏽" type="tts">personne qui lève la main: peau 3</annotation>
+		<annotation cp="🙋🏾">content | geste | levée | main | peau 4</annotation>
+		<annotation cp="🙋🏾" type="tts">personne qui lève la main: peau 4</annotation>
+		<annotation cp="🙋🏿">content | geste | levée | main | peau 5</annotation>
+		<annotation cp="🙋🏿" type="tts">personne qui lève la main: peau 5</annotation>
+		<annotation cp="🙋🏻‍♂">geste | homme | main levée | peau 1</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">homme qui lève la main: peau 1</annotation>
+		<annotation cp="🙋🏼‍♂">geste | homme | main levée | peau 2</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">homme qui lève la main: peau 2</annotation>
+		<annotation cp="🙋🏽‍♂">geste | homme | main levée | peau 3</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">homme qui lève la main: peau 3</annotation>
+		<annotation cp="🙋🏾‍♂">geste | homme | main levée | peau 4</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">homme qui lève la main: peau 4</annotation>
+		<annotation cp="🙋🏿‍♂">geste | homme | main levée | peau 5</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">homme qui lève la main: peau 5</annotation>
+		<annotation cp="🙋🏻‍♀">femme | geste | main levée | peau 1</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">femme qui lève la main: peau 1</annotation>
+		<annotation cp="🙋🏼‍♀">femme | geste | main levée | peau 2</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">femme qui lève la main: peau 2</annotation>
+		<annotation cp="🙋🏽‍♀">femme | geste | main levée | peau 3</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">femme qui lève la main: peau 3</annotation>
+		<annotation cp="🙋🏾‍♀">femme | geste | main levée | peau 4</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">femme qui lève la main: peau 4</annotation>
+		<annotation cp="🙋🏿‍♀">femme | geste | main levée | peau 5</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">femme qui lève la main: peau 5</annotation>
+		<annotation cp="🙇🏻">incliné | peau 1</annotation>
+		<annotation cp="🙇🏻" type="tts">désolé: peau 1</annotation>
+		<annotation cp="🙇🏼">incliné | peau 2</annotation>
+		<annotation cp="🙇🏼" type="tts">désolé: peau 2</annotation>
+		<annotation cp="🙇🏽">incliné | peau 3</annotation>
+		<annotation cp="🙇🏽" type="tts">désolé: peau 3</annotation>
+		<annotation cp="🙇🏾">incliné | peau 4</annotation>
+		<annotation cp="🙇🏾" type="tts">désolé: peau 4</annotation>
+		<annotation cp="🙇🏿">incliné | peau 5</annotation>
+		<annotation cp="🙇🏿" type="tts">désolé: peau 5</annotation>
+		<annotation cp="🙇🏻‍♂">désolé | geste | homme | incliné | peau 1</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">homme qui se prosterne: peau 1</annotation>
+		<annotation cp="🙇🏼‍♂">désolé | geste | homme | incliné | peau 2</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">homme qui se prosterne: peau 2</annotation>
+		<annotation cp="🙇🏽‍♂">désolé | geste | homme | incliné | peau 3</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">homme qui se prosterne: peau 3</annotation>
+		<annotation cp="🙇🏾‍♂">désolé | geste | homme | incliné | peau 4</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">homme qui se prosterne: peau 4</annotation>
+		<annotation cp="🙇🏿‍♂">désolé | geste | homme | incliné | peau 5</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">homme qui se prosterne: peau 5</annotation>
+		<annotation cp="🙇🏻‍♀">désolée | femme | geste | inclinée | peau 1</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">femme qui se prosterne: peau 1</annotation>
+		<annotation cp="🙇🏼‍♀">désolée | femme | geste | inclinée | peau 2</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">femme qui se prosterne: peau 2</annotation>
+		<annotation cp="🙇🏽‍♀">désolée | femme | geste | inclinée | peau 3</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">femme qui se prosterne: peau 3</annotation>
+		<annotation cp="🙇🏾‍♀">désolée | femme | geste | inclinée | peau 4</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">femme qui se prosterne: peau 4</annotation>
+		<annotation cp="🙇🏿‍♀">désolée | femme | geste | inclinée | peau 5</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">femme qui se prosterne: peau 5</annotation>
+		<annotation cp="🤦🏻">exaspération | paume de main | visage | peau 1</annotation>
+		<annotation cp="🤦🏻" type="tts">paume de main: peau 1</annotation>
+		<annotation cp="🤦🏼">exaspération | paume de main | visage | peau 2</annotation>
+		<annotation cp="🤦🏼" type="tts">paume de main: peau 2</annotation>
+		<annotation cp="🤦🏽">exaspération | paume de main | visage | peau 3</annotation>
+		<annotation cp="🤦🏽" type="tts">paume de main: peau 3</annotation>
+		<annotation cp="🤦🏾">exaspération | paume de main | visage | peau 4</annotation>
+		<annotation cp="🤦🏾" type="tts">paume de main: peau 4</annotation>
+		<annotation cp="🤦🏿">exaspération | paume de main | visage | peau 5</annotation>
+		<annotation cp="🤦🏿" type="tts">paume de main: peau 5</annotation>
+		<annotation cp="🤦🏻‍♂">exaspération | homme | incrédulité | paume | peau 1</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">homme paume sur le visage: peau 1</annotation>
+		<annotation cp="🤦🏼‍♂">exaspération | homme | incrédulité | paume | peau 2</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">homme paume sur le visage: peau 2</annotation>
+		<annotation cp="🤦🏽‍♂">exaspération | homme | incrédulité | paume | peau 3</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">homme paume sur le visage: peau 3</annotation>
+		<annotation cp="🤦🏾‍♂">exaspération | homme | incrédulité | paume | peau 4</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">homme paume sur le visage: peau 4</annotation>
+		<annotation cp="🤦🏿‍♂">exaspération | homme | incrédulité | paume | peau 5</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">homme paume sur le visage: peau 5</annotation>
+		<annotation cp="🤦🏻‍♀">exaspération | femme | incrédulité | paume | peau 1</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">femme paume sur le visage: peau 1</annotation>
+		<annotation cp="🤦🏼‍♀">exaspération | femme | incrédulité | paume | peau 2</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">femme paume sur le visage: peau 2</annotation>
+		<annotation cp="🤦🏽‍♀">exaspération | femme | incrédulité | paume | peau 3</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">femme paume sur le visage: peau 3</annotation>
+		<annotation cp="🤦🏾‍♀">exaspération | femme | incrédulité | paume | peau 4</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">femme paume sur le visage: peau 4</annotation>
+		<annotation cp="🤦🏿‍♀">exaspération | femme | incrédulité | paume | peau 5</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">femme paume sur le visage: peau 5</annotation>
+		<annotation cp="🤷🏻">doute | haussement | ignorance | indifférence | épaules | peau 1</annotation>
+		<annotation cp="🤷🏻" type="tts">hausser les épaules: peau 1</annotation>
+		<annotation cp="🤷🏼">doute | haussement | ignorance | indifférence | épaules | peau 2</annotation>
+		<annotation cp="🤷🏼" type="tts">hausser les épaules: peau 2</annotation>
+		<annotation cp="🤷🏽">doute | haussement | ignorance | indifférence | épaules | peau 3</annotation>
+		<annotation cp="🤷🏽" type="tts">hausser les épaules: peau 3</annotation>
+		<annotation cp="🤷🏾">doute | haussement | ignorance | indifférence | épaules | peau 4</annotation>
+		<annotation cp="🤷🏾" type="tts">hausser les épaules: peau 4</annotation>
+		<annotation cp="🤷🏿">doute | haussement | ignorance | indifférence | épaules | peau 5</annotation>
+		<annotation cp="🤷🏿" type="tts">hausser les épaules: peau 5</annotation>
+		<annotation cp="🤷🏻‍♂">haussement | homme | ignorance | indifférence | peau 1</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">homme qui hausse les épaules: peau 1</annotation>
+		<annotation cp="🤷🏼‍♂">haussement | homme | ignorance | indifférence | peau 2</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">homme qui hausse les épaules: peau 2</annotation>
+		<annotation cp="🤷🏽‍♂">haussement | homme | ignorance | indifférence | peau 3</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">homme qui hausse les épaules: peau 3</annotation>
+		<annotation cp="🤷🏾‍♂">haussement | homme | ignorance | indifférence | peau 4</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">homme qui hausse les épaules: peau 4</annotation>
+		<annotation cp="🤷🏿‍♂">haussement | homme | ignorance | indifférence | peau 5</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">homme qui hausse les épaules: peau 5</annotation>
+		<annotation cp="🤷🏻‍♀">femme | haussement | ignorance | indifférence | peau 1</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">femme qui hausse les épaules: peau 1</annotation>
+		<annotation cp="🤷🏼‍♀">femme | haussement | ignorance | indifférence | peau 2</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">femme qui hausse les épaules: peau 2</annotation>
+		<annotation cp="🤷🏽‍♀">femme | haussement | ignorance | indifférence | peau 3</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">femme qui hausse les épaules: peau 3</annotation>
+		<annotation cp="🤷🏾‍♀">femme | haussement | ignorance | indifférence | peau 4</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">femme qui hausse les épaules: peau 4</annotation>
+		<annotation cp="🤷🏿‍♀">femme | haussement | ignorance | indifférence | peau 5</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">femme qui hausse les épaules: peau 5</annotation>
+		<annotation cp="💆🏻">massage | salon | visage | peau 1</annotation>
+		<annotation cp="💆🏻" type="tts">personne qui se fait masser: peau 1</annotation>
+		<annotation cp="💆🏼">massage | salon | visage | peau 2</annotation>
+		<annotation cp="💆🏼" type="tts">personne qui se fait masser: peau 2</annotation>
+		<annotation cp="💆🏽">massage | salon | visage | peau 3</annotation>
+		<annotation cp="💆🏽" type="tts">personne qui se fait masser: peau 3</annotation>
+		<annotation cp="💆🏾">massage | salon | visage | peau 4</annotation>
+		<annotation cp="💆🏾" type="tts">personne qui se fait masser: peau 4</annotation>
+		<annotation cp="💆🏿">massage | salon | visage | peau 5</annotation>
+		<annotation cp="💆🏿" type="tts">personne qui se fait masser: peau 5</annotation>
+		<annotation cp="💆🏻‍♂">homme | massage | visage | peau 1</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">homme qui se fait masser le visage: peau 1</annotation>
+		<annotation cp="💆🏼‍♂">homme | massage | visage | peau 2</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">homme qui se fait masser le visage: peau 2</annotation>
+		<annotation cp="💆🏽‍♂">homme | massage | visage | peau 3</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">homme qui se fait masser le visage: peau 3</annotation>
+		<annotation cp="💆🏾‍♂">homme | massage | visage | peau 4</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">homme qui se fait masser le visage: peau 4</annotation>
+		<annotation cp="💆🏿‍♂">homme | massage | visage | peau 5</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">homme qui se fait masser le visage: peau 5</annotation>
+		<annotation cp="💆🏻‍♀">femme | massage | visage | peau 1</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">femme qui se fait masser le visage: peau 1</annotation>
+		<annotation cp="💆🏼‍♀">femme | massage | visage | peau 2</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">femme qui se fait masser le visage: peau 2</annotation>
+		<annotation cp="💆🏽‍♀">femme | massage | visage | peau 3</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">femme qui se fait masser le visage: peau 3</annotation>
+		<annotation cp="💆🏾‍♀">femme | massage | visage | peau 4</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">femme qui se fait masser le visage: peau 4</annotation>
+		<annotation cp="💆🏿‍♀">femme | massage | visage | peau 5</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">femme qui se fait masser le visage: peau 5</annotation>
+		<annotation cp="💇🏻">barbier | beauté | coiffure | salon | peau 1</annotation>
+		<annotation cp="💇🏻" type="tts">personne qui se fait couper les cheveux: peau 1</annotation>
+		<annotation cp="💇🏼">barbier | beauté | coiffure | salon | peau 2</annotation>
+		<annotation cp="💇🏼" type="tts">personne qui se fait couper les cheveux: peau 2</annotation>
+		<annotation cp="💇🏽">barbier | beauté | coiffure | salon | peau 3</annotation>
+		<annotation cp="💇🏽" type="tts">personne qui se fait couper les cheveux: peau 3</annotation>
+		<annotation cp="💇🏾">barbier | beauté | coiffure | salon | peau 4</annotation>
+		<annotation cp="💇🏾" type="tts">personne qui se fait couper les cheveux: peau 4</annotation>
+		<annotation cp="💇🏿">barbier | beauté | coiffure | salon | peau 5</annotation>
+		<annotation cp="💇🏿" type="tts">personne qui se fait couper les cheveux: peau 5</annotation>
+		<annotation cp="💇🏻‍♂">coiffure | homme | peau 1</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">homme chez le coiffeur: peau 1</annotation>
+		<annotation cp="💇🏼‍♂">coiffure | homme | peau 2</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">homme chez le coiffeur: peau 2</annotation>
+		<annotation cp="💇🏽‍♂">coiffure | homme | peau 3</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">homme chez le coiffeur: peau 3</annotation>
+		<annotation cp="💇🏾‍♂">coiffure | homme | peau 4</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">homme chez le coiffeur: peau 4</annotation>
+		<annotation cp="💇🏿‍♂">coiffure | homme | peau 5</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">homme chez le coiffeur: peau 5</annotation>
+		<annotation cp="💇🏻‍♀">coiffure | femme | peau 1</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">femme chez le coiffeur: peau 1</annotation>
+		<annotation cp="💇🏼‍♀">coiffure | femme | peau 2</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">femme chez le coiffeur: peau 2</annotation>
+		<annotation cp="💇🏽‍♀">coiffure | femme | peau 3</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">femme chez le coiffeur: peau 3</annotation>
+		<annotation cp="💇🏾‍♀">coiffure | femme | peau 4</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">femme chez le coiffeur: peau 4</annotation>
+		<annotation cp="💇🏿‍♀">coiffure | femme | peau 5</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">femme chez le coiffeur: peau 5</annotation>
+		<annotation cp="🚶🏻">piéton | peau 1</annotation>
+		<annotation cp="🚶🏻" type="tts">personne qui marche: peau 1</annotation>
+		<annotation cp="🚶🏼">piéton | peau 2</annotation>
+		<annotation cp="🚶🏼" type="tts">personne qui marche: peau 2</annotation>
+		<annotation cp="🚶🏽">piéton | peau 3</annotation>
+		<annotation cp="🚶🏽" type="tts">personne qui marche: peau 3</annotation>
+		<annotation cp="🚶🏾">piéton | peau 4</annotation>
+		<annotation cp="🚶🏾" type="tts">personne qui marche: peau 4</annotation>
+		<annotation cp="🚶🏿">piéton | peau 5</annotation>
+		<annotation cp="🚶🏿" type="tts">personne qui marche: peau 5</annotation>
+		<annotation cp="🚶🏻‍♂">homme | marche | peau 1</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">piéton: peau 1</annotation>
+		<annotation cp="🚶🏼‍♂">homme | marche | peau 2</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">piéton: peau 2</annotation>
+		<annotation cp="🚶🏽‍♂">homme | marche | peau 3</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">piéton: peau 3</annotation>
+		<annotation cp="🚶🏾‍♂">homme | marche | peau 4</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">piéton: peau 4</annotation>
+		<annotation cp="🚶🏿‍♂">homme | marche | peau 5</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">piéton: peau 5</annotation>
+		<annotation cp="🚶🏻‍♀">femme | marche | peau 1</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">piétonne: peau 1</annotation>
+		<annotation cp="🚶🏼‍♀">femme | marche | peau 2</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">piétonne: peau 2</annotation>
+		<annotation cp="🚶🏽‍♀">femme | marche | peau 3</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">piétonne: peau 3</annotation>
+		<annotation cp="🚶🏾‍♀">femme | marche | peau 4</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">piétonne: peau 4</annotation>
+		<annotation cp="🚶🏿‍♀">femme | marche | peau 5</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">piétonne: peau 5</annotation>
+		<annotation cp="🏃🏻">coureur | peau 1</annotation>
+		<annotation cp="🏃🏻" type="tts">course à pied: peau 1</annotation>
+		<annotation cp="🏃🏼">coureur | peau 2</annotation>
+		<annotation cp="🏃🏼" type="tts">course à pied: peau 2</annotation>
+		<annotation cp="🏃🏽">coureur | peau 3</annotation>
+		<annotation cp="🏃🏽" type="tts">course à pied: peau 3</annotation>
+		<annotation cp="🏃🏾">coureur | peau 4</annotation>
+		<annotation cp="🏃🏾" type="tts">course à pied: peau 4</annotation>
+		<annotation cp="🏃🏿">coureur | peau 5</annotation>
+		<annotation cp="🏃🏿" type="tts">course à pied: peau 5</annotation>
+		<annotation cp="🏃🏻‍♂">course à pied | homme | jogging | marathon | peau 1</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">joggeur: peau 1</annotation>
+		<annotation cp="🏃🏼‍♂">course à pied | homme | jogging | marathon | peau 2</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">joggeur: peau 2</annotation>
+		<annotation cp="🏃🏽‍♂">course à pied | homme | jogging | marathon | peau 3</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">joggeur: peau 3</annotation>
+		<annotation cp="🏃🏾‍♂">course à pied | homme | jogging | marathon | peau 4</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">joggeur: peau 4</annotation>
+		<annotation cp="🏃🏿‍♂">course à pied | homme | jogging | marathon | peau 5</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">joggeur: peau 5</annotation>
+		<annotation cp="🏃🏻‍♀">course à pied | femme | jogging | marathon | peau 1</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">joggeuse: peau 1</annotation>
+		<annotation cp="🏃🏼‍♀">course à pied | femme | jogging | marathon | peau 2</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">joggeuse: peau 2</annotation>
+		<annotation cp="🏃🏽‍♀">course à pied | femme | jogging | marathon | peau 3</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">joggeuse: peau 3</annotation>
+		<annotation cp="🏃🏾‍♀">course à pied | femme | jogging | marathon | peau 4</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">joggeuse: peau 4</annotation>
+		<annotation cp="🏃🏿‍♀">course à pied | femme | jogging | marathon | peau 5</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">joggeuse: peau 5</annotation>
+		<annotation cp="💃🏻">danse | femme | peau 1</annotation>
+		<annotation cp="💃🏻" type="tts">danseuse: peau 1</annotation>
+		<annotation cp="💃🏼">danse | femme | peau 2</annotation>
+		<annotation cp="💃🏼" type="tts">danseuse: peau 2</annotation>
+		<annotation cp="💃🏽">danse | femme | peau 3</annotation>
+		<annotation cp="💃🏽" type="tts">danseuse: peau 3</annotation>
+		<annotation cp="💃🏾">danse | femme | peau 4</annotation>
+		<annotation cp="💃🏾" type="tts">danseuse: peau 4</annotation>
+		<annotation cp="💃🏿">danse | femme | peau 5</annotation>
+		<annotation cp="💃🏿" type="tts">danseuse: peau 5</annotation>
+		<annotation cp="🕺🏻">danse | homme | peau 1</annotation>
+		<annotation cp="🕺🏻" type="tts">danseur: peau 1</annotation>
+		<annotation cp="🕺🏼">danse | homme | peau 2</annotation>
+		<annotation cp="🕺🏼" type="tts">danseur: peau 2</annotation>
+		<annotation cp="🕺🏽">danse | homme | peau 3</annotation>
+		<annotation cp="🕺🏽" type="tts">danseur: peau 3</annotation>
+		<annotation cp="🕺🏾">danse | homme | peau 4</annotation>
+		<annotation cp="🕺🏾" type="tts">danseur: peau 4</annotation>
+		<annotation cp="🕺🏿">danse | homme | peau 5</annotation>
+		<annotation cp="🕺🏿" type="tts">danseur: peau 5</annotation>
+		<annotation cp="🛀🏻">bain | peau 1</annotation>
+		<annotation cp="🛀🏻" type="tts">personne au bain: peau 1</annotation>
+		<annotation cp="🛀🏼">bain | peau 2</annotation>
+		<annotation cp="🛀🏼" type="tts">personne au bain: peau 2</annotation>
+		<annotation cp="🛀🏽">bain | peau 3</annotation>
+		<annotation cp="🛀🏽" type="tts">personne au bain: peau 3</annotation>
+		<annotation cp="🛀🏾">bain | peau 4</annotation>
+		<annotation cp="🛀🏾" type="tts">personne au bain: peau 4</annotation>
+		<annotation cp="🛀🏿">bain | peau 5</annotation>
+		<annotation cp="🛀🏿" type="tts">personne au bain: peau 5</annotation>
+		<annotation cp="🛌🏻">lit | peau 1</annotation>
+		<annotation cp="🛌🏻" type="tts">personne au lit: peau 1</annotation>
+		<annotation cp="🛌🏼">lit | peau 2</annotation>
+		<annotation cp="🛌🏼" type="tts">personne au lit: peau 2</annotation>
+		<annotation cp="🛌🏽">lit | peau 3</annotation>
+		<annotation cp="🛌🏽" type="tts">personne au lit: peau 3</annotation>
+		<annotation cp="🛌🏾">lit | peau 4</annotation>
+		<annotation cp="🛌🏾" type="tts">personne au lit: peau 4</annotation>
+		<annotation cp="🛌🏿">lit | peau 5</annotation>
+		<annotation cp="🛌🏿" type="tts">personne au lit: peau 5</annotation>
+		<annotation cp="🕴🏻">affaires | homme | peau 1</annotation>
+		<annotation cp="🕴🏻" type="tts">homme d’affaires en lévitation: peau 1</annotation>
+		<annotation cp="🕴🏼">affaires | homme | peau 2</annotation>
+		<annotation cp="🕴🏼" type="tts">homme d’affaires en lévitation: peau 2</annotation>
+		<annotation cp="🕴🏽">affaires | homme | peau 3</annotation>
+		<annotation cp="🕴🏽" type="tts">homme d’affaires en lévitation: peau 3</annotation>
+		<annotation cp="🕴🏾">affaires | homme | peau 4</annotation>
+		<annotation cp="🕴🏾" type="tts">homme d’affaires en lévitation: peau 4</annotation>
+		<annotation cp="🕴🏿">affaires | homme | peau 5</annotation>
+		<annotation cp="🕴🏿" type="tts">homme d’affaires en lévitation: peau 5</annotation>
+		<annotation cp="🏇🏻">sport | peau 1</annotation>
+		<annotation cp="🏇🏻" type="tts">course hippique: peau 1</annotation>
+		<annotation cp="🏇🏼">sport | peau 2</annotation>
+		<annotation cp="🏇🏼" type="tts">course hippique: peau 2</annotation>
+		<annotation cp="🏇🏽">sport | peau 3</annotation>
+		<annotation cp="🏇🏽" type="tts">course hippique: peau 3</annotation>
+		<annotation cp="🏇🏾">sport | peau 4</annotation>
+		<annotation cp="🏇🏾" type="tts">course hippique: peau 4</annotation>
+		<annotation cp="🏇🏿">sport | peau 5</annotation>
+		<annotation cp="🏇🏿" type="tts">course hippique: peau 5</annotation>
+		<annotation cp="🏂🏻">sport | peau 1</annotation>
+		<annotation cp="🏂🏻" type="tts">snowboard: peau 1</annotation>
+		<annotation cp="🏂🏼">sport | peau 2</annotation>
+		<annotation cp="🏂🏼" type="tts">snowboard: peau 2</annotation>
+		<annotation cp="🏂🏽">sport | peau 3</annotation>
+		<annotation cp="🏂🏽" type="tts">snowboard: peau 3</annotation>
+		<annotation cp="🏂🏾">sport | peau 4</annotation>
+		<annotation cp="🏂🏾" type="tts">snowboard: peau 4</annotation>
+		<annotation cp="🏂🏿">sport | peau 5</annotation>
+		<annotation cp="🏂🏿" type="tts">snowboard: peau 5</annotation>
+		<annotation cp="🏌🏻">balle | golf | peau 1</annotation>
+		<annotation cp="🏌🏻" type="tts">joueur de golf: peau 1</annotation>
+		<annotation cp="🏌🏼">balle | golf | peau 2</annotation>
+		<annotation cp="🏌🏼" type="tts">joueur de golf: peau 2</annotation>
+		<annotation cp="🏌🏽">balle | golf | peau 3</annotation>
+		<annotation cp="🏌🏽" type="tts">joueur de golf: peau 3</annotation>
+		<annotation cp="🏌🏾">balle | golf | peau 4</annotation>
+		<annotation cp="🏌🏾" type="tts">joueur de golf: peau 4</annotation>
+		<annotation cp="🏌🏿">balle | golf | peau 5</annotation>
+		<annotation cp="🏌🏿" type="tts">joueur de golf: peau 5</annotation>
+		<annotation cp="🏌🏻‍♂">golf | homme | peau 1</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">golfeur: peau 1</annotation>
+		<annotation cp="🏌🏼‍♂">golf | homme | peau 2</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">golfeur: peau 2</annotation>
+		<annotation cp="🏌🏽‍♂">golf | homme | peau 3</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">golfeur: peau 3</annotation>
+		<annotation cp="🏌🏾‍♂">golf | homme | peau 4</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">golfeur: peau 4</annotation>
+		<annotation cp="🏌🏿‍♂">golf | homme | peau 5</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">golfeur: peau 5</annotation>
+		<annotation cp="🏌🏻‍♀">femme | golf | peau 1</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">golfeuse: peau 1</annotation>
+		<annotation cp="🏌🏼‍♀">femme | golf | peau 2</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">golfeuse: peau 2</annotation>
+		<annotation cp="🏌🏽‍♀">femme | golf | peau 3</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">golfeuse: peau 3</annotation>
+		<annotation cp="🏌🏾‍♀">femme | golf | peau 4</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">golfeuse: peau 4</annotation>
+		<annotation cp="🏌🏿‍♀">femme | golf | peau 5</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">golfeuse: peau 5</annotation>
+		<annotation cp="🏄🏻">sport | peau 1</annotation>
+		<annotation cp="🏄🏻" type="tts">surf: peau 1</annotation>
+		<annotation cp="🏄🏼">sport | peau 2</annotation>
+		<annotation cp="🏄🏼" type="tts">surf: peau 2</annotation>
+		<annotation cp="🏄🏽">sport | peau 3</annotation>
+		<annotation cp="🏄🏽" type="tts">surf: peau 3</annotation>
+		<annotation cp="🏄🏾">sport | peau 4</annotation>
+		<annotation cp="🏄🏾" type="tts">surf: peau 4</annotation>
+		<annotation cp="🏄🏿">sport | peau 5</annotation>
+		<annotation cp="🏄🏿" type="tts">surf: peau 5</annotation>
+		<annotation cp="🏄🏻‍♂">homme | surf | peau 1</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">surfeur: peau 1</annotation>
+		<annotation cp="🏄🏼‍♂">homme | surf | peau 2</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">surfeur: peau 2</annotation>
+		<annotation cp="🏄🏽‍♂">homme | surf | peau 3</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">surfeur: peau 3</annotation>
+		<annotation cp="🏄🏾‍♂">homme | surf | peau 4</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">surfeur: peau 4</annotation>
+		<annotation cp="🏄🏿‍♂">homme | surf | peau 5</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">surfeur: peau 5</annotation>
+		<annotation cp="🏄🏻‍♀">femme | surf | peau 1</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">surfeuse: peau 1</annotation>
+		<annotation cp="🏄🏼‍♀">femme | surf | peau 2</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">surfeuse: peau 2</annotation>
+		<annotation cp="🏄🏽‍♀">femme | surf | peau 3</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">surfeuse: peau 3</annotation>
+		<annotation cp="🏄🏾‍♀">femme | surf | peau 4</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">surfeuse: peau 4</annotation>
+		<annotation cp="🏄🏿‍♀">femme | surf | peau 5</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">surfeuse: peau 5</annotation>
+		<annotation cp="🚣🏻">bateau | peau 1</annotation>
+		<annotation cp="🚣🏻" type="tts">barque: peau 1</annotation>
+		<annotation cp="🚣🏼">bateau | peau 2</annotation>
+		<annotation cp="🚣🏼" type="tts">barque: peau 2</annotation>
+		<annotation cp="🚣🏽">bateau | peau 3</annotation>
+		<annotation cp="🚣🏽" type="tts">barque: peau 3</annotation>
+		<annotation cp="🚣🏾">bateau | peau 4</annotation>
+		<annotation cp="🚣🏾" type="tts">barque: peau 4</annotation>
+		<annotation cp="🚣🏿">bateau | peau 5</annotation>
+		<annotation cp="🚣🏿" type="tts">barque: peau 5</annotation>
+		<annotation cp="🚣🏻‍♂">barque | bateau | homme | peau 1</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">rameur dans une barque: peau 1</annotation>
+		<annotation cp="🚣🏼‍♂">barque | bateau | homme | peau 2</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">rameur dans une barque: peau 2</annotation>
+		<annotation cp="🚣🏽‍♂">barque | bateau | homme | peau 3</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">rameur dans une barque: peau 3</annotation>
+		<annotation cp="🚣🏾‍♂">barque | bateau | homme | peau 4</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">rameur dans une barque: peau 4</annotation>
+		<annotation cp="🚣🏿‍♂">barque | bateau | homme | peau 5</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">rameur dans une barque: peau 5</annotation>
+		<annotation cp="🚣🏻‍♀">barque | bateau | femme | peau 1</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">rameuse dans une barque: peau 1</annotation>
+		<annotation cp="🚣🏼‍♀">barque | bateau | femme | peau 2</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">rameuse dans une barque: peau 2</annotation>
+		<annotation cp="🚣🏽‍♀">barque | bateau | femme | peau 3</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">rameuse dans une barque: peau 3</annotation>
+		<annotation cp="🚣🏾‍♀">barque | bateau | femme | peau 4</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">rameuse dans une barque: peau 4</annotation>
+		<annotation cp="🚣🏿‍♀">barque | bateau | femme | peau 5</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">rameuse dans une barque: peau 5</annotation>
+		<annotation cp="🏊🏻">sport | peau 1</annotation>
+		<annotation cp="🏊🏻" type="tts">nage: peau 1</annotation>
+		<annotation cp="🏊🏼">sport | peau 2</annotation>
+		<annotation cp="🏊🏼" type="tts">nage: peau 2</annotation>
+		<annotation cp="🏊🏽">sport | peau 3</annotation>
+		<annotation cp="🏊🏽" type="tts">nage: peau 3</annotation>
+		<annotation cp="🏊🏾">sport | peau 4</annotation>
+		<annotation cp="🏊🏾" type="tts">nage: peau 4</annotation>
+		<annotation cp="🏊🏿">sport | peau 5</annotation>
+		<annotation cp="🏊🏿" type="tts">nage: peau 5</annotation>
+		<annotation cp="🏊🏻‍♂">homme | nage | peau 1</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">nageur: peau 1</annotation>
+		<annotation cp="🏊🏼‍♂">homme | nage | peau 2</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">nageur: peau 2</annotation>
+		<annotation cp="🏊🏽‍♂">homme | nage | peau 3</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">nageur: peau 3</annotation>
+		<annotation cp="🏊🏾‍♂">homme | nage | peau 4</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">nageur: peau 4</annotation>
+		<annotation cp="🏊🏿‍♂">homme | nage | peau 5</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">nageur: peau 5</annotation>
+		<annotation cp="🏊🏻‍♀">femme | nage | peau 1</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">nageuse: peau 1</annotation>
+		<annotation cp="🏊🏼‍♀">femme | nage | peau 2</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">nageuse: peau 2</annotation>
+		<annotation cp="🏊🏽‍♀">femme | nage | peau 3</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">nageuse: peau 3</annotation>
+		<annotation cp="🏊🏾‍♀">femme | nage | peau 4</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">nageuse: peau 4</annotation>
+		<annotation cp="🏊🏿‍♀">femme | nage | peau 5</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">nageuse: peau 5</annotation>
+		<annotation cp="⛹🏻">sport | peau 1</annotation>
+		<annotation cp="⛹🏻" type="tts">basketteur: peau 1</annotation>
+		<annotation cp="⛹🏼">sport | peau 2</annotation>
+		<annotation cp="⛹🏼" type="tts">basketteur: peau 2</annotation>
+		<annotation cp="⛹🏽">sport | peau 3</annotation>
+		<annotation cp="⛹🏽" type="tts">basketteur: peau 3</annotation>
+		<annotation cp="⛹🏾">sport | peau 4</annotation>
+		<annotation cp="⛹🏾" type="tts">basketteur: peau 4</annotation>
+		<annotation cp="⛹🏿">sport | peau 5</annotation>
+		<annotation cp="⛹🏿" type="tts">basketteur: peau 5</annotation>
+		<annotation cp="⛹🏻‍♂">ballon | homme | peau 1</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">homme avec ballon: peau 1</annotation>
+		<annotation cp="⛹🏼‍♂">ballon | homme | peau 2</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">homme avec ballon: peau 2</annotation>
+		<annotation cp="⛹🏽‍♂">ballon | homme | peau 3</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">homme avec ballon: peau 3</annotation>
+		<annotation cp="⛹🏾‍♂">ballon | homme | peau 4</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">homme avec ballon: peau 4</annotation>
+		<annotation cp="⛹🏿‍♂">ballon | homme | peau 5</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">homme avec ballon: peau 5</annotation>
+		<annotation cp="⛹🏻‍♀">ballon | femme | peau 1</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">femme avec ballon: peau 1</annotation>
+		<annotation cp="⛹🏼‍♀">ballon | femme | peau 2</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">femme avec ballon: peau 2</annotation>
+		<annotation cp="⛹🏽‍♀">ballon | femme | peau 3</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">femme avec ballon: peau 3</annotation>
+		<annotation cp="⛹🏾‍♀">ballon | femme | peau 4</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">femme avec ballon: peau 4</annotation>
+		<annotation cp="⛹🏿‍♀">ballon | femme | peau 5</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">femme avec ballon: peau 5</annotation>
+		<annotation cp="🏋🏻">sport | peau 1</annotation>
+		<annotation cp="🏋🏻" type="tts">haltérophile: peau 1</annotation>
+		<annotation cp="🏋🏼">sport | peau 2</annotation>
+		<annotation cp="🏋🏼" type="tts">haltérophile: peau 2</annotation>
+		<annotation cp="🏋🏽">sport | peau 3</annotation>
+		<annotation cp="🏋🏽" type="tts">haltérophile: peau 3</annotation>
+		<annotation cp="🏋🏾">sport | peau 4</annotation>
+		<annotation cp="🏋🏾" type="tts">haltérophile: peau 4</annotation>
+		<annotation cp="🏋🏿">sport | peau 5</annotation>
+		<annotation cp="🏋🏿" type="tts">haltérophile: peau 5</annotation>
+		<annotation cp="🏋🏻‍♂">haltérophile | homme | peau 1</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">homme haltérophile: peau 1</annotation>
+		<annotation cp="🏋🏼‍♂">haltérophile | homme | peau 2</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">homme haltérophile: peau 2</annotation>
+		<annotation cp="🏋🏽‍♂">haltérophile | homme | peau 3</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">homme haltérophile: peau 3</annotation>
+		<annotation cp="🏋🏾‍♂">haltérophile | homme | peau 4</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">homme haltérophile: peau 4</annotation>
+		<annotation cp="🏋🏿‍♂">haltérophile | homme | peau 5</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">homme haltérophile: peau 5</annotation>
+		<annotation cp="🏋🏻‍♀">femme | haltérophile | peau 1</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">femme haltérophile: peau 1</annotation>
+		<annotation cp="🏋🏼‍♀">femme | haltérophile | peau 2</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">femme haltérophile: peau 2</annotation>
+		<annotation cp="🏋🏽‍♀">femme | haltérophile | peau 3</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">femme haltérophile: peau 3</annotation>
+		<annotation cp="🏋🏾‍♀">femme | haltérophile | peau 4</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">femme haltérophile: peau 4</annotation>
+		<annotation cp="🏋🏿‍♀">femme | haltérophile | peau 5</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">femme haltérophile: peau 5</annotation>
+		<annotation cp="🚴🏻">vélo | peau 1</annotation>
+		<annotation cp="🚴🏻" type="tts">cycliste: peau 1</annotation>
+		<annotation cp="🚴🏼">vélo | peau 2</annotation>
+		<annotation cp="🚴🏼" type="tts">cycliste: peau 2</annotation>
+		<annotation cp="🚴🏽">vélo | peau 3</annotation>
+		<annotation cp="🚴🏽" type="tts">cycliste: peau 3</annotation>
+		<annotation cp="🚴🏾">vélo | peau 4</annotation>
+		<annotation cp="🚴🏾" type="tts">cycliste: peau 4</annotation>
+		<annotation cp="🚴🏿">vélo | peau 5</annotation>
+		<annotation cp="🚴🏿" type="tts">cycliste: peau 5</annotation>
+		<annotation cp="🚴🏻‍♂">cyclisme | cycliste | homme | vélo | peau 1</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">cycliste homme: peau 1</annotation>
+		<annotation cp="🚴🏼‍♂">cyclisme | cycliste | homme | vélo | peau 2</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">cycliste homme: peau 2</annotation>
+		<annotation cp="🚴🏽‍♂">cyclisme | cycliste | homme | vélo | peau 3</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">cycliste homme: peau 3</annotation>
+		<annotation cp="🚴🏾‍♂">cyclisme | cycliste | homme | vélo | peau 4</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">cycliste homme: peau 4</annotation>
+		<annotation cp="🚴🏿‍♂">cyclisme | cycliste | homme | vélo | peau 5</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">cycliste homme: peau 5</annotation>
+		<annotation cp="🚴🏻‍♀">cyclisme | cycliste | femme | vélo | peau 1</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">cycliste femme: peau 1</annotation>
+		<annotation cp="🚴🏼‍♀">cyclisme | cycliste | femme | vélo | peau 2</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">cycliste femme: peau 2</annotation>
+		<annotation cp="🚴🏽‍♀">cyclisme | cycliste | femme | vélo | peau 3</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">cycliste femme: peau 3</annotation>
+		<annotation cp="🚴🏾‍♀">cyclisme | cycliste | femme | vélo | peau 4</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">cycliste femme: peau 4</annotation>
+		<annotation cp="🚴🏿‍♀">cyclisme | cycliste | femme | vélo | peau 5</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">cycliste femme: peau 5</annotation>
+		<annotation cp="🚵🏻">montagne | vélo | peau 1</annotation>
+		<annotation cp="🚵🏻" type="tts">VTTiste: peau 1</annotation>
+		<annotation cp="🚵🏼">montagne | vélo | peau 2</annotation>
+		<annotation cp="🚵🏼" type="tts">VTTiste: peau 2</annotation>
+		<annotation cp="🚵🏽">montagne | vélo | peau 3</annotation>
+		<annotation cp="🚵🏽" type="tts">VTTiste: peau 3</annotation>
+		<annotation cp="🚵🏾">montagne | vélo | peau 4</annotation>
+		<annotation cp="🚵🏾" type="tts">VTTiste: peau 4</annotation>
+		<annotation cp="🚵🏿">montagne | vélo | peau 5</annotation>
+		<annotation cp="🚵🏿" type="tts">VTTiste: peau 5</annotation>
+		<annotation cp="🚵🏻‍♂">VTT | cycliste | homme | vélo | peau 1</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">homme en VTT: peau 1</annotation>
+		<annotation cp="🚵🏼‍♂">VTT | cycliste | homme | vélo | peau 2</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">homme en VTT: peau 2</annotation>
+		<annotation cp="🚵🏽‍♂">VTT | cycliste | homme | vélo | peau 3</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">homme en VTT: peau 3</annotation>
+		<annotation cp="🚵🏾‍♂">VTT | cycliste | homme | vélo | peau 4</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">homme en VTT: peau 4</annotation>
+		<annotation cp="🚵🏿‍♂">VTT | cycliste | homme | vélo | peau 5</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">homme en VTT: peau 5</annotation>
+		<annotation cp="🚵🏻‍♀">VTT | cycliste | femme | vélo | peau 1</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">femme en VTT: peau 1</annotation>
+		<annotation cp="🚵🏼‍♀">VTT | cycliste | femme | vélo | peau 2</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">femme en VTT: peau 2</annotation>
+		<annotation cp="🚵🏽‍♀">VTT | cycliste | femme | vélo | peau 3</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">femme en VTT: peau 3</annotation>
+		<annotation cp="🚵🏾‍♀">VTT | cycliste | femme | vélo | peau 4</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">femme en VTT: peau 4</annotation>
+		<annotation cp="🚵🏿‍♀">VTT | cycliste | femme | vélo | peau 5</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">femme en VTT: peau 5</annotation>
+		<annotation cp="🤸🏻">gymnastique | personne | roue | sport | peau 1</annotation>
+		<annotation cp="🤸🏻" type="tts">roue: peau 1</annotation>
+		<annotation cp="🤸🏼">gymnastique | personne | roue | sport | peau 2</annotation>
+		<annotation cp="🤸🏼" type="tts">roue: peau 2</annotation>
+		<annotation cp="🤸🏽">gymnastique | personne | roue | sport | peau 3</annotation>
+		<annotation cp="🤸🏽" type="tts">roue: peau 3</annotation>
+		<annotation cp="🤸🏾">gymnastique | personne | roue | sport | peau 4</annotation>
+		<annotation cp="🤸🏾" type="tts">roue: peau 4</annotation>
+		<annotation cp="🤸🏿">gymnastique | personne | roue | sport | peau 5</annotation>
+		<annotation cp="🤸🏿" type="tts">roue: peau 5</annotation>
+		<annotation cp="🤸🏻‍♂">gymnastique | homme | roue | peau 1</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">homme faisant la roue: peau 1</annotation>
+		<annotation cp="🤸🏼‍♂">gymnastique | homme | roue | peau 2</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">homme faisant la roue: peau 2</annotation>
+		<annotation cp="🤸🏽‍♂">gymnastique | homme | roue | peau 3</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">homme faisant la roue: peau 3</annotation>
+		<annotation cp="🤸🏾‍♂">gymnastique | homme | roue | peau 4</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">homme faisant la roue: peau 4</annotation>
+		<annotation cp="🤸🏿‍♂">gymnastique | homme | roue | peau 5</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">homme faisant la roue: peau 5</annotation>
+		<annotation cp="🤸🏻‍♀">femme | gymnastique | roue | peau 1</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">femme faisant la roue: peau 1</annotation>
+		<annotation cp="🤸🏼‍♀">femme | gymnastique | roue | peau 2</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">femme faisant la roue: peau 2</annotation>
+		<annotation cp="🤸🏽‍♀">femme | gymnastique | roue | peau 3</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">femme faisant la roue: peau 3</annotation>
+		<annotation cp="🤸🏾‍♀">femme | gymnastique | roue | peau 4</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">femme faisant la roue: peau 4</annotation>
+		<annotation cp="🤸🏿‍♀">femme | gymnastique | roue | peau 5</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">femme faisant la roue: peau 5</annotation>
+		<annotation cp="🤽🏻">sport | water-polo | peau 1</annotation>
+		<annotation cp="🤽🏻" type="tts">water-polo: peau 1</annotation>
+		<annotation cp="🤽🏼">sport | water-polo | peau 2</annotation>
+		<annotation cp="🤽🏼" type="tts">water-polo: peau 2</annotation>
+		<annotation cp="🤽🏽">sport | water-polo | peau 3</annotation>
+		<annotation cp="🤽🏽" type="tts">water-polo: peau 3</annotation>
+		<annotation cp="🤽🏾">sport | water-polo | peau 4</annotation>
+		<annotation cp="🤽🏾" type="tts">water-polo: peau 4</annotation>
+		<annotation cp="🤽🏿">sport | water-polo | peau 5</annotation>
+		<annotation cp="🤽🏿" type="tts">water-polo: peau 5</annotation>
+		<annotation cp="🤽🏻‍♂">homme | sport | water-polo | peau 1</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">joueur de water-polo: peau 1</annotation>
+		<annotation cp="🤽🏼‍♂">homme | sport | water-polo | peau 2</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">joueur de water-polo: peau 2</annotation>
+		<annotation cp="🤽🏽‍♂">homme | sport | water-polo | peau 3</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">joueur de water-polo: peau 3</annotation>
+		<annotation cp="🤽🏾‍♂">homme | sport | water-polo | peau 4</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">joueur de water-polo: peau 4</annotation>
+		<annotation cp="🤽🏿‍♂">homme | sport | water-polo | peau 5</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">joueur de water-polo: peau 5</annotation>
+		<annotation cp="🤽🏻‍♀">femme | sport | water-polo | peau 1</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">joueuse de water-polo: peau 1</annotation>
+		<annotation cp="🤽🏼‍♀">femme | sport | water-polo | peau 2</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">joueuse de water-polo: peau 2</annotation>
+		<annotation cp="🤽🏽‍♀">femme | sport | water-polo | peau 3</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">joueuse de water-polo: peau 3</annotation>
+		<annotation cp="🤽🏾‍♀">femme | sport | water-polo | peau 4</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">joueuse de water-polo: peau 4</annotation>
+		<annotation cp="🤽🏿‍♀">femme | sport | water-polo | peau 5</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">joueuse de water-polo: peau 5</annotation>
+		<annotation cp="🤾🏻">handball | personne | sport | peau 1</annotation>
+		<annotation cp="🤾🏻" type="tts">handball: peau 1</annotation>
+		<annotation cp="🤾🏼">handball | personne | sport | peau 2</annotation>
+		<annotation cp="🤾🏼" type="tts">handball: peau 2</annotation>
+		<annotation cp="🤾🏽">handball | personne | sport | peau 3</annotation>
+		<annotation cp="🤾🏽" type="tts">handball: peau 3</annotation>
+		<annotation cp="🤾🏾">handball | personne | sport | peau 4</annotation>
+		<annotation cp="🤾🏾" type="tts">handball: peau 4</annotation>
+		<annotation cp="🤾🏿">handball | personne | sport | peau 5</annotation>
+		<annotation cp="🤾🏿" type="tts">handball: peau 5</annotation>
+		<annotation cp="🤾🏻‍♂">handball | homme | sport | peau 1</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">handballeur: peau 1</annotation>
+		<annotation cp="🤾🏼‍♂">handball | homme | sport | peau 2</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">handballeur: peau 2</annotation>
+		<annotation cp="🤾🏽‍♂">handball | homme | sport | peau 3</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">handballeur: peau 3</annotation>
+		<annotation cp="🤾🏾‍♂">handball | homme | sport | peau 4</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">handballeur: peau 4</annotation>
+		<annotation cp="🤾🏿‍♂">handball | homme | sport | peau 5</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">handballeur: peau 5</annotation>
+		<annotation cp="🤾🏻‍♀">femme | handball | sport | peau 1</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">handballeuse: peau 1</annotation>
+		<annotation cp="🤾🏼‍♀">femme | handball | sport | peau 2</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">handballeuse: peau 2</annotation>
+		<annotation cp="🤾🏽‍♀">femme | handball | sport | peau 3</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">handballeuse: peau 3</annotation>
+		<annotation cp="🤾🏾‍♀">femme | handball | sport | peau 4</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">handballeuse: peau 4</annotation>
+		<annotation cp="🤾🏿‍♀">femme | handball | sport | peau 5</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">handballeuse: peau 5</annotation>
+		<annotation cp="🤹🏻">jongler | jongleur | multitâche | peau 1</annotation>
+		<annotation cp="🤹🏻" type="tts">personne qui jongle: peau 1</annotation>
+		<annotation cp="🤹🏼">jongler | jongleur | multitâche | peau 2</annotation>
+		<annotation cp="🤹🏼" type="tts">personne qui jongle: peau 2</annotation>
+		<annotation cp="🤹🏽">jongler | jongleur | multitâche | peau 3</annotation>
+		<annotation cp="🤹🏽" type="tts">personne qui jongle: peau 3</annotation>
+		<annotation cp="🤹🏾">jongler | jongleur | multitâche | peau 4</annotation>
+		<annotation cp="🤹🏾" type="tts">personne qui jongle: peau 4</annotation>
+		<annotation cp="🤹🏿">jongler | jongleur | multitâche | peau 5</annotation>
+		<annotation cp="🤹🏿" type="tts">personne qui jongle: peau 5</annotation>
+		<annotation cp="🤹🏻‍♂">homme | jonglage | multitâche | peau 1</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">jongleur: peau 1</annotation>
+		<annotation cp="🤹🏼‍♂">homme | jonglage | multitâche | peau 2</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">jongleur: peau 2</annotation>
+		<annotation cp="🤹🏽‍♂">homme | jonglage | multitâche | peau 3</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">jongleur: peau 3</annotation>
+		<annotation cp="🤹🏾‍♂">homme | jonglage | multitâche | peau 4</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">jongleur: peau 4</annotation>
+		<annotation cp="🤹🏿‍♂">homme | jonglage | multitâche | peau 5</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">jongleur: peau 5</annotation>
+		<annotation cp="🤹🏻‍♀">femme | jonglage | multitâche | peau 1</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">jongleuse: peau 1</annotation>
+		<annotation cp="🤹🏼‍♀">femme | jonglage | multitâche | peau 2</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">jongleuse: peau 2</annotation>
+		<annotation cp="🤹🏽‍♀">femme | jonglage | multitâche | peau 3</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">jongleuse: peau 3</annotation>
+		<annotation cp="🤹🏾‍♀">femme | jonglage | multitâche | peau 4</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">jongleuse: peau 4</annotation>
+		<annotation cp="🤹🏿‍♀">femme | jonglage | multitâche | peau 5</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">jongleuse: peau 5</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">couple | femme | homme</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">bisou, homme, femme</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">couple | homme</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">bisou, homme, homme</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">couple | femme</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">bisou, femme, femme</annotation>
+		<annotation cp="👩‍❤‍👨">amour | couple | cœur</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">couple avec cœur, homme, femme</annotation>
+		<annotation cp="👨‍❤‍👨">amour | couple | cœur | homme</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">couple avec cœur, homme, homme</annotation>
+		<annotation cp="👩‍❤‍👩">amour | couple | cœur | femme</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">couple avec cœur, femme, femme</annotation>
+		<annotation cp="👨‍👩‍👦">enfant | mère | père</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">famille, homme, femme, garçon</annotation>
+		<annotation cp="👨‍👩‍👧">enfant | famille | mère | père</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">famille, homme, femme, fille</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">enfant | famille | mère | père</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">famille, homme, femme, fille, garçon</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">enfant | famille | mère | père</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">famille, homme, femme, garçon, garçon</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">enfant | famille | mère | père</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">famille, homme, femme, fille, fille</annotation>
+		<annotation cp="👨‍👨‍👦">enfant | famille | mère | père</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">famille, homme, homme, garçon</annotation>
+		<annotation cp="👨‍👨‍👧">famille | fille | hommes</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">famille, homme, homme, fille</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">famille | fille | garçon | hommes</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">famille, homme, homme, fille, garçon</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">famille | garçon | hommes</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">famille, homme, homme, garçon, garçon</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">famille | fille | hommes</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">famille, homme, homme, fille, fille</annotation>
+		<annotation cp="👩‍👩‍👦">famille | femmes | garçon</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">famille, femme, femme, garçon</annotation>
+		<annotation cp="👩‍👩‍👧">famille | femmes | fille</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">famille, femme, femme, fille</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">famille | femme | fille | garçon</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">famille, femme, femme, fille, garçon</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">famille | femmes | garçon</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">famille, femme, femme, garçon, garçon</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">famille | femmes | filles</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">famille, femme, femme, fille, fille</annotation>
+		<annotation cp="👨‍👦">garçon | père</annotation>
+		<annotation cp="👨‍👦" type="tts">famille, homme, garçon</annotation>
+		<annotation cp="👨‍👦‍👦">famille | garçon | père</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">famille, homme, garçon, garçon</annotation>
+		<annotation cp="👨‍👧">fille | père</annotation>
+		<annotation cp="👨‍👧" type="tts">famille, homme, fille</annotation>
+		<annotation cp="👨‍👧‍👦">fille | garçon | père</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">famille, homme, fille, garçon</annotation>
+		<annotation cp="👨‍👧‍👧">filles | père</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">famille, homme, fille, fille</annotation>
+		<annotation cp="👩‍👦">garçon | mère</annotation>
+		<annotation cp="👩‍👦" type="tts">famille, femme, garçon</annotation>
+		<annotation cp="👩‍👦‍👦">garçons | mère</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">famille, femme, garçon, garçon</annotation>
+		<annotation cp="👩‍👧">fille | mère</annotation>
+		<annotation cp="👩‍👧" type="tts">famille, femme, fille</annotation>
+		<annotation cp="👩‍👧‍👦">fille | garçon | mère</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">famille, femme, fille, garçon</annotation>
+		<annotation cp="👩‍👧‍👧">filles | mère</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">famille, femme, fille, fille</annotation>
+		<annotation cp="🤳🏻">appareil photo | selfie | téléphone | peau 1</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: peau 1</annotation>
+		<annotation cp="🤳🏼">appareil photo | selfie | téléphone | peau 2</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: peau 2</annotation>
+		<annotation cp="🤳🏽">appareil photo | selfie | téléphone | peau 3</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: peau 3</annotation>
+		<annotation cp="🤳🏾">appareil photo | selfie | téléphone | peau 4</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: peau 4</annotation>
+		<annotation cp="🤳🏿">appareil photo | selfie | téléphone | peau 5</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: peau 5</annotation>
+		<annotation cp="💪🏻">biceps | contractés | corps | muscles | peau 1</annotation>
+		<annotation cp="💪🏻" type="tts">biceps contractés: peau 1</annotation>
+		<annotation cp="💪🏼">biceps | contractés | corps | muscles | peau 2</annotation>
+		<annotation cp="💪🏼" type="tts">biceps contractés: peau 2</annotation>
+		<annotation cp="💪🏽">biceps | contractés | corps | muscles | peau 3</annotation>
+		<annotation cp="💪🏽" type="tts">biceps contractés: peau 3</annotation>
+		<annotation cp="💪🏾">biceps | contractés | corps | muscles | peau 4</annotation>
+		<annotation cp="💪🏾" type="tts">biceps contractés: peau 4</annotation>
+		<annotation cp="💪🏿">biceps | contractés | corps | muscles | peau 5</annotation>
+		<annotation cp="💪🏿" type="tts">biceps contractés: peau 5</annotation>
+		<annotation cp="👈🏻">gauche | index | main | peau 1</annotation>
+		<annotation cp="👈🏻" type="tts">index à gauche: peau 1</annotation>
+		<annotation cp="👈🏼">gauche | index | main | peau 2</annotation>
+		<annotation cp="👈🏼" type="tts">index à gauche: peau 2</annotation>
+		<annotation cp="👈🏽">gauche | index | main | peau 3</annotation>
+		<annotation cp="👈🏽" type="tts">index à gauche: peau 3</annotation>
+		<annotation cp="👈🏾">gauche | index | main | peau 4</annotation>
+		<annotation cp="👈🏾" type="tts">index à gauche: peau 4</annotation>
+		<annotation cp="👈🏿">gauche | index | main | peau 5</annotation>
+		<annotation cp="👈🏿" type="tts">index à gauche: peau 5</annotation>
+		<annotation cp="👉🏻">droite | index | main | peau 1</annotation>
+		<annotation cp="👉🏻" type="tts">index à droite: peau 1</annotation>
+		<annotation cp="👉🏼">droite | index | main | peau 2</annotation>
+		<annotation cp="👉🏼" type="tts">index à droite: peau 2</annotation>
+		<annotation cp="👉🏽">droite | index | main | peau 3</annotation>
+		<annotation cp="👉🏽" type="tts">index à droite: peau 3</annotation>
+		<annotation cp="👉🏾">droite | index | main | peau 4</annotation>
+		<annotation cp="👉🏾" type="tts">index à droite: peau 4</annotation>
+		<annotation cp="👉🏿">droite | index | main | peau 5</annotation>
+		<annotation cp="👉🏿" type="tts">index à droite: peau 5</annotation>
+		<annotation cp="☝🏻">index | peau 1</annotation>
+		<annotation cp="☝🏻" type="tts">doigt vers le haut: peau 1</annotation>
+		<annotation cp="☝🏼">index | peau 2</annotation>
+		<annotation cp="☝🏼" type="tts">doigt vers le haut: peau 2</annotation>
+		<annotation cp="☝🏽">index | peau 3</annotation>
+		<annotation cp="☝🏽" type="tts">doigt vers le haut: peau 3</annotation>
+		<annotation cp="☝🏾">index | peau 4</annotation>
+		<annotation cp="☝🏾" type="tts">doigt vers le haut: peau 4</annotation>
+		<annotation cp="☝🏿">index | peau 5</annotation>
+		<annotation cp="☝🏿" type="tts">doigt vers le haut: peau 5</annotation>
+		<annotation cp="👆🏻">index | peau 1</annotation>
+		<annotation cp="👆🏻" type="tts">main vers le haut: peau 1</annotation>
+		<annotation cp="👆🏼">index | peau 2</annotation>
+		<annotation cp="👆🏼" type="tts">main vers le haut: peau 2</annotation>
+		<annotation cp="👆🏽">index | peau 3</annotation>
+		<annotation cp="👆🏽" type="tts">main vers le haut: peau 3</annotation>
+		<annotation cp="👆🏾">index | peau 4</annotation>
+		<annotation cp="👆🏾" type="tts">main vers le haut: peau 4</annotation>
+		<annotation cp="👆🏿">index | peau 5</annotation>
+		<annotation cp="👆🏿" type="tts">main vers le haut: peau 5</annotation>
+		<annotation cp="🖕🏻">majeur | peau 1</annotation>
+		<annotation cp="🖕🏻" type="tts">doigt d’honneur: peau 1</annotation>
+		<annotation cp="🖕🏼">majeur | peau 2</annotation>
+		<annotation cp="🖕🏼" type="tts">doigt d’honneur: peau 2</annotation>
+		<annotation cp="🖕🏽">majeur | peau 3</annotation>
+		<annotation cp="🖕🏽" type="tts">doigt d’honneur: peau 3</annotation>
+		<annotation cp="🖕🏾">majeur | peau 4</annotation>
+		<annotation cp="🖕🏾" type="tts">doigt d’honneur: peau 4</annotation>
+		<annotation cp="🖕🏿">majeur | peau 5</annotation>
+		<annotation cp="🖕🏿" type="tts">doigt d’honneur: peau 5</annotation>
+		<annotation cp="👇🏻">bas | index | main | peau 1</annotation>
+		<annotation cp="👇🏻" type="tts">index en bas: peau 1</annotation>
+		<annotation cp="👇🏼">bas | index | main | peau 2</annotation>
+		<annotation cp="👇🏼" type="tts">index en bas: peau 2</annotation>
+		<annotation cp="👇🏽">bas | index | main | peau 3</annotation>
+		<annotation cp="👇🏽" type="tts">index en bas: peau 3</annotation>
+		<annotation cp="👇🏾">bas | index | main | peau 4</annotation>
+		<annotation cp="👇🏾" type="tts">index en bas: peau 4</annotation>
+		<annotation cp="👇🏿">bas | index | main | peau 5</annotation>
+		<annotation cp="👇🏿" type="tts">index en bas: peau 5</annotation>
+		<annotation cp="✌🏻">ciseaux | victoire | peau 1</annotation>
+		<annotation cp="✌🏻" type="tts">V de la victoire: peau 1</annotation>
+		<annotation cp="✌🏼">ciseaux | victoire | peau 2</annotation>
+		<annotation cp="✌🏼" type="tts">V de la victoire: peau 2</annotation>
+		<annotation cp="✌🏽">ciseaux | victoire | peau 3</annotation>
+		<annotation cp="✌🏽" type="tts">V de la victoire: peau 3</annotation>
+		<annotation cp="✌🏾">ciseaux | victoire | peau 4</annotation>
+		<annotation cp="✌🏾" type="tts">V de la victoire: peau 4</annotation>
+		<annotation cp="✌🏿">ciseaux | victoire | peau 5</annotation>
+		<annotation cp="✌🏿" type="tts">V de la victoire: peau 5</annotation>
+		<annotation cp="🤞🏻">croisés | doigts | peau 1</annotation>
+		<annotation cp="🤞🏻" type="tts">doigts croisés: peau 1</annotation>
+		<annotation cp="🤞🏼">croisés | doigts | peau 2</annotation>
+		<annotation cp="🤞🏼" type="tts">doigts croisés: peau 2</annotation>
+		<annotation cp="🤞🏽">croisés | doigts | peau 3</annotation>
+		<annotation cp="🤞🏽" type="tts">doigts croisés: peau 3</annotation>
+		<annotation cp="🤞🏾">croisés | doigts | peau 4</annotation>
+		<annotation cp="🤞🏾" type="tts">doigts croisés: peau 4</annotation>
+		<annotation cp="🤞🏿">croisés | doigts | peau 5</annotation>
+		<annotation cp="🤞🏿" type="tts">doigts croisés: peau 5</annotation>
+		<annotation cp="🖖🏻">vulcain | peau 1</annotation>
+		<annotation cp="🖖🏻" type="tts">salut vulcain: peau 1</annotation>
+		<annotation cp="🖖🏼">vulcain | peau 2</annotation>
+		<annotation cp="🖖🏼" type="tts">salut vulcain: peau 2</annotation>
+		<annotation cp="🖖🏽">vulcain | peau 3</annotation>
+		<annotation cp="🖖🏽" type="tts">salut vulcain: peau 3</annotation>
+		<annotation cp="🖖🏾">vulcain | peau 4</annotation>
+		<annotation cp="🖖🏾" type="tts">salut vulcain: peau 4</annotation>
+		<annotation cp="🖖🏿">vulcain | peau 5</annotation>
+		<annotation cp="🖖🏿" type="tts">salut vulcain: peau 5</annotation>
+		<annotation cp="🤘🏻">cornes | peau 1</annotation>
+		<annotation cp="🤘🏻" type="tts">cornes avec les doigts: peau 1</annotation>
+		<annotation cp="🤘🏼">cornes | peau 2</annotation>
+		<annotation cp="🤘🏼" type="tts">cornes avec les doigts: peau 2</annotation>
+		<annotation cp="🤘🏽">cornes | peau 3</annotation>
+		<annotation cp="🤘🏽" type="tts">cornes avec les doigts: peau 3</annotation>
+		<annotation cp="🤘🏾">cornes | peau 4</annotation>
+		<annotation cp="🤘🏾" type="tts">cornes avec les doigts: peau 4</annotation>
+		<annotation cp="🤘🏿">cornes | peau 5</annotation>
+		<annotation cp="🤘🏿" type="tts">cornes avec les doigts: peau 5</annotation>
+		<annotation cp="🤙🏻">appel | main | signe | téléphone | peau 1</annotation>
+		<annotation cp="🤙🏻" type="tts">appel: peau 1</annotation>
+		<annotation cp="🤙🏼">appel | main | signe | téléphone | peau 2</annotation>
+		<annotation cp="🤙🏼" type="tts">appel: peau 2</annotation>
+		<annotation cp="🤙🏽">appel | main | signe | téléphone | peau 3</annotation>
+		<annotation cp="🤙🏽" type="tts">appel: peau 3</annotation>
+		<annotation cp="🤙🏾">appel | main | signe | téléphone | peau 4</annotation>
+		<annotation cp="🤙🏾" type="tts">appel: peau 4</annotation>
+		<annotation cp="🤙🏿">appel | main | signe | téléphone | peau 5</annotation>
+		<annotation cp="🤙🏿" type="tts">appel: peau 5</annotation>
+		<annotation cp="🖐🏻">main | peau 1</annotation>
+		<annotation cp="🖐🏻" type="tts">main levée doigts écartés: peau 1</annotation>
+		<annotation cp="🖐🏼">main | peau 2</annotation>
+		<annotation cp="🖐🏼" type="tts">main levée doigts écartés: peau 2</annotation>
+		<annotation cp="🖐🏽">main | peau 3</annotation>
+		<annotation cp="🖐🏽" type="tts">main levée doigts écartés: peau 3</annotation>
+		<annotation cp="🖐🏾">main | peau 4</annotation>
+		<annotation cp="🖐🏾" type="tts">main levée doigts écartés: peau 4</annotation>
+		<annotation cp="🖐🏿">main | peau 5</annotation>
+		<annotation cp="🖐🏿" type="tts">main levée doigts écartés: peau 5</annotation>
+		<annotation cp="✋🏻">feuille | main | peau 1</annotation>
+		<annotation cp="✋🏻" type="tts">main levée: peau 1</annotation>
+		<annotation cp="✋🏼">feuille | main | peau 2</annotation>
+		<annotation cp="✋🏼" type="tts">main levée: peau 2</annotation>
+		<annotation cp="✋🏽">feuille | main | peau 3</annotation>
+		<annotation cp="✋🏽" type="tts">main levée: peau 3</annotation>
+		<annotation cp="✋🏾">feuille | main | peau 4</annotation>
+		<annotation cp="✋🏾" type="tts">main levée: peau 4</annotation>
+		<annotation cp="✋🏿">feuille | main | peau 5</annotation>
+		<annotation cp="✋🏿" type="tts">main levée: peau 5</annotation>
+		<annotation cp="👌🏻">geste | main | peau 1</annotation>
+		<annotation cp="👌🏻" type="tts">ok: peau 1</annotation>
+		<annotation cp="👌🏼">geste | main | peau 2</annotation>
+		<annotation cp="👌🏼" type="tts">ok: peau 2</annotation>
+		<annotation cp="👌🏽">geste | main | peau 3</annotation>
+		<annotation cp="👌🏽" type="tts">ok: peau 3</annotation>
+		<annotation cp="👌🏾">geste | main | peau 4</annotation>
+		<annotation cp="👌🏾" type="tts">ok: peau 4</annotation>
+		<annotation cp="👌🏿">geste | main | peau 5</annotation>
+		<annotation cp="👌🏿" type="tts">ok: peau 5</annotation>
+		<annotation cp="👍🏻">super | peau 1</annotation>
+		<annotation cp="👍🏻" type="tts">pouce levé: peau 1</annotation>
+		<annotation cp="👍🏼">super | peau 2</annotation>
+		<annotation cp="👍🏼" type="tts">pouce levé: peau 2</annotation>
+		<annotation cp="👍🏽">super | peau 3</annotation>
+		<annotation cp="👍🏽" type="tts">pouce levé: peau 3</annotation>
+		<annotation cp="👍🏾">super | peau 4</annotation>
+		<annotation cp="👍🏾" type="tts">pouce levé: peau 4</annotation>
+		<annotation cp="👍🏿">super | peau 5</annotation>
+		<annotation cp="👍🏿" type="tts">pouce levé: peau 5</annotation>
+		<annotation cp="👎🏻">nul | peau 1</annotation>
+		<annotation cp="👎🏻" type="tts">pouce baissé: peau 1</annotation>
+		<annotation cp="👎🏼">nul | peau 2</annotation>
+		<annotation cp="👎🏼" type="tts">pouce baissé: peau 2</annotation>
+		<annotation cp="👎🏽">nul | peau 3</annotation>
+		<annotation cp="👎🏽" type="tts">pouce baissé: peau 3</annotation>
+		<annotation cp="👎🏾">nul | peau 4</annotation>
+		<annotation cp="👎🏾" type="tts">pouce baissé: peau 4</annotation>
+		<annotation cp="👎🏿">nul | peau 5</annotation>
+		<annotation cp="👎🏿" type="tts">pouce baissé: peau 5</annotation>
+		<annotation cp="✊🏻">pierre | poing | peau 1</annotation>
+		<annotation cp="✊🏻" type="tts">poing levé: peau 1</annotation>
+		<annotation cp="✊🏼">pierre | poing | peau 2</annotation>
+		<annotation cp="✊🏼" type="tts">poing levé: peau 2</annotation>
+		<annotation cp="✊🏽">pierre | poing | peau 3</annotation>
+		<annotation cp="✊🏽" type="tts">poing levé: peau 3</annotation>
+		<annotation cp="✊🏾">pierre | poing | peau 4</annotation>
+		<annotation cp="✊🏾" type="tts">poing levé: peau 4</annotation>
+		<annotation cp="✊🏿">pierre | poing | peau 5</annotation>
+		<annotation cp="✊🏿" type="tts">poing levé: peau 5</annotation>
+		<annotation cp="👊🏻">coup de poing | main | poing | peau 1</annotation>
+		<annotation cp="👊🏻" type="tts">coup de poing: peau 1</annotation>
+		<annotation cp="👊🏼">coup de poing | main | poing | peau 2</annotation>
+		<annotation cp="👊🏼" type="tts">coup de poing: peau 2</annotation>
+		<annotation cp="👊🏽">coup de poing | main | poing | peau 3</annotation>
+		<annotation cp="👊🏽" type="tts">coup de poing: peau 3</annotation>
+		<annotation cp="👊🏾">coup de poing | main | poing | peau 4</annotation>
+		<annotation cp="👊🏾" type="tts">coup de poing: peau 4</annotation>
+		<annotation cp="👊🏿">coup de poing | main | poing | peau 5</annotation>
+		<annotation cp="👊🏿" type="tts">coup de poing: peau 5</annotation>
+		<annotation cp="🤛🏻">gauche | poing | peau 1</annotation>
+		<annotation cp="🤛🏻" type="tts">poing à gauche: peau 1</annotation>
+		<annotation cp="🤛🏼">gauche | poing | peau 2</annotation>
+		<annotation cp="🤛🏼" type="tts">poing à gauche: peau 2</annotation>
+		<annotation cp="🤛🏽">gauche | poing | peau 3</annotation>
+		<annotation cp="🤛🏽" type="tts">poing à gauche: peau 3</annotation>
+		<annotation cp="🤛🏾">gauche | poing | peau 4</annotation>
+		<annotation cp="🤛🏾" type="tts">poing à gauche: peau 4</annotation>
+		<annotation cp="🤛🏿">gauche | poing | peau 5</annotation>
+		<annotation cp="🤛🏿" type="tts">poing à gauche: peau 5</annotation>
+		<annotation cp="🤜🏻">droite | poing | peau 1</annotation>
+		<annotation cp="🤜🏻" type="tts">poing à droite: peau 1</annotation>
+		<annotation cp="🤜🏼">droite | poing | peau 2</annotation>
+		<annotation cp="🤜🏼" type="tts">poing à droite: peau 2</annotation>
+		<annotation cp="🤜🏽">droite | poing | peau 3</annotation>
+		<annotation cp="🤜🏽" type="tts">poing à droite: peau 3</annotation>
+		<annotation cp="🤜🏾">droite | poing | peau 4</annotation>
+		<annotation cp="🤜🏾" type="tts">poing à droite: peau 4</annotation>
+		<annotation cp="🤜🏿">droite | poing | peau 5</annotation>
+		<annotation cp="🤜🏿" type="tts">poing à droite: peau 5</annotation>
+		<annotation cp="🤚🏻">levée | main | peau 1</annotation>
+		<annotation cp="🤚🏻" type="tts">dos de main levée: peau 1</annotation>
+		<annotation cp="🤚🏼">levée | main | peau 2</annotation>
+		<annotation cp="🤚🏼" type="tts">dos de main levée: peau 2</annotation>
+		<annotation cp="🤚🏽">levée | main | peau 3</annotation>
+		<annotation cp="🤚🏽" type="tts">dos de main levée: peau 3</annotation>
+		<annotation cp="🤚🏾">levée | main | peau 4</annotation>
+		<annotation cp="🤚🏾" type="tts">dos de main levée: peau 4</annotation>
+		<annotation cp="🤚🏿">levée | main | peau 5</annotation>
+		<annotation cp="🤚🏿" type="tts">dos de main levée: peau 5</annotation>
+		<annotation cp="👋🏻">coucou | main | peau 1</annotation>
+		<annotation cp="👋🏻" type="tts">signe de la main: peau 1</annotation>
+		<annotation cp="👋🏼">coucou | main | peau 2</annotation>
+		<annotation cp="👋🏼" type="tts">signe de la main: peau 2</annotation>
+		<annotation cp="👋🏽">coucou | main | peau 3</annotation>
+		<annotation cp="👋🏽" type="tts">signe de la main: peau 3</annotation>
+		<annotation cp="👋🏾">coucou | main | peau 4</annotation>
+		<annotation cp="👋🏾" type="tts">signe de la main: peau 4</annotation>
+		<annotation cp="👋🏿">coucou | main | peau 5</annotation>
+		<annotation cp="👋🏿" type="tts">signe de la main: peau 5</annotation>
+		<annotation cp="✍🏻">écrire | peau 1</annotation>
+		<annotation cp="✍🏻" type="tts">main qui écrit: peau 1</annotation>
+		<annotation cp="✍🏼">écrire | peau 2</annotation>
+		<annotation cp="✍🏼" type="tts">main qui écrit: peau 2</annotation>
+		<annotation cp="✍🏽">écrire | peau 3</annotation>
+		<annotation cp="✍🏽" type="tts">main qui écrit: peau 3</annotation>
+		<annotation cp="✍🏾">écrire | peau 4</annotation>
+		<annotation cp="✍🏾" type="tts">main qui écrit: peau 4</annotation>
+		<annotation cp="✍🏿">écrire | peau 5</annotation>
+		<annotation cp="✍🏿" type="tts">main qui écrit: peau 5</annotation>
+		<annotation cp="👏🏻">bravo | peau 1</annotation>
+		<annotation cp="👏🏻" type="tts">applaudissements: peau 1</annotation>
+		<annotation cp="👏🏼">bravo | peau 2</annotation>
+		<annotation cp="👏🏼" type="tts">applaudissements: peau 2</annotation>
+		<annotation cp="👏🏽">bravo | peau 3</annotation>
+		<annotation cp="👏🏽" type="tts">applaudissements: peau 3</annotation>
+		<annotation cp="👏🏾">bravo | peau 4</annotation>
+		<annotation cp="👏🏾" type="tts">applaudissements: peau 4</annotation>
+		<annotation cp="👏🏿">bravo | peau 5</annotation>
+		<annotation cp="👏🏿" type="tts">applaudissements: peau 5</annotation>
+		<annotation cp="👐🏻">main | ouvert | peau 1</annotation>
+		<annotation cp="👐🏻" type="tts">mains ouvertes: peau 1</annotation>
+		<annotation cp="👐🏼">main | ouvert | peau 2</annotation>
+		<annotation cp="👐🏼" type="tts">mains ouvertes: peau 2</annotation>
+		<annotation cp="👐🏽">main | ouvert | peau 3</annotation>
+		<annotation cp="👐🏽" type="tts">mains ouvertes: peau 3</annotation>
+		<annotation cp="👐🏾">main | ouvert | peau 4</annotation>
+		<annotation cp="👐🏾" type="tts">mains ouvertes: peau 4</annotation>
+		<annotation cp="👐🏿">main | ouvert | peau 5</annotation>
+		<annotation cp="👐🏿" type="tts">mains ouvertes: peau 5</annotation>
+		<annotation cp="🙌🏻">air | mains | peau 1</annotation>
+		<annotation cp="🙌🏻" type="tts">hourra: peau 1</annotation>
+		<annotation cp="🙌🏼">air | mains | peau 2</annotation>
+		<annotation cp="🙌🏼" type="tts">hourra: peau 2</annotation>
+		<annotation cp="🙌🏽">air | mains | peau 3</annotation>
+		<annotation cp="🙌🏽" type="tts">hourra: peau 3</annotation>
+		<annotation cp="🙌🏾">air | mains | peau 4</annotation>
+		<annotation cp="🙌🏾" type="tts">hourra: peau 4</annotation>
+		<annotation cp="🙌🏿">air | mains | peau 5</annotation>
+		<annotation cp="🙌🏿" type="tts">hourra: peau 5</annotation>
+		<annotation cp="🙏🏻">pirère | peau 1</annotation>
+		<annotation cp="🙏🏻" type="tts">mains en prière: peau 1</annotation>
+		<annotation cp="🙏🏼">pirère | peau 2</annotation>
+		<annotation cp="🙏🏼" type="tts">mains en prière: peau 2</annotation>
+		<annotation cp="🙏🏽">pirère | peau 3</annotation>
+		<annotation cp="🙏🏽" type="tts">mains en prière: peau 3</annotation>
+		<annotation cp="🙏🏾">pirère | peau 4</annotation>
+		<annotation cp="🙏🏾" type="tts">mains en prière: peau 4</annotation>
+		<annotation cp="🙏🏿">pirère | peau 5</annotation>
+		<annotation cp="🙏🏿" type="tts">mains en prière: peau 5</annotation>
+		<annotation cp="💅🏻">maquillage | peau 1</annotation>
+		<annotation cp="💅🏻" type="tts">vernis à ongles: peau 1</annotation>
+		<annotation cp="💅🏼">maquillage | peau 2</annotation>
+		<annotation cp="💅🏼" type="tts">vernis à ongles: peau 2</annotation>
+		<annotation cp="💅🏽">maquillage | peau 3</annotation>
+		<annotation cp="💅🏽" type="tts">vernis à ongles: peau 3</annotation>
+		<annotation cp="💅🏾">maquillage | peau 4</annotation>
+		<annotation cp="💅🏾" type="tts">vernis à ongles: peau 4</annotation>
+		<annotation cp="💅🏿">maquillage | peau 5</annotation>
+		<annotation cp="💅🏿" type="tts">vernis à ongles: peau 5</annotation>
+		<annotation cp="👂🏻">corps | peau 1</annotation>
+		<annotation cp="👂🏻" type="tts">oreille: peau 1</annotation>
+		<annotation cp="👂🏼">corps | peau 2</annotation>
+		<annotation cp="👂🏼" type="tts">oreille: peau 2</annotation>
+		<annotation cp="👂🏽">corps | peau 3</annotation>
+		<annotation cp="👂🏽" type="tts">oreille: peau 3</annotation>
+		<annotation cp="👂🏾">corps | peau 4</annotation>
+		<annotation cp="👂🏾" type="tts">oreille: peau 4</annotation>
+		<annotation cp="👂🏿">corps | peau 5</annotation>
+		<annotation cp="👂🏿" type="tts">oreille: peau 5</annotation>
+		<annotation cp="👃🏻">corps | peau 1</annotation>
+		<annotation cp="👃🏻" type="tts">nez: peau 1</annotation>
+		<annotation cp="👃🏼">corps | peau 2</annotation>
+		<annotation cp="👃🏼" type="tts">nez: peau 2</annotation>
+		<annotation cp="👃🏽">corps | peau 3</annotation>
+		<annotation cp="👃🏽" type="tts">nez: peau 3</annotation>
+		<annotation cp="👃🏾">corps | peau 4</annotation>
+		<annotation cp="👃🏾" type="tts">nez: peau 4</annotation>
+		<annotation cp="👃🏿">corps | peau 5</annotation>
+		<annotation cp="👃🏿" type="tts">nez: peau 5</annotation>
+		<annotation cp="#⃣">keycap</annotation>
+		<annotation cp="#⃣" type="tts">keycap: #</annotation>
+		<annotation cp="*⃣">keycap</annotation>
+		<annotation cp="*⃣" type="tts">keycap: *</annotation>
+		<annotation cp="🇦🇨">drapeau</annotation>
+		<annotation cp="🇦🇨" type="tts">Île de l’Ascension</annotation>
+		<annotation cp="🇦🇩">drapeau</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorre</annotation>
+		<annotation cp="🇦🇪">drapeau</annotation>
+		<annotation cp="🇦🇪" type="tts">Émirats arabes unis</annotation>
+		<annotation cp="🇦🇫">drapeau</annotation>
+		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇬">drapeau</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua-et-Barbuda</annotation>
+		<annotation cp="🇦🇮">drapeau</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">drapeau</annotation>
+		<annotation cp="🇦🇱" type="tts">Albanie</annotation>
+		<annotation cp="🇦🇲">drapeau</annotation>
+		<annotation cp="🇦🇲" type="tts">Arménie</annotation>
+		<annotation cp="🇦🇴">drapeau</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">drapeau</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarctique</annotation>
+		<annotation cp="🇦🇷">drapeau</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentine</annotation>
+		<annotation cp="🇦🇸">drapeau</annotation>
+		<annotation cp="🇦🇸" type="tts">Samoa américaines</annotation>
+		<annotation cp="🇦🇹">drapeau</annotation>
+		<annotation cp="🇦🇹" type="tts">Autriche</annotation>
+		<annotation cp="🇦🇺">drapeau</annotation>
+		<annotation cp="🇦🇺" type="tts">Australie</annotation>
+		<annotation cp="🇦🇼">drapeau</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">drapeau</annotation>
+		<annotation cp="🇦🇽" type="tts">Îles Åland</annotation>
+		<annotation cp="🇦🇿">drapeau</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbaïdjan</annotation>
+		<annotation cp="🇧🇦">drapeau</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnie-Herzégovine</annotation>
+		<annotation cp="🇧🇧">drapeau</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbade</annotation>
+		<annotation cp="🇧🇩">drapeau</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">drapeau</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgique</annotation>
+		<annotation cp="🇧🇫">drapeau</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">drapeau</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgarie</annotation>
+		<annotation cp="🇧🇭">drapeau</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahreïn</annotation>
+		<annotation cp="🇧🇮">drapeau</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">drapeau</annotation>
+		<annotation cp="🇧🇯" type="tts">Bénin</annotation>
+		<annotation cp="🇧🇱">drapeau</annotation>
+		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇲">drapeau</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermudes</annotation>
+		<annotation cp="🇧🇳">drapeau</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunéi Darussalam</annotation>
+		<annotation cp="🇧🇴">drapeau</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivie</annotation>
+		<annotation cp="🇧🇶">drapeau</annotation>
+		<annotation cp="🇧🇶" type="tts">Pays-Bas caribéens</annotation>
+		<annotation cp="🇧🇷">drapeau</annotation>
+		<annotation cp="🇧🇷" type="tts">Brésil</annotation>
+		<annotation cp="🇧🇸">drapeau</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇹">drapeau</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhoutan</annotation>
+		<annotation cp="🇧🇻">drapeau</annotation>
+		<annotation cp="🇧🇻" type="tts">Île Bouvet</annotation>
+		<annotation cp="🇧🇼">drapeau</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">drapeau</annotation>
+		<annotation cp="🇧🇾" type="tts">Biélorussie</annotation>
+		<annotation cp="🇧🇿">drapeau</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">drapeau</annotation>
+		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇨">drapeau</annotation>
+		<annotation cp="🇨🇨" type="tts">Îles Cocos</annotation>
+		<annotation cp="🇨🇩">drapeau</annotation>
+		<annotation cp="🇨🇩" type="tts">Congo-Kinshasa</annotation>
+		<annotation cp="🇨🇫">drapeau</annotation>
+		<annotation cp="🇨🇫" type="tts">République centrafricaine</annotation>
+		<annotation cp="🇨🇬">drapeau</annotation>
+		<annotation cp="🇨🇬" type="tts">Congo-Brazzaville</annotation>
+		<annotation cp="🇨🇭">drapeau</annotation>
+		<annotation cp="🇨🇭" type="tts">Suisse</annotation>
+		<annotation cp="🇨🇮">drapeau</annotation>
+		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇰">drapeau</annotation>
+		<annotation cp="🇨🇰" type="tts">Îles Cook</annotation>
+		<annotation cp="🇨🇱">drapeau</annotation>
+		<annotation cp="🇨🇱" type="tts">Chili</annotation>
+		<annotation cp="🇨🇲">drapeau</annotation>
+		<annotation cp="🇨🇲" type="tts">Cameroun</annotation>
+		<annotation cp="🇨🇳">drapeau</annotation>
+		<annotation cp="🇨🇳" type="tts">Chine</annotation>
+		<annotation cp="🇨🇴">drapeau</annotation>
+		<annotation cp="🇨🇴" type="tts">Colombie</annotation>
+		<annotation cp="🇨🇵">drapeau</annotation>
+		<annotation cp="🇨🇵" type="tts">Île Clipperton</annotation>
+		<annotation cp="🇨🇷">drapeau</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">drapeau</annotation>
+		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇻">drapeau</annotation>
+		<annotation cp="🇨🇻" type="tts">Cap-Vert</annotation>
+		<annotation cp="🇨🇼">drapeau</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">drapeau</annotation>
+		<annotation cp="🇨🇽" type="tts">Île Christmas</annotation>
+		<annotation cp="🇨🇾">drapeau</annotation>
+		<annotation cp="🇨🇾" type="tts">Chypre</annotation>
+		<annotation cp="🇨🇿">drapeau</annotation>
+		<annotation cp="🇨🇿" type="tts">Tchéquie</annotation>
+		<annotation cp="🇩🇪">drapeau</annotation>
+		<annotation cp="🇩🇪" type="tts">Allemagne</annotation>
+		<annotation cp="🇩🇬">drapeau</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">drapeau</annotation>
+		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇰">drapeau</annotation>
+		<annotation cp="🇩🇰" type="tts">Danemark</annotation>
+		<annotation cp="🇩🇲">drapeau</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominique</annotation>
+		<annotation cp="🇩🇴">drapeau</annotation>
+		<annotation cp="🇩🇴" type="tts">République dominicaine</annotation>
+		<annotation cp="🇩🇿">drapeau</annotation>
+		<annotation cp="🇩🇿" type="tts">Algérie</annotation>
+		<annotation cp="🇪🇦">drapeau</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta et Melilla</annotation>
+		<annotation cp="🇪🇨">drapeau</annotation>
+		<annotation cp="🇪🇨" type="tts">Équateur</annotation>
+		<annotation cp="🇪🇪">drapeau</annotation>
+		<annotation cp="🇪🇪" type="tts">Estonie</annotation>
+		<annotation cp="🇪🇬">drapeau</annotation>
+		<annotation cp="🇪🇬" type="tts">Égypte</annotation>
+		<annotation cp="🇪🇭">drapeau</annotation>
+		<annotation cp="🇪🇭" type="tts">Sahara occidental</annotation>
+		<annotation cp="🇪🇷">drapeau</annotation>
+		<annotation cp="🇪🇷" type="tts">Érythrée</annotation>
+		<annotation cp="🇪🇸">drapeau</annotation>
+		<annotation cp="🇪🇸" type="tts">Espagne</annotation>
+		<annotation cp="🇪🇹">drapeau</annotation>
+		<annotation cp="🇪🇹" type="tts">Éthiopie</annotation>
+		<annotation cp="🇪🇺">drapeau</annotation>
+		<annotation cp="🇪🇺" type="tts">Union européenne</annotation>
+		<annotation cp="🇫🇮">drapeau</annotation>
+		<annotation cp="🇫🇮" type="tts">Finlande</annotation>
+		<annotation cp="🇫🇯">drapeau</annotation>
+		<annotation cp="🇫🇯" type="tts">Fidji</annotation>
+		<annotation cp="🇫🇰">drapeau</annotation>
+		<annotation cp="🇫🇰" type="tts">Îles Malouines</annotation>
+		<annotation cp="🇫🇲">drapeau</annotation>
+		<annotation cp="🇫🇲" type="tts">États fédérés de Micronésie</annotation>
+		<annotation cp="🇫🇴">drapeau</annotation>
+		<annotation cp="🇫🇴" type="tts">Îles Féroé</annotation>
+		<annotation cp="🇫🇷">drapeau</annotation>
+		<annotation cp="🇫🇷" type="tts">France</annotation>
+		<annotation cp="🇬🇦">drapeau</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">drapeau</annotation>
+		<annotation cp="🇬🇧" type="tts">Royaume-Uni</annotation>
+		<annotation cp="🇬🇩">drapeau</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenade</annotation>
+		<annotation cp="🇬🇪">drapeau</annotation>
+		<annotation cp="🇬🇪" type="tts">Géorgie</annotation>
+		<annotation cp="🇬🇫">drapeau</annotation>
+		<annotation cp="🇬🇫" type="tts">Guyane française</annotation>
+		<annotation cp="🇬🇬">drapeau</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernesey</annotation>
+		<annotation cp="🇬🇭">drapeau</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">drapeau</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">drapeau</annotation>
+		<annotation cp="🇬🇱" type="tts">Groenland</annotation>
+		<annotation cp="🇬🇲">drapeau</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambie</annotation>
+		<annotation cp="🇬🇳">drapeau</annotation>
+		<annotation cp="🇬🇳" type="tts">Guinée</annotation>
+		<annotation cp="🇬🇵">drapeau</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇶">drapeau</annotation>
+		<annotation cp="🇬🇶" type="tts">Guinée équatoriale</annotation>
+		<annotation cp="🇬🇷">drapeau</annotation>
+		<annotation cp="🇬🇷" type="tts">Grèce</annotation>
+		<annotation cp="🇬🇸">drapeau</annotation>
+		<annotation cp="🇬🇸" type="tts">Géorgie du Sud et îles Sandwich du Sud</annotation>
+		<annotation cp="🇬🇹">drapeau</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">drapeau</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">drapeau</annotation>
+		<annotation cp="🇬🇼" type="tts">Guinée-Bissau</annotation>
+		<annotation cp="🇬🇾">drapeau</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">drapeau</annotation>
+		<annotation cp="🇭🇰" type="tts">R.A.S. chinoise de Hong Kong</annotation>
+		<annotation cp="🇭🇲">drapeau</annotation>
+		<annotation cp="🇭🇲" type="tts">Îles Heard et McDonald</annotation>
+		<annotation cp="🇭🇳">drapeau</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">drapeau</annotation>
+		<annotation cp="🇭🇷" type="tts">Croatie</annotation>
+		<annotation cp="🇭🇹">drapeau</annotation>
+		<annotation cp="🇭🇹" type="tts">Haïti</annotation>
+		<annotation cp="🇭🇺">drapeau</annotation>
+		<annotation cp="🇭🇺" type="tts">Hongrie</annotation>
+		<annotation cp="🇮🇨">drapeau</annotation>
+		<annotation cp="🇮🇨" type="tts">Îles Canaries</annotation>
+		<annotation cp="🇮🇩">drapeau</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonésie</annotation>
+		<annotation cp="🇮🇪">drapeau</annotation>
+		<annotation cp="🇮🇪" type="tts">Irlande</annotation>
+		<annotation cp="🇮🇱">drapeau</annotation>
+		<annotation cp="🇮🇱" type="tts">Israël</annotation>
+		<annotation cp="🇮🇲">drapeau</annotation>
+		<annotation cp="🇮🇲" type="tts">Île de Man</annotation>
+		<annotation cp="🇮🇳">drapeau</annotation>
+		<annotation cp="🇮🇳" type="tts">Inde</annotation>
+		<annotation cp="🇮🇴">drapeau</annotation>
+		<annotation cp="🇮🇴" type="tts">Territoire britannique de l’océan Indien</annotation>
+		<annotation cp="🇮🇶">drapeau</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">drapeau</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">drapeau</annotation>
+		<annotation cp="🇮🇸" type="tts">Islande</annotation>
+		<annotation cp="🇮🇹">drapeau</annotation>
+		<annotation cp="🇮🇹" type="tts">Italie</annotation>
+		<annotation cp="🇯🇪">drapeau</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">drapeau</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaïque</annotation>
+		<annotation cp="🇯🇴">drapeau</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordanie</annotation>
+		<annotation cp="🇯🇵">drapeau</annotation>
+		<annotation cp="🇯🇵" type="tts">Japon</annotation>
+		<annotation cp="🇰🇪">drapeau</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇬">drapeau</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirghizistan</annotation>
+		<annotation cp="🇰🇭">drapeau</annotation>
+		<annotation cp="🇰🇭" type="tts">Cambodge</annotation>
+		<annotation cp="🇰🇮">drapeau</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">drapeau</annotation>
+		<annotation cp="🇰🇲" type="tts">Comores</annotation>
+		<annotation cp="🇰🇳">drapeau</annotation>
+		<annotation cp="🇰🇳" type="tts">Saint-Christophe-et-Niévès</annotation>
+		<annotation cp="🇰🇵">drapeau</annotation>
+		<annotation cp="🇰🇵" type="tts">Corée du Nord</annotation>
+		<annotation cp="🇰🇷">drapeau</annotation>
+		<annotation cp="🇰🇷" type="tts">Corée du Sud</annotation>
+		<annotation cp="🇰🇼">drapeau</annotation>
+		<annotation cp="🇰🇼" type="tts">Koweït</annotation>
+		<annotation cp="🇰🇾">drapeau</annotation>
+		<annotation cp="🇰🇾" type="tts">Îles Caïmans</annotation>
+		<annotation cp="🇰🇿">drapeau</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazakhstan</annotation>
+		<annotation cp="🇱🇦">drapeau</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">drapeau</annotation>
+		<annotation cp="🇱🇧" type="tts">Liban</annotation>
+		<annotation cp="🇱🇨">drapeau</annotation>
+		<annotation cp="🇱🇨" type="tts">Sainte-Lucie</annotation>
+		<annotation cp="🇱🇮">drapeau</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">drapeau</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">drapeau</annotation>
+		<annotation cp="🇱🇷" type="tts">Libéria</annotation>
+		<annotation cp="🇱🇸">drapeau</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">drapeau</annotation>
+		<annotation cp="🇱🇹" type="tts">Lituanie</annotation>
+		<annotation cp="🇱🇺">drapeau</annotation>
+		<annotation cp="🇱🇺" type="tts">Luxembourg</annotation>
+		<annotation cp="🇱🇻">drapeau</annotation>
+		<annotation cp="🇱🇻" type="tts">Lettonie</annotation>
+		<annotation cp="🇱🇾">drapeau</annotation>
+		<annotation cp="🇱🇾" type="tts">Libye</annotation>
+		<annotation cp="🇲🇦">drapeau</annotation>
+		<annotation cp="🇲🇦" type="tts">Maroc</annotation>
+		<annotation cp="🇲🇨">drapeau</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">drapeau</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldavie</annotation>
+		<annotation cp="🇲🇪">drapeau</annotation>
+		<annotation cp="🇲🇪" type="tts">Monténégro</annotation>
+		<annotation cp="🇲🇫">drapeau</annotation>
+		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇬">drapeau</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagascar</annotation>
+		<annotation cp="🇲🇭">drapeau</annotation>
+		<annotation cp="🇲🇭" type="tts">Îles Marshall</annotation>
+		<annotation cp="🇲🇰">drapeau</annotation>
+		<annotation cp="🇲🇰" type="tts">Macédoine</annotation>
+		<annotation cp="🇲🇱">drapeau</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">drapeau</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanmar (Birmanie)</annotation>
+		<annotation cp="🇲🇳">drapeau</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolie</annotation>
+		<annotation cp="🇲🇴">drapeau</annotation>
+		<annotation cp="🇲🇴" type="tts">R.A.S. chinoise de Macao</annotation>
+		<annotation cp="🇲🇵">drapeau</annotation>
+		<annotation cp="🇲🇵" type="tts">Îles Mariannes du Nord</annotation>
+		<annotation cp="🇲🇶">drapeau</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇷">drapeau</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritanie</annotation>
+		<annotation cp="🇲🇸">drapeau</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">drapeau</annotation>
+		<annotation cp="🇲🇹" type="tts">Malte</annotation>
+		<annotation cp="🇲🇺">drapeau</annotation>
+		<annotation cp="🇲🇺" type="tts">Maurice</annotation>
+		<annotation cp="🇲🇻">drapeau</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldives</annotation>
+		<annotation cp="🇲🇼">drapeau</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">drapeau</annotation>
+		<annotation cp="🇲🇽" type="tts">Mexique</annotation>
+		<annotation cp="🇲🇾">drapeau</annotation>
+		<annotation cp="🇲🇾" type="tts">Malaisie</annotation>
+		<annotation cp="🇲🇿">drapeau</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
+		<annotation cp="🇳🇦">drapeau</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibie</annotation>
+		<annotation cp="🇳🇨">drapeau</annotation>
+		<annotation cp="🇳🇨" type="tts">Nouvelle-Calédonie</annotation>
+		<annotation cp="🇳🇪">drapeau</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">drapeau</annotation>
+		<annotation cp="🇳🇫" type="tts">Île Norfolk</annotation>
+		<annotation cp="🇳🇬">drapeau</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigéria</annotation>
+		<annotation cp="🇳🇮">drapeau</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">drapeau</annotation>
+		<annotation cp="🇳🇱" type="tts">Pays-Bas</annotation>
+		<annotation cp="🇳🇴">drapeau</annotation>
+		<annotation cp="🇳🇴" type="tts">Norvège</annotation>
+		<annotation cp="🇳🇵">drapeau</annotation>
+		<annotation cp="🇳🇵" type="tts">Népal</annotation>
+		<annotation cp="🇳🇷">drapeau</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">drapeau</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">drapeau</annotation>
+		<annotation cp="🇳🇿" type="tts">Nouvelle-Zélande</annotation>
+		<annotation cp="🇴🇲">drapeau</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">drapeau</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">drapeau</annotation>
+		<annotation cp="🇵🇪" type="tts">Pérou</annotation>
+		<annotation cp="🇵🇫">drapeau</annotation>
+		<annotation cp="🇵🇫" type="tts">Polynésie française</annotation>
+		<annotation cp="🇵🇬">drapeau</annotation>
+		<annotation cp="🇵🇬" type="tts">Papouasie-Nouvelle-Guinée</annotation>
+		<annotation cp="🇵🇭">drapeau</annotation>
+		<annotation cp="🇵🇭" type="tts">Philippines</annotation>
+		<annotation cp="🇵🇰">drapeau</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">drapeau</annotation>
+		<annotation cp="🇵🇱" type="tts">Pologne</annotation>
+		<annotation cp="🇵🇲">drapeau</annotation>
+		<annotation cp="🇵🇲" type="tts">Saint-Pierre-et-Miquelon</annotation>
+		<annotation cp="🇵🇳">drapeau</annotation>
+		<annotation cp="🇵🇳" type="tts">Îles Pitcairn</annotation>
+		<annotation cp="🇵🇷">drapeau</annotation>
+		<annotation cp="🇵🇷" type="tts">Porto Rico</annotation>
+		<annotation cp="🇵🇸">drapeau</annotation>
+		<annotation cp="🇵🇸" type="tts">Territoires palestiniens</annotation>
+		<annotation cp="🇵🇹">drapeau</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇼">drapeau</annotation>
+		<annotation cp="🇵🇼" type="tts">Palaos</annotation>
+		<annotation cp="🇵🇾">drapeau</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">drapeau</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">drapeau</annotation>
+		<annotation cp="🇷🇪" type="tts">La Réunion</annotation>
+		<annotation cp="🇷🇴">drapeau</annotation>
+		<annotation cp="🇷🇴" type="tts">Roumanie</annotation>
+		<annotation cp="🇷🇸">drapeau</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbie</annotation>
+		<annotation cp="🇷🇺">drapeau</annotation>
+		<annotation cp="🇷🇺" type="tts">Russie</annotation>
+		<annotation cp="🇷🇼">drapeau</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">drapeau</annotation>
+		<annotation cp="🇸🇦" type="tts">Arabie saoudite</annotation>
+		<annotation cp="🇸🇧">drapeau</annotation>
+		<annotation cp="🇸🇧" type="tts">Îles Salomon</annotation>
+		<annotation cp="🇸🇨">drapeau</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
+		<annotation cp="🇸🇩">drapeau</annotation>
+		<annotation cp="🇸🇩" type="tts">Soudan</annotation>
+		<annotation cp="🇸🇪">drapeau</annotation>
+		<annotation cp="🇸🇪" type="tts">Suède</annotation>
+		<annotation cp="🇸🇬">drapeau</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapour</annotation>
+		<annotation cp="🇸🇭">drapeau</annotation>
+		<annotation cp="🇸🇭" type="tts">Sainte-Hélène</annotation>
+		<annotation cp="🇸🇮">drapeau</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovénie</annotation>
+		<annotation cp="🇸🇯">drapeau</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard et Jan Mayen</annotation>
+		<annotation cp="🇸🇰">drapeau</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovaquie</annotation>
+		<annotation cp="🇸🇱">drapeau</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">drapeau</annotation>
+		<annotation cp="🇸🇲" type="tts">Saint-Marin</annotation>
+		<annotation cp="🇸🇳">drapeau</annotation>
+		<annotation cp="🇸🇳" type="tts">Sénégal</annotation>
+		<annotation cp="🇸🇴">drapeau</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalie</annotation>
+		<annotation cp="🇸🇷">drapeau</annotation>
+		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇸">drapeau</annotation>
+		<annotation cp="🇸🇸" type="tts">Soudan du Sud</annotation>
+		<annotation cp="🇸🇹">drapeau</annotation>
+		<annotation cp="🇸🇹" type="tts">Sao Tomé-et-Principe</annotation>
+		<annotation cp="🇸🇻">drapeau</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">drapeau</annotation>
+		<annotation cp="🇸🇽" type="tts">Saint-Martin (partie néerlandaise)</annotation>
+		<annotation cp="🇸🇾">drapeau</annotation>
+		<annotation cp="🇸🇾" type="tts">Syrie</annotation>
+		<annotation cp="🇸🇿">drapeau</annotation>
+		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇹🇦">drapeau</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">drapeau</annotation>
+		<annotation cp="🇹🇨" type="tts">Îles Turques-et-Caïques</annotation>
+		<annotation cp="🇹🇩">drapeau</annotation>
+		<annotation cp="🇹🇩" type="tts">Tchad</annotation>
+		<annotation cp="🇹🇫">drapeau</annotation>
+		<annotation cp="🇹🇫" type="tts">Terres australes françaises</annotation>
+		<annotation cp="🇹🇬">drapeau</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">drapeau</annotation>
+		<annotation cp="🇹🇭" type="tts">Thaïlande</annotation>
+		<annotation cp="🇹🇯">drapeau</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadjikistan</annotation>
+		<annotation cp="🇹🇰">drapeau</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokélaou</annotation>
+		<annotation cp="🇹🇱">drapeau</annotation>
+		<annotation cp="🇹🇱" type="tts">Timor oriental</annotation>
+		<annotation cp="🇹🇲">drapeau</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkménistan</annotation>
+		<annotation cp="🇹🇳">drapeau</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisie</annotation>
+		<annotation cp="🇹🇴">drapeau</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">drapeau</annotation>
+		<annotation cp="🇹🇷" type="tts">Turquie</annotation>
+		<annotation cp="🇹🇹">drapeau</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinité-et-Tobago</annotation>
+		<annotation cp="🇹🇻">drapeau</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">drapeau</annotation>
+		<annotation cp="🇹🇼" type="tts">Taïwan</annotation>
+		<annotation cp="🇹🇿">drapeau</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzanie</annotation>
+		<annotation cp="🇺🇦">drapeau</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukraine</annotation>
+		<annotation cp="🇺🇬">drapeau</annotation>
+		<annotation cp="🇺🇬" type="tts">Ouganda</annotation>
+		<annotation cp="🇺🇲">drapeau</annotation>
+		<annotation cp="🇺🇲" type="tts">Îles mineures éloignées des États-Unis</annotation>
+		<annotation cp="🇺🇳">drapeau</annotation>
+		<annotation cp="🇺🇳" type="tts">Nations Unies</annotation>
+		<annotation cp="🇺🇸">drapeau</annotation>
+		<annotation cp="🇺🇸" type="tts">États-Unis</annotation>
+		<annotation cp="🇺🇾">drapeau</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">drapeau</annotation>
+		<annotation cp="🇺🇿" type="tts">Ouzbékistan</annotation>
+		<annotation cp="🇻🇦">drapeau</annotation>
+		<annotation cp="🇻🇦" type="tts">État de la Cité du Vatican</annotation>
+		<annotation cp="🇻🇨">drapeau</annotation>
+		<annotation cp="🇻🇨" type="tts">Saint-Vincent-et-les-Grenadines</annotation>
+		<annotation cp="🇻🇪">drapeau</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">drapeau</annotation>
+		<annotation cp="🇻🇬" type="tts">Îles Vierges britanniques</annotation>
+		<annotation cp="🇻🇮">drapeau</annotation>
+		<annotation cp="🇻🇮" type="tts">Îles Vierges des États-Unis</annotation>
+		<annotation cp="🇻🇳">drapeau</annotation>
+		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇺">drapeau</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">drapeau</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis-et-Futuna</annotation>
+		<annotation cp="🇼🇸">drapeau</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">drapeau</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">drapeau</annotation>
+		<annotation cp="🇾🇪" type="tts">Yémen</annotation>
+		<annotation cp="🇾🇹">drapeau</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">drapeau</annotation>
+		<annotation cp="🇿🇦" type="tts">Afrique du Sud</annotation>
+		<annotation cp="🇿🇲">drapeau</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambie</annotation>
+		<annotation cp="🇿🇼">drapeau</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">drapeau</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Angleterre</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">drapeau</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Écosse</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">drapeau</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Pays de Galles</annotation>
+	</annotations>
+</ldml>

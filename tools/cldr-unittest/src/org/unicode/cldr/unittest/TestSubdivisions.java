@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -26,6 +27,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.impl.Row.R2;
 
 public class TestSubdivisions extends TestFmwkPlus {
+    private static final String SUB_DIR = CLDRPaths.COMMON_DIRECTORY + "subdivisions/";
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     public static void main(String[] args) {
@@ -36,7 +38,7 @@ public class TestSubdivisions extends TestFmwkPlus {
         Set<String> containers = SDI.getContainersForSubdivisions();
         assertNotNull("subdivision containers", containers);
         Set<String> states = SDI.getContainedSubdivisions("US");
-        
+
         assertRelation("US contains CA", true, states, TestFmwkPlus.CONTAINS, "usca");
 
         /*
@@ -53,16 +55,31 @@ public class TestSubdivisions extends TestFmwkPlus {
     }
 
 
-    public void TestEnglishNames() {
+    public void TestNames() {
         final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
+        // <subdivisionAlias type="CN-71" replacement="TW" reason="overlong"/>
+        //        R2<List<String>, String> region = subdivisionAliases.get(value);
         final Validity VALIDITY = Validity.getInstance();
         Set<String> deprecated = VALIDITY.getStatusToCodes(LstrType.subdivision).get(Status.deprecated);
 
+        for (String file : new File(SUB_DIR).list()) {
+            if (!file.endsWith(".xml")) {
+                continue;
+            }
+            checkSubdivisionFile(file, subdivisionAliases, deprecated);
+        }
+    }
+
+    private void checkSubdivisionFile(String file, 
+        final Map<String, R2<List<String>, String>> subdivisionAliases, 
+        Set<String> deprecated) {
+        
         List<Pair<String, String>> data = new ArrayList<>();
-        XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "subdivisions/en.xml", data, true);
+        XMLFileReader.loadPathValues(SUB_DIR + file, data, true);
+        logln(file + "\t" + data.size());
         ChainedMap.M4<String, String, String, Boolean> countryToNameToSubdivisions = ChainedMap.of(
             new TreeMap<String, Object>(), new TreeMap<String, Object>(), new TreeMap<String, Object>(), Boolean.class);
-        
+
         for (Pair<String, String> entry : data) {
             // <subdivision type="AD-02">Canillo</subdivision>
             XPathParts parts = XPathParts.getFrozenInstance(entry.getFirst());
@@ -72,7 +89,7 @@ public class TestSubdivisions extends TestFmwkPlus {
             String name = entry.getSecond();
             final String subdivision = parts.getAttributeValue(-1, "type");
             String country = subdivision.substring(0, 2);
-            
+
             // if there is an alias, we're ok, don't bother with it
             R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(subdivision);
             if (subdivisionAlias != null) {
@@ -119,8 +136,5 @@ public class TestSubdivisions extends TestFmwkPlus {
                 }
             }
         }
-        // <subdivisionAlias type="CN-71" replacement="TW" reason="overlong"/>
-//        R2<List<String>, String> region = subdivisionAliases.get(value);
-
     }
 }

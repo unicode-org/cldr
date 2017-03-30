@@ -1,0 +1,2418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="uz"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | nol | tugma</annotation>
+		<annotation cp="0⃣" type="tts">nol raqami tugmasi</annotation>
+		<annotation cp="1⃣">1 | bir | tugma</annotation>
+		<annotation cp="1⃣" type="tts">bir raqami tugmasi</annotation>
+		<annotation cp="2⃣">2 | ikki | tugma</annotation>
+		<annotation cp="2⃣" type="tts">ikki raqami tugmasi</annotation>
+		<annotation cp="3⃣">3 | tugma | uch</annotation>
+		<annotation cp="3⃣" type="tts">uch raqami tugmasi</annotation>
+		<annotation cp="4⃣">4 | to‘rt | tugma</annotation>
+		<annotation cp="4⃣" type="tts">to‘rt raqami tugmasi</annotation>
+		<annotation cp="5⃣">5 | besh | tugma</annotation>
+		<annotation cp="5⃣" type="tts">besh raqami tugmasi</annotation>
+		<annotation cp="6⃣">6 | olti | tugma</annotation>
+		<annotation cp="6⃣" type="tts">olti raqami tugmasi</annotation>
+		<annotation cp="7⃣">7 | tugma | yetti</annotation>
+		<annotation cp="7⃣" type="tts">yetti raqami tugmasi</annotation>
+		<annotation cp="8⃣">8 | sakkiz | tugma</annotation>
+		<annotation cp="8⃣" type="tts">sakkiz raqami tugmasi</annotation>
+		<annotation cp="9⃣">9 | to‘qqiz | tugma</annotation>
+		<annotation cp="9⃣" type="tts">to‘qqiz raqami tugmasi</annotation>
+		<annotation cp="👶🏻">chaqaloq | 1–2-teri turi</annotation>
+		<annotation cp="👶🏻" type="tts">chaqaloq: 1–2-teri turi</annotation>
+		<annotation cp="👶🏼">chaqaloq | 3-teri turi</annotation>
+		<annotation cp="👶🏼" type="tts">chaqaloq: 3-teri turi</annotation>
+		<annotation cp="👶🏽">chaqaloq | 4-teri turi</annotation>
+		<annotation cp="👶🏽" type="tts">chaqaloq: 4-teri turi</annotation>
+		<annotation cp="👶🏾">chaqaloq | 5-teri turi</annotation>
+		<annotation cp="👶🏾" type="tts">chaqaloq: 5-teri turi</annotation>
+		<annotation cp="👶🏿">chaqaloq | 6-teri turi</annotation>
+		<annotation cp="👶🏿" type="tts">chaqaloq: 6-teri turi</annotation>
+		<annotation cp="👦🏻">bola | erkak | 1–2-teri turi</annotation>
+		<annotation cp="👦🏻" type="tts">bola: 1–2-teri turi</annotation>
+		<annotation cp="👦🏼">bola | erkak | 3-teri turi</annotation>
+		<annotation cp="👦🏼" type="tts">bola: 3-teri turi</annotation>
+		<annotation cp="👦🏽">bola | erkak | 4-teri turi</annotation>
+		<annotation cp="👦🏽" type="tts">bola: 4-teri turi</annotation>
+		<annotation cp="👦🏾">bola | erkak | 5-teri turi</annotation>
+		<annotation cp="👦🏾" type="tts">bola: 5-teri turi</annotation>
+		<annotation cp="👦🏿">bola | erkak | 6-teri turi</annotation>
+		<annotation cp="👦🏿" type="tts">bola: 6-teri turi</annotation>
+		<annotation cp="👧🏻">bokira | bo‘yi yetgan | burj | sunbula | 1–2-teri turi</annotation>
+		<annotation cp="👧🏻" type="tts">qiz bola: 1–2-teri turi</annotation>
+		<annotation cp="👧🏼">bokira | bo‘yi yetgan | burj | sunbula | 3-teri turi</annotation>
+		<annotation cp="👧🏼" type="tts">qiz bola: 3-teri turi</annotation>
+		<annotation cp="👧🏽">bokira | bo‘yi yetgan | burj | sunbula | 4-teri turi</annotation>
+		<annotation cp="👧🏽" type="tts">qiz bola: 4-teri turi</annotation>
+		<annotation cp="👧🏾">bokira | bo‘yi yetgan | burj | sunbula | 5-teri turi</annotation>
+		<annotation cp="👧🏾" type="tts">qiz bola: 5-teri turi</annotation>
+		<annotation cp="👧🏿">bokira | bo‘yi yetgan | burj | sunbula | 6-teri turi</annotation>
+		<annotation cp="👧🏿" type="tts">qiz bola: 6-teri turi</annotation>
+		<annotation cp="👨🏻">erkak | kishi | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻" type="tts">erkak: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼">erkak | kishi | 3-teri turi</annotation>
+		<annotation cp="👨🏼" type="tts">erkak: 3-teri turi</annotation>
+		<annotation cp="👨🏽">erkak | kishi | 4-teri turi</annotation>
+		<annotation cp="👨🏽" type="tts">erkak: 4-teri turi</annotation>
+		<annotation cp="👨🏾">erkak | kishi | 5-teri turi</annotation>
+		<annotation cp="👨🏾" type="tts">erkak: 5-teri turi</annotation>
+		<annotation cp="👨🏿">erkak | kishi | 6-teri turi</annotation>
+		<annotation cp="👨🏿" type="tts">erkak: 6-teri turi</annotation>
+		<annotation cp="👩🏻">ayol | xotin | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻" type="tts">ayol: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼">ayol | xotin | 3-teri turi</annotation>
+		<annotation cp="👩🏼" type="tts">ayol: 3-teri turi</annotation>
+		<annotation cp="👩🏽">ayol | xotin | 4-teri turi</annotation>
+		<annotation cp="👩🏽" type="tts">ayol: 4-teri turi</annotation>
+		<annotation cp="👩🏾">ayol | xotin | 5-teri turi</annotation>
+		<annotation cp="👩🏾" type="tts">ayol: 5-teri turi</annotation>
+		<annotation cp="👩🏿">ayol | xotin | 6-teri turi</annotation>
+		<annotation cp="👩🏿" type="tts">ayol: 6-teri turi</annotation>
+		<annotation cp="👴🏻">erkak kishi | qari | 1–2-teri turi</annotation>
+		<annotation cp="👴🏻" type="tts">chol: 1–2-teri turi</annotation>
+		<annotation cp="👴🏼">erkak kishi | qari | 3-teri turi</annotation>
+		<annotation cp="👴🏼" type="tts">chol: 3-teri turi</annotation>
+		<annotation cp="👴🏽">erkak kishi | qari | 4-teri turi</annotation>
+		<annotation cp="👴🏽" type="tts">chol: 4-teri turi</annotation>
+		<annotation cp="👴🏾">erkak kishi | qari | 5-teri turi</annotation>
+		<annotation cp="👴🏾" type="tts">chol: 5-teri turi</annotation>
+		<annotation cp="👴🏿">erkak kishi | qari | 6-teri turi</annotation>
+		<annotation cp="👴🏿" type="tts">chol: 6-teri turi</annotation>
+		<annotation cp="👵🏻">ayol | qari | 1–2-teri turi</annotation>
+		<annotation cp="👵🏻" type="tts">kampir: 1–2-teri turi</annotation>
+		<annotation cp="👵🏼">ayol | qari | 3-teri turi</annotation>
+		<annotation cp="👵🏼" type="tts">kampir: 3-teri turi</annotation>
+		<annotation cp="👵🏽">ayol | qari | 4-teri turi</annotation>
+		<annotation cp="👵🏽" type="tts">kampir: 4-teri turi</annotation>
+		<annotation cp="👵🏾">ayol | qari | 5-teri turi</annotation>
+		<annotation cp="👵🏾" type="tts">kampir: 5-teri turi</annotation>
+		<annotation cp="👵🏿">ayol | qari | 6-teri turi</annotation>
+		<annotation cp="👵🏿" type="tts">kampir: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍⚕">doktor | salomatlik | shifokor | terapevt | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">erkak shifokor: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍⚕">doktor | salomatlik | shifokor | terapevt | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">erkak shifokor: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍⚕">doktor | salomatlik | shifokor | terapevt | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">erkak shifokor: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍⚕">doktor | salomatlik | shifokor | terapevt | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">erkak shifokor: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍⚕">doktor | salomatlik | shifokor | terapevt | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">erkak shifokor: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍⚕">ayol | doktor | hamshira | sog‘liqni saqlash | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">ayol shifokor: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍⚕">ayol | doktor | hamshira | sog‘liqni saqlash | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">ayol shifokor: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍⚕">ayol | doktor | hamshira | sog‘liqni saqlash | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">ayol shifokor: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍⚕">ayol | doktor | hamshira | sog‘liqni saqlash | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">ayol shifokor: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍⚕">ayol | doktor | hamshira | sog‘liqni saqlash | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">ayol shifokor: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🎓">bitiruvchi | erkak | kishi | talaba | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">erkak talaba: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🎓">bitiruvchi | erkak | kishi | talaba | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">erkak talaba: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🎓">bitiruvchi | erkak | kishi | talaba | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">erkak talaba: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🎓">bitiruvchi | erkak | kishi | talaba | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">erkak talaba: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🎓">bitiruvchi | erkak | kishi | talaba | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">erkak talaba: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🎓">ayol | bitiruvchi | talaba | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">ayol talaba: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🎓">ayol | bitiruvchi | talaba | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">ayol talaba: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🎓">ayol | bitiruvchi | talaba | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">ayol talaba: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🎓">ayol | bitiruvchi | talaba | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">ayol talaba: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🎓">ayol | bitiruvchi | talaba | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">ayol talaba: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🏫">erkak | o‘qituvchi | professor | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">erkak o‘qituvchi: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🏫">erkak | o‘qituvchi | professor | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">erkak o‘qituvchi: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🏫">erkak | o‘qituvchi | professor | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">erkak o‘qituvchi: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🏫">erkak | o‘qituvchi | professor | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">erkak o‘qituvchi: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🏫">erkak | o‘qituvchi | professor | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">erkak o‘qituvchi: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🏫">ayol | o‘qituvchi | professor | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">ayol o‘qituvchi: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🏫">ayol | o‘qituvchi | professor | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">ayol o‘qituvchi: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🏫">ayol | o‘qituvchi | professor | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">ayol o‘qituvchi: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🏫">ayol | o‘qituvchi | professor | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">ayol o‘qituvchi: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🏫">ayol | o‘qituvchi | professor | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">ayol o‘qituvchi: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍⚖">adliya | erkak | kishi | tarozi | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">erkak sudya: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍⚖">adliya | erkak | kishi | tarozi | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">erkak sudya: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍⚖">adliya | erkak | kishi | tarozi | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">erkak sudya: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍⚖">adliya | erkak | kishi | tarozi | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">erkak sudya: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍⚖">adliya | erkak | kishi | tarozi | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">erkak sudya: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍⚖">ayol | sudya | tarozi | xotin | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">ayol sudya: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍⚖">ayol | sudya | tarozi | xotin | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">ayol sudya: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍⚖">ayol | sudya | tarozi | xotin | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">ayol sudya: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍⚖">ayol | sudya | tarozi | xotin | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">ayol sudya: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍⚖">ayol | sudya | tarozi | xotin | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">ayol sudya: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🌾">bog‘bon | erkak | fermer | rancho egasi | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">erkak fermer: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🌾">bog‘bon | erkak | fermer | rancho egasi | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">erkak fermer: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🌾">bog‘bon | erkak | fermer | rancho egasi | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">erkak fermer: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🌾">bog‘bon | erkak | fermer | rancho egasi | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">erkak fermer: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🌾">bog‘bon | erkak | fermer | rancho egasi | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">erkak fermer: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🌾">ayol | bog‘bon | fermer | rancho egasi | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">ayol fermer: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🌾">ayol | bog‘bon | fermer | rancho egasi | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">ayol fermer: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🌾">ayol | bog‘bon | fermer | rancho egasi | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">ayol fermer: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🌾">ayol | bog‘bon | fermer | rancho egasi | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">ayol fermer: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🌾">ayol | bog‘bon | fermer | rancho egasi | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">ayol fermer: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🍳">bosh oshpaz | erkak | kishi | oshpaz | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">erkak oshpaz: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🍳">bosh oshpaz | erkak | kishi | oshpaz | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">erkak oshpaz: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🍳">bosh oshpaz | erkak | kishi | oshpaz | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">erkak oshpaz: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🍳">bosh oshpaz | erkak | kishi | oshpaz | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">erkak oshpaz: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🍳">bosh oshpaz | erkak | kishi | oshpaz | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">erkak oshpaz: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🍳">ayol | bosh oshpaz | oshpaz | xotin | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">ayol oshpaz: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🍳">ayol | bosh oshpaz | oshpaz | xotin | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">ayol oshpaz: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🍳">ayol | bosh oshpaz | oshpaz | xotin | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">ayol oshpaz: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🍳">ayol | bosh oshpaz | oshpaz | xotin | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">ayol oshpaz: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🍳">ayol | bosh oshpaz | oshpaz | xotin | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">ayol oshpaz: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🔧">elektrik | mexanik | santexnik | sotuvchi | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">erkak mexanik: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🔧">elektrik | mexanik | santexnik | sotuvchi | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">erkak mexanik: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🔧">elektrik | mexanik | santexnik | sotuvchi | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">erkak mexanik: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🔧">elektrik | mexanik | santexnik | sotuvchi | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">erkak mexanik: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🔧">elektrik | mexanik | santexnik | sotuvchi | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">erkak mexanik: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🔧">elektrik | mexanik | santexnik | sotuvchi | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">ayol mexanik: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🔧">elektrik | mexanik | santexnik | sotuvchi | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">ayol mexanik: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🔧">elektrik | mexanik | santexnik | sotuvchi | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">ayol mexanik: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🔧">elektrik | mexanik | santexnik | sotuvchi | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">ayol mexanik: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🔧">elektrik | mexanik | santexnik | sotuvchi | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">ayol mexanik: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🏭">ishchi | sanoat | yig‘uv | zavod | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">erkak zavod ishchisi: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🏭">ishchi | sanoat | yig‘uv | zavod | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">erkak zavod ishchisi: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🏭">ishchi | sanoat | yig‘uv | zavod | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">erkak zavod ishchisi: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🏭">ishchi | sanoat | yig‘uv | zavod | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">erkak zavod ishchisi: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🏭">ishchi | sanoat | yig‘uv | zavod | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">erkak zavod ishchisi: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🏭">ishchi | sanoat | yig‘uv | zavod | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">ayol zavod ishchisi: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🏭">ishchi | sanoat | yig‘uv | zavod | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">ayol zavod ishchisi: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🏭">ishchi | sanoat | yig‘uv | zavod | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">ayol zavod ishchisi: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🏭">ishchi | sanoat | yig‘uv | zavod | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">ayol zavod ishchisi: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🏭">ishchi | sanoat | yig‘uv | zavod | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">ayol zavod ishchisi: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍💼">arxitektor | biznes | menejer | ofis | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">erkak ofis xodimi: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍💼">arxitektor | biznes | menejer | ofis | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">erkak ofis xodimi: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍💼">arxitektor | biznes | menejer | ofis | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">erkak ofis xodimi: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍💼">arxitektor | biznes | menejer | ofis | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">erkak ofis xodimi: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍💼">arxitektor | biznes | menejer | ofis | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">erkak ofis xodimi: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍💼">arxitektor | biznes | menejer | ofis | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">ayol ofis xodimi: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍💼">arxitektor | biznes | menejer | ofis | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">ayol ofis xodimi: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍💼">arxitektor | biznes | menejer | ofis | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">ayol ofis xodimi: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍💼">arxitektor | biznes | menejer | ofis | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">ayol ofis xodimi: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍💼">arxitektor | biznes | menejer | ofis | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">ayol ofis xodimi: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🔬">biolog | kimyogar | matematik | muhandis | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">erkak olim: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🔬">biolog | kimyogar | matematik | muhandis | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">erkak olim: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🔬">biolog | kimyogar | matematik | muhandis | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">erkak olim: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🔬">biolog | kimyogar | matematik | muhandis | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">erkak olim: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🔬">biolog | kimyogar | matematik | muhandis | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">erkak olim: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🔬">biolog | kimyogar | matematik | muhandis | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">ayol olim: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🔬">biolog | kimyogar | matematik | muhandis | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">ayol olim: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🔬">biolog | kimyogar | matematik | muhandis | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">ayol olim: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🔬">biolog | kimyogar | matematik | muhandis | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">ayol olim: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🔬">biolog | kimyogar | matematik | muhandis | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">ayol olim: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍💻">ishlab chiquvchi | ixtirochi | kodchi | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">erkak texnolog: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍💻">ishlab chiquvchi | ixtirochi | kodchi | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">erkak texnolog: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍💻">ishlab chiquvchi | ixtirochi | kodchi | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">erkak texnolog: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍💻">ishlab chiquvchi | ixtirochi | kodchi | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">erkak texnolog: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍💻">ishlab chiquvchi | ixtirochi | kodchi | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">erkak texnolog: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍💻">ishlab chiquvchi | ixtirochi | kodchi | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">ayol texnolog: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍💻">ishlab chiquvchi | ixtirochi | kodchi | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">ayol texnolog: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍💻">ishlab chiquvchi | ixtirochi | kodchi | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">ayol texnolog: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍💻">ishlab chiquvchi | ixtirochi | kodchi | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">ayol texnolog: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍💻">ishlab chiquvchi | ixtirochi | kodchi | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">ayol texnolog: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">erkak qo‘shiqchi: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">erkak qo‘shiqchi: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">erkak qo‘shiqchi: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">erkak qo‘shiqchi: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">erkak qo‘shiqchi: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">ayol qo‘shiqchi: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">ayol qo‘shiqchi: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">ayol qo‘shiqchi: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">ayol qo‘shiqchi: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🎤">aktor | estrada artisti | qo‘shiqchi | rok | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">ayol qo‘shiqchi: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🎨">artist | erkak | kishi | palitra | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">erkak rassom: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🎨">artist | erkak | kishi | palitra | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">erkak rassom: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🎨">artist | erkak | kishi | palitra | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">erkak rassom: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🎨">artist | erkak | kishi | palitra | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">erkak rassom: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🎨">artist | erkak | kishi | palitra | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">erkak rassom: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🎨">artist | ayol | palitra | xotin | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">ayol rassom: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🎨">artist | ayol | palitra | xotin | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">ayol rassom: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🎨">artist | ayol | palitra | xotin | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">ayol rassom: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🎨">artist | ayol | palitra | xotin | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">ayol rassom: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🎨">artist | ayol | palitra | xotin | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">ayol rassom: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍✈">erkak | kishi | samolyot | uchuvchi | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">erkak uchuvchi: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍✈">erkak | kishi | samolyot | uchuvchi | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">erkak uchuvchi: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍✈">erkak | kishi | samolyot | uchuvchi | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">erkak uchuvchi: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍✈">erkak | kishi | samolyot | uchuvchi | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">erkak uchuvchi: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍✈">erkak | kishi | samolyot | uchuvchi | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">erkak uchuvchi: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍✈">ayol | samolyot | uchuvchi | xotin | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">ayol uchuvchi: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍✈">ayol | samolyot | uchuvchi | xotin | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">ayol uchuvchi: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍✈">ayol | samolyot | uchuvchi | xotin | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">ayol uchuvchi: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍✈">ayol | samolyot | uchuvchi | xotin | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">ayol uchuvchi: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍✈">ayol | samolyot | uchuvchi | xotin | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">ayol uchuvchi: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🚀">erkak | fazo | kosmonavt | raketa | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">erkak kosmonavt: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🚀">erkak | fazo | kosmonavt | raketa | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">erkak kosmonavt: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🚀">erkak | fazo | kosmonavt | raketa | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">erkak kosmonavt: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🚀">erkak | fazo | kosmonavt | raketa | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">erkak kosmonavt: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🚀">erkak | fazo | kosmonavt | raketa | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">erkak kosmonavt: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🚀">ayol | fazo | kosmonavt | raketa | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">ayol kosmonavt: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🚀">ayol | fazo | kosmonavt | raketa | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">ayol kosmonavt: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🚀">ayol | fazo | kosmonavt | raketa | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">ayol kosmonavt: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🚀">ayol | fazo | kosmonavt | raketa | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">ayol kosmonavt: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🚀">ayol | fazo | kosmonavt | raketa | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">ayol kosmonavt: 6-teri turi</annotation>
+		<annotation cp="👨🏻‍🚒">erkak | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">erkak o‘t o‘chiruvchi: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🚒">erkak | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">erkak o‘t o‘chiruvchi: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🚒">erkak | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">erkak o‘t o‘chiruvchi: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🚒">erkak | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">erkak o‘t o‘chiruvchi: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🚒">erkak | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 6-teri turi</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">erkak o‘t o‘chiruvchi: 6-teri turi</annotation>
+		<annotation cp="👩🏻‍🚒">ayol | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">ayol o‘t o‘chiruvchi: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🚒">ayol | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">ayol o‘t o‘chiruvchi: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🚒">ayol | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">ayol o‘t o‘chiruvchi: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🚒">ayol | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">ayol o‘t o‘chiruvchi: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🚒">ayol | o‘t o‘chirish mashinasi | o‘t o‘chiruvchi | 6-teri turi</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">ayol o‘t o‘chiruvchi: 6-teri turi</annotation>
+		<annotation cp="👮🏻">militsioner | mirshab | politsiya | 1–2-teri turi</annotation>
+		<annotation cp="👮🏻" type="tts">politsiya xodimi: 1–2-teri turi</annotation>
+		<annotation cp="👮🏼">militsioner | mirshab | politsiya | 3-teri turi</annotation>
+		<annotation cp="👮🏼" type="tts">politsiya xodimi: 3-teri turi</annotation>
+		<annotation cp="👮🏽">militsioner | mirshab | politsiya | 4-teri turi</annotation>
+		<annotation cp="👮🏽" type="tts">politsiya xodimi: 4-teri turi</annotation>
+		<annotation cp="👮🏾">militsioner | mirshab | politsiya | 5-teri turi</annotation>
+		<annotation cp="👮🏾" type="tts">politsiya xodimi: 5-teri turi</annotation>
+		<annotation cp="👮🏿">militsioner | mirshab | politsiya | 6-teri turi</annotation>
+		<annotation cp="👮🏿" type="tts">politsiya xodimi: 6-teri turi</annotation>
+		<annotation cp="👮🏻‍♂">erkak | politsiya | politsiyachi | 1–2-teri turi</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">erkak politsiyachi: 1–2-teri turi</annotation>
+		<annotation cp="👮🏼‍♂">erkak | politsiya | politsiyachi | 3-teri turi</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">erkak politsiyachi: 3-teri turi</annotation>
+		<annotation cp="👮🏽‍♂">erkak | politsiya | politsiyachi | 4-teri turi</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">erkak politsiyachi: 4-teri turi</annotation>
+		<annotation cp="👮🏾‍♂">erkak | politsiya | politsiyachi | 5-teri turi</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">erkak politsiyachi: 5-teri turi</annotation>
+		<annotation cp="👮🏿‍♂">erkak | politsiya | politsiyachi | 6-teri turi</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">erkak politsiyachi: 6-teri turi</annotation>
+		<annotation cp="👮🏻‍♀">ayol | politsiya | politsiyachi | 1–2-teri turi</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">ayol politsiyachi: 1–2-teri turi</annotation>
+		<annotation cp="👮🏼‍♀">ayol | politsiya | politsiyachi | 3-teri turi</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">ayol politsiyachi: 3-teri turi</annotation>
+		<annotation cp="👮🏽‍♀">ayol | politsiya | politsiyachi | 4-teri turi</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">ayol politsiyachi: 4-teri turi</annotation>
+		<annotation cp="👮🏾‍♀">ayol | politsiya | politsiyachi | 5-teri turi</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">ayol politsiyachi: 5-teri turi</annotation>
+		<annotation cp="👮🏿‍♀">ayol | politsiya | politsiyachi | 6-teri turi</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">ayol politsiyachi: 6-teri turi</annotation>
+		<annotation cp="🕵🏻">josus | 1–2-teri turi</annotation>
+		<annotation cp="🕵🏻" type="tts">izquvar: 1–2-teri turi</annotation>
+		<annotation cp="🕵🏼">josus | 3-teri turi</annotation>
+		<annotation cp="🕵🏼" type="tts">izquvar: 3-teri turi</annotation>
+		<annotation cp="🕵🏽">josus | 4-teri turi</annotation>
+		<annotation cp="🕵🏽" type="tts">izquvar: 4-teri turi</annotation>
+		<annotation cp="🕵🏾">josus | 5-teri turi</annotation>
+		<annotation cp="🕵🏾" type="tts">izquvar: 5-teri turi</annotation>
+		<annotation cp="🕵🏿">josus | 6-teri turi</annotation>
+		<annotation cp="🕵🏿" type="tts">izquvar: 6-teri turi</annotation>
+		<annotation cp="🕵🏻‍♂">detektiv | erkak | izquvar | josus | 1–2-teri turi</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">erkak izquvar: 1–2-teri turi</annotation>
+		<annotation cp="🕵🏼‍♂">detektiv | erkak | izquvar | josus | 3-teri turi</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">erkak izquvar: 3-teri turi</annotation>
+		<annotation cp="🕵🏽‍♂">detektiv | erkak | izquvar | josus | 4-teri turi</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">erkak izquvar: 4-teri turi</annotation>
+		<annotation cp="🕵🏾‍♂">detektiv | erkak | izquvar | josus | 5-teri turi</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">erkak izquvar: 5-teri turi</annotation>
+		<annotation cp="🕵🏿‍♂">detektiv | erkak | izquvar | josus | 6-teri turi</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">erkak izquvar: 6-teri turi</annotation>
+		<annotation cp="🕵🏻‍♀">ayol | detektiv | izquvar | josus | 1–2-teri turi</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">ayol izquvar: 1–2-teri turi</annotation>
+		<annotation cp="🕵🏼‍♀">ayol | detektiv | izquvar | josus | 3-teri turi</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">ayol izquvar: 3-teri turi</annotation>
+		<annotation cp="🕵🏽‍♀">ayol | detektiv | izquvar | josus | 4-teri turi</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">ayol izquvar: 4-teri turi</annotation>
+		<annotation cp="🕵🏾‍♀">ayol | detektiv | izquvar | josus | 5-teri turi</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">ayol izquvar: 5-teri turi</annotation>
+		<annotation cp="🕵🏿‍♀">ayol | detektiv | izquvar | josus | 6-teri turi</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">ayol izquvar: 6-teri turi</annotation>
+		<annotation cp="💂🏻">soqchi | 1–2-teri turi</annotation>
+		<annotation cp="💂🏻" type="tts">qo‘riqchi: 1–2-teri turi</annotation>
+		<annotation cp="💂🏼">soqchi | 3-teri turi</annotation>
+		<annotation cp="💂🏼" type="tts">qo‘riqchi: 3-teri turi</annotation>
+		<annotation cp="💂🏽">soqchi | 4-teri turi</annotation>
+		<annotation cp="💂🏽" type="tts">qo‘riqchi: 4-teri turi</annotation>
+		<annotation cp="💂🏾">soqchi | 5-teri turi</annotation>
+		<annotation cp="💂🏾" type="tts">qo‘riqchi: 5-teri turi</annotation>
+		<annotation cp="💂🏿">soqchi | 6-teri turi</annotation>
+		<annotation cp="💂🏿" type="tts">qo‘riqchi: 6-teri turi</annotation>
+		<annotation cp="💂🏻‍♂">erkak | qo‘riqchi | 1–2-teri turi</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">erkak qo‘riqchi: 1–2-teri turi</annotation>
+		<annotation cp="💂🏼‍♂">erkak | qo‘riqchi | 3-teri turi</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">erkak qo‘riqchi: 3-teri turi</annotation>
+		<annotation cp="💂🏽‍♂">erkak | qo‘riqchi | 4-teri turi</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">erkak qo‘riqchi: 4-teri turi</annotation>
+		<annotation cp="💂🏾‍♂">erkak | qo‘riqchi | 5-teri turi</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">erkak qo‘riqchi: 5-teri turi</annotation>
+		<annotation cp="💂🏿‍♂">erkak | qo‘riqchi | 6-teri turi</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">erkak qo‘riqchi: 6-teri turi</annotation>
+		<annotation cp="💂🏻‍♀">ayol | qo‘riqchi | 1–2-teri turi</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">ayol qo‘riqchi: 1–2-teri turi</annotation>
+		<annotation cp="💂🏼‍♀">ayol | qo‘riqchi | 3-teri turi</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">ayol qo‘riqchi: 3-teri turi</annotation>
+		<annotation cp="💂🏽‍♀">ayol | qo‘riqchi | 4-teri turi</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">ayol qo‘riqchi: 4-teri turi</annotation>
+		<annotation cp="💂🏾‍♀">ayol | qo‘riqchi | 5-teri turi</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">ayol qo‘riqchi: 5-teri turi</annotation>
+		<annotation cp="💂🏿‍♀">ayol | qo‘riqchi | 6-teri turi</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">ayol qo‘riqchi: 6-teri turi</annotation>
+		<annotation cp="👷🏻">bosh kiyim | ishchi | qurilish | 1–2-teri turi</annotation>
+		<annotation cp="👷🏻" type="tts">quruvchi: 1–2-teri turi</annotation>
+		<annotation cp="👷🏼">bosh kiyim | ishchi | qurilish | 3-teri turi</annotation>
+		<annotation cp="👷🏼" type="tts">quruvchi: 3-teri turi</annotation>
+		<annotation cp="👷🏽">bosh kiyim | ishchi | qurilish | 4-teri turi</annotation>
+		<annotation cp="👷🏽" type="tts">quruvchi: 4-teri turi</annotation>
+		<annotation cp="👷🏾">bosh kiyim | ishchi | qurilish | 5-teri turi</annotation>
+		<annotation cp="👷🏾" type="tts">quruvchi: 5-teri turi</annotation>
+		<annotation cp="👷🏿">bosh kiyim | ishchi | qurilish | 6-teri turi</annotation>
+		<annotation cp="👷🏿" type="tts">quruvchi: 6-teri turi</annotation>
+		<annotation cp="👷🏻‍♂">erkak | qurilish | quruvchi | 1–2-teri turi</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">erkak quruvchi: 1–2-teri turi</annotation>
+		<annotation cp="👷🏼‍♂">erkak | qurilish | quruvchi | 3-teri turi</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">erkak quruvchi: 3-teri turi</annotation>
+		<annotation cp="👷🏽‍♂">erkak | qurilish | quruvchi | 4-teri turi</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">erkak quruvchi: 4-teri turi</annotation>
+		<annotation cp="👷🏾‍♂">erkak | qurilish | quruvchi | 5-teri turi</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">erkak quruvchi: 5-teri turi</annotation>
+		<annotation cp="👷🏿‍♂">erkak | qurilish | quruvchi | 6-teri turi</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">erkak quruvchi: 6-teri turi</annotation>
+		<annotation cp="👷🏻‍♀">ayol | qurilish | quruvchi | 1–2-teri turi</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">ayol quruvchi: 1–2-teri turi</annotation>
+		<annotation cp="👷🏼‍♀">ayol | qurilish | quruvchi | 3-teri turi</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">ayol quruvchi: 3-teri turi</annotation>
+		<annotation cp="👷🏽‍♀">ayol | qurilish | quruvchi | 4-teri turi</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">ayol quruvchi: 4-teri turi</annotation>
+		<annotation cp="👷🏾‍♀">ayol | qurilish | quruvchi | 5-teri turi</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">ayol quruvchi: 5-teri turi</annotation>
+		<annotation cp="👷🏿‍♀">ayol | qurilish | quruvchi | 6-teri turi</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">ayol quruvchi: 6-teri turi</annotation>
+		<annotation cp="🤴🏻">shahzoda | 1–2-teri turi</annotation>
+		<annotation cp="🤴🏻" type="tts">shahzoda: 1–2-teri turi</annotation>
+		<annotation cp="🤴🏼">shahzoda | 3-teri turi</annotation>
+		<annotation cp="🤴🏼" type="tts">shahzoda: 3-teri turi</annotation>
+		<annotation cp="🤴🏽">shahzoda | 4-teri turi</annotation>
+		<annotation cp="🤴🏽" type="tts">shahzoda: 4-teri turi</annotation>
+		<annotation cp="🤴🏾">shahzoda | 5-teri turi</annotation>
+		<annotation cp="🤴🏾" type="tts">shahzoda: 5-teri turi</annotation>
+		<annotation cp="🤴🏿">shahzoda | 6-teri turi</annotation>
+		<annotation cp="🤴🏿" type="tts">shahzoda: 6-teri turi</annotation>
+		<annotation cp="👸🏻">ertak | fantaziya | 1–2-teri turi</annotation>
+		<annotation cp="👸🏻" type="tts">malika: 1–2-teri turi</annotation>
+		<annotation cp="👸🏼">ertak | fantaziya | 3-teri turi</annotation>
+		<annotation cp="👸🏼" type="tts">malika: 3-teri turi</annotation>
+		<annotation cp="👸🏽">ertak | fantaziya | 4-teri turi</annotation>
+		<annotation cp="👸🏽" type="tts">malika: 4-teri turi</annotation>
+		<annotation cp="👸🏾">ertak | fantaziya | 5-teri turi</annotation>
+		<annotation cp="👸🏾" type="tts">malika: 5-teri turi</annotation>
+		<annotation cp="👸🏿">ertak | fantaziya | 6-teri turi</annotation>
+		<annotation cp="👸🏿" type="tts">malika: 6-teri turi</annotation>
+		<annotation cp="👳🏻">erkak | salla | 1–2-teri turi</annotation>
+		<annotation cp="👳🏻" type="tts">salla kiygan erkak: 1–2-teri turi</annotation>
+		<annotation cp="👳🏼">erkak | salla | 3-teri turi</annotation>
+		<annotation cp="👳🏼" type="tts">salla kiygan erkak: 3-teri turi</annotation>
+		<annotation cp="👳🏽">erkak | salla | 4-teri turi</annotation>
+		<annotation cp="👳🏽" type="tts">salla kiygan erkak: 4-teri turi</annotation>
+		<annotation cp="👳🏾">erkak | salla | 5-teri turi</annotation>
+		<annotation cp="👳🏾" type="tts">salla kiygan erkak: 5-teri turi</annotation>
+		<annotation cp="👳🏿">erkak | salla | 6-teri turi</annotation>
+		<annotation cp="👳🏿" type="tts">salla kiygan erkak: 6-teri turi</annotation>
+		<annotation cp="👳🏻‍♂">erkak | salla | 1–2-teri turi</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">sallali erkak: 1–2-teri turi</annotation>
+		<annotation cp="👳🏼‍♂">erkak | salla | 3-teri turi</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">sallali erkak: 3-teri turi</annotation>
+		<annotation cp="👳🏽‍♂">erkak | salla | 4-teri turi</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">sallali erkak: 4-teri turi</annotation>
+		<annotation cp="👳🏾‍♂">erkak | salla | 5-teri turi</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">sallali erkak: 5-teri turi</annotation>
+		<annotation cp="👳🏿‍♂">erkak | salla | 6-teri turi</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">sallali erkak: 6-teri turi</annotation>
+		<annotation cp="👳🏻‍♀">ayol | salla | 1–2-teri turi</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">sallali ayol: 1–2-teri turi</annotation>
+		<annotation cp="👳🏼‍♀">ayol | salla | 3-teri turi</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">sallali ayol: 3-teri turi</annotation>
+		<annotation cp="👳🏽‍♀">ayol | salla | 4-teri turi</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">sallali ayol: 4-teri turi</annotation>
+		<annotation cp="👳🏾‍♀">ayol | salla | 5-teri turi</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">sallali ayol: 5-teri turi</annotation>
+		<annotation cp="👳🏿‍♀">ayol | salla | 6-teri turi</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">sallali ayol: 6-teri turi</annotation>
+		<annotation cp="👲🏻">bosh kiyim | erkak kishi | gua pi mao | 1–2-teri turi</annotation>
+		<annotation cp="👲🏻" type="tts">xitoy bosh kiyimini kiygan kishi: 1–2-teri turi</annotation>
+		<annotation cp="👲🏼">bosh kiyim | erkak kishi | gua pi mao | 3-teri turi</annotation>
+		<annotation cp="👲🏼" type="tts">xitoy bosh kiyimini kiygan kishi: 3-teri turi</annotation>
+		<annotation cp="👲🏽">bosh kiyim | erkak kishi | gua pi mao | 4-teri turi</annotation>
+		<annotation cp="👲🏽" type="tts">xitoy bosh kiyimini kiygan kishi: 4-teri turi</annotation>
+		<annotation cp="👲🏾">bosh kiyim | erkak kishi | gua pi mao | 5-teri turi</annotation>
+		<annotation cp="👲🏾" type="tts">xitoy bosh kiyimini kiygan kishi: 5-teri turi</annotation>
+		<annotation cp="👲🏿">bosh kiyim | erkak kishi | gua pi mao | 6-teri turi</annotation>
+		<annotation cp="👲🏿" type="tts">xitoy bosh kiyimini kiygan kishi: 6-teri turi</annotation>
+		<annotation cp="👱🏻">sariq | 1–2-teri turi</annotation>
+		<annotation cp="👱🏻" type="tts">sariq sochli odam: 1–2-teri turi</annotation>
+		<annotation cp="👱🏼">sariq | 3-teri turi</annotation>
+		<annotation cp="👱🏼" type="tts">sariq sochli odam: 3-teri turi</annotation>
+		<annotation cp="👱🏽">sariq | 4-teri turi</annotation>
+		<annotation cp="👱🏽" type="tts">sariq sochli odam: 4-teri turi</annotation>
+		<annotation cp="👱🏾">sariq | 5-teri turi</annotation>
+		<annotation cp="👱🏾" type="tts">sariq sochli odam: 5-teri turi</annotation>
+		<annotation cp="👱🏿">sariq | 6-teri turi</annotation>
+		<annotation cp="👱🏿" type="tts">sariq sochli odam: 6-teri turi</annotation>
+		<annotation cp="👱🏻‍♂">erkak | oq-sariq | sarg‘ish | 1–2-teri turi</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">oq-sariq sochli erkak: 1–2-teri turi</annotation>
+		<annotation cp="👱🏼‍♂">erkak | oq-sariq | sarg‘ish | 3-teri turi</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">oq-sariq sochli erkak: 3-teri turi</annotation>
+		<annotation cp="👱🏽‍♂">erkak | oq-sariq | sarg‘ish | 4-teri turi</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">oq-sariq sochli erkak: 4-teri turi</annotation>
+		<annotation cp="👱🏾‍♂">erkak | oq-sariq | sarg‘ish | 5-teri turi</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">oq-sariq sochli erkak: 5-teri turi</annotation>
+		<annotation cp="👱🏿‍♂">erkak | oq-sariq | sarg‘ish | 6-teri turi</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">oq-sariq sochli erkak: 6-teri turi</annotation>
+		<annotation cp="👱🏻‍♀">ayol | oq-sariq | sarg‘ish | 1–2-teri turi</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">oq-sariq sochli ayol: 1–2-teri turi</annotation>
+		<annotation cp="👱🏼‍♀">ayol | oq-sariq | sarg‘ish | 3-teri turi</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">oq-sariq sochli ayol: 3-teri turi</annotation>
+		<annotation cp="👱🏽‍♀">ayol | oq-sariq | sarg‘ish | 4-teri turi</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">oq-sariq sochli ayol: 4-teri turi</annotation>
+		<annotation cp="👱🏾‍♀">ayol | oq-sariq | sarg‘ish | 5-teri turi</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">oq-sariq sochli ayol: 5-teri turi</annotation>
+		<annotation cp="👱🏿‍♀">ayol | oq-sariq | sarg‘ish | 6-teri turi</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">oq-sariq sochli ayol: 6-teri turi</annotation>
+		<annotation cp="🤵🏻">er | erkak | smoking | 1–2-teri turi</annotation>
+		<annotation cp="🤵🏻" type="tts">smoking kiygan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🤵🏼">er | erkak | smoking | 3-teri turi</annotation>
+		<annotation cp="🤵🏼" type="tts">smoking kiygan erkak: 3-teri turi</annotation>
+		<annotation cp="🤵🏽">er | erkak | smoking | 4-teri turi</annotation>
+		<annotation cp="🤵🏽" type="tts">smoking kiygan erkak: 4-teri turi</annotation>
+		<annotation cp="🤵🏾">er | erkak | smoking | 5-teri turi</annotation>
+		<annotation cp="🤵🏾" type="tts">smoking kiygan erkak: 5-teri turi</annotation>
+		<annotation cp="🤵🏿">er | erkak | smoking | 6-teri turi</annotation>
+		<annotation cp="🤵🏿" type="tts">smoking kiygan erkak: 6-teri turi</annotation>
+		<annotation cp="👰🏻">kelin | ro‘mol | to‘y | 1–2-teri turi</annotation>
+		<annotation cp="👰🏻" type="tts">to‘y ro‘molidagi kelin: 1–2-teri turi</annotation>
+		<annotation cp="👰🏼">kelin | ro‘mol | to‘y | 3-teri turi</annotation>
+		<annotation cp="👰🏼" type="tts">to‘y ro‘molidagi kelin: 3-teri turi</annotation>
+		<annotation cp="👰🏽">kelin | ro‘mol | to‘y | 4-teri turi</annotation>
+		<annotation cp="👰🏽" type="tts">to‘y ro‘molidagi kelin: 4-teri turi</annotation>
+		<annotation cp="👰🏾">kelin | ro‘mol | to‘y | 5-teri turi</annotation>
+		<annotation cp="👰🏾" type="tts">to‘y ro‘molidagi kelin: 5-teri turi</annotation>
+		<annotation cp="👰🏿">kelin | ro‘mol | to‘y | 6-teri turi</annotation>
+		<annotation cp="👰🏿" type="tts">to‘y ro‘molidagi kelin: 6-teri turi</annotation>
+		<annotation cp="🤰🏻">ayol | homilador | ikki qat | 1–2-teri turi</annotation>
+		<annotation cp="🤰🏻" type="tts">homilador ayol: 1–2-teri turi</annotation>
+		<annotation cp="🤰🏼">ayol | homilador | ikki qat | 3-teri turi</annotation>
+		<annotation cp="🤰🏼" type="tts">homilador ayol: 3-teri turi</annotation>
+		<annotation cp="🤰🏽">ayol | homilador | ikki qat | 4-teri turi</annotation>
+		<annotation cp="🤰🏽" type="tts">homilador ayol: 4-teri turi</annotation>
+		<annotation cp="🤰🏾">ayol | homilador | ikki qat | 5-teri turi</annotation>
+		<annotation cp="🤰🏾" type="tts">homilador ayol: 5-teri turi</annotation>
+		<annotation cp="🤰🏿">ayol | homilador | ikki qat | 6-teri turi</annotation>
+		<annotation cp="🤰🏿" type="tts">homilador ayol: 6-teri turi</annotation>
+		<annotation cp="👼🏻">chaqaloq | ertak | fantaziya | farishta | yuz | 1–2-teri turi</annotation>
+		<annotation cp="👼🏻" type="tts">chaqaloq farishta: 1–2-teri turi</annotation>
+		<annotation cp="👼🏼">chaqaloq | ertak | fantaziya | farishta | yuz | 3-teri turi</annotation>
+		<annotation cp="👼🏼" type="tts">chaqaloq farishta: 3-teri turi</annotation>
+		<annotation cp="👼🏽">chaqaloq | ertak | fantaziya | farishta | yuz | 4-teri turi</annotation>
+		<annotation cp="👼🏽" type="tts">chaqaloq farishta: 4-teri turi</annotation>
+		<annotation cp="👼🏾">chaqaloq | ertak | fantaziya | farishta | yuz | 5-teri turi</annotation>
+		<annotation cp="👼🏾" type="tts">chaqaloq farishta: 5-teri turi</annotation>
+		<annotation cp="👼🏿">chaqaloq | ertak | fantaziya | farishta | yuz | 6-teri turi</annotation>
+		<annotation cp="👼🏿" type="tts">chaqaloq farishta: 6-teri turi</annotation>
+		<annotation cp="🎅🏻">ertak | fantaziya | nishonlash | qorbobo | santa | 1–2-teri turi</annotation>
+		<annotation cp="🎅🏻" type="tts">santa-klaus: 1–2-teri turi</annotation>
+		<annotation cp="🎅🏼">ertak | fantaziya | nishonlash | qorbobo | santa | 3-teri turi</annotation>
+		<annotation cp="🎅🏼" type="tts">santa-klaus: 3-teri turi</annotation>
+		<annotation cp="🎅🏽">ertak | fantaziya | nishonlash | qorbobo | santa | 4-teri turi</annotation>
+		<annotation cp="🎅🏽" type="tts">santa-klaus: 4-teri turi</annotation>
+		<annotation cp="🎅🏾">ertak | fantaziya | nishonlash | qorbobo | santa | 5-teri turi</annotation>
+		<annotation cp="🎅🏾" type="tts">santa-klaus: 5-teri turi</annotation>
+		<annotation cp="🎅🏿">ertak | fantaziya | nishonlash | qorbobo | santa | 6-teri turi</annotation>
+		<annotation cp="🎅🏿" type="tts">santa-klaus: 6-teri turi</annotation>
+		<annotation cp="🤶🏻">qorqiz | rojdestvo | 1–2-teri turi</annotation>
+		<annotation cp="🤶🏻" type="tts">qorqiz: 1–2-teri turi</annotation>
+		<annotation cp="🤶🏼">qorqiz | rojdestvo | 3-teri turi</annotation>
+		<annotation cp="🤶🏼" type="tts">qorqiz: 3-teri turi</annotation>
+		<annotation cp="🤶🏽">qorqiz | rojdestvo | 4-teri turi</annotation>
+		<annotation cp="🤶🏽" type="tts">qorqiz: 4-teri turi</annotation>
+		<annotation cp="🤶🏾">qorqiz | rojdestvo | 5-teri turi</annotation>
+		<annotation cp="🤶🏾" type="tts">qorqiz: 5-teri turi</annotation>
+		<annotation cp="🤶🏿">qorqiz | rojdestvo | 6-teri turi</annotation>
+		<annotation cp="🤶🏿" type="tts">qorqiz: 6-teri turi</annotation>
+		<annotation cp="🙍🏻">imo-ishora | qovog‘ini solish | 1–2-teri turi</annotation>
+		<annotation cp="🙍🏻" type="tts">xo‘mraygan odam: 1–2-teri turi</annotation>
+		<annotation cp="🙍🏼">imo-ishora | qovog‘ini solish | 3-teri turi</annotation>
+		<annotation cp="🙍🏼" type="tts">xo‘mraygan odam: 3-teri turi</annotation>
+		<annotation cp="🙍🏽">imo-ishora | qovog‘ini solish | 4-teri turi</annotation>
+		<annotation cp="🙍🏽" type="tts">xo‘mraygan odam: 4-teri turi</annotation>
+		<annotation cp="🙍🏾">imo-ishora | qovog‘ini solish | 5-teri turi</annotation>
+		<annotation cp="🙍🏾" type="tts">xo‘mraygan odam: 5-teri turi</annotation>
+		<annotation cp="🙍🏿">imo-ishora | qovog‘ini solish | 6-teri turi</annotation>
+		<annotation cp="🙍🏿" type="tts">xo‘mraygan odam: 6-teri turi</annotation>
+		<annotation cp="🙍🏻‍♂">erkak | xo‘mrayish | yuz ifodasi | 1–2-teri turi</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">xo‘mraygan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🙍🏼‍♂">erkak | xo‘mrayish | yuz ifodasi | 3-teri turi</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">xo‘mraygan erkak: 3-teri turi</annotation>
+		<annotation cp="🙍🏽‍♂">erkak | xo‘mrayish | yuz ifodasi | 4-teri turi</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">xo‘mraygan erkak: 4-teri turi</annotation>
+		<annotation cp="🙍🏾‍♂">erkak | xo‘mrayish | yuz ifodasi | 5-teri turi</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">xo‘mraygan erkak: 5-teri turi</annotation>
+		<annotation cp="🙍🏿‍♂">erkak | xo‘mrayish | yuz ifodasi | 6-teri turi</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">xo‘mraygan erkak: 6-teri turi</annotation>
+		<annotation cp="🙍🏻‍♀">ayol | xo‘mrayish | yuz ifodasi | 1–2-teri turi</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">xo‘mraygan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🙍🏼‍♀">ayol | xo‘mrayish | yuz ifodasi | 3-teri turi</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">xo‘mraygan ayol: 3-teri turi</annotation>
+		<annotation cp="🙍🏽‍♀">ayol | xo‘mrayish | yuz ifodasi | 4-teri turi</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">xo‘mraygan ayol: 4-teri turi</annotation>
+		<annotation cp="🙍🏾‍♀">ayol | xo‘mrayish | yuz ifodasi | 5-teri turi</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">xo‘mraygan ayol: 5-teri turi</annotation>
+		<annotation cp="🙍🏿‍♀">ayol | xo‘mrayish | yuz ifodasi | 6-teri turi</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">xo‘mraygan ayol: 6-teri turi</annotation>
+		<annotation cp="🙎🏻">imo-ishora | norozi | 1–2-teri turi</annotation>
+		<annotation cp="🙎🏻" type="tts">norozi odam: 1–2-teri turi</annotation>
+		<annotation cp="🙎🏼">imo-ishora | norozi | 3-teri turi</annotation>
+		<annotation cp="🙎🏼" type="tts">norozi odam: 3-teri turi</annotation>
+		<annotation cp="🙎🏽">imo-ishora | norozi | 4-teri turi</annotation>
+		<annotation cp="🙎🏽" type="tts">norozi odam: 4-teri turi</annotation>
+		<annotation cp="🙎🏾">imo-ishora | norozi | 5-teri turi</annotation>
+		<annotation cp="🙎🏾" type="tts">norozi odam: 5-teri turi</annotation>
+		<annotation cp="🙎🏿">imo-ishora | norozi | 6-teri turi</annotation>
+		<annotation cp="🙎🏿" type="tts">norozi odam: 6-teri turi</annotation>
+		<annotation cp="🙎🏻‍♂">arazlagan | erkak | yuz ifodasi | 1–2-teri turi</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">arazlagan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🙎🏼‍♂">arazlagan | erkak | yuz ifodasi | 3-teri turi</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">arazlagan erkak: 3-teri turi</annotation>
+		<annotation cp="🙎🏽‍♂">arazlagan | erkak | yuz ifodasi | 4-teri turi</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">arazlagan erkak: 4-teri turi</annotation>
+		<annotation cp="🙎🏾‍♂">arazlagan | erkak | yuz ifodasi | 5-teri turi</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">arazlagan erkak: 5-teri turi</annotation>
+		<annotation cp="🙎🏿‍♂">arazlagan | erkak | yuz ifodasi | 6-teri turi</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">arazlagan erkak: 6-teri turi</annotation>
+		<annotation cp="🙎🏻‍♀">arazlagan | ayol | yuz ifodasi | 1–2-teri turi</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">arazlagan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🙎🏼‍♀">arazlagan | ayol | yuz ifodasi | 3-teri turi</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">arazlagan ayol: 3-teri turi</annotation>
+		<annotation cp="🙎🏽‍♀">arazlagan | ayol | yuz ifodasi | 4-teri turi</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">arazlagan ayol: 4-teri turi</annotation>
+		<annotation cp="🙎🏾‍♀">arazlagan | ayol | yuz ifodasi | 5-teri turi</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">arazlagan ayol: 5-teri turi</annotation>
+		<annotation cp="🙎🏿‍♀">arazlagan | ayol | yuz ifodasi | 6-teri turi</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">arazlagan ayol: 6-teri turi</annotation>
+		<annotation cp="🙅🏻">imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q | 1–2-teri turi</annotation>
+		<annotation cp="🙅🏻" type="tts">yo‘q ishorasi: 1–2-teri turi</annotation>
+		<annotation cp="🙅🏼">imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q | 3-teri turi</annotation>
+		<annotation cp="🙅🏼" type="tts">yo‘q ishorasi: 3-teri turi</annotation>
+		<annotation cp="🙅🏽">imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q | 4-teri turi</annotation>
+		<annotation cp="🙅🏽" type="tts">yo‘q ishorasi: 4-teri turi</annotation>
+		<annotation cp="🙅🏾">imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q | 5-teri turi</annotation>
+		<annotation cp="🙅🏾" type="tts">yo‘q ishorasi: 5-teri turi</annotation>
+		<annotation cp="🙅🏿">imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q | 6-teri turi</annotation>
+		<annotation cp="🙅🏿" type="tts">yo‘q ishorasi: 6-teri turi</annotation>
+		<annotation cp="🙅🏻‍♂">imo-ishora | qo‘l | taqiqlangan | yo‘q | 1–2-teri turi</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">erkak yo‘q demoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙅🏼‍♂">imo-ishora | qo‘l | taqiqlangan | yo‘q | 3-teri turi</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">erkak yo‘q demoqda: 3-teri turi</annotation>
+		<annotation cp="🙅🏽‍♂">imo-ishora | qo‘l | taqiqlangan | yo‘q | 4-teri turi</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">erkak yo‘q demoqda: 4-teri turi</annotation>
+		<annotation cp="🙅🏾‍♂">imo-ishora | qo‘l | taqiqlangan | yo‘q | 5-teri turi</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">erkak yo‘q demoqda: 5-teri turi</annotation>
+		<annotation cp="🙅🏿‍♂">imo-ishora | qo‘l | taqiqlangan | yo‘q | 6-teri turi</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">erkak yo‘q demoqda: 6-teri turi</annotation>
+		<annotation cp="🙅🏻‍♀">imo-ishora | qo‘l | taqiqlangan | yo‘q | 1–2-teri turi</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">ayol yo‘q demoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙅🏼‍♀">imo-ishora | qo‘l | taqiqlangan | yo‘q | 3-teri turi</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">ayol yo‘q demoqda: 3-teri turi</annotation>
+		<annotation cp="🙅🏽‍♀">imo-ishora | qo‘l | taqiqlangan | yo‘q | 4-teri turi</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">ayol yo‘q demoqda: 4-teri turi</annotation>
+		<annotation cp="🙅🏾‍♀">imo-ishora | qo‘l | taqiqlangan | yo‘q | 5-teri turi</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">ayol yo‘q demoqda: 5-teri turi</annotation>
+		<annotation cp="🙅🏿‍♀">imo-ishora | qo‘l | taqiqlangan | yo‘q | 6-teri turi</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">ayol yo‘q demoqda: 6-teri turi</annotation>
+		<annotation cp="🙆🏻">imo-ishora | ok | qo‘l | 1–2-teri turi</annotation>
+		<annotation cp="🙆🏻" type="tts">ok ishorasi: 1–2-teri turi</annotation>
+		<annotation cp="🙆🏼">imo-ishora | ok | qo‘l | 3-teri turi</annotation>
+		<annotation cp="🙆🏼" type="tts">ok ishorasi: 3-teri turi</annotation>
+		<annotation cp="🙆🏽">imo-ishora | ok | qo‘l | 4-teri turi</annotation>
+		<annotation cp="🙆🏽" type="tts">ok ishorasi: 4-teri turi</annotation>
+		<annotation cp="🙆🏾">imo-ishora | ok | qo‘l | 5-teri turi</annotation>
+		<annotation cp="🙆🏾" type="tts">ok ishorasi: 5-teri turi</annotation>
+		<annotation cp="🙆🏿">imo-ishora | ok | qo‘l | 6-teri turi</annotation>
+		<annotation cp="🙆🏿" type="tts">ok ishorasi: 6-teri turi</annotation>
+		<annotation cp="🙆🏻‍♂">erkak | ha | imo-ishora | qo‘l | 1–2-teri turi</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">erkak ha demoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙆🏼‍♂">erkak | ha | imo-ishora | qo‘l | 3-teri turi</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">erkak ha demoqda: 3-teri turi</annotation>
+		<annotation cp="🙆🏽‍♂">erkak | ha | imo-ishora | qo‘l | 4-teri turi</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">erkak ha demoqda: 4-teri turi</annotation>
+		<annotation cp="🙆🏾‍♂">erkak | ha | imo-ishora | qo‘l | 5-teri turi</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">erkak ha demoqda: 5-teri turi</annotation>
+		<annotation cp="🙆🏿‍♂">erkak | ha | imo-ishora | qo‘l | 6-teri turi</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">erkak ha demoqda: 6-teri turi</annotation>
+		<annotation cp="🙆🏻‍♀">ayol | ha | imo-ishora | qo‘l | 1–2-teri turi</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">ayol ha demoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙆🏼‍♀">ayol | ha | imo-ishora | qo‘l | 3-teri turi</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">ayol ha demoqda: 3-teri turi</annotation>
+		<annotation cp="🙆🏽‍♀">ayol | ha | imo-ishora | qo‘l | 4-teri turi</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">ayol ha demoqda: 4-teri turi</annotation>
+		<annotation cp="🙆🏾‍♀">ayol | ha | imo-ishora | qo‘l | 5-teri turi</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">ayol ha demoqda: 5-teri turi</annotation>
+		<annotation cp="🙆🏿‍♀">ayol | ha | imo-ishora | qo‘l | 6-teri turi</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">ayol ha demoqda: 6-teri turi</annotation>
+		<annotation cp="💁🏻">ma’lumot | qo‘l | surbet | yordam | 1–2-teri turi</annotation>
+		<annotation cp="💁🏻" type="tts">ma’lumotxona xodimi: 1–2-teri turi</annotation>
+		<annotation cp="💁🏼">ma’lumot | qo‘l | surbet | yordam | 3-teri turi</annotation>
+		<annotation cp="💁🏼" type="tts">ma’lumotxona xodimi: 3-teri turi</annotation>
+		<annotation cp="💁🏽">ma’lumot | qo‘l | surbet | yordam | 4-teri turi</annotation>
+		<annotation cp="💁🏽" type="tts">ma’lumotxona xodimi: 4-teri turi</annotation>
+		<annotation cp="💁🏾">ma’lumot | qo‘l | surbet | yordam | 5-teri turi</annotation>
+		<annotation cp="💁🏾" type="tts">ma’lumotxona xodimi: 5-teri turi</annotation>
+		<annotation cp="💁🏿">ma’lumot | qo‘l | surbet | yordam | 6-teri turi</annotation>
+		<annotation cp="💁🏿" type="tts">ma’lumotxona xodimi: 6-teri turi</annotation>
+		<annotation cp="💁🏻‍♂">erkak | qo‘l cho‘zish | surbet | 1–2-teri turi</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">erkak qo‘l cho‘zmoqda: 1–2-teri turi</annotation>
+		<annotation cp="💁🏼‍♂">erkak | qo‘l cho‘zish | surbet | 3-teri turi</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">erkak qo‘l cho‘zmoqda: 3-teri turi</annotation>
+		<annotation cp="💁🏽‍♂">erkak | qo‘l cho‘zish | surbet | 4-teri turi</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">erkak qo‘l cho‘zmoqda: 4-teri turi</annotation>
+		<annotation cp="💁🏾‍♂">erkak | qo‘l cho‘zish | surbet | 5-teri turi</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">erkak qo‘l cho‘zmoqda: 5-teri turi</annotation>
+		<annotation cp="💁🏿‍♂">erkak | qo‘l cho‘zish | surbet | 6-teri turi</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">erkak qo‘l cho‘zmoqda: 6-teri turi</annotation>
+		<annotation cp="💁🏻‍♀">ayol | qo‘l cho‘zish | surbet | 1–2-teri turi</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">ayol qo‘l cho‘zmoqda: 1–2-teri turi</annotation>
+		<annotation cp="💁🏼‍♀">ayol | qo‘l cho‘zish | surbet | 3-teri turi</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">ayol qo‘l cho‘zmoqda: 3-teri turi</annotation>
+		<annotation cp="💁🏽‍♀">ayol | qo‘l cho‘zish | surbet | 4-teri turi</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">ayol qo‘l cho‘zmoqda: 4-teri turi</annotation>
+		<annotation cp="💁🏾‍♀">ayol | qo‘l cho‘zish | surbet | 5-teri turi</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">ayol qo‘l cho‘zmoqda: 5-teri turi</annotation>
+		<annotation cp="💁🏿‍♀">ayol | qo‘l cho‘zish | surbet | 6-teri turi</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">ayol qo‘l cho‘zmoqda: 6-teri turi</annotation>
+		<annotation cp="🙋🏻">imo-ishora | ko‘tarilgan | qo‘l | xursand | 1–2-teri turi</annotation>
+		<annotation cp="🙋🏻" type="tts">qo‘lini ko‘tarib turgan xursand odam: 1–2-teri turi</annotation>
+		<annotation cp="🙋🏼">imo-ishora | ko‘tarilgan | qo‘l | xursand | 3-teri turi</annotation>
+		<annotation cp="🙋🏼" type="tts">qo‘lini ko‘tarib turgan xursand odam: 3-teri turi</annotation>
+		<annotation cp="🙋🏽">imo-ishora | ko‘tarilgan | qo‘l | xursand | 4-teri turi</annotation>
+		<annotation cp="🙋🏽" type="tts">qo‘lini ko‘tarib turgan xursand odam: 4-teri turi</annotation>
+		<annotation cp="🙋🏾">imo-ishora | ko‘tarilgan | qo‘l | xursand | 5-teri turi</annotation>
+		<annotation cp="🙋🏾" type="tts">qo‘lini ko‘tarib turgan xursand odam: 5-teri turi</annotation>
+		<annotation cp="🙋🏿">imo-ishora | ko‘tarilgan | qo‘l | xursand | 6-teri turi</annotation>
+		<annotation cp="🙋🏿" type="tts">qo‘lini ko‘tarib turgan xursand odam: 6-teri turi</annotation>
+		<annotation cp="🙋🏻‍♂">erkak | imo-ishora | qo‘l ko‘tarish | 1–2-teri turi</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">erkak qo‘l ko‘tarmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙋🏼‍♂">erkak | imo-ishora | qo‘l ko‘tarish | 3-teri turi</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">erkak qo‘l ko‘tarmoqda: 3-teri turi</annotation>
+		<annotation cp="🙋🏽‍♂">erkak | imo-ishora | qo‘l ko‘tarish | 4-teri turi</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">erkak qo‘l ko‘tarmoqda: 4-teri turi</annotation>
+		<annotation cp="🙋🏾‍♂">erkak | imo-ishora | qo‘l ko‘tarish | 5-teri turi</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">erkak qo‘l ko‘tarmoqda: 5-teri turi</annotation>
+		<annotation cp="🙋🏿‍♂">erkak | imo-ishora | qo‘l ko‘tarish | 6-teri turi</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">erkak qo‘l ko‘tarmoqda: 6-teri turi</annotation>
+		<annotation cp="🙋🏻‍♀">ayol | imo-ishora | qo‘l ko‘tarish | 1–2-teri turi</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">ayol qo‘l ko‘tarmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙋🏼‍♀">ayol | imo-ishora | qo‘l ko‘tarish | 3-teri turi</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">ayol qo‘l ko‘tarmoqda: 3-teri turi</annotation>
+		<annotation cp="🙋🏽‍♀">ayol | imo-ishora | qo‘l ko‘tarish | 4-teri turi</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">ayol qo‘l ko‘tarmoqda: 4-teri turi</annotation>
+		<annotation cp="🙋🏾‍♀">ayol | imo-ishora | qo‘l ko‘tarish | 5-teri turi</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">ayol qo‘l ko‘tarmoqda: 5-teri turi</annotation>
+		<annotation cp="🙋🏿‍♀">ayol | imo-ishora | qo‘l ko‘tarish | 6-teri turi</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">ayol qo‘l ko‘tarmoqda: 6-teri turi</annotation>
+		<annotation cp="🙇🏻">imo-ishora | kechirim so‘rash | ta’zim | uzr so‘rash | 1–2-teri turi</annotation>
+		<annotation cp="🙇🏻" type="tts">ta’zim qilayotgan odam: 1–2-teri turi</annotation>
+		<annotation cp="🙇🏼">imo-ishora | kechirim so‘rash | ta’zim | uzr so‘rash | 3-teri turi</annotation>
+		<annotation cp="🙇🏼" type="tts">ta’zim qilayotgan odam: 3-teri turi</annotation>
+		<annotation cp="🙇🏽">imo-ishora | kechirim so‘rash | ta’zim | uzr so‘rash | 4-teri turi</annotation>
+		<annotation cp="🙇🏽" type="tts">ta’zim qilayotgan odam: 4-teri turi</annotation>
+		<annotation cp="🙇🏾">imo-ishora | kechirim so‘rash | ta’zim | uzr so‘rash | 5-teri turi</annotation>
+		<annotation cp="🙇🏾" type="tts">ta’zim qilayotgan odam: 5-teri turi</annotation>
+		<annotation cp="🙇🏿">imo-ishora | kechirim so‘rash | ta’zim | uzr so‘rash | 6-teri turi</annotation>
+		<annotation cp="🙇🏿" type="tts">ta’zim qilayotgan odam: 6-teri turi</annotation>
+		<annotation cp="🙇🏻‍♂">erkak | imo-ishora | uzr | 1–2-teri turi</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">erkak ta’zim qilmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙇🏼‍♂">erkak | imo-ishora | uzr | 3-teri turi</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">erkak ta’zim qilmoqda: 3-teri turi</annotation>
+		<annotation cp="🙇🏽‍♂">erkak | imo-ishora | uzr | 4-teri turi</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">erkak ta’zim qilmoqda: 4-teri turi</annotation>
+		<annotation cp="🙇🏾‍♂">erkak | imo-ishora | uzr | 5-teri turi</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">erkak ta’zim qilmoqda: 5-teri turi</annotation>
+		<annotation cp="🙇🏿‍♂">erkak | imo-ishora | uzr | 6-teri turi</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">erkak ta’zim qilmoqda: 6-teri turi</annotation>
+		<annotation cp="🙇🏻‍♀">ayol | imo-ishora | uzr | 1–2-teri turi</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">ayol ta’zim qilmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🙇🏼‍♀">ayol | imo-ishora | uzr | 3-teri turi</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">ayol ta’zim qilmoqda: 3-teri turi</annotation>
+		<annotation cp="🙇🏽‍♀">ayol | imo-ishora | uzr | 4-teri turi</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">ayol ta’zim qilmoqda: 4-teri turi</annotation>
+		<annotation cp="🙇🏾‍♀">ayol | imo-ishora | uzr | 5-teri turi</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">ayol ta’zim qilmoqda: 5-teri turi</annotation>
+		<annotation cp="🙇🏿‍♀">ayol | imo-ishora | uzr | 6-teri turi</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">ayol ta’zim qilmoqda: 6-teri turi</annotation>
+		<annotation cp="🤦🏻">feyspalm | gap yo‘q | g‘ijinish | ishonchsizlik | jahl chiqish | qo‘l | yuz | 1–2-teri turi</annotation>
+		<annotation cp="🤦🏻" type="tts">boshqa gapim yo‘q: 1–2-teri turi</annotation>
+		<annotation cp="🤦🏼">feyspalm | gap yo‘q | g‘ijinish | ishonchsizlik | jahl chiqish | qo‘l | yuz | 3-teri turi</annotation>
+		<annotation cp="🤦🏼" type="tts">boshqa gapim yo‘q: 3-teri turi</annotation>
+		<annotation cp="🤦🏽">feyspalm | gap yo‘q | g‘ijinish | ishonchsizlik | jahl chiqish | qo‘l | yuz | 4-teri turi</annotation>
+		<annotation cp="🤦🏽" type="tts">boshqa gapim yo‘q: 4-teri turi</annotation>
+		<annotation cp="🤦🏾">feyspalm | gap yo‘q | g‘ijinish | ishonchsizlik | jahl chiqish | qo‘l | yuz | 5-teri turi</annotation>
+		<annotation cp="🤦🏾" type="tts">boshqa gapim yo‘q: 5-teri turi</annotation>
+		<annotation cp="🤦🏿">feyspalm | gap yo‘q | g‘ijinish | ishonchsizlik | jahl chiqish | qo‘l | yuz | 6-teri turi</annotation>
+		<annotation cp="🤦🏿" type="tts">boshqa gapim yo‘q: 6-teri turi</annotation>
+		<annotation cp="🤦🏻‍♂">achchiqlanish | erkak | feyspalm | ishonmaslik | 1–2-teri turi</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">erkak yuzini berkitmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤦🏼‍♂">achchiqlanish | erkak | feyspalm | ishonmaslik | 3-teri turi</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">erkak yuzini berkitmoqda: 3-teri turi</annotation>
+		<annotation cp="🤦🏽‍♂">achchiqlanish | erkak | feyspalm | ishonmaslik | 4-teri turi</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">erkak yuzini berkitmoqda: 4-teri turi</annotation>
+		<annotation cp="🤦🏾‍♂">achchiqlanish | erkak | feyspalm | ishonmaslik | 5-teri turi</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">erkak yuzini berkitmoqda: 5-teri turi</annotation>
+		<annotation cp="🤦🏿‍♂">achchiqlanish | erkak | feyspalm | ishonmaslik | 6-teri turi</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">erkak yuzini berkitmoqda: 6-teri turi</annotation>
+		<annotation cp="🤦🏻‍♀">achchiqlanish | ayol | feyspalm | ishonmaslik | 1–2-teri turi</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">ayol yuzini berkitmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤦🏼‍♀">achchiqlanish | ayol | feyspalm | ishonmaslik | 3-teri turi</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">ayol yuzini berkitmoqda: 3-teri turi</annotation>
+		<annotation cp="🤦🏽‍♀">achchiqlanish | ayol | feyspalm | ishonmaslik | 4-teri turi</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">ayol yuzini berkitmoqda: 4-teri turi</annotation>
+		<annotation cp="🤦🏾‍♀">achchiqlanish | ayol | feyspalm | ishonmaslik | 5-teri turi</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">ayol yuzini berkitmoqda: 5-teri turi</annotation>
+		<annotation cp="🤦🏿‍♀">achchiqlanish | ayol | feyspalm | ishonmaslik | 6-teri turi</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">ayol yuzini berkitmoqda: 6-teri turi</annotation>
+		<annotation cp="🤷🏻">bilmayman | ikkilanish | shubha | 1–2-teri turi</annotation>
+		<annotation cp="🤷🏻" type="tts">bilmayman ishorasi: 1–2-teri turi</annotation>
+		<annotation cp="🤷🏼">bilmayman | ikkilanish | shubha | 3-teri turi</annotation>
+		<annotation cp="🤷🏼" type="tts">bilmayman ishorasi: 3-teri turi</annotation>
+		<annotation cp="🤷🏽">bilmayman | ikkilanish | shubha | 4-teri turi</annotation>
+		<annotation cp="🤷🏽" type="tts">bilmayman ishorasi: 4-teri turi</annotation>
+		<annotation cp="🤷🏾">bilmayman | ikkilanish | shubha | 5-teri turi</annotation>
+		<annotation cp="🤷🏾" type="tts">bilmayman ishorasi: 5-teri turi</annotation>
+		<annotation cp="🤷🏿">bilmayman | ikkilanish | shubha | 6-teri turi</annotation>
+		<annotation cp="🤷🏿" type="tts">bilmayman ishorasi: 6-teri turi</annotation>
+		<annotation cp="🤷🏻‍♂">erkak | shubha | yelka qisish | 1–2-teri turi</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">erkak yelka qismoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤷🏼‍♂">erkak | shubha | yelka qisish | 3-teri turi</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">erkak yelka qismoqda: 3-teri turi</annotation>
+		<annotation cp="🤷🏽‍♂">erkak | shubha | yelka qisish | 4-teri turi</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">erkak yelka qismoqda: 4-teri turi</annotation>
+		<annotation cp="🤷🏾‍♂">erkak | shubha | yelka qisish | 5-teri turi</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">erkak yelka qismoqda: 5-teri turi</annotation>
+		<annotation cp="🤷🏿‍♂">erkak | shubha | yelka qisish | 6-teri turi</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">erkak yelka qismoqda: 6-teri turi</annotation>
+		<annotation cp="🤷🏻‍♀">ayol | shubha | yelka qisish | 1–2-teri turi</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">ayol yelka qismoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤷🏼‍♀">ayol | shubha | yelka qisish | 3-teri turi</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">ayol yelka qismoqda: 3-teri turi</annotation>
+		<annotation cp="🤷🏽‍♀">ayol | shubha | yelka qisish | 4-teri turi</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">ayol yelka qismoqda: 4-teri turi</annotation>
+		<annotation cp="🤷🏾‍♀">ayol | shubha | yelka qisish | 5-teri turi</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">ayol yelka qismoqda: 5-teri turi</annotation>
+		<annotation cp="🤷🏿‍♀">ayol | shubha | yelka qisish | 6-teri turi</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">ayol yelka qismoqda: 6-teri turi</annotation>
+		<annotation cp="💆🏻">massaj | salon | 1–2-teri turi</annotation>
+		<annotation cp="💆🏻" type="tts">yuzni uqalash: 1–2-teri turi</annotation>
+		<annotation cp="💆🏼">massaj | salon | 3-teri turi</annotation>
+		<annotation cp="💆🏼" type="tts">yuzni uqalash: 3-teri turi</annotation>
+		<annotation cp="💆🏽">massaj | salon | 4-teri turi</annotation>
+		<annotation cp="💆🏽" type="tts">yuzni uqalash: 4-teri turi</annotation>
+		<annotation cp="💆🏾">massaj | salon | 5-teri turi</annotation>
+		<annotation cp="💆🏾" type="tts">yuzni uqalash: 5-teri turi</annotation>
+		<annotation cp="💆🏿">massaj | salon | 6-teri turi</annotation>
+		<annotation cp="💆🏿" type="tts">yuzni uqalash: 6-teri turi</annotation>
+		<annotation cp="💆🏻‍♂">erkak | massaj | yuz | 1–2-teri turi</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">erkak yuziga massaj olmoqda: 1–2-teri turi</annotation>
+		<annotation cp="💆🏼‍♂">erkak | massaj | yuz | 3-teri turi</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">erkak yuziga massaj olmoqda: 3-teri turi</annotation>
+		<annotation cp="💆🏽‍♂">erkak | massaj | yuz | 4-teri turi</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">erkak yuziga massaj olmoqda: 4-teri turi</annotation>
+		<annotation cp="💆🏾‍♂">erkak | massaj | yuz | 5-teri turi</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">erkak yuziga massaj olmoqda: 5-teri turi</annotation>
+		<annotation cp="💆🏿‍♂">erkak | massaj | yuz | 6-teri turi</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">erkak yuziga massaj olmoqda: 6-teri turi</annotation>
+		<annotation cp="💆🏻‍♀">ayol | massaj | yuz | 1–2-teri turi</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">ayol yuziga massaj olmoqda: 1–2-teri turi</annotation>
+		<annotation cp="💆🏼‍♀">ayol | massaj | yuz | 3-teri turi</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">ayol yuziga massaj olmoqda: 3-teri turi</annotation>
+		<annotation cp="💆🏽‍♀">ayol | massaj | yuz | 4-teri turi</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">ayol yuziga massaj olmoqda: 4-teri turi</annotation>
+		<annotation cp="💆🏾‍♀">ayol | massaj | yuz | 5-teri turi</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">ayol yuziga massaj olmoqda: 5-teri turi</annotation>
+		<annotation cp="💆🏿‍♀">ayol | massaj | yuz | 6-teri turi</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">ayol yuziga massaj olmoqda: 6-teri turi</annotation>
+		<annotation cp="💇🏻">go‘zallik | salon | sartarosh | 1–2-teri turi</annotation>
+		<annotation cp="💇🏻" type="tts">soch qisqartirish: 1–2-teri turi</annotation>
+		<annotation cp="💇🏼">go‘zallik | salon | sartarosh | 3-teri turi</annotation>
+		<annotation cp="💇🏼" type="tts">soch qisqartirish: 3-teri turi</annotation>
+		<annotation cp="💇🏽">go‘zallik | salon | sartarosh | 4-teri turi</annotation>
+		<annotation cp="💇🏽" type="tts">soch qisqartirish: 4-teri turi</annotation>
+		<annotation cp="💇🏾">go‘zallik | salon | sartarosh | 5-teri turi</annotation>
+		<annotation cp="💇🏾" type="tts">soch qisqartirish: 5-teri turi</annotation>
+		<annotation cp="💇🏿">go‘zallik | salon | sartarosh | 6-teri turi</annotation>
+		<annotation cp="💇🏿" type="tts">soch qisqartirish: 6-teri turi</annotation>
+		<annotation cp="💇🏻‍♂">erkak | soch oldirish | 1–2-teri turi</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">erkak soch kaltalatmoqda: 1–2-teri turi</annotation>
+		<annotation cp="💇🏼‍♂">erkak | soch oldirish | 3-teri turi</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">erkak soch kaltalatmoqda: 3-teri turi</annotation>
+		<annotation cp="💇🏽‍♂">erkak | soch oldirish | 4-teri turi</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">erkak soch kaltalatmoqda: 4-teri turi</annotation>
+		<annotation cp="💇🏾‍♂">erkak | soch oldirish | 5-teri turi</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">erkak soch kaltalatmoqda: 5-teri turi</annotation>
+		<annotation cp="💇🏿‍♂">erkak | soch oldirish | 6-teri turi</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">erkak soch kaltalatmoqda: 6-teri turi</annotation>
+		<annotation cp="💇🏻‍♀">ayol | soch kestirish | soch turmagi | 1–2-teri turi</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">ayol soch kaltalatmoqda: 1–2-teri turi</annotation>
+		<annotation cp="💇🏼‍♀">ayol | soch kestirish | soch turmagi | 3-teri turi</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">ayol soch kaltalatmoqda: 3-teri turi</annotation>
+		<annotation cp="💇🏽‍♀">ayol | soch kestirish | soch turmagi | 4-teri turi</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">ayol soch kaltalatmoqda: 4-teri turi</annotation>
+		<annotation cp="💇🏾‍♀">ayol | soch kestirish | soch turmagi | 5-teri turi</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">ayol soch kaltalatmoqda: 5-teri turi</annotation>
+		<annotation cp="💇🏿‍♀">ayol | soch kestirish | soch turmagi | 6-teri turi</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">ayol soch kaltalatmoqda: 6-teri turi</annotation>
+		<annotation cp="🚶🏻">piyoda yurish | sayr | 1–2-teri turi</annotation>
+		<annotation cp="🚶🏻" type="tts">piyoda: 1–2-teri turi</annotation>
+		<annotation cp="🚶🏼">piyoda yurish | sayr | 3-teri turi</annotation>
+		<annotation cp="🚶🏼" type="tts">piyoda: 3-teri turi</annotation>
+		<annotation cp="🚶🏽">piyoda yurish | sayr | 4-teri turi</annotation>
+		<annotation cp="🚶🏽" type="tts">piyoda: 4-teri turi</annotation>
+		<annotation cp="🚶🏾">piyoda yurish | sayr | 5-teri turi</annotation>
+		<annotation cp="🚶🏾" type="tts">piyoda: 5-teri turi</annotation>
+		<annotation cp="🚶🏿">piyoda yurish | sayr | 6-teri turi</annotation>
+		<annotation cp="🚶🏿" type="tts">piyoda: 6-teri turi</annotation>
+		<annotation cp="🚶🏻‍♂">erkak | piyoda yurish | sayr | 1–2-teri turi</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">yurayotgan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🚶🏼‍♂">erkak | piyoda yurish | sayr | 3-teri turi</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">yurayotgan erkak: 3-teri turi</annotation>
+		<annotation cp="🚶🏽‍♂">erkak | piyoda yurish | sayr | 4-teri turi</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">yurayotgan erkak: 4-teri turi</annotation>
+		<annotation cp="🚶🏾‍♂">erkak | piyoda yurish | sayr | 5-teri turi</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">yurayotgan erkak: 5-teri turi</annotation>
+		<annotation cp="🚶🏿‍♂">erkak | piyoda yurish | sayr | 6-teri turi</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">yurayotgan erkak: 6-teri turi</annotation>
+		<annotation cp="🚶🏻‍♀">ayol | piyoda yurish | sayr | 1–2-teri turi</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">yurayotgan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🚶🏼‍♀">ayol | piyoda yurish | sayr | 3-teri turi</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">yurayotgan ayol: 3-teri turi</annotation>
+		<annotation cp="🚶🏽‍♀">ayol | piyoda yurish | sayr | 4-teri turi</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">yurayotgan ayol: 4-teri turi</annotation>
+		<annotation cp="🚶🏾‍♀">ayol | piyoda yurish | sayr | 5-teri turi</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">yurayotgan ayol: 5-teri turi</annotation>
+		<annotation cp="🚶🏿‍♀">ayol | piyoda yurish | sayr | 6-teri turi</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">yurayotgan ayol: 6-teri turi</annotation>
+		<annotation cp="🏃🏻">marafon | yugurish | 1–2-teri turi</annotation>
+		<annotation cp="🏃🏻" type="tts">yuguruvchi: 1–2-teri turi</annotation>
+		<annotation cp="🏃🏼">marafon | yugurish | 3-teri turi</annotation>
+		<annotation cp="🏃🏼" type="tts">yuguruvchi: 3-teri turi</annotation>
+		<annotation cp="🏃🏽">marafon | yugurish | 4-teri turi</annotation>
+		<annotation cp="🏃🏽" type="tts">yuguruvchi: 4-teri turi</annotation>
+		<annotation cp="🏃🏾">marafon | yugurish | 5-teri turi</annotation>
+		<annotation cp="🏃🏾" type="tts">yuguruvchi: 5-teri turi</annotation>
+		<annotation cp="🏃🏿">marafon | yugurish | 6-teri turi</annotation>
+		<annotation cp="🏃🏿" type="tts">yuguruvchi: 6-teri turi</annotation>
+		<annotation cp="🏃🏻‍♂">erkak | marafon | yugurish | 1–2-teri turi</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">yugurayotgan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🏃🏼‍♂">erkak | marafon | yugurish | 3-teri turi</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">yugurayotgan erkak: 3-teri turi</annotation>
+		<annotation cp="🏃🏽‍♂">erkak | marafon | yugurish | 4-teri turi</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">yugurayotgan erkak: 4-teri turi</annotation>
+		<annotation cp="🏃🏾‍♂">erkak | marafon | yugurish | 5-teri turi</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">yugurayotgan erkak: 5-teri turi</annotation>
+		<annotation cp="🏃🏿‍♂">erkak | marafon | yugurish | 6-teri turi</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">yugurayotgan erkak: 6-teri turi</annotation>
+		<annotation cp="🏃🏻‍♀">ayol | marafon | yugurish | 1–2-teri turi</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">yugurayotgan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🏃🏼‍♀">ayol | marafon | yugurish | 3-teri turi</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">yugurayotgan ayol: 3-teri turi</annotation>
+		<annotation cp="🏃🏽‍♀">ayol | marafon | yugurish | 4-teri turi</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">yugurayotgan ayol: 4-teri turi</annotation>
+		<annotation cp="🏃🏾‍♀">ayol | marafon | yugurish | 5-teri turi</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">yugurayotgan ayol: 5-teri turi</annotation>
+		<annotation cp="🏃🏿‍♀">ayol | marafon | yugurish | 6-teri turi</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">yugurayotgan ayol: 6-teri turi</annotation>
+		<annotation cp="💃🏻">raqqos | 1–2-teri turi</annotation>
+		<annotation cp="💃🏻" type="tts">raqqosa: 1–2-teri turi</annotation>
+		<annotation cp="💃🏼">raqqos | 3-teri turi</annotation>
+		<annotation cp="💃🏼" type="tts">raqqosa: 3-teri turi</annotation>
+		<annotation cp="💃🏽">raqqos | 4-teri turi</annotation>
+		<annotation cp="💃🏽" type="tts">raqqosa: 4-teri turi</annotation>
+		<annotation cp="💃🏾">raqqos | 5-teri turi</annotation>
+		<annotation cp="💃🏾" type="tts">raqqosa: 5-teri turi</annotation>
+		<annotation cp="💃🏿">raqqos | 6-teri turi</annotation>
+		<annotation cp="💃🏿" type="tts">raqqosa: 6-teri turi</annotation>
+		<annotation cp="🕺🏻">erkak | raqs | 1–2-teri turi</annotation>
+		<annotation cp="🕺🏻" type="tts">raqs tushayotgan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🕺🏼">erkak | raqs | 3-teri turi</annotation>
+		<annotation cp="🕺🏼" type="tts">raqs tushayotgan erkak: 3-teri turi</annotation>
+		<annotation cp="🕺🏽">erkak | raqs | 4-teri turi</annotation>
+		<annotation cp="🕺🏽" type="tts">raqs tushayotgan erkak: 4-teri turi</annotation>
+		<annotation cp="🕺🏾">erkak | raqs | 5-teri turi</annotation>
+		<annotation cp="🕺🏾" type="tts">raqs tushayotgan erkak: 5-teri turi</annotation>
+		<annotation cp="🕺🏿">erkak | raqs | 6-teri turi</annotation>
+		<annotation cp="🕺🏿" type="tts">raqs tushayotgan erkak: 6-teri turi</annotation>
+		<annotation cp="🛀🏻">tos | vanna | 1–2-teri turi</annotation>
+		<annotation cp="🛀🏻" type="tts">hammom qilayotgan kishi: 1–2-teri turi</annotation>
+		<annotation cp="🛀🏼">tos | vanna | 3-teri turi</annotation>
+		<annotation cp="🛀🏼" type="tts">hammom qilayotgan kishi: 3-teri turi</annotation>
+		<annotation cp="🛀🏽">tos | vanna | 4-teri turi</annotation>
+		<annotation cp="🛀🏽" type="tts">hammom qilayotgan kishi: 4-teri turi</annotation>
+		<annotation cp="🛀🏾">tos | vanna | 5-teri turi</annotation>
+		<annotation cp="🛀🏾" type="tts">hammom qilayotgan kishi: 5-teri turi</annotation>
+		<annotation cp="🛀🏿">tos | vanna | 6-teri turi</annotation>
+		<annotation cp="🛀🏿" type="tts">hammom qilayotgan kishi: 6-teri turi</annotation>
+		<annotation cp="🛌🏻">mehmonxona | uxlash | uyqu | 1–2-teri turi</annotation>
+		<annotation cp="🛌🏻" type="tts">karavotda yotgan kishi: 1–2-teri turi</annotation>
+		<annotation cp="🛌🏼">mehmonxona | uxlash | uyqu | 3-teri turi</annotation>
+		<annotation cp="🛌🏼" type="tts">karavotda yotgan kishi: 3-teri turi</annotation>
+		<annotation cp="🛌🏽">mehmonxona | uxlash | uyqu | 4-teri turi</annotation>
+		<annotation cp="🛌🏽" type="tts">karavotda yotgan kishi: 4-teri turi</annotation>
+		<annotation cp="🛌🏾">mehmonxona | uxlash | uyqu | 5-teri turi</annotation>
+		<annotation cp="🛌🏾" type="tts">karavotda yotgan kishi: 5-teri turi</annotation>
+		<annotation cp="🛌🏿">mehmonxona | uxlash | uyqu | 6-teri turi</annotation>
+		<annotation cp="🛌🏿" type="tts">karavotda yotgan kishi: 6-teri turi</annotation>
+		<annotation cp="🕴🏻">erkak | ish | kostyum | 1–2-teri turi</annotation>
+		<annotation cp="🕴🏻" type="tts">kostyum kiygan kishi: 1–2-teri turi</annotation>
+		<annotation cp="🕴🏼">erkak | ish | kostyum | 3-teri turi</annotation>
+		<annotation cp="🕴🏼" type="tts">kostyum kiygan kishi: 3-teri turi</annotation>
+		<annotation cp="🕴🏽">erkak | ish | kostyum | 4-teri turi</annotation>
+		<annotation cp="🕴🏽" type="tts">kostyum kiygan kishi: 4-teri turi</annotation>
+		<annotation cp="🕴🏾">erkak | ish | kostyum | 5-teri turi</annotation>
+		<annotation cp="🕴🏾" type="tts">kostyum kiygan kishi: 5-teri turi</annotation>
+		<annotation cp="🕴🏿">erkak | ish | kostyum | 6-teri turi</annotation>
+		<annotation cp="🕴🏿" type="tts">kostyum kiygan kishi: 6-teri turi</annotation>
+		<annotation cp="🏇🏻">ippodrom | ot | ot yugurtirish | 1–2-teri turi</annotation>
+		<annotation cp="🏇🏻" type="tts">otchopar: 1–2-teri turi</annotation>
+		<annotation cp="🏇🏼">ippodrom | ot | ot yugurtirish | 3-teri turi</annotation>
+		<annotation cp="🏇🏼" type="tts">otchopar: 3-teri turi</annotation>
+		<annotation cp="🏇🏽">ippodrom | ot | ot yugurtirish | 4-teri turi</annotation>
+		<annotation cp="🏇🏽" type="tts">otchopar: 4-teri turi</annotation>
+		<annotation cp="🏇🏾">ippodrom | ot | ot yugurtirish | 5-teri turi</annotation>
+		<annotation cp="🏇🏾" type="tts">otchopar: 5-teri turi</annotation>
+		<annotation cp="🏇🏿">ippodrom | ot | ot yugurtirish | 6-teri turi</annotation>
+		<annotation cp="🏇🏿" type="tts">otchopar: 6-teri turi</annotation>
+		<annotation cp="🏂🏻">chang‘i | qor | snoubord | 1–2-teri turi</annotation>
+		<annotation cp="🏂🏻" type="tts">snoubordchi: 1–2-teri turi</annotation>
+		<annotation cp="🏂🏼">chang‘i | qor | snoubord | 3-teri turi</annotation>
+		<annotation cp="🏂🏼" type="tts">snoubordchi: 3-teri turi</annotation>
+		<annotation cp="🏂🏽">chang‘i | qor | snoubord | 4-teri turi</annotation>
+		<annotation cp="🏂🏽" type="tts">snoubordchi: 4-teri turi</annotation>
+		<annotation cp="🏂🏾">chang‘i | qor | snoubord | 5-teri turi</annotation>
+		<annotation cp="🏂🏾" type="tts">snoubordchi: 5-teri turi</annotation>
+		<annotation cp="🏂🏿">chang‘i | qor | snoubord | 6-teri turi</annotation>
+		<annotation cp="🏂🏿" type="tts">snoubordchi: 6-teri turi</annotation>
+		<annotation cp="🏌🏻">golf | shar | to‘p | 1–2-teri turi</annotation>
+		<annotation cp="🏌🏻" type="tts">golf o‘ynovchi: 1–2-teri turi</annotation>
+		<annotation cp="🏌🏼">golf | shar | to‘p | 3-teri turi</annotation>
+		<annotation cp="🏌🏼" type="tts">golf o‘ynovchi: 3-teri turi</annotation>
+		<annotation cp="🏌🏽">golf | shar | to‘p | 4-teri turi</annotation>
+		<annotation cp="🏌🏽" type="tts">golf o‘ynovchi: 4-teri turi</annotation>
+		<annotation cp="🏌🏾">golf | shar | to‘p | 5-teri turi</annotation>
+		<annotation cp="🏌🏾" type="tts">golf o‘ynovchi: 5-teri turi</annotation>
+		<annotation cp="🏌🏿">golf | shar | to‘p | 6-teri turi</annotation>
+		<annotation cp="🏌🏿" type="tts">golf o‘ynovchi: 6-teri turi</annotation>
+		<annotation cp="🏌🏻‍♂">erkak | golf | 1–2-teri turi</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">erkak golf o‘ynamoqda: 1–2-teri turi</annotation>
+		<annotation cp="🏌🏼‍♂">erkak | golf | 3-teri turi</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">erkak golf o‘ynamoqda: 3-teri turi</annotation>
+		<annotation cp="🏌🏽‍♂">erkak | golf | 4-teri turi</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">erkak golf o‘ynamoqda: 4-teri turi</annotation>
+		<annotation cp="🏌🏾‍♂">erkak | golf | 5-teri turi</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">erkak golf o‘ynamoqda: 5-teri turi</annotation>
+		<annotation cp="🏌🏿‍♂">erkak | golf | 6-teri turi</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">erkak golf o‘ynamoqda: 6-teri turi</annotation>
+		<annotation cp="🏌🏻‍♀">ayol | golf | 1–2-teri turi</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">ayol golf o‘ynamoqda: 1–2-teri turi</annotation>
+		<annotation cp="🏌🏼‍♀">ayol | golf | 3-teri turi</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">ayol golf o‘ynamoqda: 3-teri turi</annotation>
+		<annotation cp="🏌🏽‍♀">ayol | golf | 4-teri turi</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">ayol golf o‘ynamoqda: 4-teri turi</annotation>
+		<annotation cp="🏌🏾‍♀">ayol | golf | 5-teri turi</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">ayol golf o‘ynamoqda: 5-teri turi</annotation>
+		<annotation cp="🏌🏿‍♀">ayol | golf | 6-teri turi</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">ayol golf o‘ynamoqda: 6-teri turi</annotation>
+		<annotation cp="🏄🏻">serfing | 1–2-teri turi</annotation>
+		<annotation cp="🏄🏻" type="tts">serfingchi: 1–2-teri turi</annotation>
+		<annotation cp="🏄🏼">serfing | 3-teri turi</annotation>
+		<annotation cp="🏄🏼" type="tts">serfingchi: 3-teri turi</annotation>
+		<annotation cp="🏄🏽">serfing | 4-teri turi</annotation>
+		<annotation cp="🏄🏽" type="tts">serfingchi: 4-teri turi</annotation>
+		<annotation cp="🏄🏾">serfing | 5-teri turi</annotation>
+		<annotation cp="🏄🏾" type="tts">serfingchi: 5-teri turi</annotation>
+		<annotation cp="🏄🏿">serfing | 6-teri turi</annotation>
+		<annotation cp="🏄🏿" type="tts">serfingchi: 6-teri turi</annotation>
+		<annotation cp="🏄🏻‍♂">erkak | serfing | 1–2-teri turi</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">erkak serfing qilmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🏄🏼‍♂">erkak | serfing | 3-teri turi</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">erkak serfing qilmoqda: 3-teri turi</annotation>
+		<annotation cp="🏄🏽‍♂">erkak | serfing | 4-teri turi</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">erkak serfing qilmoqda: 4-teri turi</annotation>
+		<annotation cp="🏄🏾‍♂">erkak | serfing | 5-teri turi</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">erkak serfing qilmoqda: 5-teri turi</annotation>
+		<annotation cp="🏄🏿‍♂">erkak | serfing | 6-teri turi</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">erkak serfing qilmoqda: 6-teri turi</annotation>
+		<annotation cp="🏄🏻‍♀">ayol | serfing | 1–2-teri turi</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">ayol serfing qilmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🏄🏼‍♀">ayol | serfing | 3-teri turi</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">ayol serfing qilmoqda: 3-teri turi</annotation>
+		<annotation cp="🏄🏽‍♀">ayol | serfing | 4-teri turi</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">ayol serfing qilmoqda: 4-teri turi</annotation>
+		<annotation cp="🏄🏾‍♀">ayol | serfing | 5-teri turi</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">ayol serfing qilmoqda: 5-teri turi</annotation>
+		<annotation cp="🏄🏿‍♀">ayol | serfing | 6-teri turi</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">ayol serfing qilmoqda: 6-teri turi</annotation>
+		<annotation cp="🚣🏻">transport | 1–2-teri turi</annotation>
+		<annotation cp="🚣🏻" type="tts">qayiq: 1–2-teri turi</annotation>
+		<annotation cp="🚣🏼">transport | 3-teri turi</annotation>
+		<annotation cp="🚣🏼" type="tts">qayiq: 3-teri turi</annotation>
+		<annotation cp="🚣🏽">transport | 4-teri turi</annotation>
+		<annotation cp="🚣🏽" type="tts">qayiq: 4-teri turi</annotation>
+		<annotation cp="🚣🏾">transport | 5-teri turi</annotation>
+		<annotation cp="🚣🏾" type="tts">qayiq: 5-teri turi</annotation>
+		<annotation cp="🚣🏿">transport | 6-teri turi</annotation>
+		<annotation cp="🚣🏿" type="tts">qayiq: 6-teri turi</annotation>
+		<annotation cp="🚣🏻‍♂">erkak | eshish | eshkak | qayiq | 1–2-teri turi</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">erkak eshkak eshmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🚣🏼‍♂">erkak | eshish | eshkak | qayiq | 3-teri turi</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">erkak eshkak eshmoqda: 3-teri turi</annotation>
+		<annotation cp="🚣🏽‍♂">erkak | eshish | eshkak | qayiq | 4-teri turi</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">erkak eshkak eshmoqda: 4-teri turi</annotation>
+		<annotation cp="🚣🏾‍♂">erkak | eshish | eshkak | qayiq | 5-teri turi</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">erkak eshkak eshmoqda: 5-teri turi</annotation>
+		<annotation cp="🚣🏿‍♂">erkak | eshish | eshkak | qayiq | 6-teri turi</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">erkak eshkak eshmoqda: 6-teri turi</annotation>
+		<annotation cp="🚣🏻‍♀">ayol | eshish | eshkak | qayiq | 1–2-teri turi</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">ayol eshkak eshmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🚣🏼‍♀">ayol | eshish | eshkak | qayiq | 3-teri turi</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">ayol eshkak eshmoqda: 3-teri turi</annotation>
+		<annotation cp="🚣🏽‍♀">ayol | eshish | eshkak | qayiq | 4-teri turi</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">ayol eshkak eshmoqda: 4-teri turi</annotation>
+		<annotation cp="🚣🏾‍♀">ayol | eshish | eshkak | qayiq | 5-teri turi</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">ayol eshkak eshmoqda: 5-teri turi</annotation>
+		<annotation cp="🚣🏿‍♀">ayol | eshish | eshkak | qayiq | 6-teri turi</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">ayol eshkak eshmoqda: 6-teri turi</annotation>
+		<annotation cp="🏊🏻">suzish | 1–2-teri turi</annotation>
+		<annotation cp="🏊🏻" type="tts">suzuvchi: 1–2-teri turi</annotation>
+		<annotation cp="🏊🏼">suzish | 3-teri turi</annotation>
+		<annotation cp="🏊🏼" type="tts">suzuvchi: 3-teri turi</annotation>
+		<annotation cp="🏊🏽">suzish | 4-teri turi</annotation>
+		<annotation cp="🏊🏽" type="tts">suzuvchi: 4-teri turi</annotation>
+		<annotation cp="🏊🏾">suzish | 5-teri turi</annotation>
+		<annotation cp="🏊🏾" type="tts">suzuvchi: 5-teri turi</annotation>
+		<annotation cp="🏊🏿">suzish | 6-teri turi</annotation>
+		<annotation cp="🏊🏿" type="tts">suzuvchi: 6-teri turi</annotation>
+		<annotation cp="🏊🏻‍♂">erkak | suzish | 1–2-teri turi</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">suzayotgan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🏊🏼‍♂">erkak | suzish | 3-teri turi</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">suzayotgan erkak: 3-teri turi</annotation>
+		<annotation cp="🏊🏽‍♂">erkak | suzish | 4-teri turi</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">suzayotgan erkak: 4-teri turi</annotation>
+		<annotation cp="🏊🏾‍♂">erkak | suzish | 5-teri turi</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">suzayotgan erkak: 5-teri turi</annotation>
+		<annotation cp="🏊🏿‍♂">erkak | suzish | 6-teri turi</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">suzayotgan erkak: 6-teri turi</annotation>
+		<annotation cp="🏊🏻‍♀">ayol | suzish | 1–2-teri turi</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">suzayotgan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🏊🏼‍♀">ayol | suzish | 3-teri turi</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">suzayotgan ayol: 3-teri turi</annotation>
+		<annotation cp="🏊🏽‍♀">ayol | suzish | 4-teri turi</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">suzayotgan ayol: 4-teri turi</annotation>
+		<annotation cp="🏊🏾‍♀">ayol | suzish | 5-teri turi</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">suzayotgan ayol: 5-teri turi</annotation>
+		<annotation cp="🏊🏿‍♀">ayol | suzish | 6-teri turi</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">suzayotgan ayol: 6-teri turi</annotation>
+		<annotation cp="⛹🏻">to‘p | 1–2-teri turi</annotation>
+		<annotation cp="⛹🏻" type="tts">odam va to‘p: 1–2-teri turi</annotation>
+		<annotation cp="⛹🏼">to‘p | 3-teri turi</annotation>
+		<annotation cp="⛹🏼" type="tts">odam va to‘p: 3-teri turi</annotation>
+		<annotation cp="⛹🏽">to‘p | 4-teri turi</annotation>
+		<annotation cp="⛹🏽" type="tts">odam va to‘p: 4-teri turi</annotation>
+		<annotation cp="⛹🏾">to‘p | 5-teri turi</annotation>
+		<annotation cp="⛹🏾" type="tts">odam va to‘p: 5-teri turi</annotation>
+		<annotation cp="⛹🏿">to‘p | 6-teri turi</annotation>
+		<annotation cp="⛹🏿" type="tts">odam va to‘p: 6-teri turi</annotation>
+		<annotation cp="⛹🏻‍♂">erkak | koptok | 1–2-teri turi</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">koptokli erkak: 1–2-teri turi</annotation>
+		<annotation cp="⛹🏼‍♂">erkak | koptok | 3-teri turi</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">koptokli erkak: 3-teri turi</annotation>
+		<annotation cp="⛹🏽‍♂">erkak | koptok | 4-teri turi</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">koptokli erkak: 4-teri turi</annotation>
+		<annotation cp="⛹🏾‍♂">erkak | koptok | 5-teri turi</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">koptokli erkak: 5-teri turi</annotation>
+		<annotation cp="⛹🏿‍♂">erkak | koptok | 6-teri turi</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">koptokli erkak: 6-teri turi</annotation>
+		<annotation cp="⛹🏻‍♀">ayol | koptok | 1–2-teri turi</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">koptokli ayol: 1–2-teri turi</annotation>
+		<annotation cp="⛹🏼‍♀">ayol | koptok | 3-teri turi</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">koptokli ayol: 3-teri turi</annotation>
+		<annotation cp="⛹🏽‍♀">ayol | koptok | 4-teri turi</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">koptokli ayol: 4-teri turi</annotation>
+		<annotation cp="⛹🏾‍♀">ayol | koptok | 5-teri turi</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">koptokli ayol: 5-teri turi</annotation>
+		<annotation cp="⛹🏿‍♀">ayol | koptok | 6-teri turi</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">koptokli ayol: 6-teri turi</annotation>
+		<annotation cp="🏋🏻">atletikachi | og‘ir | 1–2-teri turi</annotation>
+		<annotation cp="🏋🏻" type="tts">og‘ir atletikachi: 1–2-teri turi</annotation>
+		<annotation cp="🏋🏼">atletikachi | og‘ir | 3-teri turi</annotation>
+		<annotation cp="🏋🏼" type="tts">og‘ir atletikachi: 3-teri turi</annotation>
+		<annotation cp="🏋🏽">atletikachi | og‘ir | 4-teri turi</annotation>
+		<annotation cp="🏋🏽" type="tts">og‘ir atletikachi: 4-teri turi</annotation>
+		<annotation cp="🏋🏾">atletikachi | og‘ir | 5-teri turi</annotation>
+		<annotation cp="🏋🏾" type="tts">og‘ir atletikachi: 5-teri turi</annotation>
+		<annotation cp="🏋🏿">atletikachi | og‘ir | 6-teri turi</annotation>
+		<annotation cp="🏋🏿" type="tts">og‘ir atletikachi: 6-teri turi</annotation>
+		<annotation cp="🏋🏻‍♂">erkak | og‘ir atletikachi | 1–2-teri turi</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">erkak shtanga ko‘tarmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🏋🏼‍♂">erkak | og‘ir atletikachi | 3-teri turi</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">erkak shtanga ko‘tarmoqda: 3-teri turi</annotation>
+		<annotation cp="🏋🏽‍♂">erkak | og‘ir atletikachi | 4-teri turi</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">erkak shtanga ko‘tarmoqda: 4-teri turi</annotation>
+		<annotation cp="🏋🏾‍♂">erkak | og‘ir atletikachi | 5-teri turi</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">erkak shtanga ko‘tarmoqda: 5-teri turi</annotation>
+		<annotation cp="🏋🏿‍♂">erkak | og‘ir atletikachi | 6-teri turi</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">erkak shtanga ko‘tarmoqda: 6-teri turi</annotation>
+		<annotation cp="🏋🏻‍♀">ayol | og‘ir atletikachi | 1–2-teri turi</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">ayol shtanga ko‘tarmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🏋🏼‍♀">ayol | og‘ir atletikachi | 3-teri turi</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">ayol shtanga ko‘tarmoqda: 3-teri turi</annotation>
+		<annotation cp="🏋🏽‍♀">ayol | og‘ir atletikachi | 4-teri turi</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">ayol shtanga ko‘tarmoqda: 4-teri turi</annotation>
+		<annotation cp="🏋🏾‍♀">ayol | og‘ir atletikachi | 5-teri turi</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">ayol shtanga ko‘tarmoqda: 5-teri turi</annotation>
+		<annotation cp="🏋🏿‍♀">ayol | og‘ir atletikachi | 6-teri turi</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">ayol shtanga ko‘tarmoqda: 6-teri turi</annotation>
+		<annotation cp="🚴🏻">velosiped | 1–2-teri turi</annotation>
+		<annotation cp="🚴🏻" type="tts">velosipedchi: 1–2-teri turi</annotation>
+		<annotation cp="🚴🏼">velosiped | 3-teri turi</annotation>
+		<annotation cp="🚴🏼" type="tts">velosipedchi: 3-teri turi</annotation>
+		<annotation cp="🚴🏽">velosiped | 4-teri turi</annotation>
+		<annotation cp="🚴🏽" type="tts">velosipedchi: 4-teri turi</annotation>
+		<annotation cp="🚴🏾">velosiped | 5-teri turi</annotation>
+		<annotation cp="🚴🏾" type="tts">velosipedchi: 5-teri turi</annotation>
+		<annotation cp="🚴🏿">velosiped | 6-teri turi</annotation>
+		<annotation cp="🚴🏿" type="tts">velosipedchi: 6-teri turi</annotation>
+		<annotation cp="🚴🏻‍♂">erkak | haydash | velosiped | 1–2-teri turi</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">erkak velosipedda: 1–2-teri turi</annotation>
+		<annotation cp="🚴🏼‍♂">erkak | haydash | velosiped | 3-teri turi</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">erkak velosipedda: 3-teri turi</annotation>
+		<annotation cp="🚴🏽‍♂">erkak | haydash | velosiped | 4-teri turi</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">erkak velosipedda: 4-teri turi</annotation>
+		<annotation cp="🚴🏾‍♂">erkak | haydash | velosiped | 5-teri turi</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">erkak velosipedda: 5-teri turi</annotation>
+		<annotation cp="🚴🏿‍♂">erkak | haydash | velosiped | 6-teri turi</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">erkak velosipedda: 6-teri turi</annotation>
+		<annotation cp="🚴🏻‍♀">ayol | haydash | velosiped | 1–2-teri turi</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">ayol velosipedda: 1–2-teri turi</annotation>
+		<annotation cp="🚴🏼‍♀">ayol | haydash | velosiped | 3-teri turi</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">ayol velosipedda: 3-teri turi</annotation>
+		<annotation cp="🚴🏽‍♀">ayol | haydash | velosiped | 4-teri turi</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">ayol velosipedda: 4-teri turi</annotation>
+		<annotation cp="🚴🏾‍♀">ayol | haydash | velosiped | 5-teri turi</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">ayol velosipedda: 5-teri turi</annotation>
+		<annotation cp="🚴🏿‍♀">ayol | haydash | velosiped | 6-teri turi</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">ayol velosipedda: 6-teri turi</annotation>
+		<annotation cp="🚵🏻">tog‘ | velosiped | velosipedchi | 1–2-teri turi</annotation>
+		<annotation cp="🚵🏻" type="tts">tog‘ velosipedchisi: 1–2-teri turi</annotation>
+		<annotation cp="🚵🏼">tog‘ | velosiped | velosipedchi | 3-teri turi</annotation>
+		<annotation cp="🚵🏼" type="tts">tog‘ velosipedchisi: 3-teri turi</annotation>
+		<annotation cp="🚵🏽">tog‘ | velosiped | velosipedchi | 4-teri turi</annotation>
+		<annotation cp="🚵🏽" type="tts">tog‘ velosipedchisi: 4-teri turi</annotation>
+		<annotation cp="🚵🏾">tog‘ | velosiped | velosipedchi | 5-teri turi</annotation>
+		<annotation cp="🚵🏾" type="tts">tog‘ velosipedchisi: 5-teri turi</annotation>
+		<annotation cp="🚵🏿">tog‘ | velosiped | velosipedchi | 6-teri turi</annotation>
+		<annotation cp="🚵🏿" type="tts">tog‘ velosipedchisi: 6-teri turi</annotation>
+		<annotation cp="🚵🏻‍♂">erkak | haydash | tog‘da | velosiped | 1–2-teri turi</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">erkak tog‘da velosipedda: 1–2-teri turi</annotation>
+		<annotation cp="🚵🏼‍♂">erkak | haydash | tog‘da | velosiped | 3-teri turi</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">erkak tog‘da velosipedda: 3-teri turi</annotation>
+		<annotation cp="🚵🏽‍♂">erkak | haydash | tog‘da | velosiped | 4-teri turi</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">erkak tog‘da velosipedda: 4-teri turi</annotation>
+		<annotation cp="🚵🏾‍♂">erkak | haydash | tog‘da | velosiped | 5-teri turi</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">erkak tog‘da velosipedda: 5-teri turi</annotation>
+		<annotation cp="🚵🏿‍♂">erkak | haydash | tog‘da | velosiped | 6-teri turi</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">erkak tog‘da velosipedda: 6-teri turi</annotation>
+		<annotation cp="🚵🏻‍♀">ayol | haydash | tog‘da | velosiped | 1–2-teri turi</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">ayol tog‘da velosipedda: 1–2-teri turi</annotation>
+		<annotation cp="🚵🏼‍♀">ayol | haydash | tog‘da | velosiped | 3-teri turi</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">ayol tog‘da velosipedda: 3-teri turi</annotation>
+		<annotation cp="🚵🏽‍♀">ayol | haydash | tog‘da | velosiped | 4-teri turi</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">ayol tog‘da velosipedda: 4-teri turi</annotation>
+		<annotation cp="🚵🏾‍♀">ayol | haydash | tog‘da | velosiped | 5-teri turi</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">ayol tog‘da velosipedda: 5-teri turi</annotation>
+		<annotation cp="🚵🏿‍♀">ayol | haydash | tog‘da | velosiped | 6-teri turi</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">ayol tog‘da velosipedda: 6-teri turi</annotation>
+		<annotation cp="🤸🏻">akrobatika | gimnastika | g‘ildirak | odam | sport | 1–2-teri turi</annotation>
+		<annotation cp="🤸🏻" type="tts">akrobatik mashq: 1–2-teri turi</annotation>
+		<annotation cp="🤸🏼">akrobatika | gimnastika | g‘ildirak | odam | sport | 3-teri turi</annotation>
+		<annotation cp="🤸🏼" type="tts">akrobatik mashq: 3-teri turi</annotation>
+		<annotation cp="🤸🏽">akrobatika | gimnastika | g‘ildirak | odam | sport | 4-teri turi</annotation>
+		<annotation cp="🤸🏽" type="tts">akrobatik mashq: 4-teri turi</annotation>
+		<annotation cp="🤸🏾">akrobatika | gimnastika | g‘ildirak | odam | sport | 5-teri turi</annotation>
+		<annotation cp="🤸🏾" type="tts">akrobatik mashq: 5-teri turi</annotation>
+		<annotation cp="🤸🏿">akrobatika | gimnastika | g‘ildirak | odam | sport | 6-teri turi</annotation>
+		<annotation cp="🤸🏿" type="tts">akrobatik mashq: 6-teri turi</annotation>
+		<annotation cp="🤸🏻‍♂">akrobat | erkak | gimnastika | o‘mbaloq | 1–2-teri turi</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">erkak o‘mbaloq oshmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤸🏼‍♂">akrobat | erkak | gimnastika | o‘mbaloq | 3-teri turi</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">erkak o‘mbaloq oshmoqda: 3-teri turi</annotation>
+		<annotation cp="🤸🏽‍♂">akrobat | erkak | gimnastika | o‘mbaloq | 4-teri turi</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">erkak o‘mbaloq oshmoqda: 4-teri turi</annotation>
+		<annotation cp="🤸🏾‍♂">akrobat | erkak | gimnastika | o‘mbaloq | 5-teri turi</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">erkak o‘mbaloq oshmoqda: 5-teri turi</annotation>
+		<annotation cp="🤸🏿‍♂">akrobat | erkak | gimnastika | o‘mbaloq | 6-teri turi</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">erkak o‘mbaloq oshmoqda: 6-teri turi</annotation>
+		<annotation cp="🤸🏻‍♀">akrobat | ayol | gimnastika | o‘mbaloq | 1–2-teri turi</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">ayol o‘mbaloq oshmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤸🏼‍♀">akrobat | ayol | gimnastika | o‘mbaloq | 3-teri turi</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">ayol o‘mbaloq oshmoqda: 3-teri turi</annotation>
+		<annotation cp="🤸🏽‍♀">akrobat | ayol | gimnastika | o‘mbaloq | 4-teri turi</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">ayol o‘mbaloq oshmoqda: 4-teri turi</annotation>
+		<annotation cp="🤸🏾‍♀">akrobat | ayol | gimnastika | o‘mbaloq | 5-teri turi</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">ayol o‘mbaloq oshmoqda: 5-teri turi</annotation>
+		<annotation cp="🤸🏿‍♀">akrobat | ayol | gimnastika | o‘mbaloq | 6-teri turi</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">ayol o‘mbaloq oshmoqda: 6-teri turi</annotation>
+		<annotation cp="🤽🏻">odam | polo | sport | suv | 1–2-teri turi</annotation>
+		<annotation cp="🤽🏻" type="tts">suv polosi: 1–2-teri turi</annotation>
+		<annotation cp="🤽🏼">odam | polo | sport | suv | 3-teri turi</annotation>
+		<annotation cp="🤽🏼" type="tts">suv polosi: 3-teri turi</annotation>
+		<annotation cp="🤽🏽">odam | polo | sport | suv | 4-teri turi</annotation>
+		<annotation cp="🤽🏽" type="tts">suv polosi: 4-teri turi</annotation>
+		<annotation cp="🤽🏾">odam | polo | sport | suv | 5-teri turi</annotation>
+		<annotation cp="🤽🏾" type="tts">suv polosi: 5-teri turi</annotation>
+		<annotation cp="🤽🏿">odam | polo | sport | suv | 6-teri turi</annotation>
+		<annotation cp="🤽🏿" type="tts">suv polosi: 6-teri turi</annotation>
+		<annotation cp="🤽🏻‍♂">erkak | sport | suv polosi | 1–2-teri turi</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">erkak suv polosi o‘ynamoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤽🏼‍♂">erkak | sport | suv polosi | 3-teri turi</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">erkak suv polosi o‘ynamoqda: 3-teri turi</annotation>
+		<annotation cp="🤽🏽‍♂">erkak | sport | suv polosi | 4-teri turi</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">erkak suv polosi o‘ynamoqda: 4-teri turi</annotation>
+		<annotation cp="🤽🏾‍♂">erkak | sport | suv polosi | 5-teri turi</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">erkak suv polosi o‘ynamoqda: 5-teri turi</annotation>
+		<annotation cp="🤽🏿‍♂">erkak | sport | suv polosi | 6-teri turi</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">erkak suv polosi o‘ynamoqda: 6-teri turi</annotation>
+		<annotation cp="🤽🏻‍♀">ayol | sport | suv polosi | 1–2-teri turi</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">ayol suv polosi o‘ynamoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤽🏼‍♀">ayol | sport | suv polosi | 3-teri turi</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">ayol suv polosi o‘ynamoqda: 3-teri turi</annotation>
+		<annotation cp="🤽🏽‍♀">ayol | sport | suv polosi | 4-teri turi</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">ayol suv polosi o‘ynamoqda: 4-teri turi</annotation>
+		<annotation cp="🤽🏾‍♀">ayol | sport | suv polosi | 5-teri turi</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">ayol suv polosi o‘ynamoqda: 5-teri turi</annotation>
+		<annotation cp="🤽🏿‍♀">ayol | sport | suv polosi | 6-teri turi</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">ayol suv polosi o‘ynamoqda: 6-teri turi</annotation>
+		<annotation cp="🤾🏻">gandbol | koptok | odam | sport | to‘p | 1–2-teri turi</annotation>
+		<annotation cp="🤾🏻" type="tts">gandbol: 1–2-teri turi</annotation>
+		<annotation cp="🤾🏼">gandbol | koptok | odam | sport | to‘p | 3-teri turi</annotation>
+		<annotation cp="🤾🏼" type="tts">gandbol: 3-teri turi</annotation>
+		<annotation cp="🤾🏽">gandbol | koptok | odam | sport | to‘p | 4-teri turi</annotation>
+		<annotation cp="🤾🏽" type="tts">gandbol: 4-teri turi</annotation>
+		<annotation cp="🤾🏾">gandbol | koptok | odam | sport | to‘p | 5-teri turi</annotation>
+		<annotation cp="🤾🏾" type="tts">gandbol: 5-teri turi</annotation>
+		<annotation cp="🤾🏿">gandbol | koptok | odam | sport | to‘p | 6-teri turi</annotation>
+		<annotation cp="🤾🏿" type="tts">gandbol: 6-teri turi</annotation>
+		<annotation cp="🤾🏻‍♂">erkak | gandbol | sport | 1–2-teri turi</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">erkak gandbol o‘ynamoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤾🏼‍♂">erkak | gandbol | sport | 3-teri turi</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">erkak gandbol o‘ynamoqda: 3-teri turi</annotation>
+		<annotation cp="🤾🏽‍♂">erkak | gandbol | sport | 4-teri turi</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">erkak gandbol o‘ynamoqda: 4-teri turi</annotation>
+		<annotation cp="🤾🏾‍♂">erkak | gandbol | sport | 5-teri turi</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">erkak gandbol o‘ynamoqda: 5-teri turi</annotation>
+		<annotation cp="🤾🏿‍♂">erkak | gandbol | sport | 6-teri turi</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">erkak gandbol o‘ynamoqda: 6-teri turi</annotation>
+		<annotation cp="🤾🏻‍♀">ayol | gandbol | sport | 1–2-teri turi</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">ayol gandbol o‘ynamoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤾🏼‍♀">ayol | gandbol | sport | 3-teri turi</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">ayol gandbol o‘ynamoqda: 3-teri turi</annotation>
+		<annotation cp="🤾🏽‍♀">ayol | gandbol | sport | 4-teri turi</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">ayol gandbol o‘ynamoqda: 4-teri turi</annotation>
+		<annotation cp="🤾🏾‍♀">ayol | gandbol | sport | 5-teri turi</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">ayol gandbol o‘ynamoqda: 5-teri turi</annotation>
+		<annotation cp="🤾🏿‍♀">ayol | gandbol | sport | 6-teri turi</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">ayol gandbol o‘ynamoqda: 6-teri turi</annotation>
+		<annotation cp="🤹🏻">jonglyor | ko‘p vazifalilik | muvozanat | tajriba | 1–2-teri turi</annotation>
+		<annotation cp="🤹🏻" type="tts">jonglyor: 1–2-teri turi</annotation>
+		<annotation cp="🤹🏼">jonglyor | ko‘p vazifalilik | muvozanat | tajriba | 3-teri turi</annotation>
+		<annotation cp="🤹🏼" type="tts">jonglyor: 3-teri turi</annotation>
+		<annotation cp="🤹🏽">jonglyor | ko‘p vazifalilik | muvozanat | tajriba | 4-teri turi</annotation>
+		<annotation cp="🤹🏽" type="tts">jonglyor: 4-teri turi</annotation>
+		<annotation cp="🤹🏾">jonglyor | ko‘p vazifalilik | muvozanat | tajriba | 5-teri turi</annotation>
+		<annotation cp="🤹🏾" type="tts">jonglyor: 5-teri turi</annotation>
+		<annotation cp="🤹🏿">jonglyor | ko‘p vazifalilik | muvozanat | tajriba | 6-teri turi</annotation>
+		<annotation cp="🤹🏿" type="tts">jonglyor: 6-teri turi</annotation>
+		<annotation cp="🤹🏻‍♂">bir nechta amal | erkak | jonglyor | 1–2-teri turi</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">erkak jonglyorlik qilmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤹🏼‍♂">bir nechta amal | erkak | jonglyor | 3-teri turi</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">erkak jonglyorlik qilmoqda: 3-teri turi</annotation>
+		<annotation cp="🤹🏽‍♂">bir nechta amal | erkak | jonglyor | 4-teri turi</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">erkak jonglyorlik qilmoqda: 4-teri turi</annotation>
+		<annotation cp="🤹🏾‍♂">bir nechta amal | erkak | jonglyor | 5-teri turi</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">erkak jonglyorlik qilmoqda: 5-teri turi</annotation>
+		<annotation cp="🤹🏿‍♂">bir nechta amal | erkak | jonglyor | 6-teri turi</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">erkak jonglyorlik qilmoqda: 6-teri turi</annotation>
+		<annotation cp="🤹🏻‍♀">ayol | bir nechta amal | jonglyor | 1–2-teri turi</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">ayol jonglyorlik qilmoqda: 1–2-teri turi</annotation>
+		<annotation cp="🤹🏼‍♀">ayol | bir nechta amal | jonglyor | 3-teri turi</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">ayol jonglyorlik qilmoqda: 3-teri turi</annotation>
+		<annotation cp="🤹🏽‍♀">ayol | bir nechta amal | jonglyor | 4-teri turi</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">ayol jonglyorlik qilmoqda: 4-teri turi</annotation>
+		<annotation cp="🤹🏾‍♀">ayol | bir nechta amal | jonglyor | 5-teri turi</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">ayol jonglyorlik qilmoqda: 5-teri turi</annotation>
+		<annotation cp="🤹🏿‍♀">ayol | bir nechta amal | jonglyor | 6-teri turi</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">ayol jonglyorlik qilmoqda: 6-teri turi</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">ayol | erkak | juftlik</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">bo‘sa, ayol, erkak</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">erkak | juftlik | kishi</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">bo‘sa, erkak, erkak</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">ayol | juftlik | xotin</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">bo‘sa, ayol, ayol</annotation>
+		<annotation cp="👩‍❤‍👨">ayol | juftlik | sevgi | yurak</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">juftlik bilan yurak, ayol, erkak</annotation>
+		<annotation cp="👨‍❤‍👨">erkak | juftlik | sevgi | yurak</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">juftlik bilan yurak, erkak, erkak</annotation>
+		<annotation cp="👩‍❤‍👩">ayol | juftlik | sevgi | yurak</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">juftlik bilan yurak, ayol, ayol</annotation>
+		<annotation cp="👨‍👩‍👦">farzand | ona | ota | o‘g‘il</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">oila, erkak, ayol, o‘g‘il</annotation>
+		<annotation cp="👨‍👩‍👧">burj | farzand | ona | ota</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">oila, erkak, ayol, qiz</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">farzand | ona | ota | o‘g‘il</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">oila, erkak, ayol, qiz, o‘g‘il</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">ayol | erkak | farzand | o‘g‘il</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">oila, erkak, ayol, o‘g‘il, o‘g‘il</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">burj | farzand | ona | ota</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">oila, erkak, ayol, qiz, qiz</annotation>
+		<annotation cp="👨‍👨‍👦">erkak | farzand | ota | o‘g‘il</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">oila, erkak, erkak, o‘g‘il</annotation>
+		<annotation cp="👨‍👨‍👧">ayol | bokira | farzand | ota</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">oila, erkak, erkak, qiz</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">bokira | farzand | ota | o‘g‘il</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">oila, erkak, erkak, qiz, o‘g‘il</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">erkak | farzand | ota | o‘g‘il</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">oila, erkak, erkak, o‘g‘il, o‘g‘il</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">ayol | bokira | farzand | ota</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">oila, erkak, erkak, qiz, qiz</annotation>
+		<annotation cp="👩‍👩‍👦">ayol | farzand | ona | o‘g‘il</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">oila, ayol, ayol, o‘g‘il</annotation>
+		<annotation cp="👩‍👩‍👧">ayol | bokira | farzand | ona</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">oila, ayol, ayol, qiz</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">farzand | ona | o‘g‘il | qiz bola</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">oila, ayol, ayol, qiz, o‘g‘il</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">ayol | ona | ota | o‘g‘il</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">oila, ayol, ayol, o‘g‘il, o‘g‘il</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">ayol | bokira | ona | qiz</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">oila, ayol, ayol, qiz, qiz</annotation>
+		<annotation cp="👨‍👦">erkak | farzand | ota | o‘g‘il</annotation>
+		<annotation cp="👨‍👦" type="tts">oila, erkak, o‘g‘il</annotation>
+		<annotation cp="👨‍👦‍👦">erkak | farzand | ota | o‘g‘il</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">oila, erkak, o‘g‘il, o‘g‘il</annotation>
+		<annotation cp="👨‍👧">bokira | farzand | ota | qiz bola</annotation>
+		<annotation cp="👨‍👧" type="tts">oila, erkak, qiz</annotation>
+		<annotation cp="👨‍👧‍👦">farzand | ota | o‘g‘il | qiz bola</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">oila, erkak, qiz, o‘g‘il</annotation>
+		<annotation cp="👨‍👧‍👧">erkak | farzand | ota | qiz bola</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">oila, erkak, qiz, qiz</annotation>
+		<annotation cp="👩‍👦">ayol | farzand | ona | o‘g‘il</annotation>
+		<annotation cp="👩‍👦" type="tts">oila, ayol, o‘g‘il</annotation>
+		<annotation cp="👩‍👦‍👦">ayol | farzand | ona | o‘g‘il</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">oila, ayol, o‘g‘il, o‘g‘il</annotation>
+		<annotation cp="👩‍👧">ayol | farzand | ona | qiz bola</annotation>
+		<annotation cp="👩‍👧" type="tts">oila, ayol, qiz</annotation>
+		<annotation cp="👩‍👧‍👦">farzand | ona | o‘g‘il | qiz bola</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">oila, ayol, qiz, o‘g‘il</annotation>
+		<annotation cp="👩‍👧‍👧">ayol | farzand | ona | qiz</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">oila, ayol, qiz, qiz</annotation>
+		<annotation cp="🤳🏻">selfi | surat | telefon | 1–2-teri turi</annotation>
+		<annotation cp="🤳🏻" type="tts">selfi: 1–2-teri turi</annotation>
+		<annotation cp="🤳🏼">selfi | surat | telefon | 3-teri turi</annotation>
+		<annotation cp="🤳🏼" type="tts">selfi: 3-teri turi</annotation>
+		<annotation cp="🤳🏽">selfi | surat | telefon | 4-teri turi</annotation>
+		<annotation cp="🤳🏽" type="tts">selfi: 4-teri turi</annotation>
+		<annotation cp="🤳🏾">selfi | surat | telefon | 5-teri turi</annotation>
+		<annotation cp="🤳🏾" type="tts">selfi: 5-teri turi</annotation>
+		<annotation cp="🤳🏿">selfi | surat | telefon | 6-teri turi</annotation>
+		<annotation cp="🤳🏿" type="tts">selfi: 6-teri turi</annotation>
+		<annotation cp="💪🏻">latifa | moslashuvchan | muskul | muskullar | tana | 1–2-teri turi</annotation>
+		<annotation cp="💪🏻" type="tts">baquvvat muskullar: 1–2-teri turi</annotation>
+		<annotation cp="💪🏼">latifa | moslashuvchan | muskul | muskullar | tana | 3-teri turi</annotation>
+		<annotation cp="💪🏼" type="tts">baquvvat muskullar: 3-teri turi</annotation>
+		<annotation cp="💪🏽">latifa | moslashuvchan | muskul | muskullar | tana | 4-teri turi</annotation>
+		<annotation cp="💪🏽" type="tts">baquvvat muskullar: 4-teri turi</annotation>
+		<annotation cp="💪🏾">latifa | moslashuvchan | muskul | muskullar | tana | 5-teri turi</annotation>
+		<annotation cp="💪🏾" type="tts">baquvvat muskullar: 5-teri turi</annotation>
+		<annotation cp="💪🏿">latifa | moslashuvchan | muskul | muskullar | tana | 6-teri turi</annotation>
+		<annotation cp="💪🏿" type="tts">baquvvat muskullar: 6-teri turi</annotation>
+		<annotation cp="👈🏻">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | yo‘naltirish | 1–2-teri turi</annotation>
+		<annotation cp="👈🏻" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="👈🏼">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | yo‘naltirish | 3-teri turi</annotation>
+		<annotation cp="👈🏼" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="👈🏽">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | yo‘naltirish | 4-teri turi</annotation>
+		<annotation cp="👈🏽" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="👈🏾">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | yo‘naltirish | 5-teri turi</annotation>
+		<annotation cp="👈🏾" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="👈🏿">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | yo‘naltirish | 6-teri turi</annotation>
+		<annotation cp="👈🏿" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="👉🏻">barmoq | barmoq orqa tomoni | ko‘rsatkich | qo‘l | yo‘naltirish | 1–2-teri turi</annotation>
+		<annotation cp="👉🏻" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="👉🏼">barmoq | barmoq orqa tomoni | ko‘rsatkich | qo‘l | yo‘naltirish | 3-teri turi</annotation>
+		<annotation cp="👉🏼" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="👉🏽">barmoq | barmoq orqa tomoni | ko‘rsatkich | qo‘l | yo‘naltirish | 4-teri turi</annotation>
+		<annotation cp="👉🏽" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="👉🏾">barmoq | barmoq orqa tomoni | ko‘rsatkich | qo‘l | yo‘naltirish | 5-teri turi</annotation>
+		<annotation cp="👉🏾" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="👉🏿">barmoq | barmoq orqa tomoni | ko‘rsatkich | qo‘l | yo‘naltirish | 6-teri turi</annotation>
+		<annotation cp="👉🏿" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="☝🏻">barmoq | ko‘rsatkich | qo‘l | tana | tepaga | yo‘naltirish | 1–2-teri turi</annotation>
+		<annotation cp="☝🏻" type="tts">ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="☝🏼">barmoq | ko‘rsatkich | qo‘l | tana | tepaga | yo‘naltirish | 3-teri turi</annotation>
+		<annotation cp="☝🏼" type="tts">ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="☝🏽">barmoq | ko‘rsatkich | qo‘l | tana | tepaga | yo‘naltirish | 4-teri turi</annotation>
+		<annotation cp="☝🏽" type="tts">ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="☝🏾">barmoq | ko‘rsatkich | qo‘l | tana | tepaga | yo‘naltirish | 5-teri turi</annotation>
+		<annotation cp="☝🏾" type="tts">ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="☝🏿">barmoq | ko‘rsatkich | qo‘l | tana | tepaga | yo‘naltirish | 6-teri turi</annotation>
+		<annotation cp="☝🏿" type="tts">ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="👆🏻">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | tana | tepaga | yo‘naltirish | 1–2-teri turi</annotation>
+		<annotation cp="👆🏻" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="👆🏼">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | tana | tepaga | yo‘naltirish | 3-teri turi</annotation>
+		<annotation cp="👆🏼" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="👆🏽">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | tana | tepaga | yo‘naltirish | 4-teri turi</annotation>
+		<annotation cp="👆🏽" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="👆🏾">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | tana | tepaga | yo‘naltirish | 5-teri turi</annotation>
+		<annotation cp="👆🏾" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="👆🏿">barmoq | ko‘rsatkich | qo‘l | qo‘l orqa tomoni | tana | tepaga | yo‘naltirish | 6-teri turi</annotation>
+		<annotation cp="👆🏿" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="🖕🏻">barmoq | qo‘l | tana | 1–2-teri turi</annotation>
+		<annotation cp="🖕🏻" type="tts">o‘rta barmoq: 1–2-teri turi</annotation>
+		<annotation cp="🖕🏼">barmoq | qo‘l | tana | 3-teri turi</annotation>
+		<annotation cp="🖕🏼" type="tts">o‘rta barmoq: 3-teri turi</annotation>
+		<annotation cp="🖕🏽">barmoq | qo‘l | tana | 4-teri turi</annotation>
+		<annotation cp="🖕🏽" type="tts">o‘rta barmoq: 4-teri turi</annotation>
+		<annotation cp="🖕🏾">barmoq | qo‘l | tana | 5-teri turi</annotation>
+		<annotation cp="🖕🏾" type="tts">o‘rta barmoq: 5-teri turi</annotation>
+		<annotation cp="🖕🏿">barmoq | qo‘l | tana | 6-teri turi</annotation>
+		<annotation cp="🖕🏿" type="tts">o‘rta barmoq: 6-teri turi</annotation>
+		<annotation cp="👇🏻">barmoq | ko‘rsatkich | pastga | qo‘l | qo‘l orqa tomoni | tana | yo‘naltirish | 1–2-teri turi</annotation>
+		<annotation cp="👇🏻" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="👇🏼">barmoq | ko‘rsatkich | pastga | qo‘l | qo‘l orqa tomoni | tana | yo‘naltirish | 3-teri turi</annotation>
+		<annotation cp="👇🏼" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="👇🏽">barmoq | ko‘rsatkich | pastga | qo‘l | qo‘l orqa tomoni | tana | yo‘naltirish | 4-teri turi</annotation>
+		<annotation cp="👇🏽" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="👇🏾">barmoq | ko‘rsatkich | pastga | qo‘l | qo‘l orqa tomoni | tana | yo‘naltirish | 5-teri turi</annotation>
+		<annotation cp="👇🏾" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="👇🏿">barmoq | ko‘rsatkich | pastga | qo‘l | qo‘l orqa tomoni | tana | yo‘naltirish | 6-teri turi</annotation>
+		<annotation cp="👇🏿" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="✌🏻">g‘alaba | qo‘l | tana | v | 1–2-teri turi</annotation>
+		<annotation cp="✌🏻" type="tts">v harfini ko‘rsatib turgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="✌🏼">g‘alaba | qo‘l | tana | v | 3-teri turi</annotation>
+		<annotation cp="✌🏼" type="tts">v harfini ko‘rsatib turgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="✌🏽">g‘alaba | qo‘l | tana | v | 4-teri turi</annotation>
+		<annotation cp="✌🏽" type="tts">v harfini ko‘rsatib turgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="✌🏾">g‘alaba | qo‘l | tana | v | 5-teri turi</annotation>
+		<annotation cp="✌🏾" type="tts">v harfini ko‘rsatib turgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="✌🏿">g‘alaba | qo‘l | tana | v | 6-teri turi</annotation>
+		<annotation cp="✌🏿" type="tts">v harfini ko‘rsatib turgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="🤞🏻">kesishgan barmoqlar | omad | 1–2-teri turi</annotation>
+		<annotation cp="🤞🏻" type="tts">kesishgan barmoqlar: 1–2-teri turi</annotation>
+		<annotation cp="🤞🏼">kesishgan barmoqlar | omad | 3-teri turi</annotation>
+		<annotation cp="🤞🏼" type="tts">kesishgan barmoqlar: 3-teri turi</annotation>
+		<annotation cp="🤞🏽">kesishgan barmoqlar | omad | 4-teri turi</annotation>
+		<annotation cp="🤞🏽" type="tts">kesishgan barmoqlar: 4-teri turi</annotation>
+		<annotation cp="🤞🏾">kesishgan barmoqlar | omad | 5-teri turi</annotation>
+		<annotation cp="🤞🏾" type="tts">kesishgan barmoqlar: 5-teri turi</annotation>
+		<annotation cp="🤞🏿">kesishgan barmoqlar | omad | 6-teri turi</annotation>
+		<annotation cp="🤞🏿" type="tts">kesishgan barmoqlar: 6-teri turi</annotation>
+		<annotation cp="🖖🏻">barmoq | qo‘l | spok | tana | vulkan | 1–2-teri turi</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkan salyuti: 1–2-teri turi</annotation>
+		<annotation cp="🖖🏼">barmoq | qo‘l | spok | tana | vulkan | 3-teri turi</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkan salyuti: 3-teri turi</annotation>
+		<annotation cp="🖖🏽">barmoq | qo‘l | spok | tana | vulkan | 4-teri turi</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkan salyuti: 4-teri turi</annotation>
+		<annotation cp="🖖🏾">barmoq | qo‘l | spok | tana | vulkan | 5-teri turi</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkan salyuti: 5-teri turi</annotation>
+		<annotation cp="🖖🏿">barmoq | qo‘l | spok | tana | vulkan | 6-teri turi</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkan salyuti: 6-teri turi</annotation>
+		<annotation cp="🤘🏻">barmoq | qo‘l | rok | shoxlar | tana | 1–2-teri turi</annotation>
+		<annotation cp="🤘🏻" type="tts">shox belgisi: 1–2-teri turi</annotation>
+		<annotation cp="🤘🏼">barmoq | qo‘l | rok | shoxlar | tana | 3-teri turi</annotation>
+		<annotation cp="🤘🏼" type="tts">shox belgisi: 3-teri turi</annotation>
+		<annotation cp="🤘🏽">barmoq | qo‘l | rok | shoxlar | tana | 4-teri turi</annotation>
+		<annotation cp="🤘🏽" type="tts">shox belgisi: 4-teri turi</annotation>
+		<annotation cp="🤘🏾">barmoq | qo‘l | rok | shoxlar | tana | 5-teri turi</annotation>
+		<annotation cp="🤘🏾" type="tts">shox belgisi: 5-teri turi</annotation>
+		<annotation cp="🤘🏿">barmoq | qo‘l | rok | shoxlar | tana | 6-teri turi</annotation>
+		<annotation cp="🤘🏿" type="tts">shox belgisi: 6-teri turi</annotation>
+		<annotation cp="🤙🏻">ishora | qo‘l | telefon qil | 1–2-teri turi</annotation>
+		<annotation cp="🤙🏻" type="tts">menga telefon qil: 1–2-teri turi</annotation>
+		<annotation cp="🤙🏼">ishora | qo‘l | telefon qil | 3-teri turi</annotation>
+		<annotation cp="🤙🏼" type="tts">menga telefon qil: 3-teri turi</annotation>
+		<annotation cp="🤙🏽">ishora | qo‘l | telefon qil | 4-teri turi</annotation>
+		<annotation cp="🤙🏽" type="tts">menga telefon qil: 4-teri turi</annotation>
+		<annotation cp="🤙🏾">ishora | qo‘l | telefon qil | 5-teri turi</annotation>
+		<annotation cp="🤙🏾" type="tts">menga telefon qil: 5-teri turi</annotation>
+		<annotation cp="🤙🏿">ishora | qo‘l | telefon qil | 6-teri turi</annotation>
+		<annotation cp="🤙🏿" type="tts">menga telefon qil: 6-teri turi</annotation>
+		<annotation cp="🖐🏻">barmoq | qo‘l | tana | yoyilgan | 1–2-teri turi</annotation>
+		<annotation cp="🖐🏻" type="tts">barmoqlari yoyilgan holatda ko‘tarilgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="🖐🏼">barmoq | qo‘l | tana | yoyilgan | 3-teri turi</annotation>
+		<annotation cp="🖐🏼" type="tts">barmoqlari yoyilgan holatda ko‘tarilgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="🖐🏽">barmoq | qo‘l | tana | yoyilgan | 4-teri turi</annotation>
+		<annotation cp="🖐🏽" type="tts">barmoqlari yoyilgan holatda ko‘tarilgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="🖐🏾">barmoq | qo‘l | tana | yoyilgan | 5-teri turi</annotation>
+		<annotation cp="🖐🏾" type="tts">barmoqlari yoyilgan holatda ko‘tarilgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="🖐🏿">barmoq | qo‘l | tana | yoyilgan | 6-teri turi</annotation>
+		<annotation cp="🖐🏿" type="tts">barmoqlari yoyilgan holatda ko‘tarilgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="✋🏻">qo‘l | tana | 1–2-teri turi</annotation>
+		<annotation cp="✋🏻" type="tts">ko‘tarilgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="✋🏼">qo‘l | tana | 3-teri turi</annotation>
+		<annotation cp="✋🏼" type="tts">ko‘tarilgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="✋🏽">qo‘l | tana | 4-teri turi</annotation>
+		<annotation cp="✋🏽" type="tts">ko‘tarilgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="✋🏾">qo‘l | tana | 5-teri turi</annotation>
+		<annotation cp="✋🏾" type="tts">ko‘tarilgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="✋🏿">qo‘l | tana | 6-teri turi</annotation>
+		<annotation cp="✋🏿" type="tts">ko‘tarilgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="👌🏻">ok | qo‘l | tana | 1–2-teri turi</annotation>
+		<annotation cp="👌🏻" type="tts">qo‘lda qilingan ok: 1–2-teri turi</annotation>
+		<annotation cp="👌🏼">ok | qo‘l | tana | 3-teri turi</annotation>
+		<annotation cp="👌🏼" type="tts">qo‘lda qilingan ok: 3-teri turi</annotation>
+		<annotation cp="👌🏽">ok | qo‘l | tana | 4-teri turi</annotation>
+		<annotation cp="👌🏽" type="tts">qo‘lda qilingan ok: 4-teri turi</annotation>
+		<annotation cp="👌🏾">ok | qo‘l | tana | 5-teri turi</annotation>
+		<annotation cp="👌🏾" type="tts">qo‘lda qilingan ok: 5-teri turi</annotation>
+		<annotation cp="👌🏿">ok | qo‘l | tana | 6-teri turi</annotation>
+		<annotation cp="👌🏿" type="tts">qo‘lda qilingan ok: 6-teri turi</annotation>
+		<annotation cp="👍🏻">+1 | bosh barmoq | qo‘l | tana | tepaga | 1–2-teri turi</annotation>
+		<annotation cp="👍🏻" type="tts">tepaga qaragan bosh barmoq: 1–2-teri turi</annotation>
+		<annotation cp="👍🏼">+1 | bosh barmoq | qo‘l | tana | tepaga | 3-teri turi</annotation>
+		<annotation cp="👍🏼" type="tts">tepaga qaragan bosh barmoq: 3-teri turi</annotation>
+		<annotation cp="👍🏽">+1 | bosh barmoq | qo‘l | tana | tepaga | 4-teri turi</annotation>
+		<annotation cp="👍🏽" type="tts">tepaga qaragan bosh barmoq: 4-teri turi</annotation>
+		<annotation cp="👍🏾">+1 | bosh barmoq | qo‘l | tana | tepaga | 5-teri turi</annotation>
+		<annotation cp="👍🏾" type="tts">tepaga qaragan bosh barmoq: 5-teri turi</annotation>
+		<annotation cp="👍🏿">+1 | bosh barmoq | qo‘l | tana | tepaga | 6-teri turi</annotation>
+		<annotation cp="👍🏿" type="tts">tepaga qaragan bosh barmoq: 6-teri turi</annotation>
+		<annotation cp="👎🏻">-1 | bosh barmoq | pastga | qo‘l | tana | 1–2-teri turi</annotation>
+		<annotation cp="👎🏻" type="tts">pastga qaragan bosh barmoq: 1–2-teri turi</annotation>
+		<annotation cp="👎🏼">-1 | bosh barmoq | pastga | qo‘l | tana | 3-teri turi</annotation>
+		<annotation cp="👎🏼" type="tts">pastga qaragan bosh barmoq: 3-teri turi</annotation>
+		<annotation cp="👎🏽">-1 | bosh barmoq | pastga | qo‘l | tana | 4-teri turi</annotation>
+		<annotation cp="👎🏽" type="tts">pastga qaragan bosh barmoq: 4-teri turi</annotation>
+		<annotation cp="👎🏾">-1 | bosh barmoq | pastga | qo‘l | tana | 5-teri turi</annotation>
+		<annotation cp="👎🏾" type="tts">pastga qaragan bosh barmoq: 5-teri turi</annotation>
+		<annotation cp="👎🏿">-1 | bosh barmoq | pastga | qo‘l | tana | 6-teri turi</annotation>
+		<annotation cp="👎🏿" type="tts">pastga qaragan bosh barmoq: 6-teri turi</annotation>
+		<annotation cp="✊🏻">musht | qo‘l | tana | tugilgan | 1–2-teri turi</annotation>
+		<annotation cp="✊🏻" type="tts">ko‘tarilgan musht: 1–2-teri turi</annotation>
+		<annotation cp="✊🏼">musht | qo‘l | tana | tugilgan | 3-teri turi</annotation>
+		<annotation cp="✊🏼" type="tts">ko‘tarilgan musht: 3-teri turi</annotation>
+		<annotation cp="✊🏽">musht | qo‘l | tana | tugilgan | 4-teri turi</annotation>
+		<annotation cp="✊🏽" type="tts">ko‘tarilgan musht: 4-teri turi</annotation>
+		<annotation cp="✊🏾">musht | qo‘l | tana | tugilgan | 5-teri turi</annotation>
+		<annotation cp="✊🏾" type="tts">ko‘tarilgan musht: 5-teri turi</annotation>
+		<annotation cp="✊🏿">musht | qo‘l | tana | tugilgan | 6-teri turi</annotation>
+		<annotation cp="✊🏿" type="tts">ko‘tarilgan musht: 6-teri turi</annotation>
+		<annotation cp="👊🏻">musht | tana | tugilgan | 1–2-teri turi</annotation>
+		<annotation cp="👊🏻" type="tts">yaqinlashayotgan musht: 1–2-teri turi</annotation>
+		<annotation cp="👊🏼">musht | tana | tugilgan | 3-teri turi</annotation>
+		<annotation cp="👊🏼" type="tts">yaqinlashayotgan musht: 3-teri turi</annotation>
+		<annotation cp="👊🏽">musht | tana | tugilgan | 4-teri turi</annotation>
+		<annotation cp="👊🏽" type="tts">yaqinlashayotgan musht: 4-teri turi</annotation>
+		<annotation cp="👊🏾">musht | tana | tugilgan | 5-teri turi</annotation>
+		<annotation cp="👊🏾" type="tts">yaqinlashayotgan musht: 5-teri turi</annotation>
+		<annotation cp="👊🏿">musht | tana | tugilgan | 6-teri turi</annotation>
+		<annotation cp="👊🏿" type="tts">yaqinlashayotgan musht: 6-teri turi</annotation>
+		<annotation cp="🤛🏻">chap | musht | 1–2-teri turi</annotation>
+		<annotation cp="🤛🏻" type="tts">chapga qaragan musht: 1–2-teri turi</annotation>
+		<annotation cp="🤛🏼">chap | musht | 3-teri turi</annotation>
+		<annotation cp="🤛🏼" type="tts">chapga qaragan musht: 3-teri turi</annotation>
+		<annotation cp="🤛🏽">chap | musht | 4-teri turi</annotation>
+		<annotation cp="🤛🏽" type="tts">chapga qaragan musht: 4-teri turi</annotation>
+		<annotation cp="🤛🏾">chap | musht | 5-teri turi</annotation>
+		<annotation cp="🤛🏾" type="tts">chapga qaragan musht: 5-teri turi</annotation>
+		<annotation cp="🤛🏿">chap | musht | 6-teri turi</annotation>
+		<annotation cp="🤛🏿" type="tts">chapga qaragan musht: 6-teri turi</annotation>
+		<annotation cp="🤜🏻">musht | o‘ng | 1–2-teri turi</annotation>
+		<annotation cp="🤜🏻" type="tts">o‘ngga qaragan musht: 1–2-teri turi</annotation>
+		<annotation cp="🤜🏼">musht | o‘ng | 3-teri turi</annotation>
+		<annotation cp="🤜🏼" type="tts">o‘ngga qaragan musht: 3-teri turi</annotation>
+		<annotation cp="🤜🏽">musht | o‘ng | 4-teri turi</annotation>
+		<annotation cp="🤜🏽" type="tts">o‘ngga qaragan musht: 4-teri turi</annotation>
+		<annotation cp="🤜🏾">musht | o‘ng | 5-teri turi</annotation>
+		<annotation cp="🤜🏾" type="tts">o‘ngga qaragan musht: 5-teri turi</annotation>
+		<annotation cp="🤜🏿">musht | o‘ng | 6-teri turi</annotation>
+		<annotation cp="🤜🏿" type="tts">o‘ngga qaragan musht: 6-teri turi</annotation>
+		<annotation cp="🤚🏻">kaft | ko‘tarilgan | 1–2-teri turi</annotation>
+		<annotation cp="🤚🏻" type="tts">ko‘tarilgan kaft: 1–2-teri turi</annotation>
+		<annotation cp="🤚🏼">kaft | ko‘tarilgan | 3-teri turi</annotation>
+		<annotation cp="🤚🏼" type="tts">ko‘tarilgan kaft: 3-teri turi</annotation>
+		<annotation cp="🤚🏽">kaft | ko‘tarilgan | 4-teri turi</annotation>
+		<annotation cp="🤚🏽" type="tts">ko‘tarilgan kaft: 4-teri turi</annotation>
+		<annotation cp="🤚🏾">kaft | ko‘tarilgan | 5-teri turi</annotation>
+		<annotation cp="🤚🏾" type="tts">ko‘tarilgan kaft: 5-teri turi</annotation>
+		<annotation cp="🤚🏿">kaft | ko‘tarilgan | 6-teri turi</annotation>
+		<annotation cp="🤚🏿" type="tts">ko‘tarilgan kaft: 6-teri turi</annotation>
+		<annotation cp="👋🏻">qo‘l | silkitish | tana | 1–2-teri turi</annotation>
+		<annotation cp="👋🏻" type="tts">shapaloq: 1–2-teri turi</annotation>
+		<annotation cp="👋🏼">qo‘l | silkitish | tana | 3-teri turi</annotation>
+		<annotation cp="👋🏼" type="tts">shapaloq: 3-teri turi</annotation>
+		<annotation cp="👋🏽">qo‘l | silkitish | tana | 4-teri turi</annotation>
+		<annotation cp="👋🏽" type="tts">shapaloq: 4-teri turi</annotation>
+		<annotation cp="👋🏾">qo‘l | silkitish | tana | 5-teri turi</annotation>
+		<annotation cp="👋🏾" type="tts">shapaloq: 5-teri turi</annotation>
+		<annotation cp="👋🏿">qo‘l | silkitish | tana | 6-teri turi</annotation>
+		<annotation cp="👋🏿" type="tts">shapaloq: 6-teri turi</annotation>
+		<annotation cp="✍🏻">qo‘l | tana | yozish | 1–2-teri turi</annotation>
+		<annotation cp="✍🏻" type="tts">yozayotgan qo‘l: 1–2-teri turi</annotation>
+		<annotation cp="✍🏼">qo‘l | tana | yozish | 3-teri turi</annotation>
+		<annotation cp="✍🏼" type="tts">yozayotgan qo‘l: 3-teri turi</annotation>
+		<annotation cp="✍🏽">qo‘l | tana | yozish | 4-teri turi</annotation>
+		<annotation cp="✍🏽" type="tts">yozayotgan qo‘l: 4-teri turi</annotation>
+		<annotation cp="✍🏾">qo‘l | tana | yozish | 5-teri turi</annotation>
+		<annotation cp="✍🏾" type="tts">yozayotgan qo‘l: 5-teri turi</annotation>
+		<annotation cp="✍🏿">qo‘l | tana | yozish | 6-teri turi</annotation>
+		<annotation cp="✍🏿" type="tts">yozayotgan qo‘l: 6-teri turi</annotation>
+		<annotation cp="👏🏻">qo‘l | tana | 1–2-teri turi</annotation>
+		<annotation cp="👏🏻" type="tts">chapak: 1–2-teri turi</annotation>
+		<annotation cp="👏🏼">qo‘l | tana | 3-teri turi</annotation>
+		<annotation cp="👏🏼" type="tts">chapak: 3-teri turi</annotation>
+		<annotation cp="👏🏽">qo‘l | tana | 4-teri turi</annotation>
+		<annotation cp="👏🏽" type="tts">chapak: 4-teri turi</annotation>
+		<annotation cp="👏🏾">qo‘l | tana | 5-teri turi</annotation>
+		<annotation cp="👏🏾" type="tts">chapak: 5-teri turi</annotation>
+		<annotation cp="👏🏿">qo‘l | tana | 6-teri turi</annotation>
+		<annotation cp="👏🏿" type="tts">chapak: 6-teri turi</annotation>
+		<annotation cp="👐🏻">ochiq | qo‘l | tana | 1–2-teri turi</annotation>
+		<annotation cp="👐🏻" type="tts">ochiq qo‘llar: 1–2-teri turi</annotation>
+		<annotation cp="👐🏼">ochiq | qo‘l | tana | 3-teri turi</annotation>
+		<annotation cp="👐🏼" type="tts">ochiq qo‘llar: 3-teri turi</annotation>
+		<annotation cp="👐🏽">ochiq | qo‘l | tana | 4-teri turi</annotation>
+		<annotation cp="👐🏽" type="tts">ochiq qo‘llar: 4-teri turi</annotation>
+		<annotation cp="👐🏾">ochiq | qo‘l | tana | 5-teri turi</annotation>
+		<annotation cp="👐🏾" type="tts">ochiq qo‘llar: 5-teri turi</annotation>
+		<annotation cp="👐🏿">ochiq | qo‘l | tana | 6-teri turi</annotation>
+		<annotation cp="👐🏿" type="tts">ochiq qo‘llar: 6-teri turi</annotation>
+		<annotation cp="🙌🏻">imo-ishora | ko‘tarilgan | nishonlash | qo‘l | tan | urra | 1–2-teri turi</annotation>
+		<annotation cp="🙌🏻" type="tts">qo‘llarini ko‘targan odam: 1–2-teri turi</annotation>
+		<annotation cp="🙌🏼">imo-ishora | ko‘tarilgan | nishonlash | qo‘l | tan | urra | 3-teri turi</annotation>
+		<annotation cp="🙌🏼" type="tts">qo‘llarini ko‘targan odam: 3-teri turi</annotation>
+		<annotation cp="🙌🏽">imo-ishora | ko‘tarilgan | nishonlash | qo‘l | tan | urra | 4-teri turi</annotation>
+		<annotation cp="🙌🏽" type="tts">qo‘llarini ko‘targan odam: 4-teri turi</annotation>
+		<annotation cp="🙌🏾">imo-ishora | ko‘tarilgan | nishonlash | qo‘l | tan | urra | 5-teri turi</annotation>
+		<annotation cp="🙌🏾" type="tts">qo‘llarini ko‘targan odam: 5-teri turi</annotation>
+		<annotation cp="🙌🏿">imo-ishora | ko‘tarilgan | nishonlash | qo‘l | tan | urra | 6-teri turi</annotation>
+		<annotation cp="🙌🏿" type="tts">qo‘llarini ko‘targan odam: 6-teri turi</annotation>
+		<annotation cp="🙏🏻">ibodat | iltimos | imo-ishora | qovushgan | qo‘l | rahmat | so‘rash | tana | ta’zim | 1–2-teri turi</annotation>
+		<annotation cp="🙏🏻" type="tts">qovushtirilgan qo‘llar: 1–2-teri turi</annotation>
+		<annotation cp="🙏🏼">ibodat | iltimos | imo-ishora | qovushgan | qo‘l | rahmat | so‘rash | tana | ta’zim | 3-teri turi</annotation>
+		<annotation cp="🙏🏼" type="tts">qovushtirilgan qo‘llar: 3-teri turi</annotation>
+		<annotation cp="🙏🏽">ibodat | iltimos | imo-ishora | qovushgan | qo‘l | rahmat | so‘rash | tana | ta’zim | 4-teri turi</annotation>
+		<annotation cp="🙏🏽" type="tts">qovushtirilgan qo‘llar: 4-teri turi</annotation>
+		<annotation cp="🙏🏾">ibodat | iltimos | imo-ishora | qovushgan | qo‘l | rahmat | so‘rash | tana | ta’zim | 5-teri turi</annotation>
+		<annotation cp="🙏🏾" type="tts">qovushtirilgan qo‘llar: 5-teri turi</annotation>
+		<annotation cp="🙏🏿">ibodat | iltimos | imo-ishora | qovushgan | qo‘l | rahmat | so‘rash | tana | ta’zim | 6-teri turi</annotation>
+		<annotation cp="🙏🏿" type="tts">qovushtirilgan qo‘llar: 6-teri turi</annotation>
+		<annotation cp="💅🏻">kosmetika | lok | manikyur | parvarish | tana | tirnoq | 1–2-teri turi</annotation>
+		<annotation cp="💅🏻" type="tts">tirnoq uchun lok: 1–2-teri turi</annotation>
+		<annotation cp="💅🏼">kosmetika | lok | manikyur | parvarish | tana | tirnoq | 3-teri turi</annotation>
+		<annotation cp="💅🏼" type="tts">tirnoq uchun lok: 3-teri turi</annotation>
+		<annotation cp="💅🏽">kosmetika | lok | manikyur | parvarish | tana | tirnoq | 4-teri turi</annotation>
+		<annotation cp="💅🏽" type="tts">tirnoq uchun lok: 4-teri turi</annotation>
+		<annotation cp="💅🏾">kosmetika | lok | manikyur | parvarish | tana | tirnoq | 5-teri turi</annotation>
+		<annotation cp="💅🏾" type="tts">tirnoq uchun lok: 5-teri turi</annotation>
+		<annotation cp="💅🏿">kosmetika | lok | manikyur | parvarish | tana | tirnoq | 6-teri turi</annotation>
+		<annotation cp="💅🏿" type="tts">tirnoq uchun lok: 6-teri turi</annotation>
+		<annotation cp="👂🏻">tana | 1–2-teri turi</annotation>
+		<annotation cp="👂🏻" type="tts">quloq: 1–2-teri turi</annotation>
+		<annotation cp="👂🏼">tana | 3-teri turi</annotation>
+		<annotation cp="👂🏼" type="tts">quloq: 3-teri turi</annotation>
+		<annotation cp="👂🏽">tana | 4-teri turi</annotation>
+		<annotation cp="👂🏽" type="tts">quloq: 4-teri turi</annotation>
+		<annotation cp="👂🏾">tana | 5-teri turi</annotation>
+		<annotation cp="👂🏾" type="tts">quloq: 5-teri turi</annotation>
+		<annotation cp="👂🏿">tana | 6-teri turi</annotation>
+		<annotation cp="👂🏿" type="tts">quloq: 6-teri turi</annotation>
+		<annotation cp="👃🏻">tana | 1–2-teri turi</annotation>
+		<annotation cp="👃🏻" type="tts">burun: 1–2-teri turi</annotation>
+		<annotation cp="👃🏼">tana | 3-teri turi</annotation>
+		<annotation cp="👃🏼" type="tts">burun: 3-teri turi</annotation>
+		<annotation cp="👃🏽">tana | 4-teri turi</annotation>
+		<annotation cp="👃🏽" type="tts">burun: 4-teri turi</annotation>
+		<annotation cp="👃🏾">tana | 5-teri turi</annotation>
+		<annotation cp="👃🏾" type="tts">burun: 5-teri turi</annotation>
+		<annotation cp="👃🏿">tana | 6-teri turi</annotation>
+		<annotation cp="👃🏿" type="tts">burun: 6-teri turi</annotation>
+		<annotation cp="#⃣">funt | panjara | tugma</annotation>
+		<annotation cp="#⃣" type="tts">panjara tugmasi</annotation>
+		<annotation cp="*⃣">tugma | yulduz | yulduzcha</annotation>
+		<annotation cp="*⃣" type="tts">yulduzcha tugmasi</annotation>
+		<annotation cp="🇦🇨">bayroq</annotation>
+		<annotation cp="🇦🇨" type="tts">Me’roj oroli</annotation>
+		<annotation cp="🇦🇩">bayroq</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">bayroq</annotation>
+		<annotation cp="🇦🇪" type="tts">Birlashgan Arab Amirliklari</annotation>
+		<annotation cp="🇦🇫">bayroq</annotation>
+		<annotation cp="🇦🇫" type="tts">Afgʻoniston</annotation>
+		<annotation cp="🇦🇬">bayroq</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua va Barbuda</annotation>
+		<annotation cp="🇦🇮">bayroq</annotation>
+		<annotation cp="🇦🇮" type="tts">Angilya</annotation>
+		<annotation cp="🇦🇱">bayroq</annotation>
+		<annotation cp="🇦🇱" type="tts">Albaniya</annotation>
+		<annotation cp="🇦🇲">bayroq</annotation>
+		<annotation cp="🇦🇲" type="tts">Armaniston</annotation>
+		<annotation cp="🇦🇴">bayroq</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">bayroq</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktida</annotation>
+		<annotation cp="🇦🇷">bayroq</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇸">bayroq</annotation>
+		<annotation cp="🇦🇸" type="tts">Amerika Samoasi</annotation>
+		<annotation cp="🇦🇹">bayroq</annotation>
+		<annotation cp="🇦🇹" type="tts">Avstriya</annotation>
+		<annotation cp="🇦🇺">bayroq</annotation>
+		<annotation cp="🇦🇺" type="tts">Avstraliya</annotation>
+		<annotation cp="🇦🇼">bayroq</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">bayroq</annotation>
+		<annotation cp="🇦🇽" type="tts">Aland orollari</annotation>
+		<annotation cp="🇦🇿">bayroq</annotation>
+		<annotation cp="🇦🇿" type="tts">Ozarbayjon</annotation>
+		<annotation cp="🇧🇦">bayroq</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosniya va Gertsegovina</annotation>
+		<annotation cp="🇧🇧">bayroq</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">bayroq</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">bayroq</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgiya</annotation>
+		<annotation cp="🇧🇫">bayroq</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina-Faso</annotation>
+		<annotation cp="🇧🇬">bayroq</annotation>
+		<annotation cp="🇧🇬" type="tts">Bolgariya</annotation>
+		<annotation cp="🇧🇭">bayroq</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrayn</annotation>
+		<annotation cp="🇧🇮">bayroq</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">bayroq</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">bayroq</annotation>
+		<annotation cp="🇧🇱" type="tts">Sen-Bartelemi</annotation>
+		<annotation cp="🇧🇲">bayroq</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda orollari</annotation>
+		<annotation cp="🇧🇳">bayroq</annotation>
+		<annotation cp="🇧🇳" type="tts">Bruney</annotation>
+		<annotation cp="🇧🇴">bayroq</annotation>
+		<annotation cp="🇧🇴" type="tts">Boliviya</annotation>
+		<annotation cp="🇧🇶">bayroq</annotation>
+		<annotation cp="🇧🇶" type="tts">Boneyr, Sint-Estatius va Saba</annotation>
+		<annotation cp="🇧🇷">bayroq</annotation>
+		<annotation cp="🇧🇷" type="tts">Braziliya</annotation>
+		<annotation cp="🇧🇸">bayroq</annotation>
+		<annotation cp="🇧🇸" type="tts">Bagama orollari</annotation>
+		<annotation cp="🇧🇹">bayroq</annotation>
+		<annotation cp="🇧🇹" type="tts">Butan</annotation>
+		<annotation cp="🇧🇻">bayroq</annotation>
+		<annotation cp="🇧🇻" type="tts">Buve oroli</annotation>
+		<annotation cp="🇧🇼">bayroq</annotation>
+		<annotation cp="🇧🇼" type="tts">Botsvana</annotation>
+		<annotation cp="🇧🇾">bayroq</annotation>
+		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
+		<annotation cp="🇧🇿">bayroq</annotation>
+		<annotation cp="🇧🇿" type="tts">Beliz</annotation>
+		<annotation cp="🇨🇦">bayroq</annotation>
+		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇨">bayroq</annotation>
+		<annotation cp="🇨🇨" type="tts">Kokos (Kiling) orollari</annotation>
+		<annotation cp="🇨🇩">bayroq</annotation>
+		<annotation cp="🇨🇩" type="tts">Kongo – Kinshasa</annotation>
+		<annotation cp="🇨🇫">bayroq</annotation>
+		<annotation cp="🇨🇫" type="tts">Markaziy Afrika Respublikasi</annotation>
+		<annotation cp="🇨🇬">bayroq</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongo – Brazzavil</annotation>
+		<annotation cp="🇨🇭">bayroq</annotation>
+		<annotation cp="🇨🇭" type="tts">Shveytsariya</annotation>
+		<annotation cp="🇨🇮">bayroq</annotation>
+		<annotation cp="🇨🇮" type="tts">Kot-d’Ivuar</annotation>
+		<annotation cp="🇨🇰">bayroq</annotation>
+		<annotation cp="🇨🇰" type="tts">Kuk orollari</annotation>
+		<annotation cp="🇨🇱">bayroq</annotation>
+		<annotation cp="🇨🇱" type="tts">Chili</annotation>
+		<annotation cp="🇨🇲">bayroq</annotation>
+		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇳">bayroq</annotation>
+		<annotation cp="🇨🇳" type="tts">Xitoy</annotation>
+		<annotation cp="🇨🇴">bayroq</annotation>
+		<annotation cp="🇨🇴" type="tts">Kolumbiya</annotation>
+		<annotation cp="🇨🇵">bayroq</annotation>
+		<annotation cp="🇨🇵" type="tts">Klipperton oroli</annotation>
+		<annotation cp="🇨🇷">bayroq</annotation>
+		<annotation cp="🇨🇷" type="tts">Kosta-Rika</annotation>
+		<annotation cp="🇨🇺">bayroq</annotation>
+		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇻">bayroq</annotation>
+		<annotation cp="🇨🇻" type="tts">Kabo-Verde</annotation>
+		<annotation cp="🇨🇼">bayroq</annotation>
+		<annotation cp="🇨🇼" type="tts">Kyurasao</annotation>
+		<annotation cp="🇨🇽">bayroq</annotation>
+		<annotation cp="🇨🇽" type="tts">Rojdestvo oroli</annotation>
+		<annotation cp="🇨🇾">bayroq</annotation>
+		<annotation cp="🇨🇾" type="tts">Kipr</annotation>
+		<annotation cp="🇨🇿">bayroq</annotation>
+		<annotation cp="🇨🇿" type="tts">Chexiya</annotation>
+		<annotation cp="🇩🇪">bayroq</annotation>
+		<annotation cp="🇩🇪" type="tts">Germaniya</annotation>
+		<annotation cp="🇩🇬">bayroq</annotation>
+		<annotation cp="🇩🇬" type="tts">Diyego-Garsiya</annotation>
+		<annotation cp="🇩🇯">bayroq</annotation>
+		<annotation cp="🇩🇯" type="tts">Jibuti</annotation>
+		<annotation cp="🇩🇰">bayroq</annotation>
+		<annotation cp="🇩🇰" type="tts">Daniya</annotation>
+		<annotation cp="🇩🇲">bayroq</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominika</annotation>
+		<annotation cp="🇩🇴">bayroq</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominikan Respublikasi</annotation>
+		<annotation cp="🇩🇿">bayroq</annotation>
+		<annotation cp="🇩🇿" type="tts">Jazoir</annotation>
+		<annotation cp="🇪🇦">bayroq</annotation>
+		<annotation cp="🇪🇦" type="tts">Seuta va Melilya</annotation>
+		<annotation cp="🇪🇨">bayroq</annotation>
+		<annotation cp="🇪🇨" type="tts">Ekvador</annotation>
+		<annotation cp="🇪🇪">bayroq</annotation>
+		<annotation cp="🇪🇪" type="tts">Estoniya</annotation>
+		<annotation cp="🇪🇬">bayroq</annotation>
+		<annotation cp="🇪🇬" type="tts">Misr</annotation>
+		<annotation cp="🇪🇭">bayroq</annotation>
+		<annotation cp="🇪🇭" type="tts">G‘arbiy Sahroi Kabir</annotation>
+		<annotation cp="🇪🇷">bayroq</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritreya</annotation>
+		<annotation cp="🇪🇸">bayroq</annotation>
+		<annotation cp="🇪🇸" type="tts">Ispaniya</annotation>
+		<annotation cp="🇪🇹">bayroq</annotation>
+		<annotation cp="🇪🇹" type="tts">Efiopiya</annotation>
+		<annotation cp="🇪🇺">bayroq</annotation>
+		<annotation cp="🇪🇺" type="tts">Yevropa Ittifoqi</annotation>
+		<annotation cp="🇫🇮">bayroq</annotation>
+		<annotation cp="🇫🇮" type="tts">Finlandiya</annotation>
+		<annotation cp="🇫🇯">bayroq</annotation>
+		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇰">bayroq</annotation>
+		<annotation cp="🇫🇰" type="tts">Folklend orollari</annotation>
+		<annotation cp="🇫🇲">bayroq</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikroneziya</annotation>
+		<annotation cp="🇫🇴">bayroq</annotation>
+		<annotation cp="🇫🇴" type="tts">Farer orollari</annotation>
+		<annotation cp="🇫🇷">bayroq</annotation>
+		<annotation cp="🇫🇷" type="tts">Fransiya</annotation>
+		<annotation cp="🇬🇦">bayroq</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">bayroq</annotation>
+		<annotation cp="🇬🇧" type="tts">Buyuk Britaniya</annotation>
+		<annotation cp="🇬🇩">bayroq</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">bayroq</annotation>
+		<annotation cp="🇬🇪" type="tts">Gruziya</annotation>
+		<annotation cp="🇬🇫">bayroq</annotation>
+		<annotation cp="🇬🇫" type="tts">Fransuz Gvianasi</annotation>
+		<annotation cp="🇬🇬">bayroq</annotation>
+		<annotation cp="🇬🇬" type="tts">Gernsi</annotation>
+		<annotation cp="🇬🇭">bayroq</annotation>
+		<annotation cp="🇬🇭" type="tts">Gana</annotation>
+		<annotation cp="🇬🇮">bayroq</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">bayroq</annotation>
+		<annotation cp="🇬🇱" type="tts">Grenlandiya</annotation>
+		<annotation cp="🇬🇲">bayroq</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambiya</annotation>
+		<annotation cp="🇬🇳">bayroq</annotation>
+		<annotation cp="🇬🇳" type="tts">Gvineya</annotation>
+		<annotation cp="🇬🇵">bayroq</annotation>
+		<annotation cp="🇬🇵" type="tts">Gvadelupe</annotation>
+		<annotation cp="🇬🇶">bayroq</annotation>
+		<annotation cp="🇬🇶" type="tts">Ekvatorial Gvineya</annotation>
+		<annotation cp="🇬🇷">bayroq</annotation>
+		<annotation cp="🇬🇷" type="tts">Gretsiya</annotation>
+		<annotation cp="🇬🇸">bayroq</annotation>
+		<annotation cp="🇬🇸" type="tts">Janubiy Georgiya va Janubiy Sendvich orollari</annotation>
+		<annotation cp="🇬🇹">bayroq</annotation>
+		<annotation cp="🇬🇹" type="tts">Gvatemala</annotation>
+		<annotation cp="🇬🇺">bayroq</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">bayroq</annotation>
+		<annotation cp="🇬🇼" type="tts">Gvineya-Bisau</annotation>
+		<annotation cp="🇬🇾">bayroq</annotation>
+		<annotation cp="🇬🇾" type="tts">Gayana</annotation>
+		<annotation cp="🇭🇰">bayroq</annotation>
+		<annotation cp="🇭🇰" type="tts">Gonkong (Xitoy MMH)</annotation>
+		<annotation cp="🇭🇲">bayroq</annotation>
+		<annotation cp="🇭🇲" type="tts">Xerd va Makdonald orollari</annotation>
+		<annotation cp="🇭🇳">bayroq</annotation>
+		<annotation cp="🇭🇳" type="tts">Gonduras</annotation>
+		<annotation cp="🇭🇷">bayroq</annotation>
+		<annotation cp="🇭🇷" type="tts">Xorvatiya</annotation>
+		<annotation cp="🇭🇹">bayroq</annotation>
+		<annotation cp="🇭🇹" type="tts">Gaiti</annotation>
+		<annotation cp="🇭🇺">bayroq</annotation>
+		<annotation cp="🇭🇺" type="tts">Vengriya</annotation>
+		<annotation cp="🇮🇨">bayroq</annotation>
+		<annotation cp="🇮🇨" type="tts">Kanar orollari</annotation>
+		<annotation cp="🇮🇩">bayroq</annotation>
+		<annotation cp="🇮🇩" type="tts">Indoneziya</annotation>
+		<annotation cp="🇮🇪">bayroq</annotation>
+		<annotation cp="🇮🇪" type="tts">Irlandiya</annotation>
+		<annotation cp="🇮🇱">bayroq</annotation>
+		<annotation cp="🇮🇱" type="tts">Isroil</annotation>
+		<annotation cp="🇮🇲">bayroq</annotation>
+		<annotation cp="🇮🇲" type="tts">Men oroli</annotation>
+		<annotation cp="🇮🇳">bayroq</annotation>
+		<annotation cp="🇮🇳" type="tts">Hindiston</annotation>
+		<annotation cp="🇮🇴">bayroq</annotation>
+		<annotation cp="🇮🇴" type="tts">Britaniyaning Hind okeanidagi hududi</annotation>
+		<annotation cp="🇮🇶">bayroq</annotation>
+		<annotation cp="🇮🇶" type="tts">Iroq</annotation>
+		<annotation cp="🇮🇷">bayroq</annotation>
+		<annotation cp="🇮🇷" type="tts">Eron</annotation>
+		<annotation cp="🇮🇸">bayroq</annotation>
+		<annotation cp="🇮🇸" type="tts">Islandiya</annotation>
+		<annotation cp="🇮🇹">bayroq</annotation>
+		<annotation cp="🇮🇹" type="tts">Italiya</annotation>
+		<annotation cp="🇯🇪">bayroq</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersi</annotation>
+		<annotation cp="🇯🇲">bayroq</annotation>
+		<annotation cp="🇯🇲" type="tts">Yamayka</annotation>
+		<annotation cp="🇯🇴">bayroq</annotation>
+		<annotation cp="🇯🇴" type="tts">Iordaniya</annotation>
+		<annotation cp="🇯🇵">bayroq</annotation>
+		<annotation cp="🇯🇵" type="tts">Yaponiya</annotation>
+		<annotation cp="🇰🇪">bayroq</annotation>
+		<annotation cp="🇰🇪" type="tts">Keniya</annotation>
+		<annotation cp="🇰🇬">bayroq</annotation>
+		<annotation cp="🇰🇬" type="tts">Qirgʻiziston</annotation>
+		<annotation cp="🇰🇭">bayroq</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodja</annotation>
+		<annotation cp="🇰🇮">bayroq</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">bayroq</annotation>
+		<annotation cp="🇰🇲" type="tts">Komor orollari</annotation>
+		<annotation cp="🇰🇳">bayroq</annotation>
+		<annotation cp="🇰🇳" type="tts">Sent-Kits va Nevis</annotation>
+		<annotation cp="🇰🇵">bayroq</annotation>
+		<annotation cp="🇰🇵" type="tts">Shimoliy Koreya</annotation>
+		<annotation cp="🇰🇷">bayroq</annotation>
+		<annotation cp="🇰🇷" type="tts">Janubiy Koreya</annotation>
+		<annotation cp="🇰🇼">bayroq</annotation>
+		<annotation cp="🇰🇼" type="tts">Quvayt</annotation>
+		<annotation cp="🇰🇾">bayroq</annotation>
+		<annotation cp="🇰🇾" type="tts">Kayman orollari</annotation>
+		<annotation cp="🇰🇿">bayroq</annotation>
+		<annotation cp="🇰🇿" type="tts">Qozogʻiston</annotation>
+		<annotation cp="🇱🇦">bayroq</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">bayroq</annotation>
+		<annotation cp="🇱🇧" type="tts">Livan</annotation>
+		<annotation cp="🇱🇨">bayroq</annotation>
+		<annotation cp="🇱🇨" type="tts">Sent-Lyusiya</annotation>
+		<annotation cp="🇱🇮">bayroq</annotation>
+		<annotation cp="🇱🇮" type="tts">Lixtenshteyn</annotation>
+		<annotation cp="🇱🇰">bayroq</annotation>
+		<annotation cp="🇱🇰" type="tts">Shri-Lanka</annotation>
+		<annotation cp="🇱🇷">bayroq</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberiya</annotation>
+		<annotation cp="🇱🇸">bayroq</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesoto</annotation>
+		<annotation cp="🇱🇹">bayroq</annotation>
+		<annotation cp="🇱🇹" type="tts">Litva</annotation>
+		<annotation cp="🇱🇺">bayroq</annotation>
+		<annotation cp="🇱🇺" type="tts">Lyuksemburg</annotation>
+		<annotation cp="🇱🇻">bayroq</annotation>
+		<annotation cp="🇱🇻" type="tts">Latviya</annotation>
+		<annotation cp="🇱🇾">bayroq</annotation>
+		<annotation cp="🇱🇾" type="tts">Liviya</annotation>
+		<annotation cp="🇲🇦">bayroq</annotation>
+		<annotation cp="🇲🇦" type="tts">Marokash</annotation>
+		<annotation cp="🇲🇨">bayroq</annotation>
+		<annotation cp="🇲🇨" type="tts">Monako</annotation>
+		<annotation cp="🇲🇩">bayroq</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇪">bayroq</annotation>
+		<annotation cp="🇲🇪" type="tts">Chernogoriya</annotation>
+		<annotation cp="🇲🇫">bayroq</annotation>
+		<annotation cp="🇲🇫" type="tts">Sent-Martin</annotation>
+		<annotation cp="🇲🇬">bayroq</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">bayroq</annotation>
+		<annotation cp="🇲🇭" type="tts">Marshall orollari</annotation>
+		<annotation cp="🇲🇰">bayroq</annotation>
+		<annotation cp="🇲🇰" type="tts">Makedoniya</annotation>
+		<annotation cp="🇲🇱">bayroq</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">bayroq</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanma (Birma)</annotation>
+		<annotation cp="🇲🇳">bayroq</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongoliya</annotation>
+		<annotation cp="🇲🇴">bayroq</annotation>
+		<annotation cp="🇲🇴" type="tts">Makao (Xitoy MMH)</annotation>
+		<annotation cp="🇲🇵">bayroq</annotation>
+		<annotation cp="🇲🇵" type="tts">Shimoliy Mariana orollari</annotation>
+		<annotation cp="🇲🇶">bayroq</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinika</annotation>
+		<annotation cp="🇲🇷">bayroq</annotation>
+		<annotation cp="🇲🇷" type="tts">Mavritaniya</annotation>
+		<annotation cp="🇲🇸">bayroq</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">bayroq</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">bayroq</annotation>
+		<annotation cp="🇲🇺" type="tts">Mavrikiy</annotation>
+		<annotation cp="🇲🇻">bayroq</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldiv orollari</annotation>
+		<annotation cp="🇲🇼">bayroq</annotation>
+		<annotation cp="🇲🇼" type="tts">Malavi</annotation>
+		<annotation cp="🇲🇽">bayroq</annotation>
+		<annotation cp="🇲🇽" type="tts">Meksika</annotation>
+		<annotation cp="🇲🇾">bayroq</annotation>
+		<annotation cp="🇲🇾" type="tts">Malayziya</annotation>
+		<annotation cp="🇲🇿">bayroq</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambik</annotation>
+		<annotation cp="🇳🇦">bayroq</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibiya</annotation>
+		<annotation cp="🇳🇨">bayroq</annotation>
+		<annotation cp="🇳🇨" type="tts">Yangi Kaledoniya</annotation>
+		<annotation cp="🇳🇪">bayroq</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">bayroq</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolk oroli</annotation>
+		<annotation cp="🇳🇬">bayroq</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeriya</annotation>
+		<annotation cp="🇳🇮">bayroq</annotation>
+		<annotation cp="🇳🇮" type="tts">Nikaragua</annotation>
+		<annotation cp="🇳🇱">bayroq</annotation>
+		<annotation cp="🇳🇱" type="tts">Niderlandiya</annotation>
+		<annotation cp="🇳🇴">bayroq</annotation>
+		<annotation cp="🇳🇴" type="tts">Norvegiya</annotation>
+		<annotation cp="🇳🇵">bayroq</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">bayroq</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">bayroq</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">bayroq</annotation>
+		<annotation cp="🇳🇿" type="tts">Yangi Zelandiya</annotation>
+		<annotation cp="🇴🇲">bayroq</annotation>
+		<annotation cp="🇴🇲" type="tts">Ummon</annotation>
+		<annotation cp="🇵🇦">bayroq</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">bayroq</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">bayroq</annotation>
+		<annotation cp="🇵🇫" type="tts">Fransuz Polineziyasi</annotation>
+		<annotation cp="🇵🇬">bayroq</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua – Yangi Gvineya</annotation>
+		<annotation cp="🇵🇭">bayroq</annotation>
+		<annotation cp="🇵🇭" type="tts">Filippin</annotation>
+		<annotation cp="🇵🇰">bayroq</annotation>
+		<annotation cp="🇵🇰" type="tts">Pokiston</annotation>
+		<annotation cp="🇵🇱">bayroq</annotation>
+		<annotation cp="🇵🇱" type="tts">Polsha</annotation>
+		<annotation cp="🇵🇲">bayroq</annotation>
+		<annotation cp="🇵🇲" type="tts">Sen-Pyer va Mikelon</annotation>
+		<annotation cp="🇵🇳">bayroq</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitkern orollari</annotation>
+		<annotation cp="🇵🇷">bayroq</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto-Riko</annotation>
+		<annotation cp="🇵🇸">bayroq</annotation>
+		<annotation cp="🇵🇸" type="tts">Falastin hududi</annotation>
+		<annotation cp="🇵🇹">bayroq</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugaliya</annotation>
+		<annotation cp="🇵🇼">bayroq</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">bayroq</annotation>
+		<annotation cp="🇵🇾" type="tts">Paragvay</annotation>
+		<annotation cp="🇶🇦">bayroq</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">bayroq</annotation>
+		<annotation cp="🇷🇪" type="tts">Reyunion</annotation>
+		<annotation cp="🇷🇴">bayroq</annotation>
+		<annotation cp="🇷🇴" type="tts">Ruminiya</annotation>
+		<annotation cp="🇷🇸">bayroq</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbiya</annotation>
+		<annotation cp="🇷🇺">bayroq</annotation>
+		<annotation cp="🇷🇺" type="tts">Rossiya</annotation>
+		<annotation cp="🇷🇼">bayroq</annotation>
+		<annotation cp="🇷🇼" type="tts">Ruanda</annotation>
+		<annotation cp="🇸🇦">bayroq</annotation>
+		<annotation cp="🇸🇦" type="tts">Saudiya Arabistoni</annotation>
+		<annotation cp="🇸🇧">bayroq</annotation>
+		<annotation cp="🇸🇧" type="tts">Solomon orollari</annotation>
+		<annotation cp="🇸🇨">bayroq</annotation>
+		<annotation cp="🇸🇨" type="tts">Seyshel orollari</annotation>
+		<annotation cp="🇸🇩">bayroq</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇪">bayroq</annotation>
+		<annotation cp="🇸🇪" type="tts">Shvetsiya</annotation>
+		<annotation cp="🇸🇬">bayroq</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapur</annotation>
+		<annotation cp="🇸🇭">bayroq</annotation>
+		<annotation cp="🇸🇭" type="tts">Muqaddas Yelena oroli</annotation>
+		<annotation cp="🇸🇮">bayroq</annotation>
+		<annotation cp="🇸🇮" type="tts">Sloveniya</annotation>
+		<annotation cp="🇸🇯">bayroq</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard va Yan-Mayen</annotation>
+		<annotation cp="🇸🇰">bayroq</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovakiya</annotation>
+		<annotation cp="🇸🇱">bayroq</annotation>
+		<annotation cp="🇸🇱" type="tts">Syerra-Leone</annotation>
+		<annotation cp="🇸🇲">bayroq</annotation>
+		<annotation cp="🇸🇲" type="tts">San-Marino</annotation>
+		<annotation cp="🇸🇳">bayroq</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">bayroq</annotation>
+		<annotation cp="🇸🇴" type="tts">Somali</annotation>
+		<annotation cp="🇸🇷">bayroq</annotation>
+		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇸">bayroq</annotation>
+		<annotation cp="🇸🇸" type="tts">Janubiy Sudan</annotation>
+		<annotation cp="🇸🇹">bayroq</annotation>
+		<annotation cp="🇸🇹" type="tts">San-Tome va Prinsipi</annotation>
+		<annotation cp="🇸🇻">bayroq</annotation>
+		<annotation cp="🇸🇻" type="tts">Salvador</annotation>
+		<annotation cp="🇸🇽">bayroq</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint-Marten</annotation>
+		<annotation cp="🇸🇾">bayroq</annotation>
+		<annotation cp="🇸🇾" type="tts">Suriya</annotation>
+		<annotation cp="🇸🇿">bayroq</annotation>
+		<annotation cp="🇸🇿" type="tts">Svazilend</annotation>
+		<annotation cp="🇹🇦">bayroq</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan-da-Kunya</annotation>
+		<annotation cp="🇹🇨">bayroq</annotation>
+		<annotation cp="🇹🇨" type="tts">Turks va Kaykos orollari</annotation>
+		<annotation cp="🇹🇩">bayroq</annotation>
+		<annotation cp="🇹🇩" type="tts">Chad</annotation>
+		<annotation cp="🇹🇫">bayroq</annotation>
+		<annotation cp="🇹🇫" type="tts">Fransuz Janubiy hududlari</annotation>
+		<annotation cp="🇹🇬">bayroq</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">bayroq</annotation>
+		<annotation cp="🇹🇭" type="tts">Tailand</annotation>
+		<annotation cp="🇹🇯">bayroq</annotation>
+		<annotation cp="🇹🇯" type="tts">Tojikiston</annotation>
+		<annotation cp="🇹🇰">bayroq</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">bayroq</annotation>
+		<annotation cp="🇹🇱" type="tts">Timor-Leste</annotation>
+		<annotation cp="🇹🇲">bayroq</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmaniston</annotation>
+		<annotation cp="🇹🇳">bayroq</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunis</annotation>
+		<annotation cp="🇹🇴">bayroq</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">bayroq</annotation>
+		<annotation cp="🇹🇷" type="tts">Turkiya</annotation>
+		<annotation cp="🇹🇹">bayroq</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad va Tobago</annotation>
+		<annotation cp="🇹🇻">bayroq</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">bayroq</annotation>
+		<annotation cp="🇹🇼" type="tts">Tayvan</annotation>
+		<annotation cp="🇹🇿">bayroq</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzaniya</annotation>
+		<annotation cp="🇺🇦">bayroq</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇬">bayroq</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">bayroq</annotation>
+		<annotation cp="🇺🇲" type="tts">AQSH yondosh orollari</annotation>
+		<annotation cp="🇺🇳">bayroq</annotation>
+		<annotation cp="🇺🇳" type="tts">Birlashgan Millatlar Tashkiloti</annotation>
+		<annotation cp="🇺🇸">bayroq</annotation>
+		<annotation cp="🇺🇸" type="tts">Amerika Qo‘shma Shtatlari</annotation>
+		<annotation cp="🇺🇾">bayroq</annotation>
+		<annotation cp="🇺🇾" type="tts">Urugvay</annotation>
+		<annotation cp="🇺🇿">bayroq</annotation>
+		<annotation cp="🇺🇿" type="tts">Oʻzbekiston</annotation>
+		<annotation cp="🇻🇦">bayroq</annotation>
+		<annotation cp="🇻🇦" type="tts">Vatikan</annotation>
+		<annotation cp="🇻🇨">bayroq</annotation>
+		<annotation cp="🇻🇨" type="tts">Sent-Vinsent va Grenadin</annotation>
+		<annotation cp="🇻🇪">bayroq</annotation>
+		<annotation cp="🇻🇪" type="tts">Venesuela</annotation>
+		<annotation cp="🇻🇬">bayroq</annotation>
+		<annotation cp="🇻🇬" type="tts">Britaniya Virgin orollari</annotation>
+		<annotation cp="🇻🇮">bayroq</annotation>
+		<annotation cp="🇻🇮" type="tts">AQSH Virgin orollari</annotation>
+		<annotation cp="🇻🇳">bayroq</annotation>
+		<annotation cp="🇻🇳" type="tts">Vyetnam</annotation>
+		<annotation cp="🇻🇺">bayroq</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">bayroq</annotation>
+		<annotation cp="🇼🇫" type="tts">Uollis va Futuna</annotation>
+		<annotation cp="🇼🇸">bayroq</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">bayroq</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">bayroq</annotation>
+		<annotation cp="🇾🇪" type="tts">Yaman</annotation>
+		<annotation cp="🇾🇹">bayroq</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotta</annotation>
+		<annotation cp="🇿🇦">bayroq</annotation>
+		<annotation cp="🇿🇦" type="tts">Janubiy Afrika Respublikasi</annotation>
+		<annotation cp="🇿🇲">bayroq</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambiya</annotation>
+		<annotation cp="🇿🇼">bayroq</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabve</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="lv"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0</annotation>
+		<annotation cp="0⃣" type="tts">nulle</annotation>
+		<annotation cp="1⃣">1</annotation>
+		<annotation cp="1⃣" type="tts">viens</annotation>
+		<annotation cp="2⃣">2</annotation>
+		<annotation cp="2⃣" type="tts">divi</annotation>
+		<annotation cp="3⃣">3</annotation>
+		<annotation cp="3⃣" type="tts">trīs</annotation>
+		<annotation cp="4⃣">4</annotation>
+		<annotation cp="4⃣" type="tts">četri</annotation>
+		<annotation cp="5⃣">5</annotation>
+		<annotation cp="5⃣" type="tts">pieci</annotation>
+		<annotation cp="6⃣">6</annotation>
+		<annotation cp="6⃣" type="tts">seši</annotation>
+		<annotation cp="7⃣">7</annotation>
+		<annotation cp="7⃣" type="tts">septiņi</annotation>
+		<annotation cp="8⃣">8</annotation>
+		<annotation cp="8⃣" type="tts">astoņi</annotation>
+		<annotation cp="9⃣">9</annotation>
+		<annotation cp="9⃣" type="tts">deviņi</annotation>
+		<annotation cp="👶🏻">bērns | mazulis | seja | ādas tips 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">zīdainis: ādas tips 1–2</annotation>
+		<annotation cp="👶🏼">bērns | mazulis | seja | ādas tips 3</annotation>
+		<annotation cp="👶🏼" type="tts">zīdainis: ādas tips 3</annotation>
+		<annotation cp="👶🏽">bērns | mazulis | seja | ādas tips 4</annotation>
+		<annotation cp="👶🏽" type="tts">zīdainis: ādas tips 4</annotation>
+		<annotation cp="👶🏾">bērns | mazulis | seja | ādas tips 5</annotation>
+		<annotation cp="👶🏾" type="tts">zīdainis: ādas tips 5</annotation>
+		<annotation cp="👶🏿">bērns | mazulis | seja | ādas tips 6</annotation>
+		<annotation cp="👶🏿" type="tts">zīdainis: ādas tips 6</annotation>
+		<annotation cp="👦🏻">puika | seja | ādas tips 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">zēns: ādas tips 1–2</annotation>
+		<annotation cp="👦🏼">puika | seja | ādas tips 3</annotation>
+		<annotation cp="👦🏼" type="tts">zēns: ādas tips 3</annotation>
+		<annotation cp="👦🏽">puika | seja | ādas tips 4</annotation>
+		<annotation cp="👦🏽" type="tts">zēns: ādas tips 4</annotation>
+		<annotation cp="👦🏾">puika | seja | ādas tips 5</annotation>
+		<annotation cp="👦🏾" type="tts">zēns: ādas tips 5</annotation>
+		<annotation cp="👦🏿">puika | seja | ādas tips 6</annotation>
+		<annotation cp="👦🏿" type="tts">zēns: ādas tips 6</annotation>
+		<annotation cp="👧🏻">seja | ādas tips 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">meitene: ādas tips 1–2</annotation>
+		<annotation cp="👧🏼">seja | ādas tips 3</annotation>
+		<annotation cp="👧🏼" type="tts">meitene: ādas tips 3</annotation>
+		<annotation cp="👧🏽">seja | ādas tips 4</annotation>
+		<annotation cp="👧🏽" type="tts">meitene: ādas tips 4</annotation>
+		<annotation cp="👧🏾">seja | ādas tips 5</annotation>
+		<annotation cp="👧🏾" type="tts">meitene: ādas tips 5</annotation>
+		<annotation cp="👧🏿">seja | ādas tips 6</annotation>
+		<annotation cp="👧🏿" type="tts">meitene: ādas tips 6</annotation>
+		<annotation cp="👨🏻">kungs | seja | vīrs | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">vīrietis: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼">kungs | seja | vīrs | ādas tips 3</annotation>
+		<annotation cp="👨🏼" type="tts">vīrietis: ādas tips 3</annotation>
+		<annotation cp="👨🏽">kungs | seja | vīrs | ādas tips 4</annotation>
+		<annotation cp="👨🏽" type="tts">vīrietis: ādas tips 4</annotation>
+		<annotation cp="👨🏾">kungs | seja | vīrs | ādas tips 5</annotation>
+		<annotation cp="👨🏾" type="tts">vīrietis: ādas tips 5</annotation>
+		<annotation cp="👨🏿">kungs | seja | vīrs | ādas tips 6</annotation>
+		<annotation cp="👨🏿" type="tts">vīrietis: ādas tips 6</annotation>
+		<annotation cp="👩🏻">dāma | kundze | seja | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">sieviete: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼">dāma | kundze | seja | ādas tips 3</annotation>
+		<annotation cp="👩🏼" type="tts">sieviete: ādas tips 3</annotation>
+		<annotation cp="👩🏽">dāma | kundze | seja | ādas tips 4</annotation>
+		<annotation cp="👩🏽" type="tts">sieviete: ādas tips 4</annotation>
+		<annotation cp="👩🏾">dāma | kundze | seja | ādas tips 5</annotation>
+		<annotation cp="👩🏾" type="tts">sieviete: ādas tips 5</annotation>
+		<annotation cp="👩🏿">dāma | kundze | seja | ādas tips 6</annotation>
+		<annotation cp="👩🏿" type="tts">sieviete: ādas tips 6</annotation>
+		<annotation cp="👴🏻">seja | vecs | vectēvs | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">vecs vīrietis: ādas tips 1–2</annotation>
+		<annotation cp="👴🏼">seja | vecs | vectēvs | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👴🏼" type="tts">vecs vīrietis: ādas tips 3</annotation>
+		<annotation cp="👴🏽">seja | vecs | vectēvs | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👴🏽" type="tts">vecs vīrietis: ādas tips 4</annotation>
+		<annotation cp="👴🏾">seja | vecs | vectēvs | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👴🏾" type="tts">vecs vīrietis: ādas tips 5</annotation>
+		<annotation cp="👴🏿">seja | vecs | vectēvs | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👴🏿" type="tts">vecs vīrietis: ādas tips 6</annotation>
+		<annotation cp="👵🏻">seja | sieviete | vecmamma | vecs | ādas tips 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">veca sieviete: ādas tips 1–2</annotation>
+		<annotation cp="👵🏼">seja | sieviete | vecmamma | vecs | ādas tips 3</annotation>
+		<annotation cp="👵🏼" type="tts">veca sieviete: ādas tips 3</annotation>
+		<annotation cp="👵🏽">seja | sieviete | vecmamma | vecs | ādas tips 4</annotation>
+		<annotation cp="👵🏽" type="tts">veca sieviete: ādas tips 4</annotation>
+		<annotation cp="👵🏾">seja | sieviete | vecmamma | vecs | ādas tips 5</annotation>
+		<annotation cp="👵🏾" type="tts">veca sieviete: ādas tips 5</annotation>
+		<annotation cp="👵🏿">seja | sieviete | vecmamma | vecs | ādas tips 6</annotation>
+		<annotation cp="👵🏿" type="tts">veca sieviete: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍⚕">brālītis | dakteris | terapeits | vīrietis | ārsts | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">ārsts: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">brālītis | dakteris | terapeits | vīrietis | ārsts | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">ārsts: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍⚕">brālītis | dakteris | terapeits | vīrietis | ārsts | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">ārsts: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍⚕">brālītis | dakteris | terapeits | vīrietis | ārsts | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">ārsts: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍⚕">brālītis | dakteris | terapeits | vīrietis | ārsts | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">ārsts: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍⚕">daktere | medmāsa | sieviete | terapeite | ārste | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">ārste: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">daktere | medmāsa | sieviete | terapeite | ārste | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">ārste: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍⚕">daktere | medmāsa | sieviete | terapeite | ārste | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">ārste: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍⚕">daktere | medmāsa | sieviete | terapeite | ārste | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">ārste: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍⚕">daktere | medmāsa | sieviete | terapeite | ārste | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">ārste: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🎓">absolvents | students | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">students: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">absolvents | students | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">students: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🎓">absolvents | students | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">students: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🎓">absolvents | students | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">students: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🎓">absolvents | students | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">students: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🎓">absolvente | sieviete | studente | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">studente: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">absolvente | sieviete | studente | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">studente: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🎓">absolvente | sieviete | studente | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">studente: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🎓">absolvente | sieviete | studente | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">studente: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🎓">absolvente | sieviete | studente | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">studente: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🏫">pasniedzējs | profesors | skolotājs | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">skolotājs: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">pasniedzējs | profesors | skolotājs | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">skolotājs: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🏫">pasniedzējs | profesors | skolotājs | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">skolotājs: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🏫">pasniedzējs | profesors | skolotājs | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">skolotājs: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🏫">pasniedzējs | profesors | skolotājs | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">skolotājs: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🏫">pasniedzēja | profesore | sieviete | skolotāja | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">skolotāja: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">pasniedzēja | profesore | sieviete | skolotāja | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">skolotāja: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🏫">pasniedzēja | profesore | sieviete | skolotāja | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">skolotāja: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🏫">pasniedzēja | profesore | sieviete | skolotāja | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">skolotāja: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🏫">pasniedzēja | profesore | sieviete | skolotāja | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">skolotāja: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍⚖">likums | svari | tiesnesis | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">tiesnesis: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">likums | svari | tiesnesis | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">tiesnesis: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍⚖">likums | svari | tiesnesis | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">tiesnesis: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍⚖">likums | svari | tiesnesis | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">tiesnesis: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍⚖">likums | svari | tiesnesis | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">tiesnesis: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍⚖">likums | sieviete | svari | tiesnese | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">tiesnese: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">likums | sieviete | svari | tiesnese | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">tiesnese: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍⚖">likums | sieviete | svari | tiesnese | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">tiesnese: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍⚖">likums | sieviete | svari | tiesnese | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">tiesnese: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍⚖">likums | sieviete | svari | tiesnese | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">tiesnese: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🌾">dārzenieks | lauksaimnieks | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">lauksaimnieks: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">dārzenieks | lauksaimnieks | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">lauksaimnieks: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🌾">dārzenieks | lauksaimnieks | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">lauksaimnieks: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🌾">dārzenieks | lauksaimnieks | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">lauksaimnieks: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🌾">dārzenieks | lauksaimnieks | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">lauksaimnieks: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🌾">dārzeniece | lauksaimniece | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">lauksaimniece: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">dārzeniece | lauksaimniece | sieviete | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">lauksaimniece: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🌾">dārzeniece | lauksaimniece | sieviete | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">lauksaimniece: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🌾">dārzeniece | lauksaimniece | sieviete | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">lauksaimniece: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🌾">dārzeniece | lauksaimniece | sieviete | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">lauksaimniece: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🍳">pavārs | vīrietis | šefpavārs | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">pavārs: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">pavārs | vīrietis | šefpavārs | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">pavārs: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🍳">pavārs | vīrietis | šefpavārs | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">pavārs: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🍳">pavārs | vīrietis | šefpavārs | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">pavārs: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🍳">pavārs | vīrietis | šefpavārs | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">pavārs: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🍳">pavāre | sieviete | šefpavāre | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">pavāre: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">pavāre | sieviete | šefpavāre | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">pavāre: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🍳">pavāre | sieviete | šefpavāre | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">pavāre: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🍳">pavāre | sieviete | šefpavāre | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">pavāre: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🍳">pavāre | sieviete | šefpavāre | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">pavāre: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🔧">elektriķis | mehāniķis | santehniķis | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">mehāniķis: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">elektriķis | mehāniķis | santehniķis | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">mehāniķis: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🔧">elektriķis | mehāniķis | santehniķis | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">mehāniķis: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🔧">elektriķis | mehāniķis | santehniķis | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">mehāniķis: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🔧">elektriķis | mehāniķis | santehniķis | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">mehāniķis: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🔧">elektriķe | mehāniķe | santehniķe | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">mehāniķe: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">elektriķe | mehāniķe | santehniķe | sieviete | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">mehāniķe: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🔧">elektriķe | mehāniķe | santehniķe | sieviete | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">mehāniķe: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🔧">elektriķe | mehāniķe | santehniķe | sieviete | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">mehāniķe: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🔧">elektriķe | mehāniķe | santehniķe | sieviete | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">mehāniķe: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🏭">ražošana | rūpnīca | strādnieks | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">strādnieks: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">ražošana | rūpnīca | strādnieks | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">strādnieks: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🏭">ražošana | rūpnīca | strādnieks | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">strādnieks: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🏭">ražošana | rūpnīca | strādnieks | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">strādnieks: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🏭">ražošana | rūpnīca | strādnieks | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">strādnieks: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🏭">ražošana | rūpnīca | sieviete | strādniece | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">strādniece: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">ražošana | rūpnīca | sieviete | strādniece | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">strādniece: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🏭">ražošana | rūpnīca | sieviete | strādniece | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">strādniece: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🏭">ražošana | rūpnīca | sieviete | strādniece | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">strādniece: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🏭">ražošana | rūpnīca | sieviete | strādniece | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">strādniece: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍💼">arhitekts | baltās apkaklītes | birojs | menedžeris | uzņēmējdarbība | virietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">biroja darbinieks: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍💼">arhitekts | baltās apkaklītes | birojs | menedžeris | uzņēmējdarbība | virietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">biroja darbinieks: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍💼">arhitekts | baltās apkaklītes | birojs | menedžeris | uzņēmējdarbība | virietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">biroja darbinieks: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍💼">arhitekts | baltās apkaklītes | birojs | menedžeris | uzņēmējdarbība | virietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">biroja darbinieks: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍💼">arhitekts | baltās apkaklītes | birojs | menedžeris | uzņēmējdarbība | virietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">biroja darbinieks: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍💼">arhitekte | baltās apkaklītes | birojs | menedžere | sieviete | uzņēmējdarbība | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">biroja darbiniece: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍💼">arhitekte | baltās apkaklītes | birojs | menedžere | sieviete | uzņēmējdarbība | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">biroja darbiniece: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍💼">arhitekte | baltās apkaklītes | birojs | menedžere | sieviete | uzņēmējdarbība | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">biroja darbiniece: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍💼">arhitekte | baltās apkaklītes | birojs | menedžere | sieviete | uzņēmējdarbība | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">biroja darbiniece: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍💼">arhitekte | baltās apkaklītes | birojs | menedžere | sieviete | uzņēmējdarbība | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">biroja darbiniece: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🔬">biologs | fiziķis | inženieris | matemātiķis | vīrietis | zinātnieks | ķīmiķis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">zinātnieks: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">biologs | fiziķis | inženieris | matemātiķis | vīrietis | zinātnieks | ķīmiķis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">zinātnieks: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🔬">biologs | fiziķis | inženieris | matemātiķis | vīrietis | zinātnieks | ķīmiķis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">zinātnieks: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🔬">biologs | fiziķis | inženieris | matemātiķis | vīrietis | zinātnieks | ķīmiķis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">zinātnieks: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🔬">biologs | fiziķis | inženieris | matemātiķis | vīrietis | zinātnieks | ķīmiķis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">zinātnieks: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🔬">bioloģe | fiziķe | inženiere | matemātiķe | sieviete | zinātniece | ķīmiķe | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">zinātniece: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">bioloģe | fiziķe | inženiere | matemātiķe | sieviete | zinātniece | ķīmiķe | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">zinātniece: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🔬">bioloģe | fiziķe | inženiere | matemātiķe | sieviete | zinātniece | ķīmiķe | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">zinātniece: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🔬">bioloģe | fiziķe | inženiere | matemātiķe | sieviete | zinātniece | ķīmiķe | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">zinātniece: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🔬">bioloģe | fiziķe | inženiere | matemātiķe | sieviete | zinātniece | ķīmiķe | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">zinātniece: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍💻">izstrādātājs | programmatūra | programmētājs | tehniķis | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">tehniķis: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍💻">izstrādātājs | programmatūra | programmētājs | tehniķis | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">tehniķis: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍💻">izstrādātājs | programmatūra | programmētājs | tehniķis | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">tehniķis: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍💻">izstrādātājs | programmatūra | programmētājs | tehniķis | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">tehniķis: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍💻">izstrādātājs | programmatūra | programmētājs | tehniķis | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">tehniķis: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍💻">izstrādātāja | programmatūra | programmētāja | sieviete | tehniķe | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">tehniķe: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍💻">izstrādātāja | programmatūra | programmētāja | sieviete | tehniķe | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">tehniķe: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍💻">izstrādātāja | programmatūra | programmētāja | sieviete | tehniķe | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">tehniķe: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍💻">izstrādātāja | programmatūra | programmētāja | sieviete | tehniķe | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">tehniķe: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍💻">izstrādātāja | programmatūra | programmētāja | sieviete | tehniķe | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">tehniķe: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🎤">aktieris | dziedātājs | izklaide | roks | vīrietis | zvaigzne | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">dziedātājs: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">aktieris | dziedātājs | izklaide | roks | vīrietis | zvaigzne | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">dziedātājs: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🎤">aktieris | dziedātājs | izklaide | roks | vīrietis | zvaigzne | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">dziedātājs: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🎤">aktieris | dziedātājs | izklaide | roks | vīrietis | zvaigzne | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">dziedātājs: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🎤">aktieris | dziedātājs | izklaide | roks | vīrietis | zvaigzne | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">dziedātājs: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🎤">aktrise | dziedātāja | izklaide | roks | sieviete | zvaigzne | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">dziedātāja: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">aktrise | dziedātāja | izklaide | roks | sieviete | zvaigzne | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">dziedātāja: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🎤">aktrise | dziedātāja | izklaide | roks | sieviete | zvaigzne | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">dziedātāja: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🎤">aktrise | dziedātāja | izklaide | roks | sieviete | zvaigzne | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">dziedātāja: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🎤">aktrise | dziedātāja | izklaide | roks | sieviete | zvaigzne | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">dziedātāja: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🎨">mākslinieks | palete | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">mākslinieks: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">mākslinieks | palete | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">mākslinieks: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🎨">mākslinieks | palete | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">mākslinieks: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🎨">mākslinieks | palete | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">mākslinieks: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🎨">mākslinieks | palete | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">mākslinieks: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🎨">māksliniece | palete | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">māksliniece: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">māksliniece | palete | sieviete | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">māksliniece: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🎨">māksliniece | palete | sieviete | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">māksliniece: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🎨">māksliniece | palete | sieviete | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">māksliniece: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🎨">māksliniece | palete | sieviete | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">māksliniece: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍✈">lidmašīna | pilots | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">pilots: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍✈">lidmašīna | pilots | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">pilots: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍✈">lidmašīna | pilots | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">pilots: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍✈">lidmašīna | pilots | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">pilots: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍✈">lidmašīna | pilots | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">pilots: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍✈">lidmašīna | pilote | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">pilote: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍✈">lidmašīna | pilote | sieviete | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">pilote: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍✈">lidmašīna | pilote | sieviete | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">pilote: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍✈">lidmašīna | pilote | sieviete | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">pilote: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍✈">lidmašīna | pilote | sieviete | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">pilote: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🚀">astronauts | kosmoss | raķete | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">astronauts: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">astronauts | kosmoss | raķete | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">astronauts: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🚀">astronauts | kosmoss | raķete | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">astronauts: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🚀">astronauts | kosmoss | raķete | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">astronauts: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🚀">astronauts | kosmoss | raķete | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">astronauts: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🚀">astronaute | kosmoss | raķete | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">astronaute: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">astronaute | kosmoss | raķete | sieviete | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">astronaute: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🚀">astronaute | kosmoss | raķete | sieviete | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">astronaute: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🚀">astronaute | kosmoss | raķete | sieviete | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">astronaute: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🚀">astronaute | kosmoss | raķete | sieviete | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">astronaute: ādas tips 6</annotation>
+		<annotation cp="👨🏻‍🚒">ugunsdzēsējs | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">ugunsdzēsējs: ādas tips 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">ugunsdzēsējs | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">ugunsdzēsējs: ādas tips 3</annotation>
+		<annotation cp="👨🏽‍🚒">ugunsdzēsējs | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">ugunsdzēsējs: ādas tips 4</annotation>
+		<annotation cp="👨🏾‍🚒">ugunsdzēsējs | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">ugunsdzēsējs: ādas tips 5</annotation>
+		<annotation cp="👨🏿‍🚒">ugunsdzēsējs | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">ugunsdzēsējs: ādas tips 6</annotation>
+		<annotation cp="👩🏻‍🚒">sieviete | ugunsdzēsēja | ādas tips 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">ugunsdzēsēja: ādas tips 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">sieviete | ugunsdzēsēja | ādas tips 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">ugunsdzēsēja: ādas tips 3</annotation>
+		<annotation cp="👩🏽‍🚒">sieviete | ugunsdzēsēja | ādas tips 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">ugunsdzēsēja: ādas tips 4</annotation>
+		<annotation cp="👩🏾‍🚒">sieviete | ugunsdzēsēja | ādas tips 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">ugunsdzēsēja: ādas tips 5</annotation>
+		<annotation cp="👩🏿‍🚒">sieviete | ugunsdzēsēja | ādas tips 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">ugunsdzēsēja: ādas tips 6</annotation>
+		<annotation cp="👮🏻">seja | ādas tips 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">policists: ādas tips 1–2</annotation>
+		<annotation cp="👮🏼">seja | ādas tips 3</annotation>
+		<annotation cp="👮🏼" type="tts">policists: ādas tips 3</annotation>
+		<annotation cp="👮🏽">seja | ādas tips 4</annotation>
+		<annotation cp="👮🏽" type="tts">policists: ādas tips 4</annotation>
+		<annotation cp="👮🏾">seja | ādas tips 5</annotation>
+		<annotation cp="👮🏾" type="tts">policists: ādas tips 5</annotation>
+		<annotation cp="👮🏿">seja | ādas tips 6</annotation>
+		<annotation cp="👮🏿" type="tts">policists: ādas tips 6</annotation>
+		<annotation cp="👮🏻‍♂">policija | policists | virsnieks | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">policijas virsnieks: ādas tips 1–2</annotation>
+		<annotation cp="👮🏼‍♂">policija | policists | virsnieks | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">policijas virsnieks: ādas tips 3</annotation>
+		<annotation cp="👮🏽‍♂">policija | policists | virsnieks | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">policijas virsnieks: ādas tips 4</annotation>
+		<annotation cp="👮🏾‍♂">policija | policists | virsnieks | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">policijas virsnieks: ādas tips 5</annotation>
+		<annotation cp="👮🏿‍♂">policija | policists | virsnieks | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">policijas virsnieks: ādas tips 6</annotation>
+		<annotation cp="👮🏻‍♀">policija | policiste | sieviete | virsniece | ādas tips 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">policiste: ādas tips 1–2</annotation>
+		<annotation cp="👮🏼‍♀">policija | policiste | sieviete | virsniece | ādas tips 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">policiste: ādas tips 3</annotation>
+		<annotation cp="👮🏽‍♀">policija | policiste | sieviete | virsniece | ādas tips 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">policiste: ādas tips 4</annotation>
+		<annotation cp="👮🏾‍♀">policija | policiste | sieviete | virsniece | ādas tips 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">policiste: ādas tips 5</annotation>
+		<annotation cp="👮🏿‍♀">policija | policiste | sieviete | virsniece | ādas tips 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">policiste: ādas tips 6</annotation>
+		<annotation cp="🕵🏻">seja | spiegs | ādas tips 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">detektīvs: ādas tips 1–2</annotation>
+		<annotation cp="🕵🏼">seja | spiegs | ādas tips 3</annotation>
+		<annotation cp="🕵🏼" type="tts">detektīvs: ādas tips 3</annotation>
+		<annotation cp="🕵🏽">seja | spiegs | ādas tips 4</annotation>
+		<annotation cp="🕵🏽" type="tts">detektīvs: ādas tips 4</annotation>
+		<annotation cp="🕵🏾">seja | spiegs | ādas tips 5</annotation>
+		<annotation cp="🕵🏾" type="tts">detektīvs: ādas tips 5</annotation>
+		<annotation cp="🕵🏿">seja | spiegs | ādas tips 6</annotation>
+		<annotation cp="🕵🏿" type="tts">detektīvs: ādas tips 6</annotation>
+		<annotation cp="🕵🏻‍♂">detektīvs | spiegs | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">vīrietis izmeklē: ādas tips 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">detektīvs | spiegs | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">vīrietis izmeklē: ādas tips 3</annotation>
+		<annotation cp="🕵🏽‍♂">detektīvs | spiegs | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">vīrietis izmeklē: ādas tips 4</annotation>
+		<annotation cp="🕵🏾‍♂">detektīvs | spiegs | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">vīrietis izmeklē: ādas tips 5</annotation>
+		<annotation cp="🕵🏿‍♂">detektīvs | spiegs | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">vīrietis izmeklē: ādas tips 6</annotation>
+		<annotation cp="🕵🏻‍♀">detektīvs | sieviete | spiedze | ādas tips 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">detektīve: ādas tips 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">detektīvs | sieviete | spiedze | ādas tips 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">detektīve: ādas tips 3</annotation>
+		<annotation cp="🕵🏽‍♀">detektīvs | sieviete | spiedze | ādas tips 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">detektīve: ādas tips 4</annotation>
+		<annotation cp="🕵🏾‍♀">detektīvs | sieviete | spiedze | ādas tips 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">detektīve: ādas tips 5</annotation>
+		<annotation cp="🕵🏿‍♀">detektīvs | sieviete | spiedze | ādas tips 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">detektīve: ādas tips 6</annotation>
+		<annotation cp="💂🏻">seja | ādas tips 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">sargs: ādas tips 1–2</annotation>
+		<annotation cp="💂🏼">seja | ādas tips 3</annotation>
+		<annotation cp="💂🏼" type="tts">sargs: ādas tips 3</annotation>
+		<annotation cp="💂🏽">seja | ādas tips 4</annotation>
+		<annotation cp="💂🏽" type="tts">sargs: ādas tips 4</annotation>
+		<annotation cp="💂🏾">seja | ādas tips 5</annotation>
+		<annotation cp="💂🏾" type="tts">sargs: ādas tips 5</annotation>
+		<annotation cp="💂🏿">seja | ādas tips 6</annotation>
+		<annotation cp="💂🏿" type="tts">sargs: ādas tips 6</annotation>
+		<annotation cp="💂🏻‍♂">sargs | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">apsargs: ādas tips 1–2</annotation>
+		<annotation cp="💂🏼‍♂">sargs | vīrietis | ādas tips 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">apsargs: ādas tips 3</annotation>
+		<annotation cp="💂🏽‍♂">sargs | vīrietis | ādas tips 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">apsargs: ādas tips 4</annotation>
+		<annotation cp="💂🏾‍♂">sargs | vīrietis | ādas tips 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">apsargs: ādas tips 5</annotation>
+		<annotation cp="💂🏿‍♂">sargs | vīrietis | ādas tips 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">apsargs: ādas tips 6</annotation>
+		<annotation cp="💂🏻‍♀">sardze | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">sardze: ādas tips 1–2</annotation>
+		<annotation cp="💂🏼‍♀">sardze | sieviete | ādas tips 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">sardze: ādas tips 3</annotation>
+		<annotation cp="💂🏽‍♀">sardze | sieviete | ādas tips 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">sardze: ādas tips 4</annotation>
+		<annotation cp="💂🏾‍♀">sardze | sieviete | ādas tips 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">sardze: ādas tips 5</annotation>
+		<annotation cp="💂🏿‍♀">sardze | sieviete | ādas tips 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">sardze: ādas tips 6</annotation>
+		<annotation cp="👷🏻">seja | ķivere | ādas tips 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">celtnieks: ādas tips 1–2</annotation>
+		<annotation cp="👷🏼">seja | ķivere | ādas tips 3</annotation>
+		<annotation cp="👷🏼" type="tts">celtnieks: ādas tips 3</annotation>
+		<annotation cp="👷🏽">seja | ķivere | ādas tips 4</annotation>
+		<annotation cp="👷🏽" type="tts">celtnieks: ādas tips 4</annotation>
+		<annotation cp="👷🏾">seja | ķivere | ādas tips 5</annotation>
+		<annotation cp="👷🏾" type="tts">celtnieks: ādas tips 5</annotation>
+		<annotation cp="👷🏿">seja | ķivere | ādas tips 6</annotation>
+		<annotation cp="👷🏿" type="tts">celtnieks: ādas tips 6</annotation>
+		<annotation cp="👷🏻‍♂">inženieris | strādnieks | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">inženieris: ādas tips 1–2</annotation>
+		<annotation cp="👷🏼‍♂">inženieris | strādnieks | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">inženieris: ādas tips 3</annotation>
+		<annotation cp="👷🏽‍♂">inženieris | strādnieks | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">inženieris: ādas tips 4</annotation>
+		<annotation cp="👷🏾‍♂">inženieris | strādnieks | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">inženieris: ādas tips 5</annotation>
+		<annotation cp="👷🏿‍♂">inženieris | strādnieks | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">inženieris: ādas tips 6</annotation>
+		<annotation cp="👷🏻‍♀">inženiere | sieviete | strādniece | ādas tips 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">inženiere: ādas tips 1–2</annotation>
+		<annotation cp="👷🏼‍♀">inženiere | sieviete | strādniece | ādas tips 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">inženiere: ādas tips 3</annotation>
+		<annotation cp="👷🏽‍♀">inženiere | sieviete | strādniece | ādas tips 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">inženiere: ādas tips 4</annotation>
+		<annotation cp="👷🏾‍♀">inženiere | sieviete | strādniece | ādas tips 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">inženiere: ādas tips 5</annotation>
+		<annotation cp="👷🏿‍♀">inženiere | sieviete | strādniece | ādas tips 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">inženiere: ādas tips 6</annotation>
+		<annotation cp="🤴🏻">princis | ādas tips 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">princis: ādas tips 1–2</annotation>
+		<annotation cp="🤴🏼">princis | ādas tips 3</annotation>
+		<annotation cp="🤴🏼" type="tts">princis: ādas tips 3</annotation>
+		<annotation cp="🤴🏽">princis | ādas tips 4</annotation>
+		<annotation cp="🤴🏽" type="tts">princis: ādas tips 4</annotation>
+		<annotation cp="🤴🏾">princis | ādas tips 5</annotation>
+		<annotation cp="🤴🏾" type="tts">princis: ādas tips 5</annotation>
+		<annotation cp="🤴🏿">princis | ādas tips 6</annotation>
+		<annotation cp="🤴🏿" type="tts">princis: ādas tips 6</annotation>
+		<annotation cp="👸🏻">pasaka | seja | ādas tips 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">princese: ādas tips 1–2</annotation>
+		<annotation cp="👸🏼">pasaka | seja | ādas tips 3</annotation>
+		<annotation cp="👸🏼" type="tts">princese: ādas tips 3</annotation>
+		<annotation cp="👸🏽">pasaka | seja | ādas tips 4</annotation>
+		<annotation cp="👸🏽" type="tts">princese: ādas tips 4</annotation>
+		<annotation cp="👸🏾">pasaka | seja | ādas tips 5</annotation>
+		<annotation cp="👸🏾" type="tts">princese: ādas tips 5</annotation>
+		<annotation cp="👸🏿">pasaka | seja | ādas tips 6</annotation>
+		<annotation cp="👸🏿" type="tts">princese: ādas tips 6</annotation>
+		<annotation cp="👳🏻">seja | turbāns | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">vīrietis ar turbānu: ādas tips 1–2</annotation>
+		<annotation cp="👳🏼">seja | turbāns | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👳🏼" type="tts">vīrietis ar turbānu: ādas tips 3</annotation>
+		<annotation cp="👳🏽">seja | turbāns | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👳🏽" type="tts">vīrietis ar turbānu: ādas tips 4</annotation>
+		<annotation cp="👳🏾">seja | turbāns | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👳🏾" type="tts">vīrietis ar turbānu: ādas tips 5</annotation>
+		<annotation cp="👳🏿">seja | turbāns | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👳🏿" type="tts">vīrietis ar turbānu: ādas tips 6</annotation>
+		<annotation cp="👳🏻‍♂">turbāns | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">persona ar turbānu: ādas tips 1–2</annotation>
+		<annotation cp="👳🏼‍♂">turbāns | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">persona ar turbānu: ādas tips 3</annotation>
+		<annotation cp="👳🏽‍♂">turbāns | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">persona ar turbānu: ādas tips 4</annotation>
+		<annotation cp="👳🏾‍♂">turbāns | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">persona ar turbānu: ādas tips 5</annotation>
+		<annotation cp="👳🏿‍♂">turbāns | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">persona ar turbānu: ādas tips 6</annotation>
+		<annotation cp="👳🏻‍♀">sieviete | turbāns | ādas tips 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">sieviete ar turbānu: ādas tips 1–2</annotation>
+		<annotation cp="👳🏼‍♀">sieviete | turbāns | ādas tips 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">sieviete ar turbānu: ādas tips 3</annotation>
+		<annotation cp="👳🏽‍♀">sieviete | turbāns | ādas tips 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">sieviete ar turbānu: ādas tips 4</annotation>
+		<annotation cp="👳🏾‍♀">sieviete | turbāns | ādas tips 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">sieviete ar turbānu: ādas tips 5</annotation>
+		<annotation cp="👳🏿‍♀">sieviete | turbāns | ādas tips 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">sieviete ar turbānu: ādas tips 6</annotation>
+		<annotation cp="👲🏻">cepure | seja | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">vīrietis ar ķīniešu cepuri: ādas tips 1–2</annotation>
+		<annotation cp="👲🏼">cepure | seja | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👲🏼" type="tts">vīrietis ar ķīniešu cepuri: ādas tips 3</annotation>
+		<annotation cp="👲🏽">cepure | seja | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👲🏽" type="tts">vīrietis ar ķīniešu cepuri: ādas tips 4</annotation>
+		<annotation cp="👲🏾">cepure | seja | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👲🏾" type="tts">vīrietis ar ķīniešu cepuri: ādas tips 5</annotation>
+		<annotation cp="👲🏿">cepure | seja | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👲🏿" type="tts">vīrietis ar ķīniešu cepuri: ādas tips 6</annotation>
+		<annotation cp="👱🏻">blonds | seja | ādas tips 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">blonds cilvēks: ādas tips 1–2</annotation>
+		<annotation cp="👱🏼">blonds | seja | ādas tips 3</annotation>
+		<annotation cp="👱🏼" type="tts">blonds cilvēks: ādas tips 3</annotation>
+		<annotation cp="👱🏽">blonds | seja | ādas tips 4</annotation>
+		<annotation cp="👱🏽" type="tts">blonds cilvēks: ādas tips 4</annotation>
+		<annotation cp="👱🏾">blonds | seja | ādas tips 5</annotation>
+		<annotation cp="👱🏾" type="tts">blonds cilvēks: ādas tips 5</annotation>
+		<annotation cp="👱🏿">blonds | seja | ādas tips 6</annotation>
+		<annotation cp="👱🏿" type="tts">blonds cilvēks: ādas tips 6</annotation>
+		<annotation cp="👱🏻‍♂">blondīns | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blondīns: ādas tips 1–2</annotation>
+		<annotation cp="👱🏼‍♂">blondīns | vīrietis | ādas tips 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blondīns: ādas tips 3</annotation>
+		<annotation cp="👱🏽‍♂">blondīns | vīrietis | ādas tips 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blondīns: ādas tips 4</annotation>
+		<annotation cp="👱🏾‍♂">blondīns | vīrietis | ādas tips 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blondīns: ādas tips 5</annotation>
+		<annotation cp="👱🏿‍♂">blondīns | vīrietis | ādas tips 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blondīns: ādas tips 6</annotation>
+		<annotation cp="👱🏻‍♀">blondīne | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blondīne: ādas tips 1–2</annotation>
+		<annotation cp="👱🏼‍♀">blondīne | sieviete | ādas tips 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blondīne: ādas tips 3</annotation>
+		<annotation cp="👱🏽‍♀">blondīne | sieviete | ādas tips 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blondīne: ādas tips 4</annotation>
+		<annotation cp="👱🏾‍♀">blondīne | sieviete | ādas tips 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blondīne: ādas tips 5</annotation>
+		<annotation cp="👱🏿‍♀">blondīne | sieviete | ādas tips 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blondīne: ādas tips 6</annotation>
+		<annotation cp="🤵🏻">līgavainis | smokings | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">vīrietis smokingā: ādas tips 1–2</annotation>
+		<annotation cp="🤵🏼">līgavainis | smokings | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🤵🏼" type="tts">vīrietis smokingā: ādas tips 3</annotation>
+		<annotation cp="🤵🏽">līgavainis | smokings | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🤵🏽" type="tts">vīrietis smokingā: ādas tips 4</annotation>
+		<annotation cp="🤵🏾">līgavainis | smokings | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🤵🏾" type="tts">vīrietis smokingā: ādas tips 5</annotation>
+		<annotation cp="🤵🏿">līgavainis | smokings | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🤵🏿" type="tts">vīrietis smokingā: ādas tips 6</annotation>
+		<annotation cp="👰🏻">kāzas | līgava | plīvurs | ādas tips 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">līgava ar plīvuru: ādas tips 1–2</annotation>
+		<annotation cp="👰🏼">kāzas | līgava | plīvurs | ādas tips 3</annotation>
+		<annotation cp="👰🏼" type="tts">līgava ar plīvuru: ādas tips 3</annotation>
+		<annotation cp="👰🏽">kāzas | līgava | plīvurs | ādas tips 4</annotation>
+		<annotation cp="👰🏽" type="tts">līgava ar plīvuru: ādas tips 4</annotation>
+		<annotation cp="👰🏾">kāzas | līgava | plīvurs | ādas tips 5</annotation>
+		<annotation cp="👰🏾" type="tts">līgava ar plīvuru: ādas tips 5</annotation>
+		<annotation cp="👰🏿">kāzas | līgava | plīvurs | ādas tips 6</annotation>
+		<annotation cp="👰🏿" type="tts">līgava ar plīvuru: ādas tips 6</annotation>
+		<annotation cp="🤰🏻">sieviete | stāvoklī | ādas tips 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">sieviete stāvoklī: ādas tips 1–2</annotation>
+		<annotation cp="🤰🏼">sieviete | stāvoklī | ādas tips 3</annotation>
+		<annotation cp="🤰🏼" type="tts">sieviete stāvoklī: ādas tips 3</annotation>
+		<annotation cp="🤰🏽">sieviete | stāvoklī | ādas tips 4</annotation>
+		<annotation cp="🤰🏽" type="tts">sieviete stāvoklī: ādas tips 4</annotation>
+		<annotation cp="🤰🏾">sieviete | stāvoklī | ādas tips 5</annotation>
+		<annotation cp="🤰🏾" type="tts">sieviete stāvoklī: ādas tips 5</annotation>
+		<annotation cp="🤰🏿">sieviete | stāvoklī | ādas tips 6</annotation>
+		<annotation cp="🤰🏿" type="tts">sieviete stāvoklī: ādas tips 6</annotation>
+		<annotation cp="👼🏻">eņģelis | nimbs | ādas tips 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">mazs eņģelītis: ādas tips 1–2</annotation>
+		<annotation cp="👼🏼">eņģelis | nimbs | ādas tips 3</annotation>
+		<annotation cp="👼🏼" type="tts">mazs eņģelītis: ādas tips 3</annotation>
+		<annotation cp="👼🏽">eņģelis | nimbs | ādas tips 4</annotation>
+		<annotation cp="👼🏽" type="tts">mazs eņģelītis: ādas tips 4</annotation>
+		<annotation cp="👼🏾">eņģelis | nimbs | ādas tips 5</annotation>
+		<annotation cp="👼🏾" type="tts">mazs eņģelītis: ādas tips 5</annotation>
+		<annotation cp="👼🏿">eņģelis | nimbs | ādas tips 6</annotation>
+		<annotation cp="👼🏿" type="tts">mazs eņģelītis: ādas tips 6</annotation>
+		<annotation cp="🎅🏻">santaklauss | vecītis | ziemassvētki | ādas tips 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">ziemassvētku vecītis: ādas tips 1–2</annotation>
+		<annotation cp="🎅🏼">santaklauss | vecītis | ziemassvētki | ādas tips 3</annotation>
+		<annotation cp="🎅🏼" type="tts">ziemassvētku vecītis: ādas tips 3</annotation>
+		<annotation cp="🎅🏽">santaklauss | vecītis | ziemassvētki | ādas tips 4</annotation>
+		<annotation cp="🎅🏽" type="tts">ziemassvētku vecītis: ādas tips 4</annotation>
+		<annotation cp="🎅🏾">santaklauss | vecītis | ziemassvētki | ādas tips 5</annotation>
+		<annotation cp="🎅🏾" type="tts">ziemassvētku vecītis: ādas tips 5</annotation>
+		<annotation cp="🎅🏿">santaklauss | vecītis | ziemassvētki | ādas tips 6</annotation>
+		<annotation cp="🎅🏿" type="tts">ziemassvētku vecītis: ādas tips 6</annotation>
+		<annotation cp="🤶🏻">omīte | salavecis | ziemassvētki | ziemassvētku vecītis | ādas tips 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">Ziemassvētku omīte: ādas tips 1–2</annotation>
+		<annotation cp="🤶🏼">omīte | salavecis | ziemassvētki | ziemassvētku vecītis | ādas tips 3</annotation>
+		<annotation cp="🤶🏼" type="tts">Ziemassvētku omīte: ādas tips 3</annotation>
+		<annotation cp="🤶🏽">omīte | salavecis | ziemassvētki | ziemassvētku vecītis | ādas tips 4</annotation>
+		<annotation cp="🤶🏽" type="tts">Ziemassvētku omīte: ādas tips 4</annotation>
+		<annotation cp="🤶🏾">omīte | salavecis | ziemassvētki | ziemassvētku vecītis | ādas tips 5</annotation>
+		<annotation cp="🤶🏾" type="tts">Ziemassvētku omīte: ādas tips 5</annotation>
+		<annotation cp="🤶🏿">omīte | salavecis | ziemassvētki | ziemassvētku vecītis | ādas tips 6</annotation>
+		<annotation cp="🤶🏿" type="tts">Ziemassvētku omīte: ādas tips 6</annotation>
+		<annotation cp="🙍🏻">bēdīgs | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">bēdīgs cilvēks: ādas tips 1–2</annotation>
+		<annotation cp="🙍🏼">bēdīgs | žests | ādas tips 3</annotation>
+		<annotation cp="🙍🏼" type="tts">bēdīgs cilvēks: ādas tips 3</annotation>
+		<annotation cp="🙍🏽">bēdīgs | žests | ādas tips 4</annotation>
+		<annotation cp="🙍🏽" type="tts">bēdīgs cilvēks: ādas tips 4</annotation>
+		<annotation cp="🙍🏾">bēdīgs | žests | ādas tips 5</annotation>
+		<annotation cp="🙍🏾" type="tts">bēdīgs cilvēks: ādas tips 5</annotation>
+		<annotation cp="🙍🏿">bēdīgs | žests | ādas tips 6</annotation>
+		<annotation cp="🙍🏿" type="tts">bēdīgs cilvēks: ādas tips 6</annotation>
+		<annotation cp="🙍🏻‍♂">dusmoties | vīrietis | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">dusmīgs vīrietis: ādas tips 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">dusmoties | vīrietis | žests | ādas tips 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">dusmīgs vīrietis: ādas tips 3</annotation>
+		<annotation cp="🙍🏽‍♂">dusmoties | vīrietis | žests | ādas tips 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">dusmīgs vīrietis: ādas tips 4</annotation>
+		<annotation cp="🙍🏾‍♂">dusmoties | vīrietis | žests | ādas tips 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">dusmīgs vīrietis: ādas tips 5</annotation>
+		<annotation cp="🙍🏿‍♂">dusmoties | vīrietis | žests | ādas tips 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">dusmīgs vīrietis: ādas tips 6</annotation>
+		<annotation cp="🙍🏻‍♀">dusmoties | sieviete | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">dusmīga sieviete: ādas tips 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">dusmoties | sieviete | žests | ādas tips 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">dusmīga sieviete: ādas tips 3</annotation>
+		<annotation cp="🙍🏽‍♀">dusmoties | sieviete | žests | ādas tips 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">dusmīga sieviete: ādas tips 4</annotation>
+		<annotation cp="🙍🏾‍♀">dusmoties | sieviete | žests | ādas tips 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">dusmīga sieviete: ādas tips 5</annotation>
+		<annotation cp="🙍🏿‍♀">dusmoties | sieviete | žests | ādas tips 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">dusmīga sieviete: ādas tips 6</annotation>
+		<annotation cp="🙎🏻">sabozies | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">sabozies cilvēks: ādas tips 1–2</annotation>
+		<annotation cp="🙎🏼">sabozies | žests | ādas tips 3</annotation>
+		<annotation cp="🙎🏼" type="tts">sabozies cilvēks: ādas tips 3</annotation>
+		<annotation cp="🙎🏽">sabozies | žests | ādas tips 4</annotation>
+		<annotation cp="🙎🏽" type="tts">sabozies cilvēks: ādas tips 4</annotation>
+		<annotation cp="🙎🏾">sabozies | žests | ādas tips 5</annotation>
+		<annotation cp="🙎🏾" type="tts">sabozies cilvēks: ādas tips 5</annotation>
+		<annotation cp="🙎🏿">sabozies | žests | ādas tips 6</annotation>
+		<annotation cp="🙎🏿" type="tts">sabozies cilvēks: ādas tips 6</annotation>
+		<annotation cp="🙎🏻‍♂">bēdāties | vīrietis | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">bēdīgs vīrietis: ādas tips 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">bēdāties | vīrietis | žests | ādas tips 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">bēdīgs vīrietis: ādas tips 3</annotation>
+		<annotation cp="🙎🏽‍♂">bēdāties | vīrietis | žests | ādas tips 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">bēdīgs vīrietis: ādas tips 4</annotation>
+		<annotation cp="🙎🏾‍♂">bēdāties | vīrietis | žests | ādas tips 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">bēdīgs vīrietis: ādas tips 5</annotation>
+		<annotation cp="🙎🏿‍♂">bēdāties | vīrietis | žests | ādas tips 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">bēdīgs vīrietis: ādas tips 6</annotation>
+		<annotation cp="🙎🏻‍♀">bēdāties | sieviete | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">bēdīga sieviete: ādas tips 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">bēdāties | sieviete | žests | ādas tips 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">bēdīga sieviete: ādas tips 3</annotation>
+		<annotation cp="🙎🏽‍♀">bēdāties | sieviete | žests | ādas tips 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">bēdīga sieviete: ādas tips 4</annotation>
+		<annotation cp="🙎🏾‍♀">bēdāties | sieviete | žests | ādas tips 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">bēdīga sieviete: ādas tips 5</annotation>
+		<annotation cp="🙎🏿‍♀">bēdāties | sieviete | žests | ādas tips 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">bēdīga sieviete: ādas tips 6</annotation>
+		<annotation cp="🙅🏻">aizliegts | nedrīkst | nē | roka | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">noraidījums: ādas tips 1–2</annotation>
+		<annotation cp="🙅🏼">aizliegts | nedrīkst | nē | roka | žests | ādas tips 3</annotation>
+		<annotation cp="🙅🏼" type="tts">noraidījums: ādas tips 3</annotation>
+		<annotation cp="🙅🏽">aizliegts | nedrīkst | nē | roka | žests | ādas tips 4</annotation>
+		<annotation cp="🙅🏽" type="tts">noraidījums: ādas tips 4</annotation>
+		<annotation cp="🙅🏾">aizliegts | nedrīkst | nē | roka | žests | ādas tips 5</annotation>
+		<annotation cp="🙅🏾" type="tts">noraidījums: ādas tips 5</annotation>
+		<annotation cp="🙅🏿">aizliegts | nedrīkst | nē | roka | žests | ādas tips 6</annotation>
+		<annotation cp="🙅🏿" type="tts">noraidījums: ādas tips 6</annotation>
+		<annotation cp="🙅🏻‍♂">nepiekrišana | pret | vīrietis | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">vīrietis pret: ādas tips 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">nepiekrišana | pret | vīrietis | žests | ādas tips 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">vīrietis pret: ādas tips 3</annotation>
+		<annotation cp="🙅🏽‍♂">nepiekrišana | pret | vīrietis | žests | ādas tips 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">vīrietis pret: ādas tips 4</annotation>
+		<annotation cp="🙅🏾‍♂">nepiekrišana | pret | vīrietis | žests | ādas tips 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">vīrietis pret: ādas tips 5</annotation>
+		<annotation cp="🙅🏿‍♂">nepiekrišana | pret | vīrietis | žests | ādas tips 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">vīrietis pret: ādas tips 6</annotation>
+		<annotation cp="🙅🏻‍♀">nepiekrišana | pret | sieviete | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">sieviete pret: ādas tips 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">nepiekrišana | pret | sieviete | žests | ādas tips 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">sieviete pret: ādas tips 3</annotation>
+		<annotation cp="🙅🏽‍♀">nepiekrišana | pret | sieviete | žests | ādas tips 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">sieviete pret: ādas tips 4</annotation>
+		<annotation cp="🙅🏾‍♀">nepiekrišana | pret | sieviete | žests | ādas tips 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">sieviete pret: ādas tips 5</annotation>
+		<annotation cp="🙅🏿‍♀">nepiekrišana | pret | sieviete | žests | ādas tips 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">sieviete pret: ādas tips 6</annotation>
+		<annotation cp="🙆🏻">labi | ok | roka | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">apstiprinājums: ādas tips 1–2</annotation>
+		<annotation cp="🙆🏼">labi | ok | roka | žests | ādas tips 3</annotation>
+		<annotation cp="🙆🏼" type="tts">apstiprinājums: ādas tips 3</annotation>
+		<annotation cp="🙆🏽">labi | ok | roka | žests | ādas tips 4</annotation>
+		<annotation cp="🙆🏽" type="tts">apstiprinājums: ādas tips 4</annotation>
+		<annotation cp="🙆🏾">labi | ok | roka | žests | ādas tips 5</annotation>
+		<annotation cp="🙆🏾" type="tts">apstiprinājums: ādas tips 5</annotation>
+		<annotation cp="🙆🏿">labi | ok | roka | žests | ādas tips 6</annotation>
+		<annotation cp="🙆🏿" type="tts">apstiprinājums: ādas tips 6</annotation>
+		<annotation cp="🙆🏻‍♂">par | piekrišana | vīrietis | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">vīrietis par: ādas tips 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">par | piekrišana | vīrietis | žests | ādas tips 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">vīrietis par: ādas tips 3</annotation>
+		<annotation cp="🙆🏽‍♂">par | piekrišana | vīrietis | žests | ādas tips 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">vīrietis par: ādas tips 4</annotation>
+		<annotation cp="🙆🏾‍♂">par | piekrišana | vīrietis | žests | ādas tips 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">vīrietis par: ādas tips 5</annotation>
+		<annotation cp="🙆🏿‍♂">par | piekrišana | vīrietis | žests | ādas tips 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">vīrietis par: ādas tips 6</annotation>
+		<annotation cp="🙆🏻‍♀">par | piekrišana | sieviete | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">sieviete par: ādas tips 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">par | piekrišana | sieviete | žests | ādas tips 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">sieviete par: ādas tips 3</annotation>
+		<annotation cp="🙆🏽‍♀">par | piekrišana | sieviete | žests | ādas tips 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">sieviete par: ādas tips 4</annotation>
+		<annotation cp="🙆🏾‍♀">par | piekrišana | sieviete | žests | ādas tips 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">sieviete par: ādas tips 5</annotation>
+		<annotation cp="🙆🏿‍♀">par | piekrišana | sieviete | žests | ādas tips 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">sieviete par: ādas tips 6</annotation>
+		<annotation cp="💁🏻">informācija | palīdzība | roka | ādas tips 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">informācijas centra darbinieks: ādas tips 1–2</annotation>
+		<annotation cp="💁🏼">informācija | palīdzība | roka | ādas tips 3</annotation>
+		<annotation cp="💁🏼" type="tts">informācijas centra darbinieks: ādas tips 3</annotation>
+		<annotation cp="💁🏽">informācija | palīdzība | roka | ādas tips 4</annotation>
+		<annotation cp="💁🏽" type="tts">informācijas centra darbinieks: ādas tips 4</annotation>
+		<annotation cp="💁🏾">informācija | palīdzība | roka | ādas tips 5</annotation>
+		<annotation cp="💁🏾" type="tts">informācijas centra darbinieks: ādas tips 5</annotation>
+		<annotation cp="💁🏿">informācija | palīdzība | roka | ādas tips 6</annotation>
+		<annotation cp="💁🏿" type="tts">informācijas centra darbinieks: ādas tips 6</annotation>
+		<annotation cp="💁🏻‍♂">bezkaunība | vīrietis | žests | ādas tips 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">vīrietis stiepj roku: ādas tips 1–2</annotation>
+		<annotation cp="💁🏼‍♂">bezkaunība | vīrietis | žests | ādas tips 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">vīrietis stiepj roku: ādas tips 3</annotation>
+		<annotation cp="💁🏽‍♂">bezkaunība | vīrietis | žests | ādas tips 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">vīrietis stiepj roku: ādas tips 4</annotation>
+		<annotation cp="💁🏾‍♂">bezkaunība | vīrietis | žests | ādas tips 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">vīrietis stiepj roku: ādas tips 5</annotation>
+		<annotation cp="💁🏿‍♂">bezkaunība | vīrietis | žests | ādas tips 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">vīrietis stiepj roku: ādas tips 6</annotation>
+		<annotation cp="💁🏻‍♀">bezkaunība | sieviete | žests | ādas tips 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">sieviete stiepj roku: ādas tips 1–2</annotation>
+		<annotation cp="💁🏼‍♀">bezkaunība | sieviete | žests | ādas tips 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">sieviete stiepj roku: ādas tips 3</annotation>
+		<annotation cp="💁🏽‍♀">bezkaunība | sieviete | žests | ādas tips 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">sieviete stiepj roku: ādas tips 4</annotation>
+		<annotation cp="💁🏾‍♀">bezkaunība | sieviete | žests | ādas tips 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">sieviete stiepj roku: ādas tips 5</annotation>
+		<annotation cp="💁🏿‍♀">bezkaunība | sieviete | žests | ādas tips 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">sieviete stiepj roku: ādas tips 6</annotation>
+		<annotation cp="🙋🏻">laimīgs | pacelts | roka | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">laimīgs cilvēks ar paceltu roku: ādas tips 1–2</annotation>
+		<annotation cp="🙋🏼">laimīgs | pacelts | roka | žests | ādas tips 3</annotation>
+		<annotation cp="🙋🏼" type="tts">laimīgs cilvēks ar paceltu roku: ādas tips 3</annotation>
+		<annotation cp="🙋🏽">laimīgs | pacelts | roka | žests | ādas tips 4</annotation>
+		<annotation cp="🙋🏽" type="tts">laimīgs cilvēks ar paceltu roku: ādas tips 4</annotation>
+		<annotation cp="🙋🏾">laimīgs | pacelts | roka | žests | ādas tips 5</annotation>
+		<annotation cp="🙋🏾" type="tts">laimīgs cilvēks ar paceltu roku: ādas tips 5</annotation>
+		<annotation cp="🙋🏿">laimīgs | pacelts | roka | žests | ādas tips 6</annotation>
+		<annotation cp="🙋🏿" type="tts">laimīgs cilvēks ar paceltu roku: ādas tips 6</annotation>
+		<annotation cp="🙋🏻‍♂">pacelta roka | vīrietis | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">vīrietis ar paceltu roku: ādas tips 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">pacelta roka | vīrietis | žests | ādas tips 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">vīrietis ar paceltu roku: ādas tips 3</annotation>
+		<annotation cp="🙋🏽‍♂">pacelta roka | vīrietis | žests | ādas tips 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">vīrietis ar paceltu roku: ādas tips 4</annotation>
+		<annotation cp="🙋🏾‍♂">pacelta roka | vīrietis | žests | ādas tips 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">vīrietis ar paceltu roku: ādas tips 5</annotation>
+		<annotation cp="🙋🏿‍♂">pacelta roka | vīrietis | žests | ādas tips 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">vīrietis ar paceltu roku: ādas tips 6</annotation>
+		<annotation cp="🙋🏻‍♀">pacelta roka | sieviete | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">sieviete ar paceltu roku: ādas tips 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">pacelta roka | sieviete | žests | ādas tips 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">sieviete ar paceltu roku: ādas tips 3</annotation>
+		<annotation cp="🙋🏽‍♀">pacelta roka | sieviete | žests | ādas tips 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">sieviete ar paceltu roku: ādas tips 4</annotation>
+		<annotation cp="🙋🏾‍♀">pacelta roka | sieviete | žests | ādas tips 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">sieviete ar paceltu roku: ādas tips 5</annotation>
+		<annotation cp="🙋🏿‍♀">pacelta roka | sieviete | žests | ādas tips 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">sieviete ar paceltu roku: ādas tips 6</annotation>
+		<annotation cp="🙇🏻">atvainošanās | paklanīties | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">cilvēks paklanās: ādas tips 1–2</annotation>
+		<annotation cp="🙇🏼">atvainošanās | paklanīties | žests | ādas tips 3</annotation>
+		<annotation cp="🙇🏼" type="tts">cilvēks paklanās: ādas tips 3</annotation>
+		<annotation cp="🙇🏽">atvainošanās | paklanīties | žests | ādas tips 4</annotation>
+		<annotation cp="🙇🏽" type="tts">cilvēks paklanās: ādas tips 4</annotation>
+		<annotation cp="🙇🏾">atvainošanās | paklanīties | žests | ādas tips 5</annotation>
+		<annotation cp="🙇🏾" type="tts">cilvēks paklanās: ādas tips 5</annotation>
+		<annotation cp="🙇🏿">atvainošanās | paklanīties | žests | ādas tips 6</annotation>
+		<annotation cp="🙇🏿" type="tts">cilvēks paklanās: ādas tips 6</annotation>
+		<annotation cp="🙇🏻‍♂">cieņa | paklanīšanās | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">vīrietis klanās: ādas tips 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">cieņa | paklanīšanās | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">vīrietis klanās: ādas tips 3</annotation>
+		<annotation cp="🙇🏽‍♂">cieņa | paklanīšanās | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">vīrietis klanās: ādas tips 4</annotation>
+		<annotation cp="🙇🏾‍♂">cieņa | paklanīšanās | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">vīrietis klanās: ādas tips 5</annotation>
+		<annotation cp="🙇🏿‍♂">cieņa | paklanīšanās | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">vīrietis klanās: ādas tips 6</annotation>
+		<annotation cp="🙇🏻‍♀">cieņa | paklanīšanās | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">sieviete klanās: ādas tips 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">cieņa | paklanīšanās | sieviete | ādas tips 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">sieviete klanās: ādas tips 3</annotation>
+		<annotation cp="🙇🏽‍♀">cieņa | paklanīšanās | sieviete | ādas tips 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">sieviete klanās: ādas tips 4</annotation>
+		<annotation cp="🙇🏾‍♀">cieņa | paklanīšanās | sieviete | ādas tips 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">sieviete klanās: ādas tips 5</annotation>
+		<annotation cp="🙇🏿‍♀">cieņa | paklanīšanās | sieviete | ādas tips 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">sieviete klanās: ādas tips 6</annotation>
+		<annotation cp="🤦🏻">neticība | nu nopietni | plauksta | seja | ādas tips 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">trūkst vārdu: ādas tips 1–2</annotation>
+		<annotation cp="🤦🏼">neticība | nu nopietni | plauksta | seja | ādas tips 3</annotation>
+		<annotation cp="🤦🏼" type="tts">trūkst vārdu: ādas tips 3</annotation>
+		<annotation cp="🤦🏽">neticība | nu nopietni | plauksta | seja | ādas tips 4</annotation>
+		<annotation cp="🤦🏽" type="tts">trūkst vārdu: ādas tips 4</annotation>
+		<annotation cp="🤦🏾">neticība | nu nopietni | plauksta | seja | ādas tips 5</annotation>
+		<annotation cp="🤦🏾" type="tts">trūkst vārdu: ādas tips 5</annotation>
+		<annotation cp="🤦🏿">neticība | nu nopietni | plauksta | seja | ādas tips 6</annotation>
+		<annotation cp="🤦🏿" type="tts">trūkst vārdu: ādas tips 6</annotation>
+		<annotation cp="🤦🏻‍♂">aizkaitinājums | nav vārdu | roka | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">vīrietis bez runas spējām: ādas tips 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">aizkaitinājums | nav vārdu | roka | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">vīrietis bez runas spējām: ādas tips 3</annotation>
+		<annotation cp="🤦🏽‍♂">aizkaitinājums | nav vārdu | roka | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">vīrietis bez runas spējām: ādas tips 4</annotation>
+		<annotation cp="🤦🏾‍♂">aizkaitinājums | nav vārdu | roka | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">vīrietis bez runas spējām: ādas tips 5</annotation>
+		<annotation cp="🤦🏿‍♂">aizkaitinājums | nav vārdu | roka | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">vīrietis bez runas spējām: ādas tips 6</annotation>
+		<annotation cp="🤦🏻‍♀">aizkaitinājums | nav vārdu | roka | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">sieviete bez runas spējām: ādas tips 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">aizkaitinājums | nav vārdu | roka | sieviete | ādas tips 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">sieviete bez runas spējām: ādas tips 3</annotation>
+		<annotation cp="🤦🏽‍♀">aizkaitinājums | nav vārdu | roka | sieviete | ādas tips 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">sieviete bez runas spējām: ādas tips 4</annotation>
+		<annotation cp="🤦🏾‍♀">aizkaitinājums | nav vārdu | roka | sieviete | ādas tips 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">sieviete bez runas spējām: ādas tips 5</annotation>
+		<annotation cp="🤦🏿‍♀">aizkaitinājums | nav vārdu | roka | sieviete | ādas tips 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">sieviete bez runas spējām: ādas tips 6</annotation>
+		<annotation cp="🤷🏻">neziņa | rausta plecus | vienaldzība | šaubas | ādas tips 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">rausta plecus: ādas tips 1–2</annotation>
+		<annotation cp="🤷🏼">neziņa | rausta plecus | vienaldzība | šaubas | ādas tips 3</annotation>
+		<annotation cp="🤷🏼" type="tts">rausta plecus: ādas tips 3</annotation>
+		<annotation cp="🤷🏽">neziņa | rausta plecus | vienaldzība | šaubas | ādas tips 4</annotation>
+		<annotation cp="🤷🏽" type="tts">rausta plecus: ādas tips 4</annotation>
+		<annotation cp="🤷🏾">neziņa | rausta plecus | vienaldzība | šaubas | ādas tips 5</annotation>
+		<annotation cp="🤷🏾" type="tts">rausta plecus: ādas tips 5</annotation>
+		<annotation cp="🤷🏿">neziņa | rausta plecus | vienaldzība | šaubas | ādas tips 6</annotation>
+		<annotation cp="🤷🏿" type="tts">rausta plecus: ādas tips 6</annotation>
+		<annotation cp="🤷🏻‍♂">neziņa | rausta plecus | vienaldzība | vienalga | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">vīrietis rausta plecus: ādas tips 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">neziņa | rausta plecus | vienaldzība | vienalga | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">vīrietis rausta plecus: ādas tips 3</annotation>
+		<annotation cp="🤷🏽‍♂">neziņa | rausta plecus | vienaldzība | vienalga | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">vīrietis rausta plecus: ādas tips 4</annotation>
+		<annotation cp="🤷🏾‍♂">neziņa | rausta plecus | vienaldzība | vienalga | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">vīrietis rausta plecus: ādas tips 5</annotation>
+		<annotation cp="🤷🏿‍♂">neziņa | rausta plecus | vienaldzība | vienalga | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">vīrietis rausta plecus: ādas tips 6</annotation>
+		<annotation cp="🤷🏻‍♀">neziņa | rausta plecus | sieviete | vienaldzība | vienalga | ādas tips 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">sieviete rausta plecus: ādas tips 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">neziņa | rausta plecus | sieviete | vienaldzība | vienalga | ādas tips 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">sieviete rausta plecus: ādas tips 3</annotation>
+		<annotation cp="🤷🏽‍♀">neziņa | rausta plecus | sieviete | vienaldzība | vienalga | ādas tips 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">sieviete rausta plecus: ādas tips 4</annotation>
+		<annotation cp="🤷🏾‍♀">neziņa | rausta plecus | sieviete | vienaldzība | vienalga | ādas tips 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">sieviete rausta plecus: ādas tips 5</annotation>
+		<annotation cp="🤷🏿‍♀">neziņa | rausta plecus | sieviete | vienaldzība | vienalga | ādas tips 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">sieviete rausta plecus: ādas tips 6</annotation>
+		<annotation cp="💆🏻">masāža | seja | ādas tips 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">sejas masāža: ādas tips 1–2</annotation>
+		<annotation cp="💆🏼">masāža | seja | ādas tips 3</annotation>
+		<annotation cp="💆🏼" type="tts">sejas masāža: ādas tips 3</annotation>
+		<annotation cp="💆🏽">masāža | seja | ādas tips 4</annotation>
+		<annotation cp="💆🏽" type="tts">sejas masāža: ādas tips 4</annotation>
+		<annotation cp="💆🏾">masāža | seja | ādas tips 5</annotation>
+		<annotation cp="💆🏾" type="tts">sejas masāža: ādas tips 5</annotation>
+		<annotation cp="💆🏿">masāža | seja | ādas tips 6</annotation>
+		<annotation cp="💆🏿" type="tts">sejas masāža: ādas tips 6</annotation>
+		<annotation cp="💆🏻‍♂">masāža | seja | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">vīrietis masē seju: ādas tips 1–2</annotation>
+		<annotation cp="💆🏼‍♂">masāža | seja | vīrietis | ādas tips 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">vīrietis masē seju: ādas tips 3</annotation>
+		<annotation cp="💆🏽‍♂">masāža | seja | vīrietis | ādas tips 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">vīrietis masē seju: ādas tips 4</annotation>
+		<annotation cp="💆🏾‍♂">masāža | seja | vīrietis | ādas tips 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">vīrietis masē seju: ādas tips 5</annotation>
+		<annotation cp="💆🏿‍♂">masāža | seja | vīrietis | ādas tips 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">vīrietis masē seju: ādas tips 6</annotation>
+		<annotation cp="💆🏻‍♀">masāža | seja | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">sieviete masē seju: ādas tips 1–2</annotation>
+		<annotation cp="💆🏼‍♀">masāža | seja | sieviete | ādas tips 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">sieviete masē seju: ādas tips 3</annotation>
+		<annotation cp="💆🏽‍♀">masāža | seja | sieviete | ādas tips 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">sieviete masē seju: ādas tips 4</annotation>
+		<annotation cp="💆🏾‍♀">masāža | seja | sieviete | ādas tips 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">sieviete masē seju: ādas tips 5</annotation>
+		<annotation cp="💆🏿‍♀">masāža | seja | sieviete | ādas tips 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">sieviete masē seju: ādas tips 6</annotation>
+		<annotation cp="💇🏻">frizieris | frizētava | ādas tips 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">frizūra: ādas tips 1–2</annotation>
+		<annotation cp="💇🏼">frizieris | frizētava | ādas tips 3</annotation>
+		<annotation cp="💇🏼" type="tts">frizūra: ādas tips 3</annotation>
+		<annotation cp="💇🏽">frizieris | frizētava | ādas tips 4</annotation>
+		<annotation cp="💇🏽" type="tts">frizūra: ādas tips 4</annotation>
+		<annotation cp="💇🏾">frizieris | frizētava | ādas tips 5</annotation>
+		<annotation cp="💇🏾" type="tts">frizūra: ādas tips 5</annotation>
+		<annotation cp="💇🏿">frizieris | frizētava | ādas tips 6</annotation>
+		<annotation cp="💇🏿" type="tts">frizūra: ādas tips 6</annotation>
+		<annotation cp="💇🏻‍♂">frizieris | griezums | vīrietis | šķēres | ādas tips 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">vīrietis pie friziera: ādas tips 1–2</annotation>
+		<annotation cp="💇🏼‍♂">frizieris | griezums | vīrietis | šķēres | ādas tips 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">vīrietis pie friziera: ādas tips 3</annotation>
+		<annotation cp="💇🏽‍♂">frizieris | griezums | vīrietis | šķēres | ādas tips 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">vīrietis pie friziera: ādas tips 4</annotation>
+		<annotation cp="💇🏾‍♂">frizieris | griezums | vīrietis | šķēres | ādas tips 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">vīrietis pie friziera: ādas tips 5</annotation>
+		<annotation cp="💇🏿‍♂">frizieris | griezums | vīrietis | šķēres | ādas tips 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">vīrietis pie friziera: ādas tips 6</annotation>
+		<annotation cp="💇🏻‍♀">frizieris | griezums | sieviete | šķēres | ādas tips 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">sieviete pie friziera: ādas tips 1–2</annotation>
+		<annotation cp="💇🏼‍♀">frizieris | griezums | sieviete | šķēres | ādas tips 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">sieviete pie friziera: ādas tips 3</annotation>
+		<annotation cp="💇🏽‍♀">frizieris | griezums | sieviete | šķēres | ādas tips 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">sieviete pie friziera: ādas tips 4</annotation>
+		<annotation cp="💇🏾‍♀">frizieris | griezums | sieviete | šķēres | ādas tips 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">sieviete pie friziera: ādas tips 5</annotation>
+		<annotation cp="💇🏿‍♀">frizieris | griezums | sieviete | šķēres | ādas tips 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">sieviete pie friziera: ādas tips 6</annotation>
+		<annotation cp="🚶🏻">iešana | kājāmgājējs | pārgājiens | ādas tips 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">gājējs: ādas tips 1–2</annotation>
+		<annotation cp="🚶🏼">iešana | kājāmgājējs | pārgājiens | ādas tips 3</annotation>
+		<annotation cp="🚶🏼" type="tts">gājējs: ādas tips 3</annotation>
+		<annotation cp="🚶🏽">iešana | kājāmgājējs | pārgājiens | ādas tips 4</annotation>
+		<annotation cp="🚶🏽" type="tts">gājējs: ādas tips 4</annotation>
+		<annotation cp="🚶🏾">iešana | kājāmgājējs | pārgājiens | ādas tips 5</annotation>
+		<annotation cp="🚶🏾" type="tts">gājējs: ādas tips 5</annotation>
+		<annotation cp="🚶🏿">iešana | kājāmgājējs | pārgājiens | ādas tips 6</annotation>
+		<annotation cp="🚶🏿" type="tts">gājējs: ādas tips 6</annotation>
+		<annotation cp="🚶🏻‍♂">pastaiga | pārgājiens | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">vīrietis pastaigājas: ādas tips 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">pastaiga | pārgājiens | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">vīrietis pastaigājas: ādas tips 3</annotation>
+		<annotation cp="🚶🏽‍♂">pastaiga | pārgājiens | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">vīrietis pastaigājas: ādas tips 4</annotation>
+		<annotation cp="🚶🏾‍♂">pastaiga | pārgājiens | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">vīrietis pastaigājas: ādas tips 5</annotation>
+		<annotation cp="🚶🏿‍♂">pastaiga | pārgājiens | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">vīrietis pastaigājas: ādas tips 6</annotation>
+		<annotation cp="🚶🏻‍♀">pastaiga | pārgājiens | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">sieviete pastaigājas: ādas tips 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">pastaiga | pārgājiens | sieviete | ādas tips 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">sieviete pastaigājas: ādas tips 3</annotation>
+		<annotation cp="🚶🏽‍♀">pastaiga | pārgājiens | sieviete | ādas tips 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">sieviete pastaigājas: ādas tips 4</annotation>
+		<annotation cp="🚶🏾‍♀">pastaiga | pārgājiens | sieviete | ādas tips 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">sieviete pastaigājas: ādas tips 5</annotation>
+		<annotation cp="🚶🏿‍♀">pastaiga | pārgājiens | sieviete | ādas tips 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">sieviete pastaigājas: ādas tips 6</annotation>
+		<annotation cp="🏃🏻">maratons | skriešana | ādas tips 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">skrējējs: ādas tips 1–2</annotation>
+		<annotation cp="🏃🏼">maratons | skriešana | ādas tips 3</annotation>
+		<annotation cp="🏃🏼" type="tts">skrējējs: ādas tips 3</annotation>
+		<annotation cp="🏃🏽">maratons | skriešana | ādas tips 4</annotation>
+		<annotation cp="🏃🏽" type="tts">skrējējs: ādas tips 4</annotation>
+		<annotation cp="🏃🏾">maratons | skriešana | ādas tips 5</annotation>
+		<annotation cp="🏃🏾" type="tts">skrējējs: ādas tips 5</annotation>
+		<annotation cp="🏃🏿">maratons | skriešana | ādas tips 6</annotation>
+		<annotation cp="🏃🏿" type="tts">skrējējs: ādas tips 6</annotation>
+		<annotation cp="🏃🏻‍♂">maratons | sacīkstes | skrējiens | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">vīrietis skrien: ādas tips 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">maratons | sacīkstes | skrējiens | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">vīrietis skrien: ādas tips 3</annotation>
+		<annotation cp="🏃🏽‍♂">maratons | sacīkstes | skrējiens | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">vīrietis skrien: ādas tips 4</annotation>
+		<annotation cp="🏃🏾‍♂">maratons | sacīkstes | skrējiens | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">vīrietis skrien: ādas tips 5</annotation>
+		<annotation cp="🏃🏿‍♂">maratons | sacīkstes | skrējiens | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">vīrietis skrien: ādas tips 6</annotation>
+		<annotation cp="🏃🏻‍♀">maratons | sacīkstes | sieviete | skrējiens | ādas tips 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">sieviete skrien: ādas tips 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">maratons | sacīkstes | sieviete | skrējiens | ādas tips 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">sieviete skrien: ādas tips 3</annotation>
+		<annotation cp="🏃🏽‍♀">maratons | sacīkstes | sieviete | skrējiens | ādas tips 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">sieviete skrien: ādas tips 4</annotation>
+		<annotation cp="🏃🏾‍♀">maratons | sacīkstes | sieviete | skrējiens | ādas tips 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">sieviete skrien: ādas tips 5</annotation>
+		<annotation cp="🏃🏿‍♀">maratons | sacīkstes | sieviete | skrējiens | ādas tips 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">sieviete skrien: ādas tips 6</annotation>
+		<annotation cp="💃🏻">deja | sieviete | ādas tips 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">sieviete dejo: ādas tips 1–2</annotation>
+		<annotation cp="💃🏼">deja | sieviete | ādas tips 3</annotation>
+		<annotation cp="💃🏼" type="tts">sieviete dejo: ādas tips 3</annotation>
+		<annotation cp="💃🏽">deja | sieviete | ādas tips 4</annotation>
+		<annotation cp="💃🏽" type="tts">sieviete dejo: ādas tips 4</annotation>
+		<annotation cp="💃🏾">deja | sieviete | ādas tips 5</annotation>
+		<annotation cp="💃🏾" type="tts">sieviete dejo: ādas tips 5</annotation>
+		<annotation cp="💃🏿">deja | sieviete | ādas tips 6</annotation>
+		<annotation cp="💃🏿" type="tts">sieviete dejo: ādas tips 6</annotation>
+		<annotation cp="🕺🏻">deja | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">dejojošs vīrietis: ādas tips 1–2</annotation>
+		<annotation cp="🕺🏼">deja | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🕺🏼" type="tts">dejojošs vīrietis: ādas tips 3</annotation>
+		<annotation cp="🕺🏽">deja | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🕺🏽" type="tts">dejojošs vīrietis: ādas tips 4</annotation>
+		<annotation cp="🕺🏾">deja | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🕺🏾" type="tts">dejojošs vīrietis: ādas tips 5</annotation>
+		<annotation cp="🕺🏿">deja | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🕺🏿" type="tts">dejojošs vīrietis: ādas tips 6</annotation>
+		<annotation cp="🛀🏻">mazgāties | vanna | ūdens | ādas tips 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">cilvēks mazgājas: ādas tips 1–2</annotation>
+		<annotation cp="🛀🏼">mazgāties | vanna | ūdens | ādas tips 3</annotation>
+		<annotation cp="🛀🏼" type="tts">cilvēks mazgājas: ādas tips 3</annotation>
+		<annotation cp="🛀🏽">mazgāties | vanna | ūdens | ādas tips 4</annotation>
+		<annotation cp="🛀🏽" type="tts">cilvēks mazgājas: ādas tips 4</annotation>
+		<annotation cp="🛀🏾">mazgāties | vanna | ūdens | ādas tips 5</annotation>
+		<annotation cp="🛀🏾" type="tts">cilvēks mazgājas: ādas tips 5</annotation>
+		<annotation cp="🛀🏿">mazgāties | vanna | ūdens | ādas tips 6</annotation>
+		<annotation cp="🛀🏿" type="tts">cilvēks mazgājas: ādas tips 6</annotation>
+		<annotation cp="🛌🏻">cilvēks | gulta | gulēt | ādas tips 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">cilvēks gultā: ādas tips 1–2</annotation>
+		<annotation cp="🛌🏼">cilvēks | gulta | gulēt | ādas tips 3</annotation>
+		<annotation cp="🛌🏼" type="tts">cilvēks gultā: ādas tips 3</annotation>
+		<annotation cp="🛌🏽">cilvēks | gulta | gulēt | ādas tips 4</annotation>
+		<annotation cp="🛌🏽" type="tts">cilvēks gultā: ādas tips 4</annotation>
+		<annotation cp="🛌🏾">cilvēks | gulta | gulēt | ādas tips 5</annotation>
+		<annotation cp="🛌🏾" type="tts">cilvēks gultā: ādas tips 5</annotation>
+		<annotation cp="🛌🏿">cilvēks | gulta | gulēt | ādas tips 6</annotation>
+		<annotation cp="🛌🏿" type="tts">cilvēks gultā: ādas tips 6</annotation>
+		<annotation cp="🕴🏻">uzvalks | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">levitējošs cilvēks uzvalkā: ādas tips 1–2</annotation>
+		<annotation cp="🕴🏼">uzvalks | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🕴🏼" type="tts">levitējošs cilvēks uzvalkā: ādas tips 3</annotation>
+		<annotation cp="🕴🏽">uzvalks | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🕴🏽" type="tts">levitējošs cilvēks uzvalkā: ādas tips 4</annotation>
+		<annotation cp="🕴🏾">uzvalks | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🕴🏾" type="tts">levitējošs cilvēks uzvalkā: ādas tips 5</annotation>
+		<annotation cp="🕴🏿">uzvalks | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🕴🏿" type="tts">levitējošs cilvēks uzvalkā: ādas tips 6</annotation>
+		<annotation cp="🏇🏻">sacīkstes | zirgs | žokejs | ādas tips 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">zirgu skriešanās sacīkstes: ādas tips 1–2</annotation>
+		<annotation cp="🏇🏼">sacīkstes | zirgs | žokejs | ādas tips 3</annotation>
+		<annotation cp="🏇🏼" type="tts">zirgu skriešanās sacīkstes: ādas tips 3</annotation>
+		<annotation cp="🏇🏽">sacīkstes | zirgs | žokejs | ādas tips 4</annotation>
+		<annotation cp="🏇🏽" type="tts">zirgu skriešanās sacīkstes: ādas tips 4</annotation>
+		<annotation cp="🏇🏾">sacīkstes | zirgs | žokejs | ādas tips 5</annotation>
+		<annotation cp="🏇🏾" type="tts">zirgu skriešanās sacīkstes: ādas tips 5</annotation>
+		<annotation cp="🏇🏿">sacīkstes | zirgs | žokejs | ādas tips 6</annotation>
+		<annotation cp="🏇🏿" type="tts">zirgu skriešanās sacīkstes: ādas tips 6</annotation>
+		<annotation cp="🏂🏻">sniegs | snovbords | ādas tips 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">snovbordists: ādas tips 1–2</annotation>
+		<annotation cp="🏂🏼">sniegs | snovbords | ādas tips 3</annotation>
+		<annotation cp="🏂🏼" type="tts">snovbordists: ādas tips 3</annotation>
+		<annotation cp="🏂🏽">sniegs | snovbords | ādas tips 4</annotation>
+		<annotation cp="🏂🏽" type="tts">snovbordists: ādas tips 4</annotation>
+		<annotation cp="🏂🏾">sniegs | snovbords | ādas tips 5</annotation>
+		<annotation cp="🏂🏾" type="tts">snovbordists: ādas tips 5</annotation>
+		<annotation cp="🏂🏿">sniegs | snovbords | ādas tips 6</annotation>
+		<annotation cp="🏂🏿" type="tts">snovbordists: ādas tips 6</annotation>
+		<annotation cp="🏌🏻">bedrīte | bumbiņa | ādas tips 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">golfa spēlētājs: ādas tips 1–2</annotation>
+		<annotation cp="🏌🏼">bedrīte | bumbiņa | ādas tips 3</annotation>
+		<annotation cp="🏌🏼" type="tts">golfa spēlētājs: ādas tips 3</annotation>
+		<annotation cp="🏌🏽">bedrīte | bumbiņa | ādas tips 4</annotation>
+		<annotation cp="🏌🏽" type="tts">golfa spēlētājs: ādas tips 4</annotation>
+		<annotation cp="🏌🏾">bedrīte | bumbiņa | ādas tips 5</annotation>
+		<annotation cp="🏌🏾" type="tts">golfa spēlētājs: ādas tips 5</annotation>
+		<annotation cp="🏌🏿">bedrīte | bumbiņa | ādas tips 6</annotation>
+		<annotation cp="🏌🏿" type="tts">golfa spēlētājs: ādas tips 6</annotation>
+		<annotation cp="🏌🏻‍♂">golfs | sports | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">vīrietis spēlē golfu: ādas tips 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">golfs | sports | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">vīrietis spēlē golfu: ādas tips 3</annotation>
+		<annotation cp="🏌🏽‍♂">golfs | sports | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">vīrietis spēlē golfu: ādas tips 4</annotation>
+		<annotation cp="🏌🏾‍♂">golfs | sports | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">vīrietis spēlē golfu: ādas tips 5</annotation>
+		<annotation cp="🏌🏿‍♂">golfs | sports | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">vīrietis spēlē golfu: ādas tips 6</annotation>
+		<annotation cp="🏌🏻‍♀">golfs | sieviete | sports | ādas tips 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">sieviete spēlē golfu: ādas tips 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">golfs | sieviete | sports | ādas tips 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">sieviete spēlē golfu: ādas tips 3</annotation>
+		<annotation cp="🏌🏽‍♀">golfs | sieviete | sports | ādas tips 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">sieviete spēlē golfu: ādas tips 4</annotation>
+		<annotation cp="🏌🏾‍♀">golfs | sieviete | sports | ādas tips 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">sieviete spēlē golfu: ādas tips 5</annotation>
+		<annotation cp="🏌🏿‍♀">golfs | sieviete | sports | ādas tips 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">sieviete spēlē golfu: ādas tips 6</annotation>
+		<annotation cp="🏄🏻">okeāns | sērfot | ūdens | ādas tips 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">sērfotājs: ādas tips 1–2</annotation>
+		<annotation cp="🏄🏼">okeāns | sērfot | ūdens | ādas tips 3</annotation>
+		<annotation cp="🏄🏼" type="tts">sērfotājs: ādas tips 3</annotation>
+		<annotation cp="🏄🏽">okeāns | sērfot | ūdens | ādas tips 4</annotation>
+		<annotation cp="🏄🏽" type="tts">sērfotājs: ādas tips 4</annotation>
+		<annotation cp="🏄🏾">okeāns | sērfot | ūdens | ādas tips 5</annotation>
+		<annotation cp="🏄🏾" type="tts">sērfotājs: ādas tips 5</annotation>
+		<annotation cp="🏄🏿">okeāns | sērfot | ūdens | ādas tips 6</annotation>
+		<annotation cp="🏄🏿" type="tts">sērfotājs: ādas tips 6</annotation>
+		<annotation cp="🏄🏻‍♂">sports | sērfošana | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">vīrietis sērfo: ādas tips 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">sports | sērfošana | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">vīrietis sērfo: ādas tips 3</annotation>
+		<annotation cp="🏄🏽‍♂">sports | sērfošana | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">vīrietis sērfo: ādas tips 4</annotation>
+		<annotation cp="🏄🏾‍♂">sports | sērfošana | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">vīrietis sērfo: ādas tips 5</annotation>
+		<annotation cp="🏄🏿‍♂">sports | sērfošana | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">vīrietis sērfo: ādas tips 6</annotation>
+		<annotation cp="🏄🏻‍♀">sieviete | sports | sērfošana | ādas tips 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">sieviete sērfo: ādas tips 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">sieviete | sports | sērfošana | ādas tips 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">sieviete sērfo: ādas tips 3</annotation>
+		<annotation cp="🏄🏽‍♀">sieviete | sports | sērfošana | ādas tips 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">sieviete sērfo: ādas tips 4</annotation>
+		<annotation cp="🏄🏾‍♀">sieviete | sports | sērfošana | ādas tips 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">sieviete sērfo: ādas tips 5</annotation>
+		<annotation cp="🏄🏿‍♀">sieviete | sports | sērfošana | ādas tips 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">sieviete sērfo: ādas tips 6</annotation>
+		<annotation cp="🚣🏻">laiva | transports | ūdens | ādas tips 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">airu laiva: ādas tips 1–2</annotation>
+		<annotation cp="🚣🏼">laiva | transports | ūdens | ādas tips 3</annotation>
+		<annotation cp="🚣🏼" type="tts">airu laiva: ādas tips 3</annotation>
+		<annotation cp="🚣🏽">laiva | transports | ūdens | ādas tips 4</annotation>
+		<annotation cp="🚣🏽" type="tts">airu laiva: ādas tips 4</annotation>
+		<annotation cp="🚣🏾">laiva | transports | ūdens | ādas tips 5</annotation>
+		<annotation cp="🚣🏾" type="tts">airu laiva: ādas tips 5</annotation>
+		<annotation cp="🚣🏿">laiva | transports | ūdens | ādas tips 6</annotation>
+		<annotation cp="🚣🏿" type="tts">airu laiva: ādas tips 6</annotation>
+		<annotation cp="🚣🏻‍♂">airi | laiva | sports | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">airētājs: ādas tips 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">airi | laiva | sports | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">airētājs: ādas tips 3</annotation>
+		<annotation cp="🚣🏽‍♂">airi | laiva | sports | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">airētājs: ādas tips 4</annotation>
+		<annotation cp="🚣🏾‍♂">airi | laiva | sports | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">airētājs: ādas tips 5</annotation>
+		<annotation cp="🚣🏿‍♂">airi | laiva | sports | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">airētājs: ādas tips 6</annotation>
+		<annotation cp="🚣🏻‍♀">airi | laiva | sieviete | sports | ādas tips 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">airētāja: ādas tips 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">airi | laiva | sieviete | sports | ādas tips 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">airētāja: ādas tips 3</annotation>
+		<annotation cp="🚣🏽‍♀">airi | laiva | sieviete | sports | ādas tips 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">airētāja: ādas tips 4</annotation>
+		<annotation cp="🚣🏾‍♀">airi | laiva | sieviete | sports | ādas tips 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">airētāja: ādas tips 5</annotation>
+		<annotation cp="🚣🏿‍♀">airi | laiva | sieviete | sports | ādas tips 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">airētāja: ādas tips 6</annotation>
+		<annotation cp="🏊🏻">peldēt | ūdens | ādas tips 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">peldētājs: ādas tips 1–2</annotation>
+		<annotation cp="🏊🏼">peldēt | ūdens | ādas tips 3</annotation>
+		<annotation cp="🏊🏼" type="tts">peldētājs: ādas tips 3</annotation>
+		<annotation cp="🏊🏽">peldēt | ūdens | ādas tips 4</annotation>
+		<annotation cp="🏊🏽" type="tts">peldētājs: ādas tips 4</annotation>
+		<annotation cp="🏊🏾">peldēt | ūdens | ādas tips 5</annotation>
+		<annotation cp="🏊🏾" type="tts">peldētājs: ādas tips 5</annotation>
+		<annotation cp="🏊🏿">peldēt | ūdens | ādas tips 6</annotation>
+		<annotation cp="🏊🏿" type="tts">peldētājs: ādas tips 6</annotation>
+		<annotation cp="🏊🏻‍♂">peldēšana | sports | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">vīrietis peld: ādas tips 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">peldēšana | sports | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">vīrietis peld: ādas tips 3</annotation>
+		<annotation cp="🏊🏽‍♂">peldēšana | sports | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">vīrietis peld: ādas tips 4</annotation>
+		<annotation cp="🏊🏾‍♂">peldēšana | sports | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">vīrietis peld: ādas tips 5</annotation>
+		<annotation cp="🏊🏿‍♂">peldēšana | sports | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">vīrietis peld: ādas tips 6</annotation>
+		<annotation cp="🏊🏻‍♀">peldēšana | sieviete | sports | ādas tips 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">peldētāja: ādas tips 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">peldēšana | sieviete | sports | ādas tips 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">peldētāja: ādas tips 3</annotation>
+		<annotation cp="🏊🏽‍♀">peldēšana | sieviete | sports | ādas tips 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">peldētāja: ādas tips 4</annotation>
+		<annotation cp="🏊🏾‍♀">peldēšana | sieviete | sports | ādas tips 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">peldētāja: ādas tips 5</annotation>
+		<annotation cp="🏊🏿‍♀">peldēšana | sieviete | sports | ādas tips 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">peldētāja: ādas tips 6</annotation>
+		<annotation cp="⛹🏻">bumba | ādas tips 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">cilvēks ar bumbu: ādas tips 1–2</annotation>
+		<annotation cp="⛹🏼">bumba | ādas tips 3</annotation>
+		<annotation cp="⛹🏼" type="tts">cilvēks ar bumbu: ādas tips 3</annotation>
+		<annotation cp="⛹🏽">bumba | ādas tips 4</annotation>
+		<annotation cp="⛹🏽" type="tts">cilvēks ar bumbu: ādas tips 4</annotation>
+		<annotation cp="⛹🏾">bumba | ādas tips 5</annotation>
+		<annotation cp="⛹🏾" type="tts">cilvēks ar bumbu: ādas tips 5</annotation>
+		<annotation cp="⛹🏿">bumba | ādas tips 6</annotation>
+		<annotation cp="⛹🏿" type="tts">cilvēks ar bumbu: ādas tips 6</annotation>
+		<annotation cp="⛹🏻‍♂">basketbols | bumba | sports | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">vīrietis ar bumbu: ādas tips 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">basketbols | bumba | sports | vīrietis | ādas tips 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">vīrietis ar bumbu: ādas tips 3</annotation>
+		<annotation cp="⛹🏽‍♂">basketbols | bumba | sports | vīrietis | ādas tips 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">vīrietis ar bumbu: ādas tips 4</annotation>
+		<annotation cp="⛹🏾‍♂">basketbols | bumba | sports | vīrietis | ādas tips 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">vīrietis ar bumbu: ādas tips 5</annotation>
+		<annotation cp="⛹🏿‍♂">basketbols | bumba | sports | vīrietis | ādas tips 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">vīrietis ar bumbu: ādas tips 6</annotation>
+		<annotation cp="⛹🏻‍♀">basketbols | bumba | sieviete | sports | ādas tips 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">sieviete ar bumbu: ādas tips 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">basketbols | bumba | sieviete | sports | ādas tips 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">sieviete ar bumbu: ādas tips 3</annotation>
+		<annotation cp="⛹🏽‍♀">basketbols | bumba | sieviete | sports | ādas tips 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">sieviete ar bumbu: ādas tips 4</annotation>
+		<annotation cp="⛹🏾‍♀">basketbols | bumba | sieviete | sports | ādas tips 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">sieviete ar bumbu: ādas tips 5</annotation>
+		<annotation cp="⛹🏿‍♀">basketbols | bumba | sieviete | sports | ādas tips 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">sieviete ar bumbu: ādas tips 6</annotation>
+		<annotation cp="🏋🏻">celts | sportists | svars | ādas tips 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">svarcēlājs: ādas tips 1–2</annotation>
+		<annotation cp="🏋🏼">celts | sportists | svars | ādas tips 3</annotation>
+		<annotation cp="🏋🏼" type="tts">svarcēlājs: ādas tips 3</annotation>
+		<annotation cp="🏋🏽">celts | sportists | svars | ādas tips 4</annotation>
+		<annotation cp="🏋🏽" type="tts">svarcēlājs: ādas tips 4</annotation>
+		<annotation cp="🏋🏾">celts | sportists | svars | ādas tips 5</annotation>
+		<annotation cp="🏋🏾" type="tts">svarcēlājs: ādas tips 5</annotation>
+		<annotation cp="🏋🏿">celts | sportists | svars | ādas tips 6</annotation>
+		<annotation cp="🏋🏿" type="tts">svarcēlājs: ādas tips 6</annotation>
+		<annotation cp="🏋🏻‍♂">sports | svarcelšana | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">vīrietis ceļ svaru: ādas tips 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">sports | svarcelšana | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">vīrietis ceļ svaru: ādas tips 3</annotation>
+		<annotation cp="🏋🏽‍♂">sports | svarcelšana | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">vīrietis ceļ svaru: ādas tips 4</annotation>
+		<annotation cp="🏋🏾‍♂">sports | svarcelšana | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">vīrietis ceļ svaru: ādas tips 5</annotation>
+		<annotation cp="🏋🏿‍♂">sports | svarcelšana | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">vīrietis ceļ svaru: ādas tips 6</annotation>
+		<annotation cp="🏋🏻‍♀">sieviete | sports | svarcelšana | ādas tips 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">svarcēlāja: ādas tips 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">sieviete | sports | svarcelšana | ādas tips 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">svarcēlāja: ādas tips 3</annotation>
+		<annotation cp="🏋🏽‍♀">sieviete | sports | svarcelšana | ādas tips 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">svarcēlāja: ādas tips 4</annotation>
+		<annotation cp="🏋🏾‍♀">sieviete | sports | svarcelšana | ādas tips 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">svarcēlāja: ādas tips 5</annotation>
+		<annotation cp="🏋🏿‍♀">sieviete | sports | svarcelšana | ādas tips 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">svarcēlāja: ādas tips 6</annotation>
+		<annotation cp="🚴🏻">braukt | ritenis | velosipēds | ādas tips 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">velosipēdists: ādas tips 1–2</annotation>
+		<annotation cp="🚴🏼">braukt | ritenis | velosipēds | ādas tips 3</annotation>
+		<annotation cp="🚴🏼" type="tts">velosipēdists: ādas tips 3</annotation>
+		<annotation cp="🚴🏽">braukt | ritenis | velosipēds | ādas tips 4</annotation>
+		<annotation cp="🚴🏽" type="tts">velosipēdists: ādas tips 4</annotation>
+		<annotation cp="🚴🏾">braukt | ritenis | velosipēds | ādas tips 5</annotation>
+		<annotation cp="🚴🏾" type="tts">velosipēdists: ādas tips 5</annotation>
+		<annotation cp="🚴🏿">braukt | ritenis | velosipēds | ādas tips 6</annotation>
+		<annotation cp="🚴🏿" type="tts">velosipēdists: ādas tips 6</annotation>
+		<annotation cp="🚴🏻‍♂">sports | velosipēds | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">riteņbraucējs: ādas tips 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">sports | velosipēds | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">riteņbraucējs: ādas tips 3</annotation>
+		<annotation cp="🚴🏽‍♂">sports | velosipēds | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">riteņbraucējs: ādas tips 4</annotation>
+		<annotation cp="🚴🏾‍♂">sports | velosipēds | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">riteņbraucējs: ādas tips 5</annotation>
+		<annotation cp="🚴🏿‍♂">sports | velosipēds | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">riteņbraucējs: ādas tips 6</annotation>
+		<annotation cp="🚴🏻‍♀">sieviete | sports | velosipēds | ādas tips 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">riteņbraucēja: ādas tips 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">sieviete | sports | velosipēds | ādas tips 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">riteņbraucēja: ādas tips 3</annotation>
+		<annotation cp="🚴🏽‍♀">sieviete | sports | velosipēds | ādas tips 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">riteņbraucēja: ādas tips 4</annotation>
+		<annotation cp="🚴🏾‍♀">sieviete | sports | velosipēds | ādas tips 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">riteņbraucēja: ādas tips 5</annotation>
+		<annotation cp="🚴🏿‍♀">sieviete | sports | velosipēds | ādas tips 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">riteņbraucēja: ādas tips 6</annotation>
+		<annotation cp="🚵🏻">braukt | kalns | ritenis | velosipēds | ādas tips 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">kalnu velosipēdists: ādas tips 1–2</annotation>
+		<annotation cp="🚵🏼">braukt | kalns | ritenis | velosipēds | ādas tips 3</annotation>
+		<annotation cp="🚵🏼" type="tts">kalnu velosipēdists: ādas tips 3</annotation>
+		<annotation cp="🚵🏽">braukt | kalns | ritenis | velosipēds | ādas tips 4</annotation>
+		<annotation cp="🚵🏽" type="tts">kalnu velosipēdists: ādas tips 4</annotation>
+		<annotation cp="🚵🏾">braukt | kalns | ritenis | velosipēds | ādas tips 5</annotation>
+		<annotation cp="🚵🏾" type="tts">kalnu velosipēdists: ādas tips 5</annotation>
+		<annotation cp="🚵🏿">braukt | kalns | ritenis | velosipēds | ādas tips 6</annotation>
+		<annotation cp="🚵🏿" type="tts">kalnu velosipēdists: ādas tips 6</annotation>
+		<annotation cp="🚵🏻‍♂">kalnu velosipēds | sports | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">riteņbraucējs ar kalnu velosipēdu: ādas tips 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">kalnu velosipēds | sports | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">riteņbraucējs ar kalnu velosipēdu: ādas tips 3</annotation>
+		<annotation cp="🚵🏽‍♂">kalnu velosipēds | sports | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">riteņbraucējs ar kalnu velosipēdu: ādas tips 4</annotation>
+		<annotation cp="🚵🏾‍♂">kalnu velosipēds | sports | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">riteņbraucējs ar kalnu velosipēdu: ādas tips 5</annotation>
+		<annotation cp="🚵🏿‍♂">kalnu velosipēds | sports | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">riteņbraucējs ar kalnu velosipēdu: ādas tips 6</annotation>
+		<annotation cp="🚵🏻‍♀">kalnu velosipēds | sieviete | sports | ādas tips 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">riteņbraucēja ar kalnu velosipēdu: ādas tips 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">kalnu velosipēds | sieviete | sports | ādas tips 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">riteņbraucēja ar kalnu velosipēdu: ādas tips 3</annotation>
+		<annotation cp="🚵🏽‍♀">kalnu velosipēds | sieviete | sports | ādas tips 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">riteņbraucēja ar kalnu velosipēdu: ādas tips 4</annotation>
+		<annotation cp="🚵🏾‍♀">kalnu velosipēds | sieviete | sports | ādas tips 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">riteņbraucēja ar kalnu velosipēdu: ādas tips 5</annotation>
+		<annotation cp="🚵🏿‍♀">kalnu velosipēds | sieviete | sports | ādas tips 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">riteņbraucēja ar kalnu velosipēdu: ādas tips 6</annotation>
+		<annotation cp="🤸🏻">cilvēks | ritenītis | sports | vingrošana | ādas tips 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">ritenītis: ādas tips 1–2</annotation>
+		<annotation cp="🤸🏼">cilvēks | ritenītis | sports | vingrošana | ādas tips 3</annotation>
+		<annotation cp="🤸🏼" type="tts">ritenītis: ādas tips 3</annotation>
+		<annotation cp="🤸🏽">cilvēks | ritenītis | sports | vingrošana | ādas tips 4</annotation>
+		<annotation cp="🤸🏽" type="tts">ritenītis: ādas tips 4</annotation>
+		<annotation cp="🤸🏾">cilvēks | ritenītis | sports | vingrošana | ādas tips 5</annotation>
+		<annotation cp="🤸🏾" type="tts">ritenītis: ādas tips 5</annotation>
+		<annotation cp="🤸🏿">cilvēks | ritenītis | sports | vingrošana | ādas tips 6</annotation>
+		<annotation cp="🤸🏿" type="tts">ritenītis: ādas tips 6</annotation>
+		<annotation cp="🤸🏻‍♂">akrobātika | sports | vingrošana | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">akrobāts: ādas tips 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">akrobātika | sports | vingrošana | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">akrobāts: ādas tips 3</annotation>
+		<annotation cp="🤸🏽‍♂">akrobātika | sports | vingrošana | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">akrobāts: ādas tips 4</annotation>
+		<annotation cp="🤸🏾‍♂">akrobātika | sports | vingrošana | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">akrobāts: ādas tips 5</annotation>
+		<annotation cp="🤸🏿‍♂">akrobātika | sports | vingrošana | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">akrobāts: ādas tips 6</annotation>
+		<annotation cp="🤸🏻‍♀">akrobātika | sieviete | sports | vingrošana | ādas tips 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">akrobāte: ādas tips 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">akrobātika | sieviete | sports | vingrošana | ādas tips 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">akrobāte: ādas tips 3</annotation>
+		<annotation cp="🤸🏽‍♀">akrobātika | sieviete | sports | vingrošana | ādas tips 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">akrobāte: ādas tips 4</annotation>
+		<annotation cp="🤸🏾‍♀">akrobātika | sieviete | sports | vingrošana | ādas tips 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">akrobāte: ādas tips 5</annotation>
+		<annotation cp="🤸🏿‍♀">akrobātika | sieviete | sports | vingrošana | ādas tips 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">akrobāte: ādas tips 6</annotation>
+		<annotation cp="🤽🏻">cilvēks | polo | sports | ūdens | ādas tips 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">ūdens polo: ādas tips 1–2</annotation>
+		<annotation cp="🤽🏼">cilvēks | polo | sports | ūdens | ādas tips 3</annotation>
+		<annotation cp="🤽🏼" type="tts">ūdens polo: ādas tips 3</annotation>
+		<annotation cp="🤽🏽">cilvēks | polo | sports | ūdens | ādas tips 4</annotation>
+		<annotation cp="🤽🏽" type="tts">ūdens polo: ādas tips 4</annotation>
+		<annotation cp="🤽🏾">cilvēks | polo | sports | ūdens | ādas tips 5</annotation>
+		<annotation cp="🤽🏾" type="tts">ūdens polo: ādas tips 5</annotation>
+		<annotation cp="🤽🏿">cilvēks | polo | sports | ūdens | ādas tips 6</annotation>
+		<annotation cp="🤽🏿" type="tts">ūdens polo: ādas tips 6</annotation>
+		<annotation cp="🤽🏻‍♂">sports | vīrietis | ūdenspolo | ādas tips 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">ūdenspolo spēlētājs: ādas tips 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">sports | vīrietis | ūdenspolo | ādas tips 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">ūdenspolo spēlētājs: ādas tips 3</annotation>
+		<annotation cp="🤽🏽‍♂">sports | vīrietis | ūdenspolo | ādas tips 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">ūdenspolo spēlētājs: ādas tips 4</annotation>
+		<annotation cp="🤽🏾‍♂">sports | vīrietis | ūdenspolo | ādas tips 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">ūdenspolo spēlētājs: ādas tips 5</annotation>
+		<annotation cp="🤽🏿‍♂">sports | vīrietis | ūdenspolo | ādas tips 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">ūdenspolo spēlētājs: ādas tips 6</annotation>
+		<annotation cp="🤽🏻‍♀">sieviete | sports | ūdenspolo | ādas tips 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">ūdenspolo spēlētāja: ādas tips 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">sieviete | sports | ūdenspolo | ādas tips 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">ūdenspolo spēlētāja: ādas tips 3</annotation>
+		<annotation cp="🤽🏽‍♀">sieviete | sports | ūdenspolo | ādas tips 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">ūdenspolo spēlētāja: ādas tips 4</annotation>
+		<annotation cp="🤽🏾‍♀">sieviete | sports | ūdenspolo | ādas tips 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">ūdenspolo spēlētāja: ādas tips 5</annotation>
+		<annotation cp="🤽🏿‍♀">sieviete | sports | ūdenspolo | ādas tips 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">ūdenspolo spēlētāja: ādas tips 6</annotation>
+		<annotation cp="🤾🏻">bumba | cilvēks | handbols | rokasbumba | sports | ādas tips 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">rokasbumba: ādas tips 1–2</annotation>
+		<annotation cp="🤾🏼">bumba | cilvēks | handbols | rokasbumba | sports | ādas tips 3</annotation>
+		<annotation cp="🤾🏼" type="tts">rokasbumba: ādas tips 3</annotation>
+		<annotation cp="🤾🏽">bumba | cilvēks | handbols | rokasbumba | sports | ādas tips 4</annotation>
+		<annotation cp="🤾🏽" type="tts">rokasbumba: ādas tips 4</annotation>
+		<annotation cp="🤾🏾">bumba | cilvēks | handbols | rokasbumba | sports | ādas tips 5</annotation>
+		<annotation cp="🤾🏾" type="tts">rokasbumba: ādas tips 5</annotation>
+		<annotation cp="🤾🏿">bumba | cilvēks | handbols | rokasbumba | sports | ādas tips 6</annotation>
+		<annotation cp="🤾🏿" type="tts">rokasbumba: ādas tips 6</annotation>
+		<annotation cp="🤾🏻‍♂">rokasbumba | sports | vīrietis | ādas tips 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">rokasbumbas spēlētājs: ādas tips 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">rokasbumba | sports | vīrietis | ādas tips 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">rokasbumbas spēlētājs: ādas tips 3</annotation>
+		<annotation cp="🤾🏽‍♂">rokasbumba | sports | vīrietis | ādas tips 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">rokasbumbas spēlētājs: ādas tips 4</annotation>
+		<annotation cp="🤾🏾‍♂">rokasbumba | sports | vīrietis | ādas tips 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">rokasbumbas spēlētājs: ādas tips 5</annotation>
+		<annotation cp="🤾🏿‍♂">rokasbumba | sports | vīrietis | ādas tips 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">rokasbumbas spēlētājs: ādas tips 6</annotation>
+		<annotation cp="🤾🏻‍♀">rokasbumba | sieviete | sports | ādas tips 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">rokasbumbas spēlētāja: ādas tips 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">rokasbumba | sieviete | sports | ādas tips 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">rokasbumbas spēlētāja: ādas tips 3</annotation>
+		<annotation cp="🤾🏽‍♀">rokasbumba | sieviete | sports | ādas tips 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">rokasbumbas spēlētāja: ādas tips 4</annotation>
+		<annotation cp="🤾🏾‍♀">rokasbumba | sieviete | sports | ādas tips 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">rokasbumbas spēlētāja: ādas tips 5</annotation>
+		<annotation cp="🤾🏿‍♀">rokasbumba | sieviete | sports | ādas tips 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">rokasbumbas spēlētāja: ādas tips 6</annotation>
+		<annotation cp="🤹🏻">līdzsvars | prasme | vairāki uzdevumi | žonglēt | ādas tips 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">žonglēšana: ādas tips 1–2</annotation>
+		<annotation cp="🤹🏼">līdzsvars | prasme | vairāki uzdevumi | žonglēt | ādas tips 3</annotation>
+		<annotation cp="🤹🏼" type="tts">žonglēšana: ādas tips 3</annotation>
+		<annotation cp="🤹🏽">līdzsvars | prasme | vairāki uzdevumi | žonglēt | ādas tips 4</annotation>
+		<annotation cp="🤹🏽" type="tts">žonglēšana: ādas tips 4</annotation>
+		<annotation cp="🤹🏾">līdzsvars | prasme | vairāki uzdevumi | žonglēt | ādas tips 5</annotation>
+		<annotation cp="🤹🏾" type="tts">žonglēšana: ādas tips 5</annotation>
+		<annotation cp="🤹🏿">līdzsvars | prasme | vairāki uzdevumi | žonglēt | ādas tips 6</annotation>
+		<annotation cp="🤹🏿" type="tts">žonglēšana: ādas tips 6</annotation>
+		<annotation cp="🤹🏻‍♂">sports | vairāki uzdevumi | vīrietis | žonglieris | ādas tips 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">žonglieris: ādas tips 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">sports | vairāki uzdevumi | vīrietis | žonglieris | ādas tips 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">žonglieris: ādas tips 3</annotation>
+		<annotation cp="🤹🏽‍♂">sports | vairāki uzdevumi | vīrietis | žonglieris | ādas tips 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">žonglieris: ādas tips 4</annotation>
+		<annotation cp="🤹🏾‍♂">sports | vairāki uzdevumi | vīrietis | žonglieris | ādas tips 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">žonglieris: ādas tips 5</annotation>
+		<annotation cp="🤹🏿‍♂">sports | vairāki uzdevumi | vīrietis | žonglieris | ādas tips 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">žonglieris: ādas tips 6</annotation>
+		<annotation cp="🤹🏻‍♀">sieviete | sports | vairāki uzdevumi | žonglieris | ādas tips 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">žongliere: ādas tips 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">sieviete | sports | vairāki uzdevumi | žonglieris | ādas tips 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">žongliere: ādas tips 3</annotation>
+		<annotation cp="🤹🏽‍♀">sieviete | sports | vairāki uzdevumi | žonglieris | ādas tips 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">žongliere: ādas tips 4</annotation>
+		<annotation cp="🤹🏾‍♀">sieviete | sports | vairāki uzdevumi | žonglieris | ādas tips 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">žongliere: ādas tips 5</annotation>
+		<annotation cp="🤹🏿‍♀">sieviete | sports | vairāki uzdevumi | žonglieris | ādas tips 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">žongliere: ādas tips 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">pāris | romantika | sieviete | vīrietis</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">skūpsts: sieviete un vīrietis</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">pāris | romantika | vīrietis</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">skūpsts: vīrietis un vīrietis</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">pāris | romantika | sieviete</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">skūpsts: sieviete un sieviete</annotation>
+		<annotation cp="👩‍❤‍👨">mīlestība | pāris | romantika | sirds | sieviete | vīrietis</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">pāris ar sirdi: sieviete un vīrietis</annotation>
+		<annotation cp="👨‍❤‍👨">mīlestība | pāris | romantika | sirds | vīrietis</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">pāris ar sirdi: vīrietis un vīrietis</annotation>
+		<annotation cp="👩‍❤‍👩">mīlestība | pāris | romantika | sirds | sieviete</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">pāris ar sirdi: sieviete un sieviete</annotation>
+		<annotation cp="👨‍👩‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">ģimene: vīrietis un sieviete un zēns</annotation>
+		<annotation cp="👨‍👩‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">ģimene: vīrietis un sieviete un meitene</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">bērns | māte | sieviete | tēvs | vīrietis | meitene | zēns</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">ģimene: vīrietis un sieviete un meitene un zēns</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">ģimene: vīrietis un sieviete un zēns un zēns</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">ģimene: vīrietis un sieviete un meitene un meitene</annotation>
+		<annotation cp="👨‍👨‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">ģimene: vīrietis un vīrietis un zēns</annotation>
+		<annotation cp="👨‍👨‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">ģimene: vīrietis un vīrietis un meitene</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">bērns | māte | sieviete | tēvs | vīrietis | meitene | zēns</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">ģimene: vīrietis un vīrietis un meitene un zēns</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">ģimene: vīrietis un vīrietis un zēns un zēns</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">ģimene: vīrietis un vīrietis un meitene un meitene</annotation>
+		<annotation cp="👩‍👩‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">ģimene: sieviete un sieviete un zēns</annotation>
+		<annotation cp="👩‍👩‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">ģimene: sieviete un sieviete un meitene</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">bērns | māte | sieviete | tēvs | vīrietis | meitene | zēns</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">ģimene: sieviete un sieviete un meitene un zēns</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">ģimene: sieviete un sieviete un zēns un zēns</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">ģimene: sieviete un sieviete un meitene un meitene</annotation>
+		<annotation cp="👨‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👨‍👦" type="tts">ģimene: vīrietis un zēns</annotation>
+		<annotation cp="👨‍👦‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">ģimene: vīrietis un zēns un zēns</annotation>
+		<annotation cp="👨‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👨‍👧" type="tts">ģimene: vīrietis un meitene</annotation>
+		<annotation cp="👨‍👧‍👦">bērns | māte | sieviete | tēvs | vīrietis | meitene | zēns</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">ģimene: vīrietis un meitene un zēns</annotation>
+		<annotation cp="👨‍👧‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">ģimene: vīrietis un meitene un meitene</annotation>
+		<annotation cp="👩‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👩‍👦" type="tts">ģimene: sieviete un zēns</annotation>
+		<annotation cp="👩‍👦‍👦">bērns | māte | sieviete | tēvs | vīrietis | zēns</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">ģimene: sieviete un zēns un zēns</annotation>
+		<annotation cp="👩‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👩‍👧" type="tts">ģimene: sieviete un meitene</annotation>
+		<annotation cp="👩‍👧‍👦">bērns | māte | sieviete | tēvs | vīrietis | meitene | zēns</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">ģimene: sieviete un meitene un zēns</annotation>
+		<annotation cp="👩‍👧‍👧">bērns | māte | sieviete | tēvs | vīrietis | meitene</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">ģimene: sieviete un meitene un meitene</annotation>
+		<annotation cp="🤳🏻">kamera | pašfoto | tālrunis | ādas tips 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">pašfoto: ādas tips 1–2</annotation>
+		<annotation cp="🤳🏼">kamera | pašfoto | tālrunis | ādas tips 3</annotation>
+		<annotation cp="🤳🏼" type="tts">pašfoto: ādas tips 3</annotation>
+		<annotation cp="🤳🏽">kamera | pašfoto | tālrunis | ādas tips 4</annotation>
+		<annotation cp="🤳🏽" type="tts">pašfoto: ādas tips 4</annotation>
+		<annotation cp="🤳🏾">kamera | pašfoto | tālrunis | ādas tips 5</annotation>
+		<annotation cp="🤳🏾" type="tts">pašfoto: ādas tips 5</annotation>
+		<annotation cp="🤳🏿">kamera | pašfoto | tālrunis | ādas tips 6</annotation>
+		<annotation cp="🤳🏿" type="tts">pašfoto: ādas tips 6</annotation>
+		<annotation cp="💪🏻">muskulis | saliekt | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">bicepss: ādas tips 1–2</annotation>
+		<annotation cp="💪🏼">muskulis | saliekt | ķermenis | ādas tips 3</annotation>
+		<annotation cp="💪🏼" type="tts">bicepss: ādas tips 3</annotation>
+		<annotation cp="💪🏽">muskulis | saliekt | ķermenis | ādas tips 4</annotation>
+		<annotation cp="💪🏽" type="tts">bicepss: ādas tips 4</annotation>
+		<annotation cp="💪🏾">muskulis | saliekt | ķermenis | ādas tips 5</annotation>
+		<annotation cp="💪🏾" type="tts">bicepss: ādas tips 5</annotation>
+		<annotation cp="💪🏿">muskulis | saliekt | ķermenis | ādas tips 6</annotation>
+		<annotation cp="💪🏿" type="tts">bicepss: ādas tips 6</annotation>
+		<annotation cp="👈🏻">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">pa kreisi vērsts rādītājpirksts: ādas tips 1–2</annotation>
+		<annotation cp="👈🏼">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👈🏼" type="tts">pa kreisi vērsts rādītājpirksts: ādas tips 3</annotation>
+		<annotation cp="👈🏽">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👈🏽" type="tts">pa kreisi vērsts rādītājpirksts: ādas tips 4</annotation>
+		<annotation cp="👈🏾">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👈🏾" type="tts">pa kreisi vērsts rādītājpirksts: ādas tips 5</annotation>
+		<annotation cp="👈🏿">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👈🏿" type="tts">pa kreisi vērsts rādītājpirksts: ādas tips 6</annotation>
+		<annotation cp="👉🏻">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">pa labi vērsts rādītājpirksts: ādas tips 1–2</annotation>
+		<annotation cp="👉🏼">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👉🏼" type="tts">pa labi vērsts rādītājpirksts: ādas tips 3</annotation>
+		<annotation cp="👉🏽">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👉🏽" type="tts">pa labi vērsts rādītājpirksts: ādas tips 4</annotation>
+		<annotation cp="👉🏾">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👉🏾" type="tts">pa labi vērsts rādītājpirksts: ādas tips 5</annotation>
+		<annotation cp="👉🏿">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👉🏿" type="tts">pa labi vērsts rādītājpirksts: ādas tips 6</annotation>
+		<annotation cp="☝🏻">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">augšup vērsts rādītājpirksts: ādas tips 1–2</annotation>
+		<annotation cp="☝🏼">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 3</annotation>
+		<annotation cp="☝🏼" type="tts">augšup vērsts rādītājpirksts: ādas tips 3</annotation>
+		<annotation cp="☝🏽">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 4</annotation>
+		<annotation cp="☝🏽" type="tts">augšup vērsts rādītājpirksts: ādas tips 4</annotation>
+		<annotation cp="☝🏾">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 5</annotation>
+		<annotation cp="☝🏾" type="tts">augšup vērsts rādītājpirksts: ādas tips 5</annotation>
+		<annotation cp="☝🏿">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 6</annotation>
+		<annotation cp="☝🏿" type="tts">augšup vērsts rādītājpirksts: ādas tips 6</annotation>
+		<annotation cp="👆🏻">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">augšup vērsts rādītājpirksts ar prom vērstu delnu: ādas tips 1–2</annotation>
+		<annotation cp="👆🏼">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👆🏼" type="tts">augšup vērsts rādītājpirksts ar prom vērstu delnu: ādas tips 3</annotation>
+		<annotation cp="👆🏽">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👆🏽" type="tts">augšup vērsts rādītājpirksts ar prom vērstu delnu: ādas tips 4</annotation>
+		<annotation cp="👆🏾">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👆🏾" type="tts">augšup vērsts rādītājpirksts ar prom vērstu delnu: ādas tips 5</annotation>
+		<annotation cp="👆🏿">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👆🏿" type="tts">augšup vērsts rādītājpirksts ar prom vērstu delnu: ādas tips 6</annotation>
+		<annotation cp="🖕🏻">delna | pirksts | roka | rādīt | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">vidējais pirksts: ādas tips 1–2</annotation>
+		<annotation cp="🖕🏼">delna | pirksts | roka | rādīt | ķermenis | ādas tips 3</annotation>
+		<annotation cp="🖕🏼" type="tts">vidējais pirksts: ādas tips 3</annotation>
+		<annotation cp="🖕🏽">delna | pirksts | roka | rādīt | ķermenis | ādas tips 4</annotation>
+		<annotation cp="🖕🏽" type="tts">vidējais pirksts: ādas tips 4</annotation>
+		<annotation cp="🖕🏾">delna | pirksts | roka | rādīt | ķermenis | ādas tips 5</annotation>
+		<annotation cp="🖕🏾" type="tts">vidējais pirksts: ādas tips 5</annotation>
+		<annotation cp="🖕🏿">delna | pirksts | roka | rādīt | ķermenis | ādas tips 6</annotation>
+		<annotation cp="🖕🏿" type="tts">vidējais pirksts: ādas tips 6</annotation>
+		<annotation cp="👇🏻">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">lejup vērsts rādītājpirksts: ādas tips 1–2</annotation>
+		<annotation cp="👇🏼">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👇🏼" type="tts">lejup vērsts rādītājpirksts: ādas tips 3</annotation>
+		<annotation cp="👇🏽">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👇🏽" type="tts">lejup vērsts rādītājpirksts: ādas tips 4</annotation>
+		<annotation cp="👇🏾">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👇🏾" type="tts">lejup vērsts rādītājpirksts: ādas tips 5</annotation>
+		<annotation cp="👇🏿">delna | pirksts | roka | rādīt | rādītājpirksts | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👇🏿" type="tts">lejup vērsts rādītājpirksts: ādas tips 6</annotation>
+		<annotation cp="✌🏻">roka | uzvara | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">uzvaras simbols: ādas tips 1–2</annotation>
+		<annotation cp="✌🏼">roka | uzvara | ķermenis | ādas tips 3</annotation>
+		<annotation cp="✌🏼" type="tts">uzvaras simbols: ādas tips 3</annotation>
+		<annotation cp="✌🏽">roka | uzvara | ķermenis | ādas tips 4</annotation>
+		<annotation cp="✌🏽" type="tts">uzvaras simbols: ādas tips 4</annotation>
+		<annotation cp="✌🏾">roka | uzvara | ķermenis | ādas tips 5</annotation>
+		<annotation cp="✌🏾" type="tts">uzvaras simbols: ādas tips 5</annotation>
+		<annotation cp="✌🏿">roka | uzvara | ķermenis | ādas tips 6</annotation>
+		<annotation cp="✌🏿" type="tts">uzvaras simbols: ādas tips 6</annotation>
+		<annotation cp="🤞🏻">pirksts | roka | sakrustot | turēt īkšķus | veiksme | ādas tips 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">sakrustoti pirksti: ādas tips 1–2</annotation>
+		<annotation cp="🤞🏼">pirksts | roka | sakrustot | turēt īkšķus | veiksme | ādas tips 3</annotation>
+		<annotation cp="🤞🏼" type="tts">sakrustoti pirksti: ādas tips 3</annotation>
+		<annotation cp="🤞🏽">pirksts | roka | sakrustot | turēt īkšķus | veiksme | ādas tips 4</annotation>
+		<annotation cp="🤞🏽" type="tts">sakrustoti pirksti: ādas tips 4</annotation>
+		<annotation cp="🤞🏾">pirksts | roka | sakrustot | turēt īkšķus | veiksme | ādas tips 5</annotation>
+		<annotation cp="🤞🏾" type="tts">sakrustoti pirksti: ādas tips 5</annotation>
+		<annotation cp="🤞🏿">pirksts | roka | sakrustot | turēt īkšķus | veiksme | ādas tips 6</annotation>
+		<annotation cp="🤞🏿" type="tts">sakrustoti pirksti: ādas tips 6</annotation>
+		<annotation cp="🖖🏻">Spoks | Vulkāns | pirksts | roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkāniešu sveiciens: ādas tips 1–2</annotation>
+		<annotation cp="🖖🏼">Spoks | Vulkāns | pirksts | roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkāniešu sveiciens: ādas tips 3</annotation>
+		<annotation cp="🖖🏽">Spoks | Vulkāns | pirksts | roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkāniešu sveiciens: ādas tips 4</annotation>
+		<annotation cp="🖖🏾">Spoks | Vulkāns | pirksts | roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkāniešu sveiciens: ādas tips 5</annotation>
+		<annotation cp="🖖🏿">Spoks | Vulkāns | pirksts | roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkāniešu sveiciens: ādas tips 6</annotation>
+		<annotation cp="🤘🏻">pirksts | ragi | roka | rokmūzika | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">ragu simbols: ādas tips 1–2</annotation>
+		<annotation cp="🤘🏼">pirksts | ragi | roka | rokmūzika | ķermenis | ādas tips 3</annotation>
+		<annotation cp="🤘🏼" type="tts">ragu simbols: ādas tips 3</annotation>
+		<annotation cp="🤘🏽">pirksts | ragi | roka | rokmūzika | ķermenis | ādas tips 4</annotation>
+		<annotation cp="🤘🏽" type="tts">ragu simbols: ādas tips 4</annotation>
+		<annotation cp="🤘🏾">pirksts | ragi | roka | rokmūzika | ķermenis | ādas tips 5</annotation>
+		<annotation cp="🤘🏾" type="tts">ragu simbols: ādas tips 5</annotation>
+		<annotation cp="🤘🏿">pirksts | ragi | roka | rokmūzika | ķermenis | ādas tips 6</annotation>
+		<annotation cp="🤘🏿" type="tts">ragu simbols: ādas tips 6</annotation>
+		<annotation cp="🤙🏻">roka | zvans | ādas tips 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">piezvani man: ādas tips 1–2</annotation>
+		<annotation cp="🤙🏼">roka | zvans | ādas tips 3</annotation>
+		<annotation cp="🤙🏼" type="tts">piezvani man: ādas tips 3</annotation>
+		<annotation cp="🤙🏽">roka | zvans | ādas tips 4</annotation>
+		<annotation cp="🤙🏽" type="tts">piezvani man: ādas tips 4</annotation>
+		<annotation cp="🤙🏾">roka | zvans | ādas tips 5</annotation>
+		<annotation cp="🤙🏾" type="tts">piezvani man: ādas tips 5</annotation>
+		<annotation cp="🤙🏿">roka | zvans | ādas tips 6</annotation>
+		<annotation cp="🤙🏿" type="tts">piezvani man: ādas tips 6</annotation>
+		<annotation cp="🖐🏻">izvērsts | pirksts | roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">pacelta roka ar izvērstiem pirkstiem: ādas tips 1–2</annotation>
+		<annotation cp="🖐🏼">izvērsts | pirksts | roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="🖐🏼" type="tts">pacelta roka ar izvērstiem pirkstiem: ādas tips 3</annotation>
+		<annotation cp="🖐🏽">izvērsts | pirksts | roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="🖐🏽" type="tts">pacelta roka ar izvērstiem pirkstiem: ādas tips 4</annotation>
+		<annotation cp="🖐🏾">izvērsts | pirksts | roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="🖐🏾" type="tts">pacelta roka ar izvērstiem pirkstiem: ādas tips 5</annotation>
+		<annotation cp="🖐🏿">izvērsts | pirksts | roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="🖐🏿" type="tts">pacelta roka ar izvērstiem pirkstiem: ādas tips 6</annotation>
+		<annotation cp="✋🏻">roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">pacelta roka: ādas tips 1–2</annotation>
+		<annotation cp="✋🏼">roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="✋🏼" type="tts">pacelta roka: ādas tips 3</annotation>
+		<annotation cp="✋🏽">roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="✋🏽" type="tts">pacelta roka: ādas tips 4</annotation>
+		<annotation cp="✋🏾">roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="✋🏾" type="tts">pacelta roka: ādas tips 5</annotation>
+		<annotation cp="✋🏿">roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="✋🏿" type="tts">pacelta roka: ādas tips 6</annotation>
+		<annotation cp="👌🏻">labi | ok | roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">simbols OK: ādas tips 1–2</annotation>
+		<annotation cp="👌🏼">labi | ok | roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👌🏼" type="tts">simbols OK: ādas tips 3</annotation>
+		<annotation cp="👌🏽">labi | ok | roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👌🏽" type="tts">simbols OK: ādas tips 4</annotation>
+		<annotation cp="👌🏾">labi | ok | roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👌🏾" type="tts">simbols OK: ādas tips 5</annotation>
+		<annotation cp="👌🏿">labi | ok | roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👌🏿" type="tts">simbols OK: ādas tips 6</annotation>
+		<annotation cp="👍🏻">+1 | augšup | patīk | roka | īkšķis | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">augšup vērsts īkšķis: ādas tips 1–2</annotation>
+		<annotation cp="👍🏼">+1 | augšup | patīk | roka | īkšķis | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👍🏼" type="tts">augšup vērsts īkšķis: ādas tips 3</annotation>
+		<annotation cp="👍🏽">+1 | augšup | patīk | roka | īkšķis | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👍🏽" type="tts">augšup vērsts īkšķis: ādas tips 4</annotation>
+		<annotation cp="👍🏾">+1 | augšup | patīk | roka | īkšķis | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👍🏾" type="tts">augšup vērsts īkšķis: ādas tips 5</annotation>
+		<annotation cp="👍🏿">+1 | augšup | patīk | roka | īkšķis | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👍🏿" type="tts">augšup vērsts īkšķis: ādas tips 6</annotation>
+		<annotation cp="👎🏻">-1 | lejup | nepatīk | roka | īkšķis | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">lejup vērsts īkšķis: ādas tips 1–2</annotation>
+		<annotation cp="👎🏼">-1 | lejup | nepatīk | roka | īkšķis | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👎🏼" type="tts">lejup vērsts īkšķis: ādas tips 3</annotation>
+		<annotation cp="👎🏽">-1 | lejup | nepatīk | roka | īkšķis | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👎🏽" type="tts">lejup vērsts īkšķis: ādas tips 4</annotation>
+		<annotation cp="👎🏾">-1 | lejup | nepatīk | roka | īkšķis | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👎🏾" type="tts">lejup vērsts īkšķis: ādas tips 5</annotation>
+		<annotation cp="👎🏿">-1 | lejup | nepatīk | roka | īkšķis | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👎🏿" type="tts">lejup vērsts īkšķis: ādas tips 6</annotation>
+		<annotation cp="✊🏻">dūre | roka | sist | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">pacelta dūre: ādas tips 1–2</annotation>
+		<annotation cp="✊🏼">dūre | roka | sist | ķermenis | ādas tips 3</annotation>
+		<annotation cp="✊🏼" type="tts">pacelta dūre: ādas tips 3</annotation>
+		<annotation cp="✊🏽">dūre | roka | sist | ķermenis | ādas tips 4</annotation>
+		<annotation cp="✊🏽" type="tts">pacelta dūre: ādas tips 4</annotation>
+		<annotation cp="✊🏾">dūre | roka | sist | ķermenis | ādas tips 5</annotation>
+		<annotation cp="✊🏾" type="tts">pacelta dūre: ādas tips 5</annotation>
+		<annotation cp="✊🏿">dūre | roka | sist | ķermenis | ādas tips 6</annotation>
+		<annotation cp="✊🏿" type="tts">pacelta dūre: ādas tips 6</annotation>
+		<annotation cp="👊🏻">dūre | roka | sist | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">pretim vērsta dūre: ādas tips 1–2</annotation>
+		<annotation cp="👊🏼">dūre | roka | sist | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👊🏼" type="tts">pretim vērsta dūre: ādas tips 3</annotation>
+		<annotation cp="👊🏽">dūre | roka | sist | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👊🏽" type="tts">pretim vērsta dūre: ādas tips 4</annotation>
+		<annotation cp="👊🏾">dūre | roka | sist | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👊🏾" type="tts">pretim vērsta dūre: ādas tips 5</annotation>
+		<annotation cp="👊🏿">dūre | roka | sist | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👊🏿" type="tts">pretim vērsta dūre: ādas tips 6</annotation>
+		<annotation cp="🤛🏻">dūre | pa kreisi | ādas tips 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">dūre pa kreisi: ādas tips 1–2</annotation>
+		<annotation cp="🤛🏼">dūre | pa kreisi | ādas tips 3</annotation>
+		<annotation cp="🤛🏼" type="tts">dūre pa kreisi: ādas tips 3</annotation>
+		<annotation cp="🤛🏽">dūre | pa kreisi | ādas tips 4</annotation>
+		<annotation cp="🤛🏽" type="tts">dūre pa kreisi: ādas tips 4</annotation>
+		<annotation cp="🤛🏾">dūre | pa kreisi | ādas tips 5</annotation>
+		<annotation cp="🤛🏾" type="tts">dūre pa kreisi: ādas tips 5</annotation>
+		<annotation cp="🤛🏿">dūre | pa kreisi | ādas tips 6</annotation>
+		<annotation cp="🤛🏿" type="tts">dūre pa kreisi: ādas tips 6</annotation>
+		<annotation cp="🤜🏻">dūre | pa labi | ādas tips 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">dūre pa labi: ādas tips 1–2</annotation>
+		<annotation cp="🤜🏼">dūre | pa labi | ādas tips 3</annotation>
+		<annotation cp="🤜🏼" type="tts">dūre pa labi: ādas tips 3</annotation>
+		<annotation cp="🤜🏽">dūre | pa labi | ādas tips 4</annotation>
+		<annotation cp="🤜🏽" type="tts">dūre pa labi: ādas tips 4</annotation>
+		<annotation cp="🤜🏾">dūre | pa labi | ādas tips 5</annotation>
+		<annotation cp="🤜🏾" type="tts">dūre pa labi: ādas tips 5</annotation>
+		<annotation cp="🤜🏿">dūre | pa labi | ādas tips 6</annotation>
+		<annotation cp="🤜🏿" type="tts">dūre pa labi: ādas tips 6</annotation>
+		<annotation cp="🤚🏻">pacelta | roka | ādas tips 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">pacelta plauksta: ādas tips 1–2</annotation>
+		<annotation cp="🤚🏼">pacelta | roka | ādas tips 3</annotation>
+		<annotation cp="🤚🏼" type="tts">pacelta plauksta: ādas tips 3</annotation>
+		<annotation cp="🤚🏽">pacelta | roka | ādas tips 4</annotation>
+		<annotation cp="🤚🏽" type="tts">pacelta plauksta: ādas tips 4</annotation>
+		<annotation cp="🤚🏾">pacelta | roka | ādas tips 5</annotation>
+		<annotation cp="🤚🏾" type="tts">pacelta plauksta: ādas tips 5</annotation>
+		<annotation cp="🤚🏿">pacelta | roka | ādas tips 6</annotation>
+		<annotation cp="🤚🏿" type="tts">pacelta plauksta: ādas tips 6</annotation>
+		<annotation cp="👋🏻">māt | roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">mājoša roka: ādas tips 1–2</annotation>
+		<annotation cp="👋🏼">māt | roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👋🏼" type="tts">mājoša roka: ādas tips 3</annotation>
+		<annotation cp="👋🏽">māt | roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👋🏽" type="tts">mājoša roka: ādas tips 4</annotation>
+		<annotation cp="👋🏾">māt | roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👋🏾" type="tts">mājoša roka: ādas tips 5</annotation>
+		<annotation cp="👋🏿">māt | roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👋🏿" type="tts">mājoša roka: ādas tips 6</annotation>
+		<annotation cp="✍🏻">rakstīt | roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">rakstoša roka: ādas tips 1–2</annotation>
+		<annotation cp="✍🏼">rakstīt | roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="✍🏼" type="tts">rakstoša roka: ādas tips 3</annotation>
+		<annotation cp="✍🏽">rakstīt | roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="✍🏽" type="tts">rakstoša roka: ādas tips 4</annotation>
+		<annotation cp="✍🏾">rakstīt | roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="✍🏾" type="tts">rakstoša roka: ādas tips 5</annotation>
+		<annotation cp="✍🏿">rakstīt | roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="✍🏿" type="tts">rakstoša roka: ādas tips 6</annotation>
+		<annotation cp="👏🏻">aplaudēt | roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">aplausi: ādas tips 1–2</annotation>
+		<annotation cp="👏🏼">aplaudēt | roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👏🏼" type="tts">aplausi: ādas tips 3</annotation>
+		<annotation cp="👏🏽">aplaudēt | roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👏🏽" type="tts">aplausi: ādas tips 4</annotation>
+		<annotation cp="👏🏾">aplaudēt | roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👏🏾" type="tts">aplausi: ādas tips 5</annotation>
+		<annotation cp="👏🏿">aplaudēt | roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👏🏿" type="tts">aplausi: ādas tips 6</annotation>
+		<annotation cp="👐🏻">roka | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">atvērtas rokas: ādas tips 1–2</annotation>
+		<annotation cp="👐🏼">roka | ķermenis | ādas tips 3</annotation>
+		<annotation cp="👐🏼" type="tts">atvērtas rokas: ādas tips 3</annotation>
+		<annotation cp="👐🏽">roka | ķermenis | ādas tips 4</annotation>
+		<annotation cp="👐🏽" type="tts">atvērtas rokas: ādas tips 4</annotation>
+		<annotation cp="👐🏾">roka | ķermenis | ādas tips 5</annotation>
+		<annotation cp="👐🏾" type="tts">atvērtas rokas: ādas tips 5</annotation>
+		<annotation cp="👐🏿">roka | ķermenis | ādas tips 6</annotation>
+		<annotation cp="👐🏿" type="tts">atvērtas rokas: ādas tips 6</annotation>
+		<annotation cp="🙌🏻">pacelts | rokas | svinēt | uzvara | ādas tips 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">paceltas rokas: ādas tips 1–2</annotation>
+		<annotation cp="🙌🏼">pacelts | rokas | svinēt | uzvara | ādas tips 3</annotation>
+		<annotation cp="🙌🏼" type="tts">paceltas rokas: ādas tips 3</annotation>
+		<annotation cp="🙌🏽">pacelts | rokas | svinēt | uzvara | ādas tips 4</annotation>
+		<annotation cp="🙌🏽" type="tts">paceltas rokas: ādas tips 4</annotation>
+		<annotation cp="🙌🏾">pacelts | rokas | svinēt | uzvara | ādas tips 5</annotation>
+		<annotation cp="🙌🏾" type="tts">paceltas rokas: ādas tips 5</annotation>
+		<annotation cp="🙌🏿">pacelts | rokas | svinēt | uzvara | ādas tips 6</annotation>
+		<annotation cp="🙌🏿" type="tts">paceltas rokas: ādas tips 6</annotation>
+		<annotation cp="🙏🏻">lūgt | lūgties | rokas | žests | ādas tips 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">lūgšanā saliktas rokas: ādas tips 1–2</annotation>
+		<annotation cp="🙏🏼">lūgt | lūgties | rokas | žests | ādas tips 3</annotation>
+		<annotation cp="🙏🏼" type="tts">lūgšanā saliktas rokas: ādas tips 3</annotation>
+		<annotation cp="🙏🏽">lūgt | lūgties | rokas | žests | ādas tips 4</annotation>
+		<annotation cp="🙏🏽" type="tts">lūgšanā saliktas rokas: ādas tips 4</annotation>
+		<annotation cp="🙏🏾">lūgt | lūgties | rokas | žests | ādas tips 5</annotation>
+		<annotation cp="🙏🏾" type="tts">lūgšanā saliktas rokas: ādas tips 5</annotation>
+		<annotation cp="🙏🏿">lūgt | lūgties | rokas | žests | ādas tips 6</annotation>
+		<annotation cp="🙏🏿" type="tts">lūgšanā saliktas rokas: ādas tips 6</annotation>
+		<annotation cp="💅🏻">kosmētika | laka | manikīrs | nagi | skaistumkopšana | ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">nagu laka: ādas tips 1–2</annotation>
+		<annotation cp="💅🏼">kosmētika | laka | manikīrs | nagi | skaistumkopšana | ķermenis | ādas tips 3</annotation>
+		<annotation cp="💅🏼" type="tts">nagu laka: ādas tips 3</annotation>
+		<annotation cp="💅🏽">kosmētika | laka | manikīrs | nagi | skaistumkopšana | ķermenis | ādas tips 4</annotation>
+		<annotation cp="💅🏽" type="tts">nagu laka: ādas tips 4</annotation>
+		<annotation cp="💅🏾">kosmētika | laka | manikīrs | nagi | skaistumkopšana | ķermenis | ādas tips 5</annotation>
+		<annotation cp="💅🏾" type="tts">nagu laka: ādas tips 5</annotation>
+		<annotation cp="💅🏿">kosmētika | laka | manikīrs | nagi | skaistumkopšana | ķermenis | ādas tips 6</annotation>
+		<annotation cp="💅🏿" type="tts">nagu laka: ādas tips 6</annotation>
+		<annotation cp="👂🏻">ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">auss: ādas tips 1–2</annotation>
+		<annotation cp="👂🏼">ķermenis | ādas tips 3</annotation>
+		<annotation cp="👂🏼" type="tts">auss: ādas tips 3</annotation>
+		<annotation cp="👂🏽">ķermenis | ādas tips 4</annotation>
+		<annotation cp="👂🏽" type="tts">auss: ādas tips 4</annotation>
+		<annotation cp="👂🏾">ķermenis | ādas tips 5</annotation>
+		<annotation cp="👂🏾" type="tts">auss: ādas tips 5</annotation>
+		<annotation cp="👂🏿">ķermenis | ādas tips 6</annotation>
+		<annotation cp="👂🏿" type="tts">auss: ādas tips 6</annotation>
+		<annotation cp="👃🏻">ķermenis | ādas tips 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">deguns: ādas tips 1–2</annotation>
+		<annotation cp="👃🏼">ķermenis | ādas tips 3</annotation>
+		<annotation cp="👃🏼" type="tts">deguns: ādas tips 3</annotation>
+		<annotation cp="👃🏽">ķermenis | ādas tips 4</annotation>
+		<annotation cp="👃🏽" type="tts">deguns: ādas tips 4</annotation>
+		<annotation cp="👃🏾">ķermenis | ādas tips 5</annotation>
+		<annotation cp="👃🏾" type="tts">deguns: ādas tips 5</annotation>
+		<annotation cp="👃🏿">ķermenis | ādas tips 6</annotation>
+		<annotation cp="👃🏿" type="tts">deguns: ādas tips 6</annotation>
+		<annotation cp="#⃣">atsauce | numurs</annotation>
+		<annotation cp="#⃣" type="tts">numura zīme</annotation>
+		<annotation cp="*⃣">taustiņš</annotation>
+		<annotation cp="*⃣" type="tts">taustiņš: *</annotation>
+		<annotation cp="🇦🇨">karogs</annotation>
+		<annotation cp="🇦🇨" type="tts">Debesbraukšanas sala</annotation>
+		<annotation cp="🇦🇩">karogs</annotation>
+		<annotation cp="🇦🇩" type="tts">Andora</annotation>
+		<annotation cp="🇦🇪">karogs</annotation>
+		<annotation cp="🇦🇪" type="tts">Apvienotie Arābu Emirāti</annotation>
+		<annotation cp="🇦🇫">karogs</annotation>
+		<annotation cp="🇦🇫" type="tts">Afganistāna</annotation>
+		<annotation cp="🇦🇬">karogs</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigva un Barbuda</annotation>
+		<annotation cp="🇦🇮">karogs</annotation>
+		<annotation cp="🇦🇮" type="tts">Angilja</annotation>
+		<annotation cp="🇦🇱">karogs</annotation>
+		<annotation cp="🇦🇱" type="tts">Albānija</annotation>
+		<annotation cp="🇦🇲">karogs</annotation>
+		<annotation cp="🇦🇲" type="tts">Armēnija</annotation>
+		<annotation cp="🇦🇴">karogs</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">karogs</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktika</annotation>
+		<annotation cp="🇦🇷">karogs</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentīna</annotation>
+		<annotation cp="🇦🇸">karogs</annotation>
+		<annotation cp="🇦🇸" type="tts">ASV Samoa</annotation>
+		<annotation cp="🇦🇹">karogs</annotation>
+		<annotation cp="🇦🇹" type="tts">Austrija</annotation>
+		<annotation cp="🇦🇺">karogs</annotation>
+		<annotation cp="🇦🇺" type="tts">Austrālija</annotation>
+		<annotation cp="🇦🇼">karogs</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">karogs</annotation>
+		<annotation cp="🇦🇽" type="tts">Olandes salas</annotation>
+		<annotation cp="🇦🇿">karogs</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbaidžāna</annotation>
+		<annotation cp="🇧🇦">karogs</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnija un Hercegovina</annotation>
+		<annotation cp="🇧🇧">karogs</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbadosa</annotation>
+		<annotation cp="🇧🇩">karogs</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladeša</annotation>
+		<annotation cp="🇧🇪">karogs</annotation>
+		<annotation cp="🇧🇪" type="tts">Beļģija</annotation>
+		<annotation cp="🇧🇫">karogs</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkinafaso</annotation>
+		<annotation cp="🇧🇬">karogs</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgārija</annotation>
+		<annotation cp="🇧🇭">karogs</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahreina</annotation>
+		<annotation cp="🇧🇮">karogs</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundija</annotation>
+		<annotation cp="🇧🇯">karogs</annotation>
+		<annotation cp="🇧🇯" type="tts">Benina</annotation>
+		<annotation cp="🇧🇱">karogs</annotation>
+		<annotation cp="🇧🇱" type="tts">Senbartelmī</annotation>
+		<annotation cp="🇧🇲">karogs</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermudu salas</annotation>
+		<annotation cp="🇧🇳">karogs</annotation>
+		<annotation cp="🇧🇳" type="tts">Bruneja</annotation>
+		<annotation cp="🇧🇴">karogs</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolīvija</annotation>
+		<annotation cp="🇧🇶">karogs</annotation>
+		<annotation cp="🇧🇶" type="tts">Nīderlandes Karību salas</annotation>
+		<annotation cp="🇧🇷">karogs</annotation>
+		<annotation cp="🇧🇷" type="tts">Brazīlija</annotation>
+		<annotation cp="🇧🇸">karogs</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahamu salas</annotation>
+		<annotation cp="🇧🇹">karogs</annotation>
+		<annotation cp="🇧🇹" type="tts">Butāna</annotation>
+		<annotation cp="🇧🇻">karogs</annotation>
+		<annotation cp="🇧🇻" type="tts">Buvē sala</annotation>
+		<annotation cp="🇧🇼">karogs</annotation>
+		<annotation cp="🇧🇼" type="tts">Botsvāna</annotation>
+		<annotation cp="🇧🇾">karogs</annotation>
+		<annotation cp="🇧🇾" type="tts">Baltkrievija</annotation>
+		<annotation cp="🇧🇿">karogs</annotation>
+		<annotation cp="🇧🇿" type="tts">Beliza</annotation>
+		<annotation cp="🇨🇦">karogs</annotation>
+		<annotation cp="🇨🇦" type="tts">Kanāda</annotation>
+		<annotation cp="🇨🇨">karogs</annotation>
+		<annotation cp="🇨🇨" type="tts">Kokosu (Kīlinga) salas</annotation>
+		<annotation cp="🇨🇩">karogs</annotation>
+		<annotation cp="🇨🇩" type="tts">Kongo (Kinšasa)</annotation>
+		<annotation cp="🇨🇫">karogs</annotation>
+		<annotation cp="🇨🇫" type="tts">Centrālāfrikas Republika</annotation>
+		<annotation cp="🇨🇬">karogs</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongo (Brazavila)</annotation>
+		<annotation cp="🇨🇭">karogs</annotation>
+		<annotation cp="🇨🇭" type="tts">Šveice</annotation>
+		<annotation cp="🇨🇮">karogs</annotation>
+		<annotation cp="🇨🇮" type="tts">Kotdivuāra</annotation>
+		<annotation cp="🇨🇰">karogs</annotation>
+		<annotation cp="🇨🇰" type="tts">Kuka salas</annotation>
+		<annotation cp="🇨🇱">karogs</annotation>
+		<annotation cp="🇨🇱" type="tts">Čīle</annotation>
+		<annotation cp="🇨🇲">karogs</annotation>
+		<annotation cp="🇨🇲" type="tts">Kamerūna</annotation>
+		<annotation cp="🇨🇳">karogs</annotation>
+		<annotation cp="🇨🇳" type="tts">Ķīna</annotation>
+		<annotation cp="🇨🇴">karogs</annotation>
+		<annotation cp="🇨🇴" type="tts">Kolumbija</annotation>
+		<annotation cp="🇨🇵">karogs</annotation>
+		<annotation cp="🇨🇵" type="tts">Klipertona sala</annotation>
+		<annotation cp="🇨🇷">karogs</annotation>
+		<annotation cp="🇨🇷" type="tts">Kostarika</annotation>
+		<annotation cp="🇨🇺">karogs</annotation>
+		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇻">karogs</annotation>
+		<annotation cp="🇨🇻" type="tts">Kaboverde</annotation>
+		<annotation cp="🇨🇼">karogs</annotation>
+		<annotation cp="🇨🇼" type="tts">Kirasao</annotation>
+		<annotation cp="🇨🇽">karogs</annotation>
+		<annotation cp="🇨🇽" type="tts">Ziemsvētku sala</annotation>
+		<annotation cp="🇨🇾">karogs</annotation>
+		<annotation cp="🇨🇾" type="tts">Kipra</annotation>
+		<annotation cp="🇨🇿">karogs</annotation>
+		<annotation cp="🇨🇿" type="tts">Čehija</annotation>
+		<annotation cp="🇩🇪">karogs</annotation>
+		<annotation cp="🇩🇪" type="tts">Vācija</annotation>
+		<annotation cp="🇩🇬">karogs</annotation>
+		<annotation cp="🇩🇬" type="tts">Djego Garsijas atols</annotation>
+		<annotation cp="🇩🇯">karogs</annotation>
+		<annotation cp="🇩🇯" type="tts">Džibutija</annotation>
+		<annotation cp="🇩🇰">karogs</annotation>
+		<annotation cp="🇩🇰" type="tts">Dānija</annotation>
+		<annotation cp="🇩🇲">karogs</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominika</annotation>
+		<annotation cp="🇩🇴">karogs</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominikāna</annotation>
+		<annotation cp="🇩🇿">karogs</annotation>
+		<annotation cp="🇩🇿" type="tts">Alžīrija</annotation>
+		<annotation cp="🇪🇦">karogs</annotation>
+		<annotation cp="🇪🇦" type="tts">Seūta un Melilja</annotation>
+		<annotation cp="🇪🇨">karogs</annotation>
+		<annotation cp="🇪🇨" type="tts">Ekvadora</annotation>
+		<annotation cp="🇪🇪">karogs</annotation>
+		<annotation cp="🇪🇪" type="tts">Igaunija</annotation>
+		<annotation cp="🇪🇬">karogs</annotation>
+		<annotation cp="🇪🇬" type="tts">Ēģipte</annotation>
+		<annotation cp="🇪🇭">karogs</annotation>
+		<annotation cp="🇪🇭" type="tts">Rietumsahāra</annotation>
+		<annotation cp="🇪🇷">karogs</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritreja</annotation>
+		<annotation cp="🇪🇸">karogs</annotation>
+		<annotation cp="🇪🇸" type="tts">Spānija</annotation>
+		<annotation cp="🇪🇹">karogs</annotation>
+		<annotation cp="🇪🇹" type="tts">Etiopija</annotation>
+		<annotation cp="🇪🇺">karogs</annotation>
+		<annotation cp="🇪🇺" type="tts">Eiropas Savienība</annotation>
+		<annotation cp="🇫🇮">karogs</annotation>
+		<annotation cp="🇫🇮" type="tts">Somija</annotation>
+		<annotation cp="🇫🇯">karogs</annotation>
+		<annotation cp="🇫🇯" type="tts">Fidži</annotation>
+		<annotation cp="🇫🇰">karogs</annotation>
+		<annotation cp="🇫🇰" type="tts">Folklenda salas</annotation>
+		<annotation cp="🇫🇲">karogs</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikronēzija</annotation>
+		<annotation cp="🇫🇴">karogs</annotation>
+		<annotation cp="🇫🇴" type="tts">Fēru salas</annotation>
+		<annotation cp="🇫🇷">karogs</annotation>
+		<annotation cp="🇫🇷" type="tts">Francija</annotation>
+		<annotation cp="🇬🇦">karogs</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabona</annotation>
+		<annotation cp="🇬🇧">karogs</annotation>
+		<annotation cp="🇬🇧" type="tts">Lielbritānija</annotation>
+		<annotation cp="🇬🇩">karogs</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenāda</annotation>
+		<annotation cp="🇬🇪">karogs</annotation>
+		<annotation cp="🇬🇪" type="tts">Gruzija</annotation>
+		<annotation cp="🇬🇫">karogs</annotation>
+		<annotation cp="🇬🇫" type="tts">Francijas Gviāna</annotation>
+		<annotation cp="🇬🇬">karogs</annotation>
+		<annotation cp="🇬🇬" type="tts">Gērnsija</annotation>
+		<annotation cp="🇬🇭">karogs</annotation>
+		<annotation cp="🇬🇭" type="tts">Gana</annotation>
+		<annotation cp="🇬🇮">karogs</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltārs</annotation>
+		<annotation cp="🇬🇱">karogs</annotation>
+		<annotation cp="🇬🇱" type="tts">Grenlande</annotation>
+		<annotation cp="🇬🇲">karogs</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambija</annotation>
+		<annotation cp="🇬🇳">karogs</annotation>
+		<annotation cp="🇬🇳" type="tts">Gvineja</annotation>
+		<annotation cp="🇬🇵">karogs</annotation>
+		<annotation cp="🇬🇵" type="tts">Gvadelupa</annotation>
+		<annotation cp="🇬🇶">karogs</annotation>
+		<annotation cp="🇬🇶" type="tts">Ekvatoriālā Gvineja</annotation>
+		<annotation cp="🇬🇷">karogs</annotation>
+		<annotation cp="🇬🇷" type="tts">Grieķija</annotation>
+		<annotation cp="🇬🇸">karogs</annotation>
+		<annotation cp="🇬🇸" type="tts">Dienviddžordžija un Dienvidsendviču salas</annotation>
+		<annotation cp="🇬🇹">karogs</annotation>
+		<annotation cp="🇬🇹" type="tts">Gvatemala</annotation>
+		<annotation cp="🇬🇺">karogs</annotation>
+		<annotation cp="🇬🇺" type="tts">Guama</annotation>
+		<annotation cp="🇬🇼">karogs</annotation>
+		<annotation cp="🇬🇼" type="tts">Gvineja-Bisava</annotation>
+		<annotation cp="🇬🇾">karogs</annotation>
+		<annotation cp="🇬🇾" type="tts">Gajāna</annotation>
+		<annotation cp="🇭🇰">karogs</annotation>
+		<annotation cp="🇭🇰" type="tts">Ķīnas īpašās pārvaldes apgabals Honkonga</annotation>
+		<annotation cp="🇭🇲">karogs</annotation>
+		<annotation cp="🇭🇲" type="tts">Hērda sala un Makdonalda salas</annotation>
+		<annotation cp="🇭🇳">karogs</annotation>
+		<annotation cp="🇭🇳" type="tts">Hondurasa</annotation>
+		<annotation cp="🇭🇷">karogs</annotation>
+		<annotation cp="🇭🇷" type="tts">Horvātija</annotation>
+		<annotation cp="🇭🇹">karogs</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">karogs</annotation>
+		<annotation cp="🇭🇺" type="tts">Ungārija</annotation>
+		<annotation cp="🇮🇨">karogs</annotation>
+		<annotation cp="🇮🇨" type="tts">Kanāriju salas</annotation>
+		<annotation cp="🇮🇩">karogs</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonēzija</annotation>
+		<annotation cp="🇮🇪">karogs</annotation>
+		<annotation cp="🇮🇪" type="tts">Īrija</annotation>
+		<annotation cp="🇮🇱">karogs</annotation>
+		<annotation cp="🇮🇱" type="tts">Izraēla</annotation>
+		<annotation cp="🇮🇲">karogs</annotation>
+		<annotation cp="🇮🇲" type="tts">Mena</annotation>
+		<annotation cp="🇮🇳">karogs</annotation>
+		<annotation cp="🇮🇳" type="tts">Indija</annotation>
+		<annotation cp="🇮🇴">karogs</annotation>
+		<annotation cp="🇮🇴" type="tts">Indijas okeāna Britu teritorija</annotation>
+		<annotation cp="🇮🇶">karogs</annotation>
+		<annotation cp="🇮🇶" type="tts">Irāka</annotation>
+		<annotation cp="🇮🇷">karogs</annotation>
+		<annotation cp="🇮🇷" type="tts">Irāna</annotation>
+		<annotation cp="🇮🇸">karogs</annotation>
+		<annotation cp="🇮🇸" type="tts">Islande</annotation>
+		<annotation cp="🇮🇹">karogs</annotation>
+		<annotation cp="🇮🇹" type="tts">Itālija</annotation>
+		<annotation cp="🇯🇪">karogs</annotation>
+		<annotation cp="🇯🇪" type="tts">Džērsija</annotation>
+		<annotation cp="🇯🇲">karogs</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaika</annotation>
+		<annotation cp="🇯🇴">karogs</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordānija</annotation>
+		<annotation cp="🇯🇵">karogs</annotation>
+		<annotation cp="🇯🇵" type="tts">Japāna</annotation>
+		<annotation cp="🇰🇪">karogs</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenija</annotation>
+		<annotation cp="🇰🇬">karogs</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgizstāna</annotation>
+		<annotation cp="🇰🇭">karogs</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodža</annotation>
+		<annotation cp="🇰🇮">karogs</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">karogs</annotation>
+		<annotation cp="🇰🇲" type="tts">Komoru salas</annotation>
+		<annotation cp="🇰🇳">karogs</annotation>
+		<annotation cp="🇰🇳" type="tts">Sentkitsa un Nevisa</annotation>
+		<annotation cp="🇰🇵">karogs</annotation>
+		<annotation cp="🇰🇵" type="tts">Ziemeļkoreja</annotation>
+		<annotation cp="🇰🇷">karogs</annotation>
+		<annotation cp="🇰🇷" type="tts">Dienvidkoreja</annotation>
+		<annotation cp="🇰🇼">karogs</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuveita</annotation>
+		<annotation cp="🇰🇾">karogs</annotation>
+		<annotation cp="🇰🇾" type="tts">Kaimanu salas</annotation>
+		<annotation cp="🇰🇿">karogs</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazahstāna</annotation>
+		<annotation cp="🇱🇦">karogs</annotation>
+		<annotation cp="🇱🇦" type="tts">Laosa</annotation>
+		<annotation cp="🇱🇧">karogs</annotation>
+		<annotation cp="🇱🇧" type="tts">Libāna</annotation>
+		<annotation cp="🇱🇨">karogs</annotation>
+		<annotation cp="🇱🇨" type="tts">Sentlūsija</annotation>
+		<annotation cp="🇱🇮">karogs</annotation>
+		<annotation cp="🇱🇮" type="tts">Lihtenšteina</annotation>
+		<annotation cp="🇱🇰">karogs</annotation>
+		<annotation cp="🇱🇰" type="tts">Šrilanka</annotation>
+		<annotation cp="🇱🇷">karogs</annotation>
+		<annotation cp="🇱🇷" type="tts">Libērija</annotation>
+		<annotation cp="🇱🇸">karogs</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesoto</annotation>
+		<annotation cp="🇱🇹">karogs</annotation>
+		<annotation cp="🇱🇹" type="tts">Lietuva</annotation>
+		<annotation cp="🇱🇺">karogs</annotation>
+		<annotation cp="🇱🇺" type="tts">Luksemburga</annotation>
+		<annotation cp="🇱🇻">karogs</annotation>
+		<annotation cp="🇱🇻" type="tts">Latvija</annotation>
+		<annotation cp="🇱🇾">karogs</annotation>
+		<annotation cp="🇱🇾" type="tts">Lībija</annotation>
+		<annotation cp="🇲🇦">karogs</annotation>
+		<annotation cp="🇲🇦" type="tts">Maroka</annotation>
+		<annotation cp="🇲🇨">karogs</annotation>
+		<annotation cp="🇲🇨" type="tts">Monako</annotation>
+		<annotation cp="🇲🇩">karogs</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇪">karogs</annotation>
+		<annotation cp="🇲🇪" type="tts">Melnkalne</annotation>
+		<annotation cp="🇲🇫">karogs</annotation>
+		<annotation cp="🇲🇫" type="tts">Senmartēna</annotation>
+		<annotation cp="🇲🇬">karogs</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskara</annotation>
+		<annotation cp="🇲🇭">karogs</annotation>
+		<annotation cp="🇲🇭" type="tts">Māršala salas</annotation>
+		<annotation cp="🇲🇰">karogs</annotation>
+		<annotation cp="🇲🇰" type="tts">Maķedonija</annotation>
+		<annotation cp="🇲🇱">karogs</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">karogs</annotation>
+		<annotation cp="🇲🇲" type="tts">Mjanma (Birma)</annotation>
+		<annotation cp="🇲🇳">karogs</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolija</annotation>
+		<annotation cp="🇲🇴">karogs</annotation>
+		<annotation cp="🇲🇴" type="tts">Ķīnas īpašās pārvaldes apgabals Makao</annotation>
+		<annotation cp="🇲🇵">karogs</annotation>
+		<annotation cp="🇲🇵" type="tts">Ziemeļu Marianas salas</annotation>
+		<annotation cp="🇲🇶">karogs</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinika</annotation>
+		<annotation cp="🇲🇷">karogs</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritānija</annotation>
+		<annotation cp="🇲🇸">karogs</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrata</annotation>
+		<annotation cp="🇲🇹">karogs</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">karogs</annotation>
+		<annotation cp="🇲🇺" type="tts">Maurīcija</annotation>
+		<annotation cp="🇲🇻">karogs</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldīvija</annotation>
+		<annotation cp="🇲🇼">karogs</annotation>
+		<annotation cp="🇲🇼" type="tts">Malāvija</annotation>
+		<annotation cp="🇲🇽">karogs</annotation>
+		<annotation cp="🇲🇽" type="tts">Meksika</annotation>
+		<annotation cp="🇲🇾">karogs</annotation>
+		<annotation cp="🇲🇾" type="tts">Malaizija</annotation>
+		<annotation cp="🇲🇿">karogs</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambika</annotation>
+		<annotation cp="🇳🇦">karogs</annotation>
+		<annotation cp="🇳🇦" type="tts">Namībija</annotation>
+		<annotation cp="🇳🇨">karogs</annotation>
+		<annotation cp="🇳🇨" type="tts">Jaunkaledonija</annotation>
+		<annotation cp="🇳🇪">karogs</annotation>
+		<annotation cp="🇳🇪" type="tts">Nigēra</annotation>
+		<annotation cp="🇳🇫">karogs</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolkas sala</annotation>
+		<annotation cp="🇳🇬">karogs</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigērija</annotation>
+		<annotation cp="🇳🇮">karogs</annotation>
+		<annotation cp="🇳🇮" type="tts">Nikaragva</annotation>
+		<annotation cp="🇳🇱">karogs</annotation>
+		<annotation cp="🇳🇱" type="tts">Nīderlande</annotation>
+		<annotation cp="🇳🇴">karogs</annotation>
+		<annotation cp="🇳🇴" type="tts">Norvēģija</annotation>
+		<annotation cp="🇳🇵">karogs</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepāla</annotation>
+		<annotation cp="🇳🇷">karogs</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">karogs</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">karogs</annotation>
+		<annotation cp="🇳🇿" type="tts">Jaunzēlande</annotation>
+		<annotation cp="🇴🇲">karogs</annotation>
+		<annotation cp="🇴🇲" type="tts">Omāna</annotation>
+		<annotation cp="🇵🇦">karogs</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">karogs</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">karogs</annotation>
+		<annotation cp="🇵🇫" type="tts">Francijas Polinēzija</annotation>
+		<annotation cp="🇵🇬">karogs</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua-Jaungvineja</annotation>
+		<annotation cp="🇵🇭">karogs</annotation>
+		<annotation cp="🇵🇭" type="tts">Filipīnas</annotation>
+		<annotation cp="🇵🇰">karogs</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistāna</annotation>
+		<annotation cp="🇵🇱">karogs</annotation>
+		<annotation cp="🇵🇱" type="tts">Polija</annotation>
+		<annotation cp="🇵🇲">karogs</annotation>
+		<annotation cp="🇵🇲" type="tts">Senpjēra un Mikelona</annotation>
+		<annotation cp="🇵🇳">karogs</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitkērnas salas</annotation>
+		<annotation cp="🇵🇷">karogs</annotation>
+		<annotation cp="🇵🇷" type="tts">Puertoriko</annotation>
+		<annotation cp="🇵🇸">karogs</annotation>
+		<annotation cp="🇵🇸" type="tts">Palestīna</annotation>
+		<annotation cp="🇵🇹">karogs</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugāle</annotation>
+		<annotation cp="🇵🇼">karogs</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">karogs</annotation>
+		<annotation cp="🇵🇾" type="tts">Paragvaja</annotation>
+		<annotation cp="🇶🇦">karogs</annotation>
+		<annotation cp="🇶🇦" type="tts">Katara</annotation>
+		<annotation cp="🇷🇪">karogs</annotation>
+		<annotation cp="🇷🇪" type="tts">Reinjona</annotation>
+		<annotation cp="🇷🇴">karogs</annotation>
+		<annotation cp="🇷🇴" type="tts">Rumānija</annotation>
+		<annotation cp="🇷🇸">karogs</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbija</annotation>
+		<annotation cp="🇷🇺">karogs</annotation>
+		<annotation cp="🇷🇺" type="tts">Krievija</annotation>
+		<annotation cp="🇷🇼">karogs</annotation>
+		<annotation cp="🇷🇼" type="tts">Ruanda</annotation>
+		<annotation cp="🇸🇦">karogs</annotation>
+		<annotation cp="🇸🇦" type="tts">Saūda Arābija</annotation>
+		<annotation cp="🇸🇧">karogs</annotation>
+		<annotation cp="🇸🇧" type="tts">Zālamana salas</annotation>
+		<annotation cp="🇸🇨">karogs</annotation>
+		<annotation cp="🇸🇨" type="tts">Seišelu salas</annotation>
+		<annotation cp="🇸🇩">karogs</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudāna</annotation>
+		<annotation cp="🇸🇪">karogs</annotation>
+		<annotation cp="🇸🇪" type="tts">Zviedrija</annotation>
+		<annotation cp="🇸🇬">karogs</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapūra</annotation>
+		<annotation cp="🇸🇭">karogs</annotation>
+		<annotation cp="🇸🇭" type="tts">Sv.Helēnas sala</annotation>
+		<annotation cp="🇸🇮">karogs</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovēnija</annotation>
+		<annotation cp="🇸🇯">karogs</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbāra un Jana Majena sala</annotation>
+		<annotation cp="🇸🇰">karogs</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovākija</annotation>
+		<annotation cp="🇸🇱">karogs</annotation>
+		<annotation cp="🇸🇱" type="tts">Sjerraleone</annotation>
+		<annotation cp="🇸🇲">karogs</annotation>
+		<annotation cp="🇸🇲" type="tts">Sanmarīno</annotation>
+		<annotation cp="🇸🇳">karogs</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegāla</annotation>
+		<annotation cp="🇸🇴">karogs</annotation>
+		<annotation cp="🇸🇴" type="tts">Somālija</annotation>
+		<annotation cp="🇸🇷">karogs</annotation>
+		<annotation cp="🇸🇷" type="tts">Surinama</annotation>
+		<annotation cp="🇸🇸">karogs</annotation>
+		<annotation cp="🇸🇸" type="tts">Dienvidsudāna</annotation>
+		<annotation cp="🇸🇹">karogs</annotation>
+		<annotation cp="🇸🇹" type="tts">Santome un Prinsipi</annotation>
+		<annotation cp="🇸🇻">karogs</annotation>
+		<annotation cp="🇸🇻" type="tts">Salvadora</annotation>
+		<annotation cp="🇸🇽">karogs</annotation>
+		<annotation cp="🇸🇽" type="tts">Sintmārtena</annotation>
+		<annotation cp="🇸🇾">karogs</annotation>
+		<annotation cp="🇸🇾" type="tts">Sīrija</annotation>
+		<annotation cp="🇸🇿">karogs</annotation>
+		<annotation cp="🇸🇿" type="tts">Svazilenda</annotation>
+		<annotation cp="🇹🇦">karogs</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristana da Kuņas salas</annotation>
+		<annotation cp="🇹🇨">karogs</annotation>
+		<annotation cp="🇹🇨" type="tts">Tērksas un Kaikosas salas</annotation>
+		<annotation cp="🇹🇩">karogs</annotation>
+		<annotation cp="🇹🇩" type="tts">Čada</annotation>
+		<annotation cp="🇹🇫">karogs</annotation>
+		<annotation cp="🇹🇫" type="tts">Francijas Dienvidjūru teritorija</annotation>
+		<annotation cp="🇹🇬">karogs</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">karogs</annotation>
+		<annotation cp="🇹🇭" type="tts">Taizeme</annotation>
+		<annotation cp="🇹🇯">karogs</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadžikistāna</annotation>
+		<annotation cp="🇹🇰">karogs</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">karogs</annotation>
+		<annotation cp="🇹🇱" type="tts">Austrumtimora</annotation>
+		<annotation cp="🇹🇲">karogs</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistāna</annotation>
+		<annotation cp="🇹🇳">karogs</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisija</annotation>
+		<annotation cp="🇹🇴">karogs</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">karogs</annotation>
+		<annotation cp="🇹🇷" type="tts">Turcija</annotation>
+		<annotation cp="🇹🇹">karogs</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidāda un Tobāgo</annotation>
+		<annotation cp="🇹🇻">karogs</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">karogs</annotation>
+		<annotation cp="🇹🇼" type="tts">Taivāna</annotation>
+		<annotation cp="🇹🇿">karogs</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzānija</annotation>
+		<annotation cp="🇺🇦">karogs</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇬">karogs</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">karogs</annotation>
+		<annotation cp="🇺🇲" type="tts">ASV Mazās Aizjūras salas</annotation>
+		<annotation cp="🇺🇳">karogs</annotation>
+		<annotation cp="🇺🇳" type="tts">Apvienoto Nāciju Organizācija</annotation>
+		<annotation cp="🇺🇸">karogs</annotation>
+		<annotation cp="🇺🇸" type="tts">Amerikas Savienotās Valstis</annotation>
+		<annotation cp="🇺🇾">karogs</annotation>
+		<annotation cp="🇺🇾" type="tts">Urugvaja</annotation>
+		<annotation cp="🇺🇿">karogs</annotation>
+		<annotation cp="🇺🇿" type="tts">Uzbekistāna</annotation>
+		<annotation cp="🇻🇦">karogs</annotation>
+		<annotation cp="🇻🇦" type="tts">Vatikāns</annotation>
+		<annotation cp="🇻🇨">karogs</annotation>
+		<annotation cp="🇻🇨" type="tts">Sentvinsenta un Grenadīnas</annotation>
+		<annotation cp="🇻🇪">karogs</annotation>
+		<annotation cp="🇻🇪" type="tts">Venecuēla</annotation>
+		<annotation cp="🇻🇬">karogs</annotation>
+		<annotation cp="🇻🇬" type="tts">Britu Virdžīnas</annotation>
+		<annotation cp="🇻🇮">karogs</annotation>
+		<annotation cp="🇻🇮" type="tts">ASV Virdžīnas</annotation>
+		<annotation cp="🇻🇳">karogs</annotation>
+		<annotation cp="🇻🇳" type="tts">Vjetnama</annotation>
+		<annotation cp="🇻🇺">karogs</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">karogs</annotation>
+		<annotation cp="🇼🇫" type="tts">Volisa un Futunas salas</annotation>
+		<annotation cp="🇼🇸">karogs</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">karogs</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosova</annotation>
+		<annotation cp="🇾🇪">karogs</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemena</annotation>
+		<annotation cp="🇾🇹">karogs</annotation>
+		<annotation cp="🇾🇹" type="tts">Majota</annotation>
+		<annotation cp="🇿🇦">karogs</annotation>
+		<annotation cp="🇿🇦" type="tts">Dienvidāfrikas Republika</annotation>
+		<annotation cp="🇿🇲">karogs</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambija</annotation>
+		<annotation cp="🇿🇼">karogs</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabve</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">karogs</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Anglija</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">karogs</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Skotija</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">karogs</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Velsa</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="he"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | אפס</annotation>
+		<annotation cp="0⃣" type="tts">לחצן אפס</annotation>
+		<annotation cp="1⃣">1 | אחד | אחת</annotation>
+		<annotation cp="1⃣" type="tts">לחצן אחת</annotation>
+		<annotation cp="2⃣">2 | שניים | שתיים</annotation>
+		<annotation cp="2⃣" type="tts">לחצן שתיים</annotation>
+		<annotation cp="3⃣">3 | שלוש | שלושה</annotation>
+		<annotation cp="3⃣" type="tts">לחצן שלוש</annotation>
+		<annotation cp="4⃣">4 | ארבע | ארבעה</annotation>
+		<annotation cp="4⃣" type="tts">לחצן ארבע</annotation>
+		<annotation cp="5⃣">5 | חמישה | חמש</annotation>
+		<annotation cp="5⃣" type="tts">לחצן חמש</annotation>
+		<annotation cp="6⃣">6 | שישה | שש</annotation>
+		<annotation cp="6⃣" type="tts">לחצן שש</annotation>
+		<annotation cp="7⃣">7 | שבע | שבעה</annotation>
+		<annotation cp="7⃣" type="tts">לחצן שבע</annotation>
+		<annotation cp="8⃣">8 | שמונה</annotation>
+		<annotation cp="8⃣" type="tts">לחצן שמונה</annotation>
+		<annotation cp="9⃣">9 | תשע | תשעה</annotation>
+		<annotation cp="9⃣" type="tts">לחצן תשע</annotation>
+		<annotation cp="👶🏻">תינוק | סוג עור 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">תינוק: סוג עור 1–2</annotation>
+		<annotation cp="👶🏼">תינוק | סוג עור 3</annotation>
+		<annotation cp="👶🏼" type="tts">תינוק: סוג עור 3</annotation>
+		<annotation cp="👶🏽">תינוק | סוג עור 4</annotation>
+		<annotation cp="👶🏽" type="tts">תינוק: סוג עור 4</annotation>
+		<annotation cp="👶🏾">תינוק | סוג עור 5</annotation>
+		<annotation cp="👶🏾" type="tts">תינוק: סוג עור 5</annotation>
+		<annotation cp="👶🏿">תינוק | סוג עור 6</annotation>
+		<annotation cp="👶🏿" type="tts">תינוק: סוג עור 6</annotation>
+		<annotation cp="👦🏻">ילד | נער | סוג עור 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">בן: סוג עור 1–2</annotation>
+		<annotation cp="👦🏼">ילד | נער | סוג עור 3</annotation>
+		<annotation cp="👦🏼" type="tts">בן: סוג עור 3</annotation>
+		<annotation cp="👦🏽">ילד | נער | סוג עור 4</annotation>
+		<annotation cp="👦🏽" type="tts">בן: סוג עור 4</annotation>
+		<annotation cp="👦🏾">ילד | נער | סוג עור 5</annotation>
+		<annotation cp="👦🏾" type="tts">בן: סוג עור 5</annotation>
+		<annotation cp="👦🏿">ילד | נער | סוג עור 6</annotation>
+		<annotation cp="👦🏿" type="tts">בן: סוג עור 6</annotation>
+		<annotation cp="👧🏻">ילדה | נערה | סוג עור 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">בת: סוג עור 1–2</annotation>
+		<annotation cp="👧🏼">ילדה | נערה | סוג עור 3</annotation>
+		<annotation cp="👧🏼" type="tts">בת: סוג עור 3</annotation>
+		<annotation cp="👧🏽">ילדה | נערה | סוג עור 4</annotation>
+		<annotation cp="👧🏽" type="tts">בת: סוג עור 4</annotation>
+		<annotation cp="👧🏾">ילדה | נערה | סוג עור 5</annotation>
+		<annotation cp="👧🏾" type="tts">בת: סוג עור 5</annotation>
+		<annotation cp="👧🏿">ילדה | נערה | סוג עור 6</annotation>
+		<annotation cp="👧🏿" type="tts">בת: סוג עור 6</annotation>
+		<annotation cp="👨🏻">שפם | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">איש: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼">שפם | סוג עור 3</annotation>
+		<annotation cp="👨🏼" type="tts">איש: סוג עור 3</annotation>
+		<annotation cp="👨🏽">שפם | סוג עור 4</annotation>
+		<annotation cp="👨🏽" type="tts">איש: סוג עור 4</annotation>
+		<annotation cp="👨🏾">שפם | סוג עור 5</annotation>
+		<annotation cp="👨🏾" type="tts">איש: סוג עור 5</annotation>
+		<annotation cp="👨🏿">שפם | סוג עור 6</annotation>
+		<annotation cp="👨🏿" type="tts">איש: סוג עור 6</annotation>
+		<annotation cp="👩🏻">אישה | בת | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">אישה: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼">אישה | בת | סוג עור 3</annotation>
+		<annotation cp="👩🏼" type="tts">אישה: סוג עור 3</annotation>
+		<annotation cp="👩🏽">אישה | בת | סוג עור 4</annotation>
+		<annotation cp="👩🏽" type="tts">אישה: סוג עור 4</annotation>
+		<annotation cp="👩🏾">אישה | בת | סוג עור 5</annotation>
+		<annotation cp="👩🏾" type="tts">אישה: סוג עור 5</annotation>
+		<annotation cp="👩🏿">אישה | בת | סוג עור 6</annotation>
+		<annotation cp="👩🏿" type="tts">אישה: סוג עור 6</annotation>
+		<annotation cp="👴🏻">איש | בן | גבר | זקן | מבוגר | סוג עור 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">איש זקן: סוג עור 1–2</annotation>
+		<annotation cp="👴🏼">איש | בן | גבר | זקן | מבוגר | סוג עור 3</annotation>
+		<annotation cp="👴🏼" type="tts">איש זקן: סוג עור 3</annotation>
+		<annotation cp="👴🏽">איש | בן | גבר | זקן | מבוגר | סוג עור 4</annotation>
+		<annotation cp="👴🏽" type="tts">איש זקן: סוג עור 4</annotation>
+		<annotation cp="👴🏾">איש | בן | גבר | זקן | מבוגר | סוג עור 5</annotation>
+		<annotation cp="👴🏾" type="tts">איש זקן: סוג עור 5</annotation>
+		<annotation cp="👴🏿">איש | בן | גבר | זקן | מבוגר | סוג עור 6</annotation>
+		<annotation cp="👴🏿" type="tts">איש זקן: סוג עור 6</annotation>
+		<annotation cp="👵🏻">אישה | בת | גברת | זקנה | מבוגרת | סוג עור 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">אישה זקנה: סוג עור 1–2</annotation>
+		<annotation cp="👵🏼">אישה | בת | גברת | זקנה | מבוגרת | סוג עור 3</annotation>
+		<annotation cp="👵🏼" type="tts">אישה זקנה: סוג עור 3</annotation>
+		<annotation cp="👵🏽">אישה | בת | גברת | זקנה | מבוגרת | סוג עור 4</annotation>
+		<annotation cp="👵🏽" type="tts">אישה זקנה: סוג עור 4</annotation>
+		<annotation cp="👵🏾">אישה | בת | גברת | זקנה | מבוגרת | סוג עור 5</annotation>
+		<annotation cp="👵🏾" type="tts">אישה זקנה: סוג עור 5</annotation>
+		<annotation cp="👵🏿">אישה | בת | גברת | זקנה | מבוגרת | סוג עור 6</annotation>
+		<annotation cp="👵🏿" type="tts">אישה זקנה: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍⚕">אח | איש | דוקטור | מטפל | רופא | שירותי בריאות | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">רופא: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">אח | איש | דוקטור | מטפל | רופא | שירותי בריאות | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">רופא: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍⚕">אח | איש | דוקטור | מטפל | רופא | שירותי בריאות | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">רופא: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍⚕">אח | איש | דוקטור | מטפל | רופא | שירותי בריאות | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">רופא: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍⚕">אח | איש | דוקטור | מטפל | רופא | שירותי בריאות | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">רופא: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍⚕">אחות | אישה | בת | מטפלת | רופאה | שירותי בריאות | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">רופאה: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">אחות | אישה | בת | מטפלת | רופאה | שירותי בריאות | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">רופאה: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍⚕">אחות | אישה | בת | מטפלת | רופאה | שירותי בריאות | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">רופאה: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍⚕">אחות | אישה | בת | מטפלת | רופאה | שירותי בריאות | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">רופאה: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍⚕">אחות | אישה | בת | מטפלת | רופאה | שירותי בריאות | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">רופאה: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🎓">איש | בוגר | בן | גבר | סטודנט | תלמיד | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">סטודנט: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">איש | בוגר | בן | גבר | סטודנט | תלמיד | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">סטודנט: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🎓">איש | בוגר | בן | גבר | סטודנט | תלמיד | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">סטודנט: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🎓">איש | בוגר | בן | גבר | סטודנט | תלמיד | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">סטודנט: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🎓">איש | בוגר | בן | גבר | סטודנט | תלמיד | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">סטודנט: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🎓">אישה | בוגרת | בת | סטודנטית | תלמידה | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">סטודנטית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">אישה | בוגרת | בת | סטודנטית | תלמידה | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">סטודנטית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🎓">אישה | בוגרת | בת | סטודנטית | תלמידה | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">סטודנטית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🎓">אישה | בוגרת | בת | סטודנטית | תלמידה | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">סטודנטית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🎓">אישה | בוגרת | בת | סטודנטית | תלמידה | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">סטודנטית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🏫">איש | בן | גבר | מורה | מנחה | מרצה | פרופסור | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">מורה: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">איש | בן | גבר | מורה | מנחה | מרצה | פרופסור | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">מורה: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🏫">איש | בן | גבר | מורה | מנחה | מרצה | פרופסור | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">מורה: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🏫">איש | בן | גבר | מורה | מנחה | מרצה | פרופסור | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">מורה: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🏫">איש | בן | גבר | מורה | מנחה | מרצה | פרופסור | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">מורה: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🏫">אישה | בת | מורה | מנחה | מרצה | פרופסורית | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">מוֹרָה: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">אישה | בת | מורה | מנחה | מרצה | פרופסורית | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">מוֹרָה: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🏫">אישה | בת | מורה | מנחה | מרצה | פרופסורית | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">מוֹרָה: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🏫">אישה | בת | מורה | מנחה | מרצה | פרופסורית | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">מוֹרָה: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🏫">אישה | בת | מורה | מנחה | מרצה | פרופסורית | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">מוֹרָה: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍⚖">איש | גבר | מאזניים | משפט | צדק | שופט | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">שופט: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">איש | גבר | מאזניים | משפט | צדק | שופט | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">שופט: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍⚖">איש | גבר | מאזניים | משפט | צדק | שופט | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">שופט: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍⚖">איש | גבר | מאזניים | משפט | צדק | שופט | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">שופט: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍⚖">איש | גבר | מאזניים | משפט | צדק | שופט | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">שופט: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍⚖">אישה | מאזניים | משפט | צדק | שופטת | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">שופטת: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">אישה | מאזניים | משפט | צדק | שופטת | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">שופטת: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍⚖">אישה | מאזניים | משפט | צדק | שופטת | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">שופטת: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍⚖">אישה | מאזניים | משפט | צדק | שופטת | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">שופטת: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍⚖">אישה | מאזניים | משפט | צדק | שופטת | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">שופטת: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🌾">איש | גבר | גנן | חוואי | חקלאי | עובד משק | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">חקלאי: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">איש | גבר | גנן | חוואי | חקלאי | עובד משק | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">חקלאי: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🌾">איש | גבר | גנן | חוואי | חקלאי | עובד משק | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">חקלאי: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🌾">איש | גבר | גנן | חוואי | חקלאי | עובד משק | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">חקלאי: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🌾">איש | גבר | גנן | חוואי | חקלאי | עובד משק | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">חקלאי: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🌾">אישה | גננית | חוואית | חקלאית | עובדת משק | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">חקלאית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">אישה | גננית | חוואית | חקלאית | עובדת משק | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">חקלאית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🌾">אישה | גננית | חוואית | חקלאית | עובדת משק | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">חקלאית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🌾">אישה | גננית | חוואית | חקלאית | עובדת משק | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">חקלאית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🌾">אישה | גננית | חוואית | חקלאית | עובדת משק | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">חקלאית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🍳">גבר | טבח | מבשל | שף | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">טבח: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">גבר | טבח | מבשל | שף | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">טבח: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🍳">גבר | טבח | מבשל | שף | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">טבח: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🍳">גבר | טבח | מבשל | שף | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">טבח: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🍳">גבר | טבח | מבשל | שף | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">טבח: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🍳">אישה | טבחית | מבשלת | שפית | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">טבחית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">אישה | טבחית | מבשלת | שפית | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">טבחית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🍳">אישה | טבחית | מבשלת | שפית | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">טבחית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🍳">אישה | טבחית | מבשלת | שפית | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">טבחית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🍳">אישה | טבחית | מבשלת | שפית | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">טבחית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🔧">איש | איש מקצוע | גבר | חשמלאי | טכנאי | מכונאי | שרברב | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">מכונאי: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">איש | איש מקצוע | גבר | חשמלאי | טכנאי | מכונאי | שרברב | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">מכונאי: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🔧">איש | איש מקצוע | גבר | חשמלאי | טכנאי | מכונאי | שרברב | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">מכונאי: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🔧">איש | איש מקצוע | גבר | חשמלאי | טכנאי | מכונאי | שרברב | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">מכונאי: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🔧">איש | איש מקצוע | גבר | חשמלאי | טכנאי | מכונאי | שרברב | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">מכונאי: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🔧">אישה | אשת מקצוע | חשמלאית | טכנאית | מכונאית | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">מכונאית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">אישה | אשת מקצוע | חשמלאית | טכנאית | מכונאית | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">מכונאית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🔧">אישה | אשת מקצוע | חשמלאית | טכנאית | מכונאית | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">מכונאית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🔧">אישה | אשת מקצוע | חשמלאית | טכנאית | מכונאית | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">מכונאית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🔧">אישה | אשת מקצוע | חשמלאית | טכנאית | מכונאית | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">מכונאית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🏭">איש | גבר | מפעיל | מפעל | מרכיב | עובד | עובד מפעל | עובד תעשייה | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">פועל: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">איש | גבר | מפעיל | מפעל | מרכיב | עובד | עובד מפעל | עובד תעשייה | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">פועל: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🏭">איש | גבר | מפעיל | מפעל | מרכיב | עובד | עובד מפעל | עובד תעשייה | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">פועל: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🏭">איש | גבר | מפעיל | מפעל | מרכיב | עובד | עובד מפעל | עובד תעשייה | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">פועל: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🏭">איש | גבר | מפעיל | מפעל | מרכיב | עובד | עובד מפעל | עובד תעשייה | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">פועל: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🏭">אישה | מפעילה | מפעל | מרכיבה | עובדת | עובדת מפעל | עובדת תעשייה | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">פועלת: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">אישה | מפעילה | מפעל | מרכיבה | עובדת | עובדת מפעל | עובדת תעשייה | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">פועלת: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🏭">אישה | מפעילה | מפעל | מרכיבה | עובדת | עובדת מפעל | עובדת תעשייה | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">פועלת: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🏭">אישה | מפעילה | מפעל | מרכיבה | עובדת | עובדת מפעל | עובדת תעשייה | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">פועלת: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🏭">אישה | מפעילה | מפעל | מרכיבה | עובדת | עובדת מפעל | עובדת תעשייה | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">פועלת: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍💼">אדריכל | איש | איש עסקים | גבר | מנהל | משרד | פקיד | צווארון לבן | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">עובד משרד: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍💼">אדריכל | איש | איש עסקים | גבר | מנהל | משרד | פקיד | צווארון לבן | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">עובד משרד: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍💼">אדריכל | איש | איש עסקים | גבר | מנהל | משרד | פקיד | צווארון לבן | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">עובד משרד: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍💼">אדריכל | איש | איש עסקים | גבר | מנהל | משרד | פקיד | צווארון לבן | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">עובד משרד: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍💼">אדריכל | איש | איש עסקים | גבר | מנהל | משרד | פקיד | צווארון לבן | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">עובד משרד: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍💼">אדריכלית | אישה | אשת עסקים | מנהלת | משרד | פקידה | צווארון לבן | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">עובדת משרד: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍💼">אדריכלית | אישה | אשת עסקים | מנהלת | משרד | פקידה | צווארון לבן | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">עובדת משרד: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍💼">אדריכלית | אישה | אשת עסקים | מנהלת | משרד | פקידה | צווארון לבן | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">עובדת משרד: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍💼">אדריכלית | אישה | אשת עסקים | מנהלת | משרד | פקידה | צווארון לבן | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">עובדת משרד: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍💼">אדריכלית | אישה | אשת עסקים | מנהלת | משרד | פקידה | צווארון לבן | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">עובדת משרד: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🔬">איש | ביולוג | גבר | כימאי | מדען | מהנדס | מתמטיקאי | פיזיקאי | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">מדען: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">איש | ביולוג | גבר | כימאי | מדען | מהנדס | מתמטיקאי | פיזיקאי | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">מדען: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🔬">איש | ביולוג | גבר | כימאי | מדען | מהנדס | מתמטיקאי | פיזיקאי | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">מדען: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🔬">איש | ביולוג | גבר | כימאי | מדען | מהנדס | מתמטיקאי | פיזיקאי | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">מדען: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🔬">איש | ביולוג | גבר | כימאי | מדען | מהנדס | מתמטיקאי | פיזיקאי | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">מדען: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🔬">אישה | ביולוגית | כימאית | מדענית | מהנדסת | מתמטיקאית | פיזיקאית | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">מדענית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">אישה | ביולוגית | כימאית | מדענית | מהנדסת | מתמטיקאית | פיזיקאית | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">מדענית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🔬">אישה | ביולוגית | כימאית | מדענית | מהנדסת | מתמטיקאית | פיזיקאית | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">מדענית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🔬">אישה | ביולוגית | כימאית | מדענית | מהנדסת | מתמטיקאית | פיזיקאית | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">מדענית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🔬">אישה | ביולוגית | כימאית | מדענית | מהנדסת | מתמטיקאית | פיזיקאית | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">מדענית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍💻">איש | גבר | חוקר | טכנולוג | מפתח | מתכנת | תוכנה | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">טכנולוג: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍💻">איש | גבר | חוקר | טכנולוג | מפתח | מתכנת | תוכנה | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">טכנולוג: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍💻">איש | גבר | חוקר | טכנולוג | מפתח | מתכנת | תוכנה | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">טכנולוג: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍💻">איש | גבר | חוקר | טכנולוג | מפתח | מתכנת | תוכנה | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">טכנולוג: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍💻">איש | גבר | חוקר | טכנולוג | מפתח | מתכנת | תוכנה | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">טכנולוג: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍💻">אישה | חוקרת | טכנולוגית | מפתחת | מתכנתת | תוכנה | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">טכנולוגית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍💻">אישה | חוקרת | טכנולוגית | מפתחת | מתכנתת | תוכנה | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">טכנולוגית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍💻">אישה | חוקרת | טכנולוגית | מפתחת | מתכנתת | תוכנה | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">טכנולוגית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍💻">אישה | חוקרת | טכנולוגית | מפתחת | מתכנתת | תוכנה | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">טכנולוגית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍💻">אישה | חוקרת | טכנולוגית | מפתחת | מתכנתת | תוכנה | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">טכנולוגית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🎤">איש | בדרן | גבר | זמר | כוכב | רוק | שחקן | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">זמר: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">איש | בדרן | גבר | זמר | כוכב | רוק | שחקן | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">זמר: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🎤">איש | בדרן | גבר | זמר | כוכב | רוק | שחקן | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">זמר: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🎤">איש | בדרן | גבר | זמר | כוכב | רוק | שחקן | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">זמר: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🎤">איש | בדרן | גבר | זמר | כוכב | רוק | שחקן | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">זמר: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🎤">אישה | בדרנית | זמרת | כוכבת | רוק | שחקנית | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">זמרת: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">אישה | בדרנית | זמרת | כוכבת | רוק | שחקנית | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">זמרת: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🎤">אישה | בדרנית | זמרת | כוכבת | רוק | שחקנית | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">זמרת: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🎤">אישה | בדרנית | זמרת | כוכבת | רוק | שחקנית | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">זמרת: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🎤">אישה | בדרנית | זמרת | כוכבת | רוק | שחקנית | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">זמרת: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🎨">איש | אמן | גבר | צבעים | צייר | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">אמן: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">איש | אמן | גבר | צבעים | צייר | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">אמן: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🎨">איש | אמן | גבר | צבעים | צייר | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">אמן: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🎨">איש | אמן | גבר | צבעים | צייר | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">אמן: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🎨">איש | אמן | גבר | צבעים | צייר | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">אמן: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🎨">אישה | אמנית | צבעים | ציירת | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">אמנית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">אישה | אמנית | צבעים | ציירת | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">אמנית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🎨">אישה | אמנית | צבעים | ציירת | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">אמנית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🎨">אישה | אמנית | צבעים | ציירת | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">אמנית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🎨">אישה | אמנית | צבעים | ציירת | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">אמנית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍✈">איש | גבר | טייס | מטוס | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">טייס: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍✈">איש | גבר | טייס | מטוס | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">טייס: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍✈">איש | גבר | טייס | מטוס | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">טייס: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍✈">איש | גבר | טייס | מטוס | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">טייס: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍✈">איש | גבר | טייס | מטוס | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">טייס: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍✈">אישה | טייסת | מטוס | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">טייסת: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍✈">אישה | טייסת | מטוס | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">טייסת: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍✈">אישה | טייסת | מטוס | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">טייסת: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍✈">אישה | טייסת | מטוס | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">טייסת: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍✈">אישה | טייסת | מטוס | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">טייסת: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🚀">איש | אסטרונאוט | גבר | חלל | חללית | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">אסטרונאוט: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">איש | אסטרונאוט | גבר | חלל | חללית | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">אסטרונאוט: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🚀">איש | אסטרונאוט | גבר | חלל | חללית | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">אסטרונאוט: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🚀">איש | אסטרונאוט | גבר | חלל | חללית | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">אסטרונאוט: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🚀">איש | אסטרונאוט | גבר | חלל | חללית | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">אסטרונאוט: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🚀">אישה | אסטטרונאוטית | חלל | חללית | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">אסטרונאוטית: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">אישה | אסטטרונאוטית | חלל | חללית | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">אסטרונאוטית: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🚀">אישה | אסטטרונאוטית | חלל | חללית | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">אסטרונאוטית: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🚀">אישה | אסטטרונאוטית | חלל | חללית | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">אסטרונאוטית: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🚀">אישה | אסטטרונאוטית | חלל | חללית | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">אסטרונאוטית: סוג עור 6</annotation>
+		<annotation cp="👨🏻‍🚒">איש | גבר | כבאי | כיבוי | מכבי אש | סוג עור 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">לוחם אש: סוג עור 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">איש | גבר | כבאי | כיבוי | מכבי אש | סוג עור 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">לוחם אש: סוג עור 3</annotation>
+		<annotation cp="👨🏽‍🚒">איש | גבר | כבאי | כיבוי | מכבי אש | סוג עור 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">לוחם אש: סוג עור 4</annotation>
+		<annotation cp="👨🏾‍🚒">איש | גבר | כבאי | כיבוי | מכבי אש | סוג עור 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">לוחם אש: סוג עור 5</annotation>
+		<annotation cp="👨🏿‍🚒">איש | גבר | כבאי | כיבוי | מכבי אש | סוג עור 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">לוחם אש: סוג עור 6</annotation>
+		<annotation cp="👩🏻‍🚒">אישה | כבאית | כיבוי | מכבי אש | סוג עור 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">לוחמת אש: סוג עור 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">אישה | כבאית | כיבוי | מכבי אש | סוג עור 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">לוחמת אש: סוג עור 3</annotation>
+		<annotation cp="👩🏽‍🚒">אישה | כבאית | כיבוי | מכבי אש | סוג עור 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">לוחמת אש: סוג עור 4</annotation>
+		<annotation cp="👩🏾‍🚒">אישה | כבאית | כיבוי | מכבי אש | סוג עור 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">לוחמת אש: סוג עור 5</annotation>
+		<annotation cp="👩🏿‍🚒">אישה | כבאית | כיבוי | מכבי אש | סוג עור 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">לוחמת אש: סוג עור 6</annotation>
+		<annotation cp="👮🏻">משטרה | סוג עור 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">שוטר: סוג עור 1–2</annotation>
+		<annotation cp="👮🏼">משטרה | סוג עור 3</annotation>
+		<annotation cp="👮🏼" type="tts">שוטר: סוג עור 3</annotation>
+		<annotation cp="👮🏽">משטרה | סוג עור 4</annotation>
+		<annotation cp="👮🏽" type="tts">שוטר: סוג עור 4</annotation>
+		<annotation cp="👮🏾">משטרה | סוג עור 5</annotation>
+		<annotation cp="👮🏾" type="tts">שוטר: סוג עור 5</annotation>
+		<annotation cp="👮🏿">משטרה | סוג עור 6</annotation>
+		<annotation cp="👮🏿" type="tts">שוטר: סוג עור 6</annotation>
+		<annotation cp="👮🏻‍♂">איש | גבר | משטרה | שוטר | סוג עור 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">קצין משטרה: סוג עור 1–2</annotation>
+		<annotation cp="👮🏼‍♂">איש | גבר | משטרה | שוטר | סוג עור 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">קצין משטרה: סוג עור 3</annotation>
+		<annotation cp="👮🏽‍♂">איש | גבר | משטרה | שוטר | סוג עור 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">קצין משטרה: סוג עור 4</annotation>
+		<annotation cp="👮🏾‍♂">איש | גבר | משטרה | שוטר | סוג עור 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">קצין משטרה: סוג עור 5</annotation>
+		<annotation cp="👮🏿‍♂">איש | גבר | משטרה | שוטר | סוג עור 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">קצין משטרה: סוג עור 6</annotation>
+		<annotation cp="👮🏻‍♀">אישה | משטרה | שוטרת | סוג עור 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">קצינת משטרה: סוג עור 1–2</annotation>
+		<annotation cp="👮🏼‍♀">אישה | משטרה | שוטרת | סוג עור 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">קצינת משטרה: סוג עור 3</annotation>
+		<annotation cp="👮🏽‍♀">אישה | משטרה | שוטרת | סוג עור 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">קצינת משטרה: סוג עור 4</annotation>
+		<annotation cp="👮🏾‍♀">אישה | משטרה | שוטרת | סוג עור 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">קצינת משטרה: סוג עור 5</annotation>
+		<annotation cp="👮🏿‍♀">אישה | משטרה | שוטרת | סוג עור 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">קצינת משטרה: סוג עור 6</annotation>
+		<annotation cp="🕵🏻">מרגל | סוג עור 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">בלש: סוג עור 1–2</annotation>
+		<annotation cp="🕵🏼">מרגל | סוג עור 3</annotation>
+		<annotation cp="🕵🏼" type="tts">בלש: סוג עור 3</annotation>
+		<annotation cp="🕵🏽">מרגל | סוג עור 4</annotation>
+		<annotation cp="🕵🏽" type="tts">בלש: סוג עור 4</annotation>
+		<annotation cp="🕵🏾">מרגל | סוג עור 5</annotation>
+		<annotation cp="🕵🏾" type="tts">בלש: סוג עור 5</annotation>
+		<annotation cp="🕵🏿">מרגל | סוג עור 6</annotation>
+		<annotation cp="🕵🏿" type="tts">בלש: סוג עור 6</annotation>
+		<annotation cp="🕵🏻‍♂">איש | בלש | גבר | מרגל | סוג עור 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">חוקר פרטי: סוג עור 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">איש | בלש | גבר | מרגל | סוג עור 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">חוקר פרטי: סוג עור 3</annotation>
+		<annotation cp="🕵🏽‍♂">איש | בלש | גבר | מרגל | סוג עור 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">חוקר פרטי: סוג עור 4</annotation>
+		<annotation cp="🕵🏾‍♂">איש | בלש | גבר | מרגל | סוג עור 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">חוקר פרטי: סוג עור 5</annotation>
+		<annotation cp="🕵🏿‍♂">איש | בלש | גבר | מרגל | סוג עור 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">חוקר פרטי: סוג עור 6</annotation>
+		<annotation cp="🕵🏻‍♀">אישה | בלשית | מרגלת | סוג עור 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">חוקרת פרטית: סוג עור 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">אישה | בלשית | מרגלת | סוג עור 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">חוקרת פרטית: סוג עור 3</annotation>
+		<annotation cp="🕵🏽‍♀">אישה | בלשית | מרגלת | סוג עור 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">חוקרת פרטית: סוג עור 4</annotation>
+		<annotation cp="🕵🏾‍♀">אישה | בלשית | מרגלת | סוג עור 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">חוקרת פרטית: סוג עור 5</annotation>
+		<annotation cp="🕵🏿‍♀">אישה | בלשית | מרגלת | סוג עור 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">חוקרת פרטית: סוג עור 6</annotation>
+		<annotation cp="💂🏻">אבטחה | שמירה | סוג עור 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">שומר: סוג עור 1–2</annotation>
+		<annotation cp="💂🏼">אבטחה | שמירה | סוג עור 3</annotation>
+		<annotation cp="💂🏼" type="tts">שומר: סוג עור 3</annotation>
+		<annotation cp="💂🏽">אבטחה | שמירה | סוג עור 4</annotation>
+		<annotation cp="💂🏽" type="tts">שומר: סוג עור 4</annotation>
+		<annotation cp="💂🏾">אבטחה | שמירה | סוג עור 5</annotation>
+		<annotation cp="💂🏾" type="tts">שומר: סוג עור 5</annotation>
+		<annotation cp="💂🏿">אבטחה | שמירה | סוג עור 6</annotation>
+		<annotation cp="💂🏿" type="tts">שומר: סוג עור 6</annotation>
+		<annotation cp="💂🏻‍♂">איש | גבר | מאבטח | שומר | סוג עור 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">מאבטח: סוג עור 1–2</annotation>
+		<annotation cp="💂🏼‍♂">איש | גבר | מאבטח | שומר | סוג עור 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">מאבטח: סוג עור 3</annotation>
+		<annotation cp="💂🏽‍♂">איש | גבר | מאבטח | שומר | סוג עור 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">מאבטח: סוג עור 4</annotation>
+		<annotation cp="💂🏾‍♂">איש | גבר | מאבטח | שומר | סוג עור 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">מאבטח: סוג עור 5</annotation>
+		<annotation cp="💂🏿‍♂">איש | גבר | מאבטח | שומר | סוג עור 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">מאבטח: סוג עור 6</annotation>
+		<annotation cp="💂🏻‍♀">אישה | מאבטחת | שומרת | סוג עור 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">שומרת: סוג עור 1–2</annotation>
+		<annotation cp="💂🏼‍♀">אישה | מאבטחת | שומרת | סוג עור 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">שומרת: סוג עור 3</annotation>
+		<annotation cp="💂🏽‍♀">אישה | מאבטחת | שומרת | סוג עור 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">שומרת: סוג עור 4</annotation>
+		<annotation cp="💂🏾‍♀">אישה | מאבטחת | שומרת | סוג עור 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">שומרת: סוג עור 5</annotation>
+		<annotation cp="💂🏿‍♀">אישה | מאבטחת | שומרת | סוג עור 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">שומרת: סוג עור 6</annotation>
+		<annotation cp="👷🏻">בטיחות | קסדה | סוג עור 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">פועל בניין: סוג עור 1–2</annotation>
+		<annotation cp="👷🏼">בטיחות | קסדה | סוג עור 3</annotation>
+		<annotation cp="👷🏼" type="tts">פועל בניין: סוג עור 3</annotation>
+		<annotation cp="👷🏽">בטיחות | קסדה | סוג עור 4</annotation>
+		<annotation cp="👷🏽" type="tts">פועל בניין: סוג עור 4</annotation>
+		<annotation cp="👷🏾">בטיחות | קסדה | סוג עור 5</annotation>
+		<annotation cp="👷🏾" type="tts">פועל בניין: סוג עור 5</annotation>
+		<annotation cp="👷🏿">בטיחות | קסדה | סוג עור 6</annotation>
+		<annotation cp="👷🏿" type="tts">פועל בניין: סוג עור 6</annotation>
+		<annotation cp="👷🏻‍♂">איש | בניין | גבר | פועל</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">סוג עור 1–2</annotation>
+		<annotation cp="👷🏼‍♂">איש | בניין | גבר | פועל</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">סוג עור 3</annotation>
+		<annotation cp="👷🏽‍♂">איש | בניין | גבר | פועל</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">סוג עור 4</annotation>
+		<annotation cp="👷🏾‍♂">איש | בניין | גבר | פועל</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">סוג עור 5</annotation>
+		<annotation cp="👷🏿‍♂">איש | בניין | גבר | פועל</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">סוג עור 6</annotation>
+		<annotation cp="👷🏻‍♀">אישה | בניין | פועלת | סוג עור 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">פועלת בניין: סוג עור 1–2</annotation>
+		<annotation cp="👷🏼‍♀">אישה | בניין | פועלת | סוג עור 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">פועלת בניין: סוג עור 3</annotation>
+		<annotation cp="👷🏽‍♀">אישה | בניין | פועלת | סוג עור 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">פועלת בניין: סוג עור 4</annotation>
+		<annotation cp="👷🏾‍♀">אישה | בניין | פועלת | סוג עור 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">פועלת בניין: סוג עור 5</annotation>
+		<annotation cp="👷🏿‍♀">אישה | בניין | פועלת | סוג עור 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">פועלת בניין: סוג עור 6</annotation>
+		<annotation cp="🤴🏻">כתר | נסיך | סוג עור 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">נסיך עם כתר: סוג עור 1–2</annotation>
+		<annotation cp="🤴🏼">כתר | נסיך | סוג עור 3</annotation>
+		<annotation cp="🤴🏼" type="tts">נסיך עם כתר: סוג עור 3</annotation>
+		<annotation cp="🤴🏽">כתר | נסיך | סוג עור 4</annotation>
+		<annotation cp="🤴🏽" type="tts">נסיך עם כתר: סוג עור 4</annotation>
+		<annotation cp="🤴🏾">כתר | נסיך | סוג עור 5</annotation>
+		<annotation cp="🤴🏾" type="tts">נסיך עם כתר: סוג עור 5</annotation>
+		<annotation cp="🤴🏿">כתר | נסיך | סוג עור 6</annotation>
+		<annotation cp="🤴🏿" type="tts">נסיך עם כתר: סוג עור 6</annotation>
+		<annotation cp="👸🏻">אגדה | כתר | מלכה | סוג עור 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">נסיכה: סוג עור 1–2</annotation>
+		<annotation cp="👸🏼">אגדה | כתר | מלכה | סוג עור 3</annotation>
+		<annotation cp="👸🏼" type="tts">נסיכה: סוג עור 3</annotation>
+		<annotation cp="👸🏽">אגדה | כתר | מלכה | סוג עור 4</annotation>
+		<annotation cp="👸🏽" type="tts">נסיכה: סוג עור 4</annotation>
+		<annotation cp="👸🏾">אגדה | כתר | מלכה | סוג עור 5</annotation>
+		<annotation cp="👸🏾" type="tts">נסיכה: סוג עור 5</annotation>
+		<annotation cp="👸🏿">אגדה | כתר | מלכה | סוג עור 6</annotation>
+		<annotation cp="👸🏿" type="tts">נסיכה: סוג עור 6</annotation>
+		<annotation cp="👳🏻">הודי | טורבן | סוג עור 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">אדם עם טורבן: סוג עור 1–2</annotation>
+		<annotation cp="👳🏼">הודי | טורבן | סוג עור 3</annotation>
+		<annotation cp="👳🏼" type="tts">אדם עם טורבן: סוג עור 3</annotation>
+		<annotation cp="👳🏽">הודי | טורבן | סוג עור 4</annotation>
+		<annotation cp="👳🏽" type="tts">אדם עם טורבן: סוג עור 4</annotation>
+		<annotation cp="👳🏾">הודי | טורבן | סוג עור 5</annotation>
+		<annotation cp="👳🏾" type="tts">אדם עם טורבן: סוג עור 5</annotation>
+		<annotation cp="👳🏿">הודי | טורבן | סוג עור 6</annotation>
+		<annotation cp="👳🏿" type="tts">אדם עם טורבן: סוג עור 6</annotation>
+		<annotation cp="👳🏻‍♂">איש | גבר | טורבן | סוג עור 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">גבר עם טורבן: סוג עור 1–2</annotation>
+		<annotation cp="👳🏼‍♂">איש | גבר | טורבן | סוג עור 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">גבר עם טורבן: סוג עור 3</annotation>
+		<annotation cp="👳🏽‍♂">איש | גבר | טורבן | סוג עור 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">גבר עם טורבן: סוג עור 4</annotation>
+		<annotation cp="👳🏾‍♂">איש | גבר | טורבן | סוג עור 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">גבר עם טורבן: סוג עור 5</annotation>
+		<annotation cp="👳🏿‍♂">איש | גבר | טורבן | סוג עור 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">גבר עם טורבן: סוג עור 6</annotation>
+		<annotation cp="👳🏻‍♀">אישה | טורבן | סוג עור 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">אישה עם טורבן: סוג עור 1–2</annotation>
+		<annotation cp="👳🏼‍♀">אישה | טורבן | סוג עור 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">אישה עם טורבן: סוג עור 3</annotation>
+		<annotation cp="👳🏽‍♀">אישה | טורבן | סוג עור 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">אישה עם טורבן: סוג עור 4</annotation>
+		<annotation cp="👳🏾‍♀">אישה | טורבן | סוג עור 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">אישה עם טורבן: סוג עור 5</annotation>
+		<annotation cp="👳🏿‍♀">אישה | טורבן | סוג עור 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">אישה עם טורבן: סוג עור 6</annotation>
+		<annotation cp="👲🏻">כובע | סיני | סוג עור 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">אדם עם כובע סיני: סוג עור 1–2</annotation>
+		<annotation cp="👲🏼">כובע | סיני | סוג עור 3</annotation>
+		<annotation cp="👲🏼" type="tts">אדם עם כובע סיני: סוג עור 3</annotation>
+		<annotation cp="👲🏽">כובע | סיני | סוג עור 4</annotation>
+		<annotation cp="👲🏽" type="tts">אדם עם כובע סיני: סוג עור 4</annotation>
+		<annotation cp="👲🏾">כובע | סיני | סוג עור 5</annotation>
+		<annotation cp="👲🏾" type="tts">אדם עם כובע סיני: סוג עור 5</annotation>
+		<annotation cp="👲🏿">כובע | סיני | סוג עור 6</annotation>
+		<annotation cp="👲🏿" type="tts">אדם עם כובע סיני: סוג עור 6</annotation>
+		<annotation cp="👱🏻">בלונד | בלונדיני | סוג עור 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">אדם עם שיער בלונדיני: סוג עור 1–2</annotation>
+		<annotation cp="👱🏼">בלונד | בלונדיני | סוג עור 3</annotation>
+		<annotation cp="👱🏼" type="tts">אדם עם שיער בלונדיני: סוג עור 3</annotation>
+		<annotation cp="👱🏽">בלונד | בלונדיני | סוג עור 4</annotation>
+		<annotation cp="👱🏽" type="tts">אדם עם שיער בלונדיני: סוג עור 4</annotation>
+		<annotation cp="👱🏾">בלונד | בלונדיני | סוג עור 5</annotation>
+		<annotation cp="👱🏾" type="tts">אדם עם שיער בלונדיני: סוג עור 5</annotation>
+		<annotation cp="👱🏿">בלונד | בלונדיני | סוג עור 6</annotation>
+		<annotation cp="👱🏿" type="tts">אדם עם שיער בלונדיני: סוג עור 6</annotation>
+		<annotation cp="👱🏻‍♂">איש | בלונדיני | גבר | סוג עור 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">בלונדיני: סוג עור 1–2</annotation>
+		<annotation cp="👱🏼‍♂">איש | בלונדיני | גבר | סוג עור 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">בלונדיני: סוג עור 3</annotation>
+		<annotation cp="👱🏽‍♂">איש | בלונדיני | גבר | סוג עור 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">בלונדיני: סוג עור 4</annotation>
+		<annotation cp="👱🏾‍♂">איש | בלונדיני | גבר | סוג עור 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">בלונדיני: סוג עור 5</annotation>
+		<annotation cp="👱🏿‍♂">איש | בלונדיני | גבר | סוג עור 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">בלונדיני: סוג עור 6</annotation>
+		<annotation cp="👱🏻‍♀">אישה | בלונדינית | סוג עור 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">בלונדינית: סוג עור 1–2</annotation>
+		<annotation cp="👱🏼‍♀">אישה | בלונדינית | סוג עור 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">בלונדינית: סוג עור 3</annotation>
+		<annotation cp="👱🏽‍♀">אישה | בלונדינית | סוג עור 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">בלונדינית: סוג עור 4</annotation>
+		<annotation cp="👱🏾‍♀">אישה | בלונדינית | סוג עור 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">בלונדינית: סוג עור 5</annotation>
+		<annotation cp="👱🏿‍♀">אישה | בלונדינית | סוג עור 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">בלונדינית: סוג עור 6</annotation>
+		<annotation cp="🤵🏻">איש | חליפה | חתן | סוג עור 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">איש בחליפת חתונה: סוג עור 1–2</annotation>
+		<annotation cp="🤵🏼">איש | חליפה | חתן | סוג עור 3</annotation>
+		<annotation cp="🤵🏼" type="tts">איש בחליפת חתונה: סוג עור 3</annotation>
+		<annotation cp="🤵🏽">איש | חליפה | חתן | סוג עור 4</annotation>
+		<annotation cp="🤵🏽" type="tts">איש בחליפת חתונה: סוג עור 4</annotation>
+		<annotation cp="🤵🏾">איש | חליפה | חתן | סוג עור 5</annotation>
+		<annotation cp="🤵🏾" type="tts">איש בחליפת חתונה: סוג עור 5</annotation>
+		<annotation cp="🤵🏿">איש | חליפה | חתן | סוג עור 6</annotation>
+		<annotation cp="🤵🏿" type="tts">איש בחליפת חתונה: סוג עור 6</annotation>
+		<annotation cp="👰🏻">הינומה | חתונה | כלה | סוג עור 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">כלה עם הינומה: סוג עור 1–2</annotation>
+		<annotation cp="👰🏼">הינומה | חתונה | כלה | סוג עור 3</annotation>
+		<annotation cp="👰🏼" type="tts">כלה עם הינומה: סוג עור 3</annotation>
+		<annotation cp="👰🏽">הינומה | חתונה | כלה | סוג עור 4</annotation>
+		<annotation cp="👰🏽" type="tts">כלה עם הינומה: סוג עור 4</annotation>
+		<annotation cp="👰🏾">הינומה | חתונה | כלה | סוג עור 5</annotation>
+		<annotation cp="👰🏾" type="tts">כלה עם הינומה: סוג עור 5</annotation>
+		<annotation cp="👰🏿">הינומה | חתונה | כלה | סוג עור 6</annotation>
+		<annotation cp="👰🏿" type="tts">כלה עם הינומה: סוג עור 6</annotation>
+		<annotation cp="🤰🏻">אישה | היריון | הרה | הריונית | סוג עור 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">אישה בהיריון: סוג עור 1–2</annotation>
+		<annotation cp="🤰🏼">אישה | היריון | הרה | הריונית | סוג עור 3</annotation>
+		<annotation cp="🤰🏼" type="tts">אישה בהיריון: סוג עור 3</annotation>
+		<annotation cp="🤰🏽">אישה | היריון | הרה | הריונית | סוג עור 4</annotation>
+		<annotation cp="🤰🏽" type="tts">אישה בהיריון: סוג עור 4</annotation>
+		<annotation cp="🤰🏾">אישה | היריון | הרה | הריונית | סוג עור 5</annotation>
+		<annotation cp="🤰🏾" type="tts">אישה בהיריון: סוג עור 5</annotation>
+		<annotation cp="🤰🏿">אישה | היריון | הרה | הריונית | סוג עור 6</annotation>
+		<annotation cp="🤰🏿" type="tts">אישה בהיריון: סוג עור 6</annotation>
+		<annotation cp="👼🏻">מלאך | תינוק | סוג עור 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">מלאך תינוק: סוג עור 1–2</annotation>
+		<annotation cp="👼🏼">מלאך | תינוק | סוג עור 3</annotation>
+		<annotation cp="👼🏼" type="tts">מלאך תינוק: סוג עור 3</annotation>
+		<annotation cp="👼🏽">מלאך | תינוק | סוג עור 4</annotation>
+		<annotation cp="👼🏽" type="tts">מלאך תינוק: סוג עור 4</annotation>
+		<annotation cp="👼🏾">מלאך | תינוק | סוג עור 5</annotation>
+		<annotation cp="👼🏾" type="tts">מלאך תינוק: סוג עור 5</annotation>
+		<annotation cp="👼🏿">מלאך | תינוק | סוג עור 6</annotation>
+		<annotation cp="👼🏿" type="tts">מלאך תינוק: סוג עור 6</annotation>
+		<annotation cp="🎅🏻">חג המולד | מתנות | סנטה | סוג עור 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">סנטה קלאוס: סוג עור 1–2</annotation>
+		<annotation cp="🎅🏼">חג המולד | מתנות | סנטה | סוג עור 3</annotation>
+		<annotation cp="🎅🏼" type="tts">סנטה קלאוס: סוג עור 3</annotation>
+		<annotation cp="🎅🏽">חג המולד | מתנות | סנטה | סוג עור 4</annotation>
+		<annotation cp="🎅🏽" type="tts">סנטה קלאוס: סוג עור 4</annotation>
+		<annotation cp="🎅🏾">חג המולד | מתנות | סנטה | סוג עור 5</annotation>
+		<annotation cp="🎅🏾" type="tts">סנטה קלאוס: סוג עור 5</annotation>
+		<annotation cp="🎅🏿">חג המולד | מתנות | סנטה | סוג עור 6</annotation>
+		<annotation cp="🎅🏿" type="tts">סנטה קלאוס: סוג עור 6</annotation>
+		<annotation cp="🤶🏻">גב’ קלאוס | חג המולד | סנטה | סוג עור 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">אמא סנטה: סוג עור 1–2</annotation>
+		<annotation cp="🤶🏼">גב’ קלאוס | חג המולד | סנטה | סוג עור 3</annotation>
+		<annotation cp="🤶🏼" type="tts">אמא סנטה: סוג עור 3</annotation>
+		<annotation cp="🤶🏽">גב’ קלאוס | חג המולד | סנטה | סוג עור 4</annotation>
+		<annotation cp="🤶🏽" type="tts">אמא סנטה: סוג עור 4</annotation>
+		<annotation cp="🤶🏾">גב’ קלאוס | חג המולד | סנטה | סוג עור 5</annotation>
+		<annotation cp="🤶🏾" type="tts">אמא סנטה: סוג עור 5</annotation>
+		<annotation cp="🤶🏿">גב’ קלאוס | חג המולד | סנטה | סוג עור 6</annotation>
+		<annotation cp="🤶🏿" type="tts">אמא סנטה: סוג עור 6</annotation>
+		<annotation cp="🙍🏻">זועמת | זועפת | כועסת | סוג עור 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">אישה כועסת: סוג עור 1–2</annotation>
+		<annotation cp="🙍🏼">זועמת | זועפת | כועסת | סוג עור 3</annotation>
+		<annotation cp="🙍🏼" type="tts">אישה כועסת: סוג עור 3</annotation>
+		<annotation cp="🙍🏽">זועמת | זועפת | כועסת | סוג עור 4</annotation>
+		<annotation cp="🙍🏽" type="tts">אישה כועסת: סוג עור 4</annotation>
+		<annotation cp="🙍🏾">זועמת | זועפת | כועסת | סוג עור 5</annotation>
+		<annotation cp="🙍🏾" type="tts">אישה כועסת: סוג עור 5</annotation>
+		<annotation cp="🙍🏿">זועמת | זועפת | כועסת | סוג עור 6</annotation>
+		<annotation cp="🙍🏿" type="tts">אישה כועסת: סוג עור 6</annotation>
+		<annotation cp="🙍🏻‍♂">איש | גבר | זועף | מדוכא | עצוב | סוג עור 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">גבר מדוכדך: סוג עור 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">איש | גבר | זועף | מדוכא | עצוב | סוג עור 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">גבר מדוכדך: סוג עור 3</annotation>
+		<annotation cp="🙍🏽‍♂">איש | גבר | זועף | מדוכא | עצוב | סוג עור 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">גבר מדוכדך: סוג עור 4</annotation>
+		<annotation cp="🙍🏾‍♂">איש | גבר | זועף | מדוכא | עצוב | סוג עור 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">גבר מדוכדך: סוג עור 5</annotation>
+		<annotation cp="🙍🏿‍♂">איש | גבר | זועף | מדוכא | עצוב | סוג עור 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">גבר מדוכדך: סוג עור 6</annotation>
+		<annotation cp="🙍🏻‍♀">אישה | זועפת | מדוכאת | עצובה | סוג עור 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">אישה מדוכדכת: סוג עור 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">אישה | זועפת | מדוכאת | עצובה | סוג עור 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">אישה מדוכדכת: סוג עור 3</annotation>
+		<annotation cp="🙍🏽‍♀">אישה | זועפת | מדוכאת | עצובה | סוג עור 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">אישה מדוכדכת: סוג עור 4</annotation>
+		<annotation cp="🙍🏾‍♀">אישה | זועפת | מדוכאת | עצובה | סוג עור 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">אישה מדוכדכת: סוג עור 5</annotation>
+		<annotation cp="🙍🏿‍♀">אישה | זועפת | מדוכאת | עצובה | סוג עור 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">אישה מדוכדכת: סוג עור 6</annotation>
+		<annotation cp="🙎🏻">זועפת | כועסת | סוג עור 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">אישה זועפת: סוג עור 1–2</annotation>
+		<annotation cp="🙎🏼">זועפת | כועסת | סוג עור 3</annotation>
+		<annotation cp="🙎🏼" type="tts">אישה זועפת: סוג עור 3</annotation>
+		<annotation cp="🙎🏽">זועפת | כועסת | סוג עור 4</annotation>
+		<annotation cp="🙎🏽" type="tts">אישה זועפת: סוג עור 4</annotation>
+		<annotation cp="🙎🏾">זועפת | כועסת | סוג עור 5</annotation>
+		<annotation cp="🙎🏾" type="tts">אישה זועפת: סוג עור 5</annotation>
+		<annotation cp="🙎🏿">זועפת | כועסת | סוג עור 6</annotation>
+		<annotation cp="🙎🏿" type="tts">אישה זועפת: סוג עור 6</annotation>
+		<annotation cp="🙎🏻‍♂">אוף | איש | גבר | מחמיץ פנים | מעקם את האף | סוג עור 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">גבר מבואס: סוג עור 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">אוף | איש | גבר | מחמיץ פנים | מעקם את האף | סוג עור 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">גבר מבואס: סוג עור 3</annotation>
+		<annotation cp="🙎🏽‍♂">אוף | איש | גבר | מחמיץ פנים | מעקם את האף | סוג עור 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">גבר מבואס: סוג עור 4</annotation>
+		<annotation cp="🙎🏾‍♂">אוף | איש | גבר | מחמיץ פנים | מעקם את האף | סוג עור 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">גבר מבואס: סוג עור 5</annotation>
+		<annotation cp="🙎🏿‍♂">אוף | איש | גבר | מחמיץ פנים | מעקם את האף | סוג עור 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">גבר מבואס: סוג עור 6</annotation>
+		<annotation cp="🙎🏻‍♀">אוף | אישה | מחמיצה פנים | מעקמת את האף | סוג עור 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">אישה מבואסת: סוג עור 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">אוף | אישה | מחמיצה פנים | מעקמת את האף | סוג עור 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">אישה מבואסת: סוג עור 3</annotation>
+		<annotation cp="🙎🏽‍♀">אוף | אישה | מחמיצה פנים | מעקמת את האף | סוג עור 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">אישה מבואסת: סוג עור 4</annotation>
+		<annotation cp="🙎🏾‍♀">אוף | אישה | מחמיצה פנים | מעקמת את האף | סוג עור 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">אישה מבואסת: סוג עור 5</annotation>
+		<annotation cp="🙎🏿‍♀">אוף | אישה | מחמיצה פנים | מעקמת את האף | סוג עור 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">אישה מבואסת: סוג עור 6</annotation>
+		<annotation cp="🙅🏻">אסור | לא | סימן ידיים | סוג עור 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">אישה מסמנת ״לא בסדר״: סוג עור 1–2</annotation>
+		<annotation cp="🙅🏼">אסור | לא | סימן ידיים | סוג עור 3</annotation>
+		<annotation cp="🙅🏼" type="tts">אישה מסמנת ״לא בסדר״: סוג עור 3</annotation>
+		<annotation cp="🙅🏽">אסור | לא | סימן ידיים | סוג עור 4</annotation>
+		<annotation cp="🙅🏽" type="tts">אישה מסמנת ״לא בסדר״: סוג עור 4</annotation>
+		<annotation cp="🙅🏾">אסור | לא | סימן ידיים | סוג עור 5</annotation>
+		<annotation cp="🙅🏾" type="tts">אישה מסמנת ״לא בסדר״: סוג עור 5</annotation>
+		<annotation cp="🙅🏿">אסור | לא | סימן ידיים | סוג עור 6</annotation>
+		<annotation cp="🙅🏿" type="tts">אישה מסמנת ״לא בסדר״: סוג עור 6</annotation>
+		<annotation cp="🙅🏻‍♂">איש | אסור | גבר | לא | לא בסדר | סוג עור 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">גבר מסמן ״לא״ עם הידיים: סוג עור 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">איש | אסור | גבר | לא | לא בסדר | סוג עור 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">גבר מסמן ״לא״ עם הידיים: סוג עור 3</annotation>
+		<annotation cp="🙅🏽‍♂">איש | אסור | גבר | לא | לא בסדר | סוג עור 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">גבר מסמן ״לא״ עם הידיים: סוג עור 4</annotation>
+		<annotation cp="🙅🏾‍♂">איש | אסור | גבר | לא | לא בסדר | סוג עור 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">גבר מסמן ״לא״ עם הידיים: סוג עור 5</annotation>
+		<annotation cp="🙅🏿‍♂">איש | אסור | גבר | לא | לא בסדר | סוג עור 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">גבר מסמן ״לא״ עם הידיים: סוג עור 6</annotation>
+		<annotation cp="🙅🏻‍♀">אישה | אסור | לא | לא בסדר | סוג עור 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">אישה מסמנת ״לא טוב״: סוג עור 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">אישה | אסור | לא | לא בסדר | סוג עור 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">אישה מסמנת ״לא טוב״: סוג עור 3</annotation>
+		<annotation cp="🙅🏽‍♀">אישה | אסור | לא | לא בסדר | סוג עור 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">אישה מסמנת ״לא טוב״: סוג עור 4</annotation>
+		<annotation cp="🙅🏾‍♀">אישה | אסור | לא | לא בסדר | סוג עור 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">אישה מסמנת ״לא טוב״: סוג עור 5</annotation>
+		<annotation cp="🙅🏿‍♀">אישה | אסור | לא | לא בסדר | סוג עור 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">אישה מסמנת ״לא טוב״: סוג עור 6</annotation>
+		<annotation cp="🙆🏻">ok | אוקיי | סימן ידיים | סוג עור 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">אישה מסמנת OK עם הידיים: סוג עור 1–2</annotation>
+		<annotation cp="🙆🏼">ok | אוקיי | סימן ידיים | סוג עור 3</annotation>
+		<annotation cp="🙆🏼" type="tts">אישה מסמנת OK עם הידיים: סוג עור 3</annotation>
+		<annotation cp="🙆🏽">ok | אוקיי | סימן ידיים | סוג עור 4</annotation>
+		<annotation cp="🙆🏽" type="tts">אישה מסמנת OK עם הידיים: סוג עור 4</annotation>
+		<annotation cp="🙆🏾">ok | אוקיי | סימן ידיים | סוג עור 5</annotation>
+		<annotation cp="🙆🏾" type="tts">אישה מסמנת OK עם הידיים: סוג עור 5</annotation>
+		<annotation cp="🙆🏿">ok | אוקיי | סימן ידיים | סוג עור 6</annotation>
+		<annotation cp="🙆🏿" type="tts">אישה מסמנת OK עם הידיים: סוג עור 6</annotation>
+		<annotation cp="🙆🏻‍♂">איש | בסדר | גבר | ידיים על הראש | כן | סוג עור 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">גבר עם הידיים על הראש: סוג עור 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">איש | בסדר | גבר | ידיים על הראש | כן | סוג עור 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">גבר עם הידיים על הראש: סוג עור 3</annotation>
+		<annotation cp="🙆🏽‍♂">איש | בסדר | גבר | ידיים על הראש | כן | סוג עור 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">גבר עם הידיים על הראש: סוג עור 4</annotation>
+		<annotation cp="🙆🏾‍♂">איש | בסדר | גבר | ידיים על הראש | כן | סוג עור 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">גבר עם הידיים על הראש: סוג עור 5</annotation>
+		<annotation cp="🙆🏿‍♂">איש | בסדר | גבר | ידיים על הראש | כן | סוג עור 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">גבר עם הידיים על הראש: סוג עור 6</annotation>
+		<annotation cp="🙆🏻‍♀">אישה | בסדר | ידיים על הראש | כן | סוג עור 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">אישה עם הידיים על הראש: סוג עור 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">אישה | בסדר | ידיים על הראש | כן | סוג עור 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">אישה עם הידיים על הראש: סוג עור 3</annotation>
+		<annotation cp="🙆🏽‍♀">אישה | בסדר | ידיים על הראש | כן | סוג עור 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">אישה עם הידיים על הראש: סוג עור 4</annotation>
+		<annotation cp="🙆🏾‍♀">אישה | בסדר | ידיים על הראש | כן | סוג עור 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">אישה עם הידיים על הראש: סוג עור 5</annotation>
+		<annotation cp="🙆🏿‍♀">אישה | בסדר | ידיים על הראש | כן | סוג עור 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">אישה עם הידיים על הראש: סוג עור 6</annotation>
+		<annotation cp="💁🏻">יד | מידע | עזרה | סוג עור 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">פקידה בדלפק מידע: סוג עור 1–2</annotation>
+		<annotation cp="💁🏼">יד | מידע | עזרה | סוג עור 3</annotation>
+		<annotation cp="💁🏼" type="tts">פקידה בדלפק מידע: סוג עור 3</annotation>
+		<annotation cp="💁🏽">יד | מידע | עזרה | סוג עור 4</annotation>
+		<annotation cp="💁🏽" type="tts">פקידה בדלפק מידע: סוג עור 4</annotation>
+		<annotation cp="💁🏾">יד | מידע | עזרה | סוג עור 5</annotation>
+		<annotation cp="💁🏾" type="tts">פקידה בדלפק מידע: סוג עור 5</annotation>
+		<annotation cp="💁🏿">יד | מידע | עזרה | סוג עור 6</annotation>
+		<annotation cp="💁🏿" type="tts">פקידה בדלפק מידע: סוג עור 6</annotation>
+		<annotation cp="💁🏻‍♂">איש | גבר | חצוף | מבקש נדבה | שובב | סוג עור 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">גבר מבקש טיפ: סוג עור 1–2</annotation>
+		<annotation cp="💁🏼‍♂">איש | גבר | חצוף | מבקש נדבה | שובב | סוג עור 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">גבר מבקש טיפ: סוג עור 3</annotation>
+		<annotation cp="💁🏽‍♂">איש | גבר | חצוף | מבקש נדבה | שובב | סוג עור 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">גבר מבקש טיפ: סוג עור 4</annotation>
+		<annotation cp="💁🏾‍♂">איש | גבר | חצוף | מבקש נדבה | שובב | סוג עור 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">גבר מבקש טיפ: סוג עור 5</annotation>
+		<annotation cp="💁🏿‍♂">איש | גבר | חצוף | מבקש נדבה | שובב | סוג עור 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">גבר מבקש טיפ: סוג עור 6</annotation>
+		<annotation cp="💁🏻‍♀">אישה | חצופה | מבקשת נדבה | מטה יד | שובבה | סוג עור 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">אישה מבקשת טיפ: סוג עור 1–2</annotation>
+		<annotation cp="💁🏼‍♀">אישה | חצופה | מבקשת נדבה | מטה יד | שובבה | סוג עור 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">אישה מבקשת טיפ: סוג עור 3</annotation>
+		<annotation cp="💁🏽‍♀">אישה | חצופה | מבקשת נדבה | מטה יד | שובבה | סוג עור 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">אישה מבקשת טיפ: סוג עור 4</annotation>
+		<annotation cp="💁🏾‍♀">אישה | חצופה | מבקשת נדבה | מטה יד | שובבה | סוג עור 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">אישה מבקשת טיפ: סוג עור 5</annotation>
+		<annotation cp="💁🏿‍♀">אישה | חצופה | מבקשת נדבה | מטה יד | שובבה | סוג עור 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">אישה מבקשת טיפ: סוג עור 6</annotation>
+		<annotation cp="🙋🏻">יד מורמת | סימן ידיים | שמחה | תשובה | סוג עור 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">אישה שמחה מרימה יד: סוג עור 1–2</annotation>
+		<annotation cp="🙋🏼">יד מורמת | סימן ידיים | שמחה | תשובה | סוג עור 3</annotation>
+		<annotation cp="🙋🏼" type="tts">אישה שמחה מרימה יד: סוג עור 3</annotation>
+		<annotation cp="🙋🏽">יד מורמת | סימן ידיים | שמחה | תשובה | סוג עור 4</annotation>
+		<annotation cp="🙋🏽" type="tts">אישה שמחה מרימה יד: סוג עור 4</annotation>
+		<annotation cp="🙋🏾">יד מורמת | סימן ידיים | שמחה | תשובה | סוג עור 5</annotation>
+		<annotation cp="🙋🏾" type="tts">אישה שמחה מרימה יד: סוג עור 5</annotation>
+		<annotation cp="🙋🏿">יד מורמת | סימן ידיים | שמחה | תשובה | סוג עור 6</annotation>
+		<annotation cp="🙋🏿" type="tts">אישה שמחה מרימה יד: סוג עור 6</annotation>
+		<annotation cp="🙋🏻‍♂">איש | גבר | מצביע | מרים יד | סוג עור 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">גבר מרים יד: סוג עור 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">איש | גבר | מצביע | מרים יד | סוג עור 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">גבר מרים יד: סוג עור 3</annotation>
+		<annotation cp="🙋🏽‍♂">איש | גבר | מצביע | מרים יד | סוג עור 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">גבר מרים יד: סוג עור 4</annotation>
+		<annotation cp="🙋🏾‍♂">איש | גבר | מצביע | מרים יד | סוג עור 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">גבר מרים יד: סוג עור 5</annotation>
+		<annotation cp="🙋🏿‍♂">איש | גבר | מצביע | מרים יד | סוג עור 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">גבר מרים יד: סוג עור 6</annotation>
+		<annotation cp="🙋🏻‍♀">אישה | מצביעה | מרימה יד | סוג עור 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">אישה מרימה יד: סוג עור 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">אישה | מצביעה | מרימה יד | סוג עור 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">אישה מרימה יד: סוג עור 3</annotation>
+		<annotation cp="🙋🏽‍♀">אישה | מצביעה | מרימה יד | סוג עור 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">אישה מרימה יד: סוג עור 4</annotation>
+		<annotation cp="🙋🏾‍♀">אישה | מצביעה | מרימה יד | סוג עור 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">אישה מרימה יד: סוג עור 5</annotation>
+		<annotation cp="🙋🏿‍♀">אישה | מצביעה | מרימה יד | סוג עור 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">אישה מרימה יד: סוג עור 6</annotation>
+		<annotation cp="🙇🏻">התנצלות | משתחווה | סליחה | קידה | סוג עור 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">אדם משתחווה: סוג עור 1–2</annotation>
+		<annotation cp="🙇🏼">התנצלות | משתחווה | סליחה | קידה | סוג עור 3</annotation>
+		<annotation cp="🙇🏼" type="tts">אדם משתחווה: סוג עור 3</annotation>
+		<annotation cp="🙇🏽">התנצלות | משתחווה | סליחה | קידה | סוג עור 4</annotation>
+		<annotation cp="🙇🏽" type="tts">אדם משתחווה: סוג עור 4</annotation>
+		<annotation cp="🙇🏾">התנצלות | משתחווה | סליחה | קידה | סוג עור 5</annotation>
+		<annotation cp="🙇🏾" type="tts">אדם משתחווה: סוג עור 5</annotation>
+		<annotation cp="🙇🏿">התנצלות | משתחווה | סליחה | קידה | סוג עור 6</annotation>
+		<annotation cp="🙇🏿" type="tts">אדם משתחווה: סוג עור 6</annotation>
+		<annotation cp="🙇🏻‍♂">איש | גבר | התנצלות | טובה | מצטער | משתחווה | סליחה | סוג עור 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">גבר משתחווה: סוג עור 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">איש | גבר | התנצלות | טובה | מצטער | משתחווה | סליחה | סוג עור 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">גבר משתחווה: סוג עור 3</annotation>
+		<annotation cp="🙇🏽‍♂">איש | גבר | התנצלות | טובה | מצטער | משתחווה | סליחה | סוג עור 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">גבר משתחווה: סוג עור 4</annotation>
+		<annotation cp="🙇🏾‍♂">איש | גבר | התנצלות | טובה | מצטער | משתחווה | סליחה | סוג עור 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">גבר משתחווה: סוג עור 5</annotation>
+		<annotation cp="🙇🏿‍♂">איש | גבר | התנצלות | טובה | מצטער | משתחווה | סליחה | סוג עור 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">גבר משתחווה: סוג עור 6</annotation>
+		<annotation cp="🙇🏻‍♀">אישה | התנצלות | טובה | מצטערת | משתחווה | סליחה | סוג עור 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">אישה משתחווה: סוג עור 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">אישה | התנצלות | טובה | מצטערת | משתחווה | סליחה | סוג עור 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">אישה משתחווה: סוג עור 3</annotation>
+		<annotation cp="🙇🏽‍♀">אישה | התנצלות | טובה | מצטערת | משתחווה | סליחה | סוג עור 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">אישה משתחווה: סוג עור 4</annotation>
+		<annotation cp="🙇🏾‍♀">אישה | התנצלות | טובה | מצטערת | משתחווה | סליחה | סוג עור 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">אישה משתחווה: סוג עור 5</annotation>
+		<annotation cp="🙇🏿‍♀">אישה | התנצלות | טובה | מצטערת | משתחווה | סליחה | סוג עור 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">אישה משתחווה: סוג עור 6</annotation>
+		<annotation cp="🤦🏻">זעזוע | לא יכול להיות | לא מאמינה שזה קורה לי | סוג עור 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">אישה חובטת בפניה: סוג עור 1–2</annotation>
+		<annotation cp="🤦🏼">זעזוע | לא יכול להיות | לא מאמינה שזה קורה לי | סוג עור 3</annotation>
+		<annotation cp="🤦🏼" type="tts">אישה חובטת בפניה: סוג עור 3</annotation>
+		<annotation cp="🤦🏽">זעזוע | לא יכול להיות | לא מאמינה שזה קורה לי | סוג עור 4</annotation>
+		<annotation cp="🤦🏽" type="tts">אישה חובטת בפניה: סוג עור 4</annotation>
+		<annotation cp="🤦🏾">זעזוע | לא יכול להיות | לא מאמינה שזה קורה לי | סוג עור 5</annotation>
+		<annotation cp="🤦🏾" type="tts">אישה חובטת בפניה: סוג עור 5</annotation>
+		<annotation cp="🤦🏿">זעזוע | לא יכול להיות | לא מאמינה שזה קורה לי | סוג עור 6</annotation>
+		<annotation cp="🤦🏿" type="tts">אישה חובטת בפניה: סוג עור 6</annotation>
+		<annotation cp="🤦🏻‍♂">אין מצב | איש | גבר | לא מאמין | תסכול | סוג עור 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">גבר מתוסכל: סוג עור 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">אין מצב | איש | גבר | לא מאמין | תסכול | סוג עור 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">גבר מתוסכל: סוג עור 3</annotation>
+		<annotation cp="🤦🏽‍♂">אין מצב | איש | גבר | לא מאמין | תסכול | סוג עור 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">גבר מתוסכל: סוג עור 4</annotation>
+		<annotation cp="🤦🏾‍♂">אין מצב | איש | גבר | לא מאמין | תסכול | סוג עור 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">גבר מתוסכל: סוג עור 5</annotation>
+		<annotation cp="🤦🏿‍♂">אין מצב | איש | גבר | לא מאמין | תסכול | סוג עור 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">גבר מתוסכל: סוג עור 6</annotation>
+		<annotation cp="🤦🏻‍♀">אין מצב | אישה | לא מאמינה | תסכול | סוג עור 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">אישה מתוסכלת: סוג עור 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">אין מצב | אישה | לא מאמינה | תסכול | סוג עור 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">אישה מתוסכלת: סוג עור 3</annotation>
+		<annotation cp="🤦🏽‍♀">אין מצב | אישה | לא מאמינה | תסכול | סוג עור 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">אישה מתוסכלת: סוג עור 4</annotation>
+		<annotation cp="🤦🏾‍♀">אין מצב | אישה | לא מאמינה | תסכול | סוג עור 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">אישה מתוסכלת: סוג עור 5</annotation>
+		<annotation cp="🤦🏿‍♀">אין מצב | אישה | לא מאמינה | תסכול | סוג עור 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">אישה מתוסכלת: סוג עור 6</annotation>
+		<annotation cp="🤷🏻">אדישה | אין מושג | לא יודעת | סוג עור 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">מישהו מושכת בכתפיה: סוג עור 1–2</annotation>
+		<annotation cp="🤷🏼">אדישה | אין מושג | לא יודעת | סוג עור 3</annotation>
+		<annotation cp="🤷🏼" type="tts">מישהו מושכת בכתפיה: סוג עור 3</annotation>
+		<annotation cp="🤷🏽">אדישה | אין מושג | לא יודעת | סוג עור 4</annotation>
+		<annotation cp="🤷🏽" type="tts">מישהו מושכת בכתפיה: סוג עור 4</annotation>
+		<annotation cp="🤷🏾">אדישה | אין מושג | לא יודעת | סוג עור 5</annotation>
+		<annotation cp="🤷🏾" type="tts">מישהו מושכת בכתפיה: סוג עור 5</annotation>
+		<annotation cp="🤷🏿">אדישה | אין מושג | לא יודעת | סוג עור 6</annotation>
+		<annotation cp="🤷🏿" type="tts">מישהו מושכת בכתפיה: סוג עור 6</annotation>
+		<annotation cp="🤷🏻‍♂">איש | גבר | לא אכפת לי | לא בטוח | לא יודע | מושך בכתפיים | ספק | סוג עור 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">גבר מושך בכתפיו: סוג עור 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">איש | גבר | לא אכפת לי | לא בטוח | לא יודע | מושך בכתפיים | ספק | סוג עור 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">גבר מושך בכתפיו: סוג עור 3</annotation>
+		<annotation cp="🤷🏽‍♂">איש | גבר | לא אכפת לי | לא בטוח | לא יודע | מושך בכתפיים | ספק | סוג עור 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">גבר מושך בכתפיו: סוג עור 4</annotation>
+		<annotation cp="🤷🏾‍♂">איש | גבר | לא אכפת לי | לא בטוח | לא יודע | מושך בכתפיים | ספק | סוג עור 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">גבר מושך בכתפיו: סוג עור 5</annotation>
+		<annotation cp="🤷🏿‍♂">איש | גבר | לא אכפת לי | לא בטוח | לא יודע | מושך בכתפיים | ספק | סוג עור 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">גבר מושך בכתפיו: סוג עור 6</annotation>
+		<annotation cp="🤷🏻‍♀">אישה | לא אכפת לי | לא בטוחה | לא יודעת | מושכת בכתפיים | ספק | סוג עור 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">אישה מושכת בכתפיה: סוג עור 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">אישה | לא אכפת לי | לא בטוחה | לא יודעת | מושכת בכתפיים | ספק | סוג עור 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">אישה מושכת בכתפיה: סוג עור 3</annotation>
+		<annotation cp="🤷🏽‍♀">אישה | לא אכפת לי | לא בטוחה | לא יודעת | מושכת בכתפיים | ספק | סוג עור 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">אישה מושכת בכתפיה: סוג עור 4</annotation>
+		<annotation cp="🤷🏾‍♀">אישה | לא אכפת לי | לא בטוחה | לא יודעת | מושכת בכתפיים | ספק | סוג עור 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">אישה מושכת בכתפיה: סוג עור 5</annotation>
+		<annotation cp="🤷🏿‍♀">אישה | לא אכפת לי | לא בטוחה | לא יודעת | מושכת בכתפיים | ספק | סוג עור 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">אישה מושכת בכתפיה: סוג עור 6</annotation>
+		<annotation cp="💆🏻">עיסוי | פנים | סוג עור 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">עיסוי פנים: סוג עור 1–2</annotation>
+		<annotation cp="💆🏼">עיסוי | פנים | סוג עור 3</annotation>
+		<annotation cp="💆🏼" type="tts">עיסוי פנים: סוג עור 3</annotation>
+		<annotation cp="💆🏽">עיסוי | פנים | סוג עור 4</annotation>
+		<annotation cp="💆🏽" type="tts">עיסוי פנים: סוג עור 4</annotation>
+		<annotation cp="💆🏾">עיסוי | פנים | סוג עור 5</annotation>
+		<annotation cp="💆🏾" type="tts">עיסוי פנים: סוג עור 5</annotation>
+		<annotation cp="💆🏿">עיסוי | פנים | סוג עור 6</annotation>
+		<annotation cp="💆🏿" type="tts">עיסוי פנים: סוג עור 6</annotation>
+		<annotation cp="💆🏻‍♂">איש | גבר | עיסוי | פנים | סוג עור 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">גבר מקבל עיסוי פנים: סוג עור 1–2</annotation>
+		<annotation cp="💆🏼‍♂">איש | גבר | עיסוי | פנים | סוג עור 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">גבר מקבל עיסוי פנים: סוג עור 3</annotation>
+		<annotation cp="💆🏽‍♂">איש | גבר | עיסוי | פנים | סוג עור 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">גבר מקבל עיסוי פנים: סוג עור 4</annotation>
+		<annotation cp="💆🏾‍♂">איש | גבר | עיסוי | פנים | סוג עור 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">גבר מקבל עיסוי פנים: סוג עור 5</annotation>
+		<annotation cp="💆🏿‍♂">איש | גבר | עיסוי | פנים | סוג עור 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">גבר מקבל עיסוי פנים: סוג עור 6</annotation>
+		<annotation cp="💆🏻‍♀">אישה | עיסוי | פנים | סוג עור 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">אישה מקבלת עיסוי פנים: סוג עור 1–2</annotation>
+		<annotation cp="💆🏼‍♀">אישה | עיסוי | פנים | סוג עור 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">אישה מקבלת עיסוי פנים: סוג עור 3</annotation>
+		<annotation cp="💆🏽‍♀">אישה | עיסוי | פנים | סוג עור 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">אישה מקבלת עיסוי פנים: סוג עור 4</annotation>
+		<annotation cp="💆🏾‍♀">אישה | עיסוי | פנים | סוג עור 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">אישה מקבלת עיסוי פנים: סוג עור 5</annotation>
+		<annotation cp="💆🏿‍♀">אישה | עיסוי | פנים | סוג עור 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">אישה מקבלת עיסוי פנים: סוג עור 6</annotation>
+		<annotation cp="💇🏻">יופי | מספרה | סוג עור 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">תספורת: סוג עור 1–2</annotation>
+		<annotation cp="💇🏼">יופי | מספרה | סוג עור 3</annotation>
+		<annotation cp="💇🏼" type="tts">תספורת: סוג עור 3</annotation>
+		<annotation cp="💇🏽">יופי | מספרה | סוג עור 4</annotation>
+		<annotation cp="💇🏽" type="tts">תספורת: סוג עור 4</annotation>
+		<annotation cp="💇🏾">יופי | מספרה | סוג עור 5</annotation>
+		<annotation cp="💇🏾" type="tts">תספורת: סוג עור 5</annotation>
+		<annotation cp="💇🏿">יופי | מספרה | סוג עור 6</annotation>
+		<annotation cp="💇🏿" type="tts">תספורת: סוג עור 6</annotation>
+		<annotation cp="💇🏻‍♂">איש | גבר | תספורת | סוג עור 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">גבר מסתפר: סוג עור 1–2</annotation>
+		<annotation cp="💇🏼‍♂">איש | גבר | תספורת | סוג עור 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">גבר מסתפר: סוג עור 3</annotation>
+		<annotation cp="💇🏽‍♂">איש | גבר | תספורת | סוג עור 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">גבר מסתפר: סוג עור 4</annotation>
+		<annotation cp="💇🏾‍♂">איש | גבר | תספורת | סוג עור 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">גבר מסתפר: סוג עור 5</annotation>
+		<annotation cp="💇🏿‍♂">איש | גבר | תספורת | סוג עור 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">גבר מסתפר: סוג עור 6</annotation>
+		<annotation cp="💇🏻‍♀">אישה | תספורת | סוג עור 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">אישה מסתפרת: סוג עור 1–2</annotation>
+		<annotation cp="💇🏼‍♀">אישה | תספורת | סוג עור 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">אישה מסתפרת: סוג עור 3</annotation>
+		<annotation cp="💇🏽‍♀">אישה | תספורת | סוג עור 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">אישה מסתפרת: סוג עור 4</annotation>
+		<annotation cp="💇🏾‍♀">אישה | תספורת | סוג עור 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">אישה מסתפרת: סוג עור 5</annotation>
+		<annotation cp="💇🏿‍♀">אישה | תספורת | סוג עור 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">אישה מסתפרת: סוג עור 6</annotation>
+		<annotation cp="🚶🏻">הולך | הליכה | סוג עור 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">הולך רגל: סוג עור 1–2</annotation>
+		<annotation cp="🚶🏼">הולך | הליכה | סוג עור 3</annotation>
+		<annotation cp="🚶🏼" type="tts">הולך רגל: סוג עור 3</annotation>
+		<annotation cp="🚶🏽">הולך | הליכה | סוג עור 4</annotation>
+		<annotation cp="🚶🏽" type="tts">הולך רגל: סוג עור 4</annotation>
+		<annotation cp="🚶🏾">הולך | הליכה | סוג עור 5</annotation>
+		<annotation cp="🚶🏾" type="tts">הולך רגל: סוג עור 5</annotation>
+		<annotation cp="🚶🏿">הולך | הליכה | סוג עור 6</annotation>
+		<annotation cp="🚶🏿" type="tts">הולך רגל: סוג עור 6</annotation>
+		<annotation cp="🚶🏻‍♂">איש | גבר | הולך | הליכה | סוג עור 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">גבר הולך: סוג עור 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">איש | גבר | הולך | הליכה | סוג עור 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">גבר הולך: סוג עור 3</annotation>
+		<annotation cp="🚶🏽‍♂">איש | גבר | הולך | הליכה | סוג עור 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">גבר הולך: סוג עור 4</annotation>
+		<annotation cp="🚶🏾‍♂">איש | גבר | הולך | הליכה | סוג עור 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">גבר הולך: סוג עור 5</annotation>
+		<annotation cp="🚶🏿‍♂">איש | גבר | הולך | הליכה | סוג עור 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">גבר הולך: סוג עור 6</annotation>
+		<annotation cp="🚶🏻‍♀">אישה | הולכת | הליכה | סוג עור 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">אישה הולכת: סוג עור 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">אישה | הולכת | הליכה | סוג עור 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">אישה הולכת: סוג עור 3</annotation>
+		<annotation cp="🚶🏽‍♀">אישה | הולכת | הליכה | סוג עור 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">אישה הולכת: סוג עור 4</annotation>
+		<annotation cp="🚶🏾‍♀">אישה | הולכת | הליכה | סוג עור 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">אישה הולכת: סוג עור 5</annotation>
+		<annotation cp="🚶🏿‍♀">אישה | הולכת | הליכה | סוג עור 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">אישה הולכת: סוג עור 6</annotation>
+		<annotation cp="🏃🏻">מרתון | ריצה | סוג עור 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">רץ: סוג עור 1–2</annotation>
+		<annotation cp="🏃🏼">מרתון | ריצה | סוג עור 3</annotation>
+		<annotation cp="🏃🏼" type="tts">רץ: סוג עור 3</annotation>
+		<annotation cp="🏃🏽">מרתון | ריצה | סוג עור 4</annotation>
+		<annotation cp="🏃🏽" type="tts">רץ: סוג עור 4</annotation>
+		<annotation cp="🏃🏾">מרתון | ריצה | סוג עור 5</annotation>
+		<annotation cp="🏃🏾" type="tts">רץ: סוג עור 5</annotation>
+		<annotation cp="🏃🏿">מרתון | ריצה | סוג עור 6</annotation>
+		<annotation cp="🏃🏿" type="tts">רץ: סוג עור 6</annotation>
+		<annotation cp="🏃🏻‍♂">איש | גבר | ממהר | מרוץ | מרתון | ריצה | סוג עור 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">גבר רץ: סוג עור 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">איש | גבר | ממהר | מרוץ | מרתון | ריצה | סוג עור 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">גבר רץ: סוג עור 3</annotation>
+		<annotation cp="🏃🏽‍♂">איש | גבר | ממהר | מרוץ | מרתון | ריצה | סוג עור 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">גבר רץ: סוג עור 4</annotation>
+		<annotation cp="🏃🏾‍♂">איש | גבר | ממהר | מרוץ | מרתון | ריצה | סוג עור 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">גבר רץ: סוג עור 5</annotation>
+		<annotation cp="🏃🏿‍♂">איש | גבר | ממהר | מרוץ | מרתון | ריצה | סוג עור 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">גבר רץ: סוג עור 6</annotation>
+		<annotation cp="🏃🏻‍♀">אישה | ממהרת | מרוץ | מרתון | ריצה | סוג עור 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">אישה רצה: סוג עור 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">אישה | ממהרת | מרוץ | מרתון | ריצה | סוג עור 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">אישה רצה: סוג עור 3</annotation>
+		<annotation cp="🏃🏽‍♀">אישה | ממהרת | מרוץ | מרתון | ריצה | סוג עור 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">אישה רצה: סוג עור 4</annotation>
+		<annotation cp="🏃🏾‍♀">אישה | ממהרת | מרוץ | מרתון | ריצה | סוג עור 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">אישה רצה: סוג עור 5</annotation>
+		<annotation cp="🏃🏿‍♀">אישה | ממהרת | מרוץ | מרתון | ריצה | סוג עור 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">אישה רצה: סוג עור 6</annotation>
+		<annotation cp="💃🏻">פלמנקו | רוקדת | סוג עור 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">רקדנית: סוג עור 1–2</annotation>
+		<annotation cp="💃🏼">פלמנקו | רוקדת | סוג עור 3</annotation>
+		<annotation cp="💃🏼" type="tts">רקדנית: סוג עור 3</annotation>
+		<annotation cp="💃🏽">פלמנקו | רוקדת | סוג עור 4</annotation>
+		<annotation cp="💃🏽" type="tts">רקדנית: סוג עור 4</annotation>
+		<annotation cp="💃🏾">פלמנקו | רוקדת | סוג עור 5</annotation>
+		<annotation cp="💃🏾" type="tts">רקדנית: סוג עור 5</annotation>
+		<annotation cp="💃🏿">פלמנקו | רוקדת | סוג עור 6</annotation>
+		<annotation cp="💃🏿" type="tts">רקדנית: סוג עור 6</annotation>
+		<annotation cp="🕺🏻">איש | רוקד | סוג עור 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">איש רוקד: סוג עור 1–2</annotation>
+		<annotation cp="🕺🏼">איש | רוקד | סוג עור 3</annotation>
+		<annotation cp="🕺🏼" type="tts">איש רוקד: סוג עור 3</annotation>
+		<annotation cp="🕺🏽">איש | רוקד | סוג עור 4</annotation>
+		<annotation cp="🕺🏽" type="tts">איש רוקד: סוג עור 4</annotation>
+		<annotation cp="🕺🏾">איש | רוקד | סוג עור 5</annotation>
+		<annotation cp="🕺🏾" type="tts">איש רוקד: סוג עור 5</annotation>
+		<annotation cp="🕺🏿">איש | רוקד | סוג עור 6</annotation>
+		<annotation cp="🕺🏿" type="tts">איש רוקד: סוג עור 6</annotation>
+		<annotation cp="🛀🏻">אמבטיה | מקלחת | סוג עור 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">אדם באמבטיה: סוג עור 1–2</annotation>
+		<annotation cp="🛀🏼">אמבטיה | מקלחת | סוג עור 3</annotation>
+		<annotation cp="🛀🏼" type="tts">אדם באמבטיה: סוג עור 3</annotation>
+		<annotation cp="🛀🏽">אמבטיה | מקלחת | סוג עור 4</annotation>
+		<annotation cp="🛀🏽" type="tts">אדם באמבטיה: סוג עור 4</annotation>
+		<annotation cp="🛀🏾">אמבטיה | מקלחת | סוג עור 5</annotation>
+		<annotation cp="🛀🏾" type="tts">אדם באמבטיה: סוג עור 5</annotation>
+		<annotation cp="🛀🏿">אמבטיה | מקלחת | סוג עור 6</annotation>
+		<annotation cp="🛀🏿" type="tts">אדם באמבטיה: סוג עור 6</annotation>
+		<annotation cp="🛌🏻">לישון | מיטה | מלון | שינה | סוג עור 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">אדם במיטה: סוג עור 1–2</annotation>
+		<annotation cp="🛌🏼">לישון | מיטה | מלון | שינה | סוג עור 3</annotation>
+		<annotation cp="🛌🏼" type="tts">אדם במיטה: סוג עור 3</annotation>
+		<annotation cp="🛌🏽">לישון | מיטה | מלון | שינה | סוג עור 4</annotation>
+		<annotation cp="🛌🏽" type="tts">אדם במיטה: סוג עור 4</annotation>
+		<annotation cp="🛌🏾">לישון | מיטה | מלון | שינה | סוג עור 5</annotation>
+		<annotation cp="🛌🏾" type="tts">אדם במיטה: סוג עור 5</annotation>
+		<annotation cp="🛌🏿">לישון | מיטה | מלון | שינה | סוג עור 6</annotation>
+		<annotation cp="🛌🏿" type="tts">אדם במיטה: סוג עור 6</annotation>
+		<annotation cp="🕴🏻">איש עסקים | חליפה | סוג עור 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">אדם בחליפת עסקים מרחף: סוג עור 1–2</annotation>
+		<annotation cp="🕴🏼">איש עסקים | חליפה | סוג עור 3</annotation>
+		<annotation cp="🕴🏼" type="tts">אדם בחליפת עסקים מרחף: סוג עור 3</annotation>
+		<annotation cp="🕴🏽">איש עסקים | חליפה | סוג עור 4</annotation>
+		<annotation cp="🕴🏽" type="tts">אדם בחליפת עסקים מרחף: סוג עור 4</annotation>
+		<annotation cp="🕴🏾">איש עסקים | חליפה | סוג עור 5</annotation>
+		<annotation cp="🕴🏾" type="tts">אדם בחליפת עסקים מרחף: סוג עור 5</annotation>
+		<annotation cp="🕴🏿">איש עסקים | חליפה | סוג עור 6</annotation>
+		<annotation cp="🕴🏿" type="tts">אדם בחליפת עסקים מרחף: סוג עור 6</annotation>
+		<annotation cp="🏇🏻">מירוץ | סוס | רוכב | סוג עור 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">מירוצי סוסים: סוג עור 1–2</annotation>
+		<annotation cp="🏇🏼">מירוץ | סוס | רוכב | סוג עור 3</annotation>
+		<annotation cp="🏇🏼" type="tts">מירוצי סוסים: סוג עור 3</annotation>
+		<annotation cp="🏇🏽">מירוץ | סוס | רוכב | סוג עור 4</annotation>
+		<annotation cp="🏇🏽" type="tts">מירוצי סוסים: סוג עור 4</annotation>
+		<annotation cp="🏇🏾">מירוץ | סוס | רוכב | סוג עור 5</annotation>
+		<annotation cp="🏇🏾" type="tts">מירוצי סוסים: סוג עור 5</annotation>
+		<annotation cp="🏇🏿">מירוץ | סוס | רוכב | סוג עור 6</annotation>
+		<annotation cp="🏇🏿" type="tts">מירוצי סוסים: סוג עור 6</annotation>
+		<annotation cp="🏂🏻">גולש | סנובורד | שלג | סוג עור 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">גולש סנובורד: סוג עור 1–2</annotation>
+		<annotation cp="🏂🏼">גולש | סנובורד | שלג | סוג עור 3</annotation>
+		<annotation cp="🏂🏼" type="tts">גולש סנובורד: סוג עור 3</annotation>
+		<annotation cp="🏂🏽">גולש | סנובורד | שלג | סוג עור 4</annotation>
+		<annotation cp="🏂🏽" type="tts">גולש סנובורד: סוג עור 4</annotation>
+		<annotation cp="🏂🏾">גולש | סנובורד | שלג | סוג עור 5</annotation>
+		<annotation cp="🏂🏾" type="tts">גולש סנובורד: סוג עור 5</annotation>
+		<annotation cp="🏂🏿">גולש | סנובורד | שלג | סוג עור 6</annotation>
+		<annotation cp="🏂🏿" type="tts">גולש סנובורד: סוג עור 6</annotation>
+		<annotation cp="🏌🏻">גולף | משחק | שחקן | סוג עור 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">שחקן גולף: סוג עור 1–2</annotation>
+		<annotation cp="🏌🏼">גולף | משחק | שחקן | סוג עור 3</annotation>
+		<annotation cp="🏌🏼" type="tts">שחקן גולף: סוג עור 3</annotation>
+		<annotation cp="🏌🏽">גולף | משחק | שחקן | סוג עור 4</annotation>
+		<annotation cp="🏌🏽" type="tts">שחקן גולף: סוג עור 4</annotation>
+		<annotation cp="🏌🏾">גולף | משחק | שחקן | סוג עור 5</annotation>
+		<annotation cp="🏌🏾" type="tts">שחקן גולף: סוג עור 5</annotation>
+		<annotation cp="🏌🏿">גולף | משחק | שחקן | סוג עור 6</annotation>
+		<annotation cp="🏌🏿" type="tts">שחקן גולף: סוג עור 6</annotation>
+		<annotation cp="🏌🏻‍♂">איש | גבר | גולף | סוג עור 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">גבר משחק גולף: סוג עור 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">איש | גבר | גולף | סוג עור 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">גבר משחק גולף: סוג עור 3</annotation>
+		<annotation cp="🏌🏽‍♂">איש | גבר | גולף | סוג עור 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">גבר משחק גולף: סוג עור 4</annotation>
+		<annotation cp="🏌🏾‍♂">איש | גבר | גולף | סוג עור 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">גבר משחק גולף: סוג עור 5</annotation>
+		<annotation cp="🏌🏿‍♂">איש | גבר | גולף | סוג עור 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">גבר משחק גולף: סוג עור 6</annotation>
+		<annotation cp="🏌🏻‍♀">אישה | גולף | סוג עור 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">אישה משחקת גולף: סוג עור 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">אישה | גולף | סוג עור 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">אישה משחקת גולף: סוג עור 3</annotation>
+		<annotation cp="🏌🏽‍♀">אישה | גולף | סוג עור 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">אישה משחקת גולף: סוג עור 4</annotation>
+		<annotation cp="🏌🏾‍♀">אישה | גולף | סוג עור 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">אישה משחקת גולף: סוג עור 5</annotation>
+		<annotation cp="🏌🏿‍♀">אישה | גולף | סוג עור 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">אישה משחקת גולף: סוג עור 6</annotation>
+		<annotation cp="🏄🏻">גולש | גלים | ים | סוג עור 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">גולש גלים: סוג עור 1–2</annotation>
+		<annotation cp="🏄🏼">גולש | גלים | ים | סוג עור 3</annotation>
+		<annotation cp="🏄🏼" type="tts">גולש גלים: סוג עור 3</annotation>
+		<annotation cp="🏄🏽">גולש | גלים | ים | סוג עור 4</annotation>
+		<annotation cp="🏄🏽" type="tts">גולש גלים: סוג עור 4</annotation>
+		<annotation cp="🏄🏾">גולש | גלים | ים | סוג עור 5</annotation>
+		<annotation cp="🏄🏾" type="tts">גולש גלים: סוג עור 5</annotation>
+		<annotation cp="🏄🏿">גולש | גלים | ים | סוג עור 6</annotation>
+		<annotation cp="🏄🏿" type="tts">גולש גלים: סוג עור 6</annotation>
+		<annotation cp="🏄🏻‍♂">איש | גבר | גלישה | סוג עור 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">גבר גולש: סוג עור 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">איש | גבר | גלישה | סוג עור 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">גבר גולש: סוג עור 3</annotation>
+		<annotation cp="🏄🏽‍♂">איש | גבר | גלישה | סוג עור 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">גבר גולש: סוג עור 4</annotation>
+		<annotation cp="🏄🏾‍♂">איש | גבר | גלישה | סוג עור 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">גבר גולש: סוג עור 5</annotation>
+		<annotation cp="🏄🏿‍♂">איש | גבר | גלישה | סוג עור 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">גבר גולש: סוג עור 6</annotation>
+		<annotation cp="🏄🏻‍♀">אישה | גלישה | סוג עור 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">אישה גולשת: סוג עור 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">אישה | גלישה | סוג עור 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">אישה גולשת: סוג עור 3</annotation>
+		<annotation cp="🏄🏽‍♀">אישה | גלישה | סוג עור 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">אישה גולשת: סוג עור 4</annotation>
+		<annotation cp="🏄🏾‍♀">אישה | גלישה | סוג עור 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">אישה גולשת: סוג עור 5</annotation>
+		<annotation cp="🏄🏿‍♀">אישה | גלישה | סוג עור 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">אישה גולשת: סוג עור 6</annotation>
+		<annotation cp="🚣🏻">ים | משוטים | סירה | סוג עור 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">סירת משוטים: סוג עור 1–2</annotation>
+		<annotation cp="🚣🏼">ים | משוטים | סירה | סוג עור 3</annotation>
+		<annotation cp="🚣🏼" type="tts">סירת משוטים: סוג עור 3</annotation>
+		<annotation cp="🚣🏽">ים | משוטים | סירה | סוג עור 4</annotation>
+		<annotation cp="🚣🏽" type="tts">סירת משוטים: סוג עור 4</annotation>
+		<annotation cp="🚣🏾">ים | משוטים | סירה | סוג עור 5</annotation>
+		<annotation cp="🚣🏾" type="tts">סירת משוטים: סוג עור 5</annotation>
+		<annotation cp="🚣🏿">ים | משוטים | סירה | סוג עור 6</annotation>
+		<annotation cp="🚣🏿" type="tts">סירת משוטים: סוג עור 6</annotation>
+		<annotation cp="🚣🏻‍♂">אוניה | איש | גבר | חתירה | סירה | סוג עור 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">גבר חותר בסירה: סוג עור 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">אוניה | איש | גבר | חתירה | סירה | סוג עור 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">גבר חותר בסירה: סוג עור 3</annotation>
+		<annotation cp="🚣🏽‍♂">אוניה | איש | גבר | חתירה | סירה | סוג עור 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">גבר חותר בסירה: סוג עור 4</annotation>
+		<annotation cp="🚣🏾‍♂">אוניה | איש | גבר | חתירה | סירה | סוג עור 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">גבר חותר בסירה: סוג עור 5</annotation>
+		<annotation cp="🚣🏿‍♂">אוניה | איש | גבר | חתירה | סירה | סוג עור 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">גבר חותר בסירה: סוג עור 6</annotation>
+		<annotation cp="🚣🏻‍♀">אוניה | אישה | חתירה | סירה | סוג עור 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">אישה חותרת בסירה: סוג עור 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">אוניה | אישה | חתירה | סירה | סוג עור 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">אישה חותרת בסירה: סוג עור 3</annotation>
+		<annotation cp="🚣🏽‍♀">אוניה | אישה | חתירה | סירה | סוג עור 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">אישה חותרת בסירה: סוג עור 4</annotation>
+		<annotation cp="🚣🏾‍♀">אוניה | אישה | חתירה | סירה | סוג עור 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">אישה חותרת בסירה: סוג עור 5</annotation>
+		<annotation cp="🚣🏿‍♀">אוניה | אישה | חתירה | סירה | סוג עור 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">אישה חותרת בסירה: סוג עור 6</annotation>
+		<annotation cp="🏊🏻">בריכה | ים | שוחה | סוג עור 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">שחיין: סוג עור 1–2</annotation>
+		<annotation cp="🏊🏼">בריכה | ים | שוחה | סוג עור 3</annotation>
+		<annotation cp="🏊🏼" type="tts">שחיין: סוג עור 3</annotation>
+		<annotation cp="🏊🏽">בריכה | ים | שוחה | סוג עור 4</annotation>
+		<annotation cp="🏊🏽" type="tts">שחיין: סוג עור 4</annotation>
+		<annotation cp="🏊🏾">בריכה | ים | שוחה | סוג עור 5</annotation>
+		<annotation cp="🏊🏾" type="tts">שחיין: סוג עור 5</annotation>
+		<annotation cp="🏊🏿">בריכה | ים | שוחה | סוג עור 6</annotation>
+		<annotation cp="🏊🏿" type="tts">שחיין: סוג עור 6</annotation>
+		<annotation cp="🏊🏻‍♂">איש | גבר | שוחה | שחיין | סוג עור 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">גבר שוחה: סוג עור 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">איש | גבר | שוחה | שחיין | סוג עור 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">גבר שוחה: סוג עור 3</annotation>
+		<annotation cp="🏊🏽‍♂">איש | גבר | שוחה | שחיין | סוג עור 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">גבר שוחה: סוג עור 4</annotation>
+		<annotation cp="🏊🏾‍♂">איש | גבר | שוחה | שחיין | סוג עור 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">גבר שוחה: סוג עור 5</annotation>
+		<annotation cp="🏊🏿‍♂">איש | גבר | שוחה | שחיין | סוג עור 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">גבר שוחה: סוג עור 6</annotation>
+		<annotation cp="🏊🏻‍♀">אישה | שוחה | שחיינית | סוג עור 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">אישה שוחה: סוג עור 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">אישה | שוחה | שחיינית | סוג עור 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">אישה שוחה: סוג עור 3</annotation>
+		<annotation cp="🏊🏽‍♀">אישה | שוחה | שחיינית | סוג עור 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">אישה שוחה: סוג עור 4</annotation>
+		<annotation cp="🏊🏾‍♀">אישה | שוחה | שחיינית | סוג עור 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">אישה שוחה: סוג עור 5</annotation>
+		<annotation cp="🏊🏿‍♀">אישה | שוחה | שחיינית | סוג עור 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">אישה שוחה: סוג עור 6</annotation>
+		<annotation cp="⛹🏻">כדור | משחק | ספורט | סוג עור 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">אדם עם כדור: סוג עור 1–2</annotation>
+		<annotation cp="⛹🏼">כדור | משחק | ספורט | סוג עור 3</annotation>
+		<annotation cp="⛹🏼" type="tts">אדם עם כדור: סוג עור 3</annotation>
+		<annotation cp="⛹🏽">כדור | משחק | ספורט | סוג עור 4</annotation>
+		<annotation cp="⛹🏽" type="tts">אדם עם כדור: סוג עור 4</annotation>
+		<annotation cp="⛹🏾">כדור | משחק | ספורט | סוג עור 5</annotation>
+		<annotation cp="⛹🏾" type="tts">אדם עם כדור: סוג עור 5</annotation>
+		<annotation cp="⛹🏿">כדור | משחק | ספורט | סוג עור 6</annotation>
+		<annotation cp="⛹🏿" type="tts">אדם עם כדור: סוג עור 6</annotation>
+		<annotation cp="⛹🏻‍♂">איש | גבר | כדור | סוג עור 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">גבר עם כדור: סוג עור 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">איש | גבר | כדור | סוג עור 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">גבר עם כדור: סוג עור 3</annotation>
+		<annotation cp="⛹🏽‍♂">איש | גבר | כדור | סוג עור 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">גבר עם כדור: סוג עור 4</annotation>
+		<annotation cp="⛹🏾‍♂">איש | גבר | כדור | סוג עור 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">גבר עם כדור: סוג עור 5</annotation>
+		<annotation cp="⛹🏿‍♂">איש | גבר | כדור | סוג עור 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">גבר עם כדור: סוג עור 6</annotation>
+		<annotation cp="⛹🏻‍♀">אישה | כדור | סוג עור 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">אישה עם כדור: סוג עור 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">אישה | כדור | סוג עור 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">אישה עם כדור: סוג עור 3</annotation>
+		<annotation cp="⛹🏽‍♀">אישה | כדור | סוג עור 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">אישה עם כדור: סוג עור 4</annotation>
+		<annotation cp="⛹🏾‍♀">אישה | כדור | סוג עור 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">אישה עם כדור: סוג עור 5</annotation>
+		<annotation cp="⛹🏿‍♀">אישה | כדור | סוג עור 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">אישה עם כדור: סוג עור 6</annotation>
+		<annotation cp="🏋🏻">כושר | מרים | משקולות | סוג עור 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">מרים משקולות: סוג עור 1–2</annotation>
+		<annotation cp="🏋🏼">כושר | מרים | משקולות | סוג עור 3</annotation>
+		<annotation cp="🏋🏼" type="tts">מרים משקולות: סוג עור 3</annotation>
+		<annotation cp="🏋🏽">כושר | מרים | משקולות | סוג עור 4</annotation>
+		<annotation cp="🏋🏽" type="tts">מרים משקולות: סוג עור 4</annotation>
+		<annotation cp="🏋🏾">כושר | מרים | משקולות | סוג עור 5</annotation>
+		<annotation cp="🏋🏾" type="tts">מרים משקולות: סוג עור 5</annotation>
+		<annotation cp="🏋🏿">כושר | מרים | משקולות | סוג עור 6</annotation>
+		<annotation cp="🏋🏿" type="tts">מרים משקולות: סוג עור 6</annotation>
+		<annotation cp="🏋🏻‍♂">איש | גבר | משקולות | סוג עור 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">גבר מרים משקולות: סוג עור 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">איש | גבר | משקולות | סוג עור 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">גבר מרים משקולות: סוג עור 3</annotation>
+		<annotation cp="🏋🏽‍♂">איש | גבר | משקולות | סוג עור 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">גבר מרים משקולות: סוג עור 4</annotation>
+		<annotation cp="🏋🏾‍♂">איש | גבר | משקולות | סוג עור 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">גבר מרים משקולות: סוג עור 5</annotation>
+		<annotation cp="🏋🏿‍♂">איש | גבר | משקולות | סוג עור 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">גבר מרים משקולות: סוג עור 6</annotation>
+		<annotation cp="🏋🏻‍♀">אישה | משקולות | סוג עור 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">אישה מרימה משקולות: סוג עור 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">אישה | משקולות | סוג עור 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">אישה מרימה משקולות: סוג עור 3</annotation>
+		<annotation cp="🏋🏽‍♀">אישה | משקולות | סוג עור 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">אישה מרימה משקולות: סוג עור 4</annotation>
+		<annotation cp="🏋🏾‍♀">אישה | משקולות | סוג עור 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">אישה מרימה משקולות: סוג עור 5</annotation>
+		<annotation cp="🏋🏿‍♀">אישה | משקולות | סוג עור 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">אישה מרימה משקולות: סוג עור 6</annotation>
+		<annotation cp="🚴🏻">אופניים | ספורט | רכיבה | סוג עור 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">רוכב אופניים: סוג עור 1–2</annotation>
+		<annotation cp="🚴🏼">אופניים | ספורט | רכיבה | סוג עור 3</annotation>
+		<annotation cp="🚴🏼" type="tts">רוכב אופניים: סוג עור 3</annotation>
+		<annotation cp="🚴🏽">אופניים | ספורט | רכיבה | סוג עור 4</annotation>
+		<annotation cp="🚴🏽" type="tts">רוכב אופניים: סוג עור 4</annotation>
+		<annotation cp="🚴🏾">אופניים | ספורט | רכיבה | סוג עור 5</annotation>
+		<annotation cp="🚴🏾" type="tts">רוכב אופניים: סוג עור 5</annotation>
+		<annotation cp="🚴🏿">אופניים | ספורט | רכיבה | סוג עור 6</annotation>
+		<annotation cp="🚴🏿" type="tts">רוכב אופניים: סוג עור 6</annotation>
+		<annotation cp="🚴🏻‍♂">אופניים | איש | גבר | רוכב אופניים | רכיבה על אופניים | סוג עור 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">גבר רוכב על אופניים: סוג עור 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">אופניים | איש | גבר | רוכב אופניים | רכיבה על אופניים | סוג עור 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">גבר רוכב על אופניים: סוג עור 3</annotation>
+		<annotation cp="🚴🏽‍♂">אופניים | איש | גבר | רוכב אופניים | רכיבה על אופניים | סוג עור 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">גבר רוכב על אופניים: סוג עור 4</annotation>
+		<annotation cp="🚴🏾‍♂">אופניים | איש | גבר | רוכב אופניים | רכיבה על אופניים | סוג עור 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">גבר רוכב על אופניים: סוג עור 5</annotation>
+		<annotation cp="🚴🏿‍♂">אופניים | איש | גבר | רוכב אופניים | רכיבה על אופניים | סוג עור 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">גבר רוכב על אופניים: סוג עור 6</annotation>
+		<annotation cp="🚴🏻‍♀">אופניים | אישה | רוכבת אופניים | רכיבה על אופניים | סוג עור 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">אישה רוכבת על אופניים: סוג עור 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">אופניים | אישה | רוכבת אופניים | רכיבה על אופניים | סוג עור 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">אישה רוכבת על אופניים: סוג עור 3</annotation>
+		<annotation cp="🚴🏽‍♀">אופניים | אישה | רוכבת אופניים | רכיבה על אופניים | סוג עור 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">אישה רוכבת על אופניים: סוג עור 4</annotation>
+		<annotation cp="🚴🏾‍♀">אופניים | אישה | רוכבת אופניים | רכיבה על אופניים | סוג עור 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">אישה רוכבת על אופניים: סוג עור 5</annotation>
+		<annotation cp="🚴🏿‍♀">אופניים | אישה | רוכבת אופניים | רכיבה על אופניים | סוג עור 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">אישה רוכבת על אופניים: סוג עור 6</annotation>
+		<annotation cp="🚵🏻">אופני הרים | אופניים | ספורט | רכיבה | סוג עור 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">רוכב אופני הרים: סוג עור 1–2</annotation>
+		<annotation cp="🚵🏼">אופני הרים | אופניים | ספורט | רכיבה | סוג עור 3</annotation>
+		<annotation cp="🚵🏼" type="tts">רוכב אופני הרים: סוג עור 3</annotation>
+		<annotation cp="🚵🏽">אופני הרים | אופניים | ספורט | רכיבה | סוג עור 4</annotation>
+		<annotation cp="🚵🏽" type="tts">רוכב אופני הרים: סוג עור 4</annotation>
+		<annotation cp="🚵🏾">אופני הרים | אופניים | ספורט | רכיבה | סוג עור 5</annotation>
+		<annotation cp="🚵🏾" type="tts">רוכב אופני הרים: סוג עור 5</annotation>
+		<annotation cp="🚵🏿">אופני הרים | אופניים | ספורט | רכיבה | סוג עור 6</annotation>
+		<annotation cp="🚵🏿" type="tts">רוכב אופני הרים: סוג עור 6</annotation>
+		<annotation cp="🚵🏻‍♂">אופניים | איש | גבר | הרים | רוכב אופניים | סוג עור 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">גבר רוכב על אופני הרים: סוג עור 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">אופניים | איש | גבר | הרים | רוכב אופניים | סוג עור 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">גבר רוכב על אופני הרים: סוג עור 3</annotation>
+		<annotation cp="🚵🏽‍♂">אופניים | איש | גבר | הרים | רוכב אופניים | סוג עור 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">גבר רוכב על אופני הרים: סוג עור 4</annotation>
+		<annotation cp="🚵🏾‍♂">אופניים | איש | גבר | הרים | רוכב אופניים | סוג עור 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">גבר רוכב על אופני הרים: סוג עור 5</annotation>
+		<annotation cp="🚵🏿‍♂">אופניים | איש | גבר | הרים | רוכב אופניים | סוג עור 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">גבר רוכב על אופני הרים: סוג עור 6</annotation>
+		<annotation cp="🚵🏻‍♀">אופניים | אישה | הרים | רוכבת אופניים | סוג עור 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">אישה רוכבת על אופני הרים: סוג עור 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">אופניים | אישה | הרים | רוכבת אופניים | סוג עור 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">אישה רוכבת על אופני הרים: סוג עור 3</annotation>
+		<annotation cp="🚵🏽‍♀">אופניים | אישה | הרים | רוכבת אופניים | סוג עור 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">אישה רוכבת על אופני הרים: סוג עור 4</annotation>
+		<annotation cp="🚵🏾‍♀">אופניים | אישה | הרים | רוכבת אופניים | סוג עור 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">אישה רוכבת על אופני הרים: סוג עור 5</annotation>
+		<annotation cp="🚵🏿‍♀">אופניים | אישה | הרים | רוכבת אופניים | סוג עור 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">אישה רוכבת על אופני הרים: סוג עור 6</annotation>
+		<annotation cp="🤸🏻">גלגול | גלגלון | התעמלות | ספורט | סוג עור 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">גלגלון: סוג עור 1–2</annotation>
+		<annotation cp="🤸🏼">גלגול | גלגלון | התעמלות | ספורט | סוג עור 3</annotation>
+		<annotation cp="🤸🏼" type="tts">גלגלון: סוג עור 3</annotation>
+		<annotation cp="🤸🏽">גלגול | גלגלון | התעמלות | ספורט | סוג עור 4</annotation>
+		<annotation cp="🤸🏽" type="tts">גלגלון: סוג עור 4</annotation>
+		<annotation cp="🤸🏾">גלגול | גלגלון | התעמלות | ספורט | סוג עור 5</annotation>
+		<annotation cp="🤸🏾" type="tts">גלגלון: סוג עור 5</annotation>
+		<annotation cp="🤸🏿">גלגול | גלגלון | התעמלות | ספורט | סוג עור 6</annotation>
+		<annotation cp="🤸🏿" type="tts">גלגלון: סוג עור 6</annotation>
+		<annotation cp="🤸🏻‍♂">איש | גבר | גלגלון | התעמלות | סוג עור 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">גבר מבצע גלגלון: סוג עור 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">איש | גבר | גלגלון | התעמלות | סוג עור 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">גבר מבצע גלגלון: סוג עור 3</annotation>
+		<annotation cp="🤸🏽‍♂">איש | גבר | גלגלון | התעמלות | סוג עור 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">גבר מבצע גלגלון: סוג עור 4</annotation>
+		<annotation cp="🤸🏾‍♂">איש | גבר | גלגלון | התעמלות | סוג עור 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">גבר מבצע גלגלון: סוג עור 5</annotation>
+		<annotation cp="🤸🏿‍♂">איש | גבר | גלגלון | התעמלות | סוג עור 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">גבר מבצע גלגלון: סוג עור 6</annotation>
+		<annotation cp="🤸🏻‍♀">אישה | גלגלון | התעמלות | סוג עור 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">אישה מבצעת גלגלון: סוג עור 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">אישה | גלגלון | התעמלות | סוג עור 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">אישה מבצעת גלגלון: סוג עור 3</annotation>
+		<annotation cp="🤸🏽‍♀">אישה | גלגלון | התעמלות | סוג עור 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">אישה מבצעת גלגלון: סוג עור 4</annotation>
+		<annotation cp="🤸🏾‍♀">אישה | גלגלון | התעמלות | סוג עור 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">אישה מבצעת גלגלון: סוג עור 5</annotation>
+		<annotation cp="🤸🏿‍♀">אישה | גלגלון | התעמלות | סוג עור 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">אישה מבצעת גלגלון: סוג עור 6</annotation>
+		<annotation cp="🤽🏻">בריכה | כדורמים | ספורט | סוג עור 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">כדורמים: סוג עור 1–2</annotation>
+		<annotation cp="🤽🏼">בריכה | כדורמים | ספורט | סוג עור 3</annotation>
+		<annotation cp="🤽🏼" type="tts">כדורמים: סוג עור 3</annotation>
+		<annotation cp="🤽🏽">בריכה | כדורמים | ספורט | סוג עור 4</annotation>
+		<annotation cp="🤽🏽" type="tts">כדורמים: סוג עור 4</annotation>
+		<annotation cp="🤽🏾">בריכה | כדורמים | ספורט | סוג עור 5</annotation>
+		<annotation cp="🤽🏾" type="tts">כדורמים: סוג עור 5</annotation>
+		<annotation cp="🤽🏿">בריכה | כדורמים | ספורט | סוג עור 6</annotation>
+		<annotation cp="🤽🏿" type="tts">כדורמים: סוג עור 6</annotation>
+		<annotation cp="🤽🏻‍♂">איש | גבר | פולו מים | סוג עור 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">גבר משחק כדור-מים: סוג עור 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">איש | גבר | פולו מים | סוג עור 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">גבר משחק כדור-מים: סוג עור 3</annotation>
+		<annotation cp="🤽🏽‍♂">איש | גבר | פולו מים | סוג עור 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">גבר משחק כדור-מים: סוג עור 4</annotation>
+		<annotation cp="🤽🏾‍♂">איש | גבר | פולו מים | סוג עור 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">גבר משחק כדור-מים: סוג עור 5</annotation>
+		<annotation cp="🤽🏿‍♂">איש | גבר | פולו מים | סוג עור 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">גבר משחק כדור-מים: סוג עור 6</annotation>
+		<annotation cp="🤽🏻‍♀">אישה | פולו מים | סוג עור 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">אישה משחקת כדור-מים: סוג עור 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">אישה | פולו מים | סוג עור 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">אישה משחקת כדור-מים: סוג עור 3</annotation>
+		<annotation cp="🤽🏽‍♀">אישה | פולו מים | סוג עור 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">אישה משחקת כדור-מים: סוג עור 4</annotation>
+		<annotation cp="🤽🏾‍♀">אישה | פולו מים | סוג עור 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">אישה משחקת כדור-מים: סוג עור 5</annotation>
+		<annotation cp="🤽🏿‍♀">אישה | פולו מים | סוג עור 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">אישה משחקת כדור-מים: סוג עור 6</annotation>
+		<annotation cp="🤾🏻">כדוריד | משחק כדור | ספורט | סוג עור 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">כדוריד: סוג עור 1–2</annotation>
+		<annotation cp="🤾🏼">כדוריד | משחק כדור | ספורט | סוג עור 3</annotation>
+		<annotation cp="🤾🏼" type="tts">כדוריד: סוג עור 3</annotation>
+		<annotation cp="🤾🏽">כדוריד | משחק כדור | ספורט | סוג עור 4</annotation>
+		<annotation cp="🤾🏽" type="tts">כדוריד: סוג עור 4</annotation>
+		<annotation cp="🤾🏾">כדוריד | משחק כדור | ספורט | סוג עור 5</annotation>
+		<annotation cp="🤾🏾" type="tts">כדוריד: סוג עור 5</annotation>
+		<annotation cp="🤾🏿">כדוריד | משחק כדור | ספורט | סוג עור 6</annotation>
+		<annotation cp="🤾🏿" type="tts">כדוריד: סוג עור 6</annotation>
+		<annotation cp="🤾🏻‍♂">איש | גבר | כדור יד | כדוריד | סוג עור 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">גבר משחק כדור יד: סוג עור 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">איש | גבר | כדור יד | כדוריד | סוג עור 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">גבר משחק כדור יד: סוג עור 3</annotation>
+		<annotation cp="🤾🏽‍♂">איש | גבר | כדור יד | כדוריד | סוג עור 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">גבר משחק כדור יד: סוג עור 4</annotation>
+		<annotation cp="🤾🏾‍♂">איש | גבר | כדור יד | כדוריד | סוג עור 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">גבר משחק כדור יד: סוג עור 5</annotation>
+		<annotation cp="🤾🏿‍♂">איש | גבר | כדור יד | כדוריד | סוג עור 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">גבר משחק כדור יד: סוג עור 6</annotation>
+		<annotation cp="🤾🏻‍♀">אישה | כדור יד | כדוריד | סוג עור 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">אישה משחקת כדור יד: סוג עור 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">אישה | כדור יד | כדוריד | סוג עור 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">אישה משחקת כדור יד: סוג עור 3</annotation>
+		<annotation cp="🤾🏽‍♀">אישה | כדור יד | כדוריד | סוג עור 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">אישה משחקת כדור יד: סוג עור 4</annotation>
+		<annotation cp="🤾🏾‍♀">אישה | כדור יד | כדוריד | סוג עור 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">אישה משחקת כדור יד: סוג עור 5</annotation>
+		<annotation cp="🤾🏿‍♀">אישה | כדור יד | כדוריד | סוג עור 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">אישה משחקת כדור יד: סוג עור 6</annotation>
+		<annotation cp="🤹🏻">איזון | ג’אגלינג | להטוטן | מיומנות | סוג עור 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">להטוטן: סוג עור 1–2</annotation>
+		<annotation cp="🤹🏼">איזון | ג’אגלינג | להטוטן | מיומנות | סוג עור 3</annotation>
+		<annotation cp="🤹🏼" type="tts">להטוטן: סוג עור 3</annotation>
+		<annotation cp="🤹🏽">איזון | ג’אגלינג | להטוטן | מיומנות | סוג עור 4</annotation>
+		<annotation cp="🤹🏽" type="tts">להטוטן: סוג עור 4</annotation>
+		<annotation cp="🤹🏾">איזון | ג’אגלינג | להטוטן | מיומנות | סוג עור 5</annotation>
+		<annotation cp="🤹🏾" type="tts">להטוטן: סוג עור 5</annotation>
+		<annotation cp="🤹🏿">איזון | ג’אגלינג | להטוטן | מיומנות | סוג עור 6</annotation>
+		<annotation cp="🤹🏿" type="tts">להטוטן: סוג עור 6</annotation>
+		<annotation cp="🤹🏻‍♂">איש | להטוטנות | עומס | ריבוי משימות | סוג עור 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">גבר מלהטט: סוג עור 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">איש | להטוטנות | עומס | ריבוי משימות | סוג עור 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">גבר מלהטט: סוג עור 3</annotation>
+		<annotation cp="🤹🏽‍♂">איש | להטוטנות | עומס | ריבוי משימות | סוג עור 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">גבר מלהטט: סוג עור 4</annotation>
+		<annotation cp="🤹🏾‍♂">איש | להטוטנות | עומס | ריבוי משימות | סוג עור 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">גבר מלהטט: סוג עור 5</annotation>
+		<annotation cp="🤹🏿‍♂">איש | להטוטנות | עומס | ריבוי משימות | סוג עור 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">גבר מלהטט: סוג עור 6</annotation>
+		<annotation cp="🤹🏻‍♀">אישה | להטוטנות | עומס | ריבוי משימות | סוג עור 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">אישה מלהטטת: סוג עור 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">אישה | להטוטנות | עומס | ריבוי משימות | סוג עור 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">אישה מלהטטת: סוג עור 3</annotation>
+		<annotation cp="🤹🏽‍♀">אישה | להטוטנות | עומס | ריבוי משימות | סוג עור 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">אישה מלהטטת: סוג עור 4</annotation>
+		<annotation cp="🤹🏾‍♀">אישה | להטוטנות | עומס | ריבוי משימות | סוג עור 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">אישה מלהטטת: סוג עור 5</annotation>
+		<annotation cp="🤹🏿‍♀">אישה | להטוטנות | עומס | ריבוי משימות | סוג עור 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">אישה מלהטטת: סוג עור 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">איש | אישה | גבר | זוג</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">נשיקה, אישה, גבר</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">אהבה | זוג | לב | רומנטי | רומנטיקה | איש</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">נשיקה: איש, איש</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">אישה | בנות | זוג | נשים</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">נשיקה, אישה, אישה</annotation>
+		<annotation cp="👩‍❤‍👨">אישה | גבר | זוג עם לב</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">זוג עם לב, אישה, גבר</annotation>
+		<annotation cp="👨‍❤‍👨">אהבה | זוג | לב | רומנטי | רומנטיקה | איש</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">זוג עם לב: איש, איש</annotation>
+		<annotation cp="👩‍❤‍👩">אישה | בנות | זוג עם לב</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">זוג עם לב, אישה, אישה</annotation>
+		<annotation cp="👨‍👩‍👦">אבא | איש | אישה | אמא | בן | גבר | ילד | משפחה</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">משפחה, גבר, אישה, ילד</annotation>
+		<annotation cp="👨‍👩‍👧">אבא | איש | אישה | אמא | בת | גבר | ילדה | משפחה</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">משפחה, גבר, אישה, ילדה</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">אבא | איש | אישה | אמא | בן | בת | גבר | ילד | ילדה</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">משפחה, גבר, אישה, ילדה, ילד</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">אבא | איש | אישה | אמא | בן | גבר | ילד</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">משפחה, גבר, אישה, ילד, ילד</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">אבא | איש | אישה | אמא | בת | גבר | ילדה</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">משפחה, גבר, אישה, ילדה, ילדה</annotation>
+		<annotation cp="👨‍👨‍👦">אבא | אמא | ילד | איש | בן</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">משפחה: איש, איש, בן</annotation>
+		<annotation cp="👨‍👨‍👧">אבא | אמא | ילד | איש | בת</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">משפחה: איש, איש, בת</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">אבא | אמא | ילד | איש | בת | בן</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">משפחה: איש, איש, בת, בן</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">אבא | אמא | ילד | איש | בן</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">משפחה: איש, איש, בן, בן</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">אבא | אמא | ילד | איש | בת</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">משפחה: איש, איש, בת, בת</annotation>
+		<annotation cp="👩‍👩‍👦">אבא | איש | אישה | אמא | בן | גבר | ילד</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">משפחה, אישה, אישה, ילד</annotation>
+		<annotation cp="👩‍👩‍👧">אבא | איש | אישה | אמא | בת | גבר | ילדה</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">משפחה, אישה, אישה, ילדה</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">אבא | איש | אישה | אמא | בן | בת | גבר | ילד | ילדה</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">משפחה, אישה, אישה, ילדה, ילד</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">אבא | איש | אישה | אמא | בן | גבר | ילד</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">משפחה, אישה, אישה, ילד, ילד</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">אבא | איש | אישה | אמא | בת | גבר | ילדה</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">משפחה, אישה, אישה, ילדה, ילדה</annotation>
+		<annotation cp="👨‍👦">אבא | אמא | ילד | איש | בן</annotation>
+		<annotation cp="👨‍👦" type="tts">משפחה: איש, בן</annotation>
+		<annotation cp="👨‍👦‍👦">אבא | אמא | ילד | איש | בן</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">משפחה: איש, בן, בן</annotation>
+		<annotation cp="👨‍👧">אבא | אמא | ילד | איש | בת</annotation>
+		<annotation cp="👨‍👧" type="tts">משפחה: איש, בת</annotation>
+		<annotation cp="👨‍👧‍👦">אבא | אמא | ילד | איש | בת | בן</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">משפחה: איש, בת, בן</annotation>
+		<annotation cp="👨‍👧‍👧">אבא | אמא | ילד | איש | בת</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">משפחה: איש, בת, בת</annotation>
+		<annotation cp="👩‍👦">אבא | איש | אישה | אמא | בן | גבר | ילד</annotation>
+		<annotation cp="👩‍👦" type="tts">משפחה, אישה, ילד</annotation>
+		<annotation cp="👩‍👦‍👦">אבא | איש | אישה | אמא | בן | גבר | ילד</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">משפחה, אישה, ילד, ילד</annotation>
+		<annotation cp="👩‍👧">אבא | איש | אישה | אמא | בת | גבר | ילדה</annotation>
+		<annotation cp="👩‍👧" type="tts">משפחה, אישה, ילדה</annotation>
+		<annotation cp="👩‍👧‍👦">אבא | איש | אישה | אמא | בן | בת | גבר | ילד | ילדה</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">משפחה, אישה, ילדה, ילד</annotation>
+		<annotation cp="👩‍👧‍👧">אבא | איש | אישה | אמא | בת | גבר | ילדה</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">משפחה, אישה, ילדה, ילדה</annotation>
+		<annotation cp="🤳🏻">טלפון | מצלמה | סלפי | סוג עור 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">יד מצלמת סלפי: סוג עור 1–2</annotation>
+		<annotation cp="🤳🏼">טלפון | מצלמה | סלפי | סוג עור 3</annotation>
+		<annotation cp="🤳🏼" type="tts">יד מצלמת סלפי: סוג עור 3</annotation>
+		<annotation cp="🤳🏽">טלפון | מצלמה | סלפי | סוג עור 4</annotation>
+		<annotation cp="🤳🏽" type="tts">יד מצלמת סלפי: סוג עור 4</annotation>
+		<annotation cp="🤳🏾">טלפון | מצלמה | סלפי | סוג עור 5</annotation>
+		<annotation cp="🤳🏾" type="tts">יד מצלמת סלפי: סוג עור 5</annotation>
+		<annotation cp="🤳🏿">טלפון | מצלמה | סלפי | סוג עור 6</annotation>
+		<annotation cp="🤳🏿" type="tts">יד מצלמת סלפי: סוג עור 6</annotation>
+		<annotation cp="💪🏻">זרוע | חזק | יד | שריר | סוג עור 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">יד עושה שריר: סוג עור 1–2</annotation>
+		<annotation cp="💪🏼">זרוע | חזק | יד | שריר | סוג עור 3</annotation>
+		<annotation cp="💪🏼" type="tts">יד עושה שריר: סוג עור 3</annotation>
+		<annotation cp="💪🏽">זרוע | חזק | יד | שריר | סוג עור 4</annotation>
+		<annotation cp="💪🏽" type="tts">יד עושה שריר: סוג עור 4</annotation>
+		<annotation cp="💪🏾">זרוע | חזק | יד | שריר | סוג עור 5</annotation>
+		<annotation cp="💪🏾" type="tts">יד עושה שריר: סוג עור 5</annotation>
+		<annotation cp="💪🏿">זרוע | חזק | יד | שריר | סוג עור 6</annotation>
+		<annotation cp="💪🏿" type="tts">יד עושה שריר: סוג עור 6</annotation>
+		<annotation cp="👈🏻">אצבע | יד | להצביע | מצביעה | שמאלה | סוג עור 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">גב יד מצביעה שמאלה: סוג עור 1–2</annotation>
+		<annotation cp="👈🏼">אצבע | יד | להצביע | מצביעה | שמאלה | סוג עור 3</annotation>
+		<annotation cp="👈🏼" type="tts">גב יד מצביעה שמאלה: סוג עור 3</annotation>
+		<annotation cp="👈🏽">אצבע | יד | להצביע | מצביעה | שמאלה | סוג עור 4</annotation>
+		<annotation cp="👈🏽" type="tts">גב יד מצביעה שמאלה: סוג עור 4</annotation>
+		<annotation cp="👈🏾">אצבע | יד | להצביע | מצביעה | שמאלה | סוג עור 5</annotation>
+		<annotation cp="👈🏾" type="tts">גב יד מצביעה שמאלה: סוג עור 5</annotation>
+		<annotation cp="👈🏿">אצבע | יד | להצביע | מצביעה | שמאלה | סוג עור 6</annotation>
+		<annotation cp="👈🏿" type="tts">גב יד מצביעה שמאלה: סוג עור 6</annotation>
+		<annotation cp="👉🏻">אצבע | יד | ימינה | להצביע | מצביעה | סוג עור 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">גב יד מצביעה ימינה: סוג עור 1–2</annotation>
+		<annotation cp="👉🏼">אצבע | יד | ימינה | להצביע | מצביעה | סוג עור 3</annotation>
+		<annotation cp="👉🏼" type="tts">גב יד מצביעה ימינה: סוג עור 3</annotation>
+		<annotation cp="👉🏽">אצבע | יד | ימינה | להצביע | מצביעה | סוג עור 4</annotation>
+		<annotation cp="👉🏽" type="tts">גב יד מצביעה ימינה: סוג עור 4</annotation>
+		<annotation cp="👉🏾">אצבע | יד | ימינה | להצביע | מצביעה | סוג עור 5</annotation>
+		<annotation cp="👉🏾" type="tts">גב יד מצביעה ימינה: סוג עור 5</annotation>
+		<annotation cp="👉🏿">אצבע | יד | ימינה | להצביע | מצביעה | סוג עור 6</annotation>
+		<annotation cp="👉🏿" type="tts">גב יד מצביעה ימינה: סוג עור 6</annotation>
+		<annotation cp="☝🏻">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">יד מצביעה למעלה: סוג עור 1–2</annotation>
+		<annotation cp="☝🏼">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 3</annotation>
+		<annotation cp="☝🏼" type="tts">יד מצביעה למעלה: סוג עור 3</annotation>
+		<annotation cp="☝🏽">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 4</annotation>
+		<annotation cp="☝🏽" type="tts">יד מצביעה למעלה: סוג עור 4</annotation>
+		<annotation cp="☝🏾">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 5</annotation>
+		<annotation cp="☝🏾" type="tts">יד מצביעה למעלה: סוג עור 5</annotation>
+		<annotation cp="☝🏿">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 6</annotation>
+		<annotation cp="☝🏿" type="tts">יד מצביעה למעלה: סוג עור 6</annotation>
+		<annotation cp="👆🏻">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">גב יד מצביעה למעלה: סוג עור 1–2</annotation>
+		<annotation cp="👆🏼">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 3</annotation>
+		<annotation cp="👆🏼" type="tts">גב יד מצביעה למעלה: סוג עור 3</annotation>
+		<annotation cp="👆🏽">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 4</annotation>
+		<annotation cp="👆🏽" type="tts">גב יד מצביעה למעלה: סוג עור 4</annotation>
+		<annotation cp="👆🏾">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 5</annotation>
+		<annotation cp="👆🏾" type="tts">גב יד מצביעה למעלה: סוג עור 5</annotation>
+		<annotation cp="👆🏿">אצבע | יד | להצביע | למעלה | מצביעה | סוג עור 6</annotation>
+		<annotation cp="👆🏿" type="tts">גב יד מצביעה למעלה: סוג עור 6</annotation>
+		<annotation cp="🖕🏻">תנועה מזרחית | סוג עור 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">אצבע משולשת: סוג עור 1–2</annotation>
+		<annotation cp="🖕🏼">תנועה מזרחית | סוג עור 3</annotation>
+		<annotation cp="🖕🏼" type="tts">אצבע משולשת: סוג עור 3</annotation>
+		<annotation cp="🖕🏽">תנועה מזרחית | סוג עור 4</annotation>
+		<annotation cp="🖕🏽" type="tts">אצבע משולשת: סוג עור 4</annotation>
+		<annotation cp="🖕🏾">תנועה מזרחית | סוג עור 5</annotation>
+		<annotation cp="🖕🏾" type="tts">אצבע משולשת: סוג עור 5</annotation>
+		<annotation cp="🖕🏿">תנועה מזרחית | סוג עור 6</annotation>
+		<annotation cp="🖕🏿" type="tts">אצבע משולשת: סוג עור 6</annotation>
+		<annotation cp="👇🏻">אצבע | יד | להצביע | למטה | מצביעה | סוג עור 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">גב יד מצביעה למטה: סוג עור 1–2</annotation>
+		<annotation cp="👇🏼">אצבע | יד | להצביע | למטה | מצביעה | סוג עור 3</annotation>
+		<annotation cp="👇🏼" type="tts">גב יד מצביעה למטה: סוג עור 3</annotation>
+		<annotation cp="👇🏽">אצבע | יד | להצביע | למטה | מצביעה | סוג עור 4</annotation>
+		<annotation cp="👇🏽" type="tts">גב יד מצביעה למטה: סוג עור 4</annotation>
+		<annotation cp="👇🏾">אצבע | יד | להצביע | למטה | מצביעה | סוג עור 5</annotation>
+		<annotation cp="👇🏾" type="tts">גב יד מצביעה למטה: סוג עור 5</annotation>
+		<annotation cp="👇🏿">אצבע | יד | להצביע | למטה | מצביעה | סוג עור 6</annotation>
+		<annotation cp="👇🏿" type="tts">גב יד מצביעה למטה: סוג עור 6</annotation>
+		<annotation cp="✌🏻">אצבעות | וי | יד | ניצחון | סוג עור 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">אצבעות מסמנות ניצחון: סוג עור 1–2</annotation>
+		<annotation cp="✌🏼">אצבעות | וי | יד | ניצחון | סוג עור 3</annotation>
+		<annotation cp="✌🏼" type="tts">אצבעות מסמנות ניצחון: סוג עור 3</annotation>
+		<annotation cp="✌🏽">אצבעות | וי | יד | ניצחון | סוג עור 4</annotation>
+		<annotation cp="✌🏽" type="tts">אצבעות מסמנות ניצחון: סוג עור 4</annotation>
+		<annotation cp="✌🏾">אצבעות | וי | יד | ניצחון | סוג עור 5</annotation>
+		<annotation cp="✌🏾" type="tts">אצבעות מסמנות ניצחון: סוג עור 5</annotation>
+		<annotation cp="✌🏿">אצבעות | וי | יד | ניצחון | סוג עור 6</annotation>
+		<annotation cp="✌🏿" type="tts">אצבעות מסמנות ניצחון: סוג עור 6</annotation>
+		<annotation cp="🤞🏻">אצבעות | בהצלחה | מחזיק | סוג עור 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">יד מחזיקה אצבעות: סוג עור 1–2</annotation>
+		<annotation cp="🤞🏼">אצבעות | בהצלחה | מחזיק | סוג עור 3</annotation>
+		<annotation cp="🤞🏼" type="tts">יד מחזיקה אצבעות: סוג עור 3</annotation>
+		<annotation cp="🤞🏽">אצבעות | בהצלחה | מחזיק | סוג עור 4</annotation>
+		<annotation cp="🤞🏽" type="tts">יד מחזיקה אצבעות: סוג עור 4</annotation>
+		<annotation cp="🤞🏾">אצבעות | בהצלחה | מחזיק | סוג עור 5</annotation>
+		<annotation cp="🤞🏾" type="tts">יד מחזיקה אצבעות: סוג עור 5</annotation>
+		<annotation cp="🤞🏿">אצבעות | בהצלחה | מחזיק | סוג עור 6</annotation>
+		<annotation cp="🤞🏿" type="tts">יד מחזיקה אצבעות: סוג עור 6</annotation>
+		<annotation cp="🖖🏻">אצבעות | וולקן | וולקנים | יד | ספוק | סוג עור 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">ברכת וולקנים: סוג עור 1–2</annotation>
+		<annotation cp="🖖🏼">אצבעות | וולקן | וולקנים | יד | ספוק | סוג עור 3</annotation>
+		<annotation cp="🖖🏼" type="tts">ברכת וולקנים: סוג עור 3</annotation>
+		<annotation cp="🖖🏽">אצבעות | וולקן | וולקנים | יד | ספוק | סוג עור 4</annotation>
+		<annotation cp="🖖🏽" type="tts">ברכת וולקנים: סוג עור 4</annotation>
+		<annotation cp="🖖🏾">אצבעות | וולקן | וולקנים | יד | ספוק | סוג עור 5</annotation>
+		<annotation cp="🖖🏾" type="tts">ברכת וולקנים: סוג עור 5</annotation>
+		<annotation cp="🖖🏿">אצבעות | וולקן | וולקנים | יד | ספוק | סוג עור 6</annotation>
+		<annotation cp="🖖🏿" type="tts">ברכת וולקנים: סוג עור 6</annotation>
+		<annotation cp="🤘🏻">אצבע מורה | זרת | יד | קרניים | סוג עור 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">יד מסמנת קרניים באצבע מורה ובזרת: סוג עור 1–2</annotation>
+		<annotation cp="🤘🏼">אצבע מורה | זרת | יד | קרניים | סוג עור 3</annotation>
+		<annotation cp="🤘🏼" type="tts">יד מסמנת קרניים באצבע מורה ובזרת: סוג עור 3</annotation>
+		<annotation cp="🤘🏽">אצבע מורה | זרת | יד | קרניים | סוג עור 4</annotation>
+		<annotation cp="🤘🏽" type="tts">יד מסמנת קרניים באצבע מורה ובזרת: סוג עור 4</annotation>
+		<annotation cp="🤘🏾">אצבע מורה | זרת | יד | קרניים | סוג עור 5</annotation>
+		<annotation cp="🤘🏾" type="tts">יד מסמנת קרניים באצבע מורה ובזרת: סוג עור 5</annotation>
+		<annotation cp="🤘🏿">אצבע מורה | זרת | יד | קרניים | סוג עור 6</annotation>
+		<annotation cp="🤘🏿" type="tts">יד מסמנת קרניים באצבע מורה ובזרת: סוג עור 6</annotation>
+		<annotation cp="🤙🏻">יד | תתקשר | סוג עור 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">יד מסמנת ’תתקשר אליי’: סוג עור 1–2</annotation>
+		<annotation cp="🤙🏼">יד | תתקשר | סוג עור 3</annotation>
+		<annotation cp="🤙🏼" type="tts">יד מסמנת ’תתקשר אליי’: סוג עור 3</annotation>
+		<annotation cp="🤙🏽">יד | תתקשר | סוג עור 4</annotation>
+		<annotation cp="🤙🏽" type="tts">יד מסמנת ’תתקשר אליי’: סוג עור 4</annotation>
+		<annotation cp="🤙🏾">יד | תתקשר | סוג עור 5</annotation>
+		<annotation cp="🤙🏾" type="tts">יד מסמנת ’תתקשר אליי’: סוג עור 5</annotation>
+		<annotation cp="🤙🏿">יד | תתקשר | סוג עור 6</annotation>
+		<annotation cp="🤙🏿" type="tts">יד מסמנת ’תתקשר אליי’: סוג עור 6</annotation>
+		<annotation cp="🖐🏻">חמסה | יד | כיף | מורמת | פתוחה | סוג עור 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">כף יד פתוחה מורמת: סוג עור 1–2</annotation>
+		<annotation cp="🖐🏼">חמסה | יד | כיף | מורמת | פתוחה | סוג עור 3</annotation>
+		<annotation cp="🖐🏼" type="tts">כף יד פתוחה מורמת: סוג עור 3</annotation>
+		<annotation cp="🖐🏽">חמסה | יד | כיף | מורמת | פתוחה | סוג עור 4</annotation>
+		<annotation cp="🖐🏽" type="tts">כף יד פתוחה מורמת: סוג עור 4</annotation>
+		<annotation cp="🖐🏾">חמסה | יד | כיף | מורמת | פתוחה | סוג עור 5</annotation>
+		<annotation cp="🖐🏾" type="tts">כף יד פתוחה מורמת: סוג עור 5</annotation>
+		<annotation cp="🖐🏿">חמסה | יד | כיף | מורמת | פתוחה | סוג עור 6</annotation>
+		<annotation cp="🖐🏿" type="tts">כף יד פתוחה מורמת: סוג עור 6</annotation>
+		<annotation cp="✋🏻">יד | מורמת | עצור | סוג עור 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">כף יד מורמת: סוג עור 1–2</annotation>
+		<annotation cp="✋🏼">יד | מורמת | עצור | סוג עור 3</annotation>
+		<annotation cp="✋🏼" type="tts">כף יד מורמת: סוג עור 3</annotation>
+		<annotation cp="✋🏽">יד | מורמת | עצור | סוג עור 4</annotation>
+		<annotation cp="✋🏽" type="tts">כף יד מורמת: סוג עור 4</annotation>
+		<annotation cp="✋🏾">יד | מורמת | עצור | סוג עור 5</annotation>
+		<annotation cp="✋🏾" type="tts">כף יד מורמת: סוג עור 5</annotation>
+		<annotation cp="✋🏿">יד | מורמת | עצור | סוג עור 6</annotation>
+		<annotation cp="✋🏿" type="tts">כף יד מורמת: סוג עור 6</annotation>
+		<annotation cp="👌🏻">ok | אוקיי | אישור | בסדר | יד | סוג עור 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">יד מסמנת OK: סוג עור 1–2</annotation>
+		<annotation cp="👌🏼">ok | אוקיי | אישור | בסדר | יד | סוג עור 3</annotation>
+		<annotation cp="👌🏼" type="tts">יד מסמנת OK: סוג עור 3</annotation>
+		<annotation cp="👌🏽">ok | אוקיי | אישור | בסדר | יד | סוג עור 4</annotation>
+		<annotation cp="👌🏽" type="tts">יד מסמנת OK: סוג עור 4</annotation>
+		<annotation cp="👌🏾">ok | אוקיי | אישור | בסדר | יד | סוג עור 5</annotation>
+		<annotation cp="👌🏾" type="tts">יד מסמנת OK: סוג עור 5</annotation>
+		<annotation cp="👌🏿">ok | אוקיי | אישור | בסדר | יד | סוג עור 6</annotation>
+		<annotation cp="👌🏿" type="tts">יד מסמנת OK: סוג עור 6</annotation>
+		<annotation cp="👍🏻">אגודל | אהבתי | אישור | טוב | לייק | למעלה | סבבה | סוג עור 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">אגודל למעלה: סוג עור 1–2</annotation>
+		<annotation cp="👍🏼">אגודל | אהבתי | אישור | טוב | לייק | למעלה | סבבה | סוג עור 3</annotation>
+		<annotation cp="👍🏼" type="tts">אגודל למעלה: סוג עור 3</annotation>
+		<annotation cp="👍🏽">אגודל | אהבתי | אישור | טוב | לייק | למעלה | סבבה | סוג עור 4</annotation>
+		<annotation cp="👍🏽" type="tts">אגודל למעלה: סוג עור 4</annotation>
+		<annotation cp="👍🏾">אגודל | אהבתי | אישור | טוב | לייק | למעלה | סבבה | סוג עור 5</annotation>
+		<annotation cp="👍🏾" type="tts">אגודל למעלה: סוג עור 5</annotation>
+		<annotation cp="👍🏿">אגודל | אהבתי | אישור | טוב | לייק | למעלה | סבבה | סוג עור 6</annotation>
+		<annotation cp="👍🏿" type="tts">אגודל למעלה: סוג עור 6</annotation>
+		<annotation cp="👎🏻">לא אהבתי | לא טוב | למטה | סוג עור 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">אגודל למטה: סוג עור 1–2</annotation>
+		<annotation cp="👎🏼">לא אהבתי | לא טוב | למטה | סוג עור 3</annotation>
+		<annotation cp="👎🏼" type="tts">אגודל למטה: סוג עור 3</annotation>
+		<annotation cp="👎🏽">לא אהבתי | לא טוב | למטה | סוג עור 4</annotation>
+		<annotation cp="👎🏽" type="tts">אגודל למטה: סוג עור 4</annotation>
+		<annotation cp="👎🏾">לא אהבתי | לא טוב | למטה | סוג עור 5</annotation>
+		<annotation cp="👎🏾" type="tts">אגודל למטה: סוג עור 5</annotation>
+		<annotation cp="👎🏿">לא אהבתי | לא טוב | למטה | סוג עור 6</annotation>
+		<annotation cp="👎🏿" type="tts">אגודל למטה: סוג עור 6</annotation>
+		<annotation cp="✊🏻">אגרוף | אלימות | כוח | מכה | סוג עור 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">אגרוף מורם: סוג עור 1–2</annotation>
+		<annotation cp="✊🏼">אגרוף | אלימות | כוח | מכה | סוג עור 3</annotation>
+		<annotation cp="✊🏼" type="tts">אגרוף מורם: סוג עור 3</annotation>
+		<annotation cp="✊🏽">אגרוף | אלימות | כוח | מכה | סוג עור 4</annotation>
+		<annotation cp="✊🏽" type="tts">אגרוף מורם: סוג עור 4</annotation>
+		<annotation cp="✊🏾">אגרוף | אלימות | כוח | מכה | סוג עור 5</annotation>
+		<annotation cp="✊🏾" type="tts">אגרוף מורם: סוג עור 5</annotation>
+		<annotation cp="✊🏿">אגרוף | אלימות | כוח | מכה | סוג עור 6</annotation>
+		<annotation cp="✊🏿" type="tts">אגרוף מורם: סוג עור 6</annotation>
+		<annotation cp="👊🏻">אגרוף | אלימות | כוח | מכה | סוג עור 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">מכת אגרוף: סוג עור 1–2</annotation>
+		<annotation cp="👊🏼">אגרוף | אלימות | כוח | מכה | סוג עור 3</annotation>
+		<annotation cp="👊🏼" type="tts">מכת אגרוף: סוג עור 3</annotation>
+		<annotation cp="👊🏽">אגרוף | אלימות | כוח | מכה | סוג עור 4</annotation>
+		<annotation cp="👊🏽" type="tts">מכת אגרוף: סוג עור 4</annotation>
+		<annotation cp="👊🏾">אגרוף | אלימות | כוח | מכה | סוג עור 5</annotation>
+		<annotation cp="👊🏾" type="tts">מכת אגרוף: סוג עור 5</annotation>
+		<annotation cp="👊🏿">אגרוף | אלימות | כוח | מכה | סוג עור 6</annotation>
+		<annotation cp="👊🏿" type="tts">מכת אגרוף: סוג עור 6</annotation>
+		<annotation cp="🤛🏻">אגרוף | שמאלה | סוג עור 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">יד קמוצה שמאלה: סוג עור 1–2</annotation>
+		<annotation cp="🤛🏼">אגרוף | שמאלה | סוג עור 3</annotation>
+		<annotation cp="🤛🏼" type="tts">יד קמוצה שמאלה: סוג עור 3</annotation>
+		<annotation cp="🤛🏽">אגרוף | שמאלה | סוג עור 4</annotation>
+		<annotation cp="🤛🏽" type="tts">יד קמוצה שמאלה: סוג עור 4</annotation>
+		<annotation cp="🤛🏾">אגרוף | שמאלה | סוג עור 5</annotation>
+		<annotation cp="🤛🏾" type="tts">יד קמוצה שמאלה: סוג עור 5</annotation>
+		<annotation cp="🤛🏿">אגרוף | שמאלה | סוג עור 6</annotation>
+		<annotation cp="🤛🏿" type="tts">יד קמוצה שמאלה: סוג עור 6</annotation>
+		<annotation cp="🤜🏻">אגרוף | ימינה | סוג עור 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">יד קמוצה ימינה: סוג עור 1–2</annotation>
+		<annotation cp="🤜🏼">אגרוף | ימינה | סוג עור 3</annotation>
+		<annotation cp="🤜🏼" type="tts">יד קמוצה ימינה: סוג עור 3</annotation>
+		<annotation cp="🤜🏽">אגרוף | ימינה | סוג עור 4</annotation>
+		<annotation cp="🤜🏽" type="tts">יד קמוצה ימינה: סוג עור 4</annotation>
+		<annotation cp="🤜🏾">אגרוף | ימינה | סוג עור 5</annotation>
+		<annotation cp="🤜🏾" type="tts">יד קמוצה ימינה: סוג עור 5</annotation>
+		<annotation cp="🤜🏿">אגרוף | ימינה | סוג עור 6</annotation>
+		<annotation cp="🤜🏿" type="tts">יד קמוצה ימינה: סוג עור 6</annotation>
+		<annotation cp="🤚🏻">גב יד | כלפי מעלה | סוג עור 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">גב יד פרוש: סוג עור 1–2</annotation>
+		<annotation cp="🤚🏼">גב יד | כלפי מעלה | סוג עור 3</annotation>
+		<annotation cp="🤚🏼" type="tts">גב יד פרוש: סוג עור 3</annotation>
+		<annotation cp="🤚🏽">גב יד | כלפי מעלה | סוג עור 4</annotation>
+		<annotation cp="🤚🏽" type="tts">גב יד פרוש: סוג עור 4</annotation>
+		<annotation cp="🤚🏾">גב יד | כלפי מעלה | סוג עור 5</annotation>
+		<annotation cp="🤚🏾" type="tts">גב יד פרוש: סוג עור 5</annotation>
+		<annotation cp="🤚🏿">גב יד | כלפי מעלה | סוג עור 6</annotation>
+		<annotation cp="🤚🏿" type="tts">גב יד פרוש: סוג עור 6</annotation>
+		<annotation cp="👋🏻">ביי | יד | להתראות | מנופפת | סוג עור 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">יד מנופפת: סוג עור 1–2</annotation>
+		<annotation cp="👋🏼">ביי | יד | להתראות | מנופפת | סוג עור 3</annotation>
+		<annotation cp="👋🏼" type="tts">יד מנופפת: סוג עור 3</annotation>
+		<annotation cp="👋🏽">ביי | יד | להתראות | מנופפת | סוג עור 4</annotation>
+		<annotation cp="👋🏽" type="tts">יד מנופפת: סוג עור 4</annotation>
+		<annotation cp="👋🏾">ביי | יד | להתראות | מנופפת | סוג עור 5</annotation>
+		<annotation cp="👋🏾" type="tts">יד מנופפת: סוג עור 5</annotation>
+		<annotation cp="👋🏿">ביי | יד | להתראות | מנופפת | סוג עור 6</annotation>
+		<annotation cp="👋🏿" type="tts">יד מנופפת: סוג עור 6</annotation>
+		<annotation cp="✍🏻">יד | כותבת | כתב יד | כתיבה | סוג עור 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">יד כותבת: סוג עור 1–2</annotation>
+		<annotation cp="✍🏼">יד | כותבת | כתב יד | כתיבה | סוג עור 3</annotation>
+		<annotation cp="✍🏼" type="tts">יד כותבת: סוג עור 3</annotation>
+		<annotation cp="✍🏽">יד | כותבת | כתב יד | כתיבה | סוג עור 4</annotation>
+		<annotation cp="✍🏽" type="tts">יד כותבת: סוג עור 4</annotation>
+		<annotation cp="✍🏾">יד | כותבת | כתב יד | כתיבה | סוג עור 5</annotation>
+		<annotation cp="✍🏾" type="tts">יד כותבת: סוג עור 5</annotation>
+		<annotation cp="✍🏿">יד | כותבת | כתב יד | כתיבה | סוג עור 6</annotation>
+		<annotation cp="✍🏿" type="tts">יד כותבת: סוג עור 6</annotation>
+		<annotation cp="👏🏻">הדרן | ידיים | כל הכבוד | סוג עור 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">מחיאות כפיים: סוג עור 1–2</annotation>
+		<annotation cp="👏🏼">הדרן | ידיים | כל הכבוד | סוג עור 3</annotation>
+		<annotation cp="👏🏼" type="tts">מחיאות כפיים: סוג עור 3</annotation>
+		<annotation cp="👏🏽">הדרן | ידיים | כל הכבוד | סוג עור 4</annotation>
+		<annotation cp="👏🏽" type="tts">מחיאות כפיים: סוג עור 4</annotation>
+		<annotation cp="👏🏾">הדרן | ידיים | כל הכבוד | סוג עור 5</annotation>
+		<annotation cp="👏🏾" type="tts">מחיאות כפיים: סוג עור 5</annotation>
+		<annotation cp="👏🏿">הדרן | ידיים | כל הכבוד | סוג עור 6</annotation>
+		<annotation cp="👏🏿" type="tts">מחיאות כפיים: סוג עור 6</annotation>
+		<annotation cp="👐🏻">ידיים פתוחות | קבלה | סוג עור 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">כפות ידיים פתוחות: סוג עור 1–2</annotation>
+		<annotation cp="👐🏼">ידיים פתוחות | קבלה | סוג עור 3</annotation>
+		<annotation cp="👐🏼" type="tts">כפות ידיים פתוחות: סוג עור 3</annotation>
+		<annotation cp="👐🏽">ידיים פתוחות | קבלה | סוג עור 4</annotation>
+		<annotation cp="👐🏽" type="tts">כפות ידיים פתוחות: סוג עור 4</annotation>
+		<annotation cp="👐🏾">ידיים פתוחות | קבלה | סוג עור 5</annotation>
+		<annotation cp="👐🏾" type="tts">כפות ידיים פתוחות: סוג עור 5</annotation>
+		<annotation cp="👐🏿">ידיים פתוחות | קבלה | סוג עור 6</annotation>
+		<annotation cp="👐🏿" type="tts">כפות ידיים פתוחות: סוג עור 6</annotation>
+		<annotation cp="🙌🏻">כפות ידיים | סימן | שמחה | סוג עור 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">כפות ידיים מורמות: סוג עור 1–2</annotation>
+		<annotation cp="🙌🏼">כפות ידיים | סימן | שמחה | סוג עור 3</annotation>
+		<annotation cp="🙌🏼" type="tts">כפות ידיים מורמות: סוג עור 3</annotation>
+		<annotation cp="🙌🏽">כפות ידיים | סימן | שמחה | סוג עור 4</annotation>
+		<annotation cp="🙌🏽" type="tts">כפות ידיים מורמות: סוג עור 4</annotation>
+		<annotation cp="🙌🏾">כפות ידיים | סימן | שמחה | סוג עור 5</annotation>
+		<annotation cp="🙌🏾" type="tts">כפות ידיים מורמות: סוג עור 5</annotation>
+		<annotation cp="🙌🏿">כפות ידיים | סימן | שמחה | סוג עור 6</annotation>
+		<annotation cp="🙌🏿" type="tts">כפות ידיים מורמות: סוג עור 6</annotation>
+		<annotation cp="🙏🏻">כפות ידיים | סימן ידיים | תודה | תפילה | סוג עור 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">כפות ידיים מוצמדות: סוג עור 1–2</annotation>
+		<annotation cp="🙏🏼">כפות ידיים | סימן ידיים | תודה | תפילה | סוג עור 3</annotation>
+		<annotation cp="🙏🏼" type="tts">כפות ידיים מוצמדות: סוג עור 3</annotation>
+		<annotation cp="🙏🏽">כפות ידיים | סימן ידיים | תודה | תפילה | סוג עור 4</annotation>
+		<annotation cp="🙏🏽" type="tts">כפות ידיים מוצמדות: סוג עור 4</annotation>
+		<annotation cp="🙏🏾">כפות ידיים | סימן ידיים | תודה | תפילה | סוג עור 5</annotation>
+		<annotation cp="🙏🏾" type="tts">כפות ידיים מוצמדות: סוג עור 5</annotation>
+		<annotation cp="🙏🏿">כפות ידיים | סימן ידיים | תודה | תפילה | סוג עור 6</annotation>
+		<annotation cp="🙏🏿" type="tts">כפות ידיים מוצמדות: סוג עור 6</annotation>
+		<annotation cp="💅🏻">טיפוח | לק | מניקור | ציפורניים | קוסמטיקה | סוג עור 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">מריחת לק על ציפורניים: סוג עור 1–2</annotation>
+		<annotation cp="💅🏼">טיפוח | לק | מניקור | ציפורניים | קוסמטיקה | סוג עור 3</annotation>
+		<annotation cp="💅🏼" type="tts">מריחת לק על ציפורניים: סוג עור 3</annotation>
+		<annotation cp="💅🏽">טיפוח | לק | מניקור | ציפורניים | קוסמטיקה | סוג עור 4</annotation>
+		<annotation cp="💅🏽" type="tts">מריחת לק על ציפורניים: סוג עור 4</annotation>
+		<annotation cp="💅🏾">טיפוח | לק | מניקור | ציפורניים | קוסמטיקה | סוג עור 5</annotation>
+		<annotation cp="💅🏾" type="tts">מריחת לק על ציפורניים: סוג עור 5</annotation>
+		<annotation cp="💅🏿">טיפוח | לק | מניקור | ציפורניים | קוסמטיקה | סוג עור 6</annotation>
+		<annotation cp="💅🏿" type="tts">מריחת לק על ציפורניים: סוג עור 6</annotation>
+		<annotation cp="👂🏻">לשמוע | צליל | סוג עור 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">אוזן: סוג עור 1–2</annotation>
+		<annotation cp="👂🏼">לשמוע | צליל | סוג עור 3</annotation>
+		<annotation cp="👂🏼" type="tts">אוזן: סוג עור 3</annotation>
+		<annotation cp="👂🏽">לשמוע | צליל | סוג עור 4</annotation>
+		<annotation cp="👂🏽" type="tts">אוזן: סוג עור 4</annotation>
+		<annotation cp="👂🏾">לשמוע | צליל | סוג עור 5</annotation>
+		<annotation cp="👂🏾" type="tts">אוזן: סוג עור 5</annotation>
+		<annotation cp="👂🏿">לשמוע | צליל | סוג עור 6</annotation>
+		<annotation cp="👂🏿" type="tts">אוזן: סוג עור 6</annotation>
+		<annotation cp="👃🏻">להריח | ריח | סוג עור 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">אף: סוג עור 1–2</annotation>
+		<annotation cp="👃🏼">להריח | ריח | סוג עור 3</annotation>
+		<annotation cp="👃🏼" type="tts">אף: סוג עור 3</annotation>
+		<annotation cp="👃🏽">להריח | ריח | סוג עור 4</annotation>
+		<annotation cp="👃🏽" type="tts">אף: סוג עור 4</annotation>
+		<annotation cp="👃🏾">להריח | ריח | סוג עור 5</annotation>
+		<annotation cp="👃🏾" type="tts">אף: סוג עור 5</annotation>
+		<annotation cp="👃🏿">להריח | ריח | סוג עור 6</annotation>
+		<annotation cp="👃🏿" type="tts">אף: סוג עור 6</annotation>
+		<annotation cp="#⃣">מספר | סולמית</annotation>
+		<annotation cp="#⃣" type="tts">לחצן סולמית</annotation>
+		<annotation cp="*⃣">כוכבית</annotation>
+		<annotation cp="*⃣" type="tts">לחצן כוכבית</annotation>
+		<annotation cp="🇦🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇨" type="tts">האי אסנשן</annotation>
+		<annotation cp="🇦🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇩" type="tts">אנדורה</annotation>
+		<annotation cp="🇦🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇪" type="tts">איחוד האמירויות הערביות</annotation>
+		<annotation cp="🇦🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇫" type="tts">אפגניסטן</annotation>
+		<annotation cp="🇦🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇬" type="tts">אנטיגואה וברבודה</annotation>
+		<annotation cp="🇦🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇮" type="tts">אנגילה</annotation>
+		<annotation cp="🇦🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇱" type="tts">אלבניה</annotation>
+		<annotation cp="🇦🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇲" type="tts">ארמניה</annotation>
+		<annotation cp="🇦🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇴" type="tts">אנגולה</annotation>
+		<annotation cp="🇦🇶">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇶" type="tts">אנטארקטיקה</annotation>
+		<annotation cp="🇦🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇷" type="tts">ארגנטינה</annotation>
+		<annotation cp="🇦🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇸" type="tts">סמואה האמריקנית</annotation>
+		<annotation cp="🇦🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇹" type="tts">אוסטריה</annotation>
+		<annotation cp="🇦🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇺" type="tts">אוסטרליה</annotation>
+		<annotation cp="🇦🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇼" type="tts">ארובה</annotation>
+		<annotation cp="🇦🇽">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇽" type="tts">איי אולנד</annotation>
+		<annotation cp="🇦🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇦🇿" type="tts">אזרבייג׳ן</annotation>
+		<annotation cp="🇧🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇦" type="tts">בוסניה והרצגובינה</annotation>
+		<annotation cp="🇧🇧">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇧" type="tts">ברבדוס</annotation>
+		<annotation cp="🇧🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇩" type="tts">בנגלדש</annotation>
+		<annotation cp="🇧🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇪" type="tts">בלגיה</annotation>
+		<annotation cp="🇧🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇫" type="tts">בורקינה פאסו</annotation>
+		<annotation cp="🇧🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇬" type="tts">בולגריה</annotation>
+		<annotation cp="🇧🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇭" type="tts">בחריין</annotation>
+		<annotation cp="🇧🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇮" type="tts">בורונדי</annotation>
+		<annotation cp="🇧🇯">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇯" type="tts">בנין</annotation>
+		<annotation cp="🇧🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇱" type="tts">סנט ברתולומיאו</annotation>
+		<annotation cp="🇧🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇲" type="tts">ברמודה</annotation>
+		<annotation cp="🇧🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇳" type="tts">ברוניי</annotation>
+		<annotation cp="🇧🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇴" type="tts">בוליביה</annotation>
+		<annotation cp="🇧🇶">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇶" type="tts">האיים הקריביים ההולנדיים</annotation>
+		<annotation cp="🇧🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇷" type="tts">ברזיל</annotation>
+		<annotation cp="🇧🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇸" type="tts">איי בהאמה</annotation>
+		<annotation cp="🇧🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇹" type="tts">בהוטן</annotation>
+		<annotation cp="🇧🇻">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇻" type="tts">איי בובה</annotation>
+		<annotation cp="🇧🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇼" type="tts">בוצוואנה</annotation>
+		<annotation cp="🇧🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇾" type="tts">בלארוס</annotation>
+		<annotation cp="🇧🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇧🇿" type="tts">בליז</annotation>
+		<annotation cp="🇨🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇦" type="tts">קנדה</annotation>
+		<annotation cp="🇨🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇨" type="tts">איי קוקוס (קילינג)</annotation>
+		<annotation cp="🇨🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇩" type="tts">קונגו - קינשאסה</annotation>
+		<annotation cp="🇨🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇫" type="tts">הרפובליקה של מרכז אפריקה</annotation>
+		<annotation cp="🇨🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇬" type="tts">קונגו - ברזאויל</annotation>
+		<annotation cp="🇨🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇭" type="tts">שווייץ</annotation>
+		<annotation cp="🇨🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇮" type="tts">חוף השנהב</annotation>
+		<annotation cp="🇨🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇰" type="tts">איי קוק</annotation>
+		<annotation cp="🇨🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇱" type="tts">צ׳ילה</annotation>
+		<annotation cp="🇨🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇲" type="tts">קמרון</annotation>
+		<annotation cp="🇨🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇳" type="tts">סין</annotation>
+		<annotation cp="🇨🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇴" type="tts">קולומביה</annotation>
+		<annotation cp="🇨🇵">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇵" type="tts">האי קליפרטון</annotation>
+		<annotation cp="🇨🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇷" type="tts">קוסטה ריקה</annotation>
+		<annotation cp="🇨🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇺" type="tts">קובה</annotation>
+		<annotation cp="🇨🇻">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇻" type="tts">כף ורדה</annotation>
+		<annotation cp="🇨🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇼" type="tts">קוראסאו</annotation>
+		<annotation cp="🇨🇽">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇽" type="tts">האי כריסטמס</annotation>
+		<annotation cp="🇨🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇾" type="tts">קפריסין</annotation>
+		<annotation cp="🇨🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇨🇿" type="tts">צ׳כיה</annotation>
+		<annotation cp="🇩🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇩🇪" type="tts">גרמניה</annotation>
+		<annotation cp="🇩🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇩🇬" type="tts">דייגו גרסיה</annotation>
+		<annotation cp="🇩🇯">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇩🇯" type="tts">ג׳יבוטי</annotation>
+		<annotation cp="🇩🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇩🇰" type="tts">דנמרק</annotation>
+		<annotation cp="🇩🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇩🇲" type="tts">דומיניקה</annotation>
+		<annotation cp="🇩🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇩🇴" type="tts">הרפובליקה הדומיניקנית</annotation>
+		<annotation cp="🇩🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇩🇿" type="tts">אלג׳יריה</annotation>
+		<annotation cp="🇪🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇦" type="tts">סאוטה ומלייה</annotation>
+		<annotation cp="🇪🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇨" type="tts">אקוודור</annotation>
+		<annotation cp="🇪🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇪" type="tts">אסטוניה</annotation>
+		<annotation cp="🇪🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇬" type="tts">מצרים</annotation>
+		<annotation cp="🇪🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇭" type="tts">סהרה המערבית</annotation>
+		<annotation cp="🇪🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇷" type="tts">אריתריאה</annotation>
+		<annotation cp="🇪🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇸" type="tts">ספרד</annotation>
+		<annotation cp="🇪🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇹" type="tts">אתיופיה</annotation>
+		<annotation cp="🇪🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇪🇺" type="tts">האיחוד האירופי</annotation>
+		<annotation cp="🇫🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇫🇮" type="tts">פינלנד</annotation>
+		<annotation cp="🇫🇯">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇫🇯" type="tts">פיג׳י</annotation>
+		<annotation cp="🇫🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇫🇰" type="tts">איי פוקלנד</annotation>
+		<annotation cp="🇫🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇫🇲" type="tts">מיקרונזיה</annotation>
+		<annotation cp="🇫🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇫🇴" type="tts">איי פארו</annotation>
+		<annotation cp="🇫🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇫🇷" type="tts">צרפת</annotation>
+		<annotation cp="🇬🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇦" type="tts">גבון</annotation>
+		<annotation cp="🇬🇧">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇧" type="tts">הממלכה המאוחדת</annotation>
+		<annotation cp="🇬🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇩" type="tts">גרנדה</annotation>
+		<annotation cp="🇬🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇪" type="tts">גאורגיה</annotation>
+		<annotation cp="🇬🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇫" type="tts">גיאנה הצרפתית</annotation>
+		<annotation cp="🇬🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇬" type="tts">גרנסי</annotation>
+		<annotation cp="🇬🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇭" type="tts">גאנה</annotation>
+		<annotation cp="🇬🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇮" type="tts">גיברלטר</annotation>
+		<annotation cp="🇬🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇱" type="tts">גרינלנד</annotation>
+		<annotation cp="🇬🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇲" type="tts">גמביה</annotation>
+		<annotation cp="🇬🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇳" type="tts">גינאה</annotation>
+		<annotation cp="🇬🇵">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇵" type="tts">גוואדלופ</annotation>
+		<annotation cp="🇬🇶">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇶" type="tts">גינאה המשוונית</annotation>
+		<annotation cp="🇬🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇷" type="tts">יוון</annotation>
+		<annotation cp="🇬🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇸" type="tts">ג׳ורג׳יה הדרומית ואיי סנדוויץ׳ הדרומיים</annotation>
+		<annotation cp="🇬🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇹" type="tts">גואטמלה</annotation>
+		<annotation cp="🇬🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇺" type="tts">גואם</annotation>
+		<annotation cp="🇬🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇼" type="tts">גינאה ביסאו</annotation>
+		<annotation cp="🇬🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇬🇾" type="tts">גיאנה</annotation>
+		<annotation cp="🇭🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇭🇰" type="tts">הונג קונג (מחוז מנהלי מיוחד של סין)</annotation>
+		<annotation cp="🇭🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇭🇲" type="tts">איי הרד ומקדונלד</annotation>
+		<annotation cp="🇭🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇭🇳" type="tts">הונדורס</annotation>
+		<annotation cp="🇭🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇭🇷" type="tts">קרואטיה</annotation>
+		<annotation cp="🇭🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇭🇹" type="tts">האיטי</annotation>
+		<annotation cp="🇭🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇭🇺" type="tts">הונגריה</annotation>
+		<annotation cp="🇮🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇨" type="tts">האיים הקנריים</annotation>
+		<annotation cp="🇮🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇩" type="tts">אינדונזיה</annotation>
+		<annotation cp="🇮🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇪" type="tts">אירלנד</annotation>
+		<annotation cp="🇮🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇱" type="tts">ישראל</annotation>
+		<annotation cp="🇮🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇲" type="tts">האי מאן</annotation>
+		<annotation cp="🇮🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇳" type="tts">הודו</annotation>
+		<annotation cp="🇮🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇴" type="tts">הטריטוריה הבריטית באוקיינוס ההודי</annotation>
+		<annotation cp="🇮🇶">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇶" type="tts">עיראק</annotation>
+		<annotation cp="🇮🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇷" type="tts">איראן</annotation>
+		<annotation cp="🇮🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇸" type="tts">איסלנד</annotation>
+		<annotation cp="🇮🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇮🇹" type="tts">איטליה</annotation>
+		<annotation cp="🇯🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇯🇪" type="tts">ג׳רסי</annotation>
+		<annotation cp="🇯🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇯🇲" type="tts">ג׳מייקה</annotation>
+		<annotation cp="🇯🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇯🇴" type="tts">ירדן</annotation>
+		<annotation cp="🇯🇵">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇯🇵" type="tts">יפן</annotation>
+		<annotation cp="🇰🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇪" type="tts">קניה</annotation>
+		<annotation cp="🇰🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇬" type="tts">קירגיזסטן</annotation>
+		<annotation cp="🇰🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇭" type="tts">קמבודיה</annotation>
+		<annotation cp="🇰🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇮" type="tts">קיריבאטי</annotation>
+		<annotation cp="🇰🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇲" type="tts">קומורו</annotation>
+		<annotation cp="🇰🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇳" type="tts">סנט קיטס ונוויס</annotation>
+		<annotation cp="🇰🇵">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇵" type="tts">קוריאה הצפונית</annotation>
+		<annotation cp="🇰🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇷" type="tts">קוריאה הדרומית</annotation>
+		<annotation cp="🇰🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇼" type="tts">כווית</annotation>
+		<annotation cp="🇰🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇾" type="tts">איי קיימן</annotation>
+		<annotation cp="🇰🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇰🇿" type="tts">קזחסטן</annotation>
+		<annotation cp="🇱🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇦" type="tts">לאוס</annotation>
+		<annotation cp="🇱🇧">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇧" type="tts">לבנון</annotation>
+		<annotation cp="🇱🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇨" type="tts">סנט לוסיה</annotation>
+		<annotation cp="🇱🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇮" type="tts">ליכטנשטיין</annotation>
+		<annotation cp="🇱🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇰" type="tts">סרי לנקה</annotation>
+		<annotation cp="🇱🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇷" type="tts">ליבריה</annotation>
+		<annotation cp="🇱🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇸" type="tts">לסוטו</annotation>
+		<annotation cp="🇱🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇹" type="tts">ליטא</annotation>
+		<annotation cp="🇱🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇺" type="tts">לוקסמבורג</annotation>
+		<annotation cp="🇱🇻">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇻" type="tts">לטביה</annotation>
+		<annotation cp="🇱🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇱🇾" type="tts">לוב</annotation>
+		<annotation cp="🇲🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇦" type="tts">מרוקו</annotation>
+		<annotation cp="🇲🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇨" type="tts">מונקו</annotation>
+		<annotation cp="🇲🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇩" type="tts">מולדובה</annotation>
+		<annotation cp="🇲🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇪" type="tts">מונטנגרו</annotation>
+		<annotation cp="🇲🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇫" type="tts">סן מרטן</annotation>
+		<annotation cp="🇲🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇬" type="tts">מדגסקר</annotation>
+		<annotation cp="🇲🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇭" type="tts">איי מרשל</annotation>
+		<annotation cp="🇲🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇰" type="tts">מקדוניה</annotation>
+		<annotation cp="🇲🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇱" type="tts">מאלי</annotation>
+		<annotation cp="🇲🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇲" type="tts">מיאנמר (בורמה)</annotation>
+		<annotation cp="🇲🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇳" type="tts">מונגוליה</annotation>
+		<annotation cp="🇲🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇴" type="tts">מקאו (מחוז מנהלי מיוחד של סין)</annotation>
+		<annotation cp="🇲🇵">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇵" type="tts">איי מריאנה הצפוניים</annotation>
+		<annotation cp="🇲🇶">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇶" type="tts">מרטיניק</annotation>
+		<annotation cp="🇲🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇷" type="tts">מאוריטניה</annotation>
+		<annotation cp="🇲🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇸" type="tts">מונסראט</annotation>
+		<annotation cp="🇲🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇹" type="tts">מלטה</annotation>
+		<annotation cp="🇲🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇺" type="tts">מאוריציוס</annotation>
+		<annotation cp="🇲🇻">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇻" type="tts">האיים המלדיביים</annotation>
+		<annotation cp="🇲🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇼" type="tts">מלאווי</annotation>
+		<annotation cp="🇲🇽">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇽" type="tts">מקסיקו</annotation>
+		<annotation cp="🇲🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇾" type="tts">מלזיה</annotation>
+		<annotation cp="🇲🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇲🇿" type="tts">מוזמביק</annotation>
+		<annotation cp="🇳🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇦" type="tts">נמיביה</annotation>
+		<annotation cp="🇳🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇨" type="tts">קלדוניה החדשה</annotation>
+		<annotation cp="🇳🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇪" type="tts">ניז׳ר</annotation>
+		<annotation cp="🇳🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇫" type="tts">איי נורפוק</annotation>
+		<annotation cp="🇳🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇬" type="tts">ניגריה</annotation>
+		<annotation cp="🇳🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇮" type="tts">ניקרגואה</annotation>
+		<annotation cp="🇳🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇱" type="tts">הולנד</annotation>
+		<annotation cp="🇳🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇴" type="tts">נורווגיה</annotation>
+		<annotation cp="🇳🇵">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇵" type="tts">נפאל</annotation>
+		<annotation cp="🇳🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇷" type="tts">נאורו</annotation>
+		<annotation cp="🇳🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇺" type="tts">ניווה</annotation>
+		<annotation cp="🇳🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇳🇿" type="tts">ניו זילנד</annotation>
+		<annotation cp="🇴🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇴🇲" type="tts">עומאן</annotation>
+		<annotation cp="🇵🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇦" type="tts">פנמה</annotation>
+		<annotation cp="🇵🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇪" type="tts">פרו</annotation>
+		<annotation cp="🇵🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇫" type="tts">פולינזיה הצרפתית</annotation>
+		<annotation cp="🇵🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇬" type="tts">פפואה גינאה החדשה</annotation>
+		<annotation cp="🇵🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇭" type="tts">הפיליפינים</annotation>
+		<annotation cp="🇵🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇰" type="tts">פקיסטן</annotation>
+		<annotation cp="🇵🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇱" type="tts">פולין</annotation>
+		<annotation cp="🇵🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇲" type="tts">סנט פייר ומיקלון</annotation>
+		<annotation cp="🇵🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇳" type="tts">איי פיטקרן</annotation>
+		<annotation cp="🇵🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇷" type="tts">פוארטו ריקו</annotation>
+		<annotation cp="🇵🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇸" type="tts">השטחים הפלסטיניים</annotation>
+		<annotation cp="🇵🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇹" type="tts">פורטוגל</annotation>
+		<annotation cp="🇵🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇼" type="tts">פלאו</annotation>
+		<annotation cp="🇵🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇵🇾" type="tts">פרגוואי</annotation>
+		<annotation cp="🇶🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇶🇦" type="tts">קטאר</annotation>
+		<annotation cp="🇷🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇷🇪" type="tts">ראוניון</annotation>
+		<annotation cp="🇷🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇷🇴" type="tts">רומניה</annotation>
+		<annotation cp="🇷🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇷🇸" type="tts">סרביה</annotation>
+		<annotation cp="🇷🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇷🇺" type="tts">רוסיה</annotation>
+		<annotation cp="🇷🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇷🇼" type="tts">רואנדה</annotation>
+		<annotation cp="🇸🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇦" type="tts">ערב הסעודית</annotation>
+		<annotation cp="🇸🇧">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇧" type="tts">איי שלמה</annotation>
+		<annotation cp="🇸🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇨" type="tts">איי סיישל</annotation>
+		<annotation cp="🇸🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇩" type="tts">סודן</annotation>
+		<annotation cp="🇸🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇪" type="tts">שוודיה</annotation>
+		<annotation cp="🇸🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇬" type="tts">סינגפור</annotation>
+		<annotation cp="🇸🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇭" type="tts">סנט הלנה</annotation>
+		<annotation cp="🇸🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇮" type="tts">סלובניה</annotation>
+		<annotation cp="🇸🇯">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇯" type="tts">סוולבארד ויאן מאיין</annotation>
+		<annotation cp="🇸🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇰" type="tts">סלובקיה</annotation>
+		<annotation cp="🇸🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇱" type="tts">סיירה לאונה</annotation>
+		<annotation cp="🇸🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇲" type="tts">סן מרינו</annotation>
+		<annotation cp="🇸🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇳" type="tts">סנגל</annotation>
+		<annotation cp="🇸🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇴" type="tts">סומליה</annotation>
+		<annotation cp="🇸🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇷" type="tts">סורינם</annotation>
+		<annotation cp="🇸🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇸" type="tts">דרום סודן</annotation>
+		<annotation cp="🇸🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇹" type="tts">סאו טומה ופרינסיפה</annotation>
+		<annotation cp="🇸🇻">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇻" type="tts">אל סלבדור</annotation>
+		<annotation cp="🇸🇽">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇽" type="tts">סנט מארטן</annotation>
+		<annotation cp="🇸🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇾" type="tts">סוריה</annotation>
+		<annotation cp="🇸🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇸🇿" type="tts">סווזילנד</annotation>
+		<annotation cp="🇹🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇦" type="tts">טריסטן דה קונה</annotation>
+		<annotation cp="🇹🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇨" type="tts">איי טורקס וקאיקוס</annotation>
+		<annotation cp="🇹🇩">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇩" type="tts">צ׳אד</annotation>
+		<annotation cp="🇹🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇫" type="tts">הטריטוריות הדרומיות של צרפת</annotation>
+		<annotation cp="🇹🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇬" type="tts">טוגו</annotation>
+		<annotation cp="🇹🇭">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇭" type="tts">תאילנד</annotation>
+		<annotation cp="🇹🇯">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇯" type="tts">טג׳יקיסטן</annotation>
+		<annotation cp="🇹🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇰" type="tts">טוקלאו</annotation>
+		<annotation cp="🇹🇱">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇱" type="tts">טימור לסטה</annotation>
+		<annotation cp="🇹🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇲" type="tts">טורקמניסטן</annotation>
+		<annotation cp="🇹🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇳" type="tts">טוניסיה</annotation>
+		<annotation cp="🇹🇴">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇴" type="tts">טונגה</annotation>
+		<annotation cp="🇹🇷">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇷" type="tts">טורקיה</annotation>
+		<annotation cp="🇹🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇹" type="tts">טרינידד וטובגו</annotation>
+		<annotation cp="🇹🇻">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇻" type="tts">טובאלו</annotation>
+		<annotation cp="🇹🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇼" type="tts">טייוואן</annotation>
+		<annotation cp="🇹🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇹🇿" type="tts">טנזניה</annotation>
+		<annotation cp="🇺🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇺🇦" type="tts">אוקראינה</annotation>
+		<annotation cp="🇺🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇺🇬" type="tts">אוגנדה</annotation>
+		<annotation cp="🇺🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇺🇲" type="tts">האיים המרוחקים הקטנים של ארה״ב</annotation>
+		<annotation cp="🇺🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇺🇳" type="tts">האומות המאוחדות</annotation>
+		<annotation cp="🇺🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇺🇸" type="tts">ארצות הברית</annotation>
+		<annotation cp="🇺🇾">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇺🇾" type="tts">אורוגוואי</annotation>
+		<annotation cp="🇺🇿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇺🇿" type="tts">אוזבקיסטן</annotation>
+		<annotation cp="🇻🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇻🇦" type="tts">הוותיקן</annotation>
+		<annotation cp="🇻🇨">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇻🇨" type="tts">סנט וינסנט והגרנדינים</annotation>
+		<annotation cp="🇻🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇻🇪" type="tts">ונצואלה</annotation>
+		<annotation cp="🇻🇬">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇻🇬" type="tts">איי הבתולה הבריטיים</annotation>
+		<annotation cp="🇻🇮">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇻🇮" type="tts">איי הבתולה של ארצות הברית</annotation>
+		<annotation cp="🇻🇳">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇻🇳" type="tts">וייטנאם</annotation>
+		<annotation cp="🇻🇺">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇻🇺" type="tts">ונואטו</annotation>
+		<annotation cp="🇼🇫">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇼🇫" type="tts">איי ווליס ופוטונה</annotation>
+		<annotation cp="🇼🇸">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇼🇸" type="tts">סמואה</annotation>
+		<annotation cp="🇽🇰">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇽🇰" type="tts">קוסובו</annotation>
+		<annotation cp="🇾🇪">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇾🇪" type="tts">תימן</annotation>
+		<annotation cp="🇾🇹">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇾🇹" type="tts">מאיוט</annotation>
+		<annotation cp="🇿🇦">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇿🇦" type="tts">דרום אפריקה</annotation>
+		<annotation cp="🇿🇲">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇿🇲" type="tts">זמביה</annotation>
+		<annotation cp="🇿🇼">דגל בצבעי הקשת</annotation>
+		<annotation cp="🇿🇼" type="tts">זימבבואה</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">אנגליה</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">סקוטלנד</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">דגל בצבעי הקשת</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">ווילס</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,2418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="my"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">၀၊ ကီးခလုတျ၊ သုည</annotation>
+		<annotation cp="0⃣" type="tts">သုည ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="1⃣">၁၊ ကီးခလုတ်၊ တစ်</annotation>
+		<annotation cp="1⃣" type="tts">၁ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="2⃣">၂ ၊ ကီးခလုတ်၊ နှစ်</annotation>
+		<annotation cp="2⃣" type="tts">၂ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="3⃣">၃၊ ကီးခလုတ်၊ သုံး</annotation>
+		<annotation cp="3⃣" type="tts">၃ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="4⃣">၄၊ ကီးခလုတ်၊ လေး</annotation>
+		<annotation cp="4⃣" type="tts">၄ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="5⃣">၅၊ ကီးခလုတ်၊ ငါး</annotation>
+		<annotation cp="5⃣" type="tts">၅ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="6⃣">၆၊ ကီးခလုတ်၊ ခြောက်</annotation>
+		<annotation cp="6⃣" type="tts">၆ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="7⃣">၇၊ ကီးခလုတျ၊ ခုနစျ</annotation>
+		<annotation cp="7⃣" type="tts">၇ ဂဏနျး ခလုတျ</annotation>
+		<annotation cp="8⃣">၈၊ ကီးခလုတ်၊ ရှစ်</annotation>
+		<annotation cp="8⃣" type="tts">၈ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="9⃣">၉၊ ကီးခလုတ်၊ ကိုး</annotation>
+		<annotation cp="9⃣" type="tts">၉ ဂဏန်း ခလုတ်</annotation>
+		<annotation cp="👶🏻">ကလေး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👶🏻" type="tts">ကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👶🏼">ကလေး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👶🏼" type="tts">ကလေး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👶🏽">ကလေး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👶🏽" type="tts">ကလေး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👶🏾">ကလေး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👶🏾" type="tts">ကလေး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👶🏿">ကလေး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👶🏿" type="tts">ကလေး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👦🏻">ယောက်ျားကလေး | အဖို | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👦🏻" type="tts">ယောက်ျားကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👦🏼">ယောက်ျားကလေး | အဖို | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👦🏼" type="tts">ယောက်ျားကလေး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👦🏽">ယောက်ျားကလေး | အဖို | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👦🏽" type="tts">ယောက်ျားကလေး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👦🏾">ယောက်ျားကလေး | အဖို | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👦🏾" type="tts">ယောက်ျားကလေး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👦🏿">ယောက်ျားကလေး | အဖို | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👦🏿" type="tts">ယောက်ျားကလေး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👧🏻">မိန်းကလေး၊ အပျို၊ ရာသီ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👧🏻" type="tts">မိန်းကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👧🏼">မိန်းကလေး၊ အပျို၊ ရာသီ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👧🏼" type="tts">မိန်းကလေး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👧🏽">မိန်းကလေး၊ အပျို၊ ရာသီ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👧🏽" type="tts">မိန်းကလေး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👧🏾">မိန်းကလေး၊ အပျို၊ ရာသီ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👧🏾" type="tts">မိန်းကလေး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👧🏿">မိန်းကလေး၊ အပျို၊ ရာသီ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👧🏿" type="tts">မိန်းကလေး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻">အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻" type="tts">အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼">အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼" type="tts">အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽">အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽" type="tts">အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾">အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾" type="tts">အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿">အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿" type="tts">အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻">အမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻" type="tts">အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼">အမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼" type="tts">အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽">အမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽" type="tts">အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾">အမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾" type="tts">အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿">အမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿" type="tts">အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👴🏻">သက်ကြီး၊ အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👴🏻" type="tts">သက်ကြီး အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👴🏼">သက်ကြီး၊ အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👴🏼" type="tts">သက်ကြီး အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👴🏽">သက်ကြီး၊ အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👴🏽" type="tts">သက်ကြီး အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👴🏾">သက်ကြီး၊ အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👴🏾" type="tts">သက်ကြီး အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👴🏿">သက်ကြီး၊ အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👴🏿" type="tts">သက်ကြီး အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👵🏻">သက်ကြီး၊ အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👵🏻" type="tts">သက်ကြီး အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👵🏼">သက်ကြီး၊ အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👵🏼" type="tts">သက်ကြီး အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👵🏽">သက်ကြီး၊ အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👵🏽" type="tts">သက်ကြီး အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👵🏾">သက်ကြီး၊ အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👵🏾" type="tts">သက်ကြီး အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👵🏿">သက်ကြီး၊ အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👵🏿" type="tts">သက်ကြီး အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">အမျိုးသား ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">အမျိုးသား ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">အမျိုးသား ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">အမျိုးသား ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">အမျိုးသား ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အမ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">အမျိုးသမီး ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အမ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">အမျိုးသမီး ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အမ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">အမျိုးသမီး ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အမ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">အမျိုးသမီး ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အမ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">အမျိုးသမီး ကျန်းမာရေးလုပ်သား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🎓">ကျောင်းသား | ဘွဲ့ရ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">ကျောင်းသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🎓">ကျောင်းသား | ဘွဲ့ရ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">ကျောင်းသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🎓">ကျောင်းသား | ဘွဲ့ရ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">ကျောင်းသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🎓">ကျောင်းသား | ဘွဲ့ရ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">ကျောင်းသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🎓">ကျောင်းသား | ဘွဲ့ရ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">ကျောင်းသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🎓">ကျောင်းသူ | ဘွဲ့ရ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">ကျောင်းသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🎓">ကျောင်းသူ | ဘွဲ့ရ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">ကျောင်းသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🎓">ကျောင်းသူ | ဘွဲ့ရ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">ကျောင်းသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🎓">ကျောင်းသူ | ဘွဲ့ရ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">ကျောင်းသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🎓">ကျောင်းသူ | ဘွဲ့ရ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">ကျောင်းသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🏫">ဆရာ | နည်းပြ | ပါမောက္ခ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">ဆရာ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🏫">ဆရာ | နည်းပြ | ပါမောက္ခ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">ဆရာ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🏫">ဆရာ | နည်းပြ | ပါမောက္ခ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">ဆရာ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🏫">ဆရာ | နည်းပြ | ပါမောက္ခ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">ဆရာ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🏫">ဆရာ | နည်းပြ | ပါမောက္ခ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">ဆရာ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🏫">ဆရာမ | နည်းပြ | ပါမောက္ခ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">ဆရာမ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🏫">ဆရာမ | နည်းပြ | ပါမောက္ခ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">ဆရာမ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🏫">ဆရာမ | နည်းပြ | ပါမောက္ခ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">ဆရာမ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🏫">ဆရာမ | နည်းပြ | ပါမောက္ခ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">ဆရာမ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🏫">ဆရာမ | နည်းပြ | ပါမောက္ခ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">ဆရာမ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍⚖">တရားသူကြီး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">အမျိုးသား တရားသူကြီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍⚖">တရားသူကြီး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">အမျိုးသား တရားသူကြီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍⚖">တရားသူကြီး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">အမျိုးသား တရားသူကြီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍⚖">တရားသူကြီး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">အမျိုးသား တရားသူကြီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍⚖">တရားသူကြီး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">အမျိုးသား တရားသူကြီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍⚖">တရားသူကြီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">အမျိုးသမီး တရားသူကြီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍⚖">တရားသူကြီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">အမျိုးသမီး တရားသူကြီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍⚖">တရားသူကြီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">အမျိုးသမီး တရားသူကြီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍⚖">တရားသူကြီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">အမျိုးသမီး တရားသူကြီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍⚖">တရားသူကြီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">အမျိုးသမီး တရားသူကြီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🌾">ကောက်စိုက်သူ | ပန်းပျိုးသူ | လယ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">လယ်သမား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🌾">ကောက်စိုက်သူ | ပန်းပျိုးသူ | လယ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">လယ်သမား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🌾">ကောက်စိုက်သူ | ပန်းပျိုးသူ | လယ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">လယ်သမား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🌾">ကောက်စိုက်သူ | ပန်းပျိုးသူ | လယ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">လယ်သမား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🌾">ကောက်စိုက်သူ | ပန်းပျိုးသူ | လယ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">လယ်သမား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🌾">ကောက်စိုက်သမ | ပန်းပျိုးသူ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">ကောက်စိုက်သမ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🌾">ကောက်စိုက်သမ | ပန်းပျိုးသူ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">ကောက်စိုက်သမ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🌾">ကောက်စိုက်သမ | ပန်းပျိုးသူ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">ကောက်စိုက်သမ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🌾">ကောက်စိုက်သမ | ပန်းပျိုးသူ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">ကောက်စိုက်သမ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🌾">ကောက်စိုက်သမ | ပန်းပျိုးသူ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">ကောက်စိုက်သမ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🍳">စားဖိုမှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">အမျိုးသား စားဖိုမှူး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🍳">စားဖိုမှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">အမျိုးသား စားဖိုမှူး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🍳">စားဖိုမှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">အမျိုးသား စားဖိုမှူး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🍳">စားဖိုမှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">အမျိုးသား စားဖိုမှူး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🍳">စားဖိုမှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">အမျိုးသား စားဖိုမှူး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🍳">စားဖိုမှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">အမျိုးသမီး စားဖိုမှူး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🍳">စားဖိုမှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">အမျိုးသမီး စားဖိုမှူး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🍳">စားဖိုမှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">အမျိုးသမီး စားဖိုမှူး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🍳">စားဖိုမှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">အမျိုးသမီး စားဖိုမှူး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🍳">စားဖိုမှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">အမျိုးသမီး စားဖိုမှူး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသား | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">အမျိုးသား စက်ပြင်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသား | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">အမျိုးသား စက်ပြင်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသား | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">အမျိုးသား စက်ပြင်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသား | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">အမျိုးသား စက်ပြင်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသား | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">အမျိုးသား စက်ပြင်သူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသမီး | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">အမျိုးသမီး စက်ပြင်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသမီး | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">အမျိုးသမီး စက်ပြင်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသမီး | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">အမျိုးသမီး စက်ပြင်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသမီး | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">အမျိုးသမီး စက်ပြင်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | အမျိုးသမီး | အရောင်းအဝယ်သမား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">အမျိုးသမီး စက်ပြင်သူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🏭">စက်ရုံ | အမျိုးသား | အလုပ်သမား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">စက်ရုံလုပ်သား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🏭">စက်ရုံ | အမျိုးသား | အလုပ်သမား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">စက်ရုံလုပ်သား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🏭">စက်ရုံ | အမျိုးသား | အလုပ်သမား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">စက်ရုံလုပ်သား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🏭">စက်ရုံ | အမျိုးသား | အလုပ်သမား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">စက်ရုံလုပ်သား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🏭">စက်ရုံ | အမျိုးသား | အလုပ်သမား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">စက်ရုံလုပ်သား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🏭">စက်ရုံ | အမျိုးသမီး | အလုပ်သမ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">စက်ရုံအလုပ်သမ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🏭">စက်ရုံ | အမျိုးသမီး | အလုပ်သမ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">စက်ရုံအလုပ်သမ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🏭">စက်ရုံ | အမျိုးသမီး | အလုပ်သမ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">စက်ရုံအလုပ်သမ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🏭">စက်ရုံ | အမျိုးသမီး | အလုပ်သမ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">စက်ရုံအလုပ်သမ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🏭">စက်ရုံ | အမျိုးသမီး | အလုပ်သမ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">စက်ရုံအလုပ်သမ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">အမျိုးသား ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">အမျိုးသား ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">အမျိုးသား ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">အမျိုးသား ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">အမျိုးသား ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">အမျိုးသမီး ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">အမျိုးသမီး ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">အမျိုးသမီး ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">အမျိုးသမီး ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍💼">စီးပွားရေး | ရုံး | အင်ဂျင်နီယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">အမျိုးသမီး ရုံးဝန်ထမ်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">အမျိုးသား သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">အမျိုးသား သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">အမျိုးသား သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">အမျိုးသား သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">အမျိုးသား သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">အမျိုးသမီး သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">အမျိုးသမီး သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">အမျိုးသမီး သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">အမျိုးသမီး သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | သင်္ချာပညာရှင် | သိပ္ပံပညာရှင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">အမျိုးသမီး သိပ္ပံပညာရှင် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">အမျိုးသား နည်းပညာရှင် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">အမျိုးသား နည်းပညာရှင် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">အမျိုးသား နည်းပညာရှင် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">အမျိုးသား နည်းပညာရှင် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">အမျိုးသား နည်းပညာရှင် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">အမျိုးသမီး နည်းပညာရှင် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">အမျိုးသမီး နည်းပညာရှင် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">အမျိုးသမီး နည်းပညာရှင် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">အမျိုးသမီး နည်းပညာရှင် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | နည်းပညာရှင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">အမျိုးသမီး နည်းပညာရှင် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">အမျိုးသား အဆိုတော် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">အမျိုးသား အဆိုတော် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">အမျိုးသား အဆိုတော် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">အမျိုးသား အဆိုတော် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">အမျိုးသား အဆိုတော် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">အမျိုးသမီး အဆိုတော် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">အမျိုးသမီး အဆိုတော် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">အမျိုးသမီး အဆိုတော် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">အမျိုးသမီး အဆိုတော် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🎤">နာမည်ကျော် | ဖျော်ဖြေတင်ဆက်သူ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">အမျိုးသမီး အဆိုတော် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">ပန်းချီဆရာ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">ပန်းချီဆရာ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">ပန်းချီဆရာ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">ပန်းချီဆရာ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">ပန်းချီဆရာ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">ပန်းချီဆရာမ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">ပန်းချီဆရာမ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">ပန်းချီဆရာမ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">ပန်းချီဆရာမ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🎨">ဆေးရောင်ခြယ် | အနုပညာရှင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">ပန်းချီဆရာမ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">အမျိုးသား လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">အမျိုးသား လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">အမျိုးသား လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">အမျိုးသား လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">အမျိုးသား လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">အမျိုးသမီး လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">အမျိုးသမီး လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">အမျိုးသမီး လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">အမျိုးသမီး လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">အမျိုးသမီး လေယာဉ်မှူး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">အမျိုးသား အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">အမျိုးသား အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">အမျိုးသား အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">အမျိုးသား အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">အမျိုးသား အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">အမျိုးသမီး အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">အမျိုးသမီး အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">အမျိုးသမီး အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">အမျိုးသမီး အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🚀">ဒုံးပျံ | အာကာသ | အာကာသလေယာဉ်မှူး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">အမျိုးသမီး အာကာသလေယာဉ်မှူး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏻‍🚒">မီးသတ်ကား | မီးသတ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">မီးသတ်သမား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👨🏼‍🚒">မီးသတ်ကား | မီးသတ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">မီးသတ်သမား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👨🏽‍🚒">မီးသတ်ကား | မီးသတ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">မီးသတ်သမား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👨🏾‍🚒">မီးသတ်ကား | မီးသတ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">မီးသတ်သမား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👨🏿‍🚒">မီးသတ်ကား | မီးသတ်သမား | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">မီးသတ်သမား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏻‍🚒">မီးသတ်ကား | မီးသတ်သမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">မီးသတ်သမ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👩🏼‍🚒">မီးသတ်ကား | မီးသတ်သမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">မီးသတ်သမ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👩🏽‍🚒">မီးသတ်ကား | မီးသတ်သမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">မီးသတ်သမ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👩🏾‍🚒">မီးသတ်ကား | မီးသတ်သမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">မီးသတ်သမ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👩🏿‍🚒">မီးသတ်ကား | မီးသတ်သမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">မီးသတ်သမ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👮🏻">ပုလိပ်၊ ရဲ၊ အရာရှိ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👮🏻" type="tts">ပုလိပ် အရာရှိ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👮🏼">ပုလိပ်၊ ရဲ၊ အရာရှိ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👮🏼" type="tts">ပုလိပ် အရာရှိ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👮🏽">ပုလိပ်၊ ရဲ၊ အရာရှိ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👮🏽" type="tts">ပုလိပ် အရာရှိ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👮🏾">ပုလိပ်၊ ရဲ၊ အရာရှိ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👮🏾" type="tts">ပုလိပ် အရာရှိ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👮🏿">ပုလိပ်၊ ရဲ၊ အရာရှိ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👮🏿" type="tts">ပုလိပ် အရာရှိ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👮🏻‍♂">ရဲ | အမျိုးသား | အရာရှိ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">အမျိုးသား ရဲအရာရှိ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👮🏼‍♂">ရဲ | အမျိုးသား | အရာရှိ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">အမျိုးသား ရဲအရာရှိ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👮🏽‍♂">ရဲ | အမျိုးသား | အရာရှိ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">အမျိုးသား ရဲအရာရှိ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👮🏾‍♂">ရဲ | အမျိုးသား | အရာရှိ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">အမျိုးသား ရဲအရာရှိ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👮🏿‍♂">ရဲ | အမျိုးသား | အရာရှိ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">အမျိုးသား ရဲအရာရှိ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👮🏻‍♀">ရဲ | အမျိုးသမီး | အရာရှိ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">အမျိုးသမီး ရဲအရာရှိ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👮🏼‍♀">ရဲ | အမျိုးသမီး | အရာရှိ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">အမျိုးသမီး ရဲအရာရှိ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👮🏽‍♀">ရဲ | အမျိုးသမီး | အရာရှိ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">အမျိုးသမီး ရဲအရာရှိ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👮🏾‍♀">ရဲ | အမျိုးသမီး | အရာရှိ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">အမျိုးသမီး ရဲအရာရှိ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👮🏿‍♀">ရဲ | အမျိုးသမီး | အရာရှိ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">အမျိုးသမီး ရဲအရာရှိ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕵🏻">စုံထောက်၊ ထောက်လှမ်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕵🏻" type="tts">စုံထောက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕵🏼">စုံထောက်၊ ထောက်လှမ်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕵🏼" type="tts">စုံထောက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕵🏽">စုံထောက်၊ ထောက်လှမ်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕵🏽" type="tts">စုံထောက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕵🏾">စုံထောက်၊ ထောက်လှမ်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕵🏾" type="tts">စုံထောက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕵🏿">စုံထောက်၊ ထောက်လှမ်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕵🏿" type="tts">စုံထောက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕵🏻‍♂">စုံထောက် | သူလျှို | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">အမျိုးသား စုံထောက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕵🏼‍♂">စုံထောက် | သူလျှို | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">အမျိုးသား စုံထောက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕵🏽‍♂">စုံထောက် | သူလျှို | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">အမျိုးသား စုံထောက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕵🏾‍♂">စုံထောက် | သူလျှို | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">အမျိုးသား စုံထောက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕵🏿‍♂">စုံထောက် | သူလျှို | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">အမျိုးသား စုံထောက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕵🏻‍♀">စုံထောက် | သူလျှို | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">အမျိုးသမီး စုံထောက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕵🏼‍♀">စုံထောက် | သူလျှို | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">အမျိုးသမီး စုံထောက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕵🏽‍♀">စုံထောက် | သူလျှို | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">အမျိုးသမီး စုံထောက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕵🏾‍♀">စုံထောက် | သူလျှို | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">အမျိုးသမီး စုံထောက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕵🏿‍♀">စုံထောက် | သူလျှို | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">အမျိုးသမီး စုံထောက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💂🏻">အစောင့် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💂🏻" type="tts">သက်တော်စောင့် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💂🏼">အစောင့် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💂🏼" type="tts">သက်တော်စောင့် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💂🏽">အစောင့် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💂🏽" type="tts">သက်တော်စောင့် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💂🏾">အစောင့် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💂🏾" type="tts">သက်တော်စောင့် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💂🏿">အစောင့် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💂🏿" type="tts">သက်တော်စောင့် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💂🏻‍♂">အစောင့် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">အမျိုးသား အစောင့် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💂🏼‍♂">အစောင့် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">အမျိုးသား အစောင့် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💂🏽‍♂">အစောင့် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">အမျိုးသား အစောင့် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💂🏾‍♂">အစောင့် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">အမျိုးသား အစောင့် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💂🏿‍♂">အစောင့် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">အမျိုးသား အစောင့် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💂🏻‍♀">အစောင့် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">အမျိုးသမီး အစောင့် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💂🏼‍♀">အစောင့် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">အမျိုးသမီး အစောင့် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💂🏽‍♀">အစောင့် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">အမျိုးသမီး အစောင့် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💂🏾‍♀">အစောင့် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">အမျိုးသမီး အစောင့် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💂🏿‍♀">အစောင့် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">အမျိုးသမီး အစောင့် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👷🏻">ဆောက်လုပ်ခြင်း၊ ဦးထုပ်၊ လုပ်သား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👷🏻" type="tts">ဆောက်လုပ်ရေး လုပ်သား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👷🏼">ဆောက်လုပ်ခြင်း၊ ဦးထုပ်၊ လုပ်သား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👷🏼" type="tts">ဆောက်လုပ်ရေး လုပ်သား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👷🏽">ဆောက်လုပ်ခြင်း၊ ဦးထုပ်၊ လုပ်သား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👷🏽" type="tts">ဆောက်လုပ်ရေး လုပ်သား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👷🏾">ဆောက်လုပ်ခြင်း၊ ဦးထုပ်၊ လုပ်သား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👷🏾" type="tts">ဆောက်လုပ်ရေး လုပ်သား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👷🏿">ဆောက်လုပ်ခြင်း၊ ဦးထုပ်၊ လုပ်သား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👷🏿" type="tts">ဆောက်လုပ်ရေး လုပ်သား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👷🏻‍♂">ဆောက်လုပ်ရေး | အလုပ်သမား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">ဆောက်လုပ်ရေးအလုပ်သမား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👷🏼‍♂">ဆောက်လုပ်ရေး | အလုပ်သမား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">ဆောက်လုပ်ရေးအလုပ်သမား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👷🏽‍♂">ဆောက်လုပ်ရေး | အလုပ်သမား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">ဆောက်လုပ်ရေးအလုပ်သမား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👷🏾‍♂">ဆောက်လုပ်ရေး | အလုပ်သမား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">ဆောက်လုပ်ရေးအလုပ်သမား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👷🏿‍♂">ဆောက်လုပ်ရေး | အလုပ်သမား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">ဆောက်လုပ်ရေးအလုပ်သမား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👷🏻‍♀">ဆောက်လုပ်ရေး | အလုပ်သမ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">ဆောက်လုပ်ရေးအလုပ်သမ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👷🏼‍♀">ဆောက်လုပ်ရေး | အလုပ်သမ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">ဆောက်လုပ်ရေးအလုပ်သမ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👷🏽‍♀">ဆောက်လုပ်ရေး | အလုပ်သမ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">ဆောက်လုပ်ရေးအလုပ်သမ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👷🏾‍♀">ဆောက်လုပ်ရေး | အလုပ်သမ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">ဆောက်လုပ်ရေးအလုပ်သမ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👷🏿‍♀">ဆောက်လုပ်ရေး | အလုပ်သမ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">ဆောက်လုပ်ရေးအလုပ်သမ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤴🏻">အိမ်ရှေ့မင်းသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤴🏻" type="tts">အိမ်ရှေ့မင်းသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤴🏼">အိမ်ရှေ့မင်းသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤴🏼" type="tts">အိမ်ရှေ့မင်းသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤴🏽">အိမ်ရှေ့မင်းသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤴🏽" type="tts">အိမ်ရှေ့မင်းသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤴🏾">အိမ်ရှေ့မင်းသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤴🏾" type="tts">အိမ်ရှေ့မင်းသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤴🏿">အိမ်ရှေ့မင်းသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤴🏿" type="tts">အိမ်ရှေ့မင်းသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👸🏻">မင်းသမီး၊ စိတ်ကူးယဥ်၊ ပုံပြင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👸🏻" type="tts">မင်းသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👸🏼">မင်းသမီး၊ စိတ်ကူးယဥ်၊ ပုံပြင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👸🏼" type="tts">မင်းသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👸🏽">မင်းသမီး၊ စိတ်ကူးယဥ်၊ ပုံပြင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👸🏽" type="tts">မင်းသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👸🏾">မင်းသမီး၊ စိတ်ကူးယဥ်၊ ပုံပြင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👸🏾" type="tts">မင်းသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👸🏿">မင်းသမီး၊ စိတ်ကူးယဥ်၊ ပုံပြင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👸🏿" type="tts">မင်းသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👳🏻">ဗောင်းထုပ်၊ လူ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👳🏻" type="tts">ဗောင်းထုပ်နှင့်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👳🏼">ဗောင်းထုပ်၊ လူ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👳🏼" type="tts">ဗောင်းထုပ်နှင့်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👳🏽">ဗောင်းထုပ်၊ လူ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👳🏽" type="tts">ဗောင်းထုပ်နှင့်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👳🏾">ဗောင်းထုပ်၊ လူ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👳🏾" type="tts">ဗောင်းထုပ်နှင့်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👳🏿">ဗောင်းထုပ်၊ လူ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👳🏿" type="tts">ဗောင်းထုပ်နှင့်သူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👳🏻‍♂">ခေါင်းပေါင်း | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👳🏼‍♂">ခေါင်းပေါင်း | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👳🏽‍♂">ခေါင်းပေါင်း | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👳🏾‍♂">ခေါင်းပေါင်း | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👳🏿‍♂">ခေါင်းပေါင်း | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👳🏻‍♀">ခေါင်းပေါင်း | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👳🏼‍♀">ခေါင်းပေါင်း | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👳🏽‍♀">ခေါင်းပေါင်း | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👳🏾‍♀">ခေါင်းပေါင်း | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👳🏿‍♀">ခေါင်းပေါင်း | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">ခေါင်းပေါင်းနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👲🏻">တရုတ်၊ ဦးထုပ်၊ လူ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👲🏻" type="tts">တရုတ်ဦးထုပ်နှင့်လူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👲🏼">တရုတ်၊ ဦးထုပ်၊ လူ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👲🏼" type="tts">တရုတ်ဦးထုပ်နှင့်လူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👲🏽">တရုတ်၊ ဦးထုပ်၊ လူ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👲🏽" type="tts">တရုတ်ဦးထုပ်နှင့်လူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👲🏾">တရုတ်၊ ဦးထုပ်၊ လူ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👲🏾" type="tts">တရုတ်ဦးထုပ်နှင့်လူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👲🏿">တရုတ်၊ ဦးထုပ်၊ လူ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👲🏿" type="tts">တရုတ်ဦးထုပ်နှင့်လူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👱🏻">ရွှေရောင်ဆံကေသာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👱🏻" type="tts">ရွှေရောင်ဆံကေသာရှိသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👱🏼">ရွှေရောင်ဆံကေသာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👱🏼" type="tts">ရွှေရောင်ဆံကေသာရှိသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👱🏽">ရွှေရောင်ဆံကေသာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👱🏽" type="tts">ရွှေရောင်ဆံကေသာရှိသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👱🏾">ရွှေရောင်ဆံကေသာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👱🏾" type="tts">ရွှေရောင်ဆံကေသာရှိသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👱🏿">ရွှေရောင်ဆံကေသာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👱🏿" type="tts">ရွှေရောင်ဆံကေသာရှိသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👱🏻‍♂">ရွှေရောင်ဆံကေသာ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👱🏼‍♂">ရွှေရောင်ဆံကေသာ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👱🏽‍♂">ရွှေရောင်ဆံကေသာ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👱🏾‍♂">ရွှေရောင်ဆံကေသာ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👱🏿‍♂">ရွှေရောင်ဆံကေသာ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👱🏻‍♀">ရွှေရောင်ဆံကေသာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👱🏼‍♀">ရွှေရောင်ဆံကေသာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👱🏽‍♀">ရွှေရောင်ဆံကေသာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👱🏾‍♀">ရွှေရောင်ဆံကေသာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👱🏿‍♀">ရွှေရောင်ဆံကေသာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤵🏻">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤵🏻" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤵🏼">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤵🏼" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤵🏽">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤵🏽" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤵🏾">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤵🏾" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤵🏿">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤵🏿" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👰🏻">မျက်နှာလွှာ၊ ဇာ၊ သတို့သမီး၊ မင်္ဂလာဆောင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👰🏻" type="tts">မျက်နှာလွှာဇာနှင့် သတို့သမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👰🏼">မျက်နှာလွှာ၊ ဇာ၊ သတို့သမီး၊ မင်္ဂလာဆောင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👰🏼" type="tts">မျက်နှာလွှာဇာနှင့် သတို့သမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👰🏽">မျက်နှာလွှာ၊ ဇာ၊ သတို့သမီး၊ မင်္ဂလာဆောင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👰🏽" type="tts">မျက်နှာလွှာဇာနှင့် သတို့သမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👰🏾">မျက်နှာလွှာ၊ ဇာ၊ သတို့သမီး၊ မင်္ဂလာဆောင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👰🏾" type="tts">မျက်နှာလွှာဇာနှင့် သတို့သမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👰🏿">မျက်နှာလွှာ၊ ဇာ၊ သတို့သမီး၊ မင်္ဂလာဆောင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👰🏿" type="tts">မျက်နှာလွှာဇာနှင့် သတို့သမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤰🏻">ကိုယ်ဝန်ဆောင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤰🏻" type="tts">ကိုယ်ဝန်ဆောင်အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤰🏼">ကိုယ်ဝန်ဆောင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤰🏼" type="tts">ကိုယ်ဝန်ဆောင်အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤰🏽">ကိုယ်ဝန်ဆောင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤰🏽" type="tts">ကိုယ်ဝန်ဆောင်အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤰🏾">ကိုယ်ဝန်ဆောင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤰🏾" type="tts">ကိုယ်ဝန်ဆောင်အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤰🏿">ကိုယ်ဝန်ဆောင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤰🏿" type="tts">ကိုယ်ဝန်ဆောင်အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👼🏻">နတ်သမီး၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊၊ ကလေး၊ မျက်နှာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👼🏻" type="tts">နတ်သမီးကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👼🏼">နတ်သမီး၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊၊ ကလေး၊ မျက်နှာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👼🏼" type="tts">နတ်သမီးကလေး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👼🏽">နတ်သမီး၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊၊ ကလေး၊ မျက်နှာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👼🏽" type="tts">နတ်သမီးကလေး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👼🏾">နတ်သမီး၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊၊ ကလေး၊ မျက်နှာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👼🏾" type="tts">နတ်သမီးကလေး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👼🏿">နတ်သမီး၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊၊ ကလေး၊ မျက်နှာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👼🏿" type="tts">နတ်သမီးကလေး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🎅🏻">နှစ်သစ်၊ ခရစ္စမတ်၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊ ဆန်တာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🎅🏻" type="tts">ဆန်တာ ကလောစ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🎅🏼">နှစ်သစ်၊ ခရစ္စမတ်၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊ ဆန်တာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🎅🏼" type="tts">ဆန်တာ ကလောစ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🎅🏽">နှစ်သစ်၊ ခရစ္စမတ်၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊ ဆန်တာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🎅🏽" type="tts">ဆန်တာ ကလောစ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🎅🏾">နှစ်သစ်၊ ခရစ္စမတ်၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊ ဆန်တာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🎅🏾" type="tts">ဆန်တာ ကလောစ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🎅🏿">နှစ်သစ်၊ ခရစ္စမတ်၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊ ဆန်တာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🎅🏿" type="tts">ဆန်တာ ကလောစ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤶🏻">ခရစ်စမတ် | မစ္စစ် စန်တာကလော့စ် | မိခင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤶🏻" type="tts">မစ္စစ် စန်တာကလော့စ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤶🏼">ခရစ်စမတ် | မစ္စစ် စန်တာကလော့စ် | မိခင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤶🏼" type="tts">မစ္စစ် စန်တာကလော့စ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤶🏽">ခရစ်စမတ် | မစ္စစ် စန်တာကလော့စ် | မိခင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤶🏽" type="tts">မစ္စစ် စန်တာကလော့စ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤶🏾">ခရစ်စမတ် | မစ္စစ် စန်တာကလော့စ် | မိခင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤶🏾" type="tts">မစ္စစ် စန်တာကလော့စ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤶🏿">ခရစ်စမတ် | မစ္စစ် စန်တာကလော့စ် | မိခင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤶🏿" type="tts">မစ္စစ် စန်တာကလော့စ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙍🏻">မျက်မှောင်ကြုတ်၊ အမူအရာ၊ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙍🏻" type="tts">မျက်မှောင်ကြုတ်နေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙍🏼">မျက်မှောင်ကြုတ်၊ အမူအရာ၊ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙍🏼" type="tts">မျက်မှောင်ကြုတ်နေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙍🏽">မျက်မှောင်ကြုတ်၊ အမူအရာ၊ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙍🏽" type="tts">မျက်မှောင်ကြုတ်နေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙍🏾">မျက်မှောင်ကြုတ်၊ အမူအရာ၊ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙍🏾" type="tts">မျက်မှောင်ကြုတ်နေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙍🏿">မျက်မှောင်ကြုတ်၊ အမူအရာ၊ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙍🏿" type="tts">မျက်မှောင်ကြုတ်နေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙍🏻‍♂">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙍🏼‍♂">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙍🏽‍♂">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙍🏾‍♂">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙍🏿‍♂">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙍🏻‍♀">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙍🏼‍♀">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙍🏽‍♀">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙍🏾‍♀">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙍🏿‍♀">ဝမ်းနည်းကြေကွဲ | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">ဝမ်းနည်းကြေကွဲနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙎🏻">စူတူတူ၊ အမူအရာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙎🏻" type="tts">စူတူတူ လူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙎🏼">စူတူတူ၊ အမူအရာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙎🏼" type="tts">စူတူတူ လူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙎🏽">စူတူတူ၊ အမူအရာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙎🏽" type="tts">စူတူတူ လူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙎🏾">စူတူတူ၊ အမူအရာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙎🏾" type="tts">စူတူတူ လူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙎🏿">စူတူတူ၊ အမူအရာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙎🏿" type="tts">စူတူတူ လူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙎🏻‍♂">စိတ်တို | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">စိတ်တိုနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙎🏼‍♂">စိတ်တို | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">စိတ်တိုနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙎🏽‍♂">စိတ်တို | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">စိတ်တိုနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙎🏾‍♂">စိတ်တို | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">စိတ်တိုနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙎🏿‍♂">စိတ်တို | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">စိတ်တိုနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙎🏻‍♀">စိတ်တို | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">စိတ်တိုနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙎🏼‍♀">စိတ်တို | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">စိတ်တိုနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙎🏽‍♀">စိတ်တို | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">စိတ်တိုနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙎🏾‍♀">စိတ်တို | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">စိတ်တိုနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙎🏿‍♀">စိတ်တို | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">စိတ်တိုနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙅🏻">မလို၊ လက်ဟန်၊ တားမြစ်၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙅🏻" type="tts">မလို လက်ဟန် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙅🏼">မလို၊ လက်ဟန်၊ တားမြစ်၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙅🏼" type="tts">မလို လက်ဟန် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙅🏽">မလို၊ လက်ဟန်၊ တားမြစ်၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙅🏽" type="tts">မလို လက်ဟန် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙅🏾">မလို၊ လက်ဟန်၊ တားမြစ်၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙅🏾" type="tts">မလို လက်ဟန် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙅🏿">မလို၊ လက်ဟန်၊ တားမြစ်၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙅🏿" type="tts">မလို လက်ဟန် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙅🏻‍♂">တားမြစ် | လက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙅🏼‍♂">တားမြစ် | လက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙅🏽‍♂">တားမြစ် | လက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙅🏾‍♂">တားမြစ် | လက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙅🏿‍♂">တားမြစ် | လက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙅🏻‍♀">တားမြစ် | လက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙅🏼‍♀">တားမြစ် | လက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙅🏽‍♀">တားမြစ် | လက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙅🏾‍♀">တားမြစ် | လက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙅🏿‍♀">တားမြစ် | လက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">တားမြစ်ကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙆🏻">အိုကေ၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙆🏻" type="tts">အိုကေ လက်ဟန် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙆🏼">အိုကေ၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙆🏼" type="tts">အိုကေ လက်ဟန် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙆🏽">အိုကေ၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙆🏽" type="tts">အိုကေ လက်ဟန် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙆🏾">အိုကေ၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙆🏾" type="tts">အိုကေ လက်ဟန် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙆🏿">အိုကေ၊ လက်၊ အမူအရာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙆🏿" type="tts">အိုကေ လက်ဟန် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙆🏻‍♂">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသား | အိုကေ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙆🏼‍♂">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသား | အိုကေ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙆🏽‍♂">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသား | အိုကေ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙆🏾‍♂">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသား | အိုကေ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙆🏿‍♂">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသား | အိုကေ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙆🏻‍♀">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသမီး | အိုကေ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙆🏼‍♀">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသမီး | အိုကေ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙆🏽‍♀">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသမီး | အိုကေ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙆🏾‍♀">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသမီး | အိုကေ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙆🏿‍♀">လက် | အဆင်ပြေ | အမူအယာ | အမျိုးသမီး | အိုကေ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">အဆင်ပြေကြောင်း လက်ဟန်ပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💁🏻">မေး၊ စုံစမ်း၊ အကူအညီ၊ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💁🏻" type="tts">စုံစမ်းရေး စားပွဲမှာထိုင်နေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💁🏼">မေး၊ စုံစမ်း၊ အကူအညီ၊ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💁🏼" type="tts">စုံစမ်းရေး စားပွဲမှာထိုင်နေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💁🏽">မေး၊ စုံစမ်း၊ အကူအညီ၊ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💁🏽" type="tts">စုံစမ်းရေး စားပွဲမှာထိုင်နေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💁🏾">မေး၊ စုံစမ်း၊ အကူအညီ၊ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💁🏾" type="tts">စုံစမ်းရေး စားပွဲမှာထိုင်နေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💁🏿">မေး၊ စုံစမ်း၊ အကူအညီ၊ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💁🏿" type="tts">စုံစမ်းရေး စားပွဲမှာထိုင်နေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💁🏻‍♂">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💁🏼‍♂">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💁🏽‍♂">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💁🏾‍♂">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💁🏿‍♂">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💁🏻‍♀">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💁🏼‍♀">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💁🏽‍♀">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💁🏾‍♀">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💁🏿‍♀">ဘောက်ဆူး | လက် | ဝန်ဆောင်မှုပေး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">လက်ဖြန့်ထားသော ဝန်ဆောင်မှုပေးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙋🏻">လက်ဟန်၊ လက်၊ ပျော်၊ မြှောက်ပြ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙋🏻" type="tts">လက်မြှောက်ပြနေသော ပျော်ရွှင်နေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙋🏼">လက်ဟန်၊ လက်၊ ပျော်၊ မြှောက်ပြ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙋🏼" type="tts">လက်မြှောက်ပြနေသော ပျော်ရွှင်နေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙋🏽">လက်ဟန်၊ လက်၊ ပျော်၊ မြှောက်ပြ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙋🏽" type="tts">လက်မြှောက်ပြနေသော ပျော်ရွှင်နေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙋🏾">လက်ဟန်၊ လက်၊ ပျော်၊ မြှောက်ပြ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙋🏾" type="tts">လက်မြှောက်ပြနေသော ပျော်ရွှင်နေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙋🏿">လက်ဟန်၊ လက်၊ ပျော်၊ မြှောက်ပြ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙋🏿" type="tts">လက်မြှောက်ပြနေသော ပျော်ရွှင်နေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙋🏻‍♂">လက်မြှောက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">လက်မြှောက်ထားသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙋🏼‍♂">လက်မြှောက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">လက်မြှောက်ထားသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙋🏽‍♂">လက်မြှောက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">လက်မြှောက်ထားသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙋🏾‍♂">လက်မြှောက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">လက်မြှောက်ထားသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙋🏿‍♂">လက်မြှောက် | အမူအယာ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">လက်မြှောက်ထားသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙋🏻‍♀">လက်မြှောက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">လက်မြှောက်ထားသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙋🏼‍♀">လက်မြှောက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">လက်မြှောက်ထားသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙋🏽‍♀">လက်မြှောက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">လက်မြှောက်ထားသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙋🏾‍♀">လက်မြှောက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">လက်မြှောက်ထားသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙋🏿‍♀">လက်မြှောက် | အမူအယာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">လက်မြှောက်ထားသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙇🏻">ခွင့်လွှတ်၊ ဦးညွတ်၊ အမူအရာ၊ ဝမ်းနည်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙇🏻" type="tts">ဦးညွတ်နေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙇🏼">ခွင့်လွှတ်၊ ဦးညွတ်၊ အမူအရာ၊ ဝမ်းနည်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙇🏼" type="tts">ဦးညွတ်နေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙇🏽">ခွင့်လွှတ်၊ ဦးညွတ်၊ အမူအရာ၊ ဝမ်းနည်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙇🏽" type="tts">ဦးညွတ်နေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙇🏾">ခွင့်လွှတ်၊ ဦးညွတ်၊ အမူအရာ၊ ဝမ်းနည်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙇🏾" type="tts">ဦးညွတ်နေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙇🏿">ခွင့်လွှတ်၊ ဦးညွတ်၊ အမူအရာ၊ ဝမ်းနည်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙇🏿" type="tts">ဦးညွတ်နေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙇🏻‍♂">တောင်းပန် | အမူအယာ | အမျိုးသား | ဦးညွှတ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙇🏼‍♂">တောင်းပန် | အမူအယာ | အမျိုးသား | ဦးညွှတ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙇🏽‍♂">တောင်းပန် | အမူအယာ | အမျိုးသား | ဦးညွှတ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙇🏾‍♂">တောင်းပန် | အမူအယာ | အမျိုးသား | ဦးညွှတ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙇🏿‍♂">တောင်းပန် | အမူအယာ | အမျိုးသား | ဦးညွှတ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙇🏻‍♀">တောင်းပန် | အမူအယာ | အမျိုးသမီး | ဦးညွှတ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙇🏼‍♀">တောင်းပန် | အမူအယာ | အမျိုးသမီး | ဦးညွှတ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙇🏽‍♀">တောင်းပန် | အမူအယာ | အမျိုးသမီး | ဦးညွှတ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙇🏾‍♀">တောင်းပန် | အမူအယာ | အမျိုးသမီး | ဦးညွှတ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙇🏿‍♀">တောင်းပန် | အမူအယာ | အမျိုးသမီး | ဦးညွှတ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">ရိုရိုကျိုးကျိုး ဦးညွှတ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤦🏻">စိတ်အနှောင့်အယှက်ဖြစ်နေသော | မယုံကြည်မှု | ရုပ် | လက်ဝါး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤦🏻" type="tts">မျက်နှာလက်ဝါးဖြင့်အုပ်ထားသောရုပ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤦🏼">စိတ်အနှောင့်အယှက်ဖြစ်နေသော | မယုံကြည်မှု | ရုပ် | လက်ဝါး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤦🏼" type="tts">မျက်နှာလက်ဝါးဖြင့်အုပ်ထားသောရုပ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤦🏽">စိတ်အနှောင့်အယှက်ဖြစ်နေသော | မယုံကြည်မှု | ရုပ် | လက်ဝါး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤦🏽" type="tts">မျက်နှာလက်ဝါးဖြင့်အုပ်ထားသောရုပ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤦🏾">စိတ်အနှောင့်အယှက်ဖြစ်နေသော | မယုံကြည်မှု | ရုပ် | လက်ဝါး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤦🏾" type="tts">မျက်နှာလက်ဝါးဖြင့်အုပ်ထားသောရုပ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤦🏿">စိတ်အနှောင့်အယှက်ဖြစ်နေသော | မယုံကြည်မှု | ရုပ် | လက်ဝါး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤦🏿" type="tts">မျက်နှာလက်ဝါးဖြင့်အုပ်ထားသောရုပ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤦🏻‍♂">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤦🏼‍♂">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤦🏽‍♂">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤦🏾‍♂">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤦🏿‍♂">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤦🏻‍♀">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤦🏼‍♀">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤦🏽‍♀">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤦🏾‍♀">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤦🏿‍♀">မယုံကြည်နိုင် | မျက်နှာအုပ် | လက်ဝါး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">မိမိမျက်နှာကို လက်ဝါးဖြင့်အုပ်ထားသော အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤷🏻">ဂရုမစိုက် | ပခုံးတွန့်သည် | မယုံသင်္ကာ | မသိနားမလည် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤷🏻" type="tts">ပခုံးတွန့်သည် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤷🏼">ဂရုမစိုက် | ပခုံးတွန့်သည် | မယုံသင်္ကာ | မသိနားမလည် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤷🏼" type="tts">ပခုံးတွန့်သည် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤷🏽">ဂရုမစိုက် | ပခုံးတွန့်သည် | မယုံသင်္ကာ | မသိနားမလည် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤷🏽" type="tts">ပခုံးတွန့်သည် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤷🏾">ဂရုမစိုက် | ပခုံးတွန့်သည် | မယုံသင်္ကာ | မသိနားမလည် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤷🏾" type="tts">ပခုံးတွန့်သည် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤷🏿">ဂရုမစိုက် | ပခုံးတွန့်သည် | မယုံသင်္ကာ | မသိနားမလည် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤷🏿" type="tts">ပခုံးတွန့်သည် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤷🏻‍♂">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤷🏼‍♂">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤷🏽‍♂">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤷🏾‍♂">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤷🏿‍♂">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤷🏻‍♀">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤷🏼‍♀">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤷🏽‍♀">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤷🏾‍♀">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤷🏿‍♀">ပုခုန်းတွန့် | လျစ်လျူရှု | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">ပုခုန်းတွန့်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💆🏻">မျက်နှာ၊ နှိပ်၊ နယ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💆🏻" type="tts">မျက်နှာကို နှိပ်နယ်ပေးခြင်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💆🏼">မျက်နှာ၊ နှိပ်၊ နယ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💆🏼" type="tts">မျက်နှာကို နှိပ်နယ်ပေးခြင်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💆🏽">မျက်နှာ၊ နှိပ်၊ နယ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💆🏽" type="tts">မျက်နှာကို နှိပ်နယ်ပေးခြင်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💆🏾">မျက်နှာ၊ နှိပ်၊ နယ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💆🏾" type="tts">မျက်နှာကို နှိပ်နယ်ပေးခြင်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💆🏿">မျက်နှာ၊ နှိပ်၊ နယ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💆🏿" type="tts">မျက်နှာကို နှိပ်နယ်ပေးခြင်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💆🏻‍♂">မျက်နှာ | အနှိပ်ခံ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💆🏼‍♂">မျက်နှာ | အနှိပ်ခံ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💆🏽‍♂">မျက်နှာ | အနှိပ်ခံ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💆🏾‍♂">မျက်နှာ | အနှိပ်ခံ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💆🏿‍♂">မျက်နှာ | အနှိပ်ခံ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💆🏻‍♀">မျက်နှာ | အနှိပ်ခံ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💆🏼‍♀">မျက်နှာ | အနှိပ်ခံ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💆🏽‍♀">မျက်နှာ | အနှိပ်ခံ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💆🏾‍♀">မျက်နှာ | အနှိပ်ခံ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💆🏿‍♀">မျက်နှာ | အနှိပ်ခံ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">မျက်နှာအနှိပ်ခံနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💇🏻">ဆံပင်၊ ဆံသ၊ အလှပြင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💇🏻" type="tts">ဆံပင်ညှပ်ခြင်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💇🏼">ဆံပင်၊ ဆံသ၊ အလှပြင် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💇🏼" type="tts">ဆံပင်ညှပ်ခြင်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💇🏽">ဆံပင်၊ ဆံသ၊ အလှပြင် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💇🏽" type="tts">ဆံပင်ညှပ်ခြင်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💇🏾">ဆံပင်၊ ဆံသ၊ အလှပြင် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💇🏾" type="tts">ဆံပင်ညှပ်ခြင်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💇🏿">ဆံပင်၊ ဆံသ၊ အလှပြင် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💇🏿" type="tts">ဆံပင်ညှပ်ခြင်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💇🏻‍♂">ဆံပင်ညှပ် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💇🏼‍♂">ဆံပင်ညှပ် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💇🏽‍♂">ဆံပင်ညှပ် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💇🏾‍♂">ဆံပင်ညှပ် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💇🏿‍♂">ဆံပင်ညှပ် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💇🏻‍♀">ဆံပင်ညှပ် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💇🏼‍♀">ဆံပင်ညှပ် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💇🏽‍♀">ဆံပင်ညှပ် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💇🏾‍♀">ဆံပင်ညှပ် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💇🏿‍♀">ဆံပင်ညှပ် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">ဆံပင်ညှပ်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚶🏻">ခြေကျင်၊ လျှောက်၊ လမ်းလျှောက် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚶🏻" type="tts">ခြေကျင် လျှောက်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚶🏼">ခြေကျင်၊ လျှောက်၊ လမ်းလျှောက် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚶🏼" type="tts">ခြေကျင် လျှောက်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚶🏽">ခြေကျင်၊ လျှောက်၊ လမ်းလျှောက် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚶🏽" type="tts">ခြေကျင် လျှောက်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚶🏾">ခြေကျင်၊ လျှောက်၊ လမ်းလျှောက် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚶🏾" type="tts">ခြေကျင် လျှောက်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚶🏿">ခြေကျင်၊ လျှောက်၊ လမ်းလျှောက် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚶🏿" type="tts">ခြေကျင် လျှောက်သူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚶🏻‍♂">တောင်တက် | လမ်းလျှောက် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">လမ်းလျှောက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚶🏼‍♂">တောင်တက် | လမ်းလျှောက် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">လမ်းလျှောက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚶🏽‍♂">တောင်တက် | လမ်းလျှောက် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">လမ်းလျှောက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚶🏾‍♂">တောင်တက် | လမ်းလျှောက် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">လမ်းလျှောက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚶🏿‍♂">တောင်တက် | လမ်းလျှောက် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">လမ်းလျှောက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚶🏻‍♀">တောင်တက် | လမ်းလျှောက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">လမ်းလျှောက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚶🏼‍♀">တောင်တက် | လမ်းလျှောက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">လမ်းလျှောက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚶🏽‍♀">တောင်တက် | လမ်းလျှောက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">လမ်းလျှောက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚶🏾‍♀">တောင်တက် | လမ်းလျှောက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">လမ်းလျှောက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚶🏿‍♀">တောင်တက် | လမ်းလျှောက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">လမ်းလျှောက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏃🏻">ပြေး၊ မာရသွန် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏃🏻" type="tts">ပြေးသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏃🏼">ပြေး၊ မာရသွန် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏃🏼" type="tts">ပြေးသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏃🏽">ပြေး၊ မာရသွန် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏃🏽" type="tts">ပြေးသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏃🏾">ပြေး၊ မာရသွန် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏃🏾" type="tts">ပြေးသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏃🏿">ပြေး၊ မာရသွန် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏃🏿" type="tts">ပြေးသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏃🏻‍♂">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">ပြေးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏃🏼‍♂">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">ပြေးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏃🏽‍♂">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">ပြေးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏃🏾‍♂">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">ပြေးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏃🏿‍♂">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">ပြေးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏃🏻‍♀">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">ပြေးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏃🏼‍♀">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">ပြေးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏃🏽‍♀">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">ပြေးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏃🏾‍♀">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">ပြေးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏃🏿‍♀">မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">ပြေးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💃🏻">ကသူ၊ က | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💃🏻" type="tts">ကချေသည် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💃🏼">ကသူ၊ က | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💃🏼" type="tts">ကချေသည် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💃🏽">ကသူ၊ က | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💃🏽" type="tts">ကချေသည် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💃🏾">ကသူ၊ က | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💃🏾" type="tts">ကချေသည် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💃🏿">ကသူ၊ က | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💃🏿" type="tts">ကချေသည် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕺🏻">ကခုန်သည် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕺🏻" type="tts">ကခုန်နေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕺🏼">ကခုန်သည် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕺🏼" type="tts">ကခုန်နေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕺🏽">ကခုန်သည် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕺🏽" type="tts">ကခုန်နေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕺🏾">ကခုန်သည် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕺🏾" type="tts">ကခုန်နေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕺🏿">ကခုန်သည် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕺🏿" type="tts">ကခုန်နေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🛀🏻">ရေချိုးကန်၊ ရေချိုး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🛀🏻" type="tts">ရေချိုးကန်တွင် ရေချိုးနေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🛀🏼">ရေချိုးကန်၊ ရေချိုး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🛀🏼" type="tts">ရေချိုးကန်တွင် ရေချိုးနေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🛀🏽">ရေချိုးကန်၊ ရေချိုး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🛀🏽" type="tts">ရေချိုးကန်တွင် ရေချိုးနေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🛀🏾">ရေချိုးကန်၊ ရေချိုး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🛀🏾" type="tts">ရေချိုးကန်တွင် ရေချိုးနေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🛀🏿">ရေချိုးကန်၊ ရေချိုး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🛀🏿" type="tts">ရေချိုးကန်တွင် ရေချိုးနေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🛌🏻">ဟော်တယ်၊ အိပ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🛌🏻" type="tts">ခုတင်ပေါ်က လူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🛌🏼">ဟော်တယ်၊ အိပ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🛌🏼" type="tts">ခုတင်ပေါ်က လူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🛌🏽">ဟော်တယ်၊ အိပ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🛌🏽" type="tts">ခုတင်ပေါ်က လူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🛌🏾">ဟော်တယ်၊ အိပ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🛌🏾" type="tts">ခုတင်ပေါ်က လူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🛌🏿">ဟော်တယ်၊ အိပ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🛌🏿" type="tts">ခုတင်ပေါ်က လူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕴🏻">စီးပွားရေး၊ လုပ်ငန်း၊ ၀တ်စုံ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕴🏻" type="tts">ဈာန်ပျံနေသော ရုံးဝတ်စုံနှင့်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🕴🏼">စီးပွားရေး၊ လုပ်ငန်း၊ ၀တ်စုံ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕴🏼" type="tts">ဈာန်ပျံနေသော ရုံးဝတ်စုံနှင့်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🕴🏽">စီးပွားရေး၊ လုပ်ငန်း၊ ၀တ်စုံ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕴🏽" type="tts">ဈာန်ပျံနေသော ရုံးဝတ်စုံနှင့်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🕴🏾">စီးပွားရေး၊ လုပ်ငန်း၊ ၀တ်စုံ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕴🏾" type="tts">ဈာန်ပျံနေသော ရုံးဝတ်စုံနှင့်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🕴🏿">စီးပွားရေး၊ လုပ်ငန်း၊ ၀တ်စုံ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🕴🏿" type="tts">ဈာန်ပျံနေသော ရုံးဝတ်စုံနှင့်သူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏇🏻">မြင်း၊ ဂျော်ကီ၊ ပြိုင်မြင်း၊ ပြိုင်ခြင်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏇🏻" type="tts">မြင်းစီးခြင်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏇🏼">မြင်း၊ ဂျော်ကီ၊ ပြိုင်မြင်း၊ ပြိုင်ခြင်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏇🏼" type="tts">မြင်းစီးခြင်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏇🏽">မြင်း၊ ဂျော်ကီ၊ ပြိုင်မြင်း၊ ပြိုင်ခြင်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏇🏽" type="tts">မြင်းစီးခြင်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏇🏾">မြင်း၊ ဂျော်ကီ၊ ပြိုင်မြင်း၊ ပြိုင်ခြင်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏇🏾" type="tts">မြင်းစီးခြင်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏇🏿">မြင်း၊ ဂျော်ကီ၊ ပြိုင်မြင်း၊ ပြိုင်ခြင်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏇🏿" type="tts">မြင်းစီးခြင်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏂🏻">စကီး၊ ဆီးနှင်း၊ စနိုးဘုတ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏂🏻" type="tts">စနိုးဘုတ်စီးသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏂🏼">စကီး၊ ဆီးနှင်း၊ စနိုးဘုတ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏂🏼" type="tts">စနိုးဘုတ်စီးသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏂🏽">စကီး၊ ဆီးနှင်း၊ စနိုးဘုတ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏂🏽" type="tts">စနိုးဘုတ်စီးသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏂🏾">စကီး၊ ဆီးနှင်း၊ စနိုးဘုတ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏂🏾" type="tts">စနိုးဘုတ်စီးသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏂🏿">စကီး၊ ဆီးနှင်း၊ စနိုးဘုတ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏂🏿" type="tts">စနိုးဘုတ်စီးသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏌🏻">ဘောလုံး၊ ဂေါက် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏌🏻" type="tts">ဂေါက်သီးရိုက်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏌🏼">ဘောလုံး၊ ဂေါက် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏌🏼" type="tts">ဂေါက်သီးရိုက်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏌🏽">ဘောလုံး၊ ဂေါက် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏌🏽" type="tts">ဂေါက်သီးရိုက်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏌🏾">ဘောလုံး၊ ဂေါက် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏌🏾" type="tts">ဂေါက်သီးရိုက်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏌🏿">ဘောလုံး၊ ဂေါက် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏌🏿" type="tts">ဂေါက်သီးရိုက်သူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏌🏻‍♂">ဂေါက်ရိုက် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏌🏼‍♂">ဂေါက်ရိုက် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏌🏽‍♂">ဂေါက်ရိုက် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏌🏾‍♂">ဂေါက်ရိုက် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏌🏿‍♂">ဂေါက်ရိုက် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏌🏻‍♀">ဂေါက်ရိုက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏌🏼‍♀">ဂေါက်ရိုက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏌🏽‍♀">ဂေါက်ရိုက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏌🏾‍♀">ဂေါက်ရိုက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏌🏿‍♀">ဂေါက်ရိုက် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">ဂေါက်ရိုက်နေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏄🏻">ရေလွှာ၊ လှိုင်းစီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏄🏻" type="tts">ရေလွှာလှိုင်းစီးသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏄🏼">ရေလွှာ၊ လှိုင်းစီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏄🏼" type="tts">ရေလွှာလှိုင်းစီးသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏄🏽">ရေလွှာ၊ လှိုင်းစီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏄🏽" type="tts">ရေလွှာလှိုင်းစီးသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏄🏾">ရေလွှာ၊ လှိုင်းစီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏄🏾" type="tts">ရေလွှာလှိုင်းစီးသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏄🏿">ရေလွှာ၊ လှိုင်းစီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏄🏿" type="tts">ရေလွှာလှိုင်းစီးသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏄🏻‍♂">ရေလွှာလျှောစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏄🏼‍♂">ရေလွှာလျှောစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏄🏽‍♂">ရေလွှာလျှောစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏄🏾‍♂">ရေလွှာလျှောစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏄🏿‍♂">ရေလွှာလျှောစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏄🏻‍♀">ရေလွှာလျှောစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏄🏼‍♀">ရေလွှာလျှောစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏄🏽‍♀">ရေလွှာလျှောစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏄🏾‍♀">ရေလွှာလျှောစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏄🏿‍♀">ရေလွှာလျှောစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">ရေလွှာလျှောစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚣🏻">လှေ၊ ယာဥ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚣🏻" type="tts">ရိုးရိုးလှေ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚣🏼">လှေ၊ ယာဥ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚣🏼" type="tts">ရိုးရိုးလှေ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚣🏽">လှေ၊ ယာဥ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚣🏽" type="tts">ရိုးရိုးလှေ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚣🏾">လှေ၊ ယာဥ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚣🏾" type="tts">ရိုးရိုးလှေ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚣🏿">လှေ၊ ယာဥ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚣🏿" type="tts">ရိုးရိုးလှေ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚣🏻‍♂">လှေ | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">လှေလှော်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚣🏼‍♂">လှေ | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">လှေလှော်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚣🏽‍♂">လှေ | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">လှေလှော်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚣🏾‍♂">လှေ | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">လှေလှော်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚣🏿‍♂">လှေ | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">လှေလှော်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚣🏻‍♀">လှေ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">လှေလှော်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚣🏼‍♀">လှေ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">လှေလှော်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚣🏽‍♀">လှေ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">လှေလှော်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚣🏾‍♀">လှေ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">လှေလှော်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚣🏿‍♀">လှေ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">လှေလှော်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏊🏻">ရေကူး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏊🏻" type="tts">ရေကူးသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏊🏼">ရေကူး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏊🏼" type="tts">ရေကူးသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏊🏽">ရေကူး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏊🏽" type="tts">ရေကူးသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏊🏾">ရေကူး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏊🏾" type="tts">ရေကူးသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏊🏿">ရေကူး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏊🏿" type="tts">ရေကူးသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏊🏻‍♂">ရေကူး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">ရေကူးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏊🏼‍♂">ရေကူး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">ရေကူးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏊🏽‍♂">ရေကူး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">ရေကူးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏊🏾‍♂">ရေကူး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">ရေကူးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏊🏿‍♂">ရေကူး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">ရေကူးနေသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏊🏻‍♀">ရေကူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">ရေကူးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏊🏼‍♀">ရေကူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">ရေကူးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏊🏽‍♀">ရေကူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">ရေကူးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏊🏾‍♀">ရေကူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">ရေကူးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏊🏿‍♀">ရေကူး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">ရေကူးနေသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="⛹🏻">ဘောလုံး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="⛹🏻" type="tts">ဘောလုံးနှင့်လူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="⛹🏼">ဘောလုံး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="⛹🏼" type="tts">ဘောလုံးနှင့်လူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="⛹🏽">ဘောလုံး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="⛹🏽" type="tts">ဘောလုံးနှင့်လူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="⛹🏾">ဘောလုံး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="⛹🏾" type="tts">ဘောလုံးနှင့်လူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="⛹🏿">ဘောလုံး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="⛹🏿" type="tts">ဘောလုံးနှင့်လူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="⛹🏻‍♂">ဘောလုံး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="⛹🏼‍♂">ဘောလုံး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="⛹🏽‍♂">ဘောလုံး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="⛹🏾‍♂">ဘောလုံး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="⛹🏿‍♂">ဘောလုံး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="⛹🏻‍♀">ဘောလုံး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="⛹🏼‍♀">ဘောလုံး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="⛹🏽‍♀">ဘောလုံး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="⛹🏾‍♀">ဘောလုံး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="⛹🏿‍♀">ဘောလုံး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">ဘောလုံးကန်နေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏋🏻">အလေးမသူ၊ အလေး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏋🏻" type="tts">အလေးမသမား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏋🏼">အလေးမသူ၊ အလေး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏋🏼" type="tts">အလေးမသမား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏋🏽">အလေးမသူ၊ အလေး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏋🏽" type="tts">အလေးမသမား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏋🏾">အလေးမသူ၊ အလေး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏋🏾" type="tts">အလေးမသမား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏋🏿">အလေးမသူ၊ အလေး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏋🏿" type="tts">အလေးမသမား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏋🏻‍♂">အမျိုးသား | အလေးမ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">အလေးမနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏋🏼‍♂">အမျိုးသား | အလေးမ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">အလေးမနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏋🏽‍♂">အမျိုးသား | အလေးမ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">အလေးမနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏋🏾‍♂">အမျိုးသား | အလေးမ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">အလေးမနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏋🏿‍♂">အမျိုးသား | အလေးမ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">အလေးမနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏋🏻‍♀">အမျိုးသမီး | အလေးမ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">အလေးမနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🏋🏼‍♀">အမျိုးသမီး | အလေးမ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">အလေးမနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🏋🏽‍♀">အမျိုးသမီး | အလေးမ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">အလေးမနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🏋🏾‍♀">အမျိုးသမီး | အလေးမ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">အလေးမနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🏋🏿‍♀">အမျိုးသမီး | အလေးမ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">အလေးမနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚴🏻">စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚴🏻" type="tts">စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚴🏼">စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚴🏼" type="tts">စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚴🏽">စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚴🏽" type="tts">စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚴🏾">စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚴🏾" type="tts">စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚴🏿">စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚴🏿" type="tts">စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚴🏻‍♂">စက်ဘီးစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚴🏼‍♂">စက်ဘီးစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚴🏽‍♂">စက်ဘီးစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚴🏾‍♂">စက်ဘီးစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚴🏿‍♂">စက်ဘီးစီး | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚴🏻‍♀">စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚴🏼‍♀">စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚴🏽‍♀">စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚴🏾‍♀">စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚴🏿‍♀">စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">စက်ဘီးစီးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚵🏻">တောင်၊ စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚵🏻" type="tts">တောင်ပေါ် စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚵🏼">တောင်၊ စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚵🏼" type="tts">တောင်ပေါ် စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚵🏽">တောင်၊ စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚵🏽" type="tts">တောင်ပေါ် စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚵🏾">တောင်၊ စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚵🏾" type="tts">တောင်ပေါ် စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚵🏿">တောင်၊ စက်ဘီး၊ စက်ဘီးစီးသူ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚵🏿" type="tts">တောင်ပေါ် စက်ဘီးစီးသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚵🏻‍♂">စက်ဘီးစီး | တောင်တက် | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚵🏼‍♂">စက်ဘီးစီး | တောင်တက် | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚵🏽‍♂">စက်ဘီးစီး | တောင်တက် | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚵🏾‍♂">စက်ဘီးစီး | တောင်တက် | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚵🏿‍♂">စက်ဘီးစီး | တောင်တက် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚵🏻‍♀">တောင်တက်စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🚵🏼‍♀">တောင်တက်စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🚵🏽‍♀">တောင်တက်စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🚵🏾‍♀">တောင်တက်စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🚵🏿‍♀">တောင်တက်စက်ဘီးစီး | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">တောင်တက်စက်ဘီးစီးသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤸🏻">ကျွမ်းဘား | ဘေးတိုက်ကျွမ်းထိုးခြင်း | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤸🏻" type="tts">ဘေးတိုက်ကျွမ်းထိုးခြင်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤸🏼">ကျွမ်းဘား | ဘေးတိုက်ကျွမ်းထိုးခြင်း | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤸🏼" type="tts">ဘေးတိုက်ကျွမ်းထိုးခြင်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤸🏽">ကျွမ်းဘား | ဘေးတိုက်ကျွမ်းထိုးခြင်း | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤸🏽" type="tts">ဘေးတိုက်ကျွမ်းထိုးခြင်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤸🏾">ကျွမ်းဘား | ဘေးတိုက်ကျွမ်းထိုးခြင်း | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤸🏾" type="tts">ဘေးတိုက်ကျွမ်းထိုးခြင်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤸🏿">ကျွမ်းဘား | ဘေးတိုက်ကျွမ်းထိုးခြင်း | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤸🏿" type="tts">ဘေးတိုက်ကျွမ်းထိုးခြင်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤸🏻‍♂">ကျွမ်းဘား | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤸🏼‍♂">ကျွမ်းဘား | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤸🏽‍♂">ကျွမ်းဘား | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤸🏾‍♂">ကျွမ်းဘား | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤸🏿‍♂">ကျွမ်းဘား | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤸🏻‍♀">ကျွမ်းဘား | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤸🏼‍♀">ကျွမ်းဘား | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤸🏽‍♀">ကျွမ်းဘား | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤸🏾‍♀">ကျွမ်းဘား | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤸🏿‍♀">ကျွမ်းဘား | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">ကျွမ်းဘားထိုးနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤽🏻">ပိုလို | ရေ | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤽🏻" type="tts">ဝါတာပိုလို − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤽🏼">ပိုလို | ရေ | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤽🏼" type="tts">ဝါတာပိုလို − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤽🏽">ပိုလို | ရေ | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤽🏽" type="tts">ဝါတာပိုလို − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤽🏾">ပိုလို | ရေ | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤽🏾" type="tts">ဝါတာပိုလို − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤽🏿">ပိုလို | ရေ | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤽🏿" type="tts">ဝါတာပိုလို − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤽🏻‍♂">ဝါတာပိုလို | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤽🏼‍♂">ဝါတာပိုလို | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤽🏽‍♂">ဝါတာပိုလို | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤽🏾‍♂">ဝါတာပိုလို | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤽🏿‍♂">ဝါတာပိုလို | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤽🏻‍♀">ဝါတာပိုလို | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤽🏼‍♀">ဝါတာပိုလို | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤽🏽‍♀">ဝါတာပိုလို | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤽🏾‍♀">ဝါတာပိုလို | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤽🏿‍♀">ဝါတာပိုလို | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">ဝါတာပိုလိုကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤾🏻">ဘောလုံး | လက်ပစ်ဘော | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤾🏻" type="tts">လက်ပစ်ဘော − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤾🏼">ဘောလုံး | လက်ပစ်ဘော | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤾🏼" type="tts">လက်ပစ်ဘော − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤾🏽">ဘောလုံး | လက်ပစ်ဘော | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤾🏽" type="tts">လက်ပစ်ဘော − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤾🏾">ဘောလုံး | လက်ပစ်ဘော | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤾🏾" type="tts">လက်ပစ်ဘော − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤾🏿">ဘောလုံး | လက်ပစ်ဘော | လူပုဂ္ဂိုလ် | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤾🏿" type="tts">လက်ပစ်ဘော − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤾🏻‍♂">လက်ပစ်ဘော | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤾🏼‍♂">လက်ပစ်ဘော | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤾🏽‍♂">လက်ပစ်ဘော | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤾🏾‍♂">လက်ပစ်ဘော | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤾🏿‍♂">လက်ပစ်ဘော | အမျိုးသား | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤾🏻‍♀">လက်ပစ်ဘော | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤾🏼‍♀">လက်ပစ်ဘော | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤾🏽‍♀">လက်ပစ်ဘော | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤾🏾‍♀">လက်ပစ်ဘော | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤾🏿‍♀">လက်ပစ်ဘော | အမျိုးသမီး | အားကစား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">လက်ပစ်ဘောကစားနေသည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤹🏻">ကျွမ်းကျင်မှု | ချိန်ညီခြင်း | ရွဲကစားလက်လှည့် | အလုပ်မျိုးစုံ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤹🏻" type="tts">ရွဲကစားလက်လှည့်အစွမ်းပြ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤹🏼">ကျွမ်းကျင်မှု | ချိန်ညီခြင်း | ရွဲကစားလက်လှည့် | အလုပ်မျိုးစုံ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤹🏼" type="tts">ရွဲကစားလက်လှည့်အစွမ်းပြ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤹🏽">ကျွမ်းကျင်မှု | ချိန်ညီခြင်း | ရွဲကစားလက်လှည့် | အလုပ်မျိုးစုံ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤹🏽" type="tts">ရွဲကစားလက်လှည့်အစွမ်းပြ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤹🏾">ကျွမ်းကျင်မှု | ချိန်ညီခြင်း | ရွဲကစားလက်လှည့် | အလုပ်မျိုးစုံ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤹🏾" type="tts">ရွဲကစားလက်လှည့်အစွမ်းပြ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤹🏿">ကျွမ်းကျင်မှု | ချိန်ညီခြင်း | ရွဲကစားလက်လှည့် | အလုပ်မျိုးစုံ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤹🏿" type="tts">ရွဲကစားလက်လှည့်အစွမ်းပြ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤹🏻‍♂">ရွဲကစား | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">ရွဲကစားပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤹🏼‍♂">ရွဲကစား | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">ရွဲကစားပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤹🏽‍♂">ရွဲကစား | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">ရွဲကစားပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤹🏾‍♂">ရွဲကစား | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">ရွဲကစားပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤹🏿‍♂">ရွဲကစား | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">ရွဲကစားပြသူ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤹🏻‍♀">ရွဲကစား | အမျိုးသမီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">ရွဲကစားပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤹🏼‍♀">ရွဲကစား | အမျိုးသမီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">ရွဲကစားပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤹🏽‍♀">ရွဲကစား | အမျိုးသမီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">ရွဲကစားပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤹🏾‍♀">ရွဲကစား | အမျိုးသမီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">ရွဲကစားပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤹🏿‍♀">ရွဲကစား | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">ရွဲကစားပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">အတွဲ | အမျိုးသမီး | အမျိုးသား</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">အနမ်း၊ ယောက်ျား ၊ မိန်းမ</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">အတွဲ | အမျိုးသား</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">အနမ်း၊ ယောက်ျား၊ ယောက်ျား</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">အတွဲ | အမျိုးသမီး</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">အနမ်း၊ မိန်းမ၊ မိန်းမ</annotation>
+		<annotation cp="👩‍❤‍👨">မိန်းမ | ယောက်ျား | အတွဲ | အသည်းနှလုံး</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">အသည်းနှလုံးဖြင့် အတွဲ၊ မိန်းမ၊ ယောက်ျား</annotation>
+		<annotation cp="👨‍❤‍👨">ယောက်ျား | အတွဲ | အသည်းနှလုံး</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">အသည်းနှလုံးဖြင့် အတွဲ၊ ယောက်ျား ၊ ယောက်ျား</annotation>
+		<annotation cp="👩‍❤‍👩">မိန်းမ | အတွဲ | အသည်းနှလုံး</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">အသည်းနှလုံးဖြင့် အတွဲ၊ မိန်းမ၊ မိန်းမ</annotation>
+		<annotation cp="👨‍👩‍👦">ကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းမ၊ ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👧">ကလေး | မိန်းကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းမ၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">မိန်းကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းမ၊ ယောက်ျားကလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">ကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းမ၊ ယောက်ျားကလေး၊ ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">ကလေး | မိန်းကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းမ၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👨‍👦">ကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ ယောက်ျား၊ ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👨‍👧">ကလေး | မိသားစု | ယောက်ျား | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">မိသားစု၊ ယောက်ျား၊ ယောက်ျား၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">မိသားစု၊ ယောက်ျား ၊ ယောက်ျား၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">မိသားစု၊ ယောကျာ်း၊ ယောကျာ်း၊ ကောင်လေး၊ ကောင်လေး</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">မိသားစု၊ ယောကျာ်း၊ ယောကျာ်း၊ ကောင်မလေး၊ ကောင်မလေး</annotation>
+		<annotation cp="👩‍👩‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ ယောက်ျားလေး</annotation>
+		<annotation cp="👩‍👩‍👧">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ မိန်းကလေး</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ မိန်းကလေး၊ ယောက်ျားလေး</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ ယောက်ျားလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👦">ကလေး | မိသားစု | အဖေ</annotation>
+		<annotation cp="👨‍👦" type="tts">မိသားစု၊ ယောကျာ်း၊ ယောက်ျားလေး</annotation>
+		<annotation cp="👨‍👦‍👦">ကလေး | မိသားစု | အဖေ</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ ယောက်ျားကလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👧">ကလေး | မိသားစု | အဖေ</annotation>
+		<annotation cp="👨‍👧" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းကလေး</annotation>
+		<annotation cp="👨‍👧‍👦">ကလေး | မိသားစု | အဖေ</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းကလေး ၊ ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👧‍👧">ကလေး | မိသားစု | အဖေ</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းကလေး ၊ မိန်းကလေး</annotation>
+		<annotation cp="👩‍👦">ကလေး | မိသားစု | အမေ</annotation>
+		<annotation cp="👩‍👦" type="tts">မိသားစု၊ မိန်းမ၊ ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👦‍👦">ကလေး | မိသားစု | အမေ</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">မိသားစု၊ မိန်းမ၊ ယောက်ျားကလေး၊ ယောက်ျားလေး</annotation>
+		<annotation cp="👩‍👧">ကလေး | မိသားစု | အမေ</annotation>
+		<annotation cp="👩‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းကလေး</annotation>
+		<annotation cp="👩‍👧‍👦">ကလေး | မိသားစု | အမေ</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းကလေး၊ ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👧‍👧">ကလေး | မိသားစု | အမေ</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="🤳🏻">ကင်မရာ | ဆဲလ်ဖီ | ဖုန်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤳🏻" type="tts">ဆဲလ်ဖီ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤳🏼">ကင်မရာ | ဆဲလ်ဖီ | ဖုန်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤳🏼" type="tts">ဆဲလ်ဖီ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤳🏽">ကင်မရာ | ဆဲလ်ဖီ | ဖုန်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤳🏽" type="tts">ဆဲလ်ဖီ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤳🏾">ကင်မရာ | ဆဲလ်ဖီ | ဖုန်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤳🏾" type="tts">ဆဲလ်ဖီ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤳🏿">ကင်မရာ | ဆဲလ်ဖီ | ဖုန်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤳🏿" type="tts">ဆဲလ်ဖီ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💪🏻">ကြွက်သား၊ ခန္ဓာ၊ ကိုယ်၊ ကွေး၊ ကာတွန်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💪🏻" type="tts">ကွေးထားသည့် လက်ရုံးကြွက်သား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💪🏼">ကြွက်သား၊ ခန္ဓာ၊ ကိုယ်၊ ကွေး၊ ကာတွန်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💪🏼" type="tts">ကွေးထားသည့် လက်ရုံးကြွက်သား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💪🏽">ကြွက်သား၊ ခန္ဓာ၊ ကိုယ်၊ ကွေး၊ ကာတွန်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💪🏽" type="tts">ကွေးထားသည့် လက်ရုံးကြွက်သား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💪🏾">ကြွက်သား၊ ခန္ဓာ၊ ကိုယ်၊ ကွေး၊ ကာတွန်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💪🏾" type="tts">ကွေးထားသည့် လက်ရုံးကြွက်သား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💪🏿">ကြွက်သား၊ ခန္ဓာ၊ ကိုယ်၊ ကွေး၊ ကာတွန်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💪🏿" type="tts">ကွေးထားသည့် လက်ရုံးကြွက်သား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👈🏻">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👈🏻" type="tts">ဘယ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👈🏼">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👈🏼" type="tts">ဘယ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👈🏽">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👈🏽" type="tts">ဘယ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👈🏾">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👈🏾" type="tts">ဘယ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👈🏿">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👈🏿" type="tts">ဘယ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👉🏻">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👉🏻" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👉🏼">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👉🏼" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👉🏽">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👉🏽" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👉🏾">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👉🏾" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👉🏿">လက်ခ​ျောင်း၊ ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👉🏿" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="☝🏻">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="☝🏻" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် အညွှန်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="☝🏼">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="☝🏼" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် အညွှန်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="☝🏽">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="☝🏽" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် အညွှန်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="☝🏾">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="☝🏾" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် အညွှန်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="☝🏿">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="☝🏿" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် အညွှန်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👆🏻">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👆🏻" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👆🏼">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👆🏼" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👆🏽">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👆🏽" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👆🏾">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👆🏾" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👆🏿">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အပေါ်သို့ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👆🏿" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🖕🏻">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🖕🏻" type="tts">လက်ခလယ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🖕🏼">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🖕🏼" type="tts">လက်ခလယ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🖕🏽">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🖕🏽" type="tts">လက်ခလယ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🖕🏾">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🖕🏾" type="tts">လက်ခလယ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🖕🏿">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🖕🏿" type="tts">လက်ခလယ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👇🏻">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အောက်သို့ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👇🏻" type="tts">အောက်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👇🏼">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အောက်သို့ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👇🏼" type="tts">အောက်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👇🏽">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အောက်သို့ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👇🏽" type="tts">အောက်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👇🏾">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အောက်သို့ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👇🏾" type="tts">အောက်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👇🏿">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ညွှန်ပြ၊ လက်ပြန်၊ အညွှန်း၊ အောက်သို့ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👇🏿" type="tts">အောက်သို့ ညွှန်ပြနေသည့် လက်ပြန် အညွှန်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✌🏻">ခန္ဓာ၊ ကိုယ်၊ အောင်မြင်မှု၊ လက်၊ v | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✌🏻" type="tts">အောင်မြင်မှုပြ လက်ဟန် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✌🏼">ခန္ဓာ၊ ကိုယ်၊ အောင်မြင်မှု၊ လက်၊ v | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✌🏼" type="tts">အောင်မြင်မှုပြ လက်ဟန် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✌🏽">ခန္ဓာ၊ ကိုယ်၊ အောင်မြင်မှု၊ လက်၊ v | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✌🏽" type="tts">အောင်မြင်မှုပြ လက်ဟန် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✌🏾">ခန္ဓာ၊ ကိုယ်၊ အောင်မြင်မှု၊ လက်၊ v | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✌🏾" type="tts">အောင်မြင်မှုပြ လက်ဟန် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✌🏿">ခန္ဓာ၊ ကိုယ်၊ အောင်မြင်မှု၊ လက်၊ v | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✌🏿" type="tts">အောင်မြင်မှုပြ လက်ဟန် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤞🏻">ကံတရား | လက်ချောင်း | လက်ချောင်းချင်းချိတ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤞🏻" type="tts">ကံကောင်းပါစေပြ လက်ဟန် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤞🏼">ကံတရား | လက်ချောင်း | လက်ချောင်းချင်းချိတ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤞🏼" type="tts">ကံကောင်းပါစေပြ လက်ဟန် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤞🏽">ကံတရား | လက်ချောင်း | လက်ချောင်းချင်းချိတ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤞🏽" type="tts">ကံကောင်းပါစေပြ လက်ဟန် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤞🏾">ကံတရား | လက်ချောင်း | လက်ချောင်းချင်းချိတ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤞🏾" type="tts">ကံကောင်းပါစေပြ လက်ဟန် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤞🏿">ကံတရား | လက်ချောင်း | လက်ချောင်းချင်းချိတ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤞🏿" type="tts">ကံကောင်းပါစေပြ လက်ဟန် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🖖🏻">ခန္ဓာ၊ ကိုယ်၊ လက်၊ vulcan၊ ဂုဏ်ပြု | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🖖🏻" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ဖမိုး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🖖🏼">ခန္ဓာ၊ ကိုယ်၊ လက်၊ vulcan၊ ဂုဏ်ပြု | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🖖🏼" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ဖမိုး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🖖🏽">ခန္ဓာ၊ ကိုယ်၊ လက်၊ vulcan၊ ဂုဏ်ပြု | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🖖🏽" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ဖမိုး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🖖🏾">ခန္ဓာ၊ ကိုယ်၊ လက်၊ vulcan၊ ဂုဏ်ပြု | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🖖🏾" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ဖမိုး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🖖🏿">ခန္ဓာ၊ ကိုယ်၊ လက်၊ vulcan၊ ဂုဏ်ပြု | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🖖🏿" type="tts">ညာသို့ ညွှန်ပြနေသည့် လက်ဖမိုး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤘🏻">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤘🏻" type="tts">ဦးချိုများ၏ သင်္ကေတ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤘🏼">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤘🏼" type="tts">ဦးချိုများ၏ သင်္ကေတ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤘🏽">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤘🏽" type="tts">ဦးချိုများ၏ သင်္ကေတ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤘🏾">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤘🏾" type="tts">ဦးချိုများ၏ သင်္ကေတ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤘🏿">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤘🏿" type="tts">ဦးချိုများ၏ သင်္ကေတ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤙🏻">ခေါ်ဆိုသည် | လက် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤙🏻" type="tts">ဖုန်းခေါ်ပါပြ လက်ဟန် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤙🏼">ခေါ်ဆိုသည် | လက် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤙🏼" type="tts">ဖုန်းခေါ်ပါပြ လက်ဟန် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤙🏽">ခေါ်ဆိုသည် | လက် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤙🏽" type="tts">ဖုန်းခေါ်ပါပြ လက်ဟန် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤙🏾">ခေါ်ဆိုသည် | လက် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤙🏾" type="tts">ဖုန်းခေါ်ပါပြ လက်ဟန် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤙🏿">ခေါ်ဆိုသည် | လက် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤙🏿" type="tts">ဖုန်းခေါ်ပါပြ လက်ဟန် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🖐🏻">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း၊ ဖြ့န် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🖐🏻" type="tts">လက်ချောင်းများ ဖြန့်ပြီး မြှောက်ထားသည့် လက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🖐🏼">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း၊ ဖြ့န် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🖐🏼" type="tts">လက်ချောင်းများ ဖြန့်ပြီး မြှောက်ထားသည့် လက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🖐🏽">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း၊ ဖြ့န် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🖐🏽" type="tts">လက်ချောင်းများ ဖြန့်ပြီး မြှောက်ထားသည့် လက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🖐🏾">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း၊ ဖြ့န် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🖐🏾" type="tts">လက်ချောင်းများ ဖြန့်ပြီး မြှောက်ထားသည့် လက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🖐🏿">ခန္ဓာ၊ ကိုယ်၊ ဦးချို၊ လက်ချောင်း၊ ဖြ့န် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🖐🏿" type="tts">လက်ချောင်းများ ဖြန့်ပြီး မြှောက်ထားသည့် လက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✋🏻">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✋🏻" type="tts">မြှောက်ပြထားသည့် လက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✋🏼">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✋🏼" type="tts">မြှောက်ပြထားသည့် လက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✋🏽">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✋🏽" type="tts">မြှောက်ပြထားသည့် လက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✋🏾">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✋🏾" type="tts">မြှောက်ပြထားသည့် လက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✋🏿">ခန္ဓာ၊ ကိုယ်၊ လက် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✋🏿" type="tts">မြှောက်ပြထားသည့် လက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👌🏻">အိုကေ၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👌🏻" type="tts">အိုကေ လက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👌🏼">အိုကေ၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👌🏼" type="tts">အိုကေ လက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👌🏽">အိုကေ၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👌🏽" type="tts">အိုကေ လက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👌🏾">အိုကေ၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👌🏾" type="tts">အိုကေ လက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👌🏿">အိုကေ၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👌🏿" type="tts">အိုကေ လက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👍🏻">လက်၊ ခန္ဓာ၊ ကိုယ်၊ +၁၊ အပေါ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👍🏻" type="tts">ထောင်ပြထားသည့် လက်မ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👍🏼">လက်၊ ခန္ဓာ၊ ကိုယ်၊ +၁၊ အပေါ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👍🏼" type="tts">ထောင်ပြထားသည့် လက်မ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👍🏽">လက်၊ ခန္ဓာ၊ ကိုယ်၊ +၁၊ အပေါ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👍🏽" type="tts">ထောင်ပြထားသည့် လက်မ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👍🏾">လက်၊ ခန္ဓာ၊ ကိုယ်၊ +၁၊ အပေါ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👍🏾" type="tts">ထောင်ပြထားသည့် လက်မ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👍🏿">လက်၊ ခန္ဓာ၊ ကိုယ်၊ +၁၊ အပေါ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👍🏿" type="tts">ထောင်ပြထားသည့် လက်မ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👎🏻">လက်၊ ခန္ဓာ၊ ကိုယ်၊ −၁၊ အောက် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👎🏻" type="tts">အောက်သို့ပြနေသည့် လက်မ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👎🏼">လက်၊ ခန္ဓာ၊ ကိုယ်၊ −၁၊ အောက် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👎🏼" type="tts">အောက်သို့ပြနေသည့် လက်မ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👎🏽">လက်၊ ခန္ဓာ၊ ကိုယ်၊ −၁၊ အောက် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👎🏽" type="tts">အောက်သို့ပြနေသည့် လက်မ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👎🏾">လက်၊ ခန္ဓာ၊ ကိုယ်၊ −၁၊ အောက် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👎🏾" type="tts">အောက်သို့ပြနေသည့် လက်မ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👎🏿">လက်၊ ခန္ဓာ၊ ကိုယ်၊ −၁၊ အောက် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👎🏿" type="tts">အောက်သို့ပြနေသည့် လက်မ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✊🏻">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ဆုပ်၊ ထိုး၊ လက်သီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✊🏻" type="tts">မြှောက်ပြထားသည့် လက်သီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✊🏼">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ဆုပ်၊ ထိုး၊ လက်သီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✊🏼" type="tts">မြှောက်ပြထားသည့် လက်သီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✊🏽">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ဆုပ်၊ ထိုး၊ လက်သီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✊🏽" type="tts">မြှောက်ပြထားသည့် လက်သီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✊🏾">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ဆုပ်၊ ထိုး၊ လက်သီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✊🏾" type="tts">မြှောက်ပြထားသည့် လက်သီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✊🏿">ခန္ဓာ၊ ကိုယ်၊ လက်၊ ဆုပ်၊ ထိုး၊ လက်သီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✊🏿" type="tts">မြှောက်ပြထားသည့် လက်သီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👊🏻">ခန္ဓာ၊ ကိုယ်၊ လက်၊ လက်သီး၊ ဆုပ်၊ ထိုး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👊🏻" type="tts">ရင်ဆိုင်ရတော့မည့် လက်သီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👊🏼">ခန္ဓာ၊ ကိုယ်၊ လက်၊ လက်သီး၊ ဆုပ်၊ ထိုး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👊🏼" type="tts">ရင်ဆိုင်ရတော့မည့် လက်သီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👊🏽">ခန္ဓာ၊ ကိုယ်၊ လက်၊ လက်သီး၊ ဆုပ်၊ ထိုး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👊🏽" type="tts">ရင်ဆိုင်ရတော့မည့် လက်သီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👊🏾">ခန္ဓာ၊ ကိုယ်၊ လက်၊ လက်သီး၊ ဆုပ်၊ ထိုး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👊🏾" type="tts">ရင်ဆိုင်ရတော့မည့် လက်သီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👊🏿">ခန္ဓာ၊ ကိုယ်၊ လက်၊ လက်သီး၊ ဆုပ်၊ ထိုး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👊🏿" type="tts">ရင်ဆိုင်ရတော့မည့် လက်သီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤛🏻">ဘယ်ဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤛🏻" type="tts">ဘယ်ပြ ညာလက်သီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤛🏼">ဘယ်ဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤛🏼" type="tts">ဘယ်ပြ ညာလက်သီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤛🏽">ဘယ်ဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤛🏽" type="tts">ဘယ်ပြ ညာလက်သီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤛🏾">ဘယ်ဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤛🏾" type="tts">ဘယ်ပြ ညာလက်သီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤛🏿">ဘယ်ဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤛🏿" type="tts">ဘယ်ပြ ညာလက်သီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤜🏻">ညာဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤜🏻" type="tts">ညာပြ ဘယ်လက်သီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤜🏼">ညာဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤜🏼" type="tts">ညာပြ ဘယ်လက်သီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤜🏽">ညာဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤜🏽" type="tts">ညာပြ ဘယ်လက်သီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤜🏾">ညာဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤜🏾" type="tts">ညာပြ ဘယ်လက်သီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤜🏿">ညာဝိုက် | လက်သီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤜🏿" type="tts">ညာပြ ဘယ်လက်သီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤚🏻">ထောင်ပြ | လက်ပြန် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤚🏻" type="tts">လက်ပြန်ထောင်ပြဟန် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤚🏼">ထောင်ပြ | လက်ပြန် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤚🏼" type="tts">လက်ပြန်ထောင်ပြဟန် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤚🏽">ထောင်ပြ | လက်ပြန် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤚🏽" type="tts">လက်ပြန်ထောင်ပြဟန် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤚🏾">ထောင်ပြ | လက်ပြန် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤚🏾" type="tts">လက်ပြန်ထောင်ပြဟန် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤚🏿">ထောင်ပြ | လက်ပြန် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤚🏿" type="tts">လက်ပြန်ထောင်ပြဟန် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👋🏻">လက်၊ ခန္ဓာ၊ ကိုယ်၊ဝှေ့ယမ်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👋🏻" type="tts">ဝှေ့ယမ်းနေသည့် လက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👋🏼">လက်၊ ခန္ဓာ၊ ကိုယ်၊ဝှေ့ယမ်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👋🏼" type="tts">ဝှေ့ယမ်းနေသည့် လက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👋🏽">လက်၊ ခန္ဓာ၊ ကိုယ်၊ဝှေ့ယမ်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👋🏽" type="tts">ဝှေ့ယမ်းနေသည့် လက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👋🏾">လက်၊ ခန္ဓာ၊ ကိုယ်၊ဝှေ့ယမ်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👋🏾" type="tts">ဝှေ့ယမ်းနေသည့် လက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👋🏿">လက်၊ ခန္ဓာ၊ ကိုယ်၊ဝှေ့ယမ်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👋🏿" type="tts">ဝှေ့ယမ်းနေသည့် လက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✍🏻">ရေး၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✍🏻" type="tts">စာရေးနေသည့် လက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="✍🏼">ရေး၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✍🏼" type="tts">စာရေးနေသည့် လက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="✍🏽">ရေး၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✍🏽" type="tts">စာရေးနေသည့် လက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="✍🏾">ရေး၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✍🏾" type="tts">စာရေးနေသည့် လက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="✍🏿">ရေး၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="✍🏿" type="tts">စာရေးနေသည့် လက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👏🏻">လက်၊ ခန္ဓာ၊ ကိုယ်၊ လက်ခုပ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👏🏻" type="tts">လက်ခုပ်တီးနေသည့် လက်များ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👏🏼">လက်၊ ခန္ဓာ၊ ကိုယ်၊ လက်ခုပ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👏🏼" type="tts">လက်ခုပ်တီးနေသည့် လက်များ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👏🏽">လက်၊ ခန္ဓာ၊ ကိုယ်၊ လက်ခုပ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👏🏽" type="tts">လက်ခုပ်တီးနေသည့် လက်များ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👏🏾">လက်၊ ခန္ဓာ၊ ကိုယ်၊ လက်ခုပ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👏🏾" type="tts">လက်ခုပ်တီးနေသည့် လက်များ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👏🏿">လက်၊ ခန္ဓာ၊ ကိုယ်၊ လက်ခုပ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👏🏿" type="tts">လက်ခုပ်တီးနေသည့် လက်များ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👐🏻">လက်၊ ခန္ဓာ၊ ကိုယ်၊ ဖွင့် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👐🏻" type="tts">ဖွင့်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👐🏼">လက်၊ ခန္ဓာ၊ ကိုယ်၊ ဖွင့် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👐🏼" type="tts">ဖွင့်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👐🏽">လက်၊ ခန္ဓာ၊ ကိုယ်၊ ဖွင့် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👐🏽" type="tts">ဖွင့်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👐🏾">လက်၊ ခန္ဓာ၊ ကိုယ်၊ ဖွင့် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👐🏾" type="tts">ဖွင့်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👐🏿">လက်၊ ခန္ဓာ၊ ကိုယ်၊ ဖွင့် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👐🏿" type="tts">ဖွင့်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙌🏻">ခန္ဓာကိုယ်၊ နှုတ်ဆက်၊ လက်၊ မြှောက်ပြ၊ အားရ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙌🏻" type="tts">လက်မြှောက်ပြနေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙌🏼">ခန္ဓာကိုယ်၊ နှုတ်ဆက်၊ လက်၊ မြှောက်ပြ၊ အားရ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙌🏼" type="tts">လက်မြှောက်ပြနေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙌🏽">ခန္ဓာကိုယ်၊ နှုတ်ဆက်၊ လက်၊ မြှောက်ပြ၊ အားရ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙌🏽" type="tts">လက်မြှောက်ပြနေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙌🏾">ခန္ဓာကိုယ်၊ နှုတ်ဆက်၊ လက်၊ မြှောက်ပြ၊ အားရ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙌🏾" type="tts">လက်မြှောက်ပြနေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙌🏿">ခန္ဓာကိုယ်၊ နှုတ်ဆက်၊ လက်၊ မြှောက်ပြ၊ အားရ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙌🏿" type="tts">လက်မြှောက်ပြနေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙏🏻">အမူအရာ၊ လက်၊ ဆုတောင်း၊ ကျေးဇူးတင်၊ လက်ချင်းဆက်၊ ကျေနပ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙏🏻" type="tts">ယှက်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🙏🏼">အမူအရာ၊ လက်၊ ဆုတောင်း၊ ကျေးဇူးတင်၊ လက်ချင်းဆက်၊ ကျေနပ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙏🏼" type="tts">ယှက်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🙏🏽">အမူအရာ၊ လက်၊ ဆုတောင်း၊ ကျေးဇူးတင်၊ လက်ချင်းဆက်၊ ကျေနပ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙏🏽" type="tts">ယှက်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🙏🏾">အမူအရာ၊ လက်၊ ဆုတောင်း၊ ကျေးဇူးတင်၊ လက်ချင်းဆက်၊ ကျေနပ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙏🏾" type="tts">ယှက်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🙏🏿">အမူအရာ၊ လက်၊ ဆုတောင်း၊ ကျေးဇူးတင်၊ လက်ချင်းဆက်၊ ကျေနပ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🙏🏿" type="tts">ယှက်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💅🏻">လက်သည်း၊ ဆိုးဆေး၊ လက်၊ ခန္ဓာ၊ ကိုယ်၊ အလှပြင်၊ ပြုစု | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💅🏻" type="tts">လက်သည်း ဆိုးဆေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="💅🏼">လက်သည်း၊ ဆိုးဆေး၊ လက်၊ ခန္ဓာ၊ ကိုယ်၊ အလှပြင်၊ ပြုစု | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💅🏼" type="tts">လက်သည်း ဆိုးဆေး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="💅🏽">လက်သည်း၊ ဆိုးဆေး၊ လက်၊ ခန္ဓာ၊ ကိုယ်၊ အလှပြင်၊ ပြုစု | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💅🏽" type="tts">လက်သည်း ဆိုးဆေး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="💅🏾">လက်သည်း၊ ဆိုးဆေး၊ လက်၊ ခန္ဓာ၊ ကိုယ်၊ အလှပြင်၊ ပြုစု | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💅🏾" type="tts">လက်သည်း ဆိုးဆေး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="💅🏿">လက်သည်း၊ ဆိုးဆေး၊ လက်၊ ခန္ဓာ၊ ကိုယ်၊ အလှပြင်၊ ပြုစု | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="💅🏿" type="tts">လက်သည်း ဆိုးဆေး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👂🏻">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👂🏻" type="tts">နားရွက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👂🏼">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👂🏼" type="tts">နားရွက် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👂🏽">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👂🏽" type="tts">နားရွက် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👂🏾">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👂🏾" type="tts">နားရွက် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👂🏿">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👂🏿" type="tts">နားရွက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👃🏻">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👃🏻" type="tts">နာခေါင်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👃🏼">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👃🏼" type="tts">နာခေါင်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👃🏽">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👃🏽" type="tts">နာခေါင်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👃🏾">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👃🏾" type="tts">နာခေါင်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👃🏿">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👃🏿" type="tts">နာခေါင်း − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="#⃣">ဂဏန်း၊ ကီးခလုတ်၊ ပေါင်</annotation>
+		<annotation cp="#⃣" type="tts">နံပါတ် ခလုတ်</annotation>
+		<annotation cp="*⃣">ခရေပွင့်၊ ကီးခလုတ်၊ ကြယ်</annotation>
+		<annotation cp="*⃣" type="tts">ခရေပွင့် ခလုတ်</annotation>
+		<annotation cp="🇦🇨">အလံ</annotation>
+		<annotation cp="🇦🇨" type="tts">တက်တော်မူကျွန်း</annotation>
+		<annotation cp="🇦🇩">အလံ</annotation>
+		<annotation cp="🇦🇩" type="tts">အင်ဒိုရာ</annotation>
+		<annotation cp="🇦🇪">အလံ</annotation>
+		<annotation cp="🇦🇪" type="tts">ယူအေအီး</annotation>
+		<annotation cp="🇦🇫">အလံ</annotation>
+		<annotation cp="🇦🇫" type="tts">အာဖဂန်နစ္စတန်</annotation>
+		<annotation cp="🇦🇬">အလံ</annotation>
+		<annotation cp="🇦🇬" type="tts">အင်တီဂွါနှင့် ဘာဘူဒါ</annotation>
+		<annotation cp="🇦🇮">အလံ</annotation>
+		<annotation cp="🇦🇮" type="tts">အန်ဂီလာ</annotation>
+		<annotation cp="🇦🇱">အလံ</annotation>
+		<annotation cp="🇦🇱" type="tts">အယ်လ်ဘေးနီးယား</annotation>
+		<annotation cp="🇦🇲">အလံ</annotation>
+		<annotation cp="🇦🇲" type="tts">အာမေးနီးယား</annotation>
+		<annotation cp="🇦🇴">အလံ</annotation>
+		<annotation cp="🇦🇴" type="tts">အင်ဂိုလာ</annotation>
+		<annotation cp="🇦🇶">အလံ</annotation>
+		<annotation cp="🇦🇶" type="tts">အန္တာတိက</annotation>
+		<annotation cp="🇦🇷">အလံ</annotation>
+		<annotation cp="🇦🇷" type="tts">အာဂျင်တီးနား</annotation>
+		<annotation cp="🇦🇸">အလံ</annotation>
+		<annotation cp="🇦🇸" type="tts">အမေရိကန် ဆမိုးအား</annotation>
+		<annotation cp="🇦🇹">အလံ</annotation>
+		<annotation cp="🇦🇹" type="tts">ဩစတြီးယား</annotation>
+		<annotation cp="🇦🇺">အလံ</annotation>
+		<annotation cp="🇦🇺" type="tts">ဩစတြေးလျ</annotation>
+		<annotation cp="🇦🇼">အလံ</annotation>
+		<annotation cp="🇦🇼" type="tts">အာရူးဗား</annotation>
+		<annotation cp="🇦🇽">အလံ</annotation>
+		<annotation cp="🇦🇽" type="tts">အာလန်ကျွန်း</annotation>
+		<annotation cp="🇦🇿">အလံ</annotation>
+		<annotation cp="🇦🇿" type="tts">အဇာဘိုင်ဂျန်</annotation>
+		<annotation cp="🇧🇦">အလံ</annotation>
+		<annotation cp="🇧🇦" type="tts">ဘော့စနီးယားနှင့် ဟာဇီဂိုဗီနား</annotation>
+		<annotation cp="🇧🇧">အလံ</annotation>
+		<annotation cp="🇧🇧" type="tts">ဘာဘေးဒိုးစ်</annotation>
+		<annotation cp="🇧🇩">အလံ</annotation>
+		<annotation cp="🇧🇩" type="tts">ဘင်္ဂလားဒေ့ရှ်</annotation>
+		<annotation cp="🇧🇪">အလံ</annotation>
+		<annotation cp="🇧🇪" type="tts">ဘယ်လ်ဂျီယမ်</annotation>
+		<annotation cp="🇧🇫">အလံ</annotation>
+		<annotation cp="🇧🇫" type="tts">ဘာကီးနား ဖားဆို</annotation>
+		<annotation cp="🇧🇬">အလံ</annotation>
+		<annotation cp="🇧🇬" type="tts">ဘူလ်ဂေးရီးယား</annotation>
+		<annotation cp="🇧🇭">အလံ</annotation>
+		<annotation cp="🇧🇭" type="tts">ဘာရိန်း</annotation>
+		<annotation cp="🇧🇮">အလံ</annotation>
+		<annotation cp="🇧🇮" type="tts">ဘူရွန်ဒီ</annotation>
+		<annotation cp="🇧🇯">အလံ</annotation>
+		<annotation cp="🇧🇯" type="tts">ဘီနင်</annotation>
+		<annotation cp="🇧🇱">အလံ</annotation>
+		<annotation cp="🇧🇱" type="tts">စိန့်ဘာသယ်လ်မီ</annotation>
+		<annotation cp="🇧🇲">အလံ</annotation>
+		<annotation cp="🇧🇲" type="tts">ဘာမြူဒါ</annotation>
+		<annotation cp="🇧🇳">အလံ</annotation>
+		<annotation cp="🇧🇳" type="tts">ဘရူနိုင်း</annotation>
+		<annotation cp="🇧🇴">အလံ</annotation>
+		<annotation cp="🇧🇴" type="tts">ဘိုလီးဗီးယား</annotation>
+		<annotation cp="🇧🇶">အလံ</annotation>
+		<annotation cp="🇧🇶" type="tts">ကာရစ်ဘီယံ နယ်သာလန်</annotation>
+		<annotation cp="🇧🇷">အလံ</annotation>
+		<annotation cp="🇧🇷" type="tts">ဘရာဇီး</annotation>
+		<annotation cp="🇧🇸">အလံ</annotation>
+		<annotation cp="🇧🇸" type="tts">ဘဟားမား</annotation>
+		<annotation cp="🇧🇹">အလံ</annotation>
+		<annotation cp="🇧🇹" type="tts">ဘူတန်</annotation>
+		<annotation cp="🇧🇻">အလံ</annotation>
+		<annotation cp="🇧🇻" type="tts">ဘူဗက်ကျွန်း</annotation>
+		<annotation cp="🇧🇼">အလံ</annotation>
+		<annotation cp="🇧🇼" type="tts">ဘော့ဆွာနာ</annotation>
+		<annotation cp="🇧🇾">အလံ</annotation>
+		<annotation cp="🇧🇾" type="tts">ဘီလာရုဇ်</annotation>
+		<annotation cp="🇧🇿">အလံ</annotation>
+		<annotation cp="🇧🇿" type="tts">ဘလိဇ်</annotation>
+		<annotation cp="🇨🇦">အလံ</annotation>
+		<annotation cp="🇨🇦" type="tts">ကနေဒါ</annotation>
+		<annotation cp="🇨🇨">အလံ</annotation>
+		<annotation cp="🇨🇨" type="tts">ကိုကိုးကျွန်း</annotation>
+		<annotation cp="🇨🇩">အလံ</annotation>
+		<annotation cp="🇨🇩" type="tts">ကွန်ဂို</annotation>
+		<annotation cp="🇨🇫">အလံ</annotation>
+		<annotation cp="🇨🇫" type="tts">ဗဟို အာဖရိက ပြည်ထောင်စု</annotation>
+		<annotation cp="🇨🇬">အလံ</annotation>
+		<annotation cp="🇨🇬" type="tts">ကွန်ဂို-ဘရာဇာဗီးလ်</annotation>
+		<annotation cp="🇨🇭">အလံ</annotation>
+		<annotation cp="🇨🇭" type="tts">ဆွစ်ဇာလန်</annotation>
+		<annotation cp="🇨🇮">အလံ</annotation>
+		<annotation cp="🇨🇮" type="tts">ကို့တ် ဒီဗွာ</annotation>
+		<annotation cp="🇨🇰">အလံ</annotation>
+		<annotation cp="🇨🇰" type="tts">ကွတ် ကျွန်းစု</annotation>
+		<annotation cp="🇨🇱">အလံ</annotation>
+		<annotation cp="🇨🇱" type="tts">ချီလီ</annotation>
+		<annotation cp="🇨🇲">အလံ</annotation>
+		<annotation cp="🇨🇲" type="tts">ကင်မရွန်း</annotation>
+		<annotation cp="🇨🇳">အလံ</annotation>
+		<annotation cp="🇨🇳" type="tts">တရုတ်</annotation>
+		<annotation cp="🇨🇴">အလံ</annotation>
+		<annotation cp="🇨🇴" type="tts">ကိုလံဘီယာ</annotation>
+		<annotation cp="🇨🇵">အလံ</annotation>
+		<annotation cp="🇨🇵" type="tts">ကလစ်ပါတန်ကျွန်း</annotation>
+		<annotation cp="🇨🇷">အလံ</annotation>
+		<annotation cp="🇨🇷" type="tts">ကို့စ်တာရီကာ</annotation>
+		<annotation cp="🇨🇺">အလံ</annotation>
+		<annotation cp="🇨🇺" type="tts">ကျူးဘား</annotation>
+		<annotation cp="🇨🇻">အလံ</annotation>
+		<annotation cp="🇨🇻" type="tts">ကိတ်ဗာဒီ</annotation>
+		<annotation cp="🇨🇼">အလံ</annotation>
+		<annotation cp="🇨🇼" type="tts">ကျူရေးကိုးစ်</annotation>
+		<annotation cp="🇨🇽">အလံ</annotation>
+		<annotation cp="🇨🇽" type="tts">ခရစ်စမတ် ကျွန်း</annotation>
+		<annotation cp="🇨🇾">အလံ</annotation>
+		<annotation cp="🇨🇾" type="tts">ဆိုက်ပရပ်စ်</annotation>
+		<annotation cp="🇨🇿">အလံ</annotation>
+		<annotation cp="🇨🇿" type="tts">ချက်ကီယား</annotation>
+		<annotation cp="🇩🇪">အလံ</annotation>
+		<annotation cp="🇩🇪" type="tts">ဂျာမဏီ</annotation>
+		<annotation cp="🇩🇬">အလံ</annotation>
+		<annotation cp="🇩🇬" type="tts">ဒီအဲဂိုဂါစီရာ</annotation>
+		<annotation cp="🇩🇯">အလံ</annotation>
+		<annotation cp="🇩🇯" type="tts">ဂျီဘူတီ</annotation>
+		<annotation cp="🇩🇰">အလံ</annotation>
+		<annotation cp="🇩🇰" type="tts">ဒိန်းမတ်</annotation>
+		<annotation cp="🇩🇲">အလံ</annotation>
+		<annotation cp="🇩🇲" type="tts">ဒိုမီနီကာ</annotation>
+		<annotation cp="🇩🇴">အလံ</annotation>
+		<annotation cp="🇩🇴" type="tts">ဒိုမီနီကန်</annotation>
+		<annotation cp="🇩🇿">အလံ</annotation>
+		<annotation cp="🇩🇿" type="tts">အယ်လ်ဂျီးရီးယား</annotation>
+		<annotation cp="🇪🇦">အလံ</annotation>
+		<annotation cp="🇪🇦" type="tts">ဆယ်ဥတာနှင့်မယ်လီလ်လာ</annotation>
+		<annotation cp="🇪🇨">အလံ</annotation>
+		<annotation cp="🇪🇨" type="tts">အီကွေဒေါ</annotation>
+		<annotation cp="🇪🇪">အလံ</annotation>
+		<annotation cp="🇪🇪" type="tts">အက်စတိုးနီးယား</annotation>
+		<annotation cp="🇪🇬">အလံ</annotation>
+		<annotation cp="🇪🇬" type="tts">အီဂျစ်</annotation>
+		<annotation cp="🇪🇭">အလံ</annotation>
+		<annotation cp="🇪🇭" type="tts">အနောက် ဆာဟာရ</annotation>
+		<annotation cp="🇪🇷">အလံ</annotation>
+		<annotation cp="🇪🇷" type="tts">အီရီထရီးယား</annotation>
+		<annotation cp="🇪🇸">အလံ</annotation>
+		<annotation cp="🇪🇸" type="tts">စပိန်</annotation>
+		<annotation cp="🇪🇹">အလံ</annotation>
+		<annotation cp="🇪🇹" type="tts">အီသီယိုးပီးယား</annotation>
+		<annotation cp="🇪🇺">အလံ</annotation>
+		<annotation cp="🇪🇺" type="tts">ဥရောပသမဂ္ဂ</annotation>
+		<annotation cp="🇫🇮">အလံ</annotation>
+		<annotation cp="🇫🇮" type="tts">ဖင်လန်</annotation>
+		<annotation cp="🇫🇯">အလံ</annotation>
+		<annotation cp="🇫🇯" type="tts">ဖီဂျီ</annotation>
+		<annotation cp="🇫🇰">အလံ</annotation>
+		<annotation cp="🇫🇰" type="tts">ဖော့ကလန် ကျွန်းစု</annotation>
+		<annotation cp="🇫🇲">အလံ</annotation>
+		<annotation cp="🇫🇲" type="tts">မိုင်ခရိုနီရှား</annotation>
+		<annotation cp="🇫🇴">အလံ</annotation>
+		<annotation cp="🇫🇴" type="tts">ဖာရိုး ကျွန်းစုများ</annotation>
+		<annotation cp="🇫🇷">အလံ</annotation>
+		<annotation cp="🇫🇷" type="tts">ပြင်သစ်</annotation>
+		<annotation cp="🇬🇦">အလံ</annotation>
+		<annotation cp="🇬🇦" type="tts">ဂါဘွန်</annotation>
+		<annotation cp="🇬🇧">အလံ</annotation>
+		<annotation cp="🇬🇧" type="tts">ယူနိုက်တက်ကင်းဒမ်း</annotation>
+		<annotation cp="🇬🇩">အလံ</annotation>
+		<annotation cp="🇬🇩" type="tts">ဂရီနေဒါ</annotation>
+		<annotation cp="🇬🇪">အလံ</annotation>
+		<annotation cp="🇬🇪" type="tts">ဂျော်ဂျီယာ</annotation>
+		<annotation cp="🇬🇫">အလံ</annotation>
+		<annotation cp="🇬🇫" type="tts">ပြင်သစ် ဂိုင်ယာနာ</annotation>
+		<annotation cp="🇬🇬">အလံ</annotation>
+		<annotation cp="🇬🇬" type="tts">ဂွန်းဇီ</annotation>
+		<annotation cp="🇬🇭">အလံ</annotation>
+		<annotation cp="🇬🇭" type="tts">ဂါနာ</annotation>
+		<annotation cp="🇬🇮">အလံ</annotation>
+		<annotation cp="🇬🇮" type="tts">ဂျီဘရော်လ်တာ</annotation>
+		<annotation cp="🇬🇱">အလံ</annotation>
+		<annotation cp="🇬🇱" type="tts">ဂရင်းလန်း</annotation>
+		<annotation cp="🇬🇲">အလံ</annotation>
+		<annotation cp="🇬🇲" type="tts">ဂမ်ဘီရာ</annotation>
+		<annotation cp="🇬🇳">အလံ</annotation>
+		<annotation cp="🇬🇳" type="tts">ဂီနီ</annotation>
+		<annotation cp="🇬🇵">အလံ</annotation>
+		<annotation cp="🇬🇵" type="tts">ဂွါဒီလု</annotation>
+		<annotation cp="🇬🇶">အလံ</annotation>
+		<annotation cp="🇬🇶" type="tts">အီကွေတာ ဂီနီ</annotation>
+		<annotation cp="🇬🇷">အလံ</annotation>
+		<annotation cp="🇬🇷" type="tts">ဂရိ</annotation>
+		<annotation cp="🇬🇸">အလံ</annotation>
+		<annotation cp="🇬🇸" type="tts">တောင် ဂျော်ဂျီယာ နှင့် တောင် ဆင်းဒဝစ်ဂျ် ကျွန်းစုများ</annotation>
+		<annotation cp="🇬🇹">အလံ</annotation>
+		<annotation cp="🇬🇹" type="tts">ဂွါတီမာလာ</annotation>
+		<annotation cp="🇬🇺">အလံ</annotation>
+		<annotation cp="🇬🇺" type="tts">ဂူအမ်</annotation>
+		<annotation cp="🇬🇼">အလံ</annotation>
+		<annotation cp="🇬🇼" type="tts">ဂီနီ-ဘီစော</annotation>
+		<annotation cp="🇬🇾">အလံ</annotation>
+		<annotation cp="🇬🇾" type="tts">ဂိုင်ယာနာ</annotation>
+		<annotation cp="🇭🇰">အလံ</annotation>
+		<annotation cp="🇭🇰" type="tts">ဟောင်ကောင် (တရုတ်ပြည်)</annotation>
+		<annotation cp="🇭🇲">အလံ</annotation>
+		<annotation cp="🇭🇲" type="tts">ဟတ်ကျွန်းနှင့်မက်ဒေါနယ်ကျွန်းစု</annotation>
+		<annotation cp="🇭🇳">အလံ</annotation>
+		<annotation cp="🇭🇳" type="tts">ဟွန်ဒူးရပ်စ်</annotation>
+		<annotation cp="🇭🇷">အလံ</annotation>
+		<annotation cp="🇭🇷" type="tts">ခရိုအေးရှား</annotation>
+		<annotation cp="🇭🇹">အလံ</annotation>
+		<annotation cp="🇭🇹" type="tts">ဟေတီ</annotation>
+		<annotation cp="🇭🇺">အလံ</annotation>
+		<annotation cp="🇭🇺" type="tts">ဟန်ဂေရီ</annotation>
+		<annotation cp="🇮🇨">အလံ</annotation>
+		<annotation cp="🇮🇨" type="tts">ကနေရီ ကျွန်းစု</annotation>
+		<annotation cp="🇮🇩">အလံ</annotation>
+		<annotation cp="🇮🇩" type="tts">အင်ဒိုနီးရှား</annotation>
+		<annotation cp="🇮🇪">အလံ</annotation>
+		<annotation cp="🇮🇪" type="tts">အိုင်ယာလန်</annotation>
+		<annotation cp="🇮🇱">အလံ</annotation>
+		<annotation cp="🇮🇱" type="tts">အစ္စရေး</annotation>
+		<annotation cp="🇮🇲">အလံ</annotation>
+		<annotation cp="🇮🇲" type="tts">မန်ကျွန်း</annotation>
+		<annotation cp="🇮🇳">အလံ</annotation>
+		<annotation cp="🇮🇳" type="tts">အိန္ဒိယ</annotation>
+		<annotation cp="🇮🇴">အလံ</annotation>
+		<annotation cp="🇮🇴" type="tts">ဗြိတိသျှပိုင် အိန္ဒိယသမုဒ္ဒရာကျွန်းများ</annotation>
+		<annotation cp="🇮🇶">အလံ</annotation>
+		<annotation cp="🇮🇶" type="tts">အီရတ်</annotation>
+		<annotation cp="🇮🇷">အလံ</annotation>
+		<annotation cp="🇮🇷" type="tts">အီရန်</annotation>
+		<annotation cp="🇮🇸">အလံ</annotation>
+		<annotation cp="🇮🇸" type="tts">အိုက်စလန်</annotation>
+		<annotation cp="🇮🇹">အလံ</annotation>
+		<annotation cp="🇮🇹" type="tts">အီတလီ</annotation>
+		<annotation cp="🇯🇪">အလံ</annotation>
+		<annotation cp="🇯🇪" type="tts">ဂျာစီ</annotation>
+		<annotation cp="🇯🇲">အလံ</annotation>
+		<annotation cp="🇯🇲" type="tts">ဂျမေကာ</annotation>
+		<annotation cp="🇯🇴">အလံ</annotation>
+		<annotation cp="🇯🇴" type="tts">ဂျော်ဒန်</annotation>
+		<annotation cp="🇯🇵">အလံ</annotation>
+		<annotation cp="🇯🇵" type="tts">ဂျပန်</annotation>
+		<annotation cp="🇰🇪">အလံ</annotation>
+		<annotation cp="🇰🇪" type="tts">ကင်ညာ</annotation>
+		<annotation cp="🇰🇬">အလံ</annotation>
+		<annotation cp="🇰🇬" type="tts">ကာဂျစ္စတန်</annotation>
+		<annotation cp="🇰🇭">အလံ</annotation>
+		<annotation cp="🇰🇭" type="tts">ကမ္ဘောဒီးယား</annotation>
+		<annotation cp="🇰🇮">အလံ</annotation>
+		<annotation cp="🇰🇮" type="tts">ခီရီဘာတီ</annotation>
+		<annotation cp="🇰🇲">အလံ</annotation>
+		<annotation cp="🇰🇲" type="tts">ကိုမိုရိုစ်</annotation>
+		<annotation cp="🇰🇳">အလံ</annotation>
+		<annotation cp="🇰🇳" type="tts">စိန့်ကစ်နှင့်နီဗီစ်</annotation>
+		<annotation cp="🇰🇵">အလံ</annotation>
+		<annotation cp="🇰🇵" type="tts">မြောက်ကိုရီးယား</annotation>
+		<annotation cp="🇰🇷">အလံ</annotation>
+		<annotation cp="🇰🇷" type="tts">တောင်ကိုရီးယား</annotation>
+		<annotation cp="🇰🇼">အလံ</annotation>
+		<annotation cp="🇰🇼" type="tts">ကူဝိတ်</annotation>
+		<annotation cp="🇰🇾">အလံ</annotation>
+		<annotation cp="🇰🇾" type="tts">ကေမန် ကျွန်းစု</annotation>
+		<annotation cp="🇰🇿">အလံ</annotation>
+		<annotation cp="🇰🇿" type="tts">ကာဇက်စတန်</annotation>
+		<annotation cp="🇱🇦">အလံ</annotation>
+		<annotation cp="🇱🇦" type="tts">လာအို</annotation>
+		<annotation cp="🇱🇧">အလံ</annotation>
+		<annotation cp="🇱🇧" type="tts">လက်ဘနွန်</annotation>
+		<annotation cp="🇱🇨">အလံ</annotation>
+		<annotation cp="🇱🇨" type="tts">စိန့်လူစီယာ</annotation>
+		<annotation cp="🇱🇮">အလံ</annotation>
+		<annotation cp="🇱🇮" type="tts">လစ်တန်စတိန်း</annotation>
+		<annotation cp="🇱🇰">အလံ</annotation>
+		<annotation cp="🇱🇰" type="tts">သီရိလင်္ကာ</annotation>
+		<annotation cp="🇱🇷">အလံ</annotation>
+		<annotation cp="🇱🇷" type="tts">လိုက်ဘေးရီးယား</annotation>
+		<annotation cp="🇱🇸">အလံ</annotation>
+		<annotation cp="🇱🇸" type="tts">လီဆိုသို</annotation>
+		<annotation cp="🇱🇹">အလံ</annotation>
+		<annotation cp="🇱🇹" type="tts">လစ်သူယေးနီးယား</annotation>
+		<annotation cp="🇱🇺">အလံ</annotation>
+		<annotation cp="🇱🇺" type="tts">လူဇင်ဘတ်</annotation>
+		<annotation cp="🇱🇻">အလံ</annotation>
+		<annotation cp="🇱🇻" type="tts">လတ်ဗီးယား</annotation>
+		<annotation cp="🇱🇾">အလံ</annotation>
+		<annotation cp="🇱🇾" type="tts">လစ်ဗျား</annotation>
+		<annotation cp="🇲🇦">အလံ</annotation>
+		<annotation cp="🇲🇦" type="tts">မော်ရိုကို</annotation>
+		<annotation cp="🇲🇨">အလံ</annotation>
+		<annotation cp="🇲🇨" type="tts">မိုနာကို</annotation>
+		<annotation cp="🇲🇩">အလံ</annotation>
+		<annotation cp="🇲🇩" type="tts">မောလ်ဒိုဗာ</annotation>
+		<annotation cp="🇲🇪">အလံ</annotation>
+		<annotation cp="🇲🇪" type="tts">မွန်တီနိဂရိုး</annotation>
+		<annotation cp="🇲🇫">အလံ</annotation>
+		<annotation cp="🇲🇫" type="tts">စိန့်မာတင်</annotation>
+		<annotation cp="🇲🇬">အလံ</annotation>
+		<annotation cp="🇲🇬" type="tts">မဒါဂတ်စကား</annotation>
+		<annotation cp="🇲🇭">အလံ</annotation>
+		<annotation cp="🇲🇭" type="tts">မာရှယ် ကျွန်းစု</annotation>
+		<annotation cp="🇲🇰">အလံ</annotation>
+		<annotation cp="🇲🇰" type="tts">မက်စီဒိုးနီးယား</annotation>
+		<annotation cp="🇲🇱">အလံ</annotation>
+		<annotation cp="🇲🇱" type="tts">မာလီ</annotation>
+		<annotation cp="🇲🇲">အလံ</annotation>
+		<annotation cp="🇲🇲" type="tts">မြန်မာ</annotation>
+		<annotation cp="🇲🇳">အလံ</annotation>
+		<annotation cp="🇲🇳" type="tts">မွန်ဂိုးလီးယား</annotation>
+		<annotation cp="🇲🇴">အလံ</annotation>
+		<annotation cp="🇲🇴" type="tts">မကာအို (တရုတ်ပြည်)</annotation>
+		<annotation cp="🇲🇵">အလံ</annotation>
+		<annotation cp="🇲🇵" type="tts">တောင်ပိုင်းမာရီအာနာကျွန်းစု</annotation>
+		<annotation cp="🇲🇶">အလံ</annotation>
+		<annotation cp="🇲🇶" type="tts">မာတီနိခ်</annotation>
+		<annotation cp="🇲🇷">အလံ</annotation>
+		<annotation cp="🇲🇷" type="tts">မော်ရီတေးနီးယား</annotation>
+		<annotation cp="🇲🇸">အလံ</annotation>
+		<annotation cp="🇲🇸" type="tts">မောင့်စဲရက်</annotation>
+		<annotation cp="🇲🇹">အလံ</annotation>
+		<annotation cp="🇲🇹" type="tts">မောလ်တာ</annotation>
+		<annotation cp="🇲🇺">အလံ</annotation>
+		<annotation cp="🇲🇺" type="tts">မောရစ်ရှ</annotation>
+		<annotation cp="🇲🇻">အလံ</annotation>
+		<annotation cp="🇲🇻" type="tts">မော်လ်ဒိုက်</annotation>
+		<annotation cp="🇲🇼">အလံ</annotation>
+		<annotation cp="🇲🇼" type="tts">မာလာဝီ</annotation>
+		<annotation cp="🇲🇽">အလံ</annotation>
+		<annotation cp="🇲🇽" type="tts">မက္ကဆီကို</annotation>
+		<annotation cp="🇲🇾">အလံ</annotation>
+		<annotation cp="🇲🇾" type="tts">မလေးရှား</annotation>
+		<annotation cp="🇲🇿">အလံ</annotation>
+		<annotation cp="🇲🇿" type="tts">မိုဇမ်ဘစ်</annotation>
+		<annotation cp="🇳🇦">အလံ</annotation>
+		<annotation cp="🇳🇦" type="tts">နမီးဘီးယား</annotation>
+		<annotation cp="🇳🇨">အလံ</annotation>
+		<annotation cp="🇳🇨" type="tts">နယူး ကယ်လီဒိုနီးယား</annotation>
+		<annotation cp="🇳🇪">အလံ</annotation>
+		<annotation cp="🇳🇪" type="tts">နိုင်ဂျာ</annotation>
+		<annotation cp="🇳🇫">အလံ</annotation>
+		<annotation cp="🇳🇫" type="tts">နောဖုတ်ကျွန်း</annotation>
+		<annotation cp="🇳🇬">အလံ</annotation>
+		<annotation cp="🇳🇬" type="tts">နိုင်ဂျီးရီးယား</annotation>
+		<annotation cp="🇳🇮">အလံ</annotation>
+		<annotation cp="🇳🇮" type="tts">နီကာရာဂွါ</annotation>
+		<annotation cp="🇳🇱">အလံ</annotation>
+		<annotation cp="🇳🇱" type="tts">နယ်သာလန်</annotation>
+		<annotation cp="🇳🇴">အလံ</annotation>
+		<annotation cp="🇳🇴" type="tts">နော်ဝေ</annotation>
+		<annotation cp="🇳🇵">အလံ</annotation>
+		<annotation cp="🇳🇵" type="tts">နီပေါ</annotation>
+		<annotation cp="🇳🇷">အလံ</annotation>
+		<annotation cp="🇳🇷" type="tts">နော်ရူး</annotation>
+		<annotation cp="🇳🇺">အလံ</annotation>
+		<annotation cp="🇳🇺" type="tts">နီဥူအေ</annotation>
+		<annotation cp="🇳🇿">အလံ</annotation>
+		<annotation cp="🇳🇿" type="tts">နယူးဇီလန်</annotation>
+		<annotation cp="🇴🇲">အလံ</annotation>
+		<annotation cp="🇴🇲" type="tts">အိုမန်</annotation>
+		<annotation cp="🇵🇦">အလံ</annotation>
+		<annotation cp="🇵🇦" type="tts">ပနားမား</annotation>
+		<annotation cp="🇵🇪">အလံ</annotation>
+		<annotation cp="🇵🇪" type="tts">ပီရူး</annotation>
+		<annotation cp="🇵🇫">အလံ</annotation>
+		<annotation cp="🇵🇫" type="tts">ပြင်သစ် ပေါ်လီနီးရှား</annotation>
+		<annotation cp="🇵🇬">အလံ</annotation>
+		<annotation cp="🇵🇬" type="tts">ပါပူအာ နယူးဂီနီ</annotation>
+		<annotation cp="🇵🇭">အလံ</annotation>
+		<annotation cp="🇵🇭" type="tts">ဖိလစ်ပိုင်</annotation>
+		<annotation cp="🇵🇰">အလံ</annotation>
+		<annotation cp="🇵🇰" type="tts">ပါကစ္စတန်</annotation>
+		<annotation cp="🇵🇱">အလံ</annotation>
+		<annotation cp="🇵🇱" type="tts">ပိုလန်</annotation>
+		<annotation cp="🇵🇲">အလံ</annotation>
+		<annotation cp="🇵🇲" type="tts">စိန့်ပီအဲရ်နှင့် မီကွီလွန်</annotation>
+		<annotation cp="🇵🇳">အလံ</annotation>
+		<annotation cp="🇵🇳" type="tts">ပစ်တ်ကိန်းကျွန်းစု</annotation>
+		<annotation cp="🇵🇷">အလံ</annotation>
+		<annotation cp="🇵🇷" type="tts">ပေါ်တိုရီကို</annotation>
+		<annotation cp="🇵🇸">အလံ</annotation>
+		<annotation cp="🇵🇸" type="tts">ပါလက်စတိုင်း ပိုင်နက်</annotation>
+		<annotation cp="🇵🇹">အလံ</annotation>
+		<annotation cp="🇵🇹" type="tts">ပေါ်တူဂီ</annotation>
+		<annotation cp="🇵🇼">အလံ</annotation>
+		<annotation cp="🇵🇼" type="tts">ပလာအို</annotation>
+		<annotation cp="🇵🇾">အလံ</annotation>
+		<annotation cp="🇵🇾" type="tts">ပါရာဂွေး</annotation>
+		<annotation cp="🇶🇦">အလံ</annotation>
+		<annotation cp="🇶🇦" type="tts">ကာတာ</annotation>
+		<annotation cp="🇷🇪">အလံ</annotation>
+		<annotation cp="🇷🇪" type="tts">ဟေညွန်</annotation>
+		<annotation cp="🇷🇴">အလံ</annotation>
+		<annotation cp="🇷🇴" type="tts">ရိုမေးနီးယား</annotation>
+		<annotation cp="🇷🇸">အလံ</annotation>
+		<annotation cp="🇷🇸" type="tts">ဆားဘီးယား</annotation>
+		<annotation cp="🇷🇺">အလံ</annotation>
+		<annotation cp="🇷🇺" type="tts">ရုရှ</annotation>
+		<annotation cp="🇷🇼">အလံ</annotation>
+		<annotation cp="🇷🇼" type="tts">ရဝန်ဒါ</annotation>
+		<annotation cp="🇸🇦">အလံ</annotation>
+		<annotation cp="🇸🇦" type="tts">ဆော်ဒီအာရေးဘီးယား</annotation>
+		<annotation cp="🇸🇧">အလံ</annotation>
+		<annotation cp="🇸🇧" type="tts">ဆော်လမွန်ကျွန်းစု</annotation>
+		<annotation cp="🇸🇨">အလံ</annotation>
+		<annotation cp="🇸🇨" type="tts">ဆေးရှဲ</annotation>
+		<annotation cp="🇸🇩">အလံ</annotation>
+		<annotation cp="🇸🇩" type="tts">ဆူဒန်</annotation>
+		<annotation cp="🇸🇪">အလံ</annotation>
+		<annotation cp="🇸🇪" type="tts">ဆွီဒင်</annotation>
+		<annotation cp="🇸🇬">အလံ</annotation>
+		<annotation cp="🇸🇬" type="tts">စင်္ကာပူ</annotation>
+		<annotation cp="🇸🇭">အလံ</annotation>
+		<annotation cp="🇸🇭" type="tts">စိန့်ဟယ်လယ်နာ</annotation>
+		<annotation cp="🇸🇮">အလံ</annotation>
+		<annotation cp="🇸🇮" type="tts">စလိုဗေးနီးယား</annotation>
+		<annotation cp="🇸🇯">အလံ</annotation>
+		<annotation cp="🇸🇯" type="tts">စဗိုလ်ဘတ်နှင့်ဂျန်မေရန်</annotation>
+		<annotation cp="🇸🇰">အလံ</annotation>
+		<annotation cp="🇸🇰" type="tts">ဆလိုဗက်ကီးယား</annotation>
+		<annotation cp="🇸🇱">အလံ</annotation>
+		<annotation cp="🇸🇱" type="tts">ဆီယာရာ လီယွန်း</annotation>
+		<annotation cp="🇸🇲">အလံ</annotation>
+		<annotation cp="🇸🇲" type="tts">ဆန်မာရီနို</annotation>
+		<annotation cp="🇸🇳">အလံ</annotation>
+		<annotation cp="🇸🇳" type="tts">ဆီနီဂေါ</annotation>
+		<annotation cp="🇸🇴">အလံ</annotation>
+		<annotation cp="🇸🇴" type="tts">ဆိုမာလီယာ</annotation>
+		<annotation cp="🇸🇷">အလံ</annotation>
+		<annotation cp="🇸🇷" type="tts">ဆူရာနမ်</annotation>
+		<annotation cp="🇸🇸">အလံ</annotation>
+		<annotation cp="🇸🇸" type="tts">တောင် ဆူဒန်</annotation>
+		<annotation cp="🇸🇹">အလံ</annotation>
+		<annotation cp="🇸🇹" type="tts">ဆောင်တူမေးနှင့် ပရင်စီပီ</annotation>
+		<annotation cp="🇸🇻">အလံ</annotation>
+		<annotation cp="🇸🇻" type="tts">အယ်လ်ဆာဗေးဒိုး</annotation>
+		<annotation cp="🇸🇽">အလံ</annotation>
+		<annotation cp="🇸🇽" type="tts">စင့်မာတင်</annotation>
+		<annotation cp="🇸🇾">အလံ</annotation>
+		<annotation cp="🇸🇾" type="tts">ဆီးရီးယား</annotation>
+		<annotation cp="🇸🇿">အလံ</annotation>
+		<annotation cp="🇸🇿" type="tts">ဆွာဇီလန်</annotation>
+		<annotation cp="🇹🇦">အလံ</annotation>
+		<annotation cp="🇹🇦" type="tts">ထရစ္စတန် ဒါ ကွန်ဟာ</annotation>
+		<annotation cp="🇹🇨">အလံ</annotation>
+		<annotation cp="🇹🇨" type="tts">တခ်စ်နှင့်ကာအီကိုစ်ကျွန်းစု</annotation>
+		<annotation cp="🇹🇩">အလံ</annotation>
+		<annotation cp="🇹🇩" type="tts">ချဒ်</annotation>
+		<annotation cp="🇹🇫">အလံ</annotation>
+		<annotation cp="🇹🇫" type="tts">ပြင်သစ် တောင်ပိုင်း ပိုင်နက်များ</annotation>
+		<annotation cp="🇹🇬">အလံ</annotation>
+		<annotation cp="🇹🇬" type="tts">တိုဂို</annotation>
+		<annotation cp="🇹🇭">အလံ</annotation>
+		<annotation cp="🇹🇭" type="tts">ထိုင်း</annotation>
+		<annotation cp="🇹🇯">အလံ</annotation>
+		<annotation cp="🇹🇯" type="tts">တာဂျီကစ္စတန်</annotation>
+		<annotation cp="🇹🇰">အလံ</annotation>
+		<annotation cp="🇹🇰" type="tts">တိုကလောင်</annotation>
+		<annotation cp="🇹🇱">အလံ</annotation>
+		<annotation cp="🇹🇱" type="tts">အရှေ့တီမော</annotation>
+		<annotation cp="🇹🇲">အလံ</annotation>
+		<annotation cp="🇹🇲" type="tts">တာ့ခ်မင်နစ္စတန်</annotation>
+		<annotation cp="🇹🇳">အလံ</annotation>
+		<annotation cp="🇹🇳" type="tts">တူနီးရှား</annotation>
+		<annotation cp="🇹🇴">အလံ</annotation>
+		<annotation cp="🇹🇴" type="tts">တွန်ဂါ</annotation>
+		<annotation cp="🇹🇷">အလံ</annotation>
+		<annotation cp="🇹🇷" type="tts">တူရကီ</annotation>
+		<annotation cp="🇹🇹">အလံ</annotation>
+		<annotation cp="🇹🇹" type="tts">ထရီနီဒတ်နှင့် တိုဘက်ဂို</annotation>
+		<annotation cp="🇹🇻">အလံ</annotation>
+		<annotation cp="🇹🇻" type="tts">တူဗားလူ</annotation>
+		<annotation cp="🇹🇼">အလံ</annotation>
+		<annotation cp="🇹🇼" type="tts">ထိုင်ဝမ်</annotation>
+		<annotation cp="🇹🇿">အလံ</annotation>
+		<annotation cp="🇹🇿" type="tts">တန်ဇန်းနီးယား</annotation>
+		<annotation cp="🇺🇦">အလံ</annotation>
+		<annotation cp="🇺🇦" type="tts">ယူကရိန်း</annotation>
+		<annotation cp="🇺🇬">အလံ</annotation>
+		<annotation cp="🇺🇬" type="tts">ယူဂန်းဒါး</annotation>
+		<annotation cp="🇺🇲">အလံ</annotation>
+		<annotation cp="🇺🇲" type="tts">ယူနိုက်တက်စတိတ် ကျွန်းနိုင်ငံများ</annotation>
+		<annotation cp="🇺🇳">အလံ</annotation>
+		<annotation cp="🇺🇳" type="tts">ကုလသမဂ္ဂ</annotation>
+		<annotation cp="🇺🇸">အလံ</annotation>
+		<annotation cp="🇺🇸" type="tts">ယူနိုက်တက်စတိတ်</annotation>
+		<annotation cp="🇺🇾">အလံ</annotation>
+		<annotation cp="🇺🇾" type="tts">ဥရုဂွေး</annotation>
+		<annotation cp="🇺🇿">အလံ</annotation>
+		<annotation cp="🇺🇿" type="tts">ဉဇဘက်ကစ္စတန်</annotation>
+		<annotation cp="🇻🇦">အလံ</annotation>
+		<annotation cp="🇻🇦" type="tts">ဗာတီကန်စီတီး</annotation>
+		<annotation cp="🇻🇨">အလံ</annotation>
+		<annotation cp="🇻🇨" type="tts">စိန့်ဗင်းဆင့်နှင့် ဂရိနေဒိုင်</annotation>
+		<annotation cp="🇻🇪">အလံ</annotation>
+		<annotation cp="🇻🇪" type="tts">ဗင်နီဇွဲလား</annotation>
+		<annotation cp="🇻🇬">အလံ</annotation>
+		<annotation cp="🇻🇬" type="tts">ဗြိတိသျှ ဗာဂျင်း ကျွန်းစု</annotation>
+		<annotation cp="🇻🇮">အလံ</annotation>
+		<annotation cp="🇻🇮" type="tts">ယူအက်စ် ဗာဂျင်း ကျွန်းစု</annotation>
+		<annotation cp="🇻🇳">အလံ</annotation>
+		<annotation cp="🇻🇳" type="tts">ဗီယက်နမ်</annotation>
+		<annotation cp="🇻🇺">အလံ</annotation>
+		<annotation cp="🇻🇺" type="tts">ဗနွားတူ</annotation>
+		<annotation cp="🇼🇫">အလံ</annotation>
+		<annotation cp="🇼🇫" type="tts">ဝေါလစ်နှင့် ဖူကျူးနား</annotation>
+		<annotation cp="🇼🇸">အလံ</annotation>
+		<annotation cp="🇼🇸" type="tts">ဆမိုးအား</annotation>
+		<annotation cp="🇽🇰">အလံ</annotation>
+		<annotation cp="🇽🇰" type="tts">ကိုဆိုဗို</annotation>
+		<annotation cp="🇾🇪">အလံ</annotation>
+		<annotation cp="🇾🇪" type="tts">ယီမင်</annotation>
+		<annotation cp="🇾🇹">အလံ</annotation>
+		<annotation cp="🇾🇹" type="tts">မာယိုတေး</annotation>
+		<annotation cp="🇿🇦">အလံ</annotation>
+		<annotation cp="🇿🇦" type="tts">တောင်အာဖရိက</annotation>
+		<annotation cp="🇿🇲">အလံ</annotation>
+		<annotation cp="🇿🇲" type="tts">ဇမ်ဘီယာ</annotation>
+		<annotation cp="🇿🇼">အလံ</annotation>
+		<annotation cp="🇿🇼" type="tts">ဇင်ဘာဘွေ</annotation>
+	</annotations>
+</ldml>

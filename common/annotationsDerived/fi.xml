@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="fi"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | numero | näppäin</annotation>
+		<annotation cp="0⃣" type="tts">nolla</annotation>
+		<annotation cp="1⃣">1 | numero | näppäin</annotation>
+		<annotation cp="1⃣" type="tts">yksi</annotation>
+		<annotation cp="2⃣">2 | numero | näppäin</annotation>
+		<annotation cp="2⃣" type="tts">kaksi</annotation>
+		<annotation cp="3⃣">3 | numero | näppäin</annotation>
+		<annotation cp="3⃣" type="tts">kolme</annotation>
+		<annotation cp="4⃣">4 | numero | näppäin</annotation>
+		<annotation cp="4⃣" type="tts">neljä</annotation>
+		<annotation cp="5⃣">5 | numero | näppäin</annotation>
+		<annotation cp="5⃣" type="tts">viisi</annotation>
+		<annotation cp="6⃣">6 | numero | näppäin</annotation>
+		<annotation cp="6⃣" type="tts">kuusi</annotation>
+		<annotation cp="7⃣">7 | numero | näppäin</annotation>
+		<annotation cp="7⃣" type="tts">seitsemän</annotation>
+		<annotation cp="8⃣">8 | numero | näppäin</annotation>
+		<annotation cp="8⃣" type="tts">kahdeksan</annotation>
+		<annotation cp="9⃣">9 | numero | näppäin</annotation>
+		<annotation cp="9⃣" type="tts">yhdeksän</annotation>
+		<annotation cp="👶🏻">lapsi | nuori | vauva | ihotyyppi-1-2</annotation>
+		<annotation cp="👶🏻" type="tts">vauva: ihotyyppi-1-2</annotation>
+		<annotation cp="👶🏼">lapsi | nuori | vauva | ihotyyppi-3</annotation>
+		<annotation cp="👶🏼" type="tts">vauva: ihotyyppi-3</annotation>
+		<annotation cp="👶🏽">lapsi | nuori | vauva | ihotyyppi-4</annotation>
+		<annotation cp="👶🏽" type="tts">vauva: ihotyyppi-4</annotation>
+		<annotation cp="👶🏾">lapsi | nuori | vauva | ihotyyppi-5</annotation>
+		<annotation cp="👶🏾" type="tts">vauva: ihotyyppi-5</annotation>
+		<annotation cp="👶🏿">lapsi | nuori | vauva | ihotyyppi-6</annotation>
+		<annotation cp="👶🏿" type="tts">vauva: ihotyyppi-6</annotation>
+		<annotation cp="👦🏻">miespuolinen | nuori | poika | ihotyyppi-1-2</annotation>
+		<annotation cp="👦🏻" type="tts">poika: ihotyyppi-1-2</annotation>
+		<annotation cp="👦🏼">miespuolinen | nuori | poika | ihotyyppi-3</annotation>
+		<annotation cp="👦🏼" type="tts">poika: ihotyyppi-3</annotation>
+		<annotation cp="👦🏽">miespuolinen | nuori | poika | ihotyyppi-4</annotation>
+		<annotation cp="👦🏽" type="tts">poika: ihotyyppi-4</annotation>
+		<annotation cp="👦🏾">miespuolinen | nuori | poika | ihotyyppi-5</annotation>
+		<annotation cp="👦🏾" type="tts">poika: ihotyyppi-5</annotation>
+		<annotation cp="👦🏿">miespuolinen | nuori | poika | ihotyyppi-6</annotation>
+		<annotation cp="👦🏿" type="tts">poika: ihotyyppi-6</annotation>
+		<annotation cp="👧🏻">neiti | neito | neitsyt | ihotyyppi-1-2</annotation>
+		<annotation cp="👧🏻" type="tts">tyttö: ihotyyppi-1-2</annotation>
+		<annotation cp="👧🏼">neiti | neito | neitsyt | ihotyyppi-3</annotation>
+		<annotation cp="👧🏼" type="tts">tyttö: ihotyyppi-3</annotation>
+		<annotation cp="👧🏽">neiti | neito | neitsyt | ihotyyppi-4</annotation>
+		<annotation cp="👧🏽" type="tts">tyttö: ihotyyppi-4</annotation>
+		<annotation cp="👧🏾">neiti | neito | neitsyt | ihotyyppi-5</annotation>
+		<annotation cp="👧🏾" type="tts">tyttö: ihotyyppi-5</annotation>
+		<annotation cp="👧🏿">neiti | neito | neitsyt | ihotyyppi-6</annotation>
+		<annotation cp="👧🏿" type="tts">tyttö: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻">mies | miespuolinen | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻" type="tts">mies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼">mies | miespuolinen | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼" type="tts">mies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽">mies | miespuolinen | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽" type="tts">mies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾">mies | miespuolinen | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾" type="tts">mies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿">mies | miespuolinen | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿" type="tts">mies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻">nainen | naispuolinen | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻" type="tts">nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼">nainen | naispuolinen | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼" type="tts">nainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽">nainen | naispuolinen | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽" type="tts">nainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾">nainen | naispuolinen | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾" type="tts">nainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿">nainen | naispuolinen | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿" type="tts">nainen: ihotyyppi-6</annotation>
+		<annotation cp="👴🏻">mies | vanha | ihotyyppi-1-2</annotation>
+		<annotation cp="👴🏻" type="tts">vanha mies: ihotyyppi-1-2</annotation>
+		<annotation cp="👴🏼">mies | vanha | ihotyyppi-3</annotation>
+		<annotation cp="👴🏼" type="tts">vanha mies: ihotyyppi-3</annotation>
+		<annotation cp="👴🏽">mies | vanha | ihotyyppi-4</annotation>
+		<annotation cp="👴🏽" type="tts">vanha mies: ihotyyppi-4</annotation>
+		<annotation cp="👴🏾">mies | vanha | ihotyyppi-5</annotation>
+		<annotation cp="👴🏾" type="tts">vanha mies: ihotyyppi-5</annotation>
+		<annotation cp="👴🏿">mies | vanha | ihotyyppi-6</annotation>
+		<annotation cp="👴🏿" type="tts">vanha mies: ihotyyppi-6</annotation>
+		<annotation cp="👵🏻">nainen | vanha | ihotyyppi-1-2</annotation>
+		<annotation cp="👵🏻" type="tts">vanha nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👵🏼">nainen | vanha | ihotyyppi-3</annotation>
+		<annotation cp="👵🏼" type="tts">vanha nainen: ihotyyppi-3</annotation>
+		<annotation cp="👵🏽">nainen | vanha | ihotyyppi-4</annotation>
+		<annotation cp="👵🏽" type="tts">vanha nainen: ihotyyppi-4</annotation>
+		<annotation cp="👵🏾">nainen | vanha | ihotyyppi-5</annotation>
+		<annotation cp="👵🏾" type="tts">vanha nainen: ihotyyppi-5</annotation>
+		<annotation cp="👵🏿">nainen | vanha | ihotyyppi-6</annotation>
+		<annotation cp="👵🏿" type="tts">vanha nainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍⚕">hoitaja | lääkäri | mies | terveydenhuolto | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">sairaanhoitajamies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍⚕">hoitaja | lääkäri | mies | terveydenhuolto | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">sairaanhoitajamies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍⚕">hoitaja | lääkäri | mies | terveydenhuolto | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">sairaanhoitajamies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍⚕">hoitaja | lääkäri | mies | terveydenhuolto | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">sairaanhoitajamies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍⚕">hoitaja | lääkäri | mies | terveydenhuolto | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">sairaanhoitajamies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍⚕">hoitaja | lääkäri | nainen | terveydenhuolto | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">sairaanhoitajanainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍⚕">hoitaja | lääkäri | nainen | terveydenhuolto | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">sairaanhoitajanainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍⚕">hoitaja | lääkäri | nainen | terveydenhuolto | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">sairaanhoitajanainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍⚕">hoitaja | lääkäri | nainen | terveydenhuolto | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">sairaanhoitajanainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍⚕">hoitaja | lääkäri | nainen | terveydenhuolto | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">sairaanhoitajanainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🎓">lakki | mies | opiskelu | valmistujaiset | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">opiskelijapoika: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🎓">lakki | mies | opiskelu | valmistujaiset | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">opiskelijapoika: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🎓">lakki | mies | opiskelu | valmistujaiset | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">opiskelijapoika: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🎓">lakki | mies | opiskelu | valmistujaiset | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">opiskelijapoika: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🎓">lakki | mies | opiskelu | valmistujaiset | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">opiskelijapoika: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🎓">lakki | nainen | opiskelu | valmistujaiset | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">opiskelijatyttö: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🎓">lakki | nainen | opiskelu | valmistujaiset | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">opiskelijatyttö: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🎓">lakki | nainen | opiskelu | valmistujaiset | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">opiskelijatyttö: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🎓">lakki | nainen | opiskelu | valmistujaiset | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">opiskelijatyttö: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🎓">lakki | nainen | opiskelu | valmistujaiset | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">opiskelijatyttö: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🏫">koulu | mies | opettaja | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">opettajamies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🏫">koulu | mies | opettaja | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">opettajamies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🏫">koulu | mies | opettaja | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">opettajamies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🏫">koulu | mies | opettaja | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">opettajamies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🏫">koulu | mies | opettaja | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">opettajamies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🏫">koulu | nainen | opettaja | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">opettajanainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🏫">koulu | nainen | opettaja | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">opettajanainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🏫">koulu | nainen | opettaja | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">opettajanainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🏫">koulu | nainen | opettaja | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">opettajanainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🏫">koulu | nainen | opettaja | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">opettajanainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍⚖">laki | mies | oikeus | tuomari | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">juristimies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍⚖">laki | mies | oikeus | tuomari | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">juristimies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍⚖">laki | mies | oikeus | tuomari | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">juristimies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍⚖">laki | mies | oikeus | tuomari | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">juristimies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍⚖">laki | mies | oikeus | tuomari | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">juristimies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍⚖">laki | nainen | oikeus | tuomari | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">juristinainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍⚖">laki | nainen | oikeus | tuomari | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">juristinainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍⚖">laki | nainen | oikeus | tuomari | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">juristinainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍⚖">laki | nainen | oikeus | tuomari | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">juristinainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍⚖">laki | nainen | oikeus | tuomari | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">juristinainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🌾">maanviljelijä | mies | puutarhuri | sato | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">maanviljelijämies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🌾">maanviljelijä | mies | puutarhuri | sato | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">maanviljelijämies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🌾">maanviljelijä | mies | puutarhuri | sato | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">maanviljelijämies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🌾">maanviljelijä | mies | puutarhuri | sato | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">maanviljelijämies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🌾">maanviljelijä | mies | puutarhuri | sato | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">maanviljelijämies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🌾">maanviljelijä | nainen | puutarhuri | sato | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">maanviljelijänainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🌾">maanviljelijä | nainen | puutarhuri | sato | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">maanviljelijänainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🌾">maanviljelijä | nainen | puutarhuri | sato | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">maanviljelijänainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🌾">maanviljelijä | nainen | puutarhuri | sato | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">maanviljelijänainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🌾">maanviljelijä | nainen | puutarhuri | sato | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">maanviljelijänainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🍳">kokki | mies | paistinpannu | ruoka | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">kokkimies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🍳">kokki | mies | paistinpannu | ruoka | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">kokkimies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🍳">kokki | mies | paistinpannu | ruoka | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">kokkimies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🍳">kokki | mies | paistinpannu | ruoka | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">kokkimies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🍳">kokki | mies | paistinpannu | ruoka | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">kokkimies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🍳">kokki | nainen | paistinpannu | ruoka | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">kokkinainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🍳">kokki | nainen | paistinpannu | ruoka | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">kokkinainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🍳">kokki | nainen | paistinpannu | ruoka | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">kokkinainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🍳">kokki | nainen | paistinpannu | ruoka | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">kokkinainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🍳">kokki | nainen | paistinpannu | ruoka | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">kokkinainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🔧">jakoavain | mekaanikko | mies | työkalu | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">mekaanikkomies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🔧">jakoavain | mekaanikko | mies | työkalu | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">mekaanikkomies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🔧">jakoavain | mekaanikko | mies | työkalu | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">mekaanikkomies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🔧">jakoavain | mekaanikko | mies | työkalu | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">mekaanikkomies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🔧">jakoavain | mekaanikko | mies | työkalu | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">mekaanikkomies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🔧">jakoavain | mekaanikko | nainen | työkalu | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">mekaanikkonainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🔧">jakoavain | mekaanikko | nainen | työkalu | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">mekaanikkonainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🔧">jakoavain | mekaanikko | nainen | työkalu | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">mekaanikkonainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🔧">jakoavain | mekaanikko | nainen | työkalu | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">mekaanikkonainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🔧">jakoavain | mekaanikko | nainen | työkalu | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">mekaanikkonainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🏭">hitsaaja | mies | tehdas | työntekijä | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">tehdastyöntekijämies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🏭">hitsaaja | mies | tehdas | työntekijä | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">tehdastyöntekijämies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🏭">hitsaaja | mies | tehdas | työntekijä | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">tehdastyöntekijämies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🏭">hitsaaja | mies | tehdas | työntekijä | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">tehdastyöntekijämies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🏭">hitsaaja | mies | tehdas | työntekijä | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">tehdastyöntekijämies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🏭">hitsaaja | nainen | tehdas | työntekijä | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">tehdastyöntekijänainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🏭">hitsaaja | nainen | tehdas | työntekijä | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">tehdastyöntekijänainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🏭">hitsaaja | nainen | tehdas | työntekijä | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">tehdastyöntekijänainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🏭">hitsaaja | nainen | tehdas | työntekijä | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">tehdastyöntekijänainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🏭">hitsaaja | nainen | tehdas | työntekijä | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">tehdastyöntekijänainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍💼">mies | toimisto | työntekijä | valkokaulus | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">toimistotyöntekijämies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍💼">mies | toimisto | työntekijä | valkokaulus | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">toimistotyöntekijämies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍💼">mies | toimisto | työntekijä | valkokaulus | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">toimistotyöntekijämies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍💼">mies | toimisto | työntekijä | valkokaulus | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">toimistotyöntekijämies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍💼">mies | toimisto | työntekijä | valkokaulus | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">toimistotyöntekijämies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍💼">nainen | toimisto | työntekijä | valkokaulus | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">toimistotyöntekijänainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍💼">nainen | toimisto | työntekijä | valkokaulus | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">toimistotyöntekijänainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍💼">nainen | toimisto | työntekijä | valkokaulus | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">toimistotyöntekijänainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍💼">nainen | toimisto | työntekijä | valkokaulus | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">toimistotyöntekijänainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍💼">nainen | toimisto | työntekijä | valkokaulus | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">toimistotyöntekijänainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🔬">mies | tiede | tutkija | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">tutkijamies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🔬">mies | tiede | tutkija | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">tutkijamies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🔬">mies | tiede | tutkija | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">tutkijamies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🔬">mies | tiede | tutkija | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">tutkijamies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🔬">mies | tiede | tutkija | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">tutkijamies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🔬">nainen | tiede | tutkija | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">tutkijanainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🔬">nainen | tiede | tutkija | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">tutkijanainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🔬">nainen | tiede | tutkija | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">tutkijanainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🔬">nainen | tiede | tutkija | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">tutkijanainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🔬">nainen | tiede | tutkija | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">tutkijanainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍💻">IT | koodaus | mies | tietokone | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">IT-mies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍💻">IT | koodaus | mies | tietokone | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">IT-mies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍💻">IT | koodaus | mies | tietokone | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">IT-mies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍💻">IT | koodaus | mies | tietokone | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">IT-mies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍💻">IT | koodaus | mies | tietokone | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">IT-mies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍💻">IT | koodaus | nainen | tietokone | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">IT-nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍💻">IT | koodaus | nainen | tietokone | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">IT-nainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍💻">IT | koodaus | nainen | tietokone | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">IT-nainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍💻">IT | koodaus | nainen | tietokone | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">IT-nainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍💻">IT | koodaus | nainen | tietokone | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">IT-nainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🎤">karaoke | laulaja | mies | mikki | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">mieslaulaja: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🎤">karaoke | laulaja | mies | mikki | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">mieslaulaja: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🎤">karaoke | laulaja | mies | mikki | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">mieslaulaja: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🎤">karaoke | laulaja | mies | mikki | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">mieslaulaja: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🎤">karaoke | laulaja | mies | mikki | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">mieslaulaja: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🎤">karaoke | laulaja | mikki | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">naislaulaja: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🎤">karaoke | laulaja | mikki | nainen | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">naislaulaja: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🎤">karaoke | laulaja | mikki | nainen | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">naislaulaja: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🎤">karaoke | laulaja | mikki | nainen | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">naislaulaja: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🎤">karaoke | laulaja | mikki | nainen | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">naislaulaja: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🎨">maalari | mies | taide | taiteilija | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">miesartisti: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🎨">maalari | mies | taide | taiteilija | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">miesartisti: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🎨">maalari | mies | taide | taiteilija | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">miesartisti: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🎨">maalari | mies | taide | taiteilija | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">miesartisti: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🎨">maalari | mies | taide | taiteilija | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">miesartisti: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🎨">maalari | nainen | taide | taiteilija | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">naisartisti: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🎨">maalari | nainen | taide | taiteilija | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">naisartisti: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🎨">maalari | nainen | taide | taiteilija | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">naisartisti: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🎨">maalari | nainen | taide | taiteilija | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">naisartisti: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🎨">maalari | nainen | taide | taiteilija | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">naisartisti: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍✈">lentokone | lentäjä | mies | pilotti | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">miespilotti: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍✈">lentokone | lentäjä | mies | pilotti | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">miespilotti: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍✈">lentokone | lentäjä | mies | pilotti | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">miespilotti: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍✈">lentokone | lentäjä | mies | pilotti | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">miespilotti: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍✈">lentokone | lentäjä | mies | pilotti | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">miespilotti: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍✈">lentokone | lentäjä | nainen | pilotti | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">naispilotti: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍✈">lentokone | lentäjä | nainen | pilotti | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">naispilotti: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍✈">lentokone | lentäjä | nainen | pilotti | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">naispilotti: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍✈">lentokone | lentäjä | nainen | pilotti | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">naispilotti: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍✈">lentokone | lentäjä | nainen | pilotti | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">naispilotti: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🚀">astronautti | avaruus | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">astronauttimies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🚀">astronautti | avaruus | mies | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">astronauttimies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🚀">astronautti | avaruus | mies | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">astronauttimies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🚀">astronautti | avaruus | mies | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">astronauttimies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🚀">astronautti | avaruus | mies | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">astronauttimies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🚀">astronautti | avaruus | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">astronauttinainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🚀">astronautti | avaruus | nainen | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">astronauttinainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🚀">astronautti | avaruus | nainen | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">astronauttinainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🚀">astronautti | avaruus | nainen | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">astronauttinainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🚀">astronautti | avaruus | nainen | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">astronauttinainen: ihotyyppi-6</annotation>
+		<annotation cp="👨🏻‍🚒">mies | palomies | tulipalo | tulitaistelija | ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">palomies: ihotyyppi-1-2</annotation>
+		<annotation cp="👨🏼‍🚒">mies | palomies | tulipalo | tulitaistelija | ihotyyppi-3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">palomies: ihotyyppi-3</annotation>
+		<annotation cp="👨🏽‍🚒">mies | palomies | tulipalo | tulitaistelija | ihotyyppi-4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">palomies: ihotyyppi-4</annotation>
+		<annotation cp="👨🏾‍🚒">mies | palomies | tulipalo | tulitaistelija | ihotyyppi-5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">palomies: ihotyyppi-5</annotation>
+		<annotation cp="👨🏿‍🚒">mies | palomies | tulipalo | tulitaistelija | ihotyyppi-6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">palomies: ihotyyppi-6</annotation>
+		<annotation cp="👩🏻‍🚒">nainen | palonainen | tulipalo | tulitaistelija | ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">palonainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👩🏼‍🚒">nainen | palonainen | tulipalo | tulitaistelija | ihotyyppi-3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">palonainen: ihotyyppi-3</annotation>
+		<annotation cp="👩🏽‍🚒">nainen | palonainen | tulipalo | tulitaistelija | ihotyyppi-4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">palonainen: ihotyyppi-4</annotation>
+		<annotation cp="👩🏾‍🚒">nainen | palonainen | tulipalo | tulitaistelija | ihotyyppi-5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">palonainen: ihotyyppi-5</annotation>
+		<annotation cp="👩🏿‍🚒">nainen | palonainen | tulipalo | tulitaistelija | ihotyyppi-6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">palonainen: ihotyyppi-6</annotation>
+		<annotation cp="👮🏻">kyttä | ihotyyppi-1-2</annotation>
+		<annotation cp="👮🏻" type="tts">poliisi: ihotyyppi-1-2</annotation>
+		<annotation cp="👮🏼">kyttä | ihotyyppi-3</annotation>
+		<annotation cp="👮🏼" type="tts">poliisi: ihotyyppi-3</annotation>
+		<annotation cp="👮🏽">kyttä | ihotyyppi-4</annotation>
+		<annotation cp="👮🏽" type="tts">poliisi: ihotyyppi-4</annotation>
+		<annotation cp="👮🏾">kyttä | ihotyyppi-5</annotation>
+		<annotation cp="👮🏾" type="tts">poliisi: ihotyyppi-5</annotation>
+		<annotation cp="👮🏿">kyttä | ihotyyppi-6</annotation>
+		<annotation cp="👮🏿" type="tts">poliisi: ihotyyppi-6</annotation>
+		<annotation cp="👮🏻‍♂">etsivä | konstaapeli | mies | poliisi | ihotyyppi-1-2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">miespoliisi: ihotyyppi-1-2</annotation>
+		<annotation cp="👮🏼‍♂">etsivä | konstaapeli | mies | poliisi | ihotyyppi-3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">miespoliisi: ihotyyppi-3</annotation>
+		<annotation cp="👮🏽‍♂">etsivä | konstaapeli | mies | poliisi | ihotyyppi-4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">miespoliisi: ihotyyppi-4</annotation>
+		<annotation cp="👮🏾‍♂">etsivä | konstaapeli | mies | poliisi | ihotyyppi-5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">miespoliisi: ihotyyppi-5</annotation>
+		<annotation cp="👮🏿‍♂">etsivä | konstaapeli | mies | poliisi | ihotyyppi-6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">miespoliisi: ihotyyppi-6</annotation>
+		<annotation cp="👮🏻‍♀">etsivä | konstaapeli | nainen | poliisi | ihotyyppi-1-2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">naispoliisi: ihotyyppi-1-2</annotation>
+		<annotation cp="👮🏼‍♀">etsivä | konstaapeli | nainen | poliisi | ihotyyppi-3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">naispoliisi: ihotyyppi-3</annotation>
+		<annotation cp="👮🏽‍♀">etsivä | konstaapeli | nainen | poliisi | ihotyyppi-4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">naispoliisi: ihotyyppi-4</annotation>
+		<annotation cp="👮🏾‍♀">etsivä | konstaapeli | nainen | poliisi | ihotyyppi-5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">naispoliisi: ihotyyppi-5</annotation>
+		<annotation cp="👮🏿‍♀">etsivä | konstaapeli | nainen | poliisi | ihotyyppi-6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">naispoliisi: ihotyyppi-6</annotation>
+		<annotation cp="🕵🏻">salapoliisi | ihotyyppi-1-2</annotation>
+		<annotation cp="🕵🏻" type="tts">etsivä: ihotyyppi-1-2</annotation>
+		<annotation cp="🕵🏼">salapoliisi | ihotyyppi-3</annotation>
+		<annotation cp="🕵🏼" type="tts">etsivä: ihotyyppi-3</annotation>
+		<annotation cp="🕵🏽">salapoliisi | ihotyyppi-4</annotation>
+		<annotation cp="🕵🏽" type="tts">etsivä: ihotyyppi-4</annotation>
+		<annotation cp="🕵🏾">salapoliisi | ihotyyppi-5</annotation>
+		<annotation cp="🕵🏾" type="tts">etsivä: ihotyyppi-5</annotation>
+		<annotation cp="🕵🏿">salapoliisi | ihotyyppi-6</annotation>
+		<annotation cp="🕵🏿" type="tts">etsivä: ihotyyppi-6</annotation>
+		<annotation cp="🕵🏻‍♂">etsivä | mies | salapoliisi | vakooja | ihotyyppi-1-2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">etsivämies: ihotyyppi-1-2</annotation>
+		<annotation cp="🕵🏼‍♂">etsivä | mies | salapoliisi | vakooja | ihotyyppi-3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">etsivämies: ihotyyppi-3</annotation>
+		<annotation cp="🕵🏽‍♂">etsivä | mies | salapoliisi | vakooja | ihotyyppi-4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">etsivämies: ihotyyppi-4</annotation>
+		<annotation cp="🕵🏾‍♂">etsivä | mies | salapoliisi | vakooja | ihotyyppi-5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">etsivämies: ihotyyppi-5</annotation>
+		<annotation cp="🕵🏿‍♂">etsivä | mies | salapoliisi | vakooja | ihotyyppi-6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">etsivämies: ihotyyppi-6</annotation>
+		<annotation cp="🕵🏻‍♀">etsivä | nainen | salapoliisi | vakooja | ihotyyppi-1-2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">etsivänainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🕵🏼‍♀">etsivä | nainen | salapoliisi | vakooja | ihotyyppi-3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">etsivänainen: ihotyyppi-3</annotation>
+		<annotation cp="🕵🏽‍♀">etsivä | nainen | salapoliisi | vakooja | ihotyyppi-4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">etsivänainen: ihotyyppi-4</annotation>
+		<annotation cp="🕵🏾‍♀">etsivä | nainen | salapoliisi | vakooja | ihotyyppi-5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">etsivänainen: ihotyyppi-5</annotation>
+		<annotation cp="🕵🏿‍♀">etsivä | nainen | salapoliisi | vakooja | ihotyyppi-6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">etsivänainen: ihotyyppi-6</annotation>
+		<annotation cp="💂🏻">vartija | ihotyyppi-1-2</annotation>
+		<annotation cp="💂🏻" type="tts">vartija: ihotyyppi-1-2</annotation>
+		<annotation cp="💂🏼">vartija | ihotyyppi-3</annotation>
+		<annotation cp="💂🏼" type="tts">vartija: ihotyyppi-3</annotation>
+		<annotation cp="💂🏽">vartija | ihotyyppi-4</annotation>
+		<annotation cp="💂🏽" type="tts">vartija: ihotyyppi-4</annotation>
+		<annotation cp="💂🏾">vartija | ihotyyppi-5</annotation>
+		<annotation cp="💂🏾" type="tts">vartija: ihotyyppi-5</annotation>
+		<annotation cp="💂🏿">vartija | ihotyyppi-6</annotation>
+		<annotation cp="💂🏿" type="tts">vartija: ihotyyppi-6</annotation>
+		<annotation cp="💂🏻‍♂">mies | vartija | ihotyyppi-1-2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">miesvartija: ihotyyppi-1-2</annotation>
+		<annotation cp="💂🏼‍♂">mies | vartija | ihotyyppi-3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">miesvartija: ihotyyppi-3</annotation>
+		<annotation cp="💂🏽‍♂">mies | vartija | ihotyyppi-4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">miesvartija: ihotyyppi-4</annotation>
+		<annotation cp="💂🏾‍♂">mies | vartija | ihotyyppi-5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">miesvartija: ihotyyppi-5</annotation>
+		<annotation cp="💂🏿‍♂">mies | vartija | ihotyyppi-6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">miesvartija: ihotyyppi-6</annotation>
+		<annotation cp="💂🏻‍♀">nainen | vartija | ihotyyppi-1-2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">naisvartija: ihotyyppi-1-2</annotation>
+		<annotation cp="💂🏼‍♀">nainen | vartija | ihotyyppi-3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">naisvartija: ihotyyppi-3</annotation>
+		<annotation cp="💂🏽‍♀">nainen | vartija | ihotyyppi-4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">naisvartija: ihotyyppi-4</annotation>
+		<annotation cp="💂🏾‍♀">nainen | vartija | ihotyyppi-5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">naisvartija: ihotyyppi-5</annotation>
+		<annotation cp="💂🏿‍♀">nainen | vartija | ihotyyppi-6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">naisvartija: ihotyyppi-6</annotation>
+		<annotation cp="👷🏻">hattu | rakennus | työmies | ihotyyppi-1-2</annotation>
+		<annotation cp="👷🏻" type="tts">rakennustyöläinen: ihotyyppi-1-2</annotation>
+		<annotation cp="👷🏼">hattu | rakennus | työmies | ihotyyppi-3</annotation>
+		<annotation cp="👷🏼" type="tts">rakennustyöläinen: ihotyyppi-3</annotation>
+		<annotation cp="👷🏽">hattu | rakennus | työmies | ihotyyppi-4</annotation>
+		<annotation cp="👷🏽" type="tts">rakennustyöläinen: ihotyyppi-4</annotation>
+		<annotation cp="👷🏾">hattu | rakennus | työmies | ihotyyppi-5</annotation>
+		<annotation cp="👷🏾" type="tts">rakennustyöläinen: ihotyyppi-5</annotation>
+		<annotation cp="👷🏿">hattu | rakennus | työmies | ihotyyppi-6</annotation>
+		<annotation cp="👷🏿" type="tts">rakennustyöläinen: ihotyyppi-6</annotation>
+		<annotation cp="👷🏻‍♂">mies | rakennustyöläinen | raksa | ihotyyppi-1-2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">rakennusmies: ihotyyppi-1-2</annotation>
+		<annotation cp="👷🏼‍♂">mies | rakennustyöläinen | raksa | ihotyyppi-3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">rakennusmies: ihotyyppi-3</annotation>
+		<annotation cp="👷🏽‍♂">mies | rakennustyöläinen | raksa | ihotyyppi-4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">rakennusmies: ihotyyppi-4</annotation>
+		<annotation cp="👷🏾‍♂">mies | rakennustyöläinen | raksa | ihotyyppi-5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">rakennusmies: ihotyyppi-5</annotation>
+		<annotation cp="👷🏿‍♂">mies | rakennustyöläinen | raksa | ihotyyppi-6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">rakennusmies: ihotyyppi-6</annotation>
+		<annotation cp="👷🏻‍♀">nainen | rakennustyöläinen | raksa | ihotyyppi-1-2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">rakennusnainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👷🏼‍♀">nainen | rakennustyöläinen | raksa | ihotyyppi-3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">rakennusnainen: ihotyyppi-3</annotation>
+		<annotation cp="👷🏽‍♀">nainen | rakennustyöläinen | raksa | ihotyyppi-4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">rakennusnainen: ihotyyppi-4</annotation>
+		<annotation cp="👷🏾‍♀">nainen | rakennustyöläinen | raksa | ihotyyppi-5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">rakennusnainen: ihotyyppi-5</annotation>
+		<annotation cp="👷🏿‍♀">nainen | rakennustyöläinen | raksa | ihotyyppi-6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">rakennusnainen: ihotyyppi-6</annotation>
+		<annotation cp="🤴🏻">kuninkaallinen | prinssi | ihotyyppi-1-2</annotation>
+		<annotation cp="🤴🏻" type="tts">prinssi: ihotyyppi-1-2</annotation>
+		<annotation cp="🤴🏼">kuninkaallinen | prinssi | ihotyyppi-3</annotation>
+		<annotation cp="🤴🏼" type="tts">prinssi: ihotyyppi-3</annotation>
+		<annotation cp="🤴🏽">kuninkaallinen | prinssi | ihotyyppi-4</annotation>
+		<annotation cp="🤴🏽" type="tts">prinssi: ihotyyppi-4</annotation>
+		<annotation cp="🤴🏾">kuninkaallinen | prinssi | ihotyyppi-5</annotation>
+		<annotation cp="🤴🏾" type="tts">prinssi: ihotyyppi-5</annotation>
+		<annotation cp="🤴🏿">kuninkaallinen | prinssi | ihotyyppi-6</annotation>
+		<annotation cp="🤴🏿" type="tts">prinssi: ihotyyppi-6</annotation>
+		<annotation cp="👸🏻">fantasia | satu | ihotyyppi-1-2</annotation>
+		<annotation cp="👸🏻" type="tts">prinsessa: ihotyyppi-1-2</annotation>
+		<annotation cp="👸🏼">fantasia | satu | ihotyyppi-3</annotation>
+		<annotation cp="👸🏼" type="tts">prinsessa: ihotyyppi-3</annotation>
+		<annotation cp="👸🏽">fantasia | satu | ihotyyppi-4</annotation>
+		<annotation cp="👸🏽" type="tts">prinsessa: ihotyyppi-4</annotation>
+		<annotation cp="👸🏾">fantasia | satu | ihotyyppi-5</annotation>
+		<annotation cp="👸🏾" type="tts">prinsessa: ihotyyppi-5</annotation>
+		<annotation cp="👸🏿">fantasia | satu | ihotyyppi-6</annotation>
+		<annotation cp="👸🏿" type="tts">prinsessa: ihotyyppi-6</annotation>
+		<annotation cp="👳🏻">mies | turbaani | ihotyyppi-1-2</annotation>
+		<annotation cp="👳🏻" type="tts">mies ja turbaani: ihotyyppi-1-2</annotation>
+		<annotation cp="👳🏼">mies | turbaani | ihotyyppi-3</annotation>
+		<annotation cp="👳🏼" type="tts">mies ja turbaani: ihotyyppi-3</annotation>
+		<annotation cp="👳🏽">mies | turbaani | ihotyyppi-4</annotation>
+		<annotation cp="👳🏽" type="tts">mies ja turbaani: ihotyyppi-4</annotation>
+		<annotation cp="👳🏾">mies | turbaani | ihotyyppi-5</annotation>
+		<annotation cp="👳🏾" type="tts">mies ja turbaani: ihotyyppi-5</annotation>
+		<annotation cp="👳🏿">mies | turbaani | ihotyyppi-6</annotation>
+		<annotation cp="👳🏿" type="tts">mies ja turbaani: ihotyyppi-6</annotation>
+		<annotation cp="👳🏻‍♂">mies | turbaani | ihotyyppi-1-2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">turbaanipäinen mies: ihotyyppi-1-2</annotation>
+		<annotation cp="👳🏼‍♂">mies | turbaani | ihotyyppi-3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">turbaanipäinen mies: ihotyyppi-3</annotation>
+		<annotation cp="👳🏽‍♂">mies | turbaani | ihotyyppi-4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">turbaanipäinen mies: ihotyyppi-4</annotation>
+		<annotation cp="👳🏾‍♂">mies | turbaani | ihotyyppi-5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">turbaanipäinen mies: ihotyyppi-5</annotation>
+		<annotation cp="👳🏿‍♂">mies | turbaani | ihotyyppi-6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">turbaanipäinen mies: ihotyyppi-6</annotation>
+		<annotation cp="👳🏻‍♀">mies | turbaani | ihotyyppi-1-2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">turbaanipäinen nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="👳🏼‍♀">mies | turbaani | ihotyyppi-3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">turbaanipäinen nainen: ihotyyppi-3</annotation>
+		<annotation cp="👳🏽‍♀">mies | turbaani | ihotyyppi-4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">turbaanipäinen nainen: ihotyyppi-4</annotation>
+		<annotation cp="👳🏾‍♀">mies | turbaani | ihotyyppi-5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">turbaanipäinen nainen: ihotyyppi-5</annotation>
+		<annotation cp="👳🏿‍♀">mies | turbaani | ihotyyppi-6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">turbaanipäinen nainen: ihotyyppi-6</annotation>
+		<annotation cp="👲🏻">gua pi mao | hattu | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="👲🏻" type="tts">mies ja kiinalainen hattu: ihotyyppi-1-2</annotation>
+		<annotation cp="👲🏼">gua pi mao | hattu | mies | ihotyyppi-3</annotation>
+		<annotation cp="👲🏼" type="tts">mies ja kiinalainen hattu: ihotyyppi-3</annotation>
+		<annotation cp="👲🏽">gua pi mao | hattu | mies | ihotyyppi-4</annotation>
+		<annotation cp="👲🏽" type="tts">mies ja kiinalainen hattu: ihotyyppi-4</annotation>
+		<annotation cp="👲🏾">gua pi mao | hattu | mies | ihotyyppi-5</annotation>
+		<annotation cp="👲🏾" type="tts">mies ja kiinalainen hattu: ihotyyppi-5</annotation>
+		<annotation cp="👲🏿">gua pi mao | hattu | mies | ihotyyppi-6</annotation>
+		<annotation cp="👲🏿" type="tts">mies ja kiinalainen hattu: ihotyyppi-6</annotation>
+		<annotation cp="👱🏻">hiukset | vaalea | ihotyyppi-1-2</annotation>
+		<annotation cp="👱🏻" type="tts">blondi: ihotyyppi-1-2</annotation>
+		<annotation cp="👱🏼">hiukset | vaalea | ihotyyppi-3</annotation>
+		<annotation cp="👱🏼" type="tts">blondi: ihotyyppi-3</annotation>
+		<annotation cp="👱🏽">hiukset | vaalea | ihotyyppi-4</annotation>
+		<annotation cp="👱🏽" type="tts">blondi: ihotyyppi-4</annotation>
+		<annotation cp="👱🏾">hiukset | vaalea | ihotyyppi-5</annotation>
+		<annotation cp="👱🏾" type="tts">blondi: ihotyyppi-5</annotation>
+		<annotation cp="👱🏿">hiukset | vaalea | ihotyyppi-6</annotation>
+		<annotation cp="👱🏿" type="tts">blondi: ihotyyppi-6</annotation>
+		<annotation cp="👱🏻‍♂">hiukset | mies | vaalea | ihotyyppi-1-2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blondipoika: ihotyyppi-1-2</annotation>
+		<annotation cp="👱🏼‍♂">hiukset | mies | vaalea | ihotyyppi-3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blondipoika: ihotyyppi-3</annotation>
+		<annotation cp="👱🏽‍♂">hiukset | mies | vaalea | ihotyyppi-4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blondipoika: ihotyyppi-4</annotation>
+		<annotation cp="👱🏾‍♂">hiukset | mies | vaalea | ihotyyppi-5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blondipoika: ihotyyppi-5</annotation>
+		<annotation cp="👱🏿‍♂">hiukset | mies | vaalea | ihotyyppi-6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blondipoika: ihotyyppi-6</annotation>
+		<annotation cp="👱🏻‍♀">hiukset | nainen | vaalea | ihotyyppi-1-2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blondityttö: ihotyyppi-1-2</annotation>
+		<annotation cp="👱🏼‍♀">hiukset | nainen | vaalea | ihotyyppi-3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blondityttö: ihotyyppi-3</annotation>
+		<annotation cp="👱🏽‍♀">hiukset | nainen | vaalea | ihotyyppi-4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blondityttö: ihotyyppi-4</annotation>
+		<annotation cp="👱🏾‍♀">hiukset | nainen | vaalea | ihotyyppi-5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blondityttö: ihotyyppi-5</annotation>
+		<annotation cp="👱🏿‍♀">hiukset | nainen | vaalea | ihotyyppi-6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blondityttö: ihotyyppi-6</annotation>
+		<annotation cp="🤵🏻">mies | smokki | ihotyyppi-1-2</annotation>
+		<annotation cp="🤵🏻" type="tts">mies smokissa: ihotyyppi-1-2</annotation>
+		<annotation cp="🤵🏼">mies | smokki | ihotyyppi-3</annotation>
+		<annotation cp="🤵🏼" type="tts">mies smokissa: ihotyyppi-3</annotation>
+		<annotation cp="🤵🏽">mies | smokki | ihotyyppi-4</annotation>
+		<annotation cp="🤵🏽" type="tts">mies smokissa: ihotyyppi-4</annotation>
+		<annotation cp="🤵🏾">mies | smokki | ihotyyppi-5</annotation>
+		<annotation cp="🤵🏾" type="tts">mies smokissa: ihotyyppi-5</annotation>
+		<annotation cp="🤵🏿">mies | smokki | ihotyyppi-6</annotation>
+		<annotation cp="🤵🏿" type="tts">mies smokissa: ihotyyppi-6</annotation>
+		<annotation cp="👰🏻">huntu | häät | morsian | ihotyyppi-1-2</annotation>
+		<annotation cp="👰🏻" type="tts">morsian ja huntu: ihotyyppi-1-2</annotation>
+		<annotation cp="👰🏼">huntu | häät | morsian | ihotyyppi-3</annotation>
+		<annotation cp="👰🏼" type="tts">morsian ja huntu: ihotyyppi-3</annotation>
+		<annotation cp="👰🏽">huntu | häät | morsian | ihotyyppi-4</annotation>
+		<annotation cp="👰🏽" type="tts">morsian ja huntu: ihotyyppi-4</annotation>
+		<annotation cp="👰🏾">huntu | häät | morsian | ihotyyppi-5</annotation>
+		<annotation cp="👰🏾" type="tts">morsian ja huntu: ihotyyppi-5</annotation>
+		<annotation cp="👰🏿">huntu | häät | morsian | ihotyyppi-6</annotation>
+		<annotation cp="👰🏿" type="tts">morsian ja huntu: ihotyyppi-6</annotation>
+		<annotation cp="🤰🏻">nainen | raskaana | ihotyyppi-1-2</annotation>
+		<annotation cp="🤰🏻" type="tts">raskaana oleva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🤰🏼">nainen | raskaana | ihotyyppi-3</annotation>
+		<annotation cp="🤰🏼" type="tts">raskaana oleva nainen: ihotyyppi-3</annotation>
+		<annotation cp="🤰🏽">nainen | raskaana | ihotyyppi-4</annotation>
+		<annotation cp="🤰🏽" type="tts">raskaana oleva nainen: ihotyyppi-4</annotation>
+		<annotation cp="🤰🏾">nainen | raskaana | ihotyyppi-5</annotation>
+		<annotation cp="🤰🏾" type="tts">raskaana oleva nainen: ihotyyppi-5</annotation>
+		<annotation cp="🤰🏿">nainen | raskaana | ihotyyppi-6</annotation>
+		<annotation cp="🤰🏿" type="tts">raskaana oleva nainen: ihotyyppi-6</annotation>
+		<annotation cp="👼🏻">enkeli | fantasia | naama | satu | vauva | ihotyyppi-1-2</annotation>
+		<annotation cp="👼🏻" type="tts">enkelivauva: ihotyyppi-1-2</annotation>
+		<annotation cp="👼🏼">enkeli | fantasia | naama | satu | vauva | ihotyyppi-3</annotation>
+		<annotation cp="👼🏼" type="tts">enkelivauva: ihotyyppi-3</annotation>
+		<annotation cp="👼🏽">enkeli | fantasia | naama | satu | vauva | ihotyyppi-4</annotation>
+		<annotation cp="👼🏽" type="tts">enkelivauva: ihotyyppi-4</annotation>
+		<annotation cp="👼🏾">enkeli | fantasia | naama | satu | vauva | ihotyyppi-5</annotation>
+		<annotation cp="👼🏾" type="tts">enkelivauva: ihotyyppi-5</annotation>
+		<annotation cp="👼🏿">enkeli | fantasia | naama | satu | vauva | ihotyyppi-6</annotation>
+		<annotation cp="👼🏿" type="tts">enkelivauva: ihotyyppi-6</annotation>
+		<annotation cp="🎅🏻">fantasia | joulu | juhla | satu | ihotyyppi-1-2</annotation>
+		<annotation cp="🎅🏻" type="tts">joulupukki: ihotyyppi-1-2</annotation>
+		<annotation cp="🎅🏼">fantasia | joulu | juhla | satu | ihotyyppi-3</annotation>
+		<annotation cp="🎅🏼" type="tts">joulupukki: ihotyyppi-3</annotation>
+		<annotation cp="🎅🏽">fantasia | joulu | juhla | satu | ihotyyppi-4</annotation>
+		<annotation cp="🎅🏽" type="tts">joulupukki: ihotyyppi-4</annotation>
+		<annotation cp="🎅🏾">fantasia | joulu | juhla | satu | ihotyyppi-5</annotation>
+		<annotation cp="🎅🏾" type="tts">joulupukki: ihotyyppi-5</annotation>
+		<annotation cp="🎅🏿">fantasia | joulu | juhla | satu | ihotyyppi-6</annotation>
+		<annotation cp="🎅🏿" type="tts">joulupukki: ihotyyppi-6</annotation>
+		<annotation cp="🤶🏻">joulu | joulupukin muori | muori | ihotyyppi-1-2</annotation>
+		<annotation cp="🤶🏻" type="tts">joulupukin muori: ihotyyppi-1-2</annotation>
+		<annotation cp="🤶🏼">joulu | joulupukin muori | muori | ihotyyppi-3</annotation>
+		<annotation cp="🤶🏼" type="tts">joulupukin muori: ihotyyppi-3</annotation>
+		<annotation cp="🤶🏽">joulu | joulupukin muori | muori | ihotyyppi-4</annotation>
+		<annotation cp="🤶🏽" type="tts">joulupukin muori: ihotyyppi-4</annotation>
+		<annotation cp="🤶🏾">joulu | joulupukin muori | muori | ihotyyppi-5</annotation>
+		<annotation cp="🤶🏾" type="tts">joulupukin muori: ihotyyppi-5</annotation>
+		<annotation cp="🤶🏿">joulu | joulupukin muori | muori | ihotyyppi-6</annotation>
+		<annotation cp="🤶🏿" type="tts">joulupukin muori: ihotyyppi-6</annotation>
+		<annotation cp="🙍🏻">ele | surullinen | ihotyyppi-1-2</annotation>
+		<annotation cp="🙍🏻" type="tts">surullinen henkilö: ihotyyppi-1-2</annotation>
+		<annotation cp="🙍🏼">ele | surullinen | ihotyyppi-3</annotation>
+		<annotation cp="🙍🏼" type="tts">surullinen henkilö: ihotyyppi-3</annotation>
+		<annotation cp="🙍🏽">ele | surullinen | ihotyyppi-4</annotation>
+		<annotation cp="🙍🏽" type="tts">surullinen henkilö: ihotyyppi-4</annotation>
+		<annotation cp="🙍🏾">ele | surullinen | ihotyyppi-5</annotation>
+		<annotation cp="🙍🏾" type="tts">surullinen henkilö: ihotyyppi-5</annotation>
+		<annotation cp="🙍🏿">ele | surullinen | ihotyyppi-6</annotation>
+		<annotation cp="🙍🏿" type="tts">surullinen henkilö: ihotyyppi-6</annotation>
+		<annotation cp="🙍🏻‍♂">harmi | mies | suru | ihotyyppi-1-2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">surullinen mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🙍🏼‍♂">harmi | mies | suru | ihotyyppi-3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">surullinen mies: ihotyyppi-3</annotation>
+		<annotation cp="🙍🏽‍♂">harmi | mies | suru | ihotyyppi-4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">surullinen mies: ihotyyppi-4</annotation>
+		<annotation cp="🙍🏾‍♂">harmi | mies | suru | ihotyyppi-5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">surullinen mies: ihotyyppi-5</annotation>
+		<annotation cp="🙍🏿‍♂">harmi | mies | suru | ihotyyppi-6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">surullinen mies: ihotyyppi-6</annotation>
+		<annotation cp="🙍🏻‍♀">harmi | nainen | suru | ihotyyppi-1-2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">surullinen nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🙍🏼‍♀">harmi | nainen | suru | ihotyyppi-3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">surullinen nainen: ihotyyppi-3</annotation>
+		<annotation cp="🙍🏽‍♀">harmi | nainen | suru | ihotyyppi-4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">surullinen nainen: ihotyyppi-4</annotation>
+		<annotation cp="🙍🏾‍♀">harmi | nainen | suru | ihotyyppi-5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">surullinen nainen: ihotyyppi-5</annotation>
+		<annotation cp="🙍🏿‍♀">harmi | nainen | suru | ihotyyppi-6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">surullinen nainen: ihotyyppi-6</annotation>
+		<annotation cp="🙎🏻">ele | mököttävä | ihotyyppi-1-2</annotation>
+		<annotation cp="🙎🏻" type="tts">mököttävä henkilö: ihotyyppi-1-2</annotation>
+		<annotation cp="🙎🏼">ele | mököttävä | ihotyyppi-3</annotation>
+		<annotation cp="🙎🏼" type="tts">mököttävä henkilö: ihotyyppi-3</annotation>
+		<annotation cp="🙎🏽">ele | mököttävä | ihotyyppi-4</annotation>
+		<annotation cp="🙎🏽" type="tts">mököttävä henkilö: ihotyyppi-4</annotation>
+		<annotation cp="🙎🏾">ele | mököttävä | ihotyyppi-5</annotation>
+		<annotation cp="🙎🏾" type="tts">mököttävä henkilö: ihotyyppi-5</annotation>
+		<annotation cp="🙎🏿">ele | mököttävä | ihotyyppi-6</annotation>
+		<annotation cp="🙎🏿" type="tts">mököttävä henkilö: ihotyyppi-6</annotation>
+		<annotation cp="🙎🏻‍♂">harmi | mies | mökötys | ihotyyppi-1-2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">mököttävä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🙎🏼‍♂">harmi | mies | mökötys | ihotyyppi-3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">mököttävä mies: ihotyyppi-3</annotation>
+		<annotation cp="🙎🏽‍♂">harmi | mies | mökötys | ihotyyppi-4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">mököttävä mies: ihotyyppi-4</annotation>
+		<annotation cp="🙎🏾‍♂">harmi | mies | mökötys | ihotyyppi-5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">mököttävä mies: ihotyyppi-5</annotation>
+		<annotation cp="🙎🏿‍♂">harmi | mies | mökötys | ihotyyppi-6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">mököttävä mies: ihotyyppi-6</annotation>
+		<annotation cp="🙎🏻‍♀">harmi | mökötys | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">mököttävä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🙎🏼‍♀">harmi | mökötys | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">mököttävä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🙎🏽‍♀">harmi | mökötys | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">mököttävä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🙎🏾‍♀">harmi | mökötys | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">mököttävä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🙎🏿‍♀">harmi | mökötys | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">mököttävä nainen: ihotyyppi-6</annotation>
+		<annotation cp="🙅🏻">ei | ele | kielletty | käsi | ihotyyppi-1-2</annotation>
+		<annotation cp="🙅🏻" type="tts">ei-ele: ihotyyppi-1-2</annotation>
+		<annotation cp="🙅🏼">ei | ele | kielletty | käsi | ihotyyppi-3</annotation>
+		<annotation cp="🙅🏼" type="tts">ei-ele: ihotyyppi-3</annotation>
+		<annotation cp="🙅🏽">ei | ele | kielletty | käsi | ihotyyppi-4</annotation>
+		<annotation cp="🙅🏽" type="tts">ei-ele: ihotyyppi-4</annotation>
+		<annotation cp="🙅🏾">ei | ele | kielletty | käsi | ihotyyppi-5</annotation>
+		<annotation cp="🙅🏾" type="tts">ei-ele: ihotyyppi-5</annotation>
+		<annotation cp="🙅🏿">ei | ele | kielletty | käsi | ihotyyppi-6</annotation>
+		<annotation cp="🙅🏿" type="tts">ei-ele: ihotyyppi-6</annotation>
+		<annotation cp="🙅🏻‍♂">ei | ele | kielletty | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">ei käy -merkkiä näyttävä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🙅🏼‍♂">ei | ele | kielletty | mies | ihotyyppi-3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">ei käy -merkkiä näyttävä mies: ihotyyppi-3</annotation>
+		<annotation cp="🙅🏽‍♂">ei | ele | kielletty | mies | ihotyyppi-4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">ei käy -merkkiä näyttävä mies: ihotyyppi-4</annotation>
+		<annotation cp="🙅🏾‍♂">ei | ele | kielletty | mies | ihotyyppi-5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">ei käy -merkkiä näyttävä mies: ihotyyppi-5</annotation>
+		<annotation cp="🙅🏿‍♂">ei | ele | kielletty | mies | ihotyyppi-6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">ei käy -merkkiä näyttävä mies: ihotyyppi-6</annotation>
+		<annotation cp="🙅🏻‍♀">ei | ele | kielletty | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">ei käy -merkkiä näyttävä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🙅🏼‍♀">ei | ele | kielletty | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">ei käy -merkkiä näyttävä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🙅🏽‍♀">ei | ele | kielletty | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">ei käy -merkkiä näyttävä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🙅🏾‍♀">ei | ele | kielletty | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">ei käy -merkkiä näyttävä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🙅🏿‍♀">ei | ele | kielletty | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">ei käy -merkkiä näyttävä nainen: ihotyyppi-6</annotation>
+		<annotation cp="🙆🏻">ele | käsi | ok | ihotyyppi-1-2</annotation>
+		<annotation cp="🙆🏻" type="tts">ok-ele: ihotyyppi-1-2</annotation>
+		<annotation cp="🙆🏼">ele | käsi | ok | ihotyyppi-3</annotation>
+		<annotation cp="🙆🏼" type="tts">ok-ele: ihotyyppi-3</annotation>
+		<annotation cp="🙆🏽">ele | käsi | ok | ihotyyppi-4</annotation>
+		<annotation cp="🙆🏽" type="tts">ok-ele: ihotyyppi-4</annotation>
+		<annotation cp="🙆🏾">ele | käsi | ok | ihotyyppi-5</annotation>
+		<annotation cp="🙆🏾" type="tts">ok-ele: ihotyyppi-5</annotation>
+		<annotation cp="🙆🏿">ele | käsi | ok | ihotyyppi-6</annotation>
+		<annotation cp="🙆🏿" type="tts">ok-ele: ihotyyppi-6</annotation>
+		<annotation cp="🙆🏻‍♂">ele | kyllä | mies | ok | ihotyyppi-1-2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">ok-merkkiä näyttävä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🙆🏼‍♂">ele | kyllä | mies | ok | ihotyyppi-3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">ok-merkkiä näyttävä mies: ihotyyppi-3</annotation>
+		<annotation cp="🙆🏽‍♂">ele | kyllä | mies | ok | ihotyyppi-4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">ok-merkkiä näyttävä mies: ihotyyppi-4</annotation>
+		<annotation cp="🙆🏾‍♂">ele | kyllä | mies | ok | ihotyyppi-5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">ok-merkkiä näyttävä mies: ihotyyppi-5</annotation>
+		<annotation cp="🙆🏿‍♂">ele | kyllä | mies | ok | ihotyyppi-6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">ok-merkkiä näyttävä mies: ihotyyppi-6</annotation>
+		<annotation cp="🙆🏻‍♀">ele | kyllä | nainen | ok | ihotyyppi-1-2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">ok-merkkiä näyttävä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🙆🏼‍♀">ele | kyllä | nainen | ok | ihotyyppi-3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">ok-merkkiä näyttävä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🙆🏽‍♀">ele | kyllä | nainen | ok | ihotyyppi-4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">ok-merkkiä näyttävä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🙆🏾‍♀">ele | kyllä | nainen | ok | ihotyyppi-5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">ok-merkkiä näyttävä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🙆🏿‍♀">ele | kyllä | nainen | ok | ihotyyppi-6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">ok-merkkiä näyttävä nainen: ihotyyppi-6</annotation>
+		<annotation cp="💁🏻">apu | info | käsi | nenäkäs | ihotyyppi-1-2</annotation>
+		<annotation cp="💁🏻" type="tts">infotiskin henkilö: ihotyyppi-1-2</annotation>
+		<annotation cp="💁🏼">apu | info | käsi | nenäkäs | ihotyyppi-3</annotation>
+		<annotation cp="💁🏼" type="tts">infotiskin henkilö: ihotyyppi-3</annotation>
+		<annotation cp="💁🏽">apu | info | käsi | nenäkäs | ihotyyppi-4</annotation>
+		<annotation cp="💁🏽" type="tts">infotiskin henkilö: ihotyyppi-4</annotation>
+		<annotation cp="💁🏾">apu | info | käsi | nenäkäs | ihotyyppi-5</annotation>
+		<annotation cp="💁🏾" type="tts">infotiskin henkilö: ihotyyppi-5</annotation>
+		<annotation cp="💁🏿">apu | info | käsi | nenäkäs | ihotyyppi-6</annotation>
+		<annotation cp="💁🏿" type="tts">infotiskin henkilö: ihotyyppi-6</annotation>
+		<annotation cp="💁🏻‍♂">käsi | mies | nenäkäs | ihotyyppi-1-2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">kämmentä ylöspäin näyttävä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="💁🏼‍♂">käsi | mies | nenäkäs | ihotyyppi-3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">kämmentä ylöspäin näyttävä mies: ihotyyppi-3</annotation>
+		<annotation cp="💁🏽‍♂">käsi | mies | nenäkäs | ihotyyppi-4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">kämmentä ylöspäin näyttävä mies: ihotyyppi-4</annotation>
+		<annotation cp="💁🏾‍♂">käsi | mies | nenäkäs | ihotyyppi-5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">kämmentä ylöspäin näyttävä mies: ihotyyppi-5</annotation>
+		<annotation cp="💁🏿‍♂">käsi | mies | nenäkäs | ihotyyppi-6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">kämmentä ylöspäin näyttävä mies: ihotyyppi-6</annotation>
+		<annotation cp="💁🏻‍♀">käsi | nainen | nenäkäs | ihotyyppi-1-2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">kämmentä ylöspäin näyttävä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="💁🏼‍♀">käsi | nainen | nenäkäs | ihotyyppi-3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">kämmentä ylöspäin näyttävä nainen: ihotyyppi-3</annotation>
+		<annotation cp="💁🏽‍♀">käsi | nainen | nenäkäs | ihotyyppi-4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">kämmentä ylöspäin näyttävä nainen: ihotyyppi-4</annotation>
+		<annotation cp="💁🏾‍♀">käsi | nainen | nenäkäs | ihotyyppi-5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">kämmentä ylöspäin näyttävä nainen: ihotyyppi-5</annotation>
+		<annotation cp="💁🏿‍♀">käsi | nainen | nenäkäs | ihotyyppi-6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">kämmentä ylöspäin näyttävä nainen: ihotyyppi-6</annotation>
+		<annotation cp="🙋🏻">ele | iloinen | käsi | nostettu | ihotyyppi-1-2</annotation>
+		<annotation cp="🙋🏻" type="tts">iloinen henkilö viittaa: ihotyyppi-1-2</annotation>
+		<annotation cp="🙋🏼">ele | iloinen | käsi | nostettu | ihotyyppi-3</annotation>
+		<annotation cp="🙋🏼" type="tts">iloinen henkilö viittaa: ihotyyppi-3</annotation>
+		<annotation cp="🙋🏽">ele | iloinen | käsi | nostettu | ihotyyppi-4</annotation>
+		<annotation cp="🙋🏽" type="tts">iloinen henkilö viittaa: ihotyyppi-4</annotation>
+		<annotation cp="🙋🏾">ele | iloinen | käsi | nostettu | ihotyyppi-5</annotation>
+		<annotation cp="🙋🏾" type="tts">iloinen henkilö viittaa: ihotyyppi-5</annotation>
+		<annotation cp="🙋🏿">ele | iloinen | käsi | nostettu | ihotyyppi-6</annotation>
+		<annotation cp="🙋🏿" type="tts">iloinen henkilö viittaa: ihotyyppi-6</annotation>
+		<annotation cp="🙋🏻‍♂">käsi | mies | viittaus | ihotyyppi-1-2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">viittaava mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🙋🏼‍♂">käsi | mies | viittaus | ihotyyppi-3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">viittaava mies: ihotyyppi-3</annotation>
+		<annotation cp="🙋🏽‍♂">käsi | mies | viittaus | ihotyyppi-4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">viittaava mies: ihotyyppi-4</annotation>
+		<annotation cp="🙋🏾‍♂">käsi | mies | viittaus | ihotyyppi-5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">viittaava mies: ihotyyppi-5</annotation>
+		<annotation cp="🙋🏿‍♂">käsi | mies | viittaus | ihotyyppi-6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">viittaava mies: ihotyyppi-6</annotation>
+		<annotation cp="🙋🏻‍♀">käsi | nainen | viittaus | ihotyyppi-1-2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">viittaava nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🙋🏼‍♀">käsi | nainen | viittaus | ihotyyppi-3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">viittaava nainen: ihotyyppi-3</annotation>
+		<annotation cp="🙋🏽‍♀">käsi | nainen | viittaus | ihotyyppi-4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">viittaava nainen: ihotyyppi-4</annotation>
+		<annotation cp="🙋🏾‍♀">käsi | nainen | viittaus | ihotyyppi-5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">viittaava nainen: ihotyyppi-5</annotation>
+		<annotation cp="🙋🏿‍♀">käsi | nainen | viittaus | ihotyyppi-6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">viittaava nainen: ihotyyppi-6</annotation>
+		<annotation cp="🙇🏻">anteeksi | anteeksipyyntö | ele | kumarrus | ihotyyppi-1-2</annotation>
+		<annotation cp="🙇🏻" type="tts">kumartava henkilö: ihotyyppi-1-2</annotation>
+		<annotation cp="🙇🏼">anteeksi | anteeksipyyntö | ele | kumarrus | ihotyyppi-3</annotation>
+		<annotation cp="🙇🏼" type="tts">kumartava henkilö: ihotyyppi-3</annotation>
+		<annotation cp="🙇🏽">anteeksi | anteeksipyyntö | ele | kumarrus | ihotyyppi-4</annotation>
+		<annotation cp="🙇🏽" type="tts">kumartava henkilö: ihotyyppi-4</annotation>
+		<annotation cp="🙇🏾">anteeksi | anteeksipyyntö | ele | kumarrus | ihotyyppi-5</annotation>
+		<annotation cp="🙇🏾" type="tts">kumartava henkilö: ihotyyppi-5</annotation>
+		<annotation cp="🙇🏿">anteeksi | anteeksipyyntö | ele | kumarrus | ihotyyppi-6</annotation>
+		<annotation cp="🙇🏿" type="tts">kumartava henkilö: ihotyyppi-6</annotation>
+		<annotation cp="🙇🏻‍♂">anteeksipyyntö | ele | kumarrus | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">syvään kumartava mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🙇🏼‍♂">anteeksipyyntö | ele | kumarrus | mies | ihotyyppi-3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">syvään kumartava mies: ihotyyppi-3</annotation>
+		<annotation cp="🙇🏽‍♂">anteeksipyyntö | ele | kumarrus | mies | ihotyyppi-4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">syvään kumartava mies: ihotyyppi-4</annotation>
+		<annotation cp="🙇🏾‍♂">anteeksipyyntö | ele | kumarrus | mies | ihotyyppi-5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">syvään kumartava mies: ihotyyppi-5</annotation>
+		<annotation cp="🙇🏿‍♂">anteeksipyyntö | ele | kumarrus | mies | ihotyyppi-6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">syvään kumartava mies: ihotyyppi-6</annotation>
+		<annotation cp="🙇🏻‍♀">anteeksipyyntö | ele | kumarrus | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">syvään kumartava nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🙇🏼‍♀">anteeksipyyntö | ele | kumarrus | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">syvään kumartava nainen: ihotyyppi-3</annotation>
+		<annotation cp="🙇🏽‍♀">anteeksipyyntö | ele | kumarrus | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">syvään kumartava nainen: ihotyyppi-4</annotation>
+		<annotation cp="🙇🏾‍♀">anteeksipyyntö | ele | kumarrus | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">syvään kumartava nainen: ihotyyppi-5</annotation>
+		<annotation cp="🙇🏿‍♀">anteeksipyyntö | ele | kumarrus | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">syvään kumartava nainen: ihotyyppi-6</annotation>
+		<annotation cp="🤦🏻">epätoivo | kasvot | käsi | pettymys | ihotyyppi-1-2</annotation>
+		<annotation cp="🤦🏻" type="tts">peittää kasvot kädellä: ihotyyppi-1-2</annotation>
+		<annotation cp="🤦🏼">epätoivo | kasvot | käsi | pettymys | ihotyyppi-3</annotation>
+		<annotation cp="🤦🏼" type="tts">peittää kasvot kädellä: ihotyyppi-3</annotation>
+		<annotation cp="🤦🏽">epätoivo | kasvot | käsi | pettymys | ihotyyppi-4</annotation>
+		<annotation cp="🤦🏽" type="tts">peittää kasvot kädellä: ihotyyppi-4</annotation>
+		<annotation cp="🤦🏾">epätoivo | kasvot | käsi | pettymys | ihotyyppi-5</annotation>
+		<annotation cp="🤦🏾" type="tts">peittää kasvot kädellä: ihotyyppi-5</annotation>
+		<annotation cp="🤦🏿">epätoivo | kasvot | käsi | pettymys | ihotyyppi-6</annotation>
+		<annotation cp="🤦🏿" type="tts">peittää kasvot kädellä: ihotyyppi-6</annotation>
+		<annotation cp="🤦🏻‍♂">kasvot | käsi | mies | pettymys | ihotyyppi-1-2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">kasvonsa kädellä peittävä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🤦🏼‍♂">kasvot | käsi | mies | pettymys | ihotyyppi-3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">kasvonsa kädellä peittävä mies: ihotyyppi-3</annotation>
+		<annotation cp="🤦🏽‍♂">kasvot | käsi | mies | pettymys | ihotyyppi-4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">kasvonsa kädellä peittävä mies: ihotyyppi-4</annotation>
+		<annotation cp="🤦🏾‍♂">kasvot | käsi | mies | pettymys | ihotyyppi-5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">kasvonsa kädellä peittävä mies: ihotyyppi-5</annotation>
+		<annotation cp="🤦🏿‍♂">kasvot | käsi | mies | pettymys | ihotyyppi-6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">kasvonsa kädellä peittävä mies: ihotyyppi-6</annotation>
+		<annotation cp="🤦🏻‍♀">kasvot | käsi | nainen | pettymys | ihotyyppi-1-2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">kasvonsa kädellä peittävä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🤦🏼‍♀">kasvot | käsi | nainen | pettymys | ihotyyppi-3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">kasvonsa kädellä peittävä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🤦🏽‍♀">kasvot | käsi | nainen | pettymys | ihotyyppi-4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">kasvonsa kädellä peittävä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🤦🏾‍♀">kasvot | käsi | nainen | pettymys | ihotyyppi-5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">kasvonsa kädellä peittävä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🤦🏿‍♀">kasvot | käsi | nainen | pettymys | ihotyyppi-6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">kasvonsa kädellä peittävä nainen: ihotyyppi-6</annotation>
+		<annotation cp="🤷🏻">ei välitä | epäilys | kohauttaa | ihotyyppi-1-2</annotation>
+		<annotation cp="🤷🏻" type="tts">kohauttaa olkapäitään: ihotyyppi-1-2</annotation>
+		<annotation cp="🤷🏼">ei välitä | epäilys | kohauttaa | ihotyyppi-3</annotation>
+		<annotation cp="🤷🏼" type="tts">kohauttaa olkapäitään: ihotyyppi-3</annotation>
+		<annotation cp="🤷🏽">ei välitä | epäilys | kohauttaa | ihotyyppi-4</annotation>
+		<annotation cp="🤷🏽" type="tts">kohauttaa olkapäitään: ihotyyppi-4</annotation>
+		<annotation cp="🤷🏾">ei välitä | epäilys | kohauttaa | ihotyyppi-5</annotation>
+		<annotation cp="🤷🏾" type="tts">kohauttaa olkapäitään: ihotyyppi-5</annotation>
+		<annotation cp="🤷🏿">ei välitä | epäilys | kohauttaa | ihotyyppi-6</annotation>
+		<annotation cp="🤷🏿" type="tts">kohauttaa olkapäitään: ihotyyppi-6</annotation>
+		<annotation cp="🤷🏻‍♂">ei välitä | ihan sama | kohauttaa | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">kämmeniään levittelevä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🤷🏼‍♂">ei välitä | ihan sama | kohauttaa | mies | ihotyyppi-3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">kämmeniään levittelevä mies: ihotyyppi-3</annotation>
+		<annotation cp="🤷🏽‍♂">ei välitä | ihan sama | kohauttaa | mies | ihotyyppi-4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">kämmeniään levittelevä mies: ihotyyppi-4</annotation>
+		<annotation cp="🤷🏾‍♂">ei välitä | ihan sama | kohauttaa | mies | ihotyyppi-5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">kämmeniään levittelevä mies: ihotyyppi-5</annotation>
+		<annotation cp="🤷🏿‍♂">ei välitä | ihan sama | kohauttaa | mies | ihotyyppi-6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">kämmeniään levittelevä mies: ihotyyppi-6</annotation>
+		<annotation cp="🤷🏻‍♀">ei välitä | ihan sama | kohauttaa | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">kämmeniään levittelevä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🤷🏼‍♀">ei välitä | ihan sama | kohauttaa | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">kämmeniään levittelevä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🤷🏽‍♀">ei välitä | ihan sama | kohauttaa | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">kämmeniään levittelevä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🤷🏾‍♀">ei välitä | ihan sama | kohauttaa | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">kämmeniään levittelevä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🤷🏿‍♀">ei välitä | ihan sama | kohauttaa | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">kämmeniään levittelevä nainen: ihotyyppi-6</annotation>
+		<annotation cp="💆🏻">hieroja | hieronta | ihotyyppi-1-2</annotation>
+		<annotation cp="💆🏻" type="tts">kasvohieronta: ihotyyppi-1-2</annotation>
+		<annotation cp="💆🏼">hieroja | hieronta | ihotyyppi-3</annotation>
+		<annotation cp="💆🏼" type="tts">kasvohieronta: ihotyyppi-3</annotation>
+		<annotation cp="💆🏽">hieroja | hieronta | ihotyyppi-4</annotation>
+		<annotation cp="💆🏽" type="tts">kasvohieronta: ihotyyppi-4</annotation>
+		<annotation cp="💆🏾">hieroja | hieronta | ihotyyppi-5</annotation>
+		<annotation cp="💆🏾" type="tts">kasvohieronta: ihotyyppi-5</annotation>
+		<annotation cp="💆🏿">hieroja | hieronta | ihotyyppi-6</annotation>
+		<annotation cp="💆🏿" type="tts">kasvohieronta: ihotyyppi-6</annotation>
+		<annotation cp="💆🏻‍♂">hieronta | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">kasvohieronnassa oleva mies: ihotyyppi-1-2</annotation>
+		<annotation cp="💆🏼‍♂">hieronta | mies | ihotyyppi-3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">kasvohieronnassa oleva mies: ihotyyppi-3</annotation>
+		<annotation cp="💆🏽‍♂">hieronta | mies | ihotyyppi-4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">kasvohieronnassa oleva mies: ihotyyppi-4</annotation>
+		<annotation cp="💆🏾‍♂">hieronta | mies | ihotyyppi-5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">kasvohieronnassa oleva mies: ihotyyppi-5</annotation>
+		<annotation cp="💆🏿‍♂">hieronta | mies | ihotyyppi-6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">kasvohieronnassa oleva mies: ihotyyppi-6</annotation>
+		<annotation cp="💆🏻‍♀">hieronta | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">kasvohieronnassa oleva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="💆🏼‍♀">hieronta | nainen | ihotyyppi-3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">kasvohieronnassa oleva nainen: ihotyyppi-3</annotation>
+		<annotation cp="💆🏽‍♀">hieronta | nainen | ihotyyppi-4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">kasvohieronnassa oleva nainen: ihotyyppi-4</annotation>
+		<annotation cp="💆🏾‍♀">hieronta | nainen | ihotyyppi-5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">kasvohieronnassa oleva nainen: ihotyyppi-5</annotation>
+		<annotation cp="💆🏿‍♀">hieronta | nainen | ihotyyppi-6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">kasvohieronnassa oleva nainen: ihotyyppi-6</annotation>
+		<annotation cp="💇🏻">kauneus | parturi | salonki | ihotyyppi-1-2</annotation>
+		<annotation cp="💇🏻" type="tts">hiustenleikkaus: ihotyyppi-1-2</annotation>
+		<annotation cp="💇🏼">kauneus | parturi | salonki | ihotyyppi-3</annotation>
+		<annotation cp="💇🏼" type="tts">hiustenleikkaus: ihotyyppi-3</annotation>
+		<annotation cp="💇🏽">kauneus | parturi | salonki | ihotyyppi-4</annotation>
+		<annotation cp="💇🏽" type="tts">hiustenleikkaus: ihotyyppi-4</annotation>
+		<annotation cp="💇🏾">kauneus | parturi | salonki | ihotyyppi-5</annotation>
+		<annotation cp="💇🏾" type="tts">hiustenleikkaus: ihotyyppi-5</annotation>
+		<annotation cp="💇🏿">kauneus | parturi | salonki | ihotyyppi-6</annotation>
+		<annotation cp="💇🏿" type="tts">hiustenleikkaus: ihotyyppi-6</annotation>
+		<annotation cp="💇🏻‍♂">hiukset | hiustenhoito | mies | parturi | ihotyyppi-1-2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">parturissa oleva mies: ihotyyppi-1-2</annotation>
+		<annotation cp="💇🏼‍♂">hiukset | hiustenhoito | mies | parturi | ihotyyppi-3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">parturissa oleva mies: ihotyyppi-3</annotation>
+		<annotation cp="💇🏽‍♂">hiukset | hiustenhoito | mies | parturi | ihotyyppi-4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">parturissa oleva mies: ihotyyppi-4</annotation>
+		<annotation cp="💇🏾‍♂">hiukset | hiustenhoito | mies | parturi | ihotyyppi-5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">parturissa oleva mies: ihotyyppi-5</annotation>
+		<annotation cp="💇🏿‍♂">hiukset | hiustenhoito | mies | parturi | ihotyyppi-6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">parturissa oleva mies: ihotyyppi-6</annotation>
+		<annotation cp="💇🏻‍♀">hiukset | hiustenhoito | kampaaja | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">kampaajalla oleva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="💇🏼‍♀">hiukset | hiustenhoito | kampaaja | nainen | ihotyyppi-3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">kampaajalla oleva nainen: ihotyyppi-3</annotation>
+		<annotation cp="💇🏽‍♀">hiukset | hiustenhoito | kampaaja | nainen | ihotyyppi-4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">kampaajalla oleva nainen: ihotyyppi-4</annotation>
+		<annotation cp="💇🏾‍♀">hiukset | hiustenhoito | kampaaja | nainen | ihotyyppi-5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">kampaajalla oleva nainen: ihotyyppi-5</annotation>
+		<annotation cp="💇🏿‍♀">hiukset | hiustenhoito | kampaaja | nainen | ihotyyppi-6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">kampaajalla oleva nainen: ihotyyppi-6</annotation>
+		<annotation cp="🚶🏻">kävellä | kävely | patikointi | ihotyyppi-1-2</annotation>
+		<annotation cp="🚶🏻" type="tts">jalankulkija: ihotyyppi-1-2</annotation>
+		<annotation cp="🚶🏼">kävellä | kävely | patikointi | ihotyyppi-3</annotation>
+		<annotation cp="🚶🏼" type="tts">jalankulkija: ihotyyppi-3</annotation>
+		<annotation cp="🚶🏽">kävellä | kävely | patikointi | ihotyyppi-4</annotation>
+		<annotation cp="🚶🏽" type="tts">jalankulkija: ihotyyppi-4</annotation>
+		<annotation cp="🚶🏾">kävellä | kävely | patikointi | ihotyyppi-5</annotation>
+		<annotation cp="🚶🏾" type="tts">jalankulkija: ihotyyppi-5</annotation>
+		<annotation cp="🚶🏿">kävellä | kävely | patikointi | ihotyyppi-6</annotation>
+		<annotation cp="🚶🏿" type="tts">jalankulkija: ihotyyppi-6</annotation>
+		<annotation cp="🚶🏻‍♂">kävely | mies | patikointi | ihotyyppi-1-2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">kävelevä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🚶🏼‍♂">kävely | mies | patikointi | ihotyyppi-3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">kävelevä mies: ihotyyppi-3</annotation>
+		<annotation cp="🚶🏽‍♂">kävely | mies | patikointi | ihotyyppi-4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">kävelevä mies: ihotyyppi-4</annotation>
+		<annotation cp="🚶🏾‍♂">kävely | mies | patikointi | ihotyyppi-5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">kävelevä mies: ihotyyppi-5</annotation>
+		<annotation cp="🚶🏿‍♂">kävely | mies | patikointi | ihotyyppi-6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">kävelevä mies: ihotyyppi-6</annotation>
+		<annotation cp="🚶🏻‍♀">kävely | nainen | patikointi | ihotyyppi-1-2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">kävelevä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🚶🏼‍♀">kävely | nainen | patikointi | ihotyyppi-3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">kävelevä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🚶🏽‍♀">kävely | nainen | patikointi | ihotyyppi-4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">kävelevä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🚶🏾‍♀">kävely | nainen | patikointi | ihotyyppi-5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">kävelevä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🚶🏿‍♀">kävely | nainen | patikointi | ihotyyppi-6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">kävelevä nainen: ihotyyppi-6</annotation>
+		<annotation cp="🏃🏻">juokseminen | maratoni | ihotyyppi-1-2</annotation>
+		<annotation cp="🏃🏻" type="tts">juoksija: ihotyyppi-1-2</annotation>
+		<annotation cp="🏃🏼">juokseminen | maratoni | ihotyyppi-3</annotation>
+		<annotation cp="🏃🏼" type="tts">juoksija: ihotyyppi-3</annotation>
+		<annotation cp="🏃🏽">juokseminen | maratoni | ihotyyppi-4</annotation>
+		<annotation cp="🏃🏽" type="tts">juoksija: ihotyyppi-4</annotation>
+		<annotation cp="🏃🏾">juokseminen | maratoni | ihotyyppi-5</annotation>
+		<annotation cp="🏃🏾" type="tts">juoksija: ihotyyppi-5</annotation>
+		<annotation cp="🏃🏿">juokseminen | maratoni | ihotyyppi-6</annotation>
+		<annotation cp="🏃🏿" type="tts">juoksija: ihotyyppi-6</annotation>
+		<annotation cp="🏃🏻‍♂">juokseminen | juoksija | lenkki | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">juokseva mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🏃🏼‍♂">juokseminen | juoksija | lenkki | mies | ihotyyppi-3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">juokseva mies: ihotyyppi-3</annotation>
+		<annotation cp="🏃🏽‍♂">juokseminen | juoksija | lenkki | mies | ihotyyppi-4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">juokseva mies: ihotyyppi-4</annotation>
+		<annotation cp="🏃🏾‍♂">juokseminen | juoksija | lenkki | mies | ihotyyppi-5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">juokseva mies: ihotyyppi-5</annotation>
+		<annotation cp="🏃🏿‍♂">juokseminen | juoksija | lenkki | mies | ihotyyppi-6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">juokseva mies: ihotyyppi-6</annotation>
+		<annotation cp="🏃🏻‍♀">juokseminen | juoksija | lenkki | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">juokseva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🏃🏼‍♀">juokseminen | juoksija | lenkki | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">juokseva nainen: ihotyyppi-3</annotation>
+		<annotation cp="🏃🏽‍♀">juokseminen | juoksija | lenkki | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">juokseva nainen: ihotyyppi-4</annotation>
+		<annotation cp="🏃🏾‍♀">juokseminen | juoksija | lenkki | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">juokseva nainen: ihotyyppi-5</annotation>
+		<annotation cp="🏃🏿‍♀">juokseminen | juoksija | lenkki | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">juokseva nainen: ihotyyppi-6</annotation>
+		<annotation cp="💃🏻">juhlat | nainen | tanssi | tanssija | ihotyyppi-1-2</annotation>
+		<annotation cp="💃🏻" type="tts">tanssiva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="💃🏼">juhlat | nainen | tanssi | tanssija | ihotyyppi-3</annotation>
+		<annotation cp="💃🏼" type="tts">tanssiva nainen: ihotyyppi-3</annotation>
+		<annotation cp="💃🏽">juhlat | nainen | tanssi | tanssija | ihotyyppi-4</annotation>
+		<annotation cp="💃🏽" type="tts">tanssiva nainen: ihotyyppi-4</annotation>
+		<annotation cp="💃🏾">juhlat | nainen | tanssi | tanssija | ihotyyppi-5</annotation>
+		<annotation cp="💃🏾" type="tts">tanssiva nainen: ihotyyppi-5</annotation>
+		<annotation cp="💃🏿">juhlat | nainen | tanssi | tanssija | ihotyyppi-6</annotation>
+		<annotation cp="💃🏿" type="tts">tanssiva nainen: ihotyyppi-6</annotation>
+		<annotation cp="🕺🏻">mies | tanssi | ihotyyppi-1-2</annotation>
+		<annotation cp="🕺🏻" type="tts">mies tanssii: ihotyyppi-1-2</annotation>
+		<annotation cp="🕺🏼">mies | tanssi | ihotyyppi-3</annotation>
+		<annotation cp="🕺🏼" type="tts">mies tanssii: ihotyyppi-3</annotation>
+		<annotation cp="🕺🏽">mies | tanssi | ihotyyppi-4</annotation>
+		<annotation cp="🕺🏽" type="tts">mies tanssii: ihotyyppi-4</annotation>
+		<annotation cp="🕺🏾">mies | tanssi | ihotyyppi-5</annotation>
+		<annotation cp="🕺🏾" type="tts">mies tanssii: ihotyyppi-5</annotation>
+		<annotation cp="🕺🏿">mies | tanssi | ihotyyppi-6</annotation>
+		<annotation cp="🕺🏿" type="tts">mies tanssii: ihotyyppi-6</annotation>
+		<annotation cp="🛀🏻">kylpy | kylpyamme | ihotyyppi-1-2</annotation>
+		<annotation cp="🛀🏻" type="tts">kylpijä: ihotyyppi-1-2</annotation>
+		<annotation cp="🛀🏼">kylpy | kylpyamme | ihotyyppi-3</annotation>
+		<annotation cp="🛀🏼" type="tts">kylpijä: ihotyyppi-3</annotation>
+		<annotation cp="🛀🏽">kylpy | kylpyamme | ihotyyppi-4</annotation>
+		<annotation cp="🛀🏽" type="tts">kylpijä: ihotyyppi-4</annotation>
+		<annotation cp="🛀🏾">kylpy | kylpyamme | ihotyyppi-5</annotation>
+		<annotation cp="🛀🏾" type="tts">kylpijä: ihotyyppi-5</annotation>
+		<annotation cp="🛀🏿">kylpy | kylpyamme | ihotyyppi-6</annotation>
+		<annotation cp="🛀🏿" type="tts">kylpijä: ihotyyppi-6</annotation>
+		<annotation cp="🛌🏻">hotelli | nukkua | uni | ihotyyppi-1-2</annotation>
+		<annotation cp="🛌🏻" type="tts">nukkuja: ihotyyppi-1-2</annotation>
+		<annotation cp="🛌🏼">hotelli | nukkua | uni | ihotyyppi-3</annotation>
+		<annotation cp="🛌🏼" type="tts">nukkuja: ihotyyppi-3</annotation>
+		<annotation cp="🛌🏽">hotelli | nukkua | uni | ihotyyppi-4</annotation>
+		<annotation cp="🛌🏽" type="tts">nukkuja: ihotyyppi-4</annotation>
+		<annotation cp="🛌🏾">hotelli | nukkua | uni | ihotyyppi-5</annotation>
+		<annotation cp="🛌🏾" type="tts">nukkuja: ihotyyppi-5</annotation>
+		<annotation cp="🛌🏿">hotelli | nukkua | uni | ihotyyppi-6</annotation>
+		<annotation cp="🛌🏿" type="tts">nukkuja: ihotyyppi-6</annotation>
+		<annotation cp="🕴🏻">bines | mies | puku | ihotyyppi-1-2</annotation>
+		<annotation cp="🕴🏻" type="tts">levitoiva bisnesmies: ihotyyppi-1-2</annotation>
+		<annotation cp="🕴🏼">bines | mies | puku | ihotyyppi-3</annotation>
+		<annotation cp="🕴🏼" type="tts">levitoiva bisnesmies: ihotyyppi-3</annotation>
+		<annotation cp="🕴🏽">bines | mies | puku | ihotyyppi-4</annotation>
+		<annotation cp="🕴🏽" type="tts">levitoiva bisnesmies: ihotyyppi-4</annotation>
+		<annotation cp="🕴🏾">bines | mies | puku | ihotyyppi-5</annotation>
+		<annotation cp="🕴🏾" type="tts">levitoiva bisnesmies: ihotyyppi-5</annotation>
+		<annotation cp="🕴🏿">bines | mies | puku | ihotyyppi-6</annotation>
+		<annotation cp="🕴🏿" type="tts">levitoiva bisnesmies: ihotyyppi-6</annotation>
+		<annotation cp="🏇🏻">hevonen | jockey | kilparatsastus | ravit | ihotyyppi-1-2</annotation>
+		<annotation cp="🏇🏻" type="tts">ratsastus: ihotyyppi-1-2</annotation>
+		<annotation cp="🏇🏼">hevonen | jockey | kilparatsastus | ravit | ihotyyppi-3</annotation>
+		<annotation cp="🏇🏼" type="tts">ratsastus: ihotyyppi-3</annotation>
+		<annotation cp="🏇🏽">hevonen | jockey | kilparatsastus | ravit | ihotyyppi-4</annotation>
+		<annotation cp="🏇🏽" type="tts">ratsastus: ihotyyppi-4</annotation>
+		<annotation cp="🏇🏾">hevonen | jockey | kilparatsastus | ravit | ihotyyppi-5</annotation>
+		<annotation cp="🏇🏾" type="tts">ratsastus: ihotyyppi-5</annotation>
+		<annotation cp="🏇🏿">hevonen | jockey | kilparatsastus | ravit | ihotyyppi-6</annotation>
+		<annotation cp="🏇🏿" type="tts">ratsastus: ihotyyppi-6</annotation>
+		<annotation cp="🏂🏻">laskettelu | lumi | lumilauta | ihotyyppi-1-2</annotation>
+		<annotation cp="🏂🏻" type="tts">lumilautailija: ihotyyppi-1-2</annotation>
+		<annotation cp="🏂🏼">laskettelu | lumi | lumilauta | ihotyyppi-3</annotation>
+		<annotation cp="🏂🏼" type="tts">lumilautailija: ihotyyppi-3</annotation>
+		<annotation cp="🏂🏽">laskettelu | lumi | lumilauta | ihotyyppi-4</annotation>
+		<annotation cp="🏂🏽" type="tts">lumilautailija: ihotyyppi-4</annotation>
+		<annotation cp="🏂🏾">laskettelu | lumi | lumilauta | ihotyyppi-5</annotation>
+		<annotation cp="🏂🏾" type="tts">lumilautailija: ihotyyppi-5</annotation>
+		<annotation cp="🏂🏿">laskettelu | lumi | lumilauta | ihotyyppi-6</annotation>
+		<annotation cp="🏂🏿" type="tts">lumilautailija: ihotyyppi-6</annotation>
+		<annotation cp="🏌🏻">golf | pallo | ihotyyppi-1-2</annotation>
+		<annotation cp="🏌🏻" type="tts">golfaaja: ihotyyppi-1-2</annotation>
+		<annotation cp="🏌🏼">golf | pallo | ihotyyppi-3</annotation>
+		<annotation cp="🏌🏼" type="tts">golfaaja: ihotyyppi-3</annotation>
+		<annotation cp="🏌🏽">golf | pallo | ihotyyppi-4</annotation>
+		<annotation cp="🏌🏽" type="tts">golfaaja: ihotyyppi-4</annotation>
+		<annotation cp="🏌🏾">golf | pallo | ihotyyppi-5</annotation>
+		<annotation cp="🏌🏾" type="tts">golfaaja: ihotyyppi-5</annotation>
+		<annotation cp="🏌🏿">golf | pallo | ihotyyppi-6</annotation>
+		<annotation cp="🏌🏿" type="tts">golfaaja: ihotyyppi-6</annotation>
+		<annotation cp="🏌🏻‍♂">golf | golfaajamies | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">golfaajamies: ihotyyppi-1-2</annotation>
+		<annotation cp="🏌🏼‍♂">golf | golfaajamies | mies | ihotyyppi-3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">golfaajamies: ihotyyppi-3</annotation>
+		<annotation cp="🏌🏽‍♂">golf | golfaajamies | mies | ihotyyppi-4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">golfaajamies: ihotyyppi-4</annotation>
+		<annotation cp="🏌🏾‍♂">golf | golfaajamies | mies | ihotyyppi-5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">golfaajamies: ihotyyppi-5</annotation>
+		<annotation cp="🏌🏿‍♂">golf | golfaajamies | mies | ihotyyppi-6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">golfaajamies: ihotyyppi-6</annotation>
+		<annotation cp="🏌🏻‍♀">golf | golfaajanainen | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">golfaajanainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🏌🏼‍♀">golf | golfaajanainen | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">golfaajanainen: ihotyyppi-3</annotation>
+		<annotation cp="🏌🏽‍♀">golf | golfaajanainen | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">golfaajanainen: ihotyyppi-4</annotation>
+		<annotation cp="🏌🏾‍♀">golf | golfaajanainen | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">golfaajanainen: ihotyyppi-5</annotation>
+		<annotation cp="🏌🏿‍♀">golf | golfaajanainen | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">golfaajanainen: ihotyyppi-6</annotation>
+		<annotation cp="🏄🏻">lauta | surffaus | ihotyyppi-1-2</annotation>
+		<annotation cp="🏄🏻" type="tts">surffaaja: ihotyyppi-1-2</annotation>
+		<annotation cp="🏄🏼">lauta | surffaus | ihotyyppi-3</annotation>
+		<annotation cp="🏄🏼" type="tts">surffaaja: ihotyyppi-3</annotation>
+		<annotation cp="🏄🏽">lauta | surffaus | ihotyyppi-4</annotation>
+		<annotation cp="🏄🏽" type="tts">surffaaja: ihotyyppi-4</annotation>
+		<annotation cp="🏄🏾">lauta | surffaus | ihotyyppi-5</annotation>
+		<annotation cp="🏄🏾" type="tts">surffaaja: ihotyyppi-5</annotation>
+		<annotation cp="🏄🏿">lauta | surffaus | ihotyyppi-6</annotation>
+		<annotation cp="🏄🏿" type="tts">surffaaja: ihotyyppi-6</annotation>
+		<annotation cp="🏄🏻‍♂">lainelautailu | mies | surffaajamies | surffaus | ihotyyppi-1-2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">surffaajamies: ihotyyppi-1-2</annotation>
+		<annotation cp="🏄🏼‍♂">lainelautailu | mies | surffaajamies | surffaus | ihotyyppi-3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">surffaajamies: ihotyyppi-3</annotation>
+		<annotation cp="🏄🏽‍♂">lainelautailu | mies | surffaajamies | surffaus | ihotyyppi-4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">surffaajamies: ihotyyppi-4</annotation>
+		<annotation cp="🏄🏾‍♂">lainelautailu | mies | surffaajamies | surffaus | ihotyyppi-5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">surffaajamies: ihotyyppi-5</annotation>
+		<annotation cp="🏄🏿‍♂">lainelautailu | mies | surffaajamies | surffaus | ihotyyppi-6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">surffaajamies: ihotyyppi-6</annotation>
+		<annotation cp="🏄🏻‍♀">lainelautailu | nainen | surffaajanainen | surffaus | ihotyyppi-1-2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">surffaajanainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🏄🏼‍♀">lainelautailu | nainen | surffaajanainen | surffaus | ihotyyppi-3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">surffaajanainen: ihotyyppi-3</annotation>
+		<annotation cp="🏄🏽‍♀">lainelautailu | nainen | surffaajanainen | surffaus | ihotyyppi-4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">surffaajanainen: ihotyyppi-4</annotation>
+		<annotation cp="🏄🏾‍♀">lainelautailu | nainen | surffaajanainen | surffaus | ihotyyppi-5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">surffaajanainen: ihotyyppi-5</annotation>
+		<annotation cp="🏄🏿‍♀">lainelautailu | nainen | surffaajanainen | surffaus | ihotyyppi-6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">surffaajanainen: ihotyyppi-6</annotation>
+		<annotation cp="🚣🏻">meri | soutaa | vene | ihotyyppi-1-2</annotation>
+		<annotation cp="🚣🏻" type="tts">soutuvene: ihotyyppi-1-2</annotation>
+		<annotation cp="🚣🏼">meri | soutaa | vene | ihotyyppi-3</annotation>
+		<annotation cp="🚣🏼" type="tts">soutuvene: ihotyyppi-3</annotation>
+		<annotation cp="🚣🏽">meri | soutaa | vene | ihotyyppi-4</annotation>
+		<annotation cp="🚣🏽" type="tts">soutuvene: ihotyyppi-4</annotation>
+		<annotation cp="🚣🏾">meri | soutaa | vene | ihotyyppi-5</annotation>
+		<annotation cp="🚣🏾" type="tts">soutuvene: ihotyyppi-5</annotation>
+		<annotation cp="🚣🏿">meri | soutaa | vene | ihotyyppi-6</annotation>
+		<annotation cp="🚣🏿" type="tts">soutuvene: ihotyyppi-6</annotation>
+		<annotation cp="🚣🏻‍♂">mies | soutaja | ihotyyppi-1-2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">soutava mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🚣🏼‍♂">mies | soutaja | ihotyyppi-3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">soutava mies: ihotyyppi-3</annotation>
+		<annotation cp="🚣🏽‍♂">mies | soutaja | ihotyyppi-4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">soutava mies: ihotyyppi-4</annotation>
+		<annotation cp="🚣🏾‍♂">mies | soutaja | ihotyyppi-5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">soutava mies: ihotyyppi-5</annotation>
+		<annotation cp="🚣🏿‍♂">mies | soutaja | ihotyyppi-6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">soutava mies: ihotyyppi-6</annotation>
+		<annotation cp="🚣🏻‍♀">nainen | soutaja | ihotyyppi-1-2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">soutava nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🚣🏼‍♀">nainen | soutaja | ihotyyppi-3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">soutava nainen: ihotyyppi-3</annotation>
+		<annotation cp="🚣🏽‍♀">nainen | soutaja | ihotyyppi-4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">soutava nainen: ihotyyppi-4</annotation>
+		<annotation cp="🚣🏾‍♀">nainen | soutaja | ihotyyppi-5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">soutava nainen: ihotyyppi-5</annotation>
+		<annotation cp="🚣🏿‍♀">nainen | soutaja | ihotyyppi-6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">soutava nainen: ihotyyppi-6</annotation>
+		<annotation cp="🏊🏻">uinti | ihotyyppi-1-2</annotation>
+		<annotation cp="🏊🏻" type="tts">uimari: ihotyyppi-1-2</annotation>
+		<annotation cp="🏊🏼">uinti | ihotyyppi-3</annotation>
+		<annotation cp="🏊🏼" type="tts">uimari: ihotyyppi-3</annotation>
+		<annotation cp="🏊🏽">uinti | ihotyyppi-4</annotation>
+		<annotation cp="🏊🏽" type="tts">uimari: ihotyyppi-4</annotation>
+		<annotation cp="🏊🏾">uinti | ihotyyppi-5</annotation>
+		<annotation cp="🏊🏾" type="tts">uimari: ihotyyppi-5</annotation>
+		<annotation cp="🏊🏿">uinti | ihotyyppi-6</annotation>
+		<annotation cp="🏊🏿" type="tts">uimari: ihotyyppi-6</annotation>
+		<annotation cp="🏊🏻‍♂">mies | uija | uimari | ihotyyppi-1-2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">uiva mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🏊🏼‍♂">mies | uija | uimari | ihotyyppi-3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">uiva mies: ihotyyppi-3</annotation>
+		<annotation cp="🏊🏽‍♂">mies | uija | uimari | ihotyyppi-4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">uiva mies: ihotyyppi-4</annotation>
+		<annotation cp="🏊🏾‍♂">mies | uija | uimari | ihotyyppi-5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">uiva mies: ihotyyppi-5</annotation>
+		<annotation cp="🏊🏿‍♂">mies | uija | uimari | ihotyyppi-6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">uiva mies: ihotyyppi-6</annotation>
+		<annotation cp="🏊🏻‍♀">nainen | uija | uimari | ihotyyppi-1-2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">uiva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🏊🏼‍♀">nainen | uija | uimari | ihotyyppi-3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">uiva nainen: ihotyyppi-3</annotation>
+		<annotation cp="🏊🏽‍♀">nainen | uija | uimari | ihotyyppi-4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">uiva nainen: ihotyyppi-4</annotation>
+		<annotation cp="🏊🏾‍♀">nainen | uija | uimari | ihotyyppi-5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">uiva nainen: ihotyyppi-5</annotation>
+		<annotation cp="🏊🏿‍♀">nainen | uija | uimari | ihotyyppi-6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">uiva nainen: ihotyyppi-6</annotation>
+		<annotation cp="⛹🏻">pallo | ihotyyppi-1-2</annotation>
+		<annotation cp="⛹🏻" type="tts">pallottelija: ihotyyppi-1-2</annotation>
+		<annotation cp="⛹🏼">pallo | ihotyyppi-3</annotation>
+		<annotation cp="⛹🏼" type="tts">pallottelija: ihotyyppi-3</annotation>
+		<annotation cp="⛹🏽">pallo | ihotyyppi-4</annotation>
+		<annotation cp="⛹🏽" type="tts">pallottelija: ihotyyppi-4</annotation>
+		<annotation cp="⛹🏾">pallo | ihotyyppi-5</annotation>
+		<annotation cp="⛹🏾" type="tts">pallottelija: ihotyyppi-5</annotation>
+		<annotation cp="⛹🏿">pallo | ihotyyppi-6</annotation>
+		<annotation cp="⛹🏿" type="tts">pallottelija: ihotyyppi-6</annotation>
+		<annotation cp="⛹🏻‍♂">palloilija | pallomies | poika | ihotyyppi-1-2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">pallotteleva mies: ihotyyppi-1-2</annotation>
+		<annotation cp="⛹🏼‍♂">palloilija | pallomies | poika | ihotyyppi-3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">pallotteleva mies: ihotyyppi-3</annotation>
+		<annotation cp="⛹🏽‍♂">palloilija | pallomies | poika | ihotyyppi-4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">pallotteleva mies: ihotyyppi-4</annotation>
+		<annotation cp="⛹🏾‍♂">palloilija | pallomies | poika | ihotyyppi-5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">pallotteleva mies: ihotyyppi-5</annotation>
+		<annotation cp="⛹🏿‍♂">palloilija | pallomies | poika | ihotyyppi-6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">pallotteleva mies: ihotyyppi-6</annotation>
+		<annotation cp="⛹🏻‍♀">palloilija | pallonainen | tyttö | ihotyyppi-1-2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">pallotteleva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="⛹🏼‍♀">palloilija | pallonainen | tyttö | ihotyyppi-3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">pallotteleva nainen: ihotyyppi-3</annotation>
+		<annotation cp="⛹🏽‍♀">palloilija | pallonainen | tyttö | ihotyyppi-4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">pallotteleva nainen: ihotyyppi-4</annotation>
+		<annotation cp="⛹🏾‍♀">palloilija | pallonainen | tyttö | ihotyyppi-5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">pallotteleva nainen: ihotyyppi-5</annotation>
+		<annotation cp="⛹🏿‍♀">palloilija | pallonainen | tyttö | ihotyyppi-6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">pallotteleva nainen: ihotyyppi-6</annotation>
+		<annotation cp="🏋🏻">kehonrakennus | painot | treeni | ihotyyppi-1-2</annotation>
+		<annotation cp="🏋🏻" type="tts">painonnostaja: ihotyyppi-1-2</annotation>
+		<annotation cp="🏋🏼">kehonrakennus | painot | treeni | ihotyyppi-3</annotation>
+		<annotation cp="🏋🏼" type="tts">painonnostaja: ihotyyppi-3</annotation>
+		<annotation cp="🏋🏽">kehonrakennus | painot | treeni | ihotyyppi-4</annotation>
+		<annotation cp="🏋🏽" type="tts">painonnostaja: ihotyyppi-4</annotation>
+		<annotation cp="🏋🏾">kehonrakennus | painot | treeni | ihotyyppi-5</annotation>
+		<annotation cp="🏋🏾" type="tts">painonnostaja: ihotyyppi-5</annotation>
+		<annotation cp="🏋🏿">kehonrakennus | painot | treeni | ihotyyppi-6</annotation>
+		<annotation cp="🏋🏿" type="tts">painonnostaja: ihotyyppi-6</annotation>
+		<annotation cp="🏋🏻‍♂">mies | painonnosto | ihotyyppi-1-2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">painonnostajamies: ihotyyppi-1-2</annotation>
+		<annotation cp="🏋🏼‍♂">mies | painonnosto | ihotyyppi-3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">painonnostajamies: ihotyyppi-3</annotation>
+		<annotation cp="🏋🏽‍♂">mies | painonnosto | ihotyyppi-4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">painonnostajamies: ihotyyppi-4</annotation>
+		<annotation cp="🏋🏾‍♂">mies | painonnosto | ihotyyppi-5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">painonnostajamies: ihotyyppi-5</annotation>
+		<annotation cp="🏋🏿‍♂">mies | painonnosto | ihotyyppi-6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">painonnostajamies: ihotyyppi-6</annotation>
+		<annotation cp="🏋🏻‍♀">nainen | painonnosto | ihotyyppi-1-2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">painonnostajanainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🏋🏼‍♀">nainen | painonnosto | ihotyyppi-3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">painonnostajanainen: ihotyyppi-3</annotation>
+		<annotation cp="🏋🏽‍♀">nainen | painonnosto | ihotyyppi-4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">painonnostajanainen: ihotyyppi-4</annotation>
+		<annotation cp="🏋🏾‍♀">nainen | painonnosto | ihotyyppi-5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">painonnostajanainen: ihotyyppi-5</annotation>
+		<annotation cp="🏋🏿‍♀">nainen | painonnosto | ihotyyppi-6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">painonnostajanainen: ihotyyppi-6</annotation>
+		<annotation cp="🚴🏻">polkupyörä | pyörä | ihotyyppi-1-2</annotation>
+		<annotation cp="🚴🏻" type="tts">pyöräilijä: ihotyyppi-1-2</annotation>
+		<annotation cp="🚴🏼">polkupyörä | pyörä | ihotyyppi-3</annotation>
+		<annotation cp="🚴🏼" type="tts">pyöräilijä: ihotyyppi-3</annotation>
+		<annotation cp="🚴🏽">polkupyörä | pyörä | ihotyyppi-4</annotation>
+		<annotation cp="🚴🏽" type="tts">pyöräilijä: ihotyyppi-4</annotation>
+		<annotation cp="🚴🏾">polkupyörä | pyörä | ihotyyppi-5</annotation>
+		<annotation cp="🚴🏾" type="tts">pyöräilijä: ihotyyppi-5</annotation>
+		<annotation cp="🚴🏿">polkupyörä | pyörä | ihotyyppi-6</annotation>
+		<annotation cp="🚴🏿" type="tts">pyöräilijä: ihotyyppi-6</annotation>
+		<annotation cp="🚴🏻‍♂">mies | pyöräilijä | ihotyyppi-1-2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">pyöräilevä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🚴🏼‍♂">mies | pyöräilijä | ihotyyppi-3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">pyöräilevä mies: ihotyyppi-3</annotation>
+		<annotation cp="🚴🏽‍♂">mies | pyöräilijä | ihotyyppi-4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">pyöräilevä mies: ihotyyppi-4</annotation>
+		<annotation cp="🚴🏾‍♂">mies | pyöräilijä | ihotyyppi-5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">pyöräilevä mies: ihotyyppi-5</annotation>
+		<annotation cp="🚴🏿‍♂">mies | pyöräilijä | ihotyyppi-6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">pyöräilevä mies: ihotyyppi-6</annotation>
+		<annotation cp="🚴🏻‍♀">nainen | pyöräilijä | ihotyyppi-1-2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">pyöräileva nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🚴🏼‍♀">nainen | pyöräilijä | ihotyyppi-3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">pyöräileva nainen: ihotyyppi-3</annotation>
+		<annotation cp="🚴🏽‍♀">nainen | pyöräilijä | ihotyyppi-4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">pyöräileva nainen: ihotyyppi-4</annotation>
+		<annotation cp="🚴🏾‍♀">nainen | pyöräilijä | ihotyyppi-5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">pyöräileva nainen: ihotyyppi-5</annotation>
+		<annotation cp="🚴🏿‍♀">nainen | pyöräilijä | ihotyyppi-6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">pyöräileva nainen: ihotyyppi-6</annotation>
+		<annotation cp="🚵🏻">maasto | polkupyörä | pyörä | pyöräilijä | ihotyyppi-1-2</annotation>
+		<annotation cp="🚵🏻" type="tts">maastopyöräilijä: ihotyyppi-1-2</annotation>
+		<annotation cp="🚵🏼">maasto | polkupyörä | pyörä | pyöräilijä | ihotyyppi-3</annotation>
+		<annotation cp="🚵🏼" type="tts">maastopyöräilijä: ihotyyppi-3</annotation>
+		<annotation cp="🚵🏽">maasto | polkupyörä | pyörä | pyöräilijä | ihotyyppi-4</annotation>
+		<annotation cp="🚵🏽" type="tts">maastopyöräilijä: ihotyyppi-4</annotation>
+		<annotation cp="🚵🏾">maasto | polkupyörä | pyörä | pyöräilijä | ihotyyppi-5</annotation>
+		<annotation cp="🚵🏾" type="tts">maastopyöräilijä: ihotyyppi-5</annotation>
+		<annotation cp="🚵🏿">maasto | polkupyörä | pyörä | pyöräilijä | ihotyyppi-6</annotation>
+		<annotation cp="🚵🏿" type="tts">maastopyöräilijä: ihotyyppi-6</annotation>
+		<annotation cp="🚵🏻‍♂">mies | pyöräilijä | vuori | ihotyyppi-1-2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">vuoristossa pyöräilevä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🚵🏼‍♂">mies | pyöräilijä | vuori | ihotyyppi-3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">vuoristossa pyöräilevä mies: ihotyyppi-3</annotation>
+		<annotation cp="🚵🏽‍♂">mies | pyöräilijä | vuori | ihotyyppi-4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">vuoristossa pyöräilevä mies: ihotyyppi-4</annotation>
+		<annotation cp="🚵🏾‍♂">mies | pyöräilijä | vuori | ihotyyppi-5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">vuoristossa pyöräilevä mies: ihotyyppi-5</annotation>
+		<annotation cp="🚵🏿‍♂">mies | pyöräilijä | vuori | ihotyyppi-6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">vuoristossa pyöräilevä mies: ihotyyppi-6</annotation>
+		<annotation cp="🚵🏻‍♀">nainen | pyöräilijä | vuori | ihotyyppi-1-2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">vuoristossa pyöräilevä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🚵🏼‍♀">nainen | pyöräilijä | vuori | ihotyyppi-3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">vuoristossa pyöräilevä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🚵🏽‍♀">nainen | pyöräilijä | vuori | ihotyyppi-4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">vuoristossa pyöräilevä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🚵🏾‍♀">nainen | pyöräilijä | vuori | ihotyyppi-5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">vuoristossa pyöräilevä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🚵🏿‍♀">nainen | pyöräilijä | vuori | ihotyyppi-6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">vuoristossa pyöräilevä nainen: ihotyyppi-6</annotation>
+		<annotation cp="🤸🏻">kärrynpyörä | liikunta | urheilu | voimistelu | ihotyyppi-1-2</annotation>
+		<annotation cp="🤸🏻" type="tts">kärrynpyörä: ihotyyppi-1-2</annotation>
+		<annotation cp="🤸🏼">kärrynpyörä | liikunta | urheilu | voimistelu | ihotyyppi-3</annotation>
+		<annotation cp="🤸🏼" type="tts">kärrynpyörä: ihotyyppi-3</annotation>
+		<annotation cp="🤸🏽">kärrynpyörä | liikunta | urheilu | voimistelu | ihotyyppi-4</annotation>
+		<annotation cp="🤸🏽" type="tts">kärrynpyörä: ihotyyppi-4</annotation>
+		<annotation cp="🤸🏾">kärrynpyörä | liikunta | urheilu | voimistelu | ihotyyppi-5</annotation>
+		<annotation cp="🤸🏾" type="tts">kärrynpyörä: ihotyyppi-5</annotation>
+		<annotation cp="🤸🏿">kärrynpyörä | liikunta | urheilu | voimistelu | ihotyyppi-6</annotation>
+		<annotation cp="🤸🏿" type="tts">kärrynpyörä: ihotyyppi-6</annotation>
+		<annotation cp="🤸🏻‍♂">kärrynpyörä | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">kärrynpyörää tekevä mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🤸🏼‍♂">kärrynpyörä | mies | ihotyyppi-3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">kärrynpyörää tekevä mies: ihotyyppi-3</annotation>
+		<annotation cp="🤸🏽‍♂">kärrynpyörä | mies | ihotyyppi-4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">kärrynpyörää tekevä mies: ihotyyppi-4</annotation>
+		<annotation cp="🤸🏾‍♂">kärrynpyörä | mies | ihotyyppi-5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">kärrynpyörää tekevä mies: ihotyyppi-5</annotation>
+		<annotation cp="🤸🏿‍♂">kärrynpyörä | mies | ihotyyppi-6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">kärrynpyörää tekevä mies: ihotyyppi-6</annotation>
+		<annotation cp="🤸🏻‍♀">kärrynpyörä | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">kärrynpyörää tekevä nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🤸🏼‍♀">kärrynpyörä | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">kärrynpyörää tekevä nainen: ihotyyppi-3</annotation>
+		<annotation cp="🤸🏽‍♀">kärrynpyörä | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">kärrynpyörää tekevä nainen: ihotyyppi-4</annotation>
+		<annotation cp="🤸🏾‍♀">kärrynpyörä | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">kärrynpyörää tekevä nainen: ihotyyppi-5</annotation>
+		<annotation cp="🤸🏿‍♀">kärrynpyörä | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">kärrynpyörää tekevä nainen: ihotyyppi-6</annotation>
+		<annotation cp="🤽🏻">liikunta | pallo | urheilu | vesi | ihotyyppi-1-2</annotation>
+		<annotation cp="🤽🏻" type="tts">vesipallo: ihotyyppi-1-2</annotation>
+		<annotation cp="🤽🏼">liikunta | pallo | urheilu | vesi | ihotyyppi-3</annotation>
+		<annotation cp="🤽🏼" type="tts">vesipallo: ihotyyppi-3</annotation>
+		<annotation cp="🤽🏽">liikunta | pallo | urheilu | vesi | ihotyyppi-4</annotation>
+		<annotation cp="🤽🏽" type="tts">vesipallo: ihotyyppi-4</annotation>
+		<annotation cp="🤽🏾">liikunta | pallo | urheilu | vesi | ihotyyppi-5</annotation>
+		<annotation cp="🤽🏾" type="tts">vesipallo: ihotyyppi-5</annotation>
+		<annotation cp="🤽🏿">liikunta | pallo | urheilu | vesi | ihotyyppi-6</annotation>
+		<annotation cp="🤽🏿" type="tts">vesipallo: ihotyyppi-6</annotation>
+		<annotation cp="🤽🏻‍♂">mies | vesipallo | ihotyyppi-1-2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">vesipalloa pelaava mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🤽🏼‍♂">mies | vesipallo | ihotyyppi-3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">vesipalloa pelaava mies: ihotyyppi-3</annotation>
+		<annotation cp="🤽🏽‍♂">mies | vesipallo | ihotyyppi-4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">vesipalloa pelaava mies: ihotyyppi-4</annotation>
+		<annotation cp="🤽🏾‍♂">mies | vesipallo | ihotyyppi-5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">vesipalloa pelaava mies: ihotyyppi-5</annotation>
+		<annotation cp="🤽🏿‍♂">mies | vesipallo | ihotyyppi-6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">vesipalloa pelaava mies: ihotyyppi-6</annotation>
+		<annotation cp="🤽🏻‍♀">nainen | vesipallo | ihotyyppi-1-2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">vesipalloa pelaava nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🤽🏼‍♀">nainen | vesipallo | ihotyyppi-3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">vesipalloa pelaava nainen: ihotyyppi-3</annotation>
+		<annotation cp="🤽🏽‍♀">nainen | vesipallo | ihotyyppi-4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">vesipalloa pelaava nainen: ihotyyppi-4</annotation>
+		<annotation cp="🤽🏾‍♀">nainen | vesipallo | ihotyyppi-5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">vesipalloa pelaava nainen: ihotyyppi-5</annotation>
+		<annotation cp="🤽🏿‍♀">nainen | vesipallo | ihotyyppi-6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">vesipalloa pelaava nainen: ihotyyppi-6</annotation>
+		<annotation cp="🤾🏻">käsipallo | liikunta | pallo | urheilu | ihotyyppi-1-2</annotation>
+		<annotation cp="🤾🏻" type="tts">käsipallo: ihotyyppi-1-2</annotation>
+		<annotation cp="🤾🏼">käsipallo | liikunta | pallo | urheilu | ihotyyppi-3</annotation>
+		<annotation cp="🤾🏼" type="tts">käsipallo: ihotyyppi-3</annotation>
+		<annotation cp="🤾🏽">käsipallo | liikunta | pallo | urheilu | ihotyyppi-4</annotation>
+		<annotation cp="🤾🏽" type="tts">käsipallo: ihotyyppi-4</annotation>
+		<annotation cp="🤾🏾">käsipallo | liikunta | pallo | urheilu | ihotyyppi-5</annotation>
+		<annotation cp="🤾🏾" type="tts">käsipallo: ihotyyppi-5</annotation>
+		<annotation cp="🤾🏿">käsipallo | liikunta | pallo | urheilu | ihotyyppi-6</annotation>
+		<annotation cp="🤾🏿" type="tts">käsipallo: ihotyyppi-6</annotation>
+		<annotation cp="🤾🏻‍♂">käsipallo | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">käsipalloa pelaava mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🤾🏼‍♂">käsipallo | mies | ihotyyppi-3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">käsipalloa pelaava mies: ihotyyppi-3</annotation>
+		<annotation cp="🤾🏽‍♂">käsipallo | mies | ihotyyppi-4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">käsipalloa pelaava mies: ihotyyppi-4</annotation>
+		<annotation cp="🤾🏾‍♂">käsipallo | mies | ihotyyppi-5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">käsipalloa pelaava mies: ihotyyppi-5</annotation>
+		<annotation cp="🤾🏿‍♂">käsipallo | mies | ihotyyppi-6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">käsipalloa pelaava mies: ihotyyppi-6</annotation>
+		<annotation cp="🤾🏻‍♀">käsipallo | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">käsipalloa pelaava nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🤾🏼‍♀">käsipallo | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">käsipalloa pelaava nainen: ihotyyppi-3</annotation>
+		<annotation cp="🤾🏽‍♀">käsipallo | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">käsipalloa pelaava nainen: ihotyyppi-4</annotation>
+		<annotation cp="🤾🏾‍♀">käsipallo | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">käsipalloa pelaava nainen: ihotyyppi-5</annotation>
+		<annotation cp="🤾🏿‍♀">käsipallo | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">käsipalloa pelaava nainen: ihotyyppi-6</annotation>
+		<annotation cp="🤹🏻">jongleeraus | taito | tasapainoilu | ihotyyppi-1-2</annotation>
+		<annotation cp="🤹🏻" type="tts">jongleeraus: ihotyyppi-1-2</annotation>
+		<annotation cp="🤹🏼">jongleeraus | taito | tasapainoilu | ihotyyppi-3</annotation>
+		<annotation cp="🤹🏼" type="tts">jongleeraus: ihotyyppi-3</annotation>
+		<annotation cp="🤹🏽">jongleeraus | taito | tasapainoilu | ihotyyppi-4</annotation>
+		<annotation cp="🤹🏽" type="tts">jongleeraus: ihotyyppi-4</annotation>
+		<annotation cp="🤹🏾">jongleeraus | taito | tasapainoilu | ihotyyppi-5</annotation>
+		<annotation cp="🤹🏾" type="tts">jongleeraus: ihotyyppi-5</annotation>
+		<annotation cp="🤹🏿">jongleeraus | taito | tasapainoilu | ihotyyppi-6</annotation>
+		<annotation cp="🤹🏿" type="tts">jongleeraus: ihotyyppi-6</annotation>
+		<annotation cp="🤹🏻‍♂">jongleeraus | mies | ihotyyppi-1-2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">jongleeraava mies: ihotyyppi-1-2</annotation>
+		<annotation cp="🤹🏼‍♂">jongleeraus | mies | ihotyyppi-3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">jongleeraava mies: ihotyyppi-3</annotation>
+		<annotation cp="🤹🏽‍♂">jongleeraus | mies | ihotyyppi-4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">jongleeraava mies: ihotyyppi-4</annotation>
+		<annotation cp="🤹🏾‍♂">jongleeraus | mies | ihotyyppi-5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">jongleeraava mies: ihotyyppi-5</annotation>
+		<annotation cp="🤹🏿‍♂">jongleeraus | mies | ihotyyppi-6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">jongleeraava mies: ihotyyppi-6</annotation>
+		<annotation cp="🤹🏻‍♀">jongleeraus | nainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">jongleeraava nainen: ihotyyppi-1-2</annotation>
+		<annotation cp="🤹🏼‍♀">jongleeraus | nainen | ihotyyppi-3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">jongleeraava nainen: ihotyyppi-3</annotation>
+		<annotation cp="🤹🏽‍♀">jongleeraus | nainen | ihotyyppi-4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">jongleeraava nainen: ihotyyppi-4</annotation>
+		<annotation cp="🤹🏾‍♀">jongleeraus | nainen | ihotyyppi-5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">jongleeraava nainen: ihotyyppi-5</annotation>
+		<annotation cp="🤹🏿‍♀">jongleeraus | nainen | ihotyyppi-6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">jongleeraava nainen: ihotyyppi-6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">mies | nainen | pusu | rakkaus</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">pussaava pari</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">mies | pusu | rakkaus | suudelma</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">pussaava poikapari</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">nainen | pusu | rakkaus | suudelma</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">pussaava tyttöpari</annotation>
+		<annotation cp="👩‍❤‍👨">mies | nainen | rakkaus | sydän</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">rakastunut pari</annotation>
+		<annotation cp="👨‍❤‍👨">mies | rakkaus | sydän</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">rakastunut poikapari</annotation>
+		<annotation cp="👩‍❤‍👩">nainen | rakkaus | sydän</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">rakastunut tyttöpari</annotation>
+		<annotation cp="👨‍👩‍👦">isä | lapsi | perhe | äiti</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">perhe: mies, nainen ja poika</annotation>
+		<annotation cp="👨‍👩‍👧">isä | lapsi | perhe | äiti</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">perhe: mies, nainen ja tyttö</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">isä | lapsi | perhe | äiti</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">perhe: mies, nainen, tyttö, poika</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">isä | lapsi | perhe | äiti</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">perhe: mies, nainen, kaksi poikaa</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">isä | lapsi | perhe | äiti</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">perhe: mies, nainen, kaksi tyttöä</annotation>
+		<annotation cp="👨‍👨‍👦">isä | lapsi | perhe | poika</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">perhe: kaksi miestä ja poika</annotation>
+		<annotation cp="👨‍👨‍👧">isä | lapsi | perhe | tytär</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">perhe: kaksi miestä ja tyttö</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">isä | lapset | lapsi | perhe</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">perhe: kaksi miestä, tyttö ja poika</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">isä | lapsi | perhe | poika</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">perhe: kaksi miestä ja kaksi poikaa</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">isä | lapsi | perhe | tytär</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">perhe: kaksi miestä ja kaksi tyttöä</annotation>
+		<annotation cp="👩‍👩‍👦">lapsi | perhe | poika | äiti</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">perhe: kaksi naista ja poika</annotation>
+		<annotation cp="👩‍👩‍👧">lapsi | perhe | tytär | äiti</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">perhe: kaksi naista ja tyttö</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">perhe | poika | tytär | äiti</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">perhe: kaksi naista , tyttö ja poika</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">lapsi | perhe | poika | äiti</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">perhe: kaksi naista ja kaksi poikaa</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">lapsi | perhe | tytär | äiti</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">perhe: kaksi naista ja kaksi tyttöä</annotation>
+		<annotation cp="👨‍👦">isä | lapsi | perhe | poika</annotation>
+		<annotation cp="👨‍👦" type="tts">perhe: mies ja poika</annotation>
+		<annotation cp="👨‍👦‍👦">isä | lapsi | perhe | poika</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">perhe: mies ja kaksi poikaa</annotation>
+		<annotation cp="👨‍👧">isä | lapsi | perhe | tytär</annotation>
+		<annotation cp="👨‍👧" type="tts">perhe: mies ja tyttö</annotation>
+		<annotation cp="👨‍👧‍👦">isä | lapsi | perhe</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">perhe: mies, tyttö ja poika</annotation>
+		<annotation cp="👨‍👧‍👧">isä | lapsi | perhe | tytär</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">perhe: mies ja kaksi tyttöä</annotation>
+		<annotation cp="👩‍👦">lapsi | perhe | poika | äiti</annotation>
+		<annotation cp="👩‍👦" type="tts">perhe: nainen ja poika</annotation>
+		<annotation cp="👩‍👦‍👦">lapsi | perhe | poika | äiti</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">perhe: nainen ja kaksi poikaa</annotation>
+		<annotation cp="👩‍👧">lapsi | perhe | tytär | äiti</annotation>
+		<annotation cp="👩‍👧" type="tts">perhe: nainen ja tyttö</annotation>
+		<annotation cp="👩‍👧‍👦">perhe | poika | tytär | äiti</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">perhe: nainen, tyttö ja poika</annotation>
+		<annotation cp="👩‍👧‍👧">lapsi | perhe | tytär | äiti</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">perhe: nainen ja kaksi tyttöä</annotation>
+		<annotation cp="🤳🏻">kamera | puhelin | selfie | ihotyyppi-1-2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: ihotyyppi-1-2</annotation>
+		<annotation cp="🤳🏼">kamera | puhelin | selfie | ihotyyppi-3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: ihotyyppi-3</annotation>
+		<annotation cp="🤳🏽">kamera | puhelin | selfie | ihotyyppi-4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: ihotyyppi-4</annotation>
+		<annotation cp="🤳🏾">kamera | puhelin | selfie | ihotyyppi-5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: ihotyyppi-5</annotation>
+		<annotation cp="🤳🏿">kamera | puhelin | selfie | ihotyyppi-6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: ihotyyppi-6</annotation>
+		<annotation cp="💪🏻">hauis | lihas | pullistaa | sarjakuva | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="💪🏻" type="tts">pullistettu hauis: ihotyyppi-1-2</annotation>
+		<annotation cp="💪🏼">hauis | lihas | pullistaa | sarjakuva | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="💪🏼" type="tts">pullistettu hauis: ihotyyppi-3</annotation>
+		<annotation cp="💪🏽">hauis | lihas | pullistaa | sarjakuva | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="💪🏽" type="tts">pullistettu hauis: ihotyyppi-4</annotation>
+		<annotation cp="💪🏾">hauis | lihas | pullistaa | sarjakuva | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="💪🏾" type="tts">pullistettu hauis: ihotyyppi-5</annotation>
+		<annotation cp="💪🏿">hauis | lihas | pullistaa | sarjakuva | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="💪🏿" type="tts">pullistettu hauis: ihotyyppi-6</annotation>
+		<annotation cp="👈🏻">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👈🏻" type="tts">vasemmalle osoittava etusormi kämmenselkä edellä: ihotyyppi-1-2</annotation>
+		<annotation cp="👈🏼">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👈🏼" type="tts">vasemmalle osoittava etusormi kämmenselkä edellä: ihotyyppi-3</annotation>
+		<annotation cp="👈🏽">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👈🏽" type="tts">vasemmalle osoittava etusormi kämmenselkä edellä: ihotyyppi-4</annotation>
+		<annotation cp="👈🏾">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👈🏾" type="tts">vasemmalle osoittava etusormi kämmenselkä edellä: ihotyyppi-5</annotation>
+		<annotation cp="👈🏿">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👈🏿" type="tts">vasemmalle osoittava etusormi kämmenselkä edellä: ihotyyppi-6</annotation>
+		<annotation cp="👉🏻">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👉🏻" type="tts">oikealle osoittava etusormi kämmenselkä edellä: ihotyyppi-1-2</annotation>
+		<annotation cp="👉🏼">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👉🏼" type="tts">oikealle osoittava etusormi kämmenselkä edellä: ihotyyppi-3</annotation>
+		<annotation cp="👉🏽">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👉🏽" type="tts">oikealle osoittava etusormi kämmenselkä edellä: ihotyyppi-4</annotation>
+		<annotation cp="👉🏾">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👉🏾" type="tts">oikealle osoittava etusormi kämmenselkä edellä: ihotyyppi-5</annotation>
+		<annotation cp="👉🏿">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👉🏿" type="tts">oikealle osoittava etusormi kämmenselkä edellä: ihotyyppi-6</annotation>
+		<annotation cp="☝🏻">etusormi | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-1-2</annotation>
+		<annotation cp="☝🏻" type="tts">ylös osoittava etusormi: ihotyyppi-1-2</annotation>
+		<annotation cp="☝🏼">etusormi | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-3</annotation>
+		<annotation cp="☝🏼" type="tts">ylös osoittava etusormi: ihotyyppi-3</annotation>
+		<annotation cp="☝🏽">etusormi | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-4</annotation>
+		<annotation cp="☝🏽" type="tts">ylös osoittava etusormi: ihotyyppi-4</annotation>
+		<annotation cp="☝🏾">etusormi | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-5</annotation>
+		<annotation cp="☝🏾" type="tts">ylös osoittava etusormi: ihotyyppi-5</annotation>
+		<annotation cp="☝🏿">etusormi | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-6</annotation>
+		<annotation cp="☝🏿" type="tts">ylös osoittava etusormi: ihotyyppi-6</annotation>
+		<annotation cp="👆🏻">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-1-2</annotation>
+		<annotation cp="👆🏻" type="tts">ylös osoittava etusormi kämmenselkä edellä: ihotyyppi-1-2</annotation>
+		<annotation cp="👆🏼">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-3</annotation>
+		<annotation cp="👆🏼" type="tts">ylös osoittava etusormi kämmenselkä edellä: ihotyyppi-3</annotation>
+		<annotation cp="👆🏽">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-4</annotation>
+		<annotation cp="👆🏽" type="tts">ylös osoittava etusormi kämmenselkä edellä: ihotyyppi-4</annotation>
+		<annotation cp="👆🏾">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-5</annotation>
+		<annotation cp="👆🏾" type="tts">ylös osoittava etusormi kämmenselkä edellä: ihotyyppi-5</annotation>
+		<annotation cp="👆🏿">etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ylös | ihotyyppi-6</annotation>
+		<annotation cp="👆🏿" type="tts">ylös osoittava etusormi kämmenselkä edellä: ihotyyppi-6</annotation>
+		<annotation cp="🖕🏻">käsi | sormi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="🖕🏻" type="tts">keskisormi: ihotyyppi-1-2</annotation>
+		<annotation cp="🖕🏼">käsi | sormi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="🖕🏼" type="tts">keskisormi: ihotyyppi-3</annotation>
+		<annotation cp="🖕🏽">käsi | sormi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="🖕🏽" type="tts">keskisormi: ihotyyppi-4</annotation>
+		<annotation cp="🖕🏾">käsi | sormi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="🖕🏾" type="tts">keskisormi: ihotyyppi-5</annotation>
+		<annotation cp="🖕🏿">käsi | sormi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="🖕🏿" type="tts">keskisormi: ihotyyppi-6</annotation>
+		<annotation cp="👇🏻">alas | etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👇🏻" type="tts">alas osoittava etusormi kämmenselkä edellä: ihotyyppi-1-2</annotation>
+		<annotation cp="👇🏼">alas | etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👇🏼" type="tts">alas osoittava etusormi kämmenselkä edellä: ihotyyppi-3</annotation>
+		<annotation cp="👇🏽">alas | etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👇🏽" type="tts">alas osoittava etusormi kämmenselkä edellä: ihotyyppi-4</annotation>
+		<annotation cp="👇🏾">alas | etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👇🏾" type="tts">alas osoittava etusormi kämmenselkä edellä: ihotyyppi-5</annotation>
+		<annotation cp="👇🏿">alas | etusormi | kämmenselkä | käsi | osoittaa | sormi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👇🏿" type="tts">alas osoittava etusormi kämmenselkä edellä: ihotyyppi-6</annotation>
+		<annotation cp="✌🏻">käsi | v | vartalo | voitto | ihotyyppi-1-2</annotation>
+		<annotation cp="✌🏻" type="tts">voitonmerkki: ihotyyppi-1-2</annotation>
+		<annotation cp="✌🏼">käsi | v | vartalo | voitto | ihotyyppi-3</annotation>
+		<annotation cp="✌🏼" type="tts">voitonmerkki: ihotyyppi-3</annotation>
+		<annotation cp="✌🏽">käsi | v | vartalo | voitto | ihotyyppi-4</annotation>
+		<annotation cp="✌🏽" type="tts">voitonmerkki: ihotyyppi-4</annotation>
+		<annotation cp="✌🏾">käsi | v | vartalo | voitto | ihotyyppi-5</annotation>
+		<annotation cp="✌🏾" type="tts">voitonmerkki: ihotyyppi-5</annotation>
+		<annotation cp="✌🏿">käsi | v | vartalo | voitto | ihotyyppi-6</annotation>
+		<annotation cp="✌🏿" type="tts">voitonmerkki: ihotyyppi-6</annotation>
+		<annotation cp="🤞🏻">käsi | onni | risti | sormi | ihotyyppi-1-2</annotation>
+		<annotation cp="🤞🏻" type="tts">sormet ristissä: ihotyyppi-1-2</annotation>
+		<annotation cp="🤞🏼">käsi | onni | risti | sormi | ihotyyppi-3</annotation>
+		<annotation cp="🤞🏼" type="tts">sormet ristissä: ihotyyppi-3</annotation>
+		<annotation cp="🤞🏽">käsi | onni | risti | sormi | ihotyyppi-4</annotation>
+		<annotation cp="🤞🏽" type="tts">sormet ristissä: ihotyyppi-4</annotation>
+		<annotation cp="🤞🏾">käsi | onni | risti | sormi | ihotyyppi-5</annotation>
+		<annotation cp="🤞🏾" type="tts">sormet ristissä: ihotyyppi-5</annotation>
+		<annotation cp="🤞🏿">käsi | onni | risti | sormi | ihotyyppi-6</annotation>
+		<annotation cp="🤞🏿" type="tts">sormet ristissä: ihotyyppi-6</annotation>
+		<annotation cp="🖖🏻">käsi | sormi | spock | vartalo | vulkanilainen | ihotyyppi-1-2</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkanilaisten tervehdys: ihotyyppi-1-2</annotation>
+		<annotation cp="🖖🏼">käsi | sormi | spock | vartalo | vulkanilainen | ihotyyppi-3</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkanilaisten tervehdys: ihotyyppi-3</annotation>
+		<annotation cp="🖖🏽">käsi | sormi | spock | vartalo | vulkanilainen | ihotyyppi-4</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkanilaisten tervehdys: ihotyyppi-4</annotation>
+		<annotation cp="🖖🏾">käsi | sormi | spock | vartalo | vulkanilainen | ihotyyppi-5</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkanilaisten tervehdys: ihotyyppi-5</annotation>
+		<annotation cp="🖖🏿">käsi | sormi | spock | vartalo | vulkanilainen | ihotyyppi-6</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkanilaisten tervehdys: ihotyyppi-6</annotation>
+		<annotation cp="🤘🏻">käsi | rock | sarvet | sormi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="🤘🏻" type="tts">sarviele: ihotyyppi-1-2</annotation>
+		<annotation cp="🤘🏼">käsi | rock | sarvet | sormi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="🤘🏼" type="tts">sarviele: ihotyyppi-3</annotation>
+		<annotation cp="🤘🏽">käsi | rock | sarvet | sormi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="🤘🏽" type="tts">sarviele: ihotyyppi-4</annotation>
+		<annotation cp="🤘🏾">käsi | rock | sarvet | sormi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="🤘🏾" type="tts">sarviele: ihotyyppi-5</annotation>
+		<annotation cp="🤘🏿">käsi | rock | sarvet | sormi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="🤘🏿" type="tts">sarviele: ihotyyppi-6</annotation>
+		<annotation cp="🤙🏻">käsi | soita | ihotyyppi-1-2</annotation>
+		<annotation cp="🤙🏻" type="tts">soita minulle: ihotyyppi-1-2</annotation>
+		<annotation cp="🤙🏼">käsi | soita | ihotyyppi-3</annotation>
+		<annotation cp="🤙🏼" type="tts">soita minulle: ihotyyppi-3</annotation>
+		<annotation cp="🤙🏽">käsi | soita | ihotyyppi-4</annotation>
+		<annotation cp="🤙🏽" type="tts">soita minulle: ihotyyppi-4</annotation>
+		<annotation cp="🤙🏾">käsi | soita | ihotyyppi-5</annotation>
+		<annotation cp="🤙🏾" type="tts">soita minulle: ihotyyppi-5</annotation>
+		<annotation cp="🤙🏿">käsi | soita | ihotyyppi-6</annotation>
+		<annotation cp="🤙🏿" type="tts">soita minulle: ihotyyppi-6</annotation>
+		<annotation cp="🖐🏻">käsi | levitetty | sormi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="🖐🏻" type="tts">nostettu käsi ja sormet erillään: ihotyyppi-1-2</annotation>
+		<annotation cp="🖐🏼">käsi | levitetty | sormi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="🖐🏼" type="tts">nostettu käsi ja sormet erillään: ihotyyppi-3</annotation>
+		<annotation cp="🖐🏽">käsi | levitetty | sormi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="🖐🏽" type="tts">nostettu käsi ja sormet erillään: ihotyyppi-4</annotation>
+		<annotation cp="🖐🏾">käsi | levitetty | sormi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="🖐🏾" type="tts">nostettu käsi ja sormet erillään: ihotyyppi-5</annotation>
+		<annotation cp="🖐🏿">käsi | levitetty | sormi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="🖐🏿" type="tts">nostettu käsi ja sormet erillään: ihotyyppi-6</annotation>
+		<annotation cp="✋🏻">käsi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="✋🏻" type="tts">nostettu käsi: ihotyyppi-1-2</annotation>
+		<annotation cp="✋🏼">käsi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="✋🏼" type="tts">nostettu käsi: ihotyyppi-3</annotation>
+		<annotation cp="✋🏽">käsi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="✋🏽" type="tts">nostettu käsi: ihotyyppi-4</annotation>
+		<annotation cp="✋🏾">käsi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="✋🏾" type="tts">nostettu käsi: ihotyyppi-5</annotation>
+		<annotation cp="✋🏿">käsi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="✋🏿" type="tts">nostettu käsi: ihotyyppi-6</annotation>
+		<annotation cp="👌🏻">käsi | ok | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👌🏻" type="tts">ok-sormiele: ihotyyppi-1-2</annotation>
+		<annotation cp="👌🏼">käsi | ok | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👌🏼" type="tts">ok-sormiele: ihotyyppi-3</annotation>
+		<annotation cp="👌🏽">käsi | ok | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👌🏽" type="tts">ok-sormiele: ihotyyppi-4</annotation>
+		<annotation cp="👌🏾">käsi | ok | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👌🏾" type="tts">ok-sormiele: ihotyyppi-5</annotation>
+		<annotation cp="👌🏿">käsi | ok | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👌🏿" type="tts">ok-sormiele: ihotyyppi-6</annotation>
+		<annotation cp="👍🏻">+1 | käsi | peukalo | vartalo | ylös | ihotyyppi-1-2</annotation>
+		<annotation cp="👍🏻" type="tts">peukalo ylös: ihotyyppi-1-2</annotation>
+		<annotation cp="👍🏼">+1 | käsi | peukalo | vartalo | ylös | ihotyyppi-3</annotation>
+		<annotation cp="👍🏼" type="tts">peukalo ylös: ihotyyppi-3</annotation>
+		<annotation cp="👍🏽">+1 | käsi | peukalo | vartalo | ylös | ihotyyppi-4</annotation>
+		<annotation cp="👍🏽" type="tts">peukalo ylös: ihotyyppi-4</annotation>
+		<annotation cp="👍🏾">+1 | käsi | peukalo | vartalo | ylös | ihotyyppi-5</annotation>
+		<annotation cp="👍🏾" type="tts">peukalo ylös: ihotyyppi-5</annotation>
+		<annotation cp="👍🏿">+1 | käsi | peukalo | vartalo | ylös | ihotyyppi-6</annotation>
+		<annotation cp="👍🏿" type="tts">peukalo ylös: ihotyyppi-6</annotation>
+		<annotation cp="👎🏻">-1 | alas | käsi | peukalo | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👎🏻" type="tts">peukalo alas: ihotyyppi-1-2</annotation>
+		<annotation cp="👎🏼">-1 | alas | käsi | peukalo | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👎🏼" type="tts">peukalo alas: ihotyyppi-3</annotation>
+		<annotation cp="👎🏽">-1 | alas | käsi | peukalo | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👎🏽" type="tts">peukalo alas: ihotyyppi-4</annotation>
+		<annotation cp="👎🏾">-1 | alas | käsi | peukalo | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👎🏾" type="tts">peukalo alas: ihotyyppi-5</annotation>
+		<annotation cp="👎🏿">-1 | alas | käsi | peukalo | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👎🏿" type="tts">peukalo alas: ihotyyppi-6</annotation>
+		<annotation cp="✊🏻">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="✊🏻" type="tts">nostettu nyrkki: ihotyyppi-1-2</annotation>
+		<annotation cp="✊🏼">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="✊🏼" type="tts">nostettu nyrkki: ihotyyppi-3</annotation>
+		<annotation cp="✊🏽">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="✊🏽" type="tts">nostettu nyrkki: ihotyyppi-4</annotation>
+		<annotation cp="✊🏾">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="✊🏾" type="tts">nostettu nyrkki: ihotyyppi-5</annotation>
+		<annotation cp="✊🏿">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="✊🏿" type="tts">nostettu nyrkki: ihotyyppi-6</annotation>
+		<annotation cp="👊🏻">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👊🏻" type="tts">kohti tuleva nyrkki: ihotyyppi-1-2</annotation>
+		<annotation cp="👊🏼">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👊🏼" type="tts">kohti tuleva nyrkki: ihotyyppi-3</annotation>
+		<annotation cp="👊🏽">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👊🏽" type="tts">kohti tuleva nyrkki: ihotyyppi-4</annotation>
+		<annotation cp="👊🏾">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👊🏾" type="tts">kohti tuleva nyrkki: ihotyyppi-5</annotation>
+		<annotation cp="👊🏿">isku | käsi | nyrkki | puristettu | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👊🏿" type="tts">kohti tuleva nyrkki: ihotyyppi-6</annotation>
+		<annotation cp="🤛🏻">nyrkki | vasen | ihotyyppi-1-2</annotation>
+		<annotation cp="🤛🏻" type="tts">nyrkki vasemmalle: ihotyyppi-1-2</annotation>
+		<annotation cp="🤛🏼">nyrkki | vasen | ihotyyppi-3</annotation>
+		<annotation cp="🤛🏼" type="tts">nyrkki vasemmalle: ihotyyppi-3</annotation>
+		<annotation cp="🤛🏽">nyrkki | vasen | ihotyyppi-4</annotation>
+		<annotation cp="🤛🏽" type="tts">nyrkki vasemmalle: ihotyyppi-4</annotation>
+		<annotation cp="🤛🏾">nyrkki | vasen | ihotyyppi-5</annotation>
+		<annotation cp="🤛🏾" type="tts">nyrkki vasemmalle: ihotyyppi-5</annotation>
+		<annotation cp="🤛🏿">nyrkki | vasen | ihotyyppi-6</annotation>
+		<annotation cp="🤛🏿" type="tts">nyrkki vasemmalle: ihotyyppi-6</annotation>
+		<annotation cp="🤜🏻">nyrkki | oikea | ihotyyppi-1-2</annotation>
+		<annotation cp="🤜🏻" type="tts">nyrkki oikealle: ihotyyppi-1-2</annotation>
+		<annotation cp="🤜🏼">nyrkki | oikea | ihotyyppi-3</annotation>
+		<annotation cp="🤜🏼" type="tts">nyrkki oikealle: ihotyyppi-3</annotation>
+		<annotation cp="🤜🏽">nyrkki | oikea | ihotyyppi-4</annotation>
+		<annotation cp="🤜🏽" type="tts">nyrkki oikealle: ihotyyppi-4</annotation>
+		<annotation cp="🤜🏾">nyrkki | oikea | ihotyyppi-5</annotation>
+		<annotation cp="🤜🏾" type="tts">nyrkki oikealle: ihotyyppi-5</annotation>
+		<annotation cp="🤜🏿">nyrkki | oikea | ihotyyppi-6</annotation>
+		<annotation cp="🤜🏿" type="tts">nyrkki oikealle: ihotyyppi-6</annotation>
+		<annotation cp="🤚🏻">kohotettu | kädenselkä | ihotyyppi-1-2</annotation>
+		<annotation cp="🤚🏻" type="tts">kädenselkä koholla: ihotyyppi-1-2</annotation>
+		<annotation cp="🤚🏼">kohotettu | kädenselkä | ihotyyppi-3</annotation>
+		<annotation cp="🤚🏼" type="tts">kädenselkä koholla: ihotyyppi-3</annotation>
+		<annotation cp="🤚🏽">kohotettu | kädenselkä | ihotyyppi-4</annotation>
+		<annotation cp="🤚🏽" type="tts">kädenselkä koholla: ihotyyppi-4</annotation>
+		<annotation cp="🤚🏾">kohotettu | kädenselkä | ihotyyppi-5</annotation>
+		<annotation cp="🤚🏾" type="tts">kädenselkä koholla: ihotyyppi-5</annotation>
+		<annotation cp="🤚🏿">kohotettu | kädenselkä | ihotyyppi-6</annotation>
+		<annotation cp="🤚🏿" type="tts">kädenselkä koholla: ihotyyppi-6</annotation>
+		<annotation cp="👋🏻">heilautus | käsi | vartalo | vilkuttaa | ihotyyppi-1-2</annotation>
+		<annotation cp="👋🏻" type="tts">käden heilautus: ihotyyppi-1-2</annotation>
+		<annotation cp="👋🏼">heilautus | käsi | vartalo | vilkuttaa | ihotyyppi-3</annotation>
+		<annotation cp="👋🏼" type="tts">käden heilautus: ihotyyppi-3</annotation>
+		<annotation cp="👋🏽">heilautus | käsi | vartalo | vilkuttaa | ihotyyppi-4</annotation>
+		<annotation cp="👋🏽" type="tts">käden heilautus: ihotyyppi-4</annotation>
+		<annotation cp="👋🏾">heilautus | käsi | vartalo | vilkuttaa | ihotyyppi-5</annotation>
+		<annotation cp="👋🏾" type="tts">käden heilautus: ihotyyppi-5</annotation>
+		<annotation cp="👋🏿">heilautus | käsi | vartalo | vilkuttaa | ihotyyppi-6</annotation>
+		<annotation cp="👋🏿" type="tts">käden heilautus: ihotyyppi-6</annotation>
+		<annotation cp="✍🏻">kirjoittaa | käsi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="✍🏻" type="tts">kirjoittava käsi: ihotyyppi-1-2</annotation>
+		<annotation cp="✍🏼">kirjoittaa | käsi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="✍🏼" type="tts">kirjoittava käsi: ihotyyppi-3</annotation>
+		<annotation cp="✍🏽">kirjoittaa | käsi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="✍🏽" type="tts">kirjoittava käsi: ihotyyppi-4</annotation>
+		<annotation cp="✍🏾">kirjoittaa | käsi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="✍🏾" type="tts">kirjoittava käsi: ihotyyppi-5</annotation>
+		<annotation cp="✍🏿">kirjoittaa | käsi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="✍🏿" type="tts">kirjoittava käsi: ihotyyppi-6</annotation>
+		<annotation cp="👏🏻">käsi | taputtaa | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👏🏻" type="tts">käsien taputus: ihotyyppi-1-2</annotation>
+		<annotation cp="👏🏼">käsi | taputtaa | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👏🏼" type="tts">käsien taputus: ihotyyppi-3</annotation>
+		<annotation cp="👏🏽">käsi | taputtaa | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👏🏽" type="tts">käsien taputus: ihotyyppi-4</annotation>
+		<annotation cp="👏🏾">käsi | taputtaa | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👏🏾" type="tts">käsien taputus: ihotyyppi-5</annotation>
+		<annotation cp="👏🏿">käsi | taputtaa | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👏🏿" type="tts">käsien taputus: ihotyyppi-6</annotation>
+		<annotation cp="👐🏻">avoin | käsi | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👐🏻" type="tts">avoimet kädet: ihotyyppi-1-2</annotation>
+		<annotation cp="👐🏼">avoin | käsi | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👐🏼" type="tts">avoimet kädet: ihotyyppi-3</annotation>
+		<annotation cp="👐🏽">avoin | käsi | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👐🏽" type="tts">avoimet kädet: ihotyyppi-4</annotation>
+		<annotation cp="👐🏾">avoin | käsi | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👐🏾" type="tts">avoimet kädet: ihotyyppi-5</annotation>
+		<annotation cp="👐🏿">avoin | käsi | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👐🏿" type="tts">avoimet kädet: ihotyyppi-6</annotation>
+		<annotation cp="🙌🏻">ele | hurraa | juhla | käsi | nostettu | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="🙌🏻" type="tts">nousevat kädet: ihotyyppi-1-2</annotation>
+		<annotation cp="🙌🏼">ele | hurraa | juhla | käsi | nostettu | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="🙌🏼" type="tts">nousevat kädet: ihotyyppi-3</annotation>
+		<annotation cp="🙌🏽">ele | hurraa | juhla | käsi | nostettu | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="🙌🏽" type="tts">nousevat kädet: ihotyyppi-4</annotation>
+		<annotation cp="🙌🏾">ele | hurraa | juhla | käsi | nostettu | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="🙌🏾" type="tts">nousevat kädet: ihotyyppi-5</annotation>
+		<annotation cp="🙌🏿">ele | hurraa | juhla | käsi | nostettu | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="🙌🏿" type="tts">nousevat kädet: ihotyyppi-6</annotation>
+		<annotation cp="🙏🏻">ele | kiitos | kumarrus | kysy | käsi | pliis | rukous | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="🙏🏻" type="tts">kämmenet yhdessä: ihotyyppi-1-2</annotation>
+		<annotation cp="🙏🏼">ele | kiitos | kumarrus | kysy | käsi | pliis | rukous | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="🙏🏼" type="tts">kämmenet yhdessä: ihotyyppi-3</annotation>
+		<annotation cp="🙏🏽">ele | kiitos | kumarrus | kysy | käsi | pliis | rukous | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="🙏🏽" type="tts">kämmenet yhdessä: ihotyyppi-4</annotation>
+		<annotation cp="🙏🏾">ele | kiitos | kumarrus | kysy | käsi | pliis | rukous | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="🙏🏾" type="tts">kämmenet yhdessä: ihotyyppi-5</annotation>
+		<annotation cp="🙏🏿">ele | kiitos | kumarrus | kysy | käsi | pliis | rukous | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="🙏🏿" type="tts">kämmenet yhdessä: ihotyyppi-6</annotation>
+		<annotation cp="💅🏻">kosmetiikka | kynsi | kynsihuolto | manikyyri | vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="💅🏻" type="tts">kynsilakka: ihotyyppi-1-2</annotation>
+		<annotation cp="💅🏼">kosmetiikka | kynsi | kynsihuolto | manikyyri | vartalo | ihotyyppi-3</annotation>
+		<annotation cp="💅🏼" type="tts">kynsilakka: ihotyyppi-3</annotation>
+		<annotation cp="💅🏽">kosmetiikka | kynsi | kynsihuolto | manikyyri | vartalo | ihotyyppi-4</annotation>
+		<annotation cp="💅🏽" type="tts">kynsilakka: ihotyyppi-4</annotation>
+		<annotation cp="💅🏾">kosmetiikka | kynsi | kynsihuolto | manikyyri | vartalo | ihotyyppi-5</annotation>
+		<annotation cp="💅🏾" type="tts">kynsilakka: ihotyyppi-5</annotation>
+		<annotation cp="💅🏿">kosmetiikka | kynsi | kynsihuolto | manikyyri | vartalo | ihotyyppi-6</annotation>
+		<annotation cp="💅🏿" type="tts">kynsilakka: ihotyyppi-6</annotation>
+		<annotation cp="👂🏻">vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👂🏻" type="tts">korva: ihotyyppi-1-2</annotation>
+		<annotation cp="👂🏼">vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👂🏼" type="tts">korva: ihotyyppi-3</annotation>
+		<annotation cp="👂🏽">vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👂🏽" type="tts">korva: ihotyyppi-4</annotation>
+		<annotation cp="👂🏾">vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👂🏾" type="tts">korva: ihotyyppi-5</annotation>
+		<annotation cp="👂🏿">vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👂🏿" type="tts">korva: ihotyyppi-6</annotation>
+		<annotation cp="👃🏻">vartalo | ihotyyppi-1-2</annotation>
+		<annotation cp="👃🏻" type="tts">nenä: ihotyyppi-1-2</annotation>
+		<annotation cp="👃🏼">vartalo | ihotyyppi-3</annotation>
+		<annotation cp="👃🏼" type="tts">nenä: ihotyyppi-3</annotation>
+		<annotation cp="👃🏽">vartalo | ihotyyppi-4</annotation>
+		<annotation cp="👃🏽" type="tts">nenä: ihotyyppi-4</annotation>
+		<annotation cp="👃🏾">vartalo | ihotyyppi-5</annotation>
+		<annotation cp="👃🏾" type="tts">nenä: ihotyyppi-5</annotation>
+		<annotation cp="👃🏿">vartalo | ihotyyppi-6</annotation>
+		<annotation cp="👃🏿" type="tts">nenä: ihotyyppi-6</annotation>
+		<annotation cp="#⃣">hash | numero | näppäin</annotation>
+		<annotation cp="#⃣" type="tts">risuaita</annotation>
+		<annotation cp="*⃣">näppäin | tähti</annotation>
+		<annotation cp="*⃣" type="tts">asteriski</annotation>
+		<annotation cp="🇦🇨">lippu</annotation>
+		<annotation cp="🇦🇨" type="tts">Ascension-saari</annotation>
+		<annotation cp="🇦🇩">lippu</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">lippu</annotation>
+		<annotation cp="🇦🇪" type="tts">Arabiemiirikunnat</annotation>
+		<annotation cp="🇦🇫">lippu</annotation>
+		<annotation cp="🇦🇫" type="tts">Afganistan</annotation>
+		<annotation cp="🇦🇬">lippu</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua ja Barbuda</annotation>
+		<annotation cp="🇦🇮">lippu</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">lippu</annotation>
+		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇲">lippu</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇴">lippu</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">lippu</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktis</annotation>
+		<annotation cp="🇦🇷">lippu</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentiina</annotation>
+		<annotation cp="🇦🇸">lippu</annotation>
+		<annotation cp="🇦🇸" type="tts">Amerikan Samoa</annotation>
+		<annotation cp="🇦🇹">lippu</annotation>
+		<annotation cp="🇦🇹" type="tts">Itävalta</annotation>
+		<annotation cp="🇦🇺">lippu</annotation>
+		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇼">lippu</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">lippu</annotation>
+		<annotation cp="🇦🇽" type="tts">Ahvenanmaa</annotation>
+		<annotation cp="🇦🇿">lippu</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbaidžan</annotation>
+		<annotation cp="🇧🇦">lippu</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnia ja Hertsegovina</annotation>
+		<annotation cp="🇧🇧">lippu</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">lippu</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">lippu</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgia</annotation>
+		<annotation cp="🇧🇫">lippu</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">lippu</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgaria</annotation>
+		<annotation cp="🇧🇭">lippu</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇮">lippu</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">lippu</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">lippu</annotation>
+		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇲">lippu</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">lippu</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇴">lippu</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇶">lippu</annotation>
+		<annotation cp="🇧🇶" type="tts">Karibian Alankomaat</annotation>
+		<annotation cp="🇧🇷">lippu</annotation>
+		<annotation cp="🇧🇷" type="tts">Brasilia</annotation>
+		<annotation cp="🇧🇸">lippu</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahama</annotation>
+		<annotation cp="🇧🇹">lippu</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇻">lippu</annotation>
+		<annotation cp="🇧🇻" type="tts">Bouvet’nsaari</annotation>
+		<annotation cp="🇧🇼">lippu</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">lippu</annotation>
+		<annotation cp="🇧🇾" type="tts">Valko-Venäjä</annotation>
+		<annotation cp="🇧🇿">lippu</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">lippu</annotation>
+		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇨">lippu</annotation>
+		<annotation cp="🇨🇨" type="tts">Kookossaaret (Keelingsaaret)</annotation>
+		<annotation cp="🇨🇩">lippu</annotation>
+		<annotation cp="🇨🇩" type="tts">Kongon demokraattinen tasavalta</annotation>
+		<annotation cp="🇨🇫">lippu</annotation>
+		<annotation cp="🇨🇫" type="tts">Keski-Afrikan tasavalta</annotation>
+		<annotation cp="🇨🇬">lippu</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongon tasavalta</annotation>
+		<annotation cp="🇨🇭">lippu</annotation>
+		<annotation cp="🇨🇭" type="tts">Sveitsi</annotation>
+		<annotation cp="🇨🇮">lippu</annotation>
+		<annotation cp="🇨🇮" type="tts">Norsunluurannikko</annotation>
+		<annotation cp="🇨🇰">lippu</annotation>
+		<annotation cp="🇨🇰" type="tts">Cookinsaaret</annotation>
+		<annotation cp="🇨🇱">lippu</annotation>
+		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇲">lippu</annotation>
+		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇳">lippu</annotation>
+		<annotation cp="🇨🇳" type="tts">Kiina</annotation>
+		<annotation cp="🇨🇴">lippu</annotation>
+		<annotation cp="🇨🇴" type="tts">Kolumbia</annotation>
+		<annotation cp="🇨🇵">lippu</annotation>
+		<annotation cp="🇨🇵" type="tts">Clippertoninsaari</annotation>
+		<annotation cp="🇨🇷">lippu</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">lippu</annotation>
+		<annotation cp="🇨🇺" type="tts">Kuuba</annotation>
+		<annotation cp="🇨🇻">lippu</annotation>
+		<annotation cp="🇨🇻" type="tts">Kap Verde</annotation>
+		<annotation cp="🇨🇼">lippu</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">lippu</annotation>
+		<annotation cp="🇨🇽" type="tts">Joulusaari</annotation>
+		<annotation cp="🇨🇾">lippu</annotation>
+		<annotation cp="🇨🇾" type="tts">Kypros</annotation>
+		<annotation cp="🇨🇿">lippu</annotation>
+		<annotation cp="🇨🇿" type="tts">Tšekinmaa</annotation>
+		<annotation cp="🇩🇪">lippu</annotation>
+		<annotation cp="🇩🇪" type="tts">Saksa</annotation>
+		<annotation cp="🇩🇬">lippu</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">lippu</annotation>
+		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇰">lippu</annotation>
+		<annotation cp="🇩🇰" type="tts">Tanska</annotation>
+		<annotation cp="🇩🇲">lippu</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇴">lippu</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominikaaninen tasavalta</annotation>
+		<annotation cp="🇩🇿">lippu</annotation>
+		<annotation cp="🇩🇿" type="tts">Algeria</annotation>
+		<annotation cp="🇪🇦">lippu</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta ja Melilla</annotation>
+		<annotation cp="🇪🇨">lippu</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇪">lippu</annotation>
+		<annotation cp="🇪🇪" type="tts">Viro</annotation>
+		<annotation cp="🇪🇬">lippu</annotation>
+		<annotation cp="🇪🇬" type="tts">Egypti</annotation>
+		<annotation cp="🇪🇭">lippu</annotation>
+		<annotation cp="🇪🇭" type="tts">Länsi-Sahara</annotation>
+		<annotation cp="🇪🇷">lippu</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇸">lippu</annotation>
+		<annotation cp="🇪🇸" type="tts">Espanja</annotation>
+		<annotation cp="🇪🇹">lippu</annotation>
+		<annotation cp="🇪🇹" type="tts">Etiopia</annotation>
+		<annotation cp="🇪🇺">lippu</annotation>
+		<annotation cp="🇪🇺" type="tts">Euroopan unioni</annotation>
+		<annotation cp="🇫🇮">lippu</annotation>
+		<annotation cp="🇫🇮" type="tts">Suomi</annotation>
+		<annotation cp="🇫🇯">lippu</annotation>
+		<annotation cp="🇫🇯" type="tts">Fidži</annotation>
+		<annotation cp="🇫🇰">lippu</annotation>
+		<annotation cp="🇫🇰" type="tts">Falklandinsaaret</annotation>
+		<annotation cp="🇫🇲">lippu</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikronesian liittovaltio</annotation>
+		<annotation cp="🇫🇴">lippu</annotation>
+		<annotation cp="🇫🇴" type="tts">Färsaaret</annotation>
+		<annotation cp="🇫🇷">lippu</annotation>
+		<annotation cp="🇫🇷" type="tts">Ranska</annotation>
+		<annotation cp="🇬🇦">lippu</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">lippu</annotation>
+		<annotation cp="🇬🇧" type="tts">Iso-Britannia</annotation>
+		<annotation cp="🇬🇩">lippu</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">lippu</annotation>
+		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇫">lippu</annotation>
+		<annotation cp="🇬🇫" type="tts">Ranskan Guayana</annotation>
+		<annotation cp="🇬🇬">lippu</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇭">lippu</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">lippu</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">lippu</annotation>
+		<annotation cp="🇬🇱" type="tts">Grönlanti</annotation>
+		<annotation cp="🇬🇲">lippu</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇳">lippu</annotation>
+		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇵">lippu</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇶">lippu</annotation>
+		<annotation cp="🇬🇶" type="tts">Päiväntasaajan Guinea</annotation>
+		<annotation cp="🇬🇷">lippu</annotation>
+		<annotation cp="🇬🇷" type="tts">Kreikka</annotation>
+		<annotation cp="🇬🇸">lippu</annotation>
+		<annotation cp="🇬🇸" type="tts">Etelä-Georgia ja Eteläiset Sandwichsaaret</annotation>
+		<annotation cp="🇬🇹">lippu</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">lippu</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">lippu</annotation>
+		<annotation cp="🇬🇼" type="tts">Guinea-Bissau</annotation>
+		<annotation cp="🇬🇾">lippu</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">lippu</annotation>
+		<annotation cp="🇭🇰" type="tts">Hongkong – Kiinan e.h.a.</annotation>
+		<annotation cp="🇭🇲">lippu</annotation>
+		<annotation cp="🇭🇲" type="tts">Heard ja McDonaldinsaaret</annotation>
+		<annotation cp="🇭🇳">lippu</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">lippu</annotation>
+		<annotation cp="🇭🇷" type="tts">Kroatia</annotation>
+		<annotation cp="🇭🇹">lippu</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">lippu</annotation>
+		<annotation cp="🇭🇺" type="tts">Unkari</annotation>
+		<annotation cp="🇮🇨">lippu</annotation>
+		<annotation cp="🇮🇨" type="tts">Kanariansaaret</annotation>
+		<annotation cp="🇮🇩">lippu</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇪">lippu</annotation>
+		<annotation cp="🇮🇪" type="tts">Irlanti</annotation>
+		<annotation cp="🇮🇱">lippu</annotation>
+		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇲">lippu</annotation>
+		<annotation cp="🇮🇲" type="tts">Mansaari</annotation>
+		<annotation cp="🇮🇳">lippu</annotation>
+		<annotation cp="🇮🇳" type="tts">Intia</annotation>
+		<annotation cp="🇮🇴">lippu</annotation>
+		<annotation cp="🇮🇴" type="tts">Brittiläinen Intian valtameren alue</annotation>
+		<annotation cp="🇮🇶">lippu</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">lippu</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">lippu</annotation>
+		<annotation cp="🇮🇸" type="tts">Islanti</annotation>
+		<annotation cp="🇮🇹">lippu</annotation>
+		<annotation cp="🇮🇹" type="tts">Italia</annotation>
+		<annotation cp="🇯🇪">lippu</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">lippu</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaika</annotation>
+		<annotation cp="🇯🇴">lippu</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordania</annotation>
+		<annotation cp="🇯🇵">lippu</annotation>
+		<annotation cp="🇯🇵" type="tts">Japani</annotation>
+		<annotation cp="🇰🇪">lippu</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenia</annotation>
+		<annotation cp="🇰🇬">lippu</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgisia</annotation>
+		<annotation cp="🇰🇭">lippu</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodža</annotation>
+		<annotation cp="🇰🇮">lippu</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">lippu</annotation>
+		<annotation cp="🇰🇲" type="tts">Komorit</annotation>
+		<annotation cp="🇰🇳">lippu</annotation>
+		<annotation cp="🇰🇳" type="tts">Saint Kitts ja Nevis</annotation>
+		<annotation cp="🇰🇵">lippu</annotation>
+		<annotation cp="🇰🇵" type="tts">Pohjois-Korea</annotation>
+		<annotation cp="🇰🇷">lippu</annotation>
+		<annotation cp="🇰🇷" type="tts">Etelä-Korea</annotation>
+		<annotation cp="🇰🇼">lippu</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇾">lippu</annotation>
+		<annotation cp="🇰🇾" type="tts">Caymansaaret</annotation>
+		<annotation cp="🇰🇿">lippu</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazakstan</annotation>
+		<annotation cp="🇱🇦">lippu</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">lippu</annotation>
+		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇨">lippu</annotation>
+		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇮">lippu</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">lippu</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">lippu</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇸">lippu</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">lippu</annotation>
+		<annotation cp="🇱🇹" type="tts">Liettua</annotation>
+		<annotation cp="🇱🇺">lippu</annotation>
+		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇻">lippu</annotation>
+		<annotation cp="🇱🇻" type="tts">Latvia</annotation>
+		<annotation cp="🇱🇾">lippu</annotation>
+		<annotation cp="🇱🇾" type="tts">Libya</annotation>
+		<annotation cp="🇲🇦">lippu</annotation>
+		<annotation cp="🇲🇦" type="tts">Marokko</annotation>
+		<annotation cp="🇲🇨">lippu</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">lippu</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇪">lippu</annotation>
+		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇫">lippu</annotation>
+		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇬">lippu</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">lippu</annotation>
+		<annotation cp="🇲🇭" type="tts">Marshallinsaaret</annotation>
+		<annotation cp="🇲🇰">lippu</annotation>
+		<annotation cp="🇲🇰" type="tts">Makedonia</annotation>
+		<annotation cp="🇲🇱">lippu</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">lippu</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇳">lippu</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇴">lippu</annotation>
+		<annotation cp="🇲🇴" type="tts">Macao – Kiinan e.h.a.</annotation>
+		<annotation cp="🇲🇵">lippu</annotation>
+		<annotation cp="🇲🇵" type="tts">Pohjois-Mariaanit</annotation>
+		<annotation cp="🇲🇶">lippu</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇷">lippu</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇸">lippu</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">lippu</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">lippu</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">lippu</annotation>
+		<annotation cp="🇲🇻" type="tts">Malediivit</annotation>
+		<annotation cp="🇲🇼">lippu</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">lippu</annotation>
+		<annotation cp="🇲🇽" type="tts">Meksiko</annotation>
+		<annotation cp="🇲🇾">lippu</annotation>
+		<annotation cp="🇲🇾" type="tts">Malesia</annotation>
+		<annotation cp="🇲🇿">lippu</annotation>
+		<annotation cp="🇲🇿" type="tts">Mosambik</annotation>
+		<annotation cp="🇳🇦">lippu</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇨">lippu</annotation>
+		<annotation cp="🇳🇨" type="tts">Uusi-Kaledonia</annotation>
+		<annotation cp="🇳🇪">lippu</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">lippu</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolkinsaari</annotation>
+		<annotation cp="🇳🇬">lippu</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇮">lippu</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">lippu</annotation>
+		<annotation cp="🇳🇱" type="tts">Alankomaat</annotation>
+		<annotation cp="🇳🇴">lippu</annotation>
+		<annotation cp="🇳🇴" type="tts">Norja</annotation>
+		<annotation cp="🇳🇵">lippu</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">lippu</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">lippu</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">lippu</annotation>
+		<annotation cp="🇳🇿" type="tts">Uusi-Seelanti</annotation>
+		<annotation cp="🇴🇲">lippu</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">lippu</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">lippu</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">lippu</annotation>
+		<annotation cp="🇵🇫" type="tts">Ranskan Polynesia</annotation>
+		<annotation cp="🇵🇬">lippu</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua-Uusi-Guinea</annotation>
+		<annotation cp="🇵🇭">lippu</annotation>
+		<annotation cp="🇵🇭" type="tts">Filippiinit</annotation>
+		<annotation cp="🇵🇰">lippu</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">lippu</annotation>
+		<annotation cp="🇵🇱" type="tts">Puola</annotation>
+		<annotation cp="🇵🇲">lippu</annotation>
+		<annotation cp="🇵🇲" type="tts">Saint-Pierre ja Miquelon</annotation>
+		<annotation cp="🇵🇳">lippu</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitcairn</annotation>
+		<annotation cp="🇵🇷">lippu</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇸">lippu</annotation>
+		<annotation cp="🇵🇸" type="tts">Palestiinalaisalueet</annotation>
+		<annotation cp="🇵🇹">lippu</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugali</annotation>
+		<annotation cp="🇵🇼">lippu</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">lippu</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">lippu</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">lippu</annotation>
+		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇴">lippu</annotation>
+		<annotation cp="🇷🇴" type="tts">Romania</annotation>
+		<annotation cp="🇷🇸">lippu</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇺">lippu</annotation>
+		<annotation cp="🇷🇺" type="tts">Venäjä</annotation>
+		<annotation cp="🇷🇼">lippu</annotation>
+		<annotation cp="🇷🇼" type="tts">Ruanda</annotation>
+		<annotation cp="🇸🇦">lippu</annotation>
+		<annotation cp="🇸🇦" type="tts">Saudi-Arabia</annotation>
+		<annotation cp="🇸🇧">lippu</annotation>
+		<annotation cp="🇸🇧" type="tts">Salomonsaaret</annotation>
+		<annotation cp="🇸🇨">lippu</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychellit</annotation>
+		<annotation cp="🇸🇩">lippu</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇪">lippu</annotation>
+		<annotation cp="🇸🇪" type="tts">Ruotsi</annotation>
+		<annotation cp="🇸🇬">lippu</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇭">lippu</annotation>
+		<annotation cp="🇸🇭" type="tts">Saint Helena</annotation>
+		<annotation cp="🇸🇮">lippu</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovenia</annotation>
+		<annotation cp="🇸🇯">lippu</annotation>
+		<annotation cp="🇸🇯" type="tts">Huippuvuoret ja Jan Mayen</annotation>
+		<annotation cp="🇸🇰">lippu</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovakia</annotation>
+		<annotation cp="🇸🇱">lippu</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">lippu</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">lippu</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">lippu</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇷">lippu</annotation>
+		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇸">lippu</annotation>
+		<annotation cp="🇸🇸" type="tts">Etelä-Sudan</annotation>
+		<annotation cp="🇸🇹">lippu</annotation>
+		<annotation cp="🇸🇹" type="tts">São Tomé ja Príncipe</annotation>
+		<annotation cp="🇸🇻">lippu</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">lippu</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇾">lippu</annotation>
+		<annotation cp="🇸🇾" type="tts">Syyria</annotation>
+		<annotation cp="🇸🇿">lippu</annotation>
+		<annotation cp="🇸🇿" type="tts">Swazimaa</annotation>
+		<annotation cp="🇹🇦">lippu</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">lippu</annotation>
+		<annotation cp="🇹🇨" type="tts">Turks- ja Caicossaaret</annotation>
+		<annotation cp="🇹🇩">lippu</annotation>
+		<annotation cp="🇹🇩" type="tts">Tšad</annotation>
+		<annotation cp="🇹🇫">lippu</annotation>
+		<annotation cp="🇹🇫" type="tts">Ranskan eteläiset alueet</annotation>
+		<annotation cp="🇹🇬">lippu</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">lippu</annotation>
+		<annotation cp="🇹🇭" type="tts">Thaimaa</annotation>
+		<annotation cp="🇹🇯">lippu</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadžikistan</annotation>
+		<annotation cp="🇹🇰">lippu</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">lippu</annotation>
+		<annotation cp="🇹🇱" type="tts">Itä-Timor</annotation>
+		<annotation cp="🇹🇲">lippu</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">lippu</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇴">lippu</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">lippu</annotation>
+		<annotation cp="🇹🇷" type="tts">Turkki</annotation>
+		<annotation cp="🇹🇹">lippu</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad ja Tobago</annotation>
+		<annotation cp="🇹🇻">lippu</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">lippu</annotation>
+		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇿">lippu</annotation>
+		<annotation cp="🇹🇿" type="tts">Tansania</annotation>
+		<annotation cp="🇺🇦">lippu</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇬">lippu</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">lippu</annotation>
+		<annotation cp="🇺🇲" type="tts">Yhdysvaltain erillissaaret</annotation>
+		<annotation cp="🇺🇳">lippu</annotation>
+		<annotation cp="🇺🇳" type="tts">Yhdistyneet kansakunnat</annotation>
+		<annotation cp="🇺🇸">lippu</annotation>
+		<annotation cp="🇺🇸" type="tts">Yhdysvallat</annotation>
+		<annotation cp="🇺🇾">lippu</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">lippu</annotation>
+		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇻🇦">lippu</annotation>
+		<annotation cp="🇻🇦" type="tts">Vatikaani</annotation>
+		<annotation cp="🇻🇨">lippu</annotation>
+		<annotation cp="🇻🇨" type="tts">Saint Vincent ja Grenadiinit</annotation>
+		<annotation cp="🇻🇪">lippu</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">lippu</annotation>
+		<annotation cp="🇻🇬" type="tts">Brittiläiset Neitsytsaaret</annotation>
+		<annotation cp="🇻🇮">lippu</annotation>
+		<annotation cp="🇻🇮" type="tts">Yhdysvaltain Neitsytsaaret</annotation>
+		<annotation cp="🇻🇳">lippu</annotation>
+		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇺">lippu</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">lippu</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis ja Futuna</annotation>
+		<annotation cp="🇼🇸">lippu</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">lippu</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">lippu</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇹">lippu</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">lippu</annotation>
+		<annotation cp="🇿🇦" type="tts">Etelä-Afrikka</annotation>
+		<annotation cp="🇿🇲">lippu</annotation>
+		<annotation cp="🇿🇲" type="tts">Sambia</annotation>
+		<annotation cp="🇿🇼">lippu</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">lippu</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Englanti</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">lippu</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Skotlanti</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">lippu</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+	</annotations>
+</ldml>

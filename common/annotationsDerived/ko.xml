@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="ko"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | 키캡</annotation>
+		<annotation cp="0⃣" type="tts">키캡 숫자 영</annotation>
+		<annotation cp="1⃣">1 | 키캡</annotation>
+		<annotation cp="1⃣" type="tts">키캡 숫자 일</annotation>
+		<annotation cp="2⃣">2 | 키캡</annotation>
+		<annotation cp="2⃣" type="tts">키캡 숫자 이</annotation>
+		<annotation cp="3⃣">3 | 키캡</annotation>
+		<annotation cp="3⃣" type="tts">키캡 숫자 삼</annotation>
+		<annotation cp="4⃣">4 | 키캡</annotation>
+		<annotation cp="4⃣" type="tts">키캡 숫자 사</annotation>
+		<annotation cp="5⃣">5 | 키캡</annotation>
+		<annotation cp="5⃣" type="tts">키캡 숫자 오</annotation>
+		<annotation cp="6⃣">6 | 키캡</annotation>
+		<annotation cp="6⃣" type="tts">키캡 숫자 육</annotation>
+		<annotation cp="7⃣">7 | 키캡</annotation>
+		<annotation cp="7⃣" type="tts">키캡 숫자 칠</annotation>
+		<annotation cp="8⃣">8 | 키캡</annotation>
+		<annotation cp="8⃣" type="tts">키캡 숫자 팔</annotation>
+		<annotation cp="9⃣">9 | 키캡</annotation>
+		<annotation cp="9⃣" type="tts">키캡 숫자 구</annotation>
+		<annotation cp="👶🏻">유아 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👶🏻" type="tts">아기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👶🏼">유아 | 피부 타입 삼</annotation>
+		<annotation cp="👶🏼" type="tts">아기: 피부 타입 삼</annotation>
+		<annotation cp="👶🏽">유아 | 피부 타입 사</annotation>
+		<annotation cp="👶🏽" type="tts">아기: 피부 타입 사</annotation>
+		<annotation cp="👶🏾">유아 | 파부 타입 오</annotation>
+		<annotation cp="👶🏾" type="tts">아기: 파부 타입 오</annotation>
+		<annotation cp="👶🏿">유아 | 피부 타입 육</annotation>
+		<annotation cp="👶🏿" type="tts">아기: 피부 타입 육</annotation>
+		<annotation cp="👦🏻">소년 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👦🏻" type="tts">남자 아이: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👦🏼">소년 | 피부 타입 삼</annotation>
+		<annotation cp="👦🏼" type="tts">남자 아이: 피부 타입 삼</annotation>
+		<annotation cp="👦🏽">소년 | 피부 타입 사</annotation>
+		<annotation cp="👦🏽" type="tts">남자 아이: 피부 타입 사</annotation>
+		<annotation cp="👦🏾">소년 | 파부 타입 오</annotation>
+		<annotation cp="👦🏾" type="tts">남자 아이: 파부 타입 오</annotation>
+		<annotation cp="👦🏿">소년 | 피부 타입 육</annotation>
+		<annotation cp="👦🏿" type="tts">남자 아이: 피부 타입 육</annotation>
+		<annotation cp="👧🏻">소녀 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👧🏻" type="tts">여자 아이: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👧🏼">소녀 | 피부 타입 삼</annotation>
+		<annotation cp="👧🏼" type="tts">여자 아이: 피부 타입 삼</annotation>
+		<annotation cp="👧🏽">소녀 | 피부 타입 사</annotation>
+		<annotation cp="👧🏽" type="tts">여자 아이: 피부 타입 사</annotation>
+		<annotation cp="👧🏾">소녀 | 파부 타입 오</annotation>
+		<annotation cp="👧🏾" type="tts">여자 아이: 파부 타입 오</annotation>
+		<annotation cp="👧🏿">소녀 | 피부 타입 육</annotation>
+		<annotation cp="👧🏿" type="tts">여자 아이: 피부 타입 육</annotation>
+		<annotation cp="👨🏻">남성 | 아저씨 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻" type="tts">남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼">남성 | 아저씨 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼" type="tts">남자: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽">남성 | 아저씨 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽" type="tts">남자: 피부 타입 사</annotation>
+		<annotation cp="👨🏾">남성 | 아저씨 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾" type="tts">남자: 파부 타입 오</annotation>
+		<annotation cp="👨🏿">남성 | 아저씨 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿" type="tts">남자: 피부 타입 육</annotation>
+		<annotation cp="👩🏻">아가씨 | 여성 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻" type="tts">여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼">아가씨 | 여성 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼" type="tts">여자: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽">아가씨 | 여성 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽" type="tts">여자: 피부 타입 사</annotation>
+		<annotation cp="👩🏾">아가씨 | 여성 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾" type="tts">여자: 파부 타입 오</annotation>
+		<annotation cp="👩🏿">아가씨 | 여성 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿" type="tts">여자: 피부 타입 육</annotation>
+		<annotation cp="👴🏻">노인 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👴🏻" type="tts">할아버지: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👴🏼">노인 | 피부 타입 삼</annotation>
+		<annotation cp="👴🏼" type="tts">할아버지: 피부 타입 삼</annotation>
+		<annotation cp="👴🏽">노인 | 피부 타입 사</annotation>
+		<annotation cp="👴🏽" type="tts">할아버지: 피부 타입 사</annotation>
+		<annotation cp="👴🏾">노인 | 파부 타입 오</annotation>
+		<annotation cp="👴🏾" type="tts">할아버지: 파부 타입 오</annotation>
+		<annotation cp="👴🏿">노인 | 피부 타입 육</annotation>
+		<annotation cp="👴🏿" type="tts">할아버지: 피부 타입 육</annotation>
+		<annotation cp="👵🏻">노인 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👵🏻" type="tts">할머니: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👵🏼">노인 | 피부 타입 삼</annotation>
+		<annotation cp="👵🏼" type="tts">할머니: 피부 타입 삼</annotation>
+		<annotation cp="👵🏽">노인 | 피부 타입 사</annotation>
+		<annotation cp="👵🏽" type="tts">할머니: 피부 타입 사</annotation>
+		<annotation cp="👵🏾">노인 | 파부 타입 오</annotation>
+		<annotation cp="👵🏾" type="tts">할머니: 파부 타입 오</annotation>
+		<annotation cp="👵🏿">노인 | 피부 타입 육</annotation>
+		<annotation cp="👵🏿" type="tts">할머니: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍⚕">남자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">남자 의료인: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍⚕">남자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">남자 의료인: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍⚕">남자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">남자 의료인: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍⚕">남자 | 의료 | 의료인 | 의사 | 치료 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">남자 의료인: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍⚕">남자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">남자 의료인: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍⚕">여자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">여자 의료인: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍⚕">여자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">여자 의료인: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍⚕">여자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">여자 의료인: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍⚕">여자 | 의료 | 의료인 | 의사 | 치료 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">여자 의료인: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍⚕">여자 | 의료 | 의료인 | 의사 | 치료 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">여자 의료인: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🎓">남자 | 남학생 | 졸업식 | 학사모 | 학생 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">남학생: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🎓">남자 | 남학생 | 졸업식 | 학사모 | 학생 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">남학생: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🎓">남자 | 남학생 | 졸업식 | 학사모 | 학생 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">남학생: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🎓">남자 | 남학생 | 졸업식 | 학사모 | 학생 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">남학생: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🎓">남자 | 남학생 | 졸업식 | 학사모 | 학생 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">남학생: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🎓">여자 | 여학생 | 졸업식 | 학사모 | 학생 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">여학생: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🎓">여자 | 여학생 | 졸업식 | 학사모 | 학생 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">여학생: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🎓">여자 | 여학생 | 졸업식 | 학사모 | 학생 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">여학생: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🎓">여자 | 여학생 | 졸업식 | 학사모 | 학생 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">여학생: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🎓">여자 | 여학생 | 졸업식 | 학사모 | 학생 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">여학생: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🏫">가르침 | 교사 | 교육 | 남자 | 선생님 | 칠판 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">남교사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🏫">가르침 | 교사 | 교육 | 남자 | 선생님 | 칠판 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">남교사: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🏫">가르침 | 교사 | 교육 | 남자 | 선생님 | 칠판 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">남교사: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🏫">가르침 | 교사 | 교육 | 남자 | 선생님 | 칠판 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">남교사: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🏫">가르침 | 교사 | 교육 | 남자 | 선생님 | 칠판 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">남교사: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🏫">가르침 | 교사 | 교육 | 선생님 | 여자 | 칠판 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">여교사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🏫">가르침 | 교사 | 교육 | 선생님 | 여자 | 칠판 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">여교사: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🏫">가르침 | 교사 | 교육 | 선생님 | 여자 | 칠판 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">여교사: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🏫">가르침 | 교사 | 교육 | 선생님 | 여자 | 칠판 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">여교사: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🏫">가르침 | 교사 | 교육 | 선생님 | 여자 | 칠판 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">여교사: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍⚖">남자 | 법복 | 법조인 | 판사 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">남자 판사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍⚖">남자 | 법복 | 법조인 | 판사 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">남자 판사: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍⚖">남자 | 법복 | 법조인 | 판사 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">남자 판사: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍⚖">남자 | 법복 | 법조인 | 판사 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">남자 판사: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍⚖">남자 | 법복 | 법조인 | 판사 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">남자 판사: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍⚖">법복 | 법조인 | 여자 | 판사 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">여자 판사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍⚖">법복 | 법조인 | 여자 | 판사 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">여자 판사: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍⚖">법복 | 법조인 | 여자 | 판사 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">여자 판사: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍⚖">법복 | 법조인 | 여자 | 판사 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">여자 판사: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍⚖">법복 | 법조인 | 여자 | 판사 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">여자 판사: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🌾">남자 | 농부 | 농사 | 벼 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">남자 농부: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🌾">남자 | 농부 | 농사 | 벼 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">남자 농부: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🌾">남자 | 농부 | 농사 | 벼 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">남자 농부: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🌾">남자 | 농부 | 농사 | 벼 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">남자 농부: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🌾">남자 | 농부 | 농사 | 벼 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">남자 농부: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🌾">농부 | 농사 | 벼 | 여자 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">여자 농부: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🌾">농부 | 농사 | 벼 | 여자 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">여자 농부: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🌾">농부 | 농사 | 벼 | 여자 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">여자 농부: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🌾">농부 | 농사 | 벼 | 여자 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">여자 농부: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🌾">농부 | 농사 | 벼 | 여자 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">여자 농부: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🍳">계란프라이 | 남자 | 쉐프 | 요리사 | 주방장 | 프라이팬 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">남자 요리사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🍳">계란프라이 | 남자 | 쉐프 | 요리사 | 주방장 | 프라이팬 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">남자 요리사: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🍳">계란프라이 | 남자 | 쉐프 | 요리사 | 주방장 | 프라이팬 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">남자 요리사: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🍳">계란프라이 | 남자 | 쉐프 | 요리사 | 주방장 | 프라이팬 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">남자 요리사: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🍳">계란프라이 | 남자 | 쉐프 | 요리사 | 주방장 | 프라이팬 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">남자 요리사: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🍳">계란후라이 | 쉐프 | 여자 | 요리사 | 주방장 | 프라이팬 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">여자 요리사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🍳">계란후라이 | 쉐프 | 여자 | 요리사 | 주방장 | 프라이팬 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">여자 요리사: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🍳">계란후라이 | 쉐프 | 여자 | 요리사 | 주방장 | 프라이팬 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">여자 요리사: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🍳">계란후라이 | 쉐프 | 여자 | 요리사 | 주방장 | 프라이팬 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">여자 요리사: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🍳">계란후라이 | 쉐프 | 여자 | 요리사 | 주방장 | 프라이팬 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">여자 요리사: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🔧">기계 | 남자 | 렌치 | 수리공 | 정비공 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">남자 정비공: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🔧">기계 | 남자 | 렌치 | 수리공 | 정비공 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">남자 정비공: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🔧">기계 | 남자 | 렌치 | 수리공 | 정비공 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">남자 정비공: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🔧">기계 | 남자 | 렌치 | 수리공 | 정비공 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">남자 정비공: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🔧">기계 | 남자 | 렌치 | 수리공 | 정비공 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">남자 정비공: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🔧">기계 | 렌치 | 수리공 | 여자 | 정비공 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">여자 정비공: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🔧">기계 | 렌치 | 수리공 | 여자 | 정비공 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">여자 정비공: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🔧">기계 | 렌치 | 수리공 | 여자 | 정비공 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">여자 정비공: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🔧">기계 | 렌치 | 수리공 | 여자 | 정비공 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">여자 정비공: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🔧">기계 | 렌치 | 수리공 | 여자 | 정비공 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">여자 정비공: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🏭">공장 | 남자 | 조립공 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">남자 조립공: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🏭">공장 | 남자 | 조립공 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">남자 조립공: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🏭">공장 | 남자 | 조립공 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">남자 조립공: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🏭">공장 | 남자 | 조립공 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">남자 조립공: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🏭">공장 | 남자 | 조립공 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">남자 조립공: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🏭">공장 | 여자 | 조립공 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">여자 조립공: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🏭">공장 | 여자 | 조립공 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">여자 조립공: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🏭">공장 | 여자 | 조립공 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">여자 조립공: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🏭">공장 | 여자 | 조립공 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">여자 조립공: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🏭">공장 | 여자 | 조립공 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">여자 조립공: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍💼">남자 | 오피스 | 직장인 | 회사원 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">남자 회사원: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍💼">남자 | 오피스 | 직장인 | 회사원 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">남자 회사원: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍💼">남자 | 오피스 | 직장인 | 회사원 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">남자 회사원: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍💼">남자 | 오피스 | 직장인 | 회사원 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">남자 회사원: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍💼">남자 | 오피스 | 직장인 | 회사원 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">남자 회사원: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍💼">여자 | 오피스 | 직장인 | 회사원 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">여자 회사원: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍💼">여자 | 오피스 | 직장인 | 회사원 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">여자 회사원: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍💼">여자 | 오피스 | 직장인 | 회사원 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">여자 회사원: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍💼">여자 | 오피스 | 직장인 | 회사원 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">여자 회사원: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍💼">여자 | 오피스 | 직장인 | 회사원 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">여자 회사원: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🔬">과학자 | 남자 | 실험도구 | 실험실 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">남자 과학자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🔬">과학자 | 남자 | 실험도구 | 실험실 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">남자 과학자: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🔬">과학자 | 남자 | 실험도구 | 실험실 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">남자 과학자: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🔬">과학자 | 남자 | 실험도구 | 실험실 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">남자 과학자: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🔬">과학자 | 남자 | 실험도구 | 실험실 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">남자 과학자: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🔬">과학자 | 실험도구 | 실험실 | 여자 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">여자 과학자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🔬">과학자 | 실험도구 | 실험실 | 여자 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">여자 과학자: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🔬">과학자 | 실험도구 | 실험실 | 여자 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">여자 과학자: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🔬">과학자 | 실험도구 | 실험실 | 여자 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">여자 과학자: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🔬">과학자 | 실험도구 | 실험실 | 여자 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">여자 과학자: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍💻">IT | 개발자 | 남자 | 컴퓨터 | 프로그래머 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">남자 개발자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍💻">IT | 개발자 | 남자 | 컴퓨터 | 프로그래머 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">남자 개발자: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍💻">IT | 개발자 | 남자 | 컴퓨터 | 프로그래머 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">남자 개발자: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍💻">IT | 개발자 | 남자 | 컴퓨터 | 프로그래머 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">남자 개발자: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍💻">IT | 개발자 | 남자 | 컴퓨터 | 프로그래머 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">남자 개발자: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍💻">IT | 개발자 | 여자 | 컴퓨터 | 프로그래머 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">여자 개발자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍💻">IT | 개발자 | 여자 | 컴퓨터 | 프로그래머 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">여자 개발자: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍💻">IT | 개발자 | 여자 | 컴퓨터 | 프로그래머 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">여자 개발자: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍💻">IT | 개발자 | 여자 | 컴퓨터 | 프로그래머 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">여자 개발자: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍💻">IT | 개발자 | 여자 | 컴퓨터 | 프로그래머 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">여자 개발자: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🎤">가수 | 남자 | 노래 | 마이크 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">남자 가수: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🎤">가수 | 남자 | 노래 | 마이크 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">남자 가수: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🎤">가수 | 남자 | 노래 | 마이크 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">남자 가수: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🎤">가수 | 남자 | 노래 | 마이크 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">남자 가수: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🎤">가수 | 남자 | 노래 | 마이크 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">남자 가수: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🎤">가수 | 노래 | 마이크 | 여자 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">여자 가수: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🎤">가수 | 노래 | 마이크 | 여자 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">여자 가수: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🎤">가수 | 노래 | 마이크 | 여자 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">여자 가수: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🎤">가수 | 노래 | 마이크 | 여자 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">여자 가수: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🎤">가수 | 노래 | 마이크 | 여자 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">여자 가수: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">남자 화가: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">남자 화가: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">남자 화가: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">남자 화가: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">남자 화가: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">여자 화가: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">여자 화가: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">여자 화가: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">여자 화가: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🎨">미술 | 미술도구 | 아티스트 | 화가 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">여자 화가: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍✈">기장 | 남자 | 비행 | 파일럿 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">남자 기장: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍✈">기장 | 남자 | 비행 | 파일럿 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">남자 기장: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍✈">기장 | 남자 | 비행 | 파일럿 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">남자 기장: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍✈">기장 | 남자 | 비행 | 파일럿 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">남자 기장: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍✈">기장 | 남자 | 비행 | 파일럿 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">남자 기장: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍✈">기장 | 비행 | 여자 | 파일럿 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">여자 기장: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍✈">기장 | 비행 | 여자 | 파일럿 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">여자 기장: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍✈">기장 | 비행 | 여자 | 파일럿 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">여자 기장: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍✈">기장 | 비행 | 여자 | 파일럿 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">여자 기장: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍✈">기장 | 비행 | 여자 | 파일럿 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">여자 기장: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">남자 우주비행사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">남자 우주비행사: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">남자 우주비행사: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">남자 우주비행사: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">남자 우주비행사: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">여자 우주비행사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">여자 우주비행사: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">여자 우주비행사: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">여자 우주비행사: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🚀">로켓트 | 우주 | 우주비행사 | 우주인 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">여자 우주비행사: 피부 타입 육</annotation>
+		<annotation cp="👨🏻‍🚒">구조 | 소방관 | 화재 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">남자 소방관: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👨🏼‍🚒">구조 | 소방관 | 화재 | 피부 타입 삼</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">남자 소방관: 피부 타입 삼</annotation>
+		<annotation cp="👨🏽‍🚒">구조 | 소방관 | 화재 | 피부 타입 사</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">남자 소방관: 피부 타입 사</annotation>
+		<annotation cp="👨🏾‍🚒">구조 | 소방관 | 화재 | 파부 타입 오</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">남자 소방관: 파부 타입 오</annotation>
+		<annotation cp="👨🏿‍🚒">구조 | 소방관 | 화재 | 피부 타입 육</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">남자 소방관: 피부 타입 육</annotation>
+		<annotation cp="👩🏻‍🚒">구조 | 소방관 | 화재 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">여자 소방관: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👩🏼‍🚒">구조 | 소방관 | 화재 | 피부 타입 삼</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">여자 소방관: 피부 타입 삼</annotation>
+		<annotation cp="👩🏽‍🚒">구조 | 소방관 | 화재 | 피부 타입 사</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">여자 소방관: 피부 타입 사</annotation>
+		<annotation cp="👩🏾‍🚒">구조 | 소방관 | 화재 | 파부 타입 오</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">여자 소방관: 파부 타입 오</annotation>
+		<annotation cp="👩🏿‍🚒">구조 | 소방관 | 화재 | 피부 타입 육</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">여자 소방관: 피부 타입 육</annotation>
+		<annotation cp="👮🏻">경찰 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👮🏻" type="tts">경찰관: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👮🏼">경찰 | 피부 타입 삼</annotation>
+		<annotation cp="👮🏼" type="tts">경찰관: 피부 타입 삼</annotation>
+		<annotation cp="👮🏽">경찰 | 피부 타입 사</annotation>
+		<annotation cp="👮🏽" type="tts">경찰관: 피부 타입 사</annotation>
+		<annotation cp="👮🏾">경찰 | 파부 타입 오</annotation>
+		<annotation cp="👮🏾" type="tts">경찰관: 파부 타입 오</annotation>
+		<annotation cp="👮🏿">경찰 | 피부 타입 육</annotation>
+		<annotation cp="👮🏿" type="tts">경찰관: 피부 타입 육</annotation>
+		<annotation cp="👮🏻‍♂">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">남자 경찰관: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👮🏼‍♂">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 삼</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">남자 경찰관: 피부 타입 삼</annotation>
+		<annotation cp="👮🏽‍♂">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 사</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">남자 경찰관: 피부 타입 사</annotation>
+		<annotation cp="👮🏾‍♂">경찰 | 경찰관 | 경찰모자 | 경찰복 | 파부 타입 오</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">남자 경찰관: 파부 타입 오</annotation>
+		<annotation cp="👮🏿‍♂">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 육</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">남자 경찰관: 피부 타입 육</annotation>
+		<annotation cp="👮🏻‍♀">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">여자 경찰관: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👮🏼‍♀">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 삼</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">여자 경찰관: 피부 타입 삼</annotation>
+		<annotation cp="👮🏽‍♀">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 사</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">여자 경찰관: 피부 타입 사</annotation>
+		<annotation cp="👮🏾‍♀">경찰 | 경찰관 | 경찰모자 | 경찰복 | 파부 타입 오</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">여자 경찰관: 파부 타입 오</annotation>
+		<annotation cp="👮🏿‍♀">경찰 | 경찰관 | 경찰모자 | 경찰복 | 피부 타입 육</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">여자 경찰관: 피부 타입 육</annotation>
+		<annotation cp="🕵🏻">스파이 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕵🏻" type="tts">탐정: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕵🏼">스파이 | 피부 타입 삼</annotation>
+		<annotation cp="🕵🏼" type="tts">탐정: 피부 타입 삼</annotation>
+		<annotation cp="🕵🏽">스파이 | 피부 타입 사</annotation>
+		<annotation cp="🕵🏽" type="tts">탐정: 피부 타입 사</annotation>
+		<annotation cp="🕵🏾">스파이 | 파부 타입 오</annotation>
+		<annotation cp="🕵🏾" type="tts">탐정: 파부 타입 오</annotation>
+		<annotation cp="🕵🏿">스파이 | 피부 타입 육</annotation>
+		<annotation cp="🕵🏿" type="tts">탐정: 피부 타입 육</annotation>
+		<annotation cp="🕵🏻‍♂">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">남자 탐정: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕵🏼‍♂">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 삼</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">남자 탐정: 피부 타입 삼</annotation>
+		<annotation cp="🕵🏽‍♂">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 사</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">남자 탐정: 피부 타입 사</annotation>
+		<annotation cp="🕵🏾‍♂">돋보기 | 사립탐정 | 탐정 | 형사 | 파부 타입 오</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">남자 탐정: 파부 타입 오</annotation>
+		<annotation cp="🕵🏿‍♂">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 육</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">남자 탐정: 피부 타입 육</annotation>
+		<annotation cp="🕵🏻‍♀">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">여자 탐정: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕵🏼‍♀">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 삼</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">여자 탐정: 피부 타입 삼</annotation>
+		<annotation cp="🕵🏽‍♀">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 사</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">여자 탐정: 피부 타입 사</annotation>
+		<annotation cp="🕵🏾‍♀">돋보기 | 사립탐정 | 탐정 | 형사 | 파부 타입 오</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">여자 탐정: 파부 타입 오</annotation>
+		<annotation cp="🕵🏿‍♀">돋보기 | 사립탐정 | 탐정 | 형사 | 피부 타입 육</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">여자 탐정: 피부 타입 육</annotation>
+		<annotation cp="💂🏻">경비대 | 경비대원 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💂🏻" type="tts">근위병: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💂🏼">경비대 | 경비대원 | 피부 타입 삼</annotation>
+		<annotation cp="💂🏼" type="tts">근위병: 피부 타입 삼</annotation>
+		<annotation cp="💂🏽">경비대 | 경비대원 | 피부 타입 사</annotation>
+		<annotation cp="💂🏽" type="tts">근위병: 피부 타입 사</annotation>
+		<annotation cp="💂🏾">경비대 | 경비대원 | 파부 타입 오</annotation>
+		<annotation cp="💂🏾" type="tts">근위병: 파부 타입 오</annotation>
+		<annotation cp="💂🏿">경비대 | 경비대원 | 피부 타입 육</annotation>
+		<annotation cp="💂🏿" type="tts">근위병: 피부 타입 육</annotation>
+		<annotation cp="💂🏻‍♂">경비대원 | 근위병 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">남자 근위병: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💂🏼‍♂">경비대원 | 근위병 | 피부 타입 삼</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">남자 근위병: 피부 타입 삼</annotation>
+		<annotation cp="💂🏽‍♂">경비대원 | 근위병 | 피부 타입 사</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">남자 근위병: 피부 타입 사</annotation>
+		<annotation cp="💂🏾‍♂">경비대원 | 근위병 | 파부 타입 오</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">남자 근위병: 파부 타입 오</annotation>
+		<annotation cp="💂🏿‍♂">경비대원 | 근위병 | 피부 타입 육</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">남자 근위병: 피부 타입 육</annotation>
+		<annotation cp="💂🏻‍♀">경비대원 | 근위병 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">여자 근위병: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💂🏼‍♀">경비대원 | 근위병 | 피부 타입 삼</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">여자 근위병: 피부 타입 삼</annotation>
+		<annotation cp="💂🏽‍♀">경비대원 | 근위병 | 피부 타입 사</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">여자 근위병: 피부 타입 사</annotation>
+		<annotation cp="💂🏾‍♀">경비대원 | 근위병 | 파부 타입 오</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">여자 근위병: 파부 타입 오</annotation>
+		<annotation cp="💂🏿‍♀">경비대원 | 근위병 | 피부 타입 육</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">여자 근위병: 피부 타입 육</annotation>
+		<annotation cp="👷🏻">안전모 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👷🏻" type="tts">건설 노동자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👷🏼">안전모 | 피부 타입 삼</annotation>
+		<annotation cp="👷🏼" type="tts">건설 노동자: 피부 타입 삼</annotation>
+		<annotation cp="👷🏽">안전모 | 피부 타입 사</annotation>
+		<annotation cp="👷🏽" type="tts">건설 노동자: 피부 타입 사</annotation>
+		<annotation cp="👷🏾">안전모 | 파부 타입 오</annotation>
+		<annotation cp="👷🏾" type="tts">건설 노동자: 파부 타입 오</annotation>
+		<annotation cp="👷🏿">안전모 | 피부 타입 육</annotation>
+		<annotation cp="👷🏿" type="tts">건설 노동자: 피부 타입 육</annotation>
+		<annotation cp="👷🏻‍♂">건설 | 건설노동자 | 안전모 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">남자 건설노동자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👷🏼‍♂">건설 | 건설노동자 | 안전모 | 피부 타입 삼</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">남자 건설노동자: 피부 타입 삼</annotation>
+		<annotation cp="👷🏽‍♂">건설 | 건설노동자 | 안전모 | 피부 타입 사</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">남자 건설노동자: 피부 타입 사</annotation>
+		<annotation cp="👷🏾‍♂">건설 | 건설노동자 | 안전모 | 파부 타입 오</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">남자 건설노동자: 파부 타입 오</annotation>
+		<annotation cp="👷🏿‍♂">건설 | 건설노동자 | 안전모 | 피부 타입 육</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">남자 건설노동자: 피부 타입 육</annotation>
+		<annotation cp="👷🏻‍♀">건설 | 건설노동자 | 안전모 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">여자 건설노동자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👷🏼‍♀">건설 | 건설노동자 | 안전모 | 피부 타입 삼</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">여자 건설노동자: 피부 타입 삼</annotation>
+		<annotation cp="👷🏽‍♀">건설 | 건설노동자 | 안전모 | 피부 타입 사</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">여자 건설노동자: 피부 타입 사</annotation>
+		<annotation cp="👷🏾‍♀">건설 | 건설노동자 | 안전모 | 파부 타입 오</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">여자 건설노동자: 파부 타입 오</annotation>
+		<annotation cp="👷🏿‍♀">건설 | 건설노동자 | 안전모 | 피부 타입 육</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">여자 건설노동자: 피부 타입 육</annotation>
+		<annotation cp="🤴🏻">왕자 | 왕자님 | 프린스 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤴🏻" type="tts">왕자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤴🏼">왕자 | 왕자님 | 프린스 | 피부 타입 삼</annotation>
+		<annotation cp="🤴🏼" type="tts">왕자: 피부 타입 삼</annotation>
+		<annotation cp="🤴🏽">왕자 | 왕자님 | 프린스 | 피부 타입 사</annotation>
+		<annotation cp="🤴🏽" type="tts">왕자: 피부 타입 사</annotation>
+		<annotation cp="🤴🏾">왕자 | 왕자님 | 프린스 | 파부 타입 오</annotation>
+		<annotation cp="🤴🏾" type="tts">왕자: 파부 타입 오</annotation>
+		<annotation cp="🤴🏿">왕자 | 왕자님 | 프린스 | 피부 타입 육</annotation>
+		<annotation cp="🤴🏿" type="tts">왕자: 피부 타입 육</annotation>
+		<annotation cp="👸🏻">공주님 | 왕관을 쓴 여성 | 프린세스 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👸🏻" type="tts">공주: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👸🏼">공주님 | 왕관을 쓴 여성 | 프린세스 | 피부 타입 삼</annotation>
+		<annotation cp="👸🏼" type="tts">공주: 피부 타입 삼</annotation>
+		<annotation cp="👸🏽">공주님 | 왕관을 쓴 여성 | 프린세스 | 피부 타입 사</annotation>
+		<annotation cp="👸🏽" type="tts">공주: 피부 타입 사</annotation>
+		<annotation cp="👸🏾">공주님 | 왕관을 쓴 여성 | 프린세스 | 파부 타입 오</annotation>
+		<annotation cp="👸🏾" type="tts">공주: 파부 타입 오</annotation>
+		<annotation cp="👸🏿">공주님 | 왕관을 쓴 여성 | 프린세스 | 피부 타입 육</annotation>
+		<annotation cp="👸🏿" type="tts">공주: 피부 타입 육</annotation>
+		<annotation cp="👳🏻">아랍 사람 | 터번을 쓴 사람 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👳🏻" type="tts">아랍인: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👳🏼">아랍 사람 | 터번을 쓴 사람 | 피부 타입 삼</annotation>
+		<annotation cp="👳🏼" type="tts">아랍인: 피부 타입 삼</annotation>
+		<annotation cp="👳🏽">아랍 사람 | 터번을 쓴 사람 | 피부 타입 사</annotation>
+		<annotation cp="👳🏽" type="tts">아랍인: 피부 타입 사</annotation>
+		<annotation cp="👳🏾">아랍 사람 | 터번을 쓴 사람 | 파부 타입 오</annotation>
+		<annotation cp="👳🏾" type="tts">아랍인: 파부 타입 오</annotation>
+		<annotation cp="👳🏿">아랍 사람 | 터번을 쓴 사람 | 피부 타입 육</annotation>
+		<annotation cp="👳🏿" type="tts">아랍인: 피부 타입 육</annotation>
+		<annotation cp="👳🏻‍♂">무슬림 | 아랍 | 터번 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">터번 쓴 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👳🏼‍♂">무슬림 | 아랍 | 터번 | 피부 타입 삼</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">터번 쓴 남자: 피부 타입 삼</annotation>
+		<annotation cp="👳🏽‍♂">무슬림 | 아랍 | 터번 | 피부 타입 사</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">터번 쓴 남자: 피부 타입 사</annotation>
+		<annotation cp="👳🏾‍♂">무슬림 | 아랍 | 터번 | 파부 타입 오</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">터번 쓴 남자: 파부 타입 오</annotation>
+		<annotation cp="👳🏿‍♂">무슬림 | 아랍 | 터번 | 피부 타입 육</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">터번 쓴 남자: 피부 타입 육</annotation>
+		<annotation cp="👳🏻‍♀">무슬림 | 아랍 | 터번 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">터번 쓴 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👳🏼‍♀">무슬림 | 아랍 | 터번 | 피부 타입 삼</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">터번 쓴 여자: 피부 타입 삼</annotation>
+		<annotation cp="👳🏽‍♀">무슬림 | 아랍 | 터번 | 피부 타입 사</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">터번 쓴 여자: 피부 타입 사</annotation>
+		<annotation cp="👳🏾‍♀">무슬림 | 아랍 | 터번 | 파부 타입 오</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">터번 쓴 여자: 파부 타입 오</annotation>
+		<annotation cp="👳🏿‍♀">무슬림 | 아랍 | 터번 | 피부 타입 육</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">터번 쓴 여자: 피부 타입 육</annotation>
+		<annotation cp="👲🏻">중국 사람 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👲🏻" type="tts">중국인: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👲🏼">중국 사람 | 피부 타입 삼</annotation>
+		<annotation cp="👲🏼" type="tts">중국인: 피부 타입 삼</annotation>
+		<annotation cp="👲🏽">중국 사람 | 피부 타입 사</annotation>
+		<annotation cp="👲🏽" type="tts">중국인: 피부 타입 사</annotation>
+		<annotation cp="👲🏾">중국 사람 | 파부 타입 오</annotation>
+		<annotation cp="👲🏾" type="tts">중국인: 파부 타입 오</annotation>
+		<annotation cp="👲🏿">중국 사람 | 피부 타입 육</annotation>
+		<annotation cp="👲🏿" type="tts">중국인: 피부 타입 육</annotation>
+		<annotation cp="👱🏻">금발 남성 | 서양 남성 | 서양 남자 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👱🏻" type="tts">금발인 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👱🏼">금발 남성 | 서양 남성 | 서양 남자 | 피부 타입 삼</annotation>
+		<annotation cp="👱🏼" type="tts">금발인 남자: 피부 타입 삼</annotation>
+		<annotation cp="👱🏽">금발 남성 | 서양 남성 | 서양 남자 | 피부 타입 사</annotation>
+		<annotation cp="👱🏽" type="tts">금발인 남자: 피부 타입 사</annotation>
+		<annotation cp="👱🏾">금발 남성 | 서양 남성 | 서양 남자 | 파부 타입 오</annotation>
+		<annotation cp="👱🏾" type="tts">금발인 남자: 파부 타입 오</annotation>
+		<annotation cp="👱🏿">금발 남성 | 서양 남성 | 서양 남자 | 피부 타입 육</annotation>
+		<annotation cp="👱🏿" type="tts">금발인 남자: 피부 타입 육</annotation>
+		<annotation cp="👱🏻‍♂">금발 | 남자 | 서양 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">금발 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👱🏼‍♂">금발 | 남자 | 서양 | 피부 타입 삼</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">금발 남자: 피부 타입 삼</annotation>
+		<annotation cp="👱🏽‍♂">금발 | 남자 | 서양 | 피부 타입 사</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">금발 남자: 피부 타입 사</annotation>
+		<annotation cp="👱🏾‍♂">금발 | 남자 | 서양 | 파부 타입 오</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">금발 남자: 파부 타입 오</annotation>
+		<annotation cp="👱🏿‍♂">금발 | 남자 | 서양 | 피부 타입 육</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">금발 남자: 피부 타입 육</annotation>
+		<annotation cp="👱🏻‍♀">금발 | 서양 | 여자 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">금발 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👱🏼‍♀">금발 | 서양 | 여자 | 피부 타입 삼</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">금발 여자: 피부 타입 삼</annotation>
+		<annotation cp="👱🏽‍♀">금발 | 서양 | 여자 | 피부 타입 사</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">금발 여자: 피부 타입 사</annotation>
+		<annotation cp="👱🏾‍♀">금발 | 서양 | 여자 | 파부 타입 오</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">금발 여자: 파부 타입 오</annotation>
+		<annotation cp="👱🏿‍♀">금발 | 서양 | 여자 | 피부 타입 육</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">금발 여자: 피부 타입 육</annotation>
+		<annotation cp="🤵🏻">결혼식 | 남성 | 신랑 | 턱시도 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤵🏻" type="tts">턱시도 입은 남성: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤵🏼">결혼식 | 남성 | 신랑 | 턱시도 | 피부 타입 삼</annotation>
+		<annotation cp="🤵🏼" type="tts">턱시도 입은 남성: 피부 타입 삼</annotation>
+		<annotation cp="🤵🏽">결혼식 | 남성 | 신랑 | 턱시도 | 피부 타입 사</annotation>
+		<annotation cp="🤵🏽" type="tts">턱시도 입은 남성: 피부 타입 사</annotation>
+		<annotation cp="🤵🏾">결혼식 | 남성 | 신랑 | 턱시도 | 파부 타입 오</annotation>
+		<annotation cp="🤵🏾" type="tts">턱시도 입은 남성: 파부 타입 오</annotation>
+		<annotation cp="🤵🏿">결혼식 | 남성 | 신랑 | 턱시도 | 피부 타입 육</annotation>
+		<annotation cp="🤵🏿" type="tts">턱시도 입은 남성: 피부 타입 육</annotation>
+		<annotation cp="👰🏻">면사포 | 새색시 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👰🏻" type="tts">신부: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👰🏼">면사포 | 새색시 | 피부 타입 삼</annotation>
+		<annotation cp="👰🏼" type="tts">신부: 피부 타입 삼</annotation>
+		<annotation cp="👰🏽">면사포 | 새색시 | 피부 타입 사</annotation>
+		<annotation cp="👰🏽" type="tts">신부: 피부 타입 사</annotation>
+		<annotation cp="👰🏾">면사포 | 새색시 | 파부 타입 오</annotation>
+		<annotation cp="👰🏾" type="tts">신부: 파부 타입 오</annotation>
+		<annotation cp="👰🏿">면사포 | 새색시 | 피부 타입 육</annotation>
+		<annotation cp="👰🏿" type="tts">신부: 피부 타입 육</annotation>
+		<annotation cp="🤰🏻">여성 | 임산부 | 임신 | 임신부 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤰🏻" type="tts">임산부: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤰🏼">여성 | 임산부 | 임신 | 임신부 | 피부 타입 삼</annotation>
+		<annotation cp="🤰🏼" type="tts">임산부: 피부 타입 삼</annotation>
+		<annotation cp="🤰🏽">여성 | 임산부 | 임신 | 임신부 | 피부 타입 사</annotation>
+		<annotation cp="🤰🏽" type="tts">임산부: 피부 타입 사</annotation>
+		<annotation cp="🤰🏾">여성 | 임산부 | 임신 | 임신부 | 파부 타입 오</annotation>
+		<annotation cp="🤰🏾" type="tts">임산부: 파부 타입 오</annotation>
+		<annotation cp="🤰🏿">여성 | 임산부 | 임신 | 임신부 | 피부 타입 육</annotation>
+		<annotation cp="🤰🏿" type="tts">임산부: 피부 타입 육</annotation>
+		<annotation cp="👼🏻">천사 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👼🏻" type="tts">아기 천사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👼🏼">천사 | 피부 타입 삼</annotation>
+		<annotation cp="👼🏼" type="tts">아기 천사: 피부 타입 삼</annotation>
+		<annotation cp="👼🏽">천사 | 피부 타입 사</annotation>
+		<annotation cp="👼🏽" type="tts">아기 천사: 피부 타입 사</annotation>
+		<annotation cp="👼🏾">천사 | 파부 타입 오</annotation>
+		<annotation cp="👼🏾" type="tts">아기 천사: 파부 타입 오</annotation>
+		<annotation cp="👼🏿">천사 | 피부 타입 육</annotation>
+		<annotation cp="👼🏿" type="tts">아기 천사: 피부 타입 육</annotation>
+		<annotation cp="🎅🏻">산타 | 산타 할아버지 | 크리스마스 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🎅🏻" type="tts">산타클로스: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🎅🏼">산타 | 산타 할아버지 | 크리스마스 | 피부 타입 삼</annotation>
+		<annotation cp="🎅🏼" type="tts">산타클로스: 피부 타입 삼</annotation>
+		<annotation cp="🎅🏽">산타 | 산타 할아버지 | 크리스마스 | 피부 타입 사</annotation>
+		<annotation cp="🎅🏽" type="tts">산타클로스: 피부 타입 사</annotation>
+		<annotation cp="🎅🏾">산타 | 산타 할아버지 | 크리스마스 | 파부 타입 오</annotation>
+		<annotation cp="🎅🏾" type="tts">산타클로스: 파부 타입 오</annotation>
+		<annotation cp="🎅🏿">산타 | 산타 할아버지 | 크리스마스 | 피부 타입 육</annotation>
+		<annotation cp="🎅🏿" type="tts">산타클로스: 피부 타입 육</annotation>
+		<annotation cp="🤶🏻">산타 | 산타클로스 | 산타할머니 | 크리스마스 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤶🏻" type="tts">산타할머니: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤶🏼">산타 | 산타클로스 | 산타할머니 | 크리스마스 | 피부 타입 삼</annotation>
+		<annotation cp="🤶🏼" type="tts">산타할머니: 피부 타입 삼</annotation>
+		<annotation cp="🤶🏽">산타 | 산타클로스 | 산타할머니 | 크리스마스 | 피부 타입 사</annotation>
+		<annotation cp="🤶🏽" type="tts">산타할머니: 피부 타입 사</annotation>
+		<annotation cp="🤶🏾">산타 | 산타클로스 | 산타할머니 | 크리스마스 | 파부 타입 오</annotation>
+		<annotation cp="🤶🏾" type="tts">산타할머니: 파부 타입 오</annotation>
+		<annotation cp="🤶🏿">산타 | 산타클로스 | 산타할머니 | 크리스마스 | 피부 타입 육</annotation>
+		<annotation cp="🤶🏿" type="tts">산타할머니: 피부 타입 육</annotation>
+		<annotation cp="🙍🏻">짜증 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙍🏻" type="tts">인상 쓰는 사람: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙍🏼">짜증 | 피부 타입 삼</annotation>
+		<annotation cp="🙍🏼" type="tts">인상 쓰는 사람: 피부 타입 삼</annotation>
+		<annotation cp="🙍🏽">짜증 | 피부 타입 사</annotation>
+		<annotation cp="🙍🏽" type="tts">인상 쓰는 사람: 피부 타입 사</annotation>
+		<annotation cp="🙍🏾">짜증 | 파부 타입 오</annotation>
+		<annotation cp="🙍🏾" type="tts">인상 쓰는 사람: 파부 타입 오</annotation>
+		<annotation cp="🙍🏿">짜증 | 피부 타입 육</annotation>
+		<annotation cp="🙍🏿" type="tts">인상 쓰는 사람: 피부 타입 육</annotation>
+		<annotation cp="🙍🏻‍♂">얼굴 | 찌푸림 | 찡그림 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">찡그린 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙍🏼‍♂">얼굴 | 찌푸림 | 찡그림 | 피부 타입 삼</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">찡그린 남자: 피부 타입 삼</annotation>
+		<annotation cp="🙍🏽‍♂">얼굴 | 찌푸림 | 찡그림 | 피부 타입 사</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">찡그린 남자: 피부 타입 사</annotation>
+		<annotation cp="🙍🏾‍♂">얼굴 | 찌푸림 | 찡그림 | 파부 타입 오</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">찡그린 남자: 파부 타입 오</annotation>
+		<annotation cp="🙍🏿‍♂">얼굴 | 찌푸림 | 찡그림 | 피부 타입 육</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">찡그린 남자: 피부 타입 육</annotation>
+		<annotation cp="🙍🏻‍♀">얼굴 | 찌푸림 | 찡그림 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">찡그린 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙍🏼‍♀">얼굴 | 찌푸림 | 찡그림 | 피부 타입 삼</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">찡그린 여자: 피부 타입 삼</annotation>
+		<annotation cp="🙍🏽‍♀">얼굴 | 찌푸림 | 찡그림 | 피부 타입 사</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">찡그린 여자: 피부 타입 사</annotation>
+		<annotation cp="🙍🏾‍♀">얼굴 | 찌푸림 | 찡그림 | 파부 타입 오</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">찡그린 여자: 파부 타입 오</annotation>
+		<annotation cp="🙍🏿‍♀">얼굴 | 찌푸림 | 찡그림 | 피부 타입 육</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">찡그린 여자: 피부 타입 육</annotation>
+		<annotation cp="🙎🏻">뿌루퉁한 사람 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙎🏻" type="tts">뿌루퉁한 얼굴: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙎🏼">뿌루퉁한 사람 | 피부 타입 삼</annotation>
+		<annotation cp="🙎🏼" type="tts">뿌루퉁한 얼굴: 피부 타입 삼</annotation>
+		<annotation cp="🙎🏽">뿌루퉁한 사람 | 피부 타입 사</annotation>
+		<annotation cp="🙎🏽" type="tts">뿌루퉁한 얼굴: 피부 타입 사</annotation>
+		<annotation cp="🙎🏾">뿌루퉁한 사람 | 파부 타입 오</annotation>
+		<annotation cp="🙎🏾" type="tts">뿌루퉁한 얼굴: 파부 타입 오</annotation>
+		<annotation cp="🙎🏿">뿌루퉁한 사람 | 피부 타입 육</annotation>
+		<annotation cp="🙎🏿" type="tts">뿌루퉁한 얼굴: 피부 타입 육</annotation>
+		<annotation cp="🙎🏻‍♂">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">뾰로통한 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙎🏼‍♂">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 삼</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">뾰로통한 남자: 피부 타입 삼</annotation>
+		<annotation cp="🙎🏽‍♂">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 사</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">뾰로통한 남자: 피부 타입 사</annotation>
+		<annotation cp="🙎🏾‍♂">불만 | 뾰로통 | 쀼루퉁 | 심통 | 파부 타입 오</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">뾰로통한 남자: 파부 타입 오</annotation>
+		<annotation cp="🙎🏿‍♂">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 육</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">뾰로통한 남자: 피부 타입 육</annotation>
+		<annotation cp="🙎🏻‍♀">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">뾰로통한 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙎🏼‍♀">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 삼</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">뾰로통한 여자: 피부 타입 삼</annotation>
+		<annotation cp="🙎🏽‍♀">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 사</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">뾰로통한 여자: 피부 타입 사</annotation>
+		<annotation cp="🙎🏾‍♀">불만 | 뾰로통 | 쀼루퉁 | 심통 | 파부 타입 오</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">뾰로통한 여자: 파부 타입 오</annotation>
+		<annotation cp="🙎🏿‍♀">불만 | 뾰로통 | 쀼루퉁 | 심통 | 피부 타입 육</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">뾰로통한 여자: 피부 타입 육</annotation>
+		<annotation cp="🙅🏻">NG | 엑스자 그리는 사람 | 엑스자 제스처 | 엔쥐 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙅🏻" type="tts">엑스: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙅🏼">NG | 엑스자 그리는 사람 | 엑스자 제스처 | 엔쥐 | 피부 타입 삼</annotation>
+		<annotation cp="🙅🏼" type="tts">엑스: 피부 타입 삼</annotation>
+		<annotation cp="🙅🏽">NG | 엑스자 그리는 사람 | 엑스자 제스처 | 엔쥐 | 피부 타입 사</annotation>
+		<annotation cp="🙅🏽" type="tts">엑스: 피부 타입 사</annotation>
+		<annotation cp="🙅🏾">NG | 엑스자 그리는 사람 | 엑스자 제스처 | 엔쥐 | 파부 타입 오</annotation>
+		<annotation cp="🙅🏾" type="tts">엑스: 파부 타입 오</annotation>
+		<annotation cp="🙅🏿">NG | 엑스자 그리는 사람 | 엑스자 제스처 | 엔쥐 | 피부 타입 육</annotation>
+		<annotation cp="🙅🏿" type="tts">엑스: 피부 타입 육</annotation>
+		<annotation cp="🙅🏻‍♂">손동작 | 안돼 | 엑스자 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">안돼 하는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙅🏼‍♂">손동작 | 안돼 | 엑스자 | 피부 타입 삼</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">안돼 하는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🙅🏽‍♂">손동작 | 안돼 | 엑스자 | 피부 타입 사</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">안돼 하는 남자: 피부 타입 사</annotation>
+		<annotation cp="🙅🏾‍♂">손동작 | 안돼 | 엑스자 | 파부 타입 오</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">안돼 하는 남자: 파부 타입 오</annotation>
+		<annotation cp="🙅🏿‍♂">손동작 | 안돼 | 엑스자 | 피부 타입 육</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">안돼 하는 남자: 피부 타입 육</annotation>
+		<annotation cp="🙅🏻‍♀">손동작 | 안돼 | 엑스자 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">안돼 하는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙅🏼‍♀">손동작 | 안돼 | 엑스자 | 피부 타입 삼</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">안돼 하는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🙅🏽‍♀">손동작 | 안돼 | 엑스자 | 피부 타입 사</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">안돼 하는 여자: 피부 타입 사</annotation>
+		<annotation cp="🙅🏾‍♀">손동작 | 안돼 | 엑스자 | 파부 타입 오</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">안돼 하는 여자: 파부 타입 오</annotation>
+		<annotation cp="🙅🏿‍♀">손동작 | 안돼 | 엑스자 | 피부 타입 육</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">안돼 하는 여자: 피부 타입 육</annotation>
+		<annotation cp="🙆🏻">OK | 오케이 | 오케이 제스처 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙆🏻" type="tts">두손 오케이: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙆🏼">OK | 오케이 | 오케이 제스처 | 피부 타입 삼</annotation>
+		<annotation cp="🙆🏼" type="tts">두손 오케이: 피부 타입 삼</annotation>
+		<annotation cp="🙆🏽">OK | 오케이 | 오케이 제스처 | 피부 타입 사</annotation>
+		<annotation cp="🙆🏽" type="tts">두손 오케이: 피부 타입 사</annotation>
+		<annotation cp="🙆🏾">OK | 오케이 | 오케이 제스처 | 파부 타입 오</annotation>
+		<annotation cp="🙆🏾" type="tts">두손 오케이: 파부 타입 오</annotation>
+		<annotation cp="🙆🏿">OK | 오케이 | 오케이 제스처 | 피부 타입 육</annotation>
+		<annotation cp="🙆🏿" type="tts">두손 오케이: 피부 타입 육</annotation>
+		<annotation cp="🙆🏻‍♂">OK | 손동작 | 오케이 | 좋아 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">오케이하는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙆🏼‍♂">OK | 손동작 | 오케이 | 좋아 | 피부 타입 삼</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">오케이하는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🙆🏽‍♂">OK | 손동작 | 오케이 | 좋아 | 피부 타입 사</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">오케이하는 남자: 피부 타입 사</annotation>
+		<annotation cp="🙆🏾‍♂">OK | 손동작 | 오케이 | 좋아 | 파부 타입 오</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">오케이하는 남자: 파부 타입 오</annotation>
+		<annotation cp="🙆🏿‍♂">OK | 손동작 | 오케이 | 좋아 | 피부 타입 육</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">오케이하는 남자: 피부 타입 육</annotation>
+		<annotation cp="🙆🏻‍♀">OK | 손동작 | 오케이 | 좋아 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">오케이하는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙆🏼‍♀">OK | 손동작 | 오케이 | 좋아 | 피부 타입 삼</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">오케이하는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🙆🏽‍♀">OK | 손동작 | 오케이 | 좋아 | 피부 타입 사</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">오케이하는 여자: 피부 타입 사</annotation>
+		<annotation cp="🙆🏾‍♀">OK | 손동작 | 오케이 | 좋아 | 파부 타입 오</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">오케이하는 여자: 파부 타입 오</annotation>
+		<annotation cp="🙆🏿‍♀">OK | 손동작 | 오케이 | 좋아 | 피부 타입 육</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">오케이하는 여자: 피부 타입 육</annotation>
+		<annotation cp="💁🏻">데스크 안내원 | 안내 데스크 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💁🏻" type="tts">안내원: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💁🏼">데스크 안내원 | 안내 데스크 | 피부 타입 삼</annotation>
+		<annotation cp="💁🏼" type="tts">안내원: 피부 타입 삼</annotation>
+		<annotation cp="💁🏽">데스크 안내원 | 안내 데스크 | 피부 타입 사</annotation>
+		<annotation cp="💁🏽" type="tts">안내원: 피부 타입 사</annotation>
+		<annotation cp="💁🏾">데스크 안내원 | 안내 데스크 | 파부 타입 오</annotation>
+		<annotation cp="💁🏾" type="tts">안내원: 파부 타입 오</annotation>
+		<annotation cp="💁🏿">데스크 안내원 | 안내 데스크 | 피부 타입 육</annotation>
+		<annotation cp="💁🏿" type="tts">안내원: 피부 타입 육</annotation>
+		<annotation cp="💁🏻‍♂">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">손바닥 꺾은 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💁🏼‍♂">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 삼</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">손바닥 꺾은 남자: 피부 타입 삼</annotation>
+		<annotation cp="💁🏽‍♂">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 사</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">손바닥 꺾은 남자: 피부 타입 사</annotation>
+		<annotation cp="💁🏾‍♂">손 꺾음 | 손바닥 | 젖흰 손 | 파부 타입 오</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">손바닥 꺾은 남자: 파부 타입 오</annotation>
+		<annotation cp="💁🏿‍♂">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 육</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">손바닥 꺾은 남자: 피부 타입 육</annotation>
+		<annotation cp="💁🏻‍♀">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">손바닥 꺾은 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💁🏼‍♀">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 삼</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">손바닥 꺾은 여자: 피부 타입 삼</annotation>
+		<annotation cp="💁🏽‍♀">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 사</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">손바닥 꺾은 여자: 피부 타입 사</annotation>
+		<annotation cp="💁🏾‍♀">손 꺾음 | 손바닥 | 젖흰 손 | 파부 타입 오</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">손바닥 꺾은 여자: 파부 타입 오</annotation>
+		<annotation cp="💁🏿‍♀">손 꺾음 | 손바닥 | 젖흰 손 | 피부 타입 육</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">손바닥 꺾은 여자: 피부 타입 육</annotation>
+		<annotation cp="🙋🏻">즐거워하는 사람 | 한 손을 든 사람 | 한 손을 들고 즐거워하는 사람 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙋🏻" type="tts">저요: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙋🏼">즐거워하는 사람 | 한 손을 든 사람 | 한 손을 들고 즐거워하는 사람 | 피부 타입 삼</annotation>
+		<annotation cp="🙋🏼" type="tts">저요: 피부 타입 삼</annotation>
+		<annotation cp="🙋🏽">즐거워하는 사람 | 한 손을 든 사람 | 한 손을 들고 즐거워하는 사람 | 피부 타입 사</annotation>
+		<annotation cp="🙋🏽" type="tts">저요: 피부 타입 사</annotation>
+		<annotation cp="🙋🏾">즐거워하는 사람 | 한 손을 든 사람 | 한 손을 들고 즐거워하는 사람 | 파부 타입 오</annotation>
+		<annotation cp="🙋🏾" type="tts">저요: 파부 타입 오</annotation>
+		<annotation cp="🙋🏿">즐거워하는 사람 | 한 손을 든 사람 | 한 손을 들고 즐거워하는 사람 | 피부 타입 육</annotation>
+		<annotation cp="🙋🏿" type="tts">저요: 피부 타입 육</annotation>
+		<annotation cp="🙋🏻‍♂">손들기 | 여기요 | 저요 | 한손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">한손 든 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙋🏼‍♂">손들기 | 여기요 | 저요 | 한손 | 피부 타입 삼</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">한손 든 남자: 피부 타입 삼</annotation>
+		<annotation cp="🙋🏽‍♂">손들기 | 여기요 | 저요 | 한손 | 피부 타입 사</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">한손 든 남자: 피부 타입 사</annotation>
+		<annotation cp="🙋🏾‍♂">손들기 | 여기요 | 저요 | 한손 | 파부 타입 오</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">한손 든 남자: 파부 타입 오</annotation>
+		<annotation cp="🙋🏿‍♂">손들기 | 여기요 | 저요 | 한손 | 피부 타입 육</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">한손 든 남자: 피부 타입 육</annotation>
+		<annotation cp="🙋🏻‍♀">손들기 | 여기요 | 저요 | 한손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">한손 든 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙋🏼‍♀">손들기 | 여기요 | 저요 | 한손 | 피부 타입 삼</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">한손 든 여자: 피부 타입 삼</annotation>
+		<annotation cp="🙋🏽‍♀">손들기 | 여기요 | 저요 | 한손 | 피부 타입 사</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">한손 든 여자: 피부 타입 사</annotation>
+		<annotation cp="🙋🏾‍♀">손들기 | 여기요 | 저요 | 한손 | 파부 타입 오</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">한손 든 여자: 파부 타입 오</annotation>
+		<annotation cp="🙋🏿‍♀">손들기 | 여기요 | 저요 | 한손 | 피부 타입 육</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">한손 든 여자: 피부 타입 육</annotation>
+		<annotation cp="🙇🏻">사과하는 사람 | 사과하며 절하는 사람 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙇🏻" type="tts">큰절: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙇🏼">사과하는 사람 | 사과하며 절하는 사람 | 피부 타입 삼</annotation>
+		<annotation cp="🙇🏼" type="tts">큰절: 피부 타입 삼</annotation>
+		<annotation cp="🙇🏽">사과하는 사람 | 사과하며 절하는 사람 | 피부 타입 사</annotation>
+		<annotation cp="🙇🏽" type="tts">큰절: 피부 타입 사</annotation>
+		<annotation cp="🙇🏾">사과하는 사람 | 사과하며 절하는 사람 | 파부 타입 오</annotation>
+		<annotation cp="🙇🏾" type="tts">큰절: 파부 타입 오</annotation>
+		<annotation cp="🙇🏿">사과하는 사람 | 사과하며 절하는 사람 | 피부 타입 육</annotation>
+		<annotation cp="🙇🏿" type="tts">큰절: 피부 타입 육</annotation>
+		<annotation cp="🙇🏻‍♂">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">큰절하는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙇🏼‍♂">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 삼</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">큰절하는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🙇🏽‍♂">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 사</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">큰절하는 남자: 피부 타입 사</annotation>
+		<annotation cp="🙇🏾‍♂">넙죽 | 사과 | 정중함 | 큰절 | 파부 타입 오</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">큰절하는 남자: 파부 타입 오</annotation>
+		<annotation cp="🙇🏿‍♂">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 육</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">큰절하는 남자: 피부 타입 육</annotation>
+		<annotation cp="🙇🏻‍♀">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">큰절하는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙇🏼‍♀">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 삼</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">큰절하는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🙇🏽‍♀">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 사</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">큰절하는 여자: 피부 타입 사</annotation>
+		<annotation cp="🙇🏾‍♀">넙죽 | 사과 | 정중함 | 큰절 | 파부 타입 오</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">큰절하는 여자: 파부 타입 오</annotation>
+		<annotation cp="🙇🏿‍♀">넙죽 | 사과 | 정중함 | 큰절 | 피부 타입 육</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">큰절하는 여자: 피부 타입 육</annotation>
+		<annotation cp="🤦🏻">맙소사 | 손바닥 | 얼굴 | 이럴수가 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤦🏻" type="tts">얼굴에 손대며 맙소사: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤦🏼">맙소사 | 손바닥 | 얼굴 | 이럴수가 | 피부 타입 삼</annotation>
+		<annotation cp="🤦🏼" type="tts">얼굴에 손대며 맙소사: 피부 타입 삼</annotation>
+		<annotation cp="🤦🏽">맙소사 | 손바닥 | 얼굴 | 이럴수가 | 피부 타입 사</annotation>
+		<annotation cp="🤦🏽" type="tts">얼굴에 손대며 맙소사: 피부 타입 사</annotation>
+		<annotation cp="🤦🏾">맙소사 | 손바닥 | 얼굴 | 이럴수가 | 파부 타입 오</annotation>
+		<annotation cp="🤦🏾" type="tts">얼굴에 손대며 맙소사: 파부 타입 오</annotation>
+		<annotation cp="🤦🏿">맙소사 | 손바닥 | 얼굴 | 이럴수가 | 피부 타입 육</annotation>
+		<annotation cp="🤦🏿" type="tts">얼굴에 손대며 맙소사: 피부 타입 육</annotation>
+		<annotation cp="🤦🏻‍♂">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">이마에 손댄 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤦🏼‍♂">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 삼</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">이마에 손댄 남자: 피부 타입 삼</annotation>
+		<annotation cp="🤦🏽‍♂">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 사</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">이마에 손댄 남자: 피부 타입 사</annotation>
+		<annotation cp="🤦🏾‍♂">맙소사 | 이럴수가 | 이마에 손 | 파부 타입 오</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">이마에 손댄 남자: 파부 타입 오</annotation>
+		<annotation cp="🤦🏿‍♂">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 육</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">이마에 손댄 남자: 피부 타입 육</annotation>
+		<annotation cp="🤦🏻‍♀">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">이마에 손댄 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤦🏼‍♀">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 삼</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">이마에 손댄 여자: 피부 타입 삼</annotation>
+		<annotation cp="🤦🏽‍♀">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 사</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">이마에 손댄 여자: 피부 타입 사</annotation>
+		<annotation cp="🤦🏾‍♀">맙소사 | 이럴수가 | 이마에 손 | 파부 타입 오</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">이마에 손댄 여자: 파부 타입 오</annotation>
+		<annotation cp="🤦🏿‍♀">맙소사 | 이럴수가 | 이마에 손 | 피부 타입 육</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">이마에 손댄 여자: 피부 타입 육</annotation>
+		<annotation cp="🤷🏻">글쎄 | 상관없어 | 어깨 으쓱 | 으쓱 | 잘 모르겠음 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤷🏻" type="tts">어깨 으쓱: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤷🏼">글쎄 | 상관없어 | 어깨 으쓱 | 으쓱 | 잘 모르겠음 | 피부 타입 삼</annotation>
+		<annotation cp="🤷🏼" type="tts">어깨 으쓱: 피부 타입 삼</annotation>
+		<annotation cp="🤷🏽">글쎄 | 상관없어 | 어깨 으쓱 | 으쓱 | 잘 모르겠음 | 피부 타입 사</annotation>
+		<annotation cp="🤷🏽" type="tts">어깨 으쓱: 피부 타입 사</annotation>
+		<annotation cp="🤷🏾">글쎄 | 상관없어 | 어깨 으쓱 | 으쓱 | 잘 모르겠음 | 파부 타입 오</annotation>
+		<annotation cp="🤷🏾" type="tts">어깨 으쓱: 파부 타입 오</annotation>
+		<annotation cp="🤷🏿">글쎄 | 상관없어 | 어깨 으쓱 | 으쓱 | 잘 모르겠음 | 피부 타입 육</annotation>
+		<annotation cp="🤷🏿" type="tts">어깨 으쓱: 피부 타입 육</annotation>
+		<annotation cp="🤷🏻‍♂">글쎄 | 모르겠음 | 어깨 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">어깨 으쓱 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤷🏼‍♂">글쎄 | 모르겠음 | 어깨 | 피부 타입 삼</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">어깨 으쓱 남자: 피부 타입 삼</annotation>
+		<annotation cp="🤷🏽‍♂">글쎄 | 모르겠음 | 어깨 | 피부 타입 사</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">어깨 으쓱 남자: 피부 타입 사</annotation>
+		<annotation cp="🤷🏾‍♂">글쎄 | 모르겠음 | 어깨 | 파부 타입 오</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">어깨 으쓱 남자: 파부 타입 오</annotation>
+		<annotation cp="🤷🏿‍♂">글쎄 | 모르겠음 | 어깨 | 피부 타입 육</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">어깨 으쓱 남자: 피부 타입 육</annotation>
+		<annotation cp="🤷🏻‍♀">글쎄 | 모르겠음 | 어깨 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">어깨 으쓱 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤷🏼‍♀">글쎄 | 모르겠음 | 어깨 | 피부 타입 삼</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">어깨 으쓱 여자: 피부 타입 삼</annotation>
+		<annotation cp="🤷🏽‍♀">글쎄 | 모르겠음 | 어깨 | 피부 타입 사</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">어깨 으쓱 여자: 피부 타입 사</annotation>
+		<annotation cp="🤷🏾‍♀">글쎄 | 모르겠음 | 어깨 | 파부 타입 오</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">어깨 으쓱 여자: 파부 타입 오</annotation>
+		<annotation cp="🤷🏿‍♀">글쎄 | 모르겠음 | 어깨 | 피부 타입 육</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">어깨 으쓱 여자: 피부 타입 육</annotation>
+		<annotation cp="💆🏻">경락 | 마사지 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💆🏻" type="tts">얼굴 마사지: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💆🏼">경락 | 마사지 | 피부 타입 삼</annotation>
+		<annotation cp="💆🏼" type="tts">얼굴 마사지: 피부 타입 삼</annotation>
+		<annotation cp="💆🏽">경락 | 마사지 | 피부 타입 사</annotation>
+		<annotation cp="💆🏽" type="tts">얼굴 마사지: 피부 타입 사</annotation>
+		<annotation cp="💆🏾">경락 | 마사지 | 파부 타입 오</annotation>
+		<annotation cp="💆🏾" type="tts">얼굴 마사지: 파부 타입 오</annotation>
+		<annotation cp="💆🏿">경락 | 마사지 | 피부 타입 육</annotation>
+		<annotation cp="💆🏿" type="tts">얼굴 마사지: 피부 타입 육</annotation>
+		<annotation cp="💆🏻‍♂">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">얼굴 지압하는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💆🏼‍♂">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 삼</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">얼굴 지압하는 남자: 피부 타입 삼</annotation>
+		<annotation cp="💆🏽‍♂">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 사</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">얼굴 지압하는 남자: 피부 타입 사</annotation>
+		<annotation cp="💆🏾‍♂">관자놀이 | 두통 | 마사지 | 지압 | 파부 타입 오</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">얼굴 지압하는 남자: 파부 타입 오</annotation>
+		<annotation cp="💆🏿‍♂">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 육</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">얼굴 지압하는 남자: 피부 타입 육</annotation>
+		<annotation cp="💆🏻‍♀">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">얼굴 지압하는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💆🏼‍♀">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 삼</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">얼굴 지압하는 여자: 피부 타입 삼</annotation>
+		<annotation cp="💆🏽‍♀">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 사</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">얼굴 지압하는 여자: 피부 타입 사</annotation>
+		<annotation cp="💆🏾‍♀">관자놀이 | 두통 | 마사지 | 지압 | 파부 타입 오</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">얼굴 지압하는 여자: 파부 타입 오</annotation>
+		<annotation cp="💆🏿‍♀">관자놀이 | 두통 | 마사지 | 지압 | 피부 타입 육</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">얼굴 지압하는 여자: 피부 타입 육</annotation>
+		<annotation cp="💇🏻">가위와 빗 | 미용 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💇🏻" type="tts">헤어컷: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💇🏼">가위와 빗 | 미용 | 피부 타입 삼</annotation>
+		<annotation cp="💇🏼" type="tts">헤어컷: 피부 타입 삼</annotation>
+		<annotation cp="💇🏽">가위와 빗 | 미용 | 피부 타입 사</annotation>
+		<annotation cp="💇🏽" type="tts">헤어컷: 피부 타입 사</annotation>
+		<annotation cp="💇🏾">가위와 빗 | 미용 | 파부 타입 오</annotation>
+		<annotation cp="💇🏾" type="tts">헤어컷: 파부 타입 오</annotation>
+		<annotation cp="💇🏿">가위와 빗 | 미용 | 피부 타입 육</annotation>
+		<annotation cp="💇🏿" type="tts">헤어컷: 피부 타입 육</annotation>
+		<annotation cp="💇🏻‍♂">가위 | 미용실 | 헤어컷 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">남자 헤어컷: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💇🏼‍♂">가위 | 미용실 | 헤어컷 | 피부 타입 삼</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">남자 헤어컷: 피부 타입 삼</annotation>
+		<annotation cp="💇🏽‍♂">가위 | 미용실 | 헤어컷 | 피부 타입 사</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">남자 헤어컷: 피부 타입 사</annotation>
+		<annotation cp="💇🏾‍♂">가위 | 미용실 | 헤어컷 | 파부 타입 오</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">남자 헤어컷: 파부 타입 오</annotation>
+		<annotation cp="💇🏿‍♂">가위 | 미용실 | 헤어컷 | 피부 타입 육</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">남자 헤어컷: 피부 타입 육</annotation>
+		<annotation cp="💇🏻‍♀">가위 | 미용실 | 헤어컷 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">여자 헤어컷: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💇🏼‍♀">가위 | 미용실 | 헤어컷 | 피부 타입 삼</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">여자 헤어컷: 피부 타입 삼</annotation>
+		<annotation cp="💇🏽‍♀">가위 | 미용실 | 헤어컷 | 피부 타입 사</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">여자 헤어컷: 피부 타입 사</annotation>
+		<annotation cp="💇🏾‍♀">가위 | 미용실 | 헤어컷 | 파부 타입 오</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">여자 헤어컷: 파부 타입 오</annotation>
+		<annotation cp="💇🏿‍♀">가위 | 미용실 | 헤어컷 | 피부 타입 육</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">여자 헤어컷: 피부 타입 육</annotation>
+		<annotation cp="🚶🏻">보행자용 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚶🏻" type="tts">보행자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚶🏼">보행자용 | 피부 타입 삼</annotation>
+		<annotation cp="🚶🏼" type="tts">보행자: 피부 타입 삼</annotation>
+		<annotation cp="🚶🏽">보행자용 | 피부 타입 사</annotation>
+		<annotation cp="🚶🏽" type="tts">보행자: 피부 타입 사</annotation>
+		<annotation cp="🚶🏾">보행자용 | 파부 타입 오</annotation>
+		<annotation cp="🚶🏾" type="tts">보행자: 파부 타입 오</annotation>
+		<annotation cp="🚶🏿">보행자용 | 피부 타입 육</annotation>
+		<annotation cp="🚶🏿" type="tts">보행자: 피부 타입 육</annotation>
+		<annotation cp="🚶🏻‍♂">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">걷는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚶🏼‍♂">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 삼</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">걷는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🚶🏽‍♂">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 사</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">걷는 남자: 피부 타입 사</annotation>
+		<annotation cp="🚶🏾‍♂">걷기 | 도보 | 보행자 | 워킹 | 파부 타입 오</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">걷는 남자: 파부 타입 오</annotation>
+		<annotation cp="🚶🏿‍♂">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 육</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">걷는 남자: 피부 타입 육</annotation>
+		<annotation cp="🚶🏻‍♀">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">걷는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚶🏼‍♀">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 삼</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">걷는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🚶🏽‍♀">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 사</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">걷는 여자: 피부 타입 사</annotation>
+		<annotation cp="🚶🏾‍♀">걷기 | 도보 | 보행자 | 워킹 | 파부 타입 오</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">걷는 여자: 파부 타입 오</annotation>
+		<annotation cp="🚶🏿‍♀">걷기 | 도보 | 보행자 | 워킹 | 피부 타입 육</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">걷는 여자: 피부 타입 육</annotation>
+		<annotation cp="🏃🏻">달리기 경주 | 달리는 사람 | 러너 | 마라톤 | 운동 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏃🏻" type="tts">달리기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏃🏼">달리기 경주 | 달리는 사람 | 러너 | 마라톤 | 운동 | 피부 타입 삼</annotation>
+		<annotation cp="🏃🏼" type="tts">달리기: 피부 타입 삼</annotation>
+		<annotation cp="🏃🏽">달리기 경주 | 달리는 사람 | 러너 | 마라톤 | 운동 | 피부 타입 사</annotation>
+		<annotation cp="🏃🏽" type="tts">달리기: 피부 타입 사</annotation>
+		<annotation cp="🏃🏾">달리기 경주 | 달리는 사람 | 러너 | 마라톤 | 운동 | 파부 타입 오</annotation>
+		<annotation cp="🏃🏾" type="tts">달리기: 파부 타입 오</annotation>
+		<annotation cp="🏃🏿">달리기 경주 | 달리는 사람 | 러너 | 마라톤 | 운동 | 피부 타입 육</annotation>
+		<annotation cp="🏃🏿" type="tts">달리기: 피부 타입 육</annotation>
+		<annotation cp="🏃🏻‍♂">달리기 | 뛰기 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">뛰는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏃🏼‍♂">달리기 | 뛰기 | 피부 타입 삼</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">뛰는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🏃🏽‍♂">달리기 | 뛰기 | 피부 타입 사</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">뛰는 남자: 피부 타입 사</annotation>
+		<annotation cp="🏃🏾‍♂">달리기 | 뛰기 | 파부 타입 오</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">뛰는 남자: 파부 타입 오</annotation>
+		<annotation cp="🏃🏿‍♂">달리기 | 뛰기 | 피부 타입 육</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">뛰는 남자: 피부 타입 육</annotation>
+		<annotation cp="🏃🏻‍♀">달리기 | 뛰기 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">뛰는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏃🏼‍♀">달리기 | 뛰기 | 피부 타입 삼</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">뛰는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🏃🏽‍♀">달리기 | 뛰기 | 피부 타입 사</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">뛰는 여자: 피부 타입 사</annotation>
+		<annotation cp="🏃🏾‍♀">달리기 | 뛰기 | 파부 타입 오</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">뛰는 여자: 파부 타입 오</annotation>
+		<annotation cp="🏃🏿‍♀">달리기 | 뛰기 | 피부 타입 육</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">뛰는 여자: 피부 타입 육</annotation>
+		<annotation cp="💃🏻">댄스 | 댄싱 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💃🏻" type="tts">댄서: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💃🏼">댄스 | 댄싱 | 피부 타입 삼</annotation>
+		<annotation cp="💃🏼" type="tts">댄서: 피부 타입 삼</annotation>
+		<annotation cp="💃🏽">댄스 | 댄싱 | 피부 타입 사</annotation>
+		<annotation cp="💃🏽" type="tts">댄서: 피부 타입 사</annotation>
+		<annotation cp="💃🏾">댄스 | 댄싱 | 파부 타입 오</annotation>
+		<annotation cp="💃🏾" type="tts">댄서: 파부 타입 오</annotation>
+		<annotation cp="💃🏿">댄스 | 댄싱 | 피부 타입 육</annotation>
+		<annotation cp="💃🏿" type="tts">댄서: 피부 타입 육</annotation>
+		<annotation cp="🕺🏻">남성 | 댄스 | 춤 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕺🏻" type="tts">춤추는 남성: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕺🏼">남성 | 댄스 | 춤 | 피부 타입 삼</annotation>
+		<annotation cp="🕺🏼" type="tts">춤추는 남성: 피부 타입 삼</annotation>
+		<annotation cp="🕺🏽">남성 | 댄스 | 춤 | 피부 타입 사</annotation>
+		<annotation cp="🕺🏽" type="tts">춤추는 남성: 피부 타입 사</annotation>
+		<annotation cp="🕺🏾">남성 | 댄스 | 춤 | 파부 타입 오</annotation>
+		<annotation cp="🕺🏾" type="tts">춤추는 남성: 파부 타입 오</annotation>
+		<annotation cp="🕺🏿">남성 | 댄스 | 춤 | 피부 타입 육</annotation>
+		<annotation cp="🕺🏿" type="tts">춤추는 남성: 피부 타입 육</annotation>
+		<annotation cp="🛀🏻">욕조 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🛀🏻" type="tts">목욕: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🛀🏼">욕조 | 피부 타입 삼</annotation>
+		<annotation cp="🛀🏼" type="tts">목욕: 피부 타입 삼</annotation>
+		<annotation cp="🛀🏽">욕조 | 피부 타입 사</annotation>
+		<annotation cp="🛀🏽" type="tts">목욕: 피부 타입 사</annotation>
+		<annotation cp="🛀🏾">욕조 | 파부 타입 오</annotation>
+		<annotation cp="🛀🏾" type="tts">목욕: 파부 타입 오</annotation>
+		<annotation cp="🛀🏿">욕조 | 피부 타입 육</annotation>
+		<annotation cp="🛀🏿" type="tts">목욕: 피부 타입 육</annotation>
+		<annotation cp="🛌🏻">침대 | 호텔 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🛌🏻" type="tts">침대에 누운 사람: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🛌🏼">침대 | 호텔 | 피부 타입 삼</annotation>
+		<annotation cp="🛌🏼" type="tts">침대에 누운 사람: 피부 타입 삼</annotation>
+		<annotation cp="🛌🏽">침대 | 호텔 | 피부 타입 사</annotation>
+		<annotation cp="🛌🏽" type="tts">침대에 누운 사람: 피부 타입 사</annotation>
+		<annotation cp="🛌🏾">침대 | 호텔 | 파부 타입 오</annotation>
+		<annotation cp="🛌🏾" type="tts">침대에 누운 사람: 파부 타입 오</annotation>
+		<annotation cp="🛌🏿">침대 | 호텔 | 피부 타입 육</annotation>
+		<annotation cp="🛌🏿" type="tts">침대에 누운 사람: 피부 타입 육</annotation>
+		<annotation cp="🕴🏻">공중부양 | 남자 | 정장 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕴🏻" type="tts">공중에 떠 있는 정장 입은 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🕴🏼">공중부양 | 남자 | 정장 | 피부 타입 삼</annotation>
+		<annotation cp="🕴🏼" type="tts">공중에 떠 있는 정장 입은 남자: 피부 타입 삼</annotation>
+		<annotation cp="🕴🏽">공중부양 | 남자 | 정장 | 피부 타입 사</annotation>
+		<annotation cp="🕴🏽" type="tts">공중에 떠 있는 정장 입은 남자: 피부 타입 사</annotation>
+		<annotation cp="🕴🏾">공중부양 | 남자 | 정장 | 파부 타입 오</annotation>
+		<annotation cp="🕴🏾" type="tts">공중에 떠 있는 정장 입은 남자: 파부 타입 오</annotation>
+		<annotation cp="🕴🏿">공중부양 | 남자 | 정장 | 피부 타입 육</annotation>
+		<annotation cp="🕴🏿" type="tts">공중에 떠 있는 정장 입은 남자: 피부 타입 육</annotation>
+		<annotation cp="🏇🏻">말 | 말과 기수 | 스포츠 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏇🏻" type="tts">승마: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏇🏼">말 | 말과 기수 | 스포츠 | 피부 타입 삼</annotation>
+		<annotation cp="🏇🏼" type="tts">승마: 피부 타입 삼</annotation>
+		<annotation cp="🏇🏽">말 | 말과 기수 | 스포츠 | 피부 타입 사</annotation>
+		<annotation cp="🏇🏽" type="tts">승마: 피부 타입 사</annotation>
+		<annotation cp="🏇🏾">말 | 말과 기수 | 스포츠 | 파부 타입 오</annotation>
+		<annotation cp="🏇🏾" type="tts">승마: 파부 타입 오</annotation>
+		<annotation cp="🏇🏿">말 | 말과 기수 | 스포츠 | 피부 타입 육</annotation>
+		<annotation cp="🏇🏿" type="tts">승마: 피부 타입 육</annotation>
+		<annotation cp="🏂🏻">스노보더 | 스포츠 | 운동 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏂🏻" type="tts">스노보드: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏂🏼">스노보더 | 스포츠 | 운동 | 피부 타입 삼</annotation>
+		<annotation cp="🏂🏼" type="tts">스노보드: 피부 타입 삼</annotation>
+		<annotation cp="🏂🏽">스노보더 | 스포츠 | 운동 | 피부 타입 사</annotation>
+		<annotation cp="🏂🏽" type="tts">스노보드: 피부 타입 사</annotation>
+		<annotation cp="🏂🏾">스노보더 | 스포츠 | 운동 | 파부 타입 오</annotation>
+		<annotation cp="🏂🏾" type="tts">스노보드: 파부 타입 오</annotation>
+		<annotation cp="🏂🏿">스노보더 | 스포츠 | 운동 | 피부 타입 육</annotation>
+		<annotation cp="🏂🏿" type="tts">스노보드: 피부 타입 육</annotation>
+		<annotation cp="🏌🏻">골프 | 공 | 필드 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏌🏻" type="tts">골프선수: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏌🏼">골프 | 공 | 필드 | 피부 타입 삼</annotation>
+		<annotation cp="🏌🏼" type="tts">골프선수: 피부 타입 삼</annotation>
+		<annotation cp="🏌🏽">골프 | 공 | 필드 | 피부 타입 사</annotation>
+		<annotation cp="🏌🏽" type="tts">골프선수: 피부 타입 사</annotation>
+		<annotation cp="🏌🏾">골프 | 공 | 필드 | 파부 타입 오</annotation>
+		<annotation cp="🏌🏾" type="tts">골프선수: 파부 타입 오</annotation>
+		<annotation cp="🏌🏿">골프 | 공 | 필드 | 피부 타입 육</annotation>
+		<annotation cp="🏌🏿" type="tts">골프선수: 피부 타입 육</annotation>
+		<annotation cp="🏌🏻‍♂">골프 | 골프선수 | 스윙 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">골프치는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏌🏼‍♂">골프 | 골프선수 | 스윙 | 피부 타입 삼</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">골프치는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🏌🏽‍♂">골프 | 골프선수 | 스윙 | 피부 타입 사</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">골프치는 남자: 피부 타입 사</annotation>
+		<annotation cp="🏌🏾‍♂">골프 | 골프선수 | 스윙 | 파부 타입 오</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">골프치는 남자: 파부 타입 오</annotation>
+		<annotation cp="🏌🏿‍♂">골프 | 골프선수 | 스윙 | 피부 타입 육</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">골프치는 남자: 피부 타입 육</annotation>
+		<annotation cp="🏌🏻‍♀">골프 | 골프선수 | 스윙 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">골프치는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏌🏼‍♀">골프 | 골프선수 | 스윙 | 피부 타입 삼</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">골프치는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🏌🏽‍♀">골프 | 골프선수 | 스윙 | 피부 타입 사</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">골프치는 여자: 피부 타입 사</annotation>
+		<annotation cp="🏌🏾‍♀">골프 | 골프선수 | 스윙 | 파부 타입 오</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">골프치는 여자: 파부 타입 오</annotation>
+		<annotation cp="🏌🏿‍♀">골프 | 골프선수 | 스윙 | 피부 타입 육</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">골프치는 여자: 피부 타입 육</annotation>
+		<annotation cp="🏄🏻">서퍼 | 스포츠 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏄🏻" type="tts">서핑: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏄🏼">서퍼 | 스포츠 | 피부 타입 삼</annotation>
+		<annotation cp="🏄🏼" type="tts">서핑: 피부 타입 삼</annotation>
+		<annotation cp="🏄🏽">서퍼 | 스포츠 | 피부 타입 사</annotation>
+		<annotation cp="🏄🏽" type="tts">서핑: 피부 타입 사</annotation>
+		<annotation cp="🏄🏾">서퍼 | 스포츠 | 파부 타입 오</annotation>
+		<annotation cp="🏄🏾" type="tts">서핑: 파부 타입 오</annotation>
+		<annotation cp="🏄🏿">서퍼 | 스포츠 | 피부 타입 육</annotation>
+		<annotation cp="🏄🏿" type="tts">서핑: 피부 타입 육</annotation>
+		<annotation cp="🏄🏻‍♂">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">서핑하는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏄🏼‍♂">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 삼</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">서핑하는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🏄🏽‍♂">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 사</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">서핑하는 남자: 피부 타입 사</annotation>
+		<annotation cp="🏄🏾‍♂">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 파부 타입 오</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">서핑하는 남자: 파부 타입 오</annotation>
+		<annotation cp="🏄🏿‍♂">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 육</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">서핑하는 남자: 피부 타입 육</annotation>
+		<annotation cp="🏄🏻‍♀">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">서핑하는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏄🏼‍♀">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 삼</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">서핑하는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🏄🏽‍♀">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 사</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">서핑하는 여자: 피부 타입 사</annotation>
+		<annotation cp="🏄🏾‍♀">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 파부 타입 오</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">서핑하는 여자: 파부 타입 오</annotation>
+		<annotation cp="🏄🏿‍♀">서퍼 | 서핑 | 서핑보드 | 수상스포츠 | 피부 타입 육</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">서핑하는 여자: 피부 타입 육</annotation>
+		<annotation cp="🚣🏻">노 젓는 보트 | 보트 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚣🏻" type="tts">노 젓는 배: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚣🏼">노 젓는 보트 | 보트 | 피부 타입 삼</annotation>
+		<annotation cp="🚣🏼" type="tts">노 젓는 배: 피부 타입 삼</annotation>
+		<annotation cp="🚣🏽">노 젓는 보트 | 보트 | 피부 타입 사</annotation>
+		<annotation cp="🚣🏽" type="tts">노 젓는 배: 피부 타입 사</annotation>
+		<annotation cp="🚣🏾">노 젓는 보트 | 보트 | 파부 타입 오</annotation>
+		<annotation cp="🚣🏾" type="tts">노 젓는 배: 파부 타입 오</annotation>
+		<annotation cp="🚣🏿">노 젓는 보트 | 보트 | 피부 타입 육</annotation>
+		<annotation cp="🚣🏿" type="tts">노 젓는 배: 피부 타입 육</annotation>
+		<annotation cp="🚣🏻‍♂">노 | 노젓기 | 배 | 보트 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">노젓는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚣🏼‍♂">노 | 노젓기 | 배 | 보트 | 피부 타입 삼</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">노젓는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🚣🏽‍♂">노 | 노젓기 | 배 | 보트 | 피부 타입 사</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">노젓는 남자: 피부 타입 사</annotation>
+		<annotation cp="🚣🏾‍♂">노 | 노젓기 | 배 | 보트 | 파부 타입 오</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">노젓는 남자: 파부 타입 오</annotation>
+		<annotation cp="🚣🏿‍♂">노 | 노젓기 | 배 | 보트 | 피부 타입 육</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">노젓는 남자: 피부 타입 육</annotation>
+		<annotation cp="🚣🏻‍♀">노 | 노젓기 | 배 | 보트 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">노젓는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚣🏼‍♀">노 | 노젓기 | 배 | 보트 | 피부 타입 삼</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">노젓는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🚣🏽‍♀">노 | 노젓기 | 배 | 보트 | 피부 타입 사</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">노젓는 여자: 피부 타입 사</annotation>
+		<annotation cp="🚣🏾‍♀">노 | 노젓기 | 배 | 보트 | 파부 타입 오</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">노젓는 여자: 파부 타입 오</annotation>
+		<annotation cp="🚣🏿‍♀">노 | 노젓기 | 배 | 보트 | 피부 타입 육</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">노젓는 여자: 피부 타입 육</annotation>
+		<annotation cp="🏊🏻">수영 선수 | 수영장 | 스포츠 | 운동 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏊🏻" type="tts">수영: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏊🏼">수영 선수 | 수영장 | 스포츠 | 운동 | 피부 타입 삼</annotation>
+		<annotation cp="🏊🏼" type="tts">수영: 피부 타입 삼</annotation>
+		<annotation cp="🏊🏽">수영 선수 | 수영장 | 스포츠 | 운동 | 피부 타입 사</annotation>
+		<annotation cp="🏊🏽" type="tts">수영: 피부 타입 사</annotation>
+		<annotation cp="🏊🏾">수영 선수 | 수영장 | 스포츠 | 운동 | 파부 타입 오</annotation>
+		<annotation cp="🏊🏾" type="tts">수영: 파부 타입 오</annotation>
+		<annotation cp="🏊🏿">수영 선수 | 수영장 | 스포츠 | 운동 | 피부 타입 육</annotation>
+		<annotation cp="🏊🏿" type="tts">수영: 피부 타입 육</annotation>
+		<annotation cp="🏊🏻‍♂">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">수영하는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏊🏼‍♂">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 삼</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">수영하는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🏊🏽‍♂">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 사</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">수영하는 남자: 피부 타입 사</annotation>
+		<annotation cp="🏊🏾‍♂">수영 | 수영선수 | 수영장 | 헤엄 | 파부 타입 오</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">수영하는 남자: 파부 타입 오</annotation>
+		<annotation cp="🏊🏿‍♂">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 육</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">수영하는 남자: 피부 타입 육</annotation>
+		<annotation cp="🏊🏻‍♀">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">수영하는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏊🏼‍♀">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 삼</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">수영하는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🏊🏽‍♀">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 사</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">수영하는 여자: 피부 타입 사</annotation>
+		<annotation cp="🏊🏾‍♀">수영 | 수영선수 | 수영장 | 헤엄 | 파부 타입 오</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">수영하는 여자: 파부 타입 오</annotation>
+		<annotation cp="🏊🏿‍♀">수영 | 수영선수 | 수영장 | 헤엄 | 피부 타입 육</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">수영하는 여자: 피부 타입 육</annotation>
+		<annotation cp="⛹🏻">농구 | 농구공 | 농구선수 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="⛹🏻" type="tts">공을 갖고 있는 사람: 피부 타입 일 다시 이</annotation>
+		<annotation cp="⛹🏼">농구 | 농구공 | 농구선수 | 피부 타입 삼</annotation>
+		<annotation cp="⛹🏼" type="tts">공을 갖고 있는 사람: 피부 타입 삼</annotation>
+		<annotation cp="⛹🏽">농구 | 농구공 | 농구선수 | 피부 타입 사</annotation>
+		<annotation cp="⛹🏽" type="tts">공을 갖고 있는 사람: 피부 타입 사</annotation>
+		<annotation cp="⛹🏾">농구 | 농구공 | 농구선수 | 파부 타입 오</annotation>
+		<annotation cp="⛹🏾" type="tts">공을 갖고 있는 사람: 파부 타입 오</annotation>
+		<annotation cp="⛹🏿">농구 | 농구공 | 농구선수 | 피부 타입 육</annotation>
+		<annotation cp="⛹🏿" type="tts">공을 갖고 있는 사람: 피부 타입 육</annotation>
+		<annotation cp="⛹🏻‍♂">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">공 가진 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="⛹🏼‍♂">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 삼</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">공 가진 남자: 피부 타입 삼</annotation>
+		<annotation cp="⛹🏽‍♂">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 사</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">공 가진 남자: 피부 타입 사</annotation>
+		<annotation cp="⛹🏾‍♂">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 파부 타입 오</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">공 가진 남자: 파부 타입 오</annotation>
+		<annotation cp="⛹🏿‍♂">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 육</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">공 가진 남자: 피부 타입 육</annotation>
+		<annotation cp="⛹🏻‍♀">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">공 가진 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="⛹🏼‍♀">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 삼</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">공 가진 여자: 피부 타입 삼</annotation>
+		<annotation cp="⛹🏽‍♀">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 사</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">공 가진 여자: 피부 타입 사</annotation>
+		<annotation cp="⛹🏾‍♀">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 파부 타입 오</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">공 가진 여자: 파부 타입 오</annotation>
+		<annotation cp="⛹🏿‍♀">공 | 공놀이 | 구기종목 | 농구 | 스포츠 | 운동 | 피부 타입 육</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">공 가진 여자: 피부 타입 육</annotation>
+		<annotation cp="🏋🏻">역도 | 역도선수 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏋🏻" type="tts">역도 선수: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏋🏼">역도 | 역도선수 | 피부 타입 삼</annotation>
+		<annotation cp="🏋🏼" type="tts">역도 선수: 피부 타입 삼</annotation>
+		<annotation cp="🏋🏽">역도 | 역도선수 | 피부 타입 사</annotation>
+		<annotation cp="🏋🏽" type="tts">역도 선수: 피부 타입 사</annotation>
+		<annotation cp="🏋🏾">역도 | 역도선수 | 파부 타입 오</annotation>
+		<annotation cp="🏋🏾" type="tts">역도 선수: 파부 타입 오</annotation>
+		<annotation cp="🏋🏿">역도 | 역도선수 | 피부 타입 육</annotation>
+		<annotation cp="🏋🏿" type="tts">역도 선수: 피부 타입 육</annotation>
+		<annotation cp="🏋🏻‍♂">역도 | 역도선수 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">남자 역도 선수: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏋🏼‍♂">역도 | 역도선수 | 피부 타입 삼</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">남자 역도 선수: 피부 타입 삼</annotation>
+		<annotation cp="🏋🏽‍♂">역도 | 역도선수 | 피부 타입 사</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">남자 역도 선수: 피부 타입 사</annotation>
+		<annotation cp="🏋🏾‍♂">역도 | 역도선수 | 파부 타입 오</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">남자 역도 선수: 파부 타입 오</annotation>
+		<annotation cp="🏋🏿‍♂">역도 | 역도선수 | 피부 타입 육</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">남자 역도 선수: 피부 타입 육</annotation>
+		<annotation cp="🏋🏻‍♀">역도 | 역도선수 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">여자 역도 선수: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🏋🏼‍♀">역도 | 역도선수 | 피부 타입 삼</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">여자 역도 선수: 피부 타입 삼</annotation>
+		<annotation cp="🏋🏽‍♀">역도 | 역도선수 | 피부 타입 사</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">여자 역도 선수: 피부 타입 사</annotation>
+		<annotation cp="🏋🏾‍♀">역도 | 역도선수 | 파부 타입 오</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">여자 역도 선수: 파부 타입 오</annotation>
+		<annotation cp="🏋🏿‍♀">역도 | 역도선수 | 피부 타입 육</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">여자 역도 선수: 피부 타입 육</annotation>
+		<annotation cp="🚴🏻">자전거 주행 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚴🏻" type="tts">자전거 타는 사람: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚴🏼">자전거 주행 | 피부 타입 삼</annotation>
+		<annotation cp="🚴🏼" type="tts">자전거 타는 사람: 피부 타입 삼</annotation>
+		<annotation cp="🚴🏽">자전거 주행 | 피부 타입 사</annotation>
+		<annotation cp="🚴🏽" type="tts">자전거 타는 사람: 피부 타입 사</annotation>
+		<annotation cp="🚴🏾">자전거 주행 | 파부 타입 오</annotation>
+		<annotation cp="🚴🏾" type="tts">자전거 타는 사람: 파부 타입 오</annotation>
+		<annotation cp="🚴🏿">자전거 주행 | 피부 타입 육</annotation>
+		<annotation cp="🚴🏿" type="tts">자전거 타는 사람: 피부 타입 육</annotation>
+		<annotation cp="🚴🏻‍♂">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">자전거타는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚴🏼‍♂">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 삼</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">자전거타는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🚴🏽‍♂">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 사</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">자전거타는 남자: 피부 타입 사</annotation>
+		<annotation cp="🚴🏾‍♂">바이커 | 바이킹 | 선수 | 자전거 | 파부 타입 오</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">자전거타는 남자: 파부 타입 오</annotation>
+		<annotation cp="🚴🏿‍♂">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 육</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">자전거타는 남자: 피부 타입 육</annotation>
+		<annotation cp="🚴🏻‍♀">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">자전거타는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚴🏼‍♀">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 삼</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">자전거타는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🚴🏽‍♀">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 사</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">자전거타는 여자: 피부 타입 사</annotation>
+		<annotation cp="🚴🏾‍♀">바이커 | 바이킹 | 선수 | 자전거 | 파부 타입 오</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">자전거타는 여자: 파부 타입 오</annotation>
+		<annotation cp="🚴🏿‍♀">바이커 | 바이킹 | 선수 | 자전거 | 피부 타입 육</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">자전거타는 여자: 피부 타입 육</annotation>
+		<annotation cp="🚵🏻">산악 자전거 주행 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚵🏻" type="tts">산악 자전거 타는 사람: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚵🏼">산악 자전거 주행 | 피부 타입 삼</annotation>
+		<annotation cp="🚵🏼" type="tts">산악 자전거 타는 사람: 피부 타입 삼</annotation>
+		<annotation cp="🚵🏽">산악 자전거 주행 | 피부 타입 사</annotation>
+		<annotation cp="🚵🏽" type="tts">산악 자전거 타는 사람: 피부 타입 사</annotation>
+		<annotation cp="🚵🏾">산악 자전거 주행 | 파부 타입 오</annotation>
+		<annotation cp="🚵🏾" type="tts">산악 자전거 타는 사람: 파부 타입 오</annotation>
+		<annotation cp="🚵🏿">산악 자전거 주행 | 피부 타입 육</annotation>
+		<annotation cp="🚵🏿" type="tts">산악 자전거 타는 사람: 피부 타입 육</annotation>
+		<annotation cp="🚵🏻‍♂">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">산악자전거타는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚵🏼‍♂">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 삼</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">산악자전거타는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🚵🏽‍♂">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 사</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">산악자전거타는 남자: 피부 타입 사</annotation>
+		<annotation cp="🚵🏾‍♂">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 파부 타입 오</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">산악자전거타는 남자: 파부 타입 오</annotation>
+		<annotation cp="🚵🏿‍♂">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 육</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">산악자전거타는 남자: 피부 타입 육</annotation>
+		<annotation cp="🚵🏻‍♀">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">산악자전거타는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🚵🏼‍♀">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 삼</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">산악자전거타는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🚵🏽‍♀">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 사</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">산악자전거타는 여자: 피부 타입 사</annotation>
+		<annotation cp="🚵🏾‍♀">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 파부 타입 오</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">산악자전거타는 여자: 파부 타입 오</annotation>
+		<annotation cp="🚵🏿‍♀">마운틴바이크 | 바이커 | 바이킹 | 산악자전거 | 선수 | 자전거 | 피부 타입 육</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">산악자전거타는 여자: 피부 타입 육</annotation>
+		<annotation cp="🤸🏻">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤸🏻" type="tts">옆돌기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤸🏼">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 삼</annotation>
+		<annotation cp="🤸🏼" type="tts">옆돌기: 피부 타입 삼</annotation>
+		<annotation cp="🤸🏽">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 사</annotation>
+		<annotation cp="🤸🏽" type="tts">옆돌기: 피부 타입 사</annotation>
+		<annotation cp="🤸🏾">옆돌기 | 체조 | 풍차돌리기 | 파부 타입 오</annotation>
+		<annotation cp="🤸🏾" type="tts">옆돌기: 파부 타입 오</annotation>
+		<annotation cp="🤸🏿">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 육</annotation>
+		<annotation cp="🤸🏿" type="tts">옆돌기: 피부 타입 육</annotation>
+		<annotation cp="🤸🏻‍♂">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">옆돌기하는 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤸🏼‍♂">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 삼</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">옆돌기하는 남자: 피부 타입 삼</annotation>
+		<annotation cp="🤸🏽‍♂">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 사</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">옆돌기하는 남자: 피부 타입 사</annotation>
+		<annotation cp="🤸🏾‍♂">옆돌기 | 체조 | 풍차돌리기 | 파부 타입 오</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">옆돌기하는 남자: 파부 타입 오</annotation>
+		<annotation cp="🤸🏿‍♂">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 육</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">옆돌기하는 남자: 피부 타입 육</annotation>
+		<annotation cp="🤸🏻‍♀">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">옆돌기하는 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤸🏼‍♀">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 삼</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">옆돌기하는 여자: 피부 타입 삼</annotation>
+		<annotation cp="🤸🏽‍♀">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 사</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">옆돌기하는 여자: 피부 타입 사</annotation>
+		<annotation cp="🤸🏾‍♀">옆돌기 | 체조 | 풍차돌리기 | 파부 타입 오</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">옆돌기하는 여자: 파부 타입 오</annotation>
+		<annotation cp="🤸🏿‍♀">옆돌기 | 체조 | 풍차돌리기 | 피부 타입 육</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">옆돌기하는 여자: 피부 타입 육</annotation>
+		<annotation cp="🤽🏻">수구 | 스포츠 | 워터폴로 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤽🏻" type="tts">수구: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤽🏼">수구 | 스포츠 | 워터폴로 | 피부 타입 삼</annotation>
+		<annotation cp="🤽🏼" type="tts">수구: 피부 타입 삼</annotation>
+		<annotation cp="🤽🏽">수구 | 스포츠 | 워터폴로 | 피부 타입 사</annotation>
+		<annotation cp="🤽🏽" type="tts">수구: 피부 타입 사</annotation>
+		<annotation cp="🤽🏾">수구 | 스포츠 | 워터폴로 | 파부 타입 오</annotation>
+		<annotation cp="🤽🏾" type="tts">수구: 파부 타입 오</annotation>
+		<annotation cp="🤽🏿">수구 | 스포츠 | 워터폴로 | 피부 타입 육</annotation>
+		<annotation cp="🤽🏿" type="tts">수구: 피부 타입 육</annotation>
+		<annotation cp="🤽🏻‍♂">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">남자 수구: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤽🏼‍♂">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 삼</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">남자 수구: 피부 타입 삼</annotation>
+		<annotation cp="🤽🏽‍♂">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 사</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">남자 수구: 피부 타입 사</annotation>
+		<annotation cp="🤽🏾‍♂">수구 | 수상스포츠 | 수영복 | 워터폴로 | 파부 타입 오</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">남자 수구: 파부 타입 오</annotation>
+		<annotation cp="🤽🏿‍♂">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 육</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">남자 수구: 피부 타입 육</annotation>
+		<annotation cp="🤽🏻‍♀">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">여자 수구: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤽🏼‍♀">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 삼</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">여자 수구: 피부 타입 삼</annotation>
+		<annotation cp="🤽🏽‍♀">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 사</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">여자 수구: 피부 타입 사</annotation>
+		<annotation cp="🤽🏾‍♀">수구 | 수상스포츠 | 수영복 | 워터폴로 | 파부 타입 오</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">여자 수구: 파부 타입 오</annotation>
+		<annotation cp="🤽🏿‍♀">수구 | 수상스포츠 | 수영복 | 워터폴로 | 피부 타입 육</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">여자 수구: 피부 타입 육</annotation>
+		<annotation cp="🤾🏻">구기종목 | 선수 | 스포츠 | 핸드볼 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤾🏻" type="tts">핸드볼: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤾🏼">구기종목 | 선수 | 스포츠 | 핸드볼 | 피부 타입 삼</annotation>
+		<annotation cp="🤾🏼" type="tts">핸드볼: 피부 타입 삼</annotation>
+		<annotation cp="🤾🏽">구기종목 | 선수 | 스포츠 | 핸드볼 | 피부 타입 사</annotation>
+		<annotation cp="🤾🏽" type="tts">핸드볼: 피부 타입 사</annotation>
+		<annotation cp="🤾🏾">구기종목 | 선수 | 스포츠 | 핸드볼 | 파부 타입 오</annotation>
+		<annotation cp="🤾🏾" type="tts">핸드볼: 파부 타입 오</annotation>
+		<annotation cp="🤾🏿">구기종목 | 선수 | 스포츠 | 핸드볼 | 피부 타입 육</annotation>
+		<annotation cp="🤾🏿" type="tts">핸드볼: 피부 타입 육</annotation>
+		<annotation cp="🤾🏻‍♂">구기종목 | 스포츠 | 핸드볼 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">핸드볼 남자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤾🏼‍♂">구기종목 | 스포츠 | 핸드볼 | 피부 타입 삼</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">핸드볼 남자: 피부 타입 삼</annotation>
+		<annotation cp="🤾🏽‍♂">구기종목 | 스포츠 | 핸드볼 | 피부 타입 사</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">핸드볼 남자: 피부 타입 사</annotation>
+		<annotation cp="🤾🏾‍♂">구기종목 | 스포츠 | 핸드볼 | 파부 타입 오</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">핸드볼 남자: 파부 타입 오</annotation>
+		<annotation cp="🤾🏿‍♂">구기종목 | 스포츠 | 핸드볼 | 피부 타입 육</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">핸드볼 남자: 피부 타입 육</annotation>
+		<annotation cp="🤾🏻‍♀">구기종목 | 스포츠 | 핸드볼 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">핸드볼 여자: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤾🏼‍♀">구기종목 | 스포츠 | 핸드볼 | 피부 타입 삼</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">핸드볼 여자: 피부 타입 삼</annotation>
+		<annotation cp="🤾🏽‍♀">구기종목 | 스포츠 | 핸드볼 | 피부 타입 사</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">핸드볼 여자: 피부 타입 사</annotation>
+		<annotation cp="🤾🏾‍♀">구기종목 | 스포츠 | 핸드볼 | 파부 타입 오</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">핸드볼 여자: 파부 타입 오</annotation>
+		<annotation cp="🤾🏿‍♀">구기종목 | 스포츠 | 핸드볼 | 피부 타입 육</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">핸드볼 여자: 피부 타입 육</annotation>
+		<annotation cp="🤹🏻">저글 | 저글링 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤹🏻" type="tts">저글링: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤹🏼">저글 | 저글링 | 피부 타입 삼</annotation>
+		<annotation cp="🤹🏼" type="tts">저글링: 피부 타입 삼</annotation>
+		<annotation cp="🤹🏽">저글 | 저글링 | 피부 타입 사</annotation>
+		<annotation cp="🤹🏽" type="tts">저글링: 피부 타입 사</annotation>
+		<annotation cp="🤹🏾">저글 | 저글링 | 파부 타입 오</annotation>
+		<annotation cp="🤹🏾" type="tts">저글링: 파부 타입 오</annotation>
+		<annotation cp="🤹🏿">저글 | 저글링 | 피부 타입 육</annotation>
+		<annotation cp="🤹🏿" type="tts">저글링: 피부 타입 육</annotation>
+		<annotation cp="🤹🏻‍♂">저글 | 저글링 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">남자 저글링: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤹🏼‍♂">저글 | 저글링 | 피부 타입 삼</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">남자 저글링: 피부 타입 삼</annotation>
+		<annotation cp="🤹🏽‍♂">저글 | 저글링 | 피부 타입 사</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">남자 저글링: 피부 타입 사</annotation>
+		<annotation cp="🤹🏾‍♂">저글 | 저글링 | 파부 타입 오</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">남자 저글링: 파부 타입 오</annotation>
+		<annotation cp="🤹🏿‍♂">저글 | 저글링 | 피부 타입 육</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">남자 저글링: 피부 타입 육</annotation>
+		<annotation cp="🤹🏻‍♀">저글 | 저글링 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">여자 저글링: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤹🏼‍♀">저글 | 저글링 | 피부 타입 삼</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">여자 저글링: 피부 타입 삼</annotation>
+		<annotation cp="🤹🏽‍♀">저글 | 저글링 | 피부 타입 사</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">여자 저글링: 피부 타입 사</annotation>
+		<annotation cp="🤹🏾‍♀">저글 | 저글링 | 파부 타입 오</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">여자 저글링: 파부 타입 오</annotation>
+		<annotation cp="🤹🏿‍♀">저글 | 저글링 | 피부 타입 육</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">여자 저글링: 피부 타입 육</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">사랑 | 연애 | 여자 | 남자</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">키스: 여자 남자</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">사랑 | 연애 | 남자</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">키스: 남자 남자</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">사랑 | 연애 | 여자</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">키스: 여자 여자</annotation>
+		<annotation cp="👩‍❤‍👨">사랑 | 연애 | 연애 중 | 여자 | 남자</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">연인: 여자 남자</annotation>
+		<annotation cp="👨‍❤‍👨">사랑 | 연애 | 연애 중 | 남자</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">연인: 남자 남자</annotation>
+		<annotation cp="👩‍❤‍👩">사랑 | 연애 | 연애 중 | 여자</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">연인: 여자 여자</annotation>
+		<annotation cp="👨‍👩‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 | 남자 아이</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">가족: 남자 여자 남자 아이</annotation>
+		<annotation cp="👨‍👩‍👧">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 | 여자 아이</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">가족: 남자 여자 여자 아이</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 | 여자 아이 | 남자 아이</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">가족: 남자 여자 여자 아이 남자 아이</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 | 남자 아이</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">가족: 남자 여자 남자 아이 남자 아이</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 | 여자 아이</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">가족: 남자 여자 여자 아이 여자 아이</annotation>
+		<annotation cp="👨‍👨‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 남자 아이</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">가족: 남자 남자 남자 아이</annotation>
+		<annotation cp="👨‍👨‍👧">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 아이</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">가족: 남자 남자 여자 아이</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 아이 | 남자 아이</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">가족: 남자 남자 여자 아이 남자 아이</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 남자 아이</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">가족: 남자 남자 남자 아이 남자 아이</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 아이</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">가족: 남자 남자 여자 아이 여자 아이</annotation>
+		<annotation cp="👩‍👩‍👦">사람들 | 아빠 | 아이 | 엄마 | 여자 | 남자 아이</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">가족: 여자 여자 남자 아이</annotation>
+		<annotation cp="👩‍👩‍👧">사람들 | 아빠 | 아이 | 엄마 | 여자 | 여자 아이</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">가족: 여자 여자 여자 아이</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">사람들 | 아빠 | 아이 | 엄마 | 여자 | 여자 아이 | 남자 아이</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">가족: 여자 여자 여자 아이 남자 아이</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">사람들 | 아빠 | 아이 | 엄마 | 여자 | 남자 아이</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">가족: 여자 여자 남자 아이 남자 아이</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">사람들 | 아빠 | 아이 | 엄마 | 여자 | 여자 아이</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">가족: 여자 여자 여자 아이 여자 아이</annotation>
+		<annotation cp="👨‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 남자 아이</annotation>
+		<annotation cp="👨‍👦" type="tts">가족: 남자 남자 아이</annotation>
+		<annotation cp="👨‍👦‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 남자 아이</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">가족: 남자 남자 아이 남자 아이</annotation>
+		<annotation cp="👨‍👧">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 아이</annotation>
+		<annotation cp="👨‍👧" type="tts">가족: 남자 여자 아이</annotation>
+		<annotation cp="👨‍👧‍👦">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 아이 | 남자 아이</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">가족: 남자 여자 아이 남자 아이</annotation>
+		<annotation cp="👨‍👧‍👧">사람들 | 아빠 | 아이 | 엄마 | 남자 | 여자 아이</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">가족: 남자 여자 아이 여자 아이</annotation>
+		<annotation cp="👩‍👦">사람들 | 아빠 | 아이 | 엄마 | 여자 | 남자 아이</annotation>
+		<annotation cp="👩‍👦" type="tts">가족: 여자 남자 아이</annotation>
+		<annotation cp="👩‍👦‍👦">사람들 | 아빠 | 아이 | 엄마 | 여자 | 남자 아이</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">가족: 여자 남자 아이 남자 아이</annotation>
+		<annotation cp="👩‍👧">사람들 | 아빠 | 아이 | 엄마 | 여자 | 여자 아이</annotation>
+		<annotation cp="👩‍👧" type="tts">가족: 여자 여자 아이</annotation>
+		<annotation cp="👩‍👧‍👦">사람들 | 아빠 | 아이 | 엄마 | 여자 | 여자 아이 | 남자 아이</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">가족: 여자 여자 아이 남자 아이</annotation>
+		<annotation cp="👩‍👧‍👧">사람들 | 아빠 | 아이 | 엄마 | 여자 | 여자 아이</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">가족: 여자 여자 아이 여자 아이</annotation>
+		<annotation cp="🤳🏻">사진 | 셀카 | 셀피 | 카메라 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤳🏻" type="tts">셀피: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤳🏼">사진 | 셀카 | 셀피 | 카메라 | 피부 타입 삼</annotation>
+		<annotation cp="🤳🏼" type="tts">셀피: 피부 타입 삼</annotation>
+		<annotation cp="🤳🏽">사진 | 셀카 | 셀피 | 카메라 | 피부 타입 사</annotation>
+		<annotation cp="🤳🏽" type="tts">셀피: 피부 타입 사</annotation>
+		<annotation cp="🤳🏾">사진 | 셀카 | 셀피 | 카메라 | 파부 타입 오</annotation>
+		<annotation cp="🤳🏾" type="tts">셀피: 파부 타입 오</annotation>
+		<annotation cp="🤳🏿">사진 | 셀카 | 셀피 | 카메라 | 피부 타입 육</annotation>
+		<annotation cp="🤳🏿" type="tts">셀피: 피부 타입 육</annotation>
+		<annotation cp="💪🏻">강함 | 근육 | 이두박근 | 힘 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💪🏻" type="tts">알통: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💪🏼">강함 | 근육 | 이두박근 | 힘 | 피부 타입 삼</annotation>
+		<annotation cp="💪🏼" type="tts">알통: 피부 타입 삼</annotation>
+		<annotation cp="💪🏽">강함 | 근육 | 이두박근 | 힘 | 피부 타입 사</annotation>
+		<annotation cp="💪🏽" type="tts">알통: 피부 타입 사</annotation>
+		<annotation cp="💪🏾">강함 | 근육 | 이두박근 | 힘 | 파부 타입 오</annotation>
+		<annotation cp="💪🏾" type="tts">알통: 파부 타입 오</annotation>
+		<annotation cp="💪🏿">강함 | 근육 | 이두박근 | 힘 | 피부 타입 육</annotation>
+		<annotation cp="💪🏿" type="tts">알통: 피부 타입 육</annotation>
+		<annotation cp="👈🏻">검지손가락 | 손가락 왼쪽으로 | 손가락으로 왼쪽 가리키기 | 왼쪽 | 왼쪽을 가리키는 검지손가락 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👈🏻" type="tts">검지손가락 왼쪽으로: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👈🏼">검지손가락 | 손가락 왼쪽으로 | 손가락으로 왼쪽 가리키기 | 왼쪽 | 왼쪽을 가리키는 검지손가락 | 피부 타입 삼</annotation>
+		<annotation cp="👈🏼" type="tts">검지손가락 왼쪽으로: 피부 타입 삼</annotation>
+		<annotation cp="👈🏽">검지손가락 | 손가락 왼쪽으로 | 손가락으로 왼쪽 가리키기 | 왼쪽 | 왼쪽을 가리키는 검지손가락 | 피부 타입 사</annotation>
+		<annotation cp="👈🏽" type="tts">검지손가락 왼쪽으로: 피부 타입 사</annotation>
+		<annotation cp="👈🏾">검지손가락 | 손가락 왼쪽으로 | 손가락으로 왼쪽 가리키기 | 왼쪽 | 왼쪽을 가리키는 검지손가락 | 파부 타입 오</annotation>
+		<annotation cp="👈🏾" type="tts">검지손가락 왼쪽으로: 파부 타입 오</annotation>
+		<annotation cp="👈🏿">검지손가락 | 손가락 왼쪽으로 | 손가락으로 왼쪽 가리키기 | 왼쪽 | 왼쪽을 가리키는 검지손가락 | 피부 타입 육</annotation>
+		<annotation cp="👈🏿" type="tts">검지손가락 왼쪽으로: 피부 타입 육</annotation>
+		<annotation cp="👉🏻">검지손가락 | 손가락 오른쪽으로 | 손가락으로 오른쪽 가리키기 | 오른쪽 | 오른쪽을 가리키는 검지손가락 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👉🏻" type="tts">검지손가락 오른쪽으로: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👉🏼">검지손가락 | 손가락 오른쪽으로 | 손가락으로 오른쪽 가리키기 | 오른쪽 | 오른쪽을 가리키는 검지손가락 | 피부 타입 삼</annotation>
+		<annotation cp="👉🏼" type="tts">검지손가락 오른쪽으로: 피부 타입 삼</annotation>
+		<annotation cp="👉🏽">검지손가락 | 손가락 오른쪽으로 | 손가락으로 오른쪽 가리키기 | 오른쪽 | 오른쪽을 가리키는 검지손가락 | 피부 타입 사</annotation>
+		<annotation cp="👉🏽" type="tts">검지손가락 오른쪽으로: 피부 타입 사</annotation>
+		<annotation cp="👉🏾">검지손가락 | 손가락 오른쪽으로 | 손가락으로 오른쪽 가리키기 | 오른쪽 | 오른쪽을 가리키는 검지손가락 | 파부 타입 오</annotation>
+		<annotation cp="👉🏾" type="tts">검지손가락 오른쪽으로: 파부 타입 오</annotation>
+		<annotation cp="👉🏿">검지손가락 | 손가락 오른쪽으로 | 손가락으로 오른쪽 가리키기 | 오른쪽 | 오른쪽을 가리키는 검지손가락 | 피부 타입 육</annotation>
+		<annotation cp="👉🏿" type="tts">검지손가락 오른쪽으로: 피부 타입 육</annotation>
+		<annotation cp="☝🏻">가리키기 | 검지 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="☝🏻" type="tts">위를 가리키는 검지: 피부 타입 일 다시 이</annotation>
+		<annotation cp="☝🏼">가리키기 | 검지 | 피부 타입 삼</annotation>
+		<annotation cp="☝🏼" type="tts">위를 가리키는 검지: 피부 타입 삼</annotation>
+		<annotation cp="☝🏽">가리키기 | 검지 | 피부 타입 사</annotation>
+		<annotation cp="☝🏽" type="tts">위를 가리키는 검지: 피부 타입 사</annotation>
+		<annotation cp="☝🏾">가리키기 | 검지 | 파부 타입 오</annotation>
+		<annotation cp="☝🏾" type="tts">위를 가리키는 검지: 파부 타입 오</annotation>
+		<annotation cp="☝🏿">가리키기 | 검지 | 피부 타입 육</annotation>
+		<annotation cp="☝🏿" type="tts">위를 가리키는 검지: 피부 타입 육</annotation>
+		<annotation cp="👆🏻">검지손가락 | 손가락 위로 | 손가락으로 위를 가리키기 | 위 | 위를 가리키는 검지손가락 | 위쪽 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👆🏻" type="tts">검지손가락 위로: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👆🏼">검지손가락 | 손가락 위로 | 손가락으로 위를 가리키기 | 위 | 위를 가리키는 검지손가락 | 위쪽 | 피부 타입 삼</annotation>
+		<annotation cp="👆🏼" type="tts">검지손가락 위로: 피부 타입 삼</annotation>
+		<annotation cp="👆🏽">검지손가락 | 손가락 위로 | 손가락으로 위를 가리키기 | 위 | 위를 가리키는 검지손가락 | 위쪽 | 피부 타입 사</annotation>
+		<annotation cp="👆🏽" type="tts">검지손가락 위로: 피부 타입 사</annotation>
+		<annotation cp="👆🏾">검지손가락 | 손가락 위로 | 손가락으로 위를 가리키기 | 위 | 위를 가리키는 검지손가락 | 위쪽 | 파부 타입 오</annotation>
+		<annotation cp="👆🏾" type="tts">검지손가락 위로: 파부 타입 오</annotation>
+		<annotation cp="👆🏿">검지손가락 | 손가락 위로 | 손가락으로 위를 가리키기 | 위 | 위를 가리키는 검지손가락 | 위쪽 | 피부 타입 육</annotation>
+		<annotation cp="👆🏿" type="tts">검지손가락 위로: 피부 타입 육</annotation>
+		<annotation cp="🖕🏻">가운데 손가락 | 욕설 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🖕🏻" type="tts">중지: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🖕🏼">가운데 손가락 | 욕설 | 피부 타입 삼</annotation>
+		<annotation cp="🖕🏼" type="tts">중지: 피부 타입 삼</annotation>
+		<annotation cp="🖕🏽">가운데 손가락 | 욕설 | 피부 타입 사</annotation>
+		<annotation cp="🖕🏽" type="tts">중지: 피부 타입 사</annotation>
+		<annotation cp="🖕🏾">가운데 손가락 | 욕설 | 파부 타입 오</annotation>
+		<annotation cp="🖕🏾" type="tts">중지: 파부 타입 오</annotation>
+		<annotation cp="🖕🏿">가운데 손가락 | 욕설 | 피부 타입 육</annotation>
+		<annotation cp="🖕🏿" type="tts">중지: 피부 타입 육</annotation>
+		<annotation cp="👇🏻">검지손가락 | 손가락 아래로 | 손가락으로 아래를 가리키기 | 아래 | 아래를 가리키는 검지손가락 | 아래쪽 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👇🏻" type="tts">검지손가락 아래로: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👇🏼">검지손가락 | 손가락 아래로 | 손가락으로 아래를 가리키기 | 아래 | 아래를 가리키는 검지손가락 | 아래쪽 | 피부 타입 삼</annotation>
+		<annotation cp="👇🏼" type="tts">검지손가락 아래로: 피부 타입 삼</annotation>
+		<annotation cp="👇🏽">검지손가락 | 손가락 아래로 | 손가락으로 아래를 가리키기 | 아래 | 아래를 가리키는 검지손가락 | 아래쪽 | 피부 타입 사</annotation>
+		<annotation cp="👇🏽" type="tts">검지손가락 아래로: 피부 타입 사</annotation>
+		<annotation cp="👇🏾">검지손가락 | 손가락 아래로 | 손가락으로 아래를 가리키기 | 아래 | 아래를 가리키는 검지손가락 | 아래쪽 | 파부 타입 오</annotation>
+		<annotation cp="👇🏾" type="tts">검지손가락 아래로: 파부 타입 오</annotation>
+		<annotation cp="👇🏿">검지손가락 | 손가락 아래로 | 손가락으로 아래를 가리키기 | 아래 | 아래를 가리키는 검지손가락 | 아래쪽 | 피부 타입 육</annotation>
+		<annotation cp="👇🏿" type="tts">검지손가락 아래로: 피부 타입 육</annotation>
+		<annotation cp="✌🏻">가위 | 찌 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="✌🏻" type="tts">브이 표시: 피부 타입 일 다시 이</annotation>
+		<annotation cp="✌🏼">가위 | 찌 | 피부 타입 삼</annotation>
+		<annotation cp="✌🏼" type="tts">브이 표시: 피부 타입 삼</annotation>
+		<annotation cp="✌🏽">가위 | 찌 | 피부 타입 사</annotation>
+		<annotation cp="✌🏽" type="tts">브이 표시: 피부 타입 사</annotation>
+		<annotation cp="✌🏾">가위 | 찌 | 파부 타입 오</annotation>
+		<annotation cp="✌🏾" type="tts">브이 표시: 파부 타입 오</annotation>
+		<annotation cp="✌🏿">가위 | 찌 | 피부 타입 육</annotation>
+		<annotation cp="✌🏿" type="tts">브이 표시: 피부 타입 육</annotation>
+		<annotation cp="🤞🏻">검지 | 교차 | 손가락 | 중지 | 크로스 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤞🏻" type="tts">검지와 중지 크로스: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤞🏼">검지 | 교차 | 손가락 | 중지 | 크로스 | 피부 타입 삼</annotation>
+		<annotation cp="🤞🏼" type="tts">검지와 중지 크로스: 피부 타입 삼</annotation>
+		<annotation cp="🤞🏽">검지 | 교차 | 손가락 | 중지 | 크로스 | 피부 타입 사</annotation>
+		<annotation cp="🤞🏽" type="tts">검지와 중지 크로스: 피부 타입 사</annotation>
+		<annotation cp="🤞🏾">검지 | 교차 | 손가락 | 중지 | 크로스 | 파부 타입 오</annotation>
+		<annotation cp="🤞🏾" type="tts">검지와 중지 크로스: 파부 타입 오</annotation>
+		<annotation cp="🤞🏿">검지 | 교차 | 손가락 | 중지 | 크로스 | 피부 타입 육</annotation>
+		<annotation cp="🤞🏿" type="tts">검지와 중지 크로스: 피부 타입 육</annotation>
+		<annotation cp="🖖🏻">경례 | 손 모양 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🖖🏻" type="tts">불칸 경례: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🖖🏼">경례 | 손 모양 | 피부 타입 삼</annotation>
+		<annotation cp="🖖🏼" type="tts">불칸 경례: 피부 타입 삼</annotation>
+		<annotation cp="🖖🏽">경례 | 손 모양 | 피부 타입 사</annotation>
+		<annotation cp="🖖🏽" type="tts">불칸 경례: 피부 타입 사</annotation>
+		<annotation cp="🖖🏾">경례 | 손 모양 | 파부 타입 오</annotation>
+		<annotation cp="🖖🏾" type="tts">불칸 경례: 파부 타입 오</annotation>
+		<annotation cp="🖖🏿">경례 | 손 모양 | 피부 타입 육</annotation>
+		<annotation cp="🖖🏿" type="tts">불칸 경례: 피부 타입 육</annotation>
+		<annotation cp="🤘🏻">락 음악 | 손 모양 | 힙합 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤘🏻" type="tts">악마의 뿔: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤘🏼">락 음악 | 손 모양 | 힙합 | 피부 타입 삼</annotation>
+		<annotation cp="🤘🏼" type="tts">악마의 뿔: 피부 타입 삼</annotation>
+		<annotation cp="🤘🏽">락 음악 | 손 모양 | 힙합 | 피부 타입 사</annotation>
+		<annotation cp="🤘🏽" type="tts">악마의 뿔: 피부 타입 사</annotation>
+		<annotation cp="🤘🏾">락 음악 | 손 모양 | 힙합 | 파부 타입 오</annotation>
+		<annotation cp="🤘🏾" type="tts">악마의 뿔: 파부 타입 오</annotation>
+		<annotation cp="🤘🏿">락 음악 | 손 모양 | 힙합 | 피부 타입 육</annotation>
+		<annotation cp="🤘🏿" type="tts">악마의 뿔: 피부 타입 육</annotation>
+		<annotation cp="🤙🏻">손가락 | 손모양 | 전화 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤙🏻" type="tts">전화해 손 모양: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤙🏼">손가락 | 손모양 | 전화 | 피부 타입 삼</annotation>
+		<annotation cp="🤙🏼" type="tts">전화해 손 모양: 피부 타입 삼</annotation>
+		<annotation cp="🤙🏽">손가락 | 손모양 | 전화 | 피부 타입 사</annotation>
+		<annotation cp="🤙🏽" type="tts">전화해 손 모양: 피부 타입 사</annotation>
+		<annotation cp="🤙🏾">손가락 | 손모양 | 전화 | 파부 타입 오</annotation>
+		<annotation cp="🤙🏾" type="tts">전화해 손 모양: 파부 타입 오</annotation>
+		<annotation cp="🤙🏿">손가락 | 손모양 | 전화 | 피부 타입 육</annotation>
+		<annotation cp="🤙🏿" type="tts">전화해 손 모양: 피부 타입 육</annotation>
+		<annotation cp="🖐🏻">손바닥 | 안녕 | 인사 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🖐🏻" type="tts">쫙 편 손바닥: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🖐🏼">손바닥 | 안녕 | 인사 | 피부 타입 삼</annotation>
+		<annotation cp="🖐🏼" type="tts">쫙 편 손바닥: 피부 타입 삼</annotation>
+		<annotation cp="🖐🏽">손바닥 | 안녕 | 인사 | 피부 타입 사</annotation>
+		<annotation cp="🖐🏽" type="tts">쫙 편 손바닥: 피부 타입 사</annotation>
+		<annotation cp="🖐🏾">손바닥 | 안녕 | 인사 | 파부 타입 오</annotation>
+		<annotation cp="🖐🏾" type="tts">쫙 편 손바닥: 파부 타입 오</annotation>
+		<annotation cp="🖐🏿">손바닥 | 안녕 | 인사 | 피부 타입 육</annotation>
+		<annotation cp="🖐🏿" type="tts">쫙 편 손바닥: 피부 타입 육</annotation>
+		<annotation cp="✋🏻">보 | 보자기 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="✋🏻" type="tts">손바닥: 피부 타입 일 다시 이</annotation>
+		<annotation cp="✋🏼">보 | 보자기 | 피부 타입 삼</annotation>
+		<annotation cp="✋🏼" type="tts">손바닥: 피부 타입 삼</annotation>
+		<annotation cp="✋🏽">보 | 보자기 | 피부 타입 사</annotation>
+		<annotation cp="✋🏽" type="tts">손바닥: 피부 타입 사</annotation>
+		<annotation cp="✋🏾">보 | 보자기 | 파부 타입 오</annotation>
+		<annotation cp="✋🏾" type="tts">손바닥: 파부 타입 오</annotation>
+		<annotation cp="✋🏿">보 | 보자기 | 피부 타입 육</annotation>
+		<annotation cp="✋🏿" type="tts">손바닥: 피부 타입 육</annotation>
+		<annotation cp="👌🏻">돈 | 오케이 신호 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👌🏻" type="tts">좋아요: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👌🏼">돈 | 오케이 신호 | 피부 타입 삼</annotation>
+		<annotation cp="👌🏼" type="tts">좋아요: 피부 타입 삼</annotation>
+		<annotation cp="👌🏽">돈 | 오케이 신호 | 피부 타입 사</annotation>
+		<annotation cp="👌🏽" type="tts">좋아요: 피부 타입 사</annotation>
+		<annotation cp="👌🏾">돈 | 오케이 신호 | 파부 타입 오</annotation>
+		<annotation cp="👌🏾" type="tts">좋아요: 파부 타입 오</annotation>
+		<annotation cp="👌🏿">돈 | 오케이 신호 | 피부 타입 육</annotation>
+		<annotation cp="👌🏿" type="tts">좋아요: 피부 타입 육</annotation>
+		<annotation cp="👍🏻">따봉 | 좋아요 | 최고 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👍🏻" type="tts">엄지손가락 올리기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👍🏼">따봉 | 좋아요 | 최고 | 피부 타입 삼</annotation>
+		<annotation cp="👍🏼" type="tts">엄지손가락 올리기: 피부 타입 삼</annotation>
+		<annotation cp="👍🏽">따봉 | 좋아요 | 최고 | 피부 타입 사</annotation>
+		<annotation cp="👍🏽" type="tts">엄지손가락 올리기: 피부 타입 사</annotation>
+		<annotation cp="👍🏾">따봉 | 좋아요 | 최고 | 파부 타입 오</annotation>
+		<annotation cp="👍🏾" type="tts">엄지손가락 올리기: 파부 타입 오</annotation>
+		<annotation cp="👍🏿">따봉 | 좋아요 | 최고 | 피부 타입 육</annotation>
+		<annotation cp="👍🏿" type="tts">엄지손가락 올리기: 피부 타입 육</annotation>
+		<annotation cp="👎🏻">싫어요 | 야유 | 최악 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👎🏻" type="tts">엄지손가락 내리기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👎🏼">싫어요 | 야유 | 최악 | 피부 타입 삼</annotation>
+		<annotation cp="👎🏼" type="tts">엄지손가락 내리기: 피부 타입 삼</annotation>
+		<annotation cp="👎🏽">싫어요 | 야유 | 최악 | 피부 타입 사</annotation>
+		<annotation cp="👎🏽" type="tts">엄지손가락 내리기: 피부 타입 사</annotation>
+		<annotation cp="👎🏾">싫어요 | 야유 | 최악 | 파부 타입 오</annotation>
+		<annotation cp="👎🏾" type="tts">엄지손가락 내리기: 파부 타입 오</annotation>
+		<annotation cp="👎🏿">싫어요 | 야유 | 최악 | 피부 타입 육</annotation>
+		<annotation cp="👎🏿" type="tts">엄지손가락 내리기: 피부 타입 육</annotation>
+		<annotation cp="✊🏻">묵 | 바위 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="✊🏻" type="tts">주먹: 피부 타입 일 다시 이</annotation>
+		<annotation cp="✊🏼">묵 | 바위 | 피부 타입 삼</annotation>
+		<annotation cp="✊🏼" type="tts">주먹: 피부 타입 삼</annotation>
+		<annotation cp="✊🏽">묵 | 바위 | 피부 타입 사</annotation>
+		<annotation cp="✊🏽" type="tts">주먹: 피부 타입 사</annotation>
+		<annotation cp="✊🏾">묵 | 바위 | 파부 타입 오</annotation>
+		<annotation cp="✊🏾" type="tts">주먹: 파부 타입 오</annotation>
+		<annotation cp="✊🏿">묵 | 바위 | 피부 타입 육</annotation>
+		<annotation cp="✊🏿" type="tts">주먹: 피부 타입 육</annotation>
+		<annotation cp="👊🏻">주먹 | 펀치 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👊🏻" type="tts">주먹 전면: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👊🏼">주먹 | 펀치 | 피부 타입 삼</annotation>
+		<annotation cp="👊🏼" type="tts">주먹 전면: 피부 타입 삼</annotation>
+		<annotation cp="👊🏽">주먹 | 펀치 | 피부 타입 사</annotation>
+		<annotation cp="👊🏽" type="tts">주먹 전면: 피부 타입 사</annotation>
+		<annotation cp="👊🏾">주먹 | 펀치 | 파부 타입 오</annotation>
+		<annotation cp="👊🏾" type="tts">주먹 전면: 파부 타입 오</annotation>
+		<annotation cp="👊🏿">주먹 | 펀치 | 피부 타입 육</annotation>
+		<annotation cp="👊🏿" type="tts">주먹 전면: 피부 타입 육</annotation>
+		<annotation cp="🤛🏻">왼쪽 | 왼편 | 주먹 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤛🏻" type="tts">오른쪽 주먹 보기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤛🏼">왼쪽 | 왼편 | 주먹 | 피부 타입 삼</annotation>
+		<annotation cp="🤛🏼" type="tts">오른쪽 주먹 보기: 피부 타입 삼</annotation>
+		<annotation cp="🤛🏽">왼쪽 | 왼편 | 주먹 | 피부 타입 사</annotation>
+		<annotation cp="🤛🏽" type="tts">오른쪽 주먹 보기: 피부 타입 사</annotation>
+		<annotation cp="🤛🏾">왼쪽 | 왼편 | 주먹 | 파부 타입 오</annotation>
+		<annotation cp="🤛🏾" type="tts">오른쪽 주먹 보기: 파부 타입 오</annotation>
+		<annotation cp="🤛🏿">왼쪽 | 왼편 | 주먹 | 피부 타입 육</annotation>
+		<annotation cp="🤛🏿" type="tts">오른쪽 주먹 보기: 피부 타입 육</annotation>
+		<annotation cp="🤜🏻">오른쪽 | 오른편 | 주먹 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤜🏻" type="tts">왼쪽 주먹 보기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤜🏼">오른쪽 | 오른편 | 주먹 | 피부 타입 삼</annotation>
+		<annotation cp="🤜🏼" type="tts">왼쪽 주먹 보기: 피부 타입 삼</annotation>
+		<annotation cp="🤜🏽">오른쪽 | 오른편 | 주먹 | 피부 타입 사</annotation>
+		<annotation cp="🤜🏽" type="tts">왼쪽 주먹 보기: 피부 타입 사</annotation>
+		<annotation cp="🤜🏾">오른쪽 | 오른편 | 주먹 | 파부 타입 오</annotation>
+		<annotation cp="🤜🏾" type="tts">왼쪽 주먹 보기: 파부 타입 오</annotation>
+		<annotation cp="🤜🏿">오른쪽 | 오른편 | 주먹 | 피부 타입 육</annotation>
+		<annotation cp="🤜🏿" type="tts">왼쪽 주먹 보기: 피부 타입 육</annotation>
+		<annotation cp="🤚🏻">들어보이기 | 손바닥 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤚🏻" type="tts">손바닥 들어보이기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🤚🏼">들어보이기 | 손바닥 | 피부 타입 삼</annotation>
+		<annotation cp="🤚🏼" type="tts">손바닥 들어보이기: 피부 타입 삼</annotation>
+		<annotation cp="🤚🏽">들어보이기 | 손바닥 | 피부 타입 사</annotation>
+		<annotation cp="🤚🏽" type="tts">손바닥 들어보이기: 피부 타입 사</annotation>
+		<annotation cp="🤚🏾">들어보이기 | 손바닥 | 파부 타입 오</annotation>
+		<annotation cp="🤚🏾" type="tts">손바닥 들어보이기: 파부 타입 오</annotation>
+		<annotation cp="🤚🏿">들어보이기 | 손바닥 | 피부 타입 육</annotation>
+		<annotation cp="🤚🏿" type="tts">손바닥 들어보이기: 피부 타입 육</annotation>
+		<annotation cp="👋🏻">펼친 손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👋🏻" type="tts">손 흔들기: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👋🏼">펼친 손 | 피부 타입 삼</annotation>
+		<annotation cp="👋🏼" type="tts">손 흔들기: 피부 타입 삼</annotation>
+		<annotation cp="👋🏽">펼친 손 | 피부 타입 사</annotation>
+		<annotation cp="👋🏽" type="tts">손 흔들기: 피부 타입 사</annotation>
+		<annotation cp="👋🏾">펼친 손 | 파부 타입 오</annotation>
+		<annotation cp="👋🏾" type="tts">손 흔들기: 파부 타입 오</annotation>
+		<annotation cp="👋🏿">펼친 손 | 피부 타입 육</annotation>
+		<annotation cp="👋🏿" type="tts">손 흔들기: 피부 타입 육</annotation>
+		<annotation cp="✍🏻">손 | 연필 쥔 손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="✍🏻" type="tts">글을 쓰고 있는 손: 피부 타입 일 다시 이</annotation>
+		<annotation cp="✍🏼">손 | 연필 쥔 손 | 피부 타입 삼</annotation>
+		<annotation cp="✍🏼" type="tts">글을 쓰고 있는 손: 피부 타입 삼</annotation>
+		<annotation cp="✍🏽">손 | 연필 쥔 손 | 피부 타입 사</annotation>
+		<annotation cp="✍🏽" type="tts">글을 쓰고 있는 손: 피부 타입 사</annotation>
+		<annotation cp="✍🏾">손 | 연필 쥔 손 | 파부 타입 오</annotation>
+		<annotation cp="✍🏾" type="tts">글을 쓰고 있는 손: 파부 타입 오</annotation>
+		<annotation cp="✍🏿">손 | 연필 쥔 손 | 피부 타입 육</annotation>
+		<annotation cp="✍🏿" type="tts">글을 쓰고 있는 손: 피부 타입 육</annotation>
+		<annotation cp="👏🏻">박수 | 박수 치기 | 손뼉 치기 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👏🏻" type="tts">손뼉: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👏🏼">박수 | 박수 치기 | 손뼉 치기 | 피부 타입 삼</annotation>
+		<annotation cp="👏🏼" type="tts">손뼉: 피부 타입 삼</annotation>
+		<annotation cp="👏🏽">박수 | 박수 치기 | 손뼉 치기 | 피부 타입 사</annotation>
+		<annotation cp="👏🏽" type="tts">손뼉: 피부 타입 사</annotation>
+		<annotation cp="👏🏾">박수 | 박수 치기 | 손뼉 치기 | 파부 타입 오</annotation>
+		<annotation cp="👏🏾" type="tts">손뼉: 파부 타입 오</annotation>
+		<annotation cp="👏🏿">박수 | 박수 치기 | 손뼉 치기 | 피부 타입 육</annotation>
+		<annotation cp="👏🏿" type="tts">손뼉: 피부 타입 육</annotation>
+		<annotation cp="👐🏻">두 손 펼치기 | 펼친 두 손 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👐🏻" type="tts">손사래: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👐🏼">두 손 펼치기 | 펼친 두 손 | 피부 타입 삼</annotation>
+		<annotation cp="👐🏼" type="tts">손사래: 피부 타입 삼</annotation>
+		<annotation cp="👐🏽">두 손 펼치기 | 펼친 두 손 | 피부 타입 사</annotation>
+		<annotation cp="👐🏽" type="tts">손사래: 피부 타입 사</annotation>
+		<annotation cp="👐🏾">두 손 펼치기 | 펼친 두 손 | 파부 타입 오</annotation>
+		<annotation cp="👐🏾" type="tts">손사래: 파부 타입 오</annotation>
+		<annotation cp="👐🏿">두 손 펼치기 | 펼친 두 손 | 피부 타입 육</annotation>
+		<annotation cp="👐🏿" type="tts">손사래: 피부 타입 육</annotation>
+		<annotation cp="🙌🏻">두 손을 든 사람 | 만세 하고 있는 사람 | 제스처 | 하이파이브 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙌🏻" type="tts">만세: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙌🏼">두 손을 든 사람 | 만세 하고 있는 사람 | 제스처 | 하이파이브 | 피부 타입 삼</annotation>
+		<annotation cp="🙌🏼" type="tts">만세: 피부 타입 삼</annotation>
+		<annotation cp="🙌🏽">두 손을 든 사람 | 만세 하고 있는 사람 | 제스처 | 하이파이브 | 피부 타입 사</annotation>
+		<annotation cp="🙌🏽" type="tts">만세: 피부 타입 사</annotation>
+		<annotation cp="🙌🏾">두 손을 든 사람 | 만세 하고 있는 사람 | 제스처 | 하이파이브 | 파부 타입 오</annotation>
+		<annotation cp="🙌🏾" type="tts">만세: 파부 타입 오</annotation>
+		<annotation cp="🙌🏿">두 손을 든 사람 | 만세 하고 있는 사람 | 제스처 | 하이파이브 | 피부 타입 육</annotation>
+		<annotation cp="🙌🏿" type="tts">만세: 피부 타입 육</annotation>
+		<annotation cp="🙏🏻">기도하는 사람 | 두 손 모아 기도하는 사람 | 합장 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙏🏻" type="tts">기도: 피부 타입 일 다시 이</annotation>
+		<annotation cp="🙏🏼">기도하는 사람 | 두 손 모아 기도하는 사람 | 합장 | 피부 타입 삼</annotation>
+		<annotation cp="🙏🏼" type="tts">기도: 피부 타입 삼</annotation>
+		<annotation cp="🙏🏽">기도하는 사람 | 두 손 모아 기도하는 사람 | 합장 | 피부 타입 사</annotation>
+		<annotation cp="🙏🏽" type="tts">기도: 피부 타입 사</annotation>
+		<annotation cp="🙏🏾">기도하는 사람 | 두 손 모아 기도하는 사람 | 합장 | 파부 타입 오</annotation>
+		<annotation cp="🙏🏾" type="tts">기도: 파부 타입 오</annotation>
+		<annotation cp="🙏🏿">기도하는 사람 | 두 손 모아 기도하는 사람 | 합장 | 피부 타입 육</annotation>
+		<annotation cp="🙏🏿" type="tts">기도: 피부 타입 육</annotation>
+		<annotation cp="💅🏻">네일 아트 | 네일 케어 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="💅🏻" type="tts">매니큐어: 피부 타입 일 다시 이</annotation>
+		<annotation cp="💅🏼">네일 아트 | 네일 케어 | 피부 타입 삼</annotation>
+		<annotation cp="💅🏼" type="tts">매니큐어: 피부 타입 삼</annotation>
+		<annotation cp="💅🏽">네일 아트 | 네일 케어 | 피부 타입 사</annotation>
+		<annotation cp="💅🏽" type="tts">매니큐어: 피부 타입 사</annotation>
+		<annotation cp="💅🏾">네일 아트 | 네일 케어 | 파부 타입 오</annotation>
+		<annotation cp="💅🏾" type="tts">매니큐어: 파부 타입 오</annotation>
+		<annotation cp="💅🏿">네일 아트 | 네일 케어 | 피부 타입 육</annotation>
+		<annotation cp="💅🏿" type="tts">매니큐어: 피부 타입 육</annotation>
+		<annotation cp="👂🏻">몸 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👂🏻" type="tts">귀: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👂🏼">몸 | 피부 타입 삼</annotation>
+		<annotation cp="👂🏼" type="tts">귀: 피부 타입 삼</annotation>
+		<annotation cp="👂🏽">몸 | 피부 타입 사</annotation>
+		<annotation cp="👂🏽" type="tts">귀: 피부 타입 사</annotation>
+		<annotation cp="👂🏾">몸 | 파부 타입 오</annotation>
+		<annotation cp="👂🏾" type="tts">귀: 파부 타입 오</annotation>
+		<annotation cp="👂🏿">몸 | 피부 타입 육</annotation>
+		<annotation cp="👂🏿" type="tts">귀: 피부 타입 육</annotation>
+		<annotation cp="👃🏻">몸 | 피부 타입 일 다시 이</annotation>
+		<annotation cp="👃🏻" type="tts">코: 피부 타입 일 다시 이</annotation>
+		<annotation cp="👃🏼">몸 | 피부 타입 삼</annotation>
+		<annotation cp="👃🏼" type="tts">코: 피부 타입 삼</annotation>
+		<annotation cp="👃🏽">몸 | 피부 타입 사</annotation>
+		<annotation cp="👃🏽" type="tts">코: 피부 타입 사</annotation>
+		<annotation cp="👃🏾">몸 | 파부 타입 오</annotation>
+		<annotation cp="👃🏾" type="tts">코: 파부 타입 오</annotation>
+		<annotation cp="👃🏿">몸 | 피부 타입 육</annotation>
+		<annotation cp="👃🏿" type="tts">코: 피부 타입 육</annotation>
+		<annotation cp="#⃣">번호 | 우물정 | 키캡</annotation>
+		<annotation cp="#⃣" type="tts">키캡 번호</annotation>
+		<annotation cp="*⃣">별표 | 키캡</annotation>
+		<annotation cp="*⃣" type="tts">키캡 별표</annotation>
+		<annotation cp="🇦🇨">깃발</annotation>
+		<annotation cp="🇦🇨" type="tts">어센션 섬</annotation>
+		<annotation cp="🇦🇩">깃발</annotation>
+		<annotation cp="🇦🇩" type="tts">안도라</annotation>
+		<annotation cp="🇦🇪">깃발</annotation>
+		<annotation cp="🇦🇪" type="tts">아랍에미리트</annotation>
+		<annotation cp="🇦🇫">깃발</annotation>
+		<annotation cp="🇦🇫" type="tts">아프가니스탄</annotation>
+		<annotation cp="🇦🇬">깃발</annotation>
+		<annotation cp="🇦🇬" type="tts">앤티가 바부다</annotation>
+		<annotation cp="🇦🇮">깃발</annotation>
+		<annotation cp="🇦🇮" type="tts">앵귈라</annotation>
+		<annotation cp="🇦🇱">깃발</annotation>
+		<annotation cp="🇦🇱" type="tts">알바니아</annotation>
+		<annotation cp="🇦🇲">깃발</annotation>
+		<annotation cp="🇦🇲" type="tts">아르메니아</annotation>
+		<annotation cp="🇦🇴">깃발</annotation>
+		<annotation cp="🇦🇴" type="tts">앙골라</annotation>
+		<annotation cp="🇦🇶">깃발</annotation>
+		<annotation cp="🇦🇶" type="tts">남극 대륙</annotation>
+		<annotation cp="🇦🇷">깃발</annotation>
+		<annotation cp="🇦🇷" type="tts">아르헨티나</annotation>
+		<annotation cp="🇦🇸">깃발</annotation>
+		<annotation cp="🇦🇸" type="tts">아메리칸 사모아</annotation>
+		<annotation cp="🇦🇹">깃발</annotation>
+		<annotation cp="🇦🇹" type="tts">오스트리아</annotation>
+		<annotation cp="🇦🇺">깃발</annotation>
+		<annotation cp="🇦🇺" type="tts">오스트레일리아</annotation>
+		<annotation cp="🇦🇼">깃발</annotation>
+		<annotation cp="🇦🇼" type="tts">아루바</annotation>
+		<annotation cp="🇦🇽">깃발</annotation>
+		<annotation cp="🇦🇽" type="tts">올란드 제도</annotation>
+		<annotation cp="🇦🇿">깃발</annotation>
+		<annotation cp="🇦🇿" type="tts">아제르바이잔</annotation>
+		<annotation cp="🇧🇦">깃발</annotation>
+		<annotation cp="🇧🇦" type="tts">보스니아 헤르체고비나</annotation>
+		<annotation cp="🇧🇧">깃발</annotation>
+		<annotation cp="🇧🇧" type="tts">바베이도스</annotation>
+		<annotation cp="🇧🇩">깃발</annotation>
+		<annotation cp="🇧🇩" type="tts">방글라데시</annotation>
+		<annotation cp="🇧🇪">깃발</annotation>
+		<annotation cp="🇧🇪" type="tts">벨기에</annotation>
+		<annotation cp="🇧🇫">깃발</annotation>
+		<annotation cp="🇧🇫" type="tts">부르키나파소</annotation>
+		<annotation cp="🇧🇬">깃발</annotation>
+		<annotation cp="🇧🇬" type="tts">불가리아</annotation>
+		<annotation cp="🇧🇭">깃발</annotation>
+		<annotation cp="🇧🇭" type="tts">바레인</annotation>
+		<annotation cp="🇧🇮">깃발</annotation>
+		<annotation cp="🇧🇮" type="tts">부룬디</annotation>
+		<annotation cp="🇧🇯">깃발</annotation>
+		<annotation cp="🇧🇯" type="tts">베냉</annotation>
+		<annotation cp="🇧🇱">깃발</annotation>
+		<annotation cp="🇧🇱" type="tts">생바르텔레미</annotation>
+		<annotation cp="🇧🇲">깃발</annotation>
+		<annotation cp="🇧🇲" type="tts">버뮤다</annotation>
+		<annotation cp="🇧🇳">깃발</annotation>
+		<annotation cp="🇧🇳" type="tts">브루나이</annotation>
+		<annotation cp="🇧🇴">깃발</annotation>
+		<annotation cp="🇧🇴" type="tts">볼리비아</annotation>
+		<annotation cp="🇧🇶">깃발</annotation>
+		<annotation cp="🇧🇶" type="tts">네덜란드령 카리브</annotation>
+		<annotation cp="🇧🇷">깃발</annotation>
+		<annotation cp="🇧🇷" type="tts">브라질</annotation>
+		<annotation cp="🇧🇸">깃발</annotation>
+		<annotation cp="🇧🇸" type="tts">바하마</annotation>
+		<annotation cp="🇧🇹">깃발</annotation>
+		<annotation cp="🇧🇹" type="tts">부탄</annotation>
+		<annotation cp="🇧🇻">깃발</annotation>
+		<annotation cp="🇧🇻" type="tts">부베섬</annotation>
+		<annotation cp="🇧🇼">깃발</annotation>
+		<annotation cp="🇧🇼" type="tts">보츠와나</annotation>
+		<annotation cp="🇧🇾">깃발</annotation>
+		<annotation cp="🇧🇾" type="tts">벨라루스</annotation>
+		<annotation cp="🇧🇿">깃발</annotation>
+		<annotation cp="🇧🇿" type="tts">벨리즈</annotation>
+		<annotation cp="🇨🇦">깃발</annotation>
+		<annotation cp="🇨🇦" type="tts">캐나다</annotation>
+		<annotation cp="🇨🇨">깃발</annotation>
+		<annotation cp="🇨🇨" type="tts">코코스 제도</annotation>
+		<annotation cp="🇨🇩">깃발</annotation>
+		<annotation cp="🇨🇩" type="tts">콩고-킨샤사</annotation>
+		<annotation cp="🇨🇫">깃발</annotation>
+		<annotation cp="🇨🇫" type="tts">중앙 아프리카 공화국</annotation>
+		<annotation cp="🇨🇬">깃발</annotation>
+		<annotation cp="🇨🇬" type="tts">콩고-브라자빌</annotation>
+		<annotation cp="🇨🇭">깃발</annotation>
+		<annotation cp="🇨🇭" type="tts">스위스</annotation>
+		<annotation cp="🇨🇮">깃발</annotation>
+		<annotation cp="🇨🇮" type="tts">코트디부아르</annotation>
+		<annotation cp="🇨🇰">깃발</annotation>
+		<annotation cp="🇨🇰" type="tts">쿡 제도</annotation>
+		<annotation cp="🇨🇱">깃발</annotation>
+		<annotation cp="🇨🇱" type="tts">칠레</annotation>
+		<annotation cp="🇨🇲">깃발</annotation>
+		<annotation cp="🇨🇲" type="tts">카메룬</annotation>
+		<annotation cp="🇨🇳">깃발</annotation>
+		<annotation cp="🇨🇳" type="tts">중국</annotation>
+		<annotation cp="🇨🇴">깃발</annotation>
+		<annotation cp="🇨🇴" type="tts">콜롬비아</annotation>
+		<annotation cp="🇨🇵">깃발</annotation>
+		<annotation cp="🇨🇵" type="tts">클립퍼튼 섬</annotation>
+		<annotation cp="🇨🇷">깃발</annotation>
+		<annotation cp="🇨🇷" type="tts">코스타리카</annotation>
+		<annotation cp="🇨🇺">깃발</annotation>
+		<annotation cp="🇨🇺" type="tts">쿠바</annotation>
+		<annotation cp="🇨🇻">깃발</annotation>
+		<annotation cp="🇨🇻" type="tts">카보베르데</annotation>
+		<annotation cp="🇨🇼">깃발</annotation>
+		<annotation cp="🇨🇼" type="tts">퀴라소</annotation>
+		<annotation cp="🇨🇽">깃발</annotation>
+		<annotation cp="🇨🇽" type="tts">크리스마스섬</annotation>
+		<annotation cp="🇨🇾">깃발</annotation>
+		<annotation cp="🇨🇾" type="tts">키프로스</annotation>
+		<annotation cp="🇨🇿">깃발</annotation>
+		<annotation cp="🇨🇿" type="tts">체코</annotation>
+		<annotation cp="🇩🇪">깃발</annotation>
+		<annotation cp="🇩🇪" type="tts">독일</annotation>
+		<annotation cp="🇩🇬">깃발</annotation>
+		<annotation cp="🇩🇬" type="tts">디에고 가르시아</annotation>
+		<annotation cp="🇩🇯">깃발</annotation>
+		<annotation cp="🇩🇯" type="tts">지부티</annotation>
+		<annotation cp="🇩🇰">깃발</annotation>
+		<annotation cp="🇩🇰" type="tts">덴마크</annotation>
+		<annotation cp="🇩🇲">깃발</annotation>
+		<annotation cp="🇩🇲" type="tts">도미니카</annotation>
+		<annotation cp="🇩🇴">깃발</annotation>
+		<annotation cp="🇩🇴" type="tts">도미니카 공화국</annotation>
+		<annotation cp="🇩🇿">깃발</annotation>
+		<annotation cp="🇩🇿" type="tts">알제리</annotation>
+		<annotation cp="🇪🇦">깃발</annotation>
+		<annotation cp="🇪🇦" type="tts">세우타 및 멜리야</annotation>
+		<annotation cp="🇪🇨">깃발</annotation>
+		<annotation cp="🇪🇨" type="tts">에콰도르</annotation>
+		<annotation cp="🇪🇪">깃발</annotation>
+		<annotation cp="🇪🇪" type="tts">에스토니아</annotation>
+		<annotation cp="🇪🇬">깃발</annotation>
+		<annotation cp="🇪🇬" type="tts">이집트</annotation>
+		<annotation cp="🇪🇭">깃발</annotation>
+		<annotation cp="🇪🇭" type="tts">서사하라</annotation>
+		<annotation cp="🇪🇷">깃발</annotation>
+		<annotation cp="🇪🇷" type="tts">에리트리아</annotation>
+		<annotation cp="🇪🇸">깃발</annotation>
+		<annotation cp="🇪🇸" type="tts">스페인</annotation>
+		<annotation cp="🇪🇹">깃발</annotation>
+		<annotation cp="🇪🇹" type="tts">에티오피아</annotation>
+		<annotation cp="🇪🇺">깃발</annotation>
+		<annotation cp="🇪🇺" type="tts">유럽 연합</annotation>
+		<annotation cp="🇫🇮">깃발</annotation>
+		<annotation cp="🇫🇮" type="tts">핀란드</annotation>
+		<annotation cp="🇫🇯">깃발</annotation>
+		<annotation cp="🇫🇯" type="tts">피지</annotation>
+		<annotation cp="🇫🇰">깃발</annotation>
+		<annotation cp="🇫🇰" type="tts">포클랜드 제도</annotation>
+		<annotation cp="🇫🇲">깃발</annotation>
+		<annotation cp="🇫🇲" type="tts">미크로네시아</annotation>
+		<annotation cp="🇫🇴">깃발</annotation>
+		<annotation cp="🇫🇴" type="tts">페로 제도</annotation>
+		<annotation cp="🇫🇷">깃발</annotation>
+		<annotation cp="🇫🇷" type="tts">프랑스</annotation>
+		<annotation cp="🇬🇦">깃발</annotation>
+		<annotation cp="🇬🇦" type="tts">가봉</annotation>
+		<annotation cp="🇬🇧">깃발</annotation>
+		<annotation cp="🇬🇧" type="tts">영국</annotation>
+		<annotation cp="🇬🇩">깃발</annotation>
+		<annotation cp="🇬🇩" type="tts">그레나다</annotation>
+		<annotation cp="🇬🇪">깃발</annotation>
+		<annotation cp="🇬🇪" type="tts">조지아</annotation>
+		<annotation cp="🇬🇫">깃발</annotation>
+		<annotation cp="🇬🇫" type="tts">프랑스령 기아나</annotation>
+		<annotation cp="🇬🇬">깃발</annotation>
+		<annotation cp="🇬🇬" type="tts">건지</annotation>
+		<annotation cp="🇬🇭">깃발</annotation>
+		<annotation cp="🇬🇭" type="tts">가나</annotation>
+		<annotation cp="🇬🇮">깃발</annotation>
+		<annotation cp="🇬🇮" type="tts">지브롤터</annotation>
+		<annotation cp="🇬🇱">깃발</annotation>
+		<annotation cp="🇬🇱" type="tts">그린란드</annotation>
+		<annotation cp="🇬🇲">깃발</annotation>
+		<annotation cp="🇬🇲" type="tts">감비아</annotation>
+		<annotation cp="🇬🇳">깃발</annotation>
+		<annotation cp="🇬🇳" type="tts">기니</annotation>
+		<annotation cp="🇬🇵">깃발</annotation>
+		<annotation cp="🇬🇵" type="tts">과들루프</annotation>
+		<annotation cp="🇬🇶">깃발</annotation>
+		<annotation cp="🇬🇶" type="tts">적도 기니</annotation>
+		<annotation cp="🇬🇷">깃발</annotation>
+		<annotation cp="🇬🇷" type="tts">그리스</annotation>
+		<annotation cp="🇬🇸">깃발</annotation>
+		<annotation cp="🇬🇸" type="tts">사우스조지아 사우스샌드위치 제도</annotation>
+		<annotation cp="🇬🇹">깃발</annotation>
+		<annotation cp="🇬🇹" type="tts">과테말라</annotation>
+		<annotation cp="🇬🇺">깃발</annotation>
+		<annotation cp="🇬🇺" type="tts">괌</annotation>
+		<annotation cp="🇬🇼">깃발</annotation>
+		<annotation cp="🇬🇼" type="tts">기니비사우</annotation>
+		<annotation cp="🇬🇾">깃발</annotation>
+		<annotation cp="🇬🇾" type="tts">가이아나</annotation>
+		<annotation cp="🇭🇰">깃발</annotation>
+		<annotation cp="🇭🇰" type="tts">홍콩(중국 특별행정구)</annotation>
+		<annotation cp="🇭🇲">깃발</annotation>
+		<annotation cp="🇭🇲" type="tts">허드 맥도널드 제도</annotation>
+		<annotation cp="🇭🇳">깃발</annotation>
+		<annotation cp="🇭🇳" type="tts">온두라스</annotation>
+		<annotation cp="🇭🇷">깃발</annotation>
+		<annotation cp="🇭🇷" type="tts">크로아티아</annotation>
+		<annotation cp="🇭🇹">깃발</annotation>
+		<annotation cp="🇭🇹" type="tts">아이티</annotation>
+		<annotation cp="🇭🇺">깃발</annotation>
+		<annotation cp="🇭🇺" type="tts">헝가리</annotation>
+		<annotation cp="🇮🇨">깃발</annotation>
+		<annotation cp="🇮🇨" type="tts">카나리아 제도</annotation>
+		<annotation cp="🇮🇩">깃발</annotation>
+		<annotation cp="🇮🇩" type="tts">인도네시아</annotation>
+		<annotation cp="🇮🇪">깃발</annotation>
+		<annotation cp="🇮🇪" type="tts">아일랜드</annotation>
+		<annotation cp="🇮🇱">깃발</annotation>
+		<annotation cp="🇮🇱" type="tts">이스라엘</annotation>
+		<annotation cp="🇮🇲">깃발</annotation>
+		<annotation cp="🇮🇲" type="tts">맨 섬</annotation>
+		<annotation cp="🇮🇳">깃발</annotation>
+		<annotation cp="🇮🇳" type="tts">인도</annotation>
+		<annotation cp="🇮🇴">깃발</annotation>
+		<annotation cp="🇮🇴" type="tts">영국령 인도양 식민지</annotation>
+		<annotation cp="🇮🇶">깃발</annotation>
+		<annotation cp="🇮🇶" type="tts">이라크</annotation>
+		<annotation cp="🇮🇷">깃발</annotation>
+		<annotation cp="🇮🇷" type="tts">이란</annotation>
+		<annotation cp="🇮🇸">깃발</annotation>
+		<annotation cp="🇮🇸" type="tts">아이슬란드</annotation>
+		<annotation cp="🇮🇹">깃발</annotation>
+		<annotation cp="🇮🇹" type="tts">이탈리아</annotation>
+		<annotation cp="🇯🇪">깃발</annotation>
+		<annotation cp="🇯🇪" type="tts">저지</annotation>
+		<annotation cp="🇯🇲">깃발</annotation>
+		<annotation cp="🇯🇲" type="tts">자메이카</annotation>
+		<annotation cp="🇯🇴">깃발</annotation>
+		<annotation cp="🇯🇴" type="tts">요르단</annotation>
+		<annotation cp="🇯🇵">깃발</annotation>
+		<annotation cp="🇯🇵" type="tts">일본</annotation>
+		<annotation cp="🇰🇪">깃발</annotation>
+		<annotation cp="🇰🇪" type="tts">케냐</annotation>
+		<annotation cp="🇰🇬">깃발</annotation>
+		<annotation cp="🇰🇬" type="tts">키르기스스탄</annotation>
+		<annotation cp="🇰🇭">깃발</annotation>
+		<annotation cp="🇰🇭" type="tts">캄보디아</annotation>
+		<annotation cp="🇰🇮">깃발</annotation>
+		<annotation cp="🇰🇮" type="tts">키리바시</annotation>
+		<annotation cp="🇰🇲">깃발</annotation>
+		<annotation cp="🇰🇲" type="tts">코모로</annotation>
+		<annotation cp="🇰🇳">깃발</annotation>
+		<annotation cp="🇰🇳" type="tts">세인트키츠 네비스</annotation>
+		<annotation cp="🇰🇵">깃발</annotation>
+		<annotation cp="🇰🇵" type="tts">북한</annotation>
+		<annotation cp="🇰🇷">깃발</annotation>
+		<annotation cp="🇰🇷" type="tts">대한민국</annotation>
+		<annotation cp="🇰🇼">깃발</annotation>
+		<annotation cp="🇰🇼" type="tts">쿠웨이트</annotation>
+		<annotation cp="🇰🇾">깃발</annotation>
+		<annotation cp="🇰🇾" type="tts">케이맨 제도</annotation>
+		<annotation cp="🇰🇿">깃발</annotation>
+		<annotation cp="🇰🇿" type="tts">카자흐스탄</annotation>
+		<annotation cp="🇱🇦">깃발</annotation>
+		<annotation cp="🇱🇦" type="tts">라오스</annotation>
+		<annotation cp="🇱🇧">깃발</annotation>
+		<annotation cp="🇱🇧" type="tts">레바논</annotation>
+		<annotation cp="🇱🇨">깃발</annotation>
+		<annotation cp="🇱🇨" type="tts">세인트루시아</annotation>
+		<annotation cp="🇱🇮">깃발</annotation>
+		<annotation cp="🇱🇮" type="tts">리히텐슈타인</annotation>
+		<annotation cp="🇱🇰">깃발</annotation>
+		<annotation cp="🇱🇰" type="tts">스리랑카</annotation>
+		<annotation cp="🇱🇷">깃발</annotation>
+		<annotation cp="🇱🇷" type="tts">라이베리아</annotation>
+		<annotation cp="🇱🇸">깃발</annotation>
+		<annotation cp="🇱🇸" type="tts">레소토</annotation>
+		<annotation cp="🇱🇹">깃발</annotation>
+		<annotation cp="🇱🇹" type="tts">리투아니아</annotation>
+		<annotation cp="🇱🇺">깃발</annotation>
+		<annotation cp="🇱🇺" type="tts">룩셈부르크</annotation>
+		<annotation cp="🇱🇻">깃발</annotation>
+		<annotation cp="🇱🇻" type="tts">라트비아</annotation>
+		<annotation cp="🇱🇾">깃발</annotation>
+		<annotation cp="🇱🇾" type="tts">리비아</annotation>
+		<annotation cp="🇲🇦">깃발</annotation>
+		<annotation cp="🇲🇦" type="tts">모로코</annotation>
+		<annotation cp="🇲🇨">깃발</annotation>
+		<annotation cp="🇲🇨" type="tts">모나코</annotation>
+		<annotation cp="🇲🇩">깃발</annotation>
+		<annotation cp="🇲🇩" type="tts">몰도바</annotation>
+		<annotation cp="🇲🇪">깃발</annotation>
+		<annotation cp="🇲🇪" type="tts">몬테네그로</annotation>
+		<annotation cp="🇲🇫">깃발</annotation>
+		<annotation cp="🇲🇫" type="tts">생마르탱</annotation>
+		<annotation cp="🇲🇬">깃발</annotation>
+		<annotation cp="🇲🇬" type="tts">마다가스카르</annotation>
+		<annotation cp="🇲🇭">깃발</annotation>
+		<annotation cp="🇲🇭" type="tts">마셜 제도</annotation>
+		<annotation cp="🇲🇰">깃발</annotation>
+		<annotation cp="🇲🇰" type="tts">마케도니아</annotation>
+		<annotation cp="🇲🇱">깃발</annotation>
+		<annotation cp="🇲🇱" type="tts">말리</annotation>
+		<annotation cp="🇲🇲">깃발</annotation>
+		<annotation cp="🇲🇲" type="tts">미얀마</annotation>
+		<annotation cp="🇲🇳">깃발</annotation>
+		<annotation cp="🇲🇳" type="tts">몽골</annotation>
+		<annotation cp="🇲🇴">깃발</annotation>
+		<annotation cp="🇲🇴" type="tts">마카오(중국 특별행정구)</annotation>
+		<annotation cp="🇲🇵">깃발</annotation>
+		<annotation cp="🇲🇵" type="tts">북마리아나제도</annotation>
+		<annotation cp="🇲🇶">깃발</annotation>
+		<annotation cp="🇲🇶" type="tts">마르티니크</annotation>
+		<annotation cp="🇲🇷">깃발</annotation>
+		<annotation cp="🇲🇷" type="tts">모리타니</annotation>
+		<annotation cp="🇲🇸">깃발</annotation>
+		<annotation cp="🇲🇸" type="tts">몬트세라트</annotation>
+		<annotation cp="🇲🇹">깃발</annotation>
+		<annotation cp="🇲🇹" type="tts">몰타</annotation>
+		<annotation cp="🇲🇺">깃발</annotation>
+		<annotation cp="🇲🇺" type="tts">모리셔스</annotation>
+		<annotation cp="🇲🇻">깃발</annotation>
+		<annotation cp="🇲🇻" type="tts">몰디브</annotation>
+		<annotation cp="🇲🇼">깃발</annotation>
+		<annotation cp="🇲🇼" type="tts">말라위</annotation>
+		<annotation cp="🇲🇽">깃발</annotation>
+		<annotation cp="🇲🇽" type="tts">멕시코</annotation>
+		<annotation cp="🇲🇾">깃발</annotation>
+		<annotation cp="🇲🇾" type="tts">말레이시아</annotation>
+		<annotation cp="🇲🇿">깃발</annotation>
+		<annotation cp="🇲🇿" type="tts">모잠비크</annotation>
+		<annotation cp="🇳🇦">깃발</annotation>
+		<annotation cp="🇳🇦" type="tts">나미비아</annotation>
+		<annotation cp="🇳🇨">깃발</annotation>
+		<annotation cp="🇳🇨" type="tts">뉴칼레도니아</annotation>
+		<annotation cp="🇳🇪">깃발</annotation>
+		<annotation cp="🇳🇪" type="tts">니제르</annotation>
+		<annotation cp="🇳🇫">깃발</annotation>
+		<annotation cp="🇳🇫" type="tts">노퍽섬</annotation>
+		<annotation cp="🇳🇬">깃발</annotation>
+		<annotation cp="🇳🇬" type="tts">나이지리아</annotation>
+		<annotation cp="🇳🇮">깃발</annotation>
+		<annotation cp="🇳🇮" type="tts">니카라과</annotation>
+		<annotation cp="🇳🇱">깃발</annotation>
+		<annotation cp="🇳🇱" type="tts">네덜란드</annotation>
+		<annotation cp="🇳🇴">깃발</annotation>
+		<annotation cp="🇳🇴" type="tts">노르웨이</annotation>
+		<annotation cp="🇳🇵">깃발</annotation>
+		<annotation cp="🇳🇵" type="tts">네팔</annotation>
+		<annotation cp="🇳🇷">깃발</annotation>
+		<annotation cp="🇳🇷" type="tts">나우루</annotation>
+		<annotation cp="🇳🇺">깃발</annotation>
+		<annotation cp="🇳🇺" type="tts">니우에</annotation>
+		<annotation cp="🇳🇿">깃발</annotation>
+		<annotation cp="🇳🇿" type="tts">뉴질랜드</annotation>
+		<annotation cp="🇴🇲">깃발</annotation>
+		<annotation cp="🇴🇲" type="tts">오만</annotation>
+		<annotation cp="🇵🇦">깃발</annotation>
+		<annotation cp="🇵🇦" type="tts">파나마</annotation>
+		<annotation cp="🇵🇪">깃발</annotation>
+		<annotation cp="🇵🇪" type="tts">페루</annotation>
+		<annotation cp="🇵🇫">깃발</annotation>
+		<annotation cp="🇵🇫" type="tts">프랑스령 폴리네시아</annotation>
+		<annotation cp="🇵🇬">깃발</annotation>
+		<annotation cp="🇵🇬" type="tts">파푸아뉴기니</annotation>
+		<annotation cp="🇵🇭">깃발</annotation>
+		<annotation cp="🇵🇭" type="tts">필리핀</annotation>
+		<annotation cp="🇵🇰">깃발</annotation>
+		<annotation cp="🇵🇰" type="tts">파키스탄</annotation>
+		<annotation cp="🇵🇱">깃발</annotation>
+		<annotation cp="🇵🇱" type="tts">폴란드</annotation>
+		<annotation cp="🇵🇲">깃발</annotation>
+		<annotation cp="🇵🇲" type="tts">생피에르 미클롱</annotation>
+		<annotation cp="🇵🇳">깃발</annotation>
+		<annotation cp="🇵🇳" type="tts">핏케언 섬</annotation>
+		<annotation cp="🇵🇷">깃발</annotation>
+		<annotation cp="🇵🇷" type="tts">푸에르토리코</annotation>
+		<annotation cp="🇵🇸">깃발</annotation>
+		<annotation cp="🇵🇸" type="tts">팔레스타인 지구</annotation>
+		<annotation cp="🇵🇹">깃발</annotation>
+		<annotation cp="🇵🇹" type="tts">포르투갈</annotation>
+		<annotation cp="🇵🇼">깃발</annotation>
+		<annotation cp="🇵🇼" type="tts">팔라우</annotation>
+		<annotation cp="🇵🇾">깃발</annotation>
+		<annotation cp="🇵🇾" type="tts">파라과이</annotation>
+		<annotation cp="🇶🇦">깃발</annotation>
+		<annotation cp="🇶🇦" type="tts">카타르</annotation>
+		<annotation cp="🇷🇪">깃발</annotation>
+		<annotation cp="🇷🇪" type="tts">리유니온</annotation>
+		<annotation cp="🇷🇴">깃발</annotation>
+		<annotation cp="🇷🇴" type="tts">루마니아</annotation>
+		<annotation cp="🇷🇸">깃발</annotation>
+		<annotation cp="🇷🇸" type="tts">세르비아</annotation>
+		<annotation cp="🇷🇺">깃발</annotation>
+		<annotation cp="🇷🇺" type="tts">러시아</annotation>
+		<annotation cp="🇷🇼">깃발</annotation>
+		<annotation cp="🇷🇼" type="tts">르완다</annotation>
+		<annotation cp="🇸🇦">깃발</annotation>
+		<annotation cp="🇸🇦" type="tts">사우디아라비아</annotation>
+		<annotation cp="🇸🇧">깃발</annotation>
+		<annotation cp="🇸🇧" type="tts">솔로몬 제도</annotation>
+		<annotation cp="🇸🇨">깃발</annotation>
+		<annotation cp="🇸🇨" type="tts">세이셸</annotation>
+		<annotation cp="🇸🇩">깃발</annotation>
+		<annotation cp="🇸🇩" type="tts">수단</annotation>
+		<annotation cp="🇸🇪">깃발</annotation>
+		<annotation cp="🇸🇪" type="tts">스웨덴</annotation>
+		<annotation cp="🇸🇬">깃발</annotation>
+		<annotation cp="🇸🇬" type="tts">싱가포르</annotation>
+		<annotation cp="🇸🇭">깃발</annotation>
+		<annotation cp="🇸🇭" type="tts">세인트헬레나</annotation>
+		<annotation cp="🇸🇮">깃발</annotation>
+		<annotation cp="🇸🇮" type="tts">슬로베니아</annotation>
+		<annotation cp="🇸🇯">깃발</annotation>
+		<annotation cp="🇸🇯" type="tts">스발바르제도-얀마웬섬</annotation>
+		<annotation cp="🇸🇰">깃발</annotation>
+		<annotation cp="🇸🇰" type="tts">슬로바키아</annotation>
+		<annotation cp="🇸🇱">깃발</annotation>
+		<annotation cp="🇸🇱" type="tts">시에라리온</annotation>
+		<annotation cp="🇸🇲">깃발</annotation>
+		<annotation cp="🇸🇲" type="tts">산마리노</annotation>
+		<annotation cp="🇸🇳">깃발</annotation>
+		<annotation cp="🇸🇳" type="tts">세네갈</annotation>
+		<annotation cp="🇸🇴">깃발</annotation>
+		<annotation cp="🇸🇴" type="tts">소말리아</annotation>
+		<annotation cp="🇸🇷">깃발</annotation>
+		<annotation cp="🇸🇷" type="tts">수리남</annotation>
+		<annotation cp="🇸🇸">깃발</annotation>
+		<annotation cp="🇸🇸" type="tts">남수단</annotation>
+		<annotation cp="🇸🇹">깃발</annotation>
+		<annotation cp="🇸🇹" type="tts">상투메 프린시페</annotation>
+		<annotation cp="🇸🇻">깃발</annotation>
+		<annotation cp="🇸🇻" type="tts">엘살바도르</annotation>
+		<annotation cp="🇸🇽">깃발</annotation>
+		<annotation cp="🇸🇽" type="tts">신트마르턴</annotation>
+		<annotation cp="🇸🇾">깃발</annotation>
+		<annotation cp="🇸🇾" type="tts">시리아</annotation>
+		<annotation cp="🇸🇿">깃발</annotation>
+		<annotation cp="🇸🇿" type="tts">스와질란드</annotation>
+		<annotation cp="🇹🇦">깃발</annotation>
+		<annotation cp="🇹🇦" type="tts">트리스탄다쿠나</annotation>
+		<annotation cp="🇹🇨">깃발</annotation>
+		<annotation cp="🇹🇨" type="tts">터크스 케이커스 제도</annotation>
+		<annotation cp="🇹🇩">깃발</annotation>
+		<annotation cp="🇹🇩" type="tts">차드</annotation>
+		<annotation cp="🇹🇫">깃발</annotation>
+		<annotation cp="🇹🇫" type="tts">프랑스 남부 지방</annotation>
+		<annotation cp="🇹🇬">깃발</annotation>
+		<annotation cp="🇹🇬" type="tts">토고</annotation>
+		<annotation cp="🇹🇭">깃발</annotation>
+		<annotation cp="🇹🇭" type="tts">태국</annotation>
+		<annotation cp="🇹🇯">깃발</annotation>
+		<annotation cp="🇹🇯" type="tts">타지키스탄</annotation>
+		<annotation cp="🇹🇰">깃발</annotation>
+		<annotation cp="🇹🇰" type="tts">토켈라우</annotation>
+		<annotation cp="🇹🇱">깃발</annotation>
+		<annotation cp="🇹🇱" type="tts">동티모르</annotation>
+		<annotation cp="🇹🇲">깃발</annotation>
+		<annotation cp="🇹🇲" type="tts">투르크메니스탄</annotation>
+		<annotation cp="🇹🇳">깃발</annotation>
+		<annotation cp="🇹🇳" type="tts">튀니지</annotation>
+		<annotation cp="🇹🇴">깃발</annotation>
+		<annotation cp="🇹🇴" type="tts">통가</annotation>
+		<annotation cp="🇹🇷">깃발</annotation>
+		<annotation cp="🇹🇷" type="tts">터키</annotation>
+		<annotation cp="🇹🇹">깃발</annotation>
+		<annotation cp="🇹🇹" type="tts">트리니다드 토바고</annotation>
+		<annotation cp="🇹🇻">깃발</annotation>
+		<annotation cp="🇹🇻" type="tts">투발루</annotation>
+		<annotation cp="🇹🇼">깃발</annotation>
+		<annotation cp="🇹🇼" type="tts">대만</annotation>
+		<annotation cp="🇹🇿">깃발</annotation>
+		<annotation cp="🇹🇿" type="tts">탄자니아</annotation>
+		<annotation cp="🇺🇦">깃발</annotation>
+		<annotation cp="🇺🇦" type="tts">우크라이나</annotation>
+		<annotation cp="🇺🇬">깃발</annotation>
+		<annotation cp="🇺🇬" type="tts">우간다</annotation>
+		<annotation cp="🇺🇲">깃발</annotation>
+		<annotation cp="🇺🇲" type="tts">미국령 해외 제도</annotation>
+		<annotation cp="🇺🇳">깃발</annotation>
+		<annotation cp="🇺🇳" type="tts">유엔</annotation>
+		<annotation cp="🇺🇸">깃발</annotation>
+		<annotation cp="🇺🇸" type="tts">미국</annotation>
+		<annotation cp="🇺🇾">깃발</annotation>
+		<annotation cp="🇺🇾" type="tts">우루과이</annotation>
+		<annotation cp="🇺🇿">깃발</annotation>
+		<annotation cp="🇺🇿" type="tts">우즈베키스탄</annotation>
+		<annotation cp="🇻🇦">깃발</annotation>
+		<annotation cp="🇻🇦" type="tts">바티칸 시국</annotation>
+		<annotation cp="🇻🇨">깃발</annotation>
+		<annotation cp="🇻🇨" type="tts">세인트빈센트그레나딘</annotation>
+		<annotation cp="🇻🇪">깃발</annotation>
+		<annotation cp="🇻🇪" type="tts">베네수엘라</annotation>
+		<annotation cp="🇻🇬">깃발</annotation>
+		<annotation cp="🇻🇬" type="tts">영국령 버진아일랜드</annotation>
+		<annotation cp="🇻🇮">깃발</annotation>
+		<annotation cp="🇻🇮" type="tts">미국령 버진아일랜드</annotation>
+		<annotation cp="🇻🇳">깃발</annotation>
+		<annotation cp="🇻🇳" type="tts">베트남</annotation>
+		<annotation cp="🇻🇺">깃발</annotation>
+		<annotation cp="🇻🇺" type="tts">바누아투</annotation>
+		<annotation cp="🇼🇫">깃발</annotation>
+		<annotation cp="🇼🇫" type="tts">왈리스-푸투나 제도</annotation>
+		<annotation cp="🇼🇸">깃발</annotation>
+		<annotation cp="🇼🇸" type="tts">사모아</annotation>
+		<annotation cp="🇽🇰">깃발</annotation>
+		<annotation cp="🇽🇰" type="tts">코소보</annotation>
+		<annotation cp="🇾🇪">깃발</annotation>
+		<annotation cp="🇾🇪" type="tts">예멘</annotation>
+		<annotation cp="🇾🇹">깃발</annotation>
+		<annotation cp="🇾🇹" type="tts">마요트</annotation>
+		<annotation cp="🇿🇦">깃발</annotation>
+		<annotation cp="🇿🇦" type="tts">남아프리카</annotation>
+		<annotation cp="🇿🇲">깃발</annotation>
+		<annotation cp="🇿🇲" type="tts">잠비아</annotation>
+		<annotation cp="🇿🇼">깃발</annotation>
+		<annotation cp="🇿🇼" type="tts">짐바브웨</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">깃발</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">잉글랜드</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">깃발</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">스코틀랜드</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">깃발</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">웨일즈</annotation>
+	</annotations>
+</ldml>

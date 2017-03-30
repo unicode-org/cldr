@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="el"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | μηδέν | πλήκτρο</annotation>
+		<annotation cp="0⃣" type="tts">πλήκτρο 0</annotation>
+		<annotation cp="1⃣">1 | ένα | πλήκτρο</annotation>
+		<annotation cp="1⃣" type="tts">πλήκτρο 1</annotation>
+		<annotation cp="2⃣">2 | δύο | πλήκτρο</annotation>
+		<annotation cp="2⃣" type="tts">πλήκτρο 2</annotation>
+		<annotation cp="3⃣">3 | πλήκτρο | τρία</annotation>
+		<annotation cp="3⃣" type="tts">πλήκτρο 3</annotation>
+		<annotation cp="4⃣">4 | πλήκτρο | τέσσερα</annotation>
+		<annotation cp="4⃣" type="tts">πλήκτρο 4</annotation>
+		<annotation cp="5⃣">5 | πέντε | πλήκτρο</annotation>
+		<annotation cp="5⃣" type="tts">πλήκτρο 5</annotation>
+		<annotation cp="6⃣">6 | έξι | πλήκτρο</annotation>
+		<annotation cp="6⃣" type="tts">πλήκτρο 6</annotation>
+		<annotation cp="7⃣">7 | επτά | πλήκτρο</annotation>
+		<annotation cp="7⃣" type="tts">πλήκτρο 7</annotation>
+		<annotation cp="8⃣">8 | οκτώ | πλήκτρο</annotation>
+		<annotation cp="8⃣" type="tts">πλήκτρο 8</annotation>
+		<annotation cp="9⃣">9 | εννιά | πλήκτρο</annotation>
+		<annotation cp="9⃣" type="tts">πλήκτρο 9</annotation>
+		<annotation cp="👶🏻">μωρό | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👶🏻" type="tts">μωρό: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👶🏼">μωρό | δέρμα τύπος-3</annotation>
+		<annotation cp="👶🏼" type="tts">μωρό: δέρμα τύπος-3</annotation>
+		<annotation cp="👶🏽">μωρό | δέρμα τύπος-4</annotation>
+		<annotation cp="👶🏽" type="tts">μωρό: δέρμα τύπος-4</annotation>
+		<annotation cp="👶🏾">μωρό | δέρμα τύπος-5</annotation>
+		<annotation cp="👶🏾" type="tts">μωρό: δέρμα τύπος-5</annotation>
+		<annotation cp="👶🏿">μωρό | δέρμα τύπος-6</annotation>
+		<annotation cp="👶🏿" type="tts">μωρό: δέρμα τύπος-6</annotation>
+		<annotation cp="👦🏻">αγόρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👦🏻" type="tts">αγόρι: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👦🏼">αγόρι | δέρμα τύπος-3</annotation>
+		<annotation cp="👦🏼" type="tts">αγόρι: δέρμα τύπος-3</annotation>
+		<annotation cp="👦🏽">αγόρι | δέρμα τύπος-4</annotation>
+		<annotation cp="👦🏽" type="tts">αγόρι: δέρμα τύπος-4</annotation>
+		<annotation cp="👦🏾">αγόρι | δέρμα τύπος-5</annotation>
+		<annotation cp="👦🏾" type="tts">αγόρι: δέρμα τύπος-5</annotation>
+		<annotation cp="👦🏿">αγόρι | δέρμα τύπος-6</annotation>
+		<annotation cp="👦🏿" type="tts">αγόρι: δέρμα τύπος-6</annotation>
+		<annotation cp="👧🏻">ζώδιο | κόρη | παρθένα | παρθένος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👧🏻" type="tts">κορίτσι: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👧🏼">ζώδιο | κόρη | παρθένα | παρθένος | δέρμα τύπος-3</annotation>
+		<annotation cp="👧🏼" type="tts">κορίτσι: δέρμα τύπος-3</annotation>
+		<annotation cp="👧🏽">ζώδιο | κόρη | παρθένα | παρθένος | δέρμα τύπος-4</annotation>
+		<annotation cp="👧🏽" type="tts">κορίτσι: δέρμα τύπος-4</annotation>
+		<annotation cp="👧🏾">ζώδιο | κόρη | παρθένα | παρθένος | δέρμα τύπος-5</annotation>
+		<annotation cp="👧🏾" type="tts">κορίτσι: δέρμα τύπος-5</annotation>
+		<annotation cp="👧🏿">ζώδιο | κόρη | παρθένα | παρθένος | δέρμα τύπος-6</annotation>
+		<annotation cp="👧🏿" type="tts">κορίτσι: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻">άντρας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻" type="tts">άντρας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼">άντρας | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼" type="tts">άντρας: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽">άντρας | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽" type="tts">άντρας: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾">άντρας | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾" type="tts">άντρας: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿">άντρας | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿" type="tts">άντρας: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻">γυναίκα | κορίτσι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻" type="tts">γυναίκα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼">γυναίκα | κορίτσι | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼" type="tts">γυναίκα: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽">γυναίκα | κορίτσι | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽" type="tts">γυναίκα: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾">γυναίκα | κορίτσι | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾" type="tts">γυναίκα: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿">γυναίκα | κορίτσι | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿" type="tts">γυναίκα: δέρμα τύπος-6</annotation>
+		<annotation cp="👴🏻">άνδρας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👴🏻" type="tts">γέρος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👴🏼">άνδρας | δέρμα τύπος-3</annotation>
+		<annotation cp="👴🏼" type="tts">γέρος: δέρμα τύπος-3</annotation>
+		<annotation cp="👴🏽">άνδρας | δέρμα τύπος-4</annotation>
+		<annotation cp="👴🏽" type="tts">γέρος: δέρμα τύπος-4</annotation>
+		<annotation cp="👴🏾">άνδρας | δέρμα τύπος-5</annotation>
+		<annotation cp="👴🏾" type="tts">γέρος: δέρμα τύπος-5</annotation>
+		<annotation cp="👴🏿">άνδρας | δέρμα τύπος-6</annotation>
+		<annotation cp="👴🏿" type="tts">γέρος: δέρμα τύπος-6</annotation>
+		<annotation cp="👵🏻">γυναίκα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👵🏻" type="tts">γριά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👵🏼">γυναίκα | δέρμα τύπος-3</annotation>
+		<annotation cp="👵🏼" type="tts">γριά: δέρμα τύπος-3</annotation>
+		<annotation cp="👵🏽">γυναίκα | δέρμα τύπος-4</annotation>
+		<annotation cp="👵🏽" type="tts">γριά: δέρμα τύπος-4</annotation>
+		<annotation cp="👵🏾">γυναίκα | δέρμα τύπος-5</annotation>
+		<annotation cp="👵🏾" type="tts">γριά: δέρμα τύπος-5</annotation>
+		<annotation cp="👵🏿">γυναίκα | δέρμα τύπος-6</annotation>
+		<annotation cp="👵🏿" type="tts">γριά: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍⚕">γιατρός | νοσηλευτής | νοσοκόμος | υγεία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">εργαζόμενος στην υγεία: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍⚕">γιατρός | νοσηλευτής | νοσοκόμος | υγεία | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">εργαζόμενος στην υγεία: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍⚕">γιατρός | νοσηλευτής | νοσοκόμος | υγεία | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">εργαζόμενος στην υγεία: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍⚕">γιατρός | νοσηλευτής | νοσοκόμος | υγεία | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">εργαζόμενος στην υγεία: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍⚕">γιατρός | νοσηλευτής | νοσοκόμος | υγεία | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">εργαζόμενος στην υγεία: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍⚕">γιατρός | νοσηλεύτρια | νοσοκόμα | υγεία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">εργαζόμενη στην υγεία: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍⚕">γιατρός | νοσηλεύτρια | νοσοκόμα | υγεία | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">εργαζόμενη στην υγεία: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍⚕">γιατρός | νοσηλεύτρια | νοσοκόμα | υγεία | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">εργαζόμενη στην υγεία: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍⚕">γιατρός | νοσηλεύτρια | νοσοκόμα | υγεία | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">εργαζόμενη στην υγεία: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍⚕">γιατρός | νοσηλεύτρια | νοσοκόμα | υγεία | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">εργαζόμενη στην υγεία: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🎓">άντρας | απόφοιτος | πανεπιστήμιο | φοιτητής | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">φοιτητής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🎓">άντρας | απόφοιτος | πανεπιστήμιο | φοιτητής | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">φοιτητής: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🎓">άντρας | απόφοιτος | πανεπιστήμιο | φοιτητής | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">φοιτητής: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🎓">άντρας | απόφοιτος | πανεπιστήμιο | φοιτητής | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">φοιτητής: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🎓">άντρας | απόφοιτος | πανεπιστήμιο | φοιτητής | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">φοιτητής: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🎓">απόφοιτη | γυναίκα | πανεπιστήμιο | φοιτήτρια | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">φοιτήτρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🎓">απόφοιτη | γυναίκα | πανεπιστήμιο | φοιτήτρια | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">φοιτήτρια: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🎓">απόφοιτη | γυναίκα | πανεπιστήμιο | φοιτήτρια | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">φοιτήτρια: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🎓">απόφοιτη | γυναίκα | πανεπιστήμιο | φοιτήτρια | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">φοιτήτρια: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🎓">απόφοιτη | γυναίκα | πανεπιστήμιο | φοιτήτρια | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">φοιτήτρια: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🏫">άντρας | εκπαίδευση | καθηγητής | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">δάσκαλος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🏫">άντρας | εκπαίδευση | καθηγητής | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">δάσκαλος: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🏫">άντρας | εκπαίδευση | καθηγητής | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">δάσκαλος: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🏫">άντρας | εκπαίδευση | καθηγητής | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">δάσκαλος: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🏫">άντρας | εκπαίδευση | καθηγητής | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">δάσκαλος: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🏫">γυναίκα | εκπαίδευση | καθηγήτρια | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">δασκάλα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🏫">γυναίκα | εκπαίδευση | καθηγήτρια | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">δασκάλα: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🏫">γυναίκα | εκπαίδευση | καθηγήτρια | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">δασκάλα: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🏫">γυναίκα | εκπαίδευση | καθηγήτρια | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">δασκάλα: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🏫">γυναίκα | εκπαίδευση | καθηγήτρια | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">δασκάλα: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍⚖">άντρας | δικαστήριο | δικαστής | νομική | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">άντρας δικαστής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍⚖">άντρας | δικαστήριο | δικαστής | νομική | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">άντρας δικαστής: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍⚖">άντρας | δικαστήριο | δικαστής | νομική | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">άντρας δικαστής: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍⚖">άντρας | δικαστήριο | δικαστής | νομική | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">άντρας δικαστής: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍⚖">άντρας | δικαστήριο | δικαστής | νομική | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">άντρας δικαστής: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍⚖">γυναίκα | δικαστήριο | δικαστής | νομική | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">γυναίκα δικαστής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍⚖">γυναίκα | δικαστήριο | δικαστής | νομική | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">γυναίκα δικαστής: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍⚖">γυναίκα | δικαστήριο | δικαστής | νομική | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">γυναίκα δικαστής: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍⚖">γυναίκα | δικαστήριο | δικαστής | νομική | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">γυναίκα δικαστής: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍⚖">γυναίκα | δικαστήριο | δικαστής | νομική | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">γυναίκα δικαστής: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🌾">άντρας | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">αγρότης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🌾">άντρας | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">αγρότης: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🌾">άντρας | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">αγρότης: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🌾">άντρας | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">αγρότης: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🌾">άντρας | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">αγρότης: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🌾">γυναίκα | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">αγρότισσα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🌾">γυναίκα | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">αγρότισσα: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🌾">γυναίκα | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">αγρότισσα: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🌾">γυναίκα | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">αγρότισσα: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🌾">γυναίκα | κήπος | καλλιέργεια | κηπουρός | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">αγρότισσα: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🍳">άντρας | μαγειρική | σεφ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">μάγειρας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🍳">άντρας | μαγειρική | σεφ | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">μάγειρας: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🍳">άντρας | μαγειρική | σεφ | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">μάγειρας: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🍳">άντρας | μαγειρική | σεφ | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">μάγειρας: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🍳">άντρας | μαγειρική | σεφ | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">μάγειρας: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🍳">γυναίκα | μαγειρική | σεφ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">μαγείρισσα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🍳">γυναίκα | μαγειρική | σεφ | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">μαγείρισσα: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🍳">γυναίκα | μαγειρική | σεφ | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">μαγείρισσα: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🍳">γυναίκα | μαγειρική | σεφ | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">μαγείρισσα: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🍳">γυναίκα | μαγειρική | σεφ | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">μαγείρισσα: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🔧">άντρας | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">άντρας μηχανικός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🔧">άντρας | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">άντρας μηχανικός: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🔧">άντρας | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">άντρας μηχανικός: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🔧">άντρας | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">άντρας μηχανικός: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🔧">άντρας | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">άντρας μηχανικός: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🔧">γυναίκα | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">γυναίκα μηχανικός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🔧">γυναίκα | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">γυναίκα μηχανικός: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🔧">γυναίκα | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">γυναίκα μηχανικός: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🔧">γυναίκα | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">γυναίκα μηχανικός: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🔧">γυναίκα | ηλεκτρολόγος | μηχανικός | υδραυλικός | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">γυναίκα μηχανικός: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🏭">άντρας | εργάτης | εργοστάσιο | οικοδομή | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">εργάτης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🏭">άντρας | εργάτης | εργοστάσιο | οικοδομή | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">εργάτης: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🏭">άντρας | εργάτης | εργοστάσιο | οικοδομή | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">εργάτης: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🏭">άντρας | εργάτης | εργοστάσιο | οικοδομή | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">εργάτης: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🏭">άντρας | εργάτης | εργοστάσιο | οικοδομή | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">εργάτης: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🏭">γυναίκα | εργάτρια | εργοστάσιο | οικοδομή | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">εργάτρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🏭">γυναίκα | εργάτρια | εργοστάσιο | οικοδομή | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">εργάτρια: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🏭">γυναίκα | εργάτρια | εργοστάσιο | οικοδομή | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">εργάτρια: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🏭">γυναίκα | εργάτρια | εργοστάσιο | οικοδομή | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">εργάτρια: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🏭">γυναίκα | εργάτρια | εργοστάσιο | οικοδομή | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">εργάτρια: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">άντρας υπάλληλος γραφείου: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">άντρας υπάλληλος γραφείου: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">άντρας υπάλληλος γραφείου: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">άντρας υπάλληλος γραφείου: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">άντρας υπάλληλος γραφείου: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">γυναίκα υπάλληλος γραφείου: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">γυναίκα υπάλληλος γραφείου: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">γυναίκα υπάλληλος γραφείου: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">γυναίκα υπάλληλος γραφείου: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍💼">γραφείο | επιχείρηση | εταιρία | υπάλληλος | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">γυναίκα υπάλληλος γραφείου: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">άντρας επιστήμονας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">άντρας επιστήμονας: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">άντρας επιστήμονας: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">άντρας επιστήμονας: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">άντρας επιστήμονας: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">γυναίκα επιστήμονας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">γυναίκα επιστήμονας: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">γυναίκα επιστήμονας: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">γυναίκα επιστήμονας: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🔬">έρευνα | βιολόγος | επιστήμονας | χημικός | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">γυναίκα επιστήμονας: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍💻">πληροφορική | προγραμματιστής | τεχνολογία | υπολογιστής | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">άντρας τεχνολόγος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍💻">πληροφορική | προγραμματιστής | τεχνολογία | υπολογιστής | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">άντρας τεχνολόγος: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍💻">πληροφορική | προγραμματιστής | τεχνολογία | υπολογιστής | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">άντρας τεχνολόγος: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍💻">πληροφορική | προγραμματιστής | τεχνολογία | υπολογιστής | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">άντρας τεχνολόγος: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍💻">πληροφορική | προγραμματιστής | τεχνολογία | υπολογιστής | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">άντρας τεχνολόγος: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍💻">πληροφορική | προγραμματίστρια | τεχνολογία | υπολογιστής | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">γυναίκα τεχνολόγος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍💻">πληροφορική | προγραμματίστρια | τεχνολογία | υπολογιστής | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">γυναίκα τεχνολόγος: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍💻">πληροφορική | προγραμματίστρια | τεχνολογία | υπολογιστής | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">γυναίκα τεχνολόγος: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍💻">πληροφορική | προγραμματίστρια | τεχνολογία | υπολογιστής | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">γυναίκα τεχνολόγος: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍💻">πληροφορική | προγραμματίστρια | τεχνολογία | υπολογιστής | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">γυναίκα τεχνολόγος: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🎤">άντρας | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">τραγουδιστής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🎤">άντρας | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">τραγουδιστής: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🎤">άντρας | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">τραγουδιστής: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🎤">άντρας | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">τραγουδιστής: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🎤">άντρας | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">τραγουδιστής: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🎤">γυναίκα | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">τραγουδίστρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🎤">γυναίκα | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">τραγουδίστρια: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🎤">γυναίκα | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">τραγουδίστρια: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🎤">γυναίκα | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">τραγουδίστρια: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🎤">γυναίκα | διασκέδαση | ροκ | τραγούδι | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">τραγουδίστρια: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🎨">άντρας | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">άντρας καλλιτέχνης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🎨">άντρας | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">άντρας καλλιτέχνης: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🎨">άντρας | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">άντρας καλλιτέχνης: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🎨">άντρας | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">άντρας καλλιτέχνης: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🎨">άντρας | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">άντρας καλλιτέχνης: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🎨">γυναίκα | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">γυναίκα καλλιτέχνης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🎨">γυναίκα | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">γυναίκα καλλιτέχνης: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🎨">γυναίκα | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">γυναίκα καλλιτέχνης: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🎨">γυναίκα | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">γυναίκα καλλιτέχνης: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🎨">γυναίκα | ζωγράφος | καλλιτέχνης | πινέλα | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">γυναίκα καλλιτέχνης: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍✈">άντρας | αεροπλάνο | πιλότος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">άντρας πιλότος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍✈">άντρας | αεροπλάνο | πιλότος | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">άντρας πιλότος: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍✈">άντρας | αεροπλάνο | πιλότος | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">άντρας πιλότος: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍✈">άντρας | αεροπλάνο | πιλότος | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">άντρας πιλότος: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍✈">άντρας | αεροπλάνο | πιλότος | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">άντρας πιλότος: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍✈">αεροπλάνο | γυναίκα | πιλότος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">γυναίκα πιλότος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍✈">αεροπλάνο | γυναίκα | πιλότος | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">γυναίκα πιλότος: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍✈">αεροπλάνο | γυναίκα | πιλότος | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">γυναίκα πιλότος: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍✈">αεροπλάνο | γυναίκα | πιλότος | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">γυναίκα πιλότος: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍✈">αεροπλάνο | γυναίκα | πιλότος | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">γυναίκα πιλότος: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🚀">άντρας | αστροναύτης | διάστημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">άντρας αστροναύτης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🚀">άντρας | αστροναύτης | διάστημα | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">άντρας αστροναύτης: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🚀">άντρας | αστροναύτης | διάστημα | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">άντρας αστροναύτης: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🚀">άντρας | αστροναύτης | διάστημα | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">άντρας αστροναύτης: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🚀">άντρας | αστροναύτης | διάστημα | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">άντρας αστροναύτης: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🚀">αστροναύτης | γυναίκα | διάστημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">γυναίκα αστροναύτης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🚀">αστροναύτης | γυναίκα | διάστημα | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">γυναίκα αστροναύτης: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🚀">αστροναύτης | γυναίκα | διάστημα | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">γυναίκα αστροναύτης: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🚀">αστροναύτης | γυναίκα | διάστημα | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">γυναίκα αστροναύτης: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🚀">αστροναύτης | γυναίκα | διάστημα | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">γυναίκα αστροναύτης: δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏻‍🚒">άντρας | πυροσβέστης | πυροσβεστική | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">άντρας πυροσβέστης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👨🏼‍🚒">άντρας | πυροσβέστης | πυροσβεστική | δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">άντρας πυροσβέστης: δέρμα τύπος-3</annotation>
+		<annotation cp="👨🏽‍🚒">άντρας | πυροσβέστης | πυροσβεστική | δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">άντρας πυροσβέστης: δέρμα τύπος-4</annotation>
+		<annotation cp="👨🏾‍🚒">άντρας | πυροσβέστης | πυροσβεστική | δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">άντρας πυροσβέστης: δέρμα τύπος-5</annotation>
+		<annotation cp="👨🏿‍🚒">άντρας | πυροσβέστης | πυροσβεστική | δέρμα τύπος-6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">άντρας πυροσβέστης: δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏻‍🚒">γυναίκα | πυροσβέστης | πυροσβεστική | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">γυναίκα πυροσβέστης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👩🏼‍🚒">γυναίκα | πυροσβέστης | πυροσβεστική | δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">γυναίκα πυροσβέστης: δέρμα τύπος-3</annotation>
+		<annotation cp="👩🏽‍🚒">γυναίκα | πυροσβέστης | πυροσβεστική | δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">γυναίκα πυροσβέστης: δέρμα τύπος-4</annotation>
+		<annotation cp="👩🏾‍🚒">γυναίκα | πυροσβέστης | πυροσβεστική | δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">γυναίκα πυροσβέστης: δέρμα τύπος-5</annotation>
+		<annotation cp="👩🏿‍🚒">γυναίκα | πυροσβέστης | πυροσβεστική | δέρμα τύπος-6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">γυναίκα πυροσβέστης: δέρμα τύπος-6</annotation>
+		<annotation cp="👮🏻">αστυνόμος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👮🏻" type="tts">αστυνομικός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👮🏼">αστυνόμος | δέρμα τύπος-3</annotation>
+		<annotation cp="👮🏼" type="tts">αστυνομικός: δέρμα τύπος-3</annotation>
+		<annotation cp="👮🏽">αστυνόμος | δέρμα τύπος-4</annotation>
+		<annotation cp="👮🏽" type="tts">αστυνομικός: δέρμα τύπος-4</annotation>
+		<annotation cp="👮🏾">αστυνόμος | δέρμα τύπος-5</annotation>
+		<annotation cp="👮🏾" type="tts">αστυνομικός: δέρμα τύπος-5</annotation>
+		<annotation cp="👮🏿">αστυνόμος | δέρμα τύπος-6</annotation>
+		<annotation cp="👮🏿" type="tts">αστυνομικός: δέρμα τύπος-6</annotation>
+		<annotation cp="👮🏻‍♂">άντρας | αστυνομία | αστυνομικός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">άντρας αστυνομικός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👮🏼‍♂">άντρας | αστυνομία | αστυνομικός | δέρμα τύπος-3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">άντρας αστυνομικός: δέρμα τύπος-3</annotation>
+		<annotation cp="👮🏽‍♂">άντρας | αστυνομία | αστυνομικός | δέρμα τύπος-4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">άντρας αστυνομικός: δέρμα τύπος-4</annotation>
+		<annotation cp="👮🏾‍♂">άντρας | αστυνομία | αστυνομικός | δέρμα τύπος-5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">άντρας αστυνομικός: δέρμα τύπος-5</annotation>
+		<annotation cp="👮🏿‍♂">άντρας | αστυνομία | αστυνομικός | δέρμα τύπος-6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">άντρας αστυνομικός: δέρμα τύπος-6</annotation>
+		<annotation cp="👮🏻‍♀">αστυνομία | αστυνομικός | γυναίκα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">γυναίκα αστυνομικός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👮🏼‍♀">αστυνομία | αστυνομικός | γυναίκα | δέρμα τύπος-3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">γυναίκα αστυνομικός: δέρμα τύπος-3</annotation>
+		<annotation cp="👮🏽‍♀">αστυνομία | αστυνομικός | γυναίκα | δέρμα τύπος-4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">γυναίκα αστυνομικός: δέρμα τύπος-4</annotation>
+		<annotation cp="👮🏾‍♀">αστυνομία | αστυνομικός | γυναίκα | δέρμα τύπος-5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">γυναίκα αστυνομικός: δέρμα τύπος-5</annotation>
+		<annotation cp="👮🏿‍♀">αστυνομία | αστυνομικός | γυναίκα | δέρμα τύπος-6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">γυναίκα αστυνομικός: δέρμα τύπος-6</annotation>
+		<annotation cp="🕵🏻">κατάσκοπος | πράκτορας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕵🏻" type="tts">ντετέκτιβ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕵🏼">κατάσκοπος | πράκτορας | δέρμα τύπος-3</annotation>
+		<annotation cp="🕵🏼" type="tts">ντετέκτιβ: δέρμα τύπος-3</annotation>
+		<annotation cp="🕵🏽">κατάσκοπος | πράκτορας | δέρμα τύπος-4</annotation>
+		<annotation cp="🕵🏽" type="tts">ντετέκτιβ: δέρμα τύπος-4</annotation>
+		<annotation cp="🕵🏾">κατάσκοπος | πράκτορας | δέρμα τύπος-5</annotation>
+		<annotation cp="🕵🏾" type="tts">ντετέκτιβ: δέρμα τύπος-5</annotation>
+		<annotation cp="🕵🏿">κατάσκοπος | πράκτορας | δέρμα τύπος-6</annotation>
+		<annotation cp="🕵🏿" type="tts">ντετέκτιβ: δέρμα τύπος-6</annotation>
+		<annotation cp="🕵🏻‍♂">άντρας | ντετέκτιβ | πράκτορας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">άντρας ντετέκτιβ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕵🏼‍♂">άντρας | ντετέκτιβ | πράκτορας | δέρμα τύπος-3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">άντρας ντετέκτιβ: δέρμα τύπος-3</annotation>
+		<annotation cp="🕵🏽‍♂">άντρας | ντετέκτιβ | πράκτορας | δέρμα τύπος-4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">άντρας ντετέκτιβ: δέρμα τύπος-4</annotation>
+		<annotation cp="🕵🏾‍♂">άντρας | ντετέκτιβ | πράκτορας | δέρμα τύπος-5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">άντρας ντετέκτιβ: δέρμα τύπος-5</annotation>
+		<annotation cp="🕵🏿‍♂">άντρας | ντετέκτιβ | πράκτορας | δέρμα τύπος-6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">άντρας ντετέκτιβ: δέρμα τύπος-6</annotation>
+		<annotation cp="🕵🏻‍♀">γυναίκα | ντετέκτιβ | πράκτορας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">γυναίκα ντετέκτιβ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕵🏼‍♀">γυναίκα | ντετέκτιβ | πράκτορας | δέρμα τύπος-3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">γυναίκα ντετέκτιβ: δέρμα τύπος-3</annotation>
+		<annotation cp="🕵🏽‍♀">γυναίκα | ντετέκτιβ | πράκτορας | δέρμα τύπος-4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">γυναίκα ντετέκτιβ: δέρμα τύπος-4</annotation>
+		<annotation cp="🕵🏾‍♀">γυναίκα | ντετέκτιβ | πράκτορας | δέρμα τύπος-5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">γυναίκα ντετέκτιβ: δέρμα τύπος-5</annotation>
+		<annotation cp="🕵🏿‍♀">γυναίκα | ντετέκτιβ | πράκτορας | δέρμα τύπος-6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">γυναίκα ντετέκτιβ: δέρμα τύπος-6</annotation>
+		<annotation cp="💂🏻">φρουρά | φύλακας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💂🏻" type="tts">υπεύθυνος φρουράς: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💂🏼">φρουρά | φύλακας | δέρμα τύπος-3</annotation>
+		<annotation cp="💂🏼" type="tts">υπεύθυνος φρουράς: δέρμα τύπος-3</annotation>
+		<annotation cp="💂🏽">φρουρά | φύλακας | δέρμα τύπος-4</annotation>
+		<annotation cp="💂🏽" type="tts">υπεύθυνος φρουράς: δέρμα τύπος-4</annotation>
+		<annotation cp="💂🏾">φρουρά | φύλακας | δέρμα τύπος-5</annotation>
+		<annotation cp="💂🏾" type="tts">υπεύθυνος φρουράς: δέρμα τύπος-5</annotation>
+		<annotation cp="💂🏿">φρουρά | φύλακας | δέρμα τύπος-6</annotation>
+		<annotation cp="💂🏿" type="tts">υπεύθυνος φρουράς: δέρμα τύπος-6</annotation>
+		<annotation cp="💂🏻‍♂">άντρας | φρουρός | φύλακας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">άντρας φρουρός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💂🏼‍♂">άντρας | φρουρός | φύλακας | δέρμα τύπος-3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">άντρας φρουρός: δέρμα τύπος-3</annotation>
+		<annotation cp="💂🏽‍♂">άντρας | φρουρός | φύλακας | δέρμα τύπος-4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">άντρας φρουρός: δέρμα τύπος-4</annotation>
+		<annotation cp="💂🏾‍♂">άντρας | φρουρός | φύλακας | δέρμα τύπος-5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">άντρας φρουρός: δέρμα τύπος-5</annotation>
+		<annotation cp="💂🏿‍♂">άντρας | φρουρός | φύλακας | δέρμα τύπος-6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">άντρας φρουρός: δέρμα τύπος-6</annotation>
+		<annotation cp="💂🏻‍♀">γυναίκα | φρουρός | φύλακας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">γυναίκα φρουρός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💂🏼‍♀">γυναίκα | φρουρός | φύλακας | δέρμα τύπος-3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">γυναίκα φρουρός: δέρμα τύπος-3</annotation>
+		<annotation cp="💂🏽‍♀">γυναίκα | φρουρός | φύλακας | δέρμα τύπος-4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">γυναίκα φρουρός: δέρμα τύπος-4</annotation>
+		<annotation cp="💂🏾‍♀">γυναίκα | φρουρός | φύλακας | δέρμα τύπος-5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">γυναίκα φρουρός: δέρμα τύπος-5</annotation>
+		<annotation cp="💂🏿‍♀">γυναίκα | φρουρός | φύλακας | δέρμα τύπος-6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">γυναίκα φρουρός: δέρμα τύπος-6</annotation>
+		<annotation cp="👷🏻">εργάτης | καπέλο | κατασκευή | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👷🏻" type="tts">οικοδόμος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👷🏼">εργάτης | καπέλο | κατασκευή | δέρμα τύπος-3</annotation>
+		<annotation cp="👷🏼" type="tts">οικοδόμος: δέρμα τύπος-3</annotation>
+		<annotation cp="👷🏽">εργάτης | καπέλο | κατασκευή | δέρμα τύπος-4</annotation>
+		<annotation cp="👷🏽" type="tts">οικοδόμος: δέρμα τύπος-4</annotation>
+		<annotation cp="👷🏾">εργάτης | καπέλο | κατασκευή | δέρμα τύπος-5</annotation>
+		<annotation cp="👷🏾" type="tts">οικοδόμος: δέρμα τύπος-5</annotation>
+		<annotation cp="👷🏿">εργάτης | καπέλο | κατασκευή | δέρμα τύπος-6</annotation>
+		<annotation cp="👷🏿" type="tts">οικοδόμος: δέρμα τύπος-6</annotation>
+		<annotation cp="👷🏻‍♂">άντρας | εργάτης | οικοδομή | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">εργάτης οικοδομής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👷🏼‍♂">άντρας | εργάτης | οικοδομή | δέρμα τύπος-3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">εργάτης οικοδομής: δέρμα τύπος-3</annotation>
+		<annotation cp="👷🏽‍♂">άντρας | εργάτης | οικοδομή | δέρμα τύπος-4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">εργάτης οικοδομής: δέρμα τύπος-4</annotation>
+		<annotation cp="👷🏾‍♂">άντρας | εργάτης | οικοδομή | δέρμα τύπος-5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">εργάτης οικοδομής: δέρμα τύπος-5</annotation>
+		<annotation cp="👷🏿‍♂">άντρας | εργάτης | οικοδομή | δέρμα τύπος-6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">εργάτης οικοδομής: δέρμα τύπος-6</annotation>
+		<annotation cp="👷🏻‍♀">γυναίκα | εργάτρια | οικοδομή | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">εργάτρια οικοδομής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👷🏼‍♀">γυναίκα | εργάτρια | οικοδομή | δέρμα τύπος-3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">εργάτρια οικοδομής: δέρμα τύπος-3</annotation>
+		<annotation cp="👷🏽‍♀">γυναίκα | εργάτρια | οικοδομή | δέρμα τύπος-4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">εργάτρια οικοδομής: δέρμα τύπος-4</annotation>
+		<annotation cp="👷🏾‍♀">γυναίκα | εργάτρια | οικοδομή | δέρμα τύπος-5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">εργάτρια οικοδομής: δέρμα τύπος-5</annotation>
+		<annotation cp="👷🏿‍♀">γυναίκα | εργάτρια | οικοδομή | δέρμα τύπος-6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">εργάτρια οικοδομής: δέρμα τύπος-6</annotation>
+		<annotation cp="🤴🏻">πρίγκιπας | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤴🏻" type="tts">πρίγκιπας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤴🏼">πρίγκιπας | δέρμα τύπος-3</annotation>
+		<annotation cp="🤴🏼" type="tts">πρίγκιπας: δέρμα τύπος-3</annotation>
+		<annotation cp="🤴🏽">πρίγκιπας | δέρμα τύπος-4</annotation>
+		<annotation cp="🤴🏽" type="tts">πρίγκιπας: δέρμα τύπος-4</annotation>
+		<annotation cp="🤴🏾">πρίγκιπας | δέρμα τύπος-5</annotation>
+		<annotation cp="🤴🏾" type="tts">πρίγκιπας: δέρμα τύπος-5</annotation>
+		<annotation cp="🤴🏿">πρίγκιπας | δέρμα τύπος-6</annotation>
+		<annotation cp="🤴🏿" type="tts">πρίγκιπας: δέρμα τύπος-6</annotation>
+		<annotation cp="👸🏻">παραμύθι | φαντασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👸🏻" type="tts">πριγκίπισσα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👸🏼">παραμύθι | φαντασία | δέρμα τύπος-3</annotation>
+		<annotation cp="👸🏼" type="tts">πριγκίπισσα: δέρμα τύπος-3</annotation>
+		<annotation cp="👸🏽">παραμύθι | φαντασία | δέρμα τύπος-4</annotation>
+		<annotation cp="👸🏽" type="tts">πριγκίπισσα: δέρμα τύπος-4</annotation>
+		<annotation cp="👸🏾">παραμύθι | φαντασία | δέρμα τύπος-5</annotation>
+		<annotation cp="👸🏾" type="tts">πριγκίπισσα: δέρμα τύπος-5</annotation>
+		<annotation cp="👸🏿">παραμύθι | φαντασία | δέρμα τύπος-6</annotation>
+		<annotation cp="👸🏿" type="tts">πριγκίπισσα: δέρμα τύπος-6</annotation>
+		<annotation cp="👳🏻">άνδρας | τουρμπάνι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👳🏻" type="tts">άνδρας με τουρμπάν: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👳🏼">άνδρας | τουρμπάνι | δέρμα τύπος-3</annotation>
+		<annotation cp="👳🏼" type="tts">άνδρας με τουρμπάν: δέρμα τύπος-3</annotation>
+		<annotation cp="👳🏽">άνδρας | τουρμπάνι | δέρμα τύπος-4</annotation>
+		<annotation cp="👳🏽" type="tts">άνδρας με τουρμπάν: δέρμα τύπος-4</annotation>
+		<annotation cp="👳🏾">άνδρας | τουρμπάνι | δέρμα τύπος-5</annotation>
+		<annotation cp="👳🏾" type="tts">άνδρας με τουρμπάν: δέρμα τύπος-5</annotation>
+		<annotation cp="👳🏿">άνδρας | τουρμπάνι | δέρμα τύπος-6</annotation>
+		<annotation cp="👳🏿" type="tts">άνδρας με τουρμπάν: δέρμα τύπος-6</annotation>
+		<annotation cp="👳🏻‍♂">άντρας | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">άντρας με τουρμπάνι: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👳🏼‍♂">άντρας | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">άντρας με τουρμπάνι: δέρμα τύπος-3</annotation>
+		<annotation cp="👳🏽‍♂">άντρας | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">άντρας με τουρμπάνι: δέρμα τύπος-4</annotation>
+		<annotation cp="👳🏾‍♂">άντρας | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">άντρας με τουρμπάνι: δέρμα τύπος-5</annotation>
+		<annotation cp="👳🏿‍♂">άντρας | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">άντρας με τουρμπάνι: δέρμα τύπος-6</annotation>
+		<annotation cp="👳🏻‍♀">γυναίκα | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">γυναίκα με τουρμπάνι: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👳🏼‍♀">γυναίκα | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">γυναίκα με τουρμπάνι: δέρμα τύπος-3</annotation>
+		<annotation cp="👳🏽‍♀">γυναίκα | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">γυναίκα με τουρμπάνι: δέρμα τύπος-4</annotation>
+		<annotation cp="👳🏾‍♀">γυναίκα | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">γυναίκα με τουρμπάνι: δέρμα τύπος-5</annotation>
+		<annotation cp="👳🏿‍♀">γυναίκα | τιρμπάν | τουρμπάν | τουρμπάνι | δέρμα τύπος-6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">γυναίκα με τουρμπάνι: δέρμα τύπος-6</annotation>
+		<annotation cp="👲🏻">άνδρας | καπέλο | κινέζικο καπέλο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👲🏻" type="tts">άνδρας με κινέζικο καπέλο: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👲🏼">άνδρας | καπέλο | κινέζικο καπέλο | δέρμα τύπος-3</annotation>
+		<annotation cp="👲🏼" type="tts">άνδρας με κινέζικο καπέλο: δέρμα τύπος-3</annotation>
+		<annotation cp="👲🏽">άνδρας | καπέλο | κινέζικο καπέλο | δέρμα τύπος-4</annotation>
+		<annotation cp="👲🏽" type="tts">άνδρας με κινέζικο καπέλο: δέρμα τύπος-4</annotation>
+		<annotation cp="👲🏾">άνδρας | καπέλο | κινέζικο καπέλο | δέρμα τύπος-5</annotation>
+		<annotation cp="👲🏾" type="tts">άνδρας με κινέζικο καπέλο: δέρμα τύπος-5</annotation>
+		<annotation cp="👲🏿">άνδρας | καπέλο | κινέζικο καπέλο | δέρμα τύπος-6</annotation>
+		<annotation cp="👲🏿" type="tts">άνδρας με κινέζικο καπέλο: δέρμα τύπος-6</annotation>
+		<annotation cp="👱🏻">ξανθός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👱🏻" type="tts">ξανθός άνθρωπος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👱🏼">ξανθός | δέρμα τύπος-3</annotation>
+		<annotation cp="👱🏼" type="tts">ξανθός άνθρωπος: δέρμα τύπος-3</annotation>
+		<annotation cp="👱🏽">ξανθός | δέρμα τύπος-4</annotation>
+		<annotation cp="👱🏽" type="tts">ξανθός άνθρωπος: δέρμα τύπος-4</annotation>
+		<annotation cp="👱🏾">ξανθός | δέρμα τύπος-5</annotation>
+		<annotation cp="👱🏾" type="tts">ξανθός άνθρωπος: δέρμα τύπος-5</annotation>
+		<annotation cp="👱🏿">ξανθός | δέρμα τύπος-6</annotation>
+		<annotation cp="👱🏿" type="tts">ξανθός άνθρωπος: δέρμα τύπος-6</annotation>
+		<annotation cp="👱🏻‍♂">άντρας | ξανθός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">ξανθός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👱🏼‍♂">άντρας | ξανθός | δέρμα τύπος-3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">ξανθός: δέρμα τύπος-3</annotation>
+		<annotation cp="👱🏽‍♂">άντρας | ξανθός | δέρμα τύπος-4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">ξανθός: δέρμα τύπος-4</annotation>
+		<annotation cp="👱🏾‍♂">άντρας | ξανθός | δέρμα τύπος-5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">ξανθός: δέρμα τύπος-5</annotation>
+		<annotation cp="👱🏿‍♂">άντρας | ξανθός | δέρμα τύπος-6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">ξανθός: δέρμα τύπος-6</annotation>
+		<annotation cp="👱🏻‍♀">γυναίκα | ξανθιά | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">ξανθιά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👱🏼‍♀">γυναίκα | ξανθιά | δέρμα τύπος-3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">ξανθιά: δέρμα τύπος-3</annotation>
+		<annotation cp="👱🏽‍♀">γυναίκα | ξανθιά | δέρμα τύπος-4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">ξανθιά: δέρμα τύπος-4</annotation>
+		<annotation cp="👱🏾‍♀">γυναίκα | ξανθιά | δέρμα τύπος-5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">ξανθιά: δέρμα τύπος-5</annotation>
+		<annotation cp="👱🏿‍♀">γυναίκα | ξανθιά | δέρμα τύπος-6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">ξανθιά: δέρμα τύπος-6</annotation>
+		<annotation cp="🤵🏻">άντρας | γαμπρός | σμόκιν | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤵🏻" type="tts">άντρας με σμόκιν: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤵🏼">άντρας | γαμπρός | σμόκιν | δέρμα τύπος-3</annotation>
+		<annotation cp="🤵🏼" type="tts">άντρας με σμόκιν: δέρμα τύπος-3</annotation>
+		<annotation cp="🤵🏽">άντρας | γαμπρός | σμόκιν | δέρμα τύπος-4</annotation>
+		<annotation cp="🤵🏽" type="tts">άντρας με σμόκιν: δέρμα τύπος-4</annotation>
+		<annotation cp="🤵🏾">άντρας | γαμπρός | σμόκιν | δέρμα τύπος-5</annotation>
+		<annotation cp="🤵🏾" type="tts">άντρας με σμόκιν: δέρμα τύπος-5</annotation>
+		<annotation cp="🤵🏿">άντρας | γαμπρός | σμόκιν | δέρμα τύπος-6</annotation>
+		<annotation cp="🤵🏿" type="tts">άντρας με σμόκιν: δέρμα τύπος-6</annotation>
+		<annotation cp="👰🏻">γάμος | νύφη | πέπλο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👰🏻" type="tts">νύφη με πέπλο: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👰🏼">γάμος | νύφη | πέπλο | δέρμα τύπος-3</annotation>
+		<annotation cp="👰🏼" type="tts">νύφη με πέπλο: δέρμα τύπος-3</annotation>
+		<annotation cp="👰🏽">γάμος | νύφη | πέπλο | δέρμα τύπος-4</annotation>
+		<annotation cp="👰🏽" type="tts">νύφη με πέπλο: δέρμα τύπος-4</annotation>
+		<annotation cp="👰🏾">γάμος | νύφη | πέπλο | δέρμα τύπος-5</annotation>
+		<annotation cp="👰🏾" type="tts">νύφη με πέπλο: δέρμα τύπος-5</annotation>
+		<annotation cp="👰🏿">γάμος | νύφη | πέπλο | δέρμα τύπος-6</annotation>
+		<annotation cp="👰🏿" type="tts">νύφη με πέπλο: δέρμα τύπος-6</annotation>
+		<annotation cp="🤰🏻">έγκυος | γυναίκα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤰🏻" type="tts">έγκυος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤰🏼">έγκυος | γυναίκα | δέρμα τύπος-3</annotation>
+		<annotation cp="🤰🏼" type="tts">έγκυος: δέρμα τύπος-3</annotation>
+		<annotation cp="🤰🏽">έγκυος | γυναίκα | δέρμα τύπος-4</annotation>
+		<annotation cp="🤰🏽" type="tts">έγκυος: δέρμα τύπος-4</annotation>
+		<annotation cp="🤰🏾">έγκυος | γυναίκα | δέρμα τύπος-5</annotation>
+		<annotation cp="🤰🏾" type="tts">έγκυος: δέρμα τύπος-5</annotation>
+		<annotation cp="🤰🏿">έγκυος | γυναίκα | δέρμα τύπος-6</annotation>
+		<annotation cp="🤰🏿" type="tts">έγκυος: δέρμα τύπος-6</annotation>
+		<annotation cp="👼🏻">άγγελος | μωρό | παραμύθι | πρόσωπο | φαντασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👼🏻" type="tts">μωρό άγγελος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👼🏼">άγγελος | μωρό | παραμύθι | πρόσωπο | φαντασία | δέρμα τύπος-3</annotation>
+		<annotation cp="👼🏼" type="tts">μωρό άγγελος: δέρμα τύπος-3</annotation>
+		<annotation cp="👼🏽">άγγελος | μωρό | παραμύθι | πρόσωπο | φαντασία | δέρμα τύπος-4</annotation>
+		<annotation cp="👼🏽" type="tts">μωρό άγγελος: δέρμα τύπος-4</annotation>
+		<annotation cp="👼🏾">άγγελος | μωρό | παραμύθι | πρόσωπο | φαντασία | δέρμα τύπος-5</annotation>
+		<annotation cp="👼🏾" type="tts">μωρό άγγελος: δέρμα τύπος-5</annotation>
+		<annotation cp="👼🏿">άγγελος | μωρό | παραμύθι | πρόσωπο | φαντασία | δέρμα τύπος-6</annotation>
+		<annotation cp="👼🏿" type="tts">μωρό άγγελος: δέρμα τύπος-6</annotation>
+		<annotation cp="🎅🏻">γιορτή | παραμύθι | πατέρας | φαντασία | χριστούγεννα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🎅🏻" type="tts">άη βασίλης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🎅🏼">γιορτή | παραμύθι | πατέρας | φαντασία | χριστούγεννα | δέρμα τύπος-3</annotation>
+		<annotation cp="🎅🏼" type="tts">άη βασίλης: δέρμα τύπος-3</annotation>
+		<annotation cp="🎅🏽">γιορτή | παραμύθι | πατέρας | φαντασία | χριστούγεννα | δέρμα τύπος-4</annotation>
+		<annotation cp="🎅🏽" type="tts">άη βασίλης: δέρμα τύπος-4</annotation>
+		<annotation cp="🎅🏾">γιορτή | παραμύθι | πατέρας | φαντασία | χριστούγεννα | δέρμα τύπος-5</annotation>
+		<annotation cp="🎅🏾" type="tts">άη βασίλης: δέρμα τύπος-5</annotation>
+		<annotation cp="🎅🏿">γιορτή | παραμύθι | πατέρας | φαντασία | χριστούγεννα | δέρμα τύπος-6</annotation>
+		<annotation cp="🎅🏿" type="tts">άη βασίλης: δέρμα τύπος-6</annotation>
+		<annotation cp="🤶🏻">άι βασίλης | γιορτές | χριστούγεννα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤶🏻" type="tts">χριστούγεννα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤶🏼">άι βασίλης | γιορτές | χριστούγεννα | δέρμα τύπος-3</annotation>
+		<annotation cp="🤶🏼" type="tts">χριστούγεννα: δέρμα τύπος-3</annotation>
+		<annotation cp="🤶🏽">άι βασίλης | γιορτές | χριστούγεννα | δέρμα τύπος-4</annotation>
+		<annotation cp="🤶🏽" type="tts">χριστούγεννα: δέρμα τύπος-4</annotation>
+		<annotation cp="🤶🏾">άι βασίλης | γιορτές | χριστούγεννα | δέρμα τύπος-5</annotation>
+		<annotation cp="🤶🏾" type="tts">χριστούγεννα: δέρμα τύπος-5</annotation>
+		<annotation cp="🤶🏿">άι βασίλης | γιορτές | χριστούγεννα | δέρμα τύπος-6</annotation>
+		<annotation cp="🤶🏿" type="tts">χριστούγεννα: δέρμα τύπος-6</annotation>
+		<annotation cp="🙍🏻">κίνηση | συνοφρύωμα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙍🏻" type="tts">συνοφρυωμένη γυναίκα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙍🏼">κίνηση | συνοφρύωμα | δέρμα τύπος-3</annotation>
+		<annotation cp="🙍🏼" type="tts">συνοφρυωμένη γυναίκα: δέρμα τύπος-3</annotation>
+		<annotation cp="🙍🏽">κίνηση | συνοφρύωμα | δέρμα τύπος-4</annotation>
+		<annotation cp="🙍🏽" type="tts">συνοφρυωμένη γυναίκα: δέρμα τύπος-4</annotation>
+		<annotation cp="🙍🏾">κίνηση | συνοφρύωμα | δέρμα τύπος-5</annotation>
+		<annotation cp="🙍🏾" type="tts">συνοφρυωμένη γυναίκα: δέρμα τύπος-5</annotation>
+		<annotation cp="🙍🏿">κίνηση | συνοφρύωμα | δέρμα τύπος-6</annotation>
+		<annotation cp="🙍🏿" type="tts">συνοφρυωμένη γυναίκα: δέρμα τύπος-6</annotation>
+		<annotation cp="🙍🏻‍♂">άντρας | θλίψη | μορφασμός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">συνοφρυωμένος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙍🏼‍♂">άντρας | θλίψη | μορφασμός | δέρμα τύπος-3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">συνοφρυωμένος: δέρμα τύπος-3</annotation>
+		<annotation cp="🙍🏽‍♂">άντρας | θλίψη | μορφασμός | δέρμα τύπος-4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">συνοφρυωμένος: δέρμα τύπος-4</annotation>
+		<annotation cp="🙍🏾‍♂">άντρας | θλίψη | μορφασμός | δέρμα τύπος-5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">συνοφρυωμένος: δέρμα τύπος-5</annotation>
+		<annotation cp="🙍🏿‍♂">άντρας | θλίψη | μορφασμός | δέρμα τύπος-6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">συνοφρυωμένος: δέρμα τύπος-6</annotation>
+		<annotation cp="🙍🏻‍♀">γυναίκα | θλίψη | μορφασμός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">συνοφρυωμένη: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙍🏼‍♀">γυναίκα | θλίψη | μορφασμός | δέρμα τύπος-3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">συνοφρυωμένη: δέρμα τύπος-3</annotation>
+		<annotation cp="🙍🏽‍♀">γυναίκα | θλίψη | μορφασμός | δέρμα τύπος-4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">συνοφρυωμένη: δέρμα τύπος-4</annotation>
+		<annotation cp="🙍🏾‍♀">γυναίκα | θλίψη | μορφασμός | δέρμα τύπος-5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">συνοφρυωμένη: δέρμα τύπος-5</annotation>
+		<annotation cp="🙍🏿‍♀">γυναίκα | θλίψη | μορφασμός | δέρμα τύπος-6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">συνοφρυωμένη: δέρμα τύπος-6</annotation>
+		<annotation cp="🙎🏻">κίνηση | μορφασμός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙎🏻" type="tts">γυναίκα που κάνει μούτρα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙎🏼">κίνηση | μορφασμός | δέρμα τύπος-3</annotation>
+		<annotation cp="🙎🏼" type="tts">γυναίκα που κάνει μούτρα: δέρμα τύπος-3</annotation>
+		<annotation cp="🙎🏽">κίνηση | μορφασμός | δέρμα τύπος-4</annotation>
+		<annotation cp="🙎🏽" type="tts">γυναίκα που κάνει μούτρα: δέρμα τύπος-4</annotation>
+		<annotation cp="🙎🏾">κίνηση | μορφασμός | δέρμα τύπος-5</annotation>
+		<annotation cp="🙎🏾" type="tts">γυναίκα που κάνει μούτρα: δέρμα τύπος-5</annotation>
+		<annotation cp="🙎🏿">κίνηση | μορφασμός | δέρμα τύπος-6</annotation>
+		<annotation cp="🙎🏿" type="tts">γυναίκα που κάνει μούτρα: δέρμα τύπος-6</annotation>
+		<annotation cp="🙎🏻‍♂">άντρας | απογοήτευση | θυμός | μορφασμός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">θυμωμένος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙎🏼‍♂">άντρας | απογοήτευση | θυμός | μορφασμός | δέρμα τύπος-3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">θυμωμένος: δέρμα τύπος-3</annotation>
+		<annotation cp="🙎🏽‍♂">άντρας | απογοήτευση | θυμός | μορφασμός | δέρμα τύπος-4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">θυμωμένος: δέρμα τύπος-4</annotation>
+		<annotation cp="🙎🏾‍♂">άντρας | απογοήτευση | θυμός | μορφασμός | δέρμα τύπος-5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">θυμωμένος: δέρμα τύπος-5</annotation>
+		<annotation cp="🙎🏿‍♂">άντρας | απογοήτευση | θυμός | μορφασμός | δέρμα τύπος-6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">θυμωμένος: δέρμα τύπος-6</annotation>
+		<annotation cp="🙎🏻‍♀">απογοήτευση | γυναίκα | θυμός | μορφασμός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">θυμωμένη: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙎🏼‍♀">απογοήτευση | γυναίκα | θυμός | μορφασμός | δέρμα τύπος-3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">θυμωμένη: δέρμα τύπος-3</annotation>
+		<annotation cp="🙎🏽‍♀">απογοήτευση | γυναίκα | θυμός | μορφασμός | δέρμα τύπος-4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">θυμωμένη: δέρμα τύπος-4</annotation>
+		<annotation cp="🙎🏾‍♀">απογοήτευση | γυναίκα | θυμός | μορφασμός | δέρμα τύπος-5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">θυμωμένη: δέρμα τύπος-5</annotation>
+		<annotation cp="🙎🏿‍♀">απογοήτευση | γυναίκα | θυμός | μορφασμός | δέρμα τύπος-6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">θυμωμένη: δέρμα τύπος-6</annotation>
+		<annotation cp="🙅🏻">απαγορευμένο | απαγορεύεται | δεν | κίνηση | χέρι | όχι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙅🏻" type="tts">όχι με χειρονομίες: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙅🏼">απαγορευμένο | απαγορεύεται | δεν | κίνηση | χέρι | όχι | δέρμα τύπος-3</annotation>
+		<annotation cp="🙅🏼" type="tts">όχι με χειρονομίες: δέρμα τύπος-3</annotation>
+		<annotation cp="🙅🏽">απαγορευμένο | απαγορεύεται | δεν | κίνηση | χέρι | όχι | δέρμα τύπος-4</annotation>
+		<annotation cp="🙅🏽" type="tts">όχι με χειρονομίες: δέρμα τύπος-4</annotation>
+		<annotation cp="🙅🏾">απαγορευμένο | απαγορεύεται | δεν | κίνηση | χέρι | όχι | δέρμα τύπος-5</annotation>
+		<annotation cp="🙅🏾" type="tts">όχι με χειρονομίες: δέρμα τύπος-5</annotation>
+		<annotation cp="🙅🏿">απαγορευμένο | απαγορεύεται | δεν | κίνηση | χέρι | όχι | δέρμα τύπος-6</annotation>
+		<annotation cp="🙅🏿" type="tts">όχι με χειρονομίες: δέρμα τύπος-6</annotation>
+		<annotation cp="🙅🏻‍♂">άντρας | αποδοκιμασία | διαφωνία | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">άντρας διαφωνεί: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙅🏼‍♂">άντρας | αποδοκιμασία | διαφωνία | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">άντρας διαφωνεί: δέρμα τύπος-3</annotation>
+		<annotation cp="🙅🏽‍♂">άντρας | αποδοκιμασία | διαφωνία | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">άντρας διαφωνεί: δέρμα τύπος-4</annotation>
+		<annotation cp="🙅🏾‍♂">άντρας | αποδοκιμασία | διαφωνία | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">άντρας διαφωνεί: δέρμα τύπος-5</annotation>
+		<annotation cp="🙅🏿‍♂">άντρας | αποδοκιμασία | διαφωνία | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">άντρας διαφωνεί: δέρμα τύπος-6</annotation>
+		<annotation cp="🙅🏻‍♀">αποδοκιμασία | γυναίκα | διαφωνία | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">γυναίκα διαφωνεί: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙅🏼‍♀">αποδοκιμασία | γυναίκα | διαφωνία | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">γυναίκα διαφωνεί: δέρμα τύπος-3</annotation>
+		<annotation cp="🙅🏽‍♀">αποδοκιμασία | γυναίκα | διαφωνία | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">γυναίκα διαφωνεί: δέρμα τύπος-4</annotation>
+		<annotation cp="🙅🏾‍♀">αποδοκιμασία | γυναίκα | διαφωνία | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">γυναίκα διαφωνεί: δέρμα τύπος-5</annotation>
+		<annotation cp="🙅🏿‍♀">αποδοκιμασία | γυναίκα | διαφωνία | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">γυναίκα διαφωνεί: δέρμα τύπος-6</annotation>
+		<annotation cp="🙆🏻">εντάξει | κίνηση | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙆🏻" type="tts">ναι με χειρονομίες: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙆🏼">εντάξει | κίνηση | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🙆🏼" type="tts">ναι με χειρονομίες: δέρμα τύπος-3</annotation>
+		<annotation cp="🙆🏽">εντάξει | κίνηση | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🙆🏽" type="tts">ναι με χειρονομίες: δέρμα τύπος-4</annotation>
+		<annotation cp="🙆🏾">εντάξει | κίνηση | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🙆🏾" type="tts">ναι με χειρονομίες: δέρμα τύπος-5</annotation>
+		<annotation cp="🙆🏿">εντάξει | κίνηση | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🙆🏿" type="tts">ναι με χειρονομίες: δέρμα τύπος-6</annotation>
+		<annotation cp="🙆🏻‍♂">άντρας | εντάξει | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">άντρας συμφωνεί: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙆🏼‍♂">άντρας | εντάξει | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">άντρας συμφωνεί: δέρμα τύπος-3</annotation>
+		<annotation cp="🙆🏽‍♂">άντρας | εντάξει | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">άντρας συμφωνεί: δέρμα τύπος-4</annotation>
+		<annotation cp="🙆🏾‍♂">άντρας | εντάξει | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">άντρας συμφωνεί: δέρμα τύπος-5</annotation>
+		<annotation cp="🙆🏿‍♂">άντρας | εντάξει | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">άντρας συμφωνεί: δέρμα τύπος-6</annotation>
+		<annotation cp="🙆🏻‍♀">γυναίκα | εντάξει | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">γυναίκα συμφωνεί: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙆🏼‍♀">γυναίκα | εντάξει | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">γυναίκα συμφωνεί: δέρμα τύπος-3</annotation>
+		<annotation cp="🙆🏽‍♀">γυναίκα | εντάξει | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">γυναίκα συμφωνεί: δέρμα τύπος-4</annotation>
+		<annotation cp="🙆🏾‍♀">γυναίκα | εντάξει | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">γυναίκα συμφωνεί: δέρμα τύπος-5</annotation>
+		<annotation cp="🙆🏿‍♀">γυναίκα | εντάξει | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">γυναίκα συμφωνεί: δέρμα τύπος-6</annotation>
+		<annotation cp="💁🏻">βοήθεια | πληροφορίες | πρόσχαρος | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💁🏻" type="tts">άτομο γραφείου πληροφοριών: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💁🏼">βοήθεια | πληροφορίες | πρόσχαρος | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="💁🏼" type="tts">άτομο γραφείου πληροφοριών: δέρμα τύπος-3</annotation>
+		<annotation cp="💁🏽">βοήθεια | πληροφορίες | πρόσχαρος | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="💁🏽" type="tts">άτομο γραφείου πληροφοριών: δέρμα τύπος-4</annotation>
+		<annotation cp="💁🏾">βοήθεια | πληροφορίες | πρόσχαρος | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="💁🏾" type="tts">άτομο γραφείου πληροφοριών: δέρμα τύπος-5</annotation>
+		<annotation cp="💁🏿">βοήθεια | πληροφορίες | πρόσχαρος | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="💁🏿" type="tts">άτομο γραφείου πληροφοριών: δέρμα τύπος-6</annotation>
+		<annotation cp="💁🏻‍♂">άντρας | πρόσχαρος | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">άντρας προσφέρει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💁🏼‍♂">άντρας | πρόσχαρος | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">άντρας προσφέρει: δέρμα τύπος-3</annotation>
+		<annotation cp="💁🏽‍♂">άντρας | πρόσχαρος | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">άντρας προσφέρει: δέρμα τύπος-4</annotation>
+		<annotation cp="💁🏾‍♂">άντρας | πρόσχαρος | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">άντρας προσφέρει: δέρμα τύπος-5</annotation>
+		<annotation cp="💁🏿‍♂">άντρας | πρόσχαρος | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">άντρας προσφέρει: δέρμα τύπος-6</annotation>
+		<annotation cp="💁🏻‍♀">γυναίκα | πρόσχαρη | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">γυναίκα προσφέρει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💁🏼‍♀">γυναίκα | πρόσχαρη | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">γυναίκα προσφέρει: δέρμα τύπος-3</annotation>
+		<annotation cp="💁🏽‍♀">γυναίκα | πρόσχαρη | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">γυναίκα προσφέρει: δέρμα τύπος-4</annotation>
+		<annotation cp="💁🏾‍♀">γυναίκα | πρόσχαρη | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">γυναίκα προσφέρει: δέρμα τύπος-5</annotation>
+		<annotation cp="💁🏿‍♀">γυναίκα | πρόσχαρη | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">γυναίκα προσφέρει: δέρμα τύπος-6</annotation>
+		<annotation cp="🙋🏻">κίνηση | σηκωμένο | χέρι | χαρούμενος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙋🏻" type="tts">χαρούμενη γυναίκα που σηκώνει το χέρι: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙋🏼">κίνηση | σηκωμένο | χέρι | χαρούμενος | δέρμα τύπος-3</annotation>
+		<annotation cp="🙋🏼" type="tts">χαρούμενη γυναίκα που σηκώνει το χέρι: δέρμα τύπος-3</annotation>
+		<annotation cp="🙋🏽">κίνηση | σηκωμένο | χέρι | χαρούμενος | δέρμα τύπος-4</annotation>
+		<annotation cp="🙋🏽" type="tts">χαρούμενη γυναίκα που σηκώνει το χέρι: δέρμα τύπος-4</annotation>
+		<annotation cp="🙋🏾">κίνηση | σηκωμένο | χέρι | χαρούμενος | δέρμα τύπος-5</annotation>
+		<annotation cp="🙋🏾" type="tts">χαρούμενη γυναίκα που σηκώνει το χέρι: δέρμα τύπος-5</annotation>
+		<annotation cp="🙋🏿">κίνηση | σηκωμένο | χέρι | χαρούμενος | δέρμα τύπος-6</annotation>
+		<annotation cp="🙋🏿" type="tts">χαρούμενη γυναίκα που σηκώνει το χέρι: δέρμα τύπος-6</annotation>
+		<annotation cp="🙋🏻‍♂">άντρας | χαιρετισμός | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">άντρας χαιρετάει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙋🏼‍♂">άντρας | χαιρετισμός | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">άντρας χαιρετάει: δέρμα τύπος-3</annotation>
+		<annotation cp="🙋🏽‍♂">άντρας | χαιρετισμός | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">άντρας χαιρετάει: δέρμα τύπος-4</annotation>
+		<annotation cp="🙋🏾‍♂">άντρας | χαιρετισμός | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">άντρας χαιρετάει: δέρμα τύπος-5</annotation>
+		<annotation cp="🙋🏿‍♂">άντρας | χαιρετισμός | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">άντρας χαιρετάει: δέρμα τύπος-6</annotation>
+		<annotation cp="🙋🏻‍♀">γυναίκα | χαιρετισμός | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">γυναίκα χαιρετάει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙋🏼‍♀">γυναίκα | χαιρετισμός | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">γυναίκα χαιρετάει: δέρμα τύπος-3</annotation>
+		<annotation cp="🙋🏽‍♀">γυναίκα | χαιρετισμός | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">γυναίκα χαιρετάει: δέρμα τύπος-4</annotation>
+		<annotation cp="🙋🏾‍♀">γυναίκα | χαιρετισμός | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">γυναίκα χαιρετάει: δέρμα τύπος-5</annotation>
+		<annotation cp="🙋🏿‍♀">γυναίκα | χαιρετισμός | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">γυναίκα χαιρετάει: δέρμα τύπος-6</annotation>
+		<annotation cp="🙇🏻">κίνηση | λυπάμαι | συγνώμη | υπόκλιση | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙇🏻" type="tts">συγγνώμη με υπόκλιση: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙇🏼">κίνηση | λυπάμαι | συγνώμη | υπόκλιση | δέρμα τύπος-3</annotation>
+		<annotation cp="🙇🏼" type="tts">συγγνώμη με υπόκλιση: δέρμα τύπος-3</annotation>
+		<annotation cp="🙇🏽">κίνηση | λυπάμαι | συγνώμη | υπόκλιση | δέρμα τύπος-4</annotation>
+		<annotation cp="🙇🏽" type="tts">συγγνώμη με υπόκλιση: δέρμα τύπος-4</annotation>
+		<annotation cp="🙇🏾">κίνηση | λυπάμαι | συγνώμη | υπόκλιση | δέρμα τύπος-5</annotation>
+		<annotation cp="🙇🏾" type="tts">συγγνώμη με υπόκλιση: δέρμα τύπος-5</annotation>
+		<annotation cp="🙇🏿">κίνηση | λυπάμαι | συγνώμη | υπόκλιση | δέρμα τύπος-6</annotation>
+		<annotation cp="🙇🏿" type="tts">συγγνώμη με υπόκλιση: δέρμα τύπος-6</annotation>
+		<annotation cp="🙇🏻‍♂">άντρας | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">άντρας υποκλίνεται: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙇🏼‍♂">άντρας | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">άντρας υποκλίνεται: δέρμα τύπος-3</annotation>
+		<annotation cp="🙇🏽‍♂">άντρας | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">άντρας υποκλίνεται: δέρμα τύπος-4</annotation>
+		<annotation cp="🙇🏾‍♂">άντρας | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">άντρας υποκλίνεται: δέρμα τύπος-5</annotation>
+		<annotation cp="🙇🏿‍♂">άντρας | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">άντρας υποκλίνεται: δέρμα τύπος-6</annotation>
+		<annotation cp="🙇🏻‍♀">γυναίκα | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">γυναίκα υποκλίνεται: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙇🏼‍♀">γυναίκα | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">γυναίκα υποκλίνεται: δέρμα τύπος-3</annotation>
+		<annotation cp="🙇🏽‍♀">γυναίκα | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">γυναίκα υποκλίνεται: δέρμα τύπος-4</annotation>
+		<annotation cp="🙇🏾‍♀">γυναίκα | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">γυναίκα υποκλίνεται: δέρμα τύπος-5</annotation>
+		<annotation cp="🙇🏿‍♀">γυναίκα | συγγνώμη | υπόκλιση | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">γυναίκα υποκλίνεται: δέρμα τύπος-6</annotation>
+		<annotation cp="🤦🏻">αγανάκτηση | δυσπιστία | παλάμη | πρόσωπο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤦🏻" type="tts">αγανακτώ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤦🏼">αγανάκτηση | δυσπιστία | παλάμη | πρόσωπο | δέρμα τύπος-3</annotation>
+		<annotation cp="🤦🏼" type="tts">αγανακτώ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤦🏽">αγανάκτηση | δυσπιστία | παλάμη | πρόσωπο | δέρμα τύπος-4</annotation>
+		<annotation cp="🤦🏽" type="tts">αγανακτώ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤦🏾">αγανάκτηση | δυσπιστία | παλάμη | πρόσωπο | δέρμα τύπος-5</annotation>
+		<annotation cp="🤦🏾" type="tts">αγανακτώ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤦🏿">αγανάκτηση | δυσπιστία | παλάμη | πρόσωπο | δέρμα τύπος-6</annotation>
+		<annotation cp="🤦🏿" type="tts">αγανακτώ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤦🏻‍♂">άντρας | αγανάκτηση | πρόσωπο | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">άντρας αγανακτά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤦🏼‍♂">άντρας | αγανάκτηση | πρόσωπο | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">άντρας αγανακτά: δέρμα τύπος-3</annotation>
+		<annotation cp="🤦🏽‍♂">άντρας | αγανάκτηση | πρόσωπο | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">άντρας αγανακτά: δέρμα τύπος-4</annotation>
+		<annotation cp="🤦🏾‍♂">άντρας | αγανάκτηση | πρόσωπο | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">άντρας αγανακτά: δέρμα τύπος-5</annotation>
+		<annotation cp="🤦🏿‍♂">άντρας | αγανάκτηση | πρόσωπο | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">άντρας αγανακτά: δέρμα τύπος-6</annotation>
+		<annotation cp="🤦🏻‍♀">αγανάκτηση | γυναίκα | πρόσωπο | χειρονομία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">γυναίκα αγανακτά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤦🏼‍♀">αγανάκτηση | γυναίκα | πρόσωπο | χειρονομία | δέρμα τύπος-3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">γυναίκα αγανακτά: δέρμα τύπος-3</annotation>
+		<annotation cp="🤦🏽‍♀">αγανάκτηση | γυναίκα | πρόσωπο | χειρονομία | δέρμα τύπος-4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">γυναίκα αγανακτά: δέρμα τύπος-4</annotation>
+		<annotation cp="🤦🏾‍♀">αγανάκτηση | γυναίκα | πρόσωπο | χειρονομία | δέρμα τύπος-5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">γυναίκα αγανακτά: δέρμα τύπος-5</annotation>
+		<annotation cp="🤦🏿‍♀">αγανάκτηση | γυναίκα | πρόσωπο | χειρονομία | δέρμα τύπος-6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">γυναίκα αγανακτά: δέρμα τύπος-6</annotation>
+		<annotation cp="🤷🏻">άγνοια | αδιαφορία | αμφιβολία | ανασήκωμα ώμων | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤷🏻" type="tts">αμφιβάλω: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤷🏼">άγνοια | αδιαφορία | αμφιβολία | ανασήκωμα ώμων | δέρμα τύπος-3</annotation>
+		<annotation cp="🤷🏼" type="tts">αμφιβάλω: δέρμα τύπος-3</annotation>
+		<annotation cp="🤷🏽">άγνοια | αδιαφορία | αμφιβολία | ανασήκωμα ώμων | δέρμα τύπος-4</annotation>
+		<annotation cp="🤷🏽" type="tts">αμφιβάλω: δέρμα τύπος-4</annotation>
+		<annotation cp="🤷🏾">άγνοια | αδιαφορία | αμφιβολία | ανασήκωμα ώμων | δέρμα τύπος-5</annotation>
+		<annotation cp="🤷🏾" type="tts">αμφιβάλω: δέρμα τύπος-5</annotation>
+		<annotation cp="🤷🏿">άγνοια | αδιαφορία | αμφιβολία | ανασήκωμα ώμων | δέρμα τύπος-6</annotation>
+		<annotation cp="🤷🏿" type="tts">αμφιβάλω: δέρμα τύπος-6</annotation>
+		<annotation cp="🤷🏻‍♂">άγνοια | άντρας | αμφιβολία | ώμοι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">άντρας δεν ξέρει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤷🏼‍♂">άγνοια | άντρας | αμφιβολία | ώμοι | δέρμα τύπος-3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">άντρας δεν ξέρει: δέρμα τύπος-3</annotation>
+		<annotation cp="🤷🏽‍♂">άγνοια | άντρας | αμφιβολία | ώμοι | δέρμα τύπος-4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">άντρας δεν ξέρει: δέρμα τύπος-4</annotation>
+		<annotation cp="🤷🏾‍♂">άγνοια | άντρας | αμφιβολία | ώμοι | δέρμα τύπος-5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">άντρας δεν ξέρει: δέρμα τύπος-5</annotation>
+		<annotation cp="🤷🏿‍♂">άγνοια | άντρας | αμφιβολία | ώμοι | δέρμα τύπος-6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">άντρας δεν ξέρει: δέρμα τύπος-6</annotation>
+		<annotation cp="🤷🏻‍♀">άγνοια | αμφιβολία | γυναίκα | ώμοι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">γυναίκα δεν ξέρει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤷🏼‍♀">άγνοια | αμφιβολία | γυναίκα | ώμοι | δέρμα τύπος-3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">γυναίκα δεν ξέρει: δέρμα τύπος-3</annotation>
+		<annotation cp="🤷🏽‍♀">άγνοια | αμφιβολία | γυναίκα | ώμοι | δέρμα τύπος-4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">γυναίκα δεν ξέρει: δέρμα τύπος-4</annotation>
+		<annotation cp="🤷🏾‍♀">άγνοια | αμφιβολία | γυναίκα | ώμοι | δέρμα τύπος-5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">γυναίκα δεν ξέρει: δέρμα τύπος-5</annotation>
+		<annotation cp="🤷🏿‍♀">άγνοια | αμφιβολία | γυναίκα | ώμοι | δέρμα τύπος-6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">γυναίκα δεν ξέρει: δέρμα τύπος-6</annotation>
+		<annotation cp="💆🏻">κομμωτήριο | μασάζ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💆🏻" type="tts">μασάζ στο πρόσωπο: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💆🏼">κομμωτήριο | μασάζ | δέρμα τύπος-3</annotation>
+		<annotation cp="💆🏼" type="tts">μασάζ στο πρόσωπο: δέρμα τύπος-3</annotation>
+		<annotation cp="💆🏽">κομμωτήριο | μασάζ | δέρμα τύπος-4</annotation>
+		<annotation cp="💆🏽" type="tts">μασάζ στο πρόσωπο: δέρμα τύπος-4</annotation>
+		<annotation cp="💆🏾">κομμωτήριο | μασάζ | δέρμα τύπος-5</annotation>
+		<annotation cp="💆🏾" type="tts">μασάζ στο πρόσωπο: δέρμα τύπος-5</annotation>
+		<annotation cp="💆🏿">κομμωτήριο | μασάζ | δέρμα τύπος-6</annotation>
+		<annotation cp="💆🏿" type="tts">μασάζ στο πρόσωπο: δέρμα τύπος-6</annotation>
+		<annotation cp="💆🏻‍♂">άντρας | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">μασάζ στο κεφάλι άντρα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💆🏼‍♂">άντρας | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">μασάζ στο κεφάλι άντρα: δέρμα τύπος-3</annotation>
+		<annotation cp="💆🏽‍♂">άντρας | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">μασάζ στο κεφάλι άντρα: δέρμα τύπος-4</annotation>
+		<annotation cp="💆🏾‍♂">άντρας | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">μασάζ στο κεφάλι άντρα: δέρμα τύπος-5</annotation>
+		<annotation cp="💆🏿‍♂">άντρας | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">μασάζ στο κεφάλι άντρα: δέρμα τύπος-6</annotation>
+		<annotation cp="💆🏻‍♀">γυναίκα | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">μασάζ στο κεφάλι γυναίκας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💆🏼‍♀">γυναίκα | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">μασάζ στο κεφάλι γυναίκας: δέρμα τύπος-3</annotation>
+		<annotation cp="💆🏽‍♀">γυναίκα | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">μασάζ στο κεφάλι γυναίκας: δέρμα τύπος-4</annotation>
+		<annotation cp="💆🏾‍♀">γυναίκα | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">μασάζ στο κεφάλι γυναίκας: δέρμα τύπος-5</annotation>
+		<annotation cp="💆🏿‍♀">γυναίκα | κεφάλι | μαλλιά | μασάζ | δέρμα τύπος-6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">μασάζ στο κεφάλι γυναίκας: δέρμα τύπος-6</annotation>
+		<annotation cp="💇🏻">ινστιτούτο αισθητικής | κομμωτής | ομορφιά | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💇🏻" type="tts">κούρεμα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💇🏼">ινστιτούτο αισθητικής | κομμωτής | ομορφιά | δέρμα τύπος-3</annotation>
+		<annotation cp="💇🏼" type="tts">κούρεμα: δέρμα τύπος-3</annotation>
+		<annotation cp="💇🏽">ινστιτούτο αισθητικής | κομμωτής | ομορφιά | δέρμα τύπος-4</annotation>
+		<annotation cp="💇🏽" type="tts">κούρεμα: δέρμα τύπος-4</annotation>
+		<annotation cp="💇🏾">ινστιτούτο αισθητικής | κομμωτής | ομορφιά | δέρμα τύπος-5</annotation>
+		<annotation cp="💇🏾" type="tts">κούρεμα: δέρμα τύπος-5</annotation>
+		<annotation cp="💇🏿">ινστιτούτο αισθητικής | κομμωτής | ομορφιά | δέρμα τύπος-6</annotation>
+		<annotation cp="💇🏿" type="tts">κούρεμα: δέρμα τύπος-6</annotation>
+		<annotation cp="💇🏻‍♂">άντρας | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">άντρας κουρεύεται: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💇🏼‍♂">άντρας | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">άντρας κουρεύεται: δέρμα τύπος-3</annotation>
+		<annotation cp="💇🏽‍♂">άντρας | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">άντρας κουρεύεται: δέρμα τύπος-4</annotation>
+		<annotation cp="💇🏾‍♂">άντρας | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">άντρας κουρεύεται: δέρμα τύπος-5</annotation>
+		<annotation cp="💇🏿‍♂">άντρας | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">άντρας κουρεύεται: δέρμα τύπος-6</annotation>
+		<annotation cp="💇🏻‍♀">γυναίκα | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">γυναίκα κουρεύεται: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💇🏼‍♀">γυναίκα | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">γυναίκα κουρεύεται: δέρμα τύπος-3</annotation>
+		<annotation cp="💇🏽‍♀">γυναίκα | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">γυναίκα κουρεύεται: δέρμα τύπος-4</annotation>
+		<annotation cp="💇🏾‍♀">γυναίκα | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">γυναίκα κουρεύεται: δέρμα τύπος-5</annotation>
+		<annotation cp="💇🏿‍♀">γυναίκα | κομμωτήριο | κούρεμα | μαλλιά | δέρμα τύπος-6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">γυναίκα κουρεύεται: δέρμα τύπος-6</annotation>
+		<annotation cp="🚶🏻">πεζοπορία | περπάτημα | περπατώ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚶🏻" type="tts">πεζός: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚶🏼">πεζοπορία | περπάτημα | περπατώ | δέρμα τύπος-3</annotation>
+		<annotation cp="🚶🏼" type="tts">πεζός: δέρμα τύπος-3</annotation>
+		<annotation cp="🚶🏽">πεζοπορία | περπάτημα | περπατώ | δέρμα τύπος-4</annotation>
+		<annotation cp="🚶🏽" type="tts">πεζός: δέρμα τύπος-4</annotation>
+		<annotation cp="🚶🏾">πεζοπορία | περπάτημα | περπατώ | δέρμα τύπος-5</annotation>
+		<annotation cp="🚶🏾" type="tts">πεζός: δέρμα τύπος-5</annotation>
+		<annotation cp="🚶🏿">πεζοπορία | περπάτημα | περπατώ | δέρμα τύπος-6</annotation>
+		<annotation cp="🚶🏿" type="tts">πεζός: δέρμα τύπος-6</annotation>
+		<annotation cp="🚶🏻‍♂">άντρας | περπάτημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">άντρας περπατάει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚶🏼‍♂">άντρας | περπάτημα | δέρμα τύπος-3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">άντρας περπατάει: δέρμα τύπος-3</annotation>
+		<annotation cp="🚶🏽‍♂">άντρας | περπάτημα | δέρμα τύπος-4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">άντρας περπατάει: δέρμα τύπος-4</annotation>
+		<annotation cp="🚶🏾‍♂">άντρας | περπάτημα | δέρμα τύπος-5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">άντρας περπατάει: δέρμα τύπος-5</annotation>
+		<annotation cp="🚶🏿‍♂">άντρας | περπάτημα | δέρμα τύπος-6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">άντρας περπατάει: δέρμα τύπος-6</annotation>
+		<annotation cp="🚶🏻‍♀">γυναίκα | περπάτημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">γυναίκα περπατάει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚶🏼‍♀">γυναίκα | περπάτημα | δέρμα τύπος-3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">γυναίκα περπατάει: δέρμα τύπος-3</annotation>
+		<annotation cp="🚶🏽‍♀">γυναίκα | περπάτημα | δέρμα τύπος-4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">γυναίκα περπατάει: δέρμα τύπος-4</annotation>
+		<annotation cp="🚶🏾‍♀">γυναίκα | περπάτημα | δέρμα τύπος-5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">γυναίκα περπατάει: δέρμα τύπος-5</annotation>
+		<annotation cp="🚶🏿‍♀">γυναίκα | περπάτημα | δέρμα τύπος-6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">γυναίκα περπατάει: δέρμα τύπος-6</annotation>
+		<annotation cp="🏃🏻">μαραθώνιος | τρέξιμο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏃🏻" type="tts">δρομέας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏃🏼">μαραθώνιος | τρέξιμο | δέρμα τύπος-3</annotation>
+		<annotation cp="🏃🏼" type="tts">δρομέας: δέρμα τύπος-3</annotation>
+		<annotation cp="🏃🏽">μαραθώνιος | τρέξιμο | δέρμα τύπος-4</annotation>
+		<annotation cp="🏃🏽" type="tts">δρομέας: δέρμα τύπος-4</annotation>
+		<annotation cp="🏃🏾">μαραθώνιος | τρέξιμο | δέρμα τύπος-5</annotation>
+		<annotation cp="🏃🏾" type="tts">δρομέας: δέρμα τύπος-5</annotation>
+		<annotation cp="🏃🏿">μαραθώνιος | τρέξιμο | δέρμα τύπος-6</annotation>
+		<annotation cp="🏃🏿" type="tts">δρομέας: δέρμα τύπος-6</annotation>
+		<annotation cp="🏃🏻‍♂">άντρας | τρέξιμο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">άντρας τρέχει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏃🏼‍♂">άντρας | τρέξιμο | δέρμα τύπος-3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">άντρας τρέχει: δέρμα τύπος-3</annotation>
+		<annotation cp="🏃🏽‍♂">άντρας | τρέξιμο | δέρμα τύπος-4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">άντρας τρέχει: δέρμα τύπος-4</annotation>
+		<annotation cp="🏃🏾‍♂">άντρας | τρέξιμο | δέρμα τύπος-5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">άντρας τρέχει: δέρμα τύπος-5</annotation>
+		<annotation cp="🏃🏿‍♂">άντρας | τρέξιμο | δέρμα τύπος-6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">άντρας τρέχει: δέρμα τύπος-6</annotation>
+		<annotation cp="🏃🏻‍♀">γυναίκα | τρέξιμο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">γυναίκα τρέχει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏃🏼‍♀">γυναίκα | τρέξιμο | δέρμα τύπος-3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">γυναίκα τρέχει: δέρμα τύπος-3</annotation>
+		<annotation cp="🏃🏽‍♀">γυναίκα | τρέξιμο | δέρμα τύπος-4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">γυναίκα τρέχει: δέρμα τύπος-4</annotation>
+		<annotation cp="🏃🏾‍♀">γυναίκα | τρέξιμο | δέρμα τύπος-5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">γυναίκα τρέχει: δέρμα τύπος-5</annotation>
+		<annotation cp="🏃🏿‍♀">γυναίκα | τρέξιμο | δέρμα τύπος-6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">γυναίκα τρέχει: δέρμα τύπος-6</annotation>
+		<annotation cp="💃🏻">γυναίκα | χορός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💃🏻" type="tts">χορεύτρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💃🏼">γυναίκα | χορός | δέρμα τύπος-3</annotation>
+		<annotation cp="💃🏼" type="tts">χορεύτρια: δέρμα τύπος-3</annotation>
+		<annotation cp="💃🏽">γυναίκα | χορός | δέρμα τύπος-4</annotation>
+		<annotation cp="💃🏽" type="tts">χορεύτρια: δέρμα τύπος-4</annotation>
+		<annotation cp="💃🏾">γυναίκα | χορός | δέρμα τύπος-5</annotation>
+		<annotation cp="💃🏾" type="tts">χορεύτρια: δέρμα τύπος-5</annotation>
+		<annotation cp="💃🏿">γυναίκα | χορός | δέρμα τύπος-6</annotation>
+		<annotation cp="💃🏿" type="tts">χορεύτρια: δέρμα τύπος-6</annotation>
+		<annotation cp="🕺🏻">άντρας | χορός | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕺🏻" type="tts">άντρας που χορεύει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕺🏼">άντρας | χορός | δέρμα τύπος-3</annotation>
+		<annotation cp="🕺🏼" type="tts">άντρας που χορεύει: δέρμα τύπος-3</annotation>
+		<annotation cp="🕺🏽">άντρας | χορός | δέρμα τύπος-4</annotation>
+		<annotation cp="🕺🏽" type="tts">άντρας που χορεύει: δέρμα τύπος-4</annotation>
+		<annotation cp="🕺🏾">άντρας | χορός | δέρμα τύπος-5</annotation>
+		<annotation cp="🕺🏾" type="tts">άντρας που χορεύει: δέρμα τύπος-5</annotation>
+		<annotation cp="🕺🏿">άντρας | χορός | δέρμα τύπος-6</annotation>
+		<annotation cp="🕺🏿" type="tts">άντρας που χορεύει: δέρμα τύπος-6</annotation>
+		<annotation cp="🛀🏻">μπάνιο | μπανιέρα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🛀🏻" type="tts">άνθρωπος που κάνει μπάνιο: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🛀🏼">μπάνιο | μπανιέρα | δέρμα τύπος-3</annotation>
+		<annotation cp="🛀🏼" type="tts">άνθρωπος που κάνει μπάνιο: δέρμα τύπος-3</annotation>
+		<annotation cp="🛀🏽">μπάνιο | μπανιέρα | δέρμα τύπος-4</annotation>
+		<annotation cp="🛀🏽" type="tts">άνθρωπος που κάνει μπάνιο: δέρμα τύπος-4</annotation>
+		<annotation cp="🛀🏾">μπάνιο | μπανιέρα | δέρμα τύπος-5</annotation>
+		<annotation cp="🛀🏾" type="tts">άνθρωπος που κάνει μπάνιο: δέρμα τύπος-5</annotation>
+		<annotation cp="🛀🏿">μπάνιο | μπανιέρα | δέρμα τύπος-6</annotation>
+		<annotation cp="🛀🏿" type="tts">άνθρωπος που κάνει μπάνιο: δέρμα τύπος-6</annotation>
+		<annotation cp="🛌🏻">ξενοδοχείο | ύπνος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🛌🏻" type="tts">άνθρωπος σε κρεβάτι: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🛌🏼">ξενοδοχείο | ύπνος | δέρμα τύπος-3</annotation>
+		<annotation cp="🛌🏼" type="tts">άνθρωπος σε κρεβάτι: δέρμα τύπος-3</annotation>
+		<annotation cp="🛌🏽">ξενοδοχείο | ύπνος | δέρμα τύπος-4</annotation>
+		<annotation cp="🛌🏽" type="tts">άνθρωπος σε κρεβάτι: δέρμα τύπος-4</annotation>
+		<annotation cp="🛌🏾">ξενοδοχείο | ύπνος | δέρμα τύπος-5</annotation>
+		<annotation cp="🛌🏾" type="tts">άνθρωπος σε κρεβάτι: δέρμα τύπος-5</annotation>
+		<annotation cp="🛌🏿">ξενοδοχείο | ύπνος | δέρμα τύπος-6</annotation>
+		<annotation cp="🛌🏿" type="tts">άνθρωπος σε κρεβάτι: δέρμα τύπος-6</annotation>
+		<annotation cp="🕴🏻">επιχειρηματίας | κουστούμι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕴🏻" type="tts">κοστουμαρισμένος άνδρας που αιωρείται: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🕴🏼">επιχειρηματίας | κουστούμι | δέρμα τύπος-3</annotation>
+		<annotation cp="🕴🏼" type="tts">κοστουμαρισμένος άνδρας που αιωρείται: δέρμα τύπος-3</annotation>
+		<annotation cp="🕴🏽">επιχειρηματίας | κουστούμι | δέρμα τύπος-4</annotation>
+		<annotation cp="🕴🏽" type="tts">κοστουμαρισμένος άνδρας που αιωρείται: δέρμα τύπος-4</annotation>
+		<annotation cp="🕴🏾">επιχειρηματίας | κουστούμι | δέρμα τύπος-5</annotation>
+		<annotation cp="🕴🏾" type="tts">κοστουμαρισμένος άνδρας που αιωρείται: δέρμα τύπος-5</annotation>
+		<annotation cp="🕴🏿">επιχειρηματίας | κουστούμι | δέρμα τύπος-6</annotation>
+		<annotation cp="🕴🏿" type="tts">κοστουμαρισμένος άνδρας που αιωρείται: δέρμα τύπος-6</annotation>
+		<annotation cp="🏇🏻">άλογο | άλογο αγώνων | αγώνες | καπέλο τζόκεϊ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏇🏻" type="tts">ιππόδρομος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏇🏼">άλογο | άλογο αγώνων | αγώνες | καπέλο τζόκεϊ | δέρμα τύπος-3</annotation>
+		<annotation cp="🏇🏼" type="tts">ιππόδρομος: δέρμα τύπος-3</annotation>
+		<annotation cp="🏇🏽">άλογο | άλογο αγώνων | αγώνες | καπέλο τζόκεϊ | δέρμα τύπος-4</annotation>
+		<annotation cp="🏇🏽" type="tts">ιππόδρομος: δέρμα τύπος-4</annotation>
+		<annotation cp="🏇🏾">άλογο | άλογο αγώνων | αγώνες | καπέλο τζόκεϊ | δέρμα τύπος-5</annotation>
+		<annotation cp="🏇🏾" type="tts">ιππόδρομος: δέρμα τύπος-5</annotation>
+		<annotation cp="🏇🏿">άλογο | άλογο αγώνων | αγώνες | καπέλο τζόκεϊ | δέρμα τύπος-6</annotation>
+		<annotation cp="🏇🏿" type="tts">ιππόδρομος: δέρμα τύπος-6</annotation>
+		<annotation cp="🏂🏻">σκι | χιόνι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏂🏻" type="tts">σνόουμπορντ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏂🏼">σκι | χιόνι | δέρμα τύπος-3</annotation>
+		<annotation cp="🏂🏼" type="tts">σνόουμπορντ: δέρμα τύπος-3</annotation>
+		<annotation cp="🏂🏽">σκι | χιόνι | δέρμα τύπος-4</annotation>
+		<annotation cp="🏂🏽" type="tts">σνόουμπορντ: δέρμα τύπος-4</annotation>
+		<annotation cp="🏂🏾">σκι | χιόνι | δέρμα τύπος-5</annotation>
+		<annotation cp="🏂🏾" type="tts">σνόουμπορντ: δέρμα τύπος-5</annotation>
+		<annotation cp="🏂🏿">σκι | χιόνι | δέρμα τύπος-6</annotation>
+		<annotation cp="🏂🏿" type="tts">σνόουμπορντ: δέρμα τύπος-6</annotation>
+		<annotation cp="🏌🏻">γκολφ | μπάλα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏌🏻" type="tts">γκόλφερ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏌🏼">γκολφ | μπάλα | δέρμα τύπος-3</annotation>
+		<annotation cp="🏌🏼" type="tts">γκόλφερ: δέρμα τύπος-3</annotation>
+		<annotation cp="🏌🏽">γκολφ | μπάλα | δέρμα τύπος-4</annotation>
+		<annotation cp="🏌🏽" type="tts">γκόλφερ: δέρμα τύπος-4</annotation>
+		<annotation cp="🏌🏾">γκολφ | μπάλα | δέρμα τύπος-5</annotation>
+		<annotation cp="🏌🏾" type="tts">γκόλφερ: δέρμα τύπος-5</annotation>
+		<annotation cp="🏌🏿">γκολφ | μπάλα | δέρμα τύπος-6</annotation>
+		<annotation cp="🏌🏿" type="tts">γκόλφερ: δέρμα τύπος-6</annotation>
+		<annotation cp="🏌🏻‍♂">άντρας | γκολφ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">άντρας παίζει γκολφ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏌🏼‍♂">άντρας | γκολφ | δέρμα τύπος-3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">άντρας παίζει γκολφ: δέρμα τύπος-3</annotation>
+		<annotation cp="🏌🏽‍♂">άντρας | γκολφ | δέρμα τύπος-4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">άντρας παίζει γκολφ: δέρμα τύπος-4</annotation>
+		<annotation cp="🏌🏾‍♂">άντρας | γκολφ | δέρμα τύπος-5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">άντρας παίζει γκολφ: δέρμα τύπος-5</annotation>
+		<annotation cp="🏌🏿‍♂">άντρας | γκολφ | δέρμα τύπος-6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">άντρας παίζει γκολφ: δέρμα τύπος-6</annotation>
+		<annotation cp="🏌🏻‍♀">γκολφ | γυναίκα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">γυναίκα παίζει γκολφ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏌🏼‍♀">γκολφ | γυναίκα | δέρμα τύπος-3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">γυναίκα παίζει γκολφ: δέρμα τύπος-3</annotation>
+		<annotation cp="🏌🏽‍♀">γκολφ | γυναίκα | δέρμα τύπος-4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">γυναίκα παίζει γκολφ: δέρμα τύπος-4</annotation>
+		<annotation cp="🏌🏾‍♀">γκολφ | γυναίκα | δέρμα τύπος-5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">γυναίκα παίζει γκολφ: δέρμα τύπος-5</annotation>
+		<annotation cp="🏌🏿‍♀">γκολφ | γυναίκα | δέρμα τύπος-6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">γυναίκα παίζει γκολφ: δέρμα τύπος-6</annotation>
+		<annotation cp="🏄🏻">σέρφινγκ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏄🏻" type="tts">σέρφερ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏄🏼">σέρφινγκ | δέρμα τύπος-3</annotation>
+		<annotation cp="🏄🏼" type="tts">σέρφερ: δέρμα τύπος-3</annotation>
+		<annotation cp="🏄🏽">σέρφινγκ | δέρμα τύπος-4</annotation>
+		<annotation cp="🏄🏽" type="tts">σέρφερ: δέρμα τύπος-4</annotation>
+		<annotation cp="🏄🏾">σέρφινγκ | δέρμα τύπος-5</annotation>
+		<annotation cp="🏄🏾" type="tts">σέρφερ: δέρμα τύπος-5</annotation>
+		<annotation cp="🏄🏿">σέρφινγκ | δέρμα τύπος-6</annotation>
+		<annotation cp="🏄🏿" type="tts">σέρφερ: δέρμα τύπος-6</annotation>
+		<annotation cp="🏄🏻‍♂">άντρας | σερφ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">άντρας σε σανίδα σερφ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏄🏼‍♂">άντρας | σερφ | δέρμα τύπος-3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">άντρας σε σανίδα σερφ: δέρμα τύπος-3</annotation>
+		<annotation cp="🏄🏽‍♂">άντρας | σερφ | δέρμα τύπος-4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">άντρας σε σανίδα σερφ: δέρμα τύπος-4</annotation>
+		<annotation cp="🏄🏾‍♂">άντρας | σερφ | δέρμα τύπος-5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">άντρας σε σανίδα σερφ: δέρμα τύπος-5</annotation>
+		<annotation cp="🏄🏿‍♂">άντρας | σερφ | δέρμα τύπος-6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">άντρας σε σανίδα σερφ: δέρμα τύπος-6</annotation>
+		<annotation cp="🏄🏻‍♀">γυναίκα | σερφ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">γυναίκα σε σανίδα σερφ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏄🏼‍♀">γυναίκα | σερφ | δέρμα τύπος-3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">γυναίκα σε σανίδα σερφ: δέρμα τύπος-3</annotation>
+		<annotation cp="🏄🏽‍♀">γυναίκα | σερφ | δέρμα τύπος-4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">γυναίκα σε σανίδα σερφ: δέρμα τύπος-4</annotation>
+		<annotation cp="🏄🏾‍♀">γυναίκα | σερφ | δέρμα τύπος-5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">γυναίκα σε σανίδα σερφ: δέρμα τύπος-5</annotation>
+		<annotation cp="🏄🏿‍♀">γυναίκα | σερφ | δέρμα τύπος-6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">γυναίκα σε σανίδα σερφ: δέρμα τύπος-6</annotation>
+		<annotation cp="🚣🏻">βάρκα | όχημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚣🏻" type="tts">κωπήλατο: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚣🏼">βάρκα | όχημα | δέρμα τύπος-3</annotation>
+		<annotation cp="🚣🏼" type="tts">κωπήλατο: δέρμα τύπος-3</annotation>
+		<annotation cp="🚣🏽">βάρκα | όχημα | δέρμα τύπος-4</annotation>
+		<annotation cp="🚣🏽" type="tts">κωπήλατο: δέρμα τύπος-4</annotation>
+		<annotation cp="🚣🏾">βάρκα | όχημα | δέρμα τύπος-5</annotation>
+		<annotation cp="🚣🏾" type="tts">κωπήλατο: δέρμα τύπος-5</annotation>
+		<annotation cp="🚣🏿">βάρκα | όχημα | δέρμα τύπος-6</annotation>
+		<annotation cp="🚣🏿" type="tts">κωπήλατο: δέρμα τύπος-6</annotation>
+		<annotation cp="🚣🏻‍♂">άντρας | βάρκα | κωπηλασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">άντρας κωπηλάτης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚣🏼‍♂">άντρας | βάρκα | κωπηλασία | δέρμα τύπος-3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">άντρας κωπηλάτης: δέρμα τύπος-3</annotation>
+		<annotation cp="🚣🏽‍♂">άντρας | βάρκα | κωπηλασία | δέρμα τύπος-4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">άντρας κωπηλάτης: δέρμα τύπος-4</annotation>
+		<annotation cp="🚣🏾‍♂">άντρας | βάρκα | κωπηλασία | δέρμα τύπος-5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">άντρας κωπηλάτης: δέρμα τύπος-5</annotation>
+		<annotation cp="🚣🏿‍♂">άντρας | βάρκα | κωπηλασία | δέρμα τύπος-6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">άντρας κωπηλάτης: δέρμα τύπος-6</annotation>
+		<annotation cp="🚣🏻‍♀">βάρκα | γυναίκα | κωπηλασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">γυναίκα κωπηλάτης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚣🏼‍♀">βάρκα | γυναίκα | κωπηλασία | δέρμα τύπος-3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">γυναίκα κωπηλάτης: δέρμα τύπος-3</annotation>
+		<annotation cp="🚣🏽‍♀">βάρκα | γυναίκα | κωπηλασία | δέρμα τύπος-4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">γυναίκα κωπηλάτης: δέρμα τύπος-4</annotation>
+		<annotation cp="🚣🏾‍♀">βάρκα | γυναίκα | κωπηλασία | δέρμα τύπος-5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">γυναίκα κωπηλάτης: δέρμα τύπος-5</annotation>
+		<annotation cp="🚣🏿‍♀">βάρκα | γυναίκα | κωπηλασία | δέρμα τύπος-6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">γυναίκα κωπηλάτης: δέρμα τύπος-6</annotation>
+		<annotation cp="🏊🏻">κολύμπι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏊🏻" type="tts">κολυμβητής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏊🏼">κολύμπι | δέρμα τύπος-3</annotation>
+		<annotation cp="🏊🏼" type="tts">κολυμβητής: δέρμα τύπος-3</annotation>
+		<annotation cp="🏊🏽">κολύμπι | δέρμα τύπος-4</annotation>
+		<annotation cp="🏊🏽" type="tts">κολυμβητής: δέρμα τύπος-4</annotation>
+		<annotation cp="🏊🏾">κολύμπι | δέρμα τύπος-5</annotation>
+		<annotation cp="🏊🏾" type="tts">κολυμβητής: δέρμα τύπος-5</annotation>
+		<annotation cp="🏊🏿">κολύμπι | δέρμα τύπος-6</annotation>
+		<annotation cp="🏊🏿" type="tts">κολυμβητής: δέρμα τύπος-6</annotation>
+		<annotation cp="🏊🏻‍♂">άντρας | κολύμβηση | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">άντρας κολυμβητής: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏊🏼‍♂">άντρας | κολύμβηση | δέρμα τύπος-3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">άντρας κολυμβητής: δέρμα τύπος-3</annotation>
+		<annotation cp="🏊🏽‍♂">άντρας | κολύμβηση | δέρμα τύπος-4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">άντρας κολυμβητής: δέρμα τύπος-4</annotation>
+		<annotation cp="🏊🏾‍♂">άντρας | κολύμβηση | δέρμα τύπος-5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">άντρας κολυμβητής: δέρμα τύπος-5</annotation>
+		<annotation cp="🏊🏿‍♂">άντρας | κολύμβηση | δέρμα τύπος-6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">άντρας κολυμβητής: δέρμα τύπος-6</annotation>
+		<annotation cp="🏊🏻‍♀">γυναίκα | κολύμβηση | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">κολυμβήτρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏊🏼‍♀">γυναίκα | κολύμβηση | δέρμα τύπος-3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">κολυμβήτρια: δέρμα τύπος-3</annotation>
+		<annotation cp="🏊🏽‍♀">γυναίκα | κολύμβηση | δέρμα τύπος-4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">κολυμβήτρια: δέρμα τύπος-4</annotation>
+		<annotation cp="🏊🏾‍♀">γυναίκα | κολύμβηση | δέρμα τύπος-5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">κολυμβήτρια: δέρμα τύπος-5</annotation>
+		<annotation cp="🏊🏿‍♀">γυναίκα | κολύμβηση | δέρμα τύπος-6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">κολυμβήτρια: δέρμα τύπος-6</annotation>
+		<annotation cp="⛹🏻">μπάλα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="⛹🏻" type="tts">άνθρωπος με μπάλα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="⛹🏼">μπάλα | δέρμα τύπος-3</annotation>
+		<annotation cp="⛹🏼" type="tts">άνθρωπος με μπάλα: δέρμα τύπος-3</annotation>
+		<annotation cp="⛹🏽">μπάλα | δέρμα τύπος-4</annotation>
+		<annotation cp="⛹🏽" type="tts">άνθρωπος με μπάλα: δέρμα τύπος-4</annotation>
+		<annotation cp="⛹🏾">μπάλα | δέρμα τύπος-5</annotation>
+		<annotation cp="⛹🏾" type="tts">άνθρωπος με μπάλα: δέρμα τύπος-5</annotation>
+		<annotation cp="⛹🏿">μπάλα | δέρμα τύπος-6</annotation>
+		<annotation cp="⛹🏿" type="tts">άνθρωπος με μπάλα: δέρμα τύπος-6</annotation>
+		<annotation cp="⛹🏻‍♂">άντρας | μπάλα | μπάσκετ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">άντρας παίζει μπάσκετ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="⛹🏼‍♂">άντρας | μπάλα | μπάσκετ | δέρμα τύπος-3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">άντρας παίζει μπάσκετ: δέρμα τύπος-3</annotation>
+		<annotation cp="⛹🏽‍♂">άντρας | μπάλα | μπάσκετ | δέρμα τύπος-4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">άντρας παίζει μπάσκετ: δέρμα τύπος-4</annotation>
+		<annotation cp="⛹🏾‍♂">άντρας | μπάλα | μπάσκετ | δέρμα τύπος-5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">άντρας παίζει μπάσκετ: δέρμα τύπος-5</annotation>
+		<annotation cp="⛹🏿‍♂">άντρας | μπάλα | μπάσκετ | δέρμα τύπος-6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">άντρας παίζει μπάσκετ: δέρμα τύπος-6</annotation>
+		<annotation cp="⛹🏻‍♀">γυναίκα | μπάλα | μπάσκετ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">γυναίκα παίζει μπάσκετ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="⛹🏼‍♀">γυναίκα | μπάλα | μπάσκετ | δέρμα τύπος-3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">γυναίκα παίζει μπάσκετ: δέρμα τύπος-3</annotation>
+		<annotation cp="⛹🏽‍♀">γυναίκα | μπάλα | μπάσκετ | δέρμα τύπος-4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">γυναίκα παίζει μπάσκετ: δέρμα τύπος-4</annotation>
+		<annotation cp="⛹🏾‍♀">γυναίκα | μπάλα | μπάσκετ | δέρμα τύπος-5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">γυναίκα παίζει μπάσκετ: δέρμα τύπος-5</annotation>
+		<annotation cp="⛹🏿‍♀">γυναίκα | μπάλα | μπάσκετ | δέρμα τύπος-6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">γυναίκα παίζει μπάσκετ: δέρμα τύπος-6</annotation>
+		<annotation cp="🏋🏻">βάρος | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏋🏻" type="tts">αρσιβαρίστας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏋🏼">βάρος | δέρμα τύπος-3</annotation>
+		<annotation cp="🏋🏼" type="tts">αρσιβαρίστας: δέρμα τύπος-3</annotation>
+		<annotation cp="🏋🏽">βάρος | δέρμα τύπος-4</annotation>
+		<annotation cp="🏋🏽" type="tts">αρσιβαρίστας: δέρμα τύπος-4</annotation>
+		<annotation cp="🏋🏾">βάρος | δέρμα τύπος-5</annotation>
+		<annotation cp="🏋🏾" type="tts">αρσιβαρίστας: δέρμα τύπος-5</annotation>
+		<annotation cp="🏋🏿">βάρος | δέρμα τύπος-6</annotation>
+		<annotation cp="🏋🏿" type="tts">αρσιβαρίστας: δέρμα τύπος-6</annotation>
+		<annotation cp="🏋🏻‍♂">άντρας | άρση | βάρη | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">άντρας αρσιβαρίστας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏋🏼‍♂">άντρας | άρση | βάρη | δέρμα τύπος-3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">άντρας αρσιβαρίστας: δέρμα τύπος-3</annotation>
+		<annotation cp="🏋🏽‍♂">άντρας | άρση | βάρη | δέρμα τύπος-4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">άντρας αρσιβαρίστας: δέρμα τύπος-4</annotation>
+		<annotation cp="🏋🏾‍♂">άντρας | άρση | βάρη | δέρμα τύπος-5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">άντρας αρσιβαρίστας: δέρμα τύπος-5</annotation>
+		<annotation cp="🏋🏿‍♂">άντρας | άρση | βάρη | δέρμα τύπος-6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">άντρας αρσιβαρίστας: δέρμα τύπος-6</annotation>
+		<annotation cp="🏋🏻‍♀">άρση | βάρη | γυναίκα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">αρσιβαρίστρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🏋🏼‍♀">άρση | βάρη | γυναίκα | δέρμα τύπος-3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">αρσιβαρίστρια: δέρμα τύπος-3</annotation>
+		<annotation cp="🏋🏽‍♀">άρση | βάρη | γυναίκα | δέρμα τύπος-4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">αρσιβαρίστρια: δέρμα τύπος-4</annotation>
+		<annotation cp="🏋🏾‍♀">άρση | βάρη | γυναίκα | δέρμα τύπος-5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">αρσιβαρίστρια: δέρμα τύπος-5</annotation>
+		<annotation cp="🏋🏿‍♀">άρση | βάρη | γυναίκα | δέρμα τύπος-6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">αρσιβαρίστρια: δέρμα τύπος-6</annotation>
+		<annotation cp="🚴🏻">ποδήλατο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚴🏻" type="tts">ποδηλάτης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚴🏼">ποδήλατο | δέρμα τύπος-3</annotation>
+		<annotation cp="🚴🏼" type="tts">ποδηλάτης: δέρμα τύπος-3</annotation>
+		<annotation cp="🚴🏽">ποδήλατο | δέρμα τύπος-4</annotation>
+		<annotation cp="🚴🏽" type="tts">ποδηλάτης: δέρμα τύπος-4</annotation>
+		<annotation cp="🚴🏾">ποδήλατο | δέρμα τύπος-5</annotation>
+		<annotation cp="🚴🏾" type="tts">ποδηλάτης: δέρμα τύπος-5</annotation>
+		<annotation cp="🚴🏿">ποδήλατο | δέρμα τύπος-6</annotation>
+		<annotation cp="🚴🏿" type="tts">ποδηλάτης: δέρμα τύπος-6</annotation>
+		<annotation cp="🚴🏻‍♂">άντρας | ποδηλασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">άντρας ποδηλάτης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚴🏼‍♂">άντρας | ποδηλασία | δέρμα τύπος-3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">άντρας ποδηλάτης: δέρμα τύπος-3</annotation>
+		<annotation cp="🚴🏽‍♂">άντρας | ποδηλασία | δέρμα τύπος-4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">άντρας ποδηλάτης: δέρμα τύπος-4</annotation>
+		<annotation cp="🚴🏾‍♂">άντρας | ποδηλασία | δέρμα τύπος-5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">άντρας ποδηλάτης: δέρμα τύπος-5</annotation>
+		<annotation cp="🚴🏿‍♂">άντρας | ποδηλασία | δέρμα τύπος-6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">άντρας ποδηλάτης: δέρμα τύπος-6</annotation>
+		<annotation cp="🚴🏻‍♀">γυναίκα | ποδηλασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">ποδηλάτισσα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚴🏼‍♀">γυναίκα | ποδηλασία | δέρμα τύπος-3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">ποδηλάτισσα: δέρμα τύπος-3</annotation>
+		<annotation cp="🚴🏽‍♀">γυναίκα | ποδηλασία | δέρμα τύπος-4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">ποδηλάτισσα: δέρμα τύπος-4</annotation>
+		<annotation cp="🚴🏾‍♀">γυναίκα | ποδηλασία | δέρμα τύπος-5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">ποδηλάτισσα: δέρμα τύπος-5</annotation>
+		<annotation cp="🚴🏿‍♀">γυναίκα | ποδηλασία | δέρμα τύπος-6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">ποδηλάτισσα: δέρμα τύπος-6</annotation>
+		<annotation cp="🚵🏻">βουνό | ποδήλατο | ποδηλάτης | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚵🏻" type="tts">ποδηλάτης στο βουνό: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚵🏼">βουνό | ποδήλατο | ποδηλάτης | δέρμα τύπος-3</annotation>
+		<annotation cp="🚵🏼" type="tts">ποδηλάτης στο βουνό: δέρμα τύπος-3</annotation>
+		<annotation cp="🚵🏽">βουνό | ποδήλατο | ποδηλάτης | δέρμα τύπος-4</annotation>
+		<annotation cp="🚵🏽" type="tts">ποδηλάτης στο βουνό: δέρμα τύπος-4</annotation>
+		<annotation cp="🚵🏾">βουνό | ποδήλατο | ποδηλάτης | δέρμα τύπος-5</annotation>
+		<annotation cp="🚵🏾" type="tts">ποδηλάτης στο βουνό: δέρμα τύπος-5</annotation>
+		<annotation cp="🚵🏿">βουνό | ποδήλατο | ποδηλάτης | δέρμα τύπος-6</annotation>
+		<annotation cp="🚵🏿" type="tts">ποδηλάτης στο βουνό: δέρμα τύπος-6</annotation>
+		<annotation cp="🚵🏻‍♂">άντρας | βουνό | ποδηλασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">ποδηλάτης βουνού: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚵🏼‍♂">άντρας | βουνό | ποδηλασία | δέρμα τύπος-3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">ποδηλάτης βουνού: δέρμα τύπος-3</annotation>
+		<annotation cp="🚵🏽‍♂">άντρας | βουνό | ποδηλασία | δέρμα τύπος-4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">ποδηλάτης βουνού: δέρμα τύπος-4</annotation>
+		<annotation cp="🚵🏾‍♂">άντρας | βουνό | ποδηλασία | δέρμα τύπος-5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">ποδηλάτης βουνού: δέρμα τύπος-5</annotation>
+		<annotation cp="🚵🏿‍♂">άντρας | βουνό | ποδηλασία | δέρμα τύπος-6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">ποδηλάτης βουνού: δέρμα τύπος-6</annotation>
+		<annotation cp="🚵🏻‍♀">βουνό | γυναίκα | ποδηλασία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">ποδηλάτισσα βουνού: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🚵🏼‍♀">βουνό | γυναίκα | ποδηλασία | δέρμα τύπος-3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">ποδηλάτισσα βουνού: δέρμα τύπος-3</annotation>
+		<annotation cp="🚵🏽‍♀">βουνό | γυναίκα | ποδηλασία | δέρμα τύπος-4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">ποδηλάτισσα βουνού: δέρμα τύπος-4</annotation>
+		<annotation cp="🚵🏾‍♀">βουνό | γυναίκα | ποδηλασία | δέρμα τύπος-5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">ποδηλάτισσα βουνού: δέρμα τύπος-5</annotation>
+		<annotation cp="🚵🏿‍♀">βουνό | γυναίκα | ποδηλασία | δέρμα τύπος-6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">ποδηλάτισσα βουνού: δέρμα τύπος-6</annotation>
+		<annotation cp="🤸🏻">άτομο | ακροβατικά | ροντάτ | σπορ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤸🏻" type="tts">ροντάτ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤸🏼">άτομο | ακροβατικά | ροντάτ | σπορ | δέρμα τύπος-3</annotation>
+		<annotation cp="🤸🏼" type="tts">ροντάτ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤸🏽">άτομο | ακροβατικά | ροντάτ | σπορ | δέρμα τύπος-4</annotation>
+		<annotation cp="🤸🏽" type="tts">ροντάτ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤸🏾">άτομο | ακροβατικά | ροντάτ | σπορ | δέρμα τύπος-5</annotation>
+		<annotation cp="🤸🏾" type="tts">ροντάτ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤸🏿">άτομο | ακροβατικά | ροντάτ | σπορ | δέρμα τύπος-6</annotation>
+		<annotation cp="🤸🏿" type="tts">ροντάτ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤸🏻‍♂">άντρας | γυμναστική | ρόδα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">άντρας κάνει ρόδα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤸🏼‍♂">άντρας | γυμναστική | ρόδα | δέρμα τύπος-3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">άντρας κάνει ρόδα: δέρμα τύπος-3</annotation>
+		<annotation cp="🤸🏽‍♂">άντρας | γυμναστική | ρόδα | δέρμα τύπος-4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">άντρας κάνει ρόδα: δέρμα τύπος-4</annotation>
+		<annotation cp="🤸🏾‍♂">άντρας | γυμναστική | ρόδα | δέρμα τύπος-5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">άντρας κάνει ρόδα: δέρμα τύπος-5</annotation>
+		<annotation cp="🤸🏿‍♂">άντρας | γυμναστική | ρόδα | δέρμα τύπος-6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">άντρας κάνει ρόδα: δέρμα τύπος-6</annotation>
+		<annotation cp="🤸🏻‍♀">γυμναστική | γυναίκα | ρόδα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">γυναίκα κάνει ρόδα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤸🏼‍♀">γυμναστική | γυναίκα | ρόδα | δέρμα τύπος-3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">γυναίκα κάνει ρόδα: δέρμα τύπος-3</annotation>
+		<annotation cp="🤸🏽‍♀">γυμναστική | γυναίκα | ρόδα | δέρμα τύπος-4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">γυναίκα κάνει ρόδα: δέρμα τύπος-4</annotation>
+		<annotation cp="🤸🏾‍♀">γυμναστική | γυναίκα | ρόδα | δέρμα τύπος-5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">γυναίκα κάνει ρόδα: δέρμα τύπος-5</annotation>
+		<annotation cp="🤸🏿‍♀">γυμναστική | γυναίκα | ρόδα | δέρμα τύπος-6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">γυναίκα κάνει ρόδα: δέρμα τύπος-6</annotation>
+		<annotation cp="🤽🏻">άτομο | νερό | πόλο | σπορ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤽🏻" type="tts">πόλο: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤽🏼">άτομο | νερό | πόλο | σπορ | δέρμα τύπος-3</annotation>
+		<annotation cp="🤽🏼" type="tts">πόλο: δέρμα τύπος-3</annotation>
+		<annotation cp="🤽🏽">άτομο | νερό | πόλο | σπορ | δέρμα τύπος-4</annotation>
+		<annotation cp="🤽🏽" type="tts">πόλο: δέρμα τύπος-4</annotation>
+		<annotation cp="🤽🏾">άτομο | νερό | πόλο | σπορ | δέρμα τύπος-5</annotation>
+		<annotation cp="🤽🏾" type="tts">πόλο: δέρμα τύπος-5</annotation>
+		<annotation cp="🤽🏿">άτομο | νερό | πόλο | σπορ | δέρμα τύπος-6</annotation>
+		<annotation cp="🤽🏿" type="tts">πόλο: δέρμα τύπος-6</annotation>
+		<annotation cp="🤽🏻‍♂">άντρας | νερό | πόλο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">πολίστας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤽🏼‍♂">άντρας | νερό | πόλο | δέρμα τύπος-3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">πολίστας: δέρμα τύπος-3</annotation>
+		<annotation cp="🤽🏽‍♂">άντρας | νερό | πόλο | δέρμα τύπος-4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">πολίστας: δέρμα τύπος-4</annotation>
+		<annotation cp="🤽🏾‍♂">άντρας | νερό | πόλο | δέρμα τύπος-5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">πολίστας: δέρμα τύπος-5</annotation>
+		<annotation cp="🤽🏿‍♂">άντρας | νερό | πόλο | δέρμα τύπος-6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">πολίστας: δέρμα τύπος-6</annotation>
+		<annotation cp="🤽🏻‍♀">γυναίκα | νερό | πόλο | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">πολίστρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤽🏼‍♀">γυναίκα | νερό | πόλο | δέρμα τύπος-3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">πολίστρια: δέρμα τύπος-3</annotation>
+		<annotation cp="🤽🏽‍♀">γυναίκα | νερό | πόλο | δέρμα τύπος-4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">πολίστρια: δέρμα τύπος-4</annotation>
+		<annotation cp="🤽🏾‍♀">γυναίκα | νερό | πόλο | δέρμα τύπος-5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">πολίστρια: δέρμα τύπος-5</annotation>
+		<annotation cp="🤽🏿‍♀">γυναίκα | νερό | πόλο | δέρμα τύπος-6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">πολίστρια: δέρμα τύπος-6</annotation>
+		<annotation cp="🤾🏻">άτομο | μπάλα | σπορ | χάντμπολ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤾🏻" type="tts">χάντμπολ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤾🏼">άτομο | μπάλα | σπορ | χάντμπολ | δέρμα τύπος-3</annotation>
+		<annotation cp="🤾🏼" type="tts">χάντμπολ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤾🏽">άτομο | μπάλα | σπορ | χάντμπολ | δέρμα τύπος-4</annotation>
+		<annotation cp="🤾🏽" type="tts">χάντμπολ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤾🏾">άτομο | μπάλα | σπορ | χάντμπολ | δέρμα τύπος-5</annotation>
+		<annotation cp="🤾🏾" type="tts">χάντμπολ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤾🏿">άτομο | μπάλα | σπορ | χάντμπολ | δέρμα τύπος-6</annotation>
+		<annotation cp="🤾🏿" type="tts">χάντμπολ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤾🏻‍♂">άθλημα | άντρας | χάντμπολ | χειροσφέριση | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">άντρας παίζει χάντμπολ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤾🏼‍♂">άθλημα | άντρας | χάντμπολ | χειροσφέριση | δέρμα τύπος-3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">άντρας παίζει χάντμπολ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤾🏽‍♂">άθλημα | άντρας | χάντμπολ | χειροσφέριση | δέρμα τύπος-4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">άντρας παίζει χάντμπολ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤾🏾‍♂">άθλημα | άντρας | χάντμπολ | χειροσφέριση | δέρμα τύπος-5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">άντρας παίζει χάντμπολ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤾🏿‍♂">άθλημα | άντρας | χάντμπολ | χειροσφέριση | δέρμα τύπος-6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">άντρας παίζει χάντμπολ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤾🏻‍♀">άθλημα | γυναίκα | χάντμπολ | χειροσφέριση | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">γυναίκα παίζει χάντμπολ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤾🏼‍♀">άθλημα | γυναίκα | χάντμπολ | χειροσφέριση | δέρμα τύπος-3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">γυναίκα παίζει χάντμπολ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤾🏽‍♀">άθλημα | γυναίκα | χάντμπολ | χειροσφέριση | δέρμα τύπος-4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">γυναίκα παίζει χάντμπολ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤾🏾‍♀">άθλημα | γυναίκα | χάντμπολ | χειροσφέριση | δέρμα τύπος-5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">γυναίκα παίζει χάντμπολ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤾🏿‍♀">άθλημα | γυναίκα | χάντμπολ | χειροσφέριση | δέρμα τύπος-6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">γυναίκα παίζει χάντμπολ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤹🏻">δεξιότητα | ζογκλέρ | ισορροπία | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤹🏻" type="tts">ζογκλέρ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤹🏼">δεξιότητα | ζογκλέρ | ισορροπία | δέρμα τύπος-3</annotation>
+		<annotation cp="🤹🏼" type="tts">ζογκλέρ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤹🏽">δεξιότητα | ζογκλέρ | ισορροπία | δέρμα τύπος-4</annotation>
+		<annotation cp="🤹🏽" type="tts">ζογκλέρ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤹🏾">δεξιότητα | ζογκλέρ | ισορροπία | δέρμα τύπος-5</annotation>
+		<annotation cp="🤹🏾" type="tts">ζογκλέρ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤹🏿">δεξιότητα | ζογκλέρ | ισορροπία | δέρμα τύπος-6</annotation>
+		<annotation cp="🤹🏿" type="tts">ζογκλέρ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤹🏻‍♂">άντρας | ζογκλέρ | κόλπα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">άντρας ζογκλέρ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤹🏼‍♂">άντρας | ζογκλέρ | κόλπα | δέρμα τύπος-3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">άντρας ζογκλέρ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤹🏽‍♂">άντρας | ζογκλέρ | κόλπα | δέρμα τύπος-4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">άντρας ζογκλέρ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤹🏾‍♂">άντρας | ζογκλέρ | κόλπα | δέρμα τύπος-5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">άντρας ζογκλέρ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤹🏿‍♂">άντρας | ζογκλέρ | κόλπα | δέρμα τύπος-6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">άντρας ζογκλέρ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤹🏻‍♀">γυναίκα | ζογκλέρ | κόλπα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">γυναίκα ζογκλέρ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤹🏼‍♀">γυναίκα | ζογκλέρ | κόλπα | δέρμα τύπος-3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">γυναίκα ζογκλέρ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤹🏽‍♀">γυναίκα | ζογκλέρ | κόλπα | δέρμα τύπος-4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">γυναίκα ζογκλέρ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤹🏾‍♀">γυναίκα | ζογκλέρ | κόλπα | δέρμα τύπος-5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">γυναίκα ζογκλέρ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤹🏿‍♀">γυναίκα | ζογκλέρ | κόλπα | δέρμα τύπος-6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">γυναίκα ζογκλέρ: δέρμα τύπος-6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">άντρας | γυναίκα | ζευγάρι</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">φιλί, γυναίκα, άντρας</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">άντρας | ζευγάρι</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">φιλί, άντρας, άντρας</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">γυναίκα | ζευγάρι</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">φιλί, γυναίκα, γυναίκα</annotation>
+		<annotation cp="👩‍❤‍👨">άντρας | έρωτας | γυναίκα | ζευγάρι</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">ζευγάρι, γυναίκα, άντρας</annotation>
+		<annotation cp="👨‍❤‍👨">άντρας | έρωτας | ζευγάρι</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">ζευγάρι, άντρας, άντρας</annotation>
+		<annotation cp="👩‍❤‍👩">έρωτας | γυναίκα | ζευγάρι</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">ζευγάρι, γυναίκα, γυναίκα</annotation>
+		<annotation cp="👨‍👩‍👦">μητέρα | παιδί | πατέρας</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">οικογένεια, άντρας, γυναίκα, αγόρι</annotation>
+		<annotation cp="👨‍👩‍👧">μητέρα | παιδί | πατέρας</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">οικογένεια, άντρας, γυναίκα, κορίτσι</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">οικογένεια, άντρας, γυναίκα, κορίτσι, αγόρι</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">οικογένεια, άντρας, γυναίκα, δύο αγόρια</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">οικογένεια, άντρας, γυναίκα, δύο κορίτσια</annotation>
+		<annotation cp="👨‍👨‍👦">αγόρι | μητέρα | παιδί | πατέρας</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">οικογένεια, άντρας, άντρας, αγόρι</annotation>
+		<annotation cp="👨‍👨‍👧">κορίτσι | μετέρα | παιδί | πατέρας</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">οικογένεια, άντρας, άντρας, κορίτσι</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">οικογένεια, άντρας, άντρας, κορίτσι, αγόρι</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">οικογένεια, άντρας, άντρας, δύο αγόρια</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">οικογένεια, άντρας, άντρας, δύο κορίτσια</annotation>
+		<annotation cp="👩‍👩‍👦">μητέρα | παιδί | πατέρας</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">οικογένεια, γυναίκα, γυναίκα, αγόρι</annotation>
+		<annotation cp="👩‍👩‍👧">μητέρα | παιδί | πατέρας</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">οικογένεια, γυναίκα, γυναίκα, κορίτσι</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">οικογένεια, γυναίκα, γυναίκα, κορίτσι, αγόρι</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">οικογένεια, γυναίκα, γυναίκα, δύο αγόρια</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">μητέρα | παιδιά | πατέρας</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">οικογένεια, γυναίκα, γυναίκα, δύο κορίτσια</annotation>
+		<annotation cp="👨‍👦">παιδί | πατέρας</annotation>
+		<annotation cp="👨‍👦" type="tts">οικογένεια, άντρας, αγόρι</annotation>
+		<annotation cp="👨‍👦‍👦">παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">οικογένεια, άντρας, δύο αγόρια</annotation>
+		<annotation cp="👨‍👧">παιδί | πατέρας</annotation>
+		<annotation cp="👨‍👧" type="tts">οικογένεια, άντρας, κορίτσι</annotation>
+		<annotation cp="👨‍👧‍👦">παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">οικογένεια, άντρας, κορίτσι, αγόρι</annotation>
+		<annotation cp="👨‍👧‍👧">παιδιά | πατέρας</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">οικογένεια, άντρας, δύο κορίτσια</annotation>
+		<annotation cp="👩‍👦">μητέρα | παιδί</annotation>
+		<annotation cp="👩‍👦" type="tts">οικογένεια, γυναίκα, αγόρι</annotation>
+		<annotation cp="👩‍👦‍👦">μητέρα | παιδιά</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">οικογένεια, γυναίκα, δύο αγόρια</annotation>
+		<annotation cp="👩‍👧">μητέρα | παιδί</annotation>
+		<annotation cp="👩‍👧" type="tts">οικογένεια, γυναίκα, κορίτσι</annotation>
+		<annotation cp="👩‍👧‍👦">μητέρα | παιδιά</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">οικογένεια, γυναίκα, κορίτσι, αγόρι</annotation>
+		<annotation cp="👩‍👧‍👧">μητέρα | παιδιά</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">οικογένεια, γυναίκα, δύο κορίτσια</annotation>
+		<annotation cp="🤳🏻">selfie | τηλέφωνο | φωτογραφική μηχανή | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤳🏼">selfie | τηλέφωνο | φωτογραφική μηχανή | δέρμα τύπος-3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: δέρμα τύπος-3</annotation>
+		<annotation cp="🤳🏽">selfie | τηλέφωνο | φωτογραφική μηχανή | δέρμα τύπος-4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: δέρμα τύπος-4</annotation>
+		<annotation cp="🤳🏾">selfie | τηλέφωνο | φωτογραφική μηχανή | δέρμα τύπος-5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: δέρμα τύπος-5</annotation>
+		<annotation cp="🤳🏿">selfie | τηλέφωνο | φωτογραφική μηχανή | δέρμα τύπος-6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: δέρμα τύπος-6</annotation>
+		<annotation cp="💪🏻">δικέφαλος | επίδειξη | κόμικ | μυς | σώμα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💪🏻" type="tts">σφιχτός δικέφαλος: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💪🏼">δικέφαλος | επίδειξη | κόμικ | μυς | σώμα | δέρμα τύπος-3</annotation>
+		<annotation cp="💪🏼" type="tts">σφιχτός δικέφαλος: δέρμα τύπος-3</annotation>
+		<annotation cp="💪🏽">δικέφαλος | επίδειξη | κόμικ | μυς | σώμα | δέρμα τύπος-4</annotation>
+		<annotation cp="💪🏽" type="tts">σφιχτός δικέφαλος: δέρμα τύπος-4</annotation>
+		<annotation cp="💪🏾">δικέφαλος | επίδειξη | κόμικ | μυς | σώμα | δέρμα τύπος-5</annotation>
+		<annotation cp="💪🏾" type="tts">σφιχτός δικέφαλος: δέρμα τύπος-5</annotation>
+		<annotation cp="💪🏿">δικέφαλος | επίδειξη | κόμικ | μυς | σώμα | δέρμα τύπος-6</annotation>
+		<annotation cp="💪🏿" type="tts">σφιχτός δικέφαλος: δέρμα τύπος-6</annotation>
+		<annotation cp="👈🏻">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👈🏻" type="tts">δείκτης χεριού προς τα αριστερά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👈🏼">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-3</annotation>
+		<annotation cp="👈🏼" type="tts">δείκτης χεριού προς τα αριστερά: δέρμα τύπος-3</annotation>
+		<annotation cp="👈🏽">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-4</annotation>
+		<annotation cp="👈🏽" type="tts">δείκτης χεριού προς τα αριστερά: δέρμα τύπος-4</annotation>
+		<annotation cp="👈🏾">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-5</annotation>
+		<annotation cp="👈🏾" type="tts">δείκτης χεριού προς τα αριστερά: δέρμα τύπος-5</annotation>
+		<annotation cp="👈🏿">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-6</annotation>
+		<annotation cp="👈🏿" type="tts">δείκτης χεριού προς τα αριστερά: δέρμα τύπος-6</annotation>
+		<annotation cp="👉🏻">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👉🏻" type="tts">δείκτης χεριού προς τα δεξιά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👉🏼">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-3</annotation>
+		<annotation cp="👉🏼" type="tts">δείκτης χεριού προς τα δεξιά: δέρμα τύπος-3</annotation>
+		<annotation cp="👉🏽">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-4</annotation>
+		<annotation cp="👉🏽" type="tts">δείκτης χεριού προς τα δεξιά: δέρμα τύπος-4</annotation>
+		<annotation cp="👉🏾">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-5</annotation>
+		<annotation cp="👉🏾" type="tts">δείκτης χεριού προς τα δεξιά: δέρμα τύπος-5</annotation>
+		<annotation cp="👉🏿">δάχτυλο | δείκτης | δείχνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-6</annotation>
+		<annotation cp="👉🏿" type="tts">δείκτης χεριού προς τα δεξιά: δέρμα τύπος-6</annotation>
+		<annotation cp="☝🏻">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="☝🏻" type="tts">δείκτης χεριού προς τα επάνω: δέρμα τύπος-1-2</annotation>
+		<annotation cp="☝🏼">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="☝🏼" type="tts">δείκτης χεριού προς τα επάνω: δέρμα τύπος-3</annotation>
+		<annotation cp="☝🏽">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="☝🏽" type="tts">δείκτης χεριού προς τα επάνω: δέρμα τύπος-4</annotation>
+		<annotation cp="☝🏾">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="☝🏾" type="tts">δείκτης χεριού προς τα επάνω: δέρμα τύπος-5</annotation>
+		<annotation cp="☝🏿">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="☝🏿" type="tts">δείκτης χεριού προς τα επάνω: δέρμα τύπος-6</annotation>
+		<annotation cp="👆🏻">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👆🏻" type="tts">δείκτης χεριού προς τα επάνω ανάποδα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👆🏼">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-3</annotation>
+		<annotation cp="👆🏼" type="tts">δείκτης χεριού προς τα επάνω ανάποδα: δέρμα τύπος-3</annotation>
+		<annotation cp="👆🏽">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-4</annotation>
+		<annotation cp="👆🏽" type="tts">δείκτης χεριού προς τα επάνω ανάποδα: δέρμα τύπος-4</annotation>
+		<annotation cp="👆🏾">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-5</annotation>
+		<annotation cp="👆🏾" type="tts">δείκτης χεριού προς τα επάνω ανάποδα: δέρμα τύπος-5</annotation>
+		<annotation cp="👆🏿">δάχτυλο | δείκτης | δείχνω | επάνω | σώμα | χέρι | χτύπημα | δέρμα τύπος-6</annotation>
+		<annotation cp="👆🏿" type="tts">δείκτης χεριού προς τα επάνω ανάποδα: δέρμα τύπος-6</annotation>
+		<annotation cp="🖕🏻">δάχτυλο | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🖕🏻" type="tts">μεσαίο δάχτυλο: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🖕🏼">δάχτυλο | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🖕🏼" type="tts">μεσαίο δάχτυλο: δέρμα τύπος-3</annotation>
+		<annotation cp="🖕🏽">δάχτυλο | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🖕🏽" type="tts">μεσαίο δάχτυλο: δέρμα τύπος-4</annotation>
+		<annotation cp="🖕🏾">δάχτυλο | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🖕🏾" type="tts">μεσαίο δάχτυλο: δέρμα τύπος-5</annotation>
+		<annotation cp="🖕🏿">δάχτυλο | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🖕🏿" type="tts">μεσαίο δάχτυλο: δέρμα τύπος-6</annotation>
+		<annotation cp="👇🏻">δάχτυλο | δείκτης | δείχνω | κάτω | σώμα | χέρι | χτύπημα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👇🏻" type="tts">δείκτης χεριού προς τα κάτω ανάποδα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👇🏼">δάχτυλο | δείκτης | δείχνω | κάτω | σώμα | χέρι | χτύπημα | δέρμα τύπος-3</annotation>
+		<annotation cp="👇🏼" type="tts">δείκτης χεριού προς τα κάτω ανάποδα: δέρμα τύπος-3</annotation>
+		<annotation cp="👇🏽">δάχτυλο | δείκτης | δείχνω | κάτω | σώμα | χέρι | χτύπημα | δέρμα τύπος-4</annotation>
+		<annotation cp="👇🏽" type="tts">δείκτης χεριού προς τα κάτω ανάποδα: δέρμα τύπος-4</annotation>
+		<annotation cp="👇🏾">δάχτυλο | δείκτης | δείχνω | κάτω | σώμα | χέρι | χτύπημα | δέρμα τύπος-5</annotation>
+		<annotation cp="👇🏾" type="tts">δείκτης χεριού προς τα κάτω ανάποδα: δέρμα τύπος-5</annotation>
+		<annotation cp="👇🏿">δάχτυλο | δείκτης | δείχνω | κάτω | σώμα | χέρι | χτύπημα | δέρμα τύπος-6</annotation>
+		<annotation cp="👇🏿" type="tts">δείκτης χεριού προς τα κάτω ανάποδα: δέρμα τύπος-6</annotation>
+		<annotation cp="✌🏻">v | νίκη | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="✌🏻" type="tts">σήμα της νίκης: δέρμα τύπος-1-2</annotation>
+		<annotation cp="✌🏼">v | νίκη | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="✌🏼" type="tts">σήμα της νίκης: δέρμα τύπος-3</annotation>
+		<annotation cp="✌🏽">v | νίκη | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="✌🏽" type="tts">σήμα της νίκης: δέρμα τύπος-4</annotation>
+		<annotation cp="✌🏾">v | νίκη | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="✌🏾" type="tts">σήμα της νίκης: δέρμα τύπος-5</annotation>
+		<annotation cp="✌🏿">v | νίκη | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="✌🏿" type="tts">σήμα της νίκης: δέρμα τύπος-6</annotation>
+		<annotation cp="🤞🏻">δάχτυλα | σταυρώνω | τύχη | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤞🏻" type="tts">καλή τύχη: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤞🏼">δάχτυλα | σταυρώνω | τύχη | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🤞🏼" type="tts">καλή τύχη: δέρμα τύπος-3</annotation>
+		<annotation cp="🤞🏽">δάχτυλα | σταυρώνω | τύχη | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🤞🏽" type="tts">καλή τύχη: δέρμα τύπος-4</annotation>
+		<annotation cp="🤞🏾">δάχτυλα | σταυρώνω | τύχη | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🤞🏾" type="tts">καλή τύχη: δέρμα τύπος-5</annotation>
+		<annotation cp="🤞🏿">δάχτυλα | σταυρώνω | τύχη | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🤞🏿" type="tts">καλή τύχη: δέρμα τύπος-6</annotation>
+		<annotation cp="🖖🏻">vulcan | δάχτυλο | σποκ | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🖖🏻" type="tts">χαιρετισμός σποκ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🖖🏼">vulcan | δάχτυλο | σποκ | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🖖🏼" type="tts">χαιρετισμός σποκ: δέρμα τύπος-3</annotation>
+		<annotation cp="🖖🏽">vulcan | δάχτυλο | σποκ | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🖖🏽" type="tts">χαιρετισμός σποκ: δέρμα τύπος-4</annotation>
+		<annotation cp="🖖🏾">vulcan | δάχτυλο | σποκ | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🖖🏾" type="tts">χαιρετισμός σποκ: δέρμα τύπος-5</annotation>
+		<annotation cp="🖖🏿">vulcan | δάχτυλο | σποκ | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🖖🏿" type="tts">χαιρετισμός σποκ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤘🏻">δάχτυλο | κέρατα | ροκάρω | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤘🏻" type="tts">χειρονομία ροκ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤘🏼">δάχτυλο | κέρατα | ροκάρω | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🤘🏼" type="tts">χειρονομία ροκ: δέρμα τύπος-3</annotation>
+		<annotation cp="🤘🏽">δάχτυλο | κέρατα | ροκάρω | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🤘🏽" type="tts">χειρονομία ροκ: δέρμα τύπος-4</annotation>
+		<annotation cp="🤘🏾">δάχτυλο | κέρατα | ροκάρω | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🤘🏾" type="tts">χειρονομία ροκ: δέρμα τύπος-5</annotation>
+		<annotation cp="🤘🏿">δάχτυλο | κέρατα | ροκάρω | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🤘🏿" type="tts">χειρονομία ροκ: δέρμα τύπος-6</annotation>
+		<annotation cp="🤙🏻">κλήση | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤙🏻" type="tts">τηλεφώνησέ μου: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤙🏼">κλήση | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🤙🏼" type="tts">τηλεφώνησέ μου: δέρμα τύπος-3</annotation>
+		<annotation cp="🤙🏽">κλήση | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🤙🏽" type="tts">τηλεφώνησέ μου: δέρμα τύπος-4</annotation>
+		<annotation cp="🤙🏾">κλήση | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🤙🏾" type="tts">τηλεφώνησέ μου: δέρμα τύπος-5</annotation>
+		<annotation cp="🤙🏿">κλήση | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🤙🏿" type="tts">τηλεφώνησέ μου: δέρμα τύπος-6</annotation>
+		<annotation cp="🖐🏻">ανοιχτά δάχτυλα | δάχτυλο | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🖐🏻" type="tts">μούντζα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🖐🏼">ανοιχτά δάχτυλα | δάχτυλο | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🖐🏼" type="tts">μούντζα: δέρμα τύπος-3</annotation>
+		<annotation cp="🖐🏽">ανοιχτά δάχτυλα | δάχτυλο | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🖐🏽" type="tts">μούντζα: δέρμα τύπος-4</annotation>
+		<annotation cp="🖐🏾">ανοιχτά δάχτυλα | δάχτυλο | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🖐🏾" type="tts">μούντζα: δέρμα τύπος-5</annotation>
+		<annotation cp="🖐🏿">ανοιχτά δάχτυλα | δάχτυλο | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🖐🏿" type="tts">μούντζα: δέρμα τύπος-6</annotation>
+		<annotation cp="✋🏻">σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="✋🏻" type="tts">σηκωμένο χέρι: δέρμα τύπος-1-2</annotation>
+		<annotation cp="✋🏼">σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="✋🏼" type="tts">σηκωμένο χέρι: δέρμα τύπος-3</annotation>
+		<annotation cp="✋🏽">σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="✋🏽" type="tts">σηκωμένο χέρι: δέρμα τύπος-4</annotation>
+		<annotation cp="✋🏾">σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="✋🏾" type="tts">σηκωμένο χέρι: δέρμα τύπος-5</annotation>
+		<annotation cp="✋🏿">σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="✋🏿" type="tts">σηκωμένο χέρι: δέρμα τύπος-6</annotation>
+		<annotation cp="👌🏻">OK | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👌🏻" type="tts">χειρονομία οκ: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👌🏼">OK | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="👌🏼" type="tts">χειρονομία οκ: δέρμα τύπος-3</annotation>
+		<annotation cp="👌🏽">OK | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="👌🏽" type="tts">χειρονομία οκ: δέρμα τύπος-4</annotation>
+		<annotation cp="👌🏾">OK | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="👌🏾" type="tts">χειρονομία οκ: δέρμα τύπος-5</annotation>
+		<annotation cp="👌🏿">OK | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="👌🏿" type="tts">χειρονομία οκ: δέρμα τύπος-6</annotation>
+		<annotation cp="👍🏻">+1 | αντίχειρας | επάνω | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👍🏻" type="tts">σηκωμένος αντίχειρας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👍🏼">+1 | αντίχειρας | επάνω | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="👍🏼" type="tts">σηκωμένος αντίχειρας: δέρμα τύπος-3</annotation>
+		<annotation cp="👍🏽">+1 | αντίχειρας | επάνω | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="👍🏽" type="tts">σηκωμένος αντίχειρας: δέρμα τύπος-4</annotation>
+		<annotation cp="👍🏾">+1 | αντίχειρας | επάνω | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="👍🏾" type="tts">σηκωμένος αντίχειρας: δέρμα τύπος-5</annotation>
+		<annotation cp="👍🏿">+1 | αντίχειρας | επάνω | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="👍🏿" type="tts">σηκωμένος αντίχειρας: δέρμα τύπος-6</annotation>
+		<annotation cp="👎🏻">-1 | αντίχειρας | κάτω | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👎🏻" type="tts">κατεβασμένος αντίχειρας: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👎🏼">-1 | αντίχειρας | κάτω | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="👎🏼" type="tts">κατεβασμένος αντίχειρας: δέρμα τύπος-3</annotation>
+		<annotation cp="👎🏽">-1 | αντίχειρας | κάτω | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="👎🏽" type="tts">κατεβασμένος αντίχειρας: δέρμα τύπος-4</annotation>
+		<annotation cp="👎🏾">-1 | αντίχειρας | κάτω | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="👎🏾" type="tts">κατεβασμένος αντίχειρας: δέρμα τύπος-5</annotation>
+		<annotation cp="👎🏿">-1 | αντίχειρας | κάτω | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="👎🏿" type="tts">κατεβασμένος αντίχειρας: δέρμα τύπος-6</annotation>
+		<annotation cp="✊🏻">γροθιά | μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="✊🏻" type="tts">σηκωμένη γροθιά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="✊🏼">γροθιά | μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="✊🏼" type="tts">σηκωμένη γροθιά: δέρμα τύπος-3</annotation>
+		<annotation cp="✊🏽">γροθιά | μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="✊🏽" type="tts">σηκωμένη γροθιά: δέρμα τύπος-4</annotation>
+		<annotation cp="✊🏾">γροθιά | μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="✊🏾" type="tts">σηκωμένη γροθιά: δέρμα τύπος-5</annotation>
+		<annotation cp="✊🏿">γροθιά | μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="✊🏿" type="tts">σηκωμένη γροθιά: δέρμα τύπος-6</annotation>
+		<annotation cp="👊🏻">μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👊🏻" type="tts">γροθιά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👊🏼">μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="👊🏼" type="tts">γροθιά: δέρμα τύπος-3</annotation>
+		<annotation cp="👊🏽">μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="👊🏽" type="tts">γροθιά: δέρμα τύπος-4</annotation>
+		<annotation cp="👊🏾">μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="👊🏾" type="tts">γροθιά: δέρμα τύπος-5</annotation>
+		<annotation cp="👊🏿">μπουνιά | σφιγμένο | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="👊🏿" type="tts">γροθιά: δέρμα τύπος-6</annotation>
+		<annotation cp="🤛🏻">γροθιά | στα αριστερά | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤛🏻" type="tts">αριστερή γροθιά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤛🏼">γροθιά | στα αριστερά | δέρμα τύπος-3</annotation>
+		<annotation cp="🤛🏼" type="tts">αριστερή γροθιά: δέρμα τύπος-3</annotation>
+		<annotation cp="🤛🏽">γροθιά | στα αριστερά | δέρμα τύπος-4</annotation>
+		<annotation cp="🤛🏽" type="tts">αριστερή γροθιά: δέρμα τύπος-4</annotation>
+		<annotation cp="🤛🏾">γροθιά | στα αριστερά | δέρμα τύπος-5</annotation>
+		<annotation cp="🤛🏾" type="tts">αριστερή γροθιά: δέρμα τύπος-5</annotation>
+		<annotation cp="🤛🏿">γροθιά | στα αριστερά | δέρμα τύπος-6</annotation>
+		<annotation cp="🤛🏿" type="tts">αριστερή γροθιά: δέρμα τύπος-6</annotation>
+		<annotation cp="🤜🏻">γροθιά | στα δεξιά | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤜🏻" type="tts">δεξιά γροθιά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤜🏼">γροθιά | στα δεξιά | δέρμα τύπος-3</annotation>
+		<annotation cp="🤜🏼" type="tts">δεξιά γροθιά: δέρμα τύπος-3</annotation>
+		<annotation cp="🤜🏽">γροθιά | στα δεξιά | δέρμα τύπος-4</annotation>
+		<annotation cp="🤜🏽" type="tts">δεξιά γροθιά: δέρμα τύπος-4</annotation>
+		<annotation cp="🤜🏾">γροθιά | στα δεξιά | δέρμα τύπος-5</annotation>
+		<annotation cp="🤜🏾" type="tts">δεξιά γροθιά: δέρμα τύπος-5</annotation>
+		<annotation cp="🤜🏿">γροθιά | στα δεξιά | δέρμα τύπος-6</annotation>
+		<annotation cp="🤜🏿" type="tts">δεξιά γροθιά: δέρμα τύπος-6</annotation>
+		<annotation cp="🤚🏻">ανάποδη | ανάστροφη | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤚🏻" type="tts">ανάποδη: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🤚🏼">ανάποδη | ανάστροφη | δέρμα τύπος-3</annotation>
+		<annotation cp="🤚🏼" type="tts">ανάποδη: δέρμα τύπος-3</annotation>
+		<annotation cp="🤚🏽">ανάποδη | ανάστροφη | δέρμα τύπος-4</annotation>
+		<annotation cp="🤚🏽" type="tts">ανάποδη: δέρμα τύπος-4</annotation>
+		<annotation cp="🤚🏾">ανάποδη | ανάστροφη | δέρμα τύπος-5</annotation>
+		<annotation cp="🤚🏾" type="tts">ανάποδη: δέρμα τύπος-5</annotation>
+		<annotation cp="🤚🏿">ανάποδη | ανάστροφη | δέρμα τύπος-6</annotation>
+		<annotation cp="🤚🏿" type="tts">ανάποδη: δέρμα τύπος-6</annotation>
+		<annotation cp="👋🏻">νεύμα | σώμα | χέρι | χαιρετώ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👋🏻" type="tts">χέρι που χαιρετά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👋🏼">νεύμα | σώμα | χέρι | χαιρετώ | δέρμα τύπος-3</annotation>
+		<annotation cp="👋🏼" type="tts">χέρι που χαιρετά: δέρμα τύπος-3</annotation>
+		<annotation cp="👋🏽">νεύμα | σώμα | χέρι | χαιρετώ | δέρμα τύπος-4</annotation>
+		<annotation cp="👋🏽" type="tts">χέρι που χαιρετά: δέρμα τύπος-4</annotation>
+		<annotation cp="👋🏾">νεύμα | σώμα | χέρι | χαιρετώ | δέρμα τύπος-5</annotation>
+		<annotation cp="👋🏾" type="tts">χέρι που χαιρετά: δέρμα τύπος-5</annotation>
+		<annotation cp="👋🏿">νεύμα | σώμα | χέρι | χαιρετώ | δέρμα τύπος-6</annotation>
+		<annotation cp="👋🏿" type="tts">χέρι που χαιρετά: δέρμα τύπος-6</annotation>
+		<annotation cp="✍🏻">γράφω | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="✍🏻" type="tts">χέρι που γράφει: δέρμα τύπος-1-2</annotation>
+		<annotation cp="✍🏼">γράφω | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="✍🏼" type="tts">χέρι που γράφει: δέρμα τύπος-3</annotation>
+		<annotation cp="✍🏽">γράφω | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="✍🏽" type="tts">χέρι που γράφει: δέρμα τύπος-4</annotation>
+		<annotation cp="✍🏾">γράφω | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="✍🏾" type="tts">χέρι που γράφει: δέρμα τύπος-5</annotation>
+		<annotation cp="✍🏿">γράφω | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="✍🏿" type="tts">χέρι που γράφει: δέρμα τύπος-6</annotation>
+		<annotation cp="👏🏻">σώμα | χέρι | χειροκροτώ | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👏🏻" type="tts">παλαμάκια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👏🏼">σώμα | χέρι | χειροκροτώ | δέρμα τύπος-3</annotation>
+		<annotation cp="👏🏼" type="tts">παλαμάκια: δέρμα τύπος-3</annotation>
+		<annotation cp="👏🏽">σώμα | χέρι | χειροκροτώ | δέρμα τύπος-4</annotation>
+		<annotation cp="👏🏽" type="tts">παλαμάκια: δέρμα τύπος-4</annotation>
+		<annotation cp="👏🏾">σώμα | χέρι | χειροκροτώ | δέρμα τύπος-5</annotation>
+		<annotation cp="👏🏾" type="tts">παλαμάκια: δέρμα τύπος-5</annotation>
+		<annotation cp="👏🏿">σώμα | χέρι | χειροκροτώ | δέρμα τύπος-6</annotation>
+		<annotation cp="👏🏿" type="tts">παλαμάκια: δέρμα τύπος-6</annotation>
+		<annotation cp="👐🏻">ανοιχτό | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👐🏻" type="tts">ανοικτά χέρια: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👐🏼">ανοιχτό | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="👐🏼" type="tts">ανοικτά χέρια: δέρμα τύπος-3</annotation>
+		<annotation cp="👐🏽">ανοιχτό | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="👐🏽" type="tts">ανοικτά χέρια: δέρμα τύπος-4</annotation>
+		<annotation cp="👐🏾">ανοιχτό | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="👐🏾" type="tts">ανοικτά χέρια: δέρμα τύπος-5</annotation>
+		<annotation cp="👐🏿">ανοιχτό | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="👐🏿" type="tts">ανοικτά χέρια: δέρμα τύπος-6</annotation>
+		<annotation cp="🙌🏻">γιορτή | ζήτω | κίνηση | σηκωμένο | σώμα | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙌🏻" type="tts">χέρια ψηλά: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙌🏼">γιορτή | ζήτω | κίνηση | σηκωμένο | σώμα | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🙌🏼" type="tts">χέρια ψηλά: δέρμα τύπος-3</annotation>
+		<annotation cp="🙌🏽">γιορτή | ζήτω | κίνηση | σηκωμένο | σώμα | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🙌🏽" type="tts">χέρια ψηλά: δέρμα τύπος-4</annotation>
+		<annotation cp="🙌🏾">γιορτή | ζήτω | κίνηση | σηκωμένο | σώμα | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🙌🏾" type="tts">χέρια ψηλά: δέρμα τύπος-5</annotation>
+		<annotation cp="🙌🏿">γιορτή | ζήτω | κίνηση | σηκωμένο | σώμα | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🙌🏿" type="tts">χέρια ψηλά: δέρμα τύπος-6</annotation>
+		<annotation cp="🙏🏻">ενωμένα | ευχαριστώ | ζητώ | κίνηση | παρακαλώ | προσευχή | σώμα | υπόκλιση | χέρι | δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙏🏻" type="tts">χέρια ενωμένα: δέρμα τύπος-1-2</annotation>
+		<annotation cp="🙏🏼">ενωμένα | ευχαριστώ | ζητώ | κίνηση | παρακαλώ | προσευχή | σώμα | υπόκλιση | χέρι | δέρμα τύπος-3</annotation>
+		<annotation cp="🙏🏼" type="tts">χέρια ενωμένα: δέρμα τύπος-3</annotation>
+		<annotation cp="🙏🏽">ενωμένα | ευχαριστώ | ζητώ | κίνηση | παρακαλώ | προσευχή | σώμα | υπόκλιση | χέρι | δέρμα τύπος-4</annotation>
+		<annotation cp="🙏🏽" type="tts">χέρια ενωμένα: δέρμα τύπος-4</annotation>
+		<annotation cp="🙏🏾">ενωμένα | ευχαριστώ | ζητώ | κίνηση | παρακαλώ | προσευχή | σώμα | υπόκλιση | χέρι | δέρμα τύπος-5</annotation>
+		<annotation cp="🙏🏾" type="tts">χέρια ενωμένα: δέρμα τύπος-5</annotation>
+		<annotation cp="🙏🏿">ενωμένα | ευχαριστώ | ζητώ | κίνηση | παρακαλώ | προσευχή | σώμα | υπόκλιση | χέρι | δέρμα τύπος-6</annotation>
+		<annotation cp="🙏🏿" type="tts">χέρια ενωμένα: δέρμα τύπος-6</annotation>
+		<annotation cp="💅🏻">βερνίκι | καλλυντικά | μανικιούρ | νύχι | σώμα | φροντίδα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="💅🏻" type="tts">βάψιμο νυχιών: δέρμα τύπος-1-2</annotation>
+		<annotation cp="💅🏼">βερνίκι | καλλυντικά | μανικιούρ | νύχι | σώμα | φροντίδα | δέρμα τύπος-3</annotation>
+		<annotation cp="💅🏼" type="tts">βάψιμο νυχιών: δέρμα τύπος-3</annotation>
+		<annotation cp="💅🏽">βερνίκι | καλλυντικά | μανικιούρ | νύχι | σώμα | φροντίδα | δέρμα τύπος-4</annotation>
+		<annotation cp="💅🏽" type="tts">βάψιμο νυχιών: δέρμα τύπος-4</annotation>
+		<annotation cp="💅🏾">βερνίκι | καλλυντικά | μανικιούρ | νύχι | σώμα | φροντίδα | δέρμα τύπος-5</annotation>
+		<annotation cp="💅🏾" type="tts">βάψιμο νυχιών: δέρμα τύπος-5</annotation>
+		<annotation cp="💅🏿">βερνίκι | καλλυντικά | μανικιούρ | νύχι | σώμα | φροντίδα | δέρμα τύπος-6</annotation>
+		<annotation cp="💅🏿" type="tts">βάψιμο νυχιών: δέρμα τύπος-6</annotation>
+		<annotation cp="👂🏻">σώμα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👂🏻" type="tts">αυτί: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👂🏼">σώμα | δέρμα τύπος-3</annotation>
+		<annotation cp="👂🏼" type="tts">αυτί: δέρμα τύπος-3</annotation>
+		<annotation cp="👂🏽">σώμα | δέρμα τύπος-4</annotation>
+		<annotation cp="👂🏽" type="tts">αυτί: δέρμα τύπος-4</annotation>
+		<annotation cp="👂🏾">σώμα | δέρμα τύπος-5</annotation>
+		<annotation cp="👂🏾" type="tts">αυτί: δέρμα τύπος-5</annotation>
+		<annotation cp="👂🏿">σώμα | δέρμα τύπος-6</annotation>
+		<annotation cp="👂🏿" type="tts">αυτί: δέρμα τύπος-6</annotation>
+		<annotation cp="👃🏻">σώμα | δέρμα τύπος-1-2</annotation>
+		<annotation cp="👃🏻" type="tts">μύτη: δέρμα τύπος-1-2</annotation>
+		<annotation cp="👃🏼">σώμα | δέρμα τύπος-3</annotation>
+		<annotation cp="👃🏼" type="tts">μύτη: δέρμα τύπος-3</annotation>
+		<annotation cp="👃🏽">σώμα | δέρμα τύπος-4</annotation>
+		<annotation cp="👃🏽" type="tts">μύτη: δέρμα τύπος-4</annotation>
+		<annotation cp="👃🏾">σώμα | δέρμα τύπος-5</annotation>
+		<annotation cp="👃🏾" type="tts">μύτη: δέρμα τύπος-5</annotation>
+		<annotation cp="👃🏿">σώμα | δέρμα τύπος-6</annotation>
+		<annotation cp="👃🏿" type="tts">μύτη: δέρμα τύπος-6</annotation>
+		<annotation cp="#⃣">δίεση | πλήκτρο</annotation>
+		<annotation cp="#⃣" type="tts">πλήκτρο αριθμού</annotation>
+		<annotation cp="*⃣">αστέρι | αστερίσκος | πλήκτρο</annotation>
+		<annotation cp="*⃣" type="tts">πλήκτρο αστερίσκου</annotation>
+		<annotation cp="🇦🇨">σημαία</annotation>
+		<annotation cp="🇦🇨" type="tts">Νήσος Ασενσιόν</annotation>
+		<annotation cp="🇦🇩">σημαία</annotation>
+		<annotation cp="🇦🇩" type="tts">Ανδόρα</annotation>
+		<annotation cp="🇦🇪">σημαία</annotation>
+		<annotation cp="🇦🇪" type="tts">Ηνωμένα Αραβικά Εμιράτα</annotation>
+		<annotation cp="🇦🇫">σημαία</annotation>
+		<annotation cp="🇦🇫" type="tts">Αφγανιστάν</annotation>
+		<annotation cp="🇦🇬">σημαία</annotation>
+		<annotation cp="🇦🇬" type="tts">Αντίγκουα και Μπαρμπούντα</annotation>
+		<annotation cp="🇦🇮">σημαία</annotation>
+		<annotation cp="🇦🇮" type="tts">Ανγκουίλα</annotation>
+		<annotation cp="🇦🇱">σημαία</annotation>
+		<annotation cp="🇦🇱" type="tts">Αλβανία</annotation>
+		<annotation cp="🇦🇲">σημαία</annotation>
+		<annotation cp="🇦🇲" type="tts">Αρμενία</annotation>
+		<annotation cp="🇦🇴">σημαία</annotation>
+		<annotation cp="🇦🇴" type="tts">Ανγκόλα</annotation>
+		<annotation cp="🇦🇶">σημαία</annotation>
+		<annotation cp="🇦🇶" type="tts">Ανταρκτική</annotation>
+		<annotation cp="🇦🇷">σημαία</annotation>
+		<annotation cp="🇦🇷" type="tts">Αργεντινή</annotation>
+		<annotation cp="🇦🇸">σημαία</annotation>
+		<annotation cp="🇦🇸" type="tts">Αμερικανική Σαμόα</annotation>
+		<annotation cp="🇦🇹">σημαία</annotation>
+		<annotation cp="🇦🇹" type="tts">Αυστρία</annotation>
+		<annotation cp="🇦🇺">σημαία</annotation>
+		<annotation cp="🇦🇺" type="tts">Αυστραλία</annotation>
+		<annotation cp="🇦🇼">σημαία</annotation>
+		<annotation cp="🇦🇼" type="tts">Αρούμπα</annotation>
+		<annotation cp="🇦🇽">σημαία</annotation>
+		<annotation cp="🇦🇽" type="tts">Νήσοι Όλαντ</annotation>
+		<annotation cp="🇦🇿">σημαία</annotation>
+		<annotation cp="🇦🇿" type="tts">Αζερμπαϊτζάν</annotation>
+		<annotation cp="🇧🇦">σημαία</annotation>
+		<annotation cp="🇧🇦" type="tts">Βοσνία - Ερζεγοβίνη</annotation>
+		<annotation cp="🇧🇧">σημαία</annotation>
+		<annotation cp="🇧🇧" type="tts">Μπαρμπάντος</annotation>
+		<annotation cp="🇧🇩">σημαία</annotation>
+		<annotation cp="🇧🇩" type="tts">Μπανγκλαντές</annotation>
+		<annotation cp="🇧🇪">σημαία</annotation>
+		<annotation cp="🇧🇪" type="tts">Βέλγιο</annotation>
+		<annotation cp="🇧🇫">σημαία</annotation>
+		<annotation cp="🇧🇫" type="tts">Μπουρκίνα Φάσο</annotation>
+		<annotation cp="🇧🇬">σημαία</annotation>
+		<annotation cp="🇧🇬" type="tts">Βουλγαρία</annotation>
+		<annotation cp="🇧🇭">σημαία</annotation>
+		<annotation cp="🇧🇭" type="tts">Μπαχρέιν</annotation>
+		<annotation cp="🇧🇮">σημαία</annotation>
+		<annotation cp="🇧🇮" type="tts">Μπουρούντι</annotation>
+		<annotation cp="🇧🇯">σημαία</annotation>
+		<annotation cp="🇧🇯" type="tts">Μπενίν</annotation>
+		<annotation cp="🇧🇱">σημαία</annotation>
+		<annotation cp="🇧🇱" type="tts">Άγιος Βαρθολομαίος</annotation>
+		<annotation cp="🇧🇲">σημαία</annotation>
+		<annotation cp="🇧🇲" type="tts">Βερμούδες</annotation>
+		<annotation cp="🇧🇳">σημαία</annotation>
+		<annotation cp="🇧🇳" type="tts">Μπρουνέι</annotation>
+		<annotation cp="🇧🇴">σημαία</annotation>
+		<annotation cp="🇧🇴" type="tts">Βολιβία</annotation>
+		<annotation cp="🇧🇶">σημαία</annotation>
+		<annotation cp="🇧🇶" type="tts">Ολλανδία Καραϊβικής</annotation>
+		<annotation cp="🇧🇷">σημαία</annotation>
+		<annotation cp="🇧🇷" type="tts">Βραζιλία</annotation>
+		<annotation cp="🇧🇸">σημαία</annotation>
+		<annotation cp="🇧🇸" type="tts">Μπαχάμες</annotation>
+		<annotation cp="🇧🇹">σημαία</annotation>
+		<annotation cp="🇧🇹" type="tts">Μπουτάν</annotation>
+		<annotation cp="🇧🇻">σημαία</annotation>
+		<annotation cp="🇧🇻" type="tts">Νήσος Μπουβέ</annotation>
+		<annotation cp="🇧🇼">σημαία</annotation>
+		<annotation cp="🇧🇼" type="tts">Μποτσουάνα</annotation>
+		<annotation cp="🇧🇾">σημαία</annotation>
+		<annotation cp="🇧🇾" type="tts">Λευκορωσία</annotation>
+		<annotation cp="🇧🇿">σημαία</annotation>
+		<annotation cp="🇧🇿" type="tts">Μπελίζ</annotation>
+		<annotation cp="🇨🇦">σημαία</annotation>
+		<annotation cp="🇨🇦" type="tts">Καναδάς</annotation>
+		<annotation cp="🇨🇨">σημαία</annotation>
+		<annotation cp="🇨🇨" type="tts">Νήσοι Κόκος (Κίλινγκ)</annotation>
+		<annotation cp="🇨🇩">σημαία</annotation>
+		<annotation cp="🇨🇩" type="tts">Κονγκό - Κινσάσα</annotation>
+		<annotation cp="🇨🇫">σημαία</annotation>
+		<annotation cp="🇨🇫" type="tts">Κεντροαφρικανική Δημοκρατία</annotation>
+		<annotation cp="🇨🇬">σημαία</annotation>
+		<annotation cp="🇨🇬" type="tts">Κονγκό - Μπραζαβίλ</annotation>
+		<annotation cp="🇨🇭">σημαία</annotation>
+		<annotation cp="🇨🇭" type="tts">Ελβετία</annotation>
+		<annotation cp="🇨🇮">σημαία</annotation>
+		<annotation cp="🇨🇮" type="tts">Ακτή Ελεφαντοστού</annotation>
+		<annotation cp="🇨🇰">σημαία</annotation>
+		<annotation cp="🇨🇰" type="tts">Νήσοι Κουκ</annotation>
+		<annotation cp="🇨🇱">σημαία</annotation>
+		<annotation cp="🇨🇱" type="tts">Χιλή</annotation>
+		<annotation cp="🇨🇲">σημαία</annotation>
+		<annotation cp="🇨🇲" type="tts">Καμερούν</annotation>
+		<annotation cp="🇨🇳">σημαία</annotation>
+		<annotation cp="🇨🇳" type="tts">Κίνα</annotation>
+		<annotation cp="🇨🇴">σημαία</annotation>
+		<annotation cp="🇨🇴" type="tts">Κολομβία</annotation>
+		<annotation cp="🇨🇵">σημαία</annotation>
+		<annotation cp="🇨🇵" type="tts">Νήσος Κλίπερτον</annotation>
+		<annotation cp="🇨🇷">σημαία</annotation>
+		<annotation cp="🇨🇷" type="tts">Κόστα Ρίκα</annotation>
+		<annotation cp="🇨🇺">σημαία</annotation>
+		<annotation cp="🇨🇺" type="tts">Κούβα</annotation>
+		<annotation cp="🇨🇻">σημαία</annotation>
+		<annotation cp="🇨🇻" type="tts">Πράσινο Ακρωτήριο</annotation>
+		<annotation cp="🇨🇼">σημαία</annotation>
+		<annotation cp="🇨🇼" type="tts">Κουρασάο</annotation>
+		<annotation cp="🇨🇽">σημαία</annotation>
+		<annotation cp="🇨🇽" type="tts">Νήσος των Χριστουγέννων</annotation>
+		<annotation cp="🇨🇾">σημαία</annotation>
+		<annotation cp="🇨🇾" type="tts">Κύπρος</annotation>
+		<annotation cp="🇨🇿">σημαία</annotation>
+		<annotation cp="🇨🇿" type="tts">Τσεχία</annotation>
+		<annotation cp="🇩🇪">σημαία</annotation>
+		<annotation cp="🇩🇪" type="tts">Γερμανία</annotation>
+		<annotation cp="🇩🇬">σημαία</annotation>
+		<annotation cp="🇩🇬" type="tts">Ντιέγκο Γκαρσία</annotation>
+		<annotation cp="🇩🇯">σημαία</annotation>
+		<annotation cp="🇩🇯" type="tts">Τζιμπουτί</annotation>
+		<annotation cp="🇩🇰">σημαία</annotation>
+		<annotation cp="🇩🇰" type="tts">Δανία</annotation>
+		<annotation cp="🇩🇲">σημαία</annotation>
+		<annotation cp="🇩🇲" type="tts">Ντομίνικα</annotation>
+		<annotation cp="🇩🇴">σημαία</annotation>
+		<annotation cp="🇩🇴" type="tts">Δομινικανή Δημοκρατία</annotation>
+		<annotation cp="🇩🇿">σημαία</annotation>
+		<annotation cp="🇩🇿" type="tts">Αλγερία</annotation>
+		<annotation cp="🇪🇦">σημαία</annotation>
+		<annotation cp="🇪🇦" type="tts">Θεούτα και Μελίλα</annotation>
+		<annotation cp="🇪🇨">σημαία</annotation>
+		<annotation cp="🇪🇨" type="tts">Εκουαδόρ</annotation>
+		<annotation cp="🇪🇪">σημαία</annotation>
+		<annotation cp="🇪🇪" type="tts">Εσθονία</annotation>
+		<annotation cp="🇪🇬">σημαία</annotation>
+		<annotation cp="🇪🇬" type="tts">Αίγυπτος</annotation>
+		<annotation cp="🇪🇭">σημαία</annotation>
+		<annotation cp="🇪🇭" type="tts">Δυτική Σαχάρα</annotation>
+		<annotation cp="🇪🇷">σημαία</annotation>
+		<annotation cp="🇪🇷" type="tts">Ερυθραία</annotation>
+		<annotation cp="🇪🇸">σημαία</annotation>
+		<annotation cp="🇪🇸" type="tts">Ισπανία</annotation>
+		<annotation cp="🇪🇹">σημαία</annotation>
+		<annotation cp="🇪🇹" type="tts">Αιθιοπία</annotation>
+		<annotation cp="🇪🇺">σημαία</annotation>
+		<annotation cp="🇪🇺" type="tts">Ευρωπαϊκή Ένωση</annotation>
+		<annotation cp="🇫🇮">σημαία</annotation>
+		<annotation cp="🇫🇮" type="tts">Φινλανδία</annotation>
+		<annotation cp="🇫🇯">σημαία</annotation>
+		<annotation cp="🇫🇯" type="tts">Φίτζι</annotation>
+		<annotation cp="🇫🇰">σημαία</annotation>
+		<annotation cp="🇫🇰" type="tts">Νήσοι Φόκλαντ</annotation>
+		<annotation cp="🇫🇲">σημαία</annotation>
+		<annotation cp="🇫🇲" type="tts">Μικρονησία</annotation>
+		<annotation cp="🇫🇴">σημαία</annotation>
+		<annotation cp="🇫🇴" type="tts">Νήσοι Φερόες</annotation>
+		<annotation cp="🇫🇷">σημαία</annotation>
+		<annotation cp="🇫🇷" type="tts">Γαλλία</annotation>
+		<annotation cp="🇬🇦">σημαία</annotation>
+		<annotation cp="🇬🇦" type="tts">Γκαμπόν</annotation>
+		<annotation cp="🇬🇧">σημαία</annotation>
+		<annotation cp="🇬🇧" type="tts">Ηνωμένο Βασίλειο</annotation>
+		<annotation cp="🇬🇩">σημαία</annotation>
+		<annotation cp="🇬🇩" type="tts">Γρενάδα</annotation>
+		<annotation cp="🇬🇪">σημαία</annotation>
+		<annotation cp="🇬🇪" type="tts">Γεωργία</annotation>
+		<annotation cp="🇬🇫">σημαία</annotation>
+		<annotation cp="🇬🇫" type="tts">Γαλλική Γουιάνα</annotation>
+		<annotation cp="🇬🇬">σημαία</annotation>
+		<annotation cp="🇬🇬" type="tts">Γκέρνζι</annotation>
+		<annotation cp="🇬🇭">σημαία</annotation>
+		<annotation cp="🇬🇭" type="tts">Γκάνα</annotation>
+		<annotation cp="🇬🇮">σημαία</annotation>
+		<annotation cp="🇬🇮" type="tts">Γιβραλτάρ</annotation>
+		<annotation cp="🇬🇱">σημαία</annotation>
+		<annotation cp="🇬🇱" type="tts">Γροιλανδία</annotation>
+		<annotation cp="🇬🇲">σημαία</annotation>
+		<annotation cp="🇬🇲" type="tts">Γκάμπια</annotation>
+		<annotation cp="🇬🇳">σημαία</annotation>
+		<annotation cp="🇬🇳" type="tts">Γουινέα</annotation>
+		<annotation cp="🇬🇵">σημαία</annotation>
+		<annotation cp="🇬🇵" type="tts">Γουαδελούπη</annotation>
+		<annotation cp="🇬🇶">σημαία</annotation>
+		<annotation cp="🇬🇶" type="tts">Ισημερινή Γουινέα</annotation>
+		<annotation cp="🇬🇷">σημαία</annotation>
+		<annotation cp="🇬🇷" type="tts">Ελλάδα</annotation>
+		<annotation cp="🇬🇸">σημαία</annotation>
+		<annotation cp="🇬🇸" type="tts">Νήσοι Νότια Γεωργία και Νότιες Σάντουιτς</annotation>
+		<annotation cp="🇬🇹">σημαία</annotation>
+		<annotation cp="🇬🇹" type="tts">Γουατεμάλα</annotation>
+		<annotation cp="🇬🇺">σημαία</annotation>
+		<annotation cp="🇬🇺" type="tts">Γκουάμ</annotation>
+		<annotation cp="🇬🇼">σημαία</annotation>
+		<annotation cp="🇬🇼" type="tts">Γουινέα Μπισάου</annotation>
+		<annotation cp="🇬🇾">σημαία</annotation>
+		<annotation cp="🇬🇾" type="tts">Γουιάνα</annotation>
+		<annotation cp="🇭🇰">σημαία</annotation>
+		<annotation cp="🇭🇰" type="tts">Χονγκ Κονγκ ΕΔΠ Κίνας</annotation>
+		<annotation cp="🇭🇲">σημαία</annotation>
+		<annotation cp="🇭🇲" type="tts">Νήσοι Χερντ και Μακντόναλντ</annotation>
+		<annotation cp="🇭🇳">σημαία</annotation>
+		<annotation cp="🇭🇳" type="tts">Ονδούρα</annotation>
+		<annotation cp="🇭🇷">σημαία</annotation>
+		<annotation cp="🇭🇷" type="tts">Κροατία</annotation>
+		<annotation cp="🇭🇹">σημαία</annotation>
+		<annotation cp="🇭🇹" type="tts">Αϊτή</annotation>
+		<annotation cp="🇭🇺">σημαία</annotation>
+		<annotation cp="🇭🇺" type="tts">Ουγγαρία</annotation>
+		<annotation cp="🇮🇨">σημαία</annotation>
+		<annotation cp="🇮🇨" type="tts">Κανάριοι Νήσοι</annotation>
+		<annotation cp="🇮🇩">σημαία</annotation>
+		<annotation cp="🇮🇩" type="tts">Ινδονησία</annotation>
+		<annotation cp="🇮🇪">σημαία</annotation>
+		<annotation cp="🇮🇪" type="tts">Ιρλανδία</annotation>
+		<annotation cp="🇮🇱">σημαία</annotation>
+		<annotation cp="🇮🇱" type="tts">Ισραήλ</annotation>
+		<annotation cp="🇮🇲">σημαία</annotation>
+		<annotation cp="🇮🇲" type="tts">Νήσος Μαν</annotation>
+		<annotation cp="🇮🇳">σημαία</annotation>
+		<annotation cp="🇮🇳" type="tts">Ινδία</annotation>
+		<annotation cp="🇮🇴">σημαία</annotation>
+		<annotation cp="🇮🇴" type="tts">Βρετανικά Εδάφη Ινδικού Ωκεανού</annotation>
+		<annotation cp="🇮🇶">σημαία</annotation>
+		<annotation cp="🇮🇶" type="tts">Ιράκ</annotation>
+		<annotation cp="🇮🇷">σημαία</annotation>
+		<annotation cp="🇮🇷" type="tts">Ιράν</annotation>
+		<annotation cp="🇮🇸">σημαία</annotation>
+		<annotation cp="🇮🇸" type="tts">Ισλανδία</annotation>
+		<annotation cp="🇮🇹">σημαία</annotation>
+		<annotation cp="🇮🇹" type="tts">Ιταλία</annotation>
+		<annotation cp="🇯🇪">σημαία</annotation>
+		<annotation cp="🇯🇪" type="tts">Τζέρζι</annotation>
+		<annotation cp="🇯🇲">σημαία</annotation>
+		<annotation cp="🇯🇲" type="tts">Τζαμάικα</annotation>
+		<annotation cp="🇯🇴">σημαία</annotation>
+		<annotation cp="🇯🇴" type="tts">Ιορδανία</annotation>
+		<annotation cp="🇯🇵">σημαία</annotation>
+		<annotation cp="🇯🇵" type="tts">Ιαπωνία</annotation>
+		<annotation cp="🇰🇪">σημαία</annotation>
+		<annotation cp="🇰🇪" type="tts">Κένυα</annotation>
+		<annotation cp="🇰🇬">σημαία</annotation>
+		<annotation cp="🇰🇬" type="tts">Κιργιστάν</annotation>
+		<annotation cp="🇰🇭">σημαία</annotation>
+		<annotation cp="🇰🇭" type="tts">Καμπότζη</annotation>
+		<annotation cp="🇰🇮">σημαία</annotation>
+		<annotation cp="🇰🇮" type="tts">Κιριμπάτι</annotation>
+		<annotation cp="🇰🇲">σημαία</annotation>
+		<annotation cp="🇰🇲" type="tts">Κομόρες</annotation>
+		<annotation cp="🇰🇳">σημαία</annotation>
+		<annotation cp="🇰🇳" type="tts">Άγιος Χριστόφορος και Νέβις</annotation>
+		<annotation cp="🇰🇵">σημαία</annotation>
+		<annotation cp="🇰🇵" type="tts">Βόρεια Κορέα</annotation>
+		<annotation cp="🇰🇷">σημαία</annotation>
+		<annotation cp="🇰🇷" type="tts">Νότια Κορέα</annotation>
+		<annotation cp="🇰🇼">σημαία</annotation>
+		<annotation cp="🇰🇼" type="tts">Κουβέιτ</annotation>
+		<annotation cp="🇰🇾">σημαία</annotation>
+		<annotation cp="🇰🇾" type="tts">Νήσοι Κάιμαν</annotation>
+		<annotation cp="🇰🇿">σημαία</annotation>
+		<annotation cp="🇰🇿" type="tts">Καζακστάν</annotation>
+		<annotation cp="🇱🇦">σημαία</annotation>
+		<annotation cp="🇱🇦" type="tts">Λάος</annotation>
+		<annotation cp="🇱🇧">σημαία</annotation>
+		<annotation cp="🇱🇧" type="tts">Λίβανος</annotation>
+		<annotation cp="🇱🇨">σημαία</annotation>
+		<annotation cp="🇱🇨" type="tts">Αγία Λουκία</annotation>
+		<annotation cp="🇱🇮">σημαία</annotation>
+		<annotation cp="🇱🇮" type="tts">Λιχτενστάιν</annotation>
+		<annotation cp="🇱🇰">σημαία</annotation>
+		<annotation cp="🇱🇰" type="tts">Σρι Λάνκα</annotation>
+		<annotation cp="🇱🇷">σημαία</annotation>
+		<annotation cp="🇱🇷" type="tts">Λιβερία</annotation>
+		<annotation cp="🇱🇸">σημαία</annotation>
+		<annotation cp="🇱🇸" type="tts">Λεσότο</annotation>
+		<annotation cp="🇱🇹">σημαία</annotation>
+		<annotation cp="🇱🇹" type="tts">Λιθουανία</annotation>
+		<annotation cp="🇱🇺">σημαία</annotation>
+		<annotation cp="🇱🇺" type="tts">Λουξεμβούργο</annotation>
+		<annotation cp="🇱🇻">σημαία</annotation>
+		<annotation cp="🇱🇻" type="tts">Λετονία</annotation>
+		<annotation cp="🇱🇾">σημαία</annotation>
+		<annotation cp="🇱🇾" type="tts">Λιβύη</annotation>
+		<annotation cp="🇲🇦">σημαία</annotation>
+		<annotation cp="🇲🇦" type="tts">Μαρόκο</annotation>
+		<annotation cp="🇲🇨">σημαία</annotation>
+		<annotation cp="🇲🇨" type="tts">Μονακό</annotation>
+		<annotation cp="🇲🇩">σημαία</annotation>
+		<annotation cp="🇲🇩" type="tts">Μολδαβία</annotation>
+		<annotation cp="🇲🇪">σημαία</annotation>
+		<annotation cp="🇲🇪" type="tts">Μαυροβούνιο</annotation>
+		<annotation cp="🇲🇫">σημαία</annotation>
+		<annotation cp="🇲🇫" type="tts">Άγιος Μαρτίνος (Γαλλικό τμήμα)</annotation>
+		<annotation cp="🇲🇬">σημαία</annotation>
+		<annotation cp="🇲🇬" type="tts">Μαδαγασκάρη</annotation>
+		<annotation cp="🇲🇭">σημαία</annotation>
+		<annotation cp="🇲🇭" type="tts">Νήσοι Μάρσαλ</annotation>
+		<annotation cp="🇲🇰">σημαία</annotation>
+		<annotation cp="🇲🇰" type="tts">Πρώην Γιουγκοσλαβική Δημοκρατία της Μακεδονίας</annotation>
+		<annotation cp="🇲🇱">σημαία</annotation>
+		<annotation cp="🇲🇱" type="tts">Μάλι</annotation>
+		<annotation cp="🇲🇲">σημαία</annotation>
+		<annotation cp="🇲🇲" type="tts">Μιανμάρ/Βιρμανία</annotation>
+		<annotation cp="🇲🇳">σημαία</annotation>
+		<annotation cp="🇲🇳" type="tts">Μογγολία</annotation>
+		<annotation cp="🇲🇴">σημαία</annotation>
+		<annotation cp="🇲🇴" type="tts">Μακάο ΕΔΠ Κίνας</annotation>
+		<annotation cp="🇲🇵">σημαία</annotation>
+		<annotation cp="🇲🇵" type="tts">Νήσοι Βόρειες Μαριάνες</annotation>
+		<annotation cp="🇲🇶">σημαία</annotation>
+		<annotation cp="🇲🇶" type="tts">Μαρτινίκα</annotation>
+		<annotation cp="🇲🇷">σημαία</annotation>
+		<annotation cp="🇲🇷" type="tts">Μαυριτανία</annotation>
+		<annotation cp="🇲🇸">σημαία</annotation>
+		<annotation cp="🇲🇸" type="tts">Μονσεράτ</annotation>
+		<annotation cp="🇲🇹">σημαία</annotation>
+		<annotation cp="🇲🇹" type="tts">Μάλτα</annotation>
+		<annotation cp="🇲🇺">σημαία</annotation>
+		<annotation cp="🇲🇺" type="tts">Μαυρίκιος</annotation>
+		<annotation cp="🇲🇻">σημαία</annotation>
+		<annotation cp="🇲🇻" type="tts">Μαλδίβες</annotation>
+		<annotation cp="🇲🇼">σημαία</annotation>
+		<annotation cp="🇲🇼" type="tts">Μαλάουι</annotation>
+		<annotation cp="🇲🇽">σημαία</annotation>
+		<annotation cp="🇲🇽" type="tts">Μεξικό</annotation>
+		<annotation cp="🇲🇾">σημαία</annotation>
+		<annotation cp="🇲🇾" type="tts">Μαλαισία</annotation>
+		<annotation cp="🇲🇿">σημαία</annotation>
+		<annotation cp="🇲🇿" type="tts">Μοζαμβίκη</annotation>
+		<annotation cp="🇳🇦">σημαία</annotation>
+		<annotation cp="🇳🇦" type="tts">Ναμίμπια</annotation>
+		<annotation cp="🇳🇨">σημαία</annotation>
+		<annotation cp="🇳🇨" type="tts">Νέα Καληδονία</annotation>
+		<annotation cp="🇳🇪">σημαία</annotation>
+		<annotation cp="🇳🇪" type="tts">Νίγηρας</annotation>
+		<annotation cp="🇳🇫">σημαία</annotation>
+		<annotation cp="🇳🇫" type="tts">Νήσος Νόρφολκ</annotation>
+		<annotation cp="🇳🇬">σημαία</annotation>
+		<annotation cp="🇳🇬" type="tts">Νιγηρία</annotation>
+		<annotation cp="🇳🇮">σημαία</annotation>
+		<annotation cp="🇳🇮" type="tts">Νικαράγουα</annotation>
+		<annotation cp="🇳🇱">σημαία</annotation>
+		<annotation cp="🇳🇱" type="tts">Ολλανδία</annotation>
+		<annotation cp="🇳🇴">σημαία</annotation>
+		<annotation cp="🇳🇴" type="tts">Νορβηγία</annotation>
+		<annotation cp="🇳🇵">σημαία</annotation>
+		<annotation cp="🇳🇵" type="tts">Νεπάλ</annotation>
+		<annotation cp="🇳🇷">σημαία</annotation>
+		<annotation cp="🇳🇷" type="tts">Ναουρού</annotation>
+		<annotation cp="🇳🇺">σημαία</annotation>
+		<annotation cp="🇳🇺" type="tts">Νιούε</annotation>
+		<annotation cp="🇳🇿">σημαία</annotation>
+		<annotation cp="🇳🇿" type="tts">Νέα Ζηλανδία</annotation>
+		<annotation cp="🇴🇲">σημαία</annotation>
+		<annotation cp="🇴🇲" type="tts">Ομάν</annotation>
+		<annotation cp="🇵🇦">σημαία</annotation>
+		<annotation cp="🇵🇦" type="tts">Παναμάς</annotation>
+		<annotation cp="🇵🇪">σημαία</annotation>
+		<annotation cp="🇵🇪" type="tts">Περού</annotation>
+		<annotation cp="🇵🇫">σημαία</annotation>
+		<annotation cp="🇵🇫" type="tts">Γαλλική Πολυνησία</annotation>
+		<annotation cp="🇵🇬">σημαία</annotation>
+		<annotation cp="🇵🇬" type="tts">Παπούα Νέα Γουινέα</annotation>
+		<annotation cp="🇵🇭">σημαία</annotation>
+		<annotation cp="🇵🇭" type="tts">Φιλιππίνες</annotation>
+		<annotation cp="🇵🇰">σημαία</annotation>
+		<annotation cp="🇵🇰" type="tts">Πακιστάν</annotation>
+		<annotation cp="🇵🇱">σημαία</annotation>
+		<annotation cp="🇵🇱" type="tts">Πολωνία</annotation>
+		<annotation cp="🇵🇲">σημαία</annotation>
+		<annotation cp="🇵🇲" type="tts">Σεν Πιερ και Μικελόν</annotation>
+		<annotation cp="🇵🇳">σημαία</annotation>
+		<annotation cp="🇵🇳" type="tts">Νήσοι Πίτκερν</annotation>
+		<annotation cp="🇵🇷">σημαία</annotation>
+		<annotation cp="🇵🇷" type="tts">Πουέρτο Ρίκο</annotation>
+		<annotation cp="🇵🇸">σημαία</annotation>
+		<annotation cp="🇵🇸" type="tts">Παλαιστινιακά Εδάφη</annotation>
+		<annotation cp="🇵🇹">σημαία</annotation>
+		<annotation cp="🇵🇹" type="tts">Πορτογαλία</annotation>
+		<annotation cp="🇵🇼">σημαία</annotation>
+		<annotation cp="🇵🇼" type="tts">Παλάου</annotation>
+		<annotation cp="🇵🇾">σημαία</annotation>
+		<annotation cp="🇵🇾" type="tts">Παραγουάη</annotation>
+		<annotation cp="🇶🇦">σημαία</annotation>
+		<annotation cp="🇶🇦" type="tts">Κατάρ</annotation>
+		<annotation cp="🇷🇪">σημαία</annotation>
+		<annotation cp="🇷🇪" type="tts">Ρεϊνιόν</annotation>
+		<annotation cp="🇷🇴">σημαία</annotation>
+		<annotation cp="🇷🇴" type="tts">Ρουμανία</annotation>
+		<annotation cp="🇷🇸">σημαία</annotation>
+		<annotation cp="🇷🇸" type="tts">Σερβία</annotation>
+		<annotation cp="🇷🇺">σημαία</annotation>
+		<annotation cp="🇷🇺" type="tts">Ρωσία</annotation>
+		<annotation cp="🇷🇼">σημαία</annotation>
+		<annotation cp="🇷🇼" type="tts">Ρουάντα</annotation>
+		<annotation cp="🇸🇦">σημαία</annotation>
+		<annotation cp="🇸🇦" type="tts">Σαουδική Αραβία</annotation>
+		<annotation cp="🇸🇧">σημαία</annotation>
+		<annotation cp="🇸🇧" type="tts">Νήσοι Σολομώντος</annotation>
+		<annotation cp="🇸🇨">σημαία</annotation>
+		<annotation cp="🇸🇨" type="tts">Σεϋχέλλες</annotation>
+		<annotation cp="🇸🇩">σημαία</annotation>
+		<annotation cp="🇸🇩" type="tts">Σουδάν</annotation>
+		<annotation cp="🇸🇪">σημαία</annotation>
+		<annotation cp="🇸🇪" type="tts">Σουηδία</annotation>
+		<annotation cp="🇸🇬">σημαία</annotation>
+		<annotation cp="🇸🇬" type="tts">Σιγκαπούρη</annotation>
+		<annotation cp="🇸🇭">σημαία</annotation>
+		<annotation cp="🇸🇭" type="tts">Αγία Ελένη</annotation>
+		<annotation cp="🇸🇮">σημαία</annotation>
+		<annotation cp="🇸🇮" type="tts">Σλοβενία</annotation>
+		<annotation cp="🇸🇯">σημαία</annotation>
+		<annotation cp="🇸🇯" type="tts">Σβάλμπαρντ και Γιαν Μαγιέν</annotation>
+		<annotation cp="🇸🇰">σημαία</annotation>
+		<annotation cp="🇸🇰" type="tts">Σλοβακία</annotation>
+		<annotation cp="🇸🇱">σημαία</annotation>
+		<annotation cp="🇸🇱" type="tts">Σιέρα Λεόνε</annotation>
+		<annotation cp="🇸🇲">σημαία</annotation>
+		<annotation cp="🇸🇲" type="tts">Άγιος Μαρίνος</annotation>
+		<annotation cp="🇸🇳">σημαία</annotation>
+		<annotation cp="🇸🇳" type="tts">Σενεγάλη</annotation>
+		<annotation cp="🇸🇴">σημαία</annotation>
+		<annotation cp="🇸🇴" type="tts">Σομαλία</annotation>
+		<annotation cp="🇸🇷">σημαία</annotation>
+		<annotation cp="🇸🇷" type="tts">Σουρινάμ</annotation>
+		<annotation cp="🇸🇸">σημαία</annotation>
+		<annotation cp="🇸🇸" type="tts">Νότιο Σουδάν</annotation>
+		<annotation cp="🇸🇹">σημαία</annotation>
+		<annotation cp="🇸🇹" type="tts">Σάο Τομέ και Πρίνσιπε</annotation>
+		<annotation cp="🇸🇻">σημαία</annotation>
+		<annotation cp="🇸🇻" type="tts">Ελ Σαλβαδόρ</annotation>
+		<annotation cp="🇸🇽">σημαία</annotation>
+		<annotation cp="🇸🇽" type="tts">Άγιος Μαρτίνος (Ολλανδικό τμήμα)</annotation>
+		<annotation cp="🇸🇾">σημαία</annotation>
+		<annotation cp="🇸🇾" type="tts">Συρία</annotation>
+		<annotation cp="🇸🇿">σημαία</annotation>
+		<annotation cp="🇸🇿" type="tts">Σουαζιλάνδη</annotation>
+		<annotation cp="🇹🇦">σημαία</annotation>
+		<annotation cp="🇹🇦" type="tts">Τριστάν ντα Κούνια</annotation>
+		<annotation cp="🇹🇨">σημαία</annotation>
+		<annotation cp="🇹🇨" type="tts">Νήσοι Τερκ και Κάικος</annotation>
+		<annotation cp="🇹🇩">σημαία</annotation>
+		<annotation cp="🇹🇩" type="tts">Τσαντ</annotation>
+		<annotation cp="🇹🇫">σημαία</annotation>
+		<annotation cp="🇹🇫" type="tts">Γαλλικές περιοχές του νοτίου ημισφαιρίου</annotation>
+		<annotation cp="🇹🇬">σημαία</annotation>
+		<annotation cp="🇹🇬" type="tts">Τόγκο</annotation>
+		<annotation cp="🇹🇭">σημαία</annotation>
+		<annotation cp="🇹🇭" type="tts">Ταϊλάνδη</annotation>
+		<annotation cp="🇹🇯">σημαία</annotation>
+		<annotation cp="🇹🇯" type="tts">Τατζικιστάν</annotation>
+		<annotation cp="🇹🇰">σημαία</annotation>
+		<annotation cp="🇹🇰" type="tts">Τοκελάου</annotation>
+		<annotation cp="🇹🇱">σημαία</annotation>
+		<annotation cp="🇹🇱" type="tts">Τιμόρ-Λέστε</annotation>
+		<annotation cp="🇹🇲">σημαία</annotation>
+		<annotation cp="🇹🇲" type="tts">Τουρκμενιστάν</annotation>
+		<annotation cp="🇹🇳">σημαία</annotation>
+		<annotation cp="🇹🇳" type="tts">Τυνησία</annotation>
+		<annotation cp="🇹🇴">σημαία</annotation>
+		<annotation cp="🇹🇴" type="tts">Τόνγκα</annotation>
+		<annotation cp="🇹🇷">σημαία</annotation>
+		<annotation cp="🇹🇷" type="tts">Τουρκία</annotation>
+		<annotation cp="🇹🇹">σημαία</annotation>
+		<annotation cp="🇹🇹" type="tts">Τρινιντάντ και Τομπάγκο</annotation>
+		<annotation cp="🇹🇻">σημαία</annotation>
+		<annotation cp="🇹🇻" type="tts">Τουβαλού</annotation>
+		<annotation cp="🇹🇼">σημαία</annotation>
+		<annotation cp="🇹🇼" type="tts">Ταϊβάν</annotation>
+		<annotation cp="🇹🇿">σημαία</annotation>
+		<annotation cp="🇹🇿" type="tts">Τανζανία</annotation>
+		<annotation cp="🇺🇦">σημαία</annotation>
+		<annotation cp="🇺🇦" type="tts">Ουκρανία</annotation>
+		<annotation cp="🇺🇬">σημαία</annotation>
+		<annotation cp="🇺🇬" type="tts">Ουγκάντα</annotation>
+		<annotation cp="🇺🇲">σημαία</annotation>
+		<annotation cp="🇺🇲" type="tts">Απομακρυσμένες Νησίδες ΗΠΑ</annotation>
+		<annotation cp="🇺🇳">σημαία</annotation>
+		<annotation cp="🇺🇳" type="tts">Ηνωμένα Έθνη</annotation>
+		<annotation cp="🇺🇸">σημαία</annotation>
+		<annotation cp="🇺🇸" type="tts">Ηνωμένες Πολιτείες</annotation>
+		<annotation cp="🇺🇾">σημαία</annotation>
+		<annotation cp="🇺🇾" type="tts">Ουρουγουάη</annotation>
+		<annotation cp="🇺🇿">σημαία</annotation>
+		<annotation cp="🇺🇿" type="tts">Ουζμπεκιστάν</annotation>
+		<annotation cp="🇻🇦">σημαία</annotation>
+		<annotation cp="🇻🇦" type="tts">Βατικανό</annotation>
+		<annotation cp="🇻🇨">σημαία</annotation>
+		<annotation cp="🇻🇨" type="tts">Άγιος Βικέντιος και Γρεναδίνες</annotation>
+		<annotation cp="🇻🇪">σημαία</annotation>
+		<annotation cp="🇻🇪" type="tts">Βενεζουέλα</annotation>
+		<annotation cp="🇻🇬">σημαία</annotation>
+		<annotation cp="🇻🇬" type="tts">Βρετανικές Παρθένοι Νήσοι</annotation>
+		<annotation cp="🇻🇮">σημαία</annotation>
+		<annotation cp="🇻🇮" type="tts">Αμερικανικές Παρθένοι Νήσοι</annotation>
+		<annotation cp="🇻🇳">σημαία</annotation>
+		<annotation cp="🇻🇳" type="tts">Βιετνάμ</annotation>
+		<annotation cp="🇻🇺">σημαία</annotation>
+		<annotation cp="🇻🇺" type="tts">Βανουάτου</annotation>
+		<annotation cp="🇼🇫">σημαία</annotation>
+		<annotation cp="🇼🇫" type="tts">Ουάλις και Φουτούνα</annotation>
+		<annotation cp="🇼🇸">σημαία</annotation>
+		<annotation cp="🇼🇸" type="tts">Σαμόα</annotation>
+		<annotation cp="🇽🇰">σημαία</annotation>
+		<annotation cp="🇽🇰" type="tts">Κόσοβο</annotation>
+		<annotation cp="🇾🇪">σημαία</annotation>
+		<annotation cp="🇾🇪" type="tts">Υεμένη</annotation>
+		<annotation cp="🇾🇹">σημαία</annotation>
+		<annotation cp="🇾🇹" type="tts">Μαγιότ</annotation>
+		<annotation cp="🇿🇦">σημαία</annotation>
+		<annotation cp="🇿🇦" type="tts">Νότια Αφρική</annotation>
+		<annotation cp="🇿🇲">σημαία</annotation>
+		<annotation cp="🇿🇲" type="tts">Ζάμπια</annotation>
+		<annotation cp="🇿🇼">σημαία</annotation>
+		<annotation cp="🇿🇼" type="tts">Ζιμπάμπουε</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">σημαία</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Αγγλία</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">σημαία</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Σκωτία</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">σημαία</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Ουαλία</annotation>
+	</annotations>
+</ldml>

@@ -147,7 +147,7 @@ public class BuildIcuCompactDecimalFormat {
         // : NumberFormat.getCurrencyInstance(new ULocale(resolvedCldrFile.getLocaleID())));
 
         ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(resolvedCldrFile);
-        final DecimalFormat format = builder.getNumberFormat(1);
+//        final DecimalFormat format = builder.getNumberFormat(1);
         switch (currencyStyle) {
         case PLAIN:
         default:
@@ -222,21 +222,27 @@ public class BuildIcuCompactDecimalFormat {
         }
 
         // TODO fix to get right symbol for the count
-        String pattern = format.toPattern();
+        // String pattern = format.toPattern();
 
         // if (style == Style.LONG) {
         // pattern = pattern.replace("¤", "¤¤¤");
         // }
-        try {
-            return new CompactDecimalFormat(
-                pattern, format.getDecimalFormatSymbols(),
-                style, pluralInfo.getPluralRules(),
-                divisor, affixes, unitPrefixes,
-                debugCreationErrors);
-        } catch (Exception e) {
-            debugCreationErrors.add(e.getMessage());
-            return null;
-        }
+
+        // JCE 2017-03-28 - This constructor was removed in ICU 59.  Shane is working on a
+        // workaround, but until one is done, we can't use it in its current state.
+        // TODO: Put it back once the fix is in place, See Ticket #10166
+        //        try {
+//            return new CompactDecimalFormat(
+//                pattern, format.getDecimalFormatSymbols(),
+//                style, pluralInfo.getPluralRules(),
+//                divisor, affixes, unitPrefixes,
+//                debugCreationErrors);
+//        } catch (Exception e) {
+//            debugCreationErrors.add(e.getMessage());
+//            return null;
+        debugCreationErrors.add("Can't create due to lack of 'from scratch' constructor for CompactDecimalFormat");
+        return null;
+//        }
         /*
          *                 divisor, prefixes, suffixes,
             unitPrefixes, unitSuffixes,

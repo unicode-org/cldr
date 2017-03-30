@@ -17,6 +17,7 @@ import java.util.regex.Matcher;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -25,6 +26,7 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -117,7 +119,6 @@ public class ChartCollation extends Chart {
             "//ldml/collations/collation"
                 + "\\[@type=\"([^\"]+)\"]"
                 + "(.*)?"
-                + "\\[@visibility=\"external\"]"
                 + "/(settings|import|cr)"
                 + "(.*)").matcher("");
         Splitter settingSplitter = Splitter.onPattern("[\\[\\]@]").omitEmptyStrings().trimResults();
@@ -144,6 +145,7 @@ public class ChartCollation extends Chart {
             pathValueList.clear();
             XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "collation/" + xmlName, pathValueList, true);
             Map<String, Data> data = new TreeMap<>();
+            XPathParts xpp = new XPathParts();
 
             for (Pair<String, String> entry : pathValueList) {
                 String path = entry.getFirst();
@@ -156,9 +158,21 @@ public class ChartCollation extends Chart {
                     addCollator(data, value, "defaultCollation", Arrays.asList("true"));
                     continue;
                 }
+                
+                // Root collator being empty isn't really a failure - just skip it.
+                if (xmlName.equals("root.xml") && path.equals("//ldml/collations/collation[@type=\"standard\"]")) {
+                    continue;
+                }
+               
+                xpp.set(path);
+                DraftStatus status = DraftStatus.forString(xpp.findFirstAttributeValue("draft"));
+                if (status == DraftStatus.unconfirmed) {
+                    System.out.println("Skipping " + path +" in: " + xmlName + " due to draft status = " + status.toString());
+                    continue;
+                }
 
                 if (!settingsMatcher.reset(path).matches()) {
-                    System.out.println("Failure with: " + path);
+                    System.out.println("Failure in " + xmlName +" with: " + path);
                     continue;
                 }
                 String type = settingsMatcher.group(1);

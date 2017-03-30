@@ -528,7 +528,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             int minimumIntegerDigits = df.getMinimumIntegerDigits();
             if (minimumIntegerDigits < 1) minimumIntegerDigits = 1;
             df.setMaximumIntegerDigits(minimumIntegerDigits);
-            pattern = df.toPattern();
+            pattern = df.toPattern().replace("#", ""); // HACK: brute-force remove any remaining #.
         }
 
         // int pos = pattern.indexOf(';');

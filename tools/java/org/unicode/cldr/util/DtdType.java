@@ -11,7 +11,6 @@ public enum DtdType {
     ldml("common/dtd/ldml.dtd", null, null,
         "main",
         "annotations",
-        "annotationsDerived",
         "casing",
         "collation",
         "rbnf",

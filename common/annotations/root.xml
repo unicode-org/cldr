@@ -7,7 +7,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 Proper interpretation of these files requires synthesis of missing items, as per
 ​http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
-Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+
+For  details about the format and other information, see:
+* http://www.unicode.org/reports/tr51/index.html#Data_Files
+* http://unicode.org/cldr/trac/ticket/8019
 -->
 <ldml>
 	<identity>

@@ -209,13 +209,14 @@
 		<antcall target="_toolcopy" />
 	</target>
 
-	<target name="AddPseudolocales" depends="init" description="build pseudo-locale data en_XA.xml and ar_XB.xml">
+	<target name="AddPseudolocales" depends="init"
+		description="build pseudo-locale data en_XA.xml and ar_XB.xml">
 		<antcall target="_runTool">
-			<param name="runTool.class" value="org.unicode.cldr.tool.CLDRFilePseudolocalizer"/>
-			<param name="runTool.arg" value=""/>
-			<param name="runTool.jvmarg" value="${jvm_options}"/>
+			<param name="runTool.class" value="org.unicode.cldr.tool.CLDRFilePseudolocalizer" />
+			<param name="runTool.arg" value="" />
+			<param name="runTool.jvmarg" value="${jvm_options}" />
 		</antcall>
-		<antcall target="_toolcopy"/>
+		<antcall target="_toolcopy" />
 	</target>
 
 	<target name="GenerateAllCharts" depends="init"

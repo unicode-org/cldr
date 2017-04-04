@@ -359,7 +359,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         XPathParts xpp = new XPathParts();
 
         // Calculate date of the upcoming CLDR release, minus 5 years (deprecation policy)
-        final int versionNumber = Integer.valueOf(CLDRFile.GEN_VERSION);
+        final int versionNumber = Integer.valueOf((CLDRFile.GEN_VERSION).split("\\.")[0]);
         Calendar cal = Calendar.getInstance();
         cal.set(versionNumber / 2 + versionNumber % 2 + 2001, 8 - (versionNumber % 2) * 6, 15);
         Date cldrReleaseMinus5Years = cal.getTime();

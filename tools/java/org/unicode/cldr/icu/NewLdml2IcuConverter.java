@@ -417,11 +417,10 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      */
     private void writeMakefile(Makefile makefile, String outputDir, String makefileName) {
         try {
-            if (new File(outputDir + File.separator + makefileName).createNewFile()) {
-                makefile.print(outputDir, makefileName);
-            }
+            new File(outputDir + File.separator + makefileName).createNewFile();
+            makefile.print(outputDir, makefileName);
         } catch (IOException e) {
-            System.err.println("Error while writing makefile for " + outputDir);
+            System.err.println("Error while writing makefile for " + outputDir + "/" + makefileName);
         }
     }
 

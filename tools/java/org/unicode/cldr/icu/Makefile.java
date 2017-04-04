@@ -14,8 +14,8 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.StringArrayToMap;
 
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.util.Calendar;
 
 /**
@@ -81,18 +81,16 @@ class Makefile {
 
     public void print(String outputDir, String filename) throws IOException {
         PrintWriter out = FileUtilities.openUTF8Writer(outputDir, filename);
-        String[] params = {
+        ImmutableMap<String,String> params = ImmutableMap.of(
             "%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)),
             "%prefix%", prefix,
             "%local%", filename.replace("files.mk", "local.mk"),
-            "%version%", CLDRFile.GEN_VERSION
-        };
+            "%version%", CLDRFile.GEN_VERSION);
+
         FileCopier.copyAndReplace(NewLdml2IcuConverter.class, "makefile_header.txt",
             Charset.forName("UTF-8"),
-            StringArrayToMap.from(params),
+            params,
             out);
-//        FileUtilities.appendFile(NewLdml2IcuConverter.class, "makefile_header.txt",
-//            Charset.forName("UTF-8"), params, out);
 
         for (MakefileEntry entry : entries) {
             out.println();

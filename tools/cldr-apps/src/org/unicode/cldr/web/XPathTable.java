@@ -138,10 +138,10 @@ public class XPathTable {
             String uniqueness = ", " + "unique(xpath)";
             if (DBUtils.db_Mysql) {
                 uniqueness = "";
-                xpathindex = "xpath(755)";
+                xpathindex = "xpath(768)";
             }
             sql = ("create table " + CLDR_XPATHS + "(id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " + "xpath "
-                + DBUtils.DB_SQL_VARCHARXPATH + " not null" + uniqueness + ")");
+                + DBUtils.DB_SQL_VARCHARXPATH +  " " + DBUtils.DB_SQL_MB4 + " not null" + uniqueness + ") " + DBUtils.DB_SQL_ENGINE_INNO );
             s.execute(sql);
             sql = ("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS + " (" + xpathindex + ")");
             s.execute(sql);
@@ -212,7 +212,19 @@ public class XPathTable {
         PreparedStatement queryStmt = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            addXpaths(unloadedXpaths, conn);
+            if(false) {
+                addXpaths(unloadedXpaths, conn);
+            } else {
+                // Debug: add paths one by one.
+                for(final String path : unloadedXpaths) {
+                    try {
+                        addXpaths(Collections.singleton(path), conn);
+                    } catch (SQLException se) {
+                        System.err.println("For xpath: " + path);
+                        throw se;
+                    }
+                }
+            }
         } catch (SQLException sqe) {
             SurveyLog.logException(sqe, "loadXPaths(" + source.getLocaleID() + ")");
             SurveyMain.busted("loadXPaths(" + source.getLocaleID() + ")", sqe);
@@ -235,7 +247,7 @@ public class XPathTable {
         PreparedStatement queryStmt = null;
         PreparedStatement insertStmt = null;
         // Insert new xpaths.
-        insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values (" + DBUtils.DB_SQL_BINTRODUCER
+        insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values (" 
             + " ?)");
         for (String xpath : xpaths) {
             insertStmt.setString(1, xpath);
@@ -280,7 +292,7 @@ public class XPathTable {
                 conn = DBUtils.getInstance().getDBConnection();
             }
             queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + " where XPATH="
-                + DBUtils.DB_SQL_BINTRODUCER + " ? " + DBUtils.DB_SQL_BINCOLLATE);
+                +  " ? ");
             queryStmt.setString(1, xpath);
             // First, try to query it back from the DB.
             ResultSet rs = queryStmt.executeQuery();
@@ -290,7 +302,7 @@ public class XPathTable {
                 } else {
                     // add it
                     insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath ) " + " values ("
-                        + DBUtils.DB_SQL_BINTRODUCER + " ?)", Statement.RETURN_GENERATED_KEYS);
+                        +" ?)", Statement.RETURN_GENERATED_KEYS);
 
                     insertStmt.setString(1, xpath);
                     insertStmt.execute();

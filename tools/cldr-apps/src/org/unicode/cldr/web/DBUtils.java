@@ -108,6 +108,8 @@ public class DBUtils {
     public static String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
     public static String DB_SQL_BINCOLLATE = "";
     public static String DB_SQL_BINTRODUCER = "";
+    public static String DB_SQL_ENGINE_INNO="";
+    public static String DB_SQL_MB4="";
     public static int db_number_open = 0;
     public static int db_number_used = 0;
     private static int db_UnicodeType = java.sql.Types.VARCHAR; /*
@@ -698,6 +700,9 @@ public class DBUtils {
             DB_SQL_UNICODE = "BLOB";
             db_UnicodeType = java.sql.Types.BLOB;
             DB_SQL_ALLTABLES = "show tables";
+            
+            DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
+            DB_SQL_MB4 = "CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";
         } else {
             System.err.println("*** WARNING: Don't know what kind of database is " + dbInfo + " - don't know what kind of hacky nonportable SQL to use!");
         }

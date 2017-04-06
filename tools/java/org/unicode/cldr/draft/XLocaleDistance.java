@@ -65,6 +65,13 @@ public class XLocaleDistance {
         TreeMultimap<String, String> containerToContainedTemp = TreeMultimap.create();
         fill("001", containerToContainedTemp);
         CONTAINER_TO_CONTAINED = ImmutableMultimap.copyOf(containerToContainedTemp);
+        // get hard-coded data because ICU fails to copy information
+        
+        for (String container : SDI.getContainers()) {
+            Set<String> contained = SDI.getContained(container);
+            System.out.println(".putAll(\"" + container + "\", \"" + CollectionUtilities.join(contained, "\", \"") + "\")");
+        }
+        
         ImmutableMultimap.Builder<String, String> containerToFinalContainedBuilder = new ImmutableMultimap.Builder<>();
         for (Entry<String, Collection<String>> entry : CONTAINER_TO_CONTAINED.asMap().entrySet()) {
             String container = entry.getKey();

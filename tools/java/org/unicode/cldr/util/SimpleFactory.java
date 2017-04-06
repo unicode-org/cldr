@@ -17,6 +17,9 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableList.Builder;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class SimpleFactory extends Factory {
@@ -64,23 +67,27 @@ public class SimpleFactory extends Factory {
         private final String localeName;
         private final boolean resolved;
         private final DraftStatus draftStatus;
-        private final String directory;
+        private final Set<String> directories; // ordered
         private final int hashCode;
 
-        public CLDRCacheKey(String localeName, boolean resolved, DraftStatus draftStatus, File directory) {
+        public CLDRCacheKey(String localeName, boolean resolved, DraftStatus draftStatus, List<File> directories) {
             super();
             this.localeName = localeName;
             this.resolved = resolved;
             this.draftStatus = draftStatus;
             // Parameter check: the directory/file supplied must be non-null and readable.
-            if (directory == null) {
+            if (directories == null || directories.isEmpty()) {
                 throw new ICUUncheckedIOException("Attempt to create a CLDRCacheKey with a null directory, please supply a non-null one.");
             }
-            if (!directory.canRead()) {
-                throw new ICUUncheckedIOException("The directory specified, " + directory.getPath() + ", cannot be read");
+            ImmutableSet.Builder<String> _directories = ImmutableSet.builder();
+            for (File directory : directories) {
+                if (!directory.canRead()) {
+                    throw new ICUUncheckedIOException("The directory specified, " + directory.getPath() + ", cannot be read");
+                }
+                _directories.add(directory.toString());
             }
-            this.directory = directory.toString();
-            hashCode = Objects.hash(this.localeName, this.resolved, this.draftStatus, this.directory);
+            this.directories = _directories.build();
+            hashCode = Objects.hash(this.localeName, this.resolved, this.draftStatus, this.directories);
         }
 
         @Override
@@ -100,11 +107,7 @@ public class SimpleFactory extends Factory {
                 return false;
             }
             CLDRCacheKey other = (CLDRCacheKey) obj;
-            if (directory == null) {
-                if (other.directory != null) {
-                    return false;
-                }
-            } else if (!directory.equals(other.directory)) {
+            if (!Objects.equals(directories, other.directories)) {
                 return false;
             }
             if (draftStatus != other.draftStatus) {
@@ -124,7 +127,7 @@ public class SimpleFactory extends Factory {
         }
 
         public String toString() {
-            return "[ LocaleName: " + localeName + " Resolved: " + resolved + " Draft status: " + draftStatus + " Direcrory: " + directory + " ]";
+            return "[ LocaleName: " + localeName + " Resolved: " + resolved + " Draft status: " + draftStatus + " Directories: " + directories + " ]";
         }
     }
 
@@ -449,7 +452,7 @@ public class SimpleFactory extends Factory {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{" + getClass().getName())
-        .append(" dirs=");
+            .append(" dirs=");
         for (File f : sourceDirectories) {
             sb.append(f.getPath()).append(' ');
         }
@@ -480,12 +483,12 @@ public class SimpleFactory extends Factory {
     public CLDRFile handleMake(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
         @SuppressWarnings("rawtypes")
         final Map mapToSynchronizeOn;
-        final File parentDir = getSourceDirectoryForLocale(localeName);
+        final List<File> parentDirs = getSourceDirectoriesForLocale(localeName);
         /*
          *  Parameter check: parentDir being null means the source directory could not be found - throw exception here
          *  rather than running into a  NullPointerException when trying to create/store the cache key further down.
          */
-        if (parentDir == null) {
+        if (parentDirs == null) {
             // changed from IllegalArgumentException, which does't let us filter exceptions.
             throw new NoSourceDirectoryException(localeName);
         }
@@ -500,7 +503,7 @@ public class SimpleFactory extends Factory {
                 result = cache.get(localeName);
         } else {
             // Use double-check idiom
-            cacheKey = new CLDRCacheKey(localeName, resolved, minimalDraftStatus, parentDir);
+            cacheKey = new CLDRCacheKey(localeName, resolved, minimalDraftStatus, parentDirs);
             //        result = cache.get(localeName);
             //  result=combinedCache.asMap().get(cacheKey);
             result = combinedCache.getIfPresent(cacheKey);
@@ -531,18 +534,18 @@ public class SimpleFactory extends Factory {
             if (resolved) {
                 result = new CLDRFile(makeResolvingSource(localeName, minimalDraftStatus));
             } else {
-                if (parentDir != null) {
+                if (parentDirs != null) {
                     if (DEBUG_SIMPLEFACTORY) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("HandleMake: Calling makeFile with locale: ");
                         sb.append(localeName);
                         sb.append(", parentDir: ");
-                        sb.append(parentDir.getAbsolutePath());
+                        sb.append(parentDirs);
                         sb.append(", DraftStatus: ");
                         sb.append(minimalDraftStatus);
                         System.out.println(sb.toString());
                     }
-                    result = makeFile(localeName, parentDir, minimalDraftStatus);
+                    result = makeFile(localeName, parentDirs, minimalDraftStatus);
                     result.freeze();
                 }
             }
@@ -569,6 +572,10 @@ public class SimpleFactory extends Factory {
 
     private static CLDRFile makeFromFile(File file, String localeName, DraftStatus minimalDraftStatus) {
         return CLDRFile.loadFromFile(file, localeName, minimalDraftStatus);
+    }
+
+    private static CLDRFile makeFromFile(List<File> dirs, String localeName, DraftStatus minimalDraftStatus) {
+        return CLDRFile.loadFromFiles(dirs, localeName, minimalDraftStatus);
     }
 
     /**
@@ -616,6 +623,11 @@ public class SimpleFactory extends Factory {
         return file;
     }
 
+    public static CLDRFile makeFile(String localeName, List<File> dirs, CLDRFile.DraftStatus minimalDraftStatus) {
+        CLDRFile file = makeFromFile(dirs, localeName, minimalDraftStatus);
+        return file;
+    }
+
     /**
      * @param localeName
      * @param dir
@@ -654,7 +666,8 @@ public class SimpleFactory extends Factory {
     }
 
     @Override
-    public File getSourceDirectoryForLocale(String localeName) {
+    public List<File> getSourceDirectoriesForLocale(String localeName) {
+        Builder<File> result = null;
         boolean isSupplemental = CLDRFile.isSupplementalName(localeName);
         for (File sourceDirectory : this.sourceDirectories) {
             if (isSupplemental) {
@@ -664,10 +677,13 @@ public class SimpleFactory extends Factory {
             final File dir = isSupplemental ? new File(sourceDirectory, "../supplemental") : sourceDirectory;
             final File xmlFile = makeFileName(localeName, dir);
             if (xmlFile.canRead()) {
-                return dir;
+                if (result == null) {
+                    result = ImmutableList.<File>builder();
+                }
+                result.add(dir);
             }
         }
-        return null;
+        return result == null ? null : result.build();
     }
 
 }

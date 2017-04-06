@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -34,7 +35,7 @@ public class TestFactory extends Factory {
     }
 
     @Override
-    public File getSourceDirectoryForLocale(String localeID) {
+    public List<File> getSourceDirectoriesForLocale(String localeID) {
         return null;
     }
 

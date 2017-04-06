@@ -227,6 +227,39 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
     }
 
+    public static CLDRFile loadFromFiles(List<File> dirs, String localeName, DraftStatus minimalDraftStatus, XMLSource source) {
+        try {
+            if (DEBUG_LOGGING) {
+                System.out.println("Parsing: " + dirs);
+                Log.logln(LOG_PROGRESS, "Parsing: " + dirs);
+            }
+            if (USE_LOADING_BUFFER) {
+                // Use Buffering -  improves performance at little cost to memory footprint
+                // try (InputStream fis = new BufferedInputStream(new FileInputStream(f),32000);) {
+                CLDRFile cldrFile = new CLDRFile(source);
+                for (File dir : dirs) {
+                    File f = new File(dir, localeName + ".xml");
+                    try (InputStream fis = InputStreamFactory.createInputStream(f)) {
+                        cldrFile.loadFromInputStream(f.getCanonicalPath(), localeName, fis, minimalDraftStatus);
+                    }
+                }
+                return cldrFile;
+            } else {
+                throw new IllegalArgumentException("Must use USE_LOADING_BUFFER");
+            }
+
+        } catch (Exception e) {
+            // e.printStackTrace();
+            // use a StringBuilder to construct the message.
+            StringBuilder sb = new StringBuilder("Cannot read the file '");
+            sb.append(dirs);
+            throw new ICUUncheckedIOException(sb.toString(), e);
+//            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFileName + " - "
+//                + e.toString()).initCause(e);
+        }
+    }
+
+
     /**
      * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
      *
@@ -236,6 +269,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public static CLDRFile loadFromFile(File f, String localeName, DraftStatus minimalDraftStatus) {
         return loadFromFile(f, localeName, minimalDraftStatus, new SimpleXMLSource(localeName));
+    }
+
+    public static CLDRFile loadFromFiles(List<File> dirs, String localeName, DraftStatus minimalDraftStatus) {
+        return loadFromFiles(dirs, localeName, minimalDraftStatus, new SimpleXMLSource(localeName));
     }
 
     static CLDRFile load(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
@@ -248,11 +285,17 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @param localeName
      * @param fis
      */
-    private static CLDRFile load(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus,
+    private static CLDRFile load(String fileName, String localeName, InputStream fis, 
+        DraftStatus minimalDraftStatus,
         XMLSource source) {
+        CLDRFile cldrFile = new CLDRFile(source);
+        return cldrFile.loadFromInputStream(fileName, localeName, fis, minimalDraftStatus);
+    }
+
+    private CLDRFile loadFromInputStream(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
+        CLDRFile cldrFile = this;
         try {
             fis = new StripUTF8BOMInputStream(fis);
-            CLDRFile cldrFile = new CLDRFile(source);
             MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(cldrFile, minimalDraftStatus);
 
             // now fill it.
@@ -1619,11 +1662,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * @param value
          */
         private void addPath(String fullXPath, String value) {
+            if (fullXPath.startsWith("//ldml/dates")) {
+                int debug = 0;
+            }
             String former = target.getStringValue(fullXPath);
             if (former != null) {
                 String formerPath = target.getFullXPath(fullXPath);
                 if (!former.equals(value) || !fullXPath.equals(formerPath)) {
-                    warnOnOverride(former, formerPath);
+                    if (!fullXPath.startsWith("//ldml/identity/version")) {
+                        warnOnOverride(former, formerPath);
+                    }
                 }
             }
             value = trimWhitespaceSpecial(value);

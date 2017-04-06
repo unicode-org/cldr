@@ -48,8 +48,12 @@ public abstract class Factory implements SublocaleProvider {
      * @param localeID
      * @return
      */
-    public abstract File getSourceDirectoryForLocale(String localeID);
-
+    @Deprecated
+    public final File getSourceDirectoryForLocale(String localeID) {
+        List<File> temp = getSourceDirectoriesForLocale(localeID);
+        return temp == null ? null : temp.get(0);
+    }
+    
     /**
      * Classify the tree according to type (maturity)
      *
@@ -299,4 +303,10 @@ public abstract class Factory implements SublocaleProvider {
         return sub;
     }
 
+    /**
+     * Get all of the files in the source directories that match localeName (which is really xml file name).
+     * @param localeName
+     * @return
+     */
+    public abstract List<File> getSourceDirectoriesForLocale(String localeName);
 }

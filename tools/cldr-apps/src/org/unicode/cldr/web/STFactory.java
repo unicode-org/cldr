@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -1797,8 +1798,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     @Override
-    public File getSourceDirectoryForLocale(String localeID) {
-        return sm.getDiskFactory().getSourceDirectoryForLocale(localeID);
+    public List<File> getSourceDirectoriesForLocale(String localeID) {
+        return sm.getDiskFactory().getSourceDirectoriesForLocale(localeID);
     }
 
     /*

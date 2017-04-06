@@ -83,8 +83,8 @@ public class FilterFactory extends Factory {
     }
 
     @Override
-    public File getSourceDirectoryForLocale(String localeID) {
-        return rawFactory.getSourceDirectoryForLocale(localeID);
+    public List<File> getSourceDirectoriesForLocale(String localeID) {
+        return rawFactory.getSourceDirectoriesForLocale(localeID);
     }
 
     @Override

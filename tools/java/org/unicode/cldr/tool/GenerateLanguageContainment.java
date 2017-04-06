@@ -36,9 +36,11 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row.R2;
 
 public class GenerateLanguageContainment {
+    private static final boolean ONLY_LIVING = false;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     static final Splitter TAB = Splitter.on('\t').trimResults();
     static final CLDRFile ENGLISH = CONFIG.getEnglish();
@@ -51,7 +53,7 @@ public class GenerateLanguageContainment {
         null, null, null);
 
     static final Function<String,String> NAME = code -> code.equals("mul") ? "root" : ENGLISH.getName(code) + " (" + code + ")";
-    
+
     static final Map<String, String> entityToCode = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToCode.tsv",
         code -> {
             code = code.replace("\"","");
@@ -99,9 +101,11 @@ public class GenerateLanguageContainment {
         TreeSet<String> missing = new TreeSet<>(table.get(Status.regular));
         _parentToChild.put("mul", "und");
         for (String code : table.get(Status.regular)) {
-            Type type = Iso639Data.getType(code);
-            if (type != Type.Living) {
-                continue;
+            if (ONLY_LIVING) {
+                Type type = Iso639Data.getType(code);
+                if (type != Type.Living) {
+                    continue;
+                }
             }
 
 //            if (COLLECTIONS.contains(code)) {
@@ -132,8 +136,9 @@ public class GenerateLanguageContainment {
         System.out.println("DROPPED_PARENTS: ");
         for (Entry<String, String> e : DROPPED_PARENTS_TO_CHILDREN.entries()) {
             System.out.println(NAME.apply(e.getKey()) + "\t" + NAME.apply(e.getValue())
-            );
+                );
         }
+        printXML(parentToChild);
 
 
 //        for (Entry<String,String> entry : childToParent.entries()) {
@@ -142,6 +147,26 @@ public class GenerateLanguageContainment {
 //            System.out.println(entry.getKey() + "\t" + entry.getValue() + "\t" + childNames + "\t" + parentNames);
 //        }
     }
+
+    private static void printXML(Multimap<String, String> parentToChild) {
+        System.out.println("<languageGroups>");
+        printXML(parentToChild, "mul");
+        System.out.println("</languageGroups>");
+    }
+
+    private static void printXML(Multimap<String, String> parentToChild, String base) {
+        Collection<String> children = parentToChild.get(base);
+        if (children.isEmpty()) {
+            return;
+        }
+        System.out.println("\t<languageGroup parent='" 
+            + base + "'>" 
+            + CollectionUtilities.join(children, " ") + "</languageGroup>");
+        for (String child : children) {
+            printXML(parentToChild, child);
+        }
+    }
+
 
     private static void print(Writer out, Multimap<String, String> parentToChild, List<String> line) {
         String current = line.get(line.size()-1);

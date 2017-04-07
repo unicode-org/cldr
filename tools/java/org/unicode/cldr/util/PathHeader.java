@@ -91,6 +91,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Numbers,
         Currencies,
         Units,
+        Symbols,
         Misc("Miscellaneous"),
         BCP47,
         Supplemental,
@@ -267,10 +268,21 @@ public class PathHeader implements Comparable<PathHeader> {
         WeekData(SectionId.Supplemental),
         Measurement(SectionId.Supplemental),
         Language(SectionId.Supplemental),
-        Annotation(SectionId.Supplemental),
         RBNF(SectionId.Supplemental),
         Segmentation(SectionId.Supplemental),
         DayPeriod(SectionId.Supplemental),
+
+        Category(SectionId.Symbols),
+        // [Smileys & People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags]
+        Smileys_People(SectionId.Symbols, "Smileys & People"),
+        Animals_Nature(SectionId.Symbols, "Animals & Nature"),
+        Food_Drink(SectionId.Symbols, "Food & Drink"),
+        Travel_Places(SectionId.Symbols, "Travel & Places"),
+        Activities(SectionId.Symbols),
+        Objects(SectionId.Symbols),
+        Symbols2(SectionId.Symbols, "Symbols"),
+        Flags(SectionId.Symbols),
+        Component(SectionId.Symbols),
         ;
 
         private final SectionId sectionId;
@@ -1701,6 +1713,20 @@ public class PathHeader implements Comparable<PathHeader> {
                             + (parts.get(0).equals("both") ? "↔︎" : "→")
                             + parts.get(2)
                             + (parts.size() > 3 ? "/"+parts.get(3) : "");
+                }
+            });
+            functionMap.put("major", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    return Emoji.getMajorCategory(source);
+                }
+            });
+            functionMap.put("minor", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    String minorCat = Emoji.getMinorCategory(source);
+                    order = Emoji.getMinorToOrder(minorCat);
+                    return minorCat;
                 }
             });
 

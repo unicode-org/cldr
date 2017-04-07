@@ -1445,7 +1445,9 @@ public class CldrUtility {
     }
 
     public static <T> T ifNull(T x, T y) {
-        return x == null ? y : x;
+        return x == null 
+            ? y 
+            : x;
     }
 
     public static <T> T ifSame(T source, T replaceIfSame, T replacement) {

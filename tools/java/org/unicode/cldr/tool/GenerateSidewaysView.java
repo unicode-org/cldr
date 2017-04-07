@@ -40,6 +40,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
@@ -111,10 +112,10 @@ public class GenerateSidewaysView {
         UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
         UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
             "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
-            UOption.create("nonvalidating", 'n', UOption.NO_ARG),
-            UOption.create("dtd", 'w', UOption.NO_ARG),
-            UOption.create("transliterate", 'y', UOption.NO_ARG),
-            UOption.create("path", 'p', UOption.REQUIRES_ARG),
+        UOption.create("nonvalidating", 'n', UOption.NO_ARG),
+        UOption.create("dtd", 'w', UOption.NO_ARG),
+        UOption.create("transliterate", 'y', UOption.NO_ARG),
+        UOption.create("path", 'p', UOption.REQUIRES_ARG),
     };
 
     private static final Matcher altProposedMatcher = CLDRFile.ALT_PROPOSED_PATTERN.matcher("");
@@ -161,7 +162,13 @@ public class GenerateSidewaysView {
 
         pathMatcher = options[PATH].value == null ? null : PatternCache.get(options[PATH].value).matcher("");
 
-        Factory cldrFactory = Factory.make(options[SOURCEDIR].value, options[MATCH].value);
+        File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY), 
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY) 
+        };
+        Factory cldrFactory = SimpleFactory.make(paths, options[MATCH].value);
+
+        // Factory cldrFactory = Factory.make(options[SOURCEDIR].value, options[MATCH].value);
         english = cldrFactory.make("en", true);
         pathHeaderFactory = PathHeader.getFactory(english);
 
@@ -218,7 +225,7 @@ public class GenerateSidewaysView {
             String header = path.getHeader();
             if (!header.equals(oldHeader) && !header.equals("null")) {
                 out.println("<tr><th colSpan='2' class='pathHeader'>" + CldrUtility.getDoubleLinkedText(header)
-                    + "</th></tr>");
+                + "</th></tr>");
                 oldHeader = header;
             }
             String anchorId = Long.toHexString(StringId.getId(path.getOriginalPath()));
@@ -276,7 +283,7 @@ public class GenerateSidewaysView {
         }
         finish(out);
         System.out.println("Done in " + new RuleBasedNumberFormat(new ULocale("en"), RuleBasedNumberFormat.DURATION)
-        .format((System.currentTimeMillis() - startTime) / 1000.0));
+            .format((System.currentTimeMillis() - startTime) / 1000.0));
     }
 
     // static Comparator UCA;

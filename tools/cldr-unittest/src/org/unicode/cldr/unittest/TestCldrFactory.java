@@ -37,11 +37,13 @@ public class TestCldrFactory extends TestFmwkPlus {
     }
 
     public void testDirectories() {
-        File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), 
+        File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY), 
             new File(CLDRPaths.ANNOTATIONS_DIRECTORY), 
-            new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY) };
-        List<File> enExpected = Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY));
+            new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY) 
+            };
         Factory factory = SimpleFactory.make(paths, ".*");
+        List<File> enExpected = Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY));
 
         File[] dirs = factory.getSourceDirectories();
         assertEquals("", Arrays.asList(paths), Arrays.asList(dirs));

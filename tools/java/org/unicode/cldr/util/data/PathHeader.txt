@@ -45,7 +45,6 @@
 ### Locale Display Names
 //ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; &localePattern($1)
 //ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Locale Field Fallbacks ; $1
-//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Annotations ; $1
 //ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; &languageSort($1)
 //ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
 //ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
@@ -227,9 +226,21 @@
 //ldml/posix/messages/%Estr                                 ; Misc ; Linguistic Elements ; Yes and No ; posix-$1
 //ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
-//ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Misc ; Linguistic Elements ; Character Label Pattern ; $1-$2
-//ldml/characterLabels/characterLabelPattern[@type="%A"]	; Misc ; Linguistic Elements ; Character Label Pattern ; $1
-//ldml/characterLabels/characterLabel[@type="%A"]			; Misc ; Linguistic Elements ; Character Label ; $1
+
+#Emoji, etc.
+
+//ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Symbols ; Category ; Pattern ; $1-$2
+//ldml/characterLabels/characterLabelPattern[@type="%A"]	; Symbols ; Category ; Pattern ; $1
+//ldml/characterLabels/characterLabel[@type="%A"]			; Symbols ; Category ; Label ; $1
+
+//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="%A"] ; Symbols ; Category ; Link ; $1
+
+# Use special hyphens
+//ldml/annotations/annotation[@cp="%A"][@type="tts"]	; Symbols ; &major($1) ; &minor($1) ; &alphaOrder($1 -name)
+//ldml/annotations/annotation[@cp="%A"]					; Symbols ; &major($1) ; &minor($1) ; &alphaOrder($1 –keywords)
+
+#OLD
+//ldml/annotations/annotation_[@cp="%A"]/_tts			; Symbols ; Annotation ; $1 ; TTS ; HIDE
 
 #Outside of Main
 
@@ -249,11 +260,6 @@
 //ldml/collations/collation[@type="%A"]/(%E)(.*)	; Misc ; Linguistic Elements ; Collation ; $1-$2-$3 ; HIDE
 //ldml/collations/collation[@type="%A"]	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
 
-//ldml/annotations/annotation[@cp="%A"][@type="%A"]	; Misc ; Linguistic Elements ; Annotation ; &alphaOrder($1-$2) ; HIDE
-//ldml/annotations/annotation[@cp="%A"]	; Misc ; Linguistic Elements ; Annotation ; &alphaOrder($1-labels) ; HIDE
-
-#OLD
-//ldml/annotations/annotation_[@cp="%A"]/_tts			; Supplemental ; Annotation ; $1 ; TTS ; HIDE
 
 # HIDE OTHERS
 //ldml/layout/orientation/(%E)                              ; Special ; Alphabetic Information ; Layout ; $1 ; HIDE

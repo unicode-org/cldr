@@ -292,7 +292,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return cldrFile.loadFromInputStream(fileName, localeName, fis, minimalDraftStatus);
     }
 
-    private CLDRFile loadFromInputStream(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
+    /**
+     * Low-level function, only normally used for testing.
+     * @param fileName
+     * @param localeName
+     * @param fis
+     * @param minimalDraftStatus
+     * @return
+     */
+    public CLDRFile loadFromInputStream(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
         CLDRFile cldrFile = this;
         try {
             fis = new StripUTF8BOMInputStream(fis);
@@ -382,7 +390,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @param options
      *            map of options for writing
      */
-    public CLDRFile write(PrintWriter pw, Map<String, Object> options) {
+    public CLDRFile write(PrintWriter pw, Map<String, ?> options) {
         Set<String> orderedSet = new TreeSet<String>(getComparator());
         CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
@@ -469,6 +477,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         XPathParts lastFiltered = new XPathParts(attributeOrdering2, defaultSuppressionMap);
         XPathParts currentFiltered = new XPathParts(attributeOrdering2, defaultSuppressionMap);
         boolean isResolved = dataSource.isResolving();
+        
+        java.util.function.Predicate<String> skipTest = (java.util.function.Predicate<String>) options.get("SKIP_PATH");
 
         for (Iterator<String> it2 = identitySet.iterator(); it2.hasNext();) {
             String xpath = (String) it2.next();
@@ -488,6 +498,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
 
         for (String xpath : orderedSet) {
+            if (skipTest != null 
+                && skipTest.test(xpath)) {
+                continue;
+            }
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }

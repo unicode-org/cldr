@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -8,9 +9,16 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Multimap;
@@ -203,5 +211,25 @@ public class TestAnnotations extends TestFmwk {
             }
         }
         return result.freeze();
+    }
+
+    public void testAnnotationPaths() {
+        assertTrue("", Emoji.getNonConstructed().contains("®"));
+        Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
+        for (String locale : Arrays.asList("en", "root")) {
+            CLDRFile enAnnotations = factoryAnnotations.make(locale, false);
+            //               //ldml/annotations/annotation[@cp="🧜"][@type="tts"]
+            Set<String> annotationPaths = enAnnotations.getPaths("//ldml/anno", 
+                Pattern.compile("//ldml/annotations/annotation.*tts.*").matcher(""), new TreeSet<>());
+            Set<String> annotationPathsExpected = Emoji.getNamePaths();
+            checkAMinusBIsC(locale + ".xml - Emoji.getNamePaths", annotationPaths, annotationPathsExpected, Collections.<String>emptySet());
+            checkAMinusBIsC("Emoji.getNamePaths - " + locale + ".xml", annotationPathsExpected, annotationPaths, Collections.<String>emptySet());
+        }
+    }
+
+    private void checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
+        Set<String> aMb = new TreeSet<>(a);
+        aMb.removeAll(b); 
+        assertEquals(title, c, aMb);
     }
 }

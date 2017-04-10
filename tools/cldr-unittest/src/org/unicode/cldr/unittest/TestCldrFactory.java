@@ -41,7 +41,7 @@ public class TestCldrFactory extends TestFmwkPlus {
             new File(CLDRPaths.MAIN_DIRECTORY), 
             new File(CLDRPaths.ANNOTATIONS_DIRECTORY), 
             new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY) 
-            };
+        };
         Factory factory = SimpleFactory.make(paths, ".*");
         List<File> enExpected = Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY));
 
@@ -150,8 +150,6 @@ public class TestCldrFactory extends TestFmwkPlus {
         }
         return null;
     }
-
-
 
     public void testWrite() {
         Predicate<String> isAnnotations = x -> x.startsWith("//ldml/annotations");

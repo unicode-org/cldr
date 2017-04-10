@@ -63,7 +63,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX, 11),
         UNITS("//ldml/units/unitLength", MatchType.PREFIX, 12),
         FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 13),
-        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14);
+        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14),
+        ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]", MatchType.REGEX, 15),
+        ;
 
         private MatchType matchType;
         private String basePrefix;
@@ -213,6 +215,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
 
+        if (path.contains("🔼")) {
+            int debug = 0;
+        }
         if (value == null || value.length() == 0) {
             return this;
         }

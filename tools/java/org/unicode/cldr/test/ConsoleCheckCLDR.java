@@ -117,6 +117,8 @@ public class ConsoleCheckCLDR {
     // VOTE_RESOLVE2 = 21
     ;
 
+    static final String SOURCE_DIRS = CLDRPaths.MAIN_DIRECTORY + "," + CLDRPaths.ANNOTATIONS_DIRECTORY;
+
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
@@ -131,7 +133,7 @@ public class ConsoleCheckCLDR {
         UOption.create("errors_only", 'e', UOption.NO_ARG),
         UOption.create("check-on-submit", 'k', UOption.NO_ARG),
         UOption.create("noaliases", 'n', UOption.NO_ARG),
-        UOption.create("source_directory", 's', UOption.REQUIRES_ARG).setDefault(CLDRPaths.MAIN_DIRECTORY),
+        UOption.create("source_directory", 's', UOption.REQUIRES_ARG).setDefault(SOURCE_DIRS),
         UOption.create("user", 'u', UOption.REQUIRES_ARG),
         UOption.create("phase", 'z', UOption.REQUIRES_ARG),
         UOption.create("generate_html", 'g', UOption.OPTIONAL_ARG).setDefault(CLDRPaths.CHART_DIRECTORY + "/errors/"),
@@ -159,7 +161,7 @@ public class ConsoleCheckCLDR {
 
     private static String[] HelpMessage = {
         "-h \t This message",
-        "-s \t Source directory, default = " + CLDRPaths.MAIN_DIRECTORY,
+        "-s \t Source directory, default = " + SOURCE_DIRS,
         "-S common,seed\t Use common AND seed directories. ( Set CLDR_DIR, don't use this with -s. )\n",
         "-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
         "-pxxx \t Pick the paths to check, eg -p(.*languages.*)",
@@ -303,9 +305,12 @@ public class ConsoleCheckCLDR {
             }
             sourceDirectories = cldrConf.getMainDataDirectories(cldrConf.getCLDRDataDirectories(options[SOURCE_ALL].value));
         } else {
-            sourceDirectories = new File[1];
-            sourceDirectories[0] = new File(CldrUtility.checkValidDirectory(options[SOURCE_DIRECTORY].value,
-                "Fix with -s. Use -h for help."));
+            String[] sdirs = options[SOURCE_DIRECTORY].value.split(",\\s*");
+            sourceDirectories = new File[sdirs.length];
+            for (int i = 0; i < sdirs.length; ++i) {
+                sourceDirectories[i] = new File(CldrUtility.checkValidDirectory(sdirs[i],
+                    "Fix with -s. Use -h for help."));
+            }
         }
 
         if (options[GENERATE_HTML].doesOccur) {
@@ -703,9 +708,9 @@ public class ConsoleCheckCLDR {
                 if (missingExemplars.size() != 0) {
                     Collator col = Collator.getInstance(new ULocale(localeID));
                     showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + new UnicodeSetPrettyPrinter()
-                    .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                    .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                        .setStrength2(Collator.PRIMARY))
+                        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+                        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                            .setStrength2(Collator.PRIMARY))
                         .setCompressRanges(true)
                         .format(missingExemplars));
                 }
@@ -714,9 +719,9 @@ public class ConsoleCheckCLDR {
                 Collator col = Collator.getInstance(new ULocale(localeID));
                 showSummary(checkCldr, localeID, level, "Total missing from currency exemplars:\t"
                     + new UnicodeSetPrettyPrinter()
-                .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                    .setStrength2(Collator.PRIMARY))
+                    .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+                    .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                        .setStrength2(Collator.PRIMARY))
                     .setCompressRanges(true)
                     .format(missingCurrencyExemplars));
             }
@@ -1303,8 +1308,8 @@ public class ConsoleCheckCLDR {
                 +
                 (notLocaleSpecific
                     ? "s. " + org.unicode.cldr.test.HelpMessages.getChartMessages("error_index_header")
-                        : " " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + ". "
-                        + ErrorFile.ERROR_CHART_HEADER
+                    : " " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + ". "
+                    + ErrorFile.ERROR_CHART_HEADER
                     ));
         }
 

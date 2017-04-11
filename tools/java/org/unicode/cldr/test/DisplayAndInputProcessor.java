@@ -19,6 +19,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.MyanmarZawgyiConverter;
 import org.unicode.cldr.util.PatternCache;
@@ -26,6 +27,8 @@ import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateIntervalInfo;
@@ -274,6 +277,9 @@ public class DisplayAndInputProcessor {
     static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
     static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer(FIX_YEARS);
 
+    static final Splitter SPLIT_BAR = Splitter.on('|').trimResults().omitEmptyStrings();
+    static final Joiner JOIN_BAR = Joiner.on(" | ");
+
     /**
      * Process the value for input. The result is a cleaned-up value. For example,
      * an exemplar set is modified to be in the normal format, and any missing [ ]
@@ -433,6 +439,10 @@ public class DisplayAndInputProcessor {
                 value = normalizeHyphens(value);
             }
 
+            if (path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS)) {
+                value = JOIN_BAR.join(SPLIT_BAR.split(value));
+            }
+            
             return value;
         } catch (RuntimeException e) {
             if (internalException != null) {

@@ -488,6 +488,7 @@ public class XPathTable {
 
     private Set<String> undistinguishingAttributes = null;
 
+    @Deprecated
     public synchronized Set<String> getUndistinguishingElements() {
         if (undistinguishingAttributes == null) {
             Set<String> s = new HashSet<String>();
@@ -511,8 +512,13 @@ public class XPathTable {
         }
         return undistinguishingAttributes;
     }
-
+    
     public Map<String, String> getUndistinguishingElementsFor(String path, XPathParts xpp) {
+        return XPathParts.getFrozenInstance(path).getSpecialNondistinguishingAttributes();
+    }
+
+    @Deprecated
+    public Map<String, String> getUndistinguishingElementsForOLD(String path, XPathParts xpp) {
         if (path == null) {
             return null;
         }

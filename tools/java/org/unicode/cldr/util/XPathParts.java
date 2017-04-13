@@ -1221,4 +1221,25 @@ public final class XPathParts implements Freezable<XPathParts> {
         }
         return builder.build();
     }
+    
+    public Map<String,String> getSpecialNondistinguishingAttributes() {
+        Map<String, String> ueMap = null; // common case, none found.
+        for (int i = 0; i < this.size(); i++) {
+            // taken from XPathTable.getUndistinguishingElementsFor, with some cleanup
+            // from XPathTable.getUndistinguishingElements, we include alt, draft
+            for (Entry<String,String> entry : this.getAttributes(i).entrySet()) {
+                String k = entry.getKey();
+                if (getDtdData().isDistinguishing(getElement(i), k) 
+                     || k.equals("alt") // is always distinguishing, so we don't really need this.
+                     || k.equals("draft")) {
+                    continue;
+                }
+                if (ueMap == null) {
+                    ueMap = new TreeMap<String, String>();
+                }
+                ueMap.put(k, entry.getValue());
+            }
+        }
+        return ueMap;
+    }
 }

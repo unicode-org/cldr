@@ -31,19 +31,19 @@ WR,Name,Script_Code,Age,Size,Sample,Sample_Code,Origin Country,~Density,Likely L
 30,Thaana,Thaa,3,50,ތ,78C,Maldives,1,Divehi,dv,Recommended,Yes,no,Yes,no,no
 31,Oriya,Orya,1.1,90,କ,B15,India,1,Oriya,or,Recommended,no,no,Yes,no,no
 32,Unknown,Zzzz,1.1,n/a,﷐,FDD0,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
-33,Canadian_Aboriginal,Cans,3,710,ᓀ,14C0,Canada,2,Cree,cr,Aspirational,no,no,no,Yes,no
+33,Canadian_Aboriginal,Cans,3,710,ᓀ,14C0,Canada,2,Cree,cr,Limited_Use,no,no,no,Yes,no
 34,Syriac,Syrc,3,77,ܐ,710,Syria,1,Syriac,syr,Limited_Use,Yes,no,Yes,no,no
 35,Bopomofo,Bopo,1.1,70,ㄅ,3105,China,2,Chinese,zh,Recommended,no,Yes,no,no,no
 36,Nko,Nkoo,5,59,ߘ,7CA,Guinea,1,Manding,man,Limited_Use,Yes,no,Yes,no,no
 37,Cherokee,Cher,3,85,Ꮔ,13C4,United States,2,Cherokee,chr,Limited_Use,no,no,no,no,Yes
-38,Yi,Yiii,3,"1,220",ꊈ,A288,China,3,Sichuan Yi,ii,Aspirational,no,Yes,no,Yes,no
+38,Yi,Yiii,3,"1,220",ꊈ,A288,China,3,Sichuan Yi,ii,Limited_Use,no,Yes,no,Yes,no
 39,Samaritan,Samr,5.2,61,ࠀ,800,Israel,1,Samaritan Hebrew,smp,Exclusion,Yes,no,min,no,no
 40,Coptic,Copt,1.1,165,Ϣ,3E2,Egypt,1,Coptic,cop,Exclusion,no,no,min,no,Yes
-41,Mongolian,Mong,3,153,ᠦ,1826,Mongolia,1,Mongolian,mn,Aspirational,no,no,Yes,no,no
+41,Mongolian,Mong,3,153,ᠦ,1826,Mongolia,1,Mongolian,mn,Limited_Use,no,no,Yes,no,no
 42,Glagolitic,Glag,4.1,94,Ⰰ,2C00,Bulgaria,1,Church Slavic,cu,Exclusion,no,no,no,no,Yes
 43,Vai,Vaii,5.1,300,ꕉ,A549,Liberia,2,Vai,vai,Limited_Use,no,no,no,Yes,no
 44,Balinese,Bali,5,121,ᬅ,1B05,Indonesia,1,Balinese,ban,Limited_Use,no,no,Yes,no,no
-45,Tifinagh,Tfng,4.1,59,ⵞ,2D30,Morocco,1,Standard Moroccan Tamazight,zgh,Aspirational,no,no,no,no,no
+45,Tifinagh,Tfng,4.1,59,ⵞ,2D30,Morocco,1,Standard Moroccan Tamazight,zgh,Limited_Use,no,no,no,no,no
 46,Bamum,Bamu,5.2,657,ꚠ,A6A0,Cameroon,1,Bamun,bax,Limited_Use,no,no,min,Yes,no
 47,Batak,Batk,6,56,ᯀ,1BC0,Indonesia,1,Batak Toba,bbc,Limited_Use,no,no,Yes,no,no
 48,Cham,Cham,5.1,83,ꨀ,AA00,Vietnam,1,Eastern Cham,cjm,Limited_Use,no,no,Yes,no,no
@@ -98,7 +98,7 @@ WR,Name,Script_Code,Age,Size,Sample,Sample_Code,Origin Country,~Density,Likely L
 97,Chakma,Cakm,6.1,67,𑄃,11103,Bangladesh,1,Chakma,ccp,Limited_Use,no,no,Yes,no,no
 98,Meroitic_Cursive,Merc,6.1,26,𐦠,109A0,Sudan,1,Meroitic,xmr,Exclusion,Yes,no,no,no,no
 99,Meroitic_Hieroglyphs,Mero,6.1,32,𐦀,10980,Sudan,1,Meroitic,xmr,Exclusion,Yes,no,no,no,no
-100,Miao,Plrd,6.1,133,𖼀,16F00,China,1,Large Flowery Miao,hmd,Aspirational,no,no,Yes,no,no
+100,Miao,Plrd,6.1,133,𖼀,16F00,China,1,Large Flowery Miao,hmd,Limited_Use,no,no,Yes,no,no
 101,Sharada,Shrd,6.1,83,𑆃,11183,India,1,Sanskrit,sa,Exclusion,no,no,Yes,no,no
 102,Sora_Sompeng,Sora,6.1,35,𑃐,110D0,India,1,Sora,srb,Exclusion,no,no,no,no,no
 103,Takri,Takr,6.1,66,𑚀,11680,India,1,Dogri,doi,Exclusion,no,no,Yes,no,no
@@ -138,3 +138,7 @@ WR,Name,Script_Code,Age,Size,Sample,Sample_Code,Origin Country,~Density,Likely L
 137,Osage,Osge,9,0,𐒵,104B5,USA,1,Osage,osa,Limited_Use,no,no,no,no,Yes
 138,Tangut,Tang,9,0,𘈩,18229,China,3,Tangut,txg,Exclusion,no,Yes,no,Yes,no
 139,Newa,Newa,9,0,𑐒,11412,Nepal,1,Newari,new,Limited_Use,no,no,Yes,no,no
+140,Masaram Gondi,Gonm,10,75,𑴐,11D10,India,1,Gondi,gon,Exclusion,no,no,Yes,no,no
+141,Nushu,Nshu,10,397,𛇄,1B1C4,China,2,Chinese language family,zhx,Exclusion,no,Yes,no,Yes,no
+142,Soyombo,Soyo,10,81,𑩜,11A5C,Mongolia,1,Classical Mongolian,cmg,Exclusion,no,no,Yes,no,no
+143,Zanabazar Square,Zanb,10,69,𑨋,11A0B,Mongolia,1,Classical Mongolian,cmg,Exclusion,no,no,Yes,no,no

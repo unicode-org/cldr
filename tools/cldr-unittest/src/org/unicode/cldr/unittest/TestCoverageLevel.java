@@ -1,5 +1,14 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.CompactDecimalFormat;
+import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.ULocale;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -11,7 +20,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -32,16 +40,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.CompactDecimalFormat;
-import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.ULocale;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
@@ -338,11 +336,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         final Pattern script100 = PatternCache.get("("
             + "Adlm|Afak|Aghb|Ahom|Armi|Avst|Bali|Bamu|Bass|Batk|Bhks|Blis|Brah|Bugi|Buhd|Cakm|Cans|Cari|Cham|Cher|Cirt|Copt|Cprt|Cyrs|"
-            + "Dsrt|Dupl|Egy[dhp]|Elba|Geok|Glag|Goth|Gran|Hatr|Hanb|Hano|Hluw|Hmng|Hrkt|Hung|Inds|Ital|Jamo|Java|Jurc|"
+            + "Dsrt|Dupl|Egy[dhp]|Elba|Geok|Glag|Gonm|Goth|Gran|Hatr|Hanb|Hano|Hluw|Hmng|Hrkt|Hung|Inds|Ital|Jamo|Java|Jurc|"
             + "Kali|Khar|Khoj|Kpel|Kthi|Kits|Lana|Lat[fg]|Lepc|Limb|Lin[ab]|Lisu|Loma|Ly[cd]i|Mahj|Man[di]|Marc|Maya|Mend|Mer[co]|Modi|Moon|Mroo|Mtei|Mult|"
             + "Narb|Nbat|Newa|Nkgb|Nkoo|Nshu|Ogam|Olck|Orkh|Osge|Osma|Palm|Pauc|Perm|Phag|Phl[ipv]|Phnx|Plrd|Prti|"
-            + "Rjng|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sora|Sund|Sylo|Syr[cejn]|"
-            + "Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Ugar|Vaii|Visp|Wara|Wole|Xpeo|Xsux|Yiii|Zinh|Zmth)");
+            + "Rjng|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sora|Soyo|Sund|Sylo|Syr[cejn]|"
+            + "Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Ugar|Vaii|Visp|Wara|Wole|Xpeo|Xsux|Yiii|Zanb|Zinh|Zmth)");
 
         final Pattern keys100 = PatternCache.get("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
             + "Normalization|Numeric|Reorder|Strength)|kv|sd|timezone|va|variableTop|x|d0|h0|i0|k0|m0|s0)");

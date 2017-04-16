@@ -496,6 +496,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Ron; ?; ? } => { Ron; Latin; Unknown Region }-->
 		<likelySubtag from="cme" to="cme_Latn_ZZ"/>
 		<!--{ Cerma; ?; ? } => { Cerma; Latin; Unknown Region }-->
+		<likelySubtag from="cmg" to="cmg_Soyo_MN"/>
+		<!--{ Classical Mongolian; ?; ? } => { Classical Mongolian; Soyombo; Mongolia }-->
 		<likelySubtag from="co" to="co_Latn_FR"/>
 		<!--{ Corsican; ?; ? } => { Corsican; Latin; France }-->
 		<likelySubtag from="cop" to="cop_Copt_EG"/>
@@ -2762,6 +2764,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Chinese; Han with Bopomofo; ? } => { Chinese; Han with Bopomofo; Taiwan }-->
 		<likelySubtag from="zh_Hant" to="zh_Hant_TW"/>
 		<!--{ Chinese; Traditional; ? } => { Chinese; Traditional; Taiwan }-->
+		<likelySubtag from="zhx" to="zhx_Nshu_CN"/>
+		<!--{ Chinese (family); ?; ? } => { Chinese (family); Nüshu; China }-->
 		<likelySubtag from="zia" to="zia_Latn_ZZ"/>
 		<!--{ Zia; ?; ? } => { Zia; Latin; Unknown Region }-->
 		<likelySubtag from="zlm" to="zlm_Latn_TG"/>
@@ -3350,6 +3354,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Georgian; ? } => { Georgian; Georgian; Georgia }-->
 		<likelySubtag from="und_Glag" to="cu_Glag_BG"/>
 		<!--{ ?; Glagolitic; ? } => { Church Slavic; Glagolitic; Bulgaria }-->
+		<likelySubtag from="und_Gonm" to="gon_Gonm_IN"/>
+		<!--{ ?; Masaram Gondi; ? } => { Gondi; Masaram Gondi; India }-->
 		<likelySubtag from="und_Goth" to="got_Goth_UA"/>
 		<!--{ ?; Gothic; ? } => { Gothic; Gothic; Ukraine }-->
 		<likelySubtag from="und_Gran" to="sa_Gran_IN"/>
@@ -3518,6 +3524,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Newa; ? } => { Newari; Newa; Nepal }-->
 		<likelySubtag from="und_Nkoo" to="man_Nkoo_GN"/>
 		<!--{ ?; N’Ko; ? } => { Mandingo; N’Ko; Guinea }-->
+		<likelySubtag from="und_Nshu" to="zhx_Nshu_CN"/>
+		<!--{ ?; Nüshu; ? } => { Chinese (family); Nüshu; China }-->
 		<likelySubtag from="und_Ogam" to="sga_Ogam_IE"/>
 		<!--{ ?; Ogham; ? } => { Old Irish; Ogham; Ireland }-->
 		<likelySubtag from="und_Olck" to="sat_Olck_IN"/>
@@ -3572,6 +3580,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Sinhala; ? } => { Sinhala; Sinhala; Sri Lanka }-->
 		<likelySubtag from="und_Sora" to="srb_Sora_IN"/>
 		<!--{ ?; Sora Sompeng; ? } => { Sora; Sora Sompeng; India }-->
+		<likelySubtag from="und_Soyo" to="cmg_Soyo_MN"/>
+		<!--{ ?; Soyombo; ? } => { Classical Mongolian; Soyombo; Mongolia }-->
 		<likelySubtag from="und_Sund" to="su_Sund_ID"/>
 		<!--{ ?; Sundanese; ? } => { Sundanese; Sundanese; Indonesia }-->
 		<likelySubtag from="und_Sylo" to="syl_Sylo_BD"/>
@@ -3624,5 +3634,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Sumero-Akkadian Cuneiform; ? } => { Akkadian; Sumero-Akkadian Cuneiform; Iraq }-->
 		<likelySubtag from="und_Yiii" to="ii_Yiii_CN"/>
 		<!--{ ?; Yi; ? } => { Sichuan Yi; Yi; China }-->
+		<likelySubtag from="und_Zanb" to="cmg_Zanb_MN"/>
+		<!--{ ?; Zanabazar Square; ? } => { Classical Mongolian; Zanabazar Square; Mongolia }-->
     </likelySubtags>
 </supplementalData>

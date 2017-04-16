@@ -1,5 +1,14 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Collections;
@@ -10,7 +19,6 @@ import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.EnumLookup;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
@@ -23,16 +31,6 @@ import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.VersionInfo;
 
 public class TestScriptMetadata extends TestFmwkPlus {
     private static final VersionInfo ICU_UNICODE_VERSION = UCharacter.getUnicodeVersion();

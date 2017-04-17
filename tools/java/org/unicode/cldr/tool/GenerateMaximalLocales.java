@@ -165,6 +165,8 @@ public class GenerateMaximalLocales {
         { "es", "es_Latn_ES" },
         { "es_Latn", "es_Latn_ES" },
         { "ff_Adlm", "ff_Adlm_GN" },
+        { "io", "io_Latn_001" },
+        { "io_Latn", "io_Latn_001" },
         { "ku_Arab", "ku_Arab_IQ" },
         { "lrc", "lrc_Arab_IR" },
         { "lrc_Arab", "lrc_Arab_IR" },

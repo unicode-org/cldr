@@ -580,6 +580,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * IP blacklist
      */
     static Hashtable<String, Object> BAD_IPS = new Hashtable<String, Object>();
+    private static String fileBaseA;
+    private static String fileBaseASeed;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         CLDRConfigImpl.setUrls(request);
@@ -961,10 +963,31 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             File base = survprops.getCldrBaseDirectory();
             fileBase = new File(base, "common/main").getAbsolutePath();
             fileBaseSeed = new File(base, "seed/main").getAbsolutePath();
+            File commonAnnotations = new File(base, "common/annotations");
+            fileBaseA = commonAnnotations.getAbsolutePath();
+            commonAnnotations.mkdirs(); // make sure this exists
+            File seedAnnotations = new File(base, "seed/annotations");
+            seedAnnotations.mkdirs(); // make sure this exists
+            fileBaseASeed = seedAnnotations.getAbsolutePath();
         }
         if (fileBase == null)
             throw new NullPointerException("fileBase==NULL");
         return fileBase;
+    }
+    
+    /**
+     * Get all of the file bases as an array
+     * @return
+     */
+    public static File[] getFileBases() {
+        getFileBase(); // load these
+        File files[] =
+            { new File(getFileBase()), 
+              new File(getFileBaseSeed()),
+              new File(fileBaseA),
+              new File(fileBaseASeed)
+        };
+        return files;
     }
 
     /**
@@ -4462,6 +4485,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public synchronized Factory getDiskFactory() {
         if (gFactory == null) {
+            final File list[] = getFileBases();
             CLDRConfig config = CLDRConfig.getInstance();
             // may fail at server startup time- should do this through setup mode
             ensureOrCheckout(null, "CLDR_DIR", config.getCldrBaseDirectory(), CLDR_DIR_REPOS);
@@ -4472,7 +4496,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     + " in cldr.properties.");
             }
 
-            final File list[] = { new File(getFileBase()), new File(getFileBaseSeed()) };
             gFactory = SimpleFactory.make(list, ".*");
         }
         return gFactory;
@@ -4676,7 +4699,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     throw new InternalError(msg);
                 }
             }
-            File roots[] = { oldCommon, oldSeed };
+            File oldCommonA = new File(oldBase, "common/main");
+            File oldSeedA = new File(oldBase, "seed/main");
+            oldCommonA.mkdirs(); // may not exist
+            oldSeedA.mkdirs(); // may not exist
+            
+            File roots[] = { oldCommon, oldSeed, oldCommonA, oldSeedA };
             gOldFactory = SimpleFactory.make(roots, ".*");
             gOldAvailable = Collections.unmodifiableSet(gOldFactory.getAvailableCLDRLocales());
         }

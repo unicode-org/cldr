@@ -17,9 +17,6 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">ꭺꮳꮄꮝꮧ →→;</rbnfrule>
                 <rbnfrule value="x.x">←← ꭺꮝꮣᏹ →→;</rbnfrule>
                 <rbnfrule value="Inf">ꭲꭺꭿꮣ ꭸꮢ;</rbnfrule>
@@ -40,7 +37,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="13">ꮶꭶꮪ;</rbnfrule>
                 <rbnfrule value="14">ꮒꭶꮪ;</rbnfrule>
                 <rbnfrule value="15">ꭿꮝꭶꮪ;</rbnfrule>
-                <rbnfrule value="16">ꮣꮃꮪ ;</rbnfrule>
+                <rbnfrule value="16">ꮣꮃꮪ;</rbnfrule>
                 <rbnfrule value="17">ꭶꮅꮖꮪ;</rbnfrule>
                 <rbnfrule value="18">ꮑꮃꮪ;</rbnfrule>
                 <rbnfrule value="19">ꮠꮑꮃꮪ;</rbnfrule>
@@ -60,9 +57,12 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000">←← ꭲꮿꮕꭶꮧꮕꮫ[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-cardinal">
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-tens" access="private">
                 <rbnfrule value="0">ꭿ;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="1">' =%spellout-numbering=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

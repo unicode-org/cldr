@@ -165,6 +165,7 @@ public class LenientDateParser {
                 haveSoFar.setFirstType(afterTypes);
 
                 break;
+            default:
             }
             tokens.add(token);
             previous = token;
@@ -345,6 +346,7 @@ public class LenientDateParser {
                 case TIMEZONE:
                     calendar.setTimeZone(getTimeZone(ZONE_INT_MAP.get(value)));
                     break;
+                default:
                 }
             }
             // if (!haveSoFar.contains(Type.YEAR)) {
@@ -531,6 +533,7 @@ public class LenientDateParser {
                 return integerToken.restrictAndSetCalendarFieldIfPossible(allowable, haveSoFar, tokensToFix);
             case SEPARATOR:
                 return true;
+            default:
             }
             // only if set value
             return haveSoFar == null ? true : haveSoFar.add(this);
@@ -1154,6 +1157,7 @@ public class LenientDateParser {
                 case YEAR:
                     temp.add(type);
                     break;
+                default:
                 }
             }
         }

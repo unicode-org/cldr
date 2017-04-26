@@ -957,6 +957,7 @@ public class VettingViewer<T> {
                         problemCounter.increment(Choice.notApproved);
                     }
                     break;
+                default:
                 }
 
                 if (xpath != null)

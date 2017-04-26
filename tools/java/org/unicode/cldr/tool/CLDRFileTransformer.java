@@ -200,6 +200,7 @@ public class CLDRFileTransformer {
                 return oldValue;
             }
             break;
+        default:
         }
         
         UnicodeSet chars = localeTransform.getInputChars();

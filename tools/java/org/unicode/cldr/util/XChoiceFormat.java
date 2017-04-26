@@ -62,8 +62,9 @@ public class XChoiceFormat {
                     return digit >= 2 && digit <= 4;
                 }
                 }
+            default:
+                return true; // CN
             }
-            return true; // CN
         }
     };
 

@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
+import java.util.function.Predicate;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +51,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.util.ElapsedTimer;
 
 public class OutputFileManager {
@@ -396,6 +398,16 @@ public class OutputFileManager {
         }
     }
 
+    static final Predicate<String> isAnnotations = x -> x.startsWith("//ldml/annotations");
+//    Map<String,?> skipAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations);
+//    Map<String,?> keepAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations.negate());
+//    Map<String, Object> options = CldrUtility.asMap(new Object[][] {
+//        { "SUPPRESS_IM", true } });
+    Map<String, Object> OPTS_SKIP_ANNOTATIONS = ImmutableMap.of("SUPPRESS_IM", true,
+           "SKIP_PATH", isAnnotations);
+    Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of("SUPPRESS_IM", true,
+           "SKIP_PATH", isAnnotations.negate() );
+
     /**
      * @param loc
      * @param file
@@ -406,32 +418,40 @@ public class OutputFileManager {
      */
     private void doWriteFile(CLDRLocale loc, CLDRFile file, String kind, boolean isFlat, File outFile) throws UnsupportedEncodingException,
         FileNotFoundException {
-        PrintWriter u8out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF8"));
-
-        Map<String, Object> options = CldrUtility.asMap(new Object[][] {
-            { "SUPPRESS_IM", true } });
-
-        if (!isFlat) {
-            if (kind.equals("vxml") || kind.equals("rxml")) {
-                file.write(u8out, options);
+        try(PrintWriter u8out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF8"))) {
+    
+    
+            if (!isFlat) {
+                if (kind.equals("vxml") || kind.equals("rxml")) {
+                    file.write(u8out, OPTS_SKIP_ANNOTATIONS);
+                    
+                    // output annotations, too
+                    File parentDir = outFile.getParentFile().getParentFile();
+                    File annotationsDir = new File(parentDir, "annotations");
+                    annotationsDir.mkdirs();
+                    File aFile = new File(annotationsDir,outFile.getName()); // same name, different subdir
+//                    System.out.println("Annotation: " + aFile.getAbsolutePath());
+                    try(PrintWriter u8outa = new PrintWriter(new OutputStreamWriter(new FileOutputStream(aFile), "UTF8"))) {
+                        file.write(u8outa, OPTS_KEEP_ANNOTATIONS);
+                    }
+                } else {
+                    file.write(u8out);
+                }
             } else {
-                file.write(u8out);
+                Set<String> keys = new TreeSet<String>();
+                for (String k : file) {
+                    keys.add(k);
+                }
+                u8out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+                u8out.println("<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">");
+                u8out.println("<comment>" + loc + "</comment>");
+                u8out.println("<properties>");
+                for (String k : keys) {
+                    u8out.println(" <entry key=\"" + k.replaceAll("\"", "\\\"") + "\">" + file.getStringValue(k) + "</entry>");
+                }
+                u8out.println("</properties>");
             }
-        } else {
-            Set<String> keys = new TreeSet<String>();
-            for (String k : file) {
-                keys.add(k);
-            }
-            u8out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-            u8out.println("<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">");
-            u8out.println("<comment>" + loc + "</comment>");
-            u8out.println("<properties>");
-            for (String k : keys) {
-                u8out.println(" <entry key=\"" + k.replaceAll("\"", "\\\"") + "\">" + file.getStringValue(k) + "</entry>");
-            }
-            u8out.println("</properties>");
         }
-        u8out.close();
     }
 
     public void doRaw(WebContext ctx) {

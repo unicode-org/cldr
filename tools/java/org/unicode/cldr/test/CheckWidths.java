@@ -95,6 +95,7 @@ public class CheckWidths extends CheckCLDR {
             case NUMBERSYMBOLS:
                 value = value.replaceAll("[\u200E\u200F\u061C]", ""); // don't include LRM/RLM/ALM when checking length of number symbols
                 break;
+            default:
             }
             double valueMeasure = measure == Measure.CODE_POINTS ? value.codePointCount(0, value.length()) : ApproximateWidth.getWidth(value);
             CheckStatus.Type errorType = CheckStatus.warningType;

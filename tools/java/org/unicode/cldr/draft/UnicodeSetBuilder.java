@@ -228,11 +228,13 @@ public class UnicodeSetBuilder {
                     case intersection:
                         current.retainAll(recent);
                         break;
+                    default:
                     }
                     negateSet = popped.negated;
                     operation = popped.operation;
                 }
                 break;
+                default:
             }
             if (StateMachine.SHOW_STATE_TRANSITIONS) {
                 System.out.println("\t\tLiteral:" + Integer.toHexString(lastLiteral));

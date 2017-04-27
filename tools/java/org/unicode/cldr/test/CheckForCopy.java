@@ -219,6 +219,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                 "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
                 new Object[] {}));
             break;
+        default:
         }
         return this;
     }

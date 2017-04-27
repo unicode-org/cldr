@@ -1436,6 +1436,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 break;
             }
             break;
+        default:
         }
         return false;
     }

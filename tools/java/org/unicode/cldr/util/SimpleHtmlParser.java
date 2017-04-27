@@ -234,6 +234,7 @@ public class SimpleHtmlParser {
                 }
                 result.append(ch);
                 break;
+            default:
             }
         }
     }

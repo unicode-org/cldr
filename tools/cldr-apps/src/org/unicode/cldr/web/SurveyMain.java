@@ -580,8 +580,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * IP blacklist
      */
     static Hashtable<String, Object> BAD_IPS = new Hashtable<String, Object>();
-    private static String fileBaseA;
-    private static String fileBaseASeed;
+    public static String fileBaseA;
+    public static String fileBaseASeed;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         CLDRConfigImpl.setUrls(request);

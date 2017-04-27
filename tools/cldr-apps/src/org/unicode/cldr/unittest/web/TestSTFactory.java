@@ -896,6 +896,9 @@ public class TestSTFactory extends TestFmwk {
 
             SurveyMain.fileBase = CLDRPaths.MAIN_DIRECTORY;
             SurveyMain.fileBaseSeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/main/").getAbsolutePath();
+            SurveyMain.fileBaseA = new File(CLDRPaths.BASE_DIRECTORY, "common/annotations/").getAbsolutePath();
+            SurveyMain.fileBaseASeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
+
             SurveyMain.setFileBaseOld(CLDRPaths.BASE_DIRECTORY);
             // sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose
             // vetting

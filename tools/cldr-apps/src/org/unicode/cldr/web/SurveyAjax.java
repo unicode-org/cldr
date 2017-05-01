@@ -820,7 +820,7 @@ public class SurveyAjax extends HttpServlet {
                             //String xp = sm.xpt.getById(id);
                             r.put("loc", loc);
                             r.put("xpath", xpath);
-                            r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
+                            r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
@@ -835,7 +835,7 @@ public class SurveyAjax extends HttpServlet {
                         final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, replyTo);
                         r.put("postId", postId);
                         if (postId > 0) {
-                            r.put("ret", mySession.sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
+                            r.put("ret", mySession.sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId, null/*current*/));
                         }
                         send(r, out);
                     } else if (what.equals("mail")) {

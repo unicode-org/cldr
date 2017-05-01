@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.web.DBUtils.Table;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -483,7 +484,7 @@ public class SurveyForum {
                 if (ctx.field("isReview").equals("1")) {
                     ctx.response.resetBuffer();
                     try {
-                        JSONArray post = this.toJSON(ctx.session, locale, base_xpath, postId);
+                        JSONArray post = this.toJSON(ctx.session, locale, base_xpath, postId, null);
                         ctx.println(post.get(0).toString());
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
@@ -2049,21 +2050,18 @@ public class SurveyForum {
         }
     }
 
-    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath) throws JSONException, SurveyException {
-        return toJSON(session, locale, base_xpath, 0);
-    }
-
     /**
      *
      * @param session
      * @param locale
      * @param base_xpath Base XPath of the item being viewed, if positive
      * @param ident If nonzero - select only this item. If zero, select all items.
+     * @param cldrVersion if non-null - specific version is returned
      * @return
      * @throws JSONException
      * @throws SurveyException
      */
-    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident) throws JSONException, SurveyException {
+    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident, String cldrVersion) throws JSONException, SurveyException {
         assertCanAccessForum(session, locale);
 
         JSONArray ret = new JSONArray();
@@ -2075,35 +2073,36 @@ public class SurveyForum {
             try {
                 conn = sm.dbUtils.getDBConnection();
                 Object[][] o = null;
+                final CharSequence forumPosts = forumTable(cldrVersion);
                 if (ident == 0) {
                     if (base_xpath == 0) {
                         // all posts
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? ) ORDER BY "
-                            + DBUtils.Table.FORUM_POSTS.toString()
+                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
+                            + " WHERE (" + forumPosts + ".forum =? ) ORDER BY "
+                            + forumPosts
                             + ".last_time DESC", forumNumber);
                     } else {
                         // all posts for xpath
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =? and "
-                            + DBUtils.Table.FORUM_POSTS + ".loc=? ) ORDER BY "
-                            + DBUtils.Table.FORUM_POSTS.toString()
+                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
+                            + " WHERE (" + forumPosts + ".forum =? AND " + forumPosts + " .xpath =? and "
+                            + forumPosts + ".loc=? ) ORDER BY "
+                            + forumPosts
                             + ".last_time DESC", forumNumber, base_xpath, locale);
                     }
                 } else {
                     //specific POST
                     if (base_xpath <= 0) {
                         o = DBUtils.sqlQueryArrayArrayObj(conn,
-                            "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                                + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND "
-                                + /* DBUtils.Table.FORUM_POSTS + " .xpath =? AND " +*/DBUtils.Table.FORUM_POSTS + " .id =?) ORDER BY "
-                                + DBUtils.Table.FORUM_POSTS.toString()
+                            "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
+                                + " WHERE (" + forumPosts + ".forum =? AND "
+                                + /* DBUtils.Table.FORUM_POSTS + " .xpath =? AND " +*/forumPosts + " .id =?) ORDER BY "
+                                + forumPosts
                                 + ".last_time DESC", forumNumber,/* base_xpath,*/ident);
                     } else {
                         // just a restriction - specific post, specific xpath
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                            + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =? AND "
-                            + DBUtils.Table.FORUM_POSTS + " .id =?) ORDER BY " + DBUtils.Table.FORUM_POSTS.toString()
+                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
+                            + " WHERE (" + forumPosts + ".forum =? AND " + forumPosts + " .xpath =? AND "
+                            + forumPosts + " .id =?) ORDER BY " + forumPosts
                             + ".last_time DESC", forumNumber, base_xpath, ident);
                     }
                 }
@@ -2153,6 +2152,20 @@ public class SurveyForum {
 
     }
 
+    /**
+     * Compute the SQL table for a certain CLDR version
+     * @param cldrVersion
+     * @return
+     */
+    private CharSequence forumTable(String cldrVersion) {
+        if(cldrVersion != null) {
+            cldrVersion = new Integer(Integer.parseInt(cldrVersion)).toString(); // sanitize
+        }
+        final Table FORUM_POSTS = DBUtils.Table.FORUM_POSTS;
+        return (cldrVersion==null)
+            ?(FORUM_POSTS.toString()):(FORUM_POSTS.forVersion(cldrVersion, false));
+    }
+
     private void assertCanAccessForum(CookieSession session, CLDRLocale locale) throws SurveyException {
         if (session == null || session.user == null) throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
         assertCanAccessForum(session.user, locale);
@@ -2168,19 +2181,27 @@ public class SurveyForum {
      * @return the pallresult
      */
     private static String getPallresult() {
-        return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text,"
-            + DBUtils.Table.FORUM_POSTS.toString()
-            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id," + DBUtils.Table.FORUM_POSTS + ".forum, " + DBUtils.Table.FORUM_POSTS + ".loc ";
+        Table forumPosts = DBUtils.Table.FORUM_POSTS;
+        return getPallresult(forumPosts.toString());
+    }
+    private static String getPallresult(String forumPosts) {
+        return forumPosts + ".poster," + forumPosts + ".subj," + forumPosts + ".text,"
+            + forumPosts.toString()
+            + ".last_time," + forumPosts + ".id," + forumPosts + ".forum, " + forumPosts + ".loc ";
     }
 
     /**
      * @return the pallresultfora
      */
     private static String getPallresultfora() {
-        return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text,"
-            + DBUtils.Table.FORUM_POSTS.toString()
-            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id," + DBUtils.Table.FORUM_POSTS + ".parent," + DBUtils.Table.FORUM_POSTS + ".xpath, "
-            + DBUtils.Table.FORUM_POSTS + ".loc";
+        Table forumPosts = DBUtils.Table.FORUM_POSTS;
+        return getPallresultfora(forumPosts.toString());
+    }
+    private static String getPallresultfora(final CharSequence forumPosts) {
+        return forumPosts + ".poster," + forumPosts + ".subj," + forumPosts + ".text,"
+            + forumPosts.toString()
+            + ".last_time," + forumPosts + ".id," + forumPosts + ".parent," + forumPosts + ".xpath, "
+            + forumPosts + ".loc";
     }
 
     /**

@@ -34,6 +34,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.impl.Utility;
 
 /**
  * This class maps between full and partial xpaths, and the small integers (xpids) which
@@ -220,7 +221,7 @@ public class XPathTable {
                     try {
                         addXpaths(Collections.singleton(path), conn);
                     } catch (SQLException se) {
-                        System.err.println("For xpath: " + path);
+                        SurveyLog.logException(se, "While loading xpath: " + Utility.escape(path));
                         throw se;
                     }
                 }

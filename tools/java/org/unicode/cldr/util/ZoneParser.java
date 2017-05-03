@@ -644,6 +644,7 @@ public class ZoneParser {
             { "Atlantic/Faroe", "Atlantic/Faeroe" },
             { "Asia/Kolkata", "Asia/Calcutta" },
             { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
+            { "Asia/Yangon", "Asia/Rangoon" },
             { "Asia/Kathmandu", "Asia/Katmandu" },
             { "Pacific/Pohnpei", "Pacific/Ponape" },
             { "Pacific/Chuuk", "Pacific/Truk" }

@@ -274,9 +274,9 @@ public class PathHeader implements Comparable<PathHeader> {
         DayPeriod(SectionId.Supplemental),
 
         Category(SectionId.Symbols),
-        // [Smileys & People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags]
-        Smileys_People(SectionId.Symbols, "Smileys"),
-        People(SectionId.Symbols, "People"),
+        // [Smileys, People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags]
+        Smileys(SectionId.Symbols),
+        People(SectionId.Symbols),
         Animals_Nature(SectionId.Symbols, "Animals & Nature"),
         Food_Drink(SectionId.Symbols, "Food & Drink"),
         Travel_Places(SectionId.Symbols, "Travel & Places"),

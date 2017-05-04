@@ -2425,7 +2425,7 @@ public class WebContext implements Cloneable, Appendable {
         if (pageField != null && !pageField.isEmpty()) {
             try {
                 return PathHeader.PageId.forString(pageField);
-            } catch (java.lang.IllegalArgumentException iae) {
+            } catch (Exception e) {
                 // ignore.
             }
         }

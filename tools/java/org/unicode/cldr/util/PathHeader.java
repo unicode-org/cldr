@@ -30,6 +30,7 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -274,7 +275,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
         Category(SectionId.Symbols),
         // [Smileys & People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags]
-        Smileys_People(SectionId.Symbols, "Smileys & People"),
+        Smileys_People(SectionId.Symbols, "Smileys"),
+        People(SectionId.Symbols, "People"),
         Animals_Nature(SectionId.Symbols, "Animals & Nature"),
         Food_Drink(SectionId.Symbols, "Food & Drink"),
         Travel_Places(SectionId.Symbols, "Travel & Places"),
@@ -300,7 +302,11 @@ public class PathHeader implements Comparable<PathHeader> {
          * @return
          */
         public static PageId forString(String name) {
-            return PageIdNames.forString(name);
+            try {
+                return PageIdNames.forString(name);
+            } catch (Exception e) {
+                throw new ICUException("No PageId for " + name, e);
+            }
         }
 
         /**
@@ -1718,8 +1724,17 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("major", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {
-                    return Emoji.getMajorCategory(source);
-                }
+                    String major = Emoji.getMajorCategory(source);
+                    if (!major.equals("Smileys & People")) {
+                        return major;
+                    }
+                    String minorCat = Emoji.getMinorCategory(source);
+                    if (minorCat.startsWith("person")) {
+                        return "People";
+                    } else {
+                        return "Smileys";
+                    }
+               }
             });
             functionMap.put("minor", new Transform<String, String>() {
                 @Override

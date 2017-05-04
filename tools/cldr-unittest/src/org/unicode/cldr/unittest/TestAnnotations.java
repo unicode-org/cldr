@@ -14,22 +14,28 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.SimpleFactory;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMap.EntryRange;
 import com.ibm.icu.text.UnicodeSet;
 
-public class TestAnnotations extends TestFmwk {
+public class TestAnnotations extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestAnnotations().run(args);
     }
@@ -226,6 +232,73 @@ public class TestAnnotations extends TestFmwk {
             checkAMinusBIsC("Emoji.getNamePaths - " + locale + ".xml", annotationPathsExpected, annotationPaths, Collections.<String>emptySet());
         }
     }
+
+    public void testPathHeaderSize() {
+        Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
+        CLDRFile englishAnnotations = factoryAnnotations.make("en", false);
+
+        PathHeader.Factory phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
+        ImmutableSet<String> englishPaths = ImmutableSortedSet.copyOf(englishAnnotations.iterator("//ldml/annotations/"));
+        Counter<SectionId> counterSectionId = new Counter<>();
+        Counter<PageId> counterPageId = new Counter<>();
+        for (String path : englishPaths) {
+            PathHeader ph = phf.fromPath(path);
+            counterSectionId.add(ph.getSectionId(), 1);
+            counterPageId.add(ph.getPageId(), 1);
+        }
+        for (PageId pageId : counterPageId) {
+            long size = counterPageId.get(pageId);
+            assertTrue(pageId.toString(), size < 450);
+            System.out.println(pageId + "\t" + size);
+        }
+    }
+
+    public void testSuperfluousAnnotationPaths() {
+        Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
+        ImmutableSet<String> rootPaths = ImmutableSortedSet.copyOf(factoryAnnotations.make("root", false).iterator("//ldml/annotations/"));
+
+        CLDRFile englishAnnotations = factoryAnnotations.make("en", false);
+        ImmutableSet<String> englishPaths = ImmutableSortedSet.copyOf(englishAnnotations.iterator("//ldml/annotations/"));
+
+        Set<String> superfluous2 = setDifference(rootPaths, englishPaths);
+        assertTrue("en contains root", superfluous2.isEmpty());
+        if (!superfluous2.isEmpty()) {
+            for (String path : superfluous2) {
+//              XPathParts parts = XPathParts.getFrozenInstance(path);
+//              String emoji = parts.getAttributeValue(-1, "cp");
+                System.out.println("locale=en; action=add; path=" + path + "; value=XXX");
+            }
+        }
+
+        Set<String> allSuperfluous = new TreeSet<>();
+        for (String locale : factoryAnnotations.getAvailable()) {
+            ImmutableSet<String> currentPaths = ImmutableSortedSet.copyOf(factoryAnnotations.make(locale, false).iterator("//ldml/annotations/"));
+            Set<String> superfluous = setDifference(currentPaths, rootPaths);
+            assertTrue("root contains " + locale, superfluous.isEmpty());
+            allSuperfluous.addAll(superfluous);
+            for (String s : currentPaths) {
+                if (s.contains("\uFE0F")) {
+                    errln("Contains FE0F: " + s);
+                    break;
+                }
+            }
+        }
+        // get items to fix
+        if (!allSuperfluous.isEmpty()) {
+            for (String path : allSuperfluous) {
+//                XPathParts parts = XPathParts.getFrozenInstance(path);
+//                String emoji = parts.getAttributeValue(-1, "cp");
+                System.out.println("locale=/.*/; action=delete; path=" + path);
+            }
+        }
+    }
+
+    private Set<String> setDifference(ImmutableSet<String> a, ImmutableSet<String> b) {
+        Set<String> superfluous = new LinkedHashSet<>(a);
+        superfluous.removeAll(b);
+        return superfluous;
+    }
+
 
     private void checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
         Set<String> aMb = new TreeSet<>(a);

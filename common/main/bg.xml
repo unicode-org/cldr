@@ -1750,8 +1750,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMMEd">E, d MMMM y 'г'.</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y 'г'.</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y 'г'.</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'седмица' w 'от' y 'г'.</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'седмица' w 'от' y 'г'.</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'седмица' w 'от' Y 'г'.</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'седмица' w 'от' Y 'г'.</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>

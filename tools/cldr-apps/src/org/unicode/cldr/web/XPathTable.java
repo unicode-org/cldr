@@ -102,7 +102,7 @@ public class XPathTable {
         ResultSet rs = queryStmt.executeQuery();
         while (rs.next()) {
             int id = rs.getInt(1);
-            String xpath = rs.getString(2);
+            String xpath = Utility.unescape(rs.getString(2));
             setById(id, xpath);
             stat_dbFetch++;
             ixpaths++;
@@ -251,7 +251,7 @@ public class XPathTable {
         insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values (" 
             + " ?)");
         for (String xpath : xpaths) {
-            insertStmt.setString(1, xpath);
+            insertStmt.setString(1, Utility.escape(xpath));
             insertStmt.addBatch();
             stat_dbAdd++;
         }
@@ -268,7 +268,7 @@ public class XPathTable {
         ResultSet rs = queryStmt.executeQuery();
         while (rs.next()) {
             int id = rs.getInt(1);
-            String xpath = rs.getString(2);
+            String xpath = Utility.unescape(rs.getString(2));
             setById(id, xpath);
         }
         queryStmt.close();
@@ -294,7 +294,7 @@ public class XPathTable {
             }
             queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + " where XPATH="
                 +  " ? ");
-            queryStmt.setString(1, xpath);
+            queryStmt.setString(1, Utility.escape(xpath));
             // First, try to query it back from the DB.
             ResultSet rs = queryStmt.executeQuery();
             if (!rs.next()) {
@@ -305,7 +305,7 @@ public class XPathTable {
                     insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath ) " + " values ("
                         +" ?)", Statement.RETURN_GENERATED_KEYS);
 
-                    insertStmt.setString(1, xpath);
+                    insertStmt.setString(1, Utility.escape(xpath));
                     insertStmt.execute();
                     conn.commit();
                     rs = insertStmt.getGeneratedKeys();

@@ -1242,6 +1242,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>جانسٹَن</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>غٲر زان</exemplarCity>
 			</zone>
@@ -2231,9 +2234,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Midway">
 				<exemplarCity>مِڈویے</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>جانسٹَن</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>ویک</exemplarCity>

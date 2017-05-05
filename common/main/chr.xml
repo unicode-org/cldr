@@ -2072,6 +2072,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏍᏒᎩ</regionFormat>
 			<regionFormat type="standard">{0} ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>ᏣᏂᏏᏂ</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>ᏄᏬᎵᏍᏛᎾ ᎦᏚᎲ</exemplarCity>
 			</zone>
@@ -3199,9 +3202,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Midway">
 				<exemplarCity>ᎠᏰᏟᏴᏚ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>ᏣᏂᏏᏂ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>ᎤᏰᏨ</exemplarCity>

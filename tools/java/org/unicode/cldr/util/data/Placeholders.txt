@@ -166,6 +166,11 @@
 ^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, and Grapes
 ^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
 
+^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
+^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM Apples ; {1}=REMAINING_ITEMS Oranges, Peaches, or Grapes
+^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, or Grapes
+^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
+
 ^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="2"] ; {0}=ITEM1 4 days; {1}=ITEM2 2 hours
 ^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM 4 days; {1}=REMAINING_ITEMS 2 hours, 37 minutes, and 23 seconds
 ^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS 4 days, 2 hours; {1}=LAST_ITEMS 37 minutes, and 23 seconds

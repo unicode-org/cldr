@@ -210,11 +210,12 @@
 //ldml/units/unitLength[@type="%L"]/coordinateUnit/coordinateUnitPattern[@type="%A"]                    ; Units ; Coordinates ; $2 ; &unitCount($1)
 
 ### Miscellaneous
-//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Standard Lists ; &listOrder($1)
-//ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short Standard Lists ; &listOrder($1)
-//ldml/listPatterns/listPattern[@type="unit"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Unit Lists ; &listOrder($1)
-//ldml/listPatterns/listPattern[@type="unit-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short Unit Lists ; &listOrder($1)
-//ldml/listPatterns/listPattern[@type="unit-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow Unit Lists ; &listOrder($1)
+//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; “And” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short “and” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="or"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; “Or” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Unit List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short Unit List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow Unit List ; &listOrder($1)
 
 //ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Linguistic Elements ; Ellipsis ; $1
 

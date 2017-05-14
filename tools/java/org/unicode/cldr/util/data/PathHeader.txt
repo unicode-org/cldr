@@ -230,18 +230,18 @@
 
 #Emoji, etc.
 
-//ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Symbols ; Category ; Pattern ; $1-$2
-//ldml/characterLabels/characterLabelPattern[@type="%A"]	; Symbols ; Category ; Pattern ; $1
-//ldml/characterLabels/characterLabel[@type="%A"]			; Symbols ; Category ; Label ; $1
+//ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Characters ; Category ; Pattern ; $1-$2
+//ldml/characterLabels/characterLabelPattern[@type="%A"]	; Characters ; Category ; Pattern ; $1
+//ldml/characterLabels/characterLabel[@type="%A"]			; Characters ; Category ; Label ; $1
 
-//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="%A"] ; Symbols ; Category ; Link ; $1
+//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="%A"] ; Characters ; Category ; Link ; $1
 
 # Use special hyphens
-//ldml/annotations/annotation[@cp="%A"][@type="tts"]	; Symbols ; &major($1) ; &minor($1) ; &alphaOrder($1 -name)
-//ldml/annotations/annotation[@cp="%A"]					; Symbols ; &major($1) ; &minor($1) ; &alphaOrder($1 –keywords)
+//ldml/annotations/annotation[@cp="%A"][@type="tts"]	; Characters ; &major($1) ; &minor($1) ; &alphaOrder($1 -name)
+//ldml/annotations/annotation[@cp="%A"]					; Characters ; &major($1) ; &minor($1) ; &alphaOrder($1 –keywords)
 
 #OLD
-//ldml/annotations/annotation_[@cp="%A"]/_tts			; Symbols ; Annotation ; $1 ; TTS ; HIDE
+//ldml/annotations/annotation_[@cp="%A"]/_tts			; Characters ; Annotation ; $1 ; TTS ; HIDE
 
 #Outside of Main
 

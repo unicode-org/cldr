@@ -163,3 +163,6 @@
 ^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"]\[@count="([^"]*)"];   A label for a set of characters that has a numeric placeholder, such as “1 Stroke”, “2 Strokes”.  For more information, see http://cldr.org/translation/character-labels.
 ^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"];   A modifier composed with a label for a set of characters.  For more information, see http://cldr.org/translation/character-labels.
 ^//ldml/characterLabels/characterLabel\[@type="([^"]*)"];   A label for a set of characters.  For more information, see http://cldr.org/translation/character-labels.
+
+^//ldml/annotations/annotation\[@cp="([^"]*)"]\[@type="tts"];   A name for a character or sequence. For more information, see http://cldr.org/translation/short-names-and-keywords.
+^//ldml/annotations/annotation\[@cp="([^"]*)"];   A set of keywords for a character or sequence.  For more information, see http://cldr.org/translation/short-names-and-keywords.

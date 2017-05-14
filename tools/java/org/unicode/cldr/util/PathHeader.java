@@ -92,7 +92,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Numbers,
         Currencies,
         Units,
-        Symbols,
+        Characters,
         Misc("Miscellaneous"),
         BCP47,
         Supplemental,
@@ -273,18 +273,18 @@ public class PathHeader implements Comparable<PathHeader> {
         Segmentation(SectionId.Supplemental),
         DayPeriod(SectionId.Supplemental),
 
-        Category(SectionId.Symbols),
+        Category(SectionId.Characters),
         // [Smileys, People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags]
-        Smileys(SectionId.Symbols),
-        People(SectionId.Symbols),
-        Animals_Nature(SectionId.Symbols, "Animals & Nature"),
-        Food_Drink(SectionId.Symbols, "Food & Drink"),
-        Travel_Places(SectionId.Symbols, "Travel & Places"),
-        Activities(SectionId.Symbols),
-        Objects(SectionId.Symbols),
-        Symbols2(SectionId.Symbols, "Symbols"),
-        Flags(SectionId.Symbols),
-        Component(SectionId.Symbols),
+        Smileys(SectionId.Characters),
+        People(SectionId.Characters),
+        Animals_Nature(SectionId.Characters, "Animals & Nature"),
+        Food_Drink(SectionId.Characters, "Food & Drink"),
+        Travel_Places(SectionId.Characters, "Travel & Places"),
+        Activities(SectionId.Characters),
+        Objects(SectionId.Characters),
+        Symbols2(SectionId.Characters),
+        Flags(SectionId.Characters),
+        Component(SectionId.Characters),
         ;
 
         private final SectionId sectionId;
@@ -1725,14 +1725,21 @@ public class PathHeader implements Comparable<PathHeader> {
                 @Override
                 public String transform(String source) {
                     String major = Emoji.getMajorCategory(source);
+                    // check that result is reasonable by running through PageId.
                     if (!major.equals("Smileys & People")) {
-                        return major;
+                        PageId pageId2 = PageId.forString(major);
+                        if (pageId2.getSectionId() != SectionId.Characters) {
+                            if (pageId2 == PageId.Symbols) {
+                                pageId2 = PageId.Symbols2;
+                            }
+                        }
+                        return pageId2.toString();
                     }
                     String minorCat = Emoji.getMinorCategory(source);
                     if (minorCat.startsWith("person")) {
-                        return "People";
+                        return PageId.People.toString();
                     } else {
-                        return "Smileys";
+                        return PageId.Smileys.toString();
                     }
                }
             });

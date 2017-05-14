@@ -1011,8 +1011,8 @@ public class TestPathHeader extends TestFmwkPlus {
         logln("\nInternal Counter:\t" + counterData.size());
         for (PathHeader.Factory.CounterData item : counterData.keySet()) {
             logln("\t" + counterData.getCount(item) + "\t" + item.get2() // externals
-                + "\t" + item.get3() + "\t" + item.get0() // internals
-                + "\t" + item.get1());
+            + "\t" + item.get3() + "\t" + item.get0() // internals
+            + "\t" + item.get1());
         }
         logln("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {
@@ -1137,7 +1137,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 checkSubpath(path);
             }
         }
-        
+
         public void checkSubpath(String path) {
             String message = ": Can't compute path header";
             PathHeader ph = null;
@@ -1195,6 +1195,25 @@ public class TestPathHeader extends TestFmwkPlus {
                     logln(ph + "\t" + test + " = " + normalizedValue);
                 }
             }
+        }
+    }
+
+    public void test10232() {
+        String[][] tests = {
+            {"MMM","Formats - Flexible - Date Formats"},
+            {"dMM","Formats - Flexible - Date Formats"},
+            {"h","Formats - Flexible - 12 Hour Time Formats"},
+            {"hm","Formats - Flexible - 12 Hour Time Formats"},
+            {"Ehm","Formats - Flexible - 12 Hour Time Formats"},
+            {"H","Formats - Flexible - 24 Hour Time Formats"},
+            {"Hm","Formats - Flexible - 24 Hour Time Formats"},
+            {"EHm","Formats - Flexible - 24 Hour Time Formats"},
+        };
+        for (String[] test : tests) {
+            String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                + test[0] + "\"]";
+            PathHeader pathHeader = pathHeaderFactory.fromPath(path);
+            assertEquals("flexible formats", test[1] + "|" + test[0], pathHeader.getHeader() + "|" + pathHeader.getCode());
         }
     }
 }

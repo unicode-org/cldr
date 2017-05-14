@@ -1,14 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.CompactDecimalFormat;
-import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.ULocale;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -20,12 +11,15 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.Counter2;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -40,6 +34,16 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.CompactDecimalFormat;
+import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.ULocale;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
@@ -362,6 +366,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
         cal.set(versionNumber / 2 + versionNumber % 2 + 2001, 8 - (versionNumber % 2) * 6, 15);
         Date cldrReleaseMinus5Years = cal.getTime();
         Set<String> modernCurrencies = SDI.getCurrentCurrencies(SDI.getCurrencyTerritories(), cldrReleaseMinus5Years, NOW);
+        
+        Set<String> needsNumberSystem = new HashSet<>();
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        Element numbersElement = dtdData.getElementFromName().get("numbers");
+        for (Element childOfNumbers : numbersElement.getChildren().keySet()) {
+            if (childOfNumbers.containsAttribute("numberSystem")) {
+                needsNumberSystem.add(childOfNumbers.name);
+            }
+        }
 
         for (String path : english.fullIterable()) {
             logln("Testing path => " + path);
@@ -403,7 +416,14 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
                 // Other paths in numbers without a numbering system are deprecated.
-                if (numberingSystem == null) {
+//                if (numberingSystem == null) {
+//                    continue;
+//                }
+                if (needsNumberSystem.contains(xpp.getElement(2))) {
+                    continue;
+                }
+                if (xpp.containsAttributeValue("type", "BYN")) {
+                    logKnownIssue("cldrbug:10275", "Need to fix coverage or coverage test for BYN");
                     continue;
                 }
             }
@@ -559,7 +579,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             }
 
-            errln("Comprehensive & no exception for path => " + path);
+            errln("Comprehensive & no exception for path =>\t" + path);
         }
     }
 }

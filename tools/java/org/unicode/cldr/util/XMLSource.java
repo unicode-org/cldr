@@ -1234,6 +1234,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "fullwide", "numbers" },
             { "gb2312han", "collation" },
             { "geor", "numbers" },
+            { "gonm", "numbers" },
             { "gregorian", "calendar" },
             { "grek", "numbers" },
             { "greklow", "numbers" },

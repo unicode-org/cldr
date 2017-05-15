@@ -2868,6 +2868,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<symbols numberSystem="fullwide">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
+		<symbols numberSystem="gonm">
+			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+		</symbols>
 		<symbols numberSystem="gujr">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
@@ -3006,6 +3009,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
 		<decimalFormats numberSystem="fullwide">
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+		</decimalFormats>
+		<decimalFormats numberSystem="gonm">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
 		<decimalFormats numberSystem="gujr">
@@ -3160,6 +3166,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scientificFormats numberSystem="fullwide">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
+		<scientificFormats numberSystem="gonm">
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+		</scientificFormats>
 		<scientificFormats numberSystem="gujr">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
@@ -3295,6 +3304,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="fullwide">
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+		</percentFormats>
+		<percentFormats numberSystem="gonm">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="gujr">
@@ -3438,6 +3450,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="fullwide">
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+		</currencyFormats>
+		<currencyFormats numberSystem="gonm">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="gujr">
@@ -3923,6 +3938,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="fullwide">
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+		</miscPatterns>
+		<miscPatterns numberSystem="gonm">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="gujr">

@@ -566,7 +566,7 @@ public class LanguageTagParser {
             if (s.length() < minLength || s.length() > maxLength) {
                 throw new IllegalArgumentException("Illegal subtag length for: " + s);
             }
-            if (!ALPHA.contains(s)) {
+            if (!ALPHANUM.contains(s)) {
                 throw new IllegalArgumentException("Illegal locale character in: " + s);
             }
         }

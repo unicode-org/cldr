@@ -309,7 +309,7 @@ define({
 		forum_reply: "Reply",
 		forum_msg: "Showing posts for ${forum} and all sublocales.",
 		forumGuidance: "This is the Forum page. This page will not reload when new posts come in, but you can use your browser's Refresh button to load new posts.",
-		prevforumGuidance: "This is the Old Forum page. This page will not reload when new posts come in, but you can use your browser's Refresh button to load new posts. Clicking New Forum Post or Reply will create a new post in the current forum.",
+		prevforumGuidance: "This is the Old Forum page. This page will not reload when new posts come in. Click on Reply to continue the thread; this action in the Old Forum Posts will post a new thread in the current Forum. Go to Forum to see your posting of the reply. Your reply will not be shown in the Old Forum Posts even though you initiated the Reply there. This ensures that your thread will be captured for the current release.",
 		
 		generic_nolocale: "No locale chosen.",
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",

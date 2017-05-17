@@ -996,8 +996,10 @@ h2, h3, h4, table {
 		<p>
 			The preference of 12 hour versus 24 hour for the locale can be
 			derived from the <a href="#Time_Data">Time Data</a>. If the hour
-			symbol is &quot;h&quot; or &quot;K&quot; then the format is 12 hour;
-			otherwise it is 24 hour.
+			symbol is 'h' or 'K' then the format is 12 hour;
+			otherwise it is 24 hour.<span class="changed"> Formats with 'h'
+			or 'K' must also include a field with one of the day period
+			pattern characters: 'a', 'b', or 'B'.</span>
 		</p>
 		<p>
 			To account for customary usage in some countries, APIs should allow
@@ -1207,7 +1209,7 @@ h2, h3, h4, table {
 				that is, &quot;yM&quot; not &quot;My&quot;.</li>
 			<li>Only one field of each type is allowed; that is,
 				&quot;Hh&quot; is not valid.</li>
-			<li>The &#39;a&#39; field is not allowed in the skeleton.</li>
+			<li class="removed">The &#39;a&#39; field is not allowed in the skeleton.</li>
 		</ul>
 
 		<p>In order to support user overrides of default locale behavior,
@@ -1219,6 +1221,76 @@ h2, h3, h4, table {
 			h or K should have patterns that only use h or K for hours, while
 			skeletons using H or k should have patterns that only use H or k for
 			hours.</p>
+		
+		<p class="changed">The rules governing use of day period pattern characters
+			in patterns and skeletons are as follows:</p>
+		<ul class="changed">
+			<li>Patterns and skeletons for 24-hour-cycle time formats (using H or k)
+				currently <em>should not</em> include fields with day period characters
+				(a, b, or B); these pattern characters should be ignored if they appear
+				in skeletons. However, in the future, CLDR may allow use of B (but not
+				a or b) in 24-hour-cycle time formats.</li>
+			<li>Patterns for 12-hour-cycle time formats (using h or K) <em>must</em>
+				include a day period field using one of a, b, or B.</li>
+			<li>Skeletons for 12-hour-cycle time formats (using h or K) <em>may</em>
+				include a day period field using one of a, b, or B. If they do not,
+				the skeleton will be treated as implicitly containing a.</li>
+		</ul>
+		<p class="changed">Locales should generally provide availableFormats data for a
+			fairly complete set of time skeletons without B, typically the following:
+		</p>
+		<code class="changed">H, h, Hm, hm, Hms, hms, Hmv, hmv, Hmsv, hmsv</code>
+		<p class="changed">Locales that use 12-hour-cycle time formats with B may provide
+			availableFormats data for a smaller set of time skeletons with B, for example:
+		</p>
+		<code class="changed">Bh, Bhm, Bhms</code>
+		<p class="changed">When matching a requested skeleton containing b or B to the skeletons
+			actually available in the data, if there is no skeleton matching the specified
+			day period field, then find a match in which the b or B matches an
+			explicit or implicit 'a' in the skeleton, but replace the 'a' in the corresponding
+			pattern with the requested day period b or B. The following table illustrates
+			how requested skeletons map to patterns with different sets of availableFormats
+			data:
+		</p>
+
+		<table cellspacing="0" cellpadding="4" border="1">
+			<caption class="changed">
+				<a name="Mapping_Requested_Time_Skeletons_To_Patterns"
+					href="#Mapping_Requested_Time_Skeletons_To_Patterns">Mapping
+					Requested Time Skeletons To Patterns</a>
+			</caption>
+			<tr class="changed">
+				<th></th>
+				<th colspan="2">results for different availableFormats data sets</th>
+			</tr>
+			<tr class="changed">
+				<th>requested skeleton</th>
+				<th>set 1:<br>...id=&quot;H&quot;&gt;H&lt;/date...<br>...id=&quot;h&quot;&gt;h a&lt;/date...</th>
+				<th>set 2:<br>...id=&quot;H&quot;&gt;H&lt;/date...<br>...id=&quot;h&quot;&gt;h a&lt;/date...<br>...id=&quot;Bh&quot;&gt;B h&lt;/date...</th>
+			</tr>
+			<tr class="changed">
+				<td>&quot;h&quot; (or &quot;ah&quot;)</td>
+				<td>&quot;h a&quot;</td>
+				<td>&quot;h a&quot;</td>
+			</tr>
+			<tr class="changed">
+				<td>&quot;bh&quot;</td>
+				<td>&quot;h b&quot;</td>
+				<td>&quot;h b&quot;</td>
+			</tr>
+			<tr class="changed">
+				<td>&quot;Bh&quot;</td>
+				<td>&quot;h B&quot;</td>
+				<td>&quot;B h&quot;</td>
+			</tr>
+			<tr class="changed">
+				<td>&quot;H&quot; (or &quot;aH&quot;, &quot;bH&quot;, &quot;BH&quot;)</td>
+				<td>&quot;H&quot;</td>
+				<td>&quot;H&quot;</td>
+			</tr>
+		</table>
+		<br>
+
 		<p>The hour input skeleton symbols 'j', 'J', and
 			'C' can be used to select the best hour format (h, H, …) before
 			processing, and the appropriate dayperiod format (a, b, B) after a

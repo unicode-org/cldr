@@ -719,6 +719,10 @@ public class ICUServiceBuilder {
         }
         return symbols;
     }
+    
+    public DecimalFormatSymbols getDecimalFormatSymbols(String numberSystem) {
+        return (DecimalFormatSymbols) _getDecimalFormatSymbols(numberSystem).clone();
+    }
 
     private DecimalFormatSymbols _getDecimalFormatSymbols(String numberSystem) {
         String key = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers="

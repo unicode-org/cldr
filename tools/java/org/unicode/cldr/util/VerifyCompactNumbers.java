@@ -62,7 +62,7 @@ public class VerifyCompactNumbers {
 
         String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();
-        boolean showCurrency = MyOptions.currency.option.doesOccur();
+        boolean showCurrency = true; // MyOptions.currency.option.doesOccur();
         String currencyCode = MyOptions.currency.option.getValue();
 
         Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);

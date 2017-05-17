@@ -32,6 +32,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
@@ -44,6 +45,7 @@ import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -52,6 +54,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -103,9 +106,9 @@ public class TestPathHeader extends TestFmwkPlus {
         pathHeaderFactory.clearCache();
         PathChecker pathChecker = new PathChecker();
         for (String directory : DtdType.ldml.directories) {
-            Factory factory2 = Factory.make(COMMON_DIR + directory, ".*");
+            Factory factory2 = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
             Set<String> source = factory2.getAvailable();
-            for (String file : getFilesToTest(source, "root", "en")) {
+            for (String file : getFilesToTest(source, "root", "en", "da")) {
                 if (DEBUG) warnln(" TestCompletenessLdmlDtd: " + directory + ", " + file);
                 DtdData dtdData = null;
                 CLDRFile cldrFile = factory2.make(file, true);
@@ -117,7 +120,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> missing = pathHeaderFactory.getUnmatchedRegexes();
         if (missing.size() != 0) {
             for (String e : missing) {
-                logln("Path Regex never matched:\t" + e);
+                errln("Path Regex never matched:\t" + e);
             }
         }
     }
@@ -143,27 +146,62 @@ public class TestPathHeader extends TestFmwkPlus {
         pathHeaderFactory2.clearCache();
         Multimap<PathHeader.PageId, PathHeader.SectionId> pageUniqueness = TreeMultimap.create();
         Multimap<String, Pair<PathHeader.SectionId, PathHeader.PageId>> headerUniqueness = TreeMultimap.create();
-        for (String p : english.fullIterable()) {
-            // if (p.contains("symbol[@alt") && failures == null) {
-            // PathHeader result = pathHeaderFactory2.fromPath(p, failures = new
-            // ArrayList<String>());
-            // logln("Matching " + p + ": " + result + "\t" +
-            // result.getSurveyToolStatus());
-            // for (String failure : failures) {
-            // logln("\t" + failure);
-            // }
-            // }
-            PathHeader ph = pathHeaderFactory2.fromPath(p);
-            final SectionId sectionId = ph.getSectionId();
-            if (sectionId != SectionId.Special) {
-                pageUniqueness.put(ph.getPageId(), sectionId);
-                headerUniqueness.put(ph.getHeader(), new Pair<>(sectionId,ph.getPageId()));
+        Set<String> toTest;
+        switch(getInclusion()) {
+        default: 
+            toTest = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+            break;
+        case 10:
+            toTest = factory.getAvailable();
+            break;
+        }
+        toTest = ImmutableSet.<String>builder().add("en").addAll(toTest).build();
+        Set<String> seenPaths = new HashSet<>();
+        Set<String> localSeenPaths = new TreeSet<>();
+        for (String locale : toTest) {
+            localSeenPaths.clear();
+            for (String p : factory.make(locale, true).fullIterable()) {
+                if (p.startsWith("//ldml/identity/")) {
+                    continue;
+                }
+                if (seenPaths.contains(p)) {
+                    continue;
+                }
+                seenPaths.add(p);
+                localSeenPaths.add(p);
+                // if (p.contains("symbol[@alt") && failures == null) {
+                // PathHeader result = pathHeaderFactory2.fromPath(p, failures = new
+                // ArrayList<String>());
+                // logln("Matching " + p + ": " + result + "\t" +
+                // result.getSurveyToolStatus());
+                // for (String failure : failures) {
+                // logln("\t" + failure);
+                // }
+                // }
+                PathHeader ph = pathHeaderFactory2.fromPath(p);
+                if (ph == null) {
+                    errln("Failed to create path from: " + p);
+                    continue;
+                }
+                final SectionId sectionId = ph.getSectionId();
+                if (sectionId != SectionId.Special) {
+                    pageUniqueness.put(ph.getPageId(), sectionId);
+                    headerUniqueness.put(ph.getHeader(), new Pair<>(sectionId,ph.getPageId()));
+                }
+            }
+            if (!localSeenPaths.isEmpty()) {
+                logln(locale + ": checked " + localSeenPaths.size() + " new paths");
             }
         }
         Set<String> missing = pathHeaderFactory2.getUnmatchedRegexes();
         if (missing.size() != 0) {
             for (String e : missing) {
-                logln("Path Regex never matched:\t" + e);
+                if (e.contains("//ldml/")) {
+                    if (e.contains("//ldml/rbnf/") || e.contains("//ldml/segmentations/") || e.contains("//ldml/collations/")) {
+                        continue;
+                    }
+                    logln("Path Regex never matched:\t" + e);
+                }
             }
         }
 

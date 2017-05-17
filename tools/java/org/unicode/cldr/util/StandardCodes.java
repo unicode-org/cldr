@@ -287,15 +287,7 @@ public class StandardCodes {
                 result = new TreeSet<String>(code_name.keySet());
                 switch (type) {
                 case currency:
-                    for (Iterator<String> it = result.iterator(); it.hasNext();) {
-                        String code = (String) it.next();
-                        List<String> data = getFullData(type, code);
-                        if ("X".equals(data.get(3))) {
-                            // System.out.println("Removing: " + code);
-                            it.remove();
-                        }
-                    }
-                    break;
+                    break; // nothing special                    
                 case language:
                     return sd.getCLDRLanguageCodes();
                 case script:

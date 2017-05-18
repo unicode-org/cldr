@@ -422,10 +422,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if (needsNumberSystem.contains(xpp.getElement(2))) {
                     continue;
                 }
-                if (xpp.containsAttributeValue("type", "BYN")) {
-                    logKnownIssue("cldrbug:10275", "Need to fix coverage or coverage test for BYN");
-                    continue;
-                }
             }
             else if (xpp.containsElement("zone")) {
                 String zoneType = xpp.findAttributeValue("zone", "type");

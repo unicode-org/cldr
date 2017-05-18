@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +16,7 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
@@ -33,17 +33,17 @@ public class TestExampleGenerator extends TestFmwk {
                 "fr",
                 "one",
                 "〖❬1,23 ❭value-one〗〖❬0,00 ❭value-one〗",
-                "〖❬1,23❭_❬dollar des États-Unis❭〗〖❬1,23❭_❬euro❭〗〖❬0,00❭_❬dollar des États-Unis❭〗〖❬0,00❭_❬euro❭〗" },
+            "〖❬1,23❭_❬dollar des États-Unis❭〗〖❬1,23❭_❬euro❭〗〖❬0,00❭_❬dollar des États-Unis❭〗〖❬0,00❭_❬euro❭〗" },
             {
                 "fr",
                 "other",
                 "〖❬2,34 ❭value-other〗〖❬3,45 ❭value-other〗",
-                "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗" },
+            "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗" },
             { "en", "one", "〖❬1 ❭Bermudan dollar〗",
-                "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗" },
+            "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗" },
             { "en", "other",
                 "〖❬1.23 ❭Bermudan dollars〗〖❬0.00 ❭Bermudan dollars〗",
-                "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗" }, };
+            "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗" }, };
         String sampleCurrencyPatternPrefix = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"";
         String sampleCurrencyPrefix = "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"";
         String sampleTemplateSuffix = "\"]";
@@ -70,67 +70,131 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-    static final Set<String> OK_TO_MISS_EXAMPLES = new HashSet<String>(
-        Arrays.asList(
-            "//ldml/layout/orientation/characterOrder",
-            "//ldml/layout/orientation/lineOrder",
-            "//ldml/characters/moreInformation",
-            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
-            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
-            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/nan",
-            "//ldml/numbers/currencies/currency[@type=\"([^\"]*+)\"]/displayName",
-            "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"([^\"]*+)\"]",
-            // old format
-            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
-            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
-            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch",
-            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/currencyMatch",
-            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
-            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/surroundingMatch",
-            "//ldml/numbers/symbols/infinity",
-            "//ldml/numbers/symbols/list",
-            "//ldml/numbers/symbols/nan",
-            "//ldml/posix/messages/nostr",
-            "//ldml/posix/messages/yesstr",
-            // TODO Add examples
-            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",
-            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/surroundingMatch",
-            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/insertBetween",
-            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/currencyMatch",
-            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/surroundingMatch",
-            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/insertBetween",
+    static final Set<String> DELIBERATE_EXCLUDED_EXAMPLES = ImmutableSet.of(
+        // WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
 
-            "*"));
-    static final Set<String> OK_TO_MISS_BACKGROUND = new HashSet<String>(
-        Arrays
-            .asList(
-                "//ldml/numbers/defaultNumberingSystem",
-                "//ldml/numbers/otherNumberingSystems/native",
-                // TODO fix formatting
-                "//ldml/characters/exemplarCharacters",
-                "//ldml/characters/exemplarCharacters[@type=\"([^\"]*+)\"]",
-                // TODO Add background
-                "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateFormats/dateFormatLength[@type=\"([^\"]*+)\"]/dateFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
-                "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
-                "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"]",
-                "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/exemplarCity",
-                "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/daylight",
-                "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/generic",
-                "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/standard",
-                "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/daylight",
-                "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/generic",
-                "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
-                "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
-                "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern",
+        // ========
+        // DELIBERATE EXCLUSIONS; no need to have these in context.
+        // ========
 
-                "*"));
+        "//ldml/layout/orientation/characterOrder",
+        "//ldml/layout/orientation/lineOrder",
+        "//ldml/characters/moreInformation",
+        "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
+        "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
+        "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/nan",
+        "//ldml/numbers/currencies/currency[@type=\"([^\"]*+)\"]/displayName",
+        "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"([^\"]*+)\"]",
+        // old format
+        "//ldml/numbers/symbols/infinity",
+        "//ldml/numbers/symbols/list",
+        "//ldml/numbers/symbols/nan",
+        "//ldml/posix/messages/nostr",
+        "//ldml/posix/messages/yesstr",
+        "//ldml/contextTransforms/contextTransformUsage[@type=\"([^\"]*+)\"]/contextTransform[@type=\"([^\"]*+)\"]",
+        "//ldml/characters/exemplarCharacters",
+        "//ldml/characters/exemplarCharacters[@type=\"([^\"]*+)\"]",
+        "//ldml/characters/parseLenients.*",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/days/dayContext[@type=\"([^\"]*+)\"]/dayWidth[@type=\"([^\"]*+)\"]/day[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName",
+        "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
+        "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+        "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName[@alt=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/cyclicNameSets/cyclicNameSet[@type=\"([^\"]*+)\"]/cyclicNameContext[@type=\"([^\"]*+)\"]/cyclicNameWidth[@type=\"([^\"]*+)\"]/cyclicName[@type=\"([^\"]*+)\"]",
+
+        "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
+        "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
+        "//ldml/characterLabels/characterLabelPattern[@type=\"([^\"]*+)\"]",
+        "//ldml/characterLabels/characterLabelPattern[@type=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
+        "//ldml/characterLabels/characterLabel[@type=\"([^\"]*+)\"]",
+
+        "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]"
+
+        );
+
+    /**
+        TEMPORARY EXCLUSIONS; TODO: add examples later 
+     */
+    static final Set<String> TEMPORARY_EXCLUDED_EXAMPLES = ImmutableSet.of(
+
+        "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/currencyMatch",
+        "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/surroundingMatch",
+        "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
+        "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
+        "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch",
+        "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
+        "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",
+        "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/surroundingMatch",
+        "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/insertBetween",
+        "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/currencyMatch",
+        "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/surroundingMatch",
+        "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/insertBetween",
+
+        "//ldml/localeDisplayNames/variants/variant[@type=\"([^\"]*+)\"]",
+        "//ldml/localeDisplayNames/keys/key[@type=\"([^\"]*+)\"]",
+        "//ldml/localeDisplayNames/types/type[@key=\"([^\"]*+)\"][@type=\"([^\"]*+)\"]",
+        "//ldml/localeDisplayNames/types/type[@key=\"([^\"]*+)\"][@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNames/era[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraAbbr/era[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNarrow/era[@type=\"([^\"]*+)\"]",
+
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/appendItems/appendItem[@request=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"([^\"]*+)\"]/greatestDifference[@id=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNames/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraAbbr/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNarrow/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"][@yeartype=\"([^\"]*+)\"]",
+        "//ldml/dates/timeZoneNames/gmtZeroFormat",
+
+        "//ldml/numbers/minimumGroupingDigits",
+        "//ldml/numbers/symbols/timeSeparator",
+        "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/timeSeparator",
+
+        "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/displayName",
+        "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/perUnitPattern",
+        "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/coordinateUnit/coordinateUnitPattern[@type=\"([^\"]*+)\"]",
+
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗    
+
+        // WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
+
+        );
+
+    static final Set<String> DELIBERATE_OK_TO_MISS_BACKGROUND = ImmutableSet.of(
+        "//ldml/numbers/defaultNumberingSystem",
+        "//ldml/numbers/otherNumberingSystems/native",
+        // TODO fix formatting
+        "//ldml/characters/exemplarCharacters",
+        "//ldml/characters/exemplarCharacters[@type=\"([^\"]*+)\"]",
+        // TODO Add background
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateFormats/dateFormatLength[@type=\"([^\"]*+)\"]/dateFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"]",
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/exemplarCity",
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/daylight",
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/generic",
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/standard",
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/daylight",
+        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/generic",
+        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
+        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
+        "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern"
+        );
+    static final Set<String> TEMPORARY_OK_TO_MISS_BACKGROUND = ImmutableSet.of(
+        "//ldml/numbers/defaultNumberingSystem",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard",
+        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/generic",
+        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/standard",
+        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/daylight"
+        );
 
     public void TestAllPaths() {
-        if (logKnownIssue(
-            "Cldrbug:6342",
-            "In our tests, make sure that either we have an example for every path, or that the path is on an exception list.")) {
-            return;
-        }
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<String>();
@@ -141,7 +205,15 @@ public class TestExampleGenerator extends TestFmwk {
             String value = cldrFile.getStringValue(path);
             if (value == null || path.endsWith("/alias")
                 || path.startsWith("//ldml/identity")
-                || OK_TO_MISS_EXAMPLES.contains(plainStarred)) {
+                || DELIBERATE_EXCLUDED_EXAMPLES.contains(plainStarred)) {
+                continue;
+            }
+            if (TEMPORARY_EXCLUDED_EXAMPLES.contains(plainStarred)) {
+                if (logKnownIssue(
+                    "Cldrbug:6342",
+                    "In our tests, make sure that either we have an example for every path that is used in context.")) {
+                    continue;
+                }
                 continue;
             }
             String example = exampleGenerator.getExampleHtml(path, value);
@@ -174,7 +246,8 @@ public class TestExampleGenerator extends TestFmwk {
                             + "\t" + javaEscapedStarred);
                     }
                 } else if (!simplified.contains("❬")
-                    && !OK_TO_MISS_BACKGROUND.contains(plainStarred)) {
+                    && !DELIBERATE_OK_TO_MISS_BACKGROUND.contains(plainStarred)
+                    && !TEMPORARY_OK_TO_MISS_BACKGROUND.contains(plainStarred)) {
                     if (!seen.contains(javaEscapedStarred)) {
                         errln("No background:\t<" + value + ">\t" + simplified
                             + "\t" + javaEscapedStarred);
@@ -191,22 +264,22 @@ public class TestExampleGenerator extends TestFmwk {
             "//ldml/units/durationUnit[@type=\"hm\"]/durationUnitPattern");
         checkValue(
             "Length m",
-            "〖❬1❭ meter〗",
+            "〖❬1.00❭ meter〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"]");
         checkValue(
             "Length m",
-            "〖❬1.5❭ meters〗",
+            "〖❬1.50❭ meters〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
         checkValue(
             "Length m",
-            "〖❬1.5❭ m〗",
+            "〖❬1.50❭ m〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
         checkValue(
             "Length m",
-            "〖❬1.5❭m〗",
+            "〖❬1.50❭m〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
     }
@@ -220,12 +293,12 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestCompoundUnit() {
-        String[][] tests = { { "LONG", "one", "〖❬1 meter❭ per ❬second❭〗" },
-            { "SHORT", "one", "〖❬1 m❭/❬sec❭〗" },
-            { "NARROW", "one", "〖❬1m❭/❬s❭〗" },
-            { "LONG", "other", "〖❬1.5 meters❭ per ❬second❭〗" },
-            { "SHORT", "other", "〖❬1.5 m❭/❬sec❭〗" },
-            { "NARROW", "other", "〖❬1.5m❭/❬s❭〗" }, };
+        String[][] tests = { { "LONG", "one", "〖❬1.00 meter❭ per ❬second❭〗" },
+            { "SHORT", "one", "〖❬1.00 m❭/❬sec❭〗" },
+            { "NARROW", "one", "〖❬1.00m❭/❬s❭〗" },
+            { "LONG", "other", "〖❬1.50 meters❭ per ❬second❭〗" },
+            { "SHORT", "other", "〖❬1.50 m❭/❬sec❭〗" },
+            { "NARROW", "other", "〖❬1.50m❭/❬s❭〗" }, };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated
         // String[][] tests2 = {
@@ -330,7 +403,7 @@ public class TestExampleGenerator extends TestFmwk {
             "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>Afghanistan</span>]</div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan</span>]</div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan, Cifre indo-arabe, Fuso orario: africa/addis_ababa</span>]</div>",
-            actual);
+                actual);
         actual = exampleGenerator
             .getExampleHtml(
                 "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
@@ -339,7 +412,7 @@ public class TestExampleGenerator extends TestFmwk {
             "localeSeparator example faulty",
             "<div class='cldr_example'><span class='cldr_substituted'>usbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan)</span></div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>usbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan</span>. <span class='cldr_substituted'>Cifre indo-arabe</span>. <span class='cldr_substituted'>Fuso orario: africa/addis_ababa)</span></div>",
-            actual);
+                actual);
     }
 
     public void TestCurrencyFormats() {
@@ -403,12 +476,12 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] testPairs = {
             {
                 "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]",
-                "〖❬1,23 ❭dollari delle Bermuda〗〖❬0,00 ❭dollari delle Bermuda〗" },
+            "〖❬1,23 ❭dollari delle Bermuda〗〖❬0,00 ❭dollari delle Bermuda〗" },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]",
-                "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗" },
+            "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗" },
             { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol",
-                "〖❬123.456,79 ❭BMD〗" }, };
+            "〖❬123.456,79 ❭BMD〗" }, };
 
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         for (String[] testPair : testPairs) {
@@ -425,7 +498,7 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] testPairs = {
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "<div class='cldr_example'><span class='cldr_substituted'>1</span> thousand</div>" },
+            "<div class='cldr_example'><span class='cldr_substituted'>1</span> thousand</div>" },
             {
                 "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                 "<div class='cldr_example'><span class='cldr_substituted'>5</span>%</div>"
@@ -454,6 +527,9 @@ public class TestExampleGenerator extends TestFmwk {
             "EEEE d MMMMl y'x'G", null);
 
         for (String xpath : cldrFile.fullIterable()) {
+            if (xpath.endsWith("/alias")) {
+                continue;
+            }
             String value = cldrFile.getStringValue(xpath);
             checkPathValue(exampleGenerator, xpath, value, null);
             if (xpath.contains("count=\"one\"")) {

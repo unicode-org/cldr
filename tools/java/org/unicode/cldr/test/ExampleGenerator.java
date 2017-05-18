@@ -259,6 +259,9 @@ public class ExampleGenerator {
      * @return
      */
     public String getExampleHtml(String xpath, String value, ExampleContext context, ExampleType type) {
+        if (value == null) {
+            return null;
+        }
         String cacheKey;
         String result = null;
         try {
@@ -313,11 +316,11 @@ public class ExampleGenerator {
             } else if (parts.contains("currencyFormats") && parts.contains("unitPattern")) {
                 result = formatCountValue(xpath, parts, value, context, type);
             } else if (parts.getElement(-2).equals("compoundUnit")) {
-                result = handleCompoundUnit(getUnitLength(),
-                    Count.valueOf(parts.getAttributeValue(-1, "count")),
-                    value);
+                String count = CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other");
+                result = handleCompoundUnit(getUnitLength(), Count.valueOf(count), value);
             } else if (parts.getElement(-1).equals("unitPattern")) {
-                result = handleFormatUnit(getUnitLength(), Count.valueOf(parts.getAttributeValue(-1, "count")), value);
+                String count = parts.getAttributeValue(-1, "count");
+                result = handleFormatUnit(getUnitLength(), Count.valueOf(count), value);
             } else if (parts.getElement(-1).equals("durationUnitPattern")) {
                 result = handleDurationUnit(value);
             } else if (parts.contains("intervalFormats")) {
@@ -533,10 +536,9 @@ public class ExampleGenerator {
     private String handleListPatterns(XPathParts parts, String value) {
         // listPatternType is either "duration" or null
         String listPatternType = parts.getAttributeValue(-2, "type");
-        if (listPatternType == null) {
+        if (listPatternType == null || !listPatternType.contains("unit")) {
             return handleRegularListPatterns(parts, value);
-        }
-        else {
+        } else {
             return handleDurationListPatterns(parts, value, UnitLength.from(listPatternType));
         }
     }
@@ -962,7 +964,7 @@ public class ExampleGenerator {
             ? "//ldml/numbers/currencies/currency[@type=\"" + unitType + "\"]/displayName"
                 : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
                 count, true);
-        return cldrFile.getWinningValue(unitNamePath);
+        return unitNamePath == null ? unitType : cldrFile.getWinningValue(unitNamePath);
     }
 
     private String handleNumberSymbol(XPathParts parts, String value) {
@@ -1435,12 +1437,30 @@ public class ExampleGenerator {
                     }
                     if (languageName == null) {
                         languageName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, ltp.getLanguage()));
+                        if (languageName == null) {
+                            languageName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, "en"));
+                        }
+                        if (languageName == null) {
+                            languageName = ltp.getLanguage();
+                        }
                     }
                     if (scriptName == null) {
                         scriptName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.SCRIPT_NAME, ltp.getScript()));
+                        if (scriptName == null) {
+                            scriptName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.SCRIPT_NAME, "Latn"));
+                        }
+                        if (scriptName == null) {
+                            scriptName = ltp.getScript();
+                        }
                     }
                     if (territoryName == null) {
                         territoryName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, ltp.getRegion()));
+                        if (territoryName == null) {
+                            territoryName = cldrFile.getStringValueWithBailey(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "US"));
+                        }
+                        if (territoryName == null) {
+                            territoryName = ltp.getRegion();
+                        }
                     }
                     languageName = languageName.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
                     scriptName = scriptName.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
@@ -1507,7 +1527,7 @@ public class ExampleGenerator {
     private String setBackground(String inputPattern) {
         Matcher m = PARAMETER.matcher(inputPattern);
         return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol)
-            + backgroundEndSymbol;
+        + backgroundEndSymbol;
     }
 
     /**
@@ -1522,7 +1542,7 @@ public class ExampleGenerator {
     private String setBackgroundExceptMatch(String input, Pattern patternToEmbed) {
         Matcher m = patternToEmbed.matcher(input);
         return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol)
-            + backgroundEndSymbol;
+        + backgroundEndSymbol;
     }
 
     /**
@@ -1746,12 +1766,12 @@ public class ExampleGenerator {
         return exampleHtml == null ? null
             : internal ? "〖" + exampleHtml
                 .replace("", "❬")
-                .replace("", "❭") + "〗"
-                : exampleHtml
-                .replace("<div class='cldr_example'>", "〖")
-                .replace("</div>", "〗")
-                .replace("<span class='cldr_substituted'>", "❬")
-                .replace("</span>", "❭");
+            .replace("", "❭") + "〗"
+            : exampleHtml
+            .replace("<div class='cldr_example'>", "〖")
+            .replace("</div>", "〗")
+            .replace("<span class='cldr_substituted'>", "❬")
+            .replace("</span>", "❭");
     }
 
     HelpMessages helpMessages;

@@ -65,6 +65,8 @@ if( 	(userAnswer!=null)
 <hr>
 
 If the email address on file is correct, your new password should be on its way. Check your inbox. If you have difficulty still, contact the person who set up your account.
+ <p>
+ As a reminder, please do not re-use the new randomly-generated password on other web sites.
  
 <%
 } else {

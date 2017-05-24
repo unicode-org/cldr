@@ -2910,13 +2910,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                         if (s0.length() > 0) {
                                             ctx.println("<p class='ferrbox'>Both fields must match.</p>");
                                         }
+                                        ctx.println("<h2>DO NOT ENTER A VALUABLE PASSWORD HERE. USE OF A RANDOM PASSWORD (as suggested) IS STRONGLY RECOMMENDED.</h2>");
                                         ctx.println("<label><b>New " + what + ":</b><input type='password' name='string0" + what
                                             + "' value='" + s0 + "'></label><br>");
                                         ctx.println("<label><b>New " + what + ":</b><input type='password' name='string1" + what
                                             + "'> (confirm)</label>");
 
                                         ctx.println("<br><br>");
-                                        ctx.println("(Suggested password: <tt>" + UserRegistry.makePassword(theirEmail)
+                                        ctx.println("(Suggested random password: <tt>" + UserRegistry.makePassword(theirEmail)
                                             + "</tt> )");
                                     }
                                 } else if (type != null) {
@@ -4286,7 +4287,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             // // DO NOT ESCAPE THIS AMPERSAND.
             "\n" + "Or you can visit\n   <" + defaultBase + ">\n    username: " + theirEmail
             + "\n    password: " + pass + "\n" + "\n" + " Please keep this link to yourself. Thanks.\n"
-            + " Follow the 'Instructions' link on the main page for more help.\n" + " \n";
+            + " Follow the 'Instructions' link on the main page for more help.\n" +
+            "As a reminder, please do not re-use this password on other web sites.\n\n";
         MailSender.getInstance().queue(fromId, u.id, subject, body);
     }
 

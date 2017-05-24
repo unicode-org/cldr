@@ -1981,6 +1981,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">Bh时</dateFormatItem>
+						<dateFormatItem id="Bhm">Bh:mm</dateFormatItem>
+						<dateFormatItem id="Bhms">Bh:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
@@ -2474,8 +2477,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">Bh时</dateFormatItem>
+						<dateFormatItem id="Bhm">Bh:mm</dateFormatItem>
+						<dateFormatItem id="Bhms">Bh:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">EBh:mm</dateFormatItem>
+						<dateFormatItem id="EBhms">EBh:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="Ehm">Eah:mm</dateFormatItem>
 						<dateFormatItem id="EHm">EHH:mm</dateFormatItem>

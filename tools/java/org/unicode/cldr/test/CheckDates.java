@@ -1135,13 +1135,14 @@ public class CheckDates extends FactoryCheckCLDR {
     // Q (not q)
     // M (not L)
     // E (not e, c)
+    // a (not b, B)
     // H or h (not k or K)
     // v (not z, Z, V)
     static final Pattern[] dateTimePatterns = {
-        PatternCache.get("(h|hh|H|HH)(m|mm)"), // time-short
-        PatternCache.get("(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
-        PatternCache.get("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-long
-        PatternCache.get("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-full
+        PatternCache.get("a*(h|hh|H|HH)(m|mm)"), // time-short
+        PatternCache.get("a*(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
+        PatternCache.get("a*(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-long
+        PatternCache.get("a*(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-full
         PatternCache.get("G*y{1,4}M{1,2}(d|dd)"), // date-short; allow yyy for Minguo/ROC calendar
         PatternCache.get("G*y(yyy)?M{1,3}(d|dd)"), // date-medium
         PatternCache.get("G*y(yyy)?M{1,4}(d|dd)"), // date-long

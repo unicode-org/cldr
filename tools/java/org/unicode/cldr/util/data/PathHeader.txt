@@ -90,9 +90,13 @@
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:dateTime)-$2 ; HIDE
 
-//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E?[h]%a)"]                 ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
-//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E?[Hms]%a)"]                           ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
-//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"][@count="%A"]                 ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:date) ; $1-$2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]     ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*[Hms]%a)"]           ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]       ; DateTime ; &calendar(generic); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*[Hms]%a)"]             ; DateTime ; &calendar(generic); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]       ; DateTime ; &calendar(chinese); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*[Hms]%a)"]             ; DateTime ; &calendar(chinese); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"][@count="%A"]       ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:date) ; $1-$2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); &calField(Formats:Flexible:date) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; Special  ; Suppress ; &calendar($1); &calField(Formats:Flexible:date)-$2 ; HIDE
 

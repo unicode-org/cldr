@@ -95,6 +95,8 @@ public class ExampleGenerator {
     public final static Date DATE_SAMPLE;
 
     private final static Date DATE_SAMPLE2;
+    private final static Date DATE_SAMPLE3;
+    private final static Date DATE_SAMPLE4;
 
     // private final static String EXEMPLAR_CITY = "Europe/Rome";
 
@@ -123,10 +125,15 @@ public class ExampleGenerator {
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
-        calendar.set(1999, 8, 14, 13, 25, 59); // 1999-09-13 13:25:59
+        calendar.set(1999, 8, 14, 13, 25, 59); // 1999-08-14 13:25:59
         DATE_SAMPLE = calendar.getTime();
-        calendar.set(1999, 9, 27, 13, 25, 59); // 1999-09-13 13:25:59
+        calendar.set(1999, 9, 27, 13, 25, 59); // 1999-09-27 13:25:59
         DATE_SAMPLE2 = calendar.getTime();
+
+        calendar.set(1999, 8, 14,  7,  0,  0); // 1999-08-14 07:00:00
+        DATE_SAMPLE3 = calendar.getTime();
+        calendar.set(1999, 8, 14, 23,  0,  0); // 1999-08-14 23:00:00
+        DATE_SAMPLE4 = calendar.getTime();
     }
 
     private CLDRFile cldrFile;
@@ -1179,7 +1186,15 @@ public class ExampleGenerator {
                 DateFormatSymbols dfs = sdf.getDateFormatSymbols();
                 dfs.setTimeSeparatorString(timeSeparator);
                 sdf.setDateFormatSymbols(dfs);
-                return sdf.format(DATE_SAMPLE);
+                if (id == null || id.indexOf('B') < 0) {
+                    return sdf.format(DATE_SAMPLE);
+                } else {
+                    List<String> examples = new ArrayList<String>();
+                    examples.add(sdf.format(DATE_SAMPLE3));
+                    examples.add(sdf.format(DATE_SAMPLE));
+                    examples.add(sdf.format(DATE_SAMPLE4));
+                    return formatExampleList(examples.toArray(new String[examples.size()]));
+                }
             }
         }
     }

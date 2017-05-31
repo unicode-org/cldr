@@ -241,22 +241,11 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-mascabbrev=;</rbnfrule>
-            </ruleset>
-            <ruleset type="dord-mascabbrev" access="private">
-                <rbnfrule value="0">:e;</rbnfrule>
+                <rbnfrule value="0">=#,##0=:e;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-femabbrev=;</rbnfrule>
-            </ruleset>
-            <ruleset type="dord-femabbrev" access="private">
-                <rbnfrule value="0">:e;</rbnfrule>
-                <rbnfrule value="1">:a;</rbnfrule>
-                <rbnfrule value="2">:a;</rbnfrule>
-                <rbnfrule value="3">:e;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,one{:a}other{:e})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-reale">
                 <rbnfrule value="0">=%digits-ordinal-feminine=;</rbnfrule>

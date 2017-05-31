@@ -2986,7 +2986,7 @@ function updateRow(tr, theRow) {
 		
 		
 		if(theRow.voteVhash && 
-				theRow.voteVhash!=='') {
+				theRow.voteVhash!=='' && surveyUser) {
 			var voteForItem = theRow.items[theRow.voteVhash];
 			if(voteForItem && voteForItem.votes && voteForItem.votes[surveyUser.id] && 
 					voteForItem.votes[surveyUser.id].overridedVotes) {
@@ -3116,7 +3116,7 @@ function updateRow(tr, theRow) {
 												
 						//console.log(vr);
 						var orgVoteValue = theOrg.votes[value];
-						if(orgVoteValue !== undefined) { // someone in the org actually voted for it
+						if(orgVoteValue !== undefined && orgVoteValue > 0) { // someone in the org actually voted for it
 							var topVoter = null; // top voter for this item
 							var orgsVote = (theOrg.orgVote == value);
 							var topVoterTime = 0; // Calculating the latest time for a user from same org

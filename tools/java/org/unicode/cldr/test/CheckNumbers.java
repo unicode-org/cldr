@@ -44,7 +44,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private Set<Count> pluralTypes;
     private Map<Count, Set<Double>> pluralExamples;
     private Set<String> validNumberingSystems;
-    private PathHeader.Factory pathHeaderFactory;
+
     /**
      * A number formatter used to show the English format for comparison.
      */
@@ -382,13 +382,16 @@ public class CheckNumbers extends FactoryCheckCLDR {
                 continue;
             }
             if (numIntegerDigitsOther != numIntegerDigits) {
-                PathHeader pathHeader = pathHeaderFactory.fromPath(parts.toString());
+                PathHeader pathHeader;
+                try {
+                    pathHeader = getPathHeaderFactory().fromPath(parts.toString());
+                }
                 inconsistentItems.add(pathHeader.getHeaderCode());
             }
         }
         if (inconsistentItems.size() > 0) {
             // Get label for items of this type by removing the count.
-            PathHeader pathHeader = pathHeaderFactory.fromPath(path.substring(0, path.lastIndexOf('[')));
+            PathHeader pathHeader = getPathHeaderFactory().fromPath(path.substring(0, path.lastIndexOf('[')));
             String groupHeaderString = pathHeader.getHeaderCode();
             boolean isWinningValue = resolvedFile.getWinningValue(path).equals(value);
             result.add(new CheckStatus().setCause(this)

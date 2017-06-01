@@ -382,10 +382,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
                 continue;
             }
             if (numIntegerDigitsOther != numIntegerDigits) {
-                PathHeader pathHeader;
-                try {
-                    pathHeader = getPathHeaderFactory().fromPath(parts.toString());
-                }
+                PathHeader pathHeader = getPathHeaderFactory().fromPath(parts.toString());
                 inconsistentItems.add(pathHeader.getHeaderCode());
             }
         }

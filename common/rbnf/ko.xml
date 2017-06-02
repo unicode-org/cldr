@@ -266,5 +266,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="3">=%%spellout-ordinal-native-smaller=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=번째;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
     </rbnf>
 </ldml>

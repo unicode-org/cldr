@@ -64,8 +64,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "/scientificFormats",
         "/inText",
         "/orientation",
-        "/symbol[@alt=\"narrow\"]",
-        "/exemplarCity"
+        "/symbol[@alt=\"narrow\"]"
     };
 
     static String[] DATE_PARTS = {
@@ -378,6 +377,41 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     Subtype.parenthesesNotAllowed,
                     Subtype.parenthesesNotAllowed,
                     "cannot occur in units", result);
+            }
+        } else if (path.endsWith("/exemplarCity")) {
+            disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value);
+            if (disallowed != null) {
+                if ("root".equals(sourceLocale)) {
+                    return this;
+                }
+                // Get script of locale.
+                LocaleIDParser parser = new LocaleIDParser().set(sourceLocale);
+                String script = parser.getScript();
+                if (script.length() == 0) {
+                    String localeID = sdi.getLikelySubtags().get(sourceLocale);
+                    if (localeID == null) {
+                        localeID = sdi.getLikelySubtags().get(parser.getLanguage());
+                        if (localeID == null) {
+                            throw new IllegalArgumentException(
+                                "A likely subtag for " + parser.getLanguage() +
+                                    " is required to get its script.");
+                        }
+                    }
+                    script = parser.set(localeID).getScript();
+                }
+                int myscript = UScript.getCodeFromName(script);
+                UnicodeSet toRemove = new UnicodeSet();
+                for (int i = 0; i < disallowed.size(); i++) {
+                    int c = disallowed.charAt(i);
+                    if (UScript.getScript(c) == myscript) {
+                        toRemove.add(c);
+                    }
+                }
+                disallowed.removeAll(toRemove);
+                if (disallowed.size() > 0) {
+                    addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                        Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
+                }
             }
         } else {
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {

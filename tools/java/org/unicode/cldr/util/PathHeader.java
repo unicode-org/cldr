@@ -1584,7 +1584,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         "quarter", "quarter-short", "quarter-narrow",
                         "month", "month-short", "month-narrow",
                         "week", "week-short", "week-narrow",
-                        "weekdayOfMonth", "weekdayOfMonth-short", "weekdayOfMonth-narrow",
+                        "weekOfMonth", "weekOfMonth-short", "weekOfMonth-narrow",
                         "day", "day-short", "day-narrow",
                         "dayOfYear", "dayOfYear-short", "dayOfYear-narrow",
                         "weekday", "weekday-short", "weekday-narrow",

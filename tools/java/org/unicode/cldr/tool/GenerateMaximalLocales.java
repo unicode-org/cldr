@@ -167,6 +167,8 @@ public class GenerateMaximalLocales {
         { "ff_Adlm", "ff_Adlm_GN" },
         { "io", "io_Latn_001" },
         { "io_Latn", "io_Latn_001" },
+        { "jbo", "jbo_Latn_001" },
+        { "jbo_Latn", "jbo_Latn_001" },
         { "ku_Arab", "ku_Arab_IQ" },
         { "lrc", "lrc_Arab_IR" },
         { "lrc_Arab", "lrc_Arab_IR" },

@@ -119,7 +119,11 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             if (myStatus != null) { // remove my status from the list
                 draftStatuses.remove(myStatus);
             }
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+            CheckStatus.Type showError = CheckStatus.warningType;           
+            if (this.getPhase().equals(Phase.FINAL_TESTING)) {
+                showError = CheckStatus.errorType;
+            }
+            result.add(new CheckStatus().setCause(this).setMainType(showError)
                 .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
                 .setMessage("Inconsistent draft status within a logical group: {0}", draftStatuses.values())); // the
             // message;

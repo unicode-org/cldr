@@ -24,7 +24,6 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.FixedDecimalRange;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
-import com.ibm.icu.util.ULocale;
 
 public class GeneratePluralConfirmation {
     private static final com.ibm.icu.text.PluralRules.PluralType ICU_ORDINAL = com.ibm.icu.text.PluralRules.PluralType.ORDINAL;
@@ -38,7 +37,7 @@ public class GeneratePluralConfirmation {
     private static final PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
 
     public static void main(String[] args) {
-        for (ULocale uLocale : new TreeSet<>(prf.getLocales())) {
+        for (String uLocale : new TreeSet<>(prf.getLocales())) {
             for (PluralRules.PluralType type : PluralRules.PluralType.values()) {
                 for (Count count : Count.values()) {
                     String pattern = prf.getSamplePattern(uLocale, type, count);
@@ -63,9 +62,10 @@ public class GeneratePluralConfirmation {
     public static void mainOld2(String[] args) {
         Set<String> locales = STANDARD_CODES.getLocaleCoverageLocales(Organization.google);
         // SUPPLEMENTAL.getPluralLocales(PluralType.ordinal)
-        for (String s : locales) {
-            ULocale loc = new ULocale(s);
-            if (!loc.getScript().isEmpty() || !loc.getCountry().isEmpty()) {
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (String loc : locales) {
+            ltp.set(loc);
+            if (!ltp.getScript().isEmpty() || !ltp.getRegion().isEmpty()) {
                 continue;
             }
             EnumSet<Count> counts = EnumSet.noneOf(Count.class);
@@ -109,8 +109,6 @@ public class GeneratePluralConfirmation {
             //                continue;
             //            }
 
-            ULocale ulocale = new ULocale(locale);
-
             for (PluralType type : PluralType.values()) {
                 // for now, just ordinals
                 if (type == PluralType.cardinal) {
@@ -124,7 +122,7 @@ public class GeneratePluralConfirmation {
                     rules = pluralInfo.getPluralRules();
                 }
                 Values values = new Values();
-                values.ulocale = ulocale;
+                values.locale = locale;
                 values.type = type;
 
                 for (int i = 0; i < 30; ++i) {
@@ -145,7 +143,7 @@ public class GeneratePluralConfirmation {
     }
 
     static class Values {
-        ULocale ulocale;
+        String locale;
         PluralType type;
         Relation<Count, FixedDecimal> soFar = Relation.of(new EnumMap(Count.class), TreeSet.class);
         Map<FixedDecimal, String> sorted = new TreeMap();
@@ -185,8 +183,8 @@ public class GeneratePluralConfirmation {
             for (Entry<Count, Set<FixedDecimal>> entry : soFar.keyValuesSet()) {
                 Count count = entry.getKey();
                 for (FixedDecimal fd : entry.getValue()) {
-                    String pattern = prf.getSamplePattern(ulocale, type.standardType, count);
-                    buffer.append(ulocale + "\t" + type + "\t" + count + "\t" + fd + "\t«" + pattern.replace("{0}", String.valueOf(fd)) + "»\n");
+                    String pattern = prf.getSamplePattern(locale, type.standardType, count);
+                    buffer.append(locale + "\t" + type + "\t" + count + "\t" + fd + "\t«" + pattern.replace("{0}", String.valueOf(fd)) + "»\n");
                 }
                 buffer.append("\n");
             }

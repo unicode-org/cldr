@@ -12,7 +12,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -120,7 +119,7 @@ public class GeneratePluralRanges {
             return null;
         }
         ULocale ulocale = new ULocale(locale);
-        SamplePatterns samplePatterns = prf.getSamplePatterns(ulocale); // CldrUtility.get(samples, ulocale);
+        PluralMinimalPairs samplePatterns = PluralMinimalPairs.getInstance(ulocale.toString()); // CldrUtility.get(samples, ulocale);
 //        if (samplePatterns == null && locale.contains("_")) {
 //            ulocale = new ULocale(ulocale.getLanguage());
 //            samplePatterns = CldrUtility.get(samples, ulocale);
@@ -201,7 +200,7 @@ public class GeneratePluralRanges {
     //        return minSample.toString().replace(".", decimal);
     //    }
 
-    public static String getExample(String locale, SamplePatterns samplePatterns, Count r, String numString) {
+    public static String getExample(String locale, PluralMinimalPairs samplePatterns, Count r, String numString) {
         if (r == null) {
             return "«missing»";
         }

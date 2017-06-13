@@ -55,7 +55,9 @@ public class GenerateItemCounts {
     private static final boolean SKIP_ORDERING = true;
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/itemcount/"; // CldrUtility.MAIN_DIRECTORY;
     private Map<String, List<StackTraceElement>> cantRead = new TreeMap<String, List<StackTraceElement>>();
-
+    static {
+        System.err.println("Probably obsolete tool");
+    }
     private static String[] DIRECTORIES = {
         // MUST be oldest first!
         // "cldr-archive/cldr-21.0",

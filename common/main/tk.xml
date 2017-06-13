@@ -4166,6 +4166,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">≥{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count='one'>Poçta gutyňyzda {0} habar bar; ony öçürmek isleýärsiňizmi?</pluralMinimalPairs>
+			<pluralMinimalPairs count='other'>Poçta gutyňyzda {0} habar bar; olary öçürmek isleýärsiňizmi?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal='one'>{0}-njy öwrümden saga öwrüliň.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal='other'>{0}-nji öwrümden saga öwrüliň.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

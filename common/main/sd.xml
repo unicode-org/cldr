@@ -35,5 +35,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>Rs</symbol>
 			</currency>
 		</currencies>
+		<minimalPairs>
+			<pluralMinimalPairs count='one'>{0} ڪتاب</pluralMinimalPairs>
+			<pluralMinimalPairs count='other'>{0} ڪتابون</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal='other'>کاٻي تي {0} نمبر گهر.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 </ldml>

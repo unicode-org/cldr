@@ -49,7 +49,7 @@ public class FindPluralDifferences {
         SupplementalDataInfo supplementalNew = null;
         String newVersion = null;
 
-        for (String version : versions) {
+        for (String version : ToolConstants.CLDR_VERSIONS) {
             String oldVersion = newVersion;
             newVersion = version;
             SupplementalDataInfo supplementalOld = supplementalNew;

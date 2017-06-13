@@ -1185,6 +1185,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ଟଙକା</displayName>
 			</currency>
 		</currencies>
+		<minimalPairs>
+			<pluralMinimalPairs count='one'>ଆପଣଙ୍କର {0}ଟି ବାର୍ତ୍ତା ଅଛି; ଆପଣ ଏହା ପଢିବାକୁ ଚାହୁଁଛନ୍ତି କି?</pluralMinimalPairs>
+			<pluralMinimalPairs count='other'>ଆପଣଙ୍କର {0}ଟି ବାର୍ତ୍ତା ଅଛି; ଆପଣ ତାହା ପଢିବାକୁ ଚାହୁଁଛନ୍ତି କି?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal='one'>ବାମରେ {0}ମ ଘର ।</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal='two'>ବାମରେ {0}ୟ ଘର ।</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal='few'>ବାମରେ {0}ର୍ଥ ଘର ।</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal='many'>ବାମରେ {0}ଷ୍ଠ ଘର ।</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal='other'>ବାମରେ {0}ତମ ଘର ।</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<posix>
 		<messages>

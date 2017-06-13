@@ -7,7 +7,6 @@ import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,27 +22,6 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 public class ShowDtdDiffs {
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
-    static final List<String> CLDR_VERSIONS = Arrays.asList(
-        "1.1.1",
-        "1.2.0",
-        "1.3.0",
-        "1.4.1",
-        "1.5.1",
-        "1.6.1",
-        "1.7.2",
-        "1.8.1",
-        "1.9.1",
-        "2.0.1",
-        "21.0",
-        "22.1",
-        "23.1",
-        "24.0",
-        "25.0",
-        "26.0",
-        "27.0",
-        "28.0",
-        null
-        );
     static Set<DtdType> TYPES = EnumSet.allOf(DtdType.class);
     static {
         TYPES.remove(DtdType.ldmlICU);
@@ -58,7 +36,7 @@ public class ShowDtdDiffs {
 
     public static void main(String[] args) {
         String last = null;
-        for (String current : CLDR_VERSIONS) {
+        for (String current : ToolConstants.CLDR_VERSIONS) {
             String currentName = current == null ? "trunk" : current;
             for (DtdType type : TYPES) {
                 String firstVersion = FIRST_VERSION.get(type);

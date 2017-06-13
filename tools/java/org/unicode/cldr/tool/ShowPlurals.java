@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.tool.GeneratePluralRanges.RangeSample;
-import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRURLS;
@@ -124,7 +123,7 @@ public class ShowPlurals {
                 }
                 final PluralInfo plurals = supplementalDataInfo.getPlurals(pluralType, locale);
                 ULocale locale2 = new ULocale(locale);
-                final SamplePatterns samplePatterns = prf.getSamplePatterns(locale2);
+                final PluralMinimalPairs samplePatterns = PluralMinimalPairs.getInstance(locale2.toString());
                 //                    pluralType == PluralType.ordinal ? null
                 //                    : CldrUtility.get(samples, locale2);
                 NumberFormat nf = NumberFormat.getInstance(locale2);

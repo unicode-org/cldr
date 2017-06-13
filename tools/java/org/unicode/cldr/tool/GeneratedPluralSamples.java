@@ -555,7 +555,7 @@ public class GeneratedPluralSamples {
     public static void main(String[] args) throws Exception {
         myOptions.parse(MyOptions.filter, args, true);
         PluralRules test = PluralRules.parseDescription("one: n in 3,4 or f mod 5 in 3..4;");
-        System.out.println(test);
+        System.out.println("Check: " + test);
 
         Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
         boolean fileFormat = true; //MyOptions.xml.option.doesOccur();
@@ -566,7 +566,7 @@ public class GeneratedPluralSamples {
         int failureCount = 0;
 
         PluralRules pluralRules2 = PluralRules.createRules("one: n is 3..9; two: n is 7..12");
-        System.out.println("Checking " + checkForDuplicates(pluralRules2, new FixedDecimal(8)));
+        System.out.println("Check: " + checkForDuplicates(pluralRules2, new FixedDecimal(8)));
         PrintWriter out = null;
 
         for (PluralType type : PluralType.values()) {

@@ -12,6 +12,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 
         <!-- 1: other -->
 
+        <pluralRules locales="ps sd">
+            <pluralRule count="other"> @integer 0~15, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
+
+        <!-- 2: few,other -->
+
+        <pluralRules locales="tk">
+            <pluralRule count="few">n % 10 = 6,9 or n = 10 @integer 6, 9, 10, 16, 19, 26, 29, 36, 39, 106, 1006, …</pluralRule>
+            <pluralRule count="other"> @integer 0~5, 7, 8, 11~15, 17, 18, 20, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
+
+        <!-- 1: other -->
+
         <pluralRules locales="af am ar bg bs ce cs da de dsb el es et eu fa fi fy gl gsw he hr hsb id in is iw ja km kn ko ky lt lv ml mn my nb nl pa pl prg pt root ru sh si sk sl sr sw ta te th tr ur uz yue zh zu">
             <pluralRule count="other"> @integer 0~15, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
@@ -68,6 +81,16 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">n = 1 @integer 1</pluralRule>
             <pluralRule count="many">n % 10 = 4 and n % 100 != 14 @integer 4, 24, 34, 44, 54, 64, 74, 84, 104, 1004, …</pluralRule>
             <pluralRule count="other"> @integer 0, 2, 3, 5~17, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
+
+        <!-- 5: one,two,few,many,other -->
+
+        <pluralRules locales="or">
+            <pluralRule count="one">n = 1,5,7..9 @integer 1, 5, 7~9</pluralRule>
+            <pluralRule count="two">n = 2,3 @integer 2, 3</pluralRule>
+            <pluralRule count="few">n = 4 @integer 4</pluralRule>
+            <pluralRule count="many">n = 6 @integer 6</pluralRule>
+            <pluralRule count="other"> @integer 0, 10~24, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
 
         <!-- 4: one,two,few,other -->

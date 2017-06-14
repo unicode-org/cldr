@@ -125,7 +125,9 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             }
             result.add(new CheckStatus().setCause(this).setMainType(showError)
                 .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
-                .setMessage("Inconsistent draft status within a logical group: {0}", draftStatuses.values())); // the
+                .setMessage("Logical group problem.  All members of a logical group need to be confirmed together. "
+                    + "For how to do this, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/logical-groups'>Logical Groups</a>"
+                    + "​ in the CLDR translation guidelines.")); // the
             // message;
             // can
             // be

@@ -1,13 +1,17 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Collections;
 import java.util.EnumSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.google.common.collect.Sets;
+import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     private static StandardCodes sc = StandardCodes.make();
@@ -29,56 +33,43 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     /**
-     * Tests the validity of the file names and of the English localeDisplayName
-     * types. Also tests for aliases outside root
+     * Tests that cldr is a superset.
      */
-    public void TestGoogleSubset() {
-        Set<String> googleLocales = sc.getLocaleCoverageLocales(
-            Organization.google, EnumSet.of(Level.MODERN));
-        Set<String> cldrLocales = sc.getLocaleCoverageLocales(
-            Organization.cldr, EnumSet.of(Level.MODERN));
-        assertNotNull("Expected CLDR modern locales not to be null",
-            cldrLocales);
-        if (!cldrLocales.equals(googleLocales)) {
-            printDifferences(googleLocales, cldrLocales, "Google", "CLDR", true);
-        }
-        assertTrue(
-            "Expected CLDR modern locales to be a superset of Google ones, but they were not.",
-            cldrLocales.containsAll(googleLocales));
+    public void TestCldrSuperset() {
+        checkCldrLocales(Organization.google, ERR);
+        checkCldrLocales(Organization.apple, ERR);
+        checkCldrLocales(Organization.microsoft, WARN);
     }
 
-    public void TestAppleSubset() {
-        Set<String> appleLocales = sc.getLocaleCoverageLocales(
-            Organization.apple, EnumSet.of(Level.MODERN));
-        Set<String> cldrLocales = sc.getLocaleCoverageLocales(
-            Organization.cldr, EnumSet.of(Level.MODERN));
-        assertNotNull("Expected CLDR modern locales not to be null",
-            cldrLocales);
-        if (!cldrLocales.equals(appleLocales)) {
-            printDifferences(appleLocales, cldrLocales, "Apple", "CLDR", true);
-        }
-        assertTrue(
-            "Expected CLDR modern locales to be a superset of Apple ones, but they were not.",
-            cldrLocales.containsAll(appleLocales));
+    private void checkCldrLocales(Organization organization, int warningLevel) {
+        // use a union, so that items can be higher
+        EnumSet<Level> modernModerate = EnumSet.of(Level.MODERATE, Level.MODERN);
+        Set<String> orgLocalesModerate = sc.getLocaleCoverageLocales(organization, modernModerate);
+        Set<String> cldrLocalesModerate = sc.getLocaleCoverageLocales(Organization.cldr, modernModerate);
+        Set<String> failures = checkCldrLocalesSuperset(modernModerate, cldrLocalesModerate, organization, orgLocalesModerate, warningLevel, Collections.emptySet());
+
+        EnumSet<Level> modernSet = EnumSet.of(Level.MODERN);
+        Set<String> orgLocalesModern = sc.getLocaleCoverageLocales(organization, modernSet);
+        Set<String> cldrLocalesModern = sc.getLocaleCoverageLocales(Organization.cldr, modernSet);
+        checkCldrLocalesSuperset(modernSet, cldrLocalesModern, organization, orgLocalesModern, warningLevel, failures);
     }
 
-    private void printDifferences(Set<String> firstLoccaleSet,
-        Set<String> secondLocaleSet, String firstSetName,
-        String secondSetName, boolean supersetOnly) {
-        if (!supersetOnly) {
-            Set<String> diff1 = Sets.difference(secondLocaleSet,
-                firstLoccaleSet);
-            if (!diff1.isEmpty()) {
-                warnln("The following " + secondSetName
-                    + " modern locales were absent from the "
-                    + firstSetName + " set:" + diff1.toString());
+    private Set<String> checkCldrLocalesSuperset(Set<Level> level, Set<String> cldrLocales, Organization organization, Set<String> orgLocales, int warningLevel, Set<String> skip) {
+        if (!cldrLocales.containsAll(orgLocales)) {
+            Set<String> diff2 = new LinkedHashSet<>(Sets.difference(orgLocales, cldrLocales));
+            diff2.removeAll(skip);
+            if (!diff2.isEmpty()) {
+                String diffString = diff2.toString();
+                String levelString = CollectionUtilities.join(level, "+");
+                for (String localeId : diff2) {
+                    diffString += "\n\t" + localeId + "\t" + CLDRConfig.getInstance().getEnglish().getName(localeId);
+                }
+                msg("The following " + organization.displayName + " " + levelString + " locales were absent from the "
+                    + Organization.cldr.displayName + " " + levelString + " locales:" + diffString, 
+                    warningLevel, true, true);
             }
+            return diff2;
         }
-        Set<String> diff2 = Sets.difference(firstLoccaleSet, secondLocaleSet);
-        if (!diff2.isEmpty()) {
-            warnln("The following " + firstSetName
-                + " modern locales were absent from the " + secondSetName
-                + " set:" + diff2.toString());
-        }
+        return Collections.EMPTY_SET;
     }
 }

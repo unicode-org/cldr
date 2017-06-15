@@ -37,6 +37,7 @@ public enum Organization {
     lao_dpt("Lao Posts/Telecom??"),
     longnow("The Long Now Foundation", "Long Now", "PanLex"),
     microsoft("Microsoft"),
+    netflix("Netflix"),
     openinstitute("Open Inst (Cambodia)"),
     openoffice_org("Open Office"),
     oracle("Oracle", "sun", "Sun Micro"),

@@ -7,6 +7,9 @@
 package org.unicode.cldr.tool;
 
 import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
@@ -34,8 +37,12 @@ import com.ibm.icu.text.PluralRules.SampleType;
  * @author markdavis
  */
 public class WritePluralRulesSpreadsheets {
+
+    // TODO rewrite to use Options, generate file instead of console.
+
     public static void main(String[] args) {
-        ranges();
+        writePluralChecklist("or", "tk", "ps", "as", "sd");
+        //ranges();
     }
 
     static final SupplementalDataInfo supplemental = SupplementalDataInfo.getInstance();
@@ -47,8 +54,8 @@ public class WritePluralRulesSpreadsheets {
         System.out.println("Type\tCode\tName\tRange\tResult\tResult Example\tStart-Range Example\tEnd-Range Example");
         Set<String> cldrLocales = new TreeSet<>(STD.getLocaleCoverageLocales(Organization.cldr));
         cldrLocales.addAll(STD.getLocaleCoverageLocales(Organization.google));
-        
-        showLocales("Core", cldrLocales, missingMinimalPairs);
+
+        writeRanges("Core", cldrLocales, missingMinimalPairs);
 
         for (Entry<Set<String>, String> missing : missingMinimalPairs.entries()) {
             Set<String> keywords = missing.getKey();
@@ -56,13 +63,13 @@ public class WritePluralRulesSpreadsheets {
             System.out.println("Missing Core\t" + getName(locale) + "\t" + keywords);
         }
         System.out.println();
-        
+
         missingMinimalPairs.clear();
         TreeSet<String> localesWithPlurals = new TreeSet<>(supplemental.getPluralLocales(SupplementalDataInfo.PluralType.cardinal));
         localesWithPlurals.removeAll(cldrLocales);
-        
-        showLocales("Other", localesWithPlurals, missingMinimalPairs);
-        
+
+        writeRanges("Other", localesWithPlurals, missingMinimalPairs);
+
         for (Entry<Set<String>, String> missing : missingMinimalPairs.entries()) {
             Set<String> keywords = missing.getKey();
             String locale = missing.getValue();
@@ -70,7 +77,92 @@ public class WritePluralRulesSpreadsheets {
         }
     }
 
-    private static void showLocales(String title, Set<String> locales, Multimap<Set<String>, String> missingMinimalPairs) {
+    private static void writePluralChecklist(String... locales) {
+        List<String> sampleStrings = Arrays.asList("0", 
+            "0.1", 
+            "0.2",
+            "0.9",
+            "1.9",
+            "1", 
+            "1.0", 
+            "1.2", 
+            "2.0", 
+            "2.1", 
+            "0.00", 
+            "0.01", 
+            "0.10", 
+            "0.11", 
+            "0.02", 
+            "1.00", 
+            "1.10", 
+            "1.11", 
+            "1.02", 
+            "2.00", 
+            "2.01", 
+            "2.9"
+            );
+        for (String locale : locales) {
+            if ("root".equals(locale) || locale.contains("_")) {
+                continue;
+            }
+            PluralRules rules = supplemental.getPlurals(locale).getPluralRules();
+            PluralMinimalPairs samplePatterns = PluralMinimalPairs.getInstance(locale);
+            if (samplePatterns.isEmpty(PluralType.CARDINAL)) {
+                continue;
+            }
+            Set<FixedDecimal> samples = new TreeSet<>();
+
+            Set<String> keywords = rules.getKeywords();
+            // header
+            System.out.print(
+                locale
+                + "\t" + "Number"
+                + "\t" + "Cat."
+                + "\t" + "Sample"
+                + "\t" + "Replacement for Sample"
+                );
+            for (String keyword : keywords) {
+                System.out.print("\t" + Count.valueOf(keyword));
+                HashSet<Double> items = new HashSet<>(rules.getSamples(keyword, SampleType.INTEGER));
+                for (int i = 0; i < 5; ++i) {
+                    items.add(i+0d);
+                    items.add(i+10d);
+                    items.add(i+20d);
+                    items.add(i+100d);
+                    items.add(i+110d);
+                }
+                for (Double sample : items) {
+                    FixedDecimal fd = new FixedDecimal(sample);
+                    samples.add(fd);
+                }
+                for (String sample : sampleStrings) {
+                    FixedDecimal fd = new FixedDecimal(sample);
+                    samples.add(fd);
+                }
+            }
+            System.out.println();
+
+            for (FixedDecimal number : samples) {
+                String cat = rules.select(number);
+                String sample = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(cat));
+                System.out.print(
+                    locale
+                    + "\t" + " " + number
+                    + "\t" + cat
+                    + "\t" + sample.replace("{0}", number.toString())
+                    + "\t" + "«replace if Sample wrong»"
+                    );
+                for (String keyword : keywords) {
+                    String sample2 = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(keyword));
+                    System.out.print("\t" + sample2.replace("{0}", number.toString()));
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+    }
+
+    private static void writeRanges(String title, Set<String> locales, Multimap<Set<String>, String> missingMinimalPairs) {
         for (String locale : locales) {
             if ("root".equals(locale) || locale.contains("_")) {
                 continue;

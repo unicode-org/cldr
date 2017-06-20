@@ -642,10 +642,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 xpp.set(fullXPath);
                 String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
                 lastStatus = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
+                
+                // reset to missing if it is inherited from root or code-fallback
                 final String srcid = anOldFile.getSourceLocaleID(path, null);
-                if (!srcid.equals(diskFile.getLocaleID())) {
+                if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
                     lastStatus = Status.missing;
+                } else if (srcid.equals("root")) {
+                    if (!srcid.equals(diskFile.getLocaleID())) {
+                        lastStatus = Status.missing;
+                    }
                 }
+
                 if (false)
                     System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus
                         + " ('" + lastValue + "')");

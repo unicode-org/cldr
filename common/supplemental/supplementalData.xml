@@ -330,6 +330,7 @@ The printed version of ISO-4217:2001
         <region iso3166="CN">
             <currency iso4217="CNY" from="1953-03-01"/>
             <currency iso4217="CNX" from="1979-01-01" to="1998-12-31" tender="false"/>
+            <currency iso4217="CNH" from="2010-07-19" tender="false"/>
         </region>
         <region iso3166="CO">
             <currency iso4217="COP" from="1905-01-01"/>
@@ -5231,6 +5232,7 @@ XXX Code for transations where no currency is involved
 		<currencyCodes type="CLF" numeric="990"/>
 		<currencyCodes type="CLP" numeric="152"/>
 		<currencyCodes type="CNY" numeric="156"/>
+		<currencyCodes type="CNH" numeric="156"/>
 		<currencyCodes type="COP" numeric="170"/>
 		<currencyCodes type="COU" numeric="970"/>
 		<currencyCodes type="CRC" numeric="188"/>

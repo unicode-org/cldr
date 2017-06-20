@@ -664,7 +664,7 @@ public class VoteResolver<T> {
 
     public void setTrunk(T trunkValue, Status trunkStatus) {
         this.trunkValue = trunkValue;
-        this.trunkStatus = trunkStatus;
+        this.trunkStatus = trunkValue == null ? Status.missing : trunkStatus;
     }
 
     public T getLastReleaseValue() {

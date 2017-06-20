@@ -383,9 +383,9 @@ public class TestSTFactory extends TestFmwk {
         final Map<String, String> vars = new TreeMap<String, String>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
             final Map<String, UserRegistry.User> users = new TreeMap<String, UserRegistry.User>();
-
+            int pathCount = 0;
             public void handlePathValue(String path, String value) {
-
+                ++pathCount;
                 if (value != null && value.startsWith("$")) {
                     String varName = value.substring(1);
                     value = vars.get(varName);
@@ -398,6 +398,10 @@ public class TestSTFactory extends TestFmwk {
                 for (String k : xpp.getAttributeKeys(-1)) {
                     attrs.put(k, xpp.getAttributeValue(-1, k));
                 }
+                if ("und_ZZ".equals(attrs.get("locale"))) {
+                    int debug = 0;
+                }
+
                 String elem = xpp.getElement(-1);
                 if (false) logln("* <" + elem + " " + attrs.toString() + ">" + value + "</" + elem + ">");
                 String xpath = attrs.get("xpath");
@@ -454,7 +458,7 @@ public class TestSTFactory extends TestFmwk {
                     try {
                         box.voteForValue(u, xpath, value);
                         if (needException) {
-                            errln("Expected exceptoin, didn't get one");
+                            errln(pathCount + " Expected exceptoin, didn't get one");
                         }
                     } catch (InvalidXPathException e) {
                         // TODO Auto-generated catch block
@@ -483,19 +487,24 @@ public class TestSTFactory extends TestFmwk {
                     // fullXpath);
                     // logln("Resolver=" + box.getResolver(xpath));
                     if (value == null && stringValue != null) {
-                        errln("Expected null value at " + locale + ":" + xpath + " got " + stringValue);
+                        errln(pathCount + "a Expected null value at " + locale + ":" + xpath + " got " + stringValue);
                     } else if (value != null && !value.equals(stringValue)) {
-                        errln("Expected " + value + " at " + locale + ":" + xpath + " got " + stringValue);
+                        errln(pathCount + "b Expected " + value + " at " + locale + ":" + xpath + " got " + stringValue);
                     } else {
                         logln("OK: " + locale + ":" + xpath + " = " + value);
                     }
+                    Status expStatus = Status.fromString(attrs.get("status"));
+
+                    if (expStatus == Status.provisional) {
+                        int debug = 0;
+                    }
+                    
                     VoteResolver<String> r = box.getResolver(xpath);
                     Status winStatus = r.getWinningStatus();
-                    Status expStatus = Status.fromString(attrs.get("status"));
                     if (winStatus == expStatus) {
                         logln("OK: Status=" + winStatus + " " + locale + ":" + xpath + " Resolver=" + box.getResolver(xpath));
                     } else {
-                        errln("Expected: Status=" + expStatus + " got " + winStatus + " " + locale + ":" + xpath + " Resolver="
+                        errln(pathCount + "c Expected: Status=" + expStatus + " got " + winStatus + " " + locale + ":" + xpath + " Resolver="
                             + box.getResolver(xpath));
                     }
 
@@ -531,7 +540,7 @@ public class TestSTFactory extends TestFmwk {
                         logln("OK from fullxpath: Status=" + xpathStatus + " " + locale + ":" + fullXpath + " Resolver="
                             + box.getResolver(xpath));
                     } else {
-                        errln("Expected from fullxpath: Status=" + expStatus + " got " + xpathStatus + " " + locale + ":"
+                        errln(pathCount + "d Expected from fullxpath: Status=" + expStatus + " got " + xpathStatus + " " + locale + ":"
                             + fullXpath + " Resolver=" + box.getResolver(xpath));
                     }
 
@@ -578,9 +587,9 @@ public class TestSTFactory extends TestFmwk {
                     }
 
                     if (value == null && reRead != null) {
-                        errln("Expected null value from XML at " + locale + ":" + xpath + " got " + reRead);
+                        errln(pathCount + "e Expected null value from XML at " + locale + ":" + xpath + " got " + reRead);
                     } else if (value != null && !value.equals(reRead)) {
-                        errln("Expected from XML " + value + " at " + locale + ":" + xpath + " got " + reRead);
+                        errln(pathCount + "f Expected from XML " + value + " at " + locale + ":" + xpath + " got " + reRead);
                     } else {
                         logln("OK from XML: " + locale + ":" + xpath + " = " + reRead);
                     }
@@ -592,7 +601,7 @@ public class TestSTFactory extends TestFmwk {
                         logln("Warning: Problem from XML: Winning Status=" + winStatus + " got " + xpathStatusBack + " " + locale + ":"
                             + fullXpathBack + " Resolver=" + box.getResolver(xpath));
                     } else {
-                        errln("Expected from XML: Status=" + expStatus + " got " + xpathStatusBack + " " + locale + ":"
+                        errln(pathCount + "g Expected from XML: Status=" + expStatus + " got " + xpathStatusBack + " " + locale + ":"
                             + fullXpathBack + " Resolver=" + box.getResolver(xpath));
                     }
 

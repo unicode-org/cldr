@@ -114,7 +114,7 @@
     <vote name="B" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
     <vote name="C" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
 	<verify status="approved" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
-	<verify status="missing" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
+	<!--  <verify status="missing" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify> -->
 	<!--  Now, sublocale vetting. -->
 	<vote name="A" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">↑↑↑</vote> <!--  inherited -->
     <vote name="B" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote> <!--  explicit agree -->
@@ -137,7 +137,7 @@
     <vote name="E" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='0']">AAA</vote>
 
  	<verify status="approved" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='0']">AAA</verify> <!--  direct -->
- 	<verify status="missing" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> <!--  verify inheritance -->
+ 	<!--  <verify status="missing" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> --> <!--  verify inheritance -->
     
     <!--  Put in initial non-split vote for ↑↑↑ -->
     <vote name="A" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">↑↑↑</vote>

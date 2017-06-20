@@ -322,7 +322,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "i[ek]|izh|"
             + "jam|jpr|jrb|jut|"
             + "ka[aw]|kbl|ken|kgp?|kh[ow]|kiu|ko[is]|kr[ij]|kut|"
-            + "la[hm]|lfn|li[jv]|lmo|lol|ltg|lui|lz[hz]|"
+            + "la[hm]|lfn|li[jv]|lmo|lo[lu]|ltg|lui|lz[hz]|"
             + "ma[fn]|md[er]|mga|mnc|mrj|mw[rv]|mye|"
             + "nan|nds(_NL)?|njo|no[nv]?|nwc|ny[mo]|nzi|"
             + "oj|osa|ota|"

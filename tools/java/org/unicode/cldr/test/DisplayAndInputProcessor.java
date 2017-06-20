@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -440,7 +441,9 @@ public class DisplayAndInputProcessor {
             }
 
             if (path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS)) {
-                value = JOIN_BAR.join(SPLIT_BAR.split(value));
+                TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
+                sorted.addAll(SPLIT_BAR.splitToList(value));
+                value = JOIN_BAR.join(sorted);
             }
             
             return value;

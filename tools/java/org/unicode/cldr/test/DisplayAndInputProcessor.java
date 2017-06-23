@@ -230,17 +230,8 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processForDisplay(String path, String value) {
         value = Normalizer.compose(value, false); // Always normalize all text to NFC.
-        if (path.contains("exemplarCharacters")) {
-            if (value.startsWith("[") && value.endsWith("]")) {
-                value = value.substring(1, value.length() - 1);
-            }
-
-            value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-            value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
-
-            // if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
-            // return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
-            // }
+        if (path.startsWith("//ldml/characters/exemplarCharacters")  || path.startsWith("//ldml/characters/parseLenients")) {
+            value = displayUnicodeSet(value);
         } else if (path.contains("stopword")) {
             return value.trim().isEmpty() ? "NONE" : value;
         } else {
@@ -386,31 +377,8 @@ public class DisplayAndInputProcessor {
             }
 
             // check specific cases
-            if (path.contains("/exemplarCharacters")) {
-                // clean up the user's input.
-                // first, fix up the '['
-                value = value.trim();
-
-                // remove brackets and trim again before regex
-                if (value.startsWith("[")) {
-                    value = value.substring(1);
-                }
-                if (value.endsWith("]")) {
-                    value = value.substring(0, value.length() - 1);
-                }
-                value = value.trim();
-
-                value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-                value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
-
-                // re-add brackets.
-                value = "[" + value + "]";
-
-                UnicodeSet exemplar = new UnicodeSet(value);
-                XPathParts parts = new XPathParts().set(path);
-                final String type = parts.getAttributeValue(-1, "type");
-                ExemplarType exemplarType = type == null ? ExemplarType.main : ExemplarType.valueOf(type);
-                value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
+            if (path.startsWith("//ldml/characters/exemplarCharacters") || path.startsWith("//ldml/characters/parseLenients")) {
+                value = inputUnicodeSet(path, value);
             } else if (path.contains("stopword")) {
                 if (value.equals("NONE")) {
                     value = "";
@@ -453,6 +421,48 @@ public class DisplayAndInputProcessor {
             }
             return original;
         }
+    }
+
+    private String displayUnicodeSet(String value) {
+        if (value.startsWith("[") && value.endsWith("]")) {
+            value = value.substring(1, value.length() - 1);
+        }
+
+        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
+        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
+
+        // if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
+        // return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
+        // }
+        return value;
+    }
+
+    private String inputUnicodeSet(String path, String value) {
+        // clean up the user's input.
+        // first, fix up the '['
+        value = value.trim();
+
+        // remove brackets and trim again before regex
+        if (value.startsWith("[")) {
+            value = value.substring(1);
+        }
+        if (value.endsWith("]")) {
+            value = value.substring(0, value.length() - 1);
+        }
+        value = value.trim();
+
+        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
+        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
+
+        // re-add brackets.
+        value = "[" + value + "]";
+
+        UnicodeSet exemplar = new UnicodeSet(value);
+        XPathParts parts = new XPathParts().set(path);
+        final String type = parts.getAttributeValue(-1, "type");
+        ExemplarType exemplarType = type == null ? ExemplarType.main : ExemplarType.valueOf(type);
+        value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
+        return value;
     }
 
     private String normalizeWhitespace(String path, String value) {
@@ -720,7 +730,7 @@ public class DisplayAndInputProcessor {
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, UnicodeSetPrettyPrinter prettyPrinter,
         ExemplarType exemplarType) {
         if (prettyPrinter == null) {
-            return exemplar.toString();
+            return exemplar.toPattern(false);
         }
         String value;
         prettyPrinter.setCompressRanges(exemplar.size() > 300);

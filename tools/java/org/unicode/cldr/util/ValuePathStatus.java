@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -47,7 +46,7 @@ public class ValuePathStatus {
 
     public static boolean isMissingOk(CLDRFile sourceFile, String path, boolean latin, boolean aliased) {
         Output<String[]> arguments = new Output<String[]>();
-//        List<String> failures = null;
+        List<String> failures = null;
 //        if (path.startsWith("//ldml/characters/parseLenients")) {
 //            int debug = 0;
 //            failures = new ArrayList<>();

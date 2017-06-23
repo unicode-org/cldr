@@ -64,7 +64,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "/scientificFormats",
         "/inText",
         "/orientation",
-        "/symbol[@alt=\"narrow\"]"
+        "/symbol[@alt=\"narrow\"]",
+        "/characters/parseLenients"
     };
 
     static String[] DATE_PARTS = {

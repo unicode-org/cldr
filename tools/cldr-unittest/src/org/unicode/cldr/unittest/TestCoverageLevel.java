@@ -12,8 +12,10 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
@@ -24,6 +26,8 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
@@ -54,6 +58,25 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     public static void main(String[] args) {
         new TestCoverageLevel().run(args);
+    }
+    
+    public void testSpecificPaths() {
+        String[][] rows = {
+            {"//ldml/characters/parseLenients[@scope=\"number\"][@level=\"lenient\"]/parseLenient[@sample=\",\"]", "moderate", "20"}
+        };
+        Factory phf = PathHeader.getFactory(ENGLISH);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SDI, "fr");
+        CLDRLocale loc = CLDRLocale.getInstance("fr");
+        for (String[] row : rows) {
+            String path = row[0];
+            Level expectedLevel = Level.fromString(row[1]);
+            Level level = coverageLevel.getLevel(path);
+            assertEquals("Level for " + path, expectedLevel, level);
+
+            int expectedRequiredVotes = Integer.parseInt(row[2]);
+            int votes = SDI.getRequiredVotes(loc, phf.fromPath(path));
+            assertEquals("Votes for " + path, expectedRequiredVotes, votes);
+        }
     }
 
     public void oldTestInvariantPaths() {

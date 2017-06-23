@@ -230,7 +230,7 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processForDisplay(String path, String value) {
         value = Normalizer.compose(value, false); // Always normalize all text to NFC.
-        if (path.startsWith("//ldml/characters/exemplarCharacters")  || path.startsWith("//ldml/characters/parseLenients")) {
+        if (hasUnicodeSetValue(path)) {
             value = displayUnicodeSet(value);
         } else if (path.contains("stopword")) {
             return value.trim().isEmpty() ? "NONE" : value;
@@ -266,6 +266,10 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
+    private boolean hasUnicodeSetValue(String path) {
+        return path.startsWith("//ldml/characters/exemplarCharacters")  || path.startsWith("//ldml/characters/parseLenients");
+    }
+
     static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
     static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer(FIX_YEARS);
 
@@ -297,19 +301,19 @@ public class DisplayAndInputProcessor {
                 String newvalue = normalizeMalayalam(value);
                 if (DEBUG_DAIP) System.out.println("DAIP: Normalized Malayalam '" + value + "' to '" + newvalue + "'");
                 value = newvalue;
-            } else if (locale.childOf(ROMANIAN) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+            } else if (locale.childOf(ROMANIAN) && !hasUnicodeSetValue(path)) {
                 value = standardizeRomanian(value);
-            } else if (locale.childOf(CATALAN) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+            } else if (locale.childOf(CATALAN) && !hasUnicodeSetValue(path)) {
                 value = standardizeCatalan(value);
-            } else if (locale.childOf(NGOMBA) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+            } else if (locale.childOf(NGOMBA) && !hasUnicodeSetValue(path)) {
                 value = standardizeNgomba(value);
-            } else if (locale.childOf(KWASIO) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+            } else if (locale.childOf(KWASIO) && !hasUnicodeSetValue(path)) {
                 value = standardizeKwasio(value);
             } else if (locale.childOf(HEBREW) && !APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = standardizeHebrew(value);
-            } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+            } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !hasUnicodeSetValue(path)) {
                 value = standardizeSwissGerman(value);
-            } else if (locale.childOf(MYANMAR) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+            } else if (locale.childOf(MYANMAR) && !hasUnicodeSetValue(path)) {
                 value = MyanmarZawgyiConverter.standardizeMyanmar(value);
             }
 
@@ -377,7 +381,7 @@ public class DisplayAndInputProcessor {
             }
 
             // check specific cases
-            if (path.startsWith("//ldml/characters/exemplarCharacters") || path.startsWith("//ldml/characters/parseLenients")) {
+            if (hasUnicodeSetValue(path)) {
                 value = inputUnicodeSet(path, value);
             } else if (path.contains("stopword")) {
                 if (value.equals("NONE")) {
@@ -458,7 +462,10 @@ public class DisplayAndInputProcessor {
         value = "[" + value + "]";
 
         UnicodeSet exemplar = new UnicodeSet(value);
-        XPathParts parts = new XPathParts().set(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path); // new XPathParts().set(path);
+        if (parts.getElement(2).equals("parseLenients")) {
+            return exemplar.toPattern(false);
+        }
         final String type = parts.getAttributeValue(-1, "type");
         ExemplarType exemplarType = type == null ? ExemplarType.main : ExemplarType.valueOf(type);
         value = getCleanedUnicodeSet(exemplar, pp, exemplarType);

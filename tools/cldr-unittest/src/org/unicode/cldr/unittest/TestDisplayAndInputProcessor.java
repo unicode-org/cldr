@@ -301,7 +301,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (value.equals(input)) {
             return null;
         }
-        if (path.contains("/exemplarCharacters")) {
+        if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
                 UnicodeSet s1 = new UnicodeSet(value);
                 UnicodeSet s2 = new UnicodeSet(input);
@@ -311,6 +311,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     temp.addAll(temp2);
                     return temp.toPattern(false);
                 }
+                return null;
             } catch (Exception e) {
                 // TODO: handle exception
             }

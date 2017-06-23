@@ -195,7 +195,7 @@ public class StandardCodes {
     public List<String> getCodes(String type, String data) {
         return getCodes(CodeType.valueOf(type), data);
     }
-    
+
     /**
      * Return the list of codes that have the same data. For example, returns all
      * currency codes for a country. If there is a preferred one, it is first.
@@ -214,7 +214,7 @@ public class StandardCodes {
     public String getPreferred(String type, String code) {
         return getPreferred(CodeType.valueOf(type), code);
     }
-    
+
     /**
      * Where there is a preferred code, return it.
      */
@@ -386,7 +386,7 @@ public class StandardCodes {
         }
         return platform_locale_level;
     }
-    
+
     /**
      * Return map of locales to levels
      * @param org
@@ -1055,6 +1055,17 @@ public class StandardCodes {
             isLstr = lstr;
             isUnicode = unicode;
         }
+
+        // 
+        static final Pattern WELLFORMED = Pattern.compile("([0-9]{3}|[a-zA-Z]{2})[a-zA-Z0-9]{1,4}");
+
+        boolean isWellFormed(String candidate) {
+            switch (this) {
+            case subdivision: 
+                return WELLFORMED.matcher(candidate).matches();
+            default: throw new UnsupportedOperationException();
+            }
+        }
     }
 
     public enum LstrField {
@@ -1449,8 +1460,8 @@ public class StandardCodes {
         case "UN": 
         case "EZ":
             return false;
-            default: 
-                return territory.length() == 2 && COUNTRY.containsAll(territory);
+        default: 
+            return territory.length() == 2 && COUNTRY.containsAll(territory);
         }
     }
 

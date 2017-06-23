@@ -164,9 +164,10 @@ public class GenerateSidewaysView {
 
         File[] paths = {
             new File(CLDRPaths.MAIN_DIRECTORY), 
-            new File(CLDRPaths.ANNOTATIONS_DIRECTORY) 
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+            new File(CLDRPaths.SUBDIVISIONS_DIRECTORY) 
         };
-        Factory cldrFactory = SimpleFactory.make(paths, options[MATCH].value);
+        Factory cldrFactory = SimpleFactory.make(paths, options[MATCH].value); 
 
         // Factory cldrFactory = Factory.make(options[SOURCEDIR].value, options[MATCH].value);
         english = cldrFactory.make("en", true);

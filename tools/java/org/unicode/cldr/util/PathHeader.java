@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -1288,7 +1289,7 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("categoryFromTerritory",
                     catFromTerritory = new Transform<String, String>() {
                 public String transform(String source) {
-                    String territory = hyphenSplitter.split(source);
+                    String territory = getSubdivisionsTerritory(source, null);
                     String container = Containment.getContainer(territory);
                     order = Containment.getOrder(territory);
                     return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
@@ -1296,11 +1297,9 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("territorySection", new Transform<String, String>() {
                 final Set<String> specialRegions = new HashSet<String>(Arrays.asList("EZ", "EU", "QO", "UN", "ZZ"));
-
                 public String transform(String source0) {
                     // support subdivisions
-                    int dashPos = source0.indexOf('-');
-                    String theTerritory = dashPos < 0 ? source0 : source0.substring(0,dashPos);
+                    String theTerritory = getSubdivisionsTerritory(source0, null);
                     try {
                         if (specialRegions.contains(theTerritory) 
                             || theTerritory.charAt(0) < 'A' && Integer.valueOf(theTerritory) > 0) {
@@ -1957,5 +1956,28 @@ public class PathHeader implements Comparable<PathHeader> {
             return null;
         }
         return SECTION_LINK + PathHeader.getUrl(baseUrl, file.getLocaleID(), path) + "'><em>view</em></a>";
+    }
+
+    /**
+     * If a subdivision, return the (uppercased) territory and if suffix != null, the suffix. Otherwise return the input as is.
+     * @param input
+     * @param suffix
+     * @return
+     */
+    private static String getSubdivisionsTerritory(String input, Output<String> suffix) {
+        String theTerritory;
+        if (StandardCodes.LstrType.subdivision.isWellFormed(input)) {
+            int territoryEnd = input.charAt(0) < 'A' ? 3 : 2;
+            theTerritory = input.substring(0, territoryEnd).toUpperCase(Locale.ROOT);
+            if (suffix != null) {
+                suffix.value =  input.substring(territoryEnd);
+            }
+        } else {
+            theTerritory = input;
+            if (suffix != null) {
+                suffix.value = "";
+            }
+        }
+        return theTerritory;
     }
 }

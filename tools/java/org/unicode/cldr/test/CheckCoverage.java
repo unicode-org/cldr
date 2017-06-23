@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -17,6 +18,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.ValuePathStatus;
 import org.unicode.cldr.util.XMLSource;
 
 /**
@@ -39,6 +41,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
     private Level requiredLevel;
 
     SupplementalDataInfo supplementalData;
+    private boolean latin;
 
     // private boolean requireConfirmed = true;
     // private Matcher specialsToTestMatcher = CLDRFile.specialsToPushFromRoot.matcher("");
@@ -50,16 +53,22 @@ public class CheckCoverage extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {
 
+//        if (path.startsWith("//ldml/characters/parseLenients")) {
+//            int debug = 0;
+//        }
+
         if (isSkipTest()) return this;
 
-        if (getResolvedCldrFileToCheck().isPathExcludedForSurvey(path)) return this;
+        CLDRFile resolvedCldrFileToCheck = getResolvedCldrFileToCheck();
+        if (resolvedCldrFileToCheck.isPathExcludedForSurvey(path)) return this;
 
         // skip if we are not the winning path
-        if (!getResolvedCldrFileToCheck().isWinningPath(path)) {
+        if (!resolvedCldrFileToCheck.isWinningPath(path)) {
             return this;
         }
 
-        String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
+        Status status = new Status();
+        String source = resolvedCldrFileToCheck.getSourceLocaleID(path, status);
 
         // if the source is a language locale (that is, not root or code fallback) then we have something already, so
         // skip.
@@ -75,6 +84,11 @@ public class CheckCoverage extends FactoryCheckCLDR {
             throw new InternalCldrException("Empty path!");
         } else if (getCldrFileToCheck() == null) {
             throw new InternalCldrException("No file to check!");
+        }
+        
+        boolean isAliased = path.equals(status.pathWhereFound);
+        if (ValuePathStatus.isMissingOk(resolvedCldrFileToCheck, path, latin, isAliased)) {
+            return this; // skip!
         }
 
         // check to see if the level is good enough
@@ -124,6 +138,8 @@ public class CheckCoverage extends FactoryCheckCLDR {
         }
 
         setSkipTest(false);
+        latin = ValuePathStatus.isLatinScriptLocale(cldrFileToCheck);
+        
         return this;
     }
 

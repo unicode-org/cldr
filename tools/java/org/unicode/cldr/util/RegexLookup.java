@@ -986,7 +986,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             public void parse(String line) {
                 int pos = line.indexOf("; ");
                 if (pos < 0) {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Illegal line, doesn't contain semicolon: " + line);
                 }
                 String source = line.substring(0, pos).trim();
                 String target = line.substring(pos + 2).trim();

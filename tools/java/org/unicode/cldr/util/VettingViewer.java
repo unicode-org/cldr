@@ -32,13 +32,11 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -46,7 +44,6 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
@@ -1312,75 +1309,6 @@ public class VettingViewer<T> {
         return result;
     }
 
-    public enum MissingOK {
-        ok, latin, alias, compact
-    }
-
-    public static Transform<String, MissingOK> MISSING_STATUS_TRANSFORM = new Transform<String, MissingOK>() {
-        public MissingOK transform(String source) {
-            return MissingOK.valueOf(source);
-        }
-    };
-
-    static final RegexLookup<MissingOK> missingOk = new RegexLookup<MissingOK>()
-        .setPatternTransform(RegexLookup.RegexFinderTransformPath)
-        .setValueTransform(MISSING_STATUS_TRANSFORM)
-        .loadFromFile(
-            VettingViewer.class,
-            "data/paths/missingOk.txt");
-
-    private static boolean isMissingOk(CLDRFile sourceFile, String path, boolean latin, boolean aliased) {
-        Output<String[]> arguments = new Output<String[]>();
-        MissingOK value = missingOk.get(path, null, arguments);
-        if (value == null) {
-            return false;
-        }
-        switch (value) {
-        case ok:
-            return true;
-        case latin:
-            return latin;
-        case alias:
-            return aliased;
-        case compact:
-            // special processing for compact numbers
-            if (path.contains("[@count=\"other\"]")) {
-                return false; // the 'other' class always counts as missing
-            }
-            String otherPath = "//ldml/numbers/decimalFormats[@numberSystem=\"" + arguments.value[1]
-                + "\"]/decimalFormatLength[@type=\"" + arguments.value[2]
-                    + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" + arguments.value[3]
-                        + "\"][@count=\"other\"]";
-            String otherValue = sourceFile.getWinningValue(otherPath);
-            if (otherValue == null) {
-                return false; // something's wrong, bail
-            }
-            int digits = countZeros(otherValue);
-            if (digits > 4) { // we can only handle to 4 digits
-                return false;
-            }
-            // if there are no possible Count values for this many digits, then it is ok to be missing.
-            Count c = Count.valueOf(arguments.value[4]);
-            SupplementalDataInfo supplementalDataInfo2 = CLDRConfig.getInstance().getSupplementalDataInfo();
-            // SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
-            PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());
-            return plurals == null || !plurals.hasSamples(c, digits); // ok if no samples
-            // TODO: handle fractions
-        default:
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private static int countZeros(String otherValue) {
-        int result = 0;
-        for (int i = 0; i < otherValue.length(); ++i) {
-            if (otherValue.charAt(i) == '0') {
-                ++result;
-            }
-        }
-        return result;
-    }
-
     public enum MissingStatus {
         PRESENT, ALIASED, MISSING_OK, ROOT_OK, ABSENT
     }
@@ -1401,7 +1329,7 @@ public class VettingViewer<T> {
         boolean isAliased = path.equals(status.pathWhereFound);
 
         if (value == null) {
-            result = isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;
+            result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;
         } else {
             String localeFound = sourceFile.getSourceLocaleID(path, status);
 
@@ -1411,7 +1339,7 @@ public class VettingViewer<T> {
                 || localeFound.equals(XMLSource.CODE_FALLBACK_ID)
                 // || voteStatus == VoteStatus.provisionalOrWorse
                 ) {
-                result = isMissingOk(sourceFile, path, latin, isAliased)
+                result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased)
                     || sourceFile.getLocaleID().equals("en") ? MissingStatus.ROOT_OK : MissingStatus.ABSENT;
             } else if (isAliased) {
                 result = MissingStatus.PRESENT;
@@ -1428,11 +1356,10 @@ public class VettingViewer<T> {
         return result;
     }
 
-    public static final UnicodeSet LATIN = new UnicodeSet("[:sc=Latn:]").freeze();
+    public static final UnicodeSet LATIN = ValuePathStatus.LATIN;
 
     public static boolean isLatinScriptLocale(CLDRFile sourceFile) {
-        UnicodeSet main = sourceFile.getExemplarSet("", WinningChoice.WINNING);
-        return LATIN.containsSome(main);
+        return ValuePathStatus.isLatinScriptLocale(sourceFile);
     }
 
     private static StringBuilder appendToMessage(CharSequence usersValue, EnumSet<Subtype> subtypes, StringBuilder testMessage) {
@@ -2087,9 +2014,9 @@ public class VettingViewer<T> {
         String myOutputDir = repeat ? null : MyOptions.output.option.getValue();
         String LOCALE = MyOptions.locale.option.getValue();
         String CURRENT_MAIN = MyOptions.source.option.getValue();
-        final String version = "24.0";
-        //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
-        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
+        final String version = ToolConstants.PREVIOUS_CHART_VERSION;
+        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
+        //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
         do {
             Timer timer = new Timer();
             timer.start();

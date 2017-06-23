@@ -1,3 +1,6 @@
+# Data file for VettingViewer.isMissingOk
+# Note that paths for compact numbers are handled specially in code, in compact
+
 %A = ([^"]*+)
 
 //ldml/dates/timeZoneNames/zone[@type="%A"]/exemplarCity ; latin
@@ -21,3 +24,7 @@
 
 # Why are we generating these?
 //ldml/localeDisplayNames/languages/language[@type="(in|iw|ji|jw)"] ; ok
+
+# More items ok to be missing
+//ldml/characters/parseLenients.* ; ok
+

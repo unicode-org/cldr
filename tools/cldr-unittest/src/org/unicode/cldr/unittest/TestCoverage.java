@@ -18,6 +18,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class TestCoverage extends TestFmwkPlus {
 
+    
     static final CLDRConfig testInfo = CLDRConfig.getInstance();
     static final StandardCodes sc = StandardCodes.make();
     static final SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();

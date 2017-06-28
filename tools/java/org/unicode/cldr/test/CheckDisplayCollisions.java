@@ -203,6 +203,16 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         set16.add("/unit[@type=\"volume-pint\"]");
         mapPathPartsToSets.put("/unit[@type=\"length-point\"]", set16);
 
+        // Add OK collisions for /unit[@type=\"pressure-hectopascal\"]
+        Set<String> set17 = new HashSet<String>();
+        set17.add("/unit[@type=\"pressure-hectopascal\"]");
+        mapPathPartsToSets.put("/unit[@type=\"pressure-millibar\"]", set17);
+
+        // Add OK collisions for /unit[@type=\"pressure-millibar\"]
+        Set<String> set18 = new HashSet<String>();
+        set18.add("/unit[@type=\"pressure-millibar\"]");
+        mapPathPartsToSets.put("/unit[@type=\"pressure-hectopascal\"]", set18);
+
         // all done, return immutable version
         return Collections.unmodifiableMap(mapPathPartsToSets);
     }
@@ -326,8 +336,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH UNIT  " + unit);
                 } else {
-                    // Remove allowed collisions, such as between carats and karats (same in many languages) or
-                    // between foodcalories and either calories or kilocalories
+                    // Remove allowed collisions, such as between carats and karats (same in many languages), or
+                    // between foodcalories and either calories or kilocalories, or
+                    // between hectopascal and millibar (physically the same unit, see #10425)
                     for (Map.Entry<String, Set<String>> mapPathPartToSet : mapPathPartsToSetsForDupOK.entrySet()) {
                         if (path.contains(mapPathPartToSet.getKey())) {
                             for (String pathPart : mapPathPartToSet.getValue()) {

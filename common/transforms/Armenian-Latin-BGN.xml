@@ -45,28 +45,20 @@ $aspirate = ’ ;
 $wordBoundary =  [^[:L:][:M:][:N:]] ;
 
 
-# BGN Page 12 Rule 3: The character և should be romanized yev initially,
-# after the vowel characters ա, ե, է, ը, ի, ո, ւ, and օ.
-# In all other instances, it should be romanized ev.
-$wordBoundary{ԵՒ}$wordBoundary → YEV ; # ARMENIAN CAPITAL ECH + CAPITAL YIWN
-$wordBoundary{ԵՒ → YEV ; # ARMENIAN CAPITAL ECH + CAPITAL YIWN
-$vowels{ԵՒ → YEV ; # ARMENIAN CAPITAL ECH + CAPITAL YIWN
-ԵՒ → EV ; # ARMENIAN CAPITAL ECH + CAPITAL YIWN
-
-$wordBoundary{Եւ}$wordBoundary → Yev ; # ARMENIAN CAPITAL ECH + SMALL YIWN
-$wordBoundary{Եւ → Yev ; # ARMENIAN CAPITAL ECH + SMALL YIWN
-$vowels{Եւ → Yev ; # ARMENIAN CAPITAL ECH + SMALL YIWN
-Եւ → Ev ; # ARMENIAN CAPITAL ECH + SMALL YIWN
-
-$wordBoundary{եւ}$wordBoundary → yev ; # ARMENIAN SMALL ECH + SMALL YIWN
-$wordBoundary{եւ → yev ; # ARMENIAN SMALL ECH + SMALL YIWN
-$vowels{եւ → yev ; # ARMENIAN SMALL ECH + SMALL YIWN
-եւ → ev ; # ARMENIAN SMALL ECH + SMALL YIWN
-
-$wordBoundary{և}$wordBoundary → yev ; # ARMENIAN SMALL LIGATURE ECH YIWN
-$wordBoundary{և → yev ; # ARMENIAN SMALL LIGATURE ECH YIWN
-$vowels{և → yev ; # ARMENIAN SMALL LIGATURE ECH YIWN
-և →  ev ; # ARMENIAN SMALL LIGATURE ECH YIWN
+# BGN/PCGN 1981, Note 5: “The characters ԵՎ , եւ and և should be romanized
+# yev initially and after the vowel characters ա, ե, է, ի, ո, ու, and օ.
+# In all other instances these characters should be romanized ev.”
+$YEV = [{ԵՎ} {ԵՒ}];
+$Yev = [{Եվ} {Եւ}];
+$yev = [{եվ} {եւ} և];
+$yev_vowels = [ա ե է ի ո {ու} օ Ա Ե Է Ի Ո {ՈՒ} {Ու} Օ];
+[$wordBoundary $yev_vowels] {$YEV} → YEV;
+[$wordBoundary $yev_vowels] {$Yev} → Yev;
+[$wordBoundary $yev_vowels] {$yev} → yev;
+$YEV → EV;
+$Yev → Ev;
+$yev → ev;
+::null;
 
 # BGN Page 12 Rule 1: The character ե should be romanized ye initially,
 # after the vowel characters ա, ե, է, ը, ի, ո, ւ, and օ.

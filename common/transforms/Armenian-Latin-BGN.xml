@@ -48,9 +48,12 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 # BGN/PCGN 1981, Note 5: “The characters ԵՎ , եւ and և should be romanized
 # yev initially and after the vowel characters ա, ե, է, ի, ո, ու, and օ.
 # In all other instances these characters should be romanized ev.”
-$YEV = [{ԵՎ} {ԵՒ}];
-$Yev = [{Եվ} {Եւ}];
-$yev = [{եվ} {եւ} և];
+#
+# BGN/PCGN 1981, Note 3: “In Soviet-era sources this upper-case digraph
+# character is found as Ե ի.”
+$YEV = [{ԵՎ} {ԵՒ} {ԵԻ}];
+$Yev = [{Եվ} {Եւ} {Եի}];
+$yev = [{եվ} {եւ} և {եի}];
 $yev_vowels = [ա ե է ի ո {ու} օ Ա Ե Է Ի Ո {ՈՒ} {Ու} Օ];
 [$wordBoundary $yev_vowels] {$YEV} → YEV;
 [$wordBoundary $yev_vowels] {$Yev} → Yev;

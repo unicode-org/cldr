@@ -567,9 +567,6 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void TestFileIds() {
-        if (logKnownIssue("cldrbug:9994", "Suppress  tests for exemplars directory til fixed")) {
-            return;
-        }
         Output<Map<String, Multimap<LdmlDir, Source>>> localeToDirToSource = new Output<>();
         Map<LdmlDir, Multimap<String, Source>> dirToLocaleToSource = getFiles(localeToDirToSource);
         
@@ -603,6 +600,11 @@ public class TestCLDRFile extends TestFmwk {
                 }
                 String likely = likelySubtags.minimize(loc);
                 if (!localesToDirs.containsKey(parent)) {
+                    if (ldmlDir == LdmlDir.rbnf && source == Source.common &&
+                        parent.equals("en_001") && loc.equals("en_IN") &&
+                        logKnownIssue("cldrbug:10456", "Missing parent (en_001) for en_IN in common/rbnf")) {
+                            continue;
+                    }
                     errln("Missing parent (" + parent + ") for " + loc + "  in " + source + "/" + ldmlDir + "; likely=" + likely);
                 }
                 if (!Objects.equals(parent, parent2) && !localesToDirs.containsKey(parent2)) {
@@ -629,6 +631,7 @@ public class TestCLDRFile extends TestFmwk {
     enum LdmlDir {
         main,
         annotations,
+        annotationsDerived,
         casing,
         collation,
         rbnf,

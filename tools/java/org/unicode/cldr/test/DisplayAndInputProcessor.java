@@ -513,7 +513,7 @@ public class DisplayAndInputProcessor {
             } else if (c == ')') {
                 inParentheses = false;
             }
-            if (inParentheses && c == '-') {
+            if (inParentheses && c == '-' && Character.isDigit(value.charAt(i-1))) {
                 c = 0x2013; /* Replace hyphen-minus with dash for date ranges */
             }
             result.append(c);

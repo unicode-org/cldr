@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
@@ -69,12 +70,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         private MatchType matchType;
         private String basePrefix;
-        private Matcher baseMatcher;
+        private Pattern basePattern;
 
         private Type(String basePrefix, MatchType matchType, int index) {
             this.matchType = matchType;
             this.basePrefix = basePrefix;
-            this.baseMatcher = PatternCache.get("^" + basePrefix + ".*").matcher("");
+            this.basePattern = PatternCache.get("^" + basePrefix + ".*");
         }
 
         /**
@@ -87,8 +88,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         /**
          * @return the regex that matches all XPaths of this type
          */
-        public Matcher getMatcher() {
-            return baseMatcher;
+        public Pattern getPattern() {
+            return basePattern;
         }
 
         /**
@@ -104,8 +105,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     }
                 }
 
-                Matcher m = type.getMatcher();
-                m.reset(path);
+                Matcher m = type.getPattern().matcher(path);
                 if (m.matches()) {
                     return type;
                 }
@@ -531,7 +531,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         if (myType.matchType == MatchType.PREFIX) {
             file.getPathsWithValue(value, myPrefix, matcher, retrievedPaths);
         } else {
-            file.getPathsWithValue(value, "//ldml", myType.getMatcher(), retrievedPaths);
+            file.getPathsWithValue(value, "//ldml", myType.getPattern().matcher(""), retrievedPaths);
         }
 
         String normValue = null;

@@ -185,35 +185,41 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         // Add OK collisions for /unit[@type=\"temperature-generic\"]
         Set<String> set13 = new HashSet<String>();
-        set13.add("/unit[@type=\"temperature-generic\"]");
-        mapPathPartsToSets.put("/unit[@type=\"angle-degree\"]", set13);
+        set13.add("/unit[@type=\"angle-degree\"]");
+        mapPathPartsToSets.put("/unit[@type=\"temperature-generic\"]", set13);
 
         // Add OK collisions for /unit[@type=\"angle-degree\"]
         Set<String> set14 = new HashSet<String>();
-        set14.add("/unit[@type=\"angle-degree\"]");
-        mapPathPartsToSets.put("/unit[@type=\"temperature-generic\"]", set14);
+        set14.add("/unit[@type=\"temperature-generic\"]");
+        mapPathPartsToSets.put("/unit[@type=\"angle-degree\"]", set14);
 
         // Add OK collisions for /unit[@type=\"length-point\"]
         Set<String> set15 = new HashSet<String>();
-        set15.add("/unit[@type=\"length-point\"]");
-        mapPathPartsToSets.put("/unit[@type=\"volume-pint\"]", set15);
+        set15.add("/unit[@type=\"volume-pint\"]");
+        set15.add("/unit[@type=\"mass-pound\"]");
+        mapPathPartsToSets.put("/unit[@type=\"length-point\"]", set15);
 
         // Add OK collisions for /unit[@type=\"volume-pint\"]
         Set<String> set16 = new HashSet<String>();
-        set16.add("/unit[@type=\"volume-pint\"]");
-        mapPathPartsToSets.put("/unit[@type=\"length-point\"]", set16);
+        set16.add("/unit[@type=\"length-point\"]");
+        mapPathPartsToSets.put("/unit[@type=\"volume-pint\"]", set16);
 
         // Add OK collisions for /unit[@type=\"pressure-hectopascal\"]
         Set<String> set17 = new HashSet<String>();
-        set17.add("/unit[@type=\"pressure-hectopascal\"]");
-        mapPathPartsToSets.put("/unit[@type=\"pressure-millibar\"]", set17);
+        set17.add("/unit[@type=\"pressure-millibar\"]");
+        mapPathPartsToSets.put("/unit[@type=\"pressure-hectopascal\"]", set17);
 
         // Add OK collisions for /unit[@type=\"pressure-millibar\"]
         Set<String> set18 = new HashSet<String>();
-        set18.add("/unit[@type=\"pressure-millibar\"]");
-        mapPathPartsToSets.put("/unit[@type=\"pressure-hectopascal\"]", set18);
+        set18.add("/unit[@type=\"pressure-hectopascal\"]");
+        mapPathPartsToSets.put("/unit[@type=\"pressure-millibar\"]", set18);
 
-        // all done, return immutable version
+         // Add OK collisions for /unit[@type=\"mass-pound\"]
+        Set<String> set19 = new HashSet<String>();
+        set19.add("/unit[@type=\"length-point\"]");
+        mapPathPartsToSets.put("/unit[@type=\"mass-pound\"]", set19);
+
+       // all done, return immutable version
         return Collections.unmodifiableMap(mapPathPartsToSets);
     }
 

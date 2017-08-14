@@ -1,11 +1,10 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
-<!--
-	© 1991-2017 Unicode, Inc.
-	Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
-	For terms of use, see http://www.unicode.org/copyright.html.
-	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/).
- -->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -13,9 +12,1550 @@
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
-			<subdivision type='gbeng'>Anglija</subdivision>
-			<subdivision type='gbsct'>Skotija</subdivision>
-			<subdivision type='gbwls'>Velsa</subdivision>
+			<subdivision type="ad03" draft="contributed">Enkampa</subdivision>
+			<subdivision type="ad08" draft="contributed">Eskaldesa-Engordaņa</subdivision>
+			<subdivision type="aeaj" draft="contributed">Adžmāna</subdivision>
+			<subdivision type="aeaz" draft="contributed">Abū Dabī</subdivision>
+			<subdivision type="aedu" draft="contributed">Dubaijas emirāts</subdivision>
+			<subdivision type="aefu" draft="contributed">Fudžeiras emirāts</subdivision>
+			<subdivision type="aerk" draft="contributed">Rāselhaima</subdivision>
+			<subdivision type="afbal" draft="contributed">Balhas province</subdivision>
+			<subdivision type="afbam" draft="contributed">Bāmijānas province</subdivision>
+			<subdivision type="afbdg" draft="contributed">Bādgīsa</subdivision>
+			<subdivision type="afbds" draft="contributed">Badahšāna</subdivision>
+			<subdivision type="afbgl" draft="contributed">Baglāna</subdivision>
+			<subdivision type="afday" draft="contributed">Dājkondī province</subdivision>
+			<subdivision type="afjow" draft="contributed">Džouzdžānas province</subdivision>
+			<subdivision type="ag03" draft="contributed">Sentdžordža pagasts</subdivision>
+			<subdivision type="ag04" draft="contributed">Sentdžona pagasts</subdivision>
+			<subdivision type="ag05" draft="contributed">Sentmerī pagasts</subdivision>
+			<subdivision type="ag06" draft="contributed">Sentpola pagasts</subdivision>
+			<subdivision type="ag07" draft="contributed">Sentpītera pagasts</subdivision>
+			<subdivision type="ag08" draft="contributed">Sentfilipa pagasts</subdivision>
+			<subdivision type="al01" draft="contributed">Berati apgabals</subdivision>
+			<subdivision type="al02" draft="contributed">Duresi apgabals</subdivision>
+			<subdivision type="al09" draft="contributed">Dibras apgabals</subdivision>
+			<subdivision type="amer" draft="contributed">Erevāna</subdivision>
+			<subdivision type="ara" draft="contributed">Saltas province</subdivision>
+			<subdivision type="arb" draft="contributed">Buenosairesas province</subdivision>
+			<subdivision type="arc" draft="contributed">Buenosairesa</subdivision>
+			<subdivision type="ard" draft="contributed">Sanluisas province</subdivision>
+			<subdivision type="are" draft="contributed">Entreriosas province</subdivision>
+			<subdivision type="arf" draft="contributed">Larjohas province</subdivision>
+			<subdivision type="arg" draft="contributed">Santjado del Estero province</subdivision>
+			<subdivision type="arh" draft="contributed">Čako province</subdivision>
+			<subdivision type="arj" draft="contributed">Sanhuanas province</subdivision>
+			<subdivision type="ark" draft="contributed">Katamarkas province</subdivision>
+			<subdivision type="arl" draft="contributed">Lapampas province</subdivision>
+			<subdivision type="arm" draft="contributed">Mendosas province</subdivision>
+			<subdivision type="arn" draft="contributed">Misjonesas province</subdivision>
+			<subdivision type="arp" draft="contributed">Formosas province</subdivision>
+			<subdivision type="arq" draft="contributed">Neukenas province</subdivision>
+			<subdivision type="arr" draft="contributed">Rionegro province</subdivision>
+			<subdivision type="ars" draft="contributed">Santafē province</subdivision>
+			<subdivision type="art" draft="contributed">Tukumanas province</subdivision>
+			<subdivision type="aru" draft="contributed">Čubutas province</subdivision>
+			<subdivision type="arv" draft="contributed">Tjerra del Fuego province</subdivision>
+			<subdivision type="arw" draft="contributed">Korrjentesas province</subdivision>
+			<subdivision type="arx" draft="contributed">Kordovas province</subdivision>
+			<subdivision type="ary" draft="contributed">Huhujas province</subdivision>
+			<subdivision type="arz" draft="contributed">Santakrusas province</subdivision>
+			<subdivision type="at1" draft="contributed">Burgenlande</subdivision>
+			<subdivision type="at2" draft="contributed">Karintija</subdivision>
+			<subdivision type="at3" draft="contributed">Lejasaustrija</subdivision>
+			<subdivision type="at4" draft="contributed">Augšaustrija</subdivision>
+			<subdivision type="at5" draft="contributed">Zalcburga</subdivision>
+			<subdivision type="at6" draft="contributed">Štīrija</subdivision>
+			<subdivision type="at7" draft="contributed">Tirole</subdivision>
+			<subdivision type="at8" draft="contributed">Forarlberga</subdivision>
+			<subdivision type="at9" draft="contributed">Vīne</subdivision>
+			<subdivision type="auact" draft="contributed">Austrālijas galvaspilsētas teritorija</subdivision>
+			<subdivision type="aunsw" draft="contributed">Jaundienvidvelsa</subdivision>
+			<subdivision type="aunt" draft="contributed">Ziemeļu teritorija</subdivision>
+			<subdivision type="auqld" draft="contributed">Kvīnslenda</subdivision>
+			<subdivision type="ausa" draft="contributed">Dienvidaustrālija</subdivision>
+			<subdivision type="autas" draft="contributed">Tasmanija</subdivision>
+			<subdivision type="auvic" draft="contributed">Viktorija</subdivision>
+			<subdivision type="auwa" draft="contributed">Rietumaustrālija</subdivision>
+			<subdivision type="azba" draft="contributed">Baku</subdivision>
+			<subdivision type="azga" draft="contributed">Gendže</subdivision>
+			<subdivision type="azlan" draft="contributed">Lenkorāna</subdivision>
+			<subdivision type="aznv" draft="contributed">Nahčivana</subdivision>
+			<subdivision type="aznx" draft="contributed">Nahčivanas Autonomā Republika</subdivision>
+			<subdivision type="azsm" draft="contributed">Sumgajita</subdivision>
+			<subdivision type="azxa" draft="contributed">Stepanakerta</subdivision>
+			<subdivision type="babrc" draft="contributed">Brčko apgabals</subdivision>
+			<subdivision type="basrp" draft="contributed">Serbu Republika</subdivision>
+			<subdivision type="bb01" draft="contributed">Kraistčērčas pagasts</subdivision>
+			<subdivision type="bb03" draft="contributed">Sentdžordža pagasts</subdivision>
+			<subdivision type="bb10" draft="contributed">Sentfilipa pagasts</subdivision>
+			<subdivision type="bebru" draft="contributed">Briseles galvaspilsētas reģions</subdivision>
+			<subdivision type="bevan" draft="contributed">Antverpene</subdivision>
+			<subdivision type="bevbr" draft="contributed">Flāmu Brabante</subdivision>
+			<subdivision type="bevli" draft="contributed">Limburga</subdivision>
+			<subdivision type="bevov" draft="contributed">Austrumflandrija</subdivision>
+			<subdivision type="bevwv" draft="contributed">Rietumflandrija</subdivision>
+			<subdivision type="bewal" draft="contributed">Valonija</subdivision>
+			<subdivision type="bewbr" draft="contributed">Valoņu Brabante</subdivision>
+			<subdivision type="bewht" draft="contributed">Eno</subdivision>
+			<subdivision type="bewlg" draft="contributed">Ljēža</subdivision>
+			<subdivision type="bewlx" draft="contributed">Luksemburga</subdivision>
+			<subdivision type="bewna" draft="contributed">Namīra</subdivision>
+			<subdivision type="bg02" draft="contributed">Burgasas apgabals</subdivision>
+			<subdivision type="bg03" draft="contributed">Varnas apgabals</subdivision>
+			<subdivision type="bg08" draft="contributed">Dobričas apgabals</subdivision>
+			<subdivision type="bg17" draft="contributed">Razgradas apgabals</subdivision>
+			<subdivision type="bg18" draft="contributed">Ruses apgabals</subdivision>
+			<subdivision type="bg19" draft="contributed">Silistras apgabals</subdivision>
+			<subdivision type="bg27" draft="contributed">Šumenas apgabals</subdivision>
+			<subdivision type="bg28" draft="contributed">Jambolas apgabals</subdivision>
+			<subdivision type="bob" draft="contributed">Beni departaments</subdivision>
+			<subdivision type="boc" draft="contributed">Kočabambas departaments</subdivision>
+			<subdivision type="boh" draft="contributed">Čukisakas departaments</subdivision>
+			<subdivision type="bol" draft="contributed">Lapasas departaments</subdivision>
+			<subdivision type="bon" draft="contributed">Pando departaments</subdivision>
+			<subdivision type="boo" draft="contributed">Oruro departaments</subdivision>
+			<subdivision type="bop" draft="contributed">Potosi departaments</subdivision>
+			<subdivision type="bos" draft="contributed">Santakrusas departaments</subdivision>
+			<subdivision type="bot" draft="contributed">Tarihas departaments</subdivision>
+			<subdivision type="bqbo" draft="contributed">Bonaire</subdivision>
+			<subdivision type="bqsa" draft="contributed">Saba</subdivision>
+			<subdivision type="bqse" draft="contributed">Sintēstatiusa</subdivision>
+			<subdivision type="brac" draft="contributed">Akri</subdivision>
+			<subdivision type="bral" draft="contributed">Alagoasa</subdivision>
+			<subdivision type="bram" draft="contributed">Amazonasa</subdivision>
+			<subdivision type="brap" draft="contributed">Amapa</subdivision>
+			<subdivision type="brba" draft="contributed">Baija</subdivision>
+			<subdivision type="brce" draft="contributed">Seara</subdivision>
+			<subdivision type="brdf" draft="contributed">Federālais distrikts</subdivision>
+			<subdivision type="bres" draft="contributed">Espiritu Santu</subdivision>
+			<subdivision type="brgo" draft="contributed">Gojasa</subdivision>
+			<subdivision type="brma" draft="contributed">Maraņauna</subdivision>
+			<subdivision type="brmg" draft="contributed">Minasžeraisa</subdivision>
+			<subdivision type="brms" draft="contributed">Matugrosu du Sula</subdivision>
+			<subdivision type="brmt" draft="contributed">Matugrosu</subdivision>
+			<subdivision type="brpa" draft="contributed">Para</subdivision>
+			<subdivision type="brpb" draft="contributed">Paraiba</subdivision>
+			<subdivision type="brpe" draft="contributed">Pernambuku</subdivision>
+			<subdivision type="brpi" draft="contributed">Pjaui</subdivision>
+			<subdivision type="brpr" draft="contributed">Parana</subdivision>
+			<subdivision type="brrj" draft="contributed">Riodežaneiro</subdivision>
+			<subdivision type="brrn" draft="contributed">Riugrandi du Norti</subdivision>
+			<subdivision type="brro" draft="contributed">Rondonija</subdivision>
+			<subdivision type="brrr" draft="contributed">Roraima</subdivision>
+			<subdivision type="brrs" draft="contributed">Riugrandi du Sula</subdivision>
+			<subdivision type="brsc" draft="contributed">Santakatarina</subdivision>
+			<subdivision type="brse" draft="contributed">Seržipi</subdivision>
+			<subdivision type="brsp" draft="contributed">Sanpaulu</subdivision>
+			<subdivision type="brto" draft="contributed">Tokantinsa</subdivision>
+			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
+			<subdivision type="bybr" draft="contributed">Brestas apgabals</subdivision>
+			<subdivision type="byhm" draft="contributed">Minska</subdivision>
+			<subdivision type="byho" draft="contributed">Gomeļas apgabals</subdivision>
+			<subdivision type="byhr" draft="contributed">Grodņas apgabals</subdivision>
+			<subdivision type="byma" draft="contributed">Mogiļevas apgabals</subdivision>
+			<subdivision type="bymi" draft="contributed">Minskas apgabals</subdivision>
+			<subdivision type="byvi" draft="contributed">Vitebskas apgabals</subdivision>
+			<subdivision type="bzbz" draft="contributed">Belizas distrikts</subdivision>
+			<subdivision type="bzcy" draft="contributed">Kajo distrikts</subdivision>
+			<subdivision type="bzczl" draft="contributed">Korosalas distrikts</subdivision>
+			<subdivision type="bzow" draft="contributed">Orindžvokas distrikts</subdivision>
+			<subdivision type="bzsc" draft="contributed">Stankrīkas distrikts</subdivision>
+			<subdivision type="bztol" draft="contributed">Toledo distrikts</subdivision>
+			<subdivision type="caab" draft="contributed">Alberta</subdivision>
+			<subdivision type="cabc" draft="contributed">Britu Kolumbija</subdivision>
+			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
+			<subdivision type="canb" draft="contributed">Ņūbransvika</subdivision>
+			<subdivision type="canl" draft="contributed">Ņūfaundlenda un Labradora</subdivision>
+			<subdivision type="cans" draft="contributed">Jaunskotija</subdivision>
+			<subdivision type="cant" draft="contributed">Ziemeļrietumu Teritorijas</subdivision>
+			<subdivision type="canu" draft="contributed">Nunavuta</subdivision>
+			<subdivision type="caon" draft="contributed">Ontārio</subdivision>
+			<subdivision type="cape" draft="contributed">Prinča Edvarda Sala</subdivision>
+			<subdivision type="caqc" draft="contributed">Kvebeka</subdivision>
+			<subdivision type="cask" draft="contributed">Saskačevana</subdivision>
+			<subdivision type="cayt" draft="contributed">Jukona</subdivision>
+			<subdivision type="cdkn" draft="contributed">Kinšasa</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Bangi</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Brazavila</subdivision>
+			<subdivision type="chag" draft="contributed">Ārgavas kantons</subdivision>
+			<subdivision type="chai" draft="contributed">Apencelles-Innerrodenes kantons</subdivision>
+			<subdivision type="char" draft="contributed">Apencelles-Auserrodenes kantons</subdivision>
+			<subdivision type="chbe" draft="contributed">Bernes kantons</subdivision>
+			<subdivision type="chbl" draft="contributed">Bāzeles lauku kantons</subdivision>
+			<subdivision type="chbs" draft="contributed">Bāzeles pilsētas kantons</subdivision>
+			<subdivision type="chfr" draft="contributed">Fribūras kantons</subdivision>
+			<subdivision type="chge" draft="contributed">Ženēvas kantons</subdivision>
+			<subdivision type="chgl" draft="contributed">Glarusas kantons</subdivision>
+			<subdivision type="chgr" draft="contributed">Graubindenes kantons</subdivision>
+			<subdivision type="chju" draft="contributed">Juras kantons</subdivision>
+			<subdivision type="chlu" draft="contributed">Lucernas kantons</subdivision>
+			<subdivision type="chne" draft="contributed">Neišateles kantons</subdivision>
+			<subdivision type="chnw" draft="contributed">Nidvaldenes kantons</subdivision>
+			<subdivision type="chow" draft="contributed">Obvaldenes kantons</subdivision>
+			<subdivision type="chsg" draft="contributed">Sanktgallenes kantons</subdivision>
+			<subdivision type="chsh" draft="contributed">Šafhauzenes kantons</subdivision>
+			<subdivision type="chso" draft="contributed">Zoloturnas kantons</subdivision>
+			<subdivision type="chsz" draft="contributed">Švīces kantons</subdivision>
+			<subdivision type="chtg" draft="contributed">Turgavas kantons</subdivision>
+			<subdivision type="chti" draft="contributed">Tičīno kantons</subdivision>
+			<subdivision type="chur" draft="contributed">Ūrī kantons</subdivision>
+			<subdivision type="chvd" draft="contributed">Vo kantons</subdivision>
+			<subdivision type="chvs" draft="contributed">Valē kantons</subdivision>
+			<subdivision type="chzg" draft="contributed">Cūgas kantons</subdivision>
+			<subdivision type="chzh" draft="contributed">Cīrihes kantons</subdivision>
+			<subdivision type="ciab" draft="contributed">Abidžana</subdivision>
+			<subdivision type="ciym" draft="contributed">Jamusukro</subdivision>
+			<subdivision type="clbi" draft="contributed">Biobio reģions</subdivision>
+			<subdivision type="cmad" draft="contributed">Adamavas reģions</subdivision>
+			<subdivision type="cmce" draft="contributed">Centrālais reģions</subdivision>
+			<subdivision type="cmen" draft="contributed">Galējo Ziemeļu reģions</subdivision>
+			<subdivision type="cmes" draft="contributed">Austrumu reģions</subdivision>
+			<subdivision type="cmlt" draft="contributed">Piekrastes reģions</subdivision>
+			<subdivision type="cmno" draft="contributed">Ziemeļu reģions</subdivision>
+			<subdivision type="cmnw" draft="contributed">Ziemeļrietumu reģions</subdivision>
+			<subdivision type="cmou" draft="contributed">Rietumu reģions</subdivision>
+			<subdivision type="cmsu" draft="contributed">Dienvidu reģions</subdivision>
+			<subdivision type="cmsw" draft="contributed">Dienvidrietumu reģions</subdivision>
+			<subdivision type="cn11" draft="contributed">Pekina</subdivision>
+			<subdivision type="cn12" draft="contributed">Tjaņdziņa</subdivision>
+			<subdivision type="cn13" draft="contributed">Hebei</subdivision>
+			<subdivision type="cn14" draft="contributed">Šaņsji</subdivision>
+			<subdivision type="cn15" draft="contributed">Iekšējā Mongolija</subdivision>
+			<subdivision type="cn21" draft="contributed">Liaonina</subdivision>
+			<subdivision type="cn22" draft="contributed">Dzjiliņa</subdivision>
+			<subdivision type="cn23" draft="contributed">Heilundzjana</subdivision>
+			<subdivision type="cn31" draft="contributed">Šanhaja</subdivision>
+			<subdivision type="cn32" draft="contributed">Dzjansu</subdivision>
+			<subdivision type="cn33" draft="contributed">Džedzjana</subdivision>
+			<subdivision type="cn34" draft="contributed">Aņhui</subdivision>
+			<subdivision type="cn35" draft="contributed">Fudzjaņa</subdivision>
+			<subdivision type="cn36" draft="contributed">Dzjansji</subdivision>
+			<subdivision type="cn37" draft="contributed">Šaņduna</subdivision>
+			<subdivision type="cn41" draft="contributed">Henaņa</subdivision>
+			<subdivision type="cn42" draft="contributed">Hubei</subdivision>
+			<subdivision type="cn43" draft="contributed">Hunaņa</subdivision>
+			<subdivision type="cn44" draft="contributed">Guanduna</subdivision>
+			<subdivision type="cn45" draft="contributed">Guansji Džuanu autonomais reģions</subdivision>
+			<subdivision type="cn46" draft="contributed">Hainaņa</subdivision>
+			<subdivision type="cn50" draft="contributed">Čuncjina</subdivision>
+			<subdivision type="cn51" draft="contributed">Sičuaņa</subdivision>
+			<subdivision type="cn52" draft="contributed">Guidžou</subdivision>
+			<subdivision type="cn53" draft="contributed">Juņnaņa</subdivision>
+			<subdivision type="cn54" draft="contributed">Tibetas autonomais reģions</subdivision>
+			<subdivision type="cn61" draft="contributed">Šaaņsji</subdivision>
+			<subdivision type="cn62" draft="contributed">Gaņsu</subdivision>
+			<subdivision type="cn63" draft="contributed">Cjinhai</subdivision>
+			<subdivision type="cn64" draft="contributed">Ninsjas Hueju autonomais reģions</subdivision>
+			<subdivision type="cn65" draft="contributed">Siņdzjana</subdivision>
+			<subdivision type="codc" draft="contributed">Bogota</subdivision>
+			<subdivision type="cz10" draft="contributed">Prāga</subdivision>
+			<subdivision type="cz20" draft="contributed">Centrālčehijas apgabals</subdivision>
+			<subdivision type="cz31" draft="contributed">Dienvidčehijas apgabals</subdivision>
+			<subdivision type="cz53" draft="contributed">Pardubices apgabals</subdivision>
+			<subdivision type="cz63" draft="contributed">Visočinas apgabals</subdivision>
+			<subdivision type="cz64" draft="contributed">Dienvidmorāvijas apgabals</subdivision>
+			<subdivision type="cz71" draft="contributed">Olomoucas apgabals</subdivision>
+			<subdivision type="cz72" draft="contributed">Zlīnas apgabals</subdivision>
+			<subdivision type="cz80" draft="contributed">Morāvijas-Silēzijas apgabals</subdivision>
+			<subdivision type="cz531" draft="contributed">Hrudimas apriņķis</subdivision>
+			<subdivision type="cz532" draft="contributed">Pardubices apriņķis</subdivision>
+			<subdivision type="cz533" draft="contributed">Svitavu apriņķis</subdivision>
+			<subdivision type="cz534" draft="contributed">Ūstu pie Orlices apriņķis</subdivision>
+			<subdivision type="cz631" draft="contributed">Havlīčkūvbrodas apriņķis</subdivision>
+			<subdivision type="cz632" draft="contributed">Jihlavas apriņķis</subdivision>
+			<subdivision type="cz633" draft="contributed">Pelhržimovas apriņķis</subdivision>
+			<subdivision type="cz634" draft="contributed">Tršebīčas apriņķis</subdivision>
+			<subdivision type="cz635" draft="contributed">Ždjāras pie Sāzavas apriņķis</subdivision>
+			<subdivision type="cz641" draft="contributed">Blansko apriņķis</subdivision>
+			<subdivision type="cz643" draft="contributed">Brno lauku apriņķis</subdivision>
+			<subdivision type="cz644" draft="contributed">Bržeclavas apriņķis</subdivision>
+			<subdivision type="cz645" draft="contributed">Hodonīnas apriņķis</subdivision>
+			<subdivision type="cz646" draft="contributed">Viškovas apriņķis</subdivision>
+			<subdivision type="cz647" draft="contributed">Znojmo apriņķis</subdivision>
+			<subdivision type="cz711" draft="contributed">Jesenīkas apriņķis</subdivision>
+			<subdivision type="cz712" draft="contributed">Olomoucas apriņķis</subdivision>
+			<subdivision type="cz713" draft="contributed">Prostejovas apriņķis</subdivision>
+			<subdivision type="cz714" draft="contributed">Pršerovas apriņķis</subdivision>
+			<subdivision type="cz715" draft="contributed">Šumperkas apriņķis</subdivision>
+			<subdivision type="cz721" draft="contributed">Kromeržīžas apriņķis</subdivision>
+			<subdivision type="cz722" draft="contributed">Uherske Hradištes apriņķis</subdivision>
+			<subdivision type="cz723" draft="contributed">Vsetīnas apriņķis</subdivision>
+			<subdivision type="cz724" draft="contributed">Zlīnas apriņķis</subdivision>
+			<subdivision type="cz801" draft="contributed">Bruntālas apriņķis</subdivision>
+			<subdivision type="cz802" draft="contributed">Frīdekmīstekas apriņķis</subdivision>
+			<subdivision type="cz803" draft="contributed">Karvinas apriņķis</subdivision>
+			<subdivision type="cz804" draft="contributed">Novi Jičīnas apriņķis</subdivision>
+			<subdivision type="cz805" draft="contributed">Opavas apriņķis</subdivision>
+			<subdivision type="cz806" draft="contributed">Ostravas-pilsētas apriņķis</subdivision>
+			<subdivision type="debb" draft="contributed">Brandenburga</subdivision>
+			<subdivision type="debe" draft="contributed">Berlīne</subdivision>
+			<subdivision type="debw" draft="contributed">Bādene-Virtemberga</subdivision>
+			<subdivision type="deby" draft="contributed">Bavārija</subdivision>
+			<subdivision type="dehb" draft="contributed">Brēmene</subdivision>
+			<subdivision type="dehe" draft="contributed">Hesene</subdivision>
+			<subdivision type="dehh" draft="contributed">Hamburga</subdivision>
+			<subdivision type="demv" draft="contributed">Mēklenburga-Priekšpomerānija</subdivision>
+			<subdivision type="deni" draft="contributed">Lejassaksija</subdivision>
+			<subdivision type="denw" draft="contributed">Ziemeļreina-Vestfālene</subdivision>
+			<subdivision type="derp" draft="contributed">Reinzeme-Pfalca</subdivision>
+			<subdivision type="desh" draft="contributed">Šlēsviga-Holšteina</subdivision>
+			<subdivision type="desl" draft="contributed">Zāra</subdivision>
+			<subdivision type="desn" draft="contributed">Saksija</subdivision>
+			<subdivision type="dest" draft="contributed">Saksija-Anhalte</subdivision>
+			<subdivision type="deth" draft="contributed">Tīringene</subdivision>
+			<subdivision type="djdj" draft="contributed">Džibuti</subdivision>
+			<subdivision type="dk81" draft="contributed">Ziemeļjitlandes reģions</subdivision>
+			<subdivision type="dk82" draft="contributed">Vidusjitlandes reģions</subdivision>
+			<subdivision type="dk83" draft="contributed">Dienviddānijas reģions</subdivision>
+			<subdivision type="dm02" draft="contributed">Sentendrū pagasts</subdivision>
+			<subdivision type="dm03" draft="contributed">Sentdeivida pagasts</subdivision>
+			<subdivision type="dm04" draft="contributed">Sentdžordža pagasts</subdivision>
+			<subdivision type="dm05" draft="contributed">Sentdžona pagasts</subdivision>
+			<subdivision type="dm06" draft="contributed">Sentdžozefa pagasts</subdivision>
+			<subdivision type="dm07" draft="contributed">Sentlūka pagasts</subdivision>
+			<subdivision type="dm08" draft="contributed">Sentmarka pagasts</subdivision>
+			<subdivision type="dm09" draft="contributed">Sentpatrika pagasts</subdivision>
+			<subdivision type="dm10" draft="contributed">Sentpola pagasts</subdivision>
+			<subdivision type="dm11" draft="contributed">Sentpītera pagasts</subdivision>
+			<subdivision type="ee37" draft="contributed">Harju apriņķis</subdivision>
+			<subdivision type="ee39" draft="contributed">Hījumā apriņķis</subdivision>
+			<subdivision type="ee44" draft="contributed">Austrumviru apriņķis</subdivision>
+			<subdivision type="ee49" draft="contributed">Jegevas apriņķis</subdivision>
+			<subdivision type="ee51" draft="contributed">Jervas apriņķis</subdivision>
+			<subdivision type="ee57" draft="contributed">Lēnes apriņķis</subdivision>
+			<subdivision type="ee59" draft="contributed">Rietumviru apriņķis</subdivision>
+			<subdivision type="ee65" draft="contributed">Pelvas apriņķis</subdivision>
+			<subdivision type="ee67" draft="contributed">Pērnavas apriņķis</subdivision>
+			<subdivision type="ee70" draft="contributed">Raplas apriņķis</subdivision>
+			<subdivision type="ee74" draft="contributed">Sāremā apriņķis</subdivision>
+			<subdivision type="ee78" draft="contributed">Tartu apriņķis</subdivision>
+			<subdivision type="ee82" draft="contributed">Valgas apriņķis</subdivision>
+			<subdivision type="ee84" draft="contributed">Viljandi apriņķis</subdivision>
+			<subdivision type="ee86" draft="contributed">Veru apriņķis</subdivision>
+			<subdivision type="egc" draft="contributed">Kairas muhāfaza</subdivision>
+			<subdivision type="esa" draft="contributed">Alakantas province</subdivision>
+			<subdivision type="esab" draft="contributed">Albasetes province</subdivision>
+			<subdivision type="esal" draft="contributed">Almerijas province</subdivision>
+			<subdivision type="esan" draft="contributed">Andalūzija</subdivision>
+			<subdivision type="esar" draft="contributed">Aragona</subdivision>
+			<subdivision type="esas" draft="contributed">Astūrija</subdivision>
+			<subdivision type="esav" draft="contributed">Avilas province</subdivision>
+			<subdivision type="esb" draft="contributed">Barselonas province</subdivision>
+			<subdivision type="esba" draft="contributed">Badahosas province</subdivision>
+			<subdivision type="esbi" draft="contributed">Biskaja</subdivision>
+			<subdivision type="esbu" draft="contributed">Burgosas province</subdivision>
+			<subdivision type="esc" draft="contributed">Akoruņas province</subdivision>
+			<subdivision type="esca" draft="contributed">Kadisas province</subdivision>
+			<subdivision type="escb" draft="contributed">Kantabrija</subdivision>
+			<subdivision type="escc" draft="contributed">Kaseresas province</subdivision>
+			<subdivision type="esce" draft="contributed">Seuta</subdivision>
+			<subdivision type="escl" draft="contributed">Kastīlija un Leona</subdivision>
+			<subdivision type="escm" draft="contributed">Kastīlija-Lamanča</subdivision>
+			<subdivision type="esco" draft="contributed">Kordovas province</subdivision>
+			<subdivision type="escr" draft="contributed">Sjudadrealas province</subdivision>
+			<subdivision type="escs" draft="contributed">Kastelo province</subdivision>
+			<subdivision type="esct" draft="contributed">Katalonija</subdivision>
+			<subdivision type="escu" draft="contributed">Kvenkas province</subdivision>
+			<subdivision type="esex" draft="contributed">Estremadura</subdivision>
+			<subdivision type="esga" draft="contributed">Galisija</subdivision>
+			<subdivision type="esgc" draft="contributed">Laspalmasas province</subdivision>
+			<subdivision type="esgi" draft="contributed">Žironas province</subdivision>
+			<subdivision type="esgr" draft="contributed">Granadas province</subdivision>
+			<subdivision type="esgu" draft="contributed">Gvadalaharas province</subdivision>
+			<subdivision type="esh" draft="contributed">Velvas province</subdivision>
+			<subdivision type="eshu" draft="contributed">Veskas province</subdivision>
+			<subdivision type="esib" draft="contributed">Baleāru Salas</subdivision>
+			<subdivision type="esj" draft="contributed">Haenas province</subdivision>
+			<subdivision type="esl" draft="contributed">Ļeidas province</subdivision>
+			<subdivision type="esle" draft="contributed">Leonas province</subdivision>
+			<subdivision type="eslo" draft="contributed">Larjoha</subdivision>
+			<subdivision type="eslu" draft="contributed">Lugo province</subdivision>
+			<subdivision type="esma" draft="contributed">Malagas province</subdivision>
+			<subdivision type="esmc" draft="contributed">Mursijas reģions</subdivision>
+			<subdivision type="esmd" draft="contributed">Madride</subdivision>
+			<subdivision type="esml" draft="contributed">Melilja</subdivision>
+			<subdivision type="esnc" draft="contributed">Navarra</subdivision>
+			<subdivision type="esor" draft="contributed">Ourenses province</subdivision>
+			<subdivision type="esp" draft="contributed">Palensijas province</subdivision>
+			<subdivision type="espo" draft="contributed">Pontebedras province</subdivision>
+			<subdivision type="espv" draft="contributed">Basku Zeme</subdivision>
+			<subdivision type="esri" draft="contributed">Larjoha²</subdivision>
+			<subdivision type="essa" draft="contributed">Salamankas province</subdivision>
+			<subdivision type="esse" draft="contributed">Seviljas province</subdivision>
+			<subdivision type="essg" draft="contributed">Segovijas province</subdivision>
+			<subdivision type="esso" draft="contributed">Sorijas province</subdivision>
+			<subdivision type="esss" draft="contributed">Gipuskoja</subdivision>
+			<subdivision type="est" draft="contributed">Taragonas province</subdivision>
+			<subdivision type="este" draft="contributed">Tervelas province</subdivision>
+			<subdivision type="estf" draft="contributed">Santakrusas de Tenerifes province</subdivision>
+			<subdivision type="esto" draft="contributed">Toledo province</subdivision>
+			<subdivision type="esv" draft="contributed">Valensijas province</subdivision>
+			<subdivision type="esva" draft="contributed">Valjadolidas province</subdivision>
+			<subdivision type="esvc" draft="contributed">Valensija</subdivision>
+			<subdivision type="esvi" draft="contributed">Alavas province</subdivision>
+			<subdivision type="esz" draft="contributed">Saragosas province</subdivision>
+			<subdivision type="esza" draft="contributed">Samoras province</subdivision>
+			<subdivision type="etaa" draft="contributed">Adisabeba</subdivision>
+			<subdivision type="fi10" draft="contributed">Lapzeme</subdivision>
+			<subdivision type="fr01" draft="contributed">Ēna</subdivision>
+			<subdivision type="fr02" draft="contributed">Ēna²</subdivision>
+			<subdivision type="fr2a" draft="contributed">Dienvidkorsika</subdivision>
+			<subdivision type="fr2b" draft="contributed">Augškorsika</subdivision>
+			<subdivision type="fr03" draft="contributed">Aljē</subdivision>
+			<subdivision type="fr04" draft="contributed">Augšprovansas Alpi</subdivision>
+			<subdivision type="fr05" draft="contributed">Augšalpi</subdivision>
+			<subdivision type="fr06" draft="contributed">Piejūras Alpi</subdivision>
+			<subdivision type="fr07" draft="contributed">Ardēša</subdivision>
+			<subdivision type="fr08" draft="contributed">Ardēni</subdivision>
+			<subdivision type="fr09" draft="contributed">Arjēža</subdivision>
+			<subdivision type="fr10" draft="contributed">Oba</subdivision>
+			<subdivision type="fr11" draft="contributed">Oda</subdivision>
+			<subdivision type="fr12" draft="contributed">Aveirona</subdivision>
+			<subdivision type="fr13" draft="contributed">Bušdirona</subdivision>
+			<subdivision type="fr14" draft="contributed">Kalvadosa</subdivision>
+			<subdivision type="fr15" draft="contributed">Kantāla</subdivision>
+			<subdivision type="fr16" draft="contributed">Šaranta</subdivision>
+			<subdivision type="fr17" draft="contributed">Piejūras Šaranta</subdivision>
+			<subdivision type="fr18" draft="contributed">Šēra</subdivision>
+			<subdivision type="fr19" draft="contributed">Korēza</subdivision>
+			<subdivision type="fr21" draft="contributed">Kotdora</subdivision>
+			<subdivision type="fr22" draft="contributed">Kotdarmora</subdivision>
+			<subdivision type="fr23" draft="contributed">Krēza</subdivision>
+			<subdivision type="fr24" draft="contributed">Dordoņa</subdivision>
+			<subdivision type="fr25" draft="contributed">Dū</subdivision>
+			<subdivision type="fr26" draft="contributed">Droma</subdivision>
+			<subdivision type="fr27" draft="contributed">Ēra</subdivision>
+			<subdivision type="fr28" draft="contributed">Ēra un Luāra</subdivision>
+			<subdivision type="fr29" draft="contributed">Finistēra</subdivision>
+			<subdivision type="fr30" draft="contributed">Gāra</subdivision>
+			<subdivision type="fr31" draft="contributed">Augšgaronna</subdivision>
+			<subdivision type="fr32" draft="contributed">Žēra</subdivision>
+			<subdivision type="fr33" draft="contributed">Žironda</subdivision>
+			<subdivision type="fr34" draft="contributed">Ēro</subdivision>
+			<subdivision type="fr35" draft="contributed">Ila un Vilēna</subdivision>
+			<subdivision type="fr36" draft="contributed">Endra</subdivision>
+			<subdivision type="fr37" draft="contributed">Endra un Luāra</subdivision>
+			<subdivision type="fr38" draft="contributed">Izēra</subdivision>
+			<subdivision type="fr39" draft="contributed">Jura</subdivision>
+			<subdivision type="fr40" draft="contributed">Landa</subdivision>
+			<subdivision type="fr41" draft="contributed">Luāra un Šēra</subdivision>
+			<subdivision type="fr42" draft="contributed">Luāra</subdivision>
+			<subdivision type="fr43" draft="contributed">Augšluāra</subdivision>
+			<subdivision type="fr44" draft="contributed">Atlantijas Luāra</subdivision>
+			<subdivision type="fr45" draft="contributed">Luarē</subdivision>
+			<subdivision type="fr46" draft="contributed">Lo</subdivision>
+			<subdivision type="fr47" draft="contributed">Lo un Garonna</subdivision>
+			<subdivision type="fr48" draft="contributed">Lozēra</subdivision>
+			<subdivision type="fr49" draft="contributed">Mēna un Luāra</subdivision>
+			<subdivision type="fr50" draft="contributed">Manša</subdivision>
+			<subdivision type="fr51" draft="contributed">Marna</subdivision>
+			<subdivision type="fr52" draft="contributed">Augšmarna</subdivision>
+			<subdivision type="fr53" draft="contributed">Majenna</subdivision>
+			<subdivision type="fr54" draft="contributed">Merta un Mozele</subdivision>
+			<subdivision type="fr55" draft="contributed">Mēza</subdivision>
+			<subdivision type="fr56" draft="contributed">Morbiāna</subdivision>
+			<subdivision type="fr57" draft="contributed">Mozele</subdivision>
+			<subdivision type="fr58" draft="contributed">Njevra</subdivision>
+			<subdivision type="fr59" draft="contributed">Nora</subdivision>
+			<subdivision type="fr60" draft="contributed">Uāza</subdivision>
+			<subdivision type="fr61" draft="contributed">Orna</subdivision>
+			<subdivision type="fr62" draft="contributed">Padekalē</subdivision>
+			<subdivision type="fr63" draft="contributed">Pijdedoma</subdivision>
+			<subdivision type="fr64" draft="contributed">Atlantijas Pireneji</subdivision>
+			<subdivision type="fr65" draft="contributed">Augšpireneji</subdivision>
+			<subdivision type="fr66" draft="contributed">Austrumpireneji</subdivision>
+			<subdivision type="fr67" draft="contributed">Lejasreina</subdivision>
+			<subdivision type="fr68" draft="contributed">Augšreina</subdivision>
+			<subdivision type="fr69" draft="contributed">Rona</subdivision>
+			<subdivision type="fr70" draft="contributed">Augšsona</subdivision>
+			<subdivision type="fr71" draft="contributed">Sona un Luāra</subdivision>
+			<subdivision type="fr72" draft="contributed">Sarta</subdivision>
+			<subdivision type="fr73" draft="contributed">Savoja</subdivision>
+			<subdivision type="fr74" draft="contributed">Augšsavoja</subdivision>
+			<subdivision type="fr75" draft="contributed">Parīze</subdivision>
+			<subdivision type="fr76" draft="contributed">Piejūras Sēna</subdivision>
+			<subdivision type="fr77" draft="contributed">Sēna un Marna</subdivision>
+			<subdivision type="fr78" draft="contributed">Ivelīna</subdivision>
+			<subdivision type="fr79" draft="contributed">Desevra</subdivision>
+			<subdivision type="fr80" draft="contributed">Somma</subdivision>
+			<subdivision type="fr81" draft="contributed">Tarna</subdivision>
+			<subdivision type="fr82" draft="contributed">Tarna un Garonna</subdivision>
+			<subdivision type="fr83" draft="contributed">Vāra</subdivision>
+			<subdivision type="fr84" draft="contributed">Voklīza</subdivision>
+			<subdivision type="fr85" draft="contributed">Vandeja</subdivision>
+			<subdivision type="fr86" draft="contributed">Vjenna</subdivision>
+			<subdivision type="fr87" draft="contributed">Augšvjenna</subdivision>
+			<subdivision type="fr88" draft="contributed">Vogēzi</subdivision>
+			<subdivision type="fr89" draft="contributed">Jona</subdivision>
+			<subdivision type="fr90" draft="contributed">Belfora</subdivision>
+			<subdivision type="fr91" draft="contributed">Esona</subdivision>
+			<subdivision type="fr92" draft="contributed">Odesēna</subdivision>
+			<subdivision type="fr93" draft="contributed">Sēna-Sendenī</subdivision>
+			<subdivision type="fr94" draft="contributed">Valdemarna</subdivision>
+			<subdivision type="fr95" draft="contributed">Valduāza</subdivision>
+			<subdivision type="frara" draft="contributed">Overņa-Rona-Alpi</subdivision>
+			<subdivision type="frbre" draft="contributed">Bretaņa</subdivision>
+			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
+			<subdivision type="frcvl" draft="contributed">Centrs</subdivision>
+			<subdivision type="fridf" draft="contributed">Ildefransa</subdivision>
+			<subdivision type="frpac" draft="contributed">Provansa-Alpi-Azūra Krasts</subdivision>
+			<subdivision type="frpdl" draft="contributed">Luāra²</subdivision>
+			<subdivision type="gbabe" draft="contributed">Aberdīna</subdivision>
+			<subdivision type="gbbir" draft="contributed">Birmingema</subdivision>
+			<subdivision type="gbbkm" draft="contributed">Bekingemšīra</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Blekpūla</subdivision>
+			<subdivision type="gbbst" draft="contributed">Bristole</subdivision>
+			<subdivision type="gbcam" draft="contributed">Kembridžšīra</subdivision>
+			<subdivision type="gbcma" draft="contributed">Kambrija</subdivision>
+			<subdivision type="gbcon" draft="contributed">Kornvola</subdivision>
+			<subdivision type="gbcov" draft="contributed">Koventrija</subdivision>
+			<subdivision type="gbcrf" draft="contributed">Kārdifa</subdivision>
+			<subdivision type="gbdby" draft="contributed">Dārbišīra</subdivision>
+			<subdivision type="gbder" draft="contributed">Dārbi</subdivision>
+			<subdivision type="gbdev" draft="contributed">Devona</subdivision>
+			<subdivision type="gbdnd" draft="contributed">Dandī</subdivision>
+			<subdivision type="gbdor" draft="contributed">Dorseta</subdivision>
+			<subdivision type="gbdur" draft="contributed">Daremas grāfiste</subdivision>
+			<subdivision type="gbedh" draft="contributed">Edinburga</subdivision>
+			<subdivision type="gbeng">Anglija</subdivision>
+			<subdivision type="gbery" draft="contributed">Jorkšīras Īstraidinga</subdivision>
+			<subdivision type="gbess" draft="contributed">Eseksa</subdivision>
+			<subdivision type="gbesx" draft="contributed">Īstsaseksa</subdivision>
+			<subdivision type="gbgbn" draft="contributed">Lielbritānija</subdivision>
+			<subdivision type="gbglg" draft="contributed">Glāzgova</subdivision>
+			<subdivision type="gbgls" draft="contributed">Glosteršīra</subdivision>
+			<subdivision type="gbham" draft="contributed">Hempšīra</subdivision>
+			<subdivision type="gbhef" draft="contributed">Herefordšīra</subdivision>
+			<subdivision type="gbhrt" draft="contributed">Hārtfordšīra</subdivision>
+			<subdivision type="gbiow" draft="contributed">Vaita</subdivision>
+			<subdivision type="gbken" draft="contributed">Kenta</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Kingstona pie Hallas</subdivision>
+			<subdivision type="gblan" draft="contributed">Lankašīra</subdivision>
+			<subdivision type="gblbh" draft="contributed">Lembeta</subdivision>
+			<subdivision type="gblce" draft="contributed">Lestera</subdivision>
+			<subdivision type="gblec" draft="contributed">Lesteršīra</subdivision>
+			<subdivision type="gblin" draft="contributed">Linkolnšīra</subdivision>
+			<subdivision type="gbliv" draft="contributed">Liverpūle</subdivision>
+			<subdivision type="gblnd" draft="contributed">Londonas Sitija</subdivision>
+			<subdivision type="gbman" draft="contributed">Mančestra</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Midlsbro</subdivision>
+			<subdivision type="gbmrt" draft="contributed">Mertona</subdivision>
+			<subdivision type="gbnbl" draft="contributed">Nortamberlenda</subdivision>
+			<subdivision type="gbnet" draft="contributed">Ņūkāsla pie Tainas</subdivision>
+			<subdivision type="gbnfk" draft="contributed">Norfolka</subdivision>
+			<subdivision type="gbngm" draft="contributed">Notingema</subdivision>
+			<subdivision type="gbnir" draft="contributed">Ziemeļīrija</subdivision>
+			<subdivision type="gbnth" draft="contributed">Northemptonšīra</subdivision>
+			<subdivision type="gbntt" draft="contributed">Notingemšīra</subdivision>
+			<subdivision type="gbnyk" draft="contributed">Nortjorkšīra</subdivision>
+			<subdivision type="gbork" draft="contributed">Orkneju salas</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oksfordšīra</subdivision>
+			<subdivision type="gbply" draft="contributed">Plimuta</subdivision>
+			<subdivision type="gbpor" draft="contributed">Portsmuta</subdivision>
+			<subdivision type="gbpte" draft="contributed">Pīterboro</subdivision>
+			<subdivision type="gbrdg" draft="contributed">Redinga</subdivision>
+			<subdivision type="gbrut" draft="contributed">Ratlenda</subdivision>
+			<subdivision type="gbsct">Skotija</subdivision>
+			<subdivision type="gbsfk" draft="contributed">Safolka</subdivision>
+			<subdivision type="gbshf" draft="contributed">Šefīlda</subdivision>
+			<subdivision type="gbshr" draft="contributed">Šropšīra</subdivision>
+			<subdivision type="gbsom" draft="contributed">Somerseta</subdivision>
+			<subdivision type="gbsry" draft="contributed">Sareja</subdivision>
+			<subdivision type="gbste" draft="contributed">Stoka pie Trentas</subdivision>
+			<subdivision type="gbsth" draft="contributed">Sauthemptona</subdivision>
+			<subdivision type="gbsts" draft="contributed">Stefordšīra</subdivision>
+			<subdivision type="gbswa" draft="contributed">Svonzi</subdivision>
+			<subdivision type="gbswk" draft="contributed">Sautvorka</subdivision>
+			<subdivision type="gbukm" draft="contributed">Apvienotā Karaliste</subdivision>
+			<subdivision type="gbwar" draft="contributed">Vorikšīra</subdivision>
+			<subdivision type="gbwil" draft="contributed">Viltšīra</subdivision>
+			<subdivision type="gbwls">Velsa</subdivision>
+			<subdivision type="gbwlv" draft="contributed">Vulverhemptona</subdivision>
+			<subdivision type="gbwnd" draft="contributed">Vondsvērta</subdivision>
+			<subdivision type="gbwor" draft="contributed">Vusteršīra</subdivision>
+			<subdivision type="gbwsx" draft="contributed">Vestsaseksa</subdivision>
+			<subdivision type="gbyor" draft="contributed">Jorka</subdivision>
+			<subdivision type="gbzet" draft="contributed">Šetlendas salas</subdivision>
+			<subdivision type="geab" draft="contributed">Abhāzija</subdivision>
+			<subdivision type="geaj" draft="contributed">Adžārija</subdivision>
+			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
+			<subdivision type="gmb" draft="contributed">Bandžula</subdivision>
+			<subdivision type="gnc" draft="contributed">Konakri</subdivision>
+			<subdivision type="gr69" draft="contributed">Ajonora</subdivision>
+			<subdivision type="gwbs" draft="contributed">Bisava</subdivision>
+			<subdivision type="hr21" draft="contributed">Zagreba</subdivision>
+			<subdivision type="huba" draft="contributed">Baraņas meģe</subdivision>
+			<subdivision type="hube" draft="contributed">Bēkēšas meģe</subdivision>
+			<subdivision type="hubk" draft="contributed">Bāčas-Kiškunas meģe</subdivision>
+			<subdivision type="hubu" draft="contributed">Budapešta</subdivision>
+			<subdivision type="hubz" draft="contributed">Boršodas-Abaūjas-Zemplēna meģe</subdivision>
+			<subdivision type="hucs" draft="contributed">Čongrādas meģe</subdivision>
+			<subdivision type="hude" draft="contributed">Debrecena</subdivision>
+			<subdivision type="hueg" draft="contributed">Egera</subdivision>
+			<subdivision type="hufe" draft="contributed">Fejēras meģe</subdivision>
+			<subdivision type="hugs" draft="contributed">Ģēras-Mošonas-Šopronas meģe</subdivision>
+			<subdivision type="hugy" draft="contributed">Ģēra</subdivision>
+			<subdivision type="huhb" draft="contributed">Hajdū-Biharas meģe</subdivision>
+			<subdivision type="huhe" draft="contributed">Hevešas meģe</subdivision>
+			<subdivision type="hujn" draft="contributed">Jāsas-Naģkunas-Solnokas meģe</subdivision>
+			<subdivision type="huke" draft="contributed">Komāromas-Estergomas meģe</subdivision>
+			<subdivision type="humi" draft="contributed">Miškolca</subdivision>
+			<subdivision type="huno" draft="contributed">Nogrādas meģe</subdivision>
+			<subdivision type="hupe" draft="contributed">Peštas meģe</subdivision>
+			<subdivision type="hups" draft="contributed">Pēča</subdivision>
+			<subdivision type="husd" draft="contributed">Segeda</subdivision>
+			<subdivision type="husf" draft="contributed">Sēkešfehērvāra</subdivision>
+			<subdivision type="husn" draft="contributed">Šoprona</subdivision>
+			<subdivision type="huso" draft="contributed">Šomoģas meģe</subdivision>
+			<subdivision type="husz" draft="contributed">Sabolčas-Satmāras-Beregas meģe</subdivision>
+			<subdivision type="huto" draft="contributed">Tolnas meģe</subdivision>
+			<subdivision type="huva" draft="contributed">Vašas meģe</subdivision>
+			<subdivision type="huve" draft="contributed">Vesprēmas meģe</subdivision>
+			<subdivision type="huza" draft="contributed">Zalas meģe</subdivision>
+			<subdivision type="idac" draft="contributed">Ačeha</subdivision>
+			<subdivision type="idbb" draft="contributed">Banka-Belituna</subdivision>
+			<subdivision type="idbe" draft="contributed">Benkulu</subdivision>
+			<subdivision type="idbt" draft="contributed">Bantena</subdivision>
+			<subdivision type="idjk" draft="contributed">Džakarta</subdivision>
+			<subdivision type="idjw" draft="contributed">Java</subdivision>
+			<subdivision type="idml" draft="contributed">Moluku salas</subdivision>
+			<subdivision type="idnu" draft="contributed">Mazās Zunda salas</subdivision>
+			<subdivision type="idpa" draft="contributed">Papua</subdivision>
+			<subdivision type="idsl" draft="contributed">Sulavesi</subdivision>
+			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
+			<subdivision type="ieu" draft="contributed">Olstera</subdivision>
+			<subdivision type="ild" draft="contributed">Dienvidu apgabals</subdivision>
+			<subdivision type="ilha" draft="contributed">Haifas apgabals</subdivision>
+			<subdivision type="iljm" draft="contributed">Jeruzalemes apgabals</subdivision>
+			<subdivision type="ilm" draft="contributed">Centra apgabals</subdivision>
+			<subdivision type="ilta" draft="contributed">Telavivas apgabals</subdivision>
+			<subdivision type="ilz" draft="contributed">Ziemeļu apgabals</subdivision>
+			<subdivision type="inan" draft="contributed">Andamanu un Nikobaru Salas</subdivision>
+			<subdivision type="inap" draft="contributed">Āndhra Pradēša</subdivision>
+			<subdivision type="inar" draft="contributed">Arunāčala Pradēša</subdivision>
+			<subdivision type="inas" draft="contributed">Asama</subdivision>
+			<subdivision type="inbr" draft="contributed">Bihāra</subdivision>
+			<subdivision type="inch" draft="contributed">Čandīgarha</subdivision>
+			<subdivision type="inct" draft="contributed">Čhatīsgarha</subdivision>
+			<subdivision type="indd" draft="contributed">Damāna un Diu</subdivision>
+			<subdivision type="indl" draft="contributed">Deli</subdivision>
+			<subdivision type="indn" draft="contributed">Dādra un Nagarhaveli</subdivision>
+			<subdivision type="inga" draft="contributed">Goa</subdivision>
+			<subdivision type="ingj" draft="contributed">Gudžarāta</subdivision>
+			<subdivision type="inhp" draft="contributed">Himāčala Pradēša</subdivision>
+			<subdivision type="inhr" draft="contributed">Harjāna</subdivision>
+			<subdivision type="injh" draft="contributed">Džhārkhanda</subdivision>
+			<subdivision type="injk" draft="contributed">Džammu un Kašmīra</subdivision>
+			<subdivision type="inka" draft="contributed">Karnātaka</subdivision>
+			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inld" draft="contributed">Lakšadvīpa</subdivision>
+			<subdivision type="inmh" draft="contributed">Mahārāštra</subdivision>
+			<subdivision type="inml" draft="contributed">Meghālaja</subdivision>
+			<subdivision type="inmn" draft="contributed">Manipura</subdivision>
+			<subdivision type="inmp" draft="contributed">Madhja Pradēša</subdivision>
+			<subdivision type="inmz" draft="contributed">Mizorāma</subdivision>
+			<subdivision type="innl" draft="contributed">Nāgālenda</subdivision>
+			<subdivision type="inor" draft="contributed">Orisa</subdivision>
+			<subdivision type="inpb" draft="contributed">Pendžāba</subdivision>
+			<subdivision type="inpy" draft="contributed">Pudučerri</subdivision>
+			<subdivision type="inrj" draft="contributed">Rādžastāna</subdivision>
+			<subdivision type="insk" draft="contributed">Sikima</subdivision>
+			<subdivision type="intg" draft="contributed">Telangāna</subdivision>
+			<subdivision type="intn" draft="contributed">Tamilnāda</subdivision>
+			<subdivision type="intr" draft="contributed">Tripura</subdivision>
+			<subdivision type="inup" draft="contributed">Utarpradēša</subdivision>
+			<subdivision type="inut" draft="contributed">Utarakhanda</subdivision>
+			<subdivision type="inwb" draft="contributed">Rietumbengāle</subdivision>
+			<subdivision type="ir01" draft="contributed">Austrumazerbaidžāna</subdivision>
+			<subdivision type="ir02" draft="contributed">Rietumazerbaidžāna</subdivision>
+			<subdivision type="ir03" draft="contributed">Ardabīla</subdivision>
+			<subdivision type="ir04" draft="contributed">Isfahāna (ostāns)</subdivision>
+			<subdivision type="ir05" draft="contributed">Īlāma</subdivision>
+			<subdivision type="ir06" draft="contributed">Būšehra</subdivision>
+			<subdivision type="ir07" draft="contributed">Teherāna</subdivision>
+			<subdivision type="ir08" draft="contributed">Čahārmahāla un Bahtijārī</subdivision>
+			<subdivision type="ir10" draft="contributed">Hūzestāna</subdivision>
+			<subdivision type="ir11" draft="contributed">Zandžāna</subdivision>
+			<subdivision type="ir12" draft="contributed">Semnāna</subdivision>
+			<subdivision type="ir13" draft="contributed">Sīstāna un Beludžistāna</subdivision>
+			<subdivision type="ir14" draft="contributed">Fārsa</subdivision>
+			<subdivision type="ir15" draft="contributed">Kermāna</subdivision>
+			<subdivision type="ir16" draft="contributed">Kurdistāna</subdivision>
+			<subdivision type="ir17" draft="contributed">Kermānšāha</subdivision>
+			<subdivision type="ir18" draft="contributed">Kohkīlūje un Būjerahmada</subdivision>
+			<subdivision type="ir19" draft="contributed">Gīlāna</subdivision>
+			<subdivision type="ir20" draft="contributed">Luristāna</subdivision>
+			<subdivision type="ir21" draft="contributed">Māzenderāna</subdivision>
+			<subdivision type="ir22" draft="contributed">Markazī</subdivision>
+			<subdivision type="ir23" draft="contributed">Hormozgāna</subdivision>
+			<subdivision type="ir24" draft="contributed">Hamadāna</subdivision>
+			<subdivision type="ir25" draft="contributed">Jezda</subdivision>
+			<subdivision type="ir26" draft="contributed">Kuma</subdivision>
+			<subdivision type="ir27" draft="contributed">Golestāna</subdivision>
+			<subdivision type="ir28" draft="contributed">Kazvīna</subdivision>
+			<subdivision type="ir29" draft="contributed">Dienvidhorasāna</subdivision>
+			<subdivision type="ir30" draft="contributed">Rezāvi Horasāna</subdivision>
+			<subdivision type="ir31" draft="contributed">Ziemeļhorasāna</subdivision>
+			<subdivision type="is1" draft="contributed">Galvaspilsētas reģions</subdivision>
+			<subdivision type="is2" draft="contributed">Dienvidu pussala</subdivision>
+			<subdivision type="is3" draft="contributed">Rietumu reģions</subdivision>
+			<subdivision type="is4" draft="contributed">Rietumfjordi</subdivision>
+			<subdivision type="is5" draft="contributed">Ziemeļrietumu reģions</subdivision>
+			<subdivision type="is6" draft="contributed">Ziemeļaustrumu reģions</subdivision>
+			<subdivision type="is7" draft="contributed">Austrumu reģions</subdivision>
+			<subdivision type="is8" draft="contributed">Dienvidu reģions</subdivision>
+			<subdivision type="it21" draft="contributed">Pjemonta</subdivision>
+			<subdivision type="it23" draft="contributed">Valle d’Aosta</subdivision>
+			<subdivision type="it25" draft="contributed">Lombardija</subdivision>
+			<subdivision type="it32" draft="contributed">Trentīno-Alto Adidže</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
+			<subdivision type="it36" draft="contributed">Friuli-Venēcija Džūlija</subdivision>
+			<subdivision type="it42" draft="contributed">Ligūrija</subdivision>
+			<subdivision type="it45" draft="contributed">Emīlija-Romanja</subdivision>
+			<subdivision type="it52" draft="contributed">Toskāna</subdivision>
+			<subdivision type="it55" draft="contributed">Umbrija</subdivision>
+			<subdivision type="it57" draft="contributed">Marke</subdivision>
+			<subdivision type="it62" draft="contributed">Lacio</subdivision>
+			<subdivision type="it65" draft="contributed">Abruco</subdivision>
+			<subdivision type="it67" draft="contributed">Molize</subdivision>
+			<subdivision type="it72" draft="contributed">Kampānija</subdivision>
+			<subdivision type="it75" draft="contributed">Apūlija</subdivision>
+			<subdivision type="it77" draft="contributed">Bazilikata</subdivision>
+			<subdivision type="it78" draft="contributed">Kalabrija</subdivision>
+			<subdivision type="it82" draft="contributed">Sicīlija</subdivision>
+			<subdivision type="it88" draft="contributed">Sardīnija</subdivision>
+			<subdivision type="itag" draft="contributed">Agridžento province</subdivision>
+			<subdivision type="ital" draft="contributed">Alesandrijas province</subdivision>
+			<subdivision type="itan" draft="contributed">Ankonas province</subdivision>
+			<subdivision type="itao" draft="contributed">Aosta</subdivision>
+			<subdivision type="itap" draft="contributed">Askoli Pičēno province</subdivision>
+			<subdivision type="itaq" draft="contributed">L’Akvilas province</subdivision>
+			<subdivision type="itar" draft="contributed">Areco province</subdivision>
+			<subdivision type="itat" draft="contributed">Asti province</subdivision>
+			<subdivision type="itav" draft="contributed">Avellīno province</subdivision>
+			<subdivision type="itba" draft="contributed">Bari province</subdivision>
+			<subdivision type="itbg" draft="contributed">Bergamo province</subdivision>
+			<subdivision type="itbi" draft="contributed">Bjellas province</subdivision>
+			<subdivision type="itbl" draft="contributed">Belluno province</subdivision>
+			<subdivision type="itbn" draft="contributed">Benevento province</subdivision>
+			<subdivision type="itbo" draft="contributed">Boloņas province</subdivision>
+			<subdivision type="itbr" draft="contributed">Brindizi province</subdivision>
+			<subdivision type="itbs" draft="contributed">Brešas province</subdivision>
+			<subdivision type="itbt" draft="contributed">Barletas-Andrijas-Trani province</subdivision>
+			<subdivision type="itbz" draft="contributed">Bolcāno autonomā province</subdivision>
+			<subdivision type="itca" draft="contributed">Kaljāri province</subdivision>
+			<subdivision type="itcb" draft="contributed">Kampobaso province</subdivision>
+			<subdivision type="itce" draft="contributed">Kazertas province</subdivision>
+			<subdivision type="itch" draft="contributed">Kjeti province</subdivision>
+			<subdivision type="itci" draft="contributed">Karbonijas-Iglēziasas province</subdivision>
+			<subdivision type="itcl" draft="contributed">Kaltanisetas province</subdivision>
+			<subdivision type="itcn" draft="contributed">Kuneo province</subdivision>
+			<subdivision type="itco" draft="contributed">Komo province</subdivision>
+			<subdivision type="itcr" draft="contributed">Kremonas province</subdivision>
+			<subdivision type="itcs" draft="contributed">Kozencas province</subdivision>
+			<subdivision type="itct" draft="contributed">Katānijas province</subdivision>
+			<subdivision type="itcz" draft="contributed">Katandzāro province</subdivision>
+			<subdivision type="iten" draft="contributed">Ennas province</subdivision>
+			<subdivision type="itfc" draft="contributed">Forli-Čezēnas province</subdivision>
+			<subdivision type="itfe" draft="contributed">Ferrāras province</subdivision>
+			<subdivision type="itfg" draft="contributed">Fodžas province</subdivision>
+			<subdivision type="itfi" draft="contributed">Florences province</subdivision>
+			<subdivision type="itfm" draft="contributed">Fermo province</subdivision>
+			<subdivision type="itfr" draft="contributed">Frozinones province</subdivision>
+			<subdivision type="itgo" draft="contributed">Gorīcijas province</subdivision>
+			<subdivision type="itgr" draft="contributed">Groseto province</subdivision>
+			<subdivision type="itim" draft="contributed">Impērijas province</subdivision>
+			<subdivision type="itis" draft="contributed">Izernijas province</subdivision>
+			<subdivision type="itkr" draft="contributed">Krotones province</subdivision>
+			<subdivision type="itlc" draft="contributed">Leko province</subdivision>
+			<subdivision type="itle" draft="contributed">Lečes province</subdivision>
+			<subdivision type="itli" draft="contributed">Livorno province</subdivision>
+			<subdivision type="itlo" draft="contributed">Lodi province</subdivision>
+			<subdivision type="itlt" draft="contributed">Latīnas province</subdivision>
+			<subdivision type="itlu" draft="contributed">Lukas province</subdivision>
+			<subdivision type="itmb" draft="contributed">Moncas un Briancas province</subdivision>
+			<subdivision type="itmc" draft="contributed">Mačeratas province</subdivision>
+			<subdivision type="itme" draft="contributed">Mesīnas province</subdivision>
+			<subdivision type="itmi" draft="contributed">Milānas province</subdivision>
+			<subdivision type="itmn" draft="contributed">Mantujas province</subdivision>
+			<subdivision type="itmo" draft="contributed">Modēnas province</subdivision>
+			<subdivision type="itms" draft="contributed">Masas-Karrāras province</subdivision>
+			<subdivision type="itmt" draft="contributed">Matēras province</subdivision>
+			<subdivision type="itna" draft="contributed">Neapoles province</subdivision>
+			<subdivision type="itno" draft="contributed">Novāras province</subdivision>
+			<subdivision type="itnu" draft="contributed">Nuoro province</subdivision>
+			<subdivision type="itog" draft="contributed">Oljastras province</subdivision>
+			<subdivision type="itor" draft="contributed">Oristāno province</subdivision>
+			<subdivision type="itot" draft="contributed">Olbijas-Tempio province</subdivision>
+			<subdivision type="itpa" draft="contributed">Palermo province</subdivision>
+			<subdivision type="itpc" draft="contributed">Pjačencas province</subdivision>
+			<subdivision type="itpd" draft="contributed">Padujas province</subdivision>
+			<subdivision type="itpe" draft="contributed">Peskāras province</subdivision>
+			<subdivision type="itpg" draft="contributed">Perudžas province</subdivision>
+			<subdivision type="itpi" draft="contributed">Pizas province</subdivision>
+			<subdivision type="itpn" draft="contributed">Pordenones province</subdivision>
+			<subdivision type="itpo" draft="contributed">Prato province</subdivision>
+			<subdivision type="itpr" draft="contributed">Parmas province</subdivision>
+			<subdivision type="itpt" draft="contributed">Pistoijas province</subdivision>
+			<subdivision type="itpu" draft="contributed">Pezāro un Urbīno province</subdivision>
+			<subdivision type="itpv" draft="contributed">Pāvijas province</subdivision>
+			<subdivision type="itpz" draft="contributed">Potencas province</subdivision>
+			<subdivision type="itra" draft="contributed">Ravennas province</subdivision>
+			<subdivision type="itrc" draft="contributed">Redžo di Kalabrijas province</subdivision>
+			<subdivision type="itre" draft="contributed">Redžo nell’Emīlijas province</subdivision>
+			<subdivision type="itrg" draft="contributed">Raguzas province</subdivision>
+			<subdivision type="itri" draft="contributed">Rieti province</subdivision>
+			<subdivision type="itrm" draft="contributed">Romas province</subdivision>
+			<subdivision type="itrn" draft="contributed">Rimini province</subdivision>
+			<subdivision type="itro" draft="contributed">Rovigo province</subdivision>
+			<subdivision type="itsa" draft="contributed">Salerno province</subdivision>
+			<subdivision type="itsi" draft="contributed">Sjēnas province</subdivision>
+			<subdivision type="itso" draft="contributed">Sondrio province</subdivision>
+			<subdivision type="itsp" draft="contributed">Spēcijas province</subdivision>
+			<subdivision type="itsr" draft="contributed">Sirakūzu province</subdivision>
+			<subdivision type="itss" draft="contributed">Sasāri province</subdivision>
+			<subdivision type="itsv" draft="contributed">Savonas province</subdivision>
+			<subdivision type="itta" draft="contributed">Taranto province</subdivision>
+			<subdivision type="itte" draft="contributed">Terāmo province</subdivision>
+			<subdivision type="ittn" draft="contributed">Trento province</subdivision>
+			<subdivision type="itto" draft="contributed">Turīnas province</subdivision>
+			<subdivision type="ittp" draft="contributed">Trapāni province</subdivision>
+			<subdivision type="ittr" draft="contributed">Terni province</subdivision>
+			<subdivision type="itts" draft="contributed">Triestes province</subdivision>
+			<subdivision type="ittv" draft="contributed">Trevizo province</subdivision>
+			<subdivision type="itud" draft="contributed">Udīnes province</subdivision>
+			<subdivision type="itva" draft="contributed">Varēzes province</subdivision>
+			<subdivision type="itvb" draft="contributed">Verbāno-Kuzio-Osolas province</subdivision>
+			<subdivision type="itvc" draft="contributed">Verčelli province</subdivision>
+			<subdivision type="itve" draft="contributed">Venēcijas province</subdivision>
+			<subdivision type="itvi" draft="contributed">Vičencas province</subdivision>
+			<subdivision type="itvr" draft="contributed">Veronas province</subdivision>
+			<subdivision type="itvs" draft="contributed">Medio Kampidāno province</subdivision>
+			<subdivision type="itvt" draft="contributed">Viterbo province</subdivision>
+			<subdivision type="itvv" draft="contributed">Vibo Valentijas province</subdivision>
+			<subdivision type="jp01" draft="contributed">Hokaido</subdivision>
+			<subdivision type="jp02" draft="contributed">Aomori prefektūra</subdivision>
+			<subdivision type="jp03" draft="contributed">Ivates prefektūra</subdivision>
+			<subdivision type="jp04" draft="contributed">Mijagi prefektūra</subdivision>
+			<subdivision type="jp05" draft="contributed">Akitas prefektūra</subdivision>
+			<subdivision type="jp06" draft="contributed">Jamagatas prefektūra</subdivision>
+			<subdivision type="jp07" draft="contributed">Fukušima</subdivision>
+			<subdivision type="jp08" draft="contributed">Ibaraki prefektūra</subdivision>
+			<subdivision type="jp09" draft="contributed">Točigi prefektūra</subdivision>
+			<subdivision type="jp10" draft="contributed">Gummas prefektūra</subdivision>
+			<subdivision type="jp11" draft="contributed">Saitamas prefektūra</subdivision>
+			<subdivision type="jp12" draft="contributed">Čibas prefektūra</subdivision>
+			<subdivision type="jp13" draft="contributed">Tokija</subdivision>
+			<subdivision type="jp14" draft="contributed">Kanagavas prefektūra</subdivision>
+			<subdivision type="jp15" draft="contributed">Niigatas prefektūra</subdivision>
+			<subdivision type="jp16" draft="contributed">Tojamas prefektūra</subdivision>
+			<subdivision type="jp17" draft="contributed">Isikavas prefektūra</subdivision>
+			<subdivision type="jp18" draft="contributed">Fukuji prefektūra</subdivision>
+			<subdivision type="jp19" draft="contributed">Jamanasi prefektūra</subdivision>
+			<subdivision type="jp20" draft="contributed">Nagano prefektūra</subdivision>
+			<subdivision type="jp21" draft="contributed">Gifu prefektūra</subdivision>
+			<subdivision type="jp22" draft="contributed">Sidzuokas prefektūra</subdivision>
+			<subdivision type="jp23" draft="contributed">Aiči</subdivision>
+			<subdivision type="jp24" draft="contributed">Mie prefektūra</subdivision>
+			<subdivision type="jp25" draft="contributed">Sigas prefektūra</subdivision>
+			<subdivision type="jp26" draft="contributed">Kioto prefektūra</subdivision>
+			<subdivision type="jp27" draft="contributed">Osakas prefektūra</subdivision>
+			<subdivision type="jp28" draft="contributed">Hjogo prefektūra</subdivision>
+			<subdivision type="jp29" draft="contributed">Naras prefektūra</subdivision>
+			<subdivision type="jp30" draft="contributed">Vakajamas prefektūra</subdivision>
+			<subdivision type="jp31" draft="contributed">Totori prefektūra</subdivision>
+			<subdivision type="jp32" draft="contributed">Simanes prefektūra</subdivision>
+			<subdivision type="jp33" draft="contributed">Okajamas prefektūra</subdivision>
+			<subdivision type="jp34" draft="contributed">Hirosimas prefektūra</subdivision>
+			<subdivision type="jp35" draft="contributed">Jamaguči prefektūra</subdivision>
+			<subdivision type="jp36" draft="contributed">Tokusimas prefektūra</subdivision>
+			<subdivision type="jp37" draft="contributed">Kagavas prefektūra</subdivision>
+			<subdivision type="jp38" draft="contributed">Ehimes prefektūra</subdivision>
+			<subdivision type="jp39" draft="contributed">Koči prefektūra</subdivision>
+			<subdivision type="jp40" draft="contributed">Fukuokas prefektūra</subdivision>
+			<subdivision type="jp41" draft="contributed">Sagas prefektūra</subdivision>
+			<subdivision type="jp42" draft="contributed">Nagasaki prefektūra</subdivision>
+			<subdivision type="jp43" draft="contributed">Kumamoto prefektūra</subdivision>
+			<subdivision type="jp44" draft="contributed">Oitas prefektūra</subdivision>
+			<subdivision type="jp45" draft="contributed">Mijadzaki prefektūra</subdivision>
+			<subdivision type="jp46" draft="contributed">Kagosimas prefektūra</subdivision>
+			<subdivision type="jp47" draft="contributed">Okinavas prefektūra</subdivision>
+			<subdivision type="kgb" draft="contributed">Batkenas apgabals</subdivision>
+			<subdivision type="kgc" draft="contributed">Čujas apgabals</subdivision>
+			<subdivision type="kggb" draft="contributed">Biškeka</subdivision>
+			<subdivision type="kggo" draft="contributed">Oša</subdivision>
+			<subdivision type="kgj" draft="contributed">Džalalabadas apgabals</subdivision>
+			<subdivision type="kgn" draft="contributed">Narinas apgabals</subdivision>
+			<subdivision type="kgo" draft="contributed">Ošas apgabals</subdivision>
+			<subdivision type="kgt" draft="contributed">Talasas apgabals</subdivision>
+			<subdivision type="kgy" draft="contributed">Isikula apgabals</subdivision>
+			<subdivision type="kh12" draft="contributed">Pnompeņa</subdivision>
+			<subdivision type="kig" draft="contributed">Gilberta salas</subdivision>
+			<subdivision type="kil" draft="contributed">Lainas salas</subdivision>
+			<subdivision type="kip" draft="contributed">Fēniksa salas</subdivision>
+			<subdivision type="kp01" draft="contributed">Phenjana</subdivision>
+			<subdivision type="kr11" draft="contributed">Seula</subdivision>
+			<subdivision type="kr26" draft="contributed">Pusana</subdivision>
+			<subdivision type="kr27" draft="contributed">Tegu</subdivision>
+			<subdivision type="kr28" draft="contributed">Inčhona</subdivision>
+			<subdivision type="kr29" draft="contributed">Kvandžu</subdivision>
+			<subdivision type="kr30" draft="contributed">Tedžona</subdivision>
+			<subdivision type="kr31" draft="contributed">Ulsana</subdivision>
+			<subdivision type="kzakm" draft="contributed">Akmolas apgabals</subdivision>
+			<subdivision type="kzakt" draft="contributed">Aktebes apgabals</subdivision>
+			<subdivision type="kzala" draft="contributed">Almati</subdivision>
+			<subdivision type="kzalm" draft="contributed">Almati apgabals</subdivision>
+			<subdivision type="kzast" draft="contributed">Astana</subdivision>
+			<subdivision type="kzaty" draft="contributed">Atirau apgabals</subdivision>
+			<subdivision type="kzbay" draft="contributed">Baikonura</subdivision>
+			<subdivision type="kzkar" draft="contributed">Karaghandi apgabals</subdivision>
+			<subdivision type="kzkus" draft="contributed">Kostanajas apgabals</subdivision>
+			<subdivision type="kzkzy" draft="contributed">Kizilordas apgabals</subdivision>
+			<subdivision type="kzman" draft="contributed">Manghistau apgabals</subdivision>
+			<subdivision type="kzpav" draft="contributed">Pavlodaras apgabals</subdivision>
+			<subdivision type="kzsev" draft="contributed">Ziemeļkazahstānas apgabals</subdivision>
+			<subdivision type="kzvos" draft="contributed">Austrumkazahstānas apgabals</subdivision>
+			<subdivision type="kzyuz" draft="contributed">Dienvidkazahstānas apgabals</subdivision>
+			<subdivision type="kzzap" draft="contributed">Rietumkazahstānas apgabals</subdivision>
+			<subdivision type="kzzha" draft="contributed">Žambilas apgabals</subdivision>
+			<subdivision type="li11" draft="contributed">Vaduca</subdivision>
+			<subdivision type="lrbm" draft="contributed">Bomi grāfiste</subdivision>
+			<subdivision type="lrrg" draft="contributed">Rivergī grāfiste</subdivision>
+			<subdivision type="lt01" draft="contributed">Akmenes rajona pašvaldība</subdivision>
+			<subdivision type="lt03" draft="contributed">Alītas rajona pašvaldība</subdivision>
+			<subdivision type="lt04" draft="contributed">Anīkšču rajona pašvaldība</subdivision>
+			<subdivision type="lt05" draft="contributed">Birštonas pašvaldība</subdivision>
+			<subdivision type="lt06" draft="contributed">Biržu rajona pašvaldība</subdivision>
+			<subdivision type="lt07" draft="contributed">Druskininku pašvaldība</subdivision>
+			<subdivision type="lt08" draft="contributed">Elektrēnu pašvaldība</subdivision>
+			<subdivision type="lt09" draft="contributed">Ignalinas rajona pašvaldība</subdivision>
+			<subdivision type="lt10" draft="contributed">Jonavas rajona pašvaldība</subdivision>
+			<subdivision type="lt11" draft="contributed">Jonišķu rajona pašvaldība</subdivision>
+			<subdivision type="lt12" draft="contributed">Jurbarkas rajona pašvaldība</subdivision>
+			<subdivision type="lt13" draft="contributed">Kaišadores rajona pašvaldība</subdivision>
+			<subdivision type="lt14" draft="contributed">Kalvarijas pašvaldība</subdivision>
+			<subdivision type="lt16" draft="contributed">Kauņas rajona pašvaldība</subdivision>
+			<subdivision type="lt17" draft="contributed">Kazlu Rūdas pašvaldība</subdivision>
+			<subdivision type="lt18" draft="contributed">Ķēdaiņu rajona pašvaldība</subdivision>
+			<subdivision type="lt19" draft="contributed">Ķelmes rajona pašvaldība</subdivision>
+			<subdivision type="lt21" draft="contributed">Klaipēdas rajona pašvaldība</subdivision>
+			<subdivision type="lt22" draft="contributed">Kretingas rajona pašvaldība</subdivision>
+			<subdivision type="lt23" draft="contributed">Kupišķu rajona pašvaldība</subdivision>
+			<subdivision type="lt24" draft="contributed">Lazdiju rajona pašvaldība</subdivision>
+			<subdivision type="lt25" draft="contributed">Marijampoles pašvaldība</subdivision>
+			<subdivision type="lt26" draft="contributed">Mažeiķu rajona pašvaldība</subdivision>
+			<subdivision type="lt27" draft="contributed">Molētu rajona pašvaldība</subdivision>
+			<subdivision type="lt29" draft="contributed">Paģēģu pašvaldība</subdivision>
+			<subdivision type="lt30" draft="contributed">Pakrojas rajona pašvaldība</subdivision>
+			<subdivision type="lt33" draft="contributed">Panevēžas rajona pašvaldība</subdivision>
+			<subdivision type="lt34" draft="contributed">Pasvales rajona pašvaldība</subdivision>
+			<subdivision type="lt35" draft="contributed">Pluņģes rajona pašvaldība</subdivision>
+			<subdivision type="lt36" draft="contributed">Prienu rajona pašvaldība</subdivision>
+			<subdivision type="lt37" draft="contributed">Radvilišķu rajona pašvaldība</subdivision>
+			<subdivision type="lt38" draft="contributed">Raseiņu rajona pašvaldība</subdivision>
+			<subdivision type="lt39" draft="contributed">Rietavas pašvaldība</subdivision>
+			<subdivision type="lt40" draft="contributed">Rokišķu rajona pašvaldība</subdivision>
+			<subdivision type="lt41" draft="contributed">Šaķu rajona pašvaldība</subdivision>
+			<subdivision type="lt42" draft="contributed">Šaļčininku rajona pašvaldība</subdivision>
+			<subdivision type="lt44" draft="contributed">Šauļu rajona pašvaldība</subdivision>
+			<subdivision type="lt45" draft="contributed">Šilales rajona pašvaldība</subdivision>
+			<subdivision type="lt46" draft="contributed">Šilutes rajona pašvaldība</subdivision>
+			<subdivision type="lt47" draft="contributed">Širvintu rajona pašvaldība</subdivision>
+			<subdivision type="lt48" draft="contributed">Skodas rajona pašvaldība</subdivision>
+			<subdivision type="lt49" draft="contributed">Švenčoņu rajona pašvaldība</subdivision>
+			<subdivision type="lt50" draft="contributed">Tauraģes rajona pašvaldība</subdivision>
+			<subdivision type="lt51" draft="contributed">Telšu rajona pašvaldība</subdivision>
+			<subdivision type="lt52" draft="contributed">Traķu rajona pašvaldība</subdivision>
+			<subdivision type="lt53" draft="contributed">Ukmerģes rajona pašvaldība</subdivision>
+			<subdivision type="lt54" draft="contributed">Utenas rajona pašvaldība</subdivision>
+			<subdivision type="lt55" draft="contributed">Varēnas rajona pašvaldība</subdivision>
+			<subdivision type="lt56" draft="contributed">Vilkavišķu rajona pašvaldība</subdivision>
+			<subdivision type="lt57" draft="contributed">Viļņas pilsētas pašvaldība</subdivision>
+			<subdivision type="lt58" draft="contributed">Viļņas rajona pašvaldība</subdivision>
+			<subdivision type="lt59" draft="contributed">Visaginas pašvaldība</subdivision>
+			<subdivision type="lt60" draft="contributed">Zarasu rajona pašvaldība</subdivision>
+			<subdivision type="ltal" draft="contributed">Alītas apriņķis</subdivision>
+			<subdivision type="ltkl" draft="contributed">Klaipēdas apriņķis</subdivision>
+			<subdivision type="ltku" draft="contributed">Kauņas apriņķis</subdivision>
+			<subdivision type="ltmr" draft="contributed">Marijampoles apriņķis</subdivision>
+			<subdivision type="ltpn" draft="contributed">Panevēžas apriņķis</subdivision>
+			<subdivision type="ltsa" draft="contributed">Šauļu apriņķis</subdivision>
+			<subdivision type="ltta" draft="contributed">Tauraģes apriņķis</subdivision>
+			<subdivision type="ltte" draft="contributed">Telšu apriņķis</subdivision>
+			<subdivision type="ltut" draft="contributed">Utenas apriņķis</subdivision>
+			<subdivision type="ltvl" draft="contributed">Viļņas apriņķis</subdivision>
+			<subdivision type="lv001" draft="contributed">Aglonas novads</subdivision>
+			<subdivision type="lv002" draft="contributed">Aizkraukles novads</subdivision>
+			<subdivision type="lv003" draft="contributed">Aizputes novads</subdivision>
+			<subdivision type="lv004" draft="contributed">Aknīstes novads</subdivision>
+			<subdivision type="lv005" draft="contributed">Alojas novads</subdivision>
+			<subdivision type="lv006" draft="contributed">Alsungas novads</subdivision>
+			<subdivision type="lv007" draft="contributed">Alūksnes novads</subdivision>
+			<subdivision type="lv008" draft="contributed">Amatas novads</subdivision>
+			<subdivision type="lv009" draft="contributed">Apes novads</subdivision>
+			<subdivision type="lv010" draft="contributed">Auces novads</subdivision>
+			<subdivision type="lv011" draft="contributed">Ādažu novads</subdivision>
+			<subdivision type="lv012" draft="contributed">Babītes novads</subdivision>
+			<subdivision type="lv013" draft="contributed">Baldones novads</subdivision>
+			<subdivision type="lv014" draft="contributed">Baltinavas novads</subdivision>
+			<subdivision type="lv015" draft="contributed">Balvu novads</subdivision>
+			<subdivision type="lv016" draft="contributed">Bauskas novads</subdivision>
+			<subdivision type="lv017" draft="contributed">Beverīnas novads</subdivision>
+			<subdivision type="lv018" draft="contributed">Brocēnu novads</subdivision>
+			<subdivision type="lv019" draft="contributed">Burtnieku novads</subdivision>
+			<subdivision type="lv020" draft="contributed">Carnikavas novads</subdivision>
+			<subdivision type="lv021" draft="contributed">Cesvaines novads</subdivision>
+			<subdivision type="lv022" draft="contributed">Cēsu novads</subdivision>
+			<subdivision type="lv023" draft="contributed">Ciblas novads</subdivision>
+			<subdivision type="lv024" draft="contributed">Dagdas novads</subdivision>
+			<subdivision type="lv025" draft="contributed">Daugavpils novads</subdivision>
+			<subdivision type="lv026" draft="contributed">Dobeles novads</subdivision>
+			<subdivision type="lv027" draft="contributed">Dundagas novads</subdivision>
+			<subdivision type="lv028" draft="contributed">Durbes novads</subdivision>
+			<subdivision type="lv029" draft="contributed">Engures novads</subdivision>
+			<subdivision type="lv030" draft="contributed">Ērgļu novads</subdivision>
+			<subdivision type="lv031" draft="contributed">Garkalnes novads</subdivision>
+			<subdivision type="lv032" draft="contributed">Grobiņas novads</subdivision>
+			<subdivision type="lv033" draft="contributed">Gulbenes novads</subdivision>
+			<subdivision type="lv034" draft="contributed">Iecavas novads</subdivision>
+			<subdivision type="lv035" draft="contributed">Ikšķiles novads</subdivision>
+			<subdivision type="lv036" draft="contributed">Ilūkstes novads</subdivision>
+			<subdivision type="lv037" draft="contributed">Inčukalna novads</subdivision>
+			<subdivision type="lv038" draft="contributed">Jaunjelgavas novads</subdivision>
+			<subdivision type="lv039" draft="contributed">Jaunpiebalgas novads</subdivision>
+			<subdivision type="lv040" draft="contributed">Jaunpils novads</subdivision>
+			<subdivision type="lv041" draft="contributed">Jelgavas novads</subdivision>
+			<subdivision type="lv042" draft="contributed">Jēkabpils novads</subdivision>
+			<subdivision type="lv043" draft="contributed">Kandavas novads</subdivision>
+			<subdivision type="lv044" draft="contributed">Kārsavas novads</subdivision>
+			<subdivision type="lv045" draft="contributed">Kocēnu novads</subdivision>
+			<subdivision type="lv046" draft="contributed">Kokneses novads</subdivision>
+			<subdivision type="lv047" draft="contributed">Krāslavas novads</subdivision>
+			<subdivision type="lv048" draft="contributed">Krimuldas novads</subdivision>
+			<subdivision type="lv049" draft="contributed">Krustpils novads</subdivision>
+			<subdivision type="lv050" draft="contributed">Kuldīgas novads</subdivision>
+			<subdivision type="lv051" draft="contributed">Ķeguma novads</subdivision>
+			<subdivision type="lv052" draft="contributed">Ķekavas novads</subdivision>
+			<subdivision type="lv053" draft="contributed">Lielvārdes novads</subdivision>
+			<subdivision type="lv054" draft="contributed">Limbažu novads</subdivision>
+			<subdivision type="lv055" draft="contributed">Līgatnes novads</subdivision>
+			<subdivision type="lv056" draft="contributed">Līvānu novads</subdivision>
+			<subdivision type="lv057" draft="contributed">Lubānas novads</subdivision>
+			<subdivision type="lv058" draft="contributed">Ludzas novads</subdivision>
+			<subdivision type="lv059" draft="contributed">Madonas novads</subdivision>
+			<subdivision type="lv060" draft="contributed">Mazsalacas novads</subdivision>
+			<subdivision type="lv061" draft="contributed">Mālpils novads</subdivision>
+			<subdivision type="lv062" draft="contributed">Mārupes novads</subdivision>
+			<subdivision type="lv063" draft="contributed">Mērsraga novads</subdivision>
+			<subdivision type="lv064" draft="contributed">Naukšēnu novads</subdivision>
+			<subdivision type="lv065" draft="contributed">Neretas novads</subdivision>
+			<subdivision type="lv066" draft="contributed">Nīcas novads</subdivision>
+			<subdivision type="lv067" draft="contributed">Ogres novads</subdivision>
+			<subdivision type="lv068" draft="contributed">Olaines novads</subdivision>
+			<subdivision type="lv069" draft="contributed">Ozolnieku novads</subdivision>
+			<subdivision type="lv070" draft="contributed">Pārgaujas novads</subdivision>
+			<subdivision type="lv071" draft="contributed">Pāvilostas novads</subdivision>
+			<subdivision type="lv072" draft="contributed">Pļaviņu novads</subdivision>
+			<subdivision type="lv073" draft="contributed">Preiļu novads</subdivision>
+			<subdivision type="lv074" draft="contributed">Priekules novads</subdivision>
+			<subdivision type="lv075" draft="contributed">Priekuļu novads</subdivision>
+			<subdivision type="lv076" draft="contributed">Raunas novads</subdivision>
+			<subdivision type="lv077" draft="contributed">Rēzeknes novads</subdivision>
+			<subdivision type="lv078" draft="contributed">Riebiņu novads</subdivision>
+			<subdivision type="lv079" draft="contributed">Rojas novads</subdivision>
+			<subdivision type="lv080" draft="contributed">Ropažu novads</subdivision>
+			<subdivision type="lv081" draft="contributed">Rucavas novads</subdivision>
+			<subdivision type="lv082" draft="contributed">Rugāju novads</subdivision>
+			<subdivision type="lv083" draft="contributed">Rundāles novads</subdivision>
+			<subdivision type="lv084" draft="contributed">Rūjienas novads</subdivision>
+			<subdivision type="lv085" draft="contributed">Salas novads</subdivision>
+			<subdivision type="lv086" draft="contributed">Salacgrīvas novads</subdivision>
+			<subdivision type="lv087" draft="contributed">Salaspils novads</subdivision>
+			<subdivision type="lv088" draft="contributed">Saldus novads</subdivision>
+			<subdivision type="lv089" draft="contributed">Saulkrastu novads</subdivision>
+			<subdivision type="lv090" draft="contributed">Sējas novads</subdivision>
+			<subdivision type="lv091" draft="contributed">Siguldas novads</subdivision>
+			<subdivision type="lv092" draft="contributed">Skrīveru novads</subdivision>
+			<subdivision type="lv093" draft="contributed">Skrundas novads</subdivision>
+			<subdivision type="lv094" draft="contributed">Smiltenes novads</subdivision>
+			<subdivision type="lv095" draft="contributed">Stopiņu novads</subdivision>
+			<subdivision type="lv096" draft="contributed">Strenču novads</subdivision>
+			<subdivision type="lv097" draft="contributed">Talsu novads</subdivision>
+			<subdivision type="lv098" draft="contributed">Tērvetes novads</subdivision>
+			<subdivision type="lv099" draft="contributed">Tukuma novads</subdivision>
+			<subdivision type="lv100" draft="contributed">Vaiņodes novads</subdivision>
+			<subdivision type="lv101" draft="contributed">Valkas novads</subdivision>
+			<subdivision type="lv102" draft="contributed">Varakļānu novads</subdivision>
+			<subdivision type="lv103" draft="contributed">Vārkavas novads</subdivision>
+			<subdivision type="lv104" draft="contributed">Vecpiebalgas novads</subdivision>
+			<subdivision type="lv105" draft="contributed">Vecumnieku novads</subdivision>
+			<subdivision type="lv106" draft="contributed">Ventspils novads</subdivision>
+			<subdivision type="lv107" draft="contributed">Viesītes novads</subdivision>
+			<subdivision type="lv108" draft="contributed">Viļakas novads</subdivision>
+			<subdivision type="lv109" draft="contributed">Viļānu novads</subdivision>
+			<subdivision type="lv110" draft="contributed">Zilupes novads</subdivision>
+			<subdivision type="lvdgv" draft="contributed">Daugavpils</subdivision>
+			<subdivision type="lvjel" draft="contributed">Jelgava</subdivision>
+			<subdivision type="lvjkb" draft="contributed">Jēkabpils</subdivision>
+			<subdivision type="lvjur" draft="contributed">Jūrmala</subdivision>
+			<subdivision type="lvlpx" draft="contributed">Liepāja</subdivision>
+			<subdivision type="lvrez" draft="contributed">Rēzekne</subdivision>
+			<subdivision type="lvrix" draft="contributed">Rīga</subdivision>
+			<subdivision type="lvven" draft="contributed">Ventspils</subdivision>
+			<subdivision type="lvvmr" draft="contributed">Valmiera</subdivision>
+			<subdivision type="lyba" draft="contributed">Bengāzī</subdivision>
+			<subdivision type="maagd" draft="contributed">Agādīra</subdivision>
+			<subdivision type="macas" draft="contributed">Kasablanka</subdivision>
+			<subdivision type="mafes" draft="contributed">Fēsa</subdivision>
+			<subdivision type="mammd" draft="contributed">Marrākeša</subdivision>
+			<subdivision type="mammn" draft="contributed">Marrākeša²</subdivision>
+			<subdivision type="marab" draft="contributed">Rabāta</subdivision>
+			<subdivision type="masyb" draft="contributed">Marrākeša³</subdivision>
+			<subdivision type="matng" draft="contributed">Tanžera</subdivision>
+			<subdivision type="mcmc" draft="contributed">Montekarlo</subdivision>
+			<subdivision type="mdba" draft="contributed">Belci</subdivision>
+			<subdivision type="mdbd" draft="contributed">Bendera</subdivision>
+			<subdivision type="mdcu" draft="contributed">Kišiņeva</subdivision>
+			<subdivision type="mdga" draft="contributed">Gagauzija</subdivision>
+			<subdivision type="mhmaj" draft="contributed">Madžuro</subdivision>
+			<subdivision type="mhron" draft="contributed">Rongelapa</subdivision>
+			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
+			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
+			<subdivision type="mm14" draft="contributed">Čina</subdivision>
+			<subdivision type="mn1" draft="contributed">Ulanbatora</subdivision>
+			<subdivision type="mt08" draft="contributed">Fgura</subdivision>
+			<subdivision type="mt60" draft="contributed">Valeta</subdivision>
+			<subdivision type="mupu" draft="contributed">Portluī</subdivision>
+			<subdivision type="mvmle" draft="contributed">Male</subdivision>
+			<subdivision type="mxagu" draft="contributed">Agvaskaljentesa</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Lejaskalifornija</subdivision>
+			<subdivision type="mxbcs" draft="contributed">Dienvidu Lejaskalifornija</subdivision>
+			<subdivision type="mxcam" draft="contributed">Kampeče</subdivision>
+			<subdivision type="mxchh" draft="contributed">Čivava</subdivision>
+			<subdivision type="mxchp" draft="contributed">Čjapasa</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Mehiko</subdivision>
+			<subdivision type="mxcoa" draft="contributed">Koavila de Saragosa</subdivision>
+			<subdivision type="mxcol" draft="contributed">Kolima</subdivision>
+			<subdivision type="mxdur" draft="contributed">Durango</subdivision>
+			<subdivision type="mxgro" draft="contributed">Gerrero</subdivision>
+			<subdivision type="mxgua" draft="contributed">Gvanahvato</subdivision>
+			<subdivision type="mxhid" draft="contributed">Idalgo</subdivision>
+			<subdivision type="mxjal" draft="contributed">Halisko</subdivision>
+			<subdivision type="mxmex" draft="contributed">Mehiko²</subdivision>
+			<subdivision type="mxmic" draft="contributed">Mičoakana de Okampo</subdivision>
+			<subdivision type="mxmor" draft="contributed">Morelosa</subdivision>
+			<subdivision type="mxnay" draft="contributed">Najarita</subdivision>
+			<subdivision type="mxnle" draft="contributed">Nuevoleona</subdivision>
+			<subdivision type="mxoax" draft="contributed">Oahaka</subdivision>
+			<subdivision type="mxpue" draft="contributed">Puebla</subdivision>
+			<subdivision type="mxque" draft="contributed">Keretaro</subdivision>
+			<subdivision type="mxroo" draft="contributed">Kintana Roo</subdivision>
+			<subdivision type="mxsin" draft="contributed">Sinaloa</subdivision>
+			<subdivision type="mxslp" draft="contributed">Sanluisa Potosi</subdivision>
+			<subdivision type="mxson" draft="contributed">Sonora</subdivision>
+			<subdivision type="mxtab" draft="contributed">Tabasko</subdivision>
+			<subdivision type="mxtam" draft="contributed">Tamaulipasa</subdivision>
+			<subdivision type="mxtla" draft="contributed">Tlaskala</subdivision>
+			<subdivision type="mxver" draft="contributed">Verakrusa de Ignasio de la Ljave</subdivision>
+			<subdivision type="mxyuc" draft="contributed">Jukatana</subdivision>
+			<subdivision type="mxzac" draft="contributed">Sakatekasa</subdivision>
+			<subdivision type="my07" draft="contributed">Penanga</subdivision>
+			<subdivision type="my14" draft="contributed">Kualalumpura</subdivision>
+			<subdivision type="my16" draft="contributed">Putradžaja</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Maputu</subdivision>
+			<subdivision type="ne8" draft="contributed">Niameja</subdivision>
+			<subdivision type="ngab" draft="contributed">Abija</subdivision>
+			<subdivision type="ngon" draft="contributed">Ondo</subdivision>
+			<subdivision type="nlbq1" draft="contributed">Bonaire</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Saba</subdivision>
+			<subdivision type="nlbq3" draft="contributed">Sintēstatiusa</subdivision>
+			<subdivision type="nldr" draft="contributed">Drente</subdivision>
+			<subdivision type="nlfl" draft="contributed">Flevolande</subdivision>
+			<subdivision type="nlfr" draft="contributed">Frīzlande</subdivision>
+			<subdivision type="nlge" draft="contributed">Gelderlande</subdivision>
+			<subdivision type="nlgr" draft="contributed">Groningena</subdivision>
+			<subdivision type="nlli" draft="contributed">Limburga</subdivision>
+			<subdivision type="nlnb" draft="contributed">Ziemeļbrabante</subdivision>
+			<subdivision type="nlnh" draft="contributed">Ziemeļholande</subdivision>
+			<subdivision type="nlov" draft="contributed">Overeisela</subdivision>
+			<subdivision type="nlut" draft="contributed">Utrehta</subdivision>
+			<subdivision type="nlze" draft="contributed">Zēlande</subdivision>
+			<subdivision type="nlzh" draft="contributed">Dienvidholande</subdivision>
+			<subdivision type="no02" draft="contributed">Ākešhusa</subdivision>
+			<subdivision type="no03" draft="contributed">Oslo</subdivision>
+			<subdivision type="no05" draft="contributed">Oplanne</subdivision>
+			<subdivision type="no06" draft="contributed">Buskeruda</subdivision>
+			<subdivision type="no11" draft="contributed">Rūgalanne</subdivision>
+			<subdivision type="no12" draft="contributed">Hordalanne</subdivision>
+			<subdivision type="no14" draft="contributed">Sogna un Fjūrane</subdivision>
+			<subdivision type="no15" draft="contributed">Mēre un Rumsdāle</subdivision>
+			<subdivision type="no17" draft="contributed">Nūrtrendelāga</subdivision>
+			<subdivision type="no18" draft="contributed">Nūrlanne</subdivision>
+			<subdivision type="no19" draft="contributed">Trumse</subdivision>
+			<subdivision type="no20" draft="contributed">Finnmarka</subdivision>
+			<subdivision type="no21" draft="contributed">Svalbāra</subdivision>
+			<subdivision type="no22" draft="contributed">Jana Majena sala</subdivision>
+			<subdivision type="nr14" draft="contributed">Jarena</subdivision>
+			<subdivision type="nzcit" draft="contributed">Četema salas</subdivision>
+			<subdivision type="pa1" draft="contributed">Bokasa del Toro</subdivision>
+			<subdivision type="pa2" draft="contributed">Kokle</subdivision>
+			<subdivision type="pa3" draft="contributed">Kolona</subdivision>
+			<subdivision type="pa4" draft="contributed">Čiriki</subdivision>
+			<subdivision type="pa5" draft="contributed">Darjena</subdivision>
+			<subdivision type="pa6" draft="contributed">Errera</subdivision>
+			<subdivision type="pa7" draft="contributed">Lossantosa</subdivision>
+			<subdivision type="pa8" draft="contributed">Panama</subdivision>
+			<subdivision type="pa9" draft="contributed">Veragvasa</subdivision>
+			<subdivision type="pa10" draft="contributed">Rietumpanama</subdivision>
+			<subdivision type="paem" draft="contributed">Embera-Vounaana</subdivision>
+			<subdivision type="paky" draft="contributed">Gunajala</subdivision>
+			<subdivision type="panb" draft="contributed">Ngobe-Bugle</subdivision>
+			<subdivision type="pgncd" draft="contributed">Portmorsbi</subdivision>
+			<subdivision type="pkba" draft="contributed">Beludžistāna</subdivision>
+			<subdivision type="pkjk" draft="contributed">Azadkašmīra</subdivision>
+			<subdivision type="pkpb" draft="contributed">Pendžāba</subdivision>
+			<subdivision type="pksd" draft="contributed">Sinda</subdivision>
+			<subdivision type="plds" draft="contributed">Lejassilēzijas vojevodiste</subdivision>
+			<subdivision type="plkp" draft="contributed">Kujāvijas-Pomožes vojevodiste</subdivision>
+			<subdivision type="pllb" draft="contributed">Lubušas vojevodiste</subdivision>
+			<subdivision type="plld" draft="contributed">Lodzas vojevodiste</subdivision>
+			<subdivision type="pllu" draft="contributed">Ļubļinas vojevodiste</subdivision>
+			<subdivision type="plma" draft="contributed">Mazpolijas vojevodiste</subdivision>
+			<subdivision type="plmz" draft="contributed">Mazovijas vojevodiste</subdivision>
+			<subdivision type="plop" draft="contributed">Opoles vojevodiste</subdivision>
+			<subdivision type="plpd" draft="contributed">Podlases vojevodiste</subdivision>
+			<subdivision type="plpk" draft="contributed">Piekarpatu vojevodiste</subdivision>
+			<subdivision type="plpm" draft="contributed">Pomožes vojevodiste</subdivision>
+			<subdivision type="plsk" draft="contributed">Sventokšiskas vojevodiste</subdivision>
+			<subdivision type="plsl" draft="contributed">Silēzijas vojevodiste</subdivision>
+			<subdivision type="plwn" draft="contributed">Varmijas-Mazūrijas vojevodiste</subdivision>
+			<subdivision type="plwp" draft="contributed">Lielpolijas vojevodiste</subdivision>
+			<subdivision type="plzp" draft="contributed">Rietumpomožes vojevodiste</subdivision>
+			<subdivision type="pt20" draft="contributed">Azoru salas</subdivision>
+			<subdivision type="pt30" draft="contributed">Madeira</subdivision>
+			<subdivision type="pyasu" draft="contributed">Asunsjona</subdivision>
+			<subdivision type="qada" draft="contributed">Doha</subdivision>
+			<subdivision type="rob" draft="contributed">Bukareste</subdivision>
+			<subdivision type="rocj" draft="contributed">Klužas žudecs</subdivision>
+			<subdivision type="rs00" draft="contributed">Belgrada</subdivision>
+			<subdivision type="rsvo" draft="contributed">Vojevodina</subdivision>
+			<subdivision type="ruad" draft="contributed">Adigeja</subdivision>
+			<subdivision type="rual" draft="contributed">Altaja Republika</subdivision>
+			<subdivision type="rualt" draft="contributed">Altaja novads</subdivision>
+			<subdivision type="ruamu" draft="contributed">Amūras apgabals</subdivision>
+			<subdivision type="ruark" draft="contributed">Arhangeļskas apgabals</subdivision>
+			<subdivision type="ruast" draft="contributed">Astrahaņas apgabals</subdivision>
+			<subdivision type="ruba" draft="contributed">Baškortostāna</subdivision>
+			<subdivision type="rubel" draft="contributed">Belgorodas apgabals</subdivision>
+			<subdivision type="rubry" draft="contributed">Brjanskas apgabals</subdivision>
+			<subdivision type="rubu" draft="contributed">Burjatija</subdivision>
+			<subdivision type="ruce" draft="contributed">Čečenija</subdivision>
+			<subdivision type="ruche" draft="contributed">Čeļabinskas apgabals</subdivision>
+			<subdivision type="ruchu" draft="contributed">Čukotkas autonomais apvidus</subdivision>
+			<subdivision type="rucu" draft="contributed">Čuvašija</subdivision>
+			<subdivision type="ruda" draft="contributed">Dagestāna</subdivision>
+			<subdivision type="ruin" draft="contributed">Ingušija</subdivision>
+			<subdivision type="ruirk" draft="contributed">Irkutskas apgabals</subdivision>
+			<subdivision type="ruiva" draft="contributed">Ivanovas apgabals</subdivision>
+			<subdivision type="rukam" draft="contributed">Kamčatkas novads</subdivision>
+			<subdivision type="rukb" draft="contributed">Kabarda-Balkārija</subdivision>
+			<subdivision type="rukc" draft="contributed">Karačaja-Čerkesija</subdivision>
+			<subdivision type="rukda" draft="contributed">Krasnodaras novads</subdivision>
+			<subdivision type="rukem" draft="contributed">Kemerovas apgabals</subdivision>
+			<subdivision type="rukgd" draft="contributed">Kaļiņingradas apgabals</subdivision>
+			<subdivision type="rukgn" draft="contributed">Kurgānas apgabals</subdivision>
+			<subdivision type="rukha" draft="contributed">Habarovskas novads</subdivision>
+			<subdivision type="rukhm" draft="contributed">Hantu-mansu autonomais apvidus-Jugra</subdivision>
+			<subdivision type="rukir" draft="contributed">Kirovas apgabals</subdivision>
+			<subdivision type="rukk" draft="contributed">Hakasija</subdivision>
+			<subdivision type="rukl" draft="contributed">Kalmikija</subdivision>
+			<subdivision type="ruklu" draft="contributed">Kalugas apgabals</subdivision>
+			<subdivision type="ruko" draft="contributed">Komi</subdivision>
+			<subdivision type="rukos" draft="contributed">Kostromas apgabals</subdivision>
+			<subdivision type="rukr" draft="contributed">Karēlijas Republika</subdivision>
+			<subdivision type="rukrs" draft="contributed">Kurskas apgabals</subdivision>
+			<subdivision type="rukya" draft="contributed">Krasnojarskas novads</subdivision>
+			<subdivision type="rulen" draft="contributed">Ļeņingradas apgabals</subdivision>
+			<subdivision type="rulip" draft="contributed">Ļipeckas apgabals</subdivision>
+			<subdivision type="rumag" draft="contributed">Magadanas apgabals</subdivision>
+			<subdivision type="rume" draft="contributed">Marijela</subdivision>
+			<subdivision type="rumo" draft="contributed">Mordovija</subdivision>
+			<subdivision type="rumos" draft="contributed">Maskavas apgabals</subdivision>
+			<subdivision type="rumow" draft="contributed">Maskava</subdivision>
+			<subdivision type="rumur" draft="contributed">Murmanskas apgabals</subdivision>
+			<subdivision type="runen" draft="contributed">Ņencu autonomais apvidus</subdivision>
+			<subdivision type="rungr" draft="contributed">Novgorodas apgabals</subdivision>
+			<subdivision type="runiz" draft="contributed">Ņižņijnovgorodas apgabals</subdivision>
+			<subdivision type="runvs" draft="contributed">Novosibirskas apgabals</subdivision>
+			<subdivision type="ruoms" draft="contributed">Omskas apgabals</subdivision>
+			<subdivision type="ruore" draft="contributed">Orenburgas apgabals</subdivision>
+			<subdivision type="ruorl" draft="contributed">Orlas apgabals</subdivision>
+			<subdivision type="ruper" draft="contributed">Permas novads</subdivision>
+			<subdivision type="rupnz" draft="contributed">Penzas apgabals</subdivision>
+			<subdivision type="rupri" draft="contributed">Piejūras novads</subdivision>
+			<subdivision type="rupsk" draft="contributed">Pleskavas apgabals</subdivision>
+			<subdivision type="ruros" draft="contributed">Rostovas apgabals</subdivision>
+			<subdivision type="rurya" draft="contributed">Rjazaņas apgabals</subdivision>
+			<subdivision type="rusa" draft="contributed">Saha</subdivision>
+			<subdivision type="rusak" draft="contributed">Sahalīnas apgabals</subdivision>
+			<subdivision type="rusam" draft="contributed">Samaras apgabals</subdivision>
+			<subdivision type="rusar" draft="contributed">Saratovas apgabals</subdivision>
+			<subdivision type="ruse" draft="contributed">Ziemeļosetija-Alānija</subdivision>
+			<subdivision type="rusmo" draft="contributed">Smoļenskas apgabals</subdivision>
+			<subdivision type="ruspe" draft="contributed">Sanktpēterburga</subdivision>
+			<subdivision type="rusta" draft="contributed">Stavropoles novads</subdivision>
+			<subdivision type="rusve" draft="contributed">Sverdlovskas apgabals</subdivision>
+			<subdivision type="ruta" draft="contributed">Tatarstāna</subdivision>
+			<subdivision type="rutam" draft="contributed">Tambovas apgabals</subdivision>
+			<subdivision type="rutom" draft="contributed">Tomskas apgabals</subdivision>
+			<subdivision type="rutul" draft="contributed">Tulas apgabals</subdivision>
+			<subdivision type="rutve" draft="contributed">Tveras apgabals</subdivision>
+			<subdivision type="ruty" draft="contributed">Tuva</subdivision>
+			<subdivision type="rutyu" draft="contributed">Tjumeņas apgabals</subdivision>
+			<subdivision type="ruud" draft="contributed">Udmurtija</subdivision>
+			<subdivision type="ruuly" draft="contributed">Uļjanovskas apgabals</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Volgogradas apgabals</subdivision>
+			<subdivision type="ruvla" draft="contributed">Vladimiras apgabals</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Vologdas apgabals</subdivision>
+			<subdivision type="ruvor" draft="contributed">Voroņežas apgabals</subdivision>
+			<subdivision type="ruyan" draft="contributed">Jamalas Ņencu autonomais apvidus</subdivision>
+			<subdivision type="ruyar" draft="contributed">Jaroslavļas apgabals</subdivision>
+			<subdivision type="ruyev" draft="contributed">Ebreju autonomais apgabals</subdivision>
+			<subdivision type="ruzab" draft="contributed">Aizbaikāla novads</subdivision>
+			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="sbct" draft="contributed">Honiara</subdivision>
+			<subdivision type="seab" draft="contributed">Stokholmas lēne</subdivision>
+			<subdivision type="seac" draft="contributed">Vesterbotenas lēne</subdivision>
+			<subdivision type="sebd" draft="contributed">Norbotenas lēne</subdivision>
+			<subdivision type="sec" draft="contributed">Upsālas lēne</subdivision>
+			<subdivision type="sed" draft="contributed">Sēdermanlandes lēne</subdivision>
+			<subdivision type="see" draft="contributed">Esterjētlandes lēne</subdivision>
+			<subdivision type="sef" draft="contributed">Jenšēpingas lēne</subdivision>
+			<subdivision type="seg" draft="contributed">Krūnuberjas lēne</subdivision>
+			<subdivision type="seh" draft="contributed">Kalmāras lēne</subdivision>
+			<subdivision type="sei" draft="contributed">Gotlandes lēne</subdivision>
+			<subdivision type="sek" draft="contributed">Blēkinges lēne</subdivision>
+			<subdivision type="sem" draft="contributed">Skones lēne</subdivision>
+			<subdivision type="sen" draft="contributed">Hallandes lēne</subdivision>
+			<subdivision type="seo" draft="contributed">Vesterjētlandes lēne</subdivision>
+			<subdivision type="ses" draft="contributed">Vermlandes lēne</subdivision>
+			<subdivision type="set" draft="contributed">Erebrū lēne</subdivision>
+			<subdivision type="seu" draft="contributed">Vestmanlandes lēne</subdivision>
+			<subdivision type="sew" draft="contributed">Dalarnas lēne</subdivision>
+			<subdivision type="sex" draft="contributed">Jēvleborjas lēne</subdivision>
+			<subdivision type="sey" draft="contributed">Vesternorlandes lēne</subdivision>
+			<subdivision type="sez" draft="contributed">Jemtlandes lēne</subdivision>
+			<subdivision type="shac" draft="contributed">Debesbraukšanas sala</subdivision>
+			<subdivision type="shhl" draft="contributed">Svētās Helēnas Sala</subdivision>
+			<subdivision type="si213" draft="contributed">Ankaran</subdivision>
+			<subdivision type="skbc" draft="contributed">Banska Bistricas apgabals</subdivision>
+			<subdivision type="skbl" draft="contributed">Bratislavas apgabals</subdivision>
+			<subdivision type="skki" draft="contributed">Košices apgabals</subdivision>
+			<subdivision type="skni" draft="contributed">Nitras apgabals</subdivision>
+			<subdivision type="skpv" draft="contributed">Prešovas apgabals</subdivision>
+			<subdivision type="skta" draft="contributed">Trnavas apgabals</subdivision>
+			<subdivision type="sktc" draft="contributed">Trenčīnas apgabals</subdivision>
+			<subdivision type="skzi" draft="contributed">Žilinas apgabals</subdivision>
+			<subdivision type="sm07" draft="contributed">Sanmarīno</subdivision>
+			<subdivision type="tdnd" draft="contributed">Ndžamena</subdivision>
+			<subdivision type="th10" draft="contributed">Bangkoka</subdivision>
+			<subdivision type="tjdu" draft="contributed">Dušanbe</subdivision>
+			<subdivision type="tjgb" draft="contributed">Kalnu Badahšāna</subdivision>
+			<subdivision type="tjkt" draft="contributed">Hatlona</subdivision>
+			<subdivision type="tjra" draft="contributed">Tadžikistānas republikas pakļautības rajoni</subdivision>
+			<subdivision type="tjsu" draft="contributed">Sugda</subdivision>
+			<subdivision type="tms" draft="contributed">Ašgabata</subdivision>
+			<subdivision type="tr01" draft="contributed">Adanas ils</subdivision>
+			<subdivision type="tr02" draft="contributed">Adijamanas ils</subdivision>
+			<subdivision type="tr03" draft="contributed">Afjonas ils</subdivision>
+			<subdivision type="tr04" draft="contributed">Āgri ils</subdivision>
+			<subdivision type="tr05" draft="contributed">Amasjas ils</subdivision>
+			<subdivision type="tr06" draft="contributed">Ankaras ils</subdivision>
+			<subdivision type="tr07" draft="contributed">Antaljas ils</subdivision>
+			<subdivision type="tr08" draft="contributed">Artvinas ils</subdivision>
+			<subdivision type="tr09" draft="contributed">Ajdinas ils</subdivision>
+			<subdivision type="tr10" draft="contributed">Balikesiras ils</subdivision>
+			<subdivision type="tr11" draft="contributed">Biledžikas ils</subdivision>
+			<subdivision type="tr12" draft="contributed">Bingelas ils</subdivision>
+			<subdivision type="tr13" draft="contributed">Bitlisas ils</subdivision>
+			<subdivision type="tr14" draft="contributed">Bolu ils</subdivision>
+			<subdivision type="tr15" draft="contributed">Burduras ils</subdivision>
+			<subdivision type="tr16" draft="contributed">Bursas ils</subdivision>
+			<subdivision type="tr17" draft="contributed">Čanakales ils</subdivision>
+			<subdivision type="tr18" draft="contributed">Čankiri ils</subdivision>
+			<subdivision type="tr19" draft="contributed">Čorumas ils</subdivision>
+			<subdivision type="tr20" draft="contributed">Denizli ils</subdivision>
+			<subdivision type="tr21" draft="contributed">Dijarbakiras ils</subdivision>
+			<subdivision type="tr22" draft="contributed">Edirnes ils</subdivision>
+			<subdivision type="tr23" draft="contributed">Elazīgas ils</subdivision>
+			<subdivision type="tr24" draft="contributed">Erzindžanas ils</subdivision>
+			<subdivision type="tr25" draft="contributed">Erzurumas ils</subdivision>
+			<subdivision type="tr26" draft="contributed">Eskišehiras ils</subdivision>
+			<subdivision type="tr27" draft="contributed">Gaziantepas ils</subdivision>
+			<subdivision type="tr28" draft="contributed">Giresunas ils</subdivision>
+			<subdivision type="tr29" draft="contributed">Gimišhanes ils</subdivision>
+			<subdivision type="tr30" draft="contributed">Hakari ils</subdivision>
+			<subdivision type="tr31" draft="contributed">Hatajas ils</subdivision>
+			<subdivision type="tr32" draft="contributed">Ispartas ils</subdivision>
+			<subdivision type="tr33" draft="contributed">Mersinas ils</subdivision>
+			<subdivision type="tr34" draft="contributed">Stambulas ils</subdivision>
+			<subdivision type="tr35" draft="contributed">Izmiras ils</subdivision>
+			<subdivision type="tr36" draft="contributed">Karsas ils</subdivision>
+			<subdivision type="tr37" draft="contributed">Kastamonu ils</subdivision>
+			<subdivision type="tr38" draft="contributed">Kajseri ils</subdivision>
+			<subdivision type="tr39" draft="contributed">Kirkraleri ils</subdivision>
+			<subdivision type="tr40" draft="contributed">Kiršehiras ils</subdivision>
+			<subdivision type="tr41" draft="contributed">Kodžaeli ils</subdivision>
+			<subdivision type="tr42" draft="contributed">Konjas ils</subdivision>
+			<subdivision type="tr43" draft="contributed">Kitahjas ils</subdivision>
+			<subdivision type="tr44" draft="contributed">Malatjas ils</subdivision>
+			<subdivision type="tr45" draft="contributed">Manisas ils</subdivision>
+			<subdivision type="tr46" draft="contributed">Kahramanmarašas ils</subdivision>
+			<subdivision type="tr47" draft="contributed">Mardinas ils</subdivision>
+			<subdivision type="tr48" draft="contributed">Muglas ils</subdivision>
+			<subdivision type="tr49" draft="contributed">Mušas ils</subdivision>
+			<subdivision type="tr50" draft="contributed">Nevšehiras ils</subdivision>
+			<subdivision type="tr51" draft="contributed">Nīgdes ils</subdivision>
+			<subdivision type="tr52" draft="contributed">Ordu ils</subdivision>
+			<subdivision type="tr53" draft="contributed">Rizes ils</subdivision>
+			<subdivision type="tr54" draft="contributed">Sakarjas ils</subdivision>
+			<subdivision type="tr55" draft="contributed">Samsunas ils</subdivision>
+			<subdivision type="tr56" draft="contributed">Siirtas ils</subdivision>
+			<subdivision type="tr57" draft="contributed">Sinopas ils</subdivision>
+			<subdivision type="tr58" draft="contributed">Sivasas ils</subdivision>
+			<subdivision type="tr59" draft="contributed">Tekirdāgas ils</subdivision>
+			<subdivision type="tr60" draft="contributed">Tokatas ils</subdivision>
+			<subdivision type="tr61" draft="contributed">Trabzonas ils</subdivision>
+			<subdivision type="tr62" draft="contributed">Tundželi ils</subdivision>
+			<subdivision type="tr63" draft="contributed">Šanliurfas ils</subdivision>
+			<subdivision type="tr64" draft="contributed">Ušakas ils</subdivision>
+			<subdivision type="tr65" draft="contributed">Vanas ils</subdivision>
+			<subdivision type="tr66" draft="contributed">Jozgatas ils</subdivision>
+			<subdivision type="tr67" draft="contributed">Zonguldakas ils</subdivision>
+			<subdivision type="tr68" draft="contributed">Aksarajas ils</subdivision>
+			<subdivision type="tr69" draft="contributed">Bajburtas ils</subdivision>
+			<subdivision type="tr70" draft="contributed">Karamanas ils</subdivision>
+			<subdivision type="tr71" draft="contributed">Kirikales ils</subdivision>
+			<subdivision type="tr72" draft="contributed">Batmanas ils</subdivision>
+			<subdivision type="tr73" draft="contributed">Širnakas ils</subdivision>
+			<subdivision type="tr74" draft="contributed">Bartinas ils</subdivision>
+			<subdivision type="tr75" draft="contributed">Ardahanas ils</subdivision>
+			<subdivision type="tr76" draft="contributed">Īgdiras ils</subdivision>
+			<subdivision type="tr77" draft="contributed">Jalovas ils</subdivision>
+			<subdivision type="tr78" draft="contributed">Karabikas ils</subdivision>
+			<subdivision type="tr79" draft="contributed">Kilisas ils</subdivision>
+			<subdivision type="tr80" draft="contributed">Osmanijes ils</subdivision>
+			<subdivision type="tr81" draft="contributed">Dizdžes ils</subdivision>
+			<subdivision type="ttpos" draft="contributed">Portofspeina</subdivision>
+			<subdivision type="tttob" draft="contributed">Tobāgo</subdivision>
+			<subdivision type="tvfun" draft="contributed">Funafuti</subdivision>
+			<subdivision type="twtpe" draft="contributed">Taibei</subdivision>
+			<subdivision type="ua05" draft="contributed">Vinnicas apgabals</subdivision>
+			<subdivision type="ua07" draft="contributed">Volīnijas apgabals</subdivision>
+			<subdivision type="ua09" draft="contributed">Luhanskas apgabals</subdivision>
+			<subdivision type="ua12" draft="contributed">Dņepropetrovskas apgabals</subdivision>
+			<subdivision type="ua14" draft="contributed">Doņeckas apgabals</subdivision>
+			<subdivision type="ua18" draft="contributed">Žitomiras apgabals</subdivision>
+			<subdivision type="ua21" draft="contributed">Aizkarpatu apgabals</subdivision>
+			<subdivision type="ua23" draft="contributed">Zaporožjes apgabals</subdivision>
+			<subdivision type="ua26" draft="contributed">Ivanofrankivskas apgabals</subdivision>
+			<subdivision type="ua30" draft="contributed">Kijeva</subdivision>
+			<subdivision type="ua32" draft="contributed">Kijevas apgabals</subdivision>
+			<subdivision type="ua35" draft="contributed">Kirovogradas apgabals</subdivision>
+			<subdivision type="ua40" draft="contributed">Sevastopole</subdivision>
+			<subdivision type="ua43" draft="contributed">Krimas Autonomā Republika</subdivision>
+			<subdivision type="ua46" draft="contributed">Ļvovas apgabals</subdivision>
+			<subdivision type="ua48" draft="contributed">Nikolajevas apgabals</subdivision>
+			<subdivision type="ua51" draft="contributed">Odesas apgabals</subdivision>
+			<subdivision type="ua53" draft="contributed">Poltavas apgabals</subdivision>
+			<subdivision type="ua56" draft="contributed">Rivnes apgabals</subdivision>
+			<subdivision type="ua59" draft="contributed">Sumu apgabals</subdivision>
+			<subdivision type="ua61" draft="contributed">Ternopiļas apgabals</subdivision>
+			<subdivision type="ua63" draft="contributed">Harkovas apgabals</subdivision>
+			<subdivision type="ua65" draft="contributed">Hersonas apgabals</subdivision>
+			<subdivision type="ua68" draft="contributed">Hmeļnickas apgabals</subdivision>
+			<subdivision type="ua71" draft="contributed">Čerkasu apgabals</subdivision>
+			<subdivision type="ua74" draft="contributed">Čerņigovas apgabals</subdivision>
+			<subdivision type="ua77" draft="contributed">Černivcu apgabals</subdivision>
+			<subdivision type="um67" draft="contributed">Džonstona atols</subdivision>
+			<subdivision type="um71" draft="contributed">Midveja atols</subdivision>
+			<subdivision type="um76" draft="contributed">Navasa</subdivision>
+			<subdivision type="um79" draft="contributed">Veika sala</subdivision>
+			<subdivision type="um81" draft="contributed">Beikera sala</subdivision>
+			<subdivision type="um84" draft="contributed">Haulenda sala</subdivision>
+			<subdivision type="um86" draft="contributed">Džērvisa sala</subdivision>
+			<subdivision type="um89" draft="contributed">Kingmena rifs</subdivision>
+			<subdivision type="um95" draft="contributed">Palmiras atols</subdivision>
+			<subdivision type="usak" draft="contributed">Aļaska</subdivision>
+			<subdivision type="usal" draft="contributed">Alabama</subdivision>
+			<subdivision type="usar" draft="contributed">Ārkanzasa</subdivision>
+			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
+			<subdivision type="usca" draft="contributed">Kalifornija</subdivision>
+			<subdivision type="usco" draft="contributed">Kolorādo</subdivision>
+			<subdivision type="usct" draft="contributed">Konektikuta</subdivision>
+			<subdivision type="usdc" draft="contributed">Vašingtona</subdivision>
+			<subdivision type="usde" draft="contributed">Delavēra</subdivision>
+			<subdivision type="usfl" draft="contributed">Florida</subdivision>
+			<subdivision type="usga" draft="contributed">Džordžija</subdivision>
+			<subdivision type="ushi" draft="contributed">Havajas</subdivision>
+			<subdivision type="usia" draft="contributed">Aiova</subdivision>
+			<subdivision type="usid" draft="contributed">Aidaho</subdivision>
+			<subdivision type="usil" draft="contributed">Ilinoisa</subdivision>
+			<subdivision type="usin" draft="contributed">Indiāna</subdivision>
+			<subdivision type="usks" draft="contributed">Kanzasa</subdivision>
+			<subdivision type="usky" draft="contributed">Kentuki</subdivision>
+			<subdivision type="usla" draft="contributed">Luiziāna</subdivision>
+			<subdivision type="usma" draft="contributed">Masačūsetsa</subdivision>
+			<subdivision type="usmd" draft="contributed">Mērilenda</subdivision>
+			<subdivision type="usme" draft="contributed">Mena</subdivision>
+			<subdivision type="usmi" draft="contributed">Mičigana</subdivision>
+			<subdivision type="usmn" draft="contributed">Minesota</subdivision>
+			<subdivision type="usmo" draft="contributed">Misūri</subdivision>
+			<subdivision type="usms" draft="contributed">Misisipi</subdivision>
+			<subdivision type="usmt" draft="contributed">Montāna</subdivision>
+			<subdivision type="usnc" draft="contributed">Ziemeļkarolīna</subdivision>
+			<subdivision type="usnd" draft="contributed">Ziemeļdakota</subdivision>
+			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
+			<subdivision type="usnh" draft="contributed">Ņūhempšīra</subdivision>
+			<subdivision type="usnj" draft="contributed">Ņūdžersija</subdivision>
+			<subdivision type="usnm" draft="contributed">Ņūmeksika</subdivision>
+			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
+			<subdivision type="usny" draft="contributed">Ņujorka</subdivision>
+			<subdivision type="usoh" draft="contributed">Ohaio</subdivision>
+			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
+			<subdivision type="usor" draft="contributed">Oregona</subdivision>
+			<subdivision type="uspa" draft="contributed">Pensilvānija</subdivision>
+			<subdivision type="usri" draft="contributed">Rodailenda</subdivision>
+			<subdivision type="ussc" draft="contributed">Dienvidkarolīna</subdivision>
+			<subdivision type="ussd" draft="contributed">Dienviddakota</subdivision>
+			<subdivision type="ustn" draft="contributed">Tenesī</subdivision>
+			<subdivision type="ustx" draft="contributed">Teksasa</subdivision>
+			<subdivision type="usut" draft="contributed">Jūta</subdivision>
+			<subdivision type="usva" draft="contributed">Virdžīnija</subdivision>
+			<subdivision type="usvt" draft="contributed">Vērmonta</subdivision>
+			<subdivision type="uswa" draft="contributed">Vašingtona²</subdivision>
+			<subdivision type="uswi" draft="contributed">Viskonsina</subdivision>
+			<subdivision type="uswv" draft="contributed">Rietumvirdžīnija</subdivision>
+			<subdivision type="uswy" draft="contributed">Vaiominga</subdivision>
+			<subdivision type="uzqr" draft="contributed">Karakalpakstāna</subdivision>
+			<subdivision type="uztk" draft="contributed">Taškenta</subdivision>
+			<subdivision type="vew" draft="contributed">Venecuēlas Federālie valdījumi</subdivision>
+			<subdivision type="vn24" draft="contributed">Kuanbiņa</subdivision>
+			<subdivision type="vndn" draft="contributed">Dananga</subdivision>
+			<subdivision type="vnhn" draft="contributed">Hanoja</subdivision>
+			<subdivision type="vnsg" draft="contributed">Hošimina</subdivision>
+			<subdivision type="wfal" draft="contributed">Alo</subdivision>
+			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
+			<subdivision type="yesa" draft="contributed">Sana</subdivision>
+			<subdivision type="zaec" draft="contributed">Austrumkāpa</subdivision>
+			<subdivision type="zafs" draft="contributed">Frīsteita</subdivision>
+			<subdivision type="zagt" draft="contributed">Hautena</subdivision>
+			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
+			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
+			<subdivision type="zanc" draft="contributed">Ziemeļkāpa</subdivision>
+			<subdivision type="zanl" draft="contributed">Kvazulu-Natāla</subdivision>
+			<subdivision type="zawc" draft="contributed">Rietumkāpa</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

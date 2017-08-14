@@ -2798,7 +2798,7 @@ public class SupplementalDataInfo {
      * is only a rough proxy for weight of each language in the economy of the
      * territory.
      *
-     * @param language
+     * @param languageId
      * @return
      */
     public double getApproximateEconomicWeight(String targetLanguage) {

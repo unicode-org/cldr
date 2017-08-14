@@ -261,7 +261,7 @@ public class ChainedMap {
             }
             map = map2;
         }
-        return map.put(keys[last], value);
+        return value == null ? map.remove(keys[last]) : map.put(keys[last], value);
     }
     
     @Override

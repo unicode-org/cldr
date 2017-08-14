@@ -1,0 +1,304 @@
+package org.unicode.cldr.util;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.tool.GenerateSubdivisions;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity.Status;
+
+import com.google.common.base.Splitter;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.ULocale;
+
+public final class WikiSubdivisionLanguages {
+
+    private static final boolean DEBUG_CONSOLE = false;
+    private static final String DEBUG_LANG_FILTER = null; // "az";
+    
+    private static final String BEFORE_TYPE = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"";
+
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    private static final Normalizer2 NFC = Normalizer2.getNFCInstance();
+
+    enum Items {
+        // http://www.wikidata.org/entity/Q24260    كانيلو  AD-02   ar
+        wid,
+        translation,
+        subdivisionId,
+        languageId
+    }
+
+    private static ChainedMap.M3<String, String, String> SUB_LANG_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
+    private static ChainedMap.M3<String, String, String> LANG_SUB_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
+    private static Set<String> bogus = new TreeSet<>();
+    private static Multimap<Status, String> bogusStatus = TreeMultimap.create();
+
+    public static String getSubdivisionName(String subdivisionId, String languageId) {
+        return WikiSubdivisionLanguages.LANG_SUB_NAME.get(languageId, subdivisionId);
+    }
+
+    public static String getBestWikiEnglishName(String subdivisionId) {
+        String languageId = "en";
+        String name = WikiSubdivisionLanguages.getSubdivisionName(subdivisionId, languageId);
+        if (name != null) {
+            return name;
+        }
+        name = WikiSubdivisionLanguages.getSubdivisionName(subdivisionId, "es");
+        if (name != null) {
+            return name;
+        }
+        name = WikiSubdivisionLanguages.getSubdivisionName(subdivisionId, "fr");
+        if (name != null) {
+            return name;
+        }
+        Map<String, String> data = WikiSubdivisionLanguages.SUB_LANG_NAME.get(subdivisionId);
+        // try Spanish, then French, then first other
+        if (data != null) {
+            return data.entrySet().iterator().next().getValue(); // get first
+        }
+        return null;
+    }
+
+
+    //static Map<String, String> WIKIDATA_TO_MID = new TreeMap<>();
+    static {
+        Splitter TAB = Splitter.on('\t').trimResults();
+        File file = new File("data/external", "wikiSubdivisionLanguages.tsv");
+        try {
+            System.out.println(file.getCanonicalFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Set<String> regularSubdivisions = Validity.getInstance().getStatusToCodes(LstrType.subdivision).get(Status.regular);
+        Map<String, Status> codeToStatus = Validity.getInstance().getCodeToStatus(LstrType.subdivision);
+
+        for (String line : FileUtilities.in(WikiSubdivisionLanguages.class, "data/external/wikiSubdivisionLanguages.tsv")) {
+
+            List<String> data = TAB.splitToList(line);
+            String subdivision = GenerateSubdivisions.convertToCldr(data.get(Items.subdivisionId.ordinal()));
+            if (!regularSubdivisions.contains(subdivision)) {
+                Status status = codeToStatus.get(subdivision);
+                if (status == null) {
+                    bogus.add(subdivision);
+                } else {
+                    bogusStatus.put(status, subdivision);
+                }
+                continue;
+            }
+            String lang = data.get(Items.languageId.ordinal());
+            if (DEBUG_LANG_FILTER != null && !DEBUG_LANG_FILTER.equals(lang)) {
+                continue;
+            }
+            String name = NFC.normalize(data.get(Items.translation.ordinal()));
+            SUB_LANG_NAME.put(subdivision, lang, name);
+//                WIKIDATA_TO_MID.put(subdivision, data.get(2));
+            LANG_SUB_NAME.put(lang, subdivision, name);
+        }
+        // postprocess
+        String oldLang = null;
+        DisplayAndInputProcessor daip = null;
+        Exception[] internalException = {null};
+
+        for (R3<String, String, String> row : LANG_SUB_NAME.rows()) {
+            String lang = row.get0();
+            String subdivision = row.get1();
+            String name = row.get2();
+            if (!lang.equals(oldLang)) {
+                oldLang = lang;
+                daip = new DisplayAndInputProcessor(new ULocale(lang));
+            }
+            String path = getSubdivisionPath(subdivision);
+            String name2 = daip.processInput(
+                path, 
+                name.replace("\u00AD", ""), 
+                internalException);
+            // TODO remove soft hyphen in DAIP
+            if (internalException[0] != null) {
+                throw new IllegalArgumentException(lang + "\t" + subdivision + "\t" + name, internalException[0]);
+            } else if (!name.equals(name2)) {
+                //System.out.println(lang + "\t" + subdivision + "\t" + name + "\t" + name2);
+                SUB_LANG_NAME.put(subdivision, lang, name2);
+                LANG_SUB_NAME.put(lang, subdivision, name2);
+            }
+        }
+
+    }
+    private static String getSubdivisionPath(String subdivision) {
+        return BEFORE_TYPE + subdivision + "\"][@draft=\"contributed\"]";
+    }
+
+    public static void main(String[] args) {
+        Counter<String> counter = new Counter<>();
+        Factory cldrFactory = CLDR_CONFIG.getCldrFactory();
+        Factory cldrFactorySubdivisions = Factory.make(CLDRPaths.SUBDIVISIONS_DIRECTORY, ".*");
+        CLDRFile file = null;
+        UnicodeSet exemplars = null;
+        UnicodeSet allMissing = new UnicodeSet();
+        for (Entry<String, Map<String, String>> entry : LANG_SUB_NAME) {
+            String lang = entry.getKey();
+            file = cldrFactory.make(lang,true);
+
+            CLDRFile oldFileSubdivisions;
+            try {
+                oldFileSubdivisions = cldrFactorySubdivisions.make(lang, false);
+            } catch (Exception e) {
+                oldFileSubdivisions = new CLDRFile(new SimpleXMLSource(lang)).freeze();
+            }
+            // for fixing collisions
+            // we first add existing items
+            Multimap<String, String> inverse = LinkedHashMultimap.create();
+            for (String path : oldFileSubdivisions) {
+                String name = oldFileSubdivisions.getStringValue(path);
+                if (name.equals("Böyük Britaniya")) {
+                    int debug = 0;
+                }
+                inverse.put(name, path);
+            }
+            CLDRFile fileSubdivisions = oldFileSubdivisions.cloneAsThawed();
+
+            UnicodeSet main = file.getExemplarSet("", WinningChoice.WINNING, 0);
+            UnicodeSet auxiliary = file.getExemplarSet("auxiliary", WinningChoice.WINNING);
+            UnicodeSet punctuation = file.getExemplarSet("punctuation", WinningChoice.WINNING);
+            exemplars = new UnicodeSet()
+                .addAll(main)
+                .addAll(auxiliary == null ? UnicodeSet.EMPTY : auxiliary)
+                .addAll(scriptsFor(main))
+                .addAll(punctuation == null ? UnicodeSet.EMPTY : punctuation)
+                .addAll(" 0123456789-—").freeze();
+
+
+            for (Entry<String, String> entry2 : entry.getValue().entrySet()) {
+                String subdivision = entry2.getKey();
+                String name = entry2.getValue();
+                if (name.equals("Böyük Britaniya")) {
+                    int debug = 0;
+                }
+                String path = getSubdivisionPath(subdivision);
+                String oldName = fileSubdivisions.getStringValue(path);
+                if (oldName != null) {
+                    if (!oldName.equals(name)) {
+                        System.out.println("Skipping " + lang + "\t" + subdivision + "\t" + name + "\t" + oldName);
+                    }
+                    continue;
+                }
+                if (!exemplars.containsAll(name)) {
+                    UnicodeSet missing = new UnicodeSet().addAll(name).removeAll(exemplars);
+                    allMissing.addAll(missing);
+                    System.out.println(lang 
+                        + "\t"  + subdivision 
+                        + "\t" + getBestWikiEnglishName(subdivision) 
+                        + "\t" + missing.toPattern(false)
+                        + "\t" + name.replace("\"", "&quot;"));
+                    continue;
+                }
+                fileSubdivisions.add(path, name);
+                inverse.put(name, path);
+                counter.add(lang, 1);
+            }
+            
+            // We now fix collisions
+            for (Entry<String, Collection<String>> entry3 : inverse.asMap().entrySet()) {
+                String name = entry3.getKey();
+                if (name.isEmpty()) {
+                    continue;
+                }
+                if (name.equals("Böyük Britaniya")) {
+                    int debug = 0;
+                }
+                Collection<String> paths = entry3.getValue();
+                if (paths.size() <= 1) {
+                    continue;
+                }
+                if (paths.size() > 3) {
+                    int debug=0;
+                }
+                // we only care about collisions *within* a region.
+                // so group them together
+                Multimap<String, String> inverse2 = LinkedHashMultimap.create();
+                for (String path : paths) {
+                    String region = path.substring(BEFORE_TYPE.length(), BEFORE_TYPE.length()+2);
+                    inverse2.put(region, path);
+                }
+                // Now fix as necessary
+                for (Entry<String, Collection<String>> entry4 : inverse2.asMap().entrySet()) {
+                    Collection<String> paths2 = entry4.getValue();
+                    int markerIndex = 0;
+                    if (paths2.size() <= 1) {
+                        continue;
+                    }
+                    for (String path : paths2) {
+//                    if (nuke) {
+//                        if (oldFileSubdivisions.getStringValue(path) == null) {
+//                            fileSubdivisions.remove(path); // get rid of new ones
+//                            System.out.println("Removing colliding " + lang + "\t" + path + "\t" + name);
+//                        }
+                        if (markerIndex != 0) {
+                            String fixedName = name + MARKERS.get(markerIndex);
+                            System.out.println("Superscripting colliding " + lang + "\t" + path + "\t" + fixedName);
+                            fileSubdivisions.add(path, fixedName); // overwrite with superscripted
+                        }
+                        ++markerIndex;
+                    }
+                }
+            }
+
+            if (DEBUG_CONSOLE) {
+                PrintWriter pw = new PrintWriter(System.out);
+                fileSubdivisions.write(new PrintWriter(System.out));
+                pw.flush();
+            } else {
+                try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.SUBDIVISIONS_DIRECTORY, lang + ".xml")) {
+                    fileSubdivisions.write(out);
+                } catch (Exception e) {
+                    throw new ICUUncheckedIOException(e);
+                }
+            }
+        }
+        System.out.println(allMissing);
+        for (String entry : counter.getKeysetSortedByKey()) {
+            System.out.println(entry + "\t" + counter.get(entry));
+        }
+        System.out.println("Bogus\t" + bogus.size() + "\t" + bogus);
+        for (Entry<Status, Collection<String>> entry : bogusStatus.asMap().entrySet()) {
+            System.out.println(entry.getKey() + "\t" + entry.getValue().size() + "\t" + entry.getValue());
+        }
+    }
+
+    static final List<String> MARKERS = Arrays.asList("¹","²","³"); // if there are more than 3 of the same kind, throw exception
+
+    private static UnicodeSet scriptsFor(UnicodeSet main) {
+        UnicodeSet result = UnicodeSet.EMPTY;
+        for (String s : main) {
+            int scriptCode = UScript.getScript(s.codePointAt(0));
+            if (scriptCode != UScript.COMMON || scriptCode != UScript.INHERITED) {
+                result = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT, scriptCode);
+                if (scriptCode == UScript.LATIN) {
+                    result.addAll("ʻ’&");
+                }
+                break;
+            }
+        }
+        return result;
+    }
+}

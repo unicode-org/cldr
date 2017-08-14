@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -44,10 +45,20 @@ public class SubdivisionNames {
     }
 
     public static String getRegionFromSubdivision(String sdCode) {
-        return sdCode.compareTo("A") < 0 ? sdCode.substring(0,3) : sdCode.substring(0,2).toUpperCase();
+        return sdCode.compareTo("A") < 0 ? sdCode.substring(0,3) : sdCode.substring(0,2).toUpperCase(Locale.ENGLISH);
+    }
+    
+    public static String getSubregion(String sdCode) {
+        return sdCode.compareTo("A") < 0 ? sdCode.substring(3) : sdCode.substring(2).toUpperCase(Locale.ENGLISH);
     }
 
     public static boolean isRegionCode(String regionOrSubdivision) {
         return regionOrSubdivision.length() == 2 || (regionOrSubdivision.length() == 3 && regionOrSubdivision.compareTo("A") < 0);
+    }
+    
+    public static String toIsoFormat(String sdCode) {
+        sdCode = sdCode.toUpperCase(Locale.ENGLISH);
+        int insertion = sdCode.compareTo("A") < 0 ? 3 : 2;
+        return sdCode.substring(0,insertion) + "-" + sdCode.substring(insertion);
     }
 }

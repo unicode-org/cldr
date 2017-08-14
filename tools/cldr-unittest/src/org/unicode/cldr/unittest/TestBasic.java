@@ -372,7 +372,8 @@ public class TestBasic extends TestFmwkPlus {
             final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet(
                 "[\\u0000-\\u00FF]").addAll(safeExemplars(file, ""))
                 .addAll(safeExemplars(file, "auxiliary"))
-                .addAll(safeExemplars(file, "currencySymbol")).freeze();
+//                .addAll(safeExemplars(file, "currencySymbol"))
+                .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {

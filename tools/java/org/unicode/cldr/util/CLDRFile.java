@@ -2729,7 +2729,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             path = getWinningPath(path);
         }
         String v = getStringValue(path);
-        if (v == null) return null;
+        if (v == null) {
+            return UnicodeSet.EMPTY;
+        }
         UnicodeSet result = new UnicodeSet(v);
         UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
         result.closeOver(UnicodeSet.CASE);
@@ -2754,7 +2756,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public UnicodeSet getExemplarsNumeric(NumberingSystem system) {
         String numberingSystem = system.path == null ? "latn" : getStringValue(system.path);
         if (numberingSystem == null) {
-            return null;
+            return UnicodeSet.EMPTY;
         }
 
         UnicodeSet result = new UnicodeSet();

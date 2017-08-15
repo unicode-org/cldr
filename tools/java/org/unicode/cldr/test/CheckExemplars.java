@@ -70,7 +70,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
     .removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
     .freeze();
 
-    public static final UnicodeSet ALLOWED_IN_PUNCTUATION = new UnicodeSet("[[:P:][:S:]]")
+    public static final UnicodeSet ALLOWED_IN_PUNCTUATION = new UnicodeSet("[[:P:][:S:]-[:Sc:]]")
     .freeze();
 
     public static final UnicodeSet ALLOWED_IN_AUX = new UnicodeSet(AllowedInExemplars)
@@ -86,7 +86,8 @@ public class CheckExemplars extends FactoryCheckCLDR {
         punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false),
         auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)", true),
         index(UAllowedInExemplars, "(specific-script - invisibles)", false),
-        currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", false);
+        // currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", false)
+        ;
 
         public final UnicodeSet allowed;
         public final UnicodeSet toRemove;
@@ -385,7 +386,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
             if (remainder.size() != 0) {
                 fixedExemplar1 = prettyPrinter.format(exemplar1);
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.illegalCharactersInExemplars)
                     .setMessage("Should be limited to " + exemplarType.message + "; thus not contain: \u200E{0}\u200E",
                         new Object[] { remainder }));
@@ -396,8 +397,8 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
         if (!isRoot && exemplar1.size() == 0) {
             switch (exemplarType) {
-            case currencySymbol: // ok if empty
-                break;
+//            case currencySymbol: // ok if empty
+//                break;
             case auxiliary:
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.missingAuxiliaryExemplars)

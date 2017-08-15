@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2017-05-16</td>
+				<td class="changed">2017-08-15</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -5962,8 +5962,89 @@ root</pre>
 				#18: Unicode Regular Expressions</i> [<a
 				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>]. A UnicodeSet may be used in specifications
 				outside of the domain of LDML. In such a case, the specification may
-				support a subset of the syntax provided here.
-		</p>
+				support a subset of the syntax provided here.</p>
+		<p class='changed'>The syntax characters are listed in the table below:</p>
+		<table class='simple changed'>
+		  <tbody>
+		    <tr>
+		      <th>Char</th>
+		      <th>Hex</th>
+		      <th>Name</th>
+		      <th>Usage</th>
+	        </tr>
+		    <tr>
+		      <td>$</td>
+		      <td>U+0024</td>
+		      <td>DOLLAR SIGN</td>
+		      <td>Equivalent of \uFFFD</td>
+	        </tr>
+		    <tr>
+		      <td>&amp;</td>
+		      <td>U+0026</td>
+		      <td>AMPERSAND</td>
+		      <td>Intersecting UnicodeSets</td>
+	        </tr>
+			    <tr>
+		      <td>-</td>
+		      <td>U+002D</td>
+		      <td>HYPHEN-MINUS</td>
+			      <td>Ranges of characters</td>
+        </tr>
+	    <tr>
+		      <td>:</td>
+		      <td>U+003A</td>
+		      <td>COLON</td>
+		      <td>POSIX-style property syntax</td>
+	        </tr>
+		    <tr>
+		      <td>[</td>
+		      <td>U+005B</td>
+		      <td>LEFT SQUARE BRACKET</td>
+		      <td>Grouping; POSIX property syntax</td>
+	        </tr>
+		    <tr>
+		      <td>]</td>
+		      <td>U+005D</td>
+		      <td>RIGHT SQUARE BRACKET</td>
+		      <td>Grouping; POSIX property syntax</td>
+	        </tr>
+		    <tr>
+		      <td>\</td>
+		      <td>U+005C</td>
+		      <td>REVERSE SOLIDUS</td>
+		      <td>Escaping</td>
+	        </tr>
+		    <tr>
+		      <td>^ </td>
+		      <td>U+005E</td>
+		      <td>CIRCUMFLEX ACCENT</td>
+		      <td>Posix negation syntax</td>
+	        </tr>
+		    <tr>
+		      <td>{ </td>
+		      <td>U+007B</td>
+		      <td>LEFT CURLY BRACKET</td>
+		      <td>Strings in set; Perl property syntax</td>
+	        </tr>
+		    <tr>
+		      <td>} </td>
+		      <td>U+007D</td>
+		      <td>RIGHT CURLY BRACKET</td>
+			      <td>Strings in set; Perl property syntax</td>
+        </tr>
+		    <tr>
+		      <td>&nbsp;</td>
+		      <td>U+0020 U+0009..U+000D U+0085<br>
+	          U+200E U+200F<br>
+	          U+2028 U+2029</td>
+		      <td>ASCII whitespace,<br>
+	          LRM, RLM,<br>
+	          LINE/PARAGRAPH SEPARATOR</td>
+		      <td>Ignored except when escaped</td>
+	        </tr>
+	      </tbody>
+	  </table>
+	  <br>
 		<h5>
 			<a href="#Lists_of_Code_Points" name="Lists_of_Code_Points">5.3.3.1
 				Lists of Code Points</a>
@@ -5989,18 +6070,18 @@ root</pre>
 		</p>
 		<p>In UnicodeSets, there are two ways to quote syntax code points:
 		</p>
-		<p>
-			<a name="Single_Quote"></a>Two single quotes represents a single
+		<p class='removed'>
+			Two single quotes represents a single
 			quote, either inside or outside single quotes. Text within single
 			quotes is not interpreted in any way (except for two adjacent single
 			quotes). It is taken as literal text (syntax code points become
 			literal).
-		</p>
+	  </p>
 		<p>
 			<a name="Backslash_Escapes"></a>Outside of single quotes, certain
 			backslashed code point sequences can be used to quote code points:
 		</p>
-		<table>
+	  <table class='simple'>
 			<tr>
 				<td>\x{h...h}</td>
 				<td>1-6 hex digits ([0-9A-Fa-f])</td>
@@ -6057,17 +6138,17 @@ root</pre>
 				<td>\p{…},\P{…}</td>
 				<td>Unicode property (see below)</td>
 			</tr>
-		</table>
-		<p>Anything else following a backslash is mapped to itself, except
+		</table><br>
+	  <p>Anything else following a backslash is mapped to itself, except
 			the property syntax described below, or in an environment where it is
-			defined to have some special meaning.</p>
-		<p>
-			Any code point formed as the result of a backslash escape loses any
+			defined to have some special meaning.		</p>
+	  <p>
+		  Any code point formed as the result of a backslash escape loses any
 			special meaning and is treated as a literal. In particular, note that
 			\x, \u and \U escapes create literal code points. (In contrast, Java
 			treats Unicode escapes as just a way to represent arbitrary code
 			points in an ASCII source file, and any resulting code points are <i><b>not</b></i>
-			tagged as literals.)
+		  tagged as literals.)
 		</p>
 		<p>
 			Unicode property sets are defined as described as described in <i>UTS
@@ -8461,9 +8542,17 @@ decimal?, group?, special*)) &gt;</pre>
 		</h2>
 
 <p class="changed"><b>Revision 48</b></p>
-<ul><li class="changed">Proposed Update for CLDR Version 32.</li></ul>
 
-	  <blockquote class="changed">
+	  <div class="changed">
+<ul><li class="changed">Proposed Update for CLDR Version 32.</li></ul>
+		<p><strong>Part 1: <a href="tr35.html#Contents">Core</a></strong></p>
+		<ul>
+		  <li>Section 5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
+		    <ul>
+		      <li>Added table of syntax characters; removed statement about escaping with '.</li>
+	        </ul>
+		  </li>
+	    </ul>
 		<p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong></p>
 		<ul>
 		  <li><strong>Section 2.6.2 <a
@@ -8476,7 +8565,7 @@ decimal?, group?, special*)) &gt;</pre>
 		    </ul>
 		  </li>
 		</ul>
-      </blockquote>
+      </div>
 
 <p class="changed"><b>Revision 47</b></p>
 

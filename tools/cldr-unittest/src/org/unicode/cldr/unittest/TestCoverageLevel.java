@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -40,6 +41,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
@@ -59,7 +62,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestCoverageLevel().run(args);
     }
-    
+
     public void testSpecificPaths() {
         String[][] rows = {
             {"//ldml/characters/parseLenients[@scope=\"number\"][@level=\"lenient\"]/parseLenient[@sample=\",\"]", "moderate", "20"}
@@ -389,7 +392,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         cal.set(versionNumber / 2 + versionNumber % 2 + 2001, 8 - (versionNumber % 2) * 6, 15);
         Date cldrReleaseMinus5Years = cal.getTime();
         Set<String> modernCurrencies = SDI.getCurrentCurrencies(SDI.getCurrencyTerritories(), cldrReleaseMinus5Years, NOW);
-        
+
         Set<String> needsNumberSystem = new HashSet<>();
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         Element numbersElement = dtdData.getElementFromName().get("numbers");
@@ -599,6 +602,43 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
 
             errln("Comprehensive & no exception for path =>\t" + path);
+        }
+    }
+
+    public void testBreakingLogicalGrouping() {
+        checkBreakingLogicalGrouping("en");
+        checkBreakingLogicalGrouping("ar");
+    }
+
+    private void checkBreakingLogicalGrouping(String localeId) {
+        SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
+        CLDRFile cldrFile = testInfo.getCldrFactory().make(localeId, true);
+        HashSet<String> seen = new HashSet<>();
+        Multimap<Level, String> levelToPaths = TreeMultimap.create();
+        int count = 0;
+        for (String path : cldrFile.fullIterable()) {
+            if (seen.contains(path)) {
+                continue;
+            }
+            Set<String> grouping = LogicalGrouping.getPaths(cldrFile, path);
+            seen.addAll(grouping);
+            seen.add(path); // needed too?
+            levelToPaths.clear();
+            for (String groupingPath : grouping) {
+                if (LogicalGrouping.isOptional(cldrFile, groupingPath)) {
+                    continue;
+                }
+                Level level = sdi.getCoverageLevel(groupingPath, localeId);
+                levelToPaths.put(level, groupingPath);
+            }
+            if (levelToPaths.keySet().size() <= 1) {
+                continue;
+            }
+            // we have a failure
+            for (Entry<Level, Collection<String>> entry : levelToPaths.asMap().entrySet()) {
+                errln(localeId + " (" + count + ") Broken Logical Grouping: " + entry.getKey() + " => " + entry.getValue());
+            }
+            ++count;
         }
     }
 }

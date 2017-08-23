@@ -29,7 +29,6 @@ import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
-import org.unicode.cldr.util.props.UnicodeProperty.PatternMatcher;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
@@ -42,6 +41,7 @@ import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.props.UnicodeProperty.PatternMatcher;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -341,13 +341,13 @@ public class CheckDates extends FactoryCheckCLDR {
                     String lgPathToWide = lgPath.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                     String lgPathWideValue = getCldrFileToCheck().getWinningValueWithBailey(lgPathToWide);
                     // This helps us get around things like "de març" vs. "març" in Catalan
-                    String thisValue = stripPrefix(value);
-                    wideValue = stripPrefix(wideValue);
-                    lgPathValue = stripPrefix(lgPathValue);
-                    lgPathWideValue = stripPrefix(lgPathWideValue);
-                    boolean thisPathHasPeriod = thisValue.contains(".");
+                    String thisValueStripped = stripPrefix(value);
+                    String wideValueStripped = stripPrefix(wideValue);
+                    String lgPathValueStripped = stripPrefix(lgPathValue);
+                    String lgPathWideValueStripped = stripPrefix(lgPathWideValue);
+                    boolean thisPathHasPeriod = value.contains(".");
                     boolean lgPathHasPeriod = lgPathValue.contains(".");
-                    if (!thisValue.equalsIgnoreCase(wideValue) && !lgPathValue.equalsIgnoreCase(lgPathWideValue) &&
+                    if (!thisValueStripped.equalsIgnoreCase(wideValueStripped) && !lgPathValueStripped.equalsIgnoreCase(lgPathWideValueStripped) &&
                         thisPathHasPeriod != lgPathHasPeriod) {
                         CheckStatus.Type et = CheckStatus.errorType;
                         if (path.contains("dayPeriod")) {

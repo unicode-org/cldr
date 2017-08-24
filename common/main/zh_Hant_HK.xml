@@ -509,6 +509,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">午夜</dayPeriod>
 							<dayPeriod type="morning1">早上</dayPeriod>
+							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -517,6 +518,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">午夜</dayPeriod>
 							<dayPeriod type="morning1">早上</dayPeriod>
+							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -525,6 +527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">午夜</dayPeriod>
 							<dayPeriod type="morning1">早上</dayPeriod>
+							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -534,6 +537,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="morning1">早上</dayPeriod>
+							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -541,6 +545,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="morning1">早上</dayPeriod>
+							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -548,6 +553,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="morning1">早上</dayPeriod>
+							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -684,7 +690,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<relative type="0">本月</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0}個月後</relativeTimePattern>
 				</relativeTime>

@@ -68,11 +68,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">منتصف الليل</dayPeriod>
 							<dayPeriod type="night2">ل</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
+							<dayPeriod type="am">ص</dayPeriod>
+							<dayPeriod type="pm">م</dayPeriod>
+							<dayPeriod type="morning1">فجرًا</dayPeriod>
+							<dayPeriod type="morning2">صباحًا</dayPeriod>
+							<dayPeriod type="afternoon1">ظهرًا</dayPeriod>
+							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>
+							<dayPeriod type="evening1">مساءً</dayPeriod>
+							<dayPeriod type="night1">منتصف الليل</dayPeriod>
+							<dayPeriod type="night2">ليلاً</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -93,9 +98,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="evening1">مساءً</dayPeriod>
 							<dayPeriod type="night1">منتصف الليل</dayPeriod>
 							<dayPeriod type="night2">ليلاً</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

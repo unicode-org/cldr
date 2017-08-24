@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -53,7 +55,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="az" alt="short">الأذرية</language>
 			<language type="ba">الباشكيرية</language>
 			<language type="bal">البلوشية</language>
-			<language type="ban">اللغة البالية</language>
+			<language type="ban">البالينية</language>
 			<language type="bas">الباسا</language>
 			<language type="bax">بامن</language>
 			<language type="bbj">لغة الغومالا</language>
@@ -112,7 +114,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cu">سلافية كنسية</language>
 			<language type="cv">التشوفاشي</language>
 			<language type="cy">الويلزية</language>
-			<language type="da">الدانماركية</language>
+			<language type="da">الدانمركية</language>
 			<language type="dak">الداكوتا</language>
 			<language type="dar">الدارجوا</language>
 			<language type="dav">تيتا</language>
@@ -154,7 +156,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es_ES">الإسبانية الأوروبية</language>
 			<language type="es_MX">الإسبانية المكسيكية</language>
 			<language type="et">الإستونية</language>
-			<language type="eu">لغة الباسك</language>
+			<language type="eu">الباسكية</language>
 			<language type="ewo">الإيوندو</language>
 			<language type="fa">الفارسية</language>
 			<language type="fan">الفانج</language>
@@ -214,11 +216,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ht">الكريولية الهايتية</language>
 			<language type="hu">الهنغارية</language>
 			<language type="hup">الهبا</language>
-			<language type="hy">الأرمينية</language>
+			<language type="hy">الأرمنية</language>
 			<language type="hz">الهيريرو</language>
 			<language type="ia">اللّغة الوسيطة</language>
 			<language type="iba">الإيبان</language>
-			<language type="ibb">الإيبيبيوية</language>
+			<language type="ibb">الإيبيبيو</language>
 			<language type="id">الإندونيسية</language>
 			<language type="ie">الإنترلينج</language>
 			<language type="ig">الإيجبو</language>
@@ -268,7 +270,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kok">الكونكانية</language>
 			<language type="kos">الكوسراين</language>
 			<language type="kpe">الكبيل</language>
-			<language type="kr">الكانيوري</language>
+			<language type="kr">الكانوري</language>
 			<language type="krc">الكاراتشاي-بالكار</language>
 			<language type="krl">الكاريلية</language>
 			<language type="kru">الكوروخ</language>
@@ -289,8 +291,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lam">اللامبا</language>
 			<language type="lb">اللكسمبورغية</language>
 			<language type="lez">الليزجية</language>
-			<language type="lg">الجاندا</language>
-			<language type="li">الليمبرجيشية</language>
+			<language type="lg">الغاندا</language>
+			<language type="li">الليمبورغية</language>
 			<language type="lkt">لاكوتا</language>
 			<language type="ln">اللينجالا</language>
 			<language type="lo">اللاوية</language>
@@ -299,7 +301,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="loz">اللوزي</language>
 			<language type="lrc">اللرية الشمالية</language>
 			<language type="lt">الليتوانية</language>
-			<language type="lu">اللبا-كاتانجا</language>
+			<language type="lu">اللوبا كاتانغا</language>
 			<language type="lua">اللبا-لؤلؤ</language>
 			<language type="lui">اللوسينو</language>
 			<language type="lun">اللوندا</language>
@@ -319,7 +321,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="men">الميند</language>
 			<language type="mer">الميرو</language>
 			<language type="mfe">المورسيانية</language>
-			<language type="mg">المالاجاشية</language>
+			<language type="mg">المالاغاشية</language>
 			<language type="mga">الأيرلندية الوسطى</language>
 			<language type="mgh">ماخاوا-ميتو</language>
 			<language type="mgo">ميتا</language>
@@ -349,7 +351,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nan">مين-نان الصينية</language>
 			<language type="nap">النابولية</language>
 			<language type="naq">لغة الناما</language>
-			<language type="nb">النرويجية بوكمال</language>
+			<language type="nb">بوكمول النرويجية</language>
 			<language type="nd">النديبيل الشمالية</language>
 			<language type="nds">الألمانية السفلى</language>
 			<language type="nds_NL">السكسونية السفلى</language>
@@ -380,7 +382,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="oc">الأوكيتانية</language>
 			<language type="oj">الأوجيبوا</language>
 			<language type="om">الأورومية</language>
-			<language type="or">اللغة الأورية</language>
+			<language type="or">الأورية</language>
 			<language type="os">الأوسيتيك</language>
 			<language type="osa">الأوساج</language>
 			<language type="ota">التركية العثمانية</language>
@@ -398,7 +400,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pon">البوهنبيايان</language>
 			<language type="prg">البروسياوية</language>
 			<language type="pro">البروفانسية القديمة</language>
-			<language type="ps">البشتونية</language>
+			<language type="ps">البشتو</language>
 			<language type="ps" alt="variant">بشتو</language>
 			<language type="pt">البرتغالية</language>
 			<language type="pt_BR">البرتغالية البرازيلية</language>
@@ -433,7 +435,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sco">الأسكتلندية</language>
 			<language type="sd">السندية</language>
 			<language type="sdh">الكردية الجنوبية</language>
-			<language type="se">السامي الشمالية</language>
+			<language type="se">سامي الشمالية</language>
 			<language type="see">السنيكا</language>
 			<language type="seh">سينا</language>
 			<language type="sel">السيلكب</language>
@@ -475,7 +477,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="syc">سريانية تقليدية</language>
 			<language type="syr">السريانية</language>
 			<language type="ta">التاميلية</language>
-			<language type="te">التيلوجو</language>
+			<language type="te">التيلوغوية</language>
 			<language type="tem">التيمن</language>
 			<language type="teo">تيسو</language>
 			<language type="ter">التيرينو</language>
@@ -538,7 +540,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yav">يانجبن</language>
 			<language type="ybb">يمبا</language>
 			<language type="yi">اليديشية</language>
-			<language type="yo">اليوروبية</language>
+			<language type="yo">اليوروبا</language>
 			<language type="yue">الكَنْتُونية</language>
 			<language type="za">الزهيونج</language>
 			<language type="zap">الزابوتيك</language>
@@ -743,7 +745,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BS">البهاما</territory>
 			<territory type="BT">بوتان</territory>
 			<territory type="BV">جزيرة بوفيه</territory>
-			<territory type="BW">بتسوانا</territory>
+			<territory type="BW">بوتسوانا</territory>
 			<territory type="BY">بيلاروس</territory>
 			<territory type="BZ">بليز</territory>
 			<territory type="CA">كندا</territory>
@@ -755,6 +757,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">جمهورية الكونغو</territory>
 			<territory type="CH">سويسرا</territory>
 			<territory type="CI">ساحل العاج</territory>
+			<territory type="CI" alt="variant">كوت ديفوار</territory>
 			<territory type="CK">جزر كوك</territory>
 			<territory type="CL">تشيلي</territory>
 			<territory type="CM">الكاميرون</territory>
@@ -765,7 +768,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CU">كوبا</territory>
 			<territory type="CV">الرأس الأخضر</territory>
 			<territory type="CW">كوراساو</territory>
-			<territory type="CX">جزيرة الكريسماس</territory>
+			<territory type="CX">جزيرة كريسماس</territory>
 			<territory type="CY">قبرص</territory>
 			<territory type="CZ">التشيك</territory>
 			<territory type="CZ" alt="variant">جمهورية التشيك</territory>
@@ -785,6 +788,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">إسبانيا</territory>
 			<territory type="ET">إثيوبيا</territory>
 			<territory type="EU">الاتحاد الأوروبي</territory>
+			<territory type="EZ" draft="contributed">منطقة اليورو</territory>
 			<territory type="FI">فنلندا</territory>
 			<territory type="FJ">فيجي</territory>
 			<territory type="FK">جزر فوكلاند</territory>
@@ -812,7 +816,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GU">غوام</territory>
 			<territory type="GW">غينيا بيساو</territory>
 			<territory type="GY">غيانا</territory>
-			<territory type="HK">هونغ كونغ الصينية</territory>
+			<territory type="HK">هونغ كونغ الصينية (منطقة إدارية خاصة)</territory>
 			<territory type="HK" alt="short">هونغ كونغ</territory>
 			<territory type="HM">جزيرة هيرد وجزر ماكدونالد</territory>
 			<territory type="HN">هندوراس</territory>
@@ -828,7 +832,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IO">الإقليم البريطاني في المحيط الهندي</territory>
 			<territory type="IQ">العراق</territory>
 			<territory type="IR">إيران</territory>
-			<territory type="IS">أيسلندا</territory>
+			<territory type="IS">آيسلندا</territory>
 			<territory type="IT">إيطاليا</territory>
 			<territory type="JE">جيرسي</territory>
 			<territory type="JM">جامايكا</territory>
@@ -860,7 +864,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MC">موناكو</territory>
 			<territory type="MD">مولدوفا</territory>
 			<territory type="ME">الجبل الأسود</territory>
-			<territory type="MF">سانت مارتن</territory>
+			<territory type="MF">سان مارتن</territory>
 			<territory type="MG">مدغشقر</territory>
 			<territory type="MH">جزر مارشال</territory>
 			<territory type="MK">مقدونيا</territory>
@@ -901,7 +905,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PH">الفلبين</territory>
 			<territory type="PK">باكستان</territory>
 			<territory type="PL">بولندا</territory>
-			<territory type="PM">سانت بيير وميكولون</territory>
+			<territory type="PM">سان بيير ومكويلون</territory>
 			<territory type="PN">جزر بيتكيرن</territory>
 			<territory type="PR">بورتوريكو</territory>
 			<territory type="PS">الأراضي الفلسطينية</territory>
@@ -922,9 +926,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SD">السودان</territory>
 			<territory type="SE">السويد</territory>
 			<territory type="SG">سنغافورة</territory>
-			<territory type="SH">سانت هيلانة</territory>
+			<territory type="SH">سانت هيلينا</territory>
 			<territory type="SI">سلوفينيا</territory>
-			<territory type="SJ">سفالبارد وجان مايان</territory>
+			<territory type="SJ">سفالبارد وجان ماين</territory>
 			<territory type="SK">سلوفاكيا</territory>
 			<territory type="SL">سيراليون</territory>
 			<territory type="SM">سان مارينو</territory>
@@ -934,10 +938,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SS">جنوب السودان</territory>
 			<territory type="ST">ساو تومي وبرينسيبي</territory>
 			<territory type="SV">السلفادور</territory>
-			<territory type="SX">سينت مارتن</territory>
+			<territory type="SX">سانت مارتن</territory>
 			<territory type="SY">سوريا</territory>
 			<territory type="SZ">سوازيلاند</territory>
-			<territory type="TA">تريستان دي كونها</territory>
+			<territory type="TA">تريستان دا كونا</territory>
 			<territory type="TC">جزر توركس وكايكوس</territory>
 			<territory type="TD">تشاد</territory>
 			<territory type="TF">الأقاليم الجنوبية الفرنسية</territory>
@@ -959,7 +963,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UG">أوغندا</territory>
 			<territory type="UM">جزر الولايات المتحدة النائية</territory>
 			<territory type="UN">الأمم المتحدة</territory>
-			<territory type="UN" alt="short">أمم</territory>
+			<territory type="UN" alt="short">الأمم المتحدة</territory>
 			<territory type="US">الولايات المتحدة</territory>
 			<territory type="US" alt="short">الولايات المتحدة</territory>
 			<territory type="UY">أورغواي</territory>
@@ -1052,6 +1056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="no" draft="contributed">تصنيف بحسب الأحرف غير الحساسة لحالة الأحرف</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">تصنيف بحسب حساسية الأحرف</type>
 			<type key="collation" type="big5han">ترتيب فرز الصينية التقليدية (Big5)</type>
+			<type key="collation" type="compat" draft="contributed">ترتيب الفرز السابق: للتوافق</type>
 			<type key="collation" type="dictionary">ترتيب فرز القاموس</type>
 			<type key="collation" type="ducet">ترتيب فرز Unicode الافتراضي</type>
 			<type key="collation" type="gb2312han">ترتيب فرز الصينية المبسطة (GB2312)</type>
@@ -1074,8 +1079,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">تصنيف اللكنات/الحالة/العرض/الكانا</type>
 			<type key="colStrength" type="secondary" draft="contributed">تصنيف اللكنات</type>
 			<type key="colStrength" type="tertiary" draft="contributed">تصنيف اللكنات/الحالة/العرض</type>
-			<type key="d0" type="fwidth" draft="contributed">عرض كامل</type>
-			<type key="d0" type="hwidth" draft="contributed">نصف العرض</type>
+			<type key="d0" type="fwidth">عرض كامل</type>
+			<type key="d0" type="hwidth">نصف العرض</type>
 			<type key="d0" type="npinyin" draft="contributed">رقمي</type>
 			<type key="hc" type="h11">نظام 12 ساعة (0–11)</type>
 			<type key="hc" type="h12">نظام 12 ساعة (1–12)</type>
@@ -1084,8 +1089,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">نمط فصل السطور: متباعد</type>
 			<type key="lb" type="normal">نمط فصل السطور: عادي</type>
 			<type key="lb" type="strict">نمط فصل السطور: متقارب</type>
-			<type key="m0" type="bgn" draft="contributed">بي جي إن</type>
-			<type key="m0" type="ungegn" draft="contributed">يو إن جي إي جي إن</type>
+			<type key="m0" type="bgn">بي جي إن</type>
+			<type key="m0" type="ungegn">يو إن جي إي جي إن</type>
 			<type key="ms" type="metric">نظام متري</type>
 			<type key="ms" type="uksystem">نظام المملكة المتحدة</type>
 			<type key="ms" type="ussystem">نظام الولايات المتحدة</type>
@@ -1158,6 +1163,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>؟</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>”</quotationStart>
@@ -1303,12 +1327,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE، d MMMM، y G</pattern>
+							<pattern>EEEE، d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM، y G</pattern>
+							<pattern>d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1344,13 +1368,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM، y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E، d MMM، y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E، d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1370,10 +1403,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d‏/M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E، d/‏M/‏y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM، y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E، d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM، y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E، d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -1457,22 +1490,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">E، d‏/M‏/y – E، d‏/M‏/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM – MMM، y G</greatestDifference>
-							<greatestDifference id="y">MMM، y – MMM، y G</greatestDifference>
+							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM، y – MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d–d MMM، y G</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM، y G</greatestDifference>
-							<greatestDifference id="y">d MMM، y – d MMM، y G</greatestDifference>
+							<greatestDifference id="d">d–d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E، d – E، d MMM، y G</greatestDifference>
-							<greatestDifference id="M">E، d MMM – E، d MMM، y G</greatestDifference>
-							<greatestDifference id="y">E، d MMM، y – E، d MMM، y G</greatestDifference>
+							<greatestDifference id="d">E، d – E، d MMM y G</greatestDifference>
+							<greatestDifference id="M">E، d MMM – E، d MMM y G</greatestDifference>
+							<greatestDifference id="y">E، d MMM y – E، d MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM – MMMM، y G</greatestDifference>
-							<greatestDifference id="y">MMMM، y – MMMM، y G</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM y G</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1589,13 +1622,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">س</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
+							<day type="sun">أحد</day>
+							<day type="mon">إثنين</day>
+							<day type="tue">ثلاثاء</day>
+							<day type="wed">أربعاء</day>
+							<day type="thu">خميس</day>
+							<day type="fri">جمعة</day>
+							<day type="sat">سبت</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">الأحد</day>
@@ -1627,13 +1660,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">س</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
+							<day type="sun">أحد</day>
+							<day type="mon">إثنين</day>
+							<day type="tue">ثلاثاء</day>
+							<day type="wed">أربعاء</day>
+							<day type="thu">خميس</day>
+							<day type="fri">جمعة</day>
+							<day type="sat">سبت</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">الأحد</day>
@@ -1693,13 +1726,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">ص</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
-							<dayPeriod type="morning1">فجرا</dayPeriod>
+							<dayPeriod type="morning1">فجرًا</dayPeriod>
 							<dayPeriod type="morning2">ص</dayPeriod>
 							<dayPeriod type="afternoon1">ظهرًا</dayPeriod>
 							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>
 							<dayPeriod type="evening1">مساءً</dayPeriod>
 							<dayPeriod type="night1">منتصف الليل</dayPeriod>
-							<dayPeriod type="night2">ل</dayPeriod>
+							<dayPeriod type="night2">ليلاً</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">ص</dayPeriod>
@@ -1728,7 +1761,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">ص</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
-							<dayPeriod type="morning1">فجرا</dayPeriod>
+							<dayPeriod type="morning1">فجرًا</dayPeriod>
 							<dayPeriod type="morning2">ص</dayPeriod>
 							<dayPeriod type="afternoon1">ظهرًا</dayPeriod>
 							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>
@@ -1739,7 +1772,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">ص</dayPeriod>
 							<dayPeriod type="pm">م</dayPeriod>
-							<dayPeriod type="morning1">فجرا</dayPeriod>
+							<dayPeriod type="morning1">فجرًا</dayPeriod>
 							<dayPeriod type="morning2">صباحًا</dayPeriod>
 							<dayPeriod type="afternoon1">ظهرًا</dayPeriod>
 							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>
@@ -1763,11 +1796,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">قبل الميلاد</era>
+						<era type="0" alt="variant">قبل الحقبة الحالية</era>
 						<era type="1">ميلادي</era>
 						<era type="1" alt="variant">بعد الميلاد</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ق.م</era>
+						<era type="0" alt="variant">ق. م</era>
 						<era type="1">م</era>
 						<era type="1" alt="variant">ب.م</era>
 					</eraAbbr>
@@ -1775,12 +1810,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE، d MMMM، y</pattern>
+							<pattern>EEEE، d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM، y</pattern>
+							<pattern>d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1838,8 +1873,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1847,8 +1887,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM، y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E، d MMM، y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E، d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1881,17 +1921,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMEd">E، d/‏M/‏y</dateFormatItem>
 						<dateFormatItem id="yMM">MM‏/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM، y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E، d MMM، y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E، d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="zero">الأسبوع w من سنة Y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">الأسبوع w من سنة Y</dateFormatItem>
-						<dateFormatItem id="yw" count="two">الأسبوع w من سنة Y</dateFormatItem>
-						<dateFormatItem id="yw" count="few">الأسبوع w من سنة Y</dateFormatItem>
-						<dateFormatItem id="yw" count="many">الأسبوع w من سنة Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">الأسبوع w من سنة Y</dateFormatItem>
+						<dateFormatItem id="yw" count="zero">الأسبوع w من سنة y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">الأسبوع w من سنة y</dateFormatItem>
+						<dateFormatItem id="yw" count="two">الأسبوع w من سنة y</dateFormatItem>
+						<dateFormatItem id="yw" count="few">الأسبوع w من سنة y</dateFormatItem>
+						<dateFormatItem id="yw" count="many">الأسبوع w من سنة y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">الأسبوع w من سنة y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2075,12 +2115,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE، d MMMM، y G</pattern>
+							<pattern>EEEE، d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM، y G</pattern>
+							<pattern>d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -2194,17 +2234,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE، d MMMM، y G</pattern>
+							<pattern>EEEE، d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM، y G</pattern>
+							<pattern>d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM، y G</pattern>
+							<pattern>d MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -2220,8 +2260,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM، y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E، d MMM، y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E، d MMM y G</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/‏M</dateFormatItem>
 						<dateFormatItem id="MEd">E، d/M</dateFormatItem>
@@ -2234,10 +2274,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d‏/M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E، d/‏M/‏y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM، y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E، d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM، y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E، d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -2512,7 +2552,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 			<calendar type="roc">
 				<eras>
-					<!-- per cldrbug 2835, added with best guess for translation of ROC -->
 					<eraAbbr>
 						<era type="0">Before R.O.C.</era>
 						<era type="1">جمهورية الصي</era>
@@ -2522,6 +2561,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>العصر</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>العصر</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>العصر</displayName>
 			</field>
 			<field type="year">
@@ -2773,6 +2818,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>أسبوع {0}</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>الأسبوع من الشهر</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>أسبوع من شهر</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>أسبوع/شهر</displayName>
+			</field>
 			<field type="day">
 				<displayName>يوم</displayName>
 				<relative type="-2">أول أمس</relative>
@@ -2835,28 +2889,52 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">قبل {0} يوم</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>يوم من السنة</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>يوم من سنة</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>يوم/سنة</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>اليوم</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>اليوم</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>اليوم</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>يوم عمل من الشهر</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>يوم عمل من شهر</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>يوم عمل/شهر</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">الأحد الماضي</relative>
 				<relative type="0">الأحد الحالي</relative>
 				<relative type="1">الأحد القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الأحد القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الأحد بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one">الأحد القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الأحد بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} أحد</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الأحد الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الأحد قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one">الأحد الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">الأحد قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} أحد</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-short">
@@ -2864,20 +2942,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأحد الحالي</relative>
 				<relative type="1">الأحد القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">أحد قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">أحد بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one">أحد قادم</relativeTimePattern>
+					<relativeTimePattern count="two">أحد بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} أحد</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">أحد ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">أحد قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one">أحد ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">أحد قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} أحد</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
@@ -2885,62 +2963,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأحد الحالي</relative>
 				<relative type="1">الأحد القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">أحد قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">أحد بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one">أحد قادم</relativeTimePattern>
+					<relativeTimePattern count="two">أحد بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} أحد</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">أحد ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">أحد قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one">أحد ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">أحد قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} أحد</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
-				<relative type="-1">الاثنين الماضي</relative>
-				<relative type="0">الاثنين الحالي</relative>
-				<relative type="1">الاثنين القادم</relative>
+				<relative type="-1">الإثنين الماضي</relative>
+				<relative type="0">الإثنين الحالي</relative>
+				<relative type="1">الإثنين القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الإثنين القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الإثنين بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام إثنين</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم إثنين</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one">الإثنين القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الإثنين بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أيام إثنين</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} يوم إثنين</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} يوم إثنين</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الإثنين الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الإثنين قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام إثنين</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم إثنين</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one">الإثنين الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">الإثنين قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أيام إثنين</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} يوم إثنين</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} يوم إثنين</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-short">
-				<relative type="-1">الاثنين الماضي</relative>
-				<relative type="0">الاثنين الحالي</relative>
+				<relative type="-1">الإثنين الماضي</relative>
+				<relative type="0">الإثنين الحالي</relative>
 				<relative type="1">الإثنين القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الإثنين القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الإثنين بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one">الإثنين القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الإثنين بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} إثنين</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الإثنين الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الإثنين قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one">الإثنين الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">الإثنين قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} إثنين</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
@@ -2948,20 +3026,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الإثنين الحالي</relative>
 				<relative type="1">الإثنين القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">إثنين قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">إثنين بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one">إثنين قادم</relativeTimePattern>
+					<relativeTimePattern count="two">الإثنين بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} إثنين</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">إثنين ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">إثنين قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one">إثنين ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">إثنين قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} إثنين</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -2969,20 +3047,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الثلاثاء الحالي</relative>
 				<relative type="1">الثلاثاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الثلاثاء القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الثلاثاء بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="one">الثلاثاء القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الثلاثاء بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أيام ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} يوم ثلاثاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الثلاثاء الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الثلاثاء قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="one">الثلاثاء الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">الثلاثاء قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أيام ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} يوم ثلاثاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-short">
@@ -2990,20 +3068,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الثلاثاء الحالي</relative>
 				<relative type="1">الثلاثاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">ثلاثاء قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">ثلاثاء بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="one">ثلاثاء قادم</relativeTimePattern>
+					<relativeTimePattern count="two">ثلاثاء بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} ثلاثاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">ثلاثاء ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">ثلاثاء قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="one">ثلاثاء ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">ثلاثاء قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} ثلاثاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
@@ -3011,20 +3089,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الثلاثاء الحالي</relative>
 				<relative type="1">الثلاثاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">ثلاثاء قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">ثلاثاء بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="one">ثلاثاء قادم</relativeTimePattern>
+					<relativeTimePattern count="two">ثلاثاء بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} ثلاثاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">ثلاثاء ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">ثلاثاء قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="one">ثلاثاء ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">ثلاثاء قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} ثلاثاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -3032,20 +3110,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأربعاء الحالي</relative>
 				<relative type="1">الأربعاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم أربعاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الأربعاء القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الأربعاء بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم أربعاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="one">الأربعاء القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الأربعاء بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أيام أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} يوم أربعاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم أربعاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الأربعاء الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الأربعاء قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم أربعاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="one">الأربعاء الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">الأربعاء قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أيام أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} يوم أربعاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -3053,20 +3131,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأربعاء الحالي</relative>
 				<relative type="1">الأربعاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="one">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="two">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} أربعاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">أربعاء ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">أربعاء قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="one">أربعاء ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">أربعاء قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} أربعاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
@@ -3074,20 +3152,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأربعاء الحالي</relative>
 				<relative type="1">الأربعاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">أربعاء قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">أربعاء بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="one">أربعاء قادم</relativeTimePattern>
+					<relativeTimePattern count="two">أربعاء بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} أربعاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">أربعاء ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">أربعاء قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="one">أربعاء ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">أربعاء قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} أربعاء</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} أربعاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -3095,20 +3173,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الخميس الحالي</relative>
 				<relative type="1">الخميس القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الخميس القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الخميس بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام خميس</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="one">الخميس القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الخميس بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أيام خميس</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} يوم خميس</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الخميس الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الخميس قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام خميس</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="one">الخميس الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">الخميس قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أيام خميس</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} يوم خميس</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-short">
@@ -3116,20 +3194,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الخميس الحالي</relative>
 				<relative type="1">الخميس القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="one">الخميس القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الخميس بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} خميس</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">خميس ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">خميس قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="one">خميس ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">خميس قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} خميس</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
@@ -3137,20 +3215,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الخميس الحالي</relative>
 				<relative type="1">الخميس القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="one">خلال {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="two">الخميس بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} خميس</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">خميس ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">خميس قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} خميس</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="one">خميس ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">خميس قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} خميس</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} خميس</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -3158,20 +3236,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الجمعة الحالي</relative>
 				<relative type="1">الجمعة القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم جمعة</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الجمعة القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الجمعة بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام جمعة</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم جمعة</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="one">الجمعة القادم</relativeTimePattern>
+					<relativeTimePattern count="two">الجمعة بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} أيام جمعة</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} يوم جمعة</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم جمعة</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">الجمعة الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">الجمعة قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام جمعة</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم جمعة</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="one">الجمعة الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">الجمعة قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} أيام جمعة</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} يوم جمعة</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-short">
@@ -3179,20 +3257,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الجمعة الحالي</relative>
 				<relative type="1">الجمعة القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">جمعة قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">جمعة بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="one">جمعة قادم</relativeTimePattern>
+					<relativeTimePattern count="two">جمعة بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} جمعة</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">جمعة ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">جمعة قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="one">جمعة ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">جمعة قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} جمعة</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
@@ -3200,20 +3278,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الجمعة الحالي</relative>
 				<relative type="1">الجمعة القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">جمعة قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">جمعة بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="one">جمعة قادم</relativeTimePattern>
+					<relativeTimePattern count="two">جمعة بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} جمعة</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">جمعة ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">جمعة قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="one">جمعة ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">جمعة قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} جمعة</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -3221,20 +3299,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">السبت الحالي</relative>
 				<relative type="1">السبت القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">بعد {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">السبت القادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">السبت بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">بعد {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">بعد {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="zero">السبت القادم</relativeTimePattern>
+					<relativeTimePattern count="one">السبت القادم</relativeTimePattern>
+					<relativeTimePattern count="two">السبت بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">السبت بعد {0} أسابيع</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="other">بعد {0} يوم سبت</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">السبت الماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">السبت قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="one">السبت الماضي</relativeTimePattern>
+					<relativeTimePattern count="two">السبت قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} يوم سبت</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-short">
@@ -3242,20 +3320,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">السبت الحالي</relative>
 				<relative type="1">السبت القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">سبت قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">سبت بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one">سبت قادم</relativeTimePattern>
+					<relativeTimePattern count="two">سبت بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} سبت</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">سبت ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">سبت قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one">سبت ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">سبت قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} سبت</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
@@ -3263,23 +3341,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">السبت الحالي</relative>
 				<relative type="1">السبت القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero" draft="provisional">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">سبت قادم</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">سبت بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one">سبت قادم</relativeTimePattern>
+					<relativeTimePattern count="two">سبت بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other">خلال {0} سبت</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero" draft="provisional">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one" draft="provisional">سبت ماضي</relativeTimePattern>
-					<relativeTimePattern count="two" draft="provisional">سبت قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few" draft="provisional">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many" draft="provisional">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one">سبت ماضي</relativeTimePattern>
+					<relativeTimePattern count="two">سبت قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other">قبل {0} سبت</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>ص/م</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>ص/م</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>ص/م</displayName>
 			</field>
 			<field type="hour">
@@ -3459,11 +3543,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>التوقيت</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>توقيت</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>توقيت</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat>جرينتش{0}</gmtFormat>
-			<gmtZeroFormat>جرينتش</gmtZeroFormat>
+			<gmtFormat>غرينتش{0}</gmtFormat>
+			<gmtZeroFormat>غرينتش</gmtZeroFormat>
 			<regionFormat>توقيت {0}</regionFormat>
 			<regionFormat type="daylight">توقيت {0} الصيفي</regionFormat>
 			<regionFormat type="standard">توقيت {0} الرسمي</regionFormat>
@@ -3495,7 +3585,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>أنتيغوا</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
-				<exemplarCity>أنغيلا</exemplarCity>
+				<exemplarCity>أنغويلا</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
 				<exemplarCity>تيرانا</exemplarCity>
@@ -3842,6 +3932,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>استر</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>بونتا أريناز</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>سانتياغو</exemplarCity>
 			</zone>
@@ -3867,13 +3960,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>الرأس الأخضر</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>كوراكاو</exemplarCity>
+				<exemplarCity>كوراساو</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>كريسماس</exemplarCity>
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>نيقوسيا</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>فاماغوستا</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>براغ</exemplarCity>
@@ -4125,13 +4221,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>الكويت</exemplarCity>
 			</zone>
 			<zone type="America/Cayman">
-				<exemplarCity>كيمان</exemplarCity>
+				<exemplarCity>كايمان</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>أكتاو</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>أورال</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>أتيراو</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>أكتوب</exemplarCity>
@@ -4359,7 +4458,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>وارسو</exemplarCity>
 			</zone>
 			<zone type="America/Miquelon">
-				<exemplarCity>ميكولن</exemplarCity>
+				<exemplarCity>مكويلون</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity>بيتكيرن</exemplarCity>
@@ -4411,6 +4510,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>فولوجراد</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>ساراتوف</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>أستراخان</exemplarCity>
@@ -4910,9 +5012,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
-					<generic>توقيت بنجلاديش</generic>
-					<standard>توقيت بنجلاديش الرسمي</standard>
-					<daylight>توقيت بنجلاديش الصيفي</daylight>
+					<generic>توقيت بنغلاديش</generic>
+					<standard>توقيت بنغلاديش الرسمي</standard>
+					<daylight>توقيت بنغلاديش الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bhutan">
@@ -5258,7 +5360,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Kyrgystan">
 				<long>
-					<standard>توقيت قرغيزستان</standard>
+					<standard>توقيت قيرغيزستان</standard>
 				</long>
 			</metazone>
 			<metazone type="Line_Islands">
@@ -5591,9 +5693,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
-					<generic>توقيت أورغواي</generic>
-					<standard>توقيت أورغواي الرسمي</standard>
-					<daylight>توقيت أورغواي الصيفي</daylight>
+					<generic>توقيت أوروغواي</generic>
+					<standard>توقيت أوروغواي الرسمي</standard>
+					<daylight>توقيت أوروغواي الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -5670,9 +5772,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<list>؛</list>
-			<percentSign>٪؜</percentSign> <!-- includes ALM after sign -->
-			<plusSign>؜+</plusSign> <!-- includes ALM before sign -->
-			<minusSign>؜-</minusSign> <!-- includes ALM before sign (002D) -->
+			<percentSign>٪؜</percentSign>
+			<plusSign>؜+</plusSign>
+			<minusSign>؜-</minusSign>
 			<exponential>اس</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>
@@ -5684,9 +5786,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimal>.</decimal>
 			<group>,</group>
 			<list>;</list>
-			<percentSign>‎%‎</percentSign> <!-- includes LRM before and after sign -->
-			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
-			<minusSign>‎-</minusSign> <!-- includes LRM before sign (002D) -->
+			<percentSign>‎%‎</percentSign>
+			<plusSign>‎+</plusSign>
+			<minusSign>‎-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -5763,24 +5865,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="100000000000" count="few">000 مليار</pattern>
 					<pattern type="100000000000" count="many">000 مليار</pattern>
 					<pattern type="100000000000" count="other">000 مليار</pattern>
-					<pattern type="1000000000000" count="zero">0 تريليون</pattern>
-					<pattern type="1000000000000" count="one">0 تريليون</pattern>
-					<pattern type="1000000000000" count="two">0 تريليون</pattern>
-					<pattern type="1000000000000" count="few">0 تريليونات</pattern>
-					<pattern type="1000000000000" count="many">0 تريليون</pattern>
-					<pattern type="1000000000000" count="other">0 تريليون</pattern>
-					<pattern type="10000000000000" count="zero">00 تريليون</pattern>
-					<pattern type="10000000000000" count="one">00 تريليون</pattern>
-					<pattern type="10000000000000" count="two">00 تريليون</pattern>
-					<pattern type="10000000000000" count="few">00 تريليون</pattern>
-					<pattern type="10000000000000" count="many">00 تريليون</pattern>
-					<pattern type="10000000000000" count="other">00 تريليون</pattern>
-					<pattern type="100000000000000" count="zero">000 تريليون</pattern>
-					<pattern type="100000000000000" count="one">000 تريليون</pattern>
-					<pattern type="100000000000000" count="two">000 تريليون</pattern>
-					<pattern type="100000000000000" count="few">000 تريليون</pattern>
-					<pattern type="100000000000000" count="many">000 تريليون</pattern>
-					<pattern type="100000000000000" count="other">000 تريليون</pattern>
+					<pattern type="1000000000000" count="zero">0 ترليون</pattern>
+					<pattern type="1000000000000" count="one">0 ترليون</pattern>
+					<pattern type="1000000000000" count="two">0 ترليون</pattern>
+					<pattern type="1000000000000" count="few">0 ترليون</pattern>
+					<pattern type="1000000000000" count="many">0 ترليون</pattern>
+					<pattern type="1000000000000" count="other">0 ترليون</pattern>
+					<pattern type="10000000000000" count="zero">00 ترليون</pattern>
+					<pattern type="10000000000000" count="one">00 ترليون</pattern>
+					<pattern type="10000000000000" count="two">00 ترليون</pattern>
+					<pattern type="10000000000000" count="few">00 ترليون</pattern>
+					<pattern type="10000000000000" count="many">00 ترليون</pattern>
+					<pattern type="10000000000000" count="other">00 ترليون</pattern>
+					<pattern type="100000000000000" count="zero">000 ترليون</pattern>
+					<pattern type="100000000000000" count="one">000 ترليون</pattern>
+					<pattern type="100000000000000" count="two">000 ترليون</pattern>
+					<pattern type="100000000000000" count="few">000 ترليون</pattern>
+					<pattern type="100000000000000" count="many">000 ترليون</pattern>
+					<pattern type="100000000000000" count="other">000 ترليون</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -5803,60 +5905,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="100000" count="few">000 ألف</pattern>
 					<pattern type="100000" count="many">000 ألف</pattern>
 					<pattern type="100000" count="other">000 ألف</pattern>
-					<pattern type="1000000" count="zero">0 مليو</pattern>
-					<pattern type="1000000" count="one">0 مليو</pattern>
-					<pattern type="1000000" count="two">0 مليو</pattern>
-					<pattern type="1000000" count="few">0 مليو</pattern>
-					<pattern type="1000000" count="many">0 مليو</pattern>
-					<pattern type="1000000" count="other">0 مليو</pattern>
-					<pattern type="10000000" count="zero">00 مليو</pattern>
-					<pattern type="10000000" count="one">00 مليو</pattern>
-					<pattern type="10000000" count="two">00 مليو</pattern>
-					<pattern type="10000000" count="few">00 مليو</pattern>
-					<pattern type="10000000" count="many">00 مليو</pattern>
-					<pattern type="10000000" count="other">00 مليو</pattern>
-					<pattern type="100000000" count="zero">000 مليو</pattern>
-					<pattern type="100000000" count="one">000 مليو</pattern>
-					<pattern type="100000000" count="two">000 مليو</pattern>
-					<pattern type="100000000" count="few">000 مليو</pattern>
-					<pattern type="100000000" count="many">000 مليو</pattern>
-					<pattern type="100000000" count="other">000 مليو</pattern>
-					<pattern type="1000000000" count="zero">0 مليا</pattern>
-					<pattern type="1000000000" count="one">0 مليا</pattern>
-					<pattern type="1000000000" count="two">0 مليا</pattern>
-					<pattern type="1000000000" count="few">0 مليا</pattern>
-					<pattern type="1000000000" count="many">0 مليا</pattern>
-					<pattern type="1000000000" count="other">0 مليا</pattern>
-					<pattern type="10000000000" count="zero">00 مليا</pattern>
-					<pattern type="10000000000" count="one">00 مليا</pattern>
-					<pattern type="10000000000" count="two">00 مليا</pattern>
-					<pattern type="10000000000" count="few">00 مليا</pattern>
-					<pattern type="10000000000" count="many">00 مليا</pattern>
-					<pattern type="10000000000" count="other">00 مليا</pattern>
-					<pattern type="100000000000" count="zero">000 مليا</pattern>
-					<pattern type="100000000000" count="one">000 مليا</pattern>
-					<pattern type="100000000000" count="two">000 مليا</pattern>
-					<pattern type="100000000000" count="few">000 مليا</pattern>
-					<pattern type="100000000000" count="many">000 مليا</pattern>
-					<pattern type="100000000000" count="other">000 مليا</pattern>
-					<pattern type="1000000000000" count="zero">0 ترليو</pattern>
-					<pattern type="1000000000000" count="one">0 ترليو</pattern>
-					<pattern type="1000000000000" count="two">0 ترليو</pattern>
-					<pattern type="1000000000000" count="few">0 ترليو</pattern>
-					<pattern type="1000000000000" count="many">0 ترليو</pattern>
-					<pattern type="1000000000000" count="other">0 ترليو</pattern>
-					<pattern type="10000000000000" count="zero">00 ترليو</pattern>
-					<pattern type="10000000000000" count="one">00 ترليو</pattern>
-					<pattern type="10000000000000" count="two">00 ترليو</pattern>
-					<pattern type="10000000000000" count="few">00 ترليو</pattern>
-					<pattern type="10000000000000" count="many">00 ترليو</pattern>
-					<pattern type="10000000000000" count="other">00 ترليو</pattern>
-					<pattern type="100000000000000" count="zero">000 ترليو</pattern>
-					<pattern type="100000000000000" count="one">000 ترليو</pattern>
-					<pattern type="100000000000000" count="two">000 ترليو</pattern>
-					<pattern type="100000000000000" count="few">000 ترليو</pattern>
-					<pattern type="100000000000000" count="many">000 ترليو</pattern>
-					<pattern type="100000000000000" count="other">000 ترليو</pattern>
+					<pattern type="1000000" count="zero">0 مليون</pattern>
+					<pattern type="1000000" count="one">0 مليون</pattern>
+					<pattern type="1000000" count="two">0 مليون</pattern>
+					<pattern type="1000000" count="few">0 مليون</pattern>
+					<pattern type="1000000" count="many">0 مليون</pattern>
+					<pattern type="1000000" count="other">0 مليون</pattern>
+					<pattern type="10000000" count="zero">00 مليون</pattern>
+					<pattern type="10000000" count="one">00 مليون</pattern>
+					<pattern type="10000000" count="two">00 مليون</pattern>
+					<pattern type="10000000" count="few">00 مليون</pattern>
+					<pattern type="10000000" count="many">00 مليون</pattern>
+					<pattern type="10000000" count="other">00 مليون</pattern>
+					<pattern type="100000000" count="zero">000 مليون</pattern>
+					<pattern type="100000000" count="one">000 مليون</pattern>
+					<pattern type="100000000" count="two">000 مليون</pattern>
+					<pattern type="100000000" count="few">000 مليون</pattern>
+					<pattern type="100000000" count="many">000 مليون</pattern>
+					<pattern type="100000000" count="other">000 مليون</pattern>
+					<pattern type="1000000000" count="zero">0 مليار</pattern>
+					<pattern type="1000000000" count="one">0 مليار</pattern>
+					<pattern type="1000000000" count="two">0 مليار</pattern>
+					<pattern type="1000000000" count="few">0 مليار</pattern>
+					<pattern type="1000000000" count="many">0 مليار</pattern>
+					<pattern type="1000000000" count="other">0 مليار</pattern>
+					<pattern type="10000000000" count="zero">00 مليار</pattern>
+					<pattern type="10000000000" count="one">00 مليار</pattern>
+					<pattern type="10000000000" count="two">00 مليار</pattern>
+					<pattern type="10000000000" count="few">00 مليار</pattern>
+					<pattern type="10000000000" count="many">00 مليار</pattern>
+					<pattern type="10000000000" count="other">00 مليار</pattern>
+					<pattern type="100000000000" count="zero">000 مليار</pattern>
+					<pattern type="100000000000" count="one">000 مليار</pattern>
+					<pattern type="100000000000" count="two">000 مليار</pattern>
+					<pattern type="100000000000" count="few">000 مليار</pattern>
+					<pattern type="100000000000" count="many">000 مليار</pattern>
+					<pattern type="100000000000" count="other">000 مليار</pattern>
+					<pattern type="1000000000000" count="zero">0 ترليون</pattern>
+					<pattern type="1000000000000" count="one">0 ترليون</pattern>
+					<pattern type="1000000000000" count="two">0 ترليون</pattern>
+					<pattern type="1000000000000" count="few">0 ترليون</pattern>
+					<pattern type="1000000000000" count="many">0 ترليون</pattern>
+					<pattern type="1000000000000" count="other">0 ترليون</pattern>
+					<pattern type="10000000000000" count="zero">00 ترليون</pattern>
+					<pattern type="10000000000000" count="one">00 ترليون</pattern>
+					<pattern type="10000000000000" count="two">00 ترليون</pattern>
+					<pattern type="10000000000000" count="few">00 ترليون</pattern>
+					<pattern type="10000000000000" count="many">00 ترليون</pattern>
+					<pattern type="10000000000000" count="other">00 ترليون</pattern>
+					<pattern type="100000000000000" count="zero">000 ترليون</pattern>
+					<pattern type="100000000000000" count="one">000 ترليون</pattern>
+					<pattern type="100000000000000" count="two">000 ترليون</pattern>
+					<pattern type="100000000000000" count="few">000 ترليون</pattern>
+					<pattern type="100000000000000" count="many">000 ترليون</pattern>
+					<pattern type="100000000000000" count="other">000 ترليون</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -5930,60 +6032,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="100000" count="few">¤ 000 ألف</pattern>
 					<pattern type="100000" count="many">¤ 000 ألف</pattern>
 					<pattern type="100000" count="other">¤ 000 ألف</pattern>
-					<pattern type="1000000" count="zero">¤ 0 مليو</pattern>
-					<pattern type="1000000" count="one">¤ 0 مليو</pattern>
-					<pattern type="1000000" count="two">¤ 0 مليو</pattern>
-					<pattern type="1000000" count="few">¤ 0 مليو</pattern>
-					<pattern type="1000000" count="many">¤ 0 مليو</pattern>
-					<pattern type="1000000" count="other">¤ 0 مليو</pattern>
-					<pattern type="10000000" count="zero">¤ 00 مليو</pattern>
-					<pattern type="10000000" count="one">¤ 00 مليو</pattern>
-					<pattern type="10000000" count="two">¤ 00 مليو</pattern>
-					<pattern type="10000000" count="few">¤ 00 مليو</pattern>
-					<pattern type="10000000" count="many">¤ 00 مليو</pattern>
-					<pattern type="10000000" count="other">¤ 00 مليو</pattern>
-					<pattern type="100000000" count="zero">¤ 000 مليو</pattern>
-					<pattern type="100000000" count="one">¤ 000 مليو</pattern>
-					<pattern type="100000000" count="two">¤ 000 مليو</pattern>
-					<pattern type="100000000" count="few">¤ 000 مليو</pattern>
-					<pattern type="100000000" count="many">¤ 000 مليو</pattern>
-					<pattern type="100000000" count="other">¤ 000 مليو</pattern>
-					<pattern type="1000000000" count="zero">¤ 0 مليا</pattern>
-					<pattern type="1000000000" count="one">¤ 0 مليا</pattern>
-					<pattern type="1000000000" count="two">¤ 0 مليا</pattern>
-					<pattern type="1000000000" count="few">¤ 0 مليا</pattern>
-					<pattern type="1000000000" count="many">¤ 0 مليا</pattern>
-					<pattern type="1000000000" count="other">¤ 0 مليا</pattern>
-					<pattern type="10000000000" count="zero">¤ 00 مليا</pattern>
-					<pattern type="10000000000" count="one">¤ 00 مليا</pattern>
-					<pattern type="10000000000" count="two">¤ 00 مليا</pattern>
-					<pattern type="10000000000" count="few">¤ 00 مليا</pattern>
-					<pattern type="10000000000" count="many">¤ 00 مليا</pattern>
-					<pattern type="10000000000" count="other">¤ 00 مليا</pattern>
-					<pattern type="100000000000" count="zero">¤ 000 مليا</pattern>
-					<pattern type="100000000000" count="one">¤ 000 مليا</pattern>
-					<pattern type="100000000000" count="two">¤ 000 مليا</pattern>
-					<pattern type="100000000000" count="few">¤ 000 مليا</pattern>
-					<pattern type="100000000000" count="many">¤ 000 مليا</pattern>
-					<pattern type="100000000000" count="other">¤ 000 مليا</pattern>
-					<pattern type="1000000000000" count="zero">¤ 0 ترليو</pattern>
-					<pattern type="1000000000000" count="one">¤ 0 ترليو</pattern>
-					<pattern type="1000000000000" count="two">¤ 0 ترليو</pattern>
-					<pattern type="1000000000000" count="few">¤ 0 ترليو</pattern>
-					<pattern type="1000000000000" count="many">¤ 0 ترليو</pattern>
-					<pattern type="1000000000000" count="other">¤ 0 ترليو</pattern>
-					<pattern type="10000000000000" count="zero">¤ 00 ترليو</pattern>
-					<pattern type="10000000000000" count="one">¤ 00 ترليو</pattern>
-					<pattern type="10000000000000" count="two">¤ 00 ترليو</pattern>
-					<pattern type="10000000000000" count="few">¤ 00 ترليو</pattern>
-					<pattern type="10000000000000" count="many">¤ 00 ترليو</pattern>
-					<pattern type="10000000000000" count="other">¤ 00 ترليو</pattern>
-					<pattern type="100000000000000" count="zero">¤ 000 ترليو</pattern>
-					<pattern type="100000000000000" count="one">¤ 000 ترليو</pattern>
-					<pattern type="100000000000000" count="two">¤ 000 ترليو</pattern>
-					<pattern type="100000000000000" count="few">¤ 000 ترليو</pattern>
-					<pattern type="100000000000000" count="many">¤ 000 ترليو</pattern>
-					<pattern type="100000000000000" count="other">¤ 000 ترليو</pattern>
+					<pattern type="1000000" count="zero">¤ 0 مليون</pattern>
+					<pattern type="1000000" count="one">¤ 0 مليون</pattern>
+					<pattern type="1000000" count="two">¤ 0 مليون</pattern>
+					<pattern type="1000000" count="few">¤ 0 مليون</pattern>
+					<pattern type="1000000" count="many">¤ 0 مليون</pattern>
+					<pattern type="1000000" count="other">¤ 0 مليون</pattern>
+					<pattern type="10000000" count="zero">¤ 00 مليون</pattern>
+					<pattern type="10000000" count="one">¤ 00 مليون</pattern>
+					<pattern type="10000000" count="two">¤ 00 مليون</pattern>
+					<pattern type="10000000" count="few">¤ 00 مليون</pattern>
+					<pattern type="10000000" count="many">¤ 00 مليون</pattern>
+					<pattern type="10000000" count="other">¤ 00 مليون</pattern>
+					<pattern type="100000000" count="zero">¤ 000 مليون</pattern>
+					<pattern type="100000000" count="one">¤ 000 مليون</pattern>
+					<pattern type="100000000" count="two">¤ 000 مليون</pattern>
+					<pattern type="100000000" count="few">¤ 000 مليون</pattern>
+					<pattern type="100000000" count="many">¤ 000 مليون</pattern>
+					<pattern type="100000000" count="other">¤ 000 مليون</pattern>
+					<pattern type="1000000000" count="zero">¤ 0 مليار</pattern>
+					<pattern type="1000000000" count="one">¤ 0 مليار</pattern>
+					<pattern type="1000000000" count="two">¤ 0 مليار</pattern>
+					<pattern type="1000000000" count="few">¤ 0 مليار</pattern>
+					<pattern type="1000000000" count="many">¤ 0 مليار</pattern>
+					<pattern type="1000000000" count="other">¤ 0 مليار</pattern>
+					<pattern type="10000000000" count="zero">¤ 00 مليار</pattern>
+					<pattern type="10000000000" count="one">¤ 00 مليار</pattern>
+					<pattern type="10000000000" count="two">¤ 00 مليار</pattern>
+					<pattern type="10000000000" count="few">¤ 00 مليار</pattern>
+					<pattern type="10000000000" count="many">¤ 00 مليار</pattern>
+					<pattern type="10000000000" count="other">¤ 00 مليار</pattern>
+					<pattern type="100000000000" count="zero">¤ 000 مليار</pattern>
+					<pattern type="100000000000" count="one">¤ 000 مليار</pattern>
+					<pattern type="100000000000" count="two">¤ 000 مليار</pattern>
+					<pattern type="100000000000" count="few">¤ 000 مليار</pattern>
+					<pattern type="100000000000" count="many">¤ 000 مليار</pattern>
+					<pattern type="100000000000" count="other">¤ 000 مليار</pattern>
+					<pattern type="1000000000000" count="zero">¤ 0 ترليون</pattern>
+					<pattern type="1000000000000" count="one">¤ 0 ترليون</pattern>
+					<pattern type="1000000000000" count="two">¤ 0 ترليون</pattern>
+					<pattern type="1000000000000" count="few">¤ 0 ترليون</pattern>
+					<pattern type="1000000000000" count="many">¤ 0 ترليون</pattern>
+					<pattern type="1000000000000" count="other">¤ 0 ترليون</pattern>
+					<pattern type="10000000000000" count="zero">¤ 00 ترليون</pattern>
+					<pattern type="10000000000000" count="one">¤ 00 ترليون</pattern>
+					<pattern type="10000000000000" count="two">¤ 00 ترليون</pattern>
+					<pattern type="10000000000000" count="few">¤ 00 ترليون</pattern>
+					<pattern type="10000000000000" count="many">¤ 00 ترليون</pattern>
+					<pattern type="10000000000000" count="other">¤ 00 ترليون</pattern>
+					<pattern type="100000000000000" count="zero">¤ 000 ترليون</pattern>
+					<pattern type="100000000000000" count="one">¤ 000 ترليون</pattern>
+					<pattern type="100000000000000" count="two">¤ 000 ترليون</pattern>
+					<pattern type="100000000000000" count="few">¤ 000 ترليون</pattern>
+					<pattern type="100000000000000" count="many">¤ 000 ترليون</pattern>
+					<pattern type="100000000000000" count="other">¤ 000 ترليون</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="zero">{0} {1}</unitPattern>
@@ -5993,10 +6095,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="many">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
-		<!-- Please note that the Arabic translated currency symbols include the Right to
-			 Left Marker <RLM> to position the dot properly on the boundary between
-			 Arabic and English XML tags.
-		-->
 		<currencies>
 			<currency type="ADP">
 				<displayName>بيستا أندوري</displayName>
@@ -6055,13 +6153,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">ANG</symbol>
 			</currency>
 			<currency type="AOA">
-				<displayName>كوانزا أنجولي</displayName>
-				<displayName count="zero">كوانزا أنجولي</displayName>
-				<displayName count="one">كوانزا أنجولي</displayName>
-				<displayName count="two">كوانزا أنجولي</displayName>
-				<displayName count="few">كوانزا أنجولي</displayName>
-				<displayName count="many">كوانزا أنجولي</displayName>
-				<displayName count="other">كوانزا أنجولي</displayName>
+				<displayName>كوانزا أنغولي</displayName>
+				<displayName count="zero">كوانزا أنغولي</displayName>
+				<displayName count="one">كوانزا أنغولي</displayName>
+				<displayName count="two">كوانزا أنغولي</displayName>
+				<displayName count="few">كوانزا أنغولي</displayName>
+				<displayName count="many">كوانزا أنغولي</displayName>
+				<displayName count="other">كوانزا أنغولي</displayName>
 				<symbol draft="contributed">AOA</symbol>
 				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
@@ -6166,13 +6264,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">BB$</symbol>
 			</currency>
 			<currency type="BDT">
-				<displayName>تاكا بنجلاديشي</displayName>
-				<displayName count="zero">تاكا بنجلاديشي</displayName>
-				<displayName count="one">تاكا بنجلاديشي</displayName>
-				<displayName count="two">تاكا بنجلاديشي</displayName>
-				<displayName count="few">تاكا بنجلاديشي</displayName>
-				<displayName count="many">تاكا بنجلاديشي</displayName>
-				<displayName count="other">تاكا بنجلاديشي</displayName>
+				<displayName>تاكا بنغلاديشي</displayName>
+				<displayName count="zero">تاكا بنغلاديشي</displayName>
+				<displayName count="one">تاكا بنغلاديشي</displayName>
+				<displayName count="two">تاكا بنغلاديشي</displayName>
+				<displayName count="few">تاكا بنغلاديشي</displayName>
+				<displayName count="many">تاكا بنغلاديشي</displayName>
+				<displayName count="other">تاكا بنغلاديشي</displayName>
 				<symbol draft="contributed">BDT</symbol>
 				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
@@ -6388,15 +6486,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLP">
-				<displayName>بيزو شيلي</displayName>
-				<displayName count="zero">بيزو شيلي</displayName>
-				<displayName count="one">بيزو شيلي</displayName>
-				<displayName count="two">بيزو شيلي</displayName>
-				<displayName count="few">بيزو شيلي</displayName>
-				<displayName count="many">بيزو شيلي</displayName>
-				<displayName count="other">بيزو شيلي</displayName>
+				<displayName>بيزو تشيلي</displayName>
+				<displayName count="zero">بيزو تشيلي</displayName>
+				<displayName count="one">بيزو تشيلي</displayName>
+				<displayName count="two">بيزو تشيلي</displayName>
+				<displayName count="few">بيزو تشيلي</displayName>
+				<displayName count="many">بيزو تشيلي</displayName>
+				<displayName count="other">بيزو تشيلي</displayName>
 				<symbol draft="contributed">CLP</symbol>
 				<symbol alt="narrow" draft="contributed">CL$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>يوان صيني (في الخارج)</displayName>
+				<displayName count="zero">يوان صيني (في الخارج)</displayName>
+				<displayName count="one">يوان صيني (في الخارج)</displayName>
+				<displayName count="two">يوان صيني (في الخارج)</displayName>
+				<displayName count="few">يوان صيني (في الخارج)</displayName>
+				<displayName count="many">يوان صيني (في الخارج)</displayName>
+				<displayName count="other">يوان صيني (في الخارج)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>يوان صيني</displayName>
@@ -6421,13 +6529,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">CO$</symbol>
 			</currency>
 			<currency type="CRC">
-				<displayName>كولن كوستا ريكي</displayName>
-				<displayName count="zero">كولن كوستا ريكي</displayName>
-				<displayName count="one">كولن كوستا ريكي</displayName>
-				<displayName count="two">كولن كوستا ريكي</displayName>
-				<displayName count="few">كولن كوستا ريكي</displayName>
-				<displayName count="many">كولن كوستا ريكي</displayName>
-				<displayName count="other">كولن كوستا ريكي</displayName>
+				<displayName>كولن كوستاريكي</displayName>
+				<displayName count="zero">كولن كوستاريكي</displayName>
+				<displayName count="one">كولن كوستاريكي</displayName>
+				<displayName count="two">كولن كوستاريكي</displayName>
+				<displayName count="few">كولن كوستاريكي</displayName>
+				<displayName count="many">كولن كوستاريكي</displayName>
+				<displayName count="other">كولن كوستاريكي</displayName>
 				<symbol draft="contributed">CRC</symbol>
 				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
@@ -6512,13 +6620,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
-				<displayName>كرونة دانماركي</displayName>
-				<displayName count="zero">كرونة دانماركي</displayName>
-				<displayName count="one">كرونة دانماركي</displayName>
-				<displayName count="two">كرونة دانماركي</displayName>
-				<displayName count="few">كرونة دانماركي</displayName>
-				<displayName count="many">كرونة دانماركي</displayName>
-				<displayName count="other">كرونة دانماركي</displayName>
+				<displayName>كرونة دنماركية</displayName>
+				<displayName count="zero">كرونة دنماركية</displayName>
+				<displayName count="one">كرونة دنماركية</displayName>
+				<displayName count="two">كرونة دنماركية</displayName>
+				<displayName count="few">كرونة دنماركية</displayName>
+				<displayName count="many">كرونة دنماركية</displayName>
+				<displayName count="other">كرونة دنماركية</displayName>
 				<symbol draft="contributed">DKK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
@@ -6697,13 +6805,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow">£</symbol>
 			</currency>
 			<currency type="GMD">
-				<displayName>دلاسي جامبي</displayName>
-				<displayName count="zero">دلاسي جامبي</displayName>
-				<displayName count="one">دلاسي جامبي</displayName>
-				<displayName count="two">دلاسي جامبي</displayName>
-				<displayName count="few">دلاسي جامبي</displayName>
-				<displayName count="many">دلاسي جامبي</displayName>
-				<displayName count="other">دلاسي جامبي</displayName>
+				<displayName>دلاسي غامبي</displayName>
+				<displayName count="zero">دلاسي غامبي</displayName>
+				<displayName count="one">دلاسي غامبي</displayName>
+				<displayName count="two">دلاسي غامبي</displayName>
+				<displayName count="few">دلاسي غامبي</displayName>
+				<displayName count="many">دلاسي غامبي</displayName>
+				<displayName count="other">دلاسي غامبي</displayName>
 				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
@@ -6733,13 +6841,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="provisional">دراخما يوناني</displayName>
 			</currency>
 			<currency type="GTQ">
-				<displayName>كوتزال جواتيمالا</displayName>
-				<displayName count="zero">كوتزال جواتيمالا</displayName>
-				<displayName count="one">كوتزال جواتيمالا</displayName>
-				<displayName count="two">كوتزال جواتيمالا</displayName>
-				<displayName count="few">كوتزال جواتيمالا</displayName>
-				<displayName count="many">كوتزال جواتيمالا</displayName>
-				<displayName count="other">كوتزال جواتيمالا</displayName>
+				<displayName>كوتزال غواتيمالا</displayName>
+				<displayName count="zero">كوتزال غواتيمالا</displayName>
+				<displayName count="one">كوتزال غواتيمالا</displayName>
+				<displayName count="two">كوتزال غواتيمالا</displayName>
+				<displayName count="few">كوتزال غواتيمالا</displayName>
+				<displayName count="many">كوتزال غواتيمالا</displayName>
+				<displayName count="other">كوتزال غواتيمالا</displayName>
 				<symbol draft="contributed">GTQ</symbol>
 				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
@@ -6807,13 +6915,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
-				<displayName>فورينت مجري</displayName>
-				<displayName count="zero">فورينت مجري</displayName>
-				<displayName count="one">فورينت مجري</displayName>
-				<displayName count="two">فورينت مجري</displayName>
-				<displayName count="few">فورينت مجري</displayName>
-				<displayName count="many">فورينت مجري</displayName>
-				<displayName count="other">فورينت مجري</displayName>
+				<displayName>فورينت هنغاري</displayName>
+				<displayName count="zero">فورينت هنغاري</displayName>
+				<displayName count="one">فورينت هنغاري</displayName>
+				<displayName count="two">فورينت هنغاري</displayName>
+				<displayName count="few">فورينت هنغاري</displayName>
+				<displayName count="many">فورينت هنغاري</displayName>
+				<displayName count="other">فورينت هنغاري</displayName>
 				<symbol draft="contributed">HUF</symbol>
 				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
@@ -6889,13 +6997,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">ر.إ.</symbol>
 			</currency>
 			<currency type="ISK">
-				<displayName>كرونه أيسلندي</displayName>
-				<displayName count="zero">كرونه أيسلندي</displayName>
-				<displayName count="one">كرونه أيسلندي</displayName>
-				<displayName count="two">كرونه أيسلندي</displayName>
-				<displayName count="few">كرونه أيسلندي</displayName>
-				<displayName count="many">كرونه أيسلندي</displayName>
-				<displayName count="other">كرونه أيسلندي</displayName>
+				<displayName>كرونة أيسلندية</displayName>
+				<displayName count="zero">كرونة أيسلندية</displayName>
+				<displayName count="one">كرونة أيسلندية</displayName>
+				<displayName count="two">كرونة أيسلندية</displayName>
+				<displayName count="few">كرونة أيسلندية</displayName>
+				<displayName count="many">كرونة أيسلندية</displayName>
+				<displayName count="other">كرونة أيسلندية</displayName>
 				<symbol draft="contributed">ISK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
@@ -6979,7 +7087,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="few">فرنك جزر القمر</displayName>
 				<displayName count="many">فرنك جزر القمر</displayName>
 				<displayName count="other">فرنك جزر القمر</displayName>
-				<symbol>ف.ج.ق.‏</symbol>
+				<symbol>KMF</symbol>
 				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
@@ -7418,13 +7526,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEN">
-				<displayName>سول البيرو</displayName>
-				<displayName count="zero">سول البيرو</displayName>
-				<displayName count="one">سول البيرو</displayName>
-				<displayName count="two">سول البيرو</displayName>
-				<displayName count="few">سول البيرو</displayName>
-				<displayName count="many">سول البيرو</displayName>
-				<displayName count="other">سول البيرو</displayName>
+				<displayName>سول بيروفي</displayName>
+				<displayName count="zero">سول بيروفي</displayName>
+				<displayName count="one">سول بيروفي</displayName>
+				<displayName count="two">سول بيروفي</displayName>
+				<displayName count="few">سول بيروفي</displayName>
+				<displayName count="many">سول بيروفي</displayName>
+				<displayName count="other">سول بيروفي</displayName>
 				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PGK">
@@ -7483,13 +7591,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="provisional">أسكود برتغالي</displayName>
 			</currency>
 			<currency type="PYG">
-				<displayName>جواراني باراجواي</displayName>
-				<displayName count="zero">جواراني باراجواي</displayName>
-				<displayName count="one">جواراني باراجواي</displayName>
-				<displayName count="two">جواراني باراجواي</displayName>
-				<displayName count="few">جواراني باراجواي</displayName>
-				<displayName count="many">جواراني باراجواي</displayName>
-				<displayName count="other">جواراني باراجواي</displayName>
+				<displayName>غواراني باراغواي</displayName>
+				<displayName count="zero">غواراني باراغواي</displayName>
+				<displayName count="one">غواراني باراغواي</displayName>
+				<displayName count="two">غواراني باراغواي</displayName>
+				<displayName count="few">غواراني باراغواي</displayName>
+				<displayName count="many">غواراني باراغواي</displayName>
+				<displayName count="other">غواراني باراغواي</displayName>
 				<symbol draft="contributed">PYG</symbol>
 				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
@@ -7856,13 +7964,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
-				<displayName>دولار ترينداد وتوباجو</displayName>
-				<displayName count="zero">دولار ترينداد وتوباجو</displayName>
-				<displayName count="one">دولار ترينداد وتوباجو</displayName>
-				<displayName count="two">دولار ترينداد وتوباجو</displayName>
-				<displayName count="few">دولار ترينداد وتوباجو</displayName>
-				<displayName count="many">دولار ترينداد وتوباجو</displayName>
-				<displayName count="other">دولار ترينداد وتوباجو</displayName>
+				<displayName>دولار ترينداد وتوباغو</displayName>
+				<displayName count="zero">دولار ترينداد وتوباغو</displayName>
+				<displayName count="one">دولار ترينداد وتوباغو</displayName>
+				<displayName count="two">دولار ترينداد وتوباغو</displayName>
+				<displayName count="few">دولار ترينداد وتوباغو</displayName>
+				<displayName count="many">دولار ترينداد وتوباغو</displayName>
+				<displayName count="other">دولار ترينداد وتوباغو</displayName>
 				<symbol draft="contributed">TTD</symbol>
 				<symbol alt="narrow" draft="contributed">TT$</symbol>
 			</currency>
@@ -8242,12 +8350,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="zero">{0} كتاب</pluralMinimalPairs>
-			<pluralMinimalPairs count="one">ولد واحد حضر</pluralMinimalPairs>
-			<pluralMinimalPairs count="two">ولدان حضرا</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} أولاد حضروا</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} ولدًا حضروا</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} ولد حضروا</pluralMinimalPairs>
+			<pluralMinimalPairs count="zero">{0} يوم</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">يوم واحد</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">يومان</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} أيام</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} يومًا</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} يوم</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">اتجه إلى المنعطف الـ {0} يمينًا.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
@@ -8295,8 +8403,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="angle-degree">
 				<displayName>درجة</displayName>
 				<unitPattern count="zero">{0} درجة</unitPattern>
-				<unitPattern count="one">{0} درجة</unitPattern>
-				<unitPattern count="two">درجتان ({0})</unitPattern>
+				<unitPattern count="one">درجة</unitPattern>
+				<unitPattern count="two">درجتان</unitPattern>
 				<unitPattern count="few">{0} درجات</unitPattern>
 				<unitPattern count="many">{0} درجة</unitPattern>
 				<unitPattern count="other">{0} درجة</unitPattern>
@@ -8333,8 +8441,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>هكتار</displayName>
 				<unitPattern count="zero">{0} هكتار</unitPattern>
 				<unitPattern count="one">{0} هكتار</unitPattern>
-				<unitPattern count="two">هكتاران</unitPattern>
-				<unitPattern count="few">{0} هكتارات</unitPattern>
+				<unitPattern count="two">{0} هكتار</unitPattern>
+				<unitPattern count="few">{0} هكتار</unitPattern>
 				<unitPattern count="many">{0} هكتار</unitPattern>
 				<unitPattern count="other">{0} هكتار</unitPattern>
 			</unit>
@@ -8570,8 +8678,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-century">
 				<displayName>قرون</displayName>
 				<unitPattern count="zero">{0} قرن</unitPattern>
-				<unitPattern count="one">قرن ({0})</unitPattern>
-				<unitPattern count="two">قرنان ({0})</unitPattern>
+				<unitPattern count="one">قرن</unitPattern>
+				<unitPattern count="two">قرنان</unitPattern>
 				<unitPattern count="few">{0} قرون</unitPattern>
 				<unitPattern count="many">{0} قرنًا</unitPattern>
 				<unitPattern count="other">{0} قرن</unitPattern>
@@ -8714,7 +8822,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="zero">{0} كيلو سعرة</unitPattern>
 				<unitPattern count="one">{0} كيلو سعرة</unitPattern>
 				<unitPattern count="two">{0} كيلو سعرة</unitPattern>
-				<unitPattern count="few">{0} كيلو كالوري</unitPattern>
+				<unitPattern count="few">{0} كيلو سعرة</unitPattern>
 				<unitPattern count="many">{0} كيلو سعرة</unitPattern>
 				<unitPattern count="other">{0} كيلو سعرة</unitPattern>
 			</unit>
@@ -8957,6 +9065,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} ميل اسكندنافي</unitPattern>
 				<unitPattern count="other">{0} ميل اسكندنافي</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName draft="contributed">نقطة</displayName>
+				<unitPattern count="zero" draft="contributed">{0} نقطة</unitPattern>
+				<unitPattern count="one" draft="contributed">نقطة</unitPattern>
+				<unitPattern count="two" draft="contributed">نقطتان</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} نقاط</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} نقطة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} نقطة</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>لكس</displayName>
 				<unitPattern count="zero">{0} لكس</unitPattern>
@@ -8988,8 +9105,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-gram">
 				<displayName>غرام</displayName>
 				<unitPattern count="zero">{0} غرام</unitPattern>
-				<unitPattern count="one">غرام ({0})</unitPattern>
-				<unitPattern count="two">غرامان ({0})</unitPattern>
+				<unitPattern count="one">غرام</unitPattern>
+				<unitPattern count="two">غرامان</unitPattern>
 				<unitPattern count="few">{0} غرامات</unitPattern>
 				<unitPattern count="many">{0} غرامًا</unitPattern>
 				<unitPattern count="other">{0} غرام</unitPattern>
@@ -9124,13 +9241,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
-				<displayName>ملليمتر زئبقي</displayName>
-				<unitPattern count="zero">{0} ملليمتر زئبقي</unitPattern>
-				<unitPattern count="one">{0} ملليمتر زئبقي</unitPattern>
-				<unitPattern count="two">{0} ملليمتر زئبقي</unitPattern>
-				<unitPattern count="few">{0} ملليمتر زئبقي</unitPattern>
-				<unitPattern count="many">{0} ملليمتر زئبقي</unitPattern>
-				<unitPattern count="other">{0} ملليمتر زئبقي</unitPattern>
+				<displayName>مليمتر زئبقي</displayName>
+				<unitPattern count="zero">{0} مليمتر زئبقي</unitPattern>
+				<unitPattern count="one">{0} مليمتر زئبقي</unitPattern>
+				<unitPattern count="two">{0} مليمتر زئبقي</unitPattern>
+				<unitPattern count="few">{0} مليمتر زئبقي</unitPattern>
+				<unitPattern count="many">{0} مليمتر زئبقي</unitPattern>
+				<unitPattern count="other">{0} مليمتر زئبقي</unitPattern>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>رطل لكل بوصة مربعة</displayName>
@@ -9502,7 +9619,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="angle-degree">
 				<displayName>درجة</displayName>
 				<unitPattern count="zero">{0} درجة</unitPattern>
-				<unitPattern count="one">{0} درجة</unitPattern>
+				<unitPattern count="one">درجة</unitPattern>
 				<unitPattern count="two">درجتان</unitPattern>
 				<unitPattern count="few">{0} درجات</unitPattern>
 				<unitPattern count="many">{0} درجة</unitPattern>
@@ -9854,7 +9971,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/ث</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>مللي ثانية</displayName>
+				<displayName>ملي ثانية</displayName>
 				<unitPattern count="zero">{0} ملي ث</unitPattern>
 				<unitPattern count="one">{0} ملي ث</unitPattern>
 				<unitPattern count="two">{0} ملي ث</unitPattern>
@@ -9931,16 +10048,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} سع</unitPattern>
 				<unitPattern count="two">{0} سع</unitPattern>
 				<unitPattern count="few">{0} سع</unitPattern>
-				<unitPattern count="many">{0} كالوري</unitPattern>
+				<unitPattern count="many">{0} سع</unitPattern>
 				<unitPattern count="other">{0} سع</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>سع</displayName>
 				<unitPattern count="zero">{0} سع</unitPattern>
 				<unitPattern count="one">{0} سع</unitPattern>
-				<unitPattern count="two">{0} كالوري</unitPattern>
-				<unitPattern count="few">{0} كالوري</unitPattern>
-				<unitPattern count="many">{0} كالوري</unitPattern>
+				<unitPattern count="two">{0} سع</unitPattern>
+				<unitPattern count="few">{0} سع</unitPattern>
+				<unitPattern count="many">{0} سع</unitPattern>
 				<unitPattern count="other">{0} سع</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
@@ -10047,12 +10164,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>مليمتر</displayName>
-				<unitPattern count="zero">{0} ملم</unitPattern>
-				<unitPattern count="one">{0} ملم</unitPattern>
-				<unitPattern count="two">{0} ملم</unitPattern>
-				<unitPattern count="few">{0} ملم</unitPattern>
-				<unitPattern count="many">{0} ملم</unitPattern>
-				<unitPattern count="other">{0} ملم</unitPattern>
+				<unitPattern count="zero">{0} مم</unitPattern>
+				<unitPattern count="one">{0} مم</unitPattern>
+				<unitPattern count="two">{0} مم</unitPattern>
+				<unitPattern count="few">{0} مم</unitPattern>
+				<unitPattern count="many">{0} مم</unitPattern>
+				<unitPattern count="other">{0} مم</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>ميكرومتر</displayName>
@@ -10164,6 +10281,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} ميل اسكندنافي</unitPattern>
 				<unitPattern count="other">{0} ميل اسكندنافي</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName draft="contributed">نقطة</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ن</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ن</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ن</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ن</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ن</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>لكس</displayName>
 				<unitPattern count="zero">{0} لكس</unitPattern>
@@ -10195,12 +10321,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-gram">
 				<displayName>غرام</displayName>
 				<unitPattern count="zero">{0} غرام</unitPattern>
-				<unitPattern count="one">غرام ({0})</unitPattern>
-				<unitPattern count="two">غرامان ({0})</unitPattern>
-				<unitPattern count="few">{0} غرامات</unitPattern>
-				<unitPattern count="many">{0} غرامًا</unitPattern>
-				<unitPattern count="other">{0} غ</unitPattern>
-				<perUnitPattern>{0}/غ</perUnitPattern>
+				<unitPattern count="one">غرام</unitPattern>
+				<unitPattern count="two">{0} غرام</unitPattern>
+				<unitPattern count="few">{0} غرام</unitPattern>
+				<unitPattern count="many">{0} غرام</unitPattern>
+				<unitPattern count="other">{0} غرام</unitPattern>
+				<perUnitPattern>{0}/غرام</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>مغم</displayName>
@@ -10589,9 +10715,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>غالون</displayName>
 				<unitPattern count="zero">{0} غالون</unitPattern>
 				<unitPattern count="one">غالون</unitPattern>
-				<unitPattern count="two">غالونان</unitPattern>
-				<unitPattern count="few">{0} غالونات</unitPattern>
-				<unitPattern count="many">{0} غالونًا</unitPattern>
+				<unitPattern count="two">{0} غالون</unitPattern>
+				<unitPattern count="few">{0} غالون</unitPattern>
+				<unitPattern count="many">{0} غالون</unitPattern>
 				<unitPattern count="other">{0} غالون</unitPattern>
 				<perUnitPattern>{0}/غالون</perUnitPattern>
 			</unit>
@@ -10642,7 +10768,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} أونصة س</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>ملعقة المائدة</displayName>
+				<displayName>ملعقة كبيرة</displayName>
 				<unitPattern count="zero">{0} ملعقة ك.</unitPattern>
 				<unitPattern count="one">ملعقة ك.</unitPattern>
 				<unitPattern count="two">{0} ملعقة ك.</unitPattern>
@@ -10767,6 +10893,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} سنة</unitPattern>
 				<unitPattern count="many">{0} سنة</unitPattern>
 				<unitPattern count="other">{0} سنة</unitPattern>
+				<perUnitPattern draft="contributed">{0}/سنة</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>شهر</displayName>
@@ -10776,6 +10903,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} شهر</unitPattern>
 				<unitPattern count="many">{0} شهر</unitPattern>
 				<unitPattern count="other">{0} شهر</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ش</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>أسبوع</displayName>
@@ -10843,7 +10971,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-meter">
 				<displayName>متر</displayName>
 				<unitPattern count="zero">{0} م</unitPattern>
-				<unitPattern count="one">{0} متر</unitPattern>
+				<unitPattern count="one">{0} م</unitPattern>
 				<unitPattern count="two">{0} م</unitPattern>
 				<unitPattern count="few">{0} م</unitPattern>
 				<unitPattern count="many">{0} م</unitPattern>
@@ -10860,12 +10988,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>مم</displayName>
-				<unitPattern count="zero">{0} ملم</unitPattern>
-				<unitPattern count="one">{0} ملم</unitPattern>
-				<unitPattern count="two">{0} ملم</unitPattern>
-				<unitPattern count="few">{0} ملم</unitPattern>
-				<unitPattern count="many">{0} ملم</unitPattern>
-				<unitPattern count="other">{0} ملم</unitPattern>
+				<unitPattern count="zero">{0} مم</unitPattern>
+				<unitPattern count="one">{0} مم</unitPattern>
+				<unitPattern count="two">{0} مم</unitPattern>
+				<unitPattern count="few">{0} مم</unitPattern>
+				<unitPattern count="many">{0} مم</unitPattern>
+				<unitPattern count="other">{0} مم</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<unitPattern count="zero" draft="contributed">{0} بيكومتر</unitPattern>
@@ -10918,7 +11046,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-kilogram">
 				<displayName>كغ</displayName>
 				<unitPattern count="zero">{0} كغ</unitPattern>
-				<unitPattern count="one">{0} كغم</unitPattern>
+				<unitPattern count="one">{0} كغ</unitPattern>
 				<unitPattern count="two">{0} كغ</unitPattern>
 				<unitPattern count="few">{0} كغ</unitPattern>
 				<unitPattern count="many">{0} كغ</unitPattern>
@@ -10931,7 +11059,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} غ</unitPattern>
 				<unitPattern count="few">{0} غ</unitPattern>
 				<unitPattern count="many">{0} غ</unitPattern>
-				<unitPattern count="other">{0}غ</unitPattern>
+				<unitPattern count="other">{0} غ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="zero" draft="contributed">{0}#</unitPattern>
@@ -11088,6 +11216,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0}، و{1}</listPatternPart>
 			<listPatternPart type="2">{0} و{1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start" draft="contributed">{0} و{1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0} و{1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} أو {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} أو {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}، و{1}</listPatternPart>
 			<listPatternPart type="middle">{0}، و{1}</listPatternPart>
@@ -11138,7 +11272,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">أنشطة</characterLabel>
 		<characterLabel type="african_scripts">أنظمة كتابة إفريقية</characterLabel>
 		<characterLabel type="american_scripts">أنظمة كتابة أمريكية</characterLabel>
-		<characterLabel type="animal">حيوان</characterLabel>
+		<characterLabel type="animal">حيوانات</characterLabel>
 		<characterLabel type="animals_nature">حيوانات وطبيعة</characterLabel>
 		<characterLabel type="arrows">أسهم</characterLabel>
 		<characterLabel type="body">جسد</characterLabel>
@@ -11186,7 +11320,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="math_symbols">رموز الرياضيات</characterLabel>
 		<characterLabel type="middle_eastern_scripts">أنظمة كتابة الشرق الأوسط</characterLabel>
 		<characterLabel type="miscellaneous">متنوع</characterLabel>
-		<characterLabel type="modern_scripts">برامج نصية حديثة</characterLabel>
+		<characterLabel type="modern_scripts">أنظمة كتابة حديثة</characterLabel>
 		<characterLabel type="modifier">معدل</characterLabel>
 		<characterLabel type="musical_symbols">رموز موسيقية</characterLabel>
 		<characterLabel type="nature">طبيعة</characterLabel>
@@ -11204,7 +11338,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="rightwards_arrows">أسهم لليمين</characterLabel>
 		<characterLabel type="sign_standard_symbols">رموز إشارة/قياسية</characterLabel>
 		<characterLabel type="small_form_variant">تنويعات نموذج أحرف صغيرة</characterLabel>
-		<characterLabel type="smiley">ابتسامة</characterLabel>
+		<characterLabel type="smiley">أشكال تعبيرية</characterLabel>
 		<characterLabel type="smileys_people">أشكال تعبيرية وأشخاص</characterLabel>
 		<characterLabel type="south_asian_scripts">أنظمة كتابة جنوب آسيا</characterLabel>
 		<characterLabel type="southeast_asian_scripts">أنظمة كتابة جنوب شرق آسيا</characterLabel>

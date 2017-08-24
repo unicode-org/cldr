@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -39,7 +41,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ar">arabă</language>
 			<language type="ar_001">arabă standard modernă</language>
 			<language type="arc">aramaică</language>
-			<language type="arn">araucaniană</language>
+			<language type="arn">mapuche</language>
 			<language type="arp">arapaho</language>
 			<language type="arw">arawak</language>
 			<language type="as">asameză</language>
@@ -116,6 +118,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">germană</language>
+			<language type="de_AT">germană (Austria)</language>
 			<language type="de_CH">germană standard (Elveția)</language>
 			<language type="del">delaware</language>
 			<language type="den">slave</language>
@@ -139,10 +142,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">greacă</language>
 			<language type="elx">elamită</language>
 			<language type="en">engleză</language>
+			<language type="en_AU">engleză (Australia)</language>
+			<language type="en_CA">engleză (Canada)</language>
+			<language type="en_GB">engleză (Regatul Unit)</language>
+			<language type="en_GB" alt="short">engleză (Regatul Unit)</language>
+			<language type="en_US">engleză (Statele Unite ale Americii)</language>
 			<language type="en_US" alt="short">engleză (S.U.A)</language>
 			<language type="enm">engleză medie</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spaniolă</language>
+			<language type="es_419">spaniolă (America Latină)</language>
+			<language type="es_ES">spaniolă (Spania)</language>
+			<language type="es_MX">spaniolă (Mexic)</language>
 			<language type="et">estonă</language>
 			<language type="eu">bască</language>
 			<language type="ewo">ewondo</language>
@@ -156,6 +167,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">faroeză</language>
 			<language type="fon">fon</language>
 			<language type="fr">franceză</language>
+			<language type="fr_CA">franceză (Canada)</language>
+			<language type="fr_CH">franceză (Elveția)</language>
 			<language type="frc">franceză cajun</language>
 			<language type="frm">franceză medie</language>
 			<language type="fro">franceză veche</language>
@@ -370,7 +383,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="oc">occitană</language>
 			<language type="oj">ojibwa</language>
 			<language type="om">oromo</language>
-			<language type="or">oriya</language>
+			<language type="or">odia</language>
 			<language type="os">osetă</language>
 			<language type="osa">osage</language>
 			<language type="ota">turcă otomană</language>
@@ -391,6 +404,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ps">paștună</language>
 			<language type="ps" alt="variant">pushto</language>
 			<language type="pt">portugheză</language>
+			<language type="pt_BR">portugheză (Brazilia)</language>
+			<language type="pt_PT">portugheză (Portugalia)</language>
 			<language type="qu">quechua</language>
 			<language type="quc">quiché</language>
 			<language type="raj">rajasthani</language>
@@ -399,7 +414,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="rm">romanșă</language>
 			<language type="rn">kirundi</language>
 			<language type="ro">română</language>
-			<language type="ro_MD">moldovenească</language>
+			<language type="ro_MD">română (Republica Moldova)</language>
 			<language type="rof">rombo</language>
 			<language type="rom">romani</language>
 			<language type="root">root</language>
@@ -432,7 +447,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="shi">tachelhit</language>
 			<language type="shn">shan</language>
 			<language type="shu">arabă ciadiană</language>
-			<language type="si">singaleză</language>
+			<language type="si">singhaleză</language>
 			<language type="sid">sidamo</language>
 			<language type="sk">slovacă</language>
 			<language type="sl">slovenă</language>
@@ -533,6 +548,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zen">zenaga</language>
 			<language type="zgh">tamazight standard marocană</language>
 			<language type="zh">chineză</language>
+			<language type="zh_Hans">chineză (simplificată)</language>
 			<language type="zh_Hant">chineză tradițională</language>
 			<language type="zu">zulu</language>
 			<language type="zun">zuni</language>
@@ -574,7 +590,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">han tradițională</script>
 			<script type="Hebr">ebraică</script>
 			<script type="Hira">hiragana</script>
-			<script type="Hrkt">katakana sau hiragana</script>
+			<script type="Hrkt">silabică japoneză</script>
 			<script type="Hung">maghiară veche</script>
 			<script type="Inds">indus</script>
 			<script type="Ital">italică veche</script>
@@ -676,7 +692,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BH">Bahrain</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
-			<territory type="BL">Sfântul Bartolomeu</territory>
+			<territory type="BL">Saint-Barthélemy</territory>
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivia</territory>
@@ -728,6 +744,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Spania</territory>
 			<territory type="ET">Etiopia</territory>
 			<territory type="EU">Uniunea Europeană</territory>
+			<territory type="EZ">Zona euro</territory>
 			<territory type="FI">Finlanda</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Insulele Falkland</territory>
@@ -875,7 +892,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SO">Somalia</territory>
 			<territory type="SR">Suriname</territory>
 			<territory type="SS">Sudanul de Sud</territory>
-			<territory type="ST">Sao Tomé și Príncipe</territory>
+			<territory type="ST">Sao Tome și Principe</territory>
 			<territory type="SV">El Salvador</territory>
 			<territory type="SX">Sint-Maarten</territory>
 			<territory type="SY">Siria</territory>
@@ -889,6 +906,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">Tadjikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Timorul de Est</territory>
+			<territory type="TL" alt="variant">Timorul de Est</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
@@ -901,7 +919,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Insulele Îndepărtate ale S.U.A.</territory>
 			<territory type="UN">Națiunile Unite</territory>
-			<territory type="UN" alt="short">NU</territory>
+			<territory type="UN" alt="short">ONU</territory>
 			<territory type="US">Statele Unite ale Americii</territory>
 			<territory type="US" alt="short">S.U.A.</territory>
 			<territory type="UY">Uruguay</territory>
@@ -990,6 +1008,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="indian">calendar național indian</type>
 			<type key="calendar" type="islamic">calendar islamic</type>
 			<type key="calendar" type="islamic-civil">calendar islamic civil</type>
+			<type key="calendar" type="islamic-umalqura" draft="contributed">calendar islamic (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">calendar ISO-8601</type>
 			<type key="calendar" type="japanese">calendar japonez</type>
 			<type key="calendar" type="persian">calendar persan</type>
@@ -1006,6 +1025,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="no" draft="contributed">Ordonați neținând seama de diferența dintre majuscule/minuscule</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Ordonați ținând seama de diferența dintre majuscule/minuscule</type>
 			<type key="collation" type="big5han">sortare pentru chineza tradițională - Big5</type>
+			<type key="collation" type="compat" draft="contributed">ordine de sortare anterioară, pentru compatibilitate</type>
 			<type key="collation" type="dictionary">Ordine de sortare a dicționarului</type>
 			<type key="collation" type="ducet">ordine de sortare Unicode implicită</type>
 			<type key="collation" type="eor" draft="contributed">regulile europene de sortare</type>
@@ -1029,18 +1049,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Ordonați după accente/dimensiunea literei/lățime/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Ordonați după accent</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Ordonați după accente/dimensiunea literei/lățime</type>
-			<type key="d0" type="fwidth" draft="contributed">Cu lățime întreagă</type>
-			<type key="d0" type="hwidth" draft="contributed">Cu jumătate de lățime</type>
+			<type key="d0" type="fwidth">Cu lățime întreagă</type>
+			<type key="d0" type="hwidth">Cu jumătate de lățime</type>
 			<type key="d0" type="npinyin" draft="contributed">Numeric</type>
 			<type key="hc" type="h11">sistem cu 12 ore (0–11)</type>
-			<type key="hc" type="h12">sistem cu 12 ore (0–12)</type>
+			<type key="hc" type="h12">sistem cu 12 ore (1–12)</type>
 			<type key="hc" type="h23">sistem cu 24 de ore (0–23)</type>
 			<type key="hc" type="h24">sistem cu 24 de ore (1–24)</type>
 			<type key="lb" type="loose">stil liber de întrerupere a liniei</type>
 			<type key="lb" type="normal">stil normal de întrerupere a liniei</type>
 			<type key="lb" type="strict">stil strict de întrerupere a liniei</type>
-			<type key="m0" type="bgn" draft="contributed">BGN</type>
-			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
+			<type key="m0" type="bgn">transliterare BGN SUA</type>
+			<type key="m0" type="ungegn">transliterare GEGN ONU</type>
 			<type key="ms" type="metric">sistemul metric</type>
 			<type key="ms" type="uksystem">sistemul imperial de unități de măsură</type>
 			<type key="ms" type="ussystem">sistemul american de unități de măsură</type>
@@ -1077,7 +1097,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="orya">cifre oriya</type>
 			<type key="numbers" type="roman">numerale romane</type>
 			<type key="numbers" type="romanlow">numerale romane cu minuscule</type>
-			<type key="numbers" type="taml">numerale tradiționale tamilă</type>
+			<type key="numbers" type="taml">numerale tradiționale tamile</type>
 			<type key="numbers" type="tamldec">cifre tamile</type>
 			<type key="numbers" type="telu">cifre telugu</type>
 			<type key="numbers" type="thai">cifre thailandeze</type>
@@ -1125,6 +1145,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<eraAbbr>
 						<era type="0" draft="contributed">e.b.</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">e.b.</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="chinese">
@@ -1194,44 +1217,226 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="coptic">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Thout</month>
+							<month type="2" draft="contributed">Paopi</month>
+							<month type="3" draft="contributed">Hathor</month>
+							<month type="4" draft="contributed">Koiak</month>
+							<month type="5" draft="contributed">Tobi</month>
+							<month type="6" draft="contributed">Meshir</month>
+							<month type="7" draft="contributed">Paremhat</month>
+							<month type="8" draft="contributed">Paremoude</month>
+							<month type="9" draft="contributed">Pashons</month>
+							<month type="10" draft="contributed">Paoni</month>
+							<month type="11" draft="contributed">Epip</month>
+							<month type="12" draft="contributed">Mesori</month>
+							<month type="13" draft="contributed">Pi Kogi Enavot</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">Tout</month>
-							<month type="2" draft="unconfirmed">Baba</month>
-							<month type="3" draft="unconfirmed">Hathor</month>
-							<month type="4" draft="unconfirmed">Kiahk</month>
-							<month type="5" draft="unconfirmed">Toba</month>
-							<month type="6" draft="unconfirmed">Amshir</month>
-							<month type="7" draft="unconfirmed">Baramhat</month>
-							<month type="8" draft="unconfirmed">Baramouda</month>
-							<month type="9" draft="unconfirmed">Bashans</month>
-							<month type="10" draft="unconfirmed">Paona</month>
-							<month type="11" draft="unconfirmed">Epep</month>
-							<month type="12" draft="unconfirmed">Mesori</month>
-							<month type="13" draft="unconfirmed">El Nasii</month>
+							<month type="1" draft="contributed">Thout</month>
+							<month type="2" draft="contributed">Paopi</month>
+							<month type="3" draft="contributed">Hathor</month>
+							<month type="4" draft="contributed">Koiak</month>
+							<month type="5" draft="contributed">Tobi</month>
+							<month type="6" draft="contributed">Meshir</month>
+							<month type="7" draft="contributed">Paremhat</month>
+							<month type="8" draft="contributed">Paremoude</month>
+							<month type="9" draft="contributed">Pashons</month>
+							<month type="10" draft="contributed">Paoni</month>
+							<month type="11" draft="contributed">Epip</month>
+							<month type="12" draft="contributed">Mesori</month>
+							<month type="13" draft="contributed">Pi Kogi Enavot</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Thout</month>
+							<month type="2" draft="contributed">Paopi</month>
+							<month type="3" draft="contributed">Hathor</month>
+							<month type="4" draft="contributed">Koiak</month>
+							<month type="5" draft="contributed">Tobi</month>
+							<month type="6" draft="contributed">Meshir</month>
+							<month type="7" draft="contributed">Paremhat</month>
+							<month type="8" draft="contributed">Paremoude</month>
+							<month type="9" draft="contributed">Pashons</month>
+							<month type="10" draft="contributed">Paoni</month>
+							<month type="11" draft="contributed">Epip</month>
+							<month type="12" draft="contributed">Mesori</month>
+							<month type="13" draft="contributed">Pi Kogi Enavot</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">Thout</month>
+							<month type="2" draft="contributed">Paopi</month>
+							<month type="3" draft="contributed">Hathor</month>
+							<month type="4" draft="contributed">Koiak</month>
+							<month type="5" draft="contributed">Tobi</month>
+							<month type="6" draft="contributed">Meshir</month>
+							<month type="7" draft="contributed">Paremhat</month>
+							<month type="8" draft="contributed">Paremoude</month>
+							<month type="9" draft="contributed">Pashons</month>
+							<month type="10" draft="contributed">Paoni</month>
+							<month type="11" draft="contributed">Epip</month>
+							<month type="12" draft="contributed">Mesori</month>
+							<month type="13" draft="contributed">Pi Kogi Enavot</month>
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">înainte de Anno Martyrum</era>
+						<era type="1" draft="contributed">după Anno Martyrum</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">î.A.M.</era>
+						<era type="1" draft="contributed">A.M.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">î.A.M.</era>
+						<era type="1" draft="contributed">A.M.</era>
+					</eraNarrow>
+				</eras>
 			</calendar>
 			<calendar type="ethiopic">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">meskerem</month>
+							<month type="2" draft="contributed">taqemt</month>
+							<month type="3" draft="contributed">hedar</month>
+							<month type="4" draft="contributed">tahsas</month>
+							<month type="5" draft="contributed">ter</month>
+							<month type="6" draft="contributed">yekatit</month>
+							<month type="7" draft="contributed">megabit</month>
+							<month type="8" draft="contributed">miazia</month>
+							<month type="9" draft="contributed">genbot</month>
+							<month type="10" draft="contributed">sene</month>
+							<month type="11" draft="contributed">hamle</month>
+							<month type="12" draft="contributed">nehase</month>
+							<month type="13" draft="contributed">pagumen</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">meskerem</month>
-							<month type="2" draft="unconfirmed">taqemt</month>
-							<month type="3" draft="unconfirmed">hedar</month>
-							<month type="4" draft="unconfirmed">tahsas</month>
-							<month type="5" draft="unconfirmed">ter</month>
-							<month type="6" draft="unconfirmed">yekatit</month>
-							<month type="7" draft="unconfirmed">megabit</month>
-							<month type="8" draft="unconfirmed">miazia</month>
-							<month type="9" draft="unconfirmed">genbot</month>
-							<month type="10" draft="unconfirmed">sene</month>
-							<month type="11" draft="unconfirmed">hamle</month>
-							<month type="12" draft="unconfirmed">nehase</month>
-							<month type="13" draft="unconfirmed">pagumen</month>
+							<month type="1" draft="contributed">meskerem</month>
+							<month type="2" draft="contributed">taqemt</month>
+							<month type="3" draft="contributed">hedar</month>
+							<month type="4" draft="contributed">tahsas</month>
+							<month type="5" draft="contributed">ter</month>
+							<month type="6" draft="contributed">yekatit</month>
+							<month type="7" draft="contributed">megabit</month>
+							<month type="8" draft="contributed">miazia</month>
+							<month type="9" draft="contributed">genbot</month>
+							<month type="10" draft="contributed">sene</month>
+							<month type="11" draft="contributed">hamle</month>
+							<month type="12" draft="contributed">nehase</month>
+							<month type="13" draft="contributed">pagumen</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">meskerem</month>
+							<month type="2" draft="contributed">taqemt</month>
+							<month type="3" draft="contributed">hedar</month>
+							<month type="4" draft="contributed">tahsas</month>
+							<month type="5" draft="contributed">ter</month>
+							<month type="6" draft="contributed">yekatit</month>
+							<month type="7" draft="contributed">megabit</month>
+							<month type="8" draft="contributed">miazia</month>
+							<month type="9" draft="contributed">genbot</month>
+							<month type="10" draft="contributed">sene</month>
+							<month type="11" draft="contributed">hamle</month>
+							<month type="12" draft="contributed">nehase</month>
+							<month type="13" draft="contributed">pagumen</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">meskerem</month>
+							<month type="2" draft="contributed">taqemt</month>
+							<month type="3" draft="contributed">hedar</month>
+							<month type="4" draft="contributed">tahsas</month>
+							<month type="5" draft="contributed">ter</month>
+							<month type="6" draft="contributed">yekatit</month>
+							<month type="7" draft="contributed">megabit</month>
+							<month type="8" draft="contributed">miazia</month>
+							<month type="9" draft="contributed">genbot</month>
+							<month type="10" draft="contributed">sene</month>
+							<month type="11" draft="contributed">hamle</month>
+							<month type="12" draft="contributed">nehase</month>
+							<month type="13" draft="contributed">pagumen</month>
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">înainte de Întrupare</era>
+						<era type="1" draft="contributed">după Întrupare</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">î.Într.</era>
+						<era type="1" draft="contributed">d.Într.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">î.Într.</era>
+						<era type="1" draft="contributed">d.Într.</era>
+					</eraNarrow>
+				</eras>
 			</calendar>
 			<calendar type="generic">
 				<dateFormats>
@@ -1278,14 +1483,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="h" draft="provisional">h a</dateFormatItem>
+						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
 						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
@@ -1635,10 +1849,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">miezul nopții</dayPeriod>
 							<dayPeriod type="am">a.m.</dayPeriod>
-							<dayPeriod type="noon">amiază</dayPeriod>
+							<dayPeriod type="noon">la amiază</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
-							<dayPeriod type="morning1">dimineață</dayPeriod>
-							<dayPeriod type="afternoon1">după-amiază</dayPeriod>
+							<dayPeriod type="morning1">dimineața</dayPeriod>
+							<dayPeriod type="afternoon1">după-amiaza</dayPeriod>
 							<dayPeriod type="evening1">seara</dayPeriod>
 							<dayPeriod type="night1">noaptea</dayPeriod>
 						</dayPeriodWidth>
@@ -1699,6 +1913,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1">d.Hr.</era>
 						<era type="1" alt="variant">e.n.</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">î.Hr.</era>
+						<era type="0" alt="variant" draft="contributed">î.e.n</era>
+						<era type="1" draft="contributed">d.Hr.</era>
+						<era type="1" alt="variant" draft="contributed">e.n.</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1766,8 +1986,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1811,9 +2036,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'săptămâna' w 'din' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="few">'săptămâna' w 'din' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'săptămâna' w 'din' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'săptămâna' w 'din' y</dateFormatItem>
+						<dateFormatItem id="yw" count="few">'săptămâna' w 'din' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'săptămâna' w 'din' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1934,6 +2159,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="contributed">Av</month>
 							<month type="13" draft="contributed">Elul</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="7" yeartype="leap" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Tișrei</month>
 							<month type="2" draft="contributed">Heșvan</month>
@@ -1968,6 +2209,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="contributed">Av</month>
 							<month type="13" draft="contributed">Elul</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="7" yeartype="leap" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Tișrei</month>
 							<month type="2" draft="contributed">Heșvan</month>
@@ -1986,17 +2243,352 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">A.M.</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">A.M.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AM</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="indian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Chaitra</month>
+							<month type="2" draft="contributed">Vaisakha</month>
+							<month type="3" draft="contributed">Jyeshta</month>
+							<month type="4" draft="contributed">Aashaadha</month>
+							<month type="5" draft="contributed">Shraavana</month>
+							<month type="6" draft="contributed">Bhadrapada</month>
+							<month type="7" draft="contributed">Ashwin</month>
+							<month type="8" draft="contributed">Kartik</month>
+							<month type="9" draft="contributed">Margashirsha</month>
+							<month type="10" draft="contributed">Pausha</month>
+							<month type="11" draft="contributed">Magh</month>
+							<month type="12" draft="contributed">Phalguna</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">Chaitra</month>
+							<month type="2" draft="contributed">Vaisakha</month>
+							<month type="3" draft="contributed">Jyeshta</month>
+							<month type="4" draft="contributed">Aashaadha</month>
+							<month type="5" draft="contributed">Shraavana</month>
+							<month type="6" draft="contributed">Bhadrapada</month>
+							<month type="7" draft="contributed">Ashwin</month>
+							<month type="8" draft="contributed">Kartik</month>
+							<month type="9" draft="contributed">Margashirsha</month>
+							<month type="10" draft="contributed">Pausha</month>
+							<month type="11" draft="contributed">Magh</month>
+							<month type="12" draft="contributed">Phalguna</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Chaitra</month>
+							<month type="2" draft="contributed">Vaisakha</month>
+							<month type="3" draft="contributed">Jyeshta</month>
+							<month type="4" draft="contributed">Aashaadha</month>
+							<month type="5" draft="contributed">Shraavana</month>
+							<month type="6" draft="contributed">Bhadrapada</month>
+							<month type="7" draft="contributed">Ashwin</month>
+							<month type="8" draft="contributed">Kartik</month>
+							<month type="9" draft="contributed">Margashirsha</month>
+							<month type="10" draft="contributed">Pausha</month>
+							<month type="11" draft="contributed">Magh</month>
+							<month type="12" draft="contributed">Phalguna</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">Chaitra</month>
+							<month type="2" draft="contributed">Vaisakha</month>
+							<month type="3" draft="contributed">Jyeshta</month>
+							<month type="4" draft="contributed">Aashaadha</month>
+							<month type="5" draft="contributed">Shraavana</month>
+							<month type="6" draft="contributed">Bhadrapada</month>
+							<month type="7" draft="contributed">Ashwin</month>
+							<month type="8" draft="contributed">Kartik</month>
+							<month type="9" draft="contributed">Margashirsha</month>
+							<month type="10" draft="contributed">Pausha</month>
+							<month type="11" draft="contributed">Magh</month>
+							<month type="12" draft="contributed">Phalguna</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">Saka</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">Saka</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">Saka</era>
+					</eraNarrow>
+				</eras>
 			</calendar>
 			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Muh.</month>
+							<month type="2" draft="contributed">Saf.</month>
+							<month type="3" draft="contributed">Rab. I</month>
+							<month type="4" draft="contributed">Rab. II</month>
+							<month type="5" draft="contributed">Jum. I</month>
+							<month type="6" draft="contributed">Jum. II</month>
+							<month type="7" draft="contributed">Raj.</month>
+							<month type="8" draft="contributed">Sha.</month>
+							<month type="9" draft="contributed">Ram.</month>
+							<month type="10" draft="contributed">Shaw.</month>
+							<month type="11" draft="contributed">Dhuʻl-Q.</month>
+							<month type="12" draft="contributed">Dhuʻl-H.</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">Muharram</month>
+							<month type="2" draft="contributed">Safar</month>
+							<month type="3" draft="contributed">Rabiʻ I</month>
+							<month type="4" draft="contributed">Rabiʻ II</month>
+							<month type="5" draft="contributed">Jumada I</month>
+							<month type="6" draft="contributed">Jumada II</month>
+							<month type="7" draft="contributed">Rajab</month>
+							<month type="8" draft="contributed">Shaʻban</month>
+							<month type="9" draft="contributed">Ramadan</month>
+							<month type="10" draft="contributed">Shawwal</month>
+							<month type="11" draft="contributed">Dhuʻl-Qiʻdah</month>
+							<month type="12" draft="contributed">Dhuʻl-Hijjah</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Muh.</month>
+							<month type="2" draft="contributed">Saf.</month>
+							<month type="3" draft="contributed">Rab. I</month>
+							<month type="4" draft="contributed">Rab. II</month>
+							<month type="5" draft="contributed">Jum. I</month>
+							<month type="6" draft="contributed">Jum. II</month>
+							<month type="7" draft="contributed">Raj.</month>
+							<month type="8" draft="contributed">Sha.</month>
+							<month type="9" draft="contributed">Ram.</month>
+							<month type="10" draft="contributed">Shaw.</month>
+							<month type="11" draft="contributed">Dhuʻl-Q.</month>
+							<month type="12" draft="contributed">Dhuʻl-H.</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">Muharram</month>
+							<month type="2" draft="contributed">Safar</month>
+							<month type="3" draft="contributed">Rabiʻ I</month>
+							<month type="4" draft="contributed">Rabiʻ II</month>
+							<month type="5" draft="contributed">Jumada I</month>
+							<month type="6" draft="contributed">Jumada II</month>
+							<month type="7" draft="contributed">Rajab</month>
+							<month type="8" draft="contributed">Shaʻban</month>
+							<month type="9" draft="contributed">Ramadan</month>
+							<month type="10" draft="contributed">Shawwal</month>
+							<month type="11" draft="contributed">Dhuʻl-Qiʻdah</month>
+							<month type="12" draft="contributed">Dhuʻl-Hijjah</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">A.H.</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AH</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Farvardin</month>
+							<month type="2" draft="contributed">Ordibehesht</month>
+							<month type="3" draft="contributed">Khordad</month>
+							<month type="4" draft="contributed">Tir</month>
+							<month type="5" draft="contributed">A-Mordad</month>
+							<month type="6" draft="contributed">Shahrivar</month>
+							<month type="7" draft="contributed">Mehr</month>
+							<month type="8" draft="contributed">Aban</month>
+							<month type="9" draft="contributed">Azar</month>
+							<month type="10" draft="contributed">Dey</month>
+							<month type="11" draft="contributed">Bahman</month>
+							<month type="12" draft="contributed">Esfand</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">Farvardin</month>
+							<month type="2" draft="contributed">Ordibehesht</month>
+							<month type="3" draft="contributed">Khordad</month>
+							<month type="4" draft="contributed">Tir</month>
+							<month type="5" draft="contributed">A-Mordad</month>
+							<month type="6" draft="contributed">Shahrivar</month>
+							<month type="7" draft="contributed">Mehr</month>
+							<month type="8" draft="contributed">Aban</month>
+							<month type="9" draft="contributed">Azar</month>
+							<month type="10" draft="contributed">Dey</month>
+							<month type="11" draft="contributed">Bahman</month>
+							<month type="12" draft="contributed">Esfand</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Farvardin</month>
+							<month type="2" draft="contributed">Ordibehesht</month>
+							<month type="3" draft="contributed">Khordad</month>
+							<month type="4" draft="contributed">Tir</month>
+							<month type="5" draft="contributed">A-Mordad</month>
+							<month type="6" draft="contributed">Shahrivar</month>
+							<month type="7" draft="contributed">Mehr</month>
+							<month type="8" draft="contributed">Aban</month>
+							<month type="9" draft="contributed">Azar</month>
+							<month type="10" draft="contributed">Dey</month>
+							<month type="11" draft="contributed">Bahman</month>
+							<month type="12" draft="contributed">Esfand</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">Farvardin</month>
+							<month type="2" draft="contributed">Ordibehesht</month>
+							<month type="3" draft="contributed">Khordad</month>
+							<month type="4" draft="contributed">Tir</month>
+							<month type="5" draft="contributed">A-Mordad</month>
+							<month type="6" draft="contributed">Shahrivar</month>
+							<month type="7" draft="contributed">Mehr</month>
+							<month type="8" draft="contributed">Aban</month>
+							<month type="9" draft="contributed">Azar</month>
+							<month type="10" draft="contributed">Dey</month>
+							<month type="11" draft="contributed">Bahman</month>
+							<month type="12" draft="contributed">Esfand</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">Anno Persico</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">A.P.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">A.P.</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="roc">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">înainte de Republica China</era>
+						<era type="1" draft="contributed">Republica China</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">î.R.C.</era>
+						<era type="1" draft="contributed">R.C.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">î.R.C.</era>
+						<era type="1" draft="contributed">R.C.</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>eră</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>eră</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>eră</displayName>
 			</field>
 			<field type="year">
@@ -2020,7 +2612,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="future">
 					<relativeTimePattern count="one">peste {0} an</relativeTimePattern>
 					<relativeTimePattern count="few">peste {0} ani</relativeTimePattern>
-					<relativeTimePattern count="other">peste {0} ani</relativeTimePattern>
+					<relativeTimePattern count="other">peste {0} de ani</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">acum {0} an</relativeTimePattern>
@@ -2176,6 +2768,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>săpt. cu {0}</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>săptămâna din lună</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>săpt. din lună</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>săpt. din lună</displayName>
+			</field>
 			<field type="day">
 				<displayName>zi</displayName>
 				<relative type="-2">alaltăieri</relative>
@@ -2199,12 +2800,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="future">
 					<relativeTimePattern count="one">peste {0} zi</relativeTimePattern>
 					<relativeTimePattern count="few">peste {0} zile</relativeTimePattern>
-					<relativeTimePattern count="other">peste {0} zile</relativeTimePattern>
+					<relativeTimePattern count="other">peste {0} de zile</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">acum {0} zi</relativeTimePattern>
 					<relativeTimePattern count="few">acum {0} zile</relativeTimePattern>
-					<relativeTimePattern count="other">acum {0} zile</relativeTimePattern>
+					<relativeTimePattern count="other">acum {0} de zile</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
@@ -2220,8 +2821,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">-{0} zile</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>ziua din an</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>ziua din an</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>ziua din an</displayName>
+			</field>
 			<field type="weekday">
-				<displayName>Zi a săptămânii</displayName>
+				<displayName>ziua din săptămână</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>ziua din săpt.</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>ziua din săpt.</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>ziua săptămânii din lună</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>ziua săpt. din lună</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>ziua săpt. din lună</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">duminica trecută</relative>
@@ -2419,8 +3044,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-short">
-				<relative type="-1">joi trecută</relative>
-				<relative type="0">joi aceasta</relative>
+				<relative type="-1">joia trecută</relative>
+				<relative type="0">joia aceasta</relative>
 				<relative type="1">joia viitoare</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">joi, peste {0} săpt.</relativeTimePattern>
@@ -2538,7 +3163,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">sâ. -{0} săpt.</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>a.m/p.m.</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>a.m/p.m.</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>a.m/p.m.</displayName>
 			</field>
 			<field type="hour">
@@ -2663,6 +3294,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="zone">
 				<displayName>fus orar</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>fus</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>fus</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -3047,6 +3684,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>Insula Paștelui</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Punta Arenas</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Santiago</exemplarCity>
 			</zone>
@@ -3079,6 +3719,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nicosia</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Famagusta</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Praga</exemplarCity>
@@ -3338,6 +3981,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Oral">
 				<exemplarCity>Uralsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Atîrau</exemplarCity>
+			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktobe</exemplarCity>
 			</zone>
@@ -3567,7 +4213,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Miquelon</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
-				<exemplarCity draft="contributed">Insula Pitcairn</exemplarCity>
+				<exemplarCity>Insula Pitcairn</exemplarCity>
 			</zone>
 			<zone type="America/Puerto_Rico">
 				<exemplarCity>Puerto Rico</exemplarCity>
@@ -3617,6 +4263,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Saratov</exemplarCity>
+			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Astrahan</exemplarCity>
 			</zone>
@@ -3657,7 +4306,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Cita</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
-				<exemplarCity>Yakuțk</exemplarCity>
+				<exemplarCity>Iakuțk</exemplarCity>
 			</zone>
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>Vladivostok</exemplarCity>
@@ -3858,7 +4507,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>New Salem, Dakota de Nord</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Centru, Dakota de Nord</exemplarCity>
+				<exemplarCity>Center, Dakota de Nord</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<exemplarCity>Chicago</exemplarCity>
@@ -4887,9 +5536,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic>Ora din Yakuțk</generic>
-					<standard>Ora standard din Yakuțk</standard>
-					<daylight>Ora de vară din Yakuțk</daylight>
+					<generic>Ora din Iakuțk</generic>
+					<standard>Ora standard din Iakuțk</standard>
+					<daylight>Ora de vară din Iakuțk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
@@ -5186,9 +5835,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="BBD">
 				<displayName>dolar din Barbados</displayName>
-				<displayName count="one">dolar Barbados</displayName>
-				<displayName count="few">dolari Barbados</displayName>
-				<displayName count="other">dolari Barbados</displayName>
+				<displayName count="one">dolar din Barbados</displayName>
+				<displayName count="few">dolari din Barbados</displayName>
+				<displayName count="other">dolari din Barbados</displayName>
 				<symbol>BBD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5364,6 +6013,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">pesos chilieni</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>yuan chinezesc (offshore)</displayName>
+				<displayName count="one">yuan chinezesc (offshore)</displayName>
+				<displayName count="few">yuani chinezești (offshore)</displayName>
+				<displayName count="other">yuani chinezești (offshore)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>yuan chinezesc</displayName>
@@ -7215,6 +7871,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mile scandinave</unitPattern>
 				<unitPattern count="other">{0} de mile scandinave</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>puncte</displayName>
+				<unitPattern count="one">{0} punct</unitPattern>
+				<unitPattern count="few">{0} puncte</unitPattern>
+				<unitPattern count="other">{0} de puncte</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>lucși</displayName>
 				<unitPattern count="one">{0} lux</unitPattern>
@@ -8032,6 +8694,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>pt</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="few">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
 				<unitPattern count="one">{0} lx</unitPattern>
@@ -8323,11 +8991,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName draft="provisional">gal imp.</displayName>
-				<unitPattern count="one" draft="provisional">{0} gal imp.</unitPattern>
-				<unitPattern count="few" draft="provisional">{0} gal imp.</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} gal imp.</unitPattern>
-				<perUnitPattern draft="provisional">{0} gal imp.</perUnitPattern>
+				<displayName>gal imp.</displayName>
+				<unitPattern count="one">{0} gal imp.</unitPattern>
+				<unitPattern count="few">{0} gal imp.</unitPattern>
+				<unitPattern count="other">{0} gal imp.</unitPattern>
+				<perUnitPattern>{0} gal imp.</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
@@ -8381,6 +9049,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName draft="contributed">m/s²</displayName>
+				<unitPattern count="one" draft="contributed">{0} m/s²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m/s²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m/s²</unitPattern>
+			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
@@ -8432,47 +9106,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} l/100 km</unitPattern>
 				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName draft="contributed">sec.</displayName>
+				<unitPattern count="one" draft="contributed">{0} sec.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} sec.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} sec.</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>a</displayName>
 				<unitPattern count="one">{0} a</unitPattern>
 				<unitPattern count="few">{0} a</unitPattern>
 				<unitPattern count="other">{0} a</unitPattern>
+				<perUnitPattern draft="contributed">{0}/an</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>l</displayName>
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="few">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
+				<perUnitPattern draft="contributed">{0}/lună</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>săpt.</displayName>
 				<unitPattern count="one">{0} săpt.</unitPattern>
 				<unitPattern count="few">{0} săpt.</unitPattern>
 				<unitPattern count="other">{0} săpt.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/săpt.</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>zi</displayName>
 				<unitPattern count="one">{0} z</unitPattern>
 				<unitPattern count="few">{0} z</unitPattern>
 				<unitPattern count="other">{0} z</unitPattern>
+				<perUnitPattern draft="contributed">{0}/zi</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>oră</displayName>
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="few">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
+				<perUnitPattern draft="contributed">{0}/h</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>m</displayName>
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="few">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
+				<perUnitPattern draft="contributed">{0}/min.</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>s</displayName>
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="few">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
+				<perUnitPattern draft="contributed">{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ms</displayName>
@@ -8480,23 +9167,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="contributed">μs</displayName>
+				<unitPattern count="one" draft="contributed">{0} μs</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} μs</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="contributed">ns</displayName>
+				<unitPattern count="one" draft="contributed">{0} ns</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ns</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ns</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
 				<unitPattern count="one">{0} km</unitPattern>
 				<unitPattern count="few">{0} km</unitPattern>
 				<unitPattern count="other">{0} km</unitPattern>
+				<perUnitPattern draft="contributed">{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="few">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
+				<perUnitPattern draft="contributed">{0}/m</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="contributed">dm</displayName>
+				<unitPattern count="one" draft="contributed">{0} dm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} dm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>cm</displayName>
 				<unitPattern count="one">{0} cm</unitPattern>
 				<unitPattern count="few">{0} cm</unitPattern>
 				<unitPattern count="other">{0} cm</unitPattern>
+				<perUnitPattern draft="contributed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
@@ -8504,57 +9212,155 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mm</unitPattern>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="contributed">µm</displayName>
+				<unitPattern count="one" draft="contributed">{0} µm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} µm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName draft="contributed">nm</displayName>
+				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} nm</unitPattern>
+			</unit>
 			<unit type="length-picometer">
+				<displayName draft="contributed">pm</displayName>
 				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="contributed">mi</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mi</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="contributed">yd</displayName>
 				<unitPattern count="one" draft="contributed">{0} yd</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} yd</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="contributed">ft</displayName>
 				<unitPattern count="one" draft="contributed">{0} ft</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ft</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ft</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="contributed">in</displayName>
 				<unitPattern count="one" draft="contributed">{0} in</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} in</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} in</unitPattern>
+				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName draft="contributed">pc</displayName>
+				<unitPattern count="one" draft="contributed">{0} pc</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} pc</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="contributed">a.l.</displayName>
 				<unitPattern count="one" draft="contributed">{0} a.l.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} a.l.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} a.l.</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">ua</displayName>
+				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ua</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ua</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="contributed">mn</displayName>
+				<unitPattern count="one" draft="contributed">{0} mn</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mn</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mn</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName draft="contributed">pt</displayName>
+				<unitPattern count="one" draft="contributed">{0} pt</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} pt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
+			</unit>
+			<unit type="mass-metric-ton">
+				<displayName draft="contributed">t</displayName>
+				<unitPattern count="one" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>
 				<unitPattern count="one">{0} kg</unitPattern>
 				<unitPattern count="few">{0} kg</unitPattern>
 				<unitPattern count="other">{0} kg</unitPattern>
+				<perUnitPattern draft="contributed">{0}/kg</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>g</displayName>
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="few">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
+				<perUnitPattern draft="contributed">{0}/g</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName draft="contributed">mg</displayName>
+				<unitPattern count="one" draft="contributed">{0} mg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mg</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName draft="contributed">µg</displayName>
+				<unitPattern count="one" draft="contributed">{0} µg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} µg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} µg</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName draft="contributed">t.s.</displayName>
+				<unitPattern count="one" draft="contributed">{0} t.s.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} t.s.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} t.s.</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="contributed">lb</displayName>
 				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
+				<perUnitPattern draft="contributed">{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="contributed">oz</displayName>
 				<unitPattern count="one" draft="contributed">{0} oz</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} oz</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} oz</unitPattern>
+				<perUnitPattern draft="contributed">{0}/oz</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName draft="contributed">oz t</displayName>
+				<unitPattern count="one" draft="contributed">{0} oz t</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} oz t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz t</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName draft="contributed">carate</displayName>
+				<unitPattern count="one" draft="contributed">{0} ct</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ct</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ct</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
@@ -8572,16 +9378,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} CP</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="contributed">hPa</displayName>
 				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName draft="contributed">mm Hg</displayName>
+				<unitPattern count="one" draft="contributed">{0} mm Hg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mm Hg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mm Hg</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName draft="contributed">psi</displayName>
+				<unitPattern count="one" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} psi</unitPattern>
+			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="contributed">in Hg</displayName>
 				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="contributed">mbar</displayName>
 				<unitPattern count="one" draft="contributed">{0} mb</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mb</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mb</unitPattern>
@@ -8593,14 +9414,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="contributed">m/s</displayName>
 				<unitPattern count="one" draft="contributed">{0} m/s</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} m/s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="contributed">mi/h</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi/h</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mi/h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi/h</unitPattern>
+			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">kn</displayName>
+				<unitPattern count="one" draft="contributed">{0} kn</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kn</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kn</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
@@ -8609,9 +9444,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="contributed">°F</displayName>
 				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName draft="contributed">K</displayName>
+				<unitPattern count="one" draft="contributed">{0} K</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} K</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} K</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
@@ -8653,6 +9495,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} și {1}</listPatternPart>
 			<listPatternPart type="2">{0} și {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} sau {1}</listPatternPart>
+			<listPatternPart type="2">{0} sau {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -8693,95 +9541,95 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="historic">{0} – istorice</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} – diverse</characterLabelPattern>
 		<characterLabelPattern type="other">{0} – altele</characterLabelPattern>
-		<characterLabelPattern type="scripts">Scrieri – {0}</characterLabelPattern>
+		<characterLabelPattern type="scripts">scrieri – {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} trasare</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="few">{0} trasări</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} de trasări</characterLabelPattern>
-		<characterLabel type="activities">Activități</characterLabel>
-		<characterLabel type="african_scripts">Scrieri africane</characterLabel>
-		<characterLabel type="american_scripts">Scrieri americane</characterLabel>
+		<characterLabel type="activities">activitate</characterLabel>
+		<characterLabel type="african_scripts">scriere africană</characterLabel>
+		<characterLabel type="american_scripts">scriere americană</characterLabel>
 		<characterLabel type="animal">animal</characterLabel>
-		<characterLabel type="animals_nature">Animale și natură</characterLabel>
-		<characterLabel type="arrows">Săgeți</characterLabel>
+		<characterLabel type="animals_nature">animal sau natură</characterLabel>
+		<characterLabel type="arrows">săgeată</characterLabel>
 		<characterLabel type="body">corp</characterLabel>
-		<characterLabel type="box_drawing">Desen casetă</characterLabel>
-		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="box_drawing">desen casetă</characterLabel>
+		<characterLabel type="braille">scriere Braille</characterLabel>
 		<characterLabel type="building">construcție</characterLabel>
-		<characterLabel type="bullets_stars">Marcatori/stele</characterLabel>
-		<characterLabel type="consonantal_jamo">Jamo consonantic</characterLabel>
-		<characterLabel type="currency_symbols">Simboluri monetare</characterLabel>
-		<characterLabel type="dash_connector">Liniuță/conector</characterLabel>
-		<characterLabel type="digits">Cifre</characterLabel>
-		<characterLabel type="dingbats">Ornamente</characterLabel>
-		<characterLabel type="divination_symbols">Simboluri divinație</characterLabel>
-		<characterLabel type="downwards_arrows">Săgeți în jos</characterLabel>
-		<characterLabel type="downwards_upwards_arrows">Săgeți în sus și în jos</characterLabel>
-		<characterLabel type="east_asian_scripts">Scrieri est-asiatice</characterLabel>
-		<characterLabel type="emoji">Emoji</characterLabel>
-		<characterLabel type="european_scripts">Scrieri europene</characterLabel>
+		<characterLabel type="bullets_stars">marcator sau steluță</characterLabel>
+		<characterLabel type="consonantal_jamo">jamo consonantic</characterLabel>
+		<characterLabel type="currency_symbols">simbol monetar</characterLabel>
+		<characterLabel type="dash_connector">liniuță sau conector</characterLabel>
+		<characterLabel type="digits">cifră</characterLabel>
+		<characterLabel type="dingbats">ornament</characterLabel>
+		<characterLabel type="divination_symbols">simbol divinație</characterLabel>
+		<characterLabel type="downwards_arrows">săgeată în jos</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">săgeată în sus și în jos</characterLabel>
+		<characterLabel type="east_asian_scripts">scriere est-asiatică</characterLabel>
+		<characterLabel type="emoji">emoji</characterLabel>
+		<characterLabel type="european_scripts">scriere europeană</characterLabel>
 		<characterLabel type="female">femeie</characterLabel>
 		<characterLabel type="flag">steag</characterLabel>
-		<characterLabel type="flags">Steaguri</characterLabel>
-		<characterLabel type="food_drink">Mâncare și băutură</characterLabel>
-		<characterLabel type="format">Formatare</characterLabel>
-		<characterLabel type="format_whitespace">Formatare și spații albe</characterLabel>
-		<characterLabel type="full_width_form_variant">Variantă de formă cu lățime completă</characterLabel>
-		<characterLabel type="geometric_shapes">Forme geometrice</characterLabel>
-		<characterLabel type="half_width_form_variant">Variante de formă cu semilățime</characterLabel>
-		<characterLabel type="han_characters">Caractere han</characterLabel>
-		<characterLabel type="han_radicals">Radicali han</characterLabel>
-		<characterLabel type="hanja">Hanja</characterLabel>
-		<characterLabel type="hanzi_simplified">Hanzi (simplificată)</characterLabel>
-		<characterLabel type="hanzi_traditional">Hanzi (tradițională)</characterLabel>
+		<characterLabel type="flags">steaguri</characterLabel>
+		<characterLabel type="food_drink">mâncare și băutură</characterLabel>
+		<characterLabel type="format">formatare</characterLabel>
+		<characterLabel type="format_whitespace">formatare și spații albe</characterLabel>
+		<characterLabel type="full_width_form_variant">variantă cu lățime completă</characterLabel>
+		<characterLabel type="geometric_shapes">formă geometrică</characterLabel>
+		<characterLabel type="half_width_form_variant">variante cu semilățime</characterLabel>
+		<characterLabel type="han_characters">caracter han</characterLabel>
+		<characterLabel type="han_radicals">radical han</characterLabel>
+		<characterLabel type="hanja">hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">hanzi (simplificată)</characterLabel>
+		<characterLabel type="hanzi_traditional">hanzi (tradițională)</characterLabel>
 		<characterLabel type="heart">inimă</characterLabel>
-		<characterLabel type="historic_scripts">Scrieri istorice</characterLabel>
-		<characterLabel type="ideographic_desc_characters">Caractere desc. ideografice</characterLabel>
-		<characterLabel type="japanese_kana">Kana japoneză</characterLabel>
-		<characterLabel type="kanbun">Kanbun</characterLabel>
-		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="historic_scripts">scriere istorică</characterLabel>
+		<characterLabel type="ideographic_desc_characters">caracter desc. ideografic</characterLabel>
+		<characterLabel type="japanese_kana">kana japoneză</characterLabel>
+		<characterLabel type="kanbun">kanbun</characterLabel>
+		<characterLabel type="kanji">kanji</characterLabel>
 		<characterLabel type="keycap">tastă</characterLabel>
-		<characterLabel type="leftwards_arrows">Săgeți spre stânga</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows">Săgeți spre stânga și spre dreapta</characterLabel>
-		<characterLabel type="letterlike_symbols">Simboluri asemănătoare literelor</characterLabel>
-		<characterLabel type="limited_use">Utilizare limitată</characterLabel>
+		<characterLabel type="leftwards_arrows">săgeată spre stânga</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">săgeată spre stânga și spre dreapta</characterLabel>
+		<characterLabel type="letterlike_symbols">simbol bazat pe o literă</characterLabel>
+		<characterLabel type="limited_use">utilizare limitată</characterLabel>
 		<characterLabel type="male">bărbat</characterLabel>
-		<characterLabel type="math_symbols">Simboluri matematice</characterLabel>
-		<characterLabel type="middle_eastern_scripts">Scrieri mijlociu-orientale</characterLabel>
-		<characterLabel type="miscellaneous">Diverse</characterLabel>
-		<characterLabel type="modern_scripts">Scrieri moderne</characterLabel>
-		<characterLabel type="modifier">Modificator</characterLabel>
-		<characterLabel type="musical_symbols">Simboluri muzicale</characterLabel>
+		<characterLabel type="math_symbols">simbol matematic</characterLabel>
+		<characterLabel type="middle_eastern_scripts">scriere din Orientul Mijlociu</characterLabel>
+		<characterLabel type="miscellaneous">diverse</characterLabel>
+		<characterLabel type="modern_scripts">scriere modernă</characterLabel>
+		<characterLabel type="modifier">modificator</characterLabel>
+		<characterLabel type="musical_symbols">simbol muzical</characterLabel>
 		<characterLabel type="nature">natură</characterLabel>
-		<characterLabel type="nonspacing">Fără spațiere</characterLabel>
-		<characterLabel type="numbers">Numere</characterLabel>
-		<characterLabel type="objects">Obiecte</characterLabel>
-		<characterLabel type="other">Altele</characterLabel>
-		<characterLabel type="paired">Asociate</characterLabel>
+		<characterLabel type="nonspacing">fără spațiere</characterLabel>
+		<characterLabel type="numbers">numere</characterLabel>
+		<characterLabel type="objects">obiect</characterLabel>
+		<characterLabel type="other">altele</characterLabel>
+		<characterLabel type="paired">perechi</characterLabel>
 		<characterLabel type="person">persoană</characterLabel>
-		<characterLabel type="phonetic_alphabet">Alfabet fonetic</characterLabel>
-		<characterLabel type="pictographs">Pictografe</characterLabel>
+		<characterLabel type="phonetic_alphabet">alfabet fonetic</characterLabel>
+		<characterLabel type="pictographs">pictografă</characterLabel>
 		<characterLabel type="place">loc</characterLabel>
 		<characterLabel type="plant">plantă</characterLabel>
-		<characterLabel type="punctuation">Punctuație</characterLabel>
-		<characterLabel type="rightwards_arrows">Săgeți spre dreapta</characterLabel>
-		<characterLabel type="sign_standard_symbols">Semne/simboluri standard</characterLabel>
-		<characterLabel type="small_form_variant">Variante de forme mici</characterLabel>
-		<characterLabel type="smiley">smiley</characterLabel>
-		<characterLabel type="smileys_people">Emoticoane și persoane</characterLabel>
-		<characterLabel type="south_asian_scripts">Scrieri sud-asiatice</characterLabel>
-		<characterLabel type="southeast_asian_scripts">Scrieri sud-est asiatice</characterLabel>
-		<characterLabel type="spacing">Spațiere</characterLabel>
+		<characterLabel type="punctuation">punctuație</characterLabel>
+		<characterLabel type="rightwards_arrows">săgeată spre dreapta</characterLabel>
+		<characterLabel type="sign_standard_symbols">semn sau simbol</characterLabel>
+		<characterLabel type="small_form_variant">variante mici</characterLabel>
+		<characterLabel type="smiley">emoticon</characterLabel>
+		<characterLabel type="smileys_people">emoticon sau persoană</characterLabel>
+		<characterLabel type="south_asian_scripts">scriere sud-asiatică</characterLabel>
+		<characterLabel type="southeast_asian_scripts">scriere sud-est asiatică</characterLabel>
+		<characterLabel type="spacing">spațiere</characterLabel>
 		<characterLabel type="sport">sport</characterLabel>
-		<characterLabel type="symbols">Simboluri</characterLabel>
-		<characterLabel type="technical_symbols">Simboluri tehnice</characterLabel>
-		<characterLabel type="tone_marks">Marcaje de ton</characterLabel>
-		<characterLabel type="travel">călătorii</characterLabel>
-		<characterLabel type="travel_places">Călătorii și locuri</characterLabel>
-		<characterLabel type="upwards_arrows">Săgeți în sus</characterLabel>
-		<characterLabel type="variant_forms">Variante de forme</characterLabel>
-		<characterLabel type="vocalic_jamo">Jamo vocalic</characterLabel>
+		<characterLabel type="symbols">simbol</characterLabel>
+		<characterLabel type="technical_symbols">simbol tehnic</characterLabel>
+		<characterLabel type="tone_marks">marcaj de ton</characterLabel>
+		<characterLabel type="travel">călătorie</characterLabel>
+		<characterLabel type="travel_places">călătorie sau loc</characterLabel>
+		<characterLabel type="upwards_arrows">săgeți în sus</characterLabel>
+		<characterLabel type="variant_forms">variantă</characterLabel>
+		<characterLabel type="vocalic_jamo">jamo vocalic</characterLabel>
 		<characterLabel type="weather">vreme</characterLabel>
-		<characterLabel type="western_asian_scripts">Scrieri vest-asiatice</characterLabel>
-		<characterLabel type="whitespace">Spațiu alb</characterLabel>
+		<characterLabel type="western_asian_scripts">scriere vest-asiatică</characterLabel>
+		<characterLabel type="whitespace">spațiu alb</characterLabel>
 	</characterLabels>
 </ldml>

@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -162,6 +164,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fr">பிரெஞ்சு</language>
 			<language type="fr_CA">கனடிய பிரெஞ்சு</language>
 			<language type="fr_CH">ஸ்விஸ் பிரஞ்சு</language>
+			<language type="frc" draft="contributed">கஜுன் பிரெஞ்சு</language>
 			<language type="frm">மிடில் பிரெஞ்சு</language>
 			<language type="fro">பழைய பிரெஞ்சு</language>
 			<language type="frr">வடக்கு ஃப்ரிஸியான்</language>
@@ -288,6 +291,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ln">லிங்காலா</language>
 			<language type="lo">லாவோ</language>
 			<language type="lol">மோங்கோ</language>
+			<language type="lou" draft="contributed">லூசியானா க்ரயோல்</language>
 			<language type="loz">லோசி</language>
 			<language type="lrc">வடக்கு லுரி</language>
 			<language type="lt">லிதுவேனியன்</language>
@@ -790,6 +794,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">ஸ்பெயின்</territory>
 			<territory type="ET">எத்தியோப்பியா</territory>
 			<territory type="EU">ஐரோப்பிய யூனியன்</territory>
+			<territory type="EZ">யூரோஜோன்</territory>
 			<territory type="FI">பின்லாந்து</territory>
 			<territory type="FJ">ஃபிஜி</territory>
 			<territory type="FK">ஃபாக்லாந்து தீவுகள்</territory>
@@ -1022,6 +1027,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="indian">இந்திய தேச நாள்காட்டி</type>
 			<type key="calendar" type="islamic">இஸ்லாமிய நாள்காட்டி</type>
 			<type key="calendar" type="islamic-civil">இஸ்லாமிய சிவில் நாள்காட்டி</type>
+			<type key="calendar" type="islamic-umalqura" draft="contributed">இஸ்லாமிய நாள்காட்டி (உம்-அல்-குரா)</type>
 			<type key="calendar" type="iso8601">ISO-8601 நாள்காட்டி</type>
 			<type key="calendar" type="japanese">ஜப்பானிய நாள்காட்டி</type>
 			<type key="calendar" type="persian">பெர்சியன் நாள்காட்டி</type>
@@ -1038,8 +1044,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="no">எழுத்து உணர்வின்றி வரிசைபடுத்து</type>
 			<type key="colCaseLevel" type="yes">எழுத்து உணர்வில் வரிசைபடுத்து</type>
 			<type key="collation" type="big5han">பாரம்பரிய சீன வரிசை வடிவம் - Big5</type>
+			<type key="collation" type="compat" draft="contributed">முந்தைய வரிசை வடிவம், இணக்கத்தன்மைக்கு</type>
 			<type key="collation" type="dictionary">அகராதி வரிசை முறை</type>
 			<type key="collation" type="ducet">இயல்புநிலை யுனிகோட் வரிசை முறை</type>
+			<type key="collation" type="eor" draft="contributed">ஐரோப்பிய வரிசைப்படுத்தல் விதிகள்</type>
 			<type key="collation" type="gb2312han">எளிமையாக்கப்பட்ட சீன வரிசை வடிவம் - GB2312</type>
 			<type key="collation" type="phonebook">தொலைபேசி புத்தக வரிசை முறை</type>
 			<type key="collation" type="phonetic">ஒலியியல் வரிசைப்படுத்தல் முறை</type>
@@ -1070,7 +1078,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">தளர்வான வரி முறிப்பு ஸ்டைல்</type>
 			<type key="lb" type="normal">சாதாரண வரி முறிப்பு ஸ்டைல்</type>
 			<type key="lb" type="strict">கண்டிப்பான வரி முறிப்பு ஸ்டைல்</type>
-			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="bgn">யூஎஸ் பிஜிஎன் ஒலிபெயர்ப்பு</type>
 			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">மெட்ரிக் முறை</type>
 			<type key="ms" type="uksystem">இம்பீரியல் அளவீட்டு முறை</type>
@@ -1139,6 +1147,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1148,6 +1175,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">BE</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">BE</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">BE</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="chinese">
 				<months>
 					<monthContext type="format">
@@ -1262,6 +1302,170 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 			</calendar>
+			<calendar type="coptic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">டட்</month>
+							<month type="2" draft="contributed">பாபா</month>
+							<month type="3" draft="contributed">ஹடு.</month>
+							<month type="4" draft="contributed">கியா.</month>
+							<month type="5" draft="contributed">டுபா</month>
+							<month type="6" draft="contributed">அம்.</month>
+							<month type="7" draft="contributed">பரம்.</month>
+							<month type="8" draft="contributed">பரமு.</month>
+							<month type="9" draft="contributed">பாஷ.</month>
+							<month type="10" draft="contributed">பவு.</month>
+							<month type="11" draft="contributed">அபீ.</month>
+							<month type="12" draft="contributed">மஸ்.</month>
+							<month type="13" draft="contributed">நசி</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">டட்</month>
+							<month type="2" draft="contributed">பாபா</month>
+							<month type="3" draft="contributed">ஹடுர்</month>
+							<month type="4" draft="contributed">கியாக்</month>
+							<month type="5" draft="contributed">டுபா</month>
+							<month type="6" draft="contributed">அம்ஷீர்</month>
+							<month type="7" draft="contributed">பரம்ஹாட்</month>
+							<month type="8" draft="contributed">பரமுதா</month>
+							<month type="9" draft="contributed">பாஷன்ஸ்</month>
+							<month type="10" draft="contributed">பவுனா</month>
+							<month type="11" draft="contributed">அபீப்</month>
+							<month type="12" draft="contributed">மஸ்ரா</month>
+							<month type="13" draft="contributed">நசி</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">டட்</month>
+							<month type="2" draft="contributed">பாபா</month>
+							<month type="3" draft="contributed">ஹடு.</month>
+							<month type="4" draft="contributed">கியா.</month>
+							<month type="5" draft="contributed">டுபா</month>
+							<month type="6" draft="contributed">அம்.</month>
+							<month type="7" draft="contributed">பரம்.</month>
+							<month type="8" draft="contributed">பரமு.</month>
+							<month type="9" draft="contributed">பாஷ.</month>
+							<month type="10" draft="contributed">பவு.</month>
+							<month type="11" draft="contributed">அபீ.</month>
+							<month type="12" draft="contributed">மஸ்ரா</month>
+							<month type="13" draft="contributed">நசி</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">டட்</month>
+							<month type="2" draft="contributed">பாபா</month>
+							<month type="3" draft="contributed">ஹடுர்</month>
+							<month type="4" draft="contributed">கியாக்</month>
+							<month type="5" draft="contributed">டுபா</month>
+							<month type="6" draft="contributed">அம்ஷீர்</month>
+							<month type="7" draft="contributed">பரம்ஹாட்</month>
+							<month type="8" draft="contributed">பரமுதா</month>
+							<month type="9" draft="contributed">பாஷன்ஸ்</month>
+							<month type="10" draft="contributed">பவுனா</month>
+							<month type="11" draft="contributed">அபீப்</month>
+							<month type="12" draft="contributed">மஸ்ரா</month>
+							<month type="13" draft="contributed">நசி</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">மஸ்.</month>
+							<month type="2" draft="contributed">தெகெ.</month>
+							<month type="3" draft="contributed">ஹெத.</month>
+							<month type="4" draft="contributed">தஹ்.</month>
+							<month type="5" draft="contributed">தெர்</month>
+							<month type="6" draft="contributed">யாகா.</month>
+							<month type="7" draft="contributed">மகா.</month>
+							<month type="8" draft="contributed">மியா.</month>
+							<month type="9" draft="contributed">கென்.</month>
+							<month type="10" draft="contributed">சனே</month>
+							<month type="11" draft="contributed">ஹமே.</month>
+							<month type="12" draft="contributed">நஹா.</month>
+							<month type="13" draft="contributed">பாகு.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">மஸ்கரம்</month>
+							<month type="2" draft="contributed">தெகெம்ப்த்</month>
+							<month type="3" draft="contributed">ஹெதர்</month>
+							<month type="4" draft="contributed">தஹ்சாஸ்</month>
+							<month type="5" draft="contributed">தெர்</month>
+							<month type="6" draft="contributed">யாகாடிட்</month>
+							<month type="7" draft="contributed">மகாபிட்</month>
+							<month type="8" draft="contributed">மியாஸ்யா</month>
+							<month type="9" draft="contributed">கென்போ</month>
+							<month type="10" draft="contributed">சனே</month>
+							<month type="11" draft="contributed">ஹமேல்</month>
+							<month type="12" draft="contributed">நஹாசே</month>
+							<month type="13" draft="contributed">பாகுமே</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">மஸ்.</month>
+							<month type="2" draft="contributed">தெகெ.</month>
+							<month type="3" draft="contributed">ஹெத.</month>
+							<month type="4" draft="contributed">தஹ்.</month>
+							<month type="5" draft="contributed">தெர்</month>
+							<month type="6" draft="contributed">யாகா.</month>
+							<month type="7" draft="contributed">மகா.</month>
+							<month type="8" draft="contributed">மியா.</month>
+							<month type="9" draft="contributed">கென்.</month>
+							<month type="10" draft="contributed">சனே</month>
+							<month type="11" draft="contributed">ஹமே.</month>
+							<month type="12" draft="contributed">நஹா.</month>
+							<month type="13" draft="contributed">பாகு.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">மஸ்கரம்</month>
+							<month type="2" draft="contributed">தெகெம்ப்த்</month>
+							<month type="3" draft="contributed">ஹெதர்</month>
+							<month type="4" draft="contributed">தஹ்சாஸ்</month>
+							<month type="5" draft="contributed">தெர்</month>
+							<month type="6" draft="contributed">யாகாடிட்</month>
+							<month type="7" draft="contributed">மகாபிட்</month>
+							<month type="8" draft="contributed">மியாஸ்யா</month>
+							<month type="9" draft="contributed">கென்போ</month>
+							<month type="10" draft="contributed">சனே</month>
+							<month type="11" draft="contributed">ஹமேல்</month>
+							<month type="12" draft="contributed">நஹாசே</month>
+							<month type="13" draft="contributed">பாகுமே</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1312,7 +1516,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E B h:mm</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E a h:mm</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
@@ -1968,9 +2178,339 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">டிஷ்.</month>
+							<month type="2" draft="contributed">ஹெஷ்.</month>
+							<month type="3" draft="contributed">கிஸ்.</month>
+							<month type="4" draft="contributed">டெவெ.</month>
+							<month type="5" draft="contributed">ஷெவா.</month>
+							<month type="6" draft="contributed">அடா. 1</month>
+							<month type="7" draft="contributed">அடா.</month>
+							<month type="7" yeartype="leap" draft="contributed">அடா. 2</month>
+							<month type="8" draft="contributed">நிசா.</month>
+							<month type="9" draft="contributed">ஐயா.</month>
+							<month type="10" draft="contributed">சிவா.</month>
+							<month type="11" draft="contributed">தமு.</month>
+							<month type="12" draft="contributed">அவ்</month>
+							<month type="13" draft="contributed">எலு.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">டிஷ்ரி</month>
+							<month type="2" draft="contributed">ஹெஷ்வான்</month>
+							<month type="3" draft="contributed">கிஸ்லெவ்</month>
+							<month type="4" draft="contributed">டெவெட்</month>
+							<month type="5" draft="contributed">ஷெவாட்</month>
+							<month type="6" draft="contributed">அடார் 1</month>
+							<month type="7" draft="contributed">அடார்</month>
+							<month type="7" yeartype="leap" draft="contributed">அடார் 2</month>
+							<month type="8" draft="contributed">நிசான்</month>
+							<month type="9" draft="contributed">ஐயார்</month>
+							<month type="10" draft="contributed">சிவான்</month>
+							<month type="11" draft="contributed">தமுஸ்</month>
+							<month type="12" draft="contributed">அவ்</month>
+							<month type="13" draft="contributed">எலுல்</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">டிஷ்.</month>
+							<month type="2" draft="contributed">ஹெஷ்.</month>
+							<month type="3" draft="contributed">கிஸ்.</month>
+							<month type="4" draft="contributed">டெவெ.</month>
+							<month type="5" draft="contributed">ஷெவா.</month>
+							<month type="6" draft="contributed">அடா. 1</month>
+							<month type="7" draft="contributed">அடா.</month>
+							<month type="7" yeartype="leap" draft="contributed">அடா. 2</month>
+							<month type="8" draft="contributed">நிசா.</month>
+							<month type="9" draft="contributed">ஐயா.</month>
+							<month type="10" draft="contributed">சிவா.</month>
+							<month type="11" draft="contributed">தமு.</month>
+							<month type="12" draft="contributed">அவ்</month>
+							<month type="13" draft="contributed">எலு.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">டிஷ்ரி</month>
+							<month type="2" draft="contributed">ஹெஷ்வான்</month>
+							<month type="3" draft="contributed">கிஸ்லெவ்</month>
+							<month type="4" draft="contributed">டெவெட்</month>
+							<month type="5" draft="contributed">ஷெவாட்</month>
+							<month type="6" draft="contributed">அடார் 1</month>
+							<month type="7" draft="contributed">அடார்</month>
+							<month type="7" yeartype="leap" draft="contributed">அடார் 2</month>
+							<month type="8" draft="contributed">நிசான்</month>
+							<month type="9" draft="contributed">ஐயார்</month>
+							<month type="10" draft="contributed">சிவான்</month>
+							<month type="11" draft="contributed">தமுஸ்</month>
+							<month type="12" draft="contributed">அவ்</month>
+							<month type="13" draft="contributed">எலுல்</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">AM</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AM</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AM</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="indian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">சித்.</month>
+							<month type="2" draft="contributed">வைகா.</month>
+							<month type="3" draft="contributed">ஆனி</month>
+							<month type="4" draft="contributed">ஆடி</month>
+							<month type="5" draft="contributed">ஆவ.</month>
+							<month type="6" draft="contributed">புர.</month>
+							<month type="7" draft="contributed">ஐப்.</month>
+							<month type="8" draft="contributed">கார்.</month>
+							<month type="9" draft="contributed">மார்.</month>
+							<month type="10" draft="contributed">தை</month>
+							<month type="11" draft="contributed">மாசி</month>
+							<month type="12" draft="contributed">பங்.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">சித்திரை</month>
+							<month type="2" draft="contributed">வைகாசி</month>
+							<month type="3" draft="contributed">ஆனி</month>
+							<month type="4" draft="contributed">ஆடி</month>
+							<month type="5" draft="contributed">ஆவணி</month>
+							<month type="6" draft="contributed">புரட்டாசி</month>
+							<month type="7" draft="contributed">ஐப்பசி</month>
+							<month type="8" draft="contributed">கார்த்திகை</month>
+							<month type="9" draft="contributed">மார்கழி</month>
+							<month type="10" draft="contributed">தை</month>
+							<month type="11" draft="contributed">மாசி</month>
+							<month type="12" draft="contributed">பங்குனி</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">சித்.</month>
+							<month type="2" draft="contributed">வைகா.</month>
+							<month type="3" draft="contributed">ஆனி</month>
+							<month type="4" draft="contributed">ஆடி</month>
+							<month type="5" draft="contributed">ஆவ.</month>
+							<month type="6" draft="contributed">புர.</month>
+							<month type="7" draft="contributed">ஐப்.</month>
+							<month type="8" draft="contributed">கார்.</month>
+							<month type="9" draft="contributed">மார்.</month>
+							<month type="10" draft="contributed">தை</month>
+							<month type="11" draft="contributed">மாசி</month>
+							<month type="12" draft="contributed">பங்.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">சித்திரை</month>
+							<month type="2" draft="contributed">வைகாசி</month>
+							<month type="3" draft="contributed">ஆனி</month>
+							<month type="4" draft="contributed">ஆடி</month>
+							<month type="5" draft="contributed">ஆவணி</month>
+							<month type="6" draft="contributed">புரட்டாசி</month>
+							<month type="7" draft="contributed">ஐப்பசி</month>
+							<month type="8" draft="contributed">கார்த்திகை</month>
+							<month type="9" draft="contributed">மார்கழி</month>
+							<month type="10" draft="contributed">தை</month>
+							<month type="11" draft="contributed">மாசி</month>
+							<month type="12" draft="contributed">பங்குனி</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">சாகா</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">சாகா</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">சாகா</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">முஹ.</month>
+							<month type="2" draft="contributed">சஃப.</month>
+							<month type="3" draft="contributed">ரபி 1</month>
+							<month type="4" draft="contributed">ரபி 2</month>
+							<month type="5" draft="contributed">ஜும. 1</month>
+							<month type="6" draft="contributed">ஜும. 2</month>
+							<month type="7" draft="contributed">ரஜ.</month>
+							<month type="8" draft="contributed">ஷஃ.</month>
+							<month type="9" draft="contributed">ரம.</month>
+							<month type="10" draft="contributed">ஷவ்.</month>
+							<month type="11" draft="contributed">துல் கஃ.</month>
+							<month type="12" draft="contributed">துல் ஹிஜ்.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">முஹர்ரம்</month>
+							<month type="2" draft="contributed">சஃபர்</month>
+							<month type="3" draft="contributed">ரபி 1</month>
+							<month type="4" draft="contributed">ரபி 2</month>
+							<month type="5" draft="contributed">ஜுமதா 1</month>
+							<month type="6" draft="contributed">ஜுமதா 2</month>
+							<month type="7" draft="contributed">ரஜப்</month>
+							<month type="8" draft="contributed">ஷஃபான்</month>
+							<month type="9" draft="contributed">ரமலான்</month>
+							<month type="10" draft="contributed">ஷவ்வால்</month>
+							<month type="11" draft="contributed">துல் கஃதா</month>
+							<month type="12" draft="contributed">துல் ஹிஜ்ஜா</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">முஹ.</month>
+							<month type="2" draft="contributed">சஃப.</month>
+							<month type="3" draft="contributed">ரபி 1</month>
+							<month type="4" draft="contributed">ரபி 2</month>
+							<month type="5" draft="contributed">ஜும. 1</month>
+							<month type="6" draft="contributed">ஜும. 2</month>
+							<month type="7" draft="contributed">ரஜ.</month>
+							<month type="8" draft="contributed">ஷஃ.</month>
+							<month type="9" draft="contributed">ரம.</month>
+							<month type="10" draft="contributed">ஷவ்.</month>
+							<month type="11" draft="contributed">துல் கஃ.</month>
+							<month type="12" draft="contributed">துல் ஹிஜ்.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">முஹர்ரம்</month>
+							<month type="2" draft="contributed">சஃபர்</month>
+							<month type="3" draft="contributed">ரபி 1</month>
+							<month type="4" draft="contributed">ரபி 2</month>
+							<month type="5" draft="contributed">ஜுமதா 1</month>
+							<month type="6" draft="contributed">ஜுமதா 2</month>
+							<month type="7" draft="contributed">ரஜப்</month>
+							<month type="8" draft="contributed">ஷஃபான்</month>
+							<month type="9" draft="contributed">ரமலான்</month>
+							<month type="10" draft="contributed">ஷவ்வால்</month>
+							<month type="11" draft="contributed">துல் கஃதா</month>
+							<month type="12" draft="contributed">துல் ஹிஜ்ஜா</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">AH</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AH</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AH</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ஃபர்.</month>
+							<month type="2" draft="contributed">ஆர்டி.</month>
+							<month type="3" draft="contributed">கொர்.</month>
+							<month type="4" draft="contributed">திர்</month>
+							<month type="5" draft="contributed">மொர்.</month>
+							<month type="6" draft="contributed">ஷாரி.</month>
+							<month type="7" draft="contributed">மெஹ்.</month>
+							<month type="8" draft="contributed">அபா.</month>
+							<month type="9" draft="contributed">அசா.</month>
+							<month type="10" draft="contributed">தே</month>
+							<month type="11" draft="contributed">பஹ்.</month>
+							<month type="12" draft="contributed">எஃ.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ஃபர்வாதின்</month>
+							<month type="2" draft="contributed">ஆர்டிபெஹெஷ்த்</month>
+							<month type="3" draft="contributed">கொர்தாத்</month>
+							<month type="4" draft="contributed">திர்</month>
+							<month type="5" draft="contributed">மொர்தாத்</month>
+							<month type="6" draft="contributed">ஷாரிவார்</month>
+							<month type="7" draft="contributed">மெஹ்ர்</month>
+							<month type="8" draft="contributed">அபான்</month>
+							<month type="9" draft="contributed">அசார்</month>
+							<month type="10" draft="contributed">தே</month>
+							<month type="11" draft="contributed">பஹ்மான்</month>
+							<month type="12" draft="contributed">எஃபான்</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ஃபர்.</month>
+							<month type="2" draft="contributed">ஆர்டி.</month>
+							<month type="3" draft="contributed">கொர்.</month>
+							<month type="4" draft="contributed">திர்</month>
+							<month type="5" draft="contributed">மொர்.</month>
+							<month type="6" draft="contributed">ஷாரி.</month>
+							<month type="7" draft="contributed">மெஹ்.</month>
+							<month type="8" draft="contributed">அபா.</month>
+							<month type="9" draft="contributed">அசா.</month>
+							<month type="10" draft="contributed">தே</month>
+							<month type="11" draft="contributed">பஹ்.</month>
+							<month type="12" draft="contributed">எஃ.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ஃபர்வாதின்</month>
+							<month type="2" draft="contributed">ஆர்டிபெஹெஷ்த்</month>
+							<month type="3" draft="contributed">கொர்தாத்</month>
+							<month type="4" draft="contributed">திர்</month>
+							<month type="5" draft="contributed">மொர்தாத்</month>
+							<month type="6" draft="contributed">ஷாரிவார்</month>
+							<month type="7" draft="contributed">மெஹ்ர்</month>
+							<month type="8" draft="contributed">அபான்</month>
+							<month type="9" draft="contributed">அசார்</month>
+							<month type="10" draft="contributed">தே</month>
+							<month type="11" draft="contributed">பஹ்மான்</month>
+							<month type="12" draft="contributed">எஃபான்</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">AP</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AP</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AP</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="roc">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">R.O.C. -க்கு முன்பு</era>
+						<era type="1" draft="contributed">R.O.C.</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">ROCக்கு முன்</era>
+						<era type="1" draft="contributed">R.O.C.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">ROCக்கு முன்</era>
+						<era type="1" draft="contributed">R.O.C.</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>காலம்</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>காலம்</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>காலம்</displayName>
 			</field>
 			<field type="year">
@@ -2109,7 +2649,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} வாரங்களில்</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} வாரத்திற்கு முன்பு</relativeTimePattern>
+					<relativeTimePattern count="one">{0} வாரத்திற்கு முன்</relativeTimePattern>
 					<relativeTimePattern count="other">{0} வாரங்களுக்கு முன்</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>{0} -இன் வாரம்</relativePeriod>
@@ -2143,6 +2683,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} வா. முன்</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>{0} -இன் வாரம்</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>மாதத்தின் வாரம்</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>மாத. வாரம்</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>மாத. வாரம்</displayName>
 			</field>
 			<field type="day">
 				<displayName>நாள்</displayName>
@@ -2192,8 +2741,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} நா. முன்</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>வருடத்தின் நாள்</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>வருட. நாள்</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>வருட. நாள்</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>வாரத்தின் நாள்</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>வார. நாள்</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>வார. நாள்</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>மாதத்தின் வாரநாள்</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>மாத. வாரநாள்</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>மாத. வாரநாள்</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">கடந்த ஞாயிறு</relative>
@@ -2468,8 +3041,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} சனி. முன்</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>முற்./பிற்.</displayName>
+			</field>
 			<field type="dayperiod">
 				<displayName>முற்பகல்/பிற்பகல்</displayName>
+			</field>
+			<field type="dayperiod-narrow">
+				<displayName>முற்./பிற்.</displayName>
 			</field>
 			<field type="hour">
 				<displayName>மணி</displayName>
@@ -2576,6 +3155,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>நேர மண்டலம்</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>மண்டலம்</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName draft="provisional">நேர மண்டலம்</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
@@ -2590,6 +3175,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ஜோன்ஸ்டன்</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>ஒருங்கிணைந்த சர்வதேச நேரம்</standard>
+				</long>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>தெரியாத நகரம்</exemplarCity>
@@ -2954,6 +3544,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>ஈஸ்டர்</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>புன்டா அரீனாஸ்</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>சாண்டியாகோ</exemplarCity>
 			</zone>
@@ -2986,6 +3579,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>நிகோசியா</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>ஃபாமகுஸ்டா</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>ப்ராக்</exemplarCity>
@@ -3244,6 +3840,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>ஓரல்</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>அடிரா</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>அக்டோப்</exemplarCity>
@@ -3523,6 +4122,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>வோல்கோகிராட்</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>சரடோவ்</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>அஸ்ட்ராகான்</exemplarCity>
@@ -4918,6 +5520,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<decimalFormats numberSystem="tamldec">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">#,##,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5189,6 +5798,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">சிலியன் பெசோக்கள்</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>CNH</displayName>
+				<displayName count="one">CNH</displayName>
+				<displayName count="other">CNH</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>சீன யுவான்</displayName>
@@ -5757,6 +6372,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">ரோமானியன் லியூ</displayName>
 				<displayName count="other">ரோமானியன் லேய்</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>செர்பியன் தினார்</displayName>
@@ -6455,6 +7071,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ஸ்கேண்டிநேவியன் மைல்</unitPattern>
 				<unitPattern count="other">{0} ஸ்கேண்டிநேவியன் மைல்கள்</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName draft="contributed">அச்சுப் புள்ளிகள்</displayName>
+				<unitPattern count="one" draft="contributed">{0} அச்சுப் புள்ளி</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} அச்சுப் புள்ளிகள்</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>லக்ஸ்</displayName>
 				<unitPattern count="one">{0} லக்ஸ்</unitPattern>
@@ -6491,6 +7112,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>டன்</displayName>
 				<unitPattern count="one">{0} டன்</unitPattern>
 				<unitPattern count="other">{0} டன்</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">ஸ்டோன்ஸ்</displayName>
+				<unitPattern count="one" draft="contributed">{0} ஸ்டோன்</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ஸ்டோன்ஸ்</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>பவுண்டுகள்</displayName>
@@ -7059,7 +7685,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/கி.மீ.</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>மீட்டர்கள்</displayName>
+				<displayName>மீ.</displayName>
 				<unitPattern count="one">{0} மீ.</unitPattern>
 				<unitPattern count="other">{0} மீ.</unitPattern>
 				<perUnitPattern>{0}/மீ.</perUnitPattern>
@@ -7142,6 +7768,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ஸ்.மை.</unitPattern>
 				<unitPattern count="other">{0} ஸ்.மை.</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName draft="contributed">அ.பு.</displayName>
+				<unitPattern count="one" draft="contributed">{0} அ.பு.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} அ.பு.</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>லக்ஸ்</displayName>
 				<unitPattern count="one">{0} லக்.</unitPattern>
@@ -7178,6 +7809,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>டன்</displayName>
 				<unitPattern count="one">{0} டன்</unitPattern>
 				<unitPattern count="other">{0} டன்</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">ஸ்டோ.</displayName>
+				<unitPattern count="one" draft="contributed">{0} ஸ்டோ.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ஸ்டோ.</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>பவு.</displayName>
@@ -7496,21 +8132,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>நா</displayName>
 				<unitPattern count="one">{0} நா</unitPattern>
 				<unitPattern count="other">{0} நா</unitPattern>
+				<perUnitPattern draft="contributed">{0}/நா</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>மணி</displayName>
 				<unitPattern count="one">{0} ம.நே.</unitPattern>
 				<unitPattern count="other">{0} ம.நே.</unitPattern>
+				<perUnitPattern draft="contributed">{0} /ம.நே</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>நிமி.</displayName>
 				<unitPattern count="one">{0} நிமி.</unitPattern>
 				<unitPattern count="other">{0} நிமி.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/நிமி.</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>வி.</displayName>
 				<unitPattern count="one">{0} வி.</unitPattern>
 				<unitPattern count="other">{0} வி.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/வி.</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>மி.வி.</displayName>
@@ -7521,16 +8161,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>கி.மீ.</displayName>
 				<unitPattern count="one">{0}கி.மீ.</unitPattern>
 				<unitPattern count="other">{0}கி.மீ.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/கி.மீ.</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>மீ.</displayName>
 				<unitPattern count="one">{0}மீ.</unitPattern>
 				<unitPattern count="other">{0}மீ.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/மீ.</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="contributed">டெ.மீ</displayName>
+				<unitPattern count="one" draft="contributed">{0} டெ.மீ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} டெ.மீ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>செ.மீ.</displayName>
 				<unitPattern count="one">{0}செ.மீ.</unitPattern>
 				<unitPattern count="other">{0}செ.மீ.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/செ.மீ.</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>மி.மீ.</displayName>
@@ -7542,42 +8190,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} பை.மீ.</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="contributed">மை.</displayName>
 				<unitPattern count="one">{0} மை.</unitPattern>
 				<unitPattern count="other">{0} மை.</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="contributed">கெஜ.</displayName>
 				<unitPattern count="one">{0} நீட்.</unitPattern>
 				<unitPattern count="other">{0} நீட்.</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="contributed">அடி</displayName>
 				<unitPattern count="one">{0} அடி</unitPattern>
 				<unitPattern count="other">{0} அடி</unitPattern>
+				<perUnitPattern draft="contributed">{0}/அடி</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="contributed">அங்.</displayName>
 				<unitPattern count="one">{0} அங்.</unitPattern>
 				<unitPattern count="other">{0} அங்.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/அங்.</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one">{0} ஒ.ஆ.</unitPattern>
 				<unitPattern count="other">{0} ஒ.ஆ.</unitPattern>
 			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">ஸ்.மை.</displayName>
+				<unitPattern count="one" draft="contributed">{0} ஸ்.மை.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ஸ்.மை.</unitPattern>
+			</unit>
 			<unit type="mass-kilogram">
 				<displayName>கி.கி.</displayName>
 				<unitPattern count="one">{0}கி.கி.</unitPattern>
 				<unitPattern count="other">{0}கி.கி.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/கி.கி.</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>கிராம்</displayName>
 				<unitPattern count="one">{0} கி.</unitPattern>
 				<unitPattern count="other">{0} கி.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/கி.</perUnitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">ஸ்டோ.</displayName>
+				<unitPattern count="one" draft="contributed">{0} ஸ்டோ.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ஸ்டோ.</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="contributed">பவு.</displayName>
 				<unitPattern count="one">{0} பவு.</unitPattern>
 				<unitPattern count="other">{0} பவு.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/பவு.</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="contributed">அவு.</displayName>
 				<unitPattern count="one">{0} அவு.</unitPattern>
 				<unitPattern count="other">{0} அவு.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/அவு.</perUnitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0} கி.வா.</unitPattern>
@@ -7592,14 +8262,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} கு.வே.</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="contributed">ஹெ.பாஸ்.</displayName>
 				<unitPattern count="one">{0} ஹெ.பா.</unitPattern>
 				<unitPattern count="other">{0} ஹெ.பா.</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName draft="contributed">பாத. மி.மீ.</displayName>
+				<unitPattern count="one" draft="contributed">{0} பாத. மி.மீ.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} பாத. மி.மீ.</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName draft="contributed">psi</displayName>
+				<unitPattern count="one" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} psi</unitPattern>
+			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="contributed">பா. அங்.</displayName>
 				<unitPattern count="one">{0} பா.அங்.</unitPattern>
 				<unitPattern count="other">{0} பா.அங்.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="contributed">மி.பா.</displayName>
 				<unitPattern count="one">{0} மி.பா.</unitPattern>
 				<unitPattern count="other">{0} மி.பா.</unitPattern>
 			</unit>
@@ -7609,12 +8292,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}கி.மீ./ம.</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="contributed">மீ/வி</displayName>
 				<unitPattern count="one">{0} மீ/வி</unitPattern>
 				<unitPattern count="other">{0} மீ/வி</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="contributed">மை/ம.நே.</displayName>
 				<unitPattern count="one">{0} மை/ம.நே.</unitPattern>
 				<unitPattern count="other">{0} மை/ம.நே.</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°செ</displayName>
@@ -7622,8 +8312,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}°செ.</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="contributed">°ஃபா</displayName>
 				<unitPattern count="one">{0}°ஃபா.</unitPattern>
 				<unitPattern count="other">{0}°ஃபா.</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName draft="contributed">கெல்.</displayName>
+				<unitPattern count="one" draft="contributed">{0} கெல்.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} கெல்.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one">{0} க.கி.மீ.</unitPattern>
@@ -7661,6 +8357,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} மற்றும் {1}</listPatternPart>
 			<listPatternPart type="2">{0} மற்றும் {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} அல்லது {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} அல்லது {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -7703,7 +8405,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="miscellaneous">{0} — பிற</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — மற்றவை</characterLabelPattern>
 		<characterLabelPattern type="scripts">ஸ்கிரிப்டுகள்— {0}</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="one">{0} கோடுகள்</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} கோடு</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} கோடுகள்</characterLabelPattern>
 		<characterLabel type="activities">செயல்பாடுகள்</characterLabel>
 		<characterLabel type="african_scripts">ஆப்பிரிக்க ஸ்கிரிப்டுகள்</characterLabel>

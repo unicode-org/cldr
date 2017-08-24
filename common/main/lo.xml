@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -141,6 +143,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="elx">ອີລາໄມ</language>
 			<language type="en">ອັງກິດ</language>
 			<language type="en_AU">ອັງກິດ (ໂອດສະຕາລີ)</language>
+			<language type="en_CA">ອັງກິດແຄນາດາ</language>
 			<language type="en_GB">ອັງກິດ (ບຣິດທິຊ)</language>
 			<language type="en_GB" alt="short">ອັງກິດ (ສະຫະລາດຊະອານາຈັກ)</language>
 			<language type="en_US">ອັງກິດ (ອາເມລິກັນ)</language>
@@ -719,6 +722,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="014">ອາຟຣິກາຕາເວັນອອກ</territory>
 			<territory type="015">ອາຟຣິກາເໜືອ</territory>
 			<territory type="017">ອາຟຣິກາກາງ</territory>
+			<territory type="018">ອາຟຣິກາຕອນໃຕ້</territory>
 			<territory type="019">ອາເມຣິກາ</territory>
 			<territory type="021">ພາກເໜືອອາເມລີກາ</territory>
 			<territory type="029">ຄາຣິບບຽນ</territory>
@@ -769,7 +773,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BN">ບຣູໄນ</territory>
 			<territory type="BO">ໂບລິເວຍ</territory>
 			<territory type="BQ">ຄາຣິບບຽນ ເນເທີແລນ</territory>
-			<territory type="BR">ບະເລຊີນ</territory>
+			<territory type="BR">ບຣາຊິວ</territory>
 			<territory type="BS">ບາຮາມາສ</territory>
 			<territory type="BT">ພູຖານ</territory>
 			<territory type="BV">ເກາະບູເວດ</territory>
@@ -787,7 +791,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CI">ໂຄຕີ ວົວ</territory>
 			<territory type="CI" alt="variant">ໄອໂວຣີ ໂຄທ</territory>
 			<territory type="CK">ໝູ່ເກາະຄຸກ</territory>
-			<territory type="CL">ຈີເລ</territory>
+			<territory type="CL">ຊິລີ</territory>
 			<territory type="CM">ຄາເມຣູນ</territory>
 			<territory type="CN">ຈີນ</territory>
 			<territory type="CO">ໂຄລົມເບຍ</territory>
@@ -816,6 +820,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">ສະເປນ</territory>
 			<territory type="ET">ອີທິໂອເປຍ</territory>
 			<territory type="EU">ສະຫະພາບຢູໂຣບ</territory>
+			<territory type="EZ">ເຂດຢູໂຣບ</territory>
 			<territory type="FI">ຟິນແລນ</territory>
 			<territory type="FJ">ຟິຈິ</territory>
 			<territory type="FK">ຫມູ່ເກາະຟອກແລນ</territory>
@@ -838,13 +843,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GP">ກົວດາລູບ</territory>
 			<territory type="GQ">ເອຄົວໂທຣຽວ ກີນີ</territory>
 			<territory type="GR">ກຣີຊ</territory>
-			<territory type="GS">ໝູ່ເກາະຈໍເຈຍ &amp; ເຊົາ ແຊນວິດ</territory>
+			<territory type="GS">ໝູ່ເກາະ ຈໍເຈຍຕອນໃຕ້ ແລະ ແຊນວິດຕອນໃຕ້</territory>
 			<territory type="GT">ກົວເທມາລາ</territory>
 			<territory type="GU">ກວາມ</territory>
 			<territory type="GW">ກິນີ-ບິສເຊົາ</territory>
 			<territory type="GY">ກາຍຢານາ</territory>
-			<territory type="HK">ຮອງກົງ ເຂດປົກຄອງພິເສດ ຈີນ</territory>
-			<territory type="HK" alt="short">ຮອງກົງ</territory>
+			<territory type="HK">ຮົງກົງ ເຂດປົກຄອງພິເສດ ຈີນ</territory>
+			<territory type="HK" alt="short">ຮົງກົງ</territory>
 			<territory type="HM">ໝູ່ເກາະເຮີດ &amp; ແມັກໂດນອລ</territory>
 			<territory type="HN">ຮອນດູຣັສ</territory>
 			<territory type="HR">ໂຄຣເອເທຍ</territory>
@@ -852,7 +857,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="HU">ຮັງກາຣີ</territory>
 			<territory type="IC">ໝູ່ເກາະຄານາຣີ</territory>
 			<territory type="ID">ອິນໂດເນເຊຍ</territory>
-			<territory type="IE">ໄອຣ໌ແລນ</territory>
+			<territory type="IE">ໄອແລນ</territory>
 			<territory type="IL">ອິສຣາເອວ</territory>
 			<territory type="IM">ເອວ ອອບ ແມນ</territory>
 			<territory type="IN">ອິນເດຍ</territory>
@@ -866,7 +871,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="JO">ຈໍແດນ</territory>
 			<territory type="JP">ຍີ່ປຸ່ນ</territory>
 			<territory type="KE">ເຄນຢາ</territory>
-			<territory type="KG">ຄີກິສຖານ</territory>
+			<territory type="KG">ຄຽກກິດສະຖານ</territory>
 			<territory type="KH">ກຳປູເຈຍ</territory>
 			<territory type="KI">ຄິຣິບາທິ</territory>
 			<territory type="KM">ໂຄໂມໂຣສ</territory>
@@ -884,7 +889,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="LR">ລິເບີເຣຍ</territory>
 			<territory type="LS">ເລໂຊໂທ</territory>
 			<territory type="LT">ລິທົວເນຍ</territory>
-			<territory type="LU">ລຸກຊຳບົວ</territory>
+			<territory type="LU">ລຸກແຊມເບີກ</territory>
 			<territory type="LV">ລັດເວຍ</territory>
 			<territory type="LY">ລິເບຍ</territory>
 			<territory type="MA">ໂມຣັອກໂຄ</territory>
@@ -892,15 +897,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MD">ໂມນໂດວາ</territory>
 			<territory type="ME">ມອນເຕເນໂກຣ</territory>
 			<territory type="MF">ເຊນ ມາທິນ</territory>
-			<territory type="MG">ມາດາກາສກາ</territory>
+			<territory type="MG">ມາດາກາສະກາ</territory>
 			<territory type="MH">ຫມູ່ເກາະມາແຊວ</territory>
 			<territory type="MK">ແມຊິໂດເນຍ</territory>
 			<territory type="MK" alt="variant">ແມຊິໂດເນຍ (FYROM)</territory>
 			<territory type="ML">ມາລີ</territory>
 			<territory type="MM">ມຽນມາ (ເບີມາ)</territory>
 			<territory type="MN">ມອງໂກເລຍ</territory>
-			<territory type="MO">ມາເກົ້າ ເຂດປົກຄອງພິເສດ ຈີນ</territory>
-			<territory type="MO" alt="short">ມາເກົ້າ</territory>
+			<territory type="MO">ມາກາວ ເຂດປົກຄອງພິເສດ ຈີນ</territory>
+			<territory type="MO" alt="short">ມາກາວ</territory>
 			<territory type="MP">ຫມູ່ເກາະມາແຊວຕອນເຫນືອ</territory>
 			<territory type="MQ">ມາຕິນີກ</territory>
 			<territory type="MR">ມົວຣິເທເນຍ</territory>
@@ -960,7 +965,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SL">ເຊຍຣາ ລີໂອນ</territory>
 			<territory type="SM">ແຊນ ມາຣິໂນ</territory>
 			<territory type="SN">ເຊນີໂກລ</territory>
-			<territory type="SO">ໂຊມາລີ</territory>
+			<territory type="SO">ໂຊມາເລຍ</territory>
 			<territory type="SR">ຊູຣິນາມ</territory>
 			<territory type="SS">ຊູດານໃຕ້</territory>
 			<territory type="ST">ເຊົາທູເມ ແລະ ພຣິນຊິບ</territory>
@@ -998,8 +1003,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VA">ນະຄອນ ວາຕິກັນ</territory>
 			<territory type="VC">ເຊນ ວິນເຊນ ແລະ ເກຣເນດິນ</territory>
 			<territory type="VE">ເວເນຊູເອລາ</territory>
-			<territory type="VG">ໝູ່ເກາະ ບຣິທິຊ ເວີຈິນ</territory>
-			<territory type="VI">ໝູ່ເກາະ ຢູເອສ ເວີຈິນ</territory>
+			<territory type="VG">ໝູ່ເກາະ ເວີຈິນຂອງອັງກິດ</territory>
+			<territory type="VI">ໝູ່ເກາະ ເວີຈິນ ຂອງສະຫະລັດ</territory>
 			<territory type="VN">ຫວຽດນາມ</territory>
 			<territory type="VU">ວານົວຕູ</territory>
 			<territory type="WF">ວາລລິສ ແລະ ຟູຕູນາ</territory>
@@ -1671,9 +1676,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G d MMM y</dateFormatItem>
@@ -2032,7 +2046,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="morning1">ຕອນເຊົ້າ</dayPeriod>
 							<dayPeriod type="afternoon1">ຕອນທ່ຽງ</dayPeriod>
 							<dayPeriod type="evening1">ຕອນແລງ</dayPeriod>
-							<dayPeriod type="night1">ກາງຄືນ1</dayPeriod>
+							<dayPeriod type="night1">ກາງຄືນ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">ທ່ຽງຄືນ</dayPeriod>
@@ -2158,8 +2172,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -2198,7 +2217,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">ອາທິດທີ່ w ຂອງປີ Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">ອາທິດທີ່ w ຂອງປີ y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2969,6 +2988,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="era">
 				<displayName>ສະໄໝ</displayName>
 			</field>
+			<field type="era-short">
+				<displayName>ສະໄໝ</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>ສະໄໝ</displayName>
+			</field>
 			<field type="year">
 				<displayName>ປີ</displayName>
 				<relative type="-1">ປີກາຍ</relative>
@@ -3092,6 +3117,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>ອາທິດທີ {0}</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>ອາທິດຂອງເດືອນ</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>ອທ ຂອງ ດ</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>ອທ ຂອງ ດ</displayName>
+			</field>
 			<field type="day">
 				<displayName>ມື້</displayName>
 				<relative type="-2">ມື້ກ່ອນ</relative>
@@ -3134,8 +3168,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} ມື້ກ່ອນ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>ມື້ຂອງປີ</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>ມື້ຂອງປີ</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>ມື້ຂອງປີ</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>ມື້ຂອງອາທິດ</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>ມື້ຂອງອາທິດ</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>ມື້ຂອງອາທິດ</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>ມື້ເຮັດວຽກຂອງເດືອນ</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>ມຮວ ຂອງ ດ</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>ມຮວ ຂອງ ດ</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">ວັນອາທິດແລ້ວ</relative>
@@ -3368,7 +3426,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} ວັນເສົາກ່ອນ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>ກ່ອນທ່ຽງ/ຫຼັງທ່ຽງ</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>ກ່ອນທ່ຽງ/ຫຼັງທ່ຽງ</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>ກ່ອນທ່ຽງ/ຫຼັງທ່ຽງ</displayName>
 			</field>
 			<field type="hour">
@@ -3458,6 +3522,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>ເຂດເວລາ</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>ເຂດເວລາ</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>ເຂດເວລາ</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
@@ -3472,6 +3542,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ຈອນສະໂຕນ</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>ເວລາສາກົນເຊີງພິກັດ</standard>
+				</long>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>ບໍ່ຮູ້ຊື່ເມືອງ</exemplarCity>
@@ -3836,6 +3911,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>ເອສເຕີ</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>ພຸນທາ ອະຣີນາສ໌</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>ຊັນຕີອາໂກ</exemplarCity>
 			</zone>
@@ -3868,6 +3946,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>ນິໂຄເຊຍ</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>ຟາມາກັສທາ</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>ປຣາກ</exemplarCity>
@@ -4126,6 +4207,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>ອໍຣໍ</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>ອັດທີເຣົາ</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>ອັດໂທບີ</exemplarCity>
@@ -4405,6 +4489,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>ວອລໂກກຣາດ</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>ຊາຣາທອບ</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>ອາສຕຣາຄານ</exemplarCity>
@@ -6088,6 +6175,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
+			<currency type="CNH">
+				<displayName>ຢວນຈີນ (ນອກປະເທດ)</displayName>
+				<displayName count="other">ຢວນຈີນ (ນອກປະເທດ)</displayName>
+			</currency>
 			<currency type="CNY">
 				<displayName>ຈີນ ຢວນ</displayName>
 				<displayName count="other">ຈີນ ຢວນ</displayName>
@@ -7440,6 +7531,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ໄມລ໌ສະກັງດີນາວຽນ</displayName>
 				<unitPattern count="other">{0} ໄມລ໌ສະກັງດີນາວຽນ</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>ຈຸດ</displayName>
+				<unitPattern count="other">{0} ຈຸດ</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="other">{0} lux</unitPattern>
@@ -7997,6 +8092,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>smi</displayName>
 				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>ຈຸດ</displayName>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="other">{0} lx</unitPattern>
@@ -8424,6 +8523,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0} ແລະ {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} ຫຼື {1}</listPatternPart>
+			<listPatternPart type="2">{0} ຫຼື {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

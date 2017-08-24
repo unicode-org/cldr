@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -120,7 +122,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dua">দুয়ালা</language>
 			<language type="dum">মধ্য ডাচ</language>
 			<language type="dv">দিবেহি</language>
-			<language type="dyo">জলা-ফনী</language>
+			<language type="dyo">জোলা-ফনী</language>
 			<language type="dyu">ডিউলা</language>
 			<language type="dz">জোঙ্গা</language>
 			<language type="dzg">দাগাজা</language>
@@ -159,6 +161,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fr">ফরাসি</language>
 			<language type="fr_CA">কানাডীয় ফরাসি</language>
 			<language type="fr_CH">সুইস ফরাসি</language>
+			<language type="frc" draft="contributed">কাজুন ফরাসি</language>
 			<language type="frm">মধ্য ফরাসি</language>
 			<language type="fro">প্রাচীন ফরাসি</language>
 			<language type="frr">উত্তরাঞ্চলীয় ফ্রিসিয়ান</language>
@@ -201,7 +204,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hr">ক্রোয়েশীয়</language>
 			<language type="hsb">উচ্চ সোর্বিয়ান</language>
 			<language type="hsn">Xiang চীনা</language>
-			<language type="ht">হাইতিয়ান</language>
+			<language type="ht">হাইতিয়ান ক্রেওল</language>
 			<language type="hu">হাঙ্গেরীয়</language>
 			<language type="hup">হুপা</language>
 			<language type="hy">আর্মেনিয়</language>
@@ -284,6 +287,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ln">লিঙ্গালা</language>
 			<language type="lo">লাও</language>
 			<language type="lol">মোঙ্গো</language>
+			<language type="lou" draft="contributed">লুইসিয়ানা ক্রেওল</language>
 			<language type="loz">লোজি</language>
 			<language type="lrc">উত্তর লুরি</language>
 			<language type="lt">লিথুয়েনীয়</language>
@@ -377,7 +381,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pam">পাম্পাঙ্গা</language>
 			<language type="pap">পাপিয়ামেন্টো</language>
 			<language type="pau">পালায়ুয়ান</language>
-			<language type="pcm">নাজেরিয় পিজিন</language>
+			<language type="pcm">নাইজেরিয় পিজিন</language>
 			<language type="peo">প্রাচীন ফার্সি</language>
 			<language type="phn">ফোনিশীয়ান</language>
 			<language type="pi">পালি</language>
@@ -385,7 +389,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pon">পোহ্নপেইয়ান</language>
 			<language type="prg">প্রুশিয়ান</language>
 			<language type="pro">প্রাচীন প্রোভেনসাল</language>
-			<language type="ps">পাশ্তু</language>
+			<language type="ps">পুশতু</language>
 			<language type="ps" alt="variant">পুশতো</language>
 			<language type="pt">পর্তুগীজ</language>
 			<language type="pt_BR">ব্রাজিলের পর্তুগীজ</language>
@@ -519,9 +523,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="xog">সোগা</language>
 			<language type="yao">ইয়াও</language>
 			<language type="yap">ইয়াপেসে</language>
-			<language type="yav">য়াঙ্গবেন</language>
-			<language type="ybb">য়েম্বা</language>
-			<language type="yi">য়িদ্দিশ</language>
+			<language type="yav">ইয়াঙ্গবেন</language>
+			<language type="ybb">ইয়েম্বা</language>
+			<language type="yi">ইয়েদ্দিশ</language>
 			<language type="yo">ইওরুবা</language>
 			<language type="yue">ক্যানটোনীজ</language>
 			<language type="za">ঝু্য়াঙ</language>
@@ -668,7 +672,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Xsux" draft="contributed">সুমের-আক্কাদীয় কীলকরূপ</script>
 			<script type="Yiii" draft="contributed">উই</script>
 			<script type="Zinh">কাই</script>
-			<script type="Zmth">গানিতিক চিহ্ন</script>
+			<script type="Zmth">গাণিতিক চিহ্ন</script>
 			<script type="Zsye">ইমোজি</script>
 			<script type="Zsym">প্রতিকগুলি</script>
 			<script type="Zxxx">অলিখিত</script>
@@ -710,7 +714,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AD">আন্ডোরা</territory>
 			<territory type="AE">সংযুক্ত আরব আমিরাত</territory>
 			<territory type="AF">আফগানিস্তান</territory>
-			<territory type="AG">এন্টিগুয়া ও বারবুডা</territory>
+			<territory type="AG">অ্যান্টিগুয়া ও বারবুডা</territory>
 			<territory type="AI">এ্যাঙ্গুইলা</territory>
 			<territory type="AL">আলবেনিয়া</territory>
 			<territory type="AM">আর্মেনিয়া</territory>
@@ -752,8 +756,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG">কঙ্গো - ব্রাজাভিল</territory>
 			<territory type="CG" alt="variant">কঙ্গো (প্রজাতন্ত্র)</territory>
 			<territory type="CH">সুইজারল্যান্ড</territory>
-			<territory type="CI">আইভরি কোস্ট</territory>
-			<territory type="CI" alt="variant">আই ভরি</territory>
+			<territory type="CI">কোত দিভোয়ার</territory>
+			<territory type="CI" alt="variant">আইভরি কোস্ট</territory>
 			<territory type="CK">কুক দ্বীপপুঞ্জ</territory>
 			<territory type="CL">চিলি</territory>
 			<territory type="CM">ক্যামেরুন</territory>
@@ -763,7 +767,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CR">কোস্টারিকা</territory>
 			<territory type="CU">কিউবা</territory>
 			<territory type="CV">কেপভার্দে</territory>
-			<territory type="CW">কিউরাসাও</territory>
+			<territory type="CW">কুরাসাও</territory>
 			<territory type="CX">ক্রিসমাস দ্বীপ</territory>
 			<territory type="CY">সাইপ্রাস</territory>
 			<territory type="CZ">চেচিয়া</territory>
@@ -782,8 +786,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="EH">পশ্চিম সাহারা</territory>
 			<territory type="ER">ইরিত্রিয়া</territory>
 			<territory type="ES">স্পেন</territory>
-			<territory type="ET">ইফিওপিয়া</territory>
+			<territory type="ET">ইথিওপিয়া</territory>
 			<territory type="EU">ইউরোপীয় ইউনিয়ন</territory>
+			<territory type="EZ" draft="contributed">ইউরোজোন</territory>
 			<territory type="FI">ফিনল্যান্ড</territory>
 			<territory type="FJ">ফিজি</territory>
 			<territory type="FK">ফকল্যান্ড দ্বীপপুঞ্জ</territory>
@@ -797,7 +802,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GD">গ্রেনাডা</territory>
 			<territory type="GE">জর্জিয়া</territory>
 			<territory type="GF">ফরাসী গায়ানা</territory>
-			<territory type="GG">গ্রাঞ্জি</territory>
+			<territory type="GG">গুয়ার্নসি</territory>
 			<territory type="GH">ঘানা</territory>
 			<territory type="GI">জিব্রাল্টার</territory>
 			<territory type="GL">গ্রীনল্যান্ড</territory>
@@ -813,8 +818,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GY">গিয়ানা</territory>
 			<territory type="HK">হংকং এসএআর চীনা</territory>
 			<territory type="HK" alt="short">হংকং</territory>
-			<territory type="HM">হার্ড দ্বীপ এবং ম্যাকডোনাল্ড দ্বীপপুঞ্জ</territory>
-			<territory type="HN">হণ্ডুরাস</territory>
+			<territory type="HM">হার্ড এবং ম্যাকডোনাল্ড দ্বীপপুঞ্জ</territory>
+			<territory type="HN">হন্ডুরাস</territory>
 			<territory type="HR">ক্রোয়েশিয়া</territory>
 			<territory type="HT">হাইতি</territory>
 			<territory type="HU">হাঙ্গেরি</territory>
@@ -863,7 +868,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">মাদাগাস্কার</territory>
 			<territory type="MH">মার্শাল দ্বীপপুঞ্জ</territory>
 			<territory type="MK">ম্যাসাডোনিয়া</territory>
-			<territory type="MK" alt="variant">মেসিডোনিয়া(FYROM)</territory>
+			<territory type="MK" alt="variant">ম্যাসিডোনিয়া (FYROM)</territory>
 			<territory type="ML">মালি</territory>
 			<territory type="MM">মায়ানমার (বার্মা)</territory>
 			<territory type="MN">মঙ্গোলিয়া</territory>
@@ -883,7 +888,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="NA">নামিবিয়া</territory>
 			<territory type="NC">নিউ ক্যালেডোনিয়া</territory>
 			<territory type="NE">নাইজার</territory>
-			<territory type="NF">নিরফোক দ্বীপ</territory>
+			<territory type="NF">নরফোক দ্বীপ</territory>
 			<territory type="NG">নাইজেরিয়া</territory>
 			<territory type="NI">নিকারাগুয়া</territory>
 			<territory type="NL">নেদারল্যান্ডস</territory>
@@ -903,7 +908,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PM">সেন্ট পিয়ের ও মিকুয়েলন</territory>
 			<territory type="PN">পিটকেয়ার্ন দ্বীপপুঞ্জ</territory>
 			<territory type="PR">পুয়ের্তো রিকো</territory>
-			<territory type="PS">ফিলিস্তিন অঞ্চলসমূহ</territory>
+			<territory type="PS">প্যালেস্টাইনের অঞ্চলসমূহ</territory>
 			<territory type="PS" alt="short">ফিলিস্তিন</territory>
 			<territory type="PT">পর্তুগাল</territory>
 			<territory type="PW">পালাউ</territory>
@@ -925,7 +930,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SI">স্লোভানিয়া</territory>
 			<territory type="SJ">স্বালবার্ড ও জান মেয়েন</territory>
 			<territory type="SK">স্লোভাকিয়া</territory>
-			<territory type="SL">সিয়েরালিওন</territory>
+			<territory type="SL">সিয়েরা লিওন</territory>
 			<territory type="SM">সান মারিনো</territory>
 			<territory type="SN">সেনেগাল</territory>
 			<territory type="SO">সোমালিয়া</territory>
@@ -942,7 +947,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TF">ফরাসী দক্ষিণাঞ্চল</territory>
 			<territory type="TG">টোগো</territory>
 			<territory type="TH">থাইল্যান্ড</territory>
-			<territory type="TJ">তাজিকস্থান</territory>
+			<territory type="TJ">তাজিকিস্তান</territory>
 			<territory type="TK">টোকেলাউ</territory>
 			<territory type="TL">তিমুর-লেস্তে</territory>
 			<territory type="TL" alt="variant">পূর্ব তিমুর</territory>
@@ -964,7 +969,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UY">উরুগুয়ে</territory>
 			<territory type="UZ">উজবেকিস্তান</territory>
 			<territory type="VA">ভ্যাটিকান সিটি</territory>
-			<territory type="VC">সেন্ট ভিনসেন্ট ও দ্যা গ্রেনাডিনস</territory>
+			<territory type="VC">সেন্ট ভিনসেন্ট ও গ্রেনাডিনস</territory>
 			<territory type="VE">ভেনেজুয়েলা</territory>
 			<territory type="VG">ব্রিটিশ ভার্জিন দ্বীপপুঞ্জ</territory>
 			<territory type="VI">মার্কিন যুক্তরাষ্ট্রের ভার্জিন দ্বীপপুঞ্জ</territory>
@@ -999,7 +1004,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="hc">সময়ের হিসাব (১২ বা ২৪)</key>
 			<key type="lb">লাইন বিভাজক শৈলী</key>
 			<key type="ms">পরিমাপ সিস্টেম</key>
-			<key type="numbers">সংখ্যাগুলি</key>
+			<key type="numbers">সংখ্যা</key>
 			<key type="timezone">সময় জোন</key>
 			<key type="va" draft="contributed">স্থানীয় ভিন্নতা</key>
 			<key type="x" draft="contributed">বক্তিগত- ব্যবহার</key>
@@ -1016,6 +1021,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="indian">ভারতীয় জাতীয় বর্ষপঞ্জী</type>
 			<type key="calendar" type="islamic">ইসলামিক ক্যালেন্ডার</type>
 			<type key="calendar" type="islamic-civil">ইসলামিক-সিভিল বর্ষপঞ্জী</type>
+			<type key="calendar" type="islamic-rgsa" draft="contributed">ইসলামিক বর্ষপঞ্জী (সৌদি আরব, দৃশ্যমান)</type>
+			<type key="calendar" type="islamic-tbla" draft="contributed">ইসলামিক বর্ষপঞ্জী (ছকবদ্ধ, জ্যোতির্বিদ্যীয় যুগ)</type>
+			<type key="calendar" type="islamic-umalqura" draft="contributed">ইসলামিক বর্ষপঞ্জী (উম্মা আল-কুরআ)</type>
 			<type key="calendar" type="iso8601">ISO-861 ক্যালেন্ডার</type>
 			<type key="calendar" type="japanese">জাপানি ক্যালেন্ডার</type>
 			<type key="calendar" type="persian">ফারসি ক্যালেন্ডার</type>
@@ -1032,8 +1040,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="no" draft="contributed">কেস অসংবেদী বাছাই করুন</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">কেস সংবেদী বাছাই করুন</type>
 			<type key="collation" type="big5han">প্রথাগত চীনা সজ্জাক্রম - বিগ৫</type>
+			<type key="collation" type="compat" draft="contributed">আগের বাছাইয়ের ক্রম, সামঞ্জস্যের জন্য</type>
 			<type key="collation" type="dictionary" draft="contributed">অভিধান বাছাই বিন্যাস</type>
 			<type key="collation" type="ducet">ডিফল্ট ইউনিকোড বাছাই বিন্যাস</type>
+			<type key="collation" type="emoji" draft="contributed">ইমোজি বাছাই ক্রম</type>
+			<type key="collation" type="eor" draft="contributed">ইউরোপীয় ক্রম বিন্যাসের নিয়মাবলী</type>
 			<type key="collation" type="gb2312han">সাধারণ চীনা সজ্জাক্রম - জিবি২৩১২</type>
 			<type key="collation" type="phonebook">ফোনবুক সজ্জাক্রম</type>
 			<type key="collation" type="phonetic" draft="contributed">ধ্বনি নির্দেশক বাছাই ক্রম</type>
@@ -1045,6 +1056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="stroke" draft="contributed">আবর্তিত সজ্জাক্রম</type>
 			<type key="collation" type="traditional">প্রথাগত বাছাই বিন্যাস</type>
 			<type key="collation" type="unihan" draft="contributed">রাডিকেল স্ট্রোক বাছাই বিন্যাস</type>
+			<type key="collation" type="zhuyin" draft="contributed">ঝুইন সজ্জাক্রম</type>
 			<type key="colNormalization" type="no" draft="contributed">স্বাভাবিক ছাড়া বাছাই করুন</type>
 			<type key="colNormalization" type="yes" draft="contributed">স্বাভাবিকৃত ইউনিকোড বাছাই করুন</type>
 			<type key="colNumeric" type="no" draft="contributed">সংখ্যা পৃথকভাবে বাছাই করুন</type>
@@ -1054,8 +1066,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">স্বরাঘাত/কেস/প্রস্থ/কানা বাছাই করুন</type>
 			<type key="colStrength" type="secondary" draft="contributed">স্বরাঘাত বাছাই করুন</type>
 			<type key="colStrength" type="tertiary" draft="contributed">স্বরাঘাত/কেস/প্রস্থ বাছাই করুন</type>
-			<type key="d0" type="fwidth" draft="contributed">পূর্ণচওড়া</type>
-			<type key="d0" type="hwidth" draft="contributed">অর্ধচওড়া</type>
+			<type key="d0" type="fwidth">পূর্ণপ্রস্থ পর্যন্ত</type>
+			<type key="d0" type="hwidth">অর্ধপ্রস্থ পর্যন্ত</type>
 			<type key="d0" type="npinyin" draft="contributed">সাংখিক</type>
 			<type key="hc" type="h11">১২ ঘণ্টার হিসাবে (০–১১)</type>
 			<type key="hc" type="h12">১২ ঘণ্টার হিসাবে (১–১২)</type>
@@ -1064,21 +1076,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">আলগা লাইন বিভাজক শৈলী</type>
 			<type key="lb" type="normal">সাধারণ লাইন বিভাজক শৈলী</type>
 			<type key="lb" type="strict">টাইট লাইন বিভাজক শৈলী</type>
-			<type key="m0" type="bgn" draft="contributed">BGN</type>
-			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
+			<type key="m0" type="bgn">ইউএস বিজিএন বর্ণান্তরণ</type>
+			<type key="m0" type="ungegn">ইউএন জিইজিএন বর্ণান্তরণ</type>
 			<type key="ms" type="metric">মেট্রিক সিস্টেম</type>
 			<type key="ms" type="uksystem">ইম্পেরিয়াল পরিমাপ সিস্টেম</type>
 			<type key="ms" type="ussystem">মার্কিন যুক্তরাষ্ট্রের পরিমাপ সিস্টেম</type>
+			<type key="numbers" type="ahom" draft="contributed">অহম সংখ্যা</type>
 			<type key="numbers" type="arab">আরবি-ভারতীয় সংখ্যা</type>
 			<type key="numbers" type="arabext">প্রসারিত আরবি -ভারতীয় সংখ্যা</type>
 			<type key="numbers" type="armn">আর্মেনীয় সংখ্যা</type>
 			<type key="numbers" type="armnlow">আর্মেনীয় ছোটহাতের সংখ্যা</type>
+			<type key="numbers" type="bali" draft="contributed">বালিনীয় সংখ্যা</type>
 			<type key="numbers" type="beng">বাংলা সংখ্যা</type>
+			<type key="numbers" type="brah" draft="contributed">ব্রাহ্মী সংখ্যা</type>
+			<type key="numbers" type="cakm" draft="contributed">চাকমা সংখ্যা</type>
+			<type key="numbers" type="cham" draft="contributed">চাম সংখ্যা</type>
+			<type key="numbers" type="cyrl" draft="contributed">সিরিলিক সংখ্যা</type>
 			<type key="numbers" type="deva">দেবনাগরি সংখ্যা</type>
 			<type key="numbers" type="ethi">ইথিয়োপিক সংখ্যা</type>
 			<type key="numbers" type="finance" draft="contributed">অর্থনৈতিক সংখ্যাসূচক</type>
 			<type key="numbers" type="fullwide">পূর্ণ চওড়া সংখ্যা</type>
 			<type key="numbers" type="geor">জর্জিয়ান সংখ্যা</type>
+			<type key="numbers" type="gonm" draft="contributed">মাসারাম গন্ডি সংখ্যা</type>
 			<type key="numbers" type="grek">গ্রিক সংখ্যা</type>
 			<type key="numbers" type="greklow">গ্রীক ছোট হাতের সংখ্যা</type>
 			<type key="numbers" type="gujr">গুজরাতি সংখ্যা</type>
@@ -1089,26 +1108,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="hant">ঐতিহ্যাবাহী চৈনিক সংখ্যা</type>
 			<type key="numbers" type="hantfin">ঐতিহ্যবাহী চৈনিক আর্থিক সংখ্যা</type>
 			<type key="numbers" type="hebr">হিব্রু সংখ্যা</type>
+			<type key="numbers" type="hmng" draft="contributed">পাহয়া মং সংখ্যা</type>
+			<type key="numbers" type="java" draft="contributed">জাভানিজ সংখ্যা</type>
 			<type key="numbers" type="jpan">জাপানি সংখ্যা</type>
 			<type key="numbers" type="jpanfin">জাপানি আর্থিক সংখ্যা</type>
+			<type key="numbers" type="kali" draft="contributed">কায়াহ লি সংখ্যা</type>
 			<type key="numbers" type="khmr">খেমের সংখ্যা</type>
 			<type key="numbers" type="knda">কন্নড় সংখ্যা</type>
+			<type key="numbers" type="lana" draft="contributed">টাই থাম হোরা সংখ্যা</type>
+			<type key="numbers" type="lanatham" draft="contributed">টাই থাম থাম সংখ্যা</type>
 			<type key="numbers" type="laoo">লাও সংখ্যা</type>
 			<type key="numbers" type="latn">ওয়েস্টার্ন ডিজিট</type>
+			<type key="numbers" type="lepc" draft="contributed">লেপচা সংখ্যা</type>
+			<type key="numbers" type="limb" draft="contributed">লিম্বু সংখ্যা</type>
+			<type key="numbers" type="mathbold" draft="contributed">গাণিতিক বোল্ড সংখ্যা</type>
+			<type key="numbers" type="mathdbl" draft="contributed">গাণিতিক ডাবল-স্ট্রাক সংখ্যা</type>
+			<type key="numbers" type="mathmono" draft="contributed">গাণিতিক মোনোস্পেস সংখ্যা</type>
+			<type key="numbers" type="mathsanb" draft="contributed">গাণিতিক স্যান্স-শেরিফ বোল্ড সংখ্যা</type>
+			<type key="numbers" type="mathsans" draft="contributed">গাণিতিক স্যান্স-শেরিফ সংখ্যা</type>
 			<type key="numbers" type="mlym">মালয়ালম সংখ্যা</type>
+			<type key="numbers" type="modi" draft="contributed">মোদি সংখ্যা</type>
 			<type key="numbers" type="mong" draft="contributed">মঙ্গোলীয় সংখ্যা</type>
+			<type key="numbers" type="mroo" draft="contributed">ম্রো সংখ্যা</type>
+			<type key="numbers" type="mtei" draft="contributed">মিটিই মায়েক সংখ্যা</type>
 			<type key="numbers" type="mymr">মায়ানমার সংখ্যা</type>
+			<type key="numbers" type="mymrshan" draft="contributed">মায়ানমার শান সংখ্যা</type>
+			<type key="numbers" type="mymrtlng" draft="contributed">মায়ানমার থাই লেয়িং সংখ্যা</type>
 			<type key="numbers" type="native">স্থানীয় সংখ্যা</type>
+			<type key="numbers" type="nkoo" draft="contributed">এন’কো সংখ্যা</type>
+			<type key="numbers" type="olck" draft="contributed">ওল চিকি সংখ্যা</type>
 			<type key="numbers" type="orya">ওড়িয়া সংখ্যা</type>
+			<type key="numbers" type="osma" draft="contributed">ওসমানিয় সংখ্যা</type>
 			<type key="numbers" type="roman">রোমান সংখ্যা</type>
 			<type key="numbers" type="romanlow">রোমান ছোটহাতের সংখ্যা</type>
+			<type key="numbers" type="saur" draft="contributed">সৌরাষ্ট্রের সংখ্যা</type>
+			<type key="numbers" type="shrd" draft="contributed">সারদা সংখ্যা</type>
+			<type key="numbers" type="sind" draft="contributed">কুদয়াদি সংখ্যা</type>
+			<type key="numbers" type="sinh" draft="contributed">সিংহলী লিথ সংখ্যা</type>
+			<type key="numbers" type="sora" draft="contributed">সোরা সম্পেং সংখ্যা</type>
+			<type key="numbers" type="sund" draft="contributed">সুদানীয় সংখ্যা</type>
+			<type key="numbers" type="takr" draft="contributed">তাক্রি সংখ্যা</type>
+			<type key="numbers" type="talu" draft="contributed">নতুন তাই লিউ সংখ্যা</type>
 			<type key="numbers" type="taml">ঐতিহ্যবাহী তামিল সংখ্যা</type>
 			<type key="numbers" type="tamldec">তামিল সংখ্যা</type>
 			<type key="numbers" type="telu">তেলুগু সংখ্যা</type>
 			<type key="numbers" type="thai">থাই সংখ্যা</type>
 			<type key="numbers" type="tibt">তিব্বতি সংখ্যা</type>
+			<type key="numbers" type="tirh" draft="contributed">তিরহুতা সংখ্যা</type>
 			<type key="numbers" type="traditional" draft="contributed">ঐতিহ্যগত সংখ্যাসূচক</type>
 			<type key="numbers" type="vaii" draft="contributed">ভাই সংখ্যা</type>
+			<type key="numbers" type="wara" draft="contributed">ওয়ারেং সিটি সংখ্যা</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">মেট্রিক</measurementSystemName>
@@ -1141,6 +1190,243 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">BE</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">BE</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">BE</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="coptic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">টাউট</month>
+							<month type="2" draft="contributed">বাবা</month>
+							<month type="3" draft="contributed">হাটর</month>
+							<month type="4" draft="contributed">কিয়াক</month>
+							<month type="5" draft="contributed">টোবা</month>
+							<month type="6" draft="contributed">আমশির</month>
+							<month type="7" draft="contributed">বারামহাট</month>
+							<month type="8" draft="contributed">বারামৌডা</month>
+							<month type="9" draft="contributed">বাসহান্স</month>
+							<month type="10" draft="contributed">পাওনা</month>
+							<month type="11" draft="contributed">এপেপ</month>
+							<month type="12" draft="contributed">মেশ্রা</month>
+							<month type="13" draft="contributed">ন্যাশি</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+							<month type="13" draft="contributed">১৩</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">টাউট</month>
+							<month type="2" draft="contributed">বাবা</month>
+							<month type="3" draft="contributed">হাটর</month>
+							<month type="4" draft="contributed">কিয়াক</month>
+							<month type="5" draft="contributed">টোবা</month>
+							<month type="6" draft="contributed">আমশির</month>
+							<month type="7" draft="contributed">বারামহাট</month>
+							<month type="8" draft="contributed">বারামৌডা</month>
+							<month type="9" draft="contributed">বাসহান্স</month>
+							<month type="10" draft="contributed">পাওনা</month>
+							<month type="11" draft="contributed">এপেপ</month>
+							<month type="12" draft="contributed">মেশ্রা</month>
+							<month type="13" draft="contributed">ন্যাশি</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">টাউট</month>
+							<month type="2" draft="contributed">বাবা</month>
+							<month type="3" draft="contributed">হাটর</month>
+							<month type="4" draft="contributed">কিয়াক</month>
+							<month type="5" draft="contributed">টোবা</month>
+							<month type="6" draft="contributed">আমশির</month>
+							<month type="7" draft="contributed">বারামহাট</month>
+							<month type="8" draft="contributed">বারামৌডা</month>
+							<month type="9" draft="contributed">বাসহান্স</month>
+							<month type="10" draft="contributed">পাওনা</month>
+							<month type="11" draft="contributed">এপেপ</month>
+							<month type="12" draft="contributed">মেশ্রা</month>
+							<month type="13" draft="contributed">ন্যাশি</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+							<month type="13" draft="contributed">১৩</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">টাউট</month>
+							<month type="2" draft="contributed">বাবা</month>
+							<month type="3" draft="contributed">হাটর</month>
+							<month type="4" draft="contributed">কিয়াক</month>
+							<month type="5" draft="contributed">Toba</month>
+							<month type="6" draft="contributed">আমশির</month>
+							<month type="7" draft="contributed">বারামহাট</month>
+							<month type="8" draft="contributed">বারামৌডা</month>
+							<month type="9" draft="contributed">বাসহান্স</month>
+							<month type="10" draft="contributed">পাওনা</month>
+							<month type="11" draft="contributed">এপেপ</month>
+							<month type="12" draft="contributed">মেশ্রা</month>
+							<month type="13" draft="contributed">ন্যাশি</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">যুগ ০</era>
+						<era type="1" draft="contributed">যুগ ১</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">যুগ ০</era>
+						<era type="1" draft="contributed">যুগ ১</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">যুগ ০</era>
+						<era type="1" draft="contributed">যুগ ১</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">মাস্কেরেম</month>
+							<month type="2" draft="contributed">টেকেমট</month>
+							<month type="3" draft="contributed">হিডার</month>
+							<month type="4" draft="contributed">তাহসাস</month>
+							<month type="5" draft="contributed">টের</month>
+							<month type="6" draft="contributed">ইয়েকাটিট</month>
+							<month type="7" draft="contributed">মেগাবিট</month>
+							<month type="8" draft="contributed">মিয়াজিয়া</month>
+							<month type="9" draft="contributed">গেনবট</month>
+							<month type="10" draft="contributed">সিনি</month>
+							<month type="11" draft="contributed">হ্যামলি</month>
+							<month type="12" draft="contributed">নেহাসে</month>
+							<month type="13" draft="contributed">পাগুমেন</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+							<month type="13" draft="contributed">১৩</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">মাস্কেরেম</month>
+							<month type="2" draft="contributed">টেকেমট</month>
+							<month type="3" draft="contributed">হিডার</month>
+							<month type="4" draft="contributed">তাহসাস</month>
+							<month type="5" draft="contributed">টের</month>
+							<month type="6" draft="contributed">ইয়েকাটিট</month>
+							<month type="7" draft="contributed">মেগাবিট</month>
+							<month type="8" draft="contributed">মিয়াজিয়া</month>
+							<month type="9" draft="contributed">গেনবট</month>
+							<month type="10" draft="contributed">সিনি</month>
+							<month type="11" draft="contributed">হ্যামলি</month>
+							<month type="12" draft="contributed">নেহাসে</month>
+							<month type="13" draft="contributed">পাগুমেন</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">মাস্কেরেম</month>
+							<month type="2" draft="contributed">টেকেমট</month>
+							<month type="3" draft="contributed">হিডার</month>
+							<month type="4" draft="contributed">তাহসাস</month>
+							<month type="5" draft="contributed">টের</month>
+							<month type="6" draft="contributed">ইয়েকাটিট</month>
+							<month type="7" draft="contributed">মেগাবিট</month>
+							<month type="8" draft="contributed">মিয়াজিয়া</month>
+							<month type="9" draft="contributed">গেনবট</month>
+							<month type="10" draft="contributed">সিনি</month>
+							<month type="11" draft="contributed">হ্যামলি</month>
+							<month type="12" draft="contributed">নেহাসে</month>
+							<month type="13" draft="contributed">পাগুমেন</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+							<month type="13" draft="contributed">১৩</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">মাস্কেরেম</month>
+							<month type="2" draft="contributed">টেকেমট</month>
+							<month type="3" draft="contributed">হিডার</month>
+							<month type="4" draft="contributed">তাহসাস</month>
+							<month type="5" draft="contributed">টের</month>
+							<month type="6" draft="contributed">ইয়েকাটিট</month>
+							<month type="7" draft="contributed">মেগাবিট</month>
+							<month type="8" draft="contributed">মিয়াজিয়া</month>
+							<month type="9" draft="contributed">গেনবট</month>
+							<month type="10" draft="contributed">সিনি</month>
+							<month type="11" draft="contributed">হ্যামলি</month>
+							<month type="12" draft="contributed">নেহাসে</month>
+							<month type="13" draft="contributed">পাগুমেন</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">যুগ ০</era>
+						<era type="1" draft="contributed">যুগ ১</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">যুগ ০</era>
+						<era type="1" draft="contributed">যুগ ১</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">যুগ ০</era>
+						<era type="1" draft="contributed">যুগ ১</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1186,19 +1472,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>
-						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
-						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
@@ -1560,7 +1855,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="afternoon1">দুপুর</dayPeriod>
 							<dayPeriod type="afternoon2">বিকাল</dayPeriod>
 							<dayPeriod type="evening1">সন্ধ্যা</dayPeriod>
-							<dayPeriod type="night1">রাত্রি</dayPeriod>
+							<dayPeriod type="night1">রাত্রিতে</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -1600,7 +1895,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<eraNames>
 						<era type="0">খ্রিস্টপূর্ব</era>
 						<era type="0" alt="variant">খ্রিষ্টপূর্বাব্দ</era>
-						<era type="1">খৃষ্টাব্দ</era>
+						<era type="1">খ্রীষ্টাব্দ</era>
 						<era type="1" alt="variant">খ্রিষ্টাব্দ</era>
 					</eraNames>
 					<eraAbbr>
@@ -1676,8 +1971,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1720,8 +2020,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">Y এর wতম সপ্তাহ</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y এর wতম সপ্তাহ</dateFormatItem>
+						<dateFormatItem id="yw" count="one">y এর wতম সপ্তাহ</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y এর wতম সপ্তাহ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1823,9 +2123,321 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">তিশরি</month>
+							<month type="2" draft="contributed">হেশভান</month>
+							<month type="3" draft="contributed">কিসলেভ</month>
+							<month type="4" draft="contributed">তেভেত</month>
+							<month type="5" draft="contributed">শেভাত</month>
+							<month type="6" draft="contributed">আডার I</month>
+							<month type="7" draft="contributed">আডার</month>
+							<month type="7" yeartype="leap" draft="contributed">আডার II</month>
+							<month type="8" draft="contributed">নিশান</month>
+							<month type="9" draft="contributed">আয়ার</month>
+							<month type="10" draft="contributed">সিভান</month>
+							<month type="11" draft="contributed">তামুজ</month>
+							<month type="12" draft="contributed">Av</month>
+							<month type="13" draft="contributed">এলুল</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="7" yeartype="leap" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+							<month type="13" draft="contributed">১৩</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">তিশরি</month>
+							<month type="2" draft="contributed">হেশভান</month>
+							<month type="3" draft="contributed">কিসলেভ</month>
+							<month type="4" draft="contributed">তেভেত</month>
+							<month type="5" draft="contributed">শেভাত</month>
+							<month type="6" draft="contributed">আডার I</month>
+							<month type="7" draft="contributed">আডার</month>
+							<month type="7" yeartype="leap" draft="contributed">আডার II</month>
+							<month type="8" draft="contributed">নিশান</month>
+							<month type="9" draft="contributed">আয়ার</month>
+							<month type="10" draft="contributed">সিভান</month>
+							<month type="11" draft="contributed">তামুজ</month>
+							<month type="12" draft="contributed">Av</month>
+							<month type="13" draft="contributed">এলুল</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">তিশরি</month>
+							<month type="2" draft="contributed">হেশভান</month>
+							<month type="3" draft="contributed">কিসলেভ</month>
+							<month type="4" draft="contributed">তেভেত</month>
+							<month type="5" draft="contributed">শেভাত</month>
+							<month type="6" draft="contributed">আডার I</month>
+							<month type="7" draft="contributed">আডার</month>
+							<month type="7" yeartype="leap" draft="contributed">আডার II</month>
+							<month type="8" draft="contributed">নিশান</month>
+							<month type="9" draft="contributed">আয়ার</month>
+							<month type="10" draft="contributed">সিভান</month>
+							<month type="11" draft="contributed">তামুজ</month>
+							<month type="12" draft="contributed">Av</month>
+							<month type="13" draft="contributed">এলুল</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="7" yeartype="leap" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+							<month type="13" draft="contributed">১৩</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">তিশরি</month>
+							<month type="2" draft="contributed">হেশভান</month>
+							<month type="3" draft="contributed">কিসলেভ</month>
+							<month type="4" draft="contributed">তেভেত</month>
+							<month type="5" draft="contributed">শেভাত</month>
+							<month type="6" draft="contributed">আডার I</month>
+							<month type="7" draft="contributed">আডার</month>
+							<month type="7" yeartype="leap" draft="contributed">আডার II</month>
+							<month type="8" draft="contributed">নিশান</month>
+							<month type="9" draft="contributed">আয়ার</month>
+							<month type="10" draft="contributed">সিভান</month>
+							<month type="11" draft="contributed">তামুজ</month>
+							<month type="12" draft="contributed">Av</month>
+							<month type="13" draft="contributed">এলুল</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">AM</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AM</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AM</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="contributed">EEEE, d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="contributed">d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="contributed">d MMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="contributed">d/M/y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
+						<dateFormatItem id="Ed" draft="contributed">d E</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd" draft="contributed">d MMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM, y G</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">d/M</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">E, d-M</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="contributed">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="contributed">E d MMMM</dateFormatItem>
+						<dateFormatItem id="y" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="contributed">M/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd" draft="contributed">d/M/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd" draft="contributed">E, d/M/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="contributed">MM-y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" draft="contributed">d MMM, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd" draft="contributed">E, d MMM, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ" draft="contributed">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="contributed">QQQQ y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H" draft="contributed">HH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm–h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="contributed">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="contributed">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="contributed">d/M – d/M</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d/M – d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="contributed">E, d/M – E, d/M</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d/M – E, d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M" draft="contributed">MMM – MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="contributed">d–d MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="contributed">E, d MMM – E, d MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d MMM – E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="contributed">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M" draft="contributed">M/y – M/y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">M/y – M/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="contributed">d/M/y – d/M/y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d/M/y – d/M/y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d/M/y – d/M/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="contributed">E, d/M/y – E, d/M/y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d/M/y – E, d/M/y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d/M/y – E, d/M/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="contributed">MMM–MMM y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d" draft="contributed">d–d MMM, y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d MMM – d MMM, y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d MMM, y – d MMM, y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="contributed">E, d MMM – E, d MMM, y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d MMM – E, d MMM, y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d MMM, y – E, d MMM, y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="contributed">MMMM–MMMM y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">MMMM y – MMMM y G</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="indian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">চৈত্র</month>
+							<month type="2" draft="contributed">বৈশাখ</month>
+							<month type="3" draft="contributed">জৈষ্ঠ্য</month>
+							<month type="4" draft="contributed">আষাঢ়</month>
+							<month type="5" draft="contributed">শ্রাবণ</month>
+							<month type="6" draft="contributed">ভাদ্র</month>
+							<month type="7" draft="contributed">আশ্বিন</month>
+							<month type="8" draft="contributed">কার্তিক</month>
+							<month type="9" draft="contributed">অগ্রহায়ণ</month>
+							<month type="10" draft="contributed">পৌষ</month>
+							<month type="11" draft="contributed">মাঘ</month>
+							<month type="12" draft="contributed">ফাল্গুন</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">চৈত্র</month>
 							<month type="2">বৈশাখ</month>
@@ -1842,6 +2454,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">চৈত্র</month>
+							<month type="2" draft="contributed">বৈশাখ</month>
+							<month type="3" draft="contributed">জৈষ্ঠ্য</month>
+							<month type="4" draft="contributed">আষাঢ়</month>
+							<month type="5" draft="contributed">শ্রাবণ</month>
+							<month type="6" draft="contributed">ভাদ্র</month>
+							<month type="7" draft="contributed">আশ্বিন</month>
+							<month type="8" draft="contributed">কার্তিক</month>
+							<month type="9" draft="contributed">অগ্রহায়ণ</month>
+							<month type="10" draft="contributed">পৌষ</month>
+							<month type="11" draft="contributed">মাঘ</month>
+							<month type="12" draft="contributed">ফাল্গুন</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">১</month>
 							<month type="2">২</month>
@@ -1856,17 +2482,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11">১১</month>
 							<month type="12">১২</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">চৈত্র</month>
+							<month type="2" draft="contributed">বৈশাখ</month>
+							<month type="3" draft="contributed">জৈষ্ঠ্য</month>
+							<month type="4" draft="contributed">আষাঢ়</month>
+							<month type="5" draft="contributed">শ্রাবণ</month>
+							<month type="6" draft="contributed">ভাদ্র</month>
+							<month type="7" draft="contributed">আশ্বিন</month>
+							<month type="8" draft="contributed">কার্তিক</month>
+							<month type="9" draft="contributed">অগ্রহায়ণ</month>
+							<month type="10" draft="contributed">পৌষ</month>
+							<month type="11" draft="contributed">মাঘ</month>
+							<month type="12" draft="contributed">ফাল্গুন</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">সাল</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="contributed">সাল</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">সাল</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Muh.</month>
+							<month type="2" draft="contributed">Saf.</month>
+							<month type="3" draft="contributed">Rab. I</month>
+							<month type="4" draft="contributed">Rab. II</month>
+							<month type="5" draft="contributed">Jum. I</month>
+							<month type="6" draft="contributed">Jum. II</month>
+							<month type="7" draft="contributed">Raj.</month>
+							<month type="8" draft="contributed">Sha.</month>
+							<month type="9" draft="contributed">Ram.</month>
+							<month type="10" draft="contributed">Shaw.</month>
+							<month type="11" draft="contributed">Dhuʻl-Q.</month>
+							<month type="12" draft="contributed">Dhuʻl-H.</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">মহররম</month>
 							<month type="2">সফর</month>
@@ -1883,6 +2557,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Muh.</month>
+							<month type="2" draft="contributed">Saf.</month>
+							<month type="3" draft="contributed">Rab. I</month>
+							<month type="4" draft="contributed">Rab. II</month>
+							<month type="5" draft="contributed">Jum. I</month>
+							<month type="6" draft="contributed">Jum. II</month>
+							<month type="7" draft="contributed">Raj.</month>
+							<month type="8" draft="contributed">Sha.</month>
+							<month type="9" draft="contributed">Ram.</month>
+							<month type="10" draft="contributed">Shaw.</month>
+							<month type="11" draft="contributed">Dhuʻl-Q.</month>
+							<month type="12" draft="contributed">Dhuʻl-H.</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">১</month>
 							<month type="2">২</month>
@@ -1897,17 +2585,162 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11">১১</month>
 							<month type="12">১২</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">মহররম</month>
+							<month type="2" draft="contributed">সফর</month>
+							<month type="3" draft="contributed">রবিউল আউয়াল</month>
+							<month type="4" draft="contributed">রবিউস সানি</month>
+							<month type="5" draft="contributed">জমাদিউল আউয়াল</month>
+							<month type="6" draft="contributed">জমাদিউস সানি</month>
+							<month type="7" draft="contributed">রজব</month>
+							<month type="8" draft="contributed">শা‘বান</month>
+							<month type="9" draft="contributed">রমজান</month>
+							<month type="10" draft="contributed">শাওয়াল</month>
+							<month type="11" draft="contributed">জ্বিলকদ</month>
+							<month type="12" draft="contributed">জ্বিলহজ্জ</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">যুগ</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">যুগ</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">যুগ</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ফ্যাভার্ডিন</month>
+							<month type="2" draft="contributed">অরডিবেহেশ্ত</month>
+							<month type="3" draft="contributed">খোর্দ্দ</month>
+							<month type="4" draft="contributed">তীর</month>
+							<month type="5" draft="contributed">মর্যাদ</month>
+							<month type="6" draft="contributed">শাহরিবার</month>
+							<month type="7" draft="contributed">মেহের</month>
+							<month type="8" draft="contributed">আবান</month>
+							<month type="9" draft="contributed">আজার</month>
+							<month type="10" draft="contributed">দে</month>
+							<month type="11" draft="contributed">বাহমান</month>
+							<month type="12" draft="contributed">এসফ্যান্ড</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ফ্যাভার্ডিন</month>
+							<month type="2" draft="contributed">অরডিবেহেশ্ত</month>
+							<month type="3" draft="contributed">খোর্দ্দ</month>
+							<month type="4" draft="contributed">তীর</month>
+							<month type="5" draft="contributed">মর্যাদ</month>
+							<month type="6" draft="contributed">শাহরিবার</month>
+							<month type="7" draft="contributed">মেহের</month>
+							<month type="8" draft="contributed">আবান</month>
+							<month type="9" draft="contributed">বাজার</month>
+							<month type="10" draft="contributed">দে</month>
+							<month type="11" draft="contributed">বাহমান</month>
+							<month type="12" draft="contributed">এসফ্যান্ড</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ফ্যাভার্ডিন</month>
+							<month type="2" draft="contributed">অরডিবেহেশ্ত</month>
+							<month type="3" draft="contributed">খোর্দ্দ</month>
+							<month type="4" draft="contributed">তীর</month>
+							<month type="5" draft="contributed">মর্যাদ</month>
+							<month type="6" draft="contributed">শাহরিবার</month>
+							<month type="7" draft="contributed">মেহের</month>
+							<month type="8" draft="contributed">আবান</month>
+							<month type="9" draft="contributed">আজার</month>
+							<month type="10" draft="contributed">দে</month>
+							<month type="11" draft="contributed">বাহমান</month>
+							<month type="12" draft="contributed">এসফ্যান্ড</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">১</month>
+							<month type="2" draft="contributed">২</month>
+							<month type="3" draft="contributed">৩</month>
+							<month type="4" draft="contributed">৪</month>
+							<month type="5" draft="contributed">৫</month>
+							<month type="6" draft="contributed">৬</month>
+							<month type="7" draft="contributed">৭</month>
+							<month type="8" draft="contributed">৮</month>
+							<month type="9" draft="contributed">৯</month>
+							<month type="10" draft="contributed">১০</month>
+							<month type="11" draft="contributed">১১</month>
+							<month type="12" draft="contributed">১২</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ফ্যাভার্ডিন</month>
+							<month type="2">অরডিবেহেশ্ত</month>
+							<month type="3">খোর্দ্দ</month>
+							<month type="4">তীর</month>
+							<month type="5">মর্যাদ</month>
+							<month type="6">শাহরিবার</month>
+							<month type="7">মেহের</month>
+							<month type="8">আবান</month>
+							<month type="9">বাজার</month>
+							<month type="10">দে</month>
+							<month type="11">বাহমান</month>
+							<month type="12">এসফ্যান্ড</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">AP</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AP</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AP</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="roc">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">আগে R.O.C.</era>
+						<era type="1" draft="contributed">মিঙ্গুয়া</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">আগে R.O.C.</era>
+						<era type="1" draft="contributed">মিঙ্গুয়া</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">আগে R.O.C.</era>
+						<era type="1" draft="contributed">মিঙ্গুয়া</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>যুগ</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>যুগ</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>যুগ</displayName>
 			</field>
 			<field type="year">
@@ -2043,7 +2876,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} সপ্তাহ আগে</relativeTimePattern>
 					<relativeTimePattern count="other">{0} সপ্তাহ আগে</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>{0} সপ্তাহ</relativePeriod>
+				<relativePeriod>{0} তম সপ্তাহে</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>সপ্তাহ</displayName>
@@ -2058,7 +2891,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} সপ্তাহ আগে</relativeTimePattern>
 					<relativeTimePattern count="other">{0} সপ্তাহ আগে</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>{0} এর সপ্তাহে</relativePeriod>
+				<relativePeriod>{0} তম সপ্তাহে</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>সপ্তাহ</displayName>
@@ -2074,6 +2907,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} সপ্তাহ আগে</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>{0} এর সপ্তাহে</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>মাসের সপ্তাহ</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>মাসের সপ্তাহ</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>মাসের সপ্তাহ</displayName>
 			</field>
 			<field type="day">
 				<displayName>দিন</displayName>
@@ -2123,8 +2965,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} দিন আগে</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>বছরের দিন</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>বছরের দিন</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>বছরের দিন</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>সপ্তাহের দিন</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>সপ্তাহের দিন</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>সপ্তাহের দিন</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>মাসের কার্য দিবস</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>মাসের কার্য দিবস</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>মাসের কার্য দিবস</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">গত রবিবার</relative>
@@ -2399,11 +3265,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} শনিবার আগে</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>AM/PM</displayName>
+			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
 			</field>
+			<field type="dayperiod-narrow">
+				<displayName>AM/PM</displayName>
+			</field>
 			<field type="hour">
-				<displayName>ঘন্টা</displayName>
+				<displayName>ঘণ্টা</displayName>
 				<relative type="0">এই ঘণ্টায়</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ঘন্টায়</relativeTimePattern>
@@ -2415,7 +3287,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-short">
-				<displayName>ঘন্টা</displayName>
+				<displayName>ঘণ্টা</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ঘন্টায়</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ঘন্টায়</relativeTimePattern>
@@ -2426,7 +3298,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
-				<displayName>ঘন্টা</displayName>
+				<displayName>ঘণ্টা</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ঘন্টায়</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ঘন্টায়</relativeTimePattern>
@@ -2445,7 +3317,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} মিনিট আগে</relativeTimePattern>
-					<relativeTimePattern count="other">{0} মিনিট পূর্বে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} মিনিট আগে</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-short">
@@ -2507,6 +3379,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>সময় অঞ্চল</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>অঞ্চল</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>অঞ্চল</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
@@ -2540,7 +3418,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>কাবুল</exemplarCity>
 			</zone>
 			<zone type="America/Antigua">
-				<exemplarCity>অ্যান্টিগুয়াগা</exemplarCity>
+				<exemplarCity>অ্যান্টিগুয়া</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
 				<exemplarCity>অ্যাঙ্গুইলা</exemplarCity>
@@ -2591,7 +3469,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>মেন্ডোজা</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Juan">
-				<exemplarCity>সান হুয়ান</exemplarCity>
+				<exemplarCity>সান জুয়ান</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
 				<exemplarCity>উশুয়াইয়া</exemplarCity>
@@ -2609,7 +3487,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>স্যালটা</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
-				<exemplarCity>হুহুই</exemplarCity>
+				<exemplarCity>জুজুই</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>টুকুমান</exemplarCity>
@@ -2645,7 +3523,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>কিউরি</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
-				<exemplarCity>মেলবার্ন</exemplarCity>
+				<exemplarCity>মেলবোর্ন</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>হোবার্ট</exemplarCity>
@@ -2693,7 +3571,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>সোফিয়া</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
-				<exemplarCity>বাহরিন</exemplarCity>
+				<exemplarCity>বাহারিন</exemplarCity>
 			</zone>
 			<zone type="Africa/Bujumbura">
 				<exemplarCity>বুজুমবুরহু</exemplarCity>
@@ -2876,7 +3754,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>বাঙ্গুই</exemplarCity>
 			</zone>
 			<zone type="Africa/Brazzaville">
-				<exemplarCity>ব্রাজউহভিল</exemplarCity>
+				<exemplarCity>ব্রাজাভিলি</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>জুরিখ</exemplarCity>
@@ -2890,6 +3768,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>ইস্টার</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>পুন্টা আরেনাস</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>সান্টিয়াগো</exemplarCity>
 			</zone>
@@ -2900,7 +3781,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>উরুমকি</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<exemplarCity>সাংঘাই</exemplarCity>
+				<exemplarCity>সাংহাই</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity>বোগোটা</exemplarCity>
@@ -2922,6 +3803,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>নিকোসিয়া</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>ফামাগাস্তা</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>প্রাগ</exemplarCity>
@@ -2987,7 +3871,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>স্টানলী</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity>ট্রুক</exemplarCity>
+				<exemplarCity>চুক</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity>পোনাপে</exemplarCity>
@@ -3014,13 +3898,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>গ্রেনাডা</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
-				<exemplarCity>তুবুলিসি</exemplarCity>
+				<exemplarCity>সিবিলিশি</exemplarCity>
 			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>কাহেন</exemplarCity>
 			</zone>
 			<zone type="Europe/Guernsey">
-				<exemplarCity>গেরেনজি</exemplarCity>
+				<exemplarCity>গুয়ার্নসি</exemplarCity>
 			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity>আক্রা</exemplarCity>
@@ -3110,7 +3994,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>আইল অফ ম্যান</exemplarCity>
 			</zone>
 			<zone type="Asia/Calcutta">
-				<exemplarCity>কলকাতা</exemplarCity>
+				<exemplarCity>কোলকাতা</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>ছাগোস</exemplarCity>
@@ -3180,6 +4064,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>ওরাল</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>অতিরাউ</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>আকটোবে</exemplarCity>
@@ -3281,7 +4168,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>মন্তসেরাত</exemplarCity>
 			</zone>
 			<zone type="Europe/Malta">
-				<exemplarCity>মল্টা</exemplarCity>
+				<exemplarCity>মাল্টা</exemplarCity>
 			</zone>
 			<zone type="Indian/Mauritius">
 				<exemplarCity>মরিশাস</exemplarCity>
@@ -3308,7 +4195,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>বাহিয়া বানড্রাস</exemplarCity>
 			</zone>
 			<zone type="America/Ojinaga">
-				<exemplarCity>ওজিঙ্গা</exemplarCity>
+				<exemplarCity>ওজিনাগা</exemplarCity>
 			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>মন্টেরি</exemplarCity>
@@ -3374,7 +4261,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>অকল্যান্ড</exemplarCity>
 			</zone>
 			<zone type="Asia/Muscat">
-				<exemplarCity>মাসকাট</exemplarCity>
+				<exemplarCity>মাসকট</exemplarCity>
 			</zone>
 			<zone type="America/Panama">
 				<exemplarCity>পানামা</exemplarCity>
@@ -3460,6 +4347,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>ভোল্গোগ্রাদ</exemplarCity>
 			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>সারাটোভ</exemplarCity>
+			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>আসট্রাখান</exemplarCity>
 			</zone>
@@ -3500,7 +4390,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>চিতা</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
-				<exemplarCity>য়াকুতস্ক</exemplarCity>
+				<exemplarCity>ইয়াকুটস্ক</exemplarCity>
 			</zone>
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>ভ্লাদিভস্তোক</exemplarCity>
@@ -3617,7 +4507,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>দিলি</exemplarCity>
 			</zone>
 			<zone type="Asia/Ashgabat">
-				<exemplarCity>আশগুবাদ</exemplarCity>
+				<exemplarCity>আশগাবাত</exemplarCity>
 			</zone>
 			<zone type="Africa/Tunis">
 				<exemplarCity>টিউনিস</exemplarCity>
@@ -3680,10 +4570,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>জুনো</exemplarCity>
 			</zone>
 			<zone type="America/Metlakatla">
-				<exemplarCity>ম্যাকওয়ারি</exemplarCity>
+				<exemplarCity>মেটলাকাটলা</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<exemplarCity>লস এ্যাঞ্জেলেস</exemplarCity>
+				<exemplarCity>লস অ্যাঞ্জেলেস</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
 				<exemplarCity>বয়জি</exemplarCity>
@@ -3916,16 +4806,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<generic>আর্জেনটিনা সময়</generic>
-					<standard>আর্জেনটিনা মানক সময়</standard>
-					<daylight>আর্জেনটিনা গ্রীষ্মকালীন সময়</daylight>
+					<generic>আর্জেন্টিনা সময়</generic>
+					<standard>আর্জেন্টিনা মানক সময়</standard>
+					<daylight>আর্জেন্টিনা গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>পশ্চিমি আর্জেন্টিনা সময়</generic>
 					<standard>পশ্চিমি আর্জেনটিনার প্রমাণ সময়</standard>
-					<daylight>পশ্চিমি আর্জেনটিনা গৃষ্মকালীন সময়</daylight>
+					<daylight>পশ্চিমি আর্জেনটিনা গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -4036,7 +4926,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>চিলি সময়</generic>
 					<standard>চিলি মানক সময়</standard>
-					<daylight>চিলি গ্রীষ্মকাল সময়</daylight>
+					<daylight>চিলি গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
@@ -4113,16 +5003,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic>মধ্য ইউরোপের সময়</generic>
-					<standard>মধ্য ইউরোপের মানক সময়</standard>
-					<daylight>মধ্য ইউরোপের গ্রীষ্মকালীন সময়</daylight>
+					<generic>মধ্য ইউরোপীয় সময়</generic>
+					<standard>মধ্য ইউরোপীয় মানক সময়</standard>
+					<daylight>মধ্য ইউরোপীয় গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic>পূর্ব ইউরোপের সময়</generic>
-					<standard>পূর্ব ইউরোপের মানক সময়</standard>
-					<daylight>পূর্ব ইউরোপের গ্রীষ্মকালীন সময়</daylight>
+					<generic>পূর্ব ইউরোপীয় সময়</generic>
+					<standard>পূর্ব ইউরোপীয় মানক সময়</standard>
+					<daylight>পূর্ব ইউরোপীয় গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Further_Eastern">
@@ -4132,9 +5022,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic>পশ্চিম ইউরোপের সময়</generic>
-					<standard>পশ্চিম ইউরোপের মানক সময়</standard>
-					<daylight>পশ্চিম ইউরোপের গ্রীষ্মকালীন সময়</daylight>
+					<generic>পশ্চিম ইউরোপীয় সময়</generic>
+					<standard>পশ্চিম ইউরোপীয় মানক সময়</standard>
+					<daylight>পশ্চিম ইউরোপীয় গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
@@ -4308,12 +5198,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<standard>পূর্ব কজাকস্তান মানক সময়</standard>
+					<standard>পূর্ব কাজাখাস্তান সময়</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<standard>পশ্চিম কজাকস্তান মানক সময়</standard>
+					<standard>পশ্চিম কাজাখাস্তান সময়</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
@@ -4479,7 +5369,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard>নরফোক দ্বীপপুঞ্জ সময়</standard>
+					<standard>নরফোক দ্বীপ সময়</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -4608,7 +5498,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>সামোয়া সময়</generic>
 					<standard>সামোয়া মানক সময়</standard>
-					<daylight>সামোয়া গৃষ্মকালীন সময়</daylight>
+					<daylight>সামোয়া দিবালোক সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4715,9 +5605,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
-					<generic>ব্লাদিবোস্তোক সময়</generic>
-					<standard>ব্লাদিবোস্তোক মানক সময়</standard>
-					<daylight>ব্লাদিবোস্তোক গ্রীষ্মকালীন সময়</daylight>
+					<generic>ভ্লাদিভস্তক সময়</generic>
+					<standard>ভ্লাদিভস্তক মানক সময়</standard>
+					<daylight>ভ্লাদিভস্তক গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
@@ -4744,9 +5634,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic>য়াকুতস্ক সময়</generic>
-					<standard>য়াকুতস্ক মানক সময়</standard>
-					<daylight>য়াকুতস্ক গ্রীষ্মকালীন সময়</daylight>
+					<generic>ইয়াকুটাস্ক সময়</generic>
+					<standard>ইয়াকুটাস্ক মানক সময়</standard>
+					<daylight>ইয়াকুটাস্ক গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
@@ -4766,12 +5656,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="beng">
 			<decimal>.</decimal>
+			<group draft="contributed">,</group>
 			<percentSign>%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
@@ -4787,6 +5681,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nan>NaN</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
+		<decimalFormats numberSystem="beng">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">#,##,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -5020,9 +5921,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>বসনিয়া এবং হার্জেগোভিনা দিনার</displayName>
 			</currency>
 			<currency type="BAM">
-				<displayName>বসনিয়া এবং হার্জেগোভিনা মার্ক</displayName>
-				<displayName count="one">বসনিয়া এবং হার্জেগোভিনা মার্ক</displayName>
-				<displayName count="other">বসনিয়া এবং হার্জেগোভিনা মার্ক</displayName>
+				<displayName>বসনিয়া এবং হার্জেগোভিনা বিনিমেয় মার্ক</displayName>
+				<displayName count="one">বসনিয়া এবং হার্জেগোভিনা বিনিমেয় মার্ক</displayName>
+				<displayName count="other">বসনিয়া এবং হার্জেগোভিনা বিনিমেয় মার্ক</displayName>
 				<symbol>BAM</symbol>
 				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
@@ -5053,9 +5954,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>বুলগেরীয় হার্ড লেভ</displayName>
 			</currency>
 			<currency type="BGN">
-				<displayName>বুলগেরীয় নিউ লেভ</displayName>
-				<displayName count="one">বুলগেরীয় নিউ লেভ</displayName>
-				<displayName count="other">বুলগেরীয় নিউ লেভ</displayName>
+				<displayName>বুলগেরীয় লেভ</displayName>
+				<displayName count="one">বুলগেরীয় লেভ</displayName>
+				<displayName count="other">বুলগেরীয় লেভা</displayName>
 				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
@@ -5200,6 +6101,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
+			<currency type="CNH">
+				<displayName draft="contributed">চাইনিজ ইউয়ান (অফশোর)</displayName>
+				<displayName count="one" draft="contributed">চাইনিজ ইউয়ান (অফশোর)</displayName>
+				<displayName count="other" draft="contributed">চাইনিজ ইউয়ান (অফশোর)</displayName>
+				<symbol draft="contributed">CNH</symbol>
+			</currency>
 			<currency type="CNY">
 				<displayName>চীনা য়ুয়ান</displayName>
 				<displayName count="one">চীনা য়ুয়ান</displayName>
@@ -5273,8 +6180,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
-				<displayName>ড্যানিশ ক্রৌন</displayName>
-				<displayName count="one">ড্যানিশ ক্রৌন</displayName>
+				<displayName>ড্যানিশ ক্রোন</displayName>
+				<displayName count="one">ড্যানিশ ক্রোন</displayName>
 				<displayName count="other">ড্যানিশ ক্রৌন</displayName>
 				<symbol>DKK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
@@ -5509,8 +6416,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
-				<displayName>আইসল্যান্ড ক্রৌন</displayName>
-				<displayName count="one">আইসল্যান্ড ক্রৌন</displayName>
+				<displayName>আইসল্যান্ডীয় ক্রোনা</displayName>
+				<displayName count="one">আইসল্যান্ডীয় ক্রোনা</displayName>
 				<displayName count="other">আইসল্যান্ড ক্রৌন</displayName>
 				<symbol>ISK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
@@ -5559,8 +6466,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="KMF">
 				<displayName>কম্বোরো ফ্রাঙ্ক</displayName>
-				<displayName count="one">কম্বোরো ফ্রাঙ্ক</displayName>
-				<displayName count="other">কম্বোরো ফ্রাঙ্ক</displayName>
+				<displayName count="one">কমোরিয়ান ফ্রাঙ্ক</displayName>
+				<displayName count="other">কমোরিয়ান ফ্রাঙ্ক</displayName>
 				<symbol>KMF</symbol>
 				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
@@ -5657,9 +6564,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ল্যাটভিয়ান রুবল</displayName>
 			</currency>
 			<currency type="LYD">
-				<displayName>লিবিয়ান ডলার</displayName>
-				<displayName count="one">লিবিয়ান ডলার</displayName>
-				<displayName count="other">লিবিয়ান ডলার</displayName>
+				<displayName>লিবিয়ান দিনার</displayName>
+				<displayName count="one">লিবিয়ান দিনার</displayName>
+				<displayName count="other">লিবিয়ান দিনার</displayName>
 				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
@@ -5807,9 +6714,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>নেদারল্যান্ড গুল্ডের</displayName>
 			</currency>
 			<currency type="NOK">
-				<displayName>নরওয়ে ক্রৌন</displayName>
-				<displayName count="one">নরওয়ে ক্রৌন</displayName>
-				<displayName count="other">নরওয়ে ক্রৌন</displayName>
+				<displayName>নরওয়েজিয়ান ক্রোন</displayName>
+				<displayName count="one">নরওয়েজিয়ান ক্রোন</displayName>
+				<displayName count="other">নরওয়েজিয়ান ক্রোনার</displayName>
 				<symbol>NOK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
@@ -5894,9 +6801,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
-				<displayName>কাতার রিয়্যাল</displayName>
-				<displayName count="one">কাতার রিয়্যাল</displayName>
-				<displayName count="other">কাতার রিয়্যাল</displayName>
+				<displayName>কাতার রিয়াল</displayName>
+				<displayName count="one">কাতার রিয়াল</displayName>
+				<displayName count="other">কাতার রিয়াল</displayName>
 				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
@@ -5910,6 +6817,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">রুমানিয়া লেয়ু</displayName>
 				<displayName count="other">রুমানিয়া লেয়ু</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>সারবিয়ান দিনার</displayName>
@@ -5935,9 +6843,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
-				<displayName>সৌদি রিয়্যাল</displayName>
-				<displayName count="one">সৌদি রিয়্যাল</displayName>
-				<displayName count="other">সৌদি রিয়্যাল</displayName>
+				<displayName>সৌদি রিয়াল</displayName>
+				<displayName count="one">সৌদি রিয়াল</displayName>
+				<displayName count="other">সৌদি রিয়াল</displayName>
 				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
@@ -6250,8 +7158,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XXX">
 				<displayName>অজানা মুদ্রা</displayName>
-				<displayName count="one">অজানা বা ভুল মুদ্রা</displayName>
-				<displayName count="other">অজানা মুদ্রা</displayName>
+				<displayName count="one">(মুদ্রার অজানা একক)</displayName>
+				<displayName count="other">(অজানা মুদ্রা)</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>ইয়েমেনি দিনার</displayName>
@@ -6312,9 +7220,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">সসে {0}টি আপেল খেল, সেটা ভাল</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">সসে {0}টি আপেল খেল, সেগুলি ভাল</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">ডান দিকে {0}র্থ বাঁকটি নিন।</ordinalMinimalPairs>
+			<pluralMinimalPairs count="one">{0} দিন</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} দিন</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">ডান দিকে {0}তীয় বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">ডান দিকে {0}ষ্ঠ বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">ডান দিকে {0}ম বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">ডান দিকে {0}তম বাঁকটি নিন।</ordinalMinimalPairs>
@@ -6365,7 +7273,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>বর্গ কিলোমিটার</displayName>
 				<unitPattern count="one">{0} বর্গ কিলোমিটার</unitPattern>
 				<unitPattern count="other">{0} বর্গ কিলোমিটার</unitPattern>
-				<perUnitPattern>প্রতি বর্গ কিলোমিটারে {0}</perUnitPattern>
+				<perUnitPattern>{0} প্রতি বর্গ কিলোমিটার</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>হেক্টর</displayName>
@@ -6376,7 +7284,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>বর্গ মিটার</displayName>
 				<unitPattern count="one">{0} বর্গ মিটার</unitPattern>
 				<unitPattern count="other">{0} বর্গ মিটার</unitPattern>
-				<perUnitPattern>প্রতি বর্গ মিটারে {0}</perUnitPattern>
+				<perUnitPattern>{0} প্রতি বর্গ মিটার</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>বর্গ সেন্টিমিটার</displayName>
@@ -6713,6 +7621,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} জ্যোতির্বিজ্ঞান একক</unitPattern>
 				<unitPattern count="other">{0} জ্যোতির্বিজ্ঞান একক</unitPattern>
 			</unit>
+			<unit type="length-furlong">
+				<displayName draft="contributed">ফার্লং</displayName>
+				<unitPattern count="one" draft="contributed">{0} ফার্লং</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ফার্লং</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName draft="contributed">fm</displayName>
+				<unitPattern count="one" draft="contributed">{0} fm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} fm</unitPattern>
+			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>নটিক্যাল মাইল</displayName>
 				<unitPattern count="one">{0} নটিক্যাল মাইল</unitPattern>
@@ -6722,6 +7640,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>মাইল-স্ক্যান্ডিনেভিয়ান</displayName>
 				<unitPattern count="one">{0} মাইল-স্ক্যান্ডিনেভিয়ান</unitPattern>
 				<unitPattern count="other">{0} মাইল-স্ক্যান্ডিনেভিয়ান</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pt</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>লাক্স</displayName>
@@ -6759,6 +7682,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>টন</displayName>
 				<unitPattern count="one">{0} টন</unitPattern>
 				<unitPattern count="other">{0} টন</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>পাউন্ড</displayName>
@@ -7049,7 +7977,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} আর্কসেক</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>km²</displayName>
+				<displayName>বর্গ কিমি</displayName>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 				<perUnitPattern>{0}/বর্গ কিমি</perUnitPattern>
@@ -7066,7 +7994,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>cm²</displayName>
+				<displayName>বর্গ সেমি</displayName>
 				<unitPattern count="one">{0} cm²</unitPattern>
 				<unitPattern count="other">{0} cm²</unitPattern>
 				<perUnitPattern>{0}/cm²</perUnitPattern>
@@ -7400,6 +8328,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} au</unitPattern>
 				<unitPattern count="other">{0} au</unitPattern>
 			</unit>
+			<unit type="length-furlong">
+				<displayName draft="contributed">ফার্লং</displayName>
+				<unitPattern count="one" draft="contributed">{0} ফার্লং</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ফার্লং</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName draft="contributed">fm</displayName>
+				<unitPattern count="one" draft="contributed">{0} ftm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ftm</unitPattern>
+			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>nmi</displayName>
 				<unitPattern count="one">{0} nmi</unitPattern>
@@ -7409,6 +8347,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>smi</displayName>
 				<unitPattern count="one">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pt</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -7446,6 +8389,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>tn</displayName>
 				<unitPattern count="one">{0} tn</unitPattern>
 				<unitPattern count="other">{0} tn</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>পাউন্ড</displayName>
@@ -7691,9 +8639,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east">{0}পূ</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}উ</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}দ</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}প</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} উ</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} দ</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} প</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -7701,8 +8649,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="contributed">জি-বল</displayName>
 				<unitPattern count="one">{0} জি-বল</unitPattern>
 				<unitPattern count="other">{0} জি-বল</unitPattern>
+			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName draft="contributed">m/s²</displayName>
+				<unitPattern count="one" draft="contributed">{0} m/s²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m/s²</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="one">{0}ডিগ্রী</unitPattern>
@@ -7745,107 +8699,231 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} L/100km</unitPattern>
 				<unitPattern count="other">{0} L/100km</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName draft="contributed">শতক</displayName>
+				<unitPattern count="one" draft="contributed">{0} শতক</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} শতক</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>বছর</displayName>
 				<unitPattern count="one">{0} বছর</unitPattern>
 				<unitPattern count="other">{0} বছর</unitPattern>
+				<perUnitPattern draft="contributed">{0}/বছর</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>মাস</displayName>
 				<unitPattern count="one">{0} মাস</unitPattern>
 				<unitPattern count="other">{0} মাস</unitPattern>
+				<perUnitPattern draft="contributed">{0}/মাস</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>সপ্তাহ</displayName>
 				<unitPattern count="one">{0} সপ্তাহ</unitPattern>
 				<unitPattern count="other">{0} সপ্তাহ</unitPattern>
+				<perUnitPattern draft="contributed">{0}/সপ্তাহ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>দিন</displayName>
 				<unitPattern count="one">{0} দিন</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
+				<perUnitPattern draft="contributed">{0}/দিন</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>ঘন্টা</displayName>
 				<unitPattern count="one">{0} ঘঃ</unitPattern>
 				<unitPattern count="other">{0} ঘঃ</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ঘ:</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>মিনিট</displayName>
 				<unitPattern count="one">{0} মিঃ</unitPattern>
 				<unitPattern count="other">{0} মিঃ</unitPattern>
+				<perUnitPattern draft="contributed">{0}/মি:</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>সেকেন্ড</displayName>
 				<unitPattern count="one">{0} সেঃ</unitPattern>
 				<unitPattern count="other">{0} সেঃ</unitPattern>
+				<perUnitPattern draft="contributed">{0}/সে:</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>মিলিসেকেন্ড</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="contributed">μsecs</displayName>
+				<unitPattern count="one" draft="contributed">{0}μs</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="contributed">ন্যানোসেকেন্ড</displayName>
+				<unitPattern count="one" draft="contributed">{0}ns</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}ns</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>কিলোমিটার</displayName>
 				<unitPattern count="one">{0} কিমি</unitPattern>
 				<unitPattern count="other">{0} কিমি</unitPattern>
+				<perUnitPattern draft="contributed">{0}/কিমি</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>মিটার</displayName>
 				<unitPattern count="one">{0} মি</unitPattern>
 				<unitPattern count="other">{0} মি</unitPattern>
+				<perUnitPattern draft="contributed">{0}/মি</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="contributed">ডেমি</displayName>
+				<unitPattern count="one" draft="contributed">{0} ডেমি</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ডেমি</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>সেমি</displayName>
 				<unitPattern count="one">{0} সেমি</unitPattern>
 				<unitPattern count="other">{0} সেমি</unitPattern>
+				<perUnitPattern draft="contributed">{0}/সেমি</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>মিমি</displayName>
 				<unitPattern count="one">{0} মিমি</unitPattern>
 				<unitPattern count="other">{0} মিমি</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="contributed">µm</displayName>
+				<unitPattern count="one" draft="contributed">{0} µm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName draft="contributed">nm</displayName>
+				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} nm</unitPattern>
+			</unit>
 			<unit type="length-picometer">
+				<displayName draft="contributed">পিমি</displayName>
 				<unitPattern count="one">{0} পিমি</unitPattern>
 				<unitPattern count="other">{0} পিমি</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="contributed">মাইল</displayName>
 				<unitPattern count="one">{0} মাইল</unitPattern>
 				<unitPattern count="other">{0} মাইল</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="contributed">গজ</displayName>
 				<unitPattern count="one">{0} গজ</unitPattern>
 				<unitPattern count="other">{0} গজ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="contributed">ফুট</displayName>
 				<unitPattern count="one">{0} ফুট</unitPattern>
 				<unitPattern count="other">{0} ফুট</unitPattern>
+				<perUnitPattern draft="contributed">{0} প্রতি ফুট</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="contributed">ইঞ্চি</displayName>
 				<unitPattern count="one">{0} ইঞ্চি</unitPattern>
 				<unitPattern count="other">{0} ইঞ্চি</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ইঞ্চি</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName draft="contributed">parsecs</displayName>
+				<unitPattern count="one" draft="contributed">{0} pc</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="contributed">আলোকবর্ষ</displayName>
 				<unitPattern count="one">{0} আলোকবর্ষ</unitPattern>
 				<unitPattern count="other">{0} আলোকবর্ষ</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">au</displayName>
+				<unitPattern count="one" draft="contributed">{0} au</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} au</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName draft="contributed">ফার্লং</displayName>
+				<unitPattern count="one" draft="contributed">{0} ফার্লং</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ফার্লং</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName draft="contributed">fm</displayName>
+				<unitPattern count="one" draft="contributed">{0} ftm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ftm</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="contributed">nmi</displayName>
+				<unitPattern count="one" draft="contributed">{0} nmi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} nmi</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName draft="contributed">pts</displayName>
+				<unitPattern count="one" draft="contributed">{0} pt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
+			</unit>
+			<unit type="mass-metric-ton">
+				<displayName draft="contributed">টন</displayName>
+				<unitPattern count="one" draft="contributed">{0} টন</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} টন</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>কেজি</displayName>
 				<unitPattern count="one">{0} কেজি</unitPattern>
 				<unitPattern count="other">{0} কেজি</unitPattern>
+				<perUnitPattern draft="contributed">{0}/কেজি</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>গ্রাম</displayName>
 				<unitPattern count="one">{0} গ্রাম</unitPattern>
 				<unitPattern count="other">{0} গ্রাম</unitPattern>
+				<perUnitPattern draft="contributed">{0}/গ্রা:</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName draft="contributed">মিগ্রা:</displayName>
+				<unitPattern count="one" draft="contributed">{0}/মিগ্রা:</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}/মিগ্রা:</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName draft="contributed">µg</displayName>
+				<unitPattern count="one" draft="contributed">{0} µg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} µg</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName draft="contributed">টন</displayName>
+				<unitPattern count="one" draft="contributed">{0} টন</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} টন</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="contributed">পাউন্ড</displayName>
 				<unitPattern count="one">{0} পাউন্ড</unitPattern>
 				<unitPattern count="other">{0} পাউন্ড</unitPattern>
+				<perUnitPattern draft="contributed">{0}/পাউন্ড</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="contributed">আউন্স</displayName>
 				<unitPattern count="one">{0} আউন্স</unitPattern>
 				<unitPattern count="other">{0} আউন্স</unitPattern>
+				<perUnitPattern draft="contributed">{0}/আউন্স</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName draft="contributed">oz t</displayName>
+				<unitPattern count="one" draft="contributed">{0} oz t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz t</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName draft="contributed">ক্যারেট</displayName>
+				<unitPattern count="one" draft="contributed">{0} CD</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} CD</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one">{0} kW</unitPattern>
@@ -7860,14 +8938,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="contributed">hPa</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName draft="contributed">mm Hg</displayName>
+				<unitPattern count="one" draft="contributed">{0} mm Hg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mm Hg</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName draft="contributed">psi</displayName>
+				<unitPattern count="one" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} psi</unitPattern>
+			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="contributed">inHg</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="contributed">mbar</displayName>
 				<unitPattern count="one">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
@@ -7877,12 +8968,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}kph</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="contributed">মি/সেক</displayName>
 				<unitPattern count="one">{0}m/s</unitPattern>
 				<unitPattern count="other">{0}m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="contributed">মাইল/ঘ:</displayName>
 				<unitPattern count="one">{0}mph</unitPattern>
 				<unitPattern count="other">{0}mph</unitPattern>
+			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">kn</displayName>
+				<unitPattern count="one" draft="contributed">{0} kn</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kn</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
@@ -7890,8 +8993,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="contributed">°F</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName draft="contributed">K</displayName>
+				<unitPattern count="one" draft="contributed">{0} K</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} K</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one">{0}km³</unitPattern>
@@ -7929,6 +9038,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} এবং {1}</listPatternPart>
 			<listPatternPart type="2">{0} এবং {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, বা {1}</listPatternPart>
+			<listPatternPart type="2">{0} বা {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -7976,10 +9091,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">কার্যকলাপ</characterLabel>
 		<characterLabel type="african_scripts">আফ্রিকান লিপি</characterLabel>
 		<characterLabel type="american_scripts">আমেরিকান লিপি</characterLabel>
-		<characterLabel type="animal">পশু</characterLabel>
+		<characterLabel type="animal">জীবজন্তু</characterLabel>
 		<characterLabel type="animals_nature">জীবজন্তু ও প্রকৃতি</characterLabel>
 		<characterLabel type="arrows">তীরচিহ্ন</characterLabel>
-		<characterLabel type="body">শারীর</characterLabel>
+		<characterLabel type="body">শরীর</characterLabel>
 		<characterLabel type="box_drawing">বাক্স অঙ্কন</characterLabel>
 		<characterLabel type="braille">ব্রেইল</characterLabel>
 		<characterLabel type="building">বিলডিং</characterLabel>
@@ -7996,20 +9111,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="emoji">ইমোজি</characterLabel>
 		<characterLabel type="european_scripts">ইউরোপীয় লিপি</characterLabel>
 		<characterLabel type="female">মহিলা</characterLabel>
-		<characterLabel type="flag">পাতাক</characterLabel>
+		<characterLabel type="flag">পতাকা</characterLabel>
 		<characterLabel type="flags">পতাকা</characterLabel>
 		<characterLabel type="food_drink">খাদ্য ও পানীয়</characterLabel>
 		<characterLabel type="format">ফর্ম্যাট</characterLabel>
 		<characterLabel type="format_whitespace">ফর্ম্যাট ও হোয়াইটস্পেস</characterLabel>
-		<characterLabel type="full_width_form_variant">পূর্ণ প্রস্থের ফর্ম বিকল্প</characterLabel>
+		<characterLabel type="full_width_form_variant">পূর্ণ- প্রস্থের বৈকল্পিক</characterLabel>
 		<characterLabel type="geometric_shapes">জ্যামিতিক আকার</characterLabel>
-		<characterLabel type="half_width_form_variant">প্রস্থের ফর্ম বিকল্প</characterLabel>
+		<characterLabel type="half_width_form_variant">অর্ধ- প্রস্থের বৈকল্পিক</characterLabel>
 		<characterLabel type="han_characters">হান অক্ষরগুলি</characterLabel>
 		<characterLabel type="han_radicals">হান রেডিক্যাল</characterLabel>
 		<characterLabel type="hanja">হানজা</characterLabel>
 		<characterLabel type="hanzi_simplified">হানজি (সরলীকৃত)</characterLabel>
 		<characterLabel type="hanzi_traditional">হানজি (চিরাচরিত)</characterLabel>
-		<characterLabel type="heart">হার্ট</characterLabel>
+		<characterLabel type="heart">হৃদয়</characterLabel>
 		<characterLabel type="historic_scripts">ঐতিহাসিক লিপি</characterLabel>
 		<characterLabel type="ideographic_desc_characters">চিত্রলিপি বর্ণনার অক্ষর</characterLabel>
 		<characterLabel type="japanese_kana">জাপানি কানা</characterLabel>
@@ -8040,10 +9155,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="plant">চারাগাছ</characterLabel>
 		<characterLabel type="punctuation">যতিচিহ্ন</characterLabel>
 		<characterLabel type="rightwards_arrows">ডানমুখী তীর</characterLabel>
-		<characterLabel type="sign_standard_symbols">স্বাক্ষর/মানক প্রতীক</characterLabel>
-		<characterLabel type="small_form_variant">ছোট ফর্ম বিকল্প</characterLabel>
+		<characterLabel type="sign_standard_symbols">স্বাক্ষর/প্রতীক</characterLabel>
+		<characterLabel type="small_form_variant">ছোট বিকল্প</characterLabel>
 		<characterLabel type="smiley">স্মাইলি</characterLabel>
-		<characterLabel type="smileys_people">স্মাইলি ও জনগণ</characterLabel>
+		<characterLabel type="smileys_people">স্মাইলি বা ব্যক্তি</characterLabel>
 		<characterLabel type="south_asian_scripts">দক্ষিণ এশিয়ার লিপি</characterLabel>
 		<characterLabel type="southeast_asian_scripts">দক্ষিণ-পূর্ব এশিয়ার লিপি</characterLabel>
 		<characterLabel type="spacing">ব্যবধান</characterLabel>
@@ -8052,9 +9167,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="technical_symbols">প্রযুক্তিক প্রতীক</characterLabel>
 		<characterLabel type="tone_marks">টোন মার্কস</characterLabel>
 		<characterLabel type="travel">ভ্রমণ</characterLabel>
-		<characterLabel type="travel_places">ভ্রমন ও স্থান</characterLabel>
+		<characterLabel type="travel_places">ভ্রমন বা স্থান</characterLabel>
 		<characterLabel type="upwards_arrows">ঊর্ধ্বমুখী তীর</characterLabel>
-		<characterLabel type="variant_forms">বিকল্প ফর্ম</characterLabel>
+		<characterLabel type="variant_forms">বিকল্প</characterLabel>
 		<characterLabel type="vocalic_jamo">স্বরবর্ণসম্পর্কিত জ্যামো</characterLabel>
 		<characterLabel type="weather">আবহাওয়া</characterLabel>
 		<characterLabel type="western_asian_scripts">পশ্চিম এশিয়ার লিপি</characterLabel>

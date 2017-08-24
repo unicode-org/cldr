@@ -345,10 +345,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">а҃-ѧ чеⷡ҇</quarter>
-							<quarter type="2" draft="unconfirmed">в҃-ѧ чеⷡ҇</quarter>
-							<quarter type="3" draft="unconfirmed">г҃-ѧ чеⷡ҇</quarter>
-							<quarter type="4" draft="unconfirmed">д҃-ѧ чеⷡ҇</quarter>
+							<quarter type="1" draft="unconfirmed">а҃_ѧ че́тверть</quarter>
+							<quarter type="2" draft="unconfirmed">в҃_ѧ че́тверть</quarter>
+							<quarter type="3" draft="unconfirmed">г҃_ѧ че́тверть</quarter>
+							<quarter type="4" draft="unconfirmed">д҃_ѧ че́тверть</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1" draft="unconfirmed">а҃</quarter>
@@ -357,10 +357,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="unconfirmed">д҃</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">а҃-ѧ че́тверть</quarter>
-							<quarter type="2" draft="unconfirmed">в҃-ѧ че́тверть</quarter>
-							<quarter type="3" draft="unconfirmed">г҃-ѧ че́тверть</quarter>
-							<quarter type="4" draft="unconfirmed">д҃-ѧ че́тверть</quarter>
+							<quarter type="1" draft="unconfirmed">а҃_ѧ че́тверть</quarter>
+							<quarter type="2" draft="unconfirmed">в҃_ѧ че́тверть</quarter>
+							<quarter type="3" draft="unconfirmed">г҃_ѧ че́тверть</quarter>
+							<quarter type="4" draft="unconfirmed">д҃_ѧ че́тверть</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
@@ -377,10 +377,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="unconfirmed">д҃</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">а҃-ѧ че́тверть</quarter>
-							<quarter type="2" draft="unconfirmed">в҃-ѧ че́тверть</quarter>
-							<quarter type="3" draft="unconfirmed">г҃-ѧ че́тверть</quarter>
-							<quarter type="4" draft="unconfirmed">д҃-ѧ че́тверть</quarter>
+							<quarter type="1" draft="unconfirmed">а҃_ѧ че́тверть</quarter>
+							<quarter type="2" draft="unconfirmed">в҃_ѧ че́тверть</quarter>
+							<quarter type="3" draft="unconfirmed">г҃_ѧ че́тверть</quarter>
+							<quarter type="4" draft="unconfirmed">д҃_ѧ че́тверть</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -417,6 +417,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">пре́дъ р. х.</era>
+						<era type="0" alt="variant" draft="unconfirmed">пре́дъ р. х.</era>
 						<era type="1" draft="unconfirmed">ѿ р. х.</era>
 						<era type="1" alt="variant" draft="unconfirmed">ѿ р. х.</era>
 					</eraAbbr>
@@ -589,6 +590,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight" draft="unconfirmed">{0} (лѣ́тнее вре́мѧ)</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} (зи́мнее вре́мѧ)</regionFormat>
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard draft="unconfirmed">всемі́рное сѷгхронїзи́рованное вре́мѧ</standard>
+				</long>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="unconfirmed">невѣ́домый гра́дъ</exemplarCity>
 			</zone>

@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -59,7 +61,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bez">բենա</language>
 			<language type="bg">բուլղարերեն</language>
 			<language type="bgn">արևմտաբելուջիերեն</language>
-			<language type="bho" draft="provisional">բհոպուրի</language>
+			<language type="bho">բհոպուրի</language>
 			<language type="bi">բիսլամա</language>
 			<language type="bin">բինի</language>
 			<language type="bla">սիկսիկա</language>
@@ -74,7 +76,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="byn">բիլին</language>
 			<language type="ca">կատալաներեն</language>
 			<language type="ce">չեչեներեն</language>
-			<language type="ceb">կաբուաներեն</language>
+			<language type="ceb">սեբուերեն</language>
 			<language type="cgg">չիգա</language>
 			<language type="ch">չամոռո</language>
 			<language type="chk">տրուկերեն</language>
@@ -86,7 +88,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="co">կորսիկերեն</language>
 			<language type="cop">ղպտերեն</language>
 			<language type="crh">ղրիմյան թուրքերեն</language>
-			<language type="crs" draft="provisional">սեյշելյան խառնակերտ ֆրանսերեն</language>
+			<language type="crs">սեյշելյան խառնակերտ ֆրանսերեն</language>
 			<language type="cs">չեխերեն</language>
 			<language type="cu">եկեղեցական սլավոներեն</language>
 			<language type="cv">չուվաշերեն</language>
@@ -146,7 +148,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="gaa">գայերեն</language>
 			<language type="gag">գագաուզերեն</language>
 			<language type="gbz">զրադաշտական դարի</language>
-			<language type="gd">գաելերեն</language>
+			<language type="gd">շոտլանդական գաելերեն</language>
 			<language type="gez">գեեզ</language>
 			<language type="gil">կիրիբատի</language>
 			<language type="gl">գալիսերեն</language>
@@ -175,11 +177,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hup">հուպա</language>
 			<language type="hy">հայերեն</language>
 			<language type="hz">հերերո</language>
-			<language type="ia" draft="provisional">ինտերլինգուա</language>
+			<language type="ia">ինտերլինգուա</language>
 			<language type="iba">իբաներեն</language>
 			<language type="ibb">իբիբիո</language>
 			<language type="id">ինդոնեզերեն</language>
-			<language type="ie" draft="provisional">ինտերլինգուե</language>
+			<language type="ie">ինտերլինգուե</language>
 			<language type="ig">իգբո</language>
 			<language type="ii">սիչուան</language>
 			<language type="ilo">իլոկերեն</language>
@@ -198,12 +200,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kac">կաչիներեն</language>
 			<language type="kaj">ջյու</language>
 			<language type="kam">կամբա</language>
-			<language type="kbd" draft="provisional">կաբարդերեն</language>
+			<language type="kbd">կաբարդերեն</language>
 			<language type="kcg">տիապ</language>
 			<language type="kde">մակոնդե</language>
-			<language type="kea">կաբուվերդյանու</language>
+			<language type="kea">կաբուվերդերեն</language>
 			<language type="kfo">կորո</language>
-			<language type="kha">կխասի</language>
+			<language type="kha">քասիերեն</language>
 			<language type="khq">կոյրա չինի</language>
 			<language type="ki">կիկույու</language>
 			<language type="kj">կուանյամա</language>
@@ -287,7 +289,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="na">նաուրու</language>
 			<language type="nap">նեապոլերեն</language>
 			<language type="naq">նամա</language>
-			<language type="nb">նորվեգերեն բուկմոլ</language>
+			<language type="nb">գրքային նորվեգերեն</language>
 			<language type="nd">հյուսիսային նդեբելե</language>
 			<language type="nds_NL">ստորին սաքսոներեն</language>
 			<language type="ne">նեպալերեն</language>
@@ -298,7 +300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nl">հոլանդերեն</language>
 			<language type="nl_BE">ֆլամանդերեն</language>
 			<language type="nmg">կվասիո</language>
-			<language type="nn">նորվեգերեն նյունորսկ</language>
+			<language type="nn">նոր նորվեգերեն</language>
 			<language type="nnh">նգիեմբուն</language>
 			<language type="no">նորվեգերեն</language>
 			<language type="nog">նոգայերեն</language>
@@ -321,10 +323,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pag">պանգասինաներեն</language>
 			<language type="pal">պահլավերեն</language>
 			<language type="pam">պամպանգաերեն</language>
-			<language type="pap">պապյամենտու</language>
+			<language type="pap">պապյամենտո</language>
 			<language type="pau">պալաուերեն</language>
 			<language type="pcd">պիկարդերեն</language>
-			<language type="pcm" draft="provisional">նիգերյան կրեոլերեն</language>
+			<language type="pcm">նիգերյան կրեոլերեն</language>
 			<language type="pdc">փենսիլվանական գերմաներեն</language>
 			<language type="pdt">պլատագերմաներեն</language>
 			<language type="peo">հին պարսկերեն</language>
@@ -385,11 +387,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="si">սինհալերեն</language>
 			<language type="sk">սլովակերեն</language>
 			<language type="sl">սլովեներեն</language>
-			<language type="sm" draft="provisional">սամոաերեն</language>
-			<language type="sma">հարավային սաամերեն</language>
+			<language type="sm">սամոաերեն</language>
+			<language type="sma">հարավային սաամի</language>
 			<language type="smj">լուլե սաամի</language>
-			<language type="smn">ինարի սաամերեն</language>
-			<language type="sms">սկոլտ սաամերեն</language>
+			<language type="smn">ինարի սաամի</language>
+			<language type="sms">սկոլտ սաամի</language>
 			<language type="sn">շոնա</language>
 			<language type="snk">սոնինկե</language>
 			<language type="so">սոմալիերեն</language>
@@ -506,7 +508,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Gujr">գուջարաթի</script>
 			<script type="Guru">գուրմուխի</script>
 			<script type="Hanb">հանբ</script>
-			<script type="Hang">հանգուլ</script>
+			<script type="Hang">հանգըլ</script>
 			<script type="Hani">չինական</script>
 			<script type="Hans">պարզեցված չինական</script>
 			<script type="Hans" alt="stand-alone">պարզեցված չինական</script>
@@ -597,7 +599,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BH">Բահրեյն</territory>
 			<territory type="BI">Բուրունդի</territory>
 			<territory type="BJ">Բենին</territory>
-			<territory type="BL">Սեն Բարտելմի</territory>
+			<territory type="BL">Սուրբ Բարդուղիմեոս</territory>
 			<territory type="BM">Բերմուդներ</territory>
 			<territory type="BN">Բրունեյ</territory>
 			<territory type="BO">Բոլիվիա</territory>
@@ -632,6 +634,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Սուրբ Ծննդյան կղզի</territory>
 			<territory type="CY">Կիպրոս</territory>
 			<territory type="CZ">Չեխիա</territory>
+			<territory type="CZ" alt="variant">Չեխիայի Հանրապետություն</territory>
 			<territory type="DE">Գերմանիա</territory>
 			<territory type="DG">Դիեգո Գարսիա</territory>
 			<territory type="DJ">Ջիբութի</territory>
@@ -648,6 +651,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Իսպանիա</territory>
 			<territory type="ET">Եթովպիա</territory>
 			<territory type="EU">Եվրոպական Միություն</territory>
+			<territory type="EZ">Եվրագոտի</territory>
 			<territory type="FI">Ֆինլանդիա</territory>
 			<territory type="FJ">Ֆիջի</territory>
 			<territory type="FK">Ֆոլքլենդյան կղզիներ</territory>
@@ -673,7 +677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GS">Հարավային Ջորջիա և Հարավային Սենդվիչյան կղզիներ</territory>
 			<territory type="GT">Գվատեմալա</territory>
 			<territory type="GU">Գուամ</territory>
-			<territory type="GW">Գվինեա-Բիսսաու</territory>
+			<territory type="GW">Գվինեա-Բիսաու</territory>
 			<territory type="GY">Գայանա</territory>
 			<territory type="HK">Հոնկոնգի ՀՎՇ</territory>
 			<territory type="HK" alt="short">Հոնկոնգ</territory>
@@ -702,11 +706,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="KH">Կամբոջա</territory>
 			<territory type="KI">Կիրիբատի</territory>
 			<territory type="KM">Կոմորյան կղզիներ</territory>
-			<territory type="KN">Սենտ Քիտս և Նևիս</territory>
+			<territory type="KN">Սենթ Քիտս և Նևիս</territory>
 			<territory type="KP">Հյուսիսային Կորեա</territory>
 			<territory type="KR">Հարավային Կորեա</territory>
 			<territory type="KW">Քուվեյթ</territory>
-			<territory type="KY">Կայմանյան կղզիներ</territory>
+			<territory type="KY">Կայման կղզիներ</territory>
 			<territory type="KZ">Ղազախստան</territory>
 			<territory type="LA">Լաոս</territory>
 			<territory type="LB">Լիբանան</territory>
@@ -849,7 +853,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="AREVMDA" draft="contributed">արեւմտահայերէն</variant>
 		</variants>
 		<keys>
-			<key type="calendar">տոմար</key>
+			<key type="calendar">օրացույց</key>
 			<key type="cf">արժույթի ձևաչափ</key>
 			<key type="collation">տեսակավորման կարգ</key>
 			<key type="currency">արժույթ</key>
@@ -859,20 +863,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">թվեր</key>
 		</keys>
 		<types>
-			<type key="calendar" type="buddhist">բուդդայական տոմար</type>
-			<type key="calendar" type="chinese">չինական տոմար</type>
-			<type key="calendar" type="dangi">դանգի տոմար</type>
-			<type key="calendar" type="ethiopic">եթովպական տոմար</type>
-			<type key="calendar" type="gregorian">գրիգորյան տոմար</type>
-			<type key="calendar" type="hebrew">հրեական տոմար</type>
-			<type key="calendar" type="islamic">իսլամական տոմար</type>
-			<type key="calendar" type="iso8601">ISO-8601 տոմար</type>
-			<type key="calendar" type="japanese">ճապոնական տոմար</type>
-			<type key="calendar" type="persian">պարսկական տոմար</type>
-			<type key="calendar" type="roc">մինգուո տոմար</type>
-			<type key="cf" type="account">ֆինանսական ձևաչափ</type>
-			<type key="cf" type="standard">ստանդարտ ձևաչափ</type>
-			<type key="collation" type="ducet">Unicode-ի ստանդարտ տեսակավորում</type>
+			<type key="calendar" type="buddhist">բուդդայական օրացույց</type>
+			<type key="calendar" type="chinese">չինական օրացույց</type>
+			<type key="calendar" type="dangi">դանգի օրացույց</type>
+			<type key="calendar" type="ethiopic">եթովպական օրացույց</type>
+			<type key="calendar" type="gregorian">գրիգորյան օրացույց</type>
+			<type key="calendar" type="hebrew">հրեական օրացույց</type>
+			<type key="calendar" type="islamic">իսլամական օրացույց</type>
+			<type key="calendar" type="iso8601">ISO-8601 օրացույց</type>
+			<type key="calendar" type="japanese">ճապոնական օրացույց</type>
+			<type key="calendar" type="persian">պարսկական օրացույց</type>
+			<type key="calendar" type="roc">մինգուո օրացույց</type>
+			<type key="cf" type="account">արժույթի հաշվապահական ձևաչափ</type>
+			<type key="cf" type="standard">արժույթի ստանդարտ ձևաչափ</type>
+			<type key="collation" type="ducet">Յունիկոդ լռելյայն տեսակավորում</type>
 			<type key="collation" type="search">որոնում</type>
 			<type key="collation" type="standard">տեսակավորման ստանդարտ կարգ</type>
 			<type key="hc" type="h11">12-ժամյա համակարգ (0-11)</type>
@@ -922,7 +926,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="tibt">տիբեթական թվանշաններ</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric">Մետրիկ</measurementSystemName>
+			<measurementSystemName type="metric">Մետրական</measurementSystemName>
 			<measurementSystemName type="UK">Անգլիական</measurementSystemName>
 			<measurementSystemName type="US">Ամերիկյան</measurementSystemName>
 		</measurementSystemNames>
@@ -998,9 +1002,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">B h-ին</dateFormatItem>
+						<dateFormatItem id="Bhm">B h:mm-ին</dateFormatItem>
+						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E B h:mm-ին</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d, ccc</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y թ․</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y թ․ MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y թ․ MMM d</dateFormatItem>
@@ -1027,7 +1040,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMMM">G y թ. LLL</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM, y թ., G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">d MMM, y թ. G, E</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">G y MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">G y MMMM</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y թ, QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y թ, QQQQ</dateFormatItem>
 					</availableFormats>
@@ -1362,10 +1375,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">գշր</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">կեսգիշեր</dayPeriod>
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="noon">կեսօր</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="midnight">կեսգիշերին</dayPeriod>
+							<dayPeriod type="am">ԿԱ</dayPeriod>
+							<dayPeriod type="noon">կեսօրին</dayPeriod>
+							<dayPeriod type="pm">ԿՀ</dayPeriod>
 							<dayPeriod type="morning1">առավոտյան</dayPeriod>
 							<dayPeriod type="afternoon1">ցերեկը</dayPeriod>
 							<dayPeriod type="evening1">երեկոյան</dayPeriod>
@@ -1395,9 +1408,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">կեսգիշեր</dayPeriod>
-							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am">ԿԱ</dayPeriod>
 							<dayPeriod type="noon">կեսօր</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="pm">ԿՀ</dayPeriod>
 							<dayPeriod type="morning1">առավոտ</dayPeriod>
 							<dayPeriod type="afternoon1">ցերեկ</dayPeriod>
 							<dayPeriod type="evening1">երեկո</dayPeriod>
@@ -1416,6 +1429,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0">մ.թ.ա.</era>
 						<era type="0" alt="variant">մ․թ․ա․</era>
 						<era type="1">մ.թ.</era>
+						<era type="1" alt="variant">մ․թ․</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1484,8 +1498,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">B h-ին</dateFormatItem>
+						<dateFormatItem id="Bhm">B h:mm-ին</dateFormatItem>
+						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E B h:mm-ին</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d, ccc</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
@@ -1512,8 +1531,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one" draft="provisional">MMM W շաբ</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other" draft="provisional">MMM W շաբ</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">MMM W շաբ</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">MMM W շաբ</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">MM.y</dateFormatItem>
@@ -1522,11 +1541,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMM">y թ. LLL</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM, y թ.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y թ. MMM d, E</dateFormatItem>
-						<dateFormatItem id="yMMMM">yթ․ MMMM</dateFormatItem>
-						<dateFormatItem id="yQQQ">y թ, QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y թ, QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="one" draft="provisional">y w շաբ</dateFormatItem>
-						<dateFormatItem id="yw" count="other" draft="provisional">y w շաբ</dateFormatItem>
+						<dateFormatItem id="yMMMM">y թ․ LLLL</dateFormatItem>
+						<dateFormatItem id="yQQQ">y թ. QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y թ. QQQQ</dateFormatItem>
+						<dateFormatItem id="yw" count="one">y w շաբ</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y w շաբ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1622,8 +1641,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">E, d MMM, y – E, d MMM, y թ.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">yթ. MMM – MMM</greatestDifference>
-							<greatestDifference id="y">MMM yթ․ – MMM yթ.</greatestDifference>
+							<greatestDifference id="M">y թ․ LLLL – LLLL</greatestDifference>
+							<greatestDifference id="y">y թ․ LLLL – y թ․ LLLL</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1632,6 +1651,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<fields>
 			<field type="era">
 				<displayName>թվարկություն</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>թ․</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>թ․</displayName>
 			</field>
 			<field type="year">
 				<displayName>տարի</displayName>
@@ -1661,12 +1686,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="year-narrow">
 				<displayName>տ</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} տ</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} տ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} տարուց</relativeTimePattern>
+					<relativeTimePattern count="other">{0} տարուց</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} տ</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} տ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} տ առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} տ առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -1697,12 +1722,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="quarter-narrow">
 				<displayName>եռմս</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} եռմս</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} եռմս</relativeTimePattern>
+					<relativeTimePattern count="one">{0} եռմս-ից</relativeTimePattern>
+					<relativeTimePattern count="other">{0} եռմս-ից</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} եռմս</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} եռմս</relativeTimePattern>
+					<relativeTimePattern count="one">{0} եռմս առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} եռմս առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1739,12 +1764,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">այս ամիս</relative>
 				<relative type="1">հաջորդ ամիս</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} ա</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} ա</relativeTimePattern>
+					<relativeTimePattern count="one">{0} ամսից</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ամսից</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} ա</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} ա</relativeTimePattern>
+					<relativeTimePattern count="one">{0} ամիս առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ամիս առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -1760,7 +1785,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} շաբաթ առաջ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} շաբաթ առաջ</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>{0}-ի շաբաթում</relativePeriod>
+				<relativePeriod>{0} շաբաթում</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>շաբ</displayName>
@@ -1772,7 +1797,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} շաբ առաջ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} շաբ առաջ</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>{0}-ի շաբ-ում</relativePeriod>
+				<relativePeriod>{0} շաբ-ում</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>շաբ</displayName>
@@ -1784,7 +1809,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} շաբ առաջ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} շաբ առաջ</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>{0}-ի շաբ-ում</relativePeriod>
+				<relativePeriod>{0} շաբ-ում</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>ամսվա շաբաթ</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>ամսվա շաբ</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>ամս շաբ</displayName>
 			</field>
 			<field type="day">
 				<displayName>օր</displayName>
@@ -1834,8 +1868,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} օր առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>տարվա օր</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>տարվա օր</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>տարվա օր</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>շաբաթվա օր</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>շաբաթվա օր</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>շաբաթվա օր</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>ամսվա օր</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>ամսվա օր</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>ամս օր</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">նախորդ կիրակի</relative>
@@ -1868,12 +1926,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">այս կիր</relative>
 				<relative type="1">հջրդ կիր</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} կիր</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} կիր</relativeTimePattern>
+					<relativeTimePattern count="one">{0} կիր հետո</relativeTimePattern>
+					<relativeTimePattern count="other">{0} կիր հետո</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} կիր</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} կիր</relativeTimePattern>
+					<relativeTimePattern count="one">{0} կիր առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} կիր առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -1907,12 +1965,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">այս երկ</relative>
 				<relative type="1">հջրդ երկ</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} երկ</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} երկ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} երկ հետո</relativeTimePattern>
+					<relativeTimePattern count="other">{0} երկ հետո</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} երկ</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} երկ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} երկ առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} երկ առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -1946,12 +2004,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">այս երք</relative>
 				<relative type="1">հջրդ երք</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} երք</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} երք</relativeTimePattern>
+					<relativeTimePattern count="one">{0} երք հետո</relativeTimePattern>
+					<relativeTimePattern count="other">{0} երք հետո</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} երք</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} երք</relativeTimePattern>
+					<relativeTimePattern count="one">{0} երք առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} երք առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -1985,12 +2043,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">այս չրք</relative>
 				<relative type="1">հջրդ չրք</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} չրք</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} չրք</relativeTimePattern>
+					<relativeTimePattern count="one">{0} չրք հետո</relativeTimePattern>
+					<relativeTimePattern count="other">{0} չրք հետո</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} չրք</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} չրք</relativeTimePattern>
+					<relativeTimePattern count="one">{0} չրք առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} չրք առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -2024,12 +2082,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">այս հնգ</relative>
 				<relative type="1">հջրդ հնգ</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} հնգ</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} հնգ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} հնգ հետո</relativeTimePattern>
+					<relativeTimePattern count="other">{0} հնգ հետո</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} հնգ</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} հնգ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} հնգ առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} հնգ առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -2102,15 +2160,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">այս շբթ</relative>
 				<relative type="1">հջրդ շբթ</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} շբ</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} շբ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} շբթ հետո</relativeTimePattern>
+					<relativeTimePattern count="other">{0} շբթ հետո</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} շբ</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} շբ</relativeTimePattern>
+					<relativeTimePattern count="one">{0} շբթ առաջ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} շբթ առաջ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>ԿԱ/ԿՀ</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>ԿԱ/ԿՀ</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>ԿԱ/ԿՀ</displayName>
 			</field>
 			<field type="hour">
@@ -2183,7 +2247,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="second">
 				<displayName>վայրկյան</displayName>
-				<relative type="0">այժմ</relative>
+				<relative type="0">հիմա</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} վայրկյանից</relativeTimePattern>
 					<relativeTimePattern count="other">{0} վայրկյանից</relativeTimePattern>
@@ -2216,6 +2280,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="zone">
+				<displayName>ժամային գոտի</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>ժամային գոտի</displayName>
+			</field>
+			<field type="zone-narrow">
 				<displayName>ժամային գոտի</displayName>
 			</field>
 		</fields>
@@ -2254,7 +2324,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Անտիգուա</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
-				<exemplarCity>Անգիլյա</exemplarCity>
+				<exemplarCity>Անգուիլա</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
 				<exemplarCity>Տիրանա</exemplarCity>
@@ -2416,7 +2486,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Սեն Բարտելմի</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
-				<exemplarCity>Բերմուդաներ</exemplarCity>
+				<exemplarCity>Բերմուդներ</exemplarCity>
 			</zone>
 			<zone type="Asia/Brunei">
 				<exemplarCity>Բրունեյ</exemplarCity>
@@ -2601,6 +2671,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>Զատկի կղզի</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Պունտա Արենաս</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Սանտյագո</exemplarCity>
 			</zone>
@@ -2633,6 +2706,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Նիկոսիա</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Ֆամագուստա</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Պրահա</exemplarCity>
@@ -2884,13 +2960,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Քուվեյթ</exemplarCity>
 			</zone>
 			<zone type="America/Cayman">
-				<exemplarCity>Կայմանի կղզիներ</exemplarCity>
+				<exemplarCity>Կայման կղզիներ</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Ակտաու</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Ուրալսկ</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Ատիրաու</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Ակտոբե</exemplarCity>
@@ -2977,7 +3056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Չոյբալսան</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
-				<exemplarCity>Մակաու</exemplarCity>
+				<exemplarCity>Մակաո</exemplarCity>
 			</zone>
 			<zone type="Pacific/Saipan">
 				<exemplarCity>Սայպան</exemplarCity>
@@ -3170,6 +3249,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Վոլգոգրադ</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Սարատով</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Աստրախան</exemplarCity>
@@ -4489,10 +4571,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤ #,##0.00</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern>¤ #,##0.00</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -4534,59 +4616,59 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
-				<displayName>Աֆղանական աֆղանի</displayName>
+				<displayName>աֆղանական աֆղանի</displayName>
 				<displayName count="one">աֆղանական աֆղանի</displayName>
 				<displayName count="other">աֆղանական աֆղանի</displayName>
 				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
-				<displayName>Ալբանական լեկ</displayName>
+				<displayName>ալբանական լեկ</displayName>
 				<displayName count="one">ալբանական լեկ</displayName>
 				<displayName count="other">ալբանական լեկ</displayName>
 				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
-				<displayName>Հայկական դրամ</displayName>
+				<displayName>հայկական դրամ</displayName>
 				<displayName count="one">հայկական դրամ</displayName>
 				<displayName count="other">հայկական դրամ</displayName>
 				<symbol>֏</symbol>
 				<symbol alt="variant">դր.</symbol>
 			</currency>
 			<currency type="ANG">
-				<displayName>Նիդեռլանդական անտիլյան գուլդեն</displayName>
+				<displayName>նիդեռլանդական անտիլյան գուլդեն</displayName>
 				<displayName count="one">նիդեռլանդական անտիլյան գուլդեն</displayName>
 				<displayName count="other">նիդեռլանդական անտիլյան գուլդեն</displayName>
 				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
-				<displayName>Անգոլական կվանզա</displayName>
+				<displayName>անգոլական կվանզա</displayName>
 				<displayName count="one">անգոլական կվանզա</displayName>
 				<displayName count="other">անգոլական կվանզա</displayName>
 				<symbol>AOA</symbol>
 				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
 			<currency type="ARS">
-				<displayName>Արգենտինական պեսո</displayName>
+				<displayName>արգենտինական պեսո</displayName>
 				<displayName count="one">արգենտինական պեսո</displayName>
 				<displayName count="other">արգենտինական պեսո</displayName>
 				<symbol>ARS</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AUD">
-				<displayName>Ավստրալիական դոլար</displayName>
+				<displayName>ավստրալիական դոլար</displayName>
 				<displayName count="one">ավստրալիական դոլար</displayName>
 				<displayName count="other">ավստրալիական դոլար</displayName>
 				<symbol>A$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
-				<displayName>Արուբական ֆլորին</displayName>
+				<displayName>արուբական ֆլորին</displayName>
 				<displayName count="one">արուբական ֆլորին</displayName>
 				<displayName count="other">արուբական ֆլորին</displayName>
 				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZN">
-				<displayName>Ադրբեջանական մանաթ</displayName>
+				<displayName>ադրբեջանական մանաթ</displayName>
 				<displayName count="one">ադրբեջանական մանաթ</displayName>
 				<displayName count="other">ադրբեջանական մանաթ</displayName>
 				<symbol>AZN</symbol>
@@ -4599,7 +4681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BBD">
-				<displayName>Բարբադոսյան դոլար</displayName>
+				<displayName>բարբադոսյան դոլար</displayName>
 				<displayName count="one">բարբադոսյան դոլար</displayName>
 				<displayName count="other">բարբադոսյան դոլար</displayName>
 				<symbol>BBD</symbol>
@@ -4613,7 +4695,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
 			<currency type="BGN">
-				<displayName>Բուլղարական լև</displayName>
+				<displayName>բուլղարական լև</displayName>
 				<displayName count="one">բուլղարական լև</displayName>
 				<displayName count="other">բուլղարական լև</displayName>
 				<symbol>BGN</symbol>
@@ -4625,13 +4707,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
-				<displayName>Բուրունդիական ֆրանկ</displayName>
+				<displayName>բուրունդիական ֆրանկ</displayName>
 				<displayName count="one">բուրունդիական ֆրանկ</displayName>
 				<displayName count="other">բուրունդիական ֆրանկ</displayName>
 				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
-				<displayName>Բերմուդյան դոլար</displayName>
+				<displayName>բերմուդյան դոլար</displayName>
 				<displayName count="one">բերմուդյան դոլար</displayName>
 				<displayName count="other">բերմուդյան դոլար</displayName>
 				<symbol>BMD</symbol>
@@ -4645,41 +4727,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BOB">
-				<displayName>Բոլիվիական բոլիվիանո</displayName>
+				<displayName>բոլիվիական բոլիվիանո</displayName>
 				<displayName count="one">բոլիվիական բոլիվիանո</displayName>
 				<displayName count="other">բոլիվիական բոլիվիանո</displayName>
 				<symbol>BOB</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BRL">
-				<displayName>Բրազիլական ռեալ</displayName>
+				<displayName>բրազիլական ռեալ</displayName>
 				<displayName count="one">բրազիլական ռեալ</displayName>
 				<displayName count="other">բրազիլական ռեալ</displayName>
 				<symbol>R$</symbol>
 				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BSD">
-				<displayName>Բահամյան դոլար</displayName>
+				<displayName>բահամյան դոլար</displayName>
 				<displayName count="one">բահամյան դոլար</displayName>
 				<displayName count="other">բահամյան դոլար</displayName>
 				<symbol>BSD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BTN">
-				<displayName>Բութանական նգուլտրում</displayName>
+				<displayName>բութանական նգուլտրում</displayName>
 				<displayName count="one">բութանական նգուլտրում</displayName>
 				<displayName count="other">բութանական նգուլտրում</displayName>
 				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
-				<displayName>Բոթսվանական պուլա</displayName>
+				<displayName>բոթսվանական պուլա</displayName>
 				<displayName count="one">բոթսվանական պուլա</displayName>
 				<displayName count="other">բոթսվանական պուլա</displayName>
 				<symbol>BWP</symbol>
 				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
 			<currency type="BYN">
-				<displayName>Բելառուսական ռուբլի</displayName>
+				<displayName>բելառուսական ռուբլի</displayName>
 				<displayName count="one">բելառուսական ռուբլի</displayName>
 				<displayName count="other">բելառուսական ռուբլի</displayName>
 				<symbol>BYN</symbol>
@@ -4699,7 +4781,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
-				<displayName>Կանադական դոլար</displayName>
+				<displayName>կանադական դոլար</displayName>
 				<displayName count="one">կանադական դոլար</displayName>
 				<displayName count="other">կանադական դոլար</displayName>
 				<symbol>CA$</symbol>
@@ -4712,27 +4794,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
-				<displayName>Շվեյցարական ֆրանկ</displayName>
+				<displayName>շվեյցարական ֆրանկ</displayName>
 				<displayName count="one">շվեյցարական ֆրանկ</displayName>
 				<displayName count="other">շվեյցարական ֆրանկ</displayName>
 				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
-				<displayName>Չիլիական պեսո</displayName>
+				<displayName>չիլիական պեսո</displayName>
 				<displayName count="one">չիլիական պեսո</displayName>
 				<displayName count="other">չիլիական պեսո</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
+			<currency type="CNH">
+				<displayName>CNH</displayName>
+				<displayName count="one">CNH</displayName>
+				<displayName count="other">CNH</displayName>
+				<symbol draft="contributed">CNH</symbol>
+			</currency>
 			<currency type="CNY">
-				<displayName>Չինական յուան</displayName>
+				<displayName>չինական յուան</displayName>
 				<displayName count="one">չինական յուան</displayName>
 				<displayName count="other">չինական յուան</displayName>
 				<symbol>CN¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
-				<displayName>Կոլումբիական պեսո</displayName>
+				<displayName>կոլումբիական պեսո</displayName>
 				<displayName count="one">կոլումբիական պեսո</displayName>
 				<displayName count="other">կոլումբիական պեսո</displayName>
 				<symbol>COP</symbol>
@@ -4746,7 +4834,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CUC">
-				<displayName>Կուբայական փոխարկվող պեսո</displayName>
+				<displayName>կուբայական փոխարկվող պեսո</displayName>
 				<displayName count="one">կուբայական փոխարկվող պեսո</displayName>
 				<displayName count="other">կուբայական փոխարկվող պեսո</displayName>
 				<symbol>CUC</symbol>
@@ -4766,7 +4854,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CZK">
-				<displayName>Չեխական կրոն</displayName>
+				<displayName>չեխական կրոն</displayName>
 				<displayName count="one">չեխական կրոն</displayName>
 				<displayName count="other">չեխական կրոն</displayName>
 				<symbol>CZK</symbol>
@@ -4779,53 +4867,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
-				<displayName>Դանիական կրոն</displayName>
+				<displayName>դանիական կրոն</displayName>
 				<displayName count="one">դանիական կրոն</displayName>
 				<displayName count="other">դանիական կրոն</displayName>
 				<symbol>DKK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
-				<displayName>Դոմինիկյան պեսո</displayName>
+				<displayName>դոմինիկյան պեսո</displayName>
 				<displayName count="one">դոմինիկյան պեսո</displayName>
 				<displayName count="other">դոմինիկյան պեսո</displayName>
 				<symbol>DOP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
-				<displayName>Ալժիրյան դինար</displayName>
-				<displayName count="one">ալժիրյան դինար</displayName>
-				<displayName count="other">ալժիրյան դինար</displayName>
+				<displayName>ալժիրական դինար</displayName>
+				<displayName count="one">ալժիրական դինար</displayName>
+				<displayName count="other">ալժիրական դինար</displayName>
 				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EGP">
-				<displayName>Եգիպտական ֆունտ</displayName>
+				<displayName>եգիպտական ֆունտ</displayName>
 				<displayName count="one">եգիպտական ֆունտ</displayName>
 				<displayName count="other">եգիպտական ֆունտ</displayName>
 				<symbol>EGP</symbol>
 				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
-				<displayName>Էրիթրեական նակֆա</displayName>
+				<displayName>էրիթրեական նակվա</displayName>
 				<displayName count="one">էրիթրեական նակֆա</displayName>
 				<displayName count="other">էրիթրեական նակֆա</displayName>
 				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ETB">
-				<displayName>Եթովպիական բիր</displayName>
+				<displayName>եթովպիական բիր</displayName>
 				<displayName count="one">եթովպիական բիր</displayName>
 				<displayName count="other">եթովպիական բիր</displayName>
 				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
-				<displayName>Եվրո</displayName>
+				<displayName>եվրո</displayName>
 				<displayName count="one">եվրո</displayName>
 				<displayName count="other">եվրո</displayName>
 				<symbol>€</symbol>
 				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FJD">
-				<displayName>Ֆիջիական դոլար</displayName>
+				<displayName>ֆիջիական դոլար</displayName>
 				<displayName count="one">ֆիջիական դոլար</displayName>
 				<displayName count="other">ֆիջիական դոլար</displayName>
 				<symbol>FJD</symbol>
@@ -4839,21 +4927,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GBP">
-				<displayName>Բրիտանական ֆունտ ստերլինգ</displayName>
+				<displayName>բրիտանական ֆունտ ստերլինգ</displayName>
 				<displayName count="one">բրիտանական ֆունտ ստերլինգ</displayName>
 				<displayName count="other">բրիտանական ֆունտ ստերլինգ</displayName>
 				<symbol>£</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
-				<displayName>Վրացական լարի</displayName>
+				<displayName>վրացական լարի</displayName>
 				<displayName count="one">վրացական լարի</displayName>
 				<displayName count="other">վրացական լարի</displayName>
 				<symbol>GEL</symbol>
 				<symbol alt="narrow" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHS">
-				<displayName>Գանայական սեդի</displayName>
+				<displayName>գայանական սեդի</displayName>
 				<displayName count="one">գանայական սեդի</displayName>
 				<displayName count="other">գանայական սեդի</displayName>
 				<symbol>GHS</symbol>
@@ -4866,27 +4954,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
-				<displayName>Գամբիական դալասի</displayName>
+				<displayName>գամբիական դալասի</displayName>
 				<displayName count="one">գամբիական դալասի</displayName>
 				<displayName count="other">գամբիական դալասի</displayName>
 				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
-				<displayName>Գվինեական ֆրանկ</displayName>
+				<displayName>գվինեական ֆրանկ</displayName>
 				<displayName count="one">գվինեական ֆրանկ</displayName>
 				<displayName count="other">գվինեական ֆրանկ</displayName>
 				<symbol>GNF</symbol>
 				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
 			<currency type="GTQ">
-				<displayName>Գվատեմալական կետսալ</displayName>
+				<displayName>գվատեմալական կետսալ</displayName>
 				<displayName count="one">գվատեմալական կետսալ</displayName>
 				<displayName count="other">գվատեմալական կետսալ</displayName>
 				<symbol>GTQ</symbol>
 				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
 			<currency type="GYD">
-				<displayName>Գայանական դոլար</displayName>
+				<displayName>գայանական դոլար</displayName>
 				<displayName count="one">գայանական դոլար</displayName>
 				<displayName count="other">գայանական դոլար</displayName>
 				<symbol>GYD</symbol>
@@ -4900,34 +4988,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
-				<displayName>Հոնդուրասական լեմպիրա</displayName>
+				<displayName>հոնդուրասական լեմպիրա</displayName>
 				<displayName count="one">հոնդուրասական լեմպիրա</displayName>
 				<displayName count="other">հոնդուրասական լեմպիրա</displayName>
 				<symbol>HNL</symbol>
 				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRK">
-				<displayName>Խորվաթական կունա</displayName>
+				<displayName>խորվաթական կունա</displayName>
 				<displayName count="one">խորվաթական կունա</displayName>
 				<displayName count="other">խորվաթական կունա</displayName>
 				<symbol>HRK</symbol>
 				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
-				<displayName>Հայիթյան գուրդ</displayName>
-				<displayName count="one">հայիթյան գուրդ</displayName>
-				<displayName count="other">հայիթյան գուրդ</displayName>
+				<displayName>հաիթյան գուրդ</displayName>
+				<displayName count="one">հաիթյան գուրդ</displayName>
+				<displayName count="other">հաիթյան գուրդ</displayName>
 				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
-				<displayName>Հունգարական ֆորինտ</displayName>
+				<displayName>հունգարական ֆորինտ</displayName>
 				<displayName count="one">հունգարական ֆորինտ</displayName>
 				<displayName count="other">հունգարական ֆորինտ</displayName>
 				<symbol>HUF</symbol>
 				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
-				<displayName>Ինդոնեզիական ռուփի</displayName>
+				<displayName>ինդոնեզիական ռուփի</displayName>
 				<displayName count="one">ինդոնեզիական ռուփի</displayName>
 				<displayName count="other">ինդոնեզիական ռուփի</displayName>
 				<symbol>IDR</symbol>
@@ -4941,26 +5029,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
-				<displayName>Հնդկական ռուփի</displayName>
+				<displayName>հնդկական ռուփի</displayName>
 				<displayName count="one">հնդկական ռուփի</displayName>
 				<displayName count="other">հնդկական ռուփի</displayName>
 				<symbol>₹</symbol>
 				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
-				<displayName>Իրաքյան դինար</displayName>
+				<displayName>իրաքյան դինար</displayName>
 				<displayName count="one">իրաքյան դինար</displayName>
 				<displayName count="other">իրաքյան դինար</displayName>
 				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
-				<displayName>Իրանական ռիալ</displayName>
+				<displayName>իրանական ռիալ</displayName>
 				<displayName count="one">իրանական ռիալ</displayName>
 				<displayName count="other">իրանական ռիալ</displayName>
 				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
-				<displayName>Իսլանդական կրոն</displayName>
+				<displayName>իսլանդական կրոն</displayName>
 				<displayName count="one">իսլանդական կրոն</displayName>
 				<displayName count="other">իսլանդական կրոն</displayName>
 				<symbol>ISK</symbol>
@@ -4974,53 +5062,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
-				<displayName>Հորդանանյան դինար</displayName>
+				<displayName>հորդանանյան դինար</displayName>
 				<displayName count="one">հորդանանյան դինար</displayName>
 				<displayName count="other">հորդանանյան դինար</displayName>
 				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
-				<displayName>Ճապոնական իեն</displayName>
+				<displayName>ճապոնական իեն</displayName>
 				<displayName count="one">ճապոնական իեն</displayName>
 				<displayName count="other">ճապոնական իեն</displayName>
 				<symbol>JP¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
-				<displayName>Քենիական շիլինգ</displayName>
+				<displayName>քենիական շիլինգ</displayName>
 				<displayName count="one">քենիական շիլինգ</displayName>
 				<displayName count="other">քենիական շիլինգ</displayName>
 				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
-				<displayName>Ղրղզական սոմ</displayName>
+				<displayName>ղրղզական սոմ</displayName>
 				<displayName count="one">ղրղզական սոմ</displayName>
 				<displayName count="other">ղրղզական սոմ</displayName>
 				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
-				<displayName>Կամբոջական ռիել</displayName>
+				<displayName>կամբոջական ռիել</displayName>
 				<displayName count="one">կամբոջական ռիել</displayName>
 				<displayName count="other">կամբոջական ռիել</displayName>
 				<symbol>KHR</symbol>
 				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
-				<displayName>Կոմորյան ֆրանկ</displayName>
+				<displayName>կոմորյան ֆրանկ</displayName>
 				<displayName count="one">կոմորյան ֆրանկ</displayName>
 				<displayName count="other">կոմորյան ֆրանկ</displayName>
 				<symbol>KMF</symbol>
 				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
-				<displayName>Հյուսիսկորեական վոն</displayName>
+				<displayName>հյուսիսկորեական վոն</displayName>
 				<displayName count="one">հյուսիսկորեական վոն</displayName>
 				<displayName count="other">հյուսիսկորեական վոն</displayName>
 				<symbol>KPW</symbol>
 				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KRW">
-				<displayName>Հարավկորեական վոն</displayName>
+				<displayName>հարավկորեական վոն</displayName>
 				<displayName count="one">հարավկորեական վոն</displayName>
 				<displayName count="other">հարավկորեական վոն</displayName>
 				<symbol>₩</symbol>
@@ -5040,21 +5128,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
-				<displayName>Ղազախական տենգե</displayName>
+				<displayName>ղազախական տենգե</displayName>
 				<displayName count="one">ղազախական տենգե</displayName>
 				<displayName count="other">ղազախական տենգե</displayName>
 				<symbol>KZT</symbol>
 				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
-				<displayName>Լաոսական կիպ</displayName>
+				<displayName>լաոսական կիպ</displayName>
 				<displayName count="one">լաոսական կիպ</displayName>
 				<displayName count="other">լաոսական կիպ</displayName>
 				<symbol>LAK</symbol>
 				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
-				<displayName>Լիբանանյան ֆունտ</displayName>
+				<displayName>լիբանանյան ֆունտ</displayName>
 				<displayName count="one">լիբանանյան ֆունտ</displayName>
 				<displayName count="other">լիբանանյան ֆունտ</displayName>
 				<symbol>LBP</symbol>
@@ -5068,7 +5156,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="LRD">
-				<displayName>Լիբերիական դոլար</displayName>
+				<displayName>լիբերիական դոլար</displayName>
 				<displayName count="one">լիբերիական դոլար</displayName>
 				<displayName count="other">լիբերիական դոլար</displayName>
 				<symbol>LRD</symbol>
@@ -5087,7 +5175,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LYD">
-				<displayName>Լիբիական դինար</displayName>
+				<displayName>լիբիական դինար</displayName>
 				<displayName count="one">լիբիական դինար</displayName>
 				<displayName count="other">լիբիական դինար</displayName>
 				<symbol>LYD</symbol>
@@ -5099,7 +5187,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MDL">
-				<displayName>Մոլդովական լեյ</displayName>
+				<displayName>մոլդովական լեյ</displayName>
 				<displayName count="one">մոլդովական լեյ</displayName>
 				<displayName count="other">մոլդովական լեյ</displayName>
 				<symbol>MDL</symbol>
@@ -5112,9 +5200,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MKD">
-				<displayName>Մակեդոնյան դենար</displayName>
-				<displayName count="one">մակեդոնյան դենար</displayName>
-				<displayName count="other">մակեդոնյան դենար</displayName>
+				<displayName>մակեդոնական դենար</displayName>
+				<displayName count="one">մակեդոնական դենար</displayName>
+				<displayName count="other">մակեդոնական դենար</displayName>
 				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MMK">
@@ -5125,86 +5213,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
-				<displayName>Մոնղոլական տուգրիկ</displayName>
+				<displayName>մոնղոլական տուգրիկ</displayName>
 				<displayName count="one">մոնղոլական տուգրիկ</displayName>
 				<displayName count="other">մոնղոլական տուգրիկ</displayName>
 				<symbol>MNT</symbol>
 				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
-				<displayName>Մակաուի պատակա</displayName>
-				<displayName count="one">Մակաուի պատակա</displayName>
-				<displayName count="other">Մակաուի պատակա</displayName>
+				<displayName>Մակաոյի պատակա</displayName>
+				<displayName count="one">Մակաոյի պատակա</displayName>
+				<displayName count="other">Մակաոյի պատակա</displayName>
 				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
-				<displayName>Մավրիտանական ուգիյա</displayName>
+				<displayName>մավրիտանական ուգիյա</displayName>
 				<displayName count="one">մավրիտանական ուգիյա</displayName>
 				<displayName count="other">մավրիտանական ուգիյա</displayName>
 				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MUR">
-				<displayName>Մավրիկյան ռուփի</displayName>
+				<displayName>մավրիկյան ռուփի</displayName>
 				<displayName count="one">մավրիկյան ռուփի</displayName>
 				<displayName count="other">մավրիկյան ռուփի</displayName>
 				<symbol>MUR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVR">
-				<displayName>Մալդիվյան ռուֆիյա</displayName>
+				<displayName>մալդիվյան ռուֆիյա</displayName>
 				<displayName count="one">մալդիվյան ռուֆիյա</displayName>
 				<displayName count="other">մալդիվյան ռուֆիյա</displayName>
 				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
-				<displayName>Մալավիական կվաչա</displayName>
+				<displayName>մալավիական կվաչա</displayName>
 				<displayName count="one">մալավիական կվաչա</displayName>
 				<displayName count="other">մալավիական կվաչա</displayName>
 				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
-				<displayName>Մեքսիկական պեսո</displayName>
+				<displayName>մեքսիկական պեսո</displayName>
 				<displayName count="one">մեքսիկական պեսո</displayName>
 				<displayName count="other">մեքսիկական պեսո</displayName>
 				<symbol>MX$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MYR">
-				<displayName>Մալայզիական ռինգիտ</displayName>
+				<displayName>մալայզիական ռինգիտ</displayName>
 				<displayName count="one">մալայզիական ռինգիտ</displayName>
 				<displayName count="other">մալայզիական ռինգիտ</displayName>
 				<symbol>MYR</symbol>
 				<symbol alt="narrow" draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZN">
-				<displayName>Մոզամբիկյան մետիկալ</displayName>
+				<displayName>մոզամբիկյան մետիկալ</displayName>
 				<displayName count="one">մոզամբիկյան մետիկալ</displayName>
 				<displayName count="other">մոզամբիկյան մետիկալ</displayName>
 				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
-				<displayName>Նամիբիական դոլար</displayName>
+				<displayName>նամիբիական դոլար</displayName>
 				<displayName count="one">նամիբիական դոլար</displayName>
 				<displayName count="other">նամիբիական դոլար</displayName>
 				<symbol>NAD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
-				<displayName>Նիգերիական նայրա</displayName>
+				<displayName>նիգերիական նայրա</displayName>
 				<displayName count="one">նիգերիական նայրա</displayName>
 				<displayName count="other">նիգերիական նայրա</displayName>
 				<symbol>NGN</symbol>
 				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIO">
-				<displayName>Նիկարագուական կորդոբա</displayName>
+				<displayName>նիկարագուական կորդոբա</displayName>
 				<displayName count="one">նիկարագուական կորդոբա</displayName>
 				<displayName count="other">նիկարագուական կորդոբա</displayName>
 				<symbol>NIO</symbol>
 				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NOK">
-				<displayName>Նորվեգական կրոն</displayName>
+				<displayName>նորվեգական կրոն</displayName>
 				<displayName count="one">նորվեգական կրոն</displayName>
 				<displayName count="other">նորվեգական կրոն</displayName>
 				<symbol>NOK</symbol>
@@ -5218,7 +5306,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
-				<displayName>Նորզելանդական դոլար</displayName>
+				<displayName>նորզելանդական դոլար</displayName>
 				<displayName count="one">նորզելանդական դոլար</displayName>
 				<displayName count="other">նորզելանդական դոլար</displayName>
 				<symbol>NZ$</symbol>
@@ -5231,7 +5319,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
-				<displayName>Պանամական բալբոա</displayName>
+				<displayName>պանամական բալբոա</displayName>
 				<displayName count="one">պանամական բալբոա</displayName>
 				<displayName count="other">պանամական բալբոա</displayName>
 				<symbol>PAB</symbol>
@@ -5249,28 +5337,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
-				<displayName>Ֆիլիպինյան պեսո</displayName>
+				<displayName>ֆիլիպինյան պեսո</displayName>
 				<displayName count="one">ֆիլիպինյան պեսո</displayName>
 				<displayName count="other">ֆիլիպինյան պեսո</displayName>
 				<symbol>PHP</symbol>
 				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
 			<currency type="PKR">
-				<displayName>Պակիստանյան ռուփի</displayName>
+				<displayName>պակիստանյան ռուփի</displayName>
 				<displayName count="one">պակիստանյան ռուփի</displayName>
 				<displayName count="other">պակիստանյան ռուփի</displayName>
 				<symbol>PKR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
-				<displayName>Լեհական զլոտի</displayName>
+				<displayName>լեհական զլոտի</displayName>
 				<displayName count="one">լեհական զլոտի</displayName>
 				<displayName count="other">լեհական զլոտի</displayName>
 				<symbol>PLN</symbol>
 				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PYG">
-				<displayName>Պարագվայական գուարանի</displayName>
+				<displayName>պարագվայական գուարանի</displayName>
 				<displayName count="one">պարագվայական գուարանի</displayName>
 				<displayName count="other">պարագվայական գուարանի</displayName>
 				<symbol>PYG</symbol>
@@ -5283,26 +5371,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RON">
-				<displayName>Ռումինական լեյ</displayName>
+				<displayName>ռումինական լեյ</displayName>
 				<displayName count="one">ռումինական լեյ</displayName>
 				<displayName count="other">ռումինական լեյ</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
-				<displayName>Սերբական դինար</displayName>
+				<displayName>սերբական դինար</displayName>
 				<displayName count="one">սերբական դինար</displayName>
 				<displayName count="other">սերբական դինար</displayName>
 				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
-				<displayName>Ռուսական ռուբլի</displayName>
+				<displayName>ռուսական ռուբլի</displayName>
 				<displayName count="one">ռուսական ռուբլի</displayName>
 				<displayName count="other">ռուսական ռուբլի</displayName>
 				<symbol>RUB</symbol>
 				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="RWF">
-				<displayName>Ռուանդական ֆրանկ</displayName>
+				<displayName>ռուանդական ֆրանկ</displayName>
 				<displayName count="one">ռուանդական ֆրանկ</displayName>
 				<displayName count="other">ռուանդական ֆրանկ</displayName>
 				<symbol>RWF</symbol>
@@ -5315,26 +5404,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
-				<displayName>Սողոմոնի կղզիների դոլար</displayName>
-				<displayName count="one">Սողոմոնի կղզիների դոլար</displayName>
-				<displayName count="other">Սողոմոնի կղզիների դոլար</displayName>
+				<displayName>Սողոմոնյան կղզիների դոլար</displayName>
+				<displayName count="one">Սողոմոնյան կղզիների դոլար</displayName>
+				<displayName count="other">Սողոմոնյան կղզիների դոլար</displayName>
 				<symbol>SBD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
-				<displayName>Սեյշելյան ռուփի</displayName>
+				<displayName>սեյշելյան ռուփի</displayName>
 				<displayName count="one">սեյշելյան ռուփի</displayName>
 				<displayName count="other">սեյշելյան ռուփի</displayName>
 				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
-				<displayName>Սուդանական ֆունտ</displayName>
+				<displayName>սուդանական ֆունտ</displayName>
 				<displayName count="one">սուդանական ֆունտ</displayName>
 				<displayName count="other">սուդանական ֆունտ</displayName>
 				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
-				<displayName>Շվեդական կրոն</displayName>
+				<displayName>շվեդական կրոն</displayName>
 				<displayName count="one">շվեդական կրոն</displayName>
 				<displayName count="other">շվեդական կրոն</displayName>
 				<symbol>SEK</symbol>
@@ -5361,20 +5450,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
-				<displayName>Սոմալիական շիլինգ</displayName>
+				<displayName>սոմալիական շիլինգ</displayName>
 				<displayName count="one">սոմալիական շիլինգ</displayName>
 				<displayName count="other">սոմալիական շիլինգ</displayName>
 				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
-				<displayName>Սուրինամի դոլար</displayName>
-				<displayName count="one">Սուրինամի դոլար</displayName>
-				<displayName count="other">Սուրինամի դոլար</displayName>
+				<displayName>սուրինամական դոլար</displayName>
+				<displayName count="one">սուրինամական դոլար</displayName>
+				<displayName count="other">սուրինամական դոլար</displayName>
 				<symbol>SRD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SSP">
-				<displayName>Հարավսուդանական ֆունտ</displayName>
+				<displayName>հարավսուդանական ֆունտ</displayName>
 				<displayName count="one">հարավսուդանական ֆունտ</displayName>
 				<displayName count="other">հարավսուդանական ֆունտ</displayName>
 				<symbol>SSP</symbol>
@@ -5388,39 +5477,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SYP">
-				<displayName>Սիրիական ֆունտ</displayName>
+				<displayName>սիրիական ֆունտ</displayName>
 				<displayName count="one">սիրիական ֆունտ</displayName>
 				<displayName count="other">սիրիական ֆունտ</displayName>
 				<symbol>SYP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
-				<displayName>Սվազիլենդական լիլանգենի</displayName>
+				<displayName>սվազիլենդական լիլանգենի</displayName>
 				<displayName count="one">սվազիլենդական լիլանգենի</displayName>
 				<displayName count="other">սվազիլենդական լիլանգենի</displayName>
 				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
-				<displayName>Թայլանդական բատ</displayName>
+				<displayName>թայլանդական բատ</displayName>
 				<displayName count="one">թայլանդական բատ</displayName>
 				<displayName count="other">թայլանդական բատ</displayName>
 				<symbol>฿</symbol>
 				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJS">
-				<displayName>Տաջիկական սոմոնի</displayName>
+				<displayName>տաջիկական սոմոնի</displayName>
 				<displayName count="one">տաջիկական սոմոնի</displayName>
 				<displayName count="other">տաջիկական սոմոնի</displayName>
 				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMT">
-				<displayName>Թուրքմենական մանաթ</displayName>
+				<displayName>թուրքմենական մանաթ</displayName>
 				<displayName count="one">թուրքմենական մանաթ</displayName>
 				<displayName count="other">թուրքմենական մանաթ</displayName>
 				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
-				<displayName>Թունիսյան դինար</displayName>
+				<displayName>թունիսյան դինար</displayName>
 				<displayName count="one">թունիսյան դինար</displayName>
 				<displayName count="other">թունիսյան դինար</displayName>
 				<symbol>TND</symbol>
@@ -5433,7 +5522,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName>Թուրքական լիրա</displayName>
+				<displayName>թուրքական լիրա</displayName>
 				<displayName count="one">թուրքական լիրա</displayName>
 				<displayName count="other">թուրքական լիրա</displayName>
 				<symbol>TRY</symbol>
@@ -5448,27 +5537,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
-				<displayName>Թայվանական նոր դոլար</displayName>
+				<displayName>թայվանական նոր դոլար</displayName>
 				<displayName count="one">թայվանական նոր դոլար</displayName>
 				<displayName count="other">թայվանական նոր դոլար</displayName>
 				<symbol>NT$</symbol>
 				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
-				<displayName>Տանզանիական շիլինգ</displayName>
+				<displayName>տանզանիական շիլինգ</displayName>
 				<displayName count="one">տանզանիական շիլինգ</displayName>
 				<displayName count="other">տանզանիական շիլինգ</displayName>
 				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
-				<displayName>Ուկրաինական գրիվնա</displayName>
+				<displayName>ուկրաինական գրիվնա</displayName>
 				<displayName count="one">ուկրաինական գրիվնա</displayName>
 				<displayName count="other">ուկրաինական գրիվնա</displayName>
 				<symbol>UAH</symbol>
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UGX">
-				<displayName>Ուգանդական շիլինգ</displayName>
+				<displayName>ուգանդական շիլինգ</displayName>
 				<displayName count="one">ուգանդական շիլինգ</displayName>
 				<displayName count="other">ուգանդական շիլինգ</displayName>
 				<symbol>UGX</symbol>
@@ -5481,27 +5570,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UYU">
-				<displayName>Ուրուգվայական պեսո</displayName>
+				<displayName>ուրուգվայական պեսո</displayName>
 				<displayName count="one">ուրուգվայական պեսո</displayName>
 				<displayName count="other">ուրուգվայական պեսո</displayName>
 				<symbol>UYU</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UZS">
-				<displayName>Ուզբեկական սոմ</displayName>
+				<displayName>ուզբեկական սոմ</displayName>
 				<displayName count="one">ուզբեկական սոմ</displayName>
 				<displayName count="other">ուզբեկական սոմ</displayName>
 				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEF">
-				<displayName>Վենեսուելական բոլիվար</displayName>
+				<displayName>վենեսուելական բոլիվար</displayName>
 				<displayName count="one">վենեսուելական բոլիվար</displayName>
 				<displayName count="other">վենեսուելական բոլիվար</displayName>
 				<symbol>VEF</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VND">
-				<displayName>Վիետնամական դոնգ</displayName>
+				<displayName>վիետնամական դոնգ</displayName>
 				<displayName count="one">վիետնամական դոնգ</displayName>
 				<displayName count="other">վիետնամական դոնգ</displayName>
 				<symbol>₫</symbol>
@@ -5514,7 +5603,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
-				<displayName>Սամոական տալա</displayName>
+				<displayName>սամոական տալա</displayName>
 				<displayName count="one">սամոական տալա</displayName>
 				<displayName count="other">սամոական տալա</displayName>
 				<symbol>WST</symbol>
@@ -5526,7 +5615,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XCD">
-				<displayName>Արևելակարիբյան դոլար</displayName>
+				<displayName>արևելակարիբյան դոլար</displayName>
 				<displayName count="one">արևելակարիբյան դոլար</displayName>
 				<displayName count="other">արևելակարիբյան դոլար</displayName>
 				<symbol>EC$</symbol>
@@ -5545,18 +5634,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
-				<displayName>Անհայտ արժույթ</displayName>
+				<displayName>անհայտ արժույթ</displayName>
 				<displayName count="one">(անհայտ արժույթ)</displayName>
 				<displayName count="other">(անհայտ արժույթ)</displayName>
 			</currency>
 			<currency type="YER">
-				<displayName>Եմենական ռիալ</displayName>
+				<displayName>եմենական ռիալ</displayName>
 				<displayName count="one">եմենական ռիալ</displayName>
 				<displayName count="other">եմենական ռիալ</displayName>
 				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
-				<displayName>Հարավաֆրիկյան ռանդ</displayName>
+				<displayName>հարավաֆրիկյան ռանդ</displayName>
 				<displayName count="one">հարավաֆրիկյան ռանդ</displayName>
 				<displayName count="other">հարավաֆրիկյան ռանդ</displayName>
 				<symbol>ZAR</symbol>
@@ -5568,7 +5657,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">Զամբիական կվաչա (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
-				<displayName>Զամբիական կվաչա</displayName>
+				<displayName>զամբիական կվաչա</displayName>
 				<displayName count="one">զամբիական կվաչա</displayName>
 				<displayName count="other">զամբիական կվաչա</displayName>
 				<symbol>ZMW</symbol>
@@ -5988,6 +6077,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} սկանդինավյան մղոն</unitPattern>
 				<unitPattern count="other">{0} սկանդինավյան մղոն</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>կետեր</displayName>
+				<unitPattern count="one">{0} կետ</unitPattern>
+				<unitPattern count="other">{0} կետ</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>լյուքսեր</displayName>
 				<unitPattern count="one">{0} լյուքս</unitPattern>
@@ -6337,9 +6431,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/սմ²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>քառ․ մղ</displayName>
-				<unitPattern count="one">{0} քառ. մղ</unitPattern>
-				<unitPattern count="other">{0} քառ. մղ</unitPattern>
+				<displayName>մղ²</displayName>
+				<unitPattern count="one">{0} մղ²</unitPattern>
+				<unitPattern count="other">{0} մղ²</unitPattern>
 				<perUnitPattern>{0}/մղ²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
@@ -6348,19 +6442,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ակր</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>քառ․ յրդ</displayName>
-				<unitPattern count="one">{0} քառ. յրդ</unitPattern>
-				<unitPattern count="other">{0} քառ. յրդ</unitPattern>
+				<displayName>յրդ²</displayName>
+				<unitPattern count="one">{0} յրդ²</unitPattern>
+				<unitPattern count="other">{0} յրդ²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>քառ․ ֆտ</displayName>
-				<unitPattern count="one">{0} քառ. ֆտ</unitPattern>
-				<unitPattern count="other">{0} քառ. ֆտ</unitPattern>
+				<displayName>ֆտ²</displayName>
+				<unitPattern count="one">{0} ֆտ²</unitPattern>
+				<unitPattern count="other">{0} ֆտ²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>քառ․ դյմ</displayName>
-				<unitPattern count="one">{0} քառ. դյմ</unitPattern>
-				<unitPattern count="other">{0} քառ. դյմ</unitPattern>
+				<displayName>դյմ²</displayName>
+				<unitPattern count="one">{0} դյմ²</unitPattern>
+				<unitPattern count="other">{0} դյմ²</unitPattern>
 				<perUnitPattern>{0}/դյմ²</perUnitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -6439,9 +6533,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} կԲ</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName>Կբիթ</displayName>
-				<unitPattern count="one">{0} Կբիթ</unitPattern>
-				<unitPattern count="other">{0} Կբիթ</unitPattern>
+				<displayName>կբիթ</displayName>
+				<unitPattern count="one">{0} կբիթ</unitPattern>
+				<unitPattern count="other">{0} կբիթ</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName>Բ</displayName>
@@ -6675,6 +6769,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} սկանդ․ մղ</unitPattern>
 				<unitPattern count="other">{0} սկանդ․ մղ</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>կտ</displayName>
+				<unitPattern count="one">{0} կտ</unitPattern>
+				<unitPattern count="other">{0} կտ</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>լք</displayName>
 				<unitPattern count="one">{0} լք</unitPattern>
@@ -6847,24 +6946,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/սմ³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>խոր․ մղ</displayName>
-				<unitPattern count="one">{0} խոր․ մղ</unitPattern>
-				<unitPattern count="other">{0} խոր․ մղ</unitPattern>
+				<displayName>մղ³</displayName>
+				<unitPattern count="one">{0} մղ³</unitPattern>
+				<unitPattern count="other">{0} մղ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>խոր․ յրդ</displayName>
-				<unitPattern count="one">{0} խոր․ յրդ</unitPattern>
-				<unitPattern count="other">{0} խոր․ յրդ</unitPattern>
+				<displayName>յրդ³</displayName>
+				<unitPattern count="one">{0} յրդ³</unitPattern>
+				<unitPattern count="other">{0} յրդ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>խոր․ ֆտ</displayName>
-				<unitPattern count="one">{0} խոր․ ֆտ</unitPattern>
-				<unitPattern count="other">{0} խոր․ ֆտ</unitPattern>
+				<displayName>ֆտ³</displayName>
+				<unitPattern count="one">{0} ֆտ³</unitPattern>
+				<unitPattern count="other">{0} ֆտ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName>խոր․ դյմ</displayName>
-				<unitPattern count="one">{0} խոր․ դյմ</unitPattern>
-				<unitPattern count="other">{0} խոր․ դյմ</unitPattern>
+				<displayName>դյմ³</displayName>
+				<unitPattern count="one">{0} դյմ³</unitPattern>
+				<unitPattern count="other">{0} դյմ³</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>Մլ</displayName>
@@ -7195,6 +7294,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} և {1}</listPatternPart>
 			<listPatternPart type="2">{0} և {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} կամ {1}</listPatternPart>
+			<listPatternPart type="2">{0} կամ {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -7208,14 +7313,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} և {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} և {1}</listPatternPart>
-			<listPatternPart type="2">{0} և {1}</listPatternPart>
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
 			<listPatternPart type="end">{0} և {1}</listPatternPart>
 			<listPatternPart type="2">{0} և {1}</listPatternPart>
 		</listPattern>
@@ -7236,8 +7341,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="miscellaneous">{0} — խառը</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — այլ</characterLabelPattern>
 		<characterLabelPattern type="scripts">Գրեր — {0}</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="one" draft="provisional">{0} — Գծեր</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other" draft="provisional">{0} — Գծեր</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} — Գծեր</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} — Գծեր</characterLabelPattern>
 		<characterLabel type="activities">Զբաղմունքներ</characterLabel>
 		<characterLabel type="african_scripts">Աֆրիկյան գրեր</characterLabel>
 		<characterLabel type="american_scripts">Ամերիկյան գրեր</characterLabel>

@@ -442,7 +442,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="suk">Sukuma</language>
 			<language type="sus">Susu</language>
 			<language type="sux">Sumerjan</language>
-			<language type="sv">Żvezja</language>
+			<language type="sv">Żvediż</language>
 			<language type="sw">Swahili</language>
 			<language type="sw_CD">Swahili tar-Repubblika Demokratika tal-Kongo</language>
 			<language type="swb">Komorjan</language>
@@ -2874,10 +2874,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="100000000000000" count="other" draft="provisional">¤000T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitPattern count="few" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitPattern count="many" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="few">{0} {1}</unitPattern>
+			<unitPattern count="many">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">

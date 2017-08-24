@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -222,7 +224,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="id">indonezijski</language>
 			<language type="ie">interligua</language>
 			<language type="ig">igbo</language>
-			<language type="ii">sichuan yi</language>
+			<language type="ii">sichuan ji</language>
 			<language type="ik">inupiaq</language>
 			<language type="ilo">iloko</language>
 			<language type="inh">ingušetski</language>
@@ -828,6 +830,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Španjolska</territory>
 			<territory type="ET">Etiopija</territory>
 			<territory type="EU">Europska unija</territory>
+			<territory type="EZ">eurozona</territory>
 			<territory type="FI">Finska</territory>
 			<territory type="FJ">Fidži</territory>
 			<territory type="FK">Falklandski otoci</territory>
@@ -944,7 +947,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PH">Filipini</territory>
 			<territory type="PK">Pakistan</territory>
 			<territory type="PL">Poljska</territory>
-			<territory type="PM">Saint-Pierre-et-Miquelon</territory>
+			<territory type="PM">Sveti Petar i Mikelon</territory>
 			<territory type="PN">Otoci Pitcairn</territory>
 			<territory type="PR">Portoriko</territory>
 			<territory type="PS">Palestinsko Područje</territory>
@@ -1097,6 +1100,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="indian">indijski nacionalni kalendar</type>
 			<type key="calendar" type="islamic">islamski kalendar</type>
 			<type key="calendar" type="islamic-civil">islamski civilni kalendar</type>
+			<type key="calendar" type="islamic-umalqura" draft="contributed">islamski kalendar (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">ISO-8601 kalendar</type>
 			<type key="calendar" type="japanese">japanski kalendar</type>
 			<type key="calendar" type="persian">perzijski kalendar</type>
@@ -1113,8 +1117,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="no" draft="contributed">Poredaj zanemarujući veličinu</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Poredaj u skladu s veličinom slova</type>
 			<type key="collation" type="big5han">razvrstavanje prema tradicionalnom kineskom - Big5</type>
+			<type key="collation" type="compat" draft="contributed">Prethodni redoslijed razvrstavanja, radi kompatibilnosti</type>
 			<type key="collation" type="dictionary">rječničko razvrstavanje</type>
 			<type key="collation" type="ducet">Standardno Unicode razvrstavanje</type>
+			<type key="collation" type="eor" draft="contributed">Europska pravila razvrstavanja</type>
 			<type key="collation" type="gb2312han">razvrstavanje prema pojednostavljenom kineskom - GB2312</type>
 			<type key="collation" type="phonebook">razvrstavanje po abecedi</type>
 			<type key="collation" type="phonetic" draft="contributed">Fonetski poredak</type>
@@ -1122,7 +1128,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="reformed">reformirano razvrstavanje</type>
 			<type key="collation" type="search">Općenito pretraživanje</type>
 			<type key="collation" type="searchjl" draft="contributed">Pretraživanje po početnom suglasniku hangula</type>
-			<type key="collation" type="standard">standardno razvrstavanje</type>
+			<type key="collation" type="standard">Standardno razvrstavanje</type>
 			<type key="collation" type="stroke">razvrstavanje po redoslijedu poteza za kineski</type>
 			<type key="collation" type="traditional">tradicionalno razvrstavanje</type>
 			<type key="collation" type="unihan">razvrstavanje prema korijenu i potezu</type>
@@ -1146,8 +1152,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">slobodni stil prijeloma retka</type>
 			<type key="lb" type="normal">normalni stil prijeloma retka</type>
 			<type key="lb" type="strict">strogi stil prijeloma retka</type>
-			<type key="m0" type="bgn" draft="contributed">BGN</type>
-			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
+			<type key="m0" type="bgn">transliteracija prema BGN-u</type>
+			<type key="m0" type="ungegn">transliteracija prema UNGEGN-u</type>
 			<type key="ms" type="metric">metrički sustav</type>
 			<type key="ms" type="uksystem">imperijalni sustav mjera</type>
 			<type key="ms" type="ussystem">američki sustav mjera</type>
@@ -1448,9 +1454,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y. G</dateFormatItem>
@@ -1818,7 +1833,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="noon">podne</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">ujutro</dayPeriod>
-							<dayPeriod type="afternoon1">popodne</dayPeriod>
+							<dayPeriod type="afternoon1">poslije podne</dayPeriod>
 							<dayPeriod type="evening1">navečer</dayPeriod>
 							<dayPeriod type="night1">noću</dayPeriod>
 						</dayPeriodWidth>
@@ -1940,8 +1955,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1985,9 +2005,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">LLLL y.</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y.</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y.</dateFormatItem>
-						<dateFormatItem id="yw" count="one">w. 'tjedan' 'u' Y.</dateFormatItem>
-						<dateFormatItem id="yw" count="few">w. 'tjedan' 'u' Y.</dateFormatItem>
-						<dateFormatItem id="yw" count="other">w. 'tjedan' 'u' Y.</dateFormatItem>
+						<dateFormatItem id="yw" count="one">w. 'tjedan' 'u' y.</dateFormatItem>
+						<dateFormatItem id="yw" count="few">w. 'tjedan' 'u' y.</dateFormatItem>
+						<dateFormatItem id="yw" count="other">w. 'tjedan' 'u' y.</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} ({1})</appendItem>
@@ -2768,6 +2788,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="era">
 				<displayName>era</displayName>
 			</field>
+			<field type="era-short">
+				<displayName>era</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>era</displayName>
+			</field>
 			<field type="year">
 				<displayName>godina</displayName>
 				<relative type="-1">prošle godine</relative>
@@ -2806,14 +2832,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">ove g.</relative>
 				<relative type="1">sljedeće g.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} g.</relativeTimePattern>
-					<relativeTimePattern count="few">+{0} g.</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} g.</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} g.</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} g.</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} g.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} g.</relativeTimePattern>
-					<relativeTimePattern count="few">-{0} g.</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} g.</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} g.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} g.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} g.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -2854,14 +2880,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">ovaj kv.</relative>
 				<relative type="1">sljedeći kv.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} kv.</relativeTimePattern>
-					<relativeTimePattern count="few">+{0} kv.</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} kv.</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} kv.</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} kv.</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} kv.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} kv.</relativeTimePattern>
-					<relativeTimePattern count="few">-{0} kv.</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} kv.</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} kv.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} kv.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} kv.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -2902,14 +2928,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">ovaj mj.</relative>
 				<relative type="1">sljedeći mj.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} mj.</relativeTimePattern>
-					<relativeTimePattern count="few">+{0} mj.</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} mj.</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} mj.</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} mj.</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} mj.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} mj.</relativeTimePattern>
-					<relativeTimePattern count="few">-{0} mj.</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} mj.</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} mj.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} mj.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} mj.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -2952,16 +2978,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">ovaj tj.</relative>
 				<relative type="1">sljedeći tj.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} tj.</relativeTimePattern>
-					<relativeTimePattern count="few">+{0} tj.</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} tj.</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} tj.</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} tj.</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} tj.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} tj.</relativeTimePattern>
-					<relativeTimePattern count="few">-{0} tj.</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} tj.</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} tj.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} tj.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} tj.</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>tjedan od {0}</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>tjedan u mjesecu</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>tj. u mj.</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>tj. u mjesecu</displayName>
 			</field>
 			<field type="day">
 				<displayName>dan</displayName>
@@ -3017,8 +3052,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">prije {0} d</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>dan u godini</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>dan u god.</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>dan u g.</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>dan u tjednu</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>dan u tjed.</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>dan u tj.</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>radni dan u mjesecu</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>radni dan u mj.</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>r. dan u mj.</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">prošla nedjelja</relative>
@@ -3335,7 +3394,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">prije {0} subota</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>AM/PM</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>AM/PM</displayName>
 			</field>
 			<field type="hour">
@@ -3368,14 +3433,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="hour-narrow">
 				<displayName>h</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} h</relativeTimePattern>
-					<relativeTimePattern count="few">+{0} h</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} h</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} h</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} h</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} h</relativeTimePattern>
-					<relativeTimePattern count="few">-{0} h</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} h</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} h</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} h</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} h</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
@@ -3408,14 +3473,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="minute-narrow">
 				<displayName>min</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} min</relativeTimePattern>
-					<relativeTimePattern count="few">+{0} min</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} min</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} min</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} min</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} min</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} min</relativeTimePattern>
-					<relativeTimePattern count="few">-{0} min</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} min</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} min</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} min</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} min</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -3448,18 +3513,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="second-narrow">
 				<displayName>s</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} s</relativeTimePattern>
-					<relativeTimePattern count="few">+{0} s</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} s</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} s</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} s</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} s</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} s</relativeTimePattern>
-					<relativeTimePattern count="few">-{0} s</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} s</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} s</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} s</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} s</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>vremenska zona</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>zona</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>zona</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -3478,7 +3549,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
-					<standard>Koordinirano svjetsko vrijeme</standard>
+					<standard>koordinirano svjetsko vrijeme</standard>
 				</long>
 			</zone>
 			<zone type="Etc/Unknown">
@@ -3821,10 +3892,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Kokosovi otoci</exemplarCity>
 			</zone>
 			<zone type="Africa/Kinshasa">
-				<exemplarCity>Kinšasa</exemplarCity>
+				<exemplarCity>Kinshasa</exemplarCity>
 			</zone>
 			<zone type="Africa/Lubumbashi">
-				<exemplarCity>Lubumbaši</exemplarCity>
+				<exemplarCity>Lubumbashi</exemplarCity>
 			</zone>
 			<zone type="Africa/Bangui">
 				<exemplarCity>Bangui</exemplarCity>
@@ -3842,7 +3913,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Rarotonga</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
-				<exemplarCity>Uskrsni Otok</exemplarCity>
+				<exemplarCity>Uskršnji otok</exemplarCity>
+			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Punta Arenas</exemplarCity>
 			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Santiago</exemplarCity>
@@ -3876,6 +3950,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nikozija</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Famagusta</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Prag</exemplarCity>
@@ -4001,7 +4078,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Conakry</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
-				<exemplarCity>Guadalupa</exemplarCity>
+				<exemplarCity>Guadalupe</exemplarCity>
 			</zone>
 			<zone type="Africa/Malabo">
 				<exemplarCity>Malabo</exemplarCity>
@@ -4091,7 +4168,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Amman</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<exemplarCity>Tokio</exemplarCity>
+				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
 			<zone type="Africa/Nairobi">
 				<exemplarCity>Nairobi</exemplarCity>
@@ -4134,6 +4211,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Oral</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Atyrau</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktobe</exemplarCity>
@@ -4184,7 +4264,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Monako</exemplarCity>
 			</zone>
 			<zone type="Europe/Chisinau">
-				<exemplarCity>Chisinau</exemplarCity>
+				<exemplarCity>Kišinjev</exemplarCity>
 			</zone>
 			<zone type="Europe/Podgorica">
 				<exemplarCity>Podgorica</exemplarCity>
@@ -4202,7 +4282,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Majuro</exemplarCity>
 			</zone>
 			<zone type="Europe/Skopje">
-				<exemplarCity>Skopje</exemplarCity>
+				<exemplarCity>Skoplje</exemplarCity>
 			</zone>
 			<zone type="Africa/Bamako">
 				<exemplarCity>Bamako</exemplarCity>
@@ -4226,7 +4306,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Saipan</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
-				<exemplarCity>Martinik</exemplarCity>
+				<exemplarCity>Martinique</exemplarCity>
 			</zone>
 			<zone type="Africa/Nouakchott">
 				<exemplarCity>Nouakchott</exemplarCity>
@@ -4414,6 +4494,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Saratov</exemplarCity>
+			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Astrakhan</exemplarCity>
 			</zone>
@@ -4493,7 +4576,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Mahe</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
-				<exemplarCity>Kartum</exemplarCity>
+				<exemplarCity>Khartoum</exemplarCity>
 			</zone>
 			<zone type="Europe/Stockholm">
 				<exemplarCity>Stockholm</exemplarCity>
@@ -4535,7 +4618,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>São Tomé</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
-				<exemplarCity>El Salvador</exemplarCity>
+				<exemplarCity>Salvador</exemplarCity>
 			</zone>
 			<zone type="America/Lower_Princes">
 				<exemplarCity>Lower Prince’s Quarter</exemplarCity>
@@ -4556,7 +4639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Kerguelen</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
-				<exemplarCity>Lome</exemplarCity>
+				<exemplarCity>Lomé</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>Bangkok</exemplarCity>
@@ -4595,7 +4678,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Dar es Salaam</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Uzgorod</exemplarCity>
+				<exemplarCity>Užgorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijev</exemplarCity>
@@ -4877,9 +4960,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic>zapadno-argentinsko vrijeme</generic>
-					<standard>zapadno-argentinsko standardno vrijeme</standard>
-					<daylight>zapadno-argentinsko ljetno vrijeme</daylight>
+					<generic>zapadnoargentinsko vrijeme</generic>
+					<standard>zapadnoargentinsko standardno vrijeme</standard>
+					<daylight>zapadnoargentinsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -5019,7 +5102,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Cocos">
 				<long>
-					<standard>vrijeme Kokosovih Otoka</standard>
+					<standard>vrijeme Kokosovih otoka</standard>
 				</long>
 			</metazone>
 			<metazone type="Colombia">
@@ -5031,9 +5114,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<generic>vrijeme Cookovih Otoka</generic>
-					<standard>standardno vrijeme Cookovih Otoka</standard>
-					<daylight>Cookovo otočje, polusatni pomak, ljetno vrijeme</daylight>
+					<generic>vrijeme Cookovih otoka</generic>
+					<standard>standardno vrijeme Cookovih otoka</standard>
+					<daylight>Cookovi otoci, polusatni pomak, ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cuba">
@@ -5154,7 +5237,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
-					<standard>vrijeme Gilbertovih Otoka</standard>
+					<standard>vrijeme Gilbertovih otoka</standard>
 				</long>
 			</metazone>
 			<metazone type="GMT">
@@ -5398,9 +5481,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic>ulan-batorsko vrijeme</generic>
-					<standard>ulan-batorsko standardno vrijeme</standard>
-					<daylight>ulan-batorsko ljetno vrijeme</daylight>
+					<generic>ulanbatorsko vrijeme</generic>
+					<standard>ulanbatorsko standardno vrijeme</standard>
+					<daylight>ulanbatorsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
@@ -5412,7 +5495,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Myanmar">
 				<long>
-					<standard>mianmarsko vrijeme</standard>
+					<standard>mjanmarsko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Nauru">
@@ -5916,7 +5999,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
-				<displayName count="one">UAE diram</displayName>
+				<displayName count="one">UAE dirham</displayName>
 				<displayName count="few">UAE dirhama</displayName>
 				<displayName count="other">UAE dirhama</displayName>
 				<symbol>AED</symbol>
@@ -6377,6 +6460,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">čileanskih peza</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName draft="contributed">kineski juan (offshore)</displayName>
+				<displayName count="one" draft="contributed">kineski juan (offshore)</displayName>
+				<displayName count="few" draft="contributed">kineska juana (offshore)</displayName>
+				<displayName count="other" draft="contributed">kineskih juana (offshore)</displayName>
 			</currency>
 			<currency type="CNX">
 				<displayName>kineski narodni dolar</displayName>
@@ -7427,6 +7516,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="few">rumunjska leja</displayName>
 				<displayName count="other">rumunjskih leja</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>srpski dinar</displayName>
@@ -8096,11 +8186,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">za {0} mjesec</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">za {0} mjeseca</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">za {0} mjeseci</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">za {0} mjeseci</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Skrenite na {0}. križanju desno.</ordinalMinimalPairs>
+			<pluralMinimalPairs count="one">{0} dan</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} dana</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} dana</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} dana</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Idite na {0}. desno.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -8549,7 +8639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} inč</unitPattern>
 				<unitPattern count="few">{0} inča</unitPattern>
 				<unitPattern count="other">{0} inča</unitPattern>
-				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
+				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parseci</displayName>
@@ -8588,10 +8678,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} nautičkih milja</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">skandinavska milja</displayName>
-				<unitPattern count="one" draft="contributed">{0} skandinavska milja</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} skandinavske milje</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} skandinavskih milja</unitPattern>
+				<displayName>skandinavska milja</displayName>
+				<unitPattern count="one">{0} skandinavska milja</unitPattern>
+				<unitPattern count="few">{0} skandinavske milje</unitPattern>
+				<unitPattern count="other">{0} skandinavskih milja</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>točke</displayName>
+				<unitPattern count="one">{0} točka</unitPattern>
+				<unitPattern count="few">{0} točke</unitPattern>
+				<unitPattern count="other">{0} točaka</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>luksi</displayName>
@@ -9390,7 +9486,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} in</unitPattern>
 				<unitPattern count="few">{0} in</unitPattern>
 				<unitPattern count="other">{0} in</unitPattern>
-				<perUnitPattern draft="contributed">{0}/in</perUnitPattern>
+				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>pc</displayName>
@@ -9429,10 +9525,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} nmi</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">smi</displayName>
-				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} smi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="few">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>točke</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="few">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -10447,6 +10549,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} i {1}</listPatternPart>
 			<listPatternPart type="2">{0} i {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} ili {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} ili {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -10479,103 +10587,103 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</messages>
 	</posix>
 	<characterLabels>
-		<characterLabelPattern type="all" draft="contributed">{0} — Sve</characterLabelPattern>
+		<characterLabelPattern type="all">{0} — Sve</characterLabelPattern>
 		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
-		<characterLabelPattern type="compatibility" draft="contributed">{0} — Kompatibilnost</characterLabelPattern>
-		<characterLabelPattern type="enclosed" draft="contributed">{0} — Priloženo</characterLabelPattern>
-		<characterLabelPattern type="extended" draft="contributed">{0} — Prošireno</characterLabelPattern>
-		<characterLabelPattern type="historic" draft="contributed">{0} — Povijesno</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous" draft="contributed">{0} — Razno</characterLabelPattern>
-		<characterLabelPattern type="other" draft="contributed">{0} — Ostalo</characterLabelPattern>
-		<characterLabelPattern type="scripts" draft="contributed">Pisma — {0}</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} — Kompatibilnost</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — Priloženo</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — Prošireno</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — Povijesno</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — Razno</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — Ostalo</characterLabelPattern>
+		<characterLabelPattern type="scripts">Pisma — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} potez</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="few">{0} poteza</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} poteza</characterLabelPattern>
-		<characterLabel type="activities" draft="contributed">Aktivnosti</characterLabel>
-		<characterLabel type="african_scripts" draft="contributed">Afrička pisma</characterLabel>
-		<characterLabel type="american_scripts" draft="contributed">Američka pisma</characterLabel>
+		<characterLabel type="activities">aktivnost</characterLabel>
+		<characterLabel type="african_scripts">afričko pismo</characterLabel>
+		<characterLabel type="american_scripts">američko pismo</characterLabel>
 		<characterLabel type="animal">životinja</characterLabel>
-		<characterLabel type="animals_nature" draft="contributed">Životinje i priroda</characterLabel>
-		<characterLabel type="arrows" draft="contributed">Strelice</characterLabel>
+		<characterLabel type="animals_nature">životinja ili priroda</characterLabel>
+		<characterLabel type="arrows">strelica</characterLabel>
 		<characterLabel type="body">tijelo</characterLabel>
-		<characterLabel type="box_drawing" draft="contributed">Crtani znakovi</characterLabel>
-		<characterLabel type="braille" draft="contributed">Brajica</characterLabel>
+		<characterLabel type="box_drawing">crtani znak</characterLabel>
+		<characterLabel type="braille">brajica</characterLabel>
 		<characterLabel type="building">zgrada</characterLabel>
-		<characterLabel type="bullets_stars" draft="contributed">Predznaci/zvjezdice</characterLabel>
-		<characterLabel type="consonantal_jamo" draft="contributed">Konsonantni Jamo</characterLabel>
-		<characterLabel type="currency_symbols" draft="contributed">Simboli valuta</characterLabel>
-		<characterLabel type="dash_connector" draft="contributed">Crtice/spojnice</characterLabel>
-		<characterLabel type="digits" draft="contributed">Znamenke</characterLabel>
-		<characterLabel type="dingbats" draft="contributed">Dingbat</characterLabel>
-		<characterLabel type="divination_symbols" draft="contributed">Simboli za proricanje</characterLabel>
-		<characterLabel type="downwards_arrows" draft="contributed">Strelice prema dolje</characterLabel>
-		<characterLabel type="downwards_upwards_arrows" draft="contributed">Strelice gore-dolje</characterLabel>
-		<characterLabel type="east_asian_scripts" draft="contributed">Istočnoazijska pisma</characterLabel>
-		<characterLabel type="emoji" draft="contributed">Emotikoni</characterLabel>
-		<characterLabel type="european_scripts" draft="contributed">Europska pisma</characterLabel>
+		<characterLabel type="bullets_stars">predznak ili zvjezdica</characterLabel>
+		<characterLabel type="consonantal_jamo">konsonantni Jamo</characterLabel>
+		<characterLabel type="currency_symbols">simbol valute</characterLabel>
+		<characterLabel type="dash_connector">crtica ili spojnica</characterLabel>
+		<characterLabel type="digits">znamenka</characterLabel>
+		<characterLabel type="dingbats">dingbat</characterLabel>
+		<characterLabel type="divination_symbols">simbol za proricanje</characterLabel>
+		<characterLabel type="downwards_arrows">strelica prema dolje</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">strelica gore-dolje</characterLabel>
+		<characterLabel type="east_asian_scripts">istočnoazijsko pismo</characterLabel>
+		<characterLabel type="emoji">emotikon</characterLabel>
+		<characterLabel type="european_scripts">europsko pismo</characterLabel>
 		<characterLabel type="female">žena</characterLabel>
 		<characterLabel type="flag">zastava</characterLabel>
-		<characterLabel type="flags" draft="contributed">Zastave</characterLabel>
-		<characterLabel type="food_drink" draft="contributed">Hrana i pića</characterLabel>
-		<characterLabel type="format" draft="contributed">Format</characterLabel>
-		<characterLabel type="format_whitespace" draft="contributed">Format i bjelina</characterLabel>
-		<characterLabel type="full_width_form_variant" draft="contributed">Varijante pune širine</characterLabel>
-		<characterLabel type="geometric_shapes" draft="contributed">Geometrijski oblici</characterLabel>
-		<characterLabel type="half_width_form_variant" draft="contributed">Varijante na pola širine</characterLabel>
-		<characterLabel type="han_characters" draft="contributed">Han znakovi</characterLabel>
-		<characterLabel type="han_radicals" draft="contributed">Han označitelji</characterLabel>
-		<characterLabel type="hanja" draft="contributed">Hanja</characterLabel>
-		<characterLabel type="hanzi_simplified" draft="contributed">Hanzi (pojednostavljeni)</characterLabel>
-		<characterLabel type="hanzi_traditional" draft="contributed">Hanzi (tradicionalni)</characterLabel>
+		<characterLabel type="flags">zastave</characterLabel>
+		<characterLabel type="food_drink">jelo i piće</characterLabel>
+		<characterLabel type="format">format</characterLabel>
+		<characterLabel type="format_whitespace">format i bjelina</characterLabel>
+		<characterLabel type="full_width_form_variant">varijanta pune širine</characterLabel>
+		<characterLabel type="geometric_shapes">geometrijski oblik</characterLabel>
+		<characterLabel type="half_width_form_variant">varijanta od pola širine</characterLabel>
+		<characterLabel type="han_characters">Han znak</characterLabel>
+		<characterLabel type="han_radicals">Han označitelj</characterLabel>
+		<characterLabel type="hanja">Hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">Hanzi (pojednostavljeni)</characterLabel>
+		<characterLabel type="hanzi_traditional">Hanzi (tradicionalni)</characterLabel>
 		<characterLabel type="heart">srce</characterLabel>
-		<characterLabel type="historic_scripts" draft="contributed">Povijesna pisma</characterLabel>
-		<characterLabel type="ideographic_desc_characters" draft="contributed">Ideografski opisni znakovi</characterLabel>
-		<characterLabel type="japanese_kana" draft="contributed">Japanska Kana</characterLabel>
-		<characterLabel type="kanbun" draft="contributed">Kanbun</characterLabel>
-		<characterLabel type="kanji" draft="contributed">Kanji</characterLabel>
-		<characterLabel type="keycap">keycap</characterLabel>
-		<characterLabel type="leftwards_arrows" draft="contributed">Strelice ulijevo</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">Strelice ulijevo-udesno</characterLabel>
-		<characterLabel type="letterlike_symbols" draft="contributed">Simboli slični slovima</characterLabel>
-		<characterLabel type="limited_use" draft="contributed">Ograničena uporaba</characterLabel>
+		<characterLabel type="historic_scripts">povijesno pismo</characterLabel>
+		<characterLabel type="ideographic_desc_characters">ideografski opisni znak</characterLabel>
+		<characterLabel type="japanese_kana">japanska Kana</characterLabel>
+		<characterLabel type="kanbun">Kanbun</characterLabel>
+		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">tipka</characterLabel>
+		<characterLabel type="leftwards_arrows">strelica ulijevo</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">strelica lijevo-desno</characterLabel>
+		<characterLabel type="letterlike_symbols">simbol sličan slovu</characterLabel>
+		<characterLabel type="limited_use">ograničena uporaba</characterLabel>
 		<characterLabel type="male">muškarac</characterLabel>
-		<characterLabel type="math_symbols" draft="contributed">Matematički simboli</characterLabel>
-		<characterLabel type="middle_eastern_scripts" draft="contributed">Bliskoistočna pisma</characterLabel>
-		<characterLabel type="miscellaneous" draft="contributed">Razno</characterLabel>
-		<characterLabel type="modern_scripts" draft="contributed">Moderna pisma</characterLabel>
-		<characterLabel type="modifier" draft="contributed">Modifikator</characterLabel>
-		<characterLabel type="musical_symbols" draft="contributed">Glazbeni simboli</characterLabel>
+		<characterLabel type="math_symbols">matematički simbol</characterLabel>
+		<characterLabel type="middle_eastern_scripts">bliskoistočno pismo</characterLabel>
+		<characterLabel type="miscellaneous">razno</characterLabel>
+		<characterLabel type="modern_scripts">moderno pismo</characterLabel>
+		<characterLabel type="modifier">modifikator</characterLabel>
+		<characterLabel type="musical_symbols">glazbeni simbol</characterLabel>
 		<characterLabel type="nature">priroda</characterLabel>
-		<characterLabel type="nonspacing" draft="contributed">Bez razmaka</characterLabel>
-		<characterLabel type="numbers" draft="contributed">Brojevi</characterLabel>
-		<characterLabel type="objects" draft="contributed">Predmeti</characterLabel>
-		<characterLabel type="other" draft="contributed">Ostalo</characterLabel>
-		<characterLabel type="paired" draft="contributed">Upareno</characterLabel>
+		<characterLabel type="nonspacing">bez razmaka</characterLabel>
+		<characterLabel type="numbers">brojevi</characterLabel>
+		<characterLabel type="objects">predmet</characterLabel>
+		<characterLabel type="other">ostalo</characterLabel>
+		<characterLabel type="paired">upareno</characterLabel>
 		<characterLabel type="person">osoba</characterLabel>
-		<characterLabel type="phonetic_alphabet" draft="contributed">Fonetska abeceda</characterLabel>
-		<characterLabel type="pictographs" draft="contributed">Piktogrami</characterLabel>
+		<characterLabel type="phonetic_alphabet">fonetska abeceda</characterLabel>
+		<characterLabel type="pictographs">piktogram</characterLabel>
 		<characterLabel type="place">mjesto</characterLabel>
 		<characterLabel type="plant">biljka</characterLabel>
-		<characterLabel type="punctuation" draft="contributed">Interpunkcija</characterLabel>
-		<characterLabel type="rightwards_arrows" draft="contributed">Strelice udesno</characterLabel>
-		<characterLabel type="sign_standard_symbols" draft="contributed">Znakovi/standardni simboli</characterLabel>
-		<characterLabel type="small_form_variant" draft="contributed">Varijante male veličine</characterLabel>
-		<characterLabel type="smiley">smajlić</characterLabel>
-		<characterLabel type="smileys_people" draft="contributed">Emotikoni i osobe</characterLabel>
-		<characterLabel type="south_asian_scripts" draft="contributed">Južnoazijska pisma</characterLabel>
-		<characterLabel type="southeast_asian_scripts" draft="contributed">Jugoistočna azijska pisma</characterLabel>
-		<characterLabel type="spacing" draft="contributed">Razmak</characterLabel>
+		<characterLabel type="punctuation">interpunkcija</characterLabel>
+		<characterLabel type="rightwards_arrows">strelica udesno</characterLabel>
+		<characterLabel type="sign_standard_symbols">znak ili simbol</characterLabel>
+		<characterLabel type="small_form_variant">varijanta male veličine</characterLabel>
+		<characterLabel type="smiley">smješko</characterLabel>
+		<characterLabel type="smileys_people">smješko ili osoba</characterLabel>
+		<characterLabel type="south_asian_scripts">južnoazijsko pismo</characterLabel>
+		<characterLabel type="southeast_asian_scripts">jugoistočno azijsko pismo</characterLabel>
+		<characterLabel type="spacing">razmak</characterLabel>
 		<characterLabel type="sport">sport</characterLabel>
-		<characterLabel type="symbols" draft="contributed">Simboli</characterLabel>
-		<characterLabel type="technical_symbols" draft="contributed">Tehnički simboli</characterLabel>
-		<characterLabel type="tone_marks" draft="contributed">Oznake tona</characterLabel>
+		<characterLabel type="symbols">simbol</characterLabel>
+		<characterLabel type="technical_symbols">tehnički simbol</characterLabel>
+		<characterLabel type="tone_marks">oznaka tona</characterLabel>
 		<characterLabel type="travel">putovanje</characterLabel>
-		<characterLabel type="travel_places" draft="contributed">Putovanja i mjesta</characterLabel>
-		<characterLabel type="upwards_arrows" draft="contributed">Strelice prema gore</characterLabel>
-		<characterLabel type="variant_forms" draft="contributed">Varijante</characterLabel>
-		<characterLabel type="vocalic_jamo" draft="contributed">Vokalni Jamo</characterLabel>
+		<characterLabel type="travel_places">putovanje ili mjesto</characterLabel>
+		<characterLabel type="upwards_arrows">strelica prema gore</characterLabel>
+		<characterLabel type="variant_forms">varijanta</characterLabel>
+		<characterLabel type="vocalic_jamo">vokalni Jamo</characterLabel>
 		<characterLabel type="weather">vrijeme</characterLabel>
-		<characterLabel type="western_asian_scripts" draft="contributed">Zapadnoazijska pisma</characterLabel>
-		<characterLabel type="whitespace" draft="contributed">Bjelina</characterLabel>
+		<characterLabel type="western_asian_scripts">zapadnoazijsko pismo</characterLabel>
+		<characterLabel type="whitespace">bjelina</characterLabel>
 	</characterLabels>
 </ldml>

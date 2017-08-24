@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -32,9 +34,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BW">Botswana</territory>
 			<territory type="BY">Weissrussland</territory>
 			<territory type="CV">Kapverden</territory>
+			<territory type="EZ" draft="contributed">Eurozone</territory>
 			<territory type="GB">Grossbritannien</territory>
 			<territory type="QO">Äusseres Ozeanien</territory>
 			<territory type="SB">Salomon-Inseln</territory>
+			<territory type="TL" draft="provisional">Osttimor</territory>
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<keys>
@@ -54,6 +58,69 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[a ä b c d e f g h i j k l m n o ö p q r s t u ü v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ã ā æ ç é è ĕ ê ë ē ğ í ì ĭ î ï İ ī ı ñ ó ò ŏ ô ø ō œ ş ß ú ù ŭ û ū ÿ]</exemplarCharacters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="sun" draft="provisional">So</day>
+							<day type="mon" draft="provisional">Mo</day>
+							<day type="tue" draft="provisional">Di</day>
+							<day type="wed" draft="provisional">Mi</day>
+							<day type="thu" draft="provisional">Do</day>
+							<day type="fri" draft="provisional">Fr</day>
+							<day type="sat" draft="provisional">Sa</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yw" count="one">'Woche' w 'des' 'Jahres' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'Woche' w 'des' 'Jahres' y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="era-narrow">
+				<displayName draft="contributed">Epoche</displayName>
+			</field>
+			<field type="quarter">
+				<relative type="-1" draft="contributed">letztes Quartal</relative>
+				<relative type="0" draft="contributed">dieses Quartal</relative>
+			</field>
+			<field type="weekOfMonth">
+				<displayName draft="contributed">Woche im Monat</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName draft="contributed">Wo. i. M.</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName draft="contributed">W. i. Mon.</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName draft="contributed">Tag d. J.</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName draft="contributed">Wochentag</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName draft="contributed">Wochentag im Monat</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName draft="contributed">Wochent. i. Mo.</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName draft="contributed">Wochent. i. Mon.</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<zone type="Europe/Saratov">
+				<exemplarCity draft="contributed">Saratov</exemplarCity>
+			</zone>
+		</timeZoneNames>
+	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
@@ -84,6 +151,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Weissrussischer Rubel (2000–2016)</displayName>
 				<displayName count="other">Weissrussische Rubel (2000–2016)</displayName>
 			</currency>
+			<currency type="EUR">
+				<symbol draft="contributed">EUR</symbol>
+				<symbol alt="narrow" draft="contributed">EUR</symbol>
+			</currency>
+			<currency type="PEN">
+				<displayName draft="contributed">Peruanischer Neuer Sol</displayName>
+				<displayName count="one" draft="contributed">Peruanischer Neuer Sol</displayName>
+			</currency>
 		</currencies>
 	</numbers>
 	<units>
@@ -106,6 +181,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Kubikfuss</displayName>
 				<unitPattern count="one">{0} Kubikfuss</unitPattern>
 				<unitPattern count="other">{0} Kubikfuss</unitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<unitPattern count="other" draft="contributed">{0} gal Imp.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/gal Imp.</perUnitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">

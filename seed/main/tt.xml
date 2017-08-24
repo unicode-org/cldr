@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2016 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,6 +11,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="tt"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="af">африкаанс</language>
 			<language type="am">амхар</language>
@@ -37,13 +42,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cy">уэльс</language>
 			<language type="da">дания</language>
 			<language type="de">алман</language>
+			<language type="de_AT">алман (Австрия)</language>
+			<language type="de_CH">алман (Швейцария)</language>
 			<language type="dsb">түбән сорб</language>
 			<language type="dv">мальдив</language>
 			<language type="dz">дзонг-кха</language>
 			<language type="el">грек</language>
 			<language type="en">инглиз</language>
+			<language type="en_AU">инглиз (Австралия)</language>
+			<language type="en_CA">инглиз (Канада)</language>
+			<language type="en_GB">инглиз (Бөекбритания)</language>
+			<language type="en_GB" alt="short">инглиз (Бөекбритания)</language>
+			<language type="en_US">инглиз (АКШ)</language>
+			<language type="en_US" alt="short">инглиз (АКШ)</language>
 			<language type="eo">эсперанто</language>
 			<language type="es">испан</language>
+			<language type="es_419">испан (Латин Америкасы)</language>
+			<language type="es_ES">испан (Испания)</language>
+			<language type="es_MX">испан (Мексика)</language>
 			<language type="et">эстон</language>
 			<language type="eu">баск</language>
 			<language type="fa">фарсы</language>
@@ -52,6 +68,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fil">филиппин</language>
 			<language type="fo">фарер</language>
 			<language type="fr">француз</language>
+			<language type="fr_CA">француз (Канада)</language>
+			<language type="fr_CH">француз (Швейцария)</language>
 			<language type="ga">ирланд</language>
 			<language type="gd">шотланд гэль</language>
 			<language type="gl">галисия</language>
@@ -115,6 +133,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">поляк</language>
 			<language type="ps">пушту</language>
 			<language type="pt">португал</language>
+			<language type="pt_BR">португал (Бразилия)</language>
+			<language type="pt_PT">португал (Португалия)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
 			<language type="rm">ретороман</language>
@@ -150,6 +170,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tzm">үзәк атлас тамазигт</language>
 			<language type="ug">уйгыр</language>
 			<language type="uk">украин</language>
+			<language type="und">билгесез тел</language>
 			<language type="ur">урду</language>
 			<language type="uz">үзбәк</language>
 			<language type="ve">венда</language>
@@ -157,8 +178,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="wo">волоф</language>
 			<language type="yi">идиш</language>
 			<language type="yo">йоруба</language>
-			<language type="zh">кытай</language>
+			<language type="zh">кытай (тәрҗемә киңәше: аерым алганда, мандарин кытайчасы)</language>
+			<language type="zh_Hans">гадиләштерелгән кытай</language>
+			<language type="zh_Hant">традицион кытай</language>
 		</languages>
+		<scripts>
+			<script type="Arab">гарәп</script>
+			<script type="Cyrl">кирилл</script>
+			<script type="Hans">гадиләштерелгән</script>
+			<script type="Hans" alt="stand-alone">гадиләштерелгән кытай</script>
+			<script type="Hant">традицион</script>
+			<script type="Hant" alt="stand-alone">традицион кытай</script>
+			<script type="Latn">латин</script>
+			<script type="Zxxx">язусыз</script>
+			<script type="Zzzz">билгесез язу</script>
+		</scripts>
 		<territories>
 			<territory type="AD">Андорра</territory>
 			<territory type="AE">Берләшкән Гарәп Әмирлекләре</territory>
@@ -233,7 +267,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FO">Фарер утраулары</territory>
 			<territory type="FR">Франция</territory>
 			<territory type="GA">Габон</territory>
-			<territory type="GB">Берләшкән Корольлек</territory>
+			<territory type="GB">Бөекбритания</territory>
 			<territory type="GD">Гренада</territory>
 			<territory type="GE">Грузия</territory>
 			<territory type="GF">Француз Гвианасы</territory>
@@ -404,37 +438,84 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZA">Көньяк Африка</territory>
 			<territory type="ZM">Замбия</territory>
 			<territory type="ZW">Зимбабве</territory>
+			<territory type="ZZ">билгесез төбәк</territory>
 		</territories>
+		<types>
+			<type key="calendar" type="gregorian">григориан ел исәбе</type>
+			<type key="collation" type="standard">гадәти тәртипләү ысулы</type>
+			<type key="numbers" type="latn">көнбатыш цифрлары</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">метрик</measurementSystemName>
+			<measurementSystemName type="UK">Бөекбритания</measurementSystemName>
+			<measurementSystemName type="US">АКШ</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">Тел: {0}</codePattern>
+			<codePattern type="script">Язу: {0}</codePattern>
+			<codePattern type="territory">Төбәк: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а ә б в г д е ё ж җ з и й к л м н о ө п р с т у ү ф х һ ц ч ш щ ъ ы ь э ю я]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[А Ә Б В Г Д Е Ж Җ З И Й К Л М Н О Ө П Р С Т У Ү Ф Х Һ Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">d MMMM y G</pattern>
+							<pattern>d MMMM, y 'ел' (G), EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">d MMMM y G</pattern>
+							<pattern>d MMMM, y 'ел' (G)</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd.MM.y G</pattern>
+							<pattern>dd.MM.y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd.MM.y GGGGG</pattern>
+							<pattern>dd.MM.y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -680,27 +761,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">безнең эрага кадәр</era>
+						<era type="0" alt="variant">безнең эрага кадәр</era>
 						<era type="1">безнең эра</era>
+						<era type="1" alt="variant">безнең эра</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">б.э.к.</era>
+						<era type="0" alt="variant">б.э.к.</era>
 						<era type="1">б.э.</era>
+						<era type="1" alt="variant">б.э.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>d MMMM y 'ел', EEEE</pattern>
+							<pattern>d MMMM, y 'ел', EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM y 'ел'</pattern>
+							<pattern>d MMMM, y 'ел'</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM y 'ел'</pattern>
+							<pattern>d MMM, y 'ел'</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -791,7 +876,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM, y 'ел'</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ, y 'ел'</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ, y 'ел'</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y 'елның' w 'атнасы'</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y 'елның' w 'атнасы'</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -894,8 +979,179 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>эра</displayName>
+			</field>
+			<field type="year">
+				<displayName>ел</displayName>
+			</field>
+			<field type="year-short">
+				<displayName>ел</displayName>
+			</field>
+			<field type="year-narrow">
+				<displayName>ел</displayName>
+			</field>
+			<field type="quarter">
+				<displayName>квартал</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName>кв.</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>кв.</displayName>
+			</field>
+			<field type="month">
+				<displayName>ай</displayName>
+			</field>
+			<field type="month-short">
+				<displayName>ай</displayName>
+			</field>
+			<field type="month-narrow">
+				<displayName>ай</displayName>
+			</field>
+			<field type="week">
+				<displayName>атна</displayName>
+			</field>
+			<field type="week-short">
+				<displayName>атна</displayName>
+			</field>
+			<field type="week-narrow">
+				<displayName>атна</displayName>
+			</field>
+			<field type="day">
+				<displayName>көн</displayName>
+				<relative type="-1">кичә</relative>
+				<relative type="0">бүген</relative>
+				<relative type="1">иртәгә</relative>
+			</field>
+			<field type="day-short">
+				<displayName>көн</displayName>
+			</field>
+			<field type="day-narrow">
+				<displayName>көн</displayName>
+			</field>
+			<field type="weekday">
+				<displayName>атна көне</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>сәгать</displayName>
+			</field>
+			<field type="hour-short">
+				<displayName>сәг.</displayName>
+			</field>
+			<field type="hour-narrow">
+				<displayName>сәг.</displayName>
+			</field>
+			<field type="minute">
+				<displayName>минут</displayName>
+			</field>
+			<field type="minute-short">
+				<displayName>мин.</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName>мин.</displayName>
+			</field>
+			<field type="second">
+				<displayName>секунд</displayName>
+			</field>
+			<field type="second-short">
+				<displayName>с.</displayName>
+			</field>
+			<field type="second-narrow">
+				<displayName>с.</displayName>
+			</field>
+			<field type="zone">
+				<displayName>вакыт өлкәсе</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<regionFormat>{0} вакыты</regionFormat>
+			<regionFormat type="daylight">{0} җәйге вакыты</regionFormat>
+			<regionFormat type="standard">{0} гадәти вакыты</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Бөтендөнья килештерелгән вакыты</standard>
+				</long>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>билгесез шәһәр</exemplarCity>
+			</zone>
+			<metazone type="America_Central">
+				<long>
+					<generic>Төньяк Америка үзәк вакыты</generic>
+					<standard>Төньяк Америка гадәти үзәк вакыты</standard>
+					<daylight>Төньяк Америка җәйге үзәк вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>Төньяк Америка көнчыгыш вакыты</generic>
+					<standard>Төньяк Америка гадәти көнчыгыш вакыты</standard>
+					<daylight>Төньяк Америка җәйге көнчыгыш вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>Төньяк Америка тау вакыты</generic>
+					<standard>Төньяк Америка гадәти тау вакыты</standard>
+					<daylight>Төньяк Америка җәйге тау вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>Төньяк Америка Тын океан вакыты</generic>
+					<standard>Төньяк Америка гадәти Тын океан вакыты</standard>
+					<daylight>Төньяк Америка җәйге Тын океан вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>Төньяк Америка атлантик вакыты</generic>
+					<standard>Төньяк Америка гадәти атлантик вакыты</standard>
+					<daylight>Төньяк Америка җәйге атлантик вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>Үзәк Европа вакыты</generic>
+					<standard>гадәти Үзәк Европа вакыты</standard>
+					<daylight>җәйге Үзәк Европа вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>Көнчыгыш Европа вакыты</generic>
+					<standard>гадәти Көнчыгыш Европа вакыты</standard>
+					<daylight>җәйге Көнчыгыш Европа вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>Көнбатыш Европа вакыты</generic>
+					<standard>гадәти Көнбатыш Европа вакыты</standard>
+					<daylight>җәйге Көнбатыш Европа вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Гринвич уртача вакыты</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">latn</native>
+		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
@@ -949,8 +1205,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
+			<currency type="BRL">
+				<displayName>Бразилия реалы</displayName>
+				<displayName count="other">Бразилия реалы</displayName>
+				<symbol draft="contributed">R$</symbol>
+				<symbol alt="narrow" draft="contributed">R$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName>кытай юане</displayName>
+				<displayName count="other">юань</displayName>
+				<symbol draft="contributed">CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName>евро</displayName>
+				<displayName count="other">евро</displayName>
+				<symbol draft="contributed">€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
+			</currency>
+			<currency type="GBP">
+				<displayName>фунт стерлинг</displayName>
+				<displayName count="other">фунт стерлинг</displayName>
+				<symbol draft="contributed">£</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName>Индия рупиясе</displayName>
+				<displayName count="other">Индия рупиясе</displayName>
+				<symbol draft="contributed">₹</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
+			</currency>
+			<currency type="JPY">
+				<displayName>япон иенасы</displayName>
+				<displayName count="other">иена</displayName>
+				<symbol draft="contributed">JP¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
+			<currency type="RUB">
+				<displayName>Россия сумы</displayName>
+				<displayName count="other">сум</displayName>
+				<symbol draft="contributed">RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
+			</currency>
 			<currency type="RUR">
 				<symbol draft="unconfirmed">р.</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>АКШ доллары</displayName>
+				<displayName count="other">АКШ доллары</displayName>
+				<symbol draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="XXX">
+				<displayName>билгесез валюта</displayName>
+				<displayName count="other">(билгесез валюта)</displayName>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -958,4 +1266,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 	</numbers>
+	<units>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} һәм {1}</listPatternPart>
+			<listPatternPart type="2">{0} һәм {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr>әйе:әйе</yesstr>
+			<nostr>юк:юк</nostr>
+		</messages>
+	</posix>
 </ldml>

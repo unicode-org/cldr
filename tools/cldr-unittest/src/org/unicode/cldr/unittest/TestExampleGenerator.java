@@ -422,7 +422,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                 "¤ #0.00"));
         assertEquals("Currency format example faulty",
-            "〖US$ ❬1295,00❭〗〖-US$ ❬1295,00❭〗", actual);
+            "〖USD ❬1295,00❭〗〖-USD ❬1295,00❭〗", actual);
     }
 
     public void TestSymbols() {

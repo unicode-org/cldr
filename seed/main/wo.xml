@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2016 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,6 +11,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="wo"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="af">Afrikaans</language>
 			<language type="am">Amharik</language>
@@ -36,13 +41,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cy">Wels</language>
 			<language type="da">Danuwa</language>
 			<language type="de">Almaa</language>
+			<language type="de_AT">Almaa (Ótiriis)</language>
+			<language type="de_CH">Almaa (Siwis)</language>
 			<language type="dsb">Sorab-Suuf</language>
 			<language type="dv">Diweyi</language>
 			<language type="dz">Dsongkaa</language>
 			<language type="el">Gereg</language>
 			<language type="en">Àngale</language>
+			<language type="en_AU">Àngale (Ostarali)</language>
+			<language type="en_CA">Àngale (Kanadaa)</language>
+			<language type="en_GB">Àngale (Ruwaayom Ini)</language>
+			<language type="en_GB" alt="short">Àngale (RI)</language>
+			<language type="en_US">Àngale (Etaa Sini)</language>
+			<language type="en_US" alt="short">Àngale (ES)</language>
 			<language type="eo">Esperantoo</language>
 			<language type="es">Español</language>
+			<language type="es_419">Español (Amerik Latin)</language>
+			<language type="es_ES">Español (Españ)</language>
+			<language type="es_MX">Español (Meksiko)</language>
 			<language type="et">Estoñiye</language>
 			<language type="eu">Bask</language>
 			<language type="fa">Pers</language>
@@ -51,6 +67,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fil">Filipiye</language>
 			<language type="fo">Feroos</language>
 			<language type="fr">Farañse</language>
+			<language type="fr_CA">Farañse (Kanadaa)</language>
+			<language type="fr_CH">Farañse (Siwis)</language>
 			<language type="ga">Irlànde</language>
 			<language type="gd">Galuwaa bu Ekos</language>
 			<language type="gl">Galisiye</language>
@@ -115,11 +133,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">Polone</language>
 			<language type="ps">Pasto</language>
 			<language type="pt">Purtugees</language>
+			<language type="pt_BR">Purtugees (Beresil)</language>
+			<language type="pt_PT">Purtugees (Portigaal)</language>
 			<language type="qu">Kesuwa</language>
 			<language type="quc">Kishe</language>
 			<language type="rm">Romaas</language>
 			<language type="ro">Rumaniyee</language>
-			<language type="ru">Làkku risi</language>
+			<language type="ru">Rus</language>
 			<language type="rw">Kinyarwànda</language>
 			<language type="sa">Sanskrit</language>
 			<language type="sah">Saxa</language>
@@ -150,6 +170,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tzm">Tamasis gu Digg Atlaas</language>
 			<language type="ug">Uygur</language>
 			<language type="uk">Ikreniye</language>
+			<language type="und">Làkk wuñ xamul</language>
 			<language type="ur">Urdu</language>
 			<language type="uz">Usbek</language>
 			<language type="ve">Wenda</language>
@@ -158,7 +179,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yi">Yidis</language>
 			<language type="yo">Yoruba</language>
 			<language type="zh">Sinuwaa</language>
+			<language type="zh_Hans">Sinuwaa buñ woyofal</language>
+			<language type="zh_Hant">Sinuwaa bu cosaan</language>
 		</languages>
+		<scripts>
+			<script type="Arab">Araab</script>
+			<script type="Cyrl">Sirilik</script>
+			<script type="Hans">Buñ woyofal</script>
+			<script type="Hans" alt="stand-alone">Han buñ woyofal</script>
+			<script type="Hant">Cosaan</script>
+			<script type="Hant" alt="stand-alone">Han u cosaan</script>
+			<script type="Latn">Latin</script>
+			<script type="Zxxx">Luñ bindul</script>
+			<script type="Zzzz">Mbind muñ xamul</script>
+		</scripts>
 		<territories>
 			<territory type="AD">Andoor</territory>
 			<territory type="AE">Emira Arab Ini</territory>
@@ -200,6 +234,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CC">Duni Koko (Kilin)</territory>
 			<territory type="CD" alt="variant">Kongo (R K D)</territory>
 			<territory type="CF">Repiblik Sàntar Afrik</territory>
+			<territory type="CG" alt="variant">Réewum Kongo</territory>
 			<territory type="CH">Siwis</territory>
 			<territory type="CI">Kodiwaar (Côte d’Ivoire)</territory>
 			<territory type="CK">Duni Kuuk</territory>
@@ -232,7 +267,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FM">Mikoronesi</territory>
 			<territory type="FO">Duni Faro</territory>
 			<territory type="FR">Faraans</territory>
-			<territory type="GA">Gaboƞ</territory>
+			<territory type="GA">Gaboŋ</territory>
 			<territory type="GB">Ruwaayom Ini</territory>
 			<territory type="GD">Garanad</territory>
 			<territory type="GE">Seworsi</territory>
@@ -299,6 +334,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MF">Saŋ Marteŋ</territory>
 			<territory type="MG">Madagaskaar</territory>
 			<territory type="MH">Duni Marsaal</territory>
+			<territory type="MK">Maseduwaan</territory>
 			<territory type="MK" alt="variant">Maseduwaan (Réewum yugoslawi gu yàgg ga)</territory>
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Miyanmaar</territory>
@@ -353,6 +389,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SD">Sudaŋ</territory>
 			<territory type="SE">Suwed</territory>
 			<territory type="SG">Singapuur</territory>
+			<territory type="SH">Saŋ Eleen</territory>
 			<territory type="SI">Esloweni</territory>
 			<territory type="SJ">Swalbaar ak Jan Mayen</territory>
 			<territory type="SK">Eslowaki</territory>
@@ -404,13 +441,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZA">Afrik di Sid</territory>
 			<territory type="ZM">Sàmbi</territory>
 			<territory type="ZW">Simbabwe</territory>
+			<territory type="ZZ">Gox buñ xamul</territory>
 		</territories>
+		<types>
+			<type key="calendar" type="gregorian">Arminaatu Gregoriyee</type>
+			<type key="collation" type="standard">SSO (Toftalin wiñ gën a xam)</type>
+			<type key="numbers" type="latn">Siifari Tugal</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">Metrik</measurementSystemName>
+			<measurementSystemName type="UK">UK</measurementSystemName>
+			<measurementSystemName type="US">US</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">{0}</codePattern>
+			<codePattern type="script">{0}</codePattern>
+			<codePattern type="territory">{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a à b c d e é ë f g i j k l m n ñ ŋ o ó p q r s t u w x y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ã h v z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N Ŋ O P Q R S T U V W X Y Z]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="generic">
@@ -484,6 +543,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
@@ -701,29 +763,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">Sub</dayPeriod>
-							<dayPeriod type="pm">Ci Ngo</dayPeriod>
+							<dayPeriod type="pm">Ngo</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">Sub</dayPeriod>
-							<dayPeriod type="pm">Ci Ngo</dayPeriod>
+							<dayPeriod type="pm">Ngo</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">Sub</dayPeriod>
-							<dayPeriod type="pm">Ci Ngo</dayPeriod>
+							<dayPeriod type="pm">Ngo</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">Sub</dayPeriod>
-							<dayPeriod type="pm">Ci Ngo</dayPeriod>
+							<dayPeriod type="pm">Ngo</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">Sub</dayPeriod>
-							<dayPeriod type="pm">Ci Ngo</dayPeriod>
+							<dayPeriod type="pm">Ngo</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">Sub</dayPeriod>
-							<dayPeriod type="pm">Ci Ngo</dayPeriod>
+							<dayPeriod type="pm">Ngo</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -734,7 +796,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">JC</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">AD</era>
+						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -846,15 +910,188 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>jamono</displayName>
+			</field>
+			<field type="year">
+				<displayName>at</displayName>
+			</field>
+			<field type="year-short">
+				<displayName>at.</displayName>
+			</field>
+			<field type="year-narrow">
+				<displayName>at.</displayName>
+			</field>
+			<field type="quarter">
+				<displayName>ñeenti-weer</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName>ñw.</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>ñw.</displayName>
+			</field>
+			<field type="month">
+				<displayName>weer</displayName>
+			</field>
+			<field type="month-short">
+				<displayName>we.</displayName>
+			</field>
+			<field type="month-narrow">
+				<displayName>we.</displayName>
+			</field>
+			<field type="week">
+				<displayName>ayu-bis</displayName>
+			</field>
+			<field type="week-short">
+				<displayName>ayu-b.</displayName>
+			</field>
+			<field type="week-narrow">
+				<displayName>ayu-b.</displayName>
+			</field>
+			<field type="day">
+				<displayName>fan</displayName>
+				<relative type="-1">démb</relative>
+				<relative type="0">tay</relative>
+				<relative type="1">suba</relative>
+			</field>
+			<field type="day-short">
+				<displayName>fan</displayName>
+			</field>
+			<field type="day-narrow">
+				<displayName>fan</displayName>
+			</field>
+			<field type="weekday">
+				<displayName>bisu ayu-bis</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Sub/Ngo</displayName>
+			</field>
+			<field type="hour">
+				<displayName>waxtu</displayName>
+			</field>
+			<field type="hour-short">
+				<displayName>wxt.</displayName>
+			</field>
+			<field type="hour-narrow">
+				<displayName>wxt.</displayName>
+			</field>
+			<field type="minute">
+				<displayName>simili</displayName>
+			</field>
+			<field type="minute-short">
+				<displayName>sim.</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName>sim.</displayName>
+			</field>
+			<field type="second">
+				<displayName>saa</displayName>
+			</field>
+			<field type="second-short">
+				<displayName>saa.</displayName>
+			</field>
+			<field type="second-narrow">
+				<displayName>saa.</displayName>
+			</field>
+			<field type="zone">
+				<displayName>goxu waxtu</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<regionFormat>{0}</regionFormat>
+			<regionFormat type="daylight">{0} (+1)</regionFormat>
+			<regionFormat type="standard">{0} (+0)</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>CUT (waxtu iniwelsel yuñ boole)</standard>
+				</long>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>Dëkk buñ xamul</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity>Dakar</exemplarCity>
+			</zone>
+			<metazone type="America_Central">
+				<long>
+					<generic>CT (waxtu sàntaral)</generic>
+					<standard>CST (waxtu estàndaaru sàntaraal)</standard>
+					<daylight>CDT (waxtu bëccëgu sàntaraal</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>ET waxtu penku</generic>
+					<standard>EST (waxtu estàndaaru penku)</standard>
+					<daylight>EDT (waxtu bëccëgu penku)</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>MT (waxtu tundu)</generic>
+					<standard>MST (waxtu estàndaaru tundu)</standard>
+					<daylight>MDT (waxtu bëccëgu tundu)</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>PT (waxtu pasifik)</generic>
+					<standard>PST (waxtu estàndaaru pasifik)</standard>
+					<daylight>PDT (waxtu bëccëgu pasifik)</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>AT (waxtu atlàntik)</generic>
+					<standard>AST (waxtu estàndaaru penku)</standard>
+					<daylight>ADT (waxtu bëccëgu atlàntik)</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>CTE (waxtu ëroop sàntaraal)</generic>
+					<standard>CEST (waxtu estàndaaru ëroop sàntaraal)</standard>
+					<daylight>CEST (waxtu ete wu ëroop sàntaraal)</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>EET (waxtu ëroop u penku)</generic>
+					<standard>EEST (waxtu estàndaaru ëroop u penku)</standard>
+					<daylight>EEST (waxtu ete wu ëroop u penku)</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>WET (waxtu ëroop u sowwu-jant</generic>
+					<standard>WEST (waxtu estàndaaru ëroop u sowwu-jant)</standard>
+					<daylight>WEST (waxtu ete wu ëroop u sowwu-jant)</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>GMT (waxtu Greenwich)</standard>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">latn</native>
+		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
@@ -900,9 +1137,93 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
+		<currencies>
+			<currency type="BRL">
+				<displayName>Real bu Bresil</displayName>
+				<displayName count="other">Real yu Bresil</displayName>
+				<symbol draft="contributed">R$</symbol>
+				<symbol alt="narrow" draft="contributed">R$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName>Yuan bu Siin</displayName>
+				<displayName count="other">Yuan yu Siin</displayName>
+				<symbol draft="contributed">CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName>Euro</displayName>
+				<displayName count="other">euro</displayName>
+				<symbol draft="contributed">€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
+			</currency>
+			<currency type="GBP">
+				<displayName>Pound bu Grànd Brëtaañ</displayName>
+				<displayName count="other">Pound yu Grànd Brëtaañ</displayName>
+				<symbol draft="contributed">£</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName>Rupee bu End</displayName>
+				<displayName count="other">Rupee yu End</displayName>
+				<symbol draft="contributed">₹</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
+			</currency>
+			<currency type="JPY">
+				<displayName>Yen bu Sapoŋ</displayName>
+				<displayName count="other">Yen yu Sapoŋ</displayName>
+				<symbol draft="contributed">JP¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
+			<currency type="RUB">
+				<displayName>Ruble bi Rsis</displayName>
+				<displayName count="other">Ruble yu Risi</displayName>
+				<symbol draft="contributed">RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>Dolaaru US</displayName>
+				<displayName count="other">Dolaari US</displayName>
+				<symbol draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="XOF">
+				<displayName>Franc CFA bu Afrik Sowwu-jant</displayName>
+				<displayName count="other">Franc CFA yu Afrik Sowwu-jant</displayName>
+				<symbol draft="contributed">CFA</symbol>
+			</currency>
+			<currency type="XXX">
+				<displayName>Xaalis buñ Xamul</displayName>
+				<displayName count="other">(xaalis buñ xamul)</displayName>
+			</currency>
+		</currencies>
 		<miscPatterns numberSystem="latn">
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 	</numbers>
+	<units>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr>waaw:wa</yesstr>
+			<nostr>déedet:dé</nostr>
+		</messages>
+	</posix>
 </ldml>

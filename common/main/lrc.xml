@@ -622,8 +622,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="yMMMM">سپتامر</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">فاٛۋریٱ–مارس2008null</greatestDifference>
+						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -803,6 +809,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">₹</symbol>
 				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
+			<currency type="IQD">
+				<symbol>د.ع.‏</symbol>
+			</currency>
 			<currency type="JPY">
 				<displayName>یئن جاپوٙن</displayName>
 				<displayName count="other">یئن جاپوٙن</displayName>
@@ -828,6 +837,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 	<units>
+		<unitLength type="long">
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
 		</durationUnit>

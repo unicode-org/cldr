@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2016 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -27,10 +27,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ain">ain</language>
 			<language type="ak">ak</language>
 			<language type="ale">ale</language>
+			<language type="alt">alt</language>
 			<language type="am">am</language>
 			<language type="an">an</language>
 			<language type="anp">anp</language>
 			<language type="ar">ar</language>
+			<language type="ar_001">ar_001</language>
 			<language type="arn">arn</language>
 			<language type="arp">arp</language>
 			<language type="as">as</language>
@@ -51,8 +53,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bho">bho</language>
 			<language type="bi">bi</language>
 			<language type="bin">bin</language>
+			<language type="bla">bla</language>
 			<language type="bm">bm</language>
 			<language type="bn">bn</language>
+			<language type="bo">bo</language>
 			<language type="br">br</language>
 			<language type="brx">brx</language>
 			<language type="bs">bs</language>
@@ -70,14 +74,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="chy">chy</language>
 			<language type="ckb">ckb</language>
 			<language type="co">co</language>
+			<language type="crs">crs</language>
 			<language type="cs">cs</language>
 			<language type="cu">cu</language>
 			<language type="cv">cv</language>
+			<language type="cy">cy</language>
 			<language type="da">da</language>
+			<language type="dak">dak</language>
 			<language type="dar">dar</language>
+			<language type="dav">dav</language>
 			<language type="de">de</language>
-			<language type="de_CH">de (CH)</language>
+			<language type="de_AT">de_AT</language>
+			<language type="de_CH">de_CH</language>
 			<language type="dgr">dgr</language>
+			<language type="dje">dje</language>
 			<language type="dsb">dsb</language>
 			<language type="dua">dua</language>
 			<language type="dv">dv</language>
@@ -90,16 +100,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eka">eka</language>
 			<language type="el">el</language>
 			<language type="en">en</language>
-			<language type="en_AU">en (AU)</language>
-			<language type="en_CA">en (CA)</language>
-			<language type="en_GB">en (GB)</language>
-			<language type="en_GB" alt="short">en (GB)</language>
-			<language type="en_US">en (US)</language>
-			<language type="en_US" alt="short">en (US)</language>
+			<language type="en_AU">en_AU</language>
+			<language type="en_CA">en_CA</language>
+			<language type="en_GB">en_GB</language>
+			<language type="en_GB" alt="short">en_GB-short</language>
+			<language type="en_US">en_US</language>
+			<language type="en_US" alt="short">en_US-short</language>
 			<language type="eo">eo</language>
+			<language type="es">es</language>
+			<language type="es_419">es_419</language>
+			<language type="es_ES">es_ES</language>
+			<language type="es_MX">es_MX</language>
 			<language type="et">et</language>
 			<language type="eu">eu</language>
 			<language type="ewo">ewo</language>
+			<language type="fa">fa</language>
 			<language type="ff">ff</language>
 			<language type="fi">fi</language>
 			<language type="fil">fil</language>
@@ -107,16 +122,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">fo</language>
 			<language type="fon">fon</language>
 			<language type="fr">fr</language>
-			<language type="fr_CA">fr (CA)</language>
-			<language type="fr_CH">fr (CH)</language>
+			<language type="fr_CA">fr_CA</language>
+			<language type="fr_CH">fr_CH</language>
 			<language type="frc">frc</language>
 			<language type="fur">fur</language>
+			<language type="fy">fy</language>
 			<language type="ga">ga</language>
 			<language type="gaa">gaa</language>
+			<language type="gd">gd</language>
 			<language type="gez">gez</language>
 			<language type="gil">gil</language>
 			<language type="gl">gl</language>
+			<language type="gn">gn</language>
 			<language type="gor">gor</language>
+			<language type="gsw">gsw</language>
 			<language type="gu">gu</language>
 			<language type="guz">guz</language>
 			<language type="gv">gv</language>
@@ -128,6 +147,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hil">hil</language>
 			<language type="hmn">hmn</language>
 			<language type="hr">hr</language>
+			<language type="hsb">hsb</language>
 			<language type="ht">ht</language>
 			<language type="hu">hu</language>
 			<language type="hup">hup</language>
@@ -138,6 +158,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ibb">ibb</language>
 			<language type="id">id</language>
 			<language type="ig">ig</language>
+			<language type="ii">ii</language>
 			<language type="ilo">ilo</language>
 			<language type="inh">inh</language>
 			<language type="io">io</language>
@@ -147,6 +168,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ja">ja</language>
 			<language type="jbo">jbo</language>
 			<language type="jgo">jgo</language>
+			<language type="jmc">jmc</language>
 			<language type="jv">jv</language>
 			<language type="ka">ka</language>
 			<language type="kab">kab</language>
@@ -154,6 +176,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kaj">kaj</language>
 			<language type="kam">kam</language>
 			<language type="kbd">kbd</language>
+			<language type="kcg">kcg</language>
 			<language type="kde">kde</language>
 			<language type="kea">kea</language>
 			<language type="kfo">kfo</language>
@@ -176,6 +199,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="krl">krl</language>
 			<language type="kru">kru</language>
 			<language type="ks">ks</language>
+			<language type="ksb">ksb</language>
 			<language type="ksf">ksf</language>
 			<language type="ksh">ksh</language>
 			<language type="ku">ku</language>
@@ -201,8 +225,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lua">lua</language>
 			<language type="lun">lun</language>
 			<language type="luo">luo</language>
+			<language type="lus">lus</language>
 			<language type="luy">luy</language>
 			<language type="lv">lv</language>
+			<language type="mad">mad</language>
 			<language type="mag">mag</language>
 			<language type="mai">mai</language>
 			<language type="mak">mak</language>
@@ -252,33 +278,220 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nnh">nnh</language>
 			<language type="nog">nog</language>
 			<language type="nqo">nqo</language>
+			<language type="nr">nr</language>
 			<language type="nso">nso</language>
 			<language type="nus">nus</language>
 			<language type="nv">nv</language>
 			<language type="ny">ny</language>
 			<language type="nyn">nyn</language>
+			<language type="oc">oc</language>
+			<language type="om">om</language>
+			<language type="or">or</language>
+			<language type="os">os</language>
+			<language type="pa">pa</language>
+			<language type="pag">pag</language>
+			<language type="pam">pam</language>
+			<language type="pap">pap</language>
+			<language type="pau">pau</language>
 			<language type="pcm">pcm</language>
+			<language type="pl">pl</language>
+			<language type="prg">prg</language>
+			<language type="ps">ps</language>
+			<language type="pt">pt</language>
+			<language type="pt_BR">pt_BR</language>
+			<language type="pt_PT">pt_PT</language>
+			<language type="qu">qu</language>
 			<language type="quc">quc</language>
+			<language type="rap">rap</language>
+			<language type="rar">rar</language>
+			<language type="rm">rm</language>
+			<language type="rn">rn</language>
+			<language type="ro">ro</language>
+			<language type="ro_MD">ro_MD</language>
+			<language type="rof">rof</language>
+			<language type="root">root</language>
+			<language type="ru">ru</language>
 			<language type="rup">rup</language>
 			<language type="rw">rw</language>
+			<language type="rwk">rwk</language>
+			<language type="sa">sa</language>
+			<language type="sad">sad</language>
 			<language type="sah">sah</language>
+			<language type="saq">saq</language>
+			<language type="sat">sat</language>
 			<language type="sba">sba</language>
 			<language type="sbp">sbp</language>
+			<language type="sc">sc</language>
+			<language type="scn">scn</language>
+			<language type="sco">sco</language>
+			<language type="sd">sd</language>
 			<language type="se">se</language>
+			<language type="seh">seh</language>
 			<language type="ses">ses</language>
+			<language type="sg">sg</language>
+			<language type="shi">shi</language>
+			<language type="shn">shn</language>
+			<language type="si">si</language>
+			<language type="sk">sk</language>
+			<language type="sl">sl</language>
+			<language type="sm">sm</language>
+			<language type="sma">sma</language>
 			<language type="smj">smj</language>
 			<language type="smn">smn</language>
+			<language type="sms">sms</language>
+			<language type="sn">sn</language>
+			<language type="snk">snk</language>
+			<language type="so">so</language>
 			<language type="sq">sq</language>
+			<language type="sr">sr</language>
+			<language type="srn">srn</language>
+			<language type="ss">ss</language>
+			<language type="ssy">ssy</language>
 			<language type="st">st</language>
+			<language type="su">su</language>
+			<language type="suk">suk</language>
+			<language type="sv">sv</language>
+			<language type="sw">sw</language>
+			<language type="sw_CD">sw_CD</language>
 			<language type="swb">swb</language>
+			<language type="syr">syr</language>
+			<language type="ta">ta</language>
+			<language type="te">te</language>
+			<language type="tem">tem</language>
+			<language type="teo">teo</language>
+			<language type="tet">tet</language>
+			<language type="tg">tg</language>
+			<language type="th">th</language>
+			<language type="ti">ti</language>
+			<language type="tig">tig</language>
+			<language type="tk">tk</language>
 			<language type="tlh">tlh</language>
+			<language type="tn">tn</language>
+			<language type="to">to</language>
+			<language type="tpi">tpi</language>
+			<language type="tr">tr</language>
+			<language type="trv">trv</language>
+			<language type="ts">ts</language>
+			<language type="tt">tt</language>
+			<language type="tum">tum</language>
+			<language type="tvl">tvl</language>
+			<language type="twq">twq</language>
+			<language type="ty">ty</language>
+			<language type="tyv">tyv</language>
 			<language type="tzm">tzm</language>
+			<language type="udm">udm</language>
+			<language type="ug">ug</language>
+			<language type="uk">uk</language>
+			<language type="umb">umb</language>
+			<language type="und">und</language>
+			<language type="ur">ur</language>
+			<language type="uz">uz</language>
+			<language type="vai">vai</language>
+			<language type="ve">ve</language>
+			<language type="vi">vi</language>
+			<language type="vo">vo</language>
+			<language type="vun">vun</language>
+			<language type="wa">wa</language>
+			<language type="wae">wae</language>
+			<language type="wal">wal</language>
+			<language type="war">war</language>
+			<language type="wo">wo</language>
 			<language type="xal">xal</language>
+			<language type="xh">xh</language>
+			<language type="xog">xog</language>
+			<language type="yav">yav</language>
+			<language type="ybb">ybb</language>
+			<language type="yi">yi</language>
+			<language type="yo">yo</language>
 			<language type="yue">yue</language>
+			<language type="zgh">zgh</language>
 			<language type="zh">zh</language>
+			<language type="zh_Hans" draft="provisional">zh (Hans)</language>
+			<language type="zh_Hant" draft="provisional">zh (Hant)</language>
+			<language type="zu">zu</language>
+			<language type="zun">zun</language>
 			<language type="zxx">zxx</language>
+			<language type="zza">zza</language>
 		</languages>
+		<scripts>
+			<script type="Arab">Arab</script>
+			<script type="Armn">Armn</script>
+			<script type="Beng">Beng</script>
+			<script type="Bopo">Bopo</script>
+			<script type="Brai">Brai</script>
+			<script type="Cyrl">Cyrl</script>
+			<script type="Deva">Deva</script>
+			<script type="Ethi">Ethi</script>
+			<script type="Geor">Geor</script>
+			<script type="Grek">Grek</script>
+			<script type="Gujr">Gujr</script>
+			<script type="Guru">Guru</script>
+			<script type="Hanb">Hanb</script>
+			<script type="Hang">Hang</script>
+			<script type="Hani">Hani</script>
+			<script type="Hans">Hans</script>
+			<script type="Hans" alt="stand-alone">Hans</script>
+			<script type="Hant">Hant</script>
+			<script type="Hant" alt="stand-alone">Hant</script>
+			<script type="Hebr">Hebr</script>
+			<script type="Hira">Hira</script>
+			<script type="Hrkt">Hrkt</script>
+			<script type="Jamo">Jamo</script>
+			<script type="Jpan">Jpan</script>
+			<script type="Kana">Kana</script>
+			<script type="Khmr">Khmr</script>
+			<script type="Knda">Knda</script>
+			<script type="Kore">Kore</script>
+			<script type="Laoo">Laoo</script>
+			<script type="Latn">Latn</script>
+			<script type="Mlym">Mlym</script>
+			<script type="Mong">Mong</script>
+			<script type="Mymr">Mymr</script>
+			<script type="Orya">Orya</script>
+			<script type="Sinh">Sinh</script>
+			<script type="Taml">Taml</script>
+			<script type="Telu">Telu</script>
+			<script type="Thaa">Thaa</script>
+			<script type="Thai">Thai</script>
+			<script type="Tibt">Tibt</script>
+			<script type="Zmth">Zmth</script>
+			<script type="Zsye">Zsye</script>
+			<script type="Zsym">Zsym</script>
+			<script type="Zxxx">Zxxx</script>
+			<script type="Zyyy">Zyyy</script>
+			<script type="Zzzz">Zzzz</script>
+		</scripts>
 		<territories>
+			<territory type="001">001</territory>
+			<territory type="002">002</territory>
+			<territory type="003">003</territory>
+			<territory type="005">005</territory>
+			<territory type="009">009</territory>
+			<territory type="011">011</territory>
+			<territory type="013">013</territory>
+			<territory type="014">014</territory>
+			<territory type="015">015</territory>
+			<territory type="017">017</territory>
+			<territory type="018">018</territory>
+			<territory type="019">019</territory>
+			<territory type="021">021</territory>
+			<territory type="029">029</territory>
+			<territory type="030">030</territory>
+			<territory type="034">034</territory>
+			<territory type="035">035</territory>
+			<territory type="039">039</territory>
+			<territory type="053">053</territory>
+			<territory type="054">054</territory>
+			<territory type="057">057</territory>
+			<territory type="061">061</territory>
+			<territory type="142">142</territory>
+			<territory type="143">143</territory>
+			<territory type="145">145</territory>
+			<territory type="150">150</territory>
+			<territory type="151">151</territory>
+			<territory type="154">154</territory>
+			<territory type="155">155</territory>
+			<territory type="419">419</territory>
 			<territory type="AC">Isla Ascensión</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Emiratos Árabes Unidos</territory>
@@ -355,6 +568,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ER">Eritrea</territory>
 			<territory type="ES">España</territory>
 			<territory type="ET">Etiopía</territory>
+			<territory type="EU">EU</territory>
+			<territory type="EZ">EZ</territory>
 			<territory type="FI">Finlandia</territory>
 			<territory type="FJ">Fiyi</territory>
 			<territory type="FK">Islas Malvinas</territory>
@@ -382,7 +597,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinea-Bisáu</territory>
 			<territory type="GY">Guyana</territory>
-			<territory type="HK">RAE de Hong Kong</territory>
+			<territory type="HK">Hong Kong (RAE)</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
 			<territory type="HM">Islas Heard y McDonald</territory>
 			<territory type="HN">Honduras</territory>
@@ -434,11 +649,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">Madagascar</territory>
 			<territory type="MH">Islas Marshall</territory>
 			<territory type="MK">Macedonia</territory>
-			<territory type="MK" alt="variant">ERY de Macedonia</territory>
+			<territory type="MK" alt="variant">ERY Macedonia</territory>
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Myanmar (Burma)</territory>
 			<territory type="MN">Mongolia</territory>
-			<territory type="MO">RAE de Macao China</territory>
+			<territory type="MO">Macao RAE</territory>
 			<territory type="MO" alt="short">Macao</territory>
 			<territory type="MP">Islas Marianas del Norte</territory>
 			<territory type="MQ">Martinica</territory>
@@ -480,6 +695,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paraguay</territory>
 			<territory type="QA">Qatar</territory>
+			<territory type="QO">QO</territory>
 			<territory type="RE">Reunión</territory>
 			<territory type="RO">Rumania</territory>
 			<territory type="RS">Serbia</territory>
@@ -527,6 +743,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ucrania</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Islas menores alejadas de los EE.UU.</territory>
+			<territory type="UN">UN</territory>
 			<territory type="US">Estados Unidos</territory>
 			<territory type="US" alt="short">EE.UU.</territory>
 			<territory type="UY">Uruguay</territory>
@@ -546,6 +763,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZA">Sudáfrica</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabue</territory>
+			<territory type="ZZ">ZZ</territory>
 		</territories>
 		<codePatterns>
 			<codePattern type="language">{0}</codePattern>
@@ -1035,10 +1253,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>Giờ {0}</regionFormat>
+			<regionFormat type="daylight">{0} (+1)</regionFormat>
+			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>Johnston</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Thành phố không rõ</exemplarCity>
 			</zone>
@@ -1438,9 +1662,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Midway">
 				<exemplarCity>Midway</exemplarCity>
 			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
-			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>Wake</exemplarCity>
 			</zone>
@@ -1462,6 +1683,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
 		<otherNumberingSystems>
 			<native>thai</native>
 		</otherNumberingSystems>
@@ -1551,7 +1773,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} km²</unitPattern>
 				<perUnitPattern>{0}/km²</perUnitPattern>
 			</unit>
+			<unit type="area-hectare">
+				<displayName>hectare</displayName>
+				<unitPattern count="other">{0} ha</unitPattern>
+			</unit>
 			<unit type="area-square-meter">
+				<displayName>m²</displayName>
 				<unitPattern count="other">{0} m²</unitPattern>
 				<perUnitPattern>{0}/m²</perUnitPattern>
 			</unit>
@@ -1566,6 +1793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName>acre</displayName>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-square-yard">

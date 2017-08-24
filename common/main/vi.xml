@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -131,6 +133,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">Tiếng Dargwa</language>
 			<language type="dav">Tiếng Taita</language>
 			<language type="de">Tiếng Đức</language>
+			<language type="de_AT">Tiếng Đức (Áo)</language>
 			<language type="de_CH">Tiếng Thượng Giéc-man (Thụy Sĩ)</language>
 			<language type="del">Tiếng Delaware</language>
 			<language type="den">Tiếng Slave</language>
@@ -156,6 +159,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">Tiếng Hy Lạp</language>
 			<language type="elx">Tiếng Elamite</language>
 			<language type="en">Tiếng Anh</language>
+			<language type="en_AU">Tiếng Anh (Australia)</language>
+			<language type="en_CA">Tiếng Anh (Canada)</language>
 			<language type="en_GB">Tiếng Anh (Anh)</language>
 			<language type="en_GB" alt="short">Tiếng Anh (Anh)</language>
 			<language type="en_US">Tiếng Anh (Mỹ)</language>
@@ -165,6 +170,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es">Tiếng Tây Ban Nha</language>
 			<language type="es_419">Tiếng Tây Ban Nha (Mỹ La tinh)</language>
 			<language type="es_ES">Tiếng Tây Ban Nha (Châu Âu)</language>
+			<language type="es_MX">Tiếng Tây Ban Nha (Mexico)</language>
 			<language type="esu">Tiếng Yupik Miền Trung</language>
 			<language type="et">Tiếng Estonia</language>
 			<language type="eu">Tiếng Basque</language>
@@ -180,6 +186,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">Tiếng Faroe</language>
 			<language type="fon">Tiếng Fon</language>
 			<language type="fr">Tiếng Pháp</language>
+			<language type="fr_CA">Tiếng Pháp (Canada)</language>
+			<language type="fr_CH">Tiếng Pháp (Thụy Sĩ)</language>
 			<language type="frc">Tiếng Pháp Cajun</language>
 			<language type="frm">Tiếng Pháp Trung cổ</language>
 			<language type="fro">Tiếng Pháp cổ</language>
@@ -245,7 +253,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="inh">Tiếng Ingush</language>
 			<language type="io">Tiếng Ido</language>
 			<language type="is">Tiếng Iceland</language>
-			<language type="it">Tiếng Ý</language>
+			<language type="it">Tiếng Italy</language>
 			<language type="iu">Tiếng Inuktitut</language>
 			<language type="izh">Tiếng Ingria</language>
 			<language type="ja">Tiếng Nhật</language>
@@ -257,7 +265,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="jrb">Tiếng Judeo-Ả Rập</language>
 			<language type="jut">Tiếng Jutish</language>
 			<language type="jv">Tiếng Java</language>
-			<language type="ka">Tiếng Gruzia</language>
+			<language type="ka">Tiếng Georgia</language>
 			<language type="kaa">Tiếng Kara-Kalpak</language>
 			<language type="kab">Tiếng Kabyle</language>
 			<language type="kac">Tiếng Kachin</language>
@@ -280,7 +288,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kkj">Tiếng Kako</language>
 			<language type="kl">Tiếng Kalaallisut</language>
 			<language type="kln">Tiếng Kalenjin</language>
-			<language type="km">Tiếng Khơ-me</language>
+			<language type="km">Tiếng Khmer</language>
 			<language type="kmb">Tiếng Kimbundu</language>
 			<language type="kn">Tiếng Kannada</language>
 			<language type="ko">Tiếng Hàn</language>
@@ -424,26 +432,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ps">Tiếng Pashto</language>
 			<language type="ps" alt="variant">Tiếng Pushto</language>
 			<language type="pt">Tiếng Bồ Đào Nha</language>
+			<language type="pt_BR">Tiếng Bồ Đào Nha (Brazil)</language>
 			<language type="pt_PT">Tiếng Bồ Đào Nha (Châu Âu)</language>
 			<language type="qu">Tiếng Quechua</language>
 			<language type="quc">Tiếng Kʼicheʼ</language>
 			<language type="qug">Tiếng Quechua ở Cao nguyên Chimborazo</language>
 			<language type="raj" draft="contributed">Tiếng Rajasthani</language>
-			<language type="rap" draft="contributed">Tiếng Rapanui</language>
-			<language type="rar" draft="contributed">Tiếng Rarotongan</language>
+			<language type="rap">Tiếng Rapanui</language>
+			<language type="rar">Tiếng Rarotongan</language>
 			<language type="rm">Tiếng Romansh</language>
 			<language type="rn">Tiếng Rundi</language>
 			<language type="ro">Tiếng Romania</language>
 			<language type="ro_MD">Tiếng Moldova</language>
 			<language type="rof">Tiếng Rombo</language>
 			<language type="rom">Tiếng Romany</language>
-			<language type="root" draft="contributed">Tiếng Root</language>
+			<language type="root">Tiếng Root</language>
 			<language type="ru">Tiếng Nga</language>
 			<language type="rup">Tiếng Aromania</language>
 			<language type="rw">Tiếng Kinyarwanda</language>
 			<language type="rwk">Tiếng Rwa</language>
 			<language type="sa">Tiếng Phạn</language>
-			<language type="sad" draft="contributed">Tiếng Sandawe</language>
+			<language type="sad">Tiếng Sandawe</language>
 			<language type="sah">Tiếng Sakha</language>
 			<language type="sam" draft="contributed">Tiếng Samaritan Aramaic</language>
 			<language type="saq">Tiếng Samburu</language>
@@ -471,7 +480,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sid">Tiếng Sidamo</language>
 			<language type="sk">Tiếng Slovak</language>
 			<language type="sl">Tiếng Slovenia</language>
-			<language type="sm" draft="contributed">Tiếng Samoa</language>
+			<language type="sm">Tiếng Samoa</language>
 			<language type="sma">Tiếng Sami Miền Nam</language>
 			<language type="smj">Tiếng Lule Sami</language>
 			<language type="smn">Tiếng Inari Sami</language>
@@ -485,7 +494,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="srn">Tiếng Sranan Tongo</language>
 			<language type="srr">Tiếng Serer</language>
 			<language type="ss">Tiếng Swati</language>
-			<language type="ssy" draft="contributed">Tiếng Saho</language>
+			<language type="ssy">Tiếng Saho</language>
 			<language type="st">Tiếng Sotho Miền Nam</language>
 			<language type="su">Tiếng Sunda</language>
 			<language type="suk">Tiếng Sukuma</language>
@@ -531,7 +540,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tyv">Tiếng Tuvinian</language>
 			<language type="tzm">Tiếng Tamazight Miền Trung Ma-rốc</language>
 			<language type="udm">Tiếng Udmurt</language>
-			<language type="ug">Tiếng Duy Ngô Nhĩ</language>
+			<language type="ug">Tiếng Uyghur</language>
 			<language type="uga">Tiếng Ugaritic</language>
 			<language type="uk">Tiếng Ucraina</language>
 			<language type="umb">Tiếng Umbundu</language>
@@ -568,6 +577,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zen">Tiếng Zenaga</language>
 			<language type="zgh">Tiếng Tamazight Chuẩn của Ma-rốc</language>
 			<language type="zh">Tiếng Trung</language>
+			<language type="zh_Hans">Tiếng Trung (Giản thể)</language>
+			<language type="zh_Hant">Tiếng Trung (Phồn thể)</language>
 			<language type="zu">Tiếng Zulu</language>
 			<language type="zun">Tiếng Zuni</language>
 			<language type="zxx">Không có nội dung ngôn ngữ</language>
@@ -830,7 +841,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Đảo Giáng Sinh</territory>
 			<territory type="CY">Síp</territory>
-			<territory type="CZ">Czechia</territory>
+			<territory type="CZ">Séc</territory>
 			<territory type="CZ" alt="variant">Cộng hòa Séc</territory>
 			<territory type="DE">Đức</territory>
 			<territory type="DG">Diego Garcia</territory>
@@ -848,6 +859,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Tây Ban Nha</territory>
 			<territory type="ET">Ethiopia</territory>
 			<territory type="EU">Liên Minh Châu Âu</territory>
+			<territory type="EZ" draft="contributed">Khu vực đồng Euro</territory>
 			<territory type="FI">Phần Lan</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Quần đảo Falkland</territory>
@@ -870,7 +882,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GP">Guadeloupe</territory>
 			<territory type="GQ">Guinea Xích Đạo</territory>
 			<territory type="GR">Hy Lạp</territory>
-			<territory type="GS">Quần đảo Nam Georgia và Nam Sandwich</territory>
+			<territory type="GS">Nam Georgia &amp; Quần đảo Nam Sandwich</territory>
 			<territory type="GT">Guatemala</territory>
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinea-Bissau</territory>
@@ -888,11 +900,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">Israel</territory>
 			<territory type="IM">Đảo Man</territory>
 			<territory type="IN">Ấn Độ</territory>
-			<territory type="IO">Lãnh thổ Anh tại Ấn Độ Dương</territory>
+			<territory type="IO">Lãnh thổ Ấn độ dương thuộc Anh</territory>
 			<territory type="IQ">Iraq</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Iceland</territory>
-			<territory type="IT">Ý</territory>
+			<territory type="IT">Italy</territory>
 			<territory type="JE">Jersey</territory>
 			<territory type="JM">Jamaica</territory>
 			<territory type="JO">Jordan</territory>
@@ -1001,7 +1013,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SY">Syria</territory>
 			<territory type="SZ">Swaziland</territory>
 			<territory type="TA">Tristan da Cunha</territory>
-			<territory type="TC">Quần đảo Turk và Caicos</territory>
+			<territory type="TC">Quần đảo Turks và Caicos</territory>
 			<territory type="TD">Chad</territory>
 			<territory type="TF">Lãnh thổ phía Nam Thuộc Pháp</territory>
 			<territory type="TG">Togo</territory>
@@ -1020,7 +1032,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM">Các đảo xa thuộc Hoa Kỳ</territory>
+			<territory type="UM">Các tiểu đảo xa của Hoa Kỳ</territory>
 			<territory type="UN">Liên hiệp quốc</territory>
 			<territory type="UN" alt="short">Liên hiệp quốc</territory>
 			<territory type="US">Hoa Kỳ</territory>
@@ -1160,8 +1172,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="no" draft="contributed">Sắp xếp không phân biệt chữ hoa/chữ thường</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sắp xếp phân biệt chữ hoa/chữ thường</type>
 			<type key="collation" type="big5han">Thứ tự sắp xếp theo tiếng Trung phồn thể - Big5</type>
+			<type key="collation" type="compat" draft="contributed">Thứ tự sắp xếp trước đây, để tương thích</type>
 			<type key="collation" type="dictionary">Thứ tự sắp xếp theo từ điển</type>
 			<type key="collation" type="ducet">Thứ tự sắp xếp unicode mặc định</type>
+			<type key="collation" type="eor" draft="contributed">Quy tắc sắp xếp Châu Âu</type>
 			<type key="collation" type="gb2312han">Thứ tự sắp xếp theo tiếng Trung giản thể - GB2312</type>
 			<type key="collation" type="phonebook">Thứ tự sắp xếp theo danh bạ điện thoại</type>
 			<type key="collation" type="phonetic" draft="contributed">Thứ tự sắp xếp theo ngữ âm</type>
@@ -1283,6 +1297,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-./]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.．․﹒ 。︒｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rs}{Rp}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-－﹣ −⁻₋ ➖‒]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,，﹐︐ ، ٫ 、﹑︑､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+＋﬩﹢⁺₊ ➕]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,，﹐︐ ٫]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.．․﹒ ｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1579,6 +1612,52 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Ed" draft="contributed">d, E</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">r U</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">r(U) MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd" draft="contributed">r MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">r(U) MMM d, E</dateFormatItem>
+						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
+						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">MM-dd</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">MM-dd, E</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">MMM d, E</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
+						<dateFormatItem id="UM" draft="contributed">U MM</dateFormatItem>
+						<dateFormatItem id="UMd" draft="contributed">U MM-d</dateFormatItem>
+						<dateFormatItem id="UMMM" draft="contributed">U MMM</dateFormatItem>
+						<dateFormatItem id="UMMMd" draft="contributed">U MMM d</dateFormatItem>
+						<dateFormatItem id="y" draft="contributed">r(U)</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">r-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="contributed">r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="contributed">r-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd" draft="contributed">r-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd" draft="contributed">r-MM-dd, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">r(U) MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" draft="contributed">r MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd" draft="contributed">r(U) MMM d, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">r(U) MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ" draft="contributed">r(U) QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="contributed">r(U) QQQQ</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<months>
@@ -1761,9 +1840,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">'Ngày' dd</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, dd</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
@@ -1775,8 +1863,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">dd-M</dateFormatItem>
-						<dateFormatItem id="MEd">E, dd-M</dateFormatItem>
+						<dateFormatItem id="Md">dd/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd/M</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="contributed">dd-MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
@@ -2174,11 +2262,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">Trước CN</era>
+						<era type="0" alt="variant">Trước CN</era>
 						<era type="1">sau CN</era>
 						<era type="1" alt="variant">CN</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">Trước CN</era>
+						<era type="0" alt="variant">Trước CN</era>
 						<era type="1">sau CN</era>
 						<era type="1" alt="variant">CN</era>
 					</eraAbbr>
@@ -2253,8 +2343,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, 'ngày' d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -2297,7 +2392,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM 'năm' y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ 'năm' y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'tuần' w 'của' 'năm' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'tuần' w 'của' 'năm' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2641,7 +2736,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
-				<displayName>Thời đại</displayName>
+				<displayName>thời đại</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>thời đại</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>thời đại</displayName>
 			</field>
 			<field type="year">
 				<displayName>Năm</displayName>
@@ -2681,9 +2782,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter">
 				<displayName>Quý</displayName>
-				<relative type="-1" draft="contributed">quý trước</relative>
-				<relative type="0" draft="contributed">quý này</relative>
-				<relative type="1" draft="contributed">quý sau</relative>
+				<relative type="-1">quý trước</relative>
+				<relative type="0">quý này</relative>
+				<relative type="1">quý sau</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">sau {0} quý nữa</relativeTimePattern>
 				</relativeTime>
@@ -2762,7 +2863,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0} tuần trước</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod draft="contributed">tuần {0}</relativePeriod>
+				<relativePeriod>tuần {0}</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>Tuần</displayName>
@@ -2775,7 +2876,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0} tuần trước</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod draft="contributed">tuần {0}</relativePeriod>
+				<relativePeriod>tuần {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>Tuần</displayName>
@@ -2788,7 +2889,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0} tuần trước</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod draft="contributed">tuần {0}</relativePeriod>
+				<relativePeriod>tuần {0}</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>tuần trong tháng</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>tuần trong tháng</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>tuần trong tháng</displayName>
 			</field>
 			<field type="day">
 				<displayName>Ngày</displayName>
@@ -2805,7 +2915,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-short">
-				<displayName draft="contributed">Ngày</displayName>
+				<displayName>Ngày</displayName>
+				<relative type="-2" draft="contributed">Hôm kia</relative>
+				<relative type="2" draft="contributed">Ngày kia</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">sau {0} ngày nữa</relativeTimePattern>
 				</relativeTime>
@@ -2815,6 +2927,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>Ngày</displayName>
+				<relative type="-2" draft="contributed">Hôm kia</relative>
+				<relative type="2" draft="contributed">Ngày kia</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">sau {0} ngày nữa</relativeTimePattern>
 				</relativeTime>
@@ -2822,18 +2936,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} ngày trước</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>ngày trong năm</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>ngày trong năm</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>ngày trong năm</displayName>
+			</field>
 			<field type="weekday">
-				<displayName>Ngày trong tuần</displayName>
+				<displayName>ngày trong tuần</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>ngày trong tuần</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName draft="provisional">ngày trong tuần</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>ngày thường trong tháng</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>ngày thường trong tháng</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>ngày thường trong tháng</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">Chủ Nhật tuần trước</relative>
 				<relative type="0">Chủ Nhật tuần này</relative>
 				<relative type="1">Chủ Nhật tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Chủ Nhật nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Chủ Nhật nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Chủ Nhật trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Chủ Nhật trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-short">
@@ -2841,10 +2979,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Chủ Nhật tuần này</relative>
 				<relative type="1">Chủ Nhật tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Chủ Nhật nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Chủ Nhật nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Chủ Nhật trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Chủ Nhật trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
@@ -2852,10 +2990,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Chủ Nhật tuần này</relative>
 				<relative type="1">Chủ Nhật tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Chủ Nhật nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Chủ Nhật nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Chủ Nhật trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Chủ Nhật trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -2863,10 +3001,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Hai tuần này</relative>
 				<relative type="1">Thứ Hai tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Hai nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Hai nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Hai trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Hai trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-short">
@@ -2874,10 +3012,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Hai tuần này</relative>
 				<relative type="1">Thứ Hai tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Hai nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Hai nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Hai trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Hai trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
@@ -2885,10 +3023,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Hai tuần này</relative>
 				<relative type="1">Thứ Hai tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Hai nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Hai nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Hai trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Hai trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -2896,10 +3034,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Ba tuần này</relative>
 				<relative type="1">Thứ Ba tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Ba nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Ba nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Ba trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Ba trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-short">
@@ -2907,10 +3045,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Ba tuần này</relative>
 				<relative type="1">Thứ Ba tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Ba nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Ba nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Ba trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Ba trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
@@ -2918,10 +3056,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Ba tuần này</relative>
 				<relative type="1">Thứ Ba tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Ba nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Ba nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Ba trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Ba trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -2929,10 +3067,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Tư tuần này</relative>
 				<relative type="1">Thứ Tư tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Tư nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Tư nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Tư trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Tư trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -2940,10 +3078,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Tư tuần này</relative>
 				<relative type="1">Thứ Tư tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Tư nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Tư nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Tư trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Tư trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
@@ -2951,10 +3089,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Tư tuần này</relative>
 				<relative type="1">Thứ Tư tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Tư nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Tư nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Tư trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Tư trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -2962,10 +3100,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Năm tuần này</relative>
 				<relative type="1">Thứ Năm tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Năm nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Năm nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Năm trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Năm trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-short">
@@ -2973,10 +3111,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Năm tuần này</relative>
 				<relative type="1">Thứ Năm tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Năm nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Năm nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Năm trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Năm trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
@@ -2984,10 +3122,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Năm tuần này</relative>
 				<relative type="1">Thứ Năm tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Năm nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Năm nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Năm trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Năm trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -2995,10 +3133,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Sáu tuần này</relative>
 				<relative type="1">Thứ Sáu tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Sáu nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Sáu nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Sáu trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Sáu trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-short">
@@ -3006,10 +3144,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Sáu tuần này</relative>
 				<relative type="1">Thứ Sáu tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Sáu nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Sáu nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Sáu trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Sáu trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
@@ -3017,10 +3155,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Sáu tuần này</relative>
 				<relative type="1">Thứ Sáu tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Sáu nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Sáu nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Sáu trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Sáu trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -3028,10 +3166,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Bảy tuần này</relative>
 				<relative type="1">Thứ Bảy tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Bảy nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Bảy nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Bảy trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Bảy trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-short">
@@ -3039,10 +3177,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Bảy tuần này</relative>
 				<relative type="1">Thứ Bảy tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Bảy nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Bảy nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Bảy trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Bảy trước</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
@@ -3050,18 +3188,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">Thứ Bảy tuần này</relative>
 				<relative type="1">Thứ Bảy tuần sau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="contributed">sau {0} Thứ Bảy nữa</relativeTimePattern>
+					<relativeTimePattern count="other">sau {0} Thứ Bảy nữa</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="contributed">{0} Thứ Bảy trước</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thứ Bảy trước</relativeTimePattern>
 				</relativeTime>
+			</field>
+			<field type="dayperiod-short">
+				<displayName>SA/CH</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName>SA/CH</displayName>
 			</field>
+			<field type="dayperiod-narrow">
+				<displayName>SA/CH</displayName>
+			</field>
 			<field type="hour">
 				<displayName>Giờ</displayName>
-				<relative type="0" draft="contributed">giờ này</relative>
+				<relative type="0">giờ này</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">sau {0} giờ nữa</relativeTimePattern>
 				</relativeTime>
@@ -3089,7 +3233,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute">
 				<displayName>Phút</displayName>
-				<relative type="0" draft="contributed">phút này</relative>
+				<relative type="0">phút này</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">sau {0} phút nữa</relativeTimePattern>
 				</relativeTime>
@@ -3146,6 +3290,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>Múi giờ</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>Múi giờ</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>Múi giờ</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
@@ -3163,7 +3313,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
-					<standard>Giờ phối hợp quốc tế</standard>
+					<standard>Giờ Phối hợp Quốc tế</standard>
 				</long>
 			</zone>
 			<zone type="Etc/Unknown">
@@ -3341,7 +3491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Porto-Novo</exemplarCity>
 			</zone>
 			<zone type="America/St_Barthelemy">
-				<exemplarCity>Saint Barthélemy</exemplarCity>
+				<exemplarCity>St. Barthélemy</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity>Bermuda</exemplarCity>
@@ -3431,7 +3581,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Vancouver</exemplarCity>
 			</zone>
 			<zone type="America/Fort_Nelson">
-				<exemplarCity draft="contributed">Fort Nelson</exemplarCity>
+				<exemplarCity>Fort Nelson</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>Dawson Creek</exemplarCity>
@@ -3529,6 +3679,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>Easter</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Punta Arenas</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Santiago</exemplarCity>
 			</zone>
@@ -3561,6 +3714,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nicosia</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Famagusta</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Praha</exemplarCity>
@@ -3819,6 +3975,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Oral</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Atyrau</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aqtobe</exemplarCity>
@@ -4099,14 +4258,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Saratov</exemplarCity>
+			</zone>
 			<zone type="Europe/Astrakhan">
-				<exemplarCity draft="contributed">Astrakhan</exemplarCity>
+				<exemplarCity>Astrakhan</exemplarCity>
 			</zone>
 			<zone type="Europe/Ulyanovsk">
-				<exemplarCity draft="contributed">Ulyanovsk</exemplarCity>
+				<exemplarCity>Ulyanovsk</exemplarCity>
 			</zone>
 			<zone type="Europe/Kirov">
-				<exemplarCity draft="contributed">Kirov</exemplarCity>
+				<exemplarCity>Kirov</exemplarCity>
 			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity>Samara</exemplarCity>
@@ -4121,10 +4283,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Novosibirsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Barnaul">
-				<exemplarCity draft="contributed">Barnaul</exemplarCity>
+				<exemplarCity>Barnaul</exemplarCity>
 			</zone>
 			<zone type="Asia/Tomsk">
-				<exemplarCity draft="contributed">Tomsk</exemplarCity>
+				<exemplarCity>Tomsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Novokuznetsk">
 				<exemplarCity>Novokuznetsk</exemplarCity>
@@ -4492,16 +4654,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic>Giờ miền trung</generic>
-					<standard>Giờ chuẩn miền trung</standard>
-					<daylight>Giờ mùa hè miền trung</daylight>
+					<generic>Giờ miền Trung</generic>
+					<standard>Giờ chuẩn miền Trung</standard>
+					<daylight>Giờ mùa hè miền Trung</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic>Giờ miền đông</generic>
-					<standard>Giờ chuẩn miền đông</standard>
-					<daylight>Giờ mùa hè miền đông</daylight>
+					<generic>Giờ miền Đông</generic>
+					<standard>Giờ chuẩn miền Đông</standard>
+					<daylight>Giờ mùa hè miền Đông</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -4515,7 +4677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Giờ Thái Bình Dương</generic>
 					<standard>Giờ chuẩn Thái Bình Dương</standard>
-					<daylight>Giờ Mùa hè Thái Bình Dương</daylight>
+					<daylight>Giờ mùa hè Thái Bình Dương</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
@@ -4527,9 +4689,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic draft="contributed">Giờ Apia</generic>
-					<standard draft="contributed">Giờ Chuẩn Apia</standard>
-					<daylight draft="contributed">Giờ Mùa Hè Apia</daylight>
+					<generic>Giờ Apia</generic>
+					<standard>Giờ Chuẩn Apia</standard>
+					<daylight>Giờ Mùa Hè Apia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4563,7 +4725,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>Giờ miền tây Argentina</generic>
-					<standard>Giờ chuẩn miền mây Argentina</standard>
+					<standard>Giờ chuẩn miền tây Argentina</standard>
 					<daylight>Giờ mùa hè miền tây Argentina</daylight>
 				</long>
 			</metazone>
@@ -4578,35 +4740,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Giờ Đại Tây Dương</generic>
 					<standard>Giờ Chuẩn Đại Tây Dương</standard>
-					<daylight>Giờ Mùa hè Đại Tây Dương</daylight>
+					<daylight>Giờ mùa hè Đại Tây Dương</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
-					<generic>Giờ Miền Trung Nước Úc</generic>
-					<standard>Giờ Chuẩn Miền Trung Nước Úc</standard>
-					<daylight>Giờ Mùa Hè Miền Trung Nước Úc</daylight>
+					<generic>Giờ Miền Trung Australia</generic>
+					<standard>Giờ Chuẩn Miền Trung Australia</standard>
+					<daylight>Giờ Mùa Hè Miền Trung Australia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
-					<generic>Giờ Miền Trung Tây Nước Úc</generic>
-					<standard>Giờ Chuẩn Miền Trung Tây Nước Úc</standard>
-					<daylight>Giờ Mùa Hè Miền Trung Tây Nước Úc</daylight>
+					<generic>Giờ Miền Trung Tây Australia</generic>
+					<standard>Giờ Chuẩn Miền Trung Tây Australia</standard>
+					<daylight>Giờ Mùa Hè Miền Trung Tây Australia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
-					<generic>Giờ Miền Đông Nước Úc</generic>
-					<standard>Giờ Chuẩn Miền Đông Nước Úc</standard>
-					<daylight>Giờ Mùa Hè Miền Đông Nước Úc</daylight>
+					<generic>Giờ Miền Đông Australia</generic>
+					<standard>Giờ Chuẩn Miền Đông Australia</standard>
+					<daylight>Giờ Mùa Hè Miền Đông Australia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
-					<generic>Giờ Miền Tây Nước Úc</generic>
-					<standard>Giờ Chuẩn Miền Tây Nước Úc</standard>
-					<daylight>Giờ Mùa Hè Miền Tây Nước Úc</daylight>
+					<generic>Giờ Miền Tây Australia</generic>
+					<standard>Giờ Chuẩn Miền Tây Australia</standard>
+					<daylight>Giờ Mùa Hè Miền Tây Australia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azerbaijan">
@@ -4753,15 +4915,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Europe_Central">
 				<long>
 					<generic>Giờ Trung Âu</generic>
-					<standard>Giờ Chuẩn Trung Âu</standard>
-					<daylight>Giờ Mùa Hè Trung Âu</daylight>
+					<standard>Giờ chuẩn Trung Âu</standard>
+					<daylight>Giờ mùa hè Trung Âu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<generic>Giờ Đông Âu</generic>
-					<standard>Giờ Chuẩn Đông Âu</standard>
-					<daylight>Giờ Mùa Hè Đông Âu</daylight>
+					<standard>Giờ chuẩn Đông Âu</standard>
+					<daylight>Giờ mùa hè Đông Âu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Further_Eastern">
@@ -4773,7 +4935,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Giờ Tây Âu</generic>
 					<standard>Giờ Chuẩn Tây Âu</standard>
-					<daylight>Giờ Mùa hè Tây Âu</daylight>
+					<daylight>Giờ mùa hè Tây Âu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
@@ -4858,9 +5020,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic>Giờ Hawaii-Aleutian</generic>
-					<standard>Giờ Chuẩn Hawaii-Aleutian</standard>
-					<daylight>Giờ Mùa Hè Hawaii-Aleutian</daylight>
+					<generic>Giờ Hawaii-Aleut</generic>
+					<standard>Giờ Chuẩn Hawaii-Aleut</standard>
+					<daylight>Giờ Mùa Hè Hawaii-Aleut</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5470,7 +5632,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤ #,##0.00</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤</pattern>
@@ -5478,18 +5640,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other" draft="contributed">0 N ¤</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N ¤</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N ¤</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr ¤</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr ¤</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr ¤</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T ¤</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T ¤</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T ¤</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 NT ¤</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT ¤</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT ¤</pattern>
+					<pattern type="1000" count="other">0 N ¤</pattern>
+					<pattern type="10000" count="other">00 N ¤</pattern>
+					<pattern type="100000" count="other">000 N ¤</pattern>
+					<pattern type="1000000" count="other">0 Tr ¤</pattern>
+					<pattern type="10000000" count="other">00 Tr ¤</pattern>
+					<pattern type="100000000" count="other">000 Tr ¤</pattern>
+					<pattern type="1000000000" count="other">0 T ¤</pattern>
+					<pattern type="10000000000" count="other">00 T ¤</pattern>
+					<pattern type="100000000000" count="other">000 T ¤</pattern>
+					<pattern type="1000000000000" count="other">0 NT ¤</pattern>
+					<pattern type="10000000000000" count="other">00 NT ¤</pattern>
+					<pattern type="100000000000000" count="other">000 NT ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -5524,8 +5686,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
-				<displayName>Guilder Tây Ấn Hà Lan</displayName>
-				<displayName count="other">Guilder Tây Ấn Hà Lan</displayName>
+				<displayName>Guilder Antille Hà Lan</displayName>
+				<displayName count="other">Guilder Antille Hà Lan</displayName>
 				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
@@ -5796,6 +5958,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">Peso Chile</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>Nhân dân tệ (hải ngoại)</displayName>
+				<displayName count="other">Nhân dân tệ (hải ngoại)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Nhân dân tệ</displayName>
@@ -6488,6 +6655,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Leu Romania</displayName>
 				<displayName count="other">Leu Romania</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Dinar Serbia</displayName>
@@ -6919,8 +7087,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">Rẽ vào lối rẽ thứ nhất bên phải.</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">Rẽ vào lối rẽ thứ {0} bên phải.</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">{0} ngày</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ngày</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Rẽ vào lối rẽ thứ nhất bên phải.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Rẽ vào lối rẽ thứ {0} bên phải.</ordinalMinimalPairs>
 		</minimalPairs>
@@ -7250,6 +7418,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-mile-scandinavian">
 				<displayName>dặm scandinavia</displayName>
 				<unitPattern count="other">{0} dặm scandinavia</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>đ</displayName>
+				<unitPattern count="other">{0} đ</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
@@ -7629,8 +7801,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} bit</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<displayName>c</displayName>
-				<unitPattern count="other">{0} c</unitPattern>
+				<displayName>thế kỷ</displayName>
+				<unitPattern count="other">{0} thế kỷ</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>năm</displayName>
@@ -7668,16 +7840,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/giây</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0} ms</unitPattern>
+				<displayName>mili giây</displayName>
+				<unitPattern count="other">{0} mili giây</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>μs</displayName>
 				<unitPattern count="other">{0} μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>ns</displayName>
-				<unitPattern count="other">{0} ns</unitPattern>
+				<displayName>nano giây</displayName>
+				<unitPattern count="other">{0} nano giây</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>A</displayName>
@@ -7807,6 +7979,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-mile-scandinavian">
 				<displayName>smi</displayName>
 				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>đ</displayName>
+				<unitPattern count="other">{0} đ</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -8107,8 +8283,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} giây</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0}ms</unitPattern>
+				<displayName>mili giây</displayName>
+				<unitPattern count="other">{0}miligiây</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
@@ -8227,6 +8403,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} và {1}</listPatternPart>
 			<listPatternPart type="2">{0} và {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} hoặc {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} hoặc {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -8259,101 +8441,101 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</messages>
 	</posix>
 	<characterLabels>
-		<characterLabelPattern type="all" draft="contributed">{0} — Tất cả</characterLabelPattern>
+		<characterLabelPattern type="all">{0} — tất cả</characterLabelPattern>
 		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
-		<characterLabelPattern type="compatibility" draft="contributed">{0} — Tương thích</characterLabelPattern>
-		<characterLabelPattern type="enclosed" draft="contributed">{0} — Kín</characterLabelPattern>
-		<characterLabelPattern type="extended" draft="contributed">{0} — Mở rộng</characterLabelPattern>
-		<characterLabelPattern type="historic" draft="contributed">{0} — Lịch sử</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous" draft="contributed">{0} — Khác</characterLabelPattern>
-		<characterLabelPattern type="other" draft="contributed">{0} — Khác</characterLabelPattern>
-		<characterLabelPattern type="scripts" draft="contributed">Chữ viết — {0}</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other" draft="contributed">{0} nét</characterLabelPattern>
-		<characterLabel type="activities" draft="contributed">Hoạt động</characterLabel>
-		<characterLabel type="african_scripts" draft="contributed">Chữ viết Châu Phi</characterLabel>
-		<characterLabel type="american_scripts" draft="contributed">Chữ viết Châu Mỹ</characterLabel>
+		<characterLabelPattern type="compatibility">{0} — tương thích</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — kín</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — mở rộng</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — lịch sử</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — hỗn hợp</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — khác</characterLabelPattern>
+		<characterLabelPattern type="scripts">chữ viết — {0}</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} nét</characterLabelPattern>
+		<characterLabel type="activities">hoạt động</characterLabel>
+		<characterLabel type="african_scripts">chữ viết Châu Phi</characterLabel>
+		<characterLabel type="american_scripts">chữ viết Châu Mỹ</characterLabel>
 		<characterLabel type="animal">động vật</characterLabel>
-		<characterLabel type="animals_nature" draft="contributed">Động vật &amp; Tự nhiên</characterLabel>
-		<characterLabel type="arrows" draft="contributed">Mũi tên</characterLabel>
-		<characterLabel type="body">vật thể</characterLabel>
-		<characterLabel type="box_drawing" draft="contributed">Vẽ hộp</characterLabel>
-		<characterLabel type="braille" draft="contributed">Chữ nổi Braille</characterLabel>
-		<characterLabel type="building">xây dựng</characterLabel>
-		<characterLabel type="bullets_stars" draft="contributed">Dấu đầu dòng/Sao</characterLabel>
-		<characterLabel type="consonantal_jamo" draft="contributed">Jamo Phụ âm</characterLabel>
-		<characterLabel type="currency_symbols" draft="contributed">Ký hiệu Tiền tệ</characterLabel>
-		<characterLabel type="dash_connector" draft="contributed">Gạch ngang/Gạch nối</characterLabel>
-		<characterLabel type="digits" draft="contributed">Chữ số</characterLabel>
-		<characterLabel type="dingbats" draft="contributed">Dingbat</characterLabel>
-		<characterLabel type="divination_symbols" draft="contributed">Ký hiệu Tiên tri</characterLabel>
-		<characterLabel type="downwards_arrows" draft="contributed">Mũi tên Hướng xuống</characterLabel>
-		<characterLabel type="downwards_upwards_arrows" draft="contributed">Mũi tên Lên xuống</characterLabel>
-		<characterLabel type="east_asian_scripts" draft="contributed">Chữ viết Đông Á</characterLabel>
-		<characterLabel type="emoji" draft="contributed">Biểu tượng</characterLabel>
-		<characterLabel type="european_scripts" draft="contributed">Chữ viết Châu Âu</characterLabel>
+		<characterLabel type="animals_nature">động vật hoặc tự nhiên</characterLabel>
+		<characterLabel type="arrows">mũi tên</characterLabel>
+		<characterLabel type="body">cơ thể</characterLabel>
+		<characterLabel type="box_drawing">vẽ hộp</characterLabel>
+		<characterLabel type="braille">chữ nổi Braille</characterLabel>
+		<characterLabel type="building">tòa nhà</characterLabel>
+		<characterLabel type="bullets_stars">dấu đầu dòng hoặc sao</characterLabel>
+		<characterLabel type="consonantal_jamo">jamo phụ âm</characterLabel>
+		<characterLabel type="currency_symbols">ký hiệu tiền tệ</characterLabel>
+		<characterLabel type="dash_connector">dấu gạch ngang hoặc gạch nối</characterLabel>
+		<characterLabel type="digits">chữ số</characterLabel>
+		<characterLabel type="dingbats">dingbat</characterLabel>
+		<characterLabel type="divination_symbols">ký hiệu tiên tri</characterLabel>
+		<characterLabel type="downwards_arrows">mũi tên hướng xuống</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">mũi tên lên xuống</characterLabel>
+		<characterLabel type="east_asian_scripts">chữ viết Đông Á</characterLabel>
+		<characterLabel type="emoji">biểu tượng</characterLabel>
+		<characterLabel type="european_scripts">chữ viết Châu Âu</characterLabel>
 		<characterLabel type="female">nữ</characterLabel>
 		<characterLabel type="flag">cờ</characterLabel>
-		<characterLabel type="flags" draft="contributed">Cờ</characterLabel>
-		<characterLabel type="food_drink" draft="contributed">Đồ ăn &amp; Đồ uống</characterLabel>
-		<characterLabel type="format" draft="contributed">Định dạng</characterLabel>
-		<characterLabel type="format_whitespace" draft="contributed">Định dạng &amp; Dấu cách</characterLabel>
-		<characterLabel type="full_width_form_variant" draft="contributed">Biến thể Mẫu rộng Đầy đủ</characterLabel>
-		<characterLabel type="geometric_shapes" draft="contributed">Hình dạng Hình học</characterLabel>
-		<characterLabel type="half_width_form_variant" draft="contributed">Biến thể Mẫu rộng</characterLabel>
-		<characterLabel type="han_characters" draft="contributed">Ký tự chữ Hán</characterLabel>
-		<characterLabel type="han_radicals" draft="contributed">Gốc chữ Hán</characterLabel>
-		<characterLabel type="hanja" draft="contributed">Hanja</characterLabel>
-		<characterLabel type="hanzi_simplified" draft="contributed">Hán tự (Giản thể)</characterLabel>
-		<characterLabel type="hanzi_traditional" draft="contributed">Hán tự (Phồn thể)</characterLabel>
+		<characterLabel type="flags">cờ</characterLabel>
+		<characterLabel type="food_drink">đồ ăn &amp; đồ uống</characterLabel>
+		<characterLabel type="format">định dạng</characterLabel>
+		<characterLabel type="format_whitespace">định dạng &amp; dấu cách</characterLabel>
+		<characterLabel type="full_width_form_variant">biến thể mẫu rộng đầy đủ</characterLabel>
+		<characterLabel type="geometric_shapes">hình dạng hình học</characterLabel>
+		<characterLabel type="half_width_form_variant">biến thể nửa chiều rộng</characterLabel>
+		<characterLabel type="han_characters">ký tự chữ Hán</characterLabel>
+		<characterLabel type="han_radicals">gốc chữ Hán</characterLabel>
+		<characterLabel type="hanja">hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">Hán tự (giản thể)</characterLabel>
+		<characterLabel type="hanzi_traditional">Hán tự (phồn thể)</characterLabel>
 		<characterLabel type="heart">trái tim</characterLabel>
-		<characterLabel type="historic_scripts" draft="contributed">Chữ cái Lịch sử</characterLabel>
-		<characterLabel type="ideographic_desc_characters" draft="contributed">Ký tự Mô tả Tượng hình</characterLabel>
-		<characterLabel type="japanese_kana" draft="contributed">Kana Tiếng Nhật</characterLabel>
-		<characterLabel type="kanbun" draft="contributed">Kanbun</characterLabel>
-		<characterLabel type="kanji" draft="contributed">Kanji</characterLabel>
+		<characterLabel type="historic_scripts">chữ viết lịch sử</characterLabel>
+		<characterLabel type="ideographic_desc_characters">ký tự mô tả tượng hình</characterLabel>
+		<characterLabel type="japanese_kana">kana tiếng Nhật</characterLabel>
+		<characterLabel type="kanbun">kanbun</characterLabel>
+		<characterLabel type="kanji">kanji</characterLabel>
 		<characterLabel type="keycap">mũ phím</characterLabel>
-		<characterLabel type="leftwards_arrows" draft="contributed">Mũi tên Hướng sang trái</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">Mũi tên Hai chiều</characterLabel>
-		<characterLabel type="letterlike_symbols" draft="contributed">Ký hiệu Giống chữ cái</characterLabel>
-		<characterLabel type="limited_use" draft="contributed">Sử dụng Hạn chế</characterLabel>
+		<characterLabel type="leftwards_arrows">mũi tên hướng sang trái</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">mũi tên hai chiều</characterLabel>
+		<characterLabel type="letterlike_symbols">ký hiệu giống chữ cái</characterLabel>
+		<characterLabel type="limited_use">sử dụng hạn chế</characterLabel>
 		<characterLabel type="male">nam</characterLabel>
-		<characterLabel type="math_symbols" draft="contributed">Ký hiệu Toán học</characterLabel>
-		<characterLabel type="middle_eastern_scripts" draft="contributed">Chữ viết Trung Đông</characterLabel>
-		<characterLabel type="miscellaneous" draft="contributed">Khác</characterLabel>
-		<characterLabel type="modern_scripts" draft="contributed">Chữ viết Hiện đại</characterLabel>
-		<characterLabel type="modifier" draft="contributed">Bổ trợ</characterLabel>
-		<characterLabel type="musical_symbols" draft="contributed">Ký hiệu Âm nhạc</characterLabel>
+		<characterLabel type="math_symbols">ký hiệu toán học</characterLabel>
+		<characterLabel type="middle_eastern_scripts">chữ viết Trung Đông</characterLabel>
+		<characterLabel type="miscellaneous">khác</characterLabel>
+		<characterLabel type="modern_scripts">chữ viết hiện đại</characterLabel>
+		<characterLabel type="modifier">ký tự bổ trợ</characterLabel>
+		<characterLabel type="musical_symbols">ký hiệu âm nhạc</characterLabel>
 		<characterLabel type="nature">tự nhiên</characterLabel>
-		<characterLabel type="nonspacing" draft="contributed">Không giãn cách</characterLabel>
-		<characterLabel type="numbers" draft="contributed">Số</characterLabel>
-		<characterLabel type="objects" draft="contributed">Đồ vật</characterLabel>
-		<characterLabel type="other" draft="contributed">Khác</characterLabel>
-		<characterLabel type="paired" draft="contributed">Được ghép đôi</characterLabel>
+		<characterLabel type="nonspacing">không giãn cách</characterLabel>
+		<characterLabel type="numbers">số</characterLabel>
+		<characterLabel type="objects">đồ vật</characterLabel>
+		<characterLabel type="other">khác</characterLabel>
+		<characterLabel type="paired">được ghép đôi</characterLabel>
 		<characterLabel type="person">người</characterLabel>
-		<characterLabel type="phonetic_alphabet" draft="contributed">Bảng chữ cái Phiên âm</characterLabel>
-		<characterLabel type="pictographs" draft="contributed">Chữ tượng hình</characterLabel>
+		<characterLabel type="phonetic_alphabet">bảng chữ cái phiên âm</characterLabel>
+		<characterLabel type="pictographs">chữ tượng hình</characterLabel>
 		<characterLabel type="place">địa điểm</characterLabel>
 		<characterLabel type="plant">thực vật</characterLabel>
-		<characterLabel type="punctuation" draft="contributed">Dấu câu</characterLabel>
-		<characterLabel type="rightwards_arrows" draft="contributed">Mũi tên Hướng sang phải</characterLabel>
-		<characterLabel type="sign_standard_symbols" draft="contributed">Ký hiệu/Ký hiệu chuẩn</characterLabel>
-		<characterLabel type="small_form_variant" draft="contributed">Biến thể Mẫu nhỏ</characterLabel>
+		<characterLabel type="punctuation">dấu câu</characterLabel>
+		<characterLabel type="rightwards_arrows">mũi tên hướng sang phải</characterLabel>
+		<characterLabel type="sign_standard_symbols">ký hiệu hoặc biểu tượng</characterLabel>
+		<characterLabel type="small_form_variant">biến thể mẫu nhỏ</characterLabel>
 		<characterLabel type="smiley">mặt cười</characterLabel>
-		<characterLabel type="smileys_people" draft="contributed">Mặt cười &amp; Người</characterLabel>
-		<characterLabel type="south_asian_scripts" draft="contributed">Chữ viết Nam Á</characterLabel>
-		<characterLabel type="southeast_asian_scripts" draft="contributed">Chữ viết Đông Nam Á</characterLabel>
-		<characterLabel type="spacing" draft="contributed">Giãn cách</characterLabel>
+		<characterLabel type="smileys_people">mặt cười hoặc người</characterLabel>
+		<characterLabel type="south_asian_scripts">chữ viết Nam Á</characterLabel>
+		<characterLabel type="southeast_asian_scripts">chữ viết Đông Nam Á</characterLabel>
+		<characterLabel type="spacing">giãn cách</characterLabel>
 		<characterLabel type="sport">thể thao</characterLabel>
-		<characterLabel type="symbols" draft="contributed">Ký hiệu</characterLabel>
-		<characterLabel type="technical_symbols" draft="contributed">Ký hiệu Kỹ thuật</characterLabel>
-		<characterLabel type="tone_marks" draft="contributed">Dấu thanh</characterLabel>
+		<characterLabel type="symbols">ký hiệu</characterLabel>
+		<characterLabel type="technical_symbols">ký hiệu kỹ thuật</characterLabel>
+		<characterLabel type="tone_marks">dấu thanh</characterLabel>
 		<characterLabel type="travel">du lịch</characterLabel>
-		<characterLabel type="travel_places" draft="contributed">Du lịch &amp; Địa điểm</characterLabel>
-		<characterLabel type="upwards_arrows" draft="contributed">Mũi tên Hướng lên</characterLabel>
-		<characterLabel type="variant_forms" draft="contributed">Mẫu Biến thể</characterLabel>
-		<characterLabel type="vocalic_jamo" draft="contributed">Jamo Nguyên âm</characterLabel>
+		<characterLabel type="travel_places">du lịch hoặc địa điểm</characterLabel>
+		<characterLabel type="upwards_arrows">mũi tên hướng lên</characterLabel>
+		<characterLabel type="variant_forms">mẫu biến thể</characterLabel>
+		<characterLabel type="vocalic_jamo">jamo nguyên âm</characterLabel>
 		<characterLabel type="weather">thời tiết</characterLabel>
-		<characterLabel type="western_asian_scripts" draft="contributed">Chữ viết Tây Á</characterLabel>
-		<characterLabel type="whitespace" draft="contributed">Dấu cách</characterLabel>
+		<characterLabel type="western_asian_scripts">chữ viết Tây Á</characterLabel>
+		<characterLabel type="whitespace">dấu cách</characterLabel>
 	</characterLabels>
 </ldml>

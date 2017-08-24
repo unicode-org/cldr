@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -23,7 +25,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			-->
 			<language type="aa">afarski</language>
 			<language type="ab">abhaski</language>
-			<language type="ace">acehneski</language>
+			<language type="ace">ačinski</language>
 			<language type="ach">akoli</language>
 			<language type="ada">adangmejski</language>
 			<language type="ady">adigejski</language>
@@ -120,6 +122,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">dargva</language>
 			<language type="dav">taita</language>
 			<language type="de">njemački</language>
+			<language type="de_AT">njemački (Austrija)</language>
 			<language type="de_CH">gornjonjemački (Švicarska)</language>
 			<language type="del">delaver</language>
 			<language type="den">slave</language>
@@ -143,11 +146,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">grčki</language>
 			<language type="elx">elamitski</language>
 			<language type="en">engleski</language>
+			<language type="en_AU">engleski (Australija)</language>
+			<language type="en_CA">engleski (Kanada)</language>
+			<language type="en_GB">engleski (Velika Britanija)</language>
 			<language type="en_GB" alt="short">engleski (UK)</language>
+			<language type="en_US">engleski (Sjedinjene Američke Države)</language>
 			<language type="en_US" alt="short">engleski (SAD)</language>
 			<language type="enm">srednjovjekovni engleski</language>
 			<language type="eo">esperanto</language>
 			<language type="es">španski</language>
+			<language type="es_419">španski (Latinska Amerika)</language>
+			<language type="es_ES">španski (Španija)</language>
+			<language type="es_MX">španski (Meksiko)</language>
 			<language type="et">estonski</language>
 			<language type="eu">baskijski</language>
 			<language type="ewo">evondo</language>
@@ -161,6 +171,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">farski</language>
 			<language type="fon">fon</language>
 			<language type="fr">francuski</language>
+			<language type="fr_CA">francuski (Kanada)</language>
+			<language type="fr_CH">francuski (Švicarska)</language>
 			<language type="frm">srednjovjekovni francuski</language>
 			<language type="fro">starofrancuski</language>
 			<language type="frr">sjeverni frizijski</language>
@@ -193,14 +205,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hai">haida</language>
 			<language type="haw">havajski</language>
 			<language type="he">hebrejski</language>
-			<language type="hi">hindu</language>
+			<language type="hi">hindi</language>
 			<language type="hil">hiligajnon</language>
 			<language type="hit">hitite</language>
 			<language type="hmn">hmong</language>
 			<language type="ho">hiri motu</language>
 			<language type="hr">hrvatski</language>
 			<language type="hsb">gornjolužičkosrpski</language>
-			<language type="ht">haićanski</language>
+			<language type="ht">haićanski kreolski</language>
 			<language type="hu">mađarski</language>
 			<language type="hup">hupa</language>
 			<language type="hy">armenski</language>
@@ -245,7 +257,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="khq">kojra čini</language>
 			<language type="ki">kikuju</language>
 			<language type="kj">kuanjama</language>
-			<language type="kk">kazački</language>
+			<language type="kk">kazaški</language>
 			<language type="kkj">kako</language>
 			<language type="kl">kalalisutski</language>
 			<language type="kln">kalenjin</language>
@@ -283,7 +295,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="li">limburški</language>
 			<language type="lkt">lakota</language>
 			<language type="ln">lingala</language>
-			<language type="lo">laoški</language>
+			<language type="lo">laoski</language>
 			<language type="lol">mongo</language>
 			<language type="loz">lozi</language>
 			<language type="lrc">sjeverni luri</language>
@@ -309,7 +321,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="men">mende</language>
 			<language type="mer">meru</language>
 			<language type="mfe">mauricijski kreolski</language>
-			<language type="mg">malagaški</language>
+			<language type="mg">malgaški</language>
 			<language type="mga">srednjovjekovni irski</language>
 			<language type="mgh">makuva-meto</language>
 			<language type="mgo">meta</language>
@@ -347,7 +359,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="new">nevari</language>
 			<language type="ng">ndonga</language>
 			<language type="nia">nias</language>
-			<language type="niu">niuean</language>
+			<language type="niu">niue</language>
 			<language type="nl">holandski</language>
 			<language type="nl_BE">flamanski</language>
 			<language type="nmg">kvasio</language>
@@ -391,12 +403,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ps">paštu</language>
 			<language type="ps" alt="variant">pušto</language>
 			<language type="pt">portugalski</language>
+			<language type="pt_BR">portugalski (Brazil)</language>
+			<language type="pt_PT">portugalski (Portugal)</language>
 			<language type="qu">kečua</language>
 			<language type="quc">kiče</language>
 			<language type="raj">rajastani</language>
 			<language type="rap">rapanui</language>
 			<language type="rar">rarotongan</language>
-			<language type="rm">reto-romanski</language>
+			<language type="rm">retoromanski</language>
 			<language type="rn">rundi</language>
 			<language type="ro">rumunski</language>
 			<language type="ro_MD">moldavski</language>
@@ -405,7 +419,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="root">korijenski</language>
 			<language type="ru">ruski</language>
 			<language type="rup">arumunski</language>
-			<language type="rw">kinjarvanda</language>
+			<language type="rw">kinjaruanda</language>
 			<language type="rwk">rua</language>
 			<language type="sa">sanskrit</language>
 			<language type="sad">sandave</language>
@@ -458,6 +472,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sux">sumerski</language>
 			<language type="sv">švedski</language>
 			<language type="sw">svahili</language>
+			<language type="sw_CD">svahili (Demokratska Republika Kongo)</language>
 			<language type="swb">komorski</language>
 			<language type="syc">klasični sirijski</language>
 			<language type="syr">sirijski</language>
@@ -555,7 +570,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Batk">batak pismo</script>
 			<script type="Beng">bengalsko pismo</script>
 			<script type="Blis">blisimbolično pismo</script>
-			<script type="Bopo">bopomofo pismo</script>
+			<script type="Bopo">pismo bopomofo</script>
 			<script type="Brah">bramansko pismo</script>
 			<script type="Brai">brajevo pismo</script>
 			<script type="Bugi">buginsko pismo</script>
@@ -570,7 +585,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cprt">kiparsko pismo</script>
 			<script type="Cyrl">ćirilica</script>
 			<script type="Cyrs">Staroslovenska crkvena ćirilica</script>
-			<script type="Deva">devanagari pismo</script>
+			<script type="Deva">pismo devanagari</script>
 			<script type="Dsrt">dezeret</script>
 			<script type="Egyd">egipatsko narodno pismo</script>
 			<script type="Egyh">egipatsko hijeratsko pismo</script>
@@ -582,34 +597,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Goth">gotika</script>
 			<script type="Gran" draft="provisional">grantha pismo</script>
 			<script type="Grek">grčko pismo</script>
-			<script type="Gujr">gudžarati pismo</script>
-			<script type="Guru">gurmuki pismo</script>
-			<script type="Hanb">hanb pismo</script>
-			<script type="Hang">hangul pismo</script>
-			<script type="Hani">han pismo</script>
+			<script type="Gujr">pismo gudžarati</script>
+			<script type="Guru">pismo gurmuki</script>
+			<script type="Hanb">pismo hanb</script>
+			<script type="Hang">pismo hangul</script>
+			<script type="Hani">pismo han</script>
 			<script type="Hano">hanuno pismo</script>
 			<script type="Hans">pojednostavljeno</script>
-			<script type="Hans" alt="stand-alone">pojednostavljeno han pismo</script>
+			<script type="Hans" alt="stand-alone">pojednostavljeno pismo han</script>
 			<script type="Hant">tradicionalno</script>
-			<script type="Hant" alt="stand-alone">tradicionalno han pismo</script>
+			<script type="Hant" alt="stand-alone">tradicionalno pismo han</script>
 			<script type="Hebr">hebrejsko pismo</script>
-			<script type="Hira">hiragana</script>
+			<script type="Hira">pismo hiragana</script>
 			<script type="Hluw" draft="provisional">anatolijski hijeroglifi</script>
 			<script type="Hmng">pahawh hmong pismo</script>
 			<script type="Hrkt">katakana ili hiragana</script>
 			<script type="Hung">Staromađarsko pismo</script>
 			<script type="Inds">induško ismo</script>
 			<script type="Ital">staro italsko pismo</script>
-			<script type="Jamo">jamo</script>
+			<script type="Jamo">pismo jamo</script>
 			<script type="Java">javansko pismo</script>
 			<script type="Jpan">japansko pismo</script>
 			<script type="Jurc" draft="provisional">jurchen pismo</script>
 			<script type="Kali">kajah li pismo</script>
-			<script type="Kana">katakana</script>
+			<script type="Kana">pismo katakana</script>
 			<script type="Khar">karošti pismo</script>
 			<script type="Khmr">kmersko pismo</script>
 			<script type="Khoj" draft="provisional">khojki pismo</script>
-			<script type="Knda">kanada pismo</script>
+			<script type="Knda">pismo kanada</script>
 			<script type="Kore">korejsko pismo</script>
 			<script type="Kpel" draft="provisional">kpelle pismo</script>
 			<script type="Kthi">kaićansko pismo</script>
@@ -646,7 +661,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Ogam">ogham pismo</script>
 			<script type="Olck">ol čiki pismo</script>
 			<script type="Orkh">orkhon pismo</script>
-			<script type="Orya">orija pismo</script>
+			<script type="Orya">pismo orija</script>
 			<script type="Osma">osmanja pismo</script>
 			<script type="Palm" draft="provisional">palmyrene pismo</script>
 			<script type="Perm">staro permiksko pismo</script>
@@ -668,7 +683,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Shaw">šavian pismo</script>
 			<script type="Shrd" draft="provisional">sharada pismo</script>
 			<script type="Sind" draft="provisional">khudawadi pismo</script>
-			<script type="Sinh">sinhala pismo</script>
+			<script type="Sinh">pismo sinhala</script>
 			<script type="Sora" draft="provisional">sora sompeng pismo</script>
 			<script type="Sylo">siloti nagri pismo</script>
 			<script type="Syrc">sirijsko pismo</script>
@@ -682,11 +697,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Taml">tamilsko pismo</script>
 			<script type="Tang" draft="provisional">tangut pismo</script>
 			<script type="Tavt">tai viet pismo</script>
-			<script type="Telu">telugu pismo</script>
+			<script type="Telu">pismo telugu</script>
 			<script type="Teng">tengvar pismo</script>
 			<script type="Tfng">tifinag pismo</script>
 			<script type="Tglg">tagalog</script>
-			<script type="Thaa">tana pismo</script>
+			<script type="Thaa">pismo tana</script>
 			<script type="Thai">tajlandsko pismo</script>
 			<script type="Tibt">tibetansko pismo</script>
 			<script type="Tirh" draft="provisional">tirhuta pismo</script>
@@ -719,7 +734,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="013">Srednja Amerika</territory>
 			<territory type="014">Istočna Afrika</territory>
 			<territory type="015">Sjeverna Afrika</territory>
-			<territory type="017">Centralna Afrika</territory>
+			<territory type="017">Srednja Afrika</territory>
 			<territory type="018">Južna Afrika</territory>
 			<territory type="019">Amerika</territory>
 			<territory type="021">Sjeverni dio Amerike</territory>
@@ -733,14 +748,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="057">Mikronezijska regija</territory>
 			<territory type="061">Polinezija</territory>
 			<territory type="142">Azija</territory>
-			<territory type="143">Centralna Azija</territory>
+			<territory type="143">Srednja Azija</territory>
 			<territory type="145">Zapadna Azija</territory>
 			<territory type="150">Evropa</territory>
 			<territory type="151">Istočna Evropa</territory>
 			<territory type="154">Sjeverna Evropa</territory>
 			<territory type="155">Zapadna Evropa</territory>
 			<territory type="419">Latinska Amerika</territory>
-			<territory type="AC">Ostrvo Asension</territory>
+			<territory type="AC">Ostrvo Ascension</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Ujedinjeni Arapski Emirati</territory>
 			<territory type="AF">Afganistan</territory>
@@ -755,7 +770,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AT">Austrija</territory>
 			<territory type="AU">Australija</territory>
 			<territory type="AW">Aruba</territory>
-			<territory type="AX">Olandska Ostrva</territory>
+			<territory type="AX">Olandska ostrva</territory>
 			<territory type="AZ">Azerbejdžan</territory>
 			<territory type="BA">Bosna i Hercegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -779,16 +794,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BY">Bjelorusija</territory>
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Kanada</territory>
-			<territory type="CC">Kokosova (Kilingova) Ostrva</territory>
+			<territory type="CC">Kokosova (Keelingova) ostrva</territory>
 			<territory type="CD">Demokratska Republika Kongo</territory>
-			<territory type="CD" alt="variant">Kongo (DRC)</territory>
+			<territory type="CD" alt="variant">DR Kongo</territory>
 			<territory type="CF">Centralnoafrička Republika</territory>
 			<territory type="CG">Kongo</territory>
 			<territory type="CG" alt="variant">Republika Kongo</territory>
 			<territory type="CH">Švicarska</territory>
 			<territory type="CI">Obala Slonovače</territory>
 			<territory type="CI" alt="variant">Obala Bjelokosti</territory>
-			<territory type="CK">Kukova Ostrva</territory>
+			<territory type="CK">Kukova ostrva</territory>
 			<territory type="CL">Čile</territory>
 			<territory type="CM">Kamerun</territory>
 			<territory type="CN">Kina</territory>
@@ -798,7 +813,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kape Verde</territory>
 			<territory type="CW">Kurasao</territory>
-			<territory type="CX">Božićna Ostrva</territory>
+			<territory type="CX">Božićno ostrvo</territory>
 			<territory type="CY">Kipar</territory>
 			<territory type="CZ">Češka</territory>
 			<territory type="CZ" alt="variant">Češka Republika</territory>
@@ -818,12 +833,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Španija</territory>
 			<territory type="ET">Etiopija</territory>
 			<territory type="EU">Evropska unija</territory>
+			<territory type="EZ">Eurozona</territory>
 			<territory type="FI">Finska</territory>
 			<territory type="FJ">Fidži</territory>
-			<territory type="FK">Folklandska Ostrva</territory>
-			<territory type="FK" alt="variant">Folklandska Ostrva (Malvinska Ostrva)</territory>
+			<territory type="FK">Folklandska ostrva</territory>
+			<territory type="FK" alt="variant">Folklandska (Malvinska) ostrva</territory>
 			<territory type="FM">Mikronezija</territory>
-			<territory type="FO">Farska Ostrva</territory>
+			<territory type="FO">Farska ostrva</territory>
 			<territory type="FR">Francuska</territory>
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">Velika Britanija</territory>
@@ -840,7 +856,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GP">Gvadalupe</territory>
 			<territory type="GQ">Ekvatorijalna Gvineja</territory>
 			<territory type="GR">Grčka</territory>
-			<territory type="GS">Južna Džordžija i Južna Sendvička Ostrva</territory>
+			<territory type="GS">Južna Džordžija i Južna Sendvič ostrva</territory>
 			<territory type="GT">Gvatemala</territory>
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Gvineja-Bisao</territory>
@@ -852,7 +868,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="HR">Hrvatska</territory>
 			<territory type="HT">Haiti</territory>
 			<territory type="HU">Mađarska</territory>
-			<territory type="IC">Kanarska Ostrva</territory>
+			<territory type="IC">Kanarska ostrva</territory>
 			<territory type="ID">Indonezija</territory>
 			<territory type="IE">Irska</territory>
 			<territory type="IL">Izrael</territory>
@@ -863,7 +879,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Island</territory>
 			<territory type="IT">Italija</territory>
-			<territory type="JE">Džerzi</territory>
+			<territory type="JE">Jersey</territory>
 			<territory type="JM">Jamajka</territory>
 			<territory type="JO">Jordan</territory>
 			<territory type="JP">Japan</territory>
@@ -871,12 +887,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="KG">Kirgistan</territory>
 			<territory type="KH">Kambodža</territory>
 			<territory type="KI">Kiribati</territory>
-			<territory type="KM">Komorska Ostrva</territory>
+			<territory type="KM">Komori</territory>
 			<territory type="KN">Sveti Kits i Nevis</territory>
 			<territory type="KP">Sjeverna Koreja</territory>
 			<territory type="KR">Južna Koreja</territory>
 			<territory type="KW">Kuvajt</territory>
-			<territory type="KY">Kajmanska Ostrva</territory>
+			<territory type="KY">Kajmanska ostrva</territory>
 			<territory type="KZ">Kazahstan</territory>
 			<territory type="LA">Laos</territory>
 			<territory type="LB">Liban</territory>
@@ -893,17 +909,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Moldavija</territory>
 			<territory type="ME">Crna Gora</territory>
-			<territory type="MF">Sv. Martin</territory>
+			<territory type="MF">Sveti Martin</territory>
 			<territory type="MG">Madagaskar</territory>
-			<territory type="MH">Maršalova Ostrva</territory>
+			<territory type="MH">Maršalova ostrva</territory>
 			<territory type="MK">Makedonija</territory>
 			<territory type="MK" alt="variant">Makedonija (BJR)</territory>
 			<territory type="ML">Mali</territory>
-			<territory type="MM">Mijanmar</territory>
+			<territory type="MM">Mjanmar</territory>
 			<territory type="MN">Mongolija</territory>
 			<territory type="MO">Makao (SAR Kina)</territory>
 			<territory type="MO" alt="short">Makao</territory>
-			<territory type="MP">Sjeverna Marijanska Ostrva</territory>
+			<territory type="MP">Sjeverna Marijanska ostrva</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mauritanija</territory>
 			<territory type="MS">Monserat</territory>
@@ -970,7 +986,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SX">Sint Marten</territory>
 			<territory type="SY">Sirija</territory>
 			<territory type="SZ">Svazilend</territory>
-			<territory type="TA">Tristan da Kunja</territory>
+			<territory type="TA">Tristan da Cunha</territory>
 			<territory type="TC">Ostrva Turks i Kaikos</territory>
 			<territory type="TD">Čad</territory>
 			<territory type="TF">Francuske Južne Teritorije</territory>
@@ -979,6 +995,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">Tadžikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Istočni Timor</territory>
+			<territory type="TL" alt="variant">TL</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunis</territory>
 			<territory type="TO">Tonga</territory>
@@ -999,8 +1016,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VA">Vatikan</territory>
 			<territory type="VC">Sveti Vinsent i Grenadin</territory>
 			<territory type="VE">Venecuela</territory>
-			<territory type="VG">Britanska Djevičanska Ostrva</territory>
-			<territory type="VI">Američka Djevičanska Ostrva</territory>
+			<territory type="VG">Britanska Djevičanska ostrva</territory>
+			<territory type="VI">Američka Djevičanska ostrva</territory>
 			<territory type="VN">Vijetnam</territory>
 			<territory type="VU">Vanuatu</territory>
 			<territory type="WF">Ostrva Valis i Futuna</territory>
@@ -1128,8 +1145,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="provisional">Poredaj po naglascima/veličini/širini/pismu kana</type>
 			<type key="colStrength" type="secondary" draft="provisional">Poredaj po naglasku</type>
 			<type key="colStrength" type="tertiary" draft="provisional">Poredaj po naglascima/veličini/širini</type>
-			<type key="d0" type="fwidth" draft="provisional">Široki</type>
-			<type key="d0" type="hwidth" draft="provisional">Uski</type>
+			<type key="d0" type="fwidth">Široki</type>
+			<type key="d0" type="hwidth">Uski</type>
 			<type key="d0" type="npinyin" draft="provisional">Numerički</type>
 			<type key="hc" type="h11">12-satni format (0-11)</type>
 			<type key="hc" type="h12">12-satni format (1-12)</type>
@@ -1138,8 +1155,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Slobodni stil prijeloma reda</type>
 			<type key="lb" type="normal">Normalni stil prijeloma reda</type>
 			<type key="lb" type="strict">Strogi stil prijeloma reda</type>
-			<type key="m0" type="bgn" draft="provisional">BGN</type>
-			<type key="m0" type="ungegn" draft="provisional">UNGEGN</type>
+			<type key="m0" type="bgn">US BGN transliteracija</type>
+			<type key="m0" type="ungegn">UN GEGN transliteracija</type>
 			<type key="ms" type="metric">metrički sistem</type>
 			<type key="ms" type="uksystem">britanski mjerni sistem</type>
 			<type key="ms" type="ussystem">američki mjerni sistem</type>
@@ -1316,15 +1333,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d. MMM y. G</dateFormatItem>
-						<dateFormatItem id="h" draft="provisional">hh a</dateFormatItem>
-						<dateFormatItem id="H" draft="provisional">HH</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
@@ -1619,10 +1645,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
+							<quarter type="1">KV1</quarter>
+							<quarter type="2">KV2</quarter>
+							<quarter type="3">KV3</quarter>
+							<quarter type="4">KV4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1.</quarter>
@@ -1639,10 +1665,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
+							<quarter type="1">KV1</quarter>
+							<quarter type="2">KV2</quarter>
+							<quarter type="3">KV3</quarter>
+							<quarter type="4">KV4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1.</quarter>
@@ -1729,11 +1755,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<!-- Copied from sr_Latn -->
 					<eraNames>
 						<era type="0">prije nove ere</era>
+						<era type="0" alt="variant">prije nove ere</era>
 						<era type="1">nove ere</era>
+						<era type="1" alt="variant">n. e.</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">p. n. e.</era>
+						<era type="0" alt="variant">p. n. e.</era>
 						<era type="1">n. e.</era>
+						<era type="1" alt="variant">n. e.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="provisional">pr.n.e.</era>
@@ -1753,7 +1783,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d. MMM. y.</pattern>
+							<pattern>d. MMM y.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1806,8 +1836,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1849,11 +1884,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y.</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">w. 'sedmica' 'u' Y.</dateFormatItem>
-						<dateFormatItem id="yw" count="few">w. 'sedmica' 'u' Y.</dateFormatItem>
-						<dateFormatItem id="yw" count="other">w. 'sedmica' 'u' Y.</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y.</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y.</dateFormatItem>
+						<dateFormatItem id="yw" count="one">w. 'sedmica' 'u' y.</dateFormatItem>
+						<dateFormatItem id="yw" count="few">w. 'sedmica' 'u' y.</dateFormatItem>
+						<dateFormatItem id="yw" count="other">w. 'sedmica' 'u' y.</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1899,8 +1934,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">M–M.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">d.M–d.M.</greatestDifference>
-							<greatestDifference id="M">d.M–d.M.</greatestDifference>
+							<greatestDifference id="d">d. M – d. M.</greatestDifference>
+							<greatestDifference id="M">d. M – d. M.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">E, d.M. – E, d.M.</greatestDifference>
@@ -2092,6 +2127,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="era">
 				<displayName>era</displayName>
 			</field>
+			<field type="era-short">
+				<displayName>era</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>era</displayName>
+			</field>
 			<field type="year">
 				<displayName>godina</displayName>
 				<relative type="-1">prošle godine</relative>
@@ -2147,7 +2188,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="one">prije {0} kvartal</relativeTimePattern>
 					<relativeTimePattern count="few">prije {0} kvartala</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} kv.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} kvartala</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-short">
@@ -2233,7 +2274,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="few">prije {0} sedmice</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} sedmica</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>sedmica od {0}</relativePeriod>
+				<relativePeriod>sedmica u kojoj je {0}</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>sed.</displayName>
@@ -2247,7 +2288,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="few">prije {0} sed.</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} sed.</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>sedmica od {0}</relativePeriod>
+				<relativePeriod>sedmica u kojoj je {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>sed.</displayName>
@@ -2261,7 +2302,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="few">prije {0} sed.</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} sed.</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>sedmica od {0}</relativePeriod>
+				<relativePeriod>sedmica u kojoj je {0}</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>sedmica u mjesecu</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>sed. u mj.</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>s. u mj.</displayName>
 			</field>
 			<field type="day">
 				<displayName>dan</displayName>
@@ -2307,8 +2357,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">prije {0} d.</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>dan u godini</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>dan u god.</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>dan u g.</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>dan u sedmici</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>dan u sed.</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>dan u sed.</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>dan u mjesecu</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>dan u mj.</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>d. u mj.</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">prošla nedjelja</relative>
@@ -2388,7 +2462,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="mon-narrow">
 				<relative type="-1">prošli pon.</relative>
 				<relative type="0">ovaj pon.</relative>
-				<relative type="1">sljedeći pon</relative>
+				<relative type="1">sljedeći pon.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} ponedjeljak</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} ponedjeljka</relativeTimePattern>
@@ -2625,7 +2699,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">prije {0} subota</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>prijepodne/poslijepodne</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>prijepodne/poslijepodne</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>prijepodne/poslijepodne</displayName>
 			</field>
 			<field type="hour">
@@ -2751,6 +2831,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>vremenska zona</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>zona</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>zona</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm; -HH:mm</hourFormat>
@@ -2765,6 +2851,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Johnston</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Koordinirano svjetsko vrijeme</standard>
+				</long>
 			</zone>
 			<!-- This just had confirmed data for "Etc/Unknown" (different from the translation
 				 in sr_Latn). Fill in the other translations from data in sr_Latn.
@@ -2785,7 +2876,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Antigva</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
-				<exemplarCity>Anguilla</exemplarCity>
+				<exemplarCity>Angvila</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
 				<exemplarCity>Tirana</exemplarCity>
@@ -2905,7 +2996,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Macquarie</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
-				<exemplarCity>Lord Howe</exemplarCity>
+				<exemplarCity>Lord Hau</exemplarCity>
 			</zone>
 			<zone type="America/Aruba">
 				<exemplarCity>Aruba</exemplarCity>
@@ -3106,7 +3197,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>St. John’s</exemplarCity>
 			</zone>
 			<zone type="Indian/Cocos">
-				<exemplarCity>Kokosova Ostrva</exemplarCity>
+				<exemplarCity>Kokosova ostrva</exemplarCity>
 			</zone>
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinshasa</exemplarCity>
@@ -3132,6 +3223,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>Easter</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Punta Arenas</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Santiago</exemplarCity>
 			</zone>
@@ -3154,16 +3248,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Havana</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
-				<exemplarCity>Cape Verde</exemplarCity>
+				<exemplarCity>Kape Verde</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curacao</exemplarCity>
+				<exemplarCity>Kurasao</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
-				<exemplarCity>Božićno Ostrvo</exemplarCity>
+				<exemplarCity>Božićno ostrvo</exemplarCity>
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nikozija</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Famagusta</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Prag</exemplarCity>
@@ -3175,13 +3272,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Berlin</exemplarCity>
 			</zone>
 			<zone type="Africa/Djibouti">
-				<exemplarCity>Djibouti</exemplarCity>
+				<exemplarCity>Džibuti</exemplarCity>
 			</zone>
 			<zone type="Europe/Copenhagen">
 				<exemplarCity>Kopenhagen</exemplarCity>
 			</zone>
 			<zone type="America/Dominica">
-				<exemplarCity>Dominica</exemplarCity>
+				<exemplarCity>Dominika</exemplarCity>
 			</zone>
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>Santo Domingo</exemplarCity>
@@ -3262,7 +3359,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Cayenne</exemplarCity>
 			</zone>
 			<zone type="Europe/Guernsey">
-				<exemplarCity>Guernsey</exemplarCity>
+				<exemplarCity>Gernzi</exemplarCity>
 			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity>Accra</exemplarCity>
@@ -3289,7 +3386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Conakry</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
-				<exemplarCity>Guadeloupe</exemplarCity>
+				<exemplarCity>Gvadalupe</exemplarCity>
 			</zone>
 			<zone type="Africa/Malabo">
 				<exemplarCity>Malabo</exemplarCity>
@@ -3415,13 +3512,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Kuvajt</exemplarCity>
 			</zone>
 			<zone type="America/Cayman">
-				<exemplarCity>Cayman</exemplarCity>
+				<exemplarCity>Kajman</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktau</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Oral</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Atyrau</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Akutobe</exemplarCity>
@@ -3702,6 +3802,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Saratov</exemplarCity>
+			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Astrahan</exemplarCity>
 			</zone>
@@ -3790,7 +3893,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Singapur</exemplarCity>
 			</zone>
 			<zone type="Atlantic/St_Helena">
-				<exemplarCity>St. Helena</exemplarCity>
+				<exemplarCity>Sveta Helena</exemplarCity>
 			</zone>
 			<zone type="Europe/Ljubljana">
 				<exemplarCity>Ljubljana</exemplarCity>
@@ -3823,7 +3926,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Sao Tome</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
-				<exemplarCity>El Salvador</exemplarCity>
+				<exemplarCity>Salvador</exemplarCity>
 			</zone>
 			<zone type="America/Lower_Princes">
 				<exemplarCity>Lower Prince’s Quarter</exemplarCity>
@@ -3886,7 +3989,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Užgorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
-				<exemplarCity>Kiev</exemplarCity>
+				<exemplarCity>Kijev</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporožje</exemplarCity>
@@ -4810,14 +4913,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
-					<generic>Vrijeme na Ostrvima Sen Pjer i Mikelon</generic>
-					<standard>Standardno vrijeme na Ostrvima Sen Pjer i Mikelon</standard>
-					<daylight>Ljetno vrijeme na Ostrvima Sen Pjer i Mikelon</daylight>
+					<generic>Vrijeme na Ostrvima Sveti Petar i Mikelon</generic>
+					<standard>Standardno vrijeme na Ostrvima Sveti Petar i Mikelon</standard>
+					<daylight>Ljetno vrijeme na Ostrvima Sveti Petar i Mikelon</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
-					<standard>Vrijeme na Ostrvu Pitkern</standard>
+					<standard>Vrijeme na Ostrvima Pitkern</standard>
 				</long>
 			</metazone>
 			<metazone type="Ponape">
@@ -5575,7 +5678,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CAD">
 				<displayName>Kanadski dolar</displayName>
 				<displayName count="one">kanadski dolar</displayName>
-				<displayName count="few">kanadski dolari</displayName>
+				<displayName count="few">kanadska dolara</displayName>
 				<displayName count="other">kanadskih dolara</displayName>
 				<symbol>CAD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
@@ -5625,6 +5728,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">čileanskih pezosa</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>Kineski juan (izvanteritorijalni)</displayName>
+				<displayName count="one">kineski juan (izvanteritorijalni)</displayName>
+				<displayName count="few">kineska juana (izvanteritorijalni)</displayName>
+				<displayName count="other">kineskih juana (izvanteritorijalni)</displayName>
 			</currency>
 			<currency type="CNX">
 				<displayName draft="provisional">Dolar kineske narodne banke</displayName>
@@ -5878,8 +5987,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GHS">
 				<displayName>Ganski cedi</displayName>
 				<displayName count="one">ganski cedi</displayName>
-				<displayName count="few">ganska ceda</displayName>
-				<displayName count="other">ganskih ceda</displayName>
+				<displayName count="few">ganska cedija</displayName>
+				<displayName count="other">ganskih cedija</displayName>
 				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
@@ -6467,7 +6576,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Nikaragvanska kordoba</displayName>
 				<displayName count="one">nikaragvanska kordoba</displayName>
 				<displayName count="few">nikaragvanske kordobe</displayName>
-				<displayName count="other">nikaragvanska kordoba</displayName>
+				<displayName count="other">nikaragvanskih kordoba</displayName>
 				<symbol>NIO</symbol>
 				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
@@ -6512,7 +6621,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Panamska balboa</displayName>
 				<displayName count="one">panamska balboa</displayName>
 				<displayName count="few">panamske balboe</displayName>
-				<displayName count="other">panamska balboa</displayName>
+				<displayName count="other">panamskih balboa</displayName>
 				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
@@ -6610,6 +6719,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="few">rumunska leja</displayName>
 				<displayName count="other">rumunskih leja</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Srpski dinar</displayName>
@@ -7217,10 +7327,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">za {0} mjesec</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">za {0} mjeseca</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">za {0} mjeseci</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">za {0} mjeseci</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">za {0} dan</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">za {0} dana</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">za {0} dana</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">za {0} dana</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Skrenite na {0}. križanju desno.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
@@ -7702,6 +7812,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} skandinavske milje</unitPattern>
 				<unitPattern count="other">{0} skandinavskih milja</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>tačke</displayName>
+				<unitPattern count="one">{0} tačka</unitPattern>
+				<unitPattern count="few">{0} tč</unitPattern>
+				<unitPattern count="other">{0} tačaka</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>luksi</displayName>
 				<unitPattern count="one">{0} luks</unitPattern>
@@ -8036,10 +8152,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} kašičica</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}I</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}J</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}Z</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} istok</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} sjever</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} jug</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} zapad</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
@@ -8178,10 +8294,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>L/100km</displayName>
-				<unitPattern count="one">{0} L/100km</unitPattern>
-				<unitPattern count="few">{0} L/100km</unitPattern>
-				<unitPattern count="other">{0} L/100km</unitPattern>
+				<displayName>L/100 km</displayName>
+				<unitPattern count="one">{0} L/100 km</unitPattern>
+				<unitPattern count="few">{0} L/100 km</unitPattern>
+				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mpg</displayName>
@@ -8519,6 +8635,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>tč</displayName>
+				<unitPattern count="one">{0} tč</unitPattern>
+				<unitPattern count="few">{0} tč</unitPattern>
+				<unitPattern count="other">{0} tč</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>luks</displayName>
 				<unitPattern count="one">{0} lx</unitPattern>
@@ -8853,10 +8975,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}I</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}J</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}Z</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} I</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} S</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} J</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} Z</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -8914,10 +9036,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="provisional">{0} ft²</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>L/100km</displayName>
-				<unitPattern count="one">{0} L/100km</unitPattern>
-				<unitPattern count="few">{0} L/100km</unitPattern>
-				<unitPattern count="other">{0} L/100km</unitPattern>
+				<displayName>L/100 km</displayName>
+				<unitPattern count="one">{0} L/100 km</unitPattern>
+				<unitPattern count="few">{0} L/100 km</unitPattern>
+				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>god.</displayName>
@@ -9141,6 +9263,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} i {1}</listPatternPart>
 			<listPatternPart type="2">{0} i {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} ili {1}</listPatternPart>
+			<listPatternPart type="2">{0} ili {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -9188,13 +9316,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Aktivnosti</characterLabel>
 		<characterLabel type="african_scripts">Afrička pisma</characterLabel>
 		<characterLabel type="american_scripts">Američka pisma</characterLabel>
-		<characterLabel type="animal">životinja</characterLabel>
-		<characterLabel type="animals_nature">Životinje i priroda</characterLabel>
+		<characterLabel type="animal">Životinja</characterLabel>
+		<characterLabel type="animals_nature">Životinje ili priroda</characterLabel>
 		<characterLabel type="arrows">Strjelice</characterLabel>
-		<characterLabel type="body">tijelo</characterLabel>
+		<characterLabel type="body">Tijelo</characterLabel>
 		<characterLabel type="box_drawing">Linije</characterLabel>
 		<characterLabel type="braille">Brajevo pismo</characterLabel>
-		<characterLabel type="building">zgrada</characterLabel>
+		<characterLabel type="building">Zgrada</characterLabel>
 		<characterLabel type="bullets_stars">Znakovi/zvjezdice za isticanje</characterLabel>
 		<characterLabel type="consonantal_jamo">Konsonantski jamo</characterLabel>
 		<characterLabel type="currency_symbols">Simboli valuta</characterLabel>
@@ -9207,8 +9335,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Istočnoazijska pisma</characterLabel>
 		<characterLabel type="emoji">Emoji sličice</characterLabel>
 		<characterLabel type="european_scripts">Evropska pisma</characterLabel>
-		<characterLabel type="female">žensko</characterLabel>
-		<characterLabel type="flag">zastava</characterLabel>
+		<characterLabel type="female">Žensko</characterLabel>
+		<characterLabel type="flag">Zastava</characterLabel>
 		<characterLabel type="flags">Zastave</characterLabel>
 		<characterLabel type="food_drink">Hrana i piće</characterLabel>
 		<characterLabel type="format">Format</characterLabel>
@@ -9221,54 +9349,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (pojednostavljeni)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (tradicionalni)</characterLabel>
-		<characterLabel type="heart">srce</characterLabel>
+		<characterLabel type="heart">Srce</characterLabel>
 		<characterLabel type="historic_scripts">Stara pisma</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Znakovi za ideografski opis</characterLabel>
 		<characterLabel type="japanese_kana">Japanski kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
-		<characterLabel type="keycap">kapica za tipku</characterLabel>
+		<characterLabel type="keycap">Kapica za tipku</characterLabel>
 		<characterLabel type="leftwards_arrows">Strjelice ulijevo</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Strjelice ulijevo udesno</characterLabel>
 		<characterLabel type="letterlike_symbols">Simboli nalik slovima</characterLabel>
 		<characterLabel type="limited_use">Ograničena upotreba</characterLabel>
-		<characterLabel type="male">muško</characterLabel>
+		<characterLabel type="male">Muško</characterLabel>
 		<characterLabel type="math_symbols">Matematički simboli</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Bliskoistočna pisma</characterLabel>
 		<characterLabel type="miscellaneous">Razno</characterLabel>
 		<characterLabel type="modern_scripts">Moderna pisma</characterLabel>
 		<characterLabel type="modifier">Modifikator</characterLabel>
 		<characterLabel type="musical_symbols">Muzički simboli</characterLabel>
-		<characterLabel type="nature">priroda</characterLabel>
+		<characterLabel type="nature">Priroda</characterLabel>
 		<characterLabel type="nonspacing">Nerazdvajajući znakovi</characterLabel>
 		<characterLabel type="numbers">Brojevi</characterLabel>
 		<characterLabel type="objects">Objekti</characterLabel>
 		<characterLabel type="other">Ostalo</characterLabel>
 		<characterLabel type="paired">Upareno</characterLabel>
-		<characterLabel type="person">osoba</characterLabel>
+		<characterLabel type="person">Osoba</characterLabel>
 		<characterLabel type="phonetic_alphabet">Fonetska abeceda</characterLabel>
 		<characterLabel type="pictographs">Piktogrami</characterLabel>
-		<characterLabel type="place">mjesto</characterLabel>
-		<characterLabel type="plant">biljka</characterLabel>
+		<characterLabel type="place">Mjesto</characterLabel>
+		<characterLabel type="plant">Biljka</characterLabel>
 		<characterLabel type="punctuation">Interpunkcija</characterLabel>
 		<characterLabel type="rightwards_arrows">Strjelice udesno</characterLabel>
 		<characterLabel type="sign_standard_symbols">Znakovni/standardni simboli</characterLabel>
 		<characterLabel type="small_form_variant">Varijante malih oblika</characterLabel>
-		<characterLabel type="smiley">smajli</characterLabel>
+		<characterLabel type="smiley">Smajli</characterLabel>
 		<characterLabel type="smileys_people">Nasmiješena lica i ljudi</characterLabel>
 		<characterLabel type="south_asian_scripts">Južnoazijska pisma</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Jugoistočnoazijska pisma</characterLabel>
 		<characterLabel type="spacing">Razmak</characterLabel>
-		<characterLabel type="sport">sport</characterLabel>
+		<characterLabel type="sport">Sport</characterLabel>
 		<characterLabel type="symbols">Simboli</characterLabel>
 		<characterLabel type="technical_symbols">Tehnički simboli</characterLabel>
 		<characterLabel type="tone_marks">Tonske oznake</characterLabel>
-		<characterLabel type="travel">putovanja</characterLabel>
+		<characterLabel type="travel">Putovanja</characterLabel>
 		<characterLabel type="travel_places">Putovanja i mjesta</characterLabel>
 		<characterLabel type="upwards_arrows">Strjelica nagore</characterLabel>
 		<characterLabel type="variant_forms">Varijante oblika</characterLabel>
 		<characterLabel type="vocalic_jamo">Vokalni jamo</characterLabel>
-		<characterLabel type="weather">vrijeme</characterLabel>
+		<characterLabel type="weather">Vrijeme</characterLabel>
 		<characterLabel type="western_asian_scripts">Zapadnoazijska pisma</characterLabel>
 		<characterLabel type="whitespace">Prazan prostor</characterLabel>
 	</characterLabels>

@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -178,7 +180,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eu">baski</language>
 			<language type="ewo">ewondo</language>
 			<language type="ext">extremadura</language>
-			<language type="fa">farsi</language>
+			<language type="fa">persia</language>
 			<language type="fa" alt="secondary">persia</language>
 			<language type="fan">fang</language>
 			<language type="fat">fanti</language>
@@ -686,6 +688,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Geor">georgialainen</script>
 			<script type="Geor" alt="secondary">mkhedruli</script>
 			<script type="Glag">glagoliittinen</script>
+			<script type="Gonm" draft="contributed">masaram-gondi</script>
 			<script type="Goth">goottilainen</script>
 			<script type="Gran">grantha</script>
 			<script type="Grek">kreikkalainen</script>
@@ -704,7 +707,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hira">hiragana</script>
 			<script type="Hluw">anatolialaiset hieroglyfit</script>
 			<script type="Hmng">pahawh hmong</script>
-			<script type="Hrkt">hiragana tai katakana</script>
+			<script type="Hrkt">japanin tavumerkistöt</script>
 			<script type="Hung">muinaisunkarilainen</script>
 			<script type="Inds">induslainen</script>
 			<script type="Ital">muinaisitalialainen</script>
@@ -787,6 +790,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Sind">khudabadi</script>
 			<script type="Sinh">sinhalilainen</script>
 			<script type="Sora">sorang sompeng</script>
+			<script type="Soyo" draft="contributed">soyombo-kirjaimisto</script>
 			<script type="Sund">sundalainen</script>
 			<script type="Sylo">syloti nagri</script>
 			<script type="Syrc">syyrialainen</script>
@@ -817,6 +821,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Xpeo">muinaispersialainen</script>
 			<script type="Xsux">sumerilais-akkadilainen nuolenpääkirjoitus</script>
 			<script type="Yiii">yiläinen</script>
+			<script type="Zanb" draft="contributed">zanabazar-neliökirjaimisto</script>
 			<script type="Zinh">peritty</script>
 			<script type="Zmth">matemaattinen</script>
 			<script type="Zsye">emoji-symbolit</script>
@@ -916,8 +921,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Joulusaari</territory>
 			<territory type="CY">Kypros</territory>
-			<territory type="CZ">Tšekinmaa</territory>
-			<territory type="CZ" alt="variant">Tšekki</territory>
+			<territory type="CZ">Tšekki</territory>
+			<territory type="CZ" alt="variant">Tšekin tasavalta</territory>
 			<territory type="DE">Saksa</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
@@ -934,6 +939,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Espanja</territory>
 			<territory type="ET">Etiopia</territory>
 			<territory type="EU">Euroopan unioni</territory>
+			<territory type="EZ">euroalue</territory>
 			<territory type="FI">Suomi</territory>
 			<territory type="FJ">Fidži</territory>
 			<territory type="FK">Falklandinsaaret</territory>
@@ -1158,11 +1164,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="EKAVSK">serbian ekavialainen ääntämys</variant>
 			<variant type="EMODENG">varhaisnykyenglanti</variant>
 			<variant type="FONIPA">kansainvälinen foneettinen aakkosto IPA</variant>
+			<variant type="FONNAPA" draft="contributed">pohjoisamerikkalainen foneettinen aakkosto NAPA</variant>
 			<variant type="FONUPA">uralilainen foneettinen aakkosto UPA</variant>
 			<variant type="FONUPA" alt="secondary">suomalais-ugrilainen tarkekirjoitus</variant>
 			<variant type="FONXSAMP">foneettinen X-SAMPA-merkistö</variant>
 			<variant type="HEPBURN">japanin Hepburn-latinaistus</variant>
 			<variant type="HOGNORSK">norjan högnorsk</variant>
+			<variant type="HSISTEMO" draft="contributed">esperanton h-kirjoitus</variant>
 			<variant type="IJEKAVSK">serbian ijekavialainen ääntämys</variant>
 			<variant type="ITIHASA">sanskriitin eeppinen muoto</variant>
 			<variant type="JAUER">retoromaanin jauer-murre</variant>
@@ -1182,6 +1190,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="NULIK">nykyvolapük</variant>
 			<variant type="OSOJS">sloveenin resian Oseaccon/Osojanen alamurre</variant>
 			<variant type="OXENDICT">englannin Oxfordin sanakirjan oikeinkirjoitus</variant>
+			<variant type="PAHAWH2" draft="contributed">pahawh-hmongin tavukirjoituksen toinen vaihe</variant>
+			<variant type="PAHAWH3" draft="contributed">pahawh-hmongin tavukirjoituksen kolmas vaihe</variant>
+			<variant type="PAHAWH4" draft="contributed">pahawh-hmongin tavukirjoituksen viimeinen vaihe</variant>
 			<variant type="PAMAKA">pamakan kreolimurre</variant>
 			<variant type="PETR1708">venäjän Pietarin siviiliaakkosto 1708</variant>
 			<variant type="PINYIN">kiinan pinyin-latinaistus</variant>
@@ -1198,6 +1209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="SIMPLE">yksinkertaistettu kielimuoto</variant>
 			<variant type="SOLBA">sloveenin resian Stolvizzan/Solbican alamurre</variant>
 			<variant type="SOTAV">kapverdenkreolin sotaventolainen murreryhmä</variant>
+			<variant type="SPANGLIS" draft="contributed">spanglish</variant>
 			<variant type="SURMIRAN">retoromaanin surmiran-muoto</variant>
 			<variant type="SURSILV">retoromaanin sursilvan-muoto</variant>
 			<variant type="SUTSILV">retoromaanin sutsilvan-muoto</variant>
@@ -1210,6 +1222,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="VALENCIA">katalaanin valencian murre</variant>
 			<variant type="VALLADER">reoromaanin vallader-muoto</variant>
 			<variant type="WADEGILE">kiinan Wade-Giles-latinaistus</variant>
+			<variant type="XSISTEMO" draft="contributed">esperanton x-kirjoitus</variant>
 		</variants>
 		<keys>
 			<key type="calendar">kalenteri</key>
@@ -1411,6 +1424,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">…{0}</ellipsis>
 		<ellipsis type="word-medial">{0}…{1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>”</quotationStart>
@@ -1422,9 +1454,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<calendars>
 			<calendar type="buddhist">
 				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">buddhalainen aika</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">BE</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">BE</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1462,15 +1500,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">d. MMMM</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">L.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d.M.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E d.M.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="contributed">M.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d. MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E d. MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMccccd" draft="contributed">cccc d. MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -1520,6 +1561,170 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="coptic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">thoutkuuta</month>
+							<month type="2" draft="contributed">paopikuuta</month>
+							<month type="3" draft="contributed">hathorkuuta</month>
+							<month type="4" draft="contributed">koiakkuuta</month>
+							<month type="5" draft="contributed">tobikuuta</month>
+							<month type="6" draft="contributed">meshirkuuta</month>
+							<month type="7" draft="contributed">paremhatkuuta</month>
+							<month type="8" draft="contributed">paremoudekuuta</month>
+							<month type="9" draft="contributed">pashonskuuta</month>
+							<month type="10" draft="contributed">paonikuuta</month>
+							<month type="11" draft="contributed">epipkuuta</month>
+							<month type="12" draft="contributed">mesorikuuta</month>
+							<month type="13" draft="contributed">pi-kogi-enavotkuuta</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">thoutkuuta</month>
+							<month type="2" draft="contributed">paopikuuta</month>
+							<month type="3" draft="contributed">hathorkuuta</month>
+							<month type="4" draft="contributed">koiakkuuta</month>
+							<month type="5" draft="contributed">tobikuuta</month>
+							<month type="6" draft="contributed">meshirkuuta</month>
+							<month type="7" draft="contributed">paremhatkuuta</month>
+							<month type="8" draft="contributed">paremoudekuuta</month>
+							<month type="9" draft="contributed">pashonskuuta</month>
+							<month type="10" draft="contributed">paonikuuta</month>
+							<month type="11" draft="contributed">epipkuuta</month>
+							<month type="12" draft="contributed">mesorikuuta</month>
+							<month type="13" draft="contributed">pi-kogi-enavotkuuta</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">thout</month>
+							<month type="2" draft="contributed">paopi</month>
+							<month type="3" draft="contributed">hathor</month>
+							<month type="4" draft="contributed">koiak</month>
+							<month type="5" draft="contributed">toba</month>
+							<month type="6" draft="contributed">meshir</month>
+							<month type="7" draft="contributed">paremhat</month>
+							<month type="8" draft="contributed">paremoude</month>
+							<month type="9" draft="contributed">pashons</month>
+							<month type="10" draft="contributed">paoni</month>
+							<month type="11" draft="contributed">epip</month>
+							<month type="12" draft="contributed">mesori</month>
+							<month type="13" draft="contributed">pi kogi enavot</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">thoutkuu</month>
+							<month type="2" draft="contributed">paopikuu</month>
+							<month type="3" draft="contributed">hathorkuu</month>
+							<month type="4" draft="contributed">koiakkuu</month>
+							<month type="5" draft="contributed">tobikuu</month>
+							<month type="6" draft="contributed">meshirkuu</month>
+							<month type="7" draft="contributed">paremhatkuu</month>
+							<month type="8" draft="contributed">paremoudekuu</month>
+							<month type="9" draft="contributed">pashonskuu</month>
+							<month type="10" draft="contributed">paonikuu</month>
+							<month type="11" draft="contributed">epipkuu</month>
+							<month type="12" draft="contributed">mesorikuu</month>
+							<month type="13" draft="contributed">pi-kogi-enavotkuu</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">mäskärämkuuta</month>
+							<month type="2" draft="contributed">ṭəqəmtkuuta</month>
+							<month type="3" draft="contributed">ḫədarkuuta</month>
+							<month type="4" draft="contributed">taḫśaśkuuta</month>
+							<month type="5" draft="contributed">ṭərrkuuta</month>
+							<month type="6" draft="contributed">yäkatitkuuta</month>
+							<month type="7" draft="contributed">mägabitkuuta</month>
+							<month type="8" draft="contributed">miyazyakuuta</month>
+							<month type="9" draft="contributed">gənbotkuuta</month>
+							<month type="10" draft="contributed">sänekuuta</month>
+							<month type="11" draft="contributed">ḥamlekuuta</month>
+							<month type="12" draft="contributed">nähasekuuta</month>
+							<month type="13" draft="contributed">ṗagumenkuuta</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">mäskärämkuuta</month>
+							<month type="2" draft="contributed">ṭəqəmtkuuta</month>
+							<month type="3" draft="contributed">ḫədarkuuta</month>
+							<month type="4" draft="contributed">taḫśaśkuuta</month>
+							<month type="5" draft="contributed">ṭərrkuuta</month>
+							<month type="6" draft="contributed">yäkatitkuuta</month>
+							<month type="7" draft="contributed">mägabitkuuta</month>
+							<month type="8" draft="contributed">miyazyakuuta</month>
+							<month type="9" draft="contributed">gənbotkuuta</month>
+							<month type="10" draft="contributed">sänekuuta</month>
+							<month type="11" draft="contributed">ḥamlekuuta</month>
+							<month type="12" draft="contributed">nähasekuuta</month>
+							<month type="13" draft="contributed">ṗagumenkuuta</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">mäskärämkuu</month>
+							<month type="2">ṭəqəmtkuu</month>
+							<month type="3">ḫədarkuu</month>
+							<month type="4">taḫśaśkuu</month>
+							<month type="5">ṭərrkuu</month>
+							<month type="6">yäkatitkuu</month>
+							<month type="7">mägabitkuu</month>
+							<month type="8">miyazyakuu</month>
+							<month type="9">gənbotkuu</month>
+							<month type="10">sänekuu</month>
+							<month type="11">ḥamlekuu</month>
+							<month type="12">nähasekuu</month>
+							<month type="13">ṗagumenkuu</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">mäskärämkuu</month>
+							<month type="2" draft="contributed">ṭəqəmtkuu</month>
+							<month type="3" draft="contributed">ḫədarkuu</month>
+							<month type="4" draft="contributed">taḫśaśkuu</month>
+							<month type="5" draft="contributed">ṭərrkuu</month>
+							<month type="6" draft="contributed">yäkatitkuu</month>
+							<month type="7" draft="contributed">mägabitkuu</month>
+							<month type="8" draft="contributed">miyazyakuu</month>
+							<month type="9" draft="contributed">gənbotkuu</month>
+							<month type="10" draft="contributed">sänekuu</month>
+							<month type="11" draft="contributed">ḥamlekuu</month>
+							<month type="12" draft="contributed">nähasekuu</month>
+							<month type="13" draft="contributed">ṗagumenkuu</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1565,9 +1770,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h.mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h.mm.ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h.mm. B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h.mm.ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="Ehm">E h.mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH.mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
@@ -2069,17 +2283,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h.mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h.mm.ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h.mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h.mm.ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
 						<dateFormatItem id="Ehm">E h.mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E H.mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h.mm.ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E H.mm.ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E d. MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">LLLL y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d.M.y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E d.M.y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
@@ -2093,9 +2312,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d.M.</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
+						<dateFormatItem id="MMM">LLLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d.M.</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc d.M.</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">LLLL'n' W. 'viikko'</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">LLLL'n' W. 'viikko'</dateFormatItem>
@@ -2105,9 +2324,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMEd">E d.M.y</dateFormatItem>
 						<dateFormatItem id="yMM">M.y</dateFormatItem>
-						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d. MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E d. MMM y</dateFormatItem>
+						<dateFormatItem id="yMMM">M.y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d.M.y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E d.M.y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yMMMMccccd">cccc d. MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
@@ -2221,6 +2440,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">tišrí</month>
+							<month type="2" draft="contributed">hešván</month>
+							<month type="3" draft="contributed">kislév</month>
+							<month type="4" draft="contributed">tevét</month>
+							<month type="5" draft="contributed">ševát</month>
+							<month type="6" draft="contributed">adár I</month>
+							<month type="7" draft="contributed">adár</month>
+							<month type="7" yeartype="leap" draft="contributed">adár II</month>
+							<month type="8" draft="contributed">nisán</month>
+							<month type="9" draft="contributed">ijjár</month>
+							<month type="10" draft="contributed">siván</month>
+							<month type="11" draft="contributed">tammúz</month>
+							<month type="12" draft="contributed">ab</month>
+							<month type="13" draft="contributed">elúl</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">tišríkuuta</month>
 							<month type="2">hešvánkuuta</month>
@@ -2289,6 +2524,92 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">Anno Mundi</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AM</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AM</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="indian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">chaitrakuuta</month>
+							<month type="2" draft="contributed">vaisakhakuuta</month>
+							<month type="3" draft="contributed">jyaisthakuuta</month>
+							<month type="4" draft="contributed">asadhakuuta</month>
+							<month type="5" draft="contributed">sravanakuuta</month>
+							<month type="6" draft="contributed">bhadrakuuta</month>
+							<month type="7" draft="contributed">asvinakuuta</month>
+							<month type="8" draft="contributed">kartikakuuta</month>
+							<month type="9" draft="contributed">agrahayanakuuta</month>
+							<month type="10" draft="contributed">pausakuuta</month>
+							<month type="11" draft="contributed">maghakuuta</month>
+							<month type="12" draft="contributed">phalgunakuuta</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">chaitrakuuta</month>
+							<month type="2" draft="contributed">vaisakhakuuta</month>
+							<month type="3" draft="contributed">jyaisthakuuta</month>
+							<month type="4" draft="contributed">asadhakuuta</month>
+							<month type="5" draft="contributed">sravanakuuta</month>
+							<month type="6" draft="contributed">bhadrakuuta</month>
+							<month type="7" draft="contributed">asvinakuuta</month>
+							<month type="8" draft="contributed">kartikakuuta</month>
+							<month type="9" draft="contributed">agrahayanakuuta</month>
+							<month type="10" draft="contributed">pausakuuta</month>
+							<month type="11" draft="contributed">maghakuuta</month>
+							<month type="12" draft="contributed">phalgunakuuta</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">chaitra</month>
+							<month type="2" draft="contributed">vaisakha</month>
+							<month type="3" draft="contributed">jyaistha</month>
+							<month type="4" draft="contributed">asadha</month>
+							<month type="5" draft="contributed">sravana</month>
+							<month type="6" draft="contributed">bhadra</month>
+							<month type="7" draft="contributed">asvina</month>
+							<month type="8" draft="contributed">kartika</month>
+							<month type="9" draft="contributed">agrahayana</month>
+							<month type="10" draft="contributed">pausa</month>
+							<month type="11" draft="contributed">magha</month>
+							<month type="12" draft="contributed">phalguna</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">chaitrakuu</month>
+							<month type="2" draft="contributed">vaisakhakuu</month>
+							<month type="3" draft="contributed">jyaisthakuu</month>
+							<month type="4" draft="contributed">asadhakuu</month>
+							<month type="5" draft="contributed">sravanakuu</month>
+							<month type="6" draft="contributed">bhadrakuu</month>
+							<month type="7" draft="contributed">asvinakuu</month>
+							<month type="8" draft="contributed">kartikakuu</month>
+							<month type="9" draft="contributed">agrahayanakuu</month>
+							<month type="10" draft="contributed">pausakuu</month>
+							<month type="11" draft="contributed">maghakuu</month>
+							<month type="12" draft="contributed">phalgunakuu</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">Saka-ajanlaskua</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">Saka</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">Saka</era>
+					</eraNarrow>
+				</eras>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -2325,6 +2646,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">hidžran jälkeen</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AH</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AH</era>
+					</eraNarrow>
+				</eras>
 			</calendar>
 			<calendar type="japanese">
 				<dateFormats>
@@ -2350,17 +2682,106 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">farvardinkuuta</month>
+							<month type="2" draft="contributed">ordibeheštkuuta</month>
+							<month type="3" draft="contributed">khordadkuuta</month>
+							<month type="4" draft="contributed">tirkuuta</month>
+							<month type="5" draft="contributed">mordadkuuta</month>
+							<month type="6" draft="contributed">šahrivarkuuta</month>
+							<month type="7" draft="contributed">mehrkuuta</month>
+							<month type="8" draft="contributed">abankuuta</month>
+							<month type="9" draft="contributed">azarkuuta</month>
+							<month type="10" draft="contributed">deykuuta</month>
+							<month type="11" draft="contributed">bahmankuuta</month>
+							<month type="12" draft="contributed">esfandkuuta</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">farvardinkuuta</month>
+							<month type="2" draft="contributed">ordibeheštkuuta</month>
+							<month type="3" draft="contributed">khordadkuuta</month>
+							<month type="4" draft="contributed">tirkuuta</month>
+							<month type="5" draft="contributed">mordadkuuta</month>
+							<month type="6" draft="contributed">šahrivarkuuta</month>
+							<month type="7" draft="contributed">mehrkuuta</month>
+							<month type="8" draft="contributed">abankuuta</month>
+							<month type="9" draft="contributed">azarkuuta</month>
+							<month type="10" draft="contributed">deykuuta</month>
+							<month type="11" draft="contributed">bahmankuuta</month>
+							<month type="12" draft="contributed">esfandkuuta</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">farvardin</month>
+							<month type="2" draft="contributed">ordibehešt</month>
+							<month type="3" draft="contributed">khordad</month>
+							<month type="4" draft="contributed">tir</month>
+							<month type="5" draft="contributed">mordad</month>
+							<month type="6" draft="contributed">šahrivar</month>
+							<month type="7" draft="contributed">mehr</month>
+							<month type="8" draft="contributed">aban</month>
+							<month type="9" draft="contributed">azar</month>
+							<month type="10" draft="contributed">dey</month>
+							<month type="11" draft="contributed">bahman</month>
+							<month type="12" draft="contributed">esfand</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">farvardinkuu</month>
+							<month type="2" draft="contributed">ordibeheštkuu</month>
+							<month type="3" draft="contributed">khordadkuu</month>
+							<month type="4" draft="contributed">tirkuu</month>
+							<month type="5" draft="contributed">mordadkuu</month>
+							<month type="6" draft="contributed">šahrivarkuu</month>
+							<month type="7" draft="contributed">mehrkuu</month>
+							<month type="8" draft="contributed">abankuu</month>
+							<month type="9" draft="contributed">azarkuu</month>
+							<month type="10" draft="contributed">deykuu</month>
+							<month type="11" draft="contributed">bahmankuu</month>
+							<month type="12" draft="contributed">esfandkuu</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">Anno Persico</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AP</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AP</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="roc">
 				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">ennen Kiinan tasavaltaa</era>
+						<era type="1" draft="contributed">Minguo</era>
+					</eraNames>
 					<eraAbbr>
-						<era type="0">Before R.O.C.</era>
+						<era type="0">e. Kiinan tasav.</era>
 						<era type="1">Minguo</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">e. Kiinan tasav.</era>
+						<era type="1" draft="contributed">Minguo</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>aikakausi</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>aikakausi</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>aikakausi</displayName>
 			</field>
 			<field type="year">
@@ -2534,6 +2955,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>päivän {0} viikolla</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>kuukauden viikko</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>kuukauden vk</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>kuukauden vk</displayName>
+			</field>
 			<field type="day">
 				<displayName>päivä</displayName>
 				<relative type="-2">toissa päivänä</relative>
@@ -2582,8 +3012,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} pv sitten</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>vuodenpäivä</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>vuodenpv</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>vuodenpv</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>viikonpäivä</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>viikonpäivä</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>viikonpäivä</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>kuukauden viikonpäivä</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>kuukauden vk päivä</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>kuukauden vk päivä</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">viime sunnuntaina</relative>
@@ -2858,7 +3312,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} la sitten</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>vuorokaudenaika</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>vuorokaudenaika</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>vuorokaudenaika</displayName>
 			</field>
 			<field type="hour">
@@ -2972,6 +3432,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>aikavyöhyke</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>aikavyöhyke</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>aikavyöhyke</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+H.mm;-H.mm</hourFormat>
@@ -2989,7 +3455,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
-					<standard>Asetettu yleisaika</standard>
+					<standard>UTC-yleisaika</standard>
 				</long>
 			</zone>
 			<zone type="Etc/Unknown">
@@ -3356,6 +3822,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>Pääsiäissaari</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Punta Arenas</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Santiago de Chile</exemplarCity>
 			</zone>
@@ -3388,6 +3857,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nikosia</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Famagusta</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Praha</exemplarCity>
@@ -3650,6 +4122,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Oral">
 				<exemplarCity>Uralsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Atıraw</exemplarCity>
+			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aqtöbe</exemplarCity>
 			</zone>
@@ -3843,7 +4318,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Auckland</exemplarCity>
 			</zone>
 			<zone type="Asia/Muscat">
-				<exemplarCity>Muscat</exemplarCity>
+				<exemplarCity>Masqat</exemplarCity>
 			</zone>
 			<zone type="America/Panama">
 				<exemplarCity>Panama</exemplarCity>
@@ -3928,6 +4403,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Saratov</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Astrahan</exemplarCity>
@@ -4122,7 +4600,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Kampala</exemplarCity>
 			</zone>
 			<zone type="Pacific/Midway">
-				<exemplarCity>Midway</exemplarCity>
+				<exemplarCity>Midwaysaaret</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>Wake</exemplarCity>
@@ -4565,7 +5043,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard>Dumont-d’Urvillen aika</standard>
+					<standard>Dumont d’Urvillen aika</standard>
 				</long>
 			</metazone>
 			<metazone type="East_Timor">
@@ -4642,7 +5120,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Gambier">
 				<long>
-					<standard>Gambierin aika</standard>
+					<standard>Gambiersaarten aika</standard>
 				</long>
 			</metazone>
 			<metazone type="Georgia">
@@ -4859,7 +5337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
-					<standard>Marquesasin aika</standard>
+					<standard>Marquesassaarten aika</standard>
 				</long>
 			</metazone>
 			<metazone type="Marshall_Islands">
@@ -4950,7 +5428,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard>Norfolkinsaarten aika</standard>
+					<standard>Norfolkinsaaren aika</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -5237,7 +5715,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<minimumGroupingDigits>1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
-			<group> </group>
+			<group> </group>
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<plusSign>+</plusSign>
@@ -5513,7 +5991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Bosnia-Hertsegovinan vaihdettava markka</displayName>
 				<displayName count="other">Bosnia-Hertsegovinan vaihdettavaa markkaa</displayName>
 				<symbol>BAM</symbol>
-				<symbol alt="narrow" draft="contributed">KM</symbol>
+				<symbol alt="narrow">BAM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName>Bosnia-Hertsegovinan uusi dinaari (1994–1997)</displayName>
@@ -5773,6 +6251,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CLP</symbol>
 				<symbol alt="narrow">CLP</symbol>
 			</currency>
+			<currency type="CNH">
+				<displayName>Kiinan juan (offshore)</displayName>
+				<displayName count="one">Kiinan juan (offshore)</displayName>
+				<displayName count="other">Kiinan juania (offshore)</displayName>
+				<symbol draft="contributed">CNH</symbol>
+			</currency>
 			<currency type="CNX">
 				<displayName>Kiinan kansanpankin dollari</displayName>
 				<displayName count="one">Kiinan kansanpankin dollari</displayName>
@@ -5800,9 +6284,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
-				<displayName>Costa Rican colon</displayName>
-				<displayName count="one">Costa Rican colon</displayName>
-				<displayName count="other">Costa Rican colonia</displayName>
+				<displayName>Costa Rican colón</displayName>
+				<displayName count="one">Costa Rican colón</displayName>
+				<displayName count="other">Costa Rican colónia</displayName>
 				<symbol>CRC</symbol>
 				<symbol alt="narrow">CRC</symbol>
 			</currency>
@@ -6633,16 +7117,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow">PKR</symbol>
 			</currency>
 			<currency type="PLN">
-				<displayName>Puolan zloty</displayName>
-				<displayName count="one">Puolan zloty</displayName>
-				<displayName count="other">Puolan zlotya</displayName>
+				<displayName>Puolan złoty</displayName>
+				<displayName count="one">Puolan złoty</displayName>
+				<displayName count="other">Puolan złotya</displayName>
 				<symbol>PLN</symbol>
 				<symbol alt="narrow">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
-				<displayName>Puolan zloty (1950–1995)</displayName>
-				<displayName count="one">Puolan zloty (1950–1995)</displayName>
-				<displayName count="other">Puolan zlotya (1950–1995)</displayName>
+				<displayName>Puolan złoty (1950–1995)</displayName>
+				<displayName count="one">Puolan złoty (1950–1995)</displayName>
+				<displayName count="other">Puolan złotya (1950–1995)</displayName>
 				<symbol>PLZ</symbol>
 			</currency>
 			<currency type="PTE">
@@ -6826,9 +7310,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
-				<displayName>El Salvadorin colon</displayName>
-				<displayName count="one">El Salvadorin colon</displayName>
-				<displayName count="other">El Salvadorin colonia</displayName>
+				<displayName>El Salvadorin colón</displayName>
+				<displayName count="one">El Salvadorin colón</displayName>
+				<displayName count="other">El Salvadorin colónia</displayName>
 				<symbol>SVC</symbol>
 			</currency>
 			<currency type="SYP">
@@ -6906,6 +7390,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">Turkin liiraa</displayName>
 				<symbol>TRY</symbol>
 				<symbol alt="narrow">TRY</symbol>
+				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidadin ja Tobagon dollari</displayName>
@@ -7150,9 +7635,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>XTS</symbol>
 			</currency>
 			<currency type="XUA">
-				<displayName>afrikkalainen ADB-laskentayksikkö</displayName>
-				<displayName count="one">ADB-laskentayksikkö</displayName>
-				<displayName count="other">ADB-laskentayksikköä</displayName>
+				<displayName>afrikkalainen AfDB-laskentayksikkö</displayName>
+				<displayName count="one">AfDB-laskentayksikkö</displayName>
+				<displayName count="other">AfDB-laskentayksikköä</displayName>
 				<symbol>XUA</symbol>
 			</currency>
 			<currency type="XXX">
@@ -7256,7 +7741,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 		<miscPatterns numberSystem="latn">
 			<pattern type="atLeast">vähintään {0}</pattern>
-			<pattern type="range">{0}‒{1}</pattern>
+			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} päivä</pluralMinimalPairs>
@@ -7267,7 +7752,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
-				<compoundUnitPattern>{0} / {1}</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G-voimat</displayName>
@@ -7675,6 +8160,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>peninkulmat</displayName>
 				<unitPattern count="one">{0} peninkulma</unitPattern>
 				<unitPattern count="other">{0} peninkulmaa</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pt</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>luksit</displayName>
@@ -8382,6 +8872,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>pnk</displayName>
 				<unitPattern count="one">{0} pnk</unitPattern>
 				<unitPattern count="other">{0} pnk</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pt</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -9403,6 +9898,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} ja {1}</listPatternPart>
 			<listPatternPart type="2">{0} ja {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} tai {1}</listPatternPart>
+			<listPatternPart type="2">{0} tai {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -9435,102 +9936,102 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</messages>
 	</posix>
 	<characterLabels>
-		<characterLabelPattern type="all">{0} – Kaikki</characterLabelPattern>
+		<characterLabelPattern type="all">{0} – kaikki</characterLabelPattern>
 		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
-		<characterLabelPattern type="compatibility">{0} – Yhteensopivuus</characterLabelPattern>
-		<characterLabelPattern type="enclosed">{0} – Ympäröity</characterLabelPattern>
-		<characterLabelPattern type="extended">{0} – Laajennettu</characterLabelPattern>
-		<characterLabelPattern type="historic">{0} – Historiallinen</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous">{0} – Sekalaiset</characterLabelPattern>
-		<characterLabelPattern type="other">{0} – Muu</characterLabelPattern>
-		<characterLabelPattern type="scripts">Kirjoitusjärjestelmät – {0}</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} – yhteensopivuus</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} – ympäröity</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} – laajennettu</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} – historiallinen</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} – sekalaiset</characterLabelPattern>
+		<characterLabelPattern type="other">{0} – muut</characterLabelPattern>
+		<characterLabelPattern type="scripts">kirjoitusjärjestelmät – {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} piirtoviiva</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} piirtoviivaa</characterLabelPattern>
-		<characterLabel type="activities">Toiminnot</characterLabel>
-		<characterLabel type="african_scripts">Afrikkalaiset kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="american_scripts">Amerikkalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="activities">toiminnot</characterLabel>
+		<characterLabel type="african_scripts">afrikkalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="american_scripts">amerikkalaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="animal">eläin</characterLabel>
-		<characterLabel type="animals_nature">Eläimet ja luonto</characterLabel>
-		<characterLabel type="arrows">Nuolet</characterLabel>
+		<characterLabel type="animals_nature">eläimet ja luonto</characterLabel>
+		<characterLabel type="arrows">nuolet</characterLabel>
 		<characterLabel type="body">keho</characterLabel>
-		<characterLabel type="box_drawing">Viivapiirrosmerkit</characterLabel>
-		<characterLabel type="braille">Pistekirjoitus</characterLabel>
+		<characterLabel type="box_drawing">viivapiirrosmerkit</characterLabel>
+		<characterLabel type="braille">pistekirjoitus</characterLabel>
 		<characterLabel type="building">rakennus</characterLabel>
-		<characterLabel type="bullets_stars">Luettelomerkit/tähdet</characterLabel>
-		<characterLabel type="consonantal_jamo">Jamo-konsonanttielementit</characterLabel>
-		<characterLabel type="currency_symbols">Valuuttamerkit</characterLabel>
-		<characterLabel type="dash_connector">Yhdysmerkit</characterLabel>
-		<characterLabel type="digits">Numerot</characterLabel>
-		<characterLabel type="dingbats">Ornamentit</characterLabel>
-		<characterLabel type="divination_symbols">Ennustussymbolit</characterLabel>
-		<characterLabel type="downwards_arrows">Alaspäin osoittavat nuolet</characterLabel>
-		<characterLabel type="downwards_upwards_arrows">Alas- ja ylöspäin osoittavat nuolet</characterLabel>
-		<characterLabel type="east_asian_scripts">Itäaasialaiset kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="emoji">Emojit</characterLabel>
-		<characterLabel type="european_scripts">Eurooppalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="bullets_stars">luettelomerkit ja tähdet</characterLabel>
+		<characterLabel type="consonantal_jamo">jamo-konsonanttielementit</characterLabel>
+		<characterLabel type="currency_symbols">valuuttamerkit</characterLabel>
+		<characterLabel type="dash_connector">yhdysmerkit</characterLabel>
+		<characterLabel type="digits">numerot</characterLabel>
+		<characterLabel type="dingbats">ornamentit</characterLabel>
+		<characterLabel type="divination_symbols">ennustussymbolit</characterLabel>
+		<characterLabel type="downwards_arrows">alaspäin osoittavat nuolet</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">alas- ja ylöspäin osoittavat nuolet</characterLabel>
+		<characterLabel type="east_asian_scripts">itäaasialaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="emoji">emojit</characterLabel>
+		<characterLabel type="european_scripts">eurooppalaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="female">naissukupuolinen</characterLabel>
 		<characterLabel type="flag">lippu</characterLabel>
-		<characterLabel type="flags">Liput</characterLabel>
-		<characterLabel type="food_drink">Ruoka ja juoma</characterLabel>
-		<characterLabel type="format">Muotoilu</characterLabel>
-		<characterLabel type="format_whitespace">Muotoilu ja tyhjämerkit</characterLabel>
-		<characterLabel type="full_width_form_variant">Ideografin levyiset muotovariantit</characterLabel>
-		<characterLabel type="geometric_shapes">Geometriset kuviot</characterLabel>
-		<characterLabel type="half_width_form_variant">Ideografin puolikkaan levyiset muotovariantit</characterLabel>
-		<characterLabel type="han_characters">Han-merkit</characterLabel>
-		<characterLabel type="han_radicals">Han-radikaalit</characterLabel>
-		<characterLabel type="hanja">Hanja</characterLabel>
-		<characterLabel type="hanzi_simplified">Hanzi (yksinkertaistettu)</characterLabel>
-		<characterLabel type="hanzi_traditional">Hanzi (perinteinen)</characterLabel>
+		<characterLabel type="flags">liput</characterLabel>
+		<characterLabel type="food_drink">ruoka ja juoma</characterLabel>
+		<characterLabel type="format">muotoilu</characterLabel>
+		<characterLabel type="format_whitespace">muotoilu ja tyhjämerkki</characterLabel>
+		<characterLabel type="full_width_form_variant">ideografin levyiset muotovariantit</characterLabel>
+		<characterLabel type="geometric_shapes">geometriset kuviot</characterLabel>
+		<characterLabel type="half_width_form_variant">ideografin puolikkaan levyiset muotovariantit</characterLabel>
+		<characterLabel type="han_characters">han-merkit</characterLabel>
+		<characterLabel type="han_radicals">han-radikaalit</characterLabel>
+		<characterLabel type="hanja">hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">hanzi (yksinkertaistettu)</characterLabel>
+		<characterLabel type="hanzi_traditional">hanzi (perinteinen)</characterLabel>
 		<characterLabel type="heart">sydän</characterLabel>
-		<characterLabel type="historic_scripts">Historialliset kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="ideographic_desc_characters">Ideogrammien kuvausmerkit</characterLabel>
-		<characterLabel type="japanese_kana">Japanilainen Kana-kirjoitusjärjestelmä</characterLabel>
-		<characterLabel type="kanbun">Kanbun</characterLabel>
-		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="historic_scripts">historialliset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="ideographic_desc_characters">ideogrammien kuvausmerkit</characterLabel>
+		<characterLabel type="japanese_kana">japanilainen kana-kirjoitusjärjestelmä</characterLabel>
+		<characterLabel type="kanbun">kanbun</characterLabel>
+		<characterLabel type="kanji">kanji</characterLabel>
 		<characterLabel type="keycap">näppäin</characterLabel>
-		<characterLabel type="leftwards_arrows">Vasemmalle osoittavat nuolet</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows">Vasemmalle ja oikealle osoittavat nuolet</characterLabel>
-		<characterLabel type="letterlike_symbols">Kirjainsymbolit</characterLabel>
-		<characterLabel type="limited_use">Rajoitettu käyttö</characterLabel>
+		<characterLabel type="leftwards_arrows">vasemmalle osoittavat nuolet</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">vasemmalle ja oikealle osoittavat nuolet</characterLabel>
+		<characterLabel type="letterlike_symbols">kirjainsymbolit</characterLabel>
+		<characterLabel type="limited_use">rajoitettu käyttö</characterLabel>
 		<characterLabel type="male">miessukupuolinen</characterLabel>
-		<characterLabel type="math_symbols">Matemaattiset symbolit</characterLabel>
+		<characterLabel type="math_symbols">matemaattiset symbolit</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Lähi-idän kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="miscellaneous">Sekalaiset</characterLabel>
-		<characterLabel type="modern_scripts">Nykyaikaiset kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="modifier">Tarkkeenomaiset merkit</characterLabel>
-		<characterLabel type="musical_symbols">Musiikkisymbolit</characterLabel>
+		<characterLabel type="miscellaneous">sekalaiset</characterLabel>
+		<characterLabel type="modern_scripts">nykyaikaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="modifier">tarkkeenomaiset merkit</characterLabel>
+		<characterLabel type="musical_symbols">musiikkisymbolit</characterLabel>
 		<characterLabel type="nature">luonto</characterLabel>
-		<characterLabel type="nonspacing">Välittömästi yhdistyvät merkit</characterLabel>
-		<characterLabel type="numbers">Numerot</characterLabel>
-		<characterLabel type="objects">Objektit</characterLabel>
-		<characterLabel type="other">Muu</characterLabel>
-		<characterLabel type="paired">Merkkiparit</characterLabel>
+		<characterLabel type="nonspacing">omaa tilaa viemättömät merkit</characterLabel>
+		<characterLabel type="numbers">numerot</characterLabel>
+		<characterLabel type="objects">objektit</characterLabel>
+		<characterLabel type="other">muut</characterLabel>
+		<characterLabel type="paired">merkkiparit</characterLabel>
 		<characterLabel type="person">henkilö</characterLabel>
-		<characterLabel type="phonetic_alphabet">Foneettinen aakkosto</characterLabel>
-		<characterLabel type="pictographs">Kuvakirjoitus</characterLabel>
+		<characterLabel type="phonetic_alphabet">foneettiset aakkoset</characterLabel>
+		<characterLabel type="pictographs">kuvakirjoitus</characterLabel>
 		<characterLabel type="place">paikka</characterLabel>
 		<characterLabel type="plant">kasvi</characterLabel>
-		<characterLabel type="punctuation">Välimerkit</characterLabel>
-		<characterLabel type="rightwards_arrows">Oikealle osoittavat nuolet</characterLabel>
-		<characterLabel type="sign_standard_symbols">Vakiosymbolit</characterLabel>
-		<characterLabel type="small_form_variant">Vähäiset muotovariantit</characterLabel>
+		<characterLabel type="punctuation">välimerkit</characterLabel>
+		<characterLabel type="rightwards_arrows">oikealle osoittavat nuolet</characterLabel>
+		<characterLabel type="sign_standard_symbols">vakiosymboli</characterLabel>
+		<characterLabel type="small_form_variant">vähäiset muotovariantit</characterLabel>
 		<characterLabel type="smiley">hymiö</characterLabel>
-		<characterLabel type="smileys_people">Hymiöt ja ihmiset</characterLabel>
-		<characterLabel type="south_asian_scripts">Etelä-Aasian kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="southeast_asian_scripts">Kaakkois-Aasian kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="spacing">Välistys</characterLabel>
+		<characterLabel type="smileys_people">hymiöt ja ihmiset</characterLabel>
+		<characterLabel type="south_asian_scripts">eteläaasialaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="southeast_asian_scripts">kaakkoisaasialaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="spacing">välistys</characterLabel>
 		<characterLabel type="sport">urheilu</characterLabel>
-		<characterLabel type="symbols">Symbolit</characterLabel>
-		<characterLabel type="technical_symbols">Tekniset symbolit</characterLabel>
-		<characterLabel type="tone_marks">Toonimerkit</characterLabel>
-		<characterLabel type="travel">matka</characterLabel>
-		<characterLabel type="travel_places">Matkustus ja paikat</characterLabel>
-		<characterLabel type="upwards_arrows">Ylöspäin osoittavat nuolet</characterLabel>
-		<characterLabel type="variant_forms">Varianttimuodot</characterLabel>
-		<characterLabel type="vocalic_jamo">Jamo-vokaalilementit</characterLabel>
+		<characterLabel type="symbols">symbolit</characterLabel>
+		<characterLabel type="technical_symbols">tekniset symbolit</characterLabel>
+		<characterLabel type="tone_marks">toonimerkit</characterLabel>
+		<characterLabel type="travel">matkustus</characterLabel>
+		<characterLabel type="travel_places">matkustus ja paikat</characterLabel>
+		<characterLabel type="upwards_arrows">ylöspäin osoittavat nuolet</characterLabel>
+		<characterLabel type="variant_forms">varianttimuodot</characterLabel>
+		<characterLabel type="vocalic_jamo">jamo-vokaalielementit</characterLabel>
 		<characterLabel type="weather">sää</characterLabel>
-		<characterLabel type="western_asian_scripts">Länsiaasialaiset kirjoitusjärjestelmät</characterLabel>
-		<characterLabel type="whitespace">Tyhjämerkit</characterLabel>
+		<characterLabel type="western_asian_scripts">länsiaasialaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="whitespace">tyhjämerkki</characterLabel>
 	</characterLabels>
 </ldml>

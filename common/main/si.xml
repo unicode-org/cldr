@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -23,7 +25,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ada">අඩන්ග්මෙ</language>
 			<language type="ady">අඩිඝෙ</language>
 			<language type="aeb">ටියුනිසියනු අරාබි</language>
-			<language type="af">අප්‍රිකානු</language>
+			<language type="af">අෆ්රිකාන්ස්</language>
 			<language type="agq">ඇගම්</language>
 			<language type="ain">අයිනු</language>
 			<language type="ak">අකාන්</language>
@@ -33,10 +35,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="an">ඇරගොනීස්</language>
 			<language type="anp">අන්ගික</language>
 			<language type="ar">අරාබි</language>
-			<language type="ar_001">නවීන සම්මත අරාබි</language>
+			<language type="ar_001">නූතන සම්මත අරාබි</language>
 			<language type="arn">මපුචෙ</language>
 			<language type="arp">ඇරපහො</language>
-			<language type="as">ඇසමියානු</language>
+			<language type="as">ඇසෑම්</language>
 			<language type="asa">අසු</language>
 			<language type="ast">ඇස්ටියුරියන්</language>
 			<language type="av">ඇවරික්</language>
@@ -75,12 +77,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="chr">චෙරොකී</language>
 			<language type="chy">චෙයෙන්නෙ</language>
 			<language type="ckb">සොරානි කුර්දිෂ්</language>
-			<language type="co">ක්‍රොඑශියානු</language>
+			<language type="co">කෝසිකානු</language>
 			<language type="crs">සෙසෙල්ව ක්‍රොල් ෆ්‍රෙන්ච්</language>
-			<language type="cs">චෙත්</language>
+			<language type="cs">චෙක්</language>
 			<language type="cu">චර්ච් ස්ලැවික්</language>
 			<language type="cv">චවේෂ්</language>
-			<language type="cy">වේල්ස්</language>
+			<language type="cy">වෙල්ෂ්</language>
 			<language type="da">ඩැනිශ්</language>
 			<language type="dak">ඩකොටා</language>
 			<language type="dar">ඩාර්ග්වා</language>
@@ -92,7 +94,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dje">සර්මා</language>
 			<language type="dsb">පහළ සෝබියානු</language>
 			<language type="dua">ඩුආලා</language>
-			<language type="dv">දිවෙහි</language>
+			<language type="dv">ඩිවෙහි</language>
 			<language type="dyo">ජොල-ෆෝනියි</language>
 			<language type="dz">ඩිසොන්කා</language>
 			<language type="dzg">ඩසාගා</language>
@@ -114,7 +116,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es_ES">යුරෝපීය ස්පාඤ්ඤ</language>
 			<language type="es_MX">මෙක්සිකානු ස්පාඤ්ඤ</language>
 			<language type="et">එස්තෝනියානු</language>
-			<language type="eu">බොස්කෝ</language>
+			<language type="eu">බාස්ක්</language>
 			<language type="ewo">එවොන්ඩො</language>
 			<language type="fa">පර්සියානු</language>
 			<language type="ff">ෆුලාහ්</language>
@@ -150,7 +152,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hi">හින්දි</language>
 			<language type="hil">හිලිගෙනන්</language>
 			<language type="hmn">මොන්ග්</language>
-			<language type="hr">ක්‍රෝයේශියානු</language>
+			<language type="hr">කෝඒෂියානු</language>
 			<language type="hsb">ඉහළ සෝබියානු</language>
 			<language type="hsn">සියැන් චීන</language>
 			<language type="ht">හයිටි</language>
@@ -176,14 +178,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="jmc">මැකාමී</language>
 			<language type="jv">ජාවා</language>
 			<language type="ka">ජෝර්ජියානු</language>
-			<language type="kab">කැබලා</language>
+			<language type="kab">කාබිල්</language>
 			<language type="kac">කචින්</language>
 			<language type="kaj">ජ්ජු</language>
 			<language type="kam">කැම්බා</language>
 			<language type="kbd">කබාර්ඩියන්</language>
 			<language type="kcg">ට්යප්</language>
 			<language type="kde">මැකොන්ඩ්</language>
-			<language type="kea">කබුවෙර්ඩියානෝ</language>
+			<language type="kea">කබුවෙර්ඩියානු</language>
 			<language type="kfo">කොරො</language>
 			<language type="kha">ඛසි</language>
 			<language type="khq">කොයිරා චිනි</language>
@@ -226,7 +228,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="loz">ලොසි</language>
 			<language type="lrc">උතුරු ලුරි</language>
 			<language type="lt">ලිතුවේනියානු</language>
-			<language type="lu">ලු</language>
+			<language type="lu">ලුබා-කටන්ගා</language>
 			<language type="lua">ලුබ-ලුලුඅ</language>
 			<language type="lun">ලුන්ඩ</language>
 			<language type="luo">ලුඔ</language>
@@ -269,7 +271,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nan">මින් නන් චයිනිස්</language>
 			<language type="nap">නියාපොලිටන්</language>
 			<language type="naq">නාමා</language>
-			<language type="nb">නෝවේජියානු බොක්මාල්</language>
+			<language type="nb">නෝර්වීජියානු බොක්මල්</language>
 			<language type="nd">උතුරු එන්ඩිබෙලෙ</language>
 			<language type="nds">පහළ ජර්මන්</language>
 			<language type="nds_NL">පහළ සැක්සන්</language>
@@ -281,7 +283,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nl">ලන්දේසි</language>
 			<language type="nl_BE">ෆ්ලෙමිශ්</language>
 			<language type="nmg">කුවාසිඔ</language>
-			<language type="nn">නොවේර්ජියානු නයිනෝර්ස්ක්</language>
+			<language type="nn">නෝර්වීජියානු නයිනෝර්ස්ක්</language>
 			<language type="nnh">න්ගියාම්බූන්</language>
 			<language type="nog">නොගායි</language>
 			<language type="nqo">එන්‘කෝ</language>
@@ -290,7 +292,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nus">නොයර්</language>
 			<language type="nv">නවාජො</language>
 			<language type="ny">න්යන්ජා</language>
-			<language type="nyn">නයන්කොළේ</language>
+			<language type="nyn">නයන්කෝලෙ</language>
 			<language type="oc">ඔසිටාන්</language>
 			<language type="om">ඔරොමෝ</language>
 			<language type="or">ඔරියා</language>
@@ -318,7 +320,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="rof">රෝම්බෝ</language>
 			<language type="root">රූට්</language>
 			<language type="ru">රුසියානු</language>
-			<language type="rup">ඇරොමෙන්යන්</language>
+			<language type="rup">ඇරොමානියානු</language>
 			<language type="rw">කින්යර්වන්ඩා</language>
 			<language type="rwk">ර්වා</language>
 			<language type="sa">සංස්කෘත</language>
@@ -360,6 +362,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="suk">සුකුමා</language>
 			<language type="sv">ස්වීඩන්</language>
 			<language type="sw">ස්වාහිලි</language>
+			<language type="sw_CD">කොංගෝ ස්වාහිලි</language>
 			<language type="swb">කොමොරියන්</language>
 			<language type="syr">ස්‍රයෑක්</language>
 			<language type="ta">දෙමළ</language>
@@ -415,7 +418,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yue">කැන්ටොනීස්</language>
 			<language type="zgh">සම්මත මොරොක්කෝ ටමසිග්ත්</language>
 			<language type="zh">චීන</language>
-			<language type="zh_Hans">සුළුකළ චීන</language>
+			<language type="zh_Hans">සරල චීන</language>
 			<language type="zh_Hant">සාම්ප්‍රදායික චීන</language>
 			<language type="zu">සුලු</language>
 			<language type="zun">සුනි</language>
@@ -515,11 +518,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AS">ඇමරිකානු සැමෝවාව</territory>
 			<territory type="AT">ඔස්ට්‍රියාව</territory>
 			<territory type="AU">ඕස්ට්‍රේලියාව</territory>
-			<territory type="AW">අරුබාව</territory>
+			<territory type="AW">අරූබා</territory>
 			<territory type="AX">ඕලන්ඩ් දූපත්</territory>
 			<territory type="AZ">අසර්බයිජානය</territory>
 			<territory type="BA">බොස්නියාව සහ හර්සගොවීනාව</territory>
-			<territory type="BB">බාර්බඩෝස්</territory>
+			<territory type="BB">බාබඩෝස්</territory>
 			<territory type="BD">බංග්ලාදේශය</territory>
 			<territory type="BE">බෙල්ජියම</territory>
 			<territory type="BF">බර්කිනා ෆාසෝ</territory>
@@ -561,7 +564,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CW">කුරකාවෝ</territory>
 			<territory type="CX">ක්‍රිස්මස් දූපත</territory>
 			<territory type="CY">සයිප්‍රසය</territory>
-			<territory type="CZ">චෙක්</territory>
+			<territory type="CZ">චෙක් ජනරජය</territory>
 			<territory type="CZ" alt="variant">චෙක් ජනරජය</territory>
 			<territory type="DE">ජර්මනිය</territory>
 			<territory type="DG">දියාගෝ ගාර්සියා</territory>
@@ -579,6 +582,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">ස්පාඤ්ඤය</territory>
 			<territory type="ET">ඉතියෝපියාව</territory>
 			<territory type="EU">යුරෝපා සංගමය</territory>
+			<territory type="EZ">යුරෝ කලාපය</territory>
 			<territory type="FI">ෆින්ලන්තය</territory>
 			<territory type="FJ">ෆීජී</territory>
 			<territory type="FK">ෆෝක්ලන්ත දූපත්</territory>
@@ -872,6 +876,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -926,9 +949,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">B h</dateFormatItem>
+						<dateFormatItem id="Bhm">B h:mm</dateFormatItem>
+						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
@@ -1425,8 +1457,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
 						<dateFormatItem id="Ehm">E a h.mm</dateFormatItem>
 						<dateFormatItem id="EHm">E HH.mm</dateFormatItem>
@@ -1466,8 +1503,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="one">Y සතිය w</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y සතිය w</dateFormatItem>
+						<dateFormatItem id="yw" count="one">y සතිය w</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y සතිය w</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1572,6 +1609,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>යුගය</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>යුගය</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>යුගය</displayName>
 			</field>
 			<field type="year">
@@ -1745,6 +1788,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>{0} වෙනි සතිය</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>මාසයේ සතිය</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>මාසයේ සතිය</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>මාසයේ සතිය</displayName>
+			</field>
 			<field type="day">
 				<displayName>දිනය</displayName>
 				<relative type="-2">පෙරේදා</relative>
@@ -1783,8 +1835,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">දින {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>වසරේ දිනය</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>වසරේ දිනය</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>වසරේ දිනය</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>සතියේ දිනය</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>සතියේ දිනය</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>සතියේ දිනය</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>මාසයේ සතියේ දිනය</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>මාසයේ සතියේ දිනය</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>මාසයේ සතියේ දිනය</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">පසුගිය ඉරිදා</relative>
@@ -2059,7 +2135,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">සෙනසුරාදාවන් {0} කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>පෙ.ව/ප.ව</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>පෙ.ව/ප.ව</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>පෙ.ව/ප.ව</displayName>
 			</field>
 			<field type="hour">
@@ -2086,7 +2168,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
-				<displayName>පැ</displayName>
+				<displayName>පැය</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">පැය {0}කින්</relativeTimePattern>
 					<relativeTimePattern count="other">පැය {0}කින්</relativeTimePattern>
@@ -2120,7 +2202,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>මි</displayName>
+				<displayName>මිනි.</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">මිනිත්තු {0}කින්</relativeTimePattern>
 					<relativeTimePattern count="other">මිනිත්තු {0}කින්</relativeTimePattern>
@@ -2154,7 +2236,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
-				<displayName>ත</displayName>
+				<displayName>තත්.</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">තත්පර {0}කින්</relativeTimePattern>
 					<relativeTimePattern count="other">තත්පර {0}කින්</relativeTimePattern>
@@ -2165,7 +2247,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="zone">
-				<displayName>කාල කලාපය</displayName>
+				<displayName>වේලා කලාපය</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>කලාපය</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>කලාපය</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -2181,6 +2269,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ජොන්ස්ටන්</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>සමකක්ෂ සාර්ව වේලාව</standard>
+				</long>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>හඳුනා නොගත් නගරය</exemplarCity>
@@ -2360,7 +2453,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ශාන්ත බර්තලෙමි</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
-				<exemplarCity>බර්මියුඩාව</exemplarCity>
+				<exemplarCity>බර්මියුඩා</exemplarCity>
 			</zone>
 			<zone type="Asia/Brunei">
 				<exemplarCity>බෲනායි</exemplarCity>
@@ -2432,7 +2525,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>මින්ස්ක්</exemplarCity>
 			</zone>
 			<zone type="America/Belize">
-				<exemplarCity>බේලිස්</exemplarCity>
+				<exemplarCity>බෙලීස්</exemplarCity>
 			</zone>
 			<zone type="America/Dawson">
 				<exemplarCity>ඩෝසන්</exemplarCity>
@@ -2456,7 +2549,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ක්‍රෙස්ටන්</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
-				<exemplarCity>යෙලෝනයිෆ</exemplarCity>
+				<exemplarCity>යෙලෝනයිෆ්</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>එඩ්මන්ටන්</exemplarCity>
@@ -2545,6 +2638,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>ඊස්ටර්</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>පුන්ටා ඇරිනාස්</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>සන්තියාගෝ</exemplarCity>
 			</zone>
@@ -2577,6 +2673,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>නිකෝසියා</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>ෆැමගුස්ටා</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>ප්‍රෙග්</exemplarCity>
@@ -2661,7 +2760,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/London">
 				<long>
-					<daylight>බ්‍රිතාන්‍ය ගිම්හාන කාලය</daylight>
+					<daylight>බ්‍රිතාන්‍ය ගිම්හාන වේලාව</daylight>
 				</long>
 				<exemplarCity>ලන්ඩන්</exemplarCity>
 			</zone>
@@ -2754,7 +2853,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
-					<daylight>අයර්ලන්ත ගිම්හාන කාලය</daylight>
+					<daylight>අයර්ලන්ත සම්මත වේලාව</daylight>
 				</long>
 				<exemplarCity>ඩබ්ලින්</exemplarCity>
 			</zone>
@@ -2835,6 +2934,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>ඔරාල්</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>ඇටිරවු</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>අක්ටෝබ්</exemplarCity>
@@ -3114,6 +3216,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>වොල්ගොග්‍රෑඩ්</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>සරටොව්</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>අස්ට්‍රඛාන්</exemplarCity>
@@ -4670,6 +4775,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
+			<currency type="CNH">
+				<displayName>චීන යුආන් (එතෙර)</displayName>
+				<displayName count="one">චීන යුආන් (එතෙර)</displayName>
+				<displayName count="other">චීන යුආන් (එතෙර)</displayName>
+			</currency>
 			<currency type="CNY">
 				<displayName>චීන යුආන්</displayName>
 				<displayName count="one">චීන යුආන්</displayName>
@@ -5761,9 +5871,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">මිලිතත්පර {0}</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>මයික්‍රෝ තත්පර</displayName>
-				<unitPattern count="one">මයික්‍රෝ තත්පර {0}</unitPattern>
-				<unitPattern count="other">මයික්‍රෝ තත්පර {0}</unitPattern>
+				<displayName>මයික්‍රොතත්පර</displayName>
+				<unitPattern count="one">මයික්‍රොතත්පර {0}</unitPattern>
+				<unitPattern count="other">මයික්‍රොතත්පර {0}</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>නැනෝතත්පර</displayName>
@@ -5929,6 +6039,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ස්කැන්ඩිනේවියානු සැතපුම්</displayName>
 				<unitPattern count="one">ස්කැන්ඩිනේවියානු සැතපුම් {0}</unitPattern>
 				<unitPattern count="other">ස්කැන්ඩිනේවියානු සැතපුම් {0}</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>පොයින්ට්</displayName>
+				<unitPattern count="one">පොයින්ට් {0}</unitPattern>
+				<unitPattern count="other">පොයින්ට් {0}</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ලක්ස්</displayName>
@@ -6428,7 +6543,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>පැය</displayName>
 				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
-				<perUnitPattern>පැට {0}</perUnitPattern>
+				<perUnitPattern>පැයට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>මිනි</displayName>
@@ -6440,17 +6555,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>තත්පර</displayName>
 				<unitPattern count="one">තත් {0}</unitPattern>
 				<unitPattern count="other">තත් {0}</unitPattern>
-				<perUnitPattern>තය {0}</perUnitPattern>
+				<perUnitPattern>තත්පරයට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>මිලිතත්පර</displayName>
-				<unitPattern count="one">මි.ත {0}</unitPattern>
-				<unitPattern count="other">මි.ත {0}</unitPattern>
+				<unitPattern count="one">මිලිතත් {0}</unitPattern>
+				<unitPattern count="other">මිලිතත් {0}</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>මතත්</displayName>
-				<unitPattern count="one">මත {0}</unitPattern>
-				<unitPattern count="other">මත {0}</unitPattern>
+				<displayName>මයික්‍රොතත්</displayName>
+				<unitPattern count="one">මයික්‍රොතත් {0}</unitPattern>
+				<unitPattern count="other">මයික්‍රොතත් {0}</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>නැනෝතත්</displayName>
@@ -6616,6 +6731,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ස්කැන්සැත</displayName>
 				<unitPattern count="one">ස්කැසැත {0}</unitPattern>
 				<unitPattern count="other">ස්කැසැත {0}</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>පොයින්ට්</displayName>
+				<unitPattern count="one">පො {0}</unitPattern>
+				<unitPattern count="other">පො {0}</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>ලක්ස්</displayName>
@@ -6974,8 +7094,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-hour">
 				<displayName>පැය</displayName>
-				<unitPattern count="one">පැ {0}</unitPattern>
-				<unitPattern count="other">පැ {0}</unitPattern>
+				<unitPattern count="one">පැය {0}</unitPattern>
+				<unitPattern count="other">පැය {0}</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>මිනි</displayName>
@@ -6989,8 +7109,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>මිලිතත්</displayName>
-				<unitPattern count="one">මි.ත {0}</unitPattern>
-				<unitPattern count="other">මි.ත {0}</unitPattern>
+				<unitPattern count="one">මිලිතත් {0}</unitPattern>
+				<unitPattern count="other">මිලිතත් {0}</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>කි.මී</displayName>
@@ -7137,6 +7257,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0}, සහ {1}</listPatternPart>
 			<listPatternPart type="2">{0} සහ {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, හෝ {1}</listPatternPart>
+			<listPatternPart type="2">{0} හෝ {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -7259,9 +7385,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="technical_symbols">තාක්ෂණික සංකේත</characterLabel>
 		<characterLabel type="tone_marks">නාද සලකුණු</characterLabel>
 		<characterLabel type="travel">සංචාරය</characterLabel>
-		<characterLabel type="travel_places" draft="provisional">ගම්න් කිරීම් සහ ස්තාන</characterLabel>
+		<characterLabel type="travel_places">ගම්න් කිරීම් සහ ස්තාන</characterLabel>
 		<characterLabel type="upwards_arrows">උඩු ඊතල</characterLabel>
-		<characterLabel type="variant_forms" draft="provisional">වෙනස් පෝරම</characterLabel>
+		<characterLabel type="variant_forms">වෙනස් පෝරම</characterLabel>
 		<characterLabel type="vocalic_jamo">වොකාලික් ජාමො</characterLabel>
 		<characterLabel type="weather">කාලගුණය</characterLabel>
 		<characterLabel type="western_asian_scripts">බටහිර ආසියානු පිටපත්</characterLabel>

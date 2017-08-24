@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2016 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -40,14 +40,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cs">чехӣ</language>
 			<language type="cy">валлӣ</language>
 			<language type="da">даниягӣ</language>
-			<language type="de">олмонӣ</language>
+			<language type="de">немисӣ</language>
+			<language type="de_AT">немисӣ (Австрия)</language>
+			<language type="de_CH">немисӣ (Швейтсария)</language>
 			<language type="dsb">сербии поёнӣ</language>
 			<language type="dv">дивеҳӣ</language>
 			<language type="dz">дзонгха</language>
 			<language type="el">юнонӣ</language>
 			<language type="en">англисӣ</language>
+			<language type="en_AU">англисӣ (Австралия)</language>
+			<language type="en_CA">англисӣ (Канада)</language>
+			<language type="en_GB">англисӣ (Шоҳигарии Муттаҳида)</language>
+			<language type="en_GB" alt="short">англисӣ (ШМ)</language>
+			<language type="en_US">англисӣ (Иёлоти Муттаҳида)</language>
+			<language type="en_US" alt="short">англисӣ (ИМ)</language>
 			<language type="eo">эсперанто</language>
 			<language type="es">испанӣ</language>
+			<language type="es_419">испанӣ (Америкаи Лотинӣ)</language>
+			<language type="es_ES">испанӣ (Испания)</language>
+			<language type="es_MX">испанӣ (Мексика)</language>
 			<language type="et">эстонӣ</language>
 			<language type="eu">баскӣ</language>
 			<language type="fa">форсӣ</language>
@@ -55,7 +66,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fi">финӣ</language>
 			<language type="fil">филиппинӣ</language>
 			<language type="fo">фарерӣ</language>
-			<language type="fr">фаронсавӣ</language>
+			<language type="fr">франсузӣ</language>
+			<language type="fr_CA">франсузӣ (Канада)</language>
+			<language type="fr_CH">франсузӣ (Швейтсария)</language>
 			<language type="fy">фризии ғарбӣ</language>
 			<language type="ga">ирландӣ</language>
 			<language type="gd">шотландии гэлӣ</language>
@@ -123,7 +136,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">лаҳистонӣ</language>
 			<language type="ps">пушту</language>
 			<language type="pt">португалӣ</language>
-			<language type="pt_BR" draft="unconfirmed">Португалӣ (Бразилия)</language>
+			<language type="pt_BR">португалӣ (Бразилия)</language>
+			<language type="pt_PT">португалӣ (Португалия)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
 			<language type="rm">ретороманӣ</language>
@@ -159,6 +173,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tzm">тамазайти атласи марказӣ</language>
 			<language type="ug">ӯйғурӣ</language>
 			<language type="uk">украинӣ</language>
+			<language type="und">забони номаълум</language>
 			<language type="ur">урду</language>
 			<language type="uz">ӯзбекӣ</language>
 			<language type="ve">венда</language>
@@ -167,10 +182,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yi">идиш</language>
 			<language type="yo">йоруба</language>
 			<language type="zh">хитоӣ</language>
+			<language type="zh_Hans">хитоии осонфаҳм</language>
+			<language type="zh_Hant">хитоии анъанавӣ</language>
 			<language type="zu" draft="unconfirmed">Зулу</language>
 		</languages>
 		<scripts>
 			<script type="Arab">Арабӣ</script>
+			<script type="Cyrl">Кириллӣ</script>
+			<script type="Hans">Осонфаҳм</script>
+			<script type="Hans" alt="stand-alone">Хани осонфаҳм</script>
+			<script type="Hant">Анъанавӣ</script>
+			<script type="Hant" alt="stand-alone">Хани анъанавӣ</script>
+			<script type="Latn">Лотинӣ</script>
+			<script type="Zxxx">Нонавишта</script>
+			<script type="Zzzz">Скрипти номаълум</script>
 		</scripts>
 		<territories>
 			<territory type="AC">Асунсон</territory>
@@ -246,7 +271,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FK">Ҷазираҳои Фолкленд</territory>
 			<territory type="FM">Штатҳои Федеративии Микронезия</territory>
 			<territory type="FO">Ҷазираҳои Фарер</territory>
-			<territory type="FR">Фаронса</territory>
+			<territory type="FR">Франсия</territory>
 			<territory type="GA">Габон</territory>
 			<territory type="GB">Шоҳигарии Муттаҳида</territory>
 			<territory type="GD">Гренада</territory>
@@ -315,6 +340,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MF">Ҷазираи Сент-Мартин</territory>
 			<territory type="MG">Мадагаскар</territory>
 			<territory type="MH">Ҷазираҳои Маршалл</territory>
+			<territory type="MK">Мақдун</territory>
 			<territory type="MK" alt="variant">Мақдун (ҶСЮМ)</territory>
 			<territory type="ML">Мали</territory>
 			<territory type="MM">Мянма</territory>
@@ -362,7 +388,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="RE">Реюнион</territory>
 			<territory type="RO">Руминия</territory>
 			<territory type="RS">Сербия</territory>
-			<territory type="RU">Россия</territory>
+			<territory type="RU">Русия</territory>
 			<territory type="RW">Руанда</territory>
 			<territory type="SA">Арабистони Саудӣ</territory>
 			<territory type="SB">Ҷазираҳои Соломон</territory>
@@ -406,6 +432,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UG">Уганда</territory>
 			<territory type="UM">Ҷазираҳои Хурди Дурдасти ИМА</territory>
 			<territory type="US">Иёлоти Муттаҳида</territory>
+			<territory type="US" alt="short">ИМ</territory>
 			<territory type="UY">Уругвай</territory>
 			<territory type="UZ">Ӯзбекистон</territory>
 			<territory type="VA">Шаҳри Вотикон</territory>
@@ -423,7 +450,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZA">Африкаи Ҷанубӣ</territory>
 			<territory type="ZM">Замбия</territory>
 			<territory type="ZW">Зимбабве</territory>
+			<territory type="ZZ">Минтақаи номаълум</territory>
 		</territories>
+		<types>
+			<type key="calendar" type="gregorian">Тақвими грегорианӣ</type>
+			<type key="collation" type="standard">Тартиби мураттабсозии стандартӣ</type>
+			<type key="numbers" type="arab">Рақамҳои ҳинду-арабӣ</type>
+			<type key="numbers" type="latn">Рақамҳои ғарбӣ</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">Метрӣ</measurementSystemName>
+			<measurementSystemName type="UK">БК</measurementSystemName>
+			<measurementSystemName type="US">ИМА</measurementSystemName>
+		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">{0}</codePattern>
 			<codePattern type="script">{0}</codePattern>
@@ -436,10 +475,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index" draft="unconfirmed">[А Б В Г Ғ Д Е Ж З И Й К Қ Л М Н О П Р С Т У Ф Х Ҳ Ч Ҷ Ш Ъ Э Ю Я]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">«</quotationStart>
-		<quotationEnd draft="unconfirmed">»</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">«</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">„</alternateQuotationEnd>
+		<quotationStart>«</quotationStart>
+		<quotationEnd>»</quotationEnd>
+		<alternateQuotationStart>«</alternateQuotationStart>
+		<alternateQuotationEnd>»</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -514,6 +553,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
@@ -734,8 +776,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm" draft="unconfirmed">па. чо.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">пе. чо.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">па. чо.</dayPeriod>
+							<dayPeriod type="am">пе. чо.</dayPeriod>
+							<dayPeriod type="pm">па. чо.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -852,14 +894,187 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'ҳафтаи' w, Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'ҳафтаи' w, y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>мабдаи таърих</displayName>
+			</field>
+			<field type="year">
+				<displayName>сол</displayName>
+			</field>
+			<field type="year-short">
+				<displayName>с.</displayName>
+			</field>
+			<field type="year-narrow">
+				<displayName>с.</displayName>
+			</field>
+			<field type="quarter">
+				<displayName>чоряк</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName>чр.</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>чр.</displayName>
+			</field>
+			<field type="month">
+				<displayName>моҳ</displayName>
+			</field>
+			<field type="month-short">
+				<displayName>м.</displayName>
+			</field>
+			<field type="month-narrow">
+				<displayName>м.</displayName>
+			</field>
+			<field type="week">
+				<displayName>ҳафта</displayName>
+			</field>
+			<field type="week-short">
+				<displayName>ҳ.</displayName>
+			</field>
+			<field type="week-narrow">
+				<displayName>ҳ.</displayName>
+			</field>
+			<field type="day">
+				<displayName>рӯз</displayName>
+				<relative type="-1">дирӯз</relative>
+				<relative type="0">имрӯз</relative>
+				<relative type="1">фардо</relative>
+			</field>
+			<field type="day-short">
+				<displayName>рӯз</displayName>
+			</field>
+			<field type="day-narrow">
+				<displayName>рӯз</displayName>
+			</field>
+			<field type="weekday">
+				<displayName>рӯзи ҳафта</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>пе. чо./па. чо.</displayName>
+			</field>
+			<field type="hour">
+				<displayName>соат</displayName>
+			</field>
+			<field type="hour-short">
+				<displayName>ст.</displayName>
+			</field>
+			<field type="hour-narrow">
+				<displayName>ст.</displayName>
+			</field>
+			<field type="minute">
+				<displayName>дақиқа</displayName>
+			</field>
+			<field type="minute-short">
+				<displayName>дақ.</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName>дақ.</displayName>
+			</field>
+			<field type="second">
+				<displayName>сония</displayName>
+			</field>
+			<field type="second-short">
+				<displayName>сон.</displayName>
+			</field>
+			<field type="second-narrow">
+				<displayName>сон.</displayName>
+			</field>
+			<field type="zone">
+				<displayName>минтақаи вақт</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<regionFormat>{0}</regionFormat>
+			<regionFormat type="daylight">{0} (+1)</regionFormat>
+			<regionFormat type="standard">{0} (+0)</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Вақти ҷаҳонии ҳамоҳангсозӣ</standard>
+				</long>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>Шаҳри номаълум</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity>Душанбе</exemplarCity>
+			</zone>
+			<metazone type="America_Central">
+				<long>
+					<generic>Вақти марказӣ</generic>
+					<standard>Вақти стандартии марказӣ</standard>
+					<daylight>Вақти рӯзонаи марказӣ</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>Вақти шарқӣ</generic>
+					<standard>Вақти стандартии шарқӣ</standard>
+					<daylight>Вақти рӯзонаи шарқӣ</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>Вақти кӯҳӣ</generic>
+					<standard>Вақти стандартии кӯҳӣ</standard>
+					<daylight>Вақти рӯзонаи кӯҳӣ</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>Вақти Уёнуси Ором</generic>
+					<standard>Вақти стандартии Уқёнуси Ором</standard>
+					<daylight>Вақти рӯзонаи Уқёнуси Ором</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>Вақти атлантикӣ</generic>
+					<standard>Вақти стандартии атлантикӣ</standard>
+					<daylight>Вақти рӯзонаи атлантикӣ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>Вақти аврупоии марказӣ</generic>
+					<standard>Вақти стандартии аврупоии марказӣ</standard>
+					<daylight>Вақти тобистонаи аврупоии марказӣ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>Вақти аврупоии шарқӣ</generic>
+					<standard>Вақти стандартии аврупоии шарқӣ</standard>
+					<daylight>Вақти тобистонаи аврупоии шарқӣ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>Вақти аврупоии ғарбӣ</generic>
+					<standard>Вақти стандартии аврупоии ғарбӣ</standard>
+					<daylight>Вақти тобистонаи аврупоии ғарбӣ</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Ба вақти Гринвич</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
@@ -912,9 +1127,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
+			<currency type="BRL">
+				<displayName>Реали бразилиягӣ</displayName>
+				<displayName count="other">реали бразилиягӣ</displayName>
+				<symbol draft="contributed">R$</symbol>
+				<symbol alt="narrow" draft="contributed">R$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName>Иенаи хитоӣ</displayName>
+				<displayName count="other">иенаи хитоӣ</displayName>
+				<symbol draft="contributed">CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName>Евро</displayName>
+				<displayName count="other">евро</displayName>
+				<symbol draft="contributed">€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
+			</currency>
+			<currency type="GBP">
+				<displayName>Фунт стерлинги британӣ</displayName>
+				<displayName count="other">фунт стерлинги британӣ</displayName>
+				<symbol draft="contributed">£</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName>Рупияи ҳиндустонӣ</displayName>
+				<displayName count="other">рупияи ҳиндустонӣ</displayName>
+				<symbol draft="contributed">₹</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
+			</currency>
+			<currency type="JPY">
+				<displayName>Иенаи японӣ</displayName>
+				<displayName count="other">иенаи японӣ</displayName>
+				<symbol draft="contributed">JP¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
+			<currency type="RUB">
+				<displayName>Рубли русӣ</displayName>
+				<displayName count="other">рубли русӣ</displayName>
+				<symbol draft="contributed">RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
+			</currency>
 			<currency type="TJS">
-				<displayName draft="unconfirmed">Сомонӣ</displayName>
-				<symbol draft="unconfirmed">сом</symbol>
+				<displayName>Сомонӣ</displayName>
+				<displayName count="other">Сомонӣ</displayName>
+				<symbol draft="contributed">сом.</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>Доллари ИМА</displayName>
+				<displayName count="other">доллари ИМА</displayName>
+				<symbol draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="XXX">
+				<displayName>Асъори номаълум</displayName>
+				<displayName count="other">(асъори номаълум)</displayName>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -922,4 +1190,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 	</numbers>
+	<units>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr>ҳа:ҳ</yesstr>
+			<nostr>не:н</nostr>
+		</messages>
+	</posix>
 </ldml>

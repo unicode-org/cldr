@@ -67,7 +67,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lo">Ikilawotiyani</language>
 			<language type="lt">Ikilituwaniya</language>
 			<language type="lv">Ikinyaletoviyani</language>
-			<language type="mk">Ikimasedoniyani</language>
+			<language type="mk">Ikimasedoniya</language>
 			<language type="ml">Ikimalayalami</language>
 			<language type="mn">Ikimongoli</language>
 			<language type="mr">Ikimarati</language>
@@ -119,8 +119,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zu">Inyezulu</language>
 		</languages>
 		<territories>
-			<territory type="RW">Rwanda</territory>
-			<territory type="TO">Igitonga</territory>
+			<territory type="RW">U Rwanda</territory>
+			<territory type="TO">Tonga</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -403,11 +403,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">BCE</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">CE</era>
+						<era type="1" alt="variant">CE</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BCE</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">CE</era>
+						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -516,7 +520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'week' w 'of' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>

@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -33,6 +35,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ang">အင်ဂလို ဆက္ကစွန်</language>
 			<language type="anp">အန်ဂီကာ</language>
 			<language type="ar">အာရဗီ</language>
+			<language type="ar_001">အာရဗီ (ကမ္ဘာ)</language>
 			<language type="arn">မာပုချီ</language>
 			<language type="arp">အာရာပါဟို</language>
 			<language type="as">အာသံ</language>
@@ -46,7 +49,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ba">ဘက်ရှ်ကာ</language>
 			<language type="ban">ဘာလီ</language>
 			<language type="bas">ဘာဆာ</language>
-			<language type="be">ဘီလာရုဇ်</language>
+			<language type="be">ဘီလာရုစ်</language>
 			<language type="bem">ဘိန်ဘာ</language>
 			<language type="bez">ဘီနာ</language>
 			<language type="bg">ဘူလ်ဂေးရီးယား</language>
@@ -114,7 +117,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="enm">အလယ်ပိုင်း အင်္ဂလိပ်</language>
 			<language type="eo">အက်စ်ပရန်တို</language>
 			<language type="es">စပိန်</language>
+			<language type="es_419">စပိန် (လက်တင်အမေရိက)</language>
 			<language type="es_ES">စပိန် (ဥရောပ)</language>
+			<language type="es_MX">စပိန် (မက္ကဆီကို)</language>
 			<language type="et">အက်စ်တိုးနီးယား</language>
 			<language type="eu">ဘာစ်ခ်</language>
 			<language type="ewo">အီဝန်ဒို</language>
@@ -258,8 +263,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="mi">မာအိုရီ</language>
 			<language type="mic">မစ်ခ်မက်ခ်</language>
 			<language type="min">စူကူမီနန်</language>
-			<language type="mk">မက်စီဒိုးနီးယား</language>
-			<language type="ml">မလေးရာလမ်</language>
+			<language type="mk">မက်ဆီဒိုးနီးယား</language>
+			<language type="ml">မလေယာလမ်</language>
 			<language type="mn">မွန်ဂိုလီးယား</language>
 			<language type="mnc">မန်ချူး</language>
 			<language type="mni">မနိပူရ</language>
@@ -278,8 +283,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="na">နော်ရူး</language>
 			<language type="nap">နပိုလီတန်</language>
 			<language type="naq">နာမာ</language>
-			<language type="nb">နော်ဝေး ဘွတ်ခ်မော်လ်</language>
-			<language type="nd">တောင် အွန်န်ဒီဘီလီ</language>
+			<language type="nb">နော်ဝေ ဘွတ်ခ်မော်လ်</language>
+			<language type="nd">မြောက် အွန်န်ဒီဘီလီ</language>
 			<language type="nds">အနိမ့် ဂျာမန်</language>
 			<language type="nds_NL">ဂျာမန် (နယ်သာလန်)</language>
 			<language type="ne">နီပေါ</language>
@@ -287,10 +292,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ng">အွန်ဒွန်ဂါ</language>
 			<language type="nia">နီးရပ်စ်</language>
 			<language type="niu">နူအဲယန်း</language>
-			<language type="nl">ဒတ်ချ်</language>
+			<language type="nl">ဒတ်ခ်ျ</language>
 			<language type="nl_BE">ဖလီမစ်ရှ်</language>
 			<language type="nmg">ကွာစီအို</language>
-			<language type="nn">နော်ဝေး နီးနောစ်</language>
+			<language type="nn">နော်ဝေ နီးနောစ်</language>
 			<language type="nnh">အွန်ရဲဘွန်း</language>
 			<language type="no">နော်ဝေး</language>
 			<language type="nog">နိုဂိုင်</language>
@@ -352,8 +357,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="shi">တာချယ်လ်ဟစ်</language>
 			<language type="shn">ရှမ်း</language>
 			<language type="si">စင်ဟာလာ</language>
-			<language type="sk">စလိုဗက်</language>
-			<language type="sl">စလိုဗေးနီးယား</language>
+			<language type="sk">ဆလိုဗက်</language>
+			<language type="sl">ဆလိုဗေးနီးယား</language>
 			<language type="sm">ဆမိုအာ</language>
 			<language type="sma">တောင် ဆာမိ</language>
 			<language type="smj">လူလီ ဆာမိ</language>
@@ -382,7 +387,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tet">တီတွမ်</language>
 			<language type="tg">တာဂျစ်</language>
 			<language type="th">ထိုင်း</language>
-			<language type="ti">တီဂ်ရင်ရာ</language>
+			<language type="ti">တီဂ်ရင်ယာ</language>
 			<language type="tig">တီဂရီ</language>
 			<language type="tk">တာ့ခ်မင်နစ္စတန်</language>
 			<language type="tlh">ကလင်ဂွန်</language>
@@ -405,7 +410,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="umb">အူဘန်ဒူ</language>
 			<language type="und">မသိသော ဘာသာ</language>
 			<language type="ur">အူရ်ဒူ</language>
-			<language type="uz">ဦးဇ်ဘက်</language>
+			<language type="uz">ဥဇဘတ်</language>
 			<language type="vai">ဗိုင်</language>
 			<language type="ve">ဗင်န်ဒါ</language>
 			<language type="vi">ဗီယက်နမ်</language>
@@ -427,6 +432,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yue">ကွမ်တုံ</language>
 			<language type="zgh">မိုရိုကို တမဇိုက်</language>
 			<language type="zh">တရုတ်</language>
+			<language type="zh_Hans">တရုတ် (ရိုးရှင်း)</language>
+			<language type="zh_Hant">တရုတ် (ရိုးရာ)</language>
 			<language type="zu">ဇူးလူး</language>
 			<language type="zun">ဇူနီ</language>
 			<language type="zxx">ဘာသာစကားနှင့် ပတ်သက်သောအရာ မရှိပါ</language>
@@ -466,7 +473,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Kore">ကိုရီးယား</script>
 			<script type="Laoo">လာအို</script>
 			<script type="Latn">လက်တင်</script>
-			<script type="Mlym">မာလာယာလမ်</script>
+			<script type="Mlym">မလေယာလမ်</script>
 			<script type="Mong">မွန်ဂိုလီးယား</script>
 			<script type="Mymr">မြန်မာ</script>
 			<script type="Orya">အိုရာ</script>
@@ -484,7 +491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Zmth">ဂဏန်းသင်္ချာ</script>
 			<script type="Zsye">အီမိုဂျီ</script>
 			<script type="Zsym">သင်္ကေတ</script>
-			<script type="Zxxx">မရေးထားသော</script>
+			<script type="Zxxx">ထုံးတမ်းသဖွယ်လိုက်နာလျက်ရှိသော</script>
 			<script type="Zyyy">အများနှင့်သက်ဆိုင်သော</script>
 			<script type="Zzzz">မသိ သို့မဟုတ် မရှိသော စကားလုံး</script>
 		</scripts>
@@ -519,15 +526,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="154">မြောက် ဥရောပ</territory>
 			<territory type="155">အနောက် ဥရောပ</territory>
 			<territory type="419">လက်တင်အမေရိက</territory>
-			<territory type="AC">တက်တော်မူကျွန်း</territory>
-			<territory type="AD">အင်ဒိုရာ</territory>
+			<territory type="AC">အဆန်းရှင်းကျွန်း</territory>
+			<territory type="AD">အန်ဒိုရာ</territory>
 			<territory type="AE">ယူအေအီး</territory>
 			<territory type="AF">အာဖဂန်နစ္စတန်</territory>
-			<territory type="AG">အင်တီဂွါနှင့် ဘာဘူဒါ</territory>
+			<territory type="AG">အန်တီဂွါနှင့် ဘာဘူဒါ</territory>
 			<territory type="AI">အန်ဂီလာ</territory>
 			<territory type="AL">အယ်လ်ဘေးနီးယား</territory>
 			<territory type="AM">အာမေးနီးယား</territory>
-			<territory type="AO">အင်ဂိုလာ</territory>
+			<territory type="AO">အန်ဂိုလာ</territory>
 			<territory type="AQ">အန္တာတိက</territory>
 			<territory type="AR">အာဂျင်တီးနား</territory>
 			<territory type="AS">အမေရိကန် ဆမိုးအား</territory>
@@ -555,7 +562,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BT">ဘူတန်</territory>
 			<territory type="BV">ဘူဗက်ကျွန်း</territory>
 			<territory type="BW">ဘော့ဆွာနာ</territory>
-			<territory type="BY">ဘီလာရုဇ်</territory>
+			<territory type="BY">ဘီလာရုစ်</territory>
 			<territory type="BZ">ဘလိဇ်</territory>
 			<territory type="CA">ကနေဒါ</territory>
 			<territory type="CC">ကိုကိုးကျွန်း</territory>
@@ -581,7 +588,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CY">ဆိုက်ပရပ်စ်</territory>
 			<territory type="CZ">ချက်ကီယား</territory>
 			<territory type="CZ" alt="variant">ချက် ပြည်ထောင်စု</territory>
-			<territory type="DE">ဂျာမဏီ</territory>
+			<territory type="DE">ဂျာမနီ</territory>
 			<territory type="DG">ဒီအဲဂိုဂါစီရာ</territory>
 			<territory type="DJ">ဂျီဘူတီ</territory>
 			<territory type="DK">ဒိန်းမတ်</territory>
@@ -597,6 +604,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">စပိန်</territory>
 			<territory type="ET">အီသီယိုးပီးယား</territory>
 			<territory type="EU">ဥရောပသမဂ္ဂ</territory>
+			<territory type="EZ">ဥရောပဒေသ</territory>
 			<territory type="FI">ဖင်လန်</territory>
 			<territory type="FJ">ဖီဂျီ</territory>
 			<territory type="FK">ဖော့ကလန် ကျွန်းစု</territory>
@@ -609,7 +617,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GB" alt="short">ယူကေ</territory>
 			<territory type="GD">ဂရီနေဒါ</territory>
 			<territory type="GE">ဂျော်ဂျီယာ</territory>
-			<territory type="GF">ပြင်သစ် ဂိုင်ယာနာ</territory>
+			<territory type="GF">ပြင်သစ် ဂီယာနာ</territory>
 			<territory type="GG">ဂွန်းဇီ</territory>
 			<territory type="GH">ဂါနာ</territory>
 			<territory type="GI">ဂျီဘရော်လ်တာ</territory>
@@ -675,8 +683,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MF">စိန့်မာတင်</territory>
 			<territory type="MG">မဒါဂတ်စကား</territory>
 			<territory type="MH">မာရှယ် ကျွန်းစု</territory>
-			<territory type="MK">မက်စီဒိုးနီးယား</territory>
-			<territory type="MK" alt="variant">မက်စီဒိုးနီးယား (ယခင် ယူဂိုစလားဗီးယား မက်စီဒိုးနီးယားပြည်ထောင်စု)</territory>
+			<territory type="MK">မက်ဆီဒိုးနီးယား</territory>
+			<territory type="MK" alt="variant">မက်ဆီဒိုးနီးယား (ယခင် ယူဂိုစလားဗီးယား မက်ဆီဒိုးနီးယားပြည်ထောင်စု)</territory>
 			<territory type="ML">မာလီ</territory>
 			<territory type="MM">မြန်မာ</territory>
 			<territory type="MN">မွန်ဂိုးလီးယား</territory>
@@ -723,10 +731,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PY">ပါရာဂွေး</territory>
 			<territory type="QA">ကာတာ</territory>
 			<territory type="QO">သမုဒ္ဒရာ အပြင်ဘက်ရှိ ကျွန်းနိုင်ငံများ</territory>
-			<territory type="RE">ဟေညွန်</territory>
+			<territory type="RE">ရီယူနီယန်</territory>
 			<territory type="RO">ရိုမေးနီးယား</territory>
 			<territory type="RS">ဆားဘီးယား</territory>
-			<territory type="RU">ရုရှ</territory>
+			<territory type="RU">ရုရှား</territory>
 			<territory type="RW">ရဝန်ဒါ</territory>
 			<territory type="SA">ဆော်ဒီအာရေးဘီးယား</territory>
 			<territory type="SB">ဆော်လမွန်ကျွန်းစု</territory>
@@ -735,7 +743,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SE">ဆွီဒင်</territory>
 			<territory type="SG">စင်္ကာပူ</territory>
 			<territory type="SH">စိန့်ဟယ်လယ်နာ</territory>
-			<territory type="SI">စလိုဗေးနီးယား</territory>
+			<territory type="SI">ဆလိုဗေးနီးယား</territory>
 			<territory type="SJ">စဗိုလ်ဘတ်နှင့်ဂျန်မေရန်</territory>
 			<territory type="SK">ဆလိုဗက်ကီးယား</territory>
 			<territory type="SL">ဆီယာရာ လီယွန်း</territory>
@@ -758,6 +766,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">တာဂျီကစ္စတန်</territory>
 			<territory type="TK">တိုကလောင်</territory>
 			<territory type="TL">အရှေ့တီမော</territory>
+			<territory type="TL" alt="variant">အရှေ့တီမော</territory>
 			<territory type="TM">တာ့ခ်မင်နစ္စတန်</territory>
 			<territory type="TN">တူနီးရှား</territory>
 			<territory type="TO">တွန်ဂါ</territory>
@@ -771,11 +780,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UM">ယူနိုက်တက်စတိတ် ကျွန်းနိုင်ငံများ</territory>
 			<territory type="UN">ကုလသမဂ္ဂ</territory>
 			<territory type="UN" alt="short">ကုလသမဂ္ဂ</territory>
-			<territory type="US">ယူနိုက်တက်စတိတ်</territory>
+			<territory type="US">အမေရိကန် ပြည်ထောင်စု</territory>
 			<territory type="US" alt="short">ယူအက်စ်</territory>
 			<territory type="UY">ဥရုဂွေး</territory>
-			<territory type="UZ">ဉဇဘက်ကစ္စတန်</territory>
-			<territory type="VA">ဗာတီကန်စီတီး</territory>
+			<territory type="UZ">ဥဇဘက်ကစ္စတန်</territory>
+			<territory type="VA">ဗာတီကန်စီးတီး</territory>
 			<territory type="VC">စိန့်ဗင်းဆင့်နှင့် ဂရိနေဒိုင်</territory>
 			<territory type="VE">ဗင်နီဇွဲလား</territory>
 			<territory type="VG">ဗြိတိသျှ ဗာဂျင်း ကျွန်းစု</territory>
@@ -786,7 +795,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="WS">ဆမိုးအား</territory>
 			<territory type="XK">ကိုဆိုဗို</territory>
 			<territory type="YE">ယီမင်</territory>
-			<territory type="YT">မာယိုတေး</territory>
+			<territory type="YT">မေယော့</territory>
 			<territory type="ZA">တောင်အာဖရိက</territory>
 			<territory type="ZM">ဇမ်ဘီယာ</territory>
 			<territory type="ZW">ဇင်ဘာဘွေ</territory>
@@ -869,7 +878,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="knda">ခန္နဒါ ဂဏန်းခြေ</type>
 			<type key="numbers" type="laoo">လာအို ဂဏန်းခြေ</type>
 			<type key="numbers" type="latn">အနောက်တိုင်း ဂဏန်းခြေ</type>
-			<type key="numbers" type="mlym">မာလာယာလမ် ဂဏန်းခြေ</type>
+			<type key="numbers" type="mlym">မလေယာလမ် ဂဏန်းခြေ</type>
 			<type key="numbers" type="mymr">မြန်မာ ဂဏန်းခြေ</type>
 			<type key="numbers" type="mymrshan">ရှမ်း ဂဏန်းခြေ</type>
 			<type key="numbers" type="orya">ဩရီရာ ဂဏန်းခြေ</type>
@@ -904,6 +913,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -958,23 +986,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">B h</dateFormatItem>
+						<dateFormatItem id="Bhm">B h:mm</dateFormatItem>
+						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="Ed">d Eနေ့</dateFormatItem>
+						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
+						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ehm">E a h:mm</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
-						<dateFormatItem id="GyMMM">G MMM y</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G d MMM y</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G d MMM y Eနေ့</dateFormatItem>
+						<dateFormatItem id="h">a h</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">a h:mm</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">d/M Eနေ့</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMM d Eနေ့</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM d၊ E</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">MMMM d Eနေ့</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">G y</dateFormatItem>
@@ -982,10 +1022,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyM">G M/y</dateFormatItem>
 						<dateFormatItem id="yyyyMd">GGGGG dd/MM/Y</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">GGGGG dd/MM/y Eနေ့</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">G MMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G d MMM y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">G d MMM y Eနေ့</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">G MMMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">G y MMMM</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
@@ -1366,9 +1406,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">ခရစ်တော် မပေါ်မီနှစ်</era>
-						<era type="0" alt="variant">သာမန်ကာလ မတိုင်မီ ခေတ်</era>
+						<era type="0" alt="variant">ဘုံခေတ် မတိုင်မီ</era>
 						<era type="1">ခရစ်နှစ်</era>
-						<era type="1" alt="variant">သာမန်ကာလ</era>
+						<era type="1" alt="variant">ဘုံခေတ်</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ဘီစီ</era>
@@ -1380,17 +1420,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE d MMMM y</pattern>
+							<pattern>y၊ MMMM d၊ EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM y</pattern>
+							<pattern>y၊ d MMMM</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM y</pattern>
+							<pattern>y၊ MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1412,12 +1452,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
+							<pattern>B HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
+							<pattern>B H:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1443,22 +1483,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">B h</dateFormatItem>
+						<dateFormatItem id="Bhm">B h:mm</dateFormatItem>
+						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">cccနေ့</dateFormatItem>
+						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d ရက် Eနေ့</dateFormatItem>
-						<dateFormatItem id="Ehm">Eနေ့ a h:mm</dateFormatItem>
-						<dateFormatItem id="EHm">HH:mm Eနေ့</dateFormatItem>
-						<dateFormatItem id="Ehms">Eနေ့ a h:mm:ss</dateFormatItem>
-						<dateFormatItem id="EHms">HH:mm:ss Eနေ့</dateFormatItem>
+						<dateFormatItem id="Ehm">E B h:mm</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E B h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G y MMM d ရက်</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">G y MMM d ရက် Eနေ့</dateFormatItem>
-						<dateFormatItem id="h">a h နာရီ</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y၊ MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G y၊ MMM d၊ E</dateFormatItem>
+						<dateFormatItem id="h">B h</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="hm">a h:mm</dateFormatItem>
+						<dateFormatItem id="hm">B h:mm</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="hmsv">v a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hmsv">v HH:mm:ss</dateFormatItem>
@@ -1466,10 +1511,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmv">v HH:mm</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="MEd">d/M Eနေ့</dateFormatItem>
+						<dateFormatItem id="MEd">d/M၊ E</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMM d ရက် Eနေ့</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM d၊ E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">MMMM d ရက် Eနေ့</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMM လ W ပတ်မြောက်</dateFormatItem>
@@ -1477,14 +1522,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">dd-MM-y</dateFormatItem>
-						<dateFormatItem id="yMEd">d-M-y Eနေ့</dateFormatItem>
+						<dateFormatItem id="yMEd">d/M/y၊ E</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">d MMM y Eနေ့</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">y၊ MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMEd">y၊ MMM d၊ E</dateFormatItem>
+						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y ခု w ပတ်မြောက်</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y ခု w ပတ်မြောက်</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{1} {0}</appendItem>
@@ -1534,8 +1579,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">d/M – d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">d/M EEEEနေ့ – d/M EEEEနေ့</greatestDifference>
-							<greatestDifference id="M">d/M EEEEနေ့ – d/M EEEEနေ့</greatestDifference>
+							<greatestDifference id="d">d/M၊ EEEE – d/M၊ EEEE</greatestDifference>
+							<greatestDifference id="M">d/M၊ EEEE – d/M၊ EEEE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">MMM – MMM</greatestDifference>
@@ -1545,8 +1590,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">MMM d – MMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">MMM d Eနေ့ – MMM d Eနေ့</greatestDifference>
-							<greatestDifference id="M">MMM d Eနေ့ – MMM d Eနေ့</greatestDifference>
+							<greatestDifference id="d">MMM d၊ E – MMM d၊ E</greatestDifference>
+							<greatestDifference id="M">MMM d၊ E – MMM d၊ E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y – y</greatestDifference>
@@ -1561,23 +1606,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">d/M/y – d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">d/M/y EEEEနေ့ – d/M/y EEEEနေ့</greatestDifference>
-							<greatestDifference id="M">d/M/y EEEEနေ့ – d/M/y EEEEနေ့</greatestDifference>
-							<greatestDifference id="y">d/M/y EEEEနေ့ – d/M/y EEEEနေ့</greatestDifference>
+							<greatestDifference id="d">d/M/y၊ EEEE – d/M/y၊ EEEE</greatestDifference>
+							<greatestDifference id="M">d/M/y၊ EEEE – d/M/y၊ EEEE</greatestDifference>
+							<greatestDifference id="y">d/M/y၊ EEEE – d/M/y၊ EEEE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y MMM – MMM</greatestDifference>
 							<greatestDifference id="y">y MMM – y MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">y MMM d – d</greatestDifference>
-							<greatestDifference id="M">y MMM d – y MMM d</greatestDifference>
-							<greatestDifference id="y">y MMM d – y MMM d</greatestDifference>
+							<greatestDifference id="d">y၊ MMM d – d</greatestDifference>
+							<greatestDifference id="M">y၊ MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y">y၊ MMM d – y၊ MMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">y MMM d EEEEနေ့ – MMM d EEEEနေ့</greatestDifference>
-							<greatestDifference id="M">y MMM d EEEEနေ့ – MMM d EEEEနေ့</greatestDifference>
-							<greatestDifference id="y">y MMM d EEEEနေ့ – y MMM d EEEEနေ့</greatestDifference>
+							<greatestDifference id="d">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="M">y၊ MMM d၊ EEEE – MMM d၊ EEEE</greatestDifference>
+							<greatestDifference id="y">y၊ MMM d၊ EEEE – y၊ MMM d၊ EEEE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">y MMMM – MMMM</greatestDifference>
@@ -1589,6 +1634,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>ခေတ်</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>ခေတ်</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>ခေတ်</displayName>
 			</field>
 			<field type="year">
@@ -1720,6 +1771,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>{0} ပတ်မြောက် သီတင်းပတ်</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>တစ်လအတွင်းရှိသီတင်းပတ်</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>တစ်လအတွင်းရှိသီတင်းပတ်</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>တစ်လအတွင်းရှိသီတင်းပတ်</displayName>
+			</field>
 			<field type="day">
 				<displayName>ရက်</displayName>
 				<relative type="-2">တစ်နေ့က</relative>
@@ -1752,8 +1812,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">ပြီးခဲ့သည့် {0} ရက်</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>တစ်နှစ်အတွင်း ရက်ရေတွက်ပုံ</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>တစ်နှစ်အတွင်း ရက်ရေတွက်ပုံ</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>တစ်နှစ်အတွင်း ရက်ရေတွက်ပုံ</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>နေ့</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>နေ့</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>နေ့</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>တစ်လအတွင်းရှိအလုပ်ရက်</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>တစ်လအတွင်းရှိအလုပ်ရက်</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>တစ်လအတွင်းရှိအလုပ်ရက်</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">ပြီးခဲ့သည့် တနင်္ဂနွေနေ့</relative>
@@ -1986,7 +2070,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">ပြီးခဲ့သည့် စနေ {0} ပတ်အတွင်း</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>နံနက်/ညနေ</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>နံနက်/ညနေ</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>နံနက်/ညနေ</displayName>
 			</field>
 			<field type="hour">
@@ -2076,6 +2166,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>ဇုန်</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>ဇုန်</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>ဇုန်</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
@@ -2110,7 +2206,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>အမည်မသိသောမြို့</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
-				<exemplarCity>အင်ဒိုရာ</exemplarCity>
+				<exemplarCity>အန်ဒိုရာ</exemplarCity>
 			</zone>
 			<zone type="Asia/Dubai">
 				<exemplarCity>ဒူဘိုင်း</exemplarCity>
@@ -2119,7 +2215,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ကဘူးလ်</exemplarCity>
 			</zone>
 			<zone type="America/Antigua">
-				<exemplarCity>အင်တီဂွါ</exemplarCity>
+				<exemplarCity>အန်တီဂွါ</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
 				<exemplarCity>အန်ဂီလာ</exemplarCity>
@@ -2269,7 +2365,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ဝါဂါဒူးဂူ</exemplarCity>
 			</zone>
 			<zone type="Europe/Sofia">
-				<exemplarCity>ဆိုပီအာ</exemplarCity>
+				<exemplarCity>ဆိုဖီအာ</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity>ဘာရိန်း</exemplarCity>
@@ -2326,7 +2422,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>အာရာဂွါအီနာ</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity>ဆို ပေါင်လို</exemplarCity>
+				<exemplarCity>ဆော်ပိုလို</exemplarCity>
 			</zone>
 			<zone type="America/Bahia">
 				<exemplarCity>ဘာဟီအာ</exemplarCity>
@@ -2469,6 +2565,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>အီစတာ</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>ပွန်တာ အရီနာစ်</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>ဆန်တီအာဂို</exemplarCity>
 			</zone>
@@ -2501,6 +2600,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>နီကိုရှား</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>ဖာမာဂူစတာ</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>ပရက်ဂ်</exemplarCity>
@@ -2578,14 +2680,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ဖါရို</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<exemplarCity>ပါရီ</exemplarCity>
+				<exemplarCity>ပဲရစ်</exemplarCity>
 			</zone>
 			<zone type="Africa/Libreville">
 				<exemplarCity>လီဗရာဗီးလ်</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<long>
-					<daylight>ဗြိတိန်နွေရာသီအချိန်</daylight>
+					<daylight>ဗြိတိန် နွေရာသီ အချိန်</daylight>
 				</long>
 				<exemplarCity>လန်ဒန်</exemplarCity>
 			</zone>
@@ -2662,7 +2764,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ပို့တ်-အို-ပရင့်စ်</exemplarCity>
 			</zone>
 			<zone type="Europe/Budapest">
-				<exemplarCity>ဘူဒပက်စ်</exemplarCity>
+				<exemplarCity>ဘူဒါပက်စ်</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>ဂျကာတာ</exemplarCity>
@@ -2678,7 +2780,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
-					<daylight>အိုင်းရစ်ရှ်စံတော်ချိန်</daylight>
+					<daylight>အိုင်းရစ်ရှ် စံတော်ချိန်</daylight>
 				</long>
 				<exemplarCity>ဒတ်ဘလင်</exemplarCity>
 			</zone>
@@ -2760,6 +2862,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Oral">
 				<exemplarCity>အော်ရဲလ်</exemplarCity>
 			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>အာတီရအူ</exemplarCity>
+			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>အာခ်တူးဘီ</exemplarCity>
 			</zone>
@@ -2770,7 +2875,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>အော်မာတီ</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
-				<exemplarCity>ဗီယမ်ကျန်း</exemplarCity>
+				<exemplarCity>ဗီယင်ကျန်း</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
 				<exemplarCity>ဘေရွတ်</exemplarCity>
@@ -2803,7 +2908,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ထရီပိုလီ</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<exemplarCity>ကာစာဘလန်ကာ</exemplarCity>
+				<exemplarCity>ကာဆာဘလန်ကာ</exemplarCity>
 			</zone>
 			<zone type="Europe/Monaco">
 				<exemplarCity>မိုနာကို</exemplarCity>
@@ -2812,10 +2917,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ချီရှီနားအူ</exemplarCity>
 			</zone>
 			<zone type="Europe/Podgorica">
-				<exemplarCity>ပို့စ်ဂိုရိစာ</exemplarCity>
+				<exemplarCity>ပေါ့ဂိုရီကာ</exemplarCity>
 			</zone>
 			<zone type="America/Marigot">
-				<exemplarCity>မာရီဂိုတ်</exemplarCity>
+				<exemplarCity>မာရီဂေါ့</exemplarCity>
 			</zone>
 			<zone type="Indian/Antananarivo">
 				<exemplarCity>အန်တာနာနာရီးဘို</exemplarCity>
@@ -3019,7 +3124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ကာတာ</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>ဟေညွန်</exemplarCity>
+				<exemplarCity>ရီယူနီယန်</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>ဘူခါရက်စ်</exemplarCity>
@@ -3038,6 +3143,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>ဗိုလ်ဂိုဂရက်</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>ဆာရာတို့ဖ်</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>အားစ်တရခန်း</exemplarCity>
@@ -3214,7 +3322,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ဖူနာဖူတီ</exemplarCity>
 			</zone>
 			<zone type="Asia/Taipei">
-				<exemplarCity>ထိုင်ပေ</exemplarCity>
+				<exemplarCity>တိုင်ပေ</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>ဒါရက်စ်ဆာလမ်</exemplarCity>
@@ -3274,13 +3382,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ဒင်န်ဗာ</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
-				<exemplarCity>ဗြူလာ မြောက်ဒါကိုတာ</exemplarCity>
+				<exemplarCity>ဗြူလာ၊ မြောက်ဒါကိုတာ</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity>နယူးဆေးလမ် မြောက်ဒါကိုတာ</exemplarCity>
+				<exemplarCity>နယူးဆေးလမ်၊ မြောက်ဒါကိုတာ</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity>စင်တာ မြောက်ဒါကိုတာ</exemplarCity>
+				<exemplarCity>စင်တာ၊ မြောက်ဒါကိုတာ</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<exemplarCity>ချီကာကို</exemplarCity>
@@ -3349,7 +3457,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>စိန့်သောမတ်စ်</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
-				<exemplarCity>ဟိုချီမင်း</exemplarCity>
+				<exemplarCity>ဟိုချီမင်းစီးတီး</exemplarCity>
 			</zone>
 			<zone type="Pacific/Efate">
 				<exemplarCity>အီဖာတီ</exemplarCity>
@@ -3367,7 +3475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>မာယိုတဲ</exemplarCity>
 			</zone>
 			<zone type="Africa/Johannesburg">
-				<exemplarCity>ဂျိုဟန္နက်စဘတ်</exemplarCity>
+				<exemplarCity>ဂျိုဟန်းနက်စဘတ်</exemplarCity>
 			</zone>
 			<zone type="Africa/Lusaka">
 				<exemplarCity>လူစာကာ</exemplarCity>
@@ -3404,16 +3512,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic>အလားစကားအချိန်</generic>
-					<standard>အလားစကားစံတော်ချိန်</standard>
-					<daylight>အလားစကား နွေရာသီစံတော်ချိန်</daylight>
+					<generic>အလာစကာ အချိန်</generic>
+					<standard>အလာစကာ စံတော်ချိန်</standard>
+					<daylight>အလာစကာ နွေရာသီ စံတော်ချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic>အာမေဇုံ အချိန်</generic>
-					<standard>အာမေဇုံ စံတော်ချိန်</standard>
-					<daylight>အာမေဇုံ နွေရာသီအချိန်</daylight>
+					<generic>အမေဇုံ အချိန်</generic>
+					<standard>အမေဇုံ စံတော်ချိန်</standard>
+					<daylight>အမေဇုံ နွေရာသီအချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -3446,8 +3554,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>အပီယာအချိန်</generic>
-					<standard>အပီယာစံတော်ချိန်</standard>
+					<generic>အပီယာ အချိန်</generic>
+					<standard>အပီယာ စံတော်ချိန်</standard>
 					<daylight>အပီယာ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -3488,30 +3596,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
-					<generic>ဩစတြေးလျား အလယ်ပိုင်း အချိန်</generic>
-					<standard>ဩစတြေးလျား အလယ်ပိုင်း စံတော်ချိန်</standard>
-					<daylight>ဩစတြေးလျား အလယ်ပိုင်း နွေရာသီ အချိန်</daylight>
+					<generic>ဩစတြေးလျ အလယ်ပိုင်း အချိန်</generic>
+					<standard>ဩစတြေးလျ အလယ်ပိုင်း စံတော်ချိန်</standard>
+					<daylight>ဩစတြေးလျ အလယ်ပိုင်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
-					<generic>ဩစတြေးလျား အလယ်အနောက်ပိုင်း အချိန်</generic>
-					<standard>ဩစတြေးလျား အလယ်အနောက်ပိုင်း စံတော်ချိန်</standard>
-					<daylight>ဩစတြေးလျား အလယ်အနောက်ပိုင်း နွေရာသီ အချိန်</daylight>
+					<generic>သြစတြေးလျား အနောက်အလယ်ပိုင်း အချိန်</generic>
+					<standard>သြစတြေးလျား အနောက်အလယ်ပိုင်း စံတော်ချိန်</standard>
+					<daylight>သြစတြေးလျား အနောက်အလယ်ပိုင်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
-					<generic>အရှေ့ဩစတြေးလျား အချိန်</generic>
-					<standard>အရှေ့ဩစတြေးလျား စံတော်ချိန်</standard>
-					<daylight>အရှေ့ဩစတြေးလျား နွေရာသီ အချိန်</daylight>
+					<generic>အရှေ့ဩစတြေးလျ အချိန်</generic>
+					<standard>အရှေ့ဩစတြေးလျ စံတော်ချိန်</standard>
+					<daylight>အရှေ့ဩစတြေးလျ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
-					<generic>အနောက်ဩစတြေးလျား အချိန်</generic>
-					<standard>အနောက်ဩစတြေးလျား စံတော်ချိန်</standard>
-					<daylight>ဩစတြေးလျား နွေရာသီ အချိန်</daylight>
+					<generic>အနောက်ဩစတြေးလျ အချိန်</generic>
+					<standard>အနောက်ဩစတြေးလျ စံတော်ချိန်</standard>
+					<daylight>ဩစတြေးလျ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azerbaijan">
@@ -3566,7 +3674,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<standard>ချာမိုရိုအချိန်</standard>
+					<standard>ချာမိုရို အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
@@ -3592,19 +3700,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<generic>ချွဲဘော်ဆန်းအချိန်</generic>
-					<standard>ချွဲဘော်ဆန်းစံတော်ချိန်</standard>
-					<daylight>ချွဲဘော်ဆန်းနွေရာသီအချိန်</daylight>
+					<generic>ချွဲဘော်ဆန်း အချိန်</generic>
+					<standard>ချွဲဘော်ဆန်း စံတော်ချိန်</standard>
+					<daylight>ချွဲဘော်ဆန်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
 				<long>
-					<standard>ခရစ်စမတ်ကျွန်းအချိန်</standard>
+					<standard>ခရစ်စမတ်ကျွန်း အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
-					<standard>ကိုကိုးကျွန်းအချိန်</standard>
+					<standard>ကိုကိုးကျွန်း အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Colombia">
@@ -3616,9 +3724,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<generic>ကွတ်ခ်ကျွန်းစုအချိန်</generic>
-					<standard>ကွတ်ခ်ကျွန်းစုစံတော်ချိန်</standard>
-					<daylight>ကွတ်က်ကျွန်းစုနွေရာသီအချိန်</daylight>
+					<generic>ကွတ်ခ်ကျွန်းစု အချိန်</generic>
+					<standard>ကွတ်ခ်ကျွန်းစု စံတော်ချိန်</standard>
+					<daylight>ကွတ်က်ကျွန်းစု နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cuba">
@@ -3630,12 +3738,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Davis">
 				<long>
-					<standard>ဒေးဗစ်အချိန်</standard>
+					<standard>ဒေးဗစ် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard>ဒူးမော့တ် ဒါရ်ဗီးလ်အချိန်</standard>
+					<standard>ဒူးမော့တ် ဒါရ်ဗီးလ် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="East_Timor">
@@ -3657,9 +3765,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic>ဥရောပအလယ်ပိုင်းအချိန်</generic>
-					<standard>ဥရောပ အလယ်ပိုင်း စံတော်ချိန်</standard>
-					<daylight>ဥရောပ အလယ်ပိုင်း နွေရာသီ အချိန်</daylight>
+					<generic>ဥရောပအလယ်ပိုင်း အချိန်</generic>
+					<standard>ဥရောပအလယ်ပိုင်း စံတော်ချိန်</standard>
+					<daylight>ဥရောပအလယ်ပိုင်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
@@ -3671,7 +3779,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Further_Eastern">
 				<long>
-					<standard>ထပ်တိုးအရှေ့ပိုင်းဥရောပအချိန်</standard>
+					<standard>အရှေ့ဖျား ဥရောပဒေသ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
@@ -3683,16 +3791,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<generic>ဖော့ကလန်ကွန်းစု အချိန်</generic>
+					<generic>ဖော့ကလန်ကျွန်းစု အချိန်</generic>
 					<standard>ဖော့ကလန်ကျွန်းစု စံတော်ချိန်</standard>
 					<daylight>ဖော့ကလန်ကျွန်းစု နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<generic>ဖီဂျီအချိန်</generic>
-					<standard>ဖီဂျီစံတော်ချိန်</standard>
-					<daylight>ဖီဂျီနွေရာသီအချိန်</daylight>
+					<generic>ဖီဂျီ အချိန်</generic>
+					<standard>ဖီဂျီ စံတော်ချိန်</standard>
+					<daylight>ဖီဂျီ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="French_Guiana">
@@ -3702,7 +3810,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard>ပြင်သစ်တောင်ပိုင်းနှင့် အန္တာတိတ်အချိန်</standard>
+					<standard>ပြင်သစ်တောင်ပိုင်းနှင့် အန္တာတိတ် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -3724,7 +3832,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
-					<standard>ဂီလ်ဘတ်ကျွန်းစုအချိန်</standard>
+					<standard>ဂီလ်ဘတ်ကျွန်းစု အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="GMT">
@@ -3772,9 +3880,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic>ဟိုးဗ်အချိန်</generic>
-					<standard>ဟိုးဗ်စံတော်ချိန်</standard>
-					<daylight>ဟိုးဗ်နွေရာသီအချိန်</daylight>
+					<generic>ဟိုးဗ် အချိန်</generic>
+					<standard>ဟိုးဗ် စံတော်ချိန်</standard>
+					<daylight>ဟိုးဗ် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="India">
@@ -3784,7 +3892,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
-					<standard>အိန္ဒိယ သမုဒ္ဒရာ အချိန်</standard>
+					<standard>အိန္ဒိယသမုဒ္ဒရာ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Indochina">
@@ -3816,9 +3924,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic>အီရူခူတ်အချိန်</generic>
-					<standard>အီရူခူတ်စံတော်ချိန်</standard>
-					<daylight>အီရူခူတ်နွေရာသီအချိန်</daylight>
+					<generic>အီရူခူတ် အချိန်</generic>
+					<standard>အီရူခူတ် စံတော်ချိန်</standard>
+					<daylight>အီရူခူတ် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
@@ -3842,7 +3950,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<standard>အနောက်ကာဇက်စတန်အချိန်</standard>
+					<standard>အနောက်ကာဇက်စတန် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
@@ -3854,14 +3962,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
-					<standard>ခိုစ်ရိုင်အချိန်</standard>
+					<standard>ခိုစ်ရိုင် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic>ခရာ့စ်နိုရာစ်အချိန်</generic>
-					<standard>ခရာ့စ်နိုရာစ်စံတော်ချိန်</standard>
-					<daylight>ခရာ့စ်နိုရာစ်နွေရာသီအချိန်</daylight>
+					<generic>ခရာ့စ်နိုရာစ် အချိန်</generic>
+					<standard>ခရာ့စ်နိုရာစ် စံတော်ချိန်</standard>
+					<daylight>ခရာ့စ်နိုရာစ် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kyrgystan">
@@ -3876,13 +3984,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Line_Islands">
 				<long>
-					<standard>လိုင်းကျွန်းစုအချိန်</standard>
+					<standard>လိုင်းကျွန်းစု အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
-					<generic>လော့ဒ်ဟောင်အချိန်</generic>
-					<standard>လော့ဒ်ဟောင်စံတော်ချိန်</standard>
+					<generic>လော့ဒ်ဟောင် အချိန်</generic>
+					<standard>လော့ဒ်ဟောင် စံတော်ချိန်</standard>
 					<daylight>လော့ဒ်ဟောင် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -3900,9 +4008,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Magadan">
 				<long>
-					<generic>မာဂါဒန်းအချိန်</generic>
-					<standard>မာဂါဒန်းစံတော်ချိန်</standard>
-					<daylight>မာဂါဒန်းနွေရာသီအချိန်</daylight>
+					<generic>မာဂါဒန်း အချိန်</generic>
+					<standard>မာဂါဒန်း စံတော်ချိန်</standard>
+					<daylight>မာဂါဒန်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Malaysia">
@@ -3917,12 +4025,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
-					<standard>မာခေးအပ်စ်အချိန်</standard>
+					<standard>မာခေးအပ်စ် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
-					<standard>မာရှယ်ကျွန်းစုအချိန်</standard>
+					<standard>မာရှယ်ကျွန်းစု အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Mauritius">
@@ -3934,7 +4042,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Mawson">
 				<long>
-					<standard>မော်စွန်အချိန်</standard>
+					<standard>မော်စွန် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Northwest">
@@ -3946,22 +4054,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Mexico_Pacific">
 				<long>
-					<generic>မက္ကဆီကန် ပစိဖိတ်အချိန်</generic>
+					<generic>မက္ကဆီကန် ပစိဖိတ် အချိန်</generic>
 					<standard>မက္ကဆီကန် ပစိဖိတ် စံတော်ချိန်</standard>
 					<daylight>မက္ကစီကန် ပစိဖိတ် နွေရာသီ စံတော်ချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic>ဥလန်ဘာတောအချိန်</generic>
-					<standard>ဥလန်ဘာတောစံတော်ချိန်</standard>
-					<daylight>ဥလန်ဘာတောနွေရာသီအချိန်</daylight>
+					<generic>ဥလန်ဘာတော အချိန်</generic>
+					<standard>ဥလန်ဘာတော စံတော်ချိန်</standard>
+					<daylight>ဥလန်ဘာတော နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
-					<generic>မော်စကို</generic>
-					<standard>မော်စကိုစံတော်ချိန်</standard>
+					<generic>မော်စကို အချိန်</generic>
+					<standard>မော်စကို စံတော်ချိန်</standard>
 					<daylight>မော်စကို နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -3972,7 +4080,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Nauru">
 				<long>
-					<standard>နာဥူရူအချိန်</standard>
+					<standard>နာဥူရူ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Nepal">
@@ -3982,9 +4090,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
-					<generic>နယူးကယ်လီဒိုးနီးယားအချိန်</generic>
-					<standard>နယူးကာလီဒိုးနီးယားစံတော်ချိန်</standard>
-					<daylight>နယူးကာလီဒိုးနီးယားနွေရာသီအချိန်</daylight>
+					<generic>နယူးကယ်လီဒိုးနီးယား အချိန်</generic>
+					<standard>နယူးကာလီဒိုးနီးယား စံတော်ချိန်</standard>
+					<daylight>နယူးကာလီဒိုးနီးယား နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="New_Zealand">
@@ -4003,7 +4111,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Niue">
 				<long>
-					<standard>နီဦးအေအချိန်</standard>
+					<standard>နီဦးအေ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Norfolk">
@@ -4013,23 +4121,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>ဖာနန်ဒိုးဒီနိုးရိုးညာအချိန်</generic>
-					<standard>ဖာနန်ဒိုးဒီနိုးရိုးညာစံတော်ချိန်</standard>
-					<daylight>ဖာနန်ဒိုးဒီနိုးရိုးညာနွေရာသီအချိန်</daylight>
+					<generic>ဖာနန်ဒိုးဒီနိုးရိုးညာ အချိန်</generic>
+					<standard>ဖာနန်ဒိုးဒီနိုးရိုးညာ စံတော်ချိန်</standard>
+					<daylight>ဖာနန်ဒိုးဒီနိုးရိုးညာ နွေရာသီအချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
-					<generic>နိုဗိုစဲဘီအဲယ်စ်အချိန်</generic>
-					<standard>နိုဗိုစဲဘီအဲယ်စ်စံတော်ချိန်</standard>
-					<daylight>နိုဗိုစဲဘီအဲယ်စ်နွေရာသီအချိန်</daylight>
+					<generic>နိုဗိုစဲဘီအဲယ်စ် အချိန်</generic>
+					<standard>နိုဗိုစဲဘီအဲယ်စ် စံတော်ချိန်</standard>
+					<daylight>နိုဗိုစဲဘီအဲယ်စ် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
-					<generic>အွမ်းစ်ခ်အချိန်</generic>
-					<standard>အွမ်းစ်ခ်စံတော်ချိန်</standard>
-					<daylight>အွမ်းစ်ခ်နွေရာသီအချိန်</daylight>
+					<generic>အွမ်းစ်ခ် အချိန်</generic>
+					<standard>အွမ်းစ်ခ် စံတော်ချိန်</standard>
+					<daylight>အွမ်းစ်ခ် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pakistan">
@@ -4072,7 +4180,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Phoenix_Islands">
 				<long>
-					<standard>ဖီးနစ်ကျွန်းစုအချိန်</standard>
+					<standard>ဖီးနစ်ကျွန်းစု အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
@@ -4089,7 +4197,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Ponape">
 				<long>
-					<standard>ဖိုနာဖဲအ်အချိန်</standard>
+					<standard>ဖိုနာဖဲအ် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Pyongyang">
@@ -4099,25 +4207,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Reunion">
 				<long>
-					<standard>ဟေညွန် အချိန်</standard>
+					<standard>ရီယူနီယံ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Rothera">
 				<long>
-					<standard>ရိုသီရာအချိန်</standard>
+					<standard>ရိုသီရာ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic>ဆာခါလင် အချိန်</generic>
-					<standard>ဆာခါလင်စံတော်ချိန်</standard>
+					<standard>ဆာခါလင် စံတော်ချိန်</standard>
 					<daylight>ဆာခါလင် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ဆမိုးအားအချိန်</generic>
-					<standard>ဆမိုးအားစံတော်ချိန်</standard>
+					<generic>ဆမိုအာ အချိန်</generic>
+					<standard>ဆမိုအာ စံတော်ချိန်</standard>
 					<daylight>ဆမိုးအား နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -4133,7 +4241,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Solomon">
 				<long>
-					<standard>ဆော်လမွန်ကျွန်းစုအချိန်</standard>
+					<standard>ဆော်လမွန်ကျွန်းစု အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="South_Georgia">
@@ -4148,12 +4256,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Syowa">
 				<long>
-					<standard>ရှိုဝါအချိန်</standard>
+					<standard>ရှိုဝါ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Tahiti">
 				<long>
-					<standard>တဟီတီအချိန်</standard>
+					<standard>တဟီတီ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Taipei">
@@ -4175,14 +4283,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Tonga">
 				<long>
-					<generic>တွန်ဂါအချိန်</generic>
-					<standard>တွန်ဂါစံတော်ချိန်</standard>
-					<daylight>တွန်ဂါနွေရာသီအချိန်</daylight>
+					<generic>တွန်ဂါ အချိန်</generic>
+					<standard>တွန်ဂါ စံတော်ချိန်</standard>
+					<daylight>တွန်ဂါ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Truk">
 				<long>
-					<standard>ချုခ်အချိန်</standard>
+					<standard>ချုခ် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Turkmenistan">
@@ -4194,7 +4302,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Tuvalu">
 				<long>
-					<standard>တူဗားလူအချိန်</standard>
+					<standard>တူဗားလူ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
@@ -4213,9 +4321,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
-					<generic>ဗနွားတူအချိန်</generic>
-					<standard>ဗနွားတူစံတော်ချိန်</standard>
-					<daylight>ဗနွားတူနွေရာသီအချိန်</daylight>
+					<generic>ဗနွားတူ အချိန်</generic>
+					<standard>ဗနွားတူ စံတော်ချိန်</standard>
+					<daylight>ဗနွားတူ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Venezuela">
@@ -4232,19 +4340,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<generic>ဗိုလ်ဂိုဂရက်အချိန်</generic>
-					<standard>ဗိုလ်ဂိုဂရက်စံတော်ချိန်</standard>
-					<daylight>ဗိုလ်ဂိုဂရက်နွေရာသီအချိန်</daylight>
+					<generic>ဗိုလ်ဂိုဂရက် အချိန်</generic>
+					<standard>ဗိုလ်ဂိုဂရက် စံတော်ချိန်</standard>
+					<daylight>ဗိုဂိုဂရက် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vostok">
 				<long>
-					<standard>ဗိုစ်တိုခ်အချိန်</standard>
+					<standard>ဗိုစ်တိုခ် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Wake">
 				<long>
-					<standard>ဝိတ်ခ်ကျွန်းအချိန်</standard>
+					<standard>ဝိတ်ခ်ကျွန်း အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Wallis">
@@ -4254,16 +4362,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic>ယူခူးတ်စ်အချိန်</generic>
-					<standard>ယူခူးတ်စ်စံတော်ချိန်</standard>
-					<daylight>ယူခူးတ်စ်နွေရာသီအချိန်</daylight>
+					<generic>ယူခူးတ်စ် အချိန်</generic>
+					<standard>ယူခူးတ်စ် စံတော်ချိန်</standard>
+					<daylight>ယူခူးတ်စ် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic>ရယ်ခါးတီရင်ဘားခ်အချိန်</generic>
-					<standard>ရယ်ခါးတီရင်ဘားခ်စံတော်ချိန်</standard>
-					<daylight>ရယ်ခါးတီရင်ဘာခ်နွေရာသီအချိန်</daylight>
+					<generic>ရယ်ခါးတီရင်ဘားခ် အချိန်</generic>
+					<standard>ရယ်ခါးတီရင်ဘားခ် စံတော်ချိန်</standard>
+					<daylight>ရယ်ခါးတီရင်ဘာခ် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -4289,8 +4397,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="mymr">
+			<decimal draft="contributed">.</decimal>
+			<group draft="contributed">,</group>
 			<list>၊</list>
 			<percentSign>%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -4333,6 +4445,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="1000000000000" count="other">ဋေ0သိန်း</pattern>
 					<pattern type="10000000000000" count="other">ဋေ0သန်း</pattern>
 					<pattern type="100000000000000" count="other">0ကောဋိ</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="mymr">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4400,13 +4519,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
-				<displayName>အာရပ်ဒူဟမ်း</displayName>
-				<displayName count="other">အာရပ်ဒူဟမ်း</displayName>
+				<displayName>အာရပ်စော်ဘွားများ ပြည်ထောင်စု ဒါဟမ်း</displayName>
+				<displayName count="other">အာရပ်စော်ဘွားများ ပြည်ထောင်စု ဒါဟမ်း</displayName>
 				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFN">
-				<displayName>အာဖဂန်အာဖဂါနီ</displayName>
-				<displayName count="other">အာဖဂန်အာဖဂါနီ</displayName>
+				<displayName>အာဖဂန် အာဖဂါနီ</displayName>
+				<displayName count="other">အာဖဂန် အာဖဂါနီ</displayName>
 				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALL">
@@ -4415,8 +4534,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
-				<displayName>အာမေးနီးယားဒရမ်း</displayName>
-				<displayName count="other">အာမေးနီးယားဒရမ်း</displayName>
+				<displayName>အာမေးနီးယား ဒရမ်</displayName>
+				<displayName count="other">အာမေးနီးယား ဒရမ်</displayName>
 				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
@@ -4451,12 +4570,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">Afl</symbol>
 			</currency>
 			<currency type="AZN">
-				<displayName>အဇာဘိုင်ဂျန်မာနတ်</displayName>
-				<displayName count="other">အဇာဘိုင်ဂျန်မာနတ်</displayName>
+				<displayName>အဇာဘိုင်ဂျန် မာနတ်</displayName>
+				<displayName count="other">အဇာဘိုင်ဂျန် မာနတ်</displayName>
 				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAM">
-				<displayName>ဘော့စနီးယားနှင့် ဟာဇီဂိုဘီးနားမတ်က်</displayName>
+				<displayName>ဘော့စနီးယားနှင့် ဟာဇီဂိုဘီးနား ငွေလဲနိုင်သော မတ်က်</displayName>
 				<displayName count="other">ဘော့စနီးယားနှင့် ဟာဇီဂိုဘီးနားမတ်က်</displayName>
 				<symbol draft="contributed">BAM</symbol>
 				<symbol alt="narrow" draft="contributed">KM</symbol>
@@ -4482,8 +4601,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
-				<displayName>ဘာရိန်းဒီနား</displayName>
-				<displayName count="other">ဘာရိန်းဒီနား</displayName>
+				<displayName>ဘာရိန်း ဒီနား</displayName>
+				<displayName count="other">ဘာရိန်း ဒီနား</displayName>
 				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
@@ -4525,8 +4644,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">B$</symbol>
 			</currency>
 			<currency type="BTN">
-				<displayName>ဘူတန်အံဂါလ်ထရန်</displayName>
-				<displayName count="other">ဘူတန်အံဂါလ်ထရန်</displayName>
+				<displayName>ဘူတန် အံဂါလ်ထရန်</displayName>
+				<displayName count="other">ဘူတန် အံဂါလ်ထရန်</displayName>
 				<symbol draft="contributed">BTN</symbol>
 			</currency>
 			<currency type="BUK">
@@ -4542,8 +4661,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ဘီလာရုစ် ရူဘယ်အသစ် (၁၉၉၄–၁၉၉၉)</displayName>
 			</currency>
 			<currency type="BYN">
-				<displayName>ဘီလာရုဇ် ရူဘယ်</displayName>
-				<displayName count="other">ဘီလာရုဇ် ရူဘယ်</displayName>
+				<displayName>ဘီလာရုစ် ရူဘယ်</displayName>
+				<displayName count="other">ဘီလာရုစ် ရူဘယ်</displayName>
 				<symbol draft="contributed">BYN</symbol>
 				<symbol alt="narrow" draft="contributed">р.</symbol>
 			</currency>
@@ -4579,6 +4698,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">ချီလီ ပီဆို</displayName>
 				<symbol draft="contributed">CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>တရုတ် ယွမ် (ဟောင်ကောင်)</displayName>
+				<displayName count="other">တရုတ် ယွမ် (ဟောင်ကောင်)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>တရုတ် ယွမ်</displayName>
@@ -4619,8 +4743,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ဆိုက်ပရက်စ် ပေါင်</displayName>
 			</currency>
 			<currency type="CZK">
-				<displayName>ချက်ခိုရိုနာ</displayName>
-				<displayName count="other">ချက်ခိုရိုနာ</displayName>
+				<displayName>ချက် ခိုရိုနာ</displayName>
+				<displayName count="other">ချက် ခိုရိုနာ</displayName>
 				<symbol draft="contributed">CZK</symbol>
 				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
@@ -4664,8 +4788,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>စပိန် ပယ်စေးတာ</displayName>
 			</currency>
 			<currency type="ETB">
-				<displayName>အီသီယိုးပီးယားဘီးယာ</displayName>
-				<displayName count="other">အီသီယိုးပီးယားဘီးယာ</displayName>
+				<displayName>အီသီယိုးပီးယား ဘီးယာ</displayName>
+				<displayName count="other">အီသီယိုးပီးယား ဘီးယာ</displayName>
 				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
@@ -4696,8 +4820,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
-				<displayName>ဂျော်ဂျီယာလားရီ</displayName>
-				<displayName count="other">ဂျော်ဂျီယာလားရီ</displayName>
+				<displayName>ဂျော်ဂျီယာ လားရီ</displayName>
+				<displayName count="other">ဂျော်ဂျီယာ လားရီ</displayName>
 				<symbol draft="contributed">GEL</symbol>
 				<symbol alt="narrow" draft="contributed">₾</symbol>
 			</currency>
@@ -4718,8 +4842,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
-				<displayName>ဂီးနီ ဖရန့်</displayName>
-				<displayName count="other">ဂီးနီ ဖရန့်</displayName>
+				<displayName>ဂီနီရာ ဖရန့်</displayName>
+				<displayName count="other">ဂီနီရာ ဖရန့်</displayName>
 				<symbol draft="contributed">GNF</symbol>
 				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
@@ -4748,8 +4872,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRK">
-				<displayName>ခရိုအေးရှားခူးနာ</displayName>
-				<displayName count="other">ခရိုအေးရှားခူးနာ</displayName>
+				<displayName>ခရိုအေးရှား ခူးနာ</displayName>
+				<displayName count="other">ခရိုအေးရှား ခူးနာ</displayName>
 				<symbol draft="contributed">HRK</symbol>
 				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
@@ -4759,8 +4883,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">G</symbol>
 			</currency>
 			<currency type="HUF">
-				<displayName>ဟန်ဂေရီယံဖော်ရင့်တ်</displayName>
-				<displayName count="other">ဟန်ဂေရီယံဖော်ရင့်တ်</displayName>
+				<displayName>ဟန်ဂေရီယံ ဖော်ရင့်တ်</displayName>
+				<displayName count="other">ဟန်ဂေရီယံ ဖော်ရင့်တ်</displayName>
 				<symbol draft="contributed">HUF</symbol>
 				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
@@ -4774,8 +4898,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>အစ္စရေး ပေါင်</displayName>
 			</currency>
 			<currency type="ILS">
-				<displayName>အစ္စရေးရှဲကလ်အသစ်</displayName>
-				<displayName count="other">အစ္စရေးရှဲကလ်အသစ်</displayName>
+				<displayName>အစ္စရေး ရှဲကလ်အသစ်</displayName>
+				<displayName count="other">အစ္စရေး ရှဲကလ်အသစ်</displayName>
 				<symbol>₪</symbol>
 				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
@@ -4786,13 +4910,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
-				<displayName>အီရတ် ဒီနား</displayName>
-				<displayName count="other">အီရတ် ဒီနား</displayName>
+				<displayName>အီရတ် ဒီနာ</displayName>
+				<displayName count="other">အီရတ် ဒီနာ</displayName>
 				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
-				<displayName>အီရန်ရီအော်လ်</displayName>
-				<displayName count="other">အီရန်ရီအော်လ်</displayName>
+				<displayName>အီရန် ရီအော်လ်</displayName>
+				<displayName count="other">အီရန် ရီအော်လ်</displayName>
 				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
@@ -4808,19 +4932,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
-				<displayName>ဂျော်ဒန်ဒီနား</displayName>
-				<displayName count="other">ဂျော်ဒန်ဒီနား</displayName>
+				<displayName>ဂျော်ဒန် ဒီနာ</displayName>
+				<displayName count="other">ဂျော်ဒန် ဒီနာ</displayName>
 				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
-				<displayName>ဂျပန်ယန်း</displayName>
-				<displayName count="other">ဂျပန်ယန်း</displayName>
+				<displayName>ဂျပန် ယန်း</displayName>
+				<displayName count="other">ဂျပန် ယန်း</displayName>
 				<symbol>JP¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
-				<displayName>ကင်ညာသျှီလင်</displayName>
-				<displayName count="other">ကင်ညာသျှီလင်</displayName>
+				<displayName>ကင်ညာ သျှီလင်</displayName>
+				<displayName count="other">ကင်ညာ သျှီလင်</displayName>
 				<symbol draft="contributed">KES</symbol>
 			</currency>
 			<currency type="KGS">
@@ -4853,8 +4977,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
-				<displayName>ကူဝိတ်ဒီနာ</displayName>
-				<displayName count="other">ကူဝိတ်ဒီနာ</displayName>
+				<displayName>ကူဝိတ် ဒီနာ</displayName>
+				<displayName count="other">ကူဝိတ် ဒီနာ</displayName>
 				<symbol draft="contributed">KWD</symbol>
 			</currency>
 			<currency type="KYD">
@@ -4870,8 +4994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
-				<displayName>လာအိုခိပ်</displayName>
-				<displayName count="other">လာအိုခိပ်</displayName>
+				<displayName>လာအို ကစ်</displayName>
+				<displayName count="other">လာအို ကစ်</displayName>
 				<symbol draft="contributed">LAK</symbol>
 				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
@@ -4902,8 +5026,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">လတ်ဗီးယားလတ်</displayName>
 			</currency>
 			<currency type="LYD">
-				<displayName>လီဗျာ ဒီနာ</displayName>
-				<displayName count="other">လီဗျာ ဒီနာ</displayName>
+				<displayName>လစ်ဗျား ဒိုင်နာ</displayName>
+				<displayName count="other">လစ်ဗျား ဒိုင်နာ</displayName>
 				<symbol draft="contributed">LYD</symbol>
 			</currency>
 			<currency type="MAD">
@@ -4912,8 +5036,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MDL">
-				<displayName>မောလ်ဒိုဗာလယ်အို</displayName>
-				<displayName count="other">မောလ်ဒိုဗာလယ်အို</displayName>
+				<displayName>မောလ်ဒိုဗာ လယ်အို</displayName>
+				<displayName count="other">မောလ်ဒိုဗာ လယ်အို</displayName>
 				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
@@ -4923,25 +5047,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MKD">
-				<displayName>မက်စီဒိုးနီးယား ဒီနာ</displayName>
-				<displayName count="other">မက်စီဒိုးနီးယား ဒီနာ</displayName>
+				<displayName>မက်ဆီဒိုးနီးယား ဒီနာ</displayName>
+				<displayName count="other">မက်ဆီဒိုးနီးယား ဒီနာ</displayName>
 				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MMK">
-				<displayName>မြန်မာကျပ်</displayName>
-				<displayName count="other">မြန်မာကျပ်</displayName>
+				<displayName>မြန်မာ ကျပ်</displayName>
+				<displayName count="other">မြန်မာ ကျပ်</displayName>
 				<symbol>K</symbol>
 				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
-				<displayName>မွန်ဂိုးလီးယားထူးဂရခ်</displayName>
-				<displayName count="other">မွန်ဂိုးလီးယားထူးဂရခ်</displayName>
+				<displayName>မွန်ဂိုးလီးယား ထူးဂရခ်</displayName>
+				<displayName count="other">မွန်ဂိုးလီးယား ထူးဂရခ်</displayName>
 				<symbol draft="contributed">MNT</symbol>
 				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
-				<displayName>မကာအိုပါတားကား</displayName>
-				<displayName count="other">မကာအိုပါတားကား</displayName>
+				<displayName>မကာအို ပါတားကား</displayName>
+				<displayName count="other">မကာအို ပါတားကား</displayName>
 				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
@@ -4956,13 +5080,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVR">
-				<displayName>မော်လ်ဒိုက်ရူးဖီရာ</displayName>
-				<displayName count="other">မော်လ်ဒိုက်ရူးဖီရာ</displayName>
+				<displayName>မော်လ်ဒိုက် ရူးဖီရာ</displayName>
+				<displayName count="other">မော်လ်ဒိုက် ရူးဖီရာ</displayName>
 				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
-				<displayName>မာလာဝီခွါးချာ</displayName>
-				<displayName count="other">မာလာဝီခွါးချာ</displayName>
+				<displayName>မာလာဝီ ခွါးချာ</displayName>
+				<displayName count="other">မာလာဝီ ခွါးချာ</displayName>
 				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
@@ -4989,8 +5113,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
-				<displayName>နိုင်ဂျီးရီးယားနိုင်းရာ</displayName>
-				<displayName count="other">နိုင်ဂျီးရီးယားနိုင်းရာ</displayName>
+				<displayName>နိုင်ဂျီးရီးယား နိုင်းရာ</displayName>
+				<displayName count="other">နိုင်ဂျီးရီးယား နိုင်းရာ</displayName>
 				<symbol draft="contributed">NGN</symbol>
 				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
@@ -5019,8 +5143,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
-				<displayName>အိုမန်ရီအော်လ်</displayName>
-				<displayName count="other">အိုမန်ရီအော်လ်</displayName>
+				<displayName>အိုမန်နီ ရီရယ်</displayName>
+				<displayName count="other">အိုမန်နီ ရီရယ်</displayName>
 				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
@@ -5051,30 +5175,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
-				<displayName>ပိုလန်ဇလော့တီ</displayName>
-				<displayName count="other">ပိုလန်ဇလော့တီ</displayName>
+				<displayName>ပိုလန် ဇလော့တီ</displayName>
+				<displayName count="other">ပိုလန် ဇလော့တီ</displayName>
 				<symbol draft="contributed">PLN</symbol>
 				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PYG">
-				<displayName>ပါရာဂွေးဂွါးအ်နီး</displayName>
-				<displayName count="other">ပါရာဂွေးဂွါးအ်နီး</displayName>
+				<displayName>ပါရာဂွေး ဂွါးအ်နီး</displayName>
+				<displayName count="other">ပါရာဂွေး ဂွါးအ်နီး</displayName>
 				<symbol draft="contributed">PYG</symbol>
 				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
-				<displayName>ကာတာရီအော်လ်</displayName>
-				<displayName count="other">ကာတာရီအော်လ်</displayName>
+				<displayName>ကာတာရီ ရီရယ်</displayName>
+				<displayName count="other">ကာတာရီ ရီရယ်</displayName>
 				<symbol draft="contributed">QAR</symbol>
 			</currency>
 			<currency type="RON">
-				<displayName>ရိုမေးနီးယားလယ်အို</displayName>
-				<displayName count="other">ရိုမေးနီးယားလယ်အို</displayName>
+				<displayName>ရိုမေးနီးယား လယ်အို</displayName>
+				<displayName count="other">ရိုမေးနီးယား လယ်အို</displayName>
 				<symbol draft="contributed">RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
-				<displayName>ဆားဘီးယားဒယ်နား</displayName>
-				<displayName count="other">ဆားဘီးယားဒယ်နား</displayName>
+				<displayName>ဆားဘီးယား ဒယ်နား</displayName>
+				<displayName count="other">ဆားဘီးယား ဒယ်နား</displayName>
 				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
@@ -5093,8 +5218,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
-				<displayName>ဆော်ဒီအာရေးဗီးယားရီယော်လ်</displayName>
-				<displayName count="other">ဆော်ဒီအာရေးဗီးယားရီယော်လ်</displayName>
+				<displayName>ဆော်ဒီအာရေးဗီးယား ရီယော်လ်</displayName>
+				<displayName count="other">ဆော်ဒီအာရေးဗီးယား ရီယော်လ်</displayName>
 				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
@@ -5140,8 +5265,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
-				<displayName>ဆိုမာလီသျှီလင်</displayName>
-				<displayName count="other">ဆိုမာလီသျှီလင်</displayName>
+				<displayName>ဆိုမာလီ သျှီလင်</displayName>
+				<displayName count="other">ဆိုမာလီ သျှီလင်</displayName>
 				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
@@ -5151,8 +5276,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SSP">
-				<displayName>တောင်ဆူဒန်ပေါင်</displayName>
-				<displayName count="other">တောင်ဆူဒန်ပေါင်</displayName>
+				<displayName>တောင်ဆူဒန် ပေါင်</displayName>
+				<displayName count="other">တောင်ဆူဒန် ပေါင်</displayName>
 				<symbol draft="contributed">SSP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
@@ -5177,8 +5302,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">SZL</symbol>
 			</currency>
 			<currency type="THB">
-				<displayName>ထိုင်းဘတ်</displayName>
-				<displayName count="other">ထိုင်းဘတ်</displayName>
+				<displayName>ထိုင်း ဘတ်</displayName>
+				<displayName count="other">ထိုင်း ဘတ်</displayName>
 				<symbol>฿</symbol>
 				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
@@ -5193,13 +5318,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
-				<displayName>တူနီးရှား ဒီနာ</displayName>
-				<displayName count="other">တူနီးရှား ဒီနာ</displayName>
+				<displayName>တူနီးရှား ဒိုင်နာ</displayName>
+				<displayName count="other">တူနီးရှား ဒိုင်နာ</displayName>
 				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
-				<displayName>တွန်ဂါဗန်ဂါ</displayName>
-				<displayName count="other">တွန်ဂါဗန်ဂါ</displayName>
+				<displayName>တွန်ဂါ ဗန်ဂါ</displayName>
+				<displayName count="other">တွန်ဂါ ဗန်ဂါ</displayName>
 				<symbol draft="contributed">TOP</symbol>
 				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
@@ -5226,8 +5351,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TZS">
-				<displayName>တန်ဇန်းနီးယားသျှီလင်</displayName>
-				<displayName count="other">တန်ဇန်းနီးယားသျှီလင်</displayName>
+				<displayName>တန်ဇန်းနီးယား သျှီလင်</displayName>
+				<displayName count="other">တန်ဇန်းနီးယား သျှီလင်</displayName>
 				<symbol draft="contributed">TZS</symbol>
 			</currency>
 			<currency type="UAH">
@@ -5237,8 +5362,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UGX">
-				<displayName>ယူဂန်းဒါး သျှီလင်</displayName>
-				<displayName count="other">ယူဂန်းဒါး သျှီလင်</displayName>
+				<displayName>ယူဂန္ဒာ သျှီလင်</displayName>
+				<displayName count="other">ယူဂန္ဒာ သျှီလင်</displayName>
 				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
@@ -5254,8 +5379,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>အမေရိကန် ဒေါ်လာ (တနေ့တည်း)</displayName>
 			</currency>
 			<currency type="UYU">
-				<displayName>ဥရုဂွေးပီဆို</displayName>
-				<displayName count="other">ဥရုဂွေးပီဆို</displayName>
+				<displayName>ဥရုဂွေး ပီဆို</displayName>
+				<displayName count="other">ဥရုဂွေး ပီဆို</displayName>
 				<symbol draft="contributed">UYU</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5287,8 +5412,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
-				<displayName>ကင်မရွန်းဖရန့်</displayName>
-				<displayName count="other">ကင်မရွန်းဖရန့်</displayName>
+				<displayName>ကင်မရွန်း ဖရန့်</displayName>
+				<displayName count="other">ကင်မရွန်း ဖရန့်</displayName>
 				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
@@ -5301,8 +5426,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ဥရောပငွေကြေးစံနစ်</displayName>
 			</currency>
 			<currency type="XCD">
-				<displayName>အရှေ့ကာရစ်ဘီယံဒေါ်လာ</displayName>
-				<displayName count="other">အရှေ့ကာရစ်ဘီယံဒေါ်လာ</displayName>
+				<displayName>အရှေ့ကာရစ်ဘီယံ ဒေါ်လာ</displayName>
+				<displayName count="other">အရှေ့ကာရစ်ဘီယံ ဒေါ်လာ</displayName>
 				<symbol>EC$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5310,8 +5435,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>အထူးထုတ်ယူခွင့်</displayName>
 			</currency>
 			<currency type="XOF">
-				<displayName>ဖရန့်</displayName>
-				<displayName count="other">ဖရန့်</displayName>
+				<displayName>အနောက် အာဖရိက CFA ဖရန့်</displayName>
+				<displayName count="other">အနောက် အာဖရိက CFA ဖရန့်</displayName>
 				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
@@ -5327,22 +5452,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XXX">
 				<displayName>မသိသို့မဟုတ်မရှိသောငွေကြေး</displayName>
-				<displayName count="other">မသိ သို့မဟုတ် မရှိသော ငွေကြေး</displayName>
+				<displayName count="other">(မသိသို့မဟုတ်မရှိသောငွေကြေး)</displayName>
 			</currency>
 			<currency type="YER">
-				<displayName>ယီမင်ရီအော်လ်</displayName>
-				<displayName count="other">ယီမင်ရီအော်လ်</displayName>
+				<displayName>ယီမင်နီ ရီရယ်</displayName>
+				<displayName count="other">ယီမင်နီ ရီရယ်</displayName>
 				<symbol draft="contributed">YER</symbol>
 			</currency>
 			<currency type="ZAR">
-				<displayName>တောင်အဖရိက ရန်း</displayName>
-				<displayName count="other">တောင်အဖရိက ရန်း</displayName>
+				<displayName>တောင်အာဖရိက ရန်း</displayName>
+				<displayName count="other">တောင်အာဖရိက ရန်း</displayName>
 				<symbol draft="contributed">ZAR</symbol>
 				<symbol alt="narrow" draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMW">
-				<displayName>ဇင်ဘာဘွေခွါးချာ</displayName>
-				<displayName count="other">ဇင်ဘာဘွေခွါးချာ</displayName>
+				<displayName>ဇင်ဘာဘွေ ခွါးချာ</displayName>
+				<displayName count="other">ဇင်ဘာဘွေ ခွါးချာ</displayName>
 				<symbol draft="contributed">ZMW</symbol>
 				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
@@ -5362,7 +5487,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
-				<compoundUnitPattern>{0} လျှင် {1} နှုန်း</compoundUnitPattern>
+				<compoundUnitPattern>တစ်{1} လျှင် {0}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>ဆွဲငင်အား</displayName>
@@ -5373,8 +5498,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} မီတာ/စက္ကန့်နှစ်ထပ်ကိန်း</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName>rev</displayName>
-				<unitPattern count="other">{0} rev</unitPattern>
+				<displayName>လည်ပတ်ခြင်း</displayName>
+				<unitPattern count="other">{0} လည်ပတ်ခြင်း</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>ရေဒီယဲန်း</displayName>
@@ -5395,7 +5520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="area-square-kilometer">
 				<displayName>စတုရန်းကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} စတုရန်းကီလိုမီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်စတုရန်းကီလိုမီတာ</perUnitPattern>
+				<perUnitPattern>တစ်စတုရန်းကီလိုမီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ဟက်တာ</displayName>
@@ -5404,17 +5529,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="area-square-meter">
 				<displayName>စတုရန်းမီတာ</displayName>
 				<unitPattern count="other">{0} စတုရန်းမီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်စတုရန်းမီတာ</perUnitPattern>
+				<perUnitPattern>တစ်စတုရန်းမီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>စတုရန်းစင်တီမီတာ</displayName>
 				<unitPattern count="other">{0} စတုရန်းစင်တီမီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်စတုရန်းစင်တီမီတာ</perUnitPattern>
+				<perUnitPattern>တစ်စတုရန်းစင်တီမီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>စတုရန်းမိုင်</displayName>
 				<unitPattern count="other">{0} စတုရန်းမိုင်</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်စတုရန်းမိုင်</perUnitPattern>
+				<perUnitPattern>တစ်စတုရန်းမိုင်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>ဧက</displayName>
@@ -5431,34 +5556,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="area-square-inch">
 				<displayName>စတုရန်းလက်မ</displayName>
 				<unitPattern count="other">{0} စတုရန်းလက်မ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်စတုရန်းလက်မ</perUnitPattern>
+				<perUnitPattern>တစ်စတုရန်းလက်မလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>ကာရက်</displayName>
 				<unitPattern count="other">{0} ကာရက်</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
-				<displayName>တစ်ဒက်စီလီတာပါ မီလီဂရမ်</displayName>
-				<unitPattern count="other">တစ်ဒက်စီလီတာလျှင် {0} မီလီဂရမ်</unitPattern>
+				<displayName>တစ်ဒက်စီလီတာရှိ မီလီဂရမ်</displayName>
+				<unitPattern count="other">တစ်ဒက်စီလီတာရှိ {0} မီလီဂရမ်</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>တစ်လီတာပါ မီလီမိုးလ်</displayName>
-				<unitPattern count="other">တစ်လီတာလျှင် {0} မီလီမိုးလ်</unitPattern>
+				<displayName>တစ်လီတာရှိ မီလီမိုးလ်</displayName>
+				<unitPattern count="other">တစ်လီတာရှိ {0} မီလီမိုးလ်</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
 				<displayName>တစ်သန်းပုံ တစ်ပုံ</displayName>
 				<unitPattern count="other">တစ်သန်းပုံ {0} ပုံ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>တစ်ကီလီမီတာပါ လီတာ</displayName>
-				<unitPattern count="other">တစ်ကီလိုမီတာလျှင် {0} လီတာ</unitPattern>
+				<displayName>တစ်ကီလိုမီတာရှိ လီတာ</displayName>
+				<unitPattern count="other">တစ်ကီလိုမီတာရှိ {0} လီတာ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>တစ်ရာကီလိုမီတာပါ လီတာ</displayName>
-				<unitPattern count="other">တစ်ရာကီလိုမီတာလျှင် {0} လီတာ</unitPattern>
+				<displayName>တစ်ရာကီလိုမီတာရှိ လီတာ</displayName>
+				<unitPattern count="other">တစ်ရာကီလိုမီတာရှိ {0} လီတာ</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>တစ်ဂါလံမိုင်နှုန်း</displayName>
+				<displayName>တစ်ဂါလံ မိုင်နှုန်း</displayName>
 				<unitPattern count="other">တစ်ဂါလံလျှင် {0} မိုင်</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
@@ -5474,12 +5599,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} တယ်ရာဘစ်</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>ဂီဂါဘိုက်</displayName>
-				<unitPattern count="other">{0} ဂီဂါဘိုက်</unitPattern>
+				<displayName>ဂစ်ဂါဘိုက်</displayName>
+				<unitPattern count="other">{0} ဂစ်ဂါဘိုက်</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>ဂီဂါဘစ်</displayName>
-				<unitPattern count="other">{0} ဂီဂါဘစ်</unitPattern>
+				<displayName>ဂစ်ဂါဘစ်</displayName>
+				<unitPattern count="other">{0} ဂစ်ဂါဘစ်</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName>မီဂါဘိုက်</displayName>
@@ -5512,37 +5637,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-year">
 				<displayName>နှစ်</displayName>
 				<unitPattern count="other">{0} နှစ်</unitPattern>
-				<perUnitPattern>{0} နှစ်လျှင်</perUnitPattern>
+				<perUnitPattern>တစ်နှစ်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>လ</displayName>
 				<unitPattern count="other">{0} လ</unitPattern>
-				<perUnitPattern>{0} လလျှင်</perUnitPattern>
+				<perUnitPattern>တစ်လလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>ပတ်</displayName>
 				<unitPattern count="other">{0} ပတ်</unitPattern>
-				<perUnitPattern>{0} ပတ်လျှင်</perUnitPattern>
+				<perUnitPattern>တစ်ပတ်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>ရက်</displayName>
 				<unitPattern count="other">{0} ရက်</unitPattern>
-				<perUnitPattern>{0} ရက်လျှင်</perUnitPattern>
+				<perUnitPattern>တစ်ရက်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>နာရီ</displayName>
 				<unitPattern count="other">{0} နာရီ</unitPattern>
-				<perUnitPattern>{0} နာရီလျှင်</perUnitPattern>
+				<perUnitPattern>တစ်နာရီလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>မိနစ်</displayName>
 				<unitPattern count="other">{0} မိနစ်</unitPattern>
-				<perUnitPattern>{0} မိနစ်လျှင်</perUnitPattern>
+				<perUnitPattern>တစ်မိနစ်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>စက္ကန့်</displayName>
 				<unitPattern count="other">{0} စက္ကန့်</unitPattern>
-				<perUnitPattern>{0} စက္ကန့်လျှင်</perUnitPattern>
+				<perUnitPattern>တစ်စက္ကန့်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>မီလီစက္ကန့်</displayName>
@@ -5615,12 +5740,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-kilometer">
 				<displayName>ကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} ကီလိုမီတာ</unitPattern>
-				<perUnitPattern>{0}/ ကီလိုမီတာ</perUnitPattern>
+				<perUnitPattern>တစ်ကီလိုမီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>မီတာ</displayName>
 				<unitPattern count="other">{0} မီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်မီတာ</perUnitPattern>
+				<perUnitPattern>တစ်မီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>ဒက်စီမီတာ</displayName>
@@ -5629,7 +5754,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-centimeter">
 				<displayName>စင်တီမီတာ</displayName>
 				<unitPattern count="other">{0} စင်တီမီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်စင်တီမီတာ</perUnitPattern>
+				<perUnitPattern>တစ်စင်တီမီလာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>မီလီမီတာ</displayName>
@@ -5658,12 +5783,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-foot">
 				<displayName>ပေ</displayName>
 				<unitPattern count="other">{0} ပေ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်ပေ</perUnitPattern>
+				<perUnitPattern>တစ်ပေလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>လက်မ</displayName>
 				<unitPattern count="other">{0} လက်မ</unitPattern>
-				<perUnitPattern>{0} လျှင်တစ်လက်မ</perUnitPattern>
+				<perUnitPattern>တစ်လက်မလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>ပါစက်ခ်</displayName>
@@ -5685,6 +5810,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>စကင်ဒီနေဗီးယန်း မိုင်</displayName>
 				<unitPattern count="other">{0} စကင်ဒီနေဗီးယန်း မိုင်</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>ပွိုင့်</displayName>
+				<unitPattern count="other">{0} ပွိုင့်</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>လတ်ခ်</displayName>
 				<unitPattern count="other">{0} လတ်ခ်</unitPattern>
@@ -5701,7 +5830,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-gram">
 				<displayName>ဂရမ်</displayName>
 				<unitPattern count="other">{0} ဂရမ်</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်ဂရမ်</perUnitPattern>
+				<perUnitPattern>တစ်ဂရမ်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>မီလီဂရမ်</displayName>
@@ -5718,12 +5847,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-pound">
 				<displayName>ပေါင်</displayName>
 				<unitPattern count="other">{0} ပေါင်</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်ပေါင်</perUnitPattern>
+				<perUnitPattern>တစ်ပေါင်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>အောင်စ</displayName>
 				<unitPattern count="other">{0} အောင်စ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်အောင်စ</perUnitPattern>
+				<perUnitPattern>တစ်အောင်စလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>ထရိုအောင်စ</displayName>
@@ -5734,8 +5863,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ကာရက်</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>ဂီဂါဝပ်</displayName>
-				<unitPattern count="other">{0} ဂီဂါဝပ်</unitPattern>
+				<displayName>ဂစ်ဂါဝပ်</displayName>
+				<unitPattern count="other">{0} ဂစ်ဂါဝပ်</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName>မီဂါဝပ်</displayName>
@@ -5816,12 +5945,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-cubic-meter">
 				<displayName>ကုဗမီတာ</displayName>
 				<unitPattern count="other">{0} ကုဗမီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်ကုဗမီတာ</perUnitPattern>
+				<perUnitPattern>တစ်ကုဗမီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>ကုဗစင်တီမီတာ</displayName>
 				<unitPattern count="other">{0} ကုဗစင်တီမီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်ကုဗစင်တီမီတာ</perUnitPattern>
+				<perUnitPattern>တစ်ကုဗစင်တီမီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>ကုဗမိုင်</displayName>
@@ -5850,7 +5979,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-liter">
 				<displayName>လီတာ</displayName>
 				<unitPattern count="other">{0} လီတာ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်လီတာ</perUnitPattern>
+				<perUnitPattern>တစ်လီတာလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>ဒက်စီလီတာ</displayName>
@@ -5879,12 +6008,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-gallon">
 				<displayName>ဂါလံ</displayName>
 				<unitPattern count="other">{0} ဂါလံ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်ဂါလံ</perUnitPattern>
+				<perUnitPattern>တစ်ဂါလံလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>ယူကေ ဂါလံ</displayName>
 				<unitPattern count="other">{0} ယူကေ ဂါလံ</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ် ယူကေ ဂါလံ</perUnitPattern>
+				<perUnitPattern>တစ် ယူကေ ဂါလံလျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>ကွတ်</displayName>
@@ -5911,10 +6040,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">လက်ဖက်ရည်ဇွန်း {0} ဇွန်း</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} အရှေ့</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} မြောက်</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} တောင်</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} အနောက်</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
@@ -5939,7 +6068,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-degree">
 				<displayName>ဒီဂရီ</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
+				<unitPattern count="other">{0} deg</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>မိနစ်</displayName>
@@ -6011,8 +6140,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>တစ်ရာကီလိုမီတာပါ လီတာ</displayName>
-				<unitPattern count="other">{0} L/100km</unitPattern>
+				<displayName>တစ်ရာကီလိုမီတာရှိ လီတာ</displayName>
+				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>မိုင်/ဂါလန်</displayName>
@@ -6031,11 +6160,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} Tb</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>ဂီဂါဘိုက်</displayName>
+				<displayName>ဂစ်ဂါဘိုက်</displayName>
 				<unitPattern count="other">{0} GB</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>ဂီဂါဘစ်</displayName>
+				<displayName>ဂစ်ဂါဘစ်</displayName>
 				<unitPattern count="other">{0} Gb</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
@@ -6170,26 +6299,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName>ကီလို</displayName>
-				<unitPattern count="other">{0} ကီလို</unitPattern>
-				<perUnitPattern>{0}/ ကီလို</perUnitPattern>
+				<displayName>km</displayName>
+				<unitPattern count="other">{0} km</unitPattern>
+				<perUnitPattern>{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>မီတာ</displayName>
+				<displayName>m</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 				<perUnitPattern>{0}/m</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>ဒက်စီမီတာ</displayName>
+				<displayName>dm</displayName>
 				<unitPattern count="other">{0} dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName>စင်တီမီတာ</displayName>
+				<displayName>cm</displayName>
 				<unitPattern count="other">{0} cm</unitPattern>
 				<perUnitPattern>{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName>မီလီမီတာ</displayName>
+				<displayName>mm</displayName>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
@@ -6197,11 +6326,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} µm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>နာနိုမီတာ</displayName>
+				<displayName>nm</displayName>
 				<unitPattern count="other">{0} nm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>ပီကိုမီတာ</displayName>
+				<displayName>pm</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-mile">
@@ -6215,12 +6344,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-foot">
 				<displayName>ပေ</displayName>
 				<unitPattern count="other">{0} ပေ</unitPattern>
-				<perUnitPattern>{0} လျှင်တစ်ပေ</perUnitPattern>
+				<perUnitPattern>{0}/ပေ</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>လက်မ</displayName>
 				<unitPattern count="other">{0} လက်မ</unitPattern>
-				<perUnitPattern>{0}/in</perUnitPattern>
+				<perUnitPattern>{0}/လက်မ</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>ပါစက်ခ်</displayName>
@@ -6241,6 +6370,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-mile-scandinavian">
 				<displayName>smi</displayName>
 				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>ပွိုင့်</displayName>
+				<unitPattern count="other">{0} ပွိုင့်</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>လတ်ခ်</displayName>
@@ -6291,7 +6424,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} CD</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>ဂီဂါဝပ်</displayName>
+				<displayName>ဂစ်ဂါဝပ်</displayName>
 				<unitPattern count="other">{0} GW</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
@@ -6468,10 +6601,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} W</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -6545,19 +6678,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName>ကီလိုမီတာ</displayName>
-				<unitPattern count="other">{0} ကီလို</unitPattern>
+				<displayName>km</displayName>
+				<unitPattern count="other">{0}km</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>မီတာ</displayName>
+				<displayName>m</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName>စင်တီမီတာ</displayName>
+				<displayName>cm</displayName>
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName>မီလီမီတာ</displayName>
+				<displayName>mm</displayName>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
@@ -6621,7 +6754,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>° စင်တီဂရိတ်</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
@@ -6661,6 +6794,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0}နှင့် {1}</listPatternPart>
 			<listPatternPart type="2">{0}နှင့် {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} သို့မဟုတ် {1}</listPatternPart>
+			<listPatternPart type="2">{0} သို့မဟုတ် {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0} {1}</listPatternPart>
 			<listPatternPart type="middle">{0} {1}</listPatternPart>
@@ -6699,7 +6838,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="enclosed">{0} — ပူးတွဲပါ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — နောက်တိုး</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} — သမိုင်းဝင်</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous">{0} — အထွေထွေ</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — သောင်းပြောင်းထွေလာ</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — အခြား</characterLabelPattern>
 		<characterLabelPattern type="scripts">လက်ရေးမူ — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">ရေးချက် {0} ခု</characterLabelPattern>
@@ -6707,30 +6846,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="african_scripts">အာဖရိက လက်ရေးမူ</characterLabel>
 		<characterLabel type="american_scripts">အမေရိကန် လက်ရေးမူ</characterLabel>
 		<characterLabel type="animal">တိရိစ္ဆာန်</characterLabel>
-		<characterLabel type="animals_nature">တိရစ္ဆာန်နှင့် သဘာဝ</characterLabel>
+		<characterLabel type="animals_nature">တိရစ္ဆာန် (သို့) သဘာဝ</characterLabel>
 		<characterLabel type="arrows">မြား</characterLabel>
 		<characterLabel type="body">ကိုယ်ခန္ဓာ</characterLabel>
 		<characterLabel type="box_drawing">ကွန်ပျူတာလက်ရေးမူ</characterLabel>
 		<characterLabel type="braille">မျက်မမြင်စာ</characterLabel>
 		<characterLabel type="building">အဆောက်အအုံ</characterLabel>
-		<characterLabel type="bullets_stars">ဘူးလက်/စတား</characterLabel>
+		<characterLabel type="bullets_stars">ဘူးလက် (သို့) စတား</characterLabel>
 		<characterLabel type="consonantal_jamo">ဗျည်းသံ</characterLabel>
 		<characterLabel type="currency_symbols">ငွေကြေးသင်္ကေတ</characterLabel>
-		<characterLabel type="dash_connector">မျဉ်းတို/မျဉ်းဆက်</characterLabel>
+		<characterLabel type="dash_connector">မျဉ်းတို (သို့) မျဉ်းဆက်</characterLabel>
 		<characterLabel type="digits">ဆယ်လီစိတ်</characterLabel>
 		<characterLabel type="dingbats">ပုံနှိပ်သင်္ကေတ</characterLabel>
 		<characterLabel type="divination_symbols">ဂမ္ဘီရအက္ခရာ</characterLabel>
 		<characterLabel type="downwards_arrows">အောက်ညွှန်မြား</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">အပေါ်အောက်ညွှန်မြား</characterLabel>
 		<characterLabel type="east_asian_scripts">အရှေ့အာရှ လက်ရေးမူ</characterLabel>
-		<characterLabel type="emoji">အီမို</characterLabel>
+		<characterLabel type="emoji">အီမိုဂျီ</characterLabel>
 		<characterLabel type="european_scripts">ဥရောပ လက်ရေးမူ</characterLabel>
 		<characterLabel type="female">အမ</characterLabel>
 		<characterLabel type="flag">အလံ</characterLabel>
-		<characterLabel type="flags">အလံ</characterLabel>
+		<characterLabel type="flags">အလံများ</characterLabel>
 		<characterLabel type="food_drink">အစားအသောက်</characterLabel>
-		<characterLabel type="format">ဖော်မက်</characterLabel>
-		<characterLabel type="format_whitespace">ဖော်မက်နှင့်ကွက်လပ်</characterLabel>
+		<characterLabel type="format">ပုံစံ</characterLabel>
+		<characterLabel type="format_whitespace">ပုံစံနှင့် ကွက်လပ်</characterLabel>
 		<characterLabel type="full_width_form_variant">ဗြက်အပြည့် မူကွဲပုံစံ</characterLabel>
 		<characterLabel type="geometric_shapes">ဂျီဩမေတြီ သင်္ကေတ</characterLabel>
 		<characterLabel type="half_width_form_variant">ဗြက်တစ်ဝက် မူကွဲပုံစံ</characterLabel>
@@ -6741,7 +6880,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanzi_traditional">ဟန်ဇီ (ရိုးရာ)</characterLabel>
 		<characterLabel type="heart">အသည်းနှလုံး</characterLabel>
 		<characterLabel type="historic_scripts">ရှေးဟောင်း လက်ရေးမူ</characterLabel>
-		<characterLabel type="ideographic_desc_characters">ယူနီကုတ် အက္ခရာ</characterLabel>
+		<characterLabel type="ideographic_desc_characters">အရုပ်စာ</characterLabel>
 		<characterLabel type="japanese_kana">ဂျပန် ခန အက္ခရာ</characterLabel>
 		<characterLabel type="kanbun">တရုတ်ရိုးရာ ရေးဟန်</characterLabel>
 		<characterLabel type="kanji">ဂျပန် လက်ရေးမူ</characterLabel>
@@ -6749,11 +6888,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="leftwards_arrows">ဘယ်ညွှန်မြား</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ဘယ်ညာ ညွှန်မြား</characterLabel>
 		<characterLabel type="letterlike_symbols">စာသုံးသင်္ကေတ</characterLabel>
-		<characterLabel type="limited_use">အသုံးနည်း</characterLabel>
+		<characterLabel type="limited_use">ကန့်သတ်သုံးခြင်း</characterLabel>
 		<characterLabel type="male">အဖို</characterLabel>
 		<characterLabel type="math_symbols">ဂဏန်းသင်္ကေတ</characterLabel>
 		<characterLabel type="middle_eastern_scripts">အရှေ့အလယ်ပိုင်း လက်ရေးမူ</characterLabel>
-		<characterLabel type="miscellaneous">အထွေထွေ</characterLabel>
+		<characterLabel type="miscellaneous">သောင်းပြောင်းထွေလာ</characterLabel>
 		<characterLabel type="modern_scripts">ခေတ်သစ်လက်ရေးမူ</characterLabel>
 		<characterLabel type="modifier">အထူးပြု</characterLabel>
 		<characterLabel type="musical_symbols">ဂီတသင်္ကေတ</characterLabel>
@@ -6770,10 +6909,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="plant">အပင်</characterLabel>
 		<characterLabel type="punctuation">ပုဒ်ဖြတ်ပုဒ်ရပ်</characterLabel>
 		<characterLabel type="rightwards_arrows">ညာညွှန်မြား</characterLabel>
-		<characterLabel type="sign_standard_symbols">စံထားသော ဆိုင်းသင်္ကေတ</characterLabel>
+		<characterLabel type="sign_standard_symbols">လက္ခဏာ (သို့) သင်္ကေတ</characterLabel>
 		<characterLabel type="small_form_variant">ယူနီကုတ်သုံး အက္ခရာအသေးမူကွဲပုံစံ</characterLabel>
 		<characterLabel type="smiley">အပြုံးပုံ</characterLabel>
-		<characterLabel type="smileys_people">လူရုပ်ပြအီမို</characterLabel>
+		<characterLabel type="smileys_people">အပြုံးပုံ (သို့) လူရုပ်</characterLabel>
 		<characterLabel type="south_asian_scripts">တောင်အာရှ လက်ရေးမူ</characterLabel>
 		<characterLabel type="southeast_asian_scripts">အရှေ့တောင်အာရှ လက်ရေးမူ</characterLabel>
 		<characterLabel type="spacing">စာလုံးခြား</characterLabel>
@@ -6782,7 +6921,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="technical_symbols">စက်သုံးသင်္ကေတ</characterLabel>
 		<characterLabel type="tone_marks">အသံနိမ့်မြင့်အမှတ်အသား</characterLabel>
 		<characterLabel type="travel">ခရီးသွား</characterLabel>
-		<characterLabel type="travel_places">ခရီးသွားခြင်းနှင့်နေရာများ</characterLabel>
+		<characterLabel type="travel_places">ခရီးသွားခြင်း (သို့) နေရာ</characterLabel>
 		<characterLabel type="upwards_arrows">အပေါ်ညွှန်မြား</characterLabel>
 		<characterLabel type="variant_forms">မူကွဲများ</characterLabel>
 		<characterLabel type="vocalic_jamo">သရသံ</characterLabel>

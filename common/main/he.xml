@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -19,14 +21,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<languages>
 			<language type="aa">אפארית</language>
 			<language type="ab">אבחזית</language>
-			<language type="ace" draft="contributed">אכינזית</language>
-			<language type="ach">אקולי</language>
+			<language type="ace">אכינזית</language>
+			<language type="ach">אקצ׳ולי</language>
 			<language type="ada">אדנמה</language>
 			<language type="ady">אדיגית</language>
 			<language type="ae">אבסטן</language>
 			<language type="af">אפריקאנס</language>
 			<language type="afh">אפריהילי</language>
-			<language type="agq">אהיים</language>
+			<language type="agq">אע׳ם</language>
 			<language type="ain">אינו</language>
 			<language type="ak">אקאן</language>
 			<language type="akk">אכדית</language>
@@ -40,12 +42,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ar_001">ערבית ספרותית</language>
 			<language type="arc">ארמית</language>
 			<language type="arn">אראוקנית</language>
-			<language type="arp" draft="contributed">ארפהו</language>
+			<language type="arp">אראפהו</language>
 			<language type="arw">ארוואק</language>
 			<language type="as">אסאמית</language>
 			<language type="asa">אסו</language>
 			<language type="ast">אסטורית</language>
-			<language type="av">אבארית</language>
+			<language type="av">אווארית</language>
 			<language type="awa">אוואדית</language>
 			<language type="ay">איימארית</language>
 			<language type="az">אזרית</language>
@@ -54,14 +56,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bal">באלוצ׳י</language>
 			<language type="ban">בלינזית</language>
 			<language type="bar">בווארית</language>
-			<language type="bas" draft="contributed">בסאא</language>
+			<language type="bas">בסאא</language>
 			<language type="bax">במום</language>
 			<language type="bbj">גומאלה</language>
 			<language type="be">בלארוסית</language>
 			<language type="bej">בז׳ה</language>
 			<language type="bem">במבה</language>
 			<language type="bez">בנה</language>
-			<language type="bfd" draft="contributed">באפוט</language>
+			<language type="bfd">באפוט</language>
 			<language type="bg">בולגרית</language>
 			<language type="bgn">באלוצ׳י מערבית</language>
 			<language type="bho">בוג׳פורי</language>
@@ -77,7 +79,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bra">בראג׳</language>
 			<language type="brx">בודו</language>
 			<language type="bs">בוסנית</language>
-			<language type="bss" draft="contributed">אקוסה</language>
+			<language type="bss">אקוסה</language>
 			<language type="bua">בוריאט</language>
 			<language type="bug">בוגינזית</language>
 			<language type="bum">בולו</language>
@@ -89,16 +91,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cay">קאיוגה</language>
 			<language type="cch">אטסם</language>
 			<language type="ce">צ׳צ׳נית</language>
-			<language type="ceb">קבואנו</language>
+			<language type="ceb">סבואנו</language>
 			<language type="cgg">צ׳יגה</language>
 			<language type="ch">צ׳מורו</language>
-			<language type="chb" draft="contributed">צ׳יבצ׳ה</language>
+			<language type="chb">צ׳יבצ׳ה</language>
 			<language type="chg">צ׳אגאטאי</language>
 			<language type="chk">צ׳וקסה</language>
 			<language type="chm">מארי</language>
 			<language type="chn">ניב צ׳ינוק</language>
 			<language type="cho">צ׳וקטאו</language>
-			<language type="chp" draft="contributed">צ׳יפוויאן</language>
+			<language type="chp">צ׳יפוויאן</language>
 			<language type="chr">צ׳רוקי</language>
 			<language type="chy">שאיין</language>
 			<language type="ckb">כורדית סוראנית</language>
@@ -117,6 +119,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">דרגווה</language>
 			<language type="dav">טאיטה</language>
 			<language type="de">גרמנית</language>
+			<language type="de_AT">גרמנית (אוסטריה)</language>
 			<language type="de_CH">גרמנית (שוויץ)</language>
 			<language type="del">דלאוור</language>
 			<language type="den">סלאבית</language>
@@ -124,14 +127,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="din">דינקה</language>
 			<language type="dje">זארמה</language>
 			<language type="doi">דוגרי</language>
-			<language type="dsb">סורבית נמוכה</language>
+			<language type="dsb">סורבית תחתית</language>
 			<language type="dua">דואלה</language>
 			<language type="dum">הולנדית תיכונה</language>
 			<language type="dv">דיבהי</language>
 			<language type="dyo">ג׳ולה פונית</language>
 			<language type="dyu">דיולה</language>
 			<language type="dz">דזונקה</language>
-			<language type="dzg" draft="contributed">דזאנגה</language>
+			<language type="dzg">דזאנגה</language>
 			<language type="ebu">אמבו</language>
 			<language type="ee">אווה</language>
 			<language type="efi">אפיק</language>
@@ -140,11 +143,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">יוונית</language>
 			<language type="elx">עילמית</language>
 			<language type="en">אנגלית</language>
+			<language type="en_AU">אנגלית (אוסטרליה)</language>
+			<language type="en_CA">אנגלית (קנדה)</language>
 			<language type="en_GB">אנגלית (בריטניה)</language>
+			<language type="en_GB" alt="short">אנגלית (בריטניה)</language>
+			<language type="en_US">אנגלית (ארצות הברית)</language>
 			<language type="en_US" alt="short">אנגלית (ארה״ב)</language>
 			<language type="enm">אנגלית תיכונה</language>
 			<language type="eo">אספרנטו</language>
 			<language type="es">ספרדית</language>
+			<language type="es_419">ספרדית (אמריקה הלטינית)</language>
+			<language type="es_ES">ספרדית (ספרד)</language>
+			<language type="es_MX">ספרדית (מקסיקו)</language>
 			<language type="et">אסטונית</language>
 			<language type="eu">בסקית</language>
 			<language type="ewo">אוונדו</language>
@@ -158,6 +168,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">פארואזית</language>
 			<language type="fon">פון</language>
 			<language type="fr">צרפתית</language>
+			<language type="fr_CA">צרפתית (קנדה)</language>
 			<language type="fr_CH">צרפתית (שוויץ)</language>
 			<language type="frc">צרפתית קייג׳ונית</language>
 			<language type="frm">צרפתית תיכונה</language>
@@ -169,7 +180,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ga">אירית</language>
 			<language type="gaa">גא</language>
 			<language type="gag">גגאוזית</language>
-			<language type="gan" draft="contributed">סינית גאן</language>
+			<language type="gan">סינית גאן</language>
 			<language type="gay">גאיו</language>
 			<language type="gba">גבאיה</language>
 			<language type="gd">גאלית סקוטית</language>
@@ -191,7 +202,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="gwi">גוויצ׳ן</language>
 			<language type="ha">האוסה</language>
 			<language type="hai">האידה</language>
-			<language type="hak" draft="contributed">סינית האקה</language>
+			<language type="hak">סינית האקה</language>
 			<language type="haw">הוואית</language>
 			<language type="he">עברית</language>
 			<language type="hi">הינדי</language>
@@ -201,7 +212,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ho">הירי מוטו</language>
 			<language type="hr">קרואטית</language>
 			<language type="hsb">סורבית גבוהה</language>
-			<language type="hsn" draft="contributed">סינית שיאנג</language>
+			<language type="hsn">סינית שיאנג</language>
 			<language type="ht">קריאולית (האיטי)</language>
 			<language type="hu">הונגרית</language>
 			<language type="hup">הופה</language>
@@ -339,7 +350,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="myv">ארזיה</language>
 			<language type="mzn">מאזאנדראני</language>
 			<language type="na">נאורית</language>
-			<language type="nan" draft="contributed">סינית מין נאן</language>
+			<language type="nan">סינית מין נאן</language>
 			<language type="nap">נפוליטנית</language>
 			<language type="naq">נאמה</language>
 			<language type="nb">נורווגית ספרותית</language>
@@ -373,10 +384,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="oc">אוקסיטנית</language>
 			<language type="oj">אוג׳יבווה</language>
 			<language type="om">אורומו</language>
-			<language type="or">אוריה</language>
+			<language type="or">אורייה</language>
 			<language type="os">אוסטית</language>
 			<language type="osa">אוסג׳</language>
-			<language type="ota">טורקית עותומנית</language>
+			<language type="ota">טורקית עות׳מנית</language>
 			<language type="pa">פנג׳אבי</language>
 			<language type="pag">פנגסינאן</language>
 			<language type="pal">פלאבי</language>
@@ -394,6 +405,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ps">פאשטו</language>
 			<language type="ps" alt="variant">פושטו</language>
 			<language type="pt">פורטוגזית</language>
+			<language type="pt_BR">פורטוגזית (ברזיל)</language>
+			<language type="pt_PT">פורטוגזית (פורטוגל)</language>
 			<language type="qu">קצ׳ואה</language>
 			<language type="quc">קיצ׳ה</language>
 			<language type="raj">ראג׳סטאני</language>
@@ -462,8 +475,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sv">שוודית</language>
 			<language type="sw">סווהילי</language>
 			<language type="sw_CD">סווהילי קונגו</language>
-			<language type="swb" draft="provisional">קומורו</language>
-			<language type="syc" draft="contributed">סירית קלאסית</language>
+			<language type="swb">קומורית</language>
+			<language type="syc">סירית קלאסית</language>
 			<language type="syr">סורית</language>
 			<language type="ta">טמילית</language>
 			<language type="te">טלוגו</language>
@@ -497,7 +510,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="twq">טסוואק</language>
 			<language type="ty">טהיטית</language>
 			<language type="tyv">טובינית</language>
-			<language type="tzm">טמזייט של מרכז מרוקו</language>
+			<language type="tzm">תמאזיגת של מרכז מרוקו</language>
 			<language type="udm">אודמורט</language>
 			<language type="ug">אויגור</language>
 			<language type="uga">אוגריתית</language>
@@ -512,14 +525,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vo">‏וולאפיק</language>
 			<language type="vot">ווטיק</language>
 			<language type="vun">וונג׳ו</language>
-			<language type="wa">וואלון</language>
+			<language type="wa">ולונית</language>
 			<language type="wae">וואלסר</language>
 			<language type="wal">ווליאטה</language>
 			<language type="war">ווראי</language>
 			<language type="was">וואשו</language>
 			<language type="wbp">וורלפירי</language>
 			<language type="wo">וולוף</language>
-			<language type="wuu" draft="contributed">סינית וו</language>
+			<language type="wuu">סינית וו</language>
 			<language type="xal">קלמיקית</language>
 			<language type="xh">קוסה</language>
 			<language type="xog">סוגה</language>
@@ -532,7 +545,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yue">קנטונזית</language>
 			<language type="za">זואנג</language>
 			<language type="zap">זאפוטק</language>
-			<language type="zbl" draft="contributed">בליסימבולס</language>
+			<language type="zbl">בליסימבולס</language>
 			<language type="zen">זנאגה</language>
 			<language type="zgh">תמזיע׳ת מרוקאית תקנית</language>
 			<language type="zh">סינית</language>
@@ -651,7 +664,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AE">איחוד האמירויות הערביות</territory>
 			<territory type="AF">אפגניסטן</territory>
 			<territory type="AG">אנטיגואה וברבודה</territory>
-			<territory type="AI">אנגילה</territory>
+			<territory type="AI">אנגווילה</territory>
 			<territory type="AL">אלבניה</territory>
 			<territory type="AM">ארמניה</territory>
 			<territory type="AO">אנגולה</territory>
@@ -680,7 +693,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BR">ברזיל</territory>
 			<territory type="BS">איי בהאמה</territory>
 			<territory type="BT">בהוטן</territory>
-			<territory type="BV">איי בובה</territory>
+			<territory type="BV">האי בובה</territory>
 			<territory type="BW">בוצוואנה</territory>
 			<territory type="BY">בלארוס</territory>
 			<territory type="BZ">בליז</territory>
@@ -688,11 +701,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CC">איי קוקוס (קילינג)</territory>
 			<territory type="CD">קונגו - קינשאסה</territory>
 			<territory type="CD" alt="variant">קונגו (הרפובליקה הדמוקרטית של קונגו)</territory>
-			<territory type="CF">הרפובליקה של מרכז אפריקה</territory>
+			<territory type="CF">הרפובליקה המרכז-אפריקאית</territory>
 			<territory type="CG">קונגו - ברזאויל</territory>
 			<territory type="CG" alt="variant">קונגו (רפובליקה)</territory>
 			<territory type="CH">שווייץ</territory>
 			<territory type="CI">חוף השנהב</territory>
+			<territory type="CI" alt="variant">חוף השנהב</territory>
 			<territory type="CK">איי קוק</territory>
 			<territory type="CL">צ׳ילה</territory>
 			<territory type="CM">קמרון</territory>
@@ -703,7 +717,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CU">קובה</territory>
 			<territory type="CV">כף ורדה</territory>
 			<territory type="CW">קוראסאו</territory>
-			<territory type="CX">האי כריסטמס</territory>
+			<territory type="CX">אי חג המולד</territory>
 			<territory type="CY">קפריסין</territory>
 			<territory type="CZ">צ׳כיה</territory>
 			<territory type="CZ" alt="variant">הרפובליקה הצ׳כית</territory>
@@ -723,6 +737,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">ספרד</territory>
 			<territory type="ET">אתיופיה</territory>
 			<territory type="EU">האיחוד האירופי</territory>
+			<territory type="EZ">גוש האירו</territory>
 			<territory type="FI">פינלנד</territory>
 			<territory type="FJ">פיג׳י</territory>
 			<territory type="FK">איי פוקלנד</territory>
@@ -736,7 +751,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GD">גרנדה</territory>
 			<territory type="GE">גאורגיה</territory>
 			<territory type="GF">גיאנה הצרפתית</territory>
-			<territory type="GG">גרנסי</territory>
+			<territory type="GG">גרנזי</territory>
 			<territory type="GH">גאנה</territory>
 			<territory type="GI">גיברלטר</territory>
 			<territory type="GL">גרינלנד</territory>
@@ -748,9 +763,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GS">ג׳ורג׳יה הדרומית ואיי סנדוויץ׳ הדרומיים</territory>
 			<territory type="GT">גואטמלה</territory>
 			<territory type="GU">גואם</territory>
-			<territory type="GW">גינאה ביסאו</territory>
+			<territory type="GW">גינאה-ביסאו</territory>
 			<territory type="GY">גיאנה</territory>
-			<territory type="HK">הונג קונג (מחוז מנהלי מיוחד של סין)</territory>
+			<territory type="HK">הונג קונג (אזור מנהלי מיוחד של סין)</territory>
 			<territory type="HK" alt="short">הונג קונג</territory>
 			<territory type="HM">איי הרד ומקדונלד</territory>
 			<territory type="HN">הונדורס</territory>
@@ -768,7 +783,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IR">איראן</territory>
 			<territory type="IS">איסלנד</territory>
 			<territory type="IT">איטליה</territory>
-			<territory type="JE">ג׳רסי</territory>
+			<territory type="JE">ג׳רזי</territory>
 			<territory type="JM">ג׳מייקה</territory>
 			<territory type="JO">ירדן</territory>
 			<territory type="JP">יפן</territory>
@@ -802,11 +817,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">מדגסקר</territory>
 			<territory type="MH">איי מרשל</territory>
 			<territory type="MK">מקדוניה</territory>
-			<territory type="MK" alt="variant">מקדוניה (הרפובליקה היוגוסלבית לשעבר מקדוניה)</territory>
+			<territory type="MK" alt="variant">מקדוניה (הרפובליקה היוגוסלבית לשעבר של מקדוניה)</territory>
 			<territory type="ML">מאלי</territory>
 			<territory type="MM">מיאנמר (בורמה)</territory>
 			<territory type="MN">מונגוליה</territory>
-			<territory type="MO">מקאו (מחוז מנהלי מיוחד של סין)</territory>
+			<territory type="MO">מקאו (אזור מנהלי מיוחד של סין)</territory>
 			<territory type="MO" alt="short">מקאו</territory>
 			<territory type="MP">איי מריאנה הצפוניים</territory>
 			<territory type="MQ">מרטיניק</territory>
@@ -862,13 +877,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SG">סינגפור</territory>
 			<territory type="SH">סנט הלנה</territory>
 			<territory type="SI">סלובניה</territory>
-			<territory type="SJ">סוולבארד ויאן מאיין</territory>
+			<territory type="SJ">סבאלברד ויאן מאיין</territory>
 			<territory type="SK">סלובקיה</territory>
 			<territory type="SL">סיירה לאונה</territory>
 			<territory type="SM">סן מרינו</territory>
 			<territory type="SN">סנגל</territory>
 			<territory type="SO">סומליה</territory>
-			<territory type="SR">סורינם</territory>
+			<territory type="SR">סורינאם</territory>
 			<territory type="SS">דרום סודן</territory>
 			<territory type="ST">סאו טומה ופרינסיפה</territory>
 			<territory type="SV">אל סלבדור</territory>
@@ -876,17 +891,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SY">סוריה</territory>
 			<territory type="SZ">סווזילנד</territory>
 			<territory type="TA">טריסטן דה קונה</territory>
-			<territory type="TC">איי טורקס וקאיקוס</territory>
+			<territory type="TC">איי טרקס וקייקוס</territory>
 			<territory type="TD">צ׳אד</territory>
 			<territory type="TF">הטריטוריות הדרומיות של צרפת</territory>
 			<territory type="TG">טוגו</territory>
 			<territory type="TH">תאילנד</territory>
 			<territory type="TJ">טג׳יקיסטן</territory>
 			<territory type="TK">טוקלאו</territory>
-			<territory type="TL">טימור לסטה</territory>
+			<territory type="TL">טימור-לסטה</territory>
 			<territory type="TL" alt="variant">מזרח טימור</territory>
 			<territory type="TM">טורקמניסטן</territory>
-			<territory type="TN">טוניסיה</territory>
+			<territory type="TN">תוניסיה</territory>
 			<territory type="TO">טונגה</territory>
 			<territory type="TR">טורקיה</territory>
 			<territory type="TT">טרינידד וטובגו</territory>
@@ -923,16 +938,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="AREVELA">מזרח ארמנית</variant>
 			<variant type="AREVMDA">מערב ארמנית</variant>
 			<variant type="MONOTON">מונוטונית</variant>
-			<variant type="PINYIN" draft="provisional">פיניין, שיטת כתב סיני בתעתיק לטיני</variant>
+			<variant type="PINYIN" draft="contributed">פיניין, שיטת כתב סיני בתעתיק לטיני</variant>
 			<variant type="POSIX">מחשב</variant>
 			<variant type="SCOTLAND" draft="contributed">אנגלית סקוטית סטנדרטית</variant>
-			<variant type="WADEGILE" draft="provisional">ווייד-גיילס, שיטה לתעתוק סינית לאותיות לטיניות</variant>
+			<variant type="WADEGILE" draft="contributed">ווייד-גיילס, שיטה לתעתוק סינית לאותיות לטיניות</variant>
 		</variants>
 		<keys>
 			<key type="calendar">לוח שנה</key>
 			<key type="cf">תבנית מטבע</key>
-			<key type="colAlternate" draft="contributed">התעלם מסמלים במיון</key>
-			<key type="colBackwards" draft="contributed">מיון לפי הטעמות בסדר הפוך</key>
+			<key type="colAlternate">התעלם מסמלים במיון</key>
+			<key type="colBackwards">מיון לפי הטעמות בסדר הפוך</key>
 			<key type="colCaseFirst" draft="contributed">סידור לפי אותיות רישיות/קטנות</key>
 			<key type="colCaseLevel" draft="contributed">מיון תלוי רישיות</key>
 			<key type="collation">סדר מיון</key>
@@ -960,7 +975,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="indian" draft="contributed">לוח השנה ההודי הלאומי</type>
 			<type key="calendar" type="islamic">לוח השנה המוסלמי</type>
 			<type key="calendar" type="islamic-civil">לוח השנה המוסלמי האזרחי</type>
+			<type key="calendar" type="islamic-rgsa" draft="contributed">לוח השנה המוסלמי (ערב הסעודית)</type>
 			<type key="calendar" type="islamic-tbla">לוח השנה המוסלמי האסטרולוגי</type>
+			<type key="calendar" type="islamic-umalqura" draft="contributed">לוח השנה המוסלמי אום אל-קורא</type>
 			<type key="calendar" type="iso8601">לוח שנה ISO-8601</type>
 			<type key="calendar" type="japanese">לוח השנה היפני</type>
 			<type key="calendar" type="persian">לוח השנה הפרסי</type>
@@ -977,8 +994,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="no" draft="contributed">מיין באופן שאינו תלוי רישיות</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">מיין באופן תלוי רישיות</type>
 			<type key="collation" type="big5han">מיון סינית מסורתית</type>
+			<type key="collation" type="compat" draft="contributed">סדר מיון קודם, עבור תאימות</type>
 			<type key="collation" type="dictionary" draft="contributed">סדר מיון במילון</type>
 			<type key="collation" type="ducet">סדר מיון Unicode המוגדר כברירת מחדל</type>
+			<type key="collation" type="eor" draft="contributed">חוקי סדר אירופיים</type>
 			<type key="collation" type="gb2312han">מיון סינית מודרנית</type>
 			<type key="collation" type="phonebook">מיון ספר טלפונים</type>
 			<type key="collation" type="phonetic" draft="contributed">סדר מיון פונטי</type>
@@ -999,8 +1018,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">מיין לפי הטעמות/רישיות/רוחב/קאנה</type>
 			<type key="colStrength" type="secondary" draft="contributed">מיין לפי הטעמות</type>
 			<type key="colStrength" type="tertiary" draft="contributed">מיין הטעמות/רישיות/רוחב</type>
-			<type key="d0" type="fwidth" draft="contributed">רוחב מלא</type>
-			<type key="d0" type="hwidth" draft="contributed">חצי רוחב</type>
+			<type key="d0" type="fwidth">רוחב מלא</type>
+			<type key="d0" type="hwidth">חצי רוחב</type>
 			<type key="d0" type="npinyin" draft="contributed">מספרי</type>
 			<type key="hc" type="h11">מערכת של 12 שעות (‎0–11)</type>
 			<type key="hc" type="h12">מערכת של 12 שעות (‎1–12)</type>
@@ -1009,8 +1028,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">סגנון מעבר שורה גמיש</type>
 			<type key="lb" type="normal">סגנון מעבר שורה רגיל</type>
 			<type key="lb" type="strict">סגנון מעבר שורה קשיח</type>
-			<type key="m0" type="bgn" draft="contributed">מטבע BGN</type>
-			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
+			<type key="m0" type="bgn">מטבע BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">מערכת מטרית</type>
 			<type key="ms" type="uksystem">מערכת מדידה אימפריאלית</type>
 			<type key="ms" type="ussystem">מערכת מדידה אמריקאית</type>
@@ -1092,6 +1111,243 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">הספירה הבודהיסטית</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">BE</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">BE</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="coptic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">טאוט</month>
+							<month type="2" draft="contributed">בבה</month>
+							<month type="3" draft="contributed">הטור</month>
+							<month type="4" draft="contributed">קיאק</month>
+							<month type="5" draft="contributed">טובה</month>
+							<month type="6" draft="contributed">אמשיר</month>
+							<month type="7" draft="contributed">ברמהט</month>
+							<month type="8" draft="contributed">ברמודה</month>
+							<month type="9" draft="contributed">בשאנס</month>
+							<month type="10" draft="contributed">פאונה</month>
+							<month type="11" draft="contributed">אפיפ</month>
+							<month type="12" draft="contributed">מסרה</month>
+							<month type="13" draft="contributed">נאסי</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">טאוט</month>
+							<month type="2" draft="contributed">בבה</month>
+							<month type="3" draft="contributed">הטור</month>
+							<month type="4" draft="contributed">קיאק</month>
+							<month type="5" draft="contributed">טובה</month>
+							<month type="6" draft="contributed">אמשיר</month>
+							<month type="7" draft="contributed">ברמהט</month>
+							<month type="8" draft="contributed">ברמודה</month>
+							<month type="9" draft="contributed">בשאנס</month>
+							<month type="10" draft="contributed">פאונה</month>
+							<month type="11" draft="contributed">אפיפ</month>
+							<month type="12" draft="contributed">מסרה</month>
+							<month type="13" draft="contributed">נאסי</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">טאוט</month>
+							<month type="2" draft="contributed">בבה</month>
+							<month type="3" draft="contributed">הטור</month>
+							<month type="4" draft="contributed">קיאק</month>
+							<month type="5" draft="contributed">טובה</month>
+							<month type="6" draft="contributed">אמשיר</month>
+							<month type="7" draft="contributed">ברמהט</month>
+							<month type="8" draft="contributed">ברמודה</month>
+							<month type="9" draft="contributed">בשאנס</month>
+							<month type="10" draft="contributed">פאונה</month>
+							<month type="11" draft="contributed">אפיפ</month>
+							<month type="12" draft="contributed">מסרה</month>
+							<month type="13" draft="contributed">נאסי</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">טאוט</month>
+							<month type="2" draft="contributed">בבה</month>
+							<month type="3" draft="contributed">הטור</month>
+							<month type="4" draft="contributed">קיאק</month>
+							<month type="5" draft="contributed">טובה</month>
+							<month type="6" draft="contributed">אמשיר</month>
+							<month type="7" draft="contributed">ברמהט</month>
+							<month type="8" draft="contributed">ברמודה</month>
+							<month type="9" draft="contributed">בשאנס</month>
+							<month type="10" draft="contributed">פאונה</month>
+							<month type="11" draft="contributed">אפיפ</month>
+							<month type="12" draft="contributed">מסרה</month>
+							<month type="13" draft="contributed">נאסי</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">עידן 0</era>
+						<era type="1" draft="contributed">עידן 1</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">מסקרם</month>
+							<month type="2">טקמת</month>
+							<month type="3">הדר</month>
+							<month type="4">תהסס</month>
+							<month type="5">טר</month>
+							<month type="6">יכתית</month>
+							<month type="7">מגבית</month>
+							<month type="8">מיאזיה</month>
+							<month type="9">גנבות</month>
+							<month type="10">סאנה</month>
+							<month type="11">המלה</month>
+							<month type="12">נהסה</month>
+							<month type="13">פגומן</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">מסקרם</month>
+							<month type="2">טקמת</month>
+							<month type="3">הדר</month>
+							<month type="4">תהסס</month>
+							<month type="5">טר</month>
+							<month type="6">יכתית</month>
+							<month type="7">מגבית</month>
+							<month type="8">מיאזיה</month>
+							<month type="9">גנבות</month>
+							<month type="10">סאנה</month>
+							<month type="11">המלה</month>
+							<month type="12">נהסה</month>
+							<month type="13">פגומן</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">מסקרם</month>
+							<month type="2">טקמת</month>
+							<month type="3">הדר</month>
+							<month type="4">תהסס</month>
+							<month type="5">טר</month>
+							<month type="6">יכתית</month>
+							<month type="7">מגבית</month>
+							<month type="8">מיאזיה</month>
+							<month type="9">גנבות</month>
+							<month type="10">סאנה</month>
+							<month type="11">המלה</month>
+							<month type="12">נהסה</month>
+							<month type="13">פגומן</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">מסקרם</month>
+							<month type="2">טקמת</month>
+							<month type="3">הדר</month>
+							<month type="4">תהסס</month>
+							<month type="5">טר</month>
+							<month type="6">יכתית</month>
+							<month type="7">מגבית</month>
+							<month type="8">מיאזיה</month>
+							<month type="9">גנבות</month>
+							<month type="10">סאנה</month>
+							<month type="11">המלה</month>
+							<month type="12">נהסה</month>
+							<month type="13">פגומן</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">עידן 0</era>
+						<era type="1" draft="contributed">עידן 1</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">ERA0</era>
+						<era type="1" draft="contributed">ERA1</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1137,9 +1393,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d בMMM y G</dateFormatItem>
@@ -1497,46 +1762,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">חצות</dayPeriod>
-							<dayPeriod type="morning1">בוקר</dayPeriod>
-							<dayPeriod type="afternoon1">צהריים</dayPeriod>
-							<dayPeriod type="afternoon2">אחר הצהריים</dayPeriod>
-							<dayPeriod type="evening1">ערב</dayPeriod>
-							<dayPeriod type="night1">לילה</dayPeriod>
+							<dayPeriod type="am">לפנה״צ</dayPeriod>
+							<dayPeriod type="pm">אחה״צ</dayPeriod>
+							<dayPeriod type="morning1">בבוקר</dayPeriod>
+							<dayPeriod type="afternoon1">בצהריים</dayPeriod>
+							<dayPeriod type="afternoon2">אחה״צ</dayPeriod>
+							<dayPeriod type="evening1">בערב</dayPeriod>
+							<dayPeriod type="night1">בלילה</dayPeriod>
 							<dayPeriod type="night2">לפנות בוקר</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">חצות</dayPeriod>
 							<dayPeriod type="am">לפנה״צ</dayPeriod>
 							<dayPeriod type="pm">אחה״צ</dayPeriod>
-							<dayPeriod type="morning1">בוקר</dayPeriod>
-							<dayPeriod type="afternoon1">צהריים</dayPeriod>
+							<dayPeriod type="morning1">בבוקר</dayPeriod>
+							<dayPeriod type="afternoon1">בצהריים</dayPeriod>
 							<dayPeriod type="afternoon2">אחר הצהריים</dayPeriod>
-							<dayPeriod type="evening1">ערב</dayPeriod>
-							<dayPeriod type="night1">לילה</dayPeriod>
+							<dayPeriod type="evening1">בערב</dayPeriod>
+							<dayPeriod type="night1">בלילה</dayPeriod>
 							<dayPeriod type="night2">לפנות בוקר</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">חצות</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">בוקר</dayPeriod>
 							<dayPeriod type="afternoon1">צהריים</dayPeriod>
-							<dayPeriod type="afternoon2">אחר הצהריים</dayPeriod>
+							<dayPeriod type="afternoon2">אחה״צ</dayPeriod>
 							<dayPeriod type="evening1">ערב</dayPeriod>
 							<dayPeriod type="night1">לילה</dayPeriod>
 							<dayPeriod type="night2">לפנות בוקר</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">חצות</dayPeriod>
+							<dayPeriod type="am">לפנה״צ</dayPeriod>
+							<dayPeriod type="pm">אחה״צ</dayPeriod>
 							<dayPeriod type="morning1">בוקר</dayPeriod>
 							<dayPeriod type="afternoon1">צהריים</dayPeriod>
-							<dayPeriod type="afternoon2">אחר הצהריים</dayPeriod>
+							<dayPeriod type="afternoon2">אחה״צ</dayPeriod>
 							<dayPeriod type="evening1">ערב</dayPeriod>
 							<dayPeriod type="night1">לילה</dayPeriod>
 							<dayPeriod type="night2">לפנות בוקר</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">חצות</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">בוקר</dayPeriod>
 							<dayPeriod type="afternoon1">צהריים</dayPeriod>
 							<dayPeriod type="afternoon2">אחר הצהריים</dayPeriod>
@@ -1551,6 +1824,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0">לפני הספירה</era>
 						<era type="0" alt="variant">לפנה״ס</era>
 						<era type="1">לספירה</era>
+						<era type="1" alt="variant">CE</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">לפנה״ס</era>
@@ -1625,8 +1899,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E H:mm</dateFormatItem>
@@ -1669,10 +1948,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">שבוע w בשנת Y</dateFormatItem>
-						<dateFormatItem id="yw" count="two">שבוע w בשנת Y</dateFormatItem>
-						<dateFormatItem id="yw" count="many">שבוע w בשנת Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">שבוע w בשנת Y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">שבוע w בשנת y</dateFormatItem>
+						<dateFormatItem id="yw" count="two">שבוע w בשנת y</dateFormatItem>
+						<dateFormatItem id="yw" count="many">שבוע w בשנת y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">שבוע w בשנת y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1881,9 +2160,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 				</months>
 				<eras>
+					<eraNames>
+						<era type="0">לבריאת העולם</era>
+					</eraNames>
 					<eraAbbr>
-						<era type="0">לבה״ע</era>
+						<era type="0">AM</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AM</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1909,7 +2194,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Ed" draft="provisional">E ה-d</dateFormatItem>
+						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d בMMMM y G</dateFormatItem>
@@ -2009,6 +2294,109 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="indian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">צ׳ייטרה</month>
+							<month type="2" draft="contributed">וייסקהה</month>
+							<month type="3" draft="contributed">ג׳יאסטהה</month>
+							<month type="4" draft="contributed">אשדהה</month>
+							<month type="5" draft="contributed">סראוואנה</month>
+							<month type="6" draft="contributed">בהרדה</month>
+							<month type="7" draft="contributed">אסווינה</month>
+							<month type="8" draft="contributed">קרטיקה</month>
+							<month type="9" draft="contributed">אגרהיאנה</month>
+							<month type="10" draft="contributed">פאוסה</month>
+							<month type="11" draft="contributed">מאגהה</month>
+							<month type="12" draft="contributed">פלגונה</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">צ׳ייטרה</month>
+							<month type="2" draft="contributed">וייסקהה</month>
+							<month type="3" draft="contributed">ג׳יאסטהה</month>
+							<month type="4" draft="contributed">אשדהה</month>
+							<month type="5" draft="contributed">סראוואנה</month>
+							<month type="6" draft="contributed">בהרדה</month>
+							<month type="7" draft="contributed">אסווינה</month>
+							<month type="8" draft="contributed">קרטיקה</month>
+							<month type="9" draft="contributed">אגרהיאנה</month>
+							<month type="10" draft="contributed">פאוסה</month>
+							<month type="11" draft="contributed">מאגהה</month>
+							<month type="12" draft="contributed">פאלגונה</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">צ׳ייטרה</month>
+							<month type="2" draft="contributed">וייסקהה</month>
+							<month type="3" draft="contributed">ג׳יאסטהה</month>
+							<month type="4" draft="contributed">אשדהה</month>
+							<month type="5" draft="contributed">סראוואנה</month>
+							<month type="6" draft="contributed">בהרדה</month>
+							<month type="7" draft="contributed">אסווינה</month>
+							<month type="8" draft="contributed">קרטיקה</month>
+							<month type="9" draft="contributed">אגרהיאנה</month>
+							<month type="10" draft="contributed">פאוסה</month>
+							<month type="11" draft="contributed">מאגהה</month>
+							<month type="12" draft="contributed">פלגונה</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">צ׳ייטרה</month>
+							<month type="2" draft="contributed">וייסקהה</month>
+							<month type="3" draft="contributed">ג׳יאסטהה</month>
+							<month type="4" draft="contributed">אשדהה</month>
+							<month type="5" draft="contributed">סראוואנה</month>
+							<month type="6" draft="contributed">בהרדה</month>
+							<month type="7" draft="contributed">אסווינה</month>
+							<month type="8" draft="contributed">קרטיקה</month>
+							<month type="9" draft="contributed">אגרהיאנה</month>
+							<month type="10" draft="contributed">פאוסה</month>
+							<month type="11" draft="contributed">מאגהה</month>
+							<month type="12" draft="contributed">Phalguna</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">סאקא</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">סאקא</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">סאקא</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
@@ -2101,9 +2489,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 				</months>
 				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">שנת היג׳רה</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">שנת היג׳רה</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AH</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -2171,9 +2565,134 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraAbbr>
 				</eras>
 			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">פרורדין</month>
+							<month type="2">ארדיבהשת</month>
+							<month type="3">ח׳רדאד</month>
+							<month type="4">תיר</month>
+							<month type="5">מרדאד</month>
+							<month type="6">שהריור</month>
+							<month type="7">מהר</month>
+							<month type="8">אבאן</month>
+							<month type="9">אד׳ר</month>
+							<month type="10">די</month>
+							<month type="11">בהמן</month>
+							<month type="12">אספנד</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">פרורדין</month>
+							<month type="2">ארדיבהשת</month>
+							<month type="3">ח׳רדאד</month>
+							<month type="4">תיר</month>
+							<month type="5">מרדאד</month>
+							<month type="6">שהריור</month>
+							<month type="7">מהר</month>
+							<month type="8">אבאן</month>
+							<month type="9">אד׳ר</month>
+							<month type="10">די</month>
+							<month type="11">בהמן</month>
+							<month type="12">אספנד</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">פרורדין</month>
+							<month type="2">ארדיבהשת</month>
+							<month type="3">ח׳רדאד</month>
+							<month type="4">תיר</month>
+							<month type="5">מרדאד</month>
+							<month type="6">שהריור</month>
+							<month type="7">מהר</month>
+							<month type="8">אבאן</month>
+							<month type="9">אד׳ר</month>
+							<month type="10">די</month>
+							<month type="11">בהמן</month>
+							<month type="12">אספנד</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">פרורדין</month>
+							<month type="2">ארדיבהשת</month>
+							<month type="3">ח׳רדאד</month>
+							<month type="4">תיר</month>
+							<month type="5">מרדאד</month>
+							<month type="6">שהריור</month>
+							<month type="7">מהר</month>
+							<month type="8">אבאן</month>
+							<month type="9">אד׳ר</month>
+							<month type="10">די</month>
+							<month type="11">בהמן</month>
+							<month type="12">אספנד</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">הספירה הפרסית</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">AP</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">AP</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
+			<calendar type="roc">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">לפני הרפובליקה של סין</era>
+						<era type="1" draft="contributed">לספירת הרפובליקה של סין</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">לפני R.O.C</era>
+						<era type="1" draft="contributed">R.O.C.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">לפני R.O.C</era>
+						<era type="1" draft="contributed">R.O.C.</era>
+					</eraNarrow>
+				</eras>
+			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>תקופה</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>תקופה</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>תקופה</displayName>
 			</field>
 			<field type="year">
@@ -2196,6 +2715,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>שנ׳</displayName>
+				<relative type="-1">השנה שעברה</relative>
+				<relative type="0">השנה</relative>
+				<relative type="1">השנה הבאה</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">בעוד שנה</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד שנתיים</relativeTimePattern>
@@ -2211,6 +2733,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-narrow">
 				<displayName>שנ׳</displayName>
+				<relative type="-1">השנה שעברה</relative>
+				<relative type="0">השנה</relative>
+				<relative type="1">השנה הבאה</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">בעוד שנה</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד שנתיים</relativeTimePattern>
@@ -2244,6 +2769,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter-short">
 				<displayName>רבע׳</displayName>
+				<relative type="-1">הרבעון הקודם</relative>
+				<relative type="0">רבעון זה</relative>
+				<relative type="1">הרבעון הבא</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">ברבע׳ הבא</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד שני רבע׳</relativeTimePattern>
@@ -2259,6 +2787,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter-narrow">
 				<displayName>רבע׳</displayName>
+				<relative type="-1">הרבעון הקודם</relative>
+				<relative type="0">רבעון זה</relative>
+				<relative type="1">הרבעון הבא</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">ברבע׳ הבא</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד שני רבע׳</relativeTimePattern>
@@ -2292,6 +2823,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-short">
 				<displayName>חו׳</displayName>
+				<relative type="-1">החודש שעבר</relative>
+				<relative type="0">החודש</relative>
+				<relative type="1">החודש הבא</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">בעוד חודש</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד חודשיים</relativeTimePattern>
@@ -2307,6 +2841,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-narrow">
 				<displayName>חו׳</displayName>
+				<relative type="-1">החודש שעבר</relative>
+				<relative type="0">החודש</relative>
+				<relative type="1">החודש הבא</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">בעוד חו׳</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד חודשיים</relativeTimePattern>
@@ -2341,6 +2878,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName>שב׳</displayName>
+				<relative type="-1">השבוע שעבר</relative>
+				<relative type="0">השבוע</relative>
+				<relative type="1">השבוע הבא</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">בעוד שב׳</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד שבועיים</relativeTimePattern>
@@ -2353,10 +2893,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="many">לפני {0} שב׳</relativeTimePattern>
 					<relativeTimePattern count="other">לפני {0} שב׳</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod draft="provisional">השבוע של</relativePeriod>
+				<relativePeriod>השבוע של {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>שב׳</displayName>
+				<relative type="-1">השבוע שעבר</relative>
+				<relative type="0">השבוע</relative>
+				<relative type="1">השבוע הבא</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">בעוד שב׳</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד שבועיים</relativeTimePattern>
@@ -2370,6 +2913,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">לפני {0} שב׳</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>השבוע של {0}</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>השבוע בחודש</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>השבוע בחודש</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>השבוע בחודש</displayName>
 			</field>
 			<field type="day">
 				<displayName>יום</displayName>
@@ -2393,36 +2945,69 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>יום</displayName>
+				<relative type="-2">שלשום</relative>
+				<relative type="-1">אתמול</relative>
+				<relative type="0">היום</relative>
+				<relative type="1">מחר</relative>
+				<relative type="2">מחרתיים</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">מחר</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד יומיים</relativeTimePattern>
-					<relativeTimePattern count="many">בעוד {0} יום</relativeTimePattern>
+					<relativeTimePattern count="many">בעוד {0} ימים</relativeTimePattern>
 					<relativeTimePattern count="other">בעוד {0} ימים</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">אתמול</relativeTimePattern>
 					<relativeTimePattern count="two">לפני יומיים</relativeTimePattern>
 					<relativeTimePattern count="many">לפני {0} ימים</relativeTimePattern>
-					<relativeTimePattern count="other">לפני {0} ימ׳</relativeTimePattern>
+					<relativeTimePattern count="other">לפני {0} ימים</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
 				<displayName>יום</displayName>
+				<relative type="-2">שלשום</relative>
+				<relative type="-1">אתמול</relative>
+				<relative type="0">היום</relative>
+				<relative type="1">מחר</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">מחר</relativeTimePattern>
 					<relativeTimePattern count="two">בעוד יומיים</relativeTimePattern>
 					<relativeTimePattern count="many">בעוד {0} ימים</relativeTimePattern>
-					<relativeTimePattern count="other">בעוד {0} ימ׳</relativeTimePattern>
+					<relativeTimePattern count="other">בעוד {0} ימים</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">אתמול</relativeTimePattern>
 					<relativeTimePattern count="two">לפני יומיים</relativeTimePattern>
-					<relativeTimePattern count="many">לפני {0} יום</relativeTimePattern>
-					<relativeTimePattern count="other">לפני {0} ימ׳</relativeTimePattern>
+					<relativeTimePattern count="many">לפני {0} ימים</relativeTimePattern>
+					<relativeTimePattern count="other">לפני {0} ימים</relativeTimePattern>
 				</relativeTime>
+			</field>
+			<field type="dayOfYear">
+				<displayName>יום בשנה</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>יום בשנה</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>יום בשנה</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>יום בשבוע</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>יום בשבוע</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>יום בשבוע</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>יום חול בחודש</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>יום בחודש</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>יום בחודש</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">ביום ראשון שעבר</relative>
@@ -2684,16 +3269,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">יום שישי</relative>
 				<relative type="1">יום שישי הבא</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">בעוד יום ששי {0}</relativeTimePattern>
-					<relativeTimePattern count="two">בעוד {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="many">בעוד {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="other">בעוד {0} ימי ששי</relativeTimePattern>
+					<relativeTimePattern count="one">בעוד יום שישי {0}</relativeTimePattern>
+					<relativeTimePattern count="two">בעוד {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="many">בעוד {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="other">בעוד {0} ימי שישי</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">לפני יום ששי {0}</relativeTimePattern>
-					<relativeTimePattern count="two">לפני {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="many">לפני {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="other">לפני {0} ימי ששי</relativeTimePattern>
+					<relativeTimePattern count="one">לפני יום שישי {0}</relativeTimePattern>
+					<relativeTimePattern count="two">לפני {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="many">לפני {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="other">לפני {0} ימי שישי</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-short">
@@ -2701,16 +3286,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">יום ו׳</relative>
 				<relative type="1">ביום ו׳ הבא</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">בעוד יום ששי {0}</relativeTimePattern>
-					<relativeTimePattern count="two">בעוד {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="many">בעוד {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="other">בעוד {0} ימי ששי</relativeTimePattern>
+					<relativeTimePattern count="one">בעוד יום שישי {0}</relativeTimePattern>
+					<relativeTimePattern count="two">בעוד {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="many">בעוד {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="other">בעוד {0} ימי שישי</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">לפני יום ששי {0}</relativeTimePattern>
-					<relativeTimePattern count="two">לפני {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="many">לפני {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="other">לפני {0} ימי ששי</relativeTimePattern>
+					<relativeTimePattern count="one">לפני יום שישי {0}</relativeTimePattern>
+					<relativeTimePattern count="two">לפני {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="many">לפני {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="other">לפני {0} ימי שישי</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
@@ -2718,16 +3303,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">יום ו׳</relative>
 				<relative type="1">יום ו׳ הבא</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">בעוד יום ששי {0}</relativeTimePattern>
-					<relativeTimePattern count="two">בעוד {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="many">בעוד {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="other">בעוד {0} ימי ששי</relativeTimePattern>
+					<relativeTimePattern count="one">בעוד יום שישי {0}</relativeTimePattern>
+					<relativeTimePattern count="two">בעוד {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="many">בעוד {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="other">בעוד {0} ימי שישי</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">לפני יום ששי {0}</relativeTimePattern>
-					<relativeTimePattern count="two">לפני {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="many">לפני {0} ימי ששי</relativeTimePattern>
-					<relativeTimePattern count="other">לפני {0} ימי ששי</relativeTimePattern>
+					<relativeTimePattern count="one">לפני יום שישי {0}</relativeTimePattern>
+					<relativeTimePattern count="two">לפני {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="many">לפני {0} ימי שישי</relativeTimePattern>
+					<relativeTimePattern count="other">לפני {0} ימי שישי</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -2781,7 +3366,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">לפני {0} שבתות</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>AM/PM</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>לפנה״צ/אחה״צ</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>לפנה״צ/אחה״צ</displayName>
 			</field>
 			<field type="hour">
@@ -2925,6 +3516,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>אזור</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>אזור</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>אזור</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>‎+HH:mm;-HH:mm‎</hourFormat>
@@ -2935,7 +3532,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="standard">שעון {0} (חורף)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="America/Santa_Isabel">
-				<exemplarCity>סנטה איסבל</exemplarCity>
+				<exemplarCity>סנטה איזבל</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ג׳ונסטון</exemplarCity>
@@ -3308,6 +3905,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>אי הפסחא</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>פונטה ארנס</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>סנטיאגו</exemplarCity>
 			</zone>
@@ -3340,6 +3940,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>ניקוסיה</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>פמגוסטה</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>פראג</exemplarCity>
@@ -3598,6 +4201,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>אורל</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>אטיראו</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>אקטובה</exemplarCity>
@@ -3878,6 +4484,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>וולגוגרד</exemplarCity>
 			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>סראטוב</exemplarCity>
+			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>אסטרחן</exemplarCity>
 			</zone>
@@ -4008,7 +4617,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>דמשק</exemplarCity>
 			</zone>
 			<zone type="Africa/Mbabane">
-				<exemplarCity draft="contributed">אמבאבאנה</exemplarCity>
+				<exemplarCity>מבבנה</exemplarCity>
 			</zone>
 			<zone type="America/Grand_Turk">
 				<exemplarCity>גרנד טורק</exemplarCity>
@@ -5130,6 +5739,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<traditional>hebr</traditional>
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
+		<symbols numberSystem="cakm">
+			<infinity draft="contributed">∞</infinity>
+		</symbols>
+		<symbols numberSystem="cham">
+			<percentSign draft="contributed">%</percentSign>
+			<perMille draft="contributed">‰</perMille>
+			<infinity draft="contributed">∞</infinity>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>
@@ -5430,22 +6047,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>מנאט אזרביג׳אני (1993–2006)</displayName>
 			</currency>
 			<currency type="AZN">
-				<displayName>מאנאט אזרביג׳ני</displayName>
-				<displayName count="one">מאנאט אזרביג׳ני</displayName>
-				<displayName count="two">מאנאט אזרביג׳ני</displayName>
-				<displayName count="many">מאנאט אזרביג׳ני</displayName>
-				<displayName count="other">מאנאט אזרביג׳ני</displayName>
+				<displayName>מאנאט אזרבייג׳ני</displayName>
+				<displayName count="one">מאנאט אזרבייג׳ני</displayName>
+				<displayName count="two">מאנאט אזרבייג׳ני</displayName>
+				<displayName count="many">מאנאט אזרבייג׳ני</displayName>
+				<displayName count="other">מאנאט אזרבייג׳ני</displayName>
 				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName draft="contributed">דינר של בוסניה־הרצגובינה</displayName>
 			</currency>
 			<currency type="BAM">
-				<displayName>מארק בר המרה של בוסניה־הרצגובינה</displayName>
-				<displayName count="one">מארק בר המרה של בוסניה־הרצגובינה</displayName>
-				<displayName count="two">מארק בר המרה של בוסניה־הרצגובינה</displayName>
-				<displayName count="many">מארק בר המרה של בוסניה־הרצגובינה</displayName>
-				<displayName count="other">מארק בר המרה של בוסניה־הרצגובינה</displayName>
+				<displayName>מארק סחיר של בוסניה והרצגובינה</displayName>
+				<displayName count="one">מארק סחיר של בוסניה והרצגובינה</displayName>
+				<displayName count="two">מארק סחיר של בוסניה והרצגובינה</displayName>
+				<displayName count="many">מארק סחיר של בוסניה והרצגובינה</displayName>
+				<displayName count="other">מארק סחיר של בוסניה והרצגובינה</displayName>
 				<symbol>BAM</symbol>
 				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
@@ -5563,11 +6180,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
-				<displayName>פולה בוצוואני</displayName>
-				<displayName count="one">פולה בוצוואני</displayName>
-				<displayName count="two">פולה בוצוואני</displayName>
-				<displayName count="many">פולה בוצוואני</displayName>
-				<displayName count="other">פולה בוצוואני</displayName>
+				<displayName>פולה בוטסואני</displayName>
+				<displayName count="one">פולה בוטסואני</displayName>
+				<displayName count="two">פולה בוטסואני</displayName>
+				<displayName count="many">פולה בוטסואני</displayName>
+				<displayName count="other">פולה בוטסואני</displayName>
 				<symbol>BWP</symbol>
 				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
@@ -5630,6 +6247,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">פסו צ׳ילאני</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName draft="contributed">יואן סיני (CNH)</displayName>
+				<displayName count="one" draft="contributed">יואן סיני (CNH)</displayName>
+				<displayName count="two" draft="contributed">יואן סיני (CNH)</displayName>
+				<displayName count="many" draft="contributed">יואן סיני (CNH)</displayName>
+				<displayName count="other" draft="contributed">יואן סיני (CNH)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>יואן סיני</displayName>
@@ -5822,11 +6447,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
-				<displayName>לרי גאורגי</displayName>
-				<displayName count="one">לרי גאורגי</displayName>
-				<displayName count="two">לרי גאורגי</displayName>
-				<displayName count="many">לרי גאורגי</displayName>
-				<displayName count="other">לרי גאורגי</displayName>
+				<displayName>לארי גאורגי</displayName>
+				<displayName count="one">לארי גאורגי</displayName>
+				<displayName count="two">לארי גאורגי</displayName>
+				<displayName count="many">לארי גאורגי</displayName>
+				<displayName count="other">לארי גאורגי</displayName>
 				<symbol>GEL</symbol>
 				<symbol alt="narrow" draft="contributed">₾</symbol>
 				<symbol alt="variant" draft="contributed">₾</symbol>
@@ -5849,11 +6474,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
-				<displayName>דלאסי גמבי</displayName>
-				<displayName count="one">דלאסי גמבי</displayName>
-				<displayName count="two">דלאסי גמבי</displayName>
-				<displayName count="many">דלאסי גמבי</displayName>
-				<displayName count="other">דלאסי גמבי</displayName>
+				<displayName>דלסי גמבי</displayName>
+				<displayName count="one">דלסי גמבי</displayName>
+				<displayName count="two">דלסי גמבי</displayName>
+				<displayName count="many">דלסי גמבי</displayName>
+				<displayName count="other">דלסי גמבי</displayName>
 				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
@@ -5869,11 +6494,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">דרכמה</displayName>
 			</currency>
 			<currency type="GTQ">
-				<displayName>קצל גואטמלי</displayName>
-				<displayName count="one">קצל גואטמלי</displayName>
-				<displayName count="two">קצל גואטמלי</displayName>
-				<displayName count="many">קצל גואטמלי</displayName>
-				<displayName count="other">קצל גואטמלי</displayName>
+				<displayName>קצאל גואטמלי</displayName>
+				<displayName count="one">קצאל גואטמלי</displayName>
+				<displayName count="two">קצאל גואטמלי</displayName>
+				<displayName count="many">קצאל גואטמלי</displayName>
+				<displayName count="other">קצאל גואטמלי</displayName>
 				<symbol>GTQ</symbol>
 				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
@@ -6022,11 +6647,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
-				<displayName>שילינג קנייאתי</displayName>
-				<displayName count="one">שילינג קנייאתי</displayName>
-				<displayName count="two">שילינג קנייאתי</displayName>
-				<displayName count="many">שילינג קנייאתי</displayName>
-				<displayName count="other">שילינג קנייאתי</displayName>
+				<displayName>שילינג קנייתי</displayName>
+				<displayName count="one">שילינג קנייתי</displayName>
+				<displayName count="two">שילינג קנייתי</displayName>
+				<displayName count="many">שילינג קנייתי</displayName>
+				<displayName count="other">שילינג קנייתי</displayName>
 				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
@@ -6082,11 +6707,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
-				<displayName>דולר קיימאני</displayName>
-				<displayName count="one">דולר קיימאני</displayName>
-				<displayName count="two">דולר קיימאני</displayName>
-				<displayName count="many">דולר קיימאני</displayName>
-				<displayName count="other">דולר קיימאני</displayName>
+				<displayName>דולר קיימני</displayName>
+				<displayName count="one">דולר קיימני</displayName>
+				<displayName count="two">דולר קיימני</displayName>
+				<displayName count="many">דולר קיימני</displayName>
+				<displayName count="other">דולר קיימני</displayName>
 				<symbol>KYD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -6173,11 +6798,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>פרנק מרוקאי</displayName>
 			</currency>
 			<currency type="MDL">
-				<displayName>ליאו מולדובני</displayName>
-				<displayName count="one">ליאו מולדובני</displayName>
-				<displayName count="two">ליאו מולדובני</displayName>
-				<displayName count="many">ליאו מולדובני</displayName>
-				<displayName count="other">ליאו מולדובני</displayName>
+				<displayName>לאו מולדובני</displayName>
+				<displayName count="one">לאו מולדובני</displayName>
+				<displayName count="two">לאו מולדובני</displayName>
+				<displayName count="many">לאו מולדובני</displayName>
+				<displayName count="other">לאו מולדובני</displayName>
 				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
@@ -6227,11 +6852,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
-				<displayName>אוגוויה מאוריטני</displayName>
-				<displayName count="one">אוגוויה מאוריטני</displayName>
-				<displayName count="two">אוגוויה מאוריטני</displayName>
-				<displayName count="many">אוגוויה מאוריטני</displayName>
-				<displayName count="other">אוגוויה מאוריטני</displayName>
+				<displayName>אואוגויה מאוריטני</displayName>
+				<displayName count="one">אואוגויה מאוריטני</displayName>
+				<displayName count="two">אואוגויה מאוריטני</displayName>
+				<displayName count="many">אואוגויה מאוריטני</displayName>
+				<displayName count="other">אואוגויה מאוריטני</displayName>
 				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
@@ -6255,11 +6880,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
-				<displayName>קואצ׳ה מלאוי</displayName>
-				<displayName count="one">קואצ׳ה מלאוי</displayName>
-				<displayName count="two">קואצ׳ה מלאוי</displayName>
-				<displayName count="many">קואצ׳ה מלאוי</displayName>
-				<displayName count="other">קואצ׳ה מלאוי</displayName>
+				<displayName>קואצ׳ה מלאווי</displayName>
+				<displayName count="one">קואצ׳ה מלאווי</displayName>
+				<displayName count="two">קואצ׳ה מלאווי</displayName>
+				<displayName count="many">קואצ׳ה מלאווי</displayName>
+				<displayName count="other">קואצ׳ה מלאווי</displayName>
 				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
@@ -6424,11 +7049,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>אסקודו פורטוגלי</displayName>
 			</currency>
 			<currency type="PYG">
-				<displayName>גוורני פראגוואי</displayName>
-				<displayName count="one">גוורני פראגוואי</displayName>
-				<displayName count="two">גוורני פראגוואי</displayName>
-				<displayName count="many">גוורני פראגוואי</displayName>
-				<displayName count="other">גוורני פראגוואי</displayName>
+				<displayName>גוארני פרגוואי</displayName>
+				<displayName count="one">גוארני פרגוואי</displayName>
+				<displayName count="two">גוארני פרגוואי</displayName>
+				<displayName count="many">גוארני פרגוואי</displayName>
+				<displayName count="other">גוארני פרגוואי</displayName>
 				<symbol>PYG</symbol>
 				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
@@ -6450,6 +7075,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="many">לאו רומני</displayName>
 				<displayName count="other">לאו רומני</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>דינר סרבי</displayName>
@@ -6562,11 +7188,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
-				<displayName>שילינג סומאלי</displayName>
-				<displayName count="one">שילינג סומאלי</displayName>
-				<displayName count="two">שילינג סומאלי</displayName>
-				<displayName count="many">שילינג סומאלי</displayName>
-				<displayName count="other">שילינג סומאלי</displayName>
+				<displayName>שילינג סומלי</displayName>
+				<displayName count="one">שילינג סומלי</displayName>
+				<displayName count="two">שילינג סומלי</displayName>
+				<displayName count="many">שילינג סומלי</displayName>
+				<displayName count="other">שילינג סומלי</displayName>
 				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
@@ -6619,11 +7245,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
-				<displayName>לילנגני סווזי</displayName>
-				<displayName count="one">לילנגני סווזי</displayName>
-				<displayName count="two">לילנגני סווזי</displayName>
-				<displayName count="many">לילנגני סווזי</displayName>
-				<displayName count="other">לילנגני סווזי</displayName>
+				<displayName>לילנגני סווזילנדי</displayName>
+				<displayName count="one">לילנגני סווזילנדי</displayName>
+				<displayName count="two">לילנגני סווזילנדי</displayName>
+				<displayName count="many">לילנגני סווזילנדי</displayName>
+				<displayName count="other">לילנגני סווזילנדי</displayName>
 				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
@@ -6714,11 +7340,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
-				<displayName>גריבנה אוקראיני</displayName>
-				<displayName count="one">גריבנה אוקראיני</displayName>
-				<displayName count="two">גריבנה אוקראיני</displayName>
-				<displayName count="many">גריבנה אוקראיני</displayName>
-				<displayName count="other">גריבנה אוקראיני</displayName>
+				<displayName>הריבנה אוקראיני</displayName>
+				<displayName count="one">הריבנה אוקראיני</displayName>
+				<displayName count="two">הריבנה אוקראיני</displayName>
+				<displayName count="many">הריבנה אוקראיני</displayName>
+				<displayName count="other">הריבנה אוקראיני</displayName>
 				<symbol>UAH</symbol>
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
@@ -6803,11 +7429,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
-				<displayName>פרנק CFA BEAC</displayName>
-				<displayName count="one">פרנק CFA BEAC</displayName>
-				<displayName count="two">פרנק CFA BEAC</displayName>
-				<displayName count="many">פרנק CFA BEAC</displayName>
-				<displayName count="other">פרנק CFA BEAC</displayName>
+				<displayName>פרנק CFA מרכז אפריקני</displayName>
+				<displayName count="one">פרנק CFA מרכז אפריקני</displayName>
+				<displayName count="two">פרנק CFA מרכז אפריקני</displayName>
+				<displayName count="many">פרנק CFA מרכז אפריקני</displayName>
+				<displayName count="other">פרנק CFA מרכז אפריקני</displayName>
 				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
@@ -6832,11 +7458,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>פרנק זהב</displayName>
 			</currency>
 			<currency type="XOF">
-				<displayName>פרנק CFA BCEAO</displayName>
-				<displayName count="one">פרנק CFA BCEAO</displayName>
-				<displayName count="two">פרנק CFA BCEAO</displayName>
-				<displayName count="many">פרנק CFA BCEAO</displayName>
-				<displayName count="other">פרנק CFA BCEAO</displayName>
+				<displayName>פרנק CFA מערב אפריקני</displayName>
+				<displayName count="one">פרנק CFA מערב אפריקני</displayName>
+				<displayName count="two">פרנק CFA מערב אפריקני</displayName>
+				<displayName count="many">פרנק CFA מערב אפריקני</displayName>
+				<displayName count="other">פרנק CFA מערב אפריקני</displayName>
 				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
@@ -6896,11 +7522,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>קוואצ׳ה זמבית (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
-				<displayName>קוואצ׳ה זמבית</displayName>
-				<displayName count="one">קוואצ׳ה זמבית</displayName>
-				<displayName count="two">קוואצ׳ה זמבית</displayName>
-				<displayName count="many">קוואצ׳ה זמבית</displayName>
-				<displayName count="other">קוואצ׳ה זמבית</displayName>
+				<displayName>קוואצ׳ה זמבי</displayName>
+				<displayName count="one">קוואצ׳ה זמבי</displayName>
+				<displayName count="two">קוואצ׳ה זמבי</displayName>
+				<displayName count="many">קוואצ׳ה זמבי</displayName>
+				<displayName count="other">קוואצ׳ה זמבי</displayName>
 				<symbol>ZMW</symbol>
 				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
@@ -6916,11 +7542,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">שנה</pluralMinimalPairs>
-			<pluralMinimalPairs count="two">שנתיים</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} שנה</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} שנים</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">פנה ימינה בפנייה ה-{0}</ordinalMinimalPairs>
+			<pluralMinimalPairs count="one">יום</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">יומיים</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} ימים</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ימים</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">פנה ימינה בפנייה ה{0}</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7102,71 +7728,71 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} מייל/גלון אימפריאלי</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
-				<displayName>טרה-בתים</displayName>
-				<unitPattern count="one">טרה-בית {0}</unitPattern>
+				<displayName>טרה-בייט</displayName>
+				<unitPattern count="one">טרה-בייט {0}</unitPattern>
 				<unitPattern count="two">{0} טרה-בתים</unitPattern>
 				<unitPattern count="many">{0} טרה-בתים</unitPattern>
 				<unitPattern count="other">{0} טרה-בתים</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
-				<displayName>טרה-סיביות</displayName>
-				<unitPattern count="one">טרה-סיבית {0}</unitPattern>
+				<displayName>טרה-ביט</displayName>
+				<unitPattern count="one">טרה-ביט {0}</unitPattern>
 				<unitPattern count="two">{0} טרה-סיביות</unitPattern>
 				<unitPattern count="many">{0} טרה-סיביות</unitPattern>
 				<unitPattern count="other">{0} טרה-סיביות</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<displayName>ג׳יגה-בייט</displayName>
-				<unitPattern count="one" draft="contributed">{0} ג׳יגה-בייט</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} ג׳יגה-בייט</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} ג׳יגה-בייט</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ג׳יגה-בייט</unitPattern>
+				<unitPattern count="one">{0} ג׳יגה-בייט</unitPattern>
+				<unitPattern count="two">{0} ג׳יגה-בייט</unitPattern>
+				<unitPattern count="many">{0} ג׳יגה-בייט</unitPattern>
+				<unitPattern count="other">{0} ג׳יגה-בייט</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName draft="contributed">גיגהסיביות</displayName>
-				<unitPattern count="one" draft="contributed">{0} גיגהסיבית</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} גיגהסיביות</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} גיגהסיביות</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} גיגהסיביות</unitPattern>
+				<unitPattern count="one">{0} גיגהביט</unitPattern>
+				<unitPattern count="two">{0} גיגהביט</unitPattern>
+				<unitPattern count="many">{0} גיגהביט</unitPattern>
+				<unitPattern count="other">{0} גיגהביט</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>מגה-בתים</displayName>
-				<unitPattern count="one">מגה-בית {0}</unitPattern>
-				<unitPattern count="two">{0} מגה-בתים</unitPattern>
-				<unitPattern count="many">{0} מגה-בתים</unitPattern>
-				<unitPattern count="other">{0} מגה-בתים</unitPattern>
+				<displayName>מגה-בייט</displayName>
+				<unitPattern count="one">מגה-בייט</unitPattern>
+				<unitPattern count="two">{0} מגה-בייט</unitPattern>
+				<unitPattern count="many">{0} מגה-בייט</unitPattern>
+				<unitPattern count="other">{0} מגה-בייט</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
-				<displayName>מגה-סיביות</displayName>
-				<unitPattern count="one">מגה-סיבית {0}</unitPattern>
+				<displayName>מגהביט</displayName>
+				<unitPattern count="one">מגה-ביט {0}</unitPattern>
 				<unitPattern count="two">{0} מגה-סיביות</unitPattern>
 				<unitPattern count="many">{0} מגה-סיביות</unitPattern>
 				<unitPattern count="other">{0} מגה-סיביות</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName draft="contributed">קילו-בייט</displayName>
+				<displayName>קילו-בייט</displayName>
 				<unitPattern count="one" draft="contributed">{0} קילו-בייט</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} קילו-בייט</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} קילו-בייט</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} קילו-בייט</unitPattern>
+				<unitPattern count="two">{0} קילו-בייט</unitPattern>
+				<unitPattern count="many">{0} קילו-בייט</unitPattern>
+				<unitPattern count="other">{0} קילו-בייט</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName draft="contributed">קילוסיביות</displayName>
+				<displayName>קילוביט</displayName>
 				<unitPattern count="one" draft="contributed">{0} קילוסיבית</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קילוסיביות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קילוסיביות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קילוסיביות</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<displayName>בתים</displayName>
+				<displayName>בייט</displayName>
 				<unitPattern count="one">בית {0}</unitPattern>
-				<unitPattern count="two">{0} בתים</unitPattern>
-				<unitPattern count="many">{0} בתים</unitPattern>
-				<unitPattern count="other">{0} בתים</unitPattern>
+				<unitPattern count="two">{0} בייט</unitPattern>
+				<unitPattern count="many">{0} בייט</unitPattern>
+				<unitPattern count="other">{0} בייט</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName>סיביות</displayName>
-				<unitPattern count="one">סיבית {0}</unitPattern>
+				<displayName>ביט</displayName>
+				<unitPattern count="one">ביט {0}</unitPattern>
 				<unitPattern count="two">{0} סיביות</unitPattern>
 				<unitPattern count="many">{0} סיביות</unitPattern>
 				<unitPattern count="other">{0} סיביות</unitPattern>
@@ -7477,6 +8103,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} מייל-סקנדינביה</unitPattern>
 				<unitPattern count="other">{0} מייל-סקנדינביה</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>נקודות</displayName>
+				<unitPattern count="one">נקודה</unitPattern>
+				<unitPattern count="two">{0} נק'</unitPattern>
+				<unitPattern count="many">{0} נק'</unitPattern>
+				<unitPattern count="other">{0} נקודות</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>לוקס</displayName>
 				<unitPattern count="one">לוקס אחד</unitPattern>
@@ -7527,6 +8160,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">שני טונות</unitPattern>
 				<unitPattern count="many">{0} טונות</unitPattern>
 				<unitPattern count="other">{0} טונות</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">סטון</displayName>
+				<unitPattern count="one" draft="contributed">סטון {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} סטון</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} סטון</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} סטון</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>פאונד</displayName>
@@ -7815,11 +8455,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/גלון</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName draft="provisional">גלון אימפריאלי</displayName>
-				<unitPattern count="one" draft="provisional">{0} גלון אימפריאלי</unitPattern>
-				<unitPattern count="two" draft="provisional">{0} גלון אימפריאלי</unitPattern>
-				<unitPattern count="many" draft="provisional">{0} גלון אימפריאלי</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} גלון אימפריאלי</unitPattern>
+				<displayName>גלון אימפריאלי</displayName>
+				<unitPattern count="one">גלון אימפריאלי {0}</unitPattern>
+				<unitPattern count="two">{0} גלון אימפריאלי</unitPattern>
+				<unitPattern count="many">{0} גלון אימפריאלי</unitPattern>
+				<unitPattern count="other">{0} גלון אימפריאלי</unitPattern>
 				<perUnitPattern>{0}/גלון אימפריאלי</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
@@ -7865,10 +8505,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} כפיות</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}מזרח</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}צפון</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}דרום</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}מערב</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} מזרח</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} צפון</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} דרום</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} מערב</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
@@ -7898,10 +8538,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-radian">
 				<displayName>רדיאנים</displayName>
-				<unitPattern count="one" draft="contributed">{0} π</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} π</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} π</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} π</unitPattern>
+				<unitPattern count="one">{0} π</unitPattern>
+				<unitPattern count="two">{0} π</unitPattern>
+				<unitPattern count="many">{0} π</unitPattern>
+				<unitPattern count="other">{0} π</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>מעלות</displayName>
@@ -8105,15 +8745,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} kb</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<displayName draft="contributed">בייט</displayName>
-				<unitPattern count="one" draft="contributed">{0} בייט</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} בייט</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} בייט</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} בייט</unitPattern>
+				<displayName>בייט</displayName>
+				<unitPattern count="one">{0} בייט</unitPattern>
+				<unitPattern count="two">{0} בייט</unitPattern>
+				<unitPattern count="many">{0} בייט</unitPattern>
+				<unitPattern count="other">{0} בייט</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName>סיבית</displayName>
-				<unitPattern count="one">סיבית {0}</unitPattern>
+				<displayName>ביט</displayName>
+				<unitPattern count="one">ביט {0}</unitPattern>
 				<unitPattern count="two">{0} סיביות</unitPattern>
 				<unitPattern count="many">{0} סיביות</unitPattern>
 				<unitPattern count="other">{0} סיביות</unitPattern>
@@ -8310,7 +8950,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-meter">
 				<displayName>מטרים</displayName>
-				<unitPattern count="one">מ׳ אחד</unitPattern>
+				<unitPattern count="one">מ׳</unitPattern>
 				<unitPattern count="two">שני מ׳</unitPattern>
 				<unitPattern count="many">{0} מ׳</unitPattern>
 				<unitPattern count="other">{0} מ׳</unitPattern>
@@ -8333,7 +8973,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>מ״מ</displayName>
-				<unitPattern count="one">{0} מ״מ</unitPattern>
+				<unitPattern count="one">מ″מ {0}</unitPattern>
 				<unitPattern count="two">{0} מ״מ</unitPattern>
 				<unitPattern count="many">{0} מ״מ</unitPattern>
 				<unitPattern count="other">{0} מ״מ</unitPattern>
@@ -8354,7 +8994,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-picometer">
 				<displayName>פ״מ</displayName>
-				<unitPattern count="one" draft="contributed">פיקומטר {0}</unitPattern>
+				<unitPattern count="one">פ“מ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} פיקומטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} פיקומטר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} פיקומטר</unitPattern>
@@ -8424,6 +9064,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>נקודות</displayName>
+				<unitPattern count="one">{0} נק'</unitPattern>
+				<unitPattern count="two">{0} נק'</unitPattern>
+				<unitPattern count="many">{0} נק'</unitPattern>
+				<unitPattern count="other">{0} נק'</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="one">{0} lx</unitPattern>
@@ -8462,11 +9109,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} מ״ג</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName draft="contributed">מק״ג</displayName>
+				<displayName>מק״ג</displayName>
 				<unitPattern count="one" draft="contributed">{0} מק״ג</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} מק״ג</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} מק״ג</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} מק״ג</unitPattern>
+				<unitPattern count="two">{0} מק״ג</unitPattern>
+				<unitPattern count="many">{0} מק״ג</unitPattern>
+				<unitPattern count="other">{0} מק״ג</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>טון</displayName>
@@ -8474,6 +9121,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} ט׳</unitPattern>
 				<unitPattern count="many">{0} ט׳</unitPattern>
 				<unitPattern count="other">{0} ט׳</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">סטון</displayName>
+				<unitPattern count="one" draft="contributed">סטון {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} סטון</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} סטון</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} סטון</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>פאונד</displayName>
@@ -8654,7 +9308,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName draft="contributed">cm³</displayName>
+				<displayName>סמ״ק</displayName>
 				<unitPattern count="one">{0} סמ״ק</unitPattern>
 				<unitPattern count="two">{0} סמ״ק</unitPattern>
 				<unitPattern count="many">{0} סמ״ק</unitPattern>
@@ -8712,11 +9366,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/ל׳</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName draft="contributed">דצ״ל</displayName>
-				<unitPattern count="one" draft="contributed">{0} דצ״ל</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} דצ״ל</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} דצ״ל</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} דצ״ל</unitPattern>
+				<displayName>דצ״ל</displayName>
+				<unitPattern count="one">{0} דצ״ל</unitPattern>
+				<unitPattern count="two">{0} דצ״ל</unitPattern>
+				<unitPattern count="many">{0} דצ״ל</unitPattern>
+				<unitPattern count="other">{0} דצ״ל</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName>cL</displayName>
@@ -8799,23 +9453,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>כפות</displayName>
-				<unitPattern count="one" draft="contributed">{0} כפ׳</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} כפ׳</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} כפ׳</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} כפ׳</unitPattern>
+				<unitPattern count="one">{0} כפ׳</unitPattern>
+				<unitPattern count="two">{0} כפ׳</unitPattern>
+				<unitPattern count="many">{0} כפ׳</unitPattern>
+				<unitPattern count="other">{0} כפ׳</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>כפית</displayName>
-				<unitPattern count="one" draft="contributed">{0} כפי׳</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} כפי׳</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} כפי׳</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} כפי׳</unitPattern>
+				<unitPattern count="one">{0} כפי׳</unitPattern>
+				<unitPattern count="two">{0} כפי׳</unitPattern>
+				<unitPattern count="many">{0} כפי׳</unitPattern>
+				<unitPattern count="other">{0} כפי׳</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}מז׳</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}צפ׳</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}דר׳</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}מע׳</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} מז׳</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} צפ׳</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} דר׳</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} מע׳</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -8823,10 +9477,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="contributed">כוח ג׳י</displayName>
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
+			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName draft="contributed">m/s²</displayName>
+				<unitPattern count="one" draft="contributed">{0} m/s²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m/s²</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} m/s²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m/s²</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
@@ -8896,12 +9558,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} מייל/גלון</unitPattern>
 				<unitPattern count="other">{0} מייל/גלון</unitPattern>
 			</unit>
+			<unit type="digital-gigabyte">
+				<displayName draft="contributed">ג״ב</displayName>
+				<unitPattern count="one" draft="contributed">{0} ג״ב</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ג״ב</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ג״ב</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ג״ב</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<unitPattern count="one" draft="unconfirmed">{0} מ״ב</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} מ״ב</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} מ״ב</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} מ״ב</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName draft="contributed">ק״ב</displayName>
+				<unitPattern count="one" draft="contributed">ק״ב {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ק״ב</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ק״ב</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ק״ב</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName draft="unconfirmed">בית</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} בית</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} בית</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} בתים</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} בתים</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName draft="contributed">סיבית</displayName>
+				<unitPattern count="one" draft="contributed">סיבית {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} סיביות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} סיביות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} סיביות</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName draft="contributed">מאות</displayName>
+				<unitPattern count="one" draft="contributed">מאה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מאות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מאות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מאות</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>ש׳</displayName>
-				<unitPattern count="one" draft="contributed">שנה {0}</unitPattern>
+				<unitPattern count="one">שנה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שנים</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} שנים</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} שנים</unitPattern>
+				<unitPattern count="many">{0} שנים</unitPattern>
+				<unitPattern count="other">{0} שנים</unitPattern>
+				<perUnitPattern draft="contributed">{0}/שנה</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>ח׳</displayName>
@@ -8909,13 +9613,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} ח׳</unitPattern>
 				<unitPattern count="many">{0} ח׳</unitPattern>
 				<unitPattern count="other">{0} ח׳</unitPattern>
+				<perUnitPattern draft="contributed">{0}/חודש</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>שבוע</displayName>
-				<unitPattern count="one" draft="contributed">שבוע {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} שבועות</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} שבועות</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} שבועות</unitPattern>
+				<unitPattern count="one">ש′ {0}</unitPattern>
+				<unitPattern count="two">{0} ש′</unitPattern>
+				<unitPattern count="many">{0} ש′</unitPattern>
+				<unitPattern count="other">{0} ש′</unitPattern>
+				<perUnitPattern draft="contributed">{0}/שבוע</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>יום</displayName>
@@ -8923,6 +9629,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} י׳</unitPattern>
 				<unitPattern count="many">{0} י׳</unitPattern>
 				<unitPattern count="other">{0} י׳</unitPattern>
+				<perUnitPattern draft="contributed">{0}/יום</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>שע׳</displayName>
@@ -8930,6 +9637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} שע׳</unitPattern>
 				<unitPattern count="many">{0} שע׳</unitPattern>
 				<unitPattern count="other">{0} שע׳</unitPattern>
+				<perUnitPattern draft="contributed">{0}/שעה</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>דק׳</displayName>
@@ -8937,6 +9645,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">שתי דק׳</unitPattern>
 				<unitPattern count="many">{0} דק׳</unitPattern>
 				<unitPattern count="other">{0} דק׳</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ד׳</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>שנ׳</displayName>
@@ -8944,6 +9653,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">שתי שנ׳</unitPattern>
 				<unitPattern count="many">{0} שנ׳</unitPattern>
 				<unitPattern count="other">{0} שנ׳</unitPattern>
+				<perUnitPattern draft="contributed">{0}/שנ׳</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ms</displayName>
@@ -8952,19 +9662,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="contributed">μsecs</displayName>
+				<unitPattern count="one" draft="contributed">{0} μs</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} μs</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} μs</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="contributed">ns</displayName>
+				<unitPattern count="one" draft="contributed">{0} ns</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ns</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ns</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ns</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>ק״מ</displayName>
 				<unitPattern count="one">{0} ק״מ</unitPattern>
 				<unitPattern count="two">{0} ק״מ</unitPattern>
 				<unitPattern count="many">{0} ק״מ</unitPattern>
 				<unitPattern count="other">{0} ק״מ</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ק״מ</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>מטר</displayName>
-				<unitPattern count="one">מ׳ אחד</unitPattern>
-				<unitPattern count="two">שני מ׳</unitPattern>
-				<unitPattern count="many">{0}מ׳</unitPattern>
+				<unitPattern count="one">מ' {0}</unitPattern>
+				<unitPattern count="two">{0} מ′</unitPattern>
+				<unitPattern count="many">{0} מ׳</unitPattern>
 				<unitPattern count="other">{0} מ׳</unitPattern>
+				<perUnitPattern draft="contributed">{0}/מ׳</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="contributed">ד״מ</displayName>
+				<unitPattern count="one" draft="contributed">{0} ד״מ</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ד״מ</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ד״מ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ד״מ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>ס״מ</displayName>
@@ -8972,6 +9705,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} ס״מ</unitPattern>
 				<unitPattern count="many">{0} ס״מ</unitPattern>
 				<unitPattern count="other">{0} ס״מ</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ס״מ</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>מ״מ</displayName>
@@ -8980,41 +9714,105 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} מ״מ</unitPattern>
 				<unitPattern count="other">{0} מ״מ</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="contributed">µm</displayName>
+				<unitPattern count="one" draft="contributed">{0} µm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} µm</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} µm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName draft="contributed">nm</displayName>
+				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} nm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} nm</unitPattern>
+			</unit>
 			<unit type="length-picometer">
-				<unitPattern count="one" draft="contributed">פיקומטר {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} פיקומטר</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} פיקומטר</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} פיקומטר</unitPattern>
+				<displayName draft="contributed">פ״מ</displayName>
+				<unitPattern count="one">פיקומטר {0}</unitPattern>
+				<unitPattern count="two">{0} פיקומטר</unitPattern>
+				<unitPattern count="many">{0} פיקומטר</unitPattern>
+				<unitPattern count="other">{0} פיקומטר</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<unitPattern count="one" draft="contributed">מייל {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} מייל</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} מייל</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} מייל</unitPattern>
+				<displayName draft="contributed">מייל</displayName>
+				<unitPattern count="one">מייל {0}</unitPattern>
+				<unitPattern count="two">{0} מייל</unitPattern>
+				<unitPattern count="many">{0} מייל</unitPattern>
+				<unitPattern count="other">{0} מייל</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<unitPattern count="one" draft="contributed">יארד {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} יארד</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} יארד</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} יארד</unitPattern>
+				<displayName draft="contributed">יארד</displayName>
+				<unitPattern count="one">יארד {0}</unitPattern>
+				<unitPattern count="two">{0} יארד</unitPattern>
+				<unitPattern count="many">{0} יארד</unitPattern>
+				<unitPattern count="other">{0} יארד</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<unitPattern count="one" draft="contributed">רגל {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} רגל</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} רגל</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} רגל</unitPattern>
+				<displayName draft="contributed">רגל</displayName>
+				<unitPattern count="one">רגל {0}</unitPattern>
+				<unitPattern count="two">{0} רגל</unitPattern>
+				<unitPattern count="many">{0} רגל</unitPattern>
+				<unitPattern count="other">{0} רגל</unitPattern>
+				<perUnitPattern draft="contributed">{0}/רגל</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="contributed">אינץ׳</displayName>
 				<unitPattern count="one" draft="contributed">אינץ׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אינץ׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אינץ׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אינץ׳</unitPattern>
+				<perUnitPattern draft="contributed">{0}/אינץ׳</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName draft="contributed">pc</displayName>
+				<unitPattern count="one" draft="contributed">{0} pc</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} pc</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} pc</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<unitPattern count="one" draft="contributed">שנת אור {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} שנות אור</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} שנות אור</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} שנות אור</unitPattern>
+				<displayName draft="contributed">שנות אור</displayName>
+				<unitPattern count="one">שנת אור {0}</unitPattern>
+				<unitPattern count="two">{0} שנות אור</unitPattern>
+				<unitPattern count="many">{0} שנות אור</unitPattern>
+				<unitPattern count="other">{0} שנות אור</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">au</displayName>
+				<unitPattern count="one" draft="contributed">{0} au</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} au</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} au</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} au</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="contributed">מ״י</displayName>
+				<unitPattern count="one" draft="contributed">מ״י אחד</unitPattern>
+				<unitPattern count="two" draft="contributed">שני מ״י</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ״י</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ״י</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName draft="contributed">smi</displayName>
+				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} smi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName draft="contributed">נק׳</displayName>
+				<unitPattern count="one" draft="contributed">נק׳ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} נק׳</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} נק׳</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} נק'</unitPattern>
+			</unit>
+			<unit type="mass-metric-ton">
+				<displayName draft="contributed">t</displayName>
+				<unitPattern count="one" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ק״ג</displayName>
@@ -9022,6 +9820,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0}kg</unitPattern>
 				<unitPattern count="many">{0}kg</unitPattern>
 				<unitPattern count="other">{0}kg</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ק״ג</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>גרם</displayName>
@@ -9029,18 +9828,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0}g</unitPattern>
 				<unitPattern count="many">{0}g</unitPattern>
 				<unitPattern count="other">{0}g</unitPattern>
+				<perUnitPattern draft="contributed">{0}/גר׳</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName draft="contributed">מ״ג</displayName>
+				<unitPattern count="one" draft="contributed">{0} מ״ג</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ״ג</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ״ג</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ״ג</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName draft="contributed">מק״ג</displayName>
+				<unitPattern count="one" draft="contributed">מק״ג {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מק״ג</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מק״ג</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מק״ג</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName draft="contributed">טון</displayName>
+				<unitPattern count="one" draft="contributed">ט׳ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ט׳</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ט׳</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ט׳</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName draft="contributed">st</displayName>
+				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} st</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="contributed">פאונד</displayName>
 				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
+				<perUnitPattern draft="contributed">{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="contributed">oz</displayName>
 				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
+				<perUnitPattern draft="contributed">{0}/oz</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName draft="contributed">oz t</displayName>
+				<unitPattern count="one" draft="contributed">{0} oz t</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} oz t</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} oz t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz t</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName draft="contributed">קרט</displayName>
+				<unitPattern count="one" draft="contributed">{0} CD</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} CD</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} CD</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} CD</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
@@ -9061,18 +9907,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} כ״ס</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} hPa</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} hPa</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
+				<displayName draft="contributed">hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="two">{0} hPa</unitPattern>
+				<unitPattern count="many">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName draft="contributed">mm Hg</displayName>
+				<unitPattern count="one" draft="contributed">{0} mm Hg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mm Hg</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} mm Hg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mm Hg</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName draft="contributed">psi</displayName>
+				<unitPattern count="one" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} psi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} inHg</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} inHg</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
+				<displayName draft="contributed">in Hg</displayName>
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="two">{0} inHg</unitPattern>
+				<unitPattern count="many">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="contributed">מ״ב</displayName>
 				<unitPattern count="one">מיליבר {0}</unitPattern>
 				<unitPattern count="two">{0} מיליבר</unitPattern>
 				<unitPattern count="many">{0} מיליבר</unitPattern>
@@ -9086,16 +9949,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} קמ״ש</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="contributed">מ׳/שנ׳</displayName>
 				<unitPattern count="one" draft="contributed">{0} מ/ש</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מ/ש</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מ/ש</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מ/ש</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<unitPattern count="one" draft="contributed">{0} mph</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} mph</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} mph</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mph</unitPattern>
+				<displayName draft="contributed">mph</displayName>
+				<unitPattern count="one">{0} mph</unitPattern>
+				<unitPattern count="two">{0} mph</unitPattern>
+				<unitPattern count="many">{0} mph</unitPattern>
+				<unitPattern count="other">{0} mph</unitPattern>
+			</unit>
+			<unit type="speed-knot">
+				<displayName draft="contributed">kn</displayName>
+				<unitPattern count="one" draft="contributed">{0} kn</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kn</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} kn</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kn</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
@@ -9105,10 +9984,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="contributed">°F</displayName>
 				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName draft="contributed">K</displayName>
+				<unitPattern count="one" draft="contributed">{0} K</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} K</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} K</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} K</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one" draft="contributed">{0} קמ״ק</unitPattern>
@@ -9130,10 +10017,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ל׳</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east" draft="provisional">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="provisional">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south" draft="provisional">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west" draft="provisional">{0}W</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} מז׳</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} צפ׳</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} דר׳</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} מע׳</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
@@ -9152,6 +10039,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} ו{1}</listPatternPart>
 			<listPatternPart type="2">{0} ו{1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, או {1}</listPatternPart>
+			<listPatternPart type="2">{0} או {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -9180,8 +10073,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</listPatterns>
 	<posix>
 		<messages>
-			<yesstr>yes:y</yesstr>
-			<nostr>no:n</nostr>
+			<yesstr>כן:כ</yesstr>
+			<nostr>לא:ל</nostr>
 		</messages>
 	</posix>
 	<characterLabels>
@@ -9221,14 +10114,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="emoji">אמוג׳י</characterLabel>
 		<characterLabel type="european_scripts">סקריפטים אירופאיים</characterLabel>
 		<characterLabel type="female">אישה</characterLabel>
-		<characterLabel type="flag">דגל בצבעי הקשת</characterLabel>
+		<characterLabel type="flag">דגל</characterLabel>
 		<characterLabel type="flags">דגלים</characterLabel>
 		<characterLabel type="food_drink">מזון ומשקאות</characterLabel>
 		<characterLabel type="format">פורמט</characterLabel>
 		<characterLabel type="format_whitespace">פורמט ורווחים לבנים</characterLabel>
-		<characterLabel type="full_width_form_variant" draft="provisional">משתנה ברוחב מלא</characterLabel>
+		<characterLabel type="full_width_form_variant">משתנה ברוחב מלא</characterLabel>
 		<characterLabel type="geometric_shapes">צורות גאומטריות</characterLabel>
-		<characterLabel type="half_width_form_variant" draft="provisional">משתני צורות חצי רוחב</characterLabel>
+		<characterLabel type="half_width_form_variant">משתנים מבחינת רוחב</characterLabel>
 		<characterLabel type="han_characters">תווי האן</characterLabel>
 		<characterLabel type="han_radicals">רדיקלים של האן</characterLabel>
 		<characterLabel type="hanja">האנג׳ה</characterLabel>
@@ -9268,9 +10161,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="sign_standard_symbols">סימנים סטנדרטיים</characterLabel>
 		<characterLabel type="small_form_variant">משתני צורות קטנות</characterLabel>
 		<characterLabel type="smiley">חיוך</characterLabel>
-		<characterLabel type="smileys_people" draft="provisional">הבעות סמיילי ואנשים</characterLabel>
-		<characterLabel type="south_asian_scripts">סוגי כתב דרום אסייתיים</characterLabel>
-		<characterLabel type="southeast_asian_scripts">סוגי כתב מזרח אסייתיים</characterLabel>
+		<characterLabel type="smileys_people">סמיילי או אנשים</characterLabel>
+		<characterLabel type="south_asian_scripts">מערכות כתב דרום אסייתיות</characterLabel>
+		<characterLabel type="southeast_asian_scripts">מערכות כתב מזרח אסייתיות</characterLabel>
 		<characterLabel type="spacing">ריווח</characterLabel>
 		<characterLabel type="sport">ספורט</characterLabel>
 		<characterLabel type="symbols">סמלים</characterLabel>
@@ -9282,7 +10175,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="variant_forms">חלופות</characterLabel>
 		<characterLabel type="vocalic_jamo">ג׳אמו ווקאלי</characterLabel>
 		<characterLabel type="weather">מזג אוויר</characterLabel>
-		<characterLabel type="western_asian_scripts" draft="provisional">סוגי כתב מערב אסייתיים</characterLabel>
+		<characterLabel type="western_asian_scripts" draft="provisional">מערכות כתב מערב אסייתיות</characterLabel>
 		<characterLabel type="whitespace">רווח לבן</characterLabel>
 	</characterLabels>
 </ldml>

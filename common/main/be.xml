@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -34,7 +36,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ang">стараанглійская</language>
 			<language type="anp">ангіка</language>
 			<language type="ar">арабская</language>
-			<language type="ar_001">сучасная стандартная арабская</language>
+			<language type="ar_001">арабская (Свет)</language>
 			<language type="arc">арамейская</language>
 			<language type="arn">мапудунгун</language>
 			<language type="arp">арапаха</language>
@@ -91,8 +93,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">даргінская</language>
 			<language type="dav">таіта</language>
 			<language type="de">нямецкая</language>
-			<language type="de_AT">аўстрыйская нямецкая</language>
-			<language type="de_CH">швейцарская стандартная нямецкая</language>
+			<language type="de_AT">нямецкая (Аўстрыя)</language>
+			<language type="de_CH">нямецкая (Швейцарыя)</language>
 			<language type="dgr">догрыб</language>
 			<language type="dje">зарма</language>
 			<language type="dsb">ніжнялужыцкая</language>
@@ -108,12 +110,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eka">экаджук</language>
 			<language type="el">грэчаская</language>
 			<language type="en">англійская</language>
-			<language type="en_AU">аўстралійская англійская</language>
-			<language type="en_CA">канадская англійская</language>
-			<language type="en_GB">брытанская англійская</language>
-			<language type="en_GB" alt="short">брытанская англійская</language>
-			<language type="en_US">амерыканская англійская</language>
-			<language type="en_US" alt="short">амерыканская англійская</language>
+			<language type="en_AU">англійская (Аўстралія)</language>
+			<language type="en_CA">англійская (Канада)</language>
+			<language type="en_GB">англійская (Вялікабрытанія)</language>
+			<language type="en_GB" alt="short">англійская (Вялікабрытанія)</language>
+			<language type="en_US">англійская (Злучаныя Штаты Амерыкі)</language>
+			<language type="en_US" alt="short">англійская (ЗША)</language>
 			<language type="eo">эсперанта</language>
 			<language type="es">іспанская</language>
 			<language type="es_419">лацінаамерыканская іспанская</language>
@@ -286,7 +288,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nia">ніас</language>
 			<language type="niu">ніўэ</language>
 			<language type="nl">нідэрландская</language>
-			<language type="nl_BE">фламандская</language>
+			<language type="nl_BE">нідэрландская (Бельгія)</language>
 			<language type="nmg">нгумба</language>
 			<language type="nn">нарвежская (нюношк)</language>
 			<language type="nnh">нг’ембон</language>
@@ -371,7 +373,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="srn">сранан-тонга</language>
 			<language type="ss">суаці</language>
 			<language type="ssy">саха</language>
-			<language type="st">паўднёвая сота</language>
+			<language type="st">сесута</language>
 			<language type="su">сунда</language>
 			<language type="suk">сукума</language>
 			<language type="sux">шумерская</language>
@@ -433,8 +435,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zap">сапатэк</language>
 			<language type="zgh">стандартная мараканская тамазіхт</language>
 			<language type="zh">кітайская</language>
-			<language type="zh_Hans">спрошчаная кітайская</language>
-			<language type="zh_Hant">традыцыйная кітайская</language>
+			<language type="zh_Hans">кітайская (спрошчанае кітайскае)</language>
+			<language type="zh_Hant">кітайская (традыцыйнае кітайскае)</language>
 			<language type="zu">зулу</language>
 			<language type="zun">зуні</language>
 			<language type="zxx">няма моўнага матэрыялу</language>
@@ -551,7 +553,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BO">Балівія</territory>
 			<territory type="BQ">Карыбскія Нідэрланды</territory>
 			<territory type="BR">Бразілія</territory>
-			<territory type="BS">Багамы</territory>
+			<territory type="BS">Багамскія астравы</territory>
 			<territory type="BT">Бутан</territory>
 			<territory type="BV">Востраў Бувэ</territory>
 			<territory type="BW">Батсвана</territory>
@@ -561,7 +563,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CC">Какосавыя (Кілінг) астравы</territory>
 			<territory type="CD">Конга (Кіншаса)</territory>
 			<territory type="CD" alt="variant">Конга (ДРК)</territory>
-			<territory type="CF">Цэнтральнаафрыканская Рэспубліка</territory>
+			<territory type="CF">Цэнтральна-Афрыканская Рэспубліка</territory>
 			<territory type="CG">Конга - Бразавіль</territory>
 			<territory type="CG" alt="variant">Рэспубліка Конга</territory>
 			<territory type="CH">Швейцарыя</territory>
@@ -580,6 +582,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Востраў Каляд</territory>
 			<territory type="CY">Кіпр</territory>
 			<territory type="CZ">Чэхія</territory>
+			<territory type="CZ" alt="variant">Чэшская Рэспубліка</territory>
 			<territory type="DE">Германія</territory>
 			<territory type="DG">Востраў Дыега-Гарсія</territory>
 			<territory type="DJ">Джыбуці</territory>
@@ -596,6 +599,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Іспанія</territory>
 			<territory type="ET">Эфіопія</territory>
 			<territory type="EU">Еўрапейскі саюз</territory>
+			<territory type="EZ">Еўразона</territory>
 			<territory type="FI">Фінляндыя</territory>
 			<territory type="FJ">Фіджы</territory>
 			<territory type="FK">Фалклендскія астравы</territory>
@@ -649,7 +653,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="KG">Кыргызстан</territory>
 			<territory type="KH">Камбоджа</territory>
 			<territory type="KI">Кірыбаці</territory>
-			<territory type="KM">Каморскія Астравы</territory>
+			<territory type="KM">Каморскія астравы</territory>
 			<territory type="KN">Сент-Кітс і Невіс</territory>
 			<territory type="KP">Паўночная Карэя</territory>
 			<territory type="KR">Паўднёвая Карэя</territory>
@@ -673,7 +677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ME">Чарнагорыя</territory>
 			<territory type="MF">Сен-Мартэн</territory>
 			<territory type="MG">Мадагаскар</territory>
-			<territory type="MH">Маршалавы Астравы</territory>
+			<territory type="MH">Маршалавы астравы</territory>
 			<territory type="MK">Македонія</territory>
 			<territory type="MK" alt="variant">Македонія (БЮРМ)</territory>
 			<territory type="ML">Малі</territory>
@@ -728,8 +732,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="RU">Расія</territory>
 			<territory type="RW">Руанда</territory>
 			<territory type="SA">Саудаўская Аравія</territory>
-			<territory type="SB">Саламонавы Астравы</territory>
-			<territory type="SC">Сейшэльскія Астравы</territory>
+			<territory type="SB">Саламонавы астравы</territory>
+			<territory type="SC">Сейшэльскія астравы</territory>
 			<territory type="SD">Судан</territory>
 			<territory type="SE">Швецыя</territory>
 			<territory type="SG">Сінгапур</territory>
@@ -749,9 +753,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SY">Сірыя</territory>
 			<territory type="SZ">Свазіленд</territory>
 			<territory type="TA">Трыстан-да-Кунья</territory>
-			<territory type="TC">Цёркс і Кайкас</territory>
+			<territory type="TC">Астравы Цёркс і Кайкас</territory>
 			<territory type="TD">Чад</territory>
-			<territory type="TF">Французскія Паўднёвыя тэрыторыі</territory>
+			<territory type="TF">Французскія паўднёвыя тэрыторыі</territory>
 			<territory type="TG">Тога</territory>
 			<territory type="TH">Тайланд</territory>
 			<territory type="TJ">Таджыкістан</territory>
@@ -769,6 +773,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Украіна</territory>
 			<territory type="UG">Уганда</territory>
 			<territory type="UM">Малыя Аддаленыя астравы ЗША</territory>
+			<territory type="UN">ААН</territory>
 			<territory type="US">Злучаныя Штаты Амерыкі</territory>
 			<territory type="US" alt="short">ЗША</territory>
 			<territory type="UY">Уругвай</territory>
@@ -785,7 +790,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="XK">Косава</territory>
 			<territory type="YE">Емен</territory>
 			<territory type="YT">Маёта</territory>
-			<territory type="ZA">Паўднёваафрыканская Рэспубліка</territory>
+			<territory type="ZA">Паўднёва-Афрыканская Рэспубліка</territory>
 			<territory type="ZM">Замбія</territory>
 			<territory type="ZW">Зімбабвэ</territory>
 			<territory type="ZZ">Невядомы рэгіён</territory>
@@ -989,13 +994,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
 						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
@@ -1007,7 +1023,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm.ss</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M.y G</dateFormatItem>
@@ -1363,7 +1379,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">да н.э.</era>
+						<era type="0" alt="variant">да н.э.</era>
 						<era type="1">н.э.</era>
+						<era type="1" alt="variant">н.э.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1432,8 +1450,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1584,6 +1607,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>эра</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>эра</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>эра</displayName>
 			</field>
 			<field type="year">
@@ -1781,6 +1810,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>тыдзень {0}</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>тыдзень месяца</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>тыдзень месяца</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>тыдзень месяца</displayName>
+			</field>
 			<field type="day">
 				<displayName>дзень</displayName>
 				<relative type="-2">пазаўчора</relative>
@@ -1819,20 +1857,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="day-narrow">
 				<displayName>д.</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} д.</relativeTimePattern>
-					<relativeTimePattern count="few">праз {0} д.</relativeTimePattern>
-					<relativeTimePattern count="many">праз {0} д.</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} д.</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} дзень</relativeTimePattern>
+					<relativeTimePattern count="few">праз {0} дні</relativeTimePattern>
+					<relativeTimePattern count="many">праз {0} дзён</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} дня</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} д. таму</relativeTimePattern>
-					<relativeTimePattern count="few">{0} д. таму</relativeTimePattern>
-					<relativeTimePattern count="many">{0} д. таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} д. таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} дзень таму</relativeTimePattern>
+					<relativeTimePattern count="few">{0} дні таму</relativeTimePattern>
+					<relativeTimePattern count="many">{0} дзён таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} дня таму</relativeTimePattern>
 				</relativeTime>
+			</field>
+			<field type="dayOfYear">
+				<displayName>дзень года</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>дзень года</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>дзень года</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>дзень тыдня</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>дзень тыдня</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>дзень тыдня</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>дзень месяца</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>дзень месяца</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>дзень месяца</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">у мінулую нядзелю</relative>
@@ -2191,7 +2253,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} суботы таму</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>AM/PM</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>AM/PM</displayName>
 			</field>
 			<field type="hour">
@@ -2335,6 +2403,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>часавы пояс</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>часавы пояс</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>часавы пояс</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
@@ -2349,6 +2423,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Джонстан</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Універсальны каардынаваны час</standard>
+				</long>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Невядомы горад</exemplarCity>
@@ -2396,7 +2475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Дэйвіс</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
-				<exemplarCity>Усход</exemplarCity>
+				<exemplarCity>Васток</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Casey">
 				<exemplarCity>Кэйсі</exemplarCity>
@@ -2713,6 +2792,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>Пасхі востраў</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Пунта Арэнас</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Сант’яга</exemplarCity>
 			</zone>
@@ -2745,6 +2827,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Нікасія</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Фамагуста</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Прага</exemplarCity>
@@ -3003,6 +3088,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Уральск</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Атырау</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Актабэ</exemplarCity>
@@ -3282,6 +3370,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Валгаград</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Саратаў</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Астрахань</exemplarCity>
@@ -3915,7 +4006,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Further_Eastern">
 				<long>
-					<standard>Беларускі час</standard>
+					<standard>Далёкаўсходнееўрапейскі час</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
@@ -3946,7 +4037,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard>Час Французскіх Паўднёвых і Антарктычных тэрыторый</standard>
+					<standard>Час Французскай паўднёва-антарктычнай тэрыторыі</standard>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -3956,7 +4047,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Gambier">
 				<long>
-					<standard>Час атравоў Гамб’е</standard>
+					<standard>Час астравоў Гамб’е</standard>
 				</long>
 			</metazone>
 			<metazone type="Georgia">
@@ -4098,7 +4189,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
-					<standard>Час астравоў Кусаіе</standard>
+					<standard>Час вострава Касрае</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
@@ -4471,7 +4562,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Vostok">
 				<long>
-					<standard>Час станцыі Усход</standard>
+					<standard>Час станцыі Васток</standard>
 				</long>
 			</metazone>
 			<metazone type="Wake">
@@ -4966,6 +5057,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">чылійскага песа</displayName>
 				<symbol draft="contributed">CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>афшорны кітайскі юань</displayName>
+				<displayName count="one">афшорны кітайскі юань</displayName>
+				<displayName count="few">афшорныя кітайскія юані</displayName>
+				<displayName count="many">афшорных кітайскіх юаняў</displayName>
+				<displayName count="other">афшорнага кітайскага юаня</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>кітайскі юань</displayName>
@@ -5685,6 +5784,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="many">румынскіх леяў</displayName>
 				<displayName count="other">румынскага лея</displayName>
 				<symbol draft="contributed">RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>сербскі дынар</displayName>
@@ -5911,11 +6011,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">TZS</symbol>
 			</currency>
 			<currency type="UAH">
-				<displayName>украінская грыўна</displayName>
-				<displayName count="one">украінская грыўна</displayName>
+				<displayName>украінская грыўня</displayName>
+				<displayName count="one">украінская грыўня</displayName>
 				<displayName count="few">украінскія грыўні</displayName>
-				<displayName count="many">украінскіх грыўнаў</displayName>
-				<displayName count="other">украінскай грыўны</displayName>
+				<displayName count="many">украінскіх грыўняў</displayName>
+				<displayName count="other">украінскай грыўні</displayName>
 				<symbol draft="contributed">UAH</symbol>
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
@@ -6059,18 +6159,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">з {0} кнігі за {0} дзень</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">з {0} кніг за {0} дні</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">з {0} кніг за {0} дзён</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">з {0} кніги за {0} дні</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">{0}-і дом злева</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}-ы дом злева</ordinalMinimalPairs>
+			<pluralMinimalPairs count="one">{0} дзень</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} дні</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} дзён</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">з {0} кнігі за {0} дня</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}-і справа</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-ы справа</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
-				<compoundUnitPattern>{0} на {1}</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>перагрузка</displayName>
@@ -6080,31 +6180,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-second-squared">
-				<displayName>метры за секунду ў квадраце</displayName>
-				<unitPattern count="one">{0} метр за секунду ў квадраце</unitPattern>
-				<unitPattern count="few">{0} метры за секунду ў квадраце</unitPattern>
-				<unitPattern count="many">{0} метраў за секунду ў квадраце</unitPattern>
-				<unitPattern count="other">{0} метра за секунду ў квадраце</unitPattern>
+				<displayName>м/с²</displayName>
+				<unitPattern count="one">{0} м/с²</unitPattern>
+				<unitPattern count="few">{0} м/с²</unitPattern>
+				<unitPattern count="many">{0} м/с²</unitPattern>
+				<unitPattern count="other">{0} м/с²</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>абарот</displayName>
-				<unitPattern count="one">{0} абарот</unitPattern>
-				<unitPattern count="few">{0} абароты</unitPattern>
-				<unitPattern count="many">{0} абаротаў</unitPattern>
-				<unitPattern count="other">{0} абарота</unitPattern>
+				<unitPattern count="one">{0} аб</unitPattern>
+				<unitPattern count="few">{0} аб</unitPattern>
+				<unitPattern count="many">{0} аб</unitPattern>
+				<unitPattern count="other">{0} аб</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>радыяны</displayName>
-				<unitPattern count="one">{0} радыян</unitPattern>
-				<unitPattern count="few">{0} радыяны</unitPattern>
-				<unitPattern count="many">{0} радыян</unitPattern>
-				<unitPattern count="other">{0} радыяна</unitPattern>
+				<unitPattern count="one">{0} рад</unitPattern>
+				<unitPattern count="few">{0} рад</unitPattern>
+				<unitPattern count="many">{0} рад</unitPattern>
+				<unitPattern count="other">{0} рад</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>градусы</displayName>
-				<unitPattern count="one">{0} градус</unitPattern>
-				<unitPattern count="few">{0} градусы</unitPattern>
-				<unitPattern count="many">{0} градусаў</unitPattern>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="few">{0}°</unitPattern>
+				<unitPattern count="many">{0}°</unitPattern>
 				<unitPattern count="other">{0} градуса</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
@@ -6191,24 +6291,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>караты золата</displayName>
-				<unitPattern count="one">{0} карат золата</unitPattern>
-				<unitPattern count="few">{0} караты золата</unitPattern>
-				<unitPattern count="many">{0} карат золата</unitPattern>
-				<unitPattern count="other">{0} карата золата</unitPattern>
+				<unitPattern count="one">{0} кар зол</unitPattern>
+				<unitPattern count="few">{0} кар зол</unitPattern>
+				<unitPattern count="many">{0} кар зол</unitPattern>
+				<unitPattern count="other">{0} кар зол</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>міліграм на дэцылітр</displayName>
-				<unitPattern count="one">{0} міліграм на дэцылітр</unitPattern>
-				<unitPattern count="few">{0} міліграмы на дэцылітр</unitPattern>
-				<unitPattern count="many">{0} міліграм на дэцылітр</unitPattern>
-				<unitPattern count="other">{0} міліграма на дэцылітр</unitPattern>
+				<unitPattern count="one">{0} мг на дл</unitPattern>
+				<unitPattern count="few">{0} мг на дл</unitPattern>
+				<unitPattern count="many">{0} мг на дл</unitPattern>
+				<unitPattern count="other">{0} мг на дл</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>мілімоляў на літр</displayName>
-				<unitPattern count="one">{0} мілімоль на літр</unitPattern>
-				<unitPattern count="few">{0} мілімолі на літр</unitPattern>
-				<unitPattern count="many">{0} мілімоляў на літр</unitPattern>
-				<unitPattern count="other">{0} мілімоля на літр</unitPattern>
+				<unitPattern count="one">{0} ммоль/л</unitPattern>
+				<unitPattern count="few">{0} ммоль/л</unitPattern>
+				<unitPattern count="many">{0} ммоль/л</unitPattern>
+				<unitPattern count="other">{0} ммоль/л</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
 				<displayName>частак на мільён</displayName>
@@ -6219,87 +6319,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>літры на кіламетр</displayName>
-				<unitPattern count="one">{0} літр на кіламетр</unitPattern>
-				<unitPattern count="few">{0} літры на кіламетр</unitPattern>
-				<unitPattern count="many">{0} літраў на кіламетр</unitPattern>
-				<unitPattern count="other">{0} літра на кіламетр</unitPattern>
+				<unitPattern count="one">{0} л/км</unitPattern>
+				<unitPattern count="few">{0} л/км</unitPattern>
+				<unitPattern count="many">{0} л/км</unitPattern>
+				<unitPattern count="other">{0} л/км</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>літры на 100 кіламетраў</displayName>
-				<unitPattern count="one">{0} літр на 100 кіламетраў</unitPattern>
-				<unitPattern count="few">{0} літры на 100 кіламетраў</unitPattern>
-				<unitPattern count="many">{0} літраў на 100 кіламетраў</unitPattern>
-				<unitPattern count="other">{0} літра на 100 кіламетраў</unitPattern>
+				<unitPattern count="one">{0} л/100 км</unitPattern>
+				<unitPattern count="few">{0} л/100 км</unitPattern>
+				<unitPattern count="many">{0} л/100 км</unitPattern>
+				<unitPattern count="other">{0} л/100 км</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>мілі на галон</displayName>
-				<unitPattern count="one">{0} міля на галон</unitPattern>
-				<unitPattern count="few">{0} мілі на галон</unitPattern>
-				<unitPattern count="many">{0} міль на галон</unitPattern>
-				<unitPattern count="other">{0} мілі на галон</unitPattern>
+				<unitPattern count="one">{0} міля/гал.</unitPattern>
+				<unitPattern count="few">{0} мілі/гал.</unitPattern>
+				<unitPattern count="many">{0} міль/гал.</unitPattern>
+				<unitPattern count="other">{0} мілі/гал.</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>міль на імп. галон</displayName>
 				<unitPattern count="one">{0} міля на імп. галон</unitPattern>
 				<unitPattern count="few">{0} мілі на імп. галон</unitPattern>
-				<unitPattern count="many">{0} міль на імп. галон</unitPattern>
+				<unitPattern count="many">{0} міль/імп. галон</unitPattern>
 				<unitPattern count="other">{0} мілі на імп. галон</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>тэрабайты</displayName>
-				<unitPattern count="one">{0} тэрабайт</unitPattern>
-				<unitPattern count="few">{0} тэрабайты</unitPattern>
-				<unitPattern count="many">{0} тэрабайт</unitPattern>
-				<unitPattern count="other">{0} тэрабайта</unitPattern>
+				<unitPattern count="one">{0} ТБ</unitPattern>
+				<unitPattern count="few">{0} ТБ</unitPattern>
+				<unitPattern count="many">{0} ТБ</unitPattern>
+				<unitPattern count="other">{0} ТБ</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>тэрабіты</displayName>
-				<unitPattern count="one">{0} тэрабіт</unitPattern>
-				<unitPattern count="few">{0} тэрабіты</unitPattern>
-				<unitPattern count="many">{0} тэрабіт</unitPattern>
-				<unitPattern count="other">{0} тэрабіт</unitPattern>
+				<unitPattern count="one">{0} Тбіт</unitPattern>
+				<unitPattern count="few">{0} Тбіт</unitPattern>
+				<unitPattern count="many">{0} Тбіт</unitPattern>
+				<unitPattern count="other">{0} Тбіт</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<displayName>гігабайты</displayName>
-				<unitPattern count="one">{0} гігабайт</unitPattern>
-				<unitPattern count="few">{0} гігабайты</unitPattern>
-				<unitPattern count="many">{0} гігабайт</unitPattern>
-				<unitPattern count="other">{0} гігабайта</unitPattern>
+				<unitPattern count="one">{0} ГБ</unitPattern>
+				<unitPattern count="few">{0} ГБ</unitPattern>
+				<unitPattern count="many">{0} ГБ</unitPattern>
+				<unitPattern count="other">{0} ГБ</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName>гігабіты</displayName>
-				<unitPattern count="one">{0} гігабіт</unitPattern>
-				<unitPattern count="few">{0} гігабіты</unitPattern>
-				<unitPattern count="many">{0} гігабіт</unitPattern>
-				<unitPattern count="other">{0} гігабіта</unitPattern>
+				<unitPattern count="one">{0} Гбіт</unitPattern>
+				<unitPattern count="few">{0} Гбіт</unitPattern>
+				<unitPattern count="many">{0} Гбіт</unitPattern>
+				<unitPattern count="other">{0} Гбіт</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName>мегабайты</displayName>
-				<unitPattern count="one">{0} мегабайт</unitPattern>
-				<unitPattern count="few">{0} мегабайты</unitPattern>
-				<unitPattern count="many">{0} мегабайт</unitPattern>
-				<unitPattern count="other">{0} мегабайта</unitPattern>
+				<unitPattern count="one">{0} МБ</unitPattern>
+				<unitPattern count="few">{0} МБ</unitPattern>
+				<unitPattern count="many">{0} МБ</unitPattern>
+				<unitPattern count="other">{0} МБ</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName>мегабіты</displayName>
-				<unitPattern count="one">{0} мегабіт</unitPattern>
-				<unitPattern count="few">{0} мегабіты</unitPattern>
-				<unitPattern count="many">{0} мегабіт</unitPattern>
-				<unitPattern count="other">{0} мегабіта</unitPattern>
+				<unitPattern count="one">{0} Мбіт</unitPattern>
+				<unitPattern count="few">{0} Мбіт</unitPattern>
+				<unitPattern count="many">{0} Мбіт</unitPattern>
+				<unitPattern count="other">{0} Мбіт</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
 				<displayName>кілабайты</displayName>
-				<unitPattern count="one">{0} кілабайт</unitPattern>
-				<unitPattern count="few">{0} кілабайты</unitPattern>
-				<unitPattern count="many">{0} кілабайт</unitPattern>
-				<unitPattern count="other">{0} кілабайта</unitPattern>
+				<unitPattern count="one">{0} КБ</unitPattern>
+				<unitPattern count="few">{0} КБ</unitPattern>
+				<unitPattern count="many">{0} КБ</unitPattern>
+				<unitPattern count="other">{0} КБ</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>кілабіты</displayName>
-				<unitPattern count="one">{0} кілабіт</unitPattern>
-				<unitPattern count="few">{0} кілабіты</unitPattern>
-				<unitPattern count="many">{0} кілабіт</unitPattern>
-				<unitPattern count="other">{0} кілабіта</unitPattern>
+				<unitPattern count="one">{0} кбіт</unitPattern>
+				<unitPattern count="few">{0} кбіт</unitPattern>
+				<unitPattern count="many">{0} кбіт</unitPattern>
+				<unitPattern count="other">{0} кбіт</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName>байты</displayName>
@@ -6401,17 +6501,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>амперы</displayName>
-				<unitPattern count="one">{0} ампер</unitPattern>
-				<unitPattern count="few">{0} амперы</unitPattern>
-				<unitPattern count="many">{0} ампер</unitPattern>
+				<unitPattern count="one">{0} A</unitPattern>
+				<unitPattern count="few">{0} A</unitPattern>
+				<unitPattern count="many">{0} A</unitPattern>
 				<unitPattern count="other">{0} ампера</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>міліамперы</displayName>
-				<unitPattern count="one">{0} міліампер</unitPattern>
-				<unitPattern count="few">{0} міліамперы</unitPattern>
-				<unitPattern count="many">{0} міліампер</unitPattern>
-				<unitPattern count="other">{0} міліампера</unitPattern>
+				<unitPattern count="one">{0} мА</unitPattern>
+				<unitPattern count="few">{0} мА</unitPattern>
+				<unitPattern count="many">{0} мА</unitPattern>
+				<unitPattern count="other">{0} мА</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
 				<displayName>омы</displayName>
@@ -6422,80 +6522,80 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="electric-volt">
 				<displayName>вольты</displayName>
-				<unitPattern count="one">{0} вольт</unitPattern>
-				<unitPattern count="few">{0} вольты</unitPattern>
-				<unitPattern count="many">{0} вольт</unitPattern>
-				<unitPattern count="other">{0} вольта</unitPattern>
+				<unitPattern count="one">{0} В</unitPattern>
+				<unitPattern count="few">{0} В</unitPattern>
+				<unitPattern count="many">{0} В</unitPattern>
+				<unitPattern count="other">{0} В</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>кілакалорыі</displayName>
-				<unitPattern count="one">{0} кілакалорыя</unitPattern>
-				<unitPattern count="few">{0} кілакалорыі</unitPattern>
-				<unitPattern count="many">{0} кілакалорый</unitPattern>
-				<unitPattern count="other">{0} кілакалорыі</unitPattern>
+				<unitPattern count="one">{0} ккал</unitPattern>
+				<unitPattern count="few">{0} ккал</unitPattern>
+				<unitPattern count="many">{0} ккал</unitPattern>
+				<unitPattern count="other">{0} ккал</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<displayName>калорыі</displayName>
-				<unitPattern count="one">{0} калорыя</unitPattern>
-				<unitPattern count="few">{0} калорыі</unitPattern>
-				<unitPattern count="many">{0} калорый</unitPattern>
+				<unitPattern count="one">{0} кал</unitPattern>
+				<unitPattern count="few">{0} кал</unitPattern>
+				<unitPattern count="many">{0} кал</unitPattern>
 				<unitPattern count="other">{0} калорыі</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>калорыі</displayName>
-				<unitPattern count="one">{0} калорыя</unitPattern>
-				<unitPattern count="few">{0} калорыі</unitPattern>
-				<unitPattern count="many">{0} калорый</unitPattern>
-				<unitPattern count="other">{0} калорыі</unitPattern>
+				<unitPattern count="one">{0} кал</unitPattern>
+				<unitPattern count="few">{0} кал</unitPattern>
+				<unitPattern count="many">{0} кал</unitPattern>
+				<unitPattern count="other">{0} кал</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>кіладжоўлі</displayName>
-				<unitPattern count="one">{0} кіладжоўль</unitPattern>
-				<unitPattern count="few">{0} кіладжоўлі</unitPattern>
-				<unitPattern count="many">{0} кіладжоўляў</unitPattern>
-				<unitPattern count="other">{0} кіладжоўля</unitPattern>
+				<unitPattern count="one">{0} кДж</unitPattern>
+				<unitPattern count="few">{0} кДж</unitPattern>
+				<unitPattern count="many">{0} кДж</unitPattern>
+				<unitPattern count="other">{0} кДж</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName>джоўлі</displayName>
-				<unitPattern count="one">{0} джоўль</unitPattern>
-				<unitPattern count="few">{0} джоўлі</unitPattern>
-				<unitPattern count="many">{0} джоўляў</unitPattern>
-				<unitPattern count="other">{0} джоўля</unitPattern>
+				<unitPattern count="one">{0} Дж</unitPattern>
+				<unitPattern count="few">{0} Дж</unitPattern>
+				<unitPattern count="many">{0} Дж</unitPattern>
+				<unitPattern count="other">{0} Дж</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>кілават-гадзіны</displayName>
-				<unitPattern count="one">{0} кілават-гадзіна</unitPattern>
-				<unitPattern count="few">{0} кілават-гадзіны</unitPattern>
-				<unitPattern count="many">{0} кілават-гадзін</unitPattern>
-				<unitPattern count="other">{0} кілават-гадзіны</unitPattern>
+				<unitPattern count="one">{0} кВт·г</unitPattern>
+				<unitPattern count="few">{0} кВт·г</unitPattern>
+				<unitPattern count="many">{0} кВт·г</unitPattern>
+				<unitPattern count="other">{0} кВт·г</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>гігагерцы</displayName>
-				<unitPattern count="one">{0} гігагерц</unitPattern>
-				<unitPattern count="few">{0} гігагерцы</unitPattern>
-				<unitPattern count="many">{0} гігагерц</unitPattern>
-				<unitPattern count="other">{0} гігагерца</unitPattern>
+				<unitPattern count="one">{0} ГГц</unitPattern>
+				<unitPattern count="few">{0} ГГц</unitPattern>
+				<unitPattern count="many">{0} ГГц</unitPattern>
+				<unitPattern count="other">{0} ГГц</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
 				<displayName>мегагерцы</displayName>
-				<unitPattern count="one">{0} мегагерц</unitPattern>
-				<unitPattern count="few">{0} мегагерцы</unitPattern>
-				<unitPattern count="many">{0} мегагерц</unitPattern>
-				<unitPattern count="other">{0} мегагерца</unitPattern>
+				<unitPattern count="one">{0} МГц</unitPattern>
+				<unitPattern count="few">{0} МГц</unitPattern>
+				<unitPattern count="many">{0} МГц</unitPattern>
+				<unitPattern count="other">{0} МГц</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>кілагерцы</displayName>
-				<unitPattern count="one">{0} кілагерц</unitPattern>
-				<unitPattern count="few">{0} кілагерцы</unitPattern>
-				<unitPattern count="many">{0} кілагерц</unitPattern>
-				<unitPattern count="other">{0} кілагерца</unitPattern>
+				<unitPattern count="one">{0} кГц</unitPattern>
+				<unitPattern count="few">{0} кГц</unitPattern>
+				<unitPattern count="many">{0} кГц</unitPattern>
+				<unitPattern count="other">{0} кГц</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
 				<displayName>герцы</displayName>
-				<unitPattern count="one">{0} герц</unitPattern>
-				<unitPattern count="few">{0} герцы</unitPattern>
-				<unitPattern count="many">{0} герц</unitPattern>
-				<unitPattern count="other">{0} герца</unitPattern>
+				<unitPattern count="one">{0} Гц</unitPattern>
+				<unitPattern count="few">{0} Гц</unitPattern>
+				<unitPattern count="many">{0} Гц</unitPattern>
+				<unitPattern count="other">{0} Гц</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>кіламетры</displayName>
@@ -6621,6 +6721,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} скандынаўскіх міль</unitPattern>
 				<unitPattern count="other">{0} скандынаўскай мілі</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>пункты</displayName>
+				<unitPattern count="one">{0} пункт</unitPattern>
+				<unitPattern count="few">{0} пункты</unitPattern>
+				<unitPattern count="many">{0} пунктаў</unitPattern>
+				<unitPattern count="other">{0} пункту</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>люкс</displayName>
 				<unitPattern count="one">{0} люкс</unitPattern>
@@ -6637,33 +6744,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>кілаграмы</displayName>
-				<unitPattern count="one">{0} кілаграмаў</unitPattern>
-				<unitPattern count="few">{0} кілаграмы</unitPattern>
-				<unitPattern count="many">{0} кілаграм</unitPattern>
-				<unitPattern count="other">{0} кілаграма</unitPattern>
-				<perUnitPattern>{0} на кілаграм</perUnitPattern>
+				<unitPattern count="one">{0} кг</unitPattern>
+				<unitPattern count="few">{0} кг</unitPattern>
+				<unitPattern count="many">{0} кг</unitPattern>
+				<unitPattern count="other">{0} кг</unitPattern>
+				<perUnitPattern>{0}/кг</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>грамы</displayName>
-				<unitPattern count="one">{0} грам</unitPattern>
-				<unitPattern count="few">{0} грамы</unitPattern>
-				<unitPattern count="many">{0} грамаў</unitPattern>
-				<unitPattern count="other">{0} грама</unitPattern>
-				<perUnitPattern>{0} на грам</perUnitPattern>
+				<unitPattern count="one">{0} г</unitPattern>
+				<unitPattern count="few">{0} г</unitPattern>
+				<unitPattern count="many">{0} г</unitPattern>
+				<unitPattern count="other">{0} г</unitPattern>
+				<perUnitPattern>{0}/г</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>міліграмы</displayName>
-				<unitPattern count="one">{0} міліграм</unitPattern>
-				<unitPattern count="few">{0} міліграмы</unitPattern>
-				<unitPattern count="many">{0} міліграмаў</unitPattern>
-				<unitPattern count="other">{0} міліграма</unitPattern>
+				<unitPattern count="one">{0} мг</unitPattern>
+				<unitPattern count="few">{0} мг</unitPattern>
+				<unitPattern count="many">{0} мг</unitPattern>
+				<unitPattern count="other">{0} мг</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>мікраграмы</displayName>
-				<unitPattern count="one">{0} мікраграм</unitPattern>
-				<unitPattern count="few">{0} мікраграмы</unitPattern>
-				<unitPattern count="many">{0} мікраграмаў</unitPattern>
-				<unitPattern count="other">{0} мікраграма</unitPattern>
+				<unitPattern count="one">{0} мкг</unitPattern>
+				<unitPattern count="few">{0} мкг</unitPattern>
+				<unitPattern count="many">{0} мкг</unitPattern>
+				<unitPattern count="other">{0} мкг</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>тоны</displayName>
@@ -6678,7 +6785,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} фунты</unitPattern>
 				<unitPattern count="many">{0} фунтаў</unitPattern>
 				<unitPattern count="other">{0} фунта</unitPattern>
-				<perUnitPattern>{0} на фунт</perUnitPattern>
+				<perUnitPattern>{0}/фунт</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>унцыі</displayName>
@@ -6704,101 +6811,101 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>гігаваты</displayName>
-				<unitPattern count="one">{0} гігават</unitPattern>
-				<unitPattern count="few">{0} гігаваты</unitPattern>
-				<unitPattern count="many">{0} гігават</unitPattern>
-				<unitPattern count="other">{0} гігавата</unitPattern>
+				<unitPattern count="one">{0} ГВт</unitPattern>
+				<unitPattern count="few">{0} ГВт</unitPattern>
+				<unitPattern count="many">{0} ГВт</unitPattern>
+				<unitPattern count="other">{0} ГВт</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName>мегаваты</displayName>
-				<unitPattern count="one">{0} мегават</unitPattern>
-				<unitPattern count="few">{0} мегаваты</unitPattern>
-				<unitPattern count="many">{0} мегават</unitPattern>
-				<unitPattern count="other">{0} мегавата</unitPattern>
+				<unitPattern count="one">{0} МВт</unitPattern>
+				<unitPattern count="few">{0} МВт</unitPattern>
+				<unitPattern count="many">{0} МВт</unitPattern>
+				<unitPattern count="other">{0} МВт</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>кілаваты</displayName>
-				<unitPattern count="one">{0} кілават</unitPattern>
-				<unitPattern count="few">{0} кілаваты</unitPattern>
-				<unitPattern count="many">{0} кілават</unitPattern>
-				<unitPattern count="other">{0} кілавата</unitPattern>
+				<unitPattern count="one">{0} кВт</unitPattern>
+				<unitPattern count="few">{0} кВт</unitPattern>
+				<unitPattern count="many">{0} кВт</unitPattern>
+				<unitPattern count="other">{0} кВт</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName>ваты</displayName>
-				<unitPattern count="one">{0} ват</unitPattern>
-				<unitPattern count="few">{0} ваты</unitPattern>
-				<unitPattern count="many">{0} ват</unitPattern>
-				<unitPattern count="other">{0} вата</unitPattern>
+				<unitPattern count="one">{0} Вт</unitPattern>
+				<unitPattern count="few">{0} Вт</unitPattern>
+				<unitPattern count="many">{0} Вт</unitPattern>
+				<unitPattern count="other">{0} Вт</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>міліваты</displayName>
-				<unitPattern count="one">{0} міліват</unitPattern>
-				<unitPattern count="few">{0} міліваты</unitPattern>
-				<unitPattern count="many">{0} міліват</unitPattern>
-				<unitPattern count="other">{0} мілівата</unitPattern>
+				<unitPattern count="one">{0} мВт</unitPattern>
+				<unitPattern count="few">{0} мВт</unitPattern>
+				<unitPattern count="many">{0} мВт</unitPattern>
+				<unitPattern count="other">{0} мВт</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>конская сіла</displayName>
-				<unitPattern count="one">{0} конская сіла</unitPattern>
-				<unitPattern count="few">{0} конскія сілы</unitPattern>
-				<unitPattern count="many">{0} конскіх сіл</unitPattern>
-				<unitPattern count="other">{0} конскай сілы</unitPattern>
+				<unitPattern count="one">{0} к. с.</unitPattern>
+				<unitPattern count="few">{0} к. с.</unitPattern>
+				<unitPattern count="many">{0} к. с.</unitPattern>
+				<unitPattern count="other">{0} к. с.</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>гектапаскалі</displayName>
-				<unitPattern count="one">{0} гектапаскаль</unitPattern>
-				<unitPattern count="few">{0} гектапаскалі</unitPattern>
-				<unitPattern count="many">{0} гектапаскаль</unitPattern>
-				<unitPattern count="other">{0} гектапаскаля</unitPattern>
+				<unitPattern count="one">{0} гПа</unitPattern>
+				<unitPattern count="few">{0} гПа</unitPattern>
+				<unitPattern count="many">{0} гПа</unitPattern>
+				<unitPattern count="other">{0} гПа</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>міліметры ртутнага слупа</displayName>
-				<unitPattern count="one">{0} міліметр ртутнага слупа</unitPattern>
-				<unitPattern count="few">{0} міліметры ртутнага слупа</unitPattern>
-				<unitPattern count="many">{0} міліметраў ртутнага слупа</unitPattern>
-				<unitPattern count="other">{0} міліметра ртутнага слупа</unitPattern>
+				<unitPattern count="one">{0} мм рт. сл.</unitPattern>
+				<unitPattern count="few">{0} мм рт. сл.</unitPattern>
+				<unitPattern count="many">{0} мм рт. сл.</unitPattern>
+				<unitPattern count="other">{0} мм рт. сл.</unitPattern>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>фунты на квадратную цалю</displayName>
-				<unitPattern count="one">{0} фунт на квадратную цалю</unitPattern>
-				<unitPattern count="few">{0} фунты на квадратную цалю</unitPattern>
-				<unitPattern count="many">{0} фунтаў на квадратную цалю</unitPattern>
-				<unitPattern count="other">{0} фунта на квадратную цалю</unitPattern>
+				<unitPattern count="one">{0} фунт на кв. цалю</unitPattern>
+				<unitPattern count="few">{0} фунты на кв. цалю</unitPattern>
+				<unitPattern count="many">{0} фунтаў на кв. цалю</unitPattern>
+				<unitPattern count="other">{0} фунта на кв. цалю</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName>цалі ртутнага слупа</displayName>
-				<unitPattern count="one">{0} цаля ртутнага слупа</unitPattern>
-				<unitPattern count="few">{0} цалі ртутнага слупа</unitPattern>
-				<unitPattern count="many">{0} цаляў ртутнага слупа</unitPattern>
-				<unitPattern count="other">{0} цалі ртутнага слупа</unitPattern>
+				<unitPattern count="one">{0} цаля рт. сл.</unitPattern>
+				<unitPattern count="few">{0} цалі рт. сл.</unitPattern>
+				<unitPattern count="many">{0} цаляў рт. сл.</unitPattern>
+				<unitPattern count="other">{0} цалі рт. сл.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>мілібары</displayName>
-				<unitPattern count="one">{0} мілібар</unitPattern>
-				<unitPattern count="few">{0} мілібары</unitPattern>
-				<unitPattern count="many">{0} мілібар</unitPattern>
-				<unitPattern count="other">{0} мілібара</unitPattern>
+				<unitPattern count="one">{0} мбар</unitPattern>
+				<unitPattern count="few">{0} мбар</unitPattern>
+				<unitPattern count="many">{0} мбар</unitPattern>
+				<unitPattern count="other">{0} мбар</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>кіламетры за гадзіну</displayName>
-				<unitPattern count="one">{0} кіламетр за гадзіну</unitPattern>
-				<unitPattern count="few">{0} кіламетры за гадзіну</unitPattern>
-				<unitPattern count="many">{0} кіламетраў за гадзіну</unitPattern>
-				<unitPattern count="other">{0} кіламетра за гадзіну</unitPattern>
+				<unitPattern count="one">{0} км/гадз</unitPattern>
+				<unitPattern count="few">{0} км/гадз</unitPattern>
+				<unitPattern count="many">{0} км/гадз</unitPattern>
+				<unitPattern count="other">{0} км/гадз</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>метры за секунду</displayName>
-				<unitPattern count="one">{0} метр за секунду</unitPattern>
-				<unitPattern count="few">{0} метры за секунду</unitPattern>
-				<unitPattern count="many">{0} метраў за секунду</unitPattern>
-				<unitPattern count="other">{0} метра за секунду</unitPattern>
+				<unitPattern count="one">{0} м/с</unitPattern>
+				<unitPattern count="few">{0} м/с</unitPattern>
+				<unitPattern count="many">{0} м/с</unitPattern>
+				<unitPattern count="other">{0} м/с</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName>мілі за гадзіну</displayName>
-				<unitPattern count="one">{0} міля за гадзіну</unitPattern>
-				<unitPattern count="few">{0} мілі за гадзіну</unitPattern>
-				<unitPattern count="many">{0} міль за гадзіну</unitPattern>
-				<unitPattern count="other">{0} мілі за гадзіну</unitPattern>
+				<unitPattern count="one">{0} міля/гадз</unitPattern>
+				<unitPattern count="few">{0} мілі/гадз</unitPattern>
+				<unitPattern count="many">{0} міль/гадз</unitPattern>
+				<unitPattern count="other">{0} мілі/гадз</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName>вузел</displayName>
@@ -6816,24 +6923,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>градусы Цэльсія</displayName>
-				<unitPattern count="one">{0} градус Цэльсія</unitPattern>
-				<unitPattern count="few">{0} градусы Цэльсія</unitPattern>
-				<unitPattern count="many">{0} градусаў Цэльсія</unitPattern>
-				<unitPattern count="other">{0} градуса Цэльсія</unitPattern>
+				<unitPattern count="one">{0} °C</unitPattern>
+				<unitPattern count="few">{0} °C</unitPattern>
+				<unitPattern count="many">{0} °C</unitPattern>
+				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>градусы Фарэнгейта</displayName>
-				<unitPattern count="one">{0} градус Фарэнгейта</unitPattern>
-				<unitPattern count="few">{0} градусы Фарэнгейта</unitPattern>
-				<unitPattern count="many">{0} градусаў Фарэнгейта</unitPattern>
-				<unitPattern count="other">{0} градуса Фарэнгейта</unitPattern>
+				<unitPattern count="one">{0} °F</unitPattern>
+				<unitPattern count="few">{0} °F</unitPattern>
+				<unitPattern count="many">{0} °F</unitPattern>
+				<unitPattern count="other">{0} °F</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>кельвіны</displayName>
-				<unitPattern count="one">{0} кельвін</unitPattern>
-				<unitPattern count="few">{0} кельвіны</unitPattern>
-				<unitPattern count="many">{0} кельвінаў</unitPattern>
-				<unitPattern count="other">{0} кельвіна</unitPattern>
+				<unitPattern count="one">{0} К</unitPattern>
+				<unitPattern count="few">{0} К</unitPattern>
+				<unitPattern count="many">{0} К</unitPattern>
+				<unitPattern count="other">{0} К</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>кубічныя кіламетры</displayName>
@@ -7568,6 +7675,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} скан. міль</unitPattern>
 				<unitPattern count="other">{0} скан. мілі</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>пт</displayName>
+				<unitPattern count="one">{0} пт</unitPattern>
+				<unitPattern count="few">{0} пт</unitPattern>
+				<unitPattern count="many">{0} пт</unitPattern>
+				<unitPattern count="other">{0} пт</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>лк</displayName>
 				<unitPattern count="one">{0} лк</unitPattern>
@@ -7967,32 +8081,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>л/100км</displayName>
-				<unitPattern count="one">{0}л/100км</unitPattern>
-				<unitPattern count="few">{0}л/100км</unitPattern>
-				<unitPattern count="many">{0}л/100км</unitPattern>
-				<unitPattern count="other">{0}л/100км</unitPattern>
+				<displayName>л/100 км</displayName>
+				<unitPattern count="one">{0} л/100 км</unitPattern>
+				<unitPattern count="few">{0} л/100 км</unitPattern>
+				<unitPattern count="many">{0} л/100 км</unitPattern>
+				<unitPattern count="other">{0} л/100 км</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>г.</displayName>
-				<unitPattern count="one">{0}г.</unitPattern>
-				<unitPattern count="few">{0}г.</unitPattern>
-				<unitPattern count="many">{0}г.</unitPattern>
-				<unitPattern count="other">{0}г.</unitPattern>
+				<unitPattern count="one">{0} г.</unitPattern>
+				<unitPattern count="few">{0} г.</unitPattern>
+				<unitPattern count="many">{0} г.</unitPattern>
+				<unitPattern count="other">{0} г.</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>мес.</displayName>
-				<unitPattern count="one">{0}мес.</unitPattern>
-				<unitPattern count="few">{0}мес.</unitPattern>
-				<unitPattern count="many">{0}мес.</unitPattern>
-				<unitPattern count="other">{0}мес.</unitPattern>
+				<unitPattern count="one">{0} мес.</unitPattern>
+				<unitPattern count="few">{0} мес.</unitPattern>
+				<unitPattern count="many">{0} мес.</unitPattern>
+				<unitPattern count="other">{0} мес.</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>тыдз.</displayName>
-				<unitPattern count="one">{0}тыдз.</unitPattern>
-				<unitPattern count="few">{0}тыдз.</unitPattern>
-				<unitPattern count="many">{0}тыдз.</unitPattern>
-				<unitPattern count="other">{0}тыдз.</unitPattern>
+				<unitPattern count="one">{0} тыдз.</unitPattern>
+				<unitPattern count="few">{0} тыдз.</unitPattern>
+				<unitPattern count="many">{0} тыдз.</unitPattern>
+				<unitPattern count="other">{0} тыдз.</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>сут</displayName>
@@ -8087,10 +8201,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-liter">
 				<displayName>л</displayName>
-				<unitPattern count="one">{0}л</unitPattern>
-				<unitPattern count="few">{0}л</unitPattern>
-				<unitPattern count="many">{0}л</unitPattern>
-				<unitPattern count="other">{0}л</unitPattern>
+				<unitPattern count="one">{0} л</unitPattern>
+				<unitPattern count="few">{0} л</unitPattern>
+				<unitPattern count="many">{0} л</unitPattern>
+				<unitPattern count="other">{0} л</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east">{0} У</coordinateUnitPattern>
@@ -8116,6 +8230,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} і {1}</listPatternPart>
 			<listPatternPart type="2">{0} і {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} ці {1}</listPatternPart>
+			<listPatternPart type="2">{0} ці {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -8123,10 +8243,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} і {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
 			<listPatternPart type="start">{0} {1}</listPatternPart>
@@ -8135,10 +8255,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
@@ -8167,10 +8287,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="animal">жывёліна</characterLabel>
 		<characterLabel type="animals_nature">Жывёлы і прырода</characterLabel>
 		<characterLabel type="arrows">Стрэлкі</characterLabel>
-		<characterLabel type="body">цела смак</characterLabel>
+		<characterLabel type="body">цела</characterLabel>
 		<characterLabel type="box_drawing">Рысаванне квадратаў</characterLabel>
 		<characterLabel type="braille">Брайль</characterLabel>
-		<characterLabel type="building">будынак прамысловасць вытворчасць</characterLabel>
+		<characterLabel type="building">будынак</characterLabel>
 		<characterLabel type="bullets_stars">Маркеры/Зоркі</characterLabel>
 		<characterLabel type="consonantal_jamo">Кансанантнае чамо</characterLabel>
 		<characterLabel type="currency_symbols">Знакі валют</characterLabel>
@@ -8228,7 +8348,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="plant">расліна</characterLabel>
 		<characterLabel type="punctuation">Пунктуацыя</characterLabel>
 		<characterLabel type="rightwards_arrows">Стрэлкі ўправа</characterLabel>
-		<characterLabel type="sign_standard_symbols">Шыльды/Знакі/Стандартныя сімвалы</characterLabel>
+		<characterLabel type="sign_standard_symbols">Знакі і сімвалы</characterLabel>
 		<characterLabel type="small_form_variant">Варыянты малых формаў</characterLabel>
 		<characterLabel type="smiley">смайлік</characterLabel>
 		<characterLabel type="smileys_people">Смайлікі і людзі</characterLabel>

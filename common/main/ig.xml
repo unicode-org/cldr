@@ -65,7 +65,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="KM">Comorosu</territory>
 			<territory type="LY">Libyia</territory>
 			<territory type="MV">Maldivesa</territory>
-			<territory type="NG">Nigeria</territory>
+			<territory type="NG">Naịjịrịa</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -497,7 +497,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'week' w 'of' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -645,6 +645,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<list>؛</list>
+			<percentSign>٪‏</percentSign>
+			<plusSign>‏+</plusSign>
+			<minusSign>‏-</minusSign>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>
 			<infinity>∞</infinity>

@@ -86,6 +86,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">týskt</language>
+			<language type="de_AT">týskt (Eysturríki)</language>
 			<language type="de_CH">høgt týskt (Sveis)</language>
 			<language type="dgr">dogrib</language>
 			<language type="dje">sarma</language>
@@ -101,10 +102,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eka">ekajuk</language>
 			<language type="el">grikskt</language>
 			<language type="en">enskt</language>
+			<language type="en_AU">enskt (Avstralia)</language>
+			<language type="en_CA">enskt (Kanada)</language>
+			<language type="en_GB">enskt (Stórabretland)</language>
 			<language type="en_GB" alt="short">enskt (UK)</language>
+			<language type="en_US">enskt (Sambandsríki Amerika)</language>
 			<language type="en_US" alt="short">enskt (USA)</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spanskt</language>
+			<language type="es_419">spanskt (Latínamerika)</language>
+			<language type="es_ES">spanskt (Spania)</language>
+			<language type="es_MX">spanskt (Meksiko)</language>
 			<language type="et">estiskt</language>
 			<language type="eu">baskiskt</language>
 			<language type="ewo">ewondo</language>
@@ -116,6 +124,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">føroyskt</language>
 			<language type="fon">fon</language>
 			<language type="fr">franskt</language>
+			<language type="fr_CA">franskt (Kanada)</language>
+			<language type="fr_CH">franskt (Sveis)</language>
 			<language type="fur">friuliskt</language>
 			<language type="fy">vestur frísiskt</language>
 			<language type="ga">írskt</language>
@@ -540,10 +550,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Kokosoyggjar</territory>
 			<territory type="CD">Kongo, Dem. Lýðveldið</territory>
+			<territory type="CD" alt="variant">Kongo, Dem. Lýðveldið</territory>
 			<territory type="CF">Miðafrikalýðveldið</territory>
 			<territory type="CG">Kongo</territory>
+			<territory type="CG" alt="variant">Kongo</territory>
 			<territory type="CH">Sveis</territory>
 			<territory type="CI">Fílabeinsstrondin</territory>
+			<territory type="CI" alt="variant">Fílabeinsstrondin</territory>
 			<territory type="CK">Cooksoyggjar</territory>
 			<territory type="CL">Kili</territory>
 			<territory type="CM">Kamerun</territory>
@@ -557,6 +570,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Jólaoyggjin</territory>
 			<territory type="CY">Kýpros</territory>
 			<territory type="CZ">Kekkia</territory>
+			<territory type="CZ" alt="variant">Kekkia</territory>
 			<territory type="DE">Týskland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibuti</territory>
@@ -573,9 +587,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Spania</territory>
 			<territory type="ET">Etiopia</territory>
 			<territory type="EU">Evropasamveldið</territory>
+			<territory type="EZ">Evrasona</territory>
 			<territory type="FI">Finnland</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Falklandsoyggjar</territory>
+			<territory type="FK" alt="variant">Falklandsoyggjar</territory>
 			<territory type="FM">Mikronesiasamveldið</territory>
 			<territory type="FO">Føroyar</territory>
 			<territory type="FR">Frakland</territory>
@@ -733,6 +749,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">Tadsjikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Eysturtimor</territory>
+			<territory type="TL" alt="variant">Eysturtimor</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunesia</territory>
 			<territory type="TO">Tonga</territory>
@@ -744,6 +761,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Sambandsríki Amerikas fjarskotnu oyggjar</territory>
+			<territory type="UN">Sameindu Tjóðir</territory>
 			<territory type="US">Sambandsríki Amerika</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguai</territory>
@@ -922,19 +940,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. MMM y G</dateFormatItem>
-						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
-						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">dd.MM</dateFormatItem>
 						<dateFormatItem id="MEd">E dd.MM</dateFormatItem>
@@ -942,7 +969,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yM">MM.y</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.y</dateFormatItem>
@@ -1387,8 +1414,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1428,8 +1460,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ 'í' y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ 'í' y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">w. 'vika' 'í' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">w. 'vika' 'í' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">w. 'vika' 'í' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">w. 'vika' 'í' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1534,6 +1566,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
+				<displayName>tíðarrokning</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>tíðarrokning</displayName>
+			</field>
+			<field type="era-narrow">
 				<displayName>tíðarrokning</displayName>
 			</field>
 			<field type="year">
@@ -1683,6 +1721,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativePeriod>vika nummar {0}</relativePeriod>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>vika í mánaðinum</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>vi. í mnð.</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>vi. í mnð.</displayName>
+			</field>
 			<field type="day">
 				<displayName>dagur</displayName>
 				<relative type="-2">fyrradagin</relative>
@@ -1721,8 +1768,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} d. síðan</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>dagur í árinum</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>dagur í ár.</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>dagur í ár.</displayName>
+			</field>
 			<field type="weekday">
-				<displayName>gerandisdagur</displayName>
+				<displayName>vikudagur</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>vikudagur</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>vikudagur</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>vikudagur í mánaðinum</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>vikudagur í mnð.</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>vikudagur í mnð.</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">seinasta sunnudag</relative>
@@ -1997,7 +2068,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} le. síðani</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>AM/PM</displayName>
+			</field>
 			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="dayperiod-narrow">
 				<displayName>AM/PM</displayName>
 			</field>
 			<field type="hour">
@@ -2111,6 +2188,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="zone">
 				<displayName>tíðarøki</displayName>
 			</field>
+			<field type="zone-short">
+				<displayName>tíðarøki</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>tíðarøki</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
@@ -2125,6 +2208,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Johnston</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Samskipað heimstíð</standard>
+				</long>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>ókendur býur</exemplarCity>
@@ -2489,6 +2577,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity>Easter</exemplarCity>
 			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>Punta Arenas</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>Santiago</exemplarCity>
 			</zone>
@@ -2521,6 +2612,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nicosia</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>Famagusta</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Prag</exemplarCity>
@@ -2779,6 +2873,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Oral">
 				<exemplarCity>Oral</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>Atyrau</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aqtobe</exemplarCity>
@@ -3058,6 +3155,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>Saratov</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>Astrakhan</exemplarCity>
@@ -5159,8 +5259,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="RON">
 				<displayName>Rumenia leu</displayName>
 				<displayName count="one">Rumenia leu</displayName>
-				<displayName count="other">Rumenia leu</displayName>
+				<displayName count="other">Rumenia lei</displayName>
 				<symbol draft="contributed">RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbia dinar</displayName>
@@ -5468,6 +5569,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0} ella meira</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} dag</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} dagar</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Tak {0}. vegin til høgru.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">
@@ -5871,6 +5977,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} skandinaviskt míl</unitPattern>
 				<unitPattern count="other">{0} skandinaviskt míl</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>punkt</displayName>
+				<unitPattern count="one">{0} punkt</unitPattern>
+				<unitPattern count="other">{0} punkt</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>luks</displayName>
 				<unitPattern count="one">{0} luks</unitPattern>
@@ -6151,10 +6262,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} teskeiðir</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}V</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} eystur</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} norður</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} suður</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} vestur</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
@@ -6558,6 +6669,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} sk. míl</unitPattern>
 				<unitPattern count="other">{0} sk. míl</unitPattern>
 			</unit>
+			<unit type="length-point">
+				<displayName>pkt</displayName>
+				<unitPattern count="one">{0} pkt</unitPattern>
+				<unitPattern count="other">{0} pkt</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>luks</displayName>
 				<unitPattern count="one">{0} lx</unitPattern>
@@ -6838,10 +6954,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} tesk.</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}V</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} V</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -7044,6 +7160,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} og {1}</listPatternPart>
 			<listPatternPart type="2">{0} og {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, ella {1}</listPatternPart>
+			<listPatternPart type="2">{0} ella {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -7071,12 +7193,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</listPatterns>
 	<posix>
 		<messages>
-			<yesstr>já:j</yesstr>
+			<yesstr>ja:j</yesstr>
 			<nostr>nei:n</nostr>
 		</messages>
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Alt</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Sambæri</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Girða</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Víðkað</characterLabelPattern>
@@ -7089,10 +7212,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Virksemi</characterLabel>
 		<characterLabel type="african_scripts">Afrikanskar skriftir</characterLabel>
 		<characterLabel type="american_scripts">Amerikanskar skriftir</characterLabel>
-		<characterLabel type="animals_nature">Djór og náttúra</characterLabel>
-		<characterLabel type="arrows">Pílar</characterLabel>
+		<characterLabel type="animal">Dýr</characterLabel>
+		<characterLabel type="animals_nature">Dýr og náttúra</characterLabel>
+		<characterLabel type="arrows">Pílur</characterLabel>
+		<characterLabel type="body">Kroppur</characterLabel>
 		<characterLabel type="box_drawing">Kassatekning</characterLabel>
 		<characterLabel type="braille">Blindaskrift</characterLabel>
+		<characterLabel type="building">Bygningur</characterLabel>
 		<characterLabel type="bullets_stars">Prikkar/Stjørnur</characterLabel>
 		<characterLabel type="consonantal_jamo">Jamo hjáljóð</characterLabel>
 		<characterLabel type="currency_symbols">Gjaldoyra tekin</characterLabel>
@@ -7105,6 +7231,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Eysturasiatiskar skriftir</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Evropeiskar skriftir</characterLabel>
+		<characterLabel type="female">Kvinna</characterLabel>
+		<characterLabel type="flag">Flagg</characterLabel>
 		<characterLabel type="flags">Fløgg</characterLabel>
 		<characterLabel type="food_drink">Matur og drekka</characterLabel>
 		<characterLabel type="format">Forsniða</characterLabel>
@@ -7117,43 +7245,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (einkult)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (vanligt)</characterLabel>
+		<characterLabel type="heart">Hjarta</characterLabel>
 		<characterLabel type="historic_scripts">Søguligar skriftir</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Hugtaksskrift eftirkomandi bókstavar</characterLabel>
 		<characterLabel type="japanese_kana">Japanskt kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">Knappahetta</characterLabel>
 		<characterLabel type="leftwards_arrows">Pílar peikandi til vinstru</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Pílar peikandi til vinstru og høgru</characterLabel>
 		<characterLabel type="letterlike_symbols">Bókstavalíknandi tekin</characterLabel>
 		<characterLabel type="limited_use">Avmarkað brúk</characterLabel>
+		<characterLabel type="male">Mannfólk</characterLabel>
 		<characterLabel type="math_symbols">Støddfrøðilig tekin</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Miðeystur skiftir</characterLabel>
 		<characterLabel type="miscellaneous">Ymiskt</characterLabel>
 		<characterLabel type="modern_scripts">Nútíðar skriftir</characterLabel>
 		<characterLabel type="modifier">Laga eftir</characterLabel>
 		<characterLabel type="musical_symbols">Tónleika tekin</characterLabel>
+		<characterLabel type="nature">Natúr</characterLabel>
 		<characterLabel type="nonspacing">Einki glopp</characterLabel>
 		<characterLabel type="numbers">Tøl</characterLabel>
 		<characterLabel type="objects">Lutir</characterLabel>
 		<characterLabel type="other">Annað</characterLabel>
 		<characterLabel type="paired">Greipa saman</characterLabel>
+		<characterLabel type="person">Persónur</characterLabel>
 		<characterLabel type="phonetic_alphabet">Ljóðstavrað</characterLabel>
 		<characterLabel type="pictographs">Myndatekin</characterLabel>
+		<characterLabel type="place">Staður</characterLabel>
+		<characterLabel type="plant">Planta</characterLabel>
 		<characterLabel type="punctuation">Teknseting</characterLabel>
 		<characterLabel type="rightwards_arrows">Pílar peikandi til høgru</characterLabel>
 		<characterLabel type="sign_standard_symbols">Tekn/vanlig tekin</characterLabel>
 		<characterLabel type="small_form_variant">Lítil avbrigdir formur</characterLabel>
+		<characterLabel type="smiley">Brostekn</characterLabel>
 		<characterLabel type="smileys_people">Brostekin og fólk</characterLabel>
 		<characterLabel type="south_asian_scripts">Suðurasiatiskar skriftir</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Útsynningsasiatiskar skriftir</characterLabel>
 		<characterLabel type="spacing">Regluglopp</characterLabel>
+		<characterLabel type="sport">Ítróttur</characterLabel>
 		<characterLabel type="symbols">Tekin</characterLabel>
 		<characterLabel type="technical_symbols">Tøknilig tekin</characterLabel>
 		<characterLabel type="tone_marks">Litdámt merkir</characterLabel>
+		<characterLabel type="travel">Ferðing</characterLabel>
 		<characterLabel type="travel_places">Ferðing og støð</characterLabel>
 		<characterLabel type="upwards_arrows">Pílar peikandi uppeftir</characterLabel>
 		<characterLabel type="variant_forms">Frábrigdi formar</characterLabel>
 		<characterLabel type="vocalic_jamo">Jamo sjálvljóð</characterLabel>
+		<characterLabel type="weather">Veður</characterLabel>
 		<characterLabel type="western_asian_scripts">Vesturasiatiskar skriftir</characterLabel>
 		<characterLabel type="whitespace">Hvíttglopp</characterLabel>
 	</characterLabels>

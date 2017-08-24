@@ -13,7 +13,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ain">ain</language>
+			<language type="ain">Ainu</language>
 			<language type="ar_001">Kiarabu cha Sasa Kilichosanifishwa</language>
 			<language type="arq">Kiarabu cha Aljeria</language>
 			<language type="az">Kiazabajani</language>
@@ -54,10 +54,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zgh">Tamazight Sanifu ya Moroko</language>
 		</languages>
 		<territories>
+			<territory type="AQ">Antaktika</territory>
 			<territory type="AZ">Azabajani</territory>
 			<territory type="CI">Ivorikosti</territory>
 			<territory type="CX">Kisiwa cha Christmas</territory>
 			<territory type="CY">Saiprasi</territory>
+			<territory type="FM">Mikronesia</territory>
 			<territory type="GP">Gwadelupe</territory>
 			<territory type="JO">Yordani</territory>
 			<territory type="LB">Lebanoni</territory>
@@ -66,13 +68,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="LU">Lasembagi</territory>
 			<territory type="LV">Lativia</territory>
 			<territory type="MV">Maldivi</territory>
+			<territory type="NC">Nyukaledonia</territory>
 			<territory type="NE">Nijer</territory>
 			<territory type="NG">Nijeria</territory>
 			<territory type="NO">Norwe</territory>
 			<territory type="NP">Nepali</territory>
+			<territory type="NZ">Nyuzilandi</territory>
 			<territory type="OM">Omani</territory>
+			<territory type="PF">Polinesia ya Ufaransa</territory>
 			<territory type="PR">Puetoriko</territory>
 			<territory type="QA">Katari</territory>
+			<territory type="SA">Saudia</territory>
+			<territory type="SC">Ushelisheli</territory>
 			<territory type="SR">Suriname</territory>
 			<territory type="ST">Sao Tome na Prinsipe</territory>
 			<territory type="TD">Chadi</territory>
@@ -103,13 +110,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<intervalFormats>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="y">E, d MMM y – E, d MMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="morning1">asubuhi</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -117,6 +131,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">asubuhi</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="morning1">asubuhi</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

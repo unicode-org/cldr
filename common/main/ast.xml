@@ -954,6 +954,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Islla Christmas</territory>
 			<territory type="CY">Xipre</territory>
 			<territory type="CZ">Chequia</territory>
+			<territory type="CZ" alt="variant">República Checa</territory>
 			<territory type="DE">Alemaña</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Xibuti</territory>
@@ -970,6 +971,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">España</territory>
 			<territory type="ET">Etiopía</territory>
 			<territory type="EU">Xunión Europea</territory>
+			<territory type="EZ">Eurozona</territory>
 			<territory type="FI">Finlandia</territory>
 			<territory type="FJ">Islles Fixi</territory>
 			<territory type="FK">Falkland Islands</territory>
@@ -1143,6 +1145,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ucraína</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Islles Perifériques Menores de los EE.XX.</territory>
+			<territory type="UN">Naciones Xuníes</territory>
 			<territory type="US">Estaos Xuníos</territory>
 			<territory type="US" alt="short">EE.XX.</territory>
 			<territory type="UY">Uruguái</territory>
@@ -2179,6 +2182,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM 'de' y G</dateFormatItem>
@@ -2676,8 +2683,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">LLLL 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ 'de' y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'selmana' w 'de' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'selmana' w 'de' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'selmana' w 'de' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'selmana' w 'de' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -4784,6 +4791,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Johnston</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Hora coordinada universal</standard>
+				</long>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Ciudá desconocida</exemplarCity>
@@ -7086,6 +7098,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<percentSign>٪</percentSign>
+			<plusSign>‏+</plusSign>
+			<minusSign>‏-</minusSign>
 			<perMille>؉</perMille>
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
@@ -9143,6 +9157,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} día</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} díes</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Tomar la {0}a a la derecha</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -9556,6 +9571,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>milla escandinava</displayName>
 				<unitPattern count="one">{0} milla escandinava</unitPattern>
 				<unitPattern count="other">{0} milles escandinaves</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>Puntos</displayName>
+				<unitPattern count="one">{0} puntu</unitPattern>
+				<unitPattern count="other">{0} puntos</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
@@ -10263,6 +10283,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>smi</displayName>
 				<unitPattern count="one">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pt</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
@@ -11284,6 +11309,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} y {1}</listPatternPart>
 			<listPatternPart type="2">{0} y {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} o {1}</listPatternPart>
+			<listPatternPart type="2">{0} o {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -11317,6 +11348,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — too</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — compatibilidá</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — arrodiáu</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — enantáu</characterLabelPattern>
@@ -11329,14 +11361,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">actividaes</characterLabel>
 		<characterLabel type="african_scripts">escritures africanes</characterLabel>
 		<characterLabel type="american_scripts">escritures americanes</characterLabel>
-		<characterLabel type="animals_nature">animales y natura</characterLabel>
+		<characterLabel type="animal">animales</characterLabel>
+		<characterLabel type="animals_nature">animales o natura</characterLabel>
 		<characterLabel type="arrows">fleches</characterLabel>
+		<characterLabel type="body">cuerpu</characterLabel>
 		<characterLabel type="box_drawing">dibuxu de cuadros</characterLabel>
 		<characterLabel type="braille">braille</characterLabel>
-		<characterLabel type="bullets_stars">viñetes/estrelles</characterLabel>
+		<characterLabel type="building">construcciones</characterLabel>
+		<characterLabel type="bullets_stars">viñetes o estrelles</characterLabel>
 		<characterLabel type="consonantal_jamo">jamo consonánticu</characterLabel>
 		<characterLabel type="currency_symbols">símbolos monetarios</characterLabel>
-		<characterLabel type="dash_connector">guión/coneutor</characterLabel>
+		<characterLabel type="dash_connector">guión o coneutor</characterLabel>
 		<characterLabel type="digits">díxitos</characterLabel>
 		<characterLabel type="dingbats">viñetes</characterLabel>
 		<characterLabel type="divination_symbols">símbolos d’adivinación</characterLabel>
@@ -11345,6 +11380,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">escritures del oriente d’Asia</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">escritures europees</characterLabel>
+		<characterLabel type="female">muyer</characterLabel>
+		<characterLabel type="flag">bandera</characterLabel>
 		<characterLabel type="flags">banderes</characterLabel>
 		<characterLabel type="food_drink">vianda y bébora</characterLabel>
 		<characterLabel type="format">formatu</characterLabel>
@@ -11357,43 +11394,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">hanzi (simplificáu)</characterLabel>
 		<characterLabel type="hanzi_traditional">hanzi (tradicional)</characterLabel>
+		<characterLabel type="heart">corazones</characterLabel>
 		<characterLabel type="historic_scripts">escritures históriques</characterLabel>
 		<characterLabel type="ideographic_desc_characters">carauteres desc. ideográficos</characterLabel>
 		<characterLabel type="japanese_kana">kana xaponés</characterLabel>
 		<characterLabel type="kanbun">kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">tecles</characterLabel>
 		<characterLabel type="leftwards_arrows">fleches a manzorga</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">fleches a manzorga y mandrecha</characterLabel>
 		<characterLabel type="letterlike_symbols">símbolos asemeyaos a lletres</characterLabel>
 		<characterLabel type="limited_use">usu llendáu</characterLabel>
+		<characterLabel type="male">home</characterLabel>
 		<characterLabel type="math_symbols">símbolos matemáticos</characterLabel>
 		<characterLabel type="middle_eastern_scripts">escritures d’Oriente mediu</characterLabel>
 		<characterLabel type="miscellaneous">mecigayu</characterLabel>
 		<characterLabel type="modern_scripts">escritures modernes</characterLabel>
 		<characterLabel type="modifier">tresformador</characterLabel>
 		<characterLabel type="musical_symbols">símbolos musicales</characterLabel>
+		<characterLabel type="nature">natura</characterLabel>
 		<characterLabel type="nonspacing">non espaciáu</characterLabel>
 		<characterLabel type="numbers">númberos</characterLabel>
 		<characterLabel type="objects">oxetos</characterLabel>
 		<characterLabel type="other">otros</characterLabel>
 		<characterLabel type="paired">empareyaos</characterLabel>
+		<characterLabel type="person">persones</characterLabel>
 		<characterLabel type="phonetic_alphabet">alfabetu fonéticu</characterLabel>
 		<characterLabel type="pictographs">pictogrames</characterLabel>
+		<characterLabel type="place">llugares</characterLabel>
+		<characterLabel type="plant">plantes</characterLabel>
 		<characterLabel type="punctuation">puntuación</characterLabel>
 		<characterLabel type="rightwards_arrows">fleches a mandrecha</characterLabel>
 		<characterLabel type="sign_standard_symbols">signos/símbolos estándar</characterLabel>
 		<characterLabel type="small_form_variant">variantes de formulariu pequeñes</characterLabel>
-		<characterLabel type="smileys_people">fustaxes y xente</characterLabel>
+		<characterLabel type="smiley">fustaxes</characterLabel>
+		<characterLabel type="smileys_people">fustaxes o persones</characterLabel>
 		<characterLabel type="south_asian_scripts">escritures del sur d’Asia</characterLabel>
 		<characterLabel type="southeast_asian_scripts">escritures del sureste d’Asia</characterLabel>
 		<characterLabel type="spacing">espaciáu</characterLabel>
+		<characterLabel type="sport">deportes</characterLabel>
 		<characterLabel type="symbols">símbolos</characterLabel>
 		<characterLabel type="technical_symbols">símbolos téunicos</characterLabel>
 		<characterLabel type="tone_marks">marques de tonu</characterLabel>
-		<characterLabel type="travel_places">viaxes y llugares</characterLabel>
+		<characterLabel type="travel">viaxes</characterLabel>
+		<characterLabel type="travel_places">viaxes o llugares</characterLabel>
 		<characterLabel type="upwards_arrows">fleches arriba</characterLabel>
 		<characterLabel type="variant_forms">variantes</characterLabel>
 		<characterLabel type="vocalic_jamo">jamo vocálicu</characterLabel>
+		<characterLabel type="weather">clima</characterLabel>
 		<characterLabel type="western_asian_scripts">escritures del occidente d’Asia</characterLabel>
 		<characterLabel type="whitespace">espaciáu</characterLabel>
 	</characterLabels>

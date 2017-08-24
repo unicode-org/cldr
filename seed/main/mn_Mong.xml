@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2016 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,6 +11,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="mn"/>
 		<script type="Mong"/>
 	</identity>
+	<localeDisplayNames>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">СИ систем</measurementSystemName>
+			<measurementSystemName type="UK">Их Британи</measurementSystemName>
+			<measurementSystemName type="US">АНУ</measurementSystemName>
+		</measurementSystemNames>
+	</localeDisplayNames>
 	<layout>
 		<orientation>
 			<characterOrder>top-to-bottom</characterOrder>
@@ -27,5 +34,57 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<otherNumberingSystems>
 			<native>mong</native>
 		</otherNumberingSystems>
+		<currencies>
+			<currency type="BRL">
+				<displayName>бразил реал</displayName>
+				<displayName count="one">бразил реал</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName>юань</displayName>
+				<displayName count="one">юань</displayName>
+				<displayName count="other">юань</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName>евро</displayName>
+				<displayName count="one">евро</displayName>
+				<displayName count="other">евро</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName>фунт стерлинг</displayName>
+				<displayName count="one">фунт стерлинг</displayName>
+				<displayName count="other">фунт стерлинг</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName>рупи</displayName>
+				<displayName count="one">рупи</displayName>
+				<displayName count="other">рупи</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName>иен</displayName>
+				<displayName count="one">иен</displayName>
+				<displayName count="other">иен</displayName>
+			</currency>
+			<currency type="MNT">
+				<displayName>төгрөг</displayName>
+				<displayName count="one">төгрөг</displayName>
+				<displayName count="other">төгрөг</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName>рубль</displayName>
+				<displayName count="one">рубль</displayName>
+				<displayName count="other">рубль</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName>ам. доллар</displayName>
+				<displayName count="one">ам. доллар</displayName>
+				<symbol draft="contributed">$</symbol>
+			</currency>
+		</currencies>
 	</numbers>
+	<posix>
+		<messages>
+			<yesstr>тийм:т</yesstr>
+			<nostr>үгүй:ү</nostr>
+		</messages>
+	</posix>
 </ldml>

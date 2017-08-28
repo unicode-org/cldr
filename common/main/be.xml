@@ -6159,12 +6159,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">{0} дзень</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} дні</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} дзён</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">з {0} кнігі за {0} дня</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">{0}-і справа</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}-ы справа</ordinalMinimalPairs>
+			<pluralMinimalPairs count="one">з {0} кнігі за {0} дзень</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">з {0} кніг за {0} дні</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">з {0} кніг за {0} дзён</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">з {0} кніги за {0} дні</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}-і дом злева</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-ы дом злева</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

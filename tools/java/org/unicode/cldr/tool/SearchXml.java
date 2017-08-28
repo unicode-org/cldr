@@ -324,7 +324,6 @@ public class SearchXml {
         file = canonicalFile;
 
         DiffInfo diffInfo = new DiffInfo();
-        String fileWithoutSuffix = fileName.substring(0, fileName.length() - 4);
 
 
         if (levelMatcher != null || countOnly) {
@@ -384,7 +383,7 @@ public class SearchXml {
                         diffInfo.sameCount += values.size();
                     }
                     if (diff && showValues) {
-                        show(fileWithoutSuffix, path, values, otherValues);
+                        show(file, path, values, otherValues);
                     }
                 }
             } else {
@@ -453,8 +452,9 @@ public class SearchXml {
         }
     }
 
-    private static void show(String fileWithoutSuffix, String path, Set<String> values, Set<String> otherValues) {
+    private static void show(String fileName, String path, Set<String> values, Set<String> otherValues) {
         // locale=  af     ; action=add ; new_path=        //ldml/dates/fields/field[@type="second"]/relative[@type="0"]    ; new_value=    nou  
+        String fileWithoutSuffix = fileName.substring(0, fileName.length() - 4);
         String values2 = values.size() != 1 ? values.toString() : values.iterator().next();
         System.out.println("locale=" + fileWithoutSuffix
             + ";\taction=add"

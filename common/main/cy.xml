@@ -7932,17 +7932,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="zero">{0} diwrnod</pluralMinimalPairs>
-			<pluralMinimalPairs count="one">{0} diwrnod</pluralMinimalPairs>
-			<pluralMinimalPairs count="two">{0} diwrnod</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} diwrnod</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} diwrnod</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} diwrnod</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">Cymrwch y {0}ydd troad i’r dde</ordinalMinimalPairs>
+			<pluralMinimalPairs count="zero">{0} cŵn, {0} cathod</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">{0} ci, {0} gath</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">{0} gi, {0} gath</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} chi, {0} cath</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} chi, {0} chath</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ci, {0} cath</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}ydd ci</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">{0}ed ci</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">Cymrwch y troad {0}af i’r dde.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Cymrwch y {0}fed troad i’r dde.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="two">Cymrwch yr {0}il droad i’r dde.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">ci {0}af</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">ci rhif {0}</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">{0}il gi</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="zero">{0}fed ci</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>

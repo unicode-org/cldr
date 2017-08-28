@@ -7074,10 +7074,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">{0} nap</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} nap</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">A kosár tartalma: {0} X. Megveszi?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">A kosár tartalma: {0} X. Megveszi őket?</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Az {0}. lehetőségnél forduljon jobbra.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">A(z) {0}. lehetőségnél forduljon jobbra.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">A {0}. lehetőségnél forduljon jobbra.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

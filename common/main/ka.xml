@@ -6417,11 +6417,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">{0} დღე</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} დღე</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">კალათში {0} X-ია. შეიძენთ მას?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">კალათში {0} X-ია. შეიძენთ მათ?</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">მე-{0}</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">დაიკავეთ მარჯვენა {0}-ლი.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">დაიკავეთ მარჯვენა მე-{0}.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}-ლი</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-ე</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

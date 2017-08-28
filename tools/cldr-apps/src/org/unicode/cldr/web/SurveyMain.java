@@ -1914,7 +1914,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 new_email = registeredUser.email.toLowerCase();
                 WebContext nuCtx = (WebContext) ctx.clone();
                 nuCtx.addQuery(QUERY_DO, "list");
-                nuCtx.addQuery(LIST_JUST, changeAtTo40(new_email));
+                nuCtx.addQuery(LIST_JUST, URLEncoder.encode(new_email));
                 ctx.println("" + "<form action='" + ctx.base() + "' method='POST'>");
                 ctx.print("<input name='s' type='hidden' value='" + ctx.session.id + "'/>"
                     + "<input name='justu' type='hidden' value='" + new_email + "'/>"
@@ -2061,7 +2061,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     String theirLocaleList = rs.getString(6);
 
                     String nameLink = "<a href='" + ctx.url() + ctx.urlConnector() + "do=list&" + LIST_JUST + "="
-                        + changeAtTo40(theirEmail) + "' title='More on this user...'>" + theirName + " </a>";
+                        + URLEncoder.encode(theirEmail) + "' title='More on this user...'>" + theirName + " </a>";
                     // setup
 
                     if (participation && (conn != null)) {
@@ -2490,14 +2490,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static final String PREF_SHCOVERAGE = "showcov";
 
-    public static final String changeAtTo40(String s) {
-        return s.replaceAll("@", "%40");
-    }
-
-    public static final String change40ToAt(String s) {
-        return s.replaceAll("%40", "@");
-    }
-
     public void doUDump(WebContext ctx) {
         ctx.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
         // ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
@@ -2557,7 +2549,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (just.length() == 0) {
             just = null;
         } else {
-            just = change40ToAt(just);
             justme = ctx.session.user.email.equals(just);
         }
         if (doWhat.equals("listu")) {
@@ -3223,7 +3214,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             + "</tt>");
                         if (!intlocs_change) {
                             ctx.print("<a href='" + ctx.url() + ctx.urlConnector() + "do=listu&" + LIST_JUST + "="
-                                + changeAtTo40(ctx.session.user.email) + "&intlocs_change=b' >[Change this]</a>");
+                                + URLEncoder.encode(ctx.session.user.email) + "&intlocs_change=b' >[Change this]</a>");
                         }
                         ctx.println("</ul>");
 
@@ -3271,7 +3262,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *            TODO
      */
     private void printUserZoomLink(WebContext ctx, String userEmail, String text) {
-        ctx.print("<a href='" + ctx.url() + ctx.urlConnector() + "do=list&" + LIST_JUST + "=" + changeAtTo40(userEmail) + "' >"
+        ctx.print("<a href='" + ctx.url() + ctx.urlConnector() + "do=list&" + LIST_JUST + "=" + URLEncoder.encode(userEmail) + "' >"
             + ctx.iconHtml("zoom", "More on this user..") + text + "</a>");
     }
 

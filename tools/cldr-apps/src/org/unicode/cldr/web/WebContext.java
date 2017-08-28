@@ -13,8 +13,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.lang.ref.Reference;
+import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -2353,10 +2355,18 @@ public class WebContext implements Cloneable, Appendable {
             session.user.ip = userIP();
         } else {
             if ((email != null) && (email.length() > 0) && (session.user == null)) {
+                String encodedEmail;
+                try {
+                    encodedEmail = URLEncoder.encode(email, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    // The server doesn't support UTF-8?  (Should never happen)
+                    throw new RuntimeException(e);
+                }
                 message = iconHtml("stop", "failed login") + "login failed. <a href='"
-                    + request.getContextPath() + "/reset.jsp?email=" + email +
-                    "&s=" + session.id +
-                    "' id='notselected'>recover password?</a><br>";
+                    + request.getContextPath() + "/reset.jsp"
+                    + "?email=" + encodedEmail
+                    + "&s=" + session.id
+                    + "' id='notselected'>recover password?</a><br>";
             }
         }
         // processs the 'remember me'

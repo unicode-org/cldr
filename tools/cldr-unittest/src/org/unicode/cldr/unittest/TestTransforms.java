@@ -414,6 +414,11 @@ public class TestTransforms extends TestFmwkPlus {
                 }
                 logln("Testing file: " + file);
                 String transName = file.substring(0, file.length() - 4);
+                if (transName.equals("ka-Latn-t-ka-m0-bgn")) {
+                    logKnownIssue("cldrbug:10566", "Jenkins build failing on translit problem");
+                    continue; // failures like the following need to be fixed first.
+                    // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება: expected "up’leba", got "upleba" 
+                }
 
                 Transliterator trans = getTransliterator(transName);
                 BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);

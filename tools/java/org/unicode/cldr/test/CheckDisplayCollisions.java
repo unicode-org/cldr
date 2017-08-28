@@ -66,6 +66,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 13),
         FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14),
         ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]", MatchType.REGEX, 15),
+        CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX, 16),
+        ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX, 17),
         ;
 
         private MatchType matchType;
@@ -118,8 +120,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     private final Matcher exclusions = PatternCache.get("=\"narrow\"]").matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
-    private final Matcher attributesToIgnore = PatternCache.get("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
-    private final Matcher compactNumberAttributesToIgnore = PatternCache.get("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher ignoreAltAndCountAttributes = PatternCache.get("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher ignoreAltAttributes = PatternCache.get("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher compoundUnitPatterns = PatternCache.get("compoundUnitPattern").matcher("");
 
     // map unique path fragment to set of unique fragments for other
@@ -231,7 +233,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
 
-        if (path.contains("🔼")) {
+        if (path.contains("minimalPairs")) {
             int debug = 0;
         }
         if (value == null || value.length() == 0) {
@@ -259,7 +261,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         Matcher matcher = null;
         String message = "Can't have same translation as {0}";
-        Matcher currentAttributesToIgnore = attributesToIgnore;
+        Matcher currentAttributesToIgnore = ignoreAltAndCountAttributes;
         Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {
             if (!path.contains("[@count=") || "0".equals(value)) {
@@ -270,11 +272,17 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             myPrefix = parts.removeElement(-1).toString();
             matcher = PatternCache.get(myPrefix.replaceAll("\\[", "\\\\[") +
                 "/pattern\\[@type=(?!\"" + type + "\")\"\\d+\"].*").matcher(path);
-            currentAttributesToIgnore = compactNumberAttributesToIgnore;
+            currentAttributesToIgnore = ignoreAltAttributes;
             message = "Can't have same number pattern as {0}";
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.exact);
         } else if (myType == Type.UNITS) {
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.unit);
+        } else if (myType == Type.CARDINAL_MINIMAL || myType == Type.ORDINAL_MINIMAL) {
+            if (value.equals("{0}?")) {
+                return this; // special root 'other' value
+            }
+            currentAttributesToIgnore = ignoreAltAttributes;
+            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
         } else {
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
         }
@@ -649,7 +657,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (!xpath.endsWith("/exemplarCity")) continue;
             String value = english.getStringValue(xpath);
             Set<String> duplicates = getPathsWithValue(english, xpath, value,
-                Type.TERRITORY, Type.TERRITORY.getPrefix(), null, attributesToIgnore, Equivalence.normal);
+                Type.TERRITORY, Type.TERRITORY.getPrefix(), null, ignoreAltAndCountAttributes, Equivalence.normal);
             if (duplicates.size() > 0) {
                 // Assume only 1 duplicate.
                 String duplicatePath = duplicates.iterator().next();

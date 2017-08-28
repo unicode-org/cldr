@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.EnumMap;
@@ -63,6 +64,8 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -305,8 +308,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestPluralSamples2() {
         PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
         for (String locale : prf.getLocales()) {
-            if (locale.toString().equals("und")) {
+            if (locale.equals("und")) {
                 continue;
+            }
+            if (locale.equals("pl")) {
+                int debug = 0;
             }
             final PluralMinimalPairs samplePatterns = PluralMinimalPairs.getInstance(locale);
             for (PluralRules.PluralType type : PluralRules.PluralType.values()) {
@@ -316,20 +322,27 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 if (rules.getCounts().size() == 1) {
                     continue; // don't require rules for unary cases
                 }
+                Multimap<String, Count> sampleToCount = TreeMultimap.create();
+                
                 for (Count count : rules.getCounts()) {
                     String sample = samplePatterns.get(type, count);
                     if (sample == null) {
                         errOrLog(CoverageIssue.error, locale + "\t" + type + " \tmissing samples for " + count, "cldrbug:7075",
                                 "Missing ordinal minimal pairs");
                     } else {
+                        sampleToCount.put(sample, count);
                         PluralRules pRules = rules.getPluralRules();
                         double unique = pRules.getUniqueKeywordValue(count
                                 .toString());
                         if (unique == PluralRules.NO_UNIQUE_VALUE
                                 && !sample.contains("{0}")) {
-                            errln("Missing {0} in sample: " + locale + ", "
-                                    + type + ", " + count + " «" + sample + "»");
+                            errln("Missing {0} in sample: " + locale + ", " + type + ", " + count + " «" + sample + "»");
                         }
+                    }
+                }
+                for (Entry<String, Collection<Count>> entry : sampleToCount.asMap().entrySet()) {
+                    if (entry.getValue().size() > 1) {
+                        errln("Colliding minimal pair samples: " + locale + ", " + type + ", " + entry.getValue() + " «" + entry.getKey() + "»");
                     }
                 }
             }

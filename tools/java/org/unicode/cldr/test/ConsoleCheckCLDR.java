@@ -29,6 +29,8 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
+import org.unicode.cldr.tool.Option;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.CLDRConfig;
@@ -119,6 +121,58 @@ public class ConsoleCheckCLDR {
 
     static final String SOURCE_DIRS = CLDRPaths.MAIN_DIRECTORY + "," + CLDRPaths.ANNOTATIONS_DIRECTORY;
 
+    enum MyOptions {
+        coverage(new Params().setHelp("Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic")
+            .setMatch("comprehensive|modern|moderate|basic")), // UOption.REQUIRES_ARG
+        examples(new Params().setHelp("Turn on examples (actually a summary of the demo)")
+            .setFlag('x')), //, 'x', UOption.NO_ARG),
+        file_filter(new Params().setHelp("Pick the locales (files) to check: arg is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)")
+            .setDefault(".*").setMatch(".*")), //, 'f', UOption.REQUIRES_ARG).setDefault(".*"),
+        test_filter(new Params().setHelp("Filter the Checks: arg is a regular expression, eg -t.*number.*. To check all BUT a given test, use the style -t ((?!.*CheckZones).*)")
+            .setDefault(".*").setMatch(".*")), //, 't', UOption.REQUIRES_ARG).setDefault(".*"),
+        date_formats(new Params().setHelp("Turn on special date format checks")), //, 'd', UOption.NO_ARG),
+        organization(new Params().setHelp("Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests")
+            .setDefault(".*").setMatch(".*")), //, 'o', UOption.REQUIRES_ARG),
+        showall(new Params().setHelp("Show all paths, including aliased").setFlag('a')), //, 'a', UOption.NO_ARG),
+        path_filter(new Params().setHelp("Pick the paths to check, eg -p.*languages.*")
+            .setDefault(".*").setMatch(".*")), //, 'p', UOption.REQUIRES_ARG).setDefault(".*"),
+        errors_only(new Params().setHelp("Show errors only (with -ef, only final processing errors)")), //, 'e', UOption.NO_ARG),
+        check_on_submit(new Params().setHelp("")
+            .setFlag('k')), //, 'k', UOption.NO_ARG),
+        noaliases(new Params().setHelp("No aliases")), //, 'n', UOption.NO_ARG),
+        source_directory(new Params()
+            .setDefault(SOURCE_DIRS).setMatch(".*")), //, 's', UOption.REQUIRES_ARG).setDefault(SOURCE_DIRS),
+        user(new Params().setHelp("User, eg -uu148")
+            .setMatch(".*")), //, 'u', UOption.REQUIRES_ARG),
+        phase(new Params().setHelp("?")
+            .setMatch(Phase.class).setFlag('z')), //, 'z', UOption.REQUIRES_ARG),
+        generate_html(new Params().setHelp("Generate HTML-style chart in directory.")
+            .setDefault(CLDRPaths.CHART_DIRECTORY + "/errors/").setMatch(".*")), //, 'g', UOption.OPTIONAL_ARG).setDefault(CLDRPaths.CHART_DIRECTORY + "/errors/"),
+        vote_resolution(new Params().setHelp("")), //, 'v', UOption.NO_ARG),
+        id_view(new Params().setHelp("")), //, 'i', UOption.NO_ARG),
+        subtype_filter(new Params().setHelp("error/warning subtype filter, eg unexpectedOrderOfEraYear")
+            .setDefault(".*").setMatch(".*").setFlag('y')), //, 'y', UOption.REQUIRES_ARG),
+        source_all(new Params().setHelp("Use common AND seed directories. ( Set CLDR_DIR, don't use this with -s. )")
+            .setMatch(".*").setFlag('S')), //, 'S', UOption.REQUIRES_ARG),
+        bailey(new Params().setHelp("check bailey values (↑↑↑)")), //, 'b', UOption.NO_ARG)
+        ;
+
+        // BOILERPLATE TO COPY
+        final Option option;
+        private MyOptions(Params params) {
+            option = new Option(this, params);
+        }
+        private static Option.Options myOptions = new Option.Options();
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+        private static Set<String> parse(String[] args, boolean showArguments) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
+
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
@@ -192,8 +246,9 @@ public class ConsoleCheckCLDR {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
+        MyOptions.parse(args, true);
         ElapsedTimer totalTimer = new ElapsedTimer();
-        CldrUtility.showOptions(args);
+        //CldrUtility.showOptions(args);
         UOption.parseArgs(args, options);
         if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
             for (int i = 0; i < HelpMessage.length; ++i) {
@@ -201,7 +256,7 @@ public class ConsoleCheckCLDR {
             }
             return;
         }
-        String factoryFilter = options[FILE_FILTER].value;
+        String factoryFilter = options[FILE_FILTER].value; 
         if (factoryFilter.equals("key")) {
             factoryFilter = "(en|ru|nl|fr|de|it|pl|es|tr|th|ja|zh|ko|ar|bg|sr|uk|ca|hr|cs|da|fil|fi|hu|id|lv|lt|nb|pt|ro|sk|sl|sv|vi|el|he|fa|hi|am|af|et|is|ms|sw|zu|bn|mr|ta|eu|gl|ur|gu|kn|ml|te|zh_Hant|pt_PT|en_GB)";
         }

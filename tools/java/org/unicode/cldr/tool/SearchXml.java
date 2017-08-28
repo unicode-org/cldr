@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -64,20 +65,20 @@ public class SearchXml {
     private static PathHeader.Factory PATH_HEADER_FACTORY = null;
 
     final static Options myOptions = new Options()
-    .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
-    .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
-    .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
-    .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
-    .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
-    .add("count", null, null, "only count items")
-    .add("kount", null, null, "count regex group matches in pattern")
-    .add("other", ".+", null, "compare against other directory")
-    .add("unique", null, null, "only unique lines")
-    .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
-    .add("Verbose", null, null, "verbose output")
-    .add("recursive", null, null, "recurse directories")
-    .add("Star", null, null, "get statistics on starred paths")
-    .add("PathHeader", null, null, "show path header and string ID");
+        .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
+        .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
+        .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+        .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
+        .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
+        .add("count", null, null, "only count items")
+        .add("kount", null, null, "count regex group matches in pattern")
+        .add("other", ".+", null, "compare against other directory")
+        .add("unique", null, null, "only unique lines")
+        .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
+        .add("Verbose", null, null, "verbose output")
+        .add("recursive", null, null, "recurse directories")
+        .add("Star", null, null, "get statistics on starred paths")
+        .add("PathHeader", null, null, "show path header and string ID");
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
@@ -87,7 +88,7 @@ public class SearchXml {
 
         String sourceDirectory = myOptions.get("source").getValue();
         if (sourceDirectory == null) {
-            System.out.println("Need Source Directory! ");
+            System.out.println("#"+"Need Source Directory! ");
             return;
         }
         Output<Boolean> exclude = new Output<Boolean>();
@@ -131,7 +132,7 @@ public class SearchXml {
 
         File src = new File(sourceDirectory);
         if (!src.isDirectory()) {
-            System.err.println(sourceDirectory + " must be a directory");
+            System.err.println("#"+sourceDirectory + " must be a directory");
             return;
         }
 
@@ -139,7 +140,7 @@ public class SearchXml {
         if (comparisonDirectoryString != null) {
             comparisonDirectory = new File(comparisonDirectoryString);
             if (!comparisonDirectory.isDirectory()) {
-                System.err.println(comparisonDirectoryString + " must be a directory");
+                System.err.println("#"+comparisonDirectoryString + " must be a directory");
                 return;
             }
         }
@@ -156,24 +157,24 @@ public class SearchXml {
 
         if (kountRegexMatches != null) {
             for (String item : kountRegexMatches.getKeysetSortedByCount(false)) {
-                System.out.println(kountRegexMatches.getCount(item) + "\t" + item);
+                System.out.println("#"+kountRegexMatches.getCount(item) + "\t" + item);
             }
         }
 
         if (unique) {
             for (String item : uniqueData.getKeysetSortedByCount(false)) {
-                System.out.println(uniqueData.getCount(item) + item);
+                System.out.println("#"+uniqueData.getCount(item) + item);
             }
         }
 
         if (starCounter != null) {
             for (String path : starCounter.getKeysetSortedByCount(false)) {
-                System.out.println(starCounter.get(path) + "\t" + path);
+                System.out.println("#"+starCounter.get(path) + "\t" + path);
             }
         }
         double deltaTime = System.currentTimeMillis() - startTime;
-        System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
-        System.out.println("Instances found: " + total);
+        System.out.println("#"+"Elapsed: " + deltaTime / 1000.0 + " seconds");
+        System.out.println("#"+"Instances found: " + total);
     }
 
     private static Matcher getMatcher(String property, Output<Boolean> exclude) {
@@ -190,7 +191,7 @@ public class SearchXml {
 
     private static void processDirectory(File src) throws IOException {
         if (comparisonDirectory != null) {
-            System.out.println("Locale" +
+            System.out.println("#"+"Locale" +
                 "\tFile" +
                 "\tBase" +
                 DiffInfo.DiffInfoHeader +
@@ -217,16 +218,16 @@ public class SearchXml {
 
             if (fileMatcher != null && fileExclude == fileMatcher.reset(coreName).find()) {
                 if (verbose) {
-                    System.out.println("* Skipping " + canonicalFile);
+                    System.out.println("#"+"* Skipping " + canonicalFile);
                 }
                 continue;
             }
             if (verbose) {
-                System.out.println("Searching " + canonicalFile);
+                System.out.println("#"+"Searching " + canonicalFile);
             }
 
             if (showFiles) {
-                System.out.println("* " + canonicalFile);
+                System.out.println("#"+"* " + canonicalFile);
             }
 
             Relation<String, String> source = getXmlFileAsRelation(src, fileName);
@@ -238,11 +239,11 @@ public class SearchXml {
             checkFiles(recursive ? file.getParent() : null, fileName, coreName, source, other);
             System.out.flush();
         }
-        System.out.println("\t" + DiffInfo.DiffInfoHeader);
+        System.out.println("#"+"\t" + DiffInfo.DiffInfoHeader);
         DIFF_INFO.showValues("TOTAL");
 
         for (String error : ERRORS) {
-            System.err.println(error);
+            System.err.println("#"+error);
         }
     }
 
@@ -289,7 +290,7 @@ public class SearchXml {
         int sameCount = 0;
 
         public void showValues(String title) {
-            System.out.println(title +
+            System.out.println("#"+title +
                 "\t" + sameCount +
                 "\t" + deletionCount +
                 "\t" + additionCount +
@@ -323,6 +324,8 @@ public class SearchXml {
         file = canonicalFile;
 
         DiffInfo diffInfo = new DiffInfo();
+        String fileWithoutSuffix = fileName.substring(0, fileName.length() - 4);
+
 
         if (levelMatcher != null || countOnly) {
             try {
@@ -364,7 +367,7 @@ public class SearchXml {
             Set<String> otherValues = other == null ? null : other.get(path);
 
             // if (showValues) {
-            // System.out.println(values + "\t" + otherValues + "\t<=\t" + path);
+            // System.out.println("#"+values + "\t" + otherValues + "\t<=\t" + path);
             // }
 
             if (other != null) {
@@ -381,7 +384,7 @@ public class SearchXml {
                         diffInfo.sameCount += values.size();
                     }
                     if (diff && showValues) {
-                        System.out.println("#\t" + values + "\t" + otherValues + "\t" + path);
+                        show(fileWithoutSuffix, path, values, otherValues);
                     }
                 }
             } else {
@@ -408,13 +411,13 @@ public class SearchXml {
                     ++total;
 
                     if (firstMessage != null) {
-                        // System.out.println(firstMessage);
+                        // System.out.println("#"+firstMessage);
                         firstMessage = null;
                     }
                     if (!countOnly) {
                         String data = groups
                             ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
-                                : value + "\t" + path;
+                            : value + "\t" + path;
                             if (!unique) {
                                 String pathHeaderInfo = "";
                                 if (PATH_HEADER_FACTORY != null) {
@@ -425,10 +428,14 @@ public class SearchXml {
                                     }
                                 }
                                 // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
-                                System.out.println(
-                                    (recursive ? filePath + "\t" : "")
-                                    + file + "\t" + data
-                                    + pathHeaderInfo);
+                                if (!groups && pathHeaderInfo.isEmpty()) {
+                                    show(file, path, Collections.singleton(value), null);
+                                } else {
+                                    System.out.println("#?"+
+                                        (recursive ? filePath + "\t" : "")
+                                        + file + "\t" + data
+                                        + pathHeaderInfo);
+                                }
                             } else {
                                 uniqueData.add(data, 1);
                             }
@@ -444,6 +451,16 @@ public class SearchXml {
                 "\t" + getType(locale);
             diffInfo.showValues(title);
         }
+    }
+
+    private static void show(String fileWithoutSuffix, String path, Set<String> values, Set<String> otherValues) {
+        // locale=  af     ; action=add ; new_path=        //ldml/dates/fields/field[@type="second"]/relative[@type="0"]    ; new_value=    nou  
+        String values2 = values.size() != 1 ? values.toString() : values.iterator().next();
+        System.out.println("locale=" + fileWithoutSuffix
+            + ";\taction=add"
+            + ";\tnew_path=" + path
+            + ";\tnew_value=" + values2
+            + (otherValues == null ? "" : ";\tother_value=" + otherValues));
     }
 
     static Set<String> defaultContent = SupplementalDataInfo.getInstance().getDefaultContentLocales();

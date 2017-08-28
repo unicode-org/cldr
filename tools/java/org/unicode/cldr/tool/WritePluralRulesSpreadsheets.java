@@ -40,9 +40,10 @@ public class WritePluralRulesSpreadsheets {
 
     // TODO rewrite to use Options, generate file instead of console.
 
+    public static String[] tests = {"or", "tk", "ps", "as", "sd"};
     public static void main(String[] args) {
-        writePluralChecklist("or", "tk", "ps", "as", "sd");
-        //ranges();
+        //writePluralChecklist(tests);
+        ranges();
     }
 
     static final SupplementalDataInfo supplemental = SupplementalDataInfo.getInstance();
@@ -52,7 +53,8 @@ public class WritePluralRulesSpreadsheets {
     private static void ranges() {
         Multimap<Set<String>, String> missingMinimalPairs = HashMultimap.create();
         System.out.println("Type\tCode\tName\tRange\tResult\tResult Example\tStart-Range Example\tEnd-Range Example");
-        Set<String> cldrLocales = new TreeSet<>(STD.getLocaleCoverageLocales(Organization.cldr));
+        Set<String> cldrLocales = // new TreeSet<>(Arrays.asList(tests));
+        new TreeSet<>(STD.getLocaleCoverageLocales(Organization.cldr));
         cldrLocales.addAll(STD.getLocaleCoverageLocales(Organization.google));
 
         writeRanges("Core", cldrLocales, missingMinimalPairs);

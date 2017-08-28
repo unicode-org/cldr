@@ -10,6 +10,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckLogicalGroupings extends FactoryCheckCLDR {
@@ -26,8 +27,30 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*
 
-    private XPathParts parts = new XPathParts(); // used to parse out a path
-
+    //private XPathParts parts = new XPathParts(); // used to parse out a path
+    
+    /**
+     * We are not as strict with sublocales (where the parent is neither root nor code_fallback). 
+     * @param path
+     * @return
+     */
+    public boolean isHereOrNonRoot(String path) {
+        if (getCldrFileToCheck().isHere(path)) {
+            return true;
+        }
+        if (!getCldrFileToCheck().getLocaleID().contains("_")) { // quick check for top level
+            return false;
+        }
+        String value = getResolvedCldrFileToCheck().getStringValue(path);
+        if (value == null) {
+            return false;
+        }
+        // the above items are just for fast checking.
+        // check the origin of the value, and make sure it is not ≥ root
+        String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
+        return !source.equals(XMLSource.ROOT_ID) && !source.equals(XMLSource.CODE_FALLBACK_ID);
+    }
+    
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         // if (fullPath == null) return this; // skip paths that we don't have
@@ -42,12 +65,12 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         if (paths.size() < 2) return this; // skip if not part of a logical grouping
         int logicalGroupingCount = 0;
         for (String apath : paths) {
-            if (getCldrFileToCheck().isHere(apath)) {
+            if (isHereOrNonRoot(apath)) {
                 logicalGroupingCount++;
             }
         }
         if (logicalGroupingCount == 0) return this; // skip if the logical grouping is empty
-        if (!getCldrFileToCheck().isHere(path) || 
+        if (!isHereOrNonRoot(path) || 
             (this.getPhase().equals(Phase.FINAL_TESTING) && logicalGroupingCount != paths.size())) {
             CheckStatus.Type showError = CheckStatus.errorType;
             if (this.getPhase().equals(Phase.BUILD)) {
@@ -98,7 +121,10 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             if (fPath == null) {
                 continue;
             }
-            parts.set(fPath);
+            if (apath.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day")) {
+                int debug = 0;
+            }
+            XPathParts parts = XPathParts.getFrozenInstance(fPath);
             DraftStatus draftStatus = DraftStatus.forString(parts.findFirstAttributeValue("draft"));
 
             // anything at or above the minimum is ok.

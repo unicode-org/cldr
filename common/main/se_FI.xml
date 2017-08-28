@@ -422,9 +422,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">j:a 'vahkku' V</dateFormatItem>
-						<dateFormatItem id="yw" count="two">j:a 'vahkku' V</dateFormatItem>
-						<dateFormatItem id="yw" count="other">j:a 'vahkku' V</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="M">
@@ -761,9 +758,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sun-short">
-				<relative type="-1">mannan so</relative>
-				<relative type="0">dán so</relative>
-				<relative type="1">boahtte so</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte so</relativeTimePattern>
 					<relativeTimePattern count="two">maŋit sotnabeaivve</relativeTimePattern>
@@ -776,9 +770,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
-				<relative type="-1">mannan so</relative>
-				<relative type="0">dán so</relative>
-				<relative type="1">boahtte so</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} boahtte so</relativeTimePattern>
 					<relativeTimePattern count="two">boahtte {0} sotnabeaivve</relativeTimePattern>
@@ -806,9 +797,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="mon-short">
-				<relative type="-1">mannan má</relative>
-				<relative type="0">dán má</relative>
-				<relative type="1">boahtte má</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} boahtte má</relativeTimePattern>
 					<relativeTimePattern count="two">{0} boahtte mánnodaga</relativeTimePattern>
@@ -821,9 +809,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
-				<relative type="-1">mannan má</relative>
-				<relative type="0">dán má</relative>
-				<relative type="1">boahtte má</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} boahtte má</relativeTimePattern>
 					<relativeTimePattern count="two">{0} boahtte mánnodaga</relativeTimePattern>
@@ -851,9 +836,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-short">
-				<relative type="-1">mannan di</relative>
-				<relative type="0">dán di</relative>
-				<relative type="1">boahtte di</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte di</relativeTimePattern>
 					<relativeTimePattern count="two">{0} boahtte disdaga</relativeTimePattern>
@@ -866,9 +848,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
-				<relative type="-1">mannan di</relative>
-				<relative type="0">dán di</relative>
-				<relative type="1">boahtte di</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte di</relativeTimePattern>
 					<relativeTimePattern count="two">{0} boahtte disdaga</relativeTimePattern>
@@ -896,9 +875,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="wed-short">
-				<relative type="-1">mannan ga</relative>
-				<relative type="0">dán ga</relative>
-				<relative type="1">boahtte ga</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte ga</relativeTimePattern>
 					<relativeTimePattern count="two">{0} boahtte gaskavahku</relativeTimePattern>
@@ -911,9 +887,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
-				<relative type="-1">mannan ga</relative>
-				<relative type="0">dán ga</relative>
-				<relative type="1">boahtte ga</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte ga</relativeTimePattern>
 					<relativeTimePattern count="two">{0} boahtte gaskavahku</relativeTimePattern>
@@ -941,9 +914,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-short">
-				<relative type="-1">mannan du</relative>
-				<relative type="0">dán du</relative>
-				<relative type="1">boahtte du</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte du</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} boahtte duorastaga</relativeTimePattern>
@@ -956,9 +926,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
-				<relative type="-1">mannan du</relative>
-				<relative type="0">dán du</relative>
-				<relative type="1">boahtte du</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte du</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} boahtte duorastaga</relativeTimePattern>
@@ -986,9 +953,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="fri-short">
-				<relative type="-1">mannan be</relative>
-				<relative type="0">dán be</relative>
-				<relative type="1">boahtte be</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte be</relativeTimePattern>
 					<relativeTimePattern count="two">boahtte {0} bearjadaga</relativeTimePattern>
@@ -1001,9 +965,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
-				<relative type="-1">mannan be</relative>
-				<relative type="0">dán be</relative>
-				<relative type="1">boahtte be</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">boahtte be</relativeTimePattern>
 					<relativeTimePattern count="two">boahtte {0} bearjadaga</relativeTimePattern>
@@ -1031,9 +992,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sat-short">
-				<relative type="-1">mannan lá</relative>
-				<relative type="0">dán lá</relative>
-				<relative type="1">boahtte lá</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} boahtte lá</relativeTimePattern>
 					<relativeTimePattern count="two">boahtte {0} lá</relativeTimePattern>
@@ -1046,9 +1004,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
-				<relative type="-1">mannan lá</relative>
-				<relative type="0">dán lá</relative>
-				<relative type="1">boahtte lá</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} boahtte lá</relativeTimePattern>
 					<relativeTimePattern count="two">boahtte {0} lá</relativeTimePattern>
@@ -2221,9 +2176,4 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 		</timeZoneNames>
 	</dates>
-	<numbers>
-		<minimalPairs>
-			<pluralMinimalPairs count="one">{0}beaivi</pluralMinimalPairs>
-		</minimalPairs>
-	</numbers>
 </ldml>

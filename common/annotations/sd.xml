@@ -1,0 +1,2543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="sd"/>
+	</identity>
+	<annotations>
+		<annotation cp="🏻">رنگ | قسم 1–2</annotation>
+		<annotation cp="🏻" type="tts">گوري رنگت</annotation>
+		<annotation cp="🏼">رنگ | قسم 3</annotation>
+		<annotation cp="🏼" type="tts">وچولي گوري رنگت</annotation>
+		<annotation cp="🏽">رنگ | قسم 4</annotation>
+		<annotation cp="🏽" type="tts">پڪو رنگ</annotation>
+		<annotation cp="🏾">رنگ | قسم 5</annotation>
+		<annotation cp="🏾" type="tts">وچولو ڪارو رنگ</annotation>
+		<annotation cp="🏿">رنگ | قسم 6</annotation>
+		<annotation cp="🏿" type="tts">ڪارو رنگ</annotation>
+		<annotation cp="😀">چهرو، وڏي کل</annotation>
+		<annotation cp="😀" type="tts">وڏي کل وارو چهرو</annotation>
+		<annotation cp="😁">اک، چهرو، وڏي کل، کل</annotation>
+		<annotation cp="😁" type="tts">کلندڙ اکين سان گڏ چمڪندڙ چهرو</annotation>
+		<annotation cp="😂">چهرو، خوشي، کل، ڳوڙها</annotation>
+		<annotation cp="😂" type="tts">خوشي جي ڳوڙهن وارو چهرو</annotation>
+		<annotation cp="🤣">فرش، کل، ليٿڙيون، چهرو</annotation>
+		<annotation cp="🤣" type="tts">کلندي فرش تي ليٿڙيون پائيندي</annotation>
+		<annotation cp="😃">چهرو، وات، کليل، کل</annotation>
+		<annotation cp="😃" type="tts">وڏين انکين سان وڏي کل وارو چهرو</annotation>
+		<annotation cp="😄">اک، چهرو، وات، کليل، کل،</annotation>
+		<annotation cp="😄" type="tts">کلندڙ انکين سان وڏي کل وارو چهرو</annotation>
+		<annotation cp="😅">ٿڏ، چهرو، کليل، کل، پگهر</annotation>
+		<annotation cp="😅" type="tts">پگهر سان وڏي کل وارو چهرو</annotation>
+		<annotation cp="😆">چهرو، کل، منهن، کليل، متمعين، مسڪراهٽ</annotation>
+		<annotation cp="😆" type="tts">وڏي کل وارو ڦريل انکين وارو چهرو</annotation>
+		<annotation cp="😉">چهرو، اک هڻڻ</annotation>
+		<annotation cp="😉" type="tts">اک هڻڻ</annotation>
+		<annotation cp="😊">شرمائڻ، اک چهرو، مسڪراهٽ</annotation>
+		<annotation cp="😊" type="tts">کلندڙ انکين سان کلندڙ چهرو</annotation>
+		<annotation cp="😋">مزيدار | چهرو | مزو ڏيندي | مرڪ | مزي وارو | لذت</annotation>
+		<annotation cp="😋" type="tts">کاڏي تي وات ۾ پاڻي اچڻ</annotation>
+		<annotation cp="😎">روشن | عمدو | اک | شيشا | چهرو | چشمو | مرڪ | سج | اس جي عينڪ</annotation>
+		<annotation cp="😎" type="tts">اس جي چشمي سان گڏ مسڪرائيندڙ چهرو</annotation>
+		<annotation cp="😍">اک | چهرو | پيار | مرڪ</annotation>
+		<annotation cp="😍" type="tts">دل واري اکين سان مسڪرائيندڙ چهرو</annotation>
+		<annotation cp="😘">چهرو | چمي</annotation>
+		<annotation cp="😘" type="tts">هڪ چمي موڪليندڙ چهرو</annotation>
+		<annotation cp="😗">چهرو | چمڻ</annotation>
+		<annotation cp="😗" type="tts">چمي ڏيندڙ چهرو</annotation>
+		<annotation cp="😙">اک | چهرو | چمي | مرڪ</annotation>
+		<annotation cp="😙" type="tts">مسڪرائيندڙ اکين سان گڏ چمي ڏيندڙ چهرو</annotation>
+		<annotation cp="😚">بند ٿيل | اک | چهرو | چمي</annotation>
+		<annotation cp="😚" type="tts">بند اکين سان گڏ چمي ڏيندڙ چهرو</annotation>
+		<annotation cp="☺">چهرو | اڀريل | پرسڪون | مرڪ</annotation>
+		<annotation cp="☺" type="tts">مرڪندڙ چهرو</annotation>
+		<annotation cp="🙂">چهرو | مرڪ</annotation>
+		<annotation cp="🙂" type="tts">هلڪو مسڪرائيندڙ چهرو</annotation>
+		<annotation cp="🤗">چهرو | ڀاڪر | ڀاڪر پائڻ</annotation>
+		<annotation cp="🤗" type="tts">ڀاڪر پائيندڙ چهرو</annotation>
+		<annotation cp="🤩">مسڪرائڻ | چهرو | تارو | اکيون</annotation>
+		<annotation cp="🤩" type="tts">اکيون تاري نما</annotation>
+		<annotation cp="🤔">چهرو | سوچيندڙ</annotation>
+		<annotation cp="🤔" type="tts">سوچيندڙ چهرو</annotation>
+		<annotation cp="🤨">شڪي | بي اعتمادي</annotation>
+		<annotation cp="🤨" type="tts">اڀريل ڀرن سان چهرو</annotation>
+		<annotation cp="😐">لٿل | چهرو | غيرجانبدار</annotation>
+		<annotation cp="😐" type="tts">غير جانبدار چهرو</annotation>
+		<annotation cp="😑">لااظهار | چهرو | بي معني | بغير اظهار</annotation>
+		<annotation cp="😑" type="tts">بغير اظهاري وارو چهرو</annotation>
+		<annotation cp="😶">چهرو | وات | خاموش | چپ</annotation>
+		<annotation cp="😶" type="tts">بغير وات وارو چهرو</annotation>
+		<annotation cp="🙄">اکيون | چهرو | ڦرندڙ</annotation>
+		<annotation cp="🙄" type="tts">ڦرندڙ اکين سان چهرو</annotation>
+		<annotation cp="😏">چهرو | بناوٽي مرڪ</annotation>
+		<annotation cp="😏" type="tts">بناوٽي چهرو</annotation>
+		<annotation cp="😣">چهرو | ثابت قدم</annotation>
+		<annotation cp="😣" type="tts">چهرو | ثابت قدم</annotation>
+		<annotation cp="😥">نااميد | چهرو | آجو | واه</annotation>
+		<annotation cp="😥" type="tts">اداس پر سڪون وارو چهرو</annotation>
+		<annotation cp="😮">چهرو | وات | کليل | همدردي</annotation>
+		<annotation cp="😮" type="tts">کليل وات سان چهرو</annotation>
+		<annotation cp="🤐">چهرو | وات | زپر</annotation>
+		<annotation cp="🤐" type="tts">زپ ٿيل وات وارو چهرو</annotation>
+		<annotation cp="😯">چهرو | مخفي | ششدر | حيران ڪيل</annotation>
+		<annotation cp="😯" type="tts">چپ ٿيل چهرو</annotation>
+		<annotation cp="😪">چهرو | ننڊ</annotation>
+		<annotation cp="😪" type="tts">ننڊ وارو چهرو</annotation>
+		<annotation cp="😫">چهرو | ٿڪيل</annotation>
+		<annotation cp="😫" type="tts">ٿڪل چهرو</annotation>
+		<annotation cp="😴">چهرو | ننڊ | ززز</annotation>
+		<annotation cp="😴" type="tts">سمهندڙ چهرو</annotation>
+		<annotation cp="😌">چهرو | آجو</annotation>
+		<annotation cp="😌" type="tts">آجو ٿيل چهرو</annotation>
+		<annotation cp="😛">چهرو | زبان</annotation>
+		<annotation cp="😛" type="tts">زبان وارو چهرو</annotation>
+		<annotation cp="😜">اک | چهرو | مذاق | زبان | جھپڪڻ</annotation>
+		<annotation cp="😜" type="tts">زبان سان گڏ چهرو انک هڻندي</annotation>
+		<annotation cp="😝">اک | چهرو | خوفناڪ | ذائقو | زبان</annotation>
+		<annotation cp="😝" type="tts">زبان سان گڏ انک بند ڪندي چهرو</annotation>
+		<annotation cp="🤤">رال ٽپڪائيندڙ | چهرو</annotation>
+		<annotation cp="🤤" type="tts">رال ٽپڪائيندڙ چهرو</annotation>
+		<annotation cp="😒">چهرو | ناخوش | ناخوش</annotation>
+		<annotation cp="😒" type="tts">ناخوش چهرو</annotation>
+		<annotation cp="😓">ٿڌو | چهرو | پگھر</annotation>
+		<annotation cp="😓" type="tts">هلڪي آنسن سان لٿل چهرو</annotation>
+		<annotation cp="😔">اداس | چهرو | فڪرمند</annotation>
+		<annotation cp="😔" type="tts">فڪرمند چهرو</annotation>
+		<annotation cp="😕">الجھيل | چهرو</annotation>
+		<annotation cp="😕" type="tts">الجهيل چهرو</annotation>
+		<annotation cp="🙃">چهرو | ابتو</annotation>
+		<annotation cp="🙃" type="tts">ابتو چهرو</annotation>
+		<annotation cp="🤑">چهرو | پئسا | وات</annotation>
+		<annotation cp="🤑" type="tts">وات ۾ پئسن وارو چهرو</annotation>
+		<annotation cp="😲">حيران | چهرو | بدحواس | پورو</annotation>
+		<annotation cp="😲" type="tts">حيران ٿيل چهرو</annotation>
+		<annotation cp="☹">چهرو | لٿل</annotation>
+		<annotation cp="☹" type="tts">لٿل چهرو</annotation>
+		<annotation cp="🙁">چهرو | لٿل</annotation>
+		<annotation cp="🙁" type="tts">هلڪو لٿل چهرو</annotation>
+		<annotation cp="😖">شرمنده، چهرو</annotation>
+		<annotation cp="😖" type="tts">شرمنده چهرو</annotation>
+		<annotation cp="😞">نااميد | چهرو</annotation>
+		<annotation cp="😞" type="tts">نااميد چهرو</annotation>
+		<annotation cp="😟">چهرو | پريشان</annotation>
+		<annotation cp="😟" type="tts">پريشان چهرو</annotation>
+		<annotation cp="😤">چهرو | فتح | کٽڻ</annotation>
+		<annotation cp="😤" type="tts">نڪ مان ٻاڦ نڪرندڙ چهرو</annotation>
+		<annotation cp="😢">روئڻ | چهرو | ڏکويل | ڳوڙهو</annotation>
+		<annotation cp="😢" type="tts">روئندڙ چهرو</annotation>
+		<annotation cp="😭">روئڻ | چهرو | ڏکويل | سڏڪڻ | ڳوڙهو</annotation>
+		<annotation cp="😭" type="tts">وڏي آواز سان روئندڙ چهرو</annotation>
+		<annotation cp="😦">چهرو | ناپسنديدگي | وات | کليل</annotation>
+		<annotation cp="😦" type="tts">کليل وات سان اداس چهرو</annotation>
+		<annotation cp="😧">ڏکايل | چهرو</annotation>
+		<annotation cp="😧" type="tts">ڏکايل چهرو</annotation>
+		<annotation cp="😨">چهرو | خوف | خوفناڪ | ڊنل</annotation>
+		<annotation cp="😨" type="tts">ڊنل چهرو</annotation>
+		<annotation cp="😩">چهرو | ٿڪيل | ٿڪجڻ</annotation>
+		<annotation cp="😩" type="tts">اکڙيل چهرو</annotation>
+		<annotation cp="🤯">ڇرڪ</annotation>
+		<annotation cp="🤯" type="tts">ڦاٽندڙ مٿو</annotation>
+		<annotation cp="😬">چهرو | بدصورت بڻائڻ</annotation>
+		<annotation cp="😬" type="tts">بناوٽي صورت ٺاهيندڙ چهرو</annotation>
+		<annotation cp="😰">نيرو | ٿڌو | چهرو | وات | کليل | وڌيل | پگھر</annotation>
+		<annotation cp="😰" type="tts">پگهر سان فڪرمند چهرو</annotation>
+		<annotation cp="😱">چهرو | خوف | خوفناڪ | چٻاڙڻ | ڊنل | رڙيون ڪرڻ</annotation>
+		<annotation cp="😱" type="tts">ڊپ ۾ رڙيون ڪندڙ چهرو</annotation>
+		<annotation cp="😳">بدحواس | چهرو | سرخي ڇانيل</annotation>
+		<annotation cp="😳" type="tts">سرخي ڇانيل چهرو</annotation>
+		<annotation cp="🤪">اوڏو | ننڍو | اک</annotation>
+		<annotation cp="🤪" type="tts">چريو چهرو</annotation>
+		<annotation cp="😵">چڪرائيندڙ | چهرو</annotation>
+		<annotation cp="😵" type="tts">چڪرائيندڙ چهرو</annotation>
+		<annotation cp="😡">ڪاوڙيل | چهرو | چريو | ضدي | ڪاوڙ | ڳاڙهو</annotation>
+		<annotation cp="😡" type="tts">منهن بسوريندڙ چهرو</annotation>
+		<annotation cp="😠">ڪاوڙيل | چهرو | چريو</annotation>
+		<annotation cp="😠" type="tts">ڪاوڙيل چهرو</annotation>
+		<annotation cp="🤬">گار ڏيڻ</annotation>
+		<annotation cp="🤬" type="tts">وات تي نشان سان گڏ چهرو</annotation>
+		<annotation cp="😷">ٿڌو | ڊاڪٽر | چهرو | نقاب | دوا | بيمار</annotation>
+		<annotation cp="😷" type="tts">ميڊيڪل ماسڪ سان گڏ چهرو</annotation>
+		<annotation cp="🤒">چهرو | بيمار | بيمار | ٿرماميٽر</annotation>
+		<annotation cp="🤒" type="tts">ٿرماميٽر سان گڏ چهرو</annotation>
+		<annotation cp="🤕">پٽي | چهرو | ڏکائڻ | زخم</annotation>
+		<annotation cp="🤕" type="tts">مٿي تي پٽي ٻڌل چهرو</annotation>
+		<annotation cp="🤢">چهرو | ڪراهت | الٽي</annotation>
+		<annotation cp="🤢" type="tts">الٽي ايندڙ چهرو</annotation>
+		<annotation cp="🤮">الٽي | بيمار</annotation>
+		<annotation cp="🤮" type="tts">چهرو الٽي ڪندي</annotation>
+		<annotation cp="🤧">چهرو | صحت | نڇ</annotation>
+		<annotation cp="🤧" type="tts">ڇڪ ڏيندڙ چهرو</annotation>
+		<annotation cp="😇">فرشتو | چهرو | پري جي ڪهاڻي | تصور | هالو | معصوم | مرڪ</annotation>
+		<annotation cp="😇" type="tts">نور جي حلقي سان مسڪرائيندڙ چهرو</annotation>
+		<annotation cp="🤠">ڪائو بوائي | چهرو | ٽوپي | ڪائو گرل</annotation>
+		<annotation cp="🤠" type="tts">ڪائوبوائي ٽوپي وارو چهرو</annotation>
+		<annotation cp="🤡">جوڪر | چهرو</annotation>
+		<annotation cp="🤡" type="tts">جوڪر وارو چهرو</annotation>
+		<annotation cp="🤥">چهرو | ڪوڙ</annotation>
+		<annotation cp="🤥" type="tts">ڪوڙ ڳالهائيندڙ چهرو</annotation>
+		<annotation cp="🤫">چپ، ماٺ</annotation>
+		<annotation cp="🤫" type="tts">چپ چهرو</annotation>
+		<annotation cp="🤭">تعجب</annotation>
+		<annotation cp="🤭" type="tts">وات تي هٿ وارو چهرو</annotation>
+		<annotation cp="🧐">جڪڙيل</annotation>
+		<annotation cp="🧐" type="tts">هڪ عينڪ وارو چهرو</annotation>
+		<annotation cp="🤓">چهرو | گيڪ | احمق</annotation>
+		<annotation cp="🤓" type="tts">بيوقوف چهرو</annotation>
+		<annotation cp="😈">چهرو | جادوئي قصو | تصور | سنڱ | مرڪ</annotation>
+		<annotation cp="😈" type="tts">سڱن وارو مسڪرائيندڙ چهرو</annotation>
+		<annotation cp="👿">ڀوت | شيطان | شرارتي | چهرو | جادوئي قصو | تصور</annotation>
+		<annotation cp="👿" type="tts">سڱن وارو ڪاوڙيل چهرو</annotation>
+		<annotation cp="👹">مخلوق | چهرو | جادوئي قصو | تصور | ديو</annotation>
+		<annotation cp="👹" type="tts">آدمخور</annotation>
+		<annotation cp="👺">مخلوق | چهرو | جادوئي قصو | تصور | ديو</annotation>
+		<annotation cp="👺" type="tts">بونو</annotation>
+		<annotation cp="💀">موت | چهرو | جادوئي قصو | ديو</annotation>
+		<annotation cp="💀" type="tts">کوپڙي</annotation>
+		<annotation cp="☠">خطري جي نشاني | موت | چهرو | ديو | کوپڙي</annotation>
+		<annotation cp="☠" type="tts">کوپڙي ۽ خطري جي نشاني</annotation>
+		<annotation cp="👻">مخلوق | چهرو | جادوئي قصو | تصور | ديو</annotation>
+		<annotation cp="👻" type="tts">ڀوت</annotation>
+		<annotation cp="👽">خلائي مخلوق | مخلوق | غير ارضي | چهرو | جادوئي قصو | تصور | ديو | ناشناخته</annotation>
+		<annotation cp="👽" type="tts">خلائي مخلوق</annotation>
+		<annotation cp="👾">خلائي مخلوق | مخلوق | غير ارضي | چهرو | جادوئي قصو | تصور | ديو | ناشناخته</annotation>
+		<annotation cp="👾" type="tts">خلائي مخلوق حيوان</annotation>
+		<annotation cp="🤖">چهرو | ديو | روبوٽ</annotation>
+		<annotation cp="🤖" type="tts">روبوٽ چهرو</annotation>
+		<annotation cp="💩">ڪامڪ | ڇيڻو | چهرو | ديو | ڊيڄارڻ | ٿڪجي پوڻ</annotation>
+		<annotation cp="💩" type="tts">ڊڄارڻ جي شڪل جو انبار</annotation>
+		<annotation cp="😺">ٻلي | چهرو | وات | کليل | مرڪ</annotation>
+		<annotation cp="😺" type="tts">ٻلي جو مسڪرائيندڙ چهرو</annotation>
+		<annotation cp="😸">ٻلي | اک | چهرو | مسڪراهٽ | مرڪ</annotation>
+		<annotation cp="😸" type="tts">مسڪرائيندڙ اکين سان گڏ مسڪرائيندڙ ٻلي وارو چهرو</annotation>
+		<annotation cp="😹">ٻلي | چهرو | خوشي | ڳوڙهو</annotation>
+		<annotation cp="😹" type="tts">خوشي جي لڙڪن سان ٻلي وارو چهرو</annotation>
+		<annotation cp="😻">ٻلي | اک | چهرو | پيار | مرڪ</annotation>
+		<annotation cp="😻" type="tts">دل واري اکين سان مسڪرائيندڙ ٻلي وارو چهرو</annotation>
+		<annotation cp="😼">ٻلي | چهرو | طنزيه | مرڪ | بدشڪل</annotation>
+		<annotation cp="😼" type="tts">بدشڪل مسڪراهٽ سان ٻلي وارو چهرو</annotation>
+		<annotation cp="😽">ٻلي | اک | چهرو | چمي</annotation>
+		<annotation cp="😽" type="tts">چمي ڏيندڙ ٻلي جو چهرو</annotation>
+		<annotation cp="🙀">ٻلي | چهرو | آه | حيران | ٿڪيل</annotation>
+		<annotation cp="🙀" type="tts">تنگ ٻلي جو چهرو</annotation>
+		<annotation cp="😿">ٻلي | روئڻ | چهرو | ڏکويل | ڳوڙهو</annotation>
+		<annotation cp="😿" type="tts">روئندڙ ٻلي وارو چهرو</annotation>
+		<annotation cp="😾">ٻلي | چهرو | ضدي</annotation>
+		<annotation cp="😾" type="tts">منهن بسوريندڙ ٻلي وارو چهرو</annotation>
+		<annotation cp="🙈">شيطان | چهرو | ممنوعه | ادا | ڀولڙو | نه | نه | ممنوع | ڏسڻ</annotation>
+		<annotation cp="🙈" type="tts">ڪا-شيطاني-نه-ڏسو وارو ڀولڙو</annotation>
+		<annotation cp="🙉">شيطان | چهرو | ممنوعه | ادا | ٻڌڻ | ڀولڙو | نه | نه | ممنوع</annotation>
+		<annotation cp="🙉" type="tts">ڪا-شيطاني-نه-ٻڌو وارو ڀولڙو</annotation>
+		<annotation cp="🙊">شيطان | چهرو | ممنوعه | ادا | ٻڌڻ | ڀولڙو | نه | نه | ممنوع | ڳالهائڻ</annotation>
+		<annotation cp="🙊" type="tts">ڪا-شيطاني-نه-ڳالهايو وارو ڀولڙو</annotation>
+		<annotation cp="👶">ننڍو ٻار، جوان</annotation>
+		<annotation cp="👶" type="tts">ننڍو ٻار</annotation>
+		<annotation cp="🧒">جنس غير جانبدار، جوان</annotation>
+		<annotation cp="🧒" type="tts">ٻار</annotation>
+		<annotation cp="👦">ڇوڪرو، جوان</annotation>
+		<annotation cp="👦" type="tts">ڇوڪرو</annotation>
+		<annotation cp="👧">سنبلا، جوان، برج</annotation>
+		<annotation cp="👧" type="tts">ڇوڪري</annotation>
+		<annotation cp="🧑">غيرجانبدار</annotation>
+		<annotation cp="🧑" type="tts">بالغ</annotation>
+		<annotation cp="👨">ماڻهو</annotation>
+		<annotation cp="👨" type="tts">ماڻهو</annotation>
+		<annotation cp="👩">عورت</annotation>
+		<annotation cp="👩" type="tts">عورت</annotation>
+		<annotation cp="🧓">غيرجانبدرا، وڏو</annotation>
+		<annotation cp="🧓" type="tts">وڏي عمر جو بالغ</annotation>
+		<annotation cp="👴">ماڻهو، پوڙهو</annotation>
+		<annotation cp="👴" type="tts">پوڙهو ماڻهو</annotation>
+		<annotation cp="👵">پوڙهي، عورت</annotation>
+		<annotation cp="👵" type="tts">پوڙهي عورت</annotation>
+		<annotation cp="👨‍⚕">ماڻهو، صحت جو خيال، ڊاڪٽر، نرس، ٿراپسٽ</annotation>
+		<annotation cp="👨‍⚕" type="tts">ماڻهو صحت خدمتگار</annotation>
+		<annotation cp="👩‍⚕">عورت، صحت جو خيال، ڊاڪٽر، نرس، ٿراپسٽ</annotation>
+		<annotation cp="👩‍⚕" type="tts">عورت صحت خدمتگار</annotation>
+		<annotation cp="👨‍🎓">مرد، شاگرد، گريجوئيٽ</annotation>
+		<annotation cp="👨‍🎓" type="tts">مرد شاگرد</annotation>
+		<annotation cp="👩‍🎓">عورت، شاگرد، گريجوئيٽ</annotation>
+		<annotation cp="👩‍🎓" type="tts">عورت شاگرد</annotation>
+		<annotation cp="👨‍🏫">مرد، پروفيسر، سيکارڻ وارو، استاد</annotation>
+		<annotation cp="👨‍🏫" type="tts">مرد استاد</annotation>
+		<annotation cp="👩‍🏫">مرد جج</annotation>
+		<annotation cp="👩‍🏫" type="tts">عورت استاد</annotation>
+		<annotation cp="👨‍⚖">انصاف، مرد، ترازو</annotation>
+		<annotation cp="👨‍⚖" type="tts">مرد جج</annotation>
+		<annotation cp="👩‍⚖">جج، عورت، ترازو</annotation>
+		<annotation cp="👩‍⚖" type="tts">عورت جج</annotation>
+		<annotation cp="👨‍🌾">مرد، هاري، مالڪ، مالي</annotation>
+		<annotation cp="👨‍🌾" type="tts">مرد هاري</annotation>
+		<annotation cp="👩‍🌾">عورت، هاري، مالڪ، مالي</annotation>
+		<annotation cp="👩‍🌾" type="tts">عورت هاري</annotation>
+		<annotation cp="👨‍🍳">مرد، بورچي، خصوصي بورچي</annotation>
+		<annotation cp="👨‍🍳" type="tts">مرد بورچي</annotation>
+		<annotation cp="👩‍🍳">عورت، بورچي، خصوصي بورچي</annotation>
+		<annotation cp="👩‍🍳" type="tts">عورت بورچي</annotation>
+		<annotation cp="👨‍🔧">مرد، واپاري، مستري، پلمبر، اليڪٽريشن</annotation>
+		<annotation cp="👨‍🔧" type="tts">مرد مستري</annotation>
+		<annotation cp="👩‍🔧">عورت واپاري، مستري، پلمبر، اليڪٽريشن</annotation>
+		<annotation cp="👩‍🔧" type="tts">عورت مستري</annotation>
+		<annotation cp="👨‍🏭">مرد، صنحت، اسيمبلي، ڪارخانو، مزدور</annotation>
+		<annotation cp="👨‍🏭" type="tts">مرد ڪارخانو مزدور</annotation>
+		<annotation cp="👩‍🏭">عورت، صنحت، اسيمبلي، ڪارخانو، مزدور</annotation>
+		<annotation cp="👩‍🏭" type="tts">عورت ڪارخانو مزدور</annotation>
+		<annotation cp="👨‍💼">مرد، آفيس، ڪاروبار، مينيجر، آرڪيٽيڪٽ، اڇو ڪالر</annotation>
+		<annotation cp="👨‍💼" type="tts">مرد آفيس ورڪر</annotation>
+		<annotation cp="👩‍💼">عورت، آفيس، ڪاروبار، مينيجر، آرڪيٽيڪٽ، اڇو ڪالر</annotation>
+		<annotation cp="👩‍💼" type="tts">عورت آفيس ورڪر</annotation>
+		<annotation cp="👨‍🔬">مرد، سائنسدان، انجنيئر، رياضي دان، ڪيمسٽ، ماهر طبيعيات، ماهر حياتيات</annotation>
+		<annotation cp="👨‍🔬" type="tts">مرد سائنسدان</annotation>
+		<annotation cp="👩‍🔬">عورت، سائنسدان، انجنيئر، رياضي دان، ڪيمسٽ، ماهر طبيعيات، ماهر حياتيات</annotation>
+		<annotation cp="👩‍🔬" type="tts">عورت سائنسدان</annotation>
+		<annotation cp="👨‍💻">مرد، ٽيڪنالوجسٽ، ڪوڊر، سافٽويئر، ڊولپر، موجد</annotation>
+		<annotation cp="👨‍💻" type="tts">مرد ٽيڪنالوجسٽ</annotation>
+		<annotation cp="👩‍💻">عورت، ٽيڪنالوجسٽ، ڪوڊر، سافٽويئر، ڊولپر، موجد</annotation>
+		<annotation cp="👩‍💻" type="tts">عورت ٽيڪنالوجسٽ</annotation>
+		<annotation cp="👨‍🎤">مرد، ڳائڻو، وندرائيندڙ، راڪ، اسٽار، اداڪار</annotation>
+		<annotation cp="👨‍🎤" type="tts">مرد ڳائڻو</annotation>
+		<annotation cp="👩‍🎤">عورت، ڳائڻي، وندرائيندڙ، راڪ، اسٽار، اداڪار</annotation>
+		<annotation cp="👩‍🎤" type="tts">عورت ڳائڻي</annotation>
+		<annotation cp="👨‍🎨">فنڪار، مرد، رنگ جي تختي</annotation>
+		<annotation cp="👨‍🎨" type="tts">مرد فنڪار</annotation>
+		<annotation cp="👩‍🎨">فنڪار، رنگ جي تختي، عورت</annotation>
+		<annotation cp="👩‍🎨" type="tts">عورت فنڪار</annotation>
+		<annotation cp="👨‍✈">مرد، پائيليٽ، جهاز</annotation>
+		<annotation cp="👨‍✈" type="tts">مرد پائيليٽ</annotation>
+		<annotation cp="👩‍✈">پائيليٽ، جهاز، عورت</annotation>
+		<annotation cp="👩‍✈" type="tts">عورت پائيليٽ</annotation>
+		<annotation cp="👨‍🚀">خلانورد، مرد، راڪيٽ</annotation>
+		<annotation cp="👨‍🚀" type="tts">مرد خلانورد</annotation>
+		<annotation cp="👩‍🚀">خلانورد، راڪيٽ، عورت</annotation>
+		<annotation cp="👩‍🚀" type="tts">عورت خلانورد</annotation>
+		<annotation cp="👨‍🚒">باهه وسائيندڙ، مرد، باهه وسائيندڙ گاڏي</annotation>
+		<annotation cp="👨‍🚒" type="tts">مرد باهه وسائيندڙ</annotation>
+		<annotation cp="👩‍🚒">باهه وسائيندڙ، باهه وسائيندڙ گاڏي، عورت</annotation>
+		<annotation cp="👩‍🚒" type="tts">عورت باهه وسائيندڙ</annotation>
+		<annotation cp="👮">پوليس وارو، آفيسر، پوليس</annotation>
+		<annotation cp="👮" type="tts">پوليس آفيسر</annotation>
+		<annotation cp="👮‍♂">مرد، آفيسر، پوليس</annotation>
+		<annotation cp="👮‍♂" type="tts">مرد پوليس آفيسر</annotation>
+		<annotation cp="👮‍♀">آفيسر، پوليس، عورت</annotation>
+		<annotation cp="👮‍♀" type="tts">عورت پوليس آفيسر</annotation>
+		<annotation cp="🕵">کوج ڪرڻ وارو، جاسوس، مخبر</annotation>
+		<annotation cp="🕵" type="tts">جاسوس</annotation>
+		<annotation cp="🕵‍♂">مرد، کوج ڪرڻ وارو، جاسوس، مخبر</annotation>
+		<annotation cp="🕵‍♂" type="tts">مرد جاسوس</annotation>
+		<annotation cp="🕵‍♀">عورت، کوج ڪرڻ وارو، جاسوس، مخبر</annotation>
+		<annotation cp="🕵‍♀" type="tts">عورت جاسوس</annotation>
+		<annotation cp="💂">نگهبان</annotation>
+		<annotation cp="💂" type="tts">نگهبان</annotation>
+		<annotation cp="💂‍♂">نگهبان، مرد</annotation>
+		<annotation cp="💂‍♂" type="tts">مرد نگهبان</annotation>
+		<annotation cp="💂‍♀">نگهبان، عورت</annotation>
+		<annotation cp="💂‍♀" type="tts">عورت نگهبان</annotation>
+		<annotation cp="👷">اڏاوت، مرد، ڪم ڪندڙ</annotation>
+		<annotation cp="👷" type="tts">اڏاوت جو ڪم ڪندڙ</annotation>
+		<annotation cp="👷‍♂">اڏاوت، مرد، ڪم ڪندڙ</annotation>
+		<annotation cp="👷‍♂" type="tts">مرد اڏاوت جو ڪم ڪندڙ</annotation>
+		<annotation cp="👷‍♀">اڏاوت، عورت، ڪم ڪندڙ</annotation>
+		<annotation cp="👷‍♀" type="tts">عورت اڏاوت جو ڪم ڪندڙ</annotation>
+		<annotation cp="🤴">شهزادو</annotation>
+		<annotation cp="🤴" type="tts">شهزادو</annotation>
+		<annotation cp="👸">پرين ج ڪهاڻي، تصور</annotation>
+		<annotation cp="👸" type="tts">شهزادي</annotation>
+		<annotation cp="👳">پگڙي</annotation>
+		<annotation cp="👳" type="tts">ماڻهو کي پگڙي پاتل</annotation>
+		<annotation cp="👳‍♂">مرد، پگڙي</annotation>
+		<annotation cp="👳‍♂" type="tts">مرد کي پگڙي پاتل</annotation>
+		<annotation cp="👳‍♀">پگڙي، عورت</annotation>
+		<annotation cp="👳‍♀" type="tts">عورت کي پگڙي پاتل</annotation>
+		<annotation cp="👲">گووا پي مائو، ٽوپي، ماڻهو</annotation>
+		<annotation cp="👲" type="tts">چيني ٽوپي وارو ماڻهو</annotation>
+		<annotation cp="🧕">مٿي جو رومال، حجاب، تچل، چوغو</annotation>
+		<annotation cp="🧕" type="tts">حجاب سان عورت</annotation>
+		<annotation cp="🧔">ڏاڙهي</annotation>
+		<annotation cp="🧔" type="tts">ڏاڙهي وارو ماڻهو</annotation>
+		<annotation cp="👱">ڀورو</annotation>
+		<annotation cp="👱" type="tts">سنهري وارن وارن وارو ماڻهو</annotation>
+		<annotation cp="👱‍♂">ڀورو، ماڻهو</annotation>
+		<annotation cp="👱‍♂" type="tts">ڀورن وارن وارو ماڻهو</annotation>
+		<annotation cp="👱‍♀">ڀورن، عورت</annotation>
+		<annotation cp="👱‍♀" type="tts">ڀورن وارن واري عورت</annotation>
+		<annotation cp="🤵">گهوٽ، ماڻهو، سوٽ</annotation>
+		<annotation cp="🤵" type="tts">سوٽ ۾ ماڻهو</annotation>
+		<annotation cp="👰">ڪنوار، شادي جو لباس، شادي</annotation>
+		<annotation cp="👰" type="tts">شادي جي لباس سان ڪنوار</annotation>
+		<annotation cp="🤰">ڳورهاري، عورت</annotation>
+		<annotation cp="🤰" type="tts">ڳورهاري عورت</annotation>
+		<annotation cp="🤱">ٿڃ، ننڍو ٻار، نرسنگ</annotation>
+		<annotation cp="🤱" type="tts">ٿڃ پيارڻ</annotation>
+		<annotation cp="👼">پري، ننڍي، چهرو، پرين جي ڪهاڻي، تصور</annotation>
+		<annotation cp="👼" type="tts">ننڍي پري</annotation>
+		<annotation cp="🎅">ڪرشمس، جشن، پي، سانتا، ڪلاز</annotation>
+		<annotation cp="🎅" type="tts">سانتا ڪلاز</annotation>
+		<annotation cp="🤶">ڪرشمس، جشن، ماءُ، مائي، ڪلاز</annotation>
+		<annotation cp="🤶" type="tts">ڪلاز جي مائي</annotation>
+		<annotation cp="🧙">جادوگر، ڏائڻ، جادوگر، جادوگرني</annotation>
+		<annotation cp="🧙" type="tts">جادوگر</annotation>
+		<annotation cp="🧙‍♀">ڏائڻ، جادوگرني</annotation>
+		<annotation cp="🧙‍♀" type="tts">عورت جادوگرني</annotation>
+		<annotation cp="🧙‍♂">جادوگر</annotation>
+		<annotation cp="🧙‍♂" type="tts">مرد، جادوگر</annotation>
+		<annotation cp="🧚">پرين جي راڻي، ڀوت، پرين جو راجا</annotation>
+		<annotation cp="🧚" type="tts">پري</annotation>
+		<annotation cp="🧚‍♀">پرين جي راڻي</annotation>
+		<annotation cp="🧚‍♀" type="tts">عورت پري</annotation>
+		<annotation cp="🧚‍♂">ڀوت، پرين جو راجا</annotation>
+		<annotation cp="🧚‍♂" type="tts">مرد فرشتو</annotation>
+		<annotation cp="🧛">ڀوت، جن</annotation>
+		<annotation cp="🧛" type="tts">ڏاهڻ</annotation>
+		<annotation cp="🧛‍♀">جن</annotation>
+		<annotation cp="🧛‍♀" type="tts">عورت ڀوت</annotation>
+		<annotation cp="🧛‍♂">ڀوت، جن</annotation>
+		<annotation cp="🧛‍♂" type="tts">مرد ڀوت</annotation>
+		<annotation cp="🧜">جل پري، جل مانس</annotation>
+		<annotation cp="🧜" type="tts">ميل پرسن</annotation>
+		<annotation cp="🧜‍♀">جل پري</annotation>
+		<annotation cp="🧜‍♀" type="tts">جل پري</annotation>
+		<annotation cp="🧜‍♂">ساگر ديوتا</annotation>
+		<annotation cp="🧜‍♂" type="tts">جل مانس</annotation>
+		<annotation cp="🧝">جادو</annotation>
+		<annotation cp="🧝" type="tts">بونا</annotation>
+		<annotation cp="🧝‍♀">جادو</annotation>
+		<annotation cp="🧝‍♀" type="tts">عورت بونا</annotation>
+		<annotation cp="🧝‍♂">جادو</annotation>
+		<annotation cp="🧝‍♂" type="tts">مرد بونا</annotation>
+		<annotation cp="🧞">جن</annotation>
+		<annotation cp="🧞" type="tts">جن</annotation>
+		<annotation cp="🧞‍♀">جن</annotation>
+		<annotation cp="🧞‍♀" type="tts">عورت جن</annotation>
+		<annotation cp="🧞‍♂">جن</annotation>
+		<annotation cp="🧞‍♂" type="tts">مرد جن</annotation>
+		<annotation cp="🧟">ڀوت، موئل هلندي</annotation>
+		<annotation cp="🧟" type="tts">زومبي</annotation>
+		<annotation cp="🧟‍♀">ڀوت، موئل هلندي</annotation>
+		<annotation cp="🧟‍♀" type="tts">عورت زومبي</annotation>
+		<annotation cp="🧟‍♂">ڀوت، موئل هلندي</annotation>
+		<annotation cp="🧟‍♂" type="tts">مرد زومبي</annotation>
+		<annotation cp="🙍">پريشان، اشارو</annotation>
+		<annotation cp="🙍" type="tts">پريشان ماڻهو</annotation>
+		<annotation cp="🙍‍♂">پريشان، اشارو، ماڻهو</annotation>
+		<annotation cp="🙍‍♂" type="tts">مرد پريشان</annotation>
+		<annotation cp="🙍‍♀">پريشاني، اشارو، عورت</annotation>
+		<annotation cp="🙍‍♀" type="tts">عورت پريشان</annotation>
+		<annotation cp="🙎">اشارو، ناپسند</annotation>
+		<annotation cp="🙎" type="tts">ماڻهو ناپسند ڪندي</annotation>
+		<annotation cp="🙎‍♂">اشارو، ناپسند، مرد</annotation>
+		<annotation cp="🙎‍♂" type="tts">مرد ناپسند ڪندي</annotation>
+		<annotation cp="🙎‍♀">اشارو، ناپسند، عورت</annotation>
+		<annotation cp="🙎‍♀" type="tts">عورت ناپسند ڪندي</annotation>
+		<annotation cp="🙅">منع ڪيل، اشارو، هٿ، نه، روڪيل</annotation>
+		<annotation cp="🙅" type="tts">ماڻهو نه جو اشارو ڪندي</annotation>
+		<annotation cp="🙅‍♂">منع ڪيل، اشارو، هٿ، نه، روڪيل، مرد</annotation>
+		<annotation cp="🙅‍♂" type="tts">مرد نه جو اشارو ڪندي</annotation>
+		<annotation cp="🙅‍♀">منع ڪيل، اشارو، هٿ، نه، روڪيل، عورت</annotation>
+		<annotation cp="🙅‍♀" type="tts">عورت نه جو اشارو ڪندي</annotation>
+		<annotation cp="🙆">اشارو، هٿ، نه</annotation>
+		<annotation cp="🙆" type="tts">ماڻهو ٺيڪ جو اشارو ڪندي</annotation>
+		<annotation cp="🙆‍♂">اشارو، هٿ، مرد، ٺيڪ</annotation>
+		<annotation cp="🙆‍♂" type="tts">مرد ٺيڪ جو اشارو ڪندي</annotation>
+		<annotation cp="🙆‍♀">اشارو، هٿ، ٺيڪ، عورت</annotation>
+		<annotation cp="🙆‍♀" type="tts">عورت ٺيڪ جو اشارو ڪندي</annotation>
+		<annotation cp="💁">هٿ | ضرب لڳائڻ | مدد | معلومات | بي ادب</annotation>
+		<annotation cp="💁" type="tts">شخص هٿ ٿپڪائيندي</annotation>
+		<annotation cp="💁‍♂">مرد | بي ادب | هٿ ٿپڪائڻ</annotation>
+		<annotation cp="💁‍♂" type="tts">مرد هٿ ٿپڪائيندي</annotation>
+		<annotation cp="💁‍♀">بي ادب | هٿ ٿپڪائڻ | عورت</annotation>
+		<annotation cp="💁‍♀" type="tts">عورت هٿ ٿپڪائيندي</annotation>
+		<annotation cp="🙋">اشارو | هٿ | خوش | مٿي ڪيو</annotation>
+		<annotation cp="🙋" type="tts">شخص هٿ مٿي ڪندي</annotation>
+		<annotation cp="🙋‍♂">اشارو | مرد | هٿ مٿي ڪندي</annotation>
+		<annotation cp="🙋‍♂" type="tts">مرد هٿ مٿي ڪندي</annotation>
+		<annotation cp="🙋‍♀">اشارو | هٿ مٿي ڪندي | عورت</annotation>
+		<annotation cp="🙋‍♀" type="tts">عورت هٿ مٿي ڪندي</annotation>
+		<annotation cp="🙇">معافي | جھڪڻ | اشارو | افسوس</annotation>
+		<annotation cp="🙇" type="tts">شخص جهڪندي</annotation>
+		<annotation cp="🙇‍♂">معافي | جي حق ۾ | جھڪندي | اشارو | مرد | افسوس</annotation>
+		<annotation cp="🙇‍♂" type="tts">مرد جهڪندي</annotation>
+		<annotation cp="🙇‍♀">معافي | جي حق ۾ | جھڪندي | اشارو | افسوس | عورت</annotation>
+		<annotation cp="🙇‍♀" type="tts">عورت جھڪندي</annotation>
+		<annotation cp="🤦">نراڙ، هٿاري، بي اعتمادي، ڪاوڙ</annotation>
+		<annotation cp="🤦" type="tts">شخص جو نراڙ تي هٿ ڏيڻ</annotation>
+		<annotation cp="🤦‍♂">بي اعتمادي، ڪاوڙ، نراڙ تي هٿ، مرد</annotation>
+		<annotation cp="🤦‍♂" type="tts">ماڻهو جو نراڙ تي هٿ ڏيڻ</annotation>
+		<annotation cp="🤦‍♀">بي اعتمادي، ڪاوڙ، نراڙ تي هٿ، عورت</annotation>
+		<annotation cp="🤦‍♀" type="tts">عورت جو نراڙ تي هٿ ڏيڻ</annotation>
+		<annotation cp="🤷">شرگ | شڪ | جهالت | بيحسي</annotation>
+		<annotation cp="🤷" type="tts">شخص اچڪائيندي</annotation>
+		<annotation cp="🤷‍♂">شڪ | جهالت | بيحسي | مرد | شرگ</annotation>
+		<annotation cp="🤷‍♂" type="tts">مرد اچڪائيندي</annotation>
+		<annotation cp="🤷‍♀">شڪ | جهالت | بيحسي | شرگ | عورت</annotation>
+		<annotation cp="🤷‍♀" type="tts">عورت اچڪائيندي</annotation>
+		<annotation cp="💆">مساج | سيلون | چهرو</annotation>
+		<annotation cp="💆" type="tts">مساج وٺندڙ شخص</annotation>
+		<annotation cp="💆‍♂">چهرو | مرد | مساج</annotation>
+		<annotation cp="💆‍♂" type="tts">مساج وٺندڙ مرد</annotation>
+		<annotation cp="💆‍♀">چهرو | مساج | عورت</annotation>
+		<annotation cp="💆‍♀" type="tts">مساج وٺندڙ عورت</annotation>
+		<annotation cp="💇">حجام | خوبصورتي | پارلر | وار ڪٽرائڻ</annotation>
+		<annotation cp="💇" type="tts">وارن جي ڪٽ وٺندڙ شخص</annotation>
+		<annotation cp="💇‍♂">وار ڪٽرائڻ | مرد</annotation>
+		<annotation cp="💇‍♂" type="tts">مرد وار ڪٽرائيندي</annotation>
+		<annotation cp="💇‍♀">وار ڪٽرائڻ | عورت</annotation>
+		<annotation cp="💇‍♀" type="tts">عورت وار ڪٽرائيندي</annotation>
+		<annotation cp="🚶">پنڌ هلڻ | سير | سير ڪندي</annotation>
+		<annotation cp="🚶" type="tts">شخص هلندي</annotation>
+		<annotation cp="🚶‍♂">پنڌ هلڻ | مرد | سير</annotation>
+		<annotation cp="🚶‍♂" type="tts">مرد سير ڪندي</annotation>
+		<annotation cp="🚶‍♀">پنڌ هلڻ | سير | عورت</annotation>
+		<annotation cp="🚶‍♀" type="tts">عورت سير ڪندي</annotation>
+		<annotation cp="🏃">ميراٿن | ڊوڙندي</annotation>
+		<annotation cp="🏃" type="tts">شخص ڊوڙندي</annotation>
+		<annotation cp="🏃‍♂">مرد | ميراٿن | ڊوڙندي | ڊوڙ</annotation>
+		<annotation cp="🏃‍♂" type="tts">مرد ڊوڙندي</annotation>
+		<annotation cp="🏃‍♀">ميراٿن | ڊوڙندي | عورت | ڊوڙ</annotation>
+		<annotation cp="🏃‍♀" type="tts">ڊوڙندي عورت</annotation>
+		<annotation cp="💃">عورت | نچندي</annotation>
+		<annotation cp="💃" type="tts">عورت نچندي</annotation>
+		<annotation cp="🕺">ڊانس | ناچ</annotation>
+		<annotation cp="🕺" type="tts">مرد نچندي</annotation>
+		<annotation cp="👯">خرگوش جا ڪن | ناچو | پارٽي ڪندي</annotation>
+		<annotation cp="👯" type="tts">خرگوش جي ڪنن وارو ماڻهو</annotation>
+		<annotation cp="👯‍♂">خرگوش جا ڪن | ناچو | مردَ | پارٽي ڪندي</annotation>
+		<annotation cp="👯‍♂" type="tts">خرگوش جي ڪنن وارو مرد</annotation>
+		<annotation cp="👯‍♀">خرگوش جا ڪن | ناچو | پارٽي ڪندي | عورت</annotation>
+		<annotation cp="👯‍♀" type="tts">خرگوش جي ڪنن وري عورت</annotation>
+		<annotation cp="🧖">سئانا | ٻاڦ جو ڪمرو</annotation>
+		<annotation cp="🧖" type="tts">شخص ٻاڦ واري ڪمري ۾</annotation>
+		<annotation cp="🧖‍♀">عورت ٻاڦ واري ڪمري ۾</annotation>
+		<annotation cp="🧖‍♀" type="tts">عورت ٻاڦ واري ڪمري ۾</annotation>
+		<annotation cp="🧖‍♂">سئانا | ٻاڦ جو ڪمرو</annotation>
+		<annotation cp="🧖‍♂" type="tts">مرد ٻاڦ واري ڪمري ۾</annotation>
+		<annotation cp="🧗">چڙهندڙ</annotation>
+		<annotation cp="🧗" type="tts">شخص چڙهندي</annotation>
+		<annotation cp="🧗‍♀">چڙهندڙ</annotation>
+		<annotation cp="🧗‍♀" type="tts">عورت چڙهندي</annotation>
+		<annotation cp="🧗‍♂">چڙهندڙ</annotation>
+		<annotation cp="🧗‍♂" type="tts">مرد چڙهندي</annotation>
+		<annotation cp="🧘">يوگا | ميڊيٽيشن</annotation>
+		<annotation cp="🧘" type="tts">شخص لوٽس پوزيشن ۾</annotation>
+		<annotation cp="🧘‍♀">يوگا | ميڊيٽيشن</annotation>
+		<annotation cp="🧘‍♀" type="tts">عورت لوٽس پوزيشن ۾</annotation>
+		<annotation cp="🧘‍♂">يوگا | ميڊيٽيشن</annotation>
+		<annotation cp="🧘‍♂" type="tts">مرد لوٽس پوزيشن ۾</annotation>
+		<annotation cp="🛀">وهنجڻ وارو ٽب، وهنجڻ</annotation>
+		<annotation cp="🛀" type="tts">شخص وهجندي</annotation>
+		<annotation cp="🛌">هوٽل | سمهڻ</annotation>
+		<annotation cp="🛌" type="tts">بستر ۾ شخص</annotation>
+		<annotation cp="🕴">ڪاروبار، مرد، سوٽ</annotation>
+		<annotation cp="🕴" type="tts">مرد سوٽ ۾</annotation>
+		<annotation cp="🗣">چهرو | مٿو | نقش ٺاهڻ | ڳالهاءِ | ڳالهائيندي</annotation>
+		<annotation cp="🗣" type="tts">مٿو ڳالهائيندي</annotation>
+		<annotation cp="👤">مورتي، خطي تصوير</annotation>
+		<annotation cp="👤" type="tts">خطي تصوير ۾ مورتي</annotation>
+		<annotation cp="👥">مورتي، خطي تصوير</annotation>
+		<annotation cp="👥" type="tts">خطي تصوير ۾ مورتيون</annotation>
+		<annotation cp="🤺">بچاڪندڙ | بچاڪندي | تلوار</annotation>
+		<annotation cp="🤺" type="tts">شخص بچاءُ ڪندي</annotation>
+		<annotation cp="🏇">گھوڙو | گھوڙي سوار | ڊوڙ جو گھوڙو | ڊوڙ</annotation>
+		<annotation cp="🏇" type="tts">گهوڙ ڊوڙ</annotation>
+		<annotation cp="⛷">برف تي کيڏي ويندڙ راند، برف</annotation>
+		<annotation cp="⛷" type="tts">برف تي کيڏي ويندڙ راند</annotation>
+		<annotation cp="🏂">راند | برف | برف راني</annotation>
+		<annotation cp="🏂" type="tts">سنوبورڊر</annotation>
+		<annotation cp="🏌">بال، گولف</annotation>
+		<annotation cp="🏌" type="tts">شخص گولف کيڏيندي</annotation>
+		<annotation cp="🏌‍♂">گولف، مرد</annotation>
+		<annotation cp="🏌‍♂" type="tts">مرد گولف کيڏيندي</annotation>
+		<annotation cp="🏌‍♀">گولف، عورت</annotation>
+		<annotation cp="🏌‍♀" type="tts">عورت گولف کيڏيندي</annotation>
+		<annotation cp="🏄">سرفنگ</annotation>
+		<annotation cp="🏄" type="tts">شخص سرفنگ ڪندي</annotation>
+		<annotation cp="🏄‍♂">مرد، سرفنگ</annotation>
+		<annotation cp="🏄‍♂" type="tts">مرد سرفنگ ڪندي</annotation>
+		<annotation cp="🏄‍♀">سرفنگ، عورت</annotation>
+		<annotation cp="🏄‍♀" type="tts">عورت سرفنگ ڪندي</annotation>
+		<annotation cp="🚣">ٻيڙي | مرد</annotation>
+		<annotation cp="🚣" type="tts">شخص ٻيڙي ۾ چپو هلائيندي</annotation>
+		<annotation cp="🚣‍♂">ٻيڙي | مرد | چپو ٻيڙي</annotation>
+		<annotation cp="🚣‍♂" type="tts">مرد ٻيڙي ۾ چپو هلائيندي</annotation>
+		<annotation cp="🚣‍♀">ٻيڙي | چپو ٻيڙي | عورت</annotation>
+		<annotation cp="🚣‍♀" type="tts">عورت ٻيڙي ۾ چپو هلائيندي</annotation>
+		<annotation cp="🏊">ترڻ</annotation>
+		<annotation cp="🏊" type="tts">شخص ترندي</annotation>
+		<annotation cp="🏊‍♂">مرد | ترڻ</annotation>
+		<annotation cp="🏊‍♂" type="tts">مرد ترندي</annotation>
+		<annotation cp="🏊‍♀">ترڻ | عورت</annotation>
+		<annotation cp="🏊‍♀" type="tts">عورت ترندي</annotation>
+		<annotation cp="⛹">بال</annotation>
+		<annotation cp="⛹" type="tts">شخص بائونسنگ بال سان کيڏندي</annotation>
+		<annotation cp="⛹‍♂">بال | مرد</annotation>
+		<annotation cp="⛹‍♂" type="tts">مرد بائونسنگ بال سان کيڏندي</annotation>
+		<annotation cp="⛹‍♀">بال | عورت</annotation>
+		<annotation cp="⛹‍♀" type="tts">عورت بائونسنگ بال سان کيڏندي</annotation>
+		<annotation cp="🏋">کڻندڙ | وزن | کڻندڙ</annotation>
+		<annotation cp="🏋" type="tts">شخض وزن کڻندي</annotation>
+		<annotation cp="🏋‍♂">وزن کڻندڙ | مرد</annotation>
+		<annotation cp="🏋‍♂" type="tts">مرد وزن کڻندي</annotation>
+		<annotation cp="🏋‍♀">وزن کڻندڙ | عورت</annotation>
+		<annotation cp="🏋‍♀" type="tts">عورت وزن کڻندي</annotation>
+		<annotation cp="🚴">سائيڪل | بائيڪنگ | سائيڪل هلائيندڙ</annotation>
+		<annotation cp="🚴" type="tts">شخص بائيڪ هلائيندي</annotation>
+		<annotation cp="🚴‍♂">سائيڪل | بائيڪنگ | سائيڪل هلائيندڙ | مرد</annotation>
+		<annotation cp="🚴‍♂" type="tts">مرد سائيڪل هلائيندي</annotation>
+		<annotation cp="🚴‍♀">سائيڪل | بائيڪنگ | سائيڪل هلائيندڙ | عورت</annotation>
+		<annotation cp="🚴‍♀" type="tts">عورت سائيڪل هلائيندي</annotation>
+		<annotation cp="🚵">سائيڪل | بائيسائيڪل هلائيندڙ | بائيڪ | سائيڪل هلائيندڙ | جبل</annotation>
+		<annotation cp="🚵" type="tts">شخص جبل تي سائيڪل هلائيندي</annotation>
+		<annotation cp="🚵‍♂">بائيسائيڪل | سائيڪل هلائيندڙ | بائيڪ | مرد | جبل</annotation>
+		<annotation cp="🚵‍♂" type="tts">مرد جبل تي سائيڪل هلائيندي</annotation>
+		<annotation cp="🚵‍♀">بائيسائيڪل | سائيڪل هلائيندڙ | بائيڪ | بائيڪنگ | جبل | عورت</annotation>
+		<annotation cp="🚵‍♀" type="tts">عورت جبل تي سائيڪل هلائيندي</annotation>
+		<annotation cp="🏎">ريسنگ، ڪار</annotation>
+		<annotation cp="🏎" type="tts">ريسنگ جي ڪار</annotation>
+		<annotation cp="🏍">ريسنگ</annotation>
+		<annotation cp="🏍" type="tts">موٽر سائيڪل</annotation>
+		<annotation cp="🤸">ڪارٽ وهيلنگ | جمناسٽڪ</annotation>
+		<annotation cp="🤸" type="tts">شخص ڪارٽ وهلينگ ڪندي</annotation>
+		<annotation cp="🤸‍♂">ڪارٽ وهيلنگ | جمناسٽڪ، مرد</annotation>
+		<annotation cp="🤸‍♂" type="tts">مرد ڪارٽ وهيلنگ ڪندي</annotation>
+		<annotation cp="🤸‍♀">ڪارٽ وهيلنگ | جمناسٽڪ، عورت</annotation>
+		<annotation cp="🤸‍♀" type="tts">عورت ڪارٽ وهيلنگ ڪندي</annotation>
+		<annotation cp="🤼">پهلوان | ڪشتي</annotation>
+		<annotation cp="🤼" type="tts">ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼‍♂">مرد | ڪشتي</annotation>
+		<annotation cp="🤼‍♂" type="tts">مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼‍♀">عورت | ڪشتي</annotation>
+		<annotation cp="🤼‍♀" type="tts">عورتون ڪشتي وڙهندي</annotation>
+		<annotation cp="🤽">پولو | پاڻي</annotation>
+		<annotation cp="🤽" type="tts">ماڻهو پاڻي وارو پولو کيڏيندي</annotation>
+		<annotation cp="🤽‍♂">مرد | پاڻي وارو پولو</annotation>
+		<annotation cp="🤽‍♂" type="tts">مرد پاڻي وارو پولو کيڏيندي</annotation>
+		<annotation cp="🤽‍♀">پاڻي وارو پولو | عورت</annotation>
+		<annotation cp="🤽‍♀" type="tts">عورت پاڻي وارو پولو کيڏيندي</annotation>
+		<annotation cp="🤾">هينڊ بال | بال | هٿ جو بال</annotation>
+		<annotation cp="🤾" type="tts">ماڻهو هٿ جو بال کيڏندي</annotation>
+		<annotation cp="🤾‍♂">هينڊ بال | بال | هٿ جو بال | مرد</annotation>
+		<annotation cp="🤾‍♂" type="tts">ماڻهو هٿ جو بال کيڏيندي</annotation>
+		<annotation cp="🤾‍♀">هينڊ بال | بال | هٿ جو بال | عورت</annotation>
+		<annotation cp="🤾‍♀" type="tts">عورت هٿ جو بال کيڏيندي</annotation>
+		<annotation cp="🤹">ڌوڪو | ملٽي ٽاسڪ | برابر فن | هنر</annotation>
+		<annotation cp="🤹" type="tts">شخص جادوگري ڪندي</annotation>
+		<annotation cp="🤹‍♂">جادوگري | مرد | ملٽي ٽاسڪ</annotation>
+		<annotation cp="🤹‍♂" type="tts">مرد جادوگري ڪندي</annotation>
+		<annotation cp="🤹‍♀">جادوگري | عورت | ملٽي ٽاسڪ</annotation>
+		<annotation cp="🤹‍♀" type="tts">عورت جادوگري ڪندي</annotation>
+		<annotation cp="👫">جوڙو | هٿ | جھلڻ | مرد | عورت</annotation>
+		<annotation cp="👫" type="tts">مرد ۽ عورت هٿ جهليندي</annotation>
+		<annotation cp="👬">جوڙو | جيمني | هٿ | جھلڻ | مرد | جاڙا | چڪر راس</annotation>
+		<annotation cp="👬" type="tts">ٻه مرد هٿ جهليندي</annotation>
+		<annotation cp="👭">جوڙو | هٿ | جھلڻ | عورت</annotation>
+		<annotation cp="👭" type="tts">ٻه عورتون هٿ جهليندي</annotation>
+		<annotation cp="💏">جوڙو</annotation>
+		<annotation cp="💏" type="tts">چمي</annotation>
+		<annotation cp="💑">جوڙو | پيار</annotation>
+		<annotation cp="💑" type="tts">دل سان جوڙو</annotation>
+		<annotation cp="👪">ڪٽنب</annotation>
+		<annotation cp="👪" type="tts">ڪٽنب</annotation>
+		<annotation cp="🤳">سيلفي | ڪئميرا | فون</annotation>
+		<annotation cp="🤳" type="tts">سيلفي</annotation>
+		<annotation cp="💪">پٺا | ڪامڪ | جھڪڻ | ڏورو</annotation>
+		<annotation cp="💪" type="tts">مڙيل ٻانهن تي ڏورو</annotation>
+		<annotation cp="👈">کاٻو هٿ | آڱر | هٿ | شهادت واري آڱر | اشارو ڪرڻ</annotation>
+		<annotation cp="👈" type="tts">کاٻي هٿ جي آڱر کاٻي طرف اشارو ڪندي</annotation>
+		<annotation cp="👉">کاٻو هٿ | آڱر | هٿ | شهادت واري آڱر | اشارو ڪرڻ</annotation>
+		<annotation cp="👉" type="tts">کاٻي هٿ جي آڱر ساڄي طرف اشارو ڪندي</annotation>
+		<annotation cp="☝">کاٻو هٿ | آڱر | هٿ | شهادت واري آڱر | اشارو ڪرڻ</annotation>
+		<annotation cp="☝" type="tts">آڱر مٿي طرف اشارو ڪندي</annotation>
+		<annotation cp="👆">کاٻو هٿ | آڱر | هٿ | شهادت واري آڱر | اشارو ڪرڻ | مٿي</annotation>
+		<annotation cp="👆" type="tts">کاٻي هٿ جي آڱر مٿي اشارو ڪندي</annotation>
+		<annotation cp="🖕">آڱر | هٿ</annotation>
+		<annotation cp="🖕" type="tts">وچين آڱر</annotation>
+		<annotation cp="👇">کاٻو هٿ | آڱر | هٿ | شهادت واري آڱر | اشارو ڪرڻ | مٿي</annotation>
+		<annotation cp="👇" type="tts">کاٻي هٿ جي آڱر هيٺ اشارو ڪندي</annotation>
+		<annotation cp="✌">فتح، هٿ</annotation>
+		<annotation cp="✌" type="tts">فتح جو نشان</annotation>
+		<annotation cp="🤞">ڪراس | آڱر | هٿ | قسمت</annotation>
+		<annotation cp="🤞" type="tts">ڪراس ٿيل آڱريون</annotation>
+		<annotation cp="🖖">آڱر | هٿ | اسپوڪ | ولڪن</annotation>
+		<annotation cp="🖖" type="tts">ولڪن سلام</annotation>
+		<annotation cp="🤘">آڱر | هٿ | سڱ | شور مچايو</annotation>
+		<annotation cp="🤘" type="tts">سڱن جو نشان</annotation>
+		<annotation cp="🤙">ڪال | هٿ</annotation>
+		<annotation cp="🤙" type="tts">مونکي ڪال ڪريو هٿ</annotation>
+		<annotation cp="🖐">آڱر | هٿ | پکڙيل هٿ</annotation>
+		<annotation cp="🖐" type="tts">مٿي ڪيل هٿ کليل آڱرين سان</annotation>
+		<annotation cp="✋">هٿ</annotation>
+		<annotation cp="✋" type="tts">مٿي ڪيل هٿ</annotation>
+		<annotation cp="👌">هٿ | ٺيڪ</annotation>
+		<annotation cp="👌" type="tts">ٺيڪ وارو هٿ</annotation>
+		<annotation cp="👍">خوب، بهترين، واه واه</annotation>
+		<annotation cp="👍" type="tts">مٿي انگوٺو</annotation>
+		<annotation cp="👎">انڪار، ڪنو، هيٺ، هٿ</annotation>
+		<annotation cp="👎" type="tts">هيٺ انگوٺو</annotation>
+		<annotation cp="✊">مُٺ | هٿ | ٺونشو</annotation>
+		<annotation cp="✊" type="tts">مٿي ڪيل مٺي</annotation>
+		<annotation cp="👊">مُٺ | هٿ | ٺونشو</annotation>
+		<annotation cp="👊" type="tts">ايندڙ مڪو</annotation>
+		<annotation cp="🤛">مٺي | کاٻي پاسي</annotation>
+		<annotation cp="🤛" type="tts">کاٻي طرف منهن ڪندڙ مٺي</annotation>
+		<annotation cp="🤜">مٺي | ساڄي پاسي</annotation>
+		<annotation cp="🤜" type="tts">ساڄي طرف منهن ڪندڙ مٺي</annotation>
+		<annotation cp="🤚">مٿي ڪيل | پويون هٿ</annotation>
+		<annotation cp="🤚" type="tts">هٿ جي پٺ مٿي ڪيل</annotation>
+		<annotation cp="👋">هٿ | لهر | لڏڻ</annotation>
+		<annotation cp="👋" type="tts">لڏندڙ هٿ</annotation>
+		<annotation cp="🤟">هٿ</annotation>
+		<annotation cp="🤟" type="tts">پيار جو اشارو</annotation>
+		<annotation cp="✍">هٿ | لکڻ</annotation>
+		<annotation cp="✍" type="tts">لکندڙ هٿ</annotation>
+		<annotation cp="👏">تاڙي | هٿ</annotation>
+		<annotation cp="👏" type="tts">تاڙيون وڄائيندڙ هٿ</annotation>
+		<annotation cp="👐">هٿ | کليل</annotation>
+		<annotation cp="👐" type="tts">کليل هٿ</annotation>
+		<annotation cp="🙌">جشن، اشارو، هٿ، مٿي اٿيل</annotation>
+		<annotation cp="🙌" type="tts">مٿي ٿيندڙ هٿ</annotation>
+		<annotation cp="🤲">دعا</annotation>
+		<annotation cp="🤲" type="tts">تريون مٿي گڏ</annotation>
+		<annotation cp="🙏">پڇڻ | جھڪڻ | ويڙهيل | ادا | هٿ | مهرباني ڪري | عبادت ڪرڻ | مهرباني</annotation>
+		<annotation cp="🙏" type="tts">ويڙهيل هٿ</annotation>
+		<annotation cp="🤝">هٿ ملائڻ | معاهدو | گڏجاڻي | ملائڻ | هٿ</annotation>
+		<annotation cp="🤝" type="tts">هٿ ملائڻ</annotation>
+		<annotation cp="💅">سنڀال | سينگار | ننهن ڪتڻ | ننهن | رنگڻ</annotation>
+		<annotation cp="💅" type="tts">ننهن مکڻي</annotation>
+		<annotation cp="👂">جسم</annotation>
+		<annotation cp="👂" type="tts">ڪن</annotation>
+		<annotation cp="👃">جسم</annotation>
+		<annotation cp="👃" type="tts">نڪ</annotation>
+		<annotation cp="👣">ڪپڙا پائڻ | پير جو نشان | ڇاپو</annotation>
+		<annotation cp="👣" type="tts">پيرن جا نشان</annotation>
+		<annotation cp="👀">اک | چهرو</annotation>
+		<annotation cp="👀" type="tts">اکيون</annotation>
+		<annotation cp="👁">جسم</annotation>
+		<annotation cp="👁" type="tts">اک</annotation>
+		<annotation cp="👁‍🗨">اک، ڳالهه ٻولهه جا بلبلا، گوا</annotation>
+		<annotation cp="👁‍🗨" type="tts">ڳالهه بلبلن ۾ اک</annotation>
+		<annotation cp="🧠">هوشيار</annotation>
+		<annotation cp="🧠" type="tts">دماغ</annotation>
+		<annotation cp="👅">جسم</annotation>
+		<annotation cp="👅" type="tts">زبان</annotation>
+		<annotation cp="👄">چپ</annotation>
+		<annotation cp="👄" type="tts">وات</annotation>
+		<annotation cp="💋">چمي | چپَ</annotation>
+		<annotation cp="💋" type="tts">چمي جو نشان</annotation>
+		<annotation cp="💘">تير، محبت جو ديوتا</annotation>
+		<annotation cp="💘" type="tts">دل جي وچ ۾ تير</annotation>
+		<annotation cp="❤">دل</annotation>
+		<annotation cp="❤" type="tts">ڳاڙهي دل</annotation>
+		<annotation cp="💓">مار | دل جي ڌڙڪن | ڌڙڪڻ</annotation>
+		<annotation cp="💓" type="tts">ڌڙڪندڙ دل</annotation>
+		<annotation cp="💔">ٽوڙڻ | ٽٽل</annotation>
+		<annotation cp="💔" type="tts">ٽٽل دل</annotation>
+		<annotation cp="💕">پيار</annotation>
+		<annotation cp="💕" type="tts">ٻه دليون</annotation>
+		<annotation cp="💖">پرجوش | ٽمڪڻ</annotation>
+		<annotation cp="💖" type="tts">ٽمڪندڙ دل</annotation>
+		<annotation cp="💗">پرجوش | وڌندڙ | نبض | پريشان</annotation>
+		<annotation cp="💗" type="tts">وڌندڙ دل</annotation>
+		<annotation cp="💙">نيري</annotation>
+		<annotation cp="💙" type="tts">نيري دل</annotation>
+		<annotation cp="💚">سائي</annotation>
+		<annotation cp="💚" type="tts">سائي دل</annotation>
+		<annotation cp="💛">پيلي</annotation>
+		<annotation cp="💛" type="tts">پيلي دل</annotation>
+		<annotation cp="🧡">نارنگي</annotation>
+		<annotation cp="🧡" type="tts">نارنگي دل</annotation>
+		<annotation cp="💜">واڱڻائي دل</annotation>
+		<annotation cp="💜" type="tts">واڱڻائي دل</annotation>
+		<annotation cp="🖤">ڪارو | برائي | حرامي</annotation>
+		<annotation cp="🖤" type="tts">ڪاري دل</annotation>
+		<annotation cp="💝">ربن | ويلنٽائن</annotation>
+		<annotation cp="💝" type="tts">ربن سان گڏ دل</annotation>
+		<annotation cp="💞">ڦرندڙ</annotation>
+		<annotation cp="💞" type="tts">ڦرندڙ دليون</annotation>
+		<annotation cp="💟">دل</annotation>
+		<annotation cp="💟" type="tts">دل جي سجاوٽ</annotation>
+		<annotation cp="❣">عجب | نشان | اوقاف</annotation>
+		<annotation cp="❣" type="tts">وڏي عجب دل</annotation>
+		<annotation cp="💌">دل | خط | پيار | ميل</annotation>
+		<annotation cp="💌" type="tts">پيار جو خط</annotation>
+		<annotation cp="💤">ڪامڪ | ننڊ</annotation>
+		<annotation cp="💤" type="tts">هلڪي نڊ</annotation>
+		<annotation cp="💢">ڪاوڙ | ڪامڪ | چريو</annotation>
+		<annotation cp="💢" type="tts">ڪاوڙ جي نشاني</annotation>
+		<annotation cp="💣">ڪامڪ</annotation>
+		<annotation cp="💣" type="tts">بم</annotation>
+		<annotation cp="💥">بوم، ڪامڪ</annotation>
+		<annotation cp="💥" type="tts">ٽڪراءُ</annotation>
+		<annotation cp="💦">مزاڪ | ڇنڊا اڏائيندي | پگھر</annotation>
+		<annotation cp="💦" type="tts">پگهر جا قطرا</annotation>
+		<annotation cp="💨">مزاحيه | اڇلڻ | ڊوڙندي</annotation>
+		<annotation cp="💨" type="tts">پري اڇلائڻ</annotation>
+		<annotation cp="💫">مزاحيه | ستارو</annotation>
+		<annotation cp="💫" type="tts">چڪرائيندڙ</annotation>
+		<annotation cp="💬">ڦڪڻو | بلبلا | مزاحيه | ڳاله ٻوله | ڳاهائڻ</annotation>
+		<annotation cp="💬" type="tts">ڳالهائڻ وارو ڦوڪڻو</annotation>
+		<annotation cp="🗨">ڳالهه ٻولهه | ڳالهائڻ</annotation>
+		<annotation cp="🗨" type="tts">کاٻي طرف بلبلا ڳالهه ٻولهه</annotation>
+		<annotation cp="🗯">ڪاوڙيل | ڦوڪڻو | بلبلو | چريو</annotation>
+		<annotation cp="🗯" type="tts">ساڄي پاسي ڪاوڙ جا بلبلا</annotation>
+		<annotation cp="💭">ڦوڪڻو | بلبلا | مزاحيه | سوچ</annotation>
+		<annotation cp="💭" type="tts">خيال وارو ڦوڪڻو</annotation>
+		<annotation cp="🕳">سوراخ</annotation>
+		<annotation cp="🕳" type="tts">سوراخ</annotation>
+		<annotation cp="👓">لباس | اک | اک جا چشما | شيشا</annotation>
+		<annotation cp="👓" type="tts">عينڪ</annotation>
+		<annotation cp="🕶">انڌيرو | اک | عينڪ | چشما</annotation>
+		<annotation cp="🕶" type="tts">اُس جا چشما</annotation>
+		<annotation cp="👔">ڪپڙا</annotation>
+		<annotation cp="👔" type="tts">ٽائي</annotation>
+		<annotation cp="👕">لباس | قميض | ٽي شرٽ</annotation>
+		<annotation cp="👕" type="tts">ٽي شرٽ</annotation>
+		<annotation cp="👖">لباس | پتلون | شلوار</annotation>
+		<annotation cp="👖" type="tts">جينس</annotation>
+		<annotation cp="🧣">ڳچي</annotation>
+		<annotation cp="🧣" type="tts">حجاب</annotation>
+		<annotation cp="🧤">هاٿ</annotation>
+		<annotation cp="🧤" type="tts">دستانا</annotation>
+		<annotation cp="🧥">جاڪيٽ</annotation>
+		<annotation cp="🧥" type="tts">ڪوٽ</annotation>
+		<annotation cp="🧦">جوراب</annotation>
+		<annotation cp="🧦" type="tts">جوراب</annotation>
+		<annotation cp="👗">ڪپڙا</annotation>
+		<annotation cp="👗" type="tts">وڳو</annotation>
+		<annotation cp="👘">ڪپڙا</annotation>
+		<annotation cp="👘" type="tts">گائون</annotation>
+		<annotation cp="👙">لباس | ترڻ</annotation>
+		<annotation cp="👙" type="tts">بڪني</annotation>
+		<annotation cp="👚">لباس | عورت</annotation>
+		<annotation cp="👚" type="tts">عورت جا ڪپڙا</annotation>
+		<annotation cp="👛">لباس | سڪو</annotation>
+		<annotation cp="👛" type="tts">ٻٽون</annotation>
+		<annotation cp="👜">بيگ | لباس | پرس</annotation>
+		<annotation cp="👜" type="tts">هٿ جو ٿيلو</annotation>
+		<annotation cp="👝">بيگ | لباس | ٿيلي</annotation>
+		<annotation cp="👝" type="tts">عورتن جو ٻٽون</annotation>
+		<annotation cp="🛍">بيگ | هوٽل | خريداري</annotation>
+		<annotation cp="🛍" type="tts">خريداري جي ٿيلي</annotation>
+		<annotation cp="🎒">بيگ | ٿيلها | اسڪول</annotation>
+		<annotation cp="🎒" type="tts">اسڪول جو پٺن وارو ٿيلو</annotation>
+		<annotation cp="👞">لباس | مرد | جوتو</annotation>
+		<annotation cp="👞" type="tts">مرد جو جوتو</annotation>
+		<annotation cp="👟">ايٿليٽڪ | لباس | جوتو | راند جو جوتو</annotation>
+		<annotation cp="👟" type="tts">ڊوڙڻ وارو جوتو</annotation>
+		<annotation cp="👠">لباس | کڙي | جوتو | عورت</annotation>
+		<annotation cp="👠" type="tts">وڏي کڙي وارو جوتو</annotation>
+		<annotation cp="👡">لباس | سينڊل | جوتو | عورت</annotation>
+		<annotation cp="👡" type="tts">عورت جو سينڊل</annotation>
+		<annotation cp="👢">بوٽ | لباس | جوتو | عورت</annotation>
+		<annotation cp="👢" type="tts">عورت جو بوٽ</annotation>
+		<annotation cp="👑">لباس | بادشاه | راڻي</annotation>
+		<annotation cp="👑" type="tts">تاج</annotation>
+		<annotation cp="👒">لباس | ٽوپي | عورت</annotation>
+		<annotation cp="👒" type="tts">عورت جي ٽوپي</annotation>
+		<annotation cp="🎩">لباس | ٽوپي | مٿي | ٽاپ هيٽ</annotation>
+		<annotation cp="🎩" type="tts">مٿي جي ٽوپي</annotation>
+		<annotation cp="🎓">ٽوپي | ملهائڻ | لباس | گريجوئيشن | توپي</annotation>
+		<annotation cp="🎓" type="tts">گريجوئيشن واري ٽوپي</annotation>
+		<annotation cp="🧢">بيس بال ٽوپي</annotation>
+		<annotation cp="🧢" type="tts">ڇاڄي واري ٽوپي</annotation>
+		<annotation cp="⛑">امداد | پار | چهرو | ٽوپي | هيلميٽ</annotation>
+		<annotation cp="⛑" type="tts">بچاءُ ڪارڪن جي ٽوپي</annotation>
+		<annotation cp="📿">تبسي | لباس | ڳلي جو هار | عبادت | مذهب</annotation>
+		<annotation cp="📿" type="tts">تسبي</annotation>
+		<annotation cp="💄">سينگار | ميڪ اپ</annotation>
+		<annotation cp="💄" type="tts">سرخي</annotation>
+		<annotation cp="💍">هيرو</annotation>
+		<annotation cp="💍" type="tts">منڊي</annotation>
+		<annotation cp="💎">هيرو | نگينو | موتي</annotation>
+		<annotation cp="💎" type="tts">قيمتي پٿر</annotation>
+		<annotation cp="🐵">مهانڊو، ڀولڙو</annotation>
+		<annotation cp="🐵" type="tts">ڀولو مهانڊو</annotation>
+		<annotation cp="🐒">ڀولڙو</annotation>
+		<annotation cp="🐒" type="tts">ڀولڙو</annotation>
+		<annotation cp="🦍">گوريلا</annotation>
+		<annotation cp="🦍" type="tts">گوريلا</annotation>
+		<annotation cp="🐶">ڪتو، مهاندو، پالتو</annotation>
+		<annotation cp="🐶" type="tts">ڪتو مهاندو</annotation>
+		<annotation cp="🐕">پالتو</annotation>
+		<annotation cp="🐕" type="tts">ڪتو</annotation>
+		<annotation cp="🐩">ڪتو</annotation>
+		<annotation cp="🐩" type="tts">بوجرو ڪتو</annotation>
+		<annotation cp="🐺">مهانڊو، بگهڙ</annotation>
+		<annotation cp="🐺" type="tts">بگهڙ مهانڊو</annotation>
+		<annotation cp="🦊">مهانڊو، لومڙي</annotation>
+		<annotation cp="🦊" type="tts">لومڙي مهانڊو</annotation>
+		<annotation cp="🐱">ٻلي، مهانڊو، پالتو</annotation>
+		<annotation cp="🐱" type="tts">ٻلي مهانڊو</annotation>
+		<annotation cp="🐈">پالتو</annotation>
+		<annotation cp="🐈" type="tts">ٻلي</annotation>
+		<annotation cp="🦁">مهانڊو، اسد، شينهن، برج</annotation>
+		<annotation cp="🦁" type="tts">شينهن مهانڊو</annotation>
+		<annotation cp="🐯">مهانڊو، چيتو</annotation>
+		<annotation cp="🐯" type="tts">چيتو مهانڊو</annotation>
+		<annotation cp="🐅">چيتو</annotation>
+		<annotation cp="🐅" type="tts">چيتو</annotation>
+		<annotation cp="🐆">چيتو</annotation>
+		<annotation cp="🐆" type="tts">باگ</annotation>
+		<annotation cp="🐴">مهانڊو، گهوڙو</annotation>
+		<annotation cp="🐴" type="tts">گهوڙو مهانڊو</annotation>
+		<annotation cp="🐎">ڊوڙ جو گهوڙو، ڊوڙ، گهوڙسواري</annotation>
+		<annotation cp="🐎" type="tts">گهوڙو</annotation>
+		<annotation cp="🦄">مهانڊو، سنگي گهوڙو</annotation>
+		<annotation cp="🦄" type="tts">سنگي گهوڙي وارو مهانڊو</annotation>
+		<annotation cp="🦓">پٽي</annotation>
+		<annotation cp="🦓" type="tts">زيبرا</annotation>
+		<annotation cp="🦌">هرڻ</annotation>
+		<annotation cp="🦌" type="tts">هرڻ</annotation>
+		<annotation cp="🐮">ڍڳي، مهانڊو</annotation>
+		<annotation cp="🐮" type="tts">ڍڳي مهانڊو</annotation>
+		<annotation cp="🐂">ڍڳو، ثور، برج</annotation>
+		<annotation cp="🐂" type="tts">ڍڳو</annotation>
+		<annotation cp="🐃">مينهن، پاڻي</annotation>
+		<annotation cp="🐃" type="tts">پاڻي واري مينهن</annotation>
+		<annotation cp="🐄">ڍڳي</annotation>
+		<annotation cp="🐄" type="tts">ڍڳي</annotation>
+		<annotation cp="🐷">مهانڊو، سوئر</annotation>
+		<annotation cp="🐷" type="tts">سوئر مهانڊو</annotation>
+		<annotation cp="🐖">مادي سوئر</annotation>
+		<annotation cp="🐖" type="tts">سوئر</annotation>
+		<annotation cp="🐗">سوئر</annotation>
+		<annotation cp="🐗" type="tts">نر سوئر</annotation>
+		<annotation cp="🐽">مهانڊو، نڪ، سوئر</annotation>
+		<annotation cp="🐽" type="tts">سوئر نڪ</annotation>
+		<annotation cp="🐏">حمل، رڍ، برج، نر</annotation>
+		<annotation cp="🐏" type="tts">گهيٽو</annotation>
+		<annotation cp="🐑">رڍ، مادي</annotation>
+		<annotation cp="🐑" type="tts">رڍ</annotation>
+		<annotation cp="🐐">جدي، برج</annotation>
+		<annotation cp="🐐" type="tts">ٻڪري</annotation>
+		<annotation cp="🐪">سانڊ، ٿوهو</annotation>
+		<annotation cp="🐪" type="tts">اٺ</annotation>
+		<annotation cp="🐫">ٻن ٿوهن وارو اٺ، ، اٺ، ٿوهو</annotation>
+		<annotation cp="🐫" type="tts">ٻن ٿوهن وارو اٺ</annotation>
+		<annotation cp="🦒">راند</annotation>
+		<annotation cp="🦒" type="tts">جراف</annotation>
+		<annotation cp="🐘">هاٿي</annotation>
+		<annotation cp="🐘" type="tts">هاٿي</annotation>
+		<annotation cp="🦏">گينڊو</annotation>
+		<annotation cp="🦏" type="tts">گينڊو</annotation>
+		<annotation cp="🐭">مهانڊو، ڪوئو</annotation>
+		<annotation cp="🐭" type="tts">ڪوئو مهانڊو</annotation>
+		<annotation cp="🐁">ڪوئو</annotation>
+		<annotation cp="🐁" type="tts">ڪوئو</annotation>
+		<annotation cp="🐀">ڪوئو</annotation>
+		<annotation cp="🐀" type="tts">چوهو</annotation>
+		<annotation cp="🐹">مهانڊو، ڪوئو، پالتو</annotation>
+		<annotation cp="🐹" type="tts">ڪوئي مهانڊو</annotation>
+		<annotation cp="🐰">سهو، مهانڊو، پالتو، سهو</annotation>
+		<annotation cp="🐰" type="tts">سهو مهانڊو</annotation>
+		<annotation cp="🐇">سهو، پالتو</annotation>
+		<annotation cp="🐇" type="tts">سهو</annotation>
+		<annotation cp="🐿">ڪوريئوڙو</annotation>
+		<annotation cp="🐿" type="tts">ڪوريئوڙو</annotation>
+		<annotation cp="🦔">سيهڙ</annotation>
+		<annotation cp="🦔" type="tts">سيهڙ</annotation>
+		<annotation cp="🦇">چمرو، چمرو</annotation>
+		<annotation cp="🦇" type="tts">چمرو</annotation>
+		<annotation cp="🐻">رڇ، مهانڊو</annotation>
+		<annotation cp="🐻" type="tts">رڇ مهانڊو</annotation>
+		<annotation cp="🐨">رڇ</annotation>
+		<annotation cp="🐨" type="tts">خرسڪ</annotation>
+		<annotation cp="🐼">مهانڊو، پانڊا</annotation>
+		<annotation cp="🐼" type="tts">پانڊو مهانڊو</annotation>
+		<annotation cp="🐾">پير، چنبو، نشان</annotation>
+		<annotation cp="🐾" type="tts">چنبي جا نشان</annotation>
+		<annotation cp="🦃">ترڪي، پکي</annotation>
+		<annotation cp="🦃" type="tts">ترڪي</annotation>
+		<annotation cp="🐔">مرغ، پکي</annotation>
+		<annotation cp="🐔" type="tts">مرغي</annotation>
+		<annotation cp="🐓">مرغو، پکي</annotation>
+		<annotation cp="🐓" type="tts">مرغو</annotation>
+		<annotation cp="🐣">ننڍو، مرغي جو ٻچو، نڪرڻ، پکي</annotation>
+		<annotation cp="🐣" type="tts">بيضي مان نڪرندڙ چوزو</annotation>
+		<annotation cp="🐤">ننڍو، مرغي جو ٻچو، پکي</annotation>
+		<annotation cp="🐤" type="tts">ننڍو مرغي جو ٻچو</annotation>
+		<annotation cp="🐥">ننڍو، مرغي جو ٻچو، پکي</annotation>
+		<annotation cp="🐥" type="tts">اڳيان کان ننڍو مرغي جو ٻچو</annotation>
+		<annotation cp="🐦">پکي</annotation>
+		<annotation cp="🐦" type="tts">پکي</annotation>
+		<annotation cp="🐧">پينگوئن، پکي</annotation>
+		<annotation cp="🐧" type="tts">پينگوئن</annotation>
+		<annotation cp="🕊">پکي، اڏامڻ، امن</annotation>
+		<annotation cp="🕊" type="tts">ڪبوتر</annotation>
+		<annotation cp="🦅">باز، پکي</annotation>
+		<annotation cp="🦅" type="tts">باز</annotation>
+		<annotation cp="🦆">بدڪ، پکي</annotation>
+		<annotation cp="🦆" type="tts">بدڪ</annotation>
+		<annotation cp="🦉">چٻرو، سياڻو، پکي</annotation>
+		<annotation cp="🦉" type="tts">چٻرو</annotation>
+		<annotation cp="🐸">مهانڊو، ڏيڏر</annotation>
+		<annotation cp="🐸" type="tts">ڏيڏر مهانڊو</annotation>
+		<annotation cp="🐊">واڳون</annotation>
+		<annotation cp="🐊" type="tts">واڳون</annotation>
+		<annotation cp="🐢">ڪمي، ڪمي، ڪمي</annotation>
+		<annotation cp="🐢" type="tts">ڪمي</annotation>
+		<annotation cp="🦎">ڪرڙي، ريڙيون پائيندڙ</annotation>
+		<annotation cp="🦎" type="tts">ڪرڙي</annotation>
+		<annotation cp="🐍">حامل، نانگ جهليندڙ، نانگ، برج</annotation>
+		<annotation cp="🐍" type="tts">نانگ</annotation>
+		<annotation cp="🐲">بلا، مهانڊو، پرين جي ڪهاڻي</annotation>
+		<annotation cp="🐲" type="tts">بلا مهانڊو</annotation>
+		<annotation cp="🐉">پرين جي ڪهاڻي</annotation>
+		<annotation cp="🐉" type="tts">بلا</annotation>
+		<annotation cp="🦕">ڊائنوسار</annotation>
+		<annotation cp="🦕" type="tts">سارپا</annotation>
+		<annotation cp="🦖">ڊائنوسار</annotation>
+		<annotation cp="🦖" type="tts">ڊائنوسار</annotation>
+		<annotation cp="🐳">مهانڊو، اسپائوٽنگ، وهيل</annotation>
+		<annotation cp="🐳" type="tts">اسپائوٽنگ وهيل</annotation>
+		<annotation cp="🐋">وهيل</annotation>
+		<annotation cp="🐋" type="tts">وهيل</annotation>
+		<annotation cp="🐬">پر</annotation>
+		<annotation cp="🐬" type="tts">ڊالفن</annotation>
+		<annotation cp="🐟">حوت، برج</annotation>
+		<annotation cp="🐟" type="tts">مڇي</annotation>
+		<annotation cp="🐠">مڇي، مداريني</annotation>
+		<annotation cp="🐠" type="tts">مداريني مڇي</annotation>
+		<annotation cp="🐡">مڇي</annotation>
+		<annotation cp="🐡" type="tts">بلوفش</annotation>
+		<annotation cp="🦈">شارڪ، مڇي</annotation>
+		<annotation cp="🦈" type="tts">شارڪ</annotation>
+		<annotation cp="🐙">ڪيڪڙو</annotation>
+		<annotation cp="🐙" type="tts">ڪيڪڙو</annotation>
+		<annotation cp="🐚">ڪوڏي، ور وڪڙ</annotation>
+		<annotation cp="🐚" type="tts">ور وڪڙ واري ڪوڏي</annotation>
+		<annotation cp="🦀">سرطان، برج</annotation>
+		<annotation cp="🦀" type="tts">سرطان</annotation>
+		<annotation cp="🦐">جهينگو، ننڍي، خول مڇي، کاڌو</annotation>
+		<annotation cp="🦐" type="tts">جهينگو</annotation>
+		<annotation cp="🦑">جهينگو، سيپي، کاڌو</annotation>
+		<annotation cp="🦑" type="tts">اسڪواڊ</annotation>
+		<annotation cp="🐌">سيپي</annotation>
+		<annotation cp="🐌" type="tts">سيپي</annotation>
+		<annotation cp="🦋">پوپٽ، جيت، خوبصورت</annotation>
+		<annotation cp="🦋" type="tts">پوپٽ</annotation>
+		<annotation cp="🐛">جيت</annotation>
+		<annotation cp="🐛" type="tts">مونگهڻ</annotation>
+		<annotation cp="🐜">جيت</annotation>
+		<annotation cp="🐜" type="tts">ماڪوڙي</annotation>
+		<annotation cp="🐝">مک، جيت</annotation>
+		<annotation cp="🐝" type="tts">ماکي جي مک</annotation>
+		<annotation cp="🐞">بيٽل، جيت، ليڊي برڊ، ليڊي بگ</annotation>
+		<annotation cp="🐞" type="tts">ليڊي بيٽل</annotation>
+		<annotation cp="🦗">مڪڙ</annotation>
+		<annotation cp="🦗" type="tts">ڪرڪيٽ</annotation>
+		<annotation cp="🕷">جيت</annotation>
+		<annotation cp="🕷" type="tts">ڪوريئڙو</annotation>
+		<annotation cp="🕸">ڪوريئڙو، ڄار</annotation>
+		<annotation cp="🕸" type="tts">ڪوريئڙي جي ڄار</annotation>
+		<annotation cp="🦂">وڇون، عقرب، برج</annotation>
+		<annotation cp="🦂" type="tts">وڇون</annotation>
+		<annotation cp="💐">گل</annotation>
+		<annotation cp="💐" type="tts">گلدستو</annotation>
+		<annotation cp="🌸">بلاسم، چيري، گل</annotation>
+		<annotation cp="🌸" type="tts">چيري بلاسم</annotation>
+		<annotation cp="💮">گل</annotation>
+		<annotation cp="💮" type="tts">اڇو گل</annotation>
+		<annotation cp="🏵">ٻوٽو</annotation>
+		<annotation cp="🏵" type="tts">گل نما</annotation>
+		<annotation cp="🌹">گل</annotation>
+		<annotation cp="🌹" type="tts">گلاب جو گل</annotation>
+		<annotation cp="🥀">گل، ڪومايل</annotation>
+		<annotation cp="🥀" type="tts">ڪومايل گل</annotation>
+		<annotation cp="🌺">گل</annotation>
+		<annotation cp="🌺" type="tts">گل خطمي</annotation>
+		<annotation cp="🌻">گل، سورج</annotation>
+		<annotation cp="🌻" type="tts">سورج مکي</annotation>
+		<annotation cp="🌼">گل</annotation>
+		<annotation cp="🌼" type="tts">بلاسم</annotation>
+		<annotation cp="🌷">گل</annotation>
+		<annotation cp="🌷" type="tts">نرگس جو گل</annotation>
+		<annotation cp="🌱">جوان</annotation>
+		<annotation cp="🌱" type="tts">ٻج وارو گل</annotation>
+		<annotation cp="🌲">وڻ</annotation>
+		<annotation cp="🌲" type="tts">سدا بهار وڻ</annotation>
+		<annotation cp="🌳">پتا ڇاڙيندڙ، وڻ</annotation>
+		<annotation cp="🌳" type="tts">پتا ڇاڙيندڙ وڻ</annotation>
+		<annotation cp="🌴">کجي، وڻ</annotation>
+		<annotation cp="🌴" type="tts">کجي جو وڻ</annotation>
+		<annotation cp="🌵">ٻوٽو</annotation>
+		<annotation cp="🌵" type="tts">ٿوهر</annotation>
+		<annotation cp="🌾">ڪن، چانور، اناج</annotation>
+		<annotation cp="🌾" type="tts">چانور جو پلندو</annotation>
+		<annotation cp="🌿">پن</annotation>
+		<annotation cp="🌿" type="tts">جڙي ٻوٽيون</annotation>
+		<annotation cp="☘">ٻوٽو</annotation>
+		<annotation cp="☘" type="tts">شيمراڪ</annotation>
+		<annotation cp="🍀">4، گاه، چار، پن</annotation>
+		<annotation cp="🍀" type="tts">چار پنن وارو گاه</annotation>
+		<annotation cp="🍁">ڇڙندڙ، پن، ميپل</annotation>
+		<annotation cp="🍁" type="tts">ميپل جو پن</annotation>
+		<annotation cp="🍂">ڇڙندڙ، پن</annotation>
+		<annotation cp="🍂" type="tts">ڇڻيل پن</annotation>
+		<annotation cp="🍃">لهر، هلندڙ، پن، هوا</annotation>
+		<annotation cp="🍃" type="tts">هوا ۾ لڏندڙ پن</annotation>
+		<annotation cp="🍇">ميوو، انگور</annotation>
+		<annotation cp="🍇" type="tts">انگور</annotation>
+		<annotation cp="🍈">ميوو</annotation>
+		<annotation cp="🍈" type="tts">گدرو</annotation>
+		<annotation cp="🍉">ميوو</annotation>
+		<annotation cp="🍉" type="tts">ڇانهه</annotation>
+		<annotation cp="🍊">ميوو، نارنگي</annotation>
+		<annotation cp="🍊" type="tts">طنچوري نارنگي</annotation>
+		<annotation cp="🍋">ليماڻن ميوو، ميوو</annotation>
+		<annotation cp="🍋" type="tts">ليمو</annotation>
+		<annotation cp="🍌">ميوو</annotation>
+		<annotation cp="🍌" type="tts">ڪيلو</annotation>
+		<annotation cp="🍍">ميوو</annotation>
+		<annotation cp="🍍" type="tts">انناس</annotation>
+		<annotation cp="🍎">صوف، ميوو، ڳاڙهو</annotation>
+		<annotation cp="🍎" type="tts">ڳاڙهو صوف</annotation>
+		<annotation cp="🍏">صوف، ميوو، سائو</annotation>
+		<annotation cp="🍏" type="tts">سائو صوف</annotation>
+		<annotation cp="🍐">ميوو</annotation>
+		<annotation cp="🍐" type="tts">ناشپتي</annotation>
+		<annotation cp="🍑">ميوو</annotation>
+		<annotation cp="🍑" type="tts">آڙو</annotation>
+		<annotation cp="🍒">چيري، ميوو</annotation>
+		<annotation cp="🍒" type="tts">چيري</annotation>
+		<annotation cp="🍓">بيري، ميوو</annotation>
+		<annotation cp="🍓" type="tts">اسٽرابيري</annotation>
+		<annotation cp="🥝">ڪيوي، ميوو، کاڌو</annotation>
+		<annotation cp="🥝" type="tts">ڪيوي ميوو</annotation>
+		<annotation cp="🍅">ميوو، ڀاڄي</annotation>
+		<annotation cp="🍅" type="tts">ٽماٽو</annotation>
+		<annotation cp="🥥">کجي، پام ڪولاڊا</annotation>
+		<annotation cp="🥥" type="tts">ڪوپرو</annotation>
+		<annotation cp="🥑">مگر ناشپتي، ميوو، کاڌو</annotation>
+		<annotation cp="🥑" type="tts">مگر ناشپتي</annotation>
+		<annotation cp="🍆">واڱڻ، ڀاڄي</annotation>
+		<annotation cp="🍆" type="tts">وانڱڻ</annotation>
+		<annotation cp="🥔">پٽاٽو، ڀاڄي، کاڌو</annotation>
+		<annotation cp="🥔" type="tts">پٽاٽو</annotation>
+		<annotation cp="🥕">گجر، ڀاڄي، کاڌو</annotation>
+		<annotation cp="🥕" type="tts">گجر</annotation>
+		<annotation cp="🌽">مڪئي</annotation>
+		<annotation cp="🌽" type="tts">مڪئي جا داڻا</annotation>
+		<annotation cp="🌶">مرچ</annotation>
+		<annotation cp="🌶" type="tts">گرم مرچ</annotation>
+		<annotation cp="🥒">کهيرو، آچار، ڀاڄي، کاڌو</annotation>
+		<annotation cp="🥒" type="tts">کهيرو</annotation>
+		<annotation cp="🥦">جهنگلي گوبي</annotation>
+		<annotation cp="🥦" type="tts">شاخ گوبي</annotation>
+		<annotation cp="🍄">زهريلي خمبي</annotation>
+		<annotation cp="🍄" type="tts">خمبي</annotation>
+		<annotation cp="🥜">کاڄو، اخروٽ، کاڌو، ڀاڄي</annotation>
+		<annotation cp="🥜" type="tts">کاڄو</annotation>
+		<annotation cp="🌰">ٻوٽو</annotation>
+		<annotation cp="🌰" type="tts">شاه بلوط</annotation>
+		<annotation cp="🍞">ماني</annotation>
+		<annotation cp="🍞" type="tts">روٽي</annotation>
+		<annotation cp="🥐">ڪروئيسانٽ، حلال رول، فرانسي، کاڌو، ماني</annotation>
+		<annotation cp="🥐" type="tts">ڪروئيسانٽ</annotation>
+		<annotation cp="🥖">باگيٽ، ماني، فرانسي، کاڌو</annotation>
+		<annotation cp="🥖" type="tts">باگيٽ ماني</annotation>
+		<annotation cp="🥨">مروڙيل</annotation>
+		<annotation cp="🥨" type="tts">پريٽزل</annotation>
+		<annotation cp="🥞">پراٺو، ڪريپ، کاڌو</annotation>
+		<annotation cp="🥞" type="tts">پراٺو</annotation>
+		<annotation cp="🧀">پنير</annotation>
+		<annotation cp="🧀" type="tts">پنير پچر</annotation>
+		<annotation cp="🍖">هڏي، گوشت</annotation>
+		<annotation cp="🍖" type="tts">هڏي تي گوشت</annotation>
+		<annotation cp="🍗">هڏي، مرغي، ٽنگ، مرغي</annotation>
+		<annotation cp="🍗" type="tts">مرغي جي ٽنگ</annotation>
+		<annotation cp="🥩">سوئر جي چانپ، رڍ جي چانپ، چانپ، گوشت</annotation>
+		<annotation cp="🥩" type="tts">گوشت جا وڍ</annotation>
+		<annotation cp="🥓">سوئر جو گوشت، گوشت، کاڌو</annotation>
+		<annotation cp="🥓" type="tts">سوئر جو نمڪين گوشت</annotation>
+		<annotation cp="🍔">برگر</annotation>
+		<annotation cp="🍔" type="tts">هيمبرگر</annotation>
+		<annotation cp="🍟">فرينچ، فرائيز</annotation>
+		<annotation cp="🍟" type="tts">فرينچ فرائيز</annotation>
+		<annotation cp="🍕">پنير، ٽڪڙا</annotation>
+		<annotation cp="🍕" type="tts">پيزا</annotation>
+		<annotation cp="🌭">فرينڪ فرٽر، هاٽ ڊاگ، ساسيج</annotation>
+		<annotation cp="🌭" type="tts">هاٽ ڊاگ</annotation>
+		<annotation cp="🥪">روٽي</annotation>
+		<annotation cp="🥪" type="tts">سينڊوچ</annotation>
+		<annotation cp="🌮">ميڪسيڪن</annotation>
+		<annotation cp="🌮" type="tts">ٽاڪو</annotation>
+		<annotation cp="🌯">ميڪسيڪن رول</annotation>
+		<annotation cp="🌯" type="tts">بريٽو</annotation>
+		<annotation cp="🥙">ڪباب، فلافل، جيورو، ڪوڪي، کاڌو</annotation>
+		<annotation cp="🥙" type="tts">ڪوڪي</annotation>
+		<annotation cp="🥚">بيضو، کاڌو</annotation>
+		<annotation cp="🥚" type="tts">بيضو</annotation>
+		<annotation cp="🍳">بيضو، ترڻ، پان</annotation>
+		<annotation cp="🍳" type="tts">کاڌو پچائڻ</annotation>
+		<annotation cp="🥘">پئيلا، ڪيسيرول، پان، کاڌو</annotation>
+		<annotation cp="🥘" type="tts">توو</annotation>
+		<annotation cp="🍲">برتن، هلائڻ</annotation>
+		<annotation cp="🍲" type="tts">کاڌي جو برتن</annotation>
+		<annotation cp="🥣">ناشتو، اناج، دليو</annotation>
+		<annotation cp="🥣" type="tts">چمچ سان برتن</annotation>
+		<annotation cp="🥗">سائو، سلاد، کاڌو</annotation>
+		<annotation cp="🥗" type="tts">سائو سلاد</annotation>
+		<annotation cp="🍿">مڪئي جا ڦلا</annotation>
+		<annotation cp="🍿" type="tts">مڪئي جا ڦلا</annotation>
+		<annotation cp="🥫">ڏٻو</annotation>
+		<annotation cp="🥫" type="tts">ڏٻي وارو کاڌو</annotation>
+		<annotation cp="🍱">کاڌي جو ڏٻو، ڏٻو</annotation>
+		<annotation cp="🍱" type="tts">کاڌي جو ڏٻو</annotation>
+		<annotation cp="🍘">چانور جو بسڪيٽ، چانور</annotation>
+		<annotation cp="🍘" type="tts">چانور جو بسڪيٽ</annotation>
+		<annotation cp="🍙">بال، جاپاني، چانور</annotation>
+		<annotation cp="🍙" type="tts">چانور جو بال</annotation>
+		<annotation cp="🍚">پچيل، چانور</annotation>
+		<annotation cp="🍚" type="tts">پچيل چانور</annotation>
+		<annotation cp="🍛">ڪڙي، چانور</annotation>
+		<annotation cp="🍛" type="tts">ڪڙي چانور</annotation>
+		<annotation cp="🍜">برتن، نوڊل، ريمين، گرم</annotation>
+		<annotation cp="🍜" type="tts">گرم برتن</annotation>
+		<annotation cp="🍝">پاسٽا</annotation>
+		<annotation cp="🍝" type="tts">اسپگيٽي</annotation>
+		<annotation cp="🍠">گجر، ڀڳل، مٺي</annotation>
+		<annotation cp="🍠" type="tts">ڀڳل مٺي گجر</annotation>
+		<annotation cp="🍢">ڪباب، سامونڊي کاڌو، شيخ، ڪاٺي</annotation>
+		<annotation cp="🍢" type="tts">اوڊن</annotation>
+		<annotation cp="🍣">شوشي</annotation>
+		<annotation cp="🍣" type="tts">شوشي</annotation>
+		<annotation cp="🍤">تريل، جهينگا، تمپورا، شرمپ</annotation>
+		<annotation cp="🍤" type="tts">تريل جهينگا</annotation>
+		<annotation cp="🍥">ڪيڪ، مڇي، پيسٽري، گول</annotation>
+		<annotation cp="🍥" type="tts">گول مڇي ڪيڪ</annotation>
+		<annotation cp="🍡">مٺو، جاپاني، شيخ، ڪاٺي، مٺائي</annotation>
+		<annotation cp="🍡" type="tts">ڊانگو</annotation>
+		<annotation cp="🥟">پوٽ اسٽڪر، جيوزي، پيئروگي، سموسو</annotation>
+		<annotation cp="🥟" type="tts">پڪوڙو</annotation>
+		<annotation cp="🥠">اڳڪٿي</annotation>
+		<annotation cp="🥠" type="tts">فارچيون ڪوڪي</annotation>
+		<annotation cp="🥡">اوئيسٽر پيل</annotation>
+		<annotation cp="🥡" type="tts">ٻاهر وٺي وڃڻ وارو ڏٻو</annotation>
+		<annotation cp="🍦">ڪريم، مٺو، برف، آئسڪريم، نرم، مٺائي</annotation>
+		<annotation cp="🍦" type="tts">نرم آئسڪريم</annotation>
+		<annotation cp="🍧">مٺو، برف، ڳنڊو، مٺائي</annotation>
+		<annotation cp="🍧" type="tts">گنڊو</annotation>
+		<annotation cp="🍨">ڪريم، مٺو، برف، مٺائي</annotation>
+		<annotation cp="🍨" type="tts">آئسڪريم</annotation>
+		<annotation cp="🍩">مٺو، ڊونٽ، مٺائي</annotation>
+		<annotation cp="🍩" type="tts">ڊونٽ</annotation>
+		<annotation cp="🍪">مٺو، مٺائي</annotation>
+		<annotation cp="🍪" type="tts">بسڪيٽ</annotation>
+		<annotation cp="🎂">جنم ڏينهن، ڪيڪ، جشن، مٺو، پيسٽري، مٺائي</annotation>
+		<annotation cp="🎂" type="tts">جنم ڏينهن جو ڪيڪ</annotation>
+		<annotation cp="🍰">ڪيڪ، مٺو، پيسٽري، ٽڪڙو، مٺائي</annotation>
+		<annotation cp="🍰" type="tts">ننڍو ڪيڪ</annotation>
+		<annotation cp="🥧">پيسٽري، ڀريل</annotation>
+		<annotation cp="🥧" type="tts">پائي</annotation>
+		<annotation cp="🍫">لڙي، چاڪليٽ، مٺو، مٺائي</annotation>
+		<annotation cp="🍫" type="tts">چاڪليٽ لڙي</annotation>
+		<annotation cp="🍬">مٺو، مٺائي</annotation>
+		<annotation cp="🍬" type="tts">کٽمٺو</annotation>
+		<annotation cp="🍭">کٽمٺو، مٺو، مٺائي</annotation>
+		<annotation cp="🍭" type="tts">چومپڙي</annotation>
+		<annotation cp="🍮">مٺو، کير، مٺائي</annotation>
+		<annotation cp="🍮" type="tts">ڪسٽرڊ</annotation>
+		<annotation cp="🍯">ماکي، ماکي جو برتن، برتن، مٺائي</annotation>
+		<annotation cp="🍯" type="tts">ماکي جو برتن</annotation>
+		<annotation cp="🍼">ننڍا ٻار، بوتل، پيئڻ، کير</annotation>
+		<annotation cp="🍼" type="tts">ننڍن ٻارن جي بوتل</annotation>
+		<annotation cp="🥛">گلاس، کير، پيئڻ</annotation>
+		<annotation cp="🥛" type="tts">کير جو گلاس</annotation>
+		<annotation cp="☕">مشروب، ڪافي، پيئڻ، گرم، ٻاڦ، چانهن</annotation>
+		<annotation cp="☕" type="tts">گرم مشروب</annotation>
+		<annotation cp="🍵">مشروب، ڪپ، پيئڻ، چانهن، چانهن جو ڪپ</annotation>
+		<annotation cp="🍵" type="tts">بغير ڪڙي جي چانهن جو ڪپ</annotation>
+		<annotation cp="🍶">بار، مشروب، بوتل، ڪپ، پيئڻ</annotation>
+		<annotation cp="🍶" type="tts">سيڪ</annotation>
+		<annotation cp="🍾">بار، بوتل، ڪارڪ، پيئڻ،پوپنگ</annotation>
+		<annotation cp="🍾" type="tts">پوپنگ ڪارڪ واري بوتل</annotation>
+		<annotation cp="🍷">بار، مشروب، پيئڻ، گلاس، وائين</annotation>
+		<annotation cp="🍷" type="tts">وائين جو گلاس</annotation>
+		<annotation cp="🍸">بار، ڪاڪٽيل، پيئڻ، گلاس</annotation>
+		<annotation cp="🍸" type="tts">ڪاڪٽيل جو گلاس</annotation>
+		<annotation cp="🍹">بار، مشروب، مداريني</annotation>
+		<annotation cp="🍹" type="tts">مداريني مشروب</annotation>
+		<annotation cp="🍺">بار، بيئر، مشروب، مگ</annotation>
+		<annotation cp="🍺" type="tts">بيئر مگ</annotation>
+		<annotation cp="🍻">بار، بيئر، ٽڪرائيجندڙ، مشروب، مگ</annotation>
+		<annotation cp="🍻" type="tts">ٽڪرائيجندڙ بيئر مگ</annotation>
+		<annotation cp="🥂">ٽڪرائيجندڙ، گلاس، مشروب، جشن</annotation>
+		<annotation cp="🥂" type="tts">ٽڪرائيجندڙ گلاس</annotation>
+		<annotation cp="🥃">گلاس، لوٽي نما گلاس، وشڪي، شراب، گهونٽ</annotation>
+		<annotation cp="🥃" type="tts">لوٽي نما گلاس</annotation>
+		<annotation cp="🥤">سوڊا، جوس</annotation>
+		<annotation cp="🥤" type="tts">اسٽرا سان ڪپ</annotation>
+		<annotation cp="🥢">هاشي</annotation>
+		<annotation cp="🥢" type="tts">کاڌو کائڻ جون ڪاٺيون</annotation>
+		<annotation cp="🍽">پچائڻ، ڪانٽو، ڇري، پليٽ</annotation>
+		<annotation cp="🍽" type="tts">پليٽ سان ڇري ۽ ڪانٽو</annotation>
+		<annotation cp="🍴">پچائڻ، ڪانٽو، ڇري</annotation>
+		<annotation cp="🍴" type="tts">ڇري ۽ ڪانٽو</annotation>
+		<annotation cp="🥄">چمچ، ميز جا برتن</annotation>
+		<annotation cp="🥄" type="tts">چمچ</annotation>
+		<annotation cp="🔪">پچائڻ، هوچو، ڇري، اوزار، هٿيار</annotation>
+		<annotation cp="🔪" type="tts">رڌڻي جي ڇري</annotation>
+		<annotation cp="🏺">دلو، پچائڻ، مشروب، جگ، اوزار، هٿيار، برج</annotation>
+		<annotation cp="🏺" type="tts">صراحي</annotation>
+		<annotation cp="🌍">آفريقا، زمين، يورپ، گلوب، دنيا</annotation>
+		<annotation cp="🌍" type="tts">گلوب يورپ ايشيا ڏيکاري پيو</annotation>
+		<annotation cp="🌎">آمريڪا، زمين، گلوب، دنيا</annotation>
+		<annotation cp="🌎" type="tts">گلوب آمريڪا ڏيکاري پيو</annotation>
+		<annotation cp="🌏">ايشيا، آسٽريليا، زمين، گلوب، دنيا</annotation>
+		<annotation cp="🌏" type="tts">گلوب ايشيا آسٽريليا ڏيکاري پيو</annotation>
+		<annotation cp="🌐">زمين، گلوب، ميريڊيئن، دنيا</annotation>
+		<annotation cp="🌐" type="tts">ميريڊيئن سان گلوب</annotation>
+		<annotation cp="🗺">نقشو، دنيا</annotation>
+		<annotation cp="🗺" type="tts">دنيا جو نقشو</annotation>
+		<annotation cp="🗾">جاپان، نقشو</annotation>
+		<annotation cp="🗾" type="tts">جاپاني نقشو</annotation>
+		<annotation cp="🏔">ٿڌ، جبل، برف</annotation>
+		<annotation cp="🏔" type="tts">برف سان ڍڪيل جبل</annotation>
+		<annotation cp="⛰">جبل</annotation>
+		<annotation cp="⛰" type="tts">جبل</annotation>
+		<annotation cp="🌋">ڦٽڻ، جبل</annotation>
+		<annotation cp="🌋" type="tts">ٻرندڙ جبل</annotation>
+		<annotation cp="🗻">فوجي، جبل</annotation>
+		<annotation cp="🗻" type="tts">مائونٽ فوجي</annotation>
+		<annotation cp="🏕">ڪيمپ لڳائڻ</annotation>
+		<annotation cp="🏕" type="tts">ڪيمپ لڳائڻ</annotation>
+		<annotation cp="🏖">سامونڊي ڪناري، ڇٽي</annotation>
+		<annotation cp="🏖" type="tts">ڇٽي سان سامونڊي ڪناري</annotation>
+		<annotation cp="🏜">ريگستاني</annotation>
+		<annotation cp="🏜" type="tts">ريگستاني</annotation>
+		<annotation cp="🏝">ريگستان، ٻيٽ</annotation>
+		<annotation cp="🏝" type="tts">ريگستاني ٻيٽ</annotation>
+		<annotation cp="🏞">پارڪ</annotation>
+		<annotation cp="🏞" type="tts">قومي پارڪ</annotation>
+		<annotation cp="🏟">اسٽيڊيم</annotation>
+		<annotation cp="🏟" type="tts">اسٽيڊيم</annotation>
+		<annotation cp="🏛">پراڻي</annotation>
+		<annotation cp="🏛" type="tts">پراڻي عمارت</annotation>
+		<annotation cp="🏗">اڏاوت</annotation>
+		<annotation cp="🏗" type="tts">عمارت جي اڏاوت</annotation>
+		<annotation cp="🏘">گهر</annotation>
+		<annotation cp="🏘" type="tts">گهرَ</annotation>
+		<annotation cp="🏙">شهر</annotation>
+		<annotation cp="🏙" type="tts">شهر جو منظر</annotation>
+		<annotation cp="🏚">لاوارث، گهر</annotation>
+		<annotation cp="🏚" type="tts">لاوارث گهر</annotation>
+		<annotation cp="🏠">گهر</annotation>
+		<annotation cp="🏠" type="tts">گهر</annotation>
+		<annotation cp="🏡">باغيچو، گهر</annotation>
+		<annotation cp="🏡" type="tts">باغيچي وارو گهر</annotation>
+		<annotation cp="🏢">عمارت</annotation>
+		<annotation cp="🏢" type="tts">آفيس جي عمارت</annotation>
+		<annotation cp="🏣">جاپاني، پوسٽ</annotation>
+		<annotation cp="🏣" type="tts">جاپاني پوسٽ آفيس</annotation>
+		<annotation cp="🏤">يورپي | پوسٽ</annotation>
+		<annotation cp="🏤" type="tts">پوسٽ آفيس</annotation>
+		<annotation cp="🏥">ڊاڪٽر | دوا</annotation>
+		<annotation cp="🏥" type="tts">اسپتال</annotation>
+		<annotation cp="🏦">عمارت</annotation>
+		<annotation cp="🏦" type="tts">بئنڪ</annotation>
+		<annotation cp="🏨">عمارت</annotation>
+		<annotation cp="🏨" type="tts">هوٽل</annotation>
+		<annotation cp="🏩">هوٽل | پيار</annotation>
+		<annotation cp="🏩" type="tts">پيار جي هوٽل</annotation>
+		<annotation cp="🏪">سهولت | سٽور</annotation>
+		<annotation cp="🏪" type="tts">سهولت اسٽور</annotation>
+		<annotation cp="🏫">عمارت</annotation>
+		<annotation cp="🏫" type="tts">اسڪول</annotation>
+		<annotation cp="🏬">وڏي دڪان، اسٽور</annotation>
+		<annotation cp="🏬" type="tts">وڏي دڪان</annotation>
+		<annotation cp="🏭">عمارت</annotation>
+		<annotation cp="🏭" type="tts">فيڪٽري</annotation>
+		<annotation cp="🏯">محل، جاپاني</annotation>
+		<annotation cp="🏯" type="tts">جاپاني محل</annotation>
+		<annotation cp="🏰">يورپي</annotation>
+		<annotation cp="🏰" type="tts">محل</annotation>
+		<annotation cp="💒">رومانس، عبادت گاه</annotation>
+		<annotation cp="💒" type="tts">شادي</annotation>
+		<annotation cp="🗼">ٽوڪيو، ٽاور</annotation>
+		<annotation cp="🗼" type="tts">ٽوڪيو ٽاور</annotation>
+		<annotation cp="🗽">آزادي | مجسمو</annotation>
+		<annotation cp="🗽" type="tts">آزادي جو مجسمو</annotation>
+		<annotation cp="⛪">عيسائي | ڪراس | مذهب</annotation>
+		<annotation cp="⛪" type="tts">چرچ</annotation>
+		<annotation cp="🕌">اسلام | مسلم | مذهب</annotation>
+		<annotation cp="🕌" type="tts">مسجد</annotation>
+		<annotation cp="🕍">يهودي | يهودي | مذهب | مندر</annotation>
+		<annotation cp="🕍" type="tts">سناگاگ</annotation>
+		<annotation cp="⛩">مذهب | شنٽو | مزار</annotation>
+		<annotation cp="⛩" type="tts">شنٽو جي مزار</annotation>
+		<annotation cp="🕋">اسلام | مسلم | مذهب</annotation>
+		<annotation cp="🕋" type="tts">ڪعبو</annotation>
+		<annotation cp="⛲">ڦوهارو</annotation>
+		<annotation cp="⛲" type="tts">ڦوهارو</annotation>
+		<annotation cp="⛺">خيمه گاه</annotation>
+		<annotation cp="⛺" type="tts">خيمو</annotation>
+		<annotation cp="🌁">ماڪ</annotation>
+		<annotation cp="🌁" type="tts">دهند</annotation>
+		<annotation cp="🌃">رات | تارو</annotation>
+		<annotation cp="🌃" type="tts">تارن واري رات</annotation>
+		<annotation cp="🌄">صبح | جبل | سج | سج اڀرڻ</annotation>
+		<annotation cp="🌄" type="tts">جبلن مٿان سج اڀرندي</annotation>
+		<annotation cp="🌅">صبح | سج</annotation>
+		<annotation cp="🌅" type="tts">سج اڀرڻ</annotation>
+		<annotation cp="🌆">شهر، سج لهڻ، شام، سج، نظارو</annotation>
+		<annotation cp="🌆" type="tts">سج لهڻ تي شهر جو منظر</annotation>
+		<annotation cp="🌇">سج لهڻ، اندهيرو ٿيڻ، شام</annotation>
+		<annotation cp="🌇" type="tts">سج لهڻ</annotation>
+		<annotation cp="🌉">پل، رات</annotation>
+		<annotation cp="🌉" type="tts">رات ۾ پل</annotation>
+		<annotation cp="♨">گرم | گرم چشما | چشما | ٻاڦڻ</annotation>
+		<annotation cp="♨" type="tts">گرم چشما</annotation>
+		<annotation cp="🌌">خلا</annotation>
+		<annotation cp="🌌" type="tts">ڪهڪشان</annotation>
+		<annotation cp="🎠">جهولو، گهوڙو</annotation>
+		<annotation cp="🎠" type="tts">جهولي جو گهوڙو</annotation>
+		<annotation cp="🎡">تفريحي پارڪ | فيرس | ڦيٿو</annotation>
+		<annotation cp="🎡" type="tts">فيرس ڦيٿو</annotation>
+		<annotation cp="🎢">تفريحي پارڪ | ڪوسٽر | رولر</annotation>
+		<annotation cp="🎢" type="tts">رولر ڪوسٽر</annotation>
+		<annotation cp="💈">حجام | وار ڪٽائڻ | ٿنڀو</annotation>
+		<annotation cp="💈" type="tts">حجام جي نشاني</annotation>
+		<annotation cp="🎪">سرڪس | تنبو</annotation>
+		<annotation cp="🎪" type="tts">سرڪس تنبو</annotation>
+		<annotation cp="🎭">ڪلا | نقاب | اداڪرڻ | ٿيٽر | ٿيٽر</annotation>
+		<annotation cp="🎭" type="tts">فن ڏيکاريندي</annotation>
+		<annotation cp="🖼">فن | فريم | عجائب گھر | نقاشي | تصوير</annotation>
+		<annotation cp="🖼" type="tts">فريم ٿيل تصوير</annotation>
+		<annotation cp="🎨">ڪلا | عجائب گھر | نقاشي | رنگن جي تختي</annotation>
+		<annotation cp="🎨" type="tts">پينٽر جي رنگ جي تختي</annotation>
+		<annotation cp="🎰">راند | خانو</annotation>
+		<annotation cp="🎰" type="tts">خانن واري مشيني راند</annotation>
+		<annotation cp="🚂">انجڻ | ريلوي | دونهون | ريل</annotation>
+		<annotation cp="🚂" type="tts">ريل جو انجڻ</annotation>
+		<annotation cp="🚃">ڪار | بجليءَ | ريلوي | ريل | ٽرام | ٽرالي بس</annotation>
+		<annotation cp="🚃" type="tts">ريلوي ڪار</annotation>
+		<annotation cp="🚄">ريلوي | شنڪانسن | رفتار | ريل</annotation>
+		<annotation cp="🚄" type="tts">تيز رفتار واري ٽرين</annotation>
+		<annotation cp="🚅">گولي | ريلوي | شنڪانسن | رفتار | ريل</annotation>
+		<annotation cp="🚅" type="tts">گولي ريل گاڏي</annotation>
+		<annotation cp="🚆">ريلوي</annotation>
+		<annotation cp="🚆" type="tts">ريل گاڏي</annotation>
+		<annotation cp="🚇">زمين جي هيٺ ريل</annotation>
+		<annotation cp="🚇" type="tts">ميٽرو</annotation>
+		<annotation cp="🚈">ريلوي</annotation>
+		<annotation cp="🚈" type="tts">برقي جي ري گاڏي</annotation>
+		<annotation cp="🚉">ريلوي | ريل</annotation>
+		<annotation cp="🚉" type="tts">اسٽيشن</annotation>
+		<annotation cp="🚊">ٽرالي بس</annotation>
+		<annotation cp="🚊" type="tts">ٽرام</annotation>
+		<annotation cp="🚝">گاڏي</annotation>
+		<annotation cp="🚝" type="tts">مونوريل</annotation>
+		<annotation cp="🚞">ڪار | جبل | ريلوي</annotation>
+		<annotation cp="🚞" type="tts">جابلو ريلوي</annotation>
+		<annotation cp="🚋">ڪار | ٽرام | ٽرالي بس</annotation>
+		<annotation cp="🚋" type="tts">ٽرام ڪار</annotation>
+		<annotation cp="🚌">گاڏي</annotation>
+		<annotation cp="🚌" type="tts">بس</annotation>
+		<annotation cp="🚍">بس | پهچڻ واري</annotation>
+		<annotation cp="🚍" type="tts">ايندڙ بس</annotation>
+		<annotation cp="🚎">بس | ٽرام | ٽرالي</annotation>
+		<annotation cp="🚎" type="tts">ٽرالي بس</annotation>
+		<annotation cp="🚐">بس</annotation>
+		<annotation cp="🚐" type="tts">ننڍي بس</annotation>
+		<annotation cp="🚑">گاڏي</annotation>
+		<annotation cp="🚑" type="tts">ايمبولينس</annotation>
+		<annotation cp="🚒">انجڻ | باه | ٽرڪ</annotation>
+		<annotation cp="🚒" type="tts">باھ جي انجڻ</annotation>
+		<annotation cp="🚓">ڪار | گشت | پوليس</annotation>
+		<annotation cp="🚓" type="tts">پوليس ڪار</annotation>
+		<annotation cp="🚔">ڪار | پهچڻ واري | پوليس</annotation>
+		<annotation cp="🚔" type="tts">ايندڙ پوليس ڪار</annotation>
+		<annotation cp="🚕">گاڏي</annotation>
+		<annotation cp="🚕" type="tts">ٽيڪسي</annotation>
+		<annotation cp="🚖">پهچڻ واري | ٽيڪسي</annotation>
+		<annotation cp="🚖" type="tts">ايندڙ ٽيڪسي</annotation>
+		<annotation cp="🚗">ڪار</annotation>
+		<annotation cp="🚗" type="tts">گاڏي</annotation>
+		<annotation cp="🚘">آٽو موبائيل | ڪار | پهچڻ واري</annotation>
+		<annotation cp="🚘" type="tts">ايندڙ گاڏي</annotation>
+		<annotation cp="🚙">تفريحي | راند جي سهولت</annotation>
+		<annotation cp="🚙" type="tts">راند جي استعمال جي گاڏي</annotation>
+		<annotation cp="🚚">پهچائڻ | ٽرڪ</annotation>
+		<annotation cp="🚚" type="tts">پهچائڻ جي ٽرڪ</annotation>
+		<annotation cp="🚛">لاري | نيم | ٽرڪ</annotation>
+		<annotation cp="🚛" type="tts">ٽرالر</annotation>
+		<annotation cp="🚜">گاڏي</annotation>
+		<annotation cp="🚜" type="tts">ٽريڪٽر</annotation>
+		<annotation cp="🚲">بائيڪ</annotation>
+		<annotation cp="🚲" type="tts">سائيڪل</annotation>
+		<annotation cp="🛴">اسڪوٽر | ڪڪ</annotation>
+		<annotation cp="🛴" type="tts">ڪڪ اسڪوٽر</annotation>
+		<annotation cp="🛵">موٽر | اسڪوٽر</annotation>
+		<annotation cp="🛵" type="tts">موٽر اسڪوٽر</annotation>
+		<annotation cp="🚏">بس | بس اسٽاپ | اڏو</annotation>
+		<annotation cp="🚏" type="tts">بسن جو اڏو</annotation>
+		<annotation cp="🛣">وڏي شاهراه | روڊ</annotation>
+		<annotation cp="🛣" type="tts">موٽروي</annotation>
+		<annotation cp="🛤">ريلوي | ريل</annotation>
+		<annotation cp="🛤" type="tts">ريلوي جي رستو</annotation>
+		<annotation cp="⛽">اينڌن | تيل جو پمپ | گئس | پمپ | اسٽيشن</annotation>
+		<annotation cp="⛽" type="tts">اينڌن جو پمپ</annotation>
+		<annotation cp="🚨">روشن مينار | ڪار | روشني | پوليس | ڦرندڙ</annotation>
+		<annotation cp="🚨" type="tts">پوليس ڪار جي لائيٽ</annotation>
+		<annotation cp="🚥">روشني | سگنل | لائيٽ</annotation>
+		<annotation cp="🚥" type="tts">افقي ٽريفڪ جي لائيٽ</annotation>
+		<annotation cp="🚦">روشني | سگنل | لائيٽ</annotation>
+		<annotation cp="🚦" type="tts">عمودي ٽريفڪ جي لائيٽ</annotation>
+		<annotation cp="🚧">رڪاوٽ</annotation>
+		<annotation cp="🚧" type="tts">اڏاوت</annotation>
+		<annotation cp="🛑">اٺ طرفو | نشان | روڪڻ</annotation>
+		<annotation cp="🛑" type="tts">روڪڻ جو نشان</annotation>
+		<annotation cp="⚓">بحري جهاز | اوزار</annotation>
+		<annotation cp="⚓" type="tts">لنگر</annotation>
+		<annotation cp="⛵">ٻيڙي | سير گاه | سمنڊ | بتيلو</annotation>
+		<annotation cp="⛵" type="tts">بادباني ٻيڙي</annotation>
+		<annotation cp="🛶">ڊونگي | ٻيڙي</annotation>
+		<annotation cp="🛶" type="tts">ڊونگي</annotation>
+		<annotation cp="🚤">ٻيڙي</annotation>
+		<annotation cp="🚤" type="tts">تيز رفتار ٻيڙي</annotation>
+		<annotation cp="🛳">مسافر | بحري جهاز</annotation>
+		<annotation cp="🛳" type="tts">مسافر بحري جهاز</annotation>
+		<annotation cp="⛴">ٻيڙي | مسافر</annotation>
+		<annotation cp="⛴" type="tts">ٻيڙين جو اڏو</annotation>
+		<annotation cp="🛥">ٻيڙي | موٽر واري ٻيڙي</annotation>
+		<annotation cp="🛥" type="tts">موٽر واري ٻيڙي</annotation>
+		<annotation cp="🚢">ٻيڙي | مسافر</annotation>
+		<annotation cp="🚢" type="tts">بحري جهاز</annotation>
+		<annotation cp="✈">هوائي جهاز، پلين</annotation>
+		<annotation cp="✈" type="tts">هوائي جهاز</annotation>
+		<annotation cp="🛩">هوائي جهاز، پلين</annotation>
+		<annotation cp="🛩" type="tts">ننڍو هوائي جهاز</annotation>
+		<annotation cp="🛫">هوائي جهاز | هوائي جهاز | چيڪ ان ڪرڻ | روانگي | روانگي</annotation>
+		<annotation cp="🛫" type="tts">هوائي جهاز جي روانگي</annotation>
+		<annotation cp="🛬">هوائي جهاز | هوائي جهاز | آمد | آمد | لهڻ</annotation>
+		<annotation cp="🛬" type="tts">هوائي جهاز جي آمد</annotation>
+		<annotation cp="💺">ڪرسي</annotation>
+		<annotation cp="💺" type="tts">سيٽ</annotation>
+		<annotation cp="🚁">گاڏي</annotation>
+		<annotation cp="🚁" type="tts">هيلي ڪاپٽر</annotation>
+		<annotation cp="🚟">ريلوي، لٽڪيل</annotation>
+		<annotation cp="🚟" type="tts">لٽڪيل ريلوي</annotation>
+		<annotation cp="🚠">تار | گونڊولا | جبل</annotation>
+		<annotation cp="🚠" type="tts">جابلو ڪيبل وي</annotation>
+		<annotation cp="🚡">فضائي | تار | ڪار | گونڊولا | ٽرام وي</annotation>
+		<annotation cp="🚡" type="tts">فضائي ٽرام وي</annotation>
+		<annotation cp="🛰">خلا</annotation>
+		<annotation cp="🛰" type="tts">سيٽلائيٽ</annotation>
+		<annotation cp="🚀">خلا</annotation>
+		<annotation cp="🚀" type="tts">راڪيٽ</annotation>
+		<annotation cp="🛸">UFO</annotation>
+		<annotation cp="🛸" type="tts">اڏامندڙ بس</annotation>
+		<annotation cp="🛎">گھنٽي | بيل هاپ | هوٽل</annotation>
+		<annotation cp="🛎" type="tts">ڌيان چڪائڻ واري گهنٽي</annotation>
+		<annotation cp="🚪">دروازو</annotation>
+		<annotation cp="🚪" type="tts">دروازو</annotation>
+		<annotation cp="🛏">هوٽل | سمهڻ</annotation>
+		<annotation cp="🛏" type="tts">بسترو</annotation>
+		<annotation cp="🛋">صوفو | هوٽل | بتي</annotation>
+		<annotation cp="🛋" type="tts">صوفو ۽ بتي</annotation>
+		<annotation cp="🚽">بيت الاخلا</annotation>
+		<annotation cp="🚽" type="tts">بيت الاخلا</annotation>
+		<annotation cp="🚿">پاڻي</annotation>
+		<annotation cp="🚿" type="tts">ڦوارو</annotation>
+		<annotation cp="🛁">وهنجڻ</annotation>
+		<annotation cp="🛁" type="tts">وهنجڻ جو ڪونڏو</annotation>
+		<annotation cp="⌛">واري | ٽائيم ڏيندڙ</annotation>
+		<annotation cp="⌛" type="tts">ريت گهڙي پوري ٿي</annotation>
+		<annotation cp="⏳">ريت گهڙي | واري | ٽائمر</annotation>
+		<annotation cp="⏳" type="tts">ريت گهڙي پوري نه ٿي</annotation>
+		<annotation cp="⌚">گهڙي</annotation>
+		<annotation cp="⌚" type="tts">گهڙي</annotation>
+		<annotation cp="⏰">الارم | گھڙيال</annotation>
+		<annotation cp="⏰" type="tts">الارم وارو گھڙيال</annotation>
+		<annotation cp="⏱">گهڙي</annotation>
+		<annotation cp="⏱" type="tts">روڪ گهڙي</annotation>
+		<annotation cp="⏲">گھڙيال | ٽائمر</annotation>
+		<annotation cp="⏲" type="tts">وقت اندازو ڪرڻ واري گهڙي</annotation>
+		<annotation cp="🕰">گهڙي</annotation>
+		<annotation cp="🕰" type="tts">آتش دان جي گهڙي</annotation>
+		<annotation cp="🕛">12 وڳين</annotation>
+		<annotation cp="🕛" type="tts">12 وڳين</annotation>
+		<annotation cp="🕧">12:30</annotation>
+		<annotation cp="🕧" type="tts">12 لڳي 30 منٽ</annotation>
+		<annotation cp="🕐">1:00</annotation>
+		<annotation cp="🕐" type="tts">1 وڳين</annotation>
+		<annotation cp="🕜">1:30</annotation>
+		<annotation cp="🕜" type="tts">1 لڳي 30 منٽ</annotation>
+		<annotation cp="🕑">2:00، ٻه لڳي، 2 وڳي، ٻه</annotation>
+		<annotation cp="🕑" type="tts">ٻه وڳين</annotation>
+		<annotation cp="🕝">2:30، 2 لڳي 30 منٽ،</annotation>
+		<annotation cp="🕝" type="tts">2 لڳي 30 منٽ</annotation>
+		<annotation cp="🕒">3:00، ٽي وڳين، ٽي</annotation>
+		<annotation cp="🕒" type="tts">3 :00 وڳين</annotation>
+		<annotation cp="🕞">3:30، 3 لڳي 30 منٽ، 3 لڳي، 30 منٽ</annotation>
+		<annotation cp="🕞" type="tts">3 لڳي 30 منٽ</annotation>
+		<annotation cp="🕓">4:00، 4 وڳين، چار</annotation>
+		<annotation cp="🕓" type="tts">4 وڳين</annotation>
+		<annotation cp="🕟">4:30، 4 لڳي 30 منٽ،</annotation>
+		<annotation cp="🕟" type="tts">4 لڳي 30 منٽ</annotation>
+		<annotation cp="🕔">5:00، 5 لڳي، پنجهه وڳين</annotation>
+		<annotation cp="🕔" type="tts">5 وڳين</annotation>
+		<annotation cp="🕠">5:30، 5 لڳي 30 منٽ</annotation>
+		<annotation cp="🕠" type="tts">5 لڳي 30 منٽ</annotation>
+		<annotation cp="🕕">6:00، ڇهه لڳي، 6 وڳين</annotation>
+		<annotation cp="🕕" type="tts">6:00 وڳين</annotation>
+		<annotation cp="🕡">6:30، 6 لڳي 30 منٽ</annotation>
+		<annotation cp="🕡" type="tts">6:30 منٽ</annotation>
+		<annotation cp="🕖">7:00 وڳين، ست لڳي، 7 وڳين</annotation>
+		<annotation cp="🕖" type="tts">7:00 وڳين</annotation>
+		<annotation cp="🕢">7:30، 7 لڳي 30 منٽ</annotation>
+		<annotation cp="🕢" type="tts">7:30</annotation>
+		<annotation cp="🕗">8:00، اٺ لڳي، 8:00 وڳين</annotation>
+		<annotation cp="🕗" type="tts">8 وڳين</annotation>
+		<annotation cp="🕣">8:30، 8 لڳي 30 منٽ</annotation>
+		<annotation cp="🕣" type="tts">8:30</annotation>
+		<annotation cp="🕘">9:00 لڳي، نون لڳي، 9:00</annotation>
+		<annotation cp="🕘" type="tts">9:00 لڳي</annotation>
+		<annotation cp="🕤">9:30، 9 لڳي 30 منٽ</annotation>
+		<annotation cp="🕤" type="tts">9:30</annotation>
+		<annotation cp="🕙">10:00، 10 لڳي، ڏهه لڳي</annotation>
+		<annotation cp="🕙" type="tts">10:00 لڳي</annotation>
+		<annotation cp="🕥">10:30، 10 لڳي 30 منٽ</annotation>
+		<annotation cp="🕥" type="tts">10:30، 10 لڳي 30 منٽ</annotation>
+		<annotation cp="🕚">11:00، 11 لڳي</annotation>
+		<annotation cp="🕚" type="tts">11:00</annotation>
+		<annotation cp="🕦">11:30، 11 لڳي 30 منٽ</annotation>
+		<annotation cp="🕦" type="tts">11:30</annotation>
+		<annotation cp="🌑">اونداهو | چنڊ</annotation>
+		<annotation cp="🌑" type="tts">نئون چنڊ</annotation>
+		<annotation cp="🌒">ننڍو چنڊ | چنڊ | وڌندڙ چند</annotation>
+		<annotation cp="🌒" type="tts">ننڍي چنڊ ڏانهن وڌندڙ</annotation>
+		<annotation cp="🌓">چنڊ | ٽه ماهي</annotation>
+		<annotation cp="🌓" type="tts">پهرين عشري جو چنڊ</annotation>
+		<annotation cp="🌔">گبوس | چنڊ | وڌندڙ</annotation>
+		<annotation cp="🌔" type="tts">پوري چنڊ ڏانهن وڌندڙ</annotation>
+		<annotation cp="🌕">پورو | چنڊ</annotation>
+		<annotation cp="🌕" type="tts">پورو چنڊ</annotation>
+		<annotation cp="🌖">گبوس | چنڊ | ڪمزور پوڻ</annotation>
+		<annotation cp="🌖" type="tts">ويننگ گبوس چنڊ</annotation>
+		<annotation cp="🌗">چنڊ | عشرو</annotation>
+		<annotation cp="🌗" type="tts">آخري عشري جو چنڊ</annotation>
+		<annotation cp="🌘">ڪريسينٽ | چنڊ | وڌندڙ چند</annotation>
+		<annotation cp="🌘" type="tts">ويننگ ڪريسينٽ چنڊ</annotation>
+		<annotation cp="🌙">ڪريسينٽ | چنڊ</annotation>
+		<annotation cp="🌙" type="tts">ڪريسينٽ چنڊ</annotation>
+		<annotation cp="🌚">چهرو | چنڊ</annotation>
+		<annotation cp="🌚" type="tts">نئين چنڊ جو چهرو</annotation>
+		<annotation cp="🌛">چهرو | چنڊ | عشرو</annotation>
+		<annotation cp="🌛" type="tts">چهري سان گڏ پهري عشري جو چنڊ</annotation>
+		<annotation cp="🌜">چهرو | چنڊ | عشرو</annotation>
+		<annotation cp="🌜" type="tts">چهري سان گڏ آخري عشري جو چنڊ</annotation>
+		<annotation cp="🌡">موسم</annotation>
+		<annotation cp="🌡" type="tts">ٿرماميٽر</annotation>
+		<annotation cp="☀">روشن | ڪرڻا | سج جا</annotation>
+		<annotation cp="☀" type="tts">سج</annotation>
+		<annotation cp="🌝">روشني | چهرو | پورو | چنڊ</annotation>
+		<annotation cp="🌝" type="tts">پوري چهري سان چنڊ</annotation>
+		<annotation cp="🌞">روشن | چهرو | سج</annotation>
+		<annotation cp="🌞" type="tts">چهري سان گڏ سج</annotation>
+		<annotation cp="⭐">تارو</annotation>
+		<annotation cp="⭐" type="tts">سفيد وچولو تارو</annotation>
+		<annotation cp="🌟">چمڪيلو | چمڪ | چمڪندڙ | ٽمڪندڙ | تارو</annotation>
+		<annotation cp="🌟" type="tts">چمڪندڙ تارو</annotation>
+		<annotation cp="🌠">ڪرندي | ٽٽندڙ | تارو</annotation>
+		<annotation cp="🌠" type="tts">ٽٽندڙ تارو</annotation>
+		<annotation cp="☁">موسم</annotation>
+		<annotation cp="☁" type="tts">ڪڪر</annotation>
+		<annotation cp="⛅">ڪڪر | سج</annotation>
+		<annotation cp="⛅" type="tts">ڪڪر جي پويان سج</annotation>
+		<annotation cp="⛈">ڪڪر، برسات، کنوڻ</annotation>
+		<annotation cp="⛈" type="tts">ڪڪر سان کنوڻ ۽ برسات</annotation>
+		<annotation cp="🌤">ڪڪر | سج</annotation>
+		<annotation cp="🌤" type="tts">ننڍن ڪڪرن پٺيان سج</annotation>
+		<annotation cp="🌥">ڪڪر | سج</annotation>
+		<annotation cp="🌥" type="tts">وڏن ڪڪرن پويان سج</annotation>
+		<annotation cp="🌦">ڪڪر | ٻرسات | سج</annotation>
+		<annotation cp="🌦" type="tts">برساتي ڪڪرن پٺيان سج</annotation>
+		<annotation cp="🌧">ڪڪر | برسات</annotation>
+		<annotation cp="🌧" type="tts">ڪڪر سان گڏ برسات</annotation>
+		<annotation cp="🌨">ڪڪر | ٿڌ | برف</annotation>
+		<annotation cp="🌨" type="tts">ڪڪر سان گڏ برفباري</annotation>
+		<annotation cp="🌩">ڪڪر | کنوڻ</annotation>
+		<annotation cp="🌩" type="tts">ڪڪر سان گڏ کنوڻ</annotation>
+		<annotation cp="🌪">ڪڪر | آنڌي</annotation>
+		<annotation cp="🌪" type="tts">طوفان</annotation>
+		<annotation cp="🌫">ڪڪر</annotation>
+		<annotation cp="🌫" type="tts">ڌنڌ</annotation>
+		<annotation cp="🌬">لڳڻ | ڪڪر | چهرو | هوا</annotation>
+		<annotation cp="🌬" type="tts">هوائي چهرو</annotation>
+		<annotation cp="🌀">چڪر | شهتير | آنڌي</annotation>
+		<annotation cp="🌀" type="tts">سائيڪلون</annotation>
+		<annotation cp="🌈">برسات</annotation>
+		<annotation cp="🌈" type="tts">انڊلٺ</annotation>
+		<annotation cp="🌂">لباس | برسات | ڇٽي</annotation>
+		<annotation cp="🌂" type="tts">بند ڇتي</annotation>
+		<annotation cp="☂">لباس | برسات</annotation>
+		<annotation cp="☂" type="tts">ڇٽي</annotation>
+		<annotation cp="☔">لباس | ڇنتو | برسات | ڇٽي</annotation>
+		<annotation cp="☔" type="tts">برسات جي ڇنتن سان گڏ ڇٽي</annotation>
+		<annotation cp="⛱">برسات | سج | ڇٽي</annotation>
+		<annotation cp="⛱" type="tts">زمين تي ڇٽي</annotation>
+		<annotation cp="⚡">خطرو | ڪرنٽ | بجلي | روشني ڪندڙ | وولٽيج | ماري ڇڏڻ</annotation>
+		<annotation cp="⚡" type="tts">وڏا وولٽيج</annotation>
+		<annotation cp="❄">ٿڌ | برف</annotation>
+		<annotation cp="❄" type="tts">برف جو گولو</annotation>
+		<annotation cp="☃">ٿڌ | برف</annotation>
+		<annotation cp="☃" type="tts">برف وارا ماڻهو</annotation>
+		<annotation cp="⛄">ٿڌ | برف | برف وارو ماڻهو</annotation>
+		<annotation cp="⛄" type="tts">بغير برف جي برف وارو ماڻهو</annotation>
+		<annotation cp="☄">خلا</annotation>
+		<annotation cp="☄" type="tts">پڇڙ تارو</annotation>
+		<annotation cp="🔥">لاٽ | اوزار</annotation>
+		<annotation cp="🔥" type="tts">باھ</annotation>
+		<annotation cp="💧">ٿڌ | پڇڙي تارو | ڦڙو | پگھر</annotation>
+		<annotation cp="💧" type="tts">قطرو</annotation>
+		<annotation cp="🌊">سمنڊ | پاڻي | لهر</annotation>
+		<annotation cp="🌊" type="tts">پاڻي جي لهر</annotation>
+		<annotation cp="🎃">سيليبريشن، هالووين، جيڪ، لالٽين</annotation>
+		<annotation cp="🎃" type="tts">جيڪ او لالٽين</annotation>
+		<annotation cp="🎄">جشن، ڪرشمس، وڻ</annotation>
+		<annotation cp="🎄" type="tts">ڪرشمس وڻ</annotation>
+		<annotation cp="🎆">جشن</annotation>
+		<annotation cp="🎆" type="tts">آتشبازي</annotation>
+		<annotation cp="🎇">جشن، آتشبازي، ڦلجڙي</annotation>
+		<annotation cp="🎇" type="tts">ڦلجڙي</annotation>
+		<annotation cp="✨">ٽمڪڻ، تارو</annotation>
+		<annotation cp="✨" type="tts">ڦلجڙيون</annotation>
+		<annotation cp="🎈">جشن</annotation>
+		<annotation cp="🎈" type="tts">ڦوڪڻو</annotation>
+		<annotation cp="🎉">جشن، پارٽي، پوپر، ٽاڊا</annotation>
+		<annotation cp="🎉" type="tts">پارٽي پوپر</annotation>
+		<annotation cp="🎊">بال، جشن، ڪانفيتي</annotation>
+		<annotation cp="🎊" type="tts">ڪانفيتي بال</annotation>
+		<annotation cp="🎋">بينر، جشن، جاپاني، وڻ</annotation>
+		<annotation cp="🎋" type="tts">تاناباتا وڻ</annotation>
+		<annotation cp="🎍">بمبو، جشن، جاپاني، پائن</annotation>
+		<annotation cp="🎍" type="tts">پائن سينگار</annotation>
+		<annotation cp="🎎">جشن، گڏي، فيسٽيول، جاپاني</annotation>
+		<annotation cp="🎎" type="tts">جاپاني گڏيون</annotation>
+		<annotation cp="🎏">ڪارپ، جشن، اسٽيمر</annotation>
+		<annotation cp="🎏" type="tts">ڪارپ اسٽيمر</annotation>
+		<annotation cp="🎐">گهنٽي، جشن، چائيم، هوا</annotation>
+		<annotation cp="🎐" type="tts">هوا جي گهنٽي</annotation>
+		<annotation cp="🎑">جشن، رسم، چنڊ</annotation>
+		<annotation cp="🎑" type="tts">چنڊ ڏسڻ جي رسم</annotation>
+		<annotation cp="🎀">جشن</annotation>
+		<annotation cp="🎀" type="tts">ڏوري</annotation>
+		<annotation cp="🎁">پيتي، جشن، تحفو، انعام، ويڙهيل</annotation>
+		<annotation cp="🎁" type="tts">ويڙهيل تحفو</annotation>
+		<annotation cp="🎗">جشن، ياد ڏياريندڙ، ڏوري</annotation>
+		<annotation cp="🎗" type="tts">ياد ڏياريندڙ ڏوري</annotation>
+		<annotation cp="🎟">داخل، ٽڪيٽ</annotation>
+		<annotation cp="🎟" type="tts">داخلا ٽڪيٽ</annotation>
+		<annotation cp="🎫">داخلا</annotation>
+		<annotation cp="🎫" type="tts">ٽڪيٽ</annotation>
+		<annotation cp="🎖">جشن، تمغو، فوجي</annotation>
+		<annotation cp="🎖" type="tts">فوجي تمغو</annotation>
+		<annotation cp="🏆">انعام</annotation>
+		<annotation cp="🏆" type="tts">ٽرافي</annotation>
+		<annotation cp="🏅">تمغو</annotation>
+		<annotation cp="🏅" type="tts">راندين جو تمغو</annotation>
+		<annotation cp="🥇">پهريون، سون، تمغو</annotation>
+		<annotation cp="🥇" type="tts">پهرين نمبر وارو تمغو</annotation>
+		<annotation cp="🥈">تمغو، ٻيو، چاندي</annotation>
+		<annotation cp="🥈" type="tts">ٻي نمبر واري تمغو</annotation>
+		<annotation cp="🥉">پتل، تمغو، ٽيون</annotation>
+		<annotation cp="🥉" type="tts">ٽين نمبر وارو تمغو</annotation>
+		<annotation cp="⚽">بال، ساڪر، فٽبال</annotation>
+		<annotation cp="⚽" type="tts">ساڪر بال</annotation>
+		<annotation cp="⚾">بال</annotation>
+		<annotation cp="⚾" type="tts">بيس بال</annotation>
+		<annotation cp="🏀">بال، هوپ</annotation>
+		<annotation cp="🏀" type="tts">باسڪيٽ بال</annotation>
+		<annotation cp="🏐">بال، راند</annotation>
+		<annotation cp="🏐" type="tts">والي بال</annotation>
+		<annotation cp="🏈">آمريڪي، بال، فٽبال</annotation>
+		<annotation cp="🏈" type="tts">آمريڪي فٽبال</annotation>
+		<annotation cp="🏉">بال، فٽبال، رگبي</annotation>
+		<annotation cp="🏉" type="tts">رگبي فٽبال</annotation>
+		<annotation cp="🎾">بال، ريڪيٽ</annotation>
+		<annotation cp="🎾" type="tts">ٽينس</annotation>
+		<annotation cp="🎱">8، 8 بال، بال، بليارڊ، اٺ، راند</annotation>
+		<annotation cp="🎱" type="tts">پول 8 بال</annotation>
+		<annotation cp="🎳">بال، راند</annotation>
+		<annotation cp="🎳" type="tts">بائولنگ</annotation>
+		<annotation cp="🏏">بال، بيٽ، راند</annotation>
+		<annotation cp="🏏" type="tts">ڪرڪيٽ راند</annotation>
+		<annotation cp="🏑">بال، فيلڊ، راند، هاڪي، ڪاٺي</annotation>
+		<annotation cp="🏑" type="tts">فيلڊ هاڪي</annotation>
+		<annotation cp="🏒">راند، هاڪي، برف، پڪ، ڪاٺي</annotation>
+		<annotation cp="🏒" type="tts">برفاني هاڪي</annotation>
+		<annotation cp="🏓">بال، بيٽ، راند، پيڊل، ٽيبل ٽينس، پمگ پانگ</annotation>
+		<annotation cp="🏓" type="tts">پنگ پانگ</annotation>
+		<annotation cp="🏸">برڊي، راند، ريڪٽ، شٽل ڪاڪ</annotation>
+		<annotation cp="🏸" type="tts">بيڊمنٽن</annotation>
+		<annotation cp="🥊">باڪسنگ، دستانو</annotation>
+		<annotation cp="🥊" type="tts">باڪسنگ دستانو</annotation>
+		<annotation cp="🥋">جوڊو، ڪراٽي، تائيڪوانڊو، مارشل آرٽ، وردي</annotation>
+		<annotation cp="🥋" type="tts">مارشل آرٽ جي وردي</annotation>
+		<annotation cp="🥅">گول، ڄاري</annotation>
+		<annotation cp="🥅" type="tts">گول جي ڄاري</annotation>
+		<annotation cp="🎯">ڍڳو، ڍڳي وانگي اک، ڊارٽ، اک، راند، هڻڻ، حدف</annotation>
+		<annotation cp="🎯" type="tts">سڌو هڻڻ</annotation>
+		<annotation cp="⛳">گولف، جهنڊي</annotation>
+		<annotation cp="⛳" type="tts">ٻر ۾ جهنڊي</annotation>
+		<annotation cp="⛸">آئس، اسڪيٽ</annotation>
+		<annotation cp="⛸" type="tts">آئس اسڪيٽ</annotation>
+		<annotation cp="🎣">فش، پول</annotation>
+		<annotation cp="🎣" type="tts">فشنگ پول</annotation>
+		<annotation cp="🎽">هلندڙ، ڪمربند، شرٽ، ايٿليٽ</annotation>
+		<annotation cp="🎽" type="tts">هلندڙ شرٽ</annotation>
+		<annotation cp="🎿">اسڪائي، برف</annotation>
+		<annotation cp="🎿" type="tts">اسڪائيز</annotation>
+		<annotation cp="🛷">سليج، سليگهه</annotation>
+		<annotation cp="🛷" type="tts">سليڊ</annotation>
+		<annotation cp="🥌">ٽڪري، راند</annotation>
+		<annotation cp="🥌" type="tts">ڪرلنگ اسٽور</annotation>
+		<annotation cp="🎮">ڪنٽرولر، راند</annotation>
+		<annotation cp="🎮" type="tts">ويڊيو راند</annotation>
+		<annotation cp="🕹">راند، ويڊيو راند</annotation>
+		<annotation cp="🕹" type="tts">جوائي اسٽڪ</annotation>
+		<annotation cp="🎲">داڻو، داڻي، راند</annotation>
+		<annotation cp="🎲" type="tts">راند جي داڻي</annotation>
+		<annotation cp="♠">ڪارڊ، راند</annotation>
+		<annotation cp="♠" type="tts">اسپيڊ سوٽ</annotation>
+		<annotation cp="♥">ڪارڊ، راند</annotation>
+		<annotation cp="♥" type="tts">هرٽ سوٽ</annotation>
+		<annotation cp="♦">ڪارڊ، راند</annotation>
+		<annotation cp="♦" type="tts">ڊائيمند سوٽ</annotation>
+		<annotation cp="♣">ڪارڊ، راند</annotation>
+		<annotation cp="♣" type="tts">ڪلب سوٽ</annotation>
+		<annotation cp="🃏">ڪارڊ، راند، وائلڊ ڪارڊ</annotation>
+		<annotation cp="🃏" type="tts">جوڪر</annotation>
+		<annotation cp="🀄">رند، مهيجونگ، ريڊ</annotation>
+		<annotation cp="🀄" type="tts">مهيجونگ ريڊ ڊريگون</annotation>
+		<annotation cp="🎴">ڪارڊ، فلاور، راند، جاپاني، پلئينگ</annotation>
+		<annotation cp="🎴" type="tts">فلاور پلئينگ ڪارڊ</annotation>
+		<annotation cp="🔇">آواز بند ڪيل، خاموش، ماٺ، اسپيڪر</annotation>
+		<annotation cp="🔇" type="tts">آوازبند ڪيل اسپيڪر</annotation>
+		<annotation cp="🔈">نرم</annotation>
+		<annotation cp="🔈" type="tts">اسپيڪر جو آواز گهٽ</annotation>
+		<annotation cp="🔉">وچولو</annotation>
+		<annotation cp="🔉" type="tts">اسپيڪر جو وچولو آواز</annotation>
+		<annotation cp="🔊">لائوڊ</annotation>
+		<annotation cp="🔊" type="tts">اسپيڪر جو وڏو آواز</annotation>
+		<annotation cp="📢">لائوڊ، عوامي خطاب</annotation>
+		<annotation cp="📢" type="tts">لائوڊ اسپيڪر</annotation>
+		<annotation cp="📣">جوشيلو آواز</annotation>
+		<annotation cp="📣" type="tts">وڏو فون</annotation>
+		<annotation cp="📯">هارون، پوسٽ، پوسٽل</annotation>
+		<annotation cp="📯" type="tts">پوسٽل هارون</annotation>
+		<annotation cp="🔔">گهنٽي</annotation>
+		<annotation cp="🔔" type="tts">گهنٽي</annotation>
+		<annotation cp="🔕">گهنٽي، ڇڏيل، آواز بند، نه، نه، منع ڪيل، خاموش، ماٺ</annotation>
+		<annotation cp="🔕" type="tts">سليش سان گهنٽي</annotation>
+		<annotation cp="🎼">موسيقي، اسڪور</annotation>
+		<annotation cp="🎼" type="tts">موسيقي جو دڪان</annotation>
+		<annotation cp="🎵">موسيقي، نوٽ</annotation>
+		<annotation cp="🎵" type="tts">موسيقي جا نوٽ</annotation>
+		<annotation cp="🎶">موسيقي | نوٽ | نوٽَ</annotation>
+		<annotation cp="🎶" type="tts">موسيقي وارا نوٽ</annotation>
+		<annotation cp="🎙">مائيڪ | مائيڪروفون | موسيقي | اسٽوڊيو</annotation>
+		<annotation cp="🎙" type="tts">اسٽوڊيو جو مائيڪروفون</annotation>
+		<annotation cp="🎚">حد | موسيقي | سلائيڊر</annotation>
+		<annotation cp="🎚" type="tts">ليول سلائيڊر</annotation>
+		<annotation cp="🎛">ڪنٽرول | نابس | موسيقي</annotation>
+		<annotation cp="🎛" type="tts">ڪنٽرول نابس</annotation>
+		<annotation cp="🎤">ڪرائوڪي | مائيڪ</annotation>
+		<annotation cp="🎤" type="tts">مائيڪروفون</annotation>
+		<annotation cp="🎧">ايئربڊ</annotation>
+		<annotation cp="🎧" type="tts">هيڊ فون</annotation>
+		<annotation cp="📻">ويڊيو</annotation>
+		<annotation cp="📻" type="tts">ريڊيو</annotation>
+		<annotation cp="🎷">آلو | موسيقي | باجو</annotation>
+		<annotation cp="🎷" type="tts">سيڪسو فون</annotation>
+		<annotation cp="🎸">آلو | موسيقي</annotation>
+		<annotation cp="🎸" type="tts">گٽار</annotation>
+		<annotation cp="🎹">آلو | ڪي بورڊ | موسيقي | پيانو</annotation>
+		<annotation cp="🎹" type="tts">موسيقي وارو ڪيبورڊ</annotation>
+		<annotation cp="🎺">آلو | موسيقي</annotation>
+		<annotation cp="🎺" type="tts">ترم</annotation>
+		<annotation cp="🎻">آلو | موسيقي</annotation>
+		<annotation cp="🎻" type="tts">وائلن</annotation>
+		<annotation cp="🥁">ڊرم | ڊرم اسٽڪس | موسيقي</annotation>
+		<annotation cp="🥁" type="tts">ڊهول</annotation>
+		<annotation cp="📱">سيل | موبائيل | فون | ٽيليفون</annotation>
+		<annotation cp="📱" type="tts">موبائيل فون</annotation>
+		<annotation cp="📲">تير | ڪال | سيل | موبائيل | فون | وٺڻ | ٽيليفون</annotation>
+		<annotation cp="📲" type="tts">تير سان گڏ موبائل فون</annotation>
+		<annotation cp="☎">فون</annotation>
+		<annotation cp="☎" type="tts">ٽيليفون</annotation>
+		<annotation cp="📞">فون | رسيور | ٽيليفون</annotation>
+		<annotation cp="📞" type="tts">ٽيليفون جو رسيور</annotation>
+		<annotation cp="📟">پيجر</annotation>
+		<annotation cp="📟" type="tts">پيجر</annotation>
+		<annotation cp="📠">فيڪس</annotation>
+		<annotation cp="📠" type="tts">فيڪس مشين</annotation>
+		<annotation cp="🔋">بيٽري</annotation>
+		<annotation cp="🔋" type="tts">بيٽري</annotation>
+		<annotation cp="🔌">برقي | بجلي | پلگ</annotation>
+		<annotation cp="🔌" type="tts">برقي پلگ</annotation>
+		<annotation cp="💻">ڪمپيوٽر | پي سي | ذاتي</annotation>
+		<annotation cp="💻" type="tts">ليپٽاپ ڪمپيوٽر</annotation>
+		<annotation cp="🖥">ڪمپيوٽر | ڊيسڪ ٽاپ</annotation>
+		<annotation cp="🖥" type="tts">ڊيسڪٽاپ ڪمپيوٽر</annotation>
+		<annotation cp="🖨">ڪمپيوٽر</annotation>
+		<annotation cp="🖨" type="tts">پرنٽر</annotation>
+		<annotation cp="⌨">ڪمپيوٽر</annotation>
+		<annotation cp="⌨" type="tts">ڪليدي بورڊ</annotation>
+		<annotation cp="🖱">ڪمپيوٽر</annotation>
+		<annotation cp="🖱" type="tts">ڪمپيوٽر مائوس</annotation>
+		<annotation cp="🖲">ڪمپيوٽر</annotation>
+		<annotation cp="🖲" type="tts">ٽريڪ بال</annotation>
+		<annotation cp="💽">ڪمپيوٽر | ڊسڪ | آپٽيڪل | ننڍي ڊسڪ</annotation>
+		<annotation cp="💽" type="tts">ڪمپيوٽر جي ڊسڪ</annotation>
+		<annotation cp="💾">ڪمپيوٽر | ڊسڪ | فلاپي</annotation>
+		<annotation cp="💾" type="tts">فلاپي ڊسڪ</annotation>
+		<annotation cp="💿">سي ڊي | ڪمپيوٽر | ڊسڪ | آپٽيڪل</annotation>
+		<annotation cp="💿" type="tts">آپٽيڪل ڊسڪ</annotation>
+		<annotation cp="📀">بلو ري | ڊي وي ڊي | ڪمپيوٽر | ڊسڪ | آپٽيڪل</annotation>
+		<annotation cp="📀" type="tts">ڊي وي ڊي</annotation>
+		<annotation cp="🎥">ڪئميرا | سينيما | فلم</annotation>
+		<annotation cp="🎥" type="tts">مووي ڪئيمرا</annotation>
+		<annotation cp="🎞">سئنيما | فلم | فريم | مووي</annotation>
+		<annotation cp="🎞" type="tts">فلم فريم</annotation>
+		<annotation cp="📽">سئنيما | فلم | فلم | پروجيڪٽر | وڊيو</annotation>
+		<annotation cp="📽" type="tts">فلم پروجيڪٽر</annotation>
+		<annotation cp="🎬">ڪليپر | فلم</annotation>
+		<annotation cp="🎬" type="tts">ڪليپربورڊ</annotation>
+		<annotation cp="📺">ٽي وي | ويڊيو</annotation>
+		<annotation cp="📺" type="tts">ٽيليوزن</annotation>
+		<annotation cp="📷">ويڊيو</annotation>
+		<annotation cp="📷" type="tts">ڪئميرا</annotation>
+		<annotation cp="📸">ڪئميرا | فليش | ويڊيو</annotation>
+		<annotation cp="📸" type="tts">فليش واري ڪئميرا</annotation>
+		<annotation cp="📹">ڪئميرا | ويڊيو</annotation>
+		<annotation cp="📹" type="tts">ويڊيو ڪئميرا</annotation>
+		<annotation cp="📼">ٽيپ | وي ايڇ ايس | ويڊيو</annotation>
+		<annotation cp="📼" type="tts">ويڊيو ڪيسٽ</annotation>
+		<annotation cp="🔍">شيشو | ميگنيفائينگ | ڳولڻ | اوزار</annotation>
+		<annotation cp="🔍" type="tts">ميگنيفائينگ کاٻي پاسي مڙيل شيشو</annotation>
+		<annotation cp="🔎">شيشو | ميگنيفائينگ | ڳولڻ | اوزار</annotation>
+		<annotation cp="🔎" type="tts">ميگنيفائينگ ساڄي پاسي مڙيل شيشو</annotation>
+		<annotation cp="🔬">سائنس، اوزار</annotation>
+		<annotation cp="🔬" type="tts">مائڪرو اسڪوپ</annotation>
+		<annotation cp="🔭">سائنس، اوزار</annotation>
+		<annotation cp="🔭" type="tts">ٽيلي اسڪوپ</annotation>
+		<annotation cp="📡">اينٽينا | ڊش | سيٽيلائيٽ</annotation>
+		<annotation cp="📡" type="tts">سيٽ لائيٽ اينٽينا</annotation>
+		<annotation cp="🕯">روشني</annotation>
+		<annotation cp="🕯" type="tts">ميڻ بتي</annotation>
+		<annotation cp="💡">بلب | ڪامڪ | برقي | خيال | روشني</annotation>
+		<annotation cp="💡" type="tts">روشني جو بلب</annotation>
+		<annotation cp="🔦">برقي | روشني | اوزار | ٽارچ</annotation>
+		<annotation cp="🔦" type="tts">فليش لائيٽ</annotation>
+		<annotation cp="🏮">بار | لالٽين | روشني | ڳاڙهو</annotation>
+		<annotation cp="🏮" type="tts">ڳاڙهي ڪاغذ واري لينٽرن</annotation>
+		<annotation cp="📔">ڪتاب | پاٺو | سينگاريل | نوٽ بوڪ</annotation>
+		<annotation cp="📔" type="tts">سينگاريل پاٺي وارو ڪتاب</annotation>
+		<annotation cp="📕">ڪتاب | بند ٿيل</annotation>
+		<annotation cp="📕" type="tts">بند ڪتاب</annotation>
+		<annotation cp="📖">ڪتاب | کليل</annotation>
+		<annotation cp="📖" type="tts">کليل ڪتاب</annotation>
+		<annotation cp="📗">ڪتاب | سائو</annotation>
+		<annotation cp="📗" type="tts">سائو ڪتاب</annotation>
+		<annotation cp="📘">نيرو | ڪتاب</annotation>
+		<annotation cp="📘" type="tts">نيرو ڪتاب</annotation>
+		<annotation cp="📙">ڪتاب | نارنگي</annotation>
+		<annotation cp="📙" type="tts">نارنگي ڪتاب</annotation>
+		<annotation cp="📚">ڪتاب</annotation>
+		<annotation cp="📚" type="tts">ڪتابون</annotation>
+		<annotation cp="📓">نوٽ بڪ</annotation>
+		<annotation cp="📓" type="tts">نوٽ بڪ</annotation>
+		<annotation cp="📒">نوٽ بڪ</annotation>
+		<annotation cp="📒" type="tts">ليجر</annotation>
+		<annotation cp="📃">وڪڙ | دستاويز | صفحو</annotation>
+		<annotation cp="📃" type="tts">وڪڙ سان صفحو</annotation>
+		<annotation cp="📜">ڪاغذ</annotation>
+		<annotation cp="📜" type="tts">ويڙهيل</annotation>
+		<annotation cp="📄">دستاويز | صفحو</annotation>
+		<annotation cp="📄" type="tts">مٿي منهن ڪندڙ صفحو</annotation>
+		<annotation cp="📰">خبرون | پنو</annotation>
+		<annotation cp="📰" type="tts">اخبار</annotation>
+		<annotation cp="🗞">خبرون | اخبار | پنا | ويڙهيل</annotation>
+		<annotation cp="🗞" type="tts">ويڙهيل اخبار</annotation>
+		<annotation cp="📑">بوڪ مارڪ | مارڪ | مارڪر | ٽيبس</annotation>
+		<annotation cp="📑" type="tts">بڪ مارڪ وارا ٽيب</annotation>
+		<annotation cp="🔖">نشان</annotation>
+		<annotation cp="🔖" type="tts">بڪ مارڪ</annotation>
+		<annotation cp="🏷">ٺپو</annotation>
+		<annotation cp="🏷" type="tts">ٺپو</annotation>
+		<annotation cp="💰">ڳوٿري | ڊالر | رقم | پئسن واري ڳوٿري</annotation>
+		<annotation cp="💰" type="tts">پئسن جي ڳوٿري</annotation>
+		<annotation cp="💴">بئنڪ | بئنڪ نوٽ | بل | سڪو | پئيسا | نوٽ | يين</annotation>
+		<annotation cp="💴" type="tts">يين بئنڪ نوٽ</annotation>
+		<annotation cp="💵">بئنڪ | بئنڪ نوٽ | بل | سڪو | ڊالر | رقم | نوٽ</annotation>
+		<annotation cp="💵" type="tts">ڊائر بئنڪ نوٽ</annotation>
+		<annotation cp="💶">بئنڪ | بئنڪ نوٽ | بل | سڪو | يورو | رقم | نوٽ</annotation>
+		<annotation cp="💶" type="tts">يورو بئنڪ نوٽ</annotation>
+		<annotation cp="💷">بئنڪ | بئنڪ نوٽ | بل | سڪو | پئيسا | نوٽ | پائونڊ</annotation>
+		<annotation cp="💷" type="tts">پائونڊ بئنڪ نوٽ</annotation>
+		<annotation cp="💸">بئنڪ | بئنڪ نوٽ | بل | ڊالر | اڏڻ | رقم | نوٽ | پر</annotation>
+		<annotation cp="💸" type="tts">پرن وارا پئسا</annotation>
+		<annotation cp="💳">بئنڪ | ڪارڊ | ڪريڊٽ | رقم</annotation>
+		<annotation cp="💳" type="tts">ڪريڊٽ ڊالر</annotation>
+		<annotation cp="💹">بئنڪ | چارٽ | سڪو | گراف | واڌ | بازار | رقم | اٿڻ | رواج | مٿي طرف | يين</annotation>
+		<annotation cp="💹" type="tts">يين سان گڏ وڌندڙ چارٽ</annotation>
+		<annotation cp="💱">بئنڪ | رقم | بدلائڻ | پئسا</annotation>
+		<annotation cp="💱" type="tts">سڪو مٽاسٽا</annotation>
+		<annotation cp="💲">سڪو، ڊالر، پئسا</annotation>
+		<annotation cp="💲" type="tts">ٿلهي ڊالر جي نشاني</annotation>
+		<annotation cp="✉">خط | اي ميل</annotation>
+		<annotation cp="✉" type="tts">لفافو</annotation>
+		<annotation cp="📧">اي ميل | خط | ميل</annotation>
+		<annotation cp="📧" type="tts">اي-ميل</annotation>
+		<annotation cp="📨">اي ميل | اي ميل | لفافو | ايندڙ | خط | ميل | وٺڻ</annotation>
+		<annotation cp="📨" type="tts">ايندڙ لفافو</annotation>
+		<annotation cp="📩">تير | هيٺ | اي-ميل | اي ميل | لفافو | خ | ميل | ويندڙ | ويل</annotation>
+		<annotation cp="📩" type="tts">تير سان لفافو</annotation>
+		<annotation cp="📤">دٻو | خط | ميل | آئوٽ باڪس | موڪليل | ٿال</annotation>
+		<annotation cp="📤" type="tts">آئوٽ باڪس ٽري</annotation>
+		<annotation cp="📥">دٻو | انباڪس | خط | ميل | حاصل ڪرڻ | ٽري</annotation>
+		<annotation cp="📥" type="tts">انباڪس ٽري</annotation>
+		<annotation cp="📦">دٻو | پارسل</annotation>
+		<annotation cp="📦" type="tts">پئڪيج</annotation>
+		<annotation cp="📫">بند ٿيل | ميل | ميل باڪس | پوسٽ باڪس</annotation>
+		<annotation cp="📫" type="tts">مٿي ڪيل جهنڊي سان گڏ بند ٿيل ميل باڪس</annotation>
+		<annotation cp="📪">بند ٿيل | هيٺ ڪيل | ميل | ميل باڪس | پوسٽ باڪس</annotation>
+		<annotation cp="📪" type="tts">هيٺ ڪيل جهنڊي سان گڏ بند ٿيل ميل باڪس</annotation>
+		<annotation cp="📬">ميل | ميل باڪس | کليل | پوسٽ باڪس</annotation>
+		<annotation cp="📬" type="tts">مٿي ڪيل جهنڊي سان گڏ کليل ميل باڪس</annotation>
+		<annotation cp="📭">هيٺ ڪيل | ميل | ميل باڪس | کليل | پوسٽ باڪس</annotation>
+		<annotation cp="📭" type="tts">هيٺ ڪيل جهنڊي سان گڏ کليل ميل باڪس</annotation>
+		<annotation cp="📮">ميل | ميل باڪس</annotation>
+		<annotation cp="📮" type="tts">پوسٽ باڪس</annotation>
+		<annotation cp="🗳">E829</annotation>
+		<annotation cp="🗳" type="tts">بيلٽ باڪس سان بيلٽ</annotation>
+		<annotation cp="✏">پينسل</annotation>
+		<annotation cp="✏" type="tts">پينسل</annotation>
+		<annotation cp="✒">نب | قلم</annotation>
+		<annotation cp="✒" type="tts">ڪاري نب</annotation>
+		<annotation cp="🖋">ڦائونٽين، پين</annotation>
+		<annotation cp="🖋" type="tts">فائونٽين پين</annotation>
+		<annotation cp="🖊">بال پوائنٽ</annotation>
+		<annotation cp="🖊" type="tts">قلم</annotation>
+		<annotation cp="🖌">پينٽنگ</annotation>
+		<annotation cp="🖌" type="tts">پينٽ برش</annotation>
+		<annotation cp="🖍">رنگدار</annotation>
+		<annotation cp="🖍" type="tts">رنگدار</annotation>
+		<annotation cp="📝">پينسل</annotation>
+		<annotation cp="📝" type="tts">ميمو</annotation>
+		<annotation cp="💼">بريف ڪيس</annotation>
+		<annotation cp="💼" type="tts">بريف ڪيس</annotation>
+		<annotation cp="📁">فائيل | فولڊر</annotation>
+		<annotation cp="📁" type="tts">فائل فولڊر</annotation>
+		<annotation cp="📂">فائيل | فولڊر | کليل</annotation>
+		<annotation cp="📂" type="tts">کليل فائل فولڊر</annotation>
+		<annotation cp="🗂">ڪارڊ | ورهائيندڙ | ترتيب</annotation>
+		<annotation cp="🗂" type="tts">ڪارڊ ترتيب سان ورهائيندڙ</annotation>
+		<annotation cp="📅">تاريخ</annotation>
+		<annotation cp="📅" type="tts">ڪئلينڊر</annotation>
+		<annotation cp="📆">ڪئلينڊر</annotation>
+		<annotation cp="📆" type="tts">ٽوڙڻ وارو ڪئلينڊر</annotation>
+		<annotation cp="🗒">نوٽ | پيڊ | اسپائرل</annotation>
+		<annotation cp="🗒" type="tts">اسپائرل نوٽ پيڊ</annotation>
+		<annotation cp="🗓">ڪئلينڊر | پيڊ | اسپائرل</annotation>
+		<annotation cp="🗓" type="tts">اسپائرل ڪئلينڊر</annotation>
+		<annotation cp="📇">ڪارڊ | ترتيب | رولوڊيڪس</annotation>
+		<annotation cp="📇" type="tts">ڪارڊ انڊيڪس</annotation>
+		<annotation cp="📈">چارٽ | گراف | واڌ | رخ | مٿي پاسي</annotation>
+		<annotation cp="📈" type="tts">وڌندڙ چارٽ</annotation>
+		<annotation cp="📉">چارٽ | هيٺ | گراف | رخ</annotation>
+		<annotation cp="📉" type="tts">چارٽ گهٽجندي</annotation>
+		<annotation cp="📊">بار | چارٽ | گراف</annotation>
+		<annotation cp="📊" type="tts">بار چارٽ</annotation>
+		<annotation cp="📋">ڪلپ بورڊ</annotation>
+		<annotation cp="📋" type="tts">ڪلپ بورڊ</annotation>
+		<annotation cp="📌">پن</annotation>
+		<annotation cp="📌" type="tts">دٻائڻ واري پن</annotation>
+		<annotation cp="📍">پن | پشپن | دٻائڻ واري پن</annotation>
+		<annotation cp="📍" type="tts">گول دٻائڻ واري پن</annotation>
+		<annotation cp="📎">ڪاغذ جهلڻ وارو ڪلپ</annotation>
+		<annotation cp="📎" type="tts">ڪاغذ جهلڻ وارو ڪلپ</annotation>
+		<annotation cp="🖇">ڳنڍيل | پيپر ڪلپ</annotation>
+		<annotation cp="🖇" type="tts">ڪاغذ جهلڻ وارو ڳنڍيل ڪلپ</annotation>
+		<annotation cp="📏">ماپيندڙ، سڌي ڪنڊ</annotation>
+		<annotation cp="📏" type="tts">سڌو ماپيندڙ</annotation>
+		<annotation cp="📐">رولر | سيٽ | ٽڪنڊو</annotation>
+		<annotation cp="📐" type="tts">ٽڪنڊو ماپيندڙ</annotation>
+		<annotation cp="✂">اوزار | ڪٽيندڙ</annotation>
+		<annotation cp="✂" type="tts">قينچي</annotation>
+		<annotation cp="🗃">باڪس | ڪارڊ | فائيل</annotation>
+		<annotation cp="🗃" type="tts">ڪارڊ فائيل باڪس</annotation>
+		<annotation cp="🗄">دراز | فائيل | فائيلنگ</annotation>
+		<annotation cp="🗄" type="tts">فائل رکڻ جو دراز</annotation>
+		<annotation cp="🗑">ڪچري جي ٽوڪري</annotation>
+		<annotation cp="🗑" type="tts">ڪچري جي ٽوڪري</annotation>
+		<annotation cp="🔒">بند</annotation>
+		<annotation cp="🔒" type="tts">لاڪ ٿيل</annotation>
+		<annotation cp="🔓">بند | کليل</annotation>
+		<annotation cp="🔓" type="tts">کليل</annotation>
+		<annotation cp="🔏">مس | تالو | نب | پين | ذاتي</annotation>
+		<annotation cp="🔏" type="tts">پين سان لاڪ</annotation>
+		<annotation cp="🔐">بند ٿيل | چاٻي | تالو | محفوظ</annotation>
+		<annotation cp="🔐" type="tts">چاٻي سان لاڪ</annotation>
+		<annotation cp="🔑">تالو | پاسورڊ، لاڪ</annotation>
+		<annotation cp="🔑" type="tts">چاٻي</annotation>
+		<annotation cp="🗝">اشارو | چاٻي | تالو | پراڻو</annotation>
+		<annotation cp="🗝" type="tts">پراڻي چاٻي</annotation>
+		<annotation cp="🔨">اوزار</annotation>
+		<annotation cp="🔨" type="tts">هٿوڙو</annotation>
+		<annotation cp="⛏">کڏ کوٽڻ | اوزار</annotation>
+		<annotation cp="⛏" type="tts">ٽيڪم</annotation>
+		<annotation cp="⚒">هٿوڙو | کڻڻ | اوزار</annotation>
+		<annotation cp="⚒" type="tts">هٿوڙو ۽ ٽيڪم</annotation>
+		<annotation cp="🛠">هٿوڙو | اوزار | رينچ | پانو</annotation>
+		<annotation cp="🛠" type="tts">هٿوڙو ۽ پانو</annotation>
+		<annotation cp="🗡">چاقو | هٿيار</annotation>
+		<annotation cp="🗡" type="tts">خنجر</annotation>
+		<annotation cp="⚔">آمهون سامهون | تلوارون | هٿيار</annotation>
+		<annotation cp="⚔" type="tts">آمهون سامهون تلوار</annotation>
+		<annotation cp="🔫">گن | هينڊ گن | روالور | اوزار | هٿيار</annotation>
+		<annotation cp="🔫" type="tts">پسٽل</annotation>
+		<annotation cp="🏹">تير انداز | تير اندازي | تير | ڪمان | برج قوس | اوزار | هٿيار | راس چڪر</annotation>
+		<annotation cp="🏹" type="tts">ڪمان ۽ تير</annotation>
+		<annotation cp="🛡">هٿيار</annotation>
+		<annotation cp="🛡" type="tts">ڍال</annotation>
+		<annotation cp="🔧">اوزار | رينچ | پانو</annotation>
+		<annotation cp="🔧" type="tts">پانو</annotation>
+		<annotation cp="🔩">بولٽ | نٽ | اوزار</annotation>
+		<annotation cp="🔩" type="tts">نٽ ۽ بولٽ</annotation>
+		<annotation cp="⚙">اوزار</annotation>
+		<annotation cp="⚙" type="tts">گيئر</annotation>
+		<annotation cp="🗜">اوزار | وائيس | گھٽائڻ</annotation>
+		<annotation cp="🗜" type="tts">ڪلپ</annotation>
+		<annotation cp="⚗">ڪيمسٽري | اوزار</annotation>
+		<annotation cp="⚗" type="tts">اليمبڪ</annotation>
+		<annotation cp="⚖">متوازن | لبرا | ماپ | اوزار | وزن | برجر</annotation>
+		<annotation cp="⚖" type="tts">متوازن ماپو</annotation>
+		<annotation cp="🔗">ڪڙي</annotation>
+		<annotation cp="🔗" type="tts">ڪڙي</annotation>
+		<annotation cp="⛓">زنجير</annotation>
+		<annotation cp="⛓" type="tts">زنجير</annotation>
+		<annotation cp="💉">ڊاڪٽر | دوا | سئي | شاٽ | بيمار | اوزار</annotation>
+		<annotation cp="💉" type="tts">سرنج</annotation>
+		<annotation cp="💊">ڊاڪٽر | دوا | بيمار</annotation>
+		<annotation cp="💊" type="tts">گوري</annotation>
+		<annotation cp="🚬">تماڪو نوشي</annotation>
+		<annotation cp="🚬" type="tts">سگريٽ</annotation>
+		<annotation cp="⚰">موت</annotation>
+		<annotation cp="⚰" type="tts">ڪفن</annotation>
+		<annotation cp="⚱">موت | جنازو | صراحي | خاڪ</annotation>
+		<annotation cp="⚱" type="tts">جنازي جي خاڪ واري صراحي</annotation>
+		<annotation cp="🗿">چهرو | مويائي | مجسمو</annotation>
+		<annotation cp="🗿" type="tts">موئي</annotation>
+		<annotation cp="🛢">ڊرم | تيل</annotation>
+		<annotation cp="🛢" type="tts">تيل جو ڊرم</annotation>
+		<annotation cp="🔮">بال | شيشو | پري جي ڪهاڻي | تصور | قسمت | اوزار</annotation>
+		<annotation cp="🔮" type="tts">شيشي جو بال</annotation>
+		<annotation cp="🛒">خريداري | ڪارٽ | ٽرالي</annotation>
+		<annotation cp="🛒" type="tts">خريداري جو گاڏو</annotation>
+		<annotation cp="🏧">اي ٽي ايم | خودڪار ٿيل | بئنڪ | ٽيلر</annotation>
+		<annotation cp="🏧" type="tts">اي ٽي ايم جي نشاني</annotation>
+		<annotation cp="🚮">ڪچرو، ڪچرو جو ڏٻو</annotation>
+		<annotation cp="🚮" type="tts">ڪچرو دٻي ۾ اڇلائڻ جي نشاني</annotation>
+		<annotation cp="🚰">پيئندي | پيئڻ جو | پاڻي</annotation>
+		<annotation cp="🚰" type="tts">پيئڻ جو پاڻي</annotation>
+		<annotation cp="♿">رسائي</annotation>
+		<annotation cp="♿" type="tts">ڦيٿي واري ڪرسي جي نشاني</annotation>
+		<annotation cp="🚹">غسل خانو | مرد | آرام جو ڪمرو</annotation>
+		<annotation cp="🚹" type="tts">مردن جو ڪمرو</annotation>
+		<annotation cp="🚺">غسل خانو | عورت | آرام جو ڪمرو</annotation>
+		<annotation cp="🚺" type="tts">عورتن جو ڪمرو</annotation>
+		<annotation cp="🚻">غسل خانو | آرام جو ڪمرو</annotation>
+		<annotation cp="🚻" type="tts">آرام جو ڪمرو</annotation>
+		<annotation cp="🚼">ٻار | ڪپڙا مٽائڻ</annotation>
+		<annotation cp="🚼" type="tts">ٻار جو نشان</annotation>
+		<annotation cp="🚾">الماري | غسل خانو | آرام جو ڪمرو | پاڻي | ڊبليوسي</annotation>
+		<annotation cp="🚾" type="tts">پاڻي جو هبار</annotation>
+		<annotation cp="🛂">ڪنٽرول | پاسپورٽ</annotation>
+		<annotation cp="🛂" type="tts">پاسپورٽ ڪنٽرول</annotation>
+		<annotation cp="🛃">ڪسٽمز</annotation>
+		<annotation cp="🛃" type="tts">ڪسٽمز</annotation>
+		<annotation cp="🛄">سامان | دعوو</annotation>
+		<annotation cp="🛄" type="tts">سامان جو دعوو</annotation>
+		<annotation cp="🛅">سامان | لاڪر | سامان</annotation>
+		<annotation cp="🛅" type="tts">ڇڏيل سامان</annotation>
+		<annotation cp="⚠">انتباھ</annotation>
+		<annotation cp="⚠" type="tts">انتباھ</annotation>
+		<annotation cp="🚸">ٻار | ٽپندي | پيڊسٽيرين | ٽريفڪ</annotation>
+		<annotation cp="🚸" type="tts">ٻارن جو گذرڻ</annotation>
+		<annotation cp="⛔">داخلا | ممنوعه | نه | نه | ممنوعه | ٽريفڪ</annotation>
+		<annotation cp="⛔" type="tts">داخلا ممنوع</annotation>
+		<annotation cp="🚫">داخلا | ممنوعه | نه | نه</annotation>
+		<annotation cp="🚫" type="tts">منع ڪيل</annotation>
+		<annotation cp="🚳">منع ڪيل | نه | نه | ممنوعه | منع ڪيل</annotation>
+		<annotation cp="🚳" type="tts">سائيڪلون نه</annotation>
+		<annotation cp="🚭">منع ڪيل | نه | نه | ممنوعه | سگريٽ پيئڻ</annotation>
+		<annotation cp="🚭" type="tts">سگريٽ پيئڻ منع آهي</annotation>
+		<annotation cp="🚯">ممنوعه | ڪچرو | نه | نه | ممنوعه</annotation>
+		<annotation cp="🚯" type="tts">ڪچرو اڇلائن منع آهي</annotation>
+		<annotation cp="🚱">پيئڻ جو پاڻي ناهي، پيئڻو ناهي، پاڻي</annotation>
+		<annotation cp="🚱" type="tts">پيئڻ جو پاڻي ناهي</annotation>
+		<annotation cp="🚷">پيدل نه</annotation>
+		<annotation cp="🚷" type="tts">هلڻو ناهي</annotation>
+		<annotation cp="📵">سيل | ممنوعه | موبائيل | نه | نه | فون | منع ٿيل | ٽيليفون</annotation>
+		<annotation cp="📵" type="tts">موبائيل فون نه</annotation>
+		<annotation cp="🔞">18 | عمر جي پابندي | ارڙهن | منع ٿيل | نه | نه | ممنوعه | عمر کان هيٺ</annotation>
+		<annotation cp="🔞" type="tts">ارڙهن کان گهٽ ڪو به نه</annotation>
+		<annotation cp="☢">تابڪاري | نشان</annotation>
+		<annotation cp="☢" type="tts">تابڪاري</annotation>
+		<annotation cp="☣">حياتي لاءِ نقصانڪار، نشاني</annotation>
+		<annotation cp="☣" type="tts">حياتي لاءِ نقصانڪار</annotation>
+		<annotation cp="⬆">تير | ڪارڊينل | طرف | اتر</annotation>
+		<annotation cp="⬆" type="tts">مٿي تير</annotation>
+		<annotation cp="↗">تير | طرف | انٽرڪارڊينل | اتراوڀر</annotation>
+		<annotation cp="↗" type="tts">مٿي ساڄي تير</annotation>
+		<annotation cp="➡">تير | ڪارڊينل | طرف | اوڀر</annotation>
+		<annotation cp="➡" type="tts">ساڄي تير</annotation>
+		<annotation cp="↘">تير | طرف | انٽرڪارڊينل | ڏکڻ اوڀر</annotation>
+		<annotation cp="↘" type="tts">هيٺ ساڄي طرف تير</annotation>
+		<annotation cp="⬇">تير | ڪارڊينل | طرف | هيٺ | ڏکڻ</annotation>
+		<annotation cp="⬇" type="tts">هيٺ تير</annotation>
+		<annotation cp="↙">تير | طرف | انٽرڪارڊينل | ڏکڻ اولھ</annotation>
+		<annotation cp="↙" type="tts">هيٺ کاٻي طرف تير</annotation>
+		<annotation cp="⬅">تير | ڪارڊينل | طرف | اولھ</annotation>
+		<annotation cp="⬅" type="tts">کاٻي طرف تير</annotation>
+		<annotation cp="↖">تير | طرف | انٽرڪارڊينل | اتر اولھ</annotation>
+		<annotation cp="↖" type="tts">مٿ کاٻي طرف تير</annotation>
+		<annotation cp="↕">تير</annotation>
+		<annotation cp="↕" type="tts">مٿي هيٺ طرف تير</annotation>
+		<annotation cp="↔">تير</annotation>
+		<annotation cp="↔" type="tts">ساڄي کاٻي پاسي تير</annotation>
+		<annotation cp="↩">تير</annotation>
+		<annotation cp="↩" type="tts">ساڄي تير مڙندي کاٻي طرف</annotation>
+		<annotation cp="↪">تير</annotation>
+		<annotation cp="↪" type="tts">کاٻي تير مڙندي ساڄي طرف</annotation>
+		<annotation cp="⤴">تير</annotation>
+		<annotation cp="⤴" type="tts">ساڄي تير مڙندي مٿين طرف</annotation>
+		<annotation cp="⤵">تير | هيٺ</annotation>
+		<annotation cp="⤵" type="tts">هيٺ مڙندي ساڄي طرف تير</annotation>
+		<annotation cp="🔃">تير | ڪلاڪ وانگي | ريلوڊ</annotation>
+		<annotation cp="🔃" type="tts">ڪلاڪ وانگي عمودي تير</annotation>
+		<annotation cp="🔄">اينٽي ڪلاڪ وايئز | تير | ڪائونٽر ڪلاڪ وائيز | مخالف رخ</annotation>
+		<annotation cp="🔄" type="tts">ابتي ڪلاڪ وانگي تيري بٽڻ</annotation>
+		<annotation cp="🔙">تير | پٺيان</annotation>
+		<annotation cp="🔙" type="tts">پٺيان وارو تير</annotation>
+		<annotation cp="🔚">تير | پڇاڙي</annotation>
+		<annotation cp="🔚" type="tts">پڇاڙي وارو تير</annotation>
+		<annotation cp="🔛">تير | نشان | آن</annotation>
+		<annotation cp="🔛" type="tts">آن! تير</annotation>
+		<annotation cp="🔜">تير | جلدي</annotation>
+		<annotation cp="🔜" type="tts">جلدي تير</annotation>
+		<annotation cp="🔝">تير | مٿي | مٿي</annotation>
+		<annotation cp="🔝" type="tts">مٿيون تير</annotation>
+		<annotation cp="🛐">مذهب | عبادت</annotation>
+		<annotation cp="🛐" type="tts">عبادت جي جڳھ</annotation>
+		<annotation cp="⚛">منڪر | ايٽم</annotation>
+		<annotation cp="⚛" type="tts">ائٽم جي نشاني</annotation>
+		<annotation cp="🕉">ھندو | مذهب</annotation>
+		<annotation cp="🕉" type="tts">اوم</annotation>
+		<annotation cp="✡">يهودي | يهودي | مذهب | تارو</annotation>
+		<annotation cp="✡" type="tts">ڊيوڊ جو تارو</annotation>
+		<annotation cp="☸">ٻڌمت | ڌرما | مذهب | ڦيٿو</annotation>
+		<annotation cp="☸" type="tts">ڌرما جو ڦيٿو</annotation>
+		<annotation cp="☯">مذهب | تائو | تائو مذهب جو پيروڪار | يينگ | ين</annotation>
+		<annotation cp="☯" type="tts">ين يينگ</annotation>
+		<annotation cp="✝">عيسائي | ڪراس | مذهب</annotation>
+		<annotation cp="✝" type="tts">لاطيني ڪراس</annotation>
+		<annotation cp="☦">عيسائي | ڪراس | مذهب</annotation>
+		<annotation cp="☦" type="tts">آرٿوڊوڪس ڪراس</annotation>
+		<annotation cp="☪">اسلام | مسلم | مذهب</annotation>
+		<annotation cp="☪" type="tts">تارو ۽ چنڊ</annotation>
+		<annotation cp="☮">امن</annotation>
+		<annotation cp="☮" type="tts">امن جي نشاني</annotation>
+		<annotation cp="🕎">ڏيئو | ميڻ بتي | مذهب</annotation>
+		<annotation cp="🕎" type="tts">مينوره</annotation>
+		<annotation cp="🔯">قسمت | ستارو</annotation>
+		<annotation cp="🔯" type="tts">ڊاٽ وارو ڇھ نقطن وارو تارو</annotation>
+		<annotation cp="♈">ريم | راس چڪر، حمل</annotation>
+		<annotation cp="♈" type="tts">برج حمل</annotation>
+		<annotation cp="♉">ڍڳو | ڍڳو | راس چڪر</annotation>
+		<annotation cp="♉" type="tts">برج ثور</annotation>
+		<annotation cp="♊">جاڙا | راس چڪر</annotation>
+		<annotation cp="♊" type="tts">برج جوزا</annotation>
+		<annotation cp="♋">سرطان | راس چڪر</annotation>
+		<annotation cp="♋" type="tts">برج سرطان</annotation>
+		<annotation cp="♌">شينهن | راس چڪر</annotation>
+		<annotation cp="♌" type="tts">برج اسد</annotation>
+		<annotation cp="♍">بروجي</annotation>
+		<annotation cp="♍" type="tts">برج سنبله</annotation>
+		<annotation cp="♎">برابري | انصاف | معيار | راس چڪر</annotation>
+		<annotation cp="♎" type="tts">برج ميزان</annotation>
+		<annotation cp="♏">برج عقرب | برج عقرب وارو | راس چڪر</annotation>
+		<annotation cp="♏" type="tts">برج عقرب</annotation>
+		<annotation cp="♐">تير انداز | راس چڪر</annotation>
+		<annotation cp="♐" type="tts">برج قوس</annotation>
+		<annotation cp="♑">ٻڪري | راس چڪر</annotation>
+		<annotation cp="♑" type="tts">برج جدي</annotation>
+		<annotation cp="♒">پرچي وارو | پاڻي | راس چڪر</annotation>
+		<annotation cp="♒" type="tts">برج دلو</annotation>
+		<annotation cp="♓">مڇي | راس چڪر</annotation>
+		<annotation cp="♓" type="tts">برج حوت</annotation>
+		<annotation cp="⛎">بيرو | ازدها | نانگ | راس چڪر</annotation>
+		<annotation cp="⛎" type="tts">علم نجوم</annotation>
+		<annotation cp="🔀">تير | ڪراسڊ</annotation>
+		<annotation cp="🔀" type="tts">شفل ٽريڪ بٽڻ</annotation>
+		<annotation cp="🔁">تير | ڪلاڪوائيز | رپيٽ</annotation>
+		<annotation cp="🔁" type="tts">ورجائڻ وارو بٽڻ</annotation>
+		<annotation cp="🔂">تير | ڪلاڪوائيز | هڪ دفعو</annotation>
+		<annotation cp="🔂" type="tts">اڪيلو ورجائڻ وارو بٽڻ</annotation>
+		<annotation cp="▶">تير | هلائڻ | ٺيڪ | ٽڪنڊو</annotation>
+		<annotation cp="▶" type="tts">هلائڻ وارو بٽڻ</annotation>
+		<annotation cp="⏩">تير | ٻٽو | تيز | اڳتي</annotation>
+		<annotation cp="⏩" type="tts">تڪڙو اڳتي ڪرڻ جو بٽڻ</annotation>
+		<annotation cp="⏭">تير | اڳيون سين | اڳيون ٽريڪ | ٽڪنڊو</annotation>
+		<annotation cp="⏭" type="tts">اڳيئن ٽريڪ جو بٽڻ</annotation>
+		<annotation cp="⏯">تير | ساڪت | هلائڻ | ٺيڪ | ٽڪنڊو</annotation>
+		<annotation cp="⏯" type="tts">هلائڻ ۽ ساڪت جو بٽڻ</annotation>
+		<annotation cp="◀">تير | کاٻو | پوئتي | ٽڪنڊو</annotation>
+		<annotation cp="◀" type="tts">پوئتي ڪرڻ جو بٽڻ</annotation>
+		<annotation cp="⏪">تير | ٻٽو | پوئتي ڪرڻ</annotation>
+		<annotation cp="⏪" type="tts">تڪڙو پٺتي ڪرڻ جو بٽڻ</annotation>
+		<annotation cp="⏮">تير | پويون سين | پويون ٽريڪ | ٽڪنڊو</annotation>
+		<annotation cp="⏮" type="tts">آخري ٽريڪ جو بٽڻ</annotation>
+		<annotation cp="🔼">تير | بٽڻ | ڳاڙهو</annotation>
+		<annotation cp="🔼" type="tts">مٿي وارو بٽڻ</annotation>
+		<annotation cp="⏫">تير | ٻٽو</annotation>
+		<annotation cp="⏫" type="tts">تڪڙو مٿي ڪرڻ جو بٽڻ</annotation>
+		<annotation cp="🔽">تير | بٽڻ | هيٺ | ڳاڙهو</annotation>
+		<annotation cp="🔽" type="tts">هيٺ وارو بٽڻ</annotation>
+		<annotation cp="⏬">تير | ٻٽو | هيٺ</annotation>
+		<annotation cp="⏬" type="tts">تڪڙو هيٺ ڪرڻ وارو بٽڻ</annotation>
+		<annotation cp="⏸">بار | ٻٽو | ساڪت | عمودي</annotation>
+		<annotation cp="⏸" type="tts">ساڪت ڪرڻ جو بٽڻ</annotation>
+		<annotation cp="⏹">چورس | بند</annotation>
+		<annotation cp="⏹" type="tts">بند ڪرڻ وارو بٽڻ</annotation>
+		<annotation cp="⏺">گول دائرو | ڀرڻ</annotation>
+		<annotation cp="⏺" type="tts">ڀرڻ جو بٽڻ</annotation>
+		<annotation cp="⏏">ڪڍڻ</annotation>
+		<annotation cp="⏏" type="tts">ڪڍڻ جو بٽڻ</annotation>
+		<annotation cp="🎦">ڪئميرا | فلم | مووي</annotation>
+		<annotation cp="🎦" type="tts">سئنيما</annotation>
+		<annotation cp="🔅">روشني | ڊم | گھٽ</annotation>
+		<annotation cp="🔅" type="tts">ڊم ڪرڻ وارو بٽڻ</annotation>
+		<annotation cp="🔆">روشن | روشني</annotation>
+		<annotation cp="🔆" type="tts">روشن ڪرڻ وارو بٽڻ</annotation>
+		<annotation cp="📶">اينٽينا | بار | سيل | موبائيل | فون | سگنل | ٽيليفون</annotation>
+		<annotation cp="📶" type="tts">اينٽينا بار</annotation>
+		<annotation cp="📳">سيل | موبائيل | موڊ | فون | ٽيليفون | وائبريشن، حرڪت</annotation>
+		<annotation cp="📳" type="tts">حرڪت وارو موڊ</annotation>
+		<annotation cp="📴">سيل | موبائيل | بند | فون | ٽيليفون</annotation>
+		<annotation cp="📴" type="tts">موبائيل فون بند</annotation>
+		<annotation cp="♀">عورت</annotation>
+		<annotation cp="♀" type="tts">عورت جي نشاني</annotation>
+		<annotation cp="♂">مرد</annotation>
+		<annotation cp="♂" type="tts">مرد جي نشاني</annotation>
+		<annotation cp="⚕">عملو | دوا | طب جو ديوتا</annotation>
+		<annotation cp="⚕" type="tts">ميڊيڪل جي نشاني</annotation>
+		<annotation cp="♻">ٻيهر استعمال ڪرڻ</annotation>
+		<annotation cp="♻" type="tts">ٻيهر استعمال جي نشاني</annotation>
+		<annotation cp="⚜">للي جو گل</annotation>
+		<annotation cp="⚜" type="tts">للي جو گل</annotation>
+		<annotation cp="🔱">لنگر | مونوگرام | ٻيڙي | اوزار | ترشول</annotation>
+		<annotation cp="🔱" type="tts">ترشول جو نشان</annotation>
+		<annotation cp="📛">بيج | نالو</annotation>
+		<annotation cp="📛" type="tts">نالي جو بيج</annotation>
+		<annotation cp="🔰">شروعات ڪندڙ | شيوران | سائو | جاپاني | پن | اوزار | پيلو</annotation>
+		<annotation cp="🔰" type="tts">شروعات ڪندڙ جي لاءِ جاپاني نشاني</annotation>
+		<annotation cp="⭕">دائرو | 0</annotation>
+		<annotation cp="⭕" type="tts">ٿلهو وڏو دائرو</annotation>
+		<annotation cp="✅">چيڪ | نشاني</annotation>
+		<annotation cp="✅" type="tts">سفيد ٿلهي چيڪ نشاني</annotation>
+		<annotation cp="☑">بيلٽ | باڪس | چيڪ</annotation>
+		<annotation cp="☑" type="tts">بيلٽ باڪس سان چيڪ</annotation>
+		<annotation cp="✔">چيڪ | نشاني</annotation>
+		<annotation cp="✔" type="tts">ٿلهي چيڪ جي نشاني</annotation>
+		<annotation cp="✖">رد | ضرب | ضرب ڪرڻ | x</annotation>
+		<annotation cp="✖" type="tts">وڏي ضرب x</annotation>
+		<annotation cp="❌">رد | نشان | ضرب | ضرب ڪرڻ | x</annotation>
+		<annotation cp="❌" type="tts">ڪراس جي نشاني</annotation>
+		<annotation cp="❎">نشان | اسڪوائر</annotation>
+		<annotation cp="❎" type="tts">ڪراس نشاني وارو بٽڻ</annotation>
+		<annotation cp="➕">رياضي | جوڙ</annotation>
+		<annotation cp="➕" type="tts">وڏي جوڙ جي نشاني</annotation>
+		<annotation cp="➖">رياضي | ڪٽ</annotation>
+		<annotation cp="➖" type="tts">وڏي ڪٽ جي نشاني</annotation>
+		<annotation cp="➗">ونڊ | رياضي</annotation>
+		<annotation cp="➗" type="tts">وڏي ونڊ جي نشاني</annotation>
+		<annotation cp="➰">مڙيل لوپ</annotation>
+		<annotation cp="➰" type="tts">گھنڊيدار لوپ</annotation>
+		<annotation cp="➿">مڙيل | ٻٽو | لوپ</annotation>
+		<annotation cp="➿" type="tts">ٻٽي مڙيل لوپ</annotation>
+		<annotation cp="〽">نشان | حصو</annotation>
+		<annotation cp="〽" type="tts">حصو ڦير جو نشان</annotation>
+		<annotation cp="✳">ايسٽيرڪ</annotation>
+		<annotation cp="✳" type="tts">اٺ ڳالهائڻ جا ايسٽيرڪ</annotation>
+		<annotation cp="✴">تارو</annotation>
+		<annotation cp="✴" type="tts">اٺ نوڪدار نشان</annotation>
+		<annotation cp="❇">ٽمڪڻ</annotation>
+		<annotation cp="❇" type="tts">ٽمڪڻ</annotation>
+		<annotation cp="‼">بينگ بينگ | عجب | نسان | وقف جي علامت</annotation>
+		<annotation cp="‼" type="tts">ٻٽي عجب جي نشاني</annotation>
+		<annotation cp="⁉">عجب | انٽرروبينگ | نشان | وقف جي علامت | سوال</annotation>
+		<annotation cp="⁉" type="tts">عجب جي سوال جو نشان</annotation>
+		<annotation cp="❓">نشان | وقف جي علامت | سوال</annotation>
+		<annotation cp="❓" type="tts">سوال جي نشاني</annotation>
+		<annotation cp="❔">عجب | نشان | ٻڌايل | وقف جي علامت</annotation>
+		<annotation cp="❔" type="tts">سفيد سوال جي نشاني</annotation>
+		<annotation cp="❕">عجب | نشان | ٻڌايل | وقف جي علامت</annotation>
+		<annotation cp="❕" type="tts">سفيد عجب جي نشاني</annotation>
+		<annotation cp="❗">عجب | نشان | اوقاف</annotation>
+		<annotation cp="❗" type="tts">عجب جي نشاني</annotation>
+		<annotation cp="〰">ڊيش | وقف جي علامت | لڏندڙ</annotation>
+		<annotation cp="〰" type="tts">لڏندڙ ڊيش</annotation>
+		<annotation cp="©">ڪاپي رائيٽ</annotation>
+		<annotation cp="©" type="tts">ڪاپي رائيٽ</annotation>
+		<annotation cp="®">رجسٽر ٿيل</annotation>
+		<annotation cp="®" type="tts">رجسٽر ٿيل</annotation>
+		<annotation cp="™">نشان | ٽريڊمارڪ</annotation>
+		<annotation cp="™" type="tts">ٽريڊ مارڪ</annotation>
+		<annotation cp="🔟">ڪي ڪيپ 10</annotation>
+		<annotation cp="🔟" type="tts">ڪي ڪيپ 10</annotation>
+		<annotation cp="💯">100 | پورا | سئو | اسڪور</annotation>
+		<annotation cp="💯" type="tts">سو نقطا</annotation>
+		<annotation cp="🔠">ABCD | انپٽ | لاطيني | اکر | اپرڪيس</annotation>
+		<annotation cp="🔠" type="tts">انپٽ لاطيني وڏو ڪيس</annotation>
+		<annotation cp="🔡">ABCD | انپٽ | لاطيني | اکر | لوئرڪيس</annotation>
+		<annotation cp="🔡" type="tts">انپٽ لاطيني ننڍو ڪيس</annotation>
+		<annotation cp="🔢">1234 | انپٽ | نمبر</annotation>
+		<annotation cp="🔢" type="tts">انپٽ نمبر</annotation>
+		<annotation cp="🔣">〒♪&amp;% | انپٽ</annotation>
+		<annotation cp="🔣" type="tts">انپٽ نشانيون</annotation>
+		<annotation cp="🔤">abc | الفابيٽ | انپٽ | لاطيني | اکر</annotation>
+		<annotation cp="🔤" type="tts">انپٽ لاطيني اکر</annotation>
+		<annotation cp="🅰">a | رت جو قسم</annotation>
+		<annotation cp="🅰" type="tts">A بٽڻ ( رت جو قسم)</annotation>
+		<annotation cp="🆎">ab | رت جو قسم</annotation>
+		<annotation cp="🆎" type="tts">AB بٽڻ (رت جو قسم)</annotation>
+		<annotation cp="🅱">ab | رت جو قسم</annotation>
+		<annotation cp="🅱" type="tts">B بٽڻ (رت جو قسم)</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">CL بٽڻ</annotation>
+		<annotation cp="🆒">ٿڌو</annotation>
+		<annotation cp="🆒" type="tts">ٿڌ جو بٽڻ</annotation>
+		<annotation cp="🆓">مفت</annotation>
+		<annotation cp="🆓" type="tts">مفت بٽڻ</annotation>
+		<annotation cp="ℹ">i | معلومات</annotation>
+		<annotation cp="ℹ" type="tts">معلومات</annotation>
+		<annotation cp="🆔">شناخت</annotation>
+		<annotation cp="🆔" type="tts">ID بٽڻ</annotation>
+		<annotation cp="Ⓜ">دائرو | m، سرڪل</annotation>
+		<annotation cp="Ⓜ" type="tts">سرڪل ٿيل M</annotation>
+		<annotation cp="🆕">نئون</annotation>
+		<annotation cp="🆕" type="tts">نئون بٽڻ</annotation>
+		<annotation cp="🆖">ng</annotation>
+		<annotation cp="🆖" type="tts">NG بٽڻ</annotation>
+		<annotation cp="🅾">رت جو قسم | o</annotation>
+		<annotation cp="🅾" type="tts">O بٽڻ (رت جو قسم)</annotation>
+		<annotation cp="🆗">OK، ٺيڪ</annotation>
+		<annotation cp="🆗" type="tts">OK بٽڻ</annotation>
+		<annotation cp="🅿">پارڪنگ</annotation>
+		<annotation cp="🅿" type="tts">P بٽڻ</annotation>
+		<annotation cp="🆘">مدد | sos</annotation>
+		<annotation cp="🆘" type="tts">SOS بٽڻ</annotation>
+		<annotation cp="🆙">نشان | مٿي</annotation>
+		<annotation cp="🆙" type="tts">مٿي! بٽڻ</annotation>
+		<annotation cp="🆚">بمقابله | vs</annotation>
+		<annotation cp="🆚" type="tts">VS بٽڻ</annotation>
+		<annotation cp="🈁">جاپاني | ڪٽاڪنا | ココ | “هتي”</annotation>
+		<annotation cp="🈁" type="tts">جاپاني ‘هتي’ بٽڻ</annotation>
+		<annotation cp="🈂">جاپاني | ڪٽاڪنا | サ | “سروس چارج”</annotation>
+		<annotation cp="🈂" type="tts">جاپاني “سروس چارج” بٽڻ</annotation>
+		<annotation cp="🈷">جاپاني | آئڊيوگراف | 月 | “ماهوار رقم”</annotation>
+		<annotation cp="🈷" type="tts">جاپاني “ماهوار رقم” بٽڻ</annotation>
+		<annotation cp="🈶">جاپاني | آئڊيوگراف | 有 | “مفت ۾ نه آهي”</annotation>
+		<annotation cp="🈶" type="tts">جاپاني ‘مفت ۾ نه آهي’ بٽڻ</annotation>
+		<annotation cp="🈯">جاپاني | آئڊيوگراف | 指 | “رکيل”</annotation>
+		<annotation cp="🈯" type="tts">جاپاني ‘‘رکيل’‘ بٽڻ</annotation>
+		<annotation cp="🉐">جاپاني | آئڊيوگراف | 指 | “بارگين”</annotation>
+		<annotation cp="🉐" type="tts">جاپاني ‘سودو’ بٽڻ</annotation>
+		<annotation cp="🈹">جاپاني | آئڊيوگراف | 指 | “رعايت”</annotation>
+		<annotation cp="🈹" type="tts">جاپاني &quot;رعايت&quot; بٽڻ</annotation>
+		<annotation cp="🈚">جاپاني | آئڊيوگراف | 有 | “مفت ۾ ”</annotation>
+		<annotation cp="🈚" type="tts">جاپاني ‘مفت ۾‘ بٽڻ</annotation>
+		<annotation cp="🈲">جاپاني | آئڊيوگراف | 禁 | “منع ٿيل”</annotation>
+		<annotation cp="🈲" type="tts">جاپاني ‘منع ڪيل’ بٽڻ</annotation>
+		<annotation cp="🉑">جاپاني | آئڊيوگراف | 禁 | “قابل قبول”</annotation>
+		<annotation cp="🉑" type="tts">جاپاني ‘قابلِ قبول’ بٽڻ</annotation>
+		<annotation cp="🈸">جاپاني | آئڊيوگراف | 禁 | “درخواست”</annotation>
+		<annotation cp="🈸" type="tts">جاپاني ‘درخواست’ بٽڻ</annotation>
+		<annotation cp="🈴">جاپاني | آئڊيوگراف | 禁 | “پاسنگ گريڊ”</annotation>
+		<annotation cp="🈴" type="tts">جاپاني ‘پاس ٿيڻ جو گريڊ’ بٽڻ</annotation>
+		<annotation cp="🈳">جاپاني | آئڊيوگراف | 禁 | “ويڪنسي”</annotation>
+		<annotation cp="🈳" type="tts">جاپاني ‘ويڪنسي’ بٽڻ</annotation>
+		<annotation cp="㊗">جاپاني | آئڊيوگراف | 祝 | “مبارڪباد”</annotation>
+		<annotation cp="㊗" type="tts">جاپاني “مبارڪباد” بٽڻ</annotation>
+		<annotation cp="㊙">جاپاني | آئڊيوگراف | 秘 | “راز”</annotation>
+		<annotation cp="㊙" type="tts">جاپاني “راز” بٽڻ</annotation>
+		<annotation cp="🈺">جاپاني | آئڊيوگراف | 営 | “ڪاروبار لاءِ کليل”</annotation>
+		<annotation cp="🈺" type="tts">جاپاني ‘ڪاروبار لاءِ کليل’ بٽڻ</annotation>
+		<annotation cp="🈵">جاپاني | آئڊيوگراف | 禁 | “نو پيڪنسي”</annotation>
+		<annotation cp="🈵" type="tts">جاپاني ‘ويڪنسي نه آهي’ بٽڻ</annotation>
+		<annotation cp="▪">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="▪" type="tts">ڪارو ننڍو چورس</annotation>
+		<annotation cp="▫">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="▫" type="tts">اڇو ننڍو چورس</annotation>
+		<annotation cp="◻">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="◻" type="tts">سفيد وچولو چورس</annotation>
+		<annotation cp="◼">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="◼" type="tts">ڪارو وچولو چورس</annotation>
+		<annotation cp="◽">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="◽" type="tts">سفيد وچولو-ننڍو چورس</annotation>
+		<annotation cp="◾">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="◾" type="tts">ڪارو وچولو-ننڍو چورس</annotation>
+		<annotation cp="⬛">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="⬛" type="tts">ڪارو وڏو چورس</annotation>
+		<annotation cp="⬜">جيوميٽرڪ | چورس</annotation>
+		<annotation cp="⬜" type="tts">سفيد وڏو چورس</annotation>
+		<annotation cp="🔶">هيرو | جيوميٽرڪ | نارنگي</annotation>
+		<annotation cp="🔶" type="tts">وڏو نارنگي هيرو</annotation>
+		<annotation cp="🔷">نيرو | هيرو | جيوميٽرڪ</annotation>
+		<annotation cp="🔷" type="tts">وڏو نيرو هيرو</annotation>
+		<annotation cp="🔸">هيرو | جيوميٽرڪ | نارنگي</annotation>
+		<annotation cp="🔸" type="tts">ننڍو نارنگي هيرو</annotation>
+		<annotation cp="🔹">نيرو | هيرو | جيوميٽرڪ</annotation>
+		<annotation cp="🔹" type="tts">ننڍو نيرو هيرو</annotation>
+		<annotation cp="🔺">جيوميٽرڪ | ڳاڙهو</annotation>
+		<annotation cp="🔺" type="tts">ڳاڙهو ٽڪنڊو مٿي اشارو ڪيل</annotation>
+		<annotation cp="🔻">هيٺ | جيوميٽرڪ | ڳاڙهو</annotation>
+		<annotation cp="🔻" type="tts">ڳاڙهو ٽڪنڊو هيٺ اشارو ڪيل</annotation>
+		<annotation cp="💠">چوڻي | هيرو | جيوميٽرڪ | اندر</annotation>
+		<annotation cp="💠" type="tts">هڪ نقطي سان گڏ هيرو</annotation>
+		<annotation cp="🔘">بٽڻ | جيوميٽرڪ | ريڊيو</annotation>
+		<annotation cp="🔘" type="tts">ريڊيو بٽڻ</annotation>
+		<annotation cp="🔲">بٽڻ | جيوميٽرڪ | چورس</annotation>
+		<annotation cp="🔲" type="tts">چورس ڪارو بٽڻ</annotation>
+		<annotation cp="🔳">بٽڻ | جيوميٽرڪ | ڀريل | چورس</annotation>
+		<annotation cp="🔳" type="tts">اڇو چورس بٽڻ</annotation>
+		<annotation cp="⚪">دائرو | جيوميٽرڪ</annotation>
+		<annotation cp="⚪" type="tts">اڇو دائرو</annotation>
+		<annotation cp="⚫">دائرو | جيوميٽرڪ</annotation>
+		<annotation cp="⚫" type="tts">ڪارو دائرو</annotation>
+		<annotation cp="🔴">دائرو | جيوميٽرڪ | ڳاڙهو</annotation>
+		<annotation cp="🔴" type="tts">ڳاڙهو دائرو</annotation>
+		<annotation cp="🔵">نيرو | دائرو | جيوميٽرڪ</annotation>
+		<annotation cp="🔵" type="tts">نيرو دائرو</annotation>
+		<annotation cp="🏁">چيڪر، ريسنگ</annotation>
+		<annotation cp="🏁" type="tts">چيڪر جهنڊو</annotation>
+		<annotation cp="🚩">پوسٽ</annotation>
+		<annotation cp="🚩" type="tts">ٽڪنڊو جھنڊو</annotation>
+		<annotation cp="🎌">جشن | ڪراس | ڪراسڊ | جاپاني</annotation>
+		<annotation cp="🎌" type="tts">ڪرسڊ جهنڊا</annotation>
+		<annotation cp="🏴">لڏندڙ</annotation>
+		<annotation cp="🏴" type="tts">ڪارو جهنڊو</annotation>
+		<annotation cp="🏳">لڏندڙ</annotation>
+		<annotation cp="🏳" type="tts">اڇو جهنڊو</annotation>
+		<annotation cp="🏳‍🌈">انڊلٺ</annotation>
+		<annotation cp="🏳‍🌈" type="tts">انڊلٺي جھنڊو</annotation>
+	</annotations>
+</ldml>

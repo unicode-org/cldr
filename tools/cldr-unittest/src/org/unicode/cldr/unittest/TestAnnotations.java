@@ -141,7 +141,8 @@ public class TestAnnotations extends TestFmwkPlus {
         }
     }
 
-    public void TestUniqueness() {
+    // comment this out, since we now have console check for this.
+    public void oldTestUniqueness() {
 //        if (logKnownIssue("cldrbug:10104", "Disable until the uniqueness problems are fixed")) {
 //            return;
 //        }

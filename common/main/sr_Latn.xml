@@ -7432,13 +7432,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
-		<minimalPairs>
-			<pluralMinimalPairs count="one">{0} sat</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} sata</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} sati</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} sati</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Skrenite u {0}. desno.</ordinalMinimalPairs>
-		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

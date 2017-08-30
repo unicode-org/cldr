@@ -2,9 +2,11 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
@@ -515,6 +517,8 @@ public class CLDRConfig extends Properties {
      */
     private static final String KEYBOARDS_DIR = "keyboards";
     private static final String MAIN_DIR = "main";
+    private static final String ANNOTATIONS_DIR = "annotations";
+    
     /**
      * TODO: better place for these constants?
      */
@@ -545,11 +549,13 @@ public class CLDRConfig extends Properties {
      * map "common","seed" -> "common/main", "seed/main"
      */
     public File[] getMainDataDirectories(File base[]) {
-        File[] ret = new File[base.length];
+        List<File> ret = new ArrayList<>();
+        //File[] ret = new File[base.length * 2];
         for (int i = 0; i < base.length; i++) {
-            ret[i] = new File(base[i], MAIN_DIR);
+            ret.add(new File(base[i], MAIN_DIR));
+            ret.add(new File(base[i], ANNOTATIONS_DIR));
         }
-        return ret;
+        return ret.toArray(new File[ret.size()]);
     }
 
     /**

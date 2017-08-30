@@ -152,8 +152,8 @@ public class ConsoleCheckCLDR {
         id_view(new Params().setHelp("")), //, 'i', UOption.NO_ARG),
         subtype_filter(new Params().setHelp("error/warning subtype filter, eg unexpectedOrderOfEraYear")
             .setDefault(".*").setMatch(".*").setFlag('y')), //, 'y', UOption.REQUIRES_ARG),
-        source_all(new Params().setHelp("Use common AND seed directories. ( Set CLDR_DIR, don't use this with -s. )")
-            .setMatch(".*").setFlag('S')), //, 'S', UOption.REQUIRES_ARG),
+        source_all(new Params().setHelp("Use multiple directories. (Don't use this with -s.)")
+            .setMatch(".*").setFlag('S').setDefault("common,seed")), //, 'S', <changed>),
         bailey(new Params().setHelp("check bailey values (↑↑↑)")), //, 'b', UOption.NO_ARG)
         ;
 
@@ -194,7 +194,7 @@ public class ConsoleCheckCLDR {
         UOption.create("vote resolution", 'v', UOption.NO_ARG),
         UOption.create("id view", 'i', UOption.NO_ARG),
         UOption.create("subtype_filter", 'y', UOption.REQUIRES_ARG),
-        UOption.create("source_all", 'S', UOption.REQUIRES_ARG),
+        UOption.create("source_all", 'S', UOption.OPTIONAL_ARG).setDefault("common,seed"),
         UOption.create("bailey", 'b', UOption.NO_ARG)
         // UOption.create("vote resolution2", 'w', UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY +
         // "incoming/vetted/main/votes/"),

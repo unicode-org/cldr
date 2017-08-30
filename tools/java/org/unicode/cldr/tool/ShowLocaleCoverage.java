@@ -68,8 +68,11 @@ public class ShowLocaleCoverage {
     public static CLDRConfig testInfo = ToolConfig.getToolInstance();
     private static final StandardCodes SC = testInfo.getStandardCodes();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
-    private static final CLDRFile ENGLISH = testInfo.getEnglish();
     private static final StandardCodes STANDARD_CODES = SC;
+    
+    static org.unicode.cldr.util.Factory factory = testInfo.getMainAndAnnotationsFactory();
+    private static final CLDRFile ENGLISH = factory.make("en",true);
+    
     private static UnicodeSet ENG_ANN = Annotations.getData("en").keySet();
 
     // added info using pattern in VettingViewer.
@@ -90,6 +93,7 @@ public class ShowLocaleCoverage {
     enum MyOptions {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),
         //        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
+        chart(null, null, "chart only"),
         growth("true", "true", "Compute growth data"),
         organization(".+", null, "Only locales for organization"),
         version(".+", LATEST, "To get different versions"),
@@ -117,7 +121,6 @@ public class ShowLocaleCoverage {
         .add("^//ldml/numbers/currencies/currency.*/symbol", true)
         .add("^//ldml/characters/exemplarCharacters", true);
 
-    static org.unicode.cldr.util.Factory factory = testInfo.getFullCldrFactory();
     static DraftStatus minimumDraftStatus = DraftStatus.unconfirmed;
     static final Factory pathHeaderFactory = PathHeader.getFactory(ENGLISH);
 
@@ -126,6 +129,10 @@ public class ShowLocaleCoverage {
 
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.filter, args, true);
+        if (MyOptions.chart.option.doesOccur()) {
+            showCoverage(null);
+            return;
+        }
 
         Matcher matcher = PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
 
@@ -251,6 +258,7 @@ public class ShowLocaleCoverage {
     static final Map<String, String> versionToYear = new HashMap<>();
     static {
         int[][] mapping = {
+            { 32, 2017 },
             { 30, 2016 },
             { 28, 2015 },
             { 26, 2014 },
@@ -571,32 +579,33 @@ public class ShowLocaleCoverage {
         int localeCount = 0;
 
         final TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setBreakSpans(true)
-        .addColumn("English Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("Native Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("Script", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("CLDR target", "class='source'", null, "class='source'", true).setBreakSpans(true)
-        .addColumn("Sublocales", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
-        .setCellPattern("{0,number}")
-        .addColumn("Fields", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
-        .setCellPattern("{0,number}")
-        .addColumn("∪ UC", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
-        .setCellPattern("{0,number}")
-        //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
-        ;
+            //.addColumn("№", "class='source'", null, "class='source'", true)
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setBreakSpans(true)
+            .addColumn("English Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("Native Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("Script", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("CLDR target", "class='source'", null, "class='source'", true).setBreakSpans(true)
+            .addColumn("Sublocales", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+            .setCellPattern("{0,number}")
+            .addColumn("Fields", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+            .setCellPattern("{0,number}")
+            .addColumn("∪ UC", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+            .setCellPattern("{0,number}")
+            //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
+            ;
 
         for (Level level : reversedLevels) {
             String titleLevel = level.toString();
             tablePrinter
             .addColumn(UCharacter.toTitleCase(titleLevel, null) + "%", "class='target'", null, "class='targetRight'", true)
-            .setCellPattern("{0,number,0%}")
+            .setCellPattern("{0,number,0.0%}")
             .setBreakSpans(true);
             if (level == Level.MODERN) {
                 tablePrinter.setSortPriority(0).setSortAscending(false);
             }
             tablePrinter
             .addColumn("∪ UC%", "class='target'", null, "class='targetRight'", true)
-            .setCellPattern("{0,number,0%}")
+            .setCellPattern("{0,number,0.0%}")
             .setBreakSpans(true);
         }
 //        tablePrinter
@@ -618,6 +627,7 @@ public class ShowLocaleCoverage {
 //        percentFormat.setMinimumFractionDigits(2);
 //        NumberFormat intFormat = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
 
+        int counter = 0;
         for (String locale : availableLanguages) {
             try {
                 if (locale.contains("supplemental")) { // for old versions
@@ -675,6 +685,7 @@ public class ShowLocaleCoverage {
 
                 tablePrinter
                 .addRow()
+                //.addCell(++counter)
                 .addCell(language)
                 .addCell(ENGLISH.getName(language))
                 .addCell(file.getName(language))

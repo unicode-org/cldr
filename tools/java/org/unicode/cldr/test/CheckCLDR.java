@@ -336,9 +336,13 @@ abstract public class CheckCLDR {
         public enum Option {
             locale,
             CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"),
-            CoverageLevel_localeType("CoverageLevel.localeType"), SHOW_TIMES, phase, lgWarningCheck,
-
-            CheckCoverage_skip("CheckCoverage.skip");
+            CoverageLevel_localeType("CoverageLevel.localeType"), 
+            SHOW_TIMES, 
+            phase, 
+            lgWarningCheck,
+            CheckCoverage_skip("CheckCoverage.skip"),
+            exemplarErrors
+            ;
 
             private String key;
 

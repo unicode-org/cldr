@@ -61,7 +61,11 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
         if (localeInfo != null && localeInfo.hasCase == Trinary.YES) {
             // this script has casing info, so we can request it here
-            types = casingInfo.getLocaleCasing(locale);
+            try {
+                types = casingInfo.getLocaleCasing(locale);
+            } catch (Exception e) {
+                types = Collections.emptyMap();
+            }
         } else {
             // no casing info - since the types Map is global, and null checks aren't done,
             // we are better off  with an empty map here

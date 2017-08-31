@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import java.util.List;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
@@ -17,7 +18,14 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
     private PathHeader.Factory pathHeaderFactory;
 
     public synchronized CLDRFile getEnglishFile() {
-        return super.getEnglishFile() != null ? super.getEnglishFile() : getFactory().make("en", true);
+        if (super.getEnglishFile() != null) {
+            return super.getEnglishFile();
+        }
+        try {
+            return getFactory().make("en", true);
+        } catch (Exception e) {
+            return CLDRConfig.getInstance().getEnglish();
+        }
     }
 
     public synchronized PathHeader.Factory getPathHeaderFactory() {

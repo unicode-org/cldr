@@ -70,7 +70,7 @@ public class ShowLocaleCoverage {
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final StandardCodes STANDARD_CODES = SC;
     
-    static org.unicode.cldr.util.Factory factory = testInfo.getMainAndAnnotationsFactory();
+    static org.unicode.cldr.util.Factory factory = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
     private static final CLDRFile ENGLISH = factory.make("en",true);
     
     private static UnicodeSet ENG_ANN = Annotations.getData("en").keySet();

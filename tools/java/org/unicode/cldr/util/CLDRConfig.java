@@ -146,6 +146,7 @@ public class CLDRConfig extends Properties {
     private Factory cldrFactory;
     private Factory fullFactory;
     private Factory mainAndAnnotationsFactory;
+    private Factory commonAndSeedAndMainAndAnnotationsFactory;
     private Factory exemplarsFactory;
     private Factory collationFactory;
     private Factory rbnfFactory;
@@ -270,11 +271,28 @@ public class CLDRConfig extends Properties {
     public Factory getMainAndAnnotationsFactory() {
         synchronized (FULL_FACTORY_SYNC) {
             if (mainAndAnnotationsFactory == null) {
-                File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
+                File[] paths = {
+                    new File(CLDRPaths.MAIN_DIRECTORY), 
+                    new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
                 mainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
             }
         }
         return mainAndAnnotationsFactory;
+    }
+
+    public Factory getCommonAndSeedAndMainAndAnnotationsFactory() {
+        synchronized (FULL_FACTORY_SYNC) {
+            if (commonAndSeedAndMainAndAnnotationsFactory == null) {
+                File[] paths = { 
+                    new File(CLDRPaths.MAIN_DIRECTORY), 
+                    new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+                    new File(CLDRPaths.SEED_DIRECTORY),
+                    new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY),
+                };
+                commonAndSeedAndMainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
+            }
+        }
+        return commonAndSeedAndMainAndAnnotationsFactory;
     }
 
     public Factory getFullCldrFactory() {

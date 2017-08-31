@@ -358,7 +358,7 @@ public class Option {
                     }
                     System.out.println("#-" + option.flag 
                         + "\t" + option.tag
-                        + (option.doesOccur ? "\t⌸\t" : "\t≔\t") + option.value);
+                        + (option.doesOccur ? "\t≔\t" : "\t≝\t") + option.value);
                 }
             }
             return results;

@@ -44,6 +44,10 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
+    private static final UnicodeSet RTL_CONTROLS = new UnicodeSet("[\\u061C\\u200E\\u200F\\u202A-\\u202D\\u2066-\\u2069]");
+
+    private static final UnicodeSet RTL = new UnicodeSet("[[:bc=AL:][:bc=R:]]");
+
     private static final String STAND_IN = "#";
 
     // private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement();
@@ -99,6 +103,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     UnicodeSetPrettyPrinter prettyPrint;
     private Status otherPathStatus = new Status();
     private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
+    private boolean errorDefaultOption;
 
     // for extracting date pattern text
     private DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
@@ -170,6 +175,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         if (cldrFile.getLocaleID().equals("root")) {
             return this;
         }
+        
+        errorDefaultOption = options.get(Options.Option.exemplarErrors) != null;
+        
         String locale = cldrFile.getLocaleID();
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
@@ -186,6 +194,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 .setMessage("No Exemplar Characters: {0}", new Object[] { this.getClass().getName() });
             possibleErrors.add(item);
             return this;
+        }
+        
+        boolean isRTL = RTL.containsSome(exemplars);
+        if (isRTL) {
+            exemplars.addAll(RTL_CONTROLS);
         }
         // UnicodeSet temp = resolvedFile.getExemplarSet("standard");
         // if (temp != null) exemplars.addAll(temp);
@@ -269,8 +282,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         if (containsPart(path, EXEMPLAR_SKIPS)) {
             return this;
-        }
+        } 
 
+        CheckStatus.Type errorOption = errorDefaultOption & sourceLocale.equals(getResolvedCldrFileToCheck().getLocaleID()) 
+            ? CheckStatus.errorType : CheckStatus.warningType;
+            
         value = checkAndReplacePlaceholders(path, value, result);
         if (path.startsWith("//ldml/numbers/miscPatterns") && path.contains("[@type=\"range\"]")) {
             if (DISALLOWED_IN_RANGE.containsSome(value)) {
@@ -320,7 +336,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 // String currency = new XPathParts().set(path).getAttributeValue(-2, "type");
                 if (disallowed.size() > 0) {
                     // && asciiNotAllowed(getCldrFileToCheck().getLocaleID(), currency)) {
-                    addMissingMessage(disallowed, CheckStatus.warningType,
+                    addMissingMessage(disallowed, errorOption,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
                         result);
@@ -330,7 +346,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
                 disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat and gmtZeroFormat
                 if (disallowed.size() > 0) {
-                    addMissingMessage(disallowed, CheckStatus.warningType,
+                    addMissingMessage(disallowed, errorOption,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
                         result);
@@ -343,7 +359,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     disallowed.removeAll("M"); // Generic-calendar month names contain 'M' and do not get modified
                 }
                 if (disallowed.size() > 0) {
-                    addMissingMessage(disallowed, CheckStatus.warningType,
+                    addMissingMessage(disallowed, errorOption,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
                         result);
@@ -356,7 +372,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     disallowed.removeAll("ISO"); // Name of ISO8601 calendar may contain "ISO" regardless of native script
                 }
                 if (disallowed.size() > 0) {
-                    addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                    addMissingMessage(disallowed, errorOption, Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
                 }
             }
@@ -410,13 +426,13 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 }
                 disallowed.removeAll(toRemove);
                 if (disallowed.size() > 0) {
-                    addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                    addMissingMessage(disallowed, errorOption, Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
                 }
             }
         } else {
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
-                addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                addMissingMessage(disallowed, errorOption, Subtype.charactersNotInMainOrAuxiliaryExemplars,
                     Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
             }
         }

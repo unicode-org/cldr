@@ -648,7 +648,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             return lookup;
         }
 
-        CLDRFile english = getFactory().make("en", true);
+        CLDRFile english = getEnglishFile();
         // Pick up all instances in English where the exemplarCity and territory match
         // and include them as exceptions.
         exceptions = new HashMap<String, String>();

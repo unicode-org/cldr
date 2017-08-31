@@ -155,6 +155,7 @@ public class ConsoleCheckCLDR {
         source_all(new Params().setHelp("Use multiple directories. (Don't use this with -s.)")
             .setMatch(".*").setFlag('S').setDefault("common,seed")), //, 'S', <changed>),
         bailey(new Params().setHelp("check bailey values (↑↑↑)")), //, 'b', UOption.NO_ARG)
+        exemplarError(new Params().setFlag('E').setHelp("include to force strict Exemplar check"))
         ;
 
         // BOILERPLATE TO COPY
@@ -195,10 +196,12 @@ public class ConsoleCheckCLDR {
         UOption.create("id view", 'i', UOption.NO_ARG),
         UOption.create("subtype_filter", 'y', UOption.REQUIRES_ARG),
         UOption.create("source_all", 'S', UOption.OPTIONAL_ARG).setDefault("common,seed"),
-        UOption.create("bailey", 'b', UOption.NO_ARG)
+        UOption.create("bailey", 'b', UOption.NO_ARG),
+        UOption.create("exemplarError", 'E', UOption.NO_ARG)
         // UOption.create("vote resolution2", 'w', UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY +
         // "incoming/vetted/main/votes/"),
     };
+    
     private static final Comparator<String> baseFirstCollator = new Comparator<String>() {
         LanguageTagParser languageTagParser1 = new LanguageTagParser();
         LanguageTagParser languageTagParser2 = new LanguageTagParser();
@@ -380,7 +383,7 @@ public class ConsoleCheckCLDR {
             // PrintWriter cssFile = FileUtilities.openUTF8Writer(generated_html_directory, "index.css");
             // Utility;
         }
-
+        
         idView = options[ID_VIEW].doesOccur;
 
         if (options[VOTE_RESOLVE].doesOccur) {
@@ -403,23 +406,23 @@ public class ConsoleCheckCLDR {
             System.out.println("    " + f.getPath() + "\t("
                 + f.getCanonicalPath() + ")");
         }
-        System.out.println("factoryFilter: " + factoryFilter);
-        System.out.println("test filter: " + checkFilter);
-        System.out.println("organization: " + organization);
-        System.out.println("show examples: " + SHOW_EXAMPLES);
-        System.out.println("phase: " + phase);
-        System.out.println("path filter: " + pathFilterString);
-        System.out.println("coverage level: " + coverageLevel);
-        System.out.println("checking dates: " + checkFlexibleDates);
-        System.out.println("only check-on-submit: " + checkOnSubmit);
-        System.out.println("show all: " + showAll);
-        System.out.println("errors only?: " + errorsOnly);
-        System.out.println("generate error counts: " + ErrorFile.generated_html_directory);
-        // System.out.println("vote directory: " + (ErrorFile.voteFactory == null ? null :
-        // ErrorFile.voteFactory.getSourceDirectory()));
-        System.out.println("resolve votes: " + resolveVotesDirectory);
-        System.out.println("id view: " + idView);
-        System.out.println("subtype filter: " + subtypeFilter);
+//        System.out.println("factoryFilter: " + factoryFilter);
+//        System.out.println("test filter: " + checkFilter);
+//        System.out.println("organization: " + organization);
+//        System.out.println("show examples: " + SHOW_EXAMPLES);
+//        System.out.println("phase: " + phase);
+//        System.out.println("path filter: " + pathFilterString);
+//        System.out.println("coverage level: " + coverageLevel);
+//        System.out.println("checking dates: " + checkFlexibleDates);
+//        System.out.println("only check-on-submit: " + checkOnSubmit);
+//        System.out.println("show all: " + showAll);
+//        System.out.println("errors only?: " + errorsOnly);
+//        System.out.println("generate error counts: " + ErrorFile.generated_html_directory);
+//        // System.out.println("vote directory: " + (ErrorFile.voteFactory == null ? null :
+//        // ErrorFile.voteFactory.getSourceDirectory()));
+//        System.out.println("resolve votes: " + resolveVotesDirectory);
+//        System.out.println("id view: " + idView);
+//        System.out.println("subtype filter: " + subtypeFilter);
 
         // set up the test
         Factory cldrFactory = SimpleFactory.make(sourceDirectories, factoryFilter)
@@ -479,6 +482,10 @@ public class ConsoleCheckCLDR {
 
             boolean isLanguageLocale = localeID.equals(localeIDParser.set(localeID).getLanguageScript());
             options.clear();
+            
+            if (MyOptions.exemplarError.option.doesOccur()) {
+                options.put(Options.Option.exemplarErrors.toString(), "true");
+            }
 
             // if the organization is set, skip any locale that doesn't have a value in Locales.txt
             Level level = coverageLevel;
@@ -506,7 +513,7 @@ public class ConsoleCheckCLDR {
             // options.put("CheckCoverage.requiredLevel","comprehensive");
 
             CLDRFile file;
-            CLDRFile englishFile;
+            CLDRFile englishFile = english;
             CLDRFile parent = null;
 
             ElapsedTimer timer = new ElapsedTimer();
@@ -519,7 +526,7 @@ public class ConsoleCheckCLDR {
                 if (parentID != null) {
                     parent = cldrFactory.make(parentID, true);
                 }
-                englishFile = cldrFactory.make("en", true);
+                //englishFile = cldrFactory.make("en", true);
             } catch (RuntimeException e) {
                 fatalErrors.add(localeID);
                 System.out.println("FATAL ERROR: " + localeID);

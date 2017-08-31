@@ -1264,13 +1264,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<types>
 			<type key="calendar" type="buddhist">calendrier bouddhiste</type>
 			<type key="calendar" type="chinese">calendrier chinois</type>
-			<type key="calendar" type="coptic">Calendrier copte</type>
+			<type key="calendar" type="coptic">calendrier copte</type>
 			<type key="calendar" type="dangi">calendrier dangi</type>
 			<type key="calendar" type="ethiopic">calendrier éthiopien</type>
-			<type key="calendar" type="ethiopic-amete-alem">Calendrier éthiopien Amete Alem</type>
+			<type key="calendar" type="ethiopic-amete-alem">calendrier éthiopien Amete Alem</type>
 			<type key="calendar" type="gregorian">calendrier grégorien</type>
 			<type key="calendar" type="hebrew">calendrier hébraïque</type>
-			<type key="calendar" type="indian">Calendrier indien</type>
+			<type key="calendar" type="indian">calendrier indien</type>
 			<type key="calendar" type="islamic">calendrier musulman</type>
 			<type key="calendar" type="islamic-civil">calendrier musulman (tabulaire, époque civile)</type>
 			<type key="calendar" type="islamic-rgsa" draft="unconfirmed">calendrier musulman (observé, Arabie Saoudite)</type>
@@ -1291,23 +1291,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Trier avec les majuscules d’abord</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Trier sans tenir compte de la casse</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Trier en tenant compte de la casse</type>
-			<type key="collation" type="big5han">Ordre chinois traditionnel - Big5</type>
+			<type key="collation" type="big5han">ordre chinois traditionnel - Big5</type>
 			<type key="collation" type="compat" draft="contributed">ancien ordre de tri pour compatibilité</type>
-			<type key="collation" type="dictionary">Ordre du dictionnaire</type>
+			<type key="collation" type="dictionary">ordre du dictionnaire</type>
 			<type key="collation" type="ducet">ordre de tri Unicode par défaut</type>
 			<type key="collation" type="emoji" draft="unconfirmed">ordre des émojis</type>
 			<type key="collation" type="eor" draft="contributed">règles de classement européen</type>
-			<type key="collation" type="gb2312han">Ordre chinois simplifié - GB2312</type>
-			<type key="collation" type="phonebook">Ordre de l’annuaire</type>
-			<type key="collation" type="phonetic" draft="contributed">Ordre de tri phonétique</type>
-			<type key="collation" type="pinyin">Ordre pinyin</type>
-			<type key="collation" type="reformed">Ordre réformé</type>
+			<type key="collation" type="gb2312han">ordre chinois simplifié - GB2312</type>
+			<type key="collation" type="phonebook">ordre de l’annuaire</type>
+			<type key="collation" type="phonetic" draft="contributed">ordre de tri phonétique</type>
+			<type key="collation" type="pinyin">ordre pinyin</type>
+			<type key="collation" type="reformed">ordre réformé</type>
 			<type key="collation" type="search">recherche générique</type>
 			<type key="collation" type="searchjl" draft="contributed">rechercher par consonne initiale en hangeul</type>
 			<type key="collation" type="standard">ordre de tri standard</type>
-			<type key="collation" type="stroke">Ordre des traits</type>
-			<type key="collation" type="traditional">Ordre traditionnel</type>
-			<type key="collation" type="unihan">Ordre de tri radical-traits</type>
+			<type key="collation" type="stroke">ordre des traits</type>
+			<type key="collation" type="traditional">ordre traditionnel</type>
+			<type key="collation" type="unihan">ordre de tri radical-traits</type>
 			<type key="collation" type="zhuyin" draft="contributed">ordre zhuyin</type>
 			<type key="colNormalization" type="no" draft="contributed">Trier sans normalisation</type>
 			<type key="colNormalization" type="yes" draft="contributed">Trier avec normalisation Unicode</type>
@@ -1462,13 +1462,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<eras>
 					<!-- per cldrbug 2835, accept provisional & unconfirmed -->
 					<eraNames>
-						<era type="0">ère bouddhiste</era>
+						<era type="0">ère bouddhique</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">ère b.</era>
+						<era type="0">E. B.</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0">E.B.</era>
+						<era type="0">EB</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -2906,7 +2906,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="9">iyar</month>
 							<month type="10">siv.</month>
 							<month type="11">tam.</month>
-							<month type="12">ab</month>
+							<month type="12">av</month>
 							<month type="13">él.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
@@ -2926,20 +2926,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="13" draft="contributed">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">Tisseri</month>
-							<month type="2">Hesvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tébeth</month>
-							<month type="5">Schébat</month>
-							<month type="6">Adar I</month>
-							<month type="7">Adar</month>
-							<month type="7" yeartype="leap">Adar II</month>
-							<month type="8">Nissan</month>
-							<month type="9">Iyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamouz</month>
-							<month type="12">Ab</month>
-							<month type="13">Elloul</month>
+							<month type="1">tichri</month>
+							<month type="2">hèchvan</month>
+							<month type="3">kislev</month>
+							<month type="4">téveth</month>
+							<month type="5">chevat</month>
+							<month type="6">adar I</month>
+							<month type="7">adar</month>
+							<month type="7" yeartype="leap">adar II</month>
+							<month type="8">nissan</month>
+							<month type="9">iyar</month>
+							<month type="10">sivan</month>
+							<month type="11">tamouz</month>
+							<month type="12">av</month>
+							<month type="13">éloul</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -2956,7 +2956,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="9">iyar</month>
 							<month type="10">siv.</month>
 							<month type="11">tam.</month>
-							<month type="12">ab</month>
+							<month type="12">av</month>
 							<month type="13">él.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
@@ -2976,20 +2976,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="13" draft="contributed">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">Tisseri</month>
-							<month type="2">Hesvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tébeth</month>
-							<month type="5">Schébat</month>
-							<month type="6">Adar I</month>
-							<month type="7">Adar</month>
-							<month type="7" yeartype="leap">Adar II</month>
-							<month type="8">Nissan</month>
-							<month type="9">Iyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamouz</month>
-							<month type="12">Ab</month>
-							<month type="13">Elloul</month>
+							<month type="1">tichri</month>
+							<month type="2">hèchvan</month>
+							<month type="3">kislev</month>
+							<month type="4">téveth</month>
+							<month type="5">chevat</month>
+							<month type="6">adar I</month>
+							<month type="7">adar</month>
+							<month type="7" yeartype="leap">adar II</month>
+							<month type="8">nissan</month>
+							<month type="9">iyar</month>
+							<month type="10">sivan</month>
+							<month type="11">tamouz</month>
+							<month type="12">av</month>
+							<month type="13">éloul</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -4186,7 +4186,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="1" draft="contributed">RdC</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="contributed">avant RdC</era>
+						<era type="0" draft="contributed">av. RdC</era>
 						<era type="1" draft="contributed">RdC</era>
 					</eraAbbr>
 					<eraNarrow>
@@ -10256,8 +10256,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-fathom">
 				<displayName draft="contributed">fm</displayName>
-				<unitPattern count="one">{0} fat</unitPattern>
-				<unitPattern count="other">{0} fat</unitPattern>
+				<unitPattern count="one">{0} fm</unitPattern>
+				<unitPattern count="other">{0} fm</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>nmi</displayName>
@@ -10980,8 +10980,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName draft="contributed">″Hg</displayName>
-				<unitPattern count="one">{0}inHg</unitPattern>
-				<unitPattern count="other">{0}inHg</unitPattern>
+				<unitPattern count="one">{0}″ Hg</unitPattern>
+				<unitPattern count="other">{0}″ Hg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName draft="contributed">mbar</displayName>

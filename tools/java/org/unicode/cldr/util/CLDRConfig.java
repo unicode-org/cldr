@@ -287,8 +287,7 @@ public class CLDRConfig extends Properties {
                 File[] paths = { 
                     new File(CLDRPaths.MAIN_DIRECTORY), 
                     new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
-                    new File(CLDRPaths.SEED_DIRECTORY),
-                    new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY),
+                    new File(CLDRPaths.SEED_DIRECTORY)
                 };
                 commonAndSeedAndMainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
             }
@@ -584,14 +583,18 @@ public class CLDRConfig extends Properties {
                 ret.add(baseFile);
             } else {
                 for (String sub : STANDARD_SUBDIRS) {
-                    File file = new File(baseFile, sub);
-                    if (file.exists()) {
-                        ret.add(file);
-                    }
+                    addIfExists(ret, baseFile, sub);
                 }
             }
         }
         return ret.toArray(new File[ret.size()]);
+    }
+
+    private void addIfExists(List<File> ret, File baseFile, String sub) {
+        File file = new File(baseFile, sub);
+        if (file.exists()) {
+            ret.add(file);
+        }
     }
 
     /**

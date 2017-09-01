@@ -557,6 +557,7 @@ public class ShowLocaleCoverage {
         Counter<Level> foundCounter = new Counter<Level>();
         Counter<Level> unconfirmedCounter = new Counter<Level>();
         Counter<Level> missingCounter = new Counter<Level>();
+        
 
         List<Level> reversedLevels = new ArrayList();
         reversedLevels.add(Level.MODERN);
@@ -579,7 +580,7 @@ public class ShowLocaleCoverage {
         int localeCount = 0;
 
         final TablePrinter tablePrinter = new TablePrinter()
-            //.addColumn("№", "class='source'", null, "class='source'", true)
+            .addColumn("Status", "class='source'", null, "class='source'", true).setBreakSpans(true).setSortPriority(0)
             .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setBreakSpans(true)
             .addColumn("English Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
             .addColumn("Native Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
@@ -601,7 +602,7 @@ public class ShowLocaleCoverage {
             .setCellPattern("{0,number,0.0%}")
             .setBreakSpans(true);
             if (level == Level.MODERN) {
-                tablePrinter.setSortPriority(0).setSortAscending(false);
+                tablePrinter.setSortPriority(1).setSortAscending(false);
             }
             tablePrinter
             .addColumn("∪ UC%", "class='target'", null, "class='targetRight'", true)
@@ -645,6 +646,9 @@ public class ShowLocaleCoverage {
                 if (defaultContents.contains(locale) || "root".equals(locale) || "und".equals(locale)) {
                     continue;
                 }
+                
+                boolean isSeed = new File(CLDRPaths.SEED_DIRECTORY, locale+".xml").exists();
+
                 //boolean capture = locale.equals("en");
                 String region = ltp.set(locale).getRegion();
                 if (!region.isEmpty()) continue; // skip regions
@@ -685,7 +689,7 @@ public class ShowLocaleCoverage {
 
                 tablePrinter
                 .addRow()
-                //.addCell(++counter)
+                .addCell(isSeed ? "seed" : "common")
                 .addCell(language)
                 .addCell(ENGLISH.getName(language))
                 .addCell(file.getName(language))

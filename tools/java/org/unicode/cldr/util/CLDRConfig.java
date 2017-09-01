@@ -18,6 +18,7 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
@@ -536,7 +537,8 @@ public class CLDRConfig extends Properties {
     private static final String KEYBOARDS_DIR = "keyboards";
     private static final String MAIN_DIR = "main";
     private static final String ANNOTATIONS_DIR = "annotations";
-    
+    private static final String SUBDIVISIONS_DIR = "subdivisions";
+
     /**
      * TODO: better place for these constants?
      */
@@ -551,7 +553,8 @@ public class CLDRConfig extends Properties {
     }
 
     /**
-     * given comma separated list "common" or "common,main" return a list of actual files
+     * Given comma separated list "common" or "common,main" return a list of actual files.
+     * Adds subdirectories in STANDARD_SUBDIRS as necessary.
      */
     public File[] getCLDRDataDirectories(String list) {
         final File dir = getCldrBaseDirectory();
@@ -563,15 +566,30 @@ public class CLDRConfig extends Properties {
         return ret;
     }
 
+    static final ImmutableSet<String> STANDARD_SUBDIRS = ImmutableSet.of(MAIN_DIR, ANNOTATIONS_DIR, SUBDIVISIONS_DIR);
+    
     /**
-     * map "common","seed" -> "common/main", "seed/main"
+     * Add subdirectories to file list as needed, from STANDARD_SUBDIRS.
+     * <ul><li>map "common","seed" -> "common/main", "seed/main"
+     * <li>but common/main -> common/main
+     * </ul>
      */
     public File[] getMainDataDirectories(File base[]) {
         List<File> ret = new ArrayList<>();
         //File[] ret = new File[base.length * 2];
         for (int i = 0; i < base.length; i++) {
-            ret.add(new File(base[i], MAIN_DIR));
-            ret.add(new File(base[i], ANNOTATIONS_DIR));
+            File baseFile = base[i];
+            String name = baseFile.getName();
+            if (STANDARD_SUBDIRS.contains(name)) {
+                ret.add(baseFile);
+            } else {
+                for (String sub : STANDARD_SUBDIRS) {
+                    File file = new File(baseFile, sub);
+                    if (file.exists()) {
+                        ret.add(file);
+                    }
+                }
+            }
         }
         return ret.toArray(new File[ret.size()]);
     }
@@ -676,7 +694,7 @@ public class CLDRConfig extends Properties {
 
     private CLDRURLS urls = null;
     private CLDRURLS absoluteUrls = null;
-    
+
     public boolean isCldrVersionBefore(int... version) {
         return getEnglish().getDtdVersionInfo()
             .compareTo(getVersion(version)) < 0;

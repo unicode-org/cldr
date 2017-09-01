@@ -122,7 +122,7 @@ public class ConsoleCheckCLDR {
     static final String SOURCE_DIRS = CLDRPaths.MAIN_DIRECTORY + "," + CLDRPaths.ANNOTATIONS_DIRECTORY;
 
     enum MyOptions {
-        coverage(new Params().setHelp("Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic")
+        coverage(new Params().setHelp("Set the coverage: eg -c comprehensive")
             .setMatch("comprehensive|modern|moderate|basic")), // UOption.REQUIRES_ARG
         examples(new Params().setHelp("Turn on examples (actually a summary of the demo)")
             .setFlag('x')), //, 'x', UOption.NO_ARG),
@@ -131,7 +131,7 @@ public class ConsoleCheckCLDR {
         test_filter(new Params().setHelp("Filter the Checks: arg is a regular expression, eg -t.*number.*. To check all BUT a given test, use the style -t ((?!.*CheckZones).*)")
             .setDefault(".*").setMatch(".*")), //, 't', UOption.REQUIRES_ARG).setDefault(".*"),
         date_formats(new Params().setHelp("Turn on special date format checks")), //, 'd', UOption.NO_ARG),
-        organization(new Params().setHelp("Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests")
+        organization(new Params().setHelp("Organization: ibm, google, ....; Uses Locales.txt for to filter locales and set coverage levels")
             .setDefault(".*").setMatch(".*")), //, 'o', UOption.REQUIRES_ARG),
         showall(new Params().setHelp("Show all paths, including aliased").setFlag('a')), //, 'a', UOption.NO_ARG),
         path_filter(new Params().setHelp("Pick the paths to check, eg -p.*languages.*")
@@ -140,7 +140,7 @@ public class ConsoleCheckCLDR {
         check_on_submit(new Params().setHelp("")
             .setFlag('k')), //, 'k', UOption.NO_ARG),
         noaliases(new Params().setHelp("No aliases")), //, 'n', UOption.NO_ARG),
-        source_directory(new Params()
+        source_directory(new Params().setHelp("Fully qualified source directories. (Conflicts with -S.)")
             .setDefault(SOURCE_DIRS).setMatch(".*")), //, 's', UOption.REQUIRES_ARG).setDefault(SOURCE_DIRS),
         user(new Params().setHelp("User, eg -uu148")
             .setMatch(".*")), //, 'u', UOption.REQUIRES_ARG),
@@ -152,8 +152,8 @@ public class ConsoleCheckCLDR {
         id_view(new Params().setHelp("")), //, 'i', UOption.NO_ARG),
         subtype_filter(new Params().setHelp("error/warning subtype filter, eg unexpectedOrderOfEraYear")
             .setDefault(".*").setMatch(".*").setFlag('y')), //, 'y', UOption.REQUIRES_ARG),
-        source_all(new Params().setHelp("Use multiple directories. (Don't use this with -s.)")
-            .setMatch(".*").setFlag('S').setDefault("common,seed")), //, 'S', <changed>),
+        source_all(new Params().setHelp("Partially qualified directories. Standard subdirectories added if not specified (/main, /annotations, /subdivisions). (Conflicts with -s.)")
+            .setMatch(".*").setFlag('S').setDefault("common,seed,exemplars")), //, 'S', <changed>),
         bailey(new Params().setHelp("check bailey values (↑↑↑)")), //, 'b', UOption.NO_ARG)
         exemplarError(new Params().setFlag('E').setHelp("include to force strict Exemplar check"))
         ;
@@ -195,7 +195,7 @@ public class ConsoleCheckCLDR {
         UOption.create("vote resolution", 'v', UOption.NO_ARG),
         UOption.create("id view", 'i', UOption.NO_ARG),
         UOption.create("subtype_filter", 'y', UOption.REQUIRES_ARG),
-        UOption.create("source_all", 'S', UOption.OPTIONAL_ARG).setDefault("common,seed"),
+        UOption.create("source_all", 'S', UOption.OPTIONAL_ARG).setDefault("common,seed,exemplars"),
         UOption.create("bailey", 'b', UOption.NO_ARG),
         UOption.create("exemplarError", 'E', UOption.NO_ARG)
         // UOption.create("vote resolution2", 'w', UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY +
@@ -253,12 +253,12 @@ public class ConsoleCheckCLDR {
         ElapsedTimer totalTimer = new ElapsedTimer();
         //CldrUtility.showOptions(args);
         UOption.parseArgs(args, options);
-        if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
-            for (int i = 0; i < HelpMessage.length; ++i) {
-                System.out.println(HelpMessage[i]);
-            }
-            return;
-        }
+//        if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
+//            for (int i = 0; i < HelpMessage.length; ++i) {
+//                System.out.println(HelpMessage[i]);
+//            }
+//            return;
+//        }
         String factoryFilter = options[FILE_FILTER].value; 
         if (factoryFilter.equals("key")) {
             factoryFilter = "(en|ru|nl|fr|de|it|pl|es|tr|th|ja|zh|ko|ar|bg|sr|uk|ca|hr|cs|da|fil|fi|hu|id|lv|lt|nb|pt|ro|sk|sl|sv|vi|el|he|fa|hi|am|af|et|is|ms|sw|zu|bn|mr|ta|eu|gl|ur|gu|kn|ml|te|zh_Hant|pt_PT|en_GB)";
@@ -357,11 +357,11 @@ public class ConsoleCheckCLDR {
 
         File sourceDirectories[] = null;
 
-        if (options[SOURCE_ALL].doesOccur) {
-            if (options[SOURCE_DIRECTORY].doesOccur) {
+        if (MyOptions.source_all.option.doesOccur()) {
+            if (MyOptions.source_directory.option.doesOccur()) {
                 throw new IllegalArgumentException("Don't use -s and -S together.");
             }
-            sourceDirectories = cldrConf.getMainDataDirectories(cldrConf.getCLDRDataDirectories(options[SOURCE_ALL].value));
+            sourceDirectories = cldrConf.getMainDataDirectories(cldrConf.getCLDRDataDirectories(MyOptions.source_all.option.getValue()));
         } else {
             String[] sdirs = options[SOURCE_DIRECTORY].value.split(",\\s*");
             sourceDirectories = new File[sdirs.length];
@@ -432,13 +432,10 @@ public class ConsoleCheckCLDR {
             throw new IllegalArgumentException("The filter doesn't match any tests.");
         }
         System.out.println("filtered tests: " + checkCldr.getFilteredTests());
-        try {
-            english = cldrFactory.make("en", true);
-        } catch (Exception e1) {
-            Factory backCldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, factoryFilter)
-                .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
-            english = backCldrFactory.make("en", true);
-        }
+        Factory backCldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, factoryFilter)
+            .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
+        english = backCldrFactory.make("en", true);
+        
         checkCldr.setDisplayInformation(english);
         checkCldr.setEnglishFile(english);
         setExampleGenerator(new ExampleGenerator(english, english, CLDRPaths.SUPPLEMENTAL_DIRECTORY));

@@ -186,7 +186,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
         boolean[] ok = new boolean[1];
         exemplars = safeGetExemplars("", possibleErrors, resolvedFile, ok);
-        if (!ok[0]) exemplars = new UnicodeSet();
 
         if (exemplars == null) {
             CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
@@ -194,7 +193,12 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 .setMessage("No Exemplar Characters: {0}", new Object[] { this.getClass().getName() });
             possibleErrors.add(item);
             return this;
+        } else if (!ok[0]) {
+            exemplars = new UnicodeSet();
+        } else {
+            exemplars = new UnicodeSet(exemplars); // modifiable copy
         }
+
         
         boolean isRTL = RTL.containsSome(exemplars);
         if (isRTL) {
@@ -429,6 +433,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     addMissingMessage(disallowed, errorOption, Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
                 }
+            }
+        } else if (path.contains("/annotations") && !path.contains("[@type"))  {
+            if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
+                addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                    Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
             }
         } else {
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {

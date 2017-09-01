@@ -7,12 +7,15 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -39,7 +42,7 @@ public class TestCoverage extends TestFmwkPlus {
         if (!assertEquals("English should be complete", all, coreCoverage)) {
             showDiff("Missing", all, coreCoverage);
         }
-        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("aa", false);
+        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", false);
         errors.clear();
         coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(skimpyLocale,
             errors);
@@ -47,6 +50,25 @@ public class TestCoverage extends TestFmwkPlus {
             coreCoverage)) {
             showDiff("Missing", all, coreCoverage);
             showDiff("Extra", coreCoverage, none);
+        }
+    }
+    
+    public void TestSelected() {
+        Object[][] tests = {
+            {"en", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", Level.MODERN, 20},
+            {"en", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", Level.MODERN, 20}
+        };
+        PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
+        for (Object[] test : tests) {
+            String localeId = (String) test[0];
+            String path = (String) test[1];
+            Level expectedLevel = (Level) test[2];
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, localeId);
+            Level level = coverageLevel.getLevel(path);
+            PathHeader ph = phf.fromPath(path);
+            CLDRLocale loc = CLDRLocale.getInstance(localeId);
+            int expectedVotes = sdi.getRequiredVotes(loc , ph);
+            
         }
     }
 

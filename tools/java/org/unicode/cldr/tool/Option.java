@@ -170,9 +170,16 @@ public class Option {
         throw new IllegalArgumentException(match.toString());
     }
 
+    static final String PAD = "                    ";
+
     public String toString() {
-        return "-" + flag + " (" + tag + ") \t"
-            + (match == null ? "no-arg" : match.pattern()) + " \t" + helpString;
+        return "-" + flag 
+            + " (" + tag + ")" 
+            + PAD.substring(Math.min(tag.length(), PAD.length()))
+            + (match == null ? "no-arg" : "match: " + match.pattern()) 
+            + (defaultArgument == null ? "" : " \tdefault=" + defaultArgument)
+            + " \t" + helpString
+            ;
     }
 
     enum MatchResult {

@@ -545,6 +545,7 @@ public class TestCLDRFile extends TestFmwk {
         Set<CLDRLocale> mainLocales = mf.getAvailableCLDRLocales();
         Set<CLDRLocale> seedLocales = sf.getAvailableCLDRLocales();
         mainLocales.retainAll(seedLocales);
+        mainLocales.remove(CLDRLocale.getInstance("root")); // allow multiple roots
         if (!mainLocales.isEmpty()) {
             errln("CLDR locale files located in both common and seed ==> "
                 + mainLocales.toString());
@@ -572,6 +573,9 @@ public class TestCLDRFile extends TestFmwk {
         
         for ( Entry<String, Multimap<LdmlDir, Source>> e : localeToDirToSource.value.entrySet()) {
             String locale = e.getKey();
+            if (locale.equals("root")) {
+                continue; // allow multiple root locales
+            }
             Map<LdmlDir, Collection<Source>> value = e.getValue().asMap();
             for (Entry<LdmlDir, Collection<Source>> e2 : value.entrySet()) {
                 LdmlDir dir = e2.getKey();

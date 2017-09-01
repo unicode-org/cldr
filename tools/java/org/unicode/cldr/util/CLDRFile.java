@@ -1683,7 +1683,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (former != null) {
                 String formerPath = target.getFullXPath(fullXPath);
                 if (!former.equals(value) || !fullXPath.equals(formerPath)) {
-                    if (!fullXPath.startsWith("//ldml/identity/version")) {
+                    if (!fullXPath.startsWith("//ldml/identity/version") && !fullXPath.startsWith("//ldml/identity/generation")) {
                         warnOnOverride(former, formerPath);
                     }
                 }

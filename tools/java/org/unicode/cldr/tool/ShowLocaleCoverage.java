@@ -580,7 +580,8 @@ public class ShowLocaleCoverage {
         int localeCount = 0;
 
         final TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Status", "class='source'", null, "class='source'", true).setBreakSpans(true).setSortPriority(0)
+            .addColumn("Status", "class='source'", null, "class='source'", true)
+            .setBreakSpans(true).setSpanRows(false)
             .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setBreakSpans(true)
             .addColumn("English Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
             .addColumn("Native Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
@@ -602,7 +603,7 @@ public class ShowLocaleCoverage {
             .setCellPattern("{0,number,0.0%}")
             .setBreakSpans(true);
             if (level == Level.MODERN) {
-                tablePrinter.setSortPriority(1).setSortAscending(false);
+                tablePrinter.setSortPriority(0).setSortAscending(false);
             }
             tablePrinter
             .addColumn("∪ UC%", "class='target'", null, "class='targetRight'", true)

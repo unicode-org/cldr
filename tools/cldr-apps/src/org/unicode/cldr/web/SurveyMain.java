@@ -2901,7 +2901,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                         if (s0.length() > 0) {
                                             ctx.println("<p class='ferrbox'>Both fields must match.</p>");
                                         }
-                                        ctx.println("<h2>DO NOT ENTER A VALUABLE PASSWORD HERE. USE OF A RANDOM PASSWORD (as suggested) IS STRONGLY RECOMMENDED.</h2>");
+                                        ctx.println("<p role='alert' style='font-size: 1.5em;'><em>PASSWORDS MAY BE VISIBLE AS PLAIN TEXT. USE OF A RANDOM PASSWORD (as suggested) IS STRONGLY RECOMMENDED.</em></p>");
                                         ctx.println("<label><b>New " + what + ":</b><input type='password' name='string0" + what
                                             + "' value='" + s0 + "'></label><br>");
                                         ctx.println("<label><b>New " + what + ":</b><input type='password' name='string1" + what

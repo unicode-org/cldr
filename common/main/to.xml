@@ -1380,23 +1380,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 		<parseLenients scope="date" level="lenient">
-			<parseLenient sample="-" draft="unconfirmed">[\-./]</parseLenient>
+			<parseLenient sample="-" draft="unconfirmed">[\--/]</parseLenient>
 			<parseLenient sample=":" draft="unconfirmed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="." draft="unconfirmed">[.．․﹒ 。︒｡]</parseLenient>
-			<parseLenient sample="$" draft="unconfirmed">[$﹩＄$]</parseLenient>
+			<parseLenient sample="." draft="unconfirmed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="unconfirmed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="unconfirmed">[£₤]</parseLenient>
-			<parseLenient sample="₹" draft="unconfirmed">[₨₹{Rs}{Rp}]</parseLenient>
+			<parseLenient sample="₹" draft="unconfirmed">[₨₹{Rp}{Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="unconfirmed">[\-－﹣ −⁻₋ ➖‒]</parseLenient>
-			<parseLenient sample="," draft="unconfirmed">[,，﹐︐ ، ٫ 、﹑︑､]</parseLenient>
-			<parseLenient sample="+" draft="unconfirmed">[+＋﬩﹢⁺₊ ➕]</parseLenient>
+			<parseLenient sample="-" draft="unconfirmed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="unconfirmed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="unconfirmed">[+⁺₊➕﬩﹢＋]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="unconfirmed">[,，﹐︐ ٫]</parseLenient>
-			<parseLenient sample="." draft="unconfirmed">[.．․﹒ ｡]</parseLenient>
+			<parseLenient sample="," draft="unconfirmed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="unconfirmed">[.․﹒．｡]</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>

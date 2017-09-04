@@ -17,14 +17,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙃">face | upside-down</annotation>
 		<annotation cp="🤕" type="tts">face with head bandage</annotation>
 		<annotation cp="😈" draft="provisional">devil | face | fantasy | horns | smile</annotation>
-		<annotation cp="👨‍💼" draft="provisional">man | office | business | manager | architect | white collar</annotation>
-		<annotation cp="👩‍💼" draft="provisional">woman | office | business | manager | architect | white collar</annotation>
-		<annotation cp="👨‍🚒" draft="provisional">firefighter | man | fire truck</annotation>
-		<annotation cp="👩‍🚒" draft="provisional">firefighter | fire truck | woman</annotation>
+		<annotation cp="👨‍💼" draft="provisional">architect | business | man | manager | office | white collar</annotation>
+		<annotation cp="👩‍💼" draft="provisional">architect | business | manager | office | white collar | woman</annotation>
+		<annotation cp="👨‍🚒" draft="provisional">fire truck | firefighter | man</annotation>
+		<annotation cp="👩‍🚒" draft="provisional">fire truck | firefighter | woman</annotation>
 		<annotation cp="🎅" type="tts">Father Christmas</annotation>
-		<annotation cp="🤶" draft="provisional">Christmas | celebration | mother | Mrs | Claus</annotation>
+		<annotation cp="🤶" draft="provisional">celebration | Christmas | Claus | mother | Mrs</annotation>
 		<annotation cp="🤶" type="tts">Mrs Claus</annotation>
-		<annotation cp="🤹" draft="provisional">juggle | multi-task | balance | skill</annotation>
+		<annotation cp="🤹" draft="provisional">balance | juggle | multi-task | skill</annotation>
 		<annotation cp="🤹‍♂" draft="provisional">juggling | man | multi-task</annotation>
 		<annotation cp="🤹‍♀" draft="provisional">juggling | multi-task | woman</annotation>
 		<annotation cp="🖖" type="tts">Vulcan salute</annotation>
@@ -39,10 +39,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥖" type="tts">French stick</annotation>
 		<annotation cp="🍟" draft="provisional">chips | fries</annotation>
 		<annotation cp="🍟" type="tts">chips</annotation>
-		<annotation cp="🥗" draft="provisional">garden | salad | food</annotation>
+		<annotation cp="🥗" draft="provisional">food | garden | salad</annotation>
 		<annotation cp="🥗" type="tts">garden salad</annotation>
 		<annotation cp="🍤" type="tts">fried prawn</annotation>
-		<annotation cp="🍧" draft="provisional">dessert | ice | granita | sweet</annotation>
+		<annotation cp="🍧" draft="provisional">dessert | granita | ice | sweet</annotation>
 		<annotation cp="🍧" type="tts">granita</annotation>
 		<annotation cp="🍪" type="tts">biscuit</annotation>
 		<annotation cp="🍰" type="tts">cake</annotation>
@@ -50,12 +50,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗻" type="tts">mount Fuji</annotation>
 		<annotation cp="🌌" type="tts">Milky Way</annotation>
 		<annotation cp="🎠" type="tts">merry-go-round | horse</annotation>
-		<annotation cp="🎪" draft="provisional">circus | big top</annotation>
+		<annotation cp="🎪" draft="provisional">big top | circus</annotation>
 		<annotation cp="🎪" type="tts">big top</annotation>
 		<annotation cp="🎰" draft="provisional">game | pokies</annotation>
 		<annotation cp="🎰" type="tts">pokie</annotation>
 		<annotation cp="🚃" draft="provisional">car | electric | railway | train | tram | trolley bus</annotation>
-		<annotation cp="🚊" draft="provisional">trolley | tram</annotation>
+		<annotation cp="🚊" draft="provisional">tram | trolley</annotation>
 		<annotation cp="🚊" type="tts">tram</annotation>
 		<annotation cp="🚋" draft="provisional">car | tram | trolley bus</annotation>
 		<annotation cp="🚋" type="tts">tram car</annotation>
@@ -99,7 +99,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎣" type="tts">fishing pole</annotation>
 		<annotation cp="🎿" draft="provisional">ski | skiing | snow</annotation>
 		<annotation cp="🛷" draft="provisional">sled | sledge | sleigh</annotation>
-		<annotation cp="🥌" draft="provisional">curling | rock | stone | game</annotation>
+		<annotation cp="🥌" draft="provisional">curling | game | rock | stone</annotation>
 		<annotation cp="🕹" draft="provisional">game | joystick | video game</annotation>
 		<annotation cp="♦" draft="provisional">card | diamonds | game</annotation>
 		<annotation cp="♣" draft="provisional">card | clubs | game</annotation>
@@ -110,7 +110,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥁" draft="provisional">drum | drum kit | drumsticks | instrument | music</annotation>
 		<annotation cp="☎" draft="provisional">land line | phone | telephone</annotation>
 		<annotation cp="💻" draft="provisional">computer | laptop | PC | personal</annotation>
-		<annotation cp="💽">computer | disk | optical | minidisk</annotation>
+		<annotation cp="💽">computer | disk | minidisk | optical</annotation>
 		<annotation cp="📀" type="tts">DVD</annotation>
 		<annotation cp="🎥" draft="provisional">camera | cinema | film</annotation>
 		<annotation cp="🎥" type="tts">film camera</annotation>

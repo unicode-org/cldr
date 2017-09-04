@@ -15,19 +15,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😋" type="tts" draft="contributed">face savouring food</annotation>
 		<annotation cp="🙃" draft="contributed">face | upside down</annotation>
 		<annotation cp="🤕" type="tts" draft="contributed">face with head bandage</annotation>
-		<annotation cp="👨‍💼" draft="contributed">man | office | business | manager | architect | white collar</annotation>
-		<annotation cp="👩‍💼" draft="contributed">woman | office | business | manager | architect | white collar</annotation>
-		<annotation cp="👨‍🚒" draft="contributed">firefighter | man | fire truck</annotation>
-		<annotation cp="👩‍🚒" draft="contributed">firefighter | fire truck | woman</annotation>
+		<annotation cp="👨‍💼" draft="contributed">architect | business | man | manager | office | white collar</annotation>
+		<annotation cp="👩‍💼" draft="contributed">architect | business | manager | office | white collar | woman</annotation>
+		<annotation cp="👨‍🚒" draft="contributed">fire truck | firefighter | man</annotation>
+		<annotation cp="👩‍🚒" draft="contributed">fire truck | firefighter | woman</annotation>
 		<annotation cp="🤱" type="tts" draft="contributed">breastfeeding</annotation>
-		<annotation cp="🎅" draft="contributed">Christmas | celebration | father | Santa | Claus</annotation>
+		<annotation cp="🎅" draft="contributed">celebration | Christmas | Claus | father | Santa</annotation>
 		<annotation cp="🎅" type="tts" draft="contributed">Santa Claus</annotation>
-		<annotation cp="🤶" draft="contributed">Christmas | celebration | Mother | Mrs. | Claus</annotation>
+		<annotation cp="🤶" draft="contributed">celebration | Christmas | Claus | Mother | Mrs.</annotation>
 		<annotation cp="🤶" type="tts" draft="contributed">Mrs. Claus</annotation>
-		<annotation cp="🙇‍♂" draft="contributed">apology | favour | bowing | gesture | man | sorry</annotation>
-		<annotation cp="🙇‍♀" draft="contributed">apology | favour | bowing | gesture | sorry | woman</annotation>
-		<annotation cp="💇" draft="contributed">barber | beauty | parlour | haircut</annotation>
-		<annotation cp="🏋‍♂" draft="contributed">weightlifter | man</annotation>
+		<annotation cp="🙇‍♂" draft="contributed">apology | bowing | favour | gesture | man | sorry</annotation>
+		<annotation cp="🙇‍♀" draft="contributed">apology | bowing | favour | gesture | sorry | woman</annotation>
+		<annotation cp="💇" draft="contributed">barber | beauty | haircut | parlour</annotation>
+		<annotation cp="🏋‍♂" draft="contributed">man | weightlifter</annotation>
 		<annotation cp="🏋‍♀" draft="contributed">weightlifter | woman</annotation>
 		<annotation cp="💬" draft="contributed">balloon | bubble | comic | dialogue | speech</annotation>
 		<annotation cp="🗨" draft="contributed">dialogue | speech</annotation>
@@ -36,8 +36,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍆" draft="contributed">eggplant | vegetable</annotation>
 		<annotation cp="🍆" type="tts" draft="contributed">eggplant</annotation>
 		<annotation cp="🌰" draft="contributed">nut</annotation>
-		<annotation cp="🥐" draft="contributed">croissant | crescent roll | French | food | bread</annotation>
-		<annotation cp="🥖" draft="contributed">baguette | bread | French | food</annotation>
+		<annotation cp="🥐" draft="contributed">bread | crescent roll | croissant | food | French</annotation>
+		<annotation cp="🥖" draft="contributed">baguette | bread | food | French</annotation>
 		<annotation cp="🍟" draft="contributed">French | fries</annotation>
 		<annotation cp="🍟" type="tts" draft="contributed">French fries</annotation>
 		<annotation cp="🌭" draft="contributed">frankfurter | hot dog | sausage</annotation>
@@ -89,8 +89,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔠" type="tts" draft="contributed">input Latin uppercase</annotation>
 		<annotation cp="🔡" type="tts" draft="contributed">input Latin lowercase</annotation>
 		<annotation cp="🔤" type="tts" draft="contributed">input Latin letters</annotation>
-		<annotation cp="🈁" draft="contributed">Japanese | katakana | ココ | “here”</annotation>
-		<annotation cp="🈂" draft="contributed">Japanese | katakana | サ | “service charge”</annotation>
+		<annotation cp="🈁" draft="contributed">“here” | Japanese | katakana | ココ</annotation>
+		<annotation cp="🈂" draft="contributed">“service charge” | Japanese | katakana | サ</annotation>
 		<annotation cp="🏁" type="tts" draft="contributed">checkered flag</annotation>
 	</annotations>
 </ldml>

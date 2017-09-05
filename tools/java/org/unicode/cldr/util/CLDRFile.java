@@ -444,7 +444,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 }
             }
 
-            identitySet.add(ldml_identity + "/version[@number=\"$" + "Revision: $\"]");
+            identitySet.add(ldml_identity + "/version[@number=\"$" + "Revision" + "$\"]");
             LocaleIDParser lip = new LocaleIDParser();
             lip.set(dataSource.getLocaleID());
             identitySet.add(ldml_identity + "/language[@type=\"" + lip.getLanguage() + "\"]");

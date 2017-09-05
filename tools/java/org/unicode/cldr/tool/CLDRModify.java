@@ -228,7 +228,7 @@ public class CLDRModify {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
         UOption.SOURCEDIR().setDefault(CLDRPaths.MAIN_DIRECTORY),
-        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "common/main/"),
+        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "cldrModify/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("join", 'j', UOption.OPTIONAL_ARG),
         UOption.create("minimize", 'r', UOption.NO_ARG),

@@ -12,12 +12,12 @@
 		</pluralRanges>
 
 <!-- one, other -->
-		<pluralRanges locales="am bn fr gu hi hy kn mr zu">
+		<pluralRanges locales="am bn fr gu hi hy kn mr zu as ps">
 			<pluralRange start="one"   end="one"   result="one"/>
 			<pluralRange start="one"   end="other" result="other"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
-		<pluralRanges locales="fa">
+		<pluralRanges locales="fa or sd">
 			<pluralRange start="one"   end="one"   result="other"/>
 			<pluralRange start="one"   end="other" result="other"/>
 			<pluralRange start="other" end="other" result="other"/>
@@ -27,7 +27,7 @@
 			<pluralRange start="other" end="one"   result="other"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
-		<pluralRanges locales="az de el gl gsw hu it kk ky ml mn ne nl sq sw ta te tr ug uz">
+		<pluralRanges locales="az de el gl gsw hu it kk ky ml mn ne nl sq sw ta te tr ug uz tk">
 			<pluralRange start="one"   end="other" result="other"/>
 			<pluralRange start="other" end="one"   result="one"/>
 			<pluralRange start="other" end="other" result="other"/>

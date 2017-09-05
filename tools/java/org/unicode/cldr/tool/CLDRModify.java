@@ -29,9 +29,12 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
@@ -47,6 +50,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -70,6 +74,7 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -909,7 +914,7 @@ public class CLDRModify {
         }
 
         void handlePath(String options, String xpath) {
-            options = options.toLowerCase();
+            //options = options.toLowerCase();
             for (int i = 0; i < options.length(); ++i) {
                 char c = options.charAt(i);
                 if (filters[c] != null) {
@@ -1012,6 +1017,48 @@ public class CLDRModify {
                 if ("both".equals(oldValue)) {
                     attributes.put("direction", "forward");
                     replace(xpath, fullparts.toString(), v);
+                }
+            }
+        });
+        
+
+        fixList.add('B', "fix bogus values", new CLDRFilter() {            
+            RegexLookup<Integer> paths = RegexLookup.<Integer>of()
+                .setPatternTransform(RegexLookup.RegexFinderTransformPath2)
+                .add("//ldml/localeDisplayNames/languages/language[@type='([^']*)']", 0)
+                .add("//ldml/localeDisplayNames/scripts/script[@type='([^']*)']", 0)
+                .add("//ldml/localeDisplayNames/territories/territory[@type='([^']*)']", 0)
+                .add("//ldml/dates/timeZoneNames/metazone[@type='([^']*)']", 0)
+                .add("//ldml/dates/timeZoneNames/zone[@type='([^']*)']/exemplarCity", 0)
+                .add("//ldml/numbers/currencies/currency[@type='([^']*)']/displayName", 0)
+                ;
+            Output<String[]> arguments = new Output<>();
+            CLDRFile english = CLDRConfig.getInstance().getEnglish();
+            boolean skip;
+            @Override
+            public void handleStart() {
+                UnicodeSet exemplars = cldrFileToFilter.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+                skip = exemplars.containsSome('a', 'z');
+                // TODO add simpler way to skip file entirely
+            }
+            public void handlePath(String xpath) {
+                if (skip) {
+                    return;
+                }
+                Integer lookupValue = paths.get(xpath, null, arguments);
+                if (lookupValue == null) {
+                    return;
+                }
+                String type = arguments.value[1];
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (value.equals(type)) {
+                    remove(xpath, "Matches code");
+                    return;
+                }
+                String evalue = english.getStringValue(xpath);
+                if (value.equals(evalue)) {
+                    remove(xpath, "Matches English");
+                    return;
                 }
             }
         });

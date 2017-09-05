@@ -1037,7 +1037,8 @@ public class CLDRModify {
             boolean skip;
             @Override
             public void handleStart() {
-                UnicodeSet exemplars = cldrFileToFilter.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+                CLDRFile resolved = factory.make(cldrFileToFilter.getLocaleID(), true);
+                UnicodeSet exemplars = resolved.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
                 skip = exemplars.containsSome('a', 'z');
                 // TODO add simpler way to skip file entirely
             }

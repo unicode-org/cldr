@@ -754,6 +754,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Zimbabwe Dɔla</displayName>
 			</currency>
 		</currencies>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">da {0}</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">nda {0}</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Fa nyimfa {0}.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<posix>
 		<messages>

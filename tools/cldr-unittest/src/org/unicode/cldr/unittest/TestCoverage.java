@@ -13,8 +13,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -84,17 +86,21 @@ public class TestCoverage extends TestFmwkPlus {
             Arrays.asList("ky mn ms uz az kk pa sr zh lo".split(" ")));
         Set<String> defaultContents = sdi.getDefaultContentLocales();
 
-        for (String locale : testInfo.getCldrFactory().getAvailable()) {
+        Factory fullCldrFactory = testInfo.getFullCldrFactory();
+        for (String locale : fullCldrFactory.getAvailable()) {
             if (!ltp.set(locale).getRegion().isEmpty() || locale.equals("root")
                 || defaultContents.contains(locale)) {
                 continue;
             }
-            Level level = sc.getLocaleCoverageLevel("google", locale);
+            Level level = sc.getLocaleCoverageLevel(Organization.cldr, locale);
             if (DEBUG && (!toTest.contains(locale) || level != Level.MODERN)) {
                 continue;
             }
+            if (locale.equals("am")) {
+                int debug = 0;
+            }
 
-            CLDRFile testFile = testInfo.getCldrFactory().make(locale, false);
+            CLDRFile testFile = fullCldrFactory.make(locale, false);
             Set<CoreItems> coreCoverage;
             errors.clear();
             try {

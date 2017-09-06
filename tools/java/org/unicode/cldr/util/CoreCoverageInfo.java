@@ -249,4 +249,5 @@ public class CoreCoverageInfo {
         }
         return false;
     }
+    
 }

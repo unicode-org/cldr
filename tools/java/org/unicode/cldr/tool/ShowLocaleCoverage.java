@@ -69,10 +69,10 @@ public class ShowLocaleCoverage {
     private static final StandardCodes SC = testInfo.getStandardCodes();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final StandardCodes STANDARD_CODES = SC;
-    
+
     static org.unicode.cldr.util.Factory factory = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
     private static final CLDRFile ENGLISH = factory.make("en",true);
-    
+
     private static UnicodeSet ENG_ANN = Annotations.getData("en").keySet();
 
     // added info using pattern in VettingViewer.
@@ -557,9 +557,9 @@ public class ShowLocaleCoverage {
         Counter<Level> foundCounter = new Counter<Level>();
         Counter<Level> unconfirmedCounter = new Counter<Level>();
         Counter<Level> missingCounter = new Counter<Level>();
-        
 
-        List<Level> reversedLevels = new ArrayList();
+
+        List<Level> reversedLevels = new ArrayList<>();
         reversedLevels.add(Level.MODERN);
         reversedLevels.add(Level.MODERATE);
         reversedLevels.add(Level.BASIC);
@@ -648,7 +648,7 @@ public class ShowLocaleCoverage {
                 if (defaultContents.contains(locale) || "root".equals(locale) || "und".equals(locale)) {
                     continue;
                 }
-                
+
                 boolean isSeed = new File(CLDRPaths.SEED_DIRECTORY, locale+".xml").exists();
 
                 //boolean capture = locale.equals("en");
@@ -721,9 +721,23 @@ public class ShowLocaleCoverage {
                 EnumMap<Level, Integer> confirmed = new EnumMap<>(Level.class);
                 EnumMap<Level, Integer> unconfirmedByLevel = new EnumMap<>(Level.class);
                 for (Level level : Level.values()) {
-                    sumFound += foundCounter.get(level);
-                    sumUnconfirmed += unconfirmedCounter.get(level);
-                    sumMissing += missingCounter.get(level);
+                    if (level == Level.CORE) {
+                        Set<String> detailedErrors = new LinkedHashSet<>();
+                        if (locale.equals("am")) {
+                            int debug = 0;
+                        }
+                        Set<CoreItems> coverage = new TreeSet<>(
+                            CoreCoverageInfo.getCoreCoverageInfo(file, detailedErrors));
+                        Set<CoreItems> missing = EnumSet.allOf(CoreItems.class);
+                        missing.removeAll(coverage);
+
+                        sumFound += coverage.size();
+                        sumMissing += missing.size();
+                    } else {
+                        sumFound += foundCounter.get(level);
+                        sumUnconfirmed += unconfirmedCounter.get(level);
+                        sumMissing += missingCounter.get(level);
+                    }
 
                     confirmed.put(level, sumFound);
                     unconfirmedByLevel.put(level, sumFound + sumUnconfirmed);
@@ -765,21 +779,12 @@ public class ShowLocaleCoverage {
                             ;
                     }
                 }
-                Set<String> detailedErrors = new LinkedHashSet<>();
-                Set<CoreItems> coverage = new TreeSet<>(
-                    CoreCoverageInfo.getCoreCoverageInfo(file, detailedErrors));
-                coverage.removeAll(CoreItems.ONLY_RECOMMENDED);
-                Set<CoreItems> missing = EnumSet.allOf(CoreItems.class);
-                missing.removeAll(coverage);
-                missing.removeAll(CoreItems.ONLY_RECOMMENDED);
-
-                double coreValue = coverage.size() / CORE_SIZE;
 //                tablePrinter
 //                .addCell(coreValue);
                 tablePrinter
                 .finishRow();
 
-                out2.println(header + "\t" + coreValue + "\t" + CollectionUtilities.join(missing, ", "));
+                //out2.println(header + "\t" + coreValue + "\t" + CollectionUtilities.join(missing, ", "));
 
                 // Write missing paths (for >99% and specials
 

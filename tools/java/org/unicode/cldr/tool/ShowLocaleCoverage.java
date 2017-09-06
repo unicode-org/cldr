@@ -605,10 +605,11 @@ public class ShowLocaleCoverage {
             if (level == Level.MODERN) {
                 tablePrinter.setSortPriority(0).setSortAscending(false);
             }
-            tablePrinter
-            .addColumn("∪ UC%", "class='target'", null, "class='targetRight'", true)
-            .setCellPattern("{0,number,0.0%}")
-            .setBreakSpans(true);
+//            tablePrinter
+//            .addColumn("∪ UC%", "class='target'", null, "class='targetRight'", true)
+//            .setCellPattern("{0,number,0.0%}")
+//            .setBreakSpans(true)
+            ;
         }
 //        tablePrinter
 //        .addColumn("Core", "class='target'", null, "class='targetRight'", true)
@@ -750,15 +751,18 @@ public class ShowLocaleCoverage {
 
                     tablePrinter
                     .addCell(confirmedCoverage / total)
-                    .addCell(unconfirmedCoverage / total);
+//                    .addCell(unconfirmedCoverage / total)
+                    ;
 
                     if (RAW_DATA) {
                         header += "\t" + confirmedCoverage / total
-                            + "\t" + unconfirmedCoverage / total;
+                            + "\t" + unconfirmedCoverage / total
+                            ;
                     } else {
                         Double factor = targetLevel.get(level) / (total / modernTotal);
                         header += "\t" + factor * confirmedCoverage / modernTotal
-                            + "\t" + factor * unconfirmedCoverage / modernTotal;
+//                            + "\t" + factor * unconfirmedCoverage / modernTotal
+                            ;
                     }
                 }
                 Set<String> detailedErrors = new LinkedHashSet<>();

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc. -->
-<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
+<!-- Copyright © 1991-2017 Unicode, Inc. -->
+<!-- CLDR data files are interpreted according to the LDML specification 
+	(http://unicode.org/reports/tr35/) -->
 <!-- For terms of use, see http://www.unicode.org/copyright.html -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<language type="wo"/> 
+		<version number="$Revision$" />
+		<language type="wo" />
 	</identity>
-	<collations  >
+	<collations>
 		<collation type="standard">
-			<settings normalization="on"/>
-                	<cr><![CDATA[
+			<cr><![CDATA[
+				[normalization on]
 				&A<à<<<À
 				&E<é<<<É<ë<<<Ë
 				&N<ñ<<<Ñ<ŋ<<<Ŋ

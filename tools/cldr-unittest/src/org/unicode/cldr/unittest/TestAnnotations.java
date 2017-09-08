@@ -250,7 +250,7 @@ public class TestAnnotations extends TestFmwkPlus {
         for (PageId pageId : counterPageId) {
             long size = counterPageId.get(pageId);
             assertTrue(pageId.toString(), size < 450);
-            System.out.println(pageId + "\t" + size);
+            // System.out.println(pageId + "\t" + size);
         }
     }
 

@@ -300,7 +300,7 @@ public class LikelySubtagsTest extends TestFmwk {
             metadataScripts.remove(shortName);
         }
         metadataScripts
-        .removeAll(Arrays.asList("Hans", "Hant", "Jpan", "Kore")); // remove
+        .removeAll(Arrays.asList("Hans", "Hant", "Hanb", "Jamo", "Jpan", "Kore")); // remove
         // "combo"
         // scripts
         if (!metadataScripts.isEmpty()) {

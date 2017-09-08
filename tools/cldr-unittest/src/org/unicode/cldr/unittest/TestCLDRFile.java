@@ -673,7 +673,6 @@ public class TestCLDRFile extends TestFmwk {
                 }
                 LdmlDir ldmlDir = LdmlDir.valueOf(sub1);
                 String dir = fullBase + "/" + ldmlDir;
-                System.out.println(dir);
                 for (String loc : new File(dir).list()) {
                     if (!loc.endsWith(".xml")) {
                         continue;

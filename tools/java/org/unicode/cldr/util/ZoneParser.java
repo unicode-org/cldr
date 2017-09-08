@@ -620,6 +620,7 @@ public class ZoneParser {
     static String[] FIX_DEPRECATED_ZONE_DATA = {
         "Africa/Timbuktu",
         "America/Argentina/ComodRivadavia",
+        "America/Santa_Isabel",
         "Europe/Belfast",
         "Pacific/Yap",
         "Antarctica/South_Pole",
@@ -647,7 +648,8 @@ public class ZoneParser {
             { "Asia/Yangon", "Asia/Rangoon" },
             { "Asia/Kathmandu", "Asia/Katmandu" },
             { "Pacific/Pohnpei", "Pacific/Ponape" },
-            { "Pacific/Chuuk", "Pacific/Truk" }
+            { "Pacific/Chuuk", "Pacific/Truk" },
+            { "Pacific/Honolulu", "Pacific/Johnston" }
         };
         FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
     }

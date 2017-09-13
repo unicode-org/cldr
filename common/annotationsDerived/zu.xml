@@ -8,7 +8,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="zu"/>
 	</identity>
 	<annotations>
@@ -33,15 +33,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="9⃣">i-keycap</annotation>
 		<annotation cp="9⃣" type="tts">i-keycap: 9</annotation>
 		<annotation cp="👶🏻">ingane | uhlobo-1-2</annotation>
-		<annotation cp="👶🏻" type="tts">ingane: uhlobo-1-2</annotation>
+		<annotation cp="👶🏻" type="tts">usana: uhlobo-1-2</annotation>
 		<annotation cp="👶🏼">ingane | uhlobo-3</annotation>
-		<annotation cp="👶🏼" type="tts">ingane: uhlobo-3</annotation>
+		<annotation cp="👶🏼" type="tts">usana: uhlobo-3</annotation>
 		<annotation cp="👶🏽">ingane | uhlobo-4</annotation>
-		<annotation cp="👶🏽" type="tts">ingane: uhlobo-4</annotation>
+		<annotation cp="👶🏽" type="tts">usana: uhlobo-4</annotation>
 		<annotation cp="👶🏾">ingane | uhlobo-5</annotation>
-		<annotation cp="👶🏾" type="tts">ingane: uhlobo-5</annotation>
+		<annotation cp="👶🏾" type="tts">usana: uhlobo-5</annotation>
 		<annotation cp="👶🏿">ingane | uhlobo-6</annotation>
-		<annotation cp="👶🏿" type="tts">ingane: uhlobo-6</annotation>
+		<annotation cp="👶🏿" type="tts">usana: uhlobo-6</annotation>
+		<annotation cp="🧒🏻">mncane | ubulili obuphakathi | uhlobo-1-2</annotation>
+		<annotation cp="🧒🏻" type="tts">ingane: uhlobo-1-2</annotation>
+		<annotation cp="🧒🏼">mncane | ubulili obuphakathi | uhlobo-3</annotation>
+		<annotation cp="🧒🏼" type="tts">ingane: uhlobo-3</annotation>
+		<annotation cp="🧒🏽">mncane | ubulili obuphakathi | uhlobo-4</annotation>
+		<annotation cp="🧒🏽" type="tts">ingane: uhlobo-4</annotation>
+		<annotation cp="🧒🏾">mncane | ubulili obuphakathi | uhlobo-5</annotation>
+		<annotation cp="🧒🏾" type="tts">ingane: uhlobo-5</annotation>
+		<annotation cp="🧒🏿">mncane | ubulili obuphakathi | uhlobo-6</annotation>
+		<annotation cp="🧒🏿" type="tts">ingane: uhlobo-6</annotation>
 		<annotation cp="👦🏻">umfana | uhlobo-1-2</annotation>
 		<annotation cp="👦🏻" type="tts">umfana: uhlobo-1-2</annotation>
 		<annotation cp="👦🏼">umfana | uhlobo-3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">intombazane: uhlobo-5</annotation>
 		<annotation cp="👧🏿">indombazane | intombi | uhlobo-6</annotation>
 		<annotation cp="👧🏿" type="tts">intombazane: uhlobo-6</annotation>
+		<annotation cp="🧑🏻">ubulili-phakathi | uhlobo-1-2</annotation>
+		<annotation cp="🧑🏻" type="tts">mdala: uhlobo-1-2</annotation>
+		<annotation cp="🧑🏼">ubulili-phakathi | uhlobo-3</annotation>
+		<annotation cp="🧑🏼" type="tts">mdala: uhlobo-3</annotation>
+		<annotation cp="🧑🏽">ubulili-phakathi | uhlobo-4</annotation>
+		<annotation cp="🧑🏽" type="tts">mdala: uhlobo-4</annotation>
+		<annotation cp="🧑🏾">ubulili-phakathi | uhlobo-5</annotation>
+		<annotation cp="🧑🏾" type="tts">mdala: uhlobo-5</annotation>
+		<annotation cp="🧑🏿">ubulili-phakathi | uhlobo-6</annotation>
+		<annotation cp="🧑🏿" type="tts">mdala: uhlobo-6</annotation>
 		<annotation cp="👨🏻">owesilisa | ubaba | uhlobo-1-2</annotation>
 		<annotation cp="👨🏻" type="tts">indoda: uhlobo-1-2</annotation>
 		<annotation cp="👨🏼">owesilisa | ubaba | uhlobo-3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">umama: uhlobo-5</annotation>
 		<annotation cp="👩🏿">owesimame | umama | uhlobo-6</annotation>
 		<annotation cp="👩🏿" type="tts">umama: uhlobo-6</annotation>
+		<annotation cp="🧓🏻">mdala | ubulili-phakathi | uhlobo-1-2</annotation>
+		<annotation cp="🧓🏻" type="tts">omdala omdala: uhlobo-1-2</annotation>
+		<annotation cp="🧓🏼">mdala | ubulili-phakathi | uhlobo-3</annotation>
+		<annotation cp="🧓🏼" type="tts">omdala omdala: uhlobo-3</annotation>
+		<annotation cp="🧓🏽">mdala | ubulili-phakathi | uhlobo-4</annotation>
+		<annotation cp="🧓🏽" type="tts">omdala omdala: uhlobo-4</annotation>
+		<annotation cp="🧓🏾">mdala | ubulili-phakathi | uhlobo-5</annotation>
+		<annotation cp="🧓🏾" type="tts">omdala omdala: uhlobo-5</annotation>
+		<annotation cp="🧓🏿">mdala | ubulili-phakathi | uhlobo-6</annotation>
+		<annotation cp="🧓🏿" type="tts">omdala omdala: uhlobo-6</annotation>
 		<annotation cp="👴🏻">ogugile | owesilisa | uhlobo-1-2</annotation>
 		<annotation cp="👴🏻" type="tts">ikhehla: uhlobo-1-2</annotation>
 		<annotation cp="👴🏼">ogugile | owesilisa | uhlobo-3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">indoda efake ikepishi lechinese: uhlobo-5</annotation>
 		<annotation cp="👲🏿">indoda | isigqoko | uhlobo-6</annotation>
 		<annotation cp="👲🏿" type="tts">indoda efake ikepishi lechinese: uhlobo-6</annotation>
+		<annotation cp="🧕🏻">i-hijab | i-mantilla | i-tichel | iduku | uhlobo-1-2</annotation>
+		<annotation cp="🧕🏻" type="tts">owesifazane oneduku: uhlobo-1-2</annotation>
+		<annotation cp="🧕🏼">i-hijab | i-mantilla | i-tichel | iduku | uhlobo-3</annotation>
+		<annotation cp="🧕🏼" type="tts">owesifazane oneduku: uhlobo-3</annotation>
+		<annotation cp="🧕🏽">i-hijab | i-mantilla | i-tichel | iduku | uhlobo-4</annotation>
+		<annotation cp="🧕🏽" type="tts">owesifazane oneduku: uhlobo-4</annotation>
+		<annotation cp="🧕🏾">i-hijab | i-mantilla | i-tichel | iduku | uhlobo-5</annotation>
+		<annotation cp="🧕🏾" type="tts">owesifazane oneduku: uhlobo-5</annotation>
+		<annotation cp="🧕🏿">i-hijab | i-mantilla | i-tichel | iduku | uhlobo-6</annotation>
+		<annotation cp="🧕🏿" type="tts">owesifazane oneduku: uhlobo-6</annotation>
+		<annotation cp="🧔🏻">intshebe | uhlobo-1-2</annotation>
+		<annotation cp="🧔🏻" type="tts">umuntu onentshebe: uhlobo-1-2</annotation>
+		<annotation cp="🧔🏼">intshebe | uhlobo-3</annotation>
+		<annotation cp="🧔🏼" type="tts">umuntu onentshebe: uhlobo-3</annotation>
+		<annotation cp="🧔🏽">intshebe | uhlobo-4</annotation>
+		<annotation cp="🧔🏽" type="tts">umuntu onentshebe: uhlobo-4</annotation>
+		<annotation cp="🧔🏾">intshebe | uhlobo-5</annotation>
+		<annotation cp="🧔🏾" type="tts">umuntu onentshebe: uhlobo-5</annotation>
+		<annotation cp="🧔🏿">intshebe | uhlobo-6</annotation>
+		<annotation cp="🧔🏿" type="tts">umuntu onentshebe: uhlobo-6</annotation>
 		<annotation cp="👱🏻">obhlondi | uhlobo-1-2</annotation>
 		<annotation cp="👱🏻" type="tts">umuntu obhlondi: uhlobo-1-2</annotation>
 		<annotation cp="👱🏼">obhlondi | uhlobo-3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">okhulelwe: uhlobo-5</annotation>
 		<annotation cp="🤰🏿">owesifazane | ukukhulelwa | uhlobo-6</annotation>
 		<annotation cp="🤰🏿" type="tts">okhulelwe: uhlobo-6</annotation>
+		<annotation cp="🤱🏻">ibele | ingane | ukunesa | uhlobo-1-2</annotation>
+		<annotation cp="🤱🏻" type="tts">ukuncelisa: uhlobo-1-2</annotation>
+		<annotation cp="🤱🏼">ibele | ingane | ukunesa | uhlobo-3</annotation>
+		<annotation cp="🤱🏼" type="tts">ukuncelisa: uhlobo-3</annotation>
+		<annotation cp="🤱🏽">ibele | ingane | ukunesa | uhlobo-4</annotation>
+		<annotation cp="🤱🏽" type="tts">ukuncelisa: uhlobo-4</annotation>
+		<annotation cp="🤱🏾">ibele | ingane | ukunesa | uhlobo-5</annotation>
+		<annotation cp="🤱🏾" type="tts">ukuncelisa: uhlobo-5</annotation>
+		<annotation cp="🤱🏿">ibele | ingane | ukunesa | uhlobo-6</annotation>
+		<annotation cp="🤱🏿" type="tts">ukuncelisa: uhlobo-6</annotation>
 		<annotation cp="👼🏻">ingane | ingelosi | ubuso | uhlobo-1-2</annotation>
 		<annotation cp="👼🏻" type="tts">ingelosi eyingane: uhlobo-1-2</annotation>
 		<annotation cp="👼🏼">ingane | ingelosi | ubuso | uhlobo-3</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">umama kakhisimusi: uhlobo-5</annotation>
 		<annotation cp="🤶🏿">uNkosikazi Claus | ukhisimuzi | umama | uhlobo-6</annotation>
 		<annotation cp="🤶🏿" type="tts">umama kakhisimusi: uhlobo-6</annotation>
+		<annotation cp="🧙🏻">isangoma | iwizadi | izangoma | umthakathi | uhlobo-1-2</annotation>
+		<annotation cp="🧙🏻" type="tts">i-mage: uhlobo-1-2</annotation>
+		<annotation cp="🧙🏼">isangoma | iwizadi | izangoma | umthakathi | uhlobo-3</annotation>
+		<annotation cp="🧙🏼" type="tts">i-mage: uhlobo-3</annotation>
+		<annotation cp="🧙🏽">isangoma | iwizadi | izangoma | umthakathi | uhlobo-4</annotation>
+		<annotation cp="🧙🏽" type="tts">i-mage: uhlobo-4</annotation>
+		<annotation cp="🧙🏾">isangoma | iwizadi | izangoma | umthakathi | uhlobo-5</annotation>
+		<annotation cp="🧙🏾" type="tts">i-mage: uhlobo-5</annotation>
+		<annotation cp="🧙🏿">isangoma | iwizadi | izangoma | umthakathi | uhlobo-6</annotation>
+		<annotation cp="🧙🏿" type="tts">i-mage: uhlobo-6</annotation>
+		<annotation cp="🧙🏻‍♀">isangoma | umthakathi | uhlobo-1-2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">i-mage yowesifazane: uhlobo-1-2</annotation>
+		<annotation cp="🧙🏼‍♀">isangoma | umthakathi | uhlobo-3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">i-mage yowesifazane: uhlobo-3</annotation>
+		<annotation cp="🧙🏽‍♀">isangoma | umthakathi | uhlobo-4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">i-mage yowesifazane: uhlobo-4</annotation>
+		<annotation cp="🧙🏾‍♀">isangoma | umthakathi | uhlobo-5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">i-mage yowesifazane: uhlobo-5</annotation>
+		<annotation cp="🧙🏿‍♀">isangoma | umthakathi | uhlobo-6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">i-mage yowesifazane: uhlobo-6</annotation>
+		<annotation cp="🧙🏻‍♂">isangoma | iwizadi | uhlobo-1-2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">i-mage yowesilisa: uhlobo-1-2</annotation>
+		<annotation cp="🧙🏼‍♂">isangoma | iwizadi | uhlobo-3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">i-mage yowesilisa: uhlobo-3</annotation>
+		<annotation cp="🧙🏽‍♂">isangoma | iwizadi | uhlobo-4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">i-mage yowesilisa: uhlobo-4</annotation>
+		<annotation cp="🧙🏾‍♂">isangoma | iwizadi | uhlobo-5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">i-mage yowesilisa: uhlobo-5</annotation>
+		<annotation cp="🧙🏿‍♂">isangoma | iwizadi | uhlobo-6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">i-mage yowesilisa: uhlobo-6</annotation>
+		<annotation cp="🧚🏻">i-Oberon | i-Puck | i-Titania | uhlobo-1-2</annotation>
+		<annotation cp="🧚🏻" type="tts">nganekwane: uhlobo-1-2</annotation>
+		<annotation cp="🧚🏼">i-Oberon | i-Puck | i-Titania | uhlobo-3</annotation>
+		<annotation cp="🧚🏼" type="tts">nganekwane: uhlobo-3</annotation>
+		<annotation cp="🧚🏽">i-Oberon | i-Puck | i-Titania | uhlobo-4</annotation>
+		<annotation cp="🧚🏽" type="tts">nganekwane: uhlobo-4</annotation>
+		<annotation cp="🧚🏾">i-Oberon | i-Puck | i-Titania | uhlobo-5</annotation>
+		<annotation cp="🧚🏾" type="tts">nganekwane: uhlobo-5</annotation>
+		<annotation cp="🧚🏿">i-Oberon | i-Puck | i-Titania | uhlobo-6</annotation>
+		<annotation cp="🧚🏿" type="tts">nganekwane: uhlobo-6</annotation>
+		<annotation cp="🧚🏻‍♀">i-Titania | uhlobo-1-2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">ngelosi yesifazane: uhlobo-1-2</annotation>
+		<annotation cp="🧚🏼‍♀">i-Titania | uhlobo-3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">ngelosi yesifazane: uhlobo-3</annotation>
+		<annotation cp="🧚🏽‍♀">i-Titania | uhlobo-4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">ngelosi yesifazane: uhlobo-4</annotation>
+		<annotation cp="🧚🏾‍♀">i-Titania | uhlobo-5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">ngelosi yesifazane: uhlobo-5</annotation>
+		<annotation cp="🧚🏿‍♀">i-Titania | uhlobo-6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">ngelosi yesifazane: uhlobo-6</annotation>
+		<annotation cp="🧚🏻‍♂">i-Oberon | i-Puck | uhlobo-1-2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">ngelosi yesilisa: uhlobo-1-2</annotation>
+		<annotation cp="🧚🏼‍♂">i-Oberon | i-Puck | uhlobo-3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">ngelosi yesilisa: uhlobo-3</annotation>
+		<annotation cp="🧚🏽‍♂">i-Oberon | i-Puck | uhlobo-4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">ngelosi yesilisa: uhlobo-4</annotation>
+		<annotation cp="🧚🏾‍♂">i-Oberon | i-Puck | uhlobo-5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">ngelosi yesilisa: uhlobo-5</annotation>
+		<annotation cp="🧚🏿‍♂">i-Oberon | i-Puck | uhlobo-6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">ngelosi yesilisa: uhlobo-6</annotation>
+		<annotation cp="🧛🏻">ongafile | u-Dracula | uhlobo-1-2</annotation>
+		<annotation cp="🧛🏻" type="tts">ivemphaya: uhlobo-1-2</annotation>
+		<annotation cp="🧛🏼">ongafile | u-Dracula | uhlobo-3</annotation>
+		<annotation cp="🧛🏼" type="tts">ivemphaya: uhlobo-3</annotation>
+		<annotation cp="🧛🏽">ongafile | u-Dracula | uhlobo-4</annotation>
+		<annotation cp="🧛🏽" type="tts">ivemphaya: uhlobo-4</annotation>
+		<annotation cp="🧛🏾">ongafile | u-Dracula | uhlobo-5</annotation>
+		<annotation cp="🧛🏾" type="tts">ivemphaya: uhlobo-5</annotation>
+		<annotation cp="🧛🏿">ongafile | u-Dracula | uhlobo-6</annotation>
+		<annotation cp="🧛🏿" type="tts">ivemphaya: uhlobo-6</annotation>
+		<annotation cp="🧛🏻‍♀">ngafile | uhlobo-1-2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">ivemphaya lesifazane: uhlobo-1-2</annotation>
+		<annotation cp="🧛🏼‍♀">ngafile | uhlobo-3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">ivemphaya lesifazane: uhlobo-3</annotation>
+		<annotation cp="🧛🏽‍♀">ngafile | uhlobo-4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">ivemphaya lesifazane: uhlobo-4</annotation>
+		<annotation cp="🧛🏾‍♀">ngafile | uhlobo-5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">ivemphaya lesifazane: uhlobo-5</annotation>
+		<annotation cp="🧛🏿‍♀">ngafile | uhlobo-6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">ivemphaya lesifazane: uhlobo-6</annotation>
+		<annotation cp="🧛🏻‍♂">udracula ongafile | uhlobo-1-2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">ivemphaya lendoda: uhlobo-1-2</annotation>
+		<annotation cp="🧛🏼‍♂">udracula ongafile | uhlobo-3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">ivemphaya lendoda: uhlobo-3</annotation>
+		<annotation cp="🧛🏽‍♂">udracula ongafile | uhlobo-4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">ivemphaya lendoda: uhlobo-4</annotation>
+		<annotation cp="🧛🏾‍♂">udracula ongafile | uhlobo-5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">ivemphaya lendoda: uhlobo-5</annotation>
+		<annotation cp="🧛🏿‍♂">udracula ongafile | uhlobo-6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">ivemphaya lendoda: uhlobo-6</annotation>
+		<annotation cp="🧜🏻">i-mermaid | i-merman | i-merwoman | uhlobo-1-2</annotation>
+		<annotation cp="🧜🏻" type="tts">i-merperson: uhlobo-1-2</annotation>
+		<annotation cp="🧜🏼">i-mermaid | i-merman | i-merwoman | uhlobo-3</annotation>
+		<annotation cp="🧜🏼" type="tts">i-merperson: uhlobo-3</annotation>
+		<annotation cp="🧜🏽">i-mermaid | i-merman | i-merwoman | uhlobo-4</annotation>
+		<annotation cp="🧜🏽" type="tts">i-merperson: uhlobo-4</annotation>
+		<annotation cp="🧜🏾">i-mermaid | i-merman | i-merwoman | uhlobo-5</annotation>
+		<annotation cp="🧜🏾" type="tts">i-merperson: uhlobo-5</annotation>
+		<annotation cp="🧜🏿">i-mermaid | i-merman | i-merwoman | uhlobo-6</annotation>
+		<annotation cp="🧜🏿" type="tts">i-merperson: uhlobo-6</annotation>
+		<annotation cp="🧜🏻‍♀">i-merwoman | uhlobo-1-2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">i-mermaid: uhlobo-1-2</annotation>
+		<annotation cp="🧜🏼‍♀">i-merwoman | uhlobo-3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">i-mermaid: uhlobo-3</annotation>
+		<annotation cp="🧜🏽‍♀">i-merwoman | uhlobo-4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">i-mermaid: uhlobo-4</annotation>
+		<annotation cp="🧜🏾‍♀">i-merwoman | uhlobo-5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">i-mermaid: uhlobo-5</annotation>
+		<annotation cp="🧜🏿‍♀">i-merwoman | uhlobo-6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">i-mermaid: uhlobo-6</annotation>
+		<annotation cp="🧜🏻‍♂">i-Triton | uhlobo-1-2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">i-merman: uhlobo-1-2</annotation>
+		<annotation cp="🧜🏼‍♂">i-Triton | uhlobo-3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">i-merman: uhlobo-3</annotation>
+		<annotation cp="🧜🏽‍♂">i-Triton | uhlobo-4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">i-merman: uhlobo-4</annotation>
+		<annotation cp="🧜🏾‍♂">i-Triton | uhlobo-5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">i-merman: uhlobo-5</annotation>
+		<annotation cp="🧜🏿‍♂">i-Triton | uhlobo-6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">i-merman: uhlobo-6</annotation>
+		<annotation cp="🧝🏻">mlingo | uhlobo-1-2</annotation>
+		<annotation cp="🧝🏻" type="tts">i-elf: uhlobo-1-2</annotation>
+		<annotation cp="🧝🏼">mlingo | uhlobo-3</annotation>
+		<annotation cp="🧝🏼" type="tts">i-elf: uhlobo-3</annotation>
+		<annotation cp="🧝🏽">mlingo | uhlobo-4</annotation>
+		<annotation cp="🧝🏽" type="tts">i-elf: uhlobo-4</annotation>
+		<annotation cp="🧝🏾">mlingo | uhlobo-5</annotation>
+		<annotation cp="🧝🏾" type="tts">i-elf: uhlobo-5</annotation>
+		<annotation cp="🧝🏿">mlingo | uhlobo-6</annotation>
+		<annotation cp="🧝🏿" type="tts">i-elf: uhlobo-6</annotation>
+		<annotation cp="🧝🏻‍♀">okomlingo | uhlobo-1-2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">i-elf yesifazane: uhlobo-1-2</annotation>
+		<annotation cp="🧝🏼‍♀">okomlingo | uhlobo-3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">i-elf yesifazane: uhlobo-3</annotation>
+		<annotation cp="🧝🏽‍♀">okomlingo | uhlobo-4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">i-elf yesifazane: uhlobo-4</annotation>
+		<annotation cp="🧝🏾‍♀">okomlingo | uhlobo-5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">i-elf yesifazane: uhlobo-5</annotation>
+		<annotation cp="🧝🏿‍♀">okomlingo | uhlobo-6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">i-elf yesifazane: uhlobo-6</annotation>
+		<annotation cp="🧝🏻‍♂">mlingo | uhlobo-1-2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">i-elf yesilisa: uhlobo-1-2</annotation>
+		<annotation cp="🧝🏼‍♂">mlingo | uhlobo-3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">i-elf yesilisa: uhlobo-3</annotation>
+		<annotation cp="🧝🏽‍♂">mlingo | uhlobo-4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">i-elf yesilisa: uhlobo-4</annotation>
+		<annotation cp="🧝🏾‍♂">mlingo | uhlobo-5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">i-elf yesilisa: uhlobo-5</annotation>
+		<annotation cp="🧝🏿‍♂">mlingo | uhlobo-6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">i-elf yesilisa: uhlobo-6</annotation>
 		<annotation cp="🙍🏻">ukuhwaqabala | uhlobo-1-2</annotation>
 		<annotation cp="🙍🏻" type="tts">umuntu ohwaqabele: uhlobo-1-2</annotation>
 		<annotation cp="🙍🏼">ukuhwaqabala | uhlobo-3</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">ukudansa: uhlobo-5</annotation>
 		<annotation cp="🕺🏿">dansa | indoda | uhlobo-6</annotation>
 		<annotation cp="🕺🏿" type="tts">ukudansa: uhlobo-6</annotation>
+		<annotation cp="🧖🏻">igumbi lestimu | isona | uhlobo-1-2</annotation>
+		<annotation cp="🧖🏻" type="tts">umuntu egumbini elinestimu: uhlobo-1-2</annotation>
+		<annotation cp="🧖🏼">igumbi lestimu | isona | uhlobo-3</annotation>
+		<annotation cp="🧖🏼" type="tts">umuntu egumbini elinestimu: uhlobo-3</annotation>
+		<annotation cp="🧖🏽">igumbi lestimu | isona | uhlobo-4</annotation>
+		<annotation cp="🧖🏽" type="tts">umuntu egumbini elinestimu: uhlobo-4</annotation>
+		<annotation cp="🧖🏾">igumbi lestimu | isona | uhlobo-5</annotation>
+		<annotation cp="🧖🏾" type="tts">umuntu egumbini elinestimu: uhlobo-5</annotation>
+		<annotation cp="🧖🏿">igumbi lestimu | isona | uhlobo-6</annotation>
+		<annotation cp="🧖🏿" type="tts">umuntu egumbini elinestimu: uhlobo-6</annotation>
+		<annotation cp="🧖🏻‍♀">igumbi lestimu | isona | uhlobo-1-2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">owesifazane egunjini lestimu: uhlobo-1-2</annotation>
+		<annotation cp="🧖🏼‍♀">igumbi lestimu | isona | uhlobo-3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">owesifazane egunjini lestimu: uhlobo-3</annotation>
+		<annotation cp="🧖🏽‍♀">igumbi lestimu | isona | uhlobo-4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">owesifazane egunjini lestimu: uhlobo-4</annotation>
+		<annotation cp="🧖🏾‍♀">igumbi lestimu | isona | uhlobo-5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">owesifazane egunjini lestimu: uhlobo-5</annotation>
+		<annotation cp="🧖🏿‍♀">igumbi lestimu | isona | uhlobo-6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">owesifazane egunjini lestimu: uhlobo-6</annotation>
+		<annotation cp="🧖🏻‍♂">igumbi lestimu | isona | uhlobo-1-2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">owesilisa egunjini lestimu: uhlobo-1-2</annotation>
+		<annotation cp="🧖🏼‍♂">igumbi lestimu | isona | uhlobo-3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">owesilisa egunjini lestimu: uhlobo-3</annotation>
+		<annotation cp="🧖🏽‍♂">igumbi lestimu | isona | uhlobo-4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">owesilisa egunjini lestimu: uhlobo-4</annotation>
+		<annotation cp="🧖🏾‍♂">igumbi lestimu | isona | uhlobo-5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">owesilisa egunjini lestimu: uhlobo-5</annotation>
+		<annotation cp="🧖🏿‍♂">igumbi lestimu | isona | uhlobo-6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">owesilisa egunjini lestimu: uhlobo-6</annotation>
+		<annotation cp="🧗🏻">umqwali | uhlobo-1-2</annotation>
+		<annotation cp="🧗🏻" type="tts">umuntu ogibelayo: uhlobo-1-2</annotation>
+		<annotation cp="🧗🏼">umqwali | uhlobo-3</annotation>
+		<annotation cp="🧗🏼" type="tts">umuntu ogibelayo: uhlobo-3</annotation>
+		<annotation cp="🧗🏽">umqwali | uhlobo-4</annotation>
+		<annotation cp="🧗🏽" type="tts">umuntu ogibelayo: uhlobo-4</annotation>
+		<annotation cp="🧗🏾">umqwali | uhlobo-5</annotation>
+		<annotation cp="🧗🏾" type="tts">umuntu ogibelayo: uhlobo-5</annotation>
+		<annotation cp="🧗🏿">umqwali | uhlobo-6</annotation>
+		<annotation cp="🧗🏿" type="tts">umuntu ogibelayo: uhlobo-6</annotation>
+		<annotation cp="🧗🏻‍♀">umqwali | uhlobo-1-2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">owesifazane oqwalayo: uhlobo-1-2</annotation>
+		<annotation cp="🧗🏼‍♀">umqwali | uhlobo-3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">owesifazane oqwalayo: uhlobo-3</annotation>
+		<annotation cp="🧗🏽‍♀">umqwali | uhlobo-4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">owesifazane oqwalayo: uhlobo-4</annotation>
+		<annotation cp="🧗🏾‍♀">umqwali | uhlobo-5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">owesifazane oqwalayo: uhlobo-5</annotation>
+		<annotation cp="🧗🏿‍♀">umqwali | uhlobo-6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">owesifazane oqwalayo: uhlobo-6</annotation>
+		<annotation cp="🧗🏻‍♂">umqwali | uhlobo-1-2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">owesilisa oqwalayo: uhlobo-1-2</annotation>
+		<annotation cp="🧗🏼‍♂">umqwali | uhlobo-3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">owesilisa oqwalayo: uhlobo-3</annotation>
+		<annotation cp="🧗🏽‍♂">umqwali | uhlobo-4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">owesilisa oqwalayo: uhlobo-4</annotation>
+		<annotation cp="🧗🏾‍♂">umqwali | uhlobo-5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">owesilisa oqwalayo: uhlobo-5</annotation>
+		<annotation cp="🧗🏿‍♂">umqwali | uhlobo-6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">owesilisa oqwalayo: uhlobo-6</annotation>
+		<annotation cp="🧘🏻">iyoga | ukucabanga | uhlobo-1-2</annotation>
+		<annotation cp="🧘🏻" type="tts">umuntu esikhundleni se-lotus: uhlobo-1-2</annotation>
+		<annotation cp="🧘🏼">iyoga | ukucabanga | uhlobo-3</annotation>
+		<annotation cp="🧘🏼" type="tts">umuntu esikhundleni se-lotus: uhlobo-3</annotation>
+		<annotation cp="🧘🏽">iyoga | ukucabanga | uhlobo-4</annotation>
+		<annotation cp="🧘🏽" type="tts">umuntu esikhundleni se-lotus: uhlobo-4</annotation>
+		<annotation cp="🧘🏾">iyoga | ukucabanga | uhlobo-5</annotation>
+		<annotation cp="🧘🏾" type="tts">umuntu esikhundleni se-lotus: uhlobo-5</annotation>
+		<annotation cp="🧘🏿">iyoga | ukucabanga | uhlobo-6</annotation>
+		<annotation cp="🧘🏿" type="tts">umuntu esikhundleni se-lotus: uhlobo-6</annotation>
+		<annotation cp="🧘🏻‍♀">iyoga | ukucabanga | uhlobo-1-2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">owesifazane esikhundleni se-lotus: uhlobo-1-2</annotation>
+		<annotation cp="🧘🏼‍♀">iyoga | ukucabanga | uhlobo-3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">owesifazane esikhundleni se-lotus: uhlobo-3</annotation>
+		<annotation cp="🧘🏽‍♀">iyoga | ukucabanga | uhlobo-4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">owesifazane esikhundleni se-lotus: uhlobo-4</annotation>
+		<annotation cp="🧘🏾‍♀">iyoga | ukucabanga | uhlobo-5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">owesifazane esikhundleni se-lotus: uhlobo-5</annotation>
+		<annotation cp="🧘🏿‍♀">iyoga | ukucabanga | uhlobo-6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">owesifazane esikhundleni se-lotus: uhlobo-6</annotation>
+		<annotation cp="🧘🏻‍♂">iyoga | ukucabanga | uhlobo-1-2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">owesilisa esikhundleni se-lotus: uhlobo-1-2</annotation>
+		<annotation cp="🧘🏼‍♂">iyoga | ukucabanga | uhlobo-3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">owesilisa esikhundleni se-lotus: uhlobo-3</annotation>
+		<annotation cp="🧘🏽‍♂">iyoga | ukucabanga | uhlobo-4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">owesilisa esikhundleni se-lotus: uhlobo-4</annotation>
+		<annotation cp="🧘🏾‍♂">iyoga | ukucabanga | uhlobo-5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">owesilisa esikhundleni se-lotus: uhlobo-5</annotation>
+		<annotation cp="🧘🏿‍♂">iyoga | ukucabanga | uhlobo-6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">owesilisa esikhundleni se-lotus: uhlobo-6</annotation>
 		<annotation cp="🛀🏻">ubhavu wokugezela | ukugeza | uhlobo-1-2</annotation>
 		<annotation cp="🛀🏻" type="tts">umuntu ogezayo: uhlobo-1-2</annotation>
 		<annotation cp="🛀🏼">ubhavu wokugezela | ukugeza | uhlobo-3</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">owesimame odlala ngamabhola: uhlobo-5</annotation>
 		<annotation cp="🤹🏿‍♀">bhalansa | dlala | ikhono | owesimame | sikhathi sodwa | uhlobo-6</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">owesimame odlala ngamabhola: uhlobo-6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">indoda | izithandani | owesifazane | owesimame | umame</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">ukuqabula, owesimame, owesilisa</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">indoda | izithandani | owesilisa</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">ukuqabula, owesilisa, indoda</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">izithandani | owesifazane | owesimame</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">ukuqabula, owesime, owesifazane</annotation>
-		<annotation cp="👩‍❤‍👨">indoda | inhliziyo | izithandani | owesimame | uthando</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">izithandani ezinenhliziyo, owesifazane, owesilisa</annotation>
-		<annotation cp="👨‍❤‍👨">indoda | inhliziyo | izithandani | owesilisa | uthando</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">izithandani ezinenhliziyo, indoda, owesilisa</annotation>
-		<annotation cp="👩‍❤‍👩">inhliziyo | izithandani | owesifazane | owesimame | uthando</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">izithandani ezinenhliziyo, owesifazane, owesifazane</annotation>
-		<annotation cp="👨‍👩‍👦">indoda | ingane | insizwa nsi | ivirgo | izinkanyezi | owesifazane | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">umndeni, indoda, owesimame, umfana</annotation>
-		<annotation cp="👨‍👩‍👧">indoda | ingane | intombi nto | ivirgo | izinkanyezi | owesifazane | owesilisa | owesimame | umama</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">umndeni, indoda, owesimame, intombazane</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">indoda | ingane | intombi nto | ivirgo | izinkanyezi | owesifazane | owesilisa | owesimame | umama | umfana</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">umndeni, indoda, owesimame, intombazane, umfana</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">indoda | ingane | owesilisa | owesimame | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">umndeni, indoda, owesimame, umfana, umfana</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">ingane | intombazane | intombi nto | ivirgo | owesifazane | owesilisa | owesimame | ubaba | umama</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">umndeni, indoda, owesimame, intombazane, intombazane</annotation>
-		<annotation cp="👨‍👨‍👦">indoda | ingane | owesilisa | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">umndeni, indoda, indoda, umfana</annotation>
-		<annotation cp="👨‍👨‍👧">ingane | intombi nto | ivirgo | izinkanyezi | owesilisa | owesimame | ubaba | umama</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">umndeni, indoda, indoda, intombazane</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">ingane | intombi nto | ivirgo | izinkanyezi | owesilisa | owesimame | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">umndeni, indoda, indoda, intombazane, umfana</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">indoda | ingane | owesilisa | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">umndeni, indoda, indoda, umfana, umfana</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">ingane | intombi nto | ivirgo | izinkanyezi | owesilisa | owesimame | ubaba | umama</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">umndeni, indoda, indoda, intombazane, intombazane</annotation>
-		<annotation cp="👩‍👩‍👦">indoda | ingane | owesifazane | ubaba | umama | umfana</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">umndeni, umama, umama, umfana</annotation>
-		<annotation cp="👩‍👩‍👧">ingane | intombi nto | ivirgo | izinkanyezi | owesimame | ubaba | umama</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">umndeni, umama, umama, intombazane</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">ingane | intombi nto | ivirgo | izinkanyezi | owesifazane | owesilisa | owesimame | ubaba | umama | umfana</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">umndeni, umama, intombazane, umfana</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">ingane | owesifazane | owesilisa | ubaba | umama | umfana</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">umndeni, umama, umama, umfana, umfana</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">ingane | intombi nto | izinkanyezi | owesifazane | ubaba | umama</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">umndeni, umama, umama, intombazane, intombazane</annotation>
-		<annotation cp="👨‍👦">indoda | ingane | owesilisa | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👦" type="tts">umndeni, indoda, umfana</annotation>
-		<annotation cp="👨‍👦‍👦">indoda | ingane | owesilisa | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">umndeni, indoda, umfana, intombazane</annotation>
-		<annotation cp="👨‍👧">indoda | ingane | intombi nto | ivirgo | izinkanyezi | owesifazane | ubaba | umama</annotation>
-		<annotation cp="👨‍👧" type="tts">umndeni, indoda, intombazane</annotation>
-		<annotation cp="👨‍👧‍👦">ingane | intombi nto | ivirgo | izinkanyezi | owesilisa | owesimame | ubaba | umama</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">umndeni, indoda, intombazane, umfana</annotation>
-		<annotation cp="👨‍👧‍👧">ingane | intombi nto | ivirgo | izinkanyezi | owesilisa | owesimame | ubaba | umama | umfana</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">umndeni, indoda, intombazane, intombazane</annotation>
-		<annotation cp="👩‍👦">ingane | owesifazane | owesilisa | ubaba | umama | umfana</annotation>
-		<annotation cp="👩‍👦" type="tts">umndeni, owesimame, umfana</annotation>
-		<annotation cp="👩‍👦‍👦">ingane | owesifazane | owesilisa | ubaba | umama | umfana</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">umndeni, owesimame, umfana, umfana</annotation>
-		<annotation cp="👩‍👧">ingane | intombi nto | izinkanyezi | owesifazane | ubaba | umama</annotation>
-		<annotation cp="👩‍👧" type="tts">umndeni, owesimame, intombazane</annotation>
-		<annotation cp="👩‍👧‍👦">ingane | intombi nto | ivirgo | izinkanyezi | owesilisa | owesimame | ubaba | umama | umfana</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">umndeni, owesimame, intombazane, umfana</annotation>
-		<annotation cp="👩‍👧‍👧">ingane | intombi nto | ivirgo | izinkanyezi | owesilisa | owesimame | ubaba | umama</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">umndeni, owesimame, intombazane, intombazane</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">izithandani | umama | indoda</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">ukuqabula: umama, indoda</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">izithandani | indoda</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">ukuqabula: indoda, indoda</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">izithandani | umama</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">ukuqabula: umama, umama</annotation>
+		<annotation cp="👩‍❤‍👨">inhliziyo | izithandani | uthando | umama | indoda</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">izithandani ezinenhliziyo: umama, indoda</annotation>
+		<annotation cp="👨‍❤‍👨">inhliziyo | izithandani | uthando | indoda</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">izithandani ezinenhliziyo: indoda, indoda</annotation>
+		<annotation cp="👩‍❤‍👩">inhliziyo | izithandani | uthando | umama</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">izithandani ezinenhliziyo: umama, umama</annotation>
+		<annotation cp="👨‍👩‍👦">ingane | ubaba | umama | indoda | umfana</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">umndeni: indoda, umama, umfana</annotation>
+		<annotation cp="👨‍👩‍👧">ingane | ubaba | umama | indoda | intombazane</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">umndeni: indoda, umama, intombazane</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">ingane | ubaba | umama | indoda | intombazane | umfana</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">umndeni: indoda, umama, intombazane, umfana</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">ingane | ubaba | umama | indoda | umfana</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">umndeni: indoda, umama, umfana, umfana</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">ingane | ubaba | umama | indoda | intombazane</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">umndeni: indoda, umama, intombazane, intombazane</annotation>
+		<annotation cp="👨‍👨‍👦">ingane | ubaba | umama | indoda | umfana</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">umndeni: indoda, indoda, umfana</annotation>
+		<annotation cp="👨‍👨‍👧">ingane | ubaba | umama | indoda | intombazane</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">umndeni: indoda, indoda, intombazane</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">ingane | ubaba | umama | indoda | intombazane | umfana</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">umndeni: indoda, indoda, intombazane, umfana</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">ingane | ubaba | umama | indoda | umfana</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">umndeni: indoda, indoda, umfana, umfana</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">ingane | ubaba | umama | indoda | intombazane</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">umndeni: indoda, indoda, intombazane, intombazane</annotation>
+		<annotation cp="👩‍👩‍👦">ingane | ubaba | umama | umfana</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">umndeni: umama, umama, umfana</annotation>
+		<annotation cp="👩‍👩‍👧">ingane | ubaba | umama | intombazane</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">umndeni: umama, umama, intombazane</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">ingane | ubaba | umama | intombazane | umfana</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">umndeni: umama, umama, intombazane, umfana</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">ingane | ubaba | umama | umfana</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">umndeni: umama, umama, umfana, umfana</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">ingane | ubaba | umama | intombazane</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">umndeni: umama, umama, intombazane, intombazane</annotation>
+		<annotation cp="👨‍👦">ingane | ubaba | umama | indoda | umfana</annotation>
+		<annotation cp="👨‍👦" type="tts">umndeni: indoda, umfana</annotation>
+		<annotation cp="👨‍👦‍👦">ingane | ubaba | umama | indoda | umfana</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">umndeni: indoda, umfana, umfana</annotation>
+		<annotation cp="👨‍👧">ingane | ubaba | umama | indoda | intombazane</annotation>
+		<annotation cp="👨‍👧" type="tts">umndeni: indoda, intombazane</annotation>
+		<annotation cp="👨‍👧‍👦">ingane | ubaba | umama | indoda | intombazane | umfana</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">umndeni: indoda, intombazane, umfana</annotation>
+		<annotation cp="👨‍👧‍👧">ingane | ubaba | umama | indoda | intombazane</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">umndeni: indoda, intombazane, intombazane</annotation>
+		<annotation cp="👩‍👦">ingane | ubaba | umama | umfana</annotation>
+		<annotation cp="👩‍👦" type="tts">umndeni: umama, umfana</annotation>
+		<annotation cp="👩‍👦‍👦">ingane | ubaba | umama | umfana</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">umndeni: umama, umfana, umfana</annotation>
+		<annotation cp="👩‍👧">ingane | ubaba | umama | intombazane</annotation>
+		<annotation cp="👩‍👧" type="tts">umndeni: umama, intombazane</annotation>
+		<annotation cp="👩‍👧‍👦">ingane | ubaba | umama | intombazane | umfana</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">umndeni: umama, intombazane, umfana</annotation>
+		<annotation cp="👩‍👧‍👧">ingane | ubaba | umama | intombazane</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">umndeni: umama, intombazane, intombazane</annotation>
 		<annotation cp="🤳🏻">ifoni | ikhamela | ukuzishutha | uhlobo-1-2</annotation>
 		<annotation cp="🤳🏻" type="tts">uzishuthe: uhlobo-1-2</annotation>
 		<annotation cp="🤳🏼">ifoni | ikhamela | ukuzishutha | uhlobo-3</annotation>
@@ -1734,15 +2034,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👌🏾" type="tts">isandla sokuthi kulungile: uhlobo-5</annotation>
 		<annotation cp="👌🏿">isandla | kulungile | umzimba | uhlobo-6</annotation>
 		<annotation cp="👌🏿" type="tts">isandla sokuthi kulungile: uhlobo-6</annotation>
-		<annotation cp="👍🏻">uhlobo-1-2</annotation>
+		<annotation cp="👍🏻">+1 | isandla | isithupha | phezulu | uhlobo-1-2</annotation>
 		<annotation cp="👍🏻" type="tts">ukumisa isithupha: uhlobo-1-2</annotation>
-		<annotation cp="👍🏼">uhlobo-3</annotation>
+		<annotation cp="👍🏼">+1 | isandla | isithupha | phezulu | uhlobo-3</annotation>
 		<annotation cp="👍🏼" type="tts">ukumisa isithupha: uhlobo-3</annotation>
-		<annotation cp="👍🏽">uhlobo-4</annotation>
+		<annotation cp="👍🏽">+1 | isandla | isithupha | phezulu | uhlobo-4</annotation>
 		<annotation cp="👍🏽" type="tts">ukumisa isithupha: uhlobo-4</annotation>
-		<annotation cp="👍🏾">uhlobo-5</annotation>
+		<annotation cp="👍🏾">+1 | isandla | isithupha | phezulu | uhlobo-5</annotation>
 		<annotation cp="👍🏾" type="tts">ukumisa isithupha: uhlobo-5</annotation>
-		<annotation cp="👍🏿">uhlobo-6</annotation>
+		<annotation cp="👍🏿">+1 | isandla | isithupha | phezulu | uhlobo-6</annotation>
 		<annotation cp="👍🏿" type="tts">ukumisa isithupha: uhlobo-6</annotation>
 		<annotation cp="👎🏻">-1 | isandla | isithupha | phansi | umzimba | uhlobo-1-2</annotation>
 		<annotation cp="👎🏻" type="tts">ukubhekisa phansi isithupha: uhlobo-1-2</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">ukuphakamisa isandla: uhlobo-5</annotation>
 		<annotation cp="👋🏿">isandla | ukuphakamisa isandla | umzimba | uhlobo-6</annotation>
 		<annotation cp="👋🏿" type="tts">ukuphakamisa isandla: uhlobo-6</annotation>
+		<annotation cp="🤟🏻">ILY | isandla | uhlobo-1-2</annotation>
+		<annotation cp="🤟🏻" type="tts">ukukhombisa uthando: uhlobo-1-2</annotation>
+		<annotation cp="🤟🏼">ILY | isandla | uhlobo-3</annotation>
+		<annotation cp="🤟🏼" type="tts">ukukhombisa uthando: uhlobo-3</annotation>
+		<annotation cp="🤟🏽">ILY | isandla | uhlobo-4</annotation>
+		<annotation cp="🤟🏽" type="tts">ukukhombisa uthando: uhlobo-4</annotation>
+		<annotation cp="🤟🏾">ILY | isandla | uhlobo-5</annotation>
+		<annotation cp="🤟🏾" type="tts">ukukhombisa uthando: uhlobo-5</annotation>
+		<annotation cp="🤟🏿">ILY | isandla | uhlobo-6</annotation>
+		<annotation cp="🤟🏿" type="tts">ukukhombisa uthando: uhlobo-6</annotation>
 		<annotation cp="✍🏻">isandla | ukubhala | umzimba | uhlobo-1-2</annotation>
 		<annotation cp="✍🏻" type="tts">isandla esibhalayo: uhlobo-1-2</annotation>
 		<annotation cp="✍🏼">isandla | ukubhala | umzimba | uhlobo-3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">umuntu ophakamise izandla: uhlobo-5</annotation>
 		<annotation cp="🙌🏿">halala | isandla | ukuphakamisa | umbungazo | umzimba | uphawu | uhlobo-6</annotation>
 		<annotation cp="🙌🏿" type="tts">umuntu ophakamise izandla: uhlobo-6</annotation>
+		<annotation cp="🤲🏻">umthandazo | uhlobo-1-2</annotation>
+		<annotation cp="🤲🏻" type="tts">izandla zombili phezulu: uhlobo-1-2</annotation>
+		<annotation cp="🤲🏼">umthandazo | uhlobo-3</annotation>
+		<annotation cp="🤲🏼" type="tts">izandla zombili phezulu: uhlobo-3</annotation>
+		<annotation cp="🤲🏽">umthandazo | uhlobo-4</annotation>
+		<annotation cp="🤲🏽" type="tts">izandla zombili phezulu: uhlobo-4</annotation>
+		<annotation cp="🤲🏾">umthandazo | uhlobo-5</annotation>
+		<annotation cp="🤲🏾" type="tts">izandla zombili phezulu: uhlobo-5</annotation>
+		<annotation cp="🤲🏿">umthandazo | uhlobo-6</annotation>
+		<annotation cp="🤲🏿" type="tts">izandla zombili phezulu: uhlobo-6</annotation>
 		<annotation cp="🙏🏻">cela | goqa | isandla | thoba | ukubonga | ukuncenga | ukuthandaza | umzimba | uphawu | uhlobo-1-2</annotation>
 		<annotation cp="🙏🏻" type="tts">izandla ezigoqiwe: uhlobo-1-2</annotation>
 		<annotation cp="🙏🏼">cela | goqa | isandla | thoba | ukubonga | ukuncenga | ukuthandaza | umzimba | uphawu | uhlobo-3</annotation>
@@ -1898,6 +2218,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="#⃣" type="tts">i-keycap: #</annotation>
 		<annotation cp="*⃣">i-keycap</annotation>
 		<annotation cp="*⃣" type="tts">i-keycap: *</annotation>
+		<annotation cp="🔟">i-keycap</annotation>
+		<annotation cp="🔟" type="tts">i-keycap: 10</annotation>
 		<annotation cp="🇦🇨">ifulegi</annotation>
 		<annotation cp="🇦🇨" type="tts">i-Ascension Island</annotation>
 		<annotation cp="🇦🇩">ifulegi</annotation>
@@ -2409,7 +2731,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇾🇹">ifulegi</annotation>
 		<annotation cp="🇾🇹" type="tts">i-Mayotte</annotation>
 		<annotation cp="🇿🇦">ifulegi</annotation>
-		<annotation cp="🇿🇦" type="tts">i-South Africa</annotation>
+		<annotation cp="🇿🇦" type="tts">iNingizimu Afrika</annotation>
 		<annotation cp="🇿🇲">ifulegi</annotation>
 		<annotation cp="🇿🇲" type="tts">i-Zambia</annotation>
 		<annotation cp="🇿🇼">ifulegi</annotation>

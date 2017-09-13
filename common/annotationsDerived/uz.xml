@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="uz"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | nol | tugma</annotation>
-		<annotation cp="0⃣" type="tts">nol raqami tugmasi</annotation>
-		<annotation cp="1⃣">1 | bir | tugma</annotation>
-		<annotation cp="1⃣" type="tts">bir raqami tugmasi</annotation>
-		<annotation cp="2⃣">2 | ikki | tugma</annotation>
-		<annotation cp="2⃣" type="tts">ikki raqami tugmasi</annotation>
-		<annotation cp="3⃣">3 | tugma | uch</annotation>
-		<annotation cp="3⃣" type="tts">uch raqami tugmasi</annotation>
-		<annotation cp="4⃣">4 | to‘rt | tugma</annotation>
-		<annotation cp="4⃣" type="tts">to‘rt raqami tugmasi</annotation>
-		<annotation cp="5⃣">5 | besh | tugma</annotation>
-		<annotation cp="5⃣" type="tts">besh raqami tugmasi</annotation>
-		<annotation cp="6⃣">6 | olti | tugma</annotation>
-		<annotation cp="6⃣" type="tts">olti raqami tugmasi</annotation>
-		<annotation cp="7⃣">7 | tugma | yetti</annotation>
-		<annotation cp="7⃣" type="tts">yetti raqami tugmasi</annotation>
-		<annotation cp="8⃣">8 | sakkiz | tugma</annotation>
-		<annotation cp="8⃣" type="tts">sakkiz raqami tugmasi</annotation>
-		<annotation cp="9⃣">9 | to‘qqiz | tugma</annotation>
-		<annotation cp="9⃣" type="tts">to‘qqiz raqami tugmasi</annotation>
+		<annotation cp="0⃣">tugma qalpog‘i</annotation>
+		<annotation cp="0⃣" type="tts">tugma qalpog‘i: 0</annotation>
+		<annotation cp="1⃣">tugma qalpog‘i</annotation>
+		<annotation cp="1⃣" type="tts">tugma qalpog‘i: 1</annotation>
+		<annotation cp="2⃣">tugma qalpog‘i</annotation>
+		<annotation cp="2⃣" type="tts">tugma qalpog‘i: 2</annotation>
+		<annotation cp="3⃣">tugma qalpog‘i</annotation>
+		<annotation cp="3⃣" type="tts">tugma qalpog‘i: 3</annotation>
+		<annotation cp="4⃣">tugma qalpog‘i</annotation>
+		<annotation cp="4⃣" type="tts">tugma qalpog‘i: 4</annotation>
+		<annotation cp="5⃣">tugma qalpog‘i</annotation>
+		<annotation cp="5⃣" type="tts">tugma qalpog‘i: 5</annotation>
+		<annotation cp="6⃣">tugma qalpog‘i</annotation>
+		<annotation cp="6⃣" type="tts">tugma qalpog‘i: 6</annotation>
+		<annotation cp="7⃣">tugma qalpog‘i</annotation>
+		<annotation cp="7⃣" type="tts">tugma qalpog‘i: 7</annotation>
+		<annotation cp="8⃣">tugma qalpog‘i</annotation>
+		<annotation cp="8⃣" type="tts">tugma qalpog‘i: 8</annotation>
+		<annotation cp="9⃣">tugma qalpog‘i</annotation>
+		<annotation cp="9⃣" type="tts">tugma qalpog‘i: 9</annotation>
 		<annotation cp="👶🏻">chaqaloq | 1–2-teri turi</annotation>
 		<annotation cp="👶🏻" type="tts">chaqaloq: 1–2-teri turi</annotation>
 		<annotation cp="👶🏼">chaqaloq | 3-teri turi</annotation>
@@ -42,16 +42,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">chaqaloq: 5-teri turi</annotation>
 		<annotation cp="👶🏿">chaqaloq | 6-teri turi</annotation>
 		<annotation cp="👶🏿" type="tts">chaqaloq: 6-teri turi</annotation>
+		<annotation cp="🧒🏻">bolakay | farzand | neytral jins | 1–2-teri turi</annotation>
+		<annotation cp="🧒🏻" type="tts">bola: 1–2-teri turi</annotation>
+		<annotation cp="🧒🏼">bolakay | farzand | neytral jins | 3-teri turi</annotation>
+		<annotation cp="🧒🏼" type="tts">bola: 3-teri turi</annotation>
+		<annotation cp="🧒🏽">bolakay | farzand | neytral jins | 4-teri turi</annotation>
+		<annotation cp="🧒🏽" type="tts">bola: 4-teri turi</annotation>
+		<annotation cp="🧒🏾">bolakay | farzand | neytral jins | 5-teri turi</annotation>
+		<annotation cp="🧒🏾" type="tts">bola: 5-teri turi</annotation>
+		<annotation cp="🧒🏿">bolakay | farzand | neytral jins | 6-teri turi</annotation>
+		<annotation cp="🧒🏿" type="tts">bola: 6-teri turi</annotation>
 		<annotation cp="👦🏻">bola | erkak | 1–2-teri turi</annotation>
-		<annotation cp="👦🏻" type="tts">bola: 1–2-teri turi</annotation>
+		<annotation cp="👦🏻" type="tts">o‘g‘il bola: 1–2-teri turi</annotation>
 		<annotation cp="👦🏼">bola | erkak | 3-teri turi</annotation>
-		<annotation cp="👦🏼" type="tts">bola: 3-teri turi</annotation>
+		<annotation cp="👦🏼" type="tts">o‘g‘il bola: 3-teri turi</annotation>
 		<annotation cp="👦🏽">bola | erkak | 4-teri turi</annotation>
-		<annotation cp="👦🏽" type="tts">bola: 4-teri turi</annotation>
+		<annotation cp="👦🏽" type="tts">o‘g‘il bola: 4-teri turi</annotation>
 		<annotation cp="👦🏾">bola | erkak | 5-teri turi</annotation>
-		<annotation cp="👦🏾" type="tts">bola: 5-teri turi</annotation>
+		<annotation cp="👦🏾" type="tts">o‘g‘il bola: 5-teri turi</annotation>
 		<annotation cp="👦🏿">bola | erkak | 6-teri turi</annotation>
-		<annotation cp="👦🏿" type="tts">bola: 6-teri turi</annotation>
+		<annotation cp="👦🏿" type="tts">o‘g‘il bola: 6-teri turi</annotation>
 		<annotation cp="👧🏻">bokira | bo‘yi yetgan | burj | sunbula | 1–2-teri turi</annotation>
 		<annotation cp="👧🏻" type="tts">qiz bola: 1–2-teri turi</annotation>
 		<annotation cp="👧🏼">bokira | bo‘yi yetgan | burj | sunbula | 3-teri turi</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">qiz bola: 5-teri turi</annotation>
 		<annotation cp="👧🏿">bokira | bo‘yi yetgan | burj | sunbula | 6-teri turi</annotation>
 		<annotation cp="👧🏿" type="tts">qiz bola: 6-teri turi</annotation>
+		<annotation cp="🧑🏻">katta | neytral jins | 1–2-teri turi</annotation>
+		<annotation cp="🧑🏻" type="tts">voyaga yetgan: 1–2-teri turi</annotation>
+		<annotation cp="🧑🏼">katta | neytral jins | 3-teri turi</annotation>
+		<annotation cp="🧑🏼" type="tts">voyaga yetgan: 3-teri turi</annotation>
+		<annotation cp="🧑🏽">katta | neytral jins | 4-teri turi</annotation>
+		<annotation cp="🧑🏽" type="tts">voyaga yetgan: 4-teri turi</annotation>
+		<annotation cp="🧑🏾">katta | neytral jins | 5-teri turi</annotation>
+		<annotation cp="🧑🏾" type="tts">voyaga yetgan: 5-teri turi</annotation>
+		<annotation cp="🧑🏿">katta | neytral jins | 6-teri turi</annotation>
+		<annotation cp="🧑🏿" type="tts">voyaga yetgan: 6-teri turi</annotation>
 		<annotation cp="👨🏻">erkak | kishi | 1–2-teri turi</annotation>
 		<annotation cp="👨🏻" type="tts">erkak: 1–2-teri turi</annotation>
 		<annotation cp="👨🏼">erkak | kishi | 3-teri turi</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">ayol: 5-teri turi</annotation>
 		<annotation cp="👩🏿">ayol | xotin | 6-teri turi</annotation>
 		<annotation cp="👩🏿" type="tts">ayol: 6-teri turi</annotation>
+		<annotation cp="🧓🏻">keksa | neytral jins | qariya | 1–2-teri turi</annotation>
+		<annotation cp="🧓🏻" type="tts">qari odam: 1–2-teri turi</annotation>
+		<annotation cp="🧓🏼">keksa | neytral jins | qariya | 3-teri turi</annotation>
+		<annotation cp="🧓🏼" type="tts">qari odam: 3-teri turi</annotation>
+		<annotation cp="🧓🏽">keksa | neytral jins | qariya | 4-teri turi</annotation>
+		<annotation cp="🧓🏽" type="tts">qari odam: 4-teri turi</annotation>
+		<annotation cp="🧓🏾">keksa | neytral jins | qariya | 5-teri turi</annotation>
+		<annotation cp="🧓🏾" type="tts">qari odam: 5-teri turi</annotation>
+		<annotation cp="🧓🏿">keksa | neytral jins | qariya | 6-teri turi</annotation>
+		<annotation cp="🧓🏿" type="tts">qari odam: 6-teri turi</annotation>
 		<annotation cp="👴🏻">erkak kishi | qari | 1–2-teri turi</annotation>
 		<annotation cp="👴🏻" type="tts">chol: 1–2-teri turi</annotation>
 		<annotation cp="👴🏼">erkak kishi | qari | 3-teri turi</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">xitoy bosh kiyimini kiygan kishi: 5-teri turi</annotation>
 		<annotation cp="👲🏿">bosh kiyim | erkak kishi | gua pi mao | 6-teri turi</annotation>
 		<annotation cp="👲🏿" type="tts">xitoy bosh kiyimini kiygan kishi: 6-teri turi</annotation>
+		<annotation cp="🧕🏻">1–2-teri turi</annotation>
+		<annotation cp="🧕🏻" type="tts">ro‘mol o‘ragan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🧕🏼">3-teri turi</annotation>
+		<annotation cp="🧕🏼" type="tts">ro‘mol o‘ragan ayol: 3-teri turi</annotation>
+		<annotation cp="🧕🏽">4-teri turi</annotation>
+		<annotation cp="🧕🏽" type="tts">ro‘mol o‘ragan ayol: 4-teri turi</annotation>
+		<annotation cp="🧕🏾">5-teri turi</annotation>
+		<annotation cp="🧕🏾" type="tts">ro‘mol o‘ragan ayol: 5-teri turi</annotation>
+		<annotation cp="🧕🏿">6-teri turi</annotation>
+		<annotation cp="🧕🏿" type="tts">ro‘mol o‘ragan ayol: 6-teri turi</annotation>
+		<annotation cp="🧔🏻">1–2-teri turi</annotation>
+		<annotation cp="🧔🏻" type="tts">soqolli odam: 1–2-teri turi</annotation>
+		<annotation cp="🧔🏼">3-teri turi</annotation>
+		<annotation cp="🧔🏼" type="tts">soqolli odam: 3-teri turi</annotation>
+		<annotation cp="🧔🏽">4-teri turi</annotation>
+		<annotation cp="🧔🏽" type="tts">soqolli odam: 4-teri turi</annotation>
+		<annotation cp="🧔🏾">5-teri turi</annotation>
+		<annotation cp="🧔🏾" type="tts">soqolli odam: 5-teri turi</annotation>
+		<annotation cp="🧔🏿">6-teri turi</annotation>
+		<annotation cp="🧔🏿" type="tts">soqolli odam: 6-teri turi</annotation>
 		<annotation cp="👱🏻">sariq | 1–2-teri turi</annotation>
 		<annotation cp="👱🏻" type="tts">sariq sochli odam: 1–2-teri turi</annotation>
 		<annotation cp="👱🏼">sariq | 3-teri turi</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">homilador ayol: 5-teri turi</annotation>
 		<annotation cp="🤰🏿">ayol | homilador | ikki qat | 6-teri turi</annotation>
 		<annotation cp="🤰🏿" type="tts">homilador ayol: 6-teri turi</annotation>
+		<annotation cp="🤱🏻">1–2-teri turi</annotation>
+		<annotation cp="🤱🏻" type="tts">emizish: 1–2-teri turi</annotation>
+		<annotation cp="🤱🏼">3-teri turi</annotation>
+		<annotation cp="🤱🏼" type="tts">emizish: 3-teri turi</annotation>
+		<annotation cp="🤱🏽">4-teri turi</annotation>
+		<annotation cp="🤱🏽" type="tts">emizish: 4-teri turi</annotation>
+		<annotation cp="🤱🏾">5-teri turi</annotation>
+		<annotation cp="🤱🏾" type="tts">emizish: 5-teri turi</annotation>
+		<annotation cp="🤱🏿">6-teri turi</annotation>
+		<annotation cp="🤱🏿" type="tts">emizish: 6-teri turi</annotation>
 		<annotation cp="👼🏻">chaqaloq | ertak | fantaziya | farishta | yuz | 1–2-teri turi</annotation>
 		<annotation cp="👼🏻" type="tts">chaqaloq farishta: 1–2-teri turi</annotation>
 		<annotation cp="👼🏼">chaqaloq | ertak | fantaziya | farishta | yuz | 3-teri turi</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">qorqiz: 5-teri turi</annotation>
 		<annotation cp="🤶🏿">qorqiz | rojdestvo | 6-teri turi</annotation>
 		<annotation cp="🤶🏿" type="tts">qorqiz: 6-teri turi</annotation>
+		<annotation cp="🧙🏻">afsungar | jodugar | kohin | 1–2-teri turi</annotation>
+		<annotation cp="🧙🏻" type="tts">sehrgar: 1–2-teri turi</annotation>
+		<annotation cp="🧙🏼">afsungar | jodugar | kohin | 3-teri turi</annotation>
+		<annotation cp="🧙🏼" type="tts">sehrgar: 3-teri turi</annotation>
+		<annotation cp="🧙🏽">afsungar | jodugar | kohin | 4-teri turi</annotation>
+		<annotation cp="🧙🏽" type="tts">sehrgar: 4-teri turi</annotation>
+		<annotation cp="🧙🏾">afsungar | jodugar | kohin | 5-teri turi</annotation>
+		<annotation cp="🧙🏾" type="tts">sehrgar: 5-teri turi</annotation>
+		<annotation cp="🧙🏿">afsungar | jodugar | kohin | 6-teri turi</annotation>
+		<annotation cp="🧙🏿" type="tts">sehrgar: 6-teri turi</annotation>
+		<annotation cp="🧙🏻‍♀">jodugar | kohin | 1–2-teri turi</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">ayol sehrgar: 1–2-teri turi</annotation>
+		<annotation cp="🧙🏼‍♀">jodugar | kohin | 3-teri turi</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">ayol sehrgar: 3-teri turi</annotation>
+		<annotation cp="🧙🏽‍♀">jodugar | kohin | 4-teri turi</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">ayol sehrgar: 4-teri turi</annotation>
+		<annotation cp="🧙🏾‍♀">jodugar | kohin | 5-teri turi</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">ayol sehrgar: 5-teri turi</annotation>
+		<annotation cp="🧙🏿‍♀">jodugar | kohin | 6-teri turi</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">ayol sehrgar: 6-teri turi</annotation>
+		<annotation cp="🧙🏻‍♂">afsungar | jodugar | kohin | 1–2-teri turi</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">erkak sehrgar: 1–2-teri turi</annotation>
+		<annotation cp="🧙🏼‍♂">afsungar | jodugar | kohin | 3-teri turi</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">erkak sehrgar: 3-teri turi</annotation>
+		<annotation cp="🧙🏽‍♂">afsungar | jodugar | kohin | 4-teri turi</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">erkak sehrgar: 4-teri turi</annotation>
+		<annotation cp="🧙🏾‍♂">afsungar | jodugar | kohin | 5-teri turi</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">erkak sehrgar: 5-teri turi</annotation>
+		<annotation cp="🧙🏿‍♂">afsungar | jodugar | kohin | 6-teri turi</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">erkak sehrgar: 6-teri turi</annotation>
+		<annotation cp="🧚🏻">Titaniya | ertak | qanot | sohira | 1–2-teri turi</annotation>
+		<annotation cp="🧚🏻" type="tts">pari: 1–2-teri turi</annotation>
+		<annotation cp="🧚🏼">Titaniya | ertak | qanot | sohira | 3-teri turi</annotation>
+		<annotation cp="🧚🏼" type="tts">pari: 3-teri turi</annotation>
+		<annotation cp="🧚🏽">Titaniya | ertak | qanot | sohira | 4-teri turi</annotation>
+		<annotation cp="🧚🏽" type="tts">pari: 4-teri turi</annotation>
+		<annotation cp="🧚🏾">Titaniya | ertak | qanot | sohira | 5-teri turi</annotation>
+		<annotation cp="🧚🏾" type="tts">pari: 5-teri turi</annotation>
+		<annotation cp="🧚🏿">Titaniya | ertak | qanot | sohira | 6-teri turi</annotation>
+		<annotation cp="🧚🏿" type="tts">pari: 6-teri turi</annotation>
+		<annotation cp="🧚🏻‍♀">Titaniya | 1–2-teri turi</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">ayol pari: 1–2-teri turi</annotation>
+		<annotation cp="🧚🏼‍♀">Titaniya | 3-teri turi</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">ayol pari: 3-teri turi</annotation>
+		<annotation cp="🧚🏽‍♀">Titaniya | 4-teri turi</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">ayol pari: 4-teri turi</annotation>
+		<annotation cp="🧚🏾‍♀">Titaniya | 5-teri turi</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">ayol pari: 5-teri turi</annotation>
+		<annotation cp="🧚🏿‍♀">Titaniya | 6-teri turi</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">ayol pari: 6-teri turi</annotation>
+		<annotation cp="🧚🏻‍♂">erkak | qanot | sehrgar | 1–2-teri turi</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">erkak pari: 1–2-teri turi</annotation>
+		<annotation cp="🧚🏼‍♂">erkak | qanot | sehrgar | 3-teri turi</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">erkak pari: 3-teri turi</annotation>
+		<annotation cp="🧚🏽‍♂">erkak | qanot | sehrgar | 4-teri turi</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">erkak pari: 4-teri turi</annotation>
+		<annotation cp="🧚🏾‍♂">erkak | qanot | sehrgar | 5-teri turi</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">erkak pari: 5-teri turi</annotation>
+		<annotation cp="🧚🏿‍♂">erkak | qanot | sehrgar | 6-teri turi</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">erkak pari: 6-teri turi</annotation>
+		<annotation cp="🧛🏻">Drakula | qon | tish | 1–2-teri turi</annotation>
+		<annotation cp="🧛🏻" type="tts">vampir: 1–2-teri turi</annotation>
+		<annotation cp="🧛🏼">Drakula | qon | tish | 3-teri turi</annotation>
+		<annotation cp="🧛🏼" type="tts">vampir: 3-teri turi</annotation>
+		<annotation cp="🧛🏽">Drakula | qon | tish | 4-teri turi</annotation>
+		<annotation cp="🧛🏽" type="tts">vampir: 4-teri turi</annotation>
+		<annotation cp="🧛🏾">Drakula | qon | tish | 5-teri turi</annotation>
+		<annotation cp="🧛🏾" type="tts">vampir: 5-teri turi</annotation>
+		<annotation cp="🧛🏿">Drakula | qon | tish | 6-teri turi</annotation>
+		<annotation cp="🧛🏿" type="tts">vampir: 6-teri turi</annotation>
+		<annotation cp="🧛🏻‍♀">ayol | qon | tish | 1–2-teri turi</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">ayol vampir: 1–2-teri turi</annotation>
+		<annotation cp="🧛🏼‍♀">ayol | qon | tish | 3-teri turi</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">ayol vampir: 3-teri turi</annotation>
+		<annotation cp="🧛🏽‍♀">ayol | qon | tish | 4-teri turi</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">ayol vampir: 4-teri turi</annotation>
+		<annotation cp="🧛🏾‍♀">ayol | qon | tish | 5-teri turi</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">ayol vampir: 5-teri turi</annotation>
+		<annotation cp="🧛🏿‍♀">ayol | qon | tish | 6-teri turi</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">ayol vampir: 6-teri turi</annotation>
+		<annotation cp="🧛🏻‍♂">Drakula | erkak | qon | tish | 1–2-teri turi</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">erkak vampir: 1–2-teri turi</annotation>
+		<annotation cp="🧛🏼‍♂">Drakula | erkak | qon | tish | 3-teri turi</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">erkak vampir: 3-teri turi</annotation>
+		<annotation cp="🧛🏽‍♂">Drakula | erkak | qon | tish | 4-teri turi</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">erkak vampir: 4-teri turi</annotation>
+		<annotation cp="🧛🏾‍♂">Drakula | erkak | qon | tish | 5-teri turi</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">erkak vampir: 5-teri turi</annotation>
+		<annotation cp="🧛🏿‍♂">Drakula | erkak | qon | tish | 6-teri turi</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">erkak vampir: 6-teri turi</annotation>
+		<annotation cp="🧜🏻">suv parisi | triton | yarim baliq | yarim odam | 1–2-teri turi</annotation>
+		<annotation cp="🧜🏻" type="tts">suv parisi: 1–2-teri turi</annotation>
+		<annotation cp="🧜🏼">suv parisi | triton | yarim baliq | yarim odam | 3-teri turi</annotation>
+		<annotation cp="🧜🏼" type="tts">suv parisi: 3-teri turi</annotation>
+		<annotation cp="🧜🏽">suv parisi | triton | yarim baliq | yarim odam | 4-teri turi</annotation>
+		<annotation cp="🧜🏽" type="tts">suv parisi: 4-teri turi</annotation>
+		<annotation cp="🧜🏾">suv parisi | triton | yarim baliq | yarim odam | 5-teri turi</annotation>
+		<annotation cp="🧜🏾" type="tts">suv parisi: 5-teri turi</annotation>
+		<annotation cp="🧜🏿">suv parisi | triton | yarim baliq | yarim odam | 6-teri turi</annotation>
+		<annotation cp="🧜🏿" type="tts">suv parisi: 6-teri turi</annotation>
+		<annotation cp="🧜🏻‍♀">ayol | suv parisi | yarim ayol | yarim baliq | 1–2-teri turi</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">ayol suv parisi: 1–2-teri turi</annotation>
+		<annotation cp="🧜🏼‍♀">ayol | suv parisi | yarim ayol | yarim baliq | 3-teri turi</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">ayol suv parisi: 3-teri turi</annotation>
+		<annotation cp="🧜🏽‍♀">ayol | suv parisi | yarim ayol | yarim baliq | 4-teri turi</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">ayol suv parisi: 4-teri turi</annotation>
+		<annotation cp="🧜🏾‍♀">ayol | suv parisi | yarim ayol | yarim baliq | 5-teri turi</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">ayol suv parisi: 5-teri turi</annotation>
+		<annotation cp="🧜🏿‍♀">ayol | suv parisi | yarim ayol | yarim baliq | 6-teri turi</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">ayol suv parisi: 6-teri turi</annotation>
+		<annotation cp="🧜🏻‍♂">erkak | triton | yarim baliq | yarim erkak | 1–2-teri turi</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">triton: 1–2-teri turi</annotation>
+		<annotation cp="🧜🏼‍♂">erkak | triton | yarim baliq | yarim erkak | 3-teri turi</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">triton: 3-teri turi</annotation>
+		<annotation cp="🧜🏽‍♂">erkak | triton | yarim baliq | yarim erkak | 4-teri turi</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">triton: 4-teri turi</annotation>
+		<annotation cp="🧜🏾‍♂">erkak | triton | yarim baliq | yarim erkak | 5-teri turi</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">triton: 5-teri turi</annotation>
+		<annotation cp="🧜🏿‍♂">erkak | triton | yarim baliq | yarim erkak | 6-teri turi</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">triton: 6-teri turi</annotation>
+		<annotation cp="🧝🏻">ertak | quloq | sehrli | 1–2-teri turi</annotation>
+		<annotation cp="🧝🏻" type="tts">elf: 1–2-teri turi</annotation>
+		<annotation cp="🧝🏼">ertak | quloq | sehrli | 3-teri turi</annotation>
+		<annotation cp="🧝🏼" type="tts">elf: 3-teri turi</annotation>
+		<annotation cp="🧝🏽">ertak | quloq | sehrli | 4-teri turi</annotation>
+		<annotation cp="🧝🏽" type="tts">elf: 4-teri turi</annotation>
+		<annotation cp="🧝🏾">ertak | quloq | sehrli | 5-teri turi</annotation>
+		<annotation cp="🧝🏾" type="tts">elf: 5-teri turi</annotation>
+		<annotation cp="🧝🏿">ertak | quloq | sehrli | 6-teri turi</annotation>
+		<annotation cp="🧝🏿" type="tts">elf: 6-teri turi</annotation>
+		<annotation cp="🧝🏻‍♀">ayol | ertak | quloq | sehrli | 1–2-teri turi</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">ayol elf: 1–2-teri turi</annotation>
+		<annotation cp="🧝🏼‍♀">ayol | ertak | quloq | sehrli | 3-teri turi</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">ayol elf: 3-teri turi</annotation>
+		<annotation cp="🧝🏽‍♀">ayol | ertak | quloq | sehrli | 4-teri turi</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">ayol elf: 4-teri turi</annotation>
+		<annotation cp="🧝🏾‍♀">ayol | ertak | quloq | sehrli | 5-teri turi</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">ayol elf: 5-teri turi</annotation>
+		<annotation cp="🧝🏿‍♀">ayol | ertak | quloq | sehrli | 6-teri turi</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">ayol elf: 6-teri turi</annotation>
+		<annotation cp="🧝🏻‍♂">erkak | ertak | quloq | sehrli | 1–2-teri turi</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">erkak elf: 1–2-teri turi</annotation>
+		<annotation cp="🧝🏼‍♂">erkak | ertak | quloq | sehrli | 3-teri turi</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">erkak elf: 3-teri turi</annotation>
+		<annotation cp="🧝🏽‍♂">erkak | ertak | quloq | sehrli | 4-teri turi</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">erkak elf: 4-teri turi</annotation>
+		<annotation cp="🧝🏾‍♂">erkak | ertak | quloq | sehrli | 5-teri turi</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">erkak elf: 5-teri turi</annotation>
+		<annotation cp="🧝🏿‍♂">erkak | ertak | quloq | sehrli | 6-teri turi</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">erkak elf: 6-teri turi</annotation>
 		<annotation cp="🙍🏻">imo-ishora | qovog‘ini solish | 1–2-teri turi</annotation>
 		<annotation cp="🙍🏻" type="tts">xo‘mraygan odam: 1–2-teri turi</annotation>
 		<annotation cp="🙍🏼">imo-ishora | qovog‘ini solish | 3-teri turi</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">raqs tushayotgan erkak: 5-teri turi</annotation>
 		<annotation cp="🕺🏿">erkak | raqs | 6-teri turi</annotation>
 		<annotation cp="🕺🏿" type="tts">raqs tushayotgan erkak: 6-teri turi</annotation>
+		<annotation cp="🧖🏻">1–2-teri turi</annotation>
+		<annotation cp="🧖🏻" type="tts">hammomdagi odam: 1–2-teri turi</annotation>
+		<annotation cp="🧖🏼">3-teri turi</annotation>
+		<annotation cp="🧖🏼" type="tts">hammomdagi odam: 3-teri turi</annotation>
+		<annotation cp="🧖🏽">4-teri turi</annotation>
+		<annotation cp="🧖🏽" type="tts">hammomdagi odam: 4-teri turi</annotation>
+		<annotation cp="🧖🏾">5-teri turi</annotation>
+		<annotation cp="🧖🏾" type="tts">hammomdagi odam: 5-teri turi</annotation>
+		<annotation cp="🧖🏿">6-teri turi</annotation>
+		<annotation cp="🧖🏿" type="tts">hammomdagi odam: 6-teri turi</annotation>
+		<annotation cp="🧖🏻‍♀">1–2-teri turi</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">hammomdagi ayol: 1–2-teri turi</annotation>
+		<annotation cp="🧖🏼‍♀">3-teri turi</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">hammomdagi ayol: 3-teri turi</annotation>
+		<annotation cp="🧖🏽‍♀">4-teri turi</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">hammomdagi ayol: 4-teri turi</annotation>
+		<annotation cp="🧖🏾‍♀">5-teri turi</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">hammomdagi ayol: 5-teri turi</annotation>
+		<annotation cp="🧖🏿‍♀">6-teri turi</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">hammomdagi ayol: 6-teri turi</annotation>
+		<annotation cp="🧖🏻‍♂">1–2-teri turi</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">hammomdagi erkak: 1–2-teri turi</annotation>
+		<annotation cp="🧖🏼‍♂">3-teri turi</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">hammomdagi erkak: 3-teri turi</annotation>
+		<annotation cp="🧖🏽‍♂">4-teri turi</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">hammomdagi erkak: 4-teri turi</annotation>
+		<annotation cp="🧖🏾‍♂">5-teri turi</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">hammomdagi erkak: 5-teri turi</annotation>
+		<annotation cp="🧖🏿‍♂">6-teri turi</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">hammomdagi erkak: 6-teri turi</annotation>
+		<annotation cp="🧗🏻">1–2-teri turi</annotation>
+		<annotation cp="🧗🏻" type="tts">cho‘qqiga chiqayotgan odam: 1–2-teri turi</annotation>
+		<annotation cp="🧗🏼">3-teri turi</annotation>
+		<annotation cp="🧗🏼" type="tts">cho‘qqiga chiqayotgan odam: 3-teri turi</annotation>
+		<annotation cp="🧗🏽">4-teri turi</annotation>
+		<annotation cp="🧗🏽" type="tts">cho‘qqiga chiqayotgan odam: 4-teri turi</annotation>
+		<annotation cp="🧗🏾">5-teri turi</annotation>
+		<annotation cp="🧗🏾" type="tts">cho‘qqiga chiqayotgan odam: 5-teri turi</annotation>
+		<annotation cp="🧗🏿">6-teri turi</annotation>
+		<annotation cp="🧗🏿" type="tts">cho‘qqiga chiqayotgan odam: 6-teri turi</annotation>
+		<annotation cp="🧗🏻‍♀">1–2-teri turi</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">cho‘qqiga chiqayotgan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🧗🏼‍♀">3-teri turi</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">cho‘qqiga chiqayotgan ayol: 3-teri turi</annotation>
+		<annotation cp="🧗🏽‍♀">4-teri turi</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">cho‘qqiga chiqayotgan ayol: 4-teri turi</annotation>
+		<annotation cp="🧗🏾‍♀">5-teri turi</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">cho‘qqiga chiqayotgan ayol: 5-teri turi</annotation>
+		<annotation cp="🧗🏿‍♀">6-teri turi</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">cho‘qqiga chiqayotgan ayol: 6-teri turi</annotation>
+		<annotation cp="🧗🏻‍♂">1–2-teri turi</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">cho‘qqiga chiqayotgan erkak: 1–2-teri turi</annotation>
+		<annotation cp="🧗🏼‍♂">3-teri turi</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">cho‘qqiga chiqayotgan erkak: 3-teri turi</annotation>
+		<annotation cp="🧗🏽‍♂">4-teri turi</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">cho‘qqiga chiqayotgan erkak: 4-teri turi</annotation>
+		<annotation cp="🧗🏾‍♂">5-teri turi</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">cho‘qqiga chiqayotgan erkak: 5-teri turi</annotation>
+		<annotation cp="🧗🏿‍♂">6-teri turi</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">cho‘qqiga chiqayotgan erkak: 6-teri turi</annotation>
+		<annotation cp="🧘🏻">1–2-teri turi</annotation>
+		<annotation cp="🧘🏻" type="tts">lotus holatidagi odam: 1–2-teri turi</annotation>
+		<annotation cp="🧘🏼">3-teri turi</annotation>
+		<annotation cp="🧘🏼" type="tts">lotus holatidagi odam: 3-teri turi</annotation>
+		<annotation cp="🧘🏽">4-teri turi</annotation>
+		<annotation cp="🧘🏽" type="tts">lotus holatidagi odam: 4-teri turi</annotation>
+		<annotation cp="🧘🏾">5-teri turi</annotation>
+		<annotation cp="🧘🏾" type="tts">lotus holatidagi odam: 5-teri turi</annotation>
+		<annotation cp="🧘🏿">6-teri turi</annotation>
+		<annotation cp="🧘🏿" type="tts">lotus holatidagi odam: 6-teri turi</annotation>
+		<annotation cp="🧘🏻‍♀">1–2-teri turi</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">lotus holatidagi ayol: 1–2-teri turi</annotation>
+		<annotation cp="🧘🏼‍♀">3-teri turi</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">lotus holatidagi ayol: 3-teri turi</annotation>
+		<annotation cp="🧘🏽‍♀">4-teri turi</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">lotus holatidagi ayol: 4-teri turi</annotation>
+		<annotation cp="🧘🏾‍♀">5-teri turi</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">lotus holatidagi ayol: 5-teri turi</annotation>
+		<annotation cp="🧘🏿‍♀">6-teri turi</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">lotus holatidagi ayol: 6-teri turi</annotation>
+		<annotation cp="🧘🏻‍♂">1–2-teri turi</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">lotus holatidagi erkak: 1–2-teri turi</annotation>
+		<annotation cp="🧘🏼‍♂">3-teri turi</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">lotus holatidagi erkak: 3-teri turi</annotation>
+		<annotation cp="🧘🏽‍♂">4-teri turi</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">lotus holatidagi erkak: 4-teri turi</annotation>
+		<annotation cp="🧘🏾‍♂">5-teri turi</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">lotus holatidagi erkak: 5-teri turi</annotation>
+		<annotation cp="🧘🏿‍♂">6-teri turi</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">lotus holatidagi erkak: 6-teri turi</annotation>
 		<annotation cp="🛀🏻">tos | vanna | 1–2-teri turi</annotation>
 		<annotation cp="🛀🏻" type="tts">hammom qilayotgan kishi: 1–2-teri turi</annotation>
 		<annotation cp="🛀🏼">tos | vanna | 3-teri turi</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">ayol jonglyorlik qilmoqda: 5-teri turi</annotation>
 		<annotation cp="🤹🏿‍♀">ayol | bir nechta amal | jonglyor | 6-teri turi</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">ayol jonglyorlik qilmoqda: 6-teri turi</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">ayol | erkak | juftlik</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">bo‘sa, ayol, erkak</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">erkak | juftlik | kishi</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">bo‘sa, erkak, erkak</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">ayol | juftlik | xotin</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">bo‘sa, ayol, ayol</annotation>
-		<annotation cp="👩‍❤‍👨">ayol | juftlik | sevgi | yurak</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">juftlik bilan yurak, ayol, erkak</annotation>
-		<annotation cp="👨‍❤‍👨">erkak | juftlik | sevgi | yurak</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">juftlik bilan yurak, erkak, erkak</annotation>
-		<annotation cp="👩‍❤‍👩">ayol | juftlik | sevgi | yurak</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">juftlik bilan yurak, ayol, ayol</annotation>
-		<annotation cp="👨‍👩‍👦">farzand | ona | ota | o‘g‘il</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">oila, erkak, ayol, o‘g‘il</annotation>
-		<annotation cp="👨‍👩‍👧">burj | farzand | ona | ota</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">oila, erkak, ayol, qiz</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">farzand | ona | ota | o‘g‘il</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">oila, erkak, ayol, qiz, o‘g‘il</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">ayol | erkak | farzand | o‘g‘il</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">oila, erkak, ayol, o‘g‘il, o‘g‘il</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">burj | farzand | ona | ota</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">oila, erkak, ayol, qiz, qiz</annotation>
-		<annotation cp="👨‍👨‍👦">erkak | farzand | ota | o‘g‘il</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">oila, erkak, erkak, o‘g‘il</annotation>
-		<annotation cp="👨‍👨‍👧">ayol | bokira | farzand | ota</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">oila, erkak, erkak, qiz</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">bokira | farzand | ota | o‘g‘il</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">oila, erkak, erkak, qiz, o‘g‘il</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">erkak | farzand | ota | o‘g‘il</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">oila, erkak, erkak, o‘g‘il, o‘g‘il</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">ayol | bokira | farzand | ota</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">oila, erkak, erkak, qiz, qiz</annotation>
-		<annotation cp="👩‍👩‍👦">ayol | farzand | ona | o‘g‘il</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">oila, ayol, ayol, o‘g‘il</annotation>
-		<annotation cp="👩‍👩‍👧">ayol | bokira | farzand | ona</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">oila, ayol, ayol, qiz</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">farzand | ona | o‘g‘il | qiz bola</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">oila, ayol, ayol, qiz, o‘g‘il</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">ayol | ona | ota | o‘g‘il</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">oila, ayol, ayol, o‘g‘il, o‘g‘il</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">ayol | bokira | ona | qiz</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">oila, ayol, ayol, qiz, qiz</annotation>
-		<annotation cp="👨‍👦">erkak | farzand | ota | o‘g‘il</annotation>
-		<annotation cp="👨‍👦" type="tts">oila, erkak, o‘g‘il</annotation>
-		<annotation cp="👨‍👦‍👦">erkak | farzand | ota | o‘g‘il</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">oila, erkak, o‘g‘il, o‘g‘il</annotation>
-		<annotation cp="👨‍👧">bokira | farzand | ota | qiz bola</annotation>
-		<annotation cp="👨‍👧" type="tts">oila, erkak, qiz</annotation>
-		<annotation cp="👨‍👧‍👦">farzand | ota | o‘g‘il | qiz bola</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">oila, erkak, qiz, o‘g‘il</annotation>
-		<annotation cp="👨‍👧‍👧">erkak | farzand | ota | qiz bola</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">oila, erkak, qiz, qiz</annotation>
-		<annotation cp="👩‍👦">ayol | farzand | ona | o‘g‘il</annotation>
-		<annotation cp="👩‍👦" type="tts">oila, ayol, o‘g‘il</annotation>
-		<annotation cp="👩‍👦‍👦">ayol | farzand | ona | o‘g‘il</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">oila, ayol, o‘g‘il, o‘g‘il</annotation>
-		<annotation cp="👩‍👧">ayol | farzand | ona | qiz bola</annotation>
-		<annotation cp="👩‍👧" type="tts">oila, ayol, qiz</annotation>
-		<annotation cp="👩‍👧‍👦">farzand | ona | o‘g‘il | qiz bola</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">oila, ayol, qiz, o‘g‘il</annotation>
-		<annotation cp="👩‍👧‍👧">ayol | farzand | ona | qiz</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">oila, ayol, qiz, qiz</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">juftlik | romantika | ayol | erkak</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">bo‘sa olish: ayol erkak</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">juftlik | romantika | erkak</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">bo‘sa olish: erkak erkak</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">juftlik | romantika | ayol</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">bo‘sa olish: ayol ayol</annotation>
+		<annotation cp="👩‍❤‍👨">juftlik | romantika | sevgi | yurak | ayol | erkak</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">juftlik va yurak: ayol erkak</annotation>
+		<annotation cp="👨‍❤‍👨">juftlik | romantika | sevgi | yurak | erkak</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">juftlik va yurak: erkak erkak</annotation>
+		<annotation cp="👩‍❤‍👩">juftlik | romantika | sevgi | yurak | ayol</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">juftlik va yurak: ayol ayol</annotation>
+		<annotation cp="👨‍👩‍👦">farzand | ona | ota | erkak | ayol | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">oila: erkak ayol o‘g‘il bola</annotation>
+		<annotation cp="👨‍👩‍👧">farzand | ona | ota | erkak | ayol | qiz bola</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">oila: erkak ayol qiz bola</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">farzand | ona | ota | erkak | ayol | qiz bola | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">oila: erkak ayol qiz bola o‘g‘il bola</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">farzand | ona | ota | erkak | ayol | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">oila: erkak ayol o‘g‘il bola o‘g‘il bola</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">farzand | ona | ota | erkak | ayol | qiz bola</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">oila: erkak ayol qiz bola qiz bola</annotation>
+		<annotation cp="👨‍👨‍👦">farzand | ona | ota | erkak | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">oila: erkak erkak o‘g‘il bola</annotation>
+		<annotation cp="👨‍👨‍👧">farzand | ona | ota | erkak | qiz bola</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">oila: erkak erkak qiz bola</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">farzand | ona | ota | erkak | qiz bola | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">oila: erkak erkak qiz bola o‘g‘il bola</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">farzand | ona | ota | erkak | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">oila: erkak erkak o‘g‘il bola o‘g‘il bola</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">farzand | ona | ota | erkak | qiz bola</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">oila: erkak erkak qiz bola qiz bola</annotation>
+		<annotation cp="👩‍👩‍👦">farzand | ona | ota | ayol | o‘g‘il bola</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">oila: ayol ayol o‘g‘il bola</annotation>
+		<annotation cp="👩‍👩‍👧">farzand | ona | ota | ayol | qiz bola</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">oila: ayol ayol qiz bola</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">farzand | ona | ota | ayol | qiz bola | o‘g‘il bola</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">oila: ayol ayol qiz bola o‘g‘il bola</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">farzand | ona | ota | ayol | o‘g‘il bola</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">oila: ayol ayol o‘g‘il bola o‘g‘il bola</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">farzand | ona | ota | ayol | qiz bola</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">oila: ayol ayol qiz bola qiz bola</annotation>
+		<annotation cp="👨‍👦">farzand | ona | ota | erkak | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👦" type="tts">oila: erkak o‘g‘il bola</annotation>
+		<annotation cp="👨‍👦‍👦">farzand | ona | ota | erkak | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">oila: erkak o‘g‘il bola o‘g‘il bola</annotation>
+		<annotation cp="👨‍👧">farzand | ona | ota | erkak | qiz bola</annotation>
+		<annotation cp="👨‍👧" type="tts">oila: erkak qiz bola</annotation>
+		<annotation cp="👨‍👧‍👦">farzand | ona | ota | erkak | qiz bola | o‘g‘il bola</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">oila: erkak qiz bola o‘g‘il bola</annotation>
+		<annotation cp="👨‍👧‍👧">farzand | ona | ota | erkak | qiz bola</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">oila: erkak qiz bola qiz bola</annotation>
+		<annotation cp="👩‍👦">farzand | ona | ota | ayol | o‘g‘il bola</annotation>
+		<annotation cp="👩‍👦" type="tts">oila: ayol o‘g‘il bola</annotation>
+		<annotation cp="👩‍👦‍👦">farzand | ona | ota | ayol | o‘g‘il bola</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">oila: ayol o‘g‘il bola o‘g‘il bola</annotation>
+		<annotation cp="👩‍👧">farzand | ona | ota | ayol | qiz bola</annotation>
+		<annotation cp="👩‍👧" type="tts">oila: ayol qiz bola</annotation>
+		<annotation cp="👩‍👧‍👦">farzand | ona | ota | ayol | qiz bola | o‘g‘il bola</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">oila: ayol qiz bola o‘g‘il bola</annotation>
+		<annotation cp="👩‍👧‍👧">farzand | ona | ota | ayol | qiz bola</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">oila: ayol qiz bola qiz bola</annotation>
 		<annotation cp="🤳🏻">selfi | surat | telefon | 1–2-teri turi</annotation>
 		<annotation cp="🤳🏻" type="tts">selfi: 1–2-teri turi</annotation>
 		<annotation cp="🤳🏼">selfi | surat | telefon | 3-teri turi</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">shapaloq: 5-teri turi</annotation>
 		<annotation cp="👋🏿">qo‘l | silkitish | tana | 6-teri turi</annotation>
 		<annotation cp="👋🏿" type="tts">shapaloq: 6-teri turi</annotation>
+		<annotation cp="🤟🏻">1–2-teri turi</annotation>
+		<annotation cp="🤟🏻" type="tts">sevaman degan ishora: 1–2-teri turi</annotation>
+		<annotation cp="🤟🏼">3-teri turi</annotation>
+		<annotation cp="🤟🏼" type="tts">sevaman degan ishora: 3-teri turi</annotation>
+		<annotation cp="🤟🏽">4-teri turi</annotation>
+		<annotation cp="🤟🏽" type="tts">sevaman degan ishora: 4-teri turi</annotation>
+		<annotation cp="🤟🏾">5-teri turi</annotation>
+		<annotation cp="🤟🏾" type="tts">sevaman degan ishora: 5-teri turi</annotation>
+		<annotation cp="🤟🏿">6-teri turi</annotation>
+		<annotation cp="🤟🏿" type="tts">sevaman degan ishora: 6-teri turi</annotation>
 		<annotation cp="✍🏻">qo‘l | tana | yozish | 1–2-teri turi</annotation>
 		<annotation cp="✍🏻" type="tts">yozayotgan qo‘l: 1–2-teri turi</annotation>
 		<annotation cp="✍🏼">qo‘l | tana | yozish | 3-teri turi</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">qo‘llarini ko‘targan odam: 5-teri turi</annotation>
 		<annotation cp="🙌🏿">imo-ishora | ko‘tarilgan | nishonlash | qo‘l | tan | urra | 6-teri turi</annotation>
 		<annotation cp="🙌🏿" type="tts">qo‘llarini ko‘targan odam: 6-teri turi</annotation>
+		<annotation cp="🤲🏻">1–2-teri turi</annotation>
+		<annotation cp="🤲🏻" type="tts">kaftlar ochiq: 1–2-teri turi</annotation>
+		<annotation cp="🤲🏼">3-teri turi</annotation>
+		<annotation cp="🤲🏼" type="tts">kaftlar ochiq: 3-teri turi</annotation>
+		<annotation cp="🤲🏽">4-teri turi</annotation>
+		<annotation cp="🤲🏽" type="tts">kaftlar ochiq: 4-teri turi</annotation>
+		<annotation cp="🤲🏾">5-teri turi</annotation>
+		<annotation cp="🤲🏾" type="tts">kaftlar ochiq: 5-teri turi</annotation>
+		<annotation cp="🤲🏿">6-teri turi</annotation>
+		<annotation cp="🤲🏿" type="tts">kaftlar ochiq: 6-teri turi</annotation>
 		<annotation cp="🙏🏻">ibodat | iltimos | imo-ishora | qovushgan | qo‘l | rahmat | so‘rash | tana | ta’zim | 1–2-teri turi</annotation>
 		<annotation cp="🙏🏻" type="tts">qovushtirilgan qo‘llar: 1–2-teri turi</annotation>
 		<annotation cp="🙏🏼">ibodat | iltimos | imo-ishora | qovushgan | qo‘l | rahmat | so‘rash | tana | ta’zim | 3-teri turi</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">burun: 5-teri turi</annotation>
 		<annotation cp="👃🏿">tana | 6-teri turi</annotation>
 		<annotation cp="👃🏿" type="tts">burun: 6-teri turi</annotation>
-		<annotation cp="#⃣">funt | panjara | tugma</annotation>
-		<annotation cp="#⃣" type="tts">panjara tugmasi</annotation>
-		<annotation cp="*⃣">tugma | yulduz | yulduzcha</annotation>
-		<annotation cp="*⃣" type="tts">yulduzcha tugmasi</annotation>
+		<annotation cp="#⃣">tugma qalpog‘i</annotation>
+		<annotation cp="#⃣" type="tts">tugma qalpog‘i: #</annotation>
+		<annotation cp="*⃣">tugma qalpog‘i</annotation>
+		<annotation cp="*⃣" type="tts">tugma qalpog‘i: *</annotation>
+		<annotation cp="🔟">tugma qalpog‘i</annotation>
+		<annotation cp="🔟" type="tts">tugma qalpog‘i: 10</annotation>
 		<annotation cp="🇦🇨">bayroq</annotation>
 		<annotation cp="🇦🇨" type="tts">Me’roj oroli</annotation>
 		<annotation cp="🇦🇩">bayroq</annotation>
@@ -2275,7 +2597,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇷">bayroq</annotation>
 		<annotation cp="🇵🇷" type="tts">Puerto-Riko</annotation>
 		<annotation cp="🇵🇸">bayroq</annotation>
-		<annotation cp="🇵🇸" type="tts">Falastin hududi</annotation>
+		<annotation cp="🇵🇸" type="tts">Falastin hududlari</annotation>
 		<annotation cp="🇵🇹">bayroq</annotation>
 		<annotation cp="🇵🇹" type="tts">Portugaliya</annotation>
 		<annotation cp="🇵🇼">bayroq</annotation>
@@ -2311,7 +2633,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇮">bayroq</annotation>
 		<annotation cp="🇸🇮" type="tts">Sloveniya</annotation>
 		<annotation cp="🇸🇯">bayroq</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard va Yan-Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">Shpitsbergen va Yan-Mayen</annotation>
 		<annotation cp="🇸🇰">bayroq</annotation>
 		<annotation cp="🇸🇰" type="tts">Slovakiya</annotation>
 		<annotation cp="🇸🇱">bayroq</annotation>

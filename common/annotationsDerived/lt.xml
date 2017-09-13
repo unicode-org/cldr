@@ -8,60 +8,80 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="lt"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | klavišas</annotation>
-		<annotation cp="0⃣" type="tts">nulis</annotation>
-		<annotation cp="1⃣">1 | klavišas</annotation>
-		<annotation cp="1⃣" type="tts">vienas</annotation>
-		<annotation cp="2⃣">2 | klavišas</annotation>
-		<annotation cp="2⃣" type="tts">du</annotation>
-		<annotation cp="3⃣">3 | klavišas</annotation>
-		<annotation cp="3⃣" type="tts">trys</annotation>
-		<annotation cp="4⃣">4 | klavišas</annotation>
-		<annotation cp="4⃣" type="tts">keturi</annotation>
-		<annotation cp="5⃣">5 | klavišas</annotation>
-		<annotation cp="5⃣" type="tts">penki</annotation>
-		<annotation cp="6⃣">6 | klavišas</annotation>
-		<annotation cp="6⃣" type="tts">šeši</annotation>
-		<annotation cp="7⃣">7 | klavišas</annotation>
-		<annotation cp="7⃣" type="tts">septyni</annotation>
-		<annotation cp="8⃣">8 | klavišas</annotation>
-		<annotation cp="8⃣" type="tts">aštuoni</annotation>
-		<annotation cp="9⃣">9 | klavišas</annotation>
-		<annotation cp="9⃣" type="tts">devyni</annotation>
-		<annotation cp="👶🏻">kūdikis | 1 ir 2 odos tipai</annotation>
+		<annotation cp="0⃣">mygtukas</annotation>
+		<annotation cp="0⃣" type="tts">mygtukas: 0</annotation>
+		<annotation cp="1⃣">mygtukas</annotation>
+		<annotation cp="1⃣" type="tts">mygtukas: 1</annotation>
+		<annotation cp="2⃣">mygtukas</annotation>
+		<annotation cp="2⃣" type="tts">mygtukas: 2</annotation>
+		<annotation cp="3⃣">mygtukas</annotation>
+		<annotation cp="3⃣" type="tts">mygtukas: 3</annotation>
+		<annotation cp="4⃣">mygtukas</annotation>
+		<annotation cp="4⃣" type="tts">mygtukas: 4</annotation>
+		<annotation cp="5⃣">mygtukas</annotation>
+		<annotation cp="5⃣" type="tts">mygtukas: 5</annotation>
+		<annotation cp="6⃣">mygtukas</annotation>
+		<annotation cp="6⃣" type="tts">mygtukas: 6</annotation>
+		<annotation cp="7⃣">mygtukas</annotation>
+		<annotation cp="7⃣" type="tts">mygtukas: 7</annotation>
+		<annotation cp="8⃣">mygtukas</annotation>
+		<annotation cp="8⃣" type="tts">mygtukas: 8</annotation>
+		<annotation cp="9⃣">mygtukas</annotation>
+		<annotation cp="9⃣" type="tts">mygtukas: 9</annotation>
+		<annotation cp="👶🏻">jaunas | kūdikis | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👶🏻" type="tts">kūdikis: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👶🏼">kūdikis | 3 odos tipas</annotation>
+		<annotation cp="👶🏼">jaunas | kūdikis | 3 odos tipas</annotation>
 		<annotation cp="👶🏼" type="tts">kūdikis: 3 odos tipas</annotation>
-		<annotation cp="👶🏽">kūdikis | 4 odos tipas</annotation>
+		<annotation cp="👶🏽">jaunas | kūdikis | 4 odos tipas</annotation>
 		<annotation cp="👶🏽" type="tts">kūdikis: 4 odos tipas</annotation>
-		<annotation cp="👶🏾">kūdikis | 5 odos tipas</annotation>
+		<annotation cp="👶🏾">jaunas | kūdikis | 5 odos tipas</annotation>
 		<annotation cp="👶🏾" type="tts">kūdikis: 5 odos tipas</annotation>
-		<annotation cp="👶🏿">kūdikis | 6 odos tipas</annotation>
+		<annotation cp="👶🏿">jaunas | kūdikis | 6 odos tipas</annotation>
 		<annotation cp="👶🏿" type="tts">kūdikis: 6 odos tipas</annotation>
-		<annotation cp="👦🏻">berniukas | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧒🏻">jaunas | neutrali lytis | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧒🏻" type="tts">vaikas: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧒🏼">jaunas | neutrali lytis | 3 odos tipas</annotation>
+		<annotation cp="🧒🏼" type="tts">vaikas: 3 odos tipas</annotation>
+		<annotation cp="🧒🏽">jaunas | neutrali lytis | 4 odos tipas</annotation>
+		<annotation cp="🧒🏽" type="tts">vaikas: 4 odos tipas</annotation>
+		<annotation cp="🧒🏾">jaunas | neutrali lytis | 5 odos tipas</annotation>
+		<annotation cp="🧒🏾" type="tts">vaikas: 5 odos tipas</annotation>
+		<annotation cp="🧒🏿">jaunas | neutrali lytis | 6 odos tipas</annotation>
+		<annotation cp="🧒🏿" type="tts">vaikas: 6 odos tipas</annotation>
+		<annotation cp="👦🏻">berniukas | jaunas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👦🏻" type="tts">berniukas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👦🏼">berniukas | vyras | 3 odos tipas</annotation>
+		<annotation cp="👦🏼">berniukas | jaunas | 3 odos tipas</annotation>
 		<annotation cp="👦🏼" type="tts">berniukas: 3 odos tipas</annotation>
-		<annotation cp="👦🏽">berniukas | vyras | 4 odos tipas</annotation>
+		<annotation cp="👦🏽">berniukas | jaunas | 4 odos tipas</annotation>
 		<annotation cp="👦🏽" type="tts">berniukas: 4 odos tipas</annotation>
-		<annotation cp="👦🏾">berniukas | vyras | 5 odos tipas</annotation>
+		<annotation cp="👦🏾">berniukas | jaunas | 5 odos tipas</annotation>
 		<annotation cp="👦🏾" type="tts">berniukas: 5 odos tipas</annotation>
-		<annotation cp="👦🏿">berniukas | vyras | 6 odos tipas</annotation>
+		<annotation cp="👦🏿">berniukas | jaunas | 6 odos tipas</annotation>
 		<annotation cp="👦🏿" type="tts">berniukas: 6 odos tipas</annotation>
-		<annotation cp="👧🏻">mergelė | nekalta | zodiakas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👧🏻">jauna | mergelė | zodiakas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👧🏻" type="tts">mergaitė: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👧🏼">mergelė | nekalta | zodiakas | 3 odos tipas</annotation>
+		<annotation cp="👧🏼">jauna | mergelė | zodiakas | 3 odos tipas</annotation>
 		<annotation cp="👧🏼" type="tts">mergaitė: 3 odos tipas</annotation>
-		<annotation cp="👧🏽">mergelė | nekalta | zodiakas | 4 odos tipas</annotation>
+		<annotation cp="👧🏽">jauna | mergelė | zodiakas | 4 odos tipas</annotation>
 		<annotation cp="👧🏽" type="tts">mergaitė: 4 odos tipas</annotation>
-		<annotation cp="👧🏾">mergelė | nekalta | zodiakas | 5 odos tipas</annotation>
+		<annotation cp="👧🏾">jauna | mergelė | zodiakas | 5 odos tipas</annotation>
 		<annotation cp="👧🏾" type="tts">mergaitė: 5 odos tipas</annotation>
-		<annotation cp="👧🏿">mergelė | nekalta | zodiakas | 6 odos tipas</annotation>
+		<annotation cp="👧🏿">jauna | mergelė | zodiakas | 6 odos tipas</annotation>
 		<annotation cp="👧🏿" type="tts">mergaitė: 6 odos tipas</annotation>
+		<annotation cp="🧑🏻">neutrali lytis | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧑🏻" type="tts">suaugusysis: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧑🏼">neutrali lytis | 3 odos tipas</annotation>
+		<annotation cp="🧑🏼" type="tts">suaugusysis: 3 odos tipas</annotation>
+		<annotation cp="🧑🏽">neutrali lytis | 4 odos tipas</annotation>
+		<annotation cp="🧑🏽" type="tts">suaugusysis: 4 odos tipas</annotation>
+		<annotation cp="🧑🏾">neutrali lytis | 5 odos tipas</annotation>
+		<annotation cp="🧑🏾" type="tts">suaugusysis: 5 odos tipas</annotation>
+		<annotation cp="🧑🏿">neutrali lytis | 6 odos tipas</annotation>
+		<annotation cp="🧑🏿" type="tts">suaugusysis: 6 odos tipas</annotation>
 		<annotation cp="👨🏻">vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👨🏻" type="tts">vyras: 1 ir 2 odos tipai</annotation>
 		<annotation cp="👨🏼">vyras | 3 odos tipas</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">moteris: 5 odos tipas</annotation>
 		<annotation cp="👩🏿">moteris | 6 odos tipas</annotation>
 		<annotation cp="👩🏿" type="tts">moteris: 6 odos tipas</annotation>
+		<annotation cp="🧓🏻">neutrali lytis | senas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧓🏻" type="tts">kitas suaugusysis: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧓🏼">neutrali lytis | senas | 3 odos tipas</annotation>
+		<annotation cp="🧓🏼" type="tts">kitas suaugusysis: 3 odos tipas</annotation>
+		<annotation cp="🧓🏽">neutrali lytis | senas | 4 odos tipas</annotation>
+		<annotation cp="🧓🏽" type="tts">kitas suaugusysis: 4 odos tipas</annotation>
+		<annotation cp="🧓🏾">neutrali lytis | senas | 5 odos tipas</annotation>
+		<annotation cp="🧓🏾" type="tts">kitas suaugusysis: 5 odos tipas</annotation>
+		<annotation cp="🧓🏿">neutrali lytis | senas | 6 odos tipas</annotation>
+		<annotation cp="🧓🏿" type="tts">kitas suaugusysis: 6 odos tipas</annotation>
 		<annotation cp="👴🏻">senas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👴🏻" type="tts">senas vyras: 1 ir 2 odos tipai</annotation>
 		<annotation cp="👴🏼">senas | vyras | 3 odos tipas</annotation>
@@ -232,25 +262,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🔧" type="tts">mechanikas: 5 odos tipas</annotation>
 		<annotation cp="👨🏿‍🔧">elektrikas | mechanikas | prekybininkas | santechnikas | vyras | 6 odos tipas</annotation>
 		<annotation cp="👨🏿‍🔧" type="tts">mechanikas: 6 odos tipas</annotation>
-		<annotation cp="👩🏻‍🔧">elektrikė | mechanikė | moteris | prekybininkas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👩🏻‍🔧">elektrikė | mechanikė | moteris | prekybininkė | santechnikė | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👩🏻‍🔧" type="tts">mechanikė: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👩🏼‍🔧">elektrikė | mechanikė | moteris | prekybininkas | 3 odos tipas</annotation>
+		<annotation cp="👩🏼‍🔧">elektrikė | mechanikė | moteris | prekybininkė | santechnikė | 3 odos tipas</annotation>
 		<annotation cp="👩🏼‍🔧" type="tts">mechanikė: 3 odos tipas</annotation>
-		<annotation cp="👩🏽‍🔧">elektrikė | mechanikė | moteris | prekybininkas | 4 odos tipas</annotation>
+		<annotation cp="👩🏽‍🔧">elektrikė | mechanikė | moteris | prekybininkė | santechnikė | 4 odos tipas</annotation>
 		<annotation cp="👩🏽‍🔧" type="tts">mechanikė: 4 odos tipas</annotation>
-		<annotation cp="👩🏾‍🔧">elektrikė | mechanikė | moteris | prekybininkas | 5 odos tipas</annotation>
+		<annotation cp="👩🏾‍🔧">elektrikė | mechanikė | moteris | prekybininkė | santechnikė | 5 odos tipas</annotation>
 		<annotation cp="👩🏾‍🔧" type="tts">mechanikė: 5 odos tipas</annotation>
-		<annotation cp="👩🏿‍🔧">elektrikė | mechanikė | moteris | prekybininkas | 6 odos tipas</annotation>
+		<annotation cp="👩🏿‍🔧">elektrikė | mechanikė | moteris | prekybininkė | santechnikė | 6 odos tipas</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mechanikė: 6 odos tipas</annotation>
-		<annotation cp="👨🏻‍🏭">darbuotojas | fabrikas | gamyba | susurinkimas | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👨🏻‍🏭">darbuotojas | fabrikas | gamyba | susirinkimas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">fabriko darbininkas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👨🏼‍🏭">darbuotojas | fabrikas | gamyba | susurinkimas | vyras | 3 odos tipas</annotation>
+		<annotation cp="👨🏼‍🏭">darbuotojas | fabrikas | gamyba | susirinkimas | vyras | 3 odos tipas</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">fabriko darbininkas: 3 odos tipas</annotation>
-		<annotation cp="👨🏽‍🏭">darbuotojas | fabrikas | gamyba | susurinkimas | vyras | 4 odos tipas</annotation>
+		<annotation cp="👨🏽‍🏭">darbuotojas | fabrikas | gamyba | susirinkimas | vyras | 4 odos tipas</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">fabriko darbininkas: 4 odos tipas</annotation>
-		<annotation cp="👨🏾‍🏭">darbuotojas | fabrikas | gamyba | susurinkimas | vyras | 5 odos tipas</annotation>
+		<annotation cp="👨🏾‍🏭">darbuotojas | fabrikas | gamyba | susirinkimas | vyras | 5 odos tipas</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">fabriko darbininkas: 5 odos tipas</annotation>
-		<annotation cp="👨🏿‍🏭">darbuotojas | fabrikas | gamyba | susurinkimas | vyras | 6 odos tipas</annotation>
+		<annotation cp="👨🏿‍🏭">darbuotojas | fabrikas | gamyba | susirinkimas | vyras | 6 odos tipas</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">fabriko darbininkas: 6 odos tipas</annotation>
 		<annotation cp="👩🏻‍🏭">darbuotoja | fabrikas | gamyba | moteris | susirinkimas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">fabriko darbininkė: 1 ir 2 odos tipai</annotation>
@@ -382,36 +412,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍✈" type="tts">pilotė: 5 odos tipas</annotation>
 		<annotation cp="👩🏿‍✈">lėktuvas | moteris | pilotė | 6 odos tipas</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilotė: 6 odos tipas</annotation>
-		<annotation cp="👨🏻‍🚀">astronautas | kosmosas | raketa | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👨🏻‍🚀">astronautas | raketa | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">astronautas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👨🏼‍🚀">astronautas | kosmosas | raketa | vyras | 3 odos tipas</annotation>
+		<annotation cp="👨🏼‍🚀">astronautas | raketa | vyras | 3 odos tipas</annotation>
 		<annotation cp="👨🏼‍🚀" type="tts">astronautas: 3 odos tipas</annotation>
-		<annotation cp="👨🏽‍🚀">astronautas | kosmosas | raketa | vyras | 4 odos tipas</annotation>
+		<annotation cp="👨🏽‍🚀">astronautas | raketa | vyras | 4 odos tipas</annotation>
 		<annotation cp="👨🏽‍🚀" type="tts">astronautas: 4 odos tipas</annotation>
-		<annotation cp="👨🏾‍🚀">astronautas | kosmosas | raketa | vyras | 5 odos tipas</annotation>
+		<annotation cp="👨🏾‍🚀">astronautas | raketa | vyras | 5 odos tipas</annotation>
 		<annotation cp="👨🏾‍🚀" type="tts">astronautas: 5 odos tipas</annotation>
-		<annotation cp="👨🏿‍🚀">astronautas | kosmosas | raketa | vyras | 6 odos tipas</annotation>
+		<annotation cp="👨🏿‍🚀">astronautas | raketa | vyras | 6 odos tipas</annotation>
 		<annotation cp="👨🏿‍🚀" type="tts">astronautas: 6 odos tipas</annotation>
-		<annotation cp="👩🏻‍🚀">astronautė | kosmosas | moteris | raketa | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👩🏻‍🚀">astronautė | moteris | raketa | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👩🏻‍🚀" type="tts">astronautė: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👩🏼‍🚀">astronautė | kosmosas | moteris | raketa | 3 odos tipas</annotation>
+		<annotation cp="👩🏼‍🚀">astronautė | moteris | raketa | 3 odos tipas</annotation>
 		<annotation cp="👩🏼‍🚀" type="tts">astronautė: 3 odos tipas</annotation>
-		<annotation cp="👩🏽‍🚀">astronautė | kosmosas | moteris | raketa | 4 odos tipas</annotation>
+		<annotation cp="👩🏽‍🚀">astronautė | moteris | raketa | 4 odos tipas</annotation>
 		<annotation cp="👩🏽‍🚀" type="tts">astronautė: 4 odos tipas</annotation>
-		<annotation cp="👩🏾‍🚀">astronautė | kosmosas | moteris | raketa | 5 odos tipas</annotation>
+		<annotation cp="👩🏾‍🚀">astronautė | moteris | raketa | 5 odos tipas</annotation>
 		<annotation cp="👩🏾‍🚀" type="tts">astronautė: 5 odos tipas</annotation>
-		<annotation cp="👩🏿‍🚀">astronautė | kosmosas | moteris | raketa | 6 odos tipas</annotation>
+		<annotation cp="👩🏿‍🚀">astronautė | moteris | raketa | 6 odos tipas</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">astronautė: 6 odos tipas</annotation>
-		<annotation cp="👨🏻‍🚒">gaisrinininkų | 1 ir 2 odos tipai</annotation>
-		<annotation cp="👨🏻‍🚒" type="tts">gaisrinikas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👨🏼‍🚒">gaisrinininkų | 3 odos tipas</annotation>
-		<annotation cp="👨🏼‍🚒" type="tts">gaisrinikas: 3 odos tipas</annotation>
-		<annotation cp="👨🏽‍🚒">gaisrinininkų | 4 odos tipas</annotation>
-		<annotation cp="👨🏽‍🚒" type="tts">gaisrinikas: 4 odos tipas</annotation>
-		<annotation cp="👨🏾‍🚒">gaisrinininkų | 5 odos tipas</annotation>
-		<annotation cp="👨🏾‍🚒" type="tts">gaisrinikas: 5 odos tipas</annotation>
-		<annotation cp="👨🏿‍🚒">gaisrinininkų | 6 odos tipas</annotation>
-		<annotation cp="👨🏿‍🚒" type="tts">gaisrinikas: 6 odos tipas</annotation>
+		<annotation cp="👨🏻‍🚒">gaisrininkas | gaisrininkų automobilis | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">gaisrininkas: 1 ir 2 odos tipai</annotation>
+		<annotation cp="👨🏼‍🚒">gaisrininkas | gaisrininkų automobilis | vyras | 3 odos tipas</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">gaisrininkas: 3 odos tipas</annotation>
+		<annotation cp="👨🏽‍🚒">gaisrininkas | gaisrininkų automobilis | vyras | 4 odos tipas</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">gaisrininkas: 4 odos tipas</annotation>
+		<annotation cp="👨🏾‍🚒">gaisrininkas | gaisrininkų automobilis | vyras | 5 odos tipas</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">gaisrininkas: 5 odos tipas</annotation>
+		<annotation cp="👨🏿‍🚒">gaisrininkas | gaisrininkų automobilis | vyras | 6 odos tipas</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">gaisrininkas: 6 odos tipas</annotation>
 		<annotation cp="👩🏻‍🚒">gaisrininkė | gaisrininkų automobilis | moteris | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👩🏻‍🚒" type="tts">gaisrininkė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="👩🏼‍🚒">gaisrininkė | gaisrininkų automobilis | moteris | 3 odos tipas</annotation>
@@ -422,15 +452,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚒" type="tts">gaisrininkė: 5 odos tipas</annotation>
 		<annotation cp="👩🏿‍🚒">gaisrininkė | gaisrininkų automobilis | moteris | 6 odos tipas</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">gaisrininkė: 6 odos tipas</annotation>
-		<annotation cp="👮🏻">pareigūnas | policija | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👮🏻">pareigūnas | policija | policininkas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👮🏻" type="tts">policininkas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👮🏼">pareigūnas | policija | 3 odos tipas</annotation>
+		<annotation cp="👮🏼">pareigūnas | policija | policininkas | 3 odos tipas</annotation>
 		<annotation cp="👮🏼" type="tts">policininkas: 3 odos tipas</annotation>
-		<annotation cp="👮🏽">pareigūnas | policija | 4 odos tipas</annotation>
+		<annotation cp="👮🏽">pareigūnas | policija | policininkas | 4 odos tipas</annotation>
 		<annotation cp="👮🏽" type="tts">policininkas: 4 odos tipas</annotation>
-		<annotation cp="👮🏾">pareigūnas | policija | 5 odos tipas</annotation>
+		<annotation cp="👮🏾">pareigūnas | policija | policininkas | 5 odos tipas</annotation>
 		<annotation cp="👮🏾" type="tts">policininkas: 5 odos tipas</annotation>
-		<annotation cp="👮🏿">pareigūnas | policija | 6 odos tipas</annotation>
+		<annotation cp="👮🏿">pareigūnas | policija | policininkas | 6 odos tipas</annotation>
 		<annotation cp="👮🏿" type="tts">policininkas: 6 odos tipas</annotation>
 		<annotation cp="👮🏻‍♂">pareigūnas | policija | policininkas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">vyras policininkas: 1 ir 2 odos tipai</annotation>
@@ -452,36 +482,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👮🏾‍♀" type="tts">moteris policininkė: 5 odos tipas</annotation>
 		<annotation cp="👮🏿‍♀">moteris | pareigūnė | policija | policininkė | 6 odos tipas</annotation>
 		<annotation cp="👮🏿‍♀" type="tts">moteris policininkė: 6 odos tipas</annotation>
-		<annotation cp="🕵🏻">šnipas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🕵🏻">detektyvas | šnipas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🕵🏻" type="tts">detektyvas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🕵🏼">šnipas | 3 odos tipas</annotation>
+		<annotation cp="🕵🏼">detektyvas | šnipas | 3 odos tipas</annotation>
 		<annotation cp="🕵🏼" type="tts">detektyvas: 3 odos tipas</annotation>
-		<annotation cp="🕵🏽">šnipas | 4 odos tipas</annotation>
+		<annotation cp="🕵🏽">detektyvas | šnipas | 4 odos tipas</annotation>
 		<annotation cp="🕵🏽" type="tts">detektyvas: 4 odos tipas</annotation>
-		<annotation cp="🕵🏾">šnipas | 5 odos tipas</annotation>
+		<annotation cp="🕵🏾">detektyvas | šnipas | 5 odos tipas</annotation>
 		<annotation cp="🕵🏾" type="tts">detektyvas: 5 odos tipas</annotation>
-		<annotation cp="🕵🏿">šnipas | 6 odos tipas</annotation>
+		<annotation cp="🕵🏿">detektyvas | šnipas | 6 odos tipas</annotation>
 		<annotation cp="🕵🏿" type="tts">detektyvas: 6 odos tipas</annotation>
-		<annotation cp="🕵🏻‍♂">detektyvas | seklė | vyras | šnipė | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🕵🏻‍♂" type="tts">vyras seklys: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🕵🏼‍♂">detektyvas | seklė | vyras | šnipė | 3 odos tipas</annotation>
-		<annotation cp="🕵🏼‍♂" type="tts">vyras seklys: 3 odos tipas</annotation>
-		<annotation cp="🕵🏽‍♂">detektyvas | seklė | vyras | šnipė | 4 odos tipas</annotation>
-		<annotation cp="🕵🏽‍♂" type="tts">vyras seklys: 4 odos tipas</annotation>
-		<annotation cp="🕵🏾‍♂">detektyvas | seklė | vyras | šnipė | 5 odos tipas</annotation>
-		<annotation cp="🕵🏾‍♂" type="tts">vyras seklys: 5 odos tipas</annotation>
-		<annotation cp="🕵🏿‍♂">detektyvas | seklė | vyras | šnipė | 6 odos tipas</annotation>
-		<annotation cp="🕵🏿‍♂" type="tts">vyras seklys: 6 odos tipas</annotation>
+		<annotation cp="🕵🏻‍♂">detektyvas | seklas | vyras | šnipas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">seklys: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🕵🏼‍♂">detektyvas | seklas | vyras | šnipas | 3 odos tipas</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">seklys: 3 odos tipas</annotation>
+		<annotation cp="🕵🏽‍♂">detektyvas | seklas | vyras | šnipas | 4 odos tipas</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">seklys: 4 odos tipas</annotation>
+		<annotation cp="🕵🏾‍♂">detektyvas | seklas | vyras | šnipas | 5 odos tipas</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">seklys: 5 odos tipas</annotation>
+		<annotation cp="🕵🏿‍♂">detektyvas | seklas | vyras | šnipas | 6 odos tipas</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">seklys: 6 odos tipas</annotation>
 		<annotation cp="🕵🏻‍♀">detektyvė | moteris | seklė | šnipė | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🕵🏻‍♀" type="tts">moteris seklė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">seklė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🕵🏼‍♀">detektyvė | moteris | seklė | šnipė | 3 odos tipas</annotation>
-		<annotation cp="🕵🏼‍♀" type="tts">moteris seklė: 3 odos tipas</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">seklė: 3 odos tipas</annotation>
 		<annotation cp="🕵🏽‍♀">detektyvė | moteris | seklė | šnipė | 4 odos tipas</annotation>
-		<annotation cp="🕵🏽‍♀" type="tts">moteris seklė: 4 odos tipas</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">seklė: 4 odos tipas</annotation>
 		<annotation cp="🕵🏾‍♀">detektyvė | moteris | seklė | šnipė | 5 odos tipas</annotation>
-		<annotation cp="🕵🏾‍♀" type="tts">moteris seklė: 5 odos tipas</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">seklė: 5 odos tipas</annotation>
 		<annotation cp="🕵🏿‍♀">detektyvė | moteris | seklė | šnipė | 6 odos tipas</annotation>
-		<annotation cp="🕵🏿‍♀" type="tts">moteris seklė: 6 odos tipas</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">seklė: 6 odos tipas</annotation>
 		<annotation cp="💂🏻">sargyba | 1 ir 2 odos tipai</annotation>
 		<annotation cp="💂🏻" type="tts">sargybinis: 1 ir 2 odos tipai</annotation>
 		<annotation cp="💂🏼">sargyba | 3 odos tipas</annotation>
@@ -503,15 +533,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏿‍♂">sargybinis | vyras | 6 odos tipas</annotation>
 		<annotation cp="💂🏿‍♂" type="tts">vyras sargybinis: 6 odos tipas</annotation>
 		<annotation cp="💂🏻‍♀">moteris | sargybinė | 1 ir 2 odos tipai</annotation>
-		<annotation cp="💂🏻‍♀" type="tts">moteris sargybinė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">sargybinė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="💂🏼‍♀">moteris | sargybinė | 3 odos tipas</annotation>
-		<annotation cp="💂🏼‍♀" type="tts">moteris sargybinė: 3 odos tipas</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">sargybinė: 3 odos tipas</annotation>
 		<annotation cp="💂🏽‍♀">moteris | sargybinė | 4 odos tipas</annotation>
-		<annotation cp="💂🏽‍♀" type="tts">moteris sargybinė: 4 odos tipas</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">sargybinė: 4 odos tipas</annotation>
 		<annotation cp="💂🏾‍♀">moteris | sargybinė | 5 odos tipas</annotation>
-		<annotation cp="💂🏾‍♀" type="tts">moteris sargybinė: 5 odos tipas</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">sargybinė: 5 odos tipas</annotation>
 		<annotation cp="💂🏿‍♀">moteris | sargybinė | 6 odos tipas</annotation>
-		<annotation cp="💂🏿‍♀" type="tts">moteris sargybinė: 6 odos tipas</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">sargybinė: 6 odos tipas</annotation>
 		<annotation cp="👷🏻">darbuotojas | kepurė | statyba | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👷🏻" type="tts">statybininkas: 1 ir 2 odos tipai</annotation>
 		<annotation cp="👷🏼">darbuotojas | kepurė | statyba | 3 odos tipas</annotation>
@@ -533,15 +563,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏿‍♂">darbininkas | statybininkas | vyras | 6 odos tipas</annotation>
 		<annotation cp="👷🏿‍♂" type="tts">vyras statybininkas: 6 odos tipas</annotation>
 		<annotation cp="👷🏻‍♀">darbininkė | moteris | statybininkė | 1 ir 2 odos tipai</annotation>
-		<annotation cp="👷🏻‍♀" type="tts">moteris statybininkė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">statybininkė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="👷🏼‍♀">darbininkė | moteris | statybininkė | 3 odos tipas</annotation>
-		<annotation cp="👷🏼‍♀" type="tts">moteris statybininkė: 3 odos tipas</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">statybininkė: 3 odos tipas</annotation>
 		<annotation cp="👷🏽‍♀">darbininkė | moteris | statybininkė | 4 odos tipas</annotation>
-		<annotation cp="👷🏽‍♀" type="tts">moteris statybininkė: 4 odos tipas</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">statybininkė: 4 odos tipas</annotation>
 		<annotation cp="👷🏾‍♀">darbininkė | moteris | statybininkė | 5 odos tipas</annotation>
-		<annotation cp="👷🏾‍♀" type="tts">moteris statybininkė: 5 odos tipas</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">statybininkė: 5 odos tipas</annotation>
 		<annotation cp="👷🏿‍♀">darbininkė | moteris | statybininkė | 6 odos tipas</annotation>
-		<annotation cp="👷🏿‍♀" type="tts">moteris statybininkė: 6 odos tipas</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">statybininkė: 6 odos tipas</annotation>
 		<annotation cp="🤴🏻">princas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤴🏻" type="tts">princas: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤴🏼">princas | 3 odos tipas</annotation>
@@ -562,15 +592,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏾" type="tts">princesė: 5 odos tipas</annotation>
 		<annotation cp="👸🏿">fantazija | pasaka | 6 odos tipas</annotation>
 		<annotation cp="👸🏿" type="tts">princesė: 6 odos tipas</annotation>
-		<annotation cp="👳🏻">turbanas | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👳🏻">turbanas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👳🏻" type="tts">vyras su turbanu: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👳🏼">turbanas | vyras | 3 odos tipas</annotation>
+		<annotation cp="👳🏼">turbanas | 3 odos tipas</annotation>
 		<annotation cp="👳🏼" type="tts">vyras su turbanu: 3 odos tipas</annotation>
-		<annotation cp="👳🏽">turbanas | vyras | 4 odos tipas</annotation>
+		<annotation cp="👳🏽">turbanas | 4 odos tipas</annotation>
 		<annotation cp="👳🏽" type="tts">vyras su turbanu: 4 odos tipas</annotation>
-		<annotation cp="👳🏾">turbanas | vyras | 5 odos tipas</annotation>
+		<annotation cp="👳🏾">turbanas | 5 odos tipas</annotation>
 		<annotation cp="👳🏾" type="tts">vyras su turbanu: 5 odos tipas</annotation>
-		<annotation cp="👳🏿">turbanas | vyras | 6 odos tipas</annotation>
+		<annotation cp="👳🏿">turbanas | 6 odos tipas</annotation>
 		<annotation cp="👳🏿" type="tts">vyras su turbanu: 6 odos tipas</annotation>
 		<annotation cp="👳🏻‍♂">turbanas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👳🏻‍♂" type="tts">vyriškis su turbanu: 1 ir 2 odos tipai</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">vyras su kinietiška kepurėle: 5 odos tipas</annotation>
 		<annotation cp="👲🏿">kepurė | kinietiška kepurėlė | vyras | 6 odos tipas</annotation>
 		<annotation cp="👲🏿" type="tts">vyras su kinietiška kepurėle: 6 odos tipas</annotation>
+		<annotation cp="🧕🏻">skarelė | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧕🏻" type="tts">moteris su skarele: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧕🏼">skarelė | 3 odos tipas</annotation>
+		<annotation cp="🧕🏼" type="tts">moteris su skarele: 3 odos tipas</annotation>
+		<annotation cp="🧕🏽">skarelė | 4 odos tipas</annotation>
+		<annotation cp="🧕🏽" type="tts">moteris su skarele: 4 odos tipas</annotation>
+		<annotation cp="🧕🏾">skarelė | 5 odos tipas</annotation>
+		<annotation cp="🧕🏾" type="tts">moteris su skarele: 5 odos tipas</annotation>
+		<annotation cp="🧕🏿">skarelė | 6 odos tipas</annotation>
+		<annotation cp="🧕🏿" type="tts">moteris su skarele: 6 odos tipas</annotation>
+		<annotation cp="🧔🏻">barzda | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧔🏻" type="tts">barzdotas žmogus: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧔🏼">barzda | 3 odos tipas</annotation>
+		<annotation cp="🧔🏼" type="tts">barzdotas žmogus: 3 odos tipas</annotation>
+		<annotation cp="🧔🏽">barzda | 4 odos tipas</annotation>
+		<annotation cp="🧔🏽" type="tts">barzdotas žmogus: 4 odos tipas</annotation>
+		<annotation cp="🧔🏾">barzda | 5 odos tipas</annotation>
+		<annotation cp="🧔🏾" type="tts">barzdotas žmogus: 5 odos tipas</annotation>
+		<annotation cp="🧔🏿">barzda | 6 odos tipas</annotation>
+		<annotation cp="🧔🏿" type="tts">barzdotas žmogus: 6 odos tipas</annotation>
 		<annotation cp="👱🏻">šviesiaplaukis | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👱🏻" type="tts">šviesiaplaukis žmogus: 1 ir 2 odos tipai</annotation>
 		<annotation cp="👱🏼">šviesiaplaukis | 3 odos tipas</annotation>
@@ -632,15 +682,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱🏾‍♀" type="tts">blondinė: 5 odos tipas</annotation>
 		<annotation cp="👱🏿‍♀">blondinė | moteris | 6 odos tipas</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">blondinė: 6 odos tipas</annotation>
-		<annotation cp="🤵🏻">smokingas | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤵🏻">jaunikis | smokingas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤵🏻" type="tts">vyras su smokingu: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤵🏼">smokingas | vyras | 3 odos tipas</annotation>
+		<annotation cp="🤵🏼">jaunikis | smokingas | vyras | 3 odos tipas</annotation>
 		<annotation cp="🤵🏼" type="tts">vyras su smokingu: 3 odos tipas</annotation>
-		<annotation cp="🤵🏽">smokingas | vyras | 4 odos tipas</annotation>
+		<annotation cp="🤵🏽">jaunikis | smokingas | vyras | 4 odos tipas</annotation>
 		<annotation cp="🤵🏽" type="tts">vyras su smokingu: 4 odos tipas</annotation>
-		<annotation cp="🤵🏾">smokingas | vyras | 5 odos tipas</annotation>
+		<annotation cp="🤵🏾">jaunikis | smokingas | vyras | 5 odos tipas</annotation>
 		<annotation cp="🤵🏾" type="tts">vyras su smokingu: 5 odos tipas</annotation>
-		<annotation cp="🤵🏿">smokingas | vyras | 6 odos tipas</annotation>
+		<annotation cp="🤵🏿">jaunikis | smokingas | vyras | 6 odos tipas</annotation>
 		<annotation cp="🤵🏿" type="tts">vyras su smokingu: 6 odos tipas</annotation>
 		<annotation cp="👰🏻">nuotaka | veliumas | vestuvės | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👰🏻" type="tts">nuotaka su veliumu: 1 ir 2 odos tipai</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">nėščia moteris: 5 odos tipas</annotation>
 		<annotation cp="🤰🏿">moteris | neščia | 6 odos tipas</annotation>
 		<annotation cp="🤰🏿" type="tts">nėščia moteris: 6 odos tipas</annotation>
+		<annotation cp="🤱🏻">krūtinė | kūdikis | priežiūra | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤱🏻" type="tts">maitinimas krūtimi: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤱🏼">krūtinė | kūdikis | priežiūra | 3 odos tipas</annotation>
+		<annotation cp="🤱🏼" type="tts">maitinimas krūtimi: 3 odos tipas</annotation>
+		<annotation cp="🤱🏽">krūtinė | kūdikis | priežiūra | 4 odos tipas</annotation>
+		<annotation cp="🤱🏽" type="tts">maitinimas krūtimi: 4 odos tipas</annotation>
+		<annotation cp="🤱🏾">krūtinė | kūdikis | priežiūra | 5 odos tipas</annotation>
+		<annotation cp="🤱🏾" type="tts">maitinimas krūtimi: 5 odos tipas</annotation>
+		<annotation cp="🤱🏿">krūtinė | kūdikis | priežiūra | 6 odos tipas</annotation>
+		<annotation cp="🤱🏿" type="tts">maitinimas krūtimi: 6 odos tipas</annotation>
 		<annotation cp="👼🏻">angelas | fantazija | kūdikis | pasaka | veidas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👼🏻" type="tts">angeliukas: 1 ir 2 odos tipai</annotation>
 		<annotation cp="👼🏼">angelas | fantazija | kūdikis | pasaka | veidas | 3 odos tipas</annotation>
@@ -672,26 +732,176 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👼🏾" type="tts">angeliukas: 5 odos tipas</annotation>
 		<annotation cp="👼🏿">angelas | fantazija | kūdikis | pasaka | veidas | 6 odos tipas</annotation>
 		<annotation cp="👼🏿" type="tts">angeliukas: 6 odos tipas</annotation>
-		<annotation cp="🎅🏻">fantazija | kalėdos | pasaka | tėvas | šventė | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🎅🏻" type="tts">kalėdų senelis: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🎅🏼">fantazija | kalėdos | pasaka | tėvas | šventė | 3 odos tipas</annotation>
-		<annotation cp="🎅🏼" type="tts">kalėdų senelis: 3 odos tipas</annotation>
-		<annotation cp="🎅🏽">fantazija | kalėdos | pasaka | tėvas | šventė | 4 odos tipas</annotation>
-		<annotation cp="🎅🏽" type="tts">kalėdų senelis: 4 odos tipas</annotation>
-		<annotation cp="🎅🏾">fantazija | kalėdos | pasaka | tėvas | šventė | 5 odos tipas</annotation>
-		<annotation cp="🎅🏾" type="tts">kalėdų senelis: 5 odos tipas</annotation>
-		<annotation cp="🎅🏿">fantazija | kalėdos | pasaka | tėvas | šventė | 6 odos tipas</annotation>
-		<annotation cp="🎅🏿" type="tts">kalėdų senelis: 6 odos tipas</annotation>
-		<annotation cp="🤶🏻">kalėdos | mama | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤶🏻" type="tts">mama kalėdos: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤶🏼">kalėdos | mama | 3 odos tipas</annotation>
-		<annotation cp="🤶🏼" type="tts">mama kalėdos: 3 odos tipas</annotation>
-		<annotation cp="🤶🏽">kalėdos | mama | 4 odos tipas</annotation>
-		<annotation cp="🤶🏽" type="tts">mama kalėdos: 4 odos tipas</annotation>
-		<annotation cp="🤶🏾">kalėdos | mama | 5 odos tipas</annotation>
-		<annotation cp="🤶🏾" type="tts">mama kalėdos: 5 odos tipas</annotation>
-		<annotation cp="🤶🏿">kalėdos | mama | 6 odos tipas</annotation>
-		<annotation cp="🤶🏿" type="tts">mama kalėdos: 6 odos tipas</annotation>
+		<annotation cp="🎅🏻">Kalėdos | senelis | tėvas | šventė | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🎅🏻" type="tts">Kalėdų senelis: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🎅🏼">Kalėdos | senelis | tėvas | šventė | 3 odos tipas</annotation>
+		<annotation cp="🎅🏼" type="tts">Kalėdų senelis: 3 odos tipas</annotation>
+		<annotation cp="🎅🏽">Kalėdos | senelis | tėvas | šventė | 4 odos tipas</annotation>
+		<annotation cp="🎅🏽" type="tts">Kalėdų senelis: 4 odos tipas</annotation>
+		<annotation cp="🎅🏾">Kalėdos | senelis | tėvas | šventė | 5 odos tipas</annotation>
+		<annotation cp="🎅🏾" type="tts">Kalėdų senelis: 5 odos tipas</annotation>
+		<annotation cp="🎅🏿">Kalėdos | senelis | tėvas | šventė | 6 odos tipas</annotation>
+		<annotation cp="🎅🏿" type="tts">Kalėdų senelis: 6 odos tipas</annotation>
+		<annotation cp="🤶🏻">Kalėdos | mama | ponia | šventė | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤶🏻" type="tts">ponia Claus: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤶🏼">Kalėdos | mama | ponia | šventė | 3 odos tipas</annotation>
+		<annotation cp="🤶🏼" type="tts">ponia Claus: 3 odos tipas</annotation>
+		<annotation cp="🤶🏽">Kalėdos | mama | ponia | šventė | 4 odos tipas</annotation>
+		<annotation cp="🤶🏽" type="tts">ponia Claus: 4 odos tipas</annotation>
+		<annotation cp="🤶🏾">Kalėdos | mama | ponia | šventė | 5 odos tipas</annotation>
+		<annotation cp="🤶🏾" type="tts">ponia Claus: 5 odos tipas</annotation>
+		<annotation cp="🤶🏿">Kalėdos | mama | ponia | šventė | 6 odos tipas</annotation>
+		<annotation cp="🤶🏿" type="tts">ponia Claus: 6 odos tipas</annotation>
+		<annotation cp="🧙🏻">burtininkas | kerėtoja | kerėtojas | ragana | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧙🏻" type="tts">magas: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧙🏼">burtininkas | kerėtoja | kerėtojas | ragana | 3 odos tipas</annotation>
+		<annotation cp="🧙🏼" type="tts">magas: 3 odos tipas</annotation>
+		<annotation cp="🧙🏽">burtininkas | kerėtoja | kerėtojas | ragana | 4 odos tipas</annotation>
+		<annotation cp="🧙🏽" type="tts">magas: 4 odos tipas</annotation>
+		<annotation cp="🧙🏾">burtininkas | kerėtoja | kerėtojas | ragana | 5 odos tipas</annotation>
+		<annotation cp="🧙🏾" type="tts">magas: 5 odos tipas</annotation>
+		<annotation cp="🧙🏿">burtininkas | kerėtoja | kerėtojas | ragana | 6 odos tipas</annotation>
+		<annotation cp="🧙🏿" type="tts">magas: 6 odos tipas</annotation>
+		<annotation cp="🧙🏻‍♀">kerėtoja | ragana | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">magė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧙🏼‍♀">kerėtoja | ragana | 3 odos tipas</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">magė: 3 odos tipas</annotation>
+		<annotation cp="🧙🏽‍♀">kerėtoja | ragana | 4 odos tipas</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">magė: 4 odos tipas</annotation>
+		<annotation cp="🧙🏾‍♀">kerėtoja | ragana | 5 odos tipas</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">magė: 5 odos tipas</annotation>
+		<annotation cp="🧙🏿‍♀">kerėtoja | ragana | 6 odos tipas</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">magė: 6 odos tipas</annotation>
+		<annotation cp="🧙🏻‍♂">burtininkas | kerėtojas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">vyras magas: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧙🏼‍♂">burtininkas | kerėtojas | 3 odos tipas</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">vyras magas: 3 odos tipas</annotation>
+		<annotation cp="🧙🏽‍♂">burtininkas | kerėtojas | 4 odos tipas</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">vyras magas: 4 odos tipas</annotation>
+		<annotation cp="🧙🏾‍♂">burtininkas | kerėtojas | 5 odos tipas</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">vyras magas: 5 odos tipas</annotation>
+		<annotation cp="🧙🏿‍♂">burtininkas | kerėtojas | 6 odos tipas</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">vyras magas: 6 odos tipas</annotation>
+		<annotation cp="🧚🏻">Oberon | Puck | Titania | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧚🏻" type="tts">fėja: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧚🏼">Oberon | Puck | Titania | 3 odos tipas</annotation>
+		<annotation cp="🧚🏼" type="tts">fėja: 3 odos tipas</annotation>
+		<annotation cp="🧚🏽">Oberon | Puck | Titania | 4 odos tipas</annotation>
+		<annotation cp="🧚🏽" type="tts">fėja: 4 odos tipas</annotation>
+		<annotation cp="🧚🏾">Oberon | Puck | Titania | 5 odos tipas</annotation>
+		<annotation cp="🧚🏾" type="tts">fėja: 5 odos tipas</annotation>
+		<annotation cp="🧚🏿">Oberon | Puck | Titania | 6 odos tipas</annotation>
+		<annotation cp="🧚🏿" type="tts">fėja: 6 odos tipas</annotation>
+		<annotation cp="🧚🏻‍♀">Titania | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">moteris fėja: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧚🏼‍♀">Titania | 3 odos tipas</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">moteris fėja: 3 odos tipas</annotation>
+		<annotation cp="🧚🏽‍♀">Titania | 4 odos tipas</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">moteris fėja: 4 odos tipas</annotation>
+		<annotation cp="🧚🏾‍♀">Titania | 5 odos tipas</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">moteris fėja: 5 odos tipas</annotation>
+		<annotation cp="🧚🏿‍♀">Titania | 6 odos tipas</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">moteris fėja: 6 odos tipas</annotation>
+		<annotation cp="🧚🏻‍♂">Oberon | Puck | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">burtininkas: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧚🏼‍♂">Oberon | Puck | 3 odos tipas</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">burtininkas: 3 odos tipas</annotation>
+		<annotation cp="🧚🏽‍♂">Oberon | Puck | 4 odos tipas</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">burtininkas: 4 odos tipas</annotation>
+		<annotation cp="🧚🏾‍♂">Oberon | Puck | 5 odos tipas</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">burtininkas: 5 odos tipas</annotation>
+		<annotation cp="🧚🏿‍♂">Oberon | Puck | 6 odos tipas</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">burtininkas: 6 odos tipas</annotation>
+		<annotation cp="🧛🏻">Drakula | nemirtingas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧛🏻" type="tts">vampyras: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧛🏼">Drakula | nemirtingas | 3 odos tipas</annotation>
+		<annotation cp="🧛🏼" type="tts">vampyras: 3 odos tipas</annotation>
+		<annotation cp="🧛🏽">Drakula | nemirtingas | 4 odos tipas</annotation>
+		<annotation cp="🧛🏽" type="tts">vampyras: 4 odos tipas</annotation>
+		<annotation cp="🧛🏾">Drakula | nemirtingas | 5 odos tipas</annotation>
+		<annotation cp="🧛🏾" type="tts">vampyras: 5 odos tipas</annotation>
+		<annotation cp="🧛🏿">Drakula | nemirtingas | 6 odos tipas</annotation>
+		<annotation cp="🧛🏿" type="tts">vampyras: 6 odos tipas</annotation>
+		<annotation cp="🧛🏻‍♀">nemirtingas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">vampyrė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧛🏼‍♀">nemirtingas | 3 odos tipas</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">vampyrė: 3 odos tipas</annotation>
+		<annotation cp="🧛🏽‍♀">nemirtingas | 4 odos tipas</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">vampyrė: 4 odos tipas</annotation>
+		<annotation cp="🧛🏾‍♀">nemirtingas | 5 odos tipas</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">vampyrė: 5 odos tipas</annotation>
+		<annotation cp="🧛🏿‍♀">nemirtingas | 6 odos tipas</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">vampyrė: 6 odos tipas</annotation>
+		<annotation cp="🧛🏻‍♂">Drakula | nemirtingas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">vampyras vyras: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧛🏼‍♂">Drakula | nemirtingas | 3 odos tipas</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">vampyras vyras: 3 odos tipas</annotation>
+		<annotation cp="🧛🏽‍♂">Drakula | nemirtingas | 4 odos tipas</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">vampyras vyras: 4 odos tipas</annotation>
+		<annotation cp="🧛🏾‍♂">Drakula | nemirtingas | 5 odos tipas</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">vampyras vyras: 5 odos tipas</annotation>
+		<annotation cp="🧛🏿‍♂">Drakula | nemirtingas | 6 odos tipas</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">vampyras vyras: 6 odos tipas</annotation>
+		<annotation cp="🧜🏻">undinius | undinė | undinėlė | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧜🏻" type="tts">undinius: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧜🏼">undinius | undinė | undinėlė | 3 odos tipas</annotation>
+		<annotation cp="🧜🏼" type="tts">undinius: 3 odos tipas</annotation>
+		<annotation cp="🧜🏽">undinius | undinė | undinėlė | 4 odos tipas</annotation>
+		<annotation cp="🧜🏽" type="tts">undinius: 4 odos tipas</annotation>
+		<annotation cp="🧜🏾">undinius | undinė | undinėlė | 5 odos tipas</annotation>
+		<annotation cp="🧜🏾" type="tts">undinius: 5 odos tipas</annotation>
+		<annotation cp="🧜🏿">undinius | undinė | undinėlė | 6 odos tipas</annotation>
+		<annotation cp="🧜🏿" type="tts">undinius: 6 odos tipas</annotation>
+		<annotation cp="🧜🏻‍♀">undinėlė | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">undinėlė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧜🏼‍♀">undinėlė | 3 odos tipas</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">undinėlė: 3 odos tipas</annotation>
+		<annotation cp="🧜🏽‍♀">undinėlė | 4 odos tipas</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">undinėlė: 4 odos tipas</annotation>
+		<annotation cp="🧜🏾‍♀">undinėlė | 5 odos tipas</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">undinėlė: 5 odos tipas</annotation>
+		<annotation cp="🧜🏿‍♀">undinėlė | 6 odos tipas</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">undinėlė: 6 odos tipas</annotation>
+		<annotation cp="🧜🏻‍♂">Tritonas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">vandenis/undinius: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧜🏼‍♂">Tritonas | 3 odos tipas</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">vandenis/undinius: 3 odos tipas</annotation>
+		<annotation cp="🧜🏽‍♂">Tritonas | 4 odos tipas</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">vandenis/undinius: 4 odos tipas</annotation>
+		<annotation cp="🧜🏾‍♂">Tritonas | 5 odos tipas</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">vandenis/undinius: 5 odos tipas</annotation>
+		<annotation cp="🧜🏿‍♂">Tritonas | 6 odos tipas</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">vandenis/undinius: 6 odos tipas</annotation>
+		<annotation cp="🧝🏻">magiškas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧝🏻" type="tts">elfas: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧝🏼">magiškas | 3 odos tipas</annotation>
+		<annotation cp="🧝🏼" type="tts">elfas: 3 odos tipas</annotation>
+		<annotation cp="🧝🏽">magiškas | 4 odos tipas</annotation>
+		<annotation cp="🧝🏽" type="tts">elfas: 4 odos tipas</annotation>
+		<annotation cp="🧝🏾">magiškas | 5 odos tipas</annotation>
+		<annotation cp="🧝🏾" type="tts">elfas: 5 odos tipas</annotation>
+		<annotation cp="🧝🏿">magiškas | 6 odos tipas</annotation>
+		<annotation cp="🧝🏿" type="tts">elfas: 6 odos tipas</annotation>
+		<annotation cp="🧝🏻‍♀">magiška | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">elfė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧝🏼‍♀">magiška | 3 odos tipas</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">elfė: 3 odos tipas</annotation>
+		<annotation cp="🧝🏽‍♀">magiška | 4 odos tipas</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">elfė: 4 odos tipas</annotation>
+		<annotation cp="🧝🏾‍♀">magiška | 5 odos tipas</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">elfė: 5 odos tipas</annotation>
+		<annotation cp="🧝🏿‍♀">magiška | 6 odos tipas</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">elfė: 6 odos tipas</annotation>
+		<annotation cp="🧝🏻‍♂">magiškas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">elfas vyras: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧝🏼‍♂">magiškas | 3 odos tipas</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">elfas vyras: 3 odos tipas</annotation>
+		<annotation cp="🧝🏽‍♂">magiškas | 4 odos tipas</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">elfas vyras: 4 odos tipas</annotation>
+		<annotation cp="🧝🏾‍♂">magiškas | 5 odos tipas</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">elfas vyras: 5 odos tipas</annotation>
+		<annotation cp="🧝🏿‍♂">magiškas | 6 odos tipas</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">elfas vyras: 6 odos tipas</annotation>
 		<annotation cp="🙍🏻">gestas | raukytis | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙍🏻" type="tts">paniuręs žmogus: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙍🏼">gestas | raukytis | 3 odos tipas</annotation>
@@ -782,15 +992,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙅🏾‍♀" type="tts">draudžianti moteris: 5 odos tipas</annotation>
 		<annotation cp="🙅🏿‍♀">draudžiama | gestas | moteris | ne | negerai | neleistina | ranka | 6 odos tipas</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">draudžianti moteris: 6 odos tipas</annotation>
-		<annotation cp="🙆🏻">gestai | ok | ranka | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🙆🏻">gerai | gestai | ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙆🏻" type="tts">teigiamas gestas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🙆🏼">gestai | ok | ranka | 3 odos tipas</annotation>
+		<annotation cp="🙆🏼">gerai | gestai | ranka | 3 odos tipas</annotation>
 		<annotation cp="🙆🏼" type="tts">teigiamas gestas: 3 odos tipas</annotation>
-		<annotation cp="🙆🏽">gestai | ok | ranka | 4 odos tipas</annotation>
+		<annotation cp="🙆🏽">gerai | gestai | ranka | 4 odos tipas</annotation>
 		<annotation cp="🙆🏽" type="tts">teigiamas gestas: 4 odos tipas</annotation>
-		<annotation cp="🙆🏾">gestai | ok | ranka | 5 odos tipas</annotation>
+		<annotation cp="🙆🏾">gerai | gestai | ranka | 5 odos tipas</annotation>
 		<annotation cp="🙆🏾" type="tts">teigiamas gestas: 5 odos tipas</annotation>
-		<annotation cp="🙆🏿">gestai | ok | ranka | 6 odos tipas</annotation>
+		<annotation cp="🙆🏿">gerai | gestai | ranka | 6 odos tipas</annotation>
 		<annotation cp="🙆🏿" type="tts">teigiamas gestas: 6 odos tipas</annotation>
 		<annotation cp="🙆🏻‍♂">gerai | gestas | ranka | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙆🏻‍♂" type="tts">leidžiantis vyras: 1 ir 2 odos tipai</annotation>
@@ -803,15 +1013,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙆🏿‍♂">gerai | gestas | ranka | vyras | 6 odos tipas</annotation>
 		<annotation cp="🙆🏿‍♂" type="tts">leidžiantis vyras: 6 odos tipas</annotation>
 		<annotation cp="🙆🏻‍♀">gerai | gestas | moteris | ranka | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🙆🏻‍♀" type="tts">lidžianti moteris: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">leidžianti moteris: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙆🏼‍♀">gerai | gestas | moteris | ranka | 3 odos tipas</annotation>
-		<annotation cp="🙆🏼‍♀" type="tts">lidžianti moteris: 3 odos tipas</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">leidžianti moteris: 3 odos tipas</annotation>
 		<annotation cp="🙆🏽‍♀">gerai | gestas | moteris | ranka | 4 odos tipas</annotation>
-		<annotation cp="🙆🏽‍♀" type="tts">lidžianti moteris: 4 odos tipas</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">leidžianti moteris: 4 odos tipas</annotation>
 		<annotation cp="🙆🏾‍♀">gerai | gestas | moteris | ranka | 5 odos tipas</annotation>
-		<annotation cp="🙆🏾‍♀" type="tts">lidžianti moteris: 5 odos tipas</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">leidžianti moteris: 5 odos tipas</annotation>
 		<annotation cp="🙆🏿‍♀">gerai | gestas | moteris | ranka | 6 odos tipas</annotation>
-		<annotation cp="🙆🏿‍♀" type="tts">lidžianti moteris: 6 odos tipas</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">leidžianti moteris: 6 odos tipas</annotation>
 		<annotation cp="💁🏻">informacija | pagalba | ranka | įžūlus | 1 ir 2 odos tipai</annotation>
 		<annotation cp="💁🏻" type="tts">informacijos skyriaus darbuotojas: 1 ir 2 odos tipai</annotation>
 		<annotation cp="💁🏼">informacija | pagalba | ranka | įžūlus | 3 odos tipas</annotation>
@@ -833,25 +1043,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁🏿‍♂">gyvas | lengvai pakelta ranka | vyras | 6 odos tipas</annotation>
 		<annotation cp="💁🏿‍♂" type="tts">lengvai ranką pakėlęs vyras: 6 odos tipas</annotation>
 		<annotation cp="💁🏻‍♀">gyvas | lengvai pakelta ranka | moteris | 1 ir 2 odos tipai</annotation>
-		<annotation cp="💁🏻‍♀" type="tts">lengvai ranką pakėlusi moters: 1 ir 2 odos tipai</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">ranką pakėlusi moteris: 1 ir 2 odos tipai</annotation>
 		<annotation cp="💁🏼‍♀">gyvas | lengvai pakelta ranka | moteris | 3 odos tipas</annotation>
-		<annotation cp="💁🏼‍♀" type="tts">lengvai ranką pakėlusi moters: 3 odos tipas</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">ranką pakėlusi moteris: 3 odos tipas</annotation>
 		<annotation cp="💁🏽‍♀">gyvas | lengvai pakelta ranka | moteris | 4 odos tipas</annotation>
-		<annotation cp="💁🏽‍♀" type="tts">lengvai ranką pakėlusi moters: 4 odos tipas</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">ranką pakėlusi moteris: 4 odos tipas</annotation>
 		<annotation cp="💁🏾‍♀">gyvas | lengvai pakelta ranka | moteris | 5 odos tipas</annotation>
-		<annotation cp="💁🏾‍♀" type="tts">lengvai ranką pakėlusi moters: 5 odos tipas</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">ranką pakėlusi moteris: 5 odos tipas</annotation>
 		<annotation cp="💁🏿‍♀">gyvas | lengvai pakelta ranka | moteris | 6 odos tipas</annotation>
-		<annotation cp="💁🏿‍♀" type="tts">lengvai ranką pakėlusi moters: 6 odos tipas</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">ranką pakėlusi moteris: 6 odos tipas</annotation>
 		<annotation cp="🙋🏻">gestas | iškelta | laimingas | ranka | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🙋🏻" type="tts">laimingas žmogus, iškėlęs ranką: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🙋🏻" type="tts">žmogus, iškėlęs ranką: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙋🏼">gestas | iškelta | laimingas | ranka | 3 odos tipas</annotation>
-		<annotation cp="🙋🏼" type="tts">laimingas žmogus, iškėlęs ranką: 3 odos tipas</annotation>
+		<annotation cp="🙋🏼" type="tts">žmogus, iškėlęs ranką: 3 odos tipas</annotation>
 		<annotation cp="🙋🏽">gestas | iškelta | laimingas | ranka | 4 odos tipas</annotation>
-		<annotation cp="🙋🏽" type="tts">laimingas žmogus, iškėlęs ranką: 4 odos tipas</annotation>
+		<annotation cp="🙋🏽" type="tts">žmogus, iškėlęs ranką: 4 odos tipas</annotation>
 		<annotation cp="🙋🏾">gestas | iškelta | laimingas | ranka | 5 odos tipas</annotation>
-		<annotation cp="🙋🏾" type="tts">laimingas žmogus, iškėlęs ranką: 5 odos tipas</annotation>
+		<annotation cp="🙋🏾" type="tts">žmogus, iškėlęs ranką: 5 odos tipas</annotation>
 		<annotation cp="🙋🏿">gestas | iškelta | laimingas | ranka | 6 odos tipas</annotation>
-		<annotation cp="🙋🏿" type="tts">laimingas žmogus, iškėlęs ranką: 6 odos tipas</annotation>
+		<annotation cp="🙋🏿" type="tts">žmogus, iškėlęs ranką: 6 odos tipas</annotation>
 		<annotation cp="🙋🏻‍♂">gestas | pakelta ranka | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">ranką pakėlęs vyras: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙋🏼‍♂">gestas | pakelta ranka | vyras | 3 odos tipas</annotation>
@@ -902,15 +1112,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙇🏾‍♀" type="tts">nusilenkianti moteris: 5 odos tipas</annotation>
 		<annotation cp="🙇🏿‍♀">apgailestavimas | atsiprašymas | gestas | moteris | nusilenkimas | paslauga | 6 odos tipas</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">nusilenkianti moteris: 6 odos tipas</annotation>
-		<annotation cp="🤦🏻">beviltiškumas | neįtikėtinumas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤦🏻">beviltiškumas | neįtikėtinumas | susierzinimas | veidas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤦🏻" type="tts">o varge: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤦🏼">beviltiškumas | neįtikėtinumas | 3 odos tipas</annotation>
+		<annotation cp="🤦🏼">beviltiškumas | neįtikėtinumas | susierzinimas | veidas | 3 odos tipas</annotation>
 		<annotation cp="🤦🏼" type="tts">o varge: 3 odos tipas</annotation>
-		<annotation cp="🤦🏽">beviltiškumas | neįtikėtinumas | 4 odos tipas</annotation>
+		<annotation cp="🤦🏽">beviltiškumas | neįtikėtinumas | susierzinimas | veidas | 4 odos tipas</annotation>
 		<annotation cp="🤦🏽" type="tts">o varge: 4 odos tipas</annotation>
-		<annotation cp="🤦🏾">beviltiškumas | neįtikėtinumas | 5 odos tipas</annotation>
+		<annotation cp="🤦🏾">beviltiškumas | neįtikėtinumas | susierzinimas | veidas | 5 odos tipas</annotation>
 		<annotation cp="🤦🏾" type="tts">o varge: 5 odos tipas</annotation>
-		<annotation cp="🤦🏿">beviltiškumas | neįtikėtinumas | 6 odos tipas</annotation>
+		<annotation cp="🤦🏿">beviltiškumas | neįtikėtinumas | susierzinimas | veidas | 6 odos tipas</annotation>
 		<annotation cp="🤦🏿" type="tts">o varge: 6 odos tipas</annotation>
 		<annotation cp="🤦🏻‍♂">netikėjimas | susierzinimas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">susierzinęs vyras: 1 ir 2 odos tipai</annotation>
@@ -962,15 +1172,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">abejojanti moteris: 5 odos tipas</annotation>
 		<annotation cp="🤷🏿‍♀">abejingumas | abejonė | moteris | nežinojimas | trūkčioti pečiais | 6 odos tipas</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">abejojanti moteris: 6 odos tipas</annotation>
-		<annotation cp="💆🏻">masažas | salonas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="💆🏻">masažas | salonas | veidas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="💆🏻" type="tts">veido masažas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="💆🏼">masažas | salonas | 3 odos tipas</annotation>
+		<annotation cp="💆🏼">masažas | salonas | veidas | 3 odos tipas</annotation>
 		<annotation cp="💆🏼" type="tts">veido masažas: 3 odos tipas</annotation>
-		<annotation cp="💆🏽">masažas | salonas | 4 odos tipas</annotation>
+		<annotation cp="💆🏽">masažas | salonas | veidas | 4 odos tipas</annotation>
 		<annotation cp="💆🏽" type="tts">veido masažas: 4 odos tipas</annotation>
-		<annotation cp="💆🏾">masažas | salonas | 5 odos tipas</annotation>
+		<annotation cp="💆🏾">masažas | salonas | veidas | 5 odos tipas</annotation>
 		<annotation cp="💆🏾" type="tts">veido masažas: 5 odos tipas</annotation>
-		<annotation cp="💆🏿">masažas | salonas | 6 odos tipas</annotation>
+		<annotation cp="💆🏿">masažas | salonas | veidas | 6 odos tipas</annotation>
 		<annotation cp="💆🏿" type="tts">veido masažas: 6 odos tipas</annotation>
 		<annotation cp="💆🏻‍♂">masažas | veidas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="💆🏻‍♂" type="tts">masažuojama vyro galva: 1 ir 2 odos tipai</annotation>
@@ -983,25 +1193,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💆🏿‍♂">masažas | veidas | vyras | 6 odos tipas</annotation>
 		<annotation cp="💆🏿‍♂" type="tts">masažuojama vyro galva: 6 odos tipas</annotation>
 		<annotation cp="💆🏻‍♀">masažas | moteris | veidas | 1 ir 2 odos tipai</annotation>
-		<annotation cp="💆🏻‍♀" type="tts">masažuojama moteris galva: 1 ir 2 odos tipai</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">masažuojama moters galva: 1 ir 2 odos tipai</annotation>
 		<annotation cp="💆🏼‍♀">masažas | moteris | veidas | 3 odos tipas</annotation>
-		<annotation cp="💆🏼‍♀" type="tts">masažuojama moteris galva: 3 odos tipas</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">masažuojama moters galva: 3 odos tipas</annotation>
 		<annotation cp="💆🏽‍♀">masažas | moteris | veidas | 4 odos tipas</annotation>
-		<annotation cp="💆🏽‍♀" type="tts">masažuojama moteris galva: 4 odos tipas</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">masažuojama moters galva: 4 odos tipas</annotation>
 		<annotation cp="💆🏾‍♀">masažas | moteris | veidas | 5 odos tipas</annotation>
-		<annotation cp="💆🏾‍♀" type="tts">masažuojama moteris galva: 5 odos tipas</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">masažuojama moters galva: 5 odos tipas</annotation>
 		<annotation cp="💆🏿‍♀">masažas | moteris | veidas | 6 odos tipas</annotation>
-		<annotation cp="💆🏿‍♀" type="tts">masažuojama moteris galva: 6 odos tipas</annotation>
-		<annotation cp="💇🏻">grožis | kirpėjas | salonas | 1 ir 2 odos tipai</annotation>
-		<annotation cp="💇🏻" type="tts">kirpykla: 1 ir 2 odos tipai</annotation>
-		<annotation cp="💇🏼">grožis | kirpėjas | salonas | 3 odos tipas</annotation>
-		<annotation cp="💇🏼" type="tts">kirpykla: 3 odos tipas</annotation>
-		<annotation cp="💇🏽">grožis | kirpėjas | salonas | 4 odos tipas</annotation>
-		<annotation cp="💇🏽" type="tts">kirpykla: 4 odos tipas</annotation>
-		<annotation cp="💇🏾">grožis | kirpėjas | salonas | 5 odos tipas</annotation>
-		<annotation cp="💇🏾" type="tts">kirpykla: 5 odos tipas</annotation>
-		<annotation cp="💇🏿">grožis | kirpėjas | salonas | 6 odos tipas</annotation>
-		<annotation cp="💇🏿" type="tts">kirpykla: 6 odos tipas</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">masažuojama moters galva: 6 odos tipas</annotation>
+		<annotation cp="💇🏻">grožis | kirpėjas | salonas | šukuosena | 1 ir 2 odos tipai</annotation>
+		<annotation cp="💇🏻" type="tts">apkerpamas žmogus: 1 ir 2 odos tipai</annotation>
+		<annotation cp="💇🏼">grožis | kirpėjas | salonas | šukuosena | 3 odos tipas</annotation>
+		<annotation cp="💇🏼" type="tts">apkerpamas žmogus: 3 odos tipas</annotation>
+		<annotation cp="💇🏽">grožis | kirpėjas | salonas | šukuosena | 4 odos tipas</annotation>
+		<annotation cp="💇🏽" type="tts">apkerpamas žmogus: 4 odos tipas</annotation>
+		<annotation cp="💇🏾">grožis | kirpėjas | salonas | šukuosena | 5 odos tipas</annotation>
+		<annotation cp="💇🏾" type="tts">apkerpamas žmogus: 5 odos tipas</annotation>
+		<annotation cp="💇🏿">grožis | kirpėjas | salonas | šukuosena | 6 odos tipas</annotation>
+		<annotation cp="💇🏿" type="tts">apkerpamas žmogus: 6 odos tipas</annotation>
 		<annotation cp="💇🏻‍♂">kirpimas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="💇🏻‍♂" type="tts">apkerpamas vyras: 1 ir 2 odos tipai</annotation>
 		<annotation cp="💇🏼‍♂">kirpimas | vyras | 3 odos tipas</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">šokantis vyras: 5 odos tipas</annotation>
 		<annotation cp="🕺🏿">vyras | šokis | 6 odos tipas</annotation>
 		<annotation cp="🕺🏿" type="tts">šokantis vyras: 6 odos tipas</annotation>
+		<annotation cp="🧖🏻">garų kambarys | sauna | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧖🏻" type="tts">asmuo garų kambaryje: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧖🏼">garų kambarys | sauna | 3 odos tipas</annotation>
+		<annotation cp="🧖🏼" type="tts">asmuo garų kambaryje: 3 odos tipas</annotation>
+		<annotation cp="🧖🏽">garų kambarys | sauna | 4 odos tipas</annotation>
+		<annotation cp="🧖🏽" type="tts">asmuo garų kambaryje: 4 odos tipas</annotation>
+		<annotation cp="🧖🏾">garų kambarys | sauna | 5 odos tipas</annotation>
+		<annotation cp="🧖🏾" type="tts">asmuo garų kambaryje: 5 odos tipas</annotation>
+		<annotation cp="🧖🏿">garų kambarys | sauna | 6 odos tipas</annotation>
+		<annotation cp="🧖🏿" type="tts">asmuo garų kambaryje: 6 odos tipas</annotation>
+		<annotation cp="🧖🏻‍♀">garų kambarys | sauna | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">moteris garų kambaryje: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧖🏼‍♀">garų kambarys | sauna | 3 odos tipas</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">moteris garų kambaryje: 3 odos tipas</annotation>
+		<annotation cp="🧖🏽‍♀">garų kambarys | sauna | 4 odos tipas</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">moteris garų kambaryje: 4 odos tipas</annotation>
+		<annotation cp="🧖🏾‍♀">garų kambarys | sauna | 5 odos tipas</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">moteris garų kambaryje: 5 odos tipas</annotation>
+		<annotation cp="🧖🏿‍♀">garų kambarys | sauna | 6 odos tipas</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">moteris garų kambaryje: 6 odos tipas</annotation>
+		<annotation cp="🧖🏻‍♂">garų kambarys | sauna | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">vyras garų kambaryje: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧖🏼‍♂">garų kambarys | sauna | 3 odos tipas</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">vyras garų kambaryje: 3 odos tipas</annotation>
+		<annotation cp="🧖🏽‍♂">garų kambarys | sauna | 4 odos tipas</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">vyras garų kambaryje: 4 odos tipas</annotation>
+		<annotation cp="🧖🏾‍♂">garų kambarys | sauna | 5 odos tipas</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">vyras garų kambaryje: 5 odos tipas</annotation>
+		<annotation cp="🧖🏿‍♂">garų kambarys | sauna | 6 odos tipas</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">vyras garų kambaryje: 6 odos tipas</annotation>
+		<annotation cp="🧗🏻">alpinistas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧗🏻" type="tts">kopiantis žmogus: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧗🏼">alpinistas | 3 odos tipas</annotation>
+		<annotation cp="🧗🏼" type="tts">kopiantis žmogus: 3 odos tipas</annotation>
+		<annotation cp="🧗🏽">alpinistas | 4 odos tipas</annotation>
+		<annotation cp="🧗🏽" type="tts">kopiantis žmogus: 4 odos tipas</annotation>
+		<annotation cp="🧗🏾">alpinistas | 5 odos tipas</annotation>
+		<annotation cp="🧗🏾" type="tts">kopiantis žmogus: 5 odos tipas</annotation>
+		<annotation cp="🧗🏿">alpinistas | 6 odos tipas</annotation>
+		<annotation cp="🧗🏿" type="tts">kopiantis žmogus: 6 odos tipas</annotation>
+		<annotation cp="🧗🏻‍♀">alpinistė | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">kopiantis moteris: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧗🏼‍♀">alpinistė | 3 odos tipas</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">kopiantis moteris: 3 odos tipas</annotation>
+		<annotation cp="🧗🏽‍♀">alpinistė | 4 odos tipas</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">kopiantis moteris: 4 odos tipas</annotation>
+		<annotation cp="🧗🏾‍♀">alpinistė | 5 odos tipas</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">kopiantis moteris: 5 odos tipas</annotation>
+		<annotation cp="🧗🏿‍♀">alpinistė | 6 odos tipas</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">kopiantis moteris: 6 odos tipas</annotation>
+		<annotation cp="🧗🏻‍♂">alpinistas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">kopiantis vyras: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧗🏼‍♂">alpinistas | 3 odos tipas</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">kopiantis vyras: 3 odos tipas</annotation>
+		<annotation cp="🧗🏽‍♂">alpinistas | 4 odos tipas</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">kopiantis vyras: 4 odos tipas</annotation>
+		<annotation cp="🧗🏾‍♂">alpinistas | 5 odos tipas</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">kopiantis vyras: 5 odos tipas</annotation>
+		<annotation cp="🧗🏿‍♂">alpinistas | 6 odos tipas</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">kopiantis vyras: 6 odos tipas</annotation>
+		<annotation cp="🧘🏻">joga | meditacija | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧘🏻" type="tts">žmogus lotoso pozoje: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧘🏼">joga | meditacija | 3 odos tipas</annotation>
+		<annotation cp="🧘🏼" type="tts">žmogus lotoso pozoje: 3 odos tipas</annotation>
+		<annotation cp="🧘🏽">joga | meditacija | 4 odos tipas</annotation>
+		<annotation cp="🧘🏽" type="tts">žmogus lotoso pozoje: 4 odos tipas</annotation>
+		<annotation cp="🧘🏾">joga | meditacija | 5 odos tipas</annotation>
+		<annotation cp="🧘🏾" type="tts">žmogus lotoso pozoje: 5 odos tipas</annotation>
+		<annotation cp="🧘🏿">joga | meditacija | 6 odos tipas</annotation>
+		<annotation cp="🧘🏿" type="tts">žmogus lotoso pozoje: 6 odos tipas</annotation>
+		<annotation cp="🧘🏻‍♀">joga | meditacija | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">moteris lotoso pozoje: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧘🏼‍♀">joga | meditacija | 3 odos tipas</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">moteris lotoso pozoje: 3 odos tipas</annotation>
+		<annotation cp="🧘🏽‍♀">joga | meditacija | 4 odos tipas</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">moteris lotoso pozoje: 4 odos tipas</annotation>
+		<annotation cp="🧘🏾‍♀">joga | meditacija | 5 odos tipas</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">moteris lotoso pozoje: 5 odos tipas</annotation>
+		<annotation cp="🧘🏿‍♀">joga | meditacija | 6 odos tipas</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">moteris lotoso pozoje: 6 odos tipas</annotation>
+		<annotation cp="🧘🏻‍♂">joga | meditacija | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">vyras lotoso pozoje: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🧘🏼‍♂">joga | meditacija | 3 odos tipas</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">vyras lotoso pozoje: 3 odos tipas</annotation>
+		<annotation cp="🧘🏽‍♂">joga | meditacija | 4 odos tipas</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">vyras lotoso pozoje: 4 odos tipas</annotation>
+		<annotation cp="🧘🏾‍♂">joga | meditacija | 5 odos tipas</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">vyras lotoso pozoje: 5 odos tipas</annotation>
+		<annotation cp="🧘🏿‍♂">joga | meditacija | 6 odos tipas</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">vyras lotoso pozoje: 6 odos tipas</annotation>
 		<annotation cp="🛀🏻">vonia | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🛀🏻" type="tts">žmogus prausiasi vonioje: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🛀🏼">vonia | 3 odos tipas</annotation>
@@ -1173,15 +1473,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏌🏿‍♂">golfas | vyras | 6 odos tipas</annotation>
 		<annotation cp="🏌🏿‍♂" type="tts">golfo žaidėjas vyras: 6 odos tipas</annotation>
 		<annotation cp="🏌🏻‍♀">golfas | moteris | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🏌🏻‍♀" type="tts">golfo žaidėja moteris: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">golfo žaidėja: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🏌🏼‍♀">golfas | moteris | 3 odos tipas</annotation>
-		<annotation cp="🏌🏼‍♀" type="tts">golfo žaidėja moteris: 3 odos tipas</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">golfo žaidėja: 3 odos tipas</annotation>
 		<annotation cp="🏌🏽‍♀">golfas | moteris | 4 odos tipas</annotation>
-		<annotation cp="🏌🏽‍♀" type="tts">golfo žaidėja moteris: 4 odos tipas</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">golfo žaidėja: 4 odos tipas</annotation>
 		<annotation cp="🏌🏾‍♀">golfas | moteris | 5 odos tipas</annotation>
-		<annotation cp="🏌🏾‍♀" type="tts">golfo žaidėja moteris: 5 odos tipas</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">golfo žaidėja: 5 odos tipas</annotation>
 		<annotation cp="🏌🏿‍♀">golfas | moteris | 6 odos tipas</annotation>
-		<annotation cp="🏌🏿‍♀" type="tts">golfo žaidėja moteris: 6 odos tipas</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">golfo žaidėja: 6 odos tipas</annotation>
 		<annotation cp="🏄🏻">banglenčių sportas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🏄🏻" type="tts">banglentininkas: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🏄🏼">banglenčių sportas | 3 odos tipas</annotation>
@@ -1203,25 +1503,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏄🏿‍♂">banglenčių sportas | vyras | 6 odos tipas</annotation>
 		<annotation cp="🏄🏿‍♂" type="tts">vyras banglentininkas: 6 odos tipas</annotation>
 		<annotation cp="🏄🏻‍♀">banglenčių sportas | moteris | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🏄🏻‍♀" type="tts">moteris banglentininkė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">banglentininkė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🏄🏼‍♀">banglenčių sportas | moteris | 3 odos tipas</annotation>
-		<annotation cp="🏄🏼‍♀" type="tts">moteris banglentininkė: 3 odos tipas</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">banglentininkė: 3 odos tipas</annotation>
 		<annotation cp="🏄🏽‍♀">banglenčių sportas | moteris | 4 odos tipas</annotation>
-		<annotation cp="🏄🏽‍♀" type="tts">moteris banglentininkė: 4 odos tipas</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">banglentininkė: 4 odos tipas</annotation>
 		<annotation cp="🏄🏾‍♀">banglenčių sportas | moteris | 5 odos tipas</annotation>
-		<annotation cp="🏄🏾‍♀" type="tts">moteris banglentininkė: 5 odos tipas</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">banglentininkė: 5 odos tipas</annotation>
 		<annotation cp="🏄🏿‍♀">banglenčių sportas | moteris | 6 odos tipas</annotation>
-		<annotation cp="🏄🏿‍♀" type="tts">moteris banglentininkė: 6 odos tipas</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">banglentininkė: 6 odos tipas</annotation>
 		<annotation cp="🚣🏻">transporto priemonė | valtis | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🚣🏻" type="tts">irklinė valtis: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🚣🏻" type="tts">irkluojantis žmogus: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🚣🏼">transporto priemonė | valtis | 3 odos tipas</annotation>
-		<annotation cp="🚣🏼" type="tts">irklinė valtis: 3 odos tipas</annotation>
+		<annotation cp="🚣🏼" type="tts">irkluojantis žmogus: 3 odos tipas</annotation>
 		<annotation cp="🚣🏽">transporto priemonė | valtis | 4 odos tipas</annotation>
-		<annotation cp="🚣🏽" type="tts">irklinė valtis: 4 odos tipas</annotation>
+		<annotation cp="🚣🏽" type="tts">irkluojantis žmogus: 4 odos tipas</annotation>
 		<annotation cp="🚣🏾">transporto priemonė | valtis | 5 odos tipas</annotation>
-		<annotation cp="🚣🏾" type="tts">irklinė valtis: 5 odos tipas</annotation>
+		<annotation cp="🚣🏾" type="tts">irkluojantis žmogus: 5 odos tipas</annotation>
 		<annotation cp="🚣🏿">transporto priemonė | valtis | 6 odos tipas</annotation>
-		<annotation cp="🚣🏿" type="tts">irklinė valtis: 6 odos tipas</annotation>
+		<annotation cp="🚣🏿" type="tts">irkluojantis žmogus: 6 odos tipas</annotation>
 		<annotation cp="🚣🏻‍♂">valtis | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🚣🏻‍♂" type="tts">irkluotojas: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🚣🏼‍♂">valtis | vyras | 3 odos tipas</annotation>
@@ -1263,15 +1563,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏊🏿‍♂">plaukimas | vyras | 6 odos tipas</annotation>
 		<annotation cp="🏊🏿‍♂" type="tts">vyras plaukikas: 6 odos tipas</annotation>
 		<annotation cp="🏊🏻‍♀">moteris | plaukimas | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🏊🏻‍♀" type="tts">moteris plaukikė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">plaukikė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🏊🏼‍♀">moteris | plaukimas | 3 odos tipas</annotation>
-		<annotation cp="🏊🏼‍♀" type="tts">moteris plaukikė: 3 odos tipas</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">plaukikė: 3 odos tipas</annotation>
 		<annotation cp="🏊🏽‍♀">moteris | plaukimas | 4 odos tipas</annotation>
-		<annotation cp="🏊🏽‍♀" type="tts">moteris plaukikė: 4 odos tipas</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">plaukikė: 4 odos tipas</annotation>
 		<annotation cp="🏊🏾‍♀">moteris | plaukimas | 5 odos tipas</annotation>
-		<annotation cp="🏊🏾‍♀" type="tts">moteris plaukikė: 5 odos tipas</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">plaukikė: 5 odos tipas</annotation>
 		<annotation cp="🏊🏿‍♀">moteris | plaukimas | 6 odos tipas</annotation>
-		<annotation cp="🏊🏿‍♀" type="tts">moteris plaukikė: 6 odos tipas</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">plaukikė: 6 odos tipas</annotation>
 		<annotation cp="⛹🏻">kamuolys | 1 ir 2 odos tipai</annotation>
 		<annotation cp="⛹🏻" type="tts">žmogus su kamuoliu: 1 ir 2 odos tipai</annotation>
 		<annotation cp="⛹🏼">kamuolys | 3 odos tipas</annotation>
@@ -1353,15 +1653,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚴🏿‍♂">dviratininkas | dviratis | važinėjimas dviračiu | vyras | 6 odos tipas</annotation>
 		<annotation cp="🚴🏿‍♂" type="tts">vyras dviratininkas: 6 odos tipas</annotation>
 		<annotation cp="🚴🏻‍♀">dviratininkė | dviratis | moteris | važinėjimas dviračiu | 1 ir 2 odos tipai</annotation>
-		<annotation cp="🚴🏻‍♀" type="tts">moteris dviratininkė: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">dviratininkė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🚴🏼‍♀">dviratininkė | dviratis | moteris | važinėjimas dviračiu | 3 odos tipas</annotation>
-		<annotation cp="🚴🏼‍♀" type="tts">moteris dviratininkė: 3 odos tipas</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">dviratininkė: 3 odos tipas</annotation>
 		<annotation cp="🚴🏽‍♀">dviratininkė | dviratis | moteris | važinėjimas dviračiu | 4 odos tipas</annotation>
-		<annotation cp="🚴🏽‍♀" type="tts">moteris dviratininkė: 4 odos tipas</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">dviratininkė: 4 odos tipas</annotation>
 		<annotation cp="🚴🏾‍♀">dviratininkė | dviratis | moteris | važinėjimas dviračiu | 5 odos tipas</annotation>
-		<annotation cp="🚴🏾‍♀" type="tts">moteris dviratininkė: 5 odos tipas</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">dviratininkė: 5 odos tipas</annotation>
 		<annotation cp="🚴🏿‍♀">dviratininkė | dviratis | moteris | važinėjimas dviračiu | 6 odos tipas</annotation>
-		<annotation cp="🚴🏿‍♀" type="tts">moteris dviratininkė: 6 odos tipas</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">dviratininkė: 6 odos tipas</annotation>
 		<annotation cp="🚵🏻">dviratininkas | dviratis | kalnas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🚵🏻" type="tts">kalnų dviratininkas: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🚵🏼">dviratininkas | dviratis | kalnas | 3 odos tipas</annotation>
@@ -1392,95 +1692,95 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵🏾‍♀" type="tts">kalnų dviratininkė moteris: 5 odos tipas</annotation>
 		<annotation cp="🚵🏿‍♀">dviratininkė | dviratis | kalnas | moteris | važinėjimas dviračiu | 6 odos tipas</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">kalnų dviratininkė moteris: 6 odos tipas</annotation>
-		<annotation cp="🤸🏻">gimnastika | persivertimas | sportas | žmogus | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤸🏻">gimnastika | persivertimas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤸🏻" type="tts">persivertimas šonu: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤸🏼">gimnastika | persivertimas | sportas | žmogus | 3 odos tipas</annotation>
+		<annotation cp="🤸🏼">gimnastika | persivertimas | 3 odos tipas</annotation>
 		<annotation cp="🤸🏼" type="tts">persivertimas šonu: 3 odos tipas</annotation>
-		<annotation cp="🤸🏽">gimnastika | persivertimas | sportas | žmogus | 4 odos tipas</annotation>
+		<annotation cp="🤸🏽">gimnastika | persivertimas | 4 odos tipas</annotation>
 		<annotation cp="🤸🏽" type="tts">persivertimas šonu: 4 odos tipas</annotation>
-		<annotation cp="🤸🏾">gimnastika | persivertimas | sportas | žmogus | 5 odos tipas</annotation>
+		<annotation cp="🤸🏾">gimnastika | persivertimas | 5 odos tipas</annotation>
 		<annotation cp="🤸🏾" type="tts">persivertimas šonu: 5 odos tipas</annotation>
-		<annotation cp="🤸🏿">gimnastika | persivertimas | sportas | žmogus | 6 odos tipas</annotation>
+		<annotation cp="🤸🏿">gimnastika | persivertimas | 6 odos tipas</annotation>
 		<annotation cp="🤸🏿" type="tts">persivertimas šonu: 6 odos tipas</annotation>
-		<annotation cp="🤸🏻‍♂">asmuo | gimnastika | sportas | suktukas | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤸🏻‍♂">gimnastika | suktukas | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">vyras daro suktuką: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤸🏼‍♂">asmuo | gimnastika | sportas | suktukas | vyras | 3 odos tipas</annotation>
+		<annotation cp="🤸🏼‍♂">gimnastika | suktukas | vyras | 3 odos tipas</annotation>
 		<annotation cp="🤸🏼‍♂" type="tts">vyras daro suktuką: 3 odos tipas</annotation>
-		<annotation cp="🤸🏽‍♂">asmuo | gimnastika | sportas | suktukas | vyras | 4 odos tipas</annotation>
+		<annotation cp="🤸🏽‍♂">gimnastika | suktukas | vyras | 4 odos tipas</annotation>
 		<annotation cp="🤸🏽‍♂" type="tts">vyras daro suktuką: 4 odos tipas</annotation>
-		<annotation cp="🤸🏾‍♂">asmuo | gimnastika | sportas | suktukas | vyras | 5 odos tipas</annotation>
+		<annotation cp="🤸🏾‍♂">gimnastika | suktukas | vyras | 5 odos tipas</annotation>
 		<annotation cp="🤸🏾‍♂" type="tts">vyras daro suktuką: 5 odos tipas</annotation>
-		<annotation cp="🤸🏿‍♂">asmuo | gimnastika | sportas | suktukas | vyras | 6 odos tipas</annotation>
+		<annotation cp="🤸🏿‍♂">gimnastika | suktukas | vyras | 6 odos tipas</annotation>
 		<annotation cp="🤸🏿‍♂" type="tts">vyras daro suktuką: 6 odos tipas</annotation>
-		<annotation cp="🤸🏻‍♀">asmuo | gimnasitka | moteris | sportas | suktukas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤸🏻‍♀">gimnastika | moteris | suktukas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤸🏻‍♀" type="tts">moteris daro suktuką: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤸🏼‍♀">asmuo | gimnasitka | moteris | sportas | suktukas | 3 odos tipas</annotation>
+		<annotation cp="🤸🏼‍♀">gimnastika | moteris | suktukas | 3 odos tipas</annotation>
 		<annotation cp="🤸🏼‍♀" type="tts">moteris daro suktuką: 3 odos tipas</annotation>
-		<annotation cp="🤸🏽‍♀">asmuo | gimnasitka | moteris | sportas | suktukas | 4 odos tipas</annotation>
+		<annotation cp="🤸🏽‍♀">gimnastika | moteris | suktukas | 4 odos tipas</annotation>
 		<annotation cp="🤸🏽‍♀" type="tts">moteris daro suktuką: 4 odos tipas</annotation>
-		<annotation cp="🤸🏾‍♀">asmuo | gimnasitka | moteris | sportas | suktukas | 5 odos tipas</annotation>
+		<annotation cp="🤸🏾‍♀">gimnastika | moteris | suktukas | 5 odos tipas</annotation>
 		<annotation cp="🤸🏾‍♀" type="tts">moteris daro suktuką: 5 odos tipas</annotation>
-		<annotation cp="🤸🏿‍♀">asmuo | gimnasitka | moteris | sportas | suktukas | 6 odos tipas</annotation>
+		<annotation cp="🤸🏿‍♀">gimnastika | moteris | suktukas | 6 odos tipas</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">moteris daro suktuką: 6 odos tipas</annotation>
-		<annotation cp="🤽🏻">sportas | vandensvydis | vanduo | žmogus | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤽🏻">vandensvydis | vanduo | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤽🏻" type="tts">vandensvydis: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤽🏼">sportas | vandensvydis | vanduo | žmogus | 3 odos tipas</annotation>
+		<annotation cp="🤽🏼">vandensvydis | vanduo | 3 odos tipas</annotation>
 		<annotation cp="🤽🏼" type="tts">vandensvydis: 3 odos tipas</annotation>
-		<annotation cp="🤽🏽">sportas | vandensvydis | vanduo | žmogus | 4 odos tipas</annotation>
+		<annotation cp="🤽🏽">vandensvydis | vanduo | 4 odos tipas</annotation>
 		<annotation cp="🤽🏽" type="tts">vandensvydis: 4 odos tipas</annotation>
-		<annotation cp="🤽🏾">sportas | vandensvydis | vanduo | žmogus | 5 odos tipas</annotation>
+		<annotation cp="🤽🏾">vandensvydis | vanduo | 5 odos tipas</annotation>
 		<annotation cp="🤽🏾" type="tts">vandensvydis: 5 odos tipas</annotation>
-		<annotation cp="🤽🏿">sportas | vandensvydis | vanduo | žmogus | 6 odos tipas</annotation>
+		<annotation cp="🤽🏿">vandensvydis | vanduo | 6 odos tipas</annotation>
 		<annotation cp="🤽🏿" type="tts">vandensvydis: 6 odos tipas</annotation>
-		<annotation cp="🤽🏻‍♂">sportas | vandensvydis | vanduo | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤽🏻‍♂">vandensvydis | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤽🏻‍♂" type="tts">vandensvydžio žaidėjas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤽🏼‍♂">sportas | vandensvydis | vanduo | vyras | 3 odos tipas</annotation>
+		<annotation cp="🤽🏼‍♂">vandensvydis | vyras | 3 odos tipas</annotation>
 		<annotation cp="🤽🏼‍♂" type="tts">vandensvydžio žaidėjas: 3 odos tipas</annotation>
-		<annotation cp="🤽🏽‍♂">sportas | vandensvydis | vanduo | vyras | 4 odos tipas</annotation>
+		<annotation cp="🤽🏽‍♂">vandensvydis | vyras | 4 odos tipas</annotation>
 		<annotation cp="🤽🏽‍♂" type="tts">vandensvydžio žaidėjas: 4 odos tipas</annotation>
-		<annotation cp="🤽🏾‍♂">sportas | vandensvydis | vanduo | vyras | 5 odos tipas</annotation>
+		<annotation cp="🤽🏾‍♂">vandensvydis | vyras | 5 odos tipas</annotation>
 		<annotation cp="🤽🏾‍♂" type="tts">vandensvydžio žaidėjas: 5 odos tipas</annotation>
-		<annotation cp="🤽🏿‍♂">sportas | vandensvydis | vanduo | vyras | 6 odos tipas</annotation>
+		<annotation cp="🤽🏿‍♂">vandensvydis | vyras | 6 odos tipas</annotation>
 		<annotation cp="🤽🏿‍♂" type="tts">vandensvydžio žaidėjas: 6 odos tipas</annotation>
-		<annotation cp="🤽🏻‍♀">moteris | sportas | vandensvydis | vanduo | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤽🏻‍♀">moteris | vandensvydis | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤽🏻‍♀" type="tts">vandensvydžio žaidėja: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤽🏼‍♀">moteris | sportas | vandensvydis | vanduo | 3 odos tipas</annotation>
+		<annotation cp="🤽🏼‍♀">moteris | vandensvydis | 3 odos tipas</annotation>
 		<annotation cp="🤽🏼‍♀" type="tts">vandensvydžio žaidėja: 3 odos tipas</annotation>
-		<annotation cp="🤽🏽‍♀">moteris | sportas | vandensvydis | vanduo | 4 odos tipas</annotation>
+		<annotation cp="🤽🏽‍♀">moteris | vandensvydis | 4 odos tipas</annotation>
 		<annotation cp="🤽🏽‍♀" type="tts">vandensvydžio žaidėja: 4 odos tipas</annotation>
-		<annotation cp="🤽🏾‍♀">moteris | sportas | vandensvydis | vanduo | 5 odos tipas</annotation>
+		<annotation cp="🤽🏾‍♀">moteris | vandensvydis | 5 odos tipas</annotation>
 		<annotation cp="🤽🏾‍♀" type="tts">vandensvydžio žaidėja: 5 odos tipas</annotation>
-		<annotation cp="🤽🏿‍♀">moteris | sportas | vandensvydis | vanduo | 6 odos tipas</annotation>
+		<annotation cp="🤽🏿‍♀">moteris | vandensvydis | 6 odos tipas</annotation>
 		<annotation cp="🤽🏿‍♀" type="tts">vandensvydžio žaidėja: 6 odos tipas</annotation>
-		<annotation cp="🤾🏻">kamuolys | rankinis | sportas | žmogus | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤾🏻">kamuolys | rankinis | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤾🏻" type="tts">rankinis: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤾🏼">kamuolys | rankinis | sportas | žmogus | 3 odos tipas</annotation>
+		<annotation cp="🤾🏼">kamuolys | rankinis | 3 odos tipas</annotation>
 		<annotation cp="🤾🏼" type="tts">rankinis: 3 odos tipas</annotation>
-		<annotation cp="🤾🏽">kamuolys | rankinis | sportas | žmogus | 4 odos tipas</annotation>
+		<annotation cp="🤾🏽">kamuolys | rankinis | 4 odos tipas</annotation>
 		<annotation cp="🤾🏽" type="tts">rankinis: 4 odos tipas</annotation>
-		<annotation cp="🤾🏾">kamuolys | rankinis | sportas | žmogus | 5 odos tipas</annotation>
+		<annotation cp="🤾🏾">kamuolys | rankinis | 5 odos tipas</annotation>
 		<annotation cp="🤾🏾" type="tts">rankinis: 5 odos tipas</annotation>
-		<annotation cp="🤾🏿">kamuolys | rankinis | sportas | žmogus | 6 odos tipas</annotation>
+		<annotation cp="🤾🏿">kamuolys | rankinis | 6 odos tipas</annotation>
 		<annotation cp="🤾🏿" type="tts">rankinis: 6 odos tipas</annotation>
-		<annotation cp="🤾🏻‍♂">rankinis | sportas | vyras | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤾🏻‍♂">rankinis | vyras | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤾🏻‍♂" type="tts">rankininkas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤾🏼‍♂">rankinis | sportas | vyras | 3 odos tipas</annotation>
+		<annotation cp="🤾🏼‍♂">rankinis | vyras | 3 odos tipas</annotation>
 		<annotation cp="🤾🏼‍♂" type="tts">rankininkas: 3 odos tipas</annotation>
-		<annotation cp="🤾🏽‍♂">rankinis | sportas | vyras | 4 odos tipas</annotation>
+		<annotation cp="🤾🏽‍♂">rankinis | vyras | 4 odos tipas</annotation>
 		<annotation cp="🤾🏽‍♂" type="tts">rankininkas: 4 odos tipas</annotation>
-		<annotation cp="🤾🏾‍♂">rankinis | sportas | vyras | 5 odos tipas</annotation>
+		<annotation cp="🤾🏾‍♂">rankinis | vyras | 5 odos tipas</annotation>
 		<annotation cp="🤾🏾‍♂" type="tts">rankininkas: 5 odos tipas</annotation>
-		<annotation cp="🤾🏿‍♂">rankinis | sportas | vyras | 6 odos tipas</annotation>
+		<annotation cp="🤾🏿‍♂">rankinis | vyras | 6 odos tipas</annotation>
 		<annotation cp="🤾🏿‍♂" type="tts">rankininkas: 6 odos tipas</annotation>
-		<annotation cp="🤾🏻‍♀">moteris | rankinis | sportas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤾🏻‍♀">moteris | rankinis | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤾🏻‍♀" type="tts">rankininkė: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤾🏼‍♀">moteris | rankinis | sportas | 3 odos tipas</annotation>
+		<annotation cp="🤾🏼‍♀">moteris | rankinis | 3 odos tipas</annotation>
 		<annotation cp="🤾🏼‍♀" type="tts">rankininkė: 3 odos tipas</annotation>
-		<annotation cp="🤾🏽‍♀">moteris | rankinis | sportas | 4 odos tipas</annotation>
+		<annotation cp="🤾🏽‍♀">moteris | rankinis | 4 odos tipas</annotation>
 		<annotation cp="🤾🏽‍♀" type="tts">rankininkė: 4 odos tipas</annotation>
-		<annotation cp="🤾🏾‍♀">moteris | rankinis | sportas | 5 odos tipas</annotation>
+		<annotation cp="🤾🏾‍♀">moteris | rankinis | 5 odos tipas</annotation>
 		<annotation cp="🤾🏾‍♀" type="tts">rankininkė: 5 odos tipas</annotation>
-		<annotation cp="🤾🏿‍♀">moteris | rankinis | sportas | 6 odos tipas</annotation>
+		<annotation cp="🤾🏿‍♀">moteris | rankinis | 6 odos tipas</annotation>
 		<annotation cp="🤾🏿‍♀" type="tts">rankininkė: 6 odos tipas</annotation>
 		<annotation cp="🤹🏻">pusiausvyra | reakcija | įgūdis | žongliruoti | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤹🏻" type="tts">žongliravimas: 1 ir 2 odos tipai</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">žongliruotoja: 5 odos tipas</annotation>
 		<annotation cp="🤹🏿‍♀">moteris | sudėtinga | žongliravimas | 6 odos tipas</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">žongliruotoja: 6 odos tipas</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">moteris | pora | vyras</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">bučinis, moteris, vyras</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">pora | moteris | vyras</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">bučinys: moteris vyras</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">pora | vyras</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">bučinis, vyras, vyras</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">moteris | pora</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">bučinis, moteris, moteris</annotation>
-		<annotation cp="👩‍❤‍👨">meilė | moteris | pora | vyras | širdelė</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">pora su širdele, moteris, vyras</annotation>
-		<annotation cp="👨‍❤‍👨">meilė | pora | vyras | širdelė</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">pora su širdele, vyras, vyras</annotation>
-		<annotation cp="👩‍❤‍👩">meilė | moteris | pora | širdelė</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">pora su širdele, moteris, moteris</annotation>
-		<annotation cp="👨‍👩‍👦">berniukas | moteris | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">šeima, vyras, moteris, berniukas</annotation>
-		<annotation cp="👨‍👩‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">šeima, vyras, moteris, mergaitė</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">berniukas | mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">šeima, vyras, moteris, mergaitė, berniukas</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">berniukas | moteris | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">šeima, vyras, moteris, berniukas, berniukas</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">šeima, vyras, moteris, mergaitė, mergaitė</annotation>
-		<annotation cp="👨‍👨‍👦">berniukas | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">šeima, vyras, vyras, berniukas</annotation>
-		<annotation cp="👨‍👨‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">šeima, vyras, vyras, mergaitė</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">berniukas | mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">šeima, vyras, vyras, mergaitė, berniukas</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">berniukas | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">šeima, vyras, vyras, berniukas, berniukas</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">šeima, vyras, vyras, mergaitė, mergaitė</annotation>
-		<annotation cp="👩‍👩‍👦">berniukas | moteris | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">šeima, moteris, moteris, berniukas</annotation>
-		<annotation cp="👩‍👩‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | zodiakas</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">šeima, moteris, moteris, mergaitė</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">berniukas | mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">šeima, moteris, moteris, mergaitė, berniukas</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">berniukas | moteris | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">šeima, moteris, moteris, berniukas, berniukas</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | zodiakas</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">šeima, moteris, moteris, mergaitė, mergaitė</annotation>
-		<annotation cp="👨‍👦">berniukas | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👨‍👦" type="tts">šeima, vyras, berniukas</annotation>
-		<annotation cp="👨‍👦‍👦">berniukas | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">šeima, vyras, berniukas, berniukas</annotation>
-		<annotation cp="👨‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👧" type="tts">šeima, vyras, mergaitė</annotation>
-		<annotation cp="👨‍👧‍👦">berniukas | mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">šeima, vyras, mergaitė, berniukas</annotation>
-		<annotation cp="👨‍👧‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">šeima, vyras, mergaitė, mergaitė</annotation>
-		<annotation cp="👩‍👦">berniukas | moteris | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👩‍👦" type="tts">šeima, moteris, berniukas</annotation>
-		<annotation cp="👩‍👦‍👦">berniukas | moteris | motina | tėvas | vaikas | vyras</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">šeima, moteris, berniukas, berniukas</annotation>
-		<annotation cp="👩‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | zodiakas</annotation>
-		<annotation cp="👩‍👧" type="tts">šeima, moteris, mergaitė</annotation>
-		<annotation cp="👩‍👧‍👦">berniukas | mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">šeima, moteris, mergaitė, berniukas</annotation>
-		<annotation cp="👩‍👧‍👧">mergaitė | mergelė | moteris | motina | panelė | tėvas | vaikas | vyras | zodiakas</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">šeima, moteris, mergaitė, mergaitė</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">bučinys: vyras vyras</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">pora | moteris</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">bučinys: moteris moteris</annotation>
+		<annotation cp="👩‍❤‍👨">meilė | pora | moteris | vyras</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">pora su širdele: moteris vyras</annotation>
+		<annotation cp="👨‍❤‍👨">meilė | pora | vyras</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">pora su širdele: vyras vyras</annotation>
+		<annotation cp="👩‍❤‍👩">meilė | pora | moteris</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">pora su širdele: moteris moteris</annotation>
+		<annotation cp="👨‍👩‍👦">mama | tėvas | vaikas | vyras | moteris | berniukas</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">šeima: vyras moteris berniukas</annotation>
+		<annotation cp="👨‍👩‍👧">mama | tėvas | vaikas | vyras | moteris | mergaitė</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">šeima: vyras moteris mergaitė</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">mama | tėvas | vaikas | vyras | moteris | mergaitė | berniukas</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">šeima: vyras moteris mergaitė berniukas</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">mama | tėvas | vaikas | vyras | moteris | berniukas</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">šeima: vyras moteris berniukas berniukas</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">mama | tėvas | vaikas | vyras | moteris | mergaitė</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">šeima: vyras moteris mergaitė mergaitė</annotation>
+		<annotation cp="👨‍👨‍👦">mama | tėvas | vaikas | vyras | berniukas</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">šeima: vyras vyras berniukas</annotation>
+		<annotation cp="👨‍👨‍👧">mama | tėvas | vaikas | vyras | mergaitė</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">šeima: vyras vyras mergaitė</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">mama | tėvas | vaikas | vyras | mergaitė | berniukas</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">šeima: vyras vyras mergaitė berniukas</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">mama | tėvas | vaikas | vyras | berniukas</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">šeima: vyras vyras berniukas berniukas</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">mama | tėvas | vaikas | vyras | mergaitė</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">šeima: vyras vyras mergaitė mergaitė</annotation>
+		<annotation cp="👩‍👩‍👦">mama | tėvas | vaikas | moteris | berniukas</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">šeima: moteris moteris berniukas</annotation>
+		<annotation cp="👩‍👩‍👧">mama | tėvas | vaikas | moteris | mergaitė</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">šeima: moteris moteris mergaitė</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">mama | tėvas | vaikas | moteris | mergaitė | berniukas</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">šeima: moteris moteris mergaitė berniukas</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">mama | tėvas | vaikas | moteris | berniukas</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">šeima: moteris moteris berniukas berniukas</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">mama | tėvas | vaikas | moteris | mergaitė</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">šeima: moteris moteris mergaitė mergaitė</annotation>
+		<annotation cp="👨‍👦">mama | tėvas | vaikas | vyras | berniukas</annotation>
+		<annotation cp="👨‍👦" type="tts">šeima: vyras berniukas</annotation>
+		<annotation cp="👨‍👦‍👦">mama | tėvas | vaikas | vyras | berniukas</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">šeima: vyras berniukas berniukas</annotation>
+		<annotation cp="👨‍👧">mama | tėvas | vaikas | vyras | mergaitė</annotation>
+		<annotation cp="👨‍👧" type="tts">šeima: vyras mergaitė</annotation>
+		<annotation cp="👨‍👧‍👦">mama | tėvas | vaikas | vyras | mergaitė | berniukas</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">šeima: vyras mergaitė berniukas</annotation>
+		<annotation cp="👨‍👧‍👧">mama | tėvas | vaikas | vyras | mergaitė</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">šeima: vyras mergaitė mergaitė</annotation>
+		<annotation cp="👩‍👦">mama | tėvas | vaikas | moteris | berniukas</annotation>
+		<annotation cp="👩‍👦" type="tts">šeima: moteris berniukas</annotation>
+		<annotation cp="👩‍👦‍👦">mama | tėvas | vaikas | moteris | berniukas</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">šeima: moteris berniukas berniukas</annotation>
+		<annotation cp="👩‍👧">mama | tėvas | vaikas | moteris | mergaitė</annotation>
+		<annotation cp="👩‍👧" type="tts">šeima: moteris mergaitė</annotation>
+		<annotation cp="👩‍👧‍👦">mama | tėvas | vaikas | moteris | mergaitė | berniukas</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">šeima: moteris mergaitė berniukas</annotation>
+		<annotation cp="👩‍👧‍👧">mama | tėvas | vaikas | moteris | mergaitė</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">šeima: moteris mergaitė mergaitė</annotation>
 		<annotation cp="🤳🏻">asmenukė | fotoaparatas | telefonas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤳🏻" type="tts">asmenukė: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤳🏼">asmenukė | fotoaparatas | telefonas | 3 odos tipas</annotation>
@@ -1594,35 +1894,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💪🏾" type="tts">paryškinti bicepsai: 5 odos tipas</annotation>
 		<annotation cp="💪🏿">bicepsai | komiksas | kūnas | raumuo | 6 odos tipas</annotation>
 		<annotation cp="💪🏿" type="tts">paryškinti bicepsai: 6 odos tipas</annotation>
-		<annotation cp="👈🏻">indeksas | kūnas | pirštas | ranka | rodyti | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👈🏻">indeksas | pirštas | ranka | rodyti | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👈🏻" type="tts">į kairę pirštu rodanti ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👈🏼">indeksas | kūnas | pirštas | ranka | rodyti | 3 odos tipas</annotation>
+		<annotation cp="👈🏼">indeksas | pirštas | ranka | rodyti | 3 odos tipas</annotation>
 		<annotation cp="👈🏼" type="tts">į kairę pirštu rodanti ranka: 3 odos tipas</annotation>
-		<annotation cp="👈🏽">indeksas | kūnas | pirštas | ranka | rodyti | 4 odos tipas</annotation>
+		<annotation cp="👈🏽">indeksas | pirštas | ranka | rodyti | 4 odos tipas</annotation>
 		<annotation cp="👈🏽" type="tts">į kairę pirštu rodanti ranka: 4 odos tipas</annotation>
-		<annotation cp="👈🏾">indeksas | kūnas | pirštas | ranka | rodyti | 5 odos tipas</annotation>
+		<annotation cp="👈🏾">indeksas | pirštas | ranka | rodyti | 5 odos tipas</annotation>
 		<annotation cp="👈🏾" type="tts">į kairę pirštu rodanti ranka: 5 odos tipas</annotation>
-		<annotation cp="👈🏿">indeksas | kūnas | pirštas | ranka | rodyti | 6 odos tipas</annotation>
+		<annotation cp="👈🏿">indeksas | pirštas | ranka | rodyti | 6 odos tipas</annotation>
 		<annotation cp="👈🏿" type="tts">į kairę pirštu rodanti ranka: 6 odos tipas</annotation>
-		<annotation cp="👉🏻">indeksas | kūnas | pirštas | ranka | rodyti | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👉🏻">indeksas | pirštas | ranka | rodyti | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👉🏻" type="tts">į dešinę pirštu rodanti ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👉🏼">indeksas | kūnas | pirštas | ranka | rodyti | 3 odos tipas</annotation>
+		<annotation cp="👉🏼">indeksas | pirštas | ranka | rodyti | 3 odos tipas</annotation>
 		<annotation cp="👉🏼" type="tts">į dešinę pirštu rodanti ranka: 3 odos tipas</annotation>
-		<annotation cp="👉🏽">indeksas | kūnas | pirštas | ranka | rodyti | 4 odos tipas</annotation>
+		<annotation cp="👉🏽">indeksas | pirštas | ranka | rodyti | 4 odos tipas</annotation>
 		<annotation cp="👉🏽" type="tts">į dešinę pirštu rodanti ranka: 4 odos tipas</annotation>
-		<annotation cp="👉🏾">indeksas | kūnas | pirštas | ranka | rodyti | 5 odos tipas</annotation>
+		<annotation cp="👉🏾">indeksas | pirštas | ranka | rodyti | 5 odos tipas</annotation>
 		<annotation cp="👉🏾" type="tts">į dešinę pirštu rodanti ranka: 5 odos tipas</annotation>
-		<annotation cp="👉🏿">indeksas | kūnas | pirštas | ranka | rodyti | 6 odos tipas</annotation>
+		<annotation cp="👉🏿">indeksas | pirštas | ranka | rodyti | 6 odos tipas</annotation>
 		<annotation cp="👉🏿" type="tts">į dešinę pirštu rodanti ranka: 6 odos tipas</annotation>
-		<annotation cp="☝🏻">indeksas | kūnas | pirštas | ranka | rodyti | į viršų | 1 ir 2 odos tipai</annotation>
+		<annotation cp="☝🏻">indeksas | pirštas | ranka | rodyti | į viršų | 1 ir 2 odos tipai</annotation>
 		<annotation cp="☝🏻" type="tts">delnu atsukta aukštyn pirštu rodanti ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="☝🏼">indeksas | kūnas | pirštas | ranka | rodyti | į viršų | 3 odos tipas</annotation>
+		<annotation cp="☝🏼">indeksas | pirštas | ranka | rodyti | į viršų | 3 odos tipas</annotation>
 		<annotation cp="☝🏼" type="tts">delnu atsukta aukštyn pirštu rodanti ranka: 3 odos tipas</annotation>
-		<annotation cp="☝🏽">indeksas | kūnas | pirštas | ranka | rodyti | į viršų | 4 odos tipas</annotation>
+		<annotation cp="☝🏽">indeksas | pirštas | ranka | rodyti | į viršų | 4 odos tipas</annotation>
 		<annotation cp="☝🏽" type="tts">delnu atsukta aukštyn pirštu rodanti ranka: 4 odos tipas</annotation>
-		<annotation cp="☝🏾">indeksas | kūnas | pirštas | ranka | rodyti | į viršų | 5 odos tipas</annotation>
+		<annotation cp="☝🏾">indeksas | pirštas | ranka | rodyti | į viršų | 5 odos tipas</annotation>
 		<annotation cp="☝🏾" type="tts">delnu atsukta aukštyn pirštu rodanti ranka: 5 odos tipas</annotation>
-		<annotation cp="☝🏿">indeksas | kūnas | pirštas | ranka | rodyti | į viršų | 6 odos tipas</annotation>
+		<annotation cp="☝🏿">indeksas | pirštas | ranka | rodyti | į viršų | 6 odos tipas</annotation>
 		<annotation cp="☝🏿" type="tts">delnu atsukta aukštyn pirštu rodanti ranka: 6 odos tipas</annotation>
 		<annotation cp="👆🏻">indeksas | kūnas | pirštas | ranka | rodyti | į viršų | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👆🏻" type="tts">delnu nusukta aukštyn pirštu rodanti ranka: 1 ir 2 odos tipai</annotation>
@@ -1634,45 +1934,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👆🏾" type="tts">delnu nusukta aukštyn pirštu rodanti ranka: 5 odos tipas</annotation>
 		<annotation cp="👆🏿">indeksas | kūnas | pirštas | ranka | rodyti | į viršų | 6 odos tipas</annotation>
 		<annotation cp="👆🏿" type="tts">delnu nusukta aukštyn pirštu rodanti ranka: 6 odos tipas</annotation>
-		<annotation cp="🖕🏻">kūnas | pirštas | ranka | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🖕🏻">pirštas | ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🖕🏻" type="tts">vidurinis pirštas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🖕🏼">kūnas | pirštas | ranka | 3 odos tipas</annotation>
+		<annotation cp="🖕🏼">pirštas | ranka | 3 odos tipas</annotation>
 		<annotation cp="🖕🏼" type="tts">vidurinis pirštas: 3 odos tipas</annotation>
-		<annotation cp="🖕🏽">kūnas | pirštas | ranka | 4 odos tipas</annotation>
+		<annotation cp="🖕🏽">pirštas | ranka | 4 odos tipas</annotation>
 		<annotation cp="🖕🏽" type="tts">vidurinis pirštas: 4 odos tipas</annotation>
-		<annotation cp="🖕🏾">kūnas | pirštas | ranka | 5 odos tipas</annotation>
+		<annotation cp="🖕🏾">pirštas | ranka | 5 odos tipas</annotation>
 		<annotation cp="🖕🏾" type="tts">vidurinis pirštas: 5 odos tipas</annotation>
-		<annotation cp="🖕🏿">kūnas | pirštas | ranka | 6 odos tipas</annotation>
+		<annotation cp="🖕🏿">pirštas | ranka | 6 odos tipas</annotation>
 		<annotation cp="🖕🏿" type="tts">vidurinis pirštas: 6 odos tipas</annotation>
-		<annotation cp="👇🏻">indeksas | kūnas | pirštas | ranka | rodyti | į apačią | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👇🏻">indeksas | pirštas | ranka | rodyti | į apačią | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👇🏻" type="tts">delnu nusukta žemyn pirštu rodanti ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👇🏼">indeksas | kūnas | pirštas | ranka | rodyti | į apačią | 3 odos tipas</annotation>
+		<annotation cp="👇🏼">indeksas | pirštas | ranka | rodyti | į apačią | 3 odos tipas</annotation>
 		<annotation cp="👇🏼" type="tts">delnu nusukta žemyn pirštu rodanti ranka: 3 odos tipas</annotation>
-		<annotation cp="👇🏽">indeksas | kūnas | pirštas | ranka | rodyti | į apačią | 4 odos tipas</annotation>
+		<annotation cp="👇🏽">indeksas | pirštas | ranka | rodyti | į apačią | 4 odos tipas</annotation>
 		<annotation cp="👇🏽" type="tts">delnu nusukta žemyn pirštu rodanti ranka: 4 odos tipas</annotation>
-		<annotation cp="👇🏾">indeksas | kūnas | pirštas | ranka | rodyti | į apačią | 5 odos tipas</annotation>
+		<annotation cp="👇🏾">indeksas | pirštas | ranka | rodyti | į apačią | 5 odos tipas</annotation>
 		<annotation cp="👇🏾" type="tts">delnu nusukta žemyn pirštu rodanti ranka: 5 odos tipas</annotation>
-		<annotation cp="👇🏿">indeksas | kūnas | pirštas | ranka | rodyti | į apačią | 6 odos tipas</annotation>
+		<annotation cp="👇🏿">indeksas | pirštas | ranka | rodyti | į apačią | 6 odos tipas</annotation>
 		<annotation cp="👇🏿" type="tts">delnu nusukta žemyn pirštu rodanti ranka: 6 odos tipas</annotation>
-		<annotation cp="✌🏻">kūnas | pergalė | ranka | v | 1 ir 2 odos tipai</annotation>
+		<annotation cp="✌🏻">pergalė | ranka | v | 1 ir 2 odos tipai</annotation>
 		<annotation cp="✌🏻" type="tts">pergalės ženklą rodanti ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="✌🏼">kūnas | pergalė | ranka | v | 3 odos tipas</annotation>
+		<annotation cp="✌🏼">pergalė | ranka | v | 3 odos tipas</annotation>
 		<annotation cp="✌🏼" type="tts">pergalės ženklą rodanti ranka: 3 odos tipas</annotation>
-		<annotation cp="✌🏽">kūnas | pergalė | ranka | v | 4 odos tipas</annotation>
+		<annotation cp="✌🏽">pergalė | ranka | v | 4 odos tipas</annotation>
 		<annotation cp="✌🏽" type="tts">pergalės ženklą rodanti ranka: 4 odos tipas</annotation>
-		<annotation cp="✌🏾">kūnas | pergalė | ranka | v | 5 odos tipas</annotation>
+		<annotation cp="✌🏾">pergalė | ranka | v | 5 odos tipas</annotation>
 		<annotation cp="✌🏾" type="tts">pergalės ženklą rodanti ranka: 5 odos tipas</annotation>
-		<annotation cp="✌🏿">kūnas | pergalė | ranka | v | 6 odos tipas</annotation>
+		<annotation cp="✌🏿">pergalė | ranka | v | 6 odos tipas</annotation>
 		<annotation cp="✌🏿" type="tts">pergalės ženklą rodanti ranka: 6 odos tipas</annotation>
-		<annotation cp="🤞🏻">kryžius | laimė | pirštai | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤞🏻">kryžius | laimė | pirštai | ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤞🏻" type="tts">sukryžiuoti pirštai: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤞🏼">kryžius | laimė | pirštai | 3 odos tipas</annotation>
+		<annotation cp="🤞🏼">kryžius | laimė | pirštai | ranka | 3 odos tipas</annotation>
 		<annotation cp="🤞🏼" type="tts">sukryžiuoti pirštai: 3 odos tipas</annotation>
-		<annotation cp="🤞🏽">kryžius | laimė | pirštai | 4 odos tipas</annotation>
+		<annotation cp="🤞🏽">kryžius | laimė | pirštai | ranka | 4 odos tipas</annotation>
 		<annotation cp="🤞🏽" type="tts">sukryžiuoti pirštai: 4 odos tipas</annotation>
-		<annotation cp="🤞🏾">kryžius | laimė | pirštai | 5 odos tipas</annotation>
+		<annotation cp="🤞🏾">kryžius | laimė | pirštai | ranka | 5 odos tipas</annotation>
 		<annotation cp="🤞🏾" type="tts">sukryžiuoti pirštai: 5 odos tipas</annotation>
-		<annotation cp="🤞🏿">kryžius | laimė | pirštai | 6 odos tipas</annotation>
+		<annotation cp="🤞🏿">kryžius | laimė | pirštai | ranka | 6 odos tipas</annotation>
 		<annotation cp="🤞🏿" type="tts">sukryžiuoti pirštai: 6 odos tipas</annotation>
 		<annotation cp="🖖🏻">kūnas | pirštas | ranka | vulkanai | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🖖🏻" type="tts">vulkanų rasės pasisveikinimo ženklas: 1 ir 2 odos tipai</annotation>
@@ -1684,95 +1984,95 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖖🏾" type="tts">vulkanų rasės pasisveikinimo ženklas: 5 odos tipas</annotation>
 		<annotation cp="🖖🏿">kūnas | pirštas | ranka | vulkanai | 6 odos tipas</annotation>
 		<annotation cp="🖖🏿" type="tts">vulkanų rasės pasisveikinimo ženklas: 6 odos tipas</annotation>
-		<annotation cp="🤘🏻">kūnas | pirštas | ragai | ranka | rokas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤘🏻">pirštas | ragai | ranka | rokas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤘🏻" type="tts">ragų ženklas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤘🏼">kūnas | pirštas | ragai | ranka | rokas | 3 odos tipas</annotation>
+		<annotation cp="🤘🏼">pirštas | ragai | ranka | rokas | 3 odos tipas</annotation>
 		<annotation cp="🤘🏼" type="tts">ragų ženklas: 3 odos tipas</annotation>
-		<annotation cp="🤘🏽">kūnas | pirštas | ragai | ranka | rokas | 4 odos tipas</annotation>
+		<annotation cp="🤘🏽">pirštas | ragai | ranka | rokas | 4 odos tipas</annotation>
 		<annotation cp="🤘🏽" type="tts">ragų ženklas: 4 odos tipas</annotation>
-		<annotation cp="🤘🏾">kūnas | pirštas | ragai | ranka | rokas | 5 odos tipas</annotation>
+		<annotation cp="🤘🏾">pirštas | ragai | ranka | rokas | 5 odos tipas</annotation>
 		<annotation cp="🤘🏾" type="tts">ragų ženklas: 5 odos tipas</annotation>
-		<annotation cp="🤘🏿">kūnas | pirštas | ragai | ranka | rokas | 6 odos tipas</annotation>
+		<annotation cp="🤘🏿">pirštas | ragai | ranka | rokas | 6 odos tipas</annotation>
 		<annotation cp="🤘🏿" type="tts">ragų ženklas: 6 odos tipas</annotation>
-		<annotation cp="🤙🏻">gestas | ranka | skambinti | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤙🏻">ranka | skambinti | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤙🏻" type="tts">gestas paskambink man: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🤙🏼">gestas | ranka | skambinti | 3 odos tipas</annotation>
+		<annotation cp="🤙🏼">ranka | skambinti | 3 odos tipas</annotation>
 		<annotation cp="🤙🏼" type="tts">gestas paskambink man: 3 odos tipas</annotation>
-		<annotation cp="🤙🏽">gestas | ranka | skambinti | 4 odos tipas</annotation>
+		<annotation cp="🤙🏽">ranka | skambinti | 4 odos tipas</annotation>
 		<annotation cp="🤙🏽" type="tts">gestas paskambink man: 4 odos tipas</annotation>
-		<annotation cp="🤙🏾">gestas | ranka | skambinti | 5 odos tipas</annotation>
+		<annotation cp="🤙🏾">ranka | skambinti | 5 odos tipas</annotation>
 		<annotation cp="🤙🏾" type="tts">gestas paskambink man: 5 odos tipas</annotation>
-		<annotation cp="🤙🏿">gestas | ranka | skambinti | 6 odos tipas</annotation>
+		<annotation cp="🤙🏿">ranka | skambinti | 6 odos tipas</annotation>
 		<annotation cp="🤙🏿" type="tts">gestas paskambink man: 6 odos tipas</annotation>
-		<annotation cp="🖐🏻">išskėsta | kūnas | pirštas | ranka | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🖐🏻">išskėsta | pirštas | ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🖐🏻" type="tts">iškelta ranka su išskėstais pirštais: 1 ir 2 odos tipai</annotation>
-		<annotation cp="🖐🏼">išskėsta | kūnas | pirštas | ranka | 3 odos tipas</annotation>
+		<annotation cp="🖐🏼">išskėsta | pirštas | ranka | 3 odos tipas</annotation>
 		<annotation cp="🖐🏼" type="tts">iškelta ranka su išskėstais pirštais: 3 odos tipas</annotation>
-		<annotation cp="🖐🏽">išskėsta | kūnas | pirštas | ranka | 4 odos tipas</annotation>
+		<annotation cp="🖐🏽">išskėsta | pirštas | ranka | 4 odos tipas</annotation>
 		<annotation cp="🖐🏽" type="tts">iškelta ranka su išskėstais pirštais: 4 odos tipas</annotation>
-		<annotation cp="🖐🏾">išskėsta | kūnas | pirštas | ranka | 5 odos tipas</annotation>
+		<annotation cp="🖐🏾">išskėsta | pirštas | ranka | 5 odos tipas</annotation>
 		<annotation cp="🖐🏾" type="tts">iškelta ranka su išskėstais pirštais: 5 odos tipas</annotation>
-		<annotation cp="🖐🏿">išskėsta | kūnas | pirštas | ranka | 6 odos tipas</annotation>
+		<annotation cp="🖐🏿">išskėsta | pirštas | ranka | 6 odos tipas</annotation>
 		<annotation cp="🖐🏿" type="tts">iškelta ranka su išskėstais pirštais: 6 odos tipas</annotation>
-		<annotation cp="✋🏻">kūnas | pergalė | ranka | v | 1 ir 2 odos tipai</annotation>
+		<annotation cp="✋🏻">ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="✋🏻" type="tts">iškelta ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="✋🏼">kūnas | pergalė | ranka | v | 3 odos tipas</annotation>
+		<annotation cp="✋🏼">ranka | 3 odos tipas</annotation>
 		<annotation cp="✋🏼" type="tts">iškelta ranka: 3 odos tipas</annotation>
-		<annotation cp="✋🏽">kūnas | pergalė | ranka | v | 4 odos tipas</annotation>
+		<annotation cp="✋🏽">ranka | 4 odos tipas</annotation>
 		<annotation cp="✋🏽" type="tts">iškelta ranka: 4 odos tipas</annotation>
-		<annotation cp="✋🏾">kūnas | pergalė | ranka | v | 5 odos tipas</annotation>
+		<annotation cp="✋🏾">ranka | 5 odos tipas</annotation>
 		<annotation cp="✋🏾" type="tts">iškelta ranka: 5 odos tipas</annotation>
-		<annotation cp="✋🏿">kūnas | pergalė | ranka | v | 6 odos tipas</annotation>
+		<annotation cp="✋🏿">ranka | 6 odos tipas</annotation>
 		<annotation cp="✋🏿" type="tts">iškelta ranka: 6 odos tipas</annotation>
-		<annotation cp="👌🏻">gerai | kūnas | ranka | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👌🏻">gerai | ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👌🏻" type="tts">GERAI ženklas rankomis: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👌🏼">gerai | kūnas | ranka | 3 odos tipas</annotation>
+		<annotation cp="👌🏼">gerai | ranka | 3 odos tipas</annotation>
 		<annotation cp="👌🏼" type="tts">GERAI ženklas rankomis: 3 odos tipas</annotation>
-		<annotation cp="👌🏽">gerai | kūnas | ranka | 4 odos tipas</annotation>
+		<annotation cp="👌🏽">gerai | ranka | 4 odos tipas</annotation>
 		<annotation cp="👌🏽" type="tts">GERAI ženklas rankomis: 4 odos tipas</annotation>
-		<annotation cp="👌🏾">gerai | kūnas | ranka | 5 odos tipas</annotation>
+		<annotation cp="👌🏾">gerai | ranka | 5 odos tipas</annotation>
 		<annotation cp="👌🏾" type="tts">GERAI ženklas rankomis: 5 odos tipas</annotation>
-		<annotation cp="👌🏿">gerai | kūnas | ranka | 6 odos tipas</annotation>
+		<annotation cp="👌🏿">gerai | ranka | 6 odos tipas</annotation>
 		<annotation cp="👌🏿" type="tts">GERAI ženklas rankomis: 6 odos tipas</annotation>
-		<annotation cp="👍🏻">kūnas | liuks | nykštys | ranka | į viršų | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👍🏻">liuks | nykštys | ranka | į viršų | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👍🏻" type="tts">nykštys į viršų: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👍🏼">kūnas | liuks | nykštys | ranka | į viršų | 3 odos tipas</annotation>
+		<annotation cp="👍🏼">liuks | nykštys | ranka | į viršų | 3 odos tipas</annotation>
 		<annotation cp="👍🏼" type="tts">nykštys į viršų: 3 odos tipas</annotation>
-		<annotation cp="👍🏽">kūnas | liuks | nykštys | ranka | į viršų | 4 odos tipas</annotation>
+		<annotation cp="👍🏽">liuks | nykštys | ranka | į viršų | 4 odos tipas</annotation>
 		<annotation cp="👍🏽" type="tts">nykštys į viršų: 4 odos tipas</annotation>
-		<annotation cp="👍🏾">kūnas | liuks | nykštys | ranka | į viršų | 5 odos tipas</annotation>
+		<annotation cp="👍🏾">liuks | nykštys | ranka | į viršų | 5 odos tipas</annotation>
 		<annotation cp="👍🏾" type="tts">nykštys į viršų: 5 odos tipas</annotation>
-		<annotation cp="👍🏿">kūnas | liuks | nykštys | ranka | į viršų | 6 odos tipas</annotation>
+		<annotation cp="👍🏿">liuks | nykštys | ranka | į viršų | 6 odos tipas</annotation>
 		<annotation cp="👍🏿" type="tts">nykštys į viršų: 6 odos tipas</annotation>
-		<annotation cp="👎🏻">blogai | kūnas | nykštys | ranka | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👎🏻">blogai | nykštys | ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👎🏻" type="tts">nykštys į apačią: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👎🏼">blogai | kūnas | nykštys | ranka | 3 odos tipas</annotation>
+		<annotation cp="👎🏼">blogai | nykštys | ranka | 3 odos tipas</annotation>
 		<annotation cp="👎🏼" type="tts">nykštys į apačią: 3 odos tipas</annotation>
-		<annotation cp="👎🏽">blogai | kūnas | nykštys | ranka | 4 odos tipas</annotation>
+		<annotation cp="👎🏽">blogai | nykštys | ranka | 4 odos tipas</annotation>
 		<annotation cp="👎🏽" type="tts">nykštys į apačią: 4 odos tipas</annotation>
-		<annotation cp="👎🏾">blogai | kūnas | nykštys | ranka | 5 odos tipas</annotation>
+		<annotation cp="👎🏾">blogai | nykštys | ranka | 5 odos tipas</annotation>
 		<annotation cp="👎🏾" type="tts">nykštys į apačią: 5 odos tipas</annotation>
-		<annotation cp="👎🏿">blogai | kūnas | nykštys | ranka | 6 odos tipas</annotation>
+		<annotation cp="👎🏿">blogai | nykštys | ranka | 6 odos tipas</annotation>
 		<annotation cp="👎🏿" type="tts">nykštys į apačią: 6 odos tipas</annotation>
-		<annotation cp="✊🏻">kumštis | kūnas | ranka | smūgis | sugniaužta | 1 ir 2 odos tipai</annotation>
+		<annotation cp="✊🏻">kumštis | ranka | smūgis | sugniaužta | 1 ir 2 odos tipai</annotation>
 		<annotation cp="✊🏻" type="tts">iškeltas kumštis: 1 ir 2 odos tipai</annotation>
-		<annotation cp="✊🏼">kumštis | kūnas | ranka | smūgis | sugniaužta | 3 odos tipas</annotation>
+		<annotation cp="✊🏼">kumštis | ranka | smūgis | sugniaužta | 3 odos tipas</annotation>
 		<annotation cp="✊🏼" type="tts">iškeltas kumštis: 3 odos tipas</annotation>
-		<annotation cp="✊🏽">kumštis | kūnas | ranka | smūgis | sugniaužta | 4 odos tipas</annotation>
+		<annotation cp="✊🏽">kumštis | ranka | smūgis | sugniaužta | 4 odos tipas</annotation>
 		<annotation cp="✊🏽" type="tts">iškeltas kumštis: 4 odos tipas</annotation>
-		<annotation cp="✊🏾">kumštis | kūnas | ranka | smūgis | sugniaužta | 5 odos tipas</annotation>
+		<annotation cp="✊🏾">kumštis | ranka | smūgis | sugniaužta | 5 odos tipas</annotation>
 		<annotation cp="✊🏾" type="tts">iškeltas kumštis: 5 odos tipas</annotation>
-		<annotation cp="✊🏿">kumštis | kūnas | ranka | smūgis | sugniaužta | 6 odos tipas</annotation>
+		<annotation cp="✊🏿">kumštis | ranka | smūgis | sugniaužta | 6 odos tipas</annotation>
 		<annotation cp="✊🏿" type="tts">iškeltas kumštis: 6 odos tipas</annotation>
-		<annotation cp="👊🏻">kumštis | kūnas | ranka | smūgis | sugniaužtas | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👊🏻">kumštis | ranka | smūgis | sugniaužtas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👊🏻" type="tts">artėjantis kumštis: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👊🏼">kumštis | kūnas | ranka | smūgis | sugniaužtas | 3 odos tipas</annotation>
+		<annotation cp="👊🏼">kumštis | ranka | smūgis | sugniaužtas | 3 odos tipas</annotation>
 		<annotation cp="👊🏼" type="tts">artėjantis kumštis: 3 odos tipas</annotation>
-		<annotation cp="👊🏽">kumštis | kūnas | ranka | smūgis | sugniaužtas | 4 odos tipas</annotation>
+		<annotation cp="👊🏽">kumštis | ranka | smūgis | sugniaužtas | 4 odos tipas</annotation>
 		<annotation cp="👊🏽" type="tts">artėjantis kumštis: 4 odos tipas</annotation>
-		<annotation cp="👊🏾">kumštis | kūnas | ranka | smūgis | sugniaužtas | 5 odos tipas</annotation>
+		<annotation cp="👊🏾">kumštis | ranka | smūgis | sugniaužtas | 5 odos tipas</annotation>
 		<annotation cp="👊🏾" type="tts">artėjantis kumštis: 5 odos tipas</annotation>
-		<annotation cp="👊🏿">kumštis | kūnas | ranka | smūgis | sugniaužtas | 6 odos tipas</annotation>
+		<annotation cp="👊🏿">kumštis | ranka | smūgis | sugniaužtas | 6 odos tipas</annotation>
 		<annotation cp="👊🏿" type="tts">artėjantis kumštis: 6 odos tipas</annotation>
 		<annotation cp="🤛🏻">kairėn | kumštis | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🤛🏻" type="tts">į kairę nukreiptas kumštis: 1 ir 2 odos tipai</annotation>
@@ -1804,45 +2104,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤚🏾" type="tts">pakelta viršutinė plaštakos pusė: 5 odos tipas</annotation>
 		<annotation cp="🤚🏿">pakelta | plaštaka | 6 odos tipas</annotation>
 		<annotation cp="🤚🏿" type="tts">pakelta viršutinė plaštakos pusė: 6 odos tipas</annotation>
-		<annotation cp="👋🏻">kūnas | mojuoja | mojuoti | ranka | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👋🏻">mojuoja | mojuoti | ranka | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👋🏻" type="tts">mojuojanti ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👋🏼">kūnas | mojuoja | mojuoti | ranka | 3 odos tipas</annotation>
+		<annotation cp="👋🏼">mojuoja | mojuoti | ranka | 3 odos tipas</annotation>
 		<annotation cp="👋🏼" type="tts">mojuojanti ranka: 3 odos tipas</annotation>
-		<annotation cp="👋🏽">kūnas | mojuoja | mojuoti | ranka | 4 odos tipas</annotation>
+		<annotation cp="👋🏽">mojuoja | mojuoti | ranka | 4 odos tipas</annotation>
 		<annotation cp="👋🏽" type="tts">mojuojanti ranka: 4 odos tipas</annotation>
-		<annotation cp="👋🏾">kūnas | mojuoja | mojuoti | ranka | 5 odos tipas</annotation>
+		<annotation cp="👋🏾">mojuoja | mojuoti | ranka | 5 odos tipas</annotation>
 		<annotation cp="👋🏾" type="tts">mojuojanti ranka: 5 odos tipas</annotation>
-		<annotation cp="👋🏿">kūnas | mojuoja | mojuoti | ranka | 6 odos tipas</annotation>
+		<annotation cp="👋🏿">mojuoja | mojuoti | ranka | 6 odos tipas</annotation>
 		<annotation cp="👋🏿" type="tts">mojuojanti ranka: 6 odos tipas</annotation>
-		<annotation cp="✍🏻">kūnas | rankos | rašyti | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤟🏻">MYLIU | ranka | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤟🏻" type="tts">„myliu tave“ gestas: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤟🏼">MYLIU | ranka | 3 odos tipas</annotation>
+		<annotation cp="🤟🏼" type="tts">„myliu tave“ gestas: 3 odos tipas</annotation>
+		<annotation cp="🤟🏽">MYLIU | ranka | 4 odos tipas</annotation>
+		<annotation cp="🤟🏽" type="tts">„myliu tave“ gestas: 4 odos tipas</annotation>
+		<annotation cp="🤟🏾">MYLIU | ranka | 5 odos tipas</annotation>
+		<annotation cp="🤟🏾" type="tts">„myliu tave“ gestas: 5 odos tipas</annotation>
+		<annotation cp="🤟🏿">MYLIU | ranka | 6 odos tipas</annotation>
+		<annotation cp="🤟🏿" type="tts">„myliu tave“ gestas: 6 odos tipas</annotation>
+		<annotation cp="✍🏻">ranka | rašyti | 1 ir 2 odos tipai</annotation>
 		<annotation cp="✍🏻" type="tts">rašanti ranka: 1 ir 2 odos tipai</annotation>
-		<annotation cp="✍🏼">kūnas | rankos | rašyti | 3 odos tipas</annotation>
+		<annotation cp="✍🏼">ranka | rašyti | 3 odos tipas</annotation>
 		<annotation cp="✍🏼" type="tts">rašanti ranka: 3 odos tipas</annotation>
-		<annotation cp="✍🏽">kūnas | rankos | rašyti | 4 odos tipas</annotation>
+		<annotation cp="✍🏽">ranka | rašyti | 4 odos tipas</annotation>
 		<annotation cp="✍🏽" type="tts">rašanti ranka: 4 odos tipas</annotation>
-		<annotation cp="✍🏾">kūnas | rankos | rašyti | 5 odos tipas</annotation>
+		<annotation cp="✍🏾">ranka | rašyti | 5 odos tipas</annotation>
 		<annotation cp="✍🏾" type="tts">rašanti ranka: 5 odos tipas</annotation>
-		<annotation cp="✍🏿">kūnas | rankos | rašyti | 6 odos tipas</annotation>
+		<annotation cp="✍🏿">ranka | rašyti | 6 odos tipas</annotation>
 		<annotation cp="✍🏿" type="tts">rašanti ranka: 6 odos tipas</annotation>
-		<annotation cp="👏🏻">kūnas | ploti | rankos | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👏🏻">ploti | rankos | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👏🏻" type="tts">plojančios rankos: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👏🏼">kūnas | ploti | rankos | 3 odos tipas</annotation>
+		<annotation cp="👏🏼">ploti | rankos | 3 odos tipas</annotation>
 		<annotation cp="👏🏼" type="tts">plojančios rankos: 3 odos tipas</annotation>
-		<annotation cp="👏🏽">kūnas | ploti | rankos | 4 odos tipas</annotation>
+		<annotation cp="👏🏽">ploti | rankos | 4 odos tipas</annotation>
 		<annotation cp="👏🏽" type="tts">plojančios rankos: 4 odos tipas</annotation>
-		<annotation cp="👏🏾">kūnas | ploti | rankos | 5 odos tipas</annotation>
+		<annotation cp="👏🏾">ploti | rankos | 5 odos tipas</annotation>
 		<annotation cp="👏🏾" type="tts">plojančios rankos: 5 odos tipas</annotation>
-		<annotation cp="👏🏿">kūnas | ploti | rankos | 6 odos tipas</annotation>
+		<annotation cp="👏🏿">ploti | rankos | 6 odos tipas</annotation>
 		<annotation cp="👏🏿" type="tts">plojančios rankos: 6 odos tipas</annotation>
-		<annotation cp="👐🏻">atviros | kūnas | rankos | 1 ir 2 odos tipai</annotation>
+		<annotation cp="👐🏻">atviros | rankos | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👐🏻" type="tts">atviros rankos: 1 ir 2 odos tipai</annotation>
-		<annotation cp="👐🏼">atviros | kūnas | rankos | 3 odos tipas</annotation>
+		<annotation cp="👐🏼">atviros | rankos | 3 odos tipas</annotation>
 		<annotation cp="👐🏼" type="tts">atviros rankos: 3 odos tipas</annotation>
-		<annotation cp="👐🏽">atviros | kūnas | rankos | 4 odos tipas</annotation>
+		<annotation cp="👐🏽">atviros | rankos | 4 odos tipas</annotation>
 		<annotation cp="👐🏽" type="tts">atviros rankos: 4 odos tipas</annotation>
-		<annotation cp="👐🏾">atviros | kūnas | rankos | 5 odos tipas</annotation>
+		<annotation cp="👐🏾">atviros | rankos | 5 odos tipas</annotation>
 		<annotation cp="👐🏾" type="tts">atviros rankos: 5 odos tipas</annotation>
-		<annotation cp="👐🏿">atviros | kūnas | rankos | 6 odos tipas</annotation>
+		<annotation cp="👐🏿">atviros | rankos | 6 odos tipas</annotation>
 		<annotation cp="👐🏿" type="tts">atviros rankos: 6 odos tipas</annotation>
 		<annotation cp="🙌🏻">gestas | iškelta | kūnas | ranka | valio | šventė | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙌🏻" type="tts">žmogus, iškėlęs rankas: 1 ir 2 odos tipai</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">žmogus, iškėlęs rankas: 5 odos tipas</annotation>
 		<annotation cp="🙌🏿">gestas | iškelta | kūnas | ranka | valio | šventė | 6 odos tipas</annotation>
 		<annotation cp="🙌🏿" type="tts">žmogus, iškėlęs rankas: 6 odos tipas</annotation>
+		<annotation cp="🤲🏻">malda | 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤲🏻" type="tts">delnai suglausti: 1 ir 2 odos tipai</annotation>
+		<annotation cp="🤲🏼">malda | 3 odos tipas</annotation>
+		<annotation cp="🤲🏼" type="tts">delnai suglausti: 3 odos tipas</annotation>
+		<annotation cp="🤲🏽">malda | 4 odos tipas</annotation>
+		<annotation cp="🤲🏽" type="tts">delnai suglausti: 4 odos tipas</annotation>
+		<annotation cp="🤲🏾">malda | 5 odos tipas</annotation>
+		<annotation cp="🤲🏾" type="tts">delnai suglausti: 5 odos tipas</annotation>
+		<annotation cp="🤲🏿">malda | 6 odos tipas</annotation>
+		<annotation cp="🤲🏿" type="tts">delnai suglausti: 6 odos tipas</annotation>
 		<annotation cp="🙏🏻">dėkui | gestas | kūnas | melstis | nusilenkti | prašau | prašymas | ranka | suglaustos | 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙏🏻" type="tts">suglausti delnai: 1 ir 2 odos tipai</annotation>
 		<annotation cp="🙏🏼">dėkui | gestas | kūnas | melstis | nusilenkti | prašau | prašymas | ranka | suglaustos | 3 odos tipas</annotation>
@@ -1864,15 +2184,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">suglausti delnai: 5 odos tipas</annotation>
 		<annotation cp="🙏🏿">dėkui | gestas | kūnas | melstis | nusilenkti | prašau | prašymas | ranka | suglaustos | 6 odos tipas</annotation>
 		<annotation cp="🙏🏿" type="tts">suglausti delnai: 6 odos tipas</annotation>
-		<annotation cp="💅🏻">kosmetika | kūnas | lakas | manikiūras | priežiūra | 1 ir 2 odos tipai</annotation>
+		<annotation cp="💅🏻">kosmetika | lakas | manikiūras | priežiūra | 1 ir 2 odos tipai</annotation>
 		<annotation cp="💅🏻" type="tts">nagų lakas: 1 ir 2 odos tipai</annotation>
-		<annotation cp="💅🏼">kosmetika | kūnas | lakas | manikiūras | priežiūra | 3 odos tipas</annotation>
+		<annotation cp="💅🏼">kosmetika | lakas | manikiūras | priežiūra | 3 odos tipas</annotation>
 		<annotation cp="💅🏼" type="tts">nagų lakas: 3 odos tipas</annotation>
-		<annotation cp="💅🏽">kosmetika | kūnas | lakas | manikiūras | priežiūra | 4 odos tipas</annotation>
+		<annotation cp="💅🏽">kosmetika | lakas | manikiūras | priežiūra | 4 odos tipas</annotation>
 		<annotation cp="💅🏽" type="tts">nagų lakas: 4 odos tipas</annotation>
-		<annotation cp="💅🏾">kosmetika | kūnas | lakas | manikiūras | priežiūra | 5 odos tipas</annotation>
+		<annotation cp="💅🏾">kosmetika | lakas | manikiūras | priežiūra | 5 odos tipas</annotation>
 		<annotation cp="💅🏾" type="tts">nagų lakas: 5 odos tipas</annotation>
-		<annotation cp="💅🏿">kosmetika | kūnas | lakas | manikiūras | priežiūra | 6 odos tipas</annotation>
+		<annotation cp="💅🏿">kosmetika | lakas | manikiūras | priežiūra | 6 odos tipas</annotation>
 		<annotation cp="💅🏿" type="tts">nagų lakas: 6 odos tipas</annotation>
 		<annotation cp="👂🏻">kūnas | 1 ir 2 odos tipai</annotation>
 		<annotation cp="👂🏻" type="tts">ausis: 1 ir 2 odos tipai</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">nosis: 5 odos tipas</annotation>
 		<annotation cp="👃🏿">kūnas | 6 odos tipas</annotation>
 		<annotation cp="👃🏿" type="tts">nosis: 6 odos tipas</annotation>
-		<annotation cp="#⃣">klavišas</annotation>
-		<annotation cp="#⃣" type="tts">grotelės</annotation>
-		<annotation cp="*⃣">klavišas</annotation>
-		<annotation cp="*⃣" type="tts">žvaigždutė</annotation>
+		<annotation cp="#⃣">mygtukas</annotation>
+		<annotation cp="#⃣" type="tts">mygtukas: #</annotation>
+		<annotation cp="*⃣">mygtukas</annotation>
+		<annotation cp="*⃣" type="tts">mygtukas: *</annotation>
+		<annotation cp="🔟">mygtukas</annotation>
+		<annotation cp="🔟" type="tts">mygtukas: 10</annotation>
 		<annotation cp="🇦🇨">vėliava</annotation>
 		<annotation cp="🇦🇨" type="tts">Dangun Žengimo sala</annotation>
 		<annotation cp="🇦🇩">vėliava</annotation>

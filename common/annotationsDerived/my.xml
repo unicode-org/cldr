@@ -8,40 +8,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="my"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">၀၊ ကီးခလုတျ၊ သုည</annotation>
-		<annotation cp="0⃣" type="tts">သုည ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="1⃣">၁၊ ကီးခလုတ်၊ တစ်</annotation>
-		<annotation cp="1⃣" type="tts">၁ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="2⃣">၂ ၊ ကီးခလုတ်၊ နှစ်</annotation>
-		<annotation cp="2⃣" type="tts">၂ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="3⃣">၃၊ ကီးခလုတ်၊ သုံး</annotation>
-		<annotation cp="3⃣" type="tts">၃ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="4⃣">၄၊ ကီးခလုတ်၊ လေး</annotation>
-		<annotation cp="4⃣" type="tts">၄ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="5⃣">၅၊ ကီးခလုတ်၊ ငါး</annotation>
-		<annotation cp="5⃣" type="tts">၅ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="6⃣">၆၊ ကီးခလုတ်၊ ခြောက်</annotation>
-		<annotation cp="6⃣" type="tts">၆ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="7⃣">၇၊ ကီးခလုတျ၊ ခုနစျ</annotation>
-		<annotation cp="7⃣" type="tts">၇ ဂဏနျး ခလုတျ</annotation>
-		<annotation cp="8⃣">၈၊ ကီးခလုတ်၊ ရှစ်</annotation>
-		<annotation cp="8⃣" type="tts">၈ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="9⃣">၉၊ ကီးခလုတ်၊ ကိုး</annotation>
-		<annotation cp="9⃣" type="tts">၉ ဂဏန်း ခလုတ်</annotation>
-		<annotation cp="👶🏻">ကလေး | အရေပြား အမျိုးအစား−၁−၂</annotation>
-		<annotation cp="👶🏻" type="tts">ကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
-		<annotation cp="👶🏼">ကလေး | အရေပြား အမျိုးအစား−၃</annotation>
-		<annotation cp="👶🏼" type="tts">ကလေး − အရေပြား အမျိုးအစား−၃</annotation>
-		<annotation cp="👶🏽">ကလေး | အရေပြား အမျိုးအစား−၄</annotation>
-		<annotation cp="👶🏽" type="tts">ကလေး − အရေပြား အမျိုးအစား−၄</annotation>
-		<annotation cp="👶🏾">ကလေး | အရေပြား အမျိုးအစား−၅</annotation>
-		<annotation cp="👶🏾" type="tts">ကလေး − အရေပြား အမျိုးအစား−၅</annotation>
-		<annotation cp="👶🏿">ကလေး | အရေပြား အမျိုးအစား−၆</annotation>
-		<annotation cp="👶🏿" type="tts">ကလေး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="0⃣">ခလုတ်</annotation>
+		<annotation cp="0⃣" type="tts">ခလုတ် − 0</annotation>
+		<annotation cp="1⃣">ခလုတ်</annotation>
+		<annotation cp="1⃣" type="tts">ခလုတ် − 1</annotation>
+		<annotation cp="2⃣">ခလုတ်</annotation>
+		<annotation cp="2⃣" type="tts">ခလုတ် − 2</annotation>
+		<annotation cp="3⃣">ခလုတ်</annotation>
+		<annotation cp="3⃣" type="tts">ခလုတ် − 3</annotation>
+		<annotation cp="4⃣">ခလုတ်</annotation>
+		<annotation cp="4⃣" type="tts">ခလုတ် − 4</annotation>
+		<annotation cp="5⃣">ခလုတ်</annotation>
+		<annotation cp="5⃣" type="tts">ခလုတ် − 5</annotation>
+		<annotation cp="6⃣">ခလုတ်</annotation>
+		<annotation cp="6⃣" type="tts">ခလုတ် − 6</annotation>
+		<annotation cp="7⃣">ခလုတ်</annotation>
+		<annotation cp="7⃣" type="tts">ခလုတ် − 7</annotation>
+		<annotation cp="8⃣">ခလုတ်</annotation>
+		<annotation cp="8⃣" type="tts">ခလုတ် − 8</annotation>
+		<annotation cp="9⃣">ခလုတ်</annotation>
+		<annotation cp="9⃣" type="tts">ခလုတ် − 9</annotation>
+		<annotation cp="👶🏻">ကလေးငယ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👶🏻" type="tts">ကလေးငယ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="👶🏼">ကလေးငယ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👶🏼" type="tts">ကလေးငယ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="👶🏽">ကလေးငယ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👶🏽" type="tts">ကလေးငယ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="👶🏾">ကလေးငယ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👶🏾" type="tts">ကလေးငယ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="👶🏿">ကလေးငယ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="👶🏿" type="tts">ကလေးငယ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧒🏻">လိင်မခွဲခြားသော၊ ငယ်ရွယ်သော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧒🏻" type="tts">ကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧒🏼">လိင်မခွဲခြားသော၊ ငယ်ရွယ်သော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧒🏼" type="tts">ကလေး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧒🏽">လိင်မခွဲခြားသော၊ ငယ်ရွယ်သော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧒🏽" type="tts">ကလေး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧒🏾">လိင်မခွဲခြားသော၊ ငယ်ရွယ်သော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧒🏾" type="tts">ကလေး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧒🏿">လိင်မခွဲခြားသော၊ ငယ်ရွယ်သော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧒🏿" type="tts">ကလေး − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👦🏻">ယောက်ျားကလေး | အဖို | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👦🏻" type="tts">ယောက်ျားကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👦🏼">ယောက်ျားကလေး | အဖို | အရေပြား အမျိုးအစား−၃</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">မိန်းကလေး − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="👧🏿">မိန်းကလေး၊ အပျို၊ ရာသီ | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👧🏿" type="tts">မိန်းကလေး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧑🏻">လိင်မခွဲခြားသော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧑🏻" type="tts">အရွယ်ရောက်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧑🏼">လိင်မခွဲခြားသော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧑🏼" type="tts">အရွယ်ရောက်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧑🏽">လိင်မခွဲခြားသော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧑🏽" type="tts">အရွယ်ရောက်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧑🏾">လိင်မခွဲခြားသော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧑🏾" type="tts">အရွယ်ရောက်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧑🏿">လိင်မခွဲခြားသော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧑🏿" type="tts">အရွယ်ရောက်သူ − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👨🏻">အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👨🏻" type="tts">အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👨🏼">အဖို | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="👩🏿">အမ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👩🏿" type="tts">အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧓🏻">လိင်မခွဲခြားသော | သက်ကြီး | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧓🏻" type="tts">သက်ကြီး အရွယ်ရောက်ပြီးသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧓🏼">လိင်မခွဲခြားသော | သက်ကြီး | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧓🏼" type="tts">သက်ကြီး အရွယ်ရောက်ပြီးသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧓🏽">လိင်မခွဲခြားသော | သက်ကြီး | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧓🏽" type="tts">သက်ကြီး အရွယ်ရောက်ပြီးသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧓🏾">လိင်မခွဲခြားသော | သက်ကြီး | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧓🏾" type="tts">သက်ကြီး အရွယ်ရောက်ပြီးသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧓🏿">လိင်မခွဲခြားသော | သက်ကြီး | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧓🏿" type="tts">သက်ကြီး အရွယ်ရောက်ပြီးသူ − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👴🏻">သက်ကြီး၊ အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👴🏻" type="tts">သက်ကြီး အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👴🏼">သက်ကြီး၊ အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">တရုတ်ဦးထုပ်နှင့်လူ − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="👲🏿">တရုတ်၊ ဦးထုပ်၊ လူ | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👲🏿" type="tts">တရုတ်ဦးထုပ်နှင့်လူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧕🏻">ခေါင်းစည်းပဝါ၊ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧕🏻" type="tts">ခေါင်းစည်းပဝါနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧕🏼">ခေါင်းစည်းပဝါ၊ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧕🏼" type="tts">ခေါင်းစည်းပဝါနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧕🏽">ခေါင်းစည်းပဝါ၊ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧕🏽" type="tts">ခေါင်းစည်းပဝါနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧕🏾">ခေါင်းစည်းပဝါ၊ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧕🏾" type="tts">ခေါင်းစည်းပဝါနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧕🏿">ခေါင်းစည်းပဝါ၊ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧕🏿" type="tts">ခေါင်းစည်းပဝါနှင့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧔🏻">မုတ်ဆိတ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧔🏻" type="tts">မုတ်ဆိတ်ရှိသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧔🏼">မုတ်ဆိတ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧔🏼" type="tts">မုတ်ဆိတ်ရှိသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧔🏽">မုတ်ဆိတ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧔🏽" type="tts">မုတ်ဆိတ်ရှိသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧔🏾">မုတ်ဆိတ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧔🏾" type="tts">မုတ်ဆိတ်ရှိသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧔🏿">မုတ်ဆိတ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧔🏿" type="tts">မုတ်ဆိတ်ရှိသူ − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👱🏻">ရွှေရောင်ဆံကေသာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👱🏻" type="tts">ရွှေရောင်ဆံကေသာရှိသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👱🏼">ရွှေရောင်ဆံကေသာ | အရေပြား အမျိုးအစား−၃</annotation>
@@ -633,15 +683,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱🏿‍♀">ရွှေရောင်ဆံကေသာ | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">ရွှေရောင်ဆံကေသာရှိသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🤵🏻">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၁−၂</annotation>
-		<annotation cp="🤵🏻" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤵🏻" type="tts">ပွဲတက်အပေါ်အင်္ကျီဝတ် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🤵🏼">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၃</annotation>
-		<annotation cp="🤵🏼" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤵🏼" type="tts">ပွဲတက်အပေါ်အင်္ကျီဝတ် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
 		<annotation cp="🤵🏽">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၄</annotation>
-		<annotation cp="🤵🏽" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤵🏽" type="tts">ပွဲတက်အပေါ်အင်္ကျီဝတ် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
 		<annotation cp="🤵🏾">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၅</annotation>
-		<annotation cp="🤵🏾" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤵🏾" type="tts">ပွဲတက်အပေါ်အင်္ကျီဝတ် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="🤵🏿">tuxedo | သတို့သား | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
-		<annotation cp="🤵🏿" type="tts">tuxedo ဝတ်ထားသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤵🏿" type="tts">ပွဲတက်အပေါ်အင်္ကျီဝတ် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👰🏻">မျက်နှာလွှာ၊ ဇာ၊ သတို့သမီး၊ မင်္ဂလာဆောင် | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👰🏻" type="tts">မျက်နှာလွှာဇာနှင့် သတို့သမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👰🏼">မျက်နှာလွှာ၊ ဇာ၊ သတို့သမီး၊ မင်္ဂလာဆောင် | အရေပြား အမျိုးအစား−၃</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">ကိုယ်ဝန်ဆောင်အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="🤰🏿">ကိုယ်ဝန်ဆောင် | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🤰🏿" type="tts">ကိုယ်ဝန်ဆောင်အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤱🏻">ကလေးငယ် | နို့တိုက်သည် | မိခင်နို့ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤱🏻" type="tts">နို့ချိုတိုက်ကျွေးခြင်း − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤱🏼">ကလေးငယ် | နို့တိုက်သည် | မိခင်နို့ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤱🏼" type="tts">နို့ချိုတိုက်ကျွေးခြင်း − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤱🏽">ကလေးငယ် | နို့တိုက်သည် | မိခင်နို့ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤱🏽" type="tts">နို့ချိုတိုက်ကျွေးခြင်း − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤱🏾">ကလေးငယ် | နို့တိုက်သည် | မိခင်နို့ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤱🏾" type="tts">နို့ချိုတိုက်ကျွေးခြင်း − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤱🏿">ကလေးငယ် | နို့တိုက်သည် | မိခင်နို့ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤱🏿" type="tts">နို့ချိုတိုက်ကျွေးခြင်း − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👼🏻">နတ်သမီး၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊၊ ကလေး၊ မျက်နှာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👼🏻" type="tts">နတ်သမီးကလေး − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="👼🏼">နတ်သမီး၊ စိတ်ကူးယာဥ်၊ ပုံပြင်၊၊ ကလေး၊ မျက်နှာ | အရေပြား အမျိုးအစား−၃</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">မစ္စစ် စန်တာကလော့စ် − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="🤶🏿">ခရစ်စမတ် | မစ္စစ် စန်တာကလော့စ် | မိခင် | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🤶🏿" type="tts">မစ္စစ် စန်တာကလော့စ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧙🏻">မှော်ဆရာ၊ စုန်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧙🏻" type="tts">မှော်ဆရာ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧙🏼">မှော်ဆရာ၊ စုန်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧙🏼" type="tts">မှော်ဆရာ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧙🏽">မှော်ဆရာ၊ စုန်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧙🏽" type="tts">မှော်ဆရာ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧙🏾">မှော်ဆရာ၊ စုန်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧙🏾" type="tts">မှော်ဆရာ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧙🏿">မှော်ဆရာ၊ စုန်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧙🏿" type="tts">မှော်ဆရာ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧙🏻‍♀">စုန်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">အမျိုးသမီး မှော်ဆရာ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧙🏼‍♀">စုန်း | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">အမျိုးသမီး မှော်ဆရာ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧙🏽‍♀">စုန်း | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">အမျိုးသမီး မှော်ဆရာ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧙🏾‍♀">စုန်း | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">အမျိုးသမီး မှော်ဆရာ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧙🏿‍♀">စုန်း | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">အမျိုးသမီး မှော်ဆရာ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧙🏻‍♂">မှော်ဆရာ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">အမျိုးသား မှော်ဆရာ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧙🏼‍♂">မှော်ဆရာ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">အမျိုးသား မှော်ဆရာ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧙🏽‍♂">မှော်ဆရာ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">အမျိုးသား မှော်ဆရာ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧙🏾‍♂">မှော်ဆရာ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">အမျိုးသား မှော်ဆရာ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧙🏿‍♂">မှော်ဆရာ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">အမျိုးသား မှော်ဆရာ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧚🏻">တိုက်တန်နီးရား | ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧚🏻" type="tts">နတ်သမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧚🏼">တိုက်တန်နီးရား | ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧚🏼" type="tts">နတ်သမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧚🏽">တိုက်တန်နီးရား | ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧚🏽" type="tts">နတ်သမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧚🏾">တိုက်တန်နီးရား | ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧚🏾" type="tts">နတ်သမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧚🏿">တိုက်တန်နီးရား | ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧚🏿" type="tts">နတ်သမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧚🏻‍♀">တိုက်တန်နီးရား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">နတ်သမီးငယ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧚🏼‍♀">တိုက်တန်နီးရား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">နတ်သမီးငယ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧚🏽‍♀">တိုက်တန်နီးရား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">နတ်သမီးငယ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧚🏾‍♀">တိုက်တန်နီးရား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">နတ်သမီးငယ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧚🏿‍♀">တိုက်တန်နီးရား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">နတ်သမီးငယ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧚🏻‍♂">ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">နတ်သားငယ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧚🏼‍♂">ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">နတ်သားငယ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧚🏽‍♂">ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">နတ်သားငယ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧚🏾‍♂">ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">နတ်သားငယ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧚🏿‍♂">ပက်ခ် | အိုဘာရွန် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">နတ်သားငယ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧛🏻">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧛🏻" type="tts">သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧛🏼">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧛🏼" type="tts">သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧛🏽">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧛🏽" type="tts">သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧛🏾">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧛🏾" type="tts">သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧛🏿">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧛🏿" type="tts">သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧛🏻‍♀">မသေနိုင်သော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">အမျိုးသမီး သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧛🏼‍♀">မသေနိုင်သော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">အမျိုးသမီး သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧛🏽‍♀">မသေနိုင်သော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">အမျိုးသမီး သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧛🏾‍♀">မသေနိုင်သော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">အမျိုးသမီး သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧛🏿‍♀">မသေနိုင်သော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">အမျိုးသမီး သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧛🏻‍♂">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">အမျိုးသား သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧛🏼‍♂">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">အမျိုးသား သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧛🏽‍♂">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">အမျိုးသား သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧛🏾‍♂">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">အမျိုးသား သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧛🏿‍♂">ဒရက်ကူလာ | မသေနိုင်သော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">အမျိုးသား သွေးစုပ်ဖုတ်ကောင် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧜🏻">ရေသူထီး | ရေသူမ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧜🏻" type="tts">ရေလူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧜🏼">ရေသူထီး | ရေသူမ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧜🏼" type="tts">ရေလူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧜🏽">ရေသူထီး | ရေသူမ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧜🏽" type="tts">ရေလူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧜🏾">ရေသူထီး | ရေသူမ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧜🏾" type="tts">ရေလူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧜🏿">ရေသူထီး | ရေသူမ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧜🏿" type="tts">ရေလူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧜🏻‍♀">ရေသူမ (အမျိုးသမီး) | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">ရေသူမ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧜🏼‍♀">ရေသူမ (အမျိုးသမီး) | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">ရေသူမ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧜🏽‍♀">ရေသူမ (အမျိုးသမီး) | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">ရေသူမ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧜🏾‍♀">ရေသူမ (အမျိုးသမီး) | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">ရေသူမ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧜🏿‍♀">ရေသူမ (အမျိုးသမီး) | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">ရေသူမ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧜🏻‍♂">ထရွိင်တွန် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">ရေသူထီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧜🏼‍♂">ထရွိင်တွန် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">ရေသူထီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧜🏽‍♂">ထရွိင်တွန် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">ရေသူထီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧜🏾‍♂">ထရွိင်တွန် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">ရေသူထီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧜🏿‍♂">ထရွိင်တွန် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">ရေသူထီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧝🏻">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧝🏻" type="tts">နတ်သူငယ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧝🏼">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧝🏼" type="tts">နတ်သူငယ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧝🏽">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧝🏽" type="tts">နတ်သူငယ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧝🏾">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧝🏾" type="tts">နတ်သူငယ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧝🏿">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧝🏿" type="tts">နတ်သူငယ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧝🏻‍♀">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">အမျိုးသမီး နတ်သူငယ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧝🏼‍♀">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">အမျိုးသမီး နတ်သူငယ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧝🏽‍♀">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">အမျိုးသမီး နတ်သူငယ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧝🏾‍♀">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">အမျိုးသမီး နတ်သူငယ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧝🏿‍♀">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">အမျိုးသမီး နတ်သူငယ် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧝🏻‍♂">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">အမျိုးသား နတ်သူငယ် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧝🏼‍♂">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">အမျိုးသား နတ်သူငယ် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧝🏽‍♂">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">အမျိုးသား နတ်သူငယ် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧝🏾‍♂">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">အမျိုးသား နတ်သူငယ် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧝🏿‍♂">ပယောဂဆန်သော | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">အမျိုးသား နတ်သူငယ် − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🙍🏻">မျက်မှောင်ကြုတ်၊ အမူအရာ၊ | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🙍🏻" type="tts">မျက်မှောင်ကြုတ်နေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🙍🏼">မျက်မှောင်ကြုတ်၊ အမူအရာ၊ | အရေပြား အမျိုးအစား−၃</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">ကခုန်နေသူ − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="🕺🏿">ကခုန်သည် | အမျိုးသား | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🕺🏿" type="tts">ကခုန်နေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧖🏻">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧖🏻" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ လူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧖🏼">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧖🏼" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ လူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧖🏽">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧖🏽" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ လူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧖🏾">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧖🏾" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ လူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧖🏿">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧖🏿" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ လူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧖🏻‍♀">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧖🏼‍♀">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧖🏽‍♀">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧖🏾‍♀">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧖🏿‍♀">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧖🏻‍♂">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧖🏼‍♂">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧖🏽‍♂">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧖🏾‍♂">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧖🏿‍♂">ချွေးထုတ်ခန်း | ချွေးပေါင်းအိမ် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">ချွေးထုတ်ခန်းတွင်းရှိ အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧗🏻">တောင်တက်သမား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧗🏻" type="tts">တောင်တက်နေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧗🏼">တောင်တက်သမား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧗🏼" type="tts">တောင်တက်နေသူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧗🏽">တောင်တက်သမား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧗🏽" type="tts">တောင်တက်နေသူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧗🏾">တောင်တက်သမား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧗🏾" type="tts">တောင်တက်နေသူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧗🏿">တောင်တက်သမား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧗🏿" type="tts">တောင်တက်နေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧗🏻‍♀">တောင်တက်သမား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">တောင်တက် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧗🏼‍♀">တောင်တက်သမား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">တောင်တက် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧗🏽‍♀">တောင်တက်သမား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">တောင်တက် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧗🏾‍♀">တောင်တက်သမား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">တောင်တက် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧗🏿‍♀">တောင်တက်သမား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">တောင်တက် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧗🏻‍♂">တောင်တက်သမား | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">တောင်တက် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧗🏼‍♂">တောင်တက်သမား | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">တောင်တက် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧗🏽‍♂">တောင်တက်သမား | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">တောင်တက် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧗🏾‍♂">တောင်တက်သမား | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">တောင်တက် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧗🏿‍♂">တောင်တက်သမား | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">တောင်တက် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧘🏻">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧘🏻" type="tts">တင်ပျဥ်ခွေထိုင်သူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧘🏼">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧘🏼" type="tts">တင်ပျဥ်ခွေထိုင်သူ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧘🏽">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧘🏽" type="tts">တင်ပျဥ်ခွေထိုင်သူ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧘🏾">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧘🏾" type="tts">တင်ပျဥ်ခွေထိုင်သူ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧘🏿">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧘🏿" type="tts">တင်ပျဥ်ခွေထိုင်သူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧘🏻‍♀">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧘🏼‍♀">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧘🏽‍♀">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧘🏾‍♀">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧘🏿‍♀">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧘🏻‍♂">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသား − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🧘🏼‍♂">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသား − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🧘🏽‍♂">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသား − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🧘🏾‍♂">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသား − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🧘🏿‍♂">တရားထိုင်ခြင်း | ယောဂ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">တင်ပျဥ်ခွေထိုင်သည့် အမျိုးသား − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🛀🏻">ရေချိုးကန်၊ ရေချိုး | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🛀🏻" type="tts">ရေချိုးကန်တွင် ရေချိုးနေသူ − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🛀🏼">ရေချိုးကန်၊ ရေချိုး | အရေပြား အမျိုးအစား−၃</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">ရွဲကစားပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="🤹🏿‍♀">ရွဲကစား | အမျိုးသမီး | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">ရွဲကစားပြသူ အမျိုးသမီး − အရေပြား အမျိုးအစား−၆</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">အတွဲ | အမျိုးသမီး | အမျိုးသား</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">အနမ်း၊ ယောက်ျား ၊ မိန်းမ</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">အတွဲ | အမျိုးသား</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">အနမ်း၊ ယောက်ျား၊ ယောက်ျား</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">အတွဲ | အမျိုးသမီး</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">အနမ်း၊ မိန်းမ၊ မိန်းမ</annotation>
-		<annotation cp="👩‍❤‍👨">မိန်းမ | ယောက်ျား | အတွဲ | အသည်းနှလုံး</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">အသည်းနှလုံးဖြင့် အတွဲ၊ မိန်းမ၊ ယောက်ျား</annotation>
-		<annotation cp="👨‍❤‍👨">ယောက်ျား | အတွဲ | အသည်းနှလုံး</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">အသည်းနှလုံးဖြင့် အတွဲ၊ ယောက်ျား ၊ ယောက်ျား</annotation>
-		<annotation cp="👩‍❤‍👩">မိန်းမ | အတွဲ | အသည်းနှလုံး</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">အသည်းနှလုံးဖြင့် အတွဲ၊ မိန်းမ၊ မိန်းမ</annotation>
-		<annotation cp="👨‍👩‍👦">ကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းမ၊ ယောက်ျားကလေး</annotation>
-		<annotation cp="👨‍👩‍👧">ကလေး | မိန်းကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းမ၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">မိန်းကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းမ၊ ယောက်ျားကလေး၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">ကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းမ၊ ယောက်ျားကလေး၊ ယောက်ျားကလေး</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">ကလေး | မိန်းကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းမ၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👨‍👦">ကလေး | မိသားစု | ယောက်ျားကလေး | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ ယောက်ျား၊ ယောက်ျားကလေး</annotation>
-		<annotation cp="👨‍👨‍👧">ကလေး | မိသားစု | ယောက်ျား | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">မိသားစု၊ ယောက်ျား၊ ယောက်ျား၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">မိသားစု၊ ယောက်ျား ၊ ယောက်ျား၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">မိသားစု၊ ယောကျာ်း၊ ယောကျာ်း၊ ကောင်လေး၊ ကောင်လေး</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">မိသားစု၊ ယောကျာ်း၊ ယောကျာ်း၊ ကောင်မလေး၊ ကောင်မလေး</annotation>
-		<annotation cp="👩‍👩‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ ယောက်ျားလေး</annotation>
-		<annotation cp="👩‍👩‍👧">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ မိန်းကလေး</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ မိန်းကလေး၊ ယောက်ျားလေး</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ ယောက်ျားလေး၊ မိန်းကလေး</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">ကလေး | မိသားစု | အဖေ | အမေ</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းမ၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👦">ကလေး | မိသားစု | အဖေ</annotation>
-		<annotation cp="👨‍👦" type="tts">မိသားစု၊ ယောကျာ်း၊ ယောက်ျားလေး</annotation>
-		<annotation cp="👨‍👦‍👦">ကလေး | မိသားစု | အဖေ</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ ယောက်ျားကလေး၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👧">ကလေး | မိသားစု | အဖေ</annotation>
-		<annotation cp="👨‍👧" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းကလေး</annotation>
-		<annotation cp="👨‍👧‍👦">ကလေး | မိသားစု | အဖေ</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">မိသားစု၊ ယောက်ျား၊ မိန်းကလေး ၊ ယောက်ျားကလေး</annotation>
-		<annotation cp="👨‍👧‍👧">ကလေး | မိသားစု | အဖေ</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">မိသားစု၊ ယောက်ျား ၊ မိန်းကလေး ၊ မိန်းကလေး</annotation>
-		<annotation cp="👩‍👦">ကလေး | မိသားစု | အမေ</annotation>
-		<annotation cp="👩‍👦" type="tts">မိသားစု၊ မိန်းမ၊ ယောက်ျားကလေး</annotation>
-		<annotation cp="👩‍👦‍👦">ကလေး | မိသားစု | အမေ</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">မိသားစု၊ မိန်းမ၊ ယောက်ျားကလေး၊ ယောက်ျားလေး</annotation>
-		<annotation cp="👩‍👧">ကလေး | မိသားစု | အမေ</annotation>
-		<annotation cp="👩‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းကလေး</annotation>
-		<annotation cp="👩‍👧‍👦">ကလေး | မိသားစု | အမေ</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းကလေး၊ ယောက်ျားကလေး</annotation>
-		<annotation cp="👩‍👧‍👧">ကလေး | မိသားစု | အမေ</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">မိသားစု၊ မိန်းမ၊ မိန်းကလေး၊ မိန်းကလေး</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">စုံတွဲ၊ ချစ်၊ ကြိုက် | အမျိုးသမီး | အမျိုးသား</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">အနမ်း − အမျိုးသမီးနှင့် အမျိုးသား</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">စုံတွဲ၊ ချစ်၊ ကြိုက် | အမျိုးသား</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">အနမ်း − အမျိုးသားနှင့် အမျိုးသား</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">စုံတွဲ၊ ချစ်၊ ကြိုက် | အမျိုးသမီး</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">အနမ်း − အမျိုးသမီးနှင့် အမျိုးသမီး</annotation>
+		<annotation cp="👩‍❤‍👨">နှလုံး၊ စုံတွဲ၊ ချစ်၊ ကြိုက် | အမျိုးသမီး | အမျိုးသား</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">နှလုံးသားနှင့် စုံတွဲ − အမျိုးသမီးနှင့် အမျိုးသား</annotation>
+		<annotation cp="👨‍❤‍👨">နှလုံး၊ စုံတွဲ၊ ချစ်၊ ကြိုက် | အမျိုးသား</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">နှလုံးသားနှင့် စုံတွဲ − အမျိုးသားနှင့် အမျိုးသား</annotation>
+		<annotation cp="👩‍❤‍👩">နှလုံး၊ စုံတွဲ၊ ချစ်၊ ကြိုက် | အမျိုးသမီး</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">နှလုံးသားနှင့် စုံတွဲ − အမျိုးသမီးနှင့် အမျိုးသမီး</annotation>
+		<annotation cp="👨‍👩‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | အမျိုးသမီး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသမီးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | အမျိုးသမီး | မိန်းကလေး</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသမီးနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | အမျိုးသမီး | မိန်းကလေး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသမီးနှင့် မိန်းကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | အမျိုးသမီး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသမီးနှင့် ယောက်ျားကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | အမျိုးသမီး | မိန်းကလေး</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသမီးနှင့် မိန်းကလေးနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👨‍👨‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသားနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👨‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | မိန်းကလေး</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသားနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | မိန်းကလေး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသားနှင့် မိန်းကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသားနှင့် ယောက်ျားကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | မိန်းကလေး</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">မိသားစု − အမျိုးသားနှင့် အမျိုးသားနှင့် မိန်းကလေးနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👩‍👩‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">မိသားစု − အမျိုးသမီးနှင့် အမျိုးသမီးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👩‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | မိန်းကလေး</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">မိသားစု − အမျိုးသမီးနှင့် အမျိုးသမီးနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | မိန်းကလေး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">မိသားစု − အမျိုးသမီးနှင့် အမျိုးသမီးနှင့် မိန်းကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">မိသားစု − အမျိုးသမီးနှင့် အမျိုးသမီးနှင့် ယောက်ျားကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | မိန်းကလေး</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">မိသားစု − အမျိုးသမီးနှင့် အမျိုးသမီးနှင့် မိန်းကလေးနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👨‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👦‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် ယောက်ျားကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | မိန်းကလေး</annotation>
+		<annotation cp="👨‍👧" type="tts">မိသားစု − အမျိုးသားနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👨‍👧‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | မိန်းကလေး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">မိသားစု − အမျိုးသားနှင့် မိန်းကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👨‍👧‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသား | မိန်းကလေး</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">မိသားစု − အမျိုးသားနှင့် မိန်းကလေးနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👩‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👦" type="tts">မိသားစု − အမျိုးသမီးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👦‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">မိသားစု − အမျိုးသမီးနှင့် ယောက်ျားကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | မိန်းကလေး</annotation>
+		<annotation cp="👩‍👧" type="tts">မိသားစု − အမျိုးသမီးနှင့် မိန်းကလေး</annotation>
+		<annotation cp="👩‍👧‍👦">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | မိန်းကလေး | ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">မိသားစု − အမျိုးသမီးနှင့် မိန်းကလေးနှင့် ယောက်ျားကလေး</annotation>
+		<annotation cp="👩‍👧‍👧">ကလေး၊ ဖခင်၊ မိခင်၊ မိသားစု | အမျိုးသမီး | မိန်းကလေး</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">မိသားစု − အမျိုးသမီးနှင့် မိန်းကလေးနှင့် မိန်းကလေး</annotation>
 		<annotation cp="🤳🏻">ကင်မရာ | ဆဲလ်ဖီ | ဖုန်း | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🤳🏻" type="tts">ဆဲလ်ဖီ − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🤳🏼">ကင်မရာ | ဆဲလ်ဖီ | ဖုန်း | အရေပြား အမျိုးအစား−၃</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">ဝှေ့ယမ်းနေသည့် လက် − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="👋🏿">လက်၊ ခန္ဓာ၊ ကိုယ်၊ဝှေ့ယမ်း | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👋🏿" type="tts">ဝှေ့ယမ်းနေသည့် လက် − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤟🏻">ILY | လက် | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤟🏻" type="tts">ချစ်တယ်လို့ပြောတဲ့ အမူအရာ − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤟🏼">ILY | လက် | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤟🏼" type="tts">ချစ်တယ်လို့ပြောတဲ့ အမူအရာ − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤟🏽">ILY | လက် | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤟🏽" type="tts">ချစ်တယ်လို့ပြောတဲ့ အမူအရာ − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤟🏾">ILY | လက် | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤟🏾" type="tts">ချစ်တယ်လို့ပြောတဲ့ အမူအရာ − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤟🏿">ILY | လက် | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤟🏿" type="tts">ချစ်တယ်လို့ပြောတဲ့ အမူအရာ − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="✍🏻">ရေး၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="✍🏻" type="tts">စာရေးနေသည့် လက် − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="✍🏼">ရေး၊ လက်၊ ခန္ဓာ၊ ကိုယ် | အရေပြား အမျိုးအစား−၃</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">လက်မြှောက်ပြနေသူ − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="🙌🏿">ခန္ဓာကိုယ်၊ နှုတ်ဆက်၊ လက်၊ မြှောက်ပြ၊ အားရ | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🙌🏿" type="tts">လက်မြှောက်ပြနေသူ − အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤲🏻">ဆုတောင်းသူ | အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤲🏻" type="tts">လက်နှစ်ဘက်အတူတူမြှောက်သည် − အရေပြား အမျိုးအစား−၁−၂</annotation>
+		<annotation cp="🤲🏼">ဆုတောင်းသူ | အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤲🏼" type="tts">လက်နှစ်ဘက်အတူတူမြှောက်သည် − အရေပြား အမျိုးအစား−၃</annotation>
+		<annotation cp="🤲🏽">ဆုတောင်းသူ | အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤲🏽" type="tts">လက်နှစ်ဘက်အတူတူမြှောက်သည် − အရေပြား အမျိုးအစား−၄</annotation>
+		<annotation cp="🤲🏾">ဆုတောင်းသူ | အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤲🏾" type="tts">လက်နှစ်ဘက်အတူတူမြှောက်သည် − အရေပြား အမျိုးအစား−၅</annotation>
+		<annotation cp="🤲🏿">ဆုတောင်းသူ | အရေပြား အမျိုးအစား−၆</annotation>
+		<annotation cp="🤲🏿" type="tts">လက်နှစ်ဘက်အတူတူမြှောက်သည် − အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="🙏🏻">အမူအရာ၊ လက်၊ ဆုတောင်း၊ ကျေးဇူးတင်၊ လက်ချင်းဆက်၊ ကျေနပ် | အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🙏🏻" type="tts">ယှက်ထားသည့် လက်များ − အရေပြား အမျိုးအစား−၁−၂</annotation>
 		<annotation cp="🙏🏼">အမူအရာ၊ လက်၊ ဆုတောင်း၊ ကျေးဇူးတင်၊ လက်ချင်းဆက်၊ ကျေနပ် | အရေပြား အမျိုးအစား−၃</annotation>
@@ -1894,20 +2214,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">နာခေါင်း − အရေပြား အမျိုးအစား−၅</annotation>
 		<annotation cp="👃🏿">ကိုယ်ခန္ဓာ | အရေပြား အမျိုးအစား−၆</annotation>
 		<annotation cp="👃🏿" type="tts">နာခေါင်း − အရေပြား အမျိုးအစား−၆</annotation>
-		<annotation cp="#⃣">ဂဏန်း၊ ကီးခလုတ်၊ ပေါင်</annotation>
-		<annotation cp="#⃣" type="tts">နံပါတ် ခလုတ်</annotation>
-		<annotation cp="*⃣">ခရေပွင့်၊ ကီးခလုတ်၊ ကြယ်</annotation>
-		<annotation cp="*⃣" type="tts">ခရေပွင့် ခလုတ်</annotation>
+		<annotation cp="#⃣">ခလုတ်</annotation>
+		<annotation cp="#⃣" type="tts">ခလုတ် − #</annotation>
+		<annotation cp="*⃣">ခလုတ်</annotation>
+		<annotation cp="*⃣" type="tts">ခလုတ် − *</annotation>
+		<annotation cp="🔟">ခလုတ်</annotation>
+		<annotation cp="🔟" type="tts">ခလုတ် − 10</annotation>
 		<annotation cp="🇦🇨">အလံ</annotation>
-		<annotation cp="🇦🇨" type="tts">တက်တော်မူကျွန်း</annotation>
+		<annotation cp="🇦🇨" type="tts">အဆန်းရှင်းကျွန်း</annotation>
 		<annotation cp="🇦🇩">အလံ</annotation>
-		<annotation cp="🇦🇩" type="tts">အင်ဒိုရာ</annotation>
+		<annotation cp="🇦🇩" type="tts">အန်ဒိုရာ</annotation>
 		<annotation cp="🇦🇪">အလံ</annotation>
 		<annotation cp="🇦🇪" type="tts">ယူအေအီး</annotation>
 		<annotation cp="🇦🇫">အလံ</annotation>
 		<annotation cp="🇦🇫" type="tts">အာဖဂန်နစ္စတန်</annotation>
 		<annotation cp="🇦🇬">အလံ</annotation>
-		<annotation cp="🇦🇬" type="tts">အင်တီဂွါနှင့် ဘာဘူဒါ</annotation>
+		<annotation cp="🇦🇬" type="tts">အန်တီဂွါနှင့် ဘာဘူဒါ</annotation>
 		<annotation cp="🇦🇮">အလံ</annotation>
 		<annotation cp="🇦🇮" type="tts">အန်ဂီလာ</annotation>
 		<annotation cp="🇦🇱">အလံ</annotation>
@@ -1915,7 +2237,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇲">အလံ</annotation>
 		<annotation cp="🇦🇲" type="tts">အာမေးနီးယား</annotation>
 		<annotation cp="🇦🇴">အလံ</annotation>
-		<annotation cp="🇦🇴" type="tts">အင်ဂိုလာ</annotation>
+		<annotation cp="🇦🇴" type="tts">အန်ဂိုလာ</annotation>
 		<annotation cp="🇦🇶">အလံ</annotation>
 		<annotation cp="🇦🇶" type="tts">အန္တာတိက</annotation>
 		<annotation cp="🇦🇷">အလံ</annotation>
@@ -1971,7 +2293,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇼">အလံ</annotation>
 		<annotation cp="🇧🇼" type="tts">ဘော့ဆွာနာ</annotation>
 		<annotation cp="🇧🇾">အလံ</annotation>
-		<annotation cp="🇧🇾" type="tts">ဘီလာရုဇ်</annotation>
+		<annotation cp="🇧🇾" type="tts">ဘီလာရုစ်</annotation>
 		<annotation cp="🇧🇿">အလံ</annotation>
 		<annotation cp="🇧🇿" type="tts">ဘလိဇ်</annotation>
 		<annotation cp="🇨🇦">အလံ</annotation>
@@ -2015,7 +2337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇿">အလံ</annotation>
 		<annotation cp="🇨🇿" type="tts">ချက်ကီယား</annotation>
 		<annotation cp="🇩🇪">အလံ</annotation>
-		<annotation cp="🇩🇪" type="tts">ဂျာမဏီ</annotation>
+		<annotation cp="🇩🇪" type="tts">ဂျာမနီ</annotation>
 		<annotation cp="🇩🇬">အလံ</annotation>
 		<annotation cp="🇩🇬" type="tts">ဒီအဲဂိုဂါစီရာ</annotation>
 		<annotation cp="🇩🇯">အလံ</annotation>
@@ -2067,7 +2389,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇪">အလံ</annotation>
 		<annotation cp="🇬🇪" type="tts">ဂျော်ဂျီယာ</annotation>
 		<annotation cp="🇬🇫">အလံ</annotation>
-		<annotation cp="🇬🇫" type="tts">ပြင်သစ် ဂိုင်ယာနာ</annotation>
+		<annotation cp="🇬🇫" type="tts">ပြင်သစ် ဂီယာနာ</annotation>
 		<annotation cp="🇬🇬">အလံ</annotation>
 		<annotation cp="🇬🇬" type="tts">ဂွန်းဇီ</annotation>
 		<annotation cp="🇬🇭">အလံ</annotation>
@@ -2197,7 +2519,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇭">အလံ</annotation>
 		<annotation cp="🇲🇭" type="tts">မာရှယ် ကျွန်းစု</annotation>
 		<annotation cp="🇲🇰">အလံ</annotation>
-		<annotation cp="🇲🇰" type="tts">မက်စီဒိုးနီးယား</annotation>
+		<annotation cp="🇲🇰" type="tts">မက်ဆီဒိုးနီးယား</annotation>
 		<annotation cp="🇲🇱">အလံ</annotation>
 		<annotation cp="🇲🇱" type="tts">မာလီ</annotation>
 		<annotation cp="🇲🇲">အလံ</annotation>
@@ -2285,13 +2607,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇶🇦">အလံ</annotation>
 		<annotation cp="🇶🇦" type="tts">ကာတာ</annotation>
 		<annotation cp="🇷🇪">အလံ</annotation>
-		<annotation cp="🇷🇪" type="tts">ဟေညွန်</annotation>
+		<annotation cp="🇷🇪" type="tts">ရီယူနီယန်</annotation>
 		<annotation cp="🇷🇴">အလံ</annotation>
 		<annotation cp="🇷🇴" type="tts">ရိုမေးနီးယား</annotation>
 		<annotation cp="🇷🇸">အလံ</annotation>
 		<annotation cp="🇷🇸" type="tts">ဆားဘီးယား</annotation>
 		<annotation cp="🇷🇺">အလံ</annotation>
-		<annotation cp="🇷🇺" type="tts">ရုရှ</annotation>
+		<annotation cp="🇷🇺" type="tts">ရုရှား</annotation>
 		<annotation cp="🇷🇼">အလံ</annotation>
 		<annotation cp="🇷🇼" type="tts">ရဝန်ဒါ</annotation>
 		<annotation cp="🇸🇦">အလံ</annotation>
@@ -2309,7 +2631,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇭">အလံ</annotation>
 		<annotation cp="🇸🇭" type="tts">စိန့်ဟယ်လယ်နာ</annotation>
 		<annotation cp="🇸🇮">အလံ</annotation>
-		<annotation cp="🇸🇮" type="tts">စလိုဗေးနီးယား</annotation>
+		<annotation cp="🇸🇮" type="tts">ဆလိုဗေးနီးယား</annotation>
 		<annotation cp="🇸🇯">အလံ</annotation>
 		<annotation cp="🇸🇯" type="tts">စဗိုလ်ဘတ်နှင့်ဂျန်မေရန်</annotation>
 		<annotation cp="🇸🇰">အလံ</annotation>
@@ -2379,13 +2701,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇺🇳">အလံ</annotation>
 		<annotation cp="🇺🇳" type="tts">ကုလသမဂ္ဂ</annotation>
 		<annotation cp="🇺🇸">အလံ</annotation>
-		<annotation cp="🇺🇸" type="tts">ယူနိုက်တက်စတိတ်</annotation>
+		<annotation cp="🇺🇸" type="tts">အမေရိကန် ပြည်ထောင်စု</annotation>
 		<annotation cp="🇺🇾">အလံ</annotation>
 		<annotation cp="🇺🇾" type="tts">ဥရုဂွေး</annotation>
 		<annotation cp="🇺🇿">အလံ</annotation>
-		<annotation cp="🇺🇿" type="tts">ဉဇဘက်ကစ္စတန်</annotation>
+		<annotation cp="🇺🇿" type="tts">ဥဇဘက်ကစ္စတန်</annotation>
 		<annotation cp="🇻🇦">အလံ</annotation>
-		<annotation cp="🇻🇦" type="tts">ဗာတီကန်စီတီး</annotation>
+		<annotation cp="🇻🇦" type="tts">ဗာတီကန်စီးတီး</annotation>
 		<annotation cp="🇻🇨">အလံ</annotation>
 		<annotation cp="🇻🇨" type="tts">စိန့်ဗင်းဆင့်နှင့် ဂရိနေဒိုင်</annotation>
 		<annotation cp="🇻🇪">အလံ</annotation>
@@ -2407,7 +2729,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇾🇪">အလံ</annotation>
 		<annotation cp="🇾🇪" type="tts">ယီမင်</annotation>
 		<annotation cp="🇾🇹">အလံ</annotation>
-		<annotation cp="🇾🇹" type="tts">မာယိုတေး</annotation>
+		<annotation cp="🇾🇹" type="tts">မေယော့</annotation>
 		<annotation cp="🇿🇦">အလံ</annotation>
 		<annotation cp="🇿🇦" type="tts">တောင်အာဖရိက</annotation>
 		<annotation cp="🇿🇲">အလံ</annotation>

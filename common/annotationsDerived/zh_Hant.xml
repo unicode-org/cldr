@@ -8,7 +8,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="zh"/>
 		<script type="Hant"/>
 	</identity>
@@ -43,6 +43,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">小寶寶: 褐皮膚</annotation>
 		<annotation cp="👶🏿">小嬰兒 | 黑皮膚</annotation>
 		<annotation cp="👶🏿" type="tts">小寶寶: 黑皮膚</annotation>
+		<annotation cp="🧒🏻">中性 | 小孩 | 白皮膚</annotation>
+		<annotation cp="🧒🏻" type="tts">小孩: 白皮膚</annotation>
+		<annotation cp="🧒🏼">中性 | 小孩 | 黃皮膚</annotation>
+		<annotation cp="🧒🏼" type="tts">小孩: 黃皮膚</annotation>
+		<annotation cp="🧒🏽">中性 | 小孩 | 淺褐皮膚</annotation>
+		<annotation cp="🧒🏽" type="tts">小孩: 淺褐皮膚</annotation>
+		<annotation cp="🧒🏾">中性 | 小孩 | 褐皮膚</annotation>
+		<annotation cp="🧒🏾" type="tts">小孩: 褐皮膚</annotation>
+		<annotation cp="🧒🏿">中性 | 小孩 | 黑皮膚</annotation>
+		<annotation cp="🧒🏿" type="tts">小孩: 黑皮膚</annotation>
 		<annotation cp="👦🏻">男孩 | 白皮膚</annotation>
 		<annotation cp="👦🏻" type="tts">男孩: 白皮膚</annotation>
 		<annotation cp="👦🏼">男孩 | 黃皮膚</annotation>
@@ -63,6 +73,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">女孩: 褐皮膚</annotation>
 		<annotation cp="👧🏿">女孩 | 黑皮膚</annotation>
 		<annotation cp="👧🏿" type="tts">女孩: 黑皮膚</annotation>
+		<annotation cp="🧑🏻">中性 | 白皮膚</annotation>
+		<annotation cp="🧑🏻" type="tts">大人: 白皮膚</annotation>
+		<annotation cp="🧑🏼">中性 | 黃皮膚</annotation>
+		<annotation cp="🧑🏼" type="tts">大人: 黃皮膚</annotation>
+		<annotation cp="🧑🏽">中性 | 淺褐皮膚</annotation>
+		<annotation cp="🧑🏽" type="tts">大人: 淺褐皮膚</annotation>
+		<annotation cp="🧑🏾">中性 | 褐皮膚</annotation>
+		<annotation cp="🧑🏾" type="tts">大人: 褐皮膚</annotation>
+		<annotation cp="🧑🏿">中性 | 黑皮膚</annotation>
+		<annotation cp="🧑🏿" type="tts">大人: 黑皮膚</annotation>
 		<annotation cp="👨🏻">男 | 男人 | 男性 | 白皮膚</annotation>
 		<annotation cp="👨🏻" type="tts">男人: 白皮膚</annotation>
 		<annotation cp="👨🏼">男 | 男人 | 男性 | 黃皮膚</annotation>
@@ -83,6 +103,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">女人: 褐皮膚</annotation>
 		<annotation cp="👩🏿">女 | 女人 | 女性 | 黑皮膚</annotation>
 		<annotation cp="👩🏿" type="tts">女人: 黑皮膚</annotation>
+		<annotation cp="🧓🏻">中性 | 老人 | 白皮膚</annotation>
+		<annotation cp="🧓🏻" type="tts">長者: 白皮膚</annotation>
+		<annotation cp="🧓🏼">中性 | 老人 | 黃皮膚</annotation>
+		<annotation cp="🧓🏼" type="tts">長者: 黃皮膚</annotation>
+		<annotation cp="🧓🏽">中性 | 老人 | 淺褐皮膚</annotation>
+		<annotation cp="🧓🏽" type="tts">長者: 淺褐皮膚</annotation>
+		<annotation cp="🧓🏾">中性 | 老人 | 褐皮膚</annotation>
+		<annotation cp="🧓🏾" type="tts">長者: 褐皮膚</annotation>
+		<annotation cp="🧓🏿">中性 | 老人 | 黑皮膚</annotation>
+		<annotation cp="🧓🏿" type="tts">長者: 黑皮膚</annotation>
 		<annotation cp="👴🏻">老頭 | 白皮膚</annotation>
 		<annotation cp="👴🏻" type="tts">老爺爺: 白皮膚</annotation>
 		<annotation cp="👴🏼">老頭 | 黃皮膚</annotation>
@@ -603,6 +633,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">戴瓜皮帽的人: 褐皮膚</annotation>
 		<annotation cp="👲🏿">員外 | 師爺 | 黑皮膚</annotation>
 		<annotation cp="👲🏿" type="tts">戴瓜皮帽的人: 黑皮膚</annotation>
+		<annotation cp="🧕🏻">希賈布 | 連披肩頭紗 | 頭巾 | 白皮膚</annotation>
+		<annotation cp="🧕🏻" type="tts">包頭巾的女子: 白皮膚</annotation>
+		<annotation cp="🧕🏼">希賈布 | 連披肩頭紗 | 頭巾 | 黃皮膚</annotation>
+		<annotation cp="🧕🏼" type="tts">包頭巾的女子: 黃皮膚</annotation>
+		<annotation cp="🧕🏽">希賈布 | 連披肩頭紗 | 頭巾 | 淺褐皮膚</annotation>
+		<annotation cp="🧕🏽" type="tts">包頭巾的女子: 淺褐皮膚</annotation>
+		<annotation cp="🧕🏾">希賈布 | 連披肩頭紗 | 頭巾 | 褐皮膚</annotation>
+		<annotation cp="🧕🏾" type="tts">包頭巾的女子: 褐皮膚</annotation>
+		<annotation cp="🧕🏿">希賈布 | 連披肩頭紗 | 頭巾 | 黑皮膚</annotation>
+		<annotation cp="🧕🏿" type="tts">包頭巾的女子: 黑皮膚</annotation>
+		<annotation cp="🧔🏻">鬍鬚 | 白皮膚</annotation>
+		<annotation cp="🧔🏻" type="tts">蓄鬍的人: 白皮膚</annotation>
+		<annotation cp="🧔🏼">鬍鬚 | 黃皮膚</annotation>
+		<annotation cp="🧔🏼" type="tts">蓄鬍的人: 黃皮膚</annotation>
+		<annotation cp="🧔🏽">鬍鬚 | 淺褐皮膚</annotation>
+		<annotation cp="🧔🏽" type="tts">蓄鬍的人: 淺褐皮膚</annotation>
+		<annotation cp="🧔🏾">鬍鬚 | 褐皮膚</annotation>
+		<annotation cp="🧔🏾" type="tts">蓄鬍的人: 褐皮膚</annotation>
+		<annotation cp="🧔🏿">鬍鬚 | 黑皮膚</annotation>
+		<annotation cp="🧔🏿" type="tts">蓄鬍的人: 黑皮膚</annotation>
 		<annotation cp="👱🏻">金髮 | 白皮膚</annotation>
 		<annotation cp="👱🏻" type="tts">金髮人: 白皮膚</annotation>
 		<annotation cp="👱🏼">金髮 | 黃皮膚</annotation>
@@ -663,6 +713,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">孕婦: 褐皮膚</annotation>
 		<annotation cp="🤰🏿">婦 | 孕 | 黑皮膚</annotation>
 		<annotation cp="🤰🏿" type="tts">孕婦: 黑皮膚</annotation>
+		<annotation cp="🤱🏻">乳 | 寶寶 | 育嬰 | 白皮膚</annotation>
+		<annotation cp="🤱🏻" type="tts">哺乳: 白皮膚</annotation>
+		<annotation cp="🤱🏼">乳 | 寶寶 | 育嬰 | 黃皮膚</annotation>
+		<annotation cp="🤱🏼" type="tts">哺乳: 黃皮膚</annotation>
+		<annotation cp="🤱🏽">乳 | 寶寶 | 育嬰 | 淺褐皮膚</annotation>
+		<annotation cp="🤱🏽" type="tts">哺乳: 淺褐皮膚</annotation>
+		<annotation cp="🤱🏾">乳 | 寶寶 | 育嬰 | 褐皮膚</annotation>
+		<annotation cp="🤱🏾" type="tts">哺乳: 褐皮膚</annotation>
+		<annotation cp="🤱🏿">乳 | 寶寶 | 育嬰 | 黑皮膚</annotation>
+		<annotation cp="🤱🏿" type="tts">哺乳: 黑皮膚</annotation>
 		<annotation cp="👼🏻">兒童 | 天使 | 孩子 | 白皮膚</annotation>
 		<annotation cp="👼🏻" type="tts">天使: 白皮膚</annotation>
 		<annotation cp="👼🏼">兒童 | 天使 | 孩子 | 黃皮膚</annotation>
@@ -693,6 +753,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">聖誕老奶奶: 褐皮膚</annotation>
 		<annotation cp="🤶🏿">奶 | 老 | 聖 | 誕 | 黑皮膚</annotation>
 		<annotation cp="🤶🏿" type="tts">聖誕老奶奶: 黑皮膚</annotation>
+		<annotation cp="🧙🏻">女巫 | 魔法師 | 白皮膚</annotation>
+		<annotation cp="🧙🏻" type="tts">魔術師: 白皮膚</annotation>
+		<annotation cp="🧙🏼">女巫 | 魔法師 | 黃皮膚</annotation>
+		<annotation cp="🧙🏼" type="tts">魔術師: 黃皮膚</annotation>
+		<annotation cp="🧙🏽">女巫 | 魔法師 | 淺褐皮膚</annotation>
+		<annotation cp="🧙🏽" type="tts">魔術師: 淺褐皮膚</annotation>
+		<annotation cp="🧙🏾">女巫 | 魔法師 | 褐皮膚</annotation>
+		<annotation cp="🧙🏾" type="tts">魔術師: 褐皮膚</annotation>
+		<annotation cp="🧙🏿">女巫 | 魔法師 | 黑皮膚</annotation>
+		<annotation cp="🧙🏿" type="tts">魔術師: 黑皮膚</annotation>
+		<annotation cp="🧙🏻‍♀">女巫 | 魔女 | 白皮膚</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">女巫師: 白皮膚</annotation>
+		<annotation cp="🧙🏼‍♀">女巫 | 魔女 | 黃皮膚</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">女巫師: 黃皮膚</annotation>
+		<annotation cp="🧙🏽‍♀">女巫 | 魔女 | 淺褐皮膚</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">女巫師: 淺褐皮膚</annotation>
+		<annotation cp="🧙🏾‍♀">女巫 | 魔女 | 褐皮膚</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">女巫師: 褐皮膚</annotation>
+		<annotation cp="🧙🏿‍♀">女巫 | 魔女 | 黑皮膚</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">女巫師: 黑皮膚</annotation>
+		<annotation cp="🧙🏻‍♂">巫師 | 魔法師 | 白皮膚</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">男巫: 白皮膚</annotation>
+		<annotation cp="🧙🏼‍♂">巫師 | 魔法師 | 黃皮膚</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">男巫: 黃皮膚</annotation>
+		<annotation cp="🧙🏽‍♂">巫師 | 魔法師 | 淺褐皮膚</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">男巫: 淺褐皮膚</annotation>
+		<annotation cp="🧙🏾‍♂">巫師 | 魔法師 | 褐皮膚</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">男巫: 褐皮膚</annotation>
+		<annotation cp="🧙🏿‍♂">巫師 | 魔法師 | 黑皮膚</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">男巫: 黑皮膚</annotation>
+		<annotation cp="🧚🏻">仙后 | 帕克 | 精靈王 | 白皮膚</annotation>
+		<annotation cp="🧚🏻" type="tts">仙女: 白皮膚</annotation>
+		<annotation cp="🧚🏼">仙后 | 帕克 | 精靈王 | 黃皮膚</annotation>
+		<annotation cp="🧚🏼" type="tts">仙女: 黃皮膚</annotation>
+		<annotation cp="🧚🏽">仙后 | 帕克 | 精靈王 | 淺褐皮膚</annotation>
+		<annotation cp="🧚🏽" type="tts">仙女: 淺褐皮膚</annotation>
+		<annotation cp="🧚🏾">仙后 | 帕克 | 精靈王 | 褐皮膚</annotation>
+		<annotation cp="🧚🏾" type="tts">仙女: 褐皮膚</annotation>
+		<annotation cp="🧚🏿">仙后 | 帕克 | 精靈王 | 黑皮膚</annotation>
+		<annotation cp="🧚🏿" type="tts">仙女: 黑皮膚</annotation>
+		<annotation cp="🧚🏻‍♀">仙后 | 白皮膚</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">女妖精: 白皮膚</annotation>
+		<annotation cp="🧚🏼‍♀">仙后 | 黃皮膚</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">女妖精: 黃皮膚</annotation>
+		<annotation cp="🧚🏽‍♀">仙后 | 淺褐皮膚</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">女妖精: 淺褐皮膚</annotation>
+		<annotation cp="🧚🏾‍♀">仙后 | 褐皮膚</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">女妖精: 褐皮膚</annotation>
+		<annotation cp="🧚🏿‍♀">仙后 | 黑皮膚</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">女妖精: 黑皮膚</annotation>
+		<annotation cp="🧚🏻‍♂">帕克 | 精靈王 | 白皮膚</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">男妖精: 白皮膚</annotation>
+		<annotation cp="🧚🏼‍♂">帕克 | 精靈王 | 黃皮膚</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">男妖精: 黃皮膚</annotation>
+		<annotation cp="🧚🏽‍♂">帕克 | 精靈王 | 淺褐皮膚</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">男妖精: 淺褐皮膚</annotation>
+		<annotation cp="🧚🏾‍♂">帕克 | 精靈王 | 褐皮膚</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">男妖精: 褐皮膚</annotation>
+		<annotation cp="🧚🏿‍♂">帕克 | 精靈王 | 黑皮膚</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">男妖精: 黑皮膚</annotation>
+		<annotation cp="🧛🏻">不死 | 德古拉 | 白皮膚</annotation>
+		<annotation cp="🧛🏻" type="tts">吸血鬼: 白皮膚</annotation>
+		<annotation cp="🧛🏼">不死 | 德古拉 | 黃皮膚</annotation>
+		<annotation cp="🧛🏼" type="tts">吸血鬼: 黃皮膚</annotation>
+		<annotation cp="🧛🏽">不死 | 德古拉 | 淺褐皮膚</annotation>
+		<annotation cp="🧛🏽" type="tts">吸血鬼: 淺褐皮膚</annotation>
+		<annotation cp="🧛🏾">不死 | 德古拉 | 褐皮膚</annotation>
+		<annotation cp="🧛🏾" type="tts">吸血鬼: 褐皮膚</annotation>
+		<annotation cp="🧛🏿">不死 | 德古拉 | 黑皮膚</annotation>
+		<annotation cp="🧛🏿" type="tts">吸血鬼: 黑皮膚</annotation>
+		<annotation cp="🧛🏻‍♀">不死 | 白皮膚</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">女吸血鬼: 白皮膚</annotation>
+		<annotation cp="🧛🏼‍♀">不死 | 黃皮膚</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">女吸血鬼: 黃皮膚</annotation>
+		<annotation cp="🧛🏽‍♀">不死 | 淺褐皮膚</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">女吸血鬼: 淺褐皮膚</annotation>
+		<annotation cp="🧛🏾‍♀">不死 | 褐皮膚</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">女吸血鬼: 褐皮膚</annotation>
+		<annotation cp="🧛🏿‍♀">不死 | 黑皮膚</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">女吸血鬼: 黑皮膚</annotation>
+		<annotation cp="🧛🏻‍♂">不死 | 德古拉 | 白皮膚</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">男吸血鬼: 白皮膚</annotation>
+		<annotation cp="🧛🏼‍♂">不死 | 德古拉 | 黃皮膚</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">男吸血鬼: 黃皮膚</annotation>
+		<annotation cp="🧛🏽‍♂">不死 | 德古拉 | 淺褐皮膚</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">男吸血鬼: 淺褐皮膚</annotation>
+		<annotation cp="🧛🏾‍♂">不死 | 德古拉 | 褐皮膚</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">男吸血鬼: 褐皮膚</annotation>
+		<annotation cp="🧛🏿‍♂">不死 | 德古拉 | 黑皮膚</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">男吸血鬼: 黑皮膚</annotation>
+		<annotation cp="🧜🏻">人魚 | 美人魚 | 白皮膚</annotation>
+		<annotation cp="🧜🏻" type="tts">人魚: 白皮膚</annotation>
+		<annotation cp="🧜🏼">人魚 | 美人魚 | 黃皮膚</annotation>
+		<annotation cp="🧜🏼" type="tts">人魚: 黃皮膚</annotation>
+		<annotation cp="🧜🏽">人魚 | 美人魚 | 淺褐皮膚</annotation>
+		<annotation cp="🧜🏽" type="tts">人魚: 淺褐皮膚</annotation>
+		<annotation cp="🧜🏾">人魚 | 美人魚 | 褐皮膚</annotation>
+		<annotation cp="🧜🏾" type="tts">人魚: 褐皮膚</annotation>
+		<annotation cp="🧜🏿">人魚 | 美人魚 | 黑皮膚</annotation>
+		<annotation cp="🧜🏿" type="tts">人魚: 黑皮膚</annotation>
+		<annotation cp="🧜🏻‍♀">美人魚 | 白皮膚</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">美人魚: 白皮膚</annotation>
+		<annotation cp="🧜🏼‍♀">美人魚 | 黃皮膚</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">美人魚: 黃皮膚</annotation>
+		<annotation cp="🧜🏽‍♀">美人魚 | 淺褐皮膚</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">美人魚: 淺褐皮膚</annotation>
+		<annotation cp="🧜🏾‍♀">美人魚 | 褐皮膚</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">美人魚: 褐皮膚</annotation>
+		<annotation cp="🧜🏿‍♀">美人魚 | 黑皮膚</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">美人魚: 黑皮膚</annotation>
+		<annotation cp="🧜🏻‍♂">北螈 | 白皮膚</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">男人魚: 白皮膚</annotation>
+		<annotation cp="🧜🏼‍♂">北螈 | 黃皮膚</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">男人魚: 黃皮膚</annotation>
+		<annotation cp="🧜🏽‍♂">北螈 | 淺褐皮膚</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">男人魚: 淺褐皮膚</annotation>
+		<annotation cp="🧜🏾‍♂">北螈 | 褐皮膚</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">男人魚: 褐皮膚</annotation>
+		<annotation cp="🧜🏿‍♂">北螈 | 黑皮膚</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">男人魚: 黑皮膚</annotation>
+		<annotation cp="🧝🏻">魔法 | 白皮膚</annotation>
+		<annotation cp="🧝🏻" type="tts">小精靈: 白皮膚</annotation>
+		<annotation cp="🧝🏼">魔法 | 黃皮膚</annotation>
+		<annotation cp="🧝🏼" type="tts">小精靈: 黃皮膚</annotation>
+		<annotation cp="🧝🏽">魔法 | 淺褐皮膚</annotation>
+		<annotation cp="🧝🏽" type="tts">小精靈: 淺褐皮膚</annotation>
+		<annotation cp="🧝🏾">魔法 | 褐皮膚</annotation>
+		<annotation cp="🧝🏾" type="tts">小精靈: 褐皮膚</annotation>
+		<annotation cp="🧝🏿">魔法 | 黑皮膚</annotation>
+		<annotation cp="🧝🏿" type="tts">小精靈: 黑皮膚</annotation>
+		<annotation cp="🧝🏻‍♀">魔法 | 白皮膚</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">女精靈: 白皮膚</annotation>
+		<annotation cp="🧝🏼‍♀">魔法 | 黃皮膚</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">女精靈: 黃皮膚</annotation>
+		<annotation cp="🧝🏽‍♀">魔法 | 淺褐皮膚</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">女精靈: 淺褐皮膚</annotation>
+		<annotation cp="🧝🏾‍♀">魔法 | 褐皮膚</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">女精靈: 褐皮膚</annotation>
+		<annotation cp="🧝🏿‍♀">魔法 | 黑皮膚</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">女精靈: 黑皮膚</annotation>
+		<annotation cp="🧝🏻‍♂">魔法 | 白皮膚</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">男精靈: 白皮膚</annotation>
+		<annotation cp="🧝🏼‍♂">魔法 | 黃皮膚</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">男精靈: 黃皮膚</annotation>
+		<annotation cp="🧝🏽‍♂">魔法 | 淺褐皮膚</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">男精靈: 淺褐皮膚</annotation>
+		<annotation cp="🧝🏾‍♂">魔法 | 褐皮膚</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">男精靈: 褐皮膚</annotation>
+		<annotation cp="🧝🏿‍♂">魔法 | 黑皮膚</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">男精靈: 黑皮膚</annotation>
 		<annotation cp="🙍🏻">皺眉 | 表情 | 白皮膚</annotation>
 		<annotation cp="🙍🏻" type="tts">皺眉: 白皮膚</annotation>
 		<annotation cp="🙍🏼">皺眉 | 表情 | 黃皮膚</annotation>
@@ -1103,6 +1313,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">男人跳著舞: 褐皮膚</annotation>
 		<annotation cp="🕺🏿">男 | 舞 | 跳 | 黑皮膚</annotation>
 		<annotation cp="🕺🏿" type="tts">男人跳著舞: 黑皮膚</annotation>
+		<annotation cp="🧖🏻">桑拿 | 蒸氣室 | 白皮膚</annotation>
+		<annotation cp="🧖🏻" type="tts">做蒸氣浴的人: 白皮膚</annotation>
+		<annotation cp="🧖🏼">桑拿 | 蒸氣室 | 黃皮膚</annotation>
+		<annotation cp="🧖🏼" type="tts">做蒸氣浴的人: 黃皮膚</annotation>
+		<annotation cp="🧖🏽">桑拿 | 蒸氣室 | 淺褐皮膚</annotation>
+		<annotation cp="🧖🏽" type="tts">做蒸氣浴的人: 淺褐皮膚</annotation>
+		<annotation cp="🧖🏾">桑拿 | 蒸氣室 | 褐皮膚</annotation>
+		<annotation cp="🧖🏾" type="tts">做蒸氣浴的人: 褐皮膚</annotation>
+		<annotation cp="🧖🏿">桑拿 | 蒸氣室 | 黑皮膚</annotation>
+		<annotation cp="🧖🏿" type="tts">做蒸氣浴的人: 黑皮膚</annotation>
+		<annotation cp="🧖🏻‍♀">桑拿 | 蒸氣室 | 白皮膚</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">做蒸氣浴的女子: 白皮膚</annotation>
+		<annotation cp="🧖🏼‍♀">桑拿 | 蒸氣室 | 黃皮膚</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">做蒸氣浴的女子: 黃皮膚</annotation>
+		<annotation cp="🧖🏽‍♀">桑拿 | 蒸氣室 | 淺褐皮膚</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">做蒸氣浴的女子: 淺褐皮膚</annotation>
+		<annotation cp="🧖🏾‍♀">桑拿 | 蒸氣室 | 褐皮膚</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">做蒸氣浴的女子: 褐皮膚</annotation>
+		<annotation cp="🧖🏿‍♀">桑拿 | 蒸氣室 | 黑皮膚</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">做蒸氣浴的女子: 黑皮膚</annotation>
+		<annotation cp="🧖🏻‍♂">桑拿 | 蒸氣室 | 白皮膚</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">做蒸氣浴的男子: 白皮膚</annotation>
+		<annotation cp="🧖🏼‍♂">桑拿 | 蒸氣室 | 黃皮膚</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">做蒸氣浴的男子: 黃皮膚</annotation>
+		<annotation cp="🧖🏽‍♂">桑拿 | 蒸氣室 | 淺褐皮膚</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">做蒸氣浴的男子: 淺褐皮膚</annotation>
+		<annotation cp="🧖🏾‍♂">桑拿 | 蒸氣室 | 褐皮膚</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">做蒸氣浴的男子: 褐皮膚</annotation>
+		<annotation cp="🧖🏿‍♂">桑拿 | 蒸氣室 | 黑皮膚</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">做蒸氣浴的男子: 黑皮膚</annotation>
+		<annotation cp="🧗🏻">攀岩者 | 白皮膚</annotation>
+		<annotation cp="🧗🏻" type="tts">攀岩的人: 白皮膚</annotation>
+		<annotation cp="🧗🏼">攀岩者 | 黃皮膚</annotation>
+		<annotation cp="🧗🏼" type="tts">攀岩的人: 黃皮膚</annotation>
+		<annotation cp="🧗🏽">攀岩者 | 淺褐皮膚</annotation>
+		<annotation cp="🧗🏽" type="tts">攀岩的人: 淺褐皮膚</annotation>
+		<annotation cp="🧗🏾">攀岩者 | 褐皮膚</annotation>
+		<annotation cp="🧗🏾" type="tts">攀岩的人: 褐皮膚</annotation>
+		<annotation cp="🧗🏿">攀岩者 | 黑皮膚</annotation>
+		<annotation cp="🧗🏿" type="tts">攀岩的人: 黑皮膚</annotation>
+		<annotation cp="🧗🏻‍♀">攀岩者 | 白皮膚</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">攀岩女子: 白皮膚</annotation>
+		<annotation cp="🧗🏼‍♀">攀岩者 | 黃皮膚</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">攀岩女子: 黃皮膚</annotation>
+		<annotation cp="🧗🏽‍♀">攀岩者 | 淺褐皮膚</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">攀岩女子: 淺褐皮膚</annotation>
+		<annotation cp="🧗🏾‍♀">攀岩者 | 褐皮膚</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">攀岩女子: 褐皮膚</annotation>
+		<annotation cp="🧗🏿‍♀">攀岩者 | 黑皮膚</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">攀岩女子: 黑皮膚</annotation>
+		<annotation cp="🧗🏻‍♂">攀岩者 | 白皮膚</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">攀岩男子: 白皮膚</annotation>
+		<annotation cp="🧗🏼‍♂">攀岩者 | 黃皮膚</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">攀岩男子: 黃皮膚</annotation>
+		<annotation cp="🧗🏽‍♂">攀岩者 | 淺褐皮膚</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">攀岩男子: 淺褐皮膚</annotation>
+		<annotation cp="🧗🏾‍♂">攀岩者 | 褐皮膚</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">攀岩男子: 褐皮膚</annotation>
+		<annotation cp="🧗🏿‍♂">攀岩者 | 黑皮膚</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">攀岩男子: 黑皮膚</annotation>
+		<annotation cp="🧘🏻">冥想 | 瑜珈 | 白皮膚</annotation>
+		<annotation cp="🧘🏻" type="tts">盤坐: 白皮膚</annotation>
+		<annotation cp="🧘🏼">冥想 | 瑜珈 | 黃皮膚</annotation>
+		<annotation cp="🧘🏼" type="tts">盤坐: 黃皮膚</annotation>
+		<annotation cp="🧘🏽">冥想 | 瑜珈 | 淺褐皮膚</annotation>
+		<annotation cp="🧘🏽" type="tts">盤坐: 淺褐皮膚</annotation>
+		<annotation cp="🧘🏾">冥想 | 瑜珈 | 褐皮膚</annotation>
+		<annotation cp="🧘🏾" type="tts">盤坐: 褐皮膚</annotation>
+		<annotation cp="🧘🏿">冥想 | 瑜珈 | 黑皮膚</annotation>
+		<annotation cp="🧘🏿" type="tts">盤坐: 黑皮膚</annotation>
+		<annotation cp="🧘🏻‍♀">冥想 | 瑜珈 | 白皮膚</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">盤坐女子: 白皮膚</annotation>
+		<annotation cp="🧘🏼‍♀">冥想 | 瑜珈 | 黃皮膚</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">盤坐女子: 黃皮膚</annotation>
+		<annotation cp="🧘🏽‍♀">冥想 | 瑜珈 | 淺褐皮膚</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">盤坐女子: 淺褐皮膚</annotation>
+		<annotation cp="🧘🏾‍♀">冥想 | 瑜珈 | 褐皮膚</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">盤坐女子: 褐皮膚</annotation>
+		<annotation cp="🧘🏿‍♀">冥想 | 瑜珈 | 黑皮膚</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">盤坐女子: 黑皮膚</annotation>
+		<annotation cp="🧘🏻‍♂">冥想 | 瑜珈 | 白皮膚</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">盤坐男子: 白皮膚</annotation>
+		<annotation cp="🧘🏼‍♂">冥想 | 瑜珈 | 黃皮膚</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">盤坐男子: 黃皮膚</annotation>
+		<annotation cp="🧘🏽‍♂">冥想 | 瑜珈 | 淺褐皮膚</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">盤坐男子: 淺褐皮膚</annotation>
+		<annotation cp="🧘🏾‍♂">冥想 | 瑜珈 | 褐皮膚</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">盤坐男子: 褐皮膚</annotation>
+		<annotation cp="🧘🏿‍♂">冥想 | 瑜珈 | 黑皮膚</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">盤坐男子: 黑皮膚</annotation>
 		<annotation cp="🛀🏻">洗澡 | 白皮膚</annotation>
 		<annotation cp="🛀🏻" type="tts">盆浴: 白皮膚</annotation>
 		<annotation cp="🛀🏼">洗澡 | 黃皮膚</annotation>
@@ -1513,68 +1813,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">女生玩雜耍: 褐皮膚</annotation>
 		<annotation cp="🤹🏿‍♀">女 | 雜耍 | 黑皮膚</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">女生玩雜耍: 黑皮膚</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">情侶 | 親吻</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">男女親吻</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">同志 | 情侶 | 男 | 親吻</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">男男親吻</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">同志 | 女 | 情侶 | 親吻</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">女女親吻</annotation>
-		<annotation cp="👩‍❤‍👨">一對 | 男女 | 相愛</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">男女相愛</annotation>
-		<annotation cp="👨‍❤‍👨">同志 | 男男 | 相愛</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">男男相愛</annotation>
-		<annotation cp="👩‍❤‍👩">同志 | 女女 | 相愛</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">女女相愛</annotation>
-		<annotation cp="👨‍👩‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">父母和兒子</annotation>
-		<annotation cp="👨‍👩‍👧">家庭 | 親子</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">父母和女兒</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">父母和子女</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">父母和兩兄弟</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">家庭 | 親子</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">父母和兩姊妹</annotation>
-		<annotation cp="👨‍👨‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">兩個爸爸和兒子</annotation>
-		<annotation cp="👨‍👨‍👧">家庭 | 親子</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">兩個爸爸和女兒</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">兩個爸爸和子女</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">兩個爸爸和兩兄弟</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">家庭 | 親子</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">兩個爸爸和兩姊妹</annotation>
-		<annotation cp="👩‍👩‍👦">家庭 | 親子</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">兩個媽媽和兒子</annotation>
-		<annotation cp="👩‍👩‍👧">家庭 | 親子</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">兩個媽媽和女兒</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">家庭 | 親子</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">兩個媽媽和子女</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">家庭 | 親子</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">兩個媽媽和兩兄弟</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">家庭 | 親子</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">兩個媽媽和兩姊妹</annotation>
-		<annotation cp="👨‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👦" type="tts">父子</annotation>
-		<annotation cp="👨‍👦‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">爸爸和兩兄弟</annotation>
-		<annotation cp="👨‍👧">家庭 | 親子</annotation>
-		<annotation cp="👨‍👧" type="tts">父女</annotation>
-		<annotation cp="👨‍👧‍👦">家庭 | 親子</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">爸爸和子女</annotation>
-		<annotation cp="👨‍👧‍👧">家庭 | 親子</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">爸爸和兩姊妹</annotation>
-		<annotation cp="👩‍👦">家庭 | 親子</annotation>
-		<annotation cp="👩‍👦" type="tts">母子</annotation>
-		<annotation cp="👩‍👦‍👦">家庭 | 親子</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">媽媽和兩兄弟</annotation>
-		<annotation cp="👩‍👧">家庭 | 親子</annotation>
-		<annotation cp="👩‍👧" type="tts">母女</annotation>
-		<annotation cp="👩‍👧‍👦">家庭 | 親子</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">媽媽和子女</annotation>
-		<annotation cp="👩‍👧‍👧">家庭 | 親子</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">媽媽和兩姊妹</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">接吻 | 女人 | 男人</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">親: 女人 男人</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">接吻 | 男人</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">親: 男人 男人</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">接吻 | 女人</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">親: 女人 女人</annotation>
+		<annotation cp="👩‍❤‍👨">一對 | 男女 | 相愛 | 女人 | 男人</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">相愛: 女人 男人</annotation>
+		<annotation cp="👨‍❤‍👨">一對 | 男女 | 相愛 | 男人</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">相愛: 男人 男人</annotation>
+		<annotation cp="👩‍❤‍👩">一對 | 男女 | 相愛 | 女人</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">相愛: 女人 女人</annotation>
+		<annotation cp="👨‍👩‍👦">親子 | 男人 | 女人 | 男孩</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">家庭: 男人 女人 男孩</annotation>
+		<annotation cp="👨‍👩‍👧">親子 | 男人 | 女人 | 女孩</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">家庭: 男人 女人 女孩</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">親子 | 男人 | 女人 | 女孩 | 男孩</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">家庭: 男人 女人 女孩 男孩</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">親子 | 男人 | 女人 | 男孩</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">家庭: 男人 女人 男孩 男孩</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">親子 | 男人 | 女人 | 女孩</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">家庭: 男人 女人 女孩 女孩</annotation>
+		<annotation cp="👨‍👨‍👦">親子 | 男人 | 男孩</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">家庭: 男人 男人 男孩</annotation>
+		<annotation cp="👨‍👨‍👧">親子 | 男人 | 女孩</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">家庭: 男人 男人 女孩</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">親子 | 男人 | 女孩 | 男孩</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">家庭: 男人 男人 女孩 男孩</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">親子 | 男人 | 男孩</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">家庭: 男人 男人 男孩 男孩</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">親子 | 男人 | 女孩</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">家庭: 男人 男人 女孩 女孩</annotation>
+		<annotation cp="👩‍👩‍👦">親子 | 女人 | 男孩</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">家庭: 女人 女人 男孩</annotation>
+		<annotation cp="👩‍👩‍👧">親子 | 女人 | 女孩</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">家庭: 女人 女人 女孩</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">親子 | 女人 | 女孩 | 男孩</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">家庭: 女人 女人 女孩 男孩</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">親子 | 女人 | 男孩</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">家庭: 女人 女人 男孩 男孩</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">親子 | 女人 | 女孩</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">家庭: 女人 女人 女孩 女孩</annotation>
+		<annotation cp="👨‍👦">親子 | 男人 | 男孩</annotation>
+		<annotation cp="👨‍👦" type="tts">家庭: 男人 男孩</annotation>
+		<annotation cp="👨‍👦‍👦">親子 | 男人 | 男孩</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">家庭: 男人 男孩 男孩</annotation>
+		<annotation cp="👨‍👧">親子 | 男人 | 女孩</annotation>
+		<annotation cp="👨‍👧" type="tts">家庭: 男人 女孩</annotation>
+		<annotation cp="👨‍👧‍👦">親子 | 男人 | 女孩 | 男孩</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">家庭: 男人 女孩 男孩</annotation>
+		<annotation cp="👨‍👧‍👧">親子 | 男人 | 女孩</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">家庭: 男人 女孩 女孩</annotation>
+		<annotation cp="👩‍👦">親子 | 女人 | 男孩</annotation>
+		<annotation cp="👩‍👦" type="tts">家庭: 女人 男孩</annotation>
+		<annotation cp="👩‍👦‍👦">親子 | 女人 | 男孩</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">家庭: 女人 男孩 男孩</annotation>
+		<annotation cp="👩‍👧">親子 | 女人 | 女孩</annotation>
+		<annotation cp="👩‍👧" type="tts">家庭: 女人 女孩</annotation>
+		<annotation cp="👩‍👧‍👦">親子 | 女人 | 女孩 | 男孩</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">家庭: 女人 女孩 男孩</annotation>
+		<annotation cp="👩‍👧‍👧">親子 | 女人 | 女孩</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">家庭: 女人 女孩 女孩</annotation>
 		<annotation cp="🤳🏻">拍 | 自 | 白皮膚</annotation>
 		<annotation cp="🤳🏻" type="tts">自拍: 白皮膚</annotation>
 		<annotation cp="🤳🏼">拍 | 自 | 黃皮膚</annotation>
@@ -1815,6 +2115,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">揮手: 褐皮膚</annotation>
 		<annotation cp="👋🏿">手 | 黑皮膚</annotation>
 		<annotation cp="👋🏿" type="tts">揮手: 黑皮膚</annotation>
+		<annotation cp="🤟🏻">我愛你 | 手 | 白皮膚</annotation>
+		<annotation cp="🤟🏻" type="tts">愛你手勢: 白皮膚</annotation>
+		<annotation cp="🤟🏼">我愛你 | 手 | 黃皮膚</annotation>
+		<annotation cp="🤟🏼" type="tts">愛你手勢: 黃皮膚</annotation>
+		<annotation cp="🤟🏽">我愛你 | 手 | 淺褐皮膚</annotation>
+		<annotation cp="🤟🏽" type="tts">愛你手勢: 淺褐皮膚</annotation>
+		<annotation cp="🤟🏾">我愛你 | 手 | 褐皮膚</annotation>
+		<annotation cp="🤟🏾" type="tts">愛你手勢: 褐皮膚</annotation>
+		<annotation cp="🤟🏿">我愛你 | 手 | 黑皮膚</annotation>
+		<annotation cp="🤟🏿" type="tts">愛你手勢: 黑皮膚</annotation>
 		<annotation cp="✍🏻">書寫 | 記錄 | 白皮膚</annotation>
 		<annotation cp="✍🏻" type="tts">寫: 白皮膚</annotation>
 		<annotation cp="✍🏼">書寫 | 記錄 | 黃皮膚</annotation>
@@ -1855,6 +2165,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">歡呼: 褐皮膚</annotation>
 		<annotation cp="🙌🏿">舉雙手 | 黑皮膚</annotation>
 		<annotation cp="🙌🏿" type="tts">歡呼: 黑皮膚</annotation>
+		<annotation cp="🤲🏻">祈禱 | 白皮膚</annotation>
+		<annotation cp="🤲🏻" type="tts">雙手掌朝上: 白皮膚</annotation>
+		<annotation cp="🤲🏼">祈禱 | 黃皮膚</annotation>
+		<annotation cp="🤲🏼" type="tts">雙手掌朝上: 黃皮膚</annotation>
+		<annotation cp="🤲🏽">祈禱 | 淺褐皮膚</annotation>
+		<annotation cp="🤲🏽" type="tts">雙手掌朝上: 淺褐皮膚</annotation>
+		<annotation cp="🤲🏾">祈禱 | 褐皮膚</annotation>
+		<annotation cp="🤲🏾" type="tts">雙手掌朝上: 褐皮膚</annotation>
+		<annotation cp="🤲🏿">祈禱 | 黑皮膚</annotation>
+		<annotation cp="🤲🏿" type="tts">雙手掌朝上: 黑皮膚</annotation>
 		<annotation cp="🙏🏻">雙手合一 | 白皮膚</annotation>
 		<annotation cp="🙏🏻" type="tts">阿彌陀佛: 白皮膚</annotation>
 		<annotation cp="🙏🏼">雙手合一 | 黃皮膚</annotation>
@@ -1899,6 +2219,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="#⃣" type="tts">按鍵: #</annotation>
 		<annotation cp="*⃣">按鍵</annotation>
 		<annotation cp="*⃣" type="tts">按鍵: *</annotation>
+		<annotation cp="🔟">按鍵</annotation>
+		<annotation cp="🔟" type="tts">按鍵: 10</annotation>
 		<annotation cp="🇦🇨">旗子</annotation>
 		<annotation cp="🇦🇨" type="tts">阿森松島</annotation>
 		<annotation cp="🇦🇩">旗子</annotation>
@@ -1910,7 +2232,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇬">旗子</annotation>
 		<annotation cp="🇦🇬" type="tts">安地卡及巴布達</annotation>
 		<annotation cp="🇦🇮">旗子</annotation>
-		<annotation cp="🇦🇮" type="tts">安圭拉</annotation>
+		<annotation cp="🇦🇮" type="tts">安奎拉</annotation>
 		<annotation cp="🇦🇱">旗子</annotation>
 		<annotation cp="🇦🇱" type="tts">阿爾巴尼亞</annotation>
 		<annotation cp="🇦🇲">旗子</annotation>
@@ -1978,7 +2300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇦">旗子</annotation>
 		<annotation cp="🇨🇦" type="tts">加拿大</annotation>
 		<annotation cp="🇨🇨">旗子</annotation>
-		<annotation cp="🇨🇨" type="tts">科科斯（基林）群島</annotation>
+		<annotation cp="🇨🇨" type="tts">科克斯（基靈）群島</annotation>
 		<annotation cp="🇨🇩">旗子</annotation>
 		<annotation cp="🇨🇩" type="tts">剛果（金夏沙）</annotation>
 		<annotation cp="🇨🇫">旗子</annotation>
@@ -2054,7 +2376,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇫🇰">旗子</annotation>
 		<annotation cp="🇫🇰" type="tts">福克蘭群島</annotation>
 		<annotation cp="🇫🇲">旗子</annotation>
-		<annotation cp="🇫🇲" type="tts">密克羅尼西亞群島</annotation>
+		<annotation cp="🇫🇲" type="tts">密克羅尼西亞</annotation>
 		<annotation cp="🇫🇴">旗子</annotation>
 		<annotation cp="🇫🇴" type="tts">法羅群島</annotation>
 		<annotation cp="🇫🇷">旗子</annotation>
@@ -2100,7 +2422,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇭🇰">旗子</annotation>
 		<annotation cp="🇭🇰" type="tts">中國香港特別行政區</annotation>
 		<annotation cp="🇭🇲">旗子</annotation>
-		<annotation cp="🇭🇲" type="tts">赫德島和麥克唐納群島</annotation>
+		<annotation cp="🇭🇲" type="tts">赫德島及麥唐納群島</annotation>
 		<annotation cp="🇭🇳">旗子</annotation>
 		<annotation cp="🇭🇳" type="tts">宏都拉斯</annotation>
 		<annotation cp="🇭🇷">旗子</annotation>
@@ -2208,9 +2530,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇴">旗子</annotation>
 		<annotation cp="🇲🇴" type="tts">中國澳門特別行政區</annotation>
 		<annotation cp="🇲🇵">旗子</annotation>
-		<annotation cp="🇲🇵" type="tts">北馬里亞納群島</annotation>
+		<annotation cp="🇲🇵" type="tts">北馬利安納群島</annotation>
 		<annotation cp="🇲🇶">旗子</annotation>
-		<annotation cp="🇲🇶" type="tts">馬丁尼克島</annotation>
+		<annotation cp="🇲🇶" type="tts">馬丁尼克</annotation>
 		<annotation cp="🇲🇷">旗子</annotation>
 		<annotation cp="🇲🇷" type="tts">茅利塔尼亞</annotation>
 		<annotation cp="🇲🇸">旗子</annotation>
@@ -2254,7 +2576,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇳🇿">旗子</annotation>
 		<annotation cp="🇳🇿" type="tts">紐西蘭</annotation>
 		<annotation cp="🇴🇲">旗子</annotation>
-		<annotation cp="🇴🇲" type="tts">阿曼王國</annotation>
+		<annotation cp="🇴🇲" type="tts">阿曼</annotation>
 		<annotation cp="🇵🇦">旗子</annotation>
 		<annotation cp="🇵🇦" type="tts">巴拿馬</annotation>
 		<annotation cp="🇵🇪">旗子</annotation>
@@ -2270,7 +2592,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇱">旗子</annotation>
 		<annotation cp="🇵🇱" type="tts">波蘭</annotation>
 		<annotation cp="🇵🇲">旗子</annotation>
-		<annotation cp="🇵🇲" type="tts">聖皮埃爾和密克隆群島</annotation>
+		<annotation cp="🇵🇲" type="tts">聖皮埃與密克隆群島</annotation>
 		<annotation cp="🇵🇳">旗子</annotation>
 		<annotation cp="🇵🇳" type="tts">皮特肯群島</annotation>
 		<annotation cp="🇵🇷">旗子</annotation>
@@ -2312,7 +2634,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇮">旗子</annotation>
 		<annotation cp="🇸🇮" type="tts">斯洛維尼亞</annotation>
 		<annotation cp="🇸🇯">旗子</annotation>
-		<annotation cp="🇸🇯" type="tts">冷岸及央棉</annotation>
+		<annotation cp="🇸🇯" type="tts">挪威屬斯瓦巴及尖棉</annotation>
 		<annotation cp="🇸🇰">旗子</annotation>
 		<annotation cp="🇸🇰" type="tts">斯洛伐克</annotation>
 		<annotation cp="🇸🇱">旗子</annotation>
@@ -2344,7 +2666,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇩">旗子</annotation>
 		<annotation cp="🇹🇩" type="tts">查德</annotation>
 		<annotation cp="🇹🇫">旗子</annotation>
-		<annotation cp="🇹🇫" type="tts">法屬南方屬地</annotation>
+		<annotation cp="🇹🇫" type="tts">法屬南部屬地</annotation>
 		<annotation cp="🇹🇬">旗子</annotation>
 		<annotation cp="🇹🇬" type="tts">多哥</annotation>
 		<annotation cp="🇹🇭">旗子</annotation>
@@ -2408,7 +2730,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇾🇪">旗子</annotation>
 		<annotation cp="🇾🇪" type="tts">葉門</annotation>
 		<annotation cp="🇾🇹">旗子</annotation>
-		<annotation cp="🇾🇹" type="tts">馬約特</annotation>
+		<annotation cp="🇾🇹" type="tts">馬約特島</annotation>
 		<annotation cp="🇿🇦">旗子</annotation>
 		<annotation cp="🇿🇦" type="tts">南非</annotation>
 		<annotation cp="🇿🇲">旗子</annotation>

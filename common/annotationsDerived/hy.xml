@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="hy"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | զրո | ստեղն</annotation>
-		<annotation cp="0⃣" type="tts">ստեղն զրո</annotation>
-		<annotation cp="1⃣">1 | մեկ | ստեղն</annotation>
-		<annotation cp="1⃣" type="tts">ստեղն մեկ</annotation>
-		<annotation cp="2⃣">2 | երկու | ստեղն</annotation>
-		<annotation cp="2⃣" type="tts">ստեղն երկու</annotation>
-		<annotation cp="3⃣">3 | երեք | ստեղն</annotation>
-		<annotation cp="3⃣" type="tts">ստեղն երեք</annotation>
-		<annotation cp="4⃣">4 | չորս | ստեղն</annotation>
-		<annotation cp="4⃣" type="tts">ստեղն չորս</annotation>
-		<annotation cp="5⃣">5 | հինգ | ստեղն</annotation>
-		<annotation cp="5⃣" type="tts">ստեղն հինգ</annotation>
-		<annotation cp="6⃣">6 | ստեղն | վեց</annotation>
-		<annotation cp="6⃣" type="tts">ստեղն վեց</annotation>
-		<annotation cp="7⃣">7 | յոթ | ստեղն</annotation>
-		<annotation cp="7⃣" type="tts">ստեղն յոթ</annotation>
-		<annotation cp="8⃣">8 | ութ | ստեղն</annotation>
-		<annotation cp="8⃣" type="tts">ստեղն ութ</annotation>
-		<annotation cp="9⃣">9 | ինը | ստեղն</annotation>
-		<annotation cp="9⃣" type="tts">ստեղն ինը</annotation>
+		<annotation cp="0⃣">ստեղն</annotation>
+		<annotation cp="0⃣" type="tts">ստեղն՝ 0</annotation>
+		<annotation cp="1⃣">ստեղն</annotation>
+		<annotation cp="1⃣" type="tts">ստեղն՝ 1</annotation>
+		<annotation cp="2⃣">ստեղն</annotation>
+		<annotation cp="2⃣" type="tts">ստեղն՝ 2</annotation>
+		<annotation cp="3⃣">ստեղն</annotation>
+		<annotation cp="3⃣" type="tts">ստեղն՝ 3</annotation>
+		<annotation cp="4⃣">ստեղն</annotation>
+		<annotation cp="4⃣" type="tts">ստեղն՝ 4</annotation>
+		<annotation cp="5⃣">ստեղն</annotation>
+		<annotation cp="5⃣" type="tts">ստեղն՝ 5</annotation>
+		<annotation cp="6⃣">ստեղն</annotation>
+		<annotation cp="6⃣" type="tts">ստեղն՝ 6</annotation>
+		<annotation cp="7⃣">ստեղն</annotation>
+		<annotation cp="7⃣" type="tts">ստեղն՝ 7</annotation>
+		<annotation cp="8⃣">ստեղն</annotation>
+		<annotation cp="8⃣" type="tts">ստեղն՝ 8</annotation>
+		<annotation cp="9⃣">ստեղն</annotation>
+		<annotation cp="9⃣" type="tts">ստեղն՝ 9</annotation>
 		<annotation cp="👶🏻">երեխա | մանուկ | նորածին | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👶🏻" type="tts">մանուկ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="👶🏼">երեխա | մանուկ | նորածին | մաշկի տիպ-3</annotation>
@@ -42,6 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">մանուկ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="👶🏿">երեխա | մանուկ | նորածին | մաշկի տիպ-6</annotation>
 		<annotation cp="👶🏿" type="tts">մանուկ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧒🏻">փոքրիկ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧒🏻" type="tts">երեխա՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧒🏼">փոքրիկ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧒🏼" type="tts">երեխա՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧒🏽">փոքրիկ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧒🏽" type="tts">երեխա՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧒🏾">փոքրիկ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧒🏾" type="tts">երեխա՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧒🏿">փոքրիկ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧒🏿" type="tts">երեխա՝ մաշկի տիպ-6</annotation>
 		<annotation cp="👦🏻">տղա | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👦🏻" type="tts">տղա՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="👦🏼">տղա | մաշկի տիպ-3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">աղջիկ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="👧🏿">կենդանակերպ | կույս | օրիորդ | մաշկի տիպ-6</annotation>
 		<annotation cp="👧🏿" type="tts">աղջիկ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧑🏻">չափահաս | չեզոք սեռ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧑🏻" type="tts">մեծահասակ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧑🏼">չափահաս | չեզոք սեռ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧑🏼" type="tts">մեծահասակ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧑🏽">չափահաս | չեզոք սեռ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧑🏽" type="tts">մեծահասակ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧑🏾">չափահաս | չեզոք սեռ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧑🏾" type="tts">մեծահասակ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧑🏿">չափահաս | չեզոք սեռ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧑🏿" type="tts">մեծահասակ՝ մաշկի տիպ-6</annotation>
 		<annotation cp="👨🏻">տղամարդ | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👨🏻" type="tts">տղամարդ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="👨🏼">տղամարդ | մաշկի տիպ-3</annotation>
@@ -82,36 +102,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">կին՝ մաշկի տիպ-5</annotation>
 		<annotation cp="👩🏿">կին | մաշկի տիպ-6</annotation>
 		<annotation cp="👩🏿" type="tts">կին՝ մաշկի տիպ-6</annotation>
-		<annotation cp="👴🏻">տարեց | տղամարդ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧓🏻">ծեր | չեզոք սեռ | տարեց | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧓🏻" type="tts">տարեց մարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧓🏼">ծեր | չեզոք սեռ | տարեց | մաշկի տիպ-3</annotation>
+		<annotation cp="🧓🏼" type="tts">տարեց մարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧓🏽">ծեր | չեզոք սեռ | տարեց | մաշկի տիպ-4</annotation>
+		<annotation cp="🧓🏽" type="tts">տարեց մարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧓🏾">ծեր | չեզոք սեռ | տարեց | մաշկի տիպ-5</annotation>
+		<annotation cp="🧓🏾" type="tts">տարեց մարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧓🏿">ծեր | չեզոք սեռ | տարեց | մաշկի տիպ-6</annotation>
+		<annotation cp="🧓🏿" type="tts">տարեց մարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="👴🏻">ծեր | տարեց | տղամարդ | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👴🏻" type="tts">տարեց տղամարդ՝ մաշկի տիպ-1-2</annotation>
-		<annotation cp="👴🏼">տարեց | տղամարդ | մաշկի տիպ-3</annotation>
+		<annotation cp="👴🏼">ծեր | տարեց | տղամարդ | մաշկի տիպ-3</annotation>
 		<annotation cp="👴🏼" type="tts">տարեց տղամարդ՝ մաշկի տիպ-3</annotation>
-		<annotation cp="👴🏽">տարեց | տղամարդ | մաշկի տիպ-4</annotation>
+		<annotation cp="👴🏽">ծեր | տարեց | տղամարդ | մաշկի տիպ-4</annotation>
 		<annotation cp="👴🏽" type="tts">տարեց տղամարդ՝ մաշկի տիպ-4</annotation>
-		<annotation cp="👴🏾">տարեց | տղամարդ | մաշկի տիպ-5</annotation>
+		<annotation cp="👴🏾">ծեր | տարեց | տղամարդ | մաշկի տիպ-5</annotation>
 		<annotation cp="👴🏾" type="tts">տարեց տղամարդ՝ մաշկի տիպ-5</annotation>
-		<annotation cp="👴🏿">տարեց | տղամարդ | մաշկի տիպ-6</annotation>
+		<annotation cp="👴🏿">ծեր | տարեց | տղամարդ | մաշկի տիպ-6</annotation>
 		<annotation cp="👴🏿" type="tts">տարեց տղամարդ՝ մաշկի տիպ-6</annotation>
-		<annotation cp="👵🏻">կին | տարեց | մաշկի տիպ-1-2</annotation>
+		<annotation cp="👵🏻">ծեր | կին | տարեց | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👵🏻" type="tts">տարեց կին՝ մաշկի տիպ-1-2</annotation>
-		<annotation cp="👵🏼">կին | տարեց | մաշկի տիպ-3</annotation>
+		<annotation cp="👵🏼">ծեր | կին | տարեց | մաշկի տիպ-3</annotation>
 		<annotation cp="👵🏼" type="tts">տարեց կին՝ մաշկի տիպ-3</annotation>
-		<annotation cp="👵🏽">կին | տարեց | մաշկի տիպ-4</annotation>
+		<annotation cp="👵🏽">ծեր | կին | տարեց | մաշկի տիպ-4</annotation>
 		<annotation cp="👵🏽" type="tts">տարեց կին՝ մաշկի տիպ-4</annotation>
-		<annotation cp="👵🏾">կին | տարեց | մաշկի տիպ-5</annotation>
+		<annotation cp="👵🏾">ծեր | կին | տարեց | մաշկի տիպ-5</annotation>
 		<annotation cp="👵🏾" type="tts">տարեց կին՝ մաշկի տիպ-5</annotation>
-		<annotation cp="👵🏿">կին | տարեց | մաշկի տիպ-6</annotation>
+		<annotation cp="👵🏿">ծեր | կին | տարեց | մաշկի տիպ-6</annotation>
 		<annotation cp="👵🏿" type="tts">տարեց կին՝ մաշկի տիպ-6</annotation>
 		<annotation cp="👨🏻‍⚕">առողջապահություն | բժիշկ | բժշկություն | տղամարդ | մաշկի տիպ-1-2</annotation>
-		<annotation cp="👨🏻‍⚕" type="tts">տղամարդ բժիշկ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">բժիշկ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="👨🏼‍⚕">առողջապահություն | բժիշկ | բժշկություն | տղամարդ | մաշկի տիպ-3</annotation>
-		<annotation cp="👨🏼‍⚕" type="tts">տղամարդ բժիշկ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">բժիշկ՝ մաշկի տիպ-3</annotation>
 		<annotation cp="👨🏽‍⚕">առողջապահություն | բժիշկ | բժշկություն | տղամարդ | մաշկի տիպ-4</annotation>
-		<annotation cp="👨🏽‍⚕" type="tts">տղամարդ բժիշկ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">բժիշկ՝ մաշկի տիպ-4</annotation>
 		<annotation cp="👨🏾‍⚕">առողջապահություն | բժիշկ | բժշկություն | տղամարդ | մաշկի տիպ-5</annotation>
-		<annotation cp="👨🏾‍⚕" type="tts">տղամարդ բժիշկ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">բժիշկ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="👨🏿‍⚕">առողջապահություն | բժիշկ | բժշկություն | տղամարդ | մաշկի տիպ-6</annotation>
-		<annotation cp="👨🏿‍⚕" type="tts">տղամարդ բժիշկ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">բժիշկ՝ մաշկի տիպ-6</annotation>
 		<annotation cp="👩🏻‍⚕">առողջապահություն | բժիշկ | բժշկություն | կին | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">բժշկուհի՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="👩🏼‍⚕">առողջապահություն | բժիշկ | բժշկություն | կին | մաշկի տիպ-3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">չինական գլխարկով մարդ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="👲🏿">գլխարկ | մարդ | չինական | մաշկի տիպ-6</annotation>
 		<annotation cp="👲🏿" type="tts">չինական գլխարկով մարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧕🏻">գլխաշոր | հիջաբ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧕🏻" type="tts">գլխաշորով կին՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧕🏼">գլխաշոր | հիջաբ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧕🏼" type="tts">գլխաշորով կին՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧕🏽">գլխաշոր | հիջաբ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧕🏽" type="tts">գլխաշորով կին՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧕🏾">գլխաշոր | հիջաբ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧕🏾" type="tts">գլխաշորով կին՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧕🏿">գլխաշոր | հիջաբ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧕🏿" type="tts">գլխաշորով կին՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧔🏻">մորուք | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧔🏻" type="tts">մորուքով մարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧔🏼">մորուք | մաշկի տիպ-3</annotation>
+		<annotation cp="🧔🏼" type="tts">մորուքով մարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧔🏽">մորուք | մաշկի տիպ-4</annotation>
+		<annotation cp="🧔🏽" type="tts">մորուքով մարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧔🏾">մորուք | մաշկի տիպ-5</annotation>
+		<annotation cp="🧔🏾" type="tts">մորուքով մարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧔🏿">մորուք | մաշկի տիպ-6</annotation>
+		<annotation cp="🧔🏿" type="tts">մորուքով մարդ՝ մաշկի տիպ-6</annotation>
 		<annotation cp="👱🏻">շեկ | շիկահեր | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👱🏻" type="tts">շիկահեր մարդ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="👱🏼">շեկ | շիկահեր | մաշկի տիպ-3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">հղի կին՝ մաշկի տիպ-5</annotation>
 		<annotation cp="🤰🏿">կին | հղի | մաշկի տիպ-6</annotation>
 		<annotation cp="🤰🏿" type="tts">հղի կին՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🤱🏻">կերակրում | կուրծք | նորածին | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🤱🏻" type="tts">կրծքով կերակրում՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🤱🏼">կերակրում | կուրծք | նորածին | մաշկի տիպ-3</annotation>
+		<annotation cp="🤱🏼" type="tts">կրծքով կերակրում՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🤱🏽">կերակրում | կուրծք | նորածին | մաշկի տիպ-4</annotation>
+		<annotation cp="🤱🏽" type="tts">կրծքով կերակրում՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🤱🏾">կերակրում | կուրծք | նորածին | մաշկի տիպ-5</annotation>
+		<annotation cp="🤱🏾" type="tts">կրծքով կերակրում՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🤱🏿">կերակրում | կուրծք | նորածին | մաշկի տիպ-6</annotation>
+		<annotation cp="🤱🏿" type="tts">կրծքով կերակրում՝ մաշկի տիպ-6</annotation>
 		<annotation cp="👼🏻">դեմք | երեխա | հեքիաթ | հրեշտակ | ֆանտազիա | մաշկի տիպ-1-2</annotation>
 		<annotation cp="👼🏻" type="tts">մանուկ-հրեշտակ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="👼🏼">դեմք | երեխա | հեքիաթ | հրեշտակ | ֆանտազիա | մաշկի տիպ-3</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">Ձմեռ տատ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="🤶🏿">նոր տարի | սուրբ ծնունդ | տատիկ | մաշկի տիպ-6</annotation>
 		<annotation cp="🤶🏿" type="tts">Ձմեռ տատ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧙🏻">կախարդ | մոգ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧙🏻" type="tts">մոգ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧙🏼">կախարդ | մոգ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧙🏼" type="tts">մոգ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧙🏽">կախարդ | մոգ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧙🏽" type="tts">մոգ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧙🏾">կախարդ | մոգ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧙🏾" type="tts">մոգ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧙🏿">կախարդ | մոգ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧙🏿" type="tts">մոգ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧙🏻‍♀">կախարդ | կին | վհուկ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">կախարդուհի՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧙🏼‍♀">կախարդ | կին | վհուկ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">կախարդուհի՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧙🏽‍♀">կախարդ | կին | վհուկ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">կախարդուհի՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧙🏾‍♀">կախարդ | կին | վհուկ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">կախարդուհի՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧙🏿‍♀">կախարդ | կին | վհուկ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">կախարդուհի՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧙🏻‍♂">կախարդ | մոգ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">կախարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧙🏼‍♂">կախարդ | մոգ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">կախարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧙🏽‍♂">կախարդ | մոգ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">կախարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧙🏾‍♂">կախարդ | մոգ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">կախարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧙🏿‍♂">կախարդ | մոգ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">կախարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧚🏻">Տիտանիա | Օբերոն | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧚🏻" type="tts">փերի՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧚🏼">Տիտանիա | Օբերոն | մաշկի տիպ-3</annotation>
+		<annotation cp="🧚🏼" type="tts">փերի՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧚🏽">Տիտանիա | Օբերոն | մաշկի տիպ-4</annotation>
+		<annotation cp="🧚🏽" type="tts">փերի՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧚🏾">Տիտանիա | Օբերոն | մաշկի տիպ-5</annotation>
+		<annotation cp="🧚🏾" type="tts">փերի՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧚🏿">Տիտանիա | Օբերոն | մաշկի տիպ-6</annotation>
+		<annotation cp="🧚🏿" type="tts">փերի՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧚🏻‍♀">Տիտանիա | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">կին-փերի՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧚🏼‍♀">Տիտանիա | մաշկի տիպ-3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">կին-փերի՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧚🏽‍♀">Տիտանիա | մաշկի տիպ-4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">կին-փերի՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧚🏾‍♀">Տիտանիա | մաշկի տիպ-5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">կին-փերի՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧚🏿‍♀">Տիտանիա | մաշկի տիպ-6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">կին-փերի՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧚🏻‍♂">Օբերոն | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">տղամարդ-փերի՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧚🏼‍♂">Օբերոն | մաշկի տիպ-3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">տղամարդ-փերի՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧚🏽‍♂">Օբերոն | մաշկի տիպ-4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">տղամարդ-փերի՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧚🏾‍♂">Օբերոն | մաշկի տիպ-5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">տղամարդ-փերի՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧚🏿‍♂">Օբերոն | մաշկի տիպ-6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">տղամարդ-փերի՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧛🏻">Դրակուլա | ատամներ | արյուն | վամպիր | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧛🏻" type="tts">վամպիր՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧛🏼">Դրակուլա | ատամներ | արյուն | վամպիր | մաշկի տիպ-3</annotation>
+		<annotation cp="🧛🏼" type="tts">վամպիր՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧛🏽">Դրակուլա | ատամներ | արյուն | վամպիր | մաշկի տիպ-4</annotation>
+		<annotation cp="🧛🏽" type="tts">վամպիր՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧛🏾">Դրակուլա | ատամներ | արյուն | վամպիր | մաշկի տիպ-5</annotation>
+		<annotation cp="🧛🏾" type="tts">վամպիր՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧛🏿">Դրակուլա | ատամներ | արյուն | վամպիր | մաշկի տիպ-6</annotation>
+		<annotation cp="🧛🏿" type="tts">վամպիր՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧛🏻‍♀">ատամներ | արյուն | կին | վամպիր | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">կին-վամպիր՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧛🏼‍♀">ատամներ | արյուն | կին | վամպիր | մաշկի տիպ-3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">կին-վամպիր՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧛🏽‍♀">ատամներ | արյուն | կին | վամպիր | մաշկի տիպ-4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">կին-վամպիր՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧛🏾‍♀">ատամներ | արյուն | կին | վամպիր | մաշկի տիպ-5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">կին-վամպիր՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧛🏿‍♀">ատամներ | արյուն | կին | վամպիր | մաշկի տիպ-6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">կին-վամպիր՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧛🏻‍♂">Դրակուլա | ատամներ | արյուն | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">տղամարդ-վամպիր՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧛🏼‍♂">Դրակուլա | ատամներ | արյուն | մաշկի տիպ-3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">տղամարդ-վամպիր՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧛🏽‍♂">Դրակուլա | ատամներ | արյուն | մաշկի տիպ-4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">տղամարդ-վամպիր՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧛🏾‍♂">Դրակուլա | ատամներ | արյուն | մաշկի տիպ-5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">տղամարդ-վամպիր՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧛🏿‍♂">Դրակուլա | ատամներ | արյուն | մաշկի տիպ-6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">տղամարդ-վամպիր՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧜🏻">մարդաձուկ | ջրահարս | տրիտոն | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧜🏻" type="tts">մարդաձուկ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧜🏼">մարդաձուկ | ջրահարս | տրիտոն | մաշկի տիպ-3</annotation>
+		<annotation cp="🧜🏼" type="tts">մարդաձուկ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧜🏽">մարդաձուկ | ջրահարս | տրիտոն | մաշկի տիպ-4</annotation>
+		<annotation cp="🧜🏽" type="tts">մարդաձուկ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧜🏾">մարդաձուկ | ջրահարս | տրիտոն | մաշկի տիպ-5</annotation>
+		<annotation cp="🧜🏾" type="tts">մարդաձուկ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧜🏿">մարդաձուկ | ջրահարս | տրիտոն | մաշկի տիպ-6</annotation>
+		<annotation cp="🧜🏿" type="tts">մարդաձուկ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧜🏻‍♀">կին | ձուկ | ջրահարս | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">ջրահարս՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧜🏼‍♀">կին | ձուկ | ջրահարս | մաշկի տիպ-3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">ջրահարս՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧜🏽‍♀">կին | ձուկ | ջրահարս | մաշկի տիպ-4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">ջրահարս՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧜🏾‍♀">կին | ձուկ | ջրահարս | մաշկի տիպ-5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">ջրահարս՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧜🏿‍♀">կին | ձուկ | ջրահարս | մաշկի տիպ-6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">ջրահարս՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧜🏻‍♂">ձուկ | տղամարդ | տրիտոն | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">տրիտոն՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧜🏼‍♂">ձուկ | տղամարդ | տրիտոն | մաշկի տիպ-3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">տրիտոն՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧜🏽‍♂">ձուկ | տղամարդ | տրիտոն | մաշկի տիպ-4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">տրիտոն՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧜🏾‍♂">ձուկ | տղամարդ | տրիտոն | մաշկի տիպ-5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">տրիտոն՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧜🏿‍♂">ձուկ | տղամարդ | տրիտոն | մաշկի տիպ-6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">տրիտոն՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧝🏻">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧝🏻" type="tts">էլֆ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧝🏼">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧝🏼" type="tts">էլֆ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧝🏽">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧝🏽" type="tts">էլֆ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧝🏾">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧝🏾" type="tts">էլֆ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧝🏿">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧝🏿" type="tts">էլֆ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧝🏻‍♀">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">կին-էլֆ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧝🏼‍♀">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">կին-էլֆ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧝🏽‍♀">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">կին-էլֆ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧝🏾‍♀">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">կին-էլֆ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧝🏿‍♀">կախարդական | կախարդանք | հեքիաթ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">կին-էլֆ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧝🏻‍♂">կախարդական | հեքիաթ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">տղամարդ-էլֆ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧝🏼‍♂">կախարդական | հեքիաթ | մաշկի տիպ-3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">տղամարդ-էլֆ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧝🏽‍♂">կախարդական | հեքիաթ | մաշկի տիպ-4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">տղամարդ-էլֆ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧝🏾‍♂">կախարդական | հեքիաթ | մաշկի տիպ-5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">տղամարդ-էլֆ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧝🏿‍♂">կախարդական | հեքիաթ | մաշկի տիպ-6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">տղամարդ-էլֆ՝ մաշկի տիպ-6</annotation>
 		<annotation cp="🙍🏻">ժեստ | խոժոռված | մաշկի տիպ-1-2</annotation>
 		<annotation cp="🙍🏻" type="tts">խոժոռված դեմքով անձ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="🙍🏼">ժեստ | խոժոռված | մաշկի տիպ-3</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">պարող տղամարդ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="🕺🏿">պար | տղամարդ | մաշկի տիպ-6</annotation>
 		<annotation cp="🕺🏿" type="tts">պարող տղամարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧖🏻">բաղնիք | սաունա | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧖🏻" type="tts">մարդ բաղնիքում՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧖🏼">բաղնիք | սաունա | մաշկի տիպ-3</annotation>
+		<annotation cp="🧖🏼" type="tts">մարդ բաղնիքում՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧖🏽">բաղնիք | սաունա | մաշկի տիպ-4</annotation>
+		<annotation cp="🧖🏽" type="tts">մարդ բաղնիքում՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧖🏾">բաղնիք | սաունա | մաշկի տիպ-5</annotation>
+		<annotation cp="🧖🏾" type="tts">մարդ բաղնիքում՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧖🏿">բաղնիք | սաունա | մաշկի տիպ-6</annotation>
+		<annotation cp="🧖🏿" type="tts">մարդ բաղնիքում՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧖🏻‍♀">բաղնիք | սաունա | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">կին բաղնիքում՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧖🏼‍♀">բաղնիք | սաունա | մաշկի տիպ-3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">կին բաղնիքում՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧖🏽‍♀">բաղնիք | սաունա | մաշկի տիպ-4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">կին բաղնիքում՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧖🏾‍♀">բաղնիք | սաունա | մաշկի տիպ-5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">կին բաղնիքում՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧖🏿‍♀">բաղնիք | սաունա | մաշկի տիպ-6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">կին բաղնիքում՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧖🏻‍♂">բաղնիք | սաունա | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">տղամարդ բաղնիքում՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧖🏼‍♂">բաղնիք | սաունա | մաշկի տիպ-3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">տղամարդ բաղնիքում՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧖🏽‍♂">բաղնիք | սաունա | մաշկի տիպ-4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">տղամարդ բաղնիքում՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧖🏾‍♂">բաղնիք | սաունա | մաշկի տիպ-5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">տղամարդ բաղնիքում՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧖🏿‍♂">բաղնիք | սաունա | մաշկի տիպ-6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">տղամարդ բաղնիքում՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧗🏻">մագլցող | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧗🏻" type="tts">մագլցող մարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧗🏼">մագլցող | մաշկի տիպ-3</annotation>
+		<annotation cp="🧗🏼" type="tts">մագլցող մարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧗🏽">մագլցող | մաշկի տիպ-4</annotation>
+		<annotation cp="🧗🏽" type="tts">մագլցող մարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧗🏾">մագլցող | մաշկի տիպ-5</annotation>
+		<annotation cp="🧗🏾" type="tts">մագլցող մարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧗🏿">մագլցող | մաշկի տիպ-6</annotation>
+		<annotation cp="🧗🏿" type="tts">մագլցող մարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧗🏻‍♀">մագլցող | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">մագլցող կին՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧗🏼‍♀">մագլցող | մաշկի տիպ-3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">մագլցող կին՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧗🏽‍♀">մագլցող | մաշկի տիպ-4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">մագլցող կին՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧗🏾‍♀">մագլցող | մաշկի տիպ-5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">մագլցող կին՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧗🏿‍♀">մագլցող | մաշկի տիպ-6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">մագլցող կին՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧗🏻‍♂">մագլցող | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">մագլցող տղամարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧗🏼‍♂">մագլցող | մաշկի տիպ-3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">մագլցող տղամարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧗🏽‍♂">մագլցող | մաշկի տիպ-4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">մագլցող տղամարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧗🏾‍♂">մագլցող | մաշկի տիպ-5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">մագլցող տղամարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧗🏿‍♂">մագլցող | մաշկի տիպ-6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">մագլցող տղամարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧘🏻">մեդիտացիա | յոգա | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧘🏻" type="tts">լոտոսի դիրքով նստած մարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧘🏼">մեդիտացիա | յոգա | մաշկի տիպ-3</annotation>
+		<annotation cp="🧘🏼" type="tts">լոտոսի դիրքով նստած մարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧘🏽">մեդիտացիա | յոգա | մաշկի տիպ-4</annotation>
+		<annotation cp="🧘🏽" type="tts">լոտոսի դիրքով նստած մարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧘🏾">մեդիտացիա | յոգա | մաշկի տիպ-5</annotation>
+		<annotation cp="🧘🏾" type="tts">լոտոսի դիրքով նստած մարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧘🏿">մեդիտացիա | յոգա | մաշկի տիպ-6</annotation>
+		<annotation cp="🧘🏿" type="tts">լոտոսի դիրքով նստած մարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧘🏻‍♀">մեդիտացիա | յոգա | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">լոտոսի դիրքով նստած կին՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧘🏼‍♀">մեդիտացիա | յոգա | մաշկի տիպ-3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">լոտոսի դիրքով նստած կին՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧘🏽‍♀">մեդիտացիա | յոգա | մաշկի տիպ-4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">լոտոսի դիրքով նստած կին՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧘🏾‍♀">մեդիտացիա | յոգա | մաշկի տիպ-5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">լոտոսի դիրքով նստած կին՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧘🏿‍♀">մեդիտացիա | յոգա | մաշկի տիպ-6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">լոտոսի դիրքով նստած կին՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🧘🏻‍♂">մեդիտացիա | յոգա | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">լոտոսի դիրքով նստած տղամարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🧘🏼‍♂">մեդիտացիա | յոգա | մաշկի տիպ-3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">լոտոսի դիրքով նստած տղամարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🧘🏽‍♂">մեդիտացիա | յոգա | մաշկի տիպ-4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">լոտոսի դիրքով նստած տղամարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🧘🏾‍♂">մեդիտացիա | յոգա | մաշկի տիպ-5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">լոտոսի դիրքով նստած տղամարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🧘🏿‍♂">մեդիտացիա | յոգա | մաշկի տիպ-6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">լոտոսի դիրքով նստած տղամարդ՝ մաշկի տիպ-6</annotation>
 		<annotation cp="🛀🏻">լոգասենյակ | լոգարան | մաշկի տիպ-1-2</annotation>
 		<annotation cp="🛀🏻" type="tts">լոգանք ընդունող մարդ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="🛀🏼">լոգասենյակ | լոգարան | մաշկի տիպ-3</annotation>
@@ -1113,15 +1413,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛀🏿">լոգասենյակ | լոգարան | մաշկի տիպ-6</annotation>
 		<annotation cp="🛀🏿" type="tts">լոգանք ընդունող մարդ՝ մաշկի տիպ-6</annotation>
 		<annotation cp="🛌🏻">հյուրանոց | քնել | մաշկի տիպ-1-2</annotation>
-		<annotation cp="🛌🏻" type="tts">մահճակալում պառկած մարդ՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🛌🏻" type="tts">մահճակալին պառկած մարդ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="🛌🏼">հյուրանոց | քնել | մաշկի տիպ-3</annotation>
-		<annotation cp="🛌🏼" type="tts">մահճակալում պառկած մարդ՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🛌🏼" type="tts">մահճակալին պառկած մարդ՝ մաշկի տիպ-3</annotation>
 		<annotation cp="🛌🏽">հյուրանոց | քնել | մաշկի տիպ-4</annotation>
-		<annotation cp="🛌🏽" type="tts">մահճակալում պառկած մարդ՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🛌🏽" type="tts">մահճակալին պառկած մարդ՝ մաշկի տիպ-4</annotation>
 		<annotation cp="🛌🏾">հյուրանոց | քնել | մաշկի տիպ-5</annotation>
-		<annotation cp="🛌🏾" type="tts">մահճակալում պառկած մարդ՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🛌🏾" type="tts">մահճակալին պառկած մարդ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="🛌🏿">հյուրանոց | քնել | մաշկի տիպ-6</annotation>
-		<annotation cp="🛌🏿" type="tts">մահճակալում պառկած մարդ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🛌🏿" type="tts">մահճակալին պառկած մարդ՝ մաշկի տիպ-6</annotation>
 		<annotation cp="🕴🏻">բիզնես | կոստյում | մարդ | մաշկի տիպ-1-2</annotation>
 		<annotation cp="🕴🏻" type="tts">տեղում ճախրող գործնական կոստյումով մարդ՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="🕴🏼">բիզնես | կոստյում | մարդ | մաշկի տիպ-3</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">կին ձեռնածու՝ մաշկի տիպ-5</annotation>
 		<annotation cp="🤹🏿‍♀">աճպարար | կին | հավասարակշռություն | ձեռնածու | մաշկի տիպ-6</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">կին ձեռնածու՝ մաշկի տիպ-6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">զույգ | կին | համբույր | տղամարդ</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">համբույր, կին, տղամարդ</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">զույգ | համբույր | տղամարդ</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">համբույր, տղամարդ, տղամարդ</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">զույգ | կին</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">համբույր, կին, կին</annotation>
-		<annotation cp="👩‍❤‍👨">զույգ | կին | սեր | տղամարդ</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">սրտիկով զույգ, կին, տղամարդ</annotation>
-		<annotation cp="👨‍❤‍👨">զույգ | սեր | սիրտ | տղամարդ</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">սրտիկով զույգ, տղամարդ, տղամարդ</annotation>
-		<annotation cp="👩‍❤‍👩">զույգ | կին | սեր | սիրտ</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">սրտիկով զույգ, կին, կին</annotation>
-		<annotation cp="👨‍👩‍👦">երեխա | հայր | մայր | տղա</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">ընտանիք, տղամարդ, կին, տղա</annotation>
-		<annotation cp="👨‍👩‍👧">աղջիկ | երեխա | հայր | մայր</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">ընտանիք, տղամարդ, կին, աղջիկ</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">երեխա | ընտանիք | հայր | մայր</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">ընտանիք, տղամարդ, կին, աղջիկ, տղա</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">երեխա | հայր | մայր | տղա</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">ընտանիք, տղամարդ, կին, տղա, տղա</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">աղջիկ | երեխա | հայր | մայր</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">ընտանիք, տղամարդ, կին, աղջիկ, աղջիկ</annotation>
-		<annotation cp="👨‍👨‍👦">հայր | մայր | տղա | տղամարդ</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">ընտանիք, տղամարդ, տղամարդ, տղա</annotation>
-		<annotation cp="👨‍👨‍👧">աղջիկ | հայր | մայր | տղամարդ</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">ընտանիք, տղամարդ, տղամարդ, աղջիկ</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">աղջիկ | հայր | տղա | տղամարդ</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">ընտանիք, տղամարդ, տղամարդ, աղջիկ, տղա</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">հայր | մայր | տղա | տղամարդ</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">ընտանիք, տղամարդ, տղամարդ, տղա, տղա</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">աղջիկ | ընտանիք | հայր | տղամարդ</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">ընտանիք, տղամարդ, տղամարդ, աղջիկ, աղջիկ</annotation>
-		<annotation cp="👩‍👩‍👦">կին | հայր | մայր | տղա</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">ընտանիք, կին, կին, տղա</annotation>
-		<annotation cp="👩‍👩‍👧">աղջիկ | կին | հայր | մայր</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">ընտանիք, կին, կին, աղջիկ</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">աղջիկ | կին | մայր | տղա</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">ընտանիք, կին, կին, աղջիկ, տղա</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">կին | հայր | մայր | տղա</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">ընտանիք, կին, կին, տղա, տղա</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">երեխա | կին | հայր | մայր</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">ընտանիք, կին, կին, աղջիկ, աղջիկ</annotation>
-		<annotation cp="👨‍👦">հայր | մայր | տղա | տղամարդ</annotation>
-		<annotation cp="👨‍👦" type="tts">ընտանիք, տղամարդ, տղա</annotation>
-		<annotation cp="👨‍👦‍👦">հայր | մայր | տղա | տղամարդ</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">ընտանիք, տղամարդ, տղա, տղա</annotation>
-		<annotation cp="👨‍👧">աղջիկ | հայր | տղամարդ</annotation>
-		<annotation cp="👨‍👧" type="tts">ընտանիք, տղամարդ, աղջիկ</annotation>
-		<annotation cp="👨‍👧‍👦">աղջիկ | հայր | տղա | տղամարդ</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">ընտանիք, տղամարդ, աղջիկ, տղա</annotation>
-		<annotation cp="👨‍👧‍👧">աղջիկ | հայր | տղամարդ</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">ընտանիք, տղամարդ, աղջիկ, աղջիկ</annotation>
-		<annotation cp="👩‍👦">ընտանիք | մայր | տղա</annotation>
-		<annotation cp="👩‍👦" type="tts">ընտանիք, կին, տղա</annotation>
-		<annotation cp="👩‍👦‍👦">ընտանիք | մայր | տղա</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">ընտանիք, կին, տղա, տղա</annotation>
-		<annotation cp="👩‍👧">աղջիկ | ընտանիք | մայր</annotation>
-		<annotation cp="👩‍👧" type="tts">ընտանիք, կին, աղջիկ</annotation>
-		<annotation cp="👩‍👧‍👦">աղջիկ | ընտանիք | մայր | տղա</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">ընտանիք, կին, աղջիկ, տղա</annotation>
-		<annotation cp="👩‍👧‍👧">աղջիկ | ընտանիք | մայր</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">ընտանիք, կին, աղջիկ, աղջիկ</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">զույգ | սիրավեպ | կին | տղամարդ</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">համբույր՝ կին և տղամարդ</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">զույգ | սիրավեպ | տղամարդ</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">համբույր՝ տղամարդ և տղամարդ</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">զույգ | սիրավեպ | կին</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">համբույր՝ կին և կին</annotation>
+		<annotation cp="👩‍❤‍👨">զույգ | սեր | սիրավեպ | սիրտ | կին | տղամարդ</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">սրտիկով զույգ՝ կին և տղամարդ</annotation>
+		<annotation cp="👨‍❤‍👨">զույգ | սեր | սիրավեպ | սիրտ | տղամարդ</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">սրտիկով զույգ՝ տղամարդ և տղամարդ</annotation>
+		<annotation cp="👩‍❤‍👩">զույգ | սեր | սիրավեպ | սիրտ | կին</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">սրտիկով զույգ՝ կին և կին</annotation>
+		<annotation cp="👨‍👩‍👦">երեխա | հայր | մայր | տղամարդ | կին | տղա</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">ընտանիք՝ տղամարդ և կին և տղա</annotation>
+		<annotation cp="👨‍👩‍👧">երեխա | հայր | մայր | տղամարդ | կին | աղջիկ</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">ընտանիք՝ տղամարդ և կին և աղջիկ</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">երեխա | հայր | մայր | տղամարդ | կին | աղջիկ | տղա</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">ընտանիք՝ տղամարդ և կին և աղջիկ և տղա</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">երեխա | հայր | մայր | տղամարդ | կին | տղա</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">ընտանիք՝ տղամարդ և կին և տղա և տղա</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">երեխա | հայր | մայր | տղամարդ | կին | աղջիկ</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">ընտանիք՝ տղամարդ և կին և աղջիկ և աղջիկ</annotation>
+		<annotation cp="👨‍👨‍👦">երեխա | հայր | մայր | տղամարդ | տղա</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">ընտանիք՝ տղամարդ և տղամարդ և տղա</annotation>
+		<annotation cp="👨‍👨‍👧">երեխա | հայր | մայր | տղամարդ | աղջիկ</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">ընտանիք՝ տղամարդ և տղամարդ և աղջիկ</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">երեխա | հայր | մայր | տղամարդ | աղջիկ | տղա</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">ընտանիք՝ տղամարդ և տղամարդ և աղջիկ և տղա</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">երեխա | հայր | մայր | տղամարդ | տղա</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">ընտանիք՝ տղամարդ և տղամարդ և տղա և տղա</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">երեխա | հայր | մայր | տղամարդ | աղջիկ</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">ընտանիք՝ տղամարդ և տղամարդ և աղջիկ և աղջիկ</annotation>
+		<annotation cp="👩‍👩‍👦">երեխա | հայր | մայր | կին | տղա</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">ընտանիք՝ կին և կին և տղա</annotation>
+		<annotation cp="👩‍👩‍👧">երեխա | հայր | մայր | կին | աղջիկ</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">ընտանիք՝ կին և կին և աղջիկ</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">երեխա | հայր | մայր | կին | աղջիկ | տղա</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">ընտանիք՝ կին և կին և աղջիկ և տղա</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">երեխա | հայր | մայր | կին | տղա</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">ընտանիք՝ կին և կին և տղա և տղա</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">երեխա | հայր | մայր | կին | աղջիկ</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">ընտանիք՝ կին և կին և աղջիկ և աղջիկ</annotation>
+		<annotation cp="👨‍👦">երեխա | հայր | մայր | տղամարդ | տղա</annotation>
+		<annotation cp="👨‍👦" type="tts">ընտանիք՝ տղամարդ և տղա</annotation>
+		<annotation cp="👨‍👦‍👦">երեխա | հայր | մայր | տղամարդ | տղա</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">ընտանիք՝ տղամարդ և տղա և տղա</annotation>
+		<annotation cp="👨‍👧">երեխա | հայր | մայր | տղամարդ | աղջիկ</annotation>
+		<annotation cp="👨‍👧" type="tts">ընտանիք՝ տղամարդ և աղջիկ</annotation>
+		<annotation cp="👨‍👧‍👦">երեխա | հայր | մայր | տղամարդ | աղջիկ | տղա</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">ընտանիք՝ տղամարդ և աղջիկ և տղա</annotation>
+		<annotation cp="👨‍👧‍👧">երեխա | հայր | մայր | տղամարդ | աղջիկ</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">ընտանիք՝ տղամարդ և աղջիկ և աղջիկ</annotation>
+		<annotation cp="👩‍👦">երեխա | հայր | մայր | կին | տղա</annotation>
+		<annotation cp="👩‍👦" type="tts">ընտանիք՝ կին և տղա</annotation>
+		<annotation cp="👩‍👦‍👦">երեխա | հայր | մայր | կին | տղա</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">ընտանիք՝ կին և տղա և տղա</annotation>
+		<annotation cp="👩‍👧">երեխա | հայր | մայր | կին | աղջիկ</annotation>
+		<annotation cp="👩‍👧" type="tts">ընտանիք՝ կին և աղջիկ</annotation>
+		<annotation cp="👩‍👧‍👦">երեխա | հայր | մայր | կին | աղջիկ | տղա</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">ընտանիք՝ կին և աղջիկ և տղա</annotation>
+		<annotation cp="👩‍👧‍👧">երեխա | հայր | մայր | կին | աղջիկ</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">ընտանիք՝ կին և աղջիկ և աղջիկ</annotation>
 		<annotation cp="🤳🏻">լուսանկար | հեռախոս | սելֆի | մաշկի տիպ-1-2</annotation>
 		<annotation cp="🤳🏻" type="tts">սելֆի՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="🤳🏼">լուսանկար | հեռախոս | սելֆի | մաշկի տիպ-3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">թափահարող ձեռք՝ մաշկի տիպ-5</annotation>
 		<annotation cp="👋🏿">թափահարել | թափահարող | ձեռք | մարմին | մաշկի տիպ-6</annotation>
 		<annotation cp="👋🏿" type="tts">թափահարող ձեռք՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🤟🏻">ձեռք | սեռ | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🤟🏻" type="tts">« սիրում եմ քեզ» նշան՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🤟🏼">ձեռք | սեռ | մաշկի տիպ-3</annotation>
+		<annotation cp="🤟🏼" type="tts">« սիրում եմ քեզ» նշան՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🤟🏽">ձեռք | սեռ | մաշկի տիպ-4</annotation>
+		<annotation cp="🤟🏽" type="tts">« սիրում եմ քեզ» նշան՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🤟🏾">ձեռք | սեռ | մաշկի տիպ-5</annotation>
+		<annotation cp="🤟🏾" type="tts">« սիրում եմ քեզ» նշան՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🤟🏿">ձեռք | սեռ | մաշկի տիպ-6</annotation>
+		<annotation cp="🤟🏿" type="tts">« սիրում եմ քեզ» նշան՝ մաշկի տիպ-6</annotation>
 		<annotation cp="✍🏻">գրել | ձեռք | մարմին | մաշկի տիպ-1-2</annotation>
 		<annotation cp="✍🏻" type="tts">գրող ձեռք՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="✍🏼">գրել | ձեռք | մարմին | մաշկի տիպ-3</annotation>
@@ -1854,16 +2164,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">ձեռքերը բարձրացնող անձ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="🙌🏿">բարձրացված | ժեստ | ձեռք | մարմին | ուռա | տոն | մաշկի տիպ-6</annotation>
 		<annotation cp="🙌🏿" type="tts">ձեռքերը բարձրացնող անձ՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🤲🏻">աղոթք | մաշկի տիպ-1-2</annotation>
+		<annotation cp="🤲🏻" type="tts">ձեռքերի ափերը վեր՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🤲🏼">աղոթք | մաշկի տիպ-3</annotation>
+		<annotation cp="🤲🏼" type="tts">ձեռքերի ափերը վեր՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🤲🏽">աղոթք | մաշկի տիպ-4</annotation>
+		<annotation cp="🤲🏽" type="tts">ձեռքերի ափերը վեր՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🤲🏾">աղոթք | մաշկի տիպ-5</annotation>
+		<annotation cp="🤲🏾" type="tts">ձեռքերի ափերը վեր՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🤲🏿">աղոթք | մաշկի տիպ-6</annotation>
+		<annotation cp="🤲🏿" type="tts">ձեռքերի ափերը վեր՝ մաշկի տիպ-6</annotation>
 		<annotation cp="🙏🏻">աղոթել | ժեստ | խնդրել | խնդրում եմ | խոնարհվել | ձեռք | մարմին | միացված | շնորհակալություն | մաշկի տիպ-1-2</annotation>
-		<annotation cp="🙏🏻" type="tts">միացված ձեռքի ափեր՝ մաշկի տիպ-1-2</annotation>
+		<annotation cp="🙏🏻" type="tts">ձեռքերի ափերը միացված՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="🙏🏼">աղոթել | ժեստ | խնդրել | խնդրում եմ | խոնարհվել | ձեռք | մարմին | միացված | շնորհակալություն | մաշկի տիպ-3</annotation>
-		<annotation cp="🙏🏼" type="tts">միացված ձեռքի ափեր՝ մաշկի տիպ-3</annotation>
+		<annotation cp="🙏🏼" type="tts">ձեռքերի ափերը միացված՝ մաշկի տիպ-3</annotation>
 		<annotation cp="🙏🏽">աղոթել | ժեստ | խնդրել | խնդրում եմ | խոնարհվել | ձեռք | մարմին | միացված | շնորհակալություն | մաշկի տիպ-4</annotation>
-		<annotation cp="🙏🏽" type="tts">միացված ձեռքի ափեր՝ մաշկի տիպ-4</annotation>
+		<annotation cp="🙏🏽" type="tts">ձեռքերի ափերը միացված՝ մաշկի տիպ-4</annotation>
 		<annotation cp="🙏🏾">աղոթել | ժեստ | խնդրել | խնդրում եմ | խոնարհվել | ձեռք | մարմին | միացված | շնորհակալություն | մաշկի տիպ-5</annotation>
-		<annotation cp="🙏🏾" type="tts">միացված ձեռքի ափեր՝ մաշկի տիպ-5</annotation>
+		<annotation cp="🙏🏾" type="tts">ձեռքերի ափերը միացված՝ մաշկի տիպ-5</annotation>
 		<annotation cp="🙏🏿">աղոթել | ժեստ | խնդրել | խնդրում եմ | խոնարհվել | ձեռք | մարմին | միացված | շնորհակալություն | մաշկի տիպ-6</annotation>
-		<annotation cp="🙏🏿" type="tts">միացված ձեռքի ափեր՝ մաշկի տիպ-6</annotation>
+		<annotation cp="🙏🏿" type="tts">ձեռքերի ափերը միացված՝ մաշկի տիպ-6</annotation>
 		<annotation cp="💅🏻">եղունգ | խնամք | կոսմետիկա | հղկել | մատնահարդարում | մարմին | մաշկի տիպ-1-2</annotation>
 		<annotation cp="💅🏻" type="tts">եղունգների լաքապատում՝ մաշկի տիպ-1-2</annotation>
 		<annotation cp="💅🏼">եղունգ | խնամք | կոսմետիկա | հղկել | մատնահարդարում | մարմին | մաշկի տիպ-3</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">քիթ՝ մաշկի տիպ-5</annotation>
 		<annotation cp="👃🏿">մարմին | մաշկի տիպ-6</annotation>
 		<annotation cp="👃🏿" type="tts">քիթ՝ մաշկի տիպ-6</annotation>
-		<annotation cp="#⃣">ստեղն | վանդականիշ | ֆունտ</annotation>
-		<annotation cp="#⃣" type="tts">ստեղն վանդականիշ</annotation>
-		<annotation cp="*⃣">աստղ | աստղանիշ | ստեղն</annotation>
-		<annotation cp="*⃣" type="tts">ստեղն աստղանիշ</annotation>
+		<annotation cp="#⃣">ստեղն</annotation>
+		<annotation cp="#⃣" type="tts">ստեղն՝ #</annotation>
+		<annotation cp="*⃣">ստեղն</annotation>
+		<annotation cp="*⃣" type="tts">ստեղն՝ *</annotation>
+		<annotation cp="🔟">ստեղն</annotation>
+		<annotation cp="🔟" type="tts">ստեղն՝ 10</annotation>
 		<annotation cp="🇦🇨">դրոշ</annotation>
 		<annotation cp="🇦🇨" type="tts">Համբարձման կղզի</annotation>
 		<annotation cp="🇦🇩">դրոշ</annotation>
@@ -1951,7 +2273,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇯">դրոշ</annotation>
 		<annotation cp="🇧🇯" type="tts">Բենին</annotation>
 		<annotation cp="🇧🇱">դրոշ</annotation>
-		<annotation cp="🇧🇱" type="tts">Սեն Բարտելմի</annotation>
+		<annotation cp="🇧🇱" type="tts">Սուրբ Բարդուղիմեոս</annotation>
 		<annotation cp="🇧🇲">դրոշ</annotation>
 		<annotation cp="🇧🇲" type="tts">Բերմուդներ</annotation>
 		<annotation cp="🇧🇳">դրոշ</annotation>
@@ -2093,7 +2415,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇺">դրոշ</annotation>
 		<annotation cp="🇬🇺" type="tts">Գուամ</annotation>
 		<annotation cp="🇬🇼">դրոշ</annotation>
-		<annotation cp="🇬🇼" type="tts">Գվինեա-Բիսսաու</annotation>
+		<annotation cp="🇬🇼" type="tts">Գվինեա-Բիսաու</annotation>
 		<annotation cp="🇬🇾">դրոշ</annotation>
 		<annotation cp="🇬🇾" type="tts">Գայանա</annotation>
 		<annotation cp="🇭🇰">դրոշ</annotation>
@@ -2149,7 +2471,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇲">դրոշ</annotation>
 		<annotation cp="🇰🇲" type="tts">Կոմորյան կղզիներ</annotation>
 		<annotation cp="🇰🇳">դրոշ</annotation>
-		<annotation cp="🇰🇳" type="tts">Սենտ Քիտս և Նևիս</annotation>
+		<annotation cp="🇰🇳" type="tts">Սենթ Քիտս և Նևիս</annotation>
 		<annotation cp="🇰🇵">դրոշ</annotation>
 		<annotation cp="🇰🇵" type="tts">Հյուսիսային Կորեա</annotation>
 		<annotation cp="🇰🇷">դրոշ</annotation>
@@ -2157,7 +2479,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇼">դրոշ</annotation>
 		<annotation cp="🇰🇼" type="tts">Քուվեյթ</annotation>
 		<annotation cp="🇰🇾">դրոշ</annotation>
-		<annotation cp="🇰🇾" type="tts">Կայմանյան կղզիներ</annotation>
+		<annotation cp="🇰🇾" type="tts">Կայման կղզիներ</annotation>
 		<annotation cp="🇰🇿">դրոշ</annotation>
 		<annotation cp="🇰🇿" type="tts">Ղազախստան</annotation>
 		<annotation cp="🇱🇦">դրոշ</annotation>

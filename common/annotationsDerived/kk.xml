@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="kk"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | нөл | нөмір пернесі</annotation>
-		<annotation cp="0⃣" type="tts">нөл пернесі</annotation>
-		<annotation cp="1⃣">1 | бір | нөмір пернесі</annotation>
-		<annotation cp="1⃣" type="tts">бір пернесі</annotation>
-		<annotation cp="2⃣">2 | екі | нөмір пернесі</annotation>
-		<annotation cp="2⃣" type="tts">екі пернесі</annotation>
-		<annotation cp="3⃣">3 | нөмір пернесі | үш</annotation>
-		<annotation cp="3⃣" type="tts">үш пернесі</annotation>
-		<annotation cp="4⃣">4 | нөмір пернесі | төрт</annotation>
-		<annotation cp="4⃣" type="tts">төрт пернесі</annotation>
-		<annotation cp="5⃣">5 | бес | нөмір пернесі</annotation>
-		<annotation cp="5⃣" type="tts">бес пернесі</annotation>
-		<annotation cp="6⃣">6 | алты | нөмір пернесі</annotation>
-		<annotation cp="6⃣" type="tts">алты пернесі</annotation>
-		<annotation cp="7⃣">7 | жеті | нөмір пернесі</annotation>
-		<annotation cp="7⃣" type="tts">жеті пернесі</annotation>
-		<annotation cp="8⃣">8 | нөмір пернесі | сегіз</annotation>
-		<annotation cp="8⃣" type="tts">сегіз пернесі</annotation>
-		<annotation cp="9⃣">9 | нөмір пернесі | тоғыз</annotation>
-		<annotation cp="9⃣" type="tts">тоғыз пернесі</annotation>
+		<annotation cp="0⃣">перне</annotation>
+		<annotation cp="0⃣" type="tts">перне: 0</annotation>
+		<annotation cp="1⃣">перне</annotation>
+		<annotation cp="1⃣" type="tts">перне: 1</annotation>
+		<annotation cp="2⃣">перне</annotation>
+		<annotation cp="2⃣" type="tts">перне: 2</annotation>
+		<annotation cp="3⃣">перне</annotation>
+		<annotation cp="3⃣" type="tts">перне: 3</annotation>
+		<annotation cp="4⃣">перне</annotation>
+		<annotation cp="4⃣" type="tts">перне: 4</annotation>
+		<annotation cp="5⃣">перне</annotation>
+		<annotation cp="5⃣" type="tts">перне: 5</annotation>
+		<annotation cp="6⃣">перне</annotation>
+		<annotation cp="6⃣" type="tts">перне: 6</annotation>
+		<annotation cp="7⃣">перне</annotation>
+		<annotation cp="7⃣" type="tts">перне: 7</annotation>
+		<annotation cp="8⃣">перне</annotation>
+		<annotation cp="8⃣" type="tts">перне: 8</annotation>
+		<annotation cp="9⃣">перне</annotation>
+		<annotation cp="9⃣" type="tts">перне: 9</annotation>
 		<annotation cp="👶🏻">бөпе | нәресте | сәби | 1–2 тері түсі</annotation>
 		<annotation cp="👶🏻" type="tts">сәби: 1–2 тері түсі</annotation>
 		<annotation cp="👶🏼">бөпе | нәресте | сәби | 3-тері түрі</annotation>
@@ -42,6 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">сәби: 5-тері түсі</annotation>
 		<annotation cp="👶🏿">бөпе | нәресте | сәби | 6-тері түсі</annotation>
 		<annotation cp="👶🏿" type="tts">сәби: 6-тері түсі</annotation>
+		<annotation cp="🧒🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧒🏻" type="tts">бала: 1–2 тері түсі</annotation>
+		<annotation cp="🧒🏼">3-тері түрі</annotation>
+		<annotation cp="🧒🏼" type="tts">бала: 3-тері түрі</annotation>
+		<annotation cp="🧒🏽">4-тері түсі</annotation>
+		<annotation cp="🧒🏽" type="tts">бала: 4-тері түсі</annotation>
+		<annotation cp="🧒🏾">5-тері түсі</annotation>
+		<annotation cp="🧒🏾" type="tts">бала: 5-тері түсі</annotation>
+		<annotation cp="🧒🏿">6-тері түсі</annotation>
+		<annotation cp="🧒🏿" type="tts">бала: 6-тері түсі</annotation>
 		<annotation cp="👦🏻">ер бала | ұл | 1–2 тері түсі</annotation>
 		<annotation cp="👦🏻" type="tts">ұл: 1–2 тері түсі</annotation>
 		<annotation cp="👦🏼">ер бала | ұл | 3-тері түрі</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">қыз: 5-тері түсі</annotation>
 		<annotation cp="👧🏿">бикеш | зодиак | 6-тері түсі</annotation>
 		<annotation cp="👧🏿" type="tts">қыз: 6-тері түсі</annotation>
+		<annotation cp="🧑🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧑🏻" type="tts">ересек: 1–2 тері түсі</annotation>
+		<annotation cp="🧑🏼">3-тері түрі</annotation>
+		<annotation cp="🧑🏼" type="tts">ересек: 3-тері түрі</annotation>
+		<annotation cp="🧑🏽">4-тері түсі</annotation>
+		<annotation cp="🧑🏽" type="tts">ересек: 4-тері түсі</annotation>
+		<annotation cp="🧑🏾">5-тері түсі</annotation>
+		<annotation cp="🧑🏾" type="tts">ересек: 5-тері түсі</annotation>
+		<annotation cp="🧑🏿">6-тері түсі</annotation>
+		<annotation cp="🧑🏿" type="tts">ересек: 6-тері түсі</annotation>
 		<annotation cp="👨🏻">ер | ер адам | 1–2 тері түсі</annotation>
 		<annotation cp="👨🏻" type="tts">ер адам: 1–2 тері түсі</annotation>
 		<annotation cp="👨🏼">ер | ер адам | 3-тері түрі</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">әйел: 5-тері түсі</annotation>
 		<annotation cp="👩🏿">әйел | әйел адам | 6-тері түсі</annotation>
 		<annotation cp="👩🏿" type="tts">әйел: 6-тері түсі</annotation>
+		<annotation cp="🧓🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧓🏻" type="tts">егде адам: 1–2 тері түсі</annotation>
+		<annotation cp="🧓🏼">3-тері түрі</annotation>
+		<annotation cp="🧓🏼" type="tts">егде адам: 3-тері түрі</annotation>
+		<annotation cp="🧓🏽">4-тері түсі</annotation>
+		<annotation cp="🧓🏽" type="tts">егде адам: 4-тері түсі</annotation>
+		<annotation cp="🧓🏾">5-тері түсі</annotation>
+		<annotation cp="🧓🏾" type="tts">егде адам: 5-тері түсі</annotation>
+		<annotation cp="🧓🏿">6-тері түсі</annotation>
+		<annotation cp="🧓🏿" type="tts">егде адам: 6-тері түсі</annotation>
 		<annotation cp="👴🏻">ер | кәрі | 1–2 тері түсі</annotation>
 		<annotation cp="👴🏻" type="tts">қарт: 1–2 тері түсі</annotation>
 		<annotation cp="👴🏼">ер | кәрі | 3-тері түрі</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">қытайша қалпақты адам: 5-тері түсі</annotation>
 		<annotation cp="👲🏿">адам | тақия | қалпақ | 6-тері түсі</annotation>
 		<annotation cp="👲🏿" type="tts">қытайша қалпақты адам: 6-тері түсі</annotation>
+		<annotation cp="🧕🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧕🏻" type="tts">орамал таққан әйел: 1–2 тері түсі</annotation>
+		<annotation cp="🧕🏼">3-тері түрі</annotation>
+		<annotation cp="🧕🏼" type="tts">орамал таққан әйел: 3-тері түрі</annotation>
+		<annotation cp="🧕🏽">4-тері түсі</annotation>
+		<annotation cp="🧕🏽" type="tts">орамал таққан әйел: 4-тері түсі</annotation>
+		<annotation cp="🧕🏾">5-тері түсі</annotation>
+		<annotation cp="🧕🏾" type="tts">орамал таққан әйел: 5-тері түсі</annotation>
+		<annotation cp="🧕🏿">6-тері түсі</annotation>
+		<annotation cp="🧕🏿" type="tts">орамал таққан әйел: 6-тері түсі</annotation>
+		<annotation cp="🧔🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧔🏻" type="tts">сақалды адам: 1–2 тері түсі</annotation>
+		<annotation cp="🧔🏼">3-тері түрі</annotation>
+		<annotation cp="🧔🏼" type="tts">сақалды адам: 3-тері түрі</annotation>
+		<annotation cp="🧔🏽">4-тері түсі</annotation>
+		<annotation cp="🧔🏽" type="tts">сақалды адам: 4-тері түсі</annotation>
+		<annotation cp="🧔🏾">5-тері түсі</annotation>
+		<annotation cp="🧔🏾" type="tts">сақалды адам: 5-тері түсі</annotation>
+		<annotation cp="🧔🏿">6-тері түсі</annotation>
+		<annotation cp="🧔🏿" type="tts">сақалды адам: 6-тері түсі</annotation>
 		<annotation cp="👱🏻">аққұба | 1–2 тері түсі</annotation>
 		<annotation cp="👱🏻" type="tts">аққұба адам: 1–2 тері түсі</annotation>
 		<annotation cp="👱🏼">аққұба | 3-тері түрі</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">екіқабат әйел: 5-тері түсі</annotation>
 		<annotation cp="🤰🏿">екіқабат | әйел | 6-тері түсі</annotation>
 		<annotation cp="🤰🏿" type="tts">екіқабат әйел: 6-тері түсі</annotation>
+		<annotation cp="🤱🏻">1–2 тері түсі</annotation>
+		<annotation cp="🤱🏻" type="tts">бала емізіп отыр: 1–2 тері түсі</annotation>
+		<annotation cp="🤱🏼">3-тері түрі</annotation>
+		<annotation cp="🤱🏼" type="tts">бала емізіп отыр: 3-тері түрі</annotation>
+		<annotation cp="🤱🏽">4-тері түсі</annotation>
+		<annotation cp="🤱🏽" type="tts">бала емізіп отыр: 4-тері түсі</annotation>
+		<annotation cp="🤱🏾">5-тері түсі</annotation>
+		<annotation cp="🤱🏾" type="tts">бала емізіп отыр: 5-тері түсі</annotation>
+		<annotation cp="🤱🏿">6-тері түсі</annotation>
+		<annotation cp="🤱🏿" type="tts">бала емізіп отыр: 6-тері түсі</annotation>
 		<annotation cp="👼🏻">бет | ертегі | періште | сәби | қиял | 1–2 тері түсі</annotation>
 		<annotation cp="👼🏻" type="tts">кішкентай періште: 1–2 тері түсі</annotation>
 		<annotation cp="👼🏼">бет | ертегі | періште | сәби | қиял | 3-тері түрі</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">ақшақар: 5-тері түсі</annotation>
 		<annotation cp="🤶🏿">ақшақар | 6-тері түсі</annotation>
 		<annotation cp="🤶🏿" type="tts">ақшақар: 6-тері түсі</annotation>
+		<annotation cp="🧙🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧙🏻" type="tts">сиқыршы: 1–2 тері түсі</annotation>
+		<annotation cp="🧙🏼">3-тері түрі</annotation>
+		<annotation cp="🧙🏼" type="tts">сиқыршы: 3-тері түрі</annotation>
+		<annotation cp="🧙🏽">4-тері түсі</annotation>
+		<annotation cp="🧙🏽" type="tts">сиқыршы: 4-тері түсі</annotation>
+		<annotation cp="🧙🏾">5-тері түсі</annotation>
+		<annotation cp="🧙🏾" type="tts">сиқыршы: 5-тері түсі</annotation>
+		<annotation cp="🧙🏿">6-тері түсі</annotation>
+		<annotation cp="🧙🏿" type="tts">сиқыршы: 6-тері түсі</annotation>
+		<annotation cp="🧙🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">әйел сиқыршы: 1–2 тері түсі</annotation>
+		<annotation cp="🧙🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">әйел сиқыршы: 3-тері түрі</annotation>
+		<annotation cp="🧙🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">әйел сиқыршы: 4-тері түсі</annotation>
+		<annotation cp="🧙🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">әйел сиқыршы: 5-тері түсі</annotation>
+		<annotation cp="🧙🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">әйел сиқыршы: 6-тері түсі</annotation>
+		<annotation cp="🧙🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">ер сиқыршы: 1–2 тері түсі</annotation>
+		<annotation cp="🧙🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">ер сиқыршы: 3-тері түрі</annotation>
+		<annotation cp="🧙🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">ер сиқыршы: 4-тері түсі</annotation>
+		<annotation cp="🧙🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">ер сиқыршы: 5-тері түсі</annotation>
+		<annotation cp="🧙🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">ер сиқыршы: 6-тері түсі</annotation>
+		<annotation cp="🧚🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧚🏻" type="tts">пері: 1–2 тері түсі</annotation>
+		<annotation cp="🧚🏼">3-тері түрі</annotation>
+		<annotation cp="🧚🏼" type="tts">пері: 3-тері түрі</annotation>
+		<annotation cp="🧚🏽">4-тері түсі</annotation>
+		<annotation cp="🧚🏽" type="tts">пері: 4-тері түсі</annotation>
+		<annotation cp="🧚🏾">5-тері түсі</annotation>
+		<annotation cp="🧚🏾" type="tts">пері: 5-тері түсі</annotation>
+		<annotation cp="🧚🏿">6-тері түсі</annotation>
+		<annotation cp="🧚🏿" type="tts">пері: 6-тері түсі</annotation>
+		<annotation cp="🧚🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">әйел пері: 1–2 тері түсі</annotation>
+		<annotation cp="🧚🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">әйел пері: 3-тері түрі</annotation>
+		<annotation cp="🧚🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">әйел пері: 4-тері түсі</annotation>
+		<annotation cp="🧚🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">әйел пері: 5-тері түсі</annotation>
+		<annotation cp="🧚🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">әйел пері: 6-тері түсі</annotation>
+		<annotation cp="🧚🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">ер пері: 1–2 тері түсі</annotation>
+		<annotation cp="🧚🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">ер пері: 3-тері түрі</annotation>
+		<annotation cp="🧚🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">ер пері: 4-тері түсі</annotation>
+		<annotation cp="🧚🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">ер пері: 5-тері түсі</annotation>
+		<annotation cp="🧚🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">ер пері: 6-тері түсі</annotation>
+		<annotation cp="🧛🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧛🏻" type="tts">вампир: 1–2 тері түсі</annotation>
+		<annotation cp="🧛🏼">3-тері түрі</annotation>
+		<annotation cp="🧛🏼" type="tts">вампир: 3-тері түрі</annotation>
+		<annotation cp="🧛🏽">4-тері түсі</annotation>
+		<annotation cp="🧛🏽" type="tts">вампир: 4-тері түсі</annotation>
+		<annotation cp="🧛🏾">5-тері түсі</annotation>
+		<annotation cp="🧛🏾" type="tts">вампир: 5-тері түсі</annotation>
+		<annotation cp="🧛🏿">6-тері түсі</annotation>
+		<annotation cp="🧛🏿" type="tts">вампир: 6-тері түсі</annotation>
+		<annotation cp="🧛🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">әйел вампир: 1–2 тері түсі</annotation>
+		<annotation cp="🧛🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">әйел вампир: 3-тері түрі</annotation>
+		<annotation cp="🧛🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">әйел вампир: 4-тері түсі</annotation>
+		<annotation cp="🧛🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">әйел вампир: 5-тері түсі</annotation>
+		<annotation cp="🧛🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">әйел вампир: 6-тері түсі</annotation>
+		<annotation cp="🧛🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">ер вампир: 1–2 тері түсі</annotation>
+		<annotation cp="🧛🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">ер вампир: 3-тері түрі</annotation>
+		<annotation cp="🧛🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">ер вампир: 4-тері түсі</annotation>
+		<annotation cp="🧛🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">ер вампир: 5-тері түсі</annotation>
+		<annotation cp="🧛🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">ер вампир: 6-тері түсі</annotation>
+		<annotation cp="🧜🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧜🏻" type="tts">теңіз тұрғыны: 1–2 тері түсі</annotation>
+		<annotation cp="🧜🏼">3-тері түрі</annotation>
+		<annotation cp="🧜🏼" type="tts">теңіз тұрғыны: 3-тері түрі</annotation>
+		<annotation cp="🧜🏽">4-тері түсі</annotation>
+		<annotation cp="🧜🏽" type="tts">теңіз тұрғыны: 4-тері түсі</annotation>
+		<annotation cp="🧜🏾">5-тері түсі</annotation>
+		<annotation cp="🧜🏾" type="tts">теңіз тұрғыны: 5-тері түсі</annotation>
+		<annotation cp="🧜🏿">6-тері түсі</annotation>
+		<annotation cp="🧜🏿" type="tts">теңіз тұрғыны: 6-тері түсі</annotation>
+		<annotation cp="🧜🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">су перісі: 1–2 тері түсі</annotation>
+		<annotation cp="🧜🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">су перісі: 3-тері түрі</annotation>
+		<annotation cp="🧜🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">су перісі: 4-тері түсі</annotation>
+		<annotation cp="🧜🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">су перісі: 5-тері түсі</annotation>
+		<annotation cp="🧜🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">су перісі: 6-тері түсі</annotation>
+		<annotation cp="🧜🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">E1257: 1–2 тері түсі</annotation>
+		<annotation cp="🧜🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">E1257: 3-тері түрі</annotation>
+		<annotation cp="🧜🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">E1257: 4-тері түсі</annotation>
+		<annotation cp="🧜🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">E1257: 5-тері түсі</annotation>
+		<annotation cp="🧜🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">E1257: 6-тері түсі</annotation>
+		<annotation cp="🧝🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧝🏻" type="tts">ергежейлі: 1–2 тері түсі</annotation>
+		<annotation cp="🧝🏼">3-тері түрі</annotation>
+		<annotation cp="🧝🏼" type="tts">ергежейлі: 3-тері түрі</annotation>
+		<annotation cp="🧝🏽">4-тері түсі</annotation>
+		<annotation cp="🧝🏽" type="tts">ергежейлі: 4-тері түсі</annotation>
+		<annotation cp="🧝🏾">5-тері түсі</annotation>
+		<annotation cp="🧝🏾" type="tts">ергежейлі: 5-тері түсі</annotation>
+		<annotation cp="🧝🏿">6-тері түсі</annotation>
+		<annotation cp="🧝🏿" type="tts">ергежейлі: 6-тері түсі</annotation>
+		<annotation cp="🧝🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">әйел ергежейлі: 1–2 тері түсі</annotation>
+		<annotation cp="🧝🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">әйел ергежейлі: 3-тері түрі</annotation>
+		<annotation cp="🧝🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">әйел ергежейлі: 4-тері түсі</annotation>
+		<annotation cp="🧝🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">әйел ергежейлі: 5-тері түсі</annotation>
+		<annotation cp="🧝🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">әйел ергежейлі: 6-тері түсі</annotation>
+		<annotation cp="🧝🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">ер ергежейлі: 1–2 тері түсі</annotation>
+		<annotation cp="🧝🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">ер ергежейлі: 3-тері түрі</annotation>
+		<annotation cp="🧝🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">ер ергежейлі: 4-тері түсі</annotation>
+		<annotation cp="🧝🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">ер ергежейлі: 5-тері түсі</annotation>
+		<annotation cp="🧝🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">ер ергежейлі: 6-тері түсі</annotation>
 		<annotation cp="🙍🏻">қимыл | 1–2 тері түсі</annotation>
 		<annotation cp="🙍🏻" type="tts">қабағын түю: 1–2 тері түсі</annotation>
 		<annotation cp="🙍🏼">қимыл | 3-тері түрі</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">билеп тұрған ер адам: 5-тері түсі</annotation>
 		<annotation cp="🕺🏿">адам | билеп | тұрған | 6-тері түсі</annotation>
 		<annotation cp="🕺🏿" type="tts">билеп тұрған ер адам: 6-тері түсі</annotation>
+		<annotation cp="🧖🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧖🏻" type="tts">бу бөлмедегі адам: 1–2 тері түсі</annotation>
+		<annotation cp="🧖🏼">3-тері түрі</annotation>
+		<annotation cp="🧖🏼" type="tts">бу бөлмедегі адам: 3-тері түрі</annotation>
+		<annotation cp="🧖🏽">4-тері түсі</annotation>
+		<annotation cp="🧖🏽" type="tts">бу бөлмедегі адам: 4-тері түсі</annotation>
+		<annotation cp="🧖🏾">5-тері түсі</annotation>
+		<annotation cp="🧖🏾" type="tts">бу бөлмедегі адам: 5-тері түсі</annotation>
+		<annotation cp="🧖🏿">6-тері түсі</annotation>
+		<annotation cp="🧖🏿" type="tts">бу бөлмедегі адам: 6-тері түсі</annotation>
+		<annotation cp="🧖🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">бу бөлмедегі әйел: 1–2 тері түсі</annotation>
+		<annotation cp="🧖🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">бу бөлмедегі әйел: 3-тері түрі</annotation>
+		<annotation cp="🧖🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">бу бөлмедегі әйел: 4-тері түсі</annotation>
+		<annotation cp="🧖🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">бу бөлмедегі әйел: 5-тері түсі</annotation>
+		<annotation cp="🧖🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">бу бөлмедегі әйел: 6-тері түсі</annotation>
+		<annotation cp="🧖🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">бу бөлмедегі ер: 1–2 тері түсі</annotation>
+		<annotation cp="🧖🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">бу бөлмедегі ер: 3-тері түрі</annotation>
+		<annotation cp="🧖🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">бу бөлмедегі ер: 4-тері түсі</annotation>
+		<annotation cp="🧖🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">бу бөлмедегі ер: 5-тері түсі</annotation>
+		<annotation cp="🧖🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">бу бөлмедегі ер: 6-тері түсі</annotation>
+		<annotation cp="🧗🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧗🏻" type="tts">көтеріліп бара жатқан адам: 1–2 тері түсі</annotation>
+		<annotation cp="🧗🏼">3-тері түрі</annotation>
+		<annotation cp="🧗🏼" type="tts">көтеріліп бара жатқан адам: 3-тері түрі</annotation>
+		<annotation cp="🧗🏽">4-тері түсі</annotation>
+		<annotation cp="🧗🏽" type="tts">көтеріліп бара жатқан адам: 4-тері түсі</annotation>
+		<annotation cp="🧗🏾">5-тері түсі</annotation>
+		<annotation cp="🧗🏾" type="tts">көтеріліп бара жатқан адам: 5-тері түсі</annotation>
+		<annotation cp="🧗🏿">6-тері түсі</annotation>
+		<annotation cp="🧗🏿" type="tts">көтеріліп бара жатқан адам: 6-тері түсі</annotation>
+		<annotation cp="🧗🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">көтеріліп бара жатқан әйел: 1–2 тері түсі</annotation>
+		<annotation cp="🧗🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">көтеріліп бара жатқан әйел: 3-тері түрі</annotation>
+		<annotation cp="🧗🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">көтеріліп бара жатқан әйел: 4-тері түсі</annotation>
+		<annotation cp="🧗🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">көтеріліп бара жатқан әйел: 5-тері түсі</annotation>
+		<annotation cp="🧗🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">көтеріліп бара жатқан әйел: 6-тері түсі</annotation>
+		<annotation cp="🧗🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">көтеріліп бара жатқан ер адам: 1–2 тері түсі</annotation>
+		<annotation cp="🧗🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">көтеріліп бара жатқан ер адам: 3-тері түрі</annotation>
+		<annotation cp="🧗🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">көтеріліп бара жатқан ер адам: 4-тері түсі</annotation>
+		<annotation cp="🧗🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">көтеріліп бара жатқан ер адам: 5-тері түсі</annotation>
+		<annotation cp="🧗🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">көтеріліп бара жатқан ер адам: 6-тері түсі</annotation>
+		<annotation cp="🧘🏻">1–2 тері түсі</annotation>
+		<annotation cp="🧘🏻" type="tts">малдас құрып отырған адам: 1–2 тері түсі</annotation>
+		<annotation cp="🧘🏼">3-тері түрі</annotation>
+		<annotation cp="🧘🏼" type="tts">малдас құрып отырған адам: 3-тері түрі</annotation>
+		<annotation cp="🧘🏽">4-тері түсі</annotation>
+		<annotation cp="🧘🏽" type="tts">малдас құрып отырған адам: 4-тері түсі</annotation>
+		<annotation cp="🧘🏾">5-тері түсі</annotation>
+		<annotation cp="🧘🏾" type="tts">малдас құрып отырған адам: 5-тері түсі</annotation>
+		<annotation cp="🧘🏿">6-тері түсі</annotation>
+		<annotation cp="🧘🏿" type="tts">малдас құрып отырған адам: 6-тері түсі</annotation>
+		<annotation cp="🧘🏻‍♀">1–2 тері түсі</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">малдас құрып отырған әйел: 1–2 тері түсі</annotation>
+		<annotation cp="🧘🏼‍♀">3-тері түрі</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">малдас құрып отырған әйел: 3-тері түрі</annotation>
+		<annotation cp="🧘🏽‍♀">4-тері түсі</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">малдас құрып отырған әйел: 4-тері түсі</annotation>
+		<annotation cp="🧘🏾‍♀">5-тері түсі</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">малдас құрып отырған әйел: 5-тері түсі</annotation>
+		<annotation cp="🧘🏿‍♀">6-тері түсі</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">малдас құрып отырған әйел: 6-тері түсі</annotation>
+		<annotation cp="🧘🏻‍♂">1–2 тері түсі</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">малдас құрып отырған ер адам: 1–2 тері түсі</annotation>
+		<annotation cp="🧘🏼‍♂">3-тері түрі</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">малдас құрып отырған ер адам: 3-тері түрі</annotation>
+		<annotation cp="🧘🏽‍♂">4-тері түсі</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">малдас құрып отырған ер адам: 4-тері түсі</annotation>
+		<annotation cp="🧘🏾‍♂">5-тері түсі</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">малдас құрып отырған ер адам: 5-тері түсі</annotation>
+		<annotation cp="🧘🏿‍♂">6-тері түсі</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">малдас құрып отырған ер адам: 6-тері түсі</annotation>
 		<annotation cp="🛀🏻">ванна | 1–2 тері түсі</annotation>
 		<annotation cp="🛀🏻" type="tts">адам ваннада жуынып жатыр: 1–2 тері түсі</annotation>
 		<annotation cp="🛀🏼">ванна | 3-тері түрі</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">жонглер әйел: 5-тері түсі</annotation>
 		<annotation cp="🤹🏿‍♀">жонглер | әйел | 6-тері түсі</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">жонглер әйел: 6-тері түсі</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">ер | сүйісу | әйел</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">әйел мен ердің сүйісуі</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">ерлер | сүйісу</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">ер мен ердің сүйісуі</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">сүйісу | әйелдер</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">әйел мен әйелдің сүйісуі</annotation>
-		<annotation cp="👩‍❤‍👨">ер | жүрек | махаббат | әйел</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">әйел мен ер махаббаты</annotation>
-		<annotation cp="👨‍❤‍👨">ерлер | жүрек | махаббат</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">ер мен ер махаббаты</annotation>
-		<annotation cp="👩‍❤‍👩">жүрек | махаббат | әйелдер</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">әйел мен әйел махаббаты</annotation>
-		<annotation cp="👨‍👩‍👦">ана | бала | ұл | әке</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">отбасы, ер, әйел, ұл</annotation>
-		<annotation cp="👨‍👩‍👧">ана | бала | қыз | әке</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">отбасы, ер, әйел, қыз</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">ана | қыз | ұл | әке</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">отбасы, ер, әйел, қыз, ұл</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">ана | бала | ұл | әке</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">отбасы, ер, әйел, ұл, ұл</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">ана | бала | қыз | әке</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">отбасы, ер, әйел, қыз, қыз</annotation>
-		<annotation cp="👨‍👨‍👦">бала | ұл | әкелер</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">отбасы, ер, ер, ұл</annotation>
-		<annotation cp="👨‍👨‍👧">бала | қыз | әкелер</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">отбасы, ер, ер, қыз</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">қыз | ұл | әкелер</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">отбасы, ер, ер, қыз, ұл</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">бала | ұл | әкелер</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">отбасы, ер, ер, ұл, ұл</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">бала | қыз | әкелер</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">отбасы, ер, ер, қыз, қыз</annotation>
-		<annotation cp="👩‍👩‍👦">аналар | бала | ұл</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">отбасы, әйел, әйел, ұл</annotation>
-		<annotation cp="👩‍👩‍👧">аналар | бала | қыз</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">отбасы, әйел, әйел, қыз</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">аналар | қыз | ұл</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">отбасы, әйел, әйел, қыз, ұл</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">аналар | бала | ұл</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">отбасы, әйел, әйел, ұл, ұл</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">аналар | бала | қыз</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">отбасы, әйел, әйел, қыз, қыз</annotation>
-		<annotation cp="👨‍👦">бала | ұл | әке</annotation>
-		<annotation cp="👨‍👦" type="tts">отбасы, ер, ұл</annotation>
-		<annotation cp="👨‍👦‍👦">бала | ұл | әке</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">отбасы, ер, ұл, ұл</annotation>
-		<annotation cp="👨‍👧">бала | қыз | әке</annotation>
-		<annotation cp="👨‍👧" type="tts">отбасы, ер, қыз</annotation>
-		<annotation cp="👨‍👧‍👦">бала | қыз | ұл | әке</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">отбасы, ер, қыз, ұл</annotation>
-		<annotation cp="👨‍👧‍👧">бала | қыз | әке</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">отбасы, ер, қыз, қыз</annotation>
-		<annotation cp="👩‍👦">ана | бала | ұл</annotation>
-		<annotation cp="👩‍👦" type="tts">отбасы, әйел, ұл</annotation>
-		<annotation cp="👩‍👦‍👦">ана | бала | ұл</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">отбасы, әйел, ұл, ұл</annotation>
-		<annotation cp="👩‍👧">ана | бала | қыз</annotation>
-		<annotation cp="👩‍👧" type="tts">отбасы, әйел, қыз</annotation>
-		<annotation cp="👩‍👧‍👦">ана | бала | қыз | ұл</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">отбасы, әйел, қыз, ұл</annotation>
-		<annotation cp="👩‍👧‍👧">ана | бала | қыз</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">отбасы, әйел, қыз, қыз</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">жұбайлар | романтика | әйел | ер адам</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">өбіс: әйел ер адам</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">жұбайлар | романтика | ер адам</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">өбіс: ер адам ер адам</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">жұбайлар | романтика | әйел</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">өбіс: әйел әйел</annotation>
+		<annotation cp="👩‍❤‍👨">жүрек | жұбайлар | романтика | әйел | ер адам</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">махаббат: әйел ер адам</annotation>
+		<annotation cp="👨‍❤‍👨">жүрек | жұбайлар | романтика | ер адам</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">махаббат: ер адам ер адам</annotation>
+		<annotation cp="👩‍❤‍👩">жүрек | жұбайлар | романтика | әйел</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">махаббат: әйел әйел</annotation>
+		<annotation cp="👨‍👩‍👦">ана | бала | әке | ер адам | әйел | ұл</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">отбасы: ер адам әйел ұл</annotation>
+		<annotation cp="👨‍👩‍👧">ана | бала | әке | ер адам | әйел | қыз</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">отбасы: ер адам әйел қыз</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">ана | бала | әке | ер адам | әйел | қыз | ұл</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">отбасы: ер адам әйел қыз ұл</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">ана | бала | әке | ер адам | әйел | ұл</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">отбасы: ер адам әйел ұл ұл</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">ана | бала | әке | ер адам | әйел | қыз</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">отбасы: ер адам әйел қыз қыз</annotation>
+		<annotation cp="👨‍👨‍👦">ана | бала | әке | ер адам | ұл</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">отбасы: ер адам ер адам ұл</annotation>
+		<annotation cp="👨‍👨‍👧">ана | бала | әке | ер адам | қыз</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">отбасы: ер адам ер адам қыз</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">ана | бала | әке | ер адам | қыз | ұл</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">отбасы: ер адам ер адам қыз ұл</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">ана | бала | әке | ер адам | ұл</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">отбасы: ер адам ер адам ұл ұл</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">ана | бала | әке | ер адам | қыз</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">отбасы: ер адам ер адам қыз қыз</annotation>
+		<annotation cp="👩‍👩‍👦">ана | бала | әке | әйел | ұл</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">отбасы: әйел әйел ұл</annotation>
+		<annotation cp="👩‍👩‍👧">ана | бала | әке | әйел | қыз</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">отбасы: әйел әйел қыз</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">ана | бала | әке | әйел | қыз | ұл</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">отбасы: әйел әйел қыз ұл</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">ана | бала | әке | әйел | ұл</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">отбасы: әйел әйел ұл ұл</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">ана | бала | әке | әйел | қыз</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">отбасы: әйел әйел қыз қыз</annotation>
+		<annotation cp="👨‍👦">ана | бала | әке | ер адам | ұл</annotation>
+		<annotation cp="👨‍👦" type="tts">отбасы: ер адам ұл</annotation>
+		<annotation cp="👨‍👦‍👦">ана | бала | әке | ер адам | ұл</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">отбасы: ер адам ұл ұл</annotation>
+		<annotation cp="👨‍👧">ана | бала | әке | ер адам | қыз</annotation>
+		<annotation cp="👨‍👧" type="tts">отбасы: ер адам қыз</annotation>
+		<annotation cp="👨‍👧‍👦">ана | бала | әке | ер адам | қыз | ұл</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">отбасы: ер адам қыз ұл</annotation>
+		<annotation cp="👨‍👧‍👧">ана | бала | әке | ер адам | қыз</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">отбасы: ер адам қыз қыз</annotation>
+		<annotation cp="👩‍👦">ана | бала | әке | әйел | ұл</annotation>
+		<annotation cp="👩‍👦" type="tts">отбасы: әйел ұл</annotation>
+		<annotation cp="👩‍👦‍👦">ана | бала | әке | әйел | ұл</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">отбасы: әйел ұл ұл</annotation>
+		<annotation cp="👩‍👧">ана | бала | әке | әйел | қыз</annotation>
+		<annotation cp="👩‍👧" type="tts">отбасы: әйел қыз</annotation>
+		<annotation cp="👩‍👧‍👦">ана | бала | әке | әйел | қыз | ұл</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">отбасы: әйел қыз ұл</annotation>
+		<annotation cp="👩‍👧‍👧">ана | бала | әке | әйел | қыз</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">отбасы: әйел қыз қыз</annotation>
 		<annotation cp="🤳🏻">селфи | 1–2 тері түсі</annotation>
 		<annotation cp="🤳🏻" type="tts">селфи: 1–2 тері түсі</annotation>
 		<annotation cp="🤳🏼">селфи | 3-тері түрі</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">қол бұлғау: 5-тері түсі</annotation>
 		<annotation cp="👋🏿">бұлғап тұр | бұлғау | дене | қол | 6-тері түсі</annotation>
 		<annotation cp="👋🏿" type="tts">қол бұлғау: 6-тері түсі</annotation>
+		<annotation cp="🤟🏻">1–2 тері түсі</annotation>
+		<annotation cp="🤟🏻" type="tts">сені сүйемін белгісі: 1–2 тері түсі</annotation>
+		<annotation cp="🤟🏼">3-тері түрі</annotation>
+		<annotation cp="🤟🏼" type="tts">сені сүйемін белгісі: 3-тері түрі</annotation>
+		<annotation cp="🤟🏽">4-тері түсі</annotation>
+		<annotation cp="🤟🏽" type="tts">сені сүйемін белгісі: 4-тері түсі</annotation>
+		<annotation cp="🤟🏾">5-тері түсі</annotation>
+		<annotation cp="🤟🏾" type="tts">сені сүйемін белгісі: 5-тері түсі</annotation>
+		<annotation cp="🤟🏿">6-тері түсі</annotation>
+		<annotation cp="🤟🏿" type="tts">сені сүйемін белгісі: 6-тері түсі</annotation>
 		<annotation cp="✍🏻">дене | жазу | қол | 1–2 тері түсі</annotation>
 		<annotation cp="✍🏻" type="tts">қолмен жазу: 1–2 тері түсі</annotation>
 		<annotation cp="✍🏼">дене | жазу | қол | 3-тері түрі</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">қолдарды көтеру: 5-тері түсі</annotation>
 		<annotation cp="🙌🏿">алақай | дене | көтерілген | тойлау | қимыл | қол | 6-тері түсі</annotation>
 		<annotation cp="🙌🏿" type="tts">қолдарды көтеру: 6-тері түсі</annotation>
+		<annotation cp="🤲🏻">1–2 тері түсі</annotation>
+		<annotation cp="🤲🏻" type="tts">алақандарын көтеру: 1–2 тері түсі</annotation>
+		<annotation cp="🤲🏼">3-тері түрі</annotation>
+		<annotation cp="🤲🏼" type="tts">алақандарын көтеру: 3-тері түрі</annotation>
+		<annotation cp="🤲🏽">4-тері түсі</annotation>
+		<annotation cp="🤲🏽" type="tts">алақандарын көтеру: 4-тері түсі</annotation>
+		<annotation cp="🤲🏾">5-тері түсі</annotation>
+		<annotation cp="🤲🏾" type="tts">алақандарын көтеру: 5-тері түсі</annotation>
+		<annotation cp="🤲🏿">6-тері түсі</annotation>
+		<annotation cp="🤲🏿" type="tts">алақандарын көтеру: 6-тері түсі</annotation>
 		<annotation cp="🙏🏻">бағыну | дене | рақмет | сұрау | ғибадат | қимыл | қол | қосылған | өтініш | 1–2 тері түсі</annotation>
 		<annotation cp="🙏🏻" type="tts">ғибадат қылу: 1–2 тері түсі</annotation>
 		<annotation cp="🙏🏼">бағыну | дене | рақмет | сұрау | ғибадат | қимыл | қол | қосылған | өтініш | 3-тері түрі</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">мұрын: 5-тері түсі</annotation>
 		<annotation cp="👃🏿">дене | 6-тері түсі</annotation>
 		<annotation cp="👃🏿" type="tts">мұрын: 6-тері түсі</annotation>
-		<annotation cp="#⃣">тор | фунт</annotation>
-		<annotation cp="#⃣" type="tts">нөмір пернесі</annotation>
-		<annotation cp="*⃣">жұлдыз | жұлдызша | нөмір пернесі</annotation>
-		<annotation cp="*⃣" type="tts">жұлдызша пернесі</annotation>
+		<annotation cp="#⃣">перне</annotation>
+		<annotation cp="#⃣" type="tts">перне: #</annotation>
+		<annotation cp="*⃣">перне</annotation>
+		<annotation cp="*⃣" type="tts">перне: *</annotation>
+		<annotation cp="🔟">перне</annotation>
+		<annotation cp="🔟" type="tts">перне: 10</annotation>
 		<annotation cp="🇦🇨">ту</annotation>
 		<annotation cp="🇦🇨" type="tts">Әскенжін аралы</annotation>
 		<annotation cp="🇦🇩">ту</annotation>
@@ -1959,7 +2281,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇴">ту</annotation>
 		<annotation cp="🇧🇴" type="tts">Боливия</annotation>
 		<annotation cp="🇧🇶">ту</annotation>
-		<annotation cp="🇧🇶" type="tts">Кариб Нидерландысы</annotation>
+		<annotation cp="🇧🇶" type="tts">Бонэйр, Синт-Эстатиус және Саба</annotation>
 		<annotation cp="🇧🇷">ту</annotation>
 		<annotation cp="🇧🇷" type="tts">Бразилия</annotation>
 		<annotation cp="🇧🇸">ту</annotation>
@@ -2097,7 +2419,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇾">ту</annotation>
 		<annotation cp="🇬🇾" type="tts">Гайана</annotation>
 		<annotation cp="🇭🇰">ту</annotation>
-		<annotation cp="🇭🇰" type="tts">Қытай Халық Республикасының Гонконг арнайы әкімшілік ауданы</annotation>
+		<annotation cp="🇭🇰" type="tts">Сянган АӘА</annotation>
 		<annotation cp="🇭🇲">ту</annotation>
 		<annotation cp="🇭🇲" type="tts">Херд аралы және Макдональд аралдары</annotation>
 		<annotation cp="🇭🇳">ту</annotation>
@@ -2205,7 +2527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇳">ту</annotation>
 		<annotation cp="🇲🇳" type="tts">Моңғолия</annotation>
 		<annotation cp="🇲🇴">ту</annotation>
-		<annotation cp="🇲🇴" type="tts">Қытай Халық Республикасының Макао арнайы әкімшілік ауданы</annotation>
+		<annotation cp="🇲🇴" type="tts">Макао АӘА</annotation>
 		<annotation cp="🇲🇵">ту</annotation>
 		<annotation cp="🇲🇵" type="tts">Солтүстік Мариана аралдары</annotation>
 		<annotation cp="🇲🇶">ту</annotation>
@@ -2263,7 +2585,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇬">ту</annotation>
 		<annotation cp="🇵🇬" type="tts">Папуа — Жаңа Гвинея</annotation>
 		<annotation cp="🇵🇭">ту</annotation>
-		<annotation cp="🇵🇭" type="tts">Филиппин</annotation>
+		<annotation cp="🇵🇭" type="tts">Филиппин аралдары</annotation>
 		<annotation cp="🇵🇰">ту</annotation>
 		<annotation cp="🇵🇰" type="tts">Пәкістан</annotation>
 		<annotation cp="🇵🇱">ту</annotation>

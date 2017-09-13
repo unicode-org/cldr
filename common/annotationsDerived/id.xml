@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="id"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | nol | tombol</annotation>
-		<annotation cp="0⃣" type="tts">tombol angka nol</annotation>
-		<annotation cp="1⃣">1 | satu | tombol</annotation>
-		<annotation cp="1⃣" type="tts">tombol angka satu</annotation>
-		<annotation cp="2⃣">2 | dua | tombol</annotation>
-		<annotation cp="2⃣" type="tts">tombol angka dua</annotation>
-		<annotation cp="3⃣">3 | tiga | tombol</annotation>
-		<annotation cp="3⃣" type="tts">tombol angka tiga</annotation>
-		<annotation cp="4⃣">4 | empat | tombol</annotation>
-		<annotation cp="4⃣" type="tts">tombol angka empat</annotation>
-		<annotation cp="5⃣">5 | lima | tombol</annotation>
-		<annotation cp="5⃣" type="tts">tombol angka lima</annotation>
-		<annotation cp="6⃣">6 | enam | tombol</annotation>
-		<annotation cp="6⃣" type="tts">tombol angka enam</annotation>
-		<annotation cp="7⃣">7 | tombol | tujuh</annotation>
-		<annotation cp="7⃣" type="tts">tombol angka tujuh</annotation>
-		<annotation cp="8⃣">8 | delapan | tombol</annotation>
-		<annotation cp="8⃣" type="tts">tombol angka delapan</annotation>
-		<annotation cp="9⃣">9 | sembilan | tombol</annotation>
-		<annotation cp="9⃣" type="tts">tombol angka sembilan</annotation>
+		<annotation cp="0⃣">keycap</annotation>
+		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
+		<annotation cp="1⃣">keycap</annotation>
+		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
+		<annotation cp="2⃣">keycap</annotation>
+		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
+		<annotation cp="3⃣">keycap</annotation>
+		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
+		<annotation cp="4⃣">keycap</annotation>
+		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
+		<annotation cp="5⃣">keycap</annotation>
+		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
+		<annotation cp="6⃣">keycap</annotation>
+		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
+		<annotation cp="7⃣">keycap</annotation>
+		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
+		<annotation cp="8⃣">keycap</annotation>
+		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
+		<annotation cp="9⃣">keycap</annotation>
+		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
 		<annotation cp="👶🏻">bayi | warna kulit jenis 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">bayi: warna kulit jenis 1–2</annotation>
 		<annotation cp="👶🏼">bayi | warna kulit jenis 3</annotation>
@@ -42,26 +42,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">bayi: warna kulit jenis 5</annotation>
 		<annotation cp="👶🏿">bayi | warna kulit jenis 6</annotation>
 		<annotation cp="👶🏿" type="tts">bayi: warna kulit jenis 6</annotation>
+		<annotation cp="🧒🏻">muda | netral gender | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧒🏻" type="tts">anak: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧒🏼">muda | netral gender | warna kulit jenis 3</annotation>
+		<annotation cp="🧒🏼" type="tts">anak: warna kulit jenis 3</annotation>
+		<annotation cp="🧒🏽">muda | netral gender | warna kulit jenis 4</annotation>
+		<annotation cp="🧒🏽" type="tts">anak: warna kulit jenis 4</annotation>
+		<annotation cp="🧒🏾">muda | netral gender | warna kulit jenis 5</annotation>
+		<annotation cp="🧒🏾" type="tts">anak: warna kulit jenis 5</annotation>
+		<annotation cp="🧒🏿">muda | netral gender | warna kulit jenis 6</annotation>
+		<annotation cp="🧒🏿" type="tts">anak: warna kulit jenis 6</annotation>
 		<annotation cp="👦🏻">anak | cowok | warna kulit jenis 1–2</annotation>
-		<annotation cp="👦🏻" type="tts">laki-laki: warna kulit jenis 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">anak laki-laki: warna kulit jenis 1–2</annotation>
 		<annotation cp="👦🏼">anak | cowok | warna kulit jenis 3</annotation>
-		<annotation cp="👦🏼" type="tts">laki-laki: warna kulit jenis 3</annotation>
+		<annotation cp="👦🏼" type="tts">anak laki-laki: warna kulit jenis 3</annotation>
 		<annotation cp="👦🏽">anak | cowok | warna kulit jenis 4</annotation>
-		<annotation cp="👦🏽" type="tts">laki-laki: warna kulit jenis 4</annotation>
+		<annotation cp="👦🏽" type="tts">anak laki-laki: warna kulit jenis 4</annotation>
 		<annotation cp="👦🏾">anak | cowok | warna kulit jenis 5</annotation>
-		<annotation cp="👦🏾" type="tts">laki-laki: warna kulit jenis 5</annotation>
+		<annotation cp="👦🏾" type="tts">anak laki-laki: warna kulit jenis 5</annotation>
 		<annotation cp="👦🏿">anak | cowok | warna kulit jenis 6</annotation>
-		<annotation cp="👦🏿" type="tts">laki-laki: warna kulit jenis 6</annotation>
+		<annotation cp="👦🏿" type="tts">anak laki-laki: warna kulit jenis 6</annotation>
 		<annotation cp="👧🏻">anak | cewek | gadis | virgo | zodiak | warna kulit jenis 1–2</annotation>
-		<annotation cp="👧🏻" type="tts">perempuan: warna kulit jenis 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">anak perempuan: warna kulit jenis 1–2</annotation>
 		<annotation cp="👧🏼">anak | cewek | gadis | virgo | zodiak | warna kulit jenis 3</annotation>
-		<annotation cp="👧🏼" type="tts">perempuan: warna kulit jenis 3</annotation>
+		<annotation cp="👧🏼" type="tts">anak perempuan: warna kulit jenis 3</annotation>
 		<annotation cp="👧🏽">anak | cewek | gadis | virgo | zodiak | warna kulit jenis 4</annotation>
-		<annotation cp="👧🏽" type="tts">perempuan: warna kulit jenis 4</annotation>
+		<annotation cp="👧🏽" type="tts">anak perempuan: warna kulit jenis 4</annotation>
 		<annotation cp="👧🏾">anak | cewek | gadis | virgo | zodiak | warna kulit jenis 5</annotation>
-		<annotation cp="👧🏾" type="tts">perempuan: warna kulit jenis 5</annotation>
+		<annotation cp="👧🏾" type="tts">anak perempuan: warna kulit jenis 5</annotation>
 		<annotation cp="👧🏿">anak | cewek | gadis | virgo | zodiak | warna kulit jenis 6</annotation>
-		<annotation cp="👧🏿" type="tts">perempuan: warna kulit jenis 6</annotation>
+		<annotation cp="👧🏿" type="tts">anak perempuan: warna kulit jenis 6</annotation>
+		<annotation cp="🧑🏻">netral gender | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧑🏻" type="tts">dewasa: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧑🏼">netral gender | warna kulit jenis 3</annotation>
+		<annotation cp="🧑🏼" type="tts">dewasa: warna kulit jenis 3</annotation>
+		<annotation cp="🧑🏽">netral gender | warna kulit jenis 4</annotation>
+		<annotation cp="🧑🏽" type="tts">dewasa: warna kulit jenis 4</annotation>
+		<annotation cp="🧑🏾">netral gender | warna kulit jenis 5</annotation>
+		<annotation cp="🧑🏾" type="tts">dewasa: warna kulit jenis 5</annotation>
+		<annotation cp="🧑🏿">netral gender | warna kulit jenis 6</annotation>
+		<annotation cp="🧑🏿" type="tts">dewasa: warna kulit jenis 6</annotation>
 		<annotation cp="👨🏻">bapak | laki-laki | warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">pria: warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏼">bapak | laki-laki | warna kulit jenis 3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">wanita: warna kulit jenis 5</annotation>
 		<annotation cp="👩🏿">ibu | perempuan | warna kulit jenis 6</annotation>
 		<annotation cp="👩🏿" type="tts">wanita: warna kulit jenis 6</annotation>
+		<annotation cp="🧓🏻">netral gender | tua | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧓🏻" type="tts">lanjut usia: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧓🏼">netral gender | tua | warna kulit jenis 3</annotation>
+		<annotation cp="🧓🏼" type="tts">lanjut usia: warna kulit jenis 3</annotation>
+		<annotation cp="🧓🏽">netral gender | tua | warna kulit jenis 4</annotation>
+		<annotation cp="🧓🏽" type="tts">lanjut usia: warna kulit jenis 4</annotation>
+		<annotation cp="🧓🏾">netral gender | tua | warna kulit jenis 5</annotation>
+		<annotation cp="🧓🏾" type="tts">lanjut usia: warna kulit jenis 5</annotation>
+		<annotation cp="🧓🏿">netral gender | tua | warna kulit jenis 6</annotation>
+		<annotation cp="🧓🏿" type="tts">lanjut usia: warna kulit jenis 6</annotation>
 		<annotation cp="👴🏻">kakek | laki-laki | pria | tua | warna kulit jenis 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">pria tua: warna kulit jenis 1–2</annotation>
 		<annotation cp="👴🏼">kakek | laki-laki | pria | tua | warna kulit jenis 3</annotation>
@@ -223,25 +253,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍🍳">dapur | memasak | perempuan | warna kulit jenis 6</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">koki wanita: warna kulit jenis 6</annotation>
 		<annotation cp="👨🏻‍🔧">laki-laki | perbaikan | tukang | warna kulit jenis 1–2</annotation>
-		<annotation cp="👨🏻‍🔧" type="tts">teknisi pria: warna kulit jenis 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">montir pria: warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏼‍🔧">laki-laki | perbaikan | tukang | warna kulit jenis 3</annotation>
-		<annotation cp="👨🏼‍🔧" type="tts">teknisi pria: warna kulit jenis 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">montir pria: warna kulit jenis 3</annotation>
 		<annotation cp="👨🏽‍🔧">laki-laki | perbaikan | tukang | warna kulit jenis 4</annotation>
-		<annotation cp="👨🏽‍🔧" type="tts">teknisi pria: warna kulit jenis 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">montir pria: warna kulit jenis 4</annotation>
 		<annotation cp="👨🏾‍🔧">laki-laki | perbaikan | tukang | warna kulit jenis 5</annotation>
-		<annotation cp="👨🏾‍🔧" type="tts">teknisi pria: warna kulit jenis 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">montir pria: warna kulit jenis 5</annotation>
 		<annotation cp="👨🏿‍🔧">laki-laki | perbaikan | tukang | warna kulit jenis 6</annotation>
-		<annotation cp="👨🏿‍🔧" type="tts">teknisi pria: warna kulit jenis 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">montir pria: warna kulit jenis 6</annotation>
 		<annotation cp="👩🏻‍🔧">perbaikan | perempuan | tukang | warna kulit jenis 1–2</annotation>
-		<annotation cp="👩🏻‍🔧" type="tts">teknisi wanita: warna kulit jenis 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">montir wanita: warna kulit jenis 1–2</annotation>
 		<annotation cp="👩🏼‍🔧">perbaikan | perempuan | tukang | warna kulit jenis 3</annotation>
-		<annotation cp="👩🏼‍🔧" type="tts">teknisi wanita: warna kulit jenis 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">montir wanita: warna kulit jenis 3</annotation>
 		<annotation cp="👩🏽‍🔧">perbaikan | perempuan | tukang | warna kulit jenis 4</annotation>
-		<annotation cp="👩🏽‍🔧" type="tts">teknisi wanita: warna kulit jenis 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">montir wanita: warna kulit jenis 4</annotation>
 		<annotation cp="👩🏾‍🔧">perbaikan | perempuan | tukang | warna kulit jenis 5</annotation>
-		<annotation cp="👩🏾‍🔧" type="tts">teknisi wanita: warna kulit jenis 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">montir wanita: warna kulit jenis 5</annotation>
 		<annotation cp="👩🏿‍🔧">perbaikan | perempuan | tukang | warna kulit jenis 6</annotation>
-		<annotation cp="👩🏿‍🔧" type="tts">teknisi wanita: warna kulit jenis 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">montir wanita: warna kulit jenis 6</annotation>
 		<annotation cp="👨🏻‍🏭">laki-laki | pabrik | pekerja | warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">pekerja pabrik pria: warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏼‍🏭">laki-laki | pabrik | pekerja | warna kulit jenis 3</annotation>
@@ -263,25 +293,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍🏭">pabrik | pekerja | perempuan | warna kulit jenis 6</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">pekerja pabrik wanita: warna kulit jenis 6</annotation>
 		<annotation cp="👨🏻‍💼">kantor | karyawan | laki-laki | warna kulit jenis 1–2</annotation>
-		<annotation cp="👨🏻‍💼" type="tts">karyawan kantor: warna kulit jenis 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">pekerja kantor pria: warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏼‍💼">kantor | karyawan | laki-laki | warna kulit jenis 3</annotation>
-		<annotation cp="👨🏼‍💼" type="tts">karyawan kantor: warna kulit jenis 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">pekerja kantor pria: warna kulit jenis 3</annotation>
 		<annotation cp="👨🏽‍💼">kantor | karyawan | laki-laki | warna kulit jenis 4</annotation>
-		<annotation cp="👨🏽‍💼" type="tts">karyawan kantor: warna kulit jenis 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">pekerja kantor pria: warna kulit jenis 4</annotation>
 		<annotation cp="👨🏾‍💼">kantor | karyawan | laki-laki | warna kulit jenis 5</annotation>
-		<annotation cp="👨🏾‍💼" type="tts">karyawan kantor: warna kulit jenis 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">pekerja kantor pria: warna kulit jenis 5</annotation>
 		<annotation cp="👨🏿‍💼">kantor | karyawan | laki-laki | warna kulit jenis 6</annotation>
-		<annotation cp="👨🏿‍💼" type="tts">karyawan kantor: warna kulit jenis 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">pekerja kantor pria: warna kulit jenis 6</annotation>
 		<annotation cp="👩🏻‍💼">kantor | karyawan | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="👩🏻‍💼" type="tts">karyawati kantor: warna kulit jenis 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">pekerja kantor wanita: warna kulit jenis 1–2</annotation>
 		<annotation cp="👩🏼‍💼">kantor | karyawan | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="👩🏼‍💼" type="tts">karyawati kantor: warna kulit jenis 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">pekerja kantor wanita: warna kulit jenis 3</annotation>
 		<annotation cp="👩🏽‍💼">kantor | karyawan | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="👩🏽‍💼" type="tts">karyawati kantor: warna kulit jenis 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">pekerja kantor wanita: warna kulit jenis 4</annotation>
 		<annotation cp="👩🏾‍💼">kantor | karyawan | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="👩🏾‍💼" type="tts">karyawati kantor: warna kulit jenis 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">pekerja kantor wanita: warna kulit jenis 5</annotation>
 		<annotation cp="👩🏿‍💼">kantor | karyawan | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="👩🏿‍💼" type="tts">karyawati kantor: warna kulit jenis 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">pekerja kantor wanita: warna kulit jenis 6</annotation>
 		<annotation cp="👨🏻‍🔬">laboratorium | laki-laki | sains | warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">ilmuwan pria: warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏼‍🔬">laboratorium | laki-laki | sains | warna kulit jenis 3</annotation>
@@ -383,25 +413,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍✈">perempuan | pesawat | pilot | warna kulit jenis 6</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilot wanita: warna kulit jenis 6</annotation>
 		<annotation cp="👨🏻‍🚀">angkasa luar | laki-laki | roket | warna kulit jenis 1–2</annotation>
-		<annotation cp="👨🏻‍🚀" type="tts">antariksawan: warna kulit jenis 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">antariksawan pria: warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏼‍🚀">angkasa luar | laki-laki | roket | warna kulit jenis 3</annotation>
-		<annotation cp="👨🏼‍🚀" type="tts">antariksawan: warna kulit jenis 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">antariksawan pria: warna kulit jenis 3</annotation>
 		<annotation cp="👨🏽‍🚀">angkasa luar | laki-laki | roket | warna kulit jenis 4</annotation>
-		<annotation cp="👨🏽‍🚀" type="tts">antariksawan: warna kulit jenis 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">antariksawan pria: warna kulit jenis 4</annotation>
 		<annotation cp="👨🏾‍🚀">angkasa luar | laki-laki | roket | warna kulit jenis 5</annotation>
-		<annotation cp="👨🏾‍🚀" type="tts">antariksawan: warna kulit jenis 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">antariksawan pria: warna kulit jenis 5</annotation>
 		<annotation cp="👨🏿‍🚀">angkasa luar | laki-laki | roket | warna kulit jenis 6</annotation>
-		<annotation cp="👨🏿‍🚀" type="tts">antariksawan: warna kulit jenis 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">antariksawan pria: warna kulit jenis 6</annotation>
 		<annotation cp="👩🏻‍🚀">angkasa luar | perempuan | roket | warna kulit jenis 1–2</annotation>
-		<annotation cp="👩🏻‍🚀" type="tts">antariksawati: warna kulit jenis 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">antariksawan wanita: warna kulit jenis 1–2</annotation>
 		<annotation cp="👩🏼‍🚀">angkasa luar | perempuan | roket | warna kulit jenis 3</annotation>
-		<annotation cp="👩🏼‍🚀" type="tts">antariksawati: warna kulit jenis 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">antariksawan wanita: warna kulit jenis 3</annotation>
 		<annotation cp="👩🏽‍🚀">angkasa luar | perempuan | roket | warna kulit jenis 4</annotation>
-		<annotation cp="👩🏽‍🚀" type="tts">antariksawati: warna kulit jenis 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">antariksawan wanita: warna kulit jenis 4</annotation>
 		<annotation cp="👩🏾‍🚀">angkasa luar | perempuan | roket | warna kulit jenis 5</annotation>
-		<annotation cp="👩🏾‍🚀" type="tts">antariksawati: warna kulit jenis 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">antariksawan wanita: warna kulit jenis 5</annotation>
 		<annotation cp="👩🏿‍🚀">angkasa luar | perempuan | roket | warna kulit jenis 6</annotation>
-		<annotation cp="👩🏿‍🚀" type="tts">antariksawati: warna kulit jenis 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">antariksawan wanita: warna kulit jenis 6</annotation>
 		<annotation cp="👨🏻‍🚒">api | laki-laki | pemadam | warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">pemadam kebakaran pria: warna kulit jenis 1–2</annotation>
 		<annotation cp="👨🏼‍🚒">api | laki-laki | pemadam | warna kulit jenis 3</annotation>
@@ -563,45 +593,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏿">dongeng | fantasi | puteri | warna kulit jenis 6</annotation>
 		<annotation cp="👸🏿" type="tts">putri: warna kulit jenis 6</annotation>
 		<annotation cp="👳🏻">laki-laki | pria | serban | surban | warna kulit jenis 1–2</annotation>
-		<annotation cp="👳🏻" type="tts">orang bersurban: warna kulit jenis 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">orang mengenakan serban: warna kulit jenis 1–2</annotation>
 		<annotation cp="👳🏼">laki-laki | pria | serban | surban | warna kulit jenis 3</annotation>
-		<annotation cp="👳🏼" type="tts">orang bersurban: warna kulit jenis 3</annotation>
+		<annotation cp="👳🏼" type="tts">orang mengenakan serban: warna kulit jenis 3</annotation>
 		<annotation cp="👳🏽">laki-laki | pria | serban | surban | warna kulit jenis 4</annotation>
-		<annotation cp="👳🏽" type="tts">orang bersurban: warna kulit jenis 4</annotation>
+		<annotation cp="👳🏽" type="tts">orang mengenakan serban: warna kulit jenis 4</annotation>
 		<annotation cp="👳🏾">laki-laki | pria | serban | surban | warna kulit jenis 5</annotation>
-		<annotation cp="👳🏾" type="tts">orang bersurban: warna kulit jenis 5</annotation>
+		<annotation cp="👳🏾" type="tts">orang mengenakan serban: warna kulit jenis 5</annotation>
 		<annotation cp="👳🏿">laki-laki | pria | serban | surban | warna kulit jenis 6</annotation>
-		<annotation cp="👳🏿" type="tts">orang bersurban: warna kulit jenis 6</annotation>
+		<annotation cp="👳🏿" type="tts">orang mengenakan serban: warna kulit jenis 6</annotation>
 		<annotation cp="👳🏻‍♂">laki-laki | serban | warna kulit jenis 1–2</annotation>
-		<annotation cp="👳🏻‍♂" type="tts">pria bersorban: warna kulit jenis 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">pria mengenakan serban: warna kulit jenis 1–2</annotation>
 		<annotation cp="👳🏼‍♂">laki-laki | serban | warna kulit jenis 3</annotation>
-		<annotation cp="👳🏼‍♂" type="tts">pria bersorban: warna kulit jenis 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">pria mengenakan serban: warna kulit jenis 3</annotation>
 		<annotation cp="👳🏽‍♂">laki-laki | serban | warna kulit jenis 4</annotation>
-		<annotation cp="👳🏽‍♂" type="tts">pria bersorban: warna kulit jenis 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">pria mengenakan serban: warna kulit jenis 4</annotation>
 		<annotation cp="👳🏾‍♂">laki-laki | serban | warna kulit jenis 5</annotation>
-		<annotation cp="👳🏾‍♂" type="tts">pria bersorban: warna kulit jenis 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">pria mengenakan serban: warna kulit jenis 5</annotation>
 		<annotation cp="👳🏿‍♂">laki-laki | serban | warna kulit jenis 6</annotation>
-		<annotation cp="👳🏿‍♂" type="tts">pria bersorban: warna kulit jenis 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">pria mengenakan serban: warna kulit jenis 6</annotation>
 		<annotation cp="👳🏻‍♀">perempuan | serban | warna kulit jenis 1–2</annotation>
-		<annotation cp="👳🏻‍♀" type="tts">wanita bersorban: warna kulit jenis 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">wanita mengenakan serban: warna kulit jenis 1–2</annotation>
 		<annotation cp="👳🏼‍♀">perempuan | serban | warna kulit jenis 3</annotation>
-		<annotation cp="👳🏼‍♀" type="tts">wanita bersorban: warna kulit jenis 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">wanita mengenakan serban: warna kulit jenis 3</annotation>
 		<annotation cp="👳🏽‍♀">perempuan | serban | warna kulit jenis 4</annotation>
-		<annotation cp="👳🏽‍♀" type="tts">wanita bersorban: warna kulit jenis 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">wanita mengenakan serban: warna kulit jenis 4</annotation>
 		<annotation cp="👳🏾‍♀">perempuan | serban | warna kulit jenis 5</annotation>
-		<annotation cp="👳🏾‍♀" type="tts">wanita bersorban: warna kulit jenis 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">wanita mengenakan serban: warna kulit jenis 5</annotation>
 		<annotation cp="👳🏿‍♀">perempuan | serban | warna kulit jenis 6</annotation>
-		<annotation cp="👳🏿‍♀" type="tts">wanita bersorban: warna kulit jenis 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">wanita mengenakan serban: warna kulit jenis 6</annotation>
 		<annotation cp="👲🏻">china | cina | laki-laki | pria | topi | warna kulit jenis 1–2</annotation>
-		<annotation cp="👲🏻" type="tts">orang bertopi china: warna kulit jenis 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">orang dengan topi Tionghoa: warna kulit jenis 1–2</annotation>
 		<annotation cp="👲🏼">china | cina | laki-laki | pria | topi | warna kulit jenis 3</annotation>
-		<annotation cp="👲🏼" type="tts">orang bertopi china: warna kulit jenis 3</annotation>
+		<annotation cp="👲🏼" type="tts">orang dengan topi Tionghoa: warna kulit jenis 3</annotation>
 		<annotation cp="👲🏽">china | cina | laki-laki | pria | topi | warna kulit jenis 4</annotation>
-		<annotation cp="👲🏽" type="tts">orang bertopi china: warna kulit jenis 4</annotation>
+		<annotation cp="👲🏽" type="tts">orang dengan topi Tionghoa: warna kulit jenis 4</annotation>
 		<annotation cp="👲🏾">china | cina | laki-laki | pria | topi | warna kulit jenis 5</annotation>
-		<annotation cp="👲🏾" type="tts">orang bertopi china: warna kulit jenis 5</annotation>
+		<annotation cp="👲🏾" type="tts">orang dengan topi Tionghoa: warna kulit jenis 5</annotation>
 		<annotation cp="👲🏿">china | cina | laki-laki | pria | topi | warna kulit jenis 6</annotation>
-		<annotation cp="👲🏿" type="tts">orang bertopi china: warna kulit jenis 6</annotation>
+		<annotation cp="👲🏿" type="tts">orang dengan topi Tionghoa: warna kulit jenis 6</annotation>
+		<annotation cp="🧕🏻">hijab | kerudung | mantilla | tichel | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">wanita dengan kerudung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧕🏼">hijab | kerudung | mantilla | tichel | warna kulit jenis 3</annotation>
+		<annotation cp="🧕🏼" type="tts">wanita dengan kerudung: warna kulit jenis 3</annotation>
+		<annotation cp="🧕🏽">hijab | kerudung | mantilla | tichel | warna kulit jenis 4</annotation>
+		<annotation cp="🧕🏽" type="tts">wanita dengan kerudung: warna kulit jenis 4</annotation>
+		<annotation cp="🧕🏾">hijab | kerudung | mantilla | tichel | warna kulit jenis 5</annotation>
+		<annotation cp="🧕🏾" type="tts">wanita dengan kerudung: warna kulit jenis 5</annotation>
+		<annotation cp="🧕🏿">hijab | kerudung | mantilla | tichel | warna kulit jenis 6</annotation>
+		<annotation cp="🧕🏿" type="tts">wanita dengan kerudung: warna kulit jenis 6</annotation>
+		<annotation cp="🧔🏻">janggut | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">orang berjenggot: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧔🏼">janggut | warna kulit jenis 3</annotation>
+		<annotation cp="🧔🏼" type="tts">orang berjenggot: warna kulit jenis 3</annotation>
+		<annotation cp="🧔🏽">janggut | warna kulit jenis 4</annotation>
+		<annotation cp="🧔🏽" type="tts">orang berjenggot: warna kulit jenis 4</annotation>
+		<annotation cp="🧔🏾">janggut | warna kulit jenis 5</annotation>
+		<annotation cp="🧔🏾" type="tts">orang berjenggot: warna kulit jenis 5</annotation>
+		<annotation cp="🧔🏿">janggut | warna kulit jenis 6</annotation>
+		<annotation cp="🧔🏿" type="tts">orang berjenggot: warna kulit jenis 6</annotation>
 		<annotation cp="👱🏻">pirang | warna kulit jenis 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">orang berambut pirang: warna kulit jenis 1–2</annotation>
 		<annotation cp="👱🏼">pirang | warna kulit jenis 3</annotation>
@@ -633,35 +683,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱🏿‍♀">perempuan | pirang | rambut | warna kulit jenis 6</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">wanita berambut pirang: warna kulit jenis 6</annotation>
 		<annotation cp="🤵🏻">cowok | ganteng | jas | mempelai pria | pria | tuxedo | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤵🏻" type="tts">pria ganteng: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">pria bertuksedo: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤵🏼">cowok | ganteng | jas | mempelai pria | pria | tuxedo | warna kulit jenis 3</annotation>
-		<annotation cp="🤵🏼" type="tts">pria ganteng: warna kulit jenis 3</annotation>
+		<annotation cp="🤵🏼" type="tts">pria bertuksedo: warna kulit jenis 3</annotation>
 		<annotation cp="🤵🏽">cowok | ganteng | jas | mempelai pria | pria | tuxedo | warna kulit jenis 4</annotation>
-		<annotation cp="🤵🏽" type="tts">pria ganteng: warna kulit jenis 4</annotation>
+		<annotation cp="🤵🏽" type="tts">pria bertuksedo: warna kulit jenis 4</annotation>
 		<annotation cp="🤵🏾">cowok | ganteng | jas | mempelai pria | pria | tuxedo | warna kulit jenis 5</annotation>
-		<annotation cp="🤵🏾" type="tts">pria ganteng: warna kulit jenis 5</annotation>
+		<annotation cp="🤵🏾" type="tts">pria bertuksedo: warna kulit jenis 5</annotation>
 		<annotation cp="🤵🏿">cowok | ganteng | jas | mempelai pria | pria | tuxedo | warna kulit jenis 6</annotation>
-		<annotation cp="🤵🏿" type="tts">pria ganteng: warna kulit jenis 6</annotation>
+		<annotation cp="🤵🏿" type="tts">pria bertuksedo: warna kulit jenis 6</annotation>
 		<annotation cp="👰🏻">cadar | kawin | kerudung | nikah | pengantin | warna kulit jenis 1–2</annotation>
-		<annotation cp="👰🏻" type="tts">pengantin berkerudung: warna kulit jenis 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">pengantin berpenutup kepala: warna kulit jenis 1–2</annotation>
 		<annotation cp="👰🏼">cadar | kawin | kerudung | nikah | pengantin | warna kulit jenis 3</annotation>
-		<annotation cp="👰🏼" type="tts">pengantin berkerudung: warna kulit jenis 3</annotation>
+		<annotation cp="👰🏼" type="tts">pengantin berpenutup kepala: warna kulit jenis 3</annotation>
 		<annotation cp="👰🏽">cadar | kawin | kerudung | nikah | pengantin | warna kulit jenis 4</annotation>
-		<annotation cp="👰🏽" type="tts">pengantin berkerudung: warna kulit jenis 4</annotation>
+		<annotation cp="👰🏽" type="tts">pengantin berpenutup kepala: warna kulit jenis 4</annotation>
 		<annotation cp="👰🏾">cadar | kawin | kerudung | nikah | pengantin | warna kulit jenis 5</annotation>
-		<annotation cp="👰🏾" type="tts">pengantin berkerudung: warna kulit jenis 5</annotation>
+		<annotation cp="👰🏾" type="tts">pengantin berpenutup kepala: warna kulit jenis 5</annotation>
 		<annotation cp="👰🏿">cadar | kawin | kerudung | nikah | pengantin | warna kulit jenis 6</annotation>
-		<annotation cp="👰🏿" type="tts">pengantin berkerudung: warna kulit jenis 6</annotation>
+		<annotation cp="👰🏿" type="tts">pengantin berpenutup kepala: warna kulit jenis 6</annotation>
 		<annotation cp="🤰🏻">hamil | ibu hamil | perempuan | perempuan hamil | wanita | wanita hamil | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤰🏻" type="tts">hamil: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">wanita hamil: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤰🏼">hamil | ibu hamil | perempuan | perempuan hamil | wanita | wanita hamil | warna kulit jenis 3</annotation>
-		<annotation cp="🤰🏼" type="tts">hamil: warna kulit jenis 3</annotation>
+		<annotation cp="🤰🏼" type="tts">wanita hamil: warna kulit jenis 3</annotation>
 		<annotation cp="🤰🏽">hamil | ibu hamil | perempuan | perempuan hamil | wanita | wanita hamil | warna kulit jenis 4</annotation>
-		<annotation cp="🤰🏽" type="tts">hamil: warna kulit jenis 4</annotation>
+		<annotation cp="🤰🏽" type="tts">wanita hamil: warna kulit jenis 4</annotation>
 		<annotation cp="🤰🏾">hamil | ibu hamil | perempuan | perempuan hamil | wanita | wanita hamil | warna kulit jenis 5</annotation>
-		<annotation cp="🤰🏾" type="tts">hamil: warna kulit jenis 5</annotation>
+		<annotation cp="🤰🏾" type="tts">wanita hamil: warna kulit jenis 5</annotation>
 		<annotation cp="🤰🏿">hamil | ibu hamil | perempuan | perempuan hamil | wanita | wanita hamil | warna kulit jenis 6</annotation>
-		<annotation cp="🤰🏿" type="tts">hamil: warna kulit jenis 6</annotation>
+		<annotation cp="🤰🏿" type="tts">wanita hamil: warna kulit jenis 6</annotation>
+		<annotation cp="🤱🏻">bayi | menyusui | payudara | warna kulit jenis 1–2</annotation>
+		<annotation cp="🤱🏻" type="tts">menyusui: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤱🏼">bayi | menyusui | payudara | warna kulit jenis 3</annotation>
+		<annotation cp="🤱🏼" type="tts">menyusui: warna kulit jenis 3</annotation>
+		<annotation cp="🤱🏽">bayi | menyusui | payudara | warna kulit jenis 4</annotation>
+		<annotation cp="🤱🏽" type="tts">menyusui: warna kulit jenis 4</annotation>
+		<annotation cp="🤱🏾">bayi | menyusui | payudara | warna kulit jenis 5</annotation>
+		<annotation cp="🤱🏾" type="tts">menyusui: warna kulit jenis 5</annotation>
+		<annotation cp="🤱🏿">bayi | menyusui | payudara | warna kulit jenis 6</annotation>
+		<annotation cp="🤱🏿" type="tts">menyusui: warna kulit jenis 6</annotation>
 		<annotation cp="👼🏻">bayi | dongeng | fantasi | malaikat | muka | wajah | warna kulit jenis 1–2</annotation>
 		<annotation cp="👼🏻" type="tts">malaikat bayi: warna kulit jenis 1–2</annotation>
 		<annotation cp="👼🏼">bayi | dongeng | fantasi | malaikat | muka | wajah | warna kulit jenis 3</annotation>
@@ -673,25 +733,175 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👼🏿">bayi | dongeng | fantasi | malaikat | muka | wajah | warna kulit jenis 6</annotation>
 		<annotation cp="👼🏿" type="tts">malaikat bayi: warna kulit jenis 6</annotation>
 		<annotation cp="🎅🏻">dongeng | fantasi | natal | perayaan | santa | warna kulit jenis 1–2</annotation>
-		<annotation cp="🎅🏻" type="tts">sinterklas: warna kulit jenis 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">Sinterklas: warna kulit jenis 1–2</annotation>
 		<annotation cp="🎅🏼">dongeng | fantasi | natal | perayaan | santa | warna kulit jenis 3</annotation>
-		<annotation cp="🎅🏼" type="tts">sinterklas: warna kulit jenis 3</annotation>
+		<annotation cp="🎅🏼" type="tts">Sinterklas: warna kulit jenis 3</annotation>
 		<annotation cp="🎅🏽">dongeng | fantasi | natal | perayaan | santa | warna kulit jenis 4</annotation>
-		<annotation cp="🎅🏽" type="tts">sinterklas: warna kulit jenis 4</annotation>
+		<annotation cp="🎅🏽" type="tts">Sinterklas: warna kulit jenis 4</annotation>
 		<annotation cp="🎅🏾">dongeng | fantasi | natal | perayaan | santa | warna kulit jenis 5</annotation>
-		<annotation cp="🎅🏾" type="tts">sinterklas: warna kulit jenis 5</annotation>
+		<annotation cp="🎅🏾" type="tts">Sinterklas: warna kulit jenis 5</annotation>
 		<annotation cp="🎅🏿">dongeng | fantasi | natal | perayaan | santa | warna kulit jenis 6</annotation>
-		<annotation cp="🎅🏿" type="tts">sinterklas: warna kulit jenis 6</annotation>
+		<annotation cp="🎅🏿" type="tts">Sinterklas: warna kulit jenis 6</annotation>
 		<annotation cp="🤶🏻">ibu | nenek | oma | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤶🏻" type="tts">ibu: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">Nyonya Claus: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤶🏼">ibu | nenek | oma | warna kulit jenis 3</annotation>
-		<annotation cp="🤶🏼" type="tts">ibu: warna kulit jenis 3</annotation>
+		<annotation cp="🤶🏼" type="tts">Nyonya Claus: warna kulit jenis 3</annotation>
 		<annotation cp="🤶🏽">ibu | nenek | oma | warna kulit jenis 4</annotation>
-		<annotation cp="🤶🏽" type="tts">ibu: warna kulit jenis 4</annotation>
+		<annotation cp="🤶🏽" type="tts">Nyonya Claus: warna kulit jenis 4</annotation>
 		<annotation cp="🤶🏾">ibu | nenek | oma | warna kulit jenis 5</annotation>
-		<annotation cp="🤶🏾" type="tts">ibu: warna kulit jenis 5</annotation>
+		<annotation cp="🤶🏾" type="tts">Nyonya Claus: warna kulit jenis 5</annotation>
 		<annotation cp="🤶🏿">ibu | nenek | oma | warna kulit jenis 6</annotation>
-		<annotation cp="🤶🏿" type="tts">ibu: warna kulit jenis 6</annotation>
+		<annotation cp="🤶🏿" type="tts">Nyonya Claus: warna kulit jenis 6</annotation>
+		<annotation cp="🧙🏻">penyihir | tukang sihir | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧙🏻" type="tts">magi: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧙🏼">penyihir | tukang sihir | warna kulit jenis 3</annotation>
+		<annotation cp="🧙🏼" type="tts">magi: warna kulit jenis 3</annotation>
+		<annotation cp="🧙🏽">penyihir | tukang sihir | warna kulit jenis 4</annotation>
+		<annotation cp="🧙🏽" type="tts">magi: warna kulit jenis 4</annotation>
+		<annotation cp="🧙🏾">penyihir | tukang sihir | warna kulit jenis 5</annotation>
+		<annotation cp="🧙🏾" type="tts">magi: warna kulit jenis 5</annotation>
+		<annotation cp="🧙🏿">penyihir | tukang sihir | warna kulit jenis 6</annotation>
+		<annotation cp="🧙🏿" type="tts">magi: warna kulit jenis 6</annotation>
+		<annotation cp="🧙🏻‍♀">penyihir | tukang sihir | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">magi wanita: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧙🏼‍♀">penyihir | tukang sihir | warna kulit jenis 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">magi wanita: warna kulit jenis 3</annotation>
+		<annotation cp="🧙🏽‍♀">penyihir | tukang sihir | warna kulit jenis 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">magi wanita: warna kulit jenis 4</annotation>
+		<annotation cp="🧙🏾‍♀">penyihir | tukang sihir | warna kulit jenis 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">magi wanita: warna kulit jenis 5</annotation>
+		<annotation cp="🧙🏿‍♀">penyihir | tukang sihir | warna kulit jenis 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">magi wanita: warna kulit jenis 6</annotation>
+		<annotation cp="🧙🏻‍♂">penyihir | tukang sihir | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">magi pria: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧙🏼‍♂">penyihir | tukang sihir | warna kulit jenis 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">magi pria: warna kulit jenis 3</annotation>
+		<annotation cp="🧙🏽‍♂">penyihir | tukang sihir | warna kulit jenis 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">magi pria: warna kulit jenis 4</annotation>
+		<annotation cp="🧙🏾‍♂">penyihir | tukang sihir | warna kulit jenis 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">magi pria: warna kulit jenis 5</annotation>
+		<annotation cp="🧙🏿‍♂">penyihir | tukang sihir | warna kulit jenis 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">magi pria: warna kulit jenis 6</annotation>
+		<annotation cp="🧚🏻">Oberon | Puck | Titania | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧚🏻" type="tts">peri: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧚🏼">Oberon | Puck | Titania | warna kulit jenis 3</annotation>
+		<annotation cp="🧚🏼" type="tts">peri: warna kulit jenis 3</annotation>
+		<annotation cp="🧚🏽">Oberon | Puck | Titania | warna kulit jenis 4</annotation>
+		<annotation cp="🧚🏽" type="tts">peri: warna kulit jenis 4</annotation>
+		<annotation cp="🧚🏾">Oberon | Puck | Titania | warna kulit jenis 5</annotation>
+		<annotation cp="🧚🏾" type="tts">peri: warna kulit jenis 5</annotation>
+		<annotation cp="🧚🏿">Oberon | Puck | Titania | warna kulit jenis 6</annotation>
+		<annotation cp="🧚🏿" type="tts">peri: warna kulit jenis 6</annotation>
+		<annotation cp="🧚🏻‍♀">Titania | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">peri wanita: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧚🏼‍♀">Titania | warna kulit jenis 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">peri wanita: warna kulit jenis 3</annotation>
+		<annotation cp="🧚🏽‍♀">Titania | warna kulit jenis 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">peri wanita: warna kulit jenis 4</annotation>
+		<annotation cp="🧚🏾‍♀">Titania | warna kulit jenis 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">peri wanita: warna kulit jenis 5</annotation>
+		<annotation cp="🧚🏿‍♀">Titania | warna kulit jenis 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">peri wanita: warna kulit jenis 6</annotation>
+		<annotation cp="🧚🏻‍♂">Oberon | Puck | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">peri pria: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧚🏼‍♂">Oberon | Puck | warna kulit jenis 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">peri pria: warna kulit jenis 3</annotation>
+		<annotation cp="🧚🏽‍♂">Oberon | Puck | warna kulit jenis 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">peri pria: warna kulit jenis 4</annotation>
+		<annotation cp="🧚🏾‍♂">Oberon | Puck | warna kulit jenis 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">peri pria: warna kulit jenis 5</annotation>
+		<annotation cp="🧚🏿‍♂">Oberon | Puck | warna kulit jenis 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">peri pria: warna kulit jenis 6</annotation>
+		<annotation cp="🧛🏻">Drakula | mayat hidup | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧛🏻" type="tts">vampir: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧛🏼">Drakula | mayat hidup | warna kulit jenis 3</annotation>
+		<annotation cp="🧛🏼" type="tts">vampir: warna kulit jenis 3</annotation>
+		<annotation cp="🧛🏽">Drakula | mayat hidup | warna kulit jenis 4</annotation>
+		<annotation cp="🧛🏽" type="tts">vampir: warna kulit jenis 4</annotation>
+		<annotation cp="🧛🏾">Drakula | mayat hidup | warna kulit jenis 5</annotation>
+		<annotation cp="🧛🏾" type="tts">vampir: warna kulit jenis 5</annotation>
+		<annotation cp="🧛🏿">Drakula | mayat hidup | warna kulit jenis 6</annotation>
+		<annotation cp="🧛🏿" type="tts">vampir: warna kulit jenis 6</annotation>
+		<annotation cp="🧛🏻‍♀">mayat hidup | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">vampir wanita: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧛🏼‍♀">mayat hidup | warna kulit jenis 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">vampir wanita: warna kulit jenis 3</annotation>
+		<annotation cp="🧛🏽‍♀">mayat hidup | warna kulit jenis 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">vampir wanita: warna kulit jenis 4</annotation>
+		<annotation cp="🧛🏾‍♀">mayat hidup | warna kulit jenis 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">vampir wanita: warna kulit jenis 5</annotation>
+		<annotation cp="🧛🏿‍♀">mayat hidup | warna kulit jenis 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">vampir wanita: warna kulit jenis 6</annotation>
+		<annotation cp="🧛🏻‍♂">Drakula | mayat hidup | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">vampir pria: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧛🏼‍♂">Drakula | mayat hidup | warna kulit jenis 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">vampir pria: warna kulit jenis 3</annotation>
+		<annotation cp="🧛🏽‍♂">Drakula | mayat hidup | warna kulit jenis 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">vampir pria: warna kulit jenis 4</annotation>
+		<annotation cp="🧛🏾‍♂">Drakula | mayat hidup | warna kulit jenis 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">vampir pria: warna kulit jenis 5</annotation>
+		<annotation cp="🧛🏿‍♂">Drakula | mayat hidup | warna kulit jenis 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">vampir pria: warna kulit jenis 6</annotation>
+		<annotation cp="🧜🏻">pria duyung | putri duyung | wanita duyung | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧜🏻" type="tts">orang duyung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧜🏼">pria duyung | putri duyung | wanita duyung | warna kulit jenis 3</annotation>
+		<annotation cp="🧜🏼" type="tts">orang duyung: warna kulit jenis 3</annotation>
+		<annotation cp="🧜🏽">pria duyung | putri duyung | wanita duyung | warna kulit jenis 4</annotation>
+		<annotation cp="🧜🏽" type="tts">orang duyung: warna kulit jenis 4</annotation>
+		<annotation cp="🧜🏾">pria duyung | putri duyung | wanita duyung | warna kulit jenis 5</annotation>
+		<annotation cp="🧜🏾" type="tts">orang duyung: warna kulit jenis 5</annotation>
+		<annotation cp="🧜🏿">pria duyung | putri duyung | wanita duyung | warna kulit jenis 6</annotation>
+		<annotation cp="🧜🏿" type="tts">orang duyung: warna kulit jenis 6</annotation>
+		<annotation cp="🧜🏻‍♀">wanita duyung | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">putri duyung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧜🏼‍♀">wanita duyung | warna kulit jenis 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">putri duyung: warna kulit jenis 3</annotation>
+		<annotation cp="🧜🏽‍♀">wanita duyung | warna kulit jenis 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">putri duyung: warna kulit jenis 4</annotation>
+		<annotation cp="🧜🏾‍♀">wanita duyung | warna kulit jenis 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">putri duyung: warna kulit jenis 5</annotation>
+		<annotation cp="🧜🏿‍♀">wanita duyung | warna kulit jenis 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">putri duyung: warna kulit jenis 6</annotation>
+		<annotation cp="🧜🏻‍♂">Triton | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">pria duyung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧜🏼‍♂">Triton | warna kulit jenis 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">pria duyung: warna kulit jenis 3</annotation>
+		<annotation cp="🧜🏽‍♂">Triton | warna kulit jenis 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">pria duyung: warna kulit jenis 4</annotation>
+		<annotation cp="🧜🏾‍♂">Triton | warna kulit jenis 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">pria duyung: warna kulit jenis 5</annotation>
+		<annotation cp="🧜🏿‍♂">Triton | warna kulit jenis 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">pria duyung: warna kulit jenis 6</annotation>
+		<annotation cp="🧝🏻">ajaib | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧝🏻" type="tts">kurcaci: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧝🏼">ajaib | warna kulit jenis 3</annotation>
+		<annotation cp="🧝🏼" type="tts">kurcaci: warna kulit jenis 3</annotation>
+		<annotation cp="🧝🏽">ajaib | warna kulit jenis 4</annotation>
+		<annotation cp="🧝🏽" type="tts">kurcaci: warna kulit jenis 4</annotation>
+		<annotation cp="🧝🏾">ajaib | warna kulit jenis 5</annotation>
+		<annotation cp="🧝🏾" type="tts">kurcaci: warna kulit jenis 5</annotation>
+		<annotation cp="🧝🏿">ajaib | warna kulit jenis 6</annotation>
+		<annotation cp="🧝🏿" type="tts">kurcaci: warna kulit jenis 6</annotation>
+		<annotation cp="🧝🏻‍♀">ajaib | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">kurcaci wanita: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧝🏼‍♀">ajaib | warna kulit jenis 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">kurcaci wanita: warna kulit jenis 3</annotation>
+		<annotation cp="🧝🏽‍♀">ajaib | warna kulit jenis 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">kurcaci wanita: warna kulit jenis 4</annotation>
+		<annotation cp="🧝🏾‍♀">ajaib | warna kulit jenis 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">kurcaci wanita: warna kulit jenis 5</annotation>
+		<annotation cp="🧝🏿‍♀">ajaib | warna kulit jenis 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">kurcaci wanita: warna kulit jenis 6</annotation>
+		<annotation cp="🧝🏻‍♂">ajaib | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">kurcaci pria: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧝🏼‍♂">ajaib | warna kulit jenis 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">kurcaci pria: warna kulit jenis 3</annotation>
+		<annotation cp="🧝🏽‍♂">ajaib | warna kulit jenis 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">kurcaci pria: warna kulit jenis 4</annotation>
+		<annotation cp="🧝🏾‍♂">ajaib | warna kulit jenis 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">kurcaci pria: warna kulit jenis 5</annotation>
+		<annotation cp="🧝🏿‍♂">ajaib | warna kulit jenis 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">kurcaci pria: warna kulit jenis 6</annotation>
 		<annotation cp="🙍🏻">gerakan | marah | warna kulit jenis 1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">orang marah: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙍🏼">gerakan | marah | warna kulit jenis 3</annotation>
@@ -723,105 +933,105 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍🏿‍♀">muka | perempuan | tidak senang | warna kulit jenis 6</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">wanita muka tidak senang: warna kulit jenis 6</annotation>
 		<annotation cp="🙎🏻">cemberut | gerakan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙎🏻" type="tts">orang cemberut: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">orang tidak senang: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙎🏼">cemberut | gerakan | warna kulit jenis 3</annotation>
-		<annotation cp="🙎🏼" type="tts">orang cemberut: warna kulit jenis 3</annotation>
+		<annotation cp="🙎🏼" type="tts">orang tidak senang: warna kulit jenis 3</annotation>
 		<annotation cp="🙎🏽">cemberut | gerakan | warna kulit jenis 4</annotation>
-		<annotation cp="🙎🏽" type="tts">orang cemberut: warna kulit jenis 4</annotation>
+		<annotation cp="🙎🏽" type="tts">orang tidak senang: warna kulit jenis 4</annotation>
 		<annotation cp="🙎🏾">cemberut | gerakan | warna kulit jenis 5</annotation>
-		<annotation cp="🙎🏾" type="tts">orang cemberut: warna kulit jenis 5</annotation>
+		<annotation cp="🙎🏾" type="tts">orang tidak senang: warna kulit jenis 5</annotation>
 		<annotation cp="🙎🏿">cemberut | gerakan | warna kulit jenis 6</annotation>
-		<annotation cp="🙎🏿" type="tts">orang cemberut: warna kulit jenis 6</annotation>
+		<annotation cp="🙎🏿" type="tts">orang tidak senang: warna kulit jenis 6</annotation>
 		<annotation cp="🙎🏻‍♂">bibir | laki-laki | tidak senang | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙎🏻‍♂" type="tts">pria cemberut: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">pria tidak senang: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙎🏼‍♂">bibir | laki-laki | tidak senang | warna kulit jenis 3</annotation>
-		<annotation cp="🙎🏼‍♂" type="tts">pria cemberut: warna kulit jenis 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">pria tidak senang: warna kulit jenis 3</annotation>
 		<annotation cp="🙎🏽‍♂">bibir | laki-laki | tidak senang | warna kulit jenis 4</annotation>
-		<annotation cp="🙎🏽‍♂" type="tts">pria cemberut: warna kulit jenis 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">pria tidak senang: warna kulit jenis 4</annotation>
 		<annotation cp="🙎🏾‍♂">bibir | laki-laki | tidak senang | warna kulit jenis 5</annotation>
-		<annotation cp="🙎🏾‍♂" type="tts">pria cemberut: warna kulit jenis 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">pria tidak senang: warna kulit jenis 5</annotation>
 		<annotation cp="🙎🏿‍♂">bibir | laki-laki | tidak senang | warna kulit jenis 6</annotation>
-		<annotation cp="🙎🏿‍♂" type="tts">pria cemberut: warna kulit jenis 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">pria tidak senang: warna kulit jenis 6</annotation>
 		<annotation cp="🙎🏻‍♀">bibir | perempuan | tidak senang | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙎🏻‍♀" type="tts">wanita cemberut: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">wanita tidak senang: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙎🏼‍♀">bibir | perempuan | tidak senang | warna kulit jenis 3</annotation>
-		<annotation cp="🙎🏼‍♀" type="tts">wanita cemberut: warna kulit jenis 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">wanita tidak senang: warna kulit jenis 3</annotation>
 		<annotation cp="🙎🏽‍♀">bibir | perempuan | tidak senang | warna kulit jenis 4</annotation>
-		<annotation cp="🙎🏽‍♀" type="tts">wanita cemberut: warna kulit jenis 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">wanita tidak senang: warna kulit jenis 4</annotation>
 		<annotation cp="🙎🏾‍♀">bibir | perempuan | tidak senang | warna kulit jenis 5</annotation>
-		<annotation cp="🙎🏾‍♀" type="tts">wanita cemberut: warna kulit jenis 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">wanita tidak senang: warna kulit jenis 5</annotation>
 		<annotation cp="🙎🏿‍♀">bibir | perempuan | tidak senang | warna kulit jenis 6</annotation>
-		<annotation cp="🙎🏿‍♀" type="tts">wanita cemberut: warna kulit jenis 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">wanita tidak senang: warna kulit jenis 6</annotation>
 		<annotation cp="🙅🏻">dilarang | gerakan | nggak | tangan | terlarang | tidak | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙅🏻" type="tts">isyarat tidak: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">orang mengisyaratkan TIDAK: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙅🏼">dilarang | gerakan | nggak | tangan | terlarang | tidak | warna kulit jenis 3</annotation>
-		<annotation cp="🙅🏼" type="tts">isyarat tidak: warna kulit jenis 3</annotation>
+		<annotation cp="🙅🏼" type="tts">orang mengisyaratkan TIDAK: warna kulit jenis 3</annotation>
 		<annotation cp="🙅🏽">dilarang | gerakan | nggak | tangan | terlarang | tidak | warna kulit jenis 4</annotation>
-		<annotation cp="🙅🏽" type="tts">isyarat tidak: warna kulit jenis 4</annotation>
+		<annotation cp="🙅🏽" type="tts">orang mengisyaratkan TIDAK: warna kulit jenis 4</annotation>
 		<annotation cp="🙅🏾">dilarang | gerakan | nggak | tangan | terlarang | tidak | warna kulit jenis 5</annotation>
-		<annotation cp="🙅🏾" type="tts">isyarat tidak: warna kulit jenis 5</annotation>
+		<annotation cp="🙅🏾" type="tts">orang mengisyaratkan TIDAK: warna kulit jenis 5</annotation>
 		<annotation cp="🙅🏿">dilarang | gerakan | nggak | tangan | terlarang | tidak | warna kulit jenis 6</annotation>
-		<annotation cp="🙅🏿" type="tts">isyarat tidak: warna kulit jenis 6</annotation>
+		<annotation cp="🙅🏿" type="tts">orang mengisyaratkan TIDAK: warna kulit jenis 6</annotation>
 		<annotation cp="🙅🏻‍♂">isyarat | laki-laki | tidak | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙅🏻‍♂" type="tts">pria menyilangkan tangan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">pria mengisyaratkan TIDAK: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙅🏼‍♂">isyarat | laki-laki | tidak | warna kulit jenis 3</annotation>
-		<annotation cp="🙅🏼‍♂" type="tts">pria menyilangkan tangan: warna kulit jenis 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">pria mengisyaratkan TIDAK: warna kulit jenis 3</annotation>
 		<annotation cp="🙅🏽‍♂">isyarat | laki-laki | tidak | warna kulit jenis 4</annotation>
-		<annotation cp="🙅🏽‍♂" type="tts">pria menyilangkan tangan: warna kulit jenis 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">pria mengisyaratkan TIDAK: warna kulit jenis 4</annotation>
 		<annotation cp="🙅🏾‍♂">isyarat | laki-laki | tidak | warna kulit jenis 5</annotation>
-		<annotation cp="🙅🏾‍♂" type="tts">pria menyilangkan tangan: warna kulit jenis 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">pria mengisyaratkan TIDAK: warna kulit jenis 5</annotation>
 		<annotation cp="🙅🏿‍♂">isyarat | laki-laki | tidak | warna kulit jenis 6</annotation>
-		<annotation cp="🙅🏿‍♂" type="tts">pria menyilangkan tangan: warna kulit jenis 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">pria mengisyaratkan TIDAK: warna kulit jenis 6</annotation>
 		<annotation cp="🙅🏻‍♀">isyarat | perempuan | tangan | tidak | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙅🏻‍♀" type="tts">wanita menyilangkan tangan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">wanita mengisyaratkan TIDAK: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙅🏼‍♀">isyarat | perempuan | tangan | tidak | warna kulit jenis 3</annotation>
-		<annotation cp="🙅🏼‍♀" type="tts">wanita menyilangkan tangan: warna kulit jenis 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">wanita mengisyaratkan TIDAK: warna kulit jenis 3</annotation>
 		<annotation cp="🙅🏽‍♀">isyarat | perempuan | tangan | tidak | warna kulit jenis 4</annotation>
-		<annotation cp="🙅🏽‍♀" type="tts">wanita menyilangkan tangan: warna kulit jenis 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">wanita mengisyaratkan TIDAK: warna kulit jenis 4</annotation>
 		<annotation cp="🙅🏾‍♀">isyarat | perempuan | tangan | tidak | warna kulit jenis 5</annotation>
-		<annotation cp="🙅🏾‍♀" type="tts">wanita menyilangkan tangan: warna kulit jenis 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">wanita mengisyaratkan TIDAK: warna kulit jenis 5</annotation>
 		<annotation cp="🙅🏿‍♀">isyarat | perempuan | tangan | tidak | warna kulit jenis 6</annotation>
-		<annotation cp="🙅🏿‍♀" type="tts">wanita menyilangkan tangan: warna kulit jenis 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">wanita mengisyaratkan TIDAK: warna kulit jenis 6</annotation>
 		<annotation cp="🙆🏻">gerakan | oke | tangan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙆🏻" type="tts">isyarat oke: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">orang mengisyaratkan OKE: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙆🏼">gerakan | oke | tangan | warna kulit jenis 3</annotation>
-		<annotation cp="🙆🏼" type="tts">isyarat oke: warna kulit jenis 3</annotation>
+		<annotation cp="🙆🏼" type="tts">orang mengisyaratkan OKE: warna kulit jenis 3</annotation>
 		<annotation cp="🙆🏽">gerakan | oke | tangan | warna kulit jenis 4</annotation>
-		<annotation cp="🙆🏽" type="tts">isyarat oke: warna kulit jenis 4</annotation>
+		<annotation cp="🙆🏽" type="tts">orang mengisyaratkan OKE: warna kulit jenis 4</annotation>
 		<annotation cp="🙆🏾">gerakan | oke | tangan | warna kulit jenis 5</annotation>
-		<annotation cp="🙆🏾" type="tts">isyarat oke: warna kulit jenis 5</annotation>
+		<annotation cp="🙆🏾" type="tts">orang mengisyaratkan OKE: warna kulit jenis 5</annotation>
 		<annotation cp="🙆🏿">gerakan | oke | tangan | warna kulit jenis 6</annotation>
-		<annotation cp="🙆🏿" type="tts">isyarat oke: warna kulit jenis 6</annotation>
+		<annotation cp="🙆🏿" type="tts">orang mengisyaratkan OKE: warna kulit jenis 6</annotation>
 		<annotation cp="🙆🏻‍♂">isyarat | laki-laki | oke | tangan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙆🏻‍♂" type="tts">pria melingkarkan tangan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">pria mengisyaratkan OKE: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙆🏼‍♂">isyarat | laki-laki | oke | tangan | warna kulit jenis 3</annotation>
-		<annotation cp="🙆🏼‍♂" type="tts">pria melingkarkan tangan: warna kulit jenis 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">pria mengisyaratkan OKE: warna kulit jenis 3</annotation>
 		<annotation cp="🙆🏽‍♂">isyarat | laki-laki | oke | tangan | warna kulit jenis 4</annotation>
-		<annotation cp="🙆🏽‍♂" type="tts">pria melingkarkan tangan: warna kulit jenis 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">pria mengisyaratkan OKE: warna kulit jenis 4</annotation>
 		<annotation cp="🙆🏾‍♂">isyarat | laki-laki | oke | tangan | warna kulit jenis 5</annotation>
-		<annotation cp="🙆🏾‍♂" type="tts">pria melingkarkan tangan: warna kulit jenis 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">pria mengisyaratkan OKE: warna kulit jenis 5</annotation>
 		<annotation cp="🙆🏿‍♂">isyarat | laki-laki | oke | tangan | warna kulit jenis 6</annotation>
-		<annotation cp="🙆🏿‍♂" type="tts">pria melingkarkan tangan: warna kulit jenis 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">pria mengisyaratkan OKE: warna kulit jenis 6</annotation>
 		<annotation cp="🙆🏻‍♀">isyarat | oke | perempuan | tangan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙆🏻‍♀" type="tts">wanita melingkarkan tangan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">wanita mengisyaratkan OKE: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙆🏼‍♀">isyarat | oke | perempuan | tangan | warna kulit jenis 3</annotation>
-		<annotation cp="🙆🏼‍♀" type="tts">wanita melingkarkan tangan: warna kulit jenis 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">wanita mengisyaratkan OKE: warna kulit jenis 3</annotation>
 		<annotation cp="🙆🏽‍♀">isyarat | oke | perempuan | tangan | warna kulit jenis 4</annotation>
-		<annotation cp="🙆🏽‍♀" type="tts">wanita melingkarkan tangan: warna kulit jenis 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">wanita mengisyaratkan OKE: warna kulit jenis 4</annotation>
 		<annotation cp="🙆🏾‍♀">isyarat | oke | perempuan | tangan | warna kulit jenis 5</annotation>
-		<annotation cp="🙆🏾‍♀" type="tts">wanita melingkarkan tangan: warna kulit jenis 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">wanita mengisyaratkan OKE: warna kulit jenis 5</annotation>
 		<annotation cp="🙆🏿‍♀">isyarat | oke | perempuan | tangan | warna kulit jenis 6</annotation>
-		<annotation cp="🙆🏿‍♀" type="tts">wanita melingkarkan tangan: warna kulit jenis 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">wanita mengisyaratkan OKE: warna kulit jenis 6</annotation>
 		<annotation cp="💁🏻">bantuan | informasi | resepsionis | tangan | warna kulit jenis 1–2</annotation>
-		<annotation cp="💁🏻" type="tts">petugas informasi: warna kulit jenis 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">orang menengadahkan tangan: warna kulit jenis 1–2</annotation>
 		<annotation cp="💁🏼">bantuan | informasi | resepsionis | tangan | warna kulit jenis 3</annotation>
-		<annotation cp="💁🏼" type="tts">petugas informasi: warna kulit jenis 3</annotation>
+		<annotation cp="💁🏼" type="tts">orang menengadahkan tangan: warna kulit jenis 3</annotation>
 		<annotation cp="💁🏽">bantuan | informasi | resepsionis | tangan | warna kulit jenis 4</annotation>
-		<annotation cp="💁🏽" type="tts">petugas informasi: warna kulit jenis 4</annotation>
+		<annotation cp="💁🏽" type="tts">orang menengadahkan tangan: warna kulit jenis 4</annotation>
 		<annotation cp="💁🏾">bantuan | informasi | resepsionis | tangan | warna kulit jenis 5</annotation>
-		<annotation cp="💁🏾" type="tts">petugas informasi: warna kulit jenis 5</annotation>
+		<annotation cp="💁🏾" type="tts">orang menengadahkan tangan: warna kulit jenis 5</annotation>
 		<annotation cp="💁🏿">bantuan | informasi | resepsionis | tangan | warna kulit jenis 6</annotation>
-		<annotation cp="💁🏿" type="tts">petugas informasi: warna kulit jenis 6</annotation>
+		<annotation cp="💁🏿" type="tts">orang menengadahkan tangan: warna kulit jenis 6</annotation>
 		<annotation cp="💁🏻‍♂">bantuan | isyarat | laki-laki | tangan | warna kulit jenis 1–2</annotation>
 		<annotation cp="💁🏻‍♂" type="tts">pria menengadahkan tangan: warna kulit jenis 1–2</annotation>
 		<annotation cp="💁🏼‍♂">bantuan | isyarat | laki-laki | tangan | warna kulit jenis 3</annotation>
@@ -843,15 +1053,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁🏿‍♀">bantuan | isyarat | perempuan | tangan | warna kulit jenis 6</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">wanita menengadahkan tangan: warna kulit jenis 6</annotation>
 		<annotation cp="🙋🏻">angkat | gerakan | senang | tangan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙋🏻" type="tts">orang gembira mengangkat tangan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">orang mengangkat tangan: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙋🏼">angkat | gerakan | senang | tangan | warna kulit jenis 3</annotation>
-		<annotation cp="🙋🏼" type="tts">orang gembira mengangkat tangan: warna kulit jenis 3</annotation>
+		<annotation cp="🙋🏼" type="tts">orang mengangkat tangan: warna kulit jenis 3</annotation>
 		<annotation cp="🙋🏽">angkat | gerakan | senang | tangan | warna kulit jenis 4</annotation>
-		<annotation cp="🙋🏽" type="tts">orang gembira mengangkat tangan: warna kulit jenis 4</annotation>
+		<annotation cp="🙋🏽" type="tts">orang mengangkat tangan: warna kulit jenis 4</annotation>
 		<annotation cp="🙋🏾">angkat | gerakan | senang | tangan | warna kulit jenis 5</annotation>
-		<annotation cp="🙋🏾" type="tts">orang gembira mengangkat tangan: warna kulit jenis 5</annotation>
+		<annotation cp="🙋🏾" type="tts">orang mengangkat tangan: warna kulit jenis 5</annotation>
 		<annotation cp="🙋🏿">angkat | gerakan | senang | tangan | warna kulit jenis 6</annotation>
-		<annotation cp="🙋🏿" type="tts">orang gembira mengangkat tangan: warna kulit jenis 6</annotation>
+		<annotation cp="🙋🏿" type="tts">orang mengangkat tangan: warna kulit jenis 6</annotation>
 		<annotation cp="🙋🏻‍♂">angkat | isyarat | laki-laki | tangan | warna kulit jenis 1–2</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">pria mengangkat tangan: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙋🏼‍♂">angkat | isyarat | laki-laki | tangan | warna kulit jenis 3</annotation>
@@ -873,75 +1083,75 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋🏿‍♀">angkat | isyarat | perempuan | tangan | warna kulit jenis 6</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">wanita mengangkat tangan: warna kulit jenis 6</annotation>
 		<annotation cp="🙇🏻">bungkuk | gerakan | maaf | nunduk | sori | tunduk | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙇🏻" type="tts">orang menunduk: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">orang membungkuk: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙇🏼">bungkuk | gerakan | maaf | nunduk | sori | tunduk | warna kulit jenis 3</annotation>
-		<annotation cp="🙇🏼" type="tts">orang menunduk: warna kulit jenis 3</annotation>
+		<annotation cp="🙇🏼" type="tts">orang membungkuk: warna kulit jenis 3</annotation>
 		<annotation cp="🙇🏽">bungkuk | gerakan | maaf | nunduk | sori | tunduk | warna kulit jenis 4</annotation>
-		<annotation cp="🙇🏽" type="tts">orang menunduk: warna kulit jenis 4</annotation>
+		<annotation cp="🙇🏽" type="tts">orang membungkuk: warna kulit jenis 4</annotation>
 		<annotation cp="🙇🏾">bungkuk | gerakan | maaf | nunduk | sori | tunduk | warna kulit jenis 5</annotation>
-		<annotation cp="🙇🏾" type="tts">orang menunduk: warna kulit jenis 5</annotation>
+		<annotation cp="🙇🏾" type="tts">orang membungkuk: warna kulit jenis 5</annotation>
 		<annotation cp="🙇🏿">bungkuk | gerakan | maaf | nunduk | sori | tunduk | warna kulit jenis 6</annotation>
-		<annotation cp="🙇🏿" type="tts">orang menunduk: warna kulit jenis 6</annotation>
+		<annotation cp="🙇🏿" type="tts">orang membungkuk: warna kulit jenis 6</annotation>
 		<annotation cp="🙇🏻‍♂">isyarat | laki-laki | maaf | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙇🏻‍♂" type="tts">pria membungkuk-bungkuk: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">pria membungkuk: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙇🏼‍♂">isyarat | laki-laki | maaf | warna kulit jenis 3</annotation>
-		<annotation cp="🙇🏼‍♂" type="tts">pria membungkuk-bungkuk: warna kulit jenis 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">pria membungkuk: warna kulit jenis 3</annotation>
 		<annotation cp="🙇🏽‍♂">isyarat | laki-laki | maaf | warna kulit jenis 4</annotation>
-		<annotation cp="🙇🏽‍♂" type="tts">pria membungkuk-bungkuk: warna kulit jenis 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">pria membungkuk: warna kulit jenis 4</annotation>
 		<annotation cp="🙇🏾‍♂">isyarat | laki-laki | maaf | warna kulit jenis 5</annotation>
-		<annotation cp="🙇🏾‍♂" type="tts">pria membungkuk-bungkuk: warna kulit jenis 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">pria membungkuk: warna kulit jenis 5</annotation>
 		<annotation cp="🙇🏿‍♂">isyarat | laki-laki | maaf | warna kulit jenis 6</annotation>
-		<annotation cp="🙇🏿‍♂" type="tts">pria membungkuk-bungkuk: warna kulit jenis 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">pria membungkuk: warna kulit jenis 6</annotation>
 		<annotation cp="🙇🏻‍♀">isyarat | maaf | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🙇🏻‍♀" type="tts">wanita membungkuk-bungkuk: warna kulit jenis 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">wanita membungkuk: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙇🏼‍♀">isyarat | maaf | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="🙇🏼‍♀" type="tts">wanita membungkuk-bungkuk: warna kulit jenis 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">wanita membungkuk: warna kulit jenis 3</annotation>
 		<annotation cp="🙇🏽‍♀">isyarat | maaf | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="🙇🏽‍♀" type="tts">wanita membungkuk-bungkuk: warna kulit jenis 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">wanita membungkuk: warna kulit jenis 4</annotation>
 		<annotation cp="🙇🏾‍♀">isyarat | maaf | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="🙇🏾‍♀" type="tts">wanita membungkuk-bungkuk: warna kulit jenis 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">wanita membungkuk: warna kulit jenis 5</annotation>
 		<annotation cp="🙇🏿‍♀">isyarat | maaf | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="🙇🏿‍♀" type="tts">wanita membungkuk-bungkuk: warna kulit jenis 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">wanita membungkuk: warna kulit jenis 6</annotation>
 		<annotation cp="🤦🏻">cape deh | capedeh | capek deh | tepuk jidat | yah | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤦🏻" type="tts">tepuk jidat: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">orang tepuk jidat: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤦🏼">cape deh | capedeh | capek deh | tepuk jidat | yah | warna kulit jenis 3</annotation>
-		<annotation cp="🤦🏼" type="tts">tepuk jidat: warna kulit jenis 3</annotation>
+		<annotation cp="🤦🏼" type="tts">orang tepuk jidat: warna kulit jenis 3</annotation>
 		<annotation cp="🤦🏽">cape deh | capedeh | capek deh | tepuk jidat | yah | warna kulit jenis 4</annotation>
-		<annotation cp="🤦🏽" type="tts">tepuk jidat: warna kulit jenis 4</annotation>
+		<annotation cp="🤦🏽" type="tts">orang tepuk jidat: warna kulit jenis 4</annotation>
 		<annotation cp="🤦🏾">cape deh | capedeh | capek deh | tepuk jidat | yah | warna kulit jenis 5</annotation>
-		<annotation cp="🤦🏾" type="tts">tepuk jidat: warna kulit jenis 5</annotation>
+		<annotation cp="🤦🏾" type="tts">orang tepuk jidat: warna kulit jenis 5</annotation>
 		<annotation cp="🤦🏿">cape deh | capedeh | capek deh | tepuk jidat | yah | warna kulit jenis 6</annotation>
-		<annotation cp="🤦🏿" type="tts">tepuk jidat: warna kulit jenis 6</annotation>
+		<annotation cp="🤦🏿" type="tts">orang tepuk jidat: warna kulit jenis 6</annotation>
 		<annotation cp="🤦🏻‍♂">isyarat | jidat | laki-laki | tangan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤦🏻‍♂" type="tts">pria menepuk jidat: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">pria tepuk jidat: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤦🏼‍♂">isyarat | jidat | laki-laki | tangan | warna kulit jenis 3</annotation>
-		<annotation cp="🤦🏼‍♂" type="tts">pria menepuk jidat: warna kulit jenis 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">pria tepuk jidat: warna kulit jenis 3</annotation>
 		<annotation cp="🤦🏽‍♂">isyarat | jidat | laki-laki | tangan | warna kulit jenis 4</annotation>
-		<annotation cp="🤦🏽‍♂" type="tts">pria menepuk jidat: warna kulit jenis 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">pria tepuk jidat: warna kulit jenis 4</annotation>
 		<annotation cp="🤦🏾‍♂">isyarat | jidat | laki-laki | tangan | warna kulit jenis 5</annotation>
-		<annotation cp="🤦🏾‍♂" type="tts">pria menepuk jidat: warna kulit jenis 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">pria tepuk jidat: warna kulit jenis 5</annotation>
 		<annotation cp="🤦🏿‍♂">isyarat | jidat | laki-laki | tangan | warna kulit jenis 6</annotation>
-		<annotation cp="🤦🏿‍♂" type="tts">pria menepuk jidat: warna kulit jenis 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">pria tepuk jidat: warna kulit jenis 6</annotation>
 		<annotation cp="🤦🏻‍♀">isyarat | jidat | perempuan | tangan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤦🏻‍♀" type="tts">wanita menepuk jidat: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">wanita tepuk jidat: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤦🏼‍♀">isyarat | jidat | perempuan | tangan | warna kulit jenis 3</annotation>
-		<annotation cp="🤦🏼‍♀" type="tts">wanita menepuk jidat: warna kulit jenis 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">wanita tepuk jidat: warna kulit jenis 3</annotation>
 		<annotation cp="🤦🏽‍♀">isyarat | jidat | perempuan | tangan | warna kulit jenis 4</annotation>
-		<annotation cp="🤦🏽‍♀" type="tts">wanita menepuk jidat: warna kulit jenis 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">wanita tepuk jidat: warna kulit jenis 4</annotation>
 		<annotation cp="🤦🏾‍♀">isyarat | jidat | perempuan | tangan | warna kulit jenis 5</annotation>
-		<annotation cp="🤦🏾‍♀" type="tts">wanita menepuk jidat: warna kulit jenis 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">wanita tepuk jidat: warna kulit jenis 5</annotation>
 		<annotation cp="🤦🏿‍♀">isyarat | jidat | perempuan | tangan | warna kulit jenis 6</annotation>
-		<annotation cp="🤦🏿‍♀" type="tts">wanita menepuk jidat: warna kulit jenis 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">wanita tepuk jidat: warna kulit jenis 6</annotation>
 		<annotation cp="🤷🏻">bingung | entah | nggak tahu | tidak tahu | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤷🏻" type="tts">bingung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">orang mengangkat bahu: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤷🏼">bingung | entah | nggak tahu | tidak tahu | warna kulit jenis 3</annotation>
-		<annotation cp="🤷🏼" type="tts">bingung: warna kulit jenis 3</annotation>
+		<annotation cp="🤷🏼" type="tts">orang mengangkat bahu: warna kulit jenis 3</annotation>
 		<annotation cp="🤷🏽">bingung | entah | nggak tahu | tidak tahu | warna kulit jenis 4</annotation>
-		<annotation cp="🤷🏽" type="tts">bingung: warna kulit jenis 4</annotation>
+		<annotation cp="🤷🏽" type="tts">orang mengangkat bahu: warna kulit jenis 4</annotation>
 		<annotation cp="🤷🏾">bingung | entah | nggak tahu | tidak tahu | warna kulit jenis 5</annotation>
-		<annotation cp="🤷🏾" type="tts">bingung: warna kulit jenis 5</annotation>
+		<annotation cp="🤷🏾" type="tts">orang mengangkat bahu: warna kulit jenis 5</annotation>
 		<annotation cp="🤷🏿">bingung | entah | nggak tahu | tidak tahu | warna kulit jenis 6</annotation>
-		<annotation cp="🤷🏿" type="tts">bingung: warna kulit jenis 6</annotation>
+		<annotation cp="🤷🏿" type="tts">orang mengangkat bahu: warna kulit jenis 6</annotation>
 		<annotation cp="🤷🏻‍♂">angkat | bahu | isyarat | laki-laki | warna kulit jenis 1–2</annotation>
 		<annotation cp="🤷🏻‍♂" type="tts">pria mengangkat bahu: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤷🏼‍♂">angkat | bahu | isyarat | laki-laki | warna kulit jenis 3</annotation>
@@ -963,15 +1173,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏿‍♀">angkat | bahu | isyarat | perempuan | warna kulit jenis 6</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">wanita mengangkat bahu: warna kulit jenis 6</annotation>
 		<annotation cp="💆🏻">pijat | pijit | salon | warna kulit jenis 1–2</annotation>
-		<annotation cp="💆🏻" type="tts">pijat wajah: warna kulit jenis 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">pria dipijat: warna kulit jenis 1–2</annotation>
 		<annotation cp="💆🏼">pijat | pijit | salon | warna kulit jenis 3</annotation>
-		<annotation cp="💆🏼" type="tts">pijat wajah: warna kulit jenis 3</annotation>
+		<annotation cp="💆🏼" type="tts">pria dipijat: warna kulit jenis 3</annotation>
 		<annotation cp="💆🏽">pijat | pijit | salon | warna kulit jenis 4</annotation>
-		<annotation cp="💆🏽" type="tts">pijat wajah: warna kulit jenis 4</annotation>
+		<annotation cp="💆🏽" type="tts">pria dipijat: warna kulit jenis 4</annotation>
 		<annotation cp="💆🏾">pijat | pijit | salon | warna kulit jenis 5</annotation>
-		<annotation cp="💆🏾" type="tts">pijat wajah: warna kulit jenis 5</annotation>
+		<annotation cp="💆🏾" type="tts">pria dipijat: warna kulit jenis 5</annotation>
 		<annotation cp="💆🏿">pijat | pijit | salon | warna kulit jenis 6</annotation>
-		<annotation cp="💆🏿" type="tts">pijat wajah: warna kulit jenis 6</annotation>
+		<annotation cp="💆🏿" type="tts">pria dipijat: warna kulit jenis 6</annotation>
 		<annotation cp="💆🏻‍♂">kepala | laki-laki | pijat | warna kulit jenis 1–2</annotation>
 		<annotation cp="💆🏻‍♂" type="tts">pria dipijat kepalanya: warna kulit jenis 1–2</annotation>
 		<annotation cp="💆🏼‍♂">kepala | laki-laki | pijat | warna kulit jenis 3</annotation>
@@ -983,25 +1193,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💆🏿‍♂">kepala | laki-laki | pijat | warna kulit jenis 6</annotation>
 		<annotation cp="💆🏿‍♂" type="tts">pria dipijat kepalanya: warna kulit jenis 6</annotation>
 		<annotation cp="💆🏻‍♀">kepala | perempuan | pijat | warna kulit jenis 1–2</annotation>
-		<annotation cp="💆🏻‍♀" type="tts">wanita dipijat kepalanya: warna kulit jenis 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">wanita dipijat: warna kulit jenis 1–2</annotation>
 		<annotation cp="💆🏼‍♀">kepala | perempuan | pijat | warna kulit jenis 3</annotation>
-		<annotation cp="💆🏼‍♀" type="tts">wanita dipijat kepalanya: warna kulit jenis 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">wanita dipijat: warna kulit jenis 3</annotation>
 		<annotation cp="💆🏽‍♀">kepala | perempuan | pijat | warna kulit jenis 4</annotation>
-		<annotation cp="💆🏽‍♀" type="tts">wanita dipijat kepalanya: warna kulit jenis 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">wanita dipijat: warna kulit jenis 4</annotation>
 		<annotation cp="💆🏾‍♀">kepala | perempuan | pijat | warna kulit jenis 5</annotation>
-		<annotation cp="💆🏾‍♀" type="tts">wanita dipijat kepalanya: warna kulit jenis 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">wanita dipijat: warna kulit jenis 5</annotation>
 		<annotation cp="💆🏿‍♀">kepala | perempuan | pijat | warna kulit jenis 6</annotation>
-		<annotation cp="💆🏿‍♀" type="tts">wanita dipijat kepalanya: warna kulit jenis 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">wanita dipijat: warna kulit jenis 6</annotation>
 		<annotation cp="💇🏻">cantik | potong | rambut | salon | warna kulit jenis 1–2</annotation>
-		<annotation cp="💇🏻" type="tts">potong rambut: warna kulit jenis 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">orang potong rambut: warna kulit jenis 1–2</annotation>
 		<annotation cp="💇🏼">cantik | potong | rambut | salon | warna kulit jenis 3</annotation>
-		<annotation cp="💇🏼" type="tts">potong rambut: warna kulit jenis 3</annotation>
+		<annotation cp="💇🏼" type="tts">orang potong rambut: warna kulit jenis 3</annotation>
 		<annotation cp="💇🏽">cantik | potong | rambut | salon | warna kulit jenis 4</annotation>
-		<annotation cp="💇🏽" type="tts">potong rambut: warna kulit jenis 4</annotation>
+		<annotation cp="💇🏽" type="tts">orang potong rambut: warna kulit jenis 4</annotation>
 		<annotation cp="💇🏾">cantik | potong | rambut | salon | warna kulit jenis 5</annotation>
-		<annotation cp="💇🏾" type="tts">potong rambut: warna kulit jenis 5</annotation>
+		<annotation cp="💇🏾" type="tts">orang potong rambut: warna kulit jenis 5</annotation>
 		<annotation cp="💇🏿">cantik | potong | rambut | salon | warna kulit jenis 6</annotation>
-		<annotation cp="💇🏿" type="tts">potong rambut: warna kulit jenis 6</annotation>
+		<annotation cp="💇🏿" type="tts">orang potong rambut: warna kulit jenis 6</annotation>
 		<annotation cp="💇🏻‍♂">laki-laki | potong | rambut | warna kulit jenis 1–2</annotation>
 		<annotation cp="💇🏻‍♂" type="tts">pria potong rambut: warna kulit jenis 1–2</annotation>
 		<annotation cp="💇🏼‍♂">laki-laki | potong | rambut | warna kulit jenis 3</annotation>
@@ -1023,65 +1233,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💇🏿‍♀">perempuan | potong | rambut | warna kulit jenis 6</annotation>
 		<annotation cp="💇🏿‍♀" type="tts">wanita potong rambut: warna kulit jenis 6</annotation>
 		<annotation cp="🚶🏻">jalan | kaki | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚶🏻" type="tts">pejalan kaki: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">orang berjalan kaki: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚶🏼">jalan | kaki | warna kulit jenis 3</annotation>
-		<annotation cp="🚶🏼" type="tts">pejalan kaki: warna kulit jenis 3</annotation>
+		<annotation cp="🚶🏼" type="tts">orang berjalan kaki: warna kulit jenis 3</annotation>
 		<annotation cp="🚶🏽">jalan | kaki | warna kulit jenis 4</annotation>
-		<annotation cp="🚶🏽" type="tts">pejalan kaki: warna kulit jenis 4</annotation>
+		<annotation cp="🚶🏽" type="tts">orang berjalan kaki: warna kulit jenis 4</annotation>
 		<annotation cp="🚶🏾">jalan | kaki | warna kulit jenis 5</annotation>
-		<annotation cp="🚶🏾" type="tts">pejalan kaki: warna kulit jenis 5</annotation>
+		<annotation cp="🚶🏾" type="tts">orang berjalan kaki: warna kulit jenis 5</annotation>
 		<annotation cp="🚶🏿">jalan | kaki | warna kulit jenis 6</annotation>
-		<annotation cp="🚶🏿" type="tts">pejalan kaki: warna kulit jenis 6</annotation>
+		<annotation cp="🚶🏿" type="tts">orang berjalan kaki: warna kulit jenis 6</annotation>
 		<annotation cp="🚶🏻‍♂">jalan | kaki | laki-laki | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚶🏻‍♂" type="tts">pria berjalan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">pria berjalan kaki: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚶🏼‍♂">jalan | kaki | laki-laki | warna kulit jenis 3</annotation>
-		<annotation cp="🚶🏼‍♂" type="tts">pria berjalan: warna kulit jenis 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">pria berjalan kaki: warna kulit jenis 3</annotation>
 		<annotation cp="🚶🏽‍♂">jalan | kaki | laki-laki | warna kulit jenis 4</annotation>
-		<annotation cp="🚶🏽‍♂" type="tts">pria berjalan: warna kulit jenis 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">pria berjalan kaki: warna kulit jenis 4</annotation>
 		<annotation cp="🚶🏾‍♂">jalan | kaki | laki-laki | warna kulit jenis 5</annotation>
-		<annotation cp="🚶🏾‍♂" type="tts">pria berjalan: warna kulit jenis 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">pria berjalan kaki: warna kulit jenis 5</annotation>
 		<annotation cp="🚶🏿‍♂">jalan | kaki | laki-laki | warna kulit jenis 6</annotation>
-		<annotation cp="🚶🏿‍♂" type="tts">pria berjalan: warna kulit jenis 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">pria berjalan kaki: warna kulit jenis 6</annotation>
 		<annotation cp="🚶🏻‍♀">jalan | kaki | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚶🏻‍♀" type="tts">wanita berjalan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">wanita berjalan kaki: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚶🏼‍♀">jalan | kaki | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="🚶🏼‍♀" type="tts">wanita berjalan: warna kulit jenis 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">wanita berjalan kaki: warna kulit jenis 3</annotation>
 		<annotation cp="🚶🏽‍♀">jalan | kaki | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="🚶🏽‍♀" type="tts">wanita berjalan: warna kulit jenis 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">wanita berjalan kaki: warna kulit jenis 4</annotation>
 		<annotation cp="🚶🏾‍♀">jalan | kaki | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="🚶🏾‍♀" type="tts">wanita berjalan: warna kulit jenis 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">wanita berjalan kaki: warna kulit jenis 5</annotation>
 		<annotation cp="🚶🏿‍♀">jalan | kaki | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="🚶🏿‍♀" type="tts">wanita berjalan: warna kulit jenis 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">wanita berjalan kaki: warna kulit jenis 6</annotation>
 		<annotation cp="🏃🏻">lari | marathon | maraton | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏃🏻" type="tts">pelari: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">orang berlari: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏃🏼">lari | marathon | maraton | warna kulit jenis 3</annotation>
-		<annotation cp="🏃🏼" type="tts">pelari: warna kulit jenis 3</annotation>
+		<annotation cp="🏃🏼" type="tts">orang berlari: warna kulit jenis 3</annotation>
 		<annotation cp="🏃🏽">lari | marathon | maraton | warna kulit jenis 4</annotation>
-		<annotation cp="🏃🏽" type="tts">pelari: warna kulit jenis 4</annotation>
+		<annotation cp="🏃🏽" type="tts">orang berlari: warna kulit jenis 4</annotation>
 		<annotation cp="🏃🏾">lari | marathon | maraton | warna kulit jenis 5</annotation>
-		<annotation cp="🏃🏾" type="tts">pelari: warna kulit jenis 5</annotation>
+		<annotation cp="🏃🏾" type="tts">orang berlari: warna kulit jenis 5</annotation>
 		<annotation cp="🏃🏿">lari | marathon | maraton | warna kulit jenis 6</annotation>
-		<annotation cp="🏃🏿" type="tts">pelari: warna kulit jenis 6</annotation>
+		<annotation cp="🏃🏿" type="tts">orang berlari: warna kulit jenis 6</annotation>
 		<annotation cp="🏃🏻‍♂">kaki | laki-laki | lari | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏃🏻‍♂" type="tts">pria lari: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">pria berlari: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏃🏼‍♂">kaki | laki-laki | lari | warna kulit jenis 3</annotation>
-		<annotation cp="🏃🏼‍♂" type="tts">pria lari: warna kulit jenis 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">pria berlari: warna kulit jenis 3</annotation>
 		<annotation cp="🏃🏽‍♂">kaki | laki-laki | lari | warna kulit jenis 4</annotation>
-		<annotation cp="🏃🏽‍♂" type="tts">pria lari: warna kulit jenis 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">pria berlari: warna kulit jenis 4</annotation>
 		<annotation cp="🏃🏾‍♂">kaki | laki-laki | lari | warna kulit jenis 5</annotation>
-		<annotation cp="🏃🏾‍♂" type="tts">pria lari: warna kulit jenis 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">pria berlari: warna kulit jenis 5</annotation>
 		<annotation cp="🏃🏿‍♂">kaki | laki-laki | lari | warna kulit jenis 6</annotation>
-		<annotation cp="🏃🏿‍♂" type="tts">pria lari: warna kulit jenis 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">pria berlari: warna kulit jenis 6</annotation>
 		<annotation cp="🏃🏻‍♀">kaki | lari | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏃🏻‍♀" type="tts">wanita lari: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">wanita berlari: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏃🏼‍♀">kaki | lari | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="🏃🏼‍♀" type="tts">wanita lari: warna kulit jenis 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">wanita berlari: warna kulit jenis 3</annotation>
 		<annotation cp="🏃🏽‍♀">kaki | lari | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="🏃🏽‍♀" type="tts">wanita lari: warna kulit jenis 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">wanita berlari: warna kulit jenis 4</annotation>
 		<annotation cp="🏃🏾‍♀">kaki | lari | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="🏃🏾‍♀" type="tts">wanita lari: warna kulit jenis 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">wanita berlari: warna kulit jenis 5</annotation>
 		<annotation cp="🏃🏿‍♀">kaki | lari | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="🏃🏿‍♀" type="tts">wanita lari: warna kulit jenis 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">wanita berlari: warna kulit jenis 6</annotation>
 		<annotation cp="💃🏻">dansa | perempuan | pesta | tari | warna kulit jenis 1–2</annotation>
 		<annotation cp="💃🏻" type="tts">wanita menari: warna kulit jenis 1–2</annotation>
 		<annotation cp="💃🏼">dansa | perempuan | pesta | tari | warna kulit jenis 3</annotation>
@@ -1102,16 +1312,106 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">pria menari: warna kulit jenis 5</annotation>
 		<annotation cp="🕺🏿">berdansa | dansa | menari | pria | warna kulit jenis 6</annotation>
 		<annotation cp="🕺🏿" type="tts">pria menari: warna kulit jenis 6</annotation>
+		<annotation cp="🧖🏻">ruang uap | sauna | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧖🏻" type="tts">orang di ruangan beruap: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧖🏼">ruang uap | sauna | warna kulit jenis 3</annotation>
+		<annotation cp="🧖🏼" type="tts">orang di ruangan beruap: warna kulit jenis 3</annotation>
+		<annotation cp="🧖🏽">ruang uap | sauna | warna kulit jenis 4</annotation>
+		<annotation cp="🧖🏽" type="tts">orang di ruangan beruap: warna kulit jenis 4</annotation>
+		<annotation cp="🧖🏾">ruang uap | sauna | warna kulit jenis 5</annotation>
+		<annotation cp="🧖🏾" type="tts">orang di ruangan beruap: warna kulit jenis 5</annotation>
+		<annotation cp="🧖🏿">ruang uap | sauna | warna kulit jenis 6</annotation>
+		<annotation cp="🧖🏿" type="tts">orang di ruangan beruap: warna kulit jenis 6</annotation>
+		<annotation cp="🧖🏻‍♀">ruang uap | sauna | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">wanita di ruangan beruap: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧖🏼‍♀">ruang uap | sauna | warna kulit jenis 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">wanita di ruangan beruap: warna kulit jenis 3</annotation>
+		<annotation cp="🧖🏽‍♀">ruang uap | sauna | warna kulit jenis 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">wanita di ruangan beruap: warna kulit jenis 4</annotation>
+		<annotation cp="🧖🏾‍♀">ruang uap | sauna | warna kulit jenis 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">wanita di ruangan beruap: warna kulit jenis 5</annotation>
+		<annotation cp="🧖🏿‍♀">ruang uap | sauna | warna kulit jenis 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">wanita di ruangan beruap: warna kulit jenis 6</annotation>
+		<annotation cp="🧖🏻‍♂">ruang uap | sauna | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">pria di ruangan beruap: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧖🏼‍♂">ruang uap | sauna | warna kulit jenis 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">pria di ruangan beruap: warna kulit jenis 3</annotation>
+		<annotation cp="🧖🏽‍♂">ruang uap | sauna | warna kulit jenis 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">pria di ruangan beruap: warna kulit jenis 4</annotation>
+		<annotation cp="🧖🏾‍♂">ruang uap | sauna | warna kulit jenis 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">pria di ruangan beruap: warna kulit jenis 5</annotation>
+		<annotation cp="🧖🏿‍♂">ruang uap | sauna | warna kulit jenis 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">pria di ruangan beruap: warna kulit jenis 6</annotation>
+		<annotation cp="🧗🏻">pemanjat | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧗🏻" type="tts">orang memanjat: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧗🏼">pemanjat | warna kulit jenis 3</annotation>
+		<annotation cp="🧗🏼" type="tts">orang memanjat: warna kulit jenis 3</annotation>
+		<annotation cp="🧗🏽">pemanjat | warna kulit jenis 4</annotation>
+		<annotation cp="🧗🏽" type="tts">orang memanjat: warna kulit jenis 4</annotation>
+		<annotation cp="🧗🏾">pemanjat | warna kulit jenis 5</annotation>
+		<annotation cp="🧗🏾" type="tts">orang memanjat: warna kulit jenis 5</annotation>
+		<annotation cp="🧗🏿">pemanjat | warna kulit jenis 6</annotation>
+		<annotation cp="🧗🏿" type="tts">orang memanjat: warna kulit jenis 6</annotation>
+		<annotation cp="🧗🏻‍♀">pemanjat | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">wanita memanjat: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧗🏼‍♀">pemanjat | warna kulit jenis 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">wanita memanjat: warna kulit jenis 3</annotation>
+		<annotation cp="🧗🏽‍♀">pemanjat | warna kulit jenis 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">wanita memanjat: warna kulit jenis 4</annotation>
+		<annotation cp="🧗🏾‍♀">pemanjat | warna kulit jenis 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">wanita memanjat: warna kulit jenis 5</annotation>
+		<annotation cp="🧗🏿‍♀">pemanjat | warna kulit jenis 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">wanita memanjat: warna kulit jenis 6</annotation>
+		<annotation cp="🧗🏻‍♂">pemanjat | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">pria memanjat: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧗🏼‍♂">pemanjat | warna kulit jenis 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">pria memanjat: warna kulit jenis 3</annotation>
+		<annotation cp="🧗🏽‍♂">pemanjat | warna kulit jenis 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">pria memanjat: warna kulit jenis 4</annotation>
+		<annotation cp="🧗🏾‍♂">pemanjat | warna kulit jenis 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">pria memanjat: warna kulit jenis 5</annotation>
+		<annotation cp="🧗🏿‍♂">pemanjat | warna kulit jenis 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">pria memanjat: warna kulit jenis 6</annotation>
+		<annotation cp="🧘🏻">meditasi | yoga | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧘🏻" type="tts">orang dalam posisi teratai: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧘🏼">meditasi | yoga | warna kulit jenis 3</annotation>
+		<annotation cp="🧘🏼" type="tts">orang dalam posisi teratai: warna kulit jenis 3</annotation>
+		<annotation cp="🧘🏽">meditasi | yoga | warna kulit jenis 4</annotation>
+		<annotation cp="🧘🏽" type="tts">orang dalam posisi teratai: warna kulit jenis 4</annotation>
+		<annotation cp="🧘🏾">meditasi | yoga | warna kulit jenis 5</annotation>
+		<annotation cp="🧘🏾" type="tts">orang dalam posisi teratai: warna kulit jenis 5</annotation>
+		<annotation cp="🧘🏿">meditasi | yoga | warna kulit jenis 6</annotation>
+		<annotation cp="🧘🏿" type="tts">orang dalam posisi teratai: warna kulit jenis 6</annotation>
+		<annotation cp="🧘🏻‍♀">meditasi | yoga | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">wanita dalam posisi teratai: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧘🏼‍♀">meditasi | yoga | warna kulit jenis 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">wanita dalam posisi teratai: warna kulit jenis 3</annotation>
+		<annotation cp="🧘🏽‍♀">meditasi | yoga | warna kulit jenis 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">wanita dalam posisi teratai: warna kulit jenis 4</annotation>
+		<annotation cp="🧘🏾‍♀">meditasi | yoga | warna kulit jenis 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">wanita dalam posisi teratai: warna kulit jenis 5</annotation>
+		<annotation cp="🧘🏿‍♀">meditasi | yoga | warna kulit jenis 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">wanita dalam posisi teratai: warna kulit jenis 6</annotation>
+		<annotation cp="🧘🏻‍♂">meditasi | yoga | warna kulit jenis 1–2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">pria dalam posisi teratai: warna kulit jenis 1–2</annotation>
+		<annotation cp="🧘🏼‍♂">meditasi | yoga | warna kulit jenis 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">pria dalam posisi teratai: warna kulit jenis 3</annotation>
+		<annotation cp="🧘🏽‍♂">meditasi | yoga | warna kulit jenis 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">pria dalam posisi teratai: warna kulit jenis 4</annotation>
+		<annotation cp="🧘🏾‍♂">meditasi | yoga | warna kulit jenis 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">pria dalam posisi teratai: warna kulit jenis 5</annotation>
+		<annotation cp="🧘🏿‍♂">meditasi | yoga | warna kulit jenis 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">pria dalam posisi teratai: warna kulit jenis 6</annotation>
 		<annotation cp="🛀🏻">bak mandi | mandi | warna kulit jenis 1–2</annotation>
-		<annotation cp="🛀🏻" type="tts">orang sedang mandi: warna kulit jenis 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">orang di bak mandi: warna kulit jenis 1–2</annotation>
 		<annotation cp="🛀🏼">bak mandi | mandi | warna kulit jenis 3</annotation>
-		<annotation cp="🛀🏼" type="tts">orang sedang mandi: warna kulit jenis 3</annotation>
+		<annotation cp="🛀🏼" type="tts">orang di bak mandi: warna kulit jenis 3</annotation>
 		<annotation cp="🛀🏽">bak mandi | mandi | warna kulit jenis 4</annotation>
-		<annotation cp="🛀🏽" type="tts">orang sedang mandi: warna kulit jenis 4</annotation>
+		<annotation cp="🛀🏽" type="tts">orang di bak mandi: warna kulit jenis 4</annotation>
 		<annotation cp="🛀🏾">bak mandi | mandi | warna kulit jenis 5</annotation>
-		<annotation cp="🛀🏾" type="tts">orang sedang mandi: warna kulit jenis 5</annotation>
+		<annotation cp="🛀🏾" type="tts">orang di bak mandi: warna kulit jenis 5</annotation>
 		<annotation cp="🛀🏿">bak mandi | mandi | warna kulit jenis 6</annotation>
-		<annotation cp="🛀🏿" type="tts">orang sedang mandi: warna kulit jenis 6</annotation>
+		<annotation cp="🛀🏿" type="tts">orang di bak mandi: warna kulit jenis 6</annotation>
 		<annotation cp="🛌🏻">hotel | tidur | warna kulit jenis 1–2</annotation>
 		<annotation cp="🛌🏻" type="tts">orang di tempat tidur: warna kulit jenis 1–2</annotation>
 		<annotation cp="🛌🏼">hotel | tidur | warna kulit jenis 3</annotation>
@@ -1123,15 +1423,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿">hotel | tidur | warna kulit jenis 6</annotation>
 		<annotation cp="🛌🏿" type="tts">orang di tempat tidur: warna kulit jenis 6</annotation>
 		<annotation cp="🕴🏻">bisnis | jas | laki-laki | pria | warna kulit jenis 1–2</annotation>
-		<annotation cp="🕴🏻" type="tts">pebisnis melayang: warna kulit jenis 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">pria melayang mengenakan jas: warna kulit jenis 1–2</annotation>
 		<annotation cp="🕴🏼">bisnis | jas | laki-laki | pria | warna kulit jenis 3</annotation>
-		<annotation cp="🕴🏼" type="tts">pebisnis melayang: warna kulit jenis 3</annotation>
+		<annotation cp="🕴🏼" type="tts">pria melayang mengenakan jas: warna kulit jenis 3</annotation>
 		<annotation cp="🕴🏽">bisnis | jas | laki-laki | pria | warna kulit jenis 4</annotation>
-		<annotation cp="🕴🏽" type="tts">pebisnis melayang: warna kulit jenis 4</annotation>
+		<annotation cp="🕴🏽" type="tts">pria melayang mengenakan jas: warna kulit jenis 4</annotation>
 		<annotation cp="🕴🏾">bisnis | jas | laki-laki | pria | warna kulit jenis 5</annotation>
-		<annotation cp="🕴🏾" type="tts">pebisnis melayang: warna kulit jenis 5</annotation>
+		<annotation cp="🕴🏾" type="tts">pria melayang mengenakan jas: warna kulit jenis 5</annotation>
 		<annotation cp="🕴🏿">bisnis | jas | laki-laki | pria | warna kulit jenis 6</annotation>
-		<annotation cp="🕴🏿" type="tts">pebisnis melayang: warna kulit jenis 6</annotation>
+		<annotation cp="🕴🏿" type="tts">pria melayang mengenakan jas: warna kulit jenis 6</annotation>
 		<annotation cp="🏇🏻">balapan | joki | kuda | pacuan | warna kulit jenis 1–2</annotation>
 		<annotation cp="🏇🏻" type="tts">balap kuda: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏇🏼">balapan | joki | kuda | pacuan | warna kulit jenis 3</annotation>
@@ -1143,55 +1443,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏇🏿">balapan | joki | kuda | pacuan | warna kulit jenis 6</annotation>
 		<annotation cp="🏇🏿" type="tts">balap kuda: warna kulit jenis 6</annotation>
 		<annotation cp="🏂🏻">papan | salju | seluncur | ski | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏂🏻" type="tts">pemain papan seluncur salju: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">peselancar salju: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏂🏼">papan | salju | seluncur | ski | warna kulit jenis 3</annotation>
-		<annotation cp="🏂🏼" type="tts">pemain papan seluncur salju: warna kulit jenis 3</annotation>
+		<annotation cp="🏂🏼" type="tts">peselancar salju: warna kulit jenis 3</annotation>
 		<annotation cp="🏂🏽">papan | salju | seluncur | ski | warna kulit jenis 4</annotation>
-		<annotation cp="🏂🏽" type="tts">pemain papan seluncur salju: warna kulit jenis 4</annotation>
+		<annotation cp="🏂🏽" type="tts">peselancar salju: warna kulit jenis 4</annotation>
 		<annotation cp="🏂🏾">papan | salju | seluncur | ski | warna kulit jenis 5</annotation>
-		<annotation cp="🏂🏾" type="tts">pemain papan seluncur salju: warna kulit jenis 5</annotation>
+		<annotation cp="🏂🏾" type="tts">peselancar salju: warna kulit jenis 5</annotation>
 		<annotation cp="🏂🏿">papan | salju | seluncur | ski | warna kulit jenis 6</annotation>
-		<annotation cp="🏂🏿" type="tts">pemain papan seluncur salju: warna kulit jenis 6</annotation>
+		<annotation cp="🏂🏿" type="tts">peselancar salju: warna kulit jenis 6</annotation>
 		<annotation cp="🏌🏻">bola | golf | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏌🏻" type="tts">pegolf: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">orang bermain golf: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏌🏼">bola | golf | warna kulit jenis 3</annotation>
-		<annotation cp="🏌🏼" type="tts">pegolf: warna kulit jenis 3</annotation>
+		<annotation cp="🏌🏼" type="tts">orang bermain golf: warna kulit jenis 3</annotation>
 		<annotation cp="🏌🏽">bola | golf | warna kulit jenis 4</annotation>
-		<annotation cp="🏌🏽" type="tts">pegolf: warna kulit jenis 4</annotation>
+		<annotation cp="🏌🏽" type="tts">orang bermain golf: warna kulit jenis 4</annotation>
 		<annotation cp="🏌🏾">bola | golf | warna kulit jenis 5</annotation>
-		<annotation cp="🏌🏾" type="tts">pegolf: warna kulit jenis 5</annotation>
+		<annotation cp="🏌🏾" type="tts">orang bermain golf: warna kulit jenis 5</annotation>
 		<annotation cp="🏌🏿">bola | golf | warna kulit jenis 6</annotation>
-		<annotation cp="🏌🏿" type="tts">pegolf: warna kulit jenis 6</annotation>
+		<annotation cp="🏌🏿" type="tts">orang bermain golf: warna kulit jenis 6</annotation>
 		<annotation cp="🏌🏻‍♂">bermain | bola | golf | laki-laki | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏌🏻‍♂" type="tts">pria main golf: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">pria bermain golf: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏌🏼‍♂">bermain | bola | golf | laki-laki | warna kulit jenis 3</annotation>
-		<annotation cp="🏌🏼‍♂" type="tts">pria main golf: warna kulit jenis 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">pria bermain golf: warna kulit jenis 3</annotation>
 		<annotation cp="🏌🏽‍♂">bermain | bola | golf | laki-laki | warna kulit jenis 4</annotation>
-		<annotation cp="🏌🏽‍♂" type="tts">pria main golf: warna kulit jenis 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">pria bermain golf: warna kulit jenis 4</annotation>
 		<annotation cp="🏌🏾‍♂">bermain | bola | golf | laki-laki | warna kulit jenis 5</annotation>
-		<annotation cp="🏌🏾‍♂" type="tts">pria main golf: warna kulit jenis 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">pria bermain golf: warna kulit jenis 5</annotation>
 		<annotation cp="🏌🏿‍♂">bermain | bola | golf | laki-laki | warna kulit jenis 6</annotation>
-		<annotation cp="🏌🏿‍♂" type="tts">pria main golf: warna kulit jenis 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">pria bermain golf: warna kulit jenis 6</annotation>
 		<annotation cp="🏌🏻‍♀">bermain | bola | golf | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏌🏻‍♀" type="tts">wanita main golf: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">wanita bermain golf: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏌🏼‍♀">bermain | bola | golf | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="🏌🏼‍♀" type="tts">wanita main golf: warna kulit jenis 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">wanita bermain golf: warna kulit jenis 3</annotation>
 		<annotation cp="🏌🏽‍♀">bermain | bola | golf | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="🏌🏽‍♀" type="tts">wanita main golf: warna kulit jenis 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">wanita bermain golf: warna kulit jenis 4</annotation>
 		<annotation cp="🏌🏾‍♀">bermain | bola | golf | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="🏌🏾‍♀" type="tts">wanita main golf: warna kulit jenis 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">wanita bermain golf: warna kulit jenis 5</annotation>
 		<annotation cp="🏌🏿‍♀">bermain | bola | golf | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="🏌🏿‍♀" type="tts">wanita main golf: warna kulit jenis 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">wanita bermain golf: warna kulit jenis 6</annotation>
 		<annotation cp="🏄🏻">seluncur | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏄🏻" type="tts">peselancar: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">orang berselancar: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏄🏼">seluncur | warna kulit jenis 3</annotation>
-		<annotation cp="🏄🏼" type="tts">peselancar: warna kulit jenis 3</annotation>
+		<annotation cp="🏄🏼" type="tts">orang berselancar: warna kulit jenis 3</annotation>
 		<annotation cp="🏄🏽">seluncur | warna kulit jenis 4</annotation>
-		<annotation cp="🏄🏽" type="tts">peselancar: warna kulit jenis 4</annotation>
+		<annotation cp="🏄🏽" type="tts">orang berselancar: warna kulit jenis 4</annotation>
 		<annotation cp="🏄🏾">seluncur | warna kulit jenis 5</annotation>
-		<annotation cp="🏄🏾" type="tts">peselancar: warna kulit jenis 5</annotation>
+		<annotation cp="🏄🏾" type="tts">orang berselancar: warna kulit jenis 5</annotation>
 		<annotation cp="🏄🏿">seluncur | warna kulit jenis 6</annotation>
-		<annotation cp="🏄🏿" type="tts">peselancar: warna kulit jenis 6</annotation>
+		<annotation cp="🏄🏿" type="tts">orang berselancar: warna kulit jenis 6</annotation>
 		<annotation cp="🏄🏻‍♂">laki-laki | ombak | selancar | warna kulit jenis 1–2</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">pria berselancar: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏄🏼‍♂">laki-laki | ombak | selancar | warna kulit jenis 3</annotation>
@@ -1213,15 +1513,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏄🏿‍♀">ombak | perempuan | selancar | warna kulit jenis 6</annotation>
 		<annotation cp="🏄🏿‍♀" type="tts">wanita berselancar: warna kulit jenis 6</annotation>
 		<annotation cp="🚣🏻">kendaraan | perahu | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚣🏻" type="tts">perahu dayung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">orang mendayung perahu: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚣🏼">kendaraan | perahu | warna kulit jenis 3</annotation>
-		<annotation cp="🚣🏼" type="tts">perahu dayung: warna kulit jenis 3</annotation>
+		<annotation cp="🚣🏼" type="tts">orang mendayung perahu: warna kulit jenis 3</annotation>
 		<annotation cp="🚣🏽">kendaraan | perahu | warna kulit jenis 4</annotation>
-		<annotation cp="🚣🏽" type="tts">perahu dayung: warna kulit jenis 4</annotation>
+		<annotation cp="🚣🏽" type="tts">orang mendayung perahu: warna kulit jenis 4</annotation>
 		<annotation cp="🚣🏾">kendaraan | perahu | warna kulit jenis 5</annotation>
-		<annotation cp="🚣🏾" type="tts">perahu dayung: warna kulit jenis 5</annotation>
+		<annotation cp="🚣🏾" type="tts">orang mendayung perahu: warna kulit jenis 5</annotation>
 		<annotation cp="🚣🏿">kendaraan | perahu | warna kulit jenis 6</annotation>
-		<annotation cp="🚣🏿" type="tts">perahu dayung: warna kulit jenis 6</annotation>
+		<annotation cp="🚣🏿" type="tts">orang mendayung perahu: warna kulit jenis 6</annotation>
 		<annotation cp="🚣🏻‍♂">dayung | laki-laki | perahu | warna kulit jenis 1–2</annotation>
 		<annotation cp="🚣🏻‍♂" type="tts">pria mendayung perahu: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚣🏼‍♂">dayung | laki-laki | perahu | warna kulit jenis 3</annotation>
@@ -1243,15 +1543,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚣🏿‍♀">dayung | perahu | perempuan | warna kulit jenis 6</annotation>
 		<annotation cp="🚣🏿‍♀" type="tts">wanita mendayung perahu: warna kulit jenis 6</annotation>
 		<annotation cp="🏊🏻">renang | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏊🏻" type="tts">perenang: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">orang berenang: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏊🏼">renang | warna kulit jenis 3</annotation>
-		<annotation cp="🏊🏼" type="tts">perenang: warna kulit jenis 3</annotation>
+		<annotation cp="🏊🏼" type="tts">orang berenang: warna kulit jenis 3</annotation>
 		<annotation cp="🏊🏽">renang | warna kulit jenis 4</annotation>
-		<annotation cp="🏊🏽" type="tts">perenang: warna kulit jenis 4</annotation>
+		<annotation cp="🏊🏽" type="tts">orang berenang: warna kulit jenis 4</annotation>
 		<annotation cp="🏊🏾">renang | warna kulit jenis 5</annotation>
-		<annotation cp="🏊🏾" type="tts">perenang: warna kulit jenis 5</annotation>
+		<annotation cp="🏊🏾" type="tts">orang berenang: warna kulit jenis 5</annotation>
 		<annotation cp="🏊🏿">renang | warna kulit jenis 6</annotation>
-		<annotation cp="🏊🏿" type="tts">perenang: warna kulit jenis 6</annotation>
+		<annotation cp="🏊🏿" type="tts">orang berenang: warna kulit jenis 6</annotation>
 		<annotation cp="🏊🏻‍♂">laki-laki | renang | warna kulit jenis 1–2</annotation>
 		<annotation cp="🏊🏻‍♂" type="tts">pria berenang: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏊🏼‍♂">laki-laki | renang | warna kulit jenis 3</annotation>
@@ -1273,165 +1573,165 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏊🏿‍♀">perempuan | renang | warna kulit jenis 6</annotation>
 		<annotation cp="🏊🏿‍♀" type="tts">wanita berenang: warna kulit jenis 6</annotation>
 		<annotation cp="⛹🏻">bola | warna kulit jenis 1–2</annotation>
-		<annotation cp="⛹🏻" type="tts">orang membawa bola: warna kulit jenis 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">orang memantulkan bola: warna kulit jenis 1–2</annotation>
 		<annotation cp="⛹🏼">bola | warna kulit jenis 3</annotation>
-		<annotation cp="⛹🏼" type="tts">orang membawa bola: warna kulit jenis 3</annotation>
+		<annotation cp="⛹🏼" type="tts">orang memantulkan bola: warna kulit jenis 3</annotation>
 		<annotation cp="⛹🏽">bola | warna kulit jenis 4</annotation>
-		<annotation cp="⛹🏽" type="tts">orang membawa bola: warna kulit jenis 4</annotation>
+		<annotation cp="⛹🏽" type="tts">orang memantulkan bola: warna kulit jenis 4</annotation>
 		<annotation cp="⛹🏾">bola | warna kulit jenis 5</annotation>
-		<annotation cp="⛹🏾" type="tts">orang membawa bola: warna kulit jenis 5</annotation>
+		<annotation cp="⛹🏾" type="tts">orang memantulkan bola: warna kulit jenis 5</annotation>
 		<annotation cp="⛹🏿">bola | warna kulit jenis 6</annotation>
-		<annotation cp="⛹🏿" type="tts">orang membawa bola: warna kulit jenis 6</annotation>
+		<annotation cp="⛹🏿" type="tts">orang memantulkan bola: warna kulit jenis 6</annotation>
 		<annotation cp="⛹🏻‍♂">bola | laki-laki | membawa | warna kulit jenis 1–2</annotation>
-		<annotation cp="⛹🏻‍♂" type="tts">pria membawa bola: warna kulit jenis 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">pria memantulkan bola: warna kulit jenis 1–2</annotation>
 		<annotation cp="⛹🏼‍♂">bola | laki-laki | membawa | warna kulit jenis 3</annotation>
-		<annotation cp="⛹🏼‍♂" type="tts">pria membawa bola: warna kulit jenis 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">pria memantulkan bola: warna kulit jenis 3</annotation>
 		<annotation cp="⛹🏽‍♂">bola | laki-laki | membawa | warna kulit jenis 4</annotation>
-		<annotation cp="⛹🏽‍♂" type="tts">pria membawa bola: warna kulit jenis 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">pria memantulkan bola: warna kulit jenis 4</annotation>
 		<annotation cp="⛹🏾‍♂">bola | laki-laki | membawa | warna kulit jenis 5</annotation>
-		<annotation cp="⛹🏾‍♂" type="tts">pria membawa bola: warna kulit jenis 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">pria memantulkan bola: warna kulit jenis 5</annotation>
 		<annotation cp="⛹🏿‍♂">bola | laki-laki | membawa | warna kulit jenis 6</annotation>
-		<annotation cp="⛹🏿‍♂" type="tts">pria membawa bola: warna kulit jenis 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">pria memantulkan bola: warna kulit jenis 6</annotation>
 		<annotation cp="⛹🏻‍♀">bola | membawa | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="⛹🏻‍♀" type="tts">wanita membawa bola: warna kulit jenis 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">wanita memantulkan bola: warna kulit jenis 1–2</annotation>
 		<annotation cp="⛹🏼‍♀">bola | membawa | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="⛹🏼‍♀" type="tts">wanita membawa bola: warna kulit jenis 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">wanita memantulkan bola: warna kulit jenis 3</annotation>
 		<annotation cp="⛹🏽‍♀">bola | membawa | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="⛹🏽‍♀" type="tts">wanita membawa bola: warna kulit jenis 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">wanita memantulkan bola: warna kulit jenis 4</annotation>
 		<annotation cp="⛹🏾‍♀">bola | membawa | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="⛹🏾‍♀" type="tts">wanita membawa bola: warna kulit jenis 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">wanita memantulkan bola: warna kulit jenis 5</annotation>
 		<annotation cp="⛹🏿‍♀">bola | membawa | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="⛹🏿‍♀" type="tts">wanita membawa bola: warna kulit jenis 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">wanita memantulkan bola: warna kulit jenis 6</annotation>
 		<annotation cp="🏋🏻">angkat | beban | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏋🏻" type="tts">atlit angkat beban: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">orang mengangkat beban: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏋🏼">angkat | beban | warna kulit jenis 3</annotation>
-		<annotation cp="🏋🏼" type="tts">atlit angkat beban: warna kulit jenis 3</annotation>
+		<annotation cp="🏋🏼" type="tts">orang mengangkat beban: warna kulit jenis 3</annotation>
 		<annotation cp="🏋🏽">angkat | beban | warna kulit jenis 4</annotation>
-		<annotation cp="🏋🏽" type="tts">atlit angkat beban: warna kulit jenis 4</annotation>
+		<annotation cp="🏋🏽" type="tts">orang mengangkat beban: warna kulit jenis 4</annotation>
 		<annotation cp="🏋🏾">angkat | beban | warna kulit jenis 5</annotation>
-		<annotation cp="🏋🏾" type="tts">atlit angkat beban: warna kulit jenis 5</annotation>
+		<annotation cp="🏋🏾" type="tts">orang mengangkat beban: warna kulit jenis 5</annotation>
 		<annotation cp="🏋🏿">angkat | beban | warna kulit jenis 6</annotation>
-		<annotation cp="🏋🏿" type="tts">atlit angkat beban: warna kulit jenis 6</annotation>
+		<annotation cp="🏋🏿" type="tts">orang mengangkat beban: warna kulit jenis 6</annotation>
 		<annotation cp="🏋🏻‍♂">angkat | beban | laki-laki | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏋🏻‍♂" type="tts">pria angkat beban: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">pria mengangkat beban: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏋🏼‍♂">angkat | beban | laki-laki | warna kulit jenis 3</annotation>
-		<annotation cp="🏋🏼‍♂" type="tts">pria angkat beban: warna kulit jenis 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">pria mengangkat beban: warna kulit jenis 3</annotation>
 		<annotation cp="🏋🏽‍♂">angkat | beban | laki-laki | warna kulit jenis 4</annotation>
-		<annotation cp="🏋🏽‍♂" type="tts">pria angkat beban: warna kulit jenis 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">pria mengangkat beban: warna kulit jenis 4</annotation>
 		<annotation cp="🏋🏾‍♂">angkat | beban | laki-laki | warna kulit jenis 5</annotation>
-		<annotation cp="🏋🏾‍♂" type="tts">pria angkat beban: warna kulit jenis 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">pria mengangkat beban: warna kulit jenis 5</annotation>
 		<annotation cp="🏋🏿‍♂">angkat | beban | laki-laki | warna kulit jenis 6</annotation>
-		<annotation cp="🏋🏿‍♂" type="tts">pria angkat beban: warna kulit jenis 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">pria mengangkat beban: warna kulit jenis 6</annotation>
 		<annotation cp="🏋🏻‍♀">angkat | beban | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🏋🏻‍♀" type="tts">wanita angkat beban: warna kulit jenis 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">wanita mengangkat beban: warna kulit jenis 1–2</annotation>
 		<annotation cp="🏋🏼‍♀">angkat | beban | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="🏋🏼‍♀" type="tts">wanita angkat beban: warna kulit jenis 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">wanita mengangkat beban: warna kulit jenis 3</annotation>
 		<annotation cp="🏋🏽‍♀">angkat | beban | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="🏋🏽‍♀" type="tts">wanita angkat beban: warna kulit jenis 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">wanita mengangkat beban: warna kulit jenis 4</annotation>
 		<annotation cp="🏋🏾‍♀">angkat | beban | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="🏋🏾‍♀" type="tts">wanita angkat beban: warna kulit jenis 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">wanita mengangkat beban: warna kulit jenis 5</annotation>
 		<annotation cp="🏋🏿‍♀">angkat | beban | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="🏋🏿‍♀" type="tts">wanita angkat beban: warna kulit jenis 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">wanita mengangkat beban: warna kulit jenis 6</annotation>
 		<annotation cp="🚴🏻">sepeda | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚴🏻" type="tts">pesepeda: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">orang bersepeda: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚴🏼">sepeda | warna kulit jenis 3</annotation>
-		<annotation cp="🚴🏼" type="tts">pesepeda: warna kulit jenis 3</annotation>
+		<annotation cp="🚴🏼" type="tts">orang bersepeda: warna kulit jenis 3</annotation>
 		<annotation cp="🚴🏽">sepeda | warna kulit jenis 4</annotation>
-		<annotation cp="🚴🏽" type="tts">pesepeda: warna kulit jenis 4</annotation>
+		<annotation cp="🚴🏽" type="tts">orang bersepeda: warna kulit jenis 4</annotation>
 		<annotation cp="🚴🏾">sepeda | warna kulit jenis 5</annotation>
-		<annotation cp="🚴🏾" type="tts">pesepeda: warna kulit jenis 5</annotation>
+		<annotation cp="🚴🏾" type="tts">orang bersepeda: warna kulit jenis 5</annotation>
 		<annotation cp="🚴🏿">sepeda | warna kulit jenis 6</annotation>
-		<annotation cp="🚴🏿" type="tts">pesepeda: warna kulit jenis 6</annotation>
+		<annotation cp="🚴🏿" type="tts">orang bersepeda: warna kulit jenis 6</annotation>
 		<annotation cp="🚴🏻‍♂">laki-laki | sepeda | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚴🏻‍♂" type="tts">pesepeda pria: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">pria bersepeda: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚴🏼‍♂">laki-laki | sepeda | warna kulit jenis 3</annotation>
-		<annotation cp="🚴🏼‍♂" type="tts">pesepeda pria: warna kulit jenis 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">pria bersepeda: warna kulit jenis 3</annotation>
 		<annotation cp="🚴🏽‍♂">laki-laki | sepeda | warna kulit jenis 4</annotation>
-		<annotation cp="🚴🏽‍♂" type="tts">pesepeda pria: warna kulit jenis 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">pria bersepeda: warna kulit jenis 4</annotation>
 		<annotation cp="🚴🏾‍♂">laki-laki | sepeda | warna kulit jenis 5</annotation>
-		<annotation cp="🚴🏾‍♂" type="tts">pesepeda pria: warna kulit jenis 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">pria bersepeda: warna kulit jenis 5</annotation>
 		<annotation cp="🚴🏿‍♂">laki-laki | sepeda | warna kulit jenis 6</annotation>
-		<annotation cp="🚴🏿‍♂" type="tts">pesepeda pria: warna kulit jenis 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">pria bersepeda: warna kulit jenis 6</annotation>
 		<annotation cp="🚴🏻‍♀">perempuan | sepeda | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚴🏻‍♀" type="tts">pesepeda wanita: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">wanita bersepeda: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚴🏼‍♀">perempuan | sepeda | warna kulit jenis 3</annotation>
-		<annotation cp="🚴🏼‍♀" type="tts">pesepeda wanita: warna kulit jenis 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">wanita bersepeda: warna kulit jenis 3</annotation>
 		<annotation cp="🚴🏽‍♀">perempuan | sepeda | warna kulit jenis 4</annotation>
-		<annotation cp="🚴🏽‍♀" type="tts">pesepeda wanita: warna kulit jenis 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">wanita bersepeda: warna kulit jenis 4</annotation>
 		<annotation cp="🚴🏾‍♀">perempuan | sepeda | warna kulit jenis 5</annotation>
-		<annotation cp="🚴🏾‍♀" type="tts">pesepeda wanita: warna kulit jenis 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">wanita bersepeda: warna kulit jenis 5</annotation>
 		<annotation cp="🚴🏿‍♀">perempuan | sepeda | warna kulit jenis 6</annotation>
-		<annotation cp="🚴🏿‍♀" type="tts">pesepeda wanita: warna kulit jenis 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">wanita bersepeda: warna kulit jenis 6</annotation>
 		<annotation cp="🚵🏻">gunung | pesepeda | sepeda | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚵🏻" type="tts">pesepeda gunung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">orang bersepeda gunung: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚵🏼">gunung | pesepeda | sepeda | warna kulit jenis 3</annotation>
-		<annotation cp="🚵🏼" type="tts">pesepeda gunung: warna kulit jenis 3</annotation>
+		<annotation cp="🚵🏼" type="tts">orang bersepeda gunung: warna kulit jenis 3</annotation>
 		<annotation cp="🚵🏽">gunung | pesepeda | sepeda | warna kulit jenis 4</annotation>
-		<annotation cp="🚵🏽" type="tts">pesepeda gunung: warna kulit jenis 4</annotation>
+		<annotation cp="🚵🏽" type="tts">orang bersepeda gunung: warna kulit jenis 4</annotation>
 		<annotation cp="🚵🏾">gunung | pesepeda | sepeda | warna kulit jenis 5</annotation>
-		<annotation cp="🚵🏾" type="tts">pesepeda gunung: warna kulit jenis 5</annotation>
+		<annotation cp="🚵🏾" type="tts">orang bersepeda gunung: warna kulit jenis 5</annotation>
 		<annotation cp="🚵🏿">gunung | pesepeda | sepeda | warna kulit jenis 6</annotation>
-		<annotation cp="🚵🏿" type="tts">pesepeda gunung: warna kulit jenis 6</annotation>
+		<annotation cp="🚵🏿" type="tts">orang bersepeda gunung: warna kulit jenis 6</annotation>
 		<annotation cp="🚵🏻‍♂">gunung | laki-laki | sepeda | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚵🏻‍♂" type="tts">pesepeda gunung pria: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">pria bersepeda gunung: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚵🏼‍♂">gunung | laki-laki | sepeda | warna kulit jenis 3</annotation>
-		<annotation cp="🚵🏼‍♂" type="tts">pesepeda gunung pria: warna kulit jenis 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">pria bersepeda gunung: warna kulit jenis 3</annotation>
 		<annotation cp="🚵🏽‍♂">gunung | laki-laki | sepeda | warna kulit jenis 4</annotation>
-		<annotation cp="🚵🏽‍♂" type="tts">pesepeda gunung pria: warna kulit jenis 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">pria bersepeda gunung: warna kulit jenis 4</annotation>
 		<annotation cp="🚵🏾‍♂">gunung | laki-laki | sepeda | warna kulit jenis 5</annotation>
-		<annotation cp="🚵🏾‍♂" type="tts">pesepeda gunung pria: warna kulit jenis 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">pria bersepeda gunung: warna kulit jenis 5</annotation>
 		<annotation cp="🚵🏿‍♂">gunung | laki-laki | sepeda | warna kulit jenis 6</annotation>
-		<annotation cp="🚵🏿‍♂" type="tts">pesepeda gunung pria: warna kulit jenis 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">pria bersepeda gunung: warna kulit jenis 6</annotation>
 		<annotation cp="🚵🏻‍♀">gunung | perempuan | sepeda | warna kulit jenis 1–2</annotation>
-		<annotation cp="🚵🏻‍♀" type="tts">pesepeda gunung wanita: warna kulit jenis 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">wanita bersepeda gunung: warna kulit jenis 1–2</annotation>
 		<annotation cp="🚵🏼‍♀">gunung | perempuan | sepeda | warna kulit jenis 3</annotation>
-		<annotation cp="🚵🏼‍♀" type="tts">pesepeda gunung wanita: warna kulit jenis 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">wanita bersepeda gunung: warna kulit jenis 3</annotation>
 		<annotation cp="🚵🏽‍♀">gunung | perempuan | sepeda | warna kulit jenis 4</annotation>
-		<annotation cp="🚵🏽‍♀" type="tts">pesepeda gunung wanita: warna kulit jenis 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">wanita bersepeda gunung: warna kulit jenis 4</annotation>
 		<annotation cp="🚵🏾‍♀">gunung | perempuan | sepeda | warna kulit jenis 5</annotation>
-		<annotation cp="🚵🏾‍♀" type="tts">pesepeda gunung wanita: warna kulit jenis 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">wanita bersepeda gunung: warna kulit jenis 5</annotation>
 		<annotation cp="🚵🏿‍♀">gunung | perempuan | sepeda | warna kulit jenis 6</annotation>
-		<annotation cp="🚵🏿‍♀" type="tts">pesepeda gunung wanita: warna kulit jenis 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">wanita bersepeda gunung: warna kulit jenis 6</annotation>
 		<annotation cp="🤸🏻">gimnastik | olahraga | orang | salto | senam | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤸🏻" type="tts">salto: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">orang melakukan gerakan meroda: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤸🏼">gimnastik | olahraga | orang | salto | senam | warna kulit jenis 3</annotation>
-		<annotation cp="🤸🏼" type="tts">salto: warna kulit jenis 3</annotation>
+		<annotation cp="🤸🏼" type="tts">orang melakukan gerakan meroda: warna kulit jenis 3</annotation>
 		<annotation cp="🤸🏽">gimnastik | olahraga | orang | salto | senam | warna kulit jenis 4</annotation>
-		<annotation cp="🤸🏽" type="tts">salto: warna kulit jenis 4</annotation>
+		<annotation cp="🤸🏽" type="tts">orang melakukan gerakan meroda: warna kulit jenis 4</annotation>
 		<annotation cp="🤸🏾">gimnastik | olahraga | orang | salto | senam | warna kulit jenis 5</annotation>
-		<annotation cp="🤸🏾" type="tts">salto: warna kulit jenis 5</annotation>
+		<annotation cp="🤸🏾" type="tts">orang melakukan gerakan meroda: warna kulit jenis 5</annotation>
 		<annotation cp="🤸🏿">gimnastik | olahraga | orang | salto | senam | warna kulit jenis 6</annotation>
-		<annotation cp="🤸🏿" type="tts">salto: warna kulit jenis 6</annotation>
+		<annotation cp="🤸🏿" type="tts">orang melakukan gerakan meroda: warna kulit jenis 6</annotation>
 		<annotation cp="🤸🏻‍♂">balik | jungkir | laki-laki | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤸🏻‍♂" type="tts">pria jungkir balik: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">pria melakukan gerakan meroda: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤸🏼‍♂">balik | jungkir | laki-laki | warna kulit jenis 3</annotation>
-		<annotation cp="🤸🏼‍♂" type="tts">pria jungkir balik: warna kulit jenis 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">pria melakukan gerakan meroda: warna kulit jenis 3</annotation>
 		<annotation cp="🤸🏽‍♂">balik | jungkir | laki-laki | warna kulit jenis 4</annotation>
-		<annotation cp="🤸🏽‍♂" type="tts">pria jungkir balik: warna kulit jenis 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">pria melakukan gerakan meroda: warna kulit jenis 4</annotation>
 		<annotation cp="🤸🏾‍♂">balik | jungkir | laki-laki | warna kulit jenis 5</annotation>
-		<annotation cp="🤸🏾‍♂" type="tts">pria jungkir balik: warna kulit jenis 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">pria melakukan gerakan meroda: warna kulit jenis 5</annotation>
 		<annotation cp="🤸🏿‍♂">balik | jungkir | laki-laki | warna kulit jenis 6</annotation>
-		<annotation cp="🤸🏿‍♂" type="tts">pria jungkir balik: warna kulit jenis 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">pria melakukan gerakan meroda: warna kulit jenis 6</annotation>
 		<annotation cp="🤸🏻‍♀">balik | jungkir | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤸🏻‍♀" type="tts">wanita jungkir balik: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">wanita melakukan gerakan meroda: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤸🏼‍♀">balik | jungkir | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="🤸🏼‍♀" type="tts">wanita jungkir balik: warna kulit jenis 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">wanita melakukan gerakan meroda: warna kulit jenis 3</annotation>
 		<annotation cp="🤸🏽‍♀">balik | jungkir | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="🤸🏽‍♀" type="tts">wanita jungkir balik: warna kulit jenis 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">wanita melakukan gerakan meroda: warna kulit jenis 4</annotation>
 		<annotation cp="🤸🏾‍♀">balik | jungkir | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="🤸🏾‍♀" type="tts">wanita jungkir balik: warna kulit jenis 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">wanita melakukan gerakan meroda: warna kulit jenis 5</annotation>
 		<annotation cp="🤸🏿‍♀">balik | jungkir | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="🤸🏿‍♀" type="tts">wanita jungkir balik: warna kulit jenis 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">wanita melakukan gerakan meroda: warna kulit jenis 6</annotation>
 		<annotation cp="🤽🏻">air | olahraga | orang | polo | polo air | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤽🏻" type="tts">polo air: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">orang bermain polo air: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤽🏼">air | olahraga | orang | polo | polo air | warna kulit jenis 3</annotation>
-		<annotation cp="🤽🏼" type="tts">polo air: warna kulit jenis 3</annotation>
+		<annotation cp="🤽🏼" type="tts">orang bermain polo air: warna kulit jenis 3</annotation>
 		<annotation cp="🤽🏽">air | olahraga | orang | polo | polo air | warna kulit jenis 4</annotation>
-		<annotation cp="🤽🏽" type="tts">polo air: warna kulit jenis 4</annotation>
+		<annotation cp="🤽🏽" type="tts">orang bermain polo air: warna kulit jenis 4</annotation>
 		<annotation cp="🤽🏾">air | olahraga | orang | polo | polo air | warna kulit jenis 5</annotation>
-		<annotation cp="🤽🏾" type="tts">polo air: warna kulit jenis 5</annotation>
+		<annotation cp="🤽🏾" type="tts">orang bermain polo air: warna kulit jenis 5</annotation>
 		<annotation cp="🤽🏿">air | olahraga | orang | polo | polo air | warna kulit jenis 6</annotation>
-		<annotation cp="🤽🏿" type="tts">polo air: warna kulit jenis 6</annotation>
+		<annotation cp="🤽🏿" type="tts">orang bermain polo air: warna kulit jenis 6</annotation>
 		<annotation cp="🤽🏻‍♂">laki-laki | polo air | warna kulit jenis 1–2</annotation>
 		<annotation cp="🤽🏻‍♂" type="tts">pria bermain polo air: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤽🏼‍♂">laki-laki | polo air | warna kulit jenis 3</annotation>
@@ -1453,15 +1753,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤽🏿‍♀">perempuan | polo air | warna kulit jenis 6</annotation>
 		<annotation cp="🤽🏿‍♀" type="tts">wanita bermain polo air: warna kulit jenis 6</annotation>
 		<annotation cp="🤾🏻">bola | bola tangan | olahraga | orang | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤾🏻" type="tts">bola tangan: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">orang bermain bola tangan: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤾🏼">bola | bola tangan | olahraga | orang | warna kulit jenis 3</annotation>
-		<annotation cp="🤾🏼" type="tts">bola tangan: warna kulit jenis 3</annotation>
+		<annotation cp="🤾🏼" type="tts">orang bermain bola tangan: warna kulit jenis 3</annotation>
 		<annotation cp="🤾🏽">bola | bola tangan | olahraga | orang | warna kulit jenis 4</annotation>
-		<annotation cp="🤾🏽" type="tts">bola tangan: warna kulit jenis 4</annotation>
+		<annotation cp="🤾🏽" type="tts">orang bermain bola tangan: warna kulit jenis 4</annotation>
 		<annotation cp="🤾🏾">bola | bola tangan | olahraga | orang | warna kulit jenis 5</annotation>
-		<annotation cp="🤾🏾" type="tts">bola tangan: warna kulit jenis 5</annotation>
+		<annotation cp="🤾🏾" type="tts">orang bermain bola tangan: warna kulit jenis 5</annotation>
 		<annotation cp="🤾🏿">bola | bola tangan | olahraga | orang | warna kulit jenis 6</annotation>
-		<annotation cp="🤾🏿" type="tts">bola tangan: warna kulit jenis 6</annotation>
+		<annotation cp="🤾🏿" type="tts">orang bermain bola tangan: warna kulit jenis 6</annotation>
 		<annotation cp="🤾🏻‍♂">bola tangan | laki-laki | warna kulit jenis 1–2</annotation>
 		<annotation cp="🤾🏻‍♂" type="tts">pria bermain bola tangan: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤾🏼‍♂">bola tangan | laki-laki | warna kulit jenis 3</annotation>
@@ -1483,35 +1783,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤾🏿‍♀">bola tangan | perempuan | warna kulit jenis 6</annotation>
 		<annotation cp="🤾🏿‍♀" type="tts">wanita bermain bola tangan: warna kulit jenis 6</annotation>
 		<annotation cp="🤹🏻">juggling | multitasking | repot | sibuk | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤹🏻" type="tts">sibuk: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">orang melempar: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤹🏼">juggling | multitasking | repot | sibuk | warna kulit jenis 3</annotation>
-		<annotation cp="🤹🏼" type="tts">sibuk: warna kulit jenis 3</annotation>
+		<annotation cp="🤹🏼" type="tts">orang melempar: warna kulit jenis 3</annotation>
 		<annotation cp="🤹🏽">juggling | multitasking | repot | sibuk | warna kulit jenis 4</annotation>
-		<annotation cp="🤹🏽" type="tts">sibuk: warna kulit jenis 4</annotation>
+		<annotation cp="🤹🏽" type="tts">orang melempar: warna kulit jenis 4</annotation>
 		<annotation cp="🤹🏾">juggling | multitasking | repot | sibuk | warna kulit jenis 5</annotation>
-		<annotation cp="🤹🏾" type="tts">sibuk: warna kulit jenis 5</annotation>
+		<annotation cp="🤹🏾" type="tts">orang melempar: warna kulit jenis 5</annotation>
 		<annotation cp="🤹🏿">juggling | multitasking | repot | sibuk | warna kulit jenis 6</annotation>
-		<annotation cp="🤹🏿" type="tts">sibuk: warna kulit jenis 6</annotation>
+		<annotation cp="🤹🏿" type="tts">orang melempar: warna kulit jenis 6</annotation>
 		<annotation cp="🤹🏻‍♂">atraksi | laki-laki | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤹🏻‍♂" type="tts">pria melakukan atraksi: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">pria melempar: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤹🏼‍♂">atraksi | laki-laki | warna kulit jenis 3</annotation>
-		<annotation cp="🤹🏼‍♂" type="tts">pria melakukan atraksi: warna kulit jenis 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">pria melempar: warna kulit jenis 3</annotation>
 		<annotation cp="🤹🏽‍♂">atraksi | laki-laki | warna kulit jenis 4</annotation>
-		<annotation cp="🤹🏽‍♂" type="tts">pria melakukan atraksi: warna kulit jenis 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">pria melempar: warna kulit jenis 4</annotation>
 		<annotation cp="🤹🏾‍♂">atraksi | laki-laki | warna kulit jenis 5</annotation>
-		<annotation cp="🤹🏾‍♂" type="tts">pria melakukan atraksi: warna kulit jenis 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">pria melempar: warna kulit jenis 5</annotation>
 		<annotation cp="🤹🏿‍♂">atraksi | laki-laki | warna kulit jenis 6</annotation>
-		<annotation cp="🤹🏿‍♂" type="tts">pria melakukan atraksi: warna kulit jenis 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">pria melempar: warna kulit jenis 6</annotation>
 		<annotation cp="🤹🏻‍♀">atraksi | perempuan | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤹🏻‍♀" type="tts">wanita melakukan atraksi: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">wanita melempar: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤹🏼‍♀">atraksi | perempuan | warna kulit jenis 3</annotation>
-		<annotation cp="🤹🏼‍♀" type="tts">wanita melakukan atraksi: warna kulit jenis 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">wanita melempar: warna kulit jenis 3</annotation>
 		<annotation cp="🤹🏽‍♀">atraksi | perempuan | warna kulit jenis 4</annotation>
-		<annotation cp="🤹🏽‍♀" type="tts">wanita melakukan atraksi: warna kulit jenis 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">wanita melempar: warna kulit jenis 4</annotation>
 		<annotation cp="🤹🏾‍♀">atraksi | perempuan | warna kulit jenis 5</annotation>
-		<annotation cp="🤹🏾‍♀" type="tts">wanita melakukan atraksi: warna kulit jenis 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">wanita melempar: warna kulit jenis 5</annotation>
 		<annotation cp="🤹🏿‍♀">atraksi | perempuan | warna kulit jenis 6</annotation>
-		<annotation cp="🤹🏿‍♀" type="tts">wanita melakukan atraksi: warna kulit jenis 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">wanita melempar: warna kulit jenis 6</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">cium | pasangan | romantis | wanita | pria</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">berciuman: wanita, pria</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">cium | pasangan | romantis | pria</annotation>
@@ -1524,66 +1824,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍❤‍👨" type="tts">pasangan dengan hati: pria, pria</annotation>
 		<annotation cp="👩‍❤‍👩">cinta | hati | pasangan | romantis | wanita</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">pasangan dengan hati: wanita, wanita</annotation>
-		<annotation cp="👨‍👩‍👦">anak | ayah | bapak | ibu | mama | papa | pria | wanita | laki-laki</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">keluarga: pria, wanita, laki-laki</annotation>
-		<annotation cp="👨‍👩‍👧">anak | ayah | bapak | ibu | mama | papa | pria | wanita | perempuan</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">keluarga: pria, wanita, perempuan</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | pria | wanita | perempuan | laki-laki</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">keluarga: pria, wanita, perempuan, laki-laki</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | pria | wanita | laki-laki</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">keluarga: pria, wanita, laki-laki, laki-laki</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | pria | wanita | perempuan</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">keluarga: pria, wanita, perempuan, perempuan</annotation>
-		<annotation cp="👨‍👨‍👦">anak | ayah | bapak | ibu | mama | papa | pria | laki-laki</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">keluarga: pria, pria, laki-laki</annotation>
-		<annotation cp="👨‍👨‍👧">anak | ayah | bapak | ibu | mama | papa | pria | perempuan</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">keluarga: pria, pria, perempuan</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | pria | perempuan | laki-laki</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">keluarga: pria, pria, perempuan, laki-laki</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | pria | laki-laki</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">keluarga: pria, pria, laki-laki, laki-laki</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | pria | perempuan</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">keluarga: pria, pria, perempuan, perempuan</annotation>
-		<annotation cp="👩‍👩‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | laki-laki</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">keluarga: wanita, wanita, laki-laki</annotation>
-		<annotation cp="👩‍👩‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | perempuan</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">keluarga: wanita, wanita, perempuan</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | perempuan | laki-laki</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">keluarga: wanita, wanita, perempuan, laki-laki</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | laki-laki</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">keluarga: wanita, wanita, laki-laki, laki-laki</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | perempuan</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">keluarga: wanita, wanita, perempuan, perempuan</annotation>
-		<annotation cp="👨‍👦">anak | ayah | bapak | ibu | mama | papa | pria | laki-laki</annotation>
-		<annotation cp="👨‍👦" type="tts">keluarga: pria, laki-laki</annotation>
-		<annotation cp="👨‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | pria | laki-laki</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">keluarga: pria, laki-laki, laki-laki</annotation>
-		<annotation cp="👨‍👧">anak | ayah | bapak | ibu | mama | papa | pria | perempuan</annotation>
-		<annotation cp="👨‍👧" type="tts">keluarga: pria, perempuan</annotation>
-		<annotation cp="👨‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | pria | perempuan | laki-laki</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">keluarga: pria, perempuan, laki-laki</annotation>
-		<annotation cp="👨‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | pria | perempuan</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">keluarga: pria, perempuan, perempuan</annotation>
-		<annotation cp="👩‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | laki-laki</annotation>
-		<annotation cp="👩‍👦" type="tts">keluarga: wanita, laki-laki</annotation>
-		<annotation cp="👩‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | laki-laki</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">keluarga: wanita, laki-laki, laki-laki</annotation>
-		<annotation cp="👩‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | perempuan</annotation>
-		<annotation cp="👩‍👧" type="tts">keluarga: wanita, perempuan</annotation>
-		<annotation cp="👩‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | perempuan | laki-laki</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">keluarga: wanita, perempuan, laki-laki</annotation>
-		<annotation cp="👩‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | perempuan</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">keluarga: wanita, perempuan, perempuan</annotation>
+		<annotation cp="👨‍👩‍👦">anak | ayah | bapak | ibu | mama | papa | pria | wanita | anak laki-laki</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">keluarga: pria, wanita, anak laki-laki</annotation>
+		<annotation cp="👨‍👩‍👧">anak | ayah | bapak | ibu | mama | papa | pria | wanita | anak perempuan</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">keluarga: pria, wanita, anak perempuan</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | pria | wanita | anak perempuan | anak laki-laki</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">keluarga: pria, wanita, anak perempuan, anak laki-laki</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | pria | wanita | anak laki-laki</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">keluarga: pria, wanita, anak laki-laki, anak laki-laki</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | pria | wanita | anak perempuan</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">keluarga: pria, wanita, anak perempuan, anak perempuan</annotation>
+		<annotation cp="👨‍👨‍👦">anak | ayah | bapak | ibu | mama | papa | pria | anak laki-laki</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">keluarga: pria, pria, anak laki-laki</annotation>
+		<annotation cp="👨‍👨‍👧">anak | ayah | bapak | ibu | mama | papa | pria | anak perempuan</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">keluarga: pria, pria, anak perempuan</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | pria | anak perempuan | anak laki-laki</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">keluarga: pria, pria, anak perempuan, anak laki-laki</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | pria | anak laki-laki</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">keluarga: pria, pria, anak laki-laki, anak laki-laki</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | pria | anak perempuan</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">keluarga: pria, pria, anak perempuan, anak perempuan</annotation>
+		<annotation cp="👩‍👩‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | anak laki-laki</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">keluarga: wanita, wanita, anak laki-laki</annotation>
+		<annotation cp="👩‍👩‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | anak perempuan</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">keluarga: wanita, wanita, anak perempuan</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | anak perempuan | anak laki-laki</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">keluarga: wanita, wanita, anak perempuan, anak laki-laki</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | anak laki-laki</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">keluarga: wanita, wanita, anak laki-laki, anak laki-laki</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | anak perempuan</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">keluarga: wanita, wanita, anak perempuan, anak perempuan</annotation>
+		<annotation cp="👨‍👦">anak | ayah | bapak | ibu | mama | papa | pria | anak laki-laki</annotation>
+		<annotation cp="👨‍👦" type="tts">keluarga: pria, anak laki-laki</annotation>
+		<annotation cp="👨‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | pria | anak laki-laki</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">keluarga: pria, anak laki-laki, anak laki-laki</annotation>
+		<annotation cp="👨‍👧">anak | ayah | bapak | ibu | mama | papa | pria | anak perempuan</annotation>
+		<annotation cp="👨‍👧" type="tts">keluarga: pria, anak perempuan</annotation>
+		<annotation cp="👨‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | pria | anak perempuan | anak laki-laki</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">keluarga: pria, anak perempuan, anak laki-laki</annotation>
+		<annotation cp="👨‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | pria | anak perempuan</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">keluarga: pria, anak perempuan, anak perempuan</annotation>
+		<annotation cp="👩‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | anak laki-laki</annotation>
+		<annotation cp="👩‍👦" type="tts">keluarga: wanita, anak laki-laki</annotation>
+		<annotation cp="👩‍👦‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | anak laki-laki</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">keluarga: wanita, anak laki-laki, anak laki-laki</annotation>
+		<annotation cp="👩‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | anak perempuan</annotation>
+		<annotation cp="👩‍👧" type="tts">keluarga: wanita, anak perempuan</annotation>
+		<annotation cp="👩‍👧‍👦">anak | ayah | bapak | ibu | mama | papa | wanita | anak perempuan | anak laki-laki</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">keluarga: wanita, anak perempuan, anak laki-laki</annotation>
+		<annotation cp="👩‍👧‍👧">anak | ayah | bapak | ibu | mama | papa | wanita | anak perempuan</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">keluarga: wanita, anak perempuan, anak perempuan</annotation>
 		<annotation cp="🤳🏻">foto selfie | kamera | ponsel | selfi | selfie | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤳🏻" type="tts">foto selfie: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤳🏼">foto selfie | kamera | ponsel | selfi | selfie | warna kulit jenis 3</annotation>
-		<annotation cp="🤳🏼" type="tts">foto selfie: warna kulit jenis 3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: warna kulit jenis 3</annotation>
 		<annotation cp="🤳🏽">foto selfie | kamera | ponsel | selfi | selfie | warna kulit jenis 4</annotation>
-		<annotation cp="🤳🏽" type="tts">foto selfie: warna kulit jenis 4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: warna kulit jenis 4</annotation>
 		<annotation cp="🤳🏾">foto selfie | kamera | ponsel | selfi | selfie | warna kulit jenis 5</annotation>
-		<annotation cp="🤳🏾" type="tts">foto selfie: warna kulit jenis 5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: warna kulit jenis 5</annotation>
 		<annotation cp="🤳🏿">foto selfie | kamera | ponsel | selfi | selfie | warna kulit jenis 6</annotation>
-		<annotation cp="🤳🏿" type="tts">foto selfie: warna kulit jenis 6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: warna kulit jenis 6</annotation>
 		<annotation cp="💪🏻">badan | biseps | otot | tubuh | warna kulit jenis 1–2</annotation>
 		<annotation cp="💪🏻" type="tts">lengan berotot: warna kulit jenis 1–2</annotation>
 		<annotation cp="💪🏼">badan | biseps | otot | tubuh | warna kulit jenis 3</annotation>
@@ -1665,15 +1965,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✌🏿">badan | jari | menang | tangan | tubuh | warna kulit jenis 6</annotation>
 		<annotation cp="✌🏿" type="tts">isyarat kemenangan: warna kulit jenis 6</annotation>
 		<annotation cp="🤞🏻">beruntung | jari | semoga beruntung | semoga hoki | silang jari | warna kulit jenis 1–2</annotation>
-		<annotation cp="🤞🏻" type="tts">semoga beruntung: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">jari menyilang: warna kulit jenis 1–2</annotation>
 		<annotation cp="🤞🏼">beruntung | jari | semoga beruntung | semoga hoki | silang jari | warna kulit jenis 3</annotation>
-		<annotation cp="🤞🏼" type="tts">semoga beruntung: warna kulit jenis 3</annotation>
+		<annotation cp="🤞🏼" type="tts">jari menyilang: warna kulit jenis 3</annotation>
 		<annotation cp="🤞🏽">beruntung | jari | semoga beruntung | semoga hoki | silang jari | warna kulit jenis 4</annotation>
-		<annotation cp="🤞🏽" type="tts">semoga beruntung: warna kulit jenis 4</annotation>
+		<annotation cp="🤞🏽" type="tts">jari menyilang: warna kulit jenis 4</annotation>
 		<annotation cp="🤞🏾">beruntung | jari | semoga beruntung | semoga hoki | silang jari | warna kulit jenis 5</annotation>
-		<annotation cp="🤞🏾" type="tts">semoga beruntung: warna kulit jenis 5</annotation>
+		<annotation cp="🤞🏾" type="tts">jari menyilang: warna kulit jenis 5</annotation>
 		<annotation cp="🤞🏿">beruntung | jari | semoga beruntung | semoga hoki | silang jari | warna kulit jenis 6</annotation>
-		<annotation cp="🤞🏿" type="tts">semoga beruntung: warna kulit jenis 6</annotation>
+		<annotation cp="🤞🏿" type="tts">jari menyilang: warna kulit jenis 6</annotation>
 		<annotation cp="🖖🏻">badan | jari | spock | tangan | tubuh | vulcan | warna kulit jenis 1–2</annotation>
 		<annotation cp="🖖🏻" type="tts">salam vulcan: warna kulit jenis 1–2</annotation>
 		<annotation cp="🖖🏼">badan | jari | spock | tangan | tubuh | vulcan | warna kulit jenis 3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">tangan melambai: warna kulit jenis 5</annotation>
 		<annotation cp="👋🏿">badan | lambai | tangan | tubuh | warna kulit jenis 6</annotation>
 		<annotation cp="👋🏿" type="tts">tangan melambai: warna kulit jenis 6</annotation>
+		<annotation cp="🤟🏻">ILU | ILY | tangan | warna kulit jenis 1–2</annotation>
+		<annotation cp="🤟🏻" type="tts">gerakan sayang kamu: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤟🏼">ILU | ILY | tangan | warna kulit jenis 3</annotation>
+		<annotation cp="🤟🏼" type="tts">gerakan sayang kamu: warna kulit jenis 3</annotation>
+		<annotation cp="🤟🏽">ILU | ILY | tangan | warna kulit jenis 4</annotation>
+		<annotation cp="🤟🏽" type="tts">gerakan sayang kamu: warna kulit jenis 4</annotation>
+		<annotation cp="🤟🏾">ILU | ILY | tangan | warna kulit jenis 5</annotation>
+		<annotation cp="🤟🏾" type="tts">gerakan sayang kamu: warna kulit jenis 5</annotation>
+		<annotation cp="🤟🏿">ILU | ILY | tangan | warna kulit jenis 6</annotation>
+		<annotation cp="🤟🏿" type="tts">gerakan sayang kamu: warna kulit jenis 6</annotation>
 		<annotation cp="✍🏻">badan | nulis | tangan | tubuh | tulis | warna kulit jenis 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">tangan menulis: warna kulit jenis 1–2</annotation>
 		<annotation cp="✍🏼">badan | nulis | tangan | tubuh | tulis | warna kulit jenis 3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">mengangkat tangan: warna kulit jenis 5</annotation>
 		<annotation cp="🙌🏿">angkat | badan | gerakan | hore | perayaan | tangan | tubuh | warna kulit jenis 6</annotation>
 		<annotation cp="🙌🏿" type="tts">mengangkat tangan: warna kulit jenis 6</annotation>
+		<annotation cp="🤲🏻">berdoa | doa | warna kulit jenis 1–2</annotation>
+		<annotation cp="🤲🏻" type="tts">tangan diangkat dan dirapatkan bersama: warna kulit jenis 1–2</annotation>
+		<annotation cp="🤲🏼">berdoa | doa | warna kulit jenis 3</annotation>
+		<annotation cp="🤲🏼" type="tts">tangan diangkat dan dirapatkan bersama: warna kulit jenis 3</annotation>
+		<annotation cp="🤲🏽">berdoa | doa | warna kulit jenis 4</annotation>
+		<annotation cp="🤲🏽" type="tts">tangan diangkat dan dirapatkan bersama: warna kulit jenis 4</annotation>
+		<annotation cp="🤲🏾">berdoa | doa | warna kulit jenis 5</annotation>
+		<annotation cp="🤲🏾" type="tts">tangan diangkat dan dirapatkan bersama: warna kulit jenis 5</annotation>
+		<annotation cp="🤲🏿">berdoa | doa | warna kulit jenis 6</annotation>
+		<annotation cp="🤲🏿" type="tts">tangan diangkat dan dirapatkan bersama: warna kulit jenis 6</annotation>
 		<annotation cp="🙏🏻">berdoa | bungkuk | gerakan | lipat | makasih | mohon | tangan | tolong | tubuh | warna kulit jenis 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">melipat tangan: warna kulit jenis 1–2</annotation>
 		<annotation cp="🙏🏼">berdoa | bungkuk | gerakan | lipat | makasih | mohon | tangan | tolong | tubuh | warna kulit jenis 3</annotation>
@@ -1865,15 +2185,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏿">berdoa | bungkuk | gerakan | lipat | makasih | mohon | tangan | tolong | tubuh | warna kulit jenis 6</annotation>
 		<annotation cp="🙏🏿" type="tts">melipat tangan: warna kulit jenis 6</annotation>
 		<annotation cp="💅🏻">badan | kosmetik | kuku | kuteks | manikur | perawatan | tubuh | warna kulit jenis 1–2</annotation>
-		<annotation cp="💅🏻" type="tts">cat kuku: warna kulit jenis 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">poles kuku: warna kulit jenis 1–2</annotation>
 		<annotation cp="💅🏼">badan | kosmetik | kuku | kuteks | manikur | perawatan | tubuh | warna kulit jenis 3</annotation>
-		<annotation cp="💅🏼" type="tts">cat kuku: warna kulit jenis 3</annotation>
+		<annotation cp="💅🏼" type="tts">poles kuku: warna kulit jenis 3</annotation>
 		<annotation cp="💅🏽">badan | kosmetik | kuku | kuteks | manikur | perawatan | tubuh | warna kulit jenis 4</annotation>
-		<annotation cp="💅🏽" type="tts">cat kuku: warna kulit jenis 4</annotation>
+		<annotation cp="💅🏽" type="tts">poles kuku: warna kulit jenis 4</annotation>
 		<annotation cp="💅🏾">badan | kosmetik | kuku | kuteks | manikur | perawatan | tubuh | warna kulit jenis 5</annotation>
-		<annotation cp="💅🏾" type="tts">cat kuku: warna kulit jenis 5</annotation>
+		<annotation cp="💅🏾" type="tts">poles kuku: warna kulit jenis 5</annotation>
 		<annotation cp="💅🏿">badan | kosmetik | kuku | kuteks | manikur | perawatan | tubuh | warna kulit jenis 6</annotation>
-		<annotation cp="💅🏿" type="tts">cat kuku: warna kulit jenis 6</annotation>
+		<annotation cp="💅🏿" type="tts">poles kuku: warna kulit jenis 6</annotation>
 		<annotation cp="👂🏻">badan | tubuh | warna kulit jenis 1–2</annotation>
 		<annotation cp="👂🏻" type="tts">telinga: warna kulit jenis 1–2</annotation>
 		<annotation cp="👂🏼">badan | tubuh | warna kulit jenis 3</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">hidung: warna kulit jenis 5</annotation>
 		<annotation cp="👃🏿">badan | tubuh | warna kulit jenis 6</annotation>
 		<annotation cp="👃🏿" type="tts">hidung: warna kulit jenis 6</annotation>
-		<annotation cp="#⃣">pound | tanda pagar | tombol</annotation>
-		<annotation cp="#⃣" type="tts">tombol pagar</annotation>
-		<annotation cp="*⃣">bintang | tanda bintang | tombol</annotation>
-		<annotation cp="*⃣" type="tts">tombol bintang</annotation>
+		<annotation cp="#⃣">keycap</annotation>
+		<annotation cp="#⃣" type="tts">keycap: #</annotation>
+		<annotation cp="*⃣">keycap</annotation>
+		<annotation cp="*⃣" type="tts">keycap: *</annotation>
+		<annotation cp="🔟">keycap</annotation>
+		<annotation cp="🔟" type="tts">keycap: 10</annotation>
 		<annotation cp="🇦🇨">bendera</annotation>
 		<annotation cp="🇦🇨" type="tts">Pulau Ascension</annotation>
 		<annotation cp="🇦🇩">bendera</annotation>
@@ -1959,7 +2281,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇴">bendera</annotation>
 		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
 		<annotation cp="🇧🇶">bendera</annotation>
-		<annotation cp="🇧🇶" type="tts">Karibia Belanda</annotation>
+		<annotation cp="🇧🇶" type="tts">Belanda Karibia</annotation>
 		<annotation cp="🇧🇷">bendera</annotation>
 		<annotation cp="🇧🇷" type="tts">Brasil</annotation>
 		<annotation cp="🇧🇸">bendera</annotation>
@@ -1987,7 +2309,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇭">bendera</annotation>
 		<annotation cp="🇨🇭" type="tts">Swiss</annotation>
 		<annotation cp="🇨🇮">bendera</annotation>
-		<annotation cp="🇨🇮" type="tts">Cote d’Ivoire</annotation>
+		<annotation cp="🇨🇮" type="tts">Pantai Gading</annotation>
 		<annotation cp="🇨🇰">bendera</annotation>
 		<annotation cp="🇨🇰" type="tts">Kepulauan Cook</annotation>
 		<annotation cp="🇨🇱">bendera</annotation>
@@ -2013,7 +2335,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇾">bendera</annotation>
 		<annotation cp="🇨🇾" type="tts">Siprus</annotation>
 		<annotation cp="🇨🇿">bendera</annotation>
-		<annotation cp="🇨🇿" type="tts">Cheska</annotation>
+		<annotation cp="🇨🇿" type="tts">Ceko</annotation>
 		<annotation cp="🇩🇪">bendera</annotation>
 		<annotation cp="🇩🇪" type="tts">Jerman</annotation>
 		<annotation cp="🇩🇬">bendera</annotation>

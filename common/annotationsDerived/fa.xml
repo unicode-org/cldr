@@ -8,40 +8,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="fa"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">صفر | کلید | ۰</annotation>
-		<annotation cp="0⃣" type="tts">کلید رقم صفر</annotation>
-		<annotation cp="1⃣">کلید | یک | ۱</annotation>
-		<annotation cp="1⃣" type="tts">کلید رقم یک</annotation>
-		<annotation cp="2⃣">دو | کلید | ۲</annotation>
-		<annotation cp="2⃣" type="tts">کلید رقم دو</annotation>
-		<annotation cp="3⃣">سه | کلید | ۳</annotation>
-		<annotation cp="3⃣" type="tts">کلید رقم سه</annotation>
-		<annotation cp="4⃣">چهار | کلید | ۴</annotation>
-		<annotation cp="4⃣" type="tts">کلید رقم چهار</annotation>
-		<annotation cp="5⃣">پنج | کلید | ۵</annotation>
-		<annotation cp="5⃣" type="tts">کلید رقم پنج</annotation>
-		<annotation cp="6⃣">شش | کلید | ۶</annotation>
-		<annotation cp="6⃣" type="tts">کلید رقم شش</annotation>
-		<annotation cp="7⃣">هفت | کلید | ۷</annotation>
-		<annotation cp="7⃣" type="tts">کلید رقم هفت</annotation>
-		<annotation cp="8⃣">هشت | کلید | ۸</annotation>
-		<annotation cp="8⃣" type="tts">کلید رقم هشت</annotation>
-		<annotation cp="9⃣">نه | کلید | ۹</annotation>
-		<annotation cp="9⃣" type="tts">کلید رقم نه</annotation>
-		<annotation cp="👶🏻">بچه | کودک | پوست سفید</annotation>
-		<annotation cp="👶🏻" type="tts">بچه: پوست سفید</annotation>
-		<annotation cp="👶🏼">بچه | کودک | پوست روشن</annotation>
-		<annotation cp="👶🏼" type="tts">بچه: پوست روشن</annotation>
-		<annotation cp="👶🏽">بچه | کودک | پوست طلایی</annotation>
-		<annotation cp="👶🏽" type="tts">بچه: پوست طلایی</annotation>
-		<annotation cp="👶🏾">بچه | کودک | پوست گندمی</annotation>
-		<annotation cp="👶🏾" type="tts">بچه: پوست گندمی</annotation>
-		<annotation cp="👶🏿">بچه | کودک | پوست آبنوسی</annotation>
-		<annotation cp="👶🏿" type="tts">بچه: پوست آبنوسی</annotation>
+		<annotation cp="0⃣">جلد کلید</annotation>
+		<annotation cp="0⃣" type="tts">جلد کلید: 0</annotation>
+		<annotation cp="1⃣">جلد کلید</annotation>
+		<annotation cp="1⃣" type="tts">جلد کلید: 1</annotation>
+		<annotation cp="2⃣">جلد کلید</annotation>
+		<annotation cp="2⃣" type="tts">جلد کلید: 2</annotation>
+		<annotation cp="3⃣">جلد کلید</annotation>
+		<annotation cp="3⃣" type="tts">جلد کلید: 3</annotation>
+		<annotation cp="4⃣">جلد کلید</annotation>
+		<annotation cp="4⃣" type="tts">جلد کلید: 4</annotation>
+		<annotation cp="5⃣">جلد کلید</annotation>
+		<annotation cp="5⃣" type="tts">جلد کلید: 5</annotation>
+		<annotation cp="6⃣">جلد کلید</annotation>
+		<annotation cp="6⃣" type="tts">جلد کلید: 6</annotation>
+		<annotation cp="7⃣">جلد کلید</annotation>
+		<annotation cp="7⃣" type="tts">جلد کلید: 7</annotation>
+		<annotation cp="8⃣">جلد کلید</annotation>
+		<annotation cp="8⃣" type="tts">جلد کلید: 8</annotation>
+		<annotation cp="9⃣">جلد کلید</annotation>
+		<annotation cp="9⃣" type="tts">جلد کلید: 9</annotation>
+		<annotation cp="👶🏻">خردسال | طفل | نوزاد | پوست سفید</annotation>
+		<annotation cp="👶🏻" type="tts">نوزاد: پوست سفید</annotation>
+		<annotation cp="👶🏼">خردسال | طفل | نوزاد | پوست روشن</annotation>
+		<annotation cp="👶🏼" type="tts">نوزاد: پوست روشن</annotation>
+		<annotation cp="👶🏽">خردسال | طفل | نوزاد | پوست طلایی</annotation>
+		<annotation cp="👶🏽" type="tts">نوزاد: پوست طلایی</annotation>
+		<annotation cp="👶🏾">خردسال | طفل | نوزاد | پوست گندمی</annotation>
+		<annotation cp="👶🏾" type="tts">نوزاد: پوست گندمی</annotation>
+		<annotation cp="👶🏿">خردسال | طفل | نوزاد | پوست آبنوسی</annotation>
+		<annotation cp="👶🏿" type="tts">نوزاد: پوست آبنوسی</annotation>
+		<annotation cp="🧒🏻">بی‌جنس | جنس خنثی | جوان | پوست سفید</annotation>
+		<annotation cp="🧒🏻" type="tts">بچه: پوست سفید</annotation>
+		<annotation cp="🧒🏼">بی‌جنس | جنس خنثی | جوان | پوست روشن</annotation>
+		<annotation cp="🧒🏼" type="tts">بچه: پوست روشن</annotation>
+		<annotation cp="🧒🏽">بی‌جنس | جنس خنثی | جوان | پوست طلایی</annotation>
+		<annotation cp="🧒🏽" type="tts">بچه: پوست طلایی</annotation>
+		<annotation cp="🧒🏾">بی‌جنس | جنس خنثی | جوان | پوست گندمی</annotation>
+		<annotation cp="🧒🏾" type="tts">بچه: پوست گندمی</annotation>
+		<annotation cp="🧒🏿">بی‌جنس | جنس خنثی | جوان | پوست آبنوسی</annotation>
+		<annotation cp="🧒🏿" type="tts">بچه: پوست آبنوسی</annotation>
 		<annotation cp="👦🏻">مذکر | مرد | پسر | پوست سفید</annotation>
 		<annotation cp="👦🏻" type="tts">پسر: پوست سفید</annotation>
 		<annotation cp="👦🏼">مذکر | مرد | پسر | پوست روشن</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">دختر: پوست گندمی</annotation>
 		<annotation cp="👧🏿">باکره | دختر | دوشیزه | پوست آبنوسی</annotation>
 		<annotation cp="👧🏿" type="tts">دختر: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻">جنس خنثی | پوست سفید</annotation>
+		<annotation cp="🧑🏻" type="tts">بزرگسال: پوست سفید</annotation>
+		<annotation cp="🧑🏼">جنس خنثی | پوست روشن</annotation>
+		<annotation cp="🧑🏼" type="tts">بزرگسال: پوست روشن</annotation>
+		<annotation cp="🧑🏽">جنس خنثی | پوست طلایی</annotation>
+		<annotation cp="🧑🏽" type="tts">بزرگسال: پوست طلایی</annotation>
+		<annotation cp="🧑🏾">جنس خنثی | پوست گندمی</annotation>
+		<annotation cp="🧑🏾" type="tts">بزرگسال: پوست گندمی</annotation>
+		<annotation cp="🧑🏿">جنس خنثی | پوست آبنوسی</annotation>
+		<annotation cp="🧑🏿" type="tts">بزرگسال: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻">آقا | مرد | پوست سفید</annotation>
 		<annotation cp="👨🏻" type="tts">مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼">آقا | مرد | پوست روشن</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿">خانم | زن | پوست آبنوسی</annotation>
 		<annotation cp="👩🏿" type="tts">زن: پوست آبنوسی</annotation>
+		<annotation cp="🧓🏻">جنس خنثی | مسن | پیر | پوست سفید</annotation>
+		<annotation cp="🧓🏻" type="tts">میان‌سال: پوست سفید</annotation>
+		<annotation cp="🧓🏼">جنس خنثی | مسن | پیر | پوست روشن</annotation>
+		<annotation cp="🧓🏼" type="tts">میان‌سال: پوست روشن</annotation>
+		<annotation cp="🧓🏽">جنس خنثی | مسن | پیر | پوست طلایی</annotation>
+		<annotation cp="🧓🏽" type="tts">میان‌سال: پوست طلایی</annotation>
+		<annotation cp="🧓🏾">جنس خنثی | مسن | پیر | پوست گندمی</annotation>
+		<annotation cp="🧓🏾" type="tts">میان‌سال: پوست گندمی</annotation>
+		<annotation cp="🧓🏿">جنس خنثی | مسن | پیر | پوست آبنوسی</annotation>
+		<annotation cp="🧓🏿" type="tts">میان‌سال: پوست آبنوسی</annotation>
 		<annotation cp="👴🏻">مرد | پیر | پوست سفید</annotation>
 		<annotation cp="👴🏻" type="tts">پیرمرد: پوست سفید</annotation>
 		<annotation cp="👴🏼">مرد | پیر | پوست روشن</annotation>
@@ -133,15 +163,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏿‍🎓">دانشجو | دانش‌آموز | شاگرد | فارغ‌التحصیل | محصل | پوست آبنوسی</annotation>
 		<annotation cp="👨🏿‍🎓" type="tts">دانشجوی مرد: پوست آبنوسی</annotation>
 		<annotation cp="👩🏻‍🎓">دانشجو | دانش‌آموز | شاگرد | فارغ‌التحصیل | محصل | پوست سفید</annotation>
-		<annotation cp="👩🏻‍🎓" type="tts">دانشجو زن: پوست سفید</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">دانشجوی زن: پوست سفید</annotation>
 		<annotation cp="👩🏼‍🎓">دانشجو | دانش‌آموز | شاگرد | فارغ‌التحصیل | محصل | پوست روشن</annotation>
-		<annotation cp="👩🏼‍🎓" type="tts">دانشجو زن: پوست روشن</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">دانشجوی زن: پوست روشن</annotation>
 		<annotation cp="👩🏽‍🎓">دانشجو | دانش‌آموز | شاگرد | فارغ‌التحصیل | محصل | پوست طلایی</annotation>
-		<annotation cp="👩🏽‍🎓" type="tts">دانشجو زن: پوست طلایی</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">دانشجوی زن: پوست طلایی</annotation>
 		<annotation cp="👩🏾‍🎓">دانشجو | دانش‌آموز | شاگرد | فارغ‌التحصیل | محصل | پوست گندمی</annotation>
-		<annotation cp="👩🏾‍🎓" type="tts">دانشجو زن: پوست گندمی</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">دانشجوی زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🎓">دانشجو | دانش‌آموز | شاگرد | فارغ‌التحصیل | محصل | پوست آبنوسی</annotation>
-		<annotation cp="👩🏿‍🎓" type="tts">دانشجو زن: پوست آبنوسی</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">دانشجوی زن: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🏫">آقای معلم | استاد | دبیر | مدرس | معلم | پوست سفید</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">آموزگار مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🏫">آقای معلم | استاد | دبیر | مدرس | معلم | پوست روشن</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">مرد با کلاه چینی: پوست گندمی</annotation>
 		<annotation cp="👲🏿">مرد | کلاه | کلاه ژاپنی | پوست آبنوسی</annotation>
 		<annotation cp="👲🏿" type="tts">مرد با کلاه چینی: پوست آبنوسی</annotation>
+		<annotation cp="🧕🏻">تخل | حجاب | روسری | مانتیلا | پوشش سر زنان | پوست سفید</annotation>
+		<annotation cp="🧕🏻" type="tts">زن با روسری: پوست سفید</annotation>
+		<annotation cp="🧕🏼">تخل | حجاب | روسری | مانتیلا | پوشش سر زنان | پوست روشن</annotation>
+		<annotation cp="🧕🏼" type="tts">زن با روسری: پوست روشن</annotation>
+		<annotation cp="🧕🏽">تخل | حجاب | روسری | مانتیلا | پوشش سر زنان | پوست طلایی</annotation>
+		<annotation cp="🧕🏽" type="tts">زن با روسری: پوست طلایی</annotation>
+		<annotation cp="🧕🏾">تخل | حجاب | روسری | مانتیلا | پوشش سر زنان | پوست گندمی</annotation>
+		<annotation cp="🧕🏾" type="tts">زن با روسری: پوست گندمی</annotation>
+		<annotation cp="🧕🏿">تخل | حجاب | روسری | مانتیلا | پوشش سر زنان | پوست آبنوسی</annotation>
+		<annotation cp="🧕🏿" type="tts">زن با روسری: پوست آبنوسی</annotation>
+		<annotation cp="🧔🏻">با ریش | ریش | ریش‌دار | پوست سفید</annotation>
+		<annotation cp="🧔🏻" type="tts">ریش‌دار: پوست سفید</annotation>
+		<annotation cp="🧔🏼">با ریش | ریش | ریش‌دار | پوست روشن</annotation>
+		<annotation cp="🧔🏼" type="tts">ریش‌دار: پوست روشن</annotation>
+		<annotation cp="🧔🏽">با ریش | ریش | ریش‌دار | پوست طلایی</annotation>
+		<annotation cp="🧔🏽" type="tts">ریش‌دار: پوست طلایی</annotation>
+		<annotation cp="🧔🏾">با ریش | ریش | ریش‌دار | پوست گندمی</annotation>
+		<annotation cp="🧔🏾" type="tts">ریش‌دار: پوست گندمی</annotation>
+		<annotation cp="🧔🏿">با ریش | ریش | ریش‌دار | پوست آبنوسی</annotation>
+		<annotation cp="🧔🏿" type="tts">ریش‌دار: پوست آبنوسی</annotation>
 		<annotation cp="👱🏻">بلوند | بور | طلایی | پوست سفید</annotation>
 		<annotation cp="👱🏻" type="tts">آدم بلوند: پوست سفید</annotation>
 		<annotation cp="👱🏼">بلوند | بور | طلایی | پوست روشن</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">زن باردار: پوست گندمی</annotation>
 		<annotation cp="🤰🏿">باردار | بچه در شکم | حامله | زن | شکم | شیکم | پوست آبنوسی</annotation>
 		<annotation cp="🤰🏿" type="tts">زن باردار: پوست آبنوسی</annotation>
+		<annotation cp="🤱🏻">تغذیه | تغذیه با شیر مادر | شیر مادر | شیردهی | طفل | پوست سفید</annotation>
+		<annotation cp="🤱🏻" type="tts">تغذیه با شیر مادر: پوست سفید</annotation>
+		<annotation cp="🤱🏼">تغذیه | تغذیه با شیر مادر | شیر مادر | شیردهی | طفل | پوست روشن</annotation>
+		<annotation cp="🤱🏼" type="tts">تغذیه با شیر مادر: پوست روشن</annotation>
+		<annotation cp="🤱🏽">تغذیه | تغذیه با شیر مادر | شیر مادر | شیردهی | طفل | پوست طلایی</annotation>
+		<annotation cp="🤱🏽" type="tts">تغذیه با شیر مادر: پوست طلایی</annotation>
+		<annotation cp="🤱🏾">تغذیه | تغذیه با شیر مادر | شیر مادر | شیردهی | طفل | پوست گندمی</annotation>
+		<annotation cp="🤱🏾" type="tts">تغذیه با شیر مادر: پوست گندمی</annotation>
+		<annotation cp="🤱🏿">تغذیه | تغذیه با شیر مادر | شیر مادر | شیردهی | طفل | پوست آبنوسی</annotation>
+		<annotation cp="🤱🏿" type="tts">تغذیه با شیر مادر: پوست آبنوسی</annotation>
 		<annotation cp="👼🏻">بچه | صورت | فانتزی | فرشته | پری | کودک | پوست سفید</annotation>
 		<annotation cp="👼🏻" type="tts">فرشته کوچولو: پوست سفید</annotation>
 		<annotation cp="👼🏼">بچه | صورت | فانتزی | فرشته | پری | کودک | پوست روشن</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">مامان نوئل: پوست گندمی</annotation>
 		<annotation cp="🤶🏿">خاله ریزه | مادربزرگ | مامان بزرگ | پیرزن | کریسمس | پوست آبنوسی</annotation>
 		<annotation cp="🤶🏿" type="tts">مامان نوئل: پوست آبنوسی</annotation>
+		<annotation cp="🧙🏻">افسونگر | جادوگر | جادوگر زن | ساحر | ساحره | پوست سفید</annotation>
+		<annotation cp="🧙🏻" type="tts">ساحر: پوست سفید</annotation>
+		<annotation cp="🧙🏼">افسونگر | جادوگر | جادوگر زن | ساحر | ساحره | پوست روشن</annotation>
+		<annotation cp="🧙🏼" type="tts">ساحر: پوست روشن</annotation>
+		<annotation cp="🧙🏽">افسونگر | جادوگر | جادوگر زن | ساحر | ساحره | پوست طلایی</annotation>
+		<annotation cp="🧙🏽" type="tts">ساحر: پوست طلایی</annotation>
+		<annotation cp="🧙🏾">افسونگر | جادوگر | جادوگر زن | ساحر | ساحره | پوست گندمی</annotation>
+		<annotation cp="🧙🏾" type="tts">ساحر: پوست گندمی</annotation>
+		<annotation cp="🧙🏿">افسونگر | جادوگر | جادوگر زن | ساحر | ساحره | پوست آبنوسی</annotation>
+		<annotation cp="🧙🏿" type="tts">ساحر: پوست آبنوسی</annotation>
+		<annotation cp="🧙🏻‍♀">افسونگر | جادوگر زن | زن جادوگر | ساحره | پوست سفید</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">ساحر زن: پوست سفید</annotation>
+		<annotation cp="🧙🏼‍♀">افسونگر | جادوگر زن | زن جادوگر | ساحره | پوست روشن</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">ساحر زن: پوست روشن</annotation>
+		<annotation cp="🧙🏽‍♀">افسونگر | جادوگر زن | زن جادوگر | ساحره | پوست طلایی</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">ساحر زن: پوست طلایی</annotation>
+		<annotation cp="🧙🏾‍♀">افسونگر | جادوگر زن | زن جادوگر | ساحره | پوست گندمی</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">ساحر زن: پوست گندمی</annotation>
+		<annotation cp="🧙🏿‍♀">افسونگر | جادوگر زن | زن جادوگر | ساحره | پوست آبنوسی</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">ساحر زن: پوست آبنوسی</annotation>
+		<annotation cp="🧙🏻‍♂">ساحر | طلسم‌گر مرد | مرد جادوگر | پوست سفید</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">ساحر مرد: پوست سفید</annotation>
+		<annotation cp="🧙🏼‍♂">ساحر | طلسم‌گر مرد | مرد جادوگر | پوست روشن</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">ساحر مرد: پوست روشن</annotation>
+		<annotation cp="🧙🏽‍♂">ساحر | طلسم‌گر مرد | مرد جادوگر | پوست طلایی</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">ساحر مرد: پوست طلایی</annotation>
+		<annotation cp="🧙🏾‍♂">ساحر | طلسم‌گر مرد | مرد جادوگر | پوست گندمی</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">ساحر مرد: پوست گندمی</annotation>
+		<annotation cp="🧙🏿‍♂">ساحر | طلسم‌گر مرد | مرد جادوگر | پوست آبنوسی</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">ساحر مرد: پوست آبنوسی</annotation>
+		<annotation cp="🧚🏻">ابرون | تیتانیا | جن و پری | ملکه پریان | هاب‌گابلین | پادشاه پریان | پوست سفید</annotation>
+		<annotation cp="🧚🏻" type="tts">پری: پوست سفید</annotation>
+		<annotation cp="🧚🏼">ابرون | تیتانیا | جن و پری | ملکه پریان | هاب‌گابلین | پادشاه پریان | پوست روشن</annotation>
+		<annotation cp="🧚🏼" type="tts">پری: پوست روشن</annotation>
+		<annotation cp="🧚🏽">ابرون | تیتانیا | جن و پری | ملکه پریان | هاب‌گابلین | پادشاه پریان | پوست طلایی</annotation>
+		<annotation cp="🧚🏽" type="tts">پری: پوست طلایی</annotation>
+		<annotation cp="🧚🏾">ابرون | تیتانیا | جن و پری | ملکه پریان | هاب‌گابلین | پادشاه پریان | پوست گندمی</annotation>
+		<annotation cp="🧚🏾" type="tts">پری: پوست گندمی</annotation>
+		<annotation cp="🧚🏿">ابرون | تیتانیا | جن و پری | ملکه پریان | هاب‌گابلین | پادشاه پریان | پوست آبنوسی</annotation>
+		<annotation cp="🧚🏿" type="tts">پری: پوست آبنوسی</annotation>
+		<annotation cp="🧚🏻‍♀">تیتانیا | ملکه پریان | پوست سفید</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">پری زن: پوست سفید</annotation>
+		<annotation cp="🧚🏼‍♀">تیتانیا | ملکه پریان | پوست روشن</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">پری زن: پوست روشن</annotation>
+		<annotation cp="🧚🏽‍♀">تیتانیا | ملکه پریان | پوست طلایی</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">پری زن: پوست طلایی</annotation>
+		<annotation cp="🧚🏾‍♀">تیتانیا | ملکه پریان | پوست گندمی</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">پری زن: پوست گندمی</annotation>
+		<annotation cp="🧚🏿‍♀">تیتانیا | ملکه پریان | پوست آبنوسی</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">پری زن: پوست آبنوسی</annotation>
+		<annotation cp="🧚🏻‍♂">ابرون | جن و پری | لولو | هاب‌گابلین | پادشاه پریان | پوست سفید</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">پری مرد: پوست سفید</annotation>
+		<annotation cp="🧚🏼‍♂">ابرون | جن و پری | لولو | هاب‌گابلین | پادشاه پریان | پوست روشن</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">پری مرد: پوست روشن</annotation>
+		<annotation cp="🧚🏽‍♂">ابرون | جن و پری | لولو | هاب‌گابلین | پادشاه پریان | پوست طلایی</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">پری مرد: پوست طلایی</annotation>
+		<annotation cp="🧚🏾‍♂">ابرون | جن و پری | لولو | هاب‌گابلین | پادشاه پریان | پوست گندمی</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">پری مرد: پوست گندمی</annotation>
+		<annotation cp="🧚🏿‍♂">ابرون | جن و پری | لولو | هاب‌گابلین | پادشاه پریان | پوست آبنوسی</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">پری مرد: پوست آبنوسی</annotation>
+		<annotation cp="🧛🏻">دراکولا | مرده متحرک | پوست سفید</annotation>
+		<annotation cp="🧛🏻" type="tts">خون‌آشام: پوست سفید</annotation>
+		<annotation cp="🧛🏼">دراکولا | مرده متحرک | پوست روشن</annotation>
+		<annotation cp="🧛🏼" type="tts">خون‌آشام: پوست روشن</annotation>
+		<annotation cp="🧛🏽">دراکولا | مرده متحرک | پوست طلایی</annotation>
+		<annotation cp="🧛🏽" type="tts">خون‌آشام: پوست طلایی</annotation>
+		<annotation cp="🧛🏾">دراکولا | مرده متحرک | پوست گندمی</annotation>
+		<annotation cp="🧛🏾" type="tts">خون‌آشام: پوست گندمی</annotation>
+		<annotation cp="🧛🏿">دراکولا | مرده متحرک | پوست آبنوسی</annotation>
+		<annotation cp="🧛🏿" type="tts">خون‌آشام: پوست آبنوسی</annotation>
+		<annotation cp="🧛🏻‍♀">زن دراکولا | مرده متحرک | پوست سفید</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">دراکولای زن: پوست سفید</annotation>
+		<annotation cp="🧛🏼‍♀">زن دراکولا | مرده متحرک | پوست روشن</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">دراکولای زن: پوست روشن</annotation>
+		<annotation cp="🧛🏽‍♀">زن دراکولا | مرده متحرک | پوست طلایی</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">دراکولای زن: پوست طلایی</annotation>
+		<annotation cp="🧛🏾‍♀">زن دراکولا | مرده متحرک | پوست گندمی</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">دراکولای زن: پوست گندمی</annotation>
+		<annotation cp="🧛🏿‍♀">زن دراکولا | مرده متحرک | پوست آبنوسی</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">دراکولای زن: پوست آبنوسی</annotation>
+		<annotation cp="🧛🏻‍♂">دراکولا | مرده متحرک | پوست سفید</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">خون‌آشام مرد: پوست سفید</annotation>
+		<annotation cp="🧛🏼‍♂">دراکولا | مرده متحرک | پوست روشن</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">خون‌آشام مرد: پوست روشن</annotation>
+		<annotation cp="🧛🏽‍♂">دراکولا | مرده متحرک | پوست طلایی</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">خون‌آشام مرد: پوست طلایی</annotation>
+		<annotation cp="🧛🏾‍♂">دراکولا | مرده متحرک | پوست گندمی</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">خون‌آشام مرد: پوست گندمی</annotation>
+		<annotation cp="🧛🏿‍♂">دراکولا | مرده متحرک | پوست آبنوسی</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">خون‌آشام مرد: پوست آبنوسی</annotation>
+		<annotation cp="🧜🏻">بالاتنه انسان پایین‌تنه ماهی | دریازن | پری دریایی | پوست سفید</annotation>
+		<annotation cp="🧜🏻" type="tts">دریامردمان: پوست سفید</annotation>
+		<annotation cp="🧜🏼">بالاتنه انسان پایین‌تنه ماهی | دریازن | پری دریایی | پوست روشن</annotation>
+		<annotation cp="🧜🏼" type="tts">دریامردمان: پوست روشن</annotation>
+		<annotation cp="🧜🏽">بالاتنه انسان پایین‌تنه ماهی | دریازن | پری دریایی | پوست طلایی</annotation>
+		<annotation cp="🧜🏽" type="tts">دریامردمان: پوست طلایی</annotation>
+		<annotation cp="🧜🏾">بالاتنه انسان پایین‌تنه ماهی | دریازن | پری دریایی | پوست گندمی</annotation>
+		<annotation cp="🧜🏾" type="tts">دریامردمان: پوست گندمی</annotation>
+		<annotation cp="🧜🏿">بالاتنه انسان پایین‌تنه ماهی | دریازن | پری دریایی | پوست آبنوسی</annotation>
+		<annotation cp="🧜🏿" type="tts">دریامردمان: پوست آبنوسی</annotation>
+		<annotation cp="🧜🏻‍♀">دریازن | پوست سفید</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">پری دریایی: پوست سفید</annotation>
+		<annotation cp="🧜🏼‍♀">دریازن | پوست روشن</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">پری دریایی: پوست روشن</annotation>
+		<annotation cp="🧜🏽‍♀">دریازن | پوست طلایی</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">پری دریایی: پوست طلایی</annotation>
+		<annotation cp="🧜🏾‍♀">دریازن | پوست گندمی</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">پری دریایی: پوست گندمی</annotation>
+		<annotation cp="🧜🏿‍♀">دریازن | پوست آبنوسی</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">پری دریایی: پوست آبنوسی</annotation>
+		<annotation cp="🧜🏻‍♂">تریتون | پوست سفید</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">دریامرد: پوست سفید</annotation>
+		<annotation cp="🧜🏼‍♂">تریتون | پوست روشن</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">دریامرد: پوست روشن</annotation>
+		<annotation cp="🧜🏽‍♂">تریتون | پوست طلایی</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">دریامرد: پوست طلایی</annotation>
+		<annotation cp="🧜🏾‍♂">تریتون | پوست گندمی</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">دریامرد: پوست گندمی</annotation>
+		<annotation cp="🧜🏿‍♂">تریتون | پوست آبنوسی</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">دریامرد: پوست آبنوسی</annotation>
+		<annotation cp="🧝🏻">جادویی | سحرآمیز | پوست سفید</annotation>
+		<annotation cp="🧝🏻" type="tts">اِلف: پوست سفید</annotation>
+		<annotation cp="🧝🏼">جادویی | سحرآمیز | پوست روشن</annotation>
+		<annotation cp="🧝🏼" type="tts">اِلف: پوست روشن</annotation>
+		<annotation cp="🧝🏽">جادویی | سحرآمیز | پوست طلایی</annotation>
+		<annotation cp="🧝🏽" type="tts">اِلف: پوست طلایی</annotation>
+		<annotation cp="🧝🏾">جادویی | سحرآمیز | پوست گندمی</annotation>
+		<annotation cp="🧝🏾" type="tts">اِلف: پوست گندمی</annotation>
+		<annotation cp="🧝🏿">جادویی | سحرآمیز | پوست آبنوسی</annotation>
+		<annotation cp="🧝🏿" type="tts">اِلف: پوست آبنوسی</annotation>
+		<annotation cp="🧝🏻‍♀">جادویی | سحرآمیز | پوست سفید</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">اِلف زن: پوست سفید</annotation>
+		<annotation cp="🧝🏼‍♀">جادویی | سحرآمیز | پوست روشن</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">اِلف زن: پوست روشن</annotation>
+		<annotation cp="🧝🏽‍♀">جادویی | سحرآمیز | پوست طلایی</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">اِلف زن: پوست طلایی</annotation>
+		<annotation cp="🧝🏾‍♀">جادویی | سحرآمیز | پوست گندمی</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">اِلف زن: پوست گندمی</annotation>
+		<annotation cp="🧝🏿‍♀">جادویی | سحرآمیز | پوست آبنوسی</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">اِلف زن: پوست آبنوسی</annotation>
+		<annotation cp="🧝🏻‍♂">جادویی | سحرآمیز | پوست سفید</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">اِلف مرد: پوست سفید</annotation>
+		<annotation cp="🧝🏼‍♂">جادویی | سحرآمیز | پوست روشن</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">اِلف مرد: پوست روشن</annotation>
+		<annotation cp="🧝🏽‍♂">جادویی | سحرآمیز | پوست طلایی</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">اِلف مرد: پوست طلایی</annotation>
+		<annotation cp="🧝🏾‍♂">جادویی | سحرآمیز | پوست گندمی</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">اِلف مرد: پوست گندمی</annotation>
+		<annotation cp="🧝🏿‍♂">جادویی | سحرآمیز | پوست آبنوسی</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">اِلف مرد: پوست آبنوسی</annotation>
 		<annotation cp="🙍🏻">اخم | اشاره | پوست سفید</annotation>
 		<annotation cp="🙍🏻" type="tts">آدم اخمو: پوست سفید</annotation>
 		<annotation cp="🙍🏼">اخم | اشاره | پوست روشن</annotation>
@@ -732,25 +942,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎🏾" type="tts">آدم ناراضی: پوست گندمی</annotation>
 		<annotation cp="🙎🏿">اخم | جمع کردن لب | ناراضی | ژست | پوست آبنوسی</annotation>
 		<annotation cp="🙎🏿" type="tts">آدم ناراضی: پوست آبنوسی</annotation>
-		<annotation cp="🙎🏻‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست سفید</annotation>
+		<annotation cp="🙎🏻‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست سفید</annotation>
 		<annotation cp="🙎🏻‍♂" type="tts">مرد اخم‌وتخم می‌کند: پوست سفید</annotation>
-		<annotation cp="🙎🏼‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست روشن</annotation>
+		<annotation cp="🙎🏼‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست روشن</annotation>
 		<annotation cp="🙎🏼‍♂" type="tts">مرد اخم‌وتخم می‌کند: پوست روشن</annotation>
-		<annotation cp="🙎🏽‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست طلایی</annotation>
+		<annotation cp="🙎🏽‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست طلایی</annotation>
 		<annotation cp="🙎🏽‍♂" type="tts">مرد اخم‌وتخم می‌کند: پوست طلایی</annotation>
-		<annotation cp="🙎🏾‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست گندمی</annotation>
+		<annotation cp="🙎🏾‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست گندمی</annotation>
 		<annotation cp="🙎🏾‍♂" type="tts">مرد اخم‌وتخم می‌کند: پوست گندمی</annotation>
-		<annotation cp="🙎🏿‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست آبنوسی</annotation>
+		<annotation cp="🙎🏿‍♂">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست آبنوسی</annotation>
 		<annotation cp="🙎🏿‍♂" type="tts">مرد اخم‌وتخم می‌کند: پوست آبنوسی</annotation>
-		<annotation cp="🙎🏻‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست سفید</annotation>
+		<annotation cp="🙎🏻‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست سفید</annotation>
 		<annotation cp="🙎🏻‍♀" type="tts">زن اخم‌وتخم می‌کند: پوست سفید</annotation>
-		<annotation cp="🙎🏼‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست روشن</annotation>
+		<annotation cp="🙎🏼‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست روشن</annotation>
 		<annotation cp="🙎🏼‍♀" type="tts">زن اخم‌وتخم می‌کند: پوست روشن</annotation>
-		<annotation cp="🙎🏽‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست طلایی</annotation>
+		<annotation cp="🙎🏽‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست طلایی</annotation>
 		<annotation cp="🙎🏽‍♀" type="tts">زن اخم‌وتخم می‌کند: پوست طلایی</annotation>
-		<annotation cp="🙎🏾‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست گندمی</annotation>
+		<annotation cp="🙎🏾‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست گندمی</annotation>
 		<annotation cp="🙎🏾‍♀" type="tts">زن اخم‌وتخم می‌کند: پوست گندمی</annotation>
-		<annotation cp="🙎🏿‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترشرویی | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست آبنوسی</annotation>
+		<annotation cp="🙎🏿‍♀">ابرو در هم کشیدن | اخم و‌ تخم | اخمو | ترش‌رویی | عبوس | لب‌ولوچه آویزان | پوست آبنوسی</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">زن اخم‌وتخم می‌کند: پوست آبنوسی</annotation>
 		<annotation cp="🙅🏻">خیر | دست | ممنوع | نه | ژست | پوست سفید</annotation>
 		<annotation cp="🙅🏻" type="tts">ابداً نه: پوست سفید</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">مرد درحال رقص: پوست گندمی</annotation>
 		<annotation cp="🕺🏿">رقص | شیک | مرد | پوست آبنوسی</annotation>
 		<annotation cp="🕺🏿" type="tts">مرد درحال رقص: پوست آبنوسی</annotation>
+		<annotation cp="🧖🏻">اتاق بخار | حمام بخار | سونا | پوست سفید</annotation>
+		<annotation cp="🧖🏻" type="tts">فردی در حمام بخار: پوست سفید</annotation>
+		<annotation cp="🧖🏼">اتاق بخار | حمام بخار | سونا | پوست روشن</annotation>
+		<annotation cp="🧖🏼" type="tts">فردی در حمام بخار: پوست روشن</annotation>
+		<annotation cp="🧖🏽">اتاق بخار | حمام بخار | سونا | پوست طلایی</annotation>
+		<annotation cp="🧖🏽" type="tts">فردی در حمام بخار: پوست طلایی</annotation>
+		<annotation cp="🧖🏾">اتاق بخار | حمام بخار | سونا | پوست گندمی</annotation>
+		<annotation cp="🧖🏾" type="tts">فردی در حمام بخار: پوست گندمی</annotation>
+		<annotation cp="🧖🏿">اتاق بخار | حمام بخار | سونا | پوست آبنوسی</annotation>
+		<annotation cp="🧖🏿" type="tts">فردی در حمام بخار: پوست آبنوسی</annotation>
+		<annotation cp="🧖🏻‍♀">اتاق بخار | حمام بخار | سونا | پوست سفید</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">زن در حمام بخار: پوست سفید</annotation>
+		<annotation cp="🧖🏼‍♀">اتاق بخار | حمام بخار | سونا | پوست روشن</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">زن در حمام بخار: پوست روشن</annotation>
+		<annotation cp="🧖🏽‍♀">اتاق بخار | حمام بخار | سونا | پوست طلایی</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">زن در حمام بخار: پوست طلایی</annotation>
+		<annotation cp="🧖🏾‍♀">اتاق بخار | حمام بخار | سونا | پوست گندمی</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">زن در حمام بخار: پوست گندمی</annotation>
+		<annotation cp="🧖🏿‍♀">اتاق بخار | حمام بخار | سونا | پوست آبنوسی</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">زن در حمام بخار: پوست آبنوسی</annotation>
+		<annotation cp="🧖🏻‍♂">اتاق بخار | حمام بخار | سونا | پوست سفید</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">مرد در حمام بخار: پوست سفید</annotation>
+		<annotation cp="🧖🏼‍♂">اتاق بخار | حمام بخار | سونا | پوست روشن</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">مرد در حمام بخار: پوست روشن</annotation>
+		<annotation cp="🧖🏽‍♂">اتاق بخار | حمام بخار | سونا | پوست طلایی</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">مرد در حمام بخار: پوست طلایی</annotation>
+		<annotation cp="🧖🏾‍♂">اتاق بخار | حمام بخار | سونا | پوست گندمی</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">مرد در حمام بخار: پوست گندمی</annotation>
+		<annotation cp="🧖🏿‍♂">اتاق بخار | حمام بخار | سونا | پوست آبنوسی</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">مرد در حمام بخار: پوست آبنوسی</annotation>
+		<annotation cp="🧗🏻">کوه‌نورد | کوه‌پیما | پوست سفید</annotation>
+		<annotation cp="🧗🏻" type="tts">فردی کوه‌نوردی می‌کند: پوست سفید</annotation>
+		<annotation cp="🧗🏼">کوه‌نورد | کوه‌پیما | پوست روشن</annotation>
+		<annotation cp="🧗🏼" type="tts">فردی کوه‌نوردی می‌کند: پوست روشن</annotation>
+		<annotation cp="🧗🏽">کوه‌نورد | کوه‌پیما | پوست طلایی</annotation>
+		<annotation cp="🧗🏽" type="tts">فردی کوه‌نوردی می‌کند: پوست طلایی</annotation>
+		<annotation cp="🧗🏾">کوه‌نورد | کوه‌پیما | پوست گندمی</annotation>
+		<annotation cp="🧗🏾" type="tts">فردی کوه‌نوردی می‌کند: پوست گندمی</annotation>
+		<annotation cp="🧗🏿">کوه‌نورد | کوه‌پیما | پوست آبنوسی</annotation>
+		<annotation cp="🧗🏿" type="tts">فردی کوه‌نوردی می‌کند: پوست آبنوسی</annotation>
+		<annotation cp="🧗🏻‍♀">زن کوه‌نورد | زن کوه‌پیما | پوست سفید</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">زن کوه‌نوردی می‌کند: پوست سفید</annotation>
+		<annotation cp="🧗🏼‍♀">زن کوه‌نورد | زن کوه‌پیما | پوست روشن</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">زن کوه‌نوردی می‌کند: پوست روشن</annotation>
+		<annotation cp="🧗🏽‍♀">زن کوه‌نورد | زن کوه‌پیما | پوست طلایی</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">زن کوه‌نوردی می‌کند: پوست طلایی</annotation>
+		<annotation cp="🧗🏾‍♀">زن کوه‌نورد | زن کوه‌پیما | پوست گندمی</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">زن کوه‌نوردی می‌کند: پوست گندمی</annotation>
+		<annotation cp="🧗🏿‍♀">زن کوه‌نورد | زن کوه‌پیما | پوست آبنوسی</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">زن کوه‌نوردی می‌کند: پوست آبنوسی</annotation>
+		<annotation cp="🧗🏻‍♂">مرد کوه‌نورد | مرد کوه‌پیما | پوست سفید</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">مرد کوه‌نوردی می‌کند: پوست سفید</annotation>
+		<annotation cp="🧗🏼‍♂">مرد کوه‌نورد | مرد کوه‌پیما | پوست روشن</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">مرد کوه‌نوردی می‌کند: پوست روشن</annotation>
+		<annotation cp="🧗🏽‍♂">مرد کوه‌نورد | مرد کوه‌پیما | پوست طلایی</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">مرد کوه‌نوردی می‌کند: پوست طلایی</annotation>
+		<annotation cp="🧗🏾‍♂">مرد کوه‌نورد | مرد کوه‌پیما | پوست گندمی</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">مرد کوه‌نوردی می‌کند: پوست گندمی</annotation>
+		<annotation cp="🧗🏿‍♂">مرد کوه‌نورد | مرد کوه‌پیما | پوست آبنوسی</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">مرد کوه‌نوردی می‌کند: پوست آبنوسی</annotation>
+		<annotation cp="🧘🏻">خلسه | مکاشفه | یوگا | پوست سفید</annotation>
+		<annotation cp="🧘🏻" type="tts">فرد در حالت خلسه: پوست سفید</annotation>
+		<annotation cp="🧘🏼">خلسه | مکاشفه | یوگا | پوست روشن</annotation>
+		<annotation cp="🧘🏼" type="tts">فرد در حالت خلسه: پوست روشن</annotation>
+		<annotation cp="🧘🏽">خلسه | مکاشفه | یوگا | پوست طلایی</annotation>
+		<annotation cp="🧘🏽" type="tts">فرد در حالت خلسه: پوست طلایی</annotation>
+		<annotation cp="🧘🏾">خلسه | مکاشفه | یوگا | پوست گندمی</annotation>
+		<annotation cp="🧘🏾" type="tts">فرد در حالت خلسه: پوست گندمی</annotation>
+		<annotation cp="🧘🏿">خلسه | مکاشفه | یوگا | پوست آبنوسی</annotation>
+		<annotation cp="🧘🏿" type="tts">فرد در حالت خلسه: پوست آبنوسی</annotation>
+		<annotation cp="🧘🏻‍♀">خلسه | مکاشفه | یوگا | پوست سفید</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">زن در حالت خلسه: پوست سفید</annotation>
+		<annotation cp="🧘🏼‍♀">خلسه | مکاشفه | یوگا | پوست روشن</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">زن در حالت خلسه: پوست روشن</annotation>
+		<annotation cp="🧘🏽‍♀">خلسه | مکاشفه | یوگا | پوست طلایی</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">زن در حالت خلسه: پوست طلایی</annotation>
+		<annotation cp="🧘🏾‍♀">خلسه | مکاشفه | یوگا | پوست گندمی</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">زن در حالت خلسه: پوست گندمی</annotation>
+		<annotation cp="🧘🏿‍♀">خلسه | مکاشفه | یوگا | پوست آبنوسی</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">زن در حالت خلسه: پوست آبنوسی</annotation>
+		<annotation cp="🧘🏻‍♂">خلسه | مکاشفه | یوگا | پوست سفید</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">مرد در حالت خلسه: پوست سفید</annotation>
+		<annotation cp="🧘🏼‍♂">خلسه | مکاشفه | یوگا | پوست روشن</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">مرد در حالت خلسه: پوست روشن</annotation>
+		<annotation cp="🧘🏽‍♂">خلسه | مکاشفه | یوگا | پوست طلایی</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">مرد در حالت خلسه: پوست طلایی</annotation>
+		<annotation cp="🧘🏾‍♂">خلسه | مکاشفه | یوگا | پوست گندمی</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">مرد در حالت خلسه: پوست گندمی</annotation>
+		<annotation cp="🧘🏿‍♂">خلسه | مکاشفه | یوگا | پوست آبنوسی</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">مرد در حالت خلسه: پوست آبنوسی</annotation>
 		<annotation cp="🛀🏻">حمام | وان حمام | پوست سفید</annotation>
 		<annotation cp="🛀🏻" type="tts">فرد در وان: پوست سفید</annotation>
 		<annotation cp="🛀🏼">حمام | وان حمام | پوست روشن</annotation>
@@ -1524,55 +1824,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍❤‍👨" type="tts">زوج عاشق: مرد،‏ مرد</annotation>
 		<annotation cp="👩‍❤‍👩">داستان عاشقانه | زوج | عشق | قلب | زن</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">زوج عاشق: زن،‏ زن</annotation>
-		<annotation cp="👨‍👩‍👦">بچه | شوهر | فرزند | مادر | پدر | کودک</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">خانواده، زن، مرد، پسر</annotation>
-		<annotation cp="👨‍👩‍👧">فرزند | مادر | پدر | کودک | مرد | زن | دختر</annotation>
+		<annotation cp="👨‍👩‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | زن | پسر</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">خانواده: مرد،‏ زن،‏ پسر</annotation>
+		<annotation cp="👨‍👩‍👧">خانه‌وار | خانواده | عائله | فامیل | مرد | زن | دختر</annotation>
 		<annotation cp="👨‍👩‍👧" type="tts">خانواده: مرد،‏ زن،‏ دختر</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">بچه | شوهر | فرزند | مادر | همسر | پدر | کودک</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">خانواده، زن، مرد، دختر، پسر</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">بچه | شوهر | فرزند | مادر | همسر | پدر | کودک</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">خانواده، زن، مرد، پسر، پسر</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">فرزند | مادر | پدر | کودک | مرد | زن | دختر</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | زن | دختر | پسر</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">خانواده: مرد،‏ زن،‏ دختر،‏ پسر</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | زن | پسر</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">خانواده: مرد،‏ زن،‏ پسر،‏ پسر</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">خانه‌وار | خانواده | عائله | فامیل | مرد | زن | دختر</annotation>
 		<annotation cp="👨‍👩‍👧‍👧" type="tts">خانواده: مرد،‏ زن،‏ دختر،‏ دختر</annotation>
-		<annotation cp="👨‍👨‍👦">بچه | شوهر | فرزند | همسر | پدر | کودک</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">خانواده، مرد، مرد، پسر</annotation>
-		<annotation cp="👨‍👨‍👧">فرزند | مادر | پدر | کودک | مرد | دختر</annotation>
+		<annotation cp="👨‍👨‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | پسر</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">خانواده: مرد،‏ مرد،‏ پسر</annotation>
+		<annotation cp="👨‍👨‍👧">خانه‌وار | خانواده | عائله | فامیل | مرد | دختر</annotation>
 		<annotation cp="👨‍👨‍👧" type="tts">خانواده: مرد،‏ مرد،‏ دختر</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">بچه | شوهر | فرزند | همسر | پدر | کودک</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">خانواده، مرد، مرد، دختر، پسر</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">بچه | شوهر | فرزند | همسر | پدر | کودک</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">خانواده، مرد، مرد، پسر، پسر</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">فرزند | مادر | پدر | کودک | مرد | دختر</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | دختر | پسر</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">خانواده: مرد،‏ مرد،‏ دختر،‏ پسر</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | پسر</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">خانواده: مرد،‏ مرد،‏ پسر،‏ پسر</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">خانه‌وار | خانواده | عائله | فامیل | مرد | دختر</annotation>
 		<annotation cp="👨‍👨‍👧‍👧" type="tts">خانواده: مرد،‏ مرد،‏ دختر،‏ دختر</annotation>
-		<annotation cp="👩‍👩‍👦">بچه | خانم | فرزند | مادر | همسر | کودک</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">خانواده، زن، زن، پسر</annotation>
-		<annotation cp="👩‍👩‍👧">فرزند | مادر | پدر | کودک | زن | دختر</annotation>
+		<annotation cp="👩‍👩‍👦">خانه‌وار | خانواده | عائله | فامیل | زن | پسر</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">خانواده: زن،‏ زن،‏ پسر</annotation>
+		<annotation cp="👩‍👩‍👧">خانه‌وار | خانواده | عائله | فامیل | زن | دختر</annotation>
 		<annotation cp="👩‍👩‍👧" type="tts">خانواده: زن،‏ زن،‏ دختر</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">بچه | خانم | فرزند | مادر | همسر | کودک</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">خانواده، زن، زن، دختر، پسر</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">بچه | خانم | فرزند | مادر | همسر | کودک</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">خانواده، زن، زن، پسر، پسر</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">فرزند | مادر | پدر | کودک | زن | دختر</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">خانه‌وار | خانواده | عائله | فامیل | زن | دختر | پسر</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">خانواده: زن،‏ زن،‏ دختر،‏ پسر</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">خانه‌وار | خانواده | عائله | فامیل | زن | پسر</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">خانواده: زن،‏ زن،‏ پسر،‏ پسر</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">خانه‌وار | خانواده | عائله | فامیل | زن | دختر</annotation>
 		<annotation cp="👩‍👩‍👧‍👧" type="tts">خانواده: زن،‏ زن،‏ دختر،‏ دختر</annotation>
-		<annotation cp="👨‍👦">آقا | بچه | فرزند | پدر | کودک</annotation>
-		<annotation cp="👨‍👦" type="tts">خانواده، مرد، پسر</annotation>
-		<annotation cp="👨‍👦‍👦">آقا | بچه | فرزند | پدر | کودک</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">خانواده، مرد، پسر، پسر</annotation>
-		<annotation cp="👨‍👧">فرزند | مادر | پدر | کودک | مرد | دختر</annotation>
+		<annotation cp="👨‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | پسر</annotation>
+		<annotation cp="👨‍👦" type="tts">خانواده: مرد،‏ پسر</annotation>
+		<annotation cp="👨‍👦‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | پسر</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">خانواده: مرد،‏ پسر،‏ پسر</annotation>
+		<annotation cp="👨‍👧">خانه‌وار | خانواده | عائله | فامیل | مرد | دختر</annotation>
 		<annotation cp="👨‍👧" type="tts">خانواده: مرد،‏ دختر</annotation>
-		<annotation cp="👨‍👧‍👦">آقا | بچه | فرزند | پدر | کودک</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">خانواده، مرد، دختر، پسر</annotation>
-		<annotation cp="👨‍👧‍👧">فرزند | مادر | پدر | کودک | مرد | دختر</annotation>
+		<annotation cp="👨‍👧‍👦">خانه‌وار | خانواده | عائله | فامیل | مرد | دختر | پسر</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">خانواده: مرد،‏ دختر،‏ پسر</annotation>
+		<annotation cp="👨‍👧‍👧">خانه‌وار | خانواده | عائله | فامیل | مرد | دختر</annotation>
 		<annotation cp="👨‍👧‍👧" type="tts">خانواده: مرد،‏ دختر،‏ دختر</annotation>
-		<annotation cp="👩‍👦">بچه | خانم | فرزند | مادر | کودک</annotation>
-		<annotation cp="👩‍👦" type="tts">خانواده، زن، پسر</annotation>
-		<annotation cp="👩‍👦‍👦">بچه | خانم | فرزند | مادر | کودک</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">خانواده، زن، پسر، پسر</annotation>
-		<annotation cp="👩‍👧">فرزند | مادر | پدر | کودک | زن | دختر</annotation>
+		<annotation cp="👩‍👦">خانه‌وار | خانواده | عائله | فامیل | زن | پسر</annotation>
+		<annotation cp="👩‍👦" type="tts">خانواده: زن،‏ پسر</annotation>
+		<annotation cp="👩‍👦‍👦">خانه‌وار | خانواده | عائله | فامیل | زن | پسر</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">خانواده: زن،‏ پسر،‏ پسر</annotation>
+		<annotation cp="👩‍👧">خانه‌وار | خانواده | عائله | فامیل | زن | دختر</annotation>
 		<annotation cp="👩‍👧" type="tts">خانواده: زن،‏ دختر</annotation>
-		<annotation cp="👩‍👧‍👦">بچه | خانم | فرزند | مادر | کودک</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">خانواده، زن، دختر، پسر</annotation>
-		<annotation cp="👩‍👧‍👧">فرزند | مادر | پدر | کودک | زن | دختر</annotation>
+		<annotation cp="👩‍👧‍👦">خانه‌وار | خانواده | عائله | فامیل | زن | دختر | پسر</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">خانواده: زن،‏ دختر،‏ پسر</annotation>
+		<annotation cp="👩‍👧‍👧">خانه‌وار | خانواده | عائله | فامیل | زن | دختر</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">خانواده: زن،‏ دختر،‏ دختر</annotation>
 		<annotation cp="🤳🏻">خودگرفت | سلفی | عکس از خود | پوست سفید</annotation>
 		<annotation cp="🤳🏻" type="tts">خودگرفت: پوست سفید</annotation>
@@ -1654,45 +1954,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇🏾" type="tts">اشاره به پایین: پوست گندمی</annotation>
 		<annotation cp="👇🏿">اشاره | انگشت | انگشت اشاره | بدن | دست | پایین | پشت دست | پوست آبنوسی</annotation>
 		<annotation cp="👇🏿" type="tts">اشاره به پایین: پوست آبنوسی</annotation>
-		<annotation cp="✌🏻">v | بدن | دست | پیروزی | پوست سفید</annotation>
+		<annotation cp="✌🏻">بدن | دست | وی | پیروزی | پوست سفید</annotation>
 		<annotation cp="✌🏻" type="tts">علامت پیروزی: پوست سفید</annotation>
-		<annotation cp="✌🏼">v | بدن | دست | پیروزی | پوست روشن</annotation>
+		<annotation cp="✌🏼">بدن | دست | وی | پیروزی | پوست روشن</annotation>
 		<annotation cp="✌🏼" type="tts">علامت پیروزی: پوست روشن</annotation>
-		<annotation cp="✌🏽">v | بدن | دست | پیروزی | پوست طلایی</annotation>
+		<annotation cp="✌🏽">بدن | دست | وی | پیروزی | پوست طلایی</annotation>
 		<annotation cp="✌🏽" type="tts">علامت پیروزی: پوست طلایی</annotation>
-		<annotation cp="✌🏾">v | بدن | دست | پیروزی | پوست گندمی</annotation>
+		<annotation cp="✌🏾">بدن | دست | وی | پیروزی | پوست گندمی</annotation>
 		<annotation cp="✌🏾" type="tts">علامت پیروزی: پوست گندمی</annotation>
-		<annotation cp="✌🏿">v | بدن | دست | پیروزی | پوست آبنوسی</annotation>
+		<annotation cp="✌🏿">بدن | دست | وی | پیروزی | پوست آبنوسی</annotation>
 		<annotation cp="✌🏿" type="tts">علامت پیروزی: پوست آبنوسی</annotation>
-		<annotation cp="🤞🏻">انگشت | بخت | دست | شانس | پنجه | کنگفو | کنگ‌فو | گره | پوست سفید</annotation>
+		<annotation cp="🤞🏻">انگشت | بخت | دست | شانس | پنجه | گره | پوست سفید</annotation>
 		<annotation cp="🤞🏻" type="tts">انگشتان گره خورده: پوست سفید</annotation>
-		<annotation cp="🤞🏼">انگشت | بخت | دست | شانس | پنجه | کنگفو | کنگ‌فو | گره | پوست روشن</annotation>
+		<annotation cp="🤞🏼">انگشت | بخت | دست | شانس | پنجه | گره | پوست روشن</annotation>
 		<annotation cp="🤞🏼" type="tts">انگشتان گره خورده: پوست روشن</annotation>
-		<annotation cp="🤞🏽">انگشت | بخت | دست | شانس | پنجه | کنگفو | کنگ‌فو | گره | پوست طلایی</annotation>
+		<annotation cp="🤞🏽">انگشت | بخت | دست | شانس | پنجه | گره | پوست طلایی</annotation>
 		<annotation cp="🤞🏽" type="tts">انگشتان گره خورده: پوست طلایی</annotation>
-		<annotation cp="🤞🏾">انگشت | بخت | دست | شانس | پنجه | کنگفو | کنگ‌فو | گره | پوست گندمی</annotation>
+		<annotation cp="🤞🏾">انگشت | بخت | دست | شانس | پنجه | گره | پوست گندمی</annotation>
 		<annotation cp="🤞🏾" type="tts">انگشتان گره خورده: پوست گندمی</annotation>
-		<annotation cp="🤞🏿">انگشت | بخت | دست | شانس | پنجه | کنگفو | کنگ‌فو | گره | پوست آبنوسی</annotation>
+		<annotation cp="🤞🏿">انگشت | بخت | دست | شانس | پنجه | گره | پوست آبنوسی</annotation>
 		<annotation cp="🤞🏿" type="tts">انگشتان گره خورده: پوست آبنوسی</annotation>
-		<annotation cp="🖖🏻">انگشت | بدن | جنگ ستارگان | دست | سلام | ولکان | پوست سفید</annotation>
+		<annotation cp="🖖🏻">اسپاک | انگشت | دست | سلام | سلام ولکان | ولکان | پیشتازان فضا | پوست سفید</annotation>
 		<annotation cp="🖖🏻" type="tts">سلام ولکان: پوست سفید</annotation>
-		<annotation cp="🖖🏼">انگشت | بدن | جنگ ستارگان | دست | سلام | ولکان | پوست روشن</annotation>
+		<annotation cp="🖖🏼">اسپاک | انگشت | دست | سلام | سلام ولکان | ولکان | پیشتازان فضا | پوست روشن</annotation>
 		<annotation cp="🖖🏼" type="tts">سلام ولکان: پوست روشن</annotation>
-		<annotation cp="🖖🏽">انگشت | بدن | جنگ ستارگان | دست | سلام | ولکان | پوست طلایی</annotation>
+		<annotation cp="🖖🏽">اسپاک | انگشت | دست | سلام | سلام ولکان | ولکان | پیشتازان فضا | پوست طلایی</annotation>
 		<annotation cp="🖖🏽" type="tts">سلام ولکان: پوست طلایی</annotation>
-		<annotation cp="🖖🏾">انگشت | بدن | جنگ ستارگان | دست | سلام | ولکان | پوست گندمی</annotation>
+		<annotation cp="🖖🏾">اسپاک | انگشت | دست | سلام | سلام ولکان | ولکان | پیشتازان فضا | پوست گندمی</annotation>
 		<annotation cp="🖖🏾" type="tts">سلام ولکان: پوست گندمی</annotation>
-		<annotation cp="🖖🏿">انگشت | بدن | جنگ ستارگان | دست | سلام | ولکان | پوست آبنوسی</annotation>
+		<annotation cp="🖖🏿">اسپاک | انگشت | دست | سلام | سلام ولکان | ولکان | پیشتازان فضا | پوست آبنوسی</annotation>
 		<annotation cp="🖖🏿" type="tts">سلام ولکان: پوست آبنوسی</annotation>
-		<annotation cp="🤘🏻">انگشت | بدن | دست | راک | شاخ | شیطان | پوست سفید</annotation>
+		<annotation cp="🤘🏻">انگشت | دست | راک | شاخ | شیطان | نماد شاخ | پوست سفید</annotation>
 		<annotation cp="🤘🏻" type="tts">شاخ شیطان: پوست سفید</annotation>
-		<annotation cp="🤘🏼">انگشت | بدن | دست | راک | شاخ | شیطان | پوست روشن</annotation>
+		<annotation cp="🤘🏼">انگشت | دست | راک | شاخ | شیطان | نماد شاخ | پوست روشن</annotation>
 		<annotation cp="🤘🏼" type="tts">شاخ شیطان: پوست روشن</annotation>
-		<annotation cp="🤘🏽">انگشت | بدن | دست | راک | شاخ | شیطان | پوست طلایی</annotation>
+		<annotation cp="🤘🏽">انگشت | دست | راک | شاخ | شیطان | نماد شاخ | پوست طلایی</annotation>
 		<annotation cp="🤘🏽" type="tts">شاخ شیطان: پوست طلایی</annotation>
-		<annotation cp="🤘🏾">انگشت | بدن | دست | راک | شاخ | شیطان | پوست گندمی</annotation>
+		<annotation cp="🤘🏾">انگشت | دست | راک | شاخ | شیطان | نماد شاخ | پوست گندمی</annotation>
 		<annotation cp="🤘🏾" type="tts">شاخ شیطان: پوست گندمی</annotation>
-		<annotation cp="🤘🏿">انگشت | بدن | دست | راک | شاخ | شیطان | پوست آبنوسی</annotation>
+		<annotation cp="🤘🏿">انگشت | دست | راک | شاخ | شیطان | نماد شاخ | پوست آبنوسی</annotation>
 		<annotation cp="🤘🏿" type="tts">شاخ شیطان: پوست آبنوسی</annotation>
 		<annotation cp="🤙🏻">تلفن | دست | زنگ | پوست سفید</annotation>
 		<annotation cp="🤙🏻" type="tts">دست به شکل تلفن: پوست سفید</annotation>
@@ -1704,35 +2004,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤙🏾" type="tts">دست به شکل تلفن: پوست گندمی</annotation>
 		<annotation cp="🤙🏿">تلفن | دست | زنگ | پوست آبنوسی</annotation>
 		<annotation cp="🤙🏿" type="tts">دست به شکل تلفن: پوست آبنوسی</annotation>
-		<annotation cp="🖐🏻">انگشت | بدن | بزن قدش | دست | پوست سفید</annotation>
+		<annotation cp="🖐🏻">انگشت | بزن قدش | دست | پوست سفید</annotation>
 		<annotation cp="🖐🏻" type="tts">بزن قدش: پوست سفید</annotation>
-		<annotation cp="🖐🏼">انگشت | بدن | بزن قدش | دست | پوست روشن</annotation>
+		<annotation cp="🖐🏼">انگشت | بزن قدش | دست | پوست روشن</annotation>
 		<annotation cp="🖐🏼" type="tts">بزن قدش: پوست روشن</annotation>
-		<annotation cp="🖐🏽">انگشت | بدن | بزن قدش | دست | پوست طلایی</annotation>
+		<annotation cp="🖐🏽">انگشت | بزن قدش | دست | پوست طلایی</annotation>
 		<annotation cp="🖐🏽" type="tts">بزن قدش: پوست طلایی</annotation>
-		<annotation cp="🖐🏾">انگشت | بدن | بزن قدش | دست | پوست گندمی</annotation>
+		<annotation cp="🖐🏾">انگشت | بزن قدش | دست | پوست گندمی</annotation>
 		<annotation cp="🖐🏾" type="tts">بزن قدش: پوست گندمی</annotation>
-		<annotation cp="🖐🏿">انگشت | بدن | بزن قدش | دست | پوست آبنوسی</annotation>
+		<annotation cp="🖐🏿">انگشت | بزن قدش | دست | پوست آبنوسی</annotation>
 		<annotation cp="🖐🏿" type="tts">بزن قدش: پوست آبنوسی</annotation>
-		<annotation cp="✋🏻">بدن | دست | پوست سفید</annotation>
-		<annotation cp="✋🏻" type="tts">دست بالا برده: پوست سفید</annotation>
-		<annotation cp="✋🏼">بدن | دست | پوست روشن</annotation>
-		<annotation cp="✋🏼" type="tts">دست بالا برده: پوست روشن</annotation>
-		<annotation cp="✋🏽">بدن | دست | پوست طلایی</annotation>
-		<annotation cp="✋🏽" type="tts">دست بالا برده: پوست طلایی</annotation>
-		<annotation cp="✋🏾">بدن | دست | پوست گندمی</annotation>
-		<annotation cp="✋🏾" type="tts">دست بالا برده: پوست گندمی</annotation>
-		<annotation cp="✋🏿">بدن | دست | پوست آبنوسی</annotation>
-		<annotation cp="✋🏿" type="tts">دست بالا برده: پوست آبنوسی</annotation>
-		<annotation cp="👌🏻">اوکی | باشه | بدن | تأیید | دست | پوست سفید</annotation>
+		<annotation cp="✋🏻">احترام | دست | سلام | پوست سفید</annotation>
+		<annotation cp="✋🏻" type="tts">دست بالابرده: پوست سفید</annotation>
+		<annotation cp="✋🏼">احترام | دست | سلام | پوست روشن</annotation>
+		<annotation cp="✋🏼" type="tts">دست بالابرده: پوست روشن</annotation>
+		<annotation cp="✋🏽">احترام | دست | سلام | پوست طلایی</annotation>
+		<annotation cp="✋🏽" type="tts">دست بالابرده: پوست طلایی</annotation>
+		<annotation cp="✋🏾">احترام | دست | سلام | پوست گندمی</annotation>
+		<annotation cp="✋🏾" type="tts">دست بالابرده: پوست گندمی</annotation>
+		<annotation cp="✋🏿">احترام | دست | سلام | پوست آبنوسی</annotation>
+		<annotation cp="✋🏿" type="tts">دست بالابرده: پوست آبنوسی</annotation>
+		<annotation cp="👌🏻">اوکی | باشه | بله | تأیید | دست | قبول | پوست سفید</annotation>
 		<annotation cp="👌🏻" type="tts">علامت اوکی: پوست سفید</annotation>
-		<annotation cp="👌🏼">اوکی | باشه | بدن | تأیید | دست | پوست روشن</annotation>
+		<annotation cp="👌🏼">اوکی | باشه | بله | تأیید | دست | قبول | پوست روشن</annotation>
 		<annotation cp="👌🏼" type="tts">علامت اوکی: پوست روشن</annotation>
-		<annotation cp="👌🏽">اوکی | باشه | بدن | تأیید | دست | پوست طلایی</annotation>
+		<annotation cp="👌🏽">اوکی | باشه | بله | تأیید | دست | قبول | پوست طلایی</annotation>
 		<annotation cp="👌🏽" type="tts">علامت اوکی: پوست طلایی</annotation>
-		<annotation cp="👌🏾">اوکی | باشه | بدن | تأیید | دست | پوست گندمی</annotation>
+		<annotation cp="👌🏾">اوکی | باشه | بله | تأیید | دست | قبول | پوست گندمی</annotation>
 		<annotation cp="👌🏾" type="tts">علامت اوکی: پوست گندمی</annotation>
-		<annotation cp="👌🏿">اوکی | باشه | بدن | تأیید | دست | پوست آبنوسی</annotation>
+		<annotation cp="👌🏿">اوکی | باشه | بله | تأیید | دست | قبول | پوست آبنوسی</annotation>
 		<annotation cp="👌🏿" type="tts">علامت اوکی: پوست آبنوسی</annotation>
 		<annotation cp="👍🏻">1+ | بالا | دست | شست | پسندیدن | پوست سفید</annotation>
 		<annotation cp="👍🏻" type="tts">پسندیدن: پوست سفید</annotation>
@@ -1814,15 +2114,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">تکان دادن دست: پوست گندمی</annotation>
 		<annotation cp="👋🏿">بدن | تکان دادن | دست | موج | پوست آبنوسی</annotation>
 		<annotation cp="👋🏿" type="tts">تکان دادن دست: پوست آبنوسی</annotation>
-		<annotation cp="✍🏻">بدن | دست | نوشتن | پوست سفید</annotation>
+		<annotation cp="🤟🏻">دست | دوست دارم | دوستت دارم | پوست سفید</annotation>
+		<annotation cp="🤟🏻" type="tts">علامت دوستت دارم: پوست سفید</annotation>
+		<annotation cp="🤟🏼">دست | دوست دارم | دوستت دارم | پوست روشن</annotation>
+		<annotation cp="🤟🏼" type="tts">علامت دوستت دارم: پوست روشن</annotation>
+		<annotation cp="🤟🏽">دست | دوست دارم | دوستت دارم | پوست طلایی</annotation>
+		<annotation cp="🤟🏽" type="tts">علامت دوستت دارم: پوست طلایی</annotation>
+		<annotation cp="🤟🏾">دست | دوست دارم | دوستت دارم | پوست گندمی</annotation>
+		<annotation cp="🤟🏾" type="tts">علامت دوستت دارم: پوست گندمی</annotation>
+		<annotation cp="🤟🏿">دست | دوست دارم | دوستت دارم | پوست آبنوسی</annotation>
+		<annotation cp="🤟🏿" type="tts">علامت دوستت دارم: پوست آبنوسی</annotation>
+		<annotation cp="✍🏻">دست | نوشتن | پوست سفید</annotation>
 		<annotation cp="✍🏻" type="tts">نوشتن با دست: پوست سفید</annotation>
-		<annotation cp="✍🏼">بدن | دست | نوشتن | پوست روشن</annotation>
+		<annotation cp="✍🏼">دست | نوشتن | پوست روشن</annotation>
 		<annotation cp="✍🏼" type="tts">نوشتن با دست: پوست روشن</annotation>
-		<annotation cp="✍🏽">بدن | دست | نوشتن | پوست طلایی</annotation>
+		<annotation cp="✍🏽">دست | نوشتن | پوست طلایی</annotation>
 		<annotation cp="✍🏽" type="tts">نوشتن با دست: پوست طلایی</annotation>
-		<annotation cp="✍🏾">بدن | دست | نوشتن | پوست گندمی</annotation>
+		<annotation cp="✍🏾">دست | نوشتن | پوست گندمی</annotation>
 		<annotation cp="✍🏾" type="tts">نوشتن با دست: پوست گندمی</annotation>
-		<annotation cp="✍🏿">بدن | دست | نوشتن | پوست آبنوسی</annotation>
+		<annotation cp="✍🏿">دست | نوشتن | پوست آبنوسی</annotation>
 		<annotation cp="✍🏿" type="tts">نوشتن با دست: پوست آبنوسی</annotation>
 		<annotation cp="👏🏻">بدن | دست | دست زدن | پوست سفید</annotation>
 		<annotation cp="👏🏻" type="tts">دست زدن: پوست سفید</annotation>
@@ -1844,26 +2154,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👐🏾" type="tts">دست‌های باز: پوست گندمی</annotation>
 		<annotation cp="👐🏿">باز | بدن | دست | پوست آبنوسی</annotation>
 		<annotation cp="👐🏿" type="tts">دست‌های باز: پوست آبنوسی</annotation>
-		<annotation cp="🙌🏻">بالا برده | بدن | تحسین | جشن | دست | هورا | ژست | پوست سفید</annotation>
+		<annotation cp="🙌🏻">بالابرده | تحسین | جشن | دست | هورا | ژست | پوست سفید</annotation>
 		<annotation cp="🙌🏻" type="tts">تمجید: پوست سفید</annotation>
-		<annotation cp="🙌🏼">بالا برده | بدن | تحسین | جشن | دست | هورا | ژست | پوست روشن</annotation>
+		<annotation cp="🙌🏼">بالابرده | تحسین | جشن | دست | هورا | ژست | پوست روشن</annotation>
 		<annotation cp="🙌🏼" type="tts">تمجید: پوست روشن</annotation>
-		<annotation cp="🙌🏽">بالا برده | بدن | تحسین | جشن | دست | هورا | ژست | پوست طلایی</annotation>
+		<annotation cp="🙌🏽">بالابرده | تحسین | جشن | دست | هورا | ژست | پوست طلایی</annotation>
 		<annotation cp="🙌🏽" type="tts">تمجید: پوست طلایی</annotation>
-		<annotation cp="🙌🏾">بالا برده | بدن | تحسین | جشن | دست | هورا | ژست | پوست گندمی</annotation>
+		<annotation cp="🙌🏾">بالابرده | تحسین | جشن | دست | هورا | ژست | پوست گندمی</annotation>
 		<annotation cp="🙌🏾" type="tts">تمجید: پوست گندمی</annotation>
-		<annotation cp="🙌🏿">بالا برده | بدن | تحسین | جشن | دست | هورا | ژست | پوست آبنوسی</annotation>
+		<annotation cp="🙌🏿">بالابرده | تحسین | جشن | دست | هورا | ژست | پوست آبنوسی</annotation>
 		<annotation cp="🙌🏿" type="tts">تمجید: پوست آبنوسی</annotation>
-		<annotation cp="🙏🏻">بدن | تشکر | تعظیم | درخواست | دست | دعا | سپاس | لطفاً | ژست | پوست سفید</annotation>
-		<annotation cp="🙏🏻" type="tts">دعا کردن: پوست سفید</annotation>
-		<annotation cp="🙏🏼">بدن | تشکر | تعظیم | درخواست | دست | دعا | سپاس | لطفاً | ژست | پوست روشن</annotation>
-		<annotation cp="🙏🏼" type="tts">دعا کردن: پوست روشن</annotation>
-		<annotation cp="🙏🏽">بدن | تشکر | تعظیم | درخواست | دست | دعا | سپاس | لطفاً | ژست | پوست طلایی</annotation>
-		<annotation cp="🙏🏽" type="tts">دعا کردن: پوست طلایی</annotation>
-		<annotation cp="🙏🏾">بدن | تشکر | تعظیم | درخواست | دست | دعا | سپاس | لطفاً | ژست | پوست گندمی</annotation>
-		<annotation cp="🙏🏾" type="tts">دعا کردن: پوست گندمی</annotation>
-		<annotation cp="🙏🏿">بدن | تشکر | تعظیم | درخواست | دست | دعا | سپاس | لطفاً | ژست | پوست آبنوسی</annotation>
-		<annotation cp="🙏🏿" type="tts">دعا کردن: پوست آبنوسی</annotation>
+		<annotation cp="🤲🏻">دعا | راز و نیاز | عبادت | نماز | پوست سفید</annotation>
+		<annotation cp="🤲🏻" type="tts">دست دعا: پوست سفید</annotation>
+		<annotation cp="🤲🏼">دعا | راز و نیاز | عبادت | نماز | پوست روشن</annotation>
+		<annotation cp="🤲🏼" type="tts">دست دعا: پوست روشن</annotation>
+		<annotation cp="🤲🏽">دعا | راز و نیاز | عبادت | نماز | پوست طلایی</annotation>
+		<annotation cp="🤲🏽" type="tts">دست دعا: پوست طلایی</annotation>
+		<annotation cp="🤲🏾">دعا | راز و نیاز | عبادت | نماز | پوست گندمی</annotation>
+		<annotation cp="🤲🏾" type="tts">دست دعا: پوست گندمی</annotation>
+		<annotation cp="🤲🏿">دعا | راز و نیاز | عبادت | نماز | پوست آبنوسی</annotation>
+		<annotation cp="🤲🏿" type="tts">دست دعا: پوست آبنوسی</annotation>
+		<annotation cp="🙏🏻">تشکر | تعظیم | خواهش کردن | درخواست | دست | دعا | سپاس | لطفاً | ممنونم | پوست سفید</annotation>
+		<annotation cp="🙏🏻" type="tts">خواهش می‌کنم | دعا: پوست سفید</annotation>
+		<annotation cp="🙏🏼">تشکر | تعظیم | خواهش کردن | درخواست | دست | دعا | سپاس | لطفاً | ممنونم | پوست روشن</annotation>
+		<annotation cp="🙏🏼" type="tts">خواهش می‌کنم | دعا: پوست روشن</annotation>
+		<annotation cp="🙏🏽">تشکر | تعظیم | خواهش کردن | درخواست | دست | دعا | سپاس | لطفاً | ممنونم | پوست طلایی</annotation>
+		<annotation cp="🙏🏽" type="tts">خواهش می‌کنم | دعا: پوست طلایی</annotation>
+		<annotation cp="🙏🏾">تشکر | تعظیم | خواهش کردن | درخواست | دست | دعا | سپاس | لطفاً | ممنونم | پوست گندمی</annotation>
+		<annotation cp="🙏🏾" type="tts">خواهش می‌کنم | دعا: پوست گندمی</annotation>
+		<annotation cp="🙏🏿">تشکر | تعظیم | خواهش کردن | درخواست | دست | دعا | سپاس | لطفاً | ممنونم | پوست آبنوسی</annotation>
+		<annotation cp="🙏🏿" type="tts">خواهش می‌کنم | دعا: پوست آبنوسی</annotation>
 		<annotation cp="💅🏻">آرایش | بدن | توجه | رسیدگی | زیبایی | لاک | مانیکور | ناخن | پوست سفید</annotation>
 		<annotation cp="💅🏻" type="tts">لاک زدن: پوست سفید</annotation>
 		<annotation cp="💅🏼">آرایش | بدن | توجه | رسیدگی | زیبایی | لاک | مانیکور | ناخن | پوست روشن</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">بینی: پوست گندمی</annotation>
 		<annotation cp="👃🏿">بدن | پوست آبنوسی</annotation>
 		<annotation cp="👃🏿" type="tts">بینی: پوست آبنوسی</annotation>
-		<annotation cp="#⃣">عدد | هشتگ | پوند | کلید</annotation>
-		<annotation cp="#⃣" type="tts">کلید هشتگ</annotation>
-		<annotation cp="*⃣">ستاره | کلید</annotation>
-		<annotation cp="*⃣" type="tts">کلید ستاره</annotation>
+		<annotation cp="#⃣">جلد کلید</annotation>
+		<annotation cp="#⃣" type="tts">جلد کلید: #</annotation>
+		<annotation cp="*⃣">جلد کلید</annotation>
+		<annotation cp="*⃣" type="tts">جلد کلید: *</annotation>
+		<annotation cp="🔟">جلد کلید</annotation>
+		<annotation cp="🔟" type="tts">جلد کلید: 10</annotation>
 		<annotation cp="🇦🇨">پرچم</annotation>
 		<annotation cp="🇦🇨" type="tts">جزایر آسنسیون</annotation>
 		<annotation cp="🇦🇩">پرچم</annotation>

@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="ar"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | زيرو | مفتاح</annotation>
-		<annotation cp="0⃣" type="tts">صفر</annotation>
-		<annotation cp="1⃣">1 | مفتاح</annotation>
-		<annotation cp="1⃣" type="tts">واحد</annotation>
-		<annotation cp="2⃣">2 | مفتاح</annotation>
-		<annotation cp="2⃣" type="tts">اثنان</annotation>
-		<annotation cp="3⃣">3 | مفتاح</annotation>
-		<annotation cp="3⃣" type="tts">ثلاثة</annotation>
-		<annotation cp="4⃣">4 | مفتاح</annotation>
-		<annotation cp="4⃣" type="tts">أربعة</annotation>
-		<annotation cp="5⃣">5 | مفتاح</annotation>
-		<annotation cp="5⃣" type="tts">خمسة</annotation>
-		<annotation cp="6⃣">6 | مفتاح</annotation>
-		<annotation cp="6⃣" type="tts">ستة</annotation>
-		<annotation cp="7⃣">7 | مفتاح</annotation>
-		<annotation cp="7⃣" type="tts">سبعة</annotation>
-		<annotation cp="8⃣">8 | مفتاح</annotation>
-		<annotation cp="8⃣" type="tts">ثمانية</annotation>
-		<annotation cp="9⃣">9 | مفتاح</annotation>
-		<annotation cp="9⃣" type="tts">تسعة</annotation>
+		<annotation cp="0⃣">مفتاح</annotation>
+		<annotation cp="0⃣" type="tts">مفتاح: 0</annotation>
+		<annotation cp="1⃣">مفتاح</annotation>
+		<annotation cp="1⃣" type="tts">مفتاح: 1</annotation>
+		<annotation cp="2⃣">مفتاح</annotation>
+		<annotation cp="2⃣" type="tts">مفتاح: 2</annotation>
+		<annotation cp="3⃣">مفتاح</annotation>
+		<annotation cp="3⃣" type="tts">مفتاح: 3</annotation>
+		<annotation cp="4⃣">مفتاح</annotation>
+		<annotation cp="4⃣" type="tts">مفتاح: 4</annotation>
+		<annotation cp="5⃣">مفتاح</annotation>
+		<annotation cp="5⃣" type="tts">مفتاح: 5</annotation>
+		<annotation cp="6⃣">مفتاح</annotation>
+		<annotation cp="6⃣" type="tts">مفتاح: 6</annotation>
+		<annotation cp="7⃣">مفتاح</annotation>
+		<annotation cp="7⃣" type="tts">مفتاح: 7</annotation>
+		<annotation cp="8⃣">مفتاح</annotation>
+		<annotation cp="8⃣" type="tts">مفتاح: 8</annotation>
+		<annotation cp="9⃣">مفتاح</annotation>
+		<annotation cp="9⃣" type="tts">مفتاح: 9</annotation>
 		<annotation cp="👶🏻">رضيع | طفل | نوع جلد 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">رضيع: نوع جلد 1–2</annotation>
 		<annotation cp="👶🏼">رضيع | طفل | نوع جلد 3</annotation>
@@ -42,6 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">رضيع: نوع جلد 5</annotation>
 		<annotation cp="👶🏿">رضيع | طفل | نوع جلد 6</annotation>
 		<annotation cp="👶🏿" type="tts">رضيع: نوع جلد 6</annotation>
+		<annotation cp="🧒🏻">شاب | نوع جلد 1–2</annotation>
+		<annotation cp="🧒🏻" type="tts">طفل: نوع جلد 1–2</annotation>
+		<annotation cp="🧒🏼">شاب | نوع جلد 3</annotation>
+		<annotation cp="🧒🏼" type="tts">طفل: نوع جلد 3</annotation>
+		<annotation cp="🧒🏽">شاب | نوع جلد 4</annotation>
+		<annotation cp="🧒🏽" type="tts">طفل: نوع جلد 4</annotation>
+		<annotation cp="🧒🏾">شاب | نوع جلد 5</annotation>
+		<annotation cp="🧒🏾" type="tts">طفل: نوع جلد 5</annotation>
+		<annotation cp="🧒🏿">شاب | نوع جلد 6</annotation>
+		<annotation cp="🧒🏿" type="tts">طفل: نوع جلد 6</annotation>
 		<annotation cp="👦🏻">ذكر | صبي | ولد | نوع جلد 1–2</annotation>
 		<annotation cp="👦🏻" type="tts">صبي: نوع جلد 1–2</annotation>
 		<annotation cp="👦🏼">ذكر | صبي | ولد | نوع جلد 3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">فتاة: نوع جلد 5</annotation>
 		<annotation cp="👧🏿">أنثى | بنت | فتاة | نوع جلد 6</annotation>
 		<annotation cp="👧🏿" type="tts">فتاة: نوع جلد 6</annotation>
+		<annotation cp="🧑🏻">محايد من حيث النوع الاجتماعي | نوع جلد 1–2</annotation>
+		<annotation cp="🧑🏻" type="tts">بالغ: نوع جلد 1–2</annotation>
+		<annotation cp="🧑🏼">محايد من حيث النوع الاجتماعي | نوع جلد 3</annotation>
+		<annotation cp="🧑🏼" type="tts">بالغ: نوع جلد 3</annotation>
+		<annotation cp="🧑🏽">محايد من حيث النوع الاجتماعي | نوع جلد 4</annotation>
+		<annotation cp="🧑🏽" type="tts">بالغ: نوع جلد 4</annotation>
+		<annotation cp="🧑🏾">محايد من حيث النوع الاجتماعي | نوع جلد 5</annotation>
+		<annotation cp="🧑🏾" type="tts">بالغ: نوع جلد 5</annotation>
+		<annotation cp="🧑🏿">محايد من حيث النوع الاجتماعي | نوع جلد 6</annotation>
+		<annotation cp="🧑🏿" type="tts">بالغ: نوع جلد 6</annotation>
 		<annotation cp="👨🏻">أشخاص | نوع جلد 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">رجل: نوع جلد 1–2</annotation>
 		<annotation cp="👨🏼">أشخاص | نوع جلد 3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">سيدة: نوع جلد 5</annotation>
 		<annotation cp="👩🏿">أشخاص | نوع جلد 6</annotation>
 		<annotation cp="👩🏿" type="tts">سيدة: نوع جلد 6</annotation>
+		<annotation cp="🧓🏻">كبير في السن | نوع جلد 1–2</annotation>
+		<annotation cp="🧓🏻" type="tts">بالغ أكبر في السن: نوع جلد 1–2</annotation>
+		<annotation cp="🧓🏼">كبير في السن | نوع جلد 3</annotation>
+		<annotation cp="🧓🏼" type="tts">بالغ أكبر في السن: نوع جلد 3</annotation>
+		<annotation cp="🧓🏽">كبير في السن | نوع جلد 4</annotation>
+		<annotation cp="🧓🏽" type="tts">بالغ أكبر في السن: نوع جلد 4</annotation>
+		<annotation cp="🧓🏾">كبير في السن | نوع جلد 5</annotation>
+		<annotation cp="🧓🏾" type="tts">بالغ أكبر في السن: نوع جلد 5</annotation>
+		<annotation cp="🧓🏿">كبير في السن | نوع جلد 6</annotation>
+		<annotation cp="🧓🏿" type="tts">بالغ أكبر في السن: نوع جلد 6</annotation>
 		<annotation cp="👴🏻">أشخاص | رجل | عجوز | نوع جلد 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">رجل عجوز: نوع جلد 1–2</annotation>
 		<annotation cp="👴🏼">أشخاص | رجل | عجوز | نوع جلد 3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">رجل بعمامة صينية: نوع جلد 5</annotation>
 		<annotation cp="👲🏿">أشخاص | رجل يرتدي قبعة | غوا بي ماو | نوع جلد 6</annotation>
 		<annotation cp="👲🏿" type="tts">رجل بعمامة صينية: نوع جلد 6</annotation>
+		<annotation cp="🧕🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">امرأة محجّبة: نوع جلد 1–2</annotation>
+		<annotation cp="🧕🏼">نوع جلد 3</annotation>
+		<annotation cp="🧕🏼" type="tts">امرأة محجّبة: نوع جلد 3</annotation>
+		<annotation cp="🧕🏽">نوع جلد 4</annotation>
+		<annotation cp="🧕🏽" type="tts">امرأة محجّبة: نوع جلد 4</annotation>
+		<annotation cp="🧕🏾">نوع جلد 5</annotation>
+		<annotation cp="🧕🏾" type="tts">امرأة محجّبة: نوع جلد 5</annotation>
+		<annotation cp="🧕🏿">نوع جلد 6</annotation>
+		<annotation cp="🧕🏿" type="tts">امرأة محجّبة: نوع جلد 6</annotation>
+		<annotation cp="🧔🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">شخص مع لحية: نوع جلد 1–2</annotation>
+		<annotation cp="🧔🏼">نوع جلد 3</annotation>
+		<annotation cp="🧔🏼" type="tts">شخص مع لحية: نوع جلد 3</annotation>
+		<annotation cp="🧔🏽">نوع جلد 4</annotation>
+		<annotation cp="🧔🏽" type="tts">شخص مع لحية: نوع جلد 4</annotation>
+		<annotation cp="🧔🏾">نوع جلد 5</annotation>
+		<annotation cp="🧔🏾" type="tts">شخص مع لحية: نوع جلد 5</annotation>
+		<annotation cp="🧔🏿">نوع جلد 6</annotation>
+		<annotation cp="🧔🏿" type="tts">شخص مع لحية: نوع جلد 6</annotation>
 		<annotation cp="👱🏻">أشقر | نوع جلد 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">شخص أشقر: نوع جلد 1–2</annotation>
 		<annotation cp="👱🏼">أشقر | نوع جلد 3</annotation>
@@ -643,15 +693,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏿">رجل | ملابس سهرة | نوع جلد 6</annotation>
 		<annotation cp="🤵🏿" type="tts">رجل بملابس سهرة: نوع جلد 6</annotation>
 		<annotation cp="👰🏻">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 1–2</annotation>
-		<annotation cp="👰🏻" type="tts">عروس: نوع جلد 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">عروس بطرحة: نوع جلد 1–2</annotation>
 		<annotation cp="👰🏼">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 3</annotation>
-		<annotation cp="👰🏼" type="tts">عروس: نوع جلد 3</annotation>
+		<annotation cp="👰🏼" type="tts">عروس بطرحة: نوع جلد 3</annotation>
 		<annotation cp="👰🏽">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 4</annotation>
-		<annotation cp="👰🏽" type="tts">عروس: نوع جلد 4</annotation>
+		<annotation cp="👰🏽" type="tts">عروس بطرحة: نوع جلد 4</annotation>
 		<annotation cp="👰🏾">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 5</annotation>
-		<annotation cp="👰🏾" type="tts">عروس: نوع جلد 5</annotation>
+		<annotation cp="👰🏾" type="tts">عروس بطرحة: نوع جلد 5</annotation>
 		<annotation cp="👰🏿">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 6</annotation>
-		<annotation cp="👰🏿" type="tts">عروس: نوع جلد 6</annotation>
+		<annotation cp="👰🏿" type="tts">عروس بطرحة: نوع جلد 6</annotation>
 		<annotation cp="🤰🏻">امرأة | حامل | نوع جلد 1–2</annotation>
 		<annotation cp="🤰🏻" type="tts">امرأة حامل: نوع جلد 1–2</annotation>
 		<annotation cp="🤰🏼">امرأة | حامل | نوع جلد 3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">امرأة حامل: نوع جلد 5</annotation>
 		<annotation cp="🤰🏿">امرأة | حامل | نوع جلد 6</annotation>
 		<annotation cp="🤰🏿" type="tts">امرأة حامل: نوع جلد 6</annotation>
+		<annotation cp="🤱🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🤱🏻" type="tts">رجل مع لحية: نوع جلد 1–2</annotation>
+		<annotation cp="🤱🏼">نوع جلد 3</annotation>
+		<annotation cp="🤱🏼" type="tts">رجل مع لحية: نوع جلد 3</annotation>
+		<annotation cp="🤱🏽">نوع جلد 4</annotation>
+		<annotation cp="🤱🏽" type="tts">رجل مع لحية: نوع جلد 4</annotation>
+		<annotation cp="🤱🏾">نوع جلد 5</annotation>
+		<annotation cp="🤱🏾" type="tts">رجل مع لحية: نوع جلد 5</annotation>
+		<annotation cp="🤱🏿">نوع جلد 6</annotation>
+		<annotation cp="🤱🏿" type="tts">رجل مع لحية: نوع جلد 6</annotation>
 		<annotation cp="👼🏻">حدوتة | ملاك | وجه | نوع جلد 1–2</annotation>
 		<annotation cp="👼🏻" type="tts">طفل ملاك: نوع جلد 1–2</annotation>
 		<annotation cp="👼🏼">حدوتة | ملاك | وجه | نوع جلد 3</annotation>
@@ -683,15 +743,165 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎅🏿">سانتا | سانتا كلوز | عيد الميلاد | نوع جلد 6</annotation>
 		<annotation cp="🎅🏿" type="tts">بابا نويل: نوع جلد 6</annotation>
 		<annotation cp="🤶🏻">أم | سانتا كلوز | كريسماس | نوع جلد 1–2</annotation>
-		<annotation cp="🤶🏻" type="tts">سانتا كلوز سيدة: نوع جلد 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">سيدة سانتا كلوز: نوع جلد 1–2</annotation>
 		<annotation cp="🤶🏼">أم | سانتا كلوز | كريسماس | نوع جلد 3</annotation>
-		<annotation cp="🤶🏼" type="tts">سانتا كلوز سيدة: نوع جلد 3</annotation>
+		<annotation cp="🤶🏼" type="tts">سيدة سانتا كلوز: نوع جلد 3</annotation>
 		<annotation cp="🤶🏽">أم | سانتا كلوز | كريسماس | نوع جلد 4</annotation>
-		<annotation cp="🤶🏽" type="tts">سانتا كلوز سيدة: نوع جلد 4</annotation>
+		<annotation cp="🤶🏽" type="tts">سيدة سانتا كلوز: نوع جلد 4</annotation>
 		<annotation cp="🤶🏾">أم | سانتا كلوز | كريسماس | نوع جلد 5</annotation>
-		<annotation cp="🤶🏾" type="tts">سانتا كلوز سيدة: نوع جلد 5</annotation>
+		<annotation cp="🤶🏾" type="tts">سيدة سانتا كلوز: نوع جلد 5</annotation>
 		<annotation cp="🤶🏿">أم | سانتا كلوز | كريسماس | نوع جلد 6</annotation>
-		<annotation cp="🤶🏿" type="tts">سانتا كلوز سيدة: نوع جلد 6</annotation>
+		<annotation cp="🤶🏿" type="tts">سيدة سانتا كلوز: نوع جلد 6</annotation>
+		<annotation cp="🧙🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧙🏻" type="tts">سحرة: نوع جلد 1–2</annotation>
+		<annotation cp="🧙🏼">نوع جلد 3</annotation>
+		<annotation cp="🧙🏼" type="tts">سحرة: نوع جلد 3</annotation>
+		<annotation cp="🧙🏽">نوع جلد 4</annotation>
+		<annotation cp="🧙🏽" type="tts">سحرة: نوع جلد 4</annotation>
+		<annotation cp="🧙🏾">نوع جلد 5</annotation>
+		<annotation cp="🧙🏾" type="tts">سحرة: نوع جلد 5</annotation>
+		<annotation cp="🧙🏿">نوع جلد 6</annotation>
+		<annotation cp="🧙🏿" type="tts">سحرة: نوع جلد 6</annotation>
+		<annotation cp="🧙🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">ساحرة: نوع جلد 1–2</annotation>
+		<annotation cp="🧙🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">ساحرة: نوع جلد 3</annotation>
+		<annotation cp="🧙🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">ساحرة: نوع جلد 4</annotation>
+		<annotation cp="🧙🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">ساحرة: نوع جلد 5</annotation>
+		<annotation cp="🧙🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">ساحرة: نوع جلد 6</annotation>
+		<annotation cp="🧙🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">ساحر: نوع جلد 1–2</annotation>
+		<annotation cp="🧙🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">ساحر: نوع جلد 3</annotation>
+		<annotation cp="🧙🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">ساحر: نوع جلد 4</annotation>
+		<annotation cp="🧙🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">ساحر: نوع جلد 5</annotation>
+		<annotation cp="🧙🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">ساحر: نوع جلد 6</annotation>
+		<annotation cp="🧚🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧚🏻" type="tts">جنّ: نوع جلد 1–2</annotation>
+		<annotation cp="🧚🏼">نوع جلد 3</annotation>
+		<annotation cp="🧚🏼" type="tts">جنّ: نوع جلد 3</annotation>
+		<annotation cp="🧚🏽">نوع جلد 4</annotation>
+		<annotation cp="🧚🏽" type="tts">جنّ: نوع جلد 4</annotation>
+		<annotation cp="🧚🏾">نوع جلد 5</annotation>
+		<annotation cp="🧚🏾" type="tts">جنّ: نوع جلد 5</annotation>
+		<annotation cp="🧚🏿">نوع جلد 6</annotation>
+		<annotation cp="🧚🏿" type="tts">جنّ: نوع جلد 6</annotation>
+		<annotation cp="🧚🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">جنّية: نوع جلد 1–2</annotation>
+		<annotation cp="🧚🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">جنّية: نوع جلد 3</annotation>
+		<annotation cp="🧚🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">جنّية: نوع جلد 4</annotation>
+		<annotation cp="🧚🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">جنّية: نوع جلد 5</annotation>
+		<annotation cp="🧚🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">جنّية: نوع جلد 6</annotation>
+		<annotation cp="🧚🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">جنّي: نوع جلد 1–2</annotation>
+		<annotation cp="🧚🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">جنّي: نوع جلد 3</annotation>
+		<annotation cp="🧚🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">جنّي: نوع جلد 4</annotation>
+		<annotation cp="🧚🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">جنّي: نوع جلد 5</annotation>
+		<annotation cp="🧚🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">جنّي: نوع جلد 6</annotation>
+		<annotation cp="🧛🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧛🏻" type="tts">مصّاص دماء: نوع جلد 1–2</annotation>
+		<annotation cp="🧛🏼">نوع جلد 3</annotation>
+		<annotation cp="🧛🏼" type="tts">مصّاص دماء: نوع جلد 3</annotation>
+		<annotation cp="🧛🏽">نوع جلد 4</annotation>
+		<annotation cp="🧛🏽" type="tts">مصّاص دماء: نوع جلد 4</annotation>
+		<annotation cp="🧛🏾">نوع جلد 5</annotation>
+		<annotation cp="🧛🏾" type="tts">مصّاص دماء: نوع جلد 5</annotation>
+		<annotation cp="🧛🏿">نوع جلد 6</annotation>
+		<annotation cp="🧛🏿" type="tts">مصّاص دماء: نوع جلد 6</annotation>
+		<annotation cp="🧛🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">مصّاصة دماء: نوع جلد 1–2</annotation>
+		<annotation cp="🧛🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">مصّاصة دماء: نوع جلد 3</annotation>
+		<annotation cp="🧛🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">مصّاصة دماء: نوع جلد 4</annotation>
+		<annotation cp="🧛🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">مصّاصة دماء: نوع جلد 5</annotation>
+		<annotation cp="🧛🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">مصّاصة دماء: نوع جلد 6</annotation>
+		<annotation cp="🧛🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">مصاص دماء: نوع جلد 1–2</annotation>
+		<annotation cp="🧛🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">مصاص دماء: نوع جلد 3</annotation>
+		<annotation cp="🧛🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">مصاص دماء: نوع جلد 4</annotation>
+		<annotation cp="🧛🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">مصاص دماء: نوع جلد 5</annotation>
+		<annotation cp="🧛🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">مصاص دماء: نوع جلد 6</annotation>
+		<annotation cp="🧜🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧜🏻" type="tts">مخلوق بحري بجسد رجل وذيل سمكة: نوع جلد 1–2</annotation>
+		<annotation cp="🧜🏼">نوع جلد 3</annotation>
+		<annotation cp="🧜🏼" type="tts">مخلوق بحري بجسد رجل وذيل سمكة: نوع جلد 3</annotation>
+		<annotation cp="🧜🏽">نوع جلد 4</annotation>
+		<annotation cp="🧜🏽" type="tts">مخلوق بحري بجسد رجل وذيل سمكة: نوع جلد 4</annotation>
+		<annotation cp="🧜🏾">نوع جلد 5</annotation>
+		<annotation cp="🧜🏾" type="tts">مخلوق بحري بجسد رجل وذيل سمكة: نوع جلد 5</annotation>
+		<annotation cp="🧜🏿">نوع جلد 6</annotation>
+		<annotation cp="🧜🏿" type="tts">مخلوق بحري بجسد رجل وذيل سمكة: نوع جلد 6</annotation>
+		<annotation cp="🧜🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">حورية بحر: نوع جلد 1–2</annotation>
+		<annotation cp="🧜🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">حورية بحر: نوع جلد 3</annotation>
+		<annotation cp="🧜🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">حورية بحر: نوع جلد 4</annotation>
+		<annotation cp="🧜🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">حورية بحر: نوع جلد 5</annotation>
+		<annotation cp="🧜🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">حورية بحر: نوع جلد 6</annotation>
+		<annotation cp="🧜🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">مخلوق له جسد رجل وذيل سمكة: نوع جلد 1–2</annotation>
+		<annotation cp="🧜🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">مخلوق له جسد رجل وذيل سمكة: نوع جلد 3</annotation>
+		<annotation cp="🧜🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">مخلوق له جسد رجل وذيل سمكة: نوع جلد 4</annotation>
+		<annotation cp="🧜🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">مخلوق له جسد رجل وذيل سمكة: نوع جلد 5</annotation>
+		<annotation cp="🧜🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">مخلوق له جسد رجل وذيل سمكة: نوع جلد 6</annotation>
+		<annotation cp="🧝🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧝🏻" type="tts">قزم: نوع جلد 1–2</annotation>
+		<annotation cp="🧝🏼">نوع جلد 3</annotation>
+		<annotation cp="🧝🏼" type="tts">قزم: نوع جلد 3</annotation>
+		<annotation cp="🧝🏽">نوع جلد 4</annotation>
+		<annotation cp="🧝🏽" type="tts">قزم: نوع جلد 4</annotation>
+		<annotation cp="🧝🏾">نوع جلد 5</annotation>
+		<annotation cp="🧝🏾" type="tts">قزم: نوع جلد 5</annotation>
+		<annotation cp="🧝🏿">نوع جلد 6</annotation>
+		<annotation cp="🧝🏿" type="tts">قزم: نوع جلد 6</annotation>
+		<annotation cp="🧝🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">قزمة: نوع جلد 1–2</annotation>
+		<annotation cp="🧝🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">قزمة: نوع جلد 3</annotation>
+		<annotation cp="🧝🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">قزمة: نوع جلد 4</annotation>
+		<annotation cp="🧝🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">قزمة: نوع جلد 5</annotation>
+		<annotation cp="🧝🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">قزمة: نوع جلد 6</annotation>
+		<annotation cp="🧝🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">رجل قزم: نوع جلد 1–2</annotation>
+		<annotation cp="🧝🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">رجل قزم: نوع جلد 3</annotation>
+		<annotation cp="🧝🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">رجل قزم: نوع جلد 4</annotation>
+		<annotation cp="🧝🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">رجل قزم: نوع جلد 5</annotation>
+		<annotation cp="🧝🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">رجل قزم: نوع جلد 6</annotation>
 		<annotation cp="🙍🏻">إشارة | شخص | شخص عابس | نوع جلد 1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">شخص عابس: نوع جلد 1–2</annotation>
 		<annotation cp="🙍🏼">إشارة | شخص | شخص عابس | نوع جلد 3</annotation>
@@ -723,15 +933,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍🏿‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 6</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">متجهمة: نوع جلد 6</annotation>
 		<annotation cp="🙎🏻">إشارة | شخص | شخص متجهم | نوع جلد 1–2</annotation>
-		<annotation cp="🙎🏻" type="tts">تجهم: نوع جلد 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">‫شخص متجهم: نوع جلد 1–2</annotation>
 		<annotation cp="🙎🏼">إشارة | شخص | شخص متجهم | نوع جلد 3</annotation>
-		<annotation cp="🙎🏼" type="tts">تجهم: نوع جلد 3</annotation>
+		<annotation cp="🙎🏼" type="tts">‫شخص متجهم: نوع جلد 3</annotation>
 		<annotation cp="🙎🏽">إشارة | شخص | شخص متجهم | نوع جلد 4</annotation>
-		<annotation cp="🙎🏽" type="tts">تجهم: نوع جلد 4</annotation>
+		<annotation cp="🙎🏽" type="tts">‫شخص متجهم: نوع جلد 4</annotation>
 		<annotation cp="🙎🏾">إشارة | شخص | شخص متجهم | نوع جلد 5</annotation>
-		<annotation cp="🙎🏾" type="tts">تجهم: نوع جلد 5</annotation>
+		<annotation cp="🙎🏾" type="tts">‫شخص متجهم: نوع جلد 5</annotation>
 		<annotation cp="🙎🏿">إشارة | شخص | شخص متجهم | نوع جلد 6</annotation>
-		<annotation cp="🙎🏿" type="tts">تجهم: نوع جلد 6</annotation>
+		<annotation cp="🙎🏿" type="tts">‫شخص متجهم: نوع جلد 6</annotation>
 		<annotation cp="🙎🏻‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 1–2</annotation>
 		<annotation cp="🙎🏻‍♂" type="tts">رجل عابس: نوع جلد 1–2</annotation>
 		<annotation cp="🙎🏼‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 3</annotation>
@@ -753,15 +963,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎🏿‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 6</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">سيدة عابسة: نوع جلد 6</annotation>
 		<annotation cp="🙅🏻">أمر سيء | لا | ممنوع | نوع جلد 1–2</annotation>
-		<annotation cp="🙅🏻" type="tts">إشارة أمر سيء: نوع جلد 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">‫إشارة رفض: نوع جلد 1–2</annotation>
 		<annotation cp="🙅🏼">أمر سيء | لا | ممنوع | نوع جلد 3</annotation>
-		<annotation cp="🙅🏼" type="tts">إشارة أمر سيء: نوع جلد 3</annotation>
+		<annotation cp="🙅🏼" type="tts">‫إشارة رفض: نوع جلد 3</annotation>
 		<annotation cp="🙅🏽">أمر سيء | لا | ممنوع | نوع جلد 4</annotation>
-		<annotation cp="🙅🏽" type="tts">إشارة أمر سيء: نوع جلد 4</annotation>
+		<annotation cp="🙅🏽" type="tts">‫إشارة رفض: نوع جلد 4</annotation>
 		<annotation cp="🙅🏾">أمر سيء | لا | ممنوع | نوع جلد 5</annotation>
-		<annotation cp="🙅🏾" type="tts">إشارة أمر سيء: نوع جلد 5</annotation>
+		<annotation cp="🙅🏾" type="tts">‫إشارة رفض: نوع جلد 5</annotation>
 		<annotation cp="🙅🏿">أمر سيء | لا | ممنوع | نوع جلد 6</annotation>
-		<annotation cp="🙅🏿" type="tts">إشارة أمر سيء: نوع جلد 6</annotation>
+		<annotation cp="🙅🏿" type="tts">‫إشارة رفض: نوع جلد 6</annotation>
 		<annotation cp="🙅🏻‍♂">إشارة رفض | غير موافق | نوع جلد 1–2</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">غير موافق: نوع جلد 1–2</annotation>
 		<annotation cp="🙅🏼‍♂">إشارة رفض | غير موافق | نوع جلد 3</annotation>
@@ -813,15 +1023,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙆🏿‍♀">إشارة موافقة | موافقة | نوع جلد 6</annotation>
 		<annotation cp="🙆🏿‍♀" type="tts">موافقة: نوع جلد 6</annotation>
 		<annotation cp="💁🏻">أشخاص | مساعدة | معلومات | نوع جلد 1–2</annotation>
-		<annotation cp="💁🏻" type="tts">مكتب استعلامات: نوع جلد 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">‫شخص بيد مائلة: نوع جلد 1–2</annotation>
 		<annotation cp="💁🏼">أشخاص | مساعدة | معلومات | نوع جلد 3</annotation>
-		<annotation cp="💁🏼" type="tts">مكتب استعلامات: نوع جلد 3</annotation>
+		<annotation cp="💁🏼" type="tts">‫شخص بيد مائلة: نوع جلد 3</annotation>
 		<annotation cp="💁🏽">أشخاص | مساعدة | معلومات | نوع جلد 4</annotation>
-		<annotation cp="💁🏽" type="tts">مكتب استعلامات: نوع جلد 4</annotation>
+		<annotation cp="💁🏽" type="tts">‫شخص بيد مائلة: نوع جلد 4</annotation>
 		<annotation cp="💁🏾">أشخاص | مساعدة | معلومات | نوع جلد 5</annotation>
-		<annotation cp="💁🏾" type="tts">مكتب استعلامات: نوع جلد 5</annotation>
+		<annotation cp="💁🏾" type="tts">‫شخص بيد مائلة: نوع جلد 5</annotation>
 		<annotation cp="💁🏿">أشخاص | مساعدة | معلومات | نوع جلد 6</annotation>
-		<annotation cp="💁🏿" type="tts">مكتب استعلامات: نوع جلد 6</annotation>
+		<annotation cp="💁🏿" type="tts">‫شخص بيد مائلة: نوع جلد 6</annotation>
 		<annotation cp="💁🏻‍♂">يد مائلة | نوع جلد 1–2</annotation>
 		<annotation cp="💁🏻‍♂" type="tts">رجل بيد مائلة: نوع جلد 1–2</annotation>
 		<annotation cp="💁🏼‍♂">يد مائلة | نوع جلد 3</annotation>
@@ -843,15 +1053,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁🏿‍♀">يد مائلة | نوع جلد 6</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">سيدة بيد مائلة: نوع جلد 6</annotation>
 		<annotation cp="🙋🏻">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 1–2</annotation>
-		<annotation cp="🙋🏻" type="tts">شخص سعيد: نوع جلد 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">‫شخص يرفع يده: نوع جلد 1–2</annotation>
 		<annotation cp="🙋🏼">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 3</annotation>
-		<annotation cp="🙋🏼" type="tts">شخص سعيد: نوع جلد 3</annotation>
+		<annotation cp="🙋🏼" type="tts">‫شخص يرفع يده: نوع جلد 3</annotation>
 		<annotation cp="🙋🏽">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 4</annotation>
-		<annotation cp="🙋🏽" type="tts">شخص سعيد: نوع جلد 4</annotation>
+		<annotation cp="🙋🏽" type="tts">‫شخص يرفع يده: نوع جلد 4</annotation>
 		<annotation cp="🙋🏾">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 5</annotation>
-		<annotation cp="🙋🏾" type="tts">شخص سعيد: نوع جلد 5</annotation>
+		<annotation cp="🙋🏾" type="tts">‫شخص يرفع يده: نوع جلد 5</annotation>
 		<annotation cp="🙋🏿">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 6</annotation>
-		<annotation cp="🙋🏿" type="tts">شخص سعيد: نوع جلد 6</annotation>
+		<annotation cp="🙋🏿" type="tts">‫شخص يرفع يده: نوع جلد 6</annotation>
 		<annotation cp="🙋🏻‍♂">يد مرفوعة | نوع جلد 1–2</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">رجل يرفع يده: نوع جلد 1–2</annotation>
 		<annotation cp="🙋🏼‍♂">يد مرفوعة | نوع جلد 3</annotation>
@@ -873,15 +1083,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋🏿‍♀">يد مرفوعة | نوع جلد 6</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">سيدة ترفع يدها: نوع جلد 6</annotation>
 		<annotation cp="🙇🏻">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 1–2</annotation>
-		<annotation cp="🙇🏻" type="tts">آسف: نوع جلد 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">‫شخص يتأسف: نوع جلد 1–2</annotation>
 		<annotation cp="🙇🏼">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 3</annotation>
-		<annotation cp="🙇🏼" type="tts">آسف: نوع جلد 3</annotation>
+		<annotation cp="🙇🏼" type="tts">‫شخص يتأسف: نوع جلد 3</annotation>
 		<annotation cp="🙇🏽">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 4</annotation>
-		<annotation cp="🙇🏽" type="tts">آسف: نوع جلد 4</annotation>
+		<annotation cp="🙇🏽" type="tts">‫شخص يتأسف: نوع جلد 4</annotation>
 		<annotation cp="🙇🏾">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 5</annotation>
-		<annotation cp="🙇🏾" type="tts">آسف: نوع جلد 5</annotation>
+		<annotation cp="🙇🏾" type="tts">‫شخص يتأسف: نوع جلد 5</annotation>
 		<annotation cp="🙇🏿">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 6</annotation>
-		<annotation cp="🙇🏿" type="tts">آسف: نوع جلد 6</annotation>
+		<annotation cp="🙇🏿" type="tts">‫شخص يتأسف: نوع جلد 6</annotation>
 		<annotation cp="🙇🏻‍♂">امتنان | انحناء | ركوع | نوع جلد 1–2</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">رجل ينحني: نوع جلد 1–2</annotation>
 		<annotation cp="🙇🏼‍♂">امتنان | انحناء | ركوع | نوع جلد 3</annotation>
@@ -903,15 +1113,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙇🏿‍♀">امتنان | انحناء | ركوع | نوع جلد 6</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">سيدة تنحني: نوع جلد 6</annotation>
 		<annotation cp="🤦🏻">إحباط | راحة يد | سخط | نوع جلد 1–2</annotation>
-		<annotation cp="🤦🏻" type="tts">إحباط: نوع جلد 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">‫شخص محبط: نوع جلد 1–2</annotation>
 		<annotation cp="🤦🏼">إحباط | راحة يد | سخط | نوع جلد 3</annotation>
-		<annotation cp="🤦🏼" type="tts">إحباط: نوع جلد 3</annotation>
+		<annotation cp="🤦🏼" type="tts">‫شخص محبط: نوع جلد 3</annotation>
 		<annotation cp="🤦🏽">إحباط | راحة يد | سخط | نوع جلد 4</annotation>
-		<annotation cp="🤦🏽" type="tts">إحباط: نوع جلد 4</annotation>
+		<annotation cp="🤦🏽" type="tts">‫شخص محبط: نوع جلد 4</annotation>
 		<annotation cp="🤦🏾">إحباط | راحة يد | سخط | نوع جلد 5</annotation>
-		<annotation cp="🤦🏾" type="tts">إحباط: نوع جلد 5</annotation>
+		<annotation cp="🤦🏾" type="tts">‫شخص محبط: نوع جلد 5</annotation>
 		<annotation cp="🤦🏿">إحباط | راحة يد | سخط | نوع جلد 6</annotation>
-		<annotation cp="🤦🏿" type="tts">إحباط: نوع جلد 6</annotation>
+		<annotation cp="🤦🏿" type="tts">‫شخص محبط: نوع جلد 6</annotation>
 		<annotation cp="🤦🏻‍♂">إحباط | صدمة | عدم تصديق | نوع جلد 1–2</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">رجل يشعر بإحباط: نوع جلد 1–2</annotation>
 		<annotation cp="🤦🏼‍♂">إحباط | صدمة | عدم تصديق | نوع جلد 3</annotation>
@@ -963,15 +1173,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏿‍♀">استهجان | هز الكتف | نوع جلد 6</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">سيدة لا تبالي: نوع جلد 6</annotation>
 		<annotation cp="💆🏻">صالون | مساج | نوع جلد 1–2</annotation>
-		<annotation cp="💆🏻" type="tts">مساج وجه: نوع جلد 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">شخص يحصل على مساج: نوع جلد 1–2</annotation>
 		<annotation cp="💆🏼">صالون | مساج | نوع جلد 3</annotation>
-		<annotation cp="💆🏼" type="tts">مساج وجه: نوع جلد 3</annotation>
+		<annotation cp="💆🏼" type="tts">شخص يحصل على مساج: نوع جلد 3</annotation>
 		<annotation cp="💆🏽">صالون | مساج | نوع جلد 4</annotation>
-		<annotation cp="💆🏽" type="tts">مساج وجه: نوع جلد 4</annotation>
+		<annotation cp="💆🏽" type="tts">شخص يحصل على مساج: نوع جلد 4</annotation>
 		<annotation cp="💆🏾">صالون | مساج | نوع جلد 5</annotation>
-		<annotation cp="💆🏾" type="tts">مساج وجه: نوع جلد 5</annotation>
+		<annotation cp="💆🏾" type="tts">شخص يحصل على مساج: نوع جلد 5</annotation>
 		<annotation cp="💆🏿">صالون | مساج | نوع جلد 6</annotation>
-		<annotation cp="💆🏿" type="tts">مساج وجه: نوع جلد 6</annotation>
+		<annotation cp="💆🏿" type="tts">شخص يحصل على مساج: نوع جلد 6</annotation>
 		<annotation cp="💆🏻‍♂">تدليك | مساج | نوع جلد 1–2</annotation>
 		<annotation cp="💆🏻‍♂" type="tts">تدليك لرجل: نوع جلد 1–2</annotation>
 		<annotation cp="💆🏼‍♂">تدليك | مساج | نوع جلد 3</annotation>
@@ -993,15 +1203,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💆🏿‍♀">تدليك | مساج | نوع جلد 6</annotation>
 		<annotation cp="💆🏿‍♀" type="tts">تدليك لسيدة: نوع جلد 6</annotation>
 		<annotation cp="💇🏻">جمال | صالون تجميل | نوع جلد 1–2</annotation>
-		<annotation cp="💇🏻" type="tts">قص شعر: نوع جلد 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">‫شخص يُقص شعره: نوع جلد 1–2</annotation>
 		<annotation cp="💇🏼">جمال | صالون تجميل | نوع جلد 3</annotation>
-		<annotation cp="💇🏼" type="tts">قص شعر: نوع جلد 3</annotation>
+		<annotation cp="💇🏼" type="tts">‫شخص يُقص شعره: نوع جلد 3</annotation>
 		<annotation cp="💇🏽">جمال | صالون تجميل | نوع جلد 4</annotation>
-		<annotation cp="💇🏽" type="tts">قص شعر: نوع جلد 4</annotation>
+		<annotation cp="💇🏽" type="tts">‫شخص يُقص شعره: نوع جلد 4</annotation>
 		<annotation cp="💇🏾">جمال | صالون تجميل | نوع جلد 5</annotation>
-		<annotation cp="💇🏾" type="tts">قص شعر: نوع جلد 5</annotation>
+		<annotation cp="💇🏾" type="tts">‫شخص يُقص شعره: نوع جلد 5</annotation>
 		<annotation cp="💇🏿">جمال | صالون تجميل | نوع جلد 6</annotation>
-		<annotation cp="💇🏿" type="tts">قص شعر: نوع جلد 6</annotation>
+		<annotation cp="💇🏿" type="tts">‫شخص يُقص شعره: نوع جلد 6</annotation>
 		<annotation cp="💇🏻‍♂">قص شعر | نوع جلد 1–2</annotation>
 		<annotation cp="💇🏻‍♂" type="tts">يقص شعره: نوع جلد 1–2</annotation>
 		<annotation cp="💇🏼‍♂">قص شعر | نوع جلد 3</annotation>
@@ -1023,15 +1233,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💇🏿‍♀">قص شعر | نوع جلد 6</annotation>
 		<annotation cp="💇🏿‍♀" type="tts">تقص شعرها: نوع جلد 6</annotation>
 		<annotation cp="🚶🏻">سير | مشي | نوع جلد 1–2</annotation>
-		<annotation cp="🚶🏻" type="tts">مشاة: نوع جلد 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">‫شخص يسير: نوع جلد 1–2</annotation>
 		<annotation cp="🚶🏼">سير | مشي | نوع جلد 3</annotation>
-		<annotation cp="🚶🏼" type="tts">مشاة: نوع جلد 3</annotation>
+		<annotation cp="🚶🏼" type="tts">‫شخص يسير: نوع جلد 3</annotation>
 		<annotation cp="🚶🏽">سير | مشي | نوع جلد 4</annotation>
-		<annotation cp="🚶🏽" type="tts">مشاة: نوع جلد 4</annotation>
+		<annotation cp="🚶🏽" type="tts">‫شخص يسير: نوع جلد 4</annotation>
 		<annotation cp="🚶🏾">سير | مشي | نوع جلد 5</annotation>
-		<annotation cp="🚶🏾" type="tts">مشاة: نوع جلد 5</annotation>
+		<annotation cp="🚶🏾" type="tts">‫شخص يسير: نوع جلد 5</annotation>
 		<annotation cp="🚶🏿">سير | مشي | نوع جلد 6</annotation>
-		<annotation cp="🚶🏿" type="tts">مشاة: نوع جلد 6</annotation>
+		<annotation cp="🚶🏿" type="tts">‫شخص يسير: نوع جلد 6</annotation>
 		<annotation cp="🚶🏻‍♂">سائر | ماشٍ | مترجل | نوع جلد 1–2</annotation>
 		<annotation cp="🚶🏻‍♂" type="tts">سائر: نوع جلد 1–2</annotation>
 		<annotation cp="🚶🏼‍♂">سائر | ماشٍ | مترجل | نوع جلد 3</annotation>
@@ -1053,15 +1263,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶🏿‍♀">سائرة | ماشية | مترجلة | نوع جلد 6</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">سائرة: نوع جلد 6</annotation>
 		<annotation cp="🏃🏻">رياضة | ماراثون | نوع جلد 1–2</annotation>
-		<annotation cp="🏃🏻" type="tts">جري: نوع جلد 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">‫شخص يجري: نوع جلد 1–2</annotation>
 		<annotation cp="🏃🏼">رياضة | ماراثون | نوع جلد 3</annotation>
-		<annotation cp="🏃🏼" type="tts">جري: نوع جلد 3</annotation>
+		<annotation cp="🏃🏼" type="tts">‫شخص يجري: نوع جلد 3</annotation>
 		<annotation cp="🏃🏽">رياضة | ماراثون | نوع جلد 4</annotation>
-		<annotation cp="🏃🏽" type="tts">جري: نوع جلد 4</annotation>
+		<annotation cp="🏃🏽" type="tts">‫شخص يجري: نوع جلد 4</annotation>
 		<annotation cp="🏃🏾">رياضة | ماراثون | نوع جلد 5</annotation>
-		<annotation cp="🏃🏾" type="tts">جري: نوع جلد 5</annotation>
+		<annotation cp="🏃🏾" type="tts">‫شخص يجري: نوع جلد 5</annotation>
 		<annotation cp="🏃🏿">رياضة | ماراثون | نوع جلد 6</annotation>
-		<annotation cp="🏃🏿" type="tts">جري: نوع جلد 6</annotation>
+		<annotation cp="🏃🏿" type="tts">‫شخص يجري: نوع جلد 6</annotation>
 		<annotation cp="🏃🏻‍♂">يجري | يركض | يعدو | نوع جلد 1–2</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">راكض: نوع جلد 1–2</annotation>
 		<annotation cp="🏃🏼‍♂">يجري | يركض | يعدو | نوع جلد 3</annotation>
@@ -1102,16 +1312,106 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">رجل يرقص: نوع جلد 5</annotation>
 		<annotation cp="🕺🏿">راقص | رجل | نوع جلد 6</annotation>
 		<annotation cp="🕺🏿" type="tts">رجل يرقص: نوع جلد 6</annotation>
+		<annotation cp="🧖🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧖🏻" type="tts">شخص في حمّام بخار: نوع جلد 1–2</annotation>
+		<annotation cp="🧖🏼">نوع جلد 3</annotation>
+		<annotation cp="🧖🏼" type="tts">شخص في حمّام بخار: نوع جلد 3</annotation>
+		<annotation cp="🧖🏽">نوع جلد 4</annotation>
+		<annotation cp="🧖🏽" type="tts">شخص في حمّام بخار: نوع جلد 4</annotation>
+		<annotation cp="🧖🏾">نوع جلد 5</annotation>
+		<annotation cp="🧖🏾" type="tts">شخص في حمّام بخار: نوع جلد 5</annotation>
+		<annotation cp="🧖🏿">نوع جلد 6</annotation>
+		<annotation cp="🧖🏿" type="tts">شخص في حمّام بخار: نوع جلد 6</annotation>
+		<annotation cp="🧖🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">امرأة في حمّام بخار: نوع جلد 1–2</annotation>
+		<annotation cp="🧖🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">امرأة في حمّام بخار: نوع جلد 3</annotation>
+		<annotation cp="🧖🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">امرأة في حمّام بخار: نوع جلد 4</annotation>
+		<annotation cp="🧖🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">امرأة في حمّام بخار: نوع جلد 5</annotation>
+		<annotation cp="🧖🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">امرأة في حمّام بخار: نوع جلد 6</annotation>
+		<annotation cp="🧖🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">رجل في حمّام بخار: نوع جلد 1–2</annotation>
+		<annotation cp="🧖🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">رجل في حمّام بخار: نوع جلد 3</annotation>
+		<annotation cp="🧖🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">رجل في حمّام بخار: نوع جلد 4</annotation>
+		<annotation cp="🧖🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">رجل في حمّام بخار: نوع جلد 5</annotation>
+		<annotation cp="🧖🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">رجل في حمّام بخار: نوع جلد 6</annotation>
+		<annotation cp="🧗🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧗🏻" type="tts">شخص يتسلّق: نوع جلد 1–2</annotation>
+		<annotation cp="🧗🏼">نوع جلد 3</annotation>
+		<annotation cp="🧗🏼" type="tts">شخص يتسلّق: نوع جلد 3</annotation>
+		<annotation cp="🧗🏽">نوع جلد 4</annotation>
+		<annotation cp="🧗🏽" type="tts">شخص يتسلّق: نوع جلد 4</annotation>
+		<annotation cp="🧗🏾">نوع جلد 5</annotation>
+		<annotation cp="🧗🏾" type="tts">شخص يتسلّق: نوع جلد 5</annotation>
+		<annotation cp="🧗🏿">نوع جلد 6</annotation>
+		<annotation cp="🧗🏿" type="tts">شخص يتسلّق: نوع جلد 6</annotation>
+		<annotation cp="🧗🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">امرأة تتسلّق: نوع جلد 1–2</annotation>
+		<annotation cp="🧗🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">امرأة تتسلّق: نوع جلد 3</annotation>
+		<annotation cp="🧗🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">امرأة تتسلّق: نوع جلد 4</annotation>
+		<annotation cp="🧗🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">امرأة تتسلّق: نوع جلد 5</annotation>
+		<annotation cp="🧗🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">امرأة تتسلّق: نوع جلد 6</annotation>
+		<annotation cp="🧗🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">رجل يتسلّق: نوع جلد 1–2</annotation>
+		<annotation cp="🧗🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">رجل يتسلّق: نوع جلد 3</annotation>
+		<annotation cp="🧗🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">رجل يتسلّق: نوع جلد 4</annotation>
+		<annotation cp="🧗🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">رجل يتسلّق: نوع جلد 5</annotation>
+		<annotation cp="🧗🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">رجل يتسلّق: نوع جلد 6</annotation>
+		<annotation cp="🧘🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🧘🏻" type="tts">شخص متربّع: نوع جلد 1–2</annotation>
+		<annotation cp="🧘🏼">نوع جلد 3</annotation>
+		<annotation cp="🧘🏼" type="tts">شخص متربّع: نوع جلد 3</annotation>
+		<annotation cp="🧘🏽">نوع جلد 4</annotation>
+		<annotation cp="🧘🏽" type="tts">شخص متربّع: نوع جلد 4</annotation>
+		<annotation cp="🧘🏾">نوع جلد 5</annotation>
+		<annotation cp="🧘🏾" type="tts">شخص متربّع: نوع جلد 5</annotation>
+		<annotation cp="🧘🏿">نوع جلد 6</annotation>
+		<annotation cp="🧘🏿" type="tts">شخص متربّع: نوع جلد 6</annotation>
+		<annotation cp="🧘🏻‍♀">نوع جلد 1–2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">امرأة متربّعة: نوع جلد 1–2</annotation>
+		<annotation cp="🧘🏼‍♀">نوع جلد 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">امرأة متربّعة: نوع جلد 3</annotation>
+		<annotation cp="🧘🏽‍♀">نوع جلد 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">امرأة متربّعة: نوع جلد 4</annotation>
+		<annotation cp="🧘🏾‍♀">نوع جلد 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">امرأة متربّعة: نوع جلد 5</annotation>
+		<annotation cp="🧘🏿‍♀">نوع جلد 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">امرأة متربّعة: نوع جلد 6</annotation>
+		<annotation cp="🧘🏻‍♂">نوع جلد 1–2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">رجل متربّع: نوع جلد 1–2</annotation>
+		<annotation cp="🧘🏼‍♂">نوع جلد 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">رجل متربّع: نوع جلد 3</annotation>
+		<annotation cp="🧘🏽‍♂">نوع جلد 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">رجل متربّع: نوع جلد 4</annotation>
+		<annotation cp="🧘🏾‍♂">نوع جلد 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">رجل متربّع: نوع جلد 5</annotation>
+		<annotation cp="🧘🏿‍♂">نوع جلد 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">رجل متربّع: نوع جلد 6</annotation>
 		<annotation cp="🛀🏻">حوض استحمام | نوع جلد 1–2</annotation>
-		<annotation cp="🛀🏻" type="tts">استحمام: نوع جلد 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">‫شخص يستحم: نوع جلد 1–2</annotation>
 		<annotation cp="🛀🏼">حوض استحمام | نوع جلد 3</annotation>
-		<annotation cp="🛀🏼" type="tts">استحمام: نوع جلد 3</annotation>
+		<annotation cp="🛀🏼" type="tts">‫شخص يستحم: نوع جلد 3</annotation>
 		<annotation cp="🛀🏽">حوض استحمام | نوع جلد 4</annotation>
-		<annotation cp="🛀🏽" type="tts">استحمام: نوع جلد 4</annotation>
+		<annotation cp="🛀🏽" type="tts">‫شخص يستحم: نوع جلد 4</annotation>
 		<annotation cp="🛀🏾">حوض استحمام | نوع جلد 5</annotation>
-		<annotation cp="🛀🏾" type="tts">استحمام: نوع جلد 5</annotation>
+		<annotation cp="🛀🏾" type="tts">‫شخص يستحم: نوع جلد 5</annotation>
 		<annotation cp="🛀🏿">حوض استحمام | نوع جلد 6</annotation>
-		<annotation cp="🛀🏿" type="tts">استحمام: نوع جلد 6</annotation>
+		<annotation cp="🛀🏿" type="tts">‫شخص يستحم: نوع جلد 6</annotation>
 		<annotation cp="🛌🏻">فندق | نوم | نوع جلد 1–2</annotation>
 		<annotation cp="🛌🏻" type="tts">شخص على سرير: نوع جلد 1–2</annotation>
 		<annotation cp="🛌🏼">فندق | نوم | نوع جلد 3</annotation>
@@ -1183,15 +1483,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏌🏿‍♀">غولف | نوع جلد 6</annotation>
 		<annotation cp="🏌🏿‍♀" type="tts">لاعبة غولف: نوع جلد 6</annotation>
 		<annotation cp="🏄🏻">رياضة | نوع جلد 1–2</annotation>
-		<annotation cp="🏄🏻" type="tts">ركوب أمواج: نوع جلد 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">‫شخص يركب أمواج: نوع جلد 1–2</annotation>
 		<annotation cp="🏄🏼">رياضة | نوع جلد 3</annotation>
-		<annotation cp="🏄🏼" type="tts">ركوب أمواج: نوع جلد 3</annotation>
+		<annotation cp="🏄🏼" type="tts">‫شخص يركب أمواج: نوع جلد 3</annotation>
 		<annotation cp="🏄🏽">رياضة | نوع جلد 4</annotation>
-		<annotation cp="🏄🏽" type="tts">ركوب أمواج: نوع جلد 4</annotation>
+		<annotation cp="🏄🏽" type="tts">‫شخص يركب أمواج: نوع جلد 4</annotation>
 		<annotation cp="🏄🏾">رياضة | نوع جلد 5</annotation>
-		<annotation cp="🏄🏾" type="tts">ركوب أمواج: نوع جلد 5</annotation>
+		<annotation cp="🏄🏾" type="tts">‫شخص يركب أمواج: نوع جلد 5</annotation>
 		<annotation cp="🏄🏿">رياضة | نوع جلد 6</annotation>
-		<annotation cp="🏄🏿" type="tts">ركوب أمواج: نوع جلد 6</annotation>
+		<annotation cp="🏄🏿" type="tts">‫شخص يركب أمواج: نوع جلد 6</annotation>
 		<annotation cp="🏄🏻‍♂">تزلج | ركوب أمواج | نوع جلد 1–2</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">راكب أمواج: نوع جلد 1–2</annotation>
 		<annotation cp="🏄🏼‍♂">تزلج | ركوب أمواج | نوع جلد 3</annotation>
@@ -1213,15 +1513,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏄🏿‍♀">ركوب أمواج | سيدة | نوع جلد 6</annotation>
 		<annotation cp="🏄🏿‍♀" type="tts">راكبة أمواج: نوع جلد 6</annotation>
 		<annotation cp="🚣🏻">قارب | مركبة | نوع جلد 1–2</annotation>
-		<annotation cp="🚣🏻" type="tts">زورق تجديف: نوع جلد 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">‫‫شخص يجدف بزورق: نوع جلد 1–2</annotation>
 		<annotation cp="🚣🏼">قارب | مركبة | نوع جلد 3</annotation>
-		<annotation cp="🚣🏼" type="tts">زورق تجديف: نوع جلد 3</annotation>
+		<annotation cp="🚣🏼" type="tts">‫‫شخص يجدف بزورق: نوع جلد 3</annotation>
 		<annotation cp="🚣🏽">قارب | مركبة | نوع جلد 4</annotation>
-		<annotation cp="🚣🏽" type="tts">زورق تجديف: نوع جلد 4</annotation>
+		<annotation cp="🚣🏽" type="tts">‫‫شخص يجدف بزورق: نوع جلد 4</annotation>
 		<annotation cp="🚣🏾">قارب | مركبة | نوع جلد 5</annotation>
-		<annotation cp="🚣🏾" type="tts">زورق تجديف: نوع جلد 5</annotation>
+		<annotation cp="🚣🏾" type="tts">‫‫شخص يجدف بزورق: نوع جلد 5</annotation>
 		<annotation cp="🚣🏿">قارب | مركبة | نوع جلد 6</annotation>
-		<annotation cp="🚣🏿" type="tts">زورق تجديف: نوع جلد 6</annotation>
+		<annotation cp="🚣🏿" type="tts">‫‫شخص يجدف بزورق: نوع جلد 6</annotation>
 		<annotation cp="🚣🏻‍♂">تجديف | قارب | نوع جلد 1–2</annotation>
 		<annotation cp="🚣🏻‍♂" type="tts">رجل يجدف بقارب: نوع جلد 1–2</annotation>
 		<annotation cp="🚣🏼‍♂">تجديف | قارب | نوع جلد 3</annotation>
@@ -1363,15 +1663,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚴🏿‍♀">دراجة | نوع جلد 6</annotation>
 		<annotation cp="🚴🏿‍♀" type="tts">راكبة دراجة: نوع جلد 6</annotation>
 		<annotation cp="🚵🏻">جبال | دراجة | نوع جلد 1–2</annotation>
-		<annotation cp="🚵🏻" type="tts">راكب دراجة في الجبال: نوع جلد 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">شخص يركب دراجة في الجبال: نوع جلد 1–2</annotation>
 		<annotation cp="🚵🏼">جبال | دراجة | نوع جلد 3</annotation>
-		<annotation cp="🚵🏼" type="tts">راكب دراجة في الجبال: نوع جلد 3</annotation>
+		<annotation cp="🚵🏼" type="tts">شخص يركب دراجة في الجبال: نوع جلد 3</annotation>
 		<annotation cp="🚵🏽">جبال | دراجة | نوع جلد 4</annotation>
-		<annotation cp="🚵🏽" type="tts">راكب دراجة في الجبال: نوع جلد 4</annotation>
+		<annotation cp="🚵🏽" type="tts">شخص يركب دراجة في الجبال: نوع جلد 4</annotation>
 		<annotation cp="🚵🏾">جبال | دراجة | نوع جلد 5</annotation>
-		<annotation cp="🚵🏾" type="tts">راكب دراجة في الجبال: نوع جلد 5</annotation>
+		<annotation cp="🚵🏾" type="tts">شخص يركب دراجة في الجبال: نوع جلد 5</annotation>
 		<annotation cp="🚵🏿">جبال | دراجة | نوع جلد 6</annotation>
-		<annotation cp="🚵🏿" type="tts">راكب دراجة في الجبال: نوع جلد 6</annotation>
+		<annotation cp="🚵🏿" type="tts">شخص يركب دراجة في الجبال: نوع جلد 6</annotation>
 		<annotation cp="🚵🏻‍♂">جبال | دراجة | صعود | نوع جلد 1–2</annotation>
 		<annotation cp="🚵🏻‍♂" type="tts">متسلق جبال بدراجة: نوع جلد 1–2</annotation>
 		<annotation cp="🚵🏼‍♂">جبال | دراجة | صعود | نوع جلد 3</annotation>
@@ -1393,15 +1693,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵🏿‍♀">جبال | دراجة | صعود | نوع جلد 6</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">متسلقة جبال بدراجة: نوع جلد 6</annotation>
 		<annotation cp="🤸🏻">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 1–2</annotation>
-		<annotation cp="🤸🏻" type="tts">حركة العجلة: نوع جلد 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">‫شخص يؤدي حركة العجلة: نوع جلد 1–2</annotation>
 		<annotation cp="🤸🏼">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 3</annotation>
-		<annotation cp="🤸🏼" type="tts">حركة العجلة: نوع جلد 3</annotation>
+		<annotation cp="🤸🏼" type="tts">‫شخص يؤدي حركة العجلة: نوع جلد 3</annotation>
 		<annotation cp="🤸🏽">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 4</annotation>
-		<annotation cp="🤸🏽" type="tts">حركة العجلة: نوع جلد 4</annotation>
+		<annotation cp="🤸🏽" type="tts">‫شخص يؤدي حركة العجلة: نوع جلد 4</annotation>
 		<annotation cp="🤸🏾">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 5</annotation>
-		<annotation cp="🤸🏾" type="tts">حركة العجلة: نوع جلد 5</annotation>
+		<annotation cp="🤸🏾" type="tts">‫شخص يؤدي حركة العجلة: نوع جلد 5</annotation>
 		<annotation cp="🤸🏿">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 6</annotation>
-		<annotation cp="🤸🏿" type="tts">حركة العجلة: نوع جلد 6</annotation>
+		<annotation cp="🤸🏿" type="tts">‫شخص يؤدي حركة العجلة: نوع جلد 6</annotation>
 		<annotation cp="🤸🏻‍♂">جمباز | رياضة | عجلة | نوع جلد 1–2</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">رجل يفعل حركة العجلة: نوع جلد 1–2</annotation>
 		<annotation cp="🤸🏼‍♂">جمباز | رياضة | عجلة | نوع جلد 3</annotation>
@@ -1423,15 +1723,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤸🏿‍♀">جمباز | رياضة | عجلة | نوع جلد 6</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">سيدة تفعل حركة العجلة: نوع جلد 6</annotation>
 		<annotation cp="🤽🏻">رياضة | شخص | كرة ماء | ماء | نوع جلد 1–2</annotation>
-		<annotation cp="🤽🏻" type="tts">كرة الماء: نوع جلد 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">‫شخص يلعب كرة ماء: نوع جلد 1–2</annotation>
 		<annotation cp="🤽🏼">رياضة | شخص | كرة ماء | ماء | نوع جلد 3</annotation>
-		<annotation cp="🤽🏼" type="tts">كرة الماء: نوع جلد 3</annotation>
+		<annotation cp="🤽🏼" type="tts">‫شخص يلعب كرة ماء: نوع جلد 3</annotation>
 		<annotation cp="🤽🏽">رياضة | شخص | كرة ماء | ماء | نوع جلد 4</annotation>
-		<annotation cp="🤽🏽" type="tts">كرة الماء: نوع جلد 4</annotation>
+		<annotation cp="🤽🏽" type="tts">‫شخص يلعب كرة ماء: نوع جلد 4</annotation>
 		<annotation cp="🤽🏾">رياضة | شخص | كرة ماء | ماء | نوع جلد 5</annotation>
-		<annotation cp="🤽🏾" type="tts">كرة الماء: نوع جلد 5</annotation>
+		<annotation cp="🤽🏾" type="tts">‫شخص يلعب كرة ماء: نوع جلد 5</annotation>
 		<annotation cp="🤽🏿">رياضة | شخص | كرة ماء | ماء | نوع جلد 6</annotation>
-		<annotation cp="🤽🏿" type="tts">كرة الماء: نوع جلد 6</annotation>
+		<annotation cp="🤽🏿" type="tts">‫شخص يلعب كرة ماء: نوع جلد 6</annotation>
 		<annotation cp="🤽🏻‍♂">رياضة | كرة ماء | نوع جلد 1–2</annotation>
 		<annotation cp="🤽🏻‍♂" type="tts">لاعب كرة ماء: نوع جلد 1–2</annotation>
 		<annotation cp="🤽🏼‍♂">رياضة | كرة ماء | نوع جلد 3</annotation>
@@ -1453,15 +1753,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤽🏿‍♀">رياضة | كرة ماء | نوع جلد 6</annotation>
 		<annotation cp="🤽🏿‍♀" type="tts">لاعبة كرة ماء: نوع جلد 6</annotation>
 		<annotation cp="🤾🏻">رياضة | شخص | كرة | كرة يد | نوع جلد 1–2</annotation>
-		<annotation cp="🤾🏻" type="tts">كرة يد: نوع جلد 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">‫شخص يلعب كرة يد: نوع جلد 1–2</annotation>
 		<annotation cp="🤾🏼">رياضة | شخص | كرة | كرة يد | نوع جلد 3</annotation>
-		<annotation cp="🤾🏼" type="tts">كرة يد: نوع جلد 3</annotation>
+		<annotation cp="🤾🏼" type="tts">‫شخص يلعب كرة يد: نوع جلد 3</annotation>
 		<annotation cp="🤾🏽">رياضة | شخص | كرة | كرة يد | نوع جلد 4</annotation>
-		<annotation cp="🤾🏽" type="tts">كرة يد: نوع جلد 4</annotation>
+		<annotation cp="🤾🏽" type="tts">‫شخص يلعب كرة يد: نوع جلد 4</annotation>
 		<annotation cp="🤾🏾">رياضة | شخص | كرة | كرة يد | نوع جلد 5</annotation>
-		<annotation cp="🤾🏾" type="tts">كرة يد: نوع جلد 5</annotation>
+		<annotation cp="🤾🏾" type="tts">‫شخص يلعب كرة يد: نوع جلد 5</annotation>
 		<annotation cp="🤾🏿">رياضة | شخص | كرة | كرة يد | نوع جلد 6</annotation>
-		<annotation cp="🤾🏿" type="tts">كرة يد: نوع جلد 6</annotation>
+		<annotation cp="🤾🏿" type="tts">‫شخص يلعب كرة يد: نوع جلد 6</annotation>
 		<annotation cp="🤾🏻‍♂">رياضة | كرة يد | نوع جلد 1–2</annotation>
 		<annotation cp="🤾🏻‍♂" type="tts">لاعب كرة يد: نوع جلد 1–2</annotation>
 		<annotation cp="🤾🏼‍♂">رياضة | كرة يد | نوع جلد 3</annotation>
@@ -1483,15 +1783,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤾🏿‍♀">رياضة | كرة يد | نوع جلد 6</annotation>
 		<annotation cp="🤾🏿‍♀" type="tts">لاعبة كرة يد: نوع جلد 6</annotation>
 		<annotation cp="🤹🏻">بهلوان | توازن | مهارة | نوع جلد 1–2</annotation>
-		<annotation cp="🤹🏻" type="tts">ألعاب بهلوانية: نوع جلد 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">‫شخص يؤدي ألعابًا بهلوانية: نوع جلد 1–2</annotation>
 		<annotation cp="🤹🏼">بهلوان | توازن | مهارة | نوع جلد 3</annotation>
-		<annotation cp="🤹🏼" type="tts">ألعاب بهلوانية: نوع جلد 3</annotation>
+		<annotation cp="🤹🏼" type="tts">‫شخص يؤدي ألعابًا بهلوانية: نوع جلد 3</annotation>
 		<annotation cp="🤹🏽">بهلوان | توازن | مهارة | نوع جلد 4</annotation>
-		<annotation cp="🤹🏽" type="tts">ألعاب بهلوانية: نوع جلد 4</annotation>
+		<annotation cp="🤹🏽" type="tts">‫شخص يؤدي ألعابًا بهلوانية: نوع جلد 4</annotation>
 		<annotation cp="🤹🏾">بهلوان | توازن | مهارة | نوع جلد 5</annotation>
-		<annotation cp="🤹🏾" type="tts">ألعاب بهلوانية: نوع جلد 5</annotation>
+		<annotation cp="🤹🏾" type="tts">‫شخص يؤدي ألعابًا بهلوانية: نوع جلد 5</annotation>
 		<annotation cp="🤹🏿">بهلوان | توازن | مهارة | نوع جلد 6</annotation>
-		<annotation cp="🤹🏿" type="tts">ألعاب بهلوانية: نوع جلد 6</annotation>
+		<annotation cp="🤹🏿" type="tts">‫شخص يؤدي ألعابًا بهلوانية: نوع جلد 6</annotation>
 		<annotation cp="🤹🏻‍♂">خدع | مهام متعددة | نوع جلد 1–2</annotation>
 		<annotation cp="🤹🏻‍♂" type="tts">لاعب قذف الكرات: نوع جلد 1–2</annotation>
 		<annotation cp="🤹🏼‍♂">خدع | مهام متعددة | نوع جلد 3</annotation>
@@ -1524,56 +1824,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍❤‍👨" type="tts">زوج وقلب: رجل ورجل</annotation>
 		<annotation cp="👩‍❤‍👩">أشخاص | رومانسية | قلب | سيدة</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">زوج وقلب: سيدة وسيدة</annotation>
-		<annotation cp="👨‍👩‍👦">أب | أم | صبي | طفل</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">عائلة، رجل، سيدة، صبي</annotation>
-		<annotation cp="👨‍👩‍👧">أب | أم | طفل | فتاة</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">عائلة، رجل، سيدة، فتاة</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">أب أم | طفل | طفلة</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">عائلة، رجل، سيدة، فتاة، صبي</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">أب | أم | صبي | طفل</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">عائلة، رجل، سيدة، صبي، صبي</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">أب | أم | طفلة</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">عائلة، رجل، سيدة، فتاة، فتاة</annotation>
-		<annotation cp="👨‍👨‍👦">أب | صبي | طفل</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">عائلة، رجل، رجل، صبي</annotation>
-		<annotation cp="👨‍👨‍👧">أب | طفلة</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">عائلة، رجل، رجل، فتاة</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">أب | صبي | طفل</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">عائلة، رجل، رجل، فتاة، صبي</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">أب | صبي | طفل</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">عائلة، رجل، رجل، صبي، صبي</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">أب | ابن | طفل</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">عائلة، رجل، رجل، فتاة، فتاة</annotation>
-		<annotation cp="👩‍👩‍👦">أم | ابن | طفل</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">عائلة، سيدة، سيدة، طفل</annotation>
-		<annotation cp="👩‍👩‍👧">سيدة | طفل | فتاة</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">عائلة، سيدة، سيدة، فتاة</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">أم | ابن | صبي</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">عائلة، سيدة، سيدة، فتاة، صبي</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">سيدة | صبي | طفل | عائلة</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">عائلة، سيدة، سيدة، صبي، صبي</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">أم | طفلة</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">عائلة، سيدة، فتاة، فتاة</annotation>
-		<annotation cp="👨‍👦">أب | أم | ابن | طفل</annotation>
-		<annotation cp="👨‍👦" type="tts">عائلة، رجل، ابن</annotation>
-		<annotation cp="👨‍👦‍👦">ابن | صبي | طفل | عائلة</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">عائلة، رجل، صبي، صبي</annotation>
-		<annotation cp="👨‍👧">ابنة | طفلة | عائلة</annotation>
-		<annotation cp="👨‍👧" type="tts">عائلة، رجل، فتاة</annotation>
-		<annotation cp="👨‍👧‍👦">أب | صبي | طفل</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">عائلة، رجل، فتاة، صبي</annotation>
-		<annotation cp="👨‍👧‍👧">أب | طفل</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">عائلة، رجل، فتاة، فتاة</annotation>
-		<annotation cp="👩‍👦">أم | صبي | طفل</annotation>
-		<annotation cp="👩‍👦" type="tts">عائلة، سيدة، صبي</annotation>
-		<annotation cp="👩‍👦‍👦">أم | صبي | طفل</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">عائلة، سيدة، صبي، صبي</annotation>
-		<annotation cp="👩‍👧">أم | ابن | سيدة</annotation>
-		<annotation cp="👩‍👧" type="tts">عائلة، سيدة، فتاة</annotation>
-		<annotation cp="👩‍👧‍👦">أم | صبي | طفل</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">عائلة، سيدة، فتاة، صبي</annotation>
-		<annotation cp="👩‍👧‍👧">أم | سيدة | طفل</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">عائلة، امرأة، فتاة، فتاة</annotation>
+		<annotation cp="👨‍👩‍👦">أب | أشخاص | أم | طفل | رجل | سيدة | صبي</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">أسرة: رجل وسيدة وصبي</annotation>
+		<annotation cp="👨‍👩‍👧">أب | أشخاص | أم | طفل | رجل | سيدة | فتاة</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">أسرة: رجل وسيدة وفتاة</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">أب | أشخاص | أم | طفل | رجل | سيدة | فتاة | صبي</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">أسرة: رجل وسيدة وفتاة وصبي</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">أب | أشخاص | أم | طفل | رجل | سيدة | صبي</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">أسرة: رجل وسيدة وصبي وصبي</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">أب | أشخاص | أم | طفل | رجل | سيدة | فتاة</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">أسرة: رجل وسيدة وفتاة وفتاة</annotation>
+		<annotation cp="👨‍👨‍👦">أب | أشخاص | أم | طفل | رجل | صبي</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">أسرة: رجل ورجل وصبي</annotation>
+		<annotation cp="👨‍👨‍👧">أب | أشخاص | أم | طفل | رجل | فتاة</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">أسرة: رجل ورجل وفتاة</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">أب | أشخاص | أم | طفل | رجل | فتاة | صبي</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">أسرة: رجل ورجل وفتاة وصبي</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">أب | أشخاص | أم | طفل | رجل | صبي</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">أسرة: رجل ورجل وصبي وصبي</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">أب | أشخاص | أم | طفل | رجل | فتاة</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">أسرة: رجل ورجل وفتاة وفتاة</annotation>
+		<annotation cp="👩‍👩‍👦">أب | أشخاص | أم | طفل | سيدة | صبي</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">أسرة: سيدة وسيدة وصبي</annotation>
+		<annotation cp="👩‍👩‍👧">أب | أشخاص | أم | طفل | سيدة | فتاة</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">أسرة: سيدة وسيدة وفتاة</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">أب | أشخاص | أم | طفل | سيدة | فتاة | صبي</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">أسرة: سيدة وسيدة وفتاة وصبي</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">أب | أشخاص | أم | طفل | سيدة | صبي</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">أسرة: سيدة وسيدة وصبي وصبي</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">أب | أشخاص | أم | طفل | سيدة | فتاة</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">أسرة: سيدة وسيدة وفتاة وفتاة</annotation>
+		<annotation cp="👨‍👦">أب | أشخاص | أم | طفل | رجل | صبي</annotation>
+		<annotation cp="👨‍👦" type="tts">أسرة: رجل وصبي</annotation>
+		<annotation cp="👨‍👦‍👦">أب | أشخاص | أم | طفل | رجل | صبي</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">أسرة: رجل وصبي وصبي</annotation>
+		<annotation cp="👨‍👧">أب | أشخاص | أم | طفل | رجل | فتاة</annotation>
+		<annotation cp="👨‍👧" type="tts">أسرة: رجل وفتاة</annotation>
+		<annotation cp="👨‍👧‍👦">أب | أشخاص | أم | طفل | رجل | فتاة | صبي</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">أسرة: رجل وفتاة وصبي</annotation>
+		<annotation cp="👨‍👧‍👧">أب | أشخاص | أم | طفل | رجل | فتاة</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">أسرة: رجل وفتاة وفتاة</annotation>
+		<annotation cp="👩‍👦">أب | أشخاص | أم | طفل | سيدة | صبي</annotation>
+		<annotation cp="👩‍👦" type="tts">أسرة: سيدة وصبي</annotation>
+		<annotation cp="👩‍👦‍👦">أب | أشخاص | أم | طفل | سيدة | صبي</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">أسرة: سيدة وصبي وصبي</annotation>
+		<annotation cp="👩‍👧">أب | أشخاص | أم | طفل | سيدة | فتاة</annotation>
+		<annotation cp="👩‍👧" type="tts">أسرة: سيدة وفتاة</annotation>
+		<annotation cp="👩‍👧‍👦">أب | أشخاص | أم | طفل | سيدة | فتاة | صبي</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">أسرة: سيدة وفتاة وصبي</annotation>
+		<annotation cp="👩‍👧‍👧">أب | أشخاص | أم | طفل | سيدة | فتاة</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">أسرة: سيدة وفتاة وفتاة</annotation>
 		<annotation cp="🤳🏻">صورة ذاتيىة | كاميرا | هاتف | نوع جلد 1–2</annotation>
 		<annotation cp="🤳🏻" type="tts">صورة ذاتية: نوع جلد 1–2</annotation>
 		<annotation cp="🤳🏼">صورة ذاتيىة | كاميرا | هاتف | نوع جلد 3</annotation>
@@ -1615,15 +1915,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👉🏿">إصبع | السبابة | نوع جلد 6</annotation>
 		<annotation cp="👉🏿" type="tts">إصبع لليمين: نوع جلد 6</annotation>
 		<annotation cp="☝🏻">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 1–2</annotation>
-		<annotation cp="☝🏻" type="tts">سبابة لأعلى: نوع جلد 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">سبابة يشير لأعلى: نوع جلد 1–2</annotation>
 		<annotation cp="☝🏼">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 3</annotation>
-		<annotation cp="☝🏼" type="tts">سبابة لأعلى: نوع جلد 3</annotation>
+		<annotation cp="☝🏼" type="tts">سبابة يشير لأعلى: نوع جلد 3</annotation>
 		<annotation cp="☝🏽">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 4</annotation>
-		<annotation cp="☝🏽" type="tts">سبابة لأعلى: نوع جلد 4</annotation>
+		<annotation cp="☝🏽" type="tts">سبابة يشير لأعلى: نوع جلد 4</annotation>
 		<annotation cp="☝🏾">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 5</annotation>
-		<annotation cp="☝🏾" type="tts">سبابة لأعلى: نوع جلد 5</annotation>
+		<annotation cp="☝🏾" type="tts">سبابة يشير لأعلى: نوع جلد 5</annotation>
 		<annotation cp="☝🏿">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 6</annotation>
-		<annotation cp="☝🏿" type="tts">سبابة لأعلى: نوع جلد 6</annotation>
+		<annotation cp="☝🏿" type="tts">سبابة يشير لأعلى: نوع جلد 6</annotation>
 		<annotation cp="👆🏻">إصبع | السبابة | نوع جلد 1–2</annotation>
 		<annotation cp="👆🏻" type="tts">إصبع لأعلى: نوع جلد 1–2</annotation>
 		<annotation cp="👆🏼">إصبع | السبابة | نوع جلد 3</annotation>
@@ -1725,15 +2025,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋🏿">جسد | قبضة | يد | نوع جلد 6</annotation>
 		<annotation cp="✋🏿" type="tts">يد مرفوعة: نوع جلد 6</annotation>
 		<annotation cp="👌🏻">علامة | موافقة | نوع جلد 1–2</annotation>
-		<annotation cp="👌🏻" type="tts">علامة موافق: نوع جلد 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">يد تشير للموافقة: نوع جلد 1–2</annotation>
 		<annotation cp="👌🏼">علامة | موافقة | نوع جلد 3</annotation>
-		<annotation cp="👌🏼" type="tts">علامة موافق: نوع جلد 3</annotation>
+		<annotation cp="👌🏼" type="tts">يد تشير للموافقة: نوع جلد 3</annotation>
 		<annotation cp="👌🏽">علامة | موافقة | نوع جلد 4</annotation>
-		<annotation cp="👌🏽" type="tts">علامة موافق: نوع جلد 4</annotation>
+		<annotation cp="👌🏽" type="tts">يد تشير للموافقة: نوع جلد 4</annotation>
 		<annotation cp="👌🏾">علامة | موافقة | نوع جلد 5</annotation>
-		<annotation cp="👌🏾" type="tts">علامة موافق: نوع جلد 5</annotation>
+		<annotation cp="👌🏾" type="tts">يد تشير للموافقة: نوع جلد 5</annotation>
 		<annotation cp="👌🏿">علامة | موافقة | نوع جلد 6</annotation>
-		<annotation cp="👌🏿" type="tts">علامة موافق: نوع جلد 6</annotation>
+		<annotation cp="👌🏿" type="tts">يد تشير للموافقة: نوع جلد 6</annotation>
 		<annotation cp="👍🏻">أعلى | إبهام | علامة | يد | نوع جلد 1–2</annotation>
 		<annotation cp="👍🏻" type="tts">قبول: نوع جلد 1–2</annotation>
 		<annotation cp="👍🏼">أعلى | إبهام | علامة | يد | نوع جلد 3</annotation>
@@ -1795,15 +2095,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤜🏿">قبضة | يمين | نوع جلد 6</annotation>
 		<annotation cp="🤜🏿" type="tts">قبضة لليمين: نوع جلد 6</annotation>
 		<annotation cp="🤚🏻">ظاهر يد | مرفوع | نوع جلد 1–2</annotation>
-		<annotation cp="🤚🏻" type="tts">ظاهر يد مرفوع: نوع جلد 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">‫ظهر يد مرفوعة: نوع جلد 1–2</annotation>
 		<annotation cp="🤚🏼">ظاهر يد | مرفوع | نوع جلد 3</annotation>
-		<annotation cp="🤚🏼" type="tts">ظاهر يد مرفوع: نوع جلد 3</annotation>
+		<annotation cp="🤚🏼" type="tts">‫ظهر يد مرفوعة: نوع جلد 3</annotation>
 		<annotation cp="🤚🏽">ظاهر يد | مرفوع | نوع جلد 4</annotation>
-		<annotation cp="🤚🏽" type="tts">ظاهر يد مرفوع: نوع جلد 4</annotation>
+		<annotation cp="🤚🏽" type="tts">‫ظهر يد مرفوعة: نوع جلد 4</annotation>
 		<annotation cp="🤚🏾">ظاهر يد | مرفوع | نوع جلد 5</annotation>
-		<annotation cp="🤚🏾" type="tts">ظاهر يد مرفوع: نوع جلد 5</annotation>
+		<annotation cp="🤚🏾" type="tts">‫ظهر يد مرفوعة: نوع جلد 5</annotation>
 		<annotation cp="🤚🏿">ظاهر يد | مرفوع | نوع جلد 6</annotation>
-		<annotation cp="🤚🏿" type="tts">ظاهر يد مرفوع: نوع جلد 6</annotation>
+		<annotation cp="🤚🏿" type="tts">‫ظهر يد مرفوعة: نوع جلد 6</annotation>
 		<annotation cp="👋🏻">تلويح | يد | نوع جلد 1–2</annotation>
 		<annotation cp="👋🏻" type="tts">تلويح باليد: نوع جلد 1–2</annotation>
 		<annotation cp="👋🏼">تلويح | يد | نوع جلد 3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">تلويح باليد: نوع جلد 5</annotation>
 		<annotation cp="👋🏿">تلويح | يد | نوع جلد 6</annotation>
 		<annotation cp="👋🏿" type="tts">تلويح باليد: نوع جلد 6</annotation>
+		<annotation cp="🤟🏻">نوع جلد 1–2</annotation>
+		<annotation cp="🤟🏻" type="tts">إشارة أحبّك: نوع جلد 1–2</annotation>
+		<annotation cp="🤟🏼">نوع جلد 3</annotation>
+		<annotation cp="🤟🏼" type="tts">إشارة أحبّك: نوع جلد 3</annotation>
+		<annotation cp="🤟🏽">نوع جلد 4</annotation>
+		<annotation cp="🤟🏽" type="tts">إشارة أحبّك: نوع جلد 4</annotation>
+		<annotation cp="🤟🏾">نوع جلد 5</annotation>
+		<annotation cp="🤟🏾" type="tts">إشارة أحبّك: نوع جلد 5</annotation>
+		<annotation cp="🤟🏿">نوع جلد 6</annotation>
+		<annotation cp="🤟🏿" type="tts">إشارة أحبّك: نوع جلد 6</annotation>
 		<annotation cp="✍🏻">جسد | كتابة | يد | نوع جلد 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">يد كاتبة: نوع جلد 1–2</annotation>
 		<annotation cp="✍🏼">جسد | كتابة | يد | نوع جلد 3</annotation>
@@ -1825,15 +2135,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✍🏿">جسد | كتابة | يد | نوع جلد 6</annotation>
 		<annotation cp="✍🏿" type="tts">يد كاتبة: نوع جلد 6</annotation>
 		<annotation cp="👏🏻">أيادي | تصفيق | علامة | نوع جلد 1–2</annotation>
-		<annotation cp="👏🏻" type="tts">يد تصفق: نوع جلد 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">يدان تصفقان: نوع جلد 1–2</annotation>
 		<annotation cp="👏🏼">أيادي | تصفيق | علامة | نوع جلد 3</annotation>
-		<annotation cp="👏🏼" type="tts">يد تصفق: نوع جلد 3</annotation>
+		<annotation cp="👏🏼" type="tts">يدان تصفقان: نوع جلد 3</annotation>
 		<annotation cp="👏🏽">أيادي | تصفيق | علامة | نوع جلد 4</annotation>
-		<annotation cp="👏🏽" type="tts">يد تصفق: نوع جلد 4</annotation>
+		<annotation cp="👏🏽" type="tts">يدان تصفقان: نوع جلد 4</annotation>
 		<annotation cp="👏🏾">أيادي | تصفيق | علامة | نوع جلد 5</annotation>
-		<annotation cp="👏🏾" type="tts">يد تصفق: نوع جلد 5</annotation>
+		<annotation cp="👏🏾" type="tts">يدان تصفقان: نوع جلد 5</annotation>
 		<annotation cp="👏🏿">أيادي | تصفيق | علامة | نوع جلد 6</annotation>
-		<annotation cp="👏🏿" type="tts">يد تصفق: نوع جلد 6</annotation>
+		<annotation cp="👏🏿" type="tts">يدان تصفقان: نوع جلد 6</annotation>
 		<annotation cp="👐🏻">علامة | علامة فتح اليدين | مفتوحة | يد | نوع جلد 1–2</annotation>
 		<annotation cp="👐🏻" type="tts">يدان مفتوحتان: نوع جلد 1–2</annotation>
 		<annotation cp="👐🏼">علامة | علامة فتح اليدين | مفتوحة | يد | نوع جلد 3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">تشجيع: نوع جلد 5</annotation>
 		<annotation cp="🙌🏿">احتفال | اليدان | رفع اليدين احتفالاً | نوع جلد 6</annotation>
 		<annotation cp="🙌🏿" type="tts">تشجيع: نوع جلد 6</annotation>
+		<annotation cp="🤲🏻">صلاة | نوع جلد 1–2</annotation>
+		<annotation cp="🤲🏻" type="tts">راحتان مفتوحتان: نوع جلد 1–2</annotation>
+		<annotation cp="🤲🏼">صلاة | نوع جلد 3</annotation>
+		<annotation cp="🤲🏼" type="tts">راحتان مفتوحتان: نوع جلد 3</annotation>
+		<annotation cp="🤲🏽">صلاة | نوع جلد 4</annotation>
+		<annotation cp="🤲🏽" type="tts">راحتان مفتوحتان: نوع جلد 4</annotation>
+		<annotation cp="🤲🏾">صلاة | نوع جلد 5</annotation>
+		<annotation cp="🤲🏾" type="tts">راحتان مفتوحتان: نوع جلد 5</annotation>
+		<annotation cp="🤲🏿">صلاة | نوع جلد 6</annotation>
+		<annotation cp="🤲🏿" type="tts">راحتان مفتوحتان: نوع جلد 6</annotation>
 		<annotation cp="🙏🏻">أداء صلاة | إشارة | صلاة | يد | نوع جلد 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">يدان مضمومتان: نوع جلد 1–2</annotation>
 		<annotation cp="🙏🏼">أداء صلاة | إشارة | صلاة | يد | نوع جلد 3</annotation>
@@ -1895,9 +2215,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏿">جسم | وجه | نوع جلد 6</annotation>
 		<annotation cp="👃🏿" type="tts">أنف: نوع جلد 6</annotation>
 		<annotation cp="#⃣">مفتاح</annotation>
-		<annotation cp="#⃣" type="tts">شباك</annotation>
+		<annotation cp="#⃣" type="tts">مفتاح: #</annotation>
 		<annotation cp="*⃣">مفتاح</annotation>
-		<annotation cp="*⃣" type="tts">نجمة</annotation>
+		<annotation cp="*⃣" type="tts">مفتاح: *</annotation>
+		<annotation cp="🔟">مفتاح</annotation>
+		<annotation cp="🔟" type="tts">مفتاح: 10</annotation>
 		<annotation cp="🇦🇨">علم</annotation>
 		<annotation cp="🇦🇨" type="tts">جزيرة أسينشيون</annotation>
 		<annotation cp="🇦🇩">علم</annotation>
@@ -1969,7 +2291,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇻">علم</annotation>
 		<annotation cp="🇧🇻" type="tts">جزيرة بوفيه</annotation>
 		<annotation cp="🇧🇼">علم</annotation>
-		<annotation cp="🇧🇼" type="tts">بتسوانا</annotation>
+		<annotation cp="🇧🇼" type="tts">بوتسوانا</annotation>
 		<annotation cp="🇧🇾">علم</annotation>
 		<annotation cp="🇧🇾" type="tts">بيلاروس</annotation>
 		<annotation cp="🇧🇿">علم</annotation>
@@ -2009,7 +2331,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇼">علم</annotation>
 		<annotation cp="🇨🇼" type="tts">كوراساو</annotation>
 		<annotation cp="🇨🇽">علم</annotation>
-		<annotation cp="🇨🇽" type="tts">جزيرة الكريسماس</annotation>
+		<annotation cp="🇨🇽" type="tts">جزيرة كريسماس</annotation>
 		<annotation cp="🇨🇾">علم</annotation>
 		<annotation cp="🇨🇾" type="tts">قبرص</annotation>
 		<annotation cp="🇨🇿">علم</annotation>
@@ -2097,7 +2419,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇾">علم</annotation>
 		<annotation cp="🇬🇾" type="tts">غيانا</annotation>
 		<annotation cp="🇭🇰">علم</annotation>
-		<annotation cp="🇭🇰" type="tts">هونغ كونغ الصينية</annotation>
+		<annotation cp="🇭🇰" type="tts">هونغ كونغ الصينية (منطقة إدارية خاصة)</annotation>
 		<annotation cp="🇭🇲">علم</annotation>
 		<annotation cp="🇭🇲" type="tts">جزيرة هيرد وجزر ماكدونالد</annotation>
 		<annotation cp="🇭🇳">علم</annotation>
@@ -2127,7 +2449,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇮🇷">علم</annotation>
 		<annotation cp="🇮🇷" type="tts">إيران</annotation>
 		<annotation cp="🇮🇸">علم</annotation>
-		<annotation cp="🇮🇸" type="tts">أيسلندا</annotation>
+		<annotation cp="🇮🇸" type="tts">آيسلندا</annotation>
 		<annotation cp="🇮🇹">علم</annotation>
 		<annotation cp="🇮🇹" type="tts">إيطاليا</annotation>
 		<annotation cp="🇯🇪">علم</annotation>
@@ -2191,7 +2513,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇪">علم</annotation>
 		<annotation cp="🇲🇪" type="tts">الجبل الأسود</annotation>
 		<annotation cp="🇲🇫">علم</annotation>
-		<annotation cp="🇲🇫" type="tts">سانت مارتن</annotation>
+		<annotation cp="🇲🇫" type="tts">سان مارتن</annotation>
 		<annotation cp="🇲🇬">علم</annotation>
 		<annotation cp="🇲🇬" type="tts">مدغشقر</annotation>
 		<annotation cp="🇲🇭">علم</annotation>
@@ -2269,7 +2591,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇱">علم</annotation>
 		<annotation cp="🇵🇱" type="tts">بولندا</annotation>
 		<annotation cp="🇵🇲">علم</annotation>
-		<annotation cp="🇵🇲" type="tts">سانت بيير وميكولون</annotation>
+		<annotation cp="🇵🇲" type="tts">سان بيير ومكويلون</annotation>
 		<annotation cp="🇵🇳">علم</annotation>
 		<annotation cp="🇵🇳" type="tts">جزر بيتكيرن</annotation>
 		<annotation cp="🇵🇷">علم</annotation>
@@ -2307,11 +2629,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇬">علم</annotation>
 		<annotation cp="🇸🇬" type="tts">سنغافورة</annotation>
 		<annotation cp="🇸🇭">علم</annotation>
-		<annotation cp="🇸🇭" type="tts">سانت هيلانة</annotation>
+		<annotation cp="🇸🇭" type="tts">سانت هيلينا</annotation>
 		<annotation cp="🇸🇮">علم</annotation>
 		<annotation cp="🇸🇮" type="tts">سلوفينيا</annotation>
 		<annotation cp="🇸🇯">علم</annotation>
-		<annotation cp="🇸🇯" type="tts">سفالبارد وجان مايان</annotation>
+		<annotation cp="🇸🇯" type="tts">سفالبارد وجان ماين</annotation>
 		<annotation cp="🇸🇰">علم</annotation>
 		<annotation cp="🇸🇰" type="tts">سلوفاكيا</annotation>
 		<annotation cp="🇸🇱">علم</annotation>
@@ -2331,13 +2653,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇻">علم</annotation>
 		<annotation cp="🇸🇻" type="tts">السلفادور</annotation>
 		<annotation cp="🇸🇽">علم</annotation>
-		<annotation cp="🇸🇽" type="tts">سينت مارتن</annotation>
+		<annotation cp="🇸🇽" type="tts">سانت مارتن</annotation>
 		<annotation cp="🇸🇾">علم</annotation>
 		<annotation cp="🇸🇾" type="tts">سوريا</annotation>
 		<annotation cp="🇸🇿">علم</annotation>
 		<annotation cp="🇸🇿" type="tts">سوازيلاند</annotation>
 		<annotation cp="🇹🇦">علم</annotation>
-		<annotation cp="🇹🇦" type="tts">تريستان دي كونها</annotation>
+		<annotation cp="🇹🇦" type="tts">تريستان دا كونا</annotation>
 		<annotation cp="🇹🇨">علم</annotation>
 		<annotation cp="🇹🇨" type="tts">جزر توركس وكايكوس</annotation>
 		<annotation cp="🇹🇩">علم</annotation>

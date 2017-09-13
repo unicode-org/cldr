@@ -8,40 +8,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="is"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | núll | reitur</annotation>
-		<annotation cp="0⃣" type="tts">reitur fyrir núll</annotation>
-		<annotation cp="1⃣">1 | einn | reitur</annotation>
-		<annotation cp="1⃣" type="tts">reitur fyrir töluna einn</annotation>
-		<annotation cp="2⃣">2 | reitur | tveir</annotation>
-		<annotation cp="2⃣" type="tts">reitur fyrir töluna tveir</annotation>
-		<annotation cp="3⃣">3 | reitur | þrír</annotation>
-		<annotation cp="3⃣" type="tts">reitur fyrir töluna þrír</annotation>
-		<annotation cp="4⃣">4 | fjórir | reitur</annotation>
-		<annotation cp="4⃣" type="tts">reitur fyrir töluna fjórir</annotation>
-		<annotation cp="5⃣">5 | fimm | reitur</annotation>
-		<annotation cp="5⃣" type="tts">reitur fyrir töluna fimm</annotation>
-		<annotation cp="6⃣">6 | reitur | sex</annotation>
-		<annotation cp="6⃣" type="tts">reitur fyrir töluna sex</annotation>
-		<annotation cp="7⃣">7 | reitur | sjö</annotation>
-		<annotation cp="7⃣" type="tts">reitur fyrir töluna sjö</annotation>
-		<annotation cp="8⃣">8 | reitur | átta</annotation>
-		<annotation cp="8⃣" type="tts">reitur fyrir töluna átta</annotation>
-		<annotation cp="9⃣">9 | níu | reitur</annotation>
-		<annotation cp="9⃣" type="tts">reitur fyrir töluna níu</annotation>
+		<annotation cp="0⃣">takki</annotation>
+		<annotation cp="0⃣" type="tts">takki: 0</annotation>
+		<annotation cp="1⃣">takki</annotation>
+		<annotation cp="1⃣" type="tts">takki: 1</annotation>
+		<annotation cp="2⃣">takki</annotation>
+		<annotation cp="2⃣" type="tts">takki: 2</annotation>
+		<annotation cp="3⃣">takki</annotation>
+		<annotation cp="3⃣" type="tts">takki: 3</annotation>
+		<annotation cp="4⃣">takki</annotation>
+		<annotation cp="4⃣" type="tts">takki: 4</annotation>
+		<annotation cp="5⃣">takki</annotation>
+		<annotation cp="5⃣" type="tts">takki: 5</annotation>
+		<annotation cp="6⃣">takki</annotation>
+		<annotation cp="6⃣" type="tts">takki: 6</annotation>
+		<annotation cp="7⃣">takki</annotation>
+		<annotation cp="7⃣" type="tts">takki: 7</annotation>
+		<annotation cp="8⃣">takki</annotation>
+		<annotation cp="8⃣" type="tts">takki: 8</annotation>
+		<annotation cp="9⃣">takki</annotation>
+		<annotation cp="9⃣" type="tts">takki: 9</annotation>
 		<annotation cp="👶🏻">fólk | húðtegund 1–2</annotation>
-		<annotation cp="👶🏻" type="tts">barn: húðtegund 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">ungbarn: húðtegund 1–2</annotation>
 		<annotation cp="👶🏼">fólk | húðtegund 3</annotation>
-		<annotation cp="👶🏼" type="tts">barn: húðtegund 3</annotation>
+		<annotation cp="👶🏼" type="tts">ungbarn: húðtegund 3</annotation>
 		<annotation cp="👶🏽">fólk | húðtegund 4</annotation>
-		<annotation cp="👶🏽" type="tts">barn: húðtegund 4</annotation>
+		<annotation cp="👶🏽" type="tts">ungbarn: húðtegund 4</annotation>
 		<annotation cp="👶🏾">fólk | húðtegund 5</annotation>
-		<annotation cp="👶🏾" type="tts">barn: húðtegund 5</annotation>
+		<annotation cp="👶🏾" type="tts">ungbarn: húðtegund 5</annotation>
 		<annotation cp="👶🏿">fólk | húðtegund 6</annotation>
-		<annotation cp="👶🏿" type="tts">barn: húðtegund 6</annotation>
+		<annotation cp="👶🏿" type="tts">ungbarn: húðtegund 6</annotation>
+		<annotation cp="🧒🏻">kynhlutlaust | ungt | húðtegund 1–2</annotation>
+		<annotation cp="🧒🏻" type="tts">barn: húðtegund 1–2</annotation>
+		<annotation cp="🧒🏼">kynhlutlaust | ungt | húðtegund 3</annotation>
+		<annotation cp="🧒🏼" type="tts">barn: húðtegund 3</annotation>
+		<annotation cp="🧒🏽">kynhlutlaust | ungt | húðtegund 4</annotation>
+		<annotation cp="🧒🏽" type="tts">barn: húðtegund 4</annotation>
+		<annotation cp="🧒🏾">kynhlutlaust | ungt | húðtegund 5</annotation>
+		<annotation cp="🧒🏾" type="tts">barn: húðtegund 5</annotation>
+		<annotation cp="🧒🏿">kynhlutlaust | ungt | húðtegund 6</annotation>
+		<annotation cp="🧒🏿" type="tts">barn: húðtegund 6</annotation>
 		<annotation cp="👦🏻">fólk | strákur | húðtegund 1–2</annotation>
 		<annotation cp="👦🏻" type="tts">drengur: húðtegund 1–2</annotation>
 		<annotation cp="👦🏼">fólk | strákur | húðtegund 3</annotation>
@@ -62,26 +72,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">stúlka: húðtegund 5</annotation>
 		<annotation cp="👧🏿">fólk | stelpa | húðtegund 6</annotation>
 		<annotation cp="👧🏿" type="tts">stúlka: húðtegund 6</annotation>
-		<annotation cp="👨🏻">fólk | húðtegund 1–2</annotation>
+		<annotation cp="🧑🏻">kynhlutlaust | húðtegund 1–2</annotation>
+		<annotation cp="🧑🏻" type="tts">fullorðinn: húðtegund 1–2</annotation>
+		<annotation cp="🧑🏼">kynhlutlaust | húðtegund 3</annotation>
+		<annotation cp="🧑🏼" type="tts">fullorðinn: húðtegund 3</annotation>
+		<annotation cp="🧑🏽">kynhlutlaust | húðtegund 4</annotation>
+		<annotation cp="🧑🏽" type="tts">fullorðinn: húðtegund 4</annotation>
+		<annotation cp="🧑🏾">kynhlutlaust | húðtegund 5</annotation>
+		<annotation cp="🧑🏾" type="tts">fullorðinn: húðtegund 5</annotation>
+		<annotation cp="🧑🏿">kynhlutlaust | húðtegund 6</annotation>
+		<annotation cp="🧑🏿" type="tts">fullorðinn: húðtegund 6</annotation>
+		<annotation cp="👨🏻">fólk | maður | húðtegund 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">karl: húðtegund 1–2</annotation>
-		<annotation cp="👨🏼">fólk | húðtegund 3</annotation>
+		<annotation cp="👨🏼">fólk | maður | húðtegund 3</annotation>
 		<annotation cp="👨🏼" type="tts">karl: húðtegund 3</annotation>
-		<annotation cp="👨🏽">fólk | húðtegund 4</annotation>
+		<annotation cp="👨🏽">fólk | maður | húðtegund 4</annotation>
 		<annotation cp="👨🏽" type="tts">karl: húðtegund 4</annotation>
-		<annotation cp="👨🏾">fólk | húðtegund 5</annotation>
+		<annotation cp="👨🏾">fólk | maður | húðtegund 5</annotation>
 		<annotation cp="👨🏾" type="tts">karl: húðtegund 5</annotation>
-		<annotation cp="👨🏿">fólk | húðtegund 6</annotation>
+		<annotation cp="👨🏿">fólk | maður | húðtegund 6</annotation>
 		<annotation cp="👨🏿" type="tts">karl: húðtegund 6</annotation>
-		<annotation cp="👩🏻">fólk | húðtegund 1–2</annotation>
+		<annotation cp="👩🏻">fólk | kona | húðtegund 1–2</annotation>
 		<annotation cp="👩🏻" type="tts">kona: húðtegund 1–2</annotation>
-		<annotation cp="👩🏼">fólk | húðtegund 3</annotation>
+		<annotation cp="👩🏼">fólk | kona | húðtegund 3</annotation>
 		<annotation cp="👩🏼" type="tts">kona: húðtegund 3</annotation>
-		<annotation cp="👩🏽">fólk | húðtegund 4</annotation>
+		<annotation cp="👩🏽">fólk | kona | húðtegund 4</annotation>
 		<annotation cp="👩🏽" type="tts">kona: húðtegund 4</annotation>
-		<annotation cp="👩🏾">fólk | húðtegund 5</annotation>
+		<annotation cp="👩🏾">fólk | kona | húðtegund 5</annotation>
 		<annotation cp="👩🏾" type="tts">kona: húðtegund 5</annotation>
-		<annotation cp="👩🏿">fólk | húðtegund 6</annotation>
+		<annotation cp="👩🏿">fólk | kona | húðtegund 6</annotation>
 		<annotation cp="👩🏿" type="tts">kona: húðtegund 6</annotation>
+		<annotation cp="🧓🏻">gamall | kynhlutlaust | húðtegund 1–2</annotation>
+		<annotation cp="🧓🏻" type="tts">eldri fullorðinn: húðtegund 1–2</annotation>
+		<annotation cp="🧓🏼">gamall | kynhlutlaust | húðtegund 3</annotation>
+		<annotation cp="🧓🏼" type="tts">eldri fullorðinn: húðtegund 3</annotation>
+		<annotation cp="🧓🏽">gamall | kynhlutlaust | húðtegund 4</annotation>
+		<annotation cp="🧓🏽" type="tts">eldri fullorðinn: húðtegund 4</annotation>
+		<annotation cp="🧓🏾">gamall | kynhlutlaust | húðtegund 5</annotation>
+		<annotation cp="🧓🏾" type="tts">eldri fullorðinn: húðtegund 5</annotation>
+		<annotation cp="🧓🏿">gamall | kynhlutlaust | húðtegund 6</annotation>
+		<annotation cp="🧓🏿" type="tts">eldri fullorðinn: húðtegund 6</annotation>
 		<annotation cp="👴🏻">fólk | gamall | gamall maður | maður | húðtegund 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">eldri maður: húðtegund 1–2</annotation>
 		<annotation cp="👴🏼">fólk | gamall | gamall maður | maður | húðtegund 3</annotation>
@@ -272,15 +302,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍💼" type="tts">karlkyns skrifstofustarfsmaður: húðtegund 5</annotation>
 		<annotation cp="👨🏿‍💼">karl | skrifstofa | stjórandi | viðskipti | húðtegund 6</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">karlkyns skrifstofustarfsmaður: húðtegund 6</annotation>
-		<annotation cp="👩🏻‍💼">kona | skrifstofa | stjórandi | viðskipti | húðtegund 1–2</annotation>
+		<annotation cp="👩🏻‍💼">kona | skrifstofa | stjórnandi | viðskipti | húðtegund 1–2</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">kvenkyns skrifstofustarfsmaður: húðtegund 1–2</annotation>
-		<annotation cp="👩🏼‍💼">kona | skrifstofa | stjórandi | viðskipti | húðtegund 3</annotation>
+		<annotation cp="👩🏼‍💼">kona | skrifstofa | stjórnandi | viðskipti | húðtegund 3</annotation>
 		<annotation cp="👩🏼‍💼" type="tts">kvenkyns skrifstofustarfsmaður: húðtegund 3</annotation>
-		<annotation cp="👩🏽‍💼">kona | skrifstofa | stjórandi | viðskipti | húðtegund 4</annotation>
+		<annotation cp="👩🏽‍💼">kona | skrifstofa | stjórnandi | viðskipti | húðtegund 4</annotation>
 		<annotation cp="👩🏽‍💼" type="tts">kvenkyns skrifstofustarfsmaður: húðtegund 4</annotation>
-		<annotation cp="👩🏾‍💼">kona | skrifstofa | stjórandi | viðskipti | húðtegund 5</annotation>
+		<annotation cp="👩🏾‍💼">kona | skrifstofa | stjórnandi | viðskipti | húðtegund 5</annotation>
 		<annotation cp="👩🏾‍💼" type="tts">kvenkyns skrifstofustarfsmaður: húðtegund 5</annotation>
-		<annotation cp="👩🏿‍💼">kona | skrifstofa | stjórandi | viðskipti | húðtegund 6</annotation>
+		<annotation cp="👩🏿‍💼">kona | skrifstofa | stjórnandi | viðskipti | húðtegund 6</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">kvenkyns skrifstofustarfsmaður: húðtegund 6</annotation>
 		<annotation cp="👨🏻‍🔬">efnafræði | karl | rannsóknir | vísindamaður | húðtegund 1–2</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">vísindamaður: húðtegund 1–2</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">maður með kínverska húfu: húðtegund 5</annotation>
 		<annotation cp="👲🏿">fólk | gua pi mao | kínverskur hattur | maður með gua pi mao | maður með kínverskan hatt | húðtegund 6</annotation>
 		<annotation cp="👲🏿" type="tts">maður með kínverska húfu: húðtegund 6</annotation>
+		<annotation cp="🧕🏻">blæja | höfuðklútur | slæða | slör | húðtegund 1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">kona með höfuðklút: húðtegund 1–2</annotation>
+		<annotation cp="🧕🏼">blæja | höfuðklútur | slæða | slör | húðtegund 3</annotation>
+		<annotation cp="🧕🏼" type="tts">kona með höfuðklút: húðtegund 3</annotation>
+		<annotation cp="🧕🏽">blæja | höfuðklútur | slæða | slör | húðtegund 4</annotation>
+		<annotation cp="🧕🏽" type="tts">kona með höfuðklút: húðtegund 4</annotation>
+		<annotation cp="🧕🏾">blæja | höfuðklútur | slæða | slör | húðtegund 5</annotation>
+		<annotation cp="🧕🏾" type="tts">kona með höfuðklút: húðtegund 5</annotation>
+		<annotation cp="🧕🏿">blæja | höfuðklútur | slæða | slör | húðtegund 6</annotation>
+		<annotation cp="🧕🏿" type="tts">kona með höfuðklút: húðtegund 6</annotation>
+		<annotation cp="🧔🏻">skegg | húðtegund 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">maður með skegg: húðtegund 1–2</annotation>
+		<annotation cp="🧔🏼">skegg | húðtegund 3</annotation>
+		<annotation cp="🧔🏼" type="tts">maður með skegg: húðtegund 3</annotation>
+		<annotation cp="🧔🏽">skegg | húðtegund 4</annotation>
+		<annotation cp="🧔🏽" type="tts">maður með skegg: húðtegund 4</annotation>
+		<annotation cp="🧔🏾">skegg | húðtegund 5</annotation>
+		<annotation cp="🧔🏾" type="tts">maður með skegg: húðtegund 5</annotation>
+		<annotation cp="🧔🏿">skegg | húðtegund 6</annotation>
+		<annotation cp="🧔🏿" type="tts">maður með skegg: húðtegund 6</annotation>
 		<annotation cp="👱🏻">fólk | ljóst hár | húðtegund 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">ljóshærð manneskja: húðtegund 1–2</annotation>
 		<annotation cp="👱🏼">fólk | ljóst hár | húðtegund 3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">ólétt kona: húðtegund 5</annotation>
 		<annotation cp="🤰🏿">kona | ófrísk | ólétt | húðtegund 6</annotation>
 		<annotation cp="🤰🏿" type="tts">ólétt kona: húðtegund 6</annotation>
+		<annotation cp="🤱🏻">barn | brjóst | brjóstagjöf | húðtegund 1–2</annotation>
+		<annotation cp="🤱🏻" type="tts">brjóstagjöf: húðtegund 1–2</annotation>
+		<annotation cp="🤱🏼">barn | brjóst | brjóstagjöf | húðtegund 3</annotation>
+		<annotation cp="🤱🏼" type="tts">brjóstagjöf: húðtegund 3</annotation>
+		<annotation cp="🤱🏽">barn | brjóst | brjóstagjöf | húðtegund 4</annotation>
+		<annotation cp="🤱🏽" type="tts">brjóstagjöf: húðtegund 4</annotation>
+		<annotation cp="🤱🏾">barn | brjóst | brjóstagjöf | húðtegund 5</annotation>
+		<annotation cp="🤱🏾" type="tts">brjóstagjöf: húðtegund 5</annotation>
+		<annotation cp="🤱🏿">barn | brjóst | brjóstagjöf | húðtegund 6</annotation>
+		<annotation cp="🤱🏿" type="tts">brjóstagjöf: húðtegund 6</annotation>
 		<annotation cp="👼🏻">andlit | engill | ævintýri | húðtegund 1–2</annotation>
 		<annotation cp="👼🏻" type="tts">barnsengill: húðtegund 1–2</annotation>
 		<annotation cp="👼🏼">andlit | engill | ævintýri | húðtegund 3</annotation>
@@ -672,15 +732,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👼🏾" type="tts">barnsengill: húðtegund 5</annotation>
 		<annotation cp="👼🏿">andlit | engill | ævintýri | húðtegund 6</annotation>
 		<annotation cp="👼🏿" type="tts">barnsengill: húðtegund 6</annotation>
-		<annotation cp="🎅🏻">hátíð | jól | húðtegund 1–2</annotation>
+		<annotation cp="🎅🏻">hátíð | jól | jólasveinn | húðtegund 1–2</annotation>
 		<annotation cp="🎅🏻" type="tts">jólasveinn: húðtegund 1–2</annotation>
-		<annotation cp="🎅🏼">hátíð | jól | húðtegund 3</annotation>
+		<annotation cp="🎅🏼">hátíð | jól | jólasveinn | húðtegund 3</annotation>
 		<annotation cp="🎅🏼" type="tts">jólasveinn: húðtegund 3</annotation>
-		<annotation cp="🎅🏽">hátíð | jól | húðtegund 4</annotation>
+		<annotation cp="🎅🏽">hátíð | jól | jólasveinn | húðtegund 4</annotation>
 		<annotation cp="🎅🏽" type="tts">jólasveinn: húðtegund 4</annotation>
-		<annotation cp="🎅🏾">hátíð | jól | húðtegund 5</annotation>
+		<annotation cp="🎅🏾">hátíð | jól | jólasveinn | húðtegund 5</annotation>
 		<annotation cp="🎅🏾" type="tts">jólasveinn: húðtegund 5</annotation>
-		<annotation cp="🎅🏿">hátíð | jól | húðtegund 6</annotation>
+		<annotation cp="🎅🏿">hátíð | jól | jólasveinn | húðtegund 6</annotation>
 		<annotation cp="🎅🏿" type="tts">jólasveinn: húðtegund 6</annotation>
 		<annotation cp="🤶🏻">amma | jól | mamma | húðtegund 1–2</annotation>
 		<annotation cp="🤶🏻" type="tts">jólamamma: húðtegund 1–2</annotation>
@@ -692,16 +752,166 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">jólamamma: húðtegund 5</annotation>
 		<annotation cp="🤶🏿">amma | jól | mamma | húðtegund 6</annotation>
 		<annotation cp="🤶🏿" type="tts">jólamamma: húðtegund 6</annotation>
+		<annotation cp="🧙🏻">galdramaður | norn | seiðkarl | seiðkona | húðtegund 1–2</annotation>
+		<annotation cp="🧙🏻" type="tts">galdramaður: húðtegund 1–2</annotation>
+		<annotation cp="🧙🏼">galdramaður | norn | seiðkarl | seiðkona | húðtegund 3</annotation>
+		<annotation cp="🧙🏼" type="tts">galdramaður: húðtegund 3</annotation>
+		<annotation cp="🧙🏽">galdramaður | norn | seiðkarl | seiðkona | húðtegund 4</annotation>
+		<annotation cp="🧙🏽" type="tts">galdramaður: húðtegund 4</annotation>
+		<annotation cp="🧙🏾">galdramaður | norn | seiðkarl | seiðkona | húðtegund 5</annotation>
+		<annotation cp="🧙🏾" type="tts">galdramaður: húðtegund 5</annotation>
+		<annotation cp="🧙🏿">galdramaður | norn | seiðkarl | seiðkona | húðtegund 6</annotation>
+		<annotation cp="🧙🏿" type="tts">galdramaður: húðtegund 6</annotation>
+		<annotation cp="🧙🏻‍♀">norn | seiðkona | húðtegund 1–2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">galdrakona: húðtegund 1–2</annotation>
+		<annotation cp="🧙🏼‍♀">norn | seiðkona | húðtegund 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">galdrakona: húðtegund 3</annotation>
+		<annotation cp="🧙🏽‍♀">norn | seiðkona | húðtegund 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">galdrakona: húðtegund 4</annotation>
+		<annotation cp="🧙🏾‍♀">norn | seiðkona | húðtegund 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">galdrakona: húðtegund 5</annotation>
+		<annotation cp="🧙🏿‍♀">norn | seiðkona | húðtegund 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">galdrakona: húðtegund 6</annotation>
+		<annotation cp="🧙🏻‍♂">galdrakarl | seiðkarl | húðtegund 1–2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">galdrakarl: húðtegund 1–2</annotation>
+		<annotation cp="🧙🏼‍♂">galdrakarl | seiðkarl | húðtegund 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">galdrakarl: húðtegund 3</annotation>
+		<annotation cp="🧙🏽‍♂">galdrakarl | seiðkarl | húðtegund 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">galdrakarl: húðtegund 4</annotation>
+		<annotation cp="🧙🏾‍♂">galdrakarl | seiðkarl | húðtegund 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">galdrakarl: húðtegund 5</annotation>
+		<annotation cp="🧙🏿‍♂">galdrakarl | seiðkarl | húðtegund 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">galdrakarl: húðtegund 6</annotation>
+		<annotation cp="🧚🏻">Bokki | Títanía | Óberon | húðtegund 1–2</annotation>
+		<annotation cp="🧚🏻" type="tts">álfur: húðtegund 1–2</annotation>
+		<annotation cp="🧚🏼">Bokki | Títanía | Óberon | húðtegund 3</annotation>
+		<annotation cp="🧚🏼" type="tts">álfur: húðtegund 3</annotation>
+		<annotation cp="🧚🏽">Bokki | Títanía | Óberon | húðtegund 4</annotation>
+		<annotation cp="🧚🏽" type="tts">álfur: húðtegund 4</annotation>
+		<annotation cp="🧚🏾">Bokki | Títanía | Óberon | húðtegund 5</annotation>
+		<annotation cp="🧚🏾" type="tts">álfur: húðtegund 5</annotation>
+		<annotation cp="🧚🏿">Bokki | Títanía | Óberon | húðtegund 6</annotation>
+		<annotation cp="🧚🏿" type="tts">álfur: húðtegund 6</annotation>
+		<annotation cp="🧚🏻‍♀">Títanía | húðtegund 1–2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">álfadís: húðtegund 1–2</annotation>
+		<annotation cp="🧚🏼‍♀">Títanía | húðtegund 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">álfadís: húðtegund 3</annotation>
+		<annotation cp="🧚🏽‍♀">Títanía | húðtegund 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">álfadís: húðtegund 4</annotation>
+		<annotation cp="🧚🏾‍♀">Títanía | húðtegund 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">álfadís: húðtegund 5</annotation>
+		<annotation cp="🧚🏿‍♀">Títanía | húðtegund 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">álfadís: húðtegund 6</annotation>
+		<annotation cp="🧚🏻‍♂">Bokki | Óberon | húðtegund 1–2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">álfakarl: húðtegund 1–2</annotation>
+		<annotation cp="🧚🏼‍♂">Bokki | Óberon | húðtegund 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">álfakarl: húðtegund 3</annotation>
+		<annotation cp="🧚🏽‍♂">Bokki | Óberon | húðtegund 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">álfakarl: húðtegund 4</annotation>
+		<annotation cp="🧚🏾‍♂">Bokki | Óberon | húðtegund 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">álfakarl: húðtegund 5</annotation>
+		<annotation cp="🧚🏿‍♂">Bokki | Óberon | húðtegund 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">álfakarl: húðtegund 6</annotation>
+		<annotation cp="🧛🏻">Drakúla | hinir ódauðlegu | húðtegund 1–2</annotation>
+		<annotation cp="🧛🏻" type="tts">vampíra: húðtegund 1–2</annotation>
+		<annotation cp="🧛🏼">Drakúla | hinir ódauðlegu | húðtegund 3</annotation>
+		<annotation cp="🧛🏼" type="tts">vampíra: húðtegund 3</annotation>
+		<annotation cp="🧛🏽">Drakúla | hinir ódauðlegu | húðtegund 4</annotation>
+		<annotation cp="🧛🏽" type="tts">vampíra: húðtegund 4</annotation>
+		<annotation cp="🧛🏾">Drakúla | hinir ódauðlegu | húðtegund 5</annotation>
+		<annotation cp="🧛🏾" type="tts">vampíra: húðtegund 5</annotation>
+		<annotation cp="🧛🏿">Drakúla | hinir ódauðlegu | húðtegund 6</annotation>
+		<annotation cp="🧛🏿" type="tts">vampíra: húðtegund 6</annotation>
+		<annotation cp="🧛🏻‍♀">hinir ódauðlegu | húðtegund 1–2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">kvenkyns vampíra: húðtegund 1–2</annotation>
+		<annotation cp="🧛🏼‍♀">hinir ódauðlegu | húðtegund 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">kvenkyns vampíra: húðtegund 3</annotation>
+		<annotation cp="🧛🏽‍♀">hinir ódauðlegu | húðtegund 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">kvenkyns vampíra: húðtegund 4</annotation>
+		<annotation cp="🧛🏾‍♀">hinir ódauðlegu | húðtegund 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">kvenkyns vampíra: húðtegund 5</annotation>
+		<annotation cp="🧛🏿‍♀">hinir ódauðlegu | húðtegund 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">kvenkyns vampíra: húðtegund 6</annotation>
+		<annotation cp="🧛🏻‍♂">Drakúla | hinir ódauðlegu | húðtegund 1–2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">karlkyns vampíra: húðtegund 1–2</annotation>
+		<annotation cp="🧛🏼‍♂">Drakúla | hinir ódauðlegu | húðtegund 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">karlkyns vampíra: húðtegund 3</annotation>
+		<annotation cp="🧛🏽‍♂">Drakúla | hinir ódauðlegu | húðtegund 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">karlkyns vampíra: húðtegund 4</annotation>
+		<annotation cp="🧛🏾‍♂">Drakúla | hinir ódauðlegu | húðtegund 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">karlkyns vampíra: húðtegund 5</annotation>
+		<annotation cp="🧛🏿‍♂">Drakúla | hinir ódauðlegu | húðtegund 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">karlkyns vampíra: húðtegund 6</annotation>
+		<annotation cp="🧜🏻">hafmeyja | hafmær | marbendill | húðtegund 1–2</annotation>
+		<annotation cp="🧜🏻" type="tts">sæbúi: húðtegund 1–2</annotation>
+		<annotation cp="🧜🏼">hafmeyja | hafmær | marbendill | húðtegund 3</annotation>
+		<annotation cp="🧜🏼" type="tts">sæbúi: húðtegund 3</annotation>
+		<annotation cp="🧜🏽">hafmeyja | hafmær | marbendill | húðtegund 4</annotation>
+		<annotation cp="🧜🏽" type="tts">sæbúi: húðtegund 4</annotation>
+		<annotation cp="🧜🏾">hafmeyja | hafmær | marbendill | húðtegund 5</annotation>
+		<annotation cp="🧜🏾" type="tts">sæbúi: húðtegund 5</annotation>
+		<annotation cp="🧜🏿">hafmeyja | hafmær | marbendill | húðtegund 6</annotation>
+		<annotation cp="🧜🏿" type="tts">sæbúi: húðtegund 6</annotation>
+		<annotation cp="🧜🏻‍♀">hafmær | húðtegund 1–2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">hafmeyja: húðtegund 1–2</annotation>
+		<annotation cp="🧜🏼‍♀">hafmær | húðtegund 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">hafmeyja: húðtegund 3</annotation>
+		<annotation cp="🧜🏽‍♀">hafmær | húðtegund 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">hafmeyja: húðtegund 4</annotation>
+		<annotation cp="🧜🏾‍♀">hafmær | húðtegund 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">hafmeyja: húðtegund 5</annotation>
+		<annotation cp="🧜🏿‍♀">hafmær | húðtegund 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">hafmeyja: húðtegund 6</annotation>
+		<annotation cp="🧜🏻‍♂">Tríton | húðtegund 1–2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">marbendill: húðtegund 1–2</annotation>
+		<annotation cp="🧜🏼‍♂">Tríton | húðtegund 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">marbendill: húðtegund 3</annotation>
+		<annotation cp="🧜🏽‍♂">Tríton | húðtegund 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">marbendill: húðtegund 4</annotation>
+		<annotation cp="🧜🏾‍♂">Tríton | húðtegund 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">marbendill: húðtegund 5</annotation>
+		<annotation cp="🧜🏿‍♂">Tríton | húðtegund 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">marbendill: húðtegund 6</annotation>
+		<annotation cp="🧝🏻">galdrar | töfrandi | töfrar | yfirnáttúrleiki | húðtegund 1–2</annotation>
+		<annotation cp="🧝🏻" type="tts">huldumaður: húðtegund 1–2</annotation>
+		<annotation cp="🧝🏼">galdrar | töfrandi | töfrar | yfirnáttúrleiki | húðtegund 3</annotation>
+		<annotation cp="🧝🏼" type="tts">huldumaður: húðtegund 3</annotation>
+		<annotation cp="🧝🏽">galdrar | töfrandi | töfrar | yfirnáttúrleiki | húðtegund 4</annotation>
+		<annotation cp="🧝🏽" type="tts">huldumaður: húðtegund 4</annotation>
+		<annotation cp="🧝🏾">galdrar | töfrandi | töfrar | yfirnáttúrleiki | húðtegund 5</annotation>
+		<annotation cp="🧝🏾" type="tts">huldumaður: húðtegund 5</annotation>
+		<annotation cp="🧝🏿">galdrar | töfrandi | töfrar | yfirnáttúrleiki | húðtegund 6</annotation>
+		<annotation cp="🧝🏿" type="tts">huldumaður: húðtegund 6</annotation>
+		<annotation cp="🧝🏻‍♀">galdrar | töfrar | húðtegund 1–2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">huldukona: húðtegund 1–2</annotation>
+		<annotation cp="🧝🏼‍♀">galdrar | töfrar | húðtegund 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">huldukona: húðtegund 3</annotation>
+		<annotation cp="🧝🏽‍♀">galdrar | töfrar | húðtegund 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">huldukona: húðtegund 4</annotation>
+		<annotation cp="🧝🏾‍♀">galdrar | töfrar | húðtegund 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">huldukona: húðtegund 5</annotation>
+		<annotation cp="🧝🏿‍♀">galdrar | töfrar | húðtegund 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">huldukona: húðtegund 6</annotation>
+		<annotation cp="🧝🏻‍♂">galdrar | töfrar | húðtegund 1–2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">huldukarl: húðtegund 1–2</annotation>
+		<annotation cp="🧝🏼‍♂">galdrar | töfrar | húðtegund 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">huldukarl: húðtegund 3</annotation>
+		<annotation cp="🧝🏽‍♂">galdrar | töfrar | húðtegund 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">huldukarl: húðtegund 4</annotation>
+		<annotation cp="🧝🏾‍♂">galdrar | töfrar | húðtegund 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">huldukarl: húðtegund 5</annotation>
+		<annotation cp="🧝🏿‍♂">galdrar | töfrar | húðtegund 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">huldukarl: húðtegund 6</annotation>
 		<annotation cp="🙍🏻">fýlusvipur | húðtegund 1–2</annotation>
-		<annotation cp="🙍🏻" type="tts">manneskja með skeifa: húðtegund 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">manneskja með ygglibrún: húðtegund 1–2</annotation>
 		<annotation cp="🙍🏼">fýlusvipur | húðtegund 3</annotation>
-		<annotation cp="🙍🏼" type="tts">manneskja með skeifa: húðtegund 3</annotation>
+		<annotation cp="🙍🏼" type="tts">manneskja með ygglibrún: húðtegund 3</annotation>
 		<annotation cp="🙍🏽">fýlusvipur | húðtegund 4</annotation>
-		<annotation cp="🙍🏽" type="tts">manneskja með skeifa: húðtegund 4</annotation>
+		<annotation cp="🙍🏽" type="tts">manneskja með ygglibrún: húðtegund 4</annotation>
 		<annotation cp="🙍🏾">fýlusvipur | húðtegund 5</annotation>
-		<annotation cp="🙍🏾" type="tts">manneskja með skeifa: húðtegund 5</annotation>
+		<annotation cp="🙍🏾" type="tts">manneskja með ygglibrún: húðtegund 5</annotation>
 		<annotation cp="🙍🏿">fýlusvipur | húðtegund 6</annotation>
-		<annotation cp="🙍🏿" type="tts">manneskja með skeifa: húðtegund 6</annotation>
+		<annotation cp="🙍🏿" type="tts">manneskja með ygglibrún: húðtegund 6</annotation>
 		<annotation cp="🙍🏻‍♂">fýla | karl | leiður | skeifa | húðtegund 1–2</annotation>
 		<annotation cp="🙍🏻‍♂" type="tts">maður með skeifu: húðtegund 1–2</annotation>
 		<annotation cp="🙍🏼‍♂">fýla | karl | leiður | skeifa | húðtegund 3</annotation>
@@ -1022,15 +1232,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💇🏾‍♀" type="tts">kona í klippingu: húðtegund 5</annotation>
 		<annotation cp="💇🏿‍♀">hár | hárgreiðsla | klipping | kona | húðtegund 6</annotation>
 		<annotation cp="💇🏿‍♀" type="tts">kona í klippingu: húðtegund 6</annotation>
-		<annotation cp="🚶🏻">ganga | húðtegund 1–2</annotation>
+		<annotation cp="🚶🏻">ganga | gönguferð | labba | húðtegund 1–2</annotation>
 		<annotation cp="🚶🏻" type="tts">vegfarandi: húðtegund 1–2</annotation>
-		<annotation cp="🚶🏼">ganga | húðtegund 3</annotation>
+		<annotation cp="🚶🏼">ganga | gönguferð | labba | húðtegund 3</annotation>
 		<annotation cp="🚶🏼" type="tts">vegfarandi: húðtegund 3</annotation>
-		<annotation cp="🚶🏽">ganga | húðtegund 4</annotation>
+		<annotation cp="🚶🏽">ganga | gönguferð | labba | húðtegund 4</annotation>
 		<annotation cp="🚶🏽" type="tts">vegfarandi: húðtegund 4</annotation>
-		<annotation cp="🚶🏾">ganga | húðtegund 5</annotation>
+		<annotation cp="🚶🏾">ganga | gönguferð | labba | húðtegund 5</annotation>
 		<annotation cp="🚶🏾" type="tts">vegfarandi: húðtegund 5</annotation>
-		<annotation cp="🚶🏿">ganga | húðtegund 6</annotation>
+		<annotation cp="🚶🏿">ganga | gönguferð | labba | húðtegund 6</annotation>
 		<annotation cp="🚶🏿" type="tts">vegfarandi: húðtegund 6</annotation>
 		<annotation cp="🚶🏻‍♂">ganga | gönguferð | karl | labba | húðtegund 1–2</annotation>
 		<annotation cp="🚶🏻‍♂" type="tts">gangandi maður: húðtegund 1–2</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">dansandi karl: húðtegund 5</annotation>
 		<annotation cp="🕺🏿">dansa | dansari | diskó | húðtegund 6</annotation>
 		<annotation cp="🕺🏿" type="tts">dansandi karl: húðtegund 6</annotation>
+		<annotation cp="🧖🏻">eimbað | gufubað | húðtegund 1–2</annotation>
+		<annotation cp="🧖🏻" type="tts">einstaklingur í gufubaði: húðtegund 1–2</annotation>
+		<annotation cp="🧖🏼">eimbað | gufubað | húðtegund 3</annotation>
+		<annotation cp="🧖🏼" type="tts">einstaklingur í gufubaði: húðtegund 3</annotation>
+		<annotation cp="🧖🏽">eimbað | gufubað | húðtegund 4</annotation>
+		<annotation cp="🧖🏽" type="tts">einstaklingur í gufubaði: húðtegund 4</annotation>
+		<annotation cp="🧖🏾">eimbað | gufubað | húðtegund 5</annotation>
+		<annotation cp="🧖🏾" type="tts">einstaklingur í gufubaði: húðtegund 5</annotation>
+		<annotation cp="🧖🏿">eimbað | gufubað | húðtegund 6</annotation>
+		<annotation cp="🧖🏿" type="tts">einstaklingur í gufubaði: húðtegund 6</annotation>
+		<annotation cp="🧖🏻‍♀">eimbað | gufubað | húðtegund 1–2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">kona í gufubaði: húðtegund 1–2</annotation>
+		<annotation cp="🧖🏼‍♀">eimbað | gufubað | húðtegund 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">kona í gufubaði: húðtegund 3</annotation>
+		<annotation cp="🧖🏽‍♀">eimbað | gufubað | húðtegund 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">kona í gufubaði: húðtegund 4</annotation>
+		<annotation cp="🧖🏾‍♀">eimbað | gufubað | húðtegund 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">kona í gufubaði: húðtegund 5</annotation>
+		<annotation cp="🧖🏿‍♀">eimbað | gufubað | húðtegund 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">kona í gufubaði: húðtegund 6</annotation>
+		<annotation cp="🧖🏻‍♂">eimbað | gufubað | húðtegund 1–2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">maður í gufubaði: húðtegund 1–2</annotation>
+		<annotation cp="🧖🏼‍♂">eimbað | gufubað | húðtegund 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">maður í gufubaði: húðtegund 3</annotation>
+		<annotation cp="🧖🏽‍♂">eimbað | gufubað | húðtegund 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">maður í gufubaði: húðtegund 4</annotation>
+		<annotation cp="🧖🏾‍♂">eimbað | gufubað | húðtegund 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">maður í gufubaði: húðtegund 5</annotation>
+		<annotation cp="🧖🏿‍♂">eimbað | gufubað | húðtegund 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">maður í gufubaði: húðtegund 6</annotation>
+		<annotation cp="🧗🏻">klettaklifur | húðtegund 1–2</annotation>
+		<annotation cp="🧗🏻" type="tts">maður í klettaklifri: húðtegund 1–2</annotation>
+		<annotation cp="🧗🏼">klettaklifur | húðtegund 3</annotation>
+		<annotation cp="🧗🏼" type="tts">maður í klettaklifri: húðtegund 3</annotation>
+		<annotation cp="🧗🏽">klettaklifur | húðtegund 4</annotation>
+		<annotation cp="🧗🏽" type="tts">maður í klettaklifri: húðtegund 4</annotation>
+		<annotation cp="🧗🏾">klettaklifur | húðtegund 5</annotation>
+		<annotation cp="🧗🏾" type="tts">maður í klettaklifri: húðtegund 5</annotation>
+		<annotation cp="🧗🏿">klettaklifur | húðtegund 6</annotation>
+		<annotation cp="🧗🏿" type="tts">maður í klettaklifri: húðtegund 6</annotation>
+		<annotation cp="🧗🏻‍♀">klettaklifur | húðtegund 1–2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">kona í klettaklifri: húðtegund 1–2</annotation>
+		<annotation cp="🧗🏼‍♀">klettaklifur | húðtegund 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">kona í klettaklifri: húðtegund 3</annotation>
+		<annotation cp="🧗🏽‍♀">klettaklifur | húðtegund 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">kona í klettaklifri: húðtegund 4</annotation>
+		<annotation cp="🧗🏾‍♀">klettaklifur | húðtegund 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">kona í klettaklifri: húðtegund 5</annotation>
+		<annotation cp="🧗🏿‍♀">klettaklifur | húðtegund 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">kona í klettaklifri: húðtegund 6</annotation>
+		<annotation cp="🧗🏻‍♂">klettaklifur | húðtegund 1–2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">karl í klettaklifri: húðtegund 1–2</annotation>
+		<annotation cp="🧗🏼‍♂">klettaklifur | húðtegund 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">karl í klettaklifri: húðtegund 3</annotation>
+		<annotation cp="🧗🏽‍♂">klettaklifur | húðtegund 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">karl í klettaklifri: húðtegund 4</annotation>
+		<annotation cp="🧗🏾‍♂">klettaklifur | húðtegund 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">karl í klettaklifri: húðtegund 5</annotation>
+		<annotation cp="🧗🏿‍♂">klettaklifur | húðtegund 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">karl í klettaklifri: húðtegund 6</annotation>
+		<annotation cp="🧘🏻">hugleiðsla | jóga | íhugun | húðtegund 1–2</annotation>
+		<annotation cp="🧘🏻" type="tts">maður í lótuspósu: húðtegund 1–2</annotation>
+		<annotation cp="🧘🏼">hugleiðsla | jóga | íhugun | húðtegund 3</annotation>
+		<annotation cp="🧘🏼" type="tts">maður í lótuspósu: húðtegund 3</annotation>
+		<annotation cp="🧘🏽">hugleiðsla | jóga | íhugun | húðtegund 4</annotation>
+		<annotation cp="🧘🏽" type="tts">maður í lótuspósu: húðtegund 4</annotation>
+		<annotation cp="🧘🏾">hugleiðsla | jóga | íhugun | húðtegund 5</annotation>
+		<annotation cp="🧘🏾" type="tts">maður í lótuspósu: húðtegund 5</annotation>
+		<annotation cp="🧘🏿">hugleiðsla | jóga | íhugun | húðtegund 6</annotation>
+		<annotation cp="🧘🏿" type="tts">maður í lótuspósu: húðtegund 6</annotation>
+		<annotation cp="🧘🏻‍♀">hugleiðsla | jóga | íhugun | húðtegund 1–2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">kona í lótusp´ósu: húðtegund 1–2</annotation>
+		<annotation cp="🧘🏼‍♀">hugleiðsla | jóga | íhugun | húðtegund 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">kona í lótusp´ósu: húðtegund 3</annotation>
+		<annotation cp="🧘🏽‍♀">hugleiðsla | jóga | íhugun | húðtegund 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">kona í lótusp´ósu: húðtegund 4</annotation>
+		<annotation cp="🧘🏾‍♀">hugleiðsla | jóga | íhugun | húðtegund 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">kona í lótusp´ósu: húðtegund 5</annotation>
+		<annotation cp="🧘🏿‍♀">hugleiðsla | jóga | íhugun | húðtegund 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">kona í lótusp´ósu: húðtegund 6</annotation>
+		<annotation cp="🧘🏻‍♂">hugleiðsla | jóga | íhugun | húðtegund 1–2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">karl í lótuspósu: húðtegund 1–2</annotation>
+		<annotation cp="🧘🏼‍♂">hugleiðsla | jóga | íhugun | húðtegund 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">karl í lótuspósu: húðtegund 3</annotation>
+		<annotation cp="🧘🏽‍♂">hugleiðsla | jóga | íhugun | húðtegund 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">karl í lótuspósu: húðtegund 4</annotation>
+		<annotation cp="🧘🏾‍♂">hugleiðsla | jóga | íhugun | húðtegund 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">karl í lótuspósu: húðtegund 5</annotation>
+		<annotation cp="🧘🏿‍♂">hugleiðsla | jóga | íhugun | húðtegund 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">karl í lótuspósu: húðtegund 6</annotation>
 		<annotation cp="🛀🏻">baðkar | húðtegund 1–2</annotation>
 		<annotation cp="🛀🏻" type="tts">bað: húðtegund 1–2</annotation>
 		<annotation cp="🛀🏼">baðkar | húðtegund 3</annotation>
@@ -1362,15 +1662,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚴🏾‍♀" type="tts">kona á hjóli: húðtegund 5</annotation>
 		<annotation cp="🚴🏿‍♀">hjól | hjólreiðar | kona | húðtegund 6</annotation>
 		<annotation cp="🚴🏿‍♀" type="tts">kona á hjóli: húðtegund 6</annotation>
-		<annotation cp="🚵🏻">hjól | hjólreiðar | húðtegund 1–2</annotation>
+		<annotation cp="🚵🏻">fjall | hjól | hjólreiðar | húðtegund 1–2</annotation>
 		<annotation cp="🚵🏻" type="tts">fjallahjól: húðtegund 1–2</annotation>
-		<annotation cp="🚵🏼">hjól | hjólreiðar | húðtegund 3</annotation>
+		<annotation cp="🚵🏼">fjall | hjól | hjólreiðar | húðtegund 3</annotation>
 		<annotation cp="🚵🏼" type="tts">fjallahjól: húðtegund 3</annotation>
-		<annotation cp="🚵🏽">hjól | hjólreiðar | húðtegund 4</annotation>
+		<annotation cp="🚵🏽">fjall | hjól | hjólreiðar | húðtegund 4</annotation>
 		<annotation cp="🚵🏽" type="tts">fjallahjól: húðtegund 4</annotation>
-		<annotation cp="🚵🏾">hjól | hjólreiðar | húðtegund 5</annotation>
+		<annotation cp="🚵🏾">fjall | hjól | hjólreiðar | húðtegund 5</annotation>
 		<annotation cp="🚵🏾" type="tts">fjallahjól: húðtegund 5</annotation>
-		<annotation cp="🚵🏿">hjól | hjólreiðar | húðtegund 6</annotation>
+		<annotation cp="🚵🏿">fjall | hjól | hjólreiðar | húðtegund 6</annotation>
 		<annotation cp="🚵🏿" type="tts">fjallahjól: húðtegund 6</annotation>
 		<annotation cp="🚵🏻‍♂">fjallahjól | hjólreiðar | karl | húðtegund 1–2</annotation>
 		<annotation cp="🚵🏻‍♂" type="tts">maður á fjallahjóli: húðtegund 1–2</annotation>
@@ -1422,36 +1722,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤸🏾‍♀" type="tts">kona á handahlaupum: húðtegund 5</annotation>
 		<annotation cp="🤸🏿‍♀">fimleikar | handahlaup | kona | húðtegund 6</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">kona á handahlaupum: húðtegund 6</annotation>
-		<annotation cp="🤽🏻">sund | sundíþrótt | vatn | íþrótt | húðtegund 1–2</annotation>
-		<annotation cp="🤽🏻" type="tts">vatnsboltií: húðtegund 1–2</annotation>
-		<annotation cp="🤽🏼">sund | sundíþrótt | vatn | íþrótt | húðtegund 3</annotation>
-		<annotation cp="🤽🏼" type="tts">vatnsboltií: húðtegund 3</annotation>
-		<annotation cp="🤽🏽">sund | sundíþrótt | vatn | íþrótt | húðtegund 4</annotation>
-		<annotation cp="🤽🏽" type="tts">vatnsboltií: húðtegund 4</annotation>
-		<annotation cp="🤽🏾">sund | sundíþrótt | vatn | íþrótt | húðtegund 5</annotation>
-		<annotation cp="🤽🏾" type="tts">vatnsboltií: húðtegund 5</annotation>
-		<annotation cp="🤽🏿">sund | sundíþrótt | vatn | íþrótt | húðtegund 6</annotation>
-		<annotation cp="🤽🏿" type="tts">vatnsboltií: húðtegund 6</annotation>
-		<annotation cp="🤽🏻‍♂">karl | sund | sundíþrótt | vatnsbolti | húðtegund 1–2</annotation>
-		<annotation cp="🤽🏻‍♂" type="tts">maður í vatnsbolta: húðtegund 1–2</annotation>
-		<annotation cp="🤽🏼‍♂">karl | sund | sundíþrótt | vatnsbolti | húðtegund 3</annotation>
-		<annotation cp="🤽🏼‍♂" type="tts">maður í vatnsbolta: húðtegund 3</annotation>
-		<annotation cp="🤽🏽‍♂">karl | sund | sundíþrótt | vatnsbolti | húðtegund 4</annotation>
-		<annotation cp="🤽🏽‍♂" type="tts">maður í vatnsbolta: húðtegund 4</annotation>
-		<annotation cp="🤽🏾‍♂">karl | sund | sundíþrótt | vatnsbolti | húðtegund 5</annotation>
-		<annotation cp="🤽🏾‍♂" type="tts">maður í vatnsbolta: húðtegund 5</annotation>
-		<annotation cp="🤽🏿‍♂">karl | sund | sundíþrótt | vatnsbolti | húðtegund 6</annotation>
-		<annotation cp="🤽🏿‍♂" type="tts">maður í vatnsbolta: húðtegund 6</annotation>
-		<annotation cp="🤽🏻‍♀">kona | sund | sundíþrótt | vatnsbolti | húðtegund 1–2</annotation>
-		<annotation cp="🤽🏻‍♀" type="tts">kona í vatnsbolta: húðtegund 1–2</annotation>
-		<annotation cp="🤽🏼‍♀">kona | sund | sundíþrótt | vatnsbolti | húðtegund 3</annotation>
-		<annotation cp="🤽🏼‍♀" type="tts">kona í vatnsbolta: húðtegund 3</annotation>
-		<annotation cp="🤽🏽‍♀">kona | sund | sundíþrótt | vatnsbolti | húðtegund 4</annotation>
-		<annotation cp="🤽🏽‍♀" type="tts">kona í vatnsbolta: húðtegund 4</annotation>
-		<annotation cp="🤽🏾‍♀">kona | sund | sundíþrótt | vatnsbolti | húðtegund 5</annotation>
-		<annotation cp="🤽🏾‍♀" type="tts">kona í vatnsbolta: húðtegund 5</annotation>
-		<annotation cp="🤽🏿‍♀">kona | sund | sundíþrótt | vatnsbolti | húðtegund 6</annotation>
-		<annotation cp="🤽🏿‍♀" type="tts">kona í vatnsbolta: húðtegund 6</annotation>
+		<annotation cp="🤽🏻">sund | sundíþrótt | vatn | vatnapóló | íþrótt | húðtegund 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">manneskja í vatnapóló: húðtegund 1–2</annotation>
+		<annotation cp="🤽🏼">sund | sundíþrótt | vatn | vatnapóló | íþrótt | húðtegund 3</annotation>
+		<annotation cp="🤽🏼" type="tts">manneskja í vatnapóló: húðtegund 3</annotation>
+		<annotation cp="🤽🏽">sund | sundíþrótt | vatn | vatnapóló | íþrótt | húðtegund 4</annotation>
+		<annotation cp="🤽🏽" type="tts">manneskja í vatnapóló: húðtegund 4</annotation>
+		<annotation cp="🤽🏾">sund | sundíþrótt | vatn | vatnapóló | íþrótt | húðtegund 5</annotation>
+		<annotation cp="🤽🏾" type="tts">manneskja í vatnapóló: húðtegund 5</annotation>
+		<annotation cp="🤽🏿">sund | sundíþrótt | vatn | vatnapóló | íþrótt | húðtegund 6</annotation>
+		<annotation cp="🤽🏿" type="tts">manneskja í vatnapóló: húðtegund 6</annotation>
+		<annotation cp="🤽🏻‍♂">karl | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">maður í vatnapóló: húðtegund 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">karl | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">maður í vatnapóló: húðtegund 3</annotation>
+		<annotation cp="🤽🏽‍♂">karl | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">maður í vatnapóló: húðtegund 4</annotation>
+		<annotation cp="🤽🏾‍♂">karl | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">maður í vatnapóló: húðtegund 5</annotation>
+		<annotation cp="🤽🏿‍♂">karl | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">maður í vatnapóló: húðtegund 6</annotation>
+		<annotation cp="🤽🏻‍♀">kona | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">kona í vatnapóló: húðtegund 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">kona | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">kona í vatnapóló: húðtegund 3</annotation>
+		<annotation cp="🤽🏽‍♀">kona | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">kona í vatnapóló: húðtegund 4</annotation>
+		<annotation cp="🤽🏾‍♀">kona | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">kona í vatnapóló: húðtegund 5</annotation>
+		<annotation cp="🤽🏿‍♀">kona | sund | sundíþrótt | vatnapóló | vatnsbolti | húðtegund 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">kona í vatnapóló: húðtegund 6</annotation>
 		<annotation cp="🤾🏻">boltaíþrótt | handknattleikur | íþrótt | húðtegund 1–2</annotation>
 		<annotation cp="🤾🏻" type="tts">handbolti: húðtegund 1–2</annotation>
 		<annotation cp="🤾🏼">boltaíþrótt | handknattleikur | íþrótt | húðtegund 3</annotation>
@@ -1594,25 +1894,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💪🏾" type="tts">upphandleggsvöðvar: húðtegund 5</annotation>
 		<annotation cp="💪🏿">hnykla | skrípó | spenntir vöðvar | sterkur | vöðvar | húðtegund 6</annotation>
 		<annotation cp="💪🏿" type="tts">upphandleggsvöðvar: húðtegund 6</annotation>
-		<annotation cp="👈🏻">fingur | vísifingur | húðtegund 1–2</annotation>
+		<annotation cp="👈🏻">benda | fingur | hendi | hönd | vísifingur | húðtegund 1–2</annotation>
 		<annotation cp="👈🏻" type="tts">fingur bendir til vinstri: húðtegund 1–2</annotation>
-		<annotation cp="👈🏼">fingur | vísifingur | húðtegund 3</annotation>
+		<annotation cp="👈🏼">benda | fingur | hendi | hönd | vísifingur | húðtegund 3</annotation>
 		<annotation cp="👈🏼" type="tts">fingur bendir til vinstri: húðtegund 3</annotation>
-		<annotation cp="👈🏽">fingur | vísifingur | húðtegund 4</annotation>
+		<annotation cp="👈🏽">benda | fingur | hendi | hönd | vísifingur | húðtegund 4</annotation>
 		<annotation cp="👈🏽" type="tts">fingur bendir til vinstri: húðtegund 4</annotation>
-		<annotation cp="👈🏾">fingur | vísifingur | húðtegund 5</annotation>
+		<annotation cp="👈🏾">benda | fingur | hendi | hönd | vísifingur | húðtegund 5</annotation>
 		<annotation cp="👈🏾" type="tts">fingur bendir til vinstri: húðtegund 5</annotation>
-		<annotation cp="👈🏿">fingur | vísifingur | húðtegund 6</annotation>
+		<annotation cp="👈🏿">benda | fingur | hendi | hönd | vísifingur | húðtegund 6</annotation>
 		<annotation cp="👈🏿" type="tts">fingur bendir til vinstri: húðtegund 6</annotation>
-		<annotation cp="👉🏻">fingur | vísifingur | húðtegund 1–2</annotation>
+		<annotation cp="👉🏻">benda | fingur | hendi | hönd | vísifingur | húðtegund 1–2</annotation>
 		<annotation cp="👉🏻" type="tts">fingur bendir til hægri: húðtegund 1–2</annotation>
-		<annotation cp="👉🏼">fingur | vísifingur | húðtegund 3</annotation>
+		<annotation cp="👉🏼">benda | fingur | hendi | hönd | vísifingur | húðtegund 3</annotation>
 		<annotation cp="👉🏼" type="tts">fingur bendir til hægri: húðtegund 3</annotation>
-		<annotation cp="👉🏽">fingur | vísifingur | húðtegund 4</annotation>
+		<annotation cp="👉🏽">benda | fingur | hendi | hönd | vísifingur | húðtegund 4</annotation>
 		<annotation cp="👉🏽" type="tts">fingur bendir til hægri: húðtegund 4</annotation>
-		<annotation cp="👉🏾">fingur | vísifingur | húðtegund 5</annotation>
+		<annotation cp="👉🏾">benda | fingur | hendi | hönd | vísifingur | húðtegund 5</annotation>
 		<annotation cp="👉🏾" type="tts">fingur bendir til hægri: húðtegund 5</annotation>
-		<annotation cp="👉🏿">fingur | vísifingur | húðtegund 6</annotation>
+		<annotation cp="👉🏿">benda | fingur | hendi | hönd | vísifingur | húðtegund 6</annotation>
 		<annotation cp="👉🏿" type="tts">fingur bendir til hægri: húðtegund 6</annotation>
 		<annotation cp="☝🏻">benda | fingur | hönd | líkami | upp | vísifingur | húðtegund 1–2</annotation>
 		<annotation cp="☝🏻" type="tts">vísifingur bendir upp: húðtegund 1–2</annotation>
@@ -1624,15 +1924,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">vísifingur bendir upp: húðtegund 5</annotation>
 		<annotation cp="☝🏿">benda | fingur | hönd | líkami | upp | vísifingur | húðtegund 6</annotation>
 		<annotation cp="☝🏿" type="tts">vísifingur bendir upp: húðtegund 6</annotation>
-		<annotation cp="👆🏻">fingur | vísifingur | húðtegund 1–2</annotation>
+		<annotation cp="👆🏻">benda | fingur | hendi | hönd | upp | vísifingur | húðtegund 1–2</annotation>
 		<annotation cp="👆🏻" type="tts">fingur bendir upp: húðtegund 1–2</annotation>
-		<annotation cp="👆🏼">fingur | vísifingur | húðtegund 3</annotation>
+		<annotation cp="👆🏼">benda | fingur | hendi | hönd | upp | vísifingur | húðtegund 3</annotation>
 		<annotation cp="👆🏼" type="tts">fingur bendir upp: húðtegund 3</annotation>
-		<annotation cp="👆🏽">fingur | vísifingur | húðtegund 4</annotation>
+		<annotation cp="👆🏽">benda | fingur | hendi | hönd | upp | vísifingur | húðtegund 4</annotation>
 		<annotation cp="👆🏽" type="tts">fingur bendir upp: húðtegund 4</annotation>
-		<annotation cp="👆🏾">fingur | vísifingur | húðtegund 5</annotation>
+		<annotation cp="👆🏾">benda | fingur | hendi | hönd | upp | vísifingur | húðtegund 5</annotation>
 		<annotation cp="👆🏾" type="tts">fingur bendir upp: húðtegund 5</annotation>
-		<annotation cp="👆🏿">fingur | vísifingur | húðtegund 6</annotation>
+		<annotation cp="👆🏿">benda | fingur | hendi | hönd | upp | vísifingur | húðtegund 6</annotation>
 		<annotation cp="👆🏿" type="tts">fingur bendir upp: húðtegund 6</annotation>
 		<annotation cp="🖕🏻">fingur | hönd | líkami | húðtegund 1–2</annotation>
 		<annotation cp="🖕🏻" type="tts">langatöng: húðtegund 1–2</annotation>
@@ -1644,15 +1944,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖕🏾" type="tts">langatöng: húðtegund 5</annotation>
 		<annotation cp="🖕🏿">fingur | hönd | líkami | húðtegund 6</annotation>
 		<annotation cp="🖕🏿" type="tts">langatöng: húðtegund 6</annotation>
-		<annotation cp="👇🏻">fingur | vísifingur | húðtegund 1–2</annotation>
+		<annotation cp="👇🏻">benda | fingur | hendi | hönd | niður | vísifingur | húðtegund 1–2</annotation>
 		<annotation cp="👇🏻" type="tts">fingur bendir niður: húðtegund 1–2</annotation>
-		<annotation cp="👇🏼">fingur | vísifingur | húðtegund 3</annotation>
+		<annotation cp="👇🏼">benda | fingur | hendi | hönd | niður | vísifingur | húðtegund 3</annotation>
 		<annotation cp="👇🏼" type="tts">fingur bendir niður: húðtegund 3</annotation>
-		<annotation cp="👇🏽">fingur | vísifingur | húðtegund 4</annotation>
+		<annotation cp="👇🏽">benda | fingur | hendi | hönd | niður | vísifingur | húðtegund 4</annotation>
 		<annotation cp="👇🏽" type="tts">fingur bendir niður: húðtegund 4</annotation>
-		<annotation cp="👇🏾">fingur | vísifingur | húðtegund 5</annotation>
+		<annotation cp="👇🏾">benda | fingur | hendi | hönd | niður | vísifingur | húðtegund 5</annotation>
 		<annotation cp="👇🏾" type="tts">fingur bendir niður: húðtegund 5</annotation>
-		<annotation cp="👇🏿">fingur | vísifingur | húðtegund 6</annotation>
+		<annotation cp="👇🏿">benda | fingur | hendi | hönd | niður | vísifingur | húðtegund 6</annotation>
 		<annotation cp="👇🏿" type="tts">fingur bendir niður: húðtegund 6</annotation>
 		<annotation cp="✌🏻">friður | sigur | sigurmerki | húðtegund 1–2</annotation>
 		<annotation cp="✌🏻" type="tts">friðarmerki: húðtegund 1–2</annotation>
@@ -1664,15 +1964,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✌🏾" type="tts">friðarmerki: húðtegund 5</annotation>
 		<annotation cp="✌🏿">friður | sigur | sigurmerki | húðtegund 6</annotation>
 		<annotation cp="✌🏿" type="tts">friðarmerki: húðtegund 6</annotation>
-		<annotation cp="🤞🏻">fingur | kross | húðtegund 1–2</annotation>
+		<annotation cp="🤞🏻">fingur | hendi | kross | lukka | húðtegund 1–2</annotation>
 		<annotation cp="🤞🏻" type="tts">krosslagðir fingur: húðtegund 1–2</annotation>
-		<annotation cp="🤞🏼">fingur | kross | húðtegund 3</annotation>
+		<annotation cp="🤞🏼">fingur | hendi | kross | lukka | húðtegund 3</annotation>
 		<annotation cp="🤞🏼" type="tts">krosslagðir fingur: húðtegund 3</annotation>
-		<annotation cp="🤞🏽">fingur | kross | húðtegund 4</annotation>
+		<annotation cp="🤞🏽">fingur | hendi | kross | lukka | húðtegund 4</annotation>
 		<annotation cp="🤞🏽" type="tts">krosslagðir fingur: húðtegund 4</annotation>
-		<annotation cp="🤞🏾">fingur | kross | húðtegund 5</annotation>
+		<annotation cp="🤞🏾">fingur | hendi | kross | lukka | húðtegund 5</annotation>
 		<annotation cp="🤞🏾" type="tts">krosslagðir fingur: húðtegund 5</annotation>
-		<annotation cp="🤞🏿">fingur | kross | húðtegund 6</annotation>
+		<annotation cp="🤞🏿">fingur | hendi | kross | lukka | húðtegund 6</annotation>
 		<annotation cp="🤞🏿" type="tts">krosslagðir fingur: húðtegund 6</annotation>
 		<annotation cp="🖖🏻">fingur | hönd | líkami | spock | vulcan | húðtegund 1–2</annotation>
 		<annotation cp="🖖🏻" type="tts">vulcan-kveðja: húðtegund 1–2</annotation>
@@ -1764,15 +2064,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✊🏾" type="tts">hnefi: húðtegund 5</annotation>
 		<annotation cp="✊🏿">uppréttur hnefi | húðtegund 6</annotation>
 		<annotation cp="✊🏿" type="tts">hnefi: húðtegund 6</annotation>
-		<annotation cp="👊🏻">hnefi | hönd | húðtegund 1–2</annotation>
+		<annotation cp="👊🏻">hnefi | hönd | kýla | samankrepptur hnefi | húðtegund 1–2</annotation>
 		<annotation cp="👊🏻" type="tts">krepptur hnefi: húðtegund 1–2</annotation>
-		<annotation cp="👊🏼">hnefi | hönd | húðtegund 3</annotation>
+		<annotation cp="👊🏼">hnefi | hönd | kýla | samankrepptur hnefi | húðtegund 3</annotation>
 		<annotation cp="👊🏼" type="tts">krepptur hnefi: húðtegund 3</annotation>
-		<annotation cp="👊🏽">hnefi | hönd | húðtegund 4</annotation>
+		<annotation cp="👊🏽">hnefi | hönd | kýla | samankrepptur hnefi | húðtegund 4</annotation>
 		<annotation cp="👊🏽" type="tts">krepptur hnefi: húðtegund 4</annotation>
-		<annotation cp="👊🏾">hnefi | hönd | húðtegund 5</annotation>
+		<annotation cp="👊🏾">hnefi | hönd | kýla | samankrepptur hnefi | húðtegund 5</annotation>
 		<annotation cp="👊🏾" type="tts">krepptur hnefi: húðtegund 5</annotation>
-		<annotation cp="👊🏿">hnefi | hönd | húðtegund 6</annotation>
+		<annotation cp="👊🏿">hnefi | hönd | kýla | samankrepptur hnefi | húðtegund 6</annotation>
 		<annotation cp="👊🏿" type="tts">krepptur hnefi: húðtegund 6</annotation>
 		<annotation cp="🤛🏻">hnefi | hönd | krepptur | húðtegund 1–2</annotation>
 		<annotation cp="🤛🏻" type="tts">hægri hnefi: húðtegund 1–2</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">hönd veifar: húðtegund 5</annotation>
 		<annotation cp="👋🏿">hönd | veifa | húðtegund 6</annotation>
 		<annotation cp="👋🏿" type="tts">hönd veifar: húðtegund 6</annotation>
+		<annotation cp="🤟🏻">ILY | hendi | húðtegund 1–2</annotation>
+		<annotation cp="🤟🏻" type="tts">elska-þig merki: húðtegund 1–2</annotation>
+		<annotation cp="🤟🏼">ILY | hendi | húðtegund 3</annotation>
+		<annotation cp="🤟🏼" type="tts">elska-þig merki: húðtegund 3</annotation>
+		<annotation cp="🤟🏽">ILY | hendi | húðtegund 4</annotation>
+		<annotation cp="🤟🏽" type="tts">elska-þig merki: húðtegund 4</annotation>
+		<annotation cp="🤟🏾">ILY | hendi | húðtegund 5</annotation>
+		<annotation cp="🤟🏾" type="tts">elska-þig merki: húðtegund 5</annotation>
+		<annotation cp="🤟🏿">ILY | hendi | húðtegund 6</annotation>
+		<annotation cp="🤟🏿" type="tts">elska-þig merki: húðtegund 6</annotation>
 		<annotation cp="✍🏻">hönd | líkami | skrifa | húðtegund 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">skrifandi hönd: húðtegund 1–2</annotation>
 		<annotation cp="✍🏼">hönd | líkami | skrifa | húðtegund 3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">húrra: húðtegund 5</annotation>
 		<annotation cp="🙌🏿">báðar hendur | fagna | hendur upp í loft | húðtegund 6</annotation>
 		<annotation cp="🙌🏿" type="tts">húrra: húðtegund 6</annotation>
+		<annotation cp="🤲🏻">spenntar greipar | húðtegund 1–2</annotation>
+		<annotation cp="🤲🏻" type="tts">lófar saman: húðtegund 1–2</annotation>
+		<annotation cp="🤲🏼">spenntar greipar | húðtegund 3</annotation>
+		<annotation cp="🤲🏼" type="tts">lófar saman: húðtegund 3</annotation>
+		<annotation cp="🤲🏽">spenntar greipar | húðtegund 4</annotation>
+		<annotation cp="🤲🏽" type="tts">lófar saman: húðtegund 4</annotation>
+		<annotation cp="🤲🏾">spenntar greipar | húðtegund 5</annotation>
+		<annotation cp="🤲🏾" type="tts">lófar saman: húðtegund 5</annotation>
+		<annotation cp="🤲🏿">spenntar greipar | húðtegund 6</annotation>
+		<annotation cp="🤲🏿" type="tts">lófar saman: húðtegund 6</annotation>
 		<annotation cp="🙏🏻">spenna greipar | spenntar greipar | húðtegund 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">bæn: húðtegund 1–2</annotation>
 		<annotation cp="🙏🏼">spenna greipar | spenntar greipar | húðtegund 3</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">nef: húðtegund 5</annotation>
 		<annotation cp="👃🏿">andlit | líkami | húðtegund 6</annotation>
 		<annotation cp="👃🏿" type="tts">nef: húðtegund 6</annotation>
-		<annotation cp="#⃣">myllumerki | reitur</annotation>
-		<annotation cp="#⃣" type="tts">reitur með myllumerki</annotation>
-		<annotation cp="*⃣">reitur | stjarna</annotation>
-		<annotation cp="*⃣" type="tts">reitur með stjörnumerki</annotation>
+		<annotation cp="#⃣">takki</annotation>
+		<annotation cp="#⃣" type="tts">takki: #</annotation>
+		<annotation cp="*⃣">takki</annotation>
+		<annotation cp="*⃣" type="tts">takki: *</annotation>
+		<annotation cp="🔟">takki</annotation>
+		<annotation cp="🔟" type="tts">takki: 10</annotation>
 		<annotation cp="🇦🇨">fáni</annotation>
 		<annotation cp="🇦🇨" type="tts">Ascension-eyja</annotation>
 		<annotation cp="🇦🇩">fáni</annotation>
@@ -2097,7 +2419,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇾">fáni</annotation>
 		<annotation cp="🇬🇾" type="tts">Gvæjana</annotation>
 		<annotation cp="🇭🇰">fáni</annotation>
-		<annotation cp="🇭🇰" type="tts">Sjálfstjórnarsvæðið Hong Kong</annotation>
+		<annotation cp="🇭🇰" type="tts">sérstjórnarsvæðið Hong Kong</annotation>
 		<annotation cp="🇭🇲">fáni</annotation>
 		<annotation cp="🇭🇲" type="tts">Heard og McDonaldseyjar</annotation>
 		<annotation cp="🇭🇳">fáni</annotation>
@@ -2205,7 +2527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇳">fáni</annotation>
 		<annotation cp="🇲🇳" type="tts">Mongólía</annotation>
 		<annotation cp="🇲🇴">fáni</annotation>
-		<annotation cp="🇲🇴" type="tts">Sjálfstjórnarsvæðið Makaó</annotation>
+		<annotation cp="🇲🇴" type="tts">sérstjórnarsvæðið Makaó</annotation>
 		<annotation cp="🇲🇵">fáni</annotation>
 		<annotation cp="🇲🇵" type="tts">Norður-Maríanaeyjar</annotation>
 		<annotation cp="🇲🇶">fáni</annotation>

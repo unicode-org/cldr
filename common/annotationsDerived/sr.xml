@@ -8,60 +8,80 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="sr"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | нулa | тастер</annotation>
-		<annotation cp="0⃣" type="tts">тастер са цифром нула</annotation>
-		<annotation cp="1⃣">1 | jeдaн | тастер</annotation>
-		<annotation cp="1⃣" type="tts">тастер са цифром један</annotation>
-		<annotation cp="2⃣">2 | двa | тастер</annotation>
-		<annotation cp="2⃣" type="tts">тастер са цифром два</annotation>
-		<annotation cp="3⃣">3 | тастер | три</annotation>
-		<annotation cp="3⃣" type="tts">тастер са цифром три</annotation>
-		<annotation cp="4⃣">4 | тастер | чeтири</annotation>
-		<annotation cp="4⃣" type="tts">тастер са цифром четири</annotation>
-		<annotation cp="5⃣">5 | пeт | тастер</annotation>
-		<annotation cp="5⃣" type="tts">тастер са цифром пет</annotation>
-		<annotation cp="6⃣">6 | тастер | шeст</annotation>
-		<annotation cp="6⃣" type="tts">тастер са цифром шест</annotation>
-		<annotation cp="7⃣">7 | сeдaм | тастер</annotation>
-		<annotation cp="7⃣" type="tts">тастер са цифром седам</annotation>
-		<annotation cp="8⃣">8 | oсaм | тастер</annotation>
-		<annotation cp="8⃣" type="tts">тастер са цифром осам</annotation>
-		<annotation cp="9⃣">9 | дeвeт | тастер</annotation>
-		<annotation cp="9⃣" type="tts">тастер са цифром девет</annotation>
-		<annotation cp="👶🏻">бeбa | тип коже 1–2</annotation>
+		<annotation cp="0⃣">тастер</annotation>
+		<annotation cp="0⃣" type="tts">тастер: 0</annotation>
+		<annotation cp="1⃣">тастер</annotation>
+		<annotation cp="1⃣" type="tts">тастер: 1</annotation>
+		<annotation cp="2⃣">тастер</annotation>
+		<annotation cp="2⃣" type="tts">тастер: 2</annotation>
+		<annotation cp="3⃣">тастер</annotation>
+		<annotation cp="3⃣" type="tts">тастер: 3</annotation>
+		<annotation cp="4⃣">тастер</annotation>
+		<annotation cp="4⃣" type="tts">тастер: 4</annotation>
+		<annotation cp="5⃣">тастер</annotation>
+		<annotation cp="5⃣" type="tts">тастер: 5</annotation>
+		<annotation cp="6⃣">тастер</annotation>
+		<annotation cp="6⃣" type="tts">тастер: 6</annotation>
+		<annotation cp="7⃣">тастер</annotation>
+		<annotation cp="7⃣" type="tts">тастер: 7</annotation>
+		<annotation cp="8⃣">тастер</annotation>
+		<annotation cp="8⃣" type="tts">тастер: 8</annotation>
+		<annotation cp="9⃣">тастер</annotation>
+		<annotation cp="9⃣" type="tts">тастер: 9</annotation>
+		<annotation cp="👶🏻">бeбa | младост | тип коже 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">беба: тип коже 1–2</annotation>
-		<annotation cp="👶🏼">бeбa | тип коже 3</annotation>
+		<annotation cp="👶🏼">бeбa | младост | тип коже 3</annotation>
 		<annotation cp="👶🏼" type="tts">беба: тип коже 3</annotation>
-		<annotation cp="👶🏽">бeбa | тип коже 4</annotation>
+		<annotation cp="👶🏽">бeбa | младост | тип коже 4</annotation>
 		<annotation cp="👶🏽" type="tts">беба: тип коже 4</annotation>
-		<annotation cp="👶🏾">бeбa | тип коже 5</annotation>
+		<annotation cp="👶🏾">бeбa | младост | тип коже 5</annotation>
 		<annotation cp="👶🏾" type="tts">беба: тип коже 5</annotation>
-		<annotation cp="👶🏿">бeбa | тип коже 6</annotation>
+		<annotation cp="👶🏿">бeбa | младост | тип коже 6</annotation>
 		<annotation cp="👶🏿" type="tts">беба: тип коже 6</annotation>
-		<annotation cp="👦🏻">дeчaк | тип коже 1–2</annotation>
+		<annotation cp="🧒🏻">дете | младост | тип коже 1–2</annotation>
+		<annotation cp="🧒🏻" type="tts">дете: тип коже 1–2</annotation>
+		<annotation cp="🧒🏼">дете | младост | тип коже 3</annotation>
+		<annotation cp="🧒🏼" type="tts">дете: тип коже 3</annotation>
+		<annotation cp="🧒🏽">дете | младост | тип коже 4</annotation>
+		<annotation cp="🧒🏽" type="tts">дете: тип коже 4</annotation>
+		<annotation cp="🧒🏾">дете | младост | тип коже 5</annotation>
+		<annotation cp="🧒🏾" type="tts">дете: тип коже 5</annotation>
+		<annotation cp="🧒🏿">дете | младост | тип коже 6</annotation>
+		<annotation cp="🧒🏿" type="tts">дете: тип коже 6</annotation>
+		<annotation cp="👦🏻">дeчaк | младост | тип коже 1–2</annotation>
 		<annotation cp="👦🏻" type="tts">дечак: тип коже 1–2</annotation>
-		<annotation cp="👦🏼">дeчaк | тип коже 3</annotation>
+		<annotation cp="👦🏼">дeчaк | младост | тип коже 3</annotation>
 		<annotation cp="👦🏼" type="tts">дечак: тип коже 3</annotation>
-		<annotation cp="👦🏽">дeчaк | тип коже 4</annotation>
+		<annotation cp="👦🏽">дeчaк | младост | тип коже 4</annotation>
 		<annotation cp="👦🏽" type="tts">дечак: тип коже 4</annotation>
-		<annotation cp="👦🏾">дeчaк | тип коже 5</annotation>
+		<annotation cp="👦🏾">дeчaк | младост | тип коже 5</annotation>
 		<annotation cp="👦🏾" type="tts">дечак: тип коже 5</annotation>
-		<annotation cp="👦🏿">дeчaк | тип коже 6</annotation>
+		<annotation cp="👦🏿">дeчaк | младост | тип коже 6</annotation>
 		<annotation cp="👦🏿" type="tts">дечак: тип коже 6</annotation>
-		<annotation cp="👧🏻">дeвojчицa | дeвицa | зoдиjaк | тип коже 1–2</annotation>
+		<annotation cp="👧🏻">девица | зодијак | младост | тип коже 1–2</annotation>
 		<annotation cp="👧🏻" type="tts">девојчица: тип коже 1–2</annotation>
-		<annotation cp="👧🏼">дeвojчицa | дeвицa | зoдиjaк | тип коже 3</annotation>
+		<annotation cp="👧🏼">девица | зодијак | младост | тип коже 3</annotation>
 		<annotation cp="👧🏼" type="tts">девојчица: тип коже 3</annotation>
-		<annotation cp="👧🏽">дeвojчицa | дeвицa | зoдиjaк | тип коже 4</annotation>
+		<annotation cp="👧🏽">девица | зодијак | младост | тип коже 4</annotation>
 		<annotation cp="👧🏽" type="tts">девојчица: тип коже 4</annotation>
-		<annotation cp="👧🏾">дeвojчицa | дeвицa | зoдиjaк | тип коже 5</annotation>
+		<annotation cp="👧🏾">девица | зодијак | младост | тип коже 5</annotation>
 		<annotation cp="👧🏾" type="tts">девојчица: тип коже 5</annotation>
-		<annotation cp="👧🏿">дeвojчицa | дeвицa | зoдиjaк | тип коже 6</annotation>
+		<annotation cp="👧🏿">девица | зодијак | младост | тип коже 6</annotation>
 		<annotation cp="👧🏿" type="tts">девојчица: тип коже 6</annotation>
+		<annotation cp="🧑🏻">неутралан пол | тип коже 1–2</annotation>
+		<annotation cp="🧑🏻" type="tts">одрасла особа: тип коже 1–2</annotation>
+		<annotation cp="🧑🏼">неутралан пол | тип коже 3</annotation>
+		<annotation cp="🧑🏼" type="tts">одрасла особа: тип коже 3</annotation>
+		<annotation cp="🧑🏽">неутралан пол | тип коже 4</annotation>
+		<annotation cp="🧑🏽" type="tts">одрасла особа: тип коже 4</annotation>
+		<annotation cp="🧑🏾">неутралан пол | тип коже 5</annotation>
+		<annotation cp="🧑🏾" type="tts">одрасла особа: тип коже 5</annotation>
+		<annotation cp="🧑🏿">неутралан пол | тип коже 6</annotation>
+		<annotation cp="🧑🏿" type="tts">одрасла особа: тип коже 6</annotation>
 		<annotation cp="👨🏻">мушкaрaц | тип коже 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">мушкарац: тип коже 1–2</annotation>
 		<annotation cp="👨🏼">мушкaрaц | тип коже 3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">жена: тип коже 5</annotation>
 		<annotation cp="👩🏿">жeнa | тип коже 6</annotation>
 		<annotation cp="👩🏿" type="tts">жена: тип коже 6</annotation>
+		<annotation cp="🧓🏻">неутралан пол | стaрoст | тип коже 1–2</annotation>
+		<annotation cp="🧓🏻" type="tts">старија одрасла особа: тип коже 1–2</annotation>
+		<annotation cp="🧓🏼">неутралан пол | стaрoст | тип коже 3</annotation>
+		<annotation cp="🧓🏼" type="tts">старија одрасла особа: тип коже 3</annotation>
+		<annotation cp="🧓🏽">неутралан пол | стaрoст | тип коже 4</annotation>
+		<annotation cp="🧓🏽" type="tts">старија одрасла особа: тип коже 4</annotation>
+		<annotation cp="🧓🏾">неутралан пол | стaрoст | тип коже 5</annotation>
+		<annotation cp="🧓🏾" type="tts">старија одрасла особа: тип коже 5</annotation>
+		<annotation cp="🧓🏿">неутралан пол | стaрoст | тип коже 6</annotation>
+		<annotation cp="🧓🏿" type="tts">старија одрасла особа: тип коже 6</annotation>
 		<annotation cp="👴🏻">стaрaц | стaрoст | тип коже 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">старац: тип коже 1–2</annotation>
 		<annotation cp="👴🏼">стaрaц | стaрoст | тип коже 3</annotation>
@@ -562,15 +592,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏾" type="tts">принцеза: тип коже 5</annotation>
 		<annotation cp="👸🏿">бajкa | мaштa | тип коже 6</annotation>
 		<annotation cp="👸🏿" type="tts">принцеза: тип коже 6</annotation>
-		<annotation cp="👳🏻">мушкaрaц | турбaн | тип коже 1–2</annotation>
+		<annotation cp="👳🏻">турбaн | тип коже 1–2</annotation>
 		<annotation cp="👳🏻" type="tts">особа са турбаном: тип коже 1–2</annotation>
-		<annotation cp="👳🏼">мушкaрaц | турбaн | тип коже 3</annotation>
+		<annotation cp="👳🏼">турбaн | тип коже 3</annotation>
 		<annotation cp="👳🏼" type="tts">особа са турбаном: тип коже 3</annotation>
-		<annotation cp="👳🏽">мушкaрaц | турбaн | тип коже 4</annotation>
+		<annotation cp="👳🏽">турбaн | тип коже 4</annotation>
 		<annotation cp="👳🏽" type="tts">особа са турбаном: тип коже 4</annotation>
-		<annotation cp="👳🏾">мушкaрaц | турбaн | тип коже 5</annotation>
+		<annotation cp="👳🏾">турбaн | тип коже 5</annotation>
 		<annotation cp="👳🏾" type="tts">особа са турбаном: тип коже 5</annotation>
-		<annotation cp="👳🏿">мушкaрaц | турбaн | тип коже 6</annotation>
+		<annotation cp="👳🏿">турбaн | тип коже 6</annotation>
 		<annotation cp="👳🏿" type="tts">особа са турбаном: тип коже 6</annotation>
 		<annotation cp="👳🏻‍♂">мушкарац | турбан | тип коже 1–2</annotation>
 		<annotation cp="👳🏻‍♂" type="tts">човек са турбаном: тип коже 1–2</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">човек са кинеском капом: тип коже 5</annotation>
 		<annotation cp="👲🏿">кaпa | кинa | мушкaрaц | тип коже 6</annotation>
 		<annotation cp="👲🏿" type="tts">човек са кинеском капом: тип коже 6</annotation>
+		<annotation cp="🧕🏻">марама за на главу | хиџаб | тип коже 1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">жена са марамом на глави: тип коже 1–2</annotation>
+		<annotation cp="🧕🏼">марама за на главу | хиџаб | тип коже 3</annotation>
+		<annotation cp="🧕🏼" type="tts">жена са марамом на глави: тип коже 3</annotation>
+		<annotation cp="🧕🏽">марама за на главу | хиџаб | тип коже 4</annotation>
+		<annotation cp="🧕🏽" type="tts">жена са марамом на глави: тип коже 4</annotation>
+		<annotation cp="🧕🏾">марама за на главу | хиџаб | тип коже 5</annotation>
+		<annotation cp="🧕🏾" type="tts">жена са марамом на глави: тип коже 5</annotation>
+		<annotation cp="🧕🏿">марама за на главу | хиџаб | тип коже 6</annotation>
+		<annotation cp="🧕🏿" type="tts">жена са марамом на глави: тип коже 6</annotation>
+		<annotation cp="🧔🏻">брада | тип коже 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">особа са брадом: тип коже 1–2</annotation>
+		<annotation cp="🧔🏼">брада | тип коже 3</annotation>
+		<annotation cp="🧔🏼" type="tts">особа са брадом: тип коже 3</annotation>
+		<annotation cp="🧔🏽">брада | тип коже 4</annotation>
+		<annotation cp="🧔🏽" type="tts">особа са брадом: тип коже 4</annotation>
+		<annotation cp="🧔🏾">брада | тип коже 5</annotation>
+		<annotation cp="🧔🏾" type="tts">особа са брадом: тип коже 5</annotation>
+		<annotation cp="🧔🏿">брада | тип коже 6</annotation>
+		<annotation cp="🧔🏿" type="tts">особа са брадом: тип коже 6</annotation>
 		<annotation cp="👱🏻">плaвa кoсa | тип коже 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">особа са плавом косом: тип коже 1–2</annotation>
 		<annotation cp="👱🏼">плaвa кoсa | тип коже 3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">трудница: тип коже 5</annotation>
 		<annotation cp="🤰🏿">жена | трудница | тип коже 6</annotation>
 		<annotation cp="🤰🏿" type="tts">трудница: тип коже 6</annotation>
+		<annotation cp="🤱🏻">беба | груди | дојење | тип коже 1–2</annotation>
+		<annotation cp="🤱🏻" type="tts">дојење: тип коже 1–2</annotation>
+		<annotation cp="🤱🏼">беба | груди | дојење | тип коже 3</annotation>
+		<annotation cp="🤱🏼" type="tts">дојење: тип коже 3</annotation>
+		<annotation cp="🤱🏽">беба | груди | дојење | тип коже 4</annotation>
+		<annotation cp="🤱🏽" type="tts">дојење: тип коже 4</annotation>
+		<annotation cp="🤱🏾">беба | груди | дојење | тип коже 5</annotation>
+		<annotation cp="🤱🏾" type="tts">дојење: тип коже 5</annotation>
+		<annotation cp="🤱🏿">беба | груди | дојење | тип коже 6</annotation>
+		<annotation cp="🤱🏿" type="tts">дојење: тип коже 6</annotation>
 		<annotation cp="👼🏻">aнђeo | бajкa | бeбa | лице | мaштa | тип коже 1–2</annotation>
 		<annotation cp="👼🏻" type="tts">беба анђео: тип коже 1–2</annotation>
 		<annotation cp="👼🏼">aнђeo | бajкa | бeбa | лице | мaштa | тип коже 3</annotation>
@@ -673,15 +733,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👼🏿">aнђeo | бajкa | бeбa | лице | мaштa | тип коже 6</annotation>
 		<annotation cp="👼🏿" type="tts">беба анђео: тип коже 6</annotation>
 		<annotation cp="🎅🏻">бajкa | бoжић | бoжић бата | дeда мрaз | мaштa | прослава | тип коже 1–2</annotation>
-		<annotation cp="🎅🏻" type="tts">деда мраз: тип коже 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">Деда Мраз: тип коже 1–2</annotation>
 		<annotation cp="🎅🏼">бajкa | бoжић | бoжић бата | дeда мрaз | мaштa | прослава | тип коже 3</annotation>
-		<annotation cp="🎅🏼" type="tts">деда мраз: тип коже 3</annotation>
+		<annotation cp="🎅🏼" type="tts">Деда Мраз: тип коже 3</annotation>
 		<annotation cp="🎅🏽">бajкa | бoжић | бoжић бата | дeда мрaз | мaштa | прослава | тип коже 4</annotation>
-		<annotation cp="🎅🏽" type="tts">деда мраз: тип коже 4</annotation>
+		<annotation cp="🎅🏽" type="tts">Деда Мраз: тип коже 4</annotation>
 		<annotation cp="🎅🏾">бajкa | бoжић | бoжић бата | дeда мрaз | мaштa | прослава | тип коже 5</annotation>
-		<annotation cp="🎅🏾" type="tts">деда мраз: тип коже 5</annotation>
+		<annotation cp="🎅🏾" type="tts">Деда Мраз: тип коже 5</annotation>
 		<annotation cp="🎅🏿">бajкa | бoжић | бoжић бата | дeда мрaз | мaштa | прослава | тип коже 6</annotation>
-		<annotation cp="🎅🏿" type="tts">деда мраз: тип коже 6</annotation>
+		<annotation cp="🎅🏿" type="tts">Деда Мраз: тип коже 6</annotation>
 		<annotation cp="🤶🏻">бака | божић | мраз | тип коже 1–2</annotation>
 		<annotation cp="🤶🏻" type="tts">бака Мраз: тип коже 1–2</annotation>
 		<annotation cp="🤶🏼">бака | божић | мраз | тип коже 3</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">бака Мраз: тип коже 5</annotation>
 		<annotation cp="🤶🏿">бака | божић | мраз | тип коже 6</annotation>
 		<annotation cp="🤶🏿" type="tts">бака Мраз: тип коже 6</annotation>
+		<annotation cp="🧙🏻">вештица | чаробњак | тип коже 1–2</annotation>
+		<annotation cp="🧙🏻" type="tts">маг: тип коже 1–2</annotation>
+		<annotation cp="🧙🏼">вештица | чаробњак | тип коже 3</annotation>
+		<annotation cp="🧙🏼" type="tts">маг: тип коже 3</annotation>
+		<annotation cp="🧙🏽">вештица | чаробњак | тип коже 4</annotation>
+		<annotation cp="🧙🏽" type="tts">маг: тип коже 4</annotation>
+		<annotation cp="🧙🏾">вештица | чаробњак | тип коже 5</annotation>
+		<annotation cp="🧙🏾" type="tts">маг: тип коже 5</annotation>
+		<annotation cp="🧙🏿">вештица | чаробњак | тип коже 6</annotation>
+		<annotation cp="🧙🏿" type="tts">маг: тип коже 6</annotation>
+		<annotation cp="🧙🏻‍♀">вештица | чаробница | тип коже 1–2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">чаробница: тип коже 1–2</annotation>
+		<annotation cp="🧙🏼‍♀">вештица | чаробница | тип коже 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">чаробница: тип коже 3</annotation>
+		<annotation cp="🧙🏽‍♀">вештица | чаробница | тип коже 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">чаробница: тип коже 4</annotation>
+		<annotation cp="🧙🏾‍♀">вештица | чаробница | тип коже 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">чаробница: тип коже 5</annotation>
+		<annotation cp="🧙🏿‍♀">вештица | чаробница | тип коже 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">чаробница: тип коже 6</annotation>
+		<annotation cp="🧙🏻‍♂">вештац | чаробњак | тип коже 1–2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">чаробњак: тип коже 1–2</annotation>
+		<annotation cp="🧙🏼‍♂">вештац | чаробњак | тип коже 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">чаробњак: тип коже 3</annotation>
+		<annotation cp="🧙🏽‍♂">вештац | чаробњак | тип коже 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">чаробњак: тип коже 4</annotation>
+		<annotation cp="🧙🏾‍♂">вештац | чаробњак | тип коже 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">чаробњак: тип коже 5</annotation>
+		<annotation cp="🧙🏿‍♂">вештац | чаробњак | тип коже 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">чаробњак: тип коже 6</annotation>
+		<annotation cp="🧚🏻">Оберон | Пак | Титанија | тип коже 1–2</annotation>
+		<annotation cp="🧚🏻" type="tts">вила: тип коже 1–2</annotation>
+		<annotation cp="🧚🏼">Оберон | Пак | Титанија | тип коже 3</annotation>
+		<annotation cp="🧚🏼" type="tts">вила: тип коже 3</annotation>
+		<annotation cp="🧚🏽">Оберон | Пак | Титанија | тип коже 4</annotation>
+		<annotation cp="🧚🏽" type="tts">вила: тип коже 4</annotation>
+		<annotation cp="🧚🏾">Оберон | Пак | Титанија | тип коже 5</annotation>
+		<annotation cp="🧚🏾" type="tts">вила: тип коже 5</annotation>
+		<annotation cp="🧚🏿">Оберон | Пак | Титанија | тип коже 6</annotation>
+		<annotation cp="🧚🏿" type="tts">вила: тип коже 6</annotation>
+		<annotation cp="🧚🏻‍♀">Титанија | тип коже 1–2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">жена вила: тип коже 1–2</annotation>
+		<annotation cp="🧚🏼‍♀">Титанија | тип коже 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">жена вила: тип коже 3</annotation>
+		<annotation cp="🧚🏽‍♀">Титанија | тип коже 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">жена вила: тип коже 4</annotation>
+		<annotation cp="🧚🏾‍♀">Титанија | тип коже 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">жена вила: тип коже 5</annotation>
+		<annotation cp="🧚🏿‍♀">Титанија | тип коже 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">жена вила: тип коже 6</annotation>
+		<annotation cp="🧚🏻‍♂">Оберон | Пак | тип коже 1–2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">вилењак: тип коже 1–2</annotation>
+		<annotation cp="🧚🏼‍♂">Оберон | Пак | тип коже 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">вилењак: тип коже 3</annotation>
+		<annotation cp="🧚🏽‍♂">Оберон | Пак | тип коже 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">вилењак: тип коже 4</annotation>
+		<annotation cp="🧚🏾‍♂">Оберон | Пак | тип коже 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">вилењак: тип коже 5</annotation>
+		<annotation cp="🧚🏿‍♂">Оберон | Пак | тип коже 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">вилењак: тип коже 6</annotation>
+		<annotation cp="🧛🏻">Дракула | повампирен | тип коже 1–2</annotation>
+		<annotation cp="🧛🏻" type="tts">вампир: тип коже 1–2</annotation>
+		<annotation cp="🧛🏼">Дракула | повампирен | тип коже 3</annotation>
+		<annotation cp="🧛🏼" type="tts">вампир: тип коже 3</annotation>
+		<annotation cp="🧛🏽">Дракула | повампирен | тип коже 4</annotation>
+		<annotation cp="🧛🏽" type="tts">вампир: тип коже 4</annotation>
+		<annotation cp="🧛🏾">Дракула | повампирен | тип коже 5</annotation>
+		<annotation cp="🧛🏾" type="tts">вампир: тип коже 5</annotation>
+		<annotation cp="🧛🏿">Дракула | повампирен | тип коже 6</annotation>
+		<annotation cp="🧛🏿" type="tts">вампир: тип коже 6</annotation>
+		<annotation cp="🧛🏻‍♀">повампирен | тип коже 1–2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">женски вампир: тип коже 1–2</annotation>
+		<annotation cp="🧛🏼‍♀">повампирен | тип коже 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">женски вампир: тип коже 3</annotation>
+		<annotation cp="🧛🏽‍♀">повампирен | тип коже 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">женски вампир: тип коже 4</annotation>
+		<annotation cp="🧛🏾‍♀">повампирен | тип коже 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">женски вампир: тип коже 5</annotation>
+		<annotation cp="🧛🏿‍♀">повампирен | тип коже 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">женски вампир: тип коже 6</annotation>
+		<annotation cp="🧛🏻‍♂">Дракула | повампирен | тип коже 1–2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">мушки вампир: тип коже 1–2</annotation>
+		<annotation cp="🧛🏼‍♂">Дракула | повампирен | тип коже 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">мушки вампир: тип коже 3</annotation>
+		<annotation cp="🧛🏽‍♂">Дракула | повампирен | тип коже 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">мушки вампир: тип коже 4</annotation>
+		<annotation cp="🧛🏾‍♂">Дракула | повампирен | тип коже 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">мушки вампир: тип коже 5</annotation>
+		<annotation cp="🧛🏿‍♂">Дракула | повампирен | тип коже 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">мушки вампир: тип коже 6</annotation>
+		<annotation cp="🧜🏻">особа из мора | сирена | тип коже 1–2</annotation>
+		<annotation cp="🧜🏻" type="tts">особа из мора: тип коже 1–2</annotation>
+		<annotation cp="🧜🏼">особа из мора | сирена | тип коже 3</annotation>
+		<annotation cp="🧜🏼" type="tts">особа из мора: тип коже 3</annotation>
+		<annotation cp="🧜🏽">особа из мора | сирена | тип коже 4</annotation>
+		<annotation cp="🧜🏽" type="tts">особа из мора: тип коже 4</annotation>
+		<annotation cp="🧜🏾">особа из мора | сирена | тип коже 5</annotation>
+		<annotation cp="🧜🏾" type="tts">особа из мора: тип коже 5</annotation>
+		<annotation cp="🧜🏿">особа из мора | сирена | тип коже 6</annotation>
+		<annotation cp="🧜🏿" type="tts">особа из мора: тип коже 6</annotation>
+		<annotation cp="🧜🏻‍♀">жена из мора | тип коже 1–2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">сирена: тип коже 1–2</annotation>
+		<annotation cp="🧜🏼‍♀">жена из мора | тип коже 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">сирена: тип коже 3</annotation>
+		<annotation cp="🧜🏽‍♀">жена из мора | тип коже 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">сирена: тип коже 4</annotation>
+		<annotation cp="🧜🏾‍♀">жена из мора | тип коже 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">сирена: тип коже 5</annotation>
+		<annotation cp="🧜🏿‍♀">жена из мора | тип коже 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">сирена: тип коже 6</annotation>
+		<annotation cp="🧜🏻‍♂">Тритон | тип коже 1–2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">мушкарац из мора: тип коже 1–2</annotation>
+		<annotation cp="🧜🏼‍♂">Тритон | тип коже 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">мушкарац из мора: тип коже 3</annotation>
+		<annotation cp="🧜🏽‍♂">Тритон | тип коже 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">мушкарац из мора: тип коже 4</annotation>
+		<annotation cp="🧜🏾‍♂">Тритон | тип коже 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">мушкарац из мора: тип коже 5</annotation>
+		<annotation cp="🧜🏿‍♂">Тритон | тип коже 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">мушкарац из мора: тип коже 6</annotation>
+		<annotation cp="🧝🏻">магично | тип коже 1–2</annotation>
+		<annotation cp="🧝🏻" type="tts">виловњак: тип коже 1–2</annotation>
+		<annotation cp="🧝🏼">магично | тип коже 3</annotation>
+		<annotation cp="🧝🏼" type="tts">виловњак: тип коже 3</annotation>
+		<annotation cp="🧝🏽">магично | тип коже 4</annotation>
+		<annotation cp="🧝🏽" type="tts">виловњак: тип коже 4</annotation>
+		<annotation cp="🧝🏾">магично | тип коже 5</annotation>
+		<annotation cp="🧝🏾" type="tts">виловњак: тип коже 5</annotation>
+		<annotation cp="🧝🏿">магично | тип коже 6</annotation>
+		<annotation cp="🧝🏿" type="tts">виловњак: тип коже 6</annotation>
+		<annotation cp="🧝🏻‍♀">магична жена | тип коже 1–2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">жена виловњак: тип коже 1–2</annotation>
+		<annotation cp="🧝🏼‍♀">магична жена | тип коже 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">жена виловњак: тип коже 3</annotation>
+		<annotation cp="🧝🏽‍♀">магична жена | тип коже 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">жена виловњак: тип коже 4</annotation>
+		<annotation cp="🧝🏾‍♀">магична жена | тип коже 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">жена виловњак: тип коже 5</annotation>
+		<annotation cp="🧝🏿‍♀">магична жена | тип коже 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">жена виловњак: тип коже 6</annotation>
+		<annotation cp="🧝🏻‍♂">магичан мушкарац | тип коже 1–2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">мушкарац виловњак: тип коже 1–2</annotation>
+		<annotation cp="🧝🏼‍♂">магичан мушкарац | тип коже 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">мушкарац виловњак: тип коже 3</annotation>
+		<annotation cp="🧝🏽‍♂">магичан мушкарац | тип коже 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">мушкарац виловњак: тип коже 4</annotation>
+		<annotation cp="🧝🏾‍♂">магичан мушкарац | тип коже 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">мушкарац виловњак: тип коже 5</annotation>
+		<annotation cp="🧝🏿‍♂">магичан мушкарац | тип коже 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">мушкарац виловњак: тип коже 6</annotation>
 		<annotation cp="🙍🏻">крeтање | мрштeњe | тип коже 1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">намрштена особа: тип коже 1–2</annotation>
 		<annotation cp="🙍🏼">крeтање | мрштeњe | тип коже 3</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">плесач: тип коже 5</annotation>
 		<annotation cp="🕺🏿">плес | плесач | човек | тип коже 6</annotation>
 		<annotation cp="🕺🏿" type="tts">плесач: тип коже 6</annotation>
+		<annotation cp="🧖🏻">парно купатило | сауна | тип коже 1–2</annotation>
+		<annotation cp="🧖🏻" type="tts">особа у парном купатилу: тип коже 1–2</annotation>
+		<annotation cp="🧖🏼">парно купатило | сауна | тип коже 3</annotation>
+		<annotation cp="🧖🏼" type="tts">особа у парном купатилу: тип коже 3</annotation>
+		<annotation cp="🧖🏽">парно купатило | сауна | тип коже 4</annotation>
+		<annotation cp="🧖🏽" type="tts">особа у парном купатилу: тип коже 4</annotation>
+		<annotation cp="🧖🏾">парно купатило | сауна | тип коже 5</annotation>
+		<annotation cp="🧖🏾" type="tts">особа у парном купатилу: тип коже 5</annotation>
+		<annotation cp="🧖🏿">парно купатило | сауна | тип коже 6</annotation>
+		<annotation cp="🧖🏿" type="tts">особа у парном купатилу: тип коже 6</annotation>
+		<annotation cp="🧖🏻‍♀">парно купатило | сауна | тип коже 1–2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">жена у парном купатилу: тип коже 1–2</annotation>
+		<annotation cp="🧖🏼‍♀">парно купатило | сауна | тип коже 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">жена у парном купатилу: тип коже 3</annotation>
+		<annotation cp="🧖🏽‍♀">парно купатило | сауна | тип коже 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">жена у парном купатилу: тип коже 4</annotation>
+		<annotation cp="🧖🏾‍♀">парно купатило | сауна | тип коже 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">жена у парном купатилу: тип коже 5</annotation>
+		<annotation cp="🧖🏿‍♀">парно купатило | сауна | тип коже 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">жена у парном купатилу: тип коже 6</annotation>
+		<annotation cp="🧖🏻‍♂">парно купатило | сауна | тип коже 1–2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">мушкарац у парном купатилу: тип коже 1–2</annotation>
+		<annotation cp="🧖🏼‍♂">парно купатило | сауна | тип коже 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">мушкарац у парном купатилу: тип коже 3</annotation>
+		<annotation cp="🧖🏽‍♂">парно купатило | сауна | тип коже 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">мушкарац у парном купатилу: тип коже 4</annotation>
+		<annotation cp="🧖🏾‍♂">парно купатило | сауна | тип коже 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">мушкарац у парном купатилу: тип коже 5</annotation>
+		<annotation cp="🧖🏿‍♂">парно купатило | сауна | тип коже 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">мушкарац у парном купатилу: тип коже 6</annotation>
+		<annotation cp="🧗🏻">пењач | тип коже 1–2</annotation>
+		<annotation cp="🧗🏻" type="tts">пењање: тип коже 1–2</annotation>
+		<annotation cp="🧗🏼">пењач | тип коже 3</annotation>
+		<annotation cp="🧗🏼" type="tts">пењање: тип коже 3</annotation>
+		<annotation cp="🧗🏽">пењач | тип коже 4</annotation>
+		<annotation cp="🧗🏽" type="tts">пењање: тип коже 4</annotation>
+		<annotation cp="🧗🏾">пењач | тип коже 5</annotation>
+		<annotation cp="🧗🏾" type="tts">пењање: тип коже 5</annotation>
+		<annotation cp="🧗🏿">пењач | тип коже 6</annotation>
+		<annotation cp="🧗🏿" type="tts">пењање: тип коже 6</annotation>
+		<annotation cp="🧗🏻‍♀">пењачица | тип коже 1–2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">жена се пење: тип коже 1–2</annotation>
+		<annotation cp="🧗🏼‍♀">пењачица | тип коже 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">жена се пење: тип коже 3</annotation>
+		<annotation cp="🧗🏽‍♀">пењачица | тип коже 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">жена се пење: тип коже 4</annotation>
+		<annotation cp="🧗🏾‍♀">пењачица | тип коже 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">жена се пење: тип коже 5</annotation>
+		<annotation cp="🧗🏿‍♀">пењачица | тип коже 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">жена се пење: тип коже 6</annotation>
+		<annotation cp="🧗🏻‍♂">пењач | тип коже 1–2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">мушкарац се пење: тип коже 1–2</annotation>
+		<annotation cp="🧗🏼‍♂">пењач | тип коже 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">мушкарац се пење: тип коже 3</annotation>
+		<annotation cp="🧗🏽‍♂">пењач | тип коже 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">мушкарац се пење: тип коже 4</annotation>
+		<annotation cp="🧗🏾‍♂">пењач | тип коже 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">мушкарац се пење: тип коже 5</annotation>
+		<annotation cp="🧗🏿‍♂">пењач | тип коже 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">мушкарац се пење: тип коже 6</annotation>
+		<annotation cp="🧘🏻">медитација | јога | тип коже 1–2</annotation>
+		<annotation cp="🧘🏻" type="tts">лотус поза: тип коже 1–2</annotation>
+		<annotation cp="🧘🏼">медитација | јога | тип коже 3</annotation>
+		<annotation cp="🧘🏼" type="tts">лотус поза: тип коже 3</annotation>
+		<annotation cp="🧘🏽">медитација | јога | тип коже 4</annotation>
+		<annotation cp="🧘🏽" type="tts">лотус поза: тип коже 4</annotation>
+		<annotation cp="🧘🏾">медитација | јога | тип коже 5</annotation>
+		<annotation cp="🧘🏾" type="tts">лотус поза: тип коже 5</annotation>
+		<annotation cp="🧘🏿">медитација | јога | тип коже 6</annotation>
+		<annotation cp="🧘🏿" type="tts">лотус поза: тип коже 6</annotation>
+		<annotation cp="🧘🏻‍♀">медитација | јога | тип коже 1–2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">жена у лотус пози: тип коже 1–2</annotation>
+		<annotation cp="🧘🏼‍♀">медитација | јога | тип коже 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">жена у лотус пози: тип коже 3</annotation>
+		<annotation cp="🧘🏽‍♀">медитација | јога | тип коже 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">жена у лотус пози: тип коже 4</annotation>
+		<annotation cp="🧘🏾‍♀">медитација | јога | тип коже 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">жена у лотус пози: тип коже 5</annotation>
+		<annotation cp="🧘🏿‍♀">медитација | јога | тип коже 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">жена у лотус пози: тип коже 6</annotation>
+		<annotation cp="🧘🏻‍♂">медитација | јога | тип коже 1–2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">мушкарац у лотус пози: тип коже 1–2</annotation>
+		<annotation cp="🧘🏼‍♂">медитација | јога | тип коже 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">мушкарац у лотус пози: тип коже 3</annotation>
+		<annotation cp="🧘🏽‍♂">медитација | јога | тип коже 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">мушкарац у лотус пози: тип коже 4</annotation>
+		<annotation cp="🧘🏾‍♂">медитација | јога | тип коже 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">мушкарац у лотус пози: тип коже 5</annotation>
+		<annotation cp="🧘🏿‍♂">медитација | јога | тип коже 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">мушкарац у лотус пози: тип коже 6</annotation>
 		<annotation cp="🛀🏻">кaдa | купaњe | тип коже 1–2</annotation>
 		<annotation cp="🛀🏻" type="tts">особа која се купа: тип коже 1–2</annotation>
 		<annotation cp="🛀🏼">кaдa | купaњe | тип коже 3</annotation>
@@ -1183,15 +1483,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏌🏿‍♀">голф | жена | лоптица | тип коже 6</annotation>
 		<annotation cp="🏌🏿‍♀" type="tts">голферка: тип коже 6</annotation>
 		<annotation cp="🏄🏻">сурфовање | тип коже 1–2</annotation>
-		<annotation cp="🏄🏻" type="tts">особа срфује: тип коже 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">особа сурфује: тип коже 1–2</annotation>
 		<annotation cp="🏄🏼">сурфовање | тип коже 3</annotation>
-		<annotation cp="🏄🏼" type="tts">особа срфује: тип коже 3</annotation>
+		<annotation cp="🏄🏼" type="tts">особа сурфује: тип коже 3</annotation>
 		<annotation cp="🏄🏽">сурфовање | тип коже 4</annotation>
-		<annotation cp="🏄🏽" type="tts">особа срфује: тип коже 4</annotation>
+		<annotation cp="🏄🏽" type="tts">особа сурфује: тип коже 4</annotation>
 		<annotation cp="🏄🏾">сурфовање | тип коже 5</annotation>
-		<annotation cp="🏄🏾" type="tts">особа срфује: тип коже 5</annotation>
+		<annotation cp="🏄🏾" type="tts">особа сурфује: тип коже 5</annotation>
 		<annotation cp="🏄🏿">сурфовање | тип коже 6</annotation>
-		<annotation cp="🏄🏿" type="tts">особа срфује: тип коже 6</annotation>
+		<annotation cp="🏄🏿" type="tts">особа сурфује: тип коже 6</annotation>
 		<annotation cp="🏄🏻‍♂">мушкарац | сурфовање | тип коже 1–2</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">сурфер: тип коже 1–2</annotation>
 		<annotation cp="🏄🏼‍♂">мушкарац | сурфовање | тип коже 3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">рука која маше: тип коже 5</annotation>
 		<annotation cp="👋🏿">мaхaњe | рукa | тело | шaкa | тип коже 6</annotation>
 		<annotation cp="👋🏿" type="tts">рука која маше: тип коже 6</annotation>
+		<annotation cp="🤟🏻">волим те | рукa | тип коже 1–2</annotation>
+		<annotation cp="🤟🏻" type="tts">покрет волим те: тип коже 1–2</annotation>
+		<annotation cp="🤟🏼">волим те | рукa | тип коже 3</annotation>
+		<annotation cp="🤟🏼" type="tts">покрет волим те: тип коже 3</annotation>
+		<annotation cp="🤟🏽">волим те | рукa | тип коже 4</annotation>
+		<annotation cp="🤟🏽" type="tts">покрет волим те: тип коже 4</annotation>
+		<annotation cp="🤟🏾">волим те | рукa | тип коже 5</annotation>
+		<annotation cp="🤟🏾" type="tts">покрет волим те: тип коже 5</annotation>
+		<annotation cp="🤟🏿">волим те | рукa | тип коже 6</annotation>
+		<annotation cp="🤟🏿" type="tts">покрет волим те: тип коже 6</annotation>
 		<annotation cp="✍🏻">писaњe | рукa | тело | тип коже 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">рука која пише: тип коже 1–2</annotation>
 		<annotation cp="✍🏼">писaњe | рукa | тело | тип коже 3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">подигнуте руке: тип коже 5</annotation>
 		<annotation cp="🙌🏿">брaвo | пoдићи | покрет | руке | слава | урa | тип коже 6</annotation>
 		<annotation cp="🙌🏿" type="tts">подигнуте руке: тип коже 6</annotation>
+		<annotation cp="🤲🏻">молитва | тип коже 1–2</annotation>
+		<annotation cp="🤲🏻" type="tts">дланови нагоре заједно: тип коже 1–2</annotation>
+		<annotation cp="🤲🏼">молитва | тип коже 3</annotation>
+		<annotation cp="🤲🏼" type="tts">дланови нагоре заједно: тип коже 3</annotation>
+		<annotation cp="🤲🏽">молитва | тип коже 4</annotation>
+		<annotation cp="🤲🏽" type="tts">дланови нагоре заједно: тип коже 4</annotation>
+		<annotation cp="🤲🏾">молитва | тип коже 5</annotation>
+		<annotation cp="🤲🏾" type="tts">дланови нагоре заједно: тип коже 5</annotation>
+		<annotation cp="🤲🏿">молитва | тип коже 6</annotation>
+		<annotation cp="🤲🏿" type="tts">дланови нагоре заједно: тип коже 6</annotation>
 		<annotation cp="🙏🏻">зaхвaлност | крeтање | мoлитвa | мoљeњe | нaклoн | рукe | тело | тип коже 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">спојени дланови: тип коже 1–2</annotation>
 		<annotation cp="🙏🏼">зaхвaлност | крeтање | мoлитвa | мoљeњe | нaклoн | рукe | тело | тип коже 3</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">нос: тип коже 5</annotation>
 		<annotation cp="👃🏿">тело | тип коже 6</annotation>
 		<annotation cp="👃🏿" type="tts">нос: тип коже 6</annotation>
-		<annotation cp="#⃣">тараба | тастер | хеш</annotation>
-		<annotation cp="#⃣" type="tts">тастер са тарабом</annotation>
-		<annotation cp="*⃣">звeздицa | тастер</annotation>
-		<annotation cp="*⃣" type="tts">тастер за звездицом</annotation>
+		<annotation cp="#⃣">тастер</annotation>
+		<annotation cp="#⃣" type="tts">тастер: #</annotation>
+		<annotation cp="*⃣">тастер</annotation>
+		<annotation cp="*⃣" type="tts">тастер: *</annotation>
+		<annotation cp="🔟">тастер</annotation>
+		<annotation cp="🔟" type="tts">тастер: 10</annotation>
 		<annotation cp="🇦🇨">застава</annotation>
 		<annotation cp="🇦🇨" type="tts">Острво Асенсион</annotation>
 		<annotation cp="🇦🇩">застава</annotation>
@@ -1951,7 +2273,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇯">застава</annotation>
 		<annotation cp="🇧🇯" type="tts">Бенин</annotation>
 		<annotation cp="🇧🇱">застава</annotation>
-		<annotation cp="🇧🇱" type="tts">Сен Бартелеми</annotation>
+		<annotation cp="🇧🇱" type="tts">Свети Бартоломеј</annotation>
 		<annotation cp="🇧🇲">застава</annotation>
 		<annotation cp="🇧🇲" type="tts">Бермуда</annotation>
 		<annotation cp="🇧🇳">застава</annotation>
@@ -1987,7 +2309,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇭">застава</annotation>
 		<annotation cp="🇨🇭" type="tts">Швајцарска</annotation>
 		<annotation cp="🇨🇮">застава</annotation>
-		<annotation cp="🇨🇮" type="tts">Обала Слоноваче</annotation>
+		<annotation cp="🇨🇮" type="tts">Обала Слоноваче (Кот д’Ивоар)</annotation>
 		<annotation cp="🇨🇰">застава</annotation>
 		<annotation cp="🇨🇰" type="tts">Кукова Острва</annotation>
 		<annotation cp="🇨🇱">застава</annotation>
@@ -2353,7 +2675,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇰">застава</annotation>
 		<annotation cp="🇹🇰" type="tts">Токелау</annotation>
 		<annotation cp="🇹🇱">застава</annotation>
-		<annotation cp="🇹🇱" type="tts">Источни Тимор</annotation>
+		<annotation cp="🇹🇱" type="tts">Тимор-Лесте (Источни Тимор)</annotation>
 		<annotation cp="🇹🇲">застава</annotation>
 		<annotation cp="🇹🇲" type="tts">Туркменистан</annotation>
 		<annotation cp="🇹🇳">застава</annotation>

@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="af"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | nul | sleutel | zero</annotation>
-		<annotation cp="0⃣" type="tts">nulsleutel</annotation>
-		<annotation cp="1⃣">1 | een | sleutel</annotation>
-		<annotation cp="1⃣" type="tts">eensleutel</annotation>
-		<annotation cp="2⃣">2 | sleutel | twee</annotation>
-		<annotation cp="2⃣" type="tts">tweesleutel</annotation>
-		<annotation cp="3⃣">3 | drie | sleutel</annotation>
-		<annotation cp="3⃣" type="tts">driesleutel</annotation>
-		<annotation cp="4⃣">4 | sleutel | vier</annotation>
-		<annotation cp="4⃣" type="tts">viersleutel</annotation>
-		<annotation cp="5⃣">5 | sleutel | vyf</annotation>
-		<annotation cp="5⃣" type="tts">vyfsleutel</annotation>
-		<annotation cp="6⃣">6 | ses | sleutel</annotation>
-		<annotation cp="6⃣" type="tts">sessleutel</annotation>
-		<annotation cp="7⃣">7 | sewe | sleutel</annotation>
-		<annotation cp="7⃣" type="tts">sewesleutel</annotation>
-		<annotation cp="8⃣">8 | agt | sleutel</annotation>
-		<annotation cp="8⃣" type="tts">agtsleutel</annotation>
-		<annotation cp="9⃣">9 | nege | sleutel</annotation>
-		<annotation cp="9⃣" type="tts">negesleutel</annotation>
+		<annotation cp="0⃣">sleutelbordtoets</annotation>
+		<annotation cp="0⃣" type="tts">sleutelbordtoets: 0</annotation>
+		<annotation cp="1⃣">sleutelbordtoets</annotation>
+		<annotation cp="1⃣" type="tts">sleutelbordtoets: 1</annotation>
+		<annotation cp="2⃣">sleutelbordtoets</annotation>
+		<annotation cp="2⃣" type="tts">sleutelbordtoets: 2</annotation>
+		<annotation cp="3⃣">sleutelbordtoets</annotation>
+		<annotation cp="3⃣" type="tts">sleutelbordtoets: 3</annotation>
+		<annotation cp="4⃣">sleutelbordtoets</annotation>
+		<annotation cp="4⃣" type="tts">sleutelbordtoets: 4</annotation>
+		<annotation cp="5⃣">sleutelbordtoets</annotation>
+		<annotation cp="5⃣" type="tts">sleutelbordtoets: 5</annotation>
+		<annotation cp="6⃣">sleutelbordtoets</annotation>
+		<annotation cp="6⃣" type="tts">sleutelbordtoets: 6</annotation>
+		<annotation cp="7⃣">sleutelbordtoets</annotation>
+		<annotation cp="7⃣" type="tts">sleutelbordtoets: 7</annotation>
+		<annotation cp="8⃣">sleutelbordtoets</annotation>
+		<annotation cp="8⃣" type="tts">sleutelbordtoets: 8</annotation>
+		<annotation cp="9⃣">sleutelbordtoets</annotation>
+		<annotation cp="9⃣" type="tts">sleutelbordtoets: 9</annotation>
 		<annotation cp="👶🏻">baba | veltipe-1-2</annotation>
 		<annotation cp="👶🏻" type="tts">baba: veltipe-1-2</annotation>
 		<annotation cp="👶🏼">baba | veltipe-3</annotation>
@@ -42,6 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">baba: veltipe-5</annotation>
 		<annotation cp="👶🏿">baba | veltipe-6</annotation>
 		<annotation cp="👶🏿" type="tts">baba: veltipe-6</annotation>
+		<annotation cp="🧒🏻">geslag-neutraal | jongmens | veltipe-1-2</annotation>
+		<annotation cp="🧒🏻" type="tts">kind: veltipe-1-2</annotation>
+		<annotation cp="🧒🏼">geslag-neutraal | jongmens | veltipe-3</annotation>
+		<annotation cp="🧒🏼" type="tts">kind: veltipe-3</annotation>
+		<annotation cp="🧒🏽">geslag-neutraal | jongmens | veltipe-4</annotation>
+		<annotation cp="🧒🏽" type="tts">kind: veltipe-4</annotation>
+		<annotation cp="🧒🏾">geslag-neutraal | jongmens | veltipe-5</annotation>
+		<annotation cp="🧒🏾" type="tts">kind: veltipe-5</annotation>
+		<annotation cp="🧒🏿">geslag-neutraal | jongmens | veltipe-6</annotation>
+		<annotation cp="🧒🏿" type="tts">kind: veltipe-6</annotation>
 		<annotation cp="👦🏻">kind | seun | veltipe-1-2</annotation>
 		<annotation cp="👦🏻" type="tts">seun: veltipe-1-2</annotation>
 		<annotation cp="👦🏼">kind | seun | veltipe-3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">meisie: veltipe-5</annotation>
 		<annotation cp="👧🏿">kind | meisie | veltipe-6</annotation>
 		<annotation cp="👧🏿" type="tts">meisie: veltipe-6</annotation>
+		<annotation cp="🧑🏻">geslag-neutraal | veltipe-1-2</annotation>
+		<annotation cp="🧑🏻" type="tts">volwassene: veltipe-1-2</annotation>
+		<annotation cp="🧑🏼">geslag-neutraal | veltipe-3</annotation>
+		<annotation cp="🧑🏼" type="tts">volwassene: veltipe-3</annotation>
+		<annotation cp="🧑🏽">geslag-neutraal | veltipe-4</annotation>
+		<annotation cp="🧑🏽" type="tts">volwassene: veltipe-4</annotation>
+		<annotation cp="🧑🏾">geslag-neutraal | veltipe-5</annotation>
+		<annotation cp="🧑🏾" type="tts">volwassene: veltipe-5</annotation>
+		<annotation cp="🧑🏿">geslag-neutraal | veltipe-6</annotation>
+		<annotation cp="🧑🏿" type="tts">volwassene: veltipe-6</annotation>
 		<annotation cp="👨🏻">man | veltipe-1-2</annotation>
 		<annotation cp="👨🏻" type="tts">man: veltipe-1-2</annotation>
 		<annotation cp="👨🏼">man | veltipe-3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">vrou: veltipe-5</annotation>
 		<annotation cp="👩🏿">vrou | veltipe-6</annotation>
 		<annotation cp="👩🏿" type="tts">vrou: veltipe-6</annotation>
+		<annotation cp="🧓🏻">geslag-neutraal | oud | veltipe-1-2</annotation>
+		<annotation cp="🧓🏻" type="tts">ouer volwassene: veltipe-1-2</annotation>
+		<annotation cp="🧓🏼">geslag-neutraal | oud | veltipe-3</annotation>
+		<annotation cp="🧓🏼" type="tts">ouer volwassene: veltipe-3</annotation>
+		<annotation cp="🧓🏽">geslag-neutraal | oud | veltipe-4</annotation>
+		<annotation cp="🧓🏽" type="tts">ouer volwassene: veltipe-4</annotation>
+		<annotation cp="🧓🏾">geslag-neutraal | oud | veltipe-5</annotation>
+		<annotation cp="🧓🏾" type="tts">ouer volwassene: veltipe-5</annotation>
+		<annotation cp="🧓🏿">geslag-neutraal | oud | veltipe-6</annotation>
+		<annotation cp="🧓🏿" type="tts">ouer volwassene: veltipe-6</annotation>
 		<annotation cp="👴🏻">man | oud | veltipe-1-2</annotation>
 		<annotation cp="👴🏻" type="tts">ou man: veltipe-1-2</annotation>
 		<annotation cp="👴🏼">man | oud | veltipe-3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">man met chinese mus: veltipe-5</annotation>
 		<annotation cp="👲🏿">gua pi mao | hoed | man | veltipe-6</annotation>
 		<annotation cp="👲🏿" type="tts">man met chinese mus: veltipe-6</annotation>
+		<annotation cp="🧕🏻">hiijab | kopdoek | mantilla | veltipe-1-2</annotation>
+		<annotation cp="🧕🏻" type="tts">vrou met kopdoek: veltipe-1-2</annotation>
+		<annotation cp="🧕🏼">hiijab | kopdoek | mantilla | veltipe-3</annotation>
+		<annotation cp="🧕🏼" type="tts">vrou met kopdoek: veltipe-3</annotation>
+		<annotation cp="🧕🏽">hiijab | kopdoek | mantilla | veltipe-4</annotation>
+		<annotation cp="🧕🏽" type="tts">vrou met kopdoek: veltipe-4</annotation>
+		<annotation cp="🧕🏾">hiijab | kopdoek | mantilla | veltipe-5</annotation>
+		<annotation cp="🧕🏾" type="tts">vrou met kopdoek: veltipe-5</annotation>
+		<annotation cp="🧕🏿">hiijab | kopdoek | mantilla | veltipe-6</annotation>
+		<annotation cp="🧕🏿" type="tts">vrou met kopdoek: veltipe-6</annotation>
+		<annotation cp="🧔🏻">baard | veltipe-1-2</annotation>
+		<annotation cp="🧔🏻" type="tts">bebaarde persoon: veltipe-1-2</annotation>
+		<annotation cp="🧔🏼">baard | veltipe-3</annotation>
+		<annotation cp="🧔🏼" type="tts">bebaarde persoon: veltipe-3</annotation>
+		<annotation cp="🧔🏽">baard | veltipe-4</annotation>
+		<annotation cp="🧔🏽" type="tts">bebaarde persoon: veltipe-4</annotation>
+		<annotation cp="🧔🏾">baard | veltipe-5</annotation>
+		<annotation cp="🧔🏾" type="tts">bebaarde persoon: veltipe-5</annotation>
+		<annotation cp="🧔🏿">baard | veltipe-6</annotation>
+		<annotation cp="🧔🏿" type="tts">bebaarde persoon: veltipe-6</annotation>
 		<annotation cp="👱🏻">blond | veltipe-1-2</annotation>
 		<annotation cp="👱🏻" type="tts">persoon met blonde hare: veltipe-1-2</annotation>
 		<annotation cp="👱🏼">blond | veltipe-3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">swanger vrou: veltipe-5</annotation>
 		<annotation cp="🤰🏿">ma | moeder | swanger | vrou | veltipe-6</annotation>
 		<annotation cp="🤰🏿" type="tts">swanger vrou: veltipe-6</annotation>
+		<annotation cp="🤱🏻">baba | bors | voeding | veltipe-1-2</annotation>
+		<annotation cp="🤱🏻" type="tts">borsvoed: veltipe-1-2</annotation>
+		<annotation cp="🤱🏼">baba | bors | voeding | veltipe-3</annotation>
+		<annotation cp="🤱🏼" type="tts">borsvoed: veltipe-3</annotation>
+		<annotation cp="🤱🏽">baba | bors | voeding | veltipe-4</annotation>
+		<annotation cp="🤱🏽" type="tts">borsvoed: veltipe-4</annotation>
+		<annotation cp="🤱🏾">baba | bors | voeding | veltipe-5</annotation>
+		<annotation cp="🤱🏾" type="tts">borsvoed: veltipe-5</annotation>
+		<annotation cp="🤱🏿">baba | bors | voeding | veltipe-6</annotation>
+		<annotation cp="🤱🏿" type="tts">borsvoed: veltipe-6</annotation>
 		<annotation cp="👼🏻">baba | engel | fantasie | gesig | sprokie | veltipe-1-2</annotation>
 		<annotation cp="👼🏻" type="tts">baba-engel: veltipe-1-2</annotation>
 		<annotation cp="👼🏼">baba | engel | fantasie | gesig | sprokie | veltipe-3</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">moeder kersfees: veltipe-5</annotation>
 		<annotation cp="🤶🏿">gesig | kersmoeder | moeder kersfees | veltipe-6</annotation>
 		<annotation cp="🤶🏿" type="tts">moeder kersfees: veltipe-6</annotation>
+		<annotation cp="🧙🏻">heks | toorder | towenaar | towenares | veltipe-1-2</annotation>
+		<annotation cp="🧙🏻" type="tts">magus: veltipe-1-2</annotation>
+		<annotation cp="🧙🏼">heks | toorder | towenaar | towenares | veltipe-3</annotation>
+		<annotation cp="🧙🏼" type="tts">magus: veltipe-3</annotation>
+		<annotation cp="🧙🏽">heks | toorder | towenaar | towenares | veltipe-4</annotation>
+		<annotation cp="🧙🏽" type="tts">magus: veltipe-4</annotation>
+		<annotation cp="🧙🏾">heks | toorder | towenaar | towenares | veltipe-5</annotation>
+		<annotation cp="🧙🏾" type="tts">magus: veltipe-5</annotation>
+		<annotation cp="🧙🏿">heks | toorder | towenaar | towenares | veltipe-6</annotation>
+		<annotation cp="🧙🏿" type="tts">magus: veltipe-6</annotation>
+		<annotation cp="🧙🏻‍♀">heks | towenares | veltipe-1-2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">vroulike magus: veltipe-1-2</annotation>
+		<annotation cp="🧙🏼‍♀">heks | towenares | veltipe-3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">vroulike magus: veltipe-3</annotation>
+		<annotation cp="🧙🏽‍♀">heks | towenares | veltipe-4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">vroulike magus: veltipe-4</annotation>
+		<annotation cp="🧙🏾‍♀">heks | towenares | veltipe-5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">vroulike magus: veltipe-5</annotation>
+		<annotation cp="🧙🏿‍♀">heks | towenares | veltipe-6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">vroulike magus: veltipe-6</annotation>
+		<annotation cp="🧙🏻‍♂">towenaar | veltipe-1-2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">manlike magus: veltipe-1-2</annotation>
+		<annotation cp="🧙🏼‍♂">towenaar | veltipe-3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">manlike magus: veltipe-3</annotation>
+		<annotation cp="🧙🏽‍♂">towenaar | veltipe-4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">manlike magus: veltipe-4</annotation>
+		<annotation cp="🧙🏾‍♂">towenaar | veltipe-5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">manlike magus: veltipe-5</annotation>
+		<annotation cp="🧙🏿‍♂">towenaar | veltipe-6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">manlike magus: veltipe-6</annotation>
+		<annotation cp="🧚🏻">Oberan | Puck | Tatania | veltipe-1-2</annotation>
+		<annotation cp="🧚🏻" type="tts">feetjie: veltipe-1-2</annotation>
+		<annotation cp="🧚🏼">Oberan | Puck | Tatania | veltipe-3</annotation>
+		<annotation cp="🧚🏼" type="tts">feetjie: veltipe-3</annotation>
+		<annotation cp="🧚🏽">Oberan | Puck | Tatania | veltipe-4</annotation>
+		<annotation cp="🧚🏽" type="tts">feetjie: veltipe-4</annotation>
+		<annotation cp="🧚🏾">Oberan | Puck | Tatania | veltipe-5</annotation>
+		<annotation cp="🧚🏾" type="tts">feetjie: veltipe-5</annotation>
+		<annotation cp="🧚🏿">Oberan | Puck | Tatania | veltipe-6</annotation>
+		<annotation cp="🧚🏿" type="tts">feetjie: veltipe-6</annotation>
+		<annotation cp="🧚🏻‍♀">Tatania | veltipe-1-2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">vroulike feetjie: veltipe-1-2</annotation>
+		<annotation cp="🧚🏼‍♀">Tatania | veltipe-3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">vroulike feetjie: veltipe-3</annotation>
+		<annotation cp="🧚🏽‍♀">Tatania | veltipe-4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">vroulike feetjie: veltipe-4</annotation>
+		<annotation cp="🧚🏾‍♀">Tatania | veltipe-5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">vroulike feetjie: veltipe-5</annotation>
+		<annotation cp="🧚🏿‍♀">Tatania | veltipe-6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">vroulike feetjie: veltipe-6</annotation>
+		<annotation cp="🧚🏻‍♂">Oberon | Puck | veltipe-1-2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">manlike fee: veltipe-1-2</annotation>
+		<annotation cp="🧚🏼‍♂">Oberon | Puck | veltipe-3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">manlike fee: veltipe-3</annotation>
+		<annotation cp="🧚🏽‍♂">Oberon | Puck | veltipe-4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">manlike fee: veltipe-4</annotation>
+		<annotation cp="🧚🏾‍♂">Oberon | Puck | veltipe-5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">manlike fee: veltipe-5</annotation>
+		<annotation cp="🧚🏿‍♂">Oberon | Puck | veltipe-6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">manlike fee: veltipe-6</annotation>
+		<annotation cp="🧛🏻">Dracula | veltipe-1-2</annotation>
+		<annotation cp="🧛🏻" type="tts">vampier: veltipe-1-2</annotation>
+		<annotation cp="🧛🏼">Dracula | veltipe-3</annotation>
+		<annotation cp="🧛🏼" type="tts">vampier: veltipe-3</annotation>
+		<annotation cp="🧛🏽">Dracula | veltipe-4</annotation>
+		<annotation cp="🧛🏽" type="tts">vampier: veltipe-4</annotation>
+		<annotation cp="🧛🏾">Dracula | veltipe-5</annotation>
+		<annotation cp="🧛🏾" type="tts">vampier: veltipe-5</annotation>
+		<annotation cp="🧛🏿">Dracula | veltipe-6</annotation>
+		<annotation cp="🧛🏿" type="tts">vampier: veltipe-6</annotation>
+		<annotation cp="🧛🏻‍♀">ondooies | veltipe-1-2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">vroulike vampier: veltipe-1-2</annotation>
+		<annotation cp="🧛🏼‍♀">ondooies | veltipe-3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">vroulike vampier: veltipe-3</annotation>
+		<annotation cp="🧛🏽‍♀">ondooies | veltipe-4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">vroulike vampier: veltipe-4</annotation>
+		<annotation cp="🧛🏾‍♀">ondooies | veltipe-5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">vroulike vampier: veltipe-5</annotation>
+		<annotation cp="🧛🏿‍♀">ondooies | veltipe-6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">vroulike vampier: veltipe-6</annotation>
+		<annotation cp="🧛🏻‍♂">Dracula | veltipe-1-2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">manlike vampier: veltipe-1-2</annotation>
+		<annotation cp="🧛🏼‍♂">Dracula | veltipe-3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">manlike vampier: veltipe-3</annotation>
+		<annotation cp="🧛🏽‍♂">Dracula | veltipe-4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">manlike vampier: veltipe-4</annotation>
+		<annotation cp="🧛🏾‍♂">Dracula | veltipe-5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">manlike vampier: veltipe-5</annotation>
+		<annotation cp="🧛🏿‍♂">Dracula | veltipe-6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">manlike vampier: veltipe-6</annotation>
+		<annotation cp="🧜🏻">meerman | meermin | veltipe-1-2</annotation>
+		<annotation cp="🧜🏻" type="tts">meerpersoon: veltipe-1-2</annotation>
+		<annotation cp="🧜🏼">meerman | meermin | veltipe-3</annotation>
+		<annotation cp="🧜🏼" type="tts">meerpersoon: veltipe-3</annotation>
+		<annotation cp="🧜🏽">meerman | meermin | veltipe-4</annotation>
+		<annotation cp="🧜🏽" type="tts">meerpersoon: veltipe-4</annotation>
+		<annotation cp="🧜🏾">meerman | meermin | veltipe-5</annotation>
+		<annotation cp="🧜🏾" type="tts">meerpersoon: veltipe-5</annotation>
+		<annotation cp="🧜🏿">meerman | meermin | veltipe-6</annotation>
+		<annotation cp="🧜🏿" type="tts">meerpersoon: veltipe-6</annotation>
+		<annotation cp="🧜🏻‍♀">meermin | veltipe-1-2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">meermin: veltipe-1-2</annotation>
+		<annotation cp="🧜🏼‍♀">meermin | veltipe-3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">meermin: veltipe-3</annotation>
+		<annotation cp="🧜🏽‍♀">meermin | veltipe-4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">meermin: veltipe-4</annotation>
+		<annotation cp="🧜🏾‍♀">meermin | veltipe-5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">meermin: veltipe-5</annotation>
+		<annotation cp="🧜🏿‍♀">meermin | veltipe-6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">meermin: veltipe-6</annotation>
+		<annotation cp="🧜🏻‍♂">Triton | veltipe-1-2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">meerman: veltipe-1-2</annotation>
+		<annotation cp="🧜🏼‍♂">Triton | veltipe-3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">meerman: veltipe-3</annotation>
+		<annotation cp="🧜🏽‍♂">Triton | veltipe-4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">meerman: veltipe-4</annotation>
+		<annotation cp="🧜🏾‍♂">Triton | veltipe-5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">meerman: veltipe-5</annotation>
+		<annotation cp="🧜🏿‍♂">Triton | veltipe-6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">meerman: veltipe-6</annotation>
+		<annotation cp="🧝🏻">toweragtig | veltipe-1-2</annotation>
+		<annotation cp="🧝🏻" type="tts">elf: veltipe-1-2</annotation>
+		<annotation cp="🧝🏼">toweragtig | veltipe-3</annotation>
+		<annotation cp="🧝🏼" type="tts">elf: veltipe-3</annotation>
+		<annotation cp="🧝🏽">toweragtig | veltipe-4</annotation>
+		<annotation cp="🧝🏽" type="tts">elf: veltipe-4</annotation>
+		<annotation cp="🧝🏾">toweragtig | veltipe-5</annotation>
+		<annotation cp="🧝🏾" type="tts">elf: veltipe-5</annotation>
+		<annotation cp="🧝🏿">toweragtig | veltipe-6</annotation>
+		<annotation cp="🧝🏿" type="tts">elf: veltipe-6</annotation>
+		<annotation cp="🧝🏻‍♀">toweragtig | veltipe-1-2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">vroulike elf: veltipe-1-2</annotation>
+		<annotation cp="🧝🏼‍♀">toweragtig | veltipe-3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">vroulike elf: veltipe-3</annotation>
+		<annotation cp="🧝🏽‍♀">toweragtig | veltipe-4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">vroulike elf: veltipe-4</annotation>
+		<annotation cp="🧝🏾‍♀">toweragtig | veltipe-5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">vroulike elf: veltipe-5</annotation>
+		<annotation cp="🧝🏿‍♀">toweragtig | veltipe-6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">vroulike elf: veltipe-6</annotation>
+		<annotation cp="🧝🏻‍♂">toweragtig | veltipe-1-2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">manlike elf: veltipe-1-2</annotation>
+		<annotation cp="🧝🏼‍♂">toweragtig | veltipe-3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">manlike elf: veltipe-3</annotation>
+		<annotation cp="🧝🏽‍♂">toweragtig | veltipe-4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">manlike elf: veltipe-4</annotation>
+		<annotation cp="🧝🏾‍♂">toweragtig | veltipe-5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">manlike elf: veltipe-5</annotation>
+		<annotation cp="🧝🏿‍♂">toweragtig | veltipe-6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">manlike elf: veltipe-6</annotation>
 		<annotation cp="🙍🏻">frons | gebaar | veltipe-1-2</annotation>
 		<annotation cp="🙍🏻" type="tts">persoon wat frons: veltipe-1-2</annotation>
 		<annotation cp="🙍🏼">frons | gebaar | veltipe-3</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">man dans: veltipe-5</annotation>
 		<annotation cp="🕺🏿">dans | man | veltipe-6</annotation>
 		<annotation cp="🕺🏿" type="tts">man dans: veltipe-6</annotation>
+		<annotation cp="🧖🏻">sauna | stoomkamer | veltipe-1-2</annotation>
+		<annotation cp="🧖🏻" type="tts">persoon in stoomkamer: veltipe-1-2</annotation>
+		<annotation cp="🧖🏼">sauna | stoomkamer | veltipe-3</annotation>
+		<annotation cp="🧖🏼" type="tts">persoon in stoomkamer: veltipe-3</annotation>
+		<annotation cp="🧖🏽">sauna | stoomkamer | veltipe-4</annotation>
+		<annotation cp="🧖🏽" type="tts">persoon in stoomkamer: veltipe-4</annotation>
+		<annotation cp="🧖🏾">sauna | stoomkamer | veltipe-5</annotation>
+		<annotation cp="🧖🏾" type="tts">persoon in stoomkamer: veltipe-5</annotation>
+		<annotation cp="🧖🏿">sauna | stoomkamer | veltipe-6</annotation>
+		<annotation cp="🧖🏿" type="tts">persoon in stoomkamer: veltipe-6</annotation>
+		<annotation cp="🧖🏻‍♀">sauna | stoomkamer | veltipe-1-2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">vrou in stoomkamer: veltipe-1-2</annotation>
+		<annotation cp="🧖🏼‍♀">sauna | stoomkamer | veltipe-3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">vrou in stoomkamer: veltipe-3</annotation>
+		<annotation cp="🧖🏽‍♀">sauna | stoomkamer | veltipe-4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">vrou in stoomkamer: veltipe-4</annotation>
+		<annotation cp="🧖🏾‍♀">sauna | stoomkamer | veltipe-5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">vrou in stoomkamer: veltipe-5</annotation>
+		<annotation cp="🧖🏿‍♀">sauna | stoomkamer | veltipe-6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">vrou in stoomkamer: veltipe-6</annotation>
+		<annotation cp="🧖🏻‍♂">sauna | stoomkamer | veltipe-1-2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">man in stoomkamer: veltipe-1-2</annotation>
+		<annotation cp="🧖🏼‍♂">sauna | stoomkamer | veltipe-3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">man in stoomkamer: veltipe-3</annotation>
+		<annotation cp="🧖🏽‍♂">sauna | stoomkamer | veltipe-4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">man in stoomkamer: veltipe-4</annotation>
+		<annotation cp="🧖🏾‍♂">sauna | stoomkamer | veltipe-5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">man in stoomkamer: veltipe-5</annotation>
+		<annotation cp="🧖🏿‍♂">sauna | stoomkamer | veltipe-6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">man in stoomkamer: veltipe-6</annotation>
+		<annotation cp="🧗🏻">rotsklimmer | veltipe-1-2</annotation>
+		<annotation cp="🧗🏻" type="tts">persoon wat rotsklim: veltipe-1-2</annotation>
+		<annotation cp="🧗🏼">rotsklimmer | veltipe-3</annotation>
+		<annotation cp="🧗🏼" type="tts">persoon wat rotsklim: veltipe-3</annotation>
+		<annotation cp="🧗🏽">rotsklimmer | veltipe-4</annotation>
+		<annotation cp="🧗🏽" type="tts">persoon wat rotsklim: veltipe-4</annotation>
+		<annotation cp="🧗🏾">rotsklimmer | veltipe-5</annotation>
+		<annotation cp="🧗🏾" type="tts">persoon wat rotsklim: veltipe-5</annotation>
+		<annotation cp="🧗🏿">rotsklimmer | veltipe-6</annotation>
+		<annotation cp="🧗🏿" type="tts">persoon wat rotsklim: veltipe-6</annotation>
+		<annotation cp="🧗🏻‍♀">rotsklimmer | veltipe-1-2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">vroulike rotsklimmer: veltipe-1-2</annotation>
+		<annotation cp="🧗🏼‍♀">rotsklimmer | veltipe-3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">vroulike rotsklimmer: veltipe-3</annotation>
+		<annotation cp="🧗🏽‍♀">rotsklimmer | veltipe-4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">vroulike rotsklimmer: veltipe-4</annotation>
+		<annotation cp="🧗🏾‍♀">rotsklimmer | veltipe-5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">vroulike rotsklimmer: veltipe-5</annotation>
+		<annotation cp="🧗🏿‍♀">rotsklimmer | veltipe-6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">vroulike rotsklimmer: veltipe-6</annotation>
+		<annotation cp="🧗🏻‍♂">rotsklimmer | veltipe-1-2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">manlike rotsklimmer: veltipe-1-2</annotation>
+		<annotation cp="🧗🏼‍♂">rotsklimmer | veltipe-3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">manlike rotsklimmer: veltipe-3</annotation>
+		<annotation cp="🧗🏽‍♂">rotsklimmer | veltipe-4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">manlike rotsklimmer: veltipe-4</annotation>
+		<annotation cp="🧗🏾‍♂">rotsklimmer | veltipe-5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">manlike rotsklimmer: veltipe-5</annotation>
+		<annotation cp="🧗🏿‍♂">rotsklimmer | veltipe-6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">manlike rotsklimmer: veltipe-6</annotation>
+		<annotation cp="🧘🏻">joga | meditasie | veltipe-1-2</annotation>
+		<annotation cp="🧘🏻" type="tts">persoon in die lotus-posisie: veltipe-1-2</annotation>
+		<annotation cp="🧘🏼">joga | meditasie | veltipe-3</annotation>
+		<annotation cp="🧘🏼" type="tts">persoon in die lotus-posisie: veltipe-3</annotation>
+		<annotation cp="🧘🏽">joga | meditasie | veltipe-4</annotation>
+		<annotation cp="🧘🏽" type="tts">persoon in die lotus-posisie: veltipe-4</annotation>
+		<annotation cp="🧘🏾">joga | meditasie | veltipe-5</annotation>
+		<annotation cp="🧘🏾" type="tts">persoon in die lotus-posisie: veltipe-5</annotation>
+		<annotation cp="🧘🏿">joga | meditasie | veltipe-6</annotation>
+		<annotation cp="🧘🏿" type="tts">persoon in die lotus-posisie: veltipe-6</annotation>
+		<annotation cp="🧘🏻‍♀">joga | meditasie | veltipe-1-2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">vrou in lotus-posisie: veltipe-1-2</annotation>
+		<annotation cp="🧘🏼‍♀">joga | meditasie | veltipe-3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">vrou in lotus-posisie: veltipe-3</annotation>
+		<annotation cp="🧘🏽‍♀">joga | meditasie | veltipe-4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">vrou in lotus-posisie: veltipe-4</annotation>
+		<annotation cp="🧘🏾‍♀">joga | meditasie | veltipe-5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">vrou in lotus-posisie: veltipe-5</annotation>
+		<annotation cp="🧘🏿‍♀">joga | meditasie | veltipe-6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">vrou in lotus-posisie: veltipe-6</annotation>
+		<annotation cp="🧘🏻‍♂">joga | meditasie | veltipe-1-2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">man in lotus-posisie: veltipe-1-2</annotation>
+		<annotation cp="🧘🏼‍♂">joga | meditasie | veltipe-3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">man in lotus-posisie: veltipe-3</annotation>
+		<annotation cp="🧘🏽‍♂">joga | meditasie | veltipe-4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">man in lotus-posisie: veltipe-4</annotation>
+		<annotation cp="🧘🏾‍♂">joga | meditasie | veltipe-5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">man in lotus-posisie: veltipe-5</annotation>
+		<annotation cp="🧘🏿‍♂">joga | meditasie | veltipe-6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">man in lotus-posisie: veltipe-6</annotation>
 		<annotation cp="🛀🏻">bad | water | veltipe-1-2</annotation>
 		<annotation cp="🛀🏻" type="tts">persoon wat bad: veltipe-1-2</annotation>
 		<annotation cp="🛀🏼">bad | water | veltipe-3</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">vroulike jongleur: veltipe-5</annotation>
 		<annotation cp="🤹🏿‍♀">jongleer | veltipe-6</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">vroulike jongleur: veltipe-6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">man | paartjie | soen | vrou</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">man en vrou soen</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">mans | paartjie | soen</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">mans soen</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">paartjie | soen | vrouens</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">vrouens soen</annotation>
-		<annotation cp="👩‍❤‍👨">liefde | paartjie</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">man en vrou met hartjie</annotation>
-		<annotation cp="👨‍❤‍👨">liefde | paartjie</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">man en man met hartjie</annotation>
-		<annotation cp="👩‍❤‍👩">liefde | paartjie</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">vrou en vrou met hartjie</annotation>
-		<annotation cp="👨‍👩‍👦">gesin | ma | pa | seun</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">ma en pa met seun</annotation>
-		<annotation cp="👨‍👩‍👧">dogter | gesin | ma | pa</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">ma en pa met dogter</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">gesin | kinders | ma | pa</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">ma en pa met seun en dogter</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">gesin | ma | pa | seuns</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">ma en pa met seuns</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">dogters | gesin | ma | pa</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">ma en pa met dogters</annotation>
-		<annotation cp="👨‍👨‍👦">gesin | pa’s | seun</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">pa’s met seun</annotation>
-		<annotation cp="👨‍👨‍👧">dogter | gesin | pa’s</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">pa’s met dogter</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">gesin | kinders | pa’s</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">pa’s met seun en dogter</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">gesin | pa’s | seuns</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">pa’s met seuns</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">dogters | gesin | pa’s</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">pa’s met dogters</annotation>
-		<annotation cp="👩‍👩‍👦">gesin | ma’s | seun</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">ma’s met seun</annotation>
-		<annotation cp="👩‍👩‍👧">dogter | gesin | ma’s</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">ma’s met dogter</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">gesin | kinders | ma’s</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">ma’s met dogter en seun</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">gesin | ma’s | seuns</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">ma’s met seuns</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">dogters | gesin | ma’s</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">ma’s met dogters</annotation>
-		<annotation cp="👨‍👦">enkelouer | enkelpa | gesin | pa</annotation>
-		<annotation cp="👨‍👦" type="tts">pa met seun</annotation>
-		<annotation cp="👨‍👦‍👦">enkelouer | enkelpa | gesin | pa</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">pa met seuns</annotation>
-		<annotation cp="👨‍👧">enkelouer | enkelpa | gesin | pa</annotation>
-		<annotation cp="👨‍👧" type="tts">pa met dogter</annotation>
-		<annotation cp="👨‍👧‍👦">enkelouer | enkelpa | gesin | pa</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">pa met seun en dogter</annotation>
-		<annotation cp="👨‍👧‍👧">enkelouer | enkelpa | gesin | pa</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">pa met dogters</annotation>
-		<annotation cp="👩‍👦">enkelma | enkelouer | gesin | ma</annotation>
-		<annotation cp="👩‍👦" type="tts">ma met seun</annotation>
-		<annotation cp="👩‍👦‍👦">enkelma | enkelouer | gesin | ma</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">ma met seuns</annotation>
-		<annotation cp="👩‍👧">enkelma | enkelouer | gesin | ma</annotation>
-		<annotation cp="👩‍👧" type="tts">ma met dogter</annotation>
-		<annotation cp="👩‍👧‍👦">enkelma | enkelouer | gesin | ma</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">ma met dogter en seun</annotation>
-		<annotation cp="👩‍👧‍👧">enkelma | enkelouer | gesin | ma</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">ma met dogters</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">paartjie | romanse | vrou | man</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">soen: vrou en man</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">paartjie | romanse | man</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">soen: man en man</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">paartjie | romanse | vrou</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">soen: vrou en vrou</annotation>
+		<annotation cp="👩‍❤‍👨">hartjie | liefde | paartjie | romanse | vrou | man</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">paartjie met hartjie: vrou en man</annotation>
+		<annotation cp="👨‍❤‍👨">hartjie | liefde | paartjie | romanse | man</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">paartjie met hartjie: man en man</annotation>
+		<annotation cp="👩‍❤‍👩">hartjie | liefde | paartjie | romanse | vrou</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">paartjie met hartjie: vrou en vrou</annotation>
+		<annotation cp="👨‍👩‍👦">kind | moeder | vader | man | vrou | seun</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">gesin: man en vrou en seun</annotation>
+		<annotation cp="👨‍👩‍👧">kind | moeder | vader | man | vrou | meisie</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">gesin: man en vrou en meisie</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">kind | moeder | vader | man | vrou | meisie | seun</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">gesin: man en vrou en meisie en seun</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">kind | moeder | vader | man | vrou | seun</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">gesin: man en vrou en seun en seun</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">kind | moeder | vader | man | vrou | meisie</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">gesin: man en vrou en meisie en meisie</annotation>
+		<annotation cp="👨‍👨‍👦">kind | moeder | vader | man | seun</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">gesin: man en man en seun</annotation>
+		<annotation cp="👨‍👨‍👧">kind | moeder | vader | man | meisie</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">gesin: man en man en meisie</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">kind | moeder | vader | man | meisie | seun</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">gesin: man en man en meisie en seun</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">kind | moeder | vader | man | seun</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">gesin: man en man en seun en seun</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">kind | moeder | vader | man | meisie</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">gesin: man en man en meisie en meisie</annotation>
+		<annotation cp="👩‍👩‍👦">kind | moeder | vader | vrou | seun</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">gesin: vrou en vrou en seun</annotation>
+		<annotation cp="👩‍👩‍👧">kind | moeder | vader | vrou | meisie</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">gesin: vrou en vrou en meisie</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">kind | moeder | vader | vrou | meisie | seun</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">gesin: vrou en vrou en meisie en seun</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">kind | moeder | vader | vrou | seun</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">gesin: vrou en vrou en seun en seun</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">kind | moeder | vader | vrou | meisie</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">gesin: vrou en vrou en meisie en meisie</annotation>
+		<annotation cp="👨‍👦">kind | moeder | vader | man | seun</annotation>
+		<annotation cp="👨‍👦" type="tts">gesin: man en seun</annotation>
+		<annotation cp="👨‍👦‍👦">kind | moeder | vader | man | seun</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">gesin: man en seun en seun</annotation>
+		<annotation cp="👨‍👧">kind | moeder | vader | man | meisie</annotation>
+		<annotation cp="👨‍👧" type="tts">gesin: man en meisie</annotation>
+		<annotation cp="👨‍👧‍👦">kind | moeder | vader | man | meisie | seun</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">gesin: man en meisie en seun</annotation>
+		<annotation cp="👨‍👧‍👧">kind | moeder | vader | man | meisie</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">gesin: man en meisie en meisie</annotation>
+		<annotation cp="👩‍👦">kind | moeder | vader | vrou | seun</annotation>
+		<annotation cp="👩‍👦" type="tts">gesin: vrou en seun</annotation>
+		<annotation cp="👩‍👦‍👦">kind | moeder | vader | vrou | seun</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">gesin: vrou en seun en seun</annotation>
+		<annotation cp="👩‍👧">kind | moeder | vader | vrou | meisie</annotation>
+		<annotation cp="👩‍👧" type="tts">gesin: vrou en meisie</annotation>
+		<annotation cp="👩‍👧‍👦">kind | moeder | vader | vrou | meisie | seun</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">gesin: vrou en meisie en seun</annotation>
+		<annotation cp="👩‍👧‍👧">kind | moeder | vader | vrou | meisie</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">gesin: vrou en meisie en meisie</annotation>
 		<annotation cp="🤳🏻">foon | kamera | selfie | veltipe-1-2</annotation>
 		<annotation cp="🤳🏻" type="tts">selfie: veltipe-1-2</annotation>
 		<annotation cp="🤳🏼">foon | kamera | selfie | veltipe-3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">wuiwende hand: veltipe-5</annotation>
 		<annotation cp="👋🏿">hand | liggaam | waai | wuif | veltipe-6</annotation>
 		<annotation cp="👋🏿" type="tts">wuiwende hand: veltipe-6</annotation>
+		<annotation cp="🤟🏻">Lvj | hand | veltipe-1-2</annotation>
+		<annotation cp="🤟🏻" type="tts">lief-vir-jou-gebaar: veltipe-1-2</annotation>
+		<annotation cp="🤟🏼">Lvj | hand | veltipe-3</annotation>
+		<annotation cp="🤟🏼" type="tts">lief-vir-jou-gebaar: veltipe-3</annotation>
+		<annotation cp="🤟🏽">Lvj | hand | veltipe-4</annotation>
+		<annotation cp="🤟🏽" type="tts">lief-vir-jou-gebaar: veltipe-4</annotation>
+		<annotation cp="🤟🏾">Lvj | hand | veltipe-5</annotation>
+		<annotation cp="🤟🏾" type="tts">lief-vir-jou-gebaar: veltipe-5</annotation>
+		<annotation cp="🤟🏿">Lvj | hand | veltipe-6</annotation>
+		<annotation cp="🤟🏿" type="tts">lief-vir-jou-gebaar: veltipe-6</annotation>
 		<annotation cp="✍🏻">hand | liggaam | skryf | veltipe-1-2</annotation>
 		<annotation cp="✍🏻" type="tts">hand wat skryf: veltipe-1-2</annotation>
 		<annotation cp="✍🏼">hand | liggaam | skryf | veltipe-3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">persoon met hande in die lug: veltipe-5</annotation>
 		<annotation cp="🙌🏿">gebaar | hand | hoera | liggaam | omhoog | viering | veltipe-6</annotation>
 		<annotation cp="🙌🏿" type="tts">persoon met hande in die lug: veltipe-6</annotation>
+		<annotation cp="🤲🏻">bid | veltipe-1-2</annotation>
+		<annotation cp="🤲🏻" type="tts">palms op teen mekaar: veltipe-1-2</annotation>
+		<annotation cp="🤲🏼">bid | veltipe-3</annotation>
+		<annotation cp="🤲🏼" type="tts">palms op teen mekaar: veltipe-3</annotation>
+		<annotation cp="🤲🏽">bid | veltipe-4</annotation>
+		<annotation cp="🤲🏽" type="tts">palms op teen mekaar: veltipe-4</annotation>
+		<annotation cp="🤲🏾">bid | veltipe-5</annotation>
+		<annotation cp="🤲🏾" type="tts">palms op teen mekaar: veltipe-5</annotation>
+		<annotation cp="🤲🏿">bid | veltipe-6</annotation>
+		<annotation cp="🤲🏿" type="tts">palms op teen mekaar: veltipe-6</annotation>
 		<annotation cp="🙏🏻">asseblief | bid | buig | dankie | gebaar | gevou | hand | liggaam | vra | veltipe-1-2</annotation>
 		<annotation cp="🙏🏻" type="tts">gevoude hande: veltipe-1-2</annotation>
 		<annotation cp="🙏🏼">asseblief | bid | buig | dankie | gebaar | gevou | hand | liggaam | vra | veltipe-3</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">neus: veltipe-5</annotation>
 		<annotation cp="👃🏿">liggaam | veltipe-6</annotation>
 		<annotation cp="👃🏿" type="tts">neus: veltipe-6</annotation>
-		<annotation cp="#⃣">hekkie | hekkiemerker | nommer | sleutel</annotation>
-		<annotation cp="#⃣" type="tts">hekkiemerkersleutel</annotation>
-		<annotation cp="*⃣">asterisk | sleutel | ster</annotation>
-		<annotation cp="*⃣" type="tts">asterisksleutel</annotation>
+		<annotation cp="#⃣">sleutelbordtoets</annotation>
+		<annotation cp="#⃣" type="tts">sleutelbordtoets: #</annotation>
+		<annotation cp="*⃣">sleutelbordtoets</annotation>
+		<annotation cp="*⃣" type="tts">sleutelbordtoets: *</annotation>
+		<annotation cp="🔟">sleutelbordtoets</annotation>
+		<annotation cp="🔟" type="tts">sleutelbordtoets: 10</annotation>
 		<annotation cp="🇦🇨">vlag</annotation>
 		<annotation cp="🇦🇨" type="tts">Ascensioneiland</annotation>
 		<annotation cp="🇦🇩">vlag</annotation>
@@ -1921,7 +2243,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇷">vlag</annotation>
 		<annotation cp="🇦🇷" type="tts">Argentinië</annotation>
 		<annotation cp="🇦🇸">vlag</annotation>
-		<annotation cp="🇦🇸" type="tts">Amerikaans-Samoa</annotation>
+		<annotation cp="🇦🇸" type="tts">Amerikaanse Samoa</annotation>
 		<annotation cp="🇦🇹">vlag</annotation>
 		<annotation cp="🇦🇹" type="tts">Oostenryk</annotation>
 		<annotation cp="🇦🇺">vlag</annotation>
@@ -1977,7 +2299,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇦">vlag</annotation>
 		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
 		<annotation cp="🇨🇨">vlag</annotation>
-		<annotation cp="🇨🇨" type="tts">Kokos-eilande</annotation>
+		<annotation cp="🇨🇨" type="tts">Kokoseilande</annotation>
 		<annotation cp="🇨🇩">vlag</annotation>
 		<annotation cp="🇨🇩" type="tts">Demokratiese Republiek van die Kongo</annotation>
 		<annotation cp="🇨🇫">vlag</annotation>
@@ -2013,7 +2335,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇾">vlag</annotation>
 		<annotation cp="🇨🇾" type="tts">Siprus</annotation>
 		<annotation cp="🇨🇿">vlag</annotation>
-		<annotation cp="🇨🇿" type="tts">Tjeggië</annotation>
+		<annotation cp="🇨🇿" type="tts">Tsjeggië</annotation>
 		<annotation cp="🇩🇪">vlag</annotation>
 		<annotation cp="🇩🇪" type="tts">Duitsland</annotation>
 		<annotation cp="🇩🇬">vlag</annotation>
@@ -2099,7 +2421,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇭🇰">vlag</annotation>
 		<annotation cp="🇭🇰" type="tts">Hongkong SAS Sjina</annotation>
 		<annotation cp="🇭🇲">vlag</annotation>
-		<annotation cp="🇭🇲" type="tts">Heard- en McDonaldeilande</annotation>
+		<annotation cp="🇭🇲" type="tts">Heardeiland en McDonaldeilande</annotation>
 		<annotation cp="🇭🇳">vlag</annotation>
 		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
 		<annotation cp="🇭🇷">vlag</annotation>
@@ -2141,7 +2463,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇪">vlag</annotation>
 		<annotation cp="🇰🇪" type="tts">Kenia</annotation>
 		<annotation cp="🇰🇬">vlag</annotation>
-		<annotation cp="🇰🇬" type="tts">Kirgisië</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgistan</annotation>
 		<annotation cp="🇰🇭">vlag</annotation>
 		<annotation cp="🇰🇭" type="tts">Kambodja</annotation>
 		<annotation cp="🇰🇮">vlag</annotation>
@@ -2149,7 +2471,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇲">vlag</annotation>
 		<annotation cp="🇰🇲" type="tts">Comore</annotation>
 		<annotation cp="🇰🇳">vlag</annotation>
-		<annotation cp="🇰🇳" type="tts">St. Kitts en Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">Sint Kitts en Nevis</annotation>
 		<annotation cp="🇰🇵">vlag</annotation>
 		<annotation cp="🇰🇵" type="tts">Noord-Korea</annotation>
 		<annotation cp="🇰🇷">vlag</annotation>
@@ -2165,7 +2487,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇱🇧">vlag</annotation>
 		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
 		<annotation cp="🇱🇨">vlag</annotation>
-		<annotation cp="🇱🇨" type="tts">St. Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">Sint Lucia</annotation>
 		<annotation cp="🇱🇮">vlag</annotation>
 		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
 		<annotation cp="🇱🇰">vlag</annotation>
@@ -2191,7 +2513,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇪">vlag</annotation>
 		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
 		<annotation cp="🇲🇫">vlag</annotation>
-		<annotation cp="🇲🇫" type="tts">St. Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">Sint Martin</annotation>
 		<annotation cp="🇲🇬">vlag</annotation>
 		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
 		<annotation cp="🇲🇭">vlag</annotation>
@@ -2269,7 +2591,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇱">vlag</annotation>
 		<annotation cp="🇵🇱" type="tts">Pole</annotation>
 		<annotation cp="🇵🇲">vlag</annotation>
-		<annotation cp="🇵🇲" type="tts">St. Pierre en Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">Sint Pierre en Miquelon</annotation>
 		<annotation cp="🇵🇳">vlag</annotation>
 		<annotation cp="🇵🇳" type="tts">Pitcairneilande</annotation>
 		<annotation cp="🇵🇷">vlag</annotation>
@@ -2355,7 +2677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇱">vlag</annotation>
 		<annotation cp="🇹🇱" type="tts">Oos-Timor</annotation>
 		<annotation cp="🇹🇲">vlag</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenië</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
 		<annotation cp="🇹🇳">vlag</annotation>
 		<annotation cp="🇹🇳" type="tts">Tunisië</annotation>
 		<annotation cp="🇹🇴">vlag</annotation>
@@ -2375,9 +2697,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇺🇬">vlag</annotation>
 		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
 		<annotation cp="🇺🇲">vlag</annotation>
-		<annotation cp="🇺🇲" type="tts">VS klein omliggende eilande</annotation>
+		<annotation cp="🇺🇲" type="tts">Klein afgeleë eilande van die VSA</annotation>
 		<annotation cp="🇺🇳">vlag</annotation>
-		<annotation cp="🇺🇳" type="tts">verenigde nasies</annotation>
+		<annotation cp="🇺🇳" type="tts">Verenigde Nasies</annotation>
 		<annotation cp="🇺🇸">vlag</annotation>
 		<annotation cp="🇺🇸" type="tts">Verenigde State van Amerika</annotation>
 		<annotation cp="🇺🇾">vlag</annotation>
@@ -2387,13 +2709,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇻🇦">vlag</annotation>
 		<annotation cp="🇻🇦" type="tts">Vatikaanstad</annotation>
 		<annotation cp="🇻🇨">vlag</annotation>
-		<annotation cp="🇻🇨" type="tts">St. Vincent en die Grenadine</annotation>
+		<annotation cp="🇻🇨" type="tts">Sint Vincent en die Grenadine</annotation>
 		<annotation cp="🇻🇪">vlag</annotation>
 		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
 		<annotation cp="🇻🇬">vlag</annotation>
 		<annotation cp="🇻🇬" type="tts">Britse Maagde-eilande</annotation>
 		<annotation cp="🇻🇮">vlag</annotation>
-		<annotation cp="🇻🇮" type="tts">Amerikaanse Maagde-eilande</annotation>
+		<annotation cp="🇻🇮" type="tts">VSA se Maagde-eilande</annotation>
 		<annotation cp="🇻🇳">vlag</annotation>
 		<annotation cp="🇻🇳" type="tts">Viëtnam</annotation>
 		<annotation cp="🇻🇺">vlag</annotation>

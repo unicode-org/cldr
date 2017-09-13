@@ -8,40 +8,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="sw"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | kitufe | sufuri</annotation>
-		<annotation cp="0⃣" type="tts">kitufe cha nambari sufuri</annotation>
-		<annotation cp="1⃣">1 | kitufe | moja</annotation>
-		<annotation cp="1⃣" type="tts">kitufe cha nambari moja</annotation>
-		<annotation cp="2⃣">2 | kitufe | mbili</annotation>
-		<annotation cp="2⃣" type="tts">kitufe cha nambari mbili</annotation>
-		<annotation cp="3⃣">3 | kitufe | tatu</annotation>
-		<annotation cp="3⃣" type="tts">kitufe cha nambari tatu</annotation>
-		<annotation cp="4⃣">4 | kitufe | nne</annotation>
-		<annotation cp="4⃣" type="tts">kitufe cha nambari nne</annotation>
-		<annotation cp="5⃣">5 | kitufe | tano</annotation>
-		<annotation cp="5⃣" type="tts">kitufe cha nambari tano</annotation>
-		<annotation cp="6⃣">5 | kitufe | sita</annotation>
-		<annotation cp="6⃣" type="tts">kitufe cha nambari sita</annotation>
-		<annotation cp="7⃣">7 | kitufe | saba</annotation>
-		<annotation cp="7⃣" type="tts">kitufe cha nambari saba</annotation>
-		<annotation cp="8⃣">8 | kitufe | nane</annotation>
-		<annotation cp="8⃣" type="tts">kitufe cha nambari nane</annotation>
-		<annotation cp="9⃣">9 | kitufe | tisa</annotation>
-		<annotation cp="9⃣" type="tts">kitufe cha nambari tisa</annotation>
-		<annotation cp="👶🏻">mtoto | ngozi aina ya-1-2</annotation>
+		<annotation cp="0⃣">kitufe</annotation>
+		<annotation cp="0⃣" type="tts">kitufe: 0</annotation>
+		<annotation cp="1⃣">kitufe</annotation>
+		<annotation cp="1⃣" type="tts">kitufe: 1</annotation>
+		<annotation cp="2⃣">kitufe</annotation>
+		<annotation cp="2⃣" type="tts">kitufe: 2</annotation>
+		<annotation cp="3⃣">kitufe</annotation>
+		<annotation cp="3⃣" type="tts">kitufe: 3</annotation>
+		<annotation cp="4⃣">kitufe</annotation>
+		<annotation cp="4⃣" type="tts">kitufe: 4</annotation>
+		<annotation cp="5⃣">kitufe</annotation>
+		<annotation cp="5⃣" type="tts">kitufe: 5</annotation>
+		<annotation cp="6⃣">kitufe</annotation>
+		<annotation cp="6⃣" type="tts">kitufe: 6</annotation>
+		<annotation cp="7⃣">kitufe</annotation>
+		<annotation cp="7⃣" type="tts">kitufe: 7</annotation>
+		<annotation cp="8⃣">kitufe</annotation>
+		<annotation cp="8⃣" type="tts">kitufe: 8</annotation>
+		<annotation cp="9⃣">kitufe</annotation>
+		<annotation cp="9⃣" type="tts">kitufe: 9</annotation>
+		<annotation cp="👶🏻">mchanga | mtoto | ngozi aina ya-1-2</annotation>
 		<annotation cp="👶🏻" type="tts">mtoto: ngozi aina ya-1-2</annotation>
-		<annotation cp="👶🏼">mtoto | ngozi aina ya-3</annotation>
+		<annotation cp="👶🏼">mchanga | mtoto | ngozi aina ya-3</annotation>
 		<annotation cp="👶🏼" type="tts">mtoto: ngozi aina ya-3</annotation>
-		<annotation cp="👶🏽">mtoto | ngozi aina ya-4</annotation>
+		<annotation cp="👶🏽">mchanga | mtoto | ngozi aina ya-4</annotation>
 		<annotation cp="👶🏽" type="tts">mtoto: ngozi aina ya-4</annotation>
-		<annotation cp="👶🏾">mtoto | ngozi aina ya-5</annotation>
+		<annotation cp="👶🏾">mchanga | mtoto | ngozi aina ya-5</annotation>
 		<annotation cp="👶🏾" type="tts">mtoto: ngozi aina ya-5</annotation>
-		<annotation cp="👶🏿">mtoto | ngozi aina ya-6</annotation>
+		<annotation cp="👶🏿">mchanga | mtoto | ngozi aina ya-6</annotation>
 		<annotation cp="👶🏿" type="tts">mtoto: ngozi aina ya-6</annotation>
+		<annotation cp="🧒🏻">asiyejitambulisha na jinsia yoyote | kijana | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧒🏻" type="tts">kijana: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧒🏼">asiyejitambulisha na jinsia yoyote | kijana | ngozi aina ya-3</annotation>
+		<annotation cp="🧒🏼" type="tts">kijana: ngozi aina ya-3</annotation>
+		<annotation cp="🧒🏽">asiyejitambulisha na jinsia yoyote | kijana | ngozi aina ya-4</annotation>
+		<annotation cp="🧒🏽" type="tts">kijana: ngozi aina ya-4</annotation>
+		<annotation cp="🧒🏾">asiyejitambulisha na jinsia yoyote | kijana | ngozi aina ya-5</annotation>
+		<annotation cp="🧒🏾" type="tts">kijana: ngozi aina ya-5</annotation>
+		<annotation cp="🧒🏿">asiyejitambulisha na jinsia yoyote | kijana | ngozi aina ya-6</annotation>
+		<annotation cp="🧒🏿" type="tts">kijana: ngozi aina ya-6</annotation>
 		<annotation cp="👦🏻">mvulana | ngozi aina ya-1-2</annotation>
 		<annotation cp="👦🏻" type="tts">mvulana: ngozi aina ya-1-2</annotation>
 		<annotation cp="👦🏼">mvulana | ngozi aina ya-3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">msichana: ngozi aina ya-5</annotation>
 		<annotation cp="👧🏿">bikira | mashuke | mwali | zodiaki | ngozi aina ya-6</annotation>
 		<annotation cp="👧🏿" type="tts">msichana: ngozi aina ya-6</annotation>
+		<annotation cp="🧑🏻">asiyejitambulisha na jinsia yoyote | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧑🏻" type="tts">mtu mzima: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧑🏼">asiyejitambulisha na jinsia yoyote | ngozi aina ya-3</annotation>
+		<annotation cp="🧑🏼" type="tts">mtu mzima: ngozi aina ya-3</annotation>
+		<annotation cp="🧑🏽">asiyejitambulisha na jinsia yoyote | ngozi aina ya-4</annotation>
+		<annotation cp="🧑🏽" type="tts">mtu mzima: ngozi aina ya-4</annotation>
+		<annotation cp="🧑🏾">asiyejitambulisha na jinsia yoyote | ngozi aina ya-5</annotation>
+		<annotation cp="🧑🏾" type="tts">mtu mzima: ngozi aina ya-5</annotation>
+		<annotation cp="🧑🏿">asiyejitambulisha na jinsia yoyote | ngozi aina ya-6</annotation>
+		<annotation cp="🧑🏿" type="tts">mtu mzima: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻">mwanamume | ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏻" type="tts">mwanamume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼">mwanamume | ngozi aina ya-3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">mwanamke: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿">msichana | mwanamke | ngozi aina ya-6</annotation>
 		<annotation cp="👩🏿" type="tts">mwanamke: ngozi aina ya-6</annotation>
+		<annotation cp="🧓🏻">asiyejitambulisha na jinsia yoyote | mzee | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧓🏻" type="tts">mzee: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧓🏼">asiyejitambulisha na jinsia yoyote | mzee | ngozi aina ya-3</annotation>
+		<annotation cp="🧓🏼" type="tts">mzee: ngozi aina ya-3</annotation>
+		<annotation cp="🧓🏽">asiyejitambulisha na jinsia yoyote | mzee | ngozi aina ya-4</annotation>
+		<annotation cp="🧓🏽" type="tts">mzee: ngozi aina ya-4</annotation>
+		<annotation cp="🧓🏾">asiyejitambulisha na jinsia yoyote | mzee | ngozi aina ya-5</annotation>
+		<annotation cp="🧓🏾" type="tts">mzee: ngozi aina ya-5</annotation>
+		<annotation cp="🧓🏿">asiyejitambulisha na jinsia yoyote | mzee | ngozi aina ya-6</annotation>
+		<annotation cp="🧓🏿" type="tts">mzee: ngozi aina ya-6</annotation>
 		<annotation cp="👴🏻">mwanamume | mzee | ngozi aina ya-1-2</annotation>
 		<annotation cp="👴🏻" type="tts">babu: ngozi aina ya-1-2</annotation>
 		<annotation cp="👴🏼">mwanamume | mzee | ngozi aina ya-3</annotation>
@@ -183,65 +213,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍⚖">haki | hakimu | jaji | ngozi aina ya-6</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">jaji wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍🌾" type="tts">mwanamume na shada la mchele: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">mkulima wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍🌾" type="tts">mwanamume na shada la mchele: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">mkulima wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍🌾" type="tts">mwanamume na shada la mchele: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">mkulima wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍🌾" type="tts">mwanamume na shada la mchele: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">mkulima wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍🌾" type="tts">mwanamume na shada la mchele: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">mkulima wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍🌾" type="tts">mwanamke na shada la mchele: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">mkulima wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍🌾" type="tts">mwanamke na shada la mchele: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">mkulima wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍🌾" type="tts">mwanamke na shada la mchele: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">mkulima wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍🌾" type="tts">mwanamke na shada la mchele: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">mkulima wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍🌾">kofia | mchele | mkulima | mpunga | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍🌾" type="tts">mwanamke na shada la mchele: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">mkulima wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🍳">kikaango | mpishi | sufuria | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍🍳" type="tts">mpishi na kikaango: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">mpishi wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🍳">kikaango | mpishi | sufuria | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍🍳" type="tts">mpishi na kikaango: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">mpishi wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍🍳">kikaango | mpishi | sufuria | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍🍳" type="tts">mpishi na kikaango: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">mpishi wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍🍳">kikaango | mpishi | sufuria | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍🍳" type="tts">mpishi na kikaango: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">mpishi wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍🍳">kikaango | mpishi | sufuria | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍🍳" type="tts">mpishi na kikaango: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">mpishi wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍🍳">kikaango | mpishi | mwanamke | sufuria | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍🍳" type="tts">mpishi wa kike na kikaango: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">mpishi wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍🍳">kikaango | mpishi | mwanamke | sufuria | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍🍳" type="tts">mpishi wa kike na kikaango: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">mpishi wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍🍳">kikaango | mpishi | mwanamke | sufuria | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍🍳" type="tts">mpishi wa kike na kikaango: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">mpishi wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍🍳">kikaango | mpishi | mwanamke | sufuria | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍🍳" type="tts">mpishi wa kike na kikaango: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">mpishi wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍🍳">kikaango | mpishi | mwanamke | sufuria | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍🍳" type="tts">mpishi wa kike na kikaango: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">mpishi wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🔧">fundi gari | mekanika | mwanamume | spana | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍🔧" type="tts">mwanamume na spana: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">fundi mitambo wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🔧">fundi gari | mekanika | mwanamume | spana | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍🔧" type="tts">mwanamume na spana: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">fundi mitambo wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍🔧">fundi gari | mekanika | mwanamume | spana | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍🔧" type="tts">mwanamume na spana: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">fundi mitambo wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍🔧">fundi gari | mekanika | mwanamume | spana | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍🔧" type="tts">mwanamume na spana: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">fundi mitambo wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍🔧">fundi gari | mekanika | mwanamume | spana | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍🔧" type="tts">mwanamume na spana: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">fundi mitambo wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍🔧">fundi bomba | mekanika | mwanamke | spana | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍🔧" type="tts">mwanamke na spana: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">fundi mitambo wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍🔧">fundi bomba | mekanika | mwanamke | spana | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍🔧" type="tts">mwanamke na spana: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">fundi mitambo wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍🔧">fundi bomba | mekanika | mwanamke | spana | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍🔧" type="tts">mwanamke na spana: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">fundi mitambo wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍🔧">fundi bomba | mekanika | mwanamke | spana | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍🔧" type="tts">mwanamke na spana: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">fundi mitambo wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍🔧">fundi bomba | mekanika | mwanamke | spana | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍🔧" type="tts">mwanamke na spana: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">fundi mitambo wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🏭">fundi | jua kali | kuchomelea | mfanyakazi | ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">mwanamume na gesi ya kuchoma: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🏭">fundi | jua kali | kuchomelea | mfanyakazi | ngozi aina ya-3</annotation>
@@ -283,65 +313,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍💼">mwanamke | suti | tai | ngozi aina ya-6</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">mwanamke aliyevaa nadhifu: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍🔬" type="tts">mwanamume na hadubini: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">mwanasayansi wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍🔬" type="tts">mwanamume na hadubini: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">mwanasayansi wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍🔬" type="tts">mwanamume na hadubini: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">mwanasayansi wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍🔬" type="tts">mwanamume na hadubini: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">mwanasayansi wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍🔬" type="tts">mwanamume na hadubini: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">mwanasayansi wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍🔬" type="tts">mwanamke na hadubini: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">mwanasayansi wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍🔬" type="tts">mwanamke na hadubini: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">mwanasayansi wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍🔬" type="tts">mwanamke na hadubini: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">mwanasayansi wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍🔬" type="tts">mwanamke na hadubini: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">mwanasayansi wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍🔬">hadubini | miwani | mwanasayansi | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍🔬" type="tts">mwanamke na hadubini: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">mwanasayansi wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍💻" type="tts">mwanamume na kompyuta ndogo: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">mwanateknolojia wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍💻" type="tts">mwanamume na kompyuta ndogo: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">mwanateknolojia wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍💻" type="tts">mwanamume na kompyuta ndogo: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">mwanateknolojia wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍💻" type="tts">mwanamume na kompyuta ndogo: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">mwanateknolojia wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍💻" type="tts">mwanamume na kompyuta ndogo: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">mwanateknolojia wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍💻" type="tts">mwanamke na kompyuta ndogo: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">mwanateknolojia wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍💻" type="tts">mwanamke na kompyuta ndogo: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">mwanateknolojia wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍💻" type="tts">mwanamke na kompyuta ndogo: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">mwanateknolojia wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍💻" type="tts">mwanamke na kompyuta ndogo: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">mwanateknolojia wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍💻">kompyuta ndogo | tarakilishi | tehama | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍💻" type="tts">mwanamke na kompyuta ndogo: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">mwanateknolojia wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🎤">maikrofoni | msanii | mwanamume | mwimbaji | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍🎤" type="tts">mwanamume na maikrofoni: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">mwimbaji wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🎤">maikrofoni | msanii | mwanamume | mwimbaji | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍🎤" type="tts">mwanamume na maikrofoni: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">mwimbaji wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍🎤">maikrofoni | msanii | mwanamume | mwimbaji | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍🎤" type="tts">mwanamume na maikrofoni: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">mwimbaji wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍🎤">maikrofoni | msanii | mwanamume | mwimbaji | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍🎤" type="tts">mwanamume na maikrofoni: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">mwimbaji wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍🎤">maikrofoni | msanii | mwanamume | mwimbaji | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍🎤" type="tts">mwanamume na maikrofoni: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">mwimbaji wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍🎤">maikrofoni | msanii | mwanamke | mwimbaji | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍🎤" type="tts">mwanamke na maikrofini: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">mwimbaji wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍🎤">maikrofoni | msanii | mwanamke | mwimbaji | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍🎤" type="tts">mwanamke na maikrofini: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">mwimbaji wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍🎤">maikrofoni | msanii | mwanamke | mwimbaji | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍🎤" type="tts">mwanamke na maikrofini: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">mwimbaji wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍🎤">maikrofoni | msanii | mwanamke | mwimbaji | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍🎤" type="tts">mwanamke na maikrofini: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">mwimbaji wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍🎤">maikrofoni | msanii | mwanamke | mwimbaji | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍🎤" type="tts">mwanamke na maikrofini: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">mwimbaji wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🎨">mchoraji | paleti | rangi | sanaa | ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">mwanamume na kibao cha kuchanganyia rangi: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🎨">mchoraji | paleti | rangi | sanaa | ngozi aina ya-3</annotation>
@@ -363,65 +393,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍🎨">mchoraji | paleti | rangi | sanaa | ngozi aina ya-6</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">mwanamke na kibao cha kuchanganyia rangi: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍✈">mwanamume | ndege | rubani | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍✈" type="tts">mwanamume na ndege: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">rubani wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍✈">mwanamume | ndege | rubani | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍✈" type="tts">mwanamume na ndege: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">rubani wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍✈">mwanamume | ndege | rubani | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍✈" type="tts">mwanamume na ndege: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">rubani wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍✈">mwanamume | ndege | rubani | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍✈" type="tts">mwanamume na ndege: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">rubani wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍✈">mwanamume | ndege | rubani | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍✈" type="tts">mwanamume na ndege: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">rubani wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍✈">mwanamke | ndege | rubani | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍✈" type="tts">mwanamke na ndege: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">rubani wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍✈">mwanamke | ndege | rubani | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍✈" type="tts">mwanamke na ndege: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">rubani wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍✈">mwanamke | ndege | rubani | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍✈" type="tts">mwanamke na ndege: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">rubani wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍✈">mwanamke | ndege | rubani | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍✈" type="tts">mwanamke na ndege: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">rubani wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍✈">mwanamke | ndege | rubani | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍✈" type="tts">mwanamke na ndege: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">rubani wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🚀">anga | mwanamume | roketi | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍🚀" type="tts">mwanamume na roketi: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">mwanaanga wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🚀">anga | mwanamume | roketi | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍🚀" type="tts">mwanamume na roketi: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">mwanaanga wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍🚀">anga | mwanamume | roketi | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍🚀" type="tts">mwanamume na roketi: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">mwanaanga wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍🚀">anga | mwanamume | roketi | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍🚀" type="tts">mwanamume na roketi: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">mwanaanga wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍🚀">anga | mwanamume | roketi | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍🚀" type="tts">mwanamume na roketi: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">mwanaanga wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍🚀">anga | mwanamke | roketi | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍🚀" type="tts">mwanamke na roketi: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">mwanaanga wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍🚀">anga | mwanamke | roketi | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍🚀" type="tts">mwanamke na roketi: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">mwanaanga wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍🚀">anga | mwanamke | roketi | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍🚀" type="tts">mwanamke na roketi: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">mwanaanga wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍🚀">anga | mwanamke | roketi | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍🚀" type="tts">mwanamke na roketi: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">mwanaanga wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍🚀">anga | mwanamke | roketi | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍🚀" type="tts">mwanamke na roketi: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">mwanaanga wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👨🏻‍🚒">lori | moto | mwanamume | zimamoto | ngozi aina ya-1-2</annotation>
-		<annotation cp="👨🏻‍🚒" type="tts">mwanamume na gari la zimamoto: ngozi aina ya-1-2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">mzimamoto wa kiume: ngozi aina ya-1-2</annotation>
 		<annotation cp="👨🏼‍🚒">lori | moto | mwanamume | zimamoto | ngozi aina ya-3</annotation>
-		<annotation cp="👨🏼‍🚒" type="tts">mwanamume na gari la zimamoto: ngozi aina ya-3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">mzimamoto wa kiume: ngozi aina ya-3</annotation>
 		<annotation cp="👨🏽‍🚒">lori | moto | mwanamume | zimamoto | ngozi aina ya-4</annotation>
-		<annotation cp="👨🏽‍🚒" type="tts">mwanamume na gari la zimamoto: ngozi aina ya-4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">mzimamoto wa kiume: ngozi aina ya-4</annotation>
 		<annotation cp="👨🏾‍🚒">lori | moto | mwanamume | zimamoto | ngozi aina ya-5</annotation>
-		<annotation cp="👨🏾‍🚒" type="tts">mwanamume na gari la zimamoto: ngozi aina ya-5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">mzimamoto wa kiume: ngozi aina ya-5</annotation>
 		<annotation cp="👨🏿‍🚒">lori | moto | mwanamume | zimamoto | ngozi aina ya-6</annotation>
-		<annotation cp="👨🏿‍🚒" type="tts">mwanamume na gari la zimamoto: ngozi aina ya-6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">mzimamoto wa kiume: ngozi aina ya-6</annotation>
 		<annotation cp="👩🏻‍🚒">lori | moto | mwanamke | zimamoto | ngozi aina ya-1-2</annotation>
-		<annotation cp="👩🏻‍🚒" type="tts">mwanamke na gari la zimamoto: ngozi aina ya-1-2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">mzimamoto wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="👩🏼‍🚒">lori | moto | mwanamke | zimamoto | ngozi aina ya-3</annotation>
-		<annotation cp="👩🏼‍🚒" type="tts">mwanamke na gari la zimamoto: ngozi aina ya-3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">mzimamoto wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="👩🏽‍🚒">lori | moto | mwanamke | zimamoto | ngozi aina ya-4</annotation>
-		<annotation cp="👩🏽‍🚒" type="tts">mwanamke na gari la zimamoto: ngozi aina ya-4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">mzimamoto wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="👩🏾‍🚒">lori | moto | mwanamke | zimamoto | ngozi aina ya-5</annotation>
-		<annotation cp="👩🏾‍🚒" type="tts">mwanamke na gari la zimamoto: ngozi aina ya-5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">mzimamoto wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="👩🏿‍🚒">lori | moto | mwanamke | zimamoto | ngozi aina ya-6</annotation>
-		<annotation cp="👩🏿‍🚒" type="tts">mwanamke na gari la zimamoto: ngozi aina ya-6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">mzimamoto wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👮🏻">afisa | polisi | ngozi aina ya-1-2</annotation>
 		<annotation cp="👮🏻" type="tts">askari polisi: ngozi aina ya-1-2</annotation>
 		<annotation cp="👮🏼">afisa | polisi | ngozi aina ya-3</annotation>
@@ -503,15 +533,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏿‍♂">askari | bawabu | mlinzi | ngozi aina ya-6</annotation>
 		<annotation cp="💂🏿‍♂" type="tts">mlinzi mwanamume: ngozi aina ya-6</annotation>
 		<annotation cp="💂🏻‍♀">askari | bawabu | mlinzi | ngozi aina ya-1-2</annotation>
-		<annotation cp="💂🏻‍♀" type="tts">mlizni wa kike: ngozi aina ya-1-2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">mlinzi wa kike: ngozi aina ya-1-2</annotation>
 		<annotation cp="💂🏼‍♀">askari | bawabu | mlinzi | ngozi aina ya-3</annotation>
-		<annotation cp="💂🏼‍♀" type="tts">mlizni wa kike: ngozi aina ya-3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">mlinzi wa kike: ngozi aina ya-3</annotation>
 		<annotation cp="💂🏽‍♀">askari | bawabu | mlinzi | ngozi aina ya-4</annotation>
-		<annotation cp="💂🏽‍♀" type="tts">mlizni wa kike: ngozi aina ya-4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">mlinzi wa kike: ngozi aina ya-4</annotation>
 		<annotation cp="💂🏾‍♀">askari | bawabu | mlinzi | ngozi aina ya-5</annotation>
-		<annotation cp="💂🏾‍♀" type="tts">mlizni wa kike: ngozi aina ya-5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">mlinzi wa kike: ngozi aina ya-5</annotation>
 		<annotation cp="💂🏿‍♀">askari | bawabu | mlinzi | ngozi aina ya-6</annotation>
-		<annotation cp="💂🏿‍♀" type="tts">mlizni wa kike: ngozi aina ya-6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">mlinzi wa kike: ngozi aina ya-6</annotation>
 		<annotation cp="👷🏻">kofia | mfanyakazi | ujenzi | ngozi aina ya-1-2</annotation>
 		<annotation cp="👷🏻" type="tts">mfanyakazi wa ujenzi: ngozi aina ya-1-2</annotation>
 		<annotation cp="👷🏼">kofia | mfanyakazi | ujenzi | ngozi aina ya-3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">mwanamume aliyevaa kofia ya kichina: ngozi aina ya-5</annotation>
 		<annotation cp="👲🏿">gua pi mao | kofia | mwanamume | ngozi aina ya-6</annotation>
 		<annotation cp="👲🏿" type="tts">mwanamume aliyevaa kofia ya kichina: ngozi aina ya-6</annotation>
+		<annotation cp="🧕🏻">hijab | kitambaa | kitambaa cha kichwani | neti ya kichwani | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧕🏻" type="tts">mwanamke aliyejifunga kitambaa kichwani: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧕🏼">hijab | kitambaa | kitambaa cha kichwani | neti ya kichwani | ngozi aina ya-3</annotation>
+		<annotation cp="🧕🏼" type="tts">mwanamke aliyejifunga kitambaa kichwani: ngozi aina ya-3</annotation>
+		<annotation cp="🧕🏽">hijab | kitambaa | kitambaa cha kichwani | neti ya kichwani | ngozi aina ya-4</annotation>
+		<annotation cp="🧕🏽" type="tts">mwanamke aliyejifunga kitambaa kichwani: ngozi aina ya-4</annotation>
+		<annotation cp="🧕🏾">hijab | kitambaa | kitambaa cha kichwani | neti ya kichwani | ngozi aina ya-5</annotation>
+		<annotation cp="🧕🏾" type="tts">mwanamke aliyejifunga kitambaa kichwani: ngozi aina ya-5</annotation>
+		<annotation cp="🧕🏿">hijab | kitambaa | kitambaa cha kichwani | neti ya kichwani | ngozi aina ya-6</annotation>
+		<annotation cp="🧕🏿" type="tts">mwanamke aliyejifunga kitambaa kichwani: ngozi aina ya-6</annotation>
+		<annotation cp="🧔🏻">ndevu | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧔🏻" type="tts">mtu mwenye ndevu: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧔🏼">ndevu | ngozi aina ya-3</annotation>
+		<annotation cp="🧔🏼" type="tts">mtu mwenye ndevu: ngozi aina ya-3</annotation>
+		<annotation cp="🧔🏽">ndevu | ngozi aina ya-4</annotation>
+		<annotation cp="🧔🏽" type="tts">mtu mwenye ndevu: ngozi aina ya-4</annotation>
+		<annotation cp="🧔🏾">ndevu | ngozi aina ya-5</annotation>
+		<annotation cp="🧔🏾" type="tts">mtu mwenye ndevu: ngozi aina ya-5</annotation>
+		<annotation cp="🧔🏿">ndevu | ngozi aina ya-6</annotation>
+		<annotation cp="🧔🏿" type="tts">mtu mwenye ndevu: ngozi aina ya-6</annotation>
 		<annotation cp="👱🏻">rangi ya shaba au kimanjano | ngozi aina ya-1-2</annotation>
 		<annotation cp="👱🏻" type="tts">mtu mwenye nywele za rangi ya shaba au kimanjano: ngozi aina ya-1-2</annotation>
 		<annotation cp="👱🏼">rangi ya shaba au kimanjano | ngozi aina ya-3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">mwanamke mjamzito: ngozi aina ya-5</annotation>
 		<annotation cp="🤰🏿">mwanamke mjamzito | ngozi aina ya-6</annotation>
 		<annotation cp="🤰🏿" type="tts">mwanamke mjamzito: ngozi aina ya-6</annotation>
+		<annotation cp="🤱🏻">kunyonyesha | mtoto | titi | ngozi aina ya-1-2</annotation>
+		<annotation cp="🤱🏻" type="tts">kunyonyesha mtoto: ngozi aina ya-1-2</annotation>
+		<annotation cp="🤱🏼">kunyonyesha | mtoto | titi | ngozi aina ya-3</annotation>
+		<annotation cp="🤱🏼" type="tts">kunyonyesha mtoto: ngozi aina ya-3</annotation>
+		<annotation cp="🤱🏽">kunyonyesha | mtoto | titi | ngozi aina ya-4</annotation>
+		<annotation cp="🤱🏽" type="tts">kunyonyesha mtoto: ngozi aina ya-4</annotation>
+		<annotation cp="🤱🏾">kunyonyesha | mtoto | titi | ngozi aina ya-5</annotation>
+		<annotation cp="🤱🏾" type="tts">kunyonyesha mtoto: ngozi aina ya-5</annotation>
+		<annotation cp="🤱🏿">kunyonyesha | mtoto | titi | ngozi aina ya-6</annotation>
+		<annotation cp="🤱🏿" type="tts">kunyonyesha mtoto: ngozi aina ya-6</annotation>
 		<annotation cp="👼🏻">kichimbakazi | malaika | mtoto | njozi | uso | ngozi aina ya-1-2</annotation>
 		<annotation cp="👼🏻" type="tts">mtoto malaika: ngozi aina ya-1-2</annotation>
 		<annotation cp="👼🏼">kichimbakazi | malaika | mtoto | njozi | uso | ngozi aina ya-3</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">mkongwe: ngozi aina ya-5</annotation>
 		<annotation cp="🤶🏿">bibi | nyanya | ngozi aina ya-6</annotation>
 		<annotation cp="🤶🏿" type="tts">mkongwe: ngozi aina ya-6</annotation>
+		<annotation cp="🧙🏻">mchawi | mchawi wa kike | mlozi | mlozi mwanamke | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧙🏻" type="tts">mlozi: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧙🏼">mchawi | mchawi wa kike | mlozi | mlozi mwanamke | ngozi aina ya-3</annotation>
+		<annotation cp="🧙🏼" type="tts">mlozi: ngozi aina ya-3</annotation>
+		<annotation cp="🧙🏽">mchawi | mchawi wa kike | mlozi | mlozi mwanamke | ngozi aina ya-4</annotation>
+		<annotation cp="🧙🏽" type="tts">mlozi: ngozi aina ya-4</annotation>
+		<annotation cp="🧙🏾">mchawi | mchawi wa kike | mlozi | mlozi mwanamke | ngozi aina ya-5</annotation>
+		<annotation cp="🧙🏾" type="tts">mlozi: ngozi aina ya-5</annotation>
+		<annotation cp="🧙🏿">mchawi | mchawi wa kike | mlozi | mlozi mwanamke | ngozi aina ya-6</annotation>
+		<annotation cp="🧙🏿" type="tts">mlozi: ngozi aina ya-6</annotation>
+		<annotation cp="🧙🏻‍♀">mchawi | mchawi wa kike | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">mlozi wa kike: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧙🏼‍♀">mchawi | mchawi wa kike | ngozi aina ya-3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">mlozi wa kike: ngozi aina ya-3</annotation>
+		<annotation cp="🧙🏽‍♀">mchawi | mchawi wa kike | ngozi aina ya-4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">mlozi wa kike: ngozi aina ya-4</annotation>
+		<annotation cp="🧙🏾‍♀">mchawi | mchawi wa kike | ngozi aina ya-5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">mlozi wa kike: ngozi aina ya-5</annotation>
+		<annotation cp="🧙🏿‍♀">mchawi | mchawi wa kike | ngozi aina ya-6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">mlozi wa kike: ngozi aina ya-6</annotation>
+		<annotation cp="🧙🏻‍♂">mchawi wa kiume | mlozi wa kiume | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">mchawi wa kiume: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧙🏼‍♂">mchawi wa kiume | mlozi wa kiume | ngozi aina ya-3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">mchawi wa kiume: ngozi aina ya-3</annotation>
+		<annotation cp="🧙🏽‍♂">mchawi wa kiume | mlozi wa kiume | ngozi aina ya-4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">mchawi wa kiume: ngozi aina ya-4</annotation>
+		<annotation cp="🧙🏾‍♂">mchawi wa kiume | mlozi wa kiume | ngozi aina ya-5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">mchawi wa kiume: ngozi aina ya-5</annotation>
+		<annotation cp="🧙🏿‍♂">mchawi wa kiume | mlozi wa kiume | ngozi aina ya-6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">mchawi wa kiume: ngozi aina ya-6</annotation>
+		<annotation cp="🧚🏻">jini | kichimbakazi malkia | kichimbakazi mfalme | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧚🏻" type="tts">kichimbakazi: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧚🏼">jini | kichimbakazi malkia | kichimbakazi mfalme | ngozi aina ya-3</annotation>
+		<annotation cp="🧚🏼" type="tts">kichimbakazi: ngozi aina ya-3</annotation>
+		<annotation cp="🧚🏽">jini | kichimbakazi malkia | kichimbakazi mfalme | ngozi aina ya-4</annotation>
+		<annotation cp="🧚🏽" type="tts">kichimbakazi: ngozi aina ya-4</annotation>
+		<annotation cp="🧚🏾">jini | kichimbakazi malkia | kichimbakazi mfalme | ngozi aina ya-5</annotation>
+		<annotation cp="🧚🏾" type="tts">kichimbakazi: ngozi aina ya-5</annotation>
+		<annotation cp="🧚🏿">jini | kichimbakazi malkia | kichimbakazi mfalme | ngozi aina ya-6</annotation>
+		<annotation cp="🧚🏿" type="tts">kichimbakazi: ngozi aina ya-6</annotation>
+		<annotation cp="🧚🏻‍♀">kichimbakazi malkia | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">kichimbakazi wa kike: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧚🏼‍♀">kichimbakazi malkia | ngozi aina ya-3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">kichimbakazi wa kike: ngozi aina ya-3</annotation>
+		<annotation cp="🧚🏽‍♀">kichimbakazi malkia | ngozi aina ya-4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">kichimbakazi wa kike: ngozi aina ya-4</annotation>
+		<annotation cp="🧚🏾‍♀">kichimbakazi malkia | ngozi aina ya-5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">kichimbakazi wa kike: ngozi aina ya-5</annotation>
+		<annotation cp="🧚🏿‍♀">kichimbakazi malkia | ngozi aina ya-6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">kichimbakazi wa kike: ngozi aina ya-6</annotation>
+		<annotation cp="🧚🏻‍♂">jini | kichimbakazi mfalme | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">kichimbakazi wa kiume: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧚🏼‍♂">jini | kichimbakazi mfalme | ngozi aina ya-3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">kichimbakazi wa kiume: ngozi aina ya-3</annotation>
+		<annotation cp="🧚🏽‍♂">jini | kichimbakazi mfalme | ngozi aina ya-4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">kichimbakazi wa kiume: ngozi aina ya-4</annotation>
+		<annotation cp="🧚🏾‍♂">jini | kichimbakazi mfalme | ngozi aina ya-5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">kichimbakazi wa kiume: ngozi aina ya-5</annotation>
+		<annotation cp="🧚🏿‍♂">jini | kichimbakazi mfalme | ngozi aina ya-6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">kichimbakazi wa kiume: ngozi aina ya-6</annotation>
+		<annotation cp="🧛🏻">Dracula | zimwi | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧛🏻" type="tts">mnyonya damu: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧛🏼">Dracula | zimwi | ngozi aina ya-3</annotation>
+		<annotation cp="🧛🏼" type="tts">mnyonya damu: ngozi aina ya-3</annotation>
+		<annotation cp="🧛🏽">Dracula | zimwi | ngozi aina ya-4</annotation>
+		<annotation cp="🧛🏽" type="tts">mnyonya damu: ngozi aina ya-4</annotation>
+		<annotation cp="🧛🏾">Dracula | zimwi | ngozi aina ya-5</annotation>
+		<annotation cp="🧛🏾" type="tts">mnyonya damu: ngozi aina ya-5</annotation>
+		<annotation cp="🧛🏿">Dracula | zimwi | ngozi aina ya-6</annotation>
+		<annotation cp="🧛🏿" type="tts">mnyonya damu: ngozi aina ya-6</annotation>
+		<annotation cp="🧛🏻‍♀">zimwi | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">mnyonya damu wa kike: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧛🏼‍♀">zimwi | ngozi aina ya-3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">mnyonya damu wa kike: ngozi aina ya-3</annotation>
+		<annotation cp="🧛🏽‍♀">zimwi | ngozi aina ya-4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">mnyonya damu wa kike: ngozi aina ya-4</annotation>
+		<annotation cp="🧛🏾‍♀">zimwi | ngozi aina ya-5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">mnyonya damu wa kike: ngozi aina ya-5</annotation>
+		<annotation cp="🧛🏿‍♀">zimwi | ngozi aina ya-6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">mnyonya damu wa kike: ngozi aina ya-6</annotation>
+		<annotation cp="🧛🏻‍♂">Dracula | zimwi | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">mnyonya damu wa kiume: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧛🏼‍♂">Dracula | zimwi | ngozi aina ya-3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">mnyonya damu wa kiume: ngozi aina ya-3</annotation>
+		<annotation cp="🧛🏽‍♂">Dracula | zimwi | ngozi aina ya-4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">mnyonya damu wa kiume: ngozi aina ya-4</annotation>
+		<annotation cp="🧛🏾‍♂">Dracula | zimwi | ngozi aina ya-5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">mnyonya damu wa kiume: ngozi aina ya-5</annotation>
+		<annotation cp="🧛🏿‍♂">Dracula | zimwi | ngozi aina ya-6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">mnyonya damu wa kiume: ngozi aina ya-6</annotation>
+		<annotation cp="🧜🏻">nguva | nguva dume | nguva kike | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧜🏻" type="tts">nguva mtu: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧜🏼">nguva | nguva dume | nguva kike | ngozi aina ya-3</annotation>
+		<annotation cp="🧜🏼" type="tts">nguva mtu: ngozi aina ya-3</annotation>
+		<annotation cp="🧜🏽">nguva | nguva dume | nguva kike | ngozi aina ya-4</annotation>
+		<annotation cp="🧜🏽" type="tts">nguva mtu: ngozi aina ya-4</annotation>
+		<annotation cp="🧜🏾">nguva | nguva dume | nguva kike | ngozi aina ya-5</annotation>
+		<annotation cp="🧜🏾" type="tts">nguva mtu: ngozi aina ya-5</annotation>
+		<annotation cp="🧜🏿">nguva | nguva dume | nguva kike | ngozi aina ya-6</annotation>
+		<annotation cp="🧜🏿" type="tts">nguva mtu: ngozi aina ya-6</annotation>
+		<annotation cp="🧜🏻‍♀">nguva kike | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">nguva: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧜🏼‍♀">nguva kike | ngozi aina ya-3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">nguva: ngozi aina ya-3</annotation>
+		<annotation cp="🧜🏽‍♀">nguva kike | ngozi aina ya-4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">nguva: ngozi aina ya-4</annotation>
+		<annotation cp="🧜🏾‍♀">nguva kike | ngozi aina ya-5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">nguva: ngozi aina ya-5</annotation>
+		<annotation cp="🧜🏿‍♀">nguva kike | ngozi aina ya-6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">nguva: ngozi aina ya-6</annotation>
+		<annotation cp="🧜🏻‍♂">nguva Triton | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">nguva dume: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧜🏼‍♂">nguva Triton | ngozi aina ya-3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">nguva dume: ngozi aina ya-3</annotation>
+		<annotation cp="🧜🏽‍♂">nguva Triton | ngozi aina ya-4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">nguva dume: ngozi aina ya-4</annotation>
+		<annotation cp="🧜🏾‍♂">nguva Triton | ngozi aina ya-5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">nguva dume: ngozi aina ya-5</annotation>
+		<annotation cp="🧜🏿‍♂">nguva Triton | ngozi aina ya-6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">nguva dume: ngozi aina ya-6</annotation>
+		<annotation cp="🧝🏻">uchawi | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧝🏻" type="tts">kibwengo: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧝🏼">uchawi | ngozi aina ya-3</annotation>
+		<annotation cp="🧝🏼" type="tts">kibwengo: ngozi aina ya-3</annotation>
+		<annotation cp="🧝🏽">uchawi | ngozi aina ya-4</annotation>
+		<annotation cp="🧝🏽" type="tts">kibwengo: ngozi aina ya-4</annotation>
+		<annotation cp="🧝🏾">uchawi | ngozi aina ya-5</annotation>
+		<annotation cp="🧝🏾" type="tts">kibwengo: ngozi aina ya-5</annotation>
+		<annotation cp="🧝🏿">uchawi | ngozi aina ya-6</annotation>
+		<annotation cp="🧝🏿" type="tts">kibwengo: ngozi aina ya-6</annotation>
+		<annotation cp="🧝🏻‍♀">uganga | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">kibwengo cha kike: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧝🏼‍♀">uganga | ngozi aina ya-3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">kibwengo cha kike: ngozi aina ya-3</annotation>
+		<annotation cp="🧝🏽‍♀">uganga | ngozi aina ya-4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">kibwengo cha kike: ngozi aina ya-4</annotation>
+		<annotation cp="🧝🏾‍♀">uganga | ngozi aina ya-5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">kibwengo cha kike: ngozi aina ya-5</annotation>
+		<annotation cp="🧝🏿‍♀">uganga | ngozi aina ya-6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">kibwengo cha kike: ngozi aina ya-6</annotation>
+		<annotation cp="🧝🏻‍♂">kiinimacho | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">kibwengo dume: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧝🏼‍♂">kiinimacho | ngozi aina ya-3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">kibwengo dume: ngozi aina ya-3</annotation>
+		<annotation cp="🧝🏽‍♂">kiinimacho | ngozi aina ya-4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">kibwengo dume: ngozi aina ya-4</annotation>
+		<annotation cp="🧝🏾‍♂">kiinimacho | ngozi aina ya-5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">kibwengo dume: ngozi aina ya-5</annotation>
+		<annotation cp="🧝🏿‍♂">kiinimacho | ngozi aina ya-6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">kibwengo dume: ngozi aina ya-6</annotation>
 		<annotation cp="🙍🏻">chukizwa | ishara | ngozi aina ya-1-2</annotation>
 		<annotation cp="🙍🏻" type="tts">mtu anayekunja kipaji cha uso: ngozi aina ya-1-2</annotation>
 		<annotation cp="🙍🏼">chukizwa | ishara | ngozi aina ya-3</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">kusakata rumba: ngozi aina ya-5</annotation>
 		<annotation cp="🕺🏿">kusakata rumba | ngozi aina ya-6</annotation>
 		<annotation cp="🕺🏿" type="tts">kusakata rumba: ngozi aina ya-6</annotation>
+		<annotation cp="🧖🏻">chumba cha mvuke | sauna | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧖🏻" type="tts">mtu katika bafu la mvuke: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧖🏼">chumba cha mvuke | sauna | ngozi aina ya-3</annotation>
+		<annotation cp="🧖🏼" type="tts">mtu katika bafu la mvuke: ngozi aina ya-3</annotation>
+		<annotation cp="🧖🏽">chumba cha mvuke | sauna | ngozi aina ya-4</annotation>
+		<annotation cp="🧖🏽" type="tts">mtu katika bafu la mvuke: ngozi aina ya-4</annotation>
+		<annotation cp="🧖🏾">chumba cha mvuke | sauna | ngozi aina ya-5</annotation>
+		<annotation cp="🧖🏾" type="tts">mtu katika bafu la mvuke: ngozi aina ya-5</annotation>
+		<annotation cp="🧖🏿">chumba cha mvuke | sauna | ngozi aina ya-6</annotation>
+		<annotation cp="🧖🏿" type="tts">mtu katika bafu la mvuke: ngozi aina ya-6</annotation>
+		<annotation cp="🧖🏻‍♀">bafu la mvuke | sauna | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">mwanamke katika bafu la mvuke: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧖🏼‍♀">bafu la mvuke | sauna | ngozi aina ya-3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">mwanamke katika bafu la mvuke: ngozi aina ya-3</annotation>
+		<annotation cp="🧖🏽‍♀">bafu la mvuke | sauna | ngozi aina ya-4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">mwanamke katika bafu la mvuke: ngozi aina ya-4</annotation>
+		<annotation cp="🧖🏾‍♀">bafu la mvuke | sauna | ngozi aina ya-5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">mwanamke katika bafu la mvuke: ngozi aina ya-5</annotation>
+		<annotation cp="🧖🏿‍♀">bafu la mvuke | sauna | ngozi aina ya-6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">mwanamke katika bafu la mvuke: ngozi aina ya-6</annotation>
+		<annotation cp="🧖🏻‍♂">bafu la mvuke | sauna | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">mwanamume katika bafu la mvuke: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧖🏼‍♂">bafu la mvuke | sauna | ngozi aina ya-3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">mwanamume katika bafu la mvuke: ngozi aina ya-3</annotation>
+		<annotation cp="🧖🏽‍♂">bafu la mvuke | sauna | ngozi aina ya-4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">mwanamume katika bafu la mvuke: ngozi aina ya-4</annotation>
+		<annotation cp="🧖🏾‍♂">bafu la mvuke | sauna | ngozi aina ya-5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">mwanamume katika bafu la mvuke: ngozi aina ya-5</annotation>
+		<annotation cp="🧖🏿‍♂">bafu la mvuke | sauna | ngozi aina ya-6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">mwanamume katika bafu la mvuke: ngozi aina ya-6</annotation>
+		<annotation cp="🧗🏻">mkwezi | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧗🏻" type="tts">mtu anayekwea: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧗🏼">mkwezi | ngozi aina ya-3</annotation>
+		<annotation cp="🧗🏼" type="tts">mtu anayekwea: ngozi aina ya-3</annotation>
+		<annotation cp="🧗🏽">mkwezi | ngozi aina ya-4</annotation>
+		<annotation cp="🧗🏽" type="tts">mtu anayekwea: ngozi aina ya-4</annotation>
+		<annotation cp="🧗🏾">mkwezi | ngozi aina ya-5</annotation>
+		<annotation cp="🧗🏾" type="tts">mtu anayekwea: ngozi aina ya-5</annotation>
+		<annotation cp="🧗🏿">mkwezi | ngozi aina ya-6</annotation>
+		<annotation cp="🧗🏿" type="tts">mtu anayekwea: ngozi aina ya-6</annotation>
+		<annotation cp="🧗🏻‍♀">mkwezi wa kike | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">mwanamke anayekwea: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧗🏼‍♀">mkwezi wa kike | ngozi aina ya-3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">mwanamke anayekwea: ngozi aina ya-3</annotation>
+		<annotation cp="🧗🏽‍♀">mkwezi wa kike | ngozi aina ya-4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">mwanamke anayekwea: ngozi aina ya-4</annotation>
+		<annotation cp="🧗🏾‍♀">mkwezi wa kike | ngozi aina ya-5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">mwanamke anayekwea: ngozi aina ya-5</annotation>
+		<annotation cp="🧗🏿‍♀">mkwezi wa kike | ngozi aina ya-6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">mwanamke anayekwea: ngozi aina ya-6</annotation>
+		<annotation cp="🧗🏻‍♂">mkwezi wa kiume | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">mwanamume anayekwea: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧗🏼‍♂">mkwezi wa kiume | ngozi aina ya-3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">mwanamume anayekwea: ngozi aina ya-3</annotation>
+		<annotation cp="🧗🏽‍♂">mkwezi wa kiume | ngozi aina ya-4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">mwanamume anayekwea: ngozi aina ya-4</annotation>
+		<annotation cp="🧗🏾‍♂">mkwezi wa kiume | ngozi aina ya-5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">mwanamume anayekwea: ngozi aina ya-5</annotation>
+		<annotation cp="🧗🏿‍♂">mkwezi wa kiume | ngozi aina ya-6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">mwanamume anayekwea: ngozi aina ya-6</annotation>
+		<annotation cp="🧘🏻">tafakuri | yoga | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧘🏻" type="tts">mtu anayetaamali: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧘🏼">tafakuri | yoga | ngozi aina ya-3</annotation>
+		<annotation cp="🧘🏼" type="tts">mtu anayetaamali: ngozi aina ya-3</annotation>
+		<annotation cp="🧘🏽">tafakuri | yoga | ngozi aina ya-4</annotation>
+		<annotation cp="🧘🏽" type="tts">mtu anayetaamali: ngozi aina ya-4</annotation>
+		<annotation cp="🧘🏾">tafakuri | yoga | ngozi aina ya-5</annotation>
+		<annotation cp="🧘🏾" type="tts">mtu anayetaamali: ngozi aina ya-5</annotation>
+		<annotation cp="🧘🏿">tafakuri | yoga | ngozi aina ya-6</annotation>
+		<annotation cp="🧘🏿" type="tts">mtu anayetaamali: ngozi aina ya-6</annotation>
+		<annotation cp="🧘🏻‍♀">taamuli | yoga | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">mwanamke anayetaamali: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧘🏼‍♀">taamuli | yoga | ngozi aina ya-3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">mwanamke anayetaamali: ngozi aina ya-3</annotation>
+		<annotation cp="🧘🏽‍♀">taamuli | yoga | ngozi aina ya-4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">mwanamke anayetaamali: ngozi aina ya-4</annotation>
+		<annotation cp="🧘🏾‍♀">taamuli | yoga | ngozi aina ya-5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">mwanamke anayetaamali: ngozi aina ya-5</annotation>
+		<annotation cp="🧘🏿‍♀">taamuli | yoga | ngozi aina ya-6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">mwanamke anayetaamali: ngozi aina ya-6</annotation>
+		<annotation cp="🧘🏻‍♂">taamuli | yoga | ngozi aina ya-1-2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">mwanamume anayetaamali: ngozi aina ya-1-2</annotation>
+		<annotation cp="🧘🏼‍♂">taamuli | yoga | ngozi aina ya-3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">mwanamume anayetaamali: ngozi aina ya-3</annotation>
+		<annotation cp="🧘🏽‍♂">taamuli | yoga | ngozi aina ya-4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">mwanamume anayetaamali: ngozi aina ya-4</annotation>
+		<annotation cp="🧘🏾‍♂">taamuli | yoga | ngozi aina ya-5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">mwanamume anayetaamali: ngozi aina ya-5</annotation>
+		<annotation cp="🧘🏿‍♂">taamuli | yoga | ngozi aina ya-6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">mwanamume anayetaamali: ngozi aina ya-6</annotation>
 		<annotation cp="🛀🏻">bafu | hodhi | ngozi aina ya-1-2</annotation>
 		<annotation cp="🛀🏻" type="tts">mtu anayeoga: ngozi aina ya-1-2</annotation>
 		<annotation cp="🛀🏼">bafu | hodhi | ngozi aina ya-3</annotation>
@@ -1123,15 +1423,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿">hoteli | lala | ngozi aina ya-6</annotation>
 		<annotation cp="🛌🏿" type="tts">mtu aliyelala kitandani: ngozi aina ya-6</annotation>
 		<annotation cp="🕴🏻">biashara | mwanamume | suti | ngozi aina ya-1-2</annotation>
-		<annotation cp="🕴🏻" type="tts">mwanaume aliyevaa suti anaye elea hewani: ngozi aina ya-1-2</annotation>
+		<annotation cp="🕴🏻" type="tts">mwanaume aliyevaa suti anayeelea hewani: ngozi aina ya-1-2</annotation>
 		<annotation cp="🕴🏼">biashara | mwanamume | suti | ngozi aina ya-3</annotation>
-		<annotation cp="🕴🏼" type="tts">mwanaume aliyevaa suti anaye elea hewani: ngozi aina ya-3</annotation>
+		<annotation cp="🕴🏼" type="tts">mwanaume aliyevaa suti anayeelea hewani: ngozi aina ya-3</annotation>
 		<annotation cp="🕴🏽">biashara | mwanamume | suti | ngozi aina ya-4</annotation>
-		<annotation cp="🕴🏽" type="tts">mwanaume aliyevaa suti anaye elea hewani: ngozi aina ya-4</annotation>
+		<annotation cp="🕴🏽" type="tts">mwanaume aliyevaa suti anayeelea hewani: ngozi aina ya-4</annotation>
 		<annotation cp="🕴🏾">biashara | mwanamume | suti | ngozi aina ya-5</annotation>
-		<annotation cp="🕴🏾" type="tts">mwanaume aliyevaa suti anaye elea hewani: ngozi aina ya-5</annotation>
+		<annotation cp="🕴🏾" type="tts">mwanaume aliyevaa suti anayeelea hewani: ngozi aina ya-5</annotation>
 		<annotation cp="🕴🏿">biashara | mwanamume | suti | ngozi aina ya-6</annotation>
-		<annotation cp="🕴🏿" type="tts">mwanaume aliyevaa suti anaye elea hewani: ngozi aina ya-6</annotation>
+		<annotation cp="🕴🏿" type="tts">mwanaume aliyevaa suti anayeelea hewani: ngozi aina ya-6</annotation>
 		<annotation cp="🏇🏻">farasi | farasi ya mashindano | mashindano | mwendesha farasi | ngozi aina ya-1-2</annotation>
 		<annotation cp="🏇🏻" type="tts">mbio za farasi: ngozi aina ya-1-2</annotation>
 		<annotation cp="🏇🏼">farasi | farasi ya mashindano | mashindano | mwendesha farasi | ngozi aina ya-3</annotation>
@@ -1323,15 +1623,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏋🏿‍♂">mbeba vyuma | uzani | uzoto | ngozi aina ya-6</annotation>
 		<annotation cp="🏋🏿‍♂" type="tts">mwanamume anayebeba vyuma vizito: ngozi aina ya-6</annotation>
 		<annotation cp="🏋🏻‍♀">mbeba vyuma | uzani | uzoto | ngozi aina ya-1-2</annotation>
-		<annotation cp="🏋🏻‍♀" type="tts">mwanamke anayebeba vyma vizito: ngozi aina ya-1-2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">mwanamke anayebeba vyuma vizito: ngozi aina ya-1-2</annotation>
 		<annotation cp="🏋🏼‍♀">mbeba vyuma | uzani | uzoto | ngozi aina ya-3</annotation>
-		<annotation cp="🏋🏼‍♀" type="tts">mwanamke anayebeba vyma vizito: ngozi aina ya-3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">mwanamke anayebeba vyuma vizito: ngozi aina ya-3</annotation>
 		<annotation cp="🏋🏽‍♀">mbeba vyuma | uzani | uzoto | ngozi aina ya-4</annotation>
-		<annotation cp="🏋🏽‍♀" type="tts">mwanamke anayebeba vyma vizito: ngozi aina ya-4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">mwanamke anayebeba vyuma vizito: ngozi aina ya-4</annotation>
 		<annotation cp="🏋🏾‍♀">mbeba vyuma | uzani | uzoto | ngozi aina ya-5</annotation>
-		<annotation cp="🏋🏾‍♀" type="tts">mwanamke anayebeba vyma vizito: ngozi aina ya-5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">mwanamke anayebeba vyuma vizito: ngozi aina ya-5</annotation>
 		<annotation cp="🏋🏿‍♀">mbeba vyuma | uzani | uzoto | ngozi aina ya-6</annotation>
-		<annotation cp="🏋🏿‍♀" type="tts">mwanamke anayebeba vyma vizito: ngozi aina ya-6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">mwanamke anayebeba vyuma vizito: ngozi aina ya-6</annotation>
 		<annotation cp="🚴🏻">baisikeli | ngozi aina ya-1-2</annotation>
 		<annotation cp="🚴🏻" type="tts">mwendesha baisikeli: ngozi aina ya-1-2</annotation>
 		<annotation cp="🚴🏼">baisikeli | ngozi aina ya-3</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">mwanamke anayechezea mipira mingi mikononi: ngozi aina ya-5</annotation>
 		<annotation cp="🤹🏿‍♀">kiinimacho | shughuli nyingi | ngozi aina ya-6</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">mwanamke anayechezea mipira mingi mikononi: ngozi aina ya-6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">busu | mapenzi | mume na mke</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">mwanamume na mwanamke wanaobusu</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">busu | mapenzi | mume na mume</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">wanaume wanaobusiana</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">busu | mapenzi | mke na mke</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">wanawake wanaobusiana</annotation>
-		<annotation cp="👩‍❤‍👨">mapenzi | moyo | mume na mke | upendo</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">mume na mke walio na ishara ya moyo</annotation>
-		<annotation cp="👨‍❤‍👨">mapenzi | moyo | mume na mume | upendo</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">wanaume wawili walio na ishara ya moyo</annotation>
-		<annotation cp="👩‍❤‍👩">mapenzi | mke na mke | moyo | upendo</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">wanawake wawili walio na ishara ya moyo</annotation>
-		<annotation cp="👨‍👩‍👦">baba | familia | mama | mtoto</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">familia, mwanamume, mwanamke, mvulana</annotation>
-		<annotation cp="👨‍👩‍👧">baba | binti | mama | mtoto</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">familia, mwanamume, mwanamke, msichana</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">baba | binti | familia | mama | mvulana</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">familia, mwanamume, mwanamke, msichana, mvulana</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">baba | familia | mama | mvulana | wavulana</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">familia, mwanamume, mwanamke, mvulana, mvulana</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">baba | binti | familia | mama | msichana</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">familia, mwanamume, mwanamke, msichana, msichana</annotation>
-		<annotation cp="👨‍👨‍👦">baba | familia | mama | mvulana</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">familia, mwanamume, mwanamume, mvulana</annotation>
-		<annotation cp="👨‍👨‍👧">baba | familia | mama | msichana</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">familia, mwanamume, mwanamume, msichana</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">baba | familia | mvulana | mwanamume</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">familia, mwanamume, mwanamume, msichana, mvulana</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">baba | familia | mtoto | mvulana | mwanamume</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">familia, mwanamume, mwanamume, mvulana, mvulana</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">baba | binti | familia | msichana | mwanamume</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">familia, mwanamume, mwanamume, msichana, msichana</annotation>
-		<annotation cp="👩‍👩‍👦">baba | familia | mama | mvulana</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">familia, mwanamke, mwanamke, mvulana</annotation>
-		<annotation cp="👩‍👩‍👧">baba | bikra | binti | familia | mama</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">familia, mwanamke, mwanamke, msichana</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">baba | binti | familia | mama</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">familia, mwanamke, mwanamke, msichana, mvulana</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">baba | familia | mama | mtoto</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">familia, mwanamke, mwanamke, mvulana, mvulana</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">baba | binti | familia | mama | mtoto</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">familia, mwanamke, mwanamke, msichana, msichana</annotation>
-		<annotation cp="👨‍👦">baba | familia | mtoto</annotation>
-		<annotation cp="👨‍👦" type="tts">familia, mwanamume, mvulana</annotation>
-		<annotation cp="👨‍👦‍👦">baba | familia | watoto</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">familia, mwanamume, mvulana, mvulana</annotation>
-		<annotation cp="👨‍👧">baba | binti | familia</annotation>
-		<annotation cp="👨‍👧" type="tts">familia, mwanamume, msichana</annotation>
-		<annotation cp="👨‍👧‍👦">baba | binti | familia | mvulana</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">familia, mwanamume, msichana, mvulana</annotation>
-		<annotation cp="👨‍👧‍👧">baba | binti | familia | msichana</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">familia, mwanamume, msichana, msichana</annotation>
-		<annotation cp="👩‍👦">baba | familia | mvulana</annotation>
-		<annotation cp="👩‍👦" type="tts">familia, mwanamke, mvulana</annotation>
-		<annotation cp="👩‍👦‍👦">familia | mama | mtoto | mvulana</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">familia, mwanamke, mvulana, mvulana</annotation>
-		<annotation cp="👩‍👧">familia | mama | msichana</annotation>
-		<annotation cp="👩‍👧" type="tts">familia, mwanamke, msichana</annotation>
-		<annotation cp="👩‍👧‍👦">familia | mama | msichana | mvulana</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">familia, mwanamke, msichana, mvulana</annotation>
-		<annotation cp="👩‍👧‍👧">binti | familia | mama | msichana</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">familia, mwanamke, msichana, msichana</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">mapenzi | mume na mke | mwanamke | mwanamume</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">busu: mwanamke na mwanamume</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">mapenzi | mume na mke | mwanamume</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">busu: mwanamume na mwanamume</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">mapenzi | mume na mke | mwanamke</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">busu: mwanamke na mwanamke</annotation>
+		<annotation cp="👩‍❤‍👨">mapenzi | moyo | mume na mke | upendo | mwanamke | mwanamume</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">mume na muke na ishara ya moyo: mwanamke na mwanamume</annotation>
+		<annotation cp="👨‍❤‍👨">mapenzi | moyo | mume na mke | upendo | mwanamume</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">mume na muke na ishara ya moyo: mwanamume na mwanamume</annotation>
+		<annotation cp="👩‍❤‍👩">mapenzi | moyo | mume na mke | upendo | mwanamke</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">mume na muke na ishara ya moyo: mwanamke na mwanamke</annotation>
+		<annotation cp="👨‍👩‍👦">baba | mama | mtoto | mwanamume | mwanamke | mvulana</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">familia: mwanamume na mwanamke na mvulana</annotation>
+		<annotation cp="👨‍👩‍👧">baba | mama | mtoto | mwanamume | mwanamke | msichana</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">familia: mwanamume na mwanamke na msichana</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">baba | mama | mtoto | mwanamume | mwanamke | msichana | mvulana</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">familia: mwanamume na mwanamke na msichana na mvulana</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">baba | mama | mtoto | mwanamume | mwanamke | mvulana</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">familia: mwanamume na mwanamke na mvulana na mvulana</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">baba | mama | mtoto | mwanamume | mwanamke | msichana</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">familia: mwanamume na mwanamke na msichana na msichana</annotation>
+		<annotation cp="👨‍👨‍👦">baba | mama | mtoto | mwanamume | mvulana</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">familia: mwanamume na mwanamume na mvulana</annotation>
+		<annotation cp="👨‍👨‍👧">baba | mama | mtoto | mwanamume | msichana</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">familia: mwanamume na mwanamume na msichana</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">baba | mama | mtoto | mwanamume | msichana | mvulana</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">familia: mwanamume na mwanamume na msichana na mvulana</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">baba | mama | mtoto | mwanamume | mvulana</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">familia: mwanamume na mwanamume na mvulana na mvulana</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">baba | mama | mtoto | mwanamume | msichana</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">familia: mwanamume na mwanamume na msichana na msichana</annotation>
+		<annotation cp="👩‍👩‍👦">baba | mama | mtoto | mwanamke | mvulana</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">familia: mwanamke na mwanamke na mvulana</annotation>
+		<annotation cp="👩‍👩‍👧">baba | mama | mtoto | mwanamke | msichana</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">familia: mwanamke na mwanamke na msichana</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">baba | mama | mtoto | mwanamke | msichana | mvulana</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">familia: mwanamke na mwanamke na msichana na mvulana</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">baba | mama | mtoto | mwanamke | mvulana</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">familia: mwanamke na mwanamke na mvulana na mvulana</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">baba | mama | mtoto | mwanamke | msichana</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">familia: mwanamke na mwanamke na msichana na msichana</annotation>
+		<annotation cp="👨‍👦">baba | mama | mtoto | mwanamume | mvulana</annotation>
+		<annotation cp="👨‍👦" type="tts">familia: mwanamume na mvulana</annotation>
+		<annotation cp="👨‍👦‍👦">baba | mama | mtoto | mwanamume | mvulana</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">familia: mwanamume na mvulana na mvulana</annotation>
+		<annotation cp="👨‍👧">baba | mama | mtoto | mwanamume | msichana</annotation>
+		<annotation cp="👨‍👧" type="tts">familia: mwanamume na msichana</annotation>
+		<annotation cp="👨‍👧‍👦">baba | mama | mtoto | mwanamume | msichana | mvulana</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">familia: mwanamume na msichana na mvulana</annotation>
+		<annotation cp="👨‍👧‍👧">baba | mama | mtoto | mwanamume | msichana</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">familia: mwanamume na msichana na msichana</annotation>
+		<annotation cp="👩‍👦">baba | mama | mtoto | mwanamke | mvulana</annotation>
+		<annotation cp="👩‍👦" type="tts">familia: mwanamke na mvulana</annotation>
+		<annotation cp="👩‍👦‍👦">baba | mama | mtoto | mwanamke | mvulana</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">familia: mwanamke na mvulana na mvulana</annotation>
+		<annotation cp="👩‍👧">baba | mama | mtoto | mwanamke | msichana</annotation>
+		<annotation cp="👩‍👧" type="tts">familia: mwanamke na msichana</annotation>
+		<annotation cp="👩‍👧‍👦">baba | mama | mtoto | mwanamke | msichana | mvulana</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">familia: mwanamke na msichana na mvulana</annotation>
+		<annotation cp="👩‍👧‍👧">baba | mama | mtoto | mwanamke | msichana</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">familia: mwanamke na msichana na msichana</annotation>
 		<annotation cp="🤳🏻">kamera | selfie | simu | ngozi aina ya-1-2</annotation>
 		<annotation cp="🤳🏻" type="tts">selfie: ngozi aina ya-1-2</annotation>
 		<annotation cp="🤳🏼">kamera | selfie | simu | ngozi aina ya-3</annotation>
@@ -1705,15 +2005,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤙🏿">mkono | nipigie simu | ngozi aina ya-6</annotation>
 		<annotation cp="🤙🏿" type="tts">ishara ya “nipigie simu”: ngozi aina ya-6</annotation>
 		<annotation cp="🖐🏻">kidole | mkono | mwili | tanuliwa | ngozi aina ya-1-2</annotation>
-		<annotation cp="🖐🏻" type="tts">mkono ulioinuliwa na vidole vilivyotanuliwa: ngozi aina ya-1-2</annotation>
+		<annotation cp="🖐🏻" type="tts">mkono ulioinuliwa wenye vidole vilivyotanuliwa: ngozi aina ya-1-2</annotation>
 		<annotation cp="🖐🏼">kidole | mkono | mwili | tanuliwa | ngozi aina ya-3</annotation>
-		<annotation cp="🖐🏼" type="tts">mkono ulioinuliwa na vidole vilivyotanuliwa: ngozi aina ya-3</annotation>
+		<annotation cp="🖐🏼" type="tts">mkono ulioinuliwa wenye vidole vilivyotanuliwa: ngozi aina ya-3</annotation>
 		<annotation cp="🖐🏽">kidole | mkono | mwili | tanuliwa | ngozi aina ya-4</annotation>
-		<annotation cp="🖐🏽" type="tts">mkono ulioinuliwa na vidole vilivyotanuliwa: ngozi aina ya-4</annotation>
+		<annotation cp="🖐🏽" type="tts">mkono ulioinuliwa wenye vidole vilivyotanuliwa: ngozi aina ya-4</annotation>
 		<annotation cp="🖐🏾">kidole | mkono | mwili | tanuliwa | ngozi aina ya-5</annotation>
-		<annotation cp="🖐🏾" type="tts">mkono ulioinuliwa na vidole vilivyotanuliwa: ngozi aina ya-5</annotation>
+		<annotation cp="🖐🏾" type="tts">mkono ulioinuliwa wenye vidole vilivyotanuliwa: ngozi aina ya-5</annotation>
 		<annotation cp="🖐🏿">kidole | mkono | mwili | tanuliwa | ngozi aina ya-6</annotation>
-		<annotation cp="🖐🏿" type="tts">mkono ulioinuliwa na vidole vilivyotanuliwa: ngozi aina ya-6</annotation>
+		<annotation cp="🖐🏿" type="tts">mkono ulioinuliwa wenye vidole vilivyotanuliwa: ngozi aina ya-6</annotation>
 		<annotation cp="✋🏻">mkono | mwili | ngozi aina ya-1-2</annotation>
 		<annotation cp="✋🏻" type="tts">mkono ulioinuliwa: ngozi aina ya-1-2</annotation>
 		<annotation cp="✋🏼">mkono | mwili | ngozi aina ya-3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">mkono unaopunga: ngozi aina ya-5</annotation>
 		<annotation cp="👋🏿">kupunga | mkono | mwili | punga | ngozi aina ya-6</annotation>
 		<annotation cp="👋🏿" type="tts">mkono unaopunga: ngozi aina ya-6</annotation>
+		<annotation cp="🤟🏻">mkono | nakupenda | ngozi aina ya-1-2</annotation>
+		<annotation cp="🤟🏻" type="tts">ishara ya &quot;nakupenda&quot;: ngozi aina ya-1-2</annotation>
+		<annotation cp="🤟🏼">mkono | nakupenda | ngozi aina ya-3</annotation>
+		<annotation cp="🤟🏼" type="tts">ishara ya &quot;nakupenda&quot;: ngozi aina ya-3</annotation>
+		<annotation cp="🤟🏽">mkono | nakupenda | ngozi aina ya-4</annotation>
+		<annotation cp="🤟🏽" type="tts">ishara ya &quot;nakupenda&quot;: ngozi aina ya-4</annotation>
+		<annotation cp="🤟🏾">mkono | nakupenda | ngozi aina ya-5</annotation>
+		<annotation cp="🤟🏾" type="tts">ishara ya &quot;nakupenda&quot;: ngozi aina ya-5</annotation>
+		<annotation cp="🤟🏿">mkono | nakupenda | ngozi aina ya-6</annotation>
+		<annotation cp="🤟🏿" type="tts">ishara ya &quot;nakupenda&quot;: ngozi aina ya-6</annotation>
 		<annotation cp="✍🏻">andika | mkono | mwili | ngozi aina ya-1-2</annotation>
 		<annotation cp="✍🏻" type="tts">mkono unaoandika: ngozi aina ya-1-2</annotation>
 		<annotation cp="✍🏼">andika | mkono | mwili | ngozi aina ya-3</annotation>
@@ -1845,25 +2155,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👐🏿">mkono | mwili | wazi | ngozi aina ya-6</annotation>
 		<annotation cp="👐🏿" type="tts">mikono iliyowazi: ngozi aina ya-6</annotation>
 		<annotation cp="🙌🏻">inuliwa | ishara | kusherehekea | mkono | mwili | shangwe | ngozi aina ya-1-2</annotation>
-		<annotation cp="🙌🏻" type="tts">mtu aliyeinua mikono: ngozi aina ya-1-2</annotation>
+		<annotation cp="🙌🏻" type="tts">mikono iliyoinuliwa: ngozi aina ya-1-2</annotation>
 		<annotation cp="🙌🏼">inuliwa | ishara | kusherehekea | mkono | mwili | shangwe | ngozi aina ya-3</annotation>
-		<annotation cp="🙌🏼" type="tts">mtu aliyeinua mikono: ngozi aina ya-3</annotation>
+		<annotation cp="🙌🏼" type="tts">mikono iliyoinuliwa: ngozi aina ya-3</annotation>
 		<annotation cp="🙌🏽">inuliwa | ishara | kusherehekea | mkono | mwili | shangwe | ngozi aina ya-4</annotation>
-		<annotation cp="🙌🏽" type="tts">mtu aliyeinua mikono: ngozi aina ya-4</annotation>
+		<annotation cp="🙌🏽" type="tts">mikono iliyoinuliwa: ngozi aina ya-4</annotation>
 		<annotation cp="🙌🏾">inuliwa | ishara | kusherehekea | mkono | mwili | shangwe | ngozi aina ya-5</annotation>
-		<annotation cp="🙌🏾" type="tts">mtu aliyeinua mikono: ngozi aina ya-5</annotation>
+		<annotation cp="🙌🏾" type="tts">mikono iliyoinuliwa: ngozi aina ya-5</annotation>
 		<annotation cp="🙌🏿">inuliwa | ishara | kusherehekea | mkono | mwili | shangwe | ngozi aina ya-6</annotation>
-		<annotation cp="🙌🏿" type="tts">mtu aliyeinua mikono: ngozi aina ya-6</annotation>
+		<annotation cp="🙌🏿" type="tts">mikono iliyoinuliwa: ngozi aina ya-6</annotation>
+		<annotation cp="🤲🏻">maombi | ngozi aina ya-1-2</annotation>
+		<annotation cp="🤲🏻" type="tts">viganja vilivyoshikana: ngozi aina ya-1-2</annotation>
+		<annotation cp="🤲🏼">maombi | ngozi aina ya-3</annotation>
+		<annotation cp="🤲🏼" type="tts">viganja vilivyoshikana: ngozi aina ya-3</annotation>
+		<annotation cp="🤲🏽">maombi | ngozi aina ya-4</annotation>
+		<annotation cp="🤲🏽" type="tts">viganja vilivyoshikana: ngozi aina ya-4</annotation>
+		<annotation cp="🤲🏾">maombi | ngozi aina ya-5</annotation>
+		<annotation cp="🤲🏾" type="tts">viganja vilivyoshikana: ngozi aina ya-5</annotation>
+		<annotation cp="🤲🏿">maombi | ngozi aina ya-6</annotation>
+		<annotation cp="🤲🏿" type="tts">viganja vilivyoshikana: ngozi aina ya-6</annotation>
 		<annotation cp="🙏🏻">asante | inama | ishara | kunjwa | mkono | mwili | omba | tafadhali | uliza | ngozi aina ya-1-2</annotation>
-		<annotation cp="🙏🏻" type="tts">mtu aliyekunja mikono: ngozi aina ya-1-2</annotation>
+		<annotation cp="🙏🏻" type="tts">mikono iliyokunjwa: ngozi aina ya-1-2</annotation>
 		<annotation cp="🙏🏼">asante | inama | ishara | kunjwa | mkono | mwili | omba | tafadhali | uliza | ngozi aina ya-3</annotation>
-		<annotation cp="🙏🏼" type="tts">mtu aliyekunja mikono: ngozi aina ya-3</annotation>
+		<annotation cp="🙏🏼" type="tts">mikono iliyokunjwa: ngozi aina ya-3</annotation>
 		<annotation cp="🙏🏽">asante | inama | ishara | kunjwa | mkono | mwili | omba | tafadhali | uliza | ngozi aina ya-4</annotation>
-		<annotation cp="🙏🏽" type="tts">mtu aliyekunja mikono: ngozi aina ya-4</annotation>
+		<annotation cp="🙏🏽" type="tts">mikono iliyokunjwa: ngozi aina ya-4</annotation>
 		<annotation cp="🙏🏾">asante | inama | ishara | kunjwa | mkono | mwili | omba | tafadhali | uliza | ngozi aina ya-5</annotation>
-		<annotation cp="🙏🏾" type="tts">mtu aliyekunja mikono: ngozi aina ya-5</annotation>
+		<annotation cp="🙏🏾" type="tts">mikono iliyokunjwa: ngozi aina ya-5</annotation>
 		<annotation cp="🙏🏿">asante | inama | ishara | kunjwa | mkono | mwili | omba | tafadhali | uliza | ngozi aina ya-6</annotation>
-		<annotation cp="🙏🏿" type="tts">mtu aliyekunja mikono: ngozi aina ya-6</annotation>
+		<annotation cp="🙏🏿" type="tts">mikono iliyokunjwa: ngozi aina ya-6</annotation>
 		<annotation cp="💅🏻">kucha | mwili | rangi | tengeneza kucha | tunza | vipodozi | ngozi aina ya-1-2</annotation>
 		<annotation cp="💅🏻" type="tts">rangi ya kupaka kwenye kucha: ngozi aina ya-1-2</annotation>
 		<annotation cp="💅🏼">kucha | mwili | rangi | tengeneza kucha | tunza | vipodozi | ngozi aina ya-3</annotation>
@@ -1894,14 +2214,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">pua: ngozi aina ya-5</annotation>
 		<annotation cp="👃🏿">mwili | ngozi aina ya-6</annotation>
 		<annotation cp="👃🏿" type="tts">pua: ngozi aina ya-6</annotation>
-		<annotation cp="#⃣">alama ya reli | hashi | kitufe</annotation>
-		<annotation cp="#⃣" type="tts">kitufe cha nambari</annotation>
-		<annotation cp="*⃣">kinyota | kitufe | nyota</annotation>
-		<annotation cp="*⃣" type="tts">kitufe cha nyota</annotation>
+		<annotation cp="#⃣">kitufe</annotation>
+		<annotation cp="#⃣" type="tts">kitufe: #</annotation>
+		<annotation cp="*⃣">kitufe</annotation>
+		<annotation cp="*⃣" type="tts">kitufe: *</annotation>
+		<annotation cp="🔟">kitufe</annotation>
+		<annotation cp="🔟" type="tts">kitufe: 10</annotation>
 		<annotation cp="🇦🇨">bendera</annotation>
 		<annotation cp="🇦🇨" type="tts">Kisiwa cha Ascension</annotation>
 		<annotation cp="🇦🇩">bendera</annotation>
-		<annotation cp="🇦🇩" type="tts">Andora</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
 		<annotation cp="🇦🇪">bendera</annotation>
 		<annotation cp="🇦🇪" type="tts">Falme za Kiarabu</annotation>
 		<annotation cp="🇦🇫">bendera</annotation>
@@ -1917,7 +2239,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇴">bendera</annotation>
 		<annotation cp="🇦🇴" type="tts">Angola</annotation>
 		<annotation cp="🇦🇶">bendera</annotation>
-		<annotation cp="🇦🇶" type="tts">Antaktika</annotation>
+		<annotation cp="🇦🇶" type="tts">Antaktiki</annotation>
 		<annotation cp="🇦🇷">bendera</annotation>
 		<annotation cp="🇦🇷" type="tts">Ajentina</annotation>
 		<annotation cp="🇦🇸">bendera</annotation>
@@ -1929,7 +2251,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇼">bendera</annotation>
 		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
 		<annotation cp="🇦🇽">bendera</annotation>
-		<annotation cp="🇦🇽" type="tts">Visiwa vya Alandi</annotation>
+		<annotation cp="🇦🇽" type="tts">Visiwa vya Aland</annotation>
 		<annotation cp="🇦🇿">bendera</annotation>
 		<annotation cp="🇦🇿" type="tts">Azerbaijan</annotation>
 		<annotation cp="🇧🇦">bendera</annotation>
@@ -1951,7 +2273,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇯">bendera</annotation>
 		<annotation cp="🇧🇯" type="tts">Benin</annotation>
 		<annotation cp="🇧🇱">bendera</annotation>
-		<annotation cp="🇧🇱" type="tts">Santabathelemi</annotation>
+		<annotation cp="🇧🇱" type="tts">St. Barthelemy</annotation>
 		<annotation cp="🇧🇲">bendera</annotation>
 		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
 		<annotation cp="🇧🇳">bendera</annotation>
@@ -1961,7 +2283,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇶">bendera</annotation>
 		<annotation cp="🇧🇶" type="tts">Uholanzi ya Karibiani</annotation>
 		<annotation cp="🇧🇷">bendera</annotation>
-		<annotation cp="🇧🇷" type="tts">Brazili</annotation>
+		<annotation cp="🇧🇷" type="tts">Brazil</annotation>
 		<annotation cp="🇧🇸">bendera</annotation>
 		<annotation cp="🇧🇸" type="tts">Bahama</annotation>
 		<annotation cp="🇧🇹">bendera</annotation>
@@ -1971,7 +2293,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇼">bendera</annotation>
 		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
 		<annotation cp="🇧🇾">bendera</annotation>
-		<annotation cp="🇧🇾" type="tts">Belarusi</annotation>
+		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
 		<annotation cp="🇧🇿">bendera</annotation>
 		<annotation cp="🇧🇿" type="tts">Belize</annotation>
 		<annotation cp="🇨🇦">bendera</annotation>
@@ -1987,7 +2309,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇭">bendera</annotation>
 		<annotation cp="🇨🇭" type="tts">Uswisi</annotation>
 		<annotation cp="🇨🇮">bendera</annotation>
-		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇮" type="tts">Cote d’Ivoire</annotation>
 		<annotation cp="🇨🇰">bendera</annotation>
 		<annotation cp="🇨🇰" type="tts">Visiwa vya Cook</annotation>
 		<annotation cp="🇨🇱">bendera</annotation>
@@ -1995,7 +2317,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇲">bendera</annotation>
 		<annotation cp="🇨🇲" type="tts">Kameruni</annotation>
 		<annotation cp="🇨🇳">bendera</annotation>
-		<annotation cp="🇨🇳" type="tts">China</annotation>
+		<annotation cp="🇨🇳" type="tts">Uchina</annotation>
 		<annotation cp="🇨🇴">bendera</annotation>
 		<annotation cp="🇨🇴" type="tts">Kolombia</annotation>
 		<annotation cp="🇨🇵">bendera</annotation>
@@ -2003,11 +2325,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇷">bendera</annotation>
 		<annotation cp="🇨🇷" type="tts">Kostarika</annotation>
 		<annotation cp="🇨🇺">bendera</annotation>
-		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
 		<annotation cp="🇨🇻">bendera</annotation>
 		<annotation cp="🇨🇻" type="tts">Cape Verde</annotation>
 		<annotation cp="🇨🇼">bendera</annotation>
-		<annotation cp="🇨🇼" type="tts">Kurakao</annotation>
+		<annotation cp="🇨🇼" type="tts">Curacao</annotation>
 		<annotation cp="🇨🇽">bendera</annotation>
 		<annotation cp="🇨🇽" type="tts">Kisiwa cha Krismasi</annotation>
 		<annotation cp="🇨🇾">bendera</annotation>
@@ -2031,7 +2353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇪🇦">bendera</annotation>
 		<annotation cp="🇪🇦" type="tts">Ceuta na Melilla</annotation>
 		<annotation cp="🇪🇨">bendera</annotation>
-		<annotation cp="🇪🇨" type="tts">Ekwado</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
 		<annotation cp="🇪🇪">bendera</annotation>
 		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
 		<annotation cp="🇪🇬">bendera</annotation>
@@ -2041,7 +2363,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇪🇷">bendera</annotation>
 		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
 		<annotation cp="🇪🇸">bendera</annotation>
-		<annotation cp="🇪🇸" type="tts">Hispania</annotation>
+		<annotation cp="🇪🇸" type="tts">Uhispania</annotation>
 		<annotation cp="🇪🇹">bendera</annotation>
 		<annotation cp="🇪🇹" type="tts">Ethiopia</annotation>
 		<annotation cp="🇪🇺">bendera</annotation>
@@ -2053,7 +2375,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇫🇰">bendera</annotation>
 		<annotation cp="🇫🇰" type="tts">Visiwa vya Falkland</annotation>
 		<annotation cp="🇫🇲">bendera</annotation>
-		<annotation cp="🇫🇲" type="tts">Mikronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
 		<annotation cp="🇫🇴">bendera</annotation>
 		<annotation cp="🇫🇴" type="tts">Visiwa vya Faroe</annotation>
 		<annotation cp="🇫🇷">bendera</annotation>
@@ -2067,15 +2389,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇪">bendera</annotation>
 		<annotation cp="🇬🇪" type="tts">Jojia</annotation>
 		<annotation cp="🇬🇫">bendera</annotation>
-		<annotation cp="🇬🇫" type="tts">Gwiyana ya Ufaransa</annotation>
+		<annotation cp="🇬🇫" type="tts">Guiana ya Ufaransa</annotation>
 		<annotation cp="🇬🇬">bendera</annotation>
 		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
 		<annotation cp="🇬🇭">bendera</annotation>
 		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
 		<annotation cp="🇬🇮">bendera</annotation>
-		<annotation cp="🇬🇮" type="tts">Jibralta</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
 		<annotation cp="🇬🇱">bendera</annotation>
-		<annotation cp="🇬🇱" type="tts">Grinlandi</annotation>
+		<annotation cp="🇬🇱" type="tts">Greenland</annotation>
 		<annotation cp="🇬🇲">bendera</annotation>
 		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
 		<annotation cp="🇬🇳">bendera</annotation>
@@ -2083,11 +2405,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇵">bendera</annotation>
 		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
 		<annotation cp="🇬🇶">bendera</annotation>
-		<annotation cp="🇬🇶" type="tts">Ginekweta</annotation>
+		<annotation cp="🇬🇶" type="tts">Guinea ya Ikweta</annotation>
 		<annotation cp="🇬🇷">bendera</annotation>
 		<annotation cp="🇬🇷" type="tts">Ugiriki</annotation>
 		<annotation cp="🇬🇸">bendera</annotation>
-		<annotation cp="🇬🇸" type="tts">Jojia Kusini na Visiwa vya Sandwich Kusini</annotation>
+		<annotation cp="🇬🇸" type="tts">Georgia Kusini na Visiwa vya Sandwich Kusini</annotation>
 		<annotation cp="🇬🇹">bendera</annotation>
 		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
 		<annotation cp="🇬🇺">bendera</annotation>
@@ -2101,9 +2423,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇭🇲">bendera</annotation>
 		<annotation cp="🇭🇲" type="tts">Kisiwa cha Heard na Visiwa vya McDonald</annotation>
 		<annotation cp="🇭🇳">bendera</annotation>
-		<annotation cp="🇭🇳" type="tts">Hondurasi</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
 		<annotation cp="🇭🇷">bendera</annotation>
-		<annotation cp="🇭🇷" type="tts">Korasia</annotation>
+		<annotation cp="🇭🇷" type="tts">Croatia</annotation>
 		<annotation cp="🇭🇹">bendera</annotation>
 		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
 		<annotation cp="🇭🇺">bendera</annotation>
@@ -2149,7 +2471,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇲">bendera</annotation>
 		<annotation cp="🇰🇲" type="tts">Komoro</annotation>
 		<annotation cp="🇰🇳">bendera</annotation>
-		<annotation cp="🇰🇳" type="tts">Santakitzi na Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">St. Kitts na Nevis</annotation>
 		<annotation cp="🇰🇵">bendera</annotation>
 		<annotation cp="🇰🇵" type="tts">Korea Kaskazini</annotation>
 		<annotation cp="🇰🇷">bendera</annotation>
@@ -2157,15 +2479,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇼">bendera</annotation>
 		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
 		<annotation cp="🇰🇾">bendera</annotation>
-		<annotation cp="🇰🇾" type="tts">Visiwa vya Kayman</annotation>
+		<annotation cp="🇰🇾" type="tts">Visiwa vya Cayman</annotation>
 		<annotation cp="🇰🇿">bendera</annotation>
 		<annotation cp="🇰🇿" type="tts">Kazakistani</annotation>
 		<annotation cp="🇱🇦">bendera</annotation>
-		<annotation cp="🇱🇦" type="tts">Laosi</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
 		<annotation cp="🇱🇧">bendera</annotation>
 		<annotation cp="🇱🇧" type="tts">Lebanon</annotation>
 		<annotation cp="🇱🇨">bendera</annotation>
-		<annotation cp="🇱🇨" type="tts">Santalusia</annotation>
+		<annotation cp="🇱🇨" type="tts">St. Lucia</annotation>
 		<annotation cp="🇱🇮">bendera</annotation>
 		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
 		<annotation cp="🇱🇰">bendera</annotation>
@@ -2185,13 +2507,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇦">bendera</annotation>
 		<annotation cp="🇲🇦" type="tts">Morocco</annotation>
 		<annotation cp="🇲🇨">bendera</annotation>
-		<annotation cp="🇲🇨" type="tts">Monako</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
 		<annotation cp="🇲🇩">bendera</annotation>
 		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
 		<annotation cp="🇲🇪">bendera</annotation>
 		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
 		<annotation cp="🇲🇫">bendera</annotation>
-		<annotation cp="🇲🇫" type="tts">Saint Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">St. Martin</annotation>
 		<annotation cp="🇲🇬">bendera</annotation>
 		<annotation cp="🇲🇬" type="tts">Madagaska</annotation>
 		<annotation cp="🇲🇭">bendera</annotation>
@@ -2209,11 +2531,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇵">bendera</annotation>
 		<annotation cp="🇲🇵" type="tts">Visiwa vya Mariana vya Kaskazini</annotation>
 		<annotation cp="🇲🇶">bendera</annotation>
-		<annotation cp="🇲🇶" type="tts">Martiniki</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
 		<annotation cp="🇲🇷">bendera</annotation>
 		<annotation cp="🇲🇷" type="tts">Moritania</annotation>
 		<annotation cp="🇲🇸">bendera</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrati</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
 		<annotation cp="🇲🇹">bendera</annotation>
 		<annotation cp="🇲🇹" type="tts">Malta</annotation>
 		<annotation cp="🇲🇺">bendera</annotation>
@@ -2231,7 +2553,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇳🇦">bendera</annotation>
 		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
 		<annotation cp="🇳🇨">bendera</annotation>
-		<annotation cp="🇳🇨" type="tts">Nyukaledonia</annotation>
+		<annotation cp="🇳🇨" type="tts">New Caledonia</annotation>
 		<annotation cp="🇳🇪">bendera</annotation>
 		<annotation cp="🇳🇪" type="tts">Niger</annotation>
 		<annotation cp="🇳🇫">bendera</annotation>
@@ -2259,7 +2581,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇪">bendera</annotation>
 		<annotation cp="🇵🇪" type="tts">Peru</annotation>
 		<annotation cp="🇵🇫">bendera</annotation>
-		<annotation cp="🇵🇫" type="tts">Polinesia ya Ufaransa</annotation>
+		<annotation cp="🇵🇫" type="tts">Polynesia ya Ufaransa</annotation>
 		<annotation cp="🇵🇬">bendera</annotation>
 		<annotation cp="🇵🇬" type="tts">Papua New Guinea</annotation>
 		<annotation cp="🇵🇭">bendera</annotation>
@@ -2267,7 +2589,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇰">bendera</annotation>
 		<annotation cp="🇵🇰" type="tts">Pakistani</annotation>
 		<annotation cp="🇵🇱">bendera</annotation>
-		<annotation cp="🇵🇱" type="tts">Polandi</annotation>
+		<annotation cp="🇵🇱" type="tts">Poland</annotation>
 		<annotation cp="🇵🇲">bendera</annotation>
 		<annotation cp="🇵🇲" type="tts">Santapierre na Miquelon</annotation>
 		<annotation cp="🇵🇳">bendera</annotation>
@@ -2281,11 +2603,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇼">bendera</annotation>
 		<annotation cp="🇵🇼" type="tts">Palau</annotation>
 		<annotation cp="🇵🇾">bendera</annotation>
-		<annotation cp="🇵🇾" type="tts">Paragwai</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
 		<annotation cp="🇶🇦">bendera</annotation>
 		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
 		<annotation cp="🇷🇪">bendera</annotation>
-		<annotation cp="🇷🇪" type="tts">Riyunioni</annotation>
+		<annotation cp="🇷🇪" type="tts">Reunion</annotation>
 		<annotation cp="🇷🇴">bendera</annotation>
 		<annotation cp="🇷🇴" type="tts">Romania</annotation>
 		<annotation cp="🇷🇸">bendera</annotation>
@@ -2307,7 +2629,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇬">bendera</annotation>
 		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
 		<annotation cp="🇸🇭">bendera</annotation>
-		<annotation cp="🇸🇭" type="tts">Santahelena</annotation>
+		<annotation cp="🇸🇭" type="tts">St. Helena</annotation>
 		<annotation cp="🇸🇮">bendera</annotation>
 		<annotation cp="🇸🇮" type="tts">Slovenia</annotation>
 		<annotation cp="🇸🇯">bendera</annotation>
@@ -2323,13 +2645,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇴">bendera</annotation>
 		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
 		<annotation cp="🇸🇷">bendera</annotation>
-		<annotation cp="🇸🇷" type="tts">Surinamu</annotation>
+		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
 		<annotation cp="🇸🇸">bendera</annotation>
 		<annotation cp="🇸🇸" type="tts">Sudan Kusini</annotation>
 		<annotation cp="🇸🇹">bendera</annotation>
 		<annotation cp="🇸🇹" type="tts">São Tomé na Príncipe</annotation>
 		<annotation cp="🇸🇻">bendera</annotation>
-		<annotation cp="🇸🇻" type="tts">Elsavado</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
 		<annotation cp="🇸🇽">bendera</annotation>
 		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
 		<annotation cp="🇸🇾">bendera</annotation>
@@ -2339,7 +2661,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇦">bendera</annotation>
 		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">bendera</annotation>
-		<annotation cp="🇹🇨" type="tts">Visiwa vya Turki na Kaiko</annotation>
+		<annotation cp="🇹🇨" type="tts">Visiwa vya Turks na Caicos</annotation>
 		<annotation cp="🇹🇩">bendera</annotation>
 		<annotation cp="🇹🇩" type="tts">Chad</annotation>
 		<annotation cp="🇹🇫">bendera</annotation>
@@ -2355,7 +2677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇱">bendera</annotation>
 		<annotation cp="🇹🇱" type="tts">Timor-Leste</annotation>
 		<annotation cp="🇹🇲">bendera</annotation>
-		<annotation cp="🇹🇲" type="tts">Turukimenistani</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
 		<annotation cp="🇹🇳">bendera</annotation>
 		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
 		<annotation cp="🇹🇴">bendera</annotation>
@@ -2381,25 +2703,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇺🇸">bendera</annotation>
 		<annotation cp="🇺🇸" type="tts">Marekani</annotation>
 		<annotation cp="🇺🇾">bendera</annotation>
-		<annotation cp="🇺🇾" type="tts">Urugwai</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
 		<annotation cp="🇺🇿">bendera</annotation>
 		<annotation cp="🇺🇿" type="tts">Uzibekistani</annotation>
 		<annotation cp="🇻🇦">bendera</annotation>
-		<annotation cp="🇻🇦" type="tts">Vatikani</annotation>
+		<annotation cp="🇻🇦" type="tts">Mji wa Vatican</annotation>
 		<annotation cp="🇻🇨">bendera</annotation>
-		<annotation cp="🇻🇨" type="tts">Santavisenti na Grenadini</annotation>
+		<annotation cp="🇻🇨" type="tts">St. Vincent na Grenadines</annotation>
 		<annotation cp="🇻🇪">bendera</annotation>
 		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
 		<annotation cp="🇻🇬">bendera</annotation>
-		<annotation cp="🇻🇬" type="tts">Visiwa vya Virgin vya Uingereza</annotation>
+		<annotation cp="🇻🇬" type="tts">Visiwa vya Virgin, Uingereza</annotation>
 		<annotation cp="🇻🇮">bendera</annotation>
-		<annotation cp="🇻🇮" type="tts">Visiwa vya Virgin vya Marekani</annotation>
+		<annotation cp="🇻🇮" type="tts">Visiwa vya Virgin, Marekani</annotation>
 		<annotation cp="🇻🇳">bendera</annotation>
 		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
 		<annotation cp="🇻🇺">bendera</annotation>
 		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
 		<annotation cp="🇼🇫">bendera</annotation>
-		<annotation cp="🇼🇫" type="tts">Walis na Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis na Futuna</annotation>
 		<annotation cp="🇼🇸">bendera</annotation>
 		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
 		<annotation cp="🇽🇰">bendera</annotation>

@@ -8,31 +8,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="sr"/>
 		<script type="Latn"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | nula | taster</annotation>
-		<annotation cp="0⃣" type="tts">taster sa cifrom nula</annotation>
-		<annotation cp="1⃣">1 | jedan | taster</annotation>
-		<annotation cp="1⃣" type="tts">taster sa cifrom jedan</annotation>
-		<annotation cp="2⃣">2 | dva | taster</annotation>
-		<annotation cp="2⃣" type="tts">taster sa cifrom dva</annotation>
-		<annotation cp="3⃣">3 | taster | tri</annotation>
-		<annotation cp="3⃣" type="tts">taster sa cifrom tri</annotation>
-		<annotation cp="4⃣">4 | taster | četiri</annotation>
-		<annotation cp="4⃣" type="tts">taster sa cifrom četiri</annotation>
-		<annotation cp="5⃣">5 | pet | taster</annotation>
-		<annotation cp="5⃣" type="tts">taster sa cifrom pet</annotation>
-		<annotation cp="6⃣">6 | taster | šest</annotation>
-		<annotation cp="6⃣" type="tts">taster sa cifrom šest</annotation>
-		<annotation cp="7⃣">7 | sedam | taster</annotation>
-		<annotation cp="7⃣" type="tts">taster sa cifrom sedam</annotation>
-		<annotation cp="8⃣">8 | osam | taster</annotation>
-		<annotation cp="8⃣" type="tts">taster sa cifrom osam</annotation>
-		<annotation cp="9⃣">9 | devet | taster</annotation>
-		<annotation cp="9⃣" type="tts">taster sa cifrom devet</annotation>
+		<annotation cp="0⃣">taster</annotation>
+		<annotation cp="0⃣" type="tts">taster: 0</annotation>
+		<annotation cp="1⃣">taster</annotation>
+		<annotation cp="1⃣" type="tts">taster: 1</annotation>
+		<annotation cp="2⃣">taster</annotation>
+		<annotation cp="2⃣" type="tts">taster: 2</annotation>
+		<annotation cp="3⃣">taster</annotation>
+		<annotation cp="3⃣" type="tts">taster: 3</annotation>
+		<annotation cp="4⃣">taster</annotation>
+		<annotation cp="4⃣" type="tts">taster: 4</annotation>
+		<annotation cp="5⃣">taster</annotation>
+		<annotation cp="5⃣" type="tts">taster: 5</annotation>
+		<annotation cp="6⃣">taster</annotation>
+		<annotation cp="6⃣" type="tts">taster: 6</annotation>
+		<annotation cp="7⃣">taster</annotation>
+		<annotation cp="7⃣" type="tts">taster: 7</annotation>
+		<annotation cp="8⃣">taster</annotation>
+		<annotation cp="8⃣" type="tts">taster: 8</annotation>
+		<annotation cp="9⃣">taster</annotation>
+		<annotation cp="9⃣" type="tts">taster: 9</annotation>
 		<annotation cp="👶🏻">beba | tip kože 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">beba: tip kože 1–2</annotation>
 		<annotation cp="👶🏼">beba | tip kože 3</annotation>
@@ -43,6 +43,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">beba: tip kože 5</annotation>
 		<annotation cp="👶🏿">beba | tip kože 6</annotation>
 		<annotation cp="👶🏿" type="tts">beba: tip kože 6</annotation>
+		<annotation cp="🧒🏻">дете | младост | tip kože 1–2</annotation>
+		<annotation cp="🧒🏻" type="tts">дете: tip kože 1–2</annotation>
+		<annotation cp="🧒🏼">дете | младост | tip kože 3</annotation>
+		<annotation cp="🧒🏼" type="tts">дете: tip kože 3</annotation>
+		<annotation cp="🧒🏽">дете | младост | tip kože 4</annotation>
+		<annotation cp="🧒🏽" type="tts">дете: tip kože 4</annotation>
+		<annotation cp="🧒🏾">дете | младост | tip kože 5</annotation>
+		<annotation cp="🧒🏾" type="tts">дете: tip kože 5</annotation>
+		<annotation cp="🧒🏿">дете | младост | tip kože 6</annotation>
+		<annotation cp="🧒🏿" type="tts">дете: tip kože 6</annotation>
 		<annotation cp="👦🏻">dečak | tip kože 1–2</annotation>
 		<annotation cp="👦🏻" type="tts">dečak: tip kože 1–2</annotation>
 		<annotation cp="👦🏼">dečak | tip kože 3</annotation>
@@ -63,6 +73,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">devojčica: tip kože 5</annotation>
 		<annotation cp="👧🏿">devica | devojčica | zodijak | tip kože 6</annotation>
 		<annotation cp="👧🏿" type="tts">devojčica: tip kože 6</annotation>
+		<annotation cp="🧑🏻">неутралан пол | tip kože 1–2</annotation>
+		<annotation cp="🧑🏻" type="tts">одрасла особа: tip kože 1–2</annotation>
+		<annotation cp="🧑🏼">неутралан пол | tip kože 3</annotation>
+		<annotation cp="🧑🏼" type="tts">одрасла особа: tip kože 3</annotation>
+		<annotation cp="🧑🏽">неутралан пол | tip kože 4</annotation>
+		<annotation cp="🧑🏽" type="tts">одрасла особа: tip kože 4</annotation>
+		<annotation cp="🧑🏾">неутралан пол | tip kože 5</annotation>
+		<annotation cp="🧑🏾" type="tts">одрасла особа: tip kože 5</annotation>
+		<annotation cp="🧑🏿">неутралан пол | tip kože 6</annotation>
+		<annotation cp="🧑🏿" type="tts">одрасла особа: tip kože 6</annotation>
 		<annotation cp="👨🏻">muškarac | tip kože 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">muškarac: tip kože 1–2</annotation>
 		<annotation cp="👨🏼">muškarac | tip kože 3</annotation>
@@ -83,6 +103,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">žena: tip kože 5</annotation>
 		<annotation cp="👩🏿">žena | tip kože 6</annotation>
 		<annotation cp="👩🏿" type="tts">žena: tip kože 6</annotation>
+		<annotation cp="🧓🏻">неутралан пол | стaрoст | tip kože 1–2</annotation>
+		<annotation cp="🧓🏻" type="tts">старија одрасла особа: tip kože 1–2</annotation>
+		<annotation cp="🧓🏼">неутралан пол | стaрoст | tip kože 3</annotation>
+		<annotation cp="🧓🏼" type="tts">старија одрасла особа: tip kože 3</annotation>
+		<annotation cp="🧓🏽">неутралан пол | стaрoст | tip kože 4</annotation>
+		<annotation cp="🧓🏽" type="tts">старија одрасла особа: tip kože 4</annotation>
+		<annotation cp="🧓🏾">неутралан пол | стaрoст | tip kože 5</annotation>
+		<annotation cp="🧓🏾" type="tts">старија одрасла особа: tip kože 5</annotation>
+		<annotation cp="🧓🏿">неутралан пол | стaрoст | tip kože 6</annotation>
+		<annotation cp="🧓🏿" type="tts">старија одрасла особа: tip kože 6</annotation>
 		<annotation cp="👴🏻">starac | starost | tip kože 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">starac: tip kože 1–2</annotation>
 		<annotation cp="👴🏼">starac | starost | tip kože 3</annotation>
@@ -603,6 +633,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">čovek sa kineskom kapom: tip kože 5</annotation>
 		<annotation cp="👲🏿">kapa | kina | muškarac | tip kože 6</annotation>
 		<annotation cp="👲🏿" type="tts">čovek sa kineskom kapom: tip kože 6</annotation>
+		<annotation cp="🧕🏻">марама за на главу | хиџаб | tip kože 1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">жена са марамом на глави: tip kože 1–2</annotation>
+		<annotation cp="🧕🏼">марама за на главу | хиџаб | tip kože 3</annotation>
+		<annotation cp="🧕🏼" type="tts">жена са марамом на глави: tip kože 3</annotation>
+		<annotation cp="🧕🏽">марама за на главу | хиџаб | tip kože 4</annotation>
+		<annotation cp="🧕🏽" type="tts">жена са марамом на глави: tip kože 4</annotation>
+		<annotation cp="🧕🏾">марама за на главу | хиџаб | tip kože 5</annotation>
+		<annotation cp="🧕🏾" type="tts">жена са марамом на глави: tip kože 5</annotation>
+		<annotation cp="🧕🏿">марама за на главу | хиџаб | tip kože 6</annotation>
+		<annotation cp="🧕🏿" type="tts">жена са марамом на глави: tip kože 6</annotation>
+		<annotation cp="🧔🏻">брада | tip kože 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">особа са брадом: tip kože 1–2</annotation>
+		<annotation cp="🧔🏼">брада | tip kože 3</annotation>
+		<annotation cp="🧔🏼" type="tts">особа са брадом: tip kože 3</annotation>
+		<annotation cp="🧔🏽">брада | tip kože 4</annotation>
+		<annotation cp="🧔🏽" type="tts">особа са брадом: tip kože 4</annotation>
+		<annotation cp="🧔🏾">брада | tip kože 5</annotation>
+		<annotation cp="🧔🏾" type="tts">особа са брадом: tip kože 5</annotation>
+		<annotation cp="🧔🏿">брада | tip kože 6</annotation>
+		<annotation cp="🧔🏿" type="tts">особа са брадом: tip kože 6</annotation>
 		<annotation cp="👱🏻">plava kosa | tip kože 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">osoba sa plavom kosom: tip kože 1–2</annotation>
 		<annotation cp="👱🏼">plava kosa | tip kože 3</annotation>
@@ -663,6 +713,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">trudnica: tip kože 5</annotation>
 		<annotation cp="🤰🏿">trudnica | žena | tip kože 6</annotation>
 		<annotation cp="🤰🏿" type="tts">trudnica: tip kože 6</annotation>
+		<annotation cp="🤱🏻">беба | груди | дојење | tip kože 1–2</annotation>
+		<annotation cp="🤱🏻" type="tts">дојење: tip kože 1–2</annotation>
+		<annotation cp="🤱🏼">беба | груди | дојење | tip kože 3</annotation>
+		<annotation cp="🤱🏼" type="tts">дојење: tip kože 3</annotation>
+		<annotation cp="🤱🏽">беба | груди | дојење | tip kože 4</annotation>
+		<annotation cp="🤱🏽" type="tts">дојење: tip kože 4</annotation>
+		<annotation cp="🤱🏾">беба | груди | дојење | tip kože 5</annotation>
+		<annotation cp="🤱🏾" type="tts">дојење: tip kože 5</annotation>
+		<annotation cp="🤱🏿">беба | груди | дојење | tip kože 6</annotation>
+		<annotation cp="🤱🏿" type="tts">дојење: tip kože 6</annotation>
 		<annotation cp="👼🏻">anđeo | bajka | beba | lice | mašta | tip kože 1–2</annotation>
 		<annotation cp="👼🏻" type="tts">beba anđeo: tip kože 1–2</annotation>
 		<annotation cp="👼🏼">anđeo | bajka | beba | lice | mašta | tip kože 3</annotation>
@@ -693,6 +753,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">baka Mraz: tip kože 5</annotation>
 		<annotation cp="🤶🏿">baka | božić | mraz | tip kože 6</annotation>
 		<annotation cp="🤶🏿" type="tts">baka Mraz: tip kože 6</annotation>
+		<annotation cp="🧙🏻">вештица | чаробњак | tip kože 1–2</annotation>
+		<annotation cp="🧙🏻" type="tts">маг: tip kože 1–2</annotation>
+		<annotation cp="🧙🏼">вештица | чаробњак | tip kože 3</annotation>
+		<annotation cp="🧙🏼" type="tts">маг: tip kože 3</annotation>
+		<annotation cp="🧙🏽">вештица | чаробњак | tip kože 4</annotation>
+		<annotation cp="🧙🏽" type="tts">маг: tip kože 4</annotation>
+		<annotation cp="🧙🏾">вештица | чаробњак | tip kože 5</annotation>
+		<annotation cp="🧙🏾" type="tts">маг: tip kože 5</annotation>
+		<annotation cp="🧙🏿">вештица | чаробњак | tip kože 6</annotation>
+		<annotation cp="🧙🏿" type="tts">маг: tip kože 6</annotation>
+		<annotation cp="🧙🏻‍♀">вештица | чаробница | tip kože 1–2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">чаробница: tip kože 1–2</annotation>
+		<annotation cp="🧙🏼‍♀">вештица | чаробница | tip kože 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">чаробница: tip kože 3</annotation>
+		<annotation cp="🧙🏽‍♀">вештица | чаробница | tip kože 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">чаробница: tip kože 4</annotation>
+		<annotation cp="🧙🏾‍♀">вештица | чаробница | tip kože 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">чаробница: tip kože 5</annotation>
+		<annotation cp="🧙🏿‍♀">вештица | чаробница | tip kože 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">чаробница: tip kože 6</annotation>
+		<annotation cp="🧙🏻‍♂">вештац | чаробњак | tip kože 1–2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">чаробњак: tip kože 1–2</annotation>
+		<annotation cp="🧙🏼‍♂">вештац | чаробњак | tip kože 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">чаробњак: tip kože 3</annotation>
+		<annotation cp="🧙🏽‍♂">вештац | чаробњак | tip kože 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">чаробњак: tip kože 4</annotation>
+		<annotation cp="🧙🏾‍♂">вештац | чаробњак | tip kože 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">чаробњак: tip kože 5</annotation>
+		<annotation cp="🧙🏿‍♂">вештац | чаробњак | tip kože 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">чаробњак: tip kože 6</annotation>
+		<annotation cp="🧚🏻">Оберон | Пак | Титанија | tip kože 1–2</annotation>
+		<annotation cp="🧚🏻" type="tts">вила: tip kože 1–2</annotation>
+		<annotation cp="🧚🏼">Оберон | Пак | Титанија | tip kože 3</annotation>
+		<annotation cp="🧚🏼" type="tts">вила: tip kože 3</annotation>
+		<annotation cp="🧚🏽">Оберон | Пак | Титанија | tip kože 4</annotation>
+		<annotation cp="🧚🏽" type="tts">вила: tip kože 4</annotation>
+		<annotation cp="🧚🏾">Оберон | Пак | Титанија | tip kože 5</annotation>
+		<annotation cp="🧚🏾" type="tts">вила: tip kože 5</annotation>
+		<annotation cp="🧚🏿">Оберон | Пак | Титанија | tip kože 6</annotation>
+		<annotation cp="🧚🏿" type="tts">вила: tip kože 6</annotation>
+		<annotation cp="🧚🏻‍♀">Титанија | tip kože 1–2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">жена вила: tip kože 1–2</annotation>
+		<annotation cp="🧚🏼‍♀">Титанија | tip kože 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">жена вила: tip kože 3</annotation>
+		<annotation cp="🧚🏽‍♀">Титанија | tip kože 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">жена вила: tip kože 4</annotation>
+		<annotation cp="🧚🏾‍♀">Титанија | tip kože 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">жена вила: tip kože 5</annotation>
+		<annotation cp="🧚🏿‍♀">Титанија | tip kože 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">жена вила: tip kože 6</annotation>
+		<annotation cp="🧚🏻‍♂">Оберон | Пак | tip kože 1–2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">вилењак: tip kože 1–2</annotation>
+		<annotation cp="🧚🏼‍♂">Оберон | Пак | tip kože 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">вилењак: tip kože 3</annotation>
+		<annotation cp="🧚🏽‍♂">Оберон | Пак | tip kože 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">вилењак: tip kože 4</annotation>
+		<annotation cp="🧚🏾‍♂">Оберон | Пак | tip kože 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">вилењак: tip kože 5</annotation>
+		<annotation cp="🧚🏿‍♂">Оберон | Пак | tip kože 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">вилењак: tip kože 6</annotation>
+		<annotation cp="🧛🏻">Дракула | повампирен | tip kože 1–2</annotation>
+		<annotation cp="🧛🏻" type="tts">вампир: tip kože 1–2</annotation>
+		<annotation cp="🧛🏼">Дракула | повампирен | tip kože 3</annotation>
+		<annotation cp="🧛🏼" type="tts">вампир: tip kože 3</annotation>
+		<annotation cp="🧛🏽">Дракула | повампирен | tip kože 4</annotation>
+		<annotation cp="🧛🏽" type="tts">вампир: tip kože 4</annotation>
+		<annotation cp="🧛🏾">Дракула | повампирен | tip kože 5</annotation>
+		<annotation cp="🧛🏾" type="tts">вампир: tip kože 5</annotation>
+		<annotation cp="🧛🏿">Дракула | повампирен | tip kože 6</annotation>
+		<annotation cp="🧛🏿" type="tts">вампир: tip kože 6</annotation>
+		<annotation cp="🧛🏻‍♀">повампирен | tip kože 1–2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">женски вампир: tip kože 1–2</annotation>
+		<annotation cp="🧛🏼‍♀">повампирен | tip kože 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">женски вампир: tip kože 3</annotation>
+		<annotation cp="🧛🏽‍♀">повампирен | tip kože 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">женски вампир: tip kože 4</annotation>
+		<annotation cp="🧛🏾‍♀">повампирен | tip kože 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">женски вампир: tip kože 5</annotation>
+		<annotation cp="🧛🏿‍♀">повампирен | tip kože 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">женски вампир: tip kože 6</annotation>
+		<annotation cp="🧛🏻‍♂">Дракула | повампирен | tip kože 1–2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">мушки вампир: tip kože 1–2</annotation>
+		<annotation cp="🧛🏼‍♂">Дракула | повампирен | tip kože 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">мушки вампир: tip kože 3</annotation>
+		<annotation cp="🧛🏽‍♂">Дракула | повампирен | tip kože 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">мушки вампир: tip kože 4</annotation>
+		<annotation cp="🧛🏾‍♂">Дракула | повампирен | tip kože 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">мушки вампир: tip kože 5</annotation>
+		<annotation cp="🧛🏿‍♂">Дракула | повампирен | tip kože 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">мушки вампир: tip kože 6</annotation>
+		<annotation cp="🧜🏻">особа из мора | сирена | tip kože 1–2</annotation>
+		<annotation cp="🧜🏻" type="tts">особа из мора: tip kože 1–2</annotation>
+		<annotation cp="🧜🏼">особа из мора | сирена | tip kože 3</annotation>
+		<annotation cp="🧜🏼" type="tts">особа из мора: tip kože 3</annotation>
+		<annotation cp="🧜🏽">особа из мора | сирена | tip kože 4</annotation>
+		<annotation cp="🧜🏽" type="tts">особа из мора: tip kože 4</annotation>
+		<annotation cp="🧜🏾">особа из мора | сирена | tip kože 5</annotation>
+		<annotation cp="🧜🏾" type="tts">особа из мора: tip kože 5</annotation>
+		<annotation cp="🧜🏿">особа из мора | сирена | tip kože 6</annotation>
+		<annotation cp="🧜🏿" type="tts">особа из мора: tip kože 6</annotation>
+		<annotation cp="🧜🏻‍♀">жена из мора | tip kože 1–2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">сирена: tip kože 1–2</annotation>
+		<annotation cp="🧜🏼‍♀">жена из мора | tip kože 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">сирена: tip kože 3</annotation>
+		<annotation cp="🧜🏽‍♀">жена из мора | tip kože 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">сирена: tip kože 4</annotation>
+		<annotation cp="🧜🏾‍♀">жена из мора | tip kože 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">сирена: tip kože 5</annotation>
+		<annotation cp="🧜🏿‍♀">жена из мора | tip kože 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">сирена: tip kože 6</annotation>
+		<annotation cp="🧜🏻‍♂">Тритон | tip kože 1–2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">мушкарац из мора: tip kože 1–2</annotation>
+		<annotation cp="🧜🏼‍♂">Тритон | tip kože 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">мушкарац из мора: tip kože 3</annotation>
+		<annotation cp="🧜🏽‍♂">Тритон | tip kože 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">мушкарац из мора: tip kože 4</annotation>
+		<annotation cp="🧜🏾‍♂">Тритон | tip kože 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">мушкарац из мора: tip kože 5</annotation>
+		<annotation cp="🧜🏿‍♂">Тритон | tip kože 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">мушкарац из мора: tip kože 6</annotation>
+		<annotation cp="🧝🏻">магично | tip kože 1–2</annotation>
+		<annotation cp="🧝🏻" type="tts">виловњак: tip kože 1–2</annotation>
+		<annotation cp="🧝🏼">магично | tip kože 3</annotation>
+		<annotation cp="🧝🏼" type="tts">виловњак: tip kože 3</annotation>
+		<annotation cp="🧝🏽">магично | tip kože 4</annotation>
+		<annotation cp="🧝🏽" type="tts">виловњак: tip kože 4</annotation>
+		<annotation cp="🧝🏾">магично | tip kože 5</annotation>
+		<annotation cp="🧝🏾" type="tts">виловњак: tip kože 5</annotation>
+		<annotation cp="🧝🏿">магично | tip kože 6</annotation>
+		<annotation cp="🧝🏿" type="tts">виловњак: tip kože 6</annotation>
+		<annotation cp="🧝🏻‍♀">магична жена | tip kože 1–2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">жена виловњак: tip kože 1–2</annotation>
+		<annotation cp="🧝🏼‍♀">магична жена | tip kože 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">жена виловњак: tip kože 3</annotation>
+		<annotation cp="🧝🏽‍♀">магична жена | tip kože 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">жена виловњак: tip kože 4</annotation>
+		<annotation cp="🧝🏾‍♀">магична жена | tip kože 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">жена виловњак: tip kože 5</annotation>
+		<annotation cp="🧝🏿‍♀">магична жена | tip kože 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">жена виловњак: tip kože 6</annotation>
+		<annotation cp="🧝🏻‍♂">магичан мушкарац | tip kože 1–2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">мушкарац виловњак: tip kože 1–2</annotation>
+		<annotation cp="🧝🏼‍♂">магичан мушкарац | tip kože 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">мушкарац виловњак: tip kože 3</annotation>
+		<annotation cp="🧝🏽‍♂">магичан мушкарац | tip kože 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">мушкарац виловњак: tip kože 4</annotation>
+		<annotation cp="🧝🏾‍♂">магичан мушкарац | tip kože 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">мушкарац виловњак: tip kože 5</annotation>
+		<annotation cp="🧝🏿‍♂">магичан мушкарац | tip kože 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">мушкарац виловњак: tip kože 6</annotation>
 		<annotation cp="🙍🏻">kretanje | mrštenje | tip kože 1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">namrštena osoba: tip kože 1–2</annotation>
 		<annotation cp="🙍🏼">kretanje | mrštenje | tip kože 3</annotation>
@@ -1084,25 +1294,115 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃🏿‍♀">maraton | trka | trčanje | žena | tip kože 6</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">žena trči: tip kože 6</annotation>
 		<annotation cp="💃🏻">plesanje | tip kože 1–2</annotation>
-		<annotation cp="💃🏻" type="tts">plesač: tip kože 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">плесачица: tip kože 1–2</annotation>
 		<annotation cp="💃🏼">plesanje | tip kože 3</annotation>
-		<annotation cp="💃🏼" type="tts">plesač: tip kože 3</annotation>
+		<annotation cp="💃🏼" type="tts">плесачица: tip kože 3</annotation>
 		<annotation cp="💃🏽">plesanje | tip kože 4</annotation>
-		<annotation cp="💃🏽" type="tts">plesač: tip kože 4</annotation>
+		<annotation cp="💃🏽" type="tts">плесачица: tip kože 4</annotation>
 		<annotation cp="💃🏾">plesanje | tip kože 5</annotation>
-		<annotation cp="💃🏾" type="tts">plesač: tip kože 5</annotation>
+		<annotation cp="💃🏾" type="tts">плесачица: tip kože 5</annotation>
 		<annotation cp="💃🏿">plesanje | tip kože 6</annotation>
-		<annotation cp="💃🏿" type="tts">plesač: tip kože 6</annotation>
+		<annotation cp="💃🏿" type="tts">плесачица: tip kože 6</annotation>
 		<annotation cp="🕺🏻">ples | plesač | čovek | tip kože 1–2</annotation>
-		<annotation cp="🕺🏻" type="tts">plesač: tip kože 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">плесач: tip kože 1–2</annotation>
 		<annotation cp="🕺🏼">ples | plesač | čovek | tip kože 3</annotation>
-		<annotation cp="🕺🏼" type="tts">plesač: tip kože 3</annotation>
+		<annotation cp="🕺🏼" type="tts">плесач: tip kože 3</annotation>
 		<annotation cp="🕺🏽">ples | plesač | čovek | tip kože 4</annotation>
-		<annotation cp="🕺🏽" type="tts">plesač: tip kože 4</annotation>
+		<annotation cp="🕺🏽" type="tts">плесач: tip kože 4</annotation>
 		<annotation cp="🕺🏾">ples | plesač | čovek | tip kože 5</annotation>
-		<annotation cp="🕺🏾" type="tts">plesač: tip kože 5</annotation>
+		<annotation cp="🕺🏾" type="tts">плесач: tip kože 5</annotation>
 		<annotation cp="🕺🏿">ples | plesač | čovek | tip kože 6</annotation>
-		<annotation cp="🕺🏿" type="tts">plesač: tip kože 6</annotation>
+		<annotation cp="🕺🏿" type="tts">плесач: tip kože 6</annotation>
+		<annotation cp="🧖🏻">парно купатило | сауна | tip kože 1–2</annotation>
+		<annotation cp="🧖🏻" type="tts">особа у парном купатилу: tip kože 1–2</annotation>
+		<annotation cp="🧖🏼">парно купатило | сауна | tip kože 3</annotation>
+		<annotation cp="🧖🏼" type="tts">особа у парном купатилу: tip kože 3</annotation>
+		<annotation cp="🧖🏽">парно купатило | сауна | tip kože 4</annotation>
+		<annotation cp="🧖🏽" type="tts">особа у парном купатилу: tip kože 4</annotation>
+		<annotation cp="🧖🏾">парно купатило | сауна | tip kože 5</annotation>
+		<annotation cp="🧖🏾" type="tts">особа у парном купатилу: tip kože 5</annotation>
+		<annotation cp="🧖🏿">парно купатило | сауна | tip kože 6</annotation>
+		<annotation cp="🧖🏿" type="tts">особа у парном купатилу: tip kože 6</annotation>
+		<annotation cp="🧖🏻‍♀">парно купатило | сауна | tip kože 1–2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">жена у парном купатилу: tip kože 1–2</annotation>
+		<annotation cp="🧖🏼‍♀">парно купатило | сауна | tip kože 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">жена у парном купатилу: tip kože 3</annotation>
+		<annotation cp="🧖🏽‍♀">парно купатило | сауна | tip kože 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">жена у парном купатилу: tip kože 4</annotation>
+		<annotation cp="🧖🏾‍♀">парно купатило | сауна | tip kože 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">жена у парном купатилу: tip kože 5</annotation>
+		<annotation cp="🧖🏿‍♀">парно купатило | сауна | tip kože 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">жена у парном купатилу: tip kože 6</annotation>
+		<annotation cp="🧖🏻‍♂">парно купатило | сауна | tip kože 1–2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">мушкарац у парном купатилу: tip kože 1–2</annotation>
+		<annotation cp="🧖🏼‍♂">парно купатило | сауна | tip kože 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">мушкарац у парном купатилу: tip kože 3</annotation>
+		<annotation cp="🧖🏽‍♂">парно купатило | сауна | tip kože 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">мушкарац у парном купатилу: tip kože 4</annotation>
+		<annotation cp="🧖🏾‍♂">парно купатило | сауна | tip kože 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">мушкарац у парном купатилу: tip kože 5</annotation>
+		<annotation cp="🧖🏿‍♂">парно купатило | сауна | tip kože 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">мушкарац у парном купатилу: tip kože 6</annotation>
+		<annotation cp="🧗🏻">пењач | tip kože 1–2</annotation>
+		<annotation cp="🧗🏻" type="tts">пењање: tip kože 1–2</annotation>
+		<annotation cp="🧗🏼">пењач | tip kože 3</annotation>
+		<annotation cp="🧗🏼" type="tts">пењање: tip kože 3</annotation>
+		<annotation cp="🧗🏽">пењач | tip kože 4</annotation>
+		<annotation cp="🧗🏽" type="tts">пењање: tip kože 4</annotation>
+		<annotation cp="🧗🏾">пењач | tip kože 5</annotation>
+		<annotation cp="🧗🏾" type="tts">пењање: tip kože 5</annotation>
+		<annotation cp="🧗🏿">пењач | tip kože 6</annotation>
+		<annotation cp="🧗🏿" type="tts">пењање: tip kože 6</annotation>
+		<annotation cp="🧗🏻‍♀">пењачица | tip kože 1–2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">жена се пење: tip kože 1–2</annotation>
+		<annotation cp="🧗🏼‍♀">пењачица | tip kože 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">жена се пење: tip kože 3</annotation>
+		<annotation cp="🧗🏽‍♀">пењачица | tip kože 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">жена се пење: tip kože 4</annotation>
+		<annotation cp="🧗🏾‍♀">пењачица | tip kože 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">жена се пење: tip kože 5</annotation>
+		<annotation cp="🧗🏿‍♀">пењачица | tip kože 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">жена се пење: tip kože 6</annotation>
+		<annotation cp="🧗🏻‍♂">пењач | tip kože 1–2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">мушкарац се пење: tip kože 1–2</annotation>
+		<annotation cp="🧗🏼‍♂">пењач | tip kože 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">мушкарац се пење: tip kože 3</annotation>
+		<annotation cp="🧗🏽‍♂">пењач | tip kože 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">мушкарац се пење: tip kože 4</annotation>
+		<annotation cp="🧗🏾‍♂">пењач | tip kože 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">мушкарац се пење: tip kože 5</annotation>
+		<annotation cp="🧗🏿‍♂">пењач | tip kože 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">мушкарац се пење: tip kože 6</annotation>
+		<annotation cp="🧘🏻">медитација | јога | tip kože 1–2</annotation>
+		<annotation cp="🧘🏻" type="tts">лотус поза: tip kože 1–2</annotation>
+		<annotation cp="🧘🏼">медитација | јога | tip kože 3</annotation>
+		<annotation cp="🧘🏼" type="tts">лотус поза: tip kože 3</annotation>
+		<annotation cp="🧘🏽">медитација | јога | tip kože 4</annotation>
+		<annotation cp="🧘🏽" type="tts">лотус поза: tip kože 4</annotation>
+		<annotation cp="🧘🏾">медитација | јога | tip kože 5</annotation>
+		<annotation cp="🧘🏾" type="tts">лотус поза: tip kože 5</annotation>
+		<annotation cp="🧘🏿">медитација | јога | tip kože 6</annotation>
+		<annotation cp="🧘🏿" type="tts">лотус поза: tip kože 6</annotation>
+		<annotation cp="🧘🏻‍♀">медитација | јога | tip kože 1–2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">жена у лотус пози: tip kože 1–2</annotation>
+		<annotation cp="🧘🏼‍♀">медитација | јога | tip kože 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">жена у лотус пози: tip kože 3</annotation>
+		<annotation cp="🧘🏽‍♀">медитација | јога | tip kože 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">жена у лотус пози: tip kože 4</annotation>
+		<annotation cp="🧘🏾‍♀">медитација | јога | tip kože 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">жена у лотус пози: tip kože 5</annotation>
+		<annotation cp="🧘🏿‍♀">медитација | јога | tip kože 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">жена у лотус пози: tip kože 6</annotation>
+		<annotation cp="🧘🏻‍♂">медитација | јога | tip kože 1–2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">мушкарац у лотус пози: tip kože 1–2</annotation>
+		<annotation cp="🧘🏼‍♂">медитација | јога | tip kože 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">мушкарац у лотус пози: tip kože 3</annotation>
+		<annotation cp="🧘🏽‍♂">медитација | јога | tip kože 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">мушкарац у лотус пози: tip kože 4</annotation>
+		<annotation cp="🧘🏾‍♂">медитација | јога | tip kože 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">мушкарац у лотус пози: tip kože 5</annotation>
+		<annotation cp="🧘🏿‍♂">медитација | јога | tip kože 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">мушкарац у лотус пози: tip kože 6</annotation>
 		<annotation cp="🛀🏻">kada | kupanje | tip kože 1–2</annotation>
 		<annotation cp="🛀🏻" type="tts">osoba koja se kupa: tip kože 1–2</annotation>
 		<annotation cp="🛀🏼">kada | kupanje | tip kože 3</annotation>
@@ -1815,6 +2115,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">ruka koja maše: tip kože 5</annotation>
 		<annotation cp="👋🏿">mahanje | ruka | telo | šaka | tip kože 6</annotation>
 		<annotation cp="👋🏿" type="tts">ruka koja maše: tip kože 6</annotation>
+		<annotation cp="🤟🏻">волим те | рукa | tip kože 1–2</annotation>
+		<annotation cp="🤟🏻" type="tts">покрет волим те: tip kože 1–2</annotation>
+		<annotation cp="🤟🏼">волим те | рукa | tip kože 3</annotation>
+		<annotation cp="🤟🏼" type="tts">покрет волим те: tip kože 3</annotation>
+		<annotation cp="🤟🏽">волим те | рукa | tip kože 4</annotation>
+		<annotation cp="🤟🏽" type="tts">покрет волим те: tip kože 4</annotation>
+		<annotation cp="🤟🏾">волим те | рукa | tip kože 5</annotation>
+		<annotation cp="🤟🏾" type="tts">покрет волим те: tip kože 5</annotation>
+		<annotation cp="🤟🏿">волим те | рукa | tip kože 6</annotation>
+		<annotation cp="🤟🏿" type="tts">покрет волим те: tip kože 6</annotation>
 		<annotation cp="✍🏻">pisanje | ruka | telo | tip kože 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">ruka koja piše: tip kože 1–2</annotation>
 		<annotation cp="✍🏼">pisanje | ruka | telo | tip kože 3</annotation>
@@ -1855,6 +2165,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">podignute ruke: tip kože 5</annotation>
 		<annotation cp="🙌🏿">bravo | podići | pokret | ruke | slava | ura | tip kože 6</annotation>
 		<annotation cp="🙌🏿" type="tts">podignute ruke: tip kože 6</annotation>
+		<annotation cp="🤲🏻">молитва | tip kože 1–2</annotation>
+		<annotation cp="🤲🏻" type="tts">дланови нагоре заједно: tip kože 1–2</annotation>
+		<annotation cp="🤲🏼">молитва | tip kože 3</annotation>
+		<annotation cp="🤲🏼" type="tts">дланови нагоре заједно: tip kože 3</annotation>
+		<annotation cp="🤲🏽">молитва | tip kože 4</annotation>
+		<annotation cp="🤲🏽" type="tts">дланови нагоре заједно: tip kože 4</annotation>
+		<annotation cp="🤲🏾">молитва | tip kože 5</annotation>
+		<annotation cp="🤲🏾" type="tts">дланови нагоре заједно: tip kože 5</annotation>
+		<annotation cp="🤲🏿">молитва | tip kože 6</annotation>
+		<annotation cp="🤲🏿" type="tts">дланови нагоре заједно: tip kože 6</annotation>
 		<annotation cp="🙏🏻">kretanje | molitva | moljenje | naklon | ruke | telo | zahvalnost | tip kože 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">spojeni dlanovi: tip kože 1–2</annotation>
 		<annotation cp="🙏🏼">kretanje | molitva | moljenje | naklon | ruke | telo | zahvalnost | tip kože 3</annotation>
@@ -1895,10 +2215,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">nos: tip kože 5</annotation>
 		<annotation cp="👃🏿">telo | tip kože 6</annotation>
 		<annotation cp="👃🏿" type="tts">nos: tip kože 6</annotation>
-		<annotation cp="#⃣">heš | taraba | taster</annotation>
-		<annotation cp="#⃣" type="tts">taster sa tarabom</annotation>
-		<annotation cp="*⃣">taster | zvezdica</annotation>
-		<annotation cp="*⃣" type="tts">taster za zvezdicom</annotation>
+		<annotation cp="#⃣">taster</annotation>
+		<annotation cp="#⃣" type="tts">taster: #</annotation>
+		<annotation cp="*⃣">taster</annotation>
+		<annotation cp="*⃣" type="tts">taster: *</annotation>
+		<annotation cp="🔟">taster</annotation>
+		<annotation cp="🔟" type="tts">taster: 10</annotation>
 		<annotation cp="🇦🇨">zastava</annotation>
 		<annotation cp="🇦🇨" type="tts">Ostrvo Asension</annotation>
 		<annotation cp="🇦🇩">zastava</annotation>

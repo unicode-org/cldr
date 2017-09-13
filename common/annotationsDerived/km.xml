@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="km"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | ប៊ូតុង | លេខ | សូន្យ</annotation>
-		<annotation cp="0⃣" type="tts">ប៊ូតុងលេខសូន្យ</annotation>
-		<annotation cp="1⃣">1 | ប៊ូតុង | មួយ | លេខ</annotation>
-		<annotation cp="1⃣" type="tts">ប៊ូតុងលេខមួយ</annotation>
-		<annotation cp="2⃣">2 | ប៊ូតុង | ពីរ | លេខ</annotation>
-		<annotation cp="2⃣" type="tts">ប៊ូតុងលេខពីរ</annotation>
-		<annotation cp="3⃣">3 | បី | ប៊ូតុង | លេខ</annotation>
-		<annotation cp="3⃣" type="tts">ប៊ូតុងលេខបី</annotation>
-		<annotation cp="4⃣">4 | បួន | ប៊ូតុង | លេខ</annotation>
-		<annotation cp="4⃣" type="tts">ប៊ូតុងលេខបួន</annotation>
-		<annotation cp="5⃣">5 | ប៊ូតុង | ប្រាំ | លេខ</annotation>
-		<annotation cp="5⃣" type="tts">ប៊ូតុងលេខប្រាំ</annotation>
-		<annotation cp="6⃣">6 | ប៊ូតុង | ប្រាំមួយ | លេខ</annotation>
-		<annotation cp="6⃣" type="tts">ប៊ូតុងលេខប្រាំមួយ</annotation>
-		<annotation cp="7⃣">7 | ប៊ូតុង | ប្រាំពីរ | លេខ</annotation>
-		<annotation cp="7⃣" type="tts">ប៊ូតុងលេខប្រាំពីរ</annotation>
-		<annotation cp="8⃣">8 | ប៊ូតុង | ប្រាំបី | លេខ</annotation>
-		<annotation cp="8⃣" type="tts">ប៊ូតុងលេខប្រាំបី</annotation>
-		<annotation cp="9⃣">9 | ប៊ូតុង | ប្រាំបួន | លេខ</annotation>
-		<annotation cp="9⃣" type="tts">ប៊ូតុងលេខប្រាំបួន</annotation>
+		<annotation cp="0⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="0⃣" type="tts">គម្របគ្រាប់ចុច: 0</annotation>
+		<annotation cp="1⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="1⃣" type="tts">គម្របគ្រាប់ចុច: 1</annotation>
+		<annotation cp="2⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="2⃣" type="tts">គម្របគ្រាប់ចុច: 2</annotation>
+		<annotation cp="3⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="3⃣" type="tts">គម្របគ្រាប់ចុច: 3</annotation>
+		<annotation cp="4⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="4⃣" type="tts">គម្របគ្រាប់ចុច: 4</annotation>
+		<annotation cp="5⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="5⃣" type="tts">គម្របគ្រាប់ចុច: 5</annotation>
+		<annotation cp="6⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="6⃣" type="tts">គម្របគ្រាប់ចុច: 6</annotation>
+		<annotation cp="7⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="7⃣" type="tts">គម្របគ្រាប់ចុច: 7</annotation>
+		<annotation cp="8⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="8⃣" type="tts">គម្របគ្រាប់ចុច: 8</annotation>
+		<annotation cp="9⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="9⃣" type="tts">គម្របគ្រាប់ចុច: 9</annotation>
 		<annotation cp="👶🏻">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👶🏼">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -42,6 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="👶🏿">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👶🏿" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧒🏻">ក្មេង | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧒🏻" type="tts">ក្មេង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧒🏼">ក្មេង | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧒🏼" type="tts">ក្មេង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧒🏽">ក្មេង | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧒🏽" type="tts">ក្មេង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧒🏾">ក្មេង | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧒🏾" type="tts">ក្មេង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧒🏿">ក្មេង | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧒🏿" type="tts">ក្មេង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👦🏻">ក្មេងប្រុស | ប្រុស | មុខ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👦🏻" type="tts">មុខក្មេងប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👦🏼">ក្មេងប្រុស | ប្រុស | មុខ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">មុខក្មេងស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="👧🏿">ក្មេងស្រី | មុខ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👧🏿" type="tts">មុខក្មេងស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧑🏻">សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧑🏻" type="tts">មនុស្សធំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧑🏼">សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧑🏼" type="tts">មនុស្សធំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧑🏽">សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧑🏽" type="tts">មនុស្សធំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧑🏾">សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧑🏾" type="tts">មនុស្សធំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧑🏿">សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧑🏿" type="tts">មនុស្សធំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👨🏻">បុរស | ពុកមាត់ | មុខ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">មុខបុរសមានពុកមាត់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👨🏼">បុរស | ពុកមាត់ | មុខ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">មុខស្រ្តី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="👩🏿">មុខ | ស្ត្រី | ស្រី | ​ នារី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👩🏿" type="tts">មុខស្រ្តី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧓🏻">ចាស់ | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧓🏻" type="tts">មនុស្សចាស់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧓🏼">ចាស់ | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧓🏼" type="tts">មនុស្សចាស់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧓🏽">ចាស់ | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧓🏽" type="tts">មនុស្សចាស់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧓🏾">ចាស់ | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧓🏾" type="tts">មនុស្សចាស់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧓🏿">ចាស់ | សម្រាប់ភេទទាំងអស់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧓🏿" type="tts">មនុស្សចាស់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👴🏻">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ​ បុរសចាស់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">មុខបុរសចំណាស់ក្បាលត្រពែក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👴🏼">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ​ បុរសចាស់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">មុខបុរសពាក់មួកចិនបុរាណ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="👲🏿">ចិន | មួក | មួកចិន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👲🏿" type="tts">មុខបុរសពាក់មួកចិនបុរាណ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧕🏻">កន្សែងគ្របក្បាល | កន្សែងគ្របក្បាលជ្វីហ្វ | កន្សែងគ្របក្បាលអេស្ប៉ាញ | កន្សែងគ្របក្បាលអ៊ីស្លាម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">ស្ត្រីគ្របកន្សែងលើក្បាល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧕🏼">កន្សែងគ្របក្បាល | កន្សែងគ្របក្បាលជ្វីហ្វ | កន្សែងគ្របក្បាលអេស្ប៉ាញ | កន្សែងគ្របក្បាលអ៊ីស្លាម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧕🏼" type="tts">ស្ត្រីគ្របកន្សែងលើក្បាល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧕🏽">កន្សែងគ្របក្បាល | កន្សែងគ្របក្បាលជ្វីហ្វ | កន្សែងគ្របក្បាលអេស្ប៉ាញ | កន្សែងគ្របក្បាលអ៊ីស្លាម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧕🏽" type="tts">ស្ត្រីគ្របកន្សែងលើក្បាល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧕🏾">កន្សែងគ្របក្បាល | កន្សែងគ្របក្បាលជ្វីហ្វ | កន្សែងគ្របក្បាលអេស្ប៉ាញ | កន្សែងគ្របក្បាលអ៊ីស្លាម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧕🏾" type="tts">ស្ត្រីគ្របកន្សែងលើក្បាល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧕🏿">កន្សែងគ្របក្បាល | កន្សែងគ្របក្បាលជ្វីហ្វ | កន្សែងគ្របក្បាលអេស្ប៉ាញ | កន្សែងគ្របក្បាលអ៊ីស្លាម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧕🏿" type="tts">ស្ត្រីគ្របកន្សែងលើក្បាល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧔🏻">ពុកចង្កា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">មនុស្សមានពុកចង្កា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧔🏼">ពុកចង្កា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧔🏼" type="tts">មនុស្សមានពុកចង្កា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧔🏽">ពុកចង្កា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧔🏽" type="tts">មនុស្សមានពុកចង្កា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧔🏾">ពុកចង្កា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧔🏾" type="tts">មនុស្សមានពុកចង្កា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧔🏿">ពុកចង្កា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧔🏿" type="tts">មនុស្សមានពុកចង្កា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👱🏻">បុរសសក់ខ្លី | សក់ខ្លី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">មុខបុរសសក់ខ្លីពណ៌ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👱🏼">បុរសសក់ខ្លី | សក់ខ្លី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">ស្ត្រីពោះធំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="🤰🏿">ពោះធំ | ស្ត្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🤰🏿" type="tts">ស្ត្រីពោះធំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤱🏻">ការថែទាំ | ដោះ | ទារក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤱🏻" type="tts">ការបំបៅដោះ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤱🏼">ការថែទាំ | ដោះ | ទារក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤱🏼" type="tts">ការបំបៅដោះ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤱🏽">ការថែទាំ | ដោះ | ទារក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤱🏽" type="tts">ការបំបៅដោះ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤱🏾">ការថែទាំ | ដោះ | ទារក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤱🏾" type="tts">ការបំបៅដោះ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤱🏿">ការថែទាំ | ដោះ | ទារក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤱🏿" type="tts">ការបំបៅដោះ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👼🏻">ទេពធីតា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👼🏻" type="tts">មុខទេពធីតាតូច: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="👼🏼">ទេពធីតា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -682,16 +742,166 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎅🏾" type="tts">មុខតាណូអែល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="🎅🏿">តាណូអែល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🎅🏿" type="tts">មុខតាណូអែល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
-		<annotation cp="🤶🏻">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤶🏻">ការប្រារព្ធ | តាណូអែល | បុណ្យណូអែល | ម្ដាយ | លោកស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🤶🏻" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
-		<annotation cp="🤶🏼">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤶🏼">ការប្រារព្ធ | តាណូអែល | បុណ្យណូអែល | ម្ដាយ | លោកស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
 		<annotation cp="🤶🏼" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
-		<annotation cp="🤶🏽">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤶🏽">ការប្រារព្ធ | តាណូអែល | បុណ្យណូអែល | ម្ដាយ | លោកស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
 		<annotation cp="🤶🏽" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
-		<annotation cp="🤶🏾">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤶🏾">ការប្រារព្ធ | តាណូអែល | បុណ្យណូអែល | ម្ដាយ | លោកស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="🤶🏾" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
-		<annotation cp="🤶🏿">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤶🏿">ការប្រារព្ធ | តាណូអែល | បុណ្យណូអែល | ម្ដាយ | លោកស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🤶🏿" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧙🏻">ធ្មប់ | អ្នកមន្តអាគម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧙🏻" type="tts">អ្នកវេទមន្ត: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧙🏼">ធ្មប់ | អ្នកមន្តអាគម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧙🏼" type="tts">អ្នកវេទមន្ត: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧙🏽">ធ្មប់ | អ្នកមន្តអាគម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧙🏽" type="tts">អ្នកវេទមន្ត: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧙🏾">ធ្មប់ | អ្នកមន្តអាគម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧙🏾" type="tts">អ្នកវេទមន្ត: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧙🏿">ធ្មប់ | អ្នកមន្តអាគម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧙🏿" type="tts">អ្នកវេទមន្ត: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧙🏻‍♀">ធ្មប់ស្រី | អ្នកមន្តអាគមស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">អ្នកវេទមន្តស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧙🏼‍♀">ធ្មប់ស្រី | អ្នកមន្តអាគមស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">អ្នកវេទមន្តស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧙🏽‍♀">ធ្មប់ស្រី | អ្នកមន្តអាគមស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">អ្នកវេទមន្តស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧙🏾‍♀">ធ្មប់ស្រី | អ្នកមន្តអាគមស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">អ្នកវេទមន្តស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧙🏿‍♀">ធ្មប់ស្រី | អ្នកមន្តអាគមស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">អ្នកវេទមន្តស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧙🏻‍♂">ធ្មប់ប្រុស | អ្នកមន្តអាគមប្រុស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">អ្នកវេទមន្តប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧙🏼‍♂">ធ្មប់ប្រុស | អ្នកមន្តអាគមប្រុស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">អ្នកវេទមន្តប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧙🏽‍♂">ធ្មប់ប្រុស | អ្នកមន្តអាគមប្រុស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">អ្នកវេទមន្តប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧙🏾‍♂">ធ្មប់ប្រុស | អ្នកមន្តអាគមប្រុស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">អ្នកវេទមន្តប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧙🏿‍♂">ធ្មប់ប្រុស | អ្នកមន្តអាគមប្រុស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">អ្នកវេទមន្តប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧚🏻">ទីតានៀ | ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧚🏻" type="tts">មនុស្សទេព: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧚🏼">ទីតានៀ | ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧚🏼" type="tts">មនុស្សទេព: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧚🏽">ទីតានៀ | ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧚🏽" type="tts">មនុស្សទេព: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧚🏾">ទីតានៀ | ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧚🏾" type="tts">មនុស្សទេព: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧚🏿">ទីតានៀ | ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧚🏿" type="tts">មនុស្សទេព: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧚🏻‍♀">ទីតានៀ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">ទេពធីតា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧚🏼‍♀">ទីតានៀ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">ទេពធីតា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧚🏽‍♀">ទីតានៀ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">ទេពធីតា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧚🏾‍♀">ទីតានៀ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">ទេពធីតា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧚🏿‍♀">ទីតានៀ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">ទេពធីតា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧚🏻‍♂">ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">ទេវបុត្រ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧚🏼‍♂">ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">ទេវបុត្រ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧚🏽‍♂">ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">ទេវបុត្រ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧚🏾‍♂">ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">ទេវបុត្រ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧚🏿‍♂">ផាក់ | អូបេរ៉ុន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">ទេវបុត្រ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧛🏻">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧛🏻" type="tts">បិសាចជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧛🏼">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧛🏼" type="tts">បិសាចជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧛🏽">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧛🏽" type="tts">បិសាចជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧛🏾">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧛🏾" type="tts">បិសាចជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧛🏿">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧛🏿" type="tts">បិសាចជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧛🏻‍♀">បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">បិសាចស្រីជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧛🏼‍♀">បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">បិសាចស្រីជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧛🏽‍♀">បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">បិសាចស្រីជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧛🏾‍♀">បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">បិសាចស្រីជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧛🏿‍♀">បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">បិសាចស្រីជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧛🏻‍♂">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">បិសាចប្រុសជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧛🏼‍♂">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">បិសាចប្រុសជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧛🏽‍♂">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">បិសាចប្រុសជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧛🏾‍♂">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">បិសាចប្រុសជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧛🏿‍♂">ត្រាខ្យូឡា | បិសាចមិនចេះស្លាប់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">បិសាចប្រុសជញ្ជក់ឈាម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧜🏻">នាងមច្ឆា | ប្រុសមច្ឆា | ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧜🏻" type="tts">មនុស្សមច្ឆា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧜🏼">នាងមច្ឆា | ប្រុសមច្ឆា | ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧜🏼" type="tts">មនុស្សមច្ឆា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧜🏽">នាងមច្ឆា | ប្រុសមច្ឆា | ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧜🏽" type="tts">មនុស្សមច្ឆា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧜🏾">នាងមច្ឆា | ប្រុសមច្ឆា | ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧜🏾" type="tts">មនុស្សមច្ឆា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧜🏿">នាងមច្ឆា | ប្រុសមច្ឆា | ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧜🏿" type="tts">មនុស្សមច្ឆា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧜🏻‍♀">ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">នាងមច្ឆា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧜🏼‍♀">ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">នាងមច្ឆា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧜🏽‍♀">ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">នាងមច្ឆា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧜🏾‍♀">ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">នាងមច្ឆា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧜🏿‍♀">ស្រីមច្ឆា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">នាងមច្ឆា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧜🏻‍♂">ត្រាយតុន | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">ប្រុសមច្ឆា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧜🏼‍♂">ត្រាយតុន | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">ប្រុសមច្ឆា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧜🏽‍♂">ត្រាយតុន | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">ប្រុសមច្ឆា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧜🏾‍♂">ត្រាយតុន | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">ប្រុសមច្ឆា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧜🏿‍♂">ត្រាយតុន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">ប្រុសមច្ឆា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧝🏻">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧝🏻" type="tts">អែលហ្វ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧝🏼">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧝🏼" type="tts">អែលហ្វ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧝🏽">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧝🏽" type="tts">អែលហ្វ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧝🏾">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧝🏾" type="tts">អែលហ្វ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧝🏿">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧝🏿" type="tts">អែលហ្វ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧝🏻‍♀">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">អែលហ្វស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧝🏼‍♀">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">អែលហ្វស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧝🏽‍♀">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">អែលហ្វស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧝🏾‍♀">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">អែលហ្វស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧝🏿‍♀">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">អែលហ្វស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧝🏻‍♂">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">អែលហ្វប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧝🏼‍♂">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">អែលហ្វប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧝🏽‍♂">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">អែលហ្វប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧝🏾‍♂">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">អែលហ្វប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧝🏿‍♂">ដែលចេះវេទមន្ត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">អែលហ្វប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🙍🏻">ក្រៀមក្រំ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🙍🏼">ក្រៀមក្រំ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -782,15 +992,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙅🏾‍♀" type="tts">នារីចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="🙅🏿‍♀">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">នារីចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
-		<annotation cp="🙆🏻">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙆🏻">OK | កាយវិការ | ដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🙆🏻" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
-		<annotation cp="🙆🏼">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙆🏼">OK | កាយវិការ | ដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
 		<annotation cp="🙆🏼" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
-		<annotation cp="🙆🏽">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙆🏽">OK | កាយវិការ | ដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
 		<annotation cp="🙆🏽" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
-		<annotation cp="🙆🏾">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙆🏾">OK | កាយវិការ | ដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="🙆🏾" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
-		<annotation cp="🙆🏿">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙆🏿">OK | កាយវិការ | ដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🙆🏿" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🙆🏻‍♂">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🙆🏻‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">បុុរសកំពុងរាំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="🕺🏿">បុរស | រាំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🕺🏿" type="tts">បុុរសកំពុងរាំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧖🏻">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧖🏻" type="tts">មនុស្សនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧖🏼">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧖🏼" type="tts">មនុស្សនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧖🏽">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧖🏽" type="tts">មនុស្សនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧖🏾">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧖🏾" type="tts">មនុស្សនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧖🏿">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧖🏿" type="tts">មនុស្សនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧖🏻‍♀">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧖🏼‍♀">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧖🏽‍♀">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧖🏾‍♀">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧖🏿‍♀">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧖🏻‍♂">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">បុរសនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧖🏼‍♂">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">បុរសនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧖🏽‍♂">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">បុរសនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧖🏾‍♂">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">បុរសនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧖🏿‍♂">បន្ទប់ស្ទីម | សូណា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">បុរសនៅក្នុងបន្ទប់ស្ទីម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧗🏻">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧗🏻" type="tts">មនុស្សកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧗🏼">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧗🏼" type="tts">មនុស្សកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧗🏽">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧗🏽" type="tts">មនុស្សកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧗🏾">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧗🏾" type="tts">មនុស្សកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧗🏿">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧗🏿" type="tts">មនុស្សកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧗🏻‍♀">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">ស្ត្រីកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧗🏼‍♀">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">ស្ត្រីកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧗🏽‍♀">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">ស្ត្រីកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧗🏾‍♀">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">ស្ត្រីកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧗🏿‍♀">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">ស្ត្រីកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧗🏻‍♂">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">បុរសកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧗🏼‍♂">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">បុរសកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧗🏽‍♂">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">បុរសកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧗🏾‍♂">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">បុរសកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧗🏿‍♂">អ្នកឡើង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">បុរសកំពុងឡើង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧘🏻">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧘🏻" type="tts">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧘🏼">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧘🏼" type="tts">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧘🏽">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧘🏽" type="tts">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧘🏾">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧘🏾" type="tts">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧘🏿">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧘🏿" type="tts">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧘🏻‍♀">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧘🏼‍♀">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧘🏽‍♀">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧘🏾‍♀">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧘🏿‍♀">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧘🏻‍♂">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🧘🏼‍♂">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🧘🏽‍♂">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🧘🏾‍♂">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🧘🏿‍♂">យ៉ូហ្គា | សមាធិ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🛀🏻">ដេកត្រាំ | អាង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🛀🏻" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🛀🏼">ដេកត្រាំ | អាង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">គ្រវីដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="👋🏿">ទេ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👋🏿" type="tts">គ្រវីដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤟🏻">ILY | ប្រអប់ដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤟🏻" type="tts">កាយវិការបង្ហាញក្ដីស្រឡាញ់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤟🏼">ILY | ប្រអប់ដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤟🏼" type="tts">កាយវិការបង្ហាញក្ដីស្រឡាញ់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤟🏽">ILY | ប្រអប់ដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤟🏽" type="tts">កាយវិការបង្ហាញក្ដីស្រឡាញ់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤟🏾">ILY | ប្រអប់ដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤟🏾" type="tts">កាយវិការបង្ហាញក្ដីស្រឡាញ់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤟🏿">ILY | ប្រអប់ដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤟🏿" type="tts">កាយវិការបង្ហាញក្ដីស្រឡាញ់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="✍🏻">ប៊ិច | សរសេរ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">ដៃកាន់ប៊ិចសរសេរ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="✍🏼">ប៊ិច | សរសេរ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="🙌🏿">ដៃ | បាតដៃពីរ | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🙌🏿" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤲🏻">លើកដៃបួងសួង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤲🏻" type="tts">ដាក់បាតដៃទន្ទឹមគ្នា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤲🏼">លើកដៃបួងសួង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤲🏼" type="tts">ដាក់បាតដៃទន្ទឹមគ្នា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤲🏽">លើកដៃបួងសួង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤲🏽" type="tts">ដាក់បាតដៃទន្ទឹមគ្នា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤲🏾">លើកដៃបួងសួង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤲🏾" type="tts">ដាក់បាតដៃទន្ទឹមគ្នា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤲🏿">លើកដៃបួងសួង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤲🏿" type="tts">ដាក់បាតដៃទន្ទឹមគ្នា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="🙏🏻">គោរព | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">សំពះ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
 		<annotation cp="🙏🏼">គោរព | ប្រភេទពណ៌ស្បែកទី 3</annotation>
@@ -1894,16 +2214,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">ច្រមុះ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
 		<annotation cp="👃🏿">ហិត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
 		<annotation cp="👃🏿" type="tts">ច្រមុះ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
-		<annotation cp="#⃣">ទ្រុងជ្រូក | ប៊ូតុង | លេខ</annotation>
-		<annotation cp="#⃣" type="tts">ប៊ូតុងទ្រុងជ្រូក</annotation>
-		<annotation cp="*⃣">ប៊ូតុង | ផ្កាយ</annotation>
-		<annotation cp="*⃣" type="tts">ប៊ូតុងផ្កាយ</annotation>
+		<annotation cp="#⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="#⃣" type="tts">គម្របគ្រាប់ចុច: #</annotation>
+		<annotation cp="*⃣">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="*⃣" type="tts">គម្របគ្រាប់ចុច: *</annotation>
+		<annotation cp="🔟">គម្របគ្រាប់ចុច</annotation>
+		<annotation cp="🔟" type="tts">គម្របគ្រាប់ចុច: 10</annotation>
 		<annotation cp="🇦🇨">ទីង់</annotation>
 		<annotation cp="🇦🇨" type="tts">កោះ​អាសេនសិន</annotation>
 		<annotation cp="🇦🇩">ទីង់</annotation>
 		<annotation cp="🇦🇩" type="tts">អង់ដូរ៉ា</annotation>
 		<annotation cp="🇦🇪">ទីង់</annotation>
-		<annotation cp="🇦🇪" type="tts">អារ៉ាប់រួម</annotation>
+		<annotation cp="🇦🇪" type="tts">អេមីរ៉ាត​អារ៉ាប់​រួម</annotation>
 		<annotation cp="🇦🇫">ទីង់</annotation>
 		<annotation cp="🇦🇫" type="tts">អាហ្វហ្គានីស្ថាន</annotation>
 		<annotation cp="🇦🇬">ទីង់</annotation>
@@ -1929,7 +2251,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇼">ទីង់</annotation>
 		<annotation cp="🇦🇼" type="tts">អារូបា</annotation>
 		<annotation cp="🇦🇽">ទីង់</annotation>
-		<annotation cp="🇦🇽" type="tts">កោះ​អាឡាំង</annotation>
+		<annotation cp="🇦🇽" type="tts">កោះ​អាឡង់</annotation>
 		<annotation cp="🇦🇿">ទីង់</annotation>
 		<annotation cp="🇦🇿" type="tts">អាស៊ែបៃហ្សង់</annotation>
 		<annotation cp="🇧🇦">ទីង់</annotation>
@@ -1951,29 +2273,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇯">ទីង់</annotation>
 		<annotation cp="🇧🇯" type="tts">បេណាំង</annotation>
 		<annotation cp="🇧🇱">ទីង់</annotation>
-		<annotation cp="🇧🇱" type="tts">សង់ បាតេឡេម៉ី</annotation>
+		<annotation cp="🇧🇱" type="tts">សាំង​បាថេឡេមី</annotation>
 		<annotation cp="🇧🇲">ទីង់</annotation>
 		<annotation cp="🇧🇲" type="tts">ប៊ឺមុយដា</annotation>
 		<annotation cp="🇧🇳">ទីង់</annotation>
-		<annotation cp="🇧🇳" type="tts">ប្រ៊ុយណេ</annotation>
+		<annotation cp="🇧🇳" type="tts">ព្រុយណេ</annotation>
 		<annotation cp="🇧🇴">ទីង់</annotation>
 		<annotation cp="🇧🇴" type="tts">បូលីវី</annotation>
 		<annotation cp="🇧🇶">ទីង់</annotation>
-		<annotation cp="🇧🇶" type="tts">ហុល្លង់ ការ៉ាប៊ីន</annotation>
+		<annotation cp="🇧🇶" type="tts">ហូឡង់ ការ៉ាប៊ីន</annotation>
 		<annotation cp="🇧🇷">ទីង់</annotation>
 		<annotation cp="🇧🇷" type="tts">ប្រេស៊ីល</annotation>
 		<annotation cp="🇧🇸">ទីង់</annotation>
 		<annotation cp="🇧🇸" type="tts">បាហាម៉ា</annotation>
 		<annotation cp="🇧🇹">ទីង់</annotation>
-		<annotation cp="🇧🇹" type="tts">ប៊ូតាន</annotation>
+		<annotation cp="🇧🇹" type="tts">ប៊ូតង់</annotation>
 		<annotation cp="🇧🇻">ទីង់</annotation>
 		<annotation cp="🇧🇻" type="tts">កោះ​ប៊ូវ៉េត</annotation>
 		<annotation cp="🇧🇼">ទីង់</annotation>
 		<annotation cp="🇧🇼" type="tts">បុតស្វាណា</annotation>
 		<annotation cp="🇧🇾">ទីង់</annotation>
-		<annotation cp="🇧🇾" type="tts">បេឡារុស្ស</annotation>
+		<annotation cp="🇧🇾" type="tts">បេឡារុស</annotation>
 		<annotation cp="🇧🇿">ទីង់</annotation>
-		<annotation cp="🇧🇿" type="tts">បេលីហ្ស</annotation>
+		<annotation cp="🇧🇿" type="tts">បេលី</annotation>
 		<annotation cp="🇨🇦">ទីង់</annotation>
 		<annotation cp="🇨🇦" type="tts">កាណាដា</annotation>
 		<annotation cp="🇨🇨">ទីង់</annotation>
@@ -1987,7 +2309,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇭">ទីង់</annotation>
 		<annotation cp="🇨🇭" type="tts">ស្វីស</annotation>
 		<annotation cp="🇨🇮">ទីង់</annotation>
-		<annotation cp="🇨🇮" type="tts">កូដឌីវ័រ</annotation>
+		<annotation cp="🇨🇮" type="tts">កូតឌីវ័រ</annotation>
 		<annotation cp="🇨🇰">ទីង់</annotation>
 		<annotation cp="🇨🇰" type="tts">កោះ​ខូក</annotation>
 		<annotation cp="🇨🇱">ទីង់</annotation>
@@ -2005,7 +2327,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇺">ទីង់</annotation>
 		<annotation cp="🇨🇺" type="tts">គុយបា</annotation>
 		<annotation cp="🇨🇻">ទីង់</annotation>
-		<annotation cp="🇨🇻" type="tts">កាបវែរ</annotation>
+		<annotation cp="🇨🇻" type="tts">កាប់វែរ</annotation>
 		<annotation cp="🇨🇼">ទីង់</annotation>
 		<annotation cp="🇨🇼" type="tts">កូរ៉ាកៅ</annotation>
 		<annotation cp="🇨🇽">ទីង់</annotation>
@@ -2013,7 +2335,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇨🇾">ទីង់</annotation>
 		<annotation cp="🇨🇾" type="tts">ស៊ីប</annotation>
 		<annotation cp="🇨🇿">ទីង់</annotation>
-		<annotation cp="🇨🇿" type="tts">ឆេគា</annotation>
+		<annotation cp="🇨🇿" type="tts">ឆែគា</annotation>
 		<annotation cp="🇩🇪">ទីង់</annotation>
 		<annotation cp="🇩🇪" type="tts">អាល្លឺម៉ង់</annotation>
 		<annotation cp="🇩🇬">ទីង់</annotation>
@@ -2031,7 +2353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇪🇦">ទីង់</annotation>
 		<annotation cp="🇪🇦" type="tts">ជឺតា និង​ម៉េលីឡា</annotation>
 		<annotation cp="🇪🇨">ទីង់</annotation>
-		<annotation cp="🇪🇨" type="tts">អេក្វាឌ័រ</annotation>
+		<annotation cp="🇪🇨" type="tts">អេក្វាទ័រ</annotation>
 		<annotation cp="🇪🇪">ទីង់</annotation>
 		<annotation cp="🇪🇪" type="tts">អេស្តូនី</annotation>
 		<annotation cp="🇪🇬">ទីង់</annotation>
@@ -2039,7 +2361,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇪🇭">ទីង់</annotation>
 		<annotation cp="🇪🇭" type="tts">សាហារ៉ាខាងលិច</annotation>
 		<annotation cp="🇪🇷">ទីង់</annotation>
-		<annotation cp="🇪🇷" type="tts">អេរីទ្រា</annotation>
+		<annotation cp="🇪🇷" type="tts">អេរីត្រេ</annotation>
 		<annotation cp="🇪🇸">ទីង់</annotation>
 		<annotation cp="🇪🇸" type="tts">អេស្ប៉ាញ</annotation>
 		<annotation cp="🇪🇹">ទីង់</annotation>
@@ -2063,21 +2385,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇧">ទីង់</annotation>
 		<annotation cp="🇬🇧" type="tts">ចក្រភព​អង់គ្លេស</annotation>
 		<annotation cp="🇬🇩">ទីង់</annotation>
-		<annotation cp="🇬🇩" type="tts">ហ្គ្រីណាដា</annotation>
+		<annotation cp="🇬🇩" type="tts">ហ្គ្រើណាដ</annotation>
 		<annotation cp="🇬🇪">ទីង់</annotation>
 		<annotation cp="🇬🇪" type="tts">ហ្សកហ្ស៊ី</annotation>
 		<annotation cp="🇬🇫">ទីង់</annotation>
-		<annotation cp="🇬🇫" type="tts">ហ្គៀណាបារាំង</annotation>
+		<annotation cp="🇬🇫" type="tts">ហ្គីអាណា បារាំង</annotation>
 		<annotation cp="🇬🇬">ទីង់</annotation>
 		<annotation cp="🇬🇬" type="tts">ហ្គេនស៊ី</annotation>
 		<annotation cp="🇬🇭">ទីង់</annotation>
 		<annotation cp="🇬🇭" type="tts">ហ្គាណា</annotation>
 		<annotation cp="🇬🇮">ទីង់</annotation>
-		<annotation cp="🇬🇮" type="tts">ហ្គីប្រាលតា</annotation>
+		<annotation cp="🇬🇮" type="tts">ហ្ស៊ីប្រាល់តា</annotation>
 		<annotation cp="🇬🇱">ទីង់</annotation>
 		<annotation cp="🇬🇱" type="tts">ហ្គ្រោអង់ឡង់</annotation>
 		<annotation cp="🇬🇲">ទីង់</annotation>
-		<annotation cp="🇬🇲" type="tts">ហ្គាំប៊ី</annotation>
+		<annotation cp="🇬🇲" type="tts">ហ្គំប៊ី</annotation>
 		<annotation cp="🇬🇳">ទីង់</annotation>
 		<annotation cp="🇬🇳" type="tts">ហ្គីណេ</annotation>
 		<annotation cp="🇬🇵">ទីង់</annotation>
@@ -2087,15 +2409,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇷">ទីង់</annotation>
 		<annotation cp="🇬🇷" type="tts">ក្រិក</annotation>
 		<annotation cp="🇬🇸">ទីង់</annotation>
-		<annotation cp="🇬🇸" type="tts">កោះ​ហ្សកហ្ស៊ី​ខាង​ត្បូង និង សាន់វិច​ខាង​ត្បូង</annotation>
+		<annotation cp="🇬🇸" type="tts">កោះ​ហ្សកហ្ស៊ី​ខាងត្បូង និង សង់វិច​ខាងត្បូង</annotation>
 		<annotation cp="🇬🇹">ទីង់</annotation>
-		<annotation cp="🇬🇹" type="tts">ហ្គាតេម៉ាឡា</annotation>
+		<annotation cp="🇬🇹" type="tts">ក្វាតេម៉ាឡា</annotation>
 		<annotation cp="🇬🇺">ទីង់</annotation>
 		<annotation cp="🇬🇺" type="tts">ហ្គាំ</annotation>
 		<annotation cp="🇬🇼">ទីង់</annotation>
-		<annotation cp="🇬🇼" type="tts">ហ្គីណេប៊ីសូ</annotation>
+		<annotation cp="🇬🇼" type="tts">ហ្គីណេប៊ីស្សូ</annotation>
 		<annotation cp="🇬🇾">ទីង់</annotation>
-		<annotation cp="🇬🇾" type="tts">ហ្គីយ៉ាណា</annotation>
+		<annotation cp="🇬🇾" type="tts">ហ្គីយ៉ាន</annotation>
 		<annotation cp="🇭🇰">ទីង់</annotation>
 		<annotation cp="🇭🇰" type="tts">ហុងកុង</annotation>
 		<annotation cp="🇭🇲">ទីង់</annotation>
@@ -2103,7 +2425,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇭🇳">ទីង់</annotation>
 		<annotation cp="🇭🇳" type="tts">ហុងឌូរ៉ាស</annotation>
 		<annotation cp="🇭🇷">ទីង់</annotation>
-		<annotation cp="🇭🇷" type="tts">ក្រូអាត</annotation>
+		<annotation cp="🇭🇷" type="tts">ក្រូអាស៊ី</annotation>
 		<annotation cp="🇭🇹">ទីង់</annotation>
 		<annotation cp="🇭🇹" type="tts">ហៃទី</annotation>
 		<annotation cp="🇭🇺">ទីង់</annotation>
@@ -2133,7 +2455,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇯🇪">ទីង់</annotation>
 		<annotation cp="🇯🇪" type="tts">ជឺស៊ី</annotation>
 		<annotation cp="🇯🇲">ទីង់</annotation>
-		<annotation cp="🇯🇲" type="tts">ចាម៉ៃកា</annotation>
+		<annotation cp="🇯🇲" type="tts">ហ្សាម៉ាអ៊ីក</annotation>
 		<annotation cp="🇯🇴">ទីង់</annotation>
 		<annotation cp="🇯🇴" type="tts">ហ៊្សកដានី</annotation>
 		<annotation cp="🇯🇵">ទីង់</annotation>
@@ -2145,17 +2467,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇭">ទីង់</annotation>
 		<annotation cp="🇰🇭" type="tts">កម្ពុជា</annotation>
 		<annotation cp="🇰🇮">ទីង់</annotation>
-		<annotation cp="🇰🇮" type="tts">គិរិបាទី</annotation>
+		<annotation cp="🇰🇮" type="tts">គិរីបាទី</annotation>
 		<annotation cp="🇰🇲">ទីង់</annotation>
 		<annotation cp="🇰🇲" type="tts">កូម័រ</annotation>
 		<annotation cp="🇰🇳">ទីង់</annotation>
-		<annotation cp="🇰🇳" type="tts">សង់ឃីត និង​ណេវីស</annotation>
+		<annotation cp="🇰🇳" type="tts">សាំង​គីត និង ណេវីស</annotation>
 		<annotation cp="🇰🇵">ទីង់</annotation>
 		<annotation cp="🇰🇵" type="tts">កូរ៉េ​ខាង​ជើង</annotation>
 		<annotation cp="🇰🇷">ទីង់</annotation>
 		<annotation cp="🇰🇷" type="tts">កូរ៉េ​ខាង​ត្បូង</annotation>
 		<annotation cp="🇰🇼">ទីង់</annotation>
-		<annotation cp="🇰🇼" type="tts">គុយវ៉ែត</annotation>
+		<annotation cp="🇰🇼" type="tts">កូវ៉ែត</annotation>
 		<annotation cp="🇰🇾">ទីង់</annotation>
 		<annotation cp="🇰🇾" type="tts">កោះ​កៃម៉ង់</annotation>
 		<annotation cp="🇰🇿">ទីង់</annotation>
@@ -2165,9 +2487,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇱🇧">ទីង់</annotation>
 		<annotation cp="🇱🇧" type="tts">លីបង់</annotation>
 		<annotation cp="🇱🇨">ទីង់</annotation>
-		<annotation cp="🇱🇨" type="tts">សង់​លូសៀ</annotation>
+		<annotation cp="🇱🇨" type="tts">សាំងលូស៊ី</annotation>
 		<annotation cp="🇱🇮">ទីង់</annotation>
-		<annotation cp="🇱🇮" type="tts">លិចទេនស្តែន</annotation>
+		<annotation cp="🇱🇮" type="tts">លិចតិនស្ដាញ</annotation>
 		<annotation cp="🇱🇰">ទីង់</annotation>
 		<annotation cp="🇱🇰" type="tts">ស្រីលង្កា</annotation>
 		<annotation cp="🇱🇷">ទីង់</annotation>
@@ -2177,9 +2499,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇱🇹">ទីង់</annotation>
 		<annotation cp="🇱🇹" type="tts">លីទុយអានី</annotation>
 		<annotation cp="🇱🇺">ទីង់</annotation>
-		<annotation cp="🇱🇺" type="tts">លុចហ្សំបួរ</annotation>
+		<annotation cp="🇱🇺" type="tts">លុចសំបួ</annotation>
 		<annotation cp="🇱🇻">ទីង់</annotation>
-		<annotation cp="🇱🇻" type="tts">ឡាតវីយ៉ា</annotation>
+		<annotation cp="🇱🇻" type="tts">ឡេតូនី</annotation>
 		<annotation cp="🇱🇾">ទីង់</annotation>
 		<annotation cp="🇱🇾" type="tts">លីប៊ី</annotation>
 		<annotation cp="🇲🇦">ទីង់</annotation>
@@ -2191,13 +2513,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇪">ទីង់</annotation>
 		<annotation cp="🇲🇪" type="tts">ម៉ុងតេណេហ្គ្រោ</annotation>
 		<annotation cp="🇲🇫">ទីង់</annotation>
-		<annotation cp="🇲🇫" type="tts">សង់​ម៉ាទីន</annotation>
+		<annotation cp="🇲🇫" type="tts">សាំង​ម៉ាទីន</annotation>
 		<annotation cp="🇲🇬">ទីង់</annotation>
 		<annotation cp="🇲🇬" type="tts">ម៉ាដាហ្គាស្កា</annotation>
 		<annotation cp="🇲🇭">ទីង់</annotation>
 		<annotation cp="🇲🇭" type="tts">កោះ​ម៉ាស់សល</annotation>
 		<annotation cp="🇲🇰">ទីង់</annotation>
-		<annotation cp="🇲🇰" type="tts">ម៉ាសេដូនា</annotation>
+		<annotation cp="🇲🇰" type="tts">ម៉ាសេដ្វាន</annotation>
 		<annotation cp="🇲🇱">ទីង់</annotation>
 		<annotation cp="🇲🇱" type="tts">ម៉ាលី</annotation>
 		<annotation cp="🇲🇲">ទីង់</annotation>
@@ -2205,7 +2527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇳">ទីង់</annotation>
 		<annotation cp="🇲🇳" type="tts">ម៉ុងហ្គោលី</annotation>
 		<annotation cp="🇲🇴">ទីង់</annotation>
-		<annotation cp="🇲🇴" type="tts">ម៉ាកាវ</annotation>
+		<annotation cp="🇲🇴" type="tts">ម៉ាកាវ តំបន់រដ្ឋបាលពិសេសចិន</annotation>
 		<annotation cp="🇲🇵">ទីង់</annotation>
 		<annotation cp="🇲🇵" type="tts">កោះ​ម៉ារីណា​ខាង​ជើង</annotation>
 		<annotation cp="🇲🇶">ទីង់</annotation>
@@ -2213,9 +2535,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇷">ទីង់</annotation>
 		<annotation cp="🇲🇷" type="tts">ម៉ូរីតានី</annotation>
 		<annotation cp="🇲🇸">ទីង់</annotation>
-		<annotation cp="🇲🇸" type="tts">ម៉ុង​សេរ៉ង់</annotation>
+		<annotation cp="🇲🇸" type="tts">ម៉ុងស៊ែរ៉ា</annotation>
 		<annotation cp="🇲🇹">ទីង់</annotation>
-		<annotation cp="🇲🇹" type="tts">ម៉ាល់តា</annotation>
+		<annotation cp="🇲🇹" type="tts">ម៉ាល់ត៍</annotation>
 		<annotation cp="🇲🇺">ទីង់</annotation>
 		<annotation cp="🇲🇺" type="tts">ម៉ូរីស</annotation>
 		<annotation cp="🇲🇻">ទីង់</annotation>
@@ -2227,19 +2549,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇾">ទីង់</annotation>
 		<annotation cp="🇲🇾" type="tts">ម៉ាឡេស៊ី</annotation>
 		<annotation cp="🇲🇿">ទីង់</annotation>
-		<annotation cp="🇲🇿" type="tts">ម៉ូហ្សាំប៊ិក</annotation>
+		<annotation cp="🇲🇿" type="tts">ម៉ូសំប៊ិក</annotation>
 		<annotation cp="🇳🇦">ទីង់</annotation>
 		<annotation cp="🇳🇦" type="tts">ណាមីប៊ី</annotation>
 		<annotation cp="🇳🇨">ទីង់</annotation>
-		<annotation cp="🇳🇨" type="tts">ញូកាឡេដូនៀ</annotation>
+		<annotation cp="🇳🇨" type="tts">នូវែល​កាឡេដូនី</annotation>
 		<annotation cp="🇳🇪">ទីង់</annotation>
-		<annotation cp="🇳🇪" type="tts">នីហ្សេរ</annotation>
+		<annotation cp="🇳🇪" type="tts">នីហ្សេ</annotation>
 		<annotation cp="🇳🇫">ទីង់</annotation>
 		<annotation cp="🇳🇫" type="tts">កោះ​ណ័រហ្វក់</annotation>
 		<annotation cp="🇳🇬">ទីង់</annotation>
 		<annotation cp="🇳🇬" type="tts">នីហ្សេរីយ៉ា</annotation>
 		<annotation cp="🇳🇮">ទីង់</annotation>
-		<annotation cp="🇳🇮" type="tts">នីការ៉ាហ្គ័រ</annotation>
+		<annotation cp="🇳🇮" type="tts">នីការ៉ាហ្គា</annotation>
 		<annotation cp="🇳🇱">ទីង់</annotation>
 		<annotation cp="🇳🇱" type="tts">ហូឡង់</annotation>
 		<annotation cp="🇳🇴">ទីង់</annotation>
@@ -2251,7 +2573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇳🇺">ទីង់</annotation>
 		<annotation cp="🇳🇺" type="tts">ណៀ</annotation>
 		<annotation cp="🇳🇿">ទីង់</annotation>
-		<annotation cp="🇳🇿" type="tts">នូវែលហ្សេឡង់</annotation>
+		<annotation cp="🇳🇿" type="tts">នូវែល​សេឡង់</annotation>
 		<annotation cp="🇴🇲">ទីង់</annotation>
 		<annotation cp="🇴🇲" type="tts">អូម៉ង់</annotation>
 		<annotation cp="🇵🇦">ទីង់</annotation>
@@ -2261,7 +2583,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇫">ទីង់</annotation>
 		<annotation cp="🇵🇫" type="tts">ប៉ូលី​ណេស៊ី​បារាំង</annotation>
 		<annotation cp="🇵🇬">ទីង់</annotation>
-		<annotation cp="🇵🇬" type="tts">ប៉ាពួញ៉ូហ្គីណេ</annotation>
+		<annotation cp="🇵🇬" type="tts">ប៉ាពូអាស៊ី​នូវែលហ្គីណេ</annotation>
 		<annotation cp="🇵🇭">ទីង់</annotation>
 		<annotation cp="🇵🇭" type="tts">ហ្វីលីពីន</annotation>
 		<annotation cp="🇵🇰">ទីង់</annotation>
@@ -2275,7 +2597,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇵🇷">ទីង់</annotation>
 		<annotation cp="🇵🇷" type="tts">ព័រតូរីកូ</annotation>
 		<annotation cp="🇵🇸">ទីង់</annotation>
-		<annotation cp="🇵🇸" type="tts">ដែន​ប៉ាលេស្ទីន</annotation>
+		<annotation cp="🇵🇸" type="tts">ដែន​ដីប៉ាលេស្ទីន</annotation>
 		<annotation cp="🇵🇹">ទីង់</annotation>
 		<annotation cp="🇵🇹" type="tts">ព័រទុយហ្គាល់</annotation>
 		<annotation cp="🇵🇼">ទីង់</annotation>
@@ -2289,7 +2611,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇷🇴">ទីង់</annotation>
 		<annotation cp="🇷🇴" type="tts">រូម៉ានី</annotation>
 		<annotation cp="🇷🇸">ទីង់</annotation>
-		<annotation cp="🇷🇸" type="tts">ស៊ែប</annotation>
+		<annotation cp="🇷🇸" type="tts">សែប៊ី</annotation>
 		<annotation cp="🇷🇺">ទីង់</annotation>
 		<annotation cp="🇷🇺" type="tts">រុស្ស៊ី</annotation>
 		<annotation cp="🇷🇼">ទីង់</annotation>
@@ -2299,7 +2621,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇧">ទីង់</annotation>
 		<annotation cp="🇸🇧" type="tts">កោះ​សូឡូម៉ុង</annotation>
 		<annotation cp="🇸🇨">ទីង់</annotation>
-		<annotation cp="🇸🇨" type="tts">សីសែល</annotation>
+		<annotation cp="🇸🇨" type="tts">សីស្ហែល</annotation>
 		<annotation cp="🇸🇩">ទីង់</annotation>
 		<annotation cp="🇸🇩" type="tts">ស៊ូដង់</annotation>
 		<annotation cp="🇸🇪">ទីង់</annotation>
@@ -2315,7 +2637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇰">ទីង់</annotation>
 		<annotation cp="🇸🇰" type="tts">ស្លូវ៉ាគី</annotation>
 		<annotation cp="🇸🇱">ទីង់</annotation>
-		<annotation cp="🇸🇱" type="tts">សេរ៉ាឡេអូន</annotation>
+		<annotation cp="🇸🇱" type="tts">សៀរ៉ាឡេអូន</annotation>
 		<annotation cp="🇸🇲">ទីង់</annotation>
 		<annotation cp="🇸🇲" type="tts">សាន​ម៉ារីណូ</annotation>
 		<annotation cp="🇸🇳">ទីង់</annotation>
@@ -2335,7 +2657,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇾">ទីង់</annotation>
 		<annotation cp="🇸🇾" type="tts">ស៊ីរី</annotation>
 		<annotation cp="🇸🇿">ទីង់</annotation>
-		<annotation cp="🇸🇿" type="tts">ស្វាហ្ស៊ីឡង់</annotation>
+		<annotation cp="🇸🇿" type="tts">ស្វាស៊ីឡង់</annotation>
 		<annotation cp="🇹🇦">ទីង់</annotation>
 		<annotation cp="🇹🇦" type="tts">ទ្រីស្តង់​ដា​ចូនហា</annotation>
 		<annotation cp="🇹🇨">ទីង់</annotation>
@@ -2353,15 +2675,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇰">ទីង់</annotation>
 		<annotation cp="🇹🇰" type="tts">តូខេឡៅ</annotation>
 		<annotation cp="🇹🇱">ទីង់</annotation>
-		<annotation cp="🇹🇱" type="tts">ទីម័រ</annotation>
+		<annotation cp="🇹🇱" type="tts">ទីម័រលីស</annotation>
 		<annotation cp="🇹🇲">ទីង់</annotation>
 		<annotation cp="🇹🇲" type="tts">តួកម៉េនីស្ថាន</annotation>
 		<annotation cp="🇹🇳">ទីង់</annotation>
-		<annotation cp="🇹🇳" type="tts">ទុយនេស៊ី</annotation>
+		<annotation cp="🇹🇳" type="tts">ទុយនីស៊ី</annotation>
 		<annotation cp="🇹🇴">ទីង់</annotation>
 		<annotation cp="🇹🇴" type="tts">តុងហ្គា</annotation>
 		<annotation cp="🇹🇷">ទីង់</annotation>
-		<annotation cp="🇹🇷" type="tts">ទួរគី</annotation>
+		<annotation cp="🇹🇷" type="tts">តួកគី</annotation>
 		<annotation cp="🇹🇹">ទីង់</annotation>
 		<annotation cp="🇹🇹" type="tts">ទ្រីនីដាត និង​តូបាហ្គោ</annotation>
 		<annotation cp="🇹🇻">ទីង់</annotation>
@@ -2369,7 +2691,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇼">ទីង់</annotation>
 		<annotation cp="🇹🇼" type="tts">តៃវ៉ាន់</annotation>
 		<annotation cp="🇹🇿">ទីង់</annotation>
-		<annotation cp="🇹🇿" type="tts">តង់ហ្សានី</annotation>
+		<annotation cp="🇹🇿" type="tts">តង់សានី</annotation>
 		<annotation cp="🇺🇦">ទីង់</annotation>
 		<annotation cp="🇺🇦" type="tts">អ៊ុយក្រែន</annotation>
 		<annotation cp="🇺🇬">ទីង់</annotation>
@@ -2381,15 +2703,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇺🇸">ទីង់</annotation>
 		<annotation cp="🇺🇸" type="tts">សហរដ្ឋអាមេរិក</annotation>
 		<annotation cp="🇺🇾">ទីង់</annotation>
-		<annotation cp="🇺🇾" type="tts">អ៊ុយរ៉ាហ្គាយ</annotation>
+		<annotation cp="🇺🇾" type="tts">អ៊ុយរូហ្គាយ</annotation>
 		<annotation cp="🇺🇿">ទីង់</annotation>
 		<annotation cp="🇺🇿" type="tts">អ៊ូសបេគីស្ថាន</annotation>
 		<annotation cp="🇻🇦">ទីង់</annotation>
 		<annotation cp="🇻🇦" type="tts">បុរី​វ៉ាទីកង់</annotation>
 		<annotation cp="🇻🇨">ទីង់</annotation>
-		<annotation cp="🇻🇨" type="tts">សាំង​វីនសេន និង​ឌឹ​ហ្គ្រីណាឌីនីស</annotation>
+		<annotation cp="🇻🇨" type="tts">សាំង​វ៉ាំងសង់ និង ហ្គ្រេណាឌីន</annotation>
 		<annotation cp="🇻🇪">ទីង់</annotation>
-		<annotation cp="🇻🇪" type="tts">វេនេហ្ស៊ុយឡា</annotation>
+		<annotation cp="🇻🇪" type="tts">វ៉េណេស៊ុយអេឡា</annotation>
 		<annotation cp="🇻🇬">ទីង់</annotation>
 		<annotation cp="🇻🇬" type="tts">កោះ​វឺជិន​ចក្រភព​អង់គ្លេស</annotation>
 		<annotation cp="🇻🇮">ទីង់</annotation>
@@ -2397,7 +2719,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇻🇳">ទីង់</annotation>
 		<annotation cp="🇻🇳" type="tts">វៀតណាម</annotation>
 		<annotation cp="🇻🇺">ទីង់</annotation>
-		<annotation cp="🇻🇺" type="tts">វ៉ានូអាទូ</annotation>
+		<annotation cp="🇻🇺" type="tts">វ៉ានូទូ</annotation>
 		<annotation cp="🇼🇫">ទីង់</annotation>
 		<annotation cp="🇼🇫" type="tts">វ៉ាលីស និង​ហ្វូទូណា</annotation>
 		<annotation cp="🇼🇸">ទីង់</annotation>
@@ -2405,15 +2727,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇽🇰">ទីង់</annotation>
 		<annotation cp="🇽🇰" type="tts">កូសូវ៉ូ</annotation>
 		<annotation cp="🇾🇪">ទីង់</annotation>
-		<annotation cp="🇾🇪" type="tts">យេមែន</annotation>
+		<annotation cp="🇾🇪" type="tts">យេម៉ែន</annotation>
 		<annotation cp="🇾🇹">ទីង់</annotation>
 		<annotation cp="🇾🇹" type="tts">ម៉ាយុត</annotation>
 		<annotation cp="🇿🇦">ទីង់</annotation>
 		<annotation cp="🇿🇦" type="tts">អាហ្វ្រិកខាងត្បូង</annotation>
 		<annotation cp="🇿🇲">ទីង់</annotation>
-		<annotation cp="🇿🇲" type="tts">ហ្សាំប៊ី</annotation>
+		<annotation cp="🇿🇲" type="tts">សំប៊ី</annotation>
 		<annotation cp="🇿🇼">ទីង់</annotation>
-		<annotation cp="🇿🇼" type="tts">ហ្ស៊ីមបាវ៉េ</annotation>
+		<annotation cp="🇿🇼" type="tts">ស៊ីមបាវ៉េ</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">ទីង់</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">អង់គ្លេស</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">ទីង់</annotation>

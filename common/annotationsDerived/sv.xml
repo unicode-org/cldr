@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="sv"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | noll | tangent</annotation>
-		<annotation cp="0⃣" type="tts">tangent för siffran noll</annotation>
-		<annotation cp="1⃣">1 | en | ett | tangent</annotation>
-		<annotation cp="1⃣" type="tts">tangent för siffran ett</annotation>
-		<annotation cp="2⃣">2 | tangent | två</annotation>
-		<annotation cp="2⃣" type="tts">tangent för siffran två</annotation>
-		<annotation cp="3⃣">3 | tangent | tre</annotation>
-		<annotation cp="3⃣" type="tts">tangent för siffran tre</annotation>
-		<annotation cp="4⃣">4 | fyra | tangent</annotation>
-		<annotation cp="4⃣" type="tts">tangent för siffran fyra</annotation>
-		<annotation cp="5⃣">5 | fem | tangent</annotation>
-		<annotation cp="5⃣" type="tts">tangent för siffran fem</annotation>
-		<annotation cp="6⃣">6 | sex | tangent</annotation>
-		<annotation cp="6⃣" type="tts">tangent för siffran sex</annotation>
-		<annotation cp="7⃣">7 | sju | tangent</annotation>
-		<annotation cp="7⃣" type="tts">tangent för siffran sju</annotation>
-		<annotation cp="8⃣">8 | tangent | åtta</annotation>
-		<annotation cp="8⃣" type="tts">tangent för siffran åtta</annotation>
-		<annotation cp="9⃣">9 | nio | tangent</annotation>
-		<annotation cp="9⃣" type="tts">tangent för siffran nio</annotation>
+		<annotation cp="0⃣">keycap</annotation>
+		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
+		<annotation cp="1⃣">keycap</annotation>
+		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
+		<annotation cp="2⃣">keycap</annotation>
+		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
+		<annotation cp="3⃣">keycap</annotation>
+		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
+		<annotation cp="4⃣">keycap</annotation>
+		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
+		<annotation cp="5⃣">keycap</annotation>
+		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
+		<annotation cp="6⃣">keycap</annotation>
+		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
+		<annotation cp="7⃣">keycap</annotation>
+		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
+		<annotation cp="8⃣">keycap</annotation>
+		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
+		<annotation cp="9⃣">keycap</annotation>
+		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
 		<annotation cp="👶🏻">baby | människor | hudton 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">bebis: hudton 1–2</annotation>
 		<annotation cp="👶🏼">baby | människor | hudton 3</annotation>
@@ -42,6 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">bebis: hudton 5</annotation>
 		<annotation cp="👶🏿">baby | människor | hudton 6</annotation>
 		<annotation cp="👶🏿" type="tts">bebis: hudton 6</annotation>
+		<annotation cp="🧒🏻">könsneutral | ung | hudton 1–2</annotation>
+		<annotation cp="🧒🏻" type="tts">barn: hudton 1–2</annotation>
+		<annotation cp="🧒🏼">könsneutral | ung | hudton 3</annotation>
+		<annotation cp="🧒🏼" type="tts">barn: hudton 3</annotation>
+		<annotation cp="🧒🏽">könsneutral | ung | hudton 4</annotation>
+		<annotation cp="🧒🏽" type="tts">barn: hudton 4</annotation>
+		<annotation cp="🧒🏾">könsneutral | ung | hudton 5</annotation>
+		<annotation cp="🧒🏾" type="tts">barn: hudton 5</annotation>
+		<annotation cp="🧒🏿">könsneutral | ung | hudton 6</annotation>
+		<annotation cp="🧒🏿" type="tts">barn: hudton 6</annotation>
 		<annotation cp="👦🏻">kille | människor | hudton 1–2</annotation>
 		<annotation cp="👦🏻" type="tts">pojke: hudton 1–2</annotation>
 		<annotation cp="👦🏼">kille | människor | hudton 3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">flicka: hudton 5</annotation>
 		<annotation cp="👧🏿">människor | tjej | hudton 6</annotation>
 		<annotation cp="👧🏿" type="tts">flicka: hudton 6</annotation>
+		<annotation cp="🧑🏻">könsneutral | hudton 1–2</annotation>
+		<annotation cp="🧑🏻" type="tts">vuxen: hudton 1–2</annotation>
+		<annotation cp="🧑🏼">könsneutral | hudton 3</annotation>
+		<annotation cp="🧑🏼" type="tts">vuxen: hudton 3</annotation>
+		<annotation cp="🧑🏽">könsneutral | hudton 4</annotation>
+		<annotation cp="🧑🏽" type="tts">vuxen: hudton 4</annotation>
+		<annotation cp="🧑🏾">könsneutral | hudton 5</annotation>
+		<annotation cp="🧑🏾" type="tts">vuxen: hudton 5</annotation>
+		<annotation cp="🧑🏿">könsneutral | hudton 6</annotation>
+		<annotation cp="🧑🏿" type="tts">vuxen: hudton 6</annotation>
 		<annotation cp="👨🏻">människor | hudton 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">man: hudton 1–2</annotation>
 		<annotation cp="👨🏼">människor | hudton 3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">kvinna: hudton 5</annotation>
 		<annotation cp="👩🏿">människor | hudton 6</annotation>
 		<annotation cp="👩🏿" type="tts">kvinna: hudton 6</annotation>
+		<annotation cp="🧓🏻">könsneutral | senior | hudton 1–2</annotation>
+		<annotation cp="🧓🏻" type="tts">senior: hudton 1–2</annotation>
+		<annotation cp="🧓🏼">könsneutral | senior | hudton 3</annotation>
+		<annotation cp="🧓🏼" type="tts">senior: hudton 3</annotation>
+		<annotation cp="🧓🏽">könsneutral | senior | hudton 4</annotation>
+		<annotation cp="🧓🏽" type="tts">senior: hudton 4</annotation>
+		<annotation cp="🧓🏾">könsneutral | senior | hudton 5</annotation>
+		<annotation cp="🧓🏾" type="tts">senior: hudton 5</annotation>
+		<annotation cp="🧓🏿">könsneutral | senior | hudton 6</annotation>
+		<annotation cp="🧓🏿" type="tts">senior: hudton 6</annotation>
 		<annotation cp="👴🏻">gammal | man | människor | hudton 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">äldre man: hudton 1–2</annotation>
 		<annotation cp="👴🏼">gammal | man | människor | hudton 3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">man med mössa: hudton 5</annotation>
 		<annotation cp="👲🏿">kinesisk mössa | man | människor | hudton 6</annotation>
 		<annotation cp="👲🏿" type="tts">man med mössa: hudton 6</annotation>
+		<annotation cp="🧕🏻">hijab | sjal | slöja | hudton 1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">kvinna i sjal: hudton 1–2</annotation>
+		<annotation cp="🧕🏼">hijab | sjal | slöja | hudton 3</annotation>
+		<annotation cp="🧕🏼" type="tts">kvinna i sjal: hudton 3</annotation>
+		<annotation cp="🧕🏽">hijab | sjal | slöja | hudton 4</annotation>
+		<annotation cp="🧕🏽" type="tts">kvinna i sjal: hudton 4</annotation>
+		<annotation cp="🧕🏾">hijab | sjal | slöja | hudton 5</annotation>
+		<annotation cp="🧕🏾" type="tts">kvinna i sjal: hudton 5</annotation>
+		<annotation cp="🧕🏿">hijab | sjal | slöja | hudton 6</annotation>
+		<annotation cp="🧕🏿" type="tts">kvinna i sjal: hudton 6</annotation>
+		<annotation cp="🧔🏻">skägg | hudton 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">person med skägg: hudton 1–2</annotation>
+		<annotation cp="🧔🏼">skägg | hudton 3</annotation>
+		<annotation cp="🧔🏼" type="tts">person med skägg: hudton 3</annotation>
+		<annotation cp="🧔🏽">skägg | hudton 4</annotation>
+		<annotation cp="🧔🏽" type="tts">person med skägg: hudton 4</annotation>
+		<annotation cp="🧔🏾">skägg | hudton 5</annotation>
+		<annotation cp="🧔🏾" type="tts">person med skägg: hudton 5</annotation>
+		<annotation cp="🧔🏿">skägg | hudton 6</annotation>
+		<annotation cp="🧔🏿" type="tts">person med skägg: hudton 6</annotation>
 		<annotation cp="👱🏻">blond | människor | hudton 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">blond person: hudton 1–2</annotation>
 		<annotation cp="👱🏼">blond | människor | hudton 3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">gravid kvinna: hudton 5</annotation>
 		<annotation cp="🤰🏿">gravid | kvinna | hudton 6</annotation>
 		<annotation cp="🤰🏿" type="tts">gravid kvinna: hudton 6</annotation>
+		<annotation cp="🤱🏻">amma | baby | bröst | hudton 1–2</annotation>
+		<annotation cp="🤱🏻" type="tts">amning: hudton 1–2</annotation>
+		<annotation cp="🤱🏼">amma | baby | bröst | hudton 3</annotation>
+		<annotation cp="🤱🏼" type="tts">amning: hudton 3</annotation>
+		<annotation cp="🤱🏽">amma | baby | bröst | hudton 4</annotation>
+		<annotation cp="🤱🏽" type="tts">amning: hudton 4</annotation>
+		<annotation cp="🤱🏾">amma | baby | bröst | hudton 5</annotation>
+		<annotation cp="🤱🏾" type="tts">amning: hudton 5</annotation>
+		<annotation cp="🤱🏿">amma | baby | bröst | hudton 6</annotation>
+		<annotation cp="🤱🏿" type="tts">amning: hudton 6</annotation>
 		<annotation cp="👼🏻">saga | ängel | hudton 1–2</annotation>
 		<annotation cp="👼🏻" type="tts">bebisängel: hudton 1–2</annotation>
 		<annotation cp="👼🏼">saga | ängel | hudton 3</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">tomtemor: hudton 5</annotation>
 		<annotation cp="🤶🏿">jul | mor | nisse | hudton 6</annotation>
 		<annotation cp="🤶🏿" type="tts">tomtemor: hudton 6</annotation>
+		<annotation cp="🧙🏻">häxa | trollkarl | hudton 1–2</annotation>
+		<annotation cp="🧙🏻" type="tts">magiker: hudton 1–2</annotation>
+		<annotation cp="🧙🏼">häxa | trollkarl | hudton 3</annotation>
+		<annotation cp="🧙🏼" type="tts">magiker: hudton 3</annotation>
+		<annotation cp="🧙🏽">häxa | trollkarl | hudton 4</annotation>
+		<annotation cp="🧙🏽" type="tts">magiker: hudton 4</annotation>
+		<annotation cp="🧙🏾">häxa | trollkarl | hudton 5</annotation>
+		<annotation cp="🧙🏾" type="tts">magiker: hudton 5</annotation>
+		<annotation cp="🧙🏿">häxa | trollkarl | hudton 6</annotation>
+		<annotation cp="🧙🏿" type="tts">magiker: hudton 6</annotation>
+		<annotation cp="🧙🏻‍♀">häxa | hudton 1–2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">kvinnlig magiker: hudton 1–2</annotation>
+		<annotation cp="🧙🏼‍♀">häxa | hudton 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">kvinnlig magiker: hudton 3</annotation>
+		<annotation cp="🧙🏽‍♀">häxa | hudton 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">kvinnlig magiker: hudton 4</annotation>
+		<annotation cp="🧙🏾‍♀">häxa | hudton 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">kvinnlig magiker: hudton 5</annotation>
+		<annotation cp="🧙🏿‍♀">häxa | hudton 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">kvinnlig magiker: hudton 6</annotation>
+		<annotation cp="🧙🏻‍♂">trollkarl | hudton 1–2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">manlig magiker: hudton 1–2</annotation>
+		<annotation cp="🧙🏼‍♂">trollkarl | hudton 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">manlig magiker: hudton 3</annotation>
+		<annotation cp="🧙🏽‍♂">trollkarl | hudton 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">manlig magiker: hudton 4</annotation>
+		<annotation cp="🧙🏾‍♂">trollkarl | hudton 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">manlig magiker: hudton 5</annotation>
+		<annotation cp="🧙🏿‍♂">trollkarl | hudton 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">manlig magiker: hudton 6</annotation>
+		<annotation cp="🧚🏻">Oberon | Puck | Titania | hudton 1–2</annotation>
+		<annotation cp="🧚🏻" type="tts">älva: hudton 1–2</annotation>
+		<annotation cp="🧚🏼">Oberon | Puck | Titania | hudton 3</annotation>
+		<annotation cp="🧚🏼" type="tts">älva: hudton 3</annotation>
+		<annotation cp="🧚🏽">Oberon | Puck | Titania | hudton 4</annotation>
+		<annotation cp="🧚🏽" type="tts">älva: hudton 4</annotation>
+		<annotation cp="🧚🏾">Oberon | Puck | Titania | hudton 5</annotation>
+		<annotation cp="🧚🏾" type="tts">älva: hudton 5</annotation>
+		<annotation cp="🧚🏿">Oberon | Puck | Titania | hudton 6</annotation>
+		<annotation cp="🧚🏿" type="tts">älva: hudton 6</annotation>
+		<annotation cp="🧚🏻‍♀">Titania | hudton 1–2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">kvinnlig fé: hudton 1–2</annotation>
+		<annotation cp="🧚🏼‍♀">Titania | hudton 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">kvinnlig fé: hudton 3</annotation>
+		<annotation cp="🧚🏽‍♀">Titania | hudton 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">kvinnlig fé: hudton 4</annotation>
+		<annotation cp="🧚🏾‍♀">Titania | hudton 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">kvinnlig fé: hudton 5</annotation>
+		<annotation cp="🧚🏿‍♀">Titania | hudton 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">kvinnlig fé: hudton 6</annotation>
+		<annotation cp="🧚🏻‍♂">Oberon | Puck | hudton 1–2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">alv: hudton 1–2</annotation>
+		<annotation cp="🧚🏼‍♂">Oberon | Puck | hudton 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">alv: hudton 3</annotation>
+		<annotation cp="🧚🏽‍♂">Oberon | Puck | hudton 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">alv: hudton 4</annotation>
+		<annotation cp="🧚🏾‍♂">Oberon | Puck | hudton 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">alv: hudton 5</annotation>
+		<annotation cp="🧚🏿‍♂">Oberon | Puck | hudton 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">alv: hudton 6</annotation>
+		<annotation cp="🧛🏻">Drakula | vandöd | hudton 1–2</annotation>
+		<annotation cp="🧛🏻" type="tts">vampyr: hudton 1–2</annotation>
+		<annotation cp="🧛🏼">Drakula | vandöd | hudton 3</annotation>
+		<annotation cp="🧛🏼" type="tts">vampyr: hudton 3</annotation>
+		<annotation cp="🧛🏽">Drakula | vandöd | hudton 4</annotation>
+		<annotation cp="🧛🏽" type="tts">vampyr: hudton 4</annotation>
+		<annotation cp="🧛🏾">Drakula | vandöd | hudton 5</annotation>
+		<annotation cp="🧛🏾" type="tts">vampyr: hudton 5</annotation>
+		<annotation cp="🧛🏿">Drakula | vandöd | hudton 6</annotation>
+		<annotation cp="🧛🏿" type="tts">vampyr: hudton 6</annotation>
+		<annotation cp="🧛🏻‍♀">vandöd | hudton 1–2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">kvinnlig vampyr: hudton 1–2</annotation>
+		<annotation cp="🧛🏼‍♀">vandöd | hudton 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">kvinnlig vampyr: hudton 3</annotation>
+		<annotation cp="🧛🏽‍♀">vandöd | hudton 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">kvinnlig vampyr: hudton 4</annotation>
+		<annotation cp="🧛🏾‍♀">vandöd | hudton 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">kvinnlig vampyr: hudton 5</annotation>
+		<annotation cp="🧛🏿‍♀">vandöd | hudton 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">kvinnlig vampyr: hudton 6</annotation>
+		<annotation cp="🧛🏻‍♂">Drakula | vandöd | hudton 1–2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">manlig vampyr: hudton 1–2</annotation>
+		<annotation cp="🧛🏼‍♂">Drakula | vandöd | hudton 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">manlig vampyr: hudton 3</annotation>
+		<annotation cp="🧛🏽‍♂">Drakula | vandöd | hudton 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">manlig vampyr: hudton 4</annotation>
+		<annotation cp="🧛🏾‍♂">Drakula | vandöd | hudton 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">manlig vampyr: hudton 5</annotation>
+		<annotation cp="🧛🏿‍♂">Drakula | vandöd | hudton 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">manlig vampyr: hudton 6</annotation>
+		<annotation cp="🧜🏻">näcken | sjöjungfru | sjörå | hudton 1–2</annotation>
+		<annotation cp="🧜🏻" type="tts">vattenväsen: hudton 1–2</annotation>
+		<annotation cp="🧜🏼">näcken | sjöjungfru | sjörå | hudton 3</annotation>
+		<annotation cp="🧜🏼" type="tts">vattenväsen: hudton 3</annotation>
+		<annotation cp="🧜🏽">näcken | sjöjungfru | sjörå | hudton 4</annotation>
+		<annotation cp="🧜🏽" type="tts">vattenväsen: hudton 4</annotation>
+		<annotation cp="🧜🏾">näcken | sjöjungfru | sjörå | hudton 5</annotation>
+		<annotation cp="🧜🏾" type="tts">vattenväsen: hudton 5</annotation>
+		<annotation cp="🧜🏿">näcken | sjöjungfru | sjörå | hudton 6</annotation>
+		<annotation cp="🧜🏿" type="tts">vattenväsen: hudton 6</annotation>
+		<annotation cp="🧜🏻‍♀">sjörå | hudton 1–2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">sjöjungfru: hudton 1–2</annotation>
+		<annotation cp="🧜🏼‍♀">sjörå | hudton 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">sjöjungfru: hudton 3</annotation>
+		<annotation cp="🧜🏽‍♀">sjörå | hudton 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">sjöjungfru: hudton 4</annotation>
+		<annotation cp="🧜🏾‍♀">sjörå | hudton 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">sjöjungfru: hudton 5</annotation>
+		<annotation cp="🧜🏿‍♀">sjörå | hudton 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">sjöjungfru: hudton 6</annotation>
+		<annotation cp="🧜🏻‍♂">Triton | hudton 1–2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">strömkarl: hudton 1–2</annotation>
+		<annotation cp="🧜🏼‍♂">Triton | hudton 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">strömkarl: hudton 3</annotation>
+		<annotation cp="🧜🏽‍♂">Triton | hudton 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">strömkarl: hudton 4</annotation>
+		<annotation cp="🧜🏾‍♂">Triton | hudton 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">strömkarl: hudton 5</annotation>
+		<annotation cp="🧜🏿‍♂">Triton | hudton 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">strömkarl: hudton 6</annotation>
+		<annotation cp="🧝🏻">magisk | hudton 1–2</annotation>
+		<annotation cp="🧝🏻" type="tts">tomte: hudton 1–2</annotation>
+		<annotation cp="🧝🏼">magisk | hudton 3</annotation>
+		<annotation cp="🧝🏼" type="tts">tomte: hudton 3</annotation>
+		<annotation cp="🧝🏽">magisk | hudton 4</annotation>
+		<annotation cp="🧝🏽" type="tts">tomte: hudton 4</annotation>
+		<annotation cp="🧝🏾">magisk | hudton 5</annotation>
+		<annotation cp="🧝🏾" type="tts">tomte: hudton 5</annotation>
+		<annotation cp="🧝🏿">magisk | hudton 6</annotation>
+		<annotation cp="🧝🏿" type="tts">tomte: hudton 6</annotation>
+		<annotation cp="🧝🏻‍♀">magisk | hudton 1–2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">skogsrå: hudton 1–2</annotation>
+		<annotation cp="🧝🏼‍♀">magisk | hudton 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">skogsrå: hudton 3</annotation>
+		<annotation cp="🧝🏽‍♀">magisk | hudton 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">skogsrå: hudton 4</annotation>
+		<annotation cp="🧝🏾‍♀">magisk | hudton 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">skogsrå: hudton 5</annotation>
+		<annotation cp="🧝🏿‍♀">magisk | hudton 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">skogsrå: hudton 6</annotation>
+		<annotation cp="🧝🏻‍♂">magisk | hudton 1–2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">nisse: hudton 1–2</annotation>
+		<annotation cp="🧝🏼‍♂">magisk | hudton 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">nisse: hudton 3</annotation>
+		<annotation cp="🧝🏽‍♂">magisk | hudton 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">nisse: hudton 4</annotation>
+		<annotation cp="🧝🏾‍♂">magisk | hudton 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">nisse: hudton 5</annotation>
+		<annotation cp="🧝🏿‍♂">magisk | hudton 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">nisse: hudton 6</annotation>
 		<annotation cp="🙍🏻">person | sur | hudton 1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">bister uppsyn: hudton 1–2</annotation>
 		<annotation cp="🙍🏼">person | sur | hudton 3</annotation>
@@ -843,45 +1053,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁🏿‍♀">dricks | hjälpa | information | kvinna | hudton 6</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">hjälpande kvinna: hudton 6</annotation>
 		<annotation cp="🙋🏻">person | räcker upp handen | hudton 1–2</annotation>
-		<annotation cp="🙋🏻" type="tts">glad person räcker upp hand: hudton 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">person som räcker upp handen: hudton 1–2</annotation>
 		<annotation cp="🙋🏼">person | räcker upp handen | hudton 3</annotation>
-		<annotation cp="🙋🏼" type="tts">glad person räcker upp hand: hudton 3</annotation>
+		<annotation cp="🙋🏼" type="tts">person som räcker upp handen: hudton 3</annotation>
 		<annotation cp="🙋🏽">person | räcker upp handen | hudton 4</annotation>
-		<annotation cp="🙋🏽" type="tts">glad person räcker upp hand: hudton 4</annotation>
+		<annotation cp="🙋🏽" type="tts">person som räcker upp handen: hudton 4</annotation>
 		<annotation cp="🙋🏾">person | räcker upp handen | hudton 5</annotation>
-		<annotation cp="🙋🏾" type="tts">glad person räcker upp hand: hudton 5</annotation>
+		<annotation cp="🙋🏾" type="tts">person som räcker upp handen: hudton 5</annotation>
 		<annotation cp="🙋🏿">person | räcker upp handen | hudton 6</annotation>
-		<annotation cp="🙋🏿" type="tts">glad person räcker upp hand: hudton 6</annotation>
+		<annotation cp="🙋🏿" type="tts">person som räcker upp handen: hudton 6</annotation>
 		<annotation cp="🙋🏻‍♂">man | räcka upp handen | hudton 1–2</annotation>
-		<annotation cp="🙋🏻‍♂" type="tts">man med armen i vädret: hudton 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">man som räcker upp handen: hudton 1–2</annotation>
 		<annotation cp="🙋🏼‍♂">man | räcka upp handen | hudton 3</annotation>
-		<annotation cp="🙋🏼‍♂" type="tts">man med armen i vädret: hudton 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">man som räcker upp handen: hudton 3</annotation>
 		<annotation cp="🙋🏽‍♂">man | räcka upp handen | hudton 4</annotation>
-		<annotation cp="🙋🏽‍♂" type="tts">man med armen i vädret: hudton 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">man som räcker upp handen: hudton 4</annotation>
 		<annotation cp="🙋🏾‍♂">man | räcka upp handen | hudton 5</annotation>
-		<annotation cp="🙋🏾‍♂" type="tts">man med armen i vädret: hudton 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">man som räcker upp handen: hudton 5</annotation>
 		<annotation cp="🙋🏿‍♂">man | räcka upp handen | hudton 6</annotation>
-		<annotation cp="🙋🏿‍♂" type="tts">man med armen i vädret: hudton 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">man som räcker upp handen: hudton 6</annotation>
 		<annotation cp="🙋🏻‍♀">kvinna | räcka upp handen | hudton 1–2</annotation>
-		<annotation cp="🙋🏻‍♀" type="tts">kvinna med armen i vädret: hudton 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">kvinna som räcker upp handen: hudton 1–2</annotation>
 		<annotation cp="🙋🏼‍♀">kvinna | räcka upp handen | hudton 3</annotation>
-		<annotation cp="🙋🏼‍♀" type="tts">kvinna med armen i vädret: hudton 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">kvinna som räcker upp handen: hudton 3</annotation>
 		<annotation cp="🙋🏽‍♀">kvinna | räcka upp handen | hudton 4</annotation>
-		<annotation cp="🙋🏽‍♀" type="tts">kvinna med armen i vädret: hudton 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">kvinna som räcker upp handen: hudton 4</annotation>
 		<annotation cp="🙋🏾‍♀">kvinna | räcka upp handen | hudton 5</annotation>
-		<annotation cp="🙋🏾‍♀" type="tts">kvinna med armen i vädret: hudton 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">kvinna som räcker upp handen: hudton 5</annotation>
 		<annotation cp="🙋🏿‍♀">kvinna | räcka upp handen | hudton 6</annotation>
-		<annotation cp="🙋🏿‍♀" type="tts">kvinna med armen i vädret: hudton 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">kvinna som räcker upp handen: hudton 6</annotation>
 		<annotation cp="🙇🏻">beklagar | bugar | gest | hudton 1–2</annotation>
-		<annotation cp="🙇🏻" type="tts">person som ber om ursäkt: hudton 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">djupt bugande person: hudton 1–2</annotation>
 		<annotation cp="🙇🏼">beklagar | bugar | gest | hudton 3</annotation>
-		<annotation cp="🙇🏼" type="tts">person som ber om ursäkt: hudton 3</annotation>
+		<annotation cp="🙇🏼" type="tts">djupt bugande person: hudton 3</annotation>
 		<annotation cp="🙇🏽">beklagar | bugar | gest | hudton 4</annotation>
-		<annotation cp="🙇🏽" type="tts">person som ber om ursäkt: hudton 4</annotation>
+		<annotation cp="🙇🏽" type="tts">djupt bugande person: hudton 4</annotation>
 		<annotation cp="🙇🏾">beklagar | bugar | gest | hudton 5</annotation>
-		<annotation cp="🙇🏾" type="tts">person som ber om ursäkt: hudton 5</annotation>
+		<annotation cp="🙇🏾" type="tts">djupt bugande person: hudton 5</annotation>
 		<annotation cp="🙇🏿">beklagar | bugar | gest | hudton 6</annotation>
-		<annotation cp="🙇🏿" type="tts">person som ber om ursäkt: hudton 6</annotation>
+		<annotation cp="🙇🏿" type="tts">djupt bugande person: hudton 6</annotation>
 		<annotation cp="🙇🏻‍♂">beklagelse | buga | man | ursäkt | hudton 1–2</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">djupt bugande man: hudton 1–2</annotation>
 		<annotation cp="🙇🏼‍♂">beklagelse | buga | man | ursäkt | hudton 3</annotation>
@@ -903,35 +1113,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙇🏿‍♀">beklagelse | buga | kvinna | ursäkt | hudton 6</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">djupt bugande kvinna: hudton 6</annotation>
 		<annotation cp="🤦🏻">ansikte | handflata | irritation | misstro | hudton 1–2</annotation>
-		<annotation cp="🤦🏻" type="tts">slå sig på pannan: hudton 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">slå sig för pannan: hudton 1–2</annotation>
 		<annotation cp="🤦🏼">ansikte | handflata | irritation | misstro | hudton 3</annotation>
-		<annotation cp="🤦🏼" type="tts">slå sig på pannan: hudton 3</annotation>
+		<annotation cp="🤦🏼" type="tts">slå sig för pannan: hudton 3</annotation>
 		<annotation cp="🤦🏽">ansikte | handflata | irritation | misstro | hudton 4</annotation>
-		<annotation cp="🤦🏽" type="tts">slå sig på pannan: hudton 4</annotation>
+		<annotation cp="🤦🏽" type="tts">slå sig för pannan: hudton 4</annotation>
 		<annotation cp="🤦🏾">ansikte | handflata | irritation | misstro | hudton 5</annotation>
-		<annotation cp="🤦🏾" type="tts">slå sig på pannan: hudton 5</annotation>
+		<annotation cp="🤦🏾" type="tts">slå sig för pannan: hudton 5</annotation>
 		<annotation cp="🤦🏿">ansikte | handflata | irritation | misstro | hudton 6</annotation>
-		<annotation cp="🤦🏿" type="tts">slå sig på pannan: hudton 6</annotation>
+		<annotation cp="🤦🏿" type="tts">slå sig för pannan: hudton 6</annotation>
 		<annotation cp="🤦🏻‍♂">facepalm | man | misstro | hudton 1–2</annotation>
-		<annotation cp="🤦🏻‍♂" type="tts">besviken man: hudton 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">man som slår sig för pannan: hudton 1–2</annotation>
 		<annotation cp="🤦🏼‍♂">facepalm | man | misstro | hudton 3</annotation>
-		<annotation cp="🤦🏼‍♂" type="tts">besviken man: hudton 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">man som slår sig för pannan: hudton 3</annotation>
 		<annotation cp="🤦🏽‍♂">facepalm | man | misstro | hudton 4</annotation>
-		<annotation cp="🤦🏽‍♂" type="tts">besviken man: hudton 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">man som slår sig för pannan: hudton 4</annotation>
 		<annotation cp="🤦🏾‍♂">facepalm | man | misstro | hudton 5</annotation>
-		<annotation cp="🤦🏾‍♂" type="tts">besviken man: hudton 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">man som slår sig för pannan: hudton 5</annotation>
 		<annotation cp="🤦🏿‍♂">facepalm | man | misstro | hudton 6</annotation>
-		<annotation cp="🤦🏿‍♂" type="tts">besviken man: hudton 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">man som slår sig för pannan: hudton 6</annotation>
 		<annotation cp="🤦🏻‍♀">facepalm | kvinna | misstro | hudton 1–2</annotation>
-		<annotation cp="🤦🏻‍♀" type="tts">besviken kvinna: hudton 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">kvinna som slår sig för pannan: hudton 1–2</annotation>
 		<annotation cp="🤦🏼‍♀">facepalm | kvinna | misstro | hudton 3</annotation>
-		<annotation cp="🤦🏼‍♀" type="tts">besviken kvinna: hudton 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">kvinna som slår sig för pannan: hudton 3</annotation>
 		<annotation cp="🤦🏽‍♀">facepalm | kvinna | misstro | hudton 4</annotation>
-		<annotation cp="🤦🏽‍♀" type="tts">besviken kvinna: hudton 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">kvinna som slår sig för pannan: hudton 4</annotation>
 		<annotation cp="🤦🏾‍♀">facepalm | kvinna | misstro | hudton 5</annotation>
-		<annotation cp="🤦🏾‍♀" type="tts">besviken kvinna: hudton 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">kvinna som slår sig för pannan: hudton 5</annotation>
 		<annotation cp="🤦🏿‍♀">facepalm | kvinna | misstro | hudton 6</annotation>
-		<annotation cp="🤦🏿‍♀" type="tts">besviken kvinna: hudton 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">kvinna som slår sig för pannan: hudton 6</annotation>
 		<annotation cp="🤷🏻">axelryckning | likgiltighet | okunskap | tvivel | hudton 1–2</annotation>
 		<annotation cp="🤷🏻" type="tts">axelryckning: hudton 1–2</annotation>
 		<annotation cp="🤷🏼">axelryckning | likgiltighet | okunskap | tvivel | hudton 3</annotation>
@@ -943,25 +1153,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏿">axelryckning | likgiltighet | okunskap | tvivel | hudton 6</annotation>
 		<annotation cp="🤷🏿" type="tts">axelryckning: hudton 6</annotation>
 		<annotation cp="🤷🏻‍♂">axelryckning | ignorant | man | hudton 1–2</annotation>
-		<annotation cp="🤷🏻‍♂" type="tts">ovetande man: hudton 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">man som rycker på axlarna: hudton 1–2</annotation>
 		<annotation cp="🤷🏼‍♂">axelryckning | ignorant | man | hudton 3</annotation>
-		<annotation cp="🤷🏼‍♂" type="tts">ovetande man: hudton 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">man som rycker på axlarna: hudton 3</annotation>
 		<annotation cp="🤷🏽‍♂">axelryckning | ignorant | man | hudton 4</annotation>
-		<annotation cp="🤷🏽‍♂" type="tts">ovetande man: hudton 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">man som rycker på axlarna: hudton 4</annotation>
 		<annotation cp="🤷🏾‍♂">axelryckning | ignorant | man | hudton 5</annotation>
-		<annotation cp="🤷🏾‍♂" type="tts">ovetande man: hudton 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">man som rycker på axlarna: hudton 5</annotation>
 		<annotation cp="🤷🏿‍♂">axelryckning | ignorant | man | hudton 6</annotation>
-		<annotation cp="🤷🏿‍♂" type="tts">ovetande man: hudton 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">man som rycker på axlarna: hudton 6</annotation>
 		<annotation cp="🤷🏻‍♀">axelryckning | ignorant | kvinna | hudton 1–2</annotation>
-		<annotation cp="🤷🏻‍♀" type="tts">ovetande kvinna: hudton 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">kvinna som rycker på axlarna: hudton 1–2</annotation>
 		<annotation cp="🤷🏼‍♀">axelryckning | ignorant | kvinna | hudton 3</annotation>
-		<annotation cp="🤷🏼‍♀" type="tts">ovetande kvinna: hudton 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">kvinna som rycker på axlarna: hudton 3</annotation>
 		<annotation cp="🤷🏽‍♀">axelryckning | ignorant | kvinna | hudton 4</annotation>
-		<annotation cp="🤷🏽‍♀" type="tts">ovetande kvinna: hudton 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">kvinna som rycker på axlarna: hudton 4</annotation>
 		<annotation cp="🤷🏾‍♀">axelryckning | ignorant | kvinna | hudton 5</annotation>
-		<annotation cp="🤷🏾‍♀" type="tts">ovetande kvinna: hudton 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">kvinna som rycker på axlarna: hudton 5</annotation>
 		<annotation cp="🤷🏿‍♀">axelryckning | ignorant | kvinna | hudton 6</annotation>
-		<annotation cp="🤷🏿‍♀" type="tts">ovetande kvinna: hudton 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">kvinna som rycker på axlarna: hudton 6</annotation>
 		<annotation cp="💆🏻">behandling | massage | hudton 1–2</annotation>
 		<annotation cp="💆🏻" type="tts">ansiktsmassage: hudton 1–2</annotation>
 		<annotation cp="💆🏼">behandling | massage | hudton 3</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">dansande man: hudton 5</annotation>
 		<annotation cp="🕺🏿">dans | man | hudton 6</annotation>
 		<annotation cp="🕺🏿" type="tts">dansande man: hudton 6</annotation>
+		<annotation cp="🧖🏻">bastu | ångbastu | hudton 1–2</annotation>
+		<annotation cp="🧖🏻" type="tts">person i ångbastu: hudton 1–2</annotation>
+		<annotation cp="🧖🏼">bastu | ångbastu | hudton 3</annotation>
+		<annotation cp="🧖🏼" type="tts">person i ångbastu: hudton 3</annotation>
+		<annotation cp="🧖🏽">bastu | ångbastu | hudton 4</annotation>
+		<annotation cp="🧖🏽" type="tts">person i ångbastu: hudton 4</annotation>
+		<annotation cp="🧖🏾">bastu | ångbastu | hudton 5</annotation>
+		<annotation cp="🧖🏾" type="tts">person i ångbastu: hudton 5</annotation>
+		<annotation cp="🧖🏿">bastu | ångbastu | hudton 6</annotation>
+		<annotation cp="🧖🏿" type="tts">person i ångbastu: hudton 6</annotation>
+		<annotation cp="🧖🏻‍♀">bastu | ångbastu | hudton 1–2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">kvinna i ångbastu: hudton 1–2</annotation>
+		<annotation cp="🧖🏼‍♀">bastu | ångbastu | hudton 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">kvinna i ångbastu: hudton 3</annotation>
+		<annotation cp="🧖🏽‍♀">bastu | ångbastu | hudton 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">kvinna i ångbastu: hudton 4</annotation>
+		<annotation cp="🧖🏾‍♀">bastu | ångbastu | hudton 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">kvinna i ångbastu: hudton 5</annotation>
+		<annotation cp="🧖🏿‍♀">bastu | ångbastu | hudton 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">kvinna i ångbastu: hudton 6</annotation>
+		<annotation cp="🧖🏻‍♂">bastu | ångbastu | hudton 1–2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">man i ångbastu: hudton 1–2</annotation>
+		<annotation cp="🧖🏼‍♂">bastu | ångbastu | hudton 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">man i ångbastu: hudton 3</annotation>
+		<annotation cp="🧖🏽‍♂">bastu | ångbastu | hudton 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">man i ångbastu: hudton 4</annotation>
+		<annotation cp="🧖🏾‍♂">bastu | ångbastu | hudton 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">man i ångbastu: hudton 5</annotation>
+		<annotation cp="🧖🏿‍♂">bastu | ångbastu | hudton 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">man i ångbastu: hudton 6</annotation>
+		<annotation cp="🧗🏻">klättrare | hudton 1–2</annotation>
+		<annotation cp="🧗🏻" type="tts">person klättrar: hudton 1–2</annotation>
+		<annotation cp="🧗🏼">klättrare | hudton 3</annotation>
+		<annotation cp="🧗🏼" type="tts">person klättrar: hudton 3</annotation>
+		<annotation cp="🧗🏽">klättrare | hudton 4</annotation>
+		<annotation cp="🧗🏽" type="tts">person klättrar: hudton 4</annotation>
+		<annotation cp="🧗🏾">klättrare | hudton 5</annotation>
+		<annotation cp="🧗🏾" type="tts">person klättrar: hudton 5</annotation>
+		<annotation cp="🧗🏿">klättrare | hudton 6</annotation>
+		<annotation cp="🧗🏿" type="tts">person klättrar: hudton 6</annotation>
+		<annotation cp="🧗🏻‍♀">klättrare | hudton 1–2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">kvinna klättrar: hudton 1–2</annotation>
+		<annotation cp="🧗🏼‍♀">klättrare | hudton 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">kvinna klättrar: hudton 3</annotation>
+		<annotation cp="🧗🏽‍♀">klättrare | hudton 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">kvinna klättrar: hudton 4</annotation>
+		<annotation cp="🧗🏾‍♀">klättrare | hudton 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">kvinna klättrar: hudton 5</annotation>
+		<annotation cp="🧗🏿‍♀">klättrare | hudton 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">kvinna klättrar: hudton 6</annotation>
+		<annotation cp="🧗🏻‍♂">klättrare | hudton 1–2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">man klättrar: hudton 1–2</annotation>
+		<annotation cp="🧗🏼‍♂">klättrare | hudton 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">man klättrar: hudton 3</annotation>
+		<annotation cp="🧗🏽‍♂">klättrare | hudton 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">man klättrar: hudton 4</annotation>
+		<annotation cp="🧗🏾‍♂">klättrare | hudton 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">man klättrar: hudton 5</annotation>
+		<annotation cp="🧗🏿‍♂">klättrare | hudton 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">man klättrar: hudton 6</annotation>
+		<annotation cp="🧘🏻">meditering | yoga | hudton 1–2</annotation>
+		<annotation cp="🧘🏻" type="tts">person i lotusposition: hudton 1–2</annotation>
+		<annotation cp="🧘🏼">meditering | yoga | hudton 3</annotation>
+		<annotation cp="🧘🏼" type="tts">person i lotusposition: hudton 3</annotation>
+		<annotation cp="🧘🏽">meditering | yoga | hudton 4</annotation>
+		<annotation cp="🧘🏽" type="tts">person i lotusposition: hudton 4</annotation>
+		<annotation cp="🧘🏾">meditering | yoga | hudton 5</annotation>
+		<annotation cp="🧘🏾" type="tts">person i lotusposition: hudton 5</annotation>
+		<annotation cp="🧘🏿">meditering | yoga | hudton 6</annotation>
+		<annotation cp="🧘🏿" type="tts">person i lotusposition: hudton 6</annotation>
+		<annotation cp="🧘🏻‍♀">meditering | yoga | hudton 1–2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">kvinna i lotusposition: hudton 1–2</annotation>
+		<annotation cp="🧘🏼‍♀">meditering | yoga | hudton 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">kvinna i lotusposition: hudton 3</annotation>
+		<annotation cp="🧘🏽‍♀">meditering | yoga | hudton 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">kvinna i lotusposition: hudton 4</annotation>
+		<annotation cp="🧘🏾‍♀">meditering | yoga | hudton 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">kvinna i lotusposition: hudton 5</annotation>
+		<annotation cp="🧘🏿‍♀">meditering | yoga | hudton 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">kvinna i lotusposition: hudton 6</annotation>
+		<annotation cp="🧘🏻‍♂">meditering | yoga | hudton 1–2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">man i lotusposition: hudton 1–2</annotation>
+		<annotation cp="🧘🏼‍♂">meditering | yoga | hudton 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">man i lotusposition: hudton 3</annotation>
+		<annotation cp="🧘🏽‍♂">meditering | yoga | hudton 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">man i lotusposition: hudton 4</annotation>
+		<annotation cp="🧘🏾‍♂">meditering | yoga | hudton 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">man i lotusposition: hudton 5</annotation>
+		<annotation cp="🧘🏿‍♂">meditering | yoga | hudton 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">man i lotusposition: hudton 6</annotation>
 		<annotation cp="🛀🏻">badar | badkar | hudton 1–2</annotation>
 		<annotation cp="🛀🏻" type="tts">bad: hudton 1–2</annotation>
 		<annotation cp="🛀🏼">badar | badkar | hudton 3</annotation>
@@ -1393,35 +1693,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵🏿‍♀">cykel | cyklist | kvinna | kvinnlig | mountain | hudton 6</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">kvinna åker mountainbike: hudton 6</annotation>
 		<annotation cp="🤸🏻">gym | gymnastik | person | slå hjul | sport | hudton 1–2</annotation>
-		<annotation cp="🤸🏻" type="tts">slå hjul: hudton 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">hjula: hudton 1–2</annotation>
 		<annotation cp="🤸🏼">gym | gymnastik | person | slå hjul | sport | hudton 3</annotation>
-		<annotation cp="🤸🏼" type="tts">slå hjul: hudton 3</annotation>
+		<annotation cp="🤸🏼" type="tts">hjula: hudton 3</annotation>
 		<annotation cp="🤸🏽">gym | gymnastik | person | slå hjul | sport | hudton 4</annotation>
-		<annotation cp="🤸🏽" type="tts">slå hjul: hudton 4</annotation>
+		<annotation cp="🤸🏽" type="tts">hjula: hudton 4</annotation>
 		<annotation cp="🤸🏾">gym | gymnastik | person | slå hjul | sport | hudton 5</annotation>
-		<annotation cp="🤸🏾" type="tts">slå hjul: hudton 5</annotation>
+		<annotation cp="🤸🏾" type="tts">hjula: hudton 5</annotation>
 		<annotation cp="🤸🏿">gym | gymnastik | person | slå hjul | sport | hudton 6</annotation>
-		<annotation cp="🤸🏿" type="tts">slå hjul: hudton 6</annotation>
+		<annotation cp="🤸🏿" type="tts">hjula: hudton 6</annotation>
 		<annotation cp="🤸🏻‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 1–2</annotation>
-		<annotation cp="🤸🏻‍♂" type="tts">man slår hjul: hudton 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">man som hjular: hudton 1–2</annotation>
 		<annotation cp="🤸🏼‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 3</annotation>
-		<annotation cp="🤸🏼‍♂" type="tts">man slår hjul: hudton 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">man som hjular: hudton 3</annotation>
 		<annotation cp="🤸🏽‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 4</annotation>
-		<annotation cp="🤸🏽‍♂" type="tts">man slår hjul: hudton 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">man som hjular: hudton 4</annotation>
 		<annotation cp="🤸🏾‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 5</annotation>
-		<annotation cp="🤸🏾‍♂" type="tts">man slår hjul: hudton 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">man som hjular: hudton 5</annotation>
 		<annotation cp="🤸🏿‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 6</annotation>
-		<annotation cp="🤸🏿‍♂" type="tts">man slår hjul: hudton 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">man som hjular: hudton 6</annotation>
 		<annotation cp="🤸🏻‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 1–2</annotation>
-		<annotation cp="🤸🏻‍♀" type="tts">kvinna slår hjul: hudton 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">kvinna som hjular: hudton 1–2</annotation>
 		<annotation cp="🤸🏼‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 3</annotation>
-		<annotation cp="🤸🏼‍♀" type="tts">kvinna slår hjul: hudton 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">kvinna som hjular: hudton 3</annotation>
 		<annotation cp="🤸🏽‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 4</annotation>
-		<annotation cp="🤸🏽‍♀" type="tts">kvinna slår hjul: hudton 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">kvinna som hjular: hudton 4</annotation>
 		<annotation cp="🤸🏾‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 5</annotation>
-		<annotation cp="🤸🏾‍♀" type="tts">kvinna slår hjul: hudton 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">kvinna som hjular: hudton 5</annotation>
 		<annotation cp="🤸🏿‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 6</annotation>
-		<annotation cp="🤸🏿‍♀" type="tts">kvinna slår hjul: hudton 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">kvinna som hjular: hudton 6</annotation>
 		<annotation cp="🤽🏻">person | polo | sport | vatten | hudton 1–2</annotation>
 		<annotation cp="🤽🏻" type="tts">vattenpolo: hudton 1–2</annotation>
 		<annotation cp="🤽🏼">person | polo | sport | vatten | hudton 3</annotation>
@@ -1634,15 +1934,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👆🏾" type="tts">pekfinger upp: hudton 5</annotation>
 		<annotation cp="👆🏿">finger | peka uppåt | pekfinger | hudton 6</annotation>
 		<annotation cp="👆🏿" type="tts">pekfinger upp: hudton 6</annotation>
-		<annotation cp="🖕🏻">långfinger | hudton 1–2</annotation>
+		<annotation cp="🖕🏻">finger | hand | hudton 1–2</annotation>
 		<annotation cp="🖕🏻" type="tts">långfinger upp: hudton 1–2</annotation>
-		<annotation cp="🖕🏼">långfinger | hudton 3</annotation>
+		<annotation cp="🖕🏼">finger | hand | hudton 3</annotation>
 		<annotation cp="🖕🏼" type="tts">långfinger upp: hudton 3</annotation>
-		<annotation cp="🖕🏽">långfinger | hudton 4</annotation>
+		<annotation cp="🖕🏽">finger | hand | hudton 4</annotation>
 		<annotation cp="🖕🏽" type="tts">långfinger upp: hudton 4</annotation>
-		<annotation cp="🖕🏾">långfinger | hudton 5</annotation>
+		<annotation cp="🖕🏾">finger | hand | hudton 5</annotation>
 		<annotation cp="🖕🏾" type="tts">långfinger upp: hudton 5</annotation>
-		<annotation cp="🖕🏿">långfinger | hudton 6</annotation>
+		<annotation cp="🖕🏿">finger | hand | hudton 6</annotation>
 		<annotation cp="🖕🏿" type="tts">långfinger upp: hudton 6</annotation>
 		<annotation cp="👇🏻">finger | peka nedåt | pekfinger | hudton 1–2</annotation>
 		<annotation cp="👇🏻" type="tts">nedåtpekande finger: hudton 1–2</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">vinkande hand: hudton 5</annotation>
 		<annotation cp="👋🏿">hand | vinka | hudton 6</annotation>
 		<annotation cp="👋🏿" type="tts">vinkande hand: hudton 6</annotation>
+		<annotation cp="🤟🏻">hand | hjärtform | hudton 1–2</annotation>
+		<annotation cp="🤟🏻" type="tts">hjärtformade händer: hudton 1–2</annotation>
+		<annotation cp="🤟🏼">hand | hjärtform | hudton 3</annotation>
+		<annotation cp="🤟🏼" type="tts">hjärtformade händer: hudton 3</annotation>
+		<annotation cp="🤟🏽">hand | hjärtform | hudton 4</annotation>
+		<annotation cp="🤟🏽" type="tts">hjärtformade händer: hudton 4</annotation>
+		<annotation cp="🤟🏾">hand | hjärtform | hudton 5</annotation>
+		<annotation cp="🤟🏾" type="tts">hjärtformade händer: hudton 5</annotation>
+		<annotation cp="🤟🏿">hand | hjärtform | hudton 6</annotation>
+		<annotation cp="🤟🏿" type="tts">hjärtformade händer: hudton 6</annotation>
 		<annotation cp="✍🏻">hand | skriver | hudton 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">hand som skriver: hudton 1–2</annotation>
 		<annotation cp="✍🏼">hand | skriver | hudton 3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">båda händerna i luften: hudton 5</annotation>
 		<annotation cp="🙌🏿">hurra | räcker upp händerna | hudton 6</annotation>
 		<annotation cp="🙌🏿" type="tts">båda händerna i luften: hudton 6</annotation>
+		<annotation cp="🤲🏻">bön | hudton 1–2</annotation>
+		<annotation cp="🤲🏻" type="tts">handflatorna upp: hudton 1–2</annotation>
+		<annotation cp="🤲🏼">bön | hudton 3</annotation>
+		<annotation cp="🤲🏼" type="tts">handflatorna upp: hudton 3</annotation>
+		<annotation cp="🤲🏽">bön | hudton 4</annotation>
+		<annotation cp="🤲🏽" type="tts">handflatorna upp: hudton 4</annotation>
+		<annotation cp="🤲🏾">bön | hudton 5</annotation>
+		<annotation cp="🤲🏾" type="tts">handflatorna upp: hudton 5</annotation>
+		<annotation cp="🤲🏿">bön | hudton 6</annotation>
+		<annotation cp="🤲🏿" type="tts">handflatorna upp: hudton 6</annotation>
 		<annotation cp="🙏🏻">be | ber | händer | hudton 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">knäppta händer: hudton 1–2</annotation>
 		<annotation cp="🙏🏼">be | ber | händer | hudton 3</annotation>
@@ -1894,10 +2214,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">näsa: hudton 5</annotation>
 		<annotation cp="👃🏿">kropp | hudton 6</annotation>
 		<annotation cp="👃🏿" type="tts">näsa: hudton 6</annotation>
-		<annotation cp="#⃣">fyrkant | hashtagg | tangent</annotation>
-		<annotation cp="#⃣" type="tts">tangent för fyrkant</annotation>
-		<annotation cp="*⃣">asterisk | stjärna | tangent</annotation>
-		<annotation cp="*⃣" type="tts">tangent för asterisk</annotation>
+		<annotation cp="#⃣">keycap</annotation>
+		<annotation cp="#⃣" type="tts">keycap: #</annotation>
+		<annotation cp="*⃣">keycap</annotation>
+		<annotation cp="*⃣" type="tts">keycap: *</annotation>
+		<annotation cp="🔟">keycap</annotation>
+		<annotation cp="🔟" type="tts">keycap: 10</annotation>
 		<annotation cp="🇦🇨">flagga</annotation>
 		<annotation cp="🇦🇨" type="tts">Ascension</annotation>
 		<annotation cp="🇦🇩">flagga</annotation>
@@ -2097,7 +2419,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇬🇾">flagga</annotation>
 		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
 		<annotation cp="🇭🇰">flagga</annotation>
-		<annotation cp="🇭🇰" type="tts">Hongkong, S.A.R. Kina</annotation>
+		<annotation cp="🇭🇰" type="tts">Hongkong</annotation>
 		<annotation cp="🇭🇲">flagga</annotation>
 		<annotation cp="🇭🇲" type="tts">Heardön och McDonaldöarna</annotation>
 		<annotation cp="🇭🇳">flagga</annotation>
@@ -2205,7 +2527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇳">flagga</annotation>
 		<annotation cp="🇲🇳" type="tts">Mongoliet</annotation>
 		<annotation cp="🇲🇴">flagga</annotation>
-		<annotation cp="🇲🇴" type="tts">Macao, S.A.R. Kina</annotation>
+		<annotation cp="🇲🇴" type="tts">Macao</annotation>
 		<annotation cp="🇲🇵">flagga</annotation>
 		<annotation cp="🇲🇵" type="tts">Nordmarianerna</annotation>
 		<annotation cp="🇲🇶">flagga</annotation>

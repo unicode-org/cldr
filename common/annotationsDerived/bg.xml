@@ -8,30 +8,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
-		<version number="$Revision: $"/>
+		<version number="$Revision$"/>
 		<language type="bg"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">0 | клавиш | нула</annotation>
-		<annotation cp="0⃣" type="tts">Клавиш с цифрата нула</annotation>
-		<annotation cp="1⃣">1 | едно | клавиш</annotation>
-		<annotation cp="1⃣" type="tts">Клавиш с цифрата едно</annotation>
-		<annotation cp="2⃣">2 | две | клавиш</annotation>
-		<annotation cp="2⃣" type="tts">Клавиш с цифрата две</annotation>
-		<annotation cp="3⃣">3 | клавиш | три</annotation>
-		<annotation cp="3⃣" type="tts">Клавиш с цифрата три</annotation>
-		<annotation cp="4⃣">4 | клавиш | четири</annotation>
-		<annotation cp="4⃣" type="tts">Клавиш с цифрата четири</annotation>
-		<annotation cp="5⃣">5 | клавиш | пет</annotation>
-		<annotation cp="5⃣" type="tts">Клавиш с цифрата пет</annotation>
-		<annotation cp="6⃣">6 | клавиш | шест</annotation>
-		<annotation cp="6⃣" type="tts">Клавиш с цифрата шест</annotation>
-		<annotation cp="7⃣">7 | клавиш | седем</annotation>
-		<annotation cp="7⃣" type="tts">Клавиш с цифрата седем</annotation>
-		<annotation cp="8⃣">8 | клавиш | осем</annotation>
-		<annotation cp="8⃣" type="tts">Клавиш с цифрата осем</annotation>
-		<annotation cp="9⃣">9 | девет | клавиш</annotation>
-		<annotation cp="9⃣" type="tts">Клавиш с цифрата девет</annotation>
+		<annotation cp="0⃣">Клавиш</annotation>
+		<annotation cp="0⃣" type="tts">Клавиш: 0</annotation>
+		<annotation cp="1⃣">Клавиш</annotation>
+		<annotation cp="1⃣" type="tts">Клавиш: 1</annotation>
+		<annotation cp="2⃣">Клавиш</annotation>
+		<annotation cp="2⃣" type="tts">Клавиш: 2</annotation>
+		<annotation cp="3⃣">Клавиш</annotation>
+		<annotation cp="3⃣" type="tts">Клавиш: 3</annotation>
+		<annotation cp="4⃣">Клавиш</annotation>
+		<annotation cp="4⃣" type="tts">Клавиш: 4</annotation>
+		<annotation cp="5⃣">Клавиш</annotation>
+		<annotation cp="5⃣" type="tts">Клавиш: 5</annotation>
+		<annotation cp="6⃣">Клавиш</annotation>
+		<annotation cp="6⃣" type="tts">Клавиш: 6</annotation>
+		<annotation cp="7⃣">Клавиш</annotation>
+		<annotation cp="7⃣" type="tts">Клавиш: 7</annotation>
+		<annotation cp="8⃣">Клавиш</annotation>
+		<annotation cp="8⃣" type="tts">Клавиш: 8</annotation>
+		<annotation cp="9⃣">Клавиш</annotation>
+		<annotation cp="9⃣" type="tts">Клавиш: 9</annotation>
 		<annotation cp="👶🏻">бебе | кожа от тип 1, 2</annotation>
 		<annotation cp="👶🏻" type="tts">бебе: кожа от тип 1, 2</annotation>
 		<annotation cp="👶🏼">бебе | кожа от тип 3</annotation>
@@ -42,6 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👶🏾" type="tts">бебе: кожа от тип 5</annotation>
 		<annotation cp="👶🏿">бебе | кожа от тип 6</annotation>
 		<annotation cp="👶🏿" type="tts">бебе: кожа от тип 6</annotation>
+		<annotation cp="🧒🏻">без определен пол | млад | кожа от тип 1, 2</annotation>
+		<annotation cp="🧒🏻" type="tts">дете: кожа от тип 1, 2</annotation>
+		<annotation cp="🧒🏼">без определен пол | млад | кожа от тип 3</annotation>
+		<annotation cp="🧒🏼" type="tts">дете: кожа от тип 3</annotation>
+		<annotation cp="🧒🏽">без определен пол | млад | кожа от тип 4</annotation>
+		<annotation cp="🧒🏽" type="tts">дете: кожа от тип 4</annotation>
+		<annotation cp="🧒🏾">без определен пол | млад | кожа от тип 5</annotation>
+		<annotation cp="🧒🏾" type="tts">дете: кожа от тип 5</annotation>
+		<annotation cp="🧒🏿">без определен пол | млад | кожа от тип 6</annotation>
+		<annotation cp="🧒🏿" type="tts">дете: кожа от тип 6</annotation>
 		<annotation cp="👦🏻">момче | кожа от тип 1, 2</annotation>
 		<annotation cp="👦🏻" type="tts">момче: кожа от тип 1, 2</annotation>
 		<annotation cp="👦🏼">момче | кожа от тип 3</annotation>
@@ -62,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">момиче: кожа от тип 5</annotation>
 		<annotation cp="👧🏿">дева | девойка | кожа от тип 6</annotation>
 		<annotation cp="👧🏿" type="tts">момиче: кожа от тип 6</annotation>
+		<annotation cp="🧑🏻">без определен пол | кожа от тип 1, 2</annotation>
+		<annotation cp="🧑🏻" type="tts">възрастен: кожа от тип 1, 2</annotation>
+		<annotation cp="🧑🏼">без определен пол | кожа от тип 3</annotation>
+		<annotation cp="🧑🏼" type="tts">възрастен: кожа от тип 3</annotation>
+		<annotation cp="🧑🏽">без определен пол | кожа от тип 4</annotation>
+		<annotation cp="🧑🏽" type="tts">възрастен: кожа от тип 4</annotation>
+		<annotation cp="🧑🏾">без определен пол | кожа от тип 5</annotation>
+		<annotation cp="🧑🏾" type="tts">възрастен: кожа от тип 5</annotation>
+		<annotation cp="🧑🏿">без определен пол | кожа от тип 6</annotation>
+		<annotation cp="🧑🏿" type="tts">възрастен: кожа от тип 6</annotation>
 		<annotation cp="👨🏻">мъж | кожа от тип 1, 2</annotation>
 		<annotation cp="👨🏻" type="tts">мъж: кожа от тип 1, 2</annotation>
 		<annotation cp="👨🏼">мъж | кожа от тип 3</annotation>
@@ -82,6 +102,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">жена: кожа от тип 5</annotation>
 		<annotation cp="👩🏿">жена | кожа от тип 6</annotation>
 		<annotation cp="👩🏿" type="tts">жена: кожа от тип 6</annotation>
+		<annotation cp="🧓🏻">без определен пол | възрастен | кожа от тип 1, 2</annotation>
+		<annotation cp="🧓🏻" type="tts">по-възрастен човек: кожа от тип 1, 2</annotation>
+		<annotation cp="🧓🏼">без определен пол | възрастен | кожа от тип 3</annotation>
+		<annotation cp="🧓🏼" type="tts">по-възрастен човек: кожа от тип 3</annotation>
+		<annotation cp="🧓🏽">без определен пол | възрастен | кожа от тип 4</annotation>
+		<annotation cp="🧓🏽" type="tts">по-възрастен човек: кожа от тип 4</annotation>
+		<annotation cp="🧓🏾">без определен пол | възрастен | кожа от тип 5</annotation>
+		<annotation cp="🧓🏾" type="tts">по-възрастен човек: кожа от тип 5</annotation>
+		<annotation cp="🧓🏿">без определен пол | възрастен | кожа от тип 6</annotation>
+		<annotation cp="🧓🏿" type="tts">по-възрастен човек: кожа от тип 6</annotation>
 		<annotation cp="👴🏻">възрастен | мъж | стар | кожа от тип 1, 2</annotation>
 		<annotation cp="👴🏻" type="tts">старец: кожа от тип 1, 2</annotation>
 		<annotation cp="👴🏼">възрастен | мъж | стар | кожа от тип 3</annotation>
@@ -563,15 +593,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏿">приказка | фантастичен | кожа от тип 6</annotation>
 		<annotation cp="👸🏿" type="tts">принцеса: кожа от тип 6</annotation>
 		<annotation cp="👳🏻">мъж | тюрбан | чалма | кожа от тип 1, 2</annotation>
-		<annotation cp="👳🏻" type="tts">Мъж с тюрбан: кожа от тип 1, 2</annotation>
+		<annotation cp="👳🏻" type="tts">човек с тюрбан: кожа от тип 1, 2</annotation>
 		<annotation cp="👳🏼">мъж | тюрбан | чалма | кожа от тип 3</annotation>
-		<annotation cp="👳🏼" type="tts">Мъж с тюрбан: кожа от тип 3</annotation>
+		<annotation cp="👳🏼" type="tts">човек с тюрбан: кожа от тип 3</annotation>
 		<annotation cp="👳🏽">мъж | тюрбан | чалма | кожа от тип 4</annotation>
-		<annotation cp="👳🏽" type="tts">Мъж с тюрбан: кожа от тип 4</annotation>
+		<annotation cp="👳🏽" type="tts">човек с тюрбан: кожа от тип 4</annotation>
 		<annotation cp="👳🏾">мъж | тюрбан | чалма | кожа от тип 5</annotation>
-		<annotation cp="👳🏾" type="tts">Мъж с тюрбан: кожа от тип 5</annotation>
+		<annotation cp="👳🏾" type="tts">човек с тюрбан: кожа от тип 5</annotation>
 		<annotation cp="👳🏿">мъж | тюрбан | чалма | кожа от тип 6</annotation>
-		<annotation cp="👳🏿" type="tts">Мъж с тюрбан: кожа от тип 6</annotation>
+		<annotation cp="👳🏿" type="tts">човек с тюрбан: кожа от тип 6</annotation>
 		<annotation cp="👳🏻‍♂">мъж | тюрбан | чалма | кожа от тип 1, 2</annotation>
 		<annotation cp="👳🏻‍♂" type="tts">мъж с тюрбан: кожа от тип 1, 2</annotation>
 		<annotation cp="👳🏼‍♂">мъж | тюрбан | чалма | кожа от тип 3</annotation>
@@ -602,6 +632,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">Мъж с китайска шапчица: кожа от тип 5</annotation>
 		<annotation cp="👲🏿">китайска шапчица | мъж | шапка | кожа от тип 6</annotation>
 		<annotation cp="👲🏿" type="tts">Мъж с китайска шапчица: кожа от тип 6</annotation>
+		<annotation cp="🧕🏻">кърпа за глава | мантила | тюрбан | хиджаб | кожа от тип 1, 2</annotation>
+		<annotation cp="🧕🏻" type="tts">жена с кърпа за глава: кожа от тип 1, 2</annotation>
+		<annotation cp="🧕🏼">кърпа за глава | мантила | тюрбан | хиджаб | кожа от тип 3</annotation>
+		<annotation cp="🧕🏼" type="tts">жена с кърпа за глава: кожа от тип 3</annotation>
+		<annotation cp="🧕🏽">кърпа за глава | мантила | тюрбан | хиджаб | кожа от тип 4</annotation>
+		<annotation cp="🧕🏽" type="tts">жена с кърпа за глава: кожа от тип 4</annotation>
+		<annotation cp="🧕🏾">кърпа за глава | мантила | тюрбан | хиджаб | кожа от тип 5</annotation>
+		<annotation cp="🧕🏾" type="tts">жена с кърпа за глава: кожа от тип 5</annotation>
+		<annotation cp="🧕🏿">кърпа за глава | мантила | тюрбан | хиджаб | кожа от тип 6</annotation>
+		<annotation cp="🧕🏿" type="tts">жена с кърпа за глава: кожа от тип 6</annotation>
+		<annotation cp="🧔🏻">брада | кожа от тип 1, 2</annotation>
+		<annotation cp="🧔🏻" type="tts">човек с брада: кожа от тип 1, 2</annotation>
+		<annotation cp="🧔🏼">брада | кожа от тип 3</annotation>
+		<annotation cp="🧔🏼" type="tts">човек с брада: кожа от тип 3</annotation>
+		<annotation cp="🧔🏽">брада | кожа от тип 4</annotation>
+		<annotation cp="🧔🏽" type="tts">човек с брада: кожа от тип 4</annotation>
+		<annotation cp="🧔🏾">брада | кожа от тип 5</annotation>
+		<annotation cp="🧔🏾" type="tts">човек с брада: кожа от тип 5</annotation>
+		<annotation cp="🧔🏿">брада | кожа от тип 6</annotation>
+		<annotation cp="🧔🏿" type="tts">човек с брада: кожа от тип 6</annotation>
 		<annotation cp="👱🏻">блондин | блондинка | кожа от тип 1, 2</annotation>
 		<annotation cp="👱🏻" type="tts">блондин/ка: кожа от тип 1, 2</annotation>
 		<annotation cp="👱🏼">блондин | блондинка | кожа от тип 3</annotation>
@@ -662,6 +712,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">бременна жена: кожа от тип 5</annotation>
 		<annotation cp="🤰🏿">бременна | жена | кожа от тип 6</annotation>
 		<annotation cp="🤰🏿" type="tts">бременна жена: кожа от тип 6</annotation>
+		<annotation cp="🤱🏻">бебе | кърмене | хранене | кожа от тип 1, 2</annotation>
+		<annotation cp="🤱🏻" type="tts">кърмене: кожа от тип 1, 2</annotation>
+		<annotation cp="🤱🏼">бебе | кърмене | хранене | кожа от тип 3</annotation>
+		<annotation cp="🤱🏼" type="tts">кърмене: кожа от тип 3</annotation>
+		<annotation cp="🤱🏽">бебе | кърмене | хранене | кожа от тип 4</annotation>
+		<annotation cp="🤱🏽" type="tts">кърмене: кожа от тип 4</annotation>
+		<annotation cp="🤱🏾">бебе | кърмене | хранене | кожа от тип 5</annotation>
+		<annotation cp="🤱🏾" type="tts">кърмене: кожа от тип 5</annotation>
+		<annotation cp="🤱🏿">бебе | кърмене | хранене | кожа от тип 6</annotation>
+		<annotation cp="🤱🏿" type="tts">кърмене: кожа от тип 6</annotation>
 		<annotation cp="👼🏻">ангел | бебе | лице | приказка | фантастичен | кожа от тип 1, 2</annotation>
 		<annotation cp="👼🏻" type="tts">ангелче: кожа от тип 1, 2</annotation>
 		<annotation cp="👼🏼">ангел | бебе | лице | приказка | фантастичен | кожа от тип 3</annotation>
@@ -692,6 +752,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">баба коледа: кожа от тип 5</annotation>
 		<annotation cp="🤶🏿">баба | коледа | кожа от тип 6</annotation>
 		<annotation cp="🤶🏿" type="tts">баба коледа: кожа от тип 6</annotation>
+		<annotation cp="🧙🏻">вълшебник | магьосник | чародей | кожа от тип 1, 2</annotation>
+		<annotation cp="🧙🏻" type="tts">магьосник: кожа от тип 1, 2</annotation>
+		<annotation cp="🧙🏼">вълшебник | магьосник | чародей | кожа от тип 3</annotation>
+		<annotation cp="🧙🏼" type="tts">магьосник: кожа от тип 3</annotation>
+		<annotation cp="🧙🏽">вълшебник | магьосник | чародей | кожа от тип 4</annotation>
+		<annotation cp="🧙🏽" type="tts">магьосник: кожа от тип 4</annotation>
+		<annotation cp="🧙🏾">вълшебник | магьосник | чародей | кожа от тип 5</annotation>
+		<annotation cp="🧙🏾" type="tts">магьосник: кожа от тип 5</annotation>
+		<annotation cp="🧙🏿">вълшебник | магьосник | чародей | кожа от тип 6</annotation>
+		<annotation cp="🧙🏿" type="tts">магьосник: кожа от тип 6</annotation>
+		<annotation cp="🧙🏻‍♀">вълшебница | чародейка | кожа от тип 1, 2</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">магьосница: кожа от тип 1, 2</annotation>
+		<annotation cp="🧙🏼‍♀">вълшебница | чародейка | кожа от тип 3</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">магьосница: кожа от тип 3</annotation>
+		<annotation cp="🧙🏽‍♀">вълшебница | чародейка | кожа от тип 4</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">магьосница: кожа от тип 4</annotation>
+		<annotation cp="🧙🏾‍♀">вълшебница | чародейка | кожа от тип 5</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">магьосница: кожа от тип 5</annotation>
+		<annotation cp="🧙🏿‍♀">вълшебница | чародейка | кожа от тип 6</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">магьосница: кожа от тип 6</annotation>
+		<annotation cp="🧙🏻‍♂">вълшебник | чародей | кожа от тип 1, 2</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">мъж магьосник: кожа от тип 1, 2</annotation>
+		<annotation cp="🧙🏼‍♂">вълшебник | чародей | кожа от тип 3</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">мъж магьосник: кожа от тип 3</annotation>
+		<annotation cp="🧙🏽‍♂">вълшебник | чародей | кожа от тип 4</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">мъж магьосник: кожа от тип 4</annotation>
+		<annotation cp="🧙🏾‍♂">вълшебник | чародей | кожа от тип 5</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">мъж магьосник: кожа от тип 5</annotation>
+		<annotation cp="🧙🏿‍♂">вълшебник | чародей | кожа от тип 6</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">мъж магьосник: кожа от тип 6</annotation>
+		<annotation cp="🧚🏻">Оберон | Пук | Титания | кожа от тип 1, 2</annotation>
+		<annotation cp="🧚🏻" type="tts">фея: кожа от тип 1, 2</annotation>
+		<annotation cp="🧚🏼">Оберон | Пук | Титания | кожа от тип 3</annotation>
+		<annotation cp="🧚🏼" type="tts">фея: кожа от тип 3</annotation>
+		<annotation cp="🧚🏽">Оберон | Пук | Титания | кожа от тип 4</annotation>
+		<annotation cp="🧚🏽" type="tts">фея: кожа от тип 4</annotation>
+		<annotation cp="🧚🏾">Оберон | Пук | Титания | кожа от тип 5</annotation>
+		<annotation cp="🧚🏾" type="tts">фея: кожа от тип 5</annotation>
+		<annotation cp="🧚🏿">Оберон | Пук | Титания | кожа от тип 6</annotation>
+		<annotation cp="🧚🏿" type="tts">фея: кожа от тип 6</annotation>
+		<annotation cp="🧚🏻‍♀">Титания | кожа от тип 1, 2</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">жена фея: кожа от тип 1, 2</annotation>
+		<annotation cp="🧚🏼‍♀">Титания | кожа от тип 3</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">жена фея: кожа от тип 3</annotation>
+		<annotation cp="🧚🏽‍♀">Титания | кожа от тип 4</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">жена фея: кожа от тип 4</annotation>
+		<annotation cp="🧚🏾‍♀">Титания | кожа от тип 5</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">жена фея: кожа от тип 5</annotation>
+		<annotation cp="🧚🏿‍♀">Титания | кожа от тип 6</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">жена фея: кожа от тип 6</annotation>
+		<annotation cp="🧚🏻‍♂">Оберон | Пук | кожа от тип 1, 2</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">мъж фея: кожа от тип 1, 2</annotation>
+		<annotation cp="🧚🏼‍♂">Оберон | Пук | кожа от тип 3</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">мъж фея: кожа от тип 3</annotation>
+		<annotation cp="🧚🏽‍♂">Оберон | Пук | кожа от тип 4</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">мъж фея: кожа от тип 4</annotation>
+		<annotation cp="🧚🏾‍♂">Оберон | Пук | кожа от тип 5</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">мъж фея: кожа от тип 5</annotation>
+		<annotation cp="🧚🏿‍♂">Оберон | Пук | кожа от тип 6</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">мъж фея: кожа от тип 6</annotation>
+		<annotation cp="🧛🏻">Дракула | немъртъв | кожа от тип 1, 2</annotation>
+		<annotation cp="🧛🏻" type="tts">вампир: кожа от тип 1, 2</annotation>
+		<annotation cp="🧛🏼">Дракула | немъртъв | кожа от тип 3</annotation>
+		<annotation cp="🧛🏼" type="tts">вампир: кожа от тип 3</annotation>
+		<annotation cp="🧛🏽">Дракула | немъртъв | кожа от тип 4</annotation>
+		<annotation cp="🧛🏽" type="tts">вампир: кожа от тип 4</annotation>
+		<annotation cp="🧛🏾">Дракула | немъртъв | кожа от тип 5</annotation>
+		<annotation cp="🧛🏾" type="tts">вампир: кожа от тип 5</annotation>
+		<annotation cp="🧛🏿">Дракула | немъртъв | кожа от тип 6</annotation>
+		<annotation cp="🧛🏿" type="tts">вампир: кожа от тип 6</annotation>
+		<annotation cp="🧛🏻‍♀">немъртъв | кожа от тип 1, 2</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">жена вампир: кожа от тип 1, 2</annotation>
+		<annotation cp="🧛🏼‍♀">немъртъв | кожа от тип 3</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">жена вампир: кожа от тип 3</annotation>
+		<annotation cp="🧛🏽‍♀">немъртъв | кожа от тип 4</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">жена вампир: кожа от тип 4</annotation>
+		<annotation cp="🧛🏾‍♀">немъртъв | кожа от тип 5</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">жена вампир: кожа от тип 5</annotation>
+		<annotation cp="🧛🏿‍♀">немъртъв | кожа от тип 6</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">жена вампир: кожа от тип 6</annotation>
+		<annotation cp="🧛🏻‍♂">Дракула | немъртъв | кожа от тип 1, 2</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">мъж вампир: кожа от тип 1, 2</annotation>
+		<annotation cp="🧛🏼‍♂">Дракула | немъртъв | кожа от тип 3</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">мъж вампир: кожа от тип 3</annotation>
+		<annotation cp="🧛🏽‍♂">Дракула | немъртъв | кожа от тип 4</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">мъж вампир: кожа от тип 4</annotation>
+		<annotation cp="🧛🏾‍♂">Дракула | немъртъв | кожа от тип 5</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">мъж вампир: кожа от тип 5</annotation>
+		<annotation cp="🧛🏿‍♂">Дракула | немъртъв | кожа от тип 6</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">мъж вампир: кожа от тип 6</annotation>
+		<annotation cp="🧜🏻">жена амфибия | мъж амфибия | русалка | кожа от тип 1, 2</annotation>
+		<annotation cp="🧜🏻" type="tts">човек амфибия: кожа от тип 1, 2</annotation>
+		<annotation cp="🧜🏼">жена амфибия | мъж амфибия | русалка | кожа от тип 3</annotation>
+		<annotation cp="🧜🏼" type="tts">човек амфибия: кожа от тип 3</annotation>
+		<annotation cp="🧜🏽">жена амфибия | мъж амфибия | русалка | кожа от тип 4</annotation>
+		<annotation cp="🧜🏽" type="tts">човек амфибия: кожа от тип 4</annotation>
+		<annotation cp="🧜🏾">жена амфибия | мъж амфибия | русалка | кожа от тип 5</annotation>
+		<annotation cp="🧜🏾" type="tts">човек амфибия: кожа от тип 5</annotation>
+		<annotation cp="🧜🏿">жена амфибия | мъж амфибия | русалка | кожа от тип 6</annotation>
+		<annotation cp="🧜🏿" type="tts">човек амфибия: кожа от тип 6</annotation>
+		<annotation cp="🧜🏻‍♀">жена амфибия | кожа от тип 1, 2</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">русалка: кожа от тип 1, 2</annotation>
+		<annotation cp="🧜🏼‍♀">жена амфибия | кожа от тип 3</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">русалка: кожа от тип 3</annotation>
+		<annotation cp="🧜🏽‍♀">жена амфибия | кожа от тип 4</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">русалка: кожа от тип 4</annotation>
+		<annotation cp="🧜🏾‍♀">жена амфибия | кожа от тип 5</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">русалка: кожа от тип 5</annotation>
+		<annotation cp="🧜🏿‍♀">жена амфибия | кожа от тип 6</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">русалка: кожа от тип 6</annotation>
+		<annotation cp="🧜🏻‍♂">Тритон | кожа от тип 1, 2</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">мъж амфибия: кожа от тип 1, 2</annotation>
+		<annotation cp="🧜🏼‍♂">Тритон | кожа от тип 3</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">мъж амфибия: кожа от тип 3</annotation>
+		<annotation cp="🧜🏽‍♂">Тритон | кожа от тип 4</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">мъж амфибия: кожа от тип 4</annotation>
+		<annotation cp="🧜🏾‍♂">Тритон | кожа от тип 5</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">мъж амфибия: кожа от тип 5</annotation>
+		<annotation cp="🧜🏿‍♂">Тритон | кожа от тип 6</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">мъж амфибия: кожа от тип 6</annotation>
+		<annotation cp="🧝🏻">магическо | кожа от тип 1, 2</annotation>
+		<annotation cp="🧝🏻" type="tts">елф: кожа от тип 1, 2</annotation>
+		<annotation cp="🧝🏼">магическо | кожа от тип 3</annotation>
+		<annotation cp="🧝🏼" type="tts">елф: кожа от тип 3</annotation>
+		<annotation cp="🧝🏽">магическо | кожа от тип 4</annotation>
+		<annotation cp="🧝🏽" type="tts">елф: кожа от тип 4</annotation>
+		<annotation cp="🧝🏾">магическо | кожа от тип 5</annotation>
+		<annotation cp="🧝🏾" type="tts">елф: кожа от тип 5</annotation>
+		<annotation cp="🧝🏿">магическо | кожа от тип 6</annotation>
+		<annotation cp="🧝🏿" type="tts">елф: кожа от тип 6</annotation>
+		<annotation cp="🧝🏻‍♀">вълшебен | кожа от тип 1, 2</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">жена елф: кожа от тип 1, 2</annotation>
+		<annotation cp="🧝🏼‍♀">вълшебен | кожа от тип 3</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">жена елф: кожа от тип 3</annotation>
+		<annotation cp="🧝🏽‍♀">вълшебен | кожа от тип 4</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">жена елф: кожа от тип 4</annotation>
+		<annotation cp="🧝🏾‍♀">вълшебен | кожа от тип 5</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">жена елф: кожа от тип 5</annotation>
+		<annotation cp="🧝🏿‍♀">вълшебен | кожа от тип 6</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">жена елф: кожа от тип 6</annotation>
+		<annotation cp="🧝🏻‍♂">вълшебен | кожа от тип 1, 2</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">мъж елф: кожа от тип 1, 2</annotation>
+		<annotation cp="🧝🏼‍♂">вълшебен | кожа от тип 3</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">мъж елф: кожа от тип 3</annotation>
+		<annotation cp="🧝🏽‍♂">вълшебен | кожа от тип 4</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">мъж елф: кожа от тип 4</annotation>
+		<annotation cp="🧝🏾‍♂">вълшебен | кожа от тип 5</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">мъж елф: кожа от тип 5</annotation>
+		<annotation cp="🧝🏿‍♂">вълшебен | кожа от тип 6</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">мъж елф: кожа от тип 6</annotation>
 		<annotation cp="🙍🏻">гримаса | жест | кожа от тип 1, 2</annotation>
 		<annotation cp="🙍🏻" type="tts">Намръщен човек: кожа от тип 1, 2</annotation>
 		<annotation cp="🙍🏼">гримаса | жест | кожа от тип 3</annotation>
@@ -1102,6 +1312,96 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">танцуващ мъж: кожа от тип 5</annotation>
 		<annotation cp="🕺🏿">мъж | танц | кожа от тип 6</annotation>
 		<annotation cp="🕺🏿" type="tts">танцуващ мъж: кожа от тип 6</annotation>
+		<annotation cp="🧖🏻">парна баня | сауна | кожа от тип 1, 2</annotation>
+		<annotation cp="🧖🏻" type="tts">човек в помещение с пара: кожа от тип 1, 2</annotation>
+		<annotation cp="🧖🏼">парна баня | сауна | кожа от тип 3</annotation>
+		<annotation cp="🧖🏼" type="tts">човек в помещение с пара: кожа от тип 3</annotation>
+		<annotation cp="🧖🏽">парна баня | сауна | кожа от тип 4</annotation>
+		<annotation cp="🧖🏽" type="tts">човек в помещение с пара: кожа от тип 4</annotation>
+		<annotation cp="🧖🏾">парна баня | сауна | кожа от тип 5</annotation>
+		<annotation cp="🧖🏾" type="tts">човек в помещение с пара: кожа от тип 5</annotation>
+		<annotation cp="🧖🏿">парна баня | сауна | кожа от тип 6</annotation>
+		<annotation cp="🧖🏿" type="tts">човек в помещение с пара: кожа от тип 6</annotation>
+		<annotation cp="🧖🏻‍♀">парна баня | сауна | кожа от тип 1, 2</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">жена в помещение с пара: кожа от тип 1, 2</annotation>
+		<annotation cp="🧖🏼‍♀">парна баня | сауна | кожа от тип 3</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">жена в помещение с пара: кожа от тип 3</annotation>
+		<annotation cp="🧖🏽‍♀">парна баня | сауна | кожа от тип 4</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">жена в помещение с пара: кожа от тип 4</annotation>
+		<annotation cp="🧖🏾‍♀">парна баня | сауна | кожа от тип 5</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">жена в помещение с пара: кожа от тип 5</annotation>
+		<annotation cp="🧖🏿‍♀">парна баня | сауна | кожа от тип 6</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">жена в помещение с пара: кожа от тип 6</annotation>
+		<annotation cp="🧖🏻‍♂">парна баня | сауна | кожа от тип 1, 2</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">мъж в помещение с пара: кожа от тип 1, 2</annotation>
+		<annotation cp="🧖🏼‍♂">парна баня | сауна | кожа от тип 3</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">мъж в помещение с пара: кожа от тип 3</annotation>
+		<annotation cp="🧖🏽‍♂">парна баня | сауна | кожа от тип 4</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">мъж в помещение с пара: кожа от тип 4</annotation>
+		<annotation cp="🧖🏾‍♂">парна баня | сауна | кожа от тип 5</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">мъж в помещение с пара: кожа от тип 5</annotation>
+		<annotation cp="🧖🏿‍♂">парна баня | сауна | кожа от тип 6</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">мъж в помещение с пара: кожа от тип 6</annotation>
+		<annotation cp="🧗🏻">алпинист | кожа от тип 1, 2</annotation>
+		<annotation cp="🧗🏻" type="tts">катерещ се човек: кожа от тип 1, 2</annotation>
+		<annotation cp="🧗🏼">алпинист | кожа от тип 3</annotation>
+		<annotation cp="🧗🏼" type="tts">катерещ се човек: кожа от тип 3</annotation>
+		<annotation cp="🧗🏽">алпинист | кожа от тип 4</annotation>
+		<annotation cp="🧗🏽" type="tts">катерещ се човек: кожа от тип 4</annotation>
+		<annotation cp="🧗🏾">алпинист | кожа от тип 5</annotation>
+		<annotation cp="🧗🏾" type="tts">катерещ се човек: кожа от тип 5</annotation>
+		<annotation cp="🧗🏿">алпинист | кожа от тип 6</annotation>
+		<annotation cp="🧗🏿" type="tts">катерещ се човек: кожа от тип 6</annotation>
+		<annotation cp="🧗🏻‍♀">алпинист | катерач | кожа от тип 1, 2</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">катерачка: кожа от тип 1, 2</annotation>
+		<annotation cp="🧗🏼‍♀">алпинист | катерач | кожа от тип 3</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">катерачка: кожа от тип 3</annotation>
+		<annotation cp="🧗🏽‍♀">алпинист | катерач | кожа от тип 4</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">катерачка: кожа от тип 4</annotation>
+		<annotation cp="🧗🏾‍♀">алпинист | катерач | кожа от тип 5</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">катерачка: кожа от тип 5</annotation>
+		<annotation cp="🧗🏿‍♀">алпинист | катерач | кожа от тип 6</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">катерачка: кожа от тип 6</annotation>
+		<annotation cp="🧗🏻‍♂">катерач | кожа от тип 1, 2</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">катерач: кожа от тип 1, 2</annotation>
+		<annotation cp="🧗🏼‍♂">катерач | кожа от тип 3</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">катерач: кожа от тип 3</annotation>
+		<annotation cp="🧗🏽‍♂">катерач | кожа от тип 4</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">катерач: кожа от тип 4</annotation>
+		<annotation cp="🧗🏾‍♂">катерач | кожа от тип 5</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">катерач: кожа от тип 5</annotation>
+		<annotation cp="🧗🏿‍♂">катерач | кожа от тип 6</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">катерач: кожа от тип 6</annotation>
+		<annotation cp="🧘🏻">йога | медитация | кожа от тип 1, 2</annotation>
+		<annotation cp="🧘🏻" type="tts">човек в поза „лотус“: кожа от тип 1, 2</annotation>
+		<annotation cp="🧘🏼">йога | медитация | кожа от тип 3</annotation>
+		<annotation cp="🧘🏼" type="tts">човек в поза „лотус“: кожа от тип 3</annotation>
+		<annotation cp="🧘🏽">йога | медитация | кожа от тип 4</annotation>
+		<annotation cp="🧘🏽" type="tts">човек в поза „лотус“: кожа от тип 4</annotation>
+		<annotation cp="🧘🏾">йога | медитация | кожа от тип 5</annotation>
+		<annotation cp="🧘🏾" type="tts">човек в поза „лотус“: кожа от тип 5</annotation>
+		<annotation cp="🧘🏿">йога | медитация | кожа от тип 6</annotation>
+		<annotation cp="🧘🏿" type="tts">човек в поза „лотус“: кожа от тип 6</annotation>
+		<annotation cp="🧘🏻‍♀">йога | медитация | кожа от тип 1, 2</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">жена в поза „лотус“: кожа от тип 1, 2</annotation>
+		<annotation cp="🧘🏼‍♀">йога | медитация | кожа от тип 3</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">жена в поза „лотус“: кожа от тип 3</annotation>
+		<annotation cp="🧘🏽‍♀">йога | медитация | кожа от тип 4</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">жена в поза „лотус“: кожа от тип 4</annotation>
+		<annotation cp="🧘🏾‍♀">йога | медитация | кожа от тип 5</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">жена в поза „лотус“: кожа от тип 5</annotation>
+		<annotation cp="🧘🏿‍♀">йога | медитация | кожа от тип 6</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">жена в поза „лотус“: кожа от тип 6</annotation>
+		<annotation cp="🧘🏻‍♂">йога | медитация | кожа от тип 1, 2</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">мъж в поза „лотус“: кожа от тип 1, 2</annotation>
+		<annotation cp="🧘🏼‍♂">йога | медитация | кожа от тип 3</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">мъж в поза „лотус“: кожа от тип 3</annotation>
+		<annotation cp="🧘🏽‍♂">йога | медитация | кожа от тип 4</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">мъж в поза „лотус“: кожа от тип 4</annotation>
+		<annotation cp="🧘🏾‍♂">йога | медитация | кожа от тип 5</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">мъж в поза „лотус“: кожа от тип 5</annotation>
+		<annotation cp="🧘🏿‍♂">йога | медитация | кожа от тип 6</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">мъж в поза „лотус“: кожа от тип 6</annotation>
 		<annotation cp="🛀🏻">баня | вана | кожа от тип 1, 2</annotation>
 		<annotation cp="🛀🏻" type="tts">Kъпещ се човек: кожа от тип 1, 2</annotation>
 		<annotation cp="🛀🏼">баня | вана | кожа от тип 3</annotation>
@@ -1512,68 +1812,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">жонгльорка: кожа от тип 5</annotation>
 		<annotation cp="🤹🏿‍♀">жена | жонглиране | кожа от тип 6</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">жонгльорка: кожа от тип 6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">двойка | мъж и жена | романтика | целувка</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">целувка, жена, мъж</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">двойка | мъже | романтика | целувка</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">целувка, мъж, мъж</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">двойка | жени | романтика | целувка</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">целувка, жена, жена</annotation>
-		<annotation cp="👩‍❤‍👨">влюбени | мъж и жена | обич</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">двойка и сърце, жена, мъж</annotation>
-		<annotation cp="👨‍❤‍👨">влюбени | мъже | обич</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">двойка и сърце, мъж, мъж</annotation>
-		<annotation cp="👩‍❤‍👩">влюбени | жени | обич</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">двойка и сърце, жена, жена</annotation>
-		<annotation cp="👨‍👩‍👦">баща | майка | момче | родители</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">семейство, мъж, жена, момче</annotation>
-		<annotation cp="👨‍👩‍👧">баща | майка | момиче | родители</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">семейство, мъж, жена, момиче</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">баща | деца | майка | родители</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">семейство, мъж, жена, момиче, момче</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">баща | братя | майка | родители</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">семейство, мъж, жена, момче, момче</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">баща | майка | родители | сестри</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">семейство, мъж, жена, момиче, момиче</annotation>
-		<annotation cp="👨‍👨‍👦">баща и момче | мъже | семейство</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">семейство, мъж, мъж, момче</annotation>
-		<annotation cp="👨‍👨‍👧">баща и момиче | мъже | семейство</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">семейство, мъж, мъж, момиче</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">баща и деца | мъже | семейство</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">семейство, мъж, мъж, момиче, момче</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">момчета | мъже | семейство</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">семейство, мъж, мъж, момче, момче</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">момичета | мъже | семейство</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">семейство, мъж, мъж, момиче, момиче</annotation>
-		<annotation cp="👩‍👩‍👦">жени | момче | семейство</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">семейство, жена, жена, момче</annotation>
-		<annotation cp="👩‍👩‍👧">жени | момиче | семейство</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">семейство, жена, жена, момиче</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">деца | жени | семейство</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">семейство, жена, жена, момиче, момче</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">деца | жени | момчета | семейство</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">семейство, жена, жена, момче, момче</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">деца | жени | момичета | семейство</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">семейство, жена, жена, момиче, момиче</annotation>
-		<annotation cp="👨‍👦">баща | дете | семейство</annotation>
-		<annotation cp="👨‍👦" type="tts">семейство, мъж, момче</annotation>
-		<annotation cp="👨‍👦‍👦">деца | родители | семейство | синове</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">семейство, мъж, момче, момче</annotation>
-		<annotation cp="👨‍👧">баща | дете | семейство</annotation>
-		<annotation cp="👨‍👧" type="tts">семейство, мъж, момиче</annotation>
-		<annotation cp="👨‍👧‍👦">брат | деца | родител | сестра</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">семейство, мъж, момиче, момче</annotation>
-		<annotation cp="👨‍👧‍👧">баща | деца | момиче | семейство</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">семейство, мъж, момиче, момиче</annotation>
-		<annotation cp="👩‍👦">дете | майка | момче</annotation>
-		<annotation cp="👩‍👦" type="tts">семейство, жена, момче</annotation>
-		<annotation cp="👩‍👦‍👦">братя | дете | майка | момче</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">семейство, жена, момче, момче</annotation>
-		<annotation cp="👩‍👧">дете | майка | момиче</annotation>
-		<annotation cp="👩‍👧" type="tts">семейство, жена, момиче</annotation>
-		<annotation cp="👩‍👧‍👦">майка | момиче | момче | семейство</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">семейство, жена, момиче, момче</annotation>
-		<annotation cp="👩‍👧‍👧">дете | майка | момиче | сестри</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">семейство, жена, момиче, момиче</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">двойка | романтика | жена | мъж</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">целувка: жена и мъж</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">двойка | романтика | мъж</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">целувка: мъж и мъж</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">двойка | романтика | жена</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">целувка: жена и жена</annotation>
+		<annotation cp="👩‍❤‍👨">двойка | любов | романтика | сърце | жена | мъж</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">Двойка и сърце: жена и мъж</annotation>
+		<annotation cp="👨‍❤‍👨">двойка | любов | романтика | сърце | мъж</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">Двойка и сърце: мъж и мъж</annotation>
+		<annotation cp="👩‍❤‍👩">двойка | любов | романтика | сърце | жена</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">Двойка и сърце: жена и жена</annotation>
+		<annotation cp="👨‍👩‍👦">баща | дете | майка | мъж | жена | момче</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">семейство: мъж и жена и момче</annotation>
+		<annotation cp="👨‍👩‍👧">баща | дете | майка | мъж | жена | момиче</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">семейство: мъж и жена и момиче</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">баща | дете | майка | мъж | жена | момиче | момче</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">семейство: мъж и жена и момиче и момче</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">баща | дете | майка | мъж | жена | момче</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">семейство: мъж и жена и момче и момче</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">баща | дете | майка | мъж | жена | момиче</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">семейство: мъж и жена и момиче и момиче</annotation>
+		<annotation cp="👨‍👨‍👦">баща | дете | майка | мъж | момче</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">семейство: мъж и мъж и момче</annotation>
+		<annotation cp="👨‍👨‍👧">баща | дете | майка | мъж | момиче</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">семейство: мъж и мъж и момиче</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">баща | дете | майка | мъж | момиче | момче</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">семейство: мъж и мъж и момиче и момче</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">баща | дете | майка | мъж | момче</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">семейство: мъж и мъж и момче и момче</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">баща | дете | майка | мъж | момиче</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">семейство: мъж и мъж и момиче и момиче</annotation>
+		<annotation cp="👩‍👩‍👦">баща | дете | майка | жена | момче</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">семейство: жена и жена и момче</annotation>
+		<annotation cp="👩‍👩‍👧">баща | дете | майка | жена | момиче</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">семейство: жена и жена и момиче</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">баща | дете | майка | жена | момиче | момче</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">семейство: жена и жена и момиче и момче</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">баща | дете | майка | жена | момче</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">семейство: жена и жена и момче и момче</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">баща | дете | майка | жена | момиче</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">семейство: жена и жена и момиче и момиче</annotation>
+		<annotation cp="👨‍👦">баща | дете | майка | мъж | момче</annotation>
+		<annotation cp="👨‍👦" type="tts">семейство: мъж и момче</annotation>
+		<annotation cp="👨‍👦‍👦">баща | дете | майка | мъж | момче</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">семейство: мъж и момче и момче</annotation>
+		<annotation cp="👨‍👧">баща | дете | майка | мъж | момиче</annotation>
+		<annotation cp="👨‍👧" type="tts">семейство: мъж и момиче</annotation>
+		<annotation cp="👨‍👧‍👦">баща | дете | майка | мъж | момиче | момче</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">семейство: мъж и момиче и момче</annotation>
+		<annotation cp="👨‍👧‍👧">баща | дете | майка | мъж | момиче</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">семейство: мъж и момиче и момиче</annotation>
+		<annotation cp="👩‍👦">баща | дете | майка | жена | момче</annotation>
+		<annotation cp="👩‍👦" type="tts">семейство: жена и момче</annotation>
+		<annotation cp="👩‍👦‍👦">баща | дете | майка | жена | момче</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">семейство: жена и момче и момче</annotation>
+		<annotation cp="👩‍👧">баща | дете | майка | жена | момиче</annotation>
+		<annotation cp="👩‍👧" type="tts">семейство: жена и момиче</annotation>
+		<annotation cp="👩‍👧‍👦">баща | дете | майка | жена | момиче | момче</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">семейство: жена и момиче и момче</annotation>
+		<annotation cp="👩‍👧‍👧">баща | дете | майка | жена | момиче</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">семейство: жена и момиче и момиче</annotation>
 		<annotation cp="🤳🏻">камера | селфи | телефон | кожа от тип 1, 2</annotation>
 		<annotation cp="🤳🏻" type="tts">селфи: кожа от тип 1, 2</annotation>
 		<annotation cp="🤳🏼">камера | селфи | телефон | кожа от тип 3</annotation>
@@ -1814,6 +2114,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋🏾" type="tts">Махане с ръка: кожа от тип 5</annotation>
 		<annotation cp="👋🏿">махане | ръка | тяло | кожа от тип 6</annotation>
 		<annotation cp="👋🏿" type="tts">Махане с ръка: кожа от тип 6</annotation>
+		<annotation cp="🤟🏻">обичам те | ръка | кожа от тип 1, 2</annotation>
+		<annotation cp="🤟🏻" type="tts">жест „обичам те“: кожа от тип 1, 2</annotation>
+		<annotation cp="🤟🏼">обичам те | ръка | кожа от тип 3</annotation>
+		<annotation cp="🤟🏼" type="tts">жест „обичам те“: кожа от тип 3</annotation>
+		<annotation cp="🤟🏽">обичам те | ръка | кожа от тип 4</annotation>
+		<annotation cp="🤟🏽" type="tts">жест „обичам те“: кожа от тип 4</annotation>
+		<annotation cp="🤟🏾">обичам те | ръка | кожа от тип 5</annotation>
+		<annotation cp="🤟🏾" type="tts">жест „обичам те“: кожа от тип 5</annotation>
+		<annotation cp="🤟🏿">обичам те | ръка | кожа от тип 6</annotation>
+		<annotation cp="🤟🏿" type="tts">жест „обичам те“: кожа от тип 6</annotation>
 		<annotation cp="✍🏻">пиша | ръка | тяло | кожа от тип 1, 2</annotation>
 		<annotation cp="✍🏻" type="tts">Пишеща ръка: кожа от тип 1, 2</annotation>
 		<annotation cp="✍🏼">пиша | ръка | тяло | кожа от тип 3</annotation>
@@ -1854,6 +2164,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">Човек с вдигнати ръце: кожа от тип 5</annotation>
 		<annotation cp="🙌🏿">вдигнат | жест | празнуване | ръка | тяло | ура | кожа от тип 6</annotation>
 		<annotation cp="🙌🏿" type="tts">Човек с вдигнати ръце: кожа от тип 6</annotation>
+		<annotation cp="🤲🏻">молитва | кожа от тип 1, 2</annotation>
+		<annotation cp="🤲🏻" type="tts">Събрани длани, сочещи нагоре: кожа от тип 1, 2</annotation>
+		<annotation cp="🤲🏼">молитва | кожа от тип 3</annotation>
+		<annotation cp="🤲🏼" type="tts">Събрани длани, сочещи нагоре: кожа от тип 3</annotation>
+		<annotation cp="🤲🏽">молитва | кожа от тип 4</annotation>
+		<annotation cp="🤲🏽" type="tts">Събрани длани, сочещи нагоре: кожа от тип 4</annotation>
+		<annotation cp="🤲🏾">молитва | кожа от тип 5</annotation>
+		<annotation cp="🤲🏾" type="tts">Събрани длани, сочещи нагоре: кожа от тип 5</annotation>
+		<annotation cp="🤲🏿">молитва | кожа от тип 6</annotation>
+		<annotation cp="🤲🏿" type="tts">Събрани длани, сочещи нагоре: кожа от тип 6</annotation>
 		<annotation cp="🙏🏻">благодаря | жест | молба | моля | моля се | поклон | ръка | тяло | кожа от тип 1, 2</annotation>
 		<annotation cp="🙏🏻" type="tts">Събрани ръце: кожа от тип 1, 2</annotation>
 		<annotation cp="🙏🏼">благодаря | жест | молба | моля | моля се | поклон | ръка | тяло | кожа от тип 3</annotation>
@@ -1894,531 +2214,533 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃🏾" type="tts">нос: кожа от тип 5</annotation>
 		<annotation cp="👃🏿">тяло | кожа от тип 6</annotation>
 		<annotation cp="👃🏿" type="tts">нос: кожа от тип 6</annotation>
-		<annotation cp="#⃣">диез | клавиш</annotation>
-		<annotation cp="#⃣" type="tts">Клавиш със знак диез</annotation>
-		<annotation cp="*⃣">звездичка | клавиш</annotation>
-		<annotation cp="*⃣" type="tts">Клавиш със звездичка</annotation>
-		<annotation cp="🇦🇨">знаме</annotation>
+		<annotation cp="#⃣">Клавиш</annotation>
+		<annotation cp="#⃣" type="tts">Клавиш: #</annotation>
+		<annotation cp="*⃣">Клавиш</annotation>
+		<annotation cp="*⃣" type="tts">Клавиш: *</annotation>
+		<annotation cp="🔟">Клавиш</annotation>
+		<annotation cp="🔟" type="tts">Клавиш: 10</annotation>
+		<annotation cp="🇦🇨">Флаг</annotation>
 		<annotation cp="🇦🇨" type="tts">остров Възнесение</annotation>
-		<annotation cp="🇦🇩">знаме</annotation>
+		<annotation cp="🇦🇩">Флаг</annotation>
 		<annotation cp="🇦🇩" type="tts">Андора</annotation>
-		<annotation cp="🇦🇪">знаме</annotation>
+		<annotation cp="🇦🇪">Флаг</annotation>
 		<annotation cp="🇦🇪" type="tts">Обединени арабски емирства</annotation>
-		<annotation cp="🇦🇫">знаме</annotation>
+		<annotation cp="🇦🇫">Флаг</annotation>
 		<annotation cp="🇦🇫" type="tts">Афганистан</annotation>
-		<annotation cp="🇦🇬">знаме</annotation>
+		<annotation cp="🇦🇬">Флаг</annotation>
 		<annotation cp="🇦🇬" type="tts">Антигуа и Барбуда</annotation>
-		<annotation cp="🇦🇮">знаме</annotation>
+		<annotation cp="🇦🇮">Флаг</annotation>
 		<annotation cp="🇦🇮" type="tts">Ангуила</annotation>
-		<annotation cp="🇦🇱">знаме</annotation>
+		<annotation cp="🇦🇱">Флаг</annotation>
 		<annotation cp="🇦🇱" type="tts">Албания</annotation>
-		<annotation cp="🇦🇲">знаме</annotation>
+		<annotation cp="🇦🇲">Флаг</annotation>
 		<annotation cp="🇦🇲" type="tts">Армения</annotation>
-		<annotation cp="🇦🇴">знаме</annotation>
+		<annotation cp="🇦🇴">Флаг</annotation>
 		<annotation cp="🇦🇴" type="tts">Ангола</annotation>
-		<annotation cp="🇦🇶">знаме</annotation>
+		<annotation cp="🇦🇶">Флаг</annotation>
 		<annotation cp="🇦🇶" type="tts">Антарктика</annotation>
-		<annotation cp="🇦🇷">знаме</annotation>
+		<annotation cp="🇦🇷">Флаг</annotation>
 		<annotation cp="🇦🇷" type="tts">Аржентина</annotation>
-		<annotation cp="🇦🇸">знаме</annotation>
+		<annotation cp="🇦🇸">Флаг</annotation>
 		<annotation cp="🇦🇸" type="tts">Американска Самоа</annotation>
-		<annotation cp="🇦🇹">знаме</annotation>
+		<annotation cp="🇦🇹">Флаг</annotation>
 		<annotation cp="🇦🇹" type="tts">Австрия</annotation>
-		<annotation cp="🇦🇺">знаме</annotation>
+		<annotation cp="🇦🇺">Флаг</annotation>
 		<annotation cp="🇦🇺" type="tts">Австралия</annotation>
-		<annotation cp="🇦🇼">знаме</annotation>
+		<annotation cp="🇦🇼">Флаг</annotation>
 		<annotation cp="🇦🇼" type="tts">Аруба</annotation>
-		<annotation cp="🇦🇽">знаме</annotation>
+		<annotation cp="🇦🇽">Флаг</annotation>
 		<annotation cp="🇦🇽" type="tts">Оландски острови</annotation>
-		<annotation cp="🇦🇿">знаме</annotation>
+		<annotation cp="🇦🇿">Флаг</annotation>
 		<annotation cp="🇦🇿" type="tts">Азербайджан</annotation>
-		<annotation cp="🇧🇦">знаме</annotation>
+		<annotation cp="🇧🇦">Флаг</annotation>
 		<annotation cp="🇧🇦" type="tts">Босна и Херцеговина</annotation>
-		<annotation cp="🇧🇧">знаме</annotation>
+		<annotation cp="🇧🇧">Флаг</annotation>
 		<annotation cp="🇧🇧" type="tts">Барбадос</annotation>
-		<annotation cp="🇧🇩">знаме</annotation>
+		<annotation cp="🇧🇩">Флаг</annotation>
 		<annotation cp="🇧🇩" type="tts">Бангладеш</annotation>
-		<annotation cp="🇧🇪">знаме</annotation>
+		<annotation cp="🇧🇪">Флаг</annotation>
 		<annotation cp="🇧🇪" type="tts">Белгия</annotation>
-		<annotation cp="🇧🇫">знаме</annotation>
+		<annotation cp="🇧🇫">Флаг</annotation>
 		<annotation cp="🇧🇫" type="tts">Буркина Фасо</annotation>
-		<annotation cp="🇧🇬">знаме</annotation>
+		<annotation cp="🇧🇬">Флаг</annotation>
 		<annotation cp="🇧🇬" type="tts">България</annotation>
-		<annotation cp="🇧🇭">знаме</annotation>
+		<annotation cp="🇧🇭">Флаг</annotation>
 		<annotation cp="🇧🇭" type="tts">Бахрейн</annotation>
-		<annotation cp="🇧🇮">знаме</annotation>
+		<annotation cp="🇧🇮">Флаг</annotation>
 		<annotation cp="🇧🇮" type="tts">Бурунди</annotation>
-		<annotation cp="🇧🇯">знаме</annotation>
+		<annotation cp="🇧🇯">Флаг</annotation>
 		<annotation cp="🇧🇯" type="tts">Бенин</annotation>
-		<annotation cp="🇧🇱">знаме</annotation>
+		<annotation cp="🇧🇱">Флаг</annotation>
 		<annotation cp="🇧🇱" type="tts">Сен Бартелеми</annotation>
-		<annotation cp="🇧🇲">знаме</annotation>
-		<annotation cp="🇧🇲" type="tts">Бермуда</annotation>
-		<annotation cp="🇧🇳">знаме</annotation>
+		<annotation cp="🇧🇲">Флаг</annotation>
+		<annotation cp="🇧🇲" type="tts">Бермудски острови</annotation>
+		<annotation cp="🇧🇳">Флаг</annotation>
 		<annotation cp="🇧🇳" type="tts">Бруней Даруссалам</annotation>
-		<annotation cp="🇧🇴">знаме</annotation>
+		<annotation cp="🇧🇴">Флаг</annotation>
 		<annotation cp="🇧🇴" type="tts">Боливия</annotation>
-		<annotation cp="🇧🇶">знаме</annotation>
+		<annotation cp="🇧🇶">Флаг</annotation>
 		<annotation cp="🇧🇶" type="tts">Карибска Нидерландия</annotation>
-		<annotation cp="🇧🇷">знаме</annotation>
+		<annotation cp="🇧🇷">Флаг</annotation>
 		<annotation cp="🇧🇷" type="tts">Бразилия</annotation>
-		<annotation cp="🇧🇸">знаме</annotation>
+		<annotation cp="🇧🇸">Флаг</annotation>
 		<annotation cp="🇧🇸" type="tts">Бахами</annotation>
-		<annotation cp="🇧🇹">знаме</annotation>
+		<annotation cp="🇧🇹">Флаг</annotation>
 		<annotation cp="🇧🇹" type="tts">Бутан</annotation>
-		<annotation cp="🇧🇻">знаме</annotation>
+		<annotation cp="🇧🇻">Флаг</annotation>
 		<annotation cp="🇧🇻" type="tts">остров Буве</annotation>
-		<annotation cp="🇧🇼">знаме</annotation>
+		<annotation cp="🇧🇼">Флаг</annotation>
 		<annotation cp="🇧🇼" type="tts">Ботсвана</annotation>
-		<annotation cp="🇧🇾">знаме</annotation>
+		<annotation cp="🇧🇾">Флаг</annotation>
 		<annotation cp="🇧🇾" type="tts">Беларус</annotation>
-		<annotation cp="🇧🇿">знаме</annotation>
+		<annotation cp="🇧🇿">Флаг</annotation>
 		<annotation cp="🇧🇿" type="tts">Белиз</annotation>
-		<annotation cp="🇨🇦">знаме</annotation>
+		<annotation cp="🇨🇦">Флаг</annotation>
 		<annotation cp="🇨🇦" type="tts">Канада</annotation>
-		<annotation cp="🇨🇨">знаме</annotation>
+		<annotation cp="🇨🇨">Флаг</annotation>
 		<annotation cp="🇨🇨" type="tts">Кокосови острови (острови Кийлинг)</annotation>
-		<annotation cp="🇨🇩">знаме</annotation>
+		<annotation cp="🇨🇩">Флаг</annotation>
 		<annotation cp="🇨🇩" type="tts">Конго (Киншаса)</annotation>
-		<annotation cp="🇨🇫">знаме</annotation>
+		<annotation cp="🇨🇫">Флаг</annotation>
 		<annotation cp="🇨🇫" type="tts">Централноафриканска република</annotation>
-		<annotation cp="🇨🇬">знаме</annotation>
+		<annotation cp="🇨🇬">Флаг</annotation>
 		<annotation cp="🇨🇬" type="tts">Конго (Бразавил)</annotation>
-		<annotation cp="🇨🇭">знаме</annotation>
+		<annotation cp="🇨🇭">Флаг</annotation>
 		<annotation cp="🇨🇭" type="tts">Швейцария</annotation>
-		<annotation cp="🇨🇮">знаме</annotation>
+		<annotation cp="🇨🇮">Флаг</annotation>
 		<annotation cp="🇨🇮" type="tts">Кот д’Ивоар</annotation>
-		<annotation cp="🇨🇰">знаме</annotation>
+		<annotation cp="🇨🇰">Флаг</annotation>
 		<annotation cp="🇨🇰" type="tts">острови Кук</annotation>
-		<annotation cp="🇨🇱">знаме</annotation>
+		<annotation cp="🇨🇱">Флаг</annotation>
 		<annotation cp="🇨🇱" type="tts">Чили</annotation>
-		<annotation cp="🇨🇲">знаме</annotation>
+		<annotation cp="🇨🇲">Флаг</annotation>
 		<annotation cp="🇨🇲" type="tts">Камерун</annotation>
-		<annotation cp="🇨🇳">знаме</annotation>
+		<annotation cp="🇨🇳">Флаг</annotation>
 		<annotation cp="🇨🇳" type="tts">Китай</annotation>
-		<annotation cp="🇨🇴">знаме</annotation>
+		<annotation cp="🇨🇴">Флаг</annotation>
 		<annotation cp="🇨🇴" type="tts">Колумбия</annotation>
-		<annotation cp="🇨🇵">знаме</annotation>
+		<annotation cp="🇨🇵">Флаг</annotation>
 		<annotation cp="🇨🇵" type="tts">остров Клипертон</annotation>
-		<annotation cp="🇨🇷">знаме</annotation>
+		<annotation cp="🇨🇷">Флаг</annotation>
 		<annotation cp="🇨🇷" type="tts">Коста Рика</annotation>
-		<annotation cp="🇨🇺">знаме</annotation>
+		<annotation cp="🇨🇺">Флаг</annotation>
 		<annotation cp="🇨🇺" type="tts">Куба</annotation>
-		<annotation cp="🇨🇻">знаме</annotation>
+		<annotation cp="🇨🇻">Флаг</annotation>
 		<annotation cp="🇨🇻" type="tts">Кабо Верде</annotation>
-		<annotation cp="🇨🇼">знаме</annotation>
+		<annotation cp="🇨🇼">Флаг</annotation>
 		<annotation cp="🇨🇼" type="tts">Кюрасао</annotation>
-		<annotation cp="🇨🇽">знаме</annotation>
+		<annotation cp="🇨🇽">Флаг</annotation>
 		<annotation cp="🇨🇽" type="tts">остров Рождество</annotation>
-		<annotation cp="🇨🇾">знаме</annotation>
+		<annotation cp="🇨🇾">Флаг</annotation>
 		<annotation cp="🇨🇾" type="tts">Кипър</annotation>
-		<annotation cp="🇨🇿">знаме</annotation>
+		<annotation cp="🇨🇿">Флаг</annotation>
 		<annotation cp="🇨🇿" type="tts">Чехия</annotation>
-		<annotation cp="🇩🇪">знаме</annotation>
+		<annotation cp="🇩🇪">Флаг</annotation>
 		<annotation cp="🇩🇪" type="tts">Германия</annotation>
-		<annotation cp="🇩🇬">знаме</annotation>
+		<annotation cp="🇩🇬">Флаг</annotation>
 		<annotation cp="🇩🇬" type="tts">Диего Гарсия</annotation>
-		<annotation cp="🇩🇯">знаме</annotation>
+		<annotation cp="🇩🇯">Флаг</annotation>
 		<annotation cp="🇩🇯" type="tts">Джибути</annotation>
-		<annotation cp="🇩🇰">знаме</annotation>
+		<annotation cp="🇩🇰">Флаг</annotation>
 		<annotation cp="🇩🇰" type="tts">Дания</annotation>
-		<annotation cp="🇩🇲">знаме</annotation>
+		<annotation cp="🇩🇲">Флаг</annotation>
 		<annotation cp="🇩🇲" type="tts">Доминика</annotation>
-		<annotation cp="🇩🇴">знаме</annotation>
+		<annotation cp="🇩🇴">Флаг</annotation>
 		<annotation cp="🇩🇴" type="tts">Доминиканска република</annotation>
-		<annotation cp="🇩🇿">знаме</annotation>
+		<annotation cp="🇩🇿">Флаг</annotation>
 		<annotation cp="🇩🇿" type="tts">Алжир</annotation>
-		<annotation cp="🇪🇦">знаме</annotation>
+		<annotation cp="🇪🇦">Флаг</annotation>
 		<annotation cp="🇪🇦" type="tts">Сеута и Мелия</annotation>
-		<annotation cp="🇪🇨">знаме</annotation>
+		<annotation cp="🇪🇨">Флаг</annotation>
 		<annotation cp="🇪🇨" type="tts">Еквадор</annotation>
-		<annotation cp="🇪🇪">знаме</annotation>
+		<annotation cp="🇪🇪">Флаг</annotation>
 		<annotation cp="🇪🇪" type="tts">Естония</annotation>
-		<annotation cp="🇪🇬">знаме</annotation>
+		<annotation cp="🇪🇬">Флаг</annotation>
 		<annotation cp="🇪🇬" type="tts">Египет</annotation>
-		<annotation cp="🇪🇭">знаме</annotation>
+		<annotation cp="🇪🇭">Флаг</annotation>
 		<annotation cp="🇪🇭" type="tts">Западна Сахара</annotation>
-		<annotation cp="🇪🇷">знаме</annotation>
+		<annotation cp="🇪🇷">Флаг</annotation>
 		<annotation cp="🇪🇷" type="tts">Еритрея</annotation>
-		<annotation cp="🇪🇸">знаме</annotation>
+		<annotation cp="🇪🇸">Флаг</annotation>
 		<annotation cp="🇪🇸" type="tts">Испания</annotation>
-		<annotation cp="🇪🇹">знаме</annotation>
+		<annotation cp="🇪🇹">Флаг</annotation>
 		<annotation cp="🇪🇹" type="tts">Етиопия</annotation>
-		<annotation cp="🇪🇺">знаме</annotation>
+		<annotation cp="🇪🇺">Флаг</annotation>
 		<annotation cp="🇪🇺" type="tts">Европейски съюз</annotation>
-		<annotation cp="🇫🇮">знаме</annotation>
+		<annotation cp="🇫🇮">Флаг</annotation>
 		<annotation cp="🇫🇮" type="tts">Финландия</annotation>
-		<annotation cp="🇫🇯">знаме</annotation>
+		<annotation cp="🇫🇯">Флаг</annotation>
 		<annotation cp="🇫🇯" type="tts">Фиджи</annotation>
-		<annotation cp="🇫🇰">знаме</annotation>
+		<annotation cp="🇫🇰">Флаг</annotation>
 		<annotation cp="🇫🇰" type="tts">Фолклендски острови</annotation>
-		<annotation cp="🇫🇲">знаме</annotation>
+		<annotation cp="🇫🇲">Флаг</annotation>
 		<annotation cp="🇫🇲" type="tts">Микронезия</annotation>
-		<annotation cp="🇫🇴">знаме</annotation>
+		<annotation cp="🇫🇴">Флаг</annotation>
 		<annotation cp="🇫🇴" type="tts">Фарьорски острови</annotation>
-		<annotation cp="🇫🇷">знаме</annotation>
+		<annotation cp="🇫🇷">Флаг</annotation>
 		<annotation cp="🇫🇷" type="tts">Франция</annotation>
-		<annotation cp="🇬🇦">знаме</annotation>
+		<annotation cp="🇬🇦">Флаг</annotation>
 		<annotation cp="🇬🇦" type="tts">Габон</annotation>
-		<annotation cp="🇬🇧">знаме</annotation>
+		<annotation cp="🇬🇧">Флаг</annotation>
 		<annotation cp="🇬🇧" type="tts">Обединеното кралство</annotation>
-		<annotation cp="🇬🇩">знаме</annotation>
+		<annotation cp="🇬🇩">Флаг</annotation>
 		<annotation cp="🇬🇩" type="tts">Гренада</annotation>
-		<annotation cp="🇬🇪">знаме</annotation>
+		<annotation cp="🇬🇪">Флаг</annotation>
 		<annotation cp="🇬🇪" type="tts">Грузия</annotation>
-		<annotation cp="🇬🇫">знаме</annotation>
+		<annotation cp="🇬🇫">Флаг</annotation>
 		<annotation cp="🇬🇫" type="tts">Френска Гвиана</annotation>
-		<annotation cp="🇬🇬">знаме</annotation>
+		<annotation cp="🇬🇬">Флаг</annotation>
 		<annotation cp="🇬🇬" type="tts">Гърнзи</annotation>
-		<annotation cp="🇬🇭">знаме</annotation>
+		<annotation cp="🇬🇭">Флаг</annotation>
 		<annotation cp="🇬🇭" type="tts">Гана</annotation>
-		<annotation cp="🇬🇮">знаме</annotation>
+		<annotation cp="🇬🇮">Флаг</annotation>
 		<annotation cp="🇬🇮" type="tts">Гибралтар</annotation>
-		<annotation cp="🇬🇱">знаме</annotation>
+		<annotation cp="🇬🇱">Флаг</annotation>
 		<annotation cp="🇬🇱" type="tts">Гренландия</annotation>
-		<annotation cp="🇬🇲">знаме</annotation>
+		<annotation cp="🇬🇲">Флаг</annotation>
 		<annotation cp="🇬🇲" type="tts">Гамбия</annotation>
-		<annotation cp="🇬🇳">знаме</annotation>
+		<annotation cp="🇬🇳">Флаг</annotation>
 		<annotation cp="🇬🇳" type="tts">Гвинея</annotation>
-		<annotation cp="🇬🇵">знаме</annotation>
+		<annotation cp="🇬🇵">Флаг</annotation>
 		<annotation cp="🇬🇵" type="tts">Гваделупа</annotation>
-		<annotation cp="🇬🇶">знаме</annotation>
+		<annotation cp="🇬🇶">Флаг</annotation>
 		<annotation cp="🇬🇶" type="tts">Екваториална Гвинея</annotation>
-		<annotation cp="🇬🇷">знаме</annotation>
+		<annotation cp="🇬🇷">Флаг</annotation>
 		<annotation cp="🇬🇷" type="tts">Гърция</annotation>
-		<annotation cp="🇬🇸">знаме</annotation>
+		<annotation cp="🇬🇸">Флаг</annotation>
 		<annotation cp="🇬🇸" type="tts">Южна Джорджия и Южни Сандвичеви острови</annotation>
-		<annotation cp="🇬🇹">знаме</annotation>
+		<annotation cp="🇬🇹">Флаг</annotation>
 		<annotation cp="🇬🇹" type="tts">Гватемала</annotation>
-		<annotation cp="🇬🇺">знаме</annotation>
+		<annotation cp="🇬🇺">Флаг</annotation>
 		<annotation cp="🇬🇺" type="tts">Гуам</annotation>
-		<annotation cp="🇬🇼">знаме</annotation>
+		<annotation cp="🇬🇼">Флаг</annotation>
 		<annotation cp="🇬🇼" type="tts">Гвинея-Бисау</annotation>
-		<annotation cp="🇬🇾">знаме</annotation>
+		<annotation cp="🇬🇾">Флаг</annotation>
 		<annotation cp="🇬🇾" type="tts">Гаяна</annotation>
-		<annotation cp="🇭🇰">знаме</annotation>
+		<annotation cp="🇭🇰">Флаг</annotation>
 		<annotation cp="🇭🇰" type="tts">Хонконг, САР на Китай</annotation>
-		<annotation cp="🇭🇲">знаме</annotation>
-		<annotation cp="🇭🇲" type="tts">остров Хърд и острови Макдоналд</annotation>
-		<annotation cp="🇭🇳">знаме</annotation>
+		<annotation cp="🇭🇲">Флаг</annotation>
+		<annotation cp="🇭🇲" type="tts">острови Хърд и Макдоналд</annotation>
+		<annotation cp="🇭🇳">Флаг</annotation>
 		<annotation cp="🇭🇳" type="tts">Хондурас</annotation>
-		<annotation cp="🇭🇷">знаме</annotation>
+		<annotation cp="🇭🇷">Флаг</annotation>
 		<annotation cp="🇭🇷" type="tts">Хърватия</annotation>
-		<annotation cp="🇭🇹">знаме</annotation>
+		<annotation cp="🇭🇹">Флаг</annotation>
 		<annotation cp="🇭🇹" type="tts">Хаити</annotation>
-		<annotation cp="🇭🇺">знаме</annotation>
+		<annotation cp="🇭🇺">Флаг</annotation>
 		<annotation cp="🇭🇺" type="tts">Унгария</annotation>
-		<annotation cp="🇮🇨">знаме</annotation>
+		<annotation cp="🇮🇨">Флаг</annotation>
 		<annotation cp="🇮🇨" type="tts">Канарски острови</annotation>
-		<annotation cp="🇮🇩">знаме</annotation>
+		<annotation cp="🇮🇩">Флаг</annotation>
 		<annotation cp="🇮🇩" type="tts">Индонезия</annotation>
-		<annotation cp="🇮🇪">знаме</annotation>
+		<annotation cp="🇮🇪">Флаг</annotation>
 		<annotation cp="🇮🇪" type="tts">Ирландия</annotation>
-		<annotation cp="🇮🇱">знаме</annotation>
+		<annotation cp="🇮🇱">Флаг</annotation>
 		<annotation cp="🇮🇱" type="tts">Израел</annotation>
-		<annotation cp="🇮🇲">знаме</annotation>
+		<annotation cp="🇮🇲">Флаг</annotation>
 		<annotation cp="🇮🇲" type="tts">остров Ман</annotation>
-		<annotation cp="🇮🇳">знаме</annotation>
+		<annotation cp="🇮🇳">Флаг</annotation>
 		<annotation cp="🇮🇳" type="tts">Индия</annotation>
-		<annotation cp="🇮🇴">знаме</annotation>
+		<annotation cp="🇮🇴">Флаг</annotation>
 		<annotation cp="🇮🇴" type="tts">Британска територия в Индийския океан</annotation>
-		<annotation cp="🇮🇶">знаме</annotation>
+		<annotation cp="🇮🇶">Флаг</annotation>
 		<annotation cp="🇮🇶" type="tts">Ирак</annotation>
-		<annotation cp="🇮🇷">знаме</annotation>
+		<annotation cp="🇮🇷">Флаг</annotation>
 		<annotation cp="🇮🇷" type="tts">Иран</annotation>
-		<annotation cp="🇮🇸">знаме</annotation>
+		<annotation cp="🇮🇸">Флаг</annotation>
 		<annotation cp="🇮🇸" type="tts">Исландия</annotation>
-		<annotation cp="🇮🇹">знаме</annotation>
+		<annotation cp="🇮🇹">Флаг</annotation>
 		<annotation cp="🇮🇹" type="tts">Италия</annotation>
-		<annotation cp="🇯🇪">знаме</annotation>
+		<annotation cp="🇯🇪">Флаг</annotation>
 		<annotation cp="🇯🇪" type="tts">Джърси</annotation>
-		<annotation cp="🇯🇲">знаме</annotation>
+		<annotation cp="🇯🇲">Флаг</annotation>
 		<annotation cp="🇯🇲" type="tts">Ямайка</annotation>
-		<annotation cp="🇯🇴">знаме</annotation>
+		<annotation cp="🇯🇴">Флаг</annotation>
 		<annotation cp="🇯🇴" type="tts">Йордания</annotation>
-		<annotation cp="🇯🇵">знаме</annotation>
+		<annotation cp="🇯🇵">Флаг</annotation>
 		<annotation cp="🇯🇵" type="tts">Япония</annotation>
-		<annotation cp="🇰🇪">знаме</annotation>
+		<annotation cp="🇰🇪">Флаг</annotation>
 		<annotation cp="🇰🇪" type="tts">Кения</annotation>
-		<annotation cp="🇰🇬">знаме</annotation>
+		<annotation cp="🇰🇬">Флаг</annotation>
 		<annotation cp="🇰🇬" type="tts">Киргизстан</annotation>
-		<annotation cp="🇰🇭">знаме</annotation>
+		<annotation cp="🇰🇭">Флаг</annotation>
 		<annotation cp="🇰🇭" type="tts">Камбоджа</annotation>
-		<annotation cp="🇰🇮">знаме</annotation>
+		<annotation cp="🇰🇮">Флаг</annotation>
 		<annotation cp="🇰🇮" type="tts">Кирибати</annotation>
-		<annotation cp="🇰🇲">знаме</annotation>
+		<annotation cp="🇰🇲">Флаг</annotation>
 		<annotation cp="🇰🇲" type="tts">Коморски острови</annotation>
-		<annotation cp="🇰🇳">знаме</annotation>
+		<annotation cp="🇰🇳">Флаг</annotation>
 		<annotation cp="🇰🇳" type="tts">Сейнт Китс и Невис</annotation>
-		<annotation cp="🇰🇵">знаме</annotation>
+		<annotation cp="🇰🇵">Флаг</annotation>
 		<annotation cp="🇰🇵" type="tts">Северна Корея</annotation>
-		<annotation cp="🇰🇷">знаме</annotation>
+		<annotation cp="🇰🇷">Флаг</annotation>
 		<annotation cp="🇰🇷" type="tts">Южна Корея</annotation>
-		<annotation cp="🇰🇼">знаме</annotation>
+		<annotation cp="🇰🇼">Флаг</annotation>
 		<annotation cp="🇰🇼" type="tts">Кувейт</annotation>
-		<annotation cp="🇰🇾">знаме</annotation>
+		<annotation cp="🇰🇾">Флаг</annotation>
 		<annotation cp="🇰🇾" type="tts">Кайманови острови</annotation>
-		<annotation cp="🇰🇿">знаме</annotation>
+		<annotation cp="🇰🇿">Флаг</annotation>
 		<annotation cp="🇰🇿" type="tts">Казахстан</annotation>
-		<annotation cp="🇱🇦">знаме</annotation>
+		<annotation cp="🇱🇦">Флаг</annotation>
 		<annotation cp="🇱🇦" type="tts">Лаос</annotation>
-		<annotation cp="🇱🇧">знаме</annotation>
+		<annotation cp="🇱🇧">Флаг</annotation>
 		<annotation cp="🇱🇧" type="tts">Ливан</annotation>
-		<annotation cp="🇱🇨">знаме</annotation>
+		<annotation cp="🇱🇨">Флаг</annotation>
 		<annotation cp="🇱🇨" type="tts">Сейнт Лусия</annotation>
-		<annotation cp="🇱🇮">знаме</annotation>
+		<annotation cp="🇱🇮">Флаг</annotation>
 		<annotation cp="🇱🇮" type="tts">Лихтенщайн</annotation>
-		<annotation cp="🇱🇰">знаме</annotation>
+		<annotation cp="🇱🇰">Флаг</annotation>
 		<annotation cp="🇱🇰" type="tts">Шри Ланка</annotation>
-		<annotation cp="🇱🇷">знаме</annotation>
+		<annotation cp="🇱🇷">Флаг</annotation>
 		<annotation cp="🇱🇷" type="tts">Либерия</annotation>
-		<annotation cp="🇱🇸">знаме</annotation>
+		<annotation cp="🇱🇸">Флаг</annotation>
 		<annotation cp="🇱🇸" type="tts">Лесото</annotation>
-		<annotation cp="🇱🇹">знаме</annotation>
+		<annotation cp="🇱🇹">Флаг</annotation>
 		<annotation cp="🇱🇹" type="tts">Литва</annotation>
-		<annotation cp="🇱🇺">знаме</annotation>
+		<annotation cp="🇱🇺">Флаг</annotation>
 		<annotation cp="🇱🇺" type="tts">Люксембург</annotation>
-		<annotation cp="🇱🇻">знаме</annotation>
+		<annotation cp="🇱🇻">Флаг</annotation>
 		<annotation cp="🇱🇻" type="tts">Латвия</annotation>
-		<annotation cp="🇱🇾">знаме</annotation>
+		<annotation cp="🇱🇾">Флаг</annotation>
 		<annotation cp="🇱🇾" type="tts">Либия</annotation>
-		<annotation cp="🇲🇦">знаме</annotation>
+		<annotation cp="🇲🇦">Флаг</annotation>
 		<annotation cp="🇲🇦" type="tts">Мароко</annotation>
-		<annotation cp="🇲🇨">знаме</annotation>
+		<annotation cp="🇲🇨">Флаг</annotation>
 		<annotation cp="🇲🇨" type="tts">Монако</annotation>
-		<annotation cp="🇲🇩">знаме</annotation>
+		<annotation cp="🇲🇩">Флаг</annotation>
 		<annotation cp="🇲🇩" type="tts">Молдова</annotation>
-		<annotation cp="🇲🇪">знаме</annotation>
+		<annotation cp="🇲🇪">Флаг</annotation>
 		<annotation cp="🇲🇪" type="tts">Черна гора</annotation>
-		<annotation cp="🇲🇫">знаме</annotation>
+		<annotation cp="🇲🇫">Флаг</annotation>
 		<annotation cp="🇲🇫" type="tts">Сен Мартен</annotation>
-		<annotation cp="🇲🇬">знаме</annotation>
+		<annotation cp="🇲🇬">Флаг</annotation>
 		<annotation cp="🇲🇬" type="tts">Мадагаскар</annotation>
-		<annotation cp="🇲🇭">знаме</annotation>
+		<annotation cp="🇲🇭">Флаг</annotation>
 		<annotation cp="🇲🇭" type="tts">Маршалови острови</annotation>
-		<annotation cp="🇲🇰">знаме</annotation>
+		<annotation cp="🇲🇰">Флаг</annotation>
 		<annotation cp="🇲🇰" type="tts">Македония</annotation>
-		<annotation cp="🇲🇱">знаме</annotation>
+		<annotation cp="🇲🇱">Флаг</annotation>
 		<annotation cp="🇲🇱" type="tts">Мали</annotation>
-		<annotation cp="🇲🇲">знаме</annotation>
+		<annotation cp="🇲🇲">Флаг</annotation>
 		<annotation cp="🇲🇲" type="tts">Мианмар (Бирма)</annotation>
-		<annotation cp="🇲🇳">знаме</annotation>
+		<annotation cp="🇲🇳">Флаг</annotation>
 		<annotation cp="🇲🇳" type="tts">Монголия</annotation>
-		<annotation cp="🇲🇴">знаме</annotation>
+		<annotation cp="🇲🇴">Флаг</annotation>
 		<annotation cp="🇲🇴" type="tts">Макао, САР на Китай</annotation>
-		<annotation cp="🇲🇵">знаме</annotation>
+		<annotation cp="🇲🇵">Флаг</annotation>
 		<annotation cp="🇲🇵" type="tts">Северни Мариански острови</annotation>
-		<annotation cp="🇲🇶">знаме</annotation>
+		<annotation cp="🇲🇶">Флаг</annotation>
 		<annotation cp="🇲🇶" type="tts">Мартиника</annotation>
-		<annotation cp="🇲🇷">знаме</annotation>
+		<annotation cp="🇲🇷">Флаг</annotation>
 		<annotation cp="🇲🇷" type="tts">Мавритания</annotation>
-		<annotation cp="🇲🇸">знаме</annotation>
+		<annotation cp="🇲🇸">Флаг</annotation>
 		<annotation cp="🇲🇸" type="tts">Монтсерат</annotation>
-		<annotation cp="🇲🇹">знаме</annotation>
+		<annotation cp="🇲🇹">Флаг</annotation>
 		<annotation cp="🇲🇹" type="tts">Малта</annotation>
-		<annotation cp="🇲🇺">знаме</annotation>
+		<annotation cp="🇲🇺">Флаг</annotation>
 		<annotation cp="🇲🇺" type="tts">Мавриций</annotation>
-		<annotation cp="🇲🇻">знаме</annotation>
+		<annotation cp="🇲🇻">Флаг</annotation>
 		<annotation cp="🇲🇻" type="tts">Малдиви</annotation>
-		<annotation cp="🇲🇼">знаме</annotation>
+		<annotation cp="🇲🇼">Флаг</annotation>
 		<annotation cp="🇲🇼" type="tts">Малави</annotation>
-		<annotation cp="🇲🇽">знаме</annotation>
+		<annotation cp="🇲🇽">Флаг</annotation>
 		<annotation cp="🇲🇽" type="tts">Мексико</annotation>
-		<annotation cp="🇲🇾">знаме</annotation>
+		<annotation cp="🇲🇾">Флаг</annotation>
 		<annotation cp="🇲🇾" type="tts">Малайзия</annotation>
-		<annotation cp="🇲🇿">знаме</annotation>
+		<annotation cp="🇲🇿">Флаг</annotation>
 		<annotation cp="🇲🇿" type="tts">Мозамбик</annotation>
-		<annotation cp="🇳🇦">знаме</annotation>
+		<annotation cp="🇳🇦">Флаг</annotation>
 		<annotation cp="🇳🇦" type="tts">Намибия</annotation>
-		<annotation cp="🇳🇨">знаме</annotation>
+		<annotation cp="🇳🇨">Флаг</annotation>
 		<annotation cp="🇳🇨" type="tts">Нова Каледония</annotation>
-		<annotation cp="🇳🇪">знаме</annotation>
+		<annotation cp="🇳🇪">Флаг</annotation>
 		<annotation cp="🇳🇪" type="tts">Нигер</annotation>
-		<annotation cp="🇳🇫">знаме</annotation>
+		<annotation cp="🇳🇫">Флаг</annotation>
 		<annotation cp="🇳🇫" type="tts">остров Норфолк</annotation>
-		<annotation cp="🇳🇬">знаме</annotation>
+		<annotation cp="🇳🇬">Флаг</annotation>
 		<annotation cp="🇳🇬" type="tts">Нигерия</annotation>
-		<annotation cp="🇳🇮">знаме</annotation>
+		<annotation cp="🇳🇮">Флаг</annotation>
 		<annotation cp="🇳🇮" type="tts">Никарагуа</annotation>
-		<annotation cp="🇳🇱">знаме</annotation>
+		<annotation cp="🇳🇱">Флаг</annotation>
 		<annotation cp="🇳🇱" type="tts">Нидерландия</annotation>
-		<annotation cp="🇳🇴">знаме</annotation>
+		<annotation cp="🇳🇴">Флаг</annotation>
 		<annotation cp="🇳🇴" type="tts">Норвегия</annotation>
-		<annotation cp="🇳🇵">знаме</annotation>
+		<annotation cp="🇳🇵">Флаг</annotation>
 		<annotation cp="🇳🇵" type="tts">Непал</annotation>
-		<annotation cp="🇳🇷">знаме</annotation>
+		<annotation cp="🇳🇷">Флаг</annotation>
 		<annotation cp="🇳🇷" type="tts">Науру</annotation>
-		<annotation cp="🇳🇺">знаме</annotation>
+		<annotation cp="🇳🇺">Флаг</annotation>
 		<annotation cp="🇳🇺" type="tts">Ниуе</annotation>
-		<annotation cp="🇳🇿">знаме</annotation>
+		<annotation cp="🇳🇿">Флаг</annotation>
 		<annotation cp="🇳🇿" type="tts">Нова Зеландия</annotation>
-		<annotation cp="🇴🇲">знаме</annotation>
+		<annotation cp="🇴🇲">Флаг</annotation>
 		<annotation cp="🇴🇲" type="tts">Оман</annotation>
-		<annotation cp="🇵🇦">знаме</annotation>
+		<annotation cp="🇵🇦">Флаг</annotation>
 		<annotation cp="🇵🇦" type="tts">Панама</annotation>
-		<annotation cp="🇵🇪">знаме</annotation>
+		<annotation cp="🇵🇪">Флаг</annotation>
 		<annotation cp="🇵🇪" type="tts">Перу</annotation>
-		<annotation cp="🇵🇫">знаме</annotation>
+		<annotation cp="🇵🇫">Флаг</annotation>
 		<annotation cp="🇵🇫" type="tts">Френска Полинезия</annotation>
-		<annotation cp="🇵🇬">знаме</annotation>
+		<annotation cp="🇵🇬">Флаг</annotation>
 		<annotation cp="🇵🇬" type="tts">Папуа-Нова Гвинея</annotation>
-		<annotation cp="🇵🇭">знаме</annotation>
+		<annotation cp="🇵🇭">Флаг</annotation>
 		<annotation cp="🇵🇭" type="tts">Филипини</annotation>
-		<annotation cp="🇵🇰">знаме</annotation>
+		<annotation cp="🇵🇰">Флаг</annotation>
 		<annotation cp="🇵🇰" type="tts">Пакистан</annotation>
-		<annotation cp="🇵🇱">знаме</annotation>
+		<annotation cp="🇵🇱">Флаг</annotation>
 		<annotation cp="🇵🇱" type="tts">Полша</annotation>
-		<annotation cp="🇵🇲">знаме</annotation>
+		<annotation cp="🇵🇲">Флаг</annotation>
 		<annotation cp="🇵🇲" type="tts">Сен Пиер и Микелон</annotation>
-		<annotation cp="🇵🇳">знаме</annotation>
+		<annotation cp="🇵🇳">Флаг</annotation>
 		<annotation cp="🇵🇳" type="tts">Острови Питкерн</annotation>
-		<annotation cp="🇵🇷">знаме</annotation>
+		<annotation cp="🇵🇷">Флаг</annotation>
 		<annotation cp="🇵🇷" type="tts">Пуерто Рико</annotation>
-		<annotation cp="🇵🇸">знаме</annotation>
+		<annotation cp="🇵🇸">Флаг</annotation>
 		<annotation cp="🇵🇸" type="tts">Палестински територии</annotation>
-		<annotation cp="🇵🇹">знаме</annotation>
+		<annotation cp="🇵🇹">Флаг</annotation>
 		<annotation cp="🇵🇹" type="tts">Португалия</annotation>
-		<annotation cp="🇵🇼">знаме</annotation>
+		<annotation cp="🇵🇼">Флаг</annotation>
 		<annotation cp="🇵🇼" type="tts">Палау</annotation>
-		<annotation cp="🇵🇾">знаме</annotation>
+		<annotation cp="🇵🇾">Флаг</annotation>
 		<annotation cp="🇵🇾" type="tts">Парагвай</annotation>
-		<annotation cp="🇶🇦">знаме</annotation>
+		<annotation cp="🇶🇦">Флаг</annotation>
 		<annotation cp="🇶🇦" type="tts">Катар</annotation>
-		<annotation cp="🇷🇪">знаме</annotation>
+		<annotation cp="🇷🇪">Флаг</annotation>
 		<annotation cp="🇷🇪" type="tts">Реюнион</annotation>
-		<annotation cp="🇷🇴">знаме</annotation>
+		<annotation cp="🇷🇴">Флаг</annotation>
 		<annotation cp="🇷🇴" type="tts">Румъния</annotation>
-		<annotation cp="🇷🇸">знаме</annotation>
+		<annotation cp="🇷🇸">Флаг</annotation>
 		<annotation cp="🇷🇸" type="tts">Сърбия</annotation>
-		<annotation cp="🇷🇺">знаме</annotation>
+		<annotation cp="🇷🇺">Флаг</annotation>
 		<annotation cp="🇷🇺" type="tts">Русия</annotation>
-		<annotation cp="🇷🇼">знаме</annotation>
+		<annotation cp="🇷🇼">Флаг</annotation>
 		<annotation cp="🇷🇼" type="tts">Руанда</annotation>
-		<annotation cp="🇸🇦">знаме</annotation>
+		<annotation cp="🇸🇦">Флаг</annotation>
 		<annotation cp="🇸🇦" type="tts">Саудитска Арабия</annotation>
-		<annotation cp="🇸🇧">знаме</annotation>
+		<annotation cp="🇸🇧">Флаг</annotation>
 		<annotation cp="🇸🇧" type="tts">Соломонови острови</annotation>
-		<annotation cp="🇸🇨">знаме</annotation>
+		<annotation cp="🇸🇨">Флаг</annotation>
 		<annotation cp="🇸🇨" type="tts">Сейшели</annotation>
-		<annotation cp="🇸🇩">знаме</annotation>
+		<annotation cp="🇸🇩">Флаг</annotation>
 		<annotation cp="🇸🇩" type="tts">Судан</annotation>
-		<annotation cp="🇸🇪">знаме</annotation>
+		<annotation cp="🇸🇪">Флаг</annotation>
 		<annotation cp="🇸🇪" type="tts">Швеция</annotation>
-		<annotation cp="🇸🇬">знаме</annotation>
+		<annotation cp="🇸🇬">Флаг</annotation>
 		<annotation cp="🇸🇬" type="tts">Сингапур</annotation>
-		<annotation cp="🇸🇭">знаме</annotation>
+		<annotation cp="🇸🇭">Флаг</annotation>
 		<annotation cp="🇸🇭" type="tts">Света Елена</annotation>
-		<annotation cp="🇸🇮">знаме</annotation>
+		<annotation cp="🇸🇮">Флаг</annotation>
 		<annotation cp="🇸🇮" type="tts">Словения</annotation>
-		<annotation cp="🇸🇯">знаме</annotation>
+		<annotation cp="🇸🇯">Флаг</annotation>
 		<annotation cp="🇸🇯" type="tts">Свалбард и Ян Майен</annotation>
-		<annotation cp="🇸🇰">знаме</annotation>
+		<annotation cp="🇸🇰">Флаг</annotation>
 		<annotation cp="🇸🇰" type="tts">Словакия</annotation>
-		<annotation cp="🇸🇱">знаме</annotation>
+		<annotation cp="🇸🇱">Флаг</annotation>
 		<annotation cp="🇸🇱" type="tts">Сиера Леоне</annotation>
-		<annotation cp="🇸🇲">знаме</annotation>
+		<annotation cp="🇸🇲">Флаг</annotation>
 		<annotation cp="🇸🇲" type="tts">Сан Марино</annotation>
-		<annotation cp="🇸🇳">знаме</annotation>
+		<annotation cp="🇸🇳">Флаг</annotation>
 		<annotation cp="🇸🇳" type="tts">Сенегал</annotation>
-		<annotation cp="🇸🇴">знаме</annotation>
+		<annotation cp="🇸🇴">Флаг</annotation>
 		<annotation cp="🇸🇴" type="tts">Сомалия</annotation>
-		<annotation cp="🇸🇷">знаме</annotation>
+		<annotation cp="🇸🇷">Флаг</annotation>
 		<annotation cp="🇸🇷" type="tts">Суринам</annotation>
-		<annotation cp="🇸🇸">знаме</annotation>
+		<annotation cp="🇸🇸">Флаг</annotation>
 		<annotation cp="🇸🇸" type="tts">Южен Судан</annotation>
-		<annotation cp="🇸🇹">знаме</annotation>
+		<annotation cp="🇸🇹">Флаг</annotation>
 		<annotation cp="🇸🇹" type="tts">Сао Томе и Принсипи</annotation>
-		<annotation cp="🇸🇻">знаме</annotation>
+		<annotation cp="🇸🇻">Флаг</annotation>
 		<annotation cp="🇸🇻" type="tts">Салвадор</annotation>
-		<annotation cp="🇸🇽">знаме</annotation>
+		<annotation cp="🇸🇽">Флаг</annotation>
 		<annotation cp="🇸🇽" type="tts">Синт Мартен</annotation>
-		<annotation cp="🇸🇾">знаме</annotation>
+		<annotation cp="🇸🇾">Флаг</annotation>
 		<annotation cp="🇸🇾" type="tts">Сирия</annotation>
-		<annotation cp="🇸🇿">знаме</annotation>
+		<annotation cp="🇸🇿">Флаг</annotation>
 		<annotation cp="🇸🇿" type="tts">Свазиленд</annotation>
-		<annotation cp="🇹🇦">знаме</annotation>
+		<annotation cp="🇹🇦">Флаг</annotation>
 		<annotation cp="🇹🇦" type="tts">Тристан да Куня</annotation>
-		<annotation cp="🇹🇨">знаме</annotation>
+		<annotation cp="🇹🇨">Флаг</annotation>
 		<annotation cp="🇹🇨" type="tts">острови Търкс и Кайкос</annotation>
-		<annotation cp="🇹🇩">знаме</annotation>
+		<annotation cp="🇹🇩">Флаг</annotation>
 		<annotation cp="🇹🇩" type="tts">Чад</annotation>
-		<annotation cp="🇹🇫">знаме</annotation>
+		<annotation cp="🇹🇫">Флаг</annotation>
 		<annotation cp="🇹🇫" type="tts">Френски южни територии</annotation>
-		<annotation cp="🇹🇬">знаме</annotation>
+		<annotation cp="🇹🇬">Флаг</annotation>
 		<annotation cp="🇹🇬" type="tts">Того</annotation>
-		<annotation cp="🇹🇭">знаме</annotation>
+		<annotation cp="🇹🇭">Флаг</annotation>
 		<annotation cp="🇹🇭" type="tts">Тайланд</annotation>
-		<annotation cp="🇹🇯">знаме</annotation>
+		<annotation cp="🇹🇯">Флаг</annotation>
 		<annotation cp="🇹🇯" type="tts">Таджикистан</annotation>
-		<annotation cp="🇹🇰">знаме</annotation>
+		<annotation cp="🇹🇰">Флаг</annotation>
 		<annotation cp="🇹🇰" type="tts">Токелау</annotation>
-		<annotation cp="🇹🇱">знаме</annotation>
+		<annotation cp="🇹🇱">Флаг</annotation>
 		<annotation cp="🇹🇱" type="tts">Източен Тимор</annotation>
-		<annotation cp="🇹🇲">знаме</annotation>
+		<annotation cp="🇹🇲">Флаг</annotation>
 		<annotation cp="🇹🇲" type="tts">Туркменистан</annotation>
-		<annotation cp="🇹🇳">знаме</annotation>
+		<annotation cp="🇹🇳">Флаг</annotation>
 		<annotation cp="🇹🇳" type="tts">Тунис</annotation>
-		<annotation cp="🇹🇴">знаме</annotation>
+		<annotation cp="🇹🇴">Флаг</annotation>
 		<annotation cp="🇹🇴" type="tts">Тонга</annotation>
-		<annotation cp="🇹🇷">знаме</annotation>
+		<annotation cp="🇹🇷">Флаг</annotation>
 		<annotation cp="🇹🇷" type="tts">Турция</annotation>
-		<annotation cp="🇹🇹">знаме</annotation>
+		<annotation cp="🇹🇹">Флаг</annotation>
 		<annotation cp="🇹🇹" type="tts">Тринидад и Тобаго</annotation>
-		<annotation cp="🇹🇻">знаме</annotation>
+		<annotation cp="🇹🇻">Флаг</annotation>
 		<annotation cp="🇹🇻" type="tts">Тувалу</annotation>
-		<annotation cp="🇹🇼">знаме</annotation>
+		<annotation cp="🇹🇼">Флаг</annotation>
 		<annotation cp="🇹🇼" type="tts">Тайван</annotation>
-		<annotation cp="🇹🇿">знаме</annotation>
+		<annotation cp="🇹🇿">Флаг</annotation>
 		<annotation cp="🇹🇿" type="tts">Танзания</annotation>
-		<annotation cp="🇺🇦">знаме</annotation>
+		<annotation cp="🇺🇦">Флаг</annotation>
 		<annotation cp="🇺🇦" type="tts">Украйна</annotation>
-		<annotation cp="🇺🇬">знаме</annotation>
+		<annotation cp="🇺🇬">Флаг</annotation>
 		<annotation cp="🇺🇬" type="tts">Уганда</annotation>
-		<annotation cp="🇺🇲">знаме</annotation>
+		<annotation cp="🇺🇲">Флаг</annotation>
 		<annotation cp="🇺🇲" type="tts">Отдалечени острови на САЩ</annotation>
-		<annotation cp="🇺🇳">знаме</annotation>
+		<annotation cp="🇺🇳">Флаг</annotation>
 		<annotation cp="🇺🇳" type="tts">Организация на обединените нации</annotation>
-		<annotation cp="🇺🇸">знаме</annotation>
+		<annotation cp="🇺🇸">Флаг</annotation>
 		<annotation cp="🇺🇸" type="tts">Съединени щати</annotation>
-		<annotation cp="🇺🇾">знаме</annotation>
+		<annotation cp="🇺🇾">Флаг</annotation>
 		<annotation cp="🇺🇾" type="tts">Уругвай</annotation>
-		<annotation cp="🇺🇿">знаме</annotation>
+		<annotation cp="🇺🇿">Флаг</annotation>
 		<annotation cp="🇺🇿" type="tts">Узбекистан</annotation>
-		<annotation cp="🇻🇦">знаме</annotation>
+		<annotation cp="🇻🇦">Флаг</annotation>
 		<annotation cp="🇻🇦" type="tts">Ватикан</annotation>
-		<annotation cp="🇻🇨">знаме</annotation>
+		<annotation cp="🇻🇨">Флаг</annotation>
 		<annotation cp="🇻🇨" type="tts">Сейнт Винсънт и Гренадини</annotation>
-		<annotation cp="🇻🇪">знаме</annotation>
+		<annotation cp="🇻🇪">Флаг</annotation>
 		<annotation cp="🇻🇪" type="tts">Венецуела</annotation>
-		<annotation cp="🇻🇬">знаме</annotation>
+		<annotation cp="🇻🇬">Флаг</annotation>
 		<annotation cp="🇻🇬" type="tts">Британски Вирджински острови</annotation>
-		<annotation cp="🇻🇮">знаме</annotation>
+		<annotation cp="🇻🇮">Флаг</annotation>
 		<annotation cp="🇻🇮" type="tts">Американски Вирджински острови</annotation>
-		<annotation cp="🇻🇳">знаме</annotation>
+		<annotation cp="🇻🇳">Флаг</annotation>
 		<annotation cp="🇻🇳" type="tts">Виетнам</annotation>
-		<annotation cp="🇻🇺">знаме</annotation>
+		<annotation cp="🇻🇺">Флаг</annotation>
 		<annotation cp="🇻🇺" type="tts">Вануату</annotation>
-		<annotation cp="🇼🇫">знаме</annotation>
+		<annotation cp="🇼🇫">Флаг</annotation>
 		<annotation cp="🇼🇫" type="tts">Уолис и Футуна</annotation>
-		<annotation cp="🇼🇸">знаме</annotation>
+		<annotation cp="🇼🇸">Флаг</annotation>
 		<annotation cp="🇼🇸" type="tts">Самоа</annotation>
-		<annotation cp="🇽🇰">знаме</annotation>
+		<annotation cp="🇽🇰">Флаг</annotation>
 		<annotation cp="🇽🇰" type="tts">Косово</annotation>
-		<annotation cp="🇾🇪">знаме</annotation>
+		<annotation cp="🇾🇪">Флаг</annotation>
 		<annotation cp="🇾🇪" type="tts">Йемен</annotation>
-		<annotation cp="🇾🇹">знаме</annotation>
+		<annotation cp="🇾🇹">Флаг</annotation>
 		<annotation cp="🇾🇹" type="tts">Майот</annotation>
-		<annotation cp="🇿🇦">знаме</annotation>
+		<annotation cp="🇿🇦">Флаг</annotation>
 		<annotation cp="🇿🇦" type="tts">Южна Африка</annotation>
-		<annotation cp="🇿🇲">знаме</annotation>
+		<annotation cp="🇿🇲">Флаг</annotation>
 		<annotation cp="🇿🇲" type="tts">Замбия</annotation>
-		<annotation cp="🇿🇼">знаме</annotation>
+		<annotation cp="🇿🇼">Флаг</annotation>
 		<annotation cp="🇿🇼" type="tts">Зимбабве</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">знаме</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">Флаг</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Англия</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">знаме</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">Флаг</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Шотландия</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">знаме</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">Флаг</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Уелс</annotation>
 	</annotations>
 </ldml>

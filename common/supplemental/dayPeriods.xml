@@ -640,6 +640,13 @@
 			<dayPeriodRule type="evening1" from="18:00" before="21:00"/>
 			<dayPeriodRule type="night1" from="21:00" before="04:00"/>
 		</dayPeriodRules>
+		<dayPeriodRules locales="cy">
+			<dayPeriodRule type="midnight" at="00:00"/> <!-- midnight -->
+			<dayPeriodRule type="noon" at="12:00"/> <!-- noon -->
+			<dayPeriodRule type="morning1" from="00:00" before="12:00"/> <!-- morning -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="18:00"/> <!-- afternoon -->
+			<dayPeriodRule type="evening1" from="18:00" before="24:00"/> <!-- evening -->
+		</dayPeriodRules>
 	</dayPeriodRuleSet>
 	<dayPeriodRuleSet type="selection">
 		<dayPeriodRules locales="root">
@@ -1157,6 +1164,11 @@
 			<dayPeriodRule type="afternoon2" from="14:00" before="18:00"/>
 			<dayPeriodRule type="evening1" from="18:00" before="21:00"/>
 			<dayPeriodRule type="night1" from="21:00" before="04:00"/>
+		</dayPeriodRules>
+		<dayPeriodRules locales="cy">
+			<dayPeriodRule type="morning1" from="00:00" before="12:00"/> <!-- morning -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="18:00"/> <!-- afternoon -->
+			<dayPeriodRule type="evening1" from="18:00" before="24:00"/> <!-- evening -->
 		</dayPeriodRules>
 	</dayPeriodRuleSet>
 </supplementalData>

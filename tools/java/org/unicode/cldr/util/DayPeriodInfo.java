@@ -142,9 +142,10 @@ public class DayPeriodInfo {
                 || end - start > NOON) { // the span can't exceed 12 hours
                 throw new IllegalArgumentException("Bad data");
             }
-            boolean didntContain = info.add(new Span(start, end, dayPeriod));
+            Span span = new Span(start, end, dayPeriod);
+            boolean didntContain = info.add(span);
             if (!didntContain) {
-                throw new IllegalArgumentException("Duplicate data");
+                throw new IllegalArgumentException("Duplicate data: " + span);
             }
             return this;
         }

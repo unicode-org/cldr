@@ -88,7 +88,7 @@ public class Emoji {
                     ) {
                     nonConstructed.add(minimal);
                 }
-            } else {
+            } else if (!minimal.contains("🔟")){
                 nonConstructed.add(minimal);
             }
 

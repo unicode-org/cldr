@@ -37,7 +37,7 @@ public class Annotations {
     public static final String ENGLISH_MARKER = "⊕";
     public static final String EQUIVALENT = "≣";
 
-    static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
+    public static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
     static final Splitter dotSplitter = Splitter.on(".").trimResults();
 
     static final Map<String, Map<String, AnnotationSet>> cache = new ConcurrentHashMap<>();

@@ -102,43 +102,56 @@ public class TestAnnotations extends TestFmwkPlus {
             {"🇪🇺","European Union","flag"},
             {"#️⃣","keycap: #","keycap"},
             {"9️⃣","keycap: 9","keycap"},
-
-            {"💏","kiss","couple"},
-            {"👩‍❤️‍💋‍👩","kiss: woman, woman","couple|woman"},
-            {"💑","couple with heart","couple|love"},
-            {"👩‍❤️‍👩","couple with heart: woman, woman","couple|love|woman"},
+            {"💏","kiss","couple | kiss"},
+            {"👩‍❤️‍💋‍👩","kiss: woman, woman","couple | kiss | woman"},
+            {"💑","couple with heart","couple | couple with heart | love"},
+            {"👩‍❤️‍👩","couple with heart: woman, woman","couple | couple with heart | love | woman"},
             {"👪","family","family"},
-            {"👩‍👩‍👧","family: woman, woman, girl","family|woman|girl"},
-            {"👦🏻","boy: light skin tone","boy|young|light skin tone"},
-            {"👩🏿","woman: dark skin tone","woman|dark skin tone"},
-            {"👨‍⚖","man judge","justice|man|scales"},
-            {"👨🏿‍⚖","man judge: dark skin tone","justice|man|scales|dark skin tone"},
-            {"👩‍⚖","woman judge","judge|scales|woman"},
-            {"👩🏼‍⚖","woman judge: medium-light skin tone","judge|scales|woman|medium-light skin tone"},
-            {"👮","police officer","cop|officer|police"},
-            {"👮🏿","police officer: dark skin tone","cop|officer|police|dark skin tone"},
-            {"👮‍♂️","man police officer","cop|man|officer|police"},
-            {"👮🏼‍♂️","man police officer: medium-light skin tone","cop|officer|police|man|medium-light skin tone"},
-            {"👮‍♀️","woman police officer","cop|officer|police|woman"},
-            {"👮🏿‍♀️","woman police officer: dark skin tone","cop|officer|police|woman|dark skin tone"},
-            {"🚴","person biking","bicycle|biking|cyclist"},
-            {"🚴🏿","person biking: dark skin tone","bicycle|biking|cyclist|dark skin tone"},
-            {"🚴‍♂️","man biking","bicycle|biking|cyclist|man"},
-            {"🚴🏿‍♂️","man biking: dark skin tone","bicycle|biking|cyclist|man|dark skin tone"},
-            {"🚴‍♀️","woman biking","bicycle|biking|cyclist|woman"},
-            {"🚴🏿‍♀️","woman biking: dark skin tone","bicycle|biking|cyclist|woman|dark skin tone"},
+            {"👩‍👩‍👧","family: woman, woman, girl","family | woman | girl"},
+            {"👦🏻","boy: light skin tone","boy | young | light skin tone"},
+            {"👩🏿","woman: dark skin tone","woman | dark skin tone"},
+            {"👨‍⚖","man judge","justice | man | man judge | scales"},
+            {"👨🏿‍⚖","man judge: dark skin tone","justice | man | man judge | scales | dark skin tone"},
+            {"👩‍⚖","woman judge","judge | scales | woman | woman judge"},
+            {"👩🏼‍⚖","woman judge: medium-light skin tone","judge | scales | woman | woman judge | medium-light skin tone"},
+            {"👮","police officer","cop | officer | police | police officer"},
+            {"👮🏿","police officer: dark skin tone","cop | officer | police | police officer | dark skin tone"},
+            {"👮‍♂️","man police officer","cop | man | man police officer | officer | police"},
+            {"👮🏼‍♂️","man police officer: medium-light skin tone","cop | man | man police officer | officer | police | medium-light skin tone"},
+            {"👮‍♀️","woman police officer","cop | officer | police | woman | woman police officer"},
+            {"👮🏿‍♀️","woman police officer: dark skin tone","cop | officer | police | woman | woman police officer | dark skin tone"},
+            {"🚴","person biking","bicycle | biking | cyclist | person biking"},
+            {"🚴🏿","person biking: dark skin tone","bicycle | biking | cyclist | person biking | dark skin tone"},
+            {"🚴‍♂️","man biking","bicycle | biking | cyclist | man | man biking"},
+            {"🚴🏿‍♂️","man biking: dark skin tone","bicycle | biking | cyclist | man | man biking | dark skin tone"},
+            {"🚴‍♀️","woman biking","bicycle | biking | cyclist | woman | woman biking"},
+            {"🚴🏿‍♀️","woman biking: dark skin tone","bicycle | biking | cyclist | woman | woman biking | dark skin tone"},
         };
 
         Splitter BAR = Splitter.on('|').trimResults();
+        boolean ok = true;
         for (String[] test : tests) {
             String emoji = test[0];
             String expectedName = test[1];
             Set<String> expectedKeywords = new HashSet<>(BAR.splitToList(test[2]));
             final String shortName = eng.getShortName(emoji);
             final Set<String> keywords = eng.getKeywords(emoji);
-            assertEquals("short name for " + emoji, expectedName, shortName);
-            assertEquals("keywords for " + emoji, expectedKeywords, keywords);
+            ok &=assertEquals("short name for " + emoji, expectedName, shortName);
+            ok &= assertEquals("keywords for " + emoji, expectedKeywords, keywords);
         }
+        if (!ok) {
+            System.out.println("Possible replacement, but check");
+            for (String[] test : tests) {
+                String emoji = test[0];
+                final String shortName = eng.getShortName(emoji);
+                final Set<String> keywords = eng.getKeywords(emoji);
+                System.out.println("{\"" + emoji 
+                    + "\",\"" + shortName 
+                    + "\",\"" + CollectionUtilities.join(keywords, " | ") 
+                    + "\"},");
+            }
+        }
+
     }
 
     // comment this out, since we now have console check for this.

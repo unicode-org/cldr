@@ -29,6 +29,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -422,7 +423,7 @@ public class CLDRModify {
                         long now = System.currentTimeMillis();
                         if (now - lastTime > 5000) {
                             System.out.println(" .. still processing " + test + " [" + spin + "/" + locales.size()
-                                + "]");
+                            + "]");
                             lastTime = now;
                         }
                     }
@@ -739,7 +740,7 @@ public class CLDRModify {
 
         public void retain(String path, String reason) {
             System.out.println("%" + localeID + "\t" + reason + "\tRetaining: " + cldrFileToFilter.getStringValue(path)
-                + "\t at: " + path);
+            + "\t at: " + path);
         }
 
         public void remove(String path) {
@@ -772,9 +773,9 @@ public class CLDRModify {
                 + "»"
                 + (newFullPath.equals(oldFullPath) || oldValueNewPath == null ? "" : oldValueNewPath
                     .equals(oldValueOldPath) ? "/=" : "/«" + oldValueNewPath + "»")
-                    + "\t→\t" + (newValue == null ? "∅" : newValue.equals(oldValueOldPath) ? "=" : "«" + newValue + "»")
-                    + "\t" + oldFullPath
-                    + (newFullPath.equals(oldFullPath) ? "" : "\t→\t" + newFullPath)
+                + "\t→\t" + (newValue == null ? "∅" : newValue.equals(oldValueOldPath) ? "=" : "«" + newValue + "»")
+                + "\t" + oldFullPath
+                + (newFullPath.equals(oldFullPath) ? "" : "\t→\t" + newFullPath)
                 );
         }
 
@@ -1020,7 +1021,7 @@ public class CLDRModify {
                 }
             }
         });
-        
+
 
         fixList.add('B', "fix bogus values", new CLDRFilter() {            
             RegexLookup<Integer> paths = RegexLookup.<Integer>of()
@@ -1341,7 +1342,7 @@ public class CLDRModify {
                 nf.setGroupingUsed(false);
 
                 String tagString = leadingParenString + nf.format(fromDate) + separator + nf.format(toDate)
-                    + trailingParenString;
+                + trailingParenString;
 
                 replace(fullXPath, fullXPath, value + tagString);
 
@@ -1481,9 +1482,9 @@ public class CLDRModify {
                     }
 
                     String fixedExemplar1 = new UnicodeSetPrettyPrinter()
-                    .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                    .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                        .setStrength2(Collator.PRIMARY))
+                        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+                        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                            .setStrength2(Collator.PRIMARY))
                         .setCompressRanges(true)
                         .format(s);
 
@@ -2037,6 +2038,51 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('Q', "add annotation names to keywords", new CLDRFilter() {
+            Set<String> available = Annotations.getAvailable();
+            TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
+            CLDRFile resolved;
+            @Override
+            public void handleStart() {
+                String localeID = cldrFileToFilter.getLocaleID();
+                if (!available.contains(localeID)) {
+                    throw new IllegalArgumentException("no annotations available, probably wrong directory");
+                };
+                resolved = factory.make(localeID, true);
+            }
+            @Override
+            public void handlePath(String xpath) {
+                if (!xpath.contains("/annotation")) {
+                    return;
+                }
+                //      <annotation cp="💯">100 | honderd | persent | telling | vol</annotation>
+                //      <annotation cp="💯" type="tts">honderd punte</annotation>
+                //      we will copy honderd punte into the list of keywords.
+                String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(fullpath);
+                String type = parts.getAttributeValue(2, "type");
+                if (type == null) {
+                    return; // keywords, skip
+                }
+                String name = cldrFileToFilter.getStringValue(xpath);
+                XPathParts keywordParts = parts.cloneAsThawed().removeAttribute(2, "type");
+                String keywordPath = keywordParts.toString();
+                String keywordValue = resolved.getStringValue(keywordPath);
+                String sourceLocaleId = resolved.getSourceLocaleID(keywordPath, null);
+                sorted.clear();
+                sorted.add(name);
+                if (!sourceLocaleId.equals(XMLSource.ROOT_ID) && !sourceLocaleId.equals(XMLSource.CODE_FALLBACK_ID)) {
+                    List<String> items = Annotations.splitter.splitToList(keywordValue);
+                    sorted.addAll(items);
+                } else {
+                    int debug = 0;
+                }
+                String newKeywordValue = CollectionUtilities.join(sorted, " | ");
+                replace(keywordPath, keywordPath, newKeywordValue);
+            }
+        });
+
+
         fixList.add('k',
             "fix according to -k config file. Details on http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config",
             new CLDRFilter() {
@@ -2155,7 +2201,7 @@ public class CLDRModify {
                 };
                 myReader.process(CLDRModify.class, configFileName);
             }
-            
+
             @Override
             public void handlePath(String xpath) {
                 // slow method; could optimize

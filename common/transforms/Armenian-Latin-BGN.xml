@@ -27,7 +27,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #
 # https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/614615/ROMANIZATION_SYSTEM_FOR_ARMENIAN.PDF
 
-::[ԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՒՓՔՕՖաբգդեզէըթժիլխծկհձղճմյնշոչպջռսվտրցւփքօֆև];
+::[ԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՒՓՔՕՖաբգդեզէըթժիլխծկհձղճմյնշոչպջռսվտրցւփքօֆև։];
 ::NFC;
 
 $upperConsonants = [ԲԳԴԶԹԺԼԽԾԿՀՁՂՃՄՅՆՇՉՊՋՌՍՎՐՑՓՔՖ] ;
@@ -192,6 +192,8 @@ $wordBoundary{ո → vo ; # ARMENIAN SMALL LETTER VO
 օ → o ; # ARMENIAN SMALL LETTER OH
 Ֆ → F ; # ARMENIAN CAPITAL LETTER FEH
 ֆ → f ; # ARMENIAN SMALL LETTER FEH
+
+։ → \. ; # ARMENIAN FULL STOP
 			]]></tRule>
 		</transform>
 	</transforms>

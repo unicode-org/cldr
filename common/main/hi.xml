@@ -137,7 +137,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="en_AU">ऑस्ट्रेलियाई अंग्रेज़ी</language>
 			<language type="en_CA">कनाडाई अंग्रेज़ी</language>
 			<language type="en_GB">ब्रिटिश अंग्रेज़ी</language>
-			<language type="en_GB" alt="short">यू.के. अंग्रेज़ी</language>
+			<language type="en_GB" alt="short">यू॰के॰ अंग्रेज़ी</language>
 			<language type="en_US">अमेरिकी अंग्रेज़ी</language>
 			<language type="en_US" alt="short">अमेरिकी अंग्रेज़ी</language>
 			<language type="enm">मध्यकालीन अंग्रेज़ी</language>
@@ -795,7 +795,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="FR">फ़्रांस</territory>
 			<territory type="GA">गैबॉन</territory>
 			<territory type="GB">यूनाइटेड किंगडम</territory>
-			<territory type="GB" alt="short">यू.के.</territory>
+			<territory type="GB" alt="short">यू॰के॰</territory>
 			<territory type="GD">ग्रेनाडा</territory>
 			<territory type="GE">जॉर्जिया</territory>
 			<territory type="GF">फ़्रेंच गुयाना</territory>
@@ -958,7 +958,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TZ">तंज़ानिया</territory>
 			<territory type="UA">यूक्रेन</territory>
 			<territory type="UG">युगांडा</territory>
-			<territory type="UM">यू.एस. आउटलाइंग द्वीपसमूह</territory>
+			<territory type="UM">यू॰एस॰ आउटलाइंग द्वीपसमूह</territory>
 			<territory type="UN">संयुक्त राष्ट्र</territory>
 			<territory type="UN" alt="short">संयुक्त राष्ट्र</territory>
 			<territory type="US">संयुक्त राज्य</territory>
@@ -969,7 +969,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="VC">सेंट विंसेंट और ग्रेनाडाइंस</territory>
 			<territory type="VE">वेनेज़ुएला</territory>
 			<territory type="VG">ब्रिटिश वर्जिन द्वीपसमूह</territory>
-			<territory type="VI">यू.एस. वर्जिन द्वीपसमूह</territory>
+			<territory type="VI">यू॰एस॰ वर्जिन द्वीपसमूह</territory>
 			<territory type="VN">वियतनाम</territory>
 			<territory type="VU">वनुआतू</territory>
 			<territory type="WF">वालिस और फ़्यूचूना</territory>
@@ -2345,12 +2345,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0" draft="contributed">इस तिमाही</relative>
 				<relative type="1" draft="contributed">अगली तिमाही</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} ति. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} ति. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} ति॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ति॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} ति. पहले</relativeTimePattern>
-					<relativeTimePattern count="other">{0} ति. पहले</relativeTimePattern>
+					<relativeTimePattern count="one">{0} ति॰ पहले</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ति॰ पहले</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -2516,29 +2516,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="sun-short">
-				<relative type="-1">पिछला रवि.</relative>
-				<relative type="0">इस रवि.</relative>
-				<relative type="1">अगला रवि.</relative>
+				<relative type="-1">पिछला रवि॰</relative>
+				<relative type="0">इस रवि॰</relative>
+				<relative type="1">अगला रवि॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} रवि. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} रवि. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} रवि॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} रवि॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} रवि. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} रवि. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} रवि॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} रवि॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
-				<relative type="-1">पिछला रवि.</relative>
-				<relative type="0">इस रवि.</relative>
-				<relative type="1">अगला रवि.</relative>
+				<relative type="-1">पिछला रवि॰</relative>
+				<relative type="0">इस रवि॰</relative>
+				<relative type="1">अगला रवि॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} रवि. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} रवि. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} रवि॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} रवि॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} रवि. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} रवि. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} रवि॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} रवि॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -2555,29 +2555,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="mon-short">
-				<relative type="-1">पिछला सोम.</relative>
-				<relative type="0">इस सोम.</relative>
-				<relative type="1">अगला सोम.</relative>
+				<relative type="-1">पिछला सोम॰</relative>
+				<relative type="0">इस सोम॰</relative>
+				<relative type="1">अगला सोम॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} सोम. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} सोम. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} सोम॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} सोम॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} सोम. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} सोम. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} सोम॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} सोम॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
-				<relative type="-1">पिछला सोम.</relative>
-				<relative type="0">इस सोम.</relative>
-				<relative type="1">अगला सोम.</relative>
+				<relative type="-1">पिछला सोम॰</relative>
+				<relative type="0">इस सोम॰</relative>
+				<relative type="1">अगला सोम॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} सोम. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} सोम. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} सोम॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} सोम॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} सोम. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} सोम. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} सोम॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} सोम॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -2594,29 +2594,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="tue-short">
-				<relative type="-1">पिछला मंगल.</relative>
-				<relative type="0">इस मंगल.</relative>
-				<relative type="1">अगला मंगल.</relative>
+				<relative type="-1">पिछला मंगल॰</relative>
+				<relative type="0">इस मंगल॰</relative>
+				<relative type="1">अगला मंगल॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} मंगल. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मंगल. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मंगल॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मंगल॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} मंगल. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मंगल. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मंगल॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मंगल॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
-				<relative type="-1">पिछला मंगल.</relative>
-				<relative type="0">इस मंगल.</relative>
-				<relative type="1">अगला मंगल.</relative>
+				<relative type="-1">पिछला मंगल॰</relative>
+				<relative type="0">इस मंगल॰</relative>
+				<relative type="1">अगला मंगल॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} मंगल. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मंगल. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मंगल॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मंगल॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} मंगल. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मंगल. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मंगल॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मंगल॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -2633,29 +2633,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="wed-short">
-				<relative type="-1">पिछला बुध.</relative>
-				<relative type="0">इस बुध.</relative>
-				<relative type="1">अगला बुध.</relative>
+				<relative type="-1">पिछला बुध॰</relative>
+				<relative type="0">इस बुध॰</relative>
+				<relative type="1">अगला बुध॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} बुध. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} बुध. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} बुध॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} बुध॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} बुध. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} बुध. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} बुध॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} बुध॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
-				<relative type="-1">पिछला बुध.</relative>
-				<relative type="0">इस बुध.</relative>
-				<relative type="1">अगला बुध.</relative>
+				<relative type="-1">पिछला बुध॰</relative>
+				<relative type="0">इस बुध॰</relative>
+				<relative type="1">अगला बुध॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} बुध. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} बुध. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} बुध॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} बुध॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} बुध. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} बुध. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} बुध॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} बुध॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -2672,29 +2672,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="thu-short">
-				<relative type="-1">पिछला गुरु.</relative>
-				<relative type="0">इस गुरु.</relative>
-				<relative type="1">अगला गुरु.</relative>
+				<relative type="-1">पिछला गुरु॰</relative>
+				<relative type="0">इस गुरु॰</relative>
+				<relative type="1">अगला गुरु॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} गुरु. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} गुरु. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} गुरु॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} गुरु॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} गुरु. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} गुरु. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} गुरु॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} गुरु॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
-				<relative type="-1">पिछला गुरु.</relative>
-				<relative type="0">इस गुरु.</relative>
-				<relative type="1">अगला गुरु.</relative>
+				<relative type="-1">पिछला गुरु॰</relative>
+				<relative type="0">इस गुरु॰</relative>
+				<relative type="1">अगला गुरु॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} गुरु. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} गुरु. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} गुरु॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} गुरु॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} गुरु. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} गुरु. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} गुरु॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} गुरु॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -2711,29 +2711,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="fri-short">
-				<relative type="-1">पिछला शुक्र.</relative>
-				<relative type="0">इस शुक्र.</relative>
-				<relative type="1">अगला शुक्र.</relative>
+				<relative type="-1">पिछला शुक्र॰</relative>
+				<relative type="0">इस शुक्र॰</relative>
+				<relative type="1">अगला शुक्र॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} शुक्र. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शुक्र. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शुक्र॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शुक्र॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} शुक्र. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शुक्र. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शुक्र॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शुक्र॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
-				<relative type="-1">पिछला शुक्र.</relative>
-				<relative type="0">इस शुक्र.</relative>
-				<relative type="1">अगला शुक्र.</relative>
+				<relative type="-1">पिछला शुक्र॰</relative>
+				<relative type="0">इस शुक्र॰</relative>
+				<relative type="1">अगला शुक्र॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} शुक्र. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शुक्र. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शुक्र॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शुक्र॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} शुक्र. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शुक्र. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शुक्र॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शुक्र॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -2750,29 +2750,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="sat-short">
-				<relative type="-1">पिछला शनि.</relative>
-				<relative type="0">इस शनि.</relative>
-				<relative type="1">अगला शनि.</relative>
+				<relative type="-1">पिछला शनि॰</relative>
+				<relative type="0">इस शनि॰</relative>
+				<relative type="1">अगला शनि॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} शनि. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शनि. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शनि॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शनि॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} शनि. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शनि. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शनि॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शनि॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
-				<relative type="-1">पिछला शनि.</relative>
-				<relative type="0">इस शनि.</relative>
-				<relative type="1">अगला शनि.</relative>
+				<relative type="-1">पिछला शनि॰</relative>
+				<relative type="0">इस शनि॰</relative>
+				<relative type="1">अगला शनि॰</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} शनि. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शनि. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शनि॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शनि॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} शनि. पूर्व</relativeTimePattern>
-					<relativeTimePattern count="other">{0} शनि. पूर्व</relativeTimePattern>
+					<relativeTimePattern count="one">{0} शनि॰ पूर्व</relativeTimePattern>
+					<relativeTimePattern count="other">{0} शनि॰ पूर्व</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
@@ -2797,25 +2797,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="hour-short">
-				<displayName>घं.</displayName>
+				<displayName>घं॰</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} घं. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} घं. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} घं॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} घं॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} घं. पहले</relativeTimePattern>
-					<relativeTimePattern count="other">{0} घं. पहले</relativeTimePattern>
+					<relativeTimePattern count="one">{0} घं॰ पहले</relativeTimePattern>
+					<relativeTimePattern count="other">{0} घं॰ पहले</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
-				<displayName>घं.</displayName>
+				<displayName>घं॰</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} घं. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} घं. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} घं॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} घं॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} घं. पहले</relativeTimePattern>
-					<relativeTimePattern count="other">{0} घं. पहले</relativeTimePattern>
+					<relativeTimePattern count="one">{0} घं॰ पहले</relativeTimePattern>
+					<relativeTimePattern count="other">{0} घं॰ पहले</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
@@ -2831,25 +2831,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="minute-short">
-				<displayName>मि.</displayName>
+				<displayName>मि॰</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} मि. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मि. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मि॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मि॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} मि. पहले</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मि. पहले</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मि॰ पहले</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मि॰ पहले</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>मि.</displayName>
+				<displayName>मि॰</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} मि. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मि. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मि॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मि॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} मि. पहले</relativeTimePattern>
-					<relativeTimePattern count="other">{0} मि. पहले</relativeTimePattern>
+					<relativeTimePattern count="one">{0} मि॰ पहले</relativeTimePattern>
+					<relativeTimePattern count="other">{0} मि॰ पहले</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -2865,25 +2865,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="second-short">
-				<displayName>से.</displayName>
+				<displayName>से॰</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} से. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} से. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} से॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} से॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} से. पहले</relativeTimePattern>
-					<relativeTimePattern count="other">{0} से. पहले</relativeTimePattern>
+					<relativeTimePattern count="one">{0} से॰ पहले</relativeTimePattern>
+					<relativeTimePattern count="other">{0} से॰ पहले</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
-				<displayName>से.</displayName>
+				<displayName>से॰</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} से. में</relativeTimePattern>
-					<relativeTimePattern count="other">{0} से. में</relativeTimePattern>
+					<relativeTimePattern count="one">{0} से॰ में</relativeTimePattern>
+					<relativeTimePattern count="other">{0} से॰ में</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} से. पहले</relativeTimePattern>
-					<relativeTimePattern count="other">{0} से. पहले</relativeTimePattern>
+					<relativeTimePattern count="one">{0} से॰ पहले</relativeTimePattern>
+					<relativeTimePattern count="other">{0} से॰ पहले</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">
@@ -5179,18 +5179,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="100000" count="other">0 लाख</pattern>
 					<pattern type="1000000" count="one">00 लाख</pattern>
 					<pattern type="1000000" count="other">00 लाख</pattern>
-					<pattern type="10000000" count="one">0 क'.'</pattern>
-					<pattern type="10000000" count="other">0 क'.'</pattern>
-					<pattern type="100000000" count="one">00 क'.'</pattern>
-					<pattern type="100000000" count="other">00 क'.'</pattern>
-					<pattern type="1000000000" count="one">0 अ'.'</pattern>
-					<pattern type="1000000000" count="other">0 अ'.'</pattern>
-					<pattern type="10000000000" count="one">00 अ'.'</pattern>
-					<pattern type="10000000000" count="other">00 अ'.'</pattern>
-					<pattern type="100000000000" count="one">0 ख'.'</pattern>
-					<pattern type="100000000000" count="other">0 ख'.'</pattern>
-					<pattern type="1000000000000" count="one">00 ख'.'</pattern>
-					<pattern type="1000000000000" count="other">00 ख'.'</pattern>
+					<pattern type="10000000" count="one">0 क॰</pattern>
+					<pattern type="10000000" count="other">0 क॰</pattern>
+					<pattern type="100000000" count="one">00 क॰</pattern>
+					<pattern type="100000000" count="other">00 क॰</pattern>
+					<pattern type="1000000000" count="one">0 अ॰</pattern>
+					<pattern type="1000000000" count="other">0 अ॰</pattern>
+					<pattern type="10000000000" count="one">00 अ॰</pattern>
+					<pattern type="10000000000" count="other">00 अ॰</pattern>
+					<pattern type="100000000000" count="one">0 ख॰</pattern>
+					<pattern type="100000000000" count="other">0 ख॰</pattern>
+					<pattern type="1000000000000" count="one">00 ख॰</pattern>
+					<pattern type="1000000000000" count="other">00 ख॰</pattern>
 					<pattern type="10000000000000" count="one">0 नील</pattern>
 					<pattern type="10000000000000" count="other">0 नील</pattern>
 					<pattern type="100000000000000" count="one">00 नील</pattern>
@@ -5252,18 +5252,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="100000" count="other">¤0 लाख</pattern>
 					<pattern type="1000000" count="one">¤00 लाख</pattern>
 					<pattern type="1000000" count="other">¤00 लाख</pattern>
-					<pattern type="10000000" count="one">¤0 क'.'</pattern>
-					<pattern type="10000000" count="other">¤0 क'.'</pattern>
-					<pattern type="100000000" count="one">¤00 क'.'</pattern>
-					<pattern type="100000000" count="other">¤00 क'.'</pattern>
-					<pattern type="1000000000" count="one">¤0 अ'.'</pattern>
-					<pattern type="1000000000" count="other">¤0 अ'.'</pattern>
-					<pattern type="10000000000" count="one">¤00 अ'.'</pattern>
-					<pattern type="10000000000" count="other">¤00 अ'.'</pattern>
-					<pattern type="100000000000" count="one">¤0 ख'.'</pattern>
-					<pattern type="100000000000" count="other">¤0 ख'.'</pattern>
-					<pattern type="1000000000000" count="one">¤00 ख'.'</pattern>
-					<pattern type="1000000000000" count="other">¤00 ख'.'</pattern>
+					<pattern type="10000000" count="one">¤0 क॰</pattern>
+					<pattern type="10000000" count="other">¤0 क॰</pattern>
+					<pattern type="100000000" count="one">¤00 क॰</pattern>
+					<pattern type="100000000" count="other">¤00 क॰</pattern>
+					<pattern type="1000000000" count="one">¤0 अ॰</pattern>
+					<pattern type="1000000000" count="other">¤0 अ॰</pattern>
+					<pattern type="10000000000" count="one">¤00 अ॰</pattern>
+					<pattern type="10000000000" count="other">¤00 अ॰</pattern>
+					<pattern type="100000000000" count="one">¤0 ख॰</pattern>
+					<pattern type="100000000000" count="other">¤0 ख॰</pattern>
+					<pattern type="1000000000000" count="one">¤00 ख॰</pattern>
+					<pattern type="1000000000000" count="other">¤00 ख॰</pattern>
 					<pattern type="10000000000000" count="one">¤0 नील</pattern>
 					<pattern type="10000000000000" count="other">¤0 नील</pattern>
 					<pattern type="100000000000000" count="one">¤00 नील</pattern>
@@ -6400,11 +6400,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} घंटा</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} घंटे</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">{0}था दाहिना मोड़ लें.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="many">{0}ठा दाहिना मोड़ लें.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">{0}ला दाहिना मोड़ लें.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}वां दाहिना मोड़ लें.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="two">{0}रा दाहिना मोड़ लें.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}था दाहिना मोड़ लें॰</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">{0}ठा दाहिना मोड़ लें॰</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}ला दाहिना मोड़ लें॰</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}वां दाहिना मोड़ लें॰</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">{0}रा दाहिना मोड़ लें॰</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7106,8 +7106,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>गु–बल</displayName>
-				<unitPattern count="one">{0} गु.</unitPattern>
-				<unitPattern count="other">{0} गु.</unitPattern>
+				<unitPattern count="one">{0} गु॰</unitPattern>
+				<unitPattern count="other">{0} गु॰</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-second-squared">
 				<displayName>मीटर/से²</displayName>
@@ -7136,31 +7136,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>आर्क सेकंड</displayName>
-				<unitPattern count="one">{0} आर्क से.</unitPattern>
-				<unitPattern count="other">{0} आर्क से.</unitPattern>
+				<unitPattern count="one">{0} आर्क से॰</unitPattern>
+				<unitPattern count="other">{0} आर्क से॰</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>वर्ग कि.मी.</displayName>
-				<unitPattern count="one">{0} वर्ग कि.मी.</unitPattern>
-				<unitPattern count="other">{0} वर्ग कि.मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/वर्ग कि.मी.</perUnitPattern>
+				<displayName>वर्ग कि॰मी॰</displayName>
+				<unitPattern count="one">{0} वर्ग कि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} वर्ग कि॰मी॰</unitPattern>
+				<perUnitPattern draft="contributed">{0}/वर्ग कि॰मी॰</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>हेक्टेयर</displayName>
-				<unitPattern count="one">{0} हे.</unitPattern>
-				<unitPattern count="other">{0} हे.</unitPattern>
+				<unitPattern count="one">{0} हे॰</unitPattern>
+				<unitPattern count="other">{0} हे॰</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>वर्ग मीटर</displayName>
-				<unitPattern count="one">{0} वर्ग मी.</unitPattern>
-				<unitPattern count="other">{0} वर्ग मी.</unitPattern>
+				<unitPattern count="one">{0} वर्ग मी॰</unitPattern>
+				<unitPattern count="other">{0} वर्ग मी॰</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग मीटर</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>वर्ग सें.</displayName>
-				<unitPattern count="one">{0} व. सें.</unitPattern>
-				<unitPattern count="other">{0} व. सें.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/वर्ग सें. मी.</perUnitPattern>
+				<displayName>वर्ग सें॰</displayName>
+				<unitPattern count="one">{0} व॰ सें॰</unitPattern>
+				<unitPattern count="other">{0} व॰ सें॰</unitPattern>
+				<perUnitPattern draft="contributed">{0}/वर्ग सें॰ मी॰</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>वर्ग मील</displayName>
@@ -7174,19 +7174,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} एकड़</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>व. ग.</displayName>
-				<unitPattern count="one">{0} व. ग.</unitPattern>
-				<unitPattern count="other">{0} व. ग.</unitPattern>
+				<displayName>व॰ ग॰</displayName>
+				<unitPattern count="one">{0} व॰ ग॰</unitPattern>
+				<unitPattern count="other">{0} व॰ ग॰</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>व.फ़ी.</displayName>
-				<unitPattern count="one">{0} व.फ़ी.</unitPattern>
-				<unitPattern count="other">{0} व.फ़ी.</unitPattern>
+				<displayName>व॰फ़ी॰</displayName>
+				<unitPattern count="one">{0} व॰फ़ी॰</unitPattern>
+				<unitPattern count="other">{0} व॰फ़ी॰</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>व. इं.</displayName>
-				<unitPattern count="one">{0} व. इं.</unitPattern>
-				<unitPattern count="other">{0} व. इं.</unitPattern>
+				<displayName>व॰ इं॰</displayName>
+				<unitPattern count="one">{0} व॰ इं॰</unitPattern>
+				<unitPattern count="other">{0} व॰ इं॰</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग इंच</perUnitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -7195,14 +7195,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
-				<displayName>मि.ग्रा./डे.ली.</displayName>
-				<unitPattern count="one">{0} मि.ग्रा./डे.ली.</unitPattern>
-				<unitPattern count="other">{0} मि.ग्रा./डे.ली.</unitPattern>
+				<displayName>मि॰ग्रा॰/डे॰ली॰</displayName>
+				<unitPattern count="one">{0} मि॰ग्रा॰/डे॰ली॰</unitPattern>
+				<unitPattern count="other">{0} मि॰ग्रा॰/डे॰ली॰</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>मिलीमोल/लीटर</displayName>
-				<unitPattern count="one">{0} मिलीमोल/ली.</unitPattern>
-				<unitPattern count="other">{0} मिलीमोल/ली.</unitPattern>
+				<unitPattern count="one">{0} मिलीमोल/ली॰</unitPattern>
+				<unitPattern count="other">{0} मिलीमोल/ली॰</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
 				<displayName draft="contributed">ppm</displayName>
@@ -7215,9 +7215,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ली/किमी</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName draft="contributed">ली./100 कि.मी.</displayName>
-				<unitPattern count="one">{0} ली./100 कि.मी.</unitPattern>
-				<unitPattern count="other">{0} ली./100 कि.मी.</unitPattern>
+				<displayName draft="contributed">ली॰/100 कि॰मी॰</displayName>
+				<unitPattern count="one">{0} ली॰/100 कि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} ली॰/100 कि॰मी॰</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>मील/गैलन</displayName>
@@ -7310,26 +7310,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-hour">
 				<displayName>घंटे</displayName>
-				<unitPattern count="one">{0} घं.</unitPattern>
-				<unitPattern count="other">{0} घं.</unitPattern>
-				<perUnitPattern>{0}/घं.</perUnitPattern>
+				<unitPattern count="one">{0} घं॰</unitPattern>
+				<unitPattern count="other">{0} घं॰</unitPattern>
+				<perUnitPattern>{0}/घं॰</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>मिनट</displayName>
-				<unitPattern count="one">{0} मि.</unitPattern>
-				<unitPattern count="other">{0} मि.</unitPattern>
+				<unitPattern count="one">{0} मि॰</unitPattern>
+				<unitPattern count="other">{0} मि॰</unitPattern>
 				<perUnitPattern>{0}/मिनट</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>सेकंड</displayName>
-				<unitPattern count="one">{0} से.</unitPattern>
-				<unitPattern count="other">{0} से.</unitPattern>
-				<perUnitPattern>{0}/से.</perUnitPattern>
+				<unitPattern count="one">{0} से॰</unitPattern>
+				<unitPattern count="other">{0} से॰</unitPattern>
+				<perUnitPattern>{0}/से॰</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>मिलीसेकंड</displayName>
-				<unitPattern count="one">{0} मि.से.</unitPattern>
-				<unitPattern count="other">{0} मि.से.</unitPattern>
+				<unitPattern count="one">{0} मि॰से॰</unitPattern>
+				<unitPattern count="other">{0} मि॰से॰</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>माइक्रोसेकंड</displayName>
@@ -7337,9 +7337,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>नैनो से.</displayName>
-				<unitPattern count="one">{0} नैनो से.</unitPattern>
-				<unitPattern count="other">{0} नैनो से.</unitPattern>
+				<displayName>नैनो से॰</displayName>
+				<unitPattern count="one">{0} नैनो से॰</unitPattern>
+				<unitPattern count="other">{0} नैनो से॰</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>एम्पी॰</displayName>
@@ -7412,10 +7412,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName>कि.मी.</displayName>
-				<unitPattern count="one">{0} कि.मी.</unitPattern>
-				<unitPattern count="other">{0} कि.मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/कि.मी.</perUnitPattern>
+				<displayName>कि॰मी॰</displayName>
+				<unitPattern count="one">{0} कि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} कि॰मी॰</unitPattern>
+				<perUnitPattern draft="contributed">{0}/कि॰मी॰</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>मीटर</displayName>
@@ -7424,35 +7424,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern draft="contributed">{0}/मी</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>डे.मी.</displayName>
-				<unitPattern count="one">{0} डे.मी.</unitPattern>
-				<unitPattern count="other">{0} डे.मी.</unitPattern>
+				<displayName>डे॰मी॰</displayName>
+				<unitPattern count="one">{0} डे॰मी॰</unitPattern>
+				<unitPattern count="other">{0} डे॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName>सें.मी.</displayName>
-				<unitPattern count="one">{0} सें.मी.</unitPattern>
-				<unitPattern count="other">{0} सें.मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/सें.मी.</perUnitPattern>
+				<displayName>सें॰मी॰</displayName>
+				<unitPattern count="one">{0} सें॰मी॰</unitPattern>
+				<unitPattern count="other">{0} सें॰मी॰</unitPattern>
+				<perUnitPattern draft="contributed">{0}/सें॰मी॰</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName>मि.मी.</displayName>
-				<unitPattern count="one">{0} मि.मी.</unitPattern>
-				<unitPattern count="other">{0} मि.मी.</unitPattern>
+				<displayName>मि॰मी॰</displayName>
+				<unitPattern count="one">{0} मि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} मि॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>µ मा.मी.</displayName>
-				<unitPattern count="one">{0} µ मा.मी.</unitPattern>
-				<unitPattern count="other">{0} µ मा.मी.</unitPattern>
+				<displayName>µ मा॰मी॰</displayName>
+				<unitPattern count="one">{0} µ मा॰मी॰</unitPattern>
+				<unitPattern count="other">{0} µ मा॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>नै.मी.</displayName>
-				<unitPattern count="one">{0} नै.मी.</unitPattern>
-				<unitPattern count="other">{0} नै.मी.</unitPattern>
+				<displayName>नै॰मी॰</displayName>
+				<unitPattern count="one">{0} नै॰मी॰</unitPattern>
+				<unitPattern count="other">{0} नै॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>पि.मी.</displayName>
-				<unitPattern count="one">{0} पि.मी.</unitPattern>
-				<unitPattern count="other">{0} पि.मी.</unitPattern>
+				<displayName>पि॰मी॰</displayName>
+				<unitPattern count="one">{0} पि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} पि॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName>मील</displayName>
@@ -7483,18 +7483,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-light-year">
 				<displayName>प्रकाश वर्ष</displayName>
-				<unitPattern count="one">{0} प्र.व.</unitPattern>
-				<unitPattern count="other">{0} प्र.व.</unitPattern>
+				<unitPattern count="one">{0} प्र॰व॰</unitPattern>
+				<unitPattern count="other">{0} प्र॰व॰</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>खगो. इका.</displayName>
-				<unitPattern count="one">{0} खगो. इका.</unitPattern>
-				<unitPattern count="other">{0} खगो. इका.</unitPattern>
+				<displayName>खगो॰ इका॰</displayName>
+				<unitPattern count="one">{0} खगो॰ इका॰</unitPattern>
+				<unitPattern count="other">{0} खगो॰ इका॰</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>नॉ. मी.</displayName>
-				<unitPattern count="one">{0} नॉ. मी.</unitPattern>
-				<unitPattern count="other">{0} नॉ. मी.</unitPattern>
+				<displayName>नॉ॰ मी॰</displayName>
+				<unitPattern count="one">{0} नॉ॰ मी॰</unitPattern>
+				<unitPattern count="other">{0} नॉ॰ मी॰</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName draft="contributed">smi</displayName>
@@ -7517,21 +7517,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मीट्रिक टन</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName>कि.ग्रा.</displayName>
-				<unitPattern count="one">{0} कि.ग्रा.</unitPattern>
-				<unitPattern count="other">{0} कि.ग्रा.</unitPattern>
-				<perUnitPattern>{0}/कि.ग्रा.</perUnitPattern>
+				<displayName>कि॰ग्रा॰</displayName>
+				<unitPattern count="one">{0} कि॰ग्रा॰</unitPattern>
+				<unitPattern count="other">{0} कि॰ग्रा॰</unitPattern>
+				<perUnitPattern>{0}/कि॰ग्रा॰</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>ग्राम</displayName>
-				<unitPattern count="one">{0} ग्रा.</unitPattern>
-				<unitPattern count="other">{0} ग्रा.</unitPattern>
-				<perUnitPattern>{0}/ग्रा.</perUnitPattern>
+				<unitPattern count="one">{0} ग्रा॰</unitPattern>
+				<unitPattern count="other">{0} ग्रा॰</unitPattern>
+				<perUnitPattern>{0}/ग्रा॰</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>मि.ग्रा.</displayName>
-				<unitPattern count="one">{0} मि.ग्रा.</unitPattern>
-				<unitPattern count="other">{0} मि.ग्रा.</unitPattern>
+				<displayName>मि॰ग्रा॰</displayName>
+				<unitPattern count="one">{0} मि॰ग्रा॰</unitPattern>
+				<unitPattern count="other">{0} मि॰ग्रा॰</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>मा॰ग्रा॰</displayName>
@@ -7551,8 +7551,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>औंस</displayName>
-				<unitPattern count="one">{0} औं.</unitPattern>
-				<unitPattern count="other">{0} औं.</unitPattern>
+				<unitPattern count="one">{0} औं॰</unitPattern>
+				<unitPattern count="other">{0} औं॰</unitPattern>
 				<perUnitPattern>{0}/औंस</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
@@ -7562,8 +7562,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-carat">
 				<displayName>कै॰</displayName>
-				<unitPattern count="one">{0} कै.</unitPattern>
-				<unitPattern count="other">{0} कै.</unitPattern>
+				<unitPattern count="one">{0} कै॰</unitPattern>
+				<unitPattern count="other">{0} कै॰</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
@@ -7621,19 +7621,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName>कि.मी./घं.</displayName>
-				<unitPattern count="one">{0} कि.मी. प्रति घं.</unitPattern>
-				<unitPattern count="other">{0} कि.मी. प्रति घं.</unitPattern>
+				<displayName>कि॰मी॰/घं॰</displayName>
+				<unitPattern count="one">{0} कि॰मी॰ प्रति घं॰</unitPattern>
+				<unitPattern count="other">{0} कि॰मी॰ प्रति घं॰</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName>मी./से.</displayName>
-				<unitPattern count="one">{0} मी./से.</unitPattern>
-				<unitPattern count="other">{0} मी./से.</unitPattern>
+				<displayName>मी॰/से॰</displayName>
+				<unitPattern count="one">{0} मी॰/से॰</unitPattern>
+				<unitPattern count="other">{0} मी॰/से॰</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName>मील/घंटा</displayName>
-				<unitPattern count="one">{0} मी.प्र.घं.</unitPattern>
-				<unitPattern count="other">{0} मी.प्र.घं.</unitPattern>
+				<unitPattern count="one">{0} मी॰प्र॰घं॰</unitPattern>
+				<unitPattern count="other">{0} मी॰प्र॰घं॰</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName draft="contributed">नॉट</displayName>
@@ -7647,13 +7647,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>डिग्री सेल्सियस</displayName>
-				<unitPattern count="one">{0}°से.</unitPattern>
-				<unitPattern count="other">{0}°से.</unitPattern>
+				<unitPattern count="one">{0}°से॰</unitPattern>
+				<unitPattern count="other">{0}°से॰</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>डिग्री फ़ेरनहाइट</displayName>
-				<unitPattern count="one">{0}°फेरन.</unitPattern>
-				<unitPattern count="other">{0}°फेरन.</unitPattern>
+				<unitPattern count="one">{0}°फेरन॰</unitPattern>
+				<unitPattern count="other">{0}°फेरन॰</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
@@ -7661,21 +7661,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>घन कि.मी.</displayName>
-				<unitPattern count="one">{0} घन कि.मी.</unitPattern>
-				<unitPattern count="other">{0} घन कि.मी.</unitPattern>
+				<displayName>घन कि॰मी॰</displayName>
+				<unitPattern count="one">{0} घन कि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} घन कि॰मी॰</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>घन मी.</displayName>
-				<unitPattern count="one">{0} घन मी.</unitPattern>
-				<unitPattern count="other">{0} घन मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/घन मी.</perUnitPattern>
+				<displayName>घन मी॰</displayName>
+				<unitPattern count="one">{0} घन मी॰</unitPattern>
+				<unitPattern count="other">{0} घन मी॰</unitPattern>
+				<perUnitPattern draft="contributed">{0}/घन मी॰</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName>घन सें. मी.</displayName>
-				<unitPattern count="one">{0} घन सें. मी.</unitPattern>
-				<unitPattern count="other">{0} घन सें. मी.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/घन सें. मी.</perUnitPattern>
+				<displayName>घन सें॰ मी॰</displayName>
+				<unitPattern count="one">{0} घन सें॰ मी॰</unitPattern>
+				<unitPattern count="other">{0} घन सें॰ मी॰</unitPattern>
+				<perUnitPattern draft="contributed">{0}/घन सें॰ मी॰</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>घन मील</displayName>
@@ -7683,14 +7683,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} घन मील</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>घन या.</displayName>
-				<unitPattern count="one">{0} घन या.</unitPattern>
-				<unitPattern count="other">{0} घन या.</unitPattern>
+				<displayName>घन या॰</displayName>
+				<unitPattern count="one">{0} घन या॰</unitPattern>
+				<unitPattern count="other">{0} घन या॰</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>घ. फ़ी.</displayName>
-				<unitPattern count="one">{0} घ. फ़ी.</unitPattern>
-				<unitPattern count="other">{0} घ. फ़ी.</unitPattern>
+				<displayName>घ॰ फ़ी॰</displayName>
+				<unitPattern count="one">{0} घ॰ फ़ी॰</unitPattern>
+				<unitPattern count="other">{0} घ॰ फ़ी॰</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>घन इंच</displayName>
@@ -7698,35 +7698,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} घन इंच</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>मे. ली.</displayName>
-				<unitPattern count="one">{0} मे. ली.</unitPattern>
-				<unitPattern count="other">{0} मे. ली.</unitPattern>
+				<displayName>मे॰ ली॰</displayName>
+				<unitPattern count="one">{0} मे॰ ली॰</unitPattern>
+				<unitPattern count="other">{0} मे॰ ली॰</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>है.ली.</displayName>
-				<unitPattern count="one">{0} है.ली.</unitPattern>
-				<unitPattern count="other">{0} है.ली.</unitPattern>
+				<displayName>है॰ली॰</displayName>
+				<unitPattern count="one">{0} है॰ली॰</unitPattern>
+				<unitPattern count="other">{0} है॰ली॰</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>लीटर</displayName>
-				<unitPattern count="one">{0} ली.</unitPattern>
-				<unitPattern count="other">{0} ली.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/ली.</perUnitPattern>
+				<unitPattern count="one">{0} ली॰</unitPattern>
+				<unitPattern count="other">{0} ली॰</unitPattern>
+				<perUnitPattern draft="contributed">{0}/ली॰</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>डे.ली.</displayName>
-				<unitPattern count="one">{0} डे.ली.</unitPattern>
-				<unitPattern count="other">{0} डे.ली.</unitPattern>
+				<displayName>डे॰ली॰</displayName>
+				<unitPattern count="one">{0} डे॰ली॰</unitPattern>
+				<unitPattern count="other">{0} डे॰ली॰</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>सें.ली.</displayName>
-				<unitPattern count="one">{0} सें.ली.</unitPattern>
-				<unitPattern count="other">{0} सें.ली.</unitPattern>
+				<displayName>सें॰ली॰</displayName>
+				<unitPattern count="one">{0} सें॰ली॰</unitPattern>
+				<unitPattern count="other">{0} सें॰ली॰</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>मि. ली.</displayName>
-				<unitPattern count="one">{0} मि. ली.</unitPattern>
-				<unitPattern count="other">{0} मि. ली.</unitPattern>
+				<displayName>मि॰ ली॰</displayName>
+				<unitPattern count="one">{0} मि॰ ली॰</unitPattern>
+				<unitPattern count="other">{0} मि॰ ली॰</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
 				<displayName draft="contributed">मीट्रिक पिंट</displayName>
@@ -7740,8 +7740,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>एकड़ फ़ीट</displayName>
-				<unitPattern count="one">{0} ए.फ़ी.</unitPattern>
-				<unitPattern count="other">{0} ए.फ़ी.</unitPattern>
+				<unitPattern count="one">{0} ए॰फ़ी॰</unitPattern>
+				<unitPattern count="other">{0} ए॰फ़ी॰</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>गैलन</displayName>
@@ -7750,10 +7750,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern draft="contributed">{0}/गैलन</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>इम्पी. गैलन</displayName>
-				<unitPattern count="one">{0} इम्पी. गैलन</unitPattern>
-				<unitPattern count="other">{0} इम्पी. गैलन</unitPattern>
-				<perUnitPattern>{0}/इम्पी. गैलन</perUnitPattern>
+				<displayName>इम्पी॰ गैलन</displayName>
+				<unitPattern count="one">{0} इम्पी॰ गैलन</unitPattern>
+				<unitPattern count="other">{0} इम्पी॰ गैलन</unitPattern>
+				<perUnitPattern>{0}/इम्पी॰ गैलन</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>क्वार्ट</displayName>
@@ -7776,9 +7776,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} फ़्लूइड आउंस</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>टे. स्पून</displayName>
-				<unitPattern count="one">{0} टे. स्पून</unitPattern>
-				<unitPattern count="other">{0} टे. स्पून</unitPattern>
+				<displayName>टे॰ स्पून</displayName>
+				<unitPattern count="one">{0} टे॰ स्पून</unitPattern>
+				<unitPattern count="other">{0} टे॰ स्पून</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>टी स्पून</displayName>
@@ -7798,8 +7798,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>गु–बल</displayName>
-				<unitPattern count="one">{0}गु.</unitPattern>
-				<unitPattern count="other">{0}गु.</unitPattern>
+				<unitPattern count="one">{0}गु॰</unitPattern>
+				<unitPattern count="other">{0}गु॰</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
@@ -7818,12 +7818,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<unitPattern count="one">{0}हे.</unitPattern>
-				<unitPattern count="other">{0}हे.</unitPattern>
+				<unitPattern count="one">{0}हे॰</unitPattern>
+				<unitPattern count="other">{0}हे॰</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<unitPattern count="one">{0} वर्ग मी.</unitPattern>
-				<unitPattern count="other">{0} वर्ग मी.</unitPattern>
+				<unitPattern count="one">{0} वर्ग मी॰</unitPattern>
+				<unitPattern count="other">{0} वर्ग मी॰</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<unitPattern count="one">{0}वर्ग मील</unitPattern>
@@ -7838,7 +7838,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ft²</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName draft="contributed">ली./100 कि.मी.</displayName>
+				<displayName draft="contributed">ली॰/100 कि॰मी॰</displayName>
 				<unitPattern count="one" draft="contributed">{0}ली/100कि</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ली/100कि</unitPattern>
 			</unit>
@@ -7864,28 +7864,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-hour">
 				<displayName>घंटा</displayName>
-				<unitPattern count="one">{0}घं.</unitPattern>
-				<unitPattern count="other">{0}घं.</unitPattern>
+				<unitPattern count="one">{0}घं॰</unitPattern>
+				<unitPattern count="other">{0}घं॰</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>मिनट</displayName>
-				<unitPattern count="one">{0}मि.</unitPattern>
-				<unitPattern count="other">{0}मि.</unitPattern>
+				<unitPattern count="one">{0}मि॰</unitPattern>
+				<unitPattern count="other">{0}मि॰</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>सेकंड</displayName>
-				<unitPattern count="one">{0}से.</unitPattern>
-				<unitPattern count="other">{0}से.</unitPattern>
+				<unitPattern count="one">{0}से॰</unitPattern>
+				<unitPattern count="other">{0}से॰</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>मि.से.</displayName>
-				<unitPattern count="one">{0} मि.से.</unitPattern>
-				<unitPattern count="other">{0} मि.से.</unitPattern>
+				<displayName>मि॰से॰</displayName>
+				<unitPattern count="one">{0} मि॰से॰</unitPattern>
+				<unitPattern count="other">{0} मि॰से॰</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName>कि.मी.</displayName>
-				<unitPattern count="one">{0} कि.मी.</unitPattern>
-				<unitPattern count="other">{0} कि.मी.</unitPattern>
+				<displayName>कि॰मी॰</displayName>
+				<unitPattern count="one">{0} कि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} कि॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>मीटर</displayName>
@@ -7893,18 +7893,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}मी</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName>सें.मी.</displayName>
-				<unitPattern count="one">{0} सें.मी.</unitPattern>
-				<unitPattern count="other">{0} सें.मी.</unitPattern>
+				<displayName>सें॰मी॰</displayName>
+				<unitPattern count="one">{0} सें॰मी॰</unitPattern>
+				<unitPattern count="other">{0} सें॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName>मि.मी.</displayName>
-				<unitPattern count="one">{0} मि.मी.</unitPattern>
-				<unitPattern count="other">{0} मि.मी.</unitPattern>
+				<displayName>मि॰मी॰</displayName>
+				<unitPattern count="one">{0} मि॰मी॰</unitPattern>
+				<unitPattern count="other">{0} मि॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<unitPattern count="one">{0}पि.मी.</unitPattern>
-				<unitPattern count="other">{0}पि.मी.</unitPattern>
+				<unitPattern count="one">{0}पि॰मी॰</unitPattern>
+				<unitPattern count="other">{0}पि॰मी॰</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<unitPattern count="one">{0}मील</unitPattern>
@@ -7923,30 +7923,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<unitPattern count="one">{0}प्र.व.</unitPattern>
-				<unitPattern count="other">{0}प्र.व.</unitPattern>
+				<unitPattern count="one">{0}प्र॰व॰</unitPattern>
+				<unitPattern count="other">{0}प्र॰व॰</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName>कि.ग्रा.</displayName>
-				<unitPattern count="one">{0}कि.ग्रा.</unitPattern>
-				<unitPattern count="other">{0} कि.ग्रा.</unitPattern>
+				<displayName>कि॰ग्रा॰</displayName>
+				<unitPattern count="one">{0}कि॰ग्रा॰</unitPattern>
+				<unitPattern count="other">{0} कि॰ग्रा॰</unitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>ग्राम</displayName>
-				<unitPattern count="one">{0} ग्रा.</unitPattern>
-				<unitPattern count="other">{0} ग्रा.</unitPattern>
+				<unitPattern count="one">{0} ग्रा॰</unitPattern>
+				<unitPattern count="other">{0} ग्रा॰</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one" draft="contributed">{0}#</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}#</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<unitPattern count="one">{0}औं.</unitPattern>
-				<unitPattern count="other">{0}औं.</unitPattern>
+				<unitPattern count="one">{0}औं॰</unitPattern>
+				<unitPattern count="other">{0}औं॰</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<unitPattern count="one">{0}कि.वॉ.</unitPattern>
-				<unitPattern count="other">{0}कि.वॉ.</unitPattern>
+				<unitPattern count="one">{0}कि॰वॉ॰</unitPattern>
+				<unitPattern count="other">{0}कि॰वॉ॰</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<unitPattern count="one">{0}वॉ</unitPattern>
@@ -7969,22 +7969,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mb</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName>कि.मी./घं.</displayName>
+				<displayName>कि॰मी॰/घं॰</displayName>
 				<unitPattern count="one">{0}किमी/घं</unitPattern>
 				<unitPattern count="other">{0}किमी/घं</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<unitPattern count="one">{0}मी./से.</unitPattern>
-				<unitPattern count="other">{0}मी./से.</unitPattern>
+				<unitPattern count="one">{0}मी॰/से॰</unitPattern>
+				<unitPattern count="other">{0}मी॰/से॰</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<unitPattern count="one">{0}mph</unitPattern>
 				<unitPattern count="other">{0}mph</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>°से.</displayName>
-				<unitPattern count="one">{0}°से.</unitPattern>
-				<unitPattern count="other">{0}°से.</unitPattern>
+				<displayName>°से॰</displayName>
+				<unitPattern count="one">{0}°से॰</unitPattern>
+				<unitPattern count="other">{0}°से॰</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<unitPattern count="one">{0}°F</unitPattern>
@@ -8000,8 +8000,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-liter">
 				<displayName>लीटर</displayName>
-				<unitPattern count="one">{0}ली.</unitPattern>
-				<unitPattern count="other">{0}ली.</unitPattern>
+				<unitPattern count="one">{0}ली॰</unitPattern>
+				<unitPattern count="other">{0}ली॰</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east" draft="contributed">{0}E</coordinateUnitPattern>

@@ -1236,6 +1236,8 @@ XXX Code for transations where no currency is involved
         <group type="019" contains="021 013 029 005"/> <!--Americas -->
         <group type="019" contains="003 419" status="grouping"/> <!--World -->
         <group type="002" contains="015 011 017 014 018"/> <!--Africa -->
+        <group type="002" contains="202" status="grouping"/> <!--Africa -->
+        <group type="202" contains="011 017 014 018" grouping="true"/> <!--Sub-Saharan Africa -->
         <group type="021" contains="BM CA GL PM US"/> <!--Northern America -->
         <group type="029" contains="AG AI AW BB BL BQ BS CU CW DM DO GD GP HT JM KN KY LC MF MQ MS PR SX TC TT VC VG VI"/> <!--Caribbean -->
         <group type="029" contains="AN" status="deprecated"/> <!--Caribbean -->

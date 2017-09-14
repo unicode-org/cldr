@@ -374,7 +374,9 @@ public class TestTransforms extends TestFmwkPlus {
             return Transliterator.getInstance("de-ASCII");
         } else if (id.equalsIgnoreCase("my-t-my-s0-zawgyi")) {
             return Transliterator.getInstance("Zawgyi-my");
-        }
+        } else if (id.equalsIgnoreCase("und-t-d0-ascii")) {
+	    return Transliterator.getInstance("Latin-ASCII");
+	}
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);
         if (rfc6497Matcher.matches()) {

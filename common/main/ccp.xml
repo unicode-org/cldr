@@ -1126,6 +1126,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[𑄀 𑄁 𑄂 𑄃 𑄄 𑄅 𑄆 𑄇 𑄈 𑄉 𑄊 𑄋 𑄌 𑄍 𑄎 𑄏 𑄐 𑄑 𑄒 𑄓 𑄔 𑄕 𑄖 𑄗 𑄘 𑄙 𑄚 𑄛 𑄜 𑄝 𑄞 𑄟 𑄠 𑄡 𑄢 𑄣 𑄤 𑄥 𑄦 𑄧 𑄨 𑄩 𑄪 𑄫 𑄬 𑄭 𑄮 𑄯 𑄰 𑄱 𑄲 𑄳 𑄴]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
 		<exemplarCharacters type="index">[𑄃 𑄄 𑄅 𑄆 𑄇 𑄈 𑄉 𑄊 𑄋 𑄌 𑄍 𑄎 𑄏 𑄐 𑄑 𑄒 𑄓 𑄔 𑄕 𑄖 𑄗 𑄘 𑄙 𑄚 𑄛 𑄜 𑄝 𑄞 𑄟 𑄠 𑄡 𑄢 𑄣 𑄤 𑄥 𑄦]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0০ 1১ 2২ 3৩ 4৪ 5৫ 6৬ 7৭ 8৮ 9৯]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[𑅀 𑅁 𑅂 𑅃 \- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>
 	<delimiters>
@@ -2496,8 +2497,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>𑄥𑄚𑄴𑄖 𑄃𑄨𑄥𑄝𑄬𑄣𑄴</exemplarCity>
 			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>𑄎𑄧𑄚𑄴𑄥𑄳𑄑𑄧𑄚𑄴</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>𑄦𑄧𑄚𑄮𑄣𑄪𑄣𑄪</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -3641,8 +3642,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>𑄚𑄮𑄟𑄴</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>𑄦𑄧𑄚𑄮𑄣𑄪𑄣𑄪</exemplarCity>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>𑄎𑄧𑄚𑄴𑄥𑄳𑄑𑄧𑄚𑄴</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>𑄃𑄬𑄚𑄴𑄇𑄮𑄢𑄬𑄌𑄴</exemplarCity>

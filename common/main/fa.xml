@@ -1157,6 +1157,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters>[\u064B \u064D \u064C \u0651 \u0654 آ ا ء أ ؤ ئ ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ة ی]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ـ\u200C\u200D\u200E\u200F \u064E \u0650 \u064F \u0652 \u0656 \u0670 إ ك ى ي]</exemplarCharacters>
 		<exemplarCharacters type="index">[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\u200E , ٫ ٬ . % ٪ ‰ ؉ + − 0۰ 1۱ 2۲ 3۳ 4۴ 5۵ 6۶ 7۷ 8۸ 9۹]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ، ٫ ٬ ؛ \: ! ؟ . … ‹ › « » ( ) \[ \] * / \\]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
@@ -3313,8 +3314,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>سانتا ایزابل</exemplarCity>
 			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>جانستون</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>هونولولو</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -4470,8 +4471,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>هونولولو</exemplarCity>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>جانستون</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>انکوریج</exemplarCity>

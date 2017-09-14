@@ -851,6 +851,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[a b c č d ḍ e ɛ f g ǧ ɣ h ḥ i j k l m n p q r ṛ s ṣ t ṭ u w x y z ẓ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[o v]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C Č D Ḍ E Ɛ F G Ǧ Ɣ H Ḥ I J K L M N P Q R Ṛ S Ṣ T Ṭ U W X Y Z Ẓ]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[  \- , % ‰ + 0-9]</exemplarCharacters>
 		<ellipsis type="final" draft="unconfirmed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="unconfirmed">…{0}</ellipsis>
 		<ellipsis type="medial" draft="unconfirmed">{0}…{1}</ellipsis>
@@ -2166,6 +2167,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight" draft="unconfirmed">{0} (akud n unebdu)</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} (akud amagnu)</regionFormat>
 			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard draft="unconfirmed">Akud Agraɣlan Imyuddsen</standard>
@@ -3319,9 +3323,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity draft="unconfirmed">Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity draft="unconfirmed">Ankṛaj</exemplarCity>

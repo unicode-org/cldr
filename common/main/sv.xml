@@ -1406,6 +1406,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters>[a à b c d e é f g h i j k l m n o p q r s t u v w x y z å ä ö]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á â ã ā ç è ë í î ï ī ñ ó ú ÿ ü æ ø]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[  , % ‰ + − 0-9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
@@ -3675,8 +3676,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnstonatollen</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic draft="contributed">Honolulutid</generic>
+					<standard draft="contributed">Honolulunormaltid</standard>
+					<daylight draft="contributed">Honolulusommartid</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -4835,13 +4841,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Nome</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="contributed">Honolulutid</generic>
-					<standard draft="contributed">Honolulunormaltid</standard>
-					<daylight draft="contributed">Honolulusommartid</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>Johnstonatollen</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Anchorage</exemplarCity>

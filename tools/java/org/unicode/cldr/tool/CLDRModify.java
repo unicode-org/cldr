@@ -34,6 +34,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
@@ -632,6 +633,7 @@ public class CLDRModify {
         }
     };
     static final Splitter COMMA_SEMI = Splitter.on(Pattern.compile("[,;|]")).trimResults().omitEmptyStrings();
+    protected static final boolean NUMBER_SYSTEM_HACK = true;
     /**
      *
      */
@@ -2106,6 +2108,7 @@ public class CLDRModify {
             CLDRFile resolved;
             UnicodeSet numberStuff = new UnicodeSet();
             Set<String> seen = new HashSet<>();
+            Set<String> hackAllowOnly = new HashSet<>();
             boolean skip = false;
             @Override
             public void handleStart() {
@@ -2115,24 +2118,34 @@ public class CLDRModify {
                 seen.clear();
                 skip = localeID.equals("root");
                 // TODO add return value to handleStart to skip calling handlePath
+                
+                if (NUMBER_SYSTEM_HACK) {
+                    hackAllowOnly.clear();
+                    for (NumberingSystem system : NumberingSystem.values()) {
+                        String numberingSystem = system.path == null ? "latn" : cldrFileToFilter.getStringValue(system.path);
+                        if (numberingSystem != null) {
+                            hackAllowOnly.add(numberingSystem);
+                        }
+                    }
+                    int debug = 0;
+                }
             }
             @Override
             public void handlePath(String xpath) {
+                // the following doesn't work without NUMBER_SYSTEM_HACK, because there are spurious numbersystems in the data.
+                // http://unicode.org/cldr/trac/ticket/10648
+                // so using a hack for now in handleEnd
                 if (skip || !xpath.startsWith("//ldml/numbers/symbols")) {
                     return;
                 }
-                if (xpath.contains("draft=\"unconfirmed\"") 
-                    || xpath.contains("timeSeparator")) { // HACK
-                    System.err.println("Possibly bogus numberSystem:\t" + cldrFileToFilter.getLocaleID() + " \t" + xpath);
-                    return;
-                }
+
                 // //ldml/numbers/symbols[@numberSystem="latn"]/exponential
                 parts = XPathParts.getFrozenInstance(xpath);
                 String system = parts.getAttributeValue(2, "numberSystem");
                 if (system == null) {
                     System.err.println("Bogus numberSystem:\t" + cldrFileToFilter.getLocaleID() + " \t" + xpath);
                     return;
-                } else if (seen.contains(system)) {
+                } else if (seen.contains(system) || !hackAllowOnly.contains(system)) {
                     return;
                 }
                 seen.add(system);
@@ -2145,13 +2158,13 @@ public class CLDRModify {
             @Override
             public void handleEnd() {
                 if (!numberStuff.isEmpty()) {
-                    UnicodeSet current = cldrFileToFilter.getExemplarSet("numbers", WinningChoice.WINNING);
+                    UnicodeSet current = cldrFileToFilter.getExemplarSet(ExemplarType.numbers, WinningChoice.WINNING);
                     if (!numberStuff.equals(current)) {
                         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFileToFilter);
                         if (current != null && !current.isEmpty()) {
                             numberStuff.addAll(current);
                         }
-                        String path = cldrFileToFilter.getExemplarPath(ExemplarType.numbers);
+                        String path = CLDRFile.getExemplarPath(ExemplarType.numbers);
                         String value = daip.getPrettyPrinter().format(numberStuff);
                         replace(path, path, value);
                     }

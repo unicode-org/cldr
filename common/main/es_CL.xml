@@ -45,6 +45,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="phonebook">orden de directorio telefónico</type>
 		</types>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0-9]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="generic">

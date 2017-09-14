@@ -11,6 +11,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="en"/>
 		<territory type="SE"/>
 	</identity>
+	<characters>
+		<exemplarCharacters type="numbers">[  \- , % ‰ + 0-9]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="generic">

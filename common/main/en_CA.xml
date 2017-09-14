@@ -44,6 +44,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="ethiopic">Ethiopian Calendar</type>
 		</types>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0-9]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="chinese">
@@ -973,15 +976,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat type="daylight">{0} Daylight Saving Time</regionFormat>
-			<zone type="Asia/Rangoon">
-				<exemplarCity>Rangoon</exemplarCity>
-			</zone>
 			<zone type="Pacific/Honolulu">
 				<short>
 					<generic>HST</generic>
 					<standard>HST</standard>
 					<daylight>HDT</daylight>
 				</short>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<exemplarCity>Rangoon</exemplarCity>
 			</zone>
 			<metazone type="Alaska">
 				<short>

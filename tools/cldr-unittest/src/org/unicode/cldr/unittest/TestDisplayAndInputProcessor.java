@@ -5,6 +5,7 @@ import java.util.Set;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.Factory;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -22,7 +23,35 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
 
     public void TestAll() {
         showCldrFile(info.getEnglish());
+        showCldrFile(info.getCLDRFile("ar", true));
+        showCldrFile(info.getCLDRFile("ja", true));
+        showCldrFile(info.getCLDRFile("hi", true));
         showCldrFile(info.getCLDRFile("wae", true));
+    }
+
+    public void TestAExemplars() {
+        UnicodeSet test = new UnicodeSet();
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), true);
+        Exception[] internalException = new Exception[1];
+
+        for (String s : new UnicodeSet("[!-#%-\\]_a-~¡§ª-¬±-³ µ-·¹-þ؉٠-٬۰-۹०-९০-৯੦-੯ ૦-૯୦-୯௦-௯౦-౯೦-೯൦-൯༠-༩ ၀-၉\\‎\\‏’‰−〇一七三九二五八六四]")) {
+            test.clear().add(s);
+            String value = test.toPattern(false);
+            String path = CLDRFile.getExemplarPath(ExemplarType.numbers);
+
+            String display = daip.processForDisplay(path, value);
+            internalException[0] = null;
+            String input = daip.processInput(path, display, internalException);
+            
+            try {
+                UnicodeSet roundTrip = new UnicodeSet(input);
+                if (!assertEquals(test.toString() + "=>" + display, test, roundTrip)) {
+                    input = daip.processInput(path, display, internalException); // for debugging
+                }
+           } catch (Exception e) {
+                errln(test.toString() + "=>" + display + ": Failed to parse " + input);
+            }
+        }
     }
 
     public void TestTasawaq() {
@@ -259,19 +288,22 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         Exception[] internalException = new Exception[1];
         for (String path : cldrFile) {
             String value = cldrFile.getStringValue(path);
+            if (value.equals("[\\- , . % ‰ + 0-9]")) {
+                int debug = 0;
+            }
             String display = daip.processForDisplay(path, value);
             internalException[0] = null;
             String input = daip.processInput(path, display, internalException);
             String diff = diff(value, input, path);
             if (diff != null) {
-                errln("No roundtrip in DAIP:"
-                    + "\n\tvalue<"
+                errln(cldrFile.getLocaleID() + "\tNo roundtrip in DAIP:"
+                    + "\n\t  value<"
                     + value
                     + ">\n\tdisplay<"
                     + display
-                    + ">\n\tinput<"
+                    + ">\n\t  input<"
                     + input
-                    + ">\n\tdiff<"
+                    + ">\n\t   diff<"
                     + diff
                     + (internalException[0] != null ? ">\n\texcep<"
                         + internalException[0] : "") + ">\n\tpath<"
@@ -309,7 +341,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     UnicodeSet temp = new UnicodeSet(s1).removeAll(s2);
                     UnicodeSet temp2 = new UnicodeSet(s2).removeAll(s1);
                     temp.addAll(temp2);
-                    return temp.toPattern(false);
+                    return temp.toPattern(true);
                 }
                 return null;
             } catch (Exception e) {

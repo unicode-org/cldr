@@ -912,6 +912,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[\u093C \u0901 \u0902 अ आ इ ई उ ऊ ऍ ए ऐ ऑ ओ औ क ख ग घ च छ ज झ ञ ट ठ ड {ड\u093C} ढ ण त थ द ध न प फ ब भ म य र ल ळ व श ष स ह ा ि ी \u0941 \u0942 \u0943 \u0945 \u0947 \u0948 ॉ ो ौ \u094D]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C\u200D]</exemplarCharacters>
 		<exemplarCharacters type="index">[अ आ इ ई उ ऊ ऍ ए ऐ ऑ ओ औ क ख ग घ च छ ज झ ञ ट ठ ड {ड\u093C} ढ ण त थ द ध न प फ ब भ म य र ल ळ व श ष स ह]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0-9]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1204,8 +1205,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>जौन्स्टन</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>होनोलुलु</exemplarCity>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>अज्ञात</exemplarCity>
@@ -2212,8 +2213,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>नोम</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>होनोलुलु</exemplarCity>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>जौन्स्टन</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ऐन्करेज</exemplarCity>

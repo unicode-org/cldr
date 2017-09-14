@@ -300,23 +300,24 @@ public class DisplayAndInputProcessor {
         }
         try {
             // Normalise Malayalam characters.
+            boolean isUnicodeSet = hasUnicodeSetValue(path);
             if (locale.childOf(MALAYALAM)) {
                 String newvalue = normalizeMalayalam(value);
                 if (DEBUG_DAIP) System.out.println("DAIP: Normalized Malayalam '" + value + "' to '" + newvalue + "'");
                 value = newvalue;
-            } else if (locale.childOf(ROMANIAN) && !hasUnicodeSetValue(path)) {
+            } else if (locale.childOf(ROMANIAN) && !isUnicodeSet) {
                 value = standardizeRomanian(value);
-            } else if (locale.childOf(CATALAN) && !hasUnicodeSetValue(path)) {
+            } else if (locale.childOf(CATALAN) && !isUnicodeSet) {
                 value = standardizeCatalan(value);
-            } else if (locale.childOf(NGOMBA) && !hasUnicodeSetValue(path)) {
+            } else if (locale.childOf(NGOMBA) && !isUnicodeSet) {
                 value = standardizeNgomba(value);
-            } else if (locale.childOf(KWASIO) && !hasUnicodeSetValue(path)) {
+            } else if (locale.childOf(KWASIO) && !isUnicodeSet) {
                 value = standardizeKwasio(value);
             } else if (locale.childOf(HEBREW) && !APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = standardizeHebrew(value);
-            } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !hasUnicodeSetValue(path)) {
+            } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !isUnicodeSet) {
                 value = standardizeSwissGerman(value);
-            } else if (locale.childOf(MYANMAR) && !hasUnicodeSetValue(path)) {
+            } else if (locale.childOf(MYANMAR) && !isUnicodeSet) {
                 value = MyanmarZawgyiConverter.standardizeMyanmar(value);
             }
 
@@ -325,7 +326,7 @@ public class DisplayAndInputProcessor {
             }
 
             // all of our values should not have leading or trailing spaces, except insertBetween
-            if (!path.contains("/insertBetween")) {
+            if (!path.contains("/insertBetween") && !isUnicodeSet) {
                 value = value.trim();
             }
 
@@ -384,7 +385,7 @@ public class DisplayAndInputProcessor {
             }
 
             // check specific cases
-            if (hasUnicodeSetValue(path)) {
+            if (isUnicodeSet) {
                 value = inputUnicodeSet(path, value);
             } else if (path.contains("stopword")) {
                 if (value.equals("NONE")) {
@@ -411,7 +412,7 @@ public class DisplayAndInputProcessor {
             // Fix up hyphens, replacing with N-dash as appropriate
             if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
                 value = normalizeIntervalHyphens(value);
-            } else {
+            } else if (!isUnicodeSet) {
                 value = normalizeHyphens(value);
             }
 
@@ -453,7 +454,7 @@ public class DisplayAndInputProcessor {
         if (value.startsWith("[")) {
             value = value.substring(1);
         }
-        if (value.endsWith("]")) {
+        if (value.endsWith("]") && (!value.endsWith("\\]") || value.endsWith("\\\\]"))) {
             value = value.substring(0, value.length() - 1);
         }
         value = value.trim();

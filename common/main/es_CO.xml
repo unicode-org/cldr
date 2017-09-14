@@ -42,6 +42,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VI" draft="contributed">Islas Vírgenes de EE. UU.</territory>
 		</territories>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0-9]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="generic">

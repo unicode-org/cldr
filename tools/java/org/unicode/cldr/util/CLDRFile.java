@@ -2740,7 +2740,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return result;
     }
 
-    public String getExemplarPath(ExemplarType type) {
+    public static String getExemplarPath(ExemplarType type) {
         return "//ldml/characters/exemplarCharacters" + (type == ExemplarType.main ? "" : "[@type=\"" + type + "\"]");
     }
 

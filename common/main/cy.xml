@@ -1053,6 +1053,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters>[a á à â ä b c {ch} d {dd} e é è ê ë f {ff} g {ng} h i í ì î ï j l {ll} m n o ó ò ô ö p {ph} r {rh} s t {th} u ú ù û ü w ẃ ẁ ŵ ẅ y ý ỳ ŷ ÿ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ă å ã ā æ ç ĕ ē ĭ ī k ñ ŏ ø ō œ q ŭ ū v x z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C {CH} D {DD} E F {FF} G {NG} H I J K L {LL} M N O P {PH} Q R {RH} S T {TH} U V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0-9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
@@ -1479,10 +1480,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="pm">h</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">yb</dayPeriod>
-							<dayPeriod type="pm">yh</dayPeriod>
 							<dayPeriod type="midnight">canol nos</dayPeriod>
+							<dayPeriod type="am">yb</dayPeriod>
 							<dayPeriod type="noon">canol dydd</dayPeriod>
+							<dayPeriod type="pm">yh</dayPeriod>
 							<dayPeriod type="morning1">y bore</dayPeriod>
 							<dayPeriod type="afternoon1">y prynhawn</dayPeriod>
 							<dayPeriod type="evening1">yr hwyr</dayPeriod>
@@ -1498,10 +1499,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="pm">yh</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">yb</dayPeriod>
-							<dayPeriod type="pm">yh</dayPeriod>
 							<dayPeriod type="midnight">canol nos</dayPeriod>
+							<dayPeriod type="am">yb</dayPeriod>
 							<dayPeriod type="noon">canol dydd</dayPeriod>
+							<dayPeriod type="pm">yh</dayPeriod>
 							<dayPeriod type="morning1">y bore</dayPeriod>
 							<dayPeriod type="afternoon1">y prynhawn</dayPeriod>
 							<dayPeriod type="evening1">yr hwyr</dayPeriod>
@@ -2755,8 +2756,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -3912,8 +3913,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Nome</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>Johnston</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Anchorage</exemplarCity>

@@ -51,7 +51,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
     }
     // TODO Fix some of these characters
     private static final UnicodeSet SPECIAL_ALLOW = new UnicodeSet(
-        "[\\u200E\\u200F\\u200c\\u200d"
+        "[\u061C\\u200E\\u200F\\u200c\\u200d"
             +
             "‎‎‎[\u064B\u064E-\u0651\u0670]‎[:Nd:]‎[\u0951\u0952]‎[\u064B-\u0652\u0654-\u0657\u0670]‎[\u0A66-\u0A6F][\u0ED0-\u0ED9][\u064B-\u0652]‎[\\u02BB\\u02BC][\u0CE6-\u0CEF]‎‎[\u0966-\u096F]"
             +
@@ -63,6 +63,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
     .removeAll(AlwaysOK) // this will remove some
     // [:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:] so we restore them
     // in SPECIAL_ALLOW
+    .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
+    .freeze();
+    
+    public static final UnicodeSet UAllowedInNumbers = new UnicodeSet("[\u00A0\u202F[:N:][:P:][:Sm:][:Letter_Number:][:Numeric_Type=Numeric:]]") // [:alphabetic:][:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]
     .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
     .freeze();
 
@@ -86,6 +90,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false),
         auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)", true),
         index(UAllowedInExemplars, "(specific-script - invisibles)", false),
+        numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
         // currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", false)
         ;
 

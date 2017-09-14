@@ -421,7 +421,7 @@ $Revision$
     <!--@DEPRECATED-->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
-<!ATTLIST exemplarCharacters type (auxiliary | standard | punctuation | currencySymbol | index) #IMPLIED >
+<!ATTLIST exemplarCharacters type (auxiliary | standard | punctuation | currencySymbol | index | numbers) #IMPLIED >
     <!--@DEPRECATED:currencySymbol-->
 <!ATTLIST exemplarCharacters alt NMTOKENS #IMPLIED >
 <!ATTLIST exemplarCharacters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

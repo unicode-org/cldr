@@ -29,6 +29,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UY" draft="contributed">أوروغواي</territory>
 		</territories>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters type="numbers">[\u200E \- , . % ‰ + 0-9]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">

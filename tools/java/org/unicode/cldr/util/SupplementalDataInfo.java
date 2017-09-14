@@ -2272,7 +2272,11 @@ public class SupplementalDataInfo {
     }
 
     public String getDigits(String numberingSystem) {
-        return numberingSystems.get(numberingSystem).digits;
+        try {
+            return numberingSystems.get(numberingSystem).digits;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Can't get digits for:" + numberingSystem);
+        }
     }
 
     public NumberingSystemType getNumberingSystemType(String numberingSystem) {

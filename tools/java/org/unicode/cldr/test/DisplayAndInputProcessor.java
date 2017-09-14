@@ -179,8 +179,11 @@ public class DisplayAndInputProcessor {
                 .setToQuote(new UnicodeSet(TO_QUOTE))
                 .setOrdering(col)
                 .setSpaceComparator(spaceCol);
-
         }
+    }
+    
+    public UnicodeSetPrettyPrinter getPrettyPrinter() {
+        return pp;
     }
 
     /**

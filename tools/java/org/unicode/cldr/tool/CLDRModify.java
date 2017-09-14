@@ -866,6 +866,7 @@ public class CLDRModify {
         CLDRFilter[] filters = new CLDRFilter[128]; // only ascii
         String[] helps = new String[128]; // only ascii
         UnicodeSet options = new UnicodeSet();
+        String inputOptions = null;
 
         void add(char letter, String help) {
             add(letter, help, null);
@@ -898,26 +899,39 @@ public class CLDRModify {
             options.add(letter);
         }
 
-        void setFile(CLDRFile file, Factory factory, Set<String> removal, CLDRFile replacements) {
-            for (int i = 0; i < filters.length; ++i) {
-                if (filters[i] != null) {
-                    filters[i].setFile(file, factory, removal, replacements);
+        void setFile(CLDRFile file, String inputOptions, Factory factory, Set<String> removal, CLDRFile replacements) {
+            this.inputOptions = inputOptions;
+            for (int i = 0; i < inputOptions.length(); ++i) {
+                char c = inputOptions.charAt(i);
+                if (filters[c] != null) {
+                    try {
+                        filters[c].setFile(file, factory, removal, replacements);
+                    } catch (RuntimeException e) {
+                        System.err.println("Failure in " + filters[c].localeID + "\t START");
+                        throw e;
+                    }
                 }
             }
         }
 
         void handleStart() {
-            for (int i = 0; i < filters.length; ++i) {
-                if (filters[i] != null) {
-                    filters[i].handleStart();
+            for (int i = 0; i < inputOptions.length(); ++i) {
+                char c = inputOptions.charAt(i);
+                if (filters[c] != null) {
+                    try {
+                        filters[c].handleStart();
+                    } catch (RuntimeException e) {
+                        System.err.println("Failure in " + filters[c].localeID + "\t START");
+                        throw e;
+                    }
                 }
             }
         }
 
-        void handlePath(String options, String xpath) {
+        void handlePath(String xpath) {
             //options = options.toLowerCase();
-            for (int i = 0; i < options.length(); ++i) {
-                char c = options.charAt(i);
+            for (int i = 0; i < inputOptions.length(); ++i) {
+                char c = inputOptions.charAt(i);
                 if (filters[c] != null) {
                     try {
                         filters[c].handlePath(xpath);
@@ -930,9 +944,15 @@ public class CLDRModify {
         }
 
         void handleEnd() {
-            for (int i = 0; i < filters.length; ++i) {
-                if (filters[i] != null) {
-                    filters[i].handleEnd();
+            for (int i = 0; i < inputOptions.length(); ++i) {
+                char c = inputOptions.charAt(i);
+                if (filters[c] != null) {
+                    try {
+                        filters[c].handleEnd();
+                    } catch (RuntimeException e) {
+                        System.err.println("Failure in " + filters[c].localeID + "\t START");
+                        throw e;
+                    }
                 }
             }
         }
@@ -2082,6 +2102,64 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('N', "add number symbols to exemplars", new CLDRFilter() {
+            CLDRFile resolved;
+            UnicodeSet numberStuff = new UnicodeSet();
+            Set<String> seen = new HashSet<>();
+            boolean skip = false;
+            @Override
+            public void handleStart() {
+                String localeID = cldrFileToFilter.getLocaleID();
+                resolved = factory.make(localeID, true);
+                numberStuff.clear();
+                seen.clear();
+                skip = localeID.equals("root");
+                // TODO add return value to handleStart to skip calling handlePath
+            }
+            @Override
+            public void handlePath(String xpath) {
+                if (skip || !xpath.startsWith("//ldml/numbers/symbols")) {
+                    return;
+                }
+                if (xpath.contains("draft=\"unconfirmed\"") 
+                    || xpath.contains("timeSeparator")) { // HACK
+                    System.err.println("Possibly bogus numberSystem:\t" + cldrFileToFilter.getLocaleID() + " \t" + xpath);
+                    return;
+                }
+                // //ldml/numbers/symbols[@numberSystem="latn"]/exponential
+                parts = XPathParts.getFrozenInstance(xpath);
+                String system = parts.getAttributeValue(2, "numberSystem");
+                if (system == null) {
+                    System.err.println("Bogus numberSystem:\t" + cldrFileToFilter.getLocaleID() + " \t" + xpath);
+                    return;
+                } else if (seen.contains(system)) {
+                    return;
+                }
+                seen.add(system);
+                UnicodeSet exemplars = resolved.getExemplarsNumeric(system);
+                System.out.println("# " + system + " ==> " + exemplars.toPattern(false));
+                for (String s : exemplars) {
+                    numberStuff.addAll(s); // add individual characters
+                }
+            }
+            @Override
+            public void handleEnd() {
+                if (!numberStuff.isEmpty()) {
+                    UnicodeSet current = cldrFileToFilter.getExemplarSet("numbers", WinningChoice.WINNING);
+                    if (!numberStuff.equals(current)) {
+                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFileToFilter);
+                        if (current != null && !current.isEmpty()) {
+                            numberStuff.addAll(current);
+                        }
+                        String path = cldrFileToFilter.getExemplarPath(ExemplarType.numbers);
+                        String value = daip.getPrettyPrinter().format(numberStuff);
+                        replace(path, path, value);
+                    }
+                }
+            }
+        });
+
+
 
         fixList.add('k',
             "fix according to -k config file. Details on http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config",
@@ -2451,29 +2529,29 @@ public class CLDRModify {
      * @param config
      * @param cldrFactory
      */
-    private static void fix(CLDRFile k, String options, String config, Factory cldrFactory) {
+    private static void fix(CLDRFile k, String inputOptions, String config, Factory cldrFactory) {
 
         // TODO before modifying, make sure that it is fully resolved.
         // then minimize against the NEW parents
 
         Set<String> removal = new TreeSet<String>(k.getComparator());
         CLDRFile replacements = SimpleFactory.makeFile("temp");
-        fixList.setFile(k, cldrFactory, removal, replacements);
+        fixList.setFile(k, inputOptions, cldrFactory, removal, replacements);
 
         for (String xpath : k) {
-            fixList.handlePath(options, xpath);
+            fixList.handlePath(xpath);
         }
         fixList.handleEnd();
 
         // remove bad attributes
 
-        if (options.indexOf('v') >= 0) {
+        if (inputOptions.indexOf('v') >= 0) {
             CLDRTest.checkAttributeValidity(k, null, removal);
         }
 
         // raise identical elements
 
-        if (options.indexOf('i') >= 0) {
+        if (inputOptions.indexOf('i') >= 0) {
             fixIdenticalChildren(cldrFactory, k, replacements);
         }
 

@@ -2712,7 +2712,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         .freeze();
 
     public enum ExemplarType {
-        main, auxiliary, index, punctuation;
+        main, auxiliary, index, punctuation, numbers;
         
         public static ExemplarType fromString(String type) {
             return type.isEmpty() ? main : valueOf(type);
@@ -2724,7 +2724,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
     
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice, int option) {
-        String path = "//ldml/characters/exemplarCharacters" + (type == ExemplarType.main ? "" : "[@type=\"" + type + "\"]");
+        String path = getExemplarPath(type);
         if (winningChoice == WinningChoice.WINNING) {
             path = getWinningPath(path);
         }
@@ -2738,6 +2738,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         result.removeAll(toNuke);
         result.remove(0x20);
         return result;
+    }
+
+    public String getExemplarPath(ExemplarType type) {
+        return "//ldml/characters/exemplarCharacters" + (type == ExemplarType.main ? "" : "[@type=\"" + type + "\"]");
     }
 
     public enum NumberingSystem {
@@ -2758,7 +2762,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (numberingSystem == null) {
             return UnicodeSet.EMPTY;
         }
+        return getExemplarsNumeric(numberingSystem);
+    }
 
+    public UnicodeSet getExemplarsNumeric(String numberingSystem) {
         UnicodeSet result = new UnicodeSet();
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
         String[] symbolPaths = {

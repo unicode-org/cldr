@@ -6414,8 +6414,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>100 км/л</displayName>
-				<unitPattern count="one">100 км/{0} л</unitPattern>
-				<unitPattern count="other">100 км/{0} л</unitPattern>
+				<unitPattern count="one">{0} л/100км</unitPattern>
+				<unitPattern count="other">{0} л/100км</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>мил/гал</displayName>
@@ -7036,8 +7036,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>100 км/л</displayName>
-				<unitPattern count="one">100 км/{0}л</unitPattern>
-				<unitPattern count="other">100 км/{0}л</unitPattern>
+				<unitPattern count="one">{0} л/100км</unitPattern>
+				<unitPattern count="other">{0} л/100км</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>жыл</displayName>

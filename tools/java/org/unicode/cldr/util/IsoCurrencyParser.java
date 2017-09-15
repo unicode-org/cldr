@@ -51,7 +51,7 @@ public class IsoCurrencyParser {
         .put("COOK ISLANDS (THE)", "CK")
         .put("CABO VERDE", "CV")
         .put(Utility.unescape("CURA\u00C7AO"), "CW")
-        .put("CZECH REPUBLIC (THE)", "CZ")
+        .put("CZECHIA", "CZ")
         .put("DOMINICAN REPUBLIC (THE)", "DO")
         .put("FALKLAND ISLANDS (THE) [MALVINAS]", "FK")
         .put("MICRONESIA (FEDERATED STATES OF)", "FM")

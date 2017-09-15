@@ -1794,7 +1794,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     public void Test9924 () {
         PopulationData zhCNData = SUPPLEMENTAL.getLanguageAndTerritoryPopulationData(LOCALES_FIXED ? "zh" : "zh_Hans", "CN");
-        PopulationData yueCNData = SUPPLEMENTAL.getLanguageAndTerritoryPopulationData("yue", "CN");
+        PopulationData yueCNData = SUPPLEMENTAL.getLanguageAndTerritoryPopulationData("yue_Hans", "CN");
         assertTrue("yue*10 < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
     }
 }

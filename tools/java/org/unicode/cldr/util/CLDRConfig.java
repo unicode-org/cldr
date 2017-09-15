@@ -280,6 +280,16 @@ public class CLDRConfig extends Properties {
         }
         return mainAndAnnotationsFactory;
     }
+    
+    static Factory allFactory;
+    public Factory getCommonSeedExemplarsFactory() {
+        synchronized (FULL_FACTORY_SYNC) {
+            if (allFactory == null) {
+                allFactory = SimpleFactory.make(addStandardSubdirectories(CLDR_DATA_DIRECTORIES), ".*");
+            }
+        }
+        return allFactory;
+    }
 
     public Factory getCommonAndSeedAndMainAndAnnotationsFactory() {
         synchronized (FULL_FACTORY_SYNC) {
@@ -542,6 +552,7 @@ public class CLDRConfig extends Properties {
      * TODO: better place for these constants?
      */
     private static final String CLDR_DATA_DIRECTORIES[] = { COMMON_DIR, SEED_DIR, KEYBOARDS_DIR, EXEMPLARS_DIR };
+    private static final ImmutableSet<String> STANDARD_SUBDIRS = ImmutableSet.of(MAIN_DIR, ANNOTATIONS_DIR, SUBDIVISIONS_DIR);
 
     /**
      * Get a list of CLDR directories containing actual data
@@ -565,7 +576,6 @@ public class CLDRConfig extends Properties {
         return ret;
     }
 
-    static final ImmutableSet<String> STANDARD_SUBDIRS = ImmutableSet.of(MAIN_DIR, ANNOTATIONS_DIR, SUBDIVISIONS_DIR);
     
     /**
      * Add subdirectories to file list as needed, from STANDARD_SUBDIRS.
@@ -573,7 +583,11 @@ public class CLDRConfig extends Properties {
      * <li>but common/main -> common/main
      * </ul>
      */
-    public File[] getMainDataDirectories(File base[]) {
+    public File[] addStandardSubdirectories(String... base) {
+        return addStandardSubdirectories(fileArrayFromStringArray(getCldrBaseDirectory(), base));
+    }
+
+    public File[] addStandardSubdirectories(File... base) {
         List<File> ret = new ArrayList<>();
         //File[] ret = new File[base.length * 2];
         for (int i = 0; i < base.length; i++) {
@@ -590,6 +604,15 @@ public class CLDRConfig extends Properties {
         return ret.toArray(new File[ret.size()]);
     }
 
+    private File[] fileArrayFromStringArray(File dir, String... subdirNames) {
+        File[] fileList = new File[subdirNames.length];
+        int i = 0;
+        for (String item : subdirNames) {
+            fileList[i++] = new File(dir, item);
+        }
+        return fileList;
+    }
+    
     private void addIfExists(List<File> ret, File baseFile, String sub) {
         File file = new File(baseFile, sub);
         if (file.exists()) {

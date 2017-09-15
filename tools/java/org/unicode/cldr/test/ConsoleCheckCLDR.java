@@ -361,7 +361,7 @@ public class ConsoleCheckCLDR {
             if (MyOptions.source_directory.option.doesOccur()) {
                 throw new IllegalArgumentException("Don't use -s and -S together.");
             }
-            sourceDirectories = cldrConf.getMainDataDirectories(cldrConf.getCLDRDataDirectories(MyOptions.source_all.option.getValue()));
+            sourceDirectories = cldrConf.addStandardSubdirectories(cldrConf.getCLDRDataDirectories(MyOptions.source_all.option.getValue()));
         } else {
             String[] sdirs = options[SOURCE_DIRECTORY].value.split(",\\s*");
             sourceDirectories = new File[sdirs.length];

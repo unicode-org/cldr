@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
@@ -51,7 +52,7 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateSubdivisions {
 
-    private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "external/iso_country_codes/";
+    private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "iso_country_codes/";
     private static final String ISO_SUBDIVISION_CODES = ISO_COUNTRY_CODES + "iso_country_codes.xml";
     static final Comparator<String> ROOT_COL;
     static {
@@ -331,21 +332,26 @@ public class GenerateSubdivisions {
             return fixName(input);
         }
 
-        public static void printEnglish(Appendable output) throws IOException {
+        public static void printEnglish(PrintWriter output) throws IOException {
             TreeSet<String> allRegions = new TreeSet<>();
             allRegions.addAll(codeToData.keySet());
-            allRegions.addAll(formerRegionToSubdivisions.keySet());
+            allRegions.addAll(formerRegionToSubdivisions.keySet()); // override
+            
+            Factory cldrFactorySubdivisions = Factory.make(CLDRPaths.SUBDIVISIONS_DIRECTORY, ".*");
+            CLDRFile oldFileSubdivisions = cldrFactorySubdivisions.make("en", false);
+            CLDRFile fileSubdivisions = oldFileSubdivisions.cloneAsThawed();
+
 
             // <subdivisions>
             // <subdivisiontype="NZ-AUK">Auckland</territory>
-            output.append(
-                DtdType.ldml.header(MethodHandles.lookup().lookupClass())
-                + "\t<identity>\n"
-                + "\t\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
-                + "\t\t<language type=\"en\"/>\n"
-                + "\t</identity>\n"
-                + "\t<localeDisplayNames>\n"
-                + "\t\t<subdivisions>\n");
+//            output.append(
+//                DtdType.ldml.header(MethodHandles.lookup().lookupClass())
+//                + "\t<identity>\n"
+//                + "\t\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
+//                + "\t\t<language type=\"en\"/>\n"
+//                + "\t</identity>\n"
+//                + "\t<localeDisplayNames>\n"
+//                + "\t\t<subdivisions>\n");
             Set<String> skipped = new LinkedHashSet<>();
 
             for (String regionCode : allRegions) {
@@ -360,14 +366,14 @@ public class GenerateSubdivisions {
                 remainder = remainder == null ? Collections.EMPTY_SET : new LinkedHashSet<>(remainder);
 
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
-                output.append("\t\t<!-- ")
-                .append(convertToCldr(regionCode)).append(" : ")
-                .append(TransliteratorUtilities.toXML.transform(ENGLISH_ICU.regionDisplayName(regionCode)));
+//                output.append("\t\t<!-- ")
+//                .append(convertToCldr(regionCode)).append(" : ")
+//                .append(TransliteratorUtilities.toXML.transform(ENGLISH_ICU.regionDisplayName(regionCode)));
                 if (regionNode == null) {
-                    output.append(" : NO SUBDIVISIONS -->\n");
+//                    output.append(" : NO SUBDIVISIONS -->\n");
                     continue;
                 }
-                output.append(" -->\n");
+//                output.append(" -->\n");
 
                 Set<SubdivisionNode> ordered = new LinkedHashSet<>();
                 addChildren(ordered, regionNode.children);
@@ -386,34 +392,36 @@ public class GenerateSubdivisions {
 
                     String level = sd.level == 1 ? "" : "\t<!-- in " + sd.parent.code
                         + " : " + TransliteratorUtilities.toXML.transform(getBestName(sd.parent.code, true)) + " -->";
-                    appendName(output, sdCode, name, level);
+                    appendName(fileSubdivisions, sdCode, name, level);
                     remainder.remove(sdCode);
                 }
                 for (String sdCode : remainder) {
                     String name = getBestName(sdCode, true);
-                    appendName(output, sdCode, name, "\t<!-- deprecated -->");
+                    appendName(fileSubdivisions, sdCode, name, "\t<!-- deprecated -->");
                 }
             }
-            output.append(
-                "\t\t</subdivisions>\n"
-                    + "\t</localeDisplayNames>\n"
-                    + "</ldml>");
+//            output.append(
+//                "\t\t</subdivisions>\n"
+//                    + "\t</localeDisplayNames>\n"
+//                    + "</ldml>");
             System.out.println("Skipping: " + skipped);
 //            if (!missing.isEmpty()) {
 //                throw new IllegalArgumentException("No name for: " + missing.size() + ", " + missing);
 //            }
+            fileSubdivisions.write(output);
         }
 
-        private static void appendName(Appendable output, final String sdCode, String name, String level) throws IOException {
+        private static void appendName(CLDRFile fileSubdivisions, final String sdCode, String name, String level) throws IOException {
             if (name == null) {
-                getBestName(sdCode, true);
-                name = "NAME-UNAVAILABLE";
+                return;
             }
-            output.append("\t\t\t<subdivision type=\"").append(convertToCldr(sdCode)).append("\">")
-            .append(TransliteratorUtilities.toXML.transform(name))
-            .append("</subdivision>")
-            .append(level)
-            .append('\n');
+            String cldrCode = convertToCldr(sdCode);
+            String path = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"" + cldrCode + "\"]";
+            String oldValue = fileSubdivisions.getStringValue(path);
+            if (oldValue != null) {
+                return; // don't override old values
+            }
+            fileSubdivisions.add(path, name);
         }
 
         static Map<String, R2<List<String>, String>> territoryAliases = SDI.getLocaleAliasInfo().get("territory");

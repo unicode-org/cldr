@@ -695,4 +695,17 @@ public class TestCLDRFile extends TestFmwk {
         }
         dirToSource.put(b, c);
     }
+    
+    public void TestSwissHighGerman() {
+        CLDRFile swissHighGerman = testInfo.getCommonSeedExemplarsFactory().make("de_CH", true);
+        for (String xpath : swissHighGerman) {
+            if (xpath.equals("//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]")) {
+                continue;
+            }
+            String value = swissHighGerman.getStringValue(xpath);
+            if (value.indexOf('ß') >= 0) {
+                System.err.println("«" + value + "» contains ß at " + xpath);
+            }
+        }
+    }
 }

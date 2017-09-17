@@ -410,11 +410,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
         if (!options.containsKey("DTD_OMIT")) {
+            // <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+            // <!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
+            String fixedPath = "../../" + dtdType.dtdPath;
+
             String dtdDir = "../../common/dtd/";
-            if (options.containsKey("DTD_DIR")) {
-                dtdDir = options.get("DTD_DIR").toString();
+//            if (options.containsKey("DTD_DIR")) {
+//                dtdDir = options.get("DTD_DIR").toString();
+//            }
+            String path = dtdDir + dtdType + ".dtd";
+            if (!path.equals(fixedPath) && dtdType != DtdType.supplementalData) {
+                throw new IllegalArgumentException("Unexpected dtd path " + fixedPath);
             }
-            pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"" + dtdDir + dtdType + ".dtd\">");
+            pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"" + fixedPath + "\">");
         }
 
         if (options.containsKey("COMMENT")) {
@@ -510,7 +518,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 continue;
             }
             currentFiltered.set(xpath);
-            if (currentFiltered.getElement(1).equals("identity")) continue;
+            if (currentFiltered.size() >= 2 
+                && currentFiltered.getElement(1).equals("identity"))
+                continue;
             current.set(getFullXPath(xpath));
             current.writeDifference(pw, currentFiltered, last, lastFiltered, v, tempComments);
             // exchange pairs of parts

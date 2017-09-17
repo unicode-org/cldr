@@ -30,6 +30,8 @@ import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import com.google.common.base.Function;
+
 /**
  * Convenience class to make reading XML data files easier. The main method is read();
  * This is meant for XML data files, so the contents of elements must either be all other elements, or
@@ -453,9 +455,13 @@ public class XMLFileReader {
     }
 
     public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full) {
+        return loadPathValues(filename, data, validating, full, null);
+    }
+    
+    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full, Function<String,String> valueFilter) {
         try {
             new XMLFileReader()
-            .setHandler(new PathValueListHandler(data, full))
+            .setHandler(new PathValueListHandler(data, full, valueFilter))
             .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
@@ -466,16 +472,25 @@ public class XMLFileReader {
     static final class PathValueListHandler extends SimpleHandler {
         List<Pair<String, String>> data;
         boolean full;
+        private Function<String, String> valueFilter;
 
-        public PathValueListHandler(List<Pair<String, String>> data, boolean full) {
+        public PathValueListHandler(List<Pair<String, String>> data, boolean full, Function<String, String> valueFilter) {
             super();
             this.data = data != null ? data : new ArrayList<Pair<String, String>>();
             this.full = full;
+            this.valueFilter = valueFilter;
         }
 
         @Override
         public void handlePathValue(String path, String value) {
-            data.add(Pair.of(path, value));
+            if (valueFilter == null) {
+                data.add(Pair.of(path, value));
+            } else {
+                String filteredValue = valueFilter.apply(value);
+                if (filteredValue != null) {
+                    data.add(Pair.of(path, filteredValue));
+                }
+            }
         }
         @Override
         public void handleComment(String path, String comment) {

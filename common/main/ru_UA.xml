@@ -16,7 +16,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AC" draft="contributed">О-в Вознесения</territory>
 			<territory type="AE" draft="contributed">Объединенные Арабские Эмираты</territory>
 			<territory type="BV" draft="contributed">О-в Буве</territory>
-			<territory type="CF" draft="contributed">Центрально-Африканская Республика</territory>
 			<territory type="CK" draft="contributed">О-ва Кука</territory>
 			<territory type="CP" draft="contributed">О-в Клиппертон</territory>
 			<territory type="CX" draft="contributed">О-в Рождества</territory>
@@ -96,42 +95,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight" draft="contributed">полн.</dayPeriod>
-							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
-							<dayPeriod type="noon" draft="contributed">полд.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
-							<dayPeriod type="morning1" draft="contributed">утра</dayPeriod>
-							<dayPeriod type="afternoon1" draft="contributed">дня</dayPeriod>
-							<dayPeriod type="evening1" draft="contributed">веч.</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">ночи</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>

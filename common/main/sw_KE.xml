@@ -73,14 +73,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="NG">Nijeria</territory>
 			<territory type="NO">Norwe</territory>
 			<territory type="NP">Nepali</territory>
-			<territory type="NZ">Nyuzilandi</territory>
 			<territory type="OM">Omani</territory>
 			<territory type="PF">Polinesia ya Ufaransa</territory>
 			<territory type="PR">Puetoriko</territory>
 			<territory type="QA">Katari</territory>
-			<territory type="SA">Saudia</territory>
-			<territory type="SC">Ushelisheli</territory>
-			<territory type="SR">Suriname</territory>
 			<territory type="ST">Sao Tome na Prinsipe</territory>
 			<territory type="TD">Chadi</territory>
 			<territory type="VN">Vietnamu</territory>
@@ -110,11 +106,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="y">E, d MMM y – E, d MMM y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">

@@ -53,13 +53,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kri">克裡奧爾文</language>
 			<language type="lo">老撾文</language>
 			<language type="luo">盧歐文</language>
-			<language type="lus">米佐文</language>
 			<language type="mfe">毛里裘斯克里奧爾文</language>
 			<language type="mg">馬拉加斯文</language>
 			<language type="ml">馬拉雅拉姆文</language>
-			<language type="mrj">西馬里文</language>
 			<language type="mt">馬耳他文</language>
-			<language type="nds_NL">低地薩克遜文</language>
 			<language type="nl_BE">比利時荷蘭文</language>
 			<language type="nqo">西非書面語言（N’ko）</language>
 			<language type="or">奧里雅文</language>
@@ -72,7 +69,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="rw">盧旺達文</language>
 			<language type="sd">信德語</language>
 			<language type="sl">斯洛文尼亞文</language>
-			<language type="smn">伊納里薩米文</language>
 			<language type="sn">修納文</language>
 			<language type="so">索馬里文</language>
 			<language type="sw_CD">剛果史瓦希里文</language>
@@ -85,8 +81,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="wbp">瓦爾皮里文</language>
 			<language type="yue">廣東話</language>
 			<language type="zgh">摩洛哥標準塔馬齊格特文</language>
-			<language type="zh_Hans">簡體中文</language>
-			<language type="zh_Hant">繁體中文</language>
 		</languages>
 		<scripts>
 			<script type="Cyrl">西里爾文</script>
@@ -139,7 +133,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GE">格魯吉亞</territory>
 			<territory type="GH">加納</territory>
 			<territory type="GM">岡比亞</territory>
-			<territory type="GN">幾內亞</territory>
 			<territory type="GS">南佐治亞島與南桑威奇群島</territory>
 			<territory type="GT">危地馬拉</territory>
 			<territory type="GW">幾內亞比紹</territory>
@@ -155,7 +148,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="LC">聖盧西亞</territory>
 			<territory type="LI">列支敦士登</territory>
 			<territory type="LR">利比里亞</territory>
-			<territory type="LS">賴索托</territory>
 			<territory type="LV">拉脱維亞</territory>
 			<territory type="ME">黑山</territory>
 			<territory type="ML">馬里</territory>
@@ -169,7 +161,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="NE">尼日爾</territory>
 			<territory type="NG">尼日利亞</territory>
 			<territory type="NR">瑙魯</territory>
-			<territory type="OM">阿曼</territory>
 			<territory type="PF">法屬波利尼西亞</territory>
 			<territory type="PG">巴布亞新幾內亞</territory>
 			<territory type="PN">皮特凱恩島</territory>
@@ -207,7 +198,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="1901" draft="contributed">傳統德國拼字法</variant>
 			<variant type="1996">1996 德國拼字法</variant>
 			<variant type="ABL1943">ABL1943</variant>
-			<variant type="COLB1945" draft="provisional">1945 年巴西葡萄牙文拼字標準</variant>
 			<variant type="REVISED" draft="contributed">已修訂拼字法</variant>
 			<variant type="SCOTLAND" draft="contributed">蘇格蘭標準英語</variant>
 			<variant type="SOTAV">SOTAV</variant>
@@ -382,8 +372,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<availableFormats>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="hm">ah:mm</dateFormatItem>
-						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -418,7 +406,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
-						<dateFormatItem id="Ehm">E ah:mm</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
@@ -607,16 +594,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">d/M（E） 至 d/M（E）</greatestDifference>
 							<greatestDifference id="M">d/M（E） 至 d/M（E）</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">M月d日E至d日E</greatestDifference>
-							<greatestDifference id="M">M月d日E至M月d日E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y">y至y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M/y 至 M/y</greatestDifference>
@@ -1214,9 +1191,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Djibouti">
 				<exemplarCity>吉布提</exemplarCity>
 			</zone>
-			<zone type="America/Dominica">
-				<exemplarCity>多米尼克</exemplarCity>
-			</zone>
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>聖多明各</exemplarCity>
 			</zone>
@@ -1258,9 +1232,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Guyana">
 				<exemplarCity>圭亞那</exemplarCity>
-			</zone>
-			<zone type="Asia/Hong_Kong">
-				<exemplarCity>香港</exemplarCity>
 			</zone>
 			<zone type="America/Tegucigalpa">
 				<exemplarCity>特古西加爾巴</exemplarCity>
@@ -1324,9 +1295,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Skopje">
 				<exemplarCity>斯科普里</exemplarCity>
-			</zone>
-			<zone type="Asia/Macau">
-				<exemplarCity>澳門</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity>馬提尼克</exemplarCity>
@@ -2069,9 +2037,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="angle-degree">
 				<displayName>度</displayName>
 			</unit>
-			<unit type="angle-arc-minute">
-				<unitPattern count="other">{0} 角分</unitPattern>
-			</unit>
 			<unit type="area-square-kilometer">
 				<perUnitPattern draft="contributed">{0} 每平方公里</perUnitPattern>
 			</unit>
@@ -2394,9 +2359,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">納秒</displayName>
 				<unitPattern count="other">{0} 納秒</unitPattern>
 			</unit>
-			<unit type="electric-volt">
-				<unitPattern count="other">{0} 伏特</unitPattern>
-			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName draft="contributed">千卡</displayName>
 				<unitPattern count="other">{0} 千卡</unitPattern>
@@ -2563,9 +2525,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="angle-degree">
 				<displayName draft="contributed">度</displayName>
 			</unit>
-			<unit type="angle-arc-minute">
-				<displayName draft="contributed">角分</displayName>
-			</unit>
 			<unit type="area-square-kilometer">
 				<perUnitPattern draft="contributed">{0} 每平方公里</perUnitPattern>
 			</unit>
@@ -2626,7 +2585,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0}秒</unitPattern>
-				<perUnitPattern draft="provisional">{0}/秒</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0}毫秒</unitPattern>
@@ -2779,7 +2737,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="enclosed">{0} — 包含</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} — 舊式</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — 雜項</characterLabelPattern>
-		<characterLabelPattern type="other">{0} — 其他</characterLabelPattern>
 		<characterLabelPattern type="scripts" draft="contributed">書寫體 — {0}</characterLabelPattern>
 		<characterLabel type="arrows" draft="contributed">箭嘴</characterLabel>
 		<characterLabel type="downwards_arrows" draft="contributed">左右箭嘴</characterLabel>

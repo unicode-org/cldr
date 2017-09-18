@@ -13,66 +13,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar_001">Modern Standard Arabic</language>
 			<language type="bn">Bengali</language>
-			<language type="de_AT">Austrian German</language>
-			<language type="de_CH">Swiss High German</language>
-			<language type="en_AU">Australian English</language>
-			<language type="en_CA">Canadian English</language>
-			<language type="en_GB">British English</language>
-			<language type="en_GB" alt="short">UK English</language>
 			<language type="en_US">United States English</language>
-			<language type="en_US" alt="short">US English</language>
-			<language type="es_419">Latin American Spanish</language>
-			<language type="es_ES">European Spanish</language>
-			<language type="es_MX">Mexican Spanish</language>
-			<language type="fr_CA">Canadian French</language>
-			<language type="fr_CH">Swiss French</language>
 			<language type="frc" draft="contributed">frc</language>
 			<language type="lou" draft="contributed">lou</language>
-			<language type="pt_BR">Brazilian Portuguese</language>
-			<language type="pt_PT">European Portuguese</language>
 			<language type="ro_MD">Moldovan</language>
-			<language type="zh_Hans">Simplified Chinese</language>
-			<language type="zh_Hant">Traditional Chinese</language>
 		</languages>
 		<scripts>
 			<script type="Beng">Bengali</script>
 		</scripts>
-		<territories>
-			<territory type="BL">St. Barthélemy</territory>
-			<territory type="KN">St. Kitts &amp; Nevis</territory>
-			<territory type="LC">St. Lucia</territory>
-			<territory type="MF">St. Martin</territory>
-			<territory type="VC">St. Vincent &amp; Grenadines</territory>
-		</territories>
 		<types>
 			<type key="calendar" type="dangi">Korean Calendar</type>
 			<type key="calendar" type="ethiopic">Ethiopian Calendar</type>
 		</types>
 	</localeDisplayNames>
-	<characters>
-		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<parseLenients scope="date" level="lenient">
-			<parseLenient sample="-" draft="provisional">[\--/]</parseLenient>
-			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
-		</parseLenients>
-		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
-			<parseLenient sample="$" draft="provisional">[\$﹩＄$]</parseLenient>
-			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
-			<parseLenient sample="₹" draft="provisional">[₨₹{Rp}{Rs}]</parseLenient>
-		</parseLenients>
-		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
-			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
-			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
-		</parseLenients>
-		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
-			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
-		</parseLenients>
-	</characters>
 	<dates>
 		<calendars>
 			<calendar type="generic">
@@ -113,20 +67,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11">Nov.</month>
 							<month type="12">Dec.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
@@ -142,20 +82,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="10">Oct.</month>
 							<month type="11">Nov.</month>
 							<month type="12">Dec.</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">January</month>
-							<month type="2">February</month>
-							<month type="3">March</month>
-							<month type="4">April</month>
-							<month type="5">May</month>
-							<month type="6">June</month>
-							<month type="7">July</month>
-							<month type="8">August</month>
-							<month type="9">September</month>
-							<month type="10">October</month>
-							<month type="11">November</month>
-							<month type="12">December</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -217,41 +143,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="fri">Fri.</day>
 							<day type="sat">Sat.</day>
 						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Sunday</day>
-							<day type="mon">Monday</day>
-							<day type="tue">Tuesday</day>
-							<day type="wed">Wednesday</day>
-							<day type="thu">Thursday</day>
-							<day type="fri">Friday</day>
-							<day type="sat">Saturday</day>
-						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1st quarter</quarter>
-							<quarter type="2">2nd quarter</quarter>
-							<quarter type="3">3rd quarter</quarter>
-							<quarter type="4">4th quarter</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
@@ -287,24 +180,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">midnight</dayPeriod>
 							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
-							<dayPeriod type="morning1">morning</dayPeriod>
-							<dayPeriod type="afternoon1">afternoon</dayPeriod>
-							<dayPeriod type="evening1">evening</dayPeriod>
-							<dayPeriod type="night1">night</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">midnight</dayPeriod>
 							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
-							<dayPeriod type="morning1">morning</dayPeriod>
-							<dayPeriod type="afternoon1">afternoon</dayPeriod>
-							<dayPeriod type="evening1">evening</dayPeriod>
-							<dayPeriod type="night1">night</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">am</dayPeriod>
@@ -322,269 +205,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
-						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'week' w 'of' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
 					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
-							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
-							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d – d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
-							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="indian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Chaitra</month>
-							<month type="2">Vaisakha</month>
-							<month type="3">Jyaistha</month>
-							<month type="4">Asadha</month>
-							<month type="5">Sravana</month>
-							<month type="6">Bhadra</month>
-							<month type="7">Asvina</month>
-							<month type="8">Kartika</month>
-							<month type="9">Agrahayana</month>
-							<month type="10">Pausa</month>
-							<month type="11">Magha</month>
-							<month type="12">Phalguna</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Chaitra</month>
-							<month type="2">Vaisakha</month>
-							<month type="3">Jyaistha</month>
-							<month type="4">Asadha</month>
-							<month type="5">Sravana</month>
-							<month type="6">Bhadra</month>
-							<month type="7">Asvina</month>
-							<month type="8">Kartika</month>
-							<month type="9">Agrahayana</month>
-							<month type="10">Pausa</month>
-							<month type="11">Magha</month>
-							<month type="12">Phalguna</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Chaitra</month>
-							<month type="2">Vaisakha</month>
-							<month type="3">Jyaistha</month>
-							<month type="4">Asadha</month>
-							<month type="5">Sravana</month>
-							<month type="6">Bhadra</month>
-							<month type="7">Asvina</month>
-							<month type="8">Kartika</month>
-							<month type="9">Agrahayana</month>
-							<month type="10">Pausa</month>
-							<month type="11">Magha</month>
-							<month type="12">Phalguna</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<eras>
-					<eraAbbr>
-						<era type="0">Saka</era>
-					</eraAbbr>
-				</eras>
-			</calendar>
 			<calendar type="islamic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Muh.</month>
-							<month type="2">Saf.</month>
-							<month type="3">Rab. I</month>
-							<month type="4">Rab. II</month>
-							<month type="5">Jum. I</month>
-							<month type="6">Jum. II</month>
-							<month type="7">Raj.</month>
-							<month type="8">Sha.</month>
-							<month type="9">Ram.</month>
-							<month type="10">Shaw.</month>
-							<month type="11">Dhuʻl-Q.</month>
-							<month type="12">Dhuʻl-H.</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">Muh.</month>
-							<month type="2">Saf.</month>
-							<month type="3">Rab. I</month>
-							<month type="4">Rab. II</month>
-							<month type="5">Jum. I</month>
-							<month type="6">Jum. II</month>
-							<month type="7">Raj.</month>
-							<month type="8">Sha.</month>
-							<month type="9">Ram.</month>
-							<month type="10">Shaw.</month>
-							<month type="11">Dhuʻl-Q.</month>
-							<month type="12">Dhuʻl-H.</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd/MM/y GGGGG</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="M">LL</dateFormatItem>
-						<dateFormatItem id="Md">dd/MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, dd/MM/y</dateFormatItem>
-						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">MM/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMd">dd/MM/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, dd/MM/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -672,34 +302,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} wks ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="weekOfMonth">
-				<displayName>week of month</displayName>
-			</field>
 			<field type="weekOfMonth-short">
 				<displayName>wk of mo.</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
 				<displayName draft="provisional">wk of mo</displayName>
-			</field>
-			<field type="day-short">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="dayOfYear-short">
 				<displayName>day of yr</displayName>
@@ -760,9 +367,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-short">
-				<relative type="-1">last Tue.</relative>
-				<relative type="0">this Tue.</relative>
-				<relative type="1">next Tue.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tue.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} Tue.</relativeTimePattern>
@@ -773,9 +377,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
-				<relative type="-1">last Tu</relative>
-				<relative type="0">this Tu</relative>
-				<relative type="1">next Tu</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tu</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} Tu</relativeTimePattern>
@@ -786,9 +387,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="wed-short">
-				<relative type="-1">last Wed.</relative>
-				<relative type="0">this Wed.</relative>
-				<relative type="1">next Wed.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Wed.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} Wed.</relativeTimePattern>
@@ -809,9 +407,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-short">
-				<relative type="-1">last Thu.</relative>
-				<relative type="0">this Thu.</relative>
-				<relative type="1">next Thu.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Thu.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} Thu.</relativeTimePattern>
@@ -872,9 +467,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
-				<displayName>am/pm</displayName>
-			</field>
-			<field type="dayperiod">
 				<displayName>am/pm</displayName>
 			</field>
 			<field type="dayperiod-narrow">
@@ -948,7 +540,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>St Barthélemy</exemplarCity>
 			</zone>
@@ -958,11 +549,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Eastern Africa Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Africa_Southern">
-				<long>
-					<standard>South Africa Standard Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -1029,11 +615,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Cook Island Summer Time</daylight>
 				</long>
 			</metazone>
-			<metazone type="Galapagos">
-				<long>
-					<standard>Galapagos Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Japan">
 				<long>
 					<generic>Japan Time</generic>
@@ -1086,7 +667,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<exponential>e</exponential>
 			<timeSeparator draft="contributed">.</timeSeparator>
@@ -1255,33 +835,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">CFP</symbol>
 			</currency>
 		</currencies>
-		<miscPatterns numberSystem="latn">
-			<pattern type="range">{0}–{1}</pattern>
-		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
-			<unit type="area-square-kilometer">
-				<displayName>square kilometres</displayName>
-				<unitPattern count="one">{0} square kilometre</unitPattern>
-				<unitPattern count="other">{0} square kilometres</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<unitPattern count="one">{0} square metre</unitPattern>
-				<unitPattern count="other">{0} square metres</unitPattern>
-				<perUnitPattern>{0} per square metre</perUnitPattern>
-			</unit>
-			<unit type="area-square-centimeter">
-				<displayName>square centimetres</displayName>
-				<unitPattern count="one">{0} square centimetre</unitPattern>
-				<unitPattern count="other">{0} square centimetres</unitPattern>
-				<perUnitPattern>{0} per square centimetre</perUnitPattern>
-			</unit>
-			<unit type="consumption-liter-per-100kilometers">
-				<displayName>litres per 100 kilometres</displayName>
-				<unitPattern count="one">{0} litre per 100 kilometres</unitPattern>
-				<unitPattern count="other">{0} litres per 100 kilometres</unitPattern>
-			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilowatt hours</displayName>
 				<unitPattern count="one">{0} kilowatt hour</unitPattern>
@@ -1289,46 +845,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometre</displayName>
-				<unitPattern count="one">{0} kilometre</unitPattern>
-				<unitPattern count="other">{0} kilometres</unitPattern>
-				<perUnitPattern>{0} per kilometre</perUnitPattern>
-			</unit>
-			<unit type="length-meter">
-				<displayName>metres</displayName>
-				<unitPattern count="one">{0} metre</unitPattern>
-				<unitPattern count="other">{0} metres</unitPattern>
-				<perUnitPattern>{0} per metre</perUnitPattern>
-			</unit>
-			<unit type="length-decimeter">
-				<displayName>decimetre</displayName>
-				<unitPattern count="one">{0} decimetre</unitPattern>
-				<unitPattern count="other">{0} decimetres</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<displayName>centimetres</displayName>
-				<unitPattern count="one">{0} centimetre</unitPattern>
-				<unitPattern count="other">{0} centimetres</unitPattern>
-				<perUnitPattern>{0} per centimetre</perUnitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName>millimetres</displayName>
-				<unitPattern count="one">{0} millimetre</unitPattern>
-				<unitPattern count="other">{0} millimetres</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>micrometres</displayName>
-				<unitPattern count="one">{0} micrometre</unitPattern>
-				<unitPattern count="other">{0} micrometres</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName>nanometres</displayName>
-				<unitPattern count="one">{0} nanometre</unitPattern>
-				<unitPattern count="other">{0} nanometres</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName>picometres</displayName>
-				<unitPattern count="one">{0} picometre</unitPattern>
-				<unitPattern count="other">{0} picometres</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>tonnes</displayName>
@@ -1340,26 +859,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} degree</unitPattern>
 				<unitPattern count="other">{0} degrees</unitPattern>
 			</unit>
-			<unit type="volume-cubic-meter">
-				<perUnitPattern>{0} per cubic metre</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<perUnitPattern>{0} per cubic centimetre</perUnitPattern>
-			</unit>
-			<unit type="volume-liter">
-				<perUnitPattern>{0} per litre</perUnitPattern>
-			</unit>
-			<unit type="volume-centiliter">
-				<displayName>centilitres</displayName>
-				<unitPattern count="one">{0} centilitre</unitPattern>
-				<unitPattern count="other">{0} centilitres</unitPattern>
-			</unit>
-			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0} east</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0} north</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0} south</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0} west</coordinateUnitPattern>
-			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<unit type="angle-degree">
@@ -1375,9 +874,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>arcsec.</displayName>
 				<unitPattern count="one">{0} arcsec.</unitPattern>
 				<unitPattern count="other">{0} arcsec.</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName>metres²</displayName>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>mg/dL</displayName>
@@ -1447,20 +943,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kWh</displayName>
-				<unitPattern count="one">{0} kWh</unitPattern>
-				<unitPattern count="other">{0} kWh</unitPattern>
-			</unit>
-			<unit type="length-meter">
-				<displayName>metres</displayName>
-			</unit>
-			<unit type="length-decimeter">
-				<unitPattern count="one">{0} dm</unitPattern>
-				<unitPattern count="other">{0} dm</unitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName>µmetres</displayName>
-				<unitPattern count="one">{0} µm</unitPattern>
-				<unitPattern count="other">{0} µm</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one">{0} l.y.</unitPattern>
@@ -1474,19 +956,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-fathom">
 				<unitPattern count="one">{0} fm</unitPattern>
 				<unitPattern count="other">{0} fm</unitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<perUnitPattern>{0}/kg</perUnitPattern>
-			</unit>
-			<unit type="mass-gram">
-				<perUnitPattern>{0}/g</perUnitPattern>
-			</unit>
-			<unit type="mass-pound">
-				<unitPattern count="one">{0} lb</unitPattern>
-				<unitPattern count="other">{0} lb</unitPattern>
-			</unit>
-			<unit type="mass-ounce">
-				<perUnitPattern>{0}/oz</perUnitPattern>
 			</unit>
 			<unit type="mass-carat">
 				<unitPattern count="one">{0} CM</unitPattern>
@@ -1512,14 +981,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>deg.</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="volume-cubic-meter">
-				<perUnitPattern>{0}/m³</perUnitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<perUnitPattern>{0}/cm³</perUnitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>ML</displayName>
@@ -1569,9 +1030,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<compoundUnit type="per">
-				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
-			</compoundUnit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>mg/dL</displayName>
 				<unitPattern count="one">{0}mg/dL</unitPattern>
@@ -1606,17 +1064,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>msec.</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
-			</unit>
-			<unit type="length-kilometer">
-				<unitPattern count="one">{0}km</unitPattern>
-				<unitPattern count="other">{0}km</unitPattern>
-			</unit>
-			<unit type="length-meter">
-				<displayName>metre</displayName>
-			</unit>
-			<unit type="length-millimeter">
-				<unitPattern count="one">{0}mm</unitPattern>
-				<unitPattern count="other">{0}mm</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
@@ -1666,22 +1113,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} bus.</unitPattern>
 				<unitPattern count="other">{0} bus.</unitPattern>
 			</unit>
-			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
-			</coordinateUnit>
 		</unitLength>
-		<durationUnit type="hm">
-			<durationUnitPattern>h:mm</durationUnitPattern>
-		</durationUnit>
-		<durationUnit type="hms">
-			<durationUnitPattern>h:mm:ss</durationUnitPattern>
-		</durationUnit>
-		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern>
-		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>

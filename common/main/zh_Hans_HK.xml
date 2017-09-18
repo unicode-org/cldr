@@ -79,9 +79,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H" draft="contributed">vHH–HH</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="contributed">M月至M月</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="contributed">y年M月至y年M月</greatestDifference>
 						</intervalFormatItem>
@@ -225,9 +222,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
-			<currency type="AWG">
-				<displayName count="other" draft="contributed">阿鲁巴弗罗林</displayName>
-			</currency>
 			<currency type="CNY">
 				<symbol draft="contributed">CN¥</symbol>
 			</currency>

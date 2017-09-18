@@ -21,7 +21,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="gv">Kimanksi</language>
 			<language type="gwi">Kigwichiin</language>
 			<language type="hup">Kihupa</language>
-			<language type="inh">Kiingush</language>
 			<language type="jbo">Kilojban</language>
 			<language type="kac">Kikachin</language>
 			<language type="khq">Kikoyra Chiini</language>
@@ -86,14 +85,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characters>
 		<exemplarCharacters>[a b c d e f g h i j k l m n o p r s t u v w y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q x]</exemplarCharacters>
-		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
 			<calendar type="generic">
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="ms">m:ss</dateFormatItem>
 					</availableFormats>

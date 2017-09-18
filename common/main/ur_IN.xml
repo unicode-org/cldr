@@ -13,7 +13,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="af">افریقی</language>
 			<language type="ar_001">جدید معیاری عربی</language>
 			<language type="awa">اودھی</language>
 			<language type="ckb">سورانی کردی</language>
@@ -25,7 +24,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kn">کنڑ</language>
 			<language type="ku">کرد</language>
 			<language type="mag">مگہی</language>
-			<language type="mas">مسائی</language>
 			<language type="zgh">معیاری مراقشی تمازیقی</language>
 			<language type="zh_Hans">آسان چینی</language>
 		</languages>
@@ -62,70 +60,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</types>
 	</localeDisplayNames>
 	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">اتوار</day>
-							<day type="mon">پیر</day>
-							<day type="tue">منگل</day>
-							<day type="wed">بدھ</day>
-							<day type="thu">جمعرات</day>
-							<day type="fri">جمعہ</day>
-							<day type="sat">ہفتہ</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">اتوار</day>
-							<day type="mon">پیر</day>
-							<day type="tue">منگل</day>
-							<day type="wed">بدھ</day>
-							<day type="thu">جمعرات</day>
-							<day type="fri">جمعہ</day>
-							<day type="sat">ہفتہ</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">اتوار</day>
-							<day type="mon">پیر</day>
-							<day type="tue">منگل</day>
-							<day type="wed">بدھ</day>
-							<day type="thu">جمعرات</day>
-							<day type="fri">جمعہ</day>
-							<day type="sat">ہفتہ</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">اتوار</day>
-							<day type="mon">پیر</day>
-							<day type="tue">منگل</day>
-							<day type="wed">بدھ</day>
-							<day type="thu">جمعرات</day>
-							<day type="fri">جمعہ</day>
-							<day type="sat">ہفتہ</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">اتوار</day>
-							<day type="mon">پیر</day>
-							<day type="tue">منگل</day>
-							<day type="wed">بدھ</day>
-							<day type="thu">جمعرات</day>
-							<day type="fri">جمعہ</day>
-							<day type="sat">ہفتہ</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">اتوار</day>
-							<day type="mon">پیر</day>
-							<day type="tue">منگل</day>
-							<day type="wed">بدھ</day>
-							<day type="thu">جمعرات</day>
-							<day type="fri">جمعہ</day>
-							<day type="sat">ہفتہ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-			</calendar>
-		</calendars>
 		<fields>
 			<field type="era">
 				<displayName>دور</displayName>
@@ -284,9 +218,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat type="daylight">{0} دن کا وقت</regionFormat>
 			<regionFormat type="standard">{0} معیاری وقت</regionFormat>
-			<zone type="Asia/Dubai">
-				<exemplarCity>دبئی</exemplarCity>
-			</zone>
 			<zone type="America/Cambridge_Bay">
 				<exemplarCity>کیمبرج بے</exemplarCity>
 			</zone>

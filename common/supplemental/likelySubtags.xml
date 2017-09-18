@@ -776,6 +776,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Nobonob; ?; ? } => { Nobonob; Latin; Unknown Region }-->
 		<likelySubtag from="gay" to="gay_Latn_ID"/>
 		<!--{ Gayo; ?; ? } => { Gayo; Latin; Indonesia }-->
+		<likelySubtag from="gba" to="gba_Latn_ZZ"/>
+		<!--{ Gbaya; ?; ? } => { Gbaya; Latin; Unknown Region }-->
 		<likelySubtag from="gbf" to="gbf_Latn_ZZ"/>
 		<!--{ Gaikundi; ?; ? } => { Gaikundi; Latin; Unknown Region }-->
 		<likelySubtag from="gbm" to="gbm_Deva_IN"/>
@@ -1224,8 +1226,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Komo (Democratic Republic of Congo); ?; ? } => { Komo (Democratic Republic of Congo); Latin; Unknown Region }-->
 		<likelySubtag from="kn" to="kn_Knda_IN"/>
 		<!--{ Kannada; ?; ? } => { Kannada; Kannada; India }-->
-		<likelySubtag from="knf" to="knf_Latn_SN"/>
-		<!--{ Mankanya; ?; ? } => { Mankanya; Latin; Senegal }-->
+		<likelySubtag from="knf" to="knf_Latn_GW"/>
+		<!--{ Mankanya; ?; ? } => { Mankanya; Latin; Guinea-Bissau }-->
 		<likelySubtag from="knp" to="knp_Latn_ZZ"/>
 		<!--{ Kwanja; ?; ? } => { Kwanja; Latin; Unknown Region }-->
 		<likelySubtag from="ko" to="ko_Kore_KR"/>
@@ -1258,6 +1260,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Northern Kissi; ?; ? } => { Northern Kissi; Latin; Unknown Region }-->
 		<likelySubtag from="kqy" to="kqy_Ethi_ZZ"/>
 		<!--{ Koorete; ?; ? } => { Koorete; Ethiopic; Unknown Region }-->
+		<likelySubtag from="kr" to="kr_Latn_ZZ"/>
+		<!--{ Kanuri; ?; ? } => { Kanuri; Latin; Unknown Region }-->
 		<likelySubtag from="krc" to="krc_Cyrl_RU"/>
 		<!--{ Karachay-Balkar; ?; ? } => { Karachay-Balkar; Cyrillic; Russia }-->
 		<likelySubtag from="kri" to="kri_Latn_SL"/>
@@ -2786,8 +2790,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; ? } => { English; Latin; United States }-->
 		<likelySubtag from="und_002" to="en_Latn_NG"/>
 		<!--{ ?; ?; Africa } => { English; Latin; Nigeria }-->
-		<likelySubtag from="und_202" to="en_Latn_NG"/> 
-		<!-- hack until rebuilt -->
 		<likelySubtag from="und_003" to="en_Latn_US"/>
 		<!--{ ?; ?; North America } => { English; Latin; United States }-->
 		<likelySubtag from="und_005" to="pt_Latn_BR"/>
@@ -2842,6 +2844,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; Northern Europe } => { English; Latin; United Kingdom }-->
 		<likelySubtag from="und_155" to="de_Latn_DE"/>
 		<!--{ ?; ?; Western Europe } => { German; Latin; Germany }-->
+		<likelySubtag from="und_202" to="en_Latn_NG"/>
+		<!--{ ?; ?; Sub-Saharan Africa } => { English; Latin; Nigeria }-->
 		<likelySubtag from="und_419" to="es_Latn_419"/>
 		<!--{ ?; ?; Latin America } => { Spanish; Latin; Latin America }-->
 		<likelySubtag from="und_AD" to="ca_Latn_AD"/>
@@ -3386,8 +3390,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Simplified; ? } => { Chinese; Simplified; China }-->
 		<likelySubtag from="und_Hant" to="zh_Hant_TW"/>
 		<!--{ ?; Traditional; ? } => { Chinese; Traditional; Taiwan }-->
-		<likelySubtag from="und_Hant_CN" to="yue_Hant_CN"/>
-		<!--{ ?; Traditional; China } => { Cantonese; Traditional; China }-->
 		<likelySubtag from="und_Hatr" to="mis_Hatr_IQ"/>
 		<!--{ ?; Hatran; ? } => { Uncoded languages; Hatran; Iraq }-->
 		<likelySubtag from="und_Hebr" to="he_Hebr_IL"/>

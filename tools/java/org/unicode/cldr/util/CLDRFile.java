@@ -414,14 +414,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             // <!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
             String fixedPath = "../../" + dtdType.dtdPath;
 
-            String dtdDir = "../../common/dtd/";
-//            if (options.containsKey("DTD_DIR")) {
-//                dtdDir = options.get("DTD_DIR").toString();
-//            }
-            String path = dtdDir + dtdType + ".dtd";
-            if (!path.equals(fixedPath) && dtdType != DtdType.supplementalData) {
-                throw new IllegalArgumentException("Unexpected dtd path " + fixedPath);
+            if (options.containsKey("DTD_DIR")) {
+                // String dtdDir = "../../common/dtd/";
+                String dtdDir = options.get("DTD_DIR").toString();
+                fixedPath = dtdDir + dtdType + ".dtd";
             }
+//            if (!path.equals(fixedPath) && dtdType != DtdType.supplementalData) {
+//                throw new IllegalArgumentException("Unexpected dtd path " + fixedPath);
+//            }
             pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"" + fixedPath + "\">");
         }
 

@@ -4,8 +4,6 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -37,7 +35,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="GB">Grossbritannien</territory>
 			<territory type="QO">Äusseres Ozeanien</territory>
 			<territory type="SB">Salomon-Inseln</territory>
-			<territory type="TL" draft="provisional">Osttimor</territory>
+			<territory type="TL">Osttimor</territory>
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<keys>
@@ -63,13 +61,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<days>
 					<dayContext type="format">
 						<dayWidth type="short">
-							<day type="sun" draft="provisional">So</day>
-							<day type="mon" draft="provisional">Mo</day>
-							<day type="tue" draft="provisional">Di</day>
-							<day type="wed" draft="provisional">Mi</day>
-							<day type="thu" draft="provisional">Do</day>
-							<day type="fri" draft="provisional">Fr</day>
-							<day type="sat" draft="provisional">Sa</day>
+							<day type="sun">So</day>
+							<day type="mon">Mo</day>
+							<day type="tue">Di</day>
+							<day type="wed">Mi</day>
+							<day type="thu">Do</day>
+							<day type="fri">Fr</day>
+							<day type="sat">Sa</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -77,40 +75,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</calendars>
 		<fields>
 			<field type="era-narrow">
-				<displayName draft="contributed">Epoche</displayName>
+				<displayName>Epoche</displayName>
 			</field>
 			<field type="quarter">
-				<relative type="-1" draft="contributed">letztes Quartal</relative>
-				<relative type="0" draft="contributed">dieses Quartal</relative>
+				<relative type="-1">letztes Quartal</relative>
+				<relative type="0">dieses Quartal</relative>
 			</field>
 			<field type="weekOfMonth">
-				<displayName draft="contributed">Woche im Monat</displayName>
+				<displayName>Woche im Monat</displayName>
 			</field>
 			<field type="weekOfMonth-short">
-				<displayName draft="contributed">Wo. i. M.</displayName>
+				<displayName>Wo. i. M.</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
-				<displayName draft="contributed">W. i. Mon.</displayName>
+				<displayName>W. i. Mon.</displayName>
 			</field>
 			<field type="dayOfYear-short">
-				<displayName draft="contributed">Tag d. J.</displayName>
+				<displayName>Tag d. J.</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName draft="contributed">Wochentag</displayName>
+				<displayName>Wochentag</displayName>
 			</field>
 			<field type="weekdayOfMonth">
-				<displayName draft="contributed">Wochentag im Monat</displayName>
+				<displayName>Wochentag im Monat</displayName>
 			</field>
 			<field type="weekdayOfMonth-short">
-				<displayName draft="contributed">Wochent. i. Mo.</displayName>
+				<displayName>Wochent. i. Mo.</displayName>
 			</field>
 			<field type="weekdayOfMonth-narrow">
-				<displayName draft="contributed">Wochent. i. Mon.</displayName>
+				<displayName>Wochent. i. Mon.</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
 			<zone type="Europe/Saratov">
-				<exemplarCity draft="contributed">Saratov</exemplarCity>
+				<exemplarCity>Saratov</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -145,12 +143,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">Weissrussische Rubel (2000–2016)</displayName>
 			</currency>
 			<currency type="EUR">
-				<symbol draft="contributed">EUR</symbol>
+				<symbol>EUR</symbol>
 				<symbol alt="narrow" draft="contributed">EUR</symbol>
 			</currency>
 			<currency type="PEN">
-				<displayName draft="contributed">Peruanischer Neuer Sol</displayName>
-				<displayName count="one" draft="contributed">Peruanischer Neuer Sol</displayName>
+				<displayName>Peruanischer Neuer Sol</displayName>
+				<displayName count="one">Peruanischer Neuer Sol</displayName>
 			</currency>
 		</currencies>
 	</numbers>
@@ -176,8 +174,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kubikfuss</unitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<unitPattern count="other" draft="contributed">{0} gal Imp.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/gal Imp.</perUnitPattern>
+				<unitPattern count="other">{0} gal Imp.</unitPattern>
+				<perUnitPattern>{0}/gal Imp.</perUnitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">

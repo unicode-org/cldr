@@ -164,7 +164,7 @@ public class CLDRFileTransformer {
         }
         String outputParentString = LocaleIDParser.getParent(localeTransform.getOutputLocale());
         CLDRFile outputParent = factory.make(outputParentString, true);
-            
+
         outputParent = factory.make(localeTransform.getInputLocale(), false);
         XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
         for (String xpath : input) {
@@ -191,7 +191,7 @@ public class CLDRFileTransformer {
      */
     private String transformValue(Transliterator transliterator, LocaleTransform localeTransform, String path, String value,
         String oldValue, String parentValue) {
-        
+
         // allows us to change only new values
         switch (localeTransform.policy) {
         case RETAIN: 
@@ -202,10 +202,10 @@ public class CLDRFileTransformer {
             break;
         default:
         }
-        
+
         UnicodeSet chars = localeTransform.getInputChars();
         String transliterated;
-        
+
         // TODO: Don't transform dates/patterns.
         // For now, don't try to transliterate the exemplar characters - use the ones from the original locale.
         // In the future, we can probably control this better with a config file - similar to CLDRModify's config file.
@@ -235,6 +235,7 @@ public class CLDRFileTransformer {
         for (String dir : DtdType.ldml.directories) {
             if (dir.equals("casing") // skip, field contents are keywords, not localizable content
                 || dir.equals("collation") // skip, field contents are complex, and can't be simply remapped
+                || dir.equals("annotationsDerived") // skip, derived later
                 ) {
                 continue;
             }

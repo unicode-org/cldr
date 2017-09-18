@@ -4,8 +4,6 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -14,6 +12,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<territory type="CH"/>
 	</identity>
 	<annotations>
+		<annotation cp="😃">Gesicht | grinsendes Gesicht mit grossen Augen | lol | lustig</annotation>
+		<annotation cp="😃" type="tts">grinsendes Gesicht mit grossen Augen</annotation>
 		<annotation cp="😅">Gesicht | Lachender Smiley mit kaltem Schweiss | lustig | Schweiss | schwitzen</annotation>
 		<annotation cp="😅" type="tts">Lachender Smiley mit kaltem Schweiss</annotation>
 		<annotation cp="😥">erleichtert | Gesicht | Schweiss</annotation>
@@ -25,11 +25,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😰" type="tts">Smiley mit offenem Mund und kaltem Schweiss</annotation>
 		<annotation cp="😳">Erröteter Smiley mit grossen Augen | Gesicht | rote Wangen | überrascht</annotation>
 		<annotation cp="😳" type="tts">Erröteter Smiley mit grossen Augen</annotation>
-		<annotation cp="🤪" draft="contributed">Auge | gross | klein</annotation>
+		<annotation cp="🤪">Auge | gross | klein</annotation>
 		<annotation cp="👽">Alien | Ausserirdischer | Ausserirdisches Wesen | Gesicht | UFO</annotation>
 		<annotation cp="👽" type="tts">Ausserirdisches Wesen</annotation>
-		<annotation cp="🧟‍♂" draft="contributed">Zombiemann</annotation>
-		<annotation cp="🧟‍♂" type="tts" draft="contributed">Zombiemann</annotation>
+		<annotation cp="🧟‍♂">Zombiemann</annotation>
+		<annotation cp="🧟‍♂" type="tts">Zombiemann</annotation>
 		<annotation cp="🚶">Fussgänger(in) | gehen | gehend | wandern</annotation>
 		<annotation cp="🚶" type="tts">Fussgänger(in)</annotation>
 		<annotation cp="🚶‍♂">Fussgänger | gehen | Mann | Spaziergang</annotation>
@@ -50,7 +50,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛑" type="tts">Helm mit weissem Kreuz</annotation>
 		<annotation cp="💐">Blumen | Blumenstrauss | Bouquet</annotation>
 		<annotation cp="💐" type="tts">Blumenstrauss</annotation>
-		<annotation cp="🥨" draft="contributed">verdreht</annotation>
+		<annotation cp="🥨">verdreht</annotation>
 		<annotation cp="🍝">Nudeln mit Tomatensosse | Pasta | Restaurant</annotation>
 		<annotation cp="🍠">geröstet | Geröstete Süsskartoffel | Süsskartoffel</annotation>
 		<annotation cp="🍠" type="tts">Geröstete Süsskartoffel</annotation>
@@ -74,13 +74,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚊" type="tts">Strassenbahn</annotation>
 		<annotation cp="🚋">Strassenbahn | Tram | Waggon</annotation>
 		<annotation cp="🛣">Autobahn | Schnellstrasse</annotation>
+		<annotation cp="⭐">Stern | weisser mittelgrosser Stern</annotation>
+		<annotation cp="⭐" type="tts">weisser mittelgrosser Stern</annotation>
 		<annotation cp="🌥">grosse Wolke | Sonne | Sonne hinter grosser Wolke | Wetter | Wolke</annotation>
 		<annotation cp="🌥" type="tts">Sonne hinter grosser Wolke</annotation>
 		<annotation cp="🔥">Flamme | heiss</annotation>
 		<annotation cp="💧">Schweiss | Wasser | Wassertropfen</annotation>
 		<annotation cp="⚽">Ball | Fussball</annotation>
 		<annotation cp="⚽" type="tts">Fussball</annotation>
-		<annotation cp="🥌" draft="contributed">Spiel | Stein</annotation>
+		<annotation cp="🥌">Spiel | Stein</annotation>
 		<annotation cp="🔍">Suche | Vergrösserungsglas</annotation>
 		<annotation cp="🔎">Suche | Vergrösserungsglas</annotation>
 		<annotation cp="📆">Abreisskalender | Kalender</annotation>
@@ -89,8 +91,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📌" type="tts">Reisszwecke</annotation>
 		<annotation cp="📍">anpinnen | Reisszwecke | rund | runde Reisszwecke</annotation>
 		<annotation cp="📍" type="tts">runde Reisszwecke</annotation>
-		<annotation cp="🚼" draft="contributed">Baby-Symbol</annotation>
-		<annotation cp="🚼" type="tts" draft="contributed">Baby-Symbol</annotation>
+		<annotation cp="🚼">Baby-Symbol</annotation>
+		<annotation cp="🚼" type="tts">Baby-Symbol</annotation>
 		<annotation cp="🛅">Gepäck | Schliessfach</annotation>
 		<annotation cp="🚸">Kinder | Kinder-queren-die-Strasse-Schild | Vorsicht</annotation>
 		<annotation cp="🚸" type="tts">Kinder-queren-die-Strasse-Schild</annotation>
@@ -101,7 +103,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✅">abgehakt | erledigt | Weisses Häkchen</annotation>
 		<annotation cp="✅" type="tts">Weisses Häkchen</annotation>
 		<annotation cp="❔">Satzzeichen | weiss</annotation>
+		<annotation cp="❔" type="tts">weisses Fragezeichen</annotation>
 		<annotation cp="❕">Satzzeichen | weiss</annotation>
+		<annotation cp="❕" type="tts">weisses Ausrufezeichen</annotation>
 		<annotation cp="🔠">Eingabesymbol lateinische Grossbuchstaben | Grossbuchstaben | lateinische Grossbuchstaben</annotation>
 		<annotation cp="🔠" type="tts">Eingabesymbol lateinische Grossbuchstaben</annotation>
 		<annotation cp="🅰">a | Blut | Blutgruppe | Grossbuchstabe A in Quadrat | negativ | positiv</annotation>

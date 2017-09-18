@@ -4,8 +4,9 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
-<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1813,67 +1814,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾‍♀" type="tts">jongleuse : peau modérément foncée</annotation>
 		<annotation cp="🤹🏿‍♀">femme | jonglage | jongleuse | multitâche | peau foncée</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">jongleuse : peau foncée</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">bisou | couple | femme | homme</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">bisou : femme et homme</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">bisou | couple | homme</annotation>
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">bisou : homme et homme</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">bisou | couple | femme</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">bisou : femme et femme</annotation>
-		<annotation cp="👩‍❤‍👨">amour | couple | couple avec cœur | cœur | femme | homme</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">couple avec cœur : femme et homme</annotation>
-		<annotation cp="👨‍❤‍👨">amour | couple | couple avec cœur | cœur | homme</annotation>
 		<annotation cp="👨‍❤‍👨" type="tts">couple avec cœur : homme et homme</annotation>
-		<annotation cp="👩‍❤‍👩">amour | couple | couple avec cœur | cœur | femme</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">couple avec cœur : femme et femme</annotation>
-		<annotation cp="👨‍👩‍👦">enfant | famille | mère | père | homme | femme | garçon</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">famille : homme et femme et garçon</annotation>
-		<annotation cp="👨‍👩‍👧">enfant | famille | mère | père | homme | femme | fille</annotation>
 		<annotation cp="👨‍👩‍👧" type="tts">famille : homme et femme et fille</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">enfant | famille | mère | père | homme | femme | fille | garçon</annotation>
 		<annotation cp="👨‍👩‍👧‍👦" type="tts">famille : homme et femme et fille et garçon</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">enfant | famille | mère | père | homme | femme | garçon</annotation>
 		<annotation cp="👨‍👩‍👦‍👦" type="tts">famille : homme et femme et garçon et garçon</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">enfant | famille | mère | père | homme | femme | fille</annotation>
 		<annotation cp="👨‍👩‍👧‍👧" type="tts">famille : homme et femme et fille et fille</annotation>
-		<annotation cp="👨‍👨‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👨‍👦" type="tts">famille : homme et homme et garçon</annotation>
-		<annotation cp="👨‍👨‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👨‍👧" type="tts">famille : homme et homme et fille</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">enfant | famille | mère | père | homme | fille | garçon</annotation>
 		<annotation cp="👨‍👨‍👧‍👦" type="tts">famille : homme et homme et fille et garçon</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👨‍👦‍👦" type="tts">famille : homme et homme et garçon et garçon</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👨‍👧‍👧" type="tts">famille : homme et homme et fille et fille</annotation>
-		<annotation cp="👩‍👩‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👩‍👦" type="tts">famille : femme et femme et garçon</annotation>
-		<annotation cp="👩‍👩‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👩‍👧" type="tts">famille : femme et femme et fille</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">enfant | famille | mère | père | femme | fille | garçon</annotation>
 		<annotation cp="👩‍👩‍👧‍👦" type="tts">famille : femme et femme et fille et garçon</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👩‍👦‍👦" type="tts">famille : femme et femme et garçon et garçon</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👩‍👧‍👧" type="tts">famille : femme et femme et fille et fille</annotation>
-		<annotation cp="👨‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👦" type="tts">famille : homme et garçon</annotation>
-		<annotation cp="👨‍👦‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👦‍👦" type="tts">famille : homme et garçon et garçon</annotation>
-		<annotation cp="👨‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👧" type="tts">famille : homme et fille</annotation>
-		<annotation cp="👨‍👧‍👦">enfant | famille | mère | père | homme | fille | garçon</annotation>
 		<annotation cp="👨‍👧‍👦" type="tts">famille : homme et fille et garçon</annotation>
-		<annotation cp="👨‍👧‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👧‍👧" type="tts">famille : homme et fille et fille</annotation>
-		<annotation cp="👩‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👦" type="tts">famille : femme et garçon</annotation>
-		<annotation cp="👩‍👦‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👦‍👦" type="tts">famille : femme et garçon et garçon</annotation>
-		<annotation cp="👩‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👧" type="tts">famille : femme et fille</annotation>
-		<annotation cp="👩‍👧‍👦">enfant | famille | mère | père | femme | fille | garçon</annotation>
 		<annotation cp="👩‍👧‍👦" type="tts">famille : femme et fille et garçon</annotation>
-		<annotation cp="👩‍👧‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">famille : femme et fille et fille</annotation>
 		<annotation cp="🤳🏻">appareil photo | autophoto | selfie | téléphone | peau claire</annotation>
 		<annotation cp="🤳🏻" type="tts">autophoto : peau claire</annotation>
@@ -2221,521 +2191,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="*⃣" type="tts">dessus de touche : *</annotation>
 		<annotation cp="🔟">dessus de touche</annotation>
 		<annotation cp="🔟" type="tts">dessus de touche : 10</annotation>
-		<annotation cp="🇦🇨">drapeau</annotation>
 		<annotation cp="🇦🇨" type="tts">île de l’Ascension</annotation>
-		<annotation cp="🇦🇩">drapeau</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorre</annotation>
-		<annotation cp="🇦🇪">drapeau</annotation>
-		<annotation cp="🇦🇪" type="tts">Émirats arabes unis</annotation>
-		<annotation cp="🇦🇫">drapeau</annotation>
-		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
-		<annotation cp="🇦🇬">drapeau</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua-et-Barbuda</annotation>
-		<annotation cp="🇦🇮">drapeau</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
-		<annotation cp="🇦🇱">drapeau</annotation>
-		<annotation cp="🇦🇱" type="tts">Albanie</annotation>
-		<annotation cp="🇦🇲">drapeau</annotation>
-		<annotation cp="🇦🇲" type="tts">Arménie</annotation>
-		<annotation cp="🇦🇴">drapeau</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
-		<annotation cp="🇦🇶">drapeau</annotation>
-		<annotation cp="🇦🇶" type="tts">Antarctique</annotation>
-		<annotation cp="🇦🇷">drapeau</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentine</annotation>
-		<annotation cp="🇦🇸">drapeau</annotation>
-		<annotation cp="🇦🇸" type="tts">Samoa américaines</annotation>
-		<annotation cp="🇦🇹">drapeau</annotation>
-		<annotation cp="🇦🇹" type="tts">Autriche</annotation>
-		<annotation cp="🇦🇺">drapeau</annotation>
-		<annotation cp="🇦🇺" type="tts">Australie</annotation>
-		<annotation cp="🇦🇼">drapeau</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
-		<annotation cp="🇦🇽">drapeau</annotation>
 		<annotation cp="🇦🇽" type="tts">îles d’Åland</annotation>
-		<annotation cp="🇦🇿">drapeau</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbaïdjan</annotation>
-		<annotation cp="🇧🇦">drapeau</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnie-Herzégovine</annotation>
-		<annotation cp="🇧🇧">drapeau</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbade</annotation>
-		<annotation cp="🇧🇩">drapeau</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
-		<annotation cp="🇧🇪">drapeau</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgique</annotation>
-		<annotation cp="🇧🇫">drapeau</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
-		<annotation cp="🇧🇬">drapeau</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgarie</annotation>
-		<annotation cp="🇧🇭">drapeau</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahreïn</annotation>
-		<annotation cp="🇧🇮">drapeau</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
-		<annotation cp="🇧🇯">drapeau</annotation>
-		<annotation cp="🇧🇯" type="tts">Bénin</annotation>
-		<annotation cp="🇧🇱">drapeau</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
-		<annotation cp="🇧🇲">drapeau</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermudes</annotation>
-		<annotation cp="🇧🇳">drapeau</annotation>
 		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
-		<annotation cp="🇧🇴">drapeau</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolivie</annotation>
-		<annotation cp="🇧🇶">drapeau</annotation>
-		<annotation cp="🇧🇶" type="tts">Pays-Bas caribéens</annotation>
-		<annotation cp="🇧🇷">drapeau</annotation>
-		<annotation cp="🇧🇷" type="tts">Brésil</annotation>
-		<annotation cp="🇧🇸">drapeau</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
-		<annotation cp="🇧🇹">drapeau</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhoutan</annotation>
-		<annotation cp="🇧🇻">drapeau</annotation>
 		<annotation cp="🇧🇻" type="tts">île Bouvet</annotation>
-		<annotation cp="🇧🇼">drapeau</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
-		<annotation cp="🇧🇾">drapeau</annotation>
 		<annotation cp="🇧🇾" type="tts">Bélarus</annotation>
-		<annotation cp="🇧🇿">drapeau</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
-		<annotation cp="🇨🇦">drapeau</annotation>
-		<annotation cp="🇨🇦" type="tts">Canada</annotation>
-		<annotation cp="🇨🇨">drapeau</annotation>
 		<annotation cp="🇨🇨" type="tts">îles Cocos (Keeling)</annotation>
-		<annotation cp="🇨🇩">drapeau</annotation>
-		<annotation cp="🇨🇩" type="tts">Congo-Kinshasa</annotation>
-		<annotation cp="🇨🇫">drapeau</annotation>
-		<annotation cp="🇨🇫" type="tts">République centrafricaine</annotation>
-		<annotation cp="🇨🇬">drapeau</annotation>
-		<annotation cp="🇨🇬" type="tts">Congo-Brazzaville</annotation>
-		<annotation cp="🇨🇭">drapeau</annotation>
-		<annotation cp="🇨🇭" type="tts">Suisse</annotation>
-		<annotation cp="🇨🇮">drapeau</annotation>
-		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
-		<annotation cp="🇨🇰">drapeau</annotation>
 		<annotation cp="🇨🇰" type="tts">îles Cook</annotation>
-		<annotation cp="🇨🇱">drapeau</annotation>
-		<annotation cp="🇨🇱" type="tts">Chili</annotation>
-		<annotation cp="🇨🇲">drapeau</annotation>
-		<annotation cp="🇨🇲" type="tts">Cameroun</annotation>
-		<annotation cp="🇨🇳">drapeau</annotation>
-		<annotation cp="🇨🇳" type="tts">Chine</annotation>
-		<annotation cp="🇨🇴">drapeau</annotation>
-		<annotation cp="🇨🇴" type="tts">Colombie</annotation>
-		<annotation cp="🇨🇵">drapeau</annotation>
-		<annotation cp="🇨🇵" type="tts">Île Clipperton</annotation>
-		<annotation cp="🇨🇷">drapeau</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
-		<annotation cp="🇨🇺">drapeau</annotation>
-		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
-		<annotation cp="🇨🇻">drapeau</annotation>
-		<annotation cp="🇨🇻" type="tts">Cap-Vert</annotation>
-		<annotation cp="🇨🇼">drapeau</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
-		<annotation cp="🇨🇽">drapeau</annotation>
 		<annotation cp="🇨🇽" type="tts">île Christmas</annotation>
-		<annotation cp="🇨🇾">drapeau</annotation>
-		<annotation cp="🇨🇾" type="tts">Chypre</annotation>
-		<annotation cp="🇨🇿">drapeau</annotation>
-		<annotation cp="🇨🇿" type="tts">Tchéquie</annotation>
-		<annotation cp="🇩🇪">drapeau</annotation>
-		<annotation cp="🇩🇪" type="tts">Allemagne</annotation>
-		<annotation cp="🇩🇬">drapeau</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
-		<annotation cp="🇩🇯">drapeau</annotation>
-		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
-		<annotation cp="🇩🇰">drapeau</annotation>
-		<annotation cp="🇩🇰" type="tts">Danemark</annotation>
-		<annotation cp="🇩🇲">drapeau</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominique</annotation>
-		<annotation cp="🇩🇴">drapeau</annotation>
-		<annotation cp="🇩🇴" type="tts">République dominicaine</annotation>
-		<annotation cp="🇩🇿">drapeau</annotation>
-		<annotation cp="🇩🇿" type="tts">Algérie</annotation>
-		<annotation cp="🇪🇦">drapeau</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta et Melilla</annotation>
-		<annotation cp="🇪🇨">drapeau</annotation>
-		<annotation cp="🇪🇨" type="tts">Équateur</annotation>
-		<annotation cp="🇪🇪">drapeau</annotation>
-		<annotation cp="🇪🇪" type="tts">Estonie</annotation>
-		<annotation cp="🇪🇬">drapeau</annotation>
-		<annotation cp="🇪🇬" type="tts">Égypte</annotation>
-		<annotation cp="🇪🇭">drapeau</annotation>
-		<annotation cp="🇪🇭" type="tts">Sahara occidental</annotation>
-		<annotation cp="🇪🇷">drapeau</annotation>
-		<annotation cp="🇪🇷" type="tts">Érythrée</annotation>
-		<annotation cp="🇪🇸">drapeau</annotation>
-		<annotation cp="🇪🇸" type="tts">Espagne</annotation>
-		<annotation cp="🇪🇹">drapeau</annotation>
-		<annotation cp="🇪🇹" type="tts">Éthiopie</annotation>
-		<annotation cp="🇪🇺">drapeau</annotation>
-		<annotation cp="🇪🇺" type="tts">Union européenne</annotation>
-		<annotation cp="🇫🇮">drapeau</annotation>
-		<annotation cp="🇫🇮" type="tts">Finlande</annotation>
-		<annotation cp="🇫🇯">drapeau</annotation>
-		<annotation cp="🇫🇯" type="tts">Fidji</annotation>
-		<annotation cp="🇫🇰">drapeau</annotation>
 		<annotation cp="🇫🇰" type="tts">îles Malouines</annotation>
-		<annotation cp="🇫🇲">drapeau</annotation>
 		<annotation cp="🇫🇲" type="tts">Micronésie</annotation>
-		<annotation cp="🇫🇴">drapeau</annotation>
 		<annotation cp="🇫🇴" type="tts">îles Féroé</annotation>
-		<annotation cp="🇫🇷">drapeau</annotation>
-		<annotation cp="🇫🇷" type="tts">France</annotation>
-		<annotation cp="🇬🇦">drapeau</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
-		<annotation cp="🇬🇧">drapeau</annotation>
-		<annotation cp="🇬🇧" type="tts">Royaume-Uni</annotation>
-		<annotation cp="🇬🇩">drapeau</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenade</annotation>
-		<annotation cp="🇬🇪">drapeau</annotation>
-		<annotation cp="🇬🇪" type="tts">Géorgie</annotation>
-		<annotation cp="🇬🇫">drapeau</annotation>
-		<annotation cp="🇬🇫" type="tts">Guyane française</annotation>
-		<annotation cp="🇬🇬">drapeau</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernesey</annotation>
-		<annotation cp="🇬🇭">drapeau</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
-		<annotation cp="🇬🇮">drapeau</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
-		<annotation cp="🇬🇱">drapeau</annotation>
-		<annotation cp="🇬🇱" type="tts">Groenland</annotation>
-		<annotation cp="🇬🇲">drapeau</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambie</annotation>
-		<annotation cp="🇬🇳">drapeau</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinée</annotation>
-		<annotation cp="🇬🇵">drapeau</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
-		<annotation cp="🇬🇶">drapeau</annotation>
-		<annotation cp="🇬🇶" type="tts">Guinée équatoriale</annotation>
-		<annotation cp="🇬🇷">drapeau</annotation>
-		<annotation cp="🇬🇷" type="tts">Grèce</annotation>
-		<annotation cp="🇬🇸">drapeau</annotation>
-		<annotation cp="🇬🇸" type="tts">Géorgie du Sud et îles Sandwich du Sud</annotation>
-		<annotation cp="🇬🇹">drapeau</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
-		<annotation cp="🇬🇺">drapeau</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
-		<annotation cp="🇬🇼">drapeau</annotation>
-		<annotation cp="🇬🇼" type="tts">Guinée-Bissau</annotation>
-		<annotation cp="🇬🇾">drapeau</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
-		<annotation cp="🇭🇰">drapeau</annotation>
-		<annotation cp="🇭🇰" type="tts">R.A.S. chinoise de Hong Kong</annotation>
-		<annotation cp="🇭🇲">drapeau</annotation>
 		<annotation cp="🇭🇲" type="tts">îles Heard et McDonald</annotation>
-		<annotation cp="🇭🇳">drapeau</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
-		<annotation cp="🇭🇷">drapeau</annotation>
-		<annotation cp="🇭🇷" type="tts">Croatie</annotation>
-		<annotation cp="🇭🇹">drapeau</annotation>
-		<annotation cp="🇭🇹" type="tts">Haïti</annotation>
-		<annotation cp="🇭🇺">drapeau</annotation>
-		<annotation cp="🇭🇺" type="tts">Hongrie</annotation>
-		<annotation cp="🇮🇨">drapeau</annotation>
 		<annotation cp="🇮🇨" type="tts">îles Canaries</annotation>
-		<annotation cp="🇮🇩">drapeau</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonésie</annotation>
-		<annotation cp="🇮🇪">drapeau</annotation>
-		<annotation cp="🇮🇪" type="tts">Irlande</annotation>
-		<annotation cp="🇮🇱">drapeau</annotation>
-		<annotation cp="🇮🇱" type="tts">Israël</annotation>
-		<annotation cp="🇮🇲">drapeau</annotation>
 		<annotation cp="🇮🇲" type="tts">île de Man</annotation>
-		<annotation cp="🇮🇳">drapeau</annotation>
-		<annotation cp="🇮🇳" type="tts">Inde</annotation>
-		<annotation cp="🇮🇴">drapeau</annotation>
 		<annotation cp="🇮🇴" type="tts">territoire britannique de l’océan Indien</annotation>
-		<annotation cp="🇮🇶">drapeau</annotation>
-		<annotation cp="🇮🇶" type="tts">Irak</annotation>
-		<annotation cp="🇮🇷">drapeau</annotation>
-		<annotation cp="🇮🇷" type="tts">Iran</annotation>
-		<annotation cp="🇮🇸">drapeau</annotation>
-		<annotation cp="🇮🇸" type="tts">Islande</annotation>
-		<annotation cp="🇮🇹">drapeau</annotation>
-		<annotation cp="🇮🇹" type="tts">Italie</annotation>
-		<annotation cp="🇯🇪">drapeau</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
-		<annotation cp="🇯🇲">drapeau</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaïque</annotation>
-		<annotation cp="🇯🇴">drapeau</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordanie</annotation>
-		<annotation cp="🇯🇵">drapeau</annotation>
-		<annotation cp="🇯🇵" type="tts">Japon</annotation>
-		<annotation cp="🇰🇪">drapeau</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
-		<annotation cp="🇰🇬">drapeau</annotation>
-		<annotation cp="🇰🇬" type="tts">Kirghizistan</annotation>
-		<annotation cp="🇰🇭">drapeau</annotation>
-		<annotation cp="🇰🇭" type="tts">Cambodge</annotation>
-		<annotation cp="🇰🇮">drapeau</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
-		<annotation cp="🇰🇲">drapeau</annotation>
-		<annotation cp="🇰🇲" type="tts">Comores</annotation>
-		<annotation cp="🇰🇳">drapeau</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint-Christophe-et-Niévès</annotation>
-		<annotation cp="🇰🇵">drapeau</annotation>
-		<annotation cp="🇰🇵" type="tts">Corée du Nord</annotation>
-		<annotation cp="🇰🇷">drapeau</annotation>
-		<annotation cp="🇰🇷" type="tts">Corée du Sud</annotation>
-		<annotation cp="🇰🇼">drapeau</annotation>
-		<annotation cp="🇰🇼" type="tts">Koweït</annotation>
-		<annotation cp="🇰🇾">drapeau</annotation>
-		<annotation cp="🇰🇾" type="tts">Îles Caïmans</annotation>
-		<annotation cp="🇰🇿">drapeau</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazakhstan</annotation>
-		<annotation cp="🇱🇦">drapeau</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
-		<annotation cp="🇱🇧">drapeau</annotation>
-		<annotation cp="🇱🇧" type="tts">Liban</annotation>
-		<annotation cp="🇱🇨">drapeau</annotation>
-		<annotation cp="🇱🇨" type="tts">Sainte-Lucie</annotation>
-		<annotation cp="🇱🇮">drapeau</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
-		<annotation cp="🇱🇰">drapeau</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
-		<annotation cp="🇱🇷">drapeau</annotation>
-		<annotation cp="🇱🇷" type="tts">Libéria</annotation>
-		<annotation cp="🇱🇸">drapeau</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
-		<annotation cp="🇱🇹">drapeau</annotation>
-		<annotation cp="🇱🇹" type="tts">Lituanie</annotation>
-		<annotation cp="🇱🇺">drapeau</annotation>
-		<annotation cp="🇱🇺" type="tts">Luxembourg</annotation>
-		<annotation cp="🇱🇻">drapeau</annotation>
-		<annotation cp="🇱🇻" type="tts">Lettonie</annotation>
-		<annotation cp="🇱🇾">drapeau</annotation>
-		<annotation cp="🇱🇾" type="tts">Libye</annotation>
-		<annotation cp="🇲🇦">drapeau</annotation>
-		<annotation cp="🇲🇦" type="tts">Maroc</annotation>
-		<annotation cp="🇲🇨">drapeau</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
-		<annotation cp="🇲🇩">drapeau</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldavie</annotation>
-		<annotation cp="🇲🇪">drapeau</annotation>
-		<annotation cp="🇲🇪" type="tts">Monténégro</annotation>
-		<annotation cp="🇲🇫">drapeau</annotation>
 		<annotation cp="🇲🇫" type="tts">Saint-Martin (France)</annotation>
-		<annotation cp="🇲🇬">drapeau</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagascar</annotation>
-		<annotation cp="🇲🇭">drapeau</annotation>
-		<annotation cp="🇲🇭" type="tts">Îles Marshall</annotation>
-		<annotation cp="🇲🇰">drapeau</annotation>
-		<annotation cp="🇲🇰" type="tts">Macédoine</annotation>
-		<annotation cp="🇲🇱">drapeau</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
-		<annotation cp="🇲🇲">drapeau</annotation>
 		<annotation cp="🇲🇲" type="tts">Myanmar</annotation>
-		<annotation cp="🇲🇳">drapeau</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolie</annotation>
-		<annotation cp="🇲🇴">drapeau</annotation>
-		<annotation cp="🇲🇴" type="tts">R.A.S. chinoise de Macao</annotation>
-		<annotation cp="🇲🇵">drapeau</annotation>
 		<annotation cp="🇲🇵" type="tts">Mariannes du Nord</annotation>
-		<annotation cp="🇲🇶">drapeau</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
-		<annotation cp="🇲🇷">drapeau</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritanie</annotation>
-		<annotation cp="🇲🇸">drapeau</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
-		<annotation cp="🇲🇹">drapeau</annotation>
-		<annotation cp="🇲🇹" type="tts">Malte</annotation>
-		<annotation cp="🇲🇺">drapeau</annotation>
-		<annotation cp="🇲🇺" type="tts">Maurice</annotation>
-		<annotation cp="🇲🇻">drapeau</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldives</annotation>
-		<annotation cp="🇲🇼">drapeau</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
-		<annotation cp="🇲🇽">drapeau</annotation>
-		<annotation cp="🇲🇽" type="tts">Mexique</annotation>
-		<annotation cp="🇲🇾">drapeau</annotation>
-		<annotation cp="🇲🇾" type="tts">Malaisie</annotation>
-		<annotation cp="🇲🇿">drapeau</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
-		<annotation cp="🇳🇦">drapeau</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibie</annotation>
-		<annotation cp="🇳🇨">drapeau</annotation>
-		<annotation cp="🇳🇨" type="tts">Nouvelle-Calédonie</annotation>
-		<annotation cp="🇳🇪">drapeau</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
-		<annotation cp="🇳🇫">drapeau</annotation>
 		<annotation cp="🇳🇫" type="tts">île Norfolk</annotation>
-		<annotation cp="🇳🇬">drapeau</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigéria</annotation>
-		<annotation cp="🇳🇮">drapeau</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
-		<annotation cp="🇳🇱">drapeau</annotation>
-		<annotation cp="🇳🇱" type="tts">Pays-Bas</annotation>
-		<annotation cp="🇳🇴">drapeau</annotation>
-		<annotation cp="🇳🇴" type="tts">Norvège</annotation>
-		<annotation cp="🇳🇵">drapeau</annotation>
-		<annotation cp="🇳🇵" type="tts">Népal</annotation>
-		<annotation cp="🇳🇷">drapeau</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
-		<annotation cp="🇳🇺">drapeau</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
-		<annotation cp="🇳🇿">drapeau</annotation>
-		<annotation cp="🇳🇿" type="tts">Nouvelle-Zélande</annotation>
-		<annotation cp="🇴🇲">drapeau</annotation>
-		<annotation cp="🇴🇲" type="tts">Oman</annotation>
-		<annotation cp="🇵🇦">drapeau</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
-		<annotation cp="🇵🇪">drapeau</annotation>
-		<annotation cp="🇵🇪" type="tts">Pérou</annotation>
-		<annotation cp="🇵🇫">drapeau</annotation>
-		<annotation cp="🇵🇫" type="tts">Polynésie française</annotation>
-		<annotation cp="🇵🇬">drapeau</annotation>
-		<annotation cp="🇵🇬" type="tts">Papouasie-Nouvelle-Guinée</annotation>
-		<annotation cp="🇵🇭">drapeau</annotation>
-		<annotation cp="🇵🇭" type="tts">Philippines</annotation>
-		<annotation cp="🇵🇰">drapeau</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
-		<annotation cp="🇵🇱">drapeau</annotation>
-		<annotation cp="🇵🇱" type="tts">Pologne</annotation>
-		<annotation cp="🇵🇲">drapeau</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre-et-Miquelon</annotation>
-		<annotation cp="🇵🇳">drapeau</annotation>
 		<annotation cp="🇵🇳" type="tts">îles Pitcairn</annotation>
-		<annotation cp="🇵🇷">drapeau</annotation>
-		<annotation cp="🇵🇷" type="tts">Porto Rico</annotation>
-		<annotation cp="🇵🇸">drapeau</annotation>
-		<annotation cp="🇵🇸" type="tts">Territoires palestiniens</annotation>
-		<annotation cp="🇵🇹">drapeau</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
-		<annotation cp="🇵🇼">drapeau</annotation>
-		<annotation cp="🇵🇼" type="tts">Palaos</annotation>
-		<annotation cp="🇵🇾">drapeau</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
-		<annotation cp="🇶🇦">drapeau</annotation>
-		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
-		<annotation cp="🇷🇪">drapeau</annotation>
 		<annotation cp="🇷🇪" type="tts">la Réunion</annotation>
-		<annotation cp="🇷🇴">drapeau</annotation>
-		<annotation cp="🇷🇴" type="tts">Roumanie</annotation>
-		<annotation cp="🇷🇸">drapeau</annotation>
-		<annotation cp="🇷🇸" type="tts">Serbie</annotation>
-		<annotation cp="🇷🇺">drapeau</annotation>
-		<annotation cp="🇷🇺" type="tts">Russie</annotation>
-		<annotation cp="🇷🇼">drapeau</annotation>
-		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
-		<annotation cp="🇸🇦">drapeau</annotation>
-		<annotation cp="🇸🇦" type="tts">Arabie saoudite</annotation>
-		<annotation cp="🇸🇧">drapeau</annotation>
-		<annotation cp="🇸🇧" type="tts">Îles Salomon</annotation>
-		<annotation cp="🇸🇨">drapeau</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
-		<annotation cp="🇸🇩">drapeau</annotation>
-		<annotation cp="🇸🇩" type="tts">Soudan</annotation>
-		<annotation cp="🇸🇪">drapeau</annotation>
-		<annotation cp="🇸🇪" type="tts">Suède</annotation>
-		<annotation cp="🇸🇬">drapeau</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapour</annotation>
-		<annotation cp="🇸🇭">drapeau</annotation>
-		<annotation cp="🇸🇭" type="tts">Sainte-Hélène</annotation>
-		<annotation cp="🇸🇮">drapeau</annotation>
-		<annotation cp="🇸🇮" type="tts">Slovénie</annotation>
-		<annotation cp="🇸🇯">drapeau</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard et Jan Mayen</annotation>
-		<annotation cp="🇸🇰">drapeau</annotation>
-		<annotation cp="🇸🇰" type="tts">Slovaquie</annotation>
-		<annotation cp="🇸🇱">drapeau</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
-		<annotation cp="🇸🇲">drapeau</annotation>
-		<annotation cp="🇸🇲" type="tts">Saint-Marin</annotation>
-		<annotation cp="🇸🇳">drapeau</annotation>
-		<annotation cp="🇸🇳" type="tts">Sénégal</annotation>
-		<annotation cp="🇸🇴">drapeau</annotation>
-		<annotation cp="🇸🇴" type="tts">Somalie</annotation>
-		<annotation cp="🇸🇷">drapeau</annotation>
-		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
-		<annotation cp="🇸🇸">drapeau</annotation>
-		<annotation cp="🇸🇸" type="tts">Soudan du Sud</annotation>
-		<annotation cp="🇸🇹">drapeau</annotation>
-		<annotation cp="🇸🇹" type="tts">Sao Tomé-et-Principe</annotation>
-		<annotation cp="🇸🇻">drapeau</annotation>
-		<annotation cp="🇸🇻" type="tts">Salvador</annotation>
-		<annotation cp="🇸🇽">drapeau</annotation>
 		<annotation cp="🇸🇽" type="tts">Saint-Martin (Pays-Bas)</annotation>
-		<annotation cp="🇸🇾">drapeau</annotation>
-		<annotation cp="🇸🇾" type="tts">Syrie</annotation>
-		<annotation cp="🇸🇿">drapeau</annotation>
-		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
-		<annotation cp="🇹🇦">drapeau</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
-		<annotation cp="🇹🇨">drapeau</annotation>
-		<annotation cp="🇹🇨" type="tts">Îles Turques-et-Caïques</annotation>
-		<annotation cp="🇹🇩">drapeau</annotation>
-		<annotation cp="🇹🇩" type="tts">Tchad</annotation>
-		<annotation cp="🇹🇫">drapeau</annotation>
-		<annotation cp="🇹🇫" type="tts">Terres australes françaises</annotation>
-		<annotation cp="🇹🇬">drapeau</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
-		<annotation cp="🇹🇭">drapeau</annotation>
-		<annotation cp="🇹🇭" type="tts">Thaïlande</annotation>
-		<annotation cp="🇹🇯">drapeau</annotation>
-		<annotation cp="🇹🇯" type="tts">Tadjikistan</annotation>
-		<annotation cp="🇹🇰">drapeau</annotation>
 		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
-		<annotation cp="🇹🇱">drapeau</annotation>
 		<annotation cp="🇹🇱" type="tts">Timor-Leste</annotation>
-		<annotation cp="🇹🇲">drapeau</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkménistan</annotation>
-		<annotation cp="🇹🇳">drapeau</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunisie</annotation>
-		<annotation cp="🇹🇴">drapeau</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
-		<annotation cp="🇹🇷">drapeau</annotation>
-		<annotation cp="🇹🇷" type="tts">Turquie</annotation>
-		<annotation cp="🇹🇹">drapeau</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinité-et-Tobago</annotation>
-		<annotation cp="🇹🇻">drapeau</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
-		<annotation cp="🇹🇼">drapeau</annotation>
-		<annotation cp="🇹🇼" type="tts">Taïwan</annotation>
-		<annotation cp="🇹🇿">drapeau</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzanie</annotation>
-		<annotation cp="🇺🇦">drapeau</annotation>
-		<annotation cp="🇺🇦" type="tts">Ukraine</annotation>
-		<annotation cp="🇺🇬">drapeau</annotation>
-		<annotation cp="🇺🇬" type="tts">Ouganda</annotation>
-		<annotation cp="🇺🇲">drapeau</annotation>
 		<annotation cp="🇺🇲" type="tts">îles mineures éloignées des États-Unis</annotation>
-		<annotation cp="🇺🇳">drapeau</annotation>
-		<annotation cp="🇺🇳" type="tts">Nations Unies</annotation>
-		<annotation cp="🇺🇸">drapeau</annotation>
-		<annotation cp="🇺🇸" type="tts">États-Unis</annotation>
-		<annotation cp="🇺🇾">drapeau</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
-		<annotation cp="🇺🇿">drapeau</annotation>
-		<annotation cp="🇺🇿" type="tts">Ouzbékistan</annotation>
-		<annotation cp="🇻🇦">drapeau</annotation>
 		<annotation cp="🇻🇦" type="tts">Cité du Vatican</annotation>
-		<annotation cp="🇻🇨">drapeau</annotation>
 		<annotation cp="🇻🇨" type="tts">Saint-Vincent-et-les Grenadines</annotation>
-		<annotation cp="🇻🇪">drapeau</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
-		<annotation cp="🇻🇬">drapeau</annotation>
 		<annotation cp="🇻🇬" type="tts">îles Vierges britanniques</annotation>
-		<annotation cp="🇻🇮">drapeau</annotation>
 		<annotation cp="🇻🇮" type="tts">îles Vierges américaines</annotation>
-		<annotation cp="🇻🇳">drapeau</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
-		<annotation cp="🇻🇺">drapeau</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
-		<annotation cp="🇼🇫">drapeau</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis-et-Futuna</annotation>
-		<annotation cp="🇼🇸">drapeau</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
-		<annotation cp="🇽🇰">drapeau</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
-		<annotation cp="🇾🇪">drapeau</annotation>
-		<annotation cp="🇾🇪" type="tts">Yémen</annotation>
-		<annotation cp="🇾🇹">drapeau</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
-		<annotation cp="🇿🇦">drapeau</annotation>
-		<annotation cp="🇿🇦" type="tts">Afrique du Sud</annotation>
-		<annotation cp="🇿🇲">drapeau</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambie</annotation>
-		<annotation cp="🇿🇼">drapeau</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
 	</annotations>
 </ldml>

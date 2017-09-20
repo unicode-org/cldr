@@ -8,7 +8,8 @@
 		<property name="build.dir" value="classes" />
 		<property name="libs.dir" value="libs" />
 		<property name="jar.file" value="cldr.jar" />
-		<property name="jarSrc.file" value="cldrsrc.jar" />
+		<property name="jarSrc.file" value="cldr-src.jar" />
+		<property name="jarDocs.file" value="cldr-docs.jar" />
 		<property name="doc.dir" value="doc" />
 		<property name="doc.params" value="" />
 		<!-- Load local definitions from an optional build.properties file, if 
@@ -128,6 +129,8 @@
 		<delete file="${jar.file}" />
 	</target>
 
+	<target name="jars" depends="jar,srcJar,docsJar" description="build all jars"/>
+
 	<target name="jar" depends="all" description="build full 'cldr.jar' jar file">
 		<jar jarfile="${jar.file}" compress="true"
 			includes="org/unicode/cldr/draft/**/*,
@@ -162,10 +165,23 @@
 			encoding="utf-8" docencoding="utf-8" additionalparam="${doc.params}"
 			link="http://docs.oracle.com/javase/7/docs/api"
 			bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
-			source="1.8" target="1.8" />
+			source="1.8"  />
+		<!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation 
+			and others.&lt;/font>" -->
 	</target>
-	<!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation 
-		and others.&lt;/font>" -->
+
+	<target name="docsJar" depends="docs">
+        <jar jarfile="${jarDocs.file}" compress="true" basedir="${doc.dir}">
+			<fileset dir="../.." includes="*LICENSE*,*license*"/>
+		</jar>
+	</target>
+	<target name="srcJar" depends="init" description="Build all *.jars (tools/docs/src)">
+        <jar jarfile="${jarSrc.file}" compress="true">
+			<fileset dir="org" includes="**/*.java"/>
+			<fileset dir="com" includes="**/*.java"/>
+			<fileset dir="../.." includes="*LICENSE*,*license*"/>
+		</jar>
+	</target>
 
 	<!-- for testing and development -->
 	<target name="icu4c" depends="init, ant-plugin, icu">

@@ -831,7 +831,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} karats</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<unitPattern count="one" draft="contributed">{0} kilowatt-hour</unitPattern>
+				<unitPattern count="one">{0} kilowatt-hour</unitPattern>
+				<unitPattern count="other">{0} kilowatt-hours</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">

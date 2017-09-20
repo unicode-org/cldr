@@ -346,16 +346,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
+							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1032,11 +1032,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="100000" count="one">000 k</pattern>
 					<pattern type="100000" count="other">000 k</pattern>
 					<pattern type="1000000000" count="one">0k M</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0k M</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00k M</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00k M</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000k M</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000k M</pattern>
+					<pattern type="1000000000" count="other">0k M</pattern>
+					<pattern type="10000000000" count="one">00k M</pattern>
+					<pattern type="10000000000" count="other">00k M</pattern>
+					<pattern type="100000000000" count="one">000k M</pattern>
+					<pattern type="100000000000" count="other">000k M</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -1186,12 +1186,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="electric-ohm">
 				<displayName draft="contributed">ohms</displayName>
-				<unitPattern count="one">{0} ohm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ohm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ohms</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">volts</displayName>
-				<unitPattern count="one">{0} volt</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} volt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} volts</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
@@ -1268,6 +1268,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName draft="contributed">kelvins</displayName>
+				<unitPattern count="one" draft="contributed">{0} kelvin</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kelvins</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">

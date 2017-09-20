@@ -563,17 +563,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</eras>
 			</calendar>
 			<calendar type="islamic">
-				<months>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="8" draft="contributed">chaa.</month>
-							<month type="9" draft="contributed">ram.</month>
-							<month type="10" draft="contributed">chaw.</month>
-							<month type="11" draft="contributed">dhou. qi.</month>
-							<month type="12" draft="contributed">dhou. hi.</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">Anno Hegirae</era>
@@ -1622,7 +1611,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
-				<displayName count="one" draft="contributed">lari géorgien</displayName>
 				<symbol alt="narrow" draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GIP">
@@ -1790,6 +1778,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-microgram">
 				<unitPattern count="one" draft="contributed">{0} microgramme</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} microgrammes</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<unitPattern count="other" draft="contributed">{0} stone</unitPattern>
@@ -1898,6 +1887,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-generic">
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>vg³</displayName>
@@ -2049,6 +2039,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="one" draft="contributed">{0}kg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}kg</unitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<unitPattern count="one" draft="contributed">{0}mg</unitPattern>

@@ -163,6 +163,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="8" draft="contributed">ago.</month>
 							<month type="9" draft="contributed">sep.</month>
 							<month type="10" draft="contributed">oct.</month>
+							<month type="11" draft="contributed">nov.</month>
+							<month type="12" draft="contributed">dic.</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -738,10 +740,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<decimalFormat>
 					<pattern type="1000" count="one" draft="contributed">0</pattern>
 					<pattern type="1000" count="other" draft="contributed">0</pattern>
-					<pattern type="10000" count="one" draft="contributed">00k</pattern>
-					<pattern type="10000" count="other">00 K</pattern>
-					<pattern type="100000" count="one">000 K</pattern>
-					<pattern type="100000" count="other">000 K</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00 K</pattern>
+					<pattern type="100000" count="one" draft="contributed">000 K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000 K</pattern>
 					<pattern type="1000000000" count="one" draft="provisional">0 B</pattern>
 					<pattern type="1000000000" count="other" draft="provisional">0 B</pattern>
 					<pattern type="10000000000" count="one" draft="provisional">00 B</pattern>
@@ -903,6 +905,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
+				<unitPattern count="one" draft="contributed">{0} microgramo</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} microgramos</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
@@ -936,6 +939,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName draft="contributed">kelvin</displayName>
+				<unitPattern count="one" draft="contributed">{0} kelvin</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kelvin</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
@@ -999,6 +1003,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-celsius">
 				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName draft="contributed">Imp. gal</displayName>
@@ -1007,6 +1012,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-cup">
 				<unitPattern count="one" draft="contributed">{0} tza.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} tza.</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

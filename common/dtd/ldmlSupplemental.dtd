@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope? ) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?) >
 
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
@@ -968,3 +968,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST rgPath path CDATA #REQUIRED >
 <!ATTLIST rgPath draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+
+<!ELEMENT languageGroups ( languageGroup* ) >
+
+<!ELEMENT languageGroup ( #PCDATA ) >
+<!ATTLIST languageGroup parent NMTOKEN #REQUIRED >

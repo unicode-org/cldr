@@ -21,6 +21,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRConfig;
@@ -471,13 +472,13 @@ public class ShowLocaleCoverage {
         return Collections.unmodifiableMap(data);
     }
 
-    public static void showCoverage(PrintWriter index) throws IOException {
-        showCoverage(index, PatternCache.get(".*").matcher(""), null, false);
+    public static void showCoverage(Anchors anchors) throws IOException {
+        showCoverage(anchors, PatternCache.get(".*").matcher(""), null, false);
     }
 
-    public static void showCoverage(PrintWriter index, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {
+    public static void showCoverage(Anchors anchors, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {
         final String title = "Locale Coverage";
-        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, null));
+        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, anchors));
         printData(pw, locales, matcher, useOrgLevel);
         new ShowPlurals().appendBlanksForScrolling(pw);
         pw.close();

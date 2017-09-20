@@ -353,6 +353,8 @@
 //supplementalData/territoryInfo/territory[@type="%A"]/languagePopulation[@type="%A"]/_%E			; Supplemental ; LanguageInfo ; $1/$2 ; $3 ; HIDE
 //supplementalData/territoryInfo/territory[@type="%A"]/_%E			; Supplemental ; TerritoryInfo ; $1 ; $2 ; HIDE
 
+//supplementalData/languageGroups/languageGroup[@parent="%A"]			; Supplemental ; LanguageGroup ; $1 ; parent-child ; HIDE
+
 //supplementalData/characters/character-fallback/character[@value="%A"]/substitute			; Supplemental ; Fallback ; $1 ; plain ; DEPRECATED
 
 //supplementalData/gender/personList[@type="%A"]/_locales			; Supplemental ; Gender ; List ; $1 ; HIDE

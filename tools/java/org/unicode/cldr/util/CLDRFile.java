@@ -3703,4 +3703,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
         return DtdData.getAttributeValueComparator(DtdType.ldml, element, attribute);
     }
+
+    public void setDtdType(DtdType dtdType) {
+        if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+        this.dtdType = dtdType;
+    }
 }

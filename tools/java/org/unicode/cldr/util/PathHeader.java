@@ -258,6 +258,7 @@ public class PathHeader implements Comparable<PathHeader> {
         LanguageMatch(SectionId.Supplemental),
         TerritoryInfo(SectionId.Supplemental),
         LanguageInfo(SectionId.Supplemental),
+        LanguageGroup(SectionId.Supplemental),
         Fallback(SectionId.Supplemental),
         Gender(SectionId.Supplemental),
         Metazone(SectionId.Supplemental),

@@ -1,4 +1,4 @@
-To regenerate
+OLD: see cldr.org Upgrading Subdivision Names
 
 childToParent.tsv
 entityToLabel.tsv

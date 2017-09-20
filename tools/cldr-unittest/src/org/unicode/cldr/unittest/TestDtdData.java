@@ -541,7 +541,7 @@ public class TestDtdData  extends TestFmwk {
                 && attribute.equals("to")
                 || elementName.equals("currency")
                 && attribute.equals("iso4217")
-                || elementName.equals("parentLocale")
+                || (elementName.equals("parentLocale") || elementName.equals("languageGroup"))
                 && attribute.equals("parent")
                 || elementName.equals("currencyCodes")
                 && attribute.equals("type")

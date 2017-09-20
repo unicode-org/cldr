@@ -46,6 +46,9 @@ import org.unicode.cldr.util.Validity.Status;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSetMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Relation;
@@ -917,6 +920,8 @@ public class SupplementalDataInfo {
     public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<String, Row.R2<String, String>>();
     public Map<AttributeValidityInfo, String> attributeValidityInfo = new LinkedHashMap<>();
 
+    public Multimap<String,String> languageGroups = TreeMultimap.create();
+    
     public enum MeasurementType {
         measurementSystem, paperSize
     }
@@ -1166,6 +1171,7 @@ public class SupplementalDataInfo {
         validityInfo = CldrUtility.protectCollection(validityInfo);
         attributeValidityInfo = CldrUtility.protectCollection(attributeValidityInfo);
         parentLocales = Collections.unmodifiableMap(parentLocales);
+        languageGroups = ImmutableSetMultimap.copyOf(languageGroups);
 
         ImmutableSet.Builder<String> newScripts = ImmutableSet.<String>builder();
         Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getStatusToCodes(LstrType.script);
@@ -1321,6 +1327,10 @@ public class SupplementalDataInfo {
                     if (handleTimeData(level2)) {
                         return;
                     }
+                } else if (level1.equals("languageGroups")) {
+                    if (handleLanguageGroups(level2, value)) {
+                        return;
+                    }
                 }
 
                 // capture elements we didn't look at, since we should cover everything.
@@ -1335,6 +1345,13 @@ public class SupplementalDataInfo {
                 throw (IllegalArgumentException) new IllegalArgumentException("Exception while processing path: "
                     + path + ",\tvalue: " + value).initCause(e);
             }
+        }
+
+        private boolean handleLanguageGroups(String level2, String value) {
+            String parent = parts.getAttributeValue(-1, "parent");
+            List<String> children = WHITESPACE_SPLTTER.splitToList(value);
+            languageGroups.putAll(parent, children);
+            return true;
         }
 
         private boolean handleMeasurementData(String level2) {
@@ -4303,5 +4320,9 @@ public class SupplementalDataInfo {
 
     public Map<AttributeValidityInfo, String> getAttributeValidity() {
         return attributeValidityInfo;
+    }
+
+    public Multimap<String, String> getLanguageGroups() {
+        return languageGroups;
     }
 }

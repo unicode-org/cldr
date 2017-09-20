@@ -19,8 +19,11 @@ import java.util.function.Function;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -38,6 +41,7 @@ import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class GenerateLanguageContainment {
     private static final boolean ONLY_LIVING = false;
@@ -130,7 +134,7 @@ public class GenerateLanguageContainment {
             }
         }
         Multimap<String, String> parentToChild = ImmutableMultimap.copyOf(_parentToChild);
-        Writer out = new PrintWriter(System.out);
+        PrintWriter out = new PrintWriter(System.out);
         print(out, parentToChild, new ArrayList<String>(Arrays.asList("mul")));
         System.out.println(out);
         System.out.println("DROPPED_PARENTS: ");
@@ -138,8 +142,18 @@ public class GenerateLanguageContainment {
             System.out.println(NAME.apply(e.getKey()) + "\t" + NAME.apply(e.getValue())
                 );
         }
-        printXML(parentToChild);
+        SimpleXMLSource xmlSource = new SimpleXMLSource("languageGroup");
+        xmlSource.setNonInheriting(true); // should be gotten from DtdType...
+        CLDRFile newFile = new CLDRFile(xmlSource);
+        newFile.setDtdType(DtdType.supplementalData);
+        newFile.add("//" + DtdType.supplementalData + "/version[@number='$Revision$']", "");
+        printXML(newFile, parentToChild);
 
+        try (PrintWriter outFile = FileUtilities.openUTF8Writer(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "languageGroup.xml")) {
+            newFile.write(outFile);
+        } catch (IOException e1) {
+            throw new ICUUncheckedIOException("Can't write to languageGroup.xml", e1);
+        }
 
 //        for (Entry<String,String> entry : childToParent.entries()) {
 //            String childNames = getName(entityToCode, entityToLabel, entry.getKey());
@@ -148,22 +162,25 @@ public class GenerateLanguageContainment {
 //        }
     }
 
-    private static void printXML(Multimap<String, String> parentToChild) {
-        System.out.println("<languageGroups>");
-        printXML(parentToChild, "mul");
-        System.out.println("</languageGroups>");
+    private static void printXML(CLDRFile newFile, Multimap<String, String> parentToChild) {
+        printXML(newFile, parentToChild, "mul");
     }
 
-    private static void printXML(Multimap<String, String> parentToChild, String base) {
+    private static void printXML(CLDRFile newFile, Multimap<String, String> parentToChild, String base) {
         Collection<String> children = parentToChild.get(base);
         if (children.isEmpty()) {
             return;
         }
-        System.out.println("\t<languageGroup parent='" 
-            + base + "'>" 
-            + CollectionUtilities.join(children, " ") + "</languageGroup>");
+        if (base.equals("und")) {
+            // skip, no good info
+        } else {
+            newFile.add("//" + DtdType.supplementalData + "/languageGroups/languageGroup[@parent=\"" + base + "\"]", CollectionUtilities.join(children, " "));
+//            System.out.println("\t<languageGroup parent='" 
+//                + base + "'>" 
+//                + CollectionUtilities.join(children, " ") + "</languageGroup>");
+        }
         for (String child : children) {
-            printXML(parentToChild, child);
+            printXML(newFile, parentToChild, child);
         }
     }
 

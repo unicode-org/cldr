@@ -113,29 +113,37 @@ public class ShowLanguages {
         .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
-        LanguageInfo linfo = new LanguageInfo(cldrFactory);
 
+        new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        ShowLocaleCoverage.showCoverage(SUPPLEMENTAL_INDEX_ANCHORS);
+      
+        new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartLanguageGroups().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartSubdivisions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+
+        // since we don't want these listed on the supplemental page, use null
+        
+        new ChartAnnotations().writeChart(null);
+        new ChartSubdivisionNames().writeChart(null);
+        
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 
-//        linfo.showTerritoryInfo();
-
-        ShowLocaleCoverage.showCoverage(pw);
-
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
-        new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        LanguageInfo linfo = new LanguageInfo(cldrFactory);
 
         linfo.showCoverageGoals(pw);
 
         linfo.printLikelySubtags(pw);
 
-        // linfo.printCountryData(pw);
         linfo.showCountryLanguageInfo(pw);
 
         linfo.showLanguageCountryInfo(pw);
+
+//      linfo.showTerritoryInfo();
+//      linfo.printCountryData(pw);
 
         // linfo.printDeprecatedItems(pw);
 
@@ -172,8 +180,6 @@ public class ShowLanguages {
         linfo.printWindows_Tzid(pw);
         linfo.printAliases(pw);
 
-        new ChartAnnotations().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        new ChartSubdivisions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         linfo.printCharacters(pw);
 
         pw.close();

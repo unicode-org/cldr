@@ -736,7 +736,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
             if (!ROOT.name.equals(baseA) || !ROOT.name.equals(baseB)) {
-                throw new IllegalArgumentException("Comparing two different DTDs: " + baseA + ", " + baseB);
+                throw new IllegalArgumentException("Comparing different DTDs: " + ROOT.name + ", " + baseA + ", " + baseB);
             }
             int min = Math.min(a.size(), b.size());
             Element parent = ROOT;

@@ -4735,12 +4735,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>beng</defaultNumberingSystem>
+		<defaultNumberingSystem>cakm</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native>beng</native>
+			<native>cakm</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits>1</minimumGroupingDigits>
-		<symbols numberSystem="beng">
+		<symbols numberSystem="cakm">
 			<decimal>.</decimal>
 			<percentSign>%</percentSign>
 			<exponential>E</exponential>
@@ -4770,7 +4770,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats numberSystem="beng">
+		<scientificFormats numberSystem="cakm">
 			<scientificFormatLength>
 				<scientificFormat>
 					<pattern>#E0</pattern>
@@ -4784,7 +4784,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
-		<percentFormats numberSystem="beng">
+		<percentFormats numberSystem="cakm">
 			<percentFormatLength>
 				<percentFormat>
 					<pattern>#,##0%</pattern>
@@ -4798,7 +4798,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
-		<currencyFormats numberSystem="beng">
+		<currencyFormats numberSystem="cakm">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##,##0.00¤</pattern>

@@ -461,8 +461,10 @@ public class Keyboard {
                     ltp.set(locale);
                     Map<String, String> extensions = ltp.getExtensions();
                     LanguageTagParser.Status status = ltp.getStatus(errors2);
-                    if (status != Status.MINIMAL || errors2.size() != 0 || !extensions.containsKey("t")) {
+                    if (errors2.size() != 0 || !extensions.containsKey("t")) {
                         errors.add(new KeyboardException("Bad locale tag: " + locale + ", " + errors2.toString()));
+                    } else if (status != Status.MINIMAL) {
+                        errors.add(new KeyboardWarningException("Non-minimal locale tag: " + locale));
                     }
                 }
                 String element1 = parts.getElement(1);
@@ -608,7 +610,7 @@ public class Keyboard {
         };
     }
 
-    public static final class KeyboardException extends RuntimeException {
+    public static class KeyboardException extends RuntimeException {
         private static final long serialVersionUID = 3802627982169201480L;
 
         public KeyboardException(String string) {
@@ -619,4 +621,17 @@ public class Keyboard {
             super(string, e);
         }
     }
+    
+    public static class KeyboardWarningException extends KeyboardException {
+        private static final long serialVersionUID = 3802627982169201480L;
+
+        public KeyboardWarningException(String string) {
+            super(string);
+        }
+
+        public KeyboardWarningException(String string, Exception e) {
+            super(string, e);
+        }
+    }
+
 }

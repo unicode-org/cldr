@@ -8,6 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.unicode.cldr.draft.Keyboard;
+import org.unicode.cldr.draft.Keyboard.KeyboardWarningException;
 import org.unicode.cldr.util.CLDRConfig;
 
 public class TestKeyboard extends TestFmwkPlus {
@@ -60,7 +61,11 @@ public class TestKeyboard extends TestFmwkPlus {
     public void showException(Throwable e, String indent) {
         logln(e + "\t" + e.getMessage());
         for (StackTraceElement ste : e.getStackTrace()) {
-            logln("\t" + indent + ste);
+            String className = ste.getClassName();
+            if ((className.startsWith("org.unicode") && !className.contains("XMLFileReader")) 
+                || (className.startsWith("com.ibm") && !className.contains("TestFmwk"))) {
+                logln("\t" + indent + ste);
+            }
         }
         Throwable cause = e.getCause();
         if (cause != null) {
@@ -145,4 +150,35 @@ public class TestKeyboard extends TestFmwkPlus {
         + "      <map iso='A03' to=' '/> <!-- space -->\n"
         + "      <map iso='A04' to='.' longPress='# ! , ? - : &apos; @'/> <!-- (key to right of space) -->\n"
         + "  </keyMap>\n" + "</keyboard>";
+
+    public void testVerifyKeyboardLoad() {
+        Set<Exception> errors = new LinkedHashSet<>();
+        for (String keyboardPlatformId : Keyboard.getPlatformIDs()) {
+            for (String keyboardId : Keyboard.getKeyboardIDs(keyboardPlatformId)) {
+                errors.clear();
+                try {
+                    Keyboard keyboard = Keyboard.getKeyboard(keyboardPlatformId, keyboardId, errors);
+                    String localeId = keyboard.getLocaleId();
+                    if (!localeId.equals(keyboardId.replace(".xml", ""))) {
+                        errors.add(new IllegalArgumentException("filename and id don't match:\t" + keyboardId + "\t" + localeId));
+                    }
+                } catch (Exception e) {
+                    errors.add(e);
+                }
+                int errorCount = 0;
+                StringBuilder errorString = new StringBuilder();
+                for (Exception item : errors) {
+                    if (!(item instanceof KeyboardWarningException)) {
+                        errorCount++;
+                    }
+                }
+                msg(keyboardPlatformId + "\t" + keyboardId, 
+                    errors.size() == 0 ? LOG : errorCount == 0 ? WARN : ERR,
+                        true, true);
+                for (Exception item : errors) {
+                    showException(item, "");
+                }
+            }
+        }
+    }
 }

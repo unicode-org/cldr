@@ -278,9 +278,11 @@ public class IcuTextWriter {
             return quoted.length();
         }
         // Don't break escaped Unicode characters.
-        for (int i = end - 1; i > end - 6; i--) {
-            if (quoted.charAt(i) == '\\') {
-                if (quoted.charAt(i + 1) == 'u') {
+        // Need to handle both e.g. \u4E00 and \U00020000
+        for (int i = end - 1; i > end - 10;) {
+            char current = quoted.charAt(i--);
+            if (!Character.toString(current).matches("[0-9A-Fa-f]")) {
+                if ((current=='u' || current=='U') && i > end-10 && quoted.charAt(i) == '\\') {
                     return i;
                 }
                 break;

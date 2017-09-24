@@ -13,6 +13,7 @@ import java.util.Set;
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -35,7 +36,8 @@ public class ConvertTransforms extends CLDRConverterTool {
     MATCH = 4,
     SKIP_COMMENTS = 5,
     WRITE_INDEX = 6,
-    VERBOSE = 7;
+    VERBOSE = 7,
+    APPROVED_ONLY = 8;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -46,6 +48,7 @@ public class ConvertTransforms extends CLDRConverterTool {
         UOption.create("commentSkip", 'c', UOption.NO_ARG),
         UOption.create("writeIndex", 'x', UOption.NO_ARG),
         UOption.VERBOSE(),
+        UOption.create("approvedOnly", 'a', UOption.NO_ARG),
     };
 
     static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
@@ -56,6 +59,7 @@ public class ConvertTransforms extends CLDRConverterTool {
         + "-" + options[DESTDIR].shortName + "\t destination directory. Default = -d"
         + CldrUtility.getCanonicalName(CLDRPaths.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
         + "-m<regex>\t to restrict the files to what matches <regex>" + XPathParts.NEWLINE
+        + "-a\t to only include transforms with approved/contributed status" + XPathParts.NEWLINE
         // "--writeIndex / -x   to write the index (trnsfiles.mk)"+ XPathParts.NEWLINE
         ;
 
@@ -68,13 +72,15 @@ public class ConvertTransforms extends CLDRConverterTool {
     private boolean skipComments;
     private boolean writeIndex = false;
     private boolean verbose = false;
+    private boolean approvedOnly = false;
 
     int fileCount = 0;
 
     public void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory)
         throws IOException {
         System.out.println(new File(inputDirectory).getCanonicalPath());
-        Factory cldrFactory = Factory.make(inputDirectory, matchingPattern);
+        Factory cldrFactory = (approvedOnly)? Factory.make(inputDirectory, matchingPattern, DraftStatus.contributed):
+                                              Factory.make(inputDirectory, matchingPattern);
         Set<String> ids = cldrFactory.getAvailable();
         PrintWriter index = FileUtilities.openUTF8Writer(outputDirectory, "root.txt");
         doHeader(index, "//", "root.txt");
@@ -176,7 +182,9 @@ public class ConvertTransforms extends CLDRConverterTool {
                 throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
             }
         }
-        output.close();
+        if (output != null) { // null for transforms whose draft status is too low
+            output.close();
+        }
     }
 
     public static final Transliterator fixup = Transliterator.getInstance("[:Mn:]any-hex/java");
@@ -341,6 +349,7 @@ public class ConvertTransforms extends CLDRConverterTool {
         skipComments = options[SKIP_COMMENTS].doesOccur;
         writeIndex = options[WRITE_INDEX].doesOccur;
         verbose = options[VERBOSE].doesOccur;
+        approvedOnly = options[APPROVED_ONLY].doesOccur;
 
         try {
             if (writeIndex) {

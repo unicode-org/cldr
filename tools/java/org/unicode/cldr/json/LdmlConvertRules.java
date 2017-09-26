@@ -34,6 +34,7 @@ class LdmlConvertRules {
         "numbers:percentFormats:numberSystem",
         "numbers:scientificFormats:numberSystem",
         "numbers:miscPatterns:numberSystem",
+        "minimalPairs:pluralMinimalPairs:count",
         "territoryContainment:group:status",
         "decimalFormat:pattern:count",
         "currencyFormat:pattern:count",

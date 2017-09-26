@@ -432,6 +432,9 @@ class LdmlConvertRules {
 
         new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
 
+        // Skip exemplar city in /etc/GMT or UTC timezones, since they don't have them.
+        new PathTransformSpec("(.*(GMT|UTC).*/exemplarCity)(.*)", ""),
+
         new PathTransformSpec("(.*/transforms/transform[^/]*)/(.*)", "$1/tRules/$2"),
         new PathTransformSpec("(.*)\\[@territories=\"([^\"]*)\"\\](.*)\\[@alt=\"variant\"\\](.*)", "$1\\[@territories=\"$2-alt-variant\"\\]"),
         new PathTransformSpec("(.*)/weekData/(.*)\\[@alt=\"variant\"\\](.*)", "$1/weekData/$2$3"),

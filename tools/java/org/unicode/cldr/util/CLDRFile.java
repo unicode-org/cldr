@@ -118,7 +118,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
     public static final String GEN_VERSION = "32";
     public static final List<String> SUPPLEMENTAL_NAMES = Arrays.asList("characters", "coverageLevels", "dayPeriods", "genderList", "languageInfo",
-        "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "rgScope", "supplementalData", "supplementalMetadata",
+        "languageGroup", "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "rgScope", "supplementalData", "supplementalMetadata",
         "telephoneCodeData", "windowsZones");
 
     private Collection<String> extraPaths = null;

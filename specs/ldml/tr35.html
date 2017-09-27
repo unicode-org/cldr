@@ -8553,6 +8553,16 @@ decimal?, group?, special*)) &gt;</pre>
 	        </ul>
 		  </li>
 	    </ul>
+		<p><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong></p>
+        <ul>
+          <li>Section 
+            3.1 <a href="tr35-general.html#Exemplars">Exemplars</a>
+            <ul>
+              <li>Added numbers exemplars. [<a
+				  href="http://unicode.org/cldr/trac/ticket/6783">#6783</a>]</li>
+            </ul>
+          </li>
+        </ul>
 		<p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong></p>
 		<ul>
 		  <li><strong>Section 2.6.2 <a
@@ -8565,167 +8575,8 @@ decimal?, group?, special*)) &gt;</pre>
 		    </ul>
 		  </li>
 		</ul>
-      </div>
-
-<p class="changed"><b>Revision 47</b></p>
-
-	  <p>
-			The following summarizes modifications from the previous version of
-			this document. Some of the modification notes have an associated bug
-			ticket number, which may be used to look up additional information
-			about the modification; for further information, see <a
-				href="http://www.unicode.org/cldr/filing_bug_reports.html">Filing
-				Bug Reports</a>.
-		</p>
-	  <blockquote>
-	    <p><strong>Part 1: <a href="#Contents">Core</a></strong></p>
-	    <ul>
-	      <li><strong>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a></strong>
-	        <ul>
-	          <li>Added table of -t- keys.  [<a href="http://unicode.org/cldr/trac/ticket/9966">#9966</a>] </li>
-            </ul>
-	      </li>
-	      <li><strong>Section 3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a></strong>
-	        <ul>
-	          <li>Added description of hybrid locale identifiers. [<a href="http://unicode.org/cldr/trac/ticket/9956">#9956</a>]	      </li>
-            </ul>
-	      </li>
-	      <li><strong>Section 4.4.1 <a href="#EnhancedLanguageMatching">Enhanced Language Matching</a> </strong>
-	        <ul>
-	          <li>Described new enhanced structures for language matching. [<a href="http://unicode.org/cldr/trac/ticket/10096">#10096</a>] </li>
-            </ul>
-	      </li>
-	      <li><strong>Section 6.2 <a href="#Extended_Pictographic">Extended Pictographic</a></strong>
-	        <ul>
-	          <li>Added “Extend*” to GB11′ rule. [<a href="http://unicode.org/cldr/trac/ticket/10088">#10088</a>] </li>
-            </ul>
-	      </li>
-	      <li><strong>Section 8 <a href="#Deprecated_Structure">Deprecated Structure</a></strong> and 
-	      	<strong>Section 9 <a href="#Links_to_Other_Parts">Links to Other Parts</a></strong>
-	      	redefined as Annex A and Annex B respectively.
-	      	[<a href="http://unicode.org/cldr/trac/ticket/9309">#9309</a>]
-	      </li>
-        </ul>
-
-		<p><strong>Part 2: <a
-					href="tr35-general.html#Contents">General</a></strong></p>
-		<ul>
-		  <li><strong>Section 3.6 <a href="tr35-general.html#Character_Parse_Lenient">Parse Lenient</a></strong>
-		    <ul>
-		      <li>Describe the new ParseLenient elements for lenient parsing of characters. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10093">#10093</a>] </li>
-	        </ul>
-		  </li>
-		  <li><strong>Section 6</strong> <a href="tr35-general.html#Unit_Elements">Unit Elements</a>
-		    <ul>
-		      <li>Added new unit: length-point. [<a
-				  href="http://unicode.org/cldr/trac/ticket/9661">#9661</a>]
-	          </li>
-	        </ul>
-		  </li>
-		  <li><strong>Section 14 <a href="tr35-general.html#Annotations">Annotations and Labels</a></strong>
-		    <ul>
-		      <li>Straightened out construction with gender. [<a
-				  href="http://unicode.org/cldr/trac/ticket/9840">#9840</a>] </li>
-		      <li>Added subsections to TOC. [<a
-				  href="http://unicode.org/cldr/trac/ticket/9840">#9840</a>] </li>
-		      <li>Adapted for Emoji 5.0. [<a
-				  href="http://unicode.org/cldr/trac/ticket/9840">#9840</a>] </li>
-	        </ul>
-		  </li>
-	    </ul>
-		<p><strong>Part 3: <a
-					href="tr35-numbers.html#Contents">Numbers</a></strong> </p>
-		<ul>
-		  <li><strong>Section 2.4.1 <a href="tr35-numbers.html#Compact_Number_Formats">Compact
-		  Number Formats</a> </strong>
-		    <ul>
-		      <li>Clarified the default value “0”.  [<a
-								href="http://unicode.org/cldr/trac/ticket/9997">#9997</a>]</li>
-	        </ul>
-		  </li>
-		  <li><strong>Section 2.6 <a href="tr35-numbers.html#Minimal_Pairs">Minimal Pairs</a></strong>
-		    <ul>
-		      <li>Added structure (data was hard-coded). [<a
-								href="http://unicode.org/cldr/trac/ticket/7059">#7059</a>]		  </li>
-	        </ul>
-		  </li>
-		  <li><strong>Section 3.2 <a href="tr35-numbers.html#Special_Pattern_Characters">Special
-		  Pattern Characters</a> 
-	      </strong>
-		    <ul>
-		      <li>Distinguish between literal '-' and - in patterns.  [<a
-								href="http://unicode.org/cldr/trac/ticket/9976">#9976</a>] </li>
-	        </ul>
-		  </li>
-	    </ul>
-
-		<p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong></p>
-		<ul>
-		  <li><strong>Section 3 <a
-						href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></strong>
-			<ul>
-			  <li>Added new &lt;field&gt; type attributes, including -short and -narrow forms
-			  	  for some existing types (era, weekday, dayperiod, zone). [<a
-				  href="http://unicode.org/cldr/trac/ticket/9992">#9992</a>]
-			  </li>
-		    </ul>
-		  </li>
-		  <li><strong>Section 4.3 <a href="tr35-dates.html#Week_Data">Week Data</a></strong>
-            <ul>
-              <li>Clarify the &quot;week of&quot; patterns. [<a
-					href="http://unicode.org/cldr/trac/ticket/9809">#9809</a>]</li>
-            </ul>
-		  </li>
-		  <li><strong>Section 8 <a
-					href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a></strong>
-			<ul>
-			  <li>Restructure text and Date Field Symbol Table to be more clear. [<a
-				  href="http://unicode.org/cldr/trac/ticket/8944">#8944</a>]
-			  </li>
-			  <li>Enhance the specification for input skeleton characters j, C to allow
-			  		control of both the resulting hour field width and the width of any
-			  		resulting dayPeriod symbol. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10118">#10118</a>]
-			  </li>
-			</ul>
-		</ul>
-
-		<p><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong></p>
-		<ul>
-		  <li><strong>Section 2.2 <a href="tr35-info.html#Subdivision_Containment">Subdivision
-				Containment</a></strong>
-            <ul>
-              <li>Document the change in usage of the subgroup element attributes
-              	<strong>type</strong> and <strong>contains</strong>, and the deprecation
-              	of the element <strong>type</strong>.
-				[<a href="http://unicode.org/cldr/trac/ticket/10105">#10105</a>,
-				<a href="http://unicode.org/cldr/trac/ticket/9942">#9942</a>]</li>
-            </ul>
-		  <li><strong>Section 2.3 <a href="tr35-info.html#Supplemental_Territory_Information">Supplemental
-		  		Territory Information</a></strong>
-            <ul>
-              <li>Add <a href="tr35-info.html#literacy_percent_for_langPop">literacy
-				percent for language population</a> and clarify the difference between it
-				and <a href="tr35-info.html#writing_percent">writing percent</a>.
-				[<a href="http://unicode.org/cldr/trac/ticket/10094">#10094</a>,
-				<a href="http://unicode.org/cldr/trac/ticket/9421">#9421</a>]</li>
-            </ul>
-		  </li>
-		  <li><strong>Section 8 <a href="tr35-info.html#Coverage_Levels">Coverage
-				Levels</a>
-	      </strong>
-		    <ul>
-		      <li>Removed deprecated levels. [<a
-					href="http://unicode.org/cldr/trac/ticket/10109">#10109</a>]</li>
-	        </ul>
-		  </li>
-	    </ul>
-
-
-      </blockquote>
-
-	  		<p>Modifications in previous versions are listed in those
+	  </div>
+	  <p>Modifications in previous versions are listed in those
 			respective versions:</p>
 		<table style='margin-left: 5em' border="1" cellspacing="0"
 			cellpadding="0">

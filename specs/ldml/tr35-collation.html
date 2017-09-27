@@ -218,6 +218,7 @@ h2, h3, h4, table {
 							<li>1.1.3 <a href="#Algorithm_Case">Case Handling</a></li>
 							<li>1.1.4 <a href="#Algorithm_Reordering_Groups">Reordering
 									Groups</a></li>
+							<li class='changed'>1.1.5 <a href="#Combining_Rules">Combining Rules</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -547,6 +548,115 @@ h2, h3, h4, table {
 			scripts (e.g., “native script first”) as well as special groups
 			(e.g., “digits after letters”), and provides data for the effective
 			implementation of such reordering.</p>
+      <div class='changed'>
+		<h4>
+			1.1.5 <a name="Combining_Rules"
+				href="#Combining_Rules">Combining Rules</a>
+		</h4>
+		<p>Rules from different sources can be combined, with the later rules overriding the earlier ones. The following is an example of how this can be useful.</p>
+		<p>There is a root collation for &quot;emoji&quot; in CLDR. So use of &quot;-u-co-emoji&quot; in a Unicode locale identifier will access that ordering. </p>
+		<p>Example, using ICU:</p>
+		<blockquote>
+		  <p>collator = Collator.getInstance(ULocale.forLanguageTag(&quot;en-u-co-emoji&quot;));  </p>
+	  </blockquote>
+		<p>However, use of the emoji will supplant the language's customizations. So the above is the equivalent of: </p>
+		<blockquote>
+		  <p>collator = Collator.getInstance(ULocale.forLanguageTag(&quot;und-u-co-emoji&quot;));  </p>
+	  </blockquote>
+		<p>The same structure will not work for a language that does require customization, like Danish. That is, the following will fail.</p>
+		<blockquote>
+		  <p> collator = Collator.getInstance(ULocale.forLanguageTag(&quot;da-u-co-emoji&quot;));  </p>
+	  </blockquote>
+		<p>For that, a slightly more cumbersome method needs to be employed, which is to take the rules for Danish, and explicitly add the rules for emoji. </p>
+		<blockquote>
+		  <p>RuleBasedCollator collator = new RuleBasedCollator(<br>
+		    ((RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag(&quot;da&quot;))).getRules() +<br>
+		    ((RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag(&quot;und-u-co-emoji&quot;)))<br>
+	      .getRules());</p>
+	  </blockquote>
+		<p>The following table shows the differences. When emoji ordering is supported, the two faces will be adjacent. When Danish ordering is supported, the ü is after the y.</p>
+		<table class='simple'>
+		  <tbody>
+		    <tr>
+		      <td>code point order</td>
+		      <td>,</td>
+		      <td></td>
+		      <td></td>
+		      <td>Z</td>
+		      <td>a</td>
+		      <td>y</td>
+		      <td>ü</td>
+		      <td>☹️</td>
+		      <td>✈️️</td>
+		      <td>글</td>
+		      <td>😀</td>
+	        </tr>
+		    <tr>
+		      <td>en</td>
+		      <td>,</td>
+		      <td>☹️</td>
+		      <td>✈️️</td>
+		      <td>😀</td>
+		      <td>a</td>
+		      <td>ü</td>
+		      <td>y</td>
+		      <td>Z</td>
+		      <td>글</td>
+	        </tr>
+		    <tr>
+		      <td>en-u-co-emoji</td>
+		      <td>,</td>
+		      <td>😀</td>
+		      <td>☹️</td>
+		      <td>✈️️</td>
+		      <td>a</td>
+		      <td>ü</td>
+		      <td>y</td>
+		      <td>Z</td>
+		      <td>글</td>
+	        </tr>
+		    <tr>
+		      <td>da</td>
+		      <td>,</td>
+		      <td>☹️</td>
+		      <td>✈️️</td>
+		      <td>😀</td>
+		      <td>a</td>
+		      <td>y</td>
+		      <td><strong><u>ü</u></strong></td>
+		      <td>Z</td>
+		      <td>글</td>
+	        </tr>
+		    <tr>
+		      <td>da-u-co-emoji</td>
+		      <td>,</td>
+		      <td>😀</td>
+		      <td>☹️</td>
+		      <td>✈️️</td>
+		      <td>a</td>
+		      <td><strong><u>ü</u></strong></td>
+		      <td>y</td>
+		      <td>Z</td>
+		      <td>글</td>
+	        </tr>
+		    <tr>
+		      <td>combined rules</td>
+		      <td>,</td>
+		      <td>😀</td>
+		      <td>☹️</td>
+		      <td>✈️️</td>
+		      <td>a</td>
+		      <td>y</td>
+		      <td><strong><u>ü</u></strong></td>
+		      <td>Z</td>
+		      <td>글</td>
+	        </tr>
+	      </tbody>
+	  </table>
+      </div>
+		<br>
+		<p>&nbsp;</p>
+		<p> </p>
 
 		<h2>
 			2 <a name="Root_Collation" href="#Root_Collation">Root Collation</a>

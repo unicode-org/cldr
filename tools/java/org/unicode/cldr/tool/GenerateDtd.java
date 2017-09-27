@@ -8,10 +8,14 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 
+import com.ibm.icu.impl.CaseMapImpl;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.util.ULocale;
 
 public class GenerateDtd {
+    
+    static final int FIRST_TITLE = CaseMapImpl.TITLECASE_WHOLE_STRING|UCharacter.TITLECASE_NO_LOWERCASE;
+
     public static void main(String[] args) throws IOException {
         //System.setProperty("show_all", "true");
         for (DtdType type : DtdType.values()) {
@@ -21,7 +25,7 @@ public class GenerateDtd {
             DtdData data = DtdData.getInstance(type);
             String name = type.toString();
             if (!name.startsWith("ldml")) {
-                name = "ldml" + UCharacter.toTitleFirst(ULocale.ENGLISH, name);
+                name = "ldml" + UCharacter.toTitleCase(ULocale.ENGLISH, name, null, FIRST_TITLE);
                 if (name.endsWith("Data")) {
                     name = name.substring(0, name.length() - 4);
                 }

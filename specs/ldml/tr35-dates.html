@@ -2775,12 +2775,13 @@ h2, h3, h4, table {
 				a part of time zone ID representing an exemplar city name or its
 				country as the final fallback. However, there are Unicode time zones
 				which are not associated with any locations, such as "Etc/GMT+5" and
-				"PST8PDT". The date format pattern "vvvv" specifies the generic
-				location format, but it displays localized GMT format for them. Some
+				"PST8PDT". <span class="changed">Although</span> the date format pattern
+				<span class="changed">"VVVV"</span> specifies the generic location format,
+				<span class="changed">but </span>it displays localized GMT format for <span class="changed">these</span>. Some
 				of these time zones observe daylight saving time, so the result
 				(localized GMT format) may change depending on input date. For
 				generating a list for user selection of time zone with format
-				"vvvv", these non-location zones should be excluded.</p>
+				<span class="changed">"VVVV"</span>, these non-location zones should be excluded.</p>
 		</blockquote>
 
 		<p>

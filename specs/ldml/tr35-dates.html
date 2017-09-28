@@ -1371,6 +1371,19 @@ h2, h3, h4, table {
 		</p>
 		<pre>    &lt;dateFormatItem id="yMMMMd"&gt;<span
 				style="color: blue">d 'de' MMMM 'de' y</span>&lt;/dateFormatItem&gt;</pre>
+		<p class="changed">
+			However, such automatic expansions should never convert a numeric element in
+			the pattern to an alphabetic element. Consider the following dateFormatItem:
+		</p>
+		<pre class="changed">    &lt;dateFormatItem id="yMMM"&gt;<span
+				style="color: blue">y年M月</span>&lt;/dateFormatItem&gt;</pre>
+		<p class="changed">
+			If this is the best match for a requested skeleton yMMMM, automatic expansion
+			should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月”
+			specifies a numeric month M, automatic expansion should not modify the pattern,
+			and should produce “y年M月” as the match for requested skeleton yMMMM.
+			
+		</p>
 		<p>
 			If the requested skeleton included both seconds and fractional seconds and
 			the dateFormatItem skeleton included seconds but not fractional seconds, then

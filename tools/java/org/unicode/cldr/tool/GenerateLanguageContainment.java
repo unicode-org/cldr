@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -100,6 +101,21 @@ public class GenerateLanguageContainment {
     }
 
     public static void main(String[] args) {
+        
+        ArrayList<String> ancestors = new ArrayList<String>();
+        ancestors.add("http://www.wikidata.org/entity/Q150");
+        getAllAncestors("http://www.wikidata.org/entity/Q150", ancestors);
+        
+        ancestors.forEach(new Consumer<String>() {
+            @Override
+            public void accept(String t) {
+                System.out.println(t + "\t" + entityToCode.get(t));                
+            }
+        });
+        
+        
+        if (true) return;
+        
         Map<Status, Set<String>> table = Validity.getInstance().getStatusToCodes(LstrType.language);
         TreeMultimap<String, String> _parentToChild = TreeMultimap.create();
         TreeSet<String> missing = new TreeSet<>(table.get(Status.regular));
@@ -293,7 +309,7 @@ public class GenerateLanguageContainment {
             _keyToValues.put(key, value);
         }
         ImmutableMultimap<String, String> result = _keyToValues.build();
-        showDups(result, keyMapper, valueMapper);
+        showDups(file, result, keyMapper, valueMapper);
         return result;
     }
 
@@ -315,11 +331,12 @@ public class GenerateLanguageContainment {
             _keyToValues.put(key, value);
             _keyToValue.put(key, value);
         }
-        showDups(_keyToValues, keyMapper, valueMapper);
-        return ImmutableMap.copyOf(_keyToValue);
+        _keyToValue = ImmutableMap.copyOf(_keyToValue);
+        showDups(file, _keyToValues, keyMapper, valueMapper);
+        return _keyToValue;
     }
 
-    private static void showDups(Multimap<String, String> _keyToValues, 
+    private static void showDups(String file, Multimap<String, String> _keyToValues, 
         Function<String, String> keyMapper, Function<String, String> valueMapper) {
         for (Entry<String, Collection<String>> entry : _keyToValues.asMap().entrySet()) {
             Collection<String> valueSet = entry.getValue();
@@ -331,8 +348,24 @@ public class GenerateLanguageContainment {
                     valueSet.stream().map(valueMapper).forEach(x -> result.add(x));
                     valueSet = result;
                 }
-                System.out.println("Multiple values: " + key + "\t" + valueSet);
+                System.out.println(file + "\tMultiple values: " + key + "\t" + valueSet);
             }
         }
     }
+    
+    static <T extends Collection<String>> T getAllDirected(Multimap<String, String> multimap, String lang, T target) {
+        Collection<String> parents = multimap.get(lang);
+        if (!parents.isEmpty()) {
+            target.addAll(parents);
+            for (String parent : parents) {
+                getAllDirected(multimap, parent, target);
+            }
+        }
+        return target;
+    }
+    
+    static <T extends Collection<String>> T getAllAncestors(String lang, T target) {
+        return getAllDirected(childToParent, lang, target);
+    }
+
 }

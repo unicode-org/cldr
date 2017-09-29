@@ -1,12 +1,10 @@
 package org.unicode.cldr.util;
 
 import java.util.List;
-import java.util.Set;
 
 import org.unicode.cldr.tool.ToolConstants;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 
 /**
  * Constant paths (moved here from CldrUtility).
@@ -130,15 +128,15 @@ public class CLDRPaths {
         }
     }
     
-    @Deprecated
-    public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
-        "main",
-        "annotations",
-        "casing",
-        "collation",
-        "rbnf",
-        "segments",
-        "subdivisions"
-        );
-    public static final String UNICODE_VERSION = "8.0.0";
+    @Deprecated //use DtdType.ldml.directories
+//    public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
+//        "main",
+//        "annotations",
+//        "casing",
+//        "collation",
+//        "rbnf",
+//        "segments",
+//        "subdivisions"
+//        );
+    public static final String UNICODE_VERSION = "10.0.0";
 }

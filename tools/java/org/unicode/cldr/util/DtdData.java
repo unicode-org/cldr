@@ -1610,7 +1610,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     // TODO: add support for following to DTD annotations, and rework API
 
     static final Set<String> SPACED_VALUES = ImmutableSet.of(
-        "idValidity"
+        "idValidity",
+        "languageGroup"
         );
 
     public static Splitter getValueSplitter(XPathParts pathPlain) {

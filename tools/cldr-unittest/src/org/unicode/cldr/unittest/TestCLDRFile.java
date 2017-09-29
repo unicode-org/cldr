@@ -555,7 +555,7 @@ public class TestCLDRFile extends TestFmwk {
     public void TestForStrayFiles() {
         TreeSet<String> mainList = new TreeSet<>(Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY).list()));
 
-        for (String dir : CLDRPaths.LDML_DIRECTORIES) {
+        for (String dir : DtdType.ldml.directories) {
             Set<String> dirFiles = new TreeSet<String>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
             if (dir.equals("rbnf")) { // Remove known exceptions.
                 dirFiles.remove("es_003.xml");

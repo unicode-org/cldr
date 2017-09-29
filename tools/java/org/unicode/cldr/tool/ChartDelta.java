@@ -2,12 +2,14 @@ package org.unicode.cldr.tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
@@ -51,6 +53,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class ChartDelta extends Chart {
@@ -63,6 +66,7 @@ public class ChartDelta extends Chart {
     private static final String LAST_ARCHIVE_DIRECTORY = CLDRPaths.LAST_DIRECTORY;
     private static final String CURRENT_DIRECTORY = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" +
         ToolConstants.LAST_CHART_VERSION + "/";
+    private static final String LOG_DIR = CLDRPaths.GEN_DIRECTORY + "charts/";
 
     enum MyOptions {
         fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")),
@@ -100,25 +104,7 @@ public class ChartDelta extends Chart {
         boolean verbose = MyOptions.verbose.option.doesOccur();
         ChartDelta temp = new ChartDelta(fileFilter, verbose);
         temp.writeChart(null);
-        temp.showTotals(temp);
-    }
-
-    private void showTotals(ChartDelta temp) {
-        long total = temp.counter.getCount(ChangeType.totalItems);
-        NumberFormat pf = NumberFormat.getPercentInstance();
-        pf.setMinimumFractionDigits(2);
-        long same = total;
-        for (ChangeType item : ChangeType.values()) {
-            final long current = temp.counter.getCount(item);
-            final long numerator = item == ChangeType.totalItems ? same : current;
-            String title = item == ChangeType.totalItems ? "unchanged" : item.toString();
-            System.out.println(title + "\t" + pf.format(numerator / (double) total));
-            same -= current;
-        }
-        System.out.println("total" + "\t" + total);
-        for (String s : badHeaders) {
-            System.out.println(s);
-        }
+        temp.showTotals();
     }
 
     private static final String SEP = "\u0001";
@@ -175,24 +161,73 @@ public class ChartDelta extends Chart {
     static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
     enum ChangeType {
-        newItems,
-        deletedItems,
-        changedItems,
-        totalItems;
-
+        added,
+        deleted,
+        changed,
+        same;
         public static ChangeType get(String oldValue, String currentValue) {
-            return oldValue == null ? newItems
-                : currentValue == null ? deletedItems
-                    : changedItems;
+            return oldValue == null ? added
+                : currentValue == null ? deleted
+                    : oldValue.equals(currentValue) ? same
+                        : changed;
         }
     }
 
     Counter<ChangeType> counter = new Counter<>();
+    Map<String, Counter<ChangeType>> fileCounters = new TreeMap<>();
     Set<String> badHeaders = new TreeSet<>();
+    
+    private void addChange(String file, ChangeType changeType, int count) {
+        counter.add(changeType, count); // unified add
+        Counter<ChangeType> fileCounter = fileCounters.get(file);
+        if (fileCounter == null) {
+            fileCounters.put(file, fileCounter = new Counter<>());
+        }
+        fileCounter.add(changeType, count);
+    }
+
+    private void showTotals() {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(LOG_DIR, "ChartDelta.log.txt")) {
+            pw.println("# percentages\tare of *new* total");
+            pw.print("# dir\tfile");
+            for (ChangeType item : ChangeType.values()) {
+                pw.print("\t" + (item == ChangeType.same ? "total" : item.toString()));
+            }
+            pw.println();
+            showTotal(pw, "TOTAL/", counter);
+
+            for (Entry<String, Counter<ChangeType>> entry : fileCounters.entrySet()) {
+                showTotal(pw, entry.getKey(), entry.getValue());
+            }
+            for (String s : badHeaders) {
+                pw.println(s);
+            }
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(e);
+        }
+    }
+
+    private void showTotal(PrintWriter pw, String title2, Counter<ChangeType> counter2) {
+        long total = counter2.getTotal();
+        NumberFormat pf = NumberFormat.getPercentInstance();
+        pf.setMinimumFractionDigits(2);
+        NumberFormat nf = NumberFormat.getIntegerInstance();
+        pw.print(title2.replace("/", "/t"));
+        for (ChangeType item : ChangeType.values()) {
+            if (item == ChangeType.same) {
+                pw.print("\t" + nf.format(total));
+            } else {
+                final long current = counter2.getCount(item);
+                pw.print("\t" + pf.format(current / (double) total));
+            }
+        }
+        pw.println();
+    }
 
     public void writeSubcharts(Anchors anchors) {
         FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
         counter.clear();
+        fileCounters.clear();
         writeLdml(anchors);
         writeNonLdmlPlain(anchors, getDirectory());
     }
@@ -204,7 +239,10 @@ public class ChartDelta extends Chart {
 //        factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + "main", ".*"));
 //        oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + "main", ".*"));
 
-        for (String dir : CLDRPaths.LDML_DIRECTORIES) {
+        for (String dir : DtdType.ldml.directories) {
+            if (dir.equals("annotationsDerived") || dir.equals("casing")) {
+                continue;
+            }
             String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION) 
                 ? CURRENT_DIRECTORY : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
             String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
@@ -338,9 +376,9 @@ public class ChartDelta extends Chart {
                             oldValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
                         }
                         // handle non-distinguishing attributes
-                        addPathDiff(old, current, locale, ph, diff);
+                        addPathDiff(sourceDir, old, current, locale, ph, diff);
 
-                        addValueDiff(oldValue, currentValue, locale, ph, diff, diffAll);
+                        addValueDiff(sourceDir, oldValue, currentValue, locale, ph, diff, diffAll);
                     }
                 }
             }
@@ -421,7 +459,7 @@ public class ChartDelta extends Chart {
         return old;
     }
 
-    private void addPathDiff(CLDRFile old, CLDRFile current, String locale, PathHeader ph, Set<PathDiff> diff2) {
+    private void addPathDiff(File sourceDir, CLDRFile old, CLDRFile current, String locale, PathHeader ph, Set<PathDiff> diff2) {
         String path = ph.getOriginalPath();
         String fullPathCurrent = current.getFullXPath(path);
         String fullPathOld = old.getFullXPath(path);
@@ -433,6 +471,7 @@ public class ChartDelta extends Chart {
         XPathParts pathOld = fullPathOld == null ? pathPlain : new XPathParts().set(fullPathOld);
         TreeSet<String> fullAttributes = null;
         int size = pathCurrent.size();
+        String parentAndName = parentAndName(sourceDir, locale);
         for (int elementIndex = 0; elementIndex < size; ++elementIndex) { // will have same size
             Collection<String> distinguishing = pathPlain.getAttributeKeys(elementIndex);
             Collection<String> attributesCurrent = pathCurrent.getAttributeKeys(elementIndex);
@@ -454,10 +493,12 @@ public class ChartDelta extends Chart {
             for (String attribute : fullAttributes) {
                 String attributeValueOld = pathOld.getAttributeValue(elementIndex, attribute);
                 String attributeValueCurrent = pathCurrent.getAttributeValue(elementIndex, attribute);
-                counter.add(ChangeType.totalItems, 1);
                 if (Objects.equals(attributeValueOld, attributeValueCurrent)) {
+                    addChange(parentAndName, ChangeType.same, 1);
                     continue;
                 }
+                addChange(parentAndName, ChangeType.get(attributeValueOld, attributeValueCurrent), 1);
+
                 PathDiff row = new PathDiff(
                     locale, 
                     new PathHeaderSegment(ph, size - elementIndex - 1, attribute), 
@@ -471,17 +512,23 @@ public class ChartDelta extends Chart {
         }
     }
 
-    private void addValueDiff(String valueOld, String valueCurrent, String locale, PathHeader ph, Set<PathDiff> diff, Relation<PathHeader, String> diffAll) {
+    private String parentAndName(File sourceDir, String locale) {
+        return sourceDir.getName() + "/" + locale + ".xml";
+    }
+
+    private void addValueDiff(File sourceDir, String valueOld, String valueCurrent, String locale, PathHeader ph, Set<PathDiff> diff, Relation<PathHeader, String> diffAll) {
 //        String path = ph.getOriginalPath();
-        counter.add(ChangeType.totalItems, 1);
         // handle stuff with lines specially
-        if (!Objects.equals(valueCurrent, valueOld)) {
+        if (Objects.equals(valueCurrent, valueOld)) {
+            addChange(parentAndName(sourceDir, locale), ChangeType.same, 1);
+        } else {
             if (valueOld != null && valueCurrent != null && (valueOld.contains("\n") || valueCurrent.contains("\n"))) {
                 List<String> setOld = DtdData.CR_SPLITTER.splitToList(valueOld);
                 List<String> setNew = DtdData.CR_SPLITTER.splitToList(valueCurrent);
                 valueOld = getFilteredValue(setOld, setNew);
                 valueCurrent = getFilteredValue(setNew, setOld);
             }
+            addChange(parentAndName(sourceDir, locale), ChangeType.get(valueOld, valueCurrent), 1);
             PathDiff row = new PathDiff(locale, new PathHeaderSegment(ph, -1, ""), valueOld, valueCurrent);
             diff.add(row);
             diffAll.put(ph, locale);
@@ -604,8 +651,6 @@ public class ChartDelta extends Chart {
             String fixedOldValue = oldValue == null ? "▷missing◁" : TransliteratorUtilities.toHTML.transform(oldValue);
             String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
 
-            counter.add(ChangeType.get(oldValue, currentValue), 1);
-
             tablePrinter.addRow()
             .addCell(ph.getSectionId())
             .addCell(ph.getPageId())
@@ -677,7 +722,7 @@ public class ChartDelta extends Chart {
         Multimap<PathHeader, String> transforms = TreeMultimap.create();
 
         for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
-            if (CLDRPaths.LDML_DIRECTORIES.contains(dir)
+            if (DtdType.ldml.directories.contains(dir)
                 || dir.equals(".DS_Store")
                 || dir.equals("dtd") // TODO as flat files
                 || dir.equals("properties") // TODO as flat files
@@ -692,6 +737,7 @@ public class ChartDelta extends Chart {
                 if (!file.endsWith(".xml")) {
                     continue;
                 }
+                String parentAndFile = dir + "/" + file;
                 String base = file.substring(0, file.length() - 4);
                 if (fileFilter != null && !fileFilter.reset(dir + "/" + base).find()) {
                     if (verbose) {
@@ -728,16 +774,16 @@ public class ChartDelta extends Chart {
                         if (file.equals(DEBUG_FILE)) { // for debugging
                             System.out.println("**Same: " + key + "\t" + set1);
                         }
-                        counter.add(ChangeType.totalItems, set1.size());
+                        addChange(parentAndFile, ChangeType.same, set1.size());
                         continue;
                     }
                     if (set1 == null) {
-                        counter.add(ChangeType.newItems, set2.size());
+                        addChange(parentAndFile, ChangeType.added, set2.size());
                         for (String s : set2) {
                             addRow(target, key, "▷missing◁", s);
                         }
                     } else if (set2 == null) {
-                        counter.add(ChangeType.deletedItems, set1.size());
+                        addChange(parentAndFile, ChangeType.deleted, set1.size());
                         for (String s : set1) {
                             addRow(target, key, s, "▷removed◁");
                         }
@@ -750,10 +796,10 @@ public class ChartDelta extends Chart {
 //                        s2M1.removeAll(set1);
                         if (s1M2.isEmpty()) {
                             addRow(target, key, "▷missing◁", CollectionUtilities.join(s2M1, ", "));
-                            counter.add(ChangeType.newItems, s2M1.size());
+                            addChange(parentAndFile, ChangeType.added, s2M1.size());
                         } else if (s2M1.isEmpty()) {
                             addRow(target, key, CollectionUtilities.join(s1M2, ", "), "▷removed◁");
-                            counter.add(ChangeType.deletedItems, s1M2.size());
+                            addChange(parentAndFile, ChangeType.deleted, s1M2.size());
                         } else {
                             String valueOld;
                             String valueCurrent;
@@ -765,7 +811,7 @@ public class ChartDelta extends Chart {
                                 valueCurrent = s2M1.iterator().next();
                             }
                             addRow(target, key, valueOld, valueCurrent);
-                            counter.add(ChangeType.changedItems, (s1M2.size() + s2M1.size())/2);
+                            addChange(parentAndFile, ChangeType.changed, (s1M2.size() + s2M1.size())/2);
                         }
                     }
                 }

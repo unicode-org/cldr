@@ -4,13 +4,21 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrField;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
@@ -19,6 +27,20 @@ public class ChartLanguageGroups extends Chart {
 
     public static void main(String[] args) {
         new ChartLanguageGroups().writeChart(null);
+    }
+
+    static final Set<String> COLLECTIONS;
+    static {
+        Map<String, Map<LstrField, String>> languages = StandardCodes.getEnumLstreg().get(LstrType.language);
+        Builder<String> _collections = ImmutableSet.<String>builder();
+        for (Entry<String, Map<LstrField, String>> e : languages.entrySet()) {
+            String scope = e.getValue().get(LstrField.Scope);
+            if (scope != null
+                && "Collection".equalsIgnoreCase(scope)) {
+                _collections.add(e.getKey());
+            }
+        }
+        COLLECTIONS = _collections.build();
     }
 
     @Override
@@ -33,11 +55,14 @@ public class ChartLanguageGroups extends Chart {
 
     @Override
     public String getExplanation() {
-        return "<p>This chart shows language groups extracted from wikidata. "
-            + "A * indicates that the contained languages are themselves containers. "
-            + "Other contained languages are listed in one cell, separated by ‘;’. "
-            + "Only the wikidata containment information for <a href='http://unicode.org/reports/tr35/#unicode_language_subtag'>valid language codes</a> is used. "
-            + "<p>";
+        return "<p>This chart shows language groups based on data extracted from wikidata. "
+            + "There are some patches to the wikidata, and only the wikidata containment for "
+            + "<a href='http://unicode.org/reports/tr35/#unicode_language_subtag'>valid language codes</a> is used.</p>\n"
+            + "<ul>\n"
+            + "<li>A ʹ indicates a language collection (ISO 636 Scope).</li>\n"
+            + "<li>A * in the Name column indicates that the contained languages don't contain any themselves, "
+            + "and are listed in one cell, separated by ‘;’.</li>\n"
+            + "</ul>\n";
     }
 
     Collator ENGLISH_ORDER = Collator.getInstance(ULocale.ENGLISH);
@@ -83,8 +108,8 @@ public class ChartLanguageGroups extends Chart {
             if (lg.containsKey(code)) {
                 nameAndCodeWithChildren.add(pair);
                 tablePrinter.addRow()
-                .addCell(parent)
-                .addCell(getLangName(parent) + "*")
+                .addCell(collectionPrime(parent))
+                .addCell(getLangName(parent))
                 .addCell(getPairName(pair))
                 .finishRow();
             } else if (!code.equals("und")){
@@ -96,8 +121,8 @@ public class ChartLanguageGroups extends Chart {
         }
         if (childrenString.length() != 0) {
             tablePrinter.addRow()
-            .addCell(parent)
-            .addCell(getLangName(parent))
+            .addCell(collectionPrime(parent))
+            .addCell(getLangName(parent) + "*")
             .addCell(childrenString.toString())
             .finishRow();
         }
@@ -108,10 +133,18 @@ public class ChartLanguageGroups extends Chart {
     }
 
     private String getPairName(Pair<String, String> pair) {
-        return pair.getSecond() + " “" + pair.getFirst() + "”";
+        return collectionPrime(pair.getSecond()) + " “" + pair.getFirst() + "”";
     }
 
-    private String getLangName(String parent) {
-        return parent.equals("mul") ? "All" : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, parent).replace(" (Other)", "").replace(" languages", "");
+    private String getLangName(String langCode) {
+        return langCode.equals("mul") 
+            ? "All" 
+            : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, langCode).replace(" (Other)", "").replace(" languages", "");
+    }
+
+    private String collectionPrime(String langCode) {
+        return langCode + (COLLECTIONS.contains(langCode) 
+            ? "ʹ" : 
+                "");
     }
 }

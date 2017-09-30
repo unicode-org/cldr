@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Type;
@@ -100,22 +102,79 @@ public class GenerateLanguageContainment {
         }
     }
 
+    static final Multimap<String,String> EXTRA_PARENT_CHILDREN = ImmutableMultimap.<String,String>builder()
+        .put("mul", "art")  // we add art programmatically
+        .put("gmw", "ksh")
+        .put("gmw", "wae")
+        .put("mul", "tai")
+        .put("tai", "th")
+        .put("tai", "lo")
+        .put("roa", "cpf")
+        .put("roa", "cpp")
+        .put("ber", "zgh")
+        .put("sdv", "saq")
+        .put("sw", "swc")
+        .put("alv", "agq")
+        .put("bnt", "asa")
+        .put("bnt", "bez")
+        .put("bnt", "cgg")
+        .put("bnt", "ebu")
+        .put("bnt", "ksb")
+        .put("bnt", "lag")
+        .put("bnt", "rof")
+        .put("bnt", "sbp")
+        .put("ngb", "sg")
+        .put("alv", "ngb")
+        .put("bnt", "jmc")
+        .put("bnt", "mer")
+        .put("bnt", "mgh")
+        .put("bnt", "nmg")
+        .put("bnt", "rwk")
+        .put("bnt", "seh")
+        .put("bnt", "vun")
+        .put("bnt", "xog")
+        .put("alv", "yav")
+        .put("son", "khq")
+        .put("euq", "eu")
+        .put("mul", "euq")
+        .put("mul", "jpx")
+        .put("jpx", "ja")
+        .put("ira", "lrc")
+        .put("grk", "el")
+        .put("grk", "grc")
+        .put("grk", "gmy")
+        .build();
+    
+    static final Multimap<String,String> REMOVE_PARENT_CHILDREN = ImmutableMultimap.<String,String>builder()
+        .put("mul", "und")  // anomaly
+        .put("mul", "crp")
+        .put("crp", "*")    // general Creole group interferes with French/Spanish/... language grouping
+        .put("sit", "zh")   // other cases where we have to remove items we add in different place above.
+        .put("inc", "rmg")
+        .put("sla", "cu")
+        .put("ine", "gmy")
+        .put("ine", "el")
+        .put("ine", "grc")
+        .build();
+
     public static void main(String[] args) {
-        
-        ArrayList<String> ancestors = new ArrayList<String>();
-        ancestors.add("http://www.wikidata.org/entity/Q150");
-        getAllAncestors("http://www.wikidata.org/entity/Q150", ancestors);
-        
-        ancestors.forEach(new Consumer<String>() {
-            @Override
-            public void accept(String t) {
-                System.out.println(t + "\t" + entityToCode.get(t));                
+        if (true) {
+            // check on items
+            for (String check : Arrays.asList("sw", "km", "ksh", "wae", "kea", "mfe", "th", "lo")) {
+                System.out.println("Checking " + ENGLISH.getName(check) + "[" + check + "]");
+                Collection<String> entities = codeToEntity.get(check);
+                if (entities.isEmpty()) {
+                    System.out.println("no code for " + check + ": " + entities);
+                    continue;
+                }
+                for (String entity : entities) {
+                    Set<List<String>> ancestors = getAllAncestors(entity);
+                    showEntityLists(entity + " parents ", ancestors);
+                    System.out.println();
+                }
             }
-        });
-        
-        
-        if (true) return;
-        
+        }
+
         Map<Status, Set<String>> table = Validity.getInstance().getStatusToCodes(LstrType.language);
         TreeMultimap<String, String> _parentToChild = TreeMultimap.create();
         TreeSet<String> missing = new TreeSet<>(table.get(Status.regular));
@@ -127,7 +186,9 @@ public class GenerateLanguageContainment {
                     continue;
                 }
             }
-
+            if (code.compareTo("hdz") > 0) {
+                int debug = 0;
+            }
 //            if (COLLECTIONS.contains(code)) {
 //                continue;
 //            }
@@ -139,25 +200,50 @@ public class GenerateLanguageContainment {
                 if (childToParent.get(entity).isEmpty()) {
                     continue;
                 }
-                List<String> chain = getAncestors(entity);
-                String last = null;
-                for (String link : chain) {
-                    if (last != null) {
-                        _parentToChild.put(link, last);
+                Set<Set<String>> chains = getAncestors(entity);
+                if (chains.size() > 1) {
+                    int debug = 0;
+                }
+                for (Set<String> chain : chains) {
+                    String last = null;
+                    for (String link : chain) {
+                        if (last != null) {
+                            _parentToChild.put(link, last);
+                        }
+                        last = link;
                     }
-                    last = link;
                 }
             }
         }
+
+        for (Entry<String, Collection<String>> entity : REMOVE_PARENT_CHILDREN.asMap().entrySet()) {
+            String key = entity.getKey();
+            for (String value : entity.getValue()) {
+                if (value.equals("*")) {
+                    _parentToChild.removeAll(key);
+                } else {
+                    _parentToChild.remove(key, value);
+                }
+            }
+        }
+        
+        _parentToChild.putAll(EXTRA_PARENT_CHILDREN);
+
+        // special code for artificial
+        for (String code : Iso639Data.getAvailable()) {
+            Type type = Iso639Data.getType(code);
+            if (type == Type.Constructed) {
+                _parentToChild.put("art", code);
+            }
+        }
+        
         Multimap<String, String> parentToChild = ImmutableMultimap.copyOf(_parentToChild);
+        Multimap<String, String> childToParent = ImmutableMultimap.copyOf(Multimaps.invertFrom(parentToChild, TreeMultimap.create()));
+        System.out.println("Checking " + "he" + "\t" + Containment.getAllDirected(childToParent, "he"));
+
         PrintWriter out = new PrintWriter(System.out);
         print(out, parentToChild, new ArrayList<String>(Arrays.asList("mul")));
         System.out.println(out);
-        System.out.println("DROPPED_PARENTS: ");
-        for (Entry<String, String> e : DROPPED_PARENTS_TO_CHILDREN.entries()) {
-            System.out.println(NAME.apply(e.getKey()) + "\t" + NAME.apply(e.getValue())
-                );
-        }
         SimpleXMLSource xmlSource = new SimpleXMLSource("languageGroup");
         xmlSource.setNonInheriting(true); // should be gotten from DtdType...
         CLDRFile newFile = new CLDRFile(xmlSource);
@@ -176,6 +262,21 @@ public class GenerateLanguageContainment {
 //            String parentNames = getName(entityToCode, entityToLabel, entry.getValue());
 //            System.out.println(entry.getKey() + "\t" + entry.getValue() + "\t" + childNames + "\t" + parentNames);
 //        }
+    }
+
+    private static void showEntityLists(String title, Set<List<String>> ancestors) {
+        ancestors.forEach(new Consumer<List<String>>() {
+            @Override
+            public void accept(List<String> item) {
+                item.forEach(new Consumer<String>() {
+                    @Override
+                    public void accept(String t) {
+                        System.out.println(t + "\t" + entityToCode.get(t) + "\t" + entityToLabel.get(t));                
+                    }
+                });
+                System.out.println();
+            }
+        });
     }
 
     private static void printXML(CLDRFile newFile, Multimap<String, String> parentToChild) {
@@ -223,45 +324,101 @@ public class GenerateLanguageContainment {
         }
     }
 
-    static final Multimap<String,String> DROPPED_PARENTS_TO_CHILDREN = TreeMultimap.create();
+    private static Set<Set<String>> getAncestors(String leaf) {
+        Set<List<String>> items = Containment.getAllDirected(childToParent, leaf);
+        Set<Set<String>> itemsFixed = new LinkedHashSet<>();
+        main:
+            for (List<String> item : items) {
+                Set<String> chain = new LinkedHashSet<>();
+                for (String id : item) {
+                    String code = entityToCode.get(id);
+                    if (code == null) {
+                        continue;
+                    }
+                    
+                    // skip leaf nodes after the first
+                    
+                    if (!chain.isEmpty() && !COLLECTIONS.contains(code)) {
+                        if (code.equals("zh")) {
+                            code = "zhx"; // rewrite collections usage
+                        } else {
+                            log("Skipping inheritance from\t" + chain + "\t" + code + "\tfrom\t" + items);
+                            continue;
+                        }
+                    }
 
-    private static List<String> getAncestors(String leaf) {
-        List<String> chain = new ArrayList<>();
-        while (true) {
-            String code = entityToCode.get(leaf);
-            if (code != null) {
-                chain.add(code);
-            }
-            Collection<String> parents = childToParent.get(leaf);
-            if (parents.isEmpty()) {
-                // clean up duplicates
-                chain = new ArrayList<>(new LinkedHashSet<>(chain));
-                // wikipedia has non-collections as parents. Remove those if they are not first.
-                String last = chain.get(0);
-                for (int i = 1; i < chain.size(); ++i) {
-                    String item = chain.get(i); 
-                    if (!COLLECTIONS.contains(item)) {
-                        chain.set(i, item.equals("zh") ? "zhx" : ""); 
-                        DROPPED_PARENTS_TO_CHILDREN.put(item, last);
-                    } else {
-                        last = item;
+                    // check for cycle, and skip if we have one
+                    
+                    boolean changed = chain.add(code);
+                    if (!changed) {
+                        log("Cycle in\t" + chain + "\tfrom\t" + items);
+                        continue main;
                     }
                 }
-                chain.removeIf(x -> x.isEmpty());
-                if ("zh".equals(chain.get(0))) {
-                    chain.add(1,"zhx");
+                if (chain.size() > 1) {
+                    chain.add("mul"); // root
+                    itemsFixed.add(chain);
                 }
-                last = chain.get(chain.size()-1);
-                if (!"mul".equals(last)) {
-                    chain.add("mul"); // make sure we have root.
-                }
-                if (chain.size() == 2) {
-                    chain.add(1,"und");
-                }
-                return chain;
             }
-            leaf = getBest(parents);
+        // remove subsets
+        // eg [[smp, he, mul], [smp, he, sem, afa, mul]]
+        // => [[smp, he, sem, afa, mul]]
+        if (itemsFixed.size() > 1) {
+            Set<Set<String>> removals = new HashSet<>();
+            for (Set<String> chain1 : itemsFixed) {
+                for (Set<String>chain2 : itemsFixed) {
+                    if (chain1.containsAll(chain2) && !chain2.containsAll(chain1)) {
+                        removals.add(chain2);
+                    }
+                }
+            }
+            itemsFixed.removeAll(removals);
         }
+        return itemsFixed;
+//        while (true) {
+//            String code = entityToCode.get(leaf);
+//            if (code != null) {
+//                chain.add(code);
+//            }
+//            Collection<String> parents = childToParent.get(leaf);
+//            if (parents.isEmpty()) {
+//                // clean up duplicates
+//                chain = new ArrayList<>(new LinkedHashSet<>(chain));
+//                // wikipedia has non-collections as parents. Remove those if they are not first.
+//                break;
+//            }
+//            leaf = getBest(parents);
+//        }
+//        String last = chain.get(0);
+//        for (int i = 1; i < chain.size(); ++i) {
+//            String item = chain.get(i); 
+//            if (!COLLECTIONS.contains(item)) {
+//                chain.set(i, item.equals("zh") ? "zhx" : ""); 
+//                DROPPED_PARENTS_TO_CHILDREN.put(item, last);
+//            } else {
+//                last = item;
+//            }
+//        }
+//        chain.removeIf(x -> x.isEmpty());
+//        if ("zh".equals(chain.get(0))) {
+//            chain.add(1,"zhx");
+//        }
+//        last = chain.get(chain.size()-1);
+//        if (!"mul".equals(last)) {
+//            chain.add("mul"); // make sure we have root.
+//        }
+//        if (chain.size() == 2) {
+//            chain.add(1,"und");
+//        }
+//        return chain;
+    }
+
+    private static void log(String string) {
+        System.out.println(string);
+//        for (Entry<String, String> e : DROPPED_PARENTS_TO_CHILDREN.entries()) {
+//            System.out.println(NAME.apply(e.getKey()) + "\t" + NAME.apply(e.getValue())
+//                );
+//        }
     }
 
     private static String getBest(Collection<String> parents) {
@@ -329,7 +486,10 @@ public class GenerateLanguageContainment {
                 value = fixValue.apply(value);
             }
             _keyToValues.put(key, value);
-            _keyToValue.put(key, value);
+            String oldValue = _keyToValue.get(key);
+            if (oldValue == null || oldValue.equals("kxm")) {
+                _keyToValue.put(key, value);
+            }
         }
         _keyToValue = ImmutableMap.copyOf(_keyToValue);
         showDups(file, _keyToValues, keyMapper, valueMapper);
@@ -348,24 +508,12 @@ public class GenerateLanguageContainment {
                     valueSet.stream().map(valueMapper).forEach(x -> result.add(x));
                     valueSet = result;
                 }
-                System.out.println(file + "\tMultiple values: " + key + "\t" + valueSet);
+                log(file + "\tMultiple values: " + key + "\t" + valueSet);
             }
         }
-    }
-    
-    static <T extends Collection<String>> T getAllDirected(Multimap<String, String> multimap, String lang, T target) {
-        Collection<String> parents = multimap.get(lang);
-        if (!parents.isEmpty()) {
-            target.addAll(parents);
-            for (String parent : parents) {
-                getAllDirected(multimap, parent, target);
-            }
-        }
-        return target;
-    }
-    
-    static <T extends Collection<String>> T getAllAncestors(String lang, T target) {
-        return getAllDirected(childToParent, lang, target);
     }
 
+    static Set<List<String>> getAllAncestors(String lang) {
+        return Containment.getAllDirected(childToParent, lang);
+    }
 }

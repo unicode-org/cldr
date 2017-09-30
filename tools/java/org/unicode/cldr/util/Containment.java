@@ -1,13 +1,17 @@
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.util.TimeZone;
 
@@ -194,6 +198,29 @@ public class Containment {
 
     public Set<String> getSubontinents() {
         return subcontinents;
+    }
+
+    public static Set<List<String>> getAllDirected(Multimap<String, String> multimap, String lang) {
+        LinkedHashSet<List<String>> result = new LinkedHashSet<List<String>>();
+        getAllDirected(multimap, lang, new ArrayList<String>(), result);
+        return result;
+    }
+
+    private static void getAllDirected(Multimap<String, String> multimap, String lang, ArrayList<String> target, Set<List<String>> targets) {
+        target.add(lang);
+        Collection<String> parents = multimap.get(lang);
+        int size = parents.size();
+        if (size == 0) {
+            targets.add(target); 
+        } else if (size == 1) {
+            for (String parent : parents) {
+                getAllDirected(multimap, parent, target, targets);
+            }
+        } else {
+            for (String parent : parents) {
+                getAllDirected(multimap, parent, (ArrayList<String>) target.clone(), targets);
+            }
+        }
     }
 
     /**

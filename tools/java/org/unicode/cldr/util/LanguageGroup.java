@@ -52,7 +52,7 @@ public enum LanguageGroup {
         add(temp, romance, "pt", "gl", "ast", "es", "ca", "it", "rm", "ro", "fr");
         add(temp, slavic, "ru", "be", "uk", "bg", "mk", "sr", "hr", "bs", "sl", "cs", "sk", "pl");
         add(temp, baltic, "lt", "lv");
-        add(temp, other_indo, "el", "sq", "hy", "fa", "ps");
+        add(temp, other_indo, "el", "sq", "hy", "fa", "ps", "os");
         add(temp, indic, "ur", "hi", "bn", "as", "gu", "or", "mr", "ne", "pa", "si");
         add(temp, dravidian, "ta", "te", "ml", "kn");
         add(temp, cjk, "zh", "ja", "ko");
@@ -70,7 +70,7 @@ public enum LanguageGroup {
         add(temp, art, "eo", "vo", "ia");
         add(temp, austronesian, "mg", "to");
         add(temp, east_sudanic, "luo", "mas", "nus", "saq", "teo", "kln");
-        add(temp, indic, "kok", "ks", "os");
+        add(temp, indic, "kok", "ks");
         add(temp, niger_congo, "agq", "ak", "asa", "bas", "bem", "bez", "bm", "cgg", "dua", "dyo", "ebu", "ee", "ewo", "guz", "jgo", "kam", "ki", "kkj", "ksb",
             "ksf", "lag", "lg", "ln", "lu", "luy", "mua", "nd", "nnh", "nr", "nyn", "rn", "rof", "rw", "sbp", "sg", "ss", "tn", "ts", "vai", "ve", "dav",
             "jmc", "kde", "mer", "mgh", "mgo", "nmg", "nso", "rwk", "seh", "vun", "xog", "yav");

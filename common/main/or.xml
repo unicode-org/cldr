@@ -4537,7 +4537,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
@@ -4600,7 +4600,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="orya">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4621,24 +4621,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>#,##,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<percentFormats numberSystem="orya">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>#,##,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤ #,##0.00</pattern>
+					<pattern>¤ #,##,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern>¤#,##,##0.00;(¤#,##,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -4675,7 +4675,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<currencyFormats numberSystem="orya">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤#,##0.00</pattern>
+					<pattern>¤#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

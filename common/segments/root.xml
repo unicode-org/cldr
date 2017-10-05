@@ -18,7 +18,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
 				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
 				<variable id="$ZWJ">\p{Grapheme_Cluster_Break=ZWJ}</variable>
-				<variable id="$Regional_Indicator">\p{Grapheme_Cluster_Break=Regional_Indicator}</variable>
+				<variable id="$RI">\p{Grapheme_Cluster_Break=Regional_Indicator}</variable>
 				<variable id="$Prepend">\p{Grapheme_Cluster_Break=Prepend}</variable>
 				<variable id="$SpacingMark">\p{Grapheme_Cluster_Break=SpacingMark}</variable>
 				<variable id="$L">\p{Grapheme_Cluster_Break=L}</variable>
@@ -26,27 +26,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$T">\p{Grapheme_Cluster_Break=T}</variable>
 				<variable id="$LV">\p{Grapheme_Cluster_Break=LV}</variable>
 				<variable id="$LVT">\p{Grapheme_Cluster_Break=LVT}</variable>
-				<variable id="$E_Base">\p{Grapheme_Cluster_Break = EB}</variable>
-				<variable id="$E_Modifier">\p{Grapheme_Cluster_Break = EM}</variable>
+				<variable id="$E_Base">\p{Grapheme_Cluster_Break=E_Base}</variable>
+				<variable id="$E_Modifier">\p{Grapheme_Cluster_Break=E_Modifier}</variable>
+				<variable id="$EBG">\p{Grapheme_Cluster_Break=E_Base_GAZ}</variable>
 				<variable id="$Extended_Pict">[\u2388\u2605\u2607-\u260D\u260F-\u2610\u2612\u2616-\u2617\u2619-\u261C\u261E-\u261F\u2621\u2624-\u2625\u2627-\u2629\u262B-\u262D\u2630-\u2637\u263B-\u2647\u2654-\u265F\u2661-\u2662\u2664\u2667\u2669-\u267A\u267C-\u267E\u2680-\u2691\u2695\u2698\u269A\u269D-\u269F\u26A2-\u26A9\u26AC-\u26AF\u26B2-\u26BC\u26BF-\u26C3\u26C6-\u26C7\u26C9-\u26CD\u26D0\u26D2\u26D5-\u26E8\u26EB-\u26EF\u26F6\u26FB-\u26FC\u26FE-\u2701\u2703-\u2704\u270E\u2710-\u2711\u2765-\u2767\U0001F000-\U0001F003\U0001F005-\U0001F0FF\U0001F10D-\U0001F10F\U0001F12F\U0001F16C-\U0001F16F\U0001F1AD-\U0001F1E5\U0001F203-\U0001F20F\U0001F23C-\U0001F23F\U0001F249-\U0001F24F\U0001F252-\U0001F2FF\U0001F322-\U0001F323\U0001F394-\U0001F395\U0001F398\U0001F39C-\U0001F39D\U0001F3F1-\U0001F3F2\U0001F3F6\U0001F4FE\U0001F53E-\U0001F548\U0001F54F\U0001F568-\U0001F56E\U0001F571-\U0001F572\U0001F57B-\U0001F586\U0001F588-\U0001F589\U0001F58E-\U0001F58F\U0001F591-\U0001F594\U0001F597-\U0001F5A3\U0001F5A6-\U0001F5A7\U0001F5A9-\U0001F5B0\U0001F5B3-\U0001F5BB\U0001F5BD-\U0001F5C1\U0001F5C5-\U0001F5D0\U0001F5D4-\U0001F5DB\U0001F5DF-\U0001F5E0\U0001F5E2\U0001F5E4-\U0001F5E7\U0001F5E9-\U0001F5EE\U0001F5F0-\U0001F5F2\U0001F5F4-\U0001F5F9\U0001F6C6-\U0001F6CA\U0001F6D3-\U0001F6DF\U0001F6E6-\U0001F6E8\U0001F6EA\U0001F6ED-\U0001F6EF\U0001F6F1-\U0001F6F2\U0001F6F7-\U0001F6FF\U0001F774-\U0001F77F\U0001F7D5-\U0001F7FF\U0001F80C-\U0001F80F\U0001F848-\U0001F84F\U0001F85A-\U0001F85F\U0001F888-\U0001F88F\U0001F8AE-\U0001F90F\U0001F91F\U0001F928-\U0001F92F\U0001F931-\U0001F932\U0001F93F\U0001F94C-\U0001F94F\U0001F95F-\U0001F97F\U0001F992-\U0001F9BF\U0001F9C1-\U0001FFFD]</variable>
-				<variable id="$E_Base_GAZ">\p{Grapheme_Cluster_Break = EBG}</variable>
 				<variable id="$EmojiNRK">[[\p{Emoji}] - [\p{Grapheme_Cluster_Break=Regional_Indicator}*\u00230-9©®™〰〽]]</variable>
 			</variables>
 			<segmentRules>
+				<!-- Rules -->
+				<!-- Break at the start and end of text, unless the text is empty. -->
+				<!-- Do not break between a CR and LF. Otherwise, break before and after controls. -->
 				<rule id="3"> $CR × $LF </rule>
 				<rule id="4"> ( $Control | $CR | $LF ) ÷ </rule>
 				<rule id="5"> ÷ ( $Control | $CR | $LF ) </rule>
+				<!-- Do not break Hangul syllable sequences. -->
 				<rule id="6"> $L × ( $L | $V | $LV | $LVT ) </rule>
 				<rule id="7"> ( $LV | $V ) × ( $V | $T ) </rule>
 				<rule id="8"> ( $LVT | $T) × $T </rule>
+				<!-- Do not break before extending characters or ZWJ. -->
 				<rule id="9"> × ($Extend | $ZWJ) </rule>
+				<!-- Only for extended grapheme clusters: Do not break before SpacingMarks, or after Prepend characters. -->
 				<rule id="9.1"> × $SpacingMark </rule>
 				<rule id="9.2"> $Prepend × </rule>
-				<rule id="10"> ($E_Base | $E_Base_GAZ) $Extend* × $E_Modifier </rule>
+				<!-- Do not break within emoji modifier sequences or emoji zwj sequences. -->
+				<rule id="10"> ($E_Base | $EBG) $Extend* × $E_Modifier </rule>
 				<rule id="11"> ($Extended_Pict | $EmojiNRK) $Extend* $ZWJ × ($Extended_Pict | $EmojiNRK) </rule>
-				<rule id="12"> ^$Prepend* $Regional_Indicator $Regional_Indicator ÷ $Regional_Indicator </rule>
-				<rule id="13"> ^$Prepend* $Regional_Indicator × $Regional_Indicator </rule>
+				<!-- Do not break within emoji flag sequences. That is, do not break between regional indicator (RI) symbols if there is an odd number of RI characters before the break point. -->
+				<rule id="12"> ^ ($RI $RI)* $RI × $RI </rule>
+				<rule id="13"> [^$RI] ($RI $RI)* $RI × $RI </rule>
 			</segmentRules>
+			<!-- Otherwise, break everywhere. -->
 		</segmentation>
 		<segmentation type="LineBreak">
 			<variables>
@@ -59,14 +68,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$BK">\p{Line_Break=Mandatory_Break}</variable>
 				<variable id="$CB">\p{Line_Break=Contingent_Break}</variable>
 				<variable id="$CL">\p{Line_Break=Close_Punctuation}</variable>
-				<variable id="$CP">\p{Line_Break=Close_Parenthesis}</variable>
-				<variable id="$CM">\p{Line_Break=Combining_Mark}</variable>
+				<variable id="$CP">\p{Line_Break=CP}</variable>
+				<variable id="$CM1">\p{Line_Break=Combining_Mark}</variable>
 				<variable id="$CR">\p{Line_Break=Carriage_Return}</variable>
 				<variable id="$EX">\p{Line_Break=Exclamation}</variable>
 				<variable id="$GL">\p{Line_Break=Glue}</variable>
 				<variable id="$H2">\p{Line_Break=H2}</variable>
 				<variable id="$H3">\p{Line_Break=H3}</variable>
-				<variable id="$HL">\p{Line_Break=Hebrew_Letter}</variable>
+				<variable id="$HL">\p{Line_Break=HL}</variable>
 				<variable id="$HY">\p{Line_Break=Hyphen}</variable>
 				<variable id="$ID">\p{Line_Break=Ideographic}</variable>
 				<variable id="$IN">\p{Line_Break=Inseparable}</variable>
@@ -91,23 +100,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$ZW">\p{Line_Break=ZWSpace}</variable>
 				<variable id="$CJ">\p{Line_Break=Conditional_Japanese_Starter}</variable>
 				<variable id="$RI">\p{Line_Break=Regional_Indicator}</variable>
-				<variable id="$EB">\p{Line_Break=EB}</variable>
-				<variable id="$EM">\p{Line_Break=EM}</variable>
+				<variable id="$EB">\p{Line_Break=E_Base}</variable>
+				<variable id="$EM">\p{Line_Break=E_Modifier}</variable>
+				<variable id="$ZWJ_O">\p{Line_Break=ZWJ}</variable>
 				<variable id="$ZWJ">\p{Line_Break=ZWJ}</variable>
 				<variable id="$EmojiNRK">[[\p{Emoji}] - [$RI \u002a\u00230-9©®™〰〽]]</variable>
 				<variable id="$Extended_Pict">[\u2388\u2605\u2607-\u260D\u260F-\u2610\u2612\u2616-\u2617\u2619-\u261C\u261E-\u261F\u2621\u2624-\u2625\u2627-\u2629\u262B-\u262D\u2630-\u2637\u263B-\u2647\u2654-\u265F\u2661-\u2662\u2664\u2667\u2669-\u267A\u267C-\u267E\u2680-\u2691\u2695\u2698\u269A\u269D-\u269F\u26A2-\u26A9\u26AC-\u26AF\u26B2-\u26BC\u26BF-\u26C3\u26C6-\u26C7\u26C9-\u26CD\u26D0\u26D2\u26D5-\u26E8\u26EB-\u26EF\u26F6\u26FB-\u26FC\u26FE-\u2701\u2703-\u2704\u270E\u2710-\u2711\u2765-\u2767\U0001F000-\U0001F003\U0001F005-\U0001F0FF\U0001F10D-\U0001F10F\U0001F12F\U0001F16C-\U0001F16F\U0001F1AD-\U0001F1E5\U0001F203-\U0001F20F\U0001F23C-\U0001F23F\U0001F249-\U0001F24F\U0001F252-\U0001F2FF\U0001F322-\U0001F323\U0001F394-\U0001F395\U0001F398\U0001F39C-\U0001F39D\U0001F3F1-\U0001F3F2\U0001F3F6\U0001F4FE\U0001F53E-\U0001F548\U0001F54F\U0001F568-\U0001F56E\U0001F571-\U0001F572\U0001F57B-\U0001F586\U0001F588-\U0001F589\U0001F58E-\U0001F58F\U0001F591-\U0001F594\U0001F597-\U0001F5A3\U0001F5A6-\U0001F5A7\U0001F5A9-\U0001F5B0\U0001F5B3-\U0001F5BB\U0001F5BD-\U0001F5C1\U0001F5C5-\U0001F5D0\U0001F5D4-\U0001F5DB\U0001F5DF-\U0001F5E0\U0001F5E2\U0001F5E4-\U0001F5E7\U0001F5E9-\U0001F5EE\U0001F5F0-\U0001F5F2\U0001F5F4-\U0001F5F9\U0001F6C6-\U0001F6CA\U0001F6D3-\U0001F6DF\U0001F6E6-\U0001F6E8\U0001F6EA\U0001F6ED-\U0001F6EF\U0001F6F1-\U0001F6F2\U0001F6F7-\U0001F6FF\U0001F774-\U0001F77F\U0001F7D5-\U0001F7FF\U0001F80C-\U0001F80F\U0001F848-\U0001F84F\U0001F85A-\U0001F85F\U0001F888-\U0001F88F\U0001F8AE-\U0001F90F\U0001F91F\U0001F928-\U0001F92F\U0001F931-\U0001F932\U0001F93F\U0001F94C-\U0001F94F\U0001F95F-\U0001F97F\U0001F992-\U0001F9BF\U0001F9C1-\U0001FFFD]</variable>
+				<!-- Macros -->
+				<variable id="$CM">[$CM1 $ZWJ]</variable>
 				<!-- LB 1  Assign a line breaking class to each code point of the input. -->
 				<!-- Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm. -->
 				<!-- NOTE: CB is ok to fall through, but must handle others here. -->
-				<variable id="$AL">[$AL $AI $SG $XX [$SA-[[:Mn:][:Mc:]]]]</variable>
-				<variable id="$NS">[$NS $CJ]</variable>
+				<variable id="$AL">[$AI $AL $SG $XX [$SA-[[:Mn:][:Mc:]]]]</variable>
 				<variable id="$CM">[$CM $ZWJ [$SA &amp; [[:Mn:][:Mc:]]]]</variable>
+				<variable id="$NS">[$NS $CJ]</variable>
 				<!-- WARNING: Fixes for Rule 9 -->
-				<!-- Treat X CM* as if it were X. -->
+				<!-- Treat X (CM|ZWJ* as if it were X. -->
 				<!-- Where X is any line break class except SP, BK, CR, LF, NL or ZW. -->
 				<variable id="$X">$CM*</variable>
-				<variable id="$Spec1_">[$SP $BK $CR $LF $NL $ZW]</variable> <!-- $CANT_CM in ICU rules -->
-				<variable id="$Spec2_">[^ $SP $BK $CR $LF $NL $ZW]</variable> <!-- $CAN_CM in ICU rules -->
+				<!-- Macros -->
+				<variable id="$Spec1_">[$SP $BK $CR $LF $NL $ZW]</variable>
+				<variable id="$Spec2_">[^ $SP $BK $CR $LF $NL $ZW]</variable>
 				<variable id="$Spec3a_">[^ $SP $BA $HY $CM]</variable>
 				<variable id="$Spec3b_">[^ $BA $HY $CM]</variable>
 				<variable id="$Spec4_">[^ $NU $CM]</variable>
@@ -120,6 +133,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$CL">($CL $X)</variable>
 				<variable id="$CP">($CP $X)</variable>
 				<variable id="$CM">($CM $X)</variable>
+				<variable id="$EX">($EX $X)</variable>
 				<variable id="$GL">($GL $X)</variable>
 				<variable id="$H2">($H2 $X)</variable>
 				<variable id="$H3">($H3 $X)</variable>
@@ -145,6 +159,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$RI">($RI $X)</variable>
 				<variable id="$EB">($EB $X)</variable>
 				<variable id="$EM">($EM $X)</variable>
+				<variable id="$ZWJ">($ZWJ $X)</variable>
 				<variable id="$EmojiNRK">($EmojiNRK $X)</variable>
 				<variable id="$Extended_Pict">($Extended_Pict $X)</variable>
 				<!-- OUT OF ORDER ON PURPOSE -->
@@ -152,6 +167,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$AL">($AL | ^ $CM | (?&lt;=$Spec1_) $CM)</variable>
 			</variables>
 			<segmentRules>
+				<!-- Rules -->
 				<!-- LB 4  Always break after hard line breaks (but never between CR and LF). -->
 				<rule id="4"> $BK ÷ </rule>
 				<!-- LB 5  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks. -->
@@ -166,8 +182,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="7.02"> × $ZW </rule>
 				<!-- LB 8  Break before any character following a zero-width space, even if one or more spaces intervene. -->
 				<rule id="8"> $ZW $SP* ÷ </rule>
-				<!-- LB 8a  Do not break between a zero width joiner and an ideograph, emoji base or emoji modifier. -->
-				<rule id="8.1"> $ZWJ × ($ID | $Extended_Pict | $EmojiNRK) </rule>
+				<!-- LB 8a  Don't break between ZWJ and IDs (for use in Emoji ZWJ sequences) -->
+				<rule id="8.1"> $ZWJ_0 × ($ID | $Extended_Pict | $EmojiNRK) </rule>
 				<!-- LB 9  Do not break a combining character sequence; treat it as if it has the LB class of the base character -->
 				<!-- in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.) -->
 				<rule id="9"> $Spec2_ × $CM </rule>
@@ -176,11 +192,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="11.01"> × $WJ </rule>
 				<rule id="11.02"> $WJ × </rule>
 				<!-- LB 12  Do not break after NBSP and related characters. -->
-				<rule id="12.01"> $GL × </rule>
-				<!-- LB 12a  Do not break before NBSP and related characters, except after spaces and hyphens. -->
-				<rule id="12.11"> $Spec3a_ × $GL </rule>
-				<rule id="12.12"> $Spec3b_ $CM+ × $GL </rule>
-				<rule id="12.13"> ^ $CM+ × $GL </rule>
+				<rule id="12"> $GL × </rule>
+				<rule id="12.1"> $Spec3a_ × $GL </rule>
+				<rule id="12.2"> $Spec3b_ $CM+ × $GL </rule>
+				<rule id="12.3"> ^ $CM+ × $GL </rule>
 				<!-- LB 13  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces. -->
 				<!-- Using customization 7. -->
 				<rule id="13.01"> × $EX </rule>
@@ -208,28 +223,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="21.02"> × $HY </rule>
 				<rule id="21.03"> × $NS </rule>
 				<rule id="21.04"> $BB × </rule>
-				<!-- LB 21a  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents. -->
+				<!-- LB 21a  Don't break after Hebrew + Hyphen. -->
 				<rule id="21.1"> $HL ($HY | $BA) × </rule>
-				<!-- LB 21b CLDR addition, do not break after $SY if followed by $HL (break before already prevented by 13.02 above) -->
+				<!-- LB 21b Don’t break between Solidus and Hebrew letters. -->
 				<rule id="21.2"> $SY × $HL </rule>
-				<!-- LB 22  Do not break between two ellipses, or between letters or numbers and ellipsis. -->
+				<!-- LB 22  Do not break between two ellipses, or between letters, numbers or exclamations and ellipsis. -->
 				<rule id="22.01"> ($AL | $HL) × $IN </rule>
-				<rule id="22.02"> ($ID | $EB | $EM) × $IN </rule>
-				<rule id="22.03"> $IN × $IN </rule>
-				<rule id="22.04"> $NU × $IN </rule>
-				<rule id="22.05"> $EX × $IN </rule>
-				<!-- LB 23  Do not break within ‘a9’, ‘3a’, or ‘H%’. -->
-				<rule id="23.01"> ($AL | $HL) × $NU </rule>
-				<rule id="23.02"> $NU × ($AL | $HL) </rule>
-				<!-- LB 23a  Do not break wbetween numeric prefixes and ideographs, or between ideographs and numeric postfixes. -->
-				<rule id="23.11"> $PR × ($ID | $EB | $EM) </rule>
-				<rule id="23.12"> ($ID | $EB | $EM) × $PO </rule>
+				<rule id="22.02"> $EX × $IN </rule>
+				<rule id="22.03"> ($ID | $EB | $EM) × $IN </rule>
+				<rule id="22.04"> $IN × $IN </rule>
+				<rule id="22.05"> $NU × $IN </rule>
+				<!-- LB 23  Do not break between digits and letters. -->
+				<rule id="23.02"> ($AL | $HL) × $NU </rule>
+				<rule id="23.03"> $NU × ($AL | $HL) </rule>
 				<!-- LB 24  Do not break between prefix and letters or ideographs. -->
-				<rule id="24.01"> ($PR | $PO) × ($AL | $HL) </rule>
-				<rule id="24.02"> ($AL | $HL) × ($PR | $PO) </rule>
+				<rule id="23.12"> $PR × ($ID | $EB | $EM) </rule>
+				<rule id="23.13"> ($ID | $EB | $EM) × $PO </rule>
+				<!-- LB24 Do not break between numeric prefix/postfix and letters, or between letters and prefix/postfix. -->
+				<rule id="24.02"> ($PR | $PO) × ($AL | $HL) </rule>
+				<rule id="24.03"> ($AL | $HL) × ($PR | $PO) </rule>
 				<!-- Using customization 7 -->
-				<!-- LB 18  Do not break between the following pairs of classes. -->
-				<!-- LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* ($CL | $CP)? $PO? -->
+				<!-- LB Alternative: ( PR | PO) ? ( OP | HY ) ? NU (NU | SY | IS) * (CL | CP) ? ( PR | PO) ? -->
 				<!-- Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after -->
 				<rule id="25.01"> ($PR | $PO) × ( $OP | $HY )? $NU </rule>
 				<rule id="25.02"> ( $OP | $HY ) × $NU </rule>
@@ -237,13 +251,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="25.04"> $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS | $CL | $CP) </rule>
 				<rule id="25.05"> $NU ($NU | $SY | $IS)* ($CL | $CP)? × ($PO | $PR) </rule>
 				<!-- LB 26 Do not break a Korean syllable. -->
-				<rule id="26.01"> $JL × ($JL | $JV | $H2 | $H3) </rule>
-				<rule id="26.02"> ($JV | $H2) × ($JV | $JT) </rule>
-				<rule id="26.03"> ($JT | $H3) × $JT </rule>
+				<rule id="26.01"> $JL × $JL | $JV | $H2 | $H3 </rule>
+				<rule id="26.02"> $JV | $H2 × $JV | $JT </rule>
+				<rule id="26.03"> $JT | $H3 × $JT </rule>
 				<!-- LB 27 Treat a Korean Syllable Block the same as ID. -->
-				<rule id="27.01"> ($JL | $JV | $JT | $H2 | $H3) × $IN </rule>
-				<rule id="27.02"> ($JL | $JV | $JT | $H2 | $H3) × $PO </rule>
-				<rule id="27.03"> $PR × ($JL | $JV | $JT | $H2 | $H3) </rule>
+				<rule id="27.01"> $JL | $JV | $JT | $H2 | $H3 × $IN </rule>
+				<rule id="27.02"> $JL | $JV | $JT | $H2 | $H3 × $PO </rule>
+				<rule id="27.03"> $PR × $JL | $JV | $JT | $H2 | $H3 </rule>
 				<!-- LB 28  Do not break between alphabetics ("at"). -->
 				<rule id="28"> ($AL | $HL) × ($AL | $HL) </rule>
 				<!-- LB 29  Do not break between numeric punctuation and alphabetics ("e.g."). -->
@@ -251,11 +265,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation. -->
 				<rule id="30.01"> ($AL | $HL | $NU) × $OP </rule>
 				<rule id="30.02"> $CP × ($AL | $HL | $NU) </rule>
-				<!-- LB 30a Do not break between two regional indicator symbols if there is an odd number of regional indicators preceding the break position. -->
-				<rule id="30.11"> sot ($RI $RI)* $RI × $RI </rule>
+				<!-- LB 30a  Break between two Regional Indicators if and only if there is an even number of them before the point being considered. -->
+				<rule id="30.11"> ^ ($RI $RI)* $RI × $RI </rule>
 				<rule id="30.12"> [^$RI] ($RI $RI)* $RI × $RI </rule>
-				<!-- LB 30b  Do not break between an emoji base and an emoji modifier.. -->
-				<rule id="30.21"> $EB × $EM </rule>
+				<rule id="30.13"> $RI ÷ $RI </rule>
+				<rule id="30.2"> $EB × $EM </rule>
 			</segmentRules>
 		</segmentation>
 		<segmentation type="SentenceBreak">
@@ -276,8 +290,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$SContinue">\p{Sentence_Break=SContinue}</variable>
 				<variable id="$Any">.</variable>
 				<!-- Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need. -->
-				<!-- WARNING: For Rule 5, now add format and extend to everything but Sep -->
+				<!-- WARNING: For Rule 5, now add format and extend to everything but Sep, Format, and Extend -->
 				<variable id="$FE">[$Format $Extend]</variable>
+				<!-- Special rules -->
 				<variable id="$NotPreLower_">[^ $OLetter $Upper $Lower $Sep $CR $LF $STerm $ATerm]</variable>
 				<variable id="$Sp">($Sp $FE*)</variable>
 				<variable id="$Lower">($Lower $FE*)</variable>
@@ -288,31 +303,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$STerm">($STerm $FE*)</variable>
 				<variable id="$Close">($Close $FE*)</variable>
 				<variable id="$SContinue">($SContinue $FE*)</variable>
+				<!-- Macros -->
+				<variable id="$ParaSep">($Sep | $CR | $LF)</variable>
+				<variable id="$SATerm">($STerm | $ATerm)</variable>
 			</variables>
 			<segmentRules>
-				<!-- Do not break within CRLF -->
+				<!-- Rules -->
+				<!-- Break at the start and end of text, unless the text is empty. -->
+				<!-- Do not break within CRLF. -->
 				<rule id="3"> $CR × $LF </rule>
 				<!-- Break after paragraph separators. -->
-				<rule id="4"> ($Sep | $CR | $LF) ÷ </rule>
-				<!-- Ignore Format and Extend characters, except when they appear at the beginning of a region of text. -->
-				<!-- (See Section 6.2 Grapheme Cluster and Format Rules.) -->
+				<rule id="4"> $ParaSep ÷ </rule>
+				<!-- Ignore Format and Extend characters, except after sot, ParaSep, and within CRLF. (See Section 6.2, Replacing Ignore Rules.) This also has the effect of: Any × (Format | Extend) -->
 				<!-- WARNING: Implemented as don't break before format (except after linebreaks), -->
 				<!-- AND add format and extend in all variables definitions that appear after this point! -->
 				<rule id="5"> × [$Format $Extend] </rule>
+				<!-- Do not break after full stop in certain contexts. [See note below.] -->
 				<!-- Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, -->
 				<!-- is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. -->
 				<!-- For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence. -->
 				<rule id="6"> $ATerm × $Numeric </rule>
 				<rule id="7"> ($Upper | $Lower) $ATerm × $Upper </rule>
 				<rule id="8"> $ATerm $Close* $Sp* × $NotPreLower_* $Lower </rule>
-				<rule id="8.1"> ($STerm | $ATerm) $Close* $Sp* × ($SContinue | $STerm | $ATerm) </rule>
-				<!-- Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator. -->
-				<rule id="9"> ( $STerm | $ATerm ) $Close* × ( $Close | $Sp | $Sep | $CR | $LF ) </rule>
+				<rule id="8.1"> $SATerm $Close* $Sp* × ($SContinue | $SATerm) </rule>
+				<!-- Break after sentence terminators, but include closing punctuation, trailing spaces, and any paragraph separator. [See note below.] Include closing punctuation, trailing spaces, and (optionally) a paragraph separator. -->
+				<rule id="9"> $SATerm $Close* × ( $Close | $Sp | $ParaSep ) </rule>
 				<!-- Note the fix to $Sp*, $Sep? -->
-				<rule id="10"> ( $STerm | $ATerm ) $Close* $Sp* × ( $Sp | $Sep | $CR | $LF ) </rule>
-				<rule id="11"> ( $STerm | $ATerm ) $Close* $Sp* ($Sep | $CR | $LF)? ÷ </rule>
+				<rule id="10"> $SATerm $Close* $Sp* × ( $Sp | $ParaSep ) </rule>
+				<rule id="11"> $SATerm $Close* $Sp* $ParaSep? ÷ </rule>
 				<!-- Otherwise, do not break -->
-				<rule id="12"> × $Any </rule>
+				<rule id="998"> × $Any </rule>
 			</segmentRules>
 			<suppressions type="standard">
 				<!-- root suppression is empty. -->
@@ -325,70 +345,88 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Newline">\p{Word_Break=Newline}</variable>
 				<variable id="$Extend">\p{Word_Break=Extend}</variable>
 				<!-- Now normal variables -->
-				<variable id="$ZWJ">\p{Word_Break=ZWJ}</variable>
 				<variable id="$Format">\p{Word_Break=Format}</variable>
 				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
-				<variable id="$Hebrew_Letter">\p{Word_Break=Hebrew_Letter}</variable>
 				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
-				<variable id="$Single_Quote">\p{Word_Break=Single_Quote}</variable>
-				<variable id="$Double_Quote">\p{Word_Break=Double_Quote}</variable>
-				<variable id="$MidNumLet">\p{Word_Break=MidNumLet}</variable>
 				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
 				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>
+				<variable id="$MidNumLet">\p{Word_Break=MidNumLet}</variable>
 				<variable id="$Numeric">\p{Word_Break=Numeric}</variable>
 				<variable id="$ExtendNumLet">\p{Word_Break=ExtendNumLet}</variable>
-				<variable id="$Regional_Indicator">\p{Word_Break=Regional_Indicator}</variable>
-				<variable id="$E_Base">\p{Word_Break = EB}</variable>
-				<variable id="$E_Modifier">\p{Word_Break=EM}</variable>
+				<variable id="$RI">\p{Word_Break=Regional_Indicator}</variable>
+				<variable id="$Hebrew_Letter">\p{Word_Break=Hebrew_Letter}</variable>
+				<variable id="$Double_Quote">\p{Word_Break=Double_Quote}</variable>
+				<variable id="$Single_Quote">\p{Word_Break=Single_Quote}</variable>
+				<variable id="$E_Base">\p{Word_Break=E_Base}</variable>
+				<variable id="$E_Modifier">\p{Word_Break=E_Modifier}</variable>
+				<variable id="$ZWJ">\p{Word_Break=ZWJ}</variable>
+				<variable id="$EBG">\p{Word_Break=E_Base_GAZ}</variable>
 				<variable id="$Extended_Pict">[\u2388\u2605\u2607-\u260D\u260F-\u2610\u2612\u2616-\u2617\u2619-\u261C\u261E-\u261F\u2621\u2624-\u2625\u2627-\u2629\u262B-\u262D\u2630-\u2637\u263B-\u2647\u2654-\u265F\u2661-\u2662\u2664\u2667\u2669-\u267A\u267C-\u267E\u2680-\u2691\u2695\u2698\u269A\u269D-\u269F\u26A2-\u26A9\u26AC-\u26AF\u26B2-\u26BC\u26BF-\u26C3\u26C6-\u26C7\u26C9-\u26CD\u26D0\u26D2\u26D5-\u26E8\u26EB-\u26EF\u26F6\u26FB-\u26FC\u26FE-\u2701\u2703-\u2704\u270E\u2710-\u2711\u2765-\u2767\U0001F000-\U0001F003\U0001F005-\U0001F0FF\U0001F10D-\U0001F10F\U0001F12F\U0001F16C-\U0001F16F\U0001F1AD-\U0001F1E5\U0001F203-\U0001F20F\U0001F23C-\U0001F23F\U0001F249-\U0001F24F\U0001F252-\U0001F2FF\U0001F322-\U0001F323\U0001F394-\U0001F395\U0001F398\U0001F39C-\U0001F39D\U0001F3F1-\U0001F3F2\U0001F3F6\U0001F4FE\U0001F53E-\U0001F548\U0001F54F\U0001F568-\U0001F56E\U0001F571-\U0001F572\U0001F57B-\U0001F586\U0001F588-\U0001F589\U0001F58E-\U0001F58F\U0001F591-\U0001F594\U0001F597-\U0001F5A3\U0001F5A6-\U0001F5A7\U0001F5A9-\U0001F5B0\U0001F5B3-\U0001F5BB\U0001F5BD-\U0001F5C1\U0001F5C5-\U0001F5D0\U0001F5D4-\U0001F5DB\U0001F5DF-\U0001F5E0\U0001F5E2\U0001F5E4-\U0001F5E7\U0001F5E9-\U0001F5EE\U0001F5F0-\U0001F5F2\U0001F5F4-\U0001F5F9\U0001F6C6-\U0001F6CA\U0001F6D3-\U0001F6DF\U0001F6E6-\U0001F6E8\U0001F6EA\U0001F6ED-\U0001F6EF\U0001F6F1-\U0001F6F2\U0001F6F7-\U0001F6FF\U0001F774-\U0001F77F\U0001F7D5-\U0001F7FF\U0001F80C-\U0001F80F\U0001F848-\U0001F84F\U0001F85A-\U0001F85F\U0001F888-\U0001F88F\U0001F8AE-\U0001F90F\U0001F91F\U0001F928-\U0001F92F\U0001F931-\U0001F932\U0001F93F\U0001F94C-\U0001F94F\U0001F95F-\U0001F97F\U0001F992-\U0001F9BF\U0001F9C1-\U0001FFFD]</variable>
-				<variable id="$EBG">\p{Word_Break=EBG}</variable>
 				<variable id="$EmojiNRK">[[\p{Emoji}] - [\p{Word_Break=Regional_Indicator}\u002a\u00230-9©®™〰〽]]</variable>
+				<!-- Macros -->
+				<variable id="$AHLetter">($ALetter | $Hebrew_Letter)</variable>
+				<variable id="$MidNumLetQ">($MidNumLet | $Single_Quote)</variable>
 				<!-- WARNING: For Rule 4: Fixes for GC, Format -->
-				<!-- Add format,extend,zwj to most everything -->
-				<variable id="$FEZ">[$Format $Extend $ZWJ]</variable>
+				<!-- Add format and extend to everything -->
+				<variable id="$FE">[$Format $Extend $ZWJ]</variable>
+				<!-- Special rules -->
 				<variable id="$NotBreak_">[^ $Newline $CR $LF ]</variable>
-				<variable id="$Katakana">($Katakana $FEZ*)</variable>
-				<variable id="$Hebrew_Letter">($Hebrew_Letter $FEZ*)</variable>
-				<variable id="$ALetter">($ALetter $FEZ*)</variable>
-				<variable id="$Single_Quote">($Single_Quote $FEZ*)</variable>
-				<variable id="$Double_Quote">($Double_Quote $FEZ*)</variable>
-				<variable id="$MidNumLet">($MidNumLet $FEZ*)</variable>
-				<variable id="$MidLetter">($MidLetter $FEZ*)</variable>
-				<variable id="$MidNum">($MidNum $FEZ*)</variable>
-				<variable id="$Numeric">($Numeric $FEZ*)</variable>
-				<variable id="$ExtendNumLet">($ExtendNumLet $FEZ*)</variable>
-				<variable id="$Regional_Indicator">($Regional_Indicator $FEZ*)</variable>
-				<variable id="$AHLetter">[$ALetter $Hebrew_Letter]</variable>
-				<variable id="$MidNumLetQ">[$MidNumLet $Single_Quote]</variable>
+				<variable id="$Katakana">($Katakana $FE*)</variable>
+				<variable id="$ALetter">($ALetter $FE*)</variable>
+				<variable id="$MidLetter">($MidLetter $FE*)</variable>
+				<variable id="$MidNum">($MidNum $FE*)</variable>
+				<variable id="$MidNumLet">($MidNumLet $FE*)</variable>
+				<variable id="$Numeric">($Numeric $FE*)</variable>
+				<variable id="$ExtendNumLet">($ExtendNumLet $FE*)</variable>
+				<variable id="$RI">($RI $FE*)</variable>
+				<variable id="$Hebrew_Letter">($Hebrew_Letter $FE*)</variable>
+				<variable id="$Double_Quote">($Double_Quote $FE*)</variable>
+				<variable id="$Single_Quote">($Single_Quote $FE*)</variable>
+				<variable id="$AHLetter">($AHLetter $FE*)</variable>
+				<variable id="$MidNumLetQ">($MidNumLetQ $FE*)</variable>
 			</variables>
 			<segmentRules>
+				<!-- Rules -->
+				<!-- Break at the start and end of text, unless the text is empty. -->
+				<!-- Do not break within CRLF. -->
 				<rule id="3"> $CR × $LF </rule>
+				<!-- Otherwise break before and after Newlines (including CR and LF) -->
 				<rule id="3.1"> ($Newline | $CR | $LF) ÷ </rule>
 				<rule id="3.2"> ÷ ($Newline | $CR | $LF) </rule>
+				<!-- Do not break within emoji zwj sequences. -->
 				<rule id="3.3"> $ZWJ × ($Extended_Pict | $EmojiNRK) </rule>
-				<!-- Ignore Format and Extend characters, except when they appear at the beginning of a region of text. -->
-				<!-- (See Section 6.2 Grapheme Cluster and Format Rules.) -->
+				<!-- Ignore Format and Extend characters, except after sot, CR, LF, and Newline. (See Section 6.2, Replacing Ignore Rules.) This also has the effect of: Any × (Format | Extend) -->
 				<!-- WARNING: Implemented as don't break before format (except after linebreaks), -->
 				<!-- AND add format and extend in all variables definitions that appear after this point! -->
-				<rule id="4"> $NotBreak_ × ($Extend | $Format | $ZWJ)+ </rule>
+				<rule id="4"> $NotBreak_ × [$Format $Extend $ZWJ] </rule>
 				<!-- Vanilla rules -->
+				<!-- Do not break between most letters. -->
 				<rule id="5"> $AHLetter × $AHLetter </rule>
+				<!-- Do not break letters across certain punctuation. -->
 				<rule id="6"> $AHLetter × ($MidLetter | $MidNumLetQ) $AHLetter </rule>
-				<rule id="7"> $ALetter ($MidLetter | $MidNumLet) × $ALetter </rule>
+				<rule id="7"> $AHLetter ($MidLetter | $MidNumLetQ) × $AHLetter </rule>
 				<rule id="7.1"> $Hebrew_Letter × $Single_Quote </rule>
 				<rule id="7.2"> $Hebrew_Letter × $Double_Quote $Hebrew_Letter </rule>
 				<rule id="7.3"> $Hebrew_Letter $Double_Quote × $Hebrew_Letter </rule>
+				<!-- Do not break within sequences of digits, or digits adjacent to letters (“3a”, or “A3”). -->
 				<rule id="8"> $Numeric × $Numeric </rule>
 				<rule id="9"> $AHLetter × $Numeric </rule>
 				<rule id="10"> $Numeric × $AHLetter </rule>
+				<!-- Do not break within sequences, such as “3.2” or “3,456.789”. -->
 				<rule id="11"> $Numeric ($MidNum | $MidNumLetQ) × $Numeric </rule>
 				<rule id="12"> $Numeric × ($MidNum | $MidNumLetQ) $Numeric </rule>
+				<!-- Do not break between Katakana. -->
 				<rule id="13"> $Katakana × $Katakana </rule>
+				<!-- Do not break from extenders. -->
 				<rule id="13.1"> ($AHLetter | $Numeric | $Katakana | $ExtendNumLet) × $ExtendNumLet </rule>
 				<rule id="13.2"> $ExtendNumLet × ($AHLetter | $Numeric | $Katakana) </rule>
+				<!-- Do not break within emoji modifier sequences. -->
 				<rule id="14"> ($E_Base | $EBG) ($Format | $Extend | $ZWJ)* × $E_Modifier </rule>
-				<rule id="15"> ^$Regional_Indicator × $Regional_Indicator </rule>
+				<!-- Do not break within emoji flag sequences. That is, do not break between regional indicator (RI) symbols if there is an odd number of RI characters before the break point. -->
+				<rule id="15"> ^ ($RI $RI)* $RI × $RI </rule>
+				<rule id="16"> [^$RI] ($RI $RI)* $RI × $RI </rule>
 			</segmentRules>
+			<!-- Otherwise, break everywhere (including around ideographs). -->
 		</segmentation>
 	</segmentations>
 </ldml>

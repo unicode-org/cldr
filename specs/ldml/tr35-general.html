@@ -3745,11 +3745,54 @@ h2, h3, h4, table {
 			<li>Then use "start" to add the front element, again with {1} as
 				what you've done so far, and {0} is the first element.</li>
 		</ol>
-
 		<p>Thus a list (a,b,c,...m, n) is formatted as:
 			start(a,middle(b,middle(c,middle(...end(m, n))...)))</p>
-
-
+<div class='changed'>
+		<p>The following type attributes are in use:</p>
+		<table border="1" cellpadding="2" cellspacing="0" class='simple'>
+		  <tr>
+		    <th>type attribute value</th>
+		    <th>Description</th>
+		    <th>Examples</th>
+	      </tr>
+		  <tr>
+		    <td nowrap>standard (or no <strong>type</strong>)</td>
+		    <td>A typical 'and' list for arbitrary placeholders</td>
+		    <td nowrap><em>January, February, and March</em></td>
+	      </tr>
+			  <tr>
+		    <td>standard-short</td>
+		    <td>A short version of a 'and' list, suitable for use with short or abbreviated placeholder values</td>
+		    <td><em>Jan., Feb., and Mar.</em></td>
+	      </tr>
+	  <tr>
+		    <td>or</td>
+		    <td>A typical 'or' list for arbitrary placeholders</td>
+		    <td><em>January, February, or March</em></td>
+	      </tr>
+	  <tr>
+	    <td>or-short</td>
+	    <td>A short version of an 'or' list</td>
+	    <td><em>Jan., Feb., or Mar.</em></td>
+	    </tr>
+	  <tr>
+	    <td>unit</td>
+	    <td>A list suitable for wide units</td>
+	    <td><em>3 feet, 7 inches</em></td>
+	    </tr>
+	  <tr>
+	    <td>unit-short</td>
+	    <td>A list suitable for short units</td>
+	    <td><em>3 ft, 7 in</em></td>
+	    </tr>
+	  <tr>
+	    <td>unit-narrow</td>
+	    <td>A list suitable for narrow units, where space on the screen is very limited.</td>
+	    <td><em>3′ 7″</em></td>
+	    </tr>
+      </table>
+		<p>In many languages there may not be a difference among many of these lists. In others, the spacing, the length or presence or a conjunction, and the separators may change.</p>
+</div>
 		<h3>
 			11.1 <a name="List_Gender" href="#List_Gender">Gender of Lists</a>
 		</h3>
@@ -3877,7 +3920,7 @@ h2, h3, h4, table {
         &lt;/contextTransformUsage&gt;
     &lt;/contextTransforms&gt;</pre>
 
-		<table cellspacing="0" cellpadding="2" border="1">
+		<table cellspacing="0" cellpadding="2" border="1" class='simple'>
 			<caption>
 				<a name="contextTransformUsage_type_attribute_values"
 					href="#contextTransformUsage_type_attribute_values">Element

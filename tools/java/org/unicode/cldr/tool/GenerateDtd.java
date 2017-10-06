@@ -2,19 +2,19 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 
-import com.ibm.icu.impl.CaseMapImpl;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.util.ULocale;
+import com.ibm.icu.text.CaseMap;
+import com.ibm.icu.text.CaseMap.Title;
 
 public class GenerateDtd {
     
-    static final int FIRST_TITLE = CaseMapImpl.TITLECASE_WHOLE_STRING|UCharacter.TITLECASE_NO_LOWERCASE;
+    private static final Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();
 
     public static void main(String[] args) throws IOException {
         //System.setProperty("show_all", "true");
@@ -25,7 +25,7 @@ public class GenerateDtd {
             DtdData data = DtdData.getInstance(type);
             String name = type.toString();
             if (!name.startsWith("ldml")) {
-                name = "ldml" + UCharacter.toTitleCase(ULocale.ENGLISH, name, null, FIRST_TITLE);
+                name = "ldml" + TO_TITLE_WHOLE_STRING_NO_LOWERCASE.apply(Locale.ENGLISH, null, name, new StringBuilder(), null);
                 if (name.endsWith("Data")) {
                     name = name.substring(0, name.length() - 4);
                 }

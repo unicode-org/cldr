@@ -40,11 +40,12 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.CaseMapImpl;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.CaseMap;
+import com.ibm.icu.text.CaseMap.Title;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Normalizer2;
@@ -52,7 +53,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 
 public class GenerateSubdivisions {
-    static final int FIRST_TITLE = CaseMapImpl.TITLECASE_WHOLE_STRING|UCharacter.TITLECASE_NO_LOWERCASE;
+    private static final Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();
 
     private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "iso_country_codes/";
     private static final String ISO_SUBDIVISION_CODES = ISO_COUNTRY_CODES + "iso_country_codes.xml";
@@ -384,8 +385,7 @@ public class GenerateSubdivisions {
                     final String sdCode = node.code;
                     String name = getBestName(sdCode, true);
                     String upper = UCharacter.toUpperCase(name);
-                    @SuppressWarnings("deprecation")
-                    String title = UCharacter.toTitleCase(ULocale.ROOT, name, null, FIRST_TITLE);
+                    String title = TO_TITLE_WHOLE_STRING_NO_LOWERCASE.apply(Locale.ENGLISH, null, name, new StringBuilder(), null).toString();
                     if (name.equals(upper) || !name.equals(title)) {
                         System.out.println("Suspicious name: " + name);
                     }

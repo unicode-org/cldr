@@ -2422,7 +2422,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				= y mod z</strong>. The <strong>y</strong> value can be a comma-separated
 			list, such as <strong>n = 3, 5, 7..15</strong>, and is treated as if
 			each relation were expanded into an OR statement. The range value <strong>a..b</strong>
-			is equivalent to listing all the integers between <strong>a</strong>
+			is equivalent to listing all the <em><strong>integers</strong></em> between <strong>a</strong>
 			and <strong>b</strong>, inclusive. When <strong>!=</strong> is used,
 			it means the entire relation is negated.
 		</p>
@@ -2457,15 +2457,16 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				<td>false</td>
 			</tr>
 			<tr>
-				<td>3 = 2..4,15</td>
+				<td nowrap>3.5 != 2..4, 15</td>
 				<td>true</td>
 			</tr>
-			<tr>
-				<td>3.5 != 2..4, 15</td>
+            <tr>
+				<td>3 = 2..4, 15</td>
 				<td>true</td>
 			</tr>
+	
 			<tr>
-				<td>3 = 2..4,15</td>
+				<td>3 <span class='changed'>!=</span> 2..4, 15</td>
 				<td>false</td>
 			</tr>
 		</table>

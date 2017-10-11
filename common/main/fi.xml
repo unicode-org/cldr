@@ -2297,9 +2297,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h.mm.ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E H.mm.ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">LLLL y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d.M.y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E d.M.y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E d. MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
@@ -2313,9 +2313,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d.M.</dateFormatItem>
-						<dateFormatItem id="MMM">LLLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d.M.</dateFormatItem>
-						<dateFormatItem id="MMMEd">ccc d.M.</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">LLLL'n' W. 'viikko'</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">LLLL'n' W. 'viikko'</dateFormatItem>
@@ -2325,9 +2325,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMEd">E d.M.y</dateFormatItem>
 						<dateFormatItem id="yMM">M.y</dateFormatItem>
-						<dateFormatItem id="yMMM">M.y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d.M.y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E d.M.y</dateFormatItem>
+						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d. MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E d. MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yMMMMccccd">cccc d. MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
@@ -5716,7 +5716,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimumGroupingDigits>1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
-			<group> </group>
+			<group> </group>
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<plusSign>+</plusSign>

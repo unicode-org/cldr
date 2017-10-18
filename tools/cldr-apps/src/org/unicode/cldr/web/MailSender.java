@@ -405,21 +405,24 @@ public class MailSender implements Runnable {
                     Integer from = rs.getInt("sender");
                     UserRegistry.User fromUser = getUser(from);
 
-                    String all_from = env.getProperty("CLDR_FROM", "set_CLDR_FROM_in_cldr.properties@example.com");
+                    // to
+                    Integer to = rs.getInt("user");
+                    UserRegistry.User toUser = getUser(to);
+
+                    //  CLDR_FROM=tc-%ORG%@something.example.com
+                    String all_from = env.getProperty("CLDR_FROM", "set_CLDR_FROM_in_cldr.properties@example.com")
+                        .replace("%ORG%", toUser.getOrganization().name().toLowerCase());
 
                     if (false && from > 1) { // ticket:6334 - don't use individualized From: messages
                         ourMessage.setFrom(new InternetAddress(fromUser.email, fromUser.name + " (SurveyTool)"));
                     } else {
-                        ourMessage.setFrom(new InternetAddress(all_from, "CLDR SurveyTool"));
+                        ourMessage.setFrom(new InternetAddress(all_from, "CLDR SurveyTool ("+toUser.getOrganization().displayName+")"));
                     }
 
                     // date
                     final Timestamp queue_date = rs.getTimestamp("queue_date");
                     ourMessage.setSentDate(queue_date); // slices
 
-                    // to
-                    Integer to = rs.getInt("user");
-                    UserRegistry.User toUser = getUser(to);
                     if (toUser == null) {
                         String why;
                         int badCount;

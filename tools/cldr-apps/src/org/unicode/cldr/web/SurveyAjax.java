@@ -122,6 +122,7 @@ public class SurveyAjax extends HttpServlet {
         }
 
         public static JSONObject wrap(UserRegistry.User u) throws JSONException {
+            if(u == null) return null;
             return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)
                 .put("emailHash", u.getEmailHash())
                 .put("userlevelName", u.getLevel()).put("org", u.org).put("time", u.last_connect);
@@ -356,8 +357,9 @@ public class SurveyAjax extends HttpServlet {
                 String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
-                final String sql = "select submitter," + day + " as day,locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE
-                    + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc";
+                final String sql = "select submitter," + day + " as day, YEAR(last_mod) as year, MONTH(last_mod) as month,"
+                    + " DAYOFMONTH(last_mod) as dayofmonth, locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE
+                    + " group by submitter,locale,year, month, dayofmonth  order by day desc";
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000,
                     sql);
                 r.put(what, query);
@@ -367,8 +369,8 @@ public class SurveyAjax extends HttpServlet {
             } else if (what.equals(WHAT_STATS_BYDAY)) {
                 JSONWriter r = newJSONStatus(sm);
                 {
-                    final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
-                        + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                    final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod, Year(last_mod) as yy ,Month(last_mod) as mm,Date(last_mod) as dd " 
+                        + " order by yy desc, mm desc, dd desc  group by yy, mm, dd ") // mysql
                         : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
                             + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
                     final JSONObject query = DBUtils

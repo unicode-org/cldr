@@ -102,7 +102,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Africa/Khartoum">
 				<usesMetazone to="2000-01-15 10:00" mzone="Africa_Central"/>
-				<usesMetazone from="2000-01-15 10:00" mzone="Africa_Eastern"/>
+				<usesMetazone to="2017-10-31 21:00" from="2000-01-15 10:00" mzone="Africa_Eastern"/>
+				<usesMetazone from="2017-10-31 21:00" mzone="Africa_Central"/>
 			</timezone>
 			<timezone type="Africa/Kigali">
 				<usesMetazone mzone="Africa_Central"/>
@@ -182,8 +183,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Africa/Windhoek">
 				<usesMetazone to="1990-03-20 22:00" mzone="Africa_Southern"/>
-				<usesMetazone to="1994-04-02 22:00" from="1990-03-20 22:00" mzone="Africa_Central"/>
-				<usesMetazone from="1994-04-02 22:00" mzone="Africa_Western"/>
+				<usesMetazone to="1994-03-20 22:00" from="1990-03-20 22:00" mzone="Africa_Central"/>
+				<usesMetazone to="2017-09-03 01:00" from="1994-03-20 22:00" mzone="Africa_Western"/>
+				<usesMetazone from="2017-09-03 01:00" mzone="Africa_Central"/>
 			</timezone>
 			<timezone type="America/Adak">
 				<usesMetazone to="1983-10-30 12:00" mzone="Bering"/>
@@ -399,7 +401,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Grand_Turk">
 				<usesMetazone to="2015-11-01 06:00" mzone="America_Eastern"/>
-				<usesMetazone from="2015-11-01 06:00" mzone="Atlantic"/>
+				<usesMetazone to="2018-03-11 07:00" from="2015-11-01 06:00" mzone="Atlantic"/>
+				<usesMetazone from="2018-03-11 07:00" mzone="America_Eastern"/>
 			</timezone>
 			<timezone type="America/Grenada">
 				<usesMetazone mzone="Atlantic"/>

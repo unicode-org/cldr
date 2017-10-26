@@ -20,6 +20,7 @@ import com.ibm.icu.text.DecimalFormat.PropertySetter;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
+@SuppressWarnings("deprecation")
 public class BuildIcuCompactDecimalFormat {
     private static boolean DEBUG = false;
     static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();

@@ -852,7 +852,7 @@ public class ExampleGenerator {
                     // we have to first see whether we have a currency. If so, we have to see if the count works.
 
                     if (isCurrency && phase == 0) {
-                        example = new FixedDecimal(example.source, decimalCount);
+                        example = new FixedDecimal(example.getSource(), decimalCount);
                     }
                     // skip if we've done before (can happen because of the currency reset)
                     if (examplesSeen.contains(example)) {
@@ -937,7 +937,7 @@ public class ExampleGenerator {
             unitDecimalFormat.setMaximumFractionDigits(example.getVisibleDecimalDigitCount());
             unitDecimalFormat.setMinimumFractionDigits(example.getVisibleDecimalDigitCount());
 
-            String formattedNumber = unitDecimalFormat.format(example.source);
+            String formattedNumber = unitDecimalFormat.format(example.getSource());
             unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
             resultItem = unitPattern.replace("{0}", formattedNumber).replace("{1}", unitName);
 

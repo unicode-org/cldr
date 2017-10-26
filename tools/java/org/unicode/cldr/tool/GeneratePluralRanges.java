@@ -191,8 +191,8 @@ public class GeneratePluralRanges {
     }
 
     public static String format(DecimalFormat nf, FixedDecimal minSample) {
-        nf.setMinimumFractionDigits(minSample.visibleDecimalDigitCount);
-        nf.setMaximumFractionDigits(minSample.visibleDecimalDigitCount);
+        nf.setMinimumFractionDigits(minSample.getVisibleDecimalDigitCount());
+        nf.setMaximumFractionDigits(minSample.getVisibleDecimalDigitCount());
         return nf.format(minSample);
     }
 

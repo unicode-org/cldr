@@ -278,7 +278,7 @@ public class GeneratedPluralSamples {
                 samples.add(ni);
             }
             if (noTrailing.size() <= UNBOUNDED_LIMIT * 2) {
-                noTrailing.add(ni.source);
+                noTrailing.add(ni.getSource());
             }
             int digit = getDigit(ni);
             if (digitToSample[digit] == null) {

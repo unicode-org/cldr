@@ -3597,7 +3597,7 @@ public class SupplementalDataInfo {
             if (lessOrFewerDecimals(temp, maxSample.value)) {
                 maxSample.value = temp;
             }
-            if (maxSample.value.source > 100000) {
+            if (maxSample.value.getSource() > 100000) {
                 temp = getLeastIn(e, bestType, lowestMax, POSITIVE_INFINITY);
                 if (lessOrFewerDecimals(temp, maxSample.value)) {
                     maxSample.value = temp;
@@ -3609,12 +3609,12 @@ public class SupplementalDataInfo {
 
         public boolean greaterOrFewerDecimals(FixedDecimal a, FixedDecimal b) {
             return doubleValue(a) > doubleValue(b)
-                || doubleValue(b) == doubleValue(a) && b.decimalDigits > a.decimalDigits;
+                || doubleValue(b) == doubleValue(a) && b.getDecimalDigits() > a.getDecimalDigits();
         }
 
         public boolean lessOrFewerDecimals(FixedDecimal a, FixedDecimal b) {
             return doubleValue(a) < doubleValue(b)
-                || doubleValue(b) == doubleValue(a) && b.decimalDigits > a.decimalDigits;
+                || doubleValue(b) == doubleValue(a) && b.getDecimalDigits() > a.getDecimalDigits();
         }
 
         private FixedDecimal getLeastIn(Count s, SampleType sampleType, FixedDecimal min, FixedDecimal max) {
@@ -3669,11 +3669,11 @@ public class SupplementalDataInfo {
             // skip 0 if possible
             for (FixedDecimalRange range : sampleSet) {
                 sampleDecimal = range.start;
-                if (sampleDecimal.source != 0.0) {
+                if (sampleDecimal.getSource() != 0.0) {
                     break;
                 }
                 sampleDecimal = range.end;
-                if (sampleDecimal.source != 0.0) {
+                if (sampleDecimal.getSource() != 0.0) {
                     break;
                 }
             }

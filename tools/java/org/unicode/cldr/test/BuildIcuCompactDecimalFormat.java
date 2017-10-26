@@ -13,7 +13,7 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.number.Properties;
+import com.ibm.icu.impl.number.DecimalFormatProperties;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.DecimalFormat.PropertySetter;
@@ -259,7 +259,7 @@ public class BuildIcuCompactDecimalFormat {
         cdf.setDecimalFormatSymbols(builder.getDecimalFormatSymbols("latn"));
         cdf.setProperties(new PropertySetter() {
             @Override
-            public void set(Properties props) {
+            public void set(DecimalFormatProperties props) {
                 props.setCompactCustomData(customData);
             }
         });

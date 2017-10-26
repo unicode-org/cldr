@@ -220,7 +220,7 @@ public class ShowPlurals {
         nf.setMinimumFractionDigits(numb.getVisibleDecimalDigitCount());
         sample = samplePattern
             .replace('\u00A0', '\u0020')
-            .replace("{0}", nf.format(numb.source))
+            .replace("{0}", nf.format(numb.getSource()))
             .replace(". ", ".<br>");
         return sample;
     }

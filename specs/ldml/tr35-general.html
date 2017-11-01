@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">32</td>
+				<td>32</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -828,7 +828,7 @@ h2, h3, h4, table {
 				<td style="font-family: Georgia, 'Times New Roman', Times, serif">-
 					‐ – — , ; \: ! ? . … “ ” ‘ ’ ( ) [ ] § @ * / &amp; # † ‡ ′ ″</td>
 			</tr>
-		  <tr class='changed'>
+		  <tr>
 			  <td>numbers</td>
 			  <td>The characters needed to display the common number formats: decimal, percent, and currency.</td>
 			  <td style="font-family: Georgia, 'Times New Roman', Times, serif">[\u061C\u200E \- , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩]</td>
@@ -848,7 +848,7 @@ h2, h3, h4, table {
 			particular, format characters like CGJ are not included.
 		</p>
 		<p>
-			There are <span class="changed">five</span> sets altogether: main, auxiliary, punctuation, <span class="changed">numbers</span>, and
+			There are five sets altogether: main, auxiliary, punctuation, numbers, and
 			index. The <i>main</i> set should contain the minimal set required
 			for users of the language, while the <i>auxiliary</i> exemplar set is
 			designed to encompass additional characters: those non-native or
@@ -904,8 +904,7 @@ h2, h3, h4, table {
 		</blockquote>
 
 		<p>
-			<span class="changed">The numbers exemplars does not currently include lesser-used characters: exponential notation (3.1 × 10²³, ∞, NAN). Nor does it contain the units or currency symbols such as $, ¥, ₹,… It does contain %, because that occurs in the percent format. It may contain some special formatting characters like the RLM. A full list of the currency symbols used with that locale are in the &lt;currencies&gt; element, while the units can be gotten from  the &lt;units&gt; element (both using inheritance, of course).</span><span class='removed'>There is no exemplar set for numbers used with a language. Instead,
-			those are obtained by looking at the <strong>defaultNumberingSystem</strong>, <strong>otherNumberingSystems</strong>, and <strong>symbols</strong> under the <strong>&lt;numbers&gt;</strong> element for the locale. </span>The digits used in each numbering system are <span class="removed">then</span>accessed in
+			The numbers exemplars does not currently include lesser-used characters: exponential notation (3.1 × 10²³, ∞, NAN). Nor does it contain the units or currency symbols such as $, ¥, ₹,… It does contain %, because that occurs in the percent format. It may contain some special formatting characters like the RLM. A full list of the currency symbols used with that locale are in the &lt;currencies&gt; element, while the units can be gotten from  the &lt;units&gt; element (both using inheritance, of course).The digits used in each numbering system are accessed in
 			numberingSystems.xml. For more information, see <em><strong>Part
 					3: <a href="tr35-numbers.html#Contents">Numbers</a> </strong>, Section 2 <a href="tr35-numbers.html#Number_Elements">Number
 		Elements</a></em>. </p>
@@ -3747,7 +3746,8 @@ h2, h3, h4, table {
 		</ol>
 		<p>Thus a list (a,b,c,...m, n) is formatted as:
 			start(a,middle(b,middle(c,middle(...end(m, n))...)))</p>
-<div class='changed'>
+
+
 		<p>The following type attributes are in use:</p>
 		<table border="1" cellpadding="2" cellspacing="0" class='simple'>
 		  <tr>
@@ -3792,7 +3792,7 @@ h2, h3, h4, table {
 	    </tr>
       </table>
 		<p>In many languages there may not be a difference among many of these lists. In others, the spacing, the length or presence or a conjunction, and the separators may change.</p>
-</div>
+
 		<h3>
 			11.1 <a name="List_Gender" href="#List_Gender">Gender of Lists</a>
 		</h3>

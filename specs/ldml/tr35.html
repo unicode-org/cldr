@@ -88,7 +88,7 @@ h5 {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">Unicode Locale Data Markup
@@ -98,7 +98,7 @@ h5 {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">32</td>
+				<td>32</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -110,17 +110,17 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2017-09-28</td>
+				<td>2017-11-01</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
 				<td>This Version</td>
-				<td class="changed">
-				<a ignoreme="http://www.unicode.org/reports/tr35/tr35-48/tr35.html">http://www.unicode.org/reports/tr35/tr35-48/tr35.html</a></td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-49/tr35.html">http://www.unicode.org/reports/tr35/tr35-49/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td class="changed">
+				<td>
 				<a href="http://www.unicode.org/reports/tr35/tr35-47/tr35.html">http://www.unicode.org/reports/tr35/tr35-47/tr35.html</a></td>
 			</tr>
 			<tr>
@@ -141,12 +141,12 @@ h5 {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td class="changed"><a href="http://unicode.org/cldr/dtd/32/">
+				<td><a href="http://unicode.org/cldr/dtd/32/">
 				http://unicode.org/cldr/dtd/32/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td class="changed"><a href="#Modifications">48</a></td>
+				<td><a href="#Modifications">49</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -163,7 +163,7 @@ h5 {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -173,8 +173,8 @@ h5 {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -182,7 +182,7 @@ h5 {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -5963,8 +5963,8 @@ root</pre>
 				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>]. A UnicodeSet may be used in specifications
 				outside of the domain of LDML. In such a case, the specification may
 				support a subset of the syntax provided here.</p>
-		<p class='changed'>The syntax characters are listed in the table below:</p>
-		<table class='simple changed'>
+		<p>The syntax characters are listed in the table below:</p>
+		<table>
 		  <tbody>
 		    <tr>
 		      <th>Char</th>
@@ -5973,61 +5973,61 @@ root</pre>
 		      <th>Usage</th>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>$</td>
+		      <td>$</td>
 		      <td>U+0024</td>
 		      <td>DOLLAR SIGN</td>
 		      <td>Equivalent of \uFFFF (This is for implementations that return \uFFFF when accessing before the first or after the last character)</td>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>&amp;</td>
+		      <td>&amp;</td>
 		      <td>U+0026</td>
 		      <td>AMPERSAND</td>
 		      <td>Intersecting UnicodeSets</td>
 	        </tr>
 			    <tr>
-		      <td style='text-align:center'>-</td>
+		      <td>-</td>
 		      <td>U+002D</td>
 		      <td>HYPHEN-MINUS</td>
 			      <td>Ranges of characters; also set difference.</td>
         </tr>
 	    <tr>
-		      <td style='text-align:center'>:</td>
+		      <td>:</td>
 		      <td>U+003A</td>
 		      <td>COLON</td>
 		      <td>POSIX-style property syntax</td>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>[</td>
+		      <td>[</td>
 		      <td>U+005B</td>
 		      <td>LEFT SQUARE BRACKET</td>
 		      <td>Grouping; POSIX property syntax</td>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>]</td>
+		      <td>]</td>
 		      <td>U+005D</td>
 		      <td>RIGHT SQUARE BRACKET</td>
 		      <td>Grouping; POSIX property syntax</td>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>\</td>
+		      <td>\</td>
 		      <td>U+005C</td>
 		      <td>REVERSE SOLIDUS</td>
 		      <td>Escaping</td>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>^</td>
+		      <td>^</td>
 		      <td>U+005E</td>
 		      <td>CIRCUMFLEX ACCENT</td>
 		      <td>Posix negation syntax</td>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>{</td>
+		      <td>{</td>
 		      <td>U+007B</td>
 		      <td>LEFT CURLY BRACKET</td>
 		      <td>Strings in set; Perl property syntax</td>
 	        </tr>
 		    <tr>
-		      <td style='text-align:center'>}</td>
+		      <td>}</td>
 		      <td>U+007D</td>
 		      <td>RIGHT CURLY BRACKET</td>
 			      <td>Strings in set; Perl property syntax</td>
@@ -6070,13 +6070,6 @@ root</pre>
 		</p>
 		<p>In UnicodeSets, there are two ways to quote syntax code points:
 		</p>
-		<p class='removed'>
-			Two single quotes represents a single
-			quote, either inside or outside single quotes. Text within single
-			quotes is not interpreted in any way (except for two adjacent single
-			quotes). It is taken as literal text (syntax code points become
-			literal).
-	  </p>
 		<p>
 			<a name="Backslash_Escapes"></a>Outside of single quotes, certain
 			backslashed code point sequences can be used to quote code points:
@@ -8541,10 +8534,9 @@ decimal?, group?, special*)) &gt;</pre>
 			<a name="Modifications" href="#Modifications">Modifications</a>
 		</h2>
 
-<p class="changed"><b>Revision 48</b></p>
+<p><b>Revision 49</b></p>
 
-	  <div class="changed">
-<ul><li class="changed">Proposed Update for CLDR Version 32.</li></ul>
+<ul><li>Revised for CLDR Version 32.</li></ul>
 		<p><strong>Part 1: <a href="tr35.html#Contents">Core</a></strong></p>
 		<ul>
 		  <li><strong>Section 5.3.3 <a href="#Unicode_Sets">Unicode Sets</a></strong>
@@ -8637,7 +8629,6 @@ decimal?, group?, special*)) &gt;</pre>
             </ul>
           </li>
         </ul>
-	  </div>
 	  <p>Modifications in previous versions are listed in those respective versions. Click on <strong>Previous Version</strong> in the header until you get to the desired version.</p>
 		
 		<hr>

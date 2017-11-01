@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1>
@@ -95,7 +95,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">32</td>
+				<td>32</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -131,7 +131,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -141,8 +141,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -150,7 +150,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -234,7 +234,7 @@ h2, h3, h4, table {
 			</li>
 			<li>3 <a href="#Supplemental_Language_Data">Supplemental
 					Language Data</a>
-                    <ul class="toc changed"><li>3.1 <a
+                    <ul class="toc"><li>3.1 <a
 				href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a></li></ul></li>
 
 			<li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code
@@ -983,16 +983,16 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			territory, then the alt attribute is set to secondary.</p>
 		<pre>		&lt;language type=&quot;fr&quot; scripts=&quot;Latn&quot; territories=&quot;IT US&quot; alt=&quot;secondary&quot; /&gt;
                      ...</pre>
-	  <h2 class='changed'>3.1 <a name="Supplemental_Language_Grouping"
+	  <h2>3.1 <a name="Supplemental_Language_Grouping"
 				href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a> </h2>
-                     <div class='changed'>
-        <p class="dtd">&lt;!ELEMENT languageGroups ( languageGroup* ) &gt;<br>
+
+        <p>&lt;!ELEMENT languageGroups ( languageGroup* ) &gt;<br>
         &lt;!ELEMENT languageGroup ( #PCDATA ) &gt; <br>
         &lt;!ATTLIST languageGroup parent NMTOKEN #REQUIRED &gt;</p>
         <p>The language groups supply language containment. For example, the following indicates that aav is the Unicode language code for a language group that contains caq, crv, etc.</p>
         <code>&lt;languageGroup parent=&quot;<strong>fiu</strong>&quot;&gt;chm et <strong>fi</strong> fit fkv hu izh kca koi krl kv liv mdf mns mrj myv smi udm vep vot vro&lt;/languageGroup&gt;</code>
         <p>The vast majority of the languageGroup data is extracted from wikidata, but may be overridden in some cases. The wikidata information is more fine-grained, but  makes use of language groups that don't have ISO or Unicode language codes. Those language groups are omitted from the data. For example, wikidata has the following child-parent chain: only the first and last elements are present in the language groups.</p>
-        <table class='simple'>
+        <table>
         <tr><td>Name</td><td>Wikidata Code</td><td>Language Code</td></tr>
         <tr><td>Finnish</td>
         <td><a href="https://www.wikidata.org/wiki/Q1412">Q1412</a></td>
@@ -1003,7 +1003,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
         <tr><td>Finno-Permic languages</td><td><a href="https://www.wikidata.org/wiki/Q161240">Q161240</a></td></tr>
         <tr><td>Finno-Ugric languages</td><td><a href="https://www.wikidata.org/wiki/Q79890">Q79890</a></td><td>fiu</td></tr>
         
-        </table><br></div>
+        </table><br>
         <h2>
 		  4 <a name="Supplemental_Code_Mapping"
 				href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a>

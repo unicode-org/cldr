@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">32</td>
+				<td>32</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -129,7 +129,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -139,8 +139,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -148,7 +148,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -997,9 +997,9 @@ h2, h3, h4, table {
 			The preference of 12 hour versus 24 hour for the locale can be
 			derived from the <a href="#Time_Data">Time Data</a>. If the hour
 			symbol is 'h' or 'K' then the format is 12 hour;
-			otherwise it is 24 hour.<span class="changed"> Formats with 'h'
+			otherwise it is 24 hour. Formats with 'h'
 			or 'K' must also include a field with one of the day period
-			pattern characters: 'a', 'b', or 'B'.</span>
+			pattern characters: 'a', 'b', or 'B'.
 		</p>
 		<p>
 			To account for customary usage in some countries, APIs should allow
@@ -1209,7 +1209,6 @@ h2, h3, h4, table {
 				that is, &quot;yM&quot; not &quot;My&quot;.</li>
 			<li>Only one field of each type is allowed; that is,
 				&quot;Hh&quot; is not valid.</li>
-			<li class="removed">The &#39;a&#39; field is not allowed in the skeleton.</li>
 		</ul>
 
 		<p>In order to support user overrides of default locale behavior,
@@ -1222,9 +1221,9 @@ h2, h3, h4, table {
 			skeletons using H or k should have patterns that only use H or k for
 			hours.</p>
 		
-		<p class="changed">The rules governing use of day period pattern characters
+		<p>The rules governing use of day period pattern characters
 			in patterns and skeletons are as follows:</p>
-		<ul class="changed">
+		<ul>
 			<li>Patterns and skeletons for 24-hour-cycle time formats (using H or k)
 				currently <em>should not</em> include fields with day period characters
 				(a, b, or B); these pattern characters should be ignored if they appear
@@ -1236,15 +1235,15 @@ h2, h3, h4, table {
 				include a day period field using one of a, b, or B. If they do not,
 				the skeleton will be treated as implicitly containing a.</li>
 		</ul>
-		<p class="changed">Locales should generally provide availableFormats data for a
+		<p>Locales should generally provide availableFormats data for a
 			fairly complete set of time skeletons without B, typically the following:
 		</p>
-		<code class="changed">H, h, Hm, hm, Hms, hms, Hmv, hmv, Hmsv, hmsv</code>
-		<p class="changed">Locales that use 12-hour-cycle time formats with B may provide
+		<code>H, h, Hm, hm, Hms, hms, Hmv, hmv, Hmsv, hmsv</code>
+		<p>Locales that use 12-hour-cycle time formats with B may provide
 			availableFormats data for a smaller set of time skeletons with B, for example:
 		</p>
-		<code class="changed">Bh, Bhm, Bhms</code>
-		<p class="changed">When matching a requested skeleton containing b or B to the skeletons
+		<code>Bh, Bhm, Bhms</code>
+		<p>When matching a requested skeleton containing b or B to the skeletons
 			actually available in the data, if there is no skeleton matching the specified
 			day period field, then find a match in which the b or B matches an
 			explicit or implicit 'a' in the skeleton, but replace the 'a' in the corresponding
@@ -1254,36 +1253,36 @@ h2, h3, h4, table {
 		</p>
 
 		<table cellspacing="0" cellpadding="4" border="1">
-			<caption class="changed">
+			<caption>
 				<a name="Mapping_Requested_Time_Skeletons_To_Patterns"
 					href="#Mapping_Requested_Time_Skeletons_To_Patterns">Mapping
 					Requested Time Skeletons To Patterns</a>
 			</caption>
-			<tr class="changed">
+			<tr>
 				<th></th>
 				<th colspan="2">results for different availableFormats data sets</th>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<th>requested skeleton</th>
 				<th>set 1:<br>...id=&quot;H&quot;&gt;H&lt;/date...<br>...id=&quot;h&quot;&gt;h a&lt;/date...</th>
 				<th>set 2:<br>...id=&quot;H&quot;&gt;H&lt;/date...<br>...id=&quot;h&quot;&gt;h a&lt;/date...<br>...id=&quot;Bh&quot;&gt;B h&lt;/date...</th>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>&quot;h&quot; (or &quot;ah&quot;)</td>
 				<td>&quot;h a&quot;</td>
 				<td>&quot;h a&quot;</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>&quot;bh&quot;</td>
 				<td>&quot;h b&quot;</td>
 				<td>&quot;h b&quot;</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>&quot;Bh&quot;</td>
 				<td>&quot;h B&quot;</td>
 				<td>&quot;B h&quot;</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>&quot;H&quot; (or &quot;aH&quot;, &quot;bH&quot;, &quot;BH&quot;)</td>
 				<td>&quot;H&quot;</td>
 				<td>&quot;H&quot;</td>
@@ -1371,13 +1370,12 @@ h2, h3, h4, table {
 		</p>
 		<pre>    &lt;dateFormatItem id="yMMMMd"&gt;<span
 				style="color: blue">d 'de' MMMM 'de' y</span>&lt;/dateFormatItem&gt;</pre>
-		<p class="changed">
+		<p>
 			However, such automatic expansions should never convert a numeric element in
 			the pattern to an alphabetic element. Consider the following dateFormatItem:
 		</p>
-		<pre class="changed">    &lt;dateFormatItem id="yMMM"&gt;<span
-				style="color: blue">y年M月</span>&lt;/dateFormatItem&gt;</pre>
-		<p class="changed">
+		<pre>    &lt;dateFormatItem id="yMMM"&gt;y年M月&lt;/dateFormatItem&gt;</pre>
+		<p>
 			If this is the best match for a requested skeleton yMMMM, automatic expansion
 			should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月”
 			specifies a numeric month M, automatic expansion should not modify the pattern,
@@ -2765,7 +2763,7 @@ h2, h3, h4, table {
 		Times can also  be organized
 		hierarchically by country for easier lookup. </p>
 <blockquote>
-			<p class='changed'>France Time<br>
+			<p>France Time<br>
 			  Italy Time<br>
 			  Japan Time<br>
 			  United States<br>
@@ -2775,17 +2773,17 @@ h2, h3, h4, table {
 			        New York Time<br>
 		    United Kingdom Time</p>
 	  </blockquote>
-<p class="note">Note: A generic location format is constructed by
+<p>Note: A generic location format is constructed by
 				a part of time zone ID representing an exemplar city name or its
 				country as the final fallback. However, there are Unicode time zones
 				which are not associated with any locations, such as "Etc/GMT+5" and
-	  "PST8PDT". <span class="changed">Although</span> the date format pattern
-	  <span class="changed">"VVVV"</span> specifies the generic location format,
-	  <span class="changed">but </span>it displays localized GMT format for <span class="changed">these</span>. Some
+	  "PST8PDT". Although the date format pattern
+	  "VVVV" specifies the generic location format,
+	  but it displays localized GMT format for these. Some
 				of these time zones observe daylight saving time, so the result
 				(localized GMT format) may change depending on input date. For
 				generating a list for user selection of time zone with format
-	  <span class="changed">"VVVV"</span>, these non-location zones should be excluded.</p>
+	  "VVVV", these non-location zones should be excluded.</p>
 
 		<p>
 			<b>Specific non-location format:</b> Reflects a specific standard or
@@ -4059,7 +4057,7 @@ h2, h3, h4, table {
 				<th rowspan="9"><a name='dfst-period' href='#dfst-period'>period</a></th>
 				<td rowspan="3" style="text-align: center">a</td>
 				<td style="text-align: center">a..aaa</td>
-				<td class="changed">am. [e.g. 12 am.]</td>
+				<td>am. [e.g. 12 am.]</td>
 				<td>Abbreviated</td>
 				<td rowspan="3"><strong>AM, PM<br>
 				</strong>May be upper or lowercase depending on the locale and other options.
@@ -4071,18 +4069,18 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td style="text-align: center">aaaa</td>
-				<td class="changed">am. [e.g. 12 am.]</td>
+				<td>am. [e.g. 12 am.]</td>
 				<td>Wide</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">aaaaa</td>
-				<td class="changed">a [e.g. 12a]</td>
+				<td>a [e.g. 12a]</td>
 				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td rowspan="3" style="text-align: center">b</td>
 				<td style="text-align: center">b..bbb</td>
-				<td class="changed">mid. [e.g. 12 mid.]</td>
+				<td>mid. [e.g. 12 mid.]</td>
 				<td>Abbreviated</td>
 				<td rowspan="3"><strong>am, pm, noon, midnight</strong><br>
 					May be upper or lowercase depending on the locale and other
@@ -4093,18 +4091,18 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td style="text-align: center">bbbb</td>
-				<td class="changed">midnight<br>[e.g. 12 midnight]</td>
+				<td>midnight<br>[e.g. 12 midnight]</td>
 				<td>Wide</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">bbbbb</td>
-				<td class="changed">md [e.g. 12 md]</td>
+				<td>md [e.g. 12 md]</td>
 				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td rowspan="3" style="text-align: center">B</td>
 				<td style="text-align: center">B..BBB</td>
-				<td class="changed">at night<br>[e.g. 3:00 at night]</td>
+				<td>at night<br>[e.g. 3:00 at night]</td>
 				<td>Abbreviated</td>
 				<td rowspan="3"><strong>flexible day periods</strong><br>
 					May be upper or lowercase depending on the locale and other
@@ -4112,12 +4110,12 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td style="text-align: center">BBBB</td>
-				<td class="changed">at night<br>[e.g. 3:00 at night]</td>
+				<td>at night<br>[e.g. 3:00 at night]</td>
 				<td>Wide</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">BBBBB</td>
-				<td class="changed">at night<br>[e.g. 3:00 at night]</td>
+				<td>at night<br>[e.g. 3:00 at night]</td>
 				<td>Narrow</td>
 			</tr>
 

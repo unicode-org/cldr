@@ -566,4 +566,8 @@ public final class FileUtilities {
         }
         in.close();
     }
+
+    public static Iterable<String> in(File file) {
+        return With.in(new FileLines(openFile(file, UTF8)));
+    }
 }

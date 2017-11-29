@@ -81,6 +81,11 @@ public class PathDescription {
         SKIP, NULL_VALUE, EMPTY_CONTENT, NOT_REQUIRED
     }
 
+    public String getRawDescription(String path, String value, Object context) {
+        status.clear();
+        return pathHandling.get(path, context, pathArguments);
+    }
+    
     public String getDescription(String path, String value, Level level, Object context) {
         status.clear();
 

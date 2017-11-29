@@ -140,6 +140,8 @@ public class ShowData {
             // get all the locales in a group (with same written language)
             LanguageTagParser ltp = new LanguageTagParser();
 
+            LikelySubtags ls = new LikelySubtags();
+            
             for (String locale : locales) {
                 if (defaultContents.contains(locale)) {
                     continue;
@@ -147,7 +149,11 @@ public class ShowData {
                 if (locale.startsWith("supplem") || locale.startsWith("character") || locale.equals("root")) {
                     continue;
                 }
-                String baseLanguage = ltp.set(locale).getLanguage();
+                String max = ls.maximize(locale);
+                if (max == null) {
+                    max = locale;
+                }
+                String baseLanguage = ls.minimize(ltp.set(max).getLanguageScript());
                 if (baseLanguage.equals(locale)) {
                     parentToChildren.put("root", locale);
                     parentToChildren.put(locale, locale);

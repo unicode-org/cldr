@@ -44,6 +44,7 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
@@ -1702,6 +1703,8 @@ public class ExampleGenerator {
         return result;
     }
 
+    public static final char TEXT_VARIANT = '\uFE0E';
+
     /**
      * Return a help string, in html, that should be shown in the Zoomed view.
      * Presumably at the end of each help section is something like: <br>
@@ -1757,6 +1760,12 @@ public class ExampleGenerator {
 
         if (listPlaceholders) {
             buffer.append(pathDescription.getPlaceholderDescription(xpath));
+        }
+        if (xpath.startsWith("//ldml/annotations/annotation")) {
+            XPathParts emoji = XPathParts.getFrozenInstance(xpath);
+            String cp = emoji.getAttributeValue(-1, "cp");
+            String minimal = Utility.hex(cp.replace("","")).replace(',', '_').toLowerCase(Locale.ROOT);
+            buffer.append("<br><img height='64px' width='auto' src='images/android/android_" + minimal + ".png'>");
         }
 
         return buffer.toString();

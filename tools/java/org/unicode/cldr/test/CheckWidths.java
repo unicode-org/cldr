@@ -264,7 +264,18 @@ public class CheckWidths extends CheckCLDR {
         // Currency Symbols
         .add("//ldml/numbers/currencies/currency[@type=%A]/symbol", new Limit[] {
             new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        });
+        })
+        
+        // "grinning cat face with smiling eyes" should be normal max ~= 160 em
+        // emoji names (not keywords)
+        .add("//ldml/annotations/annotation[@cp=%A][@type=%A]", new Limit[] {
+            new Limit(20 * EM, 100 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+        })
+        ;
+    
+    static {
+        System.out.println("EMs: " + ApproximateWidth.getWidth("grinning cat face with smiling eyes"));
+    }
 
     Set<Limit> found = new LinkedHashSet<Limit>();
 

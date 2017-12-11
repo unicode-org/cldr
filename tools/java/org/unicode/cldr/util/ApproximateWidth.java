@@ -11,6 +11,9 @@ public class ApproximateWidth {
         return result == null ? defaultWidth : result;
     }
 
+    /** 
+     * Return # of ems * 10 
+     */
     public static int getWidth(CharSequence s) {
         int result = 0;
         int cp;

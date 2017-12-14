@@ -20,7 +20,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 #
 # https://commons.wikimedia.org/w/index.php?title=File%3ARomanization_Systems_and_Roman-Script_Spelling_Conventions.djvu
 
-:: [あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわゐゑをんゔアイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヰヱヲンヴ゙゚] ;
+:: [あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわゐゑをんゔアイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヰヱヲンヴ゙゚ー] ;
 
 ::NFC;
 
@@ -379,6 +379,15 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ぽ → po ; # HIRAGANA LETTER PO
 
 ゔ → v ; # HIRAGANA LETTER VU
+
+::NULL;
+aー → ā;
+iー → ī;
+uー → ū;
+eー → ē;
+oー → ō;
+vー → vū;  # ヴーゔー
+ー →;
 			]]></tRule>
 		</transform>
 	</transforms>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision: 13159 $"/>
+		<language type="nv"/>
+	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters references="R1">[ʼ a á ą {ą́} b {ch} {ch’} d {dl} {dz} e é ę {ę́} g {gh} h {hw} i í į {į́} j k {kʼ} {kw} l ł m n o ó ǫ {ǫ́} s {sh} t {tʼ} {tł} {tłʼ} {ts} {tsʼ} w x y z {zh}]
+</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+	</characters>
+	<references>
+		<reference type="R1" uri="https://en.wikipedia.org/wiki/Navajo_language#Orthography">Navajo language. In: English Wikipedia, retrieved on December 14, 2017.</reference>
+	</references>
+</ldml>

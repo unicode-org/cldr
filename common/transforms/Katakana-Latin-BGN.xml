@@ -9,67 +9,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="ja_Hrkt" target="ja_Latn" variant="BGN" direction="forward" draft="contributed" alias="Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn">
-			<tRule>
+		  <tRule><![CDATA[
+# Romanization and Roman-Script Spelling Conventions.
+# Prepared by the U.S. Board on Geographic Names, Foreign Names Committee Staff
+# Published by the Defense Mapping Agency, 1994.
+# Chapter “Romanization System for Japanese Kana, Modified Hebpurn System,
+# BGN/PCGN Agreement”, pages 39 to 45.
 #
-########################################################################
-# BGN/PCGN Agreement
+# http://libraries.ucsd.edu/bib/fed/USBGN_romanization.pdf
 #
-# The modified Hepburn system for the romanization of Japanese has been
-# in use by the U.S. Board on Geographic Names since about 1930 and has
-# been used extensively in the romanization of Japanese geographic names.
-# The system is well adapted to the general needs of speakers of English
-# and is the most widely used system for the romanization of Japanese.
-#
-# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
-########################################################################
-#
-# MINIMAL FILTER: Japanese-Latin
-#
+# https://commons.wikimedia.org/w/index.php?title=File%3ARomanization_Systems_and_Roman-Script_Spelling_Conventions.djvu
 
-:: [あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわゐゑをんゔアイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヰヱヲンヴ] ;
-:: NFD (NFC) ;
-#
-#
-########################################################################
+:: [あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわゐゑをんゔアイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヰヱヲンヴ゙゚] ;
+
+::NFC;
 
 
-#
-########################################################################
-#
-# Define All Transformation Variables
-#
-########################################################################
-
-
-$apostrophe  = ’;
-
-#
 # Use this $wordBoundary until bug 2034 is fixed in ICU:
 # http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
-#
-
 $wordBoundary =  [^[:L:][:M:][:N:]] ;
 
 
-#
-########################################################################
-#
-# Rules moved to front to avoid masking
-#
-########################################################################
-
-
-#
-########################################################################
-#
 # BGN Page 45 Rule 2:
 #
 # A small-script tsu form (ッ or っ) is inserted between kana symbols
 # to indicate a double consonant and is romanized as k before k;
 # as s before s or sh; as t before t, ts, or ch; and as p before p.
-#
-########################################################################
-#
 
 ッ}[カキクケコ] → k ; # KATAKANA LETTER SMALL TU
 っ}[かきくけこ] → k ; # HIRAGANA LETTER SMALL TU
@@ -79,22 +44,9 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 っ}[たちつてと] → t ; # HIRAGANA LETTER SMALL TU
 ッ}[パピプペポ] → p ; # KATAKANA LETTER SMALL TU
 っ}[ぱぴぷぺぽ] → p ; # HIRAGANA LETTER SMALL TU
-#
-#
-########################################################################
-#
-# End of Rule 2
-#
-########################################################################
 
 
-#
-########################################################################
-#
 # Start of Syllabic Transformations
-#
-########################################################################
-#
 
 ア → a ; # KATAKANA LETTER A
 イ → i ; # KATAKANA LETTER I
@@ -196,32 +148,18 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ヰ → i ; # KATAKANA LETTER WI
 ヱ → e ; # KATAKANA LETTER WE
 ヲ → o ; # KATAKANA LETTER WO
-#
-#
-########################################################################
-#
+
+
 # BGN Page 45 Rule 3:
 #
 # The character ン should be romanized m before b, p, or m.
 # The character ん should be romanized m before b, p, or m.
 # The character ン should be romanized n’ before y or a vowel letter.
 # The character ん should be romanized n’ before y or a vowel letter.
-#
-########################################################################
-#
-
 ン}[バビブベボパピプペポマミムメモ] → m ; # KATAKANA LETTER N
 ん}[ばびぶべぼぱぴぷぺぽまみむめも] → m ; # HIRAGANA LETTER N
-ン}[ヤユヨアイウエオ] → n $apostrophe ; # KATAKANA LETTER N
-ん}[やゆよあいうえお] → n $apostrophe ; # HIRAGANA LETTER N
-#
-#
-########################################################################
-#
-# End of Rule 3
-#
-########################################################################
-#
+ン}[ヤユヨアイウエオ] → n’ ; # KATAKANA LETTER N
+ん}[やゆよあいうえお] → n’ ; # HIRAGANA LETTER N
 
 ン → n ; # KATAKANA LETTER N
 
@@ -441,11 +379,7 @@ $wordBoundary =  [^[:L:][:M:][:N:]] ;
 ぽ → po ; # HIRAGANA LETTER PO
 
 ゔ → v ; # HIRAGANA LETTER VU
-#
-#
-########################################################################
-
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

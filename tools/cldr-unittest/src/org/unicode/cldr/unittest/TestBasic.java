@@ -29,6 +29,8 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
@@ -46,6 +48,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -57,7 +60,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -173,7 +181,7 @@ public class TestBasic extends TestFmwkPlus {
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
-                ) {
+                    ) {
                     CLDRFile cldrfile = CLDRFile.loadFromFile(fileName, "temp",
                         DraftStatus.unconfirmed);
                     for (String xpath : cldrfile) {
@@ -266,8 +274,8 @@ public class TestBasic extends TestFmwkPlus {
             .keyValueSet()) {
             R3<Boolean, DtdType, String> typeElementUsed = s.getValue();
             logln(s.getKey() + "\t" + typeElementUsed.get0()
-                + "\t" + typeElementUsed.get1() + "\t"
-                + typeElementUsed.get2());
+            + "\t" + typeElementUsed.get1() + "\t"
+            + typeElementUsed.get2());
         }
     }
 
@@ -440,7 +448,7 @@ public class TestBasic extends TestFmwkPlus {
                                             + it2.getString()
                                             + "\t"
                                             + UCharacter
-                                                .getName(fishyCodepoint));
+                                            .getName(fishyCodepoint));
                                     }
                                     if (fallback == null) {
                                         fallback = fb;
@@ -523,7 +531,7 @@ public class TestBasic extends TestFmwkPlus {
                 result.append(' ');
             }
             result.append("L").append(level.ordinal()).append("=")
-                .append(counter.get(level));
+            .append(counter.get(level));
         }
         return result;
     }
@@ -708,18 +716,11 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestDefaultContents() {
-        Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO
-            .getDefaultContentLocales();
-        Relation<String, String> parentToChildren = Relation
-            .<String, String> of(new TreeMap<String, Set<String>>(),
-                TreeSet.class);
-        for (String child : testInfo.getCldrFactory().getAvailable()) {
-            if (child.equals("root")) {
-                continue;
-            }
-            String localeParent = LocaleIDParser.getParent(child);
-            parentToChildren.put(localeParent, child);
-        }
+        Set<String> defaultContents = Inheritance.defaultContents;
+        Multimap<String,String> parentToChildren = Inheritance.parentToChildren;
+
+        Inheritance.showChain("", "", "root");
+
         for (String locale : defaultContents) {
             CLDRFile cldrFile;
             try {
@@ -741,28 +742,41 @@ public class TestBasic extends TestFmwkPlus {
         }
 
         // check that if a locale has any children, that exactly one of them is
-        // the default content
+        // the default content. Ignore locales with variants
 
-        for (String locale : defaultContents) {
-
-            if (locale.equals("en_US") || locale.equals("ca_ES")) {
-                continue; // en_US_POSIX or ca_ES_VALENCIA
+        for (Entry<String, Collection<String>> localeAndKids : parentToChildren.asMap().entrySet()) {
+            String locale = localeAndKids.getKey();
+            if (locale.equals("root")) {
+                continue;
             }
-            Set<String> children = parentToChildren.get(locale);
-            if (children != null) {
-                Set<String> defaultContentChildren = new LinkedHashSet<String>(
-                    children);
-                defaultContentChildren.retainAll(defaultContents);
-                if (defaultContentChildren.size() != 1) {
-                    if (defaultContentChildren.isEmpty()) {
-                        errln("Locale has children but is missing default contents locale: "
-                            + locale + ", children: " + children);
-                    } else {
-                        errln("Locale has too many defaultContent locales!!: "
-                            + locale + ", defaultContents: "
-                            + defaultContentChildren);
-                    }
+
+            Collection<String> rawChildren = localeAndKids.getValue();
+
+            // remove variant children
+            Set<String> children = new LinkedHashSet<>();
+            for (String child : rawChildren) {
+                if (new LocaleIDParser().set(child).getVariants().length == 0) {
+                    children.add(child);
                 }
+            }
+            if (children.isEmpty()) {
+                continue;
+            }
+
+            Set<String> defaultContentChildren = new LinkedHashSet<String>(children);
+            defaultContentChildren.retainAll(defaultContents);
+            if (defaultContentChildren.size() == 1) {
+                continue;
+            } else if (defaultContentChildren.isEmpty()) {
+                if (!logKnownIssue("cldrbug:10822", "Locale has children but is missing default contents")) {
+                    Object possible = highestShared(locale, children);
+                    errln("Locale has children but is missing default contents locale: "
+                        + locale + ", children: " + children + "; possible fixes for children:\n" + possible);
+                }
+            } else {
+                errln("Locale has too many defaultContent locales!!: "
+                    + locale + ", defaultContents: "
+                    + defaultContentChildren);
             }
         }
 
@@ -785,6 +799,118 @@ public class TestBasic extends TestFmwkPlus {
                 maxLocaleParent, maxLocale);
         }
 
+    }
+
+    private String highestShared(String parent, Set<String> children) {
+        M4<PathHeader, String, String, Boolean> data = ChainedMap.of(new TreeMap<PathHeader,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
+        CLDRFile parentFile = testInfo.getCLDRFile(parent, true);
+        PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
+        for (String child : children) {
+            CLDRFile cldrFile = testInfo.getCLDRFile(child, false);
+            for (String path : cldrFile) {
+                if (path.contains("/identity")) {
+                    continue;
+                }
+                if (path.contains("provisional") || path.contains("unconfirmed")) {
+                    continue;
+                }
+                String value = cldrFile.getStringValue(path);
+                // double-check
+                String parentValue = parentFile.getStringValue(path);
+                if (value.equals(parentValue)) {
+                    continue;
+                }
+                PathHeader ph = phf.fromPath(path);
+                data.put(ph, value, child, Boolean.TRUE);
+                data.put(ph, parentValue == null ? "∅∅∅" : parentValue, child, Boolean.TRUE);
+            }
+        }
+        StringBuilder result = new StringBuilder();
+        for (Entry<PathHeader, Map<String, Map<String, Boolean>>> entry : data) {
+            for (Entry<String, Map<String, Boolean>> item : entry.getValue().entrySet()) {
+                result.append("\n")
+                .append(entry.getKey())
+                .append("\t")
+                .append(item.getKey() + "\t" + item.getValue().keySet());
+            }
+        }
+        return result.toString();
+    }
+
+    public static class Inheritance {
+        public static final Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO
+            .getDefaultContentLocales();
+        public static final Multimap<String,String> parentToChildren;
+
+        static {
+            Multimap<String,String> _parentToChildren = TreeMultimap.create();
+            for (String child : testInfo.getCldrFactory().getAvailable()) {
+                if (child.equals("root")) {
+                    continue;
+                }
+                String localeParent = LocaleIDParser.getParent(child);
+                _parentToChildren.put(localeParent, child);
+            }
+            parentToChildren = ImmutableMultimap.copyOf(_parentToChildren);
+        }
+
+        public static void showChain(String prefix, String gparent, String current) {
+            Collection<String> children = parentToChildren.get(current);
+            if (children == null) {
+                throw new IllegalArgumentException();
+            }
+            prefix += current + (defaultContents.contains(current) ? "*" : "")
+                + (isLikelyEquivalent(gparent, current) ? "~" : "") + "\t";
+
+            // find leaves
+            Set<String> parents = new LinkedHashSet<>(children);
+            parents.retainAll(parentToChildren.keySet());
+            Set<String> leaves = new LinkedHashSet<>(children);
+            leaves.removeAll(parentToChildren.keySet());
+            if (!leaves.isEmpty()) {
+                List<String> presentation = new ArrayList<>(); 
+                boolean gotDc = false;
+                for (String s : leaves) {
+                    String shown = s;
+                    if (isLikelyEquivalent(current, s)) {
+                        shown += "~";
+                    }
+                    if (defaultContents.contains(s)) {
+                        gotDc = true;
+                        shown += "*";
+                    }
+                    if (!shown.equals(s)) {
+                        presentation.add(0, shown);
+                    } else {
+                        presentation.add(shown); 
+                    }
+                }
+                if (!gotDc) {
+                    int debug = 0;
+                }
+                if (leaves.size() == 1) {
+                    System.out.println(prefix + CollectionUtilities.join(presentation, " "));
+                } else {
+                    System.out.println(prefix + "{" + CollectionUtilities.join(presentation, " ") + "}");
+                }
+            }
+            for (String parent : parents) {
+                showChain(prefix, current, parent);
+            }
+        }
+
+        static boolean isLikelyEquivalent(String locale1, String locale2) {
+            if (locale1.equals(locale2)) {
+                return true;
+            }
+            try {
+                String maxLocale1 = LikelySubtags.maximize(locale1, likelyData);
+                String maxLocale2 = LikelySubtags.maximize(locale2, likelyData);
+                return maxLocale1 != null && Objects.equal(maxLocale1, maxLocale2);
+            } catch (Exception e) {
+                return false;
+            }
+        }
     }
 
     static final Map<String, String> likelyData = SUPPLEMENTAL_DATA_INFO
@@ -1007,7 +1133,7 @@ public class TestBasic extends TestFmwkPlus {
             Arrays.asList(new String[] { "version", "languageCoverage",
                 "scriptCoverage", "territoryCoverage",
                 "currencyCoverage", "timezoneCoverage",
-                "skipDefaultLocale" }));
+            "skipDefaultLocale" }));
         Set<String> PCDATA = new HashSet<String>();
         PCDATA.add("PCDATA");
         Set<String> EMPTY = new HashSet<String>();
@@ -1178,7 +1304,7 @@ public class TestBasic extends TestFmwkPlus {
                 Collections.EMPTY_SET, elementsWithoutAlias);
             assertEquals(
                 type
-                    + " DTD elements with children must have 'special' elements",
+                + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
 
             // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
@@ -1247,7 +1373,7 @@ public class TestBasic extends TestFmwkPlus {
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldChild.getName() + "»",
-                                newChild);
+                                    newChild);
                         }
                         for (Attribute oldAttribute : oldElement
                             .getAttributes().keySet()) {
@@ -1263,7 +1389,7 @@ public class TestBasic extends TestFmwkPlus {
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldAttribute.getName() + "»",
-                                newAttribute);
+                                    newAttribute);
 
                         }
                     }

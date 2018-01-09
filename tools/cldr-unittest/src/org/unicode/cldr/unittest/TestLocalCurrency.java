@@ -88,8 +88,11 @@ public class TestLocalCurrency extends TestFmwk {
 
             if (localCurrencySymbol.equals(localCurrency)
                 && !nonLocalizedOK.contains(localCurrency)) {
-                errln("Currency symbol " + localCurrencySymbol + " for locale "
-                    + locale + " is not localized.");
+                if (!logKnownIssue("cldrbug:10765", "Currency symbol " + localCurrencySymbol + " for locale "
+                    + locale + " is not localized.")) {
+                    errln("Currency symbol " + localCurrencySymbol + " for locale "
+                        + locale + " is not localized.");
+                }
             }
 
             localSymbols.add(localCurrencySymbol);

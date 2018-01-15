@@ -558,7 +558,7 @@ public class TestCLDRFile extends TestFmwk {
         for (String dir : DtdType.ldml.directories) {
             Set<String> dirFiles = new TreeSet<String>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
             if (dir.equals("rbnf")) { // Remove known exceptions.
-                dirFiles.remove("es_003.xml");
+                dirFiles.remove("su.xml");
             }
             if (!mainList.containsAll(dirFiles)) {
                 dirFiles.removeAll(mainList);
@@ -645,8 +645,6 @@ public class TestCLDRFile extends TestFmwk {
 
     /**
      * Returns a map from directory (eg main) to its parent (eg seed) and to their children (locales in seed/main)
-     * @param localeToSourceToDir 
-     * @return
      */
     private Map<LdmlDir, Multimap<String, Source>> getFiles(
         Output<Map<String, Multimap<LdmlDir, Source>>> localeToDirToSource) {

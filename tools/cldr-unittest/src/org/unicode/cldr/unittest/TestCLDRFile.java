@@ -557,9 +557,6 @@ public class TestCLDRFile extends TestFmwk {
 
         for (String dir : DtdType.ldml.directories) {
             Set<String> dirFiles = new TreeSet<String>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
-            if (dir.equals("rbnf")) { // Remove known exceptions.
-                dirFiles.remove("su.xml");
-            }
             if (!mainList.containsAll(dirFiles)) {
                 dirFiles.removeAll(mainList);
                 errln(dir + " has extra files" + dirFiles);

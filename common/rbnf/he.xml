@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2016 Unicode, Inc.
+Copyright © 1991-2018 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -222,7 +222,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="x.x">←%%spellout-numbering-m← נקודה →→ ;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">אחד;</rbnfrule>
-                <rbnfrule value="2">שניים;</rbnfrule>
+                <rbnfrule value="2">שני;</rbnfrule>
                 <rbnfrule value="3">שלושה;</rbnfrule>
                 <rbnfrule value="4">ארבעה;</rbnfrule>
                 <rbnfrule value="5">חמישה;</rbnfrule>
@@ -264,6 +264,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
+                <rbnfrule value="-x">מינוס →→;</rbnfrule>
+                <rbnfrule value="x.x">←← נקודה →→;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="2">שתי;</rbnfrule>
+                <rbnfrule value="3">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-standalone">
+                <rbnfrule value="-x">מינוס →→;</rbnfrule>
+                <rbnfrule value="x.x">←%%spellout-numbering-m← נקודה →→ ;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="2">שניים;</rbnfrule>
+                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-standalone">
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-construct-masculine">

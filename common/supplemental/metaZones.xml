@@ -167,7 +167,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Africa_Western"/>
 			</timezone>
 			<timezone type="Africa/Sao_Tome">
-				<usesMetazone mzone="GMT"/>
+				<usesMetazone to="2018-01-01 01:00" mzone="GMT"/>
+                <usesMetazone from="2018-01-01 01:00" mzone="Africa_Western"/>
 			</timezone>
 			<timezone type="Africa/Tripoli">
 				<usesMetazone to="1981-12-31 22:00" mzone="Europe_Eastern"/>
@@ -1758,7 +1759,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="GMT" territory="SH" type="Atlantic/St_Helena"/>
 			<mapZone other="GMT" territory="SL" type="Africa/Freetown"/>
 			<mapZone other="GMT" territory="SN" type="Africa/Dakar"/>
-			<mapZone other="GMT" territory="ST" type="Africa/Sao_Tome"/>
 			<mapZone other="GMT" territory="TG" type="Africa/Lome"/>
 			<mapZone other="Goose_Bay" territory="001" type="America/Goose_Bay"/>
 			<mapZone other="Greenland_Central" territory="001" type="America/Scoresbysund"/>

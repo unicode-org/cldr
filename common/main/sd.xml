@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -85,6 +85,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dav">تائيتا</language>
 			<language type="de">جرمن</language>
 			<language type="de_AT">آسٽريائي جرمن</language>
+			<language type="de_CH">سوئس هائي جرمن</language>
 			<language type="dgr">داگرب</language>
 			<language type="dje">زارما</language>
 			<language type="dsb">لوئر سوربين</language>
@@ -99,11 +100,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eka">ايڪاجڪ</language>
 			<language type="el">يوناني</language>
 			<language type="en">انگريزي</language>
-			<language type="en_AU">en (آسٽريليا)</language>
+			<language type="en_AU">آسٽريليائي انگريزي</language>
+			<language type="en_CA">ڪينيڊيائي انگريزي</language>
+			<language type="en_GB">برطانوي انگريزي</language>
+			<language type="en_GB" alt="short">برطانوي انگريزي</language>
+			<language type="en_US">آمريڪي انگريزي</language>
 			<language type="en_US" alt="short">انگريزي (آمريڪا)</language>
 			<language type="eo">ايسپرانٽو</language>
 			<language type="es">اسپيني</language>
+			<language type="es_419">لاطيني آمريڪي اسپينش</language>
 			<language type="es_ES">يورپي اسپيني</language>
+			<language type="es_MX">اسپيني (ميڪسيڪو)</language>
 			<language type="et">ايستونائي</language>
 			<language type="eu">باسڪي</language>
 			<language type="ewo">اوانڊو</language>
@@ -115,6 +122,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">فيروايس</language>
 			<language type="fon">فون</language>
 			<language type="fr">فرانسي</language>
+			<language type="fr_CA">ڪينيڊيائي فرانسيسي</language>
+			<language type="fr_CH">سوئس فرانسيسي</language>
 			<language type="fur">فرائي لئين</language>
 			<language type="fy">مغربي فريشن</language>
 			<language type="ga">آئرش</language>
@@ -394,6 +403,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yue">ڪينٽونيز</language>
 			<language type="zgh">معياري مراڪشي تامازائيٽ</language>
 			<language type="zh">چيني</language>
+			<language type="zh_Hans">آسان چینی</language>
+			<language type="zh_Hant">روايتي چيني</language>
 			<language type="zu">زولو</language>
 			<language type="zun">زوني</language>
 			<language type="zxx">ڪوئي ٻولي جو مواد ڪونهي</language>
@@ -459,6 +470,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="015">اترين آفريڪا</territory>
 			<territory type="017">وچ آفريڪا</territory>
 			<territory type="018">ڏاکڻي آمريڪا</territory>
+			<territory type="019" draft="provisional">آمريڪا</territory>
 			<territory type="021">اترين آمريڪا</territory>
 			<territory type="029">ڪيريبين</territory>
 			<territory type="030">اوڀر ايشيا</territory>
@@ -476,6 +488,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">اوڀر يورپ</territory>
 			<territory type="154">اترين يورپ</territory>
 			<territory type="155">اولهندي يورپ</territory>
+			<territory type="202">سب سهارا آفريڪا</territory>
 			<territory type="419">لاطيني آمريڪا</territory>
 			<territory type="AC">طلوع ٻيٽ</territory>
 			<territory type="AD">اندورا</territory>
@@ -518,10 +531,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">ڪئناڊا</territory>
 			<territory type="CC">ڪوڪوس ٻيٽ</territory>
 			<territory type="CD">ڪانگو -ڪنشاسا</territory>
+			<territory type="CD" alt="variant">ڪانگو</territory>
 			<territory type="CF">وچ آفريقي جمهوريه</territory>
 			<territory type="CG">ڪانگو - برازاویل</territory>
+			<territory type="CG" alt="variant">ڪانگو (جمهوري)</territory>
 			<territory type="CH">سئيٽرزلينڊ</territory>
 			<territory type="CI">آئيوري ڪنارو</territory>
+			<territory type="CI" alt="variant">آئيوري ڪوسٽ</territory>
 			<territory type="CK">ڪوڪ ٻيٽ</territory>
 			<territory type="CL">چلي</territory>
 			<territory type="CM">ڪيمرون</territory>
@@ -556,6 +572,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FI">فن لينڊ</territory>
 			<territory type="FJ">فجي</territory>
 			<territory type="FK">فاڪ لينڊ ٻيٽ</territory>
+			<territory type="FK" alt="variant">فاڪ لينڊ ٻيٽ</territory>
 			<territory type="FM">مائڪرونيشيا</territory>
 			<territory type="FO">فارو ٻيٽ</territory>
 			<territory type="FR">فرانس</territory>
@@ -631,6 +648,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">مداگيسڪر</territory>
 			<territory type="MH">مارشل ڀيٽ</territory>
 			<territory type="MK">ميسي ڊونيا</territory>
+			<territory type="MK" alt="variant">ميسي ڊونيا</territory>
 			<territory type="ML">مالي</territory>
 			<territory type="MM">ميانمار (برما)</territory>
 			<territory type="MN">منگوليا</territory>
@@ -726,7 +744,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UM">آمريڪي ٻاهريون ٻيٽ</territory>
 			<territory type="UN">اقوام متحده</territory>
 			<territory type="US">آمريڪا جون گڏيل رياستون</territory>
-			<territory type="US" alt="short">آمريڪا</territory>
+			<territory type="US" alt="short">يوايس</territory>
 			<territory type="UY">يوروگوءِ</territory>
 			<territory type="UZ">ازبڪستان</territory>
 			<territory type="VA">ويٽڪين سٽي</territory>
@@ -1265,7 +1283,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BCE</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">CE</era>
+						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1367,6 +1387,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMM d, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">ھفتو W جو MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">ھفتو W جو MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">y-MM</dateFormatItem>
@@ -1378,6 +1400,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
+						<dateFormatItem id="yw" count="one">ھفتو w جو Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">ھفتو w جو Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2118,6 +2142,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>گڏيل دنياوي وقت</standard>
 				</long>
+				<short>
+					<standard>م ع و</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>اڻڄاتل شهر</exemplarCity>
@@ -3268,6 +3295,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
 			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>جانسٹن</exemplarCity>
+			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>اينڪريج</exemplarCity>
 			</zone>
@@ -3564,12 +3594,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
-					<standard>بولیویا جو وقت</standard>
+					<standard>بولويائي وقت</standard>
 				</long>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic>براسیلیا جو وقت</generic>
+					<generic>بريسيليائي وقت</generic>
 					<standard>براسيليا جو معياري وقت</standard>
 					<daylight>براسيليا جي اونهاري جو وقت</daylight>
 				</long>
@@ -3775,7 +3805,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Guyana">
 				<long>
-					<standard>گیانا جو وقت</standard>
+					<standard>گيانائي وقت</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4087,8 +4117,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
-					<generic>سینٽ پیئر و میڪوئیلون جو وقت</generic>
-					<standard>سینٽ پیئر و میڪوئیلون جو معياري وقت</standard>
+					<generic>سينٽ پيئر ائن ميڪوئلون جو وقت</generic>
+					<standard>سینٽ پیئر اَئن میڪوئلون جو مانائتو وقت</standard>
 					<daylight>سینٽ پیئر و میڪوئیلون جي ڏينهن جو وقت</daylight>
 				</long>
 			</metazone>
@@ -4304,9 +4334,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0K</pattern>
-					<pattern type="1000" count="other">0K</pattern>
-					<pattern type="10000" count="one">00K</pattern>
+					<pattern type="1000" count="one">0 ھزار</pattern>
+					<pattern type="1000" count="other">0 ھزار</pattern>
+					<pattern type="10000" count="one">00 ھزار</pattern>
 					<pattern type="10000" count="other">00K</pattern>
 					<pattern type="100000" count="one">000K</pattern>
 					<pattern type="100000" count="other">000K</pattern>
@@ -5268,6 +5298,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName>سائو ٽوم ۽ پرنسپي دوبرا (2018)</displayName>
+				<displayName count="one">سائو ٽوم ۽ پرنسپي دوبرا (2018)</displayName>
+				<displayName count="other">سائو ٽوم ۽ پرنسپي دوبرا (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
+			</currency>
 			<currency type="SYP">
 				<displayName>سيريائي پائونڊ</displayName>
 				<displayName count="one">سيريائي پائونڊ</displayName>
@@ -5874,31 +5910,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} لڪس</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
-				<displayName>ميٽرڪ ٽن</displayName>
-				<unitPattern count="one">{0} ٽن</unitPattern>
-				<unitPattern count="other">{0} ميٽرڪ ٽن</unitPattern>
+				<displayName>ميٽرڪ ٽَنَ</displayName>
+				<unitPattern count="one">{0} ميٽرڪ ٽَنُ</unitPattern>
+				<unitPattern count="other">{0} ميٽرڪ ٽَنَ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName>ڪلو گرام</displayName>
+				<displayName>ڪلوگرامَ</displayName>
 				<unitPattern count="one">{0} ڪلوگرام</unitPattern>
-				<unitPattern count="other">{0} ڪلوگرام</unitPattern>
+				<unitPattern count="other">{0}ڪلوگرامَ</unitPattern>
 				<perUnitPattern>{0} في ڪلوگرام</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<displayName>گرام</displayName>
+				<displayName>گرامَ</displayName>
 				<unitPattern count="one">{0} گرام</unitPattern>
-				<unitPattern count="other">{0} گرام</unitPattern>
+				<unitPattern count="other">{0} گرامَ</unitPattern>
 				<perUnitPattern>{0} في گرام</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>ملي گرام</displayName>
+				<displayName>ملي گرامَ</displayName>
 				<unitPattern count="one">{0} ملي گرام</unitPattern>
-				<unitPattern count="other">{0} ملي گرام</unitPattern>
+				<unitPattern count="other">{0} ملي گرامَ</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>مائڪرو گرام</displayName>
-				<unitPattern count="one">{0} مائڪرو گرام</unitPattern>
+				<displayName>مائڪروگرامَ</displayName>
+				<unitPattern count="one">{0} مائڪروگرام</unitPattern>
 				<unitPattern count="other">{0} مائڪرو گرام</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>ٽن</displayName>
+				<unitPattern count="one">{0} ٽن</unitPattern>
+				<unitPattern count="other">{0} ٽن</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>پائونڊ</displayName>
@@ -6561,31 +6602,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} لڪس</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
-				<displayName>ٽن</displayName>
-				<unitPattern count="one">{0} ٽن</unitPattern>
-				<unitPattern count="other">{0} ٽن</unitPattern>
+				<displayName>ٽَـ</displayName>
+				<unitPattern count="one">{0} ٽَـ</unitPattern>
+				<unitPattern count="other">{0} ٽَـ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName>ڪلوگرام</displayName>
-				<unitPattern count="one">{0} ڪلوگرام</unitPattern>
-				<unitPattern count="other">{0} ڪلوگرام</unitPattern>
-				<perUnitPattern>{0} في ڪلوگرام</perUnitPattern>
+				<displayName>ڪ.گـ.</displayName>
+				<unitPattern count="one">{0} ڪ.گـ.</unitPattern>
+				<unitPattern count="other">{0} ڪ.گـ.</unitPattern>
+				<perUnitPattern>{0}/ڪ.گـ.</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<displayName>گرام</displayName>
-				<unitPattern count="one">{0} گرام</unitPattern>
-				<unitPattern count="other">{0} گرام</unitPattern>
-				<perUnitPattern>{0} في گرام</perUnitPattern>
+				<displayName>گرامَ</displayName>
+				<unitPattern count="one">{0} گـ</unitPattern>
+				<unitPattern count="other">{0} گـ.</unitPattern>
+				<perUnitPattern>{0}/گـ.</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>ملي گرام</displayName>
-				<unitPattern count="one">{0} ملي گرام</unitPattern>
-				<unitPattern count="other">{0} ملي گرام</unitPattern>
+				<displayName>مـ.گـ.</displayName>
+				<unitPattern count="one">{0} مـ.گـ.</unitPattern>
+				<unitPattern count="other">{0} مـ.گـ.</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>مائڪرو گرام</displayName>
 				<unitPattern count="one">{0} مائڪرو گرام</unitPattern>
 				<unitPattern count="other">{0} مائڪرو گرام</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>ٽن</displayName>
+				<unitPattern count="one">{0} ٽن</unitPattern>
+				<unitPattern count="other">{0} ٽن</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>پائونڊ</displayName>
@@ -6905,15 +6951,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ملي ميٽر</unitPattern>
 				<unitPattern count="other">{0} ملي ميٽر</unitPattern>
 			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>ٽَـ</displayName>
+				<unitPattern count="one">{0}ٽَـ</unitPattern>
+				<unitPattern count="other">{0}ٽَـ</unitPattern>
+			</unit>
 			<unit type="mass-kilogram">
-				<displayName>ڪلوگرام</displayName>
-				<unitPattern count="one">{0} ڪلوگرام</unitPattern>
-				<unitPattern count="other">{0} ڪلوگرام</unitPattern>
+				<displayName>ڪ.گـ.</displayName>
+				<unitPattern count="one">{0}ڪ.گـ.</unitPattern>
+				<unitPattern count="other">{0}ڪ.گـ.</unitPattern>
+				<perUnitPattern>{0}/ڪ.گـ.</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>گرام</displayName>
-				<unitPattern count="one">{0} گرام</unitPattern>
-				<unitPattern count="other">{0} گرام</unitPattern>
+				<unitPattern count="one">{0}گـ.</unitPattern>
+				<unitPattern count="other">{0}گـ.</unitPattern>
+				<perUnitPattern>{0}/گـ.</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>مـ.گـ.</displayName>
+				<unitPattern count="one">{0}مـ.گـ.</unitPattern>
+				<unitPattern count="other">{0}مـ.گـ.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ڪلوميٽر في ڪلاڪ</displayName>
@@ -6995,14 +7053,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="all">{0} — سڀئي</characterLabelPattern>
 		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} - مطابقت</characterLabelPattern>
-		<characterLabelPattern type="enclosed">{0} - منسلڪ</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} - ڳنڍيل</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} - وڌايل</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} - تاريخي</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} - متفرق</characterLabelPattern>
 		<characterLabelPattern type="other">{0} - ٻيا</characterLabelPattern>
-		<characterLabelPattern type="scripts">اسڪرپٽ - {0}</characterLabelPattern>
+		<characterLabelPattern type="scripts">رسم الخط - {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} اسٽروڪ</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other">{0} اسٽروڪ</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} اسٽروڪَ</characterLabelPattern>
 		<characterLabel type="activities">سرگرمي</characterLabel>
 		<characterLabel type="african_scripts">آفريقي رسم الخط</characterLabel>
 		<characterLabel type="american_scripts">آمريڪي رسم الخط</characterLabel>
@@ -7015,14 +7073,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="building">عمارت</characterLabel>
 		<characterLabel type="bullets_stars">گولي يا تارو</characterLabel>
 		<characterLabel type="consonantal_jamo">حرف صحيح جامو</characterLabel>
-		<characterLabel type="currency_symbols">ڪرنسي جي نشاني</characterLabel>
+		<characterLabel type="currency_symbols">سڪي جي نشاني</characterLabel>
 		<characterLabel type="dash_connector">ڊيش يا ڪنيڪٽر</characterLabel>
 		<characterLabel type="digits">انگ</characterLabel>
 		<characterLabel type="dingbats">احمق ماڻهو</characterLabel>
 		<characterLabel type="divination_symbols">اڳڪٿي جي نشاني</characterLabel>
 		<characterLabel type="downwards_arrows">هيٺ تير جو نشان</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">هيٺ مٿي تير جو نشان</characterLabel>
-		<characterLabel type="east_asian_scripts">مشرقي ايشيائي رسم الخط</characterLabel>
+		<characterLabel type="east_asian_scripts">اوڀر ايشيائي رسم الخط</characterLabel>
 		<characterLabel type="emoji">ايموجي</characterLabel>
 		<characterLabel type="european_scripts">يورپي رسم الخط</characterLabel>
 		<characterLabel type="female">مادي</characterLabel>
@@ -7052,7 +7110,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="limited_use">محدود-استعمال</characterLabel>
 		<characterLabel type="male">مرد</characterLabel>
 		<characterLabel type="math_symbols">رياضي جي نشاني</characterLabel>
-		<characterLabel type="middle_eastern_scripts">مشرق وسطي رسم الخط</characterLabel>
+		<characterLabel type="middle_eastern_scripts">وچ اوڀاريون رسم الخط</characterLabel>
 		<characterLabel type="miscellaneous">متفرق</characterLabel>
 		<characterLabel type="modern_scripts">جديد رسم الخط</characterLabel>
 		<characterLabel type="modifier">ترميم ڪندڙ</characterLabel>
@@ -7066,7 +7124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="person">شخص</characterLabel>
 		<characterLabel type="phonetic_alphabet">صوتياتي رسم الخط</characterLabel>
 		<characterLabel type="pictographs">تصويري نشاني</characterLabel>
-		<characterLabel type="place">جڳهه</characterLabel>
+		<characterLabel type="place">جڳھَ</characterLabel>
 		<characterLabel type="plant">ٻوٽو</characterLabel>
 		<characterLabel type="punctuation">اوقاف</characterLabel>
 		<characterLabel type="rightwards_arrows">ساڄي پاسي تير</characterLabel>
@@ -7074,20 +7132,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="small_form_variant">ننڍا ويريئنٽ</characterLabel>
 		<characterLabel type="smiley">هنس مک</characterLabel>
 		<characterLabel type="smileys_people">هنس مک يا شخص</characterLabel>
-		<characterLabel type="south_asian_scripts">جنوبي ايشيائي رسم الخط</characterLabel>
-		<characterLabel type="southeast_asian_scripts">جنوبي مشرقي ايشيائي رسم الخط</characterLabel>
+		<characterLabel type="south_asian_scripts">ڏکڻ ايشيائي رسم الخط</characterLabel>
+		<characterLabel type="southeast_asian_scripts">ڏکڻ-اوڀر ايشيائي رسم الخط</characterLabel>
 		<characterLabel type="spacing">وٿي</characterLabel>
 		<characterLabel type="sport">راند</characterLabel>
 		<characterLabel type="symbols">علامت</characterLabel>
 		<characterLabel type="technical_symbols">تڪنيڪي علامت</characterLabel>
 		<characterLabel type="tone_marks">ٽون مارڪ</characterLabel>
 		<characterLabel type="travel">سفر</characterLabel>
-		<characterLabel type="travel_places">سفر يا جڳهه</characterLabel>
+		<characterLabel type="travel_places">سفر يا جڳھَ</characterLabel>
 		<characterLabel type="upwards_arrows">مٿي تير</characterLabel>
 		<characterLabel type="variant_forms">ويريئنٽ</characterLabel>
 		<characterLabel type="vocalic_jamo">ووڪلڪ جامو</characterLabel>
 		<characterLabel type="weather">موسم</characterLabel>
 		<characterLabel type="western_asian_scripts">مغربي ايشيائي رسم الخط</characterLabel>
-		<characterLabel type="whitespace">خالي جڳهه</characterLabel>
+		<characterLabel type="whitespace">خالي جڳھَ</characterLabel>
 	</characterLabels>
 </ldml>

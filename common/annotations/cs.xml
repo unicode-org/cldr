@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">staveniště</annotation>
 		<annotation cp="🏘">budova | domky | domy | dům</annotation>
 		<annotation cp="🏘" type="tts">domky</annotation>
-		<annotation cp="🏙">budova | krajina | město | městská | městská zástavba | silueta | vyhlídka</annotation>
-		<annotation cp="🏙" type="tts">městská zástavba</annotation>
 		<annotation cp="🏚">budova | dům | opuštěný | opuštěný dům</annotation>
 		<annotation cp="🏚" type="tts">opuštěný dům</annotation>
 		<annotation cp="🏠">budova | domek | domov | dům</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">mlha</annotation>
 		<annotation cp="🌃">hvězda | hvězdná noc | noc | počasí</annotation>
 		<annotation cp="🌃" type="tts">hvězdná noc</annotation>
+		<annotation cp="🏙">budova | krajina | město | městská | městská zástavba | silueta | vyhlídka</annotation>
+		<annotation cp="🏙" type="tts">městská zástavba</annotation>
 		<annotation cp="🌄">hora | počasí | ráno | slunce | svítání | svítání nad horami</annotation>
 		<annotation cp="🌄" type="tts">svítání nad horami</annotation>
 		<annotation cp="🌅">počasí | ráno | slunce | východ slunce</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">značka holičství</annotation>
 		<annotation cp="🎪">cirkus | cirkusový stan | šapitó | stan</annotation>
 		<annotation cp="🎪" type="tts">cirkusový stan</annotation>
-		<annotation cp="🎭">divadlo | herec | herectví | hra | komedie | maska | múzická umění | tragédie | umění</annotation>
-		<annotation cp="🎭" type="tts">múzická umění</annotation>
-		<annotation cp="🖼">malířství | malování | muzeum | obraz | obraz v rámu | rám | umění</annotation>
-		<annotation cp="🖼" type="tts">obraz v rámu</annotation>
-		<annotation cp="🎨">malíř | malířská paleta | malířství | malování | muzeum | paleta | umění</annotation>
-		<annotation cp="🎨" type="tts">malířská paleta</annotation>
-		<annotation cp="🎰">automat | hra | výherní automat</annotation>
-		<annotation cp="🎰" type="tts">výherní automat</annotation>
 		<annotation cp="🚂">lokomotiva | pára | vlak | vozidlo | železnice</annotation>
 		<annotation cp="🚂" type="tts">lokomotiva</annotation>
 		<annotation cp="🚃">elektrický | tramvaj | trolejbus | vagón | vlak | vozidlo | železnice</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">dálnice</annotation>
 		<annotation cp="🛤">koleje | vlak | železnice | železniční trať</annotation>
 		<annotation cp="🛤" type="tts">železniční trať</annotation>
+		<annotation cp="🛢">barel | nafta | ropa | sud</annotation>
+		<annotation cp="🛢" type="tts">barel</annotation>
 		<annotation cp="⛽">benzín | benzínka | benzínová pumpa | čerpací | nafta | palivo | pumpa | stanice</annotation>
 		<annotation cp="⛽" type="tts">benzínová pumpa</annotation>
 		<annotation cp="🚨">auto | maják | otáčecí | policejní maják | policie | siréna | světlo | vozidlo</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">vodorovný semafor</annotation>
 		<annotation cp="🚦">doprava | signál | signalizace | světelná | světlo | svislý semafor</annotation>
 		<annotation cp="🚦" type="tts">svislý semafor</annotation>
-		<annotation cp="🚧">cedule | práce na silnici | stavba | stavební zábrana | značka</annotation>
-		<annotation cp="🚧" type="tts">stavební zábrana</annotation>
 		<annotation cp="🛑">jednosměrka | osmiúhelník | stop | zákaz | zastavit | značka | značka stop</annotation>
 		<annotation cp="🛑" type="tts">značka stop</annotation>
+		<annotation cp="🚧">cedule | práce na silnici | stavba | stavební zábrana | značka</annotation>
+		<annotation cp="🚧" type="tts">stavební zábrana</annotation>
 		<annotation cp="⚓">kotva | loď | zařízení</annotation>
 		<annotation cp="⚓" type="tts">kotva</annotation>
 		<annotation cp="⛵">dovolená | jachta | loď | moře | plachetnice | plavidlo</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">létající talíř</annotation>
 		<annotation cp="🛎">hotel | portýr | portýrský zvonek | poslíček | recepce | zvon | zvonek</annotation>
 		<annotation cp="🛎" type="tts">portýrský zvonek</annotation>
-		<annotation cp="🚪">dveře</annotation>
-		<annotation cp="🚪" type="tts">dveře</annotation>
-		<annotation cp="🛏">hotel | postel | spánek</annotation>
-		<annotation cp="🛏" type="tts">postel</annotation>
-		<annotation cp="🛋">gauč | gauč a lampa | hotel | lampa</annotation>
-		<annotation cp="🛋" type="tts">gauč a lampa</annotation>
-		<annotation cp="🚽">klozet | toaleta | toaletní mísa | WC | záchod</annotation>
-		<annotation cp="🚽" type="tts">toaletní mísa</annotation>
-		<annotation cp="🚿">koupelna | sprcha | voda</annotation>
-		<annotation cp="🚿" type="tts">sprcha</annotation>
-		<annotation cp="🛁">koupel | koupelna | lázeň | vana | voda</annotation>
-		<annotation cp="🛁" type="tts">vana</annotation>
 		<annotation cp="⌛">čas | časomíra | časovač | minutka | písek | přesýpací hodiny</annotation>
 		<annotation cp="⌛" type="tts">přesýpací hodiny</annotation>
 		<annotation cp="⏳">běžící přesýpací hodiny | čas | časomíra | časovač | minutka | písek</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">míč na rugby</annotation>
 		<annotation cp="🎾">míček | raketa | tenis | tenisák | tenisový</annotation>
 		<annotation cp="🎾" type="tts">tenis</annotation>
-		<annotation cp="🎱">8 | biliár | billiard | hra | koule | kulečník | kulečníková koule 8 | osm | pool</annotation>
-		<annotation cp="🎱" type="tts">kulečníková koule 8</annotation>
 		<annotation cp="🎳">bowling | bowlingová | hra | koule | kuželka | kuželky</annotation>
 		<annotation cp="🎳" type="tts">bowling</annotation>
 		<annotation cp="🏏">hra | kriket | míč | pálka</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">sportovní kimono</annotation>
 		<annotation cp="🥅">brána | branka | gól | síť | sport | sportovní branka</annotation>
 		<annotation cp="🥅" type="tts">sportovní branka</annotation>
-		<annotation cp="🎯">cíl | hra | přesný zásah do terče | šipka | střed | středu | terč | trefa | zásah</annotation>
-		<annotation cp="🎯" type="tts">přesný zásah do terče</annotation>
 		<annotation cp="⛳">golf | golfová | jamka | jamka s vlajkou</annotation>
 		<annotation cp="⛳" type="tts">jamka s vlajkou</annotation>
 		<annotation cp="⛸">brusle | bruslení | led</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">sáňky</annotation>
 		<annotation cp="🥌">curling | curlingový kámen | hra | kámen</annotation>
 		<annotation cp="🥌" type="tts">curlingový kámen</annotation>
+		<annotation cp="🎯">cíl | hra | přesný zásah do terče | šipka | střed | středu | terč | trefa | zásah</annotation>
+		<annotation cp="🎯" type="tts">přesný zásah do terče</annotation>
+		<annotation cp="🎱">8 | biliár | billiard | hra | koule | kulečník | kulečníková koule 8 | osm | pool</annotation>
+		<annotation cp="🎱" type="tts">kulečníková koule 8</annotation>
+		<annotation cp="🔮">budoucnost | fantasy | koule | křišťál | křišťálová koule | nástroj | pohádka | předpověď | sklo</annotation>
+		<annotation cp="🔮" type="tts">křišťálová koule</annotation>
 		<annotation cp="🎮">gamepad | hra | ovladač | videohra</annotation>
 		<annotation cp="🎮" type="tts">videohra</annotation>
 		<annotation cp="🕹">hra | joystick | ovladač | videohra</annotation>
 		<annotation cp="🕹" type="tts">joystick</annotation>
+		<annotation cp="🎰">automat | hra | výherní automat</annotation>
+		<annotation cp="🎰" type="tts">výherní automat</annotation>
 		<annotation cp="🎲">hra | hrací kostka | kostka | kostky</annotation>
 		<annotation cp="🎲" type="tts">hrací kostka</annotation>
 		<annotation cp="♠">barva | hra | karta | piky</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">červený drak v mahjongu</annotation>
 		<annotation cp="🎴">hra | hrací karty s květinami | hraní | japonský | karta | květina</annotation>
 		<annotation cp="🎴" type="tts">hrací karty s květinami</annotation>
+		<annotation cp="🎭">divadlo | herec | herectví | hra | komedie | maska | múzická umění | tragédie | umění</annotation>
+		<annotation cp="🎭" type="tts">múzická umění</annotation>
+		<annotation cp="🖼">malířství | malování | muzeum | obraz | obraz v rámu | rám | umění</annotation>
+		<annotation cp="🖼" type="tts">obraz v rámu</annotation>
+		<annotation cp="🎨">malíř | malířská paleta | malířství | malování | muzeum | paleta | umění</annotation>
+		<annotation cp="🎨" type="tts">malířská paleta</annotation>
 		<annotation cp="🔇">hlasitost | reproduktor | tichý | vypnutý reproduktor | ztlumený</annotation>
 		<annotation cp="🔇" type="tts">vypnutý reproduktor</annotation>
 		<annotation cp="🔈">mírný | tichý | tiše hrající reproduktor | tlumený</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">lupa nakloněná doleva</annotation>
 		<annotation cp="🔎">hledání | lupa nakloněná doprava | nářadí | nástroj | sklo | zvětšení | zvětšovací | zvětšování</annotation>
 		<annotation cp="🔎" type="tts">lupa nakloněná doprava</annotation>
-		<annotation cp="🔬">mikroskop | nástroj | věda | vědecký | zvětšení</annotation>
-		<annotation cp="🔬" type="tts">mikroskop</annotation>
-		<annotation cp="🔭">dalekohled | hvězdářský | nástroj | teleskop | věda | vědecký</annotation>
-		<annotation cp="🔭" type="tts">teleskop</annotation>
-		<annotation cp="📡">anténa | satelit | satelitní anténa | talíř</annotation>
-		<annotation cp="📡" type="tts">satelitní anténa</annotation>
 		<annotation cp="🕯">světlo | svíčka</annotation>
 		<annotation cp="🕯" type="tts">svíčka</annotation>
 		<annotation cp="💡">baňka | elektrická | elektřina | komiks | nápad | světlo | žárovka</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">ozubené kolo</annotation>
 		<annotation cp="🗜">komprese | nářadí | svěrka | svorka | tlak</annotation>
 		<annotation cp="🗜" type="tts">svěrka</annotation>
-		<annotation cp="⚗">alembik | chemie | destilace | destilační | křivule | náčiní | nádobí</annotation>
-		<annotation cp="⚗" type="tts">křivule</annotation>
 		<annotation cp="⚖">miskové váhy | nářadí | rovnováha | spravedlnost | váha | zvěrokruh</annotation>
 		<annotation cp="⚖" type="tts">miskové váhy</annotation>
 		<annotation cp="🔗">článek | články řetězu | řetěz | spojení</annotation>
 		<annotation cp="🔗" type="tts">články řetězu</annotation>
 		<annotation cp="⛓">řetěz | řetězy</annotation>
 		<annotation cp="⛓" type="tts">řetězy</annotation>
+		<annotation cp="⚗">alembik | chemie | destilace | destilační | křivule | náčiní | nádobí</annotation>
+		<annotation cp="⚗" type="tts">křivule</annotation>
+		<annotation cp="🔬">mikroskop | nástroj | věda | vědecký | zvětšení</annotation>
+		<annotation cp="🔬" type="tts">mikroskop</annotation>
+		<annotation cp="🔭">dalekohled | hvězdářský | nástroj | teleskop | věda | vědecký</annotation>
+		<annotation cp="🔭" type="tts">teleskop</annotation>
+		<annotation cp="📡">anténa | satelit | satelitní anténa | talíř</annotation>
+		<annotation cp="📡" type="tts">satelitní anténa</annotation>
 		<annotation cp="💉">dávka | doktor | injekce | injekční stříkačka | jehla | lék | lékař | nástroj | nemoc | nemocný | očkování</annotation>
 		<annotation cp="💉" type="tts">injekční stříkačka</annotation>
 		<annotation cp="💊">doktor | lék | lékař | nemoc | nemocný | pilulka | prášek</annotation>
 		<annotation cp="💊" type="tts">pilulka</annotation>
+		<annotation cp="🚪">dveře</annotation>
+		<annotation cp="🚪" type="tts">dveře</annotation>
+		<annotation cp="🛏">hotel | postel | spánek</annotation>
+		<annotation cp="🛏" type="tts">postel</annotation>
+		<annotation cp="🛋">gauč | gauč a lampa | hotel | lampa</annotation>
+		<annotation cp="🛋" type="tts">gauč a lampa</annotation>
+		<annotation cp="🚽">klozet | toaleta | toaletní mísa | WC | záchod</annotation>
+		<annotation cp="🚽" type="tts">toaletní mísa</annotation>
+		<annotation cp="🚿">koupelna | sprcha | voda</annotation>
+		<annotation cp="🚿" type="tts">sprcha</annotation>
+		<annotation cp="🛁">koupel | koupelna | lázeň | vana | voda</annotation>
+		<annotation cp="🛁" type="tts">vana</annotation>
+		<annotation cp="🛒">košík | nákupní | nákupní vozík | nakupování | vozík</annotation>
+		<annotation cp="🛒" type="tts">nákupní vozík</annotation>
 		<annotation cp="🚬">cigareta | kouření</annotation>
 		<annotation cp="🚬" type="tts">cigareta</annotation>
 		<annotation cp="⚰">rakev | smrt</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">pohřební urna</annotation>
 		<annotation cp="🗿">moyai | smajlík | socha | socha moai | tvář | výraz</annotation>
 		<annotation cp="🗿" type="tts">socha moai</annotation>
-		<annotation cp="🛢">barel | nafta | ropa | sud</annotation>
-		<annotation cp="🛢" type="tts">barel</annotation>
-		<annotation cp="🔮">budoucnost | fantasy | koule | křišťál | křišťálová koule | nástroj | pohádka | předpověď | sklo</annotation>
-		<annotation cp="🔮" type="tts">křišťálová koule</annotation>
-		<annotation cp="🛒">košík | nákupní | nákupní vozík | nakupování | vozík</annotation>
-		<annotation cp="🛒" type="tts">nákupní vozík</annotation>
 		<annotation cp="🏧">atm | automat | banka | bankomat | značka bankomatu</annotation>
 		<annotation cp="🏧" type="tts">značka bankomatu</annotation>
 		<annotation cp="🚮">koš | odpad | odpadky | smetí | značka odpadkového koše</annotation>

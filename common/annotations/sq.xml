@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1241,8 +1241,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍬" type="tts">ëmbëlsirë</annotation>
 		<annotation cp="🍭">e ëmbël | ëmbëlsirë | karamele | lëpirëse</annotation>
 		<annotation cp="🍭" type="tts">lëpirëse</annotation>
-		<annotation cp="🍮">e ëmbël | ëmbëlsirë | krem karamel | puding</annotation>
-		<annotation cp="🍮" type="tts">krem karamel</annotation>
+		<annotation cp="🍮">e ëmbël | ëmbëlsirë | krem-karamel | puding</annotation>
+		<annotation cp="🍮" type="tts">krem-karamel</annotation>
 		<annotation cp="🍯">e ëmbël | i ëmbël | kupë | mjaltë | vazo me mjaltë</annotation>
 		<annotation cp="🍯" type="tts">vazo me mjaltë</annotation>
 		<annotation cp="🍼">bebe | pije | qumësht | shishe | shishe për bebe</annotation>
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">ndërtim ndërtese</annotation>
 		<annotation cp="🏘">ndërtesë | shtëpi | shtëpitë</annotation>
 		<annotation cp="🏘" type="tts">shtëpitë</annotation>
-		<annotation cp="🏙">ndërtesë | panoramë qyteti | qytet</annotation>
-		<annotation cp="🏙" type="tts">panoramë qyteti</annotation>
 		<annotation cp="🏚">e braktisur | ndërtesë | shtëpi | shtëpi e braktisur</annotation>
 		<annotation cp="🏚" type="tts">shtëpi e braktisur</annotation>
 		<annotation cp="🏠">ndërtesë | shtëpi</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">me mjegull</annotation>
 		<annotation cp="🌃">moti | natë | natë me yje | yll</annotation>
 		<annotation cp="🌃" type="tts">natë me yje</annotation>
+		<annotation cp="🏙">ndërtesë | panoramë qyteti | qytet</annotation>
+		<annotation cp="🏙" type="tts">panoramë qyteti</annotation>
 		<annotation cp="🌄">diell | lindja e diellit mbi male | lindje dielli | mal | mëngjes | moti</annotation>
 		<annotation cp="🌄" type="tts">lindja e diellit mbi male</annotation>
 		<annotation cp="🌅">diell | lindja e diellit | mëngjes | moti</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">shenja e berberit</annotation>
 		<annotation cp="🎪">cirk | tendë | tendë cirku</annotation>
 		<annotation cp="🎪" type="tts">tendë cirku</annotation>
-		<annotation cp="🎭">art | arte interpretimi | interpretim | maskë | teatër</annotation>
-		<annotation cp="🎭" type="tts">arte interpretimi</annotation>
-		<annotation cp="🖼">art | imazh | kornizë | kornizë me pikturë | muze | pikturë</annotation>
-		<annotation cp="🖼" type="tts">kornizë me pikturë</annotation>
-		<annotation cp="🎨">art | muze | paleta e artistit | paletë | pikturë</annotation>
-		<annotation cp="🎨" type="tts">paleta e artistit</annotation>
-		<annotation cp="🎰">lojë | lojë me monedha | monedhë</annotation>
-		<annotation cp="🎰" type="tts">lojë me monedha</annotation>
 		<annotation cp="🚂">avull | hekurudhë | lokomotivë | mjet | motor | tren</annotation>
 		<annotation cp="🚂" type="tts">lokomotivë</annotation>
 		<annotation cp="🚃">elektrik | filobus | hekurudhë | makinë | mjet | tramvaj | tren | vagon</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">autostradë</annotation>
 		<annotation cp="🛤">hekurudhë | shina | tren</annotation>
 		<annotation cp="🛤" type="tts">shina</annotation>
+		<annotation cp="🛢">fuçi | fuçi karburanti | naftë</annotation>
+		<annotation cp="🛢" type="tts">fuçi karburanti</annotation>
 		<annotation cp="⛽">benzinë | karburant | pikë | pompë | pompë karburanti | stacion</annotation>
 		<annotation cp="⛽" type="tts">pompë karburanti</annotation>
 		<annotation cp="🚨">dritat sinjalizuese të policisë | dritë | makinë | mjet | rrotullues | rrotulluese | sinjal</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">semafor horizontal</annotation>
 		<annotation cp="🚦">dritë | semafor vertikal | sinjal | trafik</annotation>
 		<annotation cp="🚦" type="tts">semafor vertikal</annotation>
-		<annotation cp="🚧">barrierë | ndërtim</annotation>
-		<annotation cp="🚧" type="tts">ndërtim</annotation>
 		<annotation cp="🛑">ndalo | shenja “ndalo” | shenjë | tetëkëndor</annotation>
 		<annotation cp="🛑" type="tts">shenja “ndalo”</annotation>
+		<annotation cp="🚧">barrierë | ndërtim</annotation>
+		<annotation cp="🚧" type="tts">ndërtim</annotation>
 		<annotation cp="⚓">anije | spirancë | vegël</annotation>
 		<annotation cp="⚓" type="tts">spirancë</annotation>
 		<annotation cp="⛵">det | jaht | mjet | turistike | varkë | varkë me vela</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">disk fluturues</annotation>
 		<annotation cp="🛎">hotel | zile | zile shërbimi</annotation>
 		<annotation cp="🛎" type="tts">zile shërbimi</annotation>
-		<annotation cp="🚪">derë</annotation>
-		<annotation cp="🚪" type="tts">derë</annotation>
-		<annotation cp="🛏">gjumë | hotel | krevat</annotation>
-		<annotation cp="🛏" type="tts">krevat</annotation>
-		<annotation cp="🛋">divan | divan dhe llambë | hotel | llambë</annotation>
-		<annotation cp="🛋" type="tts">divan dhe llambë</annotation>
-		<annotation cp="🚽">tualet</annotation>
-		<annotation cp="🚽" type="tts">tualet</annotation>
-		<annotation cp="🚿">dush | ujë</annotation>
-		<annotation cp="🚿" type="tts">dush</annotation>
-		<annotation cp="🛁">vaskë</annotation>
-		<annotation cp="🛁" type="tts">vaskë</annotation>
 		<annotation cp="⌛">kohëmatës | orë me rërë | rërë</annotation>
 		<annotation cp="⌛" type="tts">orë me rërë</annotation>
 		<annotation cp="⏳">kohëmatës | orë | orë me rërë që rrjedh | rërë</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">regbi</annotation>
 		<annotation cp="🎾">raketë | tenis | top</annotation>
 		<annotation cp="🎾" type="tts">tenis</annotation>
-		<annotation cp="🎱">8 | 8 gurë | bilardo | gurë | lojë | tetë</annotation>
-		<annotation cp="🎱" type="tts">bilardo</annotation>
 		<annotation cp="🎳">bouling | lojë | top</annotation>
 		<annotation cp="🎳" type="tts">bouling</annotation>
 		<annotation cp="🏏">kriket | lojë | shkop | top</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">uniformë artesh ushtarake</annotation>
 		<annotation cp="🥅">gol | rrjet | rrjetë golash | sport</annotation>
 		<annotation cp="🥅" type="tts">rrjetë golash</annotation>
-		<annotation cp="🎯">goditje | goditje e drejtpërdrejtë | lojë | në qendër | objektiv | qendër | shigjetë | sy</annotation>
-		<annotation cp="🎯" type="tts">goditje e drejtpërdrejtë</annotation>
 		<annotation cp="⛳">flamur në vrimë | golf | vrimë</annotation>
 		<annotation cp="⛳" type="tts">flamur në vrimë</annotation>
 		<annotation cp="⛸">akull | patina akulli | patinë</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">sajë</annotation>
 		<annotation cp="🥌">gur | gur kurlingu | lojë | shkëmb</annotation>
 		<annotation cp="🥌" type="tts">gur kurlingu</annotation>
+		<annotation cp="🎯">goditje | goditje e drejtpërdrejtë | lojë | në qendër | objektiv | qendër | shigjetë | sy</annotation>
+		<annotation cp="🎯" type="tts">goditje e drejtpërdrejtë</annotation>
+		<annotation cp="🎱">8 | 8 gurë | bilardo | gurë | lojë | tetë</annotation>
+		<annotation cp="🎱" type="tts">bilardo</annotation>
+		<annotation cp="🔮">fantazi | fat | kristal | përrallë | top | top kristali | vegël</annotation>
+		<annotation cp="🔮" type="tts">top kristali</annotation>
 		<annotation cp="🎮">kontrollues | lojë | videolojë</annotation>
 		<annotation cp="🎮" type="tts">videolojë</annotation>
 		<annotation cp="🕹">levë | lojë | videolojë</annotation>
 		<annotation cp="🕹" type="tts">levë</annotation>
+		<annotation cp="🎰">lojë | lojë me monedha | monedhë</annotation>
+		<annotation cp="🎰" type="tts">lojë me monedha</annotation>
 		<annotation cp="🎲">lojë | zar | zar loje | zarë</annotation>
 		<annotation cp="🎲" type="tts">zar loje</annotation>
 		<annotation cp="♠">figurë | figurë maç | letër | lojë | maç</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">dragua i kuq mahjong</annotation>
 		<annotation cp="🎴">japonez | japoneze | letër | letra me lule | lojë | luaj | lule</annotation>
 		<annotation cp="🎴" type="tts">letra me lule</annotation>
+		<annotation cp="🎭">art | arte interpretimi | interpretim | maskë | teatër</annotation>
+		<annotation cp="🎭" type="tts">arte interpretimi</annotation>
+		<annotation cp="🖼">art | imazh | kornizë | kornizë me pikturë | muze | pikturë</annotation>
+		<annotation cp="🖼" type="tts">kornizë me pikturë</annotation>
+		<annotation cp="🎨">art | muze | paleta e artistit | paletë | pikturë</annotation>
+		<annotation cp="🎨" type="tts">paleta e artistit</annotation>
 		<annotation cp="🔇">altoparlant | altoparlant joaktiv | i heshtur | i qetë | pa zë | volum</annotation>
 		<annotation cp="🔇" type="tts">altoparlant joaktiv</annotation>
 		<annotation cp="🔈">altoparlant | altoparlant me zë të ulët | volum i ulët | zë i butë</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">lupë zmadhuese që tregon majtas</annotation>
 		<annotation cp="🔎">kërko | lupë | lupë zmadhuese e drejtuar djathtas | vegël | xham | zmadhuese</annotation>
 		<annotation cp="🔎" type="tts">lupë zmadhuese e drejtuar djathtas</annotation>
-		<annotation cp="🔬">instrument | mikroskop | shkencë | vegël</annotation>
-		<annotation cp="🔬" type="tts">mikroskop</annotation>
-		<annotation cp="🔭">instrument | shkencë | teleskop | vegël</annotation>
-		<annotation cp="🔭" type="tts">teleskop</annotation>
-		<annotation cp="📡">antenë | antenë satelitore | satelit | satelitore</annotation>
-		<annotation cp="📡" type="tts">antenë satelitore</annotation>
 		<annotation cp="🕯">dritë | qiri</annotation>
 		<annotation cp="🕯" type="tts">qiri</annotation>
 		<annotation cp="💡">dritë | elektrik | ide | llambë | llambushkë | vizatim komik</annotation>
@@ -2083,7 +2069,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔒" type="tts">kyç</annotation>
 		<annotation cp="🔓">hap | i hapur | i shkyçur | kyç | kyç i hapur | shkyç</annotation>
 		<annotation cp="🔓" type="tts">kyç i hapur</annotation>
-		<annotation cp="🔏">bojë | kyç | kyç me penë | majë pene | penë | privatësi</annotation>
+		<annotation cp="🔏">bojë | kyç | majë pene | penë | privatësi</annotation>
 		<annotation cp="🔏" type="tts">kyç me penë</annotation>
 		<annotation cp="🔐">çelës | i mbyllur | i sigurt | kyç | kyç i mbyllur me çelës</annotation>
 		<annotation cp="🔐" type="tts">kyç i mbyllur me çelës</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">ingranazh</annotation>
 		<annotation cp="🗜">morsë | ngjeshëse | ngjeshje | shtrënguese | vegël</annotation>
 		<annotation cp="🗜" type="tts">ngjeshje</annotation>
-		<annotation cp="⚗">aparat destilues | kimi | lambik</annotation>
-		<annotation cp="⚗" type="tts">lambik</annotation>
 		<annotation cp="⚖">drejtësi | ekuilibër | peshë | peshore | vegël | zodiak</annotation>
 		<annotation cp="⚖" type="tts">peshore</annotation>
 		<annotation cp="🔗">lidh | zinxhir</annotation>
 		<annotation cp="🔗" type="tts">lidh</annotation>
 		<annotation cp="⛓">zinxhir | zinxhirë</annotation>
 		<annotation cp="⛓" type="tts">zinxhirë</annotation>
+		<annotation cp="⚗">aparat destilues | kimi | lambik</annotation>
+		<annotation cp="⚗" type="tts">lambik</annotation>
+		<annotation cp="🔬">instrument | mikroskop | shkencë | vegël</annotation>
+		<annotation cp="🔬" type="tts">mikroskop</annotation>
+		<annotation cp="🔭">instrument | shkencë | teleskop | vegël</annotation>
+		<annotation cp="🔭" type="tts">teleskop</annotation>
+		<annotation cp="📡">antenë | antenë satelitore | satelit | satelitore</annotation>
+		<annotation cp="📡" type="tts">antenë satelitore</annotation>
 		<annotation cp="💉">bar | doktor | gjilpërë | i sëmurë | ilaç | injeksion | shiringë | vegël</annotation>
 		<annotation cp="💉" type="tts">shiringë</annotation>
 		<annotation cp="💊">bar | doktor | i sëmurë | ilaç | pilulë</annotation>
 		<annotation cp="💊" type="tts">pilulë</annotation>
+		<annotation cp="🚪">derë</annotation>
+		<annotation cp="🚪" type="tts">derë</annotation>
+		<annotation cp="🛏">gjumë | hotel | krevat</annotation>
+		<annotation cp="🛏" type="tts">krevat</annotation>
+		<annotation cp="🛋">divan | divan dhe llambë | hotel | llambë</annotation>
+		<annotation cp="🛋" type="tts">divan dhe llambë</annotation>
+		<annotation cp="🚽">tualet</annotation>
+		<annotation cp="🚽" type="tts">tualet</annotation>
+		<annotation cp="🚿">dush | ujë</annotation>
+		<annotation cp="🚿" type="tts">dush</annotation>
+		<annotation cp="🛁">vaskë</annotation>
+		<annotation cp="🛁" type="tts">vaskë</annotation>
+		<annotation cp="🛒">blerje | karrocë | karrocë dore | karrocë pazari | pazar</annotation>
+		<annotation cp="🛒" type="tts">karrocë pazari</annotation>
 		<annotation cp="🚬">cigare | pirje duhani</annotation>
 		<annotation cp="🚬" type="tts">cigare</annotation>
 		<annotation cp="⚰">arkivol | vdekje</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">urnë funerali</annotation>
 		<annotation cp="🗿">fytyrë | moai | statujë</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
-		<annotation cp="🛢">fuçi | fuçi karburanti | naftë</annotation>
-		<annotation cp="🛢" type="tts">fuçi karburanti</annotation>
-		<annotation cp="🔮">fantazi | fat | kristal | përrallë | top | top kristali | vegël</annotation>
-		<annotation cp="🔮" type="tts">top kristali</annotation>
-		<annotation cp="🛒">blerje | karrocë | karrocë dore | karrocë pazari | pazar</annotation>
-		<annotation cp="🛒" type="tts">karrocë pazari</annotation>
 		<annotation cp="🏧">atm | bankë | bankomat | shenja e bankomatit | sportel</annotation>
 		<annotation cp="🏧" type="tts">shenja e bankomatit</annotation>
 		<annotation cp="🚮">kosh | mbeturinë | shenja e koshit të mbeturinave</annotation>
@@ -2339,7 +2339,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">shenja femër</annotation>
 		<annotation cp="♂">burrë | mashkull | shenja mashkull</annotation>
 		<annotation cp="♂" type="tts">shenja mashkull</annotation>
-		<annotation cp="⚕">asklepiu | mjekësi | personel mjekësor | simboli mjekësor</annotation>
+		<annotation cp="⚕">asklepiu | mjekësi | personel mjekësor</annotation>
 		<annotation cp="⚕" type="tts">simboli mjekësor</annotation>
 		<annotation cp="♻">ricikloj | simboli i riciklimit</annotation>
 		<annotation cp="♻" type="tts">simboli i riciklimit</annotation>
@@ -2423,10 +2423,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🅱" type="tts">butoni «B»</annotation>
 		<annotation cp="🆑">butoni «CL» | butoni i pastrimit | cl</annotation>
 		<annotation cp="🆑" type="tts">butoni «CL»</annotation>
-		<annotation cp="🆒">butoni i freskimit | butoni i freskisë «COOL» | cool | freski</annotation>
-		<annotation cp="🆒" type="tts">butoni i freskisë «COOL»</annotation>
+		<annotation cp="🆒">butoni i freskimit | butoni i freskimit «COOL» | cool | freski</annotation>
+		<annotation cp="🆒" type="tts">butoni «COOL»</annotation>
 		<annotation cp="🆓">butoni i lirimit | butoni i lirimit «FREE» | free | liro</annotation>
-		<annotation cp="🆓" type="tts">butoni i lirimit «FREE»</annotation>
+		<annotation cp="🆓" type="tts">butoni «FREE»</annotation>
 		<annotation cp="ℹ">i | informacion</annotation>
 		<annotation cp="ℹ" type="tts">informacion</annotation>
 		<annotation cp="🆔">butoni «ID» | ID | identitet</annotation>

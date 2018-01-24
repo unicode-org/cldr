@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -105,7 +105,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😝" type="tts">wyneb â thafod yng ngolwg a llygaid ynghau</annotation>
 		<annotation cp="🤤">glafoerio | wyneb | wyneb glafoerio</annotation>
 		<annotation cp="🤤" type="tts">wyneb glafoerio</annotation>
-		<annotation cp="😒">anhapus | di--ddifyr | wyneb | wyneb ddi-ddifyr</annotation>
+		<annotation cp="😒">anhapus | di-ddifyr | wyneb | wyneb ddi-ddifyr</annotation>
 		<annotation cp="😒" type="tts">wyneb ddi-ddifyr</annotation>
 		<annotation cp="😓">chwys | gofid | wyneb | wyneb yn chwysu o ofid</annotation>
 		<annotation cp="😓" type="tts">wyneb yn chwysu o ofid</annotation>
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">adeiladwaith adeilad</annotation>
 		<annotation cp="🏘">adeiladu | tai | tŷ</annotation>
 		<annotation cp="🏘" type="tts">tai</annotation>
-		<annotation cp="🏙">adeiladu | dinas | dinaslun</annotation>
-		<annotation cp="🏙" type="tts">dinaslun</annotation>
 		<annotation cp="🏚">adeilad | gwag | tŷ | tŷ gwag</annotation>
 		<annotation cp="🏚" type="tts">tŷ gwag</annotation>
 		<annotation cp="🏠">adeilad | cartref | tŷ</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">niwlog</annotation>
 		<annotation cp="🌃">nos | noson â sêr | seren | tywydd</annotation>
 		<annotation cp="🌃" type="tts">noson â sêr</annotation>
+		<annotation cp="🏙">adeiladu | dinas | dinaslun</annotation>
+		<annotation cp="🏙" type="tts">dinaslun</annotation>
 		<annotation cp="🌄">bore | codiad | codiad haul dros fynyddoedd | haul | mynydd</annotation>
 		<annotation cp="🌄" type="tts">codiad haul dros fynyddoedd</annotation>
 		<annotation cp="🌅">codiad haul | haul | tywydd</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">polyn barbwr</annotation>
 		<annotation cp="🎪">syrcas | tent | tent syrcas</annotation>
 		<annotation cp="🎪" type="tts">tent syrcas</annotation>
-		<annotation cp="🎭">celf | celfyddydau perfformiadol | mwgwd | perfformiadol | theatr</annotation>
-		<annotation cp="🎭" type="tts">celfyddydau perfformiadol</annotation>
-		<annotation cp="🖼">amgueddfa | celf | ffrâm | ffrâm gyda llun</annotation>
-		<annotation cp="🖼" type="tts">ffrâm gyda llun</annotation>
-		<annotation cp="🎨">amgueddfa | celf | paentiad | palet arlunydd</annotation>
-		<annotation cp="🎨" type="tts">palet arlunydd</annotation>
-		<annotation cp="🎰">gêm | peiriant slot | slot</annotation>
-		<annotation cp="🎰" type="tts">peiriant slot</annotation>
 		<annotation cp="🚂">locomotif | peiriant | rheilffordd | stêm | trên</annotation>
 		<annotation cp="🚂" type="tts">locomotif</annotation>
 		<annotation cp="🚃">car | car rheilffordd | rheilffordd | trên | trydan</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">traffordd</annotation>
 		<annotation cp="🛤">rheilffordd | trac rheilffordd | trên</annotation>
 		<annotation cp="🛤" type="tts">trac rheilffordd</annotation>
+		<annotation cp="🛢">drwm | drwm olew | olew</annotation>
+		<annotation cp="🛢" type="tts">drwm olew</annotation>
 		<annotation cp="⛽">gorsaf | pwmp | pwmp tanwydd | tanwydd</annotation>
 		<annotation cp="⛽" type="tts">pwmp tanwydd</annotation>
 		<annotation cp="🚨">car | golau | golau car yr heddlu | heddlu</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">golau traffig llorweddol</annotation>
 		<annotation cp="🚦">arwydd | golau | golau traffig fertigol | traffig</annotation>
 		<annotation cp="🚦" type="tts">golau traffig fertigol</annotation>
-		<annotation cp="🚧">adeiladwaith | rhwystr</annotation>
-		<annotation cp="🚧" type="tts">adeiladwaith</annotation>
 		<annotation cp="🛑">arwydd | arwydd stop | stop | wythonglog</annotation>
 		<annotation cp="🛑" type="tts">arwydd stop</annotation>
+		<annotation cp="🚧">adeiladwaith | rhwystr</annotation>
+		<annotation cp="🚧" type="tts">adeiladwaith</annotation>
 		<annotation cp="⚓">angor | llong | offer</annotation>
 		<annotation cp="⚓" type="tts">angor</annotation>
 		<annotation cp="⛵">cwch | cwch hwylio | cyrchfan | môr</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">soser hedegog</annotation>
 		<annotation cp="🛎">cloch | gwesty | porthor</annotation>
 		<annotation cp="🛎" type="tts">porthor</annotation>
-		<annotation cp="🚪">drws</annotation>
-		<annotation cp="🚪" type="tts">drws</annotation>
-		<annotation cp="🛏">cysgu | gwely | gwesty</annotation>
-		<annotation cp="🛏" type="tts">gwely</annotation>
-		<annotation cp="🛋">gwesty | lamp | soffa | soffa a lamp</annotation>
-		<annotation cp="🛋" type="tts">soffa a lamp</annotation>
-		<annotation cp="🚽">toiled</annotation>
-		<annotation cp="🚽" type="tts">toiled</annotation>
-		<annotation cp="🚿">cawod | dŵr</annotation>
-		<annotation cp="🚿" type="tts">cawod</annotation>
-		<annotation cp="🛁">bath | twba bath</annotation>
-		<annotation cp="🛁" type="tts">twba bath</annotation>
 		<annotation cp="⌛">amserydd | awrwydr | tywod</annotation>
 		<annotation cp="⌛" type="tts">awrwydr</annotation>
 		<annotation cp="⏳">amserydd | awrwydr | awrwydr gyda thywod yn llifo | tywod</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">pêl rygbi</annotation>
 		<annotation cp="🎾">pêl | raced | tenis</annotation>
 		<annotation cp="🎾" type="tts">tenis</annotation>
-		<annotation cp="🎱">biliards | gêm | wyth</annotation>
-		<annotation cp="🎱" type="tts">biliards</annotation>
 		<annotation cp="🎳">bowlio | gêm | pêl</annotation>
 		<annotation cp="🎳" type="tts">bowlio</annotation>
 		<annotation cp="🏏">bat | criced | gêm | pêl</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">gwisg y crefftau ymladd</annotation>
 		<annotation cp="🥅">chwaraeon | gôl | rhwyd | rhwyd gôl</annotation>
 		<annotation cp="🥅" type="tts">rhwyd gôl</annotation>
-		<annotation cp="🎯">ergyd uniongyrchol | gêm | llygad | targed | tarw</annotation>
-		<annotation cp="🎯" type="tts">ergyd uniongyrchol</annotation>
 		<annotation cp="⛳">baner mewn twll | golff | twll</annotation>
 		<annotation cp="⛳" type="tts">baner mewn twll</annotation>
 		<annotation cp="⛸">iâ | sglefrio | sglefrio iâ</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">sled</annotation>
 		<annotation cp="🥌">carreg cyrlio | craig | gêm</annotation>
 		<annotation cp="🥌" type="tts">carreg cyrlio</annotation>
+		<annotation cp="🎯">ergyd uniongyrchol | gêm | llygad | targed | tarw</annotation>
+		<annotation cp="🎯" type="tts">ergyd uniongyrchol</annotation>
+		<annotation cp="🎱">biliards | gêm | wyth</annotation>
+		<annotation cp="🎱" type="tts">biliards</annotation>
+		<annotation cp="🔮">crisial | ffantasi | pêl | pêl grisial | tylwyth teg</annotation>
+		<annotation cp="🔮" type="tts">pêl grisial</annotation>
 		<annotation cp="🎮">gêm | gêm fideo | rheolydd</annotation>
 		<annotation cp="🎮" type="tts">gêm fideo</annotation>
 		<annotation cp="🕹">ffon reoli | fideo | gêm</annotation>
 		<annotation cp="🕹" type="tts">ffon reoli</annotation>
+		<annotation cp="🎰">gêm | peiriant slot | slot</annotation>
+		<annotation cp="🎰" type="tts">peiriant slot</annotation>
 		<annotation cp="🎲">dis | gêm</annotation>
 		<annotation cp="🎲" type="tts">dis</annotation>
 		<annotation cp="♠">cardiau | gêm | rhofiau | siwt | siwt rhofiau</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">draig goch mahjong</annotation>
 		<annotation cp="🎴">blodyn | cardiau | cardiau chwarae blodau | Japaneaidd</annotation>
 		<annotation cp="🎴" type="tts">cardiau chwarae blodau</annotation>
+		<annotation cp="🎭">celf | celfyddydau perfformiadol | mwgwd | perfformiadol | theatr</annotation>
+		<annotation cp="🎭" type="tts">celfyddydau perfformiadol</annotation>
+		<annotation cp="🖼">amgueddfa | celf | ffrâm | ffrâm gyda llun</annotation>
+		<annotation cp="🖼" type="tts">ffrâm gyda llun</annotation>
+		<annotation cp="🎨">amgueddfa | celf | paentiad | palet arlunydd</annotation>
+		<annotation cp="🎨" type="tts">palet arlunydd</annotation>
 		<annotation cp="🔇">mud | sain | seinydd wedi’i ddiffodd | tawelwch</annotation>
 		<annotation cp="🔇" type="tts">seinydd wedi’i ddiffodd</annotation>
 		<annotation cp="🔈">seinydd | sŵn</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">chwyddwydr yn wynebu’r chwith</annotation>
 		<annotation cp="🔎">chwilio | chwyddo | chwyddwydr yn wynebu’r dde | gwydr | offeryn</annotation>
 		<annotation cp="🔎" type="tts">chwyddwydr yn wynebu’r dde</annotation>
-		<annotation cp="🔬">microsgop | offeryn</annotation>
-		<annotation cp="🔬" type="tts">microsgop</annotation>
-		<annotation cp="🔭">offeryn | telesgop</annotation>
-		<annotation cp="🔭" type="tts">telesgop</annotation>
-		<annotation cp="📡">antena | antena lloeren | lloeren</annotation>
-		<annotation cp="📡" type="tts">antena lloeren</annotation>
 		<annotation cp="🕯">cannwyll | golau</annotation>
 		<annotation cp="🕯" type="tts">cannwyll</annotation>
 		<annotation cp="💡">bwlb | bwlb golau | comig | syniad | trydanol</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">gêr</annotation>
 		<annotation cp="🗜">cywasgedd | feis | offeryn</annotation>
 		<annotation cp="🗜" type="tts">cywasgedd</annotation>
-		<annotation cp="⚗">cemeg | distyllydd | offeryn</annotation>
-		<annotation cp="⚗" type="tts">distyllydd</annotation>
 		<annotation cp="⚖">clorian | mantol | offeryn | pwysau</annotation>
 		<annotation cp="⚖" type="tts">clorian</annotation>
 		<annotation cp="🔗">dolen | linc</annotation>
 		<annotation cp="🔗" type="tts">dolen</annotation>
 		<annotation cp="⛓">cadwyn | cadwyni</annotation>
 		<annotation cp="⛓" type="tts">cadwyni</annotation>
+		<annotation cp="⚗">cemeg | distyllydd | offeryn</annotation>
+		<annotation cp="⚗" type="tts">distyllydd</annotation>
+		<annotation cp="🔬">microsgop | offeryn</annotation>
+		<annotation cp="🔬" type="tts">microsgop</annotation>
+		<annotation cp="🔭">offeryn | telesgop</annotation>
+		<annotation cp="🔭" type="tts">telesgop</annotation>
+		<annotation cp="📡">antena | antena lloeren | lloeren</annotation>
+		<annotation cp="📡" type="tts">antena lloeren</annotation>
 		<annotation cp="💉">chwistrell | doctor | meddygaeth | nodwydd | sâl</annotation>
 		<annotation cp="💉" type="tts">chwistrell</annotation>
 		<annotation cp="💊">doctor | meddygaeth | pilsen | sâl</annotation>
 		<annotation cp="💊" type="tts">pilsen</annotation>
+		<annotation cp="🚪">drws</annotation>
+		<annotation cp="🚪" type="tts">drws</annotation>
+		<annotation cp="🛏">cysgu | gwely | gwesty</annotation>
+		<annotation cp="🛏" type="tts">gwely</annotation>
+		<annotation cp="🛋">gwesty | lamp | soffa | soffa a lamp</annotation>
+		<annotation cp="🛋" type="tts">soffa a lamp</annotation>
+		<annotation cp="🚽">toiled</annotation>
+		<annotation cp="🚽" type="tts">toiled</annotation>
+		<annotation cp="🚿">cawod | dŵr</annotation>
+		<annotation cp="🚿" type="tts">cawod</annotation>
+		<annotation cp="🛁">bath | twba bath</annotation>
+		<annotation cp="🛁" type="tts">twba bath</annotation>
+		<annotation cp="🛒">cert | siopa | troli | troli siopa</annotation>
+		<annotation cp="🛒" type="tts">troli siopa</annotation>
 		<annotation cp="🚬">ysmygu</annotation>
 		<annotation cp="🚬" type="tts">ysmygu</annotation>
 		<annotation cp="⚰">arch | marwolaeth</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">wrn angladd</annotation>
 		<annotation cp="🗿">cerflun | moai | moyai | wyneb</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
-		<annotation cp="🛢">drwm | drwm olew | olew</annotation>
-		<annotation cp="🛢" type="tts">drwm olew</annotation>
-		<annotation cp="🔮">crisial | ffantasi | pêl | pêl grisial | tylwyth teg</annotation>
-		<annotation cp="🔮" type="tts">pêl grisial</annotation>
-		<annotation cp="🛒">cert | siopa | troli | troli siopa</annotation>
-		<annotation cp="🛒" type="tts">troli siopa</annotation>
 		<annotation cp="🏧">arwydd peiriant codi arian | atm | awtomataidd | banc | clerc</annotation>
 		<annotation cp="🏧" type="tts">arwydd peiriant codi arian</annotation>
 		<annotation cp="🚮">arwydd sbwriel mewn bin | bin sbwriel | sbwriel</annotation>

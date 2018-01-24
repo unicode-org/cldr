@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">градежен објект</annotation>
 		<annotation cp="🏘">градба | куќа | куќи</annotation>
 		<annotation cp="🏘" type="tts">куќи</annotation>
-		<annotation cp="🏙">град | градба | градски пејзаж</annotation>
-		<annotation cp="🏙" type="tts">градски пејзаж</annotation>
 		<annotation cp="🏚">градба | куќа | напуштена | напуштена куќа</annotation>
 		<annotation cp="🏚" type="tts">напуштена куќа</annotation>
 		<annotation cp="🏠">градба | дом | куќа</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">магливо</annotation>
 		<annotation cp="🌃">време | ѕвезди | ноќ | ноќ со ѕвезди</annotation>
 		<annotation cp="🌃" type="tts">ноќ со ѕвезди</annotation>
+		<annotation cp="🏙">град | градба | градски пејзаж</annotation>
+		<annotation cp="🏙" type="tts">градски пејзаж</annotation>
 		<annotation cp="🌄">време | изгрејсонце | изгрејсонце над планините | планина | сонце | утро</annotation>
 		<annotation cp="🌄" type="tts">изгрејсонце над планините</annotation>
 		<annotation cp="🌅">време | изгрејсонце | сонце | утро</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">столб пред берберница</annotation>
 		<annotation cp="🎪">циркус | циркуски шатор | шатор</annotation>
 		<annotation cp="🎪" type="tts">циркуски шатор</annotation>
-		<annotation cp="🎭">маска | сцена | сценски уметности | театар | уметност</annotation>
-		<annotation cp="🎭" type="tts">сценски уметности</annotation>
-		<annotation cp="🖼">музеј | рамка | рамка со слика | слика | уметност</annotation>
-		<annotation cp="🖼" type="tts">рамка со слика</annotation>
-		<annotation cp="🎨">палета | сликање | сликарска палета | уметност</annotation>
-		<annotation cp="🎨" type="tts">сликарска палета</annotation>
-		<annotation cp="🎰">автомат | автомат за игри | игра</annotation>
-		<annotation cp="🎰" type="tts">автомат за игри</annotation>
 		<annotation cp="🚂">воз | возило | железница | локомотива | мотор | пареа</annotation>
 		<annotation cp="🚂" type="tts">локомотива</annotation>
 		<annotation cp="🚃">вагон | воз | возило | железница | трамвај</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">автопат</annotation>
 		<annotation cp="🛤">воз | железница | железничка пруга | пруга</annotation>
 		<annotation cp="🛤" type="tts">железничка пруга</annotation>
+		<annotation cp="🛢">буре | буре за масло | масло</annotation>
+		<annotation cp="🛢" type="tts">буре за масло</annotation>
 		<annotation cp="⛽">бензин | бензинска пумпа | гориво | пумпа | станица</annotation>
 		<annotation cp="⛽" type="tts">бензинска пумпа</annotation>
 		<annotation cp="🚨">автомобил | зрак | полиција | ротирачко | светло | светло на полициски автомобил</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">хоризонтален семафор</annotation>
 		<annotation cp="🚦">вертикален семафор | светло | сигнализација | сообраќај</annotation>
 		<annotation cp="🚦" type="tts">вертикален семафор</annotation>
-		<annotation cp="🚧">градежни работи на патот | препрека | пречка</annotation>
-		<annotation cp="🚧" type="tts">градежни работи на патот</annotation>
 		<annotation cp="🛑">знак | осумаголник | стоп</annotation>
 		<annotation cp="🛑" type="tts">стоп</annotation>
+		<annotation cp="🚧">градежни работи на патот | препрека | пречка</annotation>
+		<annotation cp="🚧" type="tts">градежни работи на патот</annotation>
 		<annotation cp="⚓">алатка | брод | сидро</annotation>
 		<annotation cp="⚓" type="tts">сидро</annotation>
 		<annotation cp="⛵">брод | едреник | јахта | море | транспорт</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">летечка чинија</annotation>
 		<annotation cp="🛎">ѕвонче | ѕвонче на рецепција | портир | рецепција | хотел</annotation>
 		<annotation cp="🛎" type="tts">ѕвонче на рецепција</annotation>
-		<annotation cp="🚪">врата</annotation>
-		<annotation cp="🚪" type="tts">врата</annotation>
-		<annotation cp="🛏">кревет | спиење | хотел</annotation>
-		<annotation cp="🛏" type="tts">кревет</annotation>
-		<annotation cp="🛋">кауч | кауч и ламба | ламба | хотел</annotation>
-		<annotation cp="🛋" type="tts">кауч и ламба</annotation>
-		<annotation cp="🚽">тоалет | тоалетна школка</annotation>
-		<annotation cp="🚽" type="tts">тоалетна школка</annotation>
-		<annotation cp="🚿">вода | туш | туширање</annotation>
-		<annotation cp="🚿" type="tts">туш</annotation>
-		<annotation cp="🛁">бања | када</annotation>
-		<annotation cp="🛁" type="tts">када</annotation>
 		<annotation cp="⌛">песок | песочен часовник | часовник</annotation>
 		<annotation cp="⌛" type="tts">песочен часовник</annotation>
 		<annotation cp="⏳">песок | превртен песочен часовник | часовник</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">топка за рагби</annotation>
 		<annotation cp="🎾">тенис | тениско топче | топка</annotation>
 		<annotation cp="🎾" type="tts">тениско топче</annotation>
-		<annotation cp="🎱">билјард | топка | црна топка за билјард</annotation>
-		<annotation cp="🎱" type="tts">црна топка за билјард</annotation>
 		<annotation cp="🎳">куглање | топка</annotation>
 		<annotation cp="🎳" type="tts">куглање</annotation>
 		<annotation cp="🏏">крикет | палка | топка</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">униформа за боречки вештини</annotation>
 		<annotation cp="🥅">гол | мрежа | мрежа на гол</annotation>
 		<annotation cp="🥅" type="tts">мрежа на гол</annotation>
-		<annotation cp="🎯">игра | пикадо | стрелка | цел | центар</annotation>
-		<annotation cp="🎯" type="tts">пикадо</annotation>
 		<annotation cp="⛳">голф | дупка | знаме во дупка</annotation>
 		<annotation cp="⛳" type="tts">знаме во дупка</annotation>
 		<annotation cp="⛸">лизгалка | лизгање | мраз</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">санка</annotation>
 		<annotation cp="🥌">игра | камен | камен за карлинг</annotation>
 		<annotation cp="🥌" type="tts">камен за карлинг</annotation>
+		<annotation cp="🎯">игра | пикадо | стрелка | цел | центар</annotation>
+		<annotation cp="🎯" type="tts">пикадо</annotation>
+		<annotation cp="🎱">билјард | топка | црна топка за билјард</annotation>
+		<annotation cp="🎱" type="tts">црна топка за билјард</annotation>
+		<annotation cp="🔮">иднина | кристална | кристална топка | претскажување | сказна | топка | фантазија</annotation>
+		<annotation cp="🔮" type="tts">кристална топка</annotation>
 		<annotation cp="🎮">видеоигра | игра | управувач</annotation>
 		<annotation cp="🎮" type="tts">видеоигра</annotation>
 		<annotation cp="🕹">видеоигра | игра | палка за игри</annotation>
 		<annotation cp="🕹" type="tts">палка за игри</annotation>
+		<annotation cp="🎰">автомат | автомат за игри | игра</annotation>
+		<annotation cp="🎰" type="tts">автомат за игри</annotation>
 		<annotation cp="🎲">зар | коцка</annotation>
 		<annotation cp="🎲" type="tts">коцка</annotation>
 		<annotation cp="♠">игра | карти | лист | пик | пик во карти</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">плочка со црвен змеј</annotation>
 		<annotation cp="🎴">игра | јапонска | карти | цвеќе | цветни карти</annotation>
 		<annotation cp="🎴" type="tts">цветни карти</annotation>
+		<annotation cp="🎭">маска | сцена | сценски уметности | театар | уметност</annotation>
+		<annotation cp="🎭" type="tts">сценски уметности</annotation>
+		<annotation cp="🖼">музеј | рамка | рамка со слика | слика | уметност</annotation>
+		<annotation cp="🖼" type="tts">рамка со слика</annotation>
+		<annotation cp="🎨">палета | сликање | сликарска палета | уметност</annotation>
+		<annotation cp="🎨" type="tts">сликарска палета</annotation>
 		<annotation cp="🔇">глас | звук | звучник | исклучен | исклучен звучник | тивко</annotation>
 		<annotation cp="🔇" type="tts">исклучен звучник</annotation>
 		<annotation cp="🔈">глас | звук | звучник</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">лупа свртена налево</annotation>
 		<annotation cp="🔎">десно | зголемување | лупа | лупа свртена надесно | пребарување</annotation>
 		<annotation cp="🔎" type="tts">лупа свртена надесно</annotation>
-		<annotation cp="🔬">алатка | микроскоп</annotation>
-		<annotation cp="🔬" type="tts">микроскоп</annotation>
-		<annotation cp="🔭">алатка | телескоп</annotation>
-		<annotation cp="🔭" type="tts">телескоп</annotation>
-		<annotation cp="📡">антена | сателит | сателитска антена</annotation>
-		<annotation cp="📡" type="tts">сателитска антена</annotation>
 		<annotation cp="🕯">свеќа | светло</annotation>
 		<annotation cp="🕯" type="tts">свеќа</annotation>
 		<annotation cp="💡">електрична | светилка | светло</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">запченик</annotation>
 		<annotation cp="🗜">алатка | компресор</annotation>
 		<annotation cp="🗜" type="tts">компресор</annotation>
-		<annotation cp="⚗">алатка | дестилатор | хемија</annotation>
-		<annotation cp="⚗" type="tts">дестилатор</annotation>
 		<annotation cp="⚖">вага | механичка вага | рамнотежа | тежина</annotation>
 		<annotation cp="⚖" type="tts">механичка вага</annotation>
 		<annotation cp="🔗">алка | спојница</annotation>
 		<annotation cp="🔗" type="tts">алка</annotation>
 		<annotation cp="⛓">синџир | синџири</annotation>
 		<annotation cp="⛓" type="tts">синџири</annotation>
+		<annotation cp="⚗">алатка | дестилатор | хемија</annotation>
+		<annotation cp="⚗" type="tts">дестилатор</annotation>
+		<annotation cp="🔬">алатка | микроскоп</annotation>
+		<annotation cp="🔬" type="tts">микроскоп</annotation>
+		<annotation cp="🔭">алатка | телескоп</annotation>
+		<annotation cp="🔭" type="tts">телескоп</annotation>
+		<annotation cp="📡">антена | сателит | сателитска антена</annotation>
+		<annotation cp="📡" type="tts">сателитска антена</annotation>
 		<annotation cp="💉">болен | доктор | игла | инјекција | лек | шприц</annotation>
 		<annotation cp="💉" type="tts">шприц</annotation>
 		<annotation cp="💊">болен | доктор | лек | пилула</annotation>
 		<annotation cp="💊" type="tts">пилула</annotation>
+		<annotation cp="🚪">врата</annotation>
+		<annotation cp="🚪" type="tts">врата</annotation>
+		<annotation cp="🛏">кревет | спиење | хотел</annotation>
+		<annotation cp="🛏" type="tts">кревет</annotation>
+		<annotation cp="🛋">кауч | кауч и ламба | ламба | хотел</annotation>
+		<annotation cp="🛋" type="tts">кауч и ламба</annotation>
+		<annotation cp="🚽">тоалет | тоалетна школка</annotation>
+		<annotation cp="🚽" type="tts">тоалетна школка</annotation>
+		<annotation cp="🚿">вода | туш | туширање</annotation>
+		<annotation cp="🚿" type="tts">туш</annotation>
+		<annotation cp="🛁">бања | када</annotation>
+		<annotation cp="🛁" type="tts">када</annotation>
+		<annotation cp="🛒">количкa | пазарење | супермаркет | шопинг</annotation>
+		<annotation cp="🛒" type="tts">шопинг</annotation>
 		<annotation cp="🚬">цигара | чад</annotation>
 		<annotation cp="🚬" type="tts">цигара</annotation>
 		<annotation cp="⚰">ковчег | погреб | смрт</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">погребна урна</annotation>
 		<annotation cp="🗿">камен | лице | монолитни статуи | статуа</annotation>
 		<annotation cp="🗿" type="tts">монолитни статуи</annotation>
-		<annotation cp="🛢">буре | буре за масло | масло</annotation>
-		<annotation cp="🛢" type="tts">буре за масло</annotation>
-		<annotation cp="🔮">иднина | кристална | кристална топка | претскажување | сказна | топка | фантазија</annotation>
-		<annotation cp="🔮" type="tts">кристална топка</annotation>
-		<annotation cp="🛒">количкa | пазарење | супермаркет | шопинг</annotation>
-		<annotation cp="🛒" type="tts">шопинг</annotation>
 		<annotation cp="🏧">банка | банкомат | пари</annotation>
 		<annotation cp="🏧" type="tts">банкомат</annotation>
 		<annotation cp="🚮">канта | канта за отпадоци | отпадоци</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -74,6 +74,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">Europa oriental</territory>
 			<territory type="154">Europa septentrional</territory>
 			<territory type="155">Europa occidental</territory>
+			<territory type="202" draft="contributed">África subsahariana</territory>
 			<territory type="AC">Isla de la Ascensión</territory>
 			<territory type="BA" draft="provisional">Bosnia y Herzegovina</territory>
 			<territory type="CI">Côte d’Ivoire</territory>
@@ -816,6 +817,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="SSP">
 				<symbol alt="narrow" draft="contributed">£</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">dobra santotomense</displayName>
+				<displayName count="one" draft="contributed">dobra santotomense</displayName>
+				<displayName count="other" draft="contributed">dobra santotomense</displayName>
 			</currency>
 			<currency type="SYP">
 				<symbol alt="narrow" draft="contributed">£</symbol>

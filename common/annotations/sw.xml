@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,15 +13,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="sw"/>
 	</identity>
 	<annotations>
-		<annotation cp="🏻">fitzpatrick | gamba | kibadilisha emoji | mwonekano | ngozi aina ya-1-2</annotation>
+		<annotation cp="🏻">fitzpatrick | kibadilisha emoji | ngozi | ngozi aina ya-1-2 | sura</annotation>
 		<annotation cp="🏻" type="tts">ngozi aina ya-1-2</annotation>
-		<annotation cp="🏼">fitzpatrick | gamba | kibadilisha emoji | mwonekano | ngozi aina ya-3</annotation>
+		<annotation cp="🏼">fitzpatrick | kibadilisha emoji | ngozi | ngozi aina ya-3 | sura</annotation>
 		<annotation cp="🏼" type="tts">ngozi aina ya-3</annotation>
-		<annotation cp="🏽">fitzpatrick | gamba | kibadilisha emoji | mwonekano | ngozi aina ya-4</annotation>
+		<annotation cp="🏽">fitzpatrick | kibadilisha emoji | ngozi | ngozi aina ya-4 | sura</annotation>
 		<annotation cp="🏽" type="tts">ngozi aina ya-4</annotation>
-		<annotation cp="🏾">fitzpatrick | gamba | kibadilisha emoji | mwonekano | ngozi aina ya-5</annotation>
+		<annotation cp="🏾">fitzpatrick | kibadilisha emoji | ngozi | ngozi aina ya-5 | sura</annotation>
 		<annotation cp="🏾" type="tts">ngozi aina ya-5</annotation>
-		<annotation cp="🏿">fitzpatrick | gamba | kibadilisha emoji | mwonekano | ngozi aina ya-6</annotation>
+		<annotation cp="🏿">fitzpatrick | kibadilisha emoji | ngozi | ngozi aina ya-6 | sura</annotation>
 		<annotation cp="🏿" type="tts">ngozi aina ya-6</annotation>
 		<annotation cp="😀">kenua | sura inayokenua | uso</annotation>
 		<annotation cp="😀" type="tts">sura inayokenua</annotation>
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">ujenzi wa jengo</annotation>
 		<annotation cp="🏘">jengo | majengo ya nyumba | nyumba</annotation>
 		<annotation cp="🏘" type="tts">majengo ya nyumba</annotation>
-		<annotation cp="🏙">jengo | jiji | mwonekano wa jiji</annotation>
-		<annotation cp="🏙" type="tts">mwonekano wa jiji</annotation>
 		<annotation cp="🏚">chakaa | jengo | jengo la nyumba lililochakaa | nyumba</annotation>
 		<annotation cp="🏚" type="tts">jengo la nyumba lililochakaa</annotation>
 		<annotation cp="🏠">jengo | jengo la nyumba | nyumba | nyumbani</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">mandhari yenye ukungu</annotation>
 		<annotation cp="🌃">hali ya hewa | nyota | usiku | usiku wenye nyota</annotation>
 		<annotation cp="🌃" type="tts">usiku wenye nyota</annotation>
+		<annotation cp="🏙">jengo | jiji | mwonekano wa jiji</annotation>
+		<annotation cp="🏙" type="tts">mwonekano wa jiji</annotation>
 		<annotation cp="🌄">asubuhi | hali yahewa | jua | macheo | macheo kwenye milima | mlima</annotation>
 		<annotation cp="🌄" type="tts">macheo kwenye milima</annotation>
 		<annotation cp="🌅">asubuhi | hali ya hewa | jua | macheo</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">nguzo ya kinyozi</annotation>
 		<annotation cp="🎪">hema | hema ya sarakasi | sarakasi</annotation>
 		<annotation cp="🎪" type="tts">hema ya sarakasi</annotation>
-		<annotation cp="🎭">barakoa | kuigiza | sanaa | ukumbi wa maigizo</annotation>
-		<annotation cp="🎭" type="tts">sanaa</annotation>
-		<annotation cp="🖼">fremu | fremu yenye picha | kuchora | makumbusho | picha | sanaa</annotation>
-		<annotation cp="🖼" type="tts">fremu yenye picha</annotation>
-		<annotation cp="🎨">kuchora | makumbusho | paleti | paleti ya msanii | sanaa</annotation>
-		<annotation cp="🎨" type="tts">paleti ya msanii</annotation>
-		<annotation cp="🎰">mashine ya kamari | mchezo</annotation>
-		<annotation cp="🎰" type="tts">mashine ya kamari</annotation>
 		<annotation cp="🚂">gari | garimoshi | injini | mvuke | reli | treni</annotation>
 		<annotation cp="🚂" type="tts">garimoshi</annotation>
 		<annotation cp="🚃">basi la tramu | gari | gari la moshi | reli | tramu | treni | umeme</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">barabara kuu</annotation>
 		<annotation cp="🛤">njia ya reli | reli | treni</annotation>
 		<annotation cp="🛤" type="tts">njia ya reli</annotation>
+		<annotation cp="🛢">mafuta | ngoma | pipa la mafuta</annotation>
+		<annotation cp="🛢" type="tts">pipa la mafuta</annotation>
 		<annotation cp="⛽">kituo | mafuta | pampu | pampu ya mafuta</annotation>
 		<annotation cp="⛽" type="tts">pampu ya mafuta</annotation>
 		<annotation cp="🚨">gari | kuzunguka | mwanga | polisi | taa | taa ya gari la polisi</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">taa mlalo ya trafiki</annotation>
 		<annotation cp="🚦">ishara | taa | taa wima ya trafiki | trafiki</annotation>
 		<annotation cp="🚦" type="tts">taa wima ya trafiki</annotation>
-		<annotation cp="🚧">kizuizi | ujenzi</annotation>
-		<annotation cp="🚧" type="tts">ujenzi</annotation>
 		<annotation cp="🛑">taa ya kusimama | trafiki</annotation>
 		<annotation cp="🛑" type="tts">taa ya kusimama</annotation>
+		<annotation cp="🚧">kizuizi | ujenzi</annotation>
+		<annotation cp="🚧" type="tts">ujenzi</annotation>
 		<annotation cp="⚓">meli | nanga | zana</annotation>
 		<annotation cp="⚓" type="tts">nanga</annotation>
 		<annotation cp="⛵">bahari | boti | gari | mahali pa kutembelea watalii | mashua | mashura</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">kisahani kinachopaa</annotation>
 		<annotation cp="🛎">hoteli | kengele | kengele ya mwandazi | mwandazi</annotation>
 		<annotation cp="🛎" type="tts">kengele ya mwandazi</annotation>
-		<annotation cp="🚪">mlango</annotation>
-		<annotation cp="🚪" type="tts">mlango</annotation>
-		<annotation cp="🛏">hoteli | kitanda | lala</annotation>
-		<annotation cp="🛏" type="tts">kitanda</annotation>
-		<annotation cp="🛋">hoteli | kochi | kochi na taa | taa</annotation>
-		<annotation cp="🛋" type="tts">kochi na taa</annotation>
-		<annotation cp="🚽">choo | maliwato</annotation>
-		<annotation cp="🚽" type="tts">choo</annotation>
-		<annotation cp="🚿">bafu ya manyunyu | maji</annotation>
-		<annotation cp="🚿" type="tts">bafu ya manyunyu</annotation>
-		<annotation cp="🛁">bafu | hamamu</annotation>
-		<annotation cp="🛁" type="tts">bafu</annotation>
 		<annotation cp="⌛">kipima muda | mchanga | shisha</annotation>
 		<annotation cp="⌛" type="tts">shisha</annotation>
 		<annotation cp="⏳">kipima muda | mchanga | shisha | shisha inayotiririsha mchanga</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">mpira wa raga</annotation>
 		<annotation cp="🎾">mpira | mpira wa tenisi | raketi</annotation>
 		<annotation cp="🎾" type="tts">mpira wa tenisi</annotation>
-		<annotation cp="🎱">8 | biliadi | mchezo | mpira | mpira 8 | nane</annotation>
-		<annotation cp="🎱" type="tts">biliadi</annotation>
 		<annotation cp="🎳">mchezo | mchezo wa kuvingirisha matufe chini | mpira</annotation>
 		<annotation cp="🎳" type="tts">mchezo wa kuvingirisha matufe chini</annotation>
 		<annotation cp="🏏">gongo | kriketi | mchezo | mpira</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">vazi la karate</annotation>
 		<annotation cp="🥅">funga bao | spoti | wavu</annotation>
 		<annotation cp="🥅" type="tts">wavu</annotation>
-		<annotation cp="🎯">gonga | kigumba | kulenga shabaha | lengo | lengo kuu | mchezo</annotation>
-		<annotation cp="🎯" type="tts">kulenga shabaha</annotation>
 		<annotation cp="⛳">bendera katika shimo | gofu | shimo</annotation>
 		<annotation cp="⛳" type="tts">bendera katika shimo</annotation>
 		<annotation cp="⛸">kuteleza | theluji | viatu vya kuteleza kwenye theluji</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">sleji</annotation>
 		<annotation cp="🥌">jiwe | mchezo | mpira wa kutelezesha</annotation>
 		<annotation cp="🥌" type="tts">mpira wa kutelezesha</annotation>
+		<annotation cp="🎯">gonga | kigumba | kulenga shabaha | lengo | lengo kuu | mchezo</annotation>
+		<annotation cp="🎯" type="tts">kulenga shabaha</annotation>
+		<annotation cp="🎱">8 | biliadi | mchezo | mpira | mpira 8 | nane</annotation>
+		<annotation cp="🎱" type="tts">biliadi</annotation>
+		<annotation cp="🔮">bahati | kichimbakazi | kioo | mpira | njozi | tufe la kioo | zana</annotation>
+		<annotation cp="🔮" type="tts">tufe la kioo</annotation>
 		<annotation cp="🎮">kidhibiti | mchezo | mchezo wa video</annotation>
 		<annotation cp="🎮" type="tts">mchezo wa video</annotation>
 		<annotation cp="🕹">mchezo | mchezo wa video | usukani</annotation>
 		<annotation cp="🕹" type="tts">usukani</annotation>
+		<annotation cp="🎰">mashine ya kamari | mchezo</annotation>
+		<annotation cp="🎰" type="tts">mashine ya kamari</annotation>
 		<annotation cp="🎲">dadu | mchezo</annotation>
 		<annotation cp="🎲" type="tts">dadu</annotation>
 		<annotation cp="♠">kadi | karata | mchezo | shupaza</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">dragoni jekundu la mahjong</annotation>
 		<annotation cp="🎴">kadi | kadi za karata za maua | kijapani | kucheza | maua | mchezo</annotation>
 		<annotation cp="🎴" type="tts">kadi za karata za maua</annotation>
+		<annotation cp="🎭">barakoa | kuigiza | sanaa | ukumbi wa maigizo</annotation>
+		<annotation cp="🎭" type="tts">sanaa</annotation>
+		<annotation cp="🖼">fremu | fremu yenye picha | kuchora | makumbusho | picha | sanaa</annotation>
+		<annotation cp="🖼" type="tts">fremu yenye picha</annotation>
+		<annotation cp="🎨">kuchora | makumbusho | paleti | paleti ya msanii | sanaa</annotation>
+		<annotation cp="🎨" type="tts">paleti ya msanii</annotation>
 		<annotation cp="🔇">kimya | sauti | spika | spika imezimwa | zima</annotation>
 		<annotation cp="🔇" type="tts">spika imezimwa</annotation>
 		<annotation cp="🔈">sauti | spika</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">kioo cha ukuzaji kinachoelekeza kushoto</annotation>
 		<annotation cp="🔎">glasi | kioo cha ukuzaji kinachoelekeza kulia | kukuza | tafuta | zana</annotation>
 		<annotation cp="🔎" type="tts">kioo cha ukuzaji kinachoelekeza kulia</annotation>
-		<annotation cp="🔬">hadubini | zana</annotation>
-		<annotation cp="🔬" type="tts">hadubini</annotation>
-		<annotation cp="🔭">darubini | zana</annotation>
-		<annotation cp="🔭" type="tts">darubini</annotation>
-		<annotation cp="📡">antena | antena ya setilaiti | setilaiti | ungo</annotation>
-		<annotation cp="📡" type="tts">antena ya setilaiti</annotation>
 		<annotation cp="🕯">mshumaa | mwanga</annotation>
 		<annotation cp="🕯" type="tts">mshumaa</annotation>
 		<annotation cp="💡">kibonzo | mwanga | taa | umeme | wazo</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">gia</annotation>
 		<annotation cp="🗜">jiliwa ya seremala | kubana | zana</annotation>
 		<annotation cp="🗜" type="tts">kubana</annotation>
-		<annotation cp="⚗">alembiki | kemia | zana</annotation>
-		<annotation cp="⚗" type="tts">alembiki</annotation>
 		<annotation cp="⚖">haki | mizani | mzani | pima | uzito | zana | zodiaki</annotation>
 		<annotation cp="⚖" type="tts">mzani</annotation>
 		<annotation cp="🔗">pete | pete ya mnyororo</annotation>
 		<annotation cp="🔗" type="tts">pete ya mnyororo</annotation>
 		<annotation cp="⛓">minyororo | mnyororo</annotation>
 		<annotation cp="⛓" type="tts">minyororo</annotation>
+		<annotation cp="⚗">alembiki | kemia | zana</annotation>
+		<annotation cp="⚗" type="tts">alembiki</annotation>
+		<annotation cp="🔬">hadubini | zana</annotation>
+		<annotation cp="🔬" type="tts">hadubini</annotation>
+		<annotation cp="🔭">darubini | zana</annotation>
+		<annotation cp="🔭" type="tts">darubini</annotation>
+		<annotation cp="📡">antena | antena ya setilaiti | setilaiti | ungo</annotation>
+		<annotation cp="📡" type="tts">antena ya setilaiti</annotation>
 		<annotation cp="💉">bomba la sindano | daktari | dawa | kuchoma sindano | mgonjwa | sindano | zana</annotation>
 		<annotation cp="💉" type="tts">bomba la sindano</annotation>
 		<annotation cp="💊">daktari | dawa | kidonge | mgonjwa</annotation>
 		<annotation cp="💊" type="tts">kidonge</annotation>
+		<annotation cp="🚪">mlango</annotation>
+		<annotation cp="🚪" type="tts">mlango</annotation>
+		<annotation cp="🛏">hoteli | kitanda | lala</annotation>
+		<annotation cp="🛏" type="tts">kitanda</annotation>
+		<annotation cp="🛋">hoteli | kochi | kochi na taa | taa</annotation>
+		<annotation cp="🛋" type="tts">kochi na taa</annotation>
+		<annotation cp="🚽">choo | maliwato</annotation>
+		<annotation cp="🚽" type="tts">choo</annotation>
+		<annotation cp="🚿">bafu ya manyunyu | maji</annotation>
+		<annotation cp="🚿" type="tts">bafu ya manyunyu</annotation>
+		<annotation cp="🛁">bafu | hamamu</annotation>
+		<annotation cp="🛁" type="tts">bafu</annotation>
+		<annotation cp="🛒">mkokoteni | toroli | ununuzi</annotation>
+		<annotation cp="🛒" type="tts">mkokoteni</annotation>
 		<annotation cp="🚬">kuvuta sigara | sigara iliyowashwa</annotation>
 		<annotation cp="🚬" type="tts">sigara iliyowashwa</annotation>
 		<annotation cp="⚰">jeneza | kifo</annotation>
@@ -2137,15 +2143,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">chombo cha kutia majivu ya maiti aliyechomwa</annotation>
 		<annotation cp="🗿">kinyago | moyai | uso</annotation>
 		<annotation cp="🗿" type="tts">kinyago</annotation>
-		<annotation cp="🛢">mafuta | ngoma | pipa la mafuta</annotation>
-		<annotation cp="🛢" type="tts">pipa la mafuta</annotation>
-		<annotation cp="🔮">bahati | kichimbakazi | kioo | mpira | njozi | tufe la kioo | zana</annotation>
-		<annotation cp="🔮" type="tts">tufe la kioo</annotation>
-		<annotation cp="🛒">mkokoteni | toroli | ununuzi</annotation>
-		<annotation cp="🛒" type="tts">mkokoteni</annotation>
 		<annotation cp="🏧">alama ya ATM | atm | benki | mwenye kuhesabu | otomatiki</annotation>
 		<annotation cp="🏧" type="tts">alama ya ATM</annotation>
-		<annotation cp="🚮">taka | tupio ya taka | weka taka kwenye pipa</annotation>
+		<annotation cp="🚮">pipa la taka | taka | weka taka kwenye pipa</annotation>
 		<annotation cp="🚮" type="tts">weka taka kwenye pipa</annotation>
 		<annotation cp="🚰">kunywa | maji | maji safi ya kunywa | safi kwa kunywa</annotation>
 		<annotation cp="🚰" type="tts">maji safi ya kunywa</annotation>
@@ -2537,7 +2537,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">kupeperusha bendera nyeusi</annotation>
 		<annotation cp="🏳">kupeperusha | kupeperusha bendera nyeupe</annotation>
 		<annotation cp="🏳" type="tts">kupeperusha bendera nyeupe</annotation>
-		<annotation cp="🏳‍🌈">bendera ya upinde wa mvua | hali ya hewa | kupeperusha bendera</annotation>
+		<annotation cp="🏳‍🌈">bendera ya upinde wa mvua | upinde wa mvua</annotation>
 		<annotation cp="🏳‍🌈" type="tts">bendera ya upinde wa mvua</annotation>
 	</annotations>
 </ldml>

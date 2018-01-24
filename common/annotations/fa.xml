@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">ساخت‌وساز ساختمانی</annotation>
 		<annotation cp="🏘">‌خانه‌ها | ساختمان‌ها | منازل</annotation>
 		<annotation cp="🏘" type="tts">منازل</annotation>
-		<annotation cp="🏙">شهر | شهری | منظره | نما | نمای شهر</annotation>
-		<annotation cp="🏙" type="tts">نمای شهر</annotation>
 		<annotation cp="🏚">خانه | خانهٔ متروکه | ساختمان | متروک</annotation>
 		<annotation cp="🏚" type="tts">خانهٔ متروکه</annotation>
 		<annotation cp="🏠">خانه | ساختمان | منزل</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">مه‌آلود</annotation>
 		<annotation cp="🌃">آسمان شب | ستاره | شب | شب پرستاره</annotation>
 		<annotation cp="🌃" type="tts">شب پرستاره</annotation>
+		<annotation cp="🏙">شهر | شهری | منظره | نما | نمای شهر</annotation>
+		<annotation cp="🏙" type="tts">نمای شهر</annotation>
 		<annotation cp="🌄">آفتاب | بامداد | خورشید | صبح | صبح زود | طلوع | طلوع آفتاب | طلوع در کوهستان | کوه | کوهستان</annotation>
 		<annotation cp="🌄" type="tts">طلوع در کوهستان</annotation>
 		<annotation cp="🌅">آفتاب | بامداد | خورشید | صبح | صبح زود | طلوع</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">چراغ سلمانی</annotation>
 		<annotation cp="🎪">چادر | چادر سیرک | سیرک</annotation>
 		<annotation cp="🎪" type="tts">چادر سیرک</annotation>
-		<annotation cp="🎭">تئاتر | سالن تئاتر | صورتک | ماسک نقاب | نمایش | نمایشی | هنر | هنرهای نمایشی</annotation>
-		<annotation cp="🎭" type="tts">هنرهای نمایشی</annotation>
-		<annotation cp="🖼">تصویر | عکس در قاب | قاب | قاب عکس | قاب کردن | موزه | نقاشی | هنر</annotation>
-		<annotation cp="🖼" type="tts">عکس در قاب</annotation>
-		<annotation cp="🎨">پالت | پالت نقاشی | شستی نقاشی | موزه | نقاشی | هنر</annotation>
-		<annotation cp="🎨" type="tts">پالت نقاشی</annotation>
-		<annotation cp="🎰">اسلات | اسلات ماشین | بازی | قمار | کازینو | ماشین | ماشین پولی</annotation>
-		<annotation cp="🎰" type="tts">ماشین پولی</annotation>
 		<annotation cp="🚂">بخار | ریل | قطار | لوکوموتیو | موتور | وسیلهٔ نقلیه</annotation>
 		<annotation cp="🚂" type="tts">لوکوموتیو</annotation>
 		<annotation cp="🚃">الکتریکی | تراموا | خودرو | ریل | قطار | واگن | واگن ریلی | وسیله نقلیه</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">بزرگراه</annotation>
 		<annotation cp="🛤">راه‌آهن | ریل | ریل قطار | قطار</annotation>
 		<annotation cp="🛤" type="tts">ریل قطار</annotation>
+		<annotation cp="🛢">بشکه | بشکه نفت | نفت</annotation>
+		<annotation cp="🛢" type="tts">بشکه نفت</annotation>
 		<annotation cp="⛽">ایستگاه | بنزین | پمپ | پمپ بنزین | سوخت | گاز | گازوئیل</annotation>
 		<annotation cp="⛽" type="tts">پمپ بنزین</annotation>
 		<annotation cp="🚨">آژیر | پلیس | چراغ | چراغ ماشین پلیس | خودرو | وسیلهٔ نقلیه</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">چراغ راهنمایی افقی</annotation>
 		<annotation cp="🚦">ترافیک | چراغ | چراغ راهنمایی عمودی | علامت</annotation>
 		<annotation cp="🚦" type="tts">چراغ راهنمایی عمودی</annotation>
-		<annotation cp="🚧">راه‌بند | ساخت‌وساز | مانع</annotation>
-		<annotation cp="🚧" type="tts">ساخت‌وساز</annotation>
 		<annotation cp="🛑">ایست | توقف | علامت | علامت ایست | هشت ضلعی | هشت‌ضلعی | هشت‌وجهی</annotation>
 		<annotation cp="🛑" type="tts">علامت ایست</annotation>
+		<annotation cp="🚧">راه‌بند | ساخت‌وساز | مانع</annotation>
+		<annotation cp="🚧" type="tts">ساخت‌وساز</annotation>
 		<annotation cp="⚓">ابزار | کشتی | لنگر</annotation>
 		<annotation cp="⚓" type="tts">لنگر</annotation>
 		<annotation cp="⛵">تفریح | تفریحی | دریا | قایق | قایق بادبانی | کشتی شخصی</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">بشقاب‌پرنده</annotation>
 		<annotation cp="🛎">پذیرش | زنگ | زنگ میز پذیرش | لابی | هتل</annotation>
 		<annotation cp="🛎" type="tts">زنگ میز پذیرش</annotation>
-		<annotation cp="🚪">در | درب | راهرو</annotation>
-		<annotation cp="🚪" type="tts">در</annotation>
-		<annotation cp="🛏">تختخواب | خوابیدن | هتل</annotation>
-		<annotation cp="🛏" type="tts">تختخواب</annotation>
-		<annotation cp="🛋">چراغ | کاناپه | لامپ | مبل | مبل راحتی و چراغ | هتل</annotation>
-		<annotation cp="🛋" type="tts">مبل راحتی و چراغ</annotation>
-		<annotation cp="🚽">توالت | دستشویی | مستراح</annotation>
-		<annotation cp="🚽" type="tts">توالت</annotation>
-		<annotation cp="🚿">آب | حمام | دوش</annotation>
-		<annotation cp="🚿" type="tts">دوش</annotation>
-		<annotation cp="🛁">حمام | وان حمام</annotation>
-		<annotation cp="🛁" type="tts">وان حمام</annotation>
 		<annotation cp="⌛">تایمر | زمان‌سنج | ساعت شنی | شن</annotation>
 		<annotation cp="⌛" type="tts">ساعت شنی</annotation>
 		<annotation cp="⏳">تایمر | زمان‌سنج | ساعت شنی | ساعت شنی با شن روان | شن</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">راگبی</annotation>
 		<annotation cp="🎾">تنیس | توپ | راکت</annotation>
 		<annotation cp="🎾" type="tts">تنیس</annotation>
-		<annotation cp="🎱">۸ | ۸ توپ | بازی | بال | بیلیارد | هشت</annotation>
-		<annotation cp="🎱" type="tts">بیلیارد</annotation>
 		<annotation cp="🎳">بازی | بولینگ | توپ</annotation>
 		<annotation cp="🎳" type="tts">بولینگ</annotation>
 		<annotation cp="🏏">بازی | توپ | چوگان | دسته | کریکت</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">لباس هنرهای رزمی</annotation>
 		<annotation cp="🥅">دروازه | گل</annotation>
 		<annotation cp="🥅" type="tts">دروازه</annotation>
-		<annotation cp="🎯">بازی | برخورد | پرتاب | پیکان در قلب هدف | چشم | دارت | ضربه مستقیم | قلب هدف | مرکز | مرکز صفحه | هدف</annotation>
-		<annotation cp="🎯" type="tts">پیکان در قلب هدف</annotation>
 		<annotation cp="⛳">پرچم در سوراخ | سوراخ | گلف</annotation>
 		<annotation cp="⛳" type="tts">پرچم در سوراخ</annotation>
 		<annotation cp="⛸">اسکی | اسکی روی یخ | یخ</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">سورتمه</annotation>
 		<annotation cp="🥌">بازی | سنگ | سنگ خارا | سنگ کرلینگ | شطرنج یخی</annotation>
 		<annotation cp="🥌" type="tts">سنگ کرلینگ</annotation>
+		<annotation cp="🎯">بازی | برخورد | پرتاب | پیکان در قلب هدف | چشم | دارت | ضربه مستقیم | قلب هدف | مرکز | مرکز صفحه | هدف</annotation>
+		<annotation cp="🎯" type="tts">پیکان در قلب هدف</annotation>
+		<annotation cp="🎱">۸ | ۸ توپ | بازی | بال | بیلیارد | هشت</annotation>
+		<annotation cp="🎱" type="tts">بیلیارد</annotation>
+		<annotation cp="🔮">ابزار | بخت | توپ | جن و پری | طالع‌بینی | فانتزی | کریستال | گوی</annotation>
+		<annotation cp="🔮" type="tts">گوی</annotation>
 		<annotation cp="🎮">بازی | بازی ویدیویی | دسته | کنترل‌کننده</annotation>
 		<annotation cp="🎮" type="tts">بازی ویدیویی</annotation>
 		<annotation cp="🕹">بازی | بازی ویدیویی | دسته بازی</annotation>
 		<annotation cp="🕹" type="tts">دسته بازی</annotation>
+		<annotation cp="🎰">اسلات | اسلات ماشین | بازی | قمار | کازینو | ماشین | ماشین پولی</annotation>
+		<annotation cp="🎰" type="tts">ماشین پولی</annotation>
 		<annotation cp="🎲">بازی | تاس | تاس بازی</annotation>
 		<annotation cp="🎲" type="tts">تاس بازی</annotation>
 		<annotation cp="♠">بازی | پیک | خال | خال پیک | کارت</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">ماژونگ اژدهای قرمز</annotation>
 		<annotation cp="🎴">بازی | بازی کردن | ژاپنی | کارت | کارت بازی گل‌دار | گل</annotation>
 		<annotation cp="🎴" type="tts">کارت بازی گل‌دار</annotation>
+		<annotation cp="🎭">تئاتر | سالن تئاتر | صورتک | ماسک نقاب | نمایش | نمایشی | هنر | هنرهای نمایشی</annotation>
+		<annotation cp="🎭" type="tts">هنرهای نمایشی</annotation>
+		<annotation cp="🖼">تصویر | عکس در قاب | قاب | قاب عکس | قاب کردن | موزه | نقاشی | هنر</annotation>
+		<annotation cp="🖼" type="tts">عکس در قاب</annotation>
+		<annotation cp="🎨">پالت | پالت نقاشی | شستی نقاشی | موزه | نقاشی | هنر</annotation>
+		<annotation cp="🎨" type="tts">پالت نقاشی</annotation>
 		<annotation cp="🔇">آرام | بلندگو | بلندگوی خاموش | بی‌صدا | ساکت | میزان صدا</annotation>
 		<annotation cp="🔇" type="tts">بلندگوی خاموش</annotation>
 		<annotation cp="🔈">بلندگو با صدای کم | صدای کم | کم</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">ذره‌بین روبه‌چپ</annotation>
 		<annotation cp="🔎">ابزار | جستجو | ذره‌بین | ذره‌بین روبه‌راست | شیشه</annotation>
 		<annotation cp="🔎" type="tts">ذره‌بین روبه‌راست</annotation>
-		<annotation cp="🔬">آزمایشگاه | ابزار | علم | میکروسکوپ</annotation>
-		<annotation cp="🔬" type="tts">میکروسکوپ</annotation>
-		<annotation cp="🔭">ابزار | اخترشناسی | تلسکوپ | علم | نجوم</annotation>
-		<annotation cp="🔭" type="tts">تلسکوپ</annotation>
-		<annotation cp="📡">آنتن | آنتن ماهواره | بشقاب | دیش | ماهواره</annotation>
-		<annotation cp="📡" type="tts">آنتن ماهواره</annotation>
 		<annotation cp="🕯">رمانتیک | شعله | شمع | نور</annotation>
 		<annotation cp="🕯" type="tts">شمع</annotation>
 		<annotation cp="💡">الکتریسیته | ایده | برق | حباب | لامپ | نور</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">چرخ‌دنده</annotation>
 		<annotation cp="🗜">ابزار | پرس | صحافی</annotation>
 		<annotation cp="🗜" type="tts">پرس</annotation>
-		<annotation cp="⚗">ابزار | انبیق | پاکشگر | شیمی | صافی | کیمیاگری</annotation>
-		<annotation cp="⚗" type="tts">انبیق</annotation>
 		<annotation cp="⚖">آزادی | ابزار | برج فلکی | ترازو | زودیاک | عدالت | معیار | وزن</annotation>
 		<annotation cp="⚖" type="tts">ترازو</annotation>
 		<annotation cp="🔗">اتصال | پیوند | حلقه | حلقهٔ زنجیر | دانه زنجیر | دانهٔ زنجیر</annotation>
 		<annotation cp="🔗" type="tts">حلقهٔ زنجیر</annotation>
 		<annotation cp="⛓">زنجیر | زنجیرها | غل | غل و زنجیر | قیدوبند</annotation>
 		<annotation cp="⛓" type="tts">غل و زنجیر</annotation>
+		<annotation cp="⚗">ابزار | انبیق | پاکشگر | شیمی | صافی | کیمیاگری</annotation>
+		<annotation cp="⚗" type="tts">انبیق</annotation>
+		<annotation cp="🔬">آزمایشگاه | ابزار | علم | میکروسکوپ</annotation>
+		<annotation cp="🔬" type="tts">میکروسکوپ</annotation>
+		<annotation cp="🔭">ابزار | اخترشناسی | تلسکوپ | علم | نجوم</annotation>
+		<annotation cp="🔭" type="tts">تلسکوپ</annotation>
+		<annotation cp="📡">آنتن | آنتن ماهواره | بشقاب | دیش | ماهواره</annotation>
+		<annotation cp="📡" type="tts">آنتن ماهواره</annotation>
 		<annotation cp="💉">آمپول | ابزار | بیمار | پزشک | دارو | دکتر | سرنگ | سوزن | شات | مریض</annotation>
 		<annotation cp="💉" type="tts">سرنگ</annotation>
 		<annotation cp="💊">بیمار | پزشک | دارو | قرص</annotation>
 		<annotation cp="💊" type="tts">قرص</annotation>
+		<annotation cp="🚪">در | درب | راهرو</annotation>
+		<annotation cp="🚪" type="tts">در</annotation>
+		<annotation cp="🛏">تختخواب | خوابیدن | هتل</annotation>
+		<annotation cp="🛏" type="tts">تختخواب</annotation>
+		<annotation cp="🛋">چراغ | کاناپه | لامپ | مبل | مبل راحتی و چراغ | هتل</annotation>
+		<annotation cp="🛋" type="tts">مبل راحتی و چراغ</annotation>
+		<annotation cp="🚽">توالت | دستشویی | مستراح</annotation>
+		<annotation cp="🚽" type="tts">توالت</annotation>
+		<annotation cp="🚿">آب | حمام | دوش</annotation>
+		<annotation cp="🚿" type="tts">دوش</annotation>
+		<annotation cp="🛁">حمام | وان حمام</annotation>
+		<annotation cp="🛁" type="tts">وان حمام</annotation>
+		<annotation cp="🛒">چرخ دستی | خرید | سبد | سبد خرید | گاری خرید</annotation>
+		<annotation cp="🛒" type="tts">گاری خرید</annotation>
 		<annotation cp="🚬">سیگار | سیگار کشیدن</annotation>
 		<annotation cp="🚬" type="tts">سیگار</annotation>
 		<annotation cp="⚰">تابوت | مرگ</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">خاکستردان</annotation>
 		<annotation cp="🗿">پیکره | پیکره موآی | پیکرهٔ موآی | تندیس | سردیس موآی | صورت | موآی</annotation>
 		<annotation cp="🗿" type="tts">سردیس موآی</annotation>
-		<annotation cp="🛢">بشکه | بشکه نفت | نفت</annotation>
-		<annotation cp="🛢" type="tts">بشکه نفت</annotation>
-		<annotation cp="🔮">ابزار | بخت | توپ | جن و پری | طالع‌بینی | فانتزی | کریستال | گوی</annotation>
-		<annotation cp="🔮" type="tts">گوی</annotation>
-		<annotation cp="🛒">چرخ دستی | خرید | سبد | سبد خرید | گاری خرید</annotation>
-		<annotation cp="🛒" type="tts">گاری خرید</annotation>
 		<annotation cp="🏧">ای تی ام | بانک | خودپرداز | دستگاه | عابربانک | نشان خودپرداز</annotation>
 		<annotation cp="🏧" type="tts">نشان خودپرداز</annotation>
 		<annotation cp="🚮">آشغال | زباله | زباله‌دان | سطل آشغال | علامت ریختن زباله در زباله‌دان</annotation>

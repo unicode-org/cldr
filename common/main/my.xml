@@ -35,6 +35,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ang">အင်ဂလို ဆက္ကစွန်</language>
 			<language type="anp">အန်ဂီကာ</language>
 			<language type="ar">အာရဗီ</language>
+			<language type="ar_001">အာရဗီ (ကမ္ဘာ)</language>
 			<language type="arn">မာပုချီ</language>
 			<language type="arp">အာရာပါဟို</language>
 			<language type="as">အာသံ</language>
@@ -116,7 +117,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="enm">အလယ်ပိုင်း အင်္ဂလိပ်</language>
 			<language type="eo">အက်စ်ပရန်တို</language>
 			<language type="es">စပိန်</language>
+			<language type="es_419">စပိန် (လက်တင်အမေရိက)</language>
 			<language type="es_ES">စပိန် (ဥရောပ)</language>
+			<language type="es_MX">စပိန် (မက္ကဆီကို)</language>
 			<language type="et">အက်စ်တိုးနီးယား</language>
 			<language type="eu">ဘာစ်ခ်</language>
 			<language type="ewo">အီဝန်ဒို</language>
@@ -429,6 +432,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yue">ကွမ်တုံ</language>
 			<language type="zgh">မိုရိုကို တမဇိုက်</language>
 			<language type="zh">တရုတ်</language>
+			<language type="zh_Hans">တရုတ် (ရိုးရှင်း)</language>
+			<language type="zh_Hant">တရုတ် (ရိုးရာ)</language>
 			<language type="zu">ဇူးလူး</language>
 			<language type="zun">ဇူနီ</language>
 			<language type="zxx">ဘာသာစကားနှင့် ပတ်သက်သောအရာ မရှိပါ</language>
@@ -520,6 +525,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">အရှေ့ ဥရောပ</territory>
 			<territory type="154">မြောက် ဥရောပ</territory>
 			<territory type="155">အနောက် ဥရောပ</territory>
+			<territory type="202">ဆာဟာရ-အောက်ပိုင်း အာဖရိက</territory>
 			<territory type="419">လက်တင်အမေရိက</territory>
 			<territory type="AC">အဆန်းရှင်းကျွန်း</territory>
 			<territory type="AD">အန်ဒိုရာ</territory>
@@ -761,6 +767,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">တာဂျီကစ္စတန်</territory>
 			<territory type="TK">တိုကလောင်</territory>
 			<territory type="TL">အရှေ့တီမော</territory>
+			<territory type="TL" alt="variant">အရှေ့တီမော</territory>
 			<territory type="TM">တာ့ခ်မင်နစ္စတန်</territory>
 			<territory type="TN">တူနီးရှား</territory>
 			<territory type="TO">တွန်ဂါ</territory>
@@ -1524,7 +1531,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y ခု w ပတ်မြောက်</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y ခု w ပတ်မြောက်</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{1} {0}</appendItem>
@@ -2187,16 +2194,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ညှိထားသည့် ကမ္ဘာ့ စံတော်ချိန်</standard>
 				</long>
 			</zone>
-			<!-- <zone type="Asia/Chongqing">
-				 <exemplarCity>ချောင်ချင်း</exemplarCity>
-				 </zone>
-				 <zone type="Asia/Harbin">
-				 <exemplarCity>ဟာဘင်</exemplarCity>
-				 </zone>
-				 <zone type="Asia/Kashgar">
-				 <exemplarCity>ခါရှီးဂ်</exemplarCity>
-				 </zone>
-			-->
 			<zone type="Etc/Unknown">
 				<exemplarCity>အမည်မသိသောမြို့</exemplarCity>
 			</zone>
@@ -4539,8 +4536,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">NAf</symbol>
 			</currency>
 			<currency type="AOA">
-				<displayName>အင်ဂိုလာ ကန်ဇာ</displayName>
-				<displayName count="other">အင်ဂိုလာ ကန်ဇာ</displayName>
+				<displayName>အန်ဂိုလာ ကွမ်ဇာ</displayName>
+				<displayName count="other">အန်ဂိုလာ ကွမ်ဇာ</displayName>
 				<symbol draft="contributed">AOA</symbol>
 				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
@@ -5282,6 +5279,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName>ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ (၂၀၁၈)</displayName>
+				<displayName count="other">ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာစ် (၂၀၁၈)</displayName>
+			</currency>
 			<currency type="SUR">
 				<displayName>ဆိုဗီယက် ရူဗယ်</displayName>
 			</currency>
@@ -5820,7 +5821,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-kilogram">
 				<displayName>ကီလိုဂရမ်</displayName>
 				<unitPattern count="other">{0} ကီလိုဂရမ်</unitPattern>
-				<perUnitPattern>{0} လျှင် တစ်ကီလိုဂရမ်</perUnitPattern>
+				<perUnitPattern>တစ်ကီလိုဂရမ်လျှင် {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>ဂရမ်</displayName>

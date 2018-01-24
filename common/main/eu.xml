@@ -24,7 +24,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ace">acehnera</language>
 			<language type="ach">acholiera</language>
 			<language type="ada">adangmera</language>
-			<language type="ady">adyghera</language>
+			<language type="ady">adigera</language>
 			<language type="af">afrikaansa</language>
 			<language type="agq">aghemera</language>
 			<language type="ain">ainuera</language>
@@ -45,7 +45,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="awa">awadhiera</language>
 			<language type="ay">aimara</language>
 			<language type="az">azerbaijanera</language>
-			<language type="az" alt="short">azeriera</language>
+			<language type="az" alt="short">azerbaijanera</language>
 			<language type="ba">bashkirrera</language>
 			<language type="ban">baliera</language>
 			<language type="bas">basaa</language>
@@ -501,6 +501,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa ekialdea</territory>
 			<territory type="154">Europa iparraldea</territory>
 			<territory type="155">Europa mendebaldea</territory>
+			<territory type="202">Saharaz hegoaldeko Afrika</territory>
 			<territory type="419">Latinoamerika</territory>
 			<territory type="AC">Ascension uhartea</territory>
 			<territory type="AD">Andorra</territory>
@@ -549,6 +550,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Kongoko Errepublika</territory>
 			<territory type="CH">Suitza</territory>
 			<territory type="CI">Boli Kosta</territory>
+			<territory type="CI" alt="variant">CI</territory>
 			<territory type="CK">Cook uharteak</territory>
 			<territory type="CL">Txile</territory>
 			<territory type="CM">Kamerun</territory>
@@ -741,6 +743,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tajikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Ekialdeko Timor</territory>
+			<territory type="TL" alt="variant">TL</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
@@ -5525,6 +5528,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">Sao Tomeko eta Principeko dobra</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>STN</displayName>
+				<displayName count="one">STN</displayName>
+				<displayName count="other">STN</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Siriako libera</displayName>

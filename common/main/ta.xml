@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -715,6 +715,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">கிழக்கு ஐரோப்பா</territory>
 			<territory type="154">வடக்கு ஐரோப்பா</territory>
 			<territory type="155">மேற்கு ஐரோப்பா</territory>
+			<territory type="202" draft="contributed">சப்-சஹாரன் ஆப்ரிக்கா</territory>
 			<territory type="419">லத்தீன் அமெரிக்கா</territory>
 			<territory type="AC">அஷன்ஷியன் தீவு</territory>
 			<territory type="AD">அன்டோரா</territory>
@@ -6473,6 +6474,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">சாவ் டோமி மற்றும் பிரின்ஸ்பி டோப்ராக்கள்</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">சமோ தோமே அண்ட் ப்ரின்சிபே தோப்ரா (2018)</displayName>
+				<displayName count="one" draft="contributed">சமோ தோமே அண்ட் ப்ரின்சிபே தோப்ரா (2018)</displayName>
+				<displayName count="other" draft="contributed">சமோ தோமே அண்ட் ப்ரின்சிபே தோப்ரா (2018)</displayName>
 			</currency>
 			<currency type="SYP">
 				<displayName>சிரியன் பவுண்டு</displayName>

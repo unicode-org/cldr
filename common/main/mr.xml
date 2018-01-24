@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -709,6 +709,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">पूर्व युरोप</territory>
 			<territory type="154">उत्तर युरोप</territory>
 			<territory type="155">पश्चिम युरोप</territory>
+			<territory type="202" draft="contributed">उप-सहारा आफ्रिका</territory>
 			<territory type="419">लॅटिन अमेरिका</territory>
 			<territory type="AC">अ‍ॅसेन्शियन बेट</territory>
 			<territory type="AD">अँडोरा</territory>
@@ -757,6 +758,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">काँगो (प्रजासत्ताक)</territory>
 			<territory type="CH">स्वित्झर्लंड</territory>
 			<territory type="CI">आयव्हरी कोस्ट</territory>
+			<territory type="CI" alt="variant" draft="contributed">आयव्हरी कोस्ट</territory>
 			<territory type="CK">कुक बेटे</territory>
 			<territory type="CL">चिली</territory>
 			<territory type="CM">कॅमेरून</territory>
@@ -6510,6 +6512,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">साओ टोम आणि प्रिन्सिपे डोबराज</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">साओ टोम आणि प्रिन्सिपे डोबरा (2018)</displayName>
+				<displayName count="one" draft="contributed">साओ टोम आणि प्रिन्सिपे डोबरा (2018)</displayName>
+				<displayName count="other" draft="contributed">साओ टोम आणि प्रिन्सिपे डोबरा (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>सीरियन पाउंड</displayName>

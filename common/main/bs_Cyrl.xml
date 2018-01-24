@@ -98,6 +98,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dak">дакота</language>
 			<language type="dar">даргва</language>
 			<language type="de">њемачки</language>
+			<language type="de_AT">њемачки (Аустрија)</language>
 			<language type="de_CH">Швајцарски високи немачки</language>
 			<language type="del">делавер</language>
 			<language type="den">славски</language>
@@ -123,6 +124,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="enm">средњи енглески</language>
 			<language type="eo">есперанто</language>
 			<language type="es">шпански</language>
+			<language type="es_419">шпански (Латинска Америка)</language>
+			<language type="es_ES">шпански (Шпанија)</language>
+			<language type="es_MX">шпански (Мексико)</language>
 			<language type="et">естонски</language>
 			<language type="eu">баскијски</language>
 			<language type="ewo">евондо</language>
@@ -136,6 +140,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">фарски</language>
 			<language type="fon">фон</language>
 			<language type="fr">француски</language>
+			<language type="fr_CH">француски (Швицарска)</language>
 			<language type="frm">средњи француски</language>
 			<language type="fro">старофранцуски</language>
 			<language type="frr">северно-фризијски</language>
@@ -331,6 +336,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ps">паштунски</language>
 			<language type="ps" alt="variant" draft="contributed">пашто</language>
 			<language type="pt">португалски</language>
+			<language type="pt_BR">португалски (Бразил)</language>
+			<language type="pt_PT">португалски (Португал)</language>
 			<language type="qu">квенча</language>
 			<language type="raj">рађастани</language>
 			<language type="rap">рапануи</language>
@@ -385,6 +392,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sux">сумерски</language>
 			<language type="sv">шведски</language>
 			<language type="sw">свахили</language>
+			<language type="sw_CD">свахили (Демократска Република Конго)</language>
 			<language type="swb">коморски</language>
 			<language type="syc">класични сиријски</language>
 			<language type="syr">сиријски</language>
@@ -1361,11 +1369,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">прије нове ере</era>
+						<era type="0" alt="variant">прије нове ере</era>
 						<era type="1">нове ере</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">п. н. е.</era>
+						<era type="0" alt="variant">п. н. е.</era>
 						<era type="1">н. е.</era>
+						<era type="1" alt="variant">н. е.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">п.н.е.</era>
@@ -6151,6 +6162,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="provisional">зимбабвејских долара (2008)</displayName>
 			</currency>
 		</currencies>
+		<minimalPairs>
+			<pluralMinimalPairs count="one" draft="contributed">за {0} дан</pluralMinimalPairs>
+			<pluralMinimalPairs count="few" draft="contributed">за {0} дана</pluralMinimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">за {0} дана</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="contributed">Скрените на {0}. крижању десно.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

@@ -134,6 +134,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">達爾格瓦文</language>
 			<language type="dav">台塔文</language>
 			<language type="de">德文</language>
+			<language type="de_AT">德文 (奧地利)</language>
 			<language type="de_CH">高地德文（瑞士）</language>
 			<language type="del">德拉瓦文</language>
 			<language type="den">斯拉夫</language>
@@ -159,9 +160,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">希臘文</language>
 			<language type="elx">埃蘭文</language>
 			<language type="en">英文</language>
+			<language type="en_AU">英文 (澳洲)</language>
+			<language type="en_CA">英文 (加拿大)</language>
+			<language type="en_GB">英文 (英國)</language>
+			<language type="en_GB" alt="short">英文 (英國)</language>
+			<language type="en_US">英文 (美國)</language>
+			<language type="en_US" alt="short">英文 (美國)</language>
 			<language type="enm">中古英文</language>
 			<language type="eo">世界文</language>
 			<language type="es">西班牙文</language>
+			<language type="es_419">西班牙文 (拉丁美洲)</language>
+			<language type="es_ES">西班牙文 (西班牙)</language>
+			<language type="es_MX">西班牙文 (墨西哥)</language>
 			<language type="esu">中尤皮克文</language>
 			<language type="et">愛沙尼亞文</language>
 			<language type="eu">巴斯克文</language>
@@ -178,6 +188,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">法羅文</language>
 			<language type="fon">豐文</language>
 			<language type="fr">法文</language>
+			<language type="fr_CA">法文 (加拿大)</language>
+			<language type="fr_CH">法文 (瑞士)</language>
 			<language type="frc">卡真法文</language>
 			<language type="frm">中古法文</language>
 			<language type="fro">古法文</language>
@@ -444,6 +456,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pro">古普羅旺斯文</language>
 			<language type="ps">普什圖文</language>
 			<language type="pt">葡萄牙文</language>
+			<language type="pt_BR">葡萄牙文 (巴西)</language>
+			<language type="pt_PT">葡萄牙文 (葡萄牙)</language>
 			<language type="qu">蓋楚瓦文</language>
 			<language type="quc">基切文</language>
 			<language type="qug">欽博拉索海蘭蓋丘亞文</language>
@@ -868,6 +882,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">剛果共和國</territory>
 			<territory type="CH">瑞士</territory>
 			<territory type="CI">象牙海岸</territory>
+			<territory type="CI" alt="variant">象牙海岸</territory>
 			<territory type="CK">庫克群島</territory>
 			<territory type="CL">智利</territory>
 			<territory type="CM">喀麥隆</territory>
@@ -1060,6 +1075,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">塔吉克</territory>
 			<territory type="TK">托克勞群島</territory>
 			<territory type="TL">東帝汶</territory>
+			<territory type="TL" alt="variant">東帝汶</territory>
 			<territory type="TM">土庫曼</territory>
 			<territory type="TN">突尼西亞</territory>
 			<territory type="TO">東加</territory>
@@ -3281,7 +3297,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 			<calendar type="japanese">
 				<eras>
-					<!-- per cldrbug 2835, accept provisional -->
 					<eraAbbr>
 						<era type="0">大化</era>
 						<era type="1">白雉</era>
@@ -3565,7 +3580,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<!-- per cldrbug 2835, accept provisional with adjustments/additions -->
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
@@ -5508,7 +5522,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>北達科他州中心</exemplarCity>
 			</zone>
-			<!-- start zone translations added per ticket #2753 -->
 			<zone type="America/Chicago">
 				<exemplarCity>芝加哥</exemplarCity>
 			</zone>
@@ -5602,7 +5615,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Harare">
 				<exemplarCity>哈拉雷</exemplarCity>
 			</zone>
-			<!-- end zone translations added per ticket #2753 -->
 			<metazone type="Acre">
 				<long>
 					<generic>艾克時間</generic>
@@ -6616,7 +6628,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other">0</pattern>
+					<pattern type="1000" count="other">0千</pattern>
 					<pattern type="10000" count="other">0萬</pattern>
 					<pattern type="100000" count="other">00萬</pattern>
 					<pattern type="1000000" count="other">000萬</pattern>
@@ -6632,7 +6644,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other">0</pattern>
+					<pattern type="1000" count="other">0千</pattern>
 					<pattern type="10000" count="other">0萬</pattern>
 					<pattern type="100000" count="other">00萬</pattern>
 					<pattern type="1000000" count="other">000萬</pattern>
@@ -6693,7 +6705,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other">0</pattern>
+					<pattern type="1000" count="other">¤0千</pattern>
 					<pattern type="10000" count="other">¤0萬</pattern>
 					<pattern type="100000" count="other">¤00萬</pattern>
 					<pattern type="1000000" count="other">¤000萬</pattern>
@@ -10001,7 +10013,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="sign_standard_symbols">標記/標準符號</characterLabel>
 		<characterLabel type="small_form_variant">小寫變體</characterLabel>
 		<characterLabel type="smiley">表情符號</characterLabel>
-		<characterLabel type="smileys_people">表情符號與人</characterLabel>
+		<characterLabel type="smileys_people">表情符號同人</characterLabel>
 		<characterLabel type="south_asian_scripts">南亞字體</characterLabel>
 		<characterLabel type="southeast_asian_scripts">東南亞字體</characterLabel>
 		<characterLabel type="spacing">空位</characterLabel>
@@ -10010,7 +10022,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="technical_symbols">技術符號</characterLabel>
 		<characterLabel type="tone_marks">聲調符號</characterLabel>
 		<characterLabel type="travel">旅遊</characterLabel>
-		<characterLabel type="travel_places">旅遊和地點</characterLabel>
+		<characterLabel type="travel_places">旅遊同地點</characterLabel>
 		<characterLabel type="upwards_arrows">向上箭咀</characterLabel>
 		<characterLabel type="variant_forms">變化型</characterLabel>
 		<characterLabel type="vocalic_jamo">元音字母</characterLabel>

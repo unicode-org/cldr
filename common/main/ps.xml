@@ -102,6 +102,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">یوناني</language>
 			<language type="en">انګریزي</language>
 			<language type="en_AU">انګریزي (AU)</language>
+			<language type="en_CA">کاناډايي انګلیسي</language>
+			<language type="en_GB">برتانوی انګلیسي</language>
 			<language type="en_GB" alt="short">انګریزي (GB)</language>
 			<language type="en_US">انګریزي (US)</language>
 			<language type="en_US" alt="short">انګریزي (US)</language>
@@ -302,9 +304,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="quc">کچی</language>
 			<language type="rap">رپانوئي</language>
 			<language type="rar">راروټانګان</language>
-			<language type="rm">رومانش</language>
+			<language type="rm">رومانیش</language>
 			<language type="rn">رونډی</language>
-			<language type="ro">روماني</language>
+			<language type="ro">رومانیایی</language>
+			<language type="ro_MD">مولداویایی</language>
 			<language type="rof">رومبو</language>
 			<language type="root">روټ</language>
 			<language type="ru">روسي</language>
@@ -350,6 +353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="suk">سکوما</language>
 			<language type="sv">سویډنی</language>
 			<language type="sw">سواهېلي</language>
+			<language type="sw_CD">کانګو سواهلی</language>
 			<language type="swb">کومورياني</language>
 			<language type="syr">سوریاني</language>
 			<language type="ta">تامیل</language>
@@ -489,6 +493,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">ختيځه اروپا</territory>
 			<territory type="154">شمالي اروپا</territory>
 			<territory type="155">لویدیځه اروپا</territory>
+			<territory type="202">د افریقا جنوب-صحرا</territory>
 			<territory type="419">لاتیني امریکا</territory>
 			<territory type="AC">د توغندیو ټاپو</territory>
 			<territory type="AD">اندورا</territory>
@@ -2623,7 +2628,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>هوبارټ</exemplarCity>
 			</zone>
 			<zone type="Australia/Lindeman">
-				<exemplarCity draft="provisional">Lindeman</exemplarCity>
+				<exemplarCity>لینډامین</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>سډني</exemplarCity>
@@ -3648,6 +3653,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
 			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>جانستون</exemplarCity>
+			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>اینکریج</exemplarCity>
 			</zone>
@@ -4481,7 +4489,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
-					<standard draft="provisional">Pitcairn وخت</standard>
+					<standard>پیټ کارین وخت</standard>
 				</long>
 			</metazone>
 			<metazone type="Ponape">
@@ -4530,7 +4538,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Solomon">
 				<long>
-					<standard draft="provisional">د سليمان سلیمان ټایمز</standard>
+					<standard>د سلیمان ټاپوګانو وخت</standard>
 				</long>
 			</metazone>
 			<metazone type="South_Georgia">
@@ -5693,6 +5701,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">STD</displayName>
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>São Tomé &amp; Príncipe Dobra (2018)</displayName>
+				<displayName count="one">São Tomé &amp; Príncipe dobra (2018)</displayName>
+				<displayName count="other">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>SYP</displayName>

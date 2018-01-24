@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -110,6 +110,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="en_US" alt="short">америк-англи</language>
 			<language type="eo">эсперанто</language>
 			<language type="es">испани</language>
+			<language type="es_419">испани хэл (Латин Америк)</language>
+			<language type="es_ES">испани хэл (Европ)</language>
+			<language type="es_MX">испани хэл (Мексик)</language>
 			<language type="et">эстони</language>
 			<language type="eu">баск</language>
 			<language type="ewo">эвондо</language>
@@ -299,6 +302,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="prg">прусс</language>
 			<language type="ps">пашто</language>
 			<language type="pt">португал</language>
+			<language type="pt_BR">португал хэл (Бразил)</language>
+			<language type="pt_PT">португал хэл (Европ)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
 			<language type="rap">рапануи</language>
@@ -384,7 +389,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ug">уйгур</language>
 			<language type="uk">украин</language>
 			<language type="umb">умбунду</language>
-			<language type="und">тодорхойгүй хэл</language>
+			<language type="und">Үл мэдэгдэх хэл</language>
 			<language type="ur">урду</language>
 			<language type="uz">узбек</language>
 			<language type="vai">вай</language>
@@ -417,7 +422,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<scripts>
 			<script type="Arab">араб</script>
 			<script type="Armn">армени</script>
-			<script type="Beng">бенгал</script>
+			<script type="Beng">бенгал хэл</script>
 			<script type="Bopo">вопомофо</script>
 			<script type="Brai">брайл</script>
 			<script type="Cyrl">кирилл</script>
@@ -492,6 +497,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Зүүн Европ</territory>
 			<territory type="154">Хойд Европ</territory>
 			<territory type="155">Баруун Европ</territory>
+			<territory type="202">Сахарын цөлийн урд хэсгийн Африк</territory>
 			<territory type="419">Латин Америк</territory>
 			<territory type="AC">Асенсион арал</territory>
 			<territory type="AD">Андорра</territory>
@@ -719,7 +725,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SO">Сомали</territory>
 			<territory type="SR">Суринам</territory>
 			<territory type="SS">Өмнөд Судан</territory>
-			<territory type="ST">Сан-Томе ба Принсипи</territory>
+			<territory type="ST">Сан-Томе Принсипи</territory>
 			<territory type="SV">Эль Сальвадор</territory>
 			<territory type="SX">Синт Мартен</territory>
 			<territory type="SY">Сири</territory>
@@ -1357,12 +1363,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>y 'оны' MMM'ын' d. EEEE 'гараг'.</pattern>
+							<pattern>y.MM.dd, EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>y 'оны' MMM'ын' d</pattern>
+							<pattern>y.MM.dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -4186,7 +4192,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Pierre_Miquelon">
 				<long>
 					<generic>Сен-Пьер ба Микелоны цаг</generic>
-					<standard>Сен-Пьер ба Микелоны стандарт цаг</standard>
+					<standard>Сент-Пьер ба Микелоны стандарт цаг</standard>
 					<daylight>Сен-Пьер ба Микелоны зуны цаг</daylight>
 				</long>
 			</metazone>
@@ -4758,9 +4764,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CZK">
-				<displayName>чехийн коруна</displayName>
-				<displayName count="one">чехийн коруна</displayName>
-				<displayName count="other">чехийн коруна</displayName>
+				<displayName>Чех крон</displayName>
+				<displayName count="one">Чех крон</displayName>
+				<displayName count="other">Чех крон</displayName>
 				<symbol>CZK</symbol>
 				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
@@ -5150,7 +5156,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="MWK">
 				<displayName>малави квача</displayName>
-				<displayName count="one">малави квача</displayName>
+				<displayName count="one">Малавигийн квача</displayName>
 				<displayName count="other">малави квача</displayName>
 				<symbol>MWK</symbol>
 			</currency>
@@ -5376,10 +5382,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="STD">
 				<displayName>сан-томе ба принсипи добра</displayName>
-				<displayName count="one">сан-томе ба принсипи добра</displayName>
-				<displayName count="other">сан-томе ба принсипи добра</displayName>
+				<displayName count="one">Сан-Томе Принсипигийн мөнгөн тэмдэгт добра</displayName>
+				<displayName count="other">Сан-Томе Принсипигийн мөнгөн тэмдэгт добра</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>Сан-Томе Принсипигийн добра</displayName>
+				<displayName count="one">Сан-Томе Принсипигийн добра</displayName>
+				<displayName count="other">Сан-Томе Принсипигийн добра</displayName>
 			</currency>
 			<currency type="SYP">
 				<displayName>сири паунд</displayName>
@@ -6266,7 +6277,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} цайны халбага</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0}Зүүн</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}Умард</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}Өмнөд</coordinateUnitPattern>
 				<coordinateUnitPattern type="west">{0}Өрнөд</coordinateUnitPattern>
@@ -6783,7 +6794,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ф/инч²</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName>МөУсИн</displayName>
+				<displayName>МөУс инч</displayName>
 				<unitPattern count="one">{0} МөУсИн</unitPattern>
 				<unitPattern count="other">{0} МөУсИн</unitPattern>
 			</unit>

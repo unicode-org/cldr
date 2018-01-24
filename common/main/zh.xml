@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -131,7 +131,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dsb">下索布语</language>
 			<language type="dua">都阿拉语</language>
 			<language type="dum">中古荷兰语</language>
-			<language type="dv">迪维西语</language>
+			<language type="dv">迪维希语</language>
 			<language type="dyo">朱拉语</language>
 			<language type="dyu">迪尤拉语</language>
 			<language type="dz">宗卡语</language>
@@ -306,7 +306,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lua">卢巴-卢拉语</language>
 			<language type="lui">卢伊塞诺语</language>
 			<language type="lun">隆达语</language>
-			<language type="luo">卢欧语</language>
+			<language type="luo">卢奥语</language>
 			<language type="lus">米佐语</language>
 			<language type="luy">卢雅语</language>
 			<language type="lv">拉脱维亚语</language>
@@ -770,6 +770,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">东欧</territory>
 			<territory type="154">北欧</territory>
 			<territory type="155">西欧</territory>
+			<territory type="202">撒哈拉以南非洲</territory>
 			<territory type="419">拉丁美洲</territory>
 			<territory type="AC">阿森松岛</territory>
 			<territory type="AD">安道尔</territory>
@@ -1011,6 +1012,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">塔吉克斯坦</territory>
 			<territory type="TK">托克劳</territory>
 			<territory type="TL">东帝汶</territory>
+			<territory type="TL" alt="variant" draft="contributed">东帝汶</territory>
 			<territory type="TM">土库曼斯坦</territory>
 			<territory type="TN">突尼斯</territory>
 			<territory type="TO">汤加</territory>
@@ -2828,11 +2830,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<eras>
 					<eraNames>
 						<era type="0">公元前</era>
+						<era type="0" alt="variant">公元前</era>
 						<era type="1">公元</era>
+						<era type="1" alt="variant">公元</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">公元前</era>
+						<era type="0" alt="variant">公元前</era>
 						<era type="1">公元</era>
+						<era type="1" alt="variant">公元</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">公元前</era>
@@ -10273,6 +10279,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">圣多美和普林西比多布拉</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">圣多美和普林西比多布拉（2018）</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>苏联卢布</displayName>

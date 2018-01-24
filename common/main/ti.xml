@@ -33,10 +33,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de">ጀርመን</language>
 			<language type="el">ግሪከኛ</language>
 			<language type="en">እንግሊዝኛ</language>
+			<language type="en_AU">እንግሊዝኛ (አውስትሬሊያ)</language>
+			<language type="en_CA">እንግሊዝኛ (ካናዳ)</language>
+			<language type="en_GB">እንግሊዝኛ (እንግሊዝ)</language>
 			<language type="en_GB" alt="short">እንግሊዝኛ (GB)</language>
+			<language type="en_US">እንግሊዝኛ (አሜሪካ)</language>
 			<language type="en_US" alt="short">እንግሊዝኛ (US)</language>
 			<language type="eo">ኤስፐራንቶ</language>
 			<language type="es">ስፓኒሽ</language>
+			<language type="es_ES">ስፓኒሽ (ስፔን)</language>
+			<language type="es_MX">ስፓኒሽ (ሜክሲኮ)</language>
 			<language type="et">ኤስቶኒአን</language>
 			<language type="eu">ባስክኛ</language>
 			<language type="fa">ፐርሲያኛ</language>
@@ -97,6 +103,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="su">ሱዳንኛ</language>
 			<language type="sv">ስዊድንኛ</language>
 			<language type="sw">ሰዋሂሊኛ</language>
+			<language type="sw_CD">ሰዋሂሊኛ (ኮንጎ)</language>
 			<language type="ta">ታሚልኛ</language>
 			<language type="te">ተሉጉኛ</language>
 			<language type="th">ታይኛ</language>
@@ -182,8 +189,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">ካናዳ</territory>
 			<territory type="CC">ኮኮስ ኬሊንግ ደሴቶች</territory>
 			<territory type="CD">ኮንጎ</territory>
+			<territory type="CD" alt="variant">ኮንጎ</territory>
 			<territory type="CF">ማእከላይ ኣፍሪቃ ሪፓብሊክ</territory>
 			<territory type="CG">ኮንጎ ሪፓብሊክ</territory>
+			<territory type="CG" alt="variant">ኮንጎ ሪፓብሊክ</territory>
 			<territory type="CH">ስዊዘርላንድ</territory>
 			<territory type="CI">ኮት ዲቯር</territory>
 			<territory type="CI" alt="variant">አይቮሪ ኮስት</territory>
@@ -219,6 +228,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FI">ፊንላንድ</territory>
 			<territory type="FJ">ፊጂ</territory>
 			<territory type="FK">ደሴታት ፎክላንድ</territory>
+			<territory type="FK" alt="variant">ደሴታት ፎክላንድ</territory>
 			<territory type="FM">ሚክሮኔዢያ</territory>
 			<territory type="FO">ደሴታት ፋራኦ</territory>
 			<territory type="FR">ፈረንሳይ</territory>
@@ -376,6 +386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">ታጃኪስታን</territory>
 			<territory type="TK">ቶክላው</territory>
 			<territory type="TL">ምብራቕ ቲሞር</territory>
+			<territory type="TL" alt="variant">ምብራቕ ቲሞር</territory>
 			<territory type="TM">ቱርክሜኒስታን</territory>
 			<territory type="TN">ቱኒዚያ</territory>
 			<territory type="TO">ቶንጋ</territory>
@@ -824,8 +835,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="one">መበል w ሰሙን ናይ Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">መበል w ሰሙን ናይ Y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">መበል w ሰሙን ናይ y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">መበል w ሰሙን ናይ y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2834,6 +2845,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Harare">
 				<exemplarCity>Harare</exemplarCity>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<generic>ኣቆጻጽራ ኣላስካ</generic>
+					<standard>ንቡር ኣቆጻጽራ ኣላስካ</standard>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -3007,6 +3024,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one" draft="contributed">{0} መዓልቲ</pluralMinimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">{0}መዓልቲ</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="contributed">{0}?</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<durationUnit type="hm">

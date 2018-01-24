@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -709,6 +709,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">شرق أوروبا</territory>
 			<territory type="154">شمال أوروبا</territory>
 			<territory type="155">غرب أوروبا</territory>
+			<territory type="202" draft="contributed">202</territory>
 			<territory type="419">أمريكا اللاتينية</territory>
 			<territory type="AC">جزيرة أسينشيون</territory>
 			<territory type="AD">أندورا</territory>
@@ -7843,6 +7844,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">STN</displayName>
+				<displayName count="zero" draft="contributed">STN</displayName>
+				<displayName count="one" draft="contributed">STN</displayName>
+				<displayName count="two" draft="contributed">STN</displayName>
+				<displayName count="few" draft="contributed">STN</displayName>
+				<displayName count="many" draft="contributed">STN</displayName>
+				<displayName count="other" draft="contributed">STN</displayName>
+			</currency>
 			<currency type="SUR">
 				<displayName>روبل سوفيتي</displayName>
 			</currency>
@@ -11265,9 +11275,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="other">{0} - غير ذلك</characterLabelPattern>
 		<characterLabelPattern type="scripts">أنظمة الكتابة - {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="zero">{0} ضغطة</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="one">ضغطة ({0})</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="two">ضغطتان ({0})</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="few">{0} ضغطات</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} ضغطة</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="two">{0} ضغطة</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="few">{0} ضغطة</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="many">{0} ضغطة</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} ضغطة</characterLabelPattern>
 		<characterLabel type="activities">أنشطة</characterLabel>

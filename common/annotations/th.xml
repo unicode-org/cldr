@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -144,6 +144,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩">หน้า | หน้าอิดโรย | เหนื่อย</annotation>
 		<annotation cp="😩" type="tts">หน้าอิดโรย</annotation>
 		<annotation cp="🤯" draft="contributed">ช็อค</annotation>
+		<annotation cp="🤯" type="tts" draft="contributed">ช็อค</annotation>
 		<annotation cp="😬">เบะปาก | ยิงฟัน | หน้า</annotation>
 		<annotation cp="😬" type="tts">เบะปาก</annotation>
 		<annotation cp="😰">กังวล | กังวลเหงื่อตก | หน้า</annotation>
@@ -1322,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">ก่อสร้างอาคาร</annotation>
 		<annotation cp="🏘">บ้าน | บ้านหลายหลัง</annotation>
 		<annotation cp="🏘" type="tts">บ้านหลายหลัง</annotation>
-		<annotation cp="🏙">ตึกสูง | เมือง | หมู่ตึกสูง</annotation>
-		<annotation cp="🏙" type="tts">หมู่ตึกสูง</annotation>
 		<annotation cp="🏚">บ้าน | บ้านร้าง | รกร้าง</annotation>
 		<annotation cp="🏚" type="tts">บ้านร้าง</annotation>
 		<annotation cp="🏠">ตึก | บ้านเดี่ยว</annotation>
@@ -1380,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">หมอกลง</annotation>
 		<annotation cp="🌃">กลางคืน | ดาว | ดาวยามค่ำคืน</annotation>
 		<annotation cp="🌃" type="tts">ดาว</annotation>
+		<annotation cp="🏙">ตึกสูง | เมือง | หมู่ตึกสูง</annotation>
+		<annotation cp="🏙" type="tts">หมู่ตึกสูง</annotation>
 		<annotation cp="🌄">ดวงอาทิตย์ตอนเช้า | ดวงอาทิตย์โผล่พ้นเขา</annotation>
 		<annotation cp="🌄" type="tts">ดวงอาทิตย์โผล่พ้นเขา</annotation>
 		<annotation cp="🌅">ดวงอาทิตย์ขึ้น | ดวงอาทิตย์ตอนเช้า</annotation>
@@ -1404,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">ร้านตัดผม</annotation>
 		<annotation cp="🎪">เต๊นท์ละครสัตว์ | ละครสัตว์</annotation>
 		<annotation cp="🎪" type="tts">ละครสัตว์</annotation>
-		<annotation cp="🎭">ศาสตร์การแสดง | หน้ากาก</annotation>
-		<annotation cp="🎭" type="tts">หน้ากาก</annotation>
-		<annotation cp="🖼">กรอบรูป | พิพิธภัณฑ์ | ภาพวาด | รูปภาพ | รูปใส่กรอบ | ศิลปะ</annotation>
-		<annotation cp="🖼" type="tts">รูปใส่กรอบ</annotation>
-		<annotation cp="🎨">จานสี | จานสีวาดรูป | พิพิธภัณฑ์ | ภาพวาด | ศิลปะ</annotation>
-		<annotation cp="🎨" type="tts">จานสีวาดรูป</annotation>
-		<annotation cp="🎰">เกม | สล็อต | สล็อตแมชชีน</annotation>
-		<annotation cp="🎰" type="tts">สล็อตแมชชีน</annotation>
 		<annotation cp="🚂">เครื่องจักร | ยานพาหนะ | รถไฟ | หัวรถจักรไอน้ำ | ไอน้ำ</annotation>
 		<annotation cp="🚂" type="tts">หัวรถจักรไอน้ำ</annotation>
 		<annotation cp="🚃">ตู้รถไฟ | รถไฟฟ้า | รถราง</annotation>
@@ -1480,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">ทางด่วน</annotation>
 		<annotation cp="🛤">รถไฟ | รางรถไฟ</annotation>
 		<annotation cp="🛤" type="tts">รางรถไฟ</annotation>
+		<annotation cp="🛢">ถัง | ถังน้ำมัน | น้ำมัน</annotation>
+		<annotation cp="🛢" type="tts">ถังน้ำมัน</annotation>
 		<annotation cp="⛽">น้ำมัน | ปั๊มน้ำมัน</annotation>
 		<annotation cp="⛽" type="tts">ปั๊มน้ำมัน</annotation>
 		<annotation cp="🚨">ฉุกเฉิน | ตำรวจ | ไฟสัญญาณ | ยานพาหนะ | รถยนต์ | สัญญาณไฟตำรวจ</annotation>
@@ -1488,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">ไฟจราจรแนวนอน</annotation>
 		<annotation cp="🚦">จราจร | ไฟ | ไฟจราจรแนวตั้ง | สัญญาณ</annotation>
 		<annotation cp="🚦" type="tts">ไฟจราจรแนวตั้ง</annotation>
-		<annotation cp="🚧">กำลังก่อสร้าง | ป้ายไซต์ก่อสร้าง</annotation>
-		<annotation cp="🚧" type="tts">ป้ายไซต์ก่อสร้าง</annotation>
 		<annotation cp="🛑">เครื่องหมาย | เครื่องหมายหยุด | แปดเหลี่ยม | หยุด</annotation>
 		<annotation cp="🛑" type="tts">เครื่องหมายหยุด</annotation>
+		<annotation cp="🚧">กำลังก่อสร้าง | ป้ายไซต์ก่อสร้าง</annotation>
+		<annotation cp="🚧" type="tts">ป้ายไซต์ก่อสร้าง</annotation>
 		<annotation cp="⚓">เครื่องมือ | เรือ | สมอ | สมอเรือ</annotation>
 		<annotation cp="⚓" type="tts">สมอเรือ</annotation>
 		<annotation cp="⛵">ทะเล | เรือ | เรือใบ</annotation>
@@ -1534,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts" draft="contributed">จานบิน</annotation>
 		<annotation cp="🛎">กระดิ่ง | กระดิ่งโรงแรม | พนักงาน | โรงแรม</annotation>
 		<annotation cp="🛎" type="tts">กระดิ่งโรงแรม</annotation>
-		<annotation cp="🚪">ประตู</annotation>
-		<annotation cp="🚪" type="tts">ประตู</annotation>
-		<annotation cp="🛏">เตียง | โรงแรม | หลับ</annotation>
-		<annotation cp="🛏" type="tts">เตียง</annotation>
-		<annotation cp="🛋">โคมไฟ | โซฟา | โซฟากับโคมไฟ | โรงแรม</annotation>
-		<annotation cp="🛋" type="tts">โซฟากับโคมไฟ</annotation>
-		<annotation cp="🚽">โถส้วม | ห้องน้ำ</annotation>
-		<annotation cp="🚽" type="tts">โถส้วม</annotation>
-		<annotation cp="🚿">น้ำ | ฝักบัว</annotation>
-		<annotation cp="🚿" type="tts">ฝักบัว</annotation>
-		<annotation cp="🛁">อ่าง | อ่างอาบน้ำ | อาบน้ำ</annotation>
-		<annotation cp="🛁" type="tts">อ่างอาบน้ำ</annotation>
 		<annotation cp="⌛">ทราย | นาฬิกาทราย</annotation>
 		<annotation cp="⌛" type="tts">นาฬิกาทราย</annotation>
 		<annotation cp="⏳">นาฬิกาทราย | นาฬิกาทรายจับเวลา</annotation>
@@ -1762,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">รักบี้</annotation>
 		<annotation cp="🎾">กีฬา | เทนนิส</annotation>
 		<annotation cp="🎾" type="tts">เทนนิส</annotation>
-		<annotation cp="🎱">บิลเลียด | แปด</annotation>
-		<annotation cp="🎱" type="tts">บิลเลียด</annotation>
 		<annotation cp="🎳">กีฬา | โบว์ลิ่ง</annotation>
 		<annotation cp="🎳" type="tts">โบว์ลิ่ง</annotation>
 		<annotation cp="🏏">เกม | คริกเก็ต | บอล | ไม้</annotation>
@@ -1782,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">ชุดยูโด</annotation>
 		<annotation cp="🥅">โกล์ | ตาข่าย | เน็ต | ประตู</annotation>
 		<annotation cp="🥅" type="tts">โกล์</annotation>
-		<annotation cp="🎯">กลางเป้า | ตรงเป้า | ปาเป้า | ลูกดอก</annotation>
-		<annotation cp="🎯" type="tts">กลางเป้า</annotation>
 		<annotation cp="⛳">กอล์ฟ | ธงในหลุม</annotation>
 		<annotation cp="⛳" type="tts">ธงในหลุม</annotation>
 		<annotation cp="⛸">น้ำแข็ง | สเก็ต | สเก็ตน้ำแข็ง</annotation>
@@ -1798,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">เลื่อนหิมะ</annotation>
 		<annotation cp="🥌">เกม | ลูกกลิ้งหิน</annotation>
 		<annotation cp="🥌" type="tts">ลูกกลิ้งหิน</annotation>
+		<annotation cp="🎯">กลางเป้า | ตรงเป้า | ปาเป้า | ลูกดอก</annotation>
+		<annotation cp="🎯" type="tts">กลางเป้า</annotation>
+		<annotation cp="🎱">บิลเลียด | แปด</annotation>
+		<annotation cp="🎱" type="tts">บิลเลียด</annotation>
+		<annotation cp="🔮">ดูดวง | ลูกแก้ววิเศษ</annotation>
+		<annotation cp="🔮" type="tts">ลูกแก้ววิเศษ</annotation>
 		<annotation cp="🎮">เกม | จอยสติ๊ก | วิดีโอเกม</annotation>
 		<annotation cp="🎮" type="tts">วิดีโอเกม</annotation>
 		<annotation cp="🕹">เกม | จอยสติ๊ก | วิดีโอ</annotation>
 		<annotation cp="🕹" type="tts">จอยสติ๊ก</annotation>
+		<annotation cp="🎰">เกม | สล็อต | สล็อตแมชชีน</annotation>
+		<annotation cp="🎰" type="tts">สล็อตแมชชีน</annotation>
 		<annotation cp="🎲">ทอยลูกเต๋า | ลูกเต๋า</annotation>
 		<annotation cp="🎲" type="tts">ลูกเต๋า</annotation>
 		<annotation cp="♠">เกม | โพดำ | ไพ่</annotation>
@@ -1818,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">ไพ่นกกระจอกมังกรแดง</annotation>
 		<annotation cp="🎴">เกม | ญี่ปุ่น | ดอกไม้ | ไพ่ | ไพ่ดอกไม้ | เล่น</annotation>
 		<annotation cp="🎴" type="tts">ไพ่ดอกไม้</annotation>
+		<annotation cp="🎭">ศาสตร์การแสดง | หน้ากาก</annotation>
+		<annotation cp="🎭" type="tts">หน้ากาก</annotation>
+		<annotation cp="🖼">กรอบรูป | พิพิธภัณฑ์ | ภาพวาด | รูปภาพ | รูปใส่กรอบ | ศิลปะ</annotation>
+		<annotation cp="🖼" type="tts">รูปใส่กรอบ</annotation>
+		<annotation cp="🎨">จานสี | จานสีวาดรูป | พิพิธภัณฑ์ | ภาพวาด | ศิลปะ</annotation>
+		<annotation cp="🎨" type="tts">จานสีวาดรูป</annotation>
 		<annotation cp="🔇">ปิดเสียง | โปรดเงียบ | ไม่ใช้เสียง</annotation>
 		<annotation cp="🔇" type="tts">ไม่ใช้เสียง</annotation>
 		<annotation cp="🔈">เครื่องขยายเสียง | ลำโพง</annotation>
@@ -1924,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">แว่นขยายเอียงซ้าย</annotation>
 		<annotation cp="🔎">ขยาย | ค้นหา | เครื่องมือ | แว่น | แว่นขยายเอียงขวา</annotation>
 		<annotation cp="🔎" type="tts">แว่นขยายเอียงขวา</annotation>
-		<annotation cp="🔬">กล้องจุลทรรศน์ | เครื่องมือ</annotation>
-		<annotation cp="🔬" type="tts">กล้องจุลทรรศน์</annotation>
-		<annotation cp="🔭">กล้องโทรทรรศน์ | เครื่องมือ</annotation>
-		<annotation cp="🔭" type="tts">กล้องโทรทรรศน์</annotation>
-		<annotation cp="📡">จาน | จานดาวเทียม | ดาวเทียม | เสาอากาศ</annotation>
-		<annotation cp="📡" type="tts">จานดาวเทียม</annotation>
 		<annotation cp="🕯">เทียน | แสง</annotation>
 		<annotation cp="🕯" type="tts">เทียน</annotation>
 		<annotation cp="💡">ปิ๊งไอเดีย | หลอดไฟ</annotation>
@@ -2116,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">เฟือง</annotation>
 		<annotation cp="🗜">เครื่องบีบอัด | เครื่องมือ | บีบอัด | หนีบ</annotation>
 		<annotation cp="🗜" type="tts">เครื่องบีบอัด</annotation>
-		<annotation cp="⚗">เครื่องมือ | วิทยาศาสตร์ | สารเคมี | อุปกรณ์กลั่น</annotation>
-		<annotation cp="⚗" type="tts">อุปกรณ์กลั่น</annotation>
 		<annotation cp="⚖">เครื่องมือ | ตราชั่ง | ตุลย์ | น้ำหนัก | ยุติธรรม | ราศี | สมดุล</annotation>
 		<annotation cp="⚖" type="tts">ตราชั่ง</annotation>
 		<annotation cp="🔗">ลิงก์ | สัญลักษณ์การลิงก์</annotation>
 		<annotation cp="🔗" type="tts">สัญลักษณ์การลิงก์</annotation>
 		<annotation cp="⛓">โซ่</annotation>
 		<annotation cp="⛓" type="tts">โซ่</annotation>
+		<annotation cp="⚗">เครื่องมือ | วิทยาศาสตร์ | สารเคมี | อุปกรณ์กลั่น</annotation>
+		<annotation cp="⚗" type="tts">อุปกรณ์กลั่น</annotation>
+		<annotation cp="🔬">กล้องจุลทรรศน์ | เครื่องมือ</annotation>
+		<annotation cp="🔬" type="tts">กล้องจุลทรรศน์</annotation>
+		<annotation cp="🔭">กล้องโทรทรรศน์ | เครื่องมือ</annotation>
+		<annotation cp="🔭" type="tts">กล้องโทรทรรศน์</annotation>
+		<annotation cp="📡">จาน | จานดาวเทียม | ดาวเทียม | เสาอากาศ</annotation>
+		<annotation cp="📡" type="tts">จานดาวเทียม</annotation>
 		<annotation cp="💉">กระบอกฉีดยา | เข็มฉีดยา | ฉีดยา</annotation>
 		<annotation cp="💉" type="tts">กระบอกฉีดยา</annotation>
 		<annotation cp="💊">ยา | ยาเม็ด | หมอ</annotation>
 		<annotation cp="💊" type="tts">ยาเม็ด</annotation>
+		<annotation cp="🚪">ประตู</annotation>
+		<annotation cp="🚪" type="tts">ประตู</annotation>
+		<annotation cp="🛏">เตียง | โรงแรม | หลับ</annotation>
+		<annotation cp="🛏" type="tts">เตียง</annotation>
+		<annotation cp="🛋">โคมไฟ | โซฟา | โซฟากับโคมไฟ | โรงแรม</annotation>
+		<annotation cp="🛋" type="tts">โซฟากับโคมไฟ</annotation>
+		<annotation cp="🚽">โถส้วม | ห้องน้ำ</annotation>
+		<annotation cp="🚽" type="tts">โถส้วม</annotation>
+		<annotation cp="🚿">น้ำ | ฝักบัว</annotation>
+		<annotation cp="🚿" type="tts">ฝักบัว</annotation>
+		<annotation cp="🛁">อ่าง | อ่างอาบน้ำ | อาบน้ำ</annotation>
+		<annotation cp="🛁" type="tts">อ่างอาบน้ำ</annotation>
+		<annotation cp="🛒">จ่าย | ช็อปปิ้ง | ซื้อ | ตะกร้า | รถเข็น</annotation>
+		<annotation cp="🛒" type="tts">รถเข็น</annotation>
 		<annotation cp="🚬">ป้ายสูบบุหรี่ | สูบบุหรี่ | สูบบุหรี่ได้</annotation>
 		<annotation cp="🚬" type="tts">ป้ายสูบบุหรี่</annotation>
 		<annotation cp="⚰">ความตาย | โลงศพ</annotation>
@@ -2136,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">โกศกระดูก</annotation>
 		<annotation cp="🗿">โมไอ | รูปปั้น | รูปปั้นโมไอ | หน้า</annotation>
 		<annotation cp="🗿" type="tts">รูปปั้นโมไอ</annotation>
-		<annotation cp="🛢">ถัง | ถังน้ำมัน | น้ำมัน</annotation>
-		<annotation cp="🛢" type="tts">ถังน้ำมัน</annotation>
-		<annotation cp="🔮">ดูดวง | ลูกแก้ววิเศษ</annotation>
-		<annotation cp="🔮" type="tts">ลูกแก้ววิเศษ</annotation>
-		<annotation cp="🛒">จ่าย | ช็อปปิ้ง | ซื้อ | ตะกร้า | รถเข็น</annotation>
-		<annotation cp="🛒" type="tts">รถเข็น</annotation>
 		<annotation cp="🏧">เครื่องกดเงิน | เงิน | ธนาคาร | ฝาก-ถอน | อัตโนมัติ | เอทีเอ็ม</annotation>
 		<annotation cp="🏧" type="tts">เอทีเอ็ม</annotation>
 		<annotation cp="🚮">ทิ้งขยะให้ลงถัง | ป้ายถังขยะ</annotation>

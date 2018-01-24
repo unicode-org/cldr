@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -7203,6 +7203,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">STN</displayName>
+				<displayName count="one" draft="contributed">STN</displayName>
+				<displayName count="other" draft="contributed">São-toméische Dobras</displayName>
+			</currency>
 			<currency type="SUR">
 				<displayName>Sowjetischer Rubel</displayName>
 				<displayName count="one">Sowjetische Rubel</displayName>
@@ -9756,7 +9761,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="dash_connector">Gedankenstrich/Bindestrich</characterLabel>
 		<characterLabel type="digits">Stellen</characterLabel>
 		<characterLabel type="dingbats">Zierrat</characterLabel>
-		<characterLabel type="divination_symbols">Teilungszeichen</characterLabel>
+		<characterLabel type="divination_symbols">Wahrsagezeichen</characterLabel>
 		<characterLabel type="downwards_arrows">Abwärtspfeile</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">Aufwärts-Abwärtspfeile</characterLabel>
 		<characterLabel type="east_asian_scripts">Ostasiatische Schriften</characterLabel>

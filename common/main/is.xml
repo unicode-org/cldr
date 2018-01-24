@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -675,6 +675,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Austur-Evrópa</territory>
 			<territory type="154">Norður-Evrópa</territory>
 			<territory type="155">Vestur-Evrópa</territory>
+			<territory type="202">Afríka sunnan Sahara</territory>
 			<territory type="419">Rómanska Ameríka</territory>
 			<territory type="AC">Ascension-eyja</territory>
 			<territory type="AD">Andorra</territory>
@@ -722,7 +723,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG">Kongó-Brazzaville</territory>
 			<territory type="CG" alt="variant">Kongó (Lýðveldið)</territory>
 			<territory type="CH">Sviss</territory>
-			<territory type="CI">Fílabeinsströndin</territory>
+			<territory type="CI">Côte d’Ivoire</territory>
+			<territory type="CI" alt="variant">Fílabeinsströndin</territory>
 			<territory type="CK">Cooks-eyjar</territory>
 			<territory type="CL">Síle</territory>
 			<territory type="CM">Kamerún</territory>
@@ -736,6 +738,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CX">Jólaey</territory>
 			<territory type="CY">Kýpur</territory>
 			<territory type="CZ">Tékkland</territory>
+			<territory type="CZ" alt="variant">Tékkland</territory>
 			<territory type="DE">Þýskaland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djíbútí</territory>
@@ -7890,6 +7893,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">Saó Tóme og Prinsípe-dóbrur</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>Saó Tóme og Prinsípe-dóbra (2018)</displayName>
+				<displayName count="one">Saó Tóme og Prinsípe-dóbra (2018)</displayName>
+				<displayName count="other">Saó Tóme og Prinsípe-dóbrur (2018)</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>Soviet Rouble</displayName>

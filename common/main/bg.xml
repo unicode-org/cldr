@@ -110,6 +110,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">даргва</language>
 			<language type="dav">таита</language>
 			<language type="de">немски</language>
+			<language type="de_AT">немски (Австрия)</language>
+			<language type="de_CH">немски (Швейцария)</language>
 			<language type="del">делауер</language>
 			<language type="den">слейви</language>
 			<language type="dgr">догриб</language>
@@ -132,12 +134,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">гръцки</language>
 			<language type="elx">еламитски</language>
 			<language type="en">английски</language>
+			<language type="en_AU">английски (Австралия)</language>
+			<language type="en_CA">английски (Канада)</language>
+			<language type="en_GB">английски (Обединеното кралство)</language>
 			<language type="en_GB" alt="short">английски (UK)</language>
 			<language type="en_US">английски (САЩ)</language>
 			<language type="en_US" alt="short">английски (US)</language>
 			<language type="enm">средновековен английски</language>
 			<language type="eo">есперанто</language>
 			<language type="es">испански</language>
+			<language type="es_419">испански (Латинска Америка)</language>
+			<language type="es_ES">испански (Испания)</language>
+			<language type="es_MX">испански (Мексико)</language>
 			<language type="et">естонски</language>
 			<language type="eu">баски</language>
 			<language type="ewo">евондо</language>
@@ -151,6 +159,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">фарьорски</language>
 			<language type="fon">фон</language>
 			<language type="fr">френски</language>
+			<language type="fr_CA">френски (Канада)</language>
+			<language type="fr_CH">френски (Швейцария)</language>
 			<language type="frm">средновековен френски</language>
 			<language type="fro">старофренски</language>
 			<language type="frr">северен фризски</language>
@@ -376,6 +386,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">пущу</language>
 			<language type="ps" alt="variant">пущунски</language>
 			<language type="pt">португалски</language>
+			<language type="pt_BR">португалски (Бразилия)</language>
+			<language type="pt_PT">португалски (Португалия)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
 			<language type="raj">раджастански</language>
@@ -516,6 +528,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zgh">стандартен марокански тамазигт</language>
 			<language type="zh">китайски</language>
 			<language type="zh_Hans">китайски (опростен)</language>
+			<language type="zh_Hant">китайски (традиционен)</language>
 			<language type="zu">зулуски</language>
 			<language type="zun">зуни</language>
 			<language type="zxx">без лингвистично съдържание</language>
@@ -679,6 +692,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Източна Европа</territory>
 			<territory type="154">Северна Европа</territory>
 			<territory type="155">Западна Европа</territory>
+			<territory type="202">Субсахарска Африка</territory>
 			<territory type="419">Латинска Америка</territory>
 			<territory type="AC">остров Възнесение</territory>
 			<territory type="AD">Андора</territory>
@@ -920,6 +934,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Таджикистан</territory>
 			<territory type="TK">Токелау</territory>
 			<territory type="TL">Източен Тимор</territory>
+			<territory type="TL" alt="variant">Източен Тимор</territory>
 			<territory type="TM">Туркменистан</territory>
 			<territory type="TN">Тунис</territory>
 			<territory type="TO">Тонга</territory>
@@ -6147,6 +6162,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">добра на Сао Томе и Принсипи</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>Добра</displayName>
+				<displayName count="one">добра</displayName>
+				<displayName count="other">добри</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>Съветска рубла</displayName>

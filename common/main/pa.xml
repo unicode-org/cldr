@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -90,6 +90,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dav">ਟੇਟਾ</language>
 			<language type="de">ਜਰਮਨ</language>
 			<language type="de_AT">ਜਰਮਨ (ਆਸਟਰੀਆਈ)</language>
+			<language type="de_CH" draft="contributed">ਹਾਈ ਜਰਮਨ (ਸਵਿਟਜ਼ਰਲੈਂਡ)</language>
 			<language type="dgr">ਡੋਗਰਿੱਬ</language>
 			<language type="dje">ਜ਼ਾਰਮਾ</language>
 			<language type="dsb">ਲੋਅਰ ਸੋਰਬੀਅਨ</language>
@@ -105,13 +106,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="eka">ਏਕਾਜੁਕ</language>
 			<language type="el">ਯੂਨਾਨੀ</language>
 			<language type="en">ਅੰਗਰੇਜ਼ੀ</language>
+			<language type="en_AU" draft="contributed">ਅੰਗਰੇਜ਼ੀ (ਆਸਟ੍ਰੇਲੀਆ)</language>
+			<language type="en_CA" draft="contributed">ਅੰਗਰੇਜ਼ੀ (ਕੈਨੇਡਾ)</language>
 			<language type="en_GB">ਅੰਗਰੇਜ਼ੀ (ਬਰਤਾਨਵੀ)</language>
 			<language type="en_GB" alt="short">ਅੰਗਰੇਜ਼ੀ (ਯੂ.ਕੇ.)</language>
 			<language type="en_US">ਅੰਗਰੇਜ਼ੀ (ਅਮਰੀਕੀ)</language>
 			<language type="en_US" alt="short">ਅੰਗਰੇਜ਼ੀ (ਯੂ.ਐਸ.)</language>
 			<language type="eo">ਇਸਪੇਰਾਂਟੋ</language>
 			<language type="es">ਸਪੇਨੀ</language>
+			<language type="es_419" draft="contributed">ਸਪੇਨੀ (ਲਾਤੀਨੀ ਅਮਰੀਕਾ)</language>
 			<language type="es_ES">ਸਪੇਨੀ (ਯੂਰਪੀ)</language>
+			<language type="es_MX" draft="contributed">ਸਪੇਨੀ (ਮੈਕਸੀਕੋ)</language>
 			<language type="et">ਇਸਟੋਨੀਆਈ</language>
 			<language type="eu">ਬਾਸਕ</language>
 			<language type="ewo">ਇਵੋਂਡੋ</language>
@@ -124,6 +129,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fon">ਫੌਨ</language>
 			<language type="fr">ਫਰਾਂਸੀਸੀ</language>
 			<language type="fr_CA">ਫਰਾਂਸੀਸੀ (ਕੈਨੇਡੀਅਨ)</language>
+			<language type="fr_CH" draft="contributed">ਫਰਾਂਸੀਸੀ (ਸਵਿਟਜ਼ਰਲੈਂਡ)</language>
 			<language type="frc" draft="contributed">ਕੇਜੁਨ ਫ੍ਰੇੰਚ</language>
 			<language type="fur">ਫਰੀਉਲੀਅਨ</language>
 			<language type="fy">ਪੱਛਮੀ ਫ੍ਰਿਸੀਅਨ</language>
@@ -507,6 +513,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">ਪੂਰਬੀ ਯੂਰਪ</territory>
 			<territory type="154">ਉੱਤਰੀ ਯੂਰਪ</territory>
 			<territory type="155">ਪੱਛਮੀ ਯੂਰਪ</territory>
+			<territory type="202" draft="contributed">ਉਪ-ਸਹਾਰਾ ਅਫ਼ਰੀਕਾ</territory>
 			<territory type="419">ਲਾਤੀਨੀ ਅਮਰੀਕਾ</territory>
 			<territory type="AC">ਅਸੈਂਸ਼ਨ ਟਾਪੂ</territory>
 			<territory type="AD">ਅੰਡੋਰਾ</territory>
@@ -6354,6 +6361,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">ਸਾਉ ਟੋਮੀ ਐਂਡ ਪ੍ਰਿੰਸਪੀ ਡੋਬਰਾ</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">ਸਾਉ ਟੋਮੀ ਅਤੇ ਪ੍ਰਿੰਸਪੀ ਡੋਬਰਾ</displayName>
+				<displayName count="one" draft="contributed">ਸਾਉ ਟੋਮੀ ਅਤੇ ਪ੍ਰਿੰਸਪੀ ਡੋਬਰਾ</displayName>
+				<displayName count="other" draft="contributed">ਸਾਉ ਟੋਮੀ ਐਂਡ ਪ੍ਰਿੰਸਪੀ ਡੋਬਰਾਜ਼</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>ਸੋਵੀਅਤ ਰੂਬਲ</displayName>

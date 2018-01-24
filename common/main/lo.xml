@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -741,6 +741,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">ຢູໂຣບຕາເວັນອອກ</territory>
 			<territory type="154">ຢູໂຣບເໜືອ</territory>
 			<territory type="155">ຢູໂຣບຕາເວັນຕົກ</territory>
+			<territory type="202">ຊັບ ຊາຮາຣານ ອາຟຣິກາ</territory>
 			<territory type="419">ລາຕິນ ອາເມລິກາ</territory>
 			<territory type="AC">ເກາະອາເຊນຊັນ</territory>
 			<territory type="AD">ອັນດໍຣາ</territory>
@@ -6921,6 +6922,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">ເຊົາ ໂທ​ເມ ແອນ ພ​ຣິນ​ຊິ​ປີ ໂດບຣາ</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>ເຊົາໂທມ ແລະ ປຣິນຊິບ ໂດບຣາ (2018)</displayName>
+				<displayName count="other">ເຊົາໂທມ ແລະ ປຣິນຊິບ ໂດບຣາ (2018)</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>ຣູໂບ ໂຊວຽດ</displayName>

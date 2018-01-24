@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -638,6 +638,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">východná Európa</territory>
 			<territory type="154">severná Európa</territory>
 			<territory type="155">západná Európa</territory>
+			<territory type="202" draft="contributed">subsaharská Afrika</territory>
 			<territory type="419">Latinská Amerika</territory>
 			<territory type="AC">Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -680,10 +681,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Kokosové ostrovy</territory>
 			<territory type="CD">Konžská demokratická republika</territory>
+			<territory type="CD" alt="variant" draft="contributed">Konžská demokratická republika</territory>
 			<territory type="CF">Stredoafrická republika</territory>
 			<territory type="CG">Konžská republika</territory>
+			<territory type="CG" alt="variant" draft="contributed">Konžská republika</territory>
 			<territory type="CH">Švajčiarsko</territory>
 			<territory type="CI">Pobrežie Slonoviny</territory>
+			<territory type="CI" alt="variant" draft="contributed">Pobrežie Slonoviny</territory>
 			<territory type="CK">Cookove ostrovy</territory>
 			<territory type="CL">Čile</territory>
 			<territory type="CM">Kamerun</territory>
@@ -876,6 +880,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tadžikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Východný Timor</territory>
+			<territory type="TL" alt="variant" draft="contributed">Východný Timor</territory>
 			<territory type="TM">Turkménsko</territory>
 			<territory type="TN">Tunisko</territory>
 			<territory type="TO">Tonga</territory>
@@ -2565,6 +2570,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="day-short">
 				<displayName>d.</displayName>
+				<relative type="-2" draft="contributed">predvčerom</relative>
+				<relative type="-1" draft="contributed">včera</relative>
+				<relative type="0" draft="contributed">dnes</relative>
+				<relative type="1" draft="contributed">zajtra</relative>
+				<relative type="2" draft="contributed">pozajtra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">o {0} d.</relativeTimePattern>
 					<relativeTimePattern count="few">o {0} d.</relativeTimePattern>
@@ -2580,6 +2590,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="day-narrow">
 				<displayName>d.</displayName>
+				<relative type="-2" draft="contributed">predvčerom</relative>
+				<relative type="-1" draft="contributed">včera</relative>
+				<relative type="0" draft="contributed">dnes</relative>
+				<relative type="1" draft="contributed">zajtra</relative>
+				<relative type="2" draft="contributed">pozajtra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">o {0} d.</relativeTimePattern>
 					<relativeTimePattern count="few">o {0} d.</relativeTimePattern>
@@ -7540,6 +7555,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">svätotomášskych dobier</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">svätotomášska dobra (2018)</displayName>
+				<displayName count="one" draft="contributed">svätotomášska dobra (2018)</displayName>
+				<displayName count="few" draft="contributed">svätotomášske dobry (2018)</displayName>
+				<displayName count="many" draft="contributed">svätotomášskej dobry (2018)</displayName>
+				<displayName count="other" draft="contributed">svätotomášskych dobier (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>sovietsky rubeľ</displayName>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -28,6 +28,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="prg">Altpreussisch</language>
 		</languages>
 		<territories>
+			<territory type="202" draft="contributed">Subsahara-Afrika</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BW">Botswana</territory>
 			<territory type="BY">Weissrussland</territory>
@@ -149,6 +150,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="PEN">
 				<displayName>Peruanischer Neuer Sol</displayName>
 				<displayName count="one">Peruanischer Neuer Sol</displayName>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">São-toméischer Dobra (2018)</displayName>
+				<displayName count="one" draft="contributed">São-toméischer Dobra (2018)</displayName>
+				<displayName count="other" draft="contributed">São-toméischer Dobra (2018)</displayName>
+				<symbol draft="contributed">STD 2018</symbol>
 			</currency>
 		</currencies>
 	</numbers>

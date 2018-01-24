@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">construction d’un bâtiment</annotation>
 		<annotation cp="🏘">bâtiment | maison | maisons</annotation>
 		<annotation cp="🏘" type="tts">maisons</annotation>
-		<annotation cp="🏙">bâtiment | ville</annotation>
-		<annotation cp="🏙" type="tts">ville</annotation>
 		<annotation cp="🏚">maison | maison abandonnée</annotation>
 		<annotation cp="🏚" type="tts">maison abandonnée</annotation>
 		<annotation cp="🏠">bâtiment | maison | pavillon</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">brume</annotation>
 		<annotation cp="🌃">étoiles | nuit | nuit étoilée</annotation>
 		<annotation cp="🌃" type="tts">nuit étoilée</annotation>
+		<annotation cp="🏙">bâtiment | ville</annotation>
+		<annotation cp="🏙" type="tts">ville</annotation>
 		<annotation cp="🌄">soleil | soleil levant derrière les montagnes</annotation>
 		<annotation cp="🌄" type="tts">soleil levant derrière les montagnes</annotation>
 		<annotation cp="🌅">soleil | soleil levant</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">enseigne de barbier</annotation>
 		<annotation cp="🎪">chapiteau | cirque</annotation>
 		<annotation cp="🎪" type="tts">chapiteau</annotation>
-		<annotation cp="🎭">art | masque | spectacle | spectacle vivant | théâtre</annotation>
-		<annotation cp="🎭" type="tts">spectacle vivant</annotation>
-		<annotation cp="🖼">art | cadre avec image | image | musée | peinture</annotation>
-		<annotation cp="🖼" type="tts">cadre avec image</annotation>
-		<annotation cp="🎨">palette de peinture | peinture</annotation>
-		<annotation cp="🎨" type="tts">palette de peinture</annotation>
-		<annotation cp="🎰">jeu | machine à sous</annotation>
-		<annotation cp="🎰" type="tts">machine à sous</annotation>
 		<annotation cp="🚂">locomotive | train</annotation>
 		<annotation cp="🚂" type="tts">locomotive</annotation>
 		<annotation cp="🚃">chemin de fer | train | voiture | wagon</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">autoroute</annotation>
 		<annotation cp="🛤">train | voie ferrée</annotation>
 		<annotation cp="🛤" type="tts">voie ferrée</annotation>
+		<annotation cp="🛢">baril de pétrole | pétrole</annotation>
+		<annotation cp="🛢" type="tts">baril de pétrole</annotation>
 		<annotation cp="⛽">essence | pompe à essence | station</annotation>
 		<annotation cp="⛽" type="tts">pompe à essence</annotation>
 		<annotation cp="🚨">gyrophare | lumière | police | voiture</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">feu tricolore horizontal</annotation>
 		<annotation cp="🚦">feu | feu tricolore vertical | tricolore</annotation>
 		<annotation cp="🚦" type="tts">feu tricolore vertical</annotation>
-		<annotation cp="🚧">barrière | travaux</annotation>
-		<annotation cp="🚧" type="tts">travaux</annotation>
 		<annotation cp="🛑">signe | stop</annotation>
 		<annotation cp="🛑" type="tts">stop</annotation>
+		<annotation cp="🚧">barrière | travaux</annotation>
+		<annotation cp="🚧" type="tts">travaux</annotation>
 		<annotation cp="⚓">ancre | bateau | outil</annotation>
 		<annotation cp="⚓" type="tts">ancre</annotation>
 		<annotation cp="⛵">bateau | voilier</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">soucoupe volante</annotation>
 		<annotation cp="🛎">cloche | cloche de comptoir | hôtel</annotation>
 		<annotation cp="🛎" type="tts">cloche de comptoir</annotation>
-		<annotation cp="🚪">porte</annotation>
-		<annotation cp="🚪" type="tts">porte</annotation>
-		<annotation cp="🛏">dormir | hôtel | lit</annotation>
-		<annotation cp="🛏" type="tts">lit</annotation>
-		<annotation cp="🛋">canapé | canapé et lampe</annotation>
-		<annotation cp="🛋" type="tts">canapé et lampe</annotation>
-		<annotation cp="🚽">toilettes</annotation>
-		<annotation cp="🚽" type="tts">toilettes</annotation>
-		<annotation cp="🚿">douche | eau</annotation>
-		<annotation cp="🚿" type="tts">douche</annotation>
-		<annotation cp="🛁">baignoire | bain</annotation>
-		<annotation cp="🛁" type="tts">baignoire</annotation>
 		<annotation cp="⌛">minuteur | sable | sablier</annotation>
 		<annotation cp="⌛" type="tts">sablier</annotation>
 		<annotation cp="⏳">sablier | sablier avec sable qui coule</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">rugby</annotation>
 		<annotation cp="🎾">sport | tennis</annotation>
 		<annotation cp="🎾" type="tts">tennis</annotation>
-		<annotation cp="🎱">billard | jeu</annotation>
-		<annotation cp="🎱" type="tts">billard</annotation>
 		<annotation cp="🎳">bowling | jeu</annotation>
 		<annotation cp="🎳" type="tts">bowling</annotation>
 		<annotation cp="🏏">ballon | batte | cricket | jeu</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">uniforme d’arts martiaux</annotation>
 		<annotation cp="🥅">cage | filet | sport</annotation>
 		<annotation cp="🥅" type="tts">cage</annotation>
-		<annotation cp="🎯">cible | dans le mille</annotation>
-		<annotation cp="🎯" type="tts">dans le mille</annotation>
 		<annotation cp="⛳">drapeau de golf | golf | trou</annotation>
 		<annotation cp="⛳" type="tts">drapeau de golf</annotation>
 		<annotation cp="⛸">glace | patin | patin à glace</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">luge</annotation>
 		<annotation cp="🥌">granit | jeu | pierre de curling | sport</annotation>
 		<annotation cp="🥌" type="tts">pierre de curling</annotation>
+		<annotation cp="🎯">cible | dans le mille</annotation>
+		<annotation cp="🎯" type="tts">dans le mille</annotation>
+		<annotation cp="🎱">billard | jeu</annotation>
+		<annotation cp="🎱" type="tts">billard</annotation>
+		<annotation cp="🔮">boule de cristal | cristal</annotation>
+		<annotation cp="🔮" type="tts">boule de cristal</annotation>
 		<annotation cp="🎮">jeu vidéo | manette</annotation>
 		<annotation cp="🎮" type="tts">jeu vidéo</annotation>
 		<annotation cp="🕹">jeu | jeu vidéo | manette de jeu</annotation>
 		<annotation cp="🕹" type="tts">manette de jeu</annotation>
+		<annotation cp="🎰">jeu | machine à sous</annotation>
+		<annotation cp="🎰" type="tts">machine à sous</annotation>
 		<annotation cp="🎲">dés | jeu</annotation>
 		<annotation cp="🎲" type="tts">dés</annotation>
 		<annotation cp="♠">carte | couleur | jeu | pique</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">dragon rouge mahjong</annotation>
 		<annotation cp="🎴">carte | cartes à jouer fleur | jeu</annotation>
 		<annotation cp="🎴" type="tts">cartes à jouer fleur</annotation>
+		<annotation cp="🎭">art | masque | spectacle | spectacle vivant | théâtre</annotation>
+		<annotation cp="🎭" type="tts">spectacle vivant</annotation>
+		<annotation cp="🖼">art | cadre avec image | image | musée | peinture</annotation>
+		<annotation cp="🖼" type="tts">cadre avec image</annotation>
+		<annotation cp="🎨">palette de peinture | peinture</annotation>
+		<annotation cp="🎨" type="tts">palette de peinture</annotation>
 		<annotation cp="🔇">muet | son</annotation>
 		<annotation cp="🔇" type="tts">muet</annotation>
 		<annotation cp="🔈">son | volume des enceintes faible</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">loupe orientée à gauche</annotation>
 		<annotation cp="🔎">loupe | loupe orientée à droite</annotation>
 		<annotation cp="🔎" type="tts">loupe orientée à droite</annotation>
-		<annotation cp="🔬">microscope | outil</annotation>
-		<annotation cp="🔬" type="tts">microscope</annotation>
-		<annotation cp="🔭">outil | télescope</annotation>
-		<annotation cp="🔭" type="tts">télescope</annotation>
-		<annotation cp="📡">antenne | antenne satellite</annotation>
-		<annotation cp="📡" type="tts">antenne satellite</annotation>
 		<annotation cp="🕯">bougie | lumière</annotation>
 		<annotation cp="🕯" type="tts">bougie</annotation>
 		<annotation cp="💡">ampoule | dessin | idée | lumière</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">roue dentée</annotation>
 		<annotation cp="🗜">outil | serre-joints</annotation>
 		<annotation cp="🗜" type="tts">serre-joints</annotation>
-		<annotation cp="⚗">alambic | outil</annotation>
-		<annotation cp="⚗" type="tts">alambic</annotation>
 		<annotation cp="⚖">balance | balance à poids</annotation>
 		<annotation cp="⚖" type="tts">balance à poids</annotation>
 		<annotation cp="🔗">mousqueton</annotation>
 		<annotation cp="🔗" type="tts">mousqueton</annotation>
 		<annotation cp="⛓">chaîne | chaînes</annotation>
 		<annotation cp="⛓" type="tts">chaînes</annotation>
+		<annotation cp="⚗">alambic | outil</annotation>
+		<annotation cp="⚗" type="tts">alambic</annotation>
+		<annotation cp="🔬">microscope | outil</annotation>
+		<annotation cp="🔬" type="tts">microscope</annotation>
+		<annotation cp="🔭">outil | télescope</annotation>
+		<annotation cp="🔭" type="tts">télescope</annotation>
+		<annotation cp="📡">antenne | antenne satellite</annotation>
+		<annotation cp="📡" type="tts">antenne satellite</annotation>
 		<annotation cp="💉">aiguille | docteur | malade | médecine | seringue</annotation>
 		<annotation cp="💉" type="tts">seringue</annotation>
 		<annotation cp="💊">docteur | malade | médecine | pilule</annotation>
 		<annotation cp="💊" type="tts">pilule</annotation>
+		<annotation cp="🚪">porte</annotation>
+		<annotation cp="🚪" type="tts">porte</annotation>
+		<annotation cp="🛏">dormir | hôtel | lit</annotation>
+		<annotation cp="🛏" type="tts">lit</annotation>
+		<annotation cp="🛋">canapé | canapé et lampe</annotation>
+		<annotation cp="🛋" type="tts">canapé et lampe</annotation>
+		<annotation cp="🚽">toilettes</annotation>
+		<annotation cp="🚽" type="tts">toilettes</annotation>
+		<annotation cp="🚿">douche | eau</annotation>
+		<annotation cp="🚿" type="tts">douche</annotation>
+		<annotation cp="🛁">baignoire | bain</annotation>
+		<annotation cp="🛁" type="tts">baignoire</annotation>
+		<annotation cp="🛒">chariot | panier | shopping</annotation>
+		<annotation cp="🛒" type="tts">panier</annotation>
 		<annotation cp="🚬">cigarette | fumeur</annotation>
 		<annotation cp="🚬" type="tts">cigarette</annotation>
 		<annotation cp="⚰">cercueil | mort</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">urne funéraire</annotation>
 		<annotation cp="🗿">moai | statue</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
-		<annotation cp="🛢">baril de pétrole | pétrole</annotation>
-		<annotation cp="🛢" type="tts">baril de pétrole</annotation>
-		<annotation cp="🔮">boule de cristal | cristal</annotation>
-		<annotation cp="🔮" type="tts">boule de cristal</annotation>
-		<annotation cp="🛒">chariot | panier | shopping</annotation>
-		<annotation cp="🛒" type="tts">panier</annotation>
 		<annotation cp="🏧">argent | dab | distributeur de billets</annotation>
 		<annotation cp="🏧" type="tts">distributeur de billets</annotation>
 		<annotation cp="🚮">icône Poubelle | poubelle</annotation>

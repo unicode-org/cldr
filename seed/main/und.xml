@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Proper interpretation of these files requires synthesis of missing items, as per
+​http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -298,7 +302,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="prg">prg</language>
 			<language type="ps">ps</language>
 			<language type="pt">pt</language>
-			<language type="pt_BR">pt_BR</language>
+			<language type="pt_BR">pt-BR</language>
 			<language type="pt_PT">pt_PT</language>
 			<language type="qu">qu</language>
 			<language type="quc">quc</language>
@@ -1260,9 +1264,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
-			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Thành phố không rõ</exemplarCity>
 			</zone>
@@ -1664,6 +1665,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>Wake</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>Johnston</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Thành phố Hồ Chí Minh</exemplarCity>

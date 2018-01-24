@@ -99,6 +99,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">Polaco Simi</language>
 			<language type="ps">Pashto Simi</language>
 			<language type="pt">Portugues Simi</language>
+			<language type="pt_BR">Portugues Simi (Brasil)</language>
+			<language type="pt_PT">Portugues Simi (Portugal)</language>
 			<language type="qu">Runasimi</language>
 			<language type="quc">Kʼicheʼ Simi</language>
 			<language type="rm">Romanche Simi</language>
@@ -595,11 +597,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">BCE</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">d.C.</era>
 						<era type="1" alt="variant">CE</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BCE</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">d.C.</era>
 						<era type="1" alt="variant">CE</era>
 					</eraAbbr>

@@ -1637,8 +1637,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'kɔsiɖa' w 'lia' 'le' 'ƒe' Y 'me'</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'kɔsiɖa' w 'lia' 'le' 'ƒe' Y 'me'</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'kɔsiɖa' w 'lia' 'le' 'ƒe' y 'me'</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'kɔsiɖa' w 'lia' 'le' 'ƒe' y 'me'</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -6250,6 +6250,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one" draft="contributed">ŋkeke {0}</pluralMinimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">ŋkeke {0}</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="contributed">{0}lia</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

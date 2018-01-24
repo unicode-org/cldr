@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -635,6 +635,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Dwyrain Ewrop</territory>
 			<territory type="154">Gogledd Ewrop</territory>
 			<territory type="155">Gorllewin Ewrop</territory>
+			<territory type="202">Affrica Is-Sahara</territory>
 			<territory type="419">America Ladin</territory>
 			<territory type="AC">Ynys Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -653,7 +654,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="AW">Aruba</territory>
 			<territory type="AX">Ynysoedd Åland</territory>
 			<territory type="AZ">Azerbaijan</territory>
-			<territory type="BA">Bosnia a Herzegovina</territory>
+			<territory type="BA">Bosnia &amp; Herzegovina</territory>
 			<territory type="BB">Barbados</territory>
 			<territory type="BD">Bangladesh</territory>
 			<territory type="BE">Gwlad Belg</territory>
@@ -1472,12 +1473,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">canol nos</dayPeriod>
 							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="noon">canol dydd</dayPeriod>
 							<dayPeriod type="pm">yh</dayPeriod>
+							<dayPeriod type="morning1">y bore</dayPeriod>
+							<dayPeriod type="afternoon1">y prynhawn</dayPeriod>
+							<dayPeriod type="evening1">yr hwyr</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">canol nos</dayPeriod>
 							<dayPeriod type="am">b</dayPeriod>
+							<dayPeriod type="noon">canol dydd</dayPeriod>
 							<dayPeriod type="pm">h</dayPeriod>
+							<dayPeriod type="morning1">yn y bore</dayPeriod>
+							<dayPeriod type="afternoon1">yn y prynhawn</dayPeriod>
+							<dayPeriod type="evening1">min nos</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">canol nos</dayPeriod>
@@ -1491,12 +1502,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">canol nos</dayPeriod>
 							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="noon">canol dydd</dayPeriod>
 							<dayPeriod type="pm">yh</dayPeriod>
+							<dayPeriod type="morning1">bore</dayPeriod>
+							<dayPeriod type="afternoon1">prynhawn</dayPeriod>
+							<dayPeriod type="evening1">yr hwyr</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">canol nos</dayPeriod>
 							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="noon">canol dydd</dayPeriod>
 							<dayPeriod type="pm">yh</dayPeriod>
+							<dayPeriod type="morning1">bore</dayPeriod>
+							<dayPeriod type="afternoon1">prynhawn</dayPeriod>
+							<dayPeriod type="evening1">min nos</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">canol nos</dayPeriod>
@@ -7387,6 +7408,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">dobra São Tomé a Príncipe</displayName>
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>São Tomé &amp; Príncipe Dobra (2018)</displayName>
+				<displayName count="zero">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<displayName count="one">São Tomé &amp; Príncipe dobra (2018)</displayName>
+				<displayName count="two">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<displayName count="few">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<displayName count="many">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<displayName count="other">São Tomé &amp; Príncipe dobras (2018)</displayName>
 			</currency>
 			<currency type="SVC">
 				<displayName>Colón El Salvador</displayName>

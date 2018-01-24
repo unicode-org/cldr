@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -804,6 +804,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa oriental</territory>
 			<territory type="154">Europa septentrional</territory>
 			<territory type="155">Europa occidental</territory>
+			<territory type="202" draft="contributed">Àfrica subsahariana</territory>
 			<territory type="419">Amèrica Llatina</territory>
 			<territory type="AC">Illa de l’Ascensió</territory>
 			<territory type="AD">Andorra</territory>
@@ -852,6 +853,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Congo (República del Congo)</territory>
 			<territory type="CH">Suïssa</territory>
 			<territory type="CI">Costa d’Ivori</territory>
+			<territory type="CI" alt="variant" draft="contributed">Costa d’Ivori</territory>
 			<territory type="CK">Illes Cook</territory>
 			<territory type="CL">Xile</territory>
 			<territory type="CM">Camerun</territory>
@@ -1044,6 +1046,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tadjikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Timor Oriental</territory>
+			<territory type="TL" alt="variant" draft="contributed">Timor Oriental</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunísia</territory>
 			<territory type="TO">Tonga</territory>
@@ -7025,6 +7028,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">dobras de São Tomé i Príncipe</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">dobra de São Tomé i Príncipe (2018)</displayName>
+				<displayName count="one" draft="contributed">dobra de São Tomé i Príncipe (2018)</displayName>
+				<displayName count="other" draft="contributed">dobras de São Tomé i Príncipe (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>ruble soviètic</displayName>

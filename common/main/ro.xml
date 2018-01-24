@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -119,6 +119,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">germană</language>
+			<language type="de_AT" draft="contributed">germană (Austria)</language>
 			<language type="de_CH">germană standard (Elveția)</language>
 			<language type="del">delaware</language>
 			<language type="den">slave</language>
@@ -142,10 +143,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">greacă</language>
 			<language type="elx">elamită</language>
 			<language type="en">engleză</language>
+			<language type="en_AU" draft="contributed">engleză (Australia)</language>
+			<language type="en_CA" draft="contributed">engleză (Canada)</language>
+			<language type="en_GB" draft="contributed">engleză (Regatul Unit)</language>
+			<language type="en_GB" alt="short" draft="contributed">engleză (Regatul Unit)</language>
+			<language type="en_US" draft="contributed">engleză (Statele Unite ale Americii)</language>
 			<language type="en_US" alt="short">engleză (S.U.A)</language>
 			<language type="enm">engleză medie</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spaniolă</language>
+			<language type="es_419" draft="contributed">spaniolă (America Latină)</language>
+			<language type="es_ES" draft="contributed">spaniolă (Spania)</language>
+			<language type="es_MX" draft="contributed">spaniolă (Mexic)</language>
 			<language type="et">estonă</language>
 			<language type="eu">bască</language>
 			<language type="ewo">ewondo</language>
@@ -159,6 +168,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">faroeză</language>
 			<language type="fon">fon</language>
 			<language type="fr">franceză</language>
+			<language type="fr_CA" draft="contributed">franceză (Canada)</language>
+			<language type="fr_CH" draft="contributed">franceză (Elveția)</language>
 			<language type="frc">franceză cajun</language>
 			<language type="frm">franceză medie</language>
 			<language type="fro">franceză veche</language>
@@ -394,6 +405,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">paștună</language>
 			<language type="ps" alt="variant">pushto</language>
 			<language type="pt">portugheză</language>
+			<language type="pt_BR" draft="contributed">portugheză (Brazilia)</language>
+			<language type="pt_PT" draft="contributed">portugheză (Portugalia)</language>
 			<language type="qu">quechua</language>
 			<language type="quc">quiché</language>
 			<language type="raj">rajasthani</language>
@@ -402,6 +415,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="rm">romanșă</language>
 			<language type="rn">kirundi</language>
 			<language type="ro">română</language>
+			<language type="ro_MD" draft="contributed">română (Republica Moldova)</language>
 			<language type="rof">rombo</language>
 			<language type="rom">romani</language>
 			<language type="root">root</language>
@@ -535,6 +549,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zen">zenaga</language>
 			<language type="zgh">tamazight standard marocană</language>
 			<language type="zh">chineză</language>
+			<language type="zh_Hans" draft="contributed">chineză (simplificată)</language>
 			<language type="zh_Hant">chineză tradițională</language>
 			<language type="zu">zulu</language>
 			<language type="zun">zuni</language>
@@ -651,6 +666,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa Orientală</territory>
 			<territory type="154">Europa Septentrională</territory>
 			<territory type="155">Europa Occidentală</territory>
+			<territory type="202" draft="contributed">Africa Subsahariană</territory>
 			<territory type="419">America Latină</territory>
 			<territory type="AC">Insula Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -892,6 +908,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tadjikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Timorul de Est</territory>
+			<territory type="TL" alt="variant" draft="contributed">TL</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
@@ -6996,6 +7013,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">dobre Sao Tome și Principe</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">dobra din São Tomé &amp; Príncipe</displayName>
+				<displayName count="one" draft="contributed">dobra din São Tomé &amp; Príncipe</displayName>
+				<displayName count="few" draft="contributed">dobre din São Tomé &amp; Príncipe</displayName>
+				<displayName count="other" draft="contributed">dobre din São Tomé &amp; Príncipe</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>rublă sovietică</displayName>

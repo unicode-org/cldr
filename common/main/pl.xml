@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -836,6 +836,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa Wschodnia</territory>
 			<territory type="154">Europa Północna</territory>
 			<territory type="155">Europa Zachodnia</territory>
+			<territory type="202" draft="contributed">Afryka Subsaharyjska</territory>
 			<territory type="419">Ameryka Łacińska</territory>
 			<territory type="AC">Wyspa Wniebowstąpienia</territory>
 			<territory type="AD">Andora</territory>
@@ -878,6 +879,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Wyspy Kokosowe</territory>
 			<territory type="CD">Demokratyczna Republika Konga</territory>
+			<territory type="CD" alt="variant">Kongo (DRK)</territory>
 			<territory type="CF">Republika Środkowoafrykańska</territory>
 			<territory type="CG">Kongo</territory>
 			<territory type="CG" alt="variant">Republika Konga</territory>
@@ -7460,6 +7462,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">dobry Wysp Świętego Tomasza i Książęcej</displayName>
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">dobra Wysp Świętego Tomasza i Książęcej (2018)</displayName>
+				<displayName count="one" draft="contributed">dobra Wysp Świętego Tomasza i Książęcej (2018)</displayName>
+				<displayName count="few" draft="contributed">dobry Wysp Świętego Tomasza i Książęcej (2018)</displayName>
+				<displayName count="many" draft="contributed">dobr Wysp Świętego Tomasza i Książęcej (2018)</displayName>
+				<displayName count="other" draft="contributed">dobry Wysp Świętego Tomasza i Książęcej (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>rubel radziecki</displayName>

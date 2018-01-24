@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -603,9 +603,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Hang">хангыль</script>
 			<script type="Hani">китайская</script>
 			<script type="Hano">хануну</script>
-			<script type="Hans">упрощенный</script>
+			<script type="Hans">упрощенная китайская</script>
 			<script type="Hans" alt="stand-alone">упрощенная китайская</script>
-			<script type="Hant">традиционный</script>
+			<script type="Hant">традиционная китайская</script>
 			<script type="Hant" alt="stand-alone">традиционная китайская</script>
 			<script type="Hebr">еврейская</script>
 			<script type="Hira">хирагана</script>
@@ -752,6 +752,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Восточная Европа</territory>
 			<territory type="154">Северная Европа</territory>
 			<territory type="155">Западная Европа</territory>
+			<territory type="202" draft="contributed">Африка к югу от Сахары</territory>
 			<territory type="419">Латинская Америка</territory>
 			<territory type="AC">о-в Вознесения</territory>
 			<territory type="AD">Андорра</territory>
@@ -800,6 +801,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Республика Конго</territory>
 			<territory type="CH">Швейцария</territory>
 			<territory type="CI">Кот-д’Ивуар</territory>
+			<territory type="CI" alt="variant">Кот-д’Ивуар</territory>
 			<territory type="CK">Острова Кука</territory>
 			<territory type="CL">Чили</territory>
 			<territory type="CM">Камерун</territory>
@@ -813,6 +815,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CX">о-в Рождества</territory>
 			<territory type="CY">Кипр</territory>
 			<territory type="CZ">Чехия</territory>
+			<territory type="CZ" alt="variant">Чехия</territory>
 			<territory type="DE">Германия</territory>
 			<territory type="DG">Диего-Гарсия</territory>
 			<territory type="DJ">Джибути</territory>
@@ -947,7 +950,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="PK">Пакистан</territory>
 			<territory type="PL">Польша</territory>
 			<territory type="PM">Сен-Пьер и Микелон</territory>
-			<territory type="PN">острова Питкэрн</territory>
+			<territory type="PN">о-ва Питкэрн</territory>
 			<territory type="PR">Пуэрто-Рико</territory>
 			<territory type="PS">Палестинские территории</territory>
 			<territory type="PS" alt="short">Палестина</territory>
@@ -2144,11 +2147,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">до н. э.</era>
+						<era type="0" alt="variant">до н. э.</era>
 						<era type="1">н. э.</era>
+						<era type="1" alt="variant">н. э.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="contributed">до н.э.</era>
+						<era type="0" alt="variant" draft="contributed">до н. э.</era>
 						<era type="1" draft="contributed">н.э.</era>
+						<era type="1" alt="variant" draft="contributed">н. э.</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -7757,6 +7764,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">новая добра Сан-Томе и Принсипи</displayName>
+				<displayName count="one" draft="contributed">новая добра Сан-Томе и Принсипи</displayName>
+				<displayName count="few" draft="contributed">новые добры Сан-Томе и Принсипи</displayName>
+				<displayName count="many" draft="contributed">новых добр Сан-Томе и Принсипи</displayName>
+				<displayName count="other" draft="contributed">новой добры Сан-Томе и Принсипи</displayName>
+				<symbol draft="contributed">STN</symbol>
+			</currency>
 			<currency type="SUR">
 				<displayName>Рубль СССР</displayName>
 			</currency>
@@ -9609,10 +9624,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-foot">
 				<displayName>фт</displayName>
-				<unitPattern count="one">{0} фут</unitPattern>
-				<unitPattern count="few">{0} фута</unitPattern>
-				<unitPattern count="many">{0} футов</unitPattern>
-				<unitPattern count="other">{0} фута</unitPattern>
+				<unitPattern count="one">{0} фт</unitPattern>
+				<unitPattern count="few">{0} фт</unitPattern>
+				<unitPattern count="many">{0} фт</unitPattern>
+				<unitPattern count="other">{0} фт</unitPattern>
 				<perUnitPattern>{0}/фт</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
@@ -10200,26 +10215,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-hour">
 				<displayName>ч</displayName>
-				<unitPattern count="one">{0} ч.</unitPattern>
-				<unitPattern count="few">{0} ч.</unitPattern>
-				<unitPattern count="many">{0} ч.</unitPattern>
-				<unitPattern count="other">{0} ч.</unitPattern>
+				<unitPattern count="one">{0} ч</unitPattern>
+				<unitPattern count="few">{0} ч</unitPattern>
+				<unitPattern count="many">{0} ч</unitPattern>
+				<unitPattern count="other">{0} ч</unitPattern>
 				<perUnitPattern draft="contributed">{0}/ч.</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>мин</displayName>
-				<unitPattern count="one">{0} мин.</unitPattern>
-				<unitPattern count="few">{0} мин.</unitPattern>
-				<unitPattern count="many">{0} мин.</unitPattern>
-				<unitPattern count="other">{0} мин.</unitPattern>
+				<unitPattern count="one">{0} мин</unitPattern>
+				<unitPattern count="few">{0} мин</unitPattern>
+				<unitPattern count="many">{0} мин</unitPattern>
+				<unitPattern count="other">{0} мин</unitPattern>
 				<perUnitPattern draft="contributed">{0}/мин.</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>c</displayName>
-				<unitPattern count="one">{0} с.</unitPattern>
-				<unitPattern count="few">{0} с.</unitPattern>
-				<unitPattern count="many">{0} с.</unitPattern>
-				<unitPattern count="other">{0} с.</unitPattern>
+				<unitPattern count="one">{0} с</unitPattern>
+				<unitPattern count="few">{0} с</unitPattern>
+				<unitPattern count="many">{0} с</unitPattern>
+				<unitPattern count="other">{0} с</unitPattern>
 				<perUnitPattern draft="contributed">{0}/c</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -10501,6 +10516,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} мм рт. ст.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мм рт. ст.</unitPattern>
 			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName draft="contributed">ф. на дюйм²</displayName>
+				<unitPattern count="one" draft="contributed">{0} ф./дюйм²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ф./дюйм²</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ф./дюйм²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ф./дюйм²</unitPattern>
+			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName draft="contributed">д. рт. ст.</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
@@ -10652,22 +10674,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</messages>
 	</posix>
 	<characterLabels>
-		<characterLabelPattern type="all">{0} – все</characterLabelPattern>
+		<characterLabelPattern type="all">{0} — все</characterLabelPattern>
 		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
-		<characterLabelPattern type="compatibility">{0} – совместимые</characterLabelPattern>
-		<characterLabelPattern type="enclosed">{0} – вложенные</characterLabelPattern>
-		<characterLabelPattern type="extended">{0} – расширенные</characterLabelPattern>
-		<characterLabelPattern type="historic">{0} – исторические</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous">{0} – разное</characterLabelPattern>
-		<characterLabelPattern type="other">{0} – другое</characterLabelPattern>
-		<characterLabelPattern type="scripts">письменность – {0}</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} — совместимые</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — вложенные</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — расширенные</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — исторические</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — разное</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — другое</characterLabelPattern>
+		<characterLabelPattern type="scripts">письменности — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} черта</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="few">{0} черты</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="many">{0} черт</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} черты</characterLabelPattern>
 		<characterLabel type="activities">занятия</characterLabel>
-		<characterLabel type="african_scripts">африканская письменность</characterLabel>
-		<characterLabel type="american_scripts">американская письменность</characterLabel>
+		<characterLabel type="african_scripts">письменности Африки</characterLabel>
+		<characterLabel type="american_scripts">письменности Америки</characterLabel>
 		<characterLabel type="animal">животные</characterLabel>
 		<characterLabel type="animals_nature">животные и природа</characterLabel>
 		<characterLabel type="arrows">стрелки</characterLabel>
@@ -10676,7 +10698,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="braille">шрифт Брайля</characterLabel>
 		<characterLabel type="building">здания</characterLabel>
 		<characterLabel type="bullets_stars">маркеры списка/звезды</characterLabel>
-		<characterLabel type="consonantal_jamo">согласные джамо</characterLabel>
+		<characterLabel type="consonantal_jamo">согласные чамо</characterLabel>
 		<characterLabel type="currency_symbols">символы валюты</characterLabel>
 		<characterLabel type="dash_connector">тире/связка</characterLabel>
 		<characterLabel type="digits">цифры</characterLabel>
@@ -10684,9 +10706,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="divination_symbols">оккультные символы</characterLabel>
 		<characterLabel type="downwards_arrows">стрелки вниз</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">стрелки вверх и вниз</characterLabel>
-		<characterLabel type="east_asian_scripts">восточноазиатская письменность</characterLabel>
+		<characterLabel type="east_asian_scripts">письменности Восточной Азии</characterLabel>
 		<characterLabel type="emoji">эмодзи</characterLabel>
-		<characterLabel type="european_scripts">европейская письменность</characterLabel>
+		<characterLabel type="european_scripts">письменности Европы</characterLabel>
 		<characterLabel type="female">женщины</characterLabel>
 		<characterLabel type="flag">флаги</characterLabel>
 		<characterLabel type="flags">флаги</characterLabel>
@@ -10714,10 +10736,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="limited_use">ограниченное использование</characterLabel>
 		<characterLabel type="male">мужчины</characterLabel>
 		<characterLabel type="math_symbols">математические символы</characterLabel>
-		<characterLabel type="middle_eastern_scripts">центрально-восточная письменность</characterLabel>
+		<characterLabel type="middle_eastern_scripts">письменности Среднего Востока</characterLabel>
 		<characterLabel type="miscellaneous">разное</characterLabel>
 		<characterLabel type="modern_scripts">современная письменность</characterLabel>
-		<characterLabel type="modifier">модификатор</characterLabel>
+		<characterLabel type="modifier">модификаторы</characterLabel>
 		<characterLabel type="musical_symbols">музыкальные символы</characterLabel>
 		<characterLabel type="nature">природа</characterLabel>
 		<characterLabel type="nonspacing">непротяженные символы</characterLabel>
@@ -10736,9 +10758,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="small_form_variant">маленькие варианты формы</characterLabel>
 		<characterLabel type="smiley">смайлики</characterLabel>
 		<characterLabel type="smileys_people">смайлики и люди</characterLabel>
-		<characterLabel type="south_asian_scripts">южноазиатская письменность</characterLabel>
-		<characterLabel type="southeast_asian_scripts">письменность Юго-Восточной Азии</characterLabel>
-		<characterLabel type="spacing">пробелы</characterLabel>
+		<characterLabel type="south_asian_scripts">письменности Южной Азии</characterLabel>
+		<characterLabel type="southeast_asian_scripts">письменности Юго-Восточной Азии</characterLabel>
+		<characterLabel type="spacing">промежутки</characterLabel>
 		<characterLabel type="sport">спорт</characterLabel>
 		<characterLabel type="symbols">символы</characterLabel>
 		<characterLabel type="technical_symbols">технические символы</characterLabel>
@@ -10747,9 +10769,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="travel_places">путешествия и места</characterLabel>
 		<characterLabel type="upwards_arrows">стрелки вверх</characterLabel>
 		<characterLabel type="variant_forms">вариативные формы</characterLabel>
-		<characterLabel type="vocalic_jamo">гласные джамо</characterLabel>
+		<characterLabel type="vocalic_jamo">гласные чамо</characterLabel>
 		<characterLabel type="weather">погода</characterLabel>
-		<characterLabel type="western_asian_scripts">западноазиатская письменность</characterLabel>
+		<characterLabel type="western_asian_scripts">письменности Западной Азии</characterLabel>
 		<characterLabel type="whitespace">пробелы</characterLabel>
 	</characterLabels>
 </ldml>

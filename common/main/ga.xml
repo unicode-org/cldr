@@ -662,6 +662,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Oirthear na hEorpa</territory>
 			<territory type="154">Tuaisceart na hEorpa</territory>
 			<territory type="155">Iarthar na hEorpa</territory>
+			<territory type="202">an Afraic fho-Shahárach</territory>
 			<territory type="419">Meiriceá Laidineach</territory>
 			<territory type="AC">Oileán na Deascabhála</territory>
 			<territory type="AD">Andóra</territory>
@@ -710,6 +711,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">an Congó (Poblacht)</territory>
 			<territory type="CH">an Eilvéis</territory>
 			<territory type="CI">an Cósta Eabhair</territory>
+			<territory type="CI" alt="variant">Côte d’Ivoire</territory>
 			<territory type="CK">Oileáin Cook</territory>
 			<territory type="CL">an tSile</territory>
 			<territory type="CM">Camarún</territory>
@@ -902,6 +904,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">an Táidsíceastáin</territory>
 			<territory type="TK">Tócalá</territory>
 			<territory type="TL">Tíomór Thoir</territory>
+			<territory type="TL" alt="variant">Tíomór Thoir</territory>
 			<territory type="TM">an Tuircméanastáin</territory>
 			<territory type="TN">an Túinéis</territory>
 			<territory type="TO">Tonga</territory>
@@ -7529,6 +7532,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName>São Tomé &amp; Príncipe Dobra (2018)</displayName>
+				<displayName count="one">STN-name-one São Tomé &amp; Príncipe dobra (2018)</displayName>
+				<displayName count="two">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<displayName count="few">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<displayName count="many">São Tomé &amp; Príncipe dobras (2018)</displayName>
+				<displayName count="other">São Tomé &amp; Príncipe dobras (2018)</displayName>
+			</currency>
 			<currency type="SUR">
 				<displayName>Rúbal an Aontais Shóivéadaigh</displayName>
 				<displayName count="one">rúbal an Aontais Shóivéadaigh</displayName>
@@ -11551,8 +11562,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="african_scripts">Scripteanna na hAfraice</characterLabel>
 		<characterLabel type="american_scripts">Scripteanna Meiriceánacha</characterLabel>
 		<characterLabel type="animal">ainmhí</characterLabel>
-		<characterLabel type="animals_nature">Ainmhithe agus an Nádúr</characterLabel>
-		<characterLabel type="arrows">Saighde</characterLabel>
+		<characterLabel type="animals_nature">Ainmhithe nó an Nádúr</characterLabel>
+		<characterLabel type="arrows">saighead</characterLabel>
 		<characterLabel type="body">corp</characterLabel>
 		<characterLabel type="box_drawing">Líníocht Boscaí</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
@@ -11564,8 +11575,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="digits">Digití</characterLabel>
 		<characterLabel type="dingbats">Smísteoga</characterLabel>
 		<characterLabel type="divination_symbols">Siombailí na Fáistine</characterLabel>
-		<characterLabel type="downwards_arrows">Saighde Síos</characterLabel>
-		<characterLabel type="downwards_upwards_arrows">Saighde Síos Suas</characterLabel>
+		<characterLabel type="downwards_arrows">Saigheada Síos</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">Saigheada Síos Suas</characterLabel>
 		<characterLabel type="east_asian_scripts">Scripteanna na hÁise Thoir</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Scripteanna na hEorpa</characterLabel>
@@ -11575,9 +11586,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="food_drink">Bia agus Deoch</characterLabel>
 		<characterLabel type="format">Formáid</characterLabel>
 		<characterLabel type="format_whitespace">Formáid agus Spás Bán</characterLabel>
-		<characterLabel type="full_width_form_variant">Foirmeacha Malartacha Lánleithid</characterLabel>
+		<characterLabel type="full_width_form_variant">Foirm Lánleithid</characterLabel>
 		<characterLabel type="geometric_shapes">Cruthanna Geoiméadracha</characterLabel>
-		<characterLabel type="half_width_form_variant">Foirmeacha Malartacha Leathleithid</characterLabel>
+		<characterLabel type="half_width_form_variant">Foirm Leathleithid</characterLabel>
 		<characterLabel type="han_characters">Carachtair Han</characterLabel>
 		<characterLabel type="han_radicals">Fréamhacha Han</characterLabel>
 		<characterLabel type="hanja">Hanaí</characterLabel>
@@ -11590,8 +11601,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Ceansaí</characterLabel>
 		<characterLabel type="keycap">caipín eochrach</characterLabel>
-		<characterLabel type="leftwards_arrows">Saighde Clé</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows">Saighde Clé-Deas</characterLabel>
+		<characterLabel type="leftwards_arrows">Saighead Chlé</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">Saighead Chlé-Dheas</characterLabel>
 		<characterLabel type="letterlike_symbols">Siombailí Cosúil le Litreacha</characterLabel>
 		<characterLabel type="limited_use">Neamhfhorleathan</characterLabel>
 		<characterLabel type="male">fireann</characterLabel>
@@ -11602,7 +11613,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="modifier">Mionathraitheoir</characterLabel>
 		<characterLabel type="musical_symbols">Siombailí Ceoil</characterLabel>
 		<characterLabel type="nature">nádúr</characterLabel>
-		<characterLabel type="nonspacing">Neamhspásáilte</characterLabel>
+		<characterLabel type="nonspacing">Neamhspásáil</characterLabel>
 		<characterLabel type="numbers">Uimhreacha</characterLabel>
 		<characterLabel type="objects">Nithe</characterLabel>
 		<characterLabel type="other">Eile</characterLabel>
@@ -11613,11 +11624,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="place">áit</characterLabel>
 		<characterLabel type="plant">planda</characterLabel>
 		<characterLabel type="punctuation">Poncaíocht</characterLabel>
-		<characterLabel type="rightwards_arrows">Saighde Deasa</characterLabel>
+		<characterLabel type="rightwards_arrows">Saighead Dheas</characterLabel>
 		<characterLabel type="sign_standard_symbols">Comharthaí/Siombailí Coitianta</characterLabel>
-		<characterLabel type="small_form_variant">Foirmeacha Beaga Malartacha</characterLabel>
+		<characterLabel type="small_form_variant">Foirmeacha Beaga</characterLabel>
 		<characterLabel type="smiley">straoiseog</characterLabel>
-		<characterLabel type="smileys_people">Straoiseoga agus Daoine</characterLabel>
+		<characterLabel type="smileys_people">Straoiseoga nó Daoine</characterLabel>
 		<characterLabel type="south_asian_scripts">Scripteanna na hÁise Theas</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Scripteanna na hÁise Thoir Theas</characterLabel>
 		<characterLabel type="spacing">Spásáil</characterLabel>
@@ -11626,8 +11637,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="technical_symbols">Siombailí Teicniúla</characterLabel>
 		<characterLabel type="tone_marks">Comharthaí Toin</characterLabel>
 		<characterLabel type="travel">taisteal</characterLabel>
-		<characterLabel type="travel_places">Taisteal agus Áiteanna</characterLabel>
-		<characterLabel type="upwards_arrows">Saighde Suas</characterLabel>
+		<characterLabel type="travel_places">Taisteal nó Áiteanna</characterLabel>
+		<characterLabel type="upwards_arrows">Saighead suas</characterLabel>
 		<characterLabel type="variant_forms">Foirmeacha Malartacha</characterLabel>
 		<characterLabel type="vocalic_jamo">Seamó Guthach</characterLabel>
 		<characterLabel type="weather">aimsir</characterLabel>

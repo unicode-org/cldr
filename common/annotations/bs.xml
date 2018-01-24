@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">građevina</annotation>
 		<annotation cp="🏘">kuća | kuće | zgrada</annotation>
 		<annotation cp="🏘" type="tts">kuće</annotation>
-		<annotation cp="🏙">grad | pogled na grad | zgrada</annotation>
-		<annotation cp="🏙" type="tts">pogled na grad</annotation>
 		<annotation cp="🏚">kuća | napuštena | napuštena kuća | zgrada</annotation>
 		<annotation cp="🏚" type="tts">napuštena kuća</annotation>
 		<annotation cp="🏠">dom | kuća | zgrada</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">maglovito</annotation>
 		<annotation cp="🌃">noć | vrijeme | zvijezda | zvjezdana noć</annotation>
 		<annotation cp="🌃" type="tts">zvjezdana noć</annotation>
+		<annotation cp="🏙">grad | pogled na grad | zgrada</annotation>
+		<annotation cp="🏙" type="tts">pogled na grad</annotation>
 		<annotation cp="🌄">izlazak sunca | izlazak sunca preko planina | jutro | planina | sunce | vrijeme</annotation>
 		<annotation cp="🌄" type="tts">izlazak sunca preko planina</annotation>
 		<annotation cp="🌅">izlazak sunca | jutro | sunce | vrijeme</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">oznaka berbernice</annotation>
 		<annotation cp="🎪">cirkus | cirkuski šator | šator</annotation>
 		<annotation cp="🎪" type="tts">cirkuski šator</annotation>
-		<annotation cp="🎭">izvedba | maska | pozorište | scenske umjetnosti | umjetnina</annotation>
-		<annotation cp="🎭" type="tts">scenske umjetnosti</annotation>
-		<annotation cp="🖼">izvedba | maska | pozorište | umjetnost | uramljena slika</annotation>
-		<annotation cp="🖼" type="tts">uramljena slika</annotation>
-		<annotation cp="🎨">muzej | paleta | slika | slikarska paleta | umjetnost</annotation>
-		<annotation cp="🎨" type="tts">slikarska paleta</annotation>
-		<annotation cp="🎰">aparat | automat za kockanje | igra | kocka</annotation>
-		<annotation cp="🎰" type="tts">automat za kockanje</annotation>
 		<annotation cp="🚂">lokomotiva | motor | para | pruga | voz | vozilo</annotation>
 		<annotation cp="🚂" type="tts">lokomotiva</annotation>
 		<annotation cp="🚃">auto | pruga | šina | struja | vagon | voz | željeznica</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">autoput</annotation>
 		<annotation cp="🛤">pruga | voz | željeznica</annotation>
 		<annotation cp="🛤" type="tts">pruga</annotation>
+		<annotation cp="🛢">bačva | bure | ulje</annotation>
+		<annotation cp="🛢" type="tts">bačva</annotation>
 		<annotation cp="⛽">benzin | benzinska pumpa | gorivo | pumpa | stanica</annotation>
 		<annotation cp="⛽" type="tts">benzinska pumpa</annotation>
 		<annotation cp="🚨">auto | policija | rotacija | sijalica | vozilo</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">horizontalni semafor</annotation>
 		<annotation cp="🚦">saobraćaj | semafor | signalizacija | svjetlo</annotation>
 		<annotation cp="🚦" type="tts">semafor</annotation>
-		<annotation cp="🚧">barijera | konstrukcija</annotation>
-		<annotation cp="🚧" type="tts">konstrukcija</annotation>
 		<annotation cp="🛑">osmougao | stop | znak</annotation>
 		<annotation cp="🛑" type="tts">stop</annotation>
+		<annotation cp="🚧">barijera | konstrukcija</annotation>
+		<annotation cp="🚧" type="tts">konstrukcija</annotation>
 		<annotation cp="⚓">alat | brod | sidro</annotation>
 		<annotation cp="⚓" type="tts">sidro</annotation>
 		<annotation cp="⛵">čamac | jahta | jedrilica | more | odmaralište | vozilo</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">leteći tanjir</annotation>
 		<annotation cp="🛎">hotel | ručno zvono | zvono</annotation>
 		<annotation cp="🛎" type="tts">ručno zvono</annotation>
-		<annotation cp="🚪">vrata</annotation>
-		<annotation cp="🚪" type="tts">vrata</annotation>
-		<annotation cp="🛏">hotel | krevet | spavanje</annotation>
-		<annotation cp="🛏" type="tts">krevet</annotation>
-		<annotation cp="🛋">hotel | kauč | kauč i lampa | lampa</annotation>
-		<annotation cp="🛋" type="tts">kauč i lampa</annotation>
-		<annotation cp="🚽">toalet | wc | wc šolja</annotation>
-		<annotation cp="🚽" type="tts">wc šolja</annotation>
-		<annotation cp="🚿">tuš | voda</annotation>
-		<annotation cp="🚿" type="tts">tuš</annotation>
-		<annotation cp="🛁">kada | kupanje</annotation>
-		<annotation cp="🛁" type="tts">kada</annotation>
 		<annotation cp="⌛">pijesak | pješčani sat | tajmer</annotation>
 		<annotation cp="⌛" type="tts">pješčani sat</annotation>
 		<annotation cp="⏳">pijesak | pješčani sat | pješčani sat sa tekućim pijeskom | tajmer</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">ragbi</annotation>
 		<annotation cp="🎾">loptica | reket | sport | tenis</annotation>
 		<annotation cp="🎾" type="tts">tenis</annotation>
-		<annotation cp="🎱">bilijar | igra | osmica | sport</annotation>
-		<annotation cp="🎱" type="tts">bilijar</annotation>
 		<annotation cp="🎳">igra | kugla | kuglanje | sport</annotation>
 		<annotation cp="🎳" type="tts">kuglanje</annotation>
 		<annotation cp="🏏">bat | kriket | loptica | palica | sport</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">borilački sportovi</annotation>
 		<annotation cp="🥅">gol | mreža | sport</annotation>
 		<annotation cp="🥅" type="tts">gol</annotation>
-		<annotation cp="🎯">cilj | igra | pikado | strjelica | tabla</annotation>
-		<annotation cp="🎯" type="tts">pikado</annotation>
 		<annotation cp="⛳">golf | igra | sport</annotation>
 		<annotation cp="⛳" type="tts">golf</annotation>
 		<annotation cp="⛸">klizaljke | klizanje | led</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">sanke</annotation>
 		<annotation cp="🥌">igra | kamen | kamen za karling</annotation>
 		<annotation cp="🥌" type="tts">kamen za karling</annotation>
+		<annotation cp="🎯">cilj | igra | pikado | strjelica | tabla</annotation>
+		<annotation cp="🎯" type="tts">pikado</annotation>
+		<annotation cp="🎱">bilijar | igra | osmica | sport</annotation>
+		<annotation cp="🎱" type="tts">bilijar</annotation>
+		<annotation cp="🔮">alat | bajka | fantazija | gatanje | kristalna | kristalna kugla | kugla</annotation>
+		<annotation cp="🔮" type="tts">kristalna kugla</annotation>
 		<annotation cp="🎮">igre | upravljač | video igre</annotation>
 		<annotation cp="🎮" type="tts">video igre</annotation>
 		<annotation cp="🕹">džojstik | igre | video igre</annotation>
 		<annotation cp="🕹" type="tts">džojstik</annotation>
+		<annotation cp="🎰">aparat | automat za kockanje | igra | kocka</annotation>
+		<annotation cp="🎰" type="tts">automat za kockanje</annotation>
 		<annotation cp="🎲">društvene igre | igre | kockica | kockica za igru</annotation>
 		<annotation cp="🎲" type="tts">kockica za igru</annotation>
 		<annotation cp="♠">igra | karte | pik | znak</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">mahjong crveni zmaj</annotation>
 		<annotation cp="🎴">igra | igranje | japanske | japanske karte za igranje | karte</annotation>
 		<annotation cp="🎴" type="tts">japanske karte za igranje</annotation>
+		<annotation cp="🎭">izvedba | maska | pozorište | scenske umjetnosti | umjetnina</annotation>
+		<annotation cp="🎭" type="tts">scenske umjetnosti</annotation>
+		<annotation cp="🖼">izvedba | maska | pozorište | umjetnost | uramljena slika</annotation>
+		<annotation cp="🖼" type="tts">uramljena slika</annotation>
+		<annotation cp="🎨">muzej | paleta | slika | slikarska paleta | umjetnost</annotation>
+		<annotation cp="🎨" type="tts">slikarska paleta</annotation>
 		<annotation cp="🔇">jačina zvuka | nečujno | zvuk isključen</annotation>
 		<annotation cp="🔇" type="tts">zvuk isključen</annotation>
 		<annotation cp="🔈">blago | zvučnik tiho</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">povećalo okrenuto ulijevo</annotation>
 		<annotation cp="🔎">alat | povećalo | povećalo okrenuto udesno | staklo | traženje</annotation>
 		<annotation cp="🔎" type="tts">povećalo okrenuto udesno</annotation>
-		<annotation cp="🔬">alat | mikroskop</annotation>
-		<annotation cp="🔬" type="tts">mikroskop</annotation>
-		<annotation cp="🔭">alat | teleskop</annotation>
-		<annotation cp="🔭" type="tts">teleskop</annotation>
-		<annotation cp="📡">antena | satelitska | satelitska antena | tanjir</annotation>
-		<annotation cp="📡" type="tts">satelitska antena</annotation>
 		<annotation cp="🕯">svijeća | svjetlo</annotation>
 		<annotation cp="🕯" type="tts">svijeća</annotation>
 		<annotation cp="💡">elektrika | ideja | sijalica | stripovi | svjetlo</annotation>
@@ -2008,11 +1994,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📦">kutija | paket</annotation>
 		<annotation cp="📦" type="tts">paket</annotation>
 		<annotation cp="📫">pošta | poštanski | sandučić | zatvoren | zatvoren sandučić sa podignutom zastavicom</annotation>
-		<annotation cp="📫" type="tts">zatvoren sandučić sa podignutom zastavicom</annotation>
+		<annotation cp="📫" type="tts">zatvoren sandučić sa podignutom zast.</annotation>
 		<annotation cp="📪">pošta | poštanski | sandučić | spušten | zatvoren | zatvoren sandučić sa spuštenom zastavicom</annotation>
 		<annotation cp="📪" type="tts">zatvoren sandučić sa spuštenom zastavicom</annotation>
 		<annotation cp="📬">otvoren | otvoren sandučić sa podignutom zastavicom | pošta | poštanski | sandučić</annotation>
-		<annotation cp="📬" type="tts">otvoren sandučić sa podignutom zastavicom</annotation>
+		<annotation cp="📬" type="tts">otvoren sandučić sa podignutom zast.</annotation>
 		<annotation cp="📭">otvoren | otvoren sandučić sa spuštenom zastavicom | pošta | poštanski | sandučić | spušten</annotation>
 		<annotation cp="📭" type="tts">otvoren sandučić sa spuštenom zastavicom</annotation>
 		<annotation cp="📮">poštansko | poštansko sanduče | sanduče</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">zupčanik</annotation>
 		<annotation cp="🗜">alat | kompresija | stega</annotation>
 		<annotation cp="🗜" type="tts">kompresija</annotation>
-		<annotation cp="⚗">alat | alembik | hemija</annotation>
-		<annotation cp="⚗" type="tts">alembik</annotation>
 		<annotation cp="⚖">jednakost | pravda | uteg | vaga | zodijak</annotation>
 		<annotation cp="⚖" type="tts">vaga</annotation>
 		<annotation cp="🔗">karika</annotation>
 		<annotation cp="🔗" type="tts">karika</annotation>
 		<annotation cp="⛓">lanac | lanci</annotation>
 		<annotation cp="⛓" type="tts">lanci</annotation>
+		<annotation cp="⚗">alat | alembik | hemija</annotation>
+		<annotation cp="⚗" type="tts">alembik</annotation>
+		<annotation cp="🔬">alat | mikroskop</annotation>
+		<annotation cp="🔬" type="tts">mikroskop</annotation>
+		<annotation cp="🔭">alat | teleskop</annotation>
+		<annotation cp="🔭" type="tts">teleskop</annotation>
+		<annotation cp="📡">antena | satelitska | satelitska antena | tanjir</annotation>
+		<annotation cp="📡" type="tts">satelitska antena</annotation>
 		<annotation cp="💉">alat | bolest | doktor | igla | injekcija | medicina | šprica</annotation>
 		<annotation cp="💉" type="tts">šprica</annotation>
 		<annotation cp="💊">bolest | doktor | medicina | pilula</annotation>
 		<annotation cp="💊" type="tts">pilula</annotation>
+		<annotation cp="🚪">vrata</annotation>
+		<annotation cp="🚪" type="tts">vrata</annotation>
+		<annotation cp="🛏">hotel | krevet | spavanje</annotation>
+		<annotation cp="🛏" type="tts">krevet</annotation>
+		<annotation cp="🛋">hotel | kauč | kauč i lampa | lampa</annotation>
+		<annotation cp="🛋" type="tts">kauč i lampa</annotation>
+		<annotation cp="🚽">toalet | wc | wc šolja</annotation>
+		<annotation cp="🚽" type="tts">wc šolja</annotation>
+		<annotation cp="🚿">tuš | voda</annotation>
+		<annotation cp="🚿" type="tts">tuš</annotation>
+		<annotation cp="🛁">kada | kupanje</annotation>
+		<annotation cp="🛁" type="tts">kada</annotation>
+		<annotation cp="🛒">kolica | kupovina | šoping | supermarket</annotation>
+		<annotation cp="🛒" type="tts">šoping</annotation>
 		<annotation cp="🚬">pušenje</annotation>
 		<annotation cp="🚬" type="tts">pušenje</annotation>
 		<annotation cp="⚰">smrt | tabut</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">urna</annotation>
 		<annotation cp="🗿">kamena | lice | moai | skulptura | statua</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
-		<annotation cp="🛢">bačva | bure | ulje</annotation>
-		<annotation cp="🛢" type="tts">bačva</annotation>
-		<annotation cp="🔮">alat | bajka | fantazija | gatanje | kristalna | kristalna kugla | kugla</annotation>
-		<annotation cp="🔮" type="tts">kristalna kugla</annotation>
-		<annotation cp="🛒">kolica | kupovina | šoping | supermarket</annotation>
-		<annotation cp="🛒" type="tts">šoping</annotation>
 		<annotation cp="🏧">banka | bankomat | blagajna | oznaka bankomata | znak</annotation>
 		<annotation cp="🏧" type="tts">oznaka bankomata</annotation>
 		<annotation cp="🚮">kanta | otpaci | smeće | znak za odlaganje otpada</annotation>
@@ -2226,7 +2226,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔃">smjer kretanja kazaljki na satu | strjelica | strjelice vertikalno kretanje kazaljki na satu</annotation>
 		<annotation cp="🔃" type="tts">strjelice vertikalno kretanje kazaljki na satu</annotation>
 		<annotation cp="🔄">smjer suprotan kretanju kazaljki na satu | strjelica | strjelice dugme suprotno kretanju kazaljki na satu</annotation>
-		<annotation cp="🔄" type="tts">strjelice dugme suprotno kretanju kazaljki na satu</annotation>
+		<annotation cp="🔄" type="tts">strjelice suprotno od smjera kretanja sata</annotation>
 		<annotation cp="🔙">nazad | strjelica | strjelica za nazad</annotation>
 		<annotation cp="🔙" type="tts">strjelica za nazad</annotation>
 		<annotation cp="🔚">kraj | strjelica | strjelica za kraj</annotation>
@@ -2300,7 +2300,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⏭">dugme za sljedeći zapis | sljedeća scena | sljedeći zapis | strjelica | trokut</annotation>
 		<annotation cp="⏭" type="tts">dugme za sljedeći zapis</annotation>
 		<annotation cp="⏯">desno | dugme za pauziranje ili nastavak reprodukcije | pauza | reproduciraj | strjelica | trokut</annotation>
-		<annotation cp="⏯" type="tts">dugme za pauziranje ili nastavak reprodukcije</annotation>
+		<annotation cp="⏯" type="tts">dugme za pauziranje ili nastavak</annotation>
 		<annotation cp="◀">dugme za premotavanje | lijevo | premotaj | strjelica | trokut</annotation>
 		<annotation cp="◀" type="tts">dugme za premotavanje</annotation>
 		<annotation cp="⏪">dugme za brzo premotavanje | dupla | premotaj | strjelica</annotation>
@@ -2450,39 +2450,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆚">protiv | vs | vs dugme</annotation>
 		<annotation cp="🆚" type="tts">vs dugme</annotation>
 		<annotation cp="🈁">Dugme sa tekstom &quot;ovdje&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈁" type="tts">Dugme sa tekstom &quot;ovdje&quot; na japanskom</annotation>
+		<annotation cp="🈁" type="tts">Dugme &quot;ovdje&quot; na jap.</annotation>
 		<annotation cp="🈂">Dugme sa tekstom &quot;usluga se naplaćuje&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈂" type="tts">Dugme sa tekstom &quot;usluga se naplaćuje&quot; na japanskom</annotation>
+		<annotation cp="🈂" type="tts">Dugme &quot;usluga se naplaćuje&quot; na jap.</annotation>
 		<annotation cp="🈷">Dugme sa tekstom &quot;mjesečni iznos&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈷" type="tts">Dugme sa tekstom &quot;mjesečni iznos&quot; na japanskom</annotation>
+		<annotation cp="🈷" type="tts">Dugme &quot;mjesečni iznos&quot; na jap.</annotation>
 		<annotation cp="🈶">Dugme sa tekstom &quot;nije besplatno&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈶" type="tts">Dugme sa tekstom &quot;nije besplatno&quot; na japanskom</annotation>
+		<annotation cp="🈶" type="tts">Dugme &quot;nije besplatno&quot; na jap.</annotation>
 		<annotation cp="🈯">Dugme sa tekstom &quot;rezervirano&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈯" type="tts">Dugme sa tekstom &quot;rezervirano&quot; na japanskom</annotation>
+		<annotation cp="🈯" type="tts">Dugme &quot;rezervirano&quot; na jap.</annotation>
 		<annotation cp="🉐">Dugme sa tekstom &quot;vrlo povoljno&quot; na japanskom | japanski</annotation>
-		<annotation cp="🉐" type="tts">Dugme sa tekstom &quot;vrlo povoljno&quot; na japanskom</annotation>
+		<annotation cp="🉐" type="tts">Dugme &quot;vrlo povoljno&quot; na jap.</annotation>
 		<annotation cp="🈹">Dugme sa tekstom &quot;popust&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈹" type="tts">Dugme sa tekstom &quot;popust&quot; na japanskom</annotation>
+		<annotation cp="🈹" type="tts">Dugme &quot;popust&quot; na jap.</annotation>
 		<annotation cp="🈚">Dugme sa tekstom &quot;besplatno&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈚" type="tts">Dugme sa tekstom &quot;besplatno&quot; na japanskom</annotation>
+		<annotation cp="🈚" type="tts">Dugme &quot;besplatno&quot; na jap.</annotation>
 		<annotation cp="🈲">Dugme sa tekstom &quot;zabranjeno&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈲" type="tts">Dugme sa tekstom &quot;zabranjeno&quot; na japanskom</annotation>
+		<annotation cp="🈲" type="tts">Dugme &quot;zabranjeno&quot; na jap.</annotation>
 		<annotation cp="🉑">Dugme sa tekstom &quot;prihvatljivo&quot; na japanskom | japanski</annotation>
-		<annotation cp="🉑" type="tts">Dugme sa tekstom &quot;prihvatljivo&quot; na japanskom</annotation>
+		<annotation cp="🉑" type="tts">Dugme &quot;prihvatljivo&quot; na jap.</annotation>
 		<annotation cp="🈸">Dugme sa tekstom &quot;prijava&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈸" type="tts">Dugme sa tekstom &quot;prijava&quot; na japanskom</annotation>
+		<annotation cp="🈸" type="tts">Dugme &quot;prijava&quot; na jap.</annotation>
 		<annotation cp="🈴">Dugme sa tekstom &quot;prolazna ocjena&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈴" type="tts">Dugme sa tekstom &quot;prolazna ocjena&quot; na japanskom</annotation>
+		<annotation cp="🈴" type="tts">Dugme &quot;prolazna ocjena&quot; na jap.</annotation>
 		<annotation cp="🈳">Dugme sa tekstom &quot;upražnjeno mjesto&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈳" type="tts">Dugme sa tekstom &quot;upražnjeno mjesto&quot; na japanskom</annotation>
+		<annotation cp="🈳" type="tts">Dugme &quot;upražnjeno mjesto&quot; na jap.</annotation>
 		<annotation cp="㊗">Dugme sa tekstom &quot;čestitamo&quot; na japanskom | japanski</annotation>
-		<annotation cp="㊗" type="tts">Dugme sa tekstom &quot;čestitamo&quot; na japanskom</annotation>
+		<annotation cp="㊗" type="tts">Dugme &quot;čestitamo&quot; na jap.</annotation>
 		<annotation cp="㊙">Dugme sa tekstom &quot;tajna&quot; na japanskom | japanski</annotation>
-		<annotation cp="㊙" type="tts">Dugme sa tekstom &quot;tajna&quot; na japanskom</annotation>
+		<annotation cp="㊙" type="tts">Dugme &quot;tajna&quot; na jap.</annotation>
 		<annotation cp="🈺">Dugme sa tekstom &quot;otvoreno&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈺" type="tts">Dugme sa tekstom &quot;otvoreno&quot; na japanskom</annotation>
+		<annotation cp="🈺" type="tts">Dugme &quot;otvoreno&quot; na jap.</annotation>
 		<annotation cp="🈵">Dugme sa tekstom &quot;nema upražnjenih mjesta&quot; na japanskom | japanski</annotation>
-		<annotation cp="🈵" type="tts">Dugme sa tekstom &quot;nema upražnjenih mjesta&quot; na japanskom</annotation>
+		<annotation cp="🈵" type="tts">Dugme &quot;nema upražnjenih mjesta&quot; na jap.</annotation>
 		<annotation cp="▪">crni kvadratić | geometrija | kvadrat</annotation>
 		<annotation cp="▪" type="tts">crni kvadratić</annotation>
 		<annotation cp="▫">bijeli kvadratić | geometrija | kvadrat</annotation>

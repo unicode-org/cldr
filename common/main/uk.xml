@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -130,6 +130,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">даргінська</language>
 			<language type="dav">таіта</language>
 			<language type="de">німецька</language>
+			<language type="de_AT" draft="contributed">німецька (Австрія)</language>
 			<language type="de_CH">верхньонімецька (Швейцарія)</language>
 			<language type="del">делаварська</language>
 			<language type="den">слейв</language>
@@ -153,13 +154,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">грецька</language>
 			<language type="elx">еламська</language>
 			<language type="en">англійська</language>
+			<language type="en_AU" draft="contributed">англійська (Австралія)</language>
+			<language type="en_CA" draft="contributed">англійська (Канада)</language>
+			<language type="en_GB" draft="contributed">англійська (Велика Британія)</language>
 			<language type="en_GB" alt="short" draft="contributed">англійська (Брит.)</language>
 			<language type="en_US">англійська (США)</language>
 			<language type="en_US" alt="short">англійська (США)</language>
 			<language type="enm">середньоанглійська</language>
 			<language type="eo">есперанто</language>
 			<language type="es">іспанська</language>
+			<language type="es_419" draft="contributed">іспанська (Латинська Америка)</language>
 			<language type="es_ES">іспанська (Європа)</language>
+			<language type="es_MX" draft="contributed">іспанська (Мексика)</language>
 			<language type="et">естонська</language>
 			<language type="eu">баскська</language>
 			<language type="ewo">евондо</language>
@@ -173,6 +179,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">фарерська</language>
 			<language type="fon">фон</language>
 			<language type="fr">французька</language>
+			<language type="fr_CA" draft="contributed">французька (Канада)</language>
+			<language type="fr_CH" draft="contributed">французька (Швейцарія)</language>
 			<language type="frc">кажунська французька</language>
 			<language type="frm">середньофранцузька</language>
 			<language type="fro">давньофранцузька</language>
@@ -737,6 +745,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Східна Європа</territory>
 			<territory type="154">Північна Європа</territory>
 			<territory type="155">Західна Європа</territory>
+			<territory type="202" draft="contributed">Африка на південь від Сахари</territory>
 			<territory type="419">Латинська Америка</territory>
 			<territory type="AC">Острів Вознесіння</territory>
 			<territory type="AD">Андорра</territory>
@@ -1937,7 +1946,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">до н. е.</era>
+						<era type="0" alt="variant" draft="contributed">до н. е.</era>
 						<era type="1">н. е.</era>
+						<era type="1" alt="variant" draft="contributed">н. е.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">до н.е.</era>
@@ -7466,6 +7477,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">добри Сан-Томе і Прінсіпі</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">добра Сан-Томе і Принсіпі (2018)</displayName>
+				<displayName count="one" draft="contributed">добра Сан-Томе і Принсіпі (2018)</displayName>
+				<displayName count="few" draft="contributed">добри Сан-Томе і Принсіпі (2018)</displayName>
+				<displayName count="many" draft="contributed">добр Сан-Томе і Принсіпі (2018)</displayName>
+				<displayName count="other" draft="contributed">добри Сан-Томе і Принсіпі (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>радянський рубль</displayName>

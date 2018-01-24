@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -842,6 +842,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">ยุโรปตะวันออก</territory>
 			<territory type="154">ยุโรปเหนือ</territory>
 			<territory type="155">ยุโรปตะวันตก</territory>
+			<territory type="202" draft="contributed">แอฟริกาใต้สะฮารา</territory>
 			<territory type="419">ละตินอเมริกา</territory>
 			<territory type="AC">เกาะแอสเซนชัน</territory>
 			<territory type="AD">อันดอร์รา</territory>
@@ -7844,6 +7845,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">ดอบราเซาตูเมและปรินซิปี</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">STN</displayName>
+				<displayName count="other" draft="contributed">STN</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>รูเบิลโซเวียต</displayName>

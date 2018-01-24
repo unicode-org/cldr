@@ -593,6 +593,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">ምዕራባዊ አውሮፓ</territory>
 			<territory type="154">ሰሜናዊ አውሮፓ</territory>
 			<territory type="155">ምስራቃዊ አውሮፓ</territory>
+			<territory type="202">ከሰሃራ በታች አፍሪካ</territory>
 			<territory type="419">ላቲን አሜሪካ</territory>
 			<territory type="AC">አሴንሽን ደሴት</territory>
 			<territory type="AD">አንዶራ</territory>
@@ -2010,6 +2011,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ዓ/ዓ</era>
+						<era type="0" alt="variant">ዓ/ዓ</era>
 						<era type="1">ዓ/ም</era>
 						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
@@ -6133,6 +6135,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName>ሳኦ ቶሜ እና ፕሪንሲፔ ዶብራ</displayName>
+				<displayName count="one">ሳኦ ቶሜ እና ፕሪንሲፔ ዶብራ</displayName>
+				<displayName count="other">ሳኦ ቶሜ እና ፕሪንሲፔ ዶብራ</displayName>
+			</currency>
 			<currency type="SYP">
 				<displayName>የሲሪያ ፓውንድ</displayName>
 				<displayName count="one">የሲሪያ ፓውንድ</displayName>
@@ -8012,15 +8019,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="animals_nature">እንስሳት እና ተፈጥሮ</characterLabel>
 		<characterLabel type="arrows">ቀስቶች</characterLabel>
 		<characterLabel type="body">ሰውነት</characterLabel>
-		<characterLabel type="box_drawing">Box Drawing</characterLabel>
+		<characterLabel type="box_drawing">ስዕላዊ ሳጥን</characterLabel>
 		<characterLabel type="braille">ብሬይል</characterLabel>
 		<characterLabel type="building">ህንጻ</characterLabel>
-		<characterLabel type="bullets_stars">ጥይቶች/ኮከቦች</characterLabel>
-		<characterLabel type="consonantal_jamo">Consonantal Jamo</characterLabel>
+		<characterLabel type="bullets_stars">ጥይቶች ወይም ኮከቦች</characterLabel>
+		<characterLabel type="consonantal_jamo">የጃሞ ሆሄያት</characterLabel>
 		<characterLabel type="currency_symbols">የምንዛሪ ምልክቶች</characterLabel>
-		<characterLabel type="dash_connector">Dash/Connector</characterLabel>
+		<characterLabel type="dash_connector">ጭረት ወይም አያያዥ</characterLabel>
 		<characterLabel type="digits">ዲጂት</characterLabel>
-		<characterLabel type="dingbats">Dingbats</characterLabel>
+		<characterLabel type="dingbats">ነቁጥ</characterLabel>
 		<characterLabel type="divination_symbols">የመለኮት ምልክቶች</characterLabel>
 		<characterLabel type="downwards_arrows">ወደታች ቀስቶች</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">ወደታች ወደላይ ቀስቶች</characterLabel>
@@ -8029,22 +8036,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="european_scripts">የኤውሮጳ ስክሪፕቶች</characterLabel>
 		<characterLabel type="female">ሴት</characterLabel>
 		<characterLabel type="flag">ባንዲራ</characterLabel>
-		<characterLabel type="flags">Flags</characterLabel>
+		<characterLabel type="flags">ባንዲራዎች</characterLabel>
 		<characterLabel type="food_drink">ምግብ እና መጠጥ</characterLabel>
 		<characterLabel type="format">ቅርጸት</characterLabel>
 		<characterLabel type="format_whitespace">ቅርጸት እና ባዶቦታ</characterLabel>
-		<characterLabel type="full_width_form_variant">Full-Width Form Variants</characterLabel>
+		<characterLabel type="full_width_form_variant">ሙሉ ስፋት የተለያየ መልክ</characterLabel>
 		<characterLabel type="geometric_shapes">ጂኦሜትሪክ ቅርጽ</characterLabel>
-		<characterLabel type="half_width_form_variant">Half-Width Form Variants</characterLabel>
-		<characterLabel type="han_characters">Han Characters</characterLabel>
+		<characterLabel type="half_width_form_variant">ግማሽ ስፋት የተለያየ መልክ</characterLabel>
+		<characterLabel type="han_characters">ሃን ቁምፊ</characterLabel>
 		<characterLabel type="han_radicals">ሃን ራዲካልስ</characterLabel>
 		<characterLabel type="hanja">ሃንጃ</characterLabel>
 		<characterLabel type="hanzi_simplified">ሃንዚ(በቀላሉ)</characterLabel>
 		<characterLabel type="hanzi_traditional">ሃንዚ(ባህላዊ)</characterLabel>
 		<characterLabel type="heart">ልብ</characterLabel>
 		<characterLabel type="historic_scripts">ታሪካዊ ስክሪፕቶች</characterLabel>
-		<characterLabel type="ideographic_desc_characters">Ideographic Desc. Characters</characterLabel>
-		<characterLabel type="japanese_kana">Japanese Kana</characterLabel>
+		<characterLabel type="ideographic_desc_characters">ሃሳባዊ ቁምፊዎች</characterLabel>
+		<characterLabel type="japanese_kana">የጃፓን ፊደል</characterLabel>
 		<characterLabel type="kanbun">ካንቡን</characterLabel>
 		<characterLabel type="kanji">ካንጂ</characterLabel>
 		<characterLabel type="keycap">የአብይ ሆሄ ቁልፍ ማብሪያ</characterLabel>
@@ -8054,42 +8061,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="limited_use">የተወሰነ ኣጠቃቀም</characterLabel>
 		<characterLabel type="male">ወንድ</characterLabel>
 		<characterLabel type="math_symbols">የሂሳብ ምልክቶች</characterLabel>
-		<characterLabel type="middle_eastern_scripts">Middle Eastern Scripts</characterLabel>
+		<characterLabel type="middle_eastern_scripts">የመካከለኛው ምስራቅ ስክሪፕቶች</characterLabel>
 		<characterLabel type="miscellaneous">የተለያዩ</characterLabel>
-		<characterLabel type="modern_scripts">Modern Scripts</characterLabel>
+		<characterLabel type="modern_scripts">ዘመናዊ ስክሪፕቶች</characterLabel>
 		<characterLabel type="modifier">ማሻሻያ</characterLabel>
 		<characterLabel type="musical_symbols">የሙዚቃ ምልክቶች</characterLabel>
 		<characterLabel type="nature">ተፈጥሮ</characterLabel>
-		<characterLabel type="nonspacing">Nonspacing</characterLabel>
+		<characterLabel type="nonspacing">የተጣበቁ ቃላት</characterLabel>
 		<characterLabel type="numbers">ቁጥሮች</characterLabel>
 		<characterLabel type="objects">ነገሮች</characterLabel>
 		<characterLabel type="other">ሌሎች</characterLabel>
 		<characterLabel type="paired">የተጣመረ</characterLabel>
 		<characterLabel type="person">ሰው</characterLabel>
-		<characterLabel type="phonetic_alphabet">Phonetic Alphabet</characterLabel>
-		<characterLabel type="pictographs">Pictographs</characterLabel>
+		<characterLabel type="phonetic_alphabet">የድምፅ ፊደል</characterLabel>
+		<characterLabel type="pictographs">ስዕላዊ</characterLabel>
 		<characterLabel type="place">ቦታ</characterLabel>
 		<characterLabel type="plant">አትክልት</characterLabel>
 		<characterLabel type="punctuation">ስርዓተ ነጥብ</characterLabel>
 		<characterLabel type="rightwards_arrows">ወደቀኝ ቀስቶች</characterLabel>
-		<characterLabel type="sign_standard_symbols">Sign/Standard Symbols</characterLabel>
-		<characterLabel type="small_form_variant">Small Form Variants</characterLabel>
+		<characterLabel type="sign_standard_symbols">አርማ ወይም ምልክት</characterLabel>
+		<characterLabel type="small_form_variant">ትንሽ የተለያየ መልክ</characterLabel>
 		<characterLabel type="smiley">ሳቅ</characterLabel>
-		<characterLabel type="smileys_people">Smileys &amp; People</characterLabel>
-		<characterLabel type="south_asian_scripts">ደቡብ ኤስያ ስክሪፕት</characterLabel>
-		<characterLabel type="southeast_asian_scripts">Southeast Asian Scripts</characterLabel>
-		<characterLabel type="spacing">Spacing</characterLabel>
+		<characterLabel type="smileys_people">ሳቂታ ወይም ሰው</characterLabel>
+		<characterLabel type="south_asian_scripts">ደቡብ እስያ ስክሪፕት</characterLabel>
+		<characterLabel type="southeast_asian_scripts">ደቡብ ምስራቅ እስያ ስክሪፕት</characterLabel>
+		<characterLabel type="spacing">ባዶ ቦታ</characterLabel>
 		<characterLabel type="sport">ስፖርት</characterLabel>
 		<characterLabel type="symbols">ምልክቶች</characterLabel>
 		<characterLabel type="technical_symbols">ቴክኒካል ምልክቶች</characterLabel>
-		<characterLabel type="tone_marks">Tone Marks</characterLabel>
+		<characterLabel type="tone_marks">የኖታ ምልክት</characterLabel>
 		<characterLabel type="travel">ጉዞ</characterLabel>
 		<characterLabel type="travel_places">ጉዞ እና ቦታ</characterLabel>
 		<characterLabel type="upwards_arrows">ወደላይ ቀስቶች</characterLabel>
-		<characterLabel type="variant_forms">Variant Forms</characterLabel>
+		<characterLabel type="variant_forms">የተለያየ መልክ ቅጾች</characterLabel>
 		<characterLabel type="vocalic_jamo">ቮልካኒክ ጃሞ</characterLabel>
 		<characterLabel type="weather">የአየር ሁኔታ</characterLabel>
 		<characterLabel type="western_asian_scripts">ምእራባዊ ኤስያ ስክሪፕት</characterLabel>
-		<characterLabel type="whitespace">Whitespace</characterLabel>
+		<characterLabel type="whitespace">ባዶ ቦታ</characterLabel>
 	</characterLabels>
 </ldml>

@@ -492,12 +492,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">ᏗᎧᎸᎬ ᏗᏜ ᏳᎳᏛ</territory>
 			<territory type="154">ᏧᏴᏢ ᏗᏜ ᏳᎳᏛ</territory>
 			<territory type="155">ᏭᏕᎵᎬ ᏗᏜ ᏳᎳᏛ</territory>
+			<territory type="202">ᎭᏫᏂ-ᏌᎭᏩ ᎬᎿᎨᏍᏛ</territory>
 			<territory type="419">ᎳᏘᏂ ᎠᎹᏰᏟ</territory>
 			<territory type="AC">ᎤᎵᏌᎳᏓᏅ ᎤᎦᏚᏛᎢ</territory>
 			<territory type="AD">ᎠᏂᏙᎳ</territory>
 			<territory type="AE">ᏌᏊ ᎢᏳᎾᎵᏍᏔᏅ ᎡᎳᏈ ᎢᎹᎵᏘᏏ</territory>
 			<territory type="AF">ᎠᏫᎨᏂᏍᏖᏂ</territory>
-			<territory type="AG">ᎤᏪᏘ ᎠᎴ ᏆᏊᏓ</territory>
+			<territory type="AG">ᎤᏪᏘ &amp; ᏆᏊᏓ</territory>
 			<territory type="AI">ᎠᏂᎩᎳ</territory>
 			<territory type="AL">ᎠᎵᏇᏂᏯ</territory>
 			<territory type="AM">ᎠᎵᎻᏂᎠ</territory>
@@ -510,7 +511,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AW">ᎠᎷᏆ</territory>
 			<territory type="AX">ᎣᎴᏅᏓ ᏚᎦᏚᏛᎢ</territory>
 			<territory type="AZ">ᎠᏎᏆᏣᏂ</territory>
-			<territory type="BA">ᏉᏏᏂᎠ ᎠᎴ ᎲᏤᎪᏫ</territory>
+			<territory type="BA">ᏉᏏᏂᎠ &amp; ᎲᏤᎪᏫ</territory>
 			<territory type="BB">ᏆᏇᏙᏍ</territory>
 			<territory type="BD">ᏆᏂᎦᎵᏕᏍ</territory>
 			<territory type="BE">ᏇᎵᏥᎥᎻ</territory>
@@ -653,7 +654,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MK">ᎹᏎᏙᏂᏯ</territory>
 			<territory type="MK" alt="variant">ᎹᏎᏙᏂᏯ (FYROM)</territory>
 			<territory type="ML">ᎹᎵ</territory>
-			<territory type="MM">ᎹᏯᎹᎵ</territory>
+			<territory type="MM">ᎹᏯᎹᎵ (ᏇᎵᎹ)</territory>
 			<territory type="MN">ᎹᏂᎪᎵᎠ</territory>
 			<territory type="MO">ᎹᎧᎣ (ᎤᏓᏤᎵᏓ ᏧᏂᎸᏫᏍᏓᏁᏗ ᎢᎬᎾᏕᎾ) ᏣᎢ</territory>
 			<territory type="MO" alt="short">ᎹᎧᎣ</territory>
@@ -917,13 +918,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
@@ -935,6 +947,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
@@ -1228,7 +1241,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">ᏌᎾᎴ</dayPeriod>
 							<dayPeriod type="noon">ᎢᎦ</dayPeriod>
-							<dayPeriod type="pm">ᏒᎯᏱᎢᏗᏢ</dayPeriod>
+							<dayPeriod type="pm">ᏒᎯᏱᎢ</dayPeriod>
 							<dayPeriod type="morning1">ᏌᎾᎴ</dayPeriod>
 							<dayPeriod type="afternoon1">ᏒᎯᏱᎢᏗᏢ</dayPeriod>
 						</dayPeriodWidth>
@@ -1251,14 +1264,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">ᏌᎾᎴ</dayPeriod>
 							<dayPeriod type="noon">ᎢᎦ</dayPeriod>
-							<dayPeriod type="pm">ᏒᎯᏱᎢᏗᏢ</dayPeriod>
+							<dayPeriod type="pm">ᏒᎯᏱᎢ</dayPeriod>
 							<dayPeriod type="morning1">ᏌᎾᎴ</dayPeriod>
 							<dayPeriod type="afternoon1">ᏒᎯᏱᎢᏗᏢ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">ᏌᎾᎴ</dayPeriod>
 							<dayPeriod type="noon">ᎢᎦ</dayPeriod>
-							<dayPeriod type="pm">ᏒᎯᏱᎢᏗᏢ</dayPeriod>
+							<dayPeriod type="pm">ᏒᎯᏱᎢ</dayPeriod>
 							<dayPeriod type="morning1">ᏌᎾᎴ</dayPeriod>
 							<dayPeriod type="afternoon1">ᏒᎯᏱᎢᏗᏢ</dayPeriod>
 						</dayPeriodWidth>
@@ -1351,8 +1364,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -4460,7 +4478,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="1000000000" count="one">¤0B</pattern>
 					<pattern type="1000000000" count="other">¤0B</pattern>
 					<pattern type="10000000000" count="one">¤00B</pattern>
-					<pattern type="10000000000" count="other">¤ 00G</pattern>
+					<pattern type="10000000000" count="other">¤00B</pattern>
 					<pattern type="100000000000" count="one">¤000B</pattern>
 					<pattern type="100000000000" count="other">¤000B</pattern>
 					<pattern type="1000000000000" count="one">¤0T</pattern>
@@ -4671,6 +4689,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
+			<currency type="CNH">
+				<displayName>ᏣᏂᏏ ᎠᏕᎳ (ᏓᎹᏳᏟᏗ)</displayName>
+				<displayName count="one">ᏣᏂᏏ ᎠᏕᎳ (ᏓᎹᏳᏟᏗ)</displayName>
+				<displayName count="other">ᏣᏂᏏ ᎠᏕᎳ (ᏓᎹᏳᏟᏗ)</displayName>
+			</currency>
 			<currency type="CNY">
 				<displayName>ᏓᎶᏂᎨ ᎠᏕᎳ</displayName>
 				<displayName count="one">ᏓᎶᏂᎨ ᎠᏕᎳ</displayName>
@@ -4713,9 +4736,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CZK">
-				<displayName>ᏤᎩ ᏍᎦᏚᎩ ᎠᏕᎳ</displayName>
-				<displayName count="one">ᏤᎩ ᏍᎦᏚᎩ ᎠᏕᎳ</displayName>
-				<displayName count="other">ᏤᎩ ᏍᎦᏚᎩ ᎠᏕᎳ</displayName>
+				<displayName>ᏤᎩ ᎠᏕᎳ</displayName>
+				<displayName count="one">ᏤᎩ ᎠᏕᎳ</displayName>
+				<displayName count="other">ᏤᎩ ᎠᏕᎳ</displayName>
 				<symbol draft="contributed">CZK</symbol>
 				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
@@ -5322,6 +5345,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">ᏌᎣᏙᎺ ᎠᎴ ᏈᏂᏏᏇ ᎠᏕᎳ</displayName>
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>ᏌᎣ ᏙᎺ &amp; ᏈᏂᏏᏇ ᎠᏕᎳ (2018)</displayName>
+				<displayName count="one">ᏌᎣ ᏙᎺ &amp; ᏈᏂᏏᏇ ᎠᏕᎳ (2018)</displayName>
+				<displayName count="other">ᏌᎣ ᏙᎺ &amp; ᏈᏂᏏᏇ ᎠᏕᎳ (2018)</displayName>
 			</currency>
 			<currency type="SYP">
 				<displayName>ᏏᎵᎠ ᎠᏕᎳ</displayName>
@@ -6203,10 +6231,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ᎤᏍᏗ ᏗᏗᏙᏗ</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}Ꮧ</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}ᏧᏴ</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}ᏧᎦ</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}Ꮽ</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} ᏗᎧᎸᎬ</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} ᏧᏴᏢ</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} ᏧᎦᏄᏮ</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} ᏭᏕᎵᎬ</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
@@ -6895,10 +6923,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}Ꮧ</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}ᏧᏴ</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}ᏧᎦ</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}Ꮽ</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} Ꮧ</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} ᏧᏴ</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} ᏧᎦ</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} Ꮽ</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -7026,8 +7054,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<listPattern type="or">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, or {1}</listPatternPart>
-			<listPatternPart type="2">{0} or {1}</listPatternPart>
+			<listPatternPart type="end">{0}, ᎠᎴᏱᎩ {1}</listPatternPart>
+			<listPatternPart type="2">{0} ᎠᎴᏱᎩ {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -501,6 +501,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Шығыс Еуропа</territory>
 			<territory type="154">Солтүстік Еуропа</territory>
 			<territory type="155">Батыс Еуропа</territory>
+			<territory type="202">Субсахаралық Африка</territory>
 			<territory type="419">Латын Америкасы</territory>
 			<territory type="AC">Әскенжін аралы</territory>
 			<territory type="AD">Андорра</territory>
@@ -549,6 +550,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Конго Республикасы</territory>
 			<territory type="CH">Швейцария</territory>
 			<territory type="CI">Кот-д’Ивуар</territory>
+			<territory type="CI" alt="variant">Піл Сүйегі жағалауы</territory>
 			<territory type="CK">Кук аралдары</territory>
 			<territory type="CL">Чили</territory>
 			<territory type="CM">Камерун</territory>
@@ -1373,10 +1375,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0">Біздің заманымызға дейін</era>
 						<era type="0" alt="variant">біздің заманымызға дейін</era>
 						<era type="1">біздің заманымыз</era>
+						<era type="1" alt="variant">CE</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">б.з.д.</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">б.з.</era>
+						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -5424,6 +5429,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">Сант-Томе мен Принсипи добрасы</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>STN</displayName>
+				<displayName count="one">STN</displayName>
+				<displayName count="other">Сан-Томе және Принсипи добрасы (2018)</displayName>
 			</currency>
 			<currency type="SYP">
 				<displayName>Сирия фунты</displayName>

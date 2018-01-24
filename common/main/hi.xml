@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -707,6 +707,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">पूर्वी यूरोप</territory>
 			<territory type="154">उत्तरी यूरोप</territory>
 			<territory type="155">पश्चिमी यूरोप</territory>
+			<territory type="202" draft="contributed">उप-सहारा अफ़्रीका</territory>
 			<territory type="419">लैटिन अमेरिका</territory>
 			<territory type="AC">असेंशन द्वीप</territory>
 			<territory type="AD">एंडोरा</territory>
@@ -6190,6 +6191,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">साओ तोम और प्रिंसिपे डोबरा</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">साओ टोम व प्रिंसिपे डोब्रा</displayName>
+				<displayName count="one" draft="contributed">STN</displayName>
+				<displayName count="other" draft="contributed">साओ टोम व प्रिंसिपे डोब्रा</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName draft="contributed">सोवियत रूबल</displayName>

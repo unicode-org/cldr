@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1324,8 +1324,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">施工中</annotation>
 		<annotation cp="🏘">屋舍 | 房屋建築</annotation>
 		<annotation cp="🏘" type="tts">房屋建築</annotation>
-		<annotation cp="🏙">城市 | 都市風景</annotation>
-		<annotation cp="🏙" type="tts">都市風景</annotation>
 		<annotation cp="🏚">廢墟 | 荒宅</annotation>
 		<annotation cp="🏚" type="tts">廢墟</annotation>
 		<annotation cp="🏠">家 | 房子</annotation>
@@ -1382,6 +1380,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">霧</annotation>
 		<annotation cp="🌃">星夜 | 星空</annotation>
 		<annotation cp="🌃" type="tts">星空</annotation>
+		<annotation cp="🏙">城市 | 都市風景</annotation>
+		<annotation cp="🏙" type="tts">都市風景</annotation>
 		<annotation cp="🌄">日出 | 黎明</annotation>
 		<annotation cp="🌄" type="tts">日出</annotation>
 		<annotation cp="🌅">旭日 | 朝陽</annotation>
@@ -1406,14 +1406,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">理髮店</annotation>
 		<annotation cp="🎪">馬戲團 | 馬戲團帳篷</annotation>
 		<annotation cp="🎪" type="tts">馬戲團</annotation>
-		<annotation cp="🎭">戲劇 | 面具</annotation>
-		<annotation cp="🎭" type="tts">戲劇</annotation>
-		<annotation cp="🖼">畫 | 裱框畫</annotation>
-		<annotation cp="🖼" type="tts">裱框畫</annotation>
-		<annotation cp="🎨">調色板 | 調色盤</annotation>
-		<annotation cp="🎨" type="tts">調色板</annotation>
-		<annotation cp="🎰">吃角子老虎 | 拉霸機</annotation>
-		<annotation cp="🎰" type="tts">吃角子老虎</annotation>
 		<annotation cp="🚂">火車 | 蒸汽火車</annotation>
 		<annotation cp="🚂" type="tts">蒸汽火車</annotation>
 		<annotation cp="🚃">有軌電車 | 軌道電車</annotation>
@@ -1482,6 +1474,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">高速公路</annotation>
 		<annotation cp="🛤">鐵軌 | 鐵道</annotation>
 		<annotation cp="🛤" type="tts">鐵軌</annotation>
+		<annotation cp="🛢">油桶</annotation>
+		<annotation cp="🛢" type="tts">油桶</annotation>
 		<annotation cp="⛽">加油 | 加油站</annotation>
 		<annotation cp="⛽" type="tts">加油站</annotation>
 		<annotation cp="🚨">警察 | 警車燈</annotation>
@@ -1490,10 +1484,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">紅綠燈</annotation>
 		<annotation cp="🚦">交通號誌 | 直式紅綠燈</annotation>
 		<annotation cp="🚦" type="tts">直式紅綠燈</annotation>
-		<annotation cp="🚧">工地 | 施工</annotation>
-		<annotation cp="🚧" type="tts">施工</annotation>
 		<annotation cp="🛑">停止 | 停止標誌 | 標誌</annotation>
 		<annotation cp="🛑" type="tts">停止標誌</annotation>
+		<annotation cp="🚧">工地 | 施工</annotation>
+		<annotation cp="🚧" type="tts">施工</annotation>
 		<annotation cp="⚓">船錨 | 錨</annotation>
 		<annotation cp="⚓" type="tts">錨</annotation>
 		<annotation cp="⛵">帆船</annotation>
@@ -1536,18 +1530,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">飛碟</annotation>
 		<annotation cp="🛎">服務鈴</annotation>
 		<annotation cp="🛎" type="tts">服務鈴</annotation>
-		<annotation cp="🚪">門</annotation>
-		<annotation cp="🚪" type="tts">門</annotation>
-		<annotation cp="🛏">床</annotation>
-		<annotation cp="🛏" type="tts">床</annotation>
-		<annotation cp="🛋">沙發和立燈</annotation>
-		<annotation cp="🛋" type="tts">沙發和立燈</annotation>
-		<annotation cp="🚽">廁所 | 馬桶</annotation>
-		<annotation cp="🚽" type="tts">馬桶</annotation>
-		<annotation cp="🚿">淋浴 | 蓮蓬頭</annotation>
-		<annotation cp="🚿" type="tts">淋浴</annotation>
-		<annotation cp="🛁">浴盆 | 澡盆</annotation>
-		<annotation cp="🛁" type="tts">澡盆</annotation>
 		<annotation cp="⌛">沙漏</annotation>
 		<annotation cp="⌛" type="tts">沙漏</annotation>
 		<annotation cp="⏳">沙漏 | 流動的沙漏</annotation>
@@ -1764,8 +1746,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">橄欖球</annotation>
 		<annotation cp="🎾">球 | 網球</annotation>
 		<annotation cp="🎾" type="tts">網球</annotation>
-		<annotation cp="🎱">撞球 | 球</annotation>
-		<annotation cp="🎱" type="tts">撞球</annotation>
 		<annotation cp="🎳">保齡球 | 球</annotation>
 		<annotation cp="🎳" type="tts">保齡球</annotation>
 		<annotation cp="🏏">板球 | 球</annotation>
@@ -1784,8 +1764,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">道服</annotation>
 		<annotation cp="🥅">球網 | 球門 | 運動</annotation>
 		<annotation cp="🥅" type="tts">球門</annotation>
-		<annotation cp="🎯">命中 | 正中紅心</annotation>
-		<annotation cp="🎯" type="tts">命中</annotation>
 		<annotation cp="⛳">高爾夫</annotation>
 		<annotation cp="⛳" type="tts">高爾夫</annotation>
 		<annotation cp="⛸">溜冰 | 溜冰鞋</annotation>
@@ -1800,10 +1778,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">雪橇</annotation>
 		<annotation cp="🥌">石壺 | 石頭 | 遊戲</annotation>
 		<annotation cp="🥌" type="tts">石壺</annotation>
+		<annotation cp="🎯">命中 | 正中紅心</annotation>
+		<annotation cp="🎯" type="tts">命中</annotation>
+		<annotation cp="🎱">撞球 | 球</annotation>
+		<annotation cp="🎱" type="tts">撞球</annotation>
+		<annotation cp="🔮">水晶球</annotation>
+		<annotation cp="🔮" type="tts">水晶球</annotation>
 		<annotation cp="🎮">電動 | 電玩</annotation>
 		<annotation cp="🎮" type="tts">電玩</annotation>
 		<annotation cp="🕹">搖桿 | 操控桿</annotation>
 		<annotation cp="🕹" type="tts">搖桿</annotation>
+		<annotation cp="🎰">吃角子老虎 | 拉霸機</annotation>
+		<annotation cp="🎰" type="tts">吃角子老虎</annotation>
 		<annotation cp="🎲">骰子</annotation>
 		<annotation cp="🎲" type="tts">骰子</annotation>
 		<annotation cp="♠">紙牌 | 黑桃</annotation>
@@ -1820,6 +1806,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">紅中</annotation>
 		<annotation cp="🎴">花牌 | 花鬥</annotation>
 		<annotation cp="🎴" type="tts">花牌</annotation>
+		<annotation cp="🎭">戲劇 | 面具</annotation>
+		<annotation cp="🎭" type="tts">戲劇</annotation>
+		<annotation cp="🖼">畫 | 裱框畫</annotation>
+		<annotation cp="🖼" type="tts">裱框畫</annotation>
+		<annotation cp="🎨">調色板 | 調色盤</annotation>
+		<annotation cp="🎨" type="tts">調色板</annotation>
 		<annotation cp="🔇">關掉喇叭 | 静音</annotation>
 		<annotation cp="🔇" type="tts">關掉喇叭</annotation>
 		<annotation cp="🔈">喇叭</annotation>
@@ -1926,12 +1918,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">向左的放大鏡</annotation>
 		<annotation cp="🔎">放大鏡</annotation>
 		<annotation cp="🔎" type="tts">放大鏡</annotation>
-		<annotation cp="🔬">顯微鏡</annotation>
-		<annotation cp="🔬" type="tts">顯微鏡</annotation>
-		<annotation cp="🔭">望遠鏡</annotation>
-		<annotation cp="🔭" type="tts">望遠鏡</annotation>
-		<annotation cp="📡">天線 | 衛星天線</annotation>
-		<annotation cp="📡" type="tts">衛星天線</annotation>
 		<annotation cp="🕯">蠟燭</annotation>
 		<annotation cp="🕯" type="tts">蠟燭</annotation>
 		<annotation cp="💡">燈泡</annotation>
@@ -2118,18 +2104,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">齒輪</annotation>
 		<annotation cp="🗜">壓縮 | 壓縮機</annotation>
 		<annotation cp="🗜" type="tts">壓縮機</annotation>
-		<annotation cp="⚗">化學 | 蒸餾 | 蒸餾器</annotation>
-		<annotation cp="⚗" type="tts">蒸餾器</annotation>
 		<annotation cp="⚖">天平</annotation>
 		<annotation cp="⚖" type="tts">天平</annotation>
 		<annotation cp="🔗">連接</annotation>
 		<annotation cp="🔗" type="tts">連接</annotation>
 		<annotation cp="⛓">鍊子 | 鍊條</annotation>
 		<annotation cp="⛓" type="tts">鍊條</annotation>
+		<annotation cp="⚗">化學 | 蒸餾 | 蒸餾器</annotation>
+		<annotation cp="⚗" type="tts">蒸餾器</annotation>
+		<annotation cp="🔬">顯微鏡</annotation>
+		<annotation cp="🔬" type="tts">顯微鏡</annotation>
+		<annotation cp="🔭">望遠鏡</annotation>
+		<annotation cp="🔭" type="tts">望遠鏡</annotation>
+		<annotation cp="📡">天線 | 衛星天線</annotation>
+		<annotation cp="📡" type="tts">衛星天線</annotation>
 		<annotation cp="💉">注射器 | 針筒</annotation>
 		<annotation cp="💉" type="tts">針筒</annotation>
 		<annotation cp="💊">藥丸</annotation>
 		<annotation cp="💊" type="tts">藥丸</annotation>
+		<annotation cp="🚪">門</annotation>
+		<annotation cp="🚪" type="tts">門</annotation>
+		<annotation cp="🛏">床</annotation>
+		<annotation cp="🛏" type="tts">床</annotation>
+		<annotation cp="🛋">沙發和立燈</annotation>
+		<annotation cp="🛋" type="tts">沙發和立燈</annotation>
+		<annotation cp="🚽">廁所 | 馬桶</annotation>
+		<annotation cp="🚽" type="tts">馬桶</annotation>
+		<annotation cp="🚿">淋浴 | 蓮蓬頭</annotation>
+		<annotation cp="🚿" type="tts">淋浴</annotation>
+		<annotation cp="🛁">浴盆 | 澡盆</annotation>
+		<annotation cp="🛁" type="tts">澡盆</annotation>
+		<annotation cp="🛒">推車 | 購物 | 購物車</annotation>
+		<annotation cp="🛒" type="tts">購物車</annotation>
 		<annotation cp="🚬">吸煙 | 抽煙</annotation>
 		<annotation cp="🚬" type="tts">吸煙</annotation>
 		<annotation cp="⚰">棺木 | 棺材</annotation>
@@ -2138,12 +2144,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">骨灰罈</annotation>
 		<annotation cp="🗿">復活島石像 | 復活節島</annotation>
 		<annotation cp="🗿" type="tts">復活節島</annotation>
-		<annotation cp="🛢">油桶</annotation>
-		<annotation cp="🛢" type="tts">油桶</annotation>
-		<annotation cp="🔮">水晶球</annotation>
-		<annotation cp="🔮" type="tts">水晶球</annotation>
-		<annotation cp="🛒">推車 | 購物 | 購物車</annotation>
-		<annotation cp="🛒" type="tts">購物車</annotation>
 		<annotation cp="🏧">提款機</annotation>
 		<annotation cp="🏧" type="tts">提款機</annotation>
 		<annotation cp="🚮">垃圾桶</annotation>

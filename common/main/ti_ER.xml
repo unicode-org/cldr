@@ -89,13 +89,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<days>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun">ሰ</day>
-							<day type="mon">ሰ</day>
 							<day type="tue">ሰ</day>
-							<day type="wed">ረ</day>
-							<day type="thu">ሓ</day>
-							<day type="fri">ዓ</day>
-							<day type="sat">ቀ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -110,6 +104,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 	</dates>
 	<numbers>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<currencies>
 			<currency type="ERN">
 				<symbol>Nfk</symbol>

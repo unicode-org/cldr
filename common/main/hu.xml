@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -722,6 +722,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Kelet-Európa</territory>
 			<territory type="154">Észak-Európa</territory>
 			<territory type="155">Nyugat-Európa</territory>
+			<territory type="202" draft="contributed">Szubszaharai Afrika</territory>
 			<territory type="419">Latin-Amerika</territory>
 			<territory type="AC">Ascension-sziget</territory>
 			<territory type="AD">Andorra</territory>
@@ -1956,7 +1957,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">i. e.</era>
+						<era type="0" alt="variant" draft="contributed">i. e.</era>
 						<era type="1">i. sz.</era>
+						<era type="1" alt="variant" draft="contributed">i. sz.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="contributed">ie.</era>
@@ -6740,6 +6743,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">São Tomé és Príncipe-i dobra</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">São Tomé és Príncipe-i dobra (2018)</displayName>
+				<displayName count="one" draft="contributed">São Tomé és Príncipe-i dobra (2018)</displayName>
+				<displayName count="other" draft="contributed">São Tomé és Príncipe-i dobra (2018)</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>Szovjet rubel</displayName>

@@ -793,6 +793,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="FI">ಫಿನ್‌ಲ್ಯಾಂಡ್</territory>
 			<territory type="FJ">ಫಿಜಿ</territory>
 			<territory type="FK">ಫಾಕ್‌ಲ್ಯಾಂಡ್ ದ್ವೀಪಗಳು</territory>
+			<territory type="FK" alt="variant">ಫಾಕ್‌ಲ್ಯಾಂಡ್ ದ್ವೀಪಗಳು</territory>
 			<territory type="FM">ಮೈಕ್ರೋನೇಶಿಯಾ</territory>
 			<territory type="FO">ಫರೋ ದ್ವೀಪಗಳು</territory>
 			<territory type="FR">ಫ್ರಾನ್ಸ್</territory>
@@ -1993,8 +1994,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'week' w 'of' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'week' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'week' w 'of' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>

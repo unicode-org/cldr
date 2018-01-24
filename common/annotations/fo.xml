@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -526,6 +526,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧘‍♀">joga | kona | kvinna | kvinna í lotusstøðu | lotus | lotusstøða | meditatión</annotation>
 		<annotation cp="🧘‍♀" type="tts">kvinna í lotusstøðu</annotation>
 		<annotation cp="🧘‍♂">joga | lotus | lotusstøða | maður | meditatión</annotation>
+		<annotation cp="🧘‍♂" type="tts">maður í lotusstøðu</annotation>
 		<annotation cp="🛀">bað | baðikar | fólk | persónur | persónur í baðikari</annotation>
 		<annotation cp="🛀" type="tts">persónur í baðikari</annotation>
 		<annotation cp="🛌">fólk | persónur | persónur í song | song | svevur</annotation>
@@ -1320,8 +1321,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏗" type="tts">byggipláss</annotation>
 		<annotation cp="🏘">fleiri hús | hús</annotation>
 		<annotation cp="🏘" type="tts">fleiri hús</annotation>
-		<annotation cp="🏙">býur | stórbýur</annotation>
-		<annotation cp="🏙" type="tts">stórbýur</annotation>
 		<annotation cp="🏚">hús | oyði | vanrøkt | vanrøkt hús</annotation>
 		<annotation cp="🏚" type="tts">vanrøkt hús</annotation>
 		<annotation cp="🏠">heim | hús</annotation>
@@ -1378,6 +1377,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌁" type="tts">fjallatoppur og mjørki</annotation>
 		<annotation cp="🌃">kvøld | nátt | nátt við stjørnum | stjørnur</annotation>
 		<annotation cp="🌃" type="tts">nátt við stjørnum</annotation>
+		<annotation cp="🏙">býur | stórbýur</annotation>
+		<annotation cp="🏙" type="tts">stórbýur</annotation>
 		<annotation cp="🌄">fjall | fjøll | morgun | sól | sólarris | sólarris ímillum fjøll</annotation>
 		<annotation cp="🌄" type="tts">sólarris ímillum fjøll</annotation>
 		<annotation cp="🌅">dagsbrún | lýsing | morgun | sól | sólarris</annotation>
@@ -1402,14 +1403,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💈" type="tts">hárskeraskelti</annotation>
 		<annotation cp="🎪">sirkus | sirkustjald | tjald</annotation>
 		<annotation cp="🎪" type="tts">sirkustjald</annotation>
-		<annotation cp="🎭">ballett | leikhús | list | sjónleikur | útinnandi leiklistir</annotation>
-		<annotation cp="🎭" type="tts">útinnandi leiklistir</annotation>
-		<annotation cp="🖼">innrammað | innrammað mynd | list | málningur | mynd</annotation>
-		<annotation cp="🖼" type="tts">innrammað mynd</annotation>
-		<annotation cp="🎨">list | litaborð | litafjøl | mála | palett</annotation>
-		<annotation cp="🎨" type="tts">litafjøl</annotation>
-		<annotation cp="🎰">kasino | spæliautomat</annotation>
-		<annotation cp="🎰" type="tts">spæliautomat</annotation>
 		<annotation cp="🚂">lokomotiv | tok</annotation>
 		<annotation cp="🚂" type="tts">lokomotiv</annotation>
 		<annotation cp="🚃">jarnbreytarvognur | sporvognur | tokvognur | tráðbussur</annotation>
@@ -1478,6 +1471,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛣" type="tts">motorvegur</annotation>
 		<annotation cp="🛤">jarnbreyt | tok</annotation>
 		<annotation cp="🛤" type="tts">jarnbreyt</annotation>
+		<annotation cp="🛢">brennievni | olja | oljutunna | tumma</annotation>
+		<annotation cp="🛢" type="tts">oljutunna</annotation>
 		<annotation cp="⛽">bensinpumpa | brennievnispumpa | dieselpumpa | pumpa</annotation>
 		<annotation cp="⛽" type="tts">brennievnispumpa</annotation>
 		<annotation cp="🚨">blunkljós | ljós | løgregla</annotation>
@@ -1486,10 +1481,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚥" type="tts">vatnrætt ferðsluljós</annotation>
 		<annotation cp="🚦">ferðsla | ferðsluljós | ljóskurv</annotation>
 		<annotation cp="🚦" type="tts">ferðsluljós</annotation>
-		<annotation cp="🚧">bummur | byrging | hindur | stongsil</annotation>
-		<annotation cp="🚧" type="tts">byrging</annotation>
 		<annotation cp="🛑">áttakantaður | steðgingarmerki | steðgitekn | stopp | stoppskelti</annotation>
 		<annotation cp="🛑" type="tts">stoppskelti</annotation>
+		<annotation cp="🚧">bummur | byrging | hindur | stongsil</annotation>
+		<annotation cp="🚧" type="tts">byrging</annotation>
 		<annotation cp="⚓">akker | bátur | skip</annotation>
 		<annotation cp="⚓" type="tts">akker</annotation>
 		<annotation cp="⛵">bátur | segl | seglbátur | stuttleikabátur</annotation>
@@ -1532,18 +1527,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛸" type="tts">flúgvandi diskur</annotation>
 		<annotation cp="🛎">hotell | klokka | piccolo | piccoloklokka</annotation>
 		<annotation cp="🛎" type="tts">piccoloklokka</annotation>
-		<annotation cp="🚪">hurð</annotation>
-		<annotation cp="🚪" type="tts">hurð</annotation>
-		<annotation cp="🛏">song | sova</annotation>
-		<annotation cp="🛏" type="tts">song</annotation>
-		<annotation cp="🛋">lampa | sofa | sofa og lampa</annotation>
-		<annotation cp="🛋" type="tts">sofa og lampa</annotation>
-		<annotation cp="🚽">kumma | toilett | ves</annotation>
-		<annotation cp="🚽" type="tts">ves</annotation>
-		<annotation cp="🚿">brúsa | brúsubað | vatn</annotation>
-		<annotation cp="🚿" type="tts">brúsubað</annotation>
-		<annotation cp="🛁">bað | baðikar</annotation>
-		<annotation cp="🛁" type="tts">baðikar</annotation>
 		<annotation cp="⌛">runnið | runnið tímaglas | tímaglas</annotation>
 		<annotation cp="⌛" type="tts">runnið tímaglas</annotation>
 		<annotation cp="⏳">hálvrunnið | hálvrunnið tímaglas | tímaglas</annotation>
@@ -1760,8 +1743,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏉" type="tts">rugbybóltur</annotation>
 		<annotation cp="🎾">bóltur | tennis | tennisbóltur</annotation>
 		<annotation cp="🎾" type="tts">tennisbóltur</annotation>
-		<annotation cp="🎱">billard | kúla | pool | pul</annotation>
-		<annotation cp="🎱" type="tts">pul</annotation>
 		<annotation cp="🎳">bowling | bowlingkúla | keyla</annotation>
 		<annotation cp="🎳" type="tts">bowling</annotation>
 		<annotation cp="🏏">batt | bólttræ | cricket | krikket | krikketbatt</annotation>
@@ -1780,8 +1761,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥋" type="tts">stríðsítróttarbúni</annotation>
 		<annotation cp="🥅">mál | net</annotation>
 		<annotation cp="🥅" type="tts">mál</annotation>
-		<annotation cp="🎯">beinrakið | bullseye | dart | kúgveyga</annotation>
-		<annotation cp="🎯" type="tts">dart</annotation>
 		<annotation cp="⛳">flagg | golf | hol</annotation>
 		<annotation cp="⛳" type="tts">golf</annotation>
 		<annotation cp="⛸">ísskoyta | skoyta</annotation>
@@ -1796,10 +1775,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛷" type="tts">sleta</annotation>
 		<annotation cp="🥌">curling | steinur</annotation>
 		<annotation cp="🥌" type="tts">curling</annotation>
+		<annotation cp="🎯">beinrakið | bullseye | dart | kúgveyga</annotation>
+		<annotation cp="🎯" type="tts">dart</annotation>
+		<annotation cp="🎱">billard | kúla | pool | pul</annotation>
+		<annotation cp="🎱" type="tts">pul</annotation>
+		<annotation cp="🔮">ævintýr | krystal | krystalkúla | kúla | lagna</annotation>
+		<annotation cp="🔮" type="tts">krystalkúla</annotation>
 		<annotation cp="🎮">controller | kontrollari | telduspæl | teldustýri</annotation>
 		<annotation cp="🎮" type="tts">kontrollari</annotation>
 		<annotation cp="🕹">joystick | stýripinnur | telduspæl</annotation>
 		<annotation cp="🕹" type="tts">stýripinnur</annotation>
+		<annotation cp="🎰">kasino | spæliautomat</annotation>
+		<annotation cp="🎰" type="tts">spæliautomat</annotation>
 		<annotation cp="🎲">terningar | terningur</annotation>
 		<annotation cp="🎲" type="tts">terningur</annotation>
 		<annotation cp="♠">kort | spaðari</annotation>
@@ -1816,6 +1803,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🀄" type="tts">mah-jong</annotation>
 		<annotation cp="🎴">hanafuda | japanskt | kort | spæl</annotation>
 		<annotation cp="🎴" type="tts">hanafuda</annotation>
+		<annotation cp="🎭">ballett | leikhús | list | sjónleikur | útinnandi leiklistir</annotation>
+		<annotation cp="🎭" type="tts">útinnandi leiklistir</annotation>
+		<annotation cp="🖼">innrammað | innrammað mynd | list | málningur | mynd</annotation>
+		<annotation cp="🖼" type="tts">innrammað mynd</annotation>
+		<annotation cp="🎨">list | litaborð | litafjøl | mála | palett</annotation>
+		<annotation cp="🎨" type="tts">litafjøl</annotation>
 		<annotation cp="🔇">doyvdur | doyvdur hátalari | doyvt | einki ljóð | hátalari | ljóðleyst</annotation>
 		<annotation cp="🔇" type="tts">doyvdur hátalari</annotation>
 		<annotation cp="🔈">hátalari | lág | lág ljóðstyrki á hátalara | ljóðstyrki</annotation>
@@ -1922,12 +1915,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔍" type="tts">luppur á skák til vinstru</annotation>
 		<annotation cp="🔎">lesiglas | luppur | luppur á skák til høgru | sjóneyka | størkingarglas</annotation>
 		<annotation cp="🔎" type="tts">luppur á skák til høgru</annotation>
-		<annotation cp="🔬">mikroskop | náttúruvísindi | sjóneyka | vísind</annotation>
-		<annotation cp="🔬" type="tts">mikroskop</annotation>
-		<annotation cp="🔭">kikari | náttúruvísindi | spegilskikari | stjørnukikari | teleskop | vísindfjarvísi</annotation>
-		<annotation cp="🔭" type="tts">stjørnukikari</annotation>
-		<annotation cp="📡">antenna | parabolur | skálkampur</annotation>
-		<annotation cp="📡" type="tts">parabolur</annotation>
 		<annotation cp="🕯">kertiljós | livandi ljós | ljós</annotation>
 		<annotation cp="🕯" type="tts">livandi ljós</annotation>
 		<annotation cp="💡">hugskot | ljós | ljóspera | pera</annotation>
@@ -2114,18 +2101,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚙" type="tts">tannhjól</annotation>
 		<annotation cp="🗜">amboð | skrúvustikka | skrúvutvinga | spenniskrúva | tvinga</annotation>
 		<annotation cp="🗜" type="tts">skrúvutvinga</annotation>
-		<annotation cp="⚗">amboð | dropadríva | evnafrøði | kemi</annotation>
-		<annotation cp="⚗" type="tts">dropadríva</annotation>
 		<annotation cp="⚖">amboð | rættvísi | stjørnumerki | Vágmerkið | vágskál | vekt</annotation>
 		<annotation cp="⚖" type="tts">vágskál</annotation>
 		<annotation cp="🔗">leinkja | liður | samband | sambinding | sambindingarliður</annotation>
 		<annotation cp="🔗" type="tts">liður</annotation>
 		<annotation cp="⛓">keta | leinkja | liður | samband | sambinding | sambindingarliður</annotation>
 		<annotation cp="⛓" type="tts">keta</annotation>
+		<annotation cp="⚗">amboð | dropadríva | evnafrøði | kemi</annotation>
+		<annotation cp="⚗" type="tts">dropadríva</annotation>
+		<annotation cp="🔬">mikroskop | náttúruvísindi | sjóneyka | vísind</annotation>
+		<annotation cp="🔬" type="tts">mikroskop</annotation>
+		<annotation cp="🔭">kikari | náttúruvísindi | spegilskikari | stjørnukikari | teleskop | vísindfjarvísi</annotation>
+		<annotation cp="🔭" type="tts">stjørnukikari</annotation>
+		<annotation cp="📡">antenna | parabolur | skálkampur</annotation>
+		<annotation cp="📡" type="tts">parabolur</annotation>
 		<annotation cp="💉">amboð | heilivágur | innspræning | lækni | medisin | nál | sjúka | sproyta</annotation>
 		<annotation cp="💉" type="tts">sproyta</annotation>
 		<annotation cp="💊">heilivágur | lækni | medisin | pillari | sjúka</annotation>
 		<annotation cp="💊" type="tts">pillari</annotation>
+		<annotation cp="🚪">hurð</annotation>
+		<annotation cp="🚪" type="tts">hurð</annotation>
+		<annotation cp="🛏">song | sova</annotation>
+		<annotation cp="🛏" type="tts">song</annotation>
+		<annotation cp="🛋">lampa | sofa | sofa og lampa</annotation>
+		<annotation cp="🛋" type="tts">sofa og lampa</annotation>
+		<annotation cp="🚽">kumma | toilett | ves</annotation>
+		<annotation cp="🚽" type="tts">ves</annotation>
+		<annotation cp="🚿">brúsa | brúsubað | vatn</annotation>
+		<annotation cp="🚿" type="tts">brúsubað</annotation>
+		<annotation cp="🛁">bað | baðikar</annotation>
+		<annotation cp="🛁" type="tts">baðikar</annotation>
+		<annotation cp="🛒">innkeyp | innkeypsvognur | keypsvognur | vognur</annotation>
+		<annotation cp="🛒" type="tts">innkeypsvognur</annotation>
 		<annotation cp="🚬">royking | roykja | roykur | sigarett | tendra sigarett | tubbak</annotation>
 		<annotation cp="🚬" type="tts">tendra sigarett</annotation>
 		<annotation cp="⚰">andlát | deyði | gravarferð | jarðarferð | kista | lík | líkkista</annotation>
@@ -2134,12 +2141,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚱" type="tts">øskukrukka</annotation>
 		<annotation cp="🗿">moai | Páskaoyggin | standmynd</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
-		<annotation cp="🛢">brennievni | olja | oljutunna | tumma</annotation>
-		<annotation cp="🛢" type="tts">oljutunna</annotation>
-		<annotation cp="🔮">ævintýr | krystal | krystalkúla | kúla | lagna</annotation>
-		<annotation cp="🔮" type="tts">krystalkúla</annotation>
-		<annotation cp="🛒">innkeyp | innkeypsvognur | keypsvognur | vognur</annotation>
-		<annotation cp="🛒" type="tts">innkeypsvognur</annotation>
 		<annotation cp="🏧">automat | pengar | sjálvtøka | sjálvtøkuskeltið | út</annotation>
 		<annotation cp="🏧" type="tts">sjálvtøkuskeltið</annotation>
 		<annotation cp="🚮">burturkast | órudd | rusk | ruskílatskelti</annotation>

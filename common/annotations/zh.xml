@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">施工</annotation>
 		<annotation cp="🏘">住宅 | 小区 | 房 | 房屋建筑</annotation>
 		<annotation cp="🏘" type="tts">房屋建筑</annotation>
-		<annotation cp="🏙">城市 | 城市风光 | 都市 | 高楼大厦</annotation>
-		<annotation cp="🏙" type="tts">城市风光</annotation>
 		<annotation cp="🏚">废墟 | 荒宅 | 荒废 | 鬼屋</annotation>
 		<annotation cp="🏚" type="tts">废墟</annotation>
 		<annotation cp="🏠">家 | 房子</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">有雾</annotation>
 		<annotation cp="🌃">夜 | 夜晚 | 星空</annotation>
 		<annotation cp="🌃" type="tts">夜晚</annotation>
+		<annotation cp="🏙">城市 | 城市风光 | 都市 | 高楼大厦</annotation>
+		<annotation cp="🏙" type="tts">城市风光</annotation>
 		<annotation cp="🌄">山顶日出 | 日出</annotation>
 		<annotation cp="🌄" type="tts">山顶日出</annotation>
 		<annotation cp="🌅">太阳 | 日出</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">理发店</annotation>
 		<annotation cp="🎪">帐篷 | 马戏团 | 马戏团帐篷</annotation>
 		<annotation cp="🎪" type="tts">马戏团帐篷</annotation>
-		<annotation cp="🎭">剧院 | 戏剧 | 表演 | 面具</annotation>
-		<annotation cp="🎭" type="tts">面具</annotation>
-		<annotation cp="🖼">带框的画 | 画</annotation>
-		<annotation cp="🖼" type="tts">带框的画</annotation>
-		<annotation cp="🎨">画画 | 艺术 | 调色板 | 调色盘</annotation>
-		<annotation cp="🎨" type="tts">调色盘</annotation>
-		<annotation cp="🎰">游戏 | 老虎机 | 角子机 | 赌博</annotation>
-		<annotation cp="🎰" type="tts">老虎机</annotation>
 		<annotation cp="🚂">火车 | 蒸汽 | 蒸汽火车</annotation>
 		<annotation cp="🚂" type="tts">蒸汽火车</annotation>
 		<annotation cp="🚃">电车 | 轨道车</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">高速公路</annotation>
 		<annotation cp="🛤">火车 | 铁路 | 铁轨</annotation>
 		<annotation cp="🛤" type="tts">铁轨</annotation>
+		<annotation cp="🛢">桶 | 石油 | 石油桶</annotation>
+		<annotation cp="🛢" type="tts">石油桶</annotation>
 		<annotation cp="⛽">加油 | 加油站 | 油泵 | 燃油</annotation>
 		<annotation cp="⛽" type="tts">油泵</annotation>
 		<annotation cp="🚨">灯 | 警报 | 警灯 | 警示 | 警车灯</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">横向的红绿灯</annotation>
 		<annotation cp="🚦">交通灯 | 信号灯 | 红绿灯 | 纵向的红绿灯</annotation>
 		<annotation cp="🚦" type="tts">纵向的红绿灯</annotation>
-		<annotation cp="🚧">施工 | 路障</annotation>
-		<annotation cp="🚧" type="tts">路障</annotation>
 		<annotation cp="🛑">停止 | 停止标志 | 八边形 | 标志</annotation>
 		<annotation cp="🛑" type="tts">停止标志</annotation>
+		<annotation cp="🚧">施工 | 路障</annotation>
+		<annotation cp="🚧" type="tts">路障</annotation>
 		<annotation cp="⚓">停泊 | 船 | 锚</annotation>
 		<annotation cp="⚓" type="tts">锚</annotation>
 		<annotation cp="⛵">帆船 | 船</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">飞碟</annotation>
 		<annotation cp="🛎">服务铃 | 酒店 | 铃</annotation>
 		<annotation cp="🛎" type="tts">服务铃</annotation>
-		<annotation cp="🚪">门</annotation>
-		<annotation cp="🚪" type="tts">门</annotation>
-		<annotation cp="🛏">宾馆 | 床</annotation>
-		<annotation cp="🛏" type="tts">床</annotation>
-		<annotation cp="🛋">沙发 | 沙发和灯 | 灯 | 阅读</annotation>
-		<annotation cp="🛋" type="tts">沙发和灯</annotation>
-		<annotation cp="🚽">卫生间 | 马桶</annotation>
-		<annotation cp="🚽" type="tts">马桶</annotation>
-		<annotation cp="🚿">喷头 | 淋浴 | 花洒</annotation>
-		<annotation cp="🚿" type="tts">淋浴</annotation>
-		<annotation cp="🛁">洗澡 | 浴盆 | 浴缸 | 澡盆</annotation>
-		<annotation cp="🛁" type="tts">澡盆</annotation>
 		<annotation cp="⌛">沙漏 | 计时</annotation>
 		<annotation cp="⌛" type="tts">沙漏</annotation>
 		<annotation cp="⏳">沙正往下流的沙漏 | 沙漏</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">英式橄榄球</annotation>
 		<annotation cp="🎾">网球</annotation>
 		<annotation cp="🎾" type="tts">网球</annotation>
-		<annotation cp="🎱">台球 | 桌球</annotation>
-		<annotation cp="🎱" type="tts">台球</annotation>
 		<annotation cp="🎳">保龄球</annotation>
 		<annotation cp="🎳" type="tts">保龄球</annotation>
 		<annotation cp="🏏">板球</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">练武服</annotation>
 		<annotation cp="🥅">体育 | 球网 | 球门</annotation>
 		<annotation cp="🥅" type="tts">球门</annotation>
-		<annotation cp="🎯">命中 | 正中靶心的飞镖 | 靶心 | 飞镖</annotation>
-		<annotation cp="🎯" type="tts">正中靶心的飞镖</annotation>
 		<annotation cp="⛳">高尔夫</annotation>
 		<annotation cp="⛳" type="tts">高尔夫</annotation>
 		<annotation cp="⛸">冰刀 | 溜冰 | 滑冰</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">雪橇</annotation>
 		<annotation cp="🥌">冰上溜石 | 冰壶 | 比赛 | 游戏</annotation>
 		<annotation cp="🥌" type="tts">冰壶</annotation>
+		<annotation cp="🎯">命中 | 正中靶心的飞镖 | 靶心 | 飞镖</annotation>
+		<annotation cp="🎯" type="tts">正中靶心的飞镖</annotation>
+		<annotation cp="🎱">台球 | 桌球</annotation>
+		<annotation cp="🎱" type="tts">台球</annotation>
+		<annotation cp="🔮">命运 | 水晶球</annotation>
+		<annotation cp="🔮" type="tts">水晶球</annotation>
 		<annotation cp="🎮">手柄 | 游戏 | 游戏手柄</annotation>
 		<annotation cp="🎮" type="tts">游戏手柄</annotation>
 		<annotation cp="🕹">操控杆 | 游戏 | 游戏操控杆</annotation>
 		<annotation cp="🕹" type="tts">游戏操控杆</annotation>
+		<annotation cp="🎰">游戏 | 老虎机 | 角子机 | 赌博</annotation>
+		<annotation cp="🎰" type="tts">老虎机</annotation>
 		<annotation cp="🎲">色子 | 骰子</annotation>
 		<annotation cp="🎲" type="tts">骰子</annotation>
 		<annotation cp="♠">扑克 | 牌 | 葵扇 | 黑桃</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">红中</annotation>
 		<annotation cp="🎴">花斗 | 花札 | 花牌</annotation>
 		<annotation cp="🎴" type="tts">花札</annotation>
+		<annotation cp="🎭">剧院 | 戏剧 | 表演 | 面具</annotation>
+		<annotation cp="🎭" type="tts">面具</annotation>
+		<annotation cp="🖼">带框的画 | 画</annotation>
+		<annotation cp="🖼" type="tts">带框的画</annotation>
+		<annotation cp="🎨">画画 | 艺术 | 调色板 | 调色盘</annotation>
+		<annotation cp="🎨" type="tts">调色盘</annotation>
 		<annotation cp="🔇">安静 | 扬声器 | 扬声器关闭 | 静音 | 音量</annotation>
 		<annotation cp="🔇" type="tts">扬声器关闭</annotation>
 		<annotation cp="🔈">喇叭 | 扬声器 | 通知 | 音量</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">左斜的放大镜</annotation>
 		<annotation cp="🔎">右斜的放大镜 | 搜索 | 放大镜</annotation>
 		<annotation cp="🔎" type="tts">右斜的放大镜</annotation>
-		<annotation cp="🔬">显微镜</annotation>
-		<annotation cp="🔬" type="tts">显微镜</annotation>
-		<annotation cp="🔭">望远镜</annotation>
-		<annotation cp="🔭" type="tts">望远镜</annotation>
-		<annotation cp="📡">卫星 | 卫星天线 | 天线</annotation>
-		<annotation cp="📡" type="tts">卫星天线</annotation>
 		<annotation cp="🕯">光 | 烛光 | 蜡烛</annotation>
 		<annotation cp="🕯" type="tts">蜡烛</annotation>
 		<annotation cp="💡">主意 | 灯泡 | 电</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">齿轮</annotation>
 		<annotation cp="🗜">压缩 | 压缩机</annotation>
 		<annotation cp="🗜" type="tts">压缩机</annotation>
-		<annotation cp="⚗">化学 | 蒸馏 | 蒸馏器</annotation>
-		<annotation cp="⚗" type="tts">蒸馏器</annotation>
 		<annotation cp="⚖">公正 | 天平 | 天秤 | 法律</annotation>
 		<annotation cp="⚖" type="tts">天平</annotation>
 		<annotation cp="🔗">链接 | 链条</annotation>
 		<annotation cp="🔗" type="tts">链接</annotation>
 		<annotation cp="⛓">链 | 链条 | 锁链</annotation>
 		<annotation cp="⛓" type="tts">链条</annotation>
+		<annotation cp="⚗">化学 | 蒸馏 | 蒸馏器</annotation>
+		<annotation cp="⚗" type="tts">蒸馏器</annotation>
+		<annotation cp="🔬">显微镜</annotation>
+		<annotation cp="🔬" type="tts">显微镜</annotation>
+		<annotation cp="🔭">望远镜</annotation>
+		<annotation cp="🔭" type="tts">望远镜</annotation>
+		<annotation cp="📡">卫星 | 卫星天线 | 天线</annotation>
+		<annotation cp="📡" type="tts">卫星天线</annotation>
 		<annotation cp="💉">打针 | 注射器</annotation>
 		<annotation cp="💉" type="tts">注射器</annotation>
 		<annotation cp="💊">吃药 | 胶囊 | 药丸</annotation>
 		<annotation cp="💊" type="tts">药丸</annotation>
+		<annotation cp="🚪">门</annotation>
+		<annotation cp="🚪" type="tts">门</annotation>
+		<annotation cp="🛏">宾馆 | 床</annotation>
+		<annotation cp="🛏" type="tts">床</annotation>
+		<annotation cp="🛋">沙发 | 沙发和灯 | 灯 | 阅读</annotation>
+		<annotation cp="🛋" type="tts">沙发和灯</annotation>
+		<annotation cp="🚽">卫生间 | 马桶</annotation>
+		<annotation cp="🚽" type="tts">马桶</annotation>
+		<annotation cp="🚿">喷头 | 淋浴 | 花洒</annotation>
+		<annotation cp="🚿" type="tts">淋浴</annotation>
+		<annotation cp="🛁">洗澡 | 浴盆 | 浴缸 | 澡盆</annotation>
+		<annotation cp="🛁" type="tts">澡盆</annotation>
+		<annotation cp="🛒">手推车 | 购物 | 购物车</annotation>
+		<annotation cp="🛒" type="tts">购物车</annotation>
 		<annotation cp="🚬">吸烟 | 烟</annotation>
 		<annotation cp="🚬" type="tts">吸烟</annotation>
 		<annotation cp="⚰">棺材</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">骨灰缸</annotation>
 		<annotation cp="🗿">复活节岛 | 摩埃 | 摩艾 | 摩艾石像 | 毛埃</annotation>
 		<annotation cp="🗿" type="tts">摩艾石像</annotation>
-		<annotation cp="🛢">桶 | 石油 | 石油桶</annotation>
-		<annotation cp="🛢" type="tts">石油桶</annotation>
-		<annotation cp="🔮">命运 | 水晶球</annotation>
-		<annotation cp="🔮" type="tts">水晶球</annotation>
-		<annotation cp="🛒">手推车 | 购物 | 购物车</annotation>
-		<annotation cp="🛒" type="tts">购物车</annotation>
 		<annotation cp="🏧">ATM | ATM机 | 取款机 | 提款机 | 柜员机</annotation>
 		<annotation cp="🏧" type="tts">取款机</annotation>
 		<annotation cp="🚮">倒垃圾 | 垃圾丢弃处</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -124,6 +124,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">다르그와어</language>
 			<language type="dav">타이타어</language>
 			<language type="de">독일어</language>
+			<language type="de_AT" draft="contributed">독일어(오스트리아)</language>
 			<language type="de_CH">고지 독일어(스위스)</language>
 			<language type="del">델라웨어어</language>
 			<language type="den">슬라브어</language>
@@ -148,9 +149,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="elx">엘람어</language>
 			<language type="en">영어</language>
 			<language type="en_AU">영어(호주)</language>
+			<language type="en_CA" draft="contributed">영어(캐나다)</language>
+			<language type="en_GB" draft="contributed">영어(영국)</language>
+			<language type="en_GB" alt="short" draft="contributed">영어(영국)</language>
+			<language type="en_US" draft="contributed">영어(미국)</language>
+			<language type="en_US" alt="short" draft="contributed">영어(미국)</language>
 			<language type="enm">중세 영어</language>
 			<language type="eo">에스페란토어</language>
 			<language type="es">스페인어</language>
+			<language type="es_419" draft="contributed">스페인어(라틴 아메리카)</language>
+			<language type="es_ES" draft="contributed">스페인어(스페인)</language>
+			<language type="es_MX" draft="contributed">스페인어(멕시코)</language>
 			<language type="et">에스토니아어</language>
 			<language type="eu">바스크어</language>
 			<language type="ewo">이원도어</language>
@@ -164,6 +173,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">페로어</language>
 			<language type="fon">폰어</language>
 			<language type="fr">프랑스어</language>
+			<language type="fr_CA" draft="contributed">프랑스어(캐나다)</language>
+			<language type="fr_CH" draft="contributed">프랑스어(스위스)</language>
 			<language type="frc">케이준 프랑스어</language>
 			<language type="frm">중세 프랑스어</language>
 			<language type="fro">고대 프랑스어</language>
@@ -406,6 +417,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pro">고대 프로방스어</language>
 			<language type="ps">파슈토어</language>
 			<language type="pt">포르투갈어</language>
+			<language type="pt_BR" draft="contributed">포르투갈어(브라질)</language>
+			<language type="pt_PT" draft="contributed">포르투갈어(포르투갈)</language>
 			<language type="qu">케추아어</language>
 			<language type="quc">키체어</language>
 			<language type="raj">라자스탄어</language>
@@ -551,6 +564,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zen">제나가어</language>
 			<language type="zgh">표준 모로코 타마지트어</language>
 			<language type="zh">중국어</language>
+			<language type="zh_Hans" draft="contributed">중국어(간체)</language>
+			<language type="zh_Hant" draft="contributed">중국어(번체)</language>
 			<language type="zu">줄루어</language>
 			<language type="zun">주니어</language>
 			<language type="zxx">언어 관련 내용 없음</language>
@@ -756,6 +771,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">동유럽</territory>
 			<territory type="154">북유럽</territory>
 			<territory type="155">서유럽</territory>
+			<territory type="202" draft="contributed">사하라 사막 이남 아프리카</territory>
 			<territory type="419">라틴 아메리카</territory>
 			<territory type="AC">어센션 섬</territory>
 			<territory type="AD">안도라</territory>
@@ -818,6 +834,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CX">크리스마스섬</territory>
 			<territory type="CY">키프로스</territory>
 			<territory type="CZ">체코</territory>
+			<territory type="CZ" alt="variant" draft="contributed">체코 공화국</territory>
 			<territory type="DE">독일</territory>
 			<territory type="DG">디에고 가르시아</territory>
 			<territory type="DJ">지부티</territory>
@@ -996,6 +1013,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">타지키스탄</territory>
 			<territory type="TK">토켈라우</territory>
 			<territory type="TL">동티모르</territory>
+			<territory type="TL" alt="variant" draft="contributed">동티모르</territory>
 			<territory type="TM">투르크메니스탄</territory>
 			<territory type="TN">튀니지</territory>
 			<territory type="TO">통가</territory>
@@ -7056,6 +7074,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">상투메 프린시페 도브라</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">상투메프린시페 도브라(2018)</displayName>
+				<displayName count="other" draft="contributed">상투메프린시페 도브라(2018)</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>소련 루블</displayName>

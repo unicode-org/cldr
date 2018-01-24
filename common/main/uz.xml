@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -252,7 +252,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="min">minangkabau</language>
 			<language type="mk">makedon</language>
 			<language type="ml">malayalam</language>
-			<language type="mn">mo‘g‘ul</language>
+			<language type="mn">mongol</language>
 			<language type="mni">manipur</language>
 			<language type="moh">mohauk</language>
 			<language type="mos">mossi</language>
@@ -279,7 +279,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ng">ndonga</language>
 			<language type="nia">nias</language>
 			<language type="niu">niue</language>
-			<language type="nl">golland</language>
+			<language type="nl">niderland</language>
 			<language type="nl_BE">flamand</language>
 			<language type="nmg">kvasio</language>
 			<language type="nn">norveg-nyunorsk</language>
@@ -502,6 +502,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Sharqiy Yevropa</territory>
 			<territory type="154">Shimoliy Yevropa</territory>
 			<territory type="155">G‘arbiy Yevropa</territory>
+			<territory type="202">Sahro janubidagi Afrika</territory>
 			<territory type="419">Lotin Amerikasi</territory>
 			<territory type="AC">Me’roj oroli</territory>
 			<territory type="AD">Andorra</territory>
@@ -1439,8 +1440,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">MMMM, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">y, QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y, QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="one">Y, w-'hafta'</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y, w-'hafta'</dateFormatItem>
+						<dateFormatItem id="yw" count="one">y, w-'hafta'</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y, w-'hafta'</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1772,13 +1773,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="dayOfYear">
-				<displayName draft="provisional">yil kuni</displayName>
+				<displayName>yilning kuni</displayName>
 			</field>
 			<field type="dayOfYear-short">
-				<displayName draft="provisional">yil kuni</displayName>
+				<displayName>yilning kuni</displayName>
 			</field>
 			<field type="dayOfYear-narrow">
-				<displayName draft="provisional">yil kuni</displayName>
+				<displayName>yilning kuni</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>hafta kuni</displayName>
@@ -5416,6 +5417,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">San-Tome va Prinsipi dobrasi</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>San-Tome va Prinsipi dobrasi (2018)</displayName>
+				<displayName count="one">San-Tome va Prinsipi dobrasi (2018)</displayName>
+				<displayName count="other">San-Tome va Prinsipi dobrasi (2018)</displayName>
 			</currency>
 			<currency type="SYP">
 				<displayName>Suriya funti</displayName>

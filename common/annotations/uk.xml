@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">спорудження будівлі</annotation>
 		<annotation cp="🏘">будинок | будівля | група будинків</annotation>
 		<annotation cp="🏘" type="tts">група будинків</annotation>
-		<annotation cp="🏙">будівля | краєвид міста</annotation>
-		<annotation cp="🏙" type="tts">краєвид міста</annotation>
 		<annotation cp="🏚">будинок | будівля | занедбаний будинок | покинутий</annotation>
 		<annotation cp="🏚" type="tts">занедбаний будинок</annotation>
 		<annotation cp="🏠">будинок | будівля | дім</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">туманно</annotation>
 		<annotation cp="🌃">зірка | зоряна ніч | ніч | погода</annotation>
 		<annotation cp="🌃" type="tts">зоряна ніч</annotation>
+		<annotation cp="🏙">будівля | краєвид міста</annotation>
+		<annotation cp="🏙" type="tts">краєвид міста</annotation>
 		<annotation cp="🌄">гора | погода | ранок | сонце | схід | схід сонця над горами</annotation>
 		<annotation cp="🌄" type="tts">схід сонця над горами</annotation>
 		<annotation cp="🌅">погода | ранок | сонце | схід сонця</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">вивіска перукаря (смугастий стовп)</annotation>
 		<annotation cp="🎪">намет | цирк | циркове шатро</annotation>
 		<annotation cp="🎪" type="tts">циркове шатро</annotation>
-		<annotation cp="🎭">вистава | маска | мистецтво | театр | театральне мистецтво</annotation>
-		<annotation cp="🎭" type="tts">театральне мистецтво</annotation>
-		<annotation cp="🖼">картина | картина в рамці | мистецтво | музей | рама</annotation>
-		<annotation cp="🖼" type="tts">картина в рамці</annotation>
-		<annotation cp="🎨">картина | мистецтво | музей | палітра | палітра художника</annotation>
-		<annotation cp="🎨" type="tts">палітра художника</annotation>
-		<annotation cp="🎰">автомат | гральний автомат | ігровий</annotation>
-		<annotation cp="🎰" type="tts">гральний автомат</annotation>
 		<annotation cp="🚂">двигун | залізниця | паровий | паровий локомотив | потяг | транспорт</annotation>
 		<annotation cp="🚂" type="tts">паровий локомотив</annotation>
 		<annotation cp="🚃">вагон | електричний | залізниця | потяг | трамвай | транспорт | тролейбус</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">автомагістраль</annotation>
 		<annotation cp="🛤">залізниця | залізнична колія | потяг</annotation>
 		<annotation cp="🛤" type="tts">залізнична колія</annotation>
+		<annotation cp="🛢">бочка | бочка для нафти | паливо</annotation>
+		<annotation cp="🛢" type="tts">бочка для нафти</annotation>
 		<annotation cp="⛽">бензоколонка | заправка | насос | пальне</annotation>
 		<annotation cp="⛽" type="tts">бензоколонка</annotation>
 		<annotation cp="🚨">автомобіль | вогні поліцейського автомобіля | маяк | мигати | обертатися | поліція</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">горизонтальний світлофор</annotation>
 		<annotation cp="🚦">вертикальний світлофор | світлофор | транспорт</annotation>
 		<annotation cp="🚦" type="tts">вертикальний світлофор</annotation>
-		<annotation cp="🚧">знак ремонтних робіт | паркан</annotation>
-		<annotation cp="🚧" type="tts">знак ремонтних робіт</annotation>
 		<annotation cp="🛑">восьмикутний червоний знак | восьмикутник | знак | стоп</annotation>
 		<annotation cp="🛑" type="tts">восьмикутний червоний знак</annotation>
+		<annotation cp="🚧">знак ремонтних робіт | паркан</annotation>
+		<annotation cp="🚧" type="tts">знак ремонтних робіт</annotation>
 		<annotation cp="⚓">знаряддя | корабель | якір</annotation>
 		<annotation cp="⚓" type="tts">якір</annotation>
 		<annotation cp="⛵">відпочинок | вітрильник | море | транспорт | човен | яхта</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">НЛО</annotation>
 		<annotation cp="🛎">готель | готельний дзвоник | дзвоник</annotation>
 		<annotation cp="🛎" type="tts">готельний дзвоник</annotation>
-		<annotation cp="🚪">двері</annotation>
-		<annotation cp="🚪" type="tts">двері</annotation>
-		<annotation cp="🛏">готель | ліжко | сон</annotation>
-		<annotation cp="🛏" type="tts">ліжко</annotation>
-		<annotation cp="🛋">готель | диван | канапа й торшер | лампа</annotation>
-		<annotation cp="🛋" type="tts">канапа й торшер</annotation>
-		<annotation cp="🚽">туалет | унітаз</annotation>
-		<annotation cp="🚽" type="tts">унітаз</annotation>
-		<annotation cp="🚿">вода | душ</annotation>
-		<annotation cp="🚿" type="tts">душ</annotation>
-		<annotation cp="🛁">ванна | купатися</annotation>
-		<annotation cp="🛁" type="tts">ванна</annotation>
 		<annotation cp="⌛">пісок | пісочний годинник | таймер</annotation>
 		<annotation cp="⌛" type="tts">пісочний годинник</annotation>
 		<annotation cp="⏳">пісок | пісочний годинник | пісочний годинник із піском, який сиплеться | таймер</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">мʼяч для регбі</annotation>
 		<annotation cp="🎾">м’яч | ракетка | тенісний м’яч</annotation>
 		<annotation cp="🎾" type="tts">тенісний м’яч</annotation>
-		<annotation cp="🎱">8 | більярд | більярдна куля | вісім | гра | куля | куля 8</annotation>
-		<annotation cp="🎱" type="tts">більярдна куля</annotation>
 		<annotation cp="🎳">гра | куля і кеглі для боулінгу | м’яч</annotation>
 		<annotation cp="🎳" type="tts">куля і кеглі для боулінгу</annotation>
 		<annotation cp="🏏">бита | бита і мʼяч для крикету | гра | м’яч</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">одяг для єдиноборств</annotation>
 		<annotation cp="🥅">ворота | сітка | сітка воріт | спорт</annotation>
 		<annotation cp="🥅" type="tts">сітка воріт</annotation>
-		<annotation cp="🎯">«яблучко» | влучити | гра | дротик | мішень із прямим влученням | центр | центральне коло | ціль</annotation>
-		<annotation cp="🎯" type="tts">мішень із прямим влученням</annotation>
 		<annotation cp="⛳">гольф | лунка | лунка для гольфу з прапорцем</annotation>
 		<annotation cp="⛳" type="tts">лунка для гольфу з прапорцем</annotation>
 		<annotation cp="⛸">ковзан | лід</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">сани</annotation>
 		<annotation cp="🥌">гра | камʼяна шайба для керлінгу | камінь</annotation>
 		<annotation cp="🥌" type="tts">камʼяна шайба для керлінгу</annotation>
+		<annotation cp="🎯">«яблучко» | влучити | гра | дротик | мішень із прямим влученням | центр | центральне коло | ціль</annotation>
+		<annotation cp="🎯" type="tts">мішень із прямим влученням</annotation>
+		<annotation cp="🎱">8 | більярд | більярдна куля | вісім | гра | куля | куля 8</annotation>
+		<annotation cp="🎱" type="tts">більярдна куля</annotation>
+		<annotation cp="🔮">інструмент | казка | кришталева куля | кришталевий | куля | передбачення | фантазія</annotation>
+		<annotation cp="🔮" type="tts">кришталева куля</annotation>
 		<annotation cp="🎮">гра | ігровий контролер | контролер</annotation>
 		<annotation cp="🎮" type="tts">ігровий контролер</annotation>
 		<annotation cp="🕹">відеогра | гра | джойстик</annotation>
 		<annotation cp="🕹" type="tts">джойстик</annotation>
+		<annotation cp="🎰">автомат | гральний автомат | ігровий</annotation>
+		<annotation cp="🎰" type="tts">гральний автомат</annotation>
 		<annotation cp="🎲">гра | гральна кість | кубик</annotation>
 		<annotation cp="🎲" type="tts">гральна кість</annotation>
 		<annotation cp="♠">гра | карта | масть | піка</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">фішка маджонг червоний дракон</annotation>
 		<annotation cp="🎴">гра | гральні карти з квітами (ханафуда) | грати | карта | ханафуда | японський</annotation>
 		<annotation cp="🎴" type="tts">гральні карти з квітами (ханафуда)</annotation>
+		<annotation cp="🎭">вистава | маска | мистецтво | театр | театральне мистецтво</annotation>
+		<annotation cp="🎭" type="tts">театральне мистецтво</annotation>
+		<annotation cp="🖼">картина | картина в рамці | мистецтво | музей | рама</annotation>
+		<annotation cp="🖼" type="tts">картина в рамці</annotation>
+		<annotation cp="🎨">картина | мистецтво | музей | палітра | палітра художника</annotation>
+		<annotation cp="🎨" type="tts">палітра художника</annotation>
 		<annotation cp="🔇">беззвучний | вимкнений звук | гучність | динамік | заглушений динамік | тихий</annotation>
 		<annotation cp="🔇" type="tts">заглушений динамік</annotation>
 		<annotation cp="🔈">гучність | динамік</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">збільшувальне скло, спрямоване ліворуч</annotation>
 		<annotation cp="🔎">збільшувальне скло, спрямоване праворуч | інструмент | лупа | пошук</annotation>
 		<annotation cp="🔎" type="tts">збільшувальне скло, спрямоване праворуч</annotation>
-		<annotation cp="🔬">інструмент | мікроскоп</annotation>
-		<annotation cp="🔬" type="tts">мікроскоп</annotation>
-		<annotation cp="🔭">інструмент | телескоп</annotation>
-		<annotation cp="🔭" type="tts">телескоп</annotation>
-		<annotation cp="📡">антена | супутникова | супутникова антена | тарілка</annotation>
-		<annotation cp="📡" type="tts">супутникова антена</annotation>
 		<annotation cp="🕯">світло | свічка</annotation>
 		<annotation cp="🕯" type="tts">свічка</annotation>
 		<annotation cp="💡">електричний | ідея | лампочка | малюнок | світло</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">шестірня</annotation>
 		<annotation cp="🗜">затискач | знаряддя | кліщі</annotation>
 		<annotation cp="🗜" type="tts">затискач</annotation>
-		<annotation cp="⚗">знаряддя | перегінний куб | хімія</annotation>
-		<annotation cp="⚗" type="tts">перегінний куб</annotation>
 		<annotation cp="⚖">вага | ваги | знаряддя | зодіак | рівновага | справедливість | терези</annotation>
 		<annotation cp="⚖" type="tts">ваги</annotation>
 		<annotation cp="🔗">ланка | посилання | символ зʼєднання ланок</annotation>
 		<annotation cp="🔗" type="tts">символ зʼєднання ланок</annotation>
 		<annotation cp="⛓">ланцюг | ланцюги</annotation>
 		<annotation cp="⛓" type="tts">ланцюги</annotation>
+		<annotation cp="⚗">знаряддя | перегінний куб | хімія</annotation>
+		<annotation cp="⚗" type="tts">перегінний куб</annotation>
+		<annotation cp="🔬">інструмент | мікроскоп</annotation>
+		<annotation cp="🔬" type="tts">мікроскоп</annotation>
+		<annotation cp="🔭">інструмент | телескоп</annotation>
+		<annotation cp="🔭" type="tts">телескоп</annotation>
+		<annotation cp="📡">антена | супутникова | супутникова антена | тарілка</annotation>
+		<annotation cp="📡" type="tts">супутникова антена</annotation>
 		<annotation cp="💉">голка | інструмент | лікар | ліки | укол | хворий | шприц</annotation>
 		<annotation cp="💉" type="tts">шприц</annotation>
 		<annotation cp="💊">лікар | ліки | пігулка | хворий</annotation>
 		<annotation cp="💊" type="tts">пігулка</annotation>
+		<annotation cp="🚪">двері</annotation>
+		<annotation cp="🚪" type="tts">двері</annotation>
+		<annotation cp="🛏">готель | ліжко | сон</annotation>
+		<annotation cp="🛏" type="tts">ліжко</annotation>
+		<annotation cp="🛋">готель | диван | канапа й торшер | лампа</annotation>
+		<annotation cp="🛋" type="tts">канапа й торшер</annotation>
+		<annotation cp="🚽">туалет | унітаз</annotation>
+		<annotation cp="🚽" type="tts">унітаз</annotation>
+		<annotation cp="🚿">вода | душ</annotation>
+		<annotation cp="🚿" type="tts">душ</annotation>
+		<annotation cp="🛁">ванна | купатися</annotation>
+		<annotation cp="🛁" type="tts">ванна</annotation>
+		<annotation cp="🛒">возик | магазин | магазинний візок | супермаркет | шопінг</annotation>
+		<annotation cp="🛒" type="tts">магазинний візок</annotation>
 		<annotation cp="🚬">паління | цигарка</annotation>
 		<annotation cp="🚬" type="tts">цигарка</annotation>
 		<annotation cp="⚰">Replaced with a more common term | труна</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">поховальна урна</annotation>
 		<annotation cp="🗿">лице | статуя | статуя з Острова Пасхи</annotation>
 		<annotation cp="🗿" type="tts">статуя з Острова Пасхи</annotation>
-		<annotation cp="🛢">бочка | бочка для нафти | паливо</annotation>
-		<annotation cp="🛢" type="tts">бочка для нафти</annotation>
-		<annotation cp="🔮">інструмент | казка | кришталева куля | кришталевий | куля | передбачення | фантазія</annotation>
-		<annotation cp="🔮" type="tts">кришталева куля</annotation>
-		<annotation cp="🛒">возик | магазин | магазинний візок | супермаркет | шопінг</annotation>
-		<annotation cp="🛒" type="tts">магазинний візок</annotation>
 		<annotation cp="🏧">банкомат | значок банкомата</annotation>
 		<annotation cp="🏧" type="tts">значок банкомата</annotation>
 		<annotation cp="🚮">символ «кидайте сміття у смітник» | смітник | сміття</annotation>

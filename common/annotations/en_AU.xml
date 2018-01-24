@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -59,8 +59,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎠" type="tts">merry-go-round | horse</annotation>
 		<annotation cp="🎪">big top | circus</annotation>
 		<annotation cp="🎪" type="tts">big top</annotation>
-		<annotation cp="🎰">game | pokie | pokies</annotation>
-		<annotation cp="🎰" type="tts">pokie</annotation>
 		<annotation cp="🚃" draft="provisional">car | electric | railway | train | tram | trolley bus</annotation>
 		<annotation cp="🚊" draft="provisional">tram | trolley</annotation>
 		<annotation cp="🚋" draft="provisional">car | tram | trolley bus</annotation>
@@ -71,7 +69,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛽">fuel | fuelpump | petrol | pump | station</annotation>
 		<annotation cp="🚡">aerial | cable | cable car | car | gondola | tramway</annotation>
 		<annotation cp="🚡" type="tts">cable car</annotation>
-		<annotation cp="🚽" draft="provisional">facilities | loo | toilet | WC</annotation>
 		<annotation cp="⌛" draft="provisional">hourglass | sand | timer</annotation>
 		<annotation cp="⏲">clock | timer</annotation>
 		<annotation cp="⏲" type="tts">timer</annotation>
@@ -94,6 +91,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎣" draft="provisional">fish | fishing | pole | rod</annotation>
 		<annotation cp="🎿" draft="provisional">ski | skiing | snow</annotation>
 		<annotation cp="🥌" draft="provisional">curling | game | rock | stone</annotation>
+		<annotation cp="🎰">game | pokie | pokies</annotation>
+		<annotation cp="🎰" type="tts">pokie</annotation>
 		<annotation cp="♦" draft="provisional">card | diamonds | game</annotation>
 		<annotation cp="♣" draft="provisional">card | clubs | game</annotation>
 		<annotation cp="🔈" draft="provisional">low | quiet | soft | speaker | volume</annotation>
@@ -125,6 +124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📌" type="tts">drawing-pin</annotation>
 		<annotation cp="📍">pin | pushpin | round drawing-pin</annotation>
 		<annotation cp="📍" type="tts">round drawing-pin</annotation>
+		<annotation cp="🚽" draft="provisional">facilities | loo | toilet | WC</annotation>
 		<annotation cp="🚹">lavatory | man | men’s toilet | restroom | wc</annotation>
 		<annotation cp="🚹" type="tts">men’s toilet</annotation>
 		<annotation cp="🚺">lavatory | restroom | wc | woman | women’s toilet</annotation>

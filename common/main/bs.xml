@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -19,10 +19,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
-			<!-- This had confirmed data for bo,de,en,es,fr,it,ja,pt,ru,tk,tr,und,zh (all lowercase).
-				 Copy missing data from sr_Latn, converting to lowercase. Data that was unconfirmed here, does
-				 not match sr_Latn, and was not just the English name is now alt="proposed" draft="unconfirmed".
-			-->
 			<language type="aa">afarski</language>
 			<language type="ab">abhaski</language>
 			<language type="ace">ačinski</language>
@@ -122,6 +118,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargva</language>
 			<language type="dav">taita</language>
 			<language type="de">njemački</language>
+			<language type="de_AT">njemački (Austrija)</language>
 			<language type="de_CH">gornjonjemački (Švicarska)</language>
 			<language type="del">delaver</language>
 			<language type="den">slave</language>
@@ -145,11 +142,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">grčki</language>
 			<language type="elx">elamitski</language>
 			<language type="en">engleski</language>
+			<language type="en_AU">engleski (Australija)</language>
+			<language type="en_CA">engleski (Kanada)</language>
+			<language type="en_GB">engleski (Velika Britanija)</language>
 			<language type="en_GB" alt="short">engleski (UK)</language>
+			<language type="en_US">engleski (Sjedinjene Američke Države)</language>
 			<language type="en_US" alt="short">engleski (SAD)</language>
 			<language type="enm">srednjovjekovni engleski</language>
 			<language type="eo">esperanto</language>
 			<language type="es">španski</language>
+			<language type="es_419">španski (Latinska Amerika)</language>
+			<language type="es_ES">španski (Španija)</language>
+			<language type="es_MX">španski (Meksiko)</language>
 			<language type="et">estonski</language>
 			<language type="eu">baskijski</language>
 			<language type="ewo">evondo</language>
@@ -163,6 +167,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">farski</language>
 			<language type="fon">fon</language>
 			<language type="fr">francuski</language>
+			<language type="fr_CA">francuski (Kanada)</language>
+			<language type="fr_CH">francuski (Švicarska)</language>
 			<language type="frm">srednjovjekovni francuski</language>
 			<language type="fro">starofrancuski</language>
 			<language type="frr">sjeverni frizijski</language>
@@ -393,6 +399,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">paštu</language>
 			<language type="ps" alt="variant">pušto</language>
 			<language type="pt">portugalski</language>
+			<language type="pt_BR">portugalski (Brazil)</language>
+			<language type="pt_PT">portugalski (Portugal)</language>
 			<language type="qu">kečua</language>
 			<language type="quc">kiče</language>
 			<language type="raj">rajastani</language>
@@ -460,6 +468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sux">sumerski</language>
 			<language type="sv">švedski</language>
 			<language type="sw">svahili</language>
+			<language type="sw_CD">svahili (Demokratska Republika Kongo)</language>
 			<language type="swb">komorski</language>
 			<language type="syc">klasični sirijski</language>
 			<language type="syr">sirijski</language>
@@ -542,10 +551,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</languages>
 		<scripts>
 			<script type="Afak" draft="provisional">afaka pismo</script>
-			<!-- This just had data for Zxxx and Zzzz; Those were the same as in sr_Latn
-				 (but here they were lowercase); fill in the missing data from sr_Latn, but
-				 match lettercase conventions here (inconsistent lettercase in sr_Latn).
-			-->
 			<script type="Arab">arapsko pismo</script>
 			<script type="Arab" alt="variant">perzijsko-arapsko pismo</script>
 			<script type="Armi">imperijsko aramejsko pismo</script>
@@ -709,9 +714,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Zzzz">nepoznato pismo</script>
 		</scripts>
 		<territories>
-			<!-- This just had data for BA, ZZ, and unconfirmed for ME, RS, TO (??). All
-				 but ZZ were the same as in sr_Latn; fill in the missing data from sr_Latn.
-			-->
 			<territory type="001">Svijet</territory>
 			<territory type="002">Afrika</territory>
 			<territory type="003">Sjeverna Amerika</territory>
@@ -741,6 +743,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Istočna Evropa</territory>
 			<territory type="154">Sjeverna Evropa</territory>
 			<territory type="155">Zapadna Evropa</territory>
+			<territory type="202">Subsaharska Afrika</territory>
 			<territory type="419">Latinska Amerika</territory>
 			<territory type="AC">Ostrvo Ascension</territory>
 			<territory type="AD">Andora</territory>
@@ -1018,7 +1021,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZZ">Nepoznata oblast</territory>
 		</territories>
 		<variants>
-			<!-- Copied from sr_Latn -->
 			<variant type="1901">Tradicionalna nemačka ortografija</variant>
 			<variant type="1994">Standardizovana rezijanska ortografija</variant>
 			<variant type="1996">Nemačka ortografija 1996</variant>
@@ -1060,7 +1062,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="WADEGILE" draft="provisional">Vejd-Žajl romanizacija</variant>
 		</variants>
 		<keys>
-			<!-- Copied from sr_Latn -->
 			<key type="calendar">Kalendar</key>
 			<key type="cf">Format valute</key>
 			<key type="colAlternate" draft="provisional">Zanemarivanje poredavanja simbola</key>
@@ -1107,7 +1108,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="provisional">Poredaj prvo velika slova</type>
 			<type key="colCaseLevel" type="no" draft="provisional">Poredaj zanemarujući veličinu</type>
 			<type key="colCaseLevel" type="yes" draft="provisional">Poredaj u skladu s veličinom slova</type>
-			<!-- Copied from sr_Latn -->
 			<type key="collation" type="big5han">Tradicionalno kinesko sortiranje</type>
 			<type key="collation" type="dictionary" draft="provisional">rječničko razvrstavanje</type>
 			<type key="collation" type="ducet">standardno Unicode sortiranje</type>
@@ -1189,13 +1189,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="vaii" draft="provisional">Vai znamenke</type>
 		</types>
 		<measurementSystemNames>
-			<!-- Copied from sr_Latn -->
 			<measurementSystemName type="metric">metrički</measurementSystemName>
 			<measurementSystemName type="UK">britanski</measurementSystemName>
 			<measurementSystemName type="US">američki</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<!-- Had no data for this but dtd does not accept alias, so copy from sr_Latn -->
 			<codePattern type="language">Jezik: {0}</codePattern>
 			<codePattern type="script">Pismo: {0}</codePattern>
 			<codePattern type="territory">Regija: {0}</codePattern>
@@ -1673,7 +1671,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
-					<!-- Copied from sr_Latn -->
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">ponoć</dayPeriod>
@@ -1740,19 +1737,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
-					<!-- Copied from sr_Latn -->
 					<eraNames>
 						<era type="0">prije nove ere</era>
+						<era type="0" alt="variant">prije nove ere</era>
 						<era type="1">nove ere</era>
-						<era type="1" alt="variant">n. e.</era>
+						<era type="1" alt="variant">nove ere</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">p. n. e.</era>
+						<era type="0" alt="variant">p. n. e.</era>
 						<era type="1">n. e.</era>
+						<era type="1" alt="variant">n. e.</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0" draft="provisional">pr.n.e.</era>
-						<era type="1" draft="provisional">AD</era>
+						<era type="0">p.n.e.</era>
+						<era type="0" alt="variant">p.n.e.</era>
+						<era type="1">n.e.</era>
+						<era type="1" alt="variant">n.e.</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -1871,9 +1872,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">LLLL y.</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y.</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y.</dateFormatItem>
-						<dateFormatItem id="yw" count="one">w. 'sedmica' 'u' Y.</dateFormatItem>
-						<dateFormatItem id="yw" count="few">w. 'sedmica' 'u' Y.</dateFormatItem>
-						<dateFormatItem id="yw" count="other">w. 'sedmica' 'u' Y.</dateFormatItem>
+						<dateFormatItem id="yw" count="one">w. 'sedmica' 'u' y.</dateFormatItem>
+						<dateFormatItem id="yw" count="few">w. 'sedmica' 'u' y.</dateFormatItem>
+						<dateFormatItem id="yw" count="other">w. 'sedmica' 'u' y.</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2108,7 +2109,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</calendar>
 		</calendars>
 		<fields>
-			<!-- Copied from sr_Latn -->
 			<field type="era">
 				<displayName>era</displayName>
 			</field>
@@ -2842,9 +2842,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Koordinirano svjetsko vrijeme</standard>
 				</long>
 			</zone>
-			<!-- This just had confirmed data for "Etc/Unknown" (different from the translation
-				 in sr_Latn). Fill in the other translations from data in sr_Latn.
-			-->
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nepoznati grad</exemplarCity>
 			</zone>
@@ -5277,9 +5274,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
-			<!-- This just had confirmed data for "XXX".
-				 Fill in the other translations from data in sr_Latn.
-			-->
 			<currency type="ADP">
 				<displayName>Andorska pezeta</displayName>
 				<displayName count="one">Andorijska pezeta</displayName>
@@ -6856,6 +6850,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName>Dobra Sao Toma i Principa (2018)</displayName>
+				<displayName count="one">dobra Sao Toma i Principa (2018)</displayName>
+				<displayName count="few">dobre Sao Toma i Principa (2018)</displayName>
+				<displayName count="other">dobre Sao Toma i Principa (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
+			</currency>
 			<currency type="SUR">
 				<displayName>Sovjetska rublja</displayName>
 				<displayName count="one">sovjetska rublja</displayName>
@@ -7311,6 +7312,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0}?</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0}?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0}?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="provisional">Skrenite na {0}. križanju desno.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">
@@ -9234,7 +9241,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</durationUnit>
 	</units>
 	<listPatterns>
-		<!-- Copied from sr_Latn -->
 		<listPattern>
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>

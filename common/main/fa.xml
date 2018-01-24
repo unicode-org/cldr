@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -711,6 +711,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">شرق اروپا</territory>
 			<territory type="154">شمال اروپا</territory>
 			<territory type="155">غرب اروپا</territory>
+			<territory type="202" draft="contributed">افریقای سیاه</territory>
 			<territory type="419">امریکای لاتین</territory>
 			<territory type="AC">جزایر آسنسیون</territory>
 			<territory type="AD">آندورا</territory>
@@ -759,6 +760,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">کنگو (جمهوری)</territory>
 			<territory type="CH">سوئیس</territory>
 			<territory type="CI">ساحل عاج</territory>
+			<territory type="CI" alt="variant" draft="contributed">ساحل عاج</territory>
 			<territory type="CK">جزایر کوک</territory>
 			<territory type="CL">شیلی</territory>
 			<territory type="CM">کامرون</territory>
@@ -772,6 +774,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CX">جزیرهٔ کریسمس</territory>
 			<territory type="CY">قبرس</territory>
 			<territory type="CZ">جمهوری چک</territory>
+			<territory type="CZ" alt="variant" draft="contributed">جمهوری چک</territory>
 			<territory type="DE">آلمان</territory>
 			<territory type="DG">دیه‌گو گارسیا</territory>
 			<territory type="DJ">جیبوتی</territory>
@@ -1166,6 +1169,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<moreInformation>؟</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>
@@ -3302,7 +3321,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat>‎+HH:mm;‎−HH:mm</hourFormat> <!-- includes LRM before signs -->
+			<hourFormat>‎+HH:mm;‎−HH:mm</hourFormat>
 			<gmtFormat>{0} گرینویچ</gmtFormat>
 			<gmtZeroFormat>گرینویچ</gmtZeroFormat>
 			<regionFormat>وقت {0}</regionFormat>
@@ -5559,9 +5578,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<list>؛</list>
-			<percentSign>٪</percentSign> <!-- includes LRM before sign -->
-			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
-			<minusSign>‎−</minusSign> <!-- includes LRM before sign -->
+			<percentSign>٪</percentSign>
+			<plusSign>‎+</plusSign>
+			<minusSign>‎−</minusSign>
 			<exponential>×۱۰^</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>
@@ -5691,24 +5710,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="contributed">‎¤#,##0.00</pattern> <!-- includes LRM before currency sign per vetters -->
+					<pattern draft="contributed">‎¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="arabext">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>‎¤#,##0.00</pattern> <!-- includes ALMs before currency and minus signs -->
+					<pattern>‎¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>‎¤ #,##0.00</pattern> <!-- includes LRM before currency sign, NBSP after, per vetters -->
+					<pattern>‎¤ #,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern>‎¤ #,##0.00;‎(¤ #,##0.00)</pattern> <!-- includes LRM before currency sign, NBSP after, per vetters -->
+					<pattern>‎¤ #,##0.00;‎(¤ #,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -6734,6 +6753,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">دوبرای سائوتومه و پرنسیپ</displayName>
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">دبرای سائوتومه و پرینسیپ (۲۰۱۸)</displayName>
+				<displayName count="one" draft="contributed">دبرای سائوتومه و پرینسیپ (۲۰۱۸)</displayName>
+				<displayName count="other" draft="contributed">دبرای سائوتومه و پرینسیپ (۲۰۱۸)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>روبل شوروی</displayName>

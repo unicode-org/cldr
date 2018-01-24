@@ -110,6 +110,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">даргински</language>
 			<language type="dav">таита</language>
 			<language type="de">немачки</language>
+			<language type="de_AT" draft="contributed">немачки (Аустрија)</language>
 			<language type="de_CH">швајцарски високи немачки</language>
 			<language type="del">делаверски</language>
 			<language type="den">слејви</language>
@@ -133,6 +134,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">грчки</language>
 			<language type="elx">еламитски</language>
 			<language type="en">енглески</language>
+			<language type="en_AU" draft="contributed">енглески (Аустралија)</language>
+			<language type="en_CA" draft="contributed">енглески (Канада)</language>
 			<language type="en_GB">енглески (Велика Британија)</language>
 			<language type="en_GB" alt="short">енглески (УК)</language>
 			<language type="en_US">енглески (Сједињене Америчке Државе)</language>
@@ -140,6 +143,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="enm">средњеенглески</language>
 			<language type="eo">есперанто</language>
 			<language type="es">шпански</language>
+			<language type="es_419" draft="contributed">шпански (Латинска Америка)</language>
+			<language type="es_ES" draft="contributed">шпански (Шпанија)</language>
+			<language type="es_MX" draft="contributed">шпански (Мексико)</language>
 			<language type="et">естонски</language>
 			<language type="eu">баскијски</language>
 			<language type="ewo">евондо</language>
@@ -153,6 +159,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">фарски</language>
 			<language type="fon">фон</language>
 			<language type="fr">француски</language>
+			<language type="fr_CA" draft="contributed">француски (Канада)</language>
+			<language type="fr_CH" draft="contributed">француски (Швајцарска)</language>
 			<language type="frc" draft="contributed">кајунски француски</language>
 			<language type="frm">средњефранцуски</language>
 			<language type="fro">старофранцуски</language>
@@ -381,6 +389,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">паштунски</language>
 			<language type="ps" alt="variant">пашто</language>
 			<language type="pt">португалски</language>
+			<language type="pt_BR" draft="contributed">португалски (Бразил)</language>
 			<language type="pt_PT">португалски (Португал)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
@@ -696,6 +705,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Источна Европа</territory>
 			<territory type="154">Северна Европа</territory>
 			<territory type="155">Западна Европа</territory>
+			<territory type="202" draft="contributed">Африка јужно од Сахаре</territory>
 			<territory type="419">Латинска Америка</territory>
 			<territory type="AC">Острво Асенсион</territory>
 			<territory type="AD">Андора</territory>
@@ -1704,11 +1714,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<eras>
 					<eraNames>
 						<era type="0">пре нове ере</era>
+						<era type="0" alt="variant" draft="contributed">пре нове ере</era>
 						<era type="1">нове ере</era>
+						<era type="1" alt="variant" draft="contributed">нове ере</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">п. н. е.</era>
+						<era type="0" alt="variant" draft="contributed">п. н. е.</era>
 						<era type="1">н. е.</era>
+						<era type="1" alt="variant" draft="contributed">н. е.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">п.н.е.</era>
@@ -7108,6 +7122,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">Саотомска добра (2018)</displayName>
+				<displayName count="one" draft="contributed">саотомска добра (2018)</displayName>
+				<displayName count="few" draft="contributed">саотомске добре (2018)</displayName>
+				<displayName count="other" draft="contributed">саотомских добри (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
+			</currency>
 			<currency type="SUR">
 				<displayName>Совјетска рубља</displayName>
 				<displayName count="one">совјетска рубља</displayName>
@@ -7563,6 +7584,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one" draft="contributed">{0} сат</pluralMinimalPairs>
+			<pluralMinimalPairs count="few" draft="contributed">{0} сата</pluralMinimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">{0} сати</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="contributed">Скрените у {0}. десно.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

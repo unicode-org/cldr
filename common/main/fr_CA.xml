@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,10 +12,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="CA"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="contributed">{0} ({1})</localePattern>
+			<localeSeparator draft="contributed">{0}, {1}</localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0} : {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="ady">adygué</language>
 			<language type="ang">vieil anglais</language>
+			<language type="ar_001" draft="contributed">arabe standard moderne</language>
+			<language type="arn" draft="contributed">mapuche</language>
+			<language type="asa" draft="contributed">assou</language>
 			<language type="az">azerbaïdjanais</language>
+			<language type="az" alt="short" draft="contributed">azéri</language>
 			<language type="bez">bena</language>
 			<language type="bik">bicol</language>
 			<language type="byn">bilen</language>
@@ -31,24 +40,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="frc">cajun</language>
 			<language type="frp" draft="provisional">franco-provençal</language>
 			<language type="gbz" draft="provisional">dari</language>
+			<language type="gil" draft="contributed">gilbertin</language>
 			<language type="goh">vieux haut-allemand</language>
 			<language type="gu">gujarati</language>
 			<language type="ii">yi de Sichuan</language>
 			<language type="ilo">ilocano</language>
 			<language type="kbd">kabarde</language>
 			<language type="ken">kenyang</language>
+			<language type="kg" draft="contributed">kongo</language>
 			<language type="kj">kuanyama</language>
 			<language type="kl">kalaallisut</language>
 			<language type="ksh">kölsch</language>
+			<language type="ku" draft="contributed">kurde</language>
+			<language type="ky" draft="contributed">kirghize</language>
+			<language type="la" draft="contributed">latin</language>
 			<language type="liv">live</language>
 			<language type="luo">luo</language>
 			<language type="lzh">chinois classique</language>
+			<language type="maf" draft="contributed">mafa</language>
+			<language type="mde" draft="contributed">maba</language>
 			<language type="mgo">meta’</language>
+			<language type="mh" draft="contributed">marshallais</language>
 			<language type="mwr">marwari</language>
 			<language type="mwv" draft="contributed">mentawai</language>
+			<language type="mye" draft="contributed">myènè</language>
+			<language type="mzn" draft="contributed">mazandérani</language>
 			<language type="nds">bas allemand</language>
 			<language type="nds_NL" draft="contributed">bas saxon</language>
+			<language type="niu" draft="contributed">niuéen</language>
 			<language type="njo">ao naga</language>
+			<language type="nl_BE" draft="contributed">flamand</language>
 			<language type="nwc">newari classique</language>
 			<language type="nyn">nkole</language>
 			<language type="or">odia</language>
@@ -58,9 +79,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="peo">vieux perse</language>
 			<language type="pfl">palatin</language>
 			<language type="pro">ancien occitan</language>
+			<language type="ps" alt="variant" draft="contributed">pashto</language>
 			<language type="rar">rarotonga</language>
+			<language type="ro_MD" draft="contributed">moldave</language>
 			<language type="rup">aroumain</language>
 			<language type="sat">santali</language>
+			<language type="sba" draft="contributed">ngambay</language>
 			<language type="sdh">kurde méridional</language>
 			<language type="se">same du Nord</language>
 			<language type="sei">seri</language>
@@ -74,30 +98,74 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sus" draft="provisional">sosso</language>
 			<language type="sw_CD">swahili congolais</language>
 			<language type="tru">turoyo</language>
+			<language type="tyv" draft="contributed">touvain</language>
 			<language type="tzm">tamazight</language>
 			<language type="vo">volapük</language>
+			<language type="zh" draft="contributed">chinois</language>
+			<language type="zh_Hans" draft="contributed">chinois simplifié</language>
+			<language type="zh_Hant" draft="contributed">chinois traditionnel</language>
+			<language type="zxx" draft="contributed">sans contenu linguistique</language>
 		</languages>
 		<scripts>
+			<script type="Arab" draft="contributed">arabe</script>
+			<script type="Arab" alt="variant" draft="contributed">arabo-persan</script>
+			<script type="Armn" draft="contributed">arménien</script>
+			<script type="Beng" draft="contributed">bengali</script>
+			<script type="Bopo" draft="contributed">bopomofo</script>
+			<script type="Brai" draft="contributed">braille</script>
+			<script type="Cyrl" draft="contributed">cyrillique</script>
 			<script type="Deva">devanagari</script>
+			<script type="Ethi" draft="contributed">éthiopique</script>
+			<script type="Geor" draft="contributed">géorgien</script>
+			<script type="Grek" draft="contributed">grec</script>
 			<script type="Gujr">gujarati</script>
+			<script type="Guru" draft="contributed">gourmoukhî</script>
 			<script type="Hanb">hanb</script>
+			<script type="Hang" draft="contributed">hangûl</script>
+			<script type="Hani" draft="contributed">sinogrammes</script>
 			<script type="Hans" alt="stand-alone">caractères chinois simplifiés</script>
 			<script type="Hant" alt="stand-alone">caractères chinois traditionnels</script>
+			<script type="Hebr" draft="contributed">hébreu</script>
+			<script type="Hira" draft="contributed">hiragana</script>
 			<script type="Hrkt">syllabaires japonais</script>
+			<script type="Jamo" draft="contributed">jamo</script>
+			<script type="Jpan" draft="contributed">japonais</script>
+			<script type="Kana" draft="contributed">katakana</script>
+			<script type="Khmr" draft="contributed">khmer</script>
+			<script type="Knda" draft="contributed">kannara</script>
+			<script type="Kore" draft="contributed">coréen</script>
+			<script type="Laoo" draft="contributed">lao</script>
+			<script type="Latn" draft="contributed">latin</script>
+			<script type="Mong" draft="contributed">mongol</script>
+			<script type="Mymr" draft="contributed">birman</script>
 			<script type="Orya">odia</script>
+			<script type="Taml" draft="contributed">tamoul</script>
+			<script type="Telu" draft="contributed">télougou</script>
+			<script type="Thaa" draft="contributed">thâna</script>
+			<script type="Thai" draft="contributed">thaï</script>
+			<script type="Tibt" draft="contributed">tibétain</script>
 			<script type="Zsye">zsye</script>
+			<script type="Zsym" draft="contributed">symboles</script>
+			<script type="Zxxx" draft="contributed">non écrit</script>
+			<script type="Zyyy" draft="contributed">commun</script>
+			<script type="Zzzz" draft="contributed">écriture inconnue</script>
 		</scripts>
 		<territories>
+			<territory type="057" draft="contributed">région micronésienne</territory>
 			<territory type="151">Europe orientale</territory>
 			<territory type="AC">île de l’Ascension</territory>
 			<territory type="AX">îles d’Åland</territory>
 			<territory type="BN">Brunei</territory>
+			<territory type="BQ" draft="contributed">Pays-Bas caribéens</territory>
 			<territory type="BV">île Bouvet</territory>
 			<territory type="BY">Bélarus</territory>
 			<territory type="CC">îles Cocos (Keeling)</territory>
 			<territory type="CI" alt="variant">République de Côte d’Ivoire</territory>
 			<territory type="CK">îles Cook</territory>
+			<territory type="CP" draft="contributed">Île Clipperton</territory>
 			<territory type="CX">île Christmas</territory>
+			<territory type="EH" draft="contributed">Sahara occidental</territory>
+			<territory type="EZ" draft="contributed">zone euro</territory>
 			<territory type="FK">îles Malouines</territory>
 			<territory type="FK" alt="variant">îles Falkland (Malouines)</territory>
 			<territory type="FM">Micronésie</territory>
@@ -106,11 +174,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IC">îles Canaries</territory>
 			<territory type="IM">île de Man</territory>
 			<territory type="IO">territoire britannique de l’océan Indien</territory>
+			<territory type="KN" draft="contributed">Saint-Christophe-et-Niévès</territory>
 			<territory type="MF">Saint-Martin (France)</territory>
+			<territory type="MK" draft="contributed">Macédoine</territory>
 			<territory type="MM">Myanmar</territory>
 			<territory type="MP">Mariannes du Nord</territory>
 			<territory type="NF">île Norfolk</territory>
 			<territory type="PN">îles Pitcairn</territory>
+			<territory type="PS" draft="contributed">Territoires palestiniens</territory>
+			<territory type="PS" alt="short" draft="contributed">Palestine</territory>
 			<territory type="QO">Océanie lointaine</territory>
 			<territory type="RE">la Réunion</territory>
 			<territory type="SX">Saint-Martin (Pays-Bas)</territory>
@@ -123,6 +195,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VG">îles Vierges britanniques</territory>
 			<territory type="VI">îles Vierges américaines</territory>
 		</territories>
+		<keys>
+			<key type="calendar" draft="contributed">calendrier</key>
+			<key type="collation" draft="contributed">ordre de tri</key>
+			<key type="currency" draft="contributed">devise</key>
+			<key type="numbers" draft="contributed">nombres</key>
+		</keys>
 		<types>
 			<type key="calendar" type="ethiopic-amete-alem" draft="contributed">Calendrier éthiopien de l’An de grâce</type>
 			<type key="calendar" type="islamic-umalqura" draft="contributed">calendrier musulman (calculé, Umm al-Qura)</type>
@@ -130,14 +208,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="eor" draft="contributed">ordre multilingue européen</type>
 			<type key="collation" type="reformed" draft="contributed">Ordre de tri réformé</type>
 			<type key="collation" type="searchjl" draft="contributed">Rechercher par consonne initiale en hangeul</type>
+			<type key="d0" type="fwidth" draft="contributed">pleine chasse</type>
+			<type key="d0" type="hwidth" draft="contributed">demi-chasse</type>
 			<type key="m0" type="bgn">BGN (commission de toponymie des États-Unis)</type>
 			<type key="m0" type="ungegn">GENUNG</type>
 			<type key="numbers" type="gujr">chiffres gujaratis</type>
 			<type key="numbers" type="mong" draft="contributed">Chiffres mongols</type>
 			<type key="numbers" type="taml">chiffres tamouls traditionnels</type>
 		</types>
+		<codePatterns>
+			<codePattern type="language" draft="contributed">langue : {0}</codePattern>
+			<codePattern type="script" draft="contributed">écriture : {0}</codePattern>
+			<codePattern type="territory" draft="contributed">région : {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
+	<characters>
+		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
+		<ellipsis type="initial" draft="contributed">… {0}</ellipsis>
+		<ellipsis type="medial" draft="contributed">{0}… {1}</ellipsis>
+		<ellipsis type="word-final" draft="contributed">{0}…</ellipsis>
+		<ellipsis type="word-initial" draft="contributed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="contributed">{0}… {1}</ellipsis>
+		<moreInformation draft="contributed">?</moreInformation>
+	</characters>
 	<delimiters>
+		<quotationStart draft="contributed">«</quotationStart>
+		<quotationEnd draft="contributed">»</quotationEnd>
 		<alternateQuotationStart>”</alternateQuotationStart>
 		<alternateQuotationEnd>“</alternateQuotationEnd>
 	</delimiters>
@@ -271,6 +367,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E d – E d MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">y-MM – y-MM G</greatestDifference>
@@ -380,6 +477,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0" alt="variant">avant l’ère chrétienne</era>
 						<era type="1" alt="variant">de l’ère chrétienne</era>
 					</eraNames>
+					<eraAbbr>
+						<era type="1" draft="contributed">ap. J.-C.</era>
+					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="short">
@@ -563,6 +663,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</eras>
 			</calendar>
 			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">Anno Hegirae</era>
@@ -662,7 +796,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 		</calendars>
 		<fields>
+			<field type="era">
+				<displayName draft="contributed">ère</displayName>
+			</field>
 			<field type="year">
+				<displayName draft="contributed">année</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">Dans {0} an</relativeTimePattern>
 					<relativeTimePattern count="other">Dans {0} ans</relativeTimePattern>
@@ -677,17 +815,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="contributed">cette année</relative>
 			</field>
 			<field type="year-narrow">
+				<displayName draft="contributed">a</displayName>
 				<relative type="0" draft="contributed">cette année</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one" draft="contributed">+{0} a</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">+{0} a</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="contributed">-{0} a</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">-{0} a</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="quarter">
+				<displayName draft="contributed">trimestre</displayName>
 				<relative type="-1">le trimestre dernier</relative>
 				<relative type="0">ce trimestre-ci</relative>
 				<relative type="1">le trimestre prochain</relative>
+			</field>
+			<field type="quarter-short">
+				<displayName draft="contributed">trim.</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName draft="contributed">trim.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one" draft="contributed">+{0} trim.</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">+{0} trim.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="contributed">-{0} trim.</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">-{0} trim.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">mois</displayName>
+			</field>
+			<field type="month-short">
+				<displayName draft="contributed">m.</displayName>
 			</field>
 			<field type="month-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} m.</relativeTimePattern>
 				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="contributed">-{0} m.</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">-{0} m.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">semaine</displayName>
+			</field>
+			<field type="week-short">
+				<displayName draft="contributed">sem.</displayName>
+			</field>
+			<field type="week-narrow">
+				<displayName draft="contributed">sem.</displayName>
 			</field>
 			<field type="weekOfMonth">
 				<displayName>semaine du mois</displayName>
@@ -697,6 +878,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="weekOfMonth-narrow">
 				<displayName>sem. (mois)</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">jour</displayName>
 			</field>
 			<field type="day-short">
 				<relative type="-2" draft="contributed">avant-hier</relative>
@@ -711,6 +895,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="dayOfYear-short">
 				<displayName>j de l’année</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName draft="contributed">j (an)</displayName>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">jour de la semaine</displayName>
 			</field>
 			<field type="weekday-short">
 				<displayName>j de la semaine</displayName>
@@ -796,63 +986,1009 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">il y a {0} sam</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="hour">
+				<displayName draft="contributed">heure</displayName>
+			</field>
+			<field type="hour-short">
+				<displayName draft="contributed">h</displayName>
+			</field>
+			<field type="hour-narrow">
+				<displayName draft="contributed">h</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one" draft="contributed">+{0} h</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">+{0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="contributed">-{0} h</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">-{0} h</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">minute</displayName>
+			</field>
+			<field type="minute-short">
+				<displayName draft="contributed">min</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName draft="contributed">min</displayName>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="contributed">-{0} min</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">-{0} min</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">seconde</displayName>
+			</field>
+			<field type="second-short">
+				<displayName draft="contributed">s</displayName>
+			</field>
 			<field type="second-narrow">
+				<displayName draft="contributed">s</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+ {0} s</relativeTimePattern>
 					<relativeTimePattern count="other">+{0} s</relativeTimePattern>
 				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one" draft="contributed">-{0} s</relativeTimePattern>
+					<relativeTimePattern count="other" draft="contributed">-{0} s</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">fuseau horaire</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
+			<gmtFormat draft="contributed">UTC{0}</gmtFormat>
+			<gmtZeroFormat draft="contributed">UTC</gmtZeroFormat>
 			<regionFormat type="daylight">{0} (heure avancée)</regionFormat>
 			<regionFormat type="standard">{0} (heure normale)</regionFormat>
+			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity draft="contributed">Santa Isabel</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="contributed">Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>temps universel coordonné</standard>
 				</long>
 			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity draft="contributed">Andorre</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity draft="contributed">Dubaï</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity draft="contributed">Antigua</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity draft="contributed">Anguilla</exemplarCity>
+			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity draft="contributed">Tirana</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity draft="contributed">Erevan</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity draft="contributed">Luanda</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="contributed">Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="contributed">Palmer</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Troll">
+				<exemplarCity draft="contributed">Troll</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="contributed">Showa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="contributed">Mawson</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="contributed">Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="contributed">Vostok</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="contributed">Casey</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="contributed">Dumont d’Urville</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="contributed">McMurdo</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity draft="contributed">Mendoza</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity draft="contributed">Jujuy</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity draft="contributed">Pago Pago</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity draft="contributed">Vienne</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity draft="contributed">Perth</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity draft="contributed">Eucla</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="contributed">Darwin</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="contributed">Adélaïde</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="contributed">Broken Hill</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity draft="contributed">Currie</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="contributed">Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="contributed">Hobart</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="contributed">Lindeman</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="contributed">Sydney</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="contributed">Brisbane</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity draft="contributed">Macquarie</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="contributed">Lord Howe</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity draft="contributed">Aruba</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity draft="contributed">Mariehamn</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity draft="contributed">Bakou</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity draft="contributed">Sarajevo</exemplarCity>
+			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Barbade (La)</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity draft="contributed">Ouagadougou</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity draft="contributed">Sofia</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity draft="contributed">Bahreïn</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity draft="contributed">Bujumbura</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity draft="contributed">Porto-Novo</exemplarCity>
+			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity draft="contributed">Saint-Barthélemy</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity draft="contributed">Bermudes</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity draft="contributed">La Paz</exemplarCity>
+			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity draft="contributed">Kralendijk</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="contributed">Rio Branco</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="contributed">Porto Velho</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="contributed">Manaos</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity draft="contributed">Santarém</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="contributed">São Paulo</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="contributed">Maceió</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="contributed">Recife</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="contributed">Noronha</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity draft="contributed">Nassau</exemplarCity>
 			</zone>
 			<zone type="Asia/Thimphu">
 				<exemplarCity>Thimphou</exemplarCity>
 			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity draft="contributed">Gaborone</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity draft="contributed">Minsk</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity draft="contributed">Belize</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity draft="contributed">Dawson</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="contributed">Whitehorse</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="contributed">Inuvik</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="contributed">Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="contributed">Dawson Creek</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity draft="contributed">Creston</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="contributed">Yellowknife</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="contributed">Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="contributed">Swift Current</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="contributed">Cambridge Bay</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="contributed">Regina</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="contributed">Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity draft="contributed">Resolute</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="contributed">Rainy River</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="contributed">Rankin Inlet</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity draft="contributed">Atikokan</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="contributed">Thunder Bay</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="contributed">Nipigon</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="contributed">Toronto</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="contributed">Iqaluit</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="contributed">Pangnirtung</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity draft="contributed">Moncton</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity draft="contributed">Halifax</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="contributed">Goose Bay</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="contributed">Glace Bay</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity draft="contributed">Blanc-Sablon</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. John’s</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="contributed">Kinshasa</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="contributed">Lubumbashi</exemplarCity>
+			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity draft="contributed">Bangui</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity draft="contributed">Brazzaville</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity draft="contributed">Zurich</exemplarCity>
+			</zone>
+			<zone type="Africa/Abidjan">
+				<exemplarCity draft="contributed">Abidjan</exemplarCity>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity draft="contributed">Rarotonga</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>île de Pâques</exemplarCity>
 			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity draft="contributed">Santiago</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity draft="contributed">Douala</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity draft="contributed">Costa Rica</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity draft="contributed">La Havane</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<exemplarCity draft="contributed">Cap-Vert</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity draft="contributed">Curaçao</exemplarCity>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity draft="contributed">Nicosie</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity draft="contributed">Prague</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity draft="contributed">Büsingen</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity draft="contributed">Berlin</exemplarCity>
+			</zone>
+			<zone type="Africa/Djibouti">
+				<exemplarCity draft="contributed">Djibouti</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity draft="contributed">Copenhague</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity draft="contributed">Dominique</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity draft="contributed">Saint-Domingue</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity draft="contributed">Alger</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity draft="contributed">Tallinn</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity draft="contributed">Le Caire</exemplarCity>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity draft="contributed">Laâyoune</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity draft="contributed">Asmara</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>îles Canaries</exemplarCity>
 			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="contributed">Ceuta</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="contributed">Madrid</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity draft="contributed">Addis-Abeba</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="contributed">Helsinki</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity draft="contributed">Fidji</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity draft="contributed">Stanley</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="contributed">Chuuk</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="contributed">Pohnpei</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="contributed">Kosrae</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>îles Féroé</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity draft="contributed">Paris</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity draft="contributed">Libreville</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<long>
 					<daylight>heure avancée britannique</daylight>
 				</long>
+				<exemplarCity draft="contributed">Londres</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity draft="contributed">Grenade</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity draft="contributed">Tbilissi</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity draft="contributed">Guernesey</exemplarCity>
+			</zone>
+			<zone type="Africa/Accra">
+				<exemplarCity draft="contributed">Accra</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity draft="contributed">Gibraltar</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="contributed">Nuuk</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="contributed">Ittoqqortoormiit</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="contributed">Danmarkshavn</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity draft="contributed">Banjul</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity draft="contributed">Conakry</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity draft="contributed">Guadeloupe</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity draft="contributed">Malabo</exemplarCity>
+			</zone>
+			<zone type="Europe/Athens">
+				<exemplarCity draft="contributed">Athènes</exemplarCity>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity draft="contributed">Géorgie du Sud</exemplarCity>
+			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity draft="contributed">Guatemala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity draft="contributed">Guam</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity draft="contributed">Bissau</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity draft="contributed">Guyana</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity draft="contributed">Tégucigalpa</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity draft="contributed">Zagreb</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity draft="contributed">Port-au-Prince</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity draft="contributed">Budapest</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
 					<daylight>heure avancée irlandaise</daylight>
 				</long>
+				<exemplarCity draft="contributed">Dublin</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity draft="contributed">Jérusalem</exemplarCity>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>île de Man</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity draft="contributed">Reykjavik</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity draft="contributed">Rome</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity draft="contributed">Jersey</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity draft="contributed">Jamaïque</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity draft="contributed">Amman</exemplarCity>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity draft="contributed">Nairobi</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity draft="contributed">Bichkek</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="contributed">Enderbury</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="contributed">Kiritimati</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="contributed">Tarawa</exemplarCity>
+			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>Saint-Christophe-et-Niévès</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity draft="contributed">Koweït</exemplarCity>
 			</zone>
 			<zone type="America/Cayman">
 				<exemplarCity>îles Caïmans</exemplarCity>
 			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="contributed">Aktaou</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="contributed">Ouralsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="contributed">Aktioubinsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="contributed">Kzyl Orda</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="contributed">Alma Ata</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity draft="contributed">Beyrouth</exemplarCity>
+			</zone>
+			<zone type="America/St_Lucia">
+				<exemplarCity draft="contributed">Sainte-Lucie</exemplarCity>
+			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity draft="contributed">Vaduz</exemplarCity>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity draft="contributed">Monrovia</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity draft="contributed">Maseru</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity draft="contributed">Vilnius</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity draft="contributed">Luxembourg</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity draft="contributed">Riga</exemplarCity>
+			</zone>
 			<zone type="Africa/Tripoli">
 				<exemplarCity>Tripoli [Libye]</exemplarCity>
 			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity draft="contributed">Casablanca</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity draft="contributed">Monaco</exemplarCity>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<exemplarCity draft="contributed">Chisinau</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity draft="contributed">Podgorica</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity draft="contributed">Marigot</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity draft="contributed">Antananarivo</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity draft="contributed">Kwajalein</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity draft="contributed">Majuro</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity draft="contributed">Skopje</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="contributed">Bamako</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity draft="contributed">Saipan</exemplarCity>
+			</zone>
+			<zone type="America/Martinique">
+				<exemplarCity draft="contributed">Martinique</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity draft="contributed">Nouakchott</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity draft="contributed">Montserrat</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity draft="contributed">Malte</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity draft="contributed">Maurice</exemplarCity>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity draft="contributed">Blantyre</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity draft="contributed">Tijuana</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity draft="contributed">Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="contributed">Mazatlán</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity draft="contributed">Chihuahua</exemplarCity>
+			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity draft="contributed">Bahia de Banderas</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity draft="contributed">Ojinaga</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="contributed">Monterrey</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="contributed">Mexico</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity draft="contributed">Matamoros</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="contributed">Mérida</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="contributed">Cancún</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity draft="contributed">Maputo</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity draft="contributed">Windhoek</exemplarCity>
+			</zone>
+			<zone type="Pacific/Noumea">
+				<exemplarCity draft="contributed">Nouméa</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity draft="contributed">Niamey</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity draft="contributed">Norfolk</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity draft="contributed">Lagos</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity draft="contributed">Managua</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity draft="contributed">Amsterdam</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity draft="contributed">Oslo</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity draft="contributed">Nauru</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity draft="contributed">Niue</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="contributed">Chatham</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="contributed">Auckland</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity draft="contributed">Mascate</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity draft="contributed">Panama</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity draft="contributed">Lima</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="contributed">Tahiti</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="contributed">Marquises</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="contributed">Gambier</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity draft="contributed">Port Moresby</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity draft="contributed">Varsovie</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity draft="contributed">Miquelon</exemplarCity>
+			</zone>
+			<zone type="America/Puerto_Rico">
+				<exemplarCity draft="contributed">Porto Rico</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity draft="contributed">Gaza</exemplarCity>
+			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity draft="contributed">Hébron</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="contributed">Açores</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="contributed">Madère</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="contributed">Lisbonne</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity draft="contributed">Palau</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity draft="contributed">Qatar</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity draft="contributed">La Réunion</exemplarCity>
+			</zone>
+			<zone type="Europe/Bucharest">
+				<exemplarCity draft="contributed">Bucarest</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity draft="contributed">Belgrade</exemplarCity>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="contributed">Kaliningrad</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="contributed">Simferopol</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="contributed">Moscou</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity draft="contributed">Volgograd</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="contributed">Samara</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="contributed">Ekaterinbourg</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="contributed">Omsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="contributed">Novossibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity draft="contributed">Novokuznetsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="contributed">Krasnoïarsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="contributed">Irkoutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="contributed">Iakoutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="contributed">Vladivostok</exemplarCity>
+			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity draft="contributed">Khandyga</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="contributed">Sakhaline</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity draft="contributed">Ust-Nera</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity draft="contributed">Magadan</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="contributed">Kamtchatka</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="contributed">Anadyr</exemplarCity>
+			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity draft="contributed">Kigali</exemplarCity>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<exemplarCity draft="contributed">Riyad</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity draft="contributed">Guadalcanal</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity draft="contributed">Mahé</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity draft="contributed">Khartoum</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity draft="contributed">Stockholm</exemplarCity>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity draft="contributed">Sainte-Hélène</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity draft="contributed">Ljubljana</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity draft="contributed">Longyearbyen</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity draft="contributed">Bratislava</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity draft="contributed">Freetown</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity draft="contributed">Saint-Marin</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity draft="contributed">Dakar</exemplarCity>
+			</zone>
+			<zone type="Africa/Mogadishu">
+				<exemplarCity draft="contributed">Mogadiscio</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity draft="contributed">Paramaribo</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity draft="contributed">Juba</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity draft="contributed">São Tomé</exemplarCity>
+			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity draft="contributed">El Salvador</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity draft="contributed">Damas</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity draft="contributed">Mbabane</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity draft="contributed">Grand Turk</exemplarCity>
+			</zone>
 			<zone type="Africa/Ndjamena">
 				<exemplarCity>Ndjamena</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity draft="contributed">Lomé</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity draft="contributed">Douchanbé</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity draft="contributed">Fakaofo</exemplarCity>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<exemplarCity draft="contributed">Achgabat</exemplarCity>
+			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity draft="contributed">Tunis</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity draft="contributed">Tongatapu</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity draft="contributed">Istanbul</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity draft="contributed">Funafuti</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity draft="contributed">Dar es Salaam</exemplarCity>
+			</zone>
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="contributed">Oujgorod</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="contributed">Kiev</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="contributed">Zaporojie</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity draft="contributed">Kampala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="contributed">Midway</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="contributed">Wake</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity draft="contributed">Adak</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="contributed">Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="contributed">Johnston</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="contributed">Anchorage</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="contributed">Yakutat</exemplarCity>
+			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity draft="contributed">Sitka</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="contributed">Juneau</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity draft="contributed">Metlakatla</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="contributed">Los Angeles</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="contributed">Boise</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="contributed">Phoenix</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="contributed">Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah [Dakota du Nord]</exemplarCity>
@@ -863,11 +1999,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center [Dakota du Nord]</exemplarCity>
 			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="contributed">Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="contributed">Menominee</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity draft="contributed">Vincennes [Indiana]</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity draft="contributed">Petersburg [Indiana]</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity draft="contributed">Tell City [Indiana]</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="contributed">Knox [Indiana]</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity draft="contributed">Winamac [Indiana]</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="contributed">Marengo [Indiana]</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="contributed">Indianapolis</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="contributed">Louisville</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="contributed">Vevay [Indiana]</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="contributed">Monticello [Kentucky]</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="contributed">Détroit</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="contributed">New York</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity draft="contributed">Montevideo</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="contributed">Samarcande</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="contributed">Tachkent</exemplarCity>
+			</zone>
 			<zone type="Europe/Vatican">
 				<exemplarCity>Vatican</exemplarCity>
 			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity draft="contributed">Saint-Vincent</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity draft="contributed">Tortola</exemplarCity>
+			</zone>
 			<zone type="America/St_Thomas">
 				<exemplarCity>Saint Thomas</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity draft="contributed">Apia</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity draft="contributed">Aden</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity draft="contributed">Mayotte</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity draft="contributed">Johannesburg</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity draft="contributed">Lusaka</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity draft="contributed">Harare</exemplarCity>
 			</zone>
 			<metazone type="Acre">
 				<long>
@@ -1189,11 +2400,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>heure de Guyane française</standard>
 				</long>
 			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard draft="contributed">heure des Terres australes et antarctiques françaises</standard>
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard draft="contributed">heure des îles Gambier</standard>
+				</long>
+			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<generic>heure de la Géorgie</generic>
 					<standard>heure normale de la Géorgie</standard>
 					<daylight>heure avancée de Géorgie</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard draft="contributed">heure des îles Gilbert</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -1208,6 +2434,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de l’Ouest du Groenland</generic>
 					<standard>heure normale de l’Ouest du Groenland</standard>
 					<daylight>heure avancée de l’Ouest du Groenland</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard draft="contributed">heure du Golfe</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -1266,6 +2497,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Petropavlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard draft="contributed">heure de l’Est du Kazakhstan</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard draft="contributed">heure de l’Ouest du Kazakhstan</standard>
+				</long>
+			</metazone>
 			<metazone type="Korea">
 				<long>
 					<generic>heure de la Corée</generic>
@@ -1273,11 +2514,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Corée</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard draft="contributed">heure de Kosrae</standard>
+				</long>
+			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>heure de Krasnoïarsk</generic>
 					<standard>heure normale de Krasnoïarsk</standard>
 					<daylight>heure avancée de Krasnoïarsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard draft="contributed">heure du Kirghizistan</standard>
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard draft="contributed">heure des îles de la Ligne</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -1299,6 +2555,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de Magadan</generic>
 					<standard>heure normale de Magadan</standard>
 					<daylight>heure avancée de Magadan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard draft="contributed">heure des îles Marquises</standard>
+				</long>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard draft="contributed">heure des îles Marshall</standard>
 				</long>
 			</metazone>
 			<metazone type="Mauritius">
@@ -1361,6 +2627,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>HNT</standard>
 					<daylight>HAT</daylight>
 				</short>
+			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard draft="contributed">heure de Nioué</standard>
+				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
@@ -1437,11 +2708,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée des Samoa</daylight>
 				</long>
 			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard draft="contributed">heure des Seychelles</standard>
+				</long>
+			</metazone>
 			<metazone type="Taipei">
 				<long>
 					<generic>heure de Taipei</generic>
 					<standard>heure normale de Taipei</standard>
 					<daylight>heure avancée de Taipei</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard draft="contributed">heure du Tadjikistan</standard>
 				</long>
 			</metazone>
 			<metazone type="Tonga">
@@ -1491,6 +2772,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de Volgograd</generic>
 					<standard>heure normale de Volgograd</standard>
 					<daylight>heure avancée de Volgograd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard draft="contributed">heure de l’île Wake</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard draft="contributed">heure de Wallis-et-Futuna</standard>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
@@ -1571,6 +2862,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="AUD">
 				<symbol draft="contributed">$ AU</symbol>
 			</currency>
+			<currency type="AWG">
+				<displayName draft="contributed">florin arubais</displayName>
+				<displayName count="one" draft="contributed">florin arubais</displayName>
+				<displayName count="other" draft="contributed">florins arubais</displayName>
+			</currency>
 			<currency type="BMD">
 				<symbol draft="contributed">BMD</symbol>
 			</currency>
@@ -1593,7 +2889,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">CLP</symbol>
 			</currency>
 			<currency type="CNY">
+				<displayName draft="contributed">yuan renminbi chinois</displayName>
+				<displayName count="one" draft="contributed">yuan renminbi chinois</displayName>
+				<displayName count="other" draft="contributed">yuans renminbi chinois</displayName>
 				<symbol draft="contributed">CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
 				<symbol draft="contributed">COP</symbol>
@@ -1617,7 +2917,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="HKD">
+				<displayName draft="contributed">dollar de Hong Kong</displayName>
+				<displayName count="one" draft="contributed">dollar de Hong Kong</displayName>
+				<displayName count="other" draft="contributed">dollars de Hong Kong</displayName>
 				<symbol draft="contributed">$ HK</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="ILS">
 				<symbol draft="contributed">ILS</symbol>
@@ -1631,16 +2935,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="contributed">rials iraniens</displayName>
 			</currency>
 			<currency type="JPY">
+				<displayName draft="contributed">yen japonais</displayName>
+				<displayName count="other" draft="contributed">yens japonais</displayName>
 				<symbol draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KMF">
 				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
+			<currency type="KPW">
+				<displayName draft="contributed">won nord-coréen</displayName>
+				<displayName count="one" draft="contributed">won nord-coréen</displayName>
+				<displayName count="other" draft="contributed">wons nord-coréens</displayName>
+			</currency>
 			<currency type="KRW">
+				<displayName draft="contributed">won sud-coréen</displayName>
+				<displayName count="one" draft="contributed">won sud-coréen</displayName>
+				<displayName count="other" draft="contributed">wons sud-coréens</displayName>
 				<symbol draft="contributed">KRW</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="LBP">
 				<symbol draft="contributed">LBP</symbol>
+			</currency>
+			<currency type="MNT">
+				<displayName draft="contributed">tugrik mongol</displayName>
+				<displayName count="one" draft="contributed">tugrik mongol</displayName>
+				<displayName count="other" draft="contributed">tugriks mongols</displayName>
+				<symbol draft="contributed">MNT</symbol>
+				<symbol alt="narrow" draft="contributed">₮</symbol>
+			</currency>
+			<currency type="MOP">
+				<displayName draft="contributed">pataca macanaise</displayName>
+				<displayName count="one" draft="contributed">pataca macanaise</displayName>
+				<displayName count="other" draft="contributed">patacas macanaises</displayName>
+				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MXN">
 				<symbol draft="contributed">MXN</symbol>
@@ -1685,6 +3013,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>dollar de Trinité-et-Tobago</displayName>
 				<symbol draft="contributed">TTD</symbol>
 			</currency>
+			<currency type="TWD">
+				<displayName draft="contributed">nouveau dollar taïwanais</displayName>
+				<displayName count="one" draft="contributed">nouveau dollar taïwanais</displayName>
+				<displayName count="other" draft="contributed">nouveaux dollars taïwanais</displayName>
+			</currency>
 			<currency type="USD">
 				<symbol draft="contributed">$ US</symbol>
 			</currency>
@@ -1726,6 +3059,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} seconde d’angle</unitPattern>
 				<unitPattern count="other">{0} secondes d’angle</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one" draft="contributed">{0} mètre carré</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<perUnitPattern draft="contributed">{0} par mille carré</perUnitPattern>
@@ -1772,6 +3108,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">verges</displayName>
 				<unitPattern count="one" draft="contributed">{0} verge</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} verges</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">unités astronomiques</displayName>
 			</unit>
 			<unit type="mass-kilogram">
 				<perUnitPattern draft="contributed">{0} par kilogramme</perUnitPattern>
@@ -1851,11 +3190,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="digital-gigabit">
 				<displayName>Gb</displayName>
 			</unit>
+			<unit type="digital-megabyte">
+				<unitPattern count="other" draft="contributed">{0} Mo</unitPattern>
+			</unit>
 			<unit type="digital-megabit">
 				<displayName>Mb</displayName>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>kb</displayName>
+			</unit>
+			<unit type="length-nanometer">
+				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">vg</displayName>
@@ -1885,9 +3233,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
+			</unit>
 			<unit type="temperature-generic">
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName draft="contributed">°C</displayName>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>vg³</displayName>
@@ -2089,6 +3443,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 		</unitLength>
 	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} et {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} et {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} et {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} et {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} et {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} et {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr draft="contributed">oui:o</yesstr>
+			<nostr draft="contributed">non:n</nostr>
+		</messages>
+	</posix>
 	<characterLabels>
 		<characterLabelPattern type="category-list">{0} : {1}</characterLabelPattern>
 		<characterLabel type="braille">braille</characterLabel>

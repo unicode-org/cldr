@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -861,6 +861,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Itä-Eurooppa</territory>
 			<territory type="154">Pohjois-Eurooppa</territory>
 			<territory type="155">Länsi-Eurooppa</territory>
+			<territory type="202" draft="contributed">Saharan eteläpuolinen Afrikka</territory>
 			<territory type="419">Latinalainen Amerikka</territory>
 			<territory type="AC">Ascension-saari</territory>
 			<territory type="AD">Andorra</territory>
@@ -6407,9 +6408,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
-				<displayName>Espanjan peseta (A–tili)</displayName>
-				<displayName count="one">Espanjan peseta (A–tili)</displayName>
-				<displayName count="other">Espanjan pesetaa (A–tili)</displayName>
+				<displayName>Espanjan peseta (A-tili)</displayName>
+				<displayName count="one">Espanjan peseta (A-tili)</displayName>
+				<displayName count="other">Espanjan pesetaa (A-tili)</displayName>
 				<symbol>ESA</symbol>
 			</currency>
 			<currency type="ESB">
@@ -7304,6 +7305,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">São Tomén ja Príncipen dobraa</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow">STD</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">São Tomén ja Príncipen dobra (2018)</displayName>
+				<displayName count="one" draft="contributed">São Tomén ja Príncipen dobra (2018)</displayName>
+				<displayName count="other" draft="contributed">São Tomén ja Príncipen dobraa (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Neuvostoliiton rupla</displayName>
@@ -9949,7 +9956,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="scripts">kirjoitusjärjestelmät – {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} piirtoviiva</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} piirtoviivaa</characterLabelPattern>
-		<characterLabel type="activities">toiminnot</characterLabel>
+		<characterLabel type="activities">toiminta</characterLabel>
 		<characterLabel type="african_scripts">afrikkalaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="american_scripts">amerikkalaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="animal">eläin</characterLabel>

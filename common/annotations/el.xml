@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">κατασκευή κτιρίου</annotation>
 		<annotation cp="🏘">κτίριο | σπίτι | σπίτια</annotation>
 		<annotation cp="🏘" type="tts">σπίτια</annotation>
-		<annotation cp="🏙">αστικό τοπίο | κτίριο | περίγραμμα πόλης | πόλη</annotation>
-		<annotation cp="🏙" type="tts">αστικό τοπίο | περίγραμμα πόλης</annotation>
 		<annotation cp="🏚">εγκαταλελειμμένο | εγκαταλελειμμένο σπίτι | κτίριο | σπίτι</annotation>
 		<annotation cp="🏚" type="tts">εγκαταλελειμμένο σπίτι</annotation>
 		<annotation cp="🏠">κτίριο | σπίτι</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">ομιχλώδες τοπίο</annotation>
 		<annotation cp="🌃">αστέρι | έναστρη νύχτα | καιρός | νύχτα</annotation>
 		<annotation cp="🌃" type="tts">έναστρη νύχτα</annotation>
+		<annotation cp="🏙">αστικό τοπίο | κτίριο | περίγραμμα πόλης | πόλη</annotation>
+		<annotation cp="🏙" type="tts">αστικό τοπίο | περίγραμμα πόλης</annotation>
 		<annotation cp="🌄">αυγή | αυγή πίσω από βουνά | βουνό | ήλιος | καιρός | πρωί</annotation>
 		<annotation cp="🌄" type="tts">αυγή πίσω από βουνά</annotation>
 		<annotation cp="🌅">αυγή | ήλιος | καιρός | πρωί</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">σύμβολο κουρείου</annotation>
 		<annotation cp="🎪">σκηνή | σκηνή τσίρκου | τσίρκο</annotation>
 		<annotation cp="🎪" type="tts">σκηνή τσίρκου</annotation>
-		<annotation cp="🎭">ηθοποιία | θέατρο | μάσκα | τέχνη</annotation>
-		<annotation cp="🎭" type="tts">θέατρο</annotation>
-		<annotation cp="🖼">εικόνα | εικόνα σε κορνίζα | κάδρο | μουσείο | πίνακας | τέχνη</annotation>
-		<annotation cp="🖼" type="tts">εικόνα σε κορνίζα</annotation>
-		<annotation cp="🎨">μουσείο | παλέτα | παλέτα ζωγράφου | πίνακας | τέχνη</annotation>
-		<annotation cp="🎨" type="tts">παλέτα ζωγράφου</annotation>
-		<annotation cp="🎰">κουλοχέρης | παιχνίδι</annotation>
-		<annotation cp="🎰" type="tts">κουλοχέρης</annotation>
 		<annotation cp="🚂">ατμός | καρβουνιάρης | μηχανή | όχημα | σιδηρόδρομος | τρένο</annotation>
 		<annotation cp="🚂" type="tts">καρβουνιάρης</annotation>
 		<annotation cp="🚃">βαγόνι | βαγόνι τρένου | ηλεκτρικός | όχημα | σιδηρόδρομος | τραμ | τρένο | τρόλεϊ</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">αυτοκινητόδρομος</annotation>
 		<annotation cp="🛤">σιδηρόδρομος | τρένο</annotation>
 		<annotation cp="🛤" type="tts">σιδηρόδρομος</annotation>
+		<annotation cp="🛢">βαρέλι | βαρέλι πετρελαίου | πετρέλαιο</annotation>
+		<annotation cp="🛢" type="tts">βαρέλι πετρελαίου</annotation>
 		<annotation cp="⛽">αντλία | αντλία βενζίνης | βενζίνη | καύσιμο | σταθμός</annotation>
 		<annotation cp="⛽" type="tts">αντλία βενζίνης</annotation>
 		<annotation cp="🚨">αστυνομία | αυτοκίνητο | λυχνία | όχημα | περιστρεφόμενος | σειρήνα | σειρήνα περιπολικού</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">οριζόντιο φανάρι</annotation>
 		<annotation cp="🚦">κάθετο φανάρι | κίνηση | λυχνία | φανάρι</annotation>
 		<annotation cp="🚦" type="tts">κάθετο φανάρι</annotation>
-		<annotation cp="🚧">κατασκευές | φράγμα</annotation>
-		<annotation cp="🚧" type="tts">κατασκευές</annotation>
 		<annotation cp="🛑">οκτάγωνο | στοπ | σύμβολο | σύμβολο στοπ</annotation>
 		<annotation cp="🛑" type="tts">σύμβολο στοπ</annotation>
+		<annotation cp="🚧">κατασκευές | φράγμα</annotation>
+		<annotation cp="🚧" type="tts">κατασκευές</annotation>
 		<annotation cp="⚓">άγκυρα | εργαλείο | πλοίο</annotation>
 		<annotation cp="⚓" type="tts">άγκυρα</annotation>
 		<annotation cp="⛵">βάρκα | θάλασσα | θέρετρο | ιστιοφόρο | όχημα</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">ιπτάμενος δίσκος</annotation>
 		<annotation cp="🛎">κουδούνι | κουδούνι αχθοφόρου | ξενοδοχείο</annotation>
 		<annotation cp="🛎" type="tts">κουδούνι αχθοφόρου</annotation>
-		<annotation cp="🚪">πόρτα</annotation>
-		<annotation cp="🚪" type="tts">πόρτα</annotation>
-		<annotation cp="🛏">κρεβάτι | ξενοδοχείο | ύπνος</annotation>
-		<annotation cp="🛏" type="tts">κρεβάτι</annotation>
-		<annotation cp="🛋">καναπές | καναπές και φωτιστικό | ξενοδοχείο | φωτιστικό</annotation>
-		<annotation cp="🛋" type="tts">καναπές και φωτιστικό</annotation>
-		<annotation cp="🚽">λεκάνη | τουαλέτα</annotation>
-		<annotation cp="🚽" type="tts">τουαλέτα</annotation>
-		<annotation cp="🚿">νερό | ντους</annotation>
-		<annotation cp="🚿" type="tts">ντους</annotation>
-		<annotation cp="🛁">μπανιέρα</annotation>
-		<annotation cp="🛁" type="tts">μπανιέρα</annotation>
 		<annotation cp="⌛">άμμος | κλεψύδρα</annotation>
 		<annotation cp="⌛" type="tts">κλεψύδρα</annotation>
 		<annotation cp="⏳">άμμος | κλεψύδρα | κλεψύδρα με άμμο που ρέει | χρονομετρητής</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">μπάλα ράγκμπι</annotation>
 		<annotation cp="🎾">μπάλα | μπάλα τένις | ρακέτα</annotation>
 		<annotation cp="🎾" type="tts">μπάλα τένις</annotation>
-		<annotation cp="🎱">8 | μπάλα | μπάλα 8 μπιλιάρδου | μπάλα με το 8 | μπιλιάρδο | οκτώ | παιχνίδι</annotation>
-		<annotation cp="🎱" type="tts">μπάλα 8 μπιλιάρδου</annotation>
 		<annotation cp="🎳">μπάλα | μπόουλινγκ | παιχνίδι</annotation>
 		<annotation cp="🎳" type="tts">μπόουλινγκ</annotation>
 		<annotation cp="🏏">αγώνας | κρίκετ | μπάλα | ρόπαλο</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">στολή πολεμικών τεχνών</annotation>
 		<annotation cp="🥅">γκολ | δίχτυ | σπορ | τέρμα</annotation>
 		<annotation cp="🥅" type="tts">τέρμα</annotation>
-		<annotation cp="🎯">βελάκι | βελάκια | διάνα | κέντρο | παιχνίδι | στόχος | ταμπλό | χτύπημα</annotation>
-		<annotation cp="🎯" type="tts">βελάκια</annotation>
 		<annotation cp="⛳">γκολφ | σημαία σε οπή | τρύπα</annotation>
 		<annotation cp="⛳" type="tts">σημαία σε οπή</annotation>
 		<annotation cp="⛸">πάγος | πατινάζ | πατινάζ στον πάγο</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">έλκηθρο</annotation>
 		<annotation cp="🥌">παιχνίδι | πέτρα | πέτρα κέρλινγκ</annotation>
 		<annotation cp="🥌" type="tts">πέτρα κέρλινγκ</annotation>
+		<annotation cp="🎯">βελάκι | βελάκια | διάνα | κέντρο | παιχνίδι | στόχος | ταμπλό | χτύπημα</annotation>
+		<annotation cp="🎯" type="tts">βελάκια</annotation>
+		<annotation cp="🎱">8 | μπάλα | μπάλα 8 μπιλιάρδου | μπάλα με το 8 | μπιλιάρδο | οκτώ | παιχνίδι</annotation>
+		<annotation cp="🎱" type="tts">μπάλα 8 μπιλιάρδου</annotation>
+		<annotation cp="🔮">εργαλείο | κρυστάλλινη | κρυστάλλινη σφαίρα | παραμύθι | σφαίρα | τύχη | φαντασία</annotation>
+		<annotation cp="🔮" type="tts">κρυστάλλινη σφαίρα</annotation>
 		<annotation cp="🎮">βιντεοπαιχνίδι | παιχνίδι | χειριστήριο</annotation>
 		<annotation cp="🎮" type="tts">βιντεοπαιχνίδι</annotation>
 		<annotation cp="🕹">joystick | βιντεοπαιχνίδι | παιχνίδι</annotation>
 		<annotation cp="🕹" type="tts">joystick</annotation>
+		<annotation cp="🎰">κουλοχέρης | παιχνίδι</annotation>
+		<annotation cp="🎰" type="tts">κουλοχέρης</annotation>
 		<annotation cp="🎲">ζάρι | παιχνίδι</annotation>
 		<annotation cp="🎲" type="tts">ζάρι</annotation>
 		<annotation cp="♠">μπαστούνι | παιχνίδι | χαρτιά | χρώμα</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">πλακίδιο mahjong κόκκινος δράκος</annotation>
 		<annotation cp="🎴">ιαπωνικό | κάρτα | λουλούδι | παίζω | παιχνίδι | τραπουλόχαρτα χαναφούντα</annotation>
 		<annotation cp="🎴" type="tts">τραπουλόχαρτα χαναφούντα</annotation>
+		<annotation cp="🎭">ηθοποιία | θέατρο | μάσκα | τέχνη</annotation>
+		<annotation cp="🎭" type="tts">θέατρο</annotation>
+		<annotation cp="🖼">εικόνα | εικόνα σε κορνίζα | κάδρο | μουσείο | πίνακας | τέχνη</annotation>
+		<annotation cp="🖼" type="tts">εικόνα σε κορνίζα</annotation>
+		<annotation cp="🎨">μουσείο | παλέτα | παλέτα ζωγράφου | πίνακας | τέχνη</annotation>
+		<annotation cp="🎨" type="tts">παλέτα ζωγράφου</annotation>
 		<annotation cp="🔇">ένταση | ησυχία | ηχείο | ηχείο σε σίγαση | σίγαση | σιωπή</annotation>
 		<annotation cp="🔇" type="tts">ηχείο σε σίγαση</annotation>
 		<annotation cp="🔈">ένταση ήχου | ηχείο σε χαμηλή ένταση</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">αριστερός μεγεθυντικός φακός</annotation>
 		<annotation cp="🔎">αναζήτηση | δεξιός μεγεθυντικός φακός | εργαλείο | μεγεθυντικός | φακός</annotation>
 		<annotation cp="🔎" type="tts">δεξιός μεγεθυντικός φακός</annotation>
-		<annotation cp="🔬">εργαλείο | μικροσκόπιο</annotation>
-		<annotation cp="🔬" type="tts">μικροσκόπιο</annotation>
-		<annotation cp="🔭">εργαλείο | τηλεσκόπιο</annotation>
-		<annotation cp="🔭" type="tts">τηλεσκόπιο</annotation>
-		<annotation cp="📡">δορυφορική κεραία | δορυφορικό | κεραία | πιάτο</annotation>
-		<annotation cp="📡" type="tts">δορυφορική κεραία</annotation>
 		<annotation cp="🕯">κερί | φως</annotation>
 		<annotation cp="🕯" type="tts">κερί</annotation>
 		<annotation cp="💡">ηλεκτρικό | ιδέα | κόμικ | λαμπτήρας | φως</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">γρανάζι</annotation>
 		<annotation cp="🗜">εργαλείο | πρέσα | σφίγγω</annotation>
 		<annotation cp="🗜" type="tts">πρέσα</annotation>
-		<annotation cp="⚗">αποστακτήριο | εργαλείο | χημεία</annotation>
-		<annotation cp="⚗" type="tts">αποστακτήριο</annotation>
 		<annotation cp="⚖">δικαιοσύνη | εργαλείο | ζυγαριά | ζυγίζω | ζυγός | ζώδιο | ισορροπία</annotation>
 		<annotation cp="⚖" type="tts">ζυγαριά</annotation>
 		<annotation cp="🔗">κρίκος | σύνδεσμος</annotation>
 		<annotation cp="🔗" type="tts">κρίκος</annotation>
 		<annotation cp="⛓">αλυσίδα | αλυσίδες</annotation>
 		<annotation cp="⛓" type="tts">αλυσίδες</annotation>
+		<annotation cp="⚗">αποστακτήριο | εργαλείο | χημεία</annotation>
+		<annotation cp="⚗" type="tts">αποστακτήριο</annotation>
+		<annotation cp="🔬">εργαλείο | μικροσκόπιο</annotation>
+		<annotation cp="🔬" type="tts">μικροσκόπιο</annotation>
+		<annotation cp="🔭">εργαλείο | τηλεσκόπιο</annotation>
+		<annotation cp="🔭" type="tts">τηλεσκόπιο</annotation>
+		<annotation cp="📡">δορυφορική κεραία | δορυφορικό | κεραία | πιάτο</annotation>
+		<annotation cp="📡" type="tts">δορυφορική κεραία</annotation>
 		<annotation cp="💉">άρρωστος | βελόνα | γιατρός | ένεση | εργαλείο | σύριγγα | φάρμακο</annotation>
 		<annotation cp="💉" type="tts">σύριγγα</annotation>
 		<annotation cp="💊">άρρωστος | γιατρός | φάρμακο | χάπι</annotation>
 		<annotation cp="💊" type="tts">χάπι</annotation>
+		<annotation cp="🚪">πόρτα</annotation>
+		<annotation cp="🚪" type="tts">πόρτα</annotation>
+		<annotation cp="🛏">κρεβάτι | ξενοδοχείο | ύπνος</annotation>
+		<annotation cp="🛏" type="tts">κρεβάτι</annotation>
+		<annotation cp="🛋">καναπές | καναπές και φωτιστικό | ξενοδοχείο | φωτιστικό</annotation>
+		<annotation cp="🛋" type="tts">καναπές και φωτιστικό</annotation>
+		<annotation cp="🚽">λεκάνη | τουαλέτα</annotation>
+		<annotation cp="🚽" type="tts">τουαλέτα</annotation>
+		<annotation cp="🚿">νερό | ντους</annotation>
+		<annotation cp="🚿" type="tts">ντους</annotation>
+		<annotation cp="🛁">μπανιέρα</annotation>
+		<annotation cp="🛁" type="tts">μπανιέρα</annotation>
+		<annotation cp="🛒">αγορές | καλάθι | καρότσι αγορών | ψώνια</annotation>
+		<annotation cp="🛒" type="tts">καρότσι αγορών</annotation>
 		<annotation cp="🚬">κάπνισμα</annotation>
 		<annotation cp="🚬" type="tts">κάπνισμα</annotation>
 		<annotation cp="⚰">θάνατος | φέρετρο</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">τεφροδόχος</annotation>
 		<annotation cp="🗿">άγαλμα | μοάι | πρόσωπο</annotation>
 		<annotation cp="🗿" type="tts">μοάι</annotation>
-		<annotation cp="🛢">βαρέλι | βαρέλι πετρελαίου | πετρέλαιο</annotation>
-		<annotation cp="🛢" type="tts">βαρέλι πετρελαίου</annotation>
-		<annotation cp="🔮">εργαλείο | κρυστάλλινη | κρυστάλλινη σφαίρα | παραμύθι | σφαίρα | τύχη | φαντασία</annotation>
-		<annotation cp="🔮" type="tts">κρυστάλλινη σφαίρα</annotation>
-		<annotation cp="🛒">αγορές | καλάθι | καρότσι αγορών | ψώνια</annotation>
-		<annotation cp="🛒" type="tts">καρότσι αγορών</annotation>
 		<annotation cp="🏧">atm | αυτόματο | σήμα | σήμα ATM | τράπεζα</annotation>
 		<annotation cp="🏧" type="tts">σήμα ATM</annotation>
 		<annotation cp="🚮">σήμα κάδου απορριμμάτων | σκουπίδια | σκουπιδοτενεκές</annotation>

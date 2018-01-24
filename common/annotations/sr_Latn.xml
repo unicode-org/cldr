@@ -1322,8 +1322,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏗" type="tts">gradilište</annotation>
 		<annotation cp="🏘">zgrada | kuća | kuće</annotation>
 		<annotation cp="🏘" type="tts">kuće</annotation>
-		<annotation cp="🏙">grad | gradski pejzaž | zgrada</annotation>
-		<annotation cp="🏙" type="tts">gradski pejzaž</annotation>
 		<annotation cp="🏚">zapušteno | zapuštena kuća | zgrada | kuća</annotation>
 		<annotation cp="🏚" type="tts">zapuštena kuća</annotation>
 		<annotation cp="🏠">dom | zgrada | kuća | kuća</annotation>
@@ -1380,6 +1378,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌁" type="tts">maglovito</annotation>
 		<annotation cp="🌃">vreme | zvezde | zvezdana noć | noć</annotation>
 		<annotation cp="🌃" type="tts">zvezdana noć</annotation>
+		<annotation cp="🏙">grad | gradski pejzaž | zgrada</annotation>
+		<annotation cp="🏙" type="tts">gradski pejzaž</annotation>
 		<annotation cp="🌄">jutro | vreme | zora | izlazak sunca iznad planina | planina | sunce</annotation>
 		<annotation cp="🌄" type="tts">izlazak sunca iznad planina</annotation>
 		<annotation cp="🌅">jutro | vreme | izlazak sunca | sunce</annotation>
@@ -1404,14 +1404,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💈" type="tts">znak za berbernicu</annotation>
 		<annotation cp="🎪">cirkus | cirkuski šator | šator</annotation>
 		<annotation cp="🎪" type="tts">cirkuski šator</annotation>
-		<annotation cp="🎭">maska | pozorište | scena | scenska umetnost | umetnost</annotation>
-		<annotation cp="🎭" type="tts">scenska umetnost</annotation>
-		<annotation cp="🖼">muzej | ram | ram sa slikom | slika | slikarstvo | umetnost</annotation>
-		<annotation cp="🖼" type="tts">ram sa slikom</annotation>
-		<annotation cp="🎨">muzej | paleta | slikarstvo | slikarska paleta | umetnost</annotation>
-		<annotation cp="🎨" type="tts">slikarska paleta</annotation>
-		<annotation cp="🎰">automat | igra | slot-mašina</annotation>
-		<annotation cp="🎰" type="tts">slot-mašina</annotation>
 		<annotation cp="🚂">vozilo | voz | lokomotiva | lokomotiva | para</annotation>
 		<annotation cp="🚂" type="tts">lokomotiva</annotation>
 		<annotation cp="🚃">vozilo | vagon | voz | železnica | pruga | tramvaj | trolejbus</annotation>
@@ -1480,6 +1472,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛣" type="tts">autoput</annotation>
 		<annotation cp="🛤">voz | železnica | železnička pruga</annotation>
 		<annotation cp="🛤" type="tts">železnička pruga</annotation>
+		<annotation cp="🛢">bure | bure nafte | nafta</annotation>
+		<annotation cp="🛢" type="tts">bure nafte</annotation>
 		<annotation cp="⛽">benzin | gorivo | pumpa | pumpa za gorivo | stanica</annotation>
 		<annotation cp="⛽" type="tts">pumpa za gorivo</annotation>
 		<annotation cp="🚨">vozilo | policija | policijska rotacija | rotaciono | svetlo | uzbuna</annotation>
@@ -1488,10 +1482,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚥" type="tts">horizontalni semafor</annotation>
 		<annotation cp="🚦">vertikalni semafor | saobraćaj | svetlo | signalizacija</annotation>
 		<annotation cp="🚦" type="tts">vertikalni semafor</annotation>
-		<annotation cp="🚧">prepreka | radovi u toku</annotation>
-		<annotation cp="🚧" type="tts">radovi u toku</annotation>
 		<annotation cp="🛑">znak | znak stop | osmougao | stop | crveno</annotation>
 		<annotation cp="🛑" type="tts">znak stop</annotation>
+		<annotation cp="🚧">prepreka | radovi u toku</annotation>
+		<annotation cp="🚧" type="tts">radovi u toku</annotation>
 		<annotation cp="⚓">alat | brod | sidro</annotation>
 		<annotation cp="⚓" type="tts">sidro</annotation>
 		<annotation cp="⛵">jahta | odmor | vozilo | jedrenjak | more | čamac</annotation>
@@ -1534,18 +1528,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛸" type="tts">leteći tanjir</annotation>
 		<annotation cp="🛎">zvono | zvono na recepciji | recepcija | hotel</annotation>
 		<annotation cp="🛎" type="tts">zvono na recepciji</annotation>
-		<annotation cp="🚪">vrata | vrata</annotation>
-		<annotation cp="🚪" type="tts">vrata</annotation>
-		<annotation cp="🛏">krevet | spavanje | hotel</annotation>
-		<annotation cp="🛏" type="tts">krevet</annotation>
-		<annotation cp="🛋">kauč | kauč i lampa | lampa | hotel</annotation>
-		<annotation cp="🛋" type="tts">kauč i lampa</annotation>
-		<annotation cp="🚽">ve-ce šolja | toalet</annotation>
-		<annotation cp="🚽" type="tts">ve-ce šolja</annotation>
-		<annotation cp="🚿">voda | tuš</annotation>
-		<annotation cp="🚿" type="tts">tuš</annotation>
-		<annotation cp="🛁">kada | kada | kupanje</annotation>
-		<annotation cp="🛁" type="tts">kada</annotation>
 		<annotation cp="⌛">vreme | pesak | peščani sat</annotation>
 		<annotation cp="⌛" type="tts">peščani sat</annotation>
 		<annotation cp="⏳">vreme | pesak | peščani sat sa peskom koji teče</annotation>
@@ -1762,8 +1744,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏉" type="tts">lopta za ragbi</annotation>
 		<annotation cp="🎾">loptica | reket | tenis</annotation>
 		<annotation cp="🎾" type="tts">tenis</annotation>
-		<annotation cp="🎱">8 | osam | bilijar | bilijar | igra | kugla</annotation>
-		<annotation cp="🎱" type="tts">bilijar</annotation>
 		<annotation cp="🎳">igra | kugla | kuglanje</annotation>
 		<annotation cp="🎳" type="tts">kuglanje</annotation>
 		<annotation cp="🏏">igra | kriket | kugla | palica</annotation>
@@ -1782,8 +1762,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥋" type="tts">borilački kimono</annotation>
 		<annotation cp="🥅">gol | mreža | sport</annotation>
 		<annotation cp="🥅" type="tts">gol</annotation>
-		<annotation cp="🎯">igra | meta | pogodak | pogodak u centar | strelica | centar | cilj</annotation>
-		<annotation cp="🎯" type="tts">pogodak u centar</annotation>
 		<annotation cp="⛳">golf | zastavica u rupi | rupa</annotation>
 		<annotation cp="⛳" type="tts">zastavica u rupi</annotation>
 		<annotation cp="⛸">klizaljka | klizaljka | led</annotation>
@@ -1798,10 +1776,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛷" type="tts">sanke</annotation>
 		<annotation cp="🥌">igra | kamen | kamen za karling</annotation>
 		<annotation cp="🥌" type="tts">kamen za karling</annotation>
+		<annotation cp="🎯">igra | meta | pogodak | pogodak u centar | strelica | centar | cilj</annotation>
+		<annotation cp="🎯" type="tts">pogodak u centar</annotation>
+		<annotation cp="🎱">8 | osam | bilijar | bilijar | igra | kugla</annotation>
+		<annotation cp="🎱" type="tts">bilijar</annotation>
+		<annotation cp="🔮">alat | bajka | kristal | kristalna kugla | kugla | sudbina</annotation>
+		<annotation cp="🔮" type="tts">kristalna kugla</annotation>
 		<annotation cp="🎮">video igra | igra | kontroler</annotation>
 		<annotation cp="🎮" type="tts">video igra</annotation>
 		<annotation cp="🕹">video igra | igra | džojstik</annotation>
 		<annotation cp="🕹" type="tts">džojstik</annotation>
+		<annotation cp="🎰">automat | igra | slot-mašina</annotation>
+		<annotation cp="🎰" type="tts">slot-mašina</annotation>
 		<annotation cp="🎲">igra | kockica | kockica za igru | kockice</annotation>
 		<annotation cp="🎲" type="tts">kockica za igru</annotation>
 		<annotation cp="♠">igra | karta | pik</annotation>
@@ -1818,6 +1804,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🀄" type="tts">crveni zmaj iz mahdžonga</annotation>
 		<annotation cp="🎴">japan | igra | kartanje | karte | karte za igranje sa cvetom | cveće</annotation>
 		<annotation cp="🎴" type="tts">karte za igranje sa cvetom</annotation>
+		<annotation cp="🎭">maska | pozorište | scena | scenska umetnost | umetnost</annotation>
+		<annotation cp="🎭" type="tts">scenska umetnost</annotation>
+		<annotation cp="🖼">muzej | ram | ram sa slikom | slika | slikarstvo | umetnost</annotation>
+		<annotation cp="🖼" type="tts">ram sa slikom</annotation>
+		<annotation cp="🎨">muzej | paleta | slikarstvo | slikarska paleta | umetnost</annotation>
+		<annotation cp="🎨" type="tts">slikarska paleta</annotation>
 		<annotation cp="🔇">zvučnik | isključen zvuk | isključen zvučnik | jačina zvuka | utišano</annotation>
 		<annotation cp="🔇" type="tts">isključen zvučnik</annotation>
 		<annotation cp="🔈">zvučnik | jačina zvuka</annotation>
@@ -1924,12 +1916,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔍" type="tts">lupa usmerena nalevo</annotation>
 		<annotation cp="🔎">alat | lupa | lupa usmerena nadesno | staklo | traženje</annotation>
 		<annotation cp="🔎" type="tts">lupa usmerena nadesno</annotation>
-		<annotation cp="🔬">alat | mikroskop</annotation>
-		<annotation cp="🔬" type="tts">mikroskop</annotation>
-		<annotation cp="🔭">alat | teleskop</annotation>
-		<annotation cp="🔭" type="tts">teleskop</annotation>
-		<annotation cp="📡">antena | satelit | satelitska antena | tanjir</annotation>
-		<annotation cp="📡" type="tts">satelitska antena</annotation>
 		<annotation cp="🕯">svetlo | sveća</annotation>
 		<annotation cp="🕯" type="tts">sveća</annotation>
 		<annotation cp="💡">ideja | svetlo | sijalica | struja</annotation>
@@ -2116,18 +2102,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚙" type="tts">zupčanik</annotation>
 		<annotation cp="🗜">alat | stega</annotation>
 		<annotation cp="🗜" type="tts">stega</annotation>
-		<annotation cp="⚗">alat | alembik | hemija</annotation>
-		<annotation cp="⚗" type="tts">alembik</annotation>
 		<annotation cp="⚖">alat | vaga | zodijak | pravda | teg | terazije</annotation>
 		<annotation cp="⚖" type="tts">terazije</annotation>
 		<annotation cp="🔗">veza | karika | karike</annotation>
 		<annotation cp="🔗" type="tts">karike</annotation>
 		<annotation cp="⛓">lanac | lanci</annotation>
 		<annotation cp="⛓" type="tts">lanci</annotation>
+		<annotation cp="⚗">alat | alembik | hemija</annotation>
+		<annotation cp="⚗" type="tts">alembik</annotation>
+		<annotation cp="🔬">alat | mikroskop</annotation>
+		<annotation cp="🔬" type="tts">mikroskop</annotation>
+		<annotation cp="🔭">alat | teleskop</annotation>
+		<annotation cp="🔭" type="tts">teleskop</annotation>
+		<annotation cp="📡">antena | satelit | satelitska antena | tanjir</annotation>
+		<annotation cp="📡" type="tts">satelitska antena</annotation>
 		<annotation cp="💉">alat | bolest | igla | injekcija | lekar | medicina | špric</annotation>
 		<annotation cp="💉" type="tts">špric</annotation>
 		<annotation cp="💊">bolest | lekar | medicina | pilula</annotation>
 		<annotation cp="💊" type="tts">pilula</annotation>
+		<annotation cp="🚪">vrata | vrata</annotation>
+		<annotation cp="🚪" type="tts">vrata</annotation>
+		<annotation cp="🛏">krevet | spavanje | hotel</annotation>
+		<annotation cp="🛏" type="tts">krevet</annotation>
+		<annotation cp="🛋">kauč | kauč i lampa | lampa | hotel</annotation>
+		<annotation cp="🛋" type="tts">kauč i lampa</annotation>
+		<annotation cp="🚽">ve-ce šolja | toalet</annotation>
+		<annotation cp="🚽" type="tts">ve-ce šolja</annotation>
+		<annotation cp="🚿">voda | tuš</annotation>
+		<annotation cp="🚿" type="tts">tuš</annotation>
+		<annotation cp="🛁">kada | kada | kupanje</annotation>
+		<annotation cp="🛁" type="tts">kada</annotation>
+		<annotation cp="🛒">kolica | kolica za kupovinu | korpa | kupovina | samousluga</annotation>
+		<annotation cp="🛒" type="tts">kolica za kupovinu</annotation>
 		<annotation cp="🚬">pušenje | cigareta</annotation>
 		<annotation cp="🚬" type="tts">cigareta</annotation>
 		<annotation cp="⚰">kovčeg | smrt</annotation>
@@ -2136,12 +2142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚱" type="tts">posmrtna urna</annotation>
 		<annotation cp="🗿">kipovi | lice | moai</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
-		<annotation cp="🛢">bure | bure nafte | nafta</annotation>
-		<annotation cp="🛢" type="tts">bure nafte</annotation>
-		<annotation cp="🔮">alat | bajka | kristal | kristalna kugla | kugla | sudbina</annotation>
-		<annotation cp="🔮" type="tts">kristalna kugla</annotation>
-		<annotation cp="🛒">kolica | kolica za kupovinu | korpa | kupovina | samousluga</annotation>
-		<annotation cp="🛒" type="tts">kolica za kupovinu</annotation>
 		<annotation cp="🏧">bankomat | znak za bankomat</annotation>
 		<annotation cp="🏧" type="tts">znak za bankomat</annotation>
 		<annotation cp="🚮">otpad | bacanje otpada u korpu | korpa za otpatke</annotation>

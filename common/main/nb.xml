@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -137,6 +137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">tysk</language>
+			<language type="de_AT" draft="contributed">tysk (Østerrike)</language>
+			<language type="de_CH" draft="contributed">tysk (Sveits)</language>
 			<language type="del">delaware</language>
 			<language type="den">slavey</language>
 			<language type="dgr">dogrib</language>
@@ -161,9 +163,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">gresk</language>
 			<language type="elx">elamittisk</language>
 			<language type="en">engelsk</language>
+			<language type="en_AU" draft="contributed">engelsk (Australia)</language>
+			<language type="en_CA" draft="contributed">engelsk (Canada)</language>
+			<language type="en_GB" draft="contributed">engelsk (Storbritannia)</language>
+			<language type="en_GB" alt="short" draft="contributed">engelsk (Storbritannia)</language>
+			<language type="en_US" draft="contributed">engelsk (USA)</language>
+			<language type="en_US" alt="short" draft="contributed">engelsk (USA)</language>
 			<language type="enm">mellomengelsk</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spansk</language>
+			<language type="es_419" draft="contributed">spansk (Latin-Amerika)</language>
+			<language type="es_ES" draft="contributed">spansk (Spania)</language>
+			<language type="es_MX" draft="contributed">spansk (Mexico)</language>
 			<language type="esu">sentralyupik</language>
 			<language type="et">estisk</language>
 			<language type="eu">baskisk</language>
@@ -180,6 +191,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">færøysk</language>
 			<language type="fon">fon</language>
 			<language type="fr">fransk</language>
+			<language type="fr_CA" draft="contributed">fransk (Canada)</language>
+			<language type="fr_CH" draft="contributed">fransk (Sveits)</language>
 			<language type="frc">cajunfransk</language>
 			<language type="frm">mellomfransk</language>
 			<language type="fro">gammelfransk</language>
@@ -448,6 +461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">pashto</language>
 			<language type="ps" alt="variant">pushto</language>
 			<language type="pt">portugisisk</language>
+			<language type="pt_BR" draft="contributed">portugisisk (Brasil)</language>
+			<language type="pt_PT" draft="contributed">portugisisk (Portugal)</language>
 			<language type="qu">quechua</language>
 			<language type="quc">k’iche’</language>
 			<language type="qug">kichwa (Chimborazo-høylandet)</language>
@@ -878,6 +893,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Øst-Europa</territory>
 			<territory type="154">Nord-Europa</territory>
 			<territory type="155">Vest-Europa</territory>
+			<territory type="202" draft="contributed">Afrika sør for Sahara</territory>
 			<territory type="419">Latin-Amerika</territory>
 			<territory type="AC">Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -926,6 +942,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Republikken Kongo</territory>
 			<territory type="CH">Sveits</territory>
 			<territory type="CI">Elfenbenskysten</territory>
+			<territory type="CI" alt="variant" draft="contributed">Elfenbenskysten</territory>
 			<territory type="CK">Cookøyene</territory>
 			<territory type="CL">Chile</territory>
 			<territory type="CM">Kamerun</territory>
@@ -939,6 +956,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CX">Christmasøya</territory>
 			<territory type="CY">Kypros</territory>
 			<territory type="CZ">Tsjekkia</territory>
+			<territory type="CZ" alt="variant" draft="contributed">Tsjekkia</territory>
 			<territory type="DE">Tyskland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
@@ -1117,6 +1135,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tadsjikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Øst-Timor</territory>
+			<territory type="TL" alt="variant" draft="contributed">Øst-Timor</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
@@ -6683,11 +6702,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="day-narrow">
 				<displayName>d.</displayName>
-				<relative type="-2" draft="provisional">-2 d.</relative>
+				<relative type="-2" draft="contributed">-2 d.</relative>
 				<relative type="-1" draft="contributed">i går</relative>
 				<relative type="0" draft="contributed">i dag</relative>
 				<relative type="1" draft="contributed">i morgen</relative>
-				<relative type="2" draft="provisional">+2 d.</relative>
+				<relative type="2" draft="contributed">+2 d.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} d.</relativeTimePattern>
 					<relativeTimePattern count="other">+{0} d.</relativeTimePattern>
@@ -12910,6 +12929,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">saotomesiske dobra</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">saotomesiske dobra (2018)</displayName>
+				<displayName count="one" draft="contributed">saotomesisk dobra (2018)</displayName>
+				<displayName count="other" draft="contributed">saotomesiske dobra (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>sovjetiske rubler</displayName>

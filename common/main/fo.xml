@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -56,7 +56,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bin">bini</language>
 			<language type="bla">siksika</language>
 			<language type="bm">bambara</language>
-			<language type="bn">bengalskt</language>
+			<language type="bn">bangla</language>
 			<language type="bo">tibetskt</language>
 			<language type="br">bretonskt</language>
 			<language type="brx">bodo</language>
@@ -86,6 +86,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">týskt</language>
+			<language type="de_AT">týskt (Eysturríki)</language>
 			<language type="de_CH">høgt týskt (Sveis)</language>
 			<language type="dgr">dogrib</language>
 			<language type="dje">sarma</language>
@@ -101,10 +102,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eka">ekajuk</language>
 			<language type="el">grikskt</language>
 			<language type="en">enskt</language>
+			<language type="en_AU">enskt (Avstralia)</language>
+			<language type="en_CA">enskt (Kanada)</language>
+			<language type="en_GB">enskt (Stórabretland)</language>
 			<language type="en_GB" alt="short">enskt (UK)</language>
+			<language type="en_US">enskt (Sambandsríki Amerika)</language>
 			<language type="en_US" alt="short">enskt (USA)</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spanskt</language>
+			<language type="es_419">spanskt (Latínamerika)</language>
+			<language type="es_ES">spanskt (Spania)</language>
+			<language type="es_MX">spanskt (Meksiko)</language>
 			<language type="et">estiskt</language>
 			<language type="eu">baskiskt</language>
 			<language type="ewo">ewondo</language>
@@ -116,6 +124,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">føroyskt</language>
 			<language type="fon">fon</language>
 			<language type="fr">franskt</language>
+			<language type="fr_CA">franskt (Kanada)</language>
+			<language type="fr_CH">franskt (Sveis)</language>
 			<language type="fur">friuliskt</language>
 			<language type="fy">vestur frísiskt</language>
 			<language type="ga">írskt</language>
@@ -143,7 +153,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hr">kroatiskt</language>
 			<language type="hsb">ovara sorbian</language>
 			<language type="hsn">xiang kinesiskt</language>
-			<language type="ht">haitiskt</language>
+			<language type="ht">haitiskt creole</language>
 			<language type="hu">ungarskt</language>
 			<language type="hup">hupa</language>
 			<language type="hy">armenskt</language>
@@ -286,7 +296,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nyn">nyankole</language>
 			<language type="oc">occitanskt</language>
 			<language type="om">oromo</language>
-			<language type="or">oriya</language>
+			<language type="or">odia</language>
 			<language type="os">ossetiskt</language>
 			<language type="pa">punjabi</language>
 			<language type="pag">pangasinan</language>
@@ -422,7 +432,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scripts>
 			<script type="Arab">arabisk</script>
 			<script type="Armn">armenskt</script>
-			<script type="Beng">bengali</script>
+			<script type="Beng">bangla</script>
 			<script type="Bopo">bopomofo</script>
 			<script type="Brai">blindaskrift</script>
 			<script type="Cyrl">kyrilliskt</script>
@@ -453,7 +463,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Mlym">malayalam</script>
 			<script type="Mong">mongolsk</script>
 			<script type="Mymr">myanmarskt</script>
-			<script type="Orya">oriya</script>
+			<script type="Orya">odia</script>
 			<script type="Sinh">sinhala</script>
 			<script type="Taml">tamilskt</script>
 			<script type="Telu">telugu</script>
@@ -498,6 +508,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">Eysturevropa</territory>
 			<territory type="154">Norðurevropa</territory>
 			<territory type="155">Vesturevropa</territory>
+			<territory type="202">Afrika sunnanfyri Sahara</territory>
 			<territory type="419">Latínamerika</territory>
 			<territory type="AC">Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -525,7 +536,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BH">Barein</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
-			<territory type="BL">St-Barthélemy</territory>
+			<territory type="BL">St. Barthélemy</territory>
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivia</territory>
@@ -540,10 +551,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Kokosoyggjar</territory>
 			<territory type="CD">Kongo, Dem. Lýðveldið</territory>
+			<territory type="CD" alt="variant">Kongo, Dem. Lýðveldið</territory>
 			<territory type="CF">Miðafrikalýðveldið</territory>
 			<territory type="CG">Kongo</territory>
+			<territory type="CG" alt="variant">Kongo</territory>
 			<territory type="CH">Sveis</territory>
 			<territory type="CI">Fílabeinsstrondin</territory>
+			<territory type="CI" alt="variant">Fílabeinsstrondin</territory>
 			<territory type="CK">Cooksoyggjar</territory>
 			<territory type="CL">Kili</territory>
 			<territory type="CM">Kamerun</territory>
@@ -557,6 +571,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Jólaoyggjin</territory>
 			<territory type="CY">Kýpros</territory>
 			<territory type="CZ">Kekkia</territory>
+			<territory type="CZ" alt="variant">Kekkia</territory>
 			<territory type="DE">Týskland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibuti</territory>
@@ -564,7 +579,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="DM">Dominika</territory>
 			<territory type="DO">Dominikalýðveldið</territory>
 			<territory type="DZ">Algeria</territory>
-			<territory type="EA">Ceuta og Melilla</territory>
+			<territory type="EA">Ceuta &amp; Melilla</territory>
 			<territory type="EC">Ekvador</territory>
 			<territory type="EE">Estland</territory>
 			<territory type="EG">Egyptaland</territory>
@@ -577,6 +592,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FI">Finnland</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Falklandsoyggjar</territory>
+			<territory type="FK" alt="variant">Falklandsoyggjar (Islas Malvinas)</territory>
 			<territory type="FM">Mikronesiasamveldið</territory>
 			<territory type="FO">Føroyar</territory>
 			<territory type="FR">Frakland</territory>
@@ -689,7 +705,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PH">Filipsoyggjar</territory>
 			<territory type="PK">Pakistan</territory>
 			<territory type="PL">Pólland</territory>
-			<territory type="PM">Saint Pierre og Miquelon</territory>
+			<territory type="PM">Saint Pierre &amp; Miquelon</territory>
 			<territory type="PN">Pitcairnoyggjar</territory>
 			<territory type="PR">Puerto Riko</territory>
 			<territory type="PS">Palestinskt landøki</territory>
@@ -734,6 +750,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">Tadsjikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Eysturtimor</territory>
+			<territory type="TL" alt="variant">Eysturtimor</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunesia</territory>
 			<territory type="TO">Tonga</territory>
@@ -815,7 +832,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="arabext">víðkað arabisk tøl</type>
 			<type key="numbers" type="armn">armensk tøl</type>
 			<type key="numbers" type="armnlow">armensk tøl (smáir bókstavir)</type>
-			<type key="numbers" type="beng">bengalisk tøl</type>
+			<type key="numbers" type="beng">bangla tøl</type>
 			<type key="numbers" type="deva">devanagarik tøl</type>
 			<type key="numbers" type="ethi">etiopisk tøl</type>
 			<type key="numbers" type="fullwide">tøl í fullari longd</type>
@@ -838,7 +855,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="latn">vesturlendsk tøl</type>
 			<type key="numbers" type="mlym">malayalam tøl</type>
 			<type key="numbers" type="mymr">myanmarsk tøl</type>
-			<type key="numbers" type="orya">oriya tøl</type>
+			<type key="numbers" type="orya">odia tøl</type>
 			<type key="numbers" type="roman">rómartøl</type>
 			<type key="numbers" type="romanlow">rómartøl (smáir bókstavir)</type>
 			<type key="numbers" type="taml">vanlig tamilsk tøl</type>
@@ -871,6 +888,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -3262,7 +3298,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Juba</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>Sao Tome</exemplarCity>
+				<exemplarCity>São Tomé</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>El Salvador</exemplarCity>
@@ -3325,7 +3361,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Dar es Salaam</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Uzhgorod</exemplarCity>
+				<exemplarCity>Uzhhorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiev</exemplarCity>
@@ -4695,6 +4731,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
+			<currency type="CNH">
+				<displayName>kinesiskur yuan (úr landi)</displayName>
+				<displayName count="one">kinesiskur yuan (úr landi)</displayName>
+				<displayName count="other">kinesiskur yuan (úr landi)</displayName>
+				<symbol draft="contributed">CNH</symbol>
+			</currency>
 			<currency type="CNY">
 				<displayName>kinesiskur yuan</displayName>
 				<displayName count="one">kinesiskur yuan</displayName>
@@ -4905,9 +4947,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">Rp</symbol>
 			</currency>
 			<currency type="ILS">
-				<displayName>Ísrael new sheqel</displayName>
-				<displayName count="one">Ísrael new sheqel</displayName>
-				<displayName count="other">Ísrael new sheqel</displayName>
+				<displayName>Ísrael new shekel</displayName>
+				<displayName count="one">Ísrael new shekel</displayName>
+				<displayName count="other">Ísrael new shekel</displayName>
 				<symbol draft="contributed">₪</symbol>
 				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
@@ -5346,6 +5388,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">Sao Tome &amp; Prinsipi dobra</displayName>
 				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>São Tomé &amp; Príncipe dobra</displayName>
+				<displayName count="one">São Tomé &amp; Príncipe dobra</displayName>
+				<displayName count="other">São Tomé &amp; Príncipe dobra</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Sýria pund</displayName>

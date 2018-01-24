@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -135,6 +135,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">दार्ग्वा</language>
 			<language type="dav">ताइता</language>
 			<language type="de">जर्मन</language>
+			<language type="de_AT">अस्ट्रिएन जर्मन</language>
 			<language type="de_CH">स्वीस हाई जर्मन</language>
 			<language type="del">देलावर</language>
 			<language type="dgr">दोग्रिब</language>
@@ -187,6 +188,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fon">फोन</language>
 			<language type="fr">फ्रान्सेली</language>
 			<language type="fr_CA">क्यानेडाली फ्रान्सेली</language>
+			<language type="fr_CH">स्विस फ्रेन्च</language>
 			<language type="frc">काहुन फ्रान्सेली</language>
 			<language type="frm">मध्य फ्रान्सेली</language>
 			<language type="fro">पुरातन फ्रान्सेली</language>
@@ -739,6 +741,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">पूर्वी युरोप</territory>
 			<territory type="154">उत्तरी युरोप</territory>
 			<territory type="155">पश्चिमी युरोप</territory>
+			<territory type="202">उप-साहारा अफ्रिका</territory>
 			<territory type="419">ल्याटिन अमेरिका</territory>
 			<territory type="AC">एस्केन्सन टापु</territory>
 			<territory type="AD">अन्डोर्रा</territory>
@@ -5674,6 +5677,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
+			<currency type="STN">
+				<displayName>साओ टोमे र प्रिन्सिपे दोब्रा</displayName>
+				<displayName count="one">साओ टोमे र प्रिन्सिपे दोब्रा (२०१८)</displayName>
+				<displayName count="other">साओ टोमे र प्रिन्सिपे दोब्रास (२०१८)</displayName>
+			</currency>
 			<currency type="SYP">
 				<displayName>सिरियाली पाउन्ड</displayName>
 				<displayName count="one">सिरियाली पाउन्ड</displayName>
@@ -7611,7 +7619,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="punctuation">विराम</characterLabel>
 		<characterLabel type="rightwards_arrows">दायाँतर्फी बाँणहरू</characterLabel>
 		<characterLabel type="sign_standard_symbols">संकेत/मानक चिन्हहरू</characterLabel>
-		<characterLabel type="small_form_variant">सानो फाराम भ्यारियन्टहरू</characterLabel>
+		<characterLabel type="small_form_variant">साना भ्यारियन्टहरू</characterLabel>
 		<characterLabel type="smiley">स्माइली</characterLabel>
 		<characterLabel type="smileys_people">स्माइली तथा व्यक्तिहरू</characterLabel>
 		<characterLabel type="south_asian_scripts">दक्षिण एशियाली लिपिहरू</characterLabel>
@@ -7624,7 +7632,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="travel">यात्रा</characterLabel>
 		<characterLabel type="travel_places">यात्रा तथा ठाउँहरू</characterLabel>
 		<characterLabel type="upwards_arrows">माथितिरका बाँणहरू</characterLabel>
-		<characterLabel type="variant_forms">भ्यारियन्ट फारामहरू</characterLabel>
+		<characterLabel type="variant_forms">भ्यारियन्ट</characterLabel>
 		<characterLabel type="vocalic_jamo">भोकालिक जामोहरू</characterLabel>
 		<characterLabel type="weather">मौंसम</characterLabel>
 		<characterLabel type="western_asian_scripts">पश्चिमी एशियाली लिपिहरू</characterLabel>

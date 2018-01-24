@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -120,6 +120,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">דרגווה</language>
 			<language type="dav">טאיטה</language>
 			<language type="de">גרמנית</language>
+			<language type="de_AT" draft="contributed">גרמנית (אוסטריה)</language>
 			<language type="de_CH">גרמנית (שוויץ)</language>
 			<language type="del">דלאוור</language>
 			<language type="den">סלאבית</language>
@@ -143,12 +144,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">יוונית</language>
 			<language type="elx">עילמית</language>
 			<language type="en">אנגלית</language>
+			<language type="en_AU" draft="contributed">אנגלית (אוסטרליה)</language>
+			<language type="en_CA" draft="contributed">אנגלית (קנדה)</language>
 			<language type="en_GB">אנגלית (בריטניה)</language>
 			<language type="en_GB" alt="short">אנגלית (בריטניה)</language>
+			<language type="en_US" draft="contributed">אנגלית (ארצות הברית)</language>
 			<language type="en_US" alt="short">אנגלית (ארה״ב)</language>
 			<language type="enm">אנגלית תיכונה</language>
 			<language type="eo">אספרנטו</language>
 			<language type="es">ספרדית</language>
+			<language type="es_419" draft="contributed">ספרדית (אמריקה הלטינית)</language>
+			<language type="es_ES" draft="contributed">ספרדית (ספרד)</language>
+			<language type="es_MX" draft="contributed">ספרדית (מקסיקו)</language>
 			<language type="et">אסטונית</language>
 			<language type="eu">בסקית</language>
 			<language type="ewo">אוונדו</language>
@@ -162,6 +169,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">פארואזית</language>
 			<language type="fon">פון</language>
 			<language type="fr">צרפתית</language>
+			<language type="fr_CA" draft="contributed">צרפתית (קנדה)</language>
 			<language type="fr_CH">צרפתית (שוויץ)</language>
 			<language type="frc">צרפתית קייג׳ונית</language>
 			<language type="frm">צרפתית תיכונה</language>
@@ -398,6 +406,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">פאשטו</language>
 			<language type="ps" alt="variant">פושטו</language>
 			<language type="pt">פורטוגזית</language>
+			<language type="pt_BR" draft="contributed">פורטוגזית (ברזיל)</language>
+			<language type="pt_PT" draft="contributed">פורטוגזית (פורטוגל)</language>
 			<language type="qu">קצ׳ואה</language>
 			<language type="quc">קיצ׳ה</language>
 			<language type="raj">ראג׳סטאני</language>
@@ -649,6 +659,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">מזרח אירופה</territory>
 			<territory type="154">צפון אירופה</territory>
 			<territory type="155">מערב אירופה</territory>
+			<territory type="202" draft="contributed">אפריקה שמדרום לסהרה</territory>
 			<territory type="419">אמריקה הלטינית</territory>
 			<territory type="AC">האי אסנשן</territory>
 			<territory type="AD">אנדורה</territory>
@@ -697,6 +708,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">קונגו (רפובליקה)</territory>
 			<territory type="CH">שווייץ</territory>
 			<territory type="CI">חוף השנהב</territory>
+			<territory type="CI" alt="variant" draft="contributed">חוף השנהב</territory>
 			<territory type="CK">איי קוק</territory>
 			<territory type="CL">צ׳ילה</territory>
 			<territory type="CM">קמרון</territory>
@@ -1093,6 +1105,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>”</quotationStart>
@@ -5192,6 +5223,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>שעון מערב גרינלנד (קיץ)</daylight>
 				</long>
 			</metazone>
+			<metazone type="Guam">
+				<long>
+					<standard draft="contributed">שעון גואם</standard>
+				</long>
+			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>שעון מדינות המפרץ</standard>
@@ -5464,6 +5500,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>שעון פרננדו די נורוניה</generic>
 					<standard>שעון פרננדו די נורוניה (חורף)</standard>
 					<daylight>שעון פרננדו די נורוניה (קיץ)</daylight>
+				</long>
+			</metazone>
+			<metazone type="North_Mariana">
+				<long>
+					<standard draft="contributed">שעון איי מריאנה הצפוניים</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -7215,6 +7256,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">דוברה של סן טומה ופרינסיפה</displayName>
 				<symbol>STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName draft="contributed">דוברה של סן טומה ופרינסיפה (2018)</displayName>
+				<displayName count="one" draft="contributed">דוברה של סן טומה ופרינסיפה (2018)</displayName>
+				<displayName count="two" draft="contributed">דוברה של סן טומה ופרינסיפה (2018)</displayName>
+				<displayName count="many" draft="contributed">דוברה של סן טומה ופרינסיפה (2018)</displayName>
+				<displayName count="other" draft="contributed">דוברה של סן טומה ופרינסיפה (2018)</displayName>
+				<symbol draft="contributed">STN</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>רובל סובייטי</displayName>
@@ -10135,7 +10184,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="miscellaneous">שונות</characterLabel>
 		<characterLabel type="modern_scripts">סקריפטים מודרניים</characterLabel>
 		<characterLabel type="modifier">סימן מחליף</characterLabel>
-		<characterLabel type="musical_symbols">סמלים מוסיקליים</characterLabel>
+		<characterLabel type="musical_symbols">סמלים מוזיקליים</characterLabel>
 		<characterLabel type="nature">טבע</characterLabel>
 		<characterLabel type="nonspacing">ללא ריווח</characterLabel>
 		<characterLabel type="numbers">מספרים</characterLabel>
@@ -10166,7 +10215,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="variant_forms">חלופות</characterLabel>
 		<characterLabel type="vocalic_jamo">ג׳אמו ווקאלי</characterLabel>
 		<characterLabel type="weather">מזג אוויר</characterLabel>
-		<characterLabel type="western_asian_scripts" draft="provisional">מערכות כתב מערב אסייתיות</characterLabel>
+		<characterLabel type="western_asian_scripts" draft="contributed">סקריפטים ממערב אסיה</characterLabel>
 		<characterLabel type="whitespace">רווח לבן</characterLabel>
 	</characterLabels>
 </ldml>

@@ -134,6 +134,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="enm">mellomengelsk</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spansk</language>
+			<language type="es_419">spansk (Latin-Amerika)</language>
+			<language type="es_ES">spansk (Spania)</language>
+			<language type="es_MX">spansk (Mexico)</language>
 			<language type="et">estisk</language>
 			<language type="eu">baskisk</language>
 			<language type="ewo">ewondo</language>
@@ -433,6 +436,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sux">sumerisk</language>
 			<language type="sv">svensk</language>
 			<language type="sw">swahili</language>
+			<language type="sw_CD">swahili (Kongo-Kinshasa)</language>
 			<language type="swb">shimaore</language>
 			<language type="syc">klassisk syrisk</language>
 			<language type="syr">syrisk</language>
@@ -732,6 +736,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">Republikken Kongo</territory>
 			<territory type="CH">Sveits</territory>
 			<territory type="CI">Elfenbeinskysten</territory>
+			<territory type="CI" alt="variant">Elfenbeinskysten</territory>
 			<territory type="CK">Cookøyane</territory>
 			<territory type="CL">Chile</territory>
 			<territory type="CM">Kamerun</territory>
@@ -745,6 +750,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Christmasøya</territory>
 			<territory type="CY">Kypros</territory>
 			<territory type="CZ">Tsjekkia</territory>
+			<territory type="CZ" alt="variant">Tsjekkia</territory>
 			<territory type="DE">Tyskland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
@@ -5971,7 +5977,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
-				<displayName>turkmenske manat (1993–2009)</displayName>
+				<displayName>turkmensk manat (1993–2009)</displayName>
 				<displayName count="one">turkmensk manat (1993–2009)</displayName>
 				<displayName count="other">turkmenske manat (1993–2009)</displayName>
 			</currency>

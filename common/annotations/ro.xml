@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1323,8 +1323,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">clădire în construcție</annotation>
 		<annotation cp="🏘">case | construcție</annotation>
 		<annotation cp="🏘" type="tts">case</annotation>
-		<annotation cp="🏙">oraș | orizont citadin | peisaj urban | zgârie-nori</annotation>
-		<annotation cp="🏙" type="tts">peisaj urban</annotation>
 		<annotation cp="🏚">abandonată | casă | casă părăsită</annotation>
 		<annotation cp="🏚" type="tts">casă părăsită</annotation>
 		<annotation cp="🏠">casă | locuință</annotation>
@@ -1381,6 +1379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌁" type="tts">încețoșat</annotation>
 		<annotation cp="🌃">noapte | noapte înstelată | stele</annotation>
 		<annotation cp="🌃" type="tts">noapte înstelată</annotation>
+		<annotation cp="🏙">oraș | orizont citadin | peisaj urban | zgârie-nori</annotation>
+		<annotation cp="🏙" type="tts">peisaj urban</annotation>
 		<annotation cp="🌄">dimineață | munți | răsărit | răsărit după munți | soare</annotation>
 		<annotation cp="🌄" type="tts">răsărit după munți</annotation>
 		<annotation cp="🌅">dimineață | răsărit | soare</annotation>
@@ -1405,14 +1405,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💈" type="tts">stâlp de bărbier</annotation>
 		<annotation cp="🎪">circ | cort | cort de circ</annotation>
 		<annotation cp="🎪" type="tts">cort de circ</annotation>
-		<annotation cp="🎭">artă | arte interpretative | măști | spectacol | teatru</annotation>
-		<annotation cp="🎭" type="tts">arte interpretative</annotation>
-		<annotation cp="🖼">artă | muzeu | pictură | ramă | tablou cu ramă</annotation>
-		<annotation cp="🖼" type="tts">tablou cu ramă</annotation>
-		<annotation cp="🎨">culori | paletă | paletă de pictor | pictor</annotation>
-		<annotation cp="🎨" type="tts">paletă de pictor</annotation>
-		<annotation cp="🎰">joc | jocuri mecanice | manetă | noroc</annotation>
-		<annotation cp="🎰" type="tts">jocuri mecanice</annotation>
 		<annotation cp="🚂">aburi | cale ferată | locomotivă | motor | transport | tren</annotation>
 		<annotation cp="🚂" type="tts">locomotivă</annotation>
 		<annotation cp="🚃">electric | șină | tramvai | transport | troleibuz | vagon | vagon feroviar</annotation>
@@ -1481,6 +1473,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">autostradă</annotation>
 		<annotation cp="🛤">cale ferată | șină | șine | tren</annotation>
 		<annotation cp="🛤" type="tts">cale ferată</annotation>
+		<annotation cp="🛢">butoi | butoi de combustibil | tablă</annotation>
+		<annotation cp="🛢" type="tts">butoi de combustibil</annotation>
 		<annotation cp="⛽">alimentare | benzină | benzinărie | combustibil | pompă | pompă de combustibil</annotation>
 		<annotation cp="⛽" type="tts">pompă de combustibil</annotation>
 		<annotation cp="🚨">girofar | girofar de poliție | lumină | poliție</annotation>
@@ -1489,10 +1483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">semafor orizontal</annotation>
 		<annotation cp="🚦">semafor | semafor vertical | semnal | trafic</annotation>
 		<annotation cp="🚦" type="tts">semafor vertical</annotation>
-		<annotation cp="🚧">barieră | construcție | indicator | șantier</annotation>
-		<annotation cp="🚧" type="tts">șantier</annotation>
 		<annotation cp="🛑">indicator | octogon | semn | semnul stop | stop</annotation>
 		<annotation cp="🛑" type="tts">semnul stop</annotation>
+		<annotation cp="🚧">barieră | construcție | indicator | șantier</annotation>
+		<annotation cp="🚧" type="tts">șantier</annotation>
 		<annotation cp="⚓">ancoră | ancorare | marinar | naval | vas</annotation>
 		<annotation cp="⚓" type="tts">ancoră</annotation>
 		<annotation cp="⛵">barcă | barcă cu pânze | iaht | navigație | pânze</annotation>
@@ -1535,18 +1529,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛸" type="tts">farfurie zburătoare</annotation>
 		<annotation cp="🛎">clopoțel | hotel | recepție | sonerie | sonerie de recepție</annotation>
 		<annotation cp="🛎" type="tts">sonerie de recepție</annotation>
-		<annotation cp="🚪">ușă</annotation>
-		<annotation cp="🚪" type="tts">ușă</annotation>
-		<annotation cp="🛏">cazare | hotel | pat | somn</annotation>
-		<annotation cp="🛏" type="tts">pat</annotation>
-		<annotation cp="🛋">canapea | canapea și lampă | hotel | lampă | lumină</annotation>
-		<annotation cp="🛋" type="tts">canapea și lampă</annotation>
-		<annotation cp="🚽">toaletă</annotation>
-		<annotation cp="🚽" type="tts">toaletă</annotation>
-		<annotation cp="🚿">apă | duș</annotation>
-		<annotation cp="🚿" type="tts">duș</annotation>
-		<annotation cp="🛁">baie | cadă</annotation>
-		<annotation cp="🛁" type="tts">cadă</annotation>
 		<annotation cp="⌛">clepsidră | nisip | temporizator | timp</annotation>
 		<annotation cp="⌛" type="tts">clepsidră</annotation>
 		<annotation cp="⏳">clepsidră | clepsidră în care curge nisipul | curgere | nisip | temporizator | timp</annotation>
@@ -1763,8 +1745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">rugby</annotation>
 		<annotation cp="🎾">minge | rachetă | sport | tenis</annotation>
 		<annotation cp="🎾" type="tts">tenis</annotation>
-		<annotation cp="🎱">bilă | biliard | gaură | joc | opt</annotation>
-		<annotation cp="🎱" type="tts">biliard</annotation>
 		<annotation cp="🎳">bilă | bowling | joc | popice</annotation>
 		<annotation cp="🎳" type="tts">bowling</annotation>
 		<annotation cp="🏏">bâtă | crichet | minge | sport</annotation>
@@ -1783,8 +1763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">costum arte marțiale</annotation>
 		<annotation cp="🥅">fotbal | gol | plasă | plasa porții | poartă | sport</annotation>
 		<annotation cp="🥅" type="tts">plasa porții</annotation>
-		<annotation cp="🎯">centru | darts | fix la țintă | reușită | țintă</annotation>
-		<annotation cp="🎯" type="tts">fix la țintă</annotation>
 		<annotation cp="⛳">gaură | golf | steag | steag în gaură la golf</annotation>
 		<annotation cp="⛳" type="tts">steag în gaură la golf</annotation>
 		<annotation cp="⛸">gheață | patină | patină de gheață</annotation>
@@ -1799,10 +1777,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">sanie</annotation>
 		<annotation cp="🥌">joc | piatră | piatră de curling</annotation>
 		<annotation cp="🥌" type="tts">piatră de curling</annotation>
+		<annotation cp="🎯">centru | darts | fix la țintă | reușită | țintă</annotation>
+		<annotation cp="🎯" type="tts">fix la țintă</annotation>
+		<annotation cp="🎱">bilă | biliard | gaură | joc | opt</annotation>
+		<annotation cp="🎱" type="tts">biliard</annotation>
+		<annotation cp="🔮">cristal | fantezie | glob | glob de cristal | noroc | viitor</annotation>
+		<annotation cp="🔮" type="tts">glob de cristal</annotation>
 		<annotation cp="🎮">controller | joc | joc video | video</annotation>
 		<annotation cp="🎮" type="tts">joc video</annotation>
 		<annotation cp="🕹">joc | joystick | manetă | video</annotation>
 		<annotation cp="🕹" type="tts">joystick</annotation>
+		<annotation cp="🎰">joc | jocuri mecanice | manetă | noroc</annotation>
+		<annotation cp="🎰" type="tts">jocuri mecanice</annotation>
 		<annotation cp="🎲">joc | noroc | zar</annotation>
 		<annotation cp="🎲" type="tts">zar</annotation>
 		<annotation cp="♠">cărți | inimă neagră | joc | pică</annotation>
@@ -1819,6 +1805,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🀄" type="tts">dragon roșu la mahjong</annotation>
 		<annotation cp="🎴">carte | cărți de joc cu flori | floare | Japonia | joc</annotation>
 		<annotation cp="🎴" type="tts">cărți de joc cu flori</annotation>
+		<annotation cp="🎭">artă | arte interpretative | măști | spectacol | teatru</annotation>
+		<annotation cp="🎭" type="tts">arte interpretative</annotation>
+		<annotation cp="🖼">artă | muzeu | pictură | ramă | tablou cu ramă</annotation>
+		<annotation cp="🖼" type="tts">tablou cu ramă</annotation>
+		<annotation cp="🎨">culori | paletă | paletă de pictor | pictor</annotation>
+		<annotation cp="🎨" type="tts">paletă de pictor</annotation>
 		<annotation cp="🔇">dezactivat | difuzor | difuzor fără sunet | liniște | oprit | silențios</annotation>
 		<annotation cp="🔇" type="tts">difuzor fără sunet</annotation>
 		<annotation cp="🔈">sunet încet | volum scăzut al difuzorului</annotation>
@@ -1925,12 +1917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">lupă orientată spre stânga</annotation>
 		<annotation cp="🔎">căutare | instrument | lupă | lupă orientată spre dreapta | mărire</annotation>
 		<annotation cp="🔎" type="tts">lupă orientată spre dreapta</annotation>
-		<annotation cp="🔬">cercetare | instrument | medical | microscop | observare | știință</annotation>
-		<annotation cp="🔬" type="tts">microscop</annotation>
-		<annotation cp="🔭">cercetare | instrument | spațiu | stele | știință | telescop</annotation>
-		<annotation cp="🔭" type="tts">telescop</annotation>
-		<annotation cp="📡">antenă | antenă satelit | comunicare | satelit</annotation>
-		<annotation cp="📡" type="tts">antenă satelit</annotation>
 		<annotation cp="🕯">flacără | lumânare | lumină</annotation>
 		<annotation cp="🕯" type="tts">lumânare</annotation>
 		<annotation cp="💡">bandă desenată | bec | electricitate | idee | lumină</annotation>
@@ -2117,18 +2103,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚙" type="tts">rotiță zimțată</annotation>
 		<annotation cp="🗜">comprimare | instrument | menghină</annotation>
 		<annotation cp="🗜" type="tts">menghină</annotation>
-		<annotation cp="⚗">alambic | chimie | instrument</annotation>
-		<annotation cp="⚗" type="tts">alambic</annotation>
 		<annotation cp="⚖">balanță | cântar | egalitate | instrument | justiție | zodiac</annotation>
 		<annotation cp="⚖" type="tts">balanță</annotation>
 		<annotation cp="🔗">conexiune | legătură | verigă | za</annotation>
 		<annotation cp="🔗" type="tts">za</annotation>
 		<annotation cp="⛓">lanț | zale</annotation>
 		<annotation cp="⛓" type="tts">lanț</annotation>
+		<annotation cp="⚗">alambic | chimie | instrument</annotation>
+		<annotation cp="⚗" type="tts">alambic</annotation>
+		<annotation cp="🔬">cercetare | instrument | medical | microscop | observare | știință</annotation>
+		<annotation cp="🔬" type="tts">microscop</annotation>
+		<annotation cp="🔭">cercetare | instrument | spațiu | stele | știință | telescop</annotation>
+		<annotation cp="🔭" type="tts">telescop</annotation>
+		<annotation cp="📡">antenă | antenă satelit | comunicare | satelit</annotation>
+		<annotation cp="📡" type="tts">antenă satelit</annotation>
 		<annotation cp="💉">ac | doctor | injecție | seringă | siringă | tratament</annotation>
 		<annotation cp="💉" type="tts">seringă</annotation>
 		<annotation cp="💊">doctor | medicament | pastilă | pilulă | tratament</annotation>
 		<annotation cp="💊" type="tts">pastilă</annotation>
+		<annotation cp="🚪">ușă</annotation>
+		<annotation cp="🚪" type="tts">ușă</annotation>
+		<annotation cp="🛏">cazare | hotel | pat | somn</annotation>
+		<annotation cp="🛏" type="tts">pat</annotation>
+		<annotation cp="🛋">canapea | canapea și lampă | hotel | lampă | lumină</annotation>
+		<annotation cp="🛋" type="tts">canapea și lampă</annotation>
+		<annotation cp="🚽">toaletă</annotation>
+		<annotation cp="🚽" type="tts">toaletă</annotation>
+		<annotation cp="🚿">apă | duș</annotation>
+		<annotation cp="🚿" type="tts">duș</annotation>
+		<annotation cp="🛁">baie | cadă</annotation>
+		<annotation cp="🛁" type="tts">cadă</annotation>
+		<annotation cp="🛒">cărucior | cărucior de cumpărături | coș | cumpărături</annotation>
+		<annotation cp="🛒" type="tts">cărucior de cumpărături</annotation>
 		<annotation cp="🚬">fum | fumat | scrum | țigară</annotation>
 		<annotation cp="🚬" type="tts">țigară</annotation>
 		<annotation cp="⚰">coșciug | înmormântare | moarte</annotation>
@@ -2137,12 +2143,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">urnă funerară</annotation>
 		<annotation cp="🗿">insula paștelui | statuie | statuie moai</annotation>
 		<annotation cp="🗿" type="tts">statuie moai</annotation>
-		<annotation cp="🛢">butoi | butoi de combustibil | tablă</annotation>
-		<annotation cp="🛢" type="tts">butoi de combustibil</annotation>
-		<annotation cp="🔮">cristal | fantezie | glob | glob de cristal | noroc | viitor</annotation>
-		<annotation cp="🔮" type="tts">glob de cristal</annotation>
-		<annotation cp="🛒">cărucior | cărucior de cumpărături | coș | cumpărături</annotation>
-		<annotation cp="🛒" type="tts">cărucior de cumpărături</annotation>
 		<annotation cp="🏧">atm | bancomat | simbol pentru bancomat</annotation>
 		<annotation cp="🏧" type="tts">simbol pentru bancomat</annotation>
 		<annotation cp="🚮">coș de gunoi | folosiți coșul de gunoi | gunoi</annotation>

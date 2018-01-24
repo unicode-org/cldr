@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -416,6 +416,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yue">kantonezisht</language>
 			<language type="zgh">tamaziatishte standarde marokene</language>
 			<language type="zh">kinezisht</language>
+			<language type="zh_Hans">kinezisht (i thjeshtuar)</language>
+			<language type="zh_Hant">kinezisht (tradicional)</language>
 			<language type="zu">zuluisht</language>
 			<language type="zun">zunisht</language>
 			<language type="zxx">nuk ka përmbajtje gjuhësore</language>
@@ -499,6 +501,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa Lindore</territory>
 			<territory type="154">Europa Veriore</territory>
 			<territory type="155">Europa Perëndimore</territory>
+			<territory type="202">Afrika Subsahariane</territory>
 			<territory type="419">Amerika Latine</territory>
 			<territory type="AC">Ishulli Asenshion</territory>
 			<territory type="AD">Andorrë</territory>
@@ -526,7 +529,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="BH">Bahrejn</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
-			<territory type="BL">Shën Bartolomeu</territory>
+			<territory type="BL">Shën-Bartolome</territory>
 			<territory type="BM">Bermudë</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivi</territory>
@@ -608,7 +611,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="GY">Guajanë</territory>
 			<territory type="HK">RPA i Hong-Kongut</territory>
 			<territory type="HK" alt="short">Hong-Kong</territory>
-			<territory type="HM">Ishulli Hërd dhe Ishujt Mekdonald</territory>
+			<territory type="HM">Ishujt Hërd e Mekdonald</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Kroaci</territory>
 			<territory type="HT">Haiti</territory>
@@ -695,7 +698,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="PH">Filipine</territory>
 			<territory type="PK">Pakistan</territory>
 			<territory type="PL">Poloni</territory>
-			<territory type="PM">Shën Pier dhe Mikelon</territory>
+			<territory type="PM">Shën-Pier dhe Mikelon</territory>
 			<territory type="PN">Ishujt Pitkern</territory>
 			<territory type="PR">Porto-Riko</territory>
 			<territory type="PS">Territoret Palestineze</territory>
@@ -718,7 +721,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SG">Singapor</territory>
 			<territory type="SH">Shën-Helenë</territory>
 			<territory type="SI">Slloveni</territory>
-			<territory type="SJ">Svalbard dhe Jan-Majen</territory>
+			<territory type="SJ">Svalbard e Jan-Majen</territory>
 			<territory type="SK">Sllovaki</territory>
 			<territory type="SL">Siera-Leone</territory>
 			<territory type="SM">San-Marino</territory>
@@ -726,7 +729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SO">Somali</territory>
 			<territory type="SR">Surinami</territory>
 			<territory type="SS">Sudani i Jugut</territory>
-			<territory type="ST">Sao Tome dhe Principe</territory>
+			<territory type="ST">Sao-Tome e Principe</territory>
 			<territory type="SV">Salvador</territory>
 			<territory type="SX">Sint-Marten</territory>
 			<territory type="SY">Siri</territory>
@@ -4256,7 +4259,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Papua_New_Guinea">
 				<long>
-					<standard>Ora e Papua-Guinesë së Re</standard>
+					<standard>Ora e Guinesë së Re-Papua</standard>
 				</long>
 			</metazone>
 			<metazone type="Paraguay">
@@ -4677,9 +4680,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">florinë aruban</displayName>
 			</currency>
 			<currency type="AZN">
-				<displayName>Manata e Azerbajxhanit</displayName>
-				<displayName count="one">manatë azere</displayName>
-				<displayName count="other">manata azere</displayName>
+				<displayName>Manata azerbajxhanase</displayName>
+				<displayName count="one">manatë azerbajxhanase</displayName>
+				<displayName count="other">manata azerbajxhanase</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>Marka e Bosnjë-Hercegovinës [e shkëmbyeshme]</displayName>
@@ -4784,9 +4787,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">peso kiliane</displayName>
 			</currency>
 			<currency type="CNH">
-				<displayName>Juani kinez (tregu i jashtëm)</displayName>
-				<displayName count="one">juan kinez (tregu i jashtëm)</displayName>
-				<displayName count="other">juanë kinez (tregu i jashtëm)</displayName>
+				<displayName>Juani kinez (për treg të jashtëm)</displayName>
+				<displayName count="one">juan kinez (për treg të jashtëm)</displayName>
+				<displayName count="other">juanë kinez (për treg të jashtëm)</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Juani kinez</displayName>
@@ -4820,7 +4823,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">eskudo të Kepit të Gjelbër</displayName>
 			</currency>
 			<currency type="CZK">
-				<displayName>Koruna e Republikës Çeke</displayName>
+				<displayName>Koruna e Çekisë</displayName>
 				<displayName count="one">korunë çeke</displayName>
 				<displayName count="other">koruna çeke</displayName>
 			</currency>
@@ -4845,9 +4848,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">dinarë algjerian</displayName>
 			</currency>
 			<currency type="EGP">
-				<displayName>Stërlina egjiptiane</displayName>
-				<displayName count="one">stërlinë egjiptiane</displayName>
-				<displayName count="other">stërlina egjiptiane</displayName>
+				<displayName>Sterlina egjiptiane</displayName>
+				<displayName count="one">sterlinë egjiptiane</displayName>
+				<displayName count="other">sterlina egjiptiane</displayName>
 			</currency>
 			<currency type="ERN">
 				<displayName>Nakfa e Eritresë</displayName>
@@ -5254,9 +5257,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">rupi të Ishujve Sishelë</displayName>
 			</currency>
 			<currency type="SDG">
-				<displayName>Stërlina sudaneze</displayName>
-				<displayName count="one">stërlinë sudaneze</displayName>
-				<displayName count="other">stërlina sudaneze</displayName>
+				<displayName>Sterlina sudaneze</displayName>
+				<displayName count="one">sterlinë sudaneze</displayName>
+				<displayName count="other">sterlina sudaneze</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>Korona suedeze</displayName>
@@ -5269,9 +5272,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">dollarë singapori</displayName>
 			</currency>
 			<currency type="SHP">
-				<displayName>Stërlina e Ishullit të Shën-Helenës</displayName>
-				<displayName count="one">stërlinë e Ishullit të Shën-Helenës</displayName>
-				<displayName count="other">stërlina të Ishullit të Shën-Helenës</displayName>
+				<displayName>Sterlina e Ishullit të Shën-Helenës</displayName>
+				<displayName count="one">sterlinë e Ishullit të Shën-Helenës</displayName>
+				<displayName count="other">sterlina e Ishullit të Shën-Helenës</displayName>
 			</currency>
 			<currency type="SLL">
 				<displayName>Leoni i Sierra-Leones</displayName>
@@ -5289,14 +5292,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">dollarë surinamez</displayName>
 			</currency>
 			<currency type="SSP">
-				<displayName>Stërlina e Sudanit të Jugut</displayName>
-				<displayName count="one">stërlinë e Sudanit të Jugut</displayName>
-				<displayName count="other">stërlina të Sudanit të Jugut</displayName>
+				<displayName>Sterlina sudanezo-jugore</displayName>
+				<displayName count="one">sterlinë sudanezo-jugore</displayName>
+				<displayName count="other">sterlina sudanezo-jugore</displayName>
 			</currency>
 			<currency type="STD">
 				<displayName>Dobra e Sao-Tomes dhe Prinsipes</displayName>
 				<displayName count="one">dobër e Sao-Tomes dhe Prinsipes</displayName>
 				<displayName count="other">dobra të Sao-Tomes dhe Prinsipes</displayName>
+			</currency>
+			<currency type="STN">
+				<displayName>Dobra e Sao-Tomes dhe Prinsipes (2018)</displayName>
+				<displayName count="one">dobër e Sao-Tomes dhe Prinsipes (2018)</displayName>
+				<displayName count="other">dobra të Sao-Tomes dhe Prinsipes (2018)</displayName>
 			</currency>
 			<currency type="SYP">
 				<displayName>Sterlina siriane</displayName>
@@ -5954,9 +5962,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} milivat</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>kuaj fuqi</displayName>
-				<unitPattern count="one">{0} kalë fuqi</unitPattern>
-				<unitPattern count="other">{0} kuaj fuqi</unitPattern>
+				<displayName>kuaj-fuqi</displayName>
+				<unitPattern count="one">{0} kalë-fuqi</unitPattern>
+				<unitPattern count="other">{0} kuaj-fuqi</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hektopaskal</displayName>
@@ -7173,7 +7181,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="currency_symbols">simbole monedhash/valutash</characterLabel>
 		<characterLabel type="dash_connector">vizë lidhëse</characterLabel>
 		<characterLabel type="digits">shifra</characterLabel>
-		<characterLabel type="dingbats">dingbats (shndërrues germash në yje ose figura)</characterLabel>
+		<characterLabel type="dingbats">dingbat (shndërrues germash në yje ose figura)</characterLabel>
 		<characterLabel type="divination_symbols">simbole parashikimi</characterLabel>
 		<characterLabel type="downwards_arrows">shigjeta për së poshti</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">shigjeta lart-poshtë</characterLabel>

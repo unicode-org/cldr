@@ -149,6 +149,7 @@ public class CheckWidths extends CheckCLDR {
         "|acceleration-g-force" +
         "|speed-kilometer-per-hour" +
         "|speed-meter-per-second" +
+        "|pressure-pound-per-square-inch" +
         ")";
 
     static final String ALLOW_LONGEST = "consumption-liter-per-100kilometers";

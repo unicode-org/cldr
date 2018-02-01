@@ -1266,8 +1266,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">+{0} кӀиранденошкахь</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">+{0} кӀиранденошкахь</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} кӀиранденошкахь</relativeTimePattern>
+					<relativeTimePattern count="one">-{0} кӀиранденошкахь</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} кӀиранденошкахь</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-short">
@@ -1278,6 +1278,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">+{0} кӀиранденошкахь</relativeTimePattern>
 					<relativeTimePattern count="other">+{0} кӀиранденошкахь</relativeTimePattern>
 				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} кӀиранденошкахь</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} кӀиранденошкахь</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">даханчу кӀиранан д.</relative>
@@ -1287,45 +1291,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">+{0} кӀиранденошкахь</relativeTimePattern>
 					<relativeTimePattern count="other">+{0} кӀиранденошкахь</relativeTimePattern>
 				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} кӀиранденошкахь</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} кӀиранденошкахь</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon">
 				<relative type="-1">даханчу оршотан дийнахь</relative>
 				<relative type="0">карарчу оршотан дийнахь</relative>
 				<relative type="1">рогӀерчу оршотан дийнахь</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} Шотденошкахь</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} Шотденошкахь</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} Шотденошкахь</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} Шотденошкахь</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="mon-short">
 				<relative type="-1">даханчу оршотан д.</relative>
 				<relative type="0">карара оршотан д.</relative>
 				<relative type="1">рогӀерчу оршотан д.</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} Шотденошкахь</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} Шотденошкахь</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} Шотденошкахь</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} Шотденошкахь</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">даханчу оршотан д.</relative>
 				<relative type="0">карара оршотан д.</relative>
 				<relative type="1">рогӀерчу оршотан д.</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} Шотденошкахь</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} Шотденошкахь</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} Шотденошкахь</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} Шотденошкахь</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="tue">
 				<relative type="-1">даханчу шинарин дийнахь</relative>
@@ -1344,7 +1328,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">даханчу шинарин д.</relative>
 				<relative type="0">карарчу шинарин д.</relative>
 				<relative type="1">рогӀерчу шинарин д.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Ширанаденошкахь</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Ширанаденошкахь</relativeTimePattern>
+				</relativeTime>
 				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} Ширанаденошкахь</relativeTimePattern>
 					<relativeTimePattern count="other">-{0} Ширанаденошкахь</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -1352,6 +1341,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">даханчу шинарин д.</relative>
 				<relative type="0">карарчу шинарин д.</relative>
 				<relative type="1">рогӀерчу шинарин д.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Ширанаденошкахь</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Ширанаденошкахь</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} Ширанаденошкахь</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} Ширанаденошкахь</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed">
 				<relative type="-1">даханчу кхаарин дийнахь</relative>

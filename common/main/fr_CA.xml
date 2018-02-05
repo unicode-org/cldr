@@ -2935,8 +2935,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="contributed">rials iraniens</displayName>
 			</currency>
 			<currency type="JPY">
-				<displayName draft="contributed">yen japonais</displayName>
-				<displayName count="other" draft="contributed">yens japonais</displayName>
 				<symbol draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KMF">
@@ -3059,9 +3057,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} seconde d’angle</unitPattern>
 				<unitPattern count="other">{0} secondes d’angle</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<unitPattern count="one" draft="contributed">{0} mètre carré</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<perUnitPattern draft="contributed">{0} par mille carré</perUnitPattern>
@@ -3190,20 +3185,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="digital-gigabit">
 				<displayName>Gb</displayName>
 			</unit>
-			<unit type="digital-megabyte">
-				<unitPattern count="other" draft="contributed">{0} Mo</unitPattern>
-			</unit>
 			<unit type="digital-megabit">
 				<displayName>Mb</displayName>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>kb</displayName>
-			</unit>
-			<unit type="length-nanometer">
-				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">vg</displayName>
@@ -3232,9 +3218,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>psi</displayName>
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>

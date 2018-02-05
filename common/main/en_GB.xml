@@ -2017,9 +2017,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
-				<relative type="-1" draft="contributed">yesterday</relative>
-				<relative type="0" draft="contributed">today</relative>
-				<relative type="1" draft="contributed">tomorrow</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} days</relativeTimePattern>

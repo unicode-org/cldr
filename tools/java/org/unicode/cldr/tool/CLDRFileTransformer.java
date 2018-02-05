@@ -40,6 +40,7 @@ public class CLDRFileTransformer {
         sr_Latn_BA("sr_Cyrl_BA", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD),
         sr_Latn_ME("sr_Cyrl_ME", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD),
         sr_Latn_XK("sr_Cyrl_XK", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD),
+        ha_NE("ha", "ha-ha_NE.xml", Transliterator.FORWARD, "[y Y ƴ Ƴ ʼ]", PolicyIfExisting.DISCARD),
         yo_BJ("yo", "yo-yo_BJ.xml", Transliterator.FORWARD, "[ẹ ọ ṣ Ẹ Ọ Ṣ]", PolicyIfExisting.DISCARD),
         de_CH("de", "[ß] Casefold", Transliterator.FORWARD, "[ß]", PolicyIfExisting.MINIMIZE),
         yue_Hans("yue", "Simplified-Traditional.xml", Transliterator.REVERSE, "[:script=Hant:]", PolicyIfExisting.RETAIN),

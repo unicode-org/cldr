@@ -84,6 +84,8 @@ import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwkPlus {
 
+    private static final boolean DEBUG = false;
+    
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
@@ -719,7 +721,9 @@ public class TestBasic extends TestFmwkPlus {
         Set<String> defaultContents = Inheritance.defaultContents;
         Multimap<String,String> parentToChildren = Inheritance.parentToChildren;
 
-        Inheritance.showChain("", "", "root");
+        if (DEBUG) {
+            Inheritance.showChain("", "", "root");
+        }
 
         for (String locale : defaultContents) {
             CLDRFile cldrFile;

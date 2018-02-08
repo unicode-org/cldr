@@ -434,12 +434,10 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/numbers/symbols[@numberSystem=\"latn\"]/superscriptingExponent",
                 "x");
         
-        if (!logKnownIssue("13453", "ICU Regression: DecimalFormat getPositiveSuffix() returns nonempty string for scientific format")) {
-            assertEquals(
-                "superscriptingExponent faulty",
-                "<div class='cldr_example'><span class='cldr_substituted'>1.23456789</span>x10<span class='cldr_substituted'><sup>5</sup></span></div>",
-                actual);
-        }
+        assertEquals(
+            "superscriptingExponent faulty",
+            "<div class='cldr_example'><span class='cldr_substituted'>1.23456789</span>x10<span class='cldr_substituted'><sup>5</sup></span></div>",
+            actual);
     }
 
     public void TestFallbackFormat() {

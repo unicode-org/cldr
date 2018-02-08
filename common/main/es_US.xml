@@ -74,7 +74,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">Europa oriental</territory>
 			<territory type="154">Europa septentrional</territory>
 			<territory type="155">Europa occidental</territory>
-			<territory type="202" draft="contributed">África subsahariana</territory>
 			<territory type="AC">Isla de la Ascensión</territory>
 			<territory type="BA" draft="provisional">Bosnia y Herzegovina</territory>
 			<territory type="CI">Côte d’Ivoire</territory>
@@ -151,24 +150,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="contributed">ene.</month>
-							<month type="2" draft="contributed">feb.</month>
-							<month type="3" draft="contributed">mar.</month>
-							<month type="4" draft="contributed">abr.</month>
-							<month type="5" draft="contributed">may.</month>
-							<month type="6" draft="contributed">jun.</month>
-							<month type="7" draft="contributed">jul.</month>
-							<month type="8" draft="contributed">ago.</month>
-							<month type="9" draft="contributed">sep.</month>
-							<month type="10" draft="contributed">oct.</month>
-							<month type="11" draft="contributed">nov.</month>
-							<month type="12" draft="contributed">dic.</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="narrow">
@@ -910,10 +891,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} pt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
 			</unit>
-			<unit type="mass-microgram">
-				<unitPattern count="one" draft="contributed">{0} microgramo</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} microgramos</unitPattern>
-			</unit>
 			<unit type="power-gigawatt">
 				<displayName draft="contributed">gigavatios</displayName>
 				<unitPattern count="one" draft="contributed">{0} gigavatio</unitPattern>
@@ -1007,18 +984,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} CV</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} CV</unitPattern>
 			</unit>
-			<unit type="temperature-celsius">
-				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
-			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName draft="contributed">Imp. gal</displayName>
 				<unitPattern count="one" draft="contributed">{0} gal Imp.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} gal Imp.</unitPattern>
-			</unit>
-			<unit type="volume-cup">
-				<unitPattern count="one" draft="contributed">{0} tza.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} tza.</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

@@ -75,7 +75,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151" draft="contributed">Europa Oriental</territory>
 			<territory type="154">Europa septentrional</territory>
 			<territory type="155" draft="contributed">Europa Occidental</territory>
-			<territory type="202" draft="contributed">África subsahariana</territory>
 			<territory type="BA">Bosnia y Herzegovina</territory>
 			<territory type="CI">Côte d’Ivoire</territory>
 			<territory type="EZ">zona euro</territory>
@@ -348,8 +347,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hmsv">H:mm:ss v</dateFormatItem>
-						<dateFormatItem id="Hmv">H:mm v</dateFormatItem>
 						<dateFormatItem id="MMd">d/MM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d 'de' MMM</dateFormatItem>
@@ -1131,10 +1128,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="light-lux">
 				<displayName draft="contributed">lux</displayName>
 			</unit>
-			<unit type="mass-microgram">
-				<unitPattern count="one" draft="contributed">{0} microgramo</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} microgramos</unitPattern>
-			</unit>
 			<unit type="power-gigawatt">
 				<displayName draft="contributed">gigavatios</displayName>
 				<unitPattern count="one" draft="contributed">{0} gigavatio</unitPattern>
@@ -1284,10 +1277,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">km/hora</displayName>
-			</unit>
-			<unit type="temperature-celsius">
-				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName draft="contributed">Imp. gal</displayName>

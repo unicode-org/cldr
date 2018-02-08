@@ -2845,12 +2845,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Harare">
 				<exemplarCity>Harare</exemplarCity>
 			</zone>
-			<metazone type="Alaska">
-				<long>
-					<generic>ኣቆጻጽራ ኣላስካ</generic>
-					<standard>ንቡር ኣቆጻጽራ ኣላስካ</standard>
-				</long>
-			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -3024,11 +3018,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
-		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="contributed">{0} መዓልቲ</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="contributed">{0}መዓልቲ</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other" draft="contributed">{0}?</ordinalMinimalPairs>
-		</minimalPairs>
 	</numbers>
 	<units>
 		<durationUnit type="hm">

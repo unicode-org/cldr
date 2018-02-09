@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -86,12 +86,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<codePattern type="territory">ᠮᠣᠵᠢ᠄ {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<delimiters>
-		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>‘</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
-	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="generic">
@@ -118,26 +112,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
 					</intervalFormats>
@@ -374,42 +348,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>HH:mm:ss (z)</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
-					</intervalFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -502,13 +441,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT {0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0} ᠴᠠᠭ</regionFormat>
 			<regionFormat type="daylight">{0} ᠵᠣᠨ ᠎᠎᠎ᠤ ᠴᠠᠭ</regionFormat>
 			<regionFormat type="standard">{0} ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠴᠠᠭ</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ᠣᠯᠠᠨ ᠣᠯᠣᠰ ᠤᠨ ᠵᠣᠬᠢᠴᠡᠭᠣᠯᠣᠯᠳᠠᠳᠠᠢ ᠴᠠᠭ</standard>
@@ -592,82 +528,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<numbers>
 		<symbols numberSystem="latn">
 			<decimal draft="contributed">,</decimal>
-			<percentSign>%</percentSign>
-			<plusSign draft="contributed">+</plusSign>
-			<minusSign draft="contributed">-</minusSign>
 		</symbols>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats numberSystem="latn">
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats numberSystem="latn">
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<displayName>ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
 				<displayName count="one">ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
 				<displayName count="other">ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
-				<symbol draft="contributed">R$</symbol>
-				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>ᠬᠢᠲᠠᠳ ᠶᠤᠸᠠᠨ</displayName>
 				<displayName count="one">ᠬᠢᠲᠠᠳ ᠶᠤᠸᠠᠨ</displayName>
 				<displayName count="other">ᠬᠢᠲᠠᠳ ᠶᠤᠸᠠᠨ</displayName>
-				<symbol draft="contributed">CN¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ᠶᠧᠸᠷᠣ</displayName>
 				<displayName count="one">ᠶᠧᠸᠷᠣ</displayName>
 				<displayName count="other">ᠶᠧᠸᠷᠣ</displayName>
-				<symbol draft="contributed">€</symbol>
-				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
 				<displayName count="one">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
 				<displayName count="other">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
-				<symbol draft="contributed">£</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>ᠡᠨᠡᠳᠬᠡᠭ᠌ ᠷᠦᠫᠢ</displayName>
 				<displayName count="one">ᠡᠨᠡᠳᠬᠡᠭ᠌ ᠷᠦᠫᠢ</displayName>
 				<displayName count="other">ᠡᠨᠡᠳᠬᠡᠭ᠌ ᠷᠦᠫᠢ</displayName>
-				<symbol draft="contributed">₹</symbol>
-				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>ᠶᠠᠫᠣᠨ ᠧᠨ</displayName>
 				<displayName count="one">ᠶᠠᠫᠣᠨ ᠧᠨ</displayName>
 				<displayName count="other">ᠶᠠᠫᠣᠨ ᠧᠨ</displayName>
-				<symbol draft="contributed">JP¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>ᠳᠥᠬᠥᠷᠢᠭ᠌</displayName>
@@ -679,15 +577,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ᠣᠷᠥᠰ ᠷᠥᠪᠯᠢ</displayName>
 				<displayName count="one">ᠣᠷᠥᠰ ᠷᠥᠪᠯᠢ</displayName>
 				<displayName count="other">ᠣᠷᠥᠰ ᠷᠥᠪᠯᠢ</displayName>
-				<symbol draft="contributed">RUB</symbol>
-				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ᠠᠮᠸᠷᠢᠻᠠ ᠳ᠋ᠣᠯᠯᠠᠷ</displayName>
 				<displayName count="one">ᠠᠮᠸᠷᠢᠻᠠ ᠳ᠋ᠣᠯᠯᠠᠷ</displayName>
 				<displayName count="other">ᠠᠮᠸᠷᠢᠻᠠ ᠳ᠋ᠣᠯᠯᠠᠷ</displayName>
-				<symbol draft="contributed">$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>ᠲᠣᠳᠣᠷᠬᠠᠢ ᠥᠭᠡᠢ ᠮᠥᠩᠭᠥᠨ ᠲᠡᠮᠳᠡᠭᠳᠥ</displayName>
@@ -703,18 +597,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<durationUnit type="hms">
 			<durationUnitPattern>hh:mm:ss</durationUnitPattern>
 		</durationUnit>
-		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern>
-		</durationUnit>
 	</units>
-	<listPatterns>
-		<listPattern>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
-		</listPattern>
-	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr>ᠲᠡᠢᠢᠮᠣ᠄ ᠲ</yesstr>

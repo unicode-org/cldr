@@ -35,7 +35,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
-import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
@@ -611,7 +610,7 @@ public class CLDRModify {
     static class RetainWhenMinimizing implements CLDRFile.RetentionTest {
         private CLDRFile file;
         private CLDRLocale c;
-        Status status = new Status();
+        // Status status = new Status(); // no need to have, and threading issue
 
         public RetainWhenMinimizing setParentFile(CLDRFile file) {
             this.file = file;
@@ -624,7 +623,7 @@ public class CLDRModify {
             if (path.startsWith("//ldml/identity/")) {
                 return Retention.RETAIN;
             }
-            String localeId = file.getSourceLocaleID(path, status);
+            String localeId = file.getSourceLocaleID(path, null);
             if ((c.isLanguageLocale() || c.equals(CLDRLocale.getInstance("pt_PT")))
                 && (XMLSource.ROOT_ID.equals(localeId) || XMLSource.CODE_FALLBACK_ID.equals(localeId))) {
                 return Retention.RETAIN;

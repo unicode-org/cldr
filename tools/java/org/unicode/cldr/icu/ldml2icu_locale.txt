@@ -209,6 +209,7 @@ characters/parseLenients/parseLenient[@sample='%anyAttribute'][@scope='%anyAttri
 //ldml/numbers/currencyFormats[@numberSystem="%D"]/currencySpacing/(%W)/(%W)   ; /currencySpacing/$1/$2
 //ldml/numbers/currencyFormats[@numberSystem="%D"]/unitPattern[@count="(%W)"] ; /CurrencyUnitPatterns/$1
 
+//ldml/numbers/defaultNumberingSystem[@alt="(%A)"] ; /NumberElements/default_$1
 //ldml/numbers/defaultNumberingSystem ; /NumberElements/default
 //ldml/numbers/minimumGroupingDigits ; /NumberElements/minimumGroupingDigits
 //ldml/numbers/otherNumberingSystems/(%W)   ; /NumberElements/$1

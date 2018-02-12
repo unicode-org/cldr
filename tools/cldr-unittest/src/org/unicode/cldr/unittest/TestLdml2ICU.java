@@ -31,6 +31,8 @@ import com.ibm.icu.text.Transform;
  * @author jchye
  */
 public class TestLdml2ICU extends TestFmwk {
+    private static final boolean DEBUG = true;
+
     static final CLDRConfig info = CLDRConfig.getInstance();
 
     private static final Transform<String, RegexFinder> XPATH_TRANSFORM = new Transform<String, RegexFinder>() {
@@ -237,6 +239,9 @@ public class TestLdml2ICU extends TestFmwk {
             DraftStatus.contributed);
         RegexLookup<Object> lookup = loadRegexes("ldml2icu_locale.txt");
         for (String xpath : plain) {
+            if (DEBUG && xpath.contains("defaultNumberingSystem")) {
+                int debug = 0;
+            }
             String fullPath = CLDRFile.getNondraftNonaltXPath(plain
                 .getFullXPath(xpath));
             checkPath(lookup, fullPath, plain.getStringValue(xpath));

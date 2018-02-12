@@ -610,17 +610,23 @@ public class CLDRModify {
     static class RetainWhenMinimizing implements CLDRFile.RetentionTest {
         private CLDRFile file;
         private CLDRLocale c;
-        // Status status = new Status(); // no need to have, and threading issue
+        private boolean isArabicSublocale;
+        // Status status = new Status(); // no need to have, was unused
 
         public RetainWhenMinimizing setParentFile(CLDRFile file) {
             this.file = file;
             this.c = CLDRLocale.getInstance(file.getLocaleIDFromIdentity());
+            isArabicSublocale = "ar".equals(c.getLanguage()) && !"001".equals(c.getCountry());
             return this;
         }
 
         @Override
         public Retention getRetention(String path) {
             if (path.startsWith("//ldml/identity/")) {
+                return Retention.RETAIN;
+            }
+            // special case for Arabic
+            if (isArabicSublocale && path.startsWith("//ldml/numbers/defaultNumberingSystem")) {
                 return Retention.RETAIN;
             }
             String localeId = file.getSourceLocaleID(path, null);

@@ -1219,10 +1219,10 @@ XXX Code for transations where no currency is involved
         <group type="001" contains="QU" status="deprecated"/> <!--European Union -->
         <group type="011" contains="BF BJ CI CV GH GM GN GW LR ML MR NE NG SH SL SN TG"/> <!--Western Africa -->
         <group type="013" contains="BZ CR GT HN MX NI PA SV"/> <!--Central America -->
-        <group type="014" contains="BI DJ ER ET KE KM MG MU MW MZ RE RW SC SO SS TZ UG YT ZM ZW"/> <!--Eastern Africa -->
+        <group type="014" contains="BI DJ ER ET IO KE KM MG MU MW MZ RE RW SC SO SS TZ UG YT ZM ZW"/> <!--Eastern Africa -->
         <group type="142" contains="145 143 030 034 035"/> <!--Asia -->
         <group type="143" contains="TM TJ KG KZ UZ"/> <!-- Central Asia -->
-        <group type="145" contains="AE AM AZ BH CY GE IL IQ JO KW LB OM PS QA SA SY TR YE"/> <!--Western Asia -->
+        <group type="145" contains="AE AM AZ BH CY GE IL IQ JO KW LB OM PS QA SA SY TF TR YE"/> <!--Western Asia -->
         <group type="145" contains="NT YD" status="deprecated"/> <!--Western Asia -->
         <group type="015" contains="DZ EG EH LY MA SD TN EA IC"/> <!--Northern Africa -->
         <group type="150" contains="154 155 151 039"/> <!--Europe -->
@@ -1249,14 +1249,14 @@ XXX Code for transations where no currency is involved
         <group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT RS PT SI SM VA XK"/> <!--Southern Europe, XK not in UN data -->
         <group type="039" contains="CS YU" status="deprecated"/> <!--Southern Europe -->
         <group type="419" contains="013 029 005" grouping="true"/> <!--Latin America and the Caribbean -->
-        <group type="005" contains="AR BO BR CL CO EC FK GF GY PE PY SR UY VE"/> <!--South America -->
-        <group type="053" contains="AU NF NZ"/> <!--Australia and New Zealand -->
+        <group type="005" contains="AR BO BR BV CL CO EC FK GF GS GY PE PY SR UY VE"/> <!--South America -->
+        <group type="053" contains="AU CC CX HM NF NZ"/> <!--Australia and New Zealand -->
         <group type="054" contains="FJ NC PG SB VU"/> <!--Melanesia -->
-        <group type="057" contains="FM GU KI MH MP NR PW"/> <!--Micronesia -->
+        <group type="057" contains="FM GU KI MH MP NR PW UM"/> <!--Micronesia -->
         <group type="061" contains="AS CK NU PF PN TK TO TV WF WS"/> <!--Polynesia -->
         <group type="034" contains="AF BD BT IN IR LK MV NP PK"/> <!--Southern Asia -->
         <group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
-        <group type="QO" contains="AQ BV CC CX GS HM IO TF UM AC CP DG TA"/> <!--Outlying Oceania -->
+        <group type="QO" contains="AQ AC CP DG TA"/> <!--Outlying Oceania -->
         <group type="EU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO" grouping="true"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
         <group type="EZ" contains="AT BE CY DE EE ES FI FR GR IE IT LT LU LV MT NL PT SI SK" grouping="true"/> <!-- Eurozone, see https://en.wikipedia.org/wiki/Eurozone -->
         <group type="UN" contains="AD AE AF AG AL AM AO AR AT AU AZ BA BB BD BE BF BG BH BI BJ BN BO BR BS BT BW BY BZ CA CD CF CG CH CI CL CM CN CO CR CU CV CY CZ DE DJ DK DM DO DZ EC EE EG ER ES ET FI FJ FM FR GA GB GD GE GH GM GN GQ GR GT GW GY HN HR HT HU ID IE IL IN IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MR MT MU MV MX MW MY MZ NA NE NG NI NL NO NR NP NZ OM PA PE PG PH PK PL PT PW PY QA RO RS RU RW SA SB SC SD SE SG SI SK SL SM SN SO SR SS ST SV SY SZ TD TG TH TJ TL TM TN TO TR TT TV TZ UA UG US UY UZ VC VE VN VU WS YE ZA ZM ZW" grouping="true"/> <!-- United Nations, see https://en.wikipedia.org/wiki/Member_states_of_the_United_Nations -->

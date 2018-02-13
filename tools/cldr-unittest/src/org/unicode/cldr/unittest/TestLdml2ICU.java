@@ -31,7 +31,7 @@ import com.ibm.icu.text.Transform;
  * @author jchye
  */
 public class TestLdml2ICU extends TestFmwk {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     static final CLDRConfig info = CLDRConfig.getInstance();
 

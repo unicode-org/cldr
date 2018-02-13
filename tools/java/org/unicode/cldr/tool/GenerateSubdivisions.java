@@ -45,7 +45,6 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.CaseMap;
-import com.ibm.icu.text.CaseMap.Title;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Normalizer2;
@@ -53,7 +52,8 @@ import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 
 public class GenerateSubdivisions {
-    private static final Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();
+    private static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE =
+        CaseMap.toTitle().wholeString().noLowercase();
 
     private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "iso_country_codes/";
     private static final String ISO_SUBDIVISION_CODES = ISO_COUNTRY_CODES + "iso_country_codes.xml";
@@ -171,8 +171,8 @@ public class GenerateSubdivisions {
                 Error: (TestSubdivisions.java:66) : country SJ = subdivisionNO-21: expected "Svalbard & Jan Mayen", got "Svalbard"
                 Error: (TestSubdivisions.java:66) : country SJ = subdivisionNO-22: expected "Svalbard & Jan Mayen", got "Jan Mayen"
                  */
-                String paren = value.substring(value.length() - 3, value.length() - 1);
                 // OLD code to guess country from comment
+//              String paren = value.substring(value.length() - 3, value.length() - 1);
 //                if (!paren.equals("BQ") && !paren.equals("SJ")) {
 //                    String old = TO_COUNTRY_CODE.get(code);
 //                    if (old != null) {
@@ -364,9 +364,8 @@ public class GenerateSubdivisions {
                     }
                     continue;
                 }
-                Set<String> codesIncluded = new HashSet<>(); // record the ones we did, so we can add others
                 Set<String> remainder = formerRegionToSubdivisions.get(regionCode);
-                remainder = remainder == null ? Collections.EMPTY_SET : new LinkedHashSet<>(remainder);
+                remainder = remainder == null ? Collections.emptySet() : new LinkedHashSet<>(remainder);
 
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
 //                output.append("\t\t<!-- ")
@@ -385,7 +384,7 @@ public class GenerateSubdivisions {
                     final String sdCode = node.code;
                     String name = getBestName(sdCode, true);
                     String upper = UCharacter.toUpperCase(name);
-                    String title = TO_TITLE_WHOLE_STRING_NO_LOWERCASE.apply(Locale.ENGLISH, null, name, new StringBuilder(), null).toString();
+                    String title = TO_TITLE_WHOLE_STRING_NO_LOWERCASE.apply(Locale.ROOT, null, name);
                     if (name.equals(upper) || !name.equals(title)) {
                         System.out.println("Suspicious name: " + name);
                     }
@@ -640,9 +639,6 @@ public class GenerateSubdivisions {
 
         private static void addAliases(Appendable output, Set<String> missing) throws IOException {
             for (String toReplace : missing) {
-                if (toReplace.startsWith("nl")) {
-                    int debug = 0;
-                }
                 List<String> replaceBy = null;
                 String reason = "deprecated";
                 R2<List<String>, String> aliasInfo = SUBDIVISION_ALIASES_FORMER.get(toReplace);

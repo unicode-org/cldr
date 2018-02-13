@@ -791,6 +791,8 @@ public class DisplayAndInputProcessor {
     /**
      * @return a canonical numeric pattern, based on the type, and the isPOSIX flag. The latter is set for en_US_POSIX.
      */
+    static final Splitter SEMI_SPLITTER = Splitter.on(';').trimResults();
+    
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
 
@@ -808,7 +810,14 @@ public class DisplayAndInputProcessor {
             df.setMaximumFractionDigits(digits[2]);
         }
         String pattern = df.toPattern();
-
+        List<String> parts = SEMI_SPLITTER.splitToList(pattern);
+        String pattern2 = parts.get(0);
+        if (parts.size() > 1) {
+            pattern2 += ";" + parts.get(1);
+        }
+        if (!pattern2.equals(pattern)) {
+            pattern = pattern2;
+        }
         // int pos = pattern.indexOf(';');
         // if (pos < 0) return pattern + ";-" + pattern;
         return pattern;

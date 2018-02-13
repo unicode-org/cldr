@@ -328,7 +328,7 @@ public class GenerateSubdivisions {
 //                    input = input.substring(0,pos) + input.substring(pos + cruft.length());
 //                }
 //            }
-            input.replace("  ", " ");
+            input = input.replace("  ", " ");
             if (input.endsWith(",")) {
                 input = input.substring(0, input.length() - 1);
             }

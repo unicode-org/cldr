@@ -76,16 +76,17 @@ public class ShowPlurals {
         Appendable appendable, Factory factory) throws IOException {
 
         final TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0)
+        .setTableAttributes("class='dtf-table'")
+        .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
         .setBreakSpans(true).setRepeatHeader(true)
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .addColumn("Type", "class='source'", null, "class='source'", true)
+        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+        .addColumn("Type", "class='source'", null, "class='source'", true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
         .setBreakSpans(true)
-        .addColumn("Category", "class='target'", null, "class='target'", true)
+        .addColumn("Category", "class='target'", null, "class='target'", true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
         .setSpanRows(false)
-        .addColumn("Examples", "class='target'", null, "class='target'", true)
-        .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
-        .addColumn("Rules", "class='target'", null, "class='target' nowrap", true)
+        .addColumn("Examples", "class='target'", null, "class='target'", true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+        .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+        .addColumn("Rules", "class='target'", null, "class='target' nowrap", true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
         .setSpanRows(false);
         PluralRulesFactory prf = PluralRulesFactory.getInstance(supplementalDataInfo);
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();

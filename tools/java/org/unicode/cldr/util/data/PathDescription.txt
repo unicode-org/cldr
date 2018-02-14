@@ -160,6 +160,10 @@
 ^//ldml/characters/stopwords/stopwordList\[@type="([^"]*)"] ;   The words that should be ignored in sorting in your language.  For more information, see http://cldr.org/translation/misc.
 ^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/([^/]*)/(.*)  ;   Override for the $3-$2 timezone name for $1.  For more information, see http://cldr.org/translation/timezones.
 
+^//ldml/typographicNames/axisName[@type="([^"]*)"]	; A label for a XXX, such as YYY.  For more information, see http://cldr.org/translation/typographic-labels.
+^//ldml/typographicNames/styleName[@type="([^"]*)"][@subtype="([^"]*)"]	; A label for a XXX, such as YYY.  For more information, see http://cldr.org/translation/typographic-labels.
+^//ldml/typographicNames/featureName[@type="([^"]*)"]			; A label for a XXX, such as YYY.  For more information, see http://cldr.org/translation/typographic-labels.
+
 ^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"]\[@count="([^"]*)"];   A label for a set of characters that has a numeric placeholder, such as “1 Stroke”, “2 Strokes”.  For more information, see http://cldr.org/translation/character-labels.
 ^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"];   A modifier composed with a label for a set of characters.  For more information, see http://cldr.org/translation/character-labels.
 ^//ldml/characterLabels/characterLabel\[@type="([^"]*)"];   A label for a set of characters.  For more information, see http://cldr.org/translation/character-labels.

@@ -783,9 +783,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
 
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80']"/>
+		
 		<coverageLevel value="modern" match="characterLabels/characterLabel[@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute'][@count='%allPlurals']"/>
+
+		<coverageLevel value="modern" match="typographicNames/axisName[@type='%anyAttribute']"/>
+		<coverageLevel value="modern" match="typographicNames/styleName[@type='%anyAttribute'][@subtype='%anyAttribute']"/>
+		<coverageLevel value="modern" match="typographicNames/featureName[@type='%anyAttribute']"/>
 
 		<coverageLevel value="modern" match="annotations/annotation[@cp='%anyAttribute'][@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="annotations/annotation[@cp='%anyAttribute']"/>

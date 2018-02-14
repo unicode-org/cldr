@@ -287,6 +287,8 @@ public class PathHeader implements Comparable<PathHeader> {
         Symbols2(SectionId.Characters),
         Flags(SectionId.Characters),
         Component(SectionId.Characters),
+        
+        Typography(SectionId.Characters),
         ;
 
         private final SectionId sectionId;

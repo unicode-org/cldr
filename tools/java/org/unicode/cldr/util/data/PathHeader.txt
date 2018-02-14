@@ -233,6 +233,10 @@
 //ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
 
+//ldml/typographicNames/axisName[@type="%A"]	; Characters ; Typography ; Axis ; $1
+//ldml/typographicNames/styleName[@type="%A"][@subtype="%A"]	; Characters ; Typography; Style ; $1-$2
+//ldml/typographicNames/featureName[@type="%A"]			; Characters ; Typography ; Feature ; $1
+
 #Emoji, etc.
 
 //ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Characters ; Category ; Pattern ; $1-$2

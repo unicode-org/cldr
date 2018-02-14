@@ -9,7 +9,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 $Revision$
 -->
 
-<!ELEMENT ldml ( identity, ( alias | ( fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, characterLabels?, segmentations?, rbnf?, annotations?, metadata?, references?, special* ) ) ) >
+<!ELEMENT ldml ( identity, ( alias | ( fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, characterLabels?, segmentations?, rbnf?, typographicNames?, annotations?, metadata?, references?, special* ) ) ) >
 <!ATTLIST ldml version CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2799,6 +2799,30 @@ $Revision$
     <!--@VALUE-->
 <!ATTLIST rbnfrule alt NMTOKENS #IMPLIED >
 <!ATTLIST rbnfrule draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
+
+<!ELEMENT typographicNames ( alias | ( axisName*, styleName*, featureName*, special* ) ) >
+
+<!ELEMENT axisName ( #PCDATA ) >
+<!ATTLIST axisName type ( ital | opsz | slnt | wdth | wght ) #REQUIRED >
+<!ATTLIST axisName alt NMTOKENS #IMPLIED >
+<!ATTLIST axisName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
+
+<!ELEMENT styleName ( #PCDATA ) >
+<!ATTLIST styleName type  ( ital | opsz | slnt | wdth | wght ) #REQUIRED >
+<!ATTLIST styleName subtype NMTOKEN #REQUIRED >
+<!ATTLIST styleName alt NMTOKENS #IMPLIED >
+<!ATTLIST styleName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED:true, false-->
+
+<!ELEMENT featureName ( #PCDATA ) >
+<!ATTLIST featureName type ( afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero ) #REQUIRED >
+<!ATTLIST featureName alt NMTOKENS #IMPLIED >
+<!ATTLIST featureName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 

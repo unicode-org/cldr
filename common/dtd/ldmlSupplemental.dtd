@@ -570,11 +570,12 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT distinguishing ( distinguishingItems* ) >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST distinguishing draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 
 <!ELEMENT distinguishingItems EMPTY >
+    <!--@DEPRECATED-->
 <!ATTLIST distinguishingItems exclude (true | false) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST distinguishingItems elements NMTOKENS #IMPLIED >
@@ -585,11 +586,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT blocking ( blockingItems* ) >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST blocking draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT blockingItems EMPTY >
+    <!--@DEPRECATED-->
 <!ATTLIST blockingItems elements NMTOKENS #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST blockingItems draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -658,6 +661,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@DEPRECATED-->
 
 <!ELEMENT skipDefaultLocale EMPTY >
+    <!--@DEPRECATED-->
 <!ATTLIST skipDefaultLocale services NMTOKENS #IMPLIED >
     <!--@VALUE-->
 

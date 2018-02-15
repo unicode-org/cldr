@@ -3846,13 +3846,15 @@ public class SupplementalDataInfo {
     private List<String> serialElements;
     private Collection<String> distinguishingAttributes;
 
-    public List<String> getSerialElements() {
-        return serialElements;
-    }
+//    @Deprecated
+//    public List<String> getSerialElements() {
+//        return serialElements;
+//    }
 
-    public Collection<String> getDistinguishingAttributes() {
-        return distinguishingAttributes;
-    }
+//    @Deprecated
+//    public Collection<String> getDistinguishingAttributes() {
+//        return distinguishingAttributes;
+//    }
 
     public List<R4<String, String, Integer, Boolean>> getLanguageMatcherData(String string) {
         return languageMatch.get(string);

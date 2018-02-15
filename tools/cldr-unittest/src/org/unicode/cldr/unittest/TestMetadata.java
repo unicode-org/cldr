@@ -2,8 +2,6 @@ package org.unicode.cldr.unittest;
 
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
@@ -19,17 +17,17 @@ public class TestMetadata extends TestFmwk {
     }
 
     // disable, since we no longer have 3 different sources.
-    public void oldTestOrdering() {
-        logln("Make sure that all and only blocking elements are serialElements.");
-
-        // Then Serial Order
-        Set<String> cldrFileSerialElements = new TreeSet<String>(
-            TestDtdData.getSerialElements());
-        Set<String> metadataSerialElements = new TreeSet<String>(testInfo
-            .getSupplementalDataInfo().getSerialElements());
-        checkEquals("Serial Order", "CLDRFile.orderedElements",
-            metadataSerialElements, "cldrFile", cldrFileSerialElements);
-    }
+//    public void oldTestOrdering() {
+//        logln("Make sure that all and only blocking elements are serialElements.");
+//
+//        // Then Serial Order
+//        Set<String> cldrFileSerialElements = new TreeSet<String>(
+//            TestDtdData.getSerialElements());
+//        Set<String> metadataSerialElements = new TreeSet<String>(testInfo
+//            .getSupplementalDataInfo().getSerialElements());
+//        checkEquals("Serial Order", "CLDRFile.orderedElements",
+//            metadataSerialElements, "cldrFile", cldrFileSerialElements);
+//    }
 
     private void checkEquals(String title, String firstTitle,
         Collection<String> cldrFileOrder, String secondTitle,

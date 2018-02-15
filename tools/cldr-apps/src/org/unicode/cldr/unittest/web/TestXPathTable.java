@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
@@ -187,31 +185,31 @@ public class TestXPathTable extends TestFmwk {
 //      <distinguishing>
 //      <blocking> // luckily no API to remove
 
-    public void testNewUndistinguishing() throws SQLException {
-        Connection conn = DBUtils.getInstance().getDBConnection();
-        XPathTable xpt = XPathTable.createTable(conn, new SurveyMain());
-        DBUtils.closeDBConnection(conn);
-
-        XPathParts temp = new XPathParts();
-        CLDRFile eng = CLDRConfig.getInstance().getEnglish();
-        for (String xpath : eng) {
-            String fullPath = eng.getFullXPath(xpath);
-            Map<String, String> oldValue = xpt.getUndistinguishingElementsForOLD(fullPath, temp);
-            Map<String, String> newValue = xpt.getUndistinguishingElementsFor(fullPath, temp);
-            if (oldValue != null) {
-                // patch old failures. 
-                oldValue.remove("level");
-                oldValue.remove("yeartype");
-                oldValue.remove("sample");
-                oldValue.remove("scope");
-                oldValue.remove("ordinal");
-                if (oldValue.isEmpty()) {
-                    oldValue = null;
-                }
-            }
-            assertEquals("Test for differences in implementation", oldValue, newValue);
-        }
-    }
+//    public void testNewUndistinguishing() throws SQLException {
+//        Connection conn = DBUtils.getInstance().getDBConnection();
+//        XPathTable xpt = XPathTable.createTable(conn, new SurveyMain());
+//        DBUtils.closeDBConnection(conn);
+//
+//        XPathParts temp = new XPathParts();
+//        CLDRFile eng = CLDRConfig.getInstance().getEnglish();
+//        for (String xpath : eng) {
+//            String fullPath = eng.getFullXPath(xpath);
+//            Map<String, String> oldValue = xpt.getUndistinguishingElementsForOLD(fullPath, temp);
+//            Map<String, String> newValue = xpt.getUndistinguishingElementsFor(fullPath, temp);
+//            if (oldValue != null) {
+//                // patch old failures. 
+//                oldValue.remove("level");
+//                oldValue.remove("yeartype");
+//                oldValue.remove("sample");
+//                oldValue.remove("scope");
+//                oldValue.remove("ordinal");
+//                if (oldValue.isEmpty()) {
+//                    oldValue = null;
+//                }
+//            }
+//            assertEquals("Test for differences in implementation", oldValue, newValue);
+//        }
+//    }
 
 //    WARNING!
 //    methods like the following should be changed. No need to pass in empty XPathParts. See http://unicode.org/cldr/trac/ticket/8476

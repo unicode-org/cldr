@@ -1317,14 +1317,6 @@ For terms of use, see http://www.unicode.org/copyright.html
             <zoneAlias type="Asia/Harbin" replacement="Asia/Shanghai" reason="deprecated"/>
             <zoneAlias type="Asia/Kashgar" replacement="Asia/Urumqi" reason="deprecated"/>
         </alias>
-        <distinguishing>
-             <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem count"/>
-             <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>
-         </distinguishing>
-        <blocking>
-             <blockingItems elements="identity supplementalData cldrTest collation transform"/>
-         </blocking>
-        <skipDefaultLocale services="segmentation collation"/>
 		<defaultContent locales="
 			aa_ET af_ZA agq_CM ak_GH am_ET ar_001 arn_CL as_IN asa_TZ ast_ES az_Arab_IR
 			az_Cyrl_AZ az_Latn az_Latn_AZ

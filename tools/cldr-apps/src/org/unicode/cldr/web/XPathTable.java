@@ -14,19 +14,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
-import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StringId;
@@ -489,56 +485,56 @@ public class XPathTable {
 
     private Set<String> undistinguishingAttributes = null;
 
-    @Deprecated
-    public synchronized Set<String> getUndistinguishingElements() {
-        if (undistinguishingAttributes == null) {
-            Set<String> s = new HashSet<String>();
-            // sm.getSupplementalDataInfo().getElementOrder()); // all
-            // elements.
-            // We
-            // assume.
-            DtdData d = DtdData.getInstance(DtdType.ldml);
-            for (DtdData.Attribute a : d.getAttributes()) {
-                s.add(a.name);
-            }
-            Collection<String> distinguishing = sm.getSupplementalDataInfo().getDistinguishingAttributes();
-            if (distinguishing != null) {
-                s.removeAll(distinguishing);
-            } else {
-                throw new InternalError("Error: 0 attributes are distinguishing!\n");
-            }
-            s.remove("alt"); // ignore
-            s.remove("draft"); // ignore
-            undistinguishingAttributes = Collections.unmodifiableSet(s);
-        }
-        return undistinguishingAttributes;
-    }
+//    @Deprecated
+//    public synchronized Set<String> getUndistinguishingElements() {
+//        if (undistinguishingAttributes == null) {
+//            Set<String> s = new HashSet<String>();
+//            // sm.getSupplementalDataInfo().getElementOrder()); // all
+//            // elements.
+//            // We
+//            // assume.
+//            DtdData d = DtdData.getInstance(DtdType.ldml);
+//            for (DtdData.Attribute a : d.getAttributes()) {
+//                s.add(a.name);
+//            }
+//            Collection<String> distinguishing = sm.getSupplementalDataInfo().getDistinguishingAttributes();
+//            if (distinguishing != null) {
+//                s.removeAll(distinguishing);
+//            } else {
+//                throw new InternalError("Error: 0 attributes are distinguishing!\n");
+//            }
+//            s.remove("alt"); // ignore
+//            s.remove("draft"); // ignore
+//            undistinguishingAttributes = Collections.unmodifiableSet(s);
+//        }
+//        return undistinguishingAttributes;
+//    }
     
     public Map<String, String> getUndistinguishingElementsFor(String path, XPathParts xpp) {
         return XPathParts.getFrozenInstance(path).getSpecialNondistinguishingAttributes();
     }
 
-    @Deprecated
-    public Map<String, String> getUndistinguishingElementsForOLD(String path, XPathParts xpp) {
-        if (path == null) {
-            return null;
-        }
-        Set<String> ue = getUndistinguishingElements();
-        xpp.clear();
-        xpp.initialize(path);
-        Map<String, String> ueMap = null; // common case, none found.
-        for (int i = 0; i < xpp.size(); i++) {
-            for (String k : xpp.getAttributeKeys(i)) {
-                if (!ue.contains(k))
-                    continue;
-                if (ueMap == null) {
-                    ueMap = new TreeMap<String, String>();
-                }
-                ueMap.put(k, xpp.getAttributeValue(i, k));
-            }
-        }
-        return ueMap;
-    }
+//    @Deprecated
+//    public Map<String, String> getUndistinguishingElementsForOLD(String path, XPathParts xpp) {
+//        if (path == null) {
+//            return null;
+//        }
+//        Set<String> ue = getUndistinguishingElements();
+//        xpp.clear();
+//        xpp.initialize(path);
+//        Map<String, String> ueMap = null; // common case, none found.
+//        for (int i = 0; i < xpp.size(); i++) {
+//            for (String k : xpp.getAttributeKeys(i)) {
+//                if (!ue.contains(k))
+//                    continue;
+//                if (ueMap == null) {
+//                    ueMap = new TreeMap<String, String>();
+//                }
+//                ueMap.put(k, xpp.getAttributeValue(i, k));
+//            }
+//        }
+//        return ueMap;
+//    }
 
     public static String removeAlt(String path, XPathParts xpp) {
         return removeAttribute(path, xpp, LDMLConstants.ALT);

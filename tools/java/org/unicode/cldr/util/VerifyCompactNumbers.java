@@ -275,7 +275,13 @@ public class VerifyCompactNumbers {
                 + "</em></a>.</p>");
             out.append(tablePrinter1.toString() + "\n");
             out.append("<h3>Plural Rules</h3>");
-            out.append("<p>To correct problems in plural rules below, please go to " +
+            out.append("<p>Look over the Minimal Pairs to make sure they are ok. "
+                    + "Then review the examples in the cell to the left. "
+                    + "All of those you should be able to substitute for the numbers in the Minimal Pairs, "
+                    + "with an acceptable result. "
+                    + "If any would be incorrect, please "
+                    + "<a target='ticket' href='https://unicode.org/cldr/trac/newticket'>file a ticket</a>.</p>"
+                    + "<p>For more details, see " +
                 "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/cldr-spec/plural-rules'>Plural Rules</a>.</p>");
             ShowPlurals showPlurals = new ShowPlurals(CLDR_CONFIG.getSupplementalDataInfo());
             showPlurals.printPluralTable(cldrFile, locale, out, factory);

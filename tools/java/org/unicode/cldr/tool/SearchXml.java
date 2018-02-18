@@ -65,7 +65,7 @@ public class SearchXml {
     private static PathHeader.Factory PATH_HEADER_FACTORY = null;
 
     final static Options myOptions = new Options()
-        .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
+        .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory (use also " + CLDRPaths.AUX_DIRECTORY + ")")
         .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
         .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
         .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")

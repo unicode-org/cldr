@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups? ) >
 
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
@@ -573,16 +573,21 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@DEPRECATED-->
 <!ATTLIST distinguishing draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT distinguishingItems EMPTY >
     <!--@DEPRECATED-->
 <!ATTLIST distinguishingItems exclude (true | false) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST distinguishingItems elements NMTOKENS #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST distinguishingItems attributes NMTOKENS #IMPLIED >
+    <!--@DEPRECATED-->
 <!ATTLIST distinguishingItems draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT blocking ( blockingItems* ) >
     <!--@METADATA-->
@@ -595,8 +600,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@DEPRECATED-->
 <!ATTLIST blockingItems elements NMTOKENS #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST blockingItems draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT coverageAdditions ( languageCoverage*, scriptCoverage*, territoryCoverage*, currencyCoverage*, timezoneCoverage* ) >
     <!--@DEPRECATED-->
@@ -664,6 +671,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@DEPRECATED-->
 <!ATTLIST skipDefaultLocale services NMTOKENS #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT defaultContent EMPTY >
 <!ATTLIST defaultContent locales NMTOKENS #IMPLIED >

@@ -2805,26 +2805,23 @@ $Revision$
 <!ELEMENT typographicNames ( alias | ( axisName*, styleName*, featureName*, special* ) ) >
 
 <!ELEMENT axisName ( #PCDATA ) >
-<!ATTLIST axisName type ( ital | opsz | slnt | wdth | wght ) #REQUIRED >
+<!ATTLIST axisName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
 <!ATTLIST axisName alt NMTOKENS #IMPLIED >
 <!ATTLIST axisName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT styleName ( #PCDATA ) >
-<!ATTLIST styleName type  ( ital | opsz | slnt | wdth | wght ) #REQUIRED >
+<!ATTLIST styleName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
 <!ATTLIST styleName subtype NMTOKEN #REQUIRED >
 <!ATTLIST styleName alt NMTOKENS #IMPLIED >
 <!ATTLIST styleName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT featureName ( #PCDATA ) >
-<!ATTLIST featureName type ( afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero ) #REQUIRED >
+<!ATTLIST featureName type (afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero) #REQUIRED >
 <!ATTLIST featureName alt NMTOKENS #IMPLIED >
 <!ATTLIST featureName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
 
 <!ELEMENT annotations ( alias | ( annotation*, special* ) ) >
 

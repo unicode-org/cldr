@@ -5766,7 +5766,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>arab</defaultNumberingSystem>
-		<defaultNumberingSystem alt='latn'>latn</defaultNumberingSystem>
+		<defaultNumberingSystem alt="latn">latn</defaultNumberingSystem>
 		<otherNumberingSystems>
 			<native>arab</native>
 		</otherNumberingSystems>
@@ -7835,6 +7835,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
+				<displayName>دوبرا ساو تومي وبرينسيبي - 1977-2017</displayName>
+				<displayName count="zero">دوبرا ساو تومي وبرينسيبي - 1977-2017</displayName>
+				<displayName count="one">دوبرا ساو تومي وبرينسيبي - 1977-2017</displayName>
+				<displayName count="two">دوبرا ساو تومي وبرينسيبي - 1977-2017</displayName>
+				<displayName count="few">دوبرا ساو تومي وبرينسيبي - 1977-2017</displayName>
+				<displayName count="many">دوبرا ساو تومي وبرينسيبي - 1977-2017</displayName>
+				<displayName count="other">دوبرا ساو تومي وبرينسيبي - 1977-2017</displayName>
+				<symbol draft="contributed">STD</symbol>
+			</currency>
+			<currency type="STN">
 				<displayName>دوبرا ساو تومي وبرينسيبي</displayName>
 				<displayName count="zero">دوبرا ساو تومي وبرينسيبي</displayName>
 				<displayName count="one">دوبرا ساو تومي وبرينسيبي</displayName>
@@ -7842,17 +7852,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">دوبرا ساو تومي وبرينسيبي</displayName>
 				<displayName count="many">دوبرا ساو تومي وبرينسيبي</displayName>
 				<displayName count="other">دوبرا ساو تومي وبرينسيبي</displayName>
-				<symbol draft="contributed">STD</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
-			</currency>
-			<currency type="STN">
-				<displayName draft="contributed">STN</displayName>
-				<displayName count="zero" draft="contributed">STN</displayName>
-				<displayName count="one" draft="contributed">STN</displayName>
-				<displayName count="two" draft="contributed">STN</displayName>
-				<displayName count="few" draft="contributed">STN</displayName>
-				<displayName count="many" draft="contributed">STN</displayName>
-				<displayName count="other" draft="contributed">STN</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>روبل سوفيتي</displayName>
@@ -11373,10 +11373,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="opsz" subtype="18">عنونة</styleName>
 		<styleName type="opsz" subtype="72">عرض</styleName>
 		<styleName type="opsz" subtype="144">ملصق</styleName>
+		<styleName type="slnt" subtype="-12">منحدر للخلف</styleName>
 		<styleName type="slnt" subtype="0">رأسي</styleName>
 		<styleName type="slnt" subtype="12">مائل</styleName>
 		<styleName type="slnt" subtype="24">منحدر زائد</styleName>
-		<styleName type="slnt" subtype="-12">منحدر للخلف</styleName>
 		<styleName type="wdth" subtype="50">مكثف للغاية</styleName>
 		<styleName type="wdth" subtype="50" alt="variant">مضغوط للغاية</styleName>
 		<styleName type="wdth" subtype="62.5">مكثف زائد</styleName>

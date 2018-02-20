@@ -1023,20 +1023,17 @@ public class SupplementalDataInfo {
             MyHandler myHandler = instance.new MyHandler();
             XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
             File files1[] = directory.listFiles();
-            if (files1 == null) {
-                throw new InternalError("Could not list XML Files from " + canonicalpath);
-            }
-            if (files1.length == 0) {
-                throw new InternalError("Error: Supplemental files missing from " + directory.getAbsolutePath());
+            if (files1 == null || files1.length == 0) {
+                throw new ICUUncheckedIOException("Error: Supplemental files missing from " + directory.getAbsolutePath());
             }
             // get bcp47 files also
             File bcp47dir = instance.getBcp47Directory();
             if (!bcp47dir.isDirectory()) {
-                throw new InternalError("Error: BCP47 dir is not a directory: " + bcp47dir.getAbsolutePath());
+                throw new ICUUncheckedIOException("Error: BCP47 dir is not a directory: " + bcp47dir.getAbsolutePath());
             }
             File files2[] = bcp47dir.listFiles();
             if (files2 == null || files2.length == 0) {
-                throw new InternalError("Error: BCP47 files missing from " + bcp47dir.getAbsolutePath());
+                throw new ICUUncheckedIOException("Error: BCP47 files missing from " + bcp47dir.getAbsolutePath());
             }
 
             CBuilder<File, ArrayList<File>> builder = Builder.with(new ArrayList<File>());
@@ -1430,7 +1427,8 @@ public class SupplementalDataInfo {
             case "type":
                 String subtype = parts.getAttributeValue(3, "name");
                 String subtypeAlias = parts.getAttributeValue(3, "alias");
-                String subtypeDescription = parts.getAttributeValue(3, "description").replaceAll("\\s+", " ");
+                String desc = parts.getAttributeValue(3, "description");
+                String subtypeDescription = desc == null ? null : desc.replaceAll("\\s+", " ");
                 String subtypeSince = parts.getAttributeValue(3, "since");
                 String subtypePreferred = parts.getAttributeValue(3, "preferred");
                 String subtypeDeprecated = parts.getAttributeValue(3, "deprecated");
@@ -2968,7 +2966,13 @@ public class SupplementalDataInfo {
             if (locales.equals("root")) return; // we allow root to be empty
             throw new IllegalArgumentException(locales + " must have dayPeriodRule elements");
         }
-        DayPeriod dayPeriod = DayPeriod.fromString(path.getAttributeValue(-1, "type"));
+        DayPeriod dayPeriod;
+        try {
+            dayPeriod = DayPeriod.fromString(path.getAttributeValue(-1, "type"));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
         String at = path.getAttributeValue(-1, "at");
         String from = path.getAttributeValue(-1, "from");
         String after = path.getAttributeValue(-1, "after");

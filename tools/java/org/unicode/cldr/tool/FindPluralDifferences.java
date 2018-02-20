@@ -1,6 +1,8 @@
 package org.unicode.cldr.tool;
 
+import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -13,6 +15,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class FindPluralDifferences {
 
@@ -21,22 +24,6 @@ public class FindPluralDifferences {
     }
 
     public static void diff() {
-        String[] versions = {
-            //"1.4.1",
-            //"1.5.1",
-            //            "1.6.1",
-            //            "1.7.2",
-            //            "1.8.1",
-            //            "1.9.1",
-            //            "2.0.1",
-            //            "21.0",
-            //            "22.1",
-            //            "23.1",
-            //              "24.0",
-            // "29.0",
-            "30.0.3",
-            "trunk"
-        };
 
         BitSet x = new BitSet();
         x.set(3, 6);
@@ -48,15 +35,25 @@ public class FindPluralDifferences {
 
         SupplementalDataInfo supplementalNew = null;
         String newVersion = null;
+        
+        List<String> items = new ArrayList<>(ToolConstants.CLDR_VERSIONS);
+        items.add("trunk");
 
-        for (String version : ToolConstants.CLDR_VERSIONS) {
+        for (String version : items) {
+            if (version.compareTo("28.0") < 0) {
+                continue; // old versions don't handle various items
+            }
             String oldVersion = newVersion;
             newVersion = version;
             SupplementalDataInfo supplementalOld = supplementalNew;
 
             if (supplementalNew == null) {
-                supplementalNew = SupplementalDataInfo.getInstance(
-                    CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + versions[0] + "/common/supplemental/");
+                try {
+                    supplementalNew = SupplementalDataInfo.getInstance(
+                        CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/common/supplemental/");
+                } catch (ICUUncheckedIOException e) {
+                    System.out.println(e.getMessage());
+                }
                 continue;
             }
 

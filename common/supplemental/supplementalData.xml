@@ -756,7 +756,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="FRF" from="1960-01-01" to="2002-02-17"/>
         </region>
         <region iso3166="MR">
-            <currency iso4217="MRO" from="1973-06-29"/>
+            <currency iso4217="MRU" from="2018-01-01"/>
+            <currency iso4217="MRO" from="1973-06-29" to="2018-06-30"/>
             <currency iso4217="XOF" from="1958-11-28" to="1973-06-29"/>
         </region>
         <region iso3166="MS">
@@ -5301,6 +5302,7 @@ XXX Code for transations where no currency is involved
 		<currencyCodes type="MNT" numeric="496"/>
 		<currencyCodes type="MOP" numeric="446"/>
 		<currencyCodes type="MRO" numeric="478"/>
+		<currencyCodes type="MRU" numeric="929"/>
 		<currencyCodes type="MUR" numeric="480"/>
 		<currencyCodes type="MVR" numeric="462"/>
 		<currencyCodes type="MWK" numeric="454"/>
@@ -5339,6 +5341,7 @@ XXX Code for transations where no currency is involved
 		<currencyCodes type="SRD" numeric="968"/>
 		<currencyCodes type="SSP" numeric="728"/>
 		<currencyCodes type="STD" numeric="678"/>
+		<currencyCodes type="STN" numeric="930"/>
 		<currencyCodes type="SYP" numeric="760"/>
 		<currencyCodes type="SZL" numeric="748"/>
 		<currencyCodes type="THB" numeric="764"/>

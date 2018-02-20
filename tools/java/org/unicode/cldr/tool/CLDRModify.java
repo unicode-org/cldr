@@ -1332,16 +1332,16 @@ public class CLDRModify {
 
         fixList.add('c', "Fix transiton from an old currency code to a new one", new CLDRFilter() {
             public void handlePath(String xpath) {
-                String oldCurrencyCode = "ZMK";
-                String newCurrencyCode = "ZMW";
-                int fromDate = 1968;
-                int toDate = 2012;
+                String oldCurrencyCode = "MRO";
+                String newCurrencyCode = "MRU";
+                int fromDate = 1973;
+                int toDate = 2017;
                 String leadingParenString = " (";
                 String trailingParenString = ")";
-                String separator = "-";
+                String separator = "\u2013";
                 String languageTag = "root";
 
-                if (xpath.indexOf("/currency[@type=\"" + oldCurrencyCode + "\"]") < 0) {
+                if (xpath.indexOf("/currency[@type=\"" + oldCurrencyCode + "\"]/displayName") < 0) {
                     return;
                 }
                 String value = cldrFileToFilter.getStringValue(xpath);

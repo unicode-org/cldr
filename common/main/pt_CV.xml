@@ -46,7 +46,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<numbers>
 		<currencies>
 			<currency type="CVE">
-				<symbol>​</symbol>
+				<symbol>​</symbol> <!-- zero width space -->
 				<decimal>$</decimal>
 			</currency>
 			<currency type="PTE">

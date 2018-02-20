@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
@@ -284,7 +285,7 @@ public class Iso639Data {
             in.close();
 
             in = CldrUtility.getUTF8Data("iso-639-3.tab");
-            Pattern tabs = PatternCache.get("\\t");
+            SplitToArray tabs = new SplitToArray(Splitter.on('\t').trimResults());
             toAlpha3 = new HashMap<String, String>();
             fromAlpha3 = new HashMap<String, String>();
             toBiblio3 = new HashMap<String, String>();
@@ -298,12 +299,20 @@ public class Iso639Data {
             toSource = new HashMap<String, Source>();
             toSource.put("sh", Source.ISO_639_1); // add deprecated language
 
+            int count = 0; // line count for debugging
             while (true) {
+                ++count; 
                 String line = in.readLine();
-                if (line == null)
+                if (line == null) {
                     break;
-                if (line.startsWith("\uFEFF"))
+                }
+                if (line.startsWith("\uFEFF")) {
                     line = line.substring(1);
+                }
+                line = line.trim();
+                if (line.isEmpty()) {
+                    continue;
+                }
                 String[] parts = tabs.split(line);
                 String alpha3 = parts[IsoColumn.Id.ordinal()];
                 if (alpha3.equals("Id"))

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
 <!--
-	© 1991-2015 Unicode, Inc.
+	© 1991-2017 Unicode, Inc.
 	Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 	For terms of use, see http://www.unicode.org/copyright.html.
 	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/).
@@ -73,7 +73,7 @@
 		<subgroup type="CI" contains="ciab cibs cicm cidn cigd cilc cilg cimg cism cisv civb ciwr ciym cizz"/>
 		<subgroup type="CL" contains="clai clan clap clar clat clbi clco clli clll cllr clma clml clrm clta clvs"/>
 		<subgroup type="CM" contains="cmad cmce cmen cmes cmlt cmno cmnw cmou cmsu cmsw"/>
-		<subgroup type="CN" contains="cn11 cn12 cn13 cn14 cn15 cn21 cn22 cn23 cn31 cn32 cn33 cn34 cn35 cn36 cn37 cn41 cn42 cn43 cn44 cn45 cn46 cn50 cn51 cn52 cn53 cn54 cn61 cn62 cn63 cn64 cn65 cn71 cn91 cn92"/>
+		<subgroup type="CN" contains="cnah cnbj cncq cnfj cngd cngs cngx cngz cnha cnhb cnhe cnhi cnhk cnhl cnhn cnjl cnjs cnjx cnln cnmo cnnm cnnx cnqh cnsc cnsd cnsh cnsn cnsx cntj cntw cnxj cnxz cnyn cnzj"/>
 		<subgroup type="CO" contains="coama coant coara coatl cobol coboy cocal cocaq cocas cocau coces cocho cocor cocun codc cogua coguv cohui colag comag comet conar consa coput coqui coris cosan cosap cosuc cotol covac covau covid"/>
 		<subgroup type="CR" contains="cra crc crg crh crl crp crsj"/>
 		<subgroup type="CU" contains="cu01 cu03 cu04 cu05 cu06 cu07 cu08 cu09 cu10 cu11 cu12 cu13 cu14 cu15 cu16 cu99"/>
@@ -242,7 +242,7 @@
 		<subgroup type="KN" contains="knk knn"/>
 		<subgroup type="knk" contains="kn01 kn02 kn03 kn06 kn08 kn09 kn11 kn13 kn15"/>
 		<subgroup type="knn" contains="kn04 kn05 kn07 kn10 kn12"/>
-		<subgroup type="KP" contains="kp01 kp02 kp03 kp04 kp05 kp06 kp07 kp08 kp09 kp10 kp13"/>
+		<subgroup type="KP" contains="kp01 kp02 kp03 kp04 kp05 kp06 kp07 kp08 kp09 kp10 kp13 kp14"/>
 		<subgroup type="KR" contains="kr11 kr26 kr27 kr28 kr29 kr30 kr31 kr41 kr42 kr43 kr44 kr45 kr46 kr47 kr48 kr49 kr50"/>
 		<subgroup type="KW" contains="kwah kwfa kwha kwja kwku kwmu"/>
 		<subgroup type="KZ" contains="kzakm kzakt kzala kzalm kzast kzaty kzbay kzkar kzkus kzkzy kzman kzpav kzsev kzvos kzyuz kzzap kzzha"/>
@@ -291,7 +291,7 @@
 		<subgroup type="mhl" contains="mhall mhebo mheni mhjab mhjal mhkil mhkwa mhlae mhlib mhnmk mhnmu mhron mhuja mhwth"/>
 		<subgroup type="mht" contains="mhalk mharn mhaur mhlik mhmaj mhmal mhmej mhmil mhuti mhwtj"/>
 		<subgroup type="MK" contains="mk02 mk03 mk04 mk05 mk06 mk07 mk08 mk10 mk11 mk12 mk13 mk14 mk16 mk18 mk19 mk20 mk21 mk22 mk23 mk24 mk25 mk26 mk27 mk30 mk32 mk33 mk34 mk35 mk36 mk37 mk40 mk41 mk42 mk43 mk44 mk45 mk46 mk47 mk48 mk49 mk50 mk51 mk52 mk53 mk54 mk55 mk56 mk58 mk59 mk60 mk61 mk62 mk63 mk64 mk65 mk66 mk67 mk69 mk70 mk71 mk72 mk73 mk74 mk75 mk76 mk78 mk80 mk81 mk82 mk83 mk85"/>
-		<subgroup type="ML" contains="ml1 ml2 ml3 ml4 ml5 ml6 ml7 ml8 mlbko"/>
+		<subgroup type="ML" contains="ml1 ml2 ml3 ml4 ml5 ml6 ml7 ml8 ml9 ml10 mlbko"/>
 		<subgroup type="MM" contains="mm01 mm02 mm03 mm04 mm05 mm06 mm07 mm11 mm12 mm13 mm14 mm15 mm16 mm17 mm18"/>
 		<subgroup type="MN" contains="mn1 mn035 mn037 mn039 mn041 mn043 mn046 mn047 mn049 mn051 mn053 mn055 mn057 mn059 mn061 mn063 mn064 mn065 mn067 mn069 mn071 mn073"/>
 		<subgroup type="MR" contains="mr01 mr02 mr03 mr04 mr05 mr06 mr07 mr08 mr09 mr10 mr11 mr12 mr13 mr14 mr15"/>
@@ -353,7 +353,7 @@
 		<subgroup type="PT" contains="pt01 pt02 pt03 pt04 pt05 pt06 pt07 pt08 pt09 pt10 pt11 pt12 pt13 pt14 pt15 pt16 pt17 pt18 pt20 pt30"/>
 		<subgroup type="PW" contains="pw002 pw004 pw010 pw050 pw100 pw150 pw212 pw214 pw218 pw222 pw224 pw226 pw227 pw228 pw350 pw370"/>
 		<subgroup type="PY" contains="py1 py2 py3 py4 py5 py6 py7 py8 py9 py10 py11 py12 py13 py14 py15 py16 py19 pyasu"/>
-		<subgroup type="QA" contains="qada qakh qams qara qaus qawa qaza"/>
+		<subgroup type="QA" contains="qada qakh qams qara qash qaus qawa qaza"/>
 		<subgroup type="RO" contains="roab roag roar rob robc robh robn robr robt robv robz rocj rocl rocs roct rocv rodb rodj rogj rogl rogr rohd rohr roif roil rois romh romm roms ront root roph rosb rosj rosm rosv rotl rotm rotr rovl rovn rovs"/>
 		<subgroup type="RS" contains="rs00 rs08 rs09 rs10 rs11 rs12 rs13 rs14 rs15 rs16 rs17 rs18 rs19 rs20 rs21 rs22 rs23 rs24 rskm rsvo"/>
 		<subgroup type="rskm" contains="rs25 rs26 rs27 rs28 rs29"/>
@@ -394,10 +394,10 @@
 		<subgroup type="TZ" contains="tz01 tz02 tz03 tz04 tz05 tz06 tz07 tz08 tz09 tz10 tz11 tz12 tz13 tz14 tz15 tz16 tz17 tz18 tz19 tz20 tz21 tz22 tz23 tz24 tz25 tz26 tz27 tz28 tz29 tz30"/>
 		<subgroup type="UA" contains="ua05 ua07 ua09 ua12 ua14 ua18 ua21 ua23 ua26 ua30 ua32 ua35 ua40 ua43 ua46 ua48 ua51 ua53 ua56 ua59 ua61 ua63 ua65 ua68 ua71 ua74 ua77"/>
 		<subgroup type="UG" contains="ugc uge ugn ugw"/>
-		<subgroup type="ugc" contains="ug101 ug102 ug103 ug104 ug105 ug106 ug107 ug108 ug109 ug110 ug111 ug112 ug113 ug114 ug115 ug116 ug117 ug118 ug119 ug120 ug121 ug122 ug123 ug124"/>
-		<subgroup type="uge" contains="ug201 ug202 ug203 ug204 ug205 ug206 ug207 ug208 ug209 ug210 ug211 ug212 ug213 ug214 ug215 ug216 ug217 ug218 ug219 ug220 ug221 ug222 ug223 ug224 ug225 ug226 ug227 ug228 ug229 ug230 ug231 ug232"/>
-		<subgroup type="ugn" contains="ug301 ug302 ug303 ug304 ug305 ug306 ug307 ug308 ug309 ug310 ug311 ug312 ug313 ug314 ug315 ug316 ug317 ug318 ug319 ug320 ug321 ug322 ug323 ug324 ug325 ug326 ug327 ug328 ug329 ug330"/>
-		<subgroup type="ugw" contains="ug401 ug402 ug403 ug404 ug405 ug406 ug407 ug408 ug409 ug410 ug411 ug412 ug413 ug414 ug415 ug416 ug417 ug418 ug419 ug420 ug421 ug422 ug423 ug424 ug425 ug426"/>
+		<subgroup type="ugc" contains="ug101 ug102 ug103 ug104 ug105 ug106 ug107 ug108 ug109 ug110 ug111 ug112 ug113 ug114 ug115 ug116 ug117 ug118 ug119 ug120 ug121 ug122 ug123 ug124 ug125"/>
+		<subgroup type="uge" contains="ug201 ug202 ug203 ug204 ug205 ug206 ug207 ug208 ug209 ug210 ug211 ug212 ug213 ug214 ug215 ug216 ug217 ug218 ug219 ug220 ug221 ug222 ug223 ug224 ug225 ug226 ug227 ug228 ug229 ug230 ug231 ug232 ug233 ug234"/>
+		<subgroup type="ugn" contains="ug301 ug302 ug303 ug304 ug305 ug306 ug307 ug308 ug309 ug310 ug311 ug312 ug313 ug314 ug315 ug316 ug317 ug318 ug319 ug320 ug321 ug322 ug323 ug324 ug325 ug326 ug327 ug328 ug329 ug330 ug331 ug332"/>
+		<subgroup type="ugw" contains="ug401 ug402 ug403 ug404 ug405 ug406 ug407 ug408 ug409 ug410 ug411 ug412 ug413 ug414 ug415 ug416 ug417 ug418 ug419 ug420 ug421 ug422 ug423 ug424 ug425 ug426 ug427 ug428 ug429 ug430 ug431"/>
 		<subgroup type="UM" contains="um67 um71 um76 um79 um81 um84 um86 um89 um95"/>
 		<subgroup type="US" contains="usak usal usar usas usaz usca usco usct usdc usde usfl usga usgu ushi usia usid usil usin usks usky usla usma usmd usme usmi usmn usmo usmp usms usmt usnc usnd usne usnh usnj usnm usnv usny usoh usok usor uspa uspr usri ussc ussd ustn ustx usum usut usva usvi usvt uswa uswi uswv uswy"/>
 		<subgroup type="UY" contains="uyar uyca uycl uyco uydu uyfd uyfs uyla uyma uymo uypa uyrn uyro uyrv uysa uysj uyso uyta uytt"/>

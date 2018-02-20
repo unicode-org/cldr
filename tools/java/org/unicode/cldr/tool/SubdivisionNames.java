@@ -1,10 +1,13 @@
 package org.unicode.cldr.tool;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Pair;
@@ -13,6 +16,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
+import com.google.common.collect.ImmutableSortedSet;
 
 public class SubdivisionNames {
     
@@ -30,10 +34,26 @@ public class SubdivisionNames {
             if (!"subdivision".equals(path.getElement(-1))) {
                 continue;
             }
+            String type = path.getAttributeValue(-1, "type");
             String name = pair.getSecond();
-            builder.put(path.getAttributeValue(-1, "type"), name);
+            builder.put(type, name);
         }
         subdivisionToName = builder.build();
+    }
+
+    public static Set<String> getAvailableLocales() {
+        TreeSet<String> result = new TreeSet<>();
+        File baseDir = new File(CLDRPaths.COMMON_DIRECTORY + "subdivisions/");
+        for (String file : baseDir.list()) {
+            if (file.endsWith(".xml")) {
+                result.add(file.substring(0, file.length()-4));
+            }
+        }
+        return ImmutableSortedSet.copyOf(result);
+    }
+    
+    public Set<Entry<String, String>> entrySet() {
+        return subdivisionToName.entrySet();
     }
 
     public String get(String subdivision) {

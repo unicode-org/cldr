@@ -665,7 +665,7 @@ public class GenerateSubdivisions {
             }
             output.append("<subdivisionAlias"
                 + " type=\"" + toReplace + "\""
-                + " replacement=\"" + (replaceBy == null ? "??" : CollectionUtilities.join(replaceBy, " ")) + "\""
+                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0,2)+"?" : CollectionUtilities.join(replaceBy, " ")) + "\""
                 + " reason=\"" + reason + "\"/>"
                 + (replaceBy == null ? " <!- - " : " <!-- ")
                 + getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"

@@ -1393,6 +1393,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<contextTransformUsage type="relative">
 			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
 		</contextTransformUsage>
+		<contextTransformUsage type="typographicNames">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
 	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a à b c d e é f g h i j k l m n o ó ò ô p q r s t u v w x y z æ ø å]</exemplarCharacters>

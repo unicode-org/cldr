@@ -1103,6 +1103,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<codePattern type="territory">Regiune: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
+	<contextTransforms>
+		<contextTransformUsage type="typographicNames">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a ă â b c d e f g h i î j k l m n o p r s ș t ț u v x z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à å ä ç é è ê ë ñ ö q ş ţ ü w y]</exemplarCharacters>
@@ -9641,43 +9647,49 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="slnt" subtype="0">drept</styleName>
 		<styleName type="slnt" subtype="12">înclinat</styleName>
 		<styleName type="slnt" subtype="24">extraînclinat</styleName>
-		<styleName type="wdth" subtype="50">ultra condensat</styleName>
-		<styleName type="wdth" subtype="50" alt="compressed">ultra comprimat</styleName>
-		<styleName type="wdth" subtype="62.5">extra condensat</styleName>
-		<styleName type="wdth" subtype="62.5" alt="compressed">extra comprimat</styleName>
-		<styleName type="wdth" subtype="62.5" alt="narrow">extra îngust</styleName>
+		<styleName type="wdth" subtype="50">ultracondensat</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultracomprimat</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultraîngust</styleName>
+		<styleName type="wdth" subtype="62.5">extracondensat</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">extracomprimat</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">extraîngust</styleName>
 		<styleName type="wdth" subtype="75">condensat</styleName>
 		<styleName type="wdth" subtype="75" alt="compressed">comprimat</styleName>
 		<styleName type="wdth" subtype="75" alt="narrow">îngust</styleName>
-		<styleName type="wdth" subtype="87.5">semi condensat</styleName>
+		<styleName type="wdth" subtype="87.5">semicondensat</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">semicomprimat</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">semiîngust</styleName>
 		<styleName type="wdth" subtype="100">normal</styleName>
-		<styleName type="wdth" subtype="112.5">semi dilatat</styleName>
-		<styleName type="wdth" subtype="112.5" alt="extended">semi extins</styleName>
-		<styleName type="wdth" subtype="125">extins</styleName>
+		<styleName type="wdth" subtype="112.5">semidilatat</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">semiextins</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">semilarg</styleName>
+		<styleName type="wdth" subtype="125">dilatat</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">extins</styleName>
 		<styleName type="wdth" subtype="125" alt="wide">larg</styleName>
-		<styleName type="wdth" subtype="150">extra dilatat</styleName>
-		<styleName type="wdth" subtype="150" alt="extended">extra extins</styleName>
-		<styleName type="wdth" subtype="150" alt="wide">extra larg</styleName>
-		<styleName type="wdth" subtype="200">ultra dilatat</styleName>
-		<styleName type="wdth" subtype="200" alt="extended">ultra extins</styleName>
+		<styleName type="wdth" subtype="150">extradilatat</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">extraextins</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">extralarg</styleName>
+		<styleName type="wdth" subtype="200">ultradilatat</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultraextins</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultralarg</styleName>
 		<styleName type="wght" subtype="100">subțire</styleName>
-		<styleName type="wght" subtype="200">extra ușor</styleName>
-		<styleName type="wght" subtype="200" alt="variant">ultra ușor</styleName>
+		<styleName type="wght" subtype="200">extraușor</styleName>
+		<styleName type="wght" subtype="200" alt="variant">ultraușor</styleName>
 		<styleName type="wght" subtype="300">ușor</styleName>
-		<styleName type="wght" subtype="350">semi ușor</styleName>
+		<styleName type="wght" subtype="350">semiușor</styleName>
 		<styleName type="wght" subtype="380">carte</styleName>
 		<styleName type="wght" subtype="400">obișnuit</styleName>
 		<styleName type="wght" subtype="500">mediu</styleName>
-		<styleName type="wght" subtype="600">semi aldin</styleName>
-		<styleName type="wght" subtype="600" alt="variant">demi aldin</styleName>
+		<styleName type="wght" subtype="600">semialdin</styleName>
+		<styleName type="wght" subtype="600" alt="variant">demialdin</styleName>
 		<styleName type="wght" subtype="700">aldin</styleName>
-		<styleName type="wght" subtype="800">extra aldin</styleName>
-		<styleName type="wght" subtype="800" alt="variant">ultra aldin</styleName>
+		<styleName type="wght" subtype="800">extraaldin</styleName>
+		<styleName type="wght" subtype="800" alt="variant">ultraaldin</styleName>
 		<styleName type="wght" subtype="900">negru</styleName>
 		<styleName type="wght" subtype="900" alt="variant">greu</styleName>
-		<styleName type="wght" subtype="950">extra-negru</styleName>
-		<styleName type="wght" subtype="950" alt="variant">ultra greu</styleName>
-		<styleName type="wght" subtype="950" alt="variant2">ultra negru</styleName>
+		<styleName type="wght" subtype="950">extranegru</styleName>
+		<styleName type="wght" subtype="950" alt="variant">ultragreu</styleName>
+		<styleName type="wght" subtype="950" alt="variant2">ultranegru</styleName>
 		<featureName type="afrc">fracții verticale</featureName>
 		<featureName type="cpsp">spațiere majuscule</featureName>
 		<featureName type="dlig">ligaturi opționale</featureName>

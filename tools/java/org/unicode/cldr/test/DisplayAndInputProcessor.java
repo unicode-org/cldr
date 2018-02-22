@@ -54,7 +54,7 @@ public class DisplayAndInputProcessor {
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
-    .freeze();
+        .freeze();
 
     public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
         "[[:Cn:]" +
@@ -181,7 +181,7 @@ public class DisplayAndInputProcessor {
                 .setSpaceComparator(spaceCol);
         }
     }
-    
+
     public UnicodeSetPrettyPrinter getPrettyPrinter() {
         return pp;
     }
@@ -277,6 +277,7 @@ public class DisplayAndInputProcessor {
     static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer(FIX_YEARS);
 
     static final Splitter SPLIT_BAR = Splitter.on('|').trimResults().omitEmptyStrings();
+    static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Joiner JOIN_BAR = Joiner.on(" | ");
 
     /**
@@ -417,11 +418,9 @@ public class DisplayAndInputProcessor {
             }
 
             if (path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS)) {
-                TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
-                sorted.addAll(SPLIT_BAR.splitToList(value));
-                value = JOIN_BAR.join(sorted);
+                value = annotationsForDisplay(value);
             }
-            
+
             return value;
         } catch (RuntimeException e) {
             if (internalException != null) {
@@ -429,6 +428,34 @@ public class DisplayAndInputProcessor {
             }
             return original;
         }
+    }
+
+    private static final boolean REMOVE_COVERED_KEYWORDS = true;
+    
+    private String annotationsForDisplay(String value) {
+        TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
+        sorted.addAll(SPLIT_BAR.splitToList(value));
+        if (REMOVE_COVERED_KEYWORDS) {
+            filterCoveredKeywords(sorted);
+        }
+        value = JOIN_BAR.join(sorted);
+        return value;
+    }
+
+    private void filterCoveredKeywords(TreeSet<String> sorted) {
+        // for now, just do single items
+        HashSet<String> toRemove = new HashSet<>();
+        
+        for (String item : sorted) {
+            List<String> list = SPLIT_SPACE.splitToList(item);
+            if (list.size() < 2) {
+                continue;
+            }
+            if (sorted.containsAll(list)) {
+                toRemove.add(item);
+            }
+        }
+        sorted.removeAll(toRemove);
     }
 
     private String displayUnicodeSet(String value) {
@@ -792,7 +819,7 @@ public class DisplayAndInputProcessor {
      * @return a canonical numeric pattern, based on the type, and the isPOSIX flag. The latter is set for en_US_POSIX.
      */
     static final Splitter SEMI_SPLITTER = Splitter.on(';').trimResults();
-    
+
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
 

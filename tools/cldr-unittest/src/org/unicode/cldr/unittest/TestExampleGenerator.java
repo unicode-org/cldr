@@ -111,6 +111,7 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/characterLabels/characterLabelPattern[@type=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
         "//ldml/characterLabels/characterLabel[@type=\"([^\"]*+)\"]",
         "//ldml/typographicNames/axisName[@type=\"([^\"]*+)\"]",
+        "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
         "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"]",
         "//ldml/typographicNames/featureName[@type=\"([^\"]*+)\"]",
         "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]"

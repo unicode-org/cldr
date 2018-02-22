@@ -791,8 +791,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel value="modern" match="typographicNames/axisName[@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="typographicNames/styleName[@type='%anyAttribute'][@subtype='%anyAttribute']"/>
+		<coverageLevel value="modern" match="typographicNames/styleName[@type='%anyAttribute'][@subtype='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="typographicNames/featureName[@type='%anyAttribute']"/>
-
+		
 		<coverageLevel value="modern" match="annotations/annotation[@cp='%anyAttribute'][@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="annotations/annotation[@cp='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/subdivisions/subdivision[@type='%anyAttribute']"/>

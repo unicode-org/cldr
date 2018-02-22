@@ -2089,7 +2089,7 @@ public class CLDRModify {
                 XPathParts parts = XPathParts.getFrozenInstance(fullpath);
                 String type = parts.getAttributeValue(2, "type");
                 if (type == null) {
-                    return; // keywords, skip
+                    return; // no TTS, so keywords, skip
                 }
                 String name = cldrFileToFilter.getStringValue(xpath);
                 XPathParts keywordParts = parts.cloneAsThawed().removeAttribute(2, "type");

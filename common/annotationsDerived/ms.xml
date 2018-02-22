@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2017 Unicode, Inc.
+<!-- Copyright © 1991-2018 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,26 +13,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<language type="ms"/>
 	</identity>
 	<annotations>
-		<annotation cp="0⃣">keycap</annotation>
-		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
-		<annotation cp="1⃣">keycap</annotation>
-		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
-		<annotation cp="2⃣">keycap</annotation>
-		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
-		<annotation cp="3⃣">keycap</annotation>
-		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
-		<annotation cp="4⃣">keycap</annotation>
-		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
-		<annotation cp="5⃣">keycap</annotation>
-		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
-		<annotation cp="6⃣">keycap</annotation>
-		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
-		<annotation cp="7⃣">keycap</annotation>
-		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
-		<annotation cp="8⃣">keycap</annotation>
-		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
-		<annotation cp="9⃣">keycap</annotation>
-		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
 		<annotation cp="👶🏻">bayi | ton kulit cerah</annotation>
 		<annotation cp="👶🏻" type="tts">bayi: ton kulit cerah</annotation>
 		<annotation cp="👶🏼">bayi | ton kulit sederhana cerah</annotation>
@@ -113,25 +93,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧓🏾" type="tts">dewasa lebih tua: ton kulit sederhana gelap</annotation>
 		<annotation cp="🧓🏿">dewasa lebih tua | gender-neutral | tua | ton kulit gelap</annotation>
 		<annotation cp="🧓🏿" type="tts">dewasa lebih tua: ton kulit gelap</annotation>
-		<annotation cp="👴🏻">lelaki | lelaki tua | tua | ton kulit cerah</annotation>
+		<annotation cp="👴🏻">lelaki | tua | ton kulit cerah</annotation>
 		<annotation cp="👴🏻" type="tts">lelaki tua: ton kulit cerah</annotation>
-		<annotation cp="👴🏼">lelaki | lelaki tua | tua | ton kulit sederhana cerah</annotation>
+		<annotation cp="👴🏼">lelaki | tua | ton kulit sederhana cerah</annotation>
 		<annotation cp="👴🏼" type="tts">lelaki tua: ton kulit sederhana cerah</annotation>
-		<annotation cp="👴🏽">lelaki | lelaki tua | tua | ton kulit sederhana</annotation>
+		<annotation cp="👴🏽">lelaki | tua | ton kulit sederhana</annotation>
 		<annotation cp="👴🏽" type="tts">lelaki tua: ton kulit sederhana</annotation>
-		<annotation cp="👴🏾">lelaki | lelaki tua | tua | ton kulit sederhana gelap</annotation>
+		<annotation cp="👴🏾">lelaki | tua | ton kulit sederhana gelap</annotation>
 		<annotation cp="👴🏾" type="tts">lelaki tua: ton kulit sederhana gelap</annotation>
-		<annotation cp="👴🏿">lelaki | lelaki tua | tua | ton kulit gelap</annotation>
+		<annotation cp="👴🏿">lelaki | tua | ton kulit gelap</annotation>
 		<annotation cp="👴🏿" type="tts">lelaki tua: ton kulit gelap</annotation>
-		<annotation cp="👵🏻">tua | wanita | wanita tua | ton kulit cerah</annotation>
+		<annotation cp="👵🏻">tua | wanita | ton kulit cerah</annotation>
 		<annotation cp="👵🏻" type="tts">wanita tua: ton kulit cerah</annotation>
-		<annotation cp="👵🏼">tua | wanita | wanita tua | ton kulit sederhana cerah</annotation>
+		<annotation cp="👵🏼">tua | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👵🏼" type="tts">wanita tua: ton kulit sederhana cerah</annotation>
-		<annotation cp="👵🏽">tua | wanita | wanita tua | ton kulit sederhana</annotation>
+		<annotation cp="👵🏽">tua | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👵🏽" type="tts">wanita tua: ton kulit sederhana</annotation>
-		<annotation cp="👵🏾">tua | wanita | wanita tua | ton kulit sederhana gelap</annotation>
+		<annotation cp="👵🏾">tua | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👵🏾" type="tts">wanita tua: ton kulit sederhana gelap</annotation>
-		<annotation cp="👵🏿">tua | wanita | wanita tua | ton kulit gelap</annotation>
+		<annotation cp="👵🏿">tua | wanita | ton kulit gelap</annotation>
 		<annotation cp="👵🏿" type="tts">wanita tua: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍⚕">ahli terapi | doktor | jururawat | lelaki | pekerja kesihatan lelaki | penjagaan kesihatan | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">pekerja kesihatan lelaki: ton kulit cerah</annotation>
@@ -153,85 +133,85 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">pekerja kesihatan wanita: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿‍⚕">ahli terapi | doktor | jururawat | pekerja kesihatan wanita | penjagaan kesihatan | perempuan | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">pekerja kesihatan wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🎓">graduan | lelaki | pelajar | pelajar lelaki | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🎓">graduan | lelaki | pelajar | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">pelajar lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🎓">graduan | lelaki | pelajar | pelajar lelaki | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🎓">graduan | lelaki | pelajar | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🎓" type="tts">pelajar lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🎓">graduan | lelaki | pelajar | pelajar lelaki | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🎓">graduan | lelaki | pelajar | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🎓" type="tts">pelajar lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🎓">graduan | lelaki | pelajar | pelajar lelaki | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🎓">graduan | lelaki | pelajar | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🎓" type="tts">pelajar lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🎓">graduan | lelaki | pelajar | pelajar lelaki | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🎓">graduan | lelaki | pelajar | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🎓" type="tts">pelajar lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🎓">graduan | pelajar | pelajar wanita | perempuan | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🎓">graduan | pelajar | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🎓" type="tts">pelajar wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🎓">graduan | pelajar | pelajar wanita | perempuan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🎓">graduan | pelajar | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🎓" type="tts">pelajar wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🎓">graduan | pelajar | pelajar wanita | perempuan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🎓">graduan | pelajar | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🎓" type="tts">pelajar wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🎓">graduan | pelajar | pelajar wanita | perempuan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🎓">graduan | pelajar | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🎓" type="tts">pelajar wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🎓">graduan | pelajar | pelajar wanita | perempuan | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🎓">graduan | pelajar | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">pelajar wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🏫">guru | guru lelaki | lelaki | pengajar | profesor | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🏫">guru | lelaki | pengajar | profesor | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">guru lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🏫">guru | guru lelaki | lelaki | pengajar | profesor | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🏫">guru | lelaki | pengajar | profesor | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🏫" type="tts">guru lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🏫">guru | guru lelaki | lelaki | pengajar | profesor | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🏫">guru | lelaki | pengajar | profesor | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🏫" type="tts">guru lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🏫">guru | guru lelaki | lelaki | pengajar | profesor | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🏫">guru | lelaki | pengajar | profesor | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🏫" type="tts">guru lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🏫">guru | guru lelaki | lelaki | pengajar | profesor | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🏫">guru | lelaki | pengajar | profesor | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🏫" type="tts">guru lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🏫">guru | guru wanita | pengajar | profesor | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🏫">guru | pengajar | profesor | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🏫" type="tts">guru wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🏫">guru | guru wanita | pengajar | profesor | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🏫">guru | pengajar | profesor | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🏫" type="tts">guru wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🏫">guru | guru wanita | pengajar | profesor | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🏫">guru | pengajar | profesor | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🏫" type="tts">guru wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🏫">guru | guru wanita | pengajar | profesor | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🏫">guru | pengajar | profesor | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🏫" type="tts">guru wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🏫">guru | guru wanita | pengajar | profesor | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🏫">guru | pengajar | profesor | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">guru wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍⚖">hakim | hakim lelaki | lelaki | neraca | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍⚖">hakim | lelaki | neraca | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">hakim lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍⚖">hakim | hakim lelaki | lelaki | neraca | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍⚖">hakim | lelaki | neraca | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍⚖" type="tts">hakim lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍⚖">hakim | hakim lelaki | lelaki | neraca | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍⚖">hakim | lelaki | neraca | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍⚖" type="tts">hakim lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍⚖">hakim | hakim lelaki | lelaki | neraca | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍⚖">hakim | lelaki | neraca | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍⚖" type="tts">hakim lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍⚖">hakim | hakim lelaki | lelaki | neraca | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍⚖">hakim | lelaki | neraca | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍⚖" type="tts">hakim lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍⚖">hakim | hakim wanita | neraca | perempuan | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍⚖">hakim | neraca | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍⚖" type="tts">hakim wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍⚖">hakim | hakim wanita | neraca | perempuan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍⚖">hakim | neraca | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍⚖" type="tts">hakim wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍⚖">hakim | hakim wanita | neraca | perempuan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍⚖">hakim | neraca | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍⚖" type="tts">hakim wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍⚖">hakim | hakim wanita | neraca | perempuan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍⚖">hakim | neraca | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍⚖" type="tts">hakim wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍⚖">hakim | hakim wanita | neraca | perempuan | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍⚖">hakim | neraca | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">hakim wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🌾">lelaki | pekebun | peladang ternak | petani | petani lelaki | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🌾">lelaki | pekebun | peladang ternak | petani | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">petani lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🌾">lelaki | pekebun | peladang ternak | petani | petani lelaki | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🌾">lelaki | pekebun | peladang ternak | petani | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🌾" type="tts">petani lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🌾">lelaki | pekebun | peladang ternak | petani | petani lelaki | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🌾">lelaki | pekebun | peladang ternak | petani | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🌾" type="tts">petani lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🌾">lelaki | pekebun | peladang ternak | petani | petani lelaki | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🌾">lelaki | pekebun | peladang ternak | petani | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🌾" type="tts">petani lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🌾">lelaki | pekebun | peladang ternak | petani | petani lelaki | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🌾">lelaki | pekebun | peladang ternak | petani | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🌾" type="tts">petani lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🌾">pekebun | peladang ternak | perempuan | petani | petani wanita | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🌾">pekebun | peladang ternak | perempuan | petani | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🌾" type="tts">petani wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🌾">pekebun | peladang ternak | perempuan | petani | petani wanita | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🌾">pekebun | peladang ternak | perempuan | petani | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🌾" type="tts">petani wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🌾">pekebun | peladang ternak | perempuan | petani | petani wanita | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🌾">pekebun | peladang ternak | perempuan | petani | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🌾" type="tts">petani wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🌾">pekebun | peladang ternak | perempuan | petani | petani wanita | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🌾">pekebun | peladang ternak | perempuan | petani | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🌾" type="tts">petani wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🌾">pekebun | peladang ternak | perempuan | petani | petani wanita | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🌾">pekebun | peladang ternak | perempuan | petani | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">petani wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍🍳">cef | lelaki | tukang masak | tukang masak lelaki | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">tukang masak lelaki: ton kulit cerah</annotation>
@@ -253,45 +233,45 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">tukang masak wanita: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿‍🍳">cef | perempuan | tukang masak | tukang masak wanita | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">tukang masak wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🔧">juruelektrik | lelaki | mekanik | mekanik lelaki | tukang | tukang paip | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🔧">juruelektrik | lelaki | mekanik | tukang | tukang paip | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mekanik lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🔧">juruelektrik | lelaki | mekanik | mekanik lelaki | tukang | tukang paip | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🔧">juruelektrik | lelaki | mekanik | tukang | tukang paip | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🔧" type="tts">mekanik lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🔧">juruelektrik | lelaki | mekanik | mekanik lelaki | tukang | tukang paip | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🔧">juruelektrik | lelaki | mekanik | tukang | tukang paip | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🔧" type="tts">mekanik lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🔧">juruelektrik | lelaki | mekanik | mekanik lelaki | tukang | tukang paip | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🔧">juruelektrik | lelaki | mekanik | tukang | tukang paip | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🔧" type="tts">mekanik lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🔧">juruelektrik | lelaki | mekanik | mekanik lelaki | tukang | tukang paip | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🔧">juruelektrik | lelaki | mekanik | tukang | tukang paip | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🔧" type="tts">mekanik lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🔧">juruelektrik | mekanik | mekanik wanita | perempuan | tukang | tukang paip | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🔧">juruelektrik | mekanik | perempuan | tukang | tukang paip | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🔧" type="tts">mekanik wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🔧">juruelektrik | mekanik | mekanik wanita | perempuan | tukang | tukang paip | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🔧">juruelektrik | mekanik | perempuan | tukang | tukang paip | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🔧" type="tts">mekanik wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🔧">juruelektrik | mekanik | mekanik wanita | perempuan | tukang | tukang paip | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🔧">juruelektrik | mekanik | perempuan | tukang | tukang paip | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🔧" type="tts">mekanik wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🔧">juruelektrik | mekanik | mekanik wanita | perempuan | tukang | tukang paip | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🔧">juruelektrik | mekanik | perempuan | tukang | tukang paip | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🔧" type="tts">mekanik wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🔧">juruelektrik | mekanik | mekanik wanita | perempuan | tukang | tukang paip | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🔧">juruelektrik | mekanik | perempuan | tukang | tukang paip | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mekanik wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🏭">industri | kilang | lelaki | pekerja | pekerja kilang lelaki | pemasangan | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🏭">industri | kilang | lelaki | pekerja | pemasangan | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">pekerja kilang lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🏭">industri | kilang | lelaki | pekerja | pekerja kilang lelaki | pemasangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🏭">industri | kilang | lelaki | pekerja | pemasangan | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">pekerja kilang lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🏭">industri | kilang | lelaki | pekerja | pekerja kilang lelaki | pemasangan | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🏭">industri | kilang | lelaki | pekerja | pemasangan | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">pekerja kilang lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🏭">industri | kilang | lelaki | pekerja | pekerja kilang lelaki | pemasangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🏭">industri | kilang | lelaki | pekerja | pemasangan | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">pekerja kilang lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🏭">industri | kilang | lelaki | pekerja | pekerja kilang lelaki | pemasangan | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🏭">industri | kilang | lelaki | pekerja | pemasangan | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">pekerja kilang lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🏭">industri | kilang | pekerja | pekerja kilang wanita | pemasangan | perempuan | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🏭">industri | kilang | pekerja | pemasangan | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">pekerja kilang wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🏭">industri | kilang | pekerja | pekerja kilang wanita | pemasangan | perempuan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🏭">industri | kilang | pekerja | pemasangan | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🏭" type="tts">pekerja kilang wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🏭">industri | kilang | pekerja | pekerja kilang wanita | pemasangan | perempuan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🏭">industri | kilang | pekerja | pemasangan | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🏭" type="tts">pekerja kilang wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🏭">industri | kilang | pekerja | pekerja kilang wanita | pemasangan | perempuan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🏭">industri | kilang | pekerja | pemasangan | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🏭" type="tts">pekerja kilang wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🏭">industri | kilang | pekerja | pekerja kilang wanita | pemasangan | perempuan | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🏭">industri | kilang | pekerja | pemasangan | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">pekerja kilang wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍💼">arkitek | kolar putih | lelaki | pejabat | pekerja pejabat lelaki | pengurus | perniagaan | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">pekerja pejabat lelaki: ton kulit cerah</annotation>
@@ -313,25 +293,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">pekerja pejabat wanita: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿‍💼">arkitek | kolar putih | pejabat | pekerja pejabat wanita | pengurus | perempuan | perniagaan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">pekerja pejabat wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | saintis lelaki | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">saintis lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | saintis lelaki | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🔬" type="tts">saintis lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | saintis lelaki | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🔬" type="tts">saintis lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | saintis lelaki | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🔬" type="tts">saintis lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | saintis lelaki | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">saintis lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | saintis wanita | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">saintis wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | saintis wanita | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">saintis wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | saintis wanita | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">saintis wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | saintis wanita | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">saintis wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | saintis wanita | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">saintis wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍💻">ahli teknologi | ahli teknologi lelaki | lelaki | pembangun | pencipta | pengekod | perisian | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">ahli teknologi lelaki: ton kulit cerah</annotation>
@@ -353,25 +333,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">ahli teknologi wanita: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | perempuan | perisian | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">ahli teknologi wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | penyanyi lelaki | rock | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | rock | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">penyanyi lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | penyanyi lelaki | rock | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | rock | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">penyanyi lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | penyanyi lelaki | rock | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | rock | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">penyanyi lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | penyanyi lelaki | rock | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | rock | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">penyanyi lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | penyanyi lelaki | rock | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | rock | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">penyanyi lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🎤">bintang | pelakon | penghibur | penyanyi | penyanyi wanita | perempuan | rock | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🎤">bintang | pelakon | penghibur | penyanyi | perempuan | rock | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">penyanyi wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🎤">bintang | pelakon | penghibur | penyanyi | penyanyi wanita | perempuan | rock | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🎤">bintang | pelakon | penghibur | penyanyi | perempuan | rock | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🎤" type="tts">penyanyi wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🎤">bintang | pelakon | penghibur | penyanyi | penyanyi wanita | perempuan | rock | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🎤">bintang | pelakon | penghibur | penyanyi | perempuan | rock | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🎤" type="tts">penyanyi wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🎤">bintang | pelakon | penghibur | penyanyi | penyanyi wanita | perempuan | rock | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🎤">bintang | pelakon | penghibur | penyanyi | perempuan | rock | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🎤" type="tts">penyanyi wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🎤">bintang | pelakon | penghibur | penyanyi | penyanyi wanita | perempuan | rock | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🎤">bintang | pelakon | penghibur | penyanyi | perempuan | rock | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">penyanyi wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍🎨">artis | lelaki | palet | pelukis lelaki | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">pelukis lelaki: ton kulit cerah</annotation>
@@ -393,25 +373,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">pelukis wanita: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿‍🎨">artis | palet | pelukis wanita | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">pelukis wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍✈">juruterbang | juruterbang lelaki | kapal terbang | lelaki | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍✈">juruterbang | kapal terbang | lelaki | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">juruterbang lelaki: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍✈">juruterbang | juruterbang lelaki | kapal terbang | lelaki | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍✈">juruterbang | kapal terbang | lelaki | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍✈" type="tts">juruterbang lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍✈">juruterbang | juruterbang lelaki | kapal terbang | lelaki | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍✈">juruterbang | kapal terbang | lelaki | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍✈" type="tts">juruterbang lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍✈">juruterbang | juruterbang lelaki | kapal terbang | lelaki | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍✈">juruterbang | kapal terbang | lelaki | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍✈" type="tts">juruterbang lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍✈">juruterbang | juruterbang lelaki | kapal terbang | lelaki | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍✈">juruterbang | kapal terbang | lelaki | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍✈" type="tts">juruterbang lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍✈">juruterbang | juruterbang wanita | kapal terbang | perempuan | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍✈">juruterbang | kapal terbang | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍✈" type="tts">juruterbang wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍✈">juruterbang | juruterbang wanita | kapal terbang | perempuan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍✈">juruterbang | kapal terbang | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍✈" type="tts">juruterbang wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍✈">juruterbang | juruterbang wanita | kapal terbang | perempuan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍✈">juruterbang | kapal terbang | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍✈" type="tts">juruterbang wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍✈">juruterbang | juruterbang wanita | kapal terbang | perempuan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍✈">juruterbang | kapal terbang | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍✈" type="tts">juruterbang wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍✈">juruterbang | juruterbang wanita | kapal terbang | perempuan | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍✈">juruterbang | kapal terbang | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">juruterbang wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍🚀">angkasa | angkasawan | lelaki | roket | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">angkasawan: ton kulit cerah</annotation>
@@ -453,15 +433,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚒" type="tts">ahli bomba wanita: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿‍🚒">ahli bomba | ahli bomba wanita | perempuan | trak bomba | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">ahli bomba wanita: ton kulit gelap</annotation>
-		<annotation cp="👮🏻">mata-mata | pegawai | pegawai polis | polis | ton kulit cerah</annotation>
+		<annotation cp="👮🏻">mata-mata | pegawai | polis | ton kulit cerah</annotation>
 		<annotation cp="👮🏻" type="tts">pegawai polis: ton kulit cerah</annotation>
-		<annotation cp="👮🏼">mata-mata | pegawai | pegawai polis | polis | ton kulit sederhana cerah</annotation>
+		<annotation cp="👮🏼">mata-mata | pegawai | polis | ton kulit sederhana cerah</annotation>
 		<annotation cp="👮🏼" type="tts">pegawai polis: ton kulit sederhana cerah</annotation>
-		<annotation cp="👮🏽">mata-mata | pegawai | pegawai polis | polis | ton kulit sederhana</annotation>
+		<annotation cp="👮🏽">mata-mata | pegawai | polis | ton kulit sederhana</annotation>
 		<annotation cp="👮🏽" type="tts">pegawai polis: ton kulit sederhana</annotation>
-		<annotation cp="👮🏾">mata-mata | pegawai | pegawai polis | polis | ton kulit sederhana gelap</annotation>
+		<annotation cp="👮🏾">mata-mata | pegawai | polis | ton kulit sederhana gelap</annotation>
 		<annotation cp="👮🏾" type="tts">pegawai polis: ton kulit sederhana gelap</annotation>
-		<annotation cp="👮🏿">mata-mata | pegawai | pegawai polis | polis | ton kulit gelap</annotation>
+		<annotation cp="👮🏿">mata-mata | pegawai | polis | ton kulit gelap</annotation>
 		<annotation cp="👮🏿" type="tts">pegawai polis: ton kulit gelap</annotation>
 		<annotation cp="👮🏻‍♂">lelaki | pegawai polis lelaki | polis | ton kulit cerah</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">pegawai polis lelaki: ton kulit cerah</annotation>
@@ -523,55 +503,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💂🏾" type="tts">pengawal: ton kulit sederhana gelap</annotation>
 		<annotation cp="💂🏿">pengawal | ton kulit gelap</annotation>
 		<annotation cp="💂🏿" type="tts">pengawal: ton kulit gelap</annotation>
-		<annotation cp="💂🏻‍♂">lelaki | pengawal | pengawal lelaki | ton kulit cerah</annotation>
+		<annotation cp="💂🏻‍♂">lelaki | pengawal | ton kulit cerah</annotation>
 		<annotation cp="💂🏻‍♂" type="tts">pengawal lelaki: ton kulit cerah</annotation>
-		<annotation cp="💂🏼‍♂">lelaki | pengawal | pengawal lelaki | ton kulit sederhana cerah</annotation>
+		<annotation cp="💂🏼‍♂">lelaki | pengawal | ton kulit sederhana cerah</annotation>
 		<annotation cp="💂🏼‍♂" type="tts">pengawal lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="💂🏽‍♂">lelaki | pengawal | pengawal lelaki | ton kulit sederhana</annotation>
+		<annotation cp="💂🏽‍♂">lelaki | pengawal | ton kulit sederhana</annotation>
 		<annotation cp="💂🏽‍♂" type="tts">pengawal lelaki: ton kulit sederhana</annotation>
-		<annotation cp="💂🏾‍♂">lelaki | pengawal | pengawal lelaki | ton kulit sederhana gelap</annotation>
+		<annotation cp="💂🏾‍♂">lelaki | pengawal | ton kulit sederhana gelap</annotation>
 		<annotation cp="💂🏾‍♂" type="tts">pengawal lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="💂🏿‍♂">lelaki | pengawal | pengawal lelaki | ton kulit gelap</annotation>
+		<annotation cp="💂🏿‍♂">lelaki | pengawal | ton kulit gelap</annotation>
 		<annotation cp="💂🏿‍♂" type="tts">pengawal lelaki: ton kulit gelap</annotation>
-		<annotation cp="💂🏻‍♀">pengawal | pengawal wanita | perempuan | wanita | ton kulit cerah</annotation>
+		<annotation cp="💂🏻‍♀">pengawal | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="💂🏻‍♀" type="tts">pengawal wanita: ton kulit cerah</annotation>
-		<annotation cp="💂🏼‍♀">pengawal | pengawal wanita | perempuan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="💂🏼‍♀">pengawal | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="💂🏼‍♀" type="tts">pengawal wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="💂🏽‍♀">pengawal | pengawal wanita | perempuan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="💂🏽‍♀">pengawal | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="💂🏽‍♀" type="tts">pengawal wanita: ton kulit sederhana</annotation>
-		<annotation cp="💂🏾‍♀">pengawal | pengawal wanita | perempuan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="💂🏾‍♀">pengawal | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="💂🏾‍♀" type="tts">pengawal wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="💂🏿‍♀">pengawal | pengawal wanita | perempuan | wanita | ton kulit gelap</annotation>
+		<annotation cp="💂🏿‍♀">pengawal | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">pengawal wanita: ton kulit gelap</annotation>
-		<annotation cp="👷🏻">pekerja | pekerja pembinaan | pembinaan | topi | ton kulit cerah</annotation>
+		<annotation cp="👷🏻">pekerja | pembinaan | topi | ton kulit cerah</annotation>
 		<annotation cp="👷🏻" type="tts">pekerja pembinaan: ton kulit cerah</annotation>
-		<annotation cp="👷🏼">pekerja | pekerja pembinaan | pembinaan | topi | ton kulit sederhana cerah</annotation>
+		<annotation cp="👷🏼">pekerja | pembinaan | topi | ton kulit sederhana cerah</annotation>
 		<annotation cp="👷🏼" type="tts">pekerja pembinaan: ton kulit sederhana cerah</annotation>
-		<annotation cp="👷🏽">pekerja | pekerja pembinaan | pembinaan | topi | ton kulit sederhana</annotation>
+		<annotation cp="👷🏽">pekerja | pembinaan | topi | ton kulit sederhana</annotation>
 		<annotation cp="👷🏽" type="tts">pekerja pembinaan: ton kulit sederhana</annotation>
-		<annotation cp="👷🏾">pekerja | pekerja pembinaan | pembinaan | topi | ton kulit sederhana gelap</annotation>
+		<annotation cp="👷🏾">pekerja | pembinaan | topi | ton kulit sederhana gelap</annotation>
 		<annotation cp="👷🏾" type="tts">pekerja pembinaan: ton kulit sederhana gelap</annotation>
-		<annotation cp="👷🏿">pekerja | pekerja pembinaan | pembinaan | topi | ton kulit gelap</annotation>
+		<annotation cp="👷🏿">pekerja | pembinaan | topi | ton kulit gelap</annotation>
 		<annotation cp="👷🏿" type="tts">pekerja pembinaan: ton kulit gelap</annotation>
-		<annotation cp="👷🏻‍♂">lelaki | pekerja | pekerja pembinaan lelaki | pembinaan | ton kulit cerah</annotation>
+		<annotation cp="👷🏻‍♂">lelaki | pekerja | pembinaan | ton kulit cerah</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">pekerja pembinaan lelaki: ton kulit cerah</annotation>
-		<annotation cp="👷🏼‍♂">lelaki | pekerja | pekerja pembinaan lelaki | pembinaan | ton kulit sederhana cerah</annotation>
+		<annotation cp="👷🏼‍♂">lelaki | pekerja | pembinaan | ton kulit sederhana cerah</annotation>
 		<annotation cp="👷🏼‍♂" type="tts">pekerja pembinaan lelaki: ton kulit sederhana cerah</annotation>
-		<annotation cp="👷🏽‍♂">lelaki | pekerja | pekerja pembinaan lelaki | pembinaan | ton kulit sederhana</annotation>
+		<annotation cp="👷🏽‍♂">lelaki | pekerja | pembinaan | ton kulit sederhana</annotation>
 		<annotation cp="👷🏽‍♂" type="tts">pekerja pembinaan lelaki: ton kulit sederhana</annotation>
-		<annotation cp="👷🏾‍♂">lelaki | pekerja | pekerja pembinaan lelaki | pembinaan | ton kulit sederhana gelap</annotation>
+		<annotation cp="👷🏾‍♂">lelaki | pekerja | pembinaan | ton kulit sederhana gelap</annotation>
 		<annotation cp="👷🏾‍♂" type="tts">pekerja pembinaan lelaki: ton kulit sederhana gelap</annotation>
-		<annotation cp="👷🏿‍♂">lelaki | pekerja | pekerja pembinaan lelaki | pembinaan | ton kulit gelap</annotation>
+		<annotation cp="👷🏿‍♂">lelaki | pekerja | pembinaan | ton kulit gelap</annotation>
 		<annotation cp="👷🏿‍♂" type="tts">pekerja pembinaan lelaki: ton kulit gelap</annotation>
-		<annotation cp="👷🏻‍♀">pekerja | pekerja pembinaan wanita | pembinaan | perempuan | wanita | ton kulit cerah</annotation>
+		<annotation cp="👷🏻‍♀">pekerja | pembinaan | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="👷🏻‍♀" type="tts">pekerja pembinaan wanita: ton kulit cerah</annotation>
-		<annotation cp="👷🏼‍♀">pekerja | pekerja pembinaan wanita | pembinaan | perempuan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👷🏼‍♀">pekerja | pembinaan | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👷🏼‍♀" type="tts">pekerja pembinaan wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👷🏽‍♀">pekerja | pekerja pembinaan wanita | pembinaan | perempuan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👷🏽‍♀">pekerja | pembinaan | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👷🏽‍♀" type="tts">pekerja pembinaan wanita: ton kulit sederhana</annotation>
-		<annotation cp="👷🏾‍♀">pekerja | pekerja pembinaan wanita | pembinaan | perempuan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👷🏾‍♀">pekerja | pembinaan | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👷🏾‍♀" type="tts">pekerja pembinaan wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👷🏿‍♀">pekerja | pekerja pembinaan wanita | pembinaan | perempuan | wanita | ton kulit gelap</annotation>
+		<annotation cp="👷🏿‍♀">pekerja | pembinaan | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">pekerja pembinaan wanita: ton kulit gelap</annotation>
 		<annotation cp="🤴🏻">putera | ton kulit cerah</annotation>
 		<annotation cp="🤴🏻" type="tts">putera: ton kulit cerah</annotation>
@@ -703,15 +683,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👰🏾" type="tts">pengantin perempuan memakai vel: ton kulit sederhana gelap</annotation>
 		<annotation cp="👰🏿">pengantin perempuan | pengantin perempuan memakai vel | perkahwinan | vel | ton kulit gelap</annotation>
 		<annotation cp="👰🏿" type="tts">pengantin perempuan memakai vel: ton kulit gelap</annotation>
-		<annotation cp="🤰🏻">hamil | mengandung | wanita | wanita hamil | ton kulit cerah</annotation>
+		<annotation cp="🤰🏻">hamil | mengandung | wanita | ton kulit cerah</annotation>
 		<annotation cp="🤰🏻" type="tts">wanita hamil: ton kulit cerah</annotation>
-		<annotation cp="🤰🏼">hamil | mengandung | wanita | wanita hamil | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤰🏼">hamil | mengandung | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤰🏼" type="tts">wanita hamil: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤰🏽">hamil | mengandung | wanita | wanita hamil | ton kulit sederhana</annotation>
+		<annotation cp="🤰🏽">hamil | mengandung | wanita | ton kulit sederhana</annotation>
 		<annotation cp="🤰🏽" type="tts">wanita hamil: ton kulit sederhana</annotation>
-		<annotation cp="🤰🏾">hamil | mengandung | wanita | wanita hamil | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤰🏾">hamil | mengandung | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤰🏾" type="tts">wanita hamil: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤰🏿">hamil | mengandung | wanita | wanita hamil | ton kulit gelap</annotation>
+		<annotation cp="🤰🏿">hamil | mengandung | wanita | ton kulit gelap</annotation>
 		<annotation cp="🤰🏿" type="tts">wanita hamil: ton kulit gelap</annotation>
 		<annotation cp="🤱🏻">bayi | menyusu | menyusu badan | payu dara | ton kulit cerah</annotation>
 		<annotation cp="🤱🏻" type="tts">menyusu badan: ton kulit cerah</annotation>
@@ -1093,35 +1073,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙇🏾" type="tts">orang menunduk: ton kulit sederhana gelap</annotation>
 		<annotation cp="🙇🏿">isyarat | maaf | minta maaf | orang menunduk | tunduk | ton kulit gelap</annotation>
 		<annotation cp="🙇🏿" type="tts">orang menunduk: ton kulit gelap</annotation>
-		<annotation cp="🙇🏻‍♂">gerak isyarat | kemaafan | lelaki | lelaki menunduk | maaf | menunduk | ton kulit cerah</annotation>
+		<annotation cp="🙇🏻‍♂">gerak isyarat | kemaafan | lelaki | maaf | menunduk | ton kulit cerah</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">lelaki menunduk: ton kulit cerah</annotation>
-		<annotation cp="🙇🏼‍♂">gerak isyarat | kemaafan | lelaki | lelaki menunduk | maaf | menunduk | ton kulit sederhana cerah</annotation>
+		<annotation cp="🙇🏼‍♂">gerak isyarat | kemaafan | lelaki | maaf | menunduk | ton kulit sederhana cerah</annotation>
 		<annotation cp="🙇🏼‍♂" type="tts">lelaki menunduk: ton kulit sederhana cerah</annotation>
-		<annotation cp="🙇🏽‍♂">gerak isyarat | kemaafan | lelaki | lelaki menunduk | maaf | menunduk | ton kulit sederhana</annotation>
+		<annotation cp="🙇🏽‍♂">gerak isyarat | kemaafan | lelaki | maaf | menunduk | ton kulit sederhana</annotation>
 		<annotation cp="🙇🏽‍♂" type="tts">lelaki menunduk: ton kulit sederhana</annotation>
-		<annotation cp="🙇🏾‍♂">gerak isyarat | kemaafan | lelaki | lelaki menunduk | maaf | menunduk | ton kulit sederhana gelap</annotation>
+		<annotation cp="🙇🏾‍♂">gerak isyarat | kemaafan | lelaki | maaf | menunduk | ton kulit sederhana gelap</annotation>
 		<annotation cp="🙇🏾‍♂" type="tts">lelaki menunduk: ton kulit sederhana gelap</annotation>
-		<annotation cp="🙇🏿‍♂">gerak isyarat | kemaafan | lelaki | lelaki menunduk | maaf | menunduk | ton kulit gelap</annotation>
+		<annotation cp="🙇🏿‍♂">gerak isyarat | kemaafan | lelaki | maaf | menunduk | ton kulit gelap</annotation>
 		<annotation cp="🙇🏿‍♂" type="tts">lelaki menunduk: ton kulit gelap</annotation>
-		<annotation cp="🙇🏻‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | perempuan menunduk | wanita | ton kulit cerah</annotation>
+		<annotation cp="🙇🏻‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="🙇🏻‍♀" type="tts">perempuan menunduk: ton kulit cerah</annotation>
-		<annotation cp="🙇🏼‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | perempuan menunduk | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="🙇🏼‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="🙇🏼‍♀" type="tts">perempuan menunduk: ton kulit sederhana cerah</annotation>
-		<annotation cp="🙇🏽‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | perempuan menunduk | wanita | ton kulit sederhana</annotation>
+		<annotation cp="🙇🏽‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="🙇🏽‍♀" type="tts">perempuan menunduk: ton kulit sederhana</annotation>
-		<annotation cp="🙇🏾‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | perempuan menunduk | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="🙇🏾‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="🙇🏾‍♀" type="tts">perempuan menunduk: ton kulit sederhana gelap</annotation>
-		<annotation cp="🙇🏿‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | perempuan menunduk | wanita | ton kulit gelap</annotation>
+		<annotation cp="🙇🏿‍♀">gerak isyarat | kemaafan | maaf | menunduk | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">perempuan menunduk: ton kulit gelap</annotation>
-		<annotation cp="🤦🏻">dahi | muka | tak percaya | tepuk | tepuk dahi | ton kulit cerah</annotation>
+		<annotation cp="🤦🏻">dahi | muka | tak percaya | tepuk | ton kulit cerah</annotation>
 		<annotation cp="🤦🏻" type="tts">tepuk dahi: ton kulit cerah</annotation>
-		<annotation cp="🤦🏼">dahi | muka | tak percaya | tepuk | tepuk dahi | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤦🏼">dahi | muka | tak percaya | tepuk | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤦🏼" type="tts">tepuk dahi: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤦🏽">dahi | muka | tak percaya | tepuk | tepuk dahi | ton kulit sederhana</annotation>
+		<annotation cp="🤦🏽">dahi | muka | tak percaya | tepuk | ton kulit sederhana</annotation>
 		<annotation cp="🤦🏽" type="tts">tepuk dahi: ton kulit sederhana</annotation>
-		<annotation cp="🤦🏾">dahi | muka | tak percaya | tepuk | tepuk dahi | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤦🏾">dahi | muka | tak percaya | tepuk | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤦🏾" type="tts">tepuk dahi: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤦🏿">dahi | muka | tak percaya | tepuk | tepuk dahi | ton kulit gelap</annotation>
+		<annotation cp="🤦🏿">dahi | muka | tak percaya | tepuk | ton kulit gelap</annotation>
 		<annotation cp="🤦🏿" type="tts">tepuk dahi: ton kulit gelap</annotation>
 		<annotation cp="🤦🏻‍♂">kejengkelan | lelaki | lelaki menepuk muka | tepuk muka | tidak percaya | ton kulit cerah</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">lelaki menepuk muka: ton kulit cerah</annotation>
@@ -1273,45 +1253,45 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾" type="tts">pelari: ton kulit sederhana gelap</annotation>
 		<annotation cp="🏃🏿">berlari | maraton | pelari | ton kulit gelap</annotation>
 		<annotation cp="🏃🏿" type="tts">pelari: ton kulit gelap</annotation>
-		<annotation cp="🏃🏻‍♂">berlari | berlumba | lelaki | lelaki berlari | maraton | ton kulit cerah</annotation>
+		<annotation cp="🏃🏻‍♂">berlari | berlumba | lelaki | maraton | ton kulit cerah</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">lelaki berlari: ton kulit cerah</annotation>
-		<annotation cp="🏃🏼‍♂">berlari | berlumba | lelaki | lelaki berlari | maraton | ton kulit sederhana cerah</annotation>
+		<annotation cp="🏃🏼‍♂">berlari | berlumba | lelaki | maraton | ton kulit sederhana cerah</annotation>
 		<annotation cp="🏃🏼‍♂" type="tts">lelaki berlari: ton kulit sederhana cerah</annotation>
-		<annotation cp="🏃🏽‍♂">berlari | berlumba | lelaki | lelaki berlari | maraton | ton kulit sederhana</annotation>
+		<annotation cp="🏃🏽‍♂">berlari | berlumba | lelaki | maraton | ton kulit sederhana</annotation>
 		<annotation cp="🏃🏽‍♂" type="tts">lelaki berlari: ton kulit sederhana</annotation>
-		<annotation cp="🏃🏾‍♂">berlari | berlumba | lelaki | lelaki berlari | maraton | ton kulit sederhana gelap</annotation>
+		<annotation cp="🏃🏾‍♂">berlari | berlumba | lelaki | maraton | ton kulit sederhana gelap</annotation>
 		<annotation cp="🏃🏾‍♂" type="tts">lelaki berlari: ton kulit sederhana gelap</annotation>
-		<annotation cp="🏃🏿‍♂">berlari | berlumba | lelaki | lelaki berlari | maraton | ton kulit gelap</annotation>
+		<annotation cp="🏃🏿‍♂">berlari | berlumba | lelaki | maraton | ton kulit gelap</annotation>
 		<annotation cp="🏃🏿‍♂" type="tts">lelaki berlari: ton kulit gelap</annotation>
-		<annotation cp="🏃🏻‍♀">berlari | berlumba | maraton | perempuan | perempuan berlari | wanita | ton kulit cerah</annotation>
+		<annotation cp="🏃🏻‍♀">berlari | berlumba | maraton | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="🏃🏻‍♀" type="tts">perempuan berlari: ton kulit cerah</annotation>
-		<annotation cp="🏃🏼‍♀">berlari | berlumba | maraton | perempuan | perempuan berlari | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="🏃🏼‍♀">berlari | berlumba | maraton | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="🏃🏼‍♀" type="tts">perempuan berlari: ton kulit sederhana cerah</annotation>
-		<annotation cp="🏃🏽‍♀">berlari | berlumba | maraton | perempuan | perempuan berlari | wanita | ton kulit sederhana</annotation>
+		<annotation cp="🏃🏽‍♀">berlari | berlumba | maraton | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="🏃🏽‍♀" type="tts">perempuan berlari: ton kulit sederhana</annotation>
-		<annotation cp="🏃🏾‍♀">berlari | berlumba | maraton | perempuan | perempuan berlari | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="🏃🏾‍♀">berlari | berlumba | maraton | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="🏃🏾‍♀" type="tts">perempuan berlari: ton kulit sederhana gelap</annotation>
-		<annotation cp="🏃🏿‍♀">berlari | berlumba | maraton | perempuan | perempuan berlari | wanita | ton kulit gelap</annotation>
+		<annotation cp="🏃🏿‍♀">berlari | berlumba | maraton | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">perempuan berlari: ton kulit gelap</annotation>
-		<annotation cp="💃🏻">menari | perempuan | perempuan menari | wanita | ton kulit cerah</annotation>
+		<annotation cp="💃🏻">menari | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="💃🏻" type="tts">perempuan menari: ton kulit cerah</annotation>
-		<annotation cp="💃🏼">menari | perempuan | perempuan menari | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="💃🏼">menari | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="💃🏼" type="tts">perempuan menari: ton kulit sederhana cerah</annotation>
-		<annotation cp="💃🏽">menari | perempuan | perempuan menari | wanita | ton kulit sederhana</annotation>
+		<annotation cp="💃🏽">menari | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="💃🏽" type="tts">perempuan menari: ton kulit sederhana</annotation>
-		<annotation cp="💃🏾">menari | perempuan | perempuan menari | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="💃🏾">menari | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="💃🏾" type="tts">perempuan menari: ton kulit sederhana gelap</annotation>
-		<annotation cp="💃🏿">menari | perempuan | perempuan menari | wanita | ton kulit gelap</annotation>
+		<annotation cp="💃🏿">menari | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="💃🏿" type="tts">perempuan menari: ton kulit gelap</annotation>
-		<annotation cp="🕺🏻">disko | lelaki | lelaki menari | menari | ton kulit cerah</annotation>
+		<annotation cp="🕺🏻">disko | lelaki | menari | ton kulit cerah</annotation>
 		<annotation cp="🕺🏻" type="tts">lelaki menari: ton kulit cerah</annotation>
-		<annotation cp="🕺🏼">disko | lelaki | lelaki menari | menari | ton kulit sederhana cerah</annotation>
+		<annotation cp="🕺🏼">disko | lelaki | menari | ton kulit sederhana cerah</annotation>
 		<annotation cp="🕺🏼" type="tts">lelaki menari: ton kulit sederhana cerah</annotation>
-		<annotation cp="🕺🏽">disko | lelaki | lelaki menari | menari | ton kulit sederhana</annotation>
+		<annotation cp="🕺🏽">disko | lelaki | menari | ton kulit sederhana</annotation>
 		<annotation cp="🕺🏽" type="tts">lelaki menari: ton kulit sederhana</annotation>
-		<annotation cp="🕺🏾">disko | lelaki | lelaki menari | menari | ton kulit sederhana gelap</annotation>
+		<annotation cp="🕺🏾">disko | lelaki | menari | ton kulit sederhana gelap</annotation>
 		<annotation cp="🕺🏾" type="tts">lelaki menari: ton kulit sederhana gelap</annotation>
-		<annotation cp="🕺🏿">disko | lelaki | lelaki menari | menari | ton kulit gelap</annotation>
+		<annotation cp="🕺🏿">disko | lelaki | menari | ton kulit gelap</annotation>
 		<annotation cp="🕺🏿" type="tts">lelaki menari: ton kulit gelap</annotation>
 		<annotation cp="🧖🏻">bilik wap | orang dalam bilik berwap | sauna | ton kulit cerah</annotation>
 		<annotation cp="🧖🏻" type="tts">orang dalam bilik berwap: ton kulit cerah</annotation>
@@ -1433,15 +1413,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">lelaki memakai sut urusan terapung-apung: ton kulit sederhana gelap</annotation>
 		<annotation cp="🕴🏿">lelaki memakai sut urusan terapung-apung | manusia | perniagaan | sut | ton kulit gelap</annotation>
 		<annotation cp="🕴🏿" type="tts">lelaki memakai sut urusan terapung-apung: ton kulit gelap</annotation>
-		<annotation cp="🏇🏻">joki | kuda | kuda lumba | lumba | lumba kuda | ton kulit cerah</annotation>
+		<annotation cp="🏇🏻">joki | kuda | lumba | ton kulit cerah</annotation>
 		<annotation cp="🏇🏻" type="tts">lumba kuda: ton kulit cerah</annotation>
-		<annotation cp="🏇🏼">joki | kuda | kuda lumba | lumba | lumba kuda | ton kulit sederhana cerah</annotation>
+		<annotation cp="🏇🏼">joki | kuda | lumba | ton kulit sederhana cerah</annotation>
 		<annotation cp="🏇🏼" type="tts">lumba kuda: ton kulit sederhana cerah</annotation>
-		<annotation cp="🏇🏽">joki | kuda | kuda lumba | lumba | lumba kuda | ton kulit sederhana</annotation>
+		<annotation cp="🏇🏽">joki | kuda | lumba | ton kulit sederhana</annotation>
 		<annotation cp="🏇🏽" type="tts">lumba kuda: ton kulit sederhana</annotation>
-		<annotation cp="🏇🏾">joki | kuda | kuda lumba | lumba | lumba kuda | ton kulit sederhana gelap</annotation>
+		<annotation cp="🏇🏾">joki | kuda | lumba | ton kulit sederhana gelap</annotation>
 		<annotation cp="🏇🏾" type="tts">lumba kuda: ton kulit sederhana gelap</annotation>
-		<annotation cp="🏇🏿">joki | kuda | kuda lumba | lumba | lumba kuda | ton kulit gelap</annotation>
+		<annotation cp="🏇🏿">joki | kuda | lumba | ton kulit gelap</annotation>
 		<annotation cp="🏇🏿" type="tts">lumba kuda: ton kulit gelap</annotation>
 		<annotation cp="🏂🏻">papan luncur salji | peluncur papan salji | salji | ski | ton kulit cerah</annotation>
 		<annotation cp="🏂🏻" type="tts">peluncur papan salji: ton kulit cerah</annotation>
@@ -1553,25 +1533,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏊🏾" type="tts">perenang: ton kulit sederhana gelap</annotation>
 		<annotation cp="🏊🏿">berenang | perenang | ton kulit gelap</annotation>
 		<annotation cp="🏊🏿" type="tts">perenang: ton kulit gelap</annotation>
-		<annotation cp="🏊🏻‍♂">berenang | lelaki | lelaki berenang | ton kulit cerah</annotation>
+		<annotation cp="🏊🏻‍♂">berenang | lelaki | ton kulit cerah</annotation>
 		<annotation cp="🏊🏻‍♂" type="tts">lelaki berenang: ton kulit cerah</annotation>
-		<annotation cp="🏊🏼‍♂">berenang | lelaki | lelaki berenang | ton kulit sederhana cerah</annotation>
+		<annotation cp="🏊🏼‍♂">berenang | lelaki | ton kulit sederhana cerah</annotation>
 		<annotation cp="🏊🏼‍♂" type="tts">lelaki berenang: ton kulit sederhana cerah</annotation>
-		<annotation cp="🏊🏽‍♂">berenang | lelaki | lelaki berenang | ton kulit sederhana</annotation>
+		<annotation cp="🏊🏽‍♂">berenang | lelaki | ton kulit sederhana</annotation>
 		<annotation cp="🏊🏽‍♂" type="tts">lelaki berenang: ton kulit sederhana</annotation>
-		<annotation cp="🏊🏾‍♂">berenang | lelaki | lelaki berenang | ton kulit sederhana gelap</annotation>
+		<annotation cp="🏊🏾‍♂">berenang | lelaki | ton kulit sederhana gelap</annotation>
 		<annotation cp="🏊🏾‍♂" type="tts">lelaki berenang: ton kulit sederhana gelap</annotation>
-		<annotation cp="🏊🏿‍♂">berenang | lelaki | lelaki berenang | ton kulit gelap</annotation>
+		<annotation cp="🏊🏿‍♂">berenang | lelaki | ton kulit gelap</annotation>
 		<annotation cp="🏊🏿‍♂" type="tts">lelaki berenang: ton kulit gelap</annotation>
-		<annotation cp="🏊🏻‍♀">berenang | perempuan | wanita | wanita berenang | ton kulit cerah</annotation>
+		<annotation cp="🏊🏻‍♀">berenang | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="🏊🏻‍♀" type="tts">wanita berenang: ton kulit cerah</annotation>
-		<annotation cp="🏊🏼‍♀">berenang | perempuan | wanita | wanita berenang | ton kulit sederhana cerah</annotation>
+		<annotation cp="🏊🏼‍♀">berenang | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="🏊🏼‍♀" type="tts">wanita berenang: ton kulit sederhana cerah</annotation>
-		<annotation cp="🏊🏽‍♀">berenang | perempuan | wanita | wanita berenang | ton kulit sederhana</annotation>
+		<annotation cp="🏊🏽‍♀">berenang | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="🏊🏽‍♀" type="tts">wanita berenang: ton kulit sederhana</annotation>
-		<annotation cp="🏊🏾‍♀">berenang | perempuan | wanita | wanita berenang | ton kulit sederhana gelap</annotation>
+		<annotation cp="🏊🏾‍♀">berenang | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="🏊🏾‍♀" type="tts">wanita berenang: ton kulit sederhana gelap</annotation>
-		<annotation cp="🏊🏿‍♀">berenang | perempuan | wanita | wanita berenang | ton kulit gelap</annotation>
+		<annotation cp="🏊🏿‍♀">berenang | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="🏊🏿‍♀" type="tts">wanita berenang: ton kulit gelap</annotation>
 		<annotation cp="⛹🏻">bola | orang melantun bola | ton kulit cerah</annotation>
 		<annotation cp="⛹🏻" type="tts">orang melantun bola: ton kulit cerah</annotation>
@@ -1643,55 +1623,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚴🏾" type="tts">menunggang basikal: ton kulit sederhana gelap</annotation>
 		<annotation cp="🚴🏿">basikal | menunggang basikal | sepeda | ton kulit gelap</annotation>
 		<annotation cp="🚴🏿" type="tts">menunggang basikal: ton kulit gelap</annotation>
-		<annotation cp="🚴🏻‍♂">basikal | berbasikal | lelaki | lelaki berbasikal | penunggang basikal | ton kulit cerah</annotation>
+		<annotation cp="🚴🏻‍♂">basikal | berbasikal | lelaki | penunggang basikal | ton kulit cerah</annotation>
 		<annotation cp="🚴🏻‍♂" type="tts">lelaki berbasikal: ton kulit cerah</annotation>
-		<annotation cp="🚴🏼‍♂">basikal | berbasikal | lelaki | lelaki berbasikal | penunggang basikal | ton kulit sederhana cerah</annotation>
+		<annotation cp="🚴🏼‍♂">basikal | berbasikal | lelaki | penunggang basikal | ton kulit sederhana cerah</annotation>
 		<annotation cp="🚴🏼‍♂" type="tts">lelaki berbasikal: ton kulit sederhana cerah</annotation>
-		<annotation cp="🚴🏽‍♂">basikal | berbasikal | lelaki | lelaki berbasikal | penunggang basikal | ton kulit sederhana</annotation>
+		<annotation cp="🚴🏽‍♂">basikal | berbasikal | lelaki | penunggang basikal | ton kulit sederhana</annotation>
 		<annotation cp="🚴🏽‍♂" type="tts">lelaki berbasikal: ton kulit sederhana</annotation>
-		<annotation cp="🚴🏾‍♂">basikal | berbasikal | lelaki | lelaki berbasikal | penunggang basikal | ton kulit sederhana gelap</annotation>
+		<annotation cp="🚴🏾‍♂">basikal | berbasikal | lelaki | penunggang basikal | ton kulit sederhana gelap</annotation>
 		<annotation cp="🚴🏾‍♂" type="tts">lelaki berbasikal: ton kulit sederhana gelap</annotation>
-		<annotation cp="🚴🏿‍♂">basikal | berbasikal | lelaki | lelaki berbasikal | penunggang basikal | ton kulit gelap</annotation>
+		<annotation cp="🚴🏿‍♂">basikal | berbasikal | lelaki | penunggang basikal | ton kulit gelap</annotation>
 		<annotation cp="🚴🏿‍♂" type="tts">lelaki berbasikal: ton kulit gelap</annotation>
-		<annotation cp="🚴🏻‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | wanita berbasikal | ton kulit cerah</annotation>
+		<annotation cp="🚴🏻‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="🚴🏻‍♀" type="tts">wanita berbasikal: ton kulit cerah</annotation>
-		<annotation cp="🚴🏼‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | wanita berbasikal | ton kulit sederhana cerah</annotation>
+		<annotation cp="🚴🏼‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="🚴🏼‍♀" type="tts">wanita berbasikal: ton kulit sederhana cerah</annotation>
-		<annotation cp="🚴🏽‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | wanita berbasikal | ton kulit sederhana</annotation>
+		<annotation cp="🚴🏽‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="🚴🏽‍♀" type="tts">wanita berbasikal: ton kulit sederhana</annotation>
-		<annotation cp="🚴🏾‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | wanita berbasikal | ton kulit sederhana gelap</annotation>
+		<annotation cp="🚴🏾‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="🚴🏾‍♀" type="tts">wanita berbasikal: ton kulit sederhana gelap</annotation>
-		<annotation cp="🚴🏿‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | wanita berbasikal | ton kulit gelap</annotation>
+		<annotation cp="🚴🏿‍♀">basikal | berbasikal | penunggang basikal | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="🚴🏿‍♀" type="tts">wanita berbasikal: ton kulit gelap</annotation>
-		<annotation cp="🚵🏻">basikal | bukit | penunggang | penunggang basikal | penunggang basikal bukit | sepeda | ton kulit cerah</annotation>
+		<annotation cp="🚵🏻">basikal | bukit | penunggang | sepeda | ton kulit cerah</annotation>
 		<annotation cp="🚵🏻" type="tts">penunggang basikal bukit: ton kulit cerah</annotation>
-		<annotation cp="🚵🏼">basikal | bukit | penunggang | penunggang basikal | penunggang basikal bukit | sepeda | ton kulit sederhana cerah</annotation>
+		<annotation cp="🚵🏼">basikal | bukit | penunggang | sepeda | ton kulit sederhana cerah</annotation>
 		<annotation cp="🚵🏼" type="tts">penunggang basikal bukit: ton kulit sederhana cerah</annotation>
-		<annotation cp="🚵🏽">basikal | bukit | penunggang | penunggang basikal | penunggang basikal bukit | sepeda | ton kulit sederhana</annotation>
+		<annotation cp="🚵🏽">basikal | bukit | penunggang | sepeda | ton kulit sederhana</annotation>
 		<annotation cp="🚵🏽" type="tts">penunggang basikal bukit: ton kulit sederhana</annotation>
-		<annotation cp="🚵🏾">basikal | bukit | penunggang | penunggang basikal | penunggang basikal bukit | sepeda | ton kulit sederhana gelap</annotation>
+		<annotation cp="🚵🏾">basikal | bukit | penunggang | sepeda | ton kulit sederhana gelap</annotation>
 		<annotation cp="🚵🏾" type="tts">penunggang basikal bukit: ton kulit sederhana gelap</annotation>
-		<annotation cp="🚵🏿">basikal | bukit | penunggang | penunggang basikal | penunggang basikal bukit | sepeda | ton kulit gelap</annotation>
+		<annotation cp="🚵🏿">basikal | bukit | penunggang | sepeda | ton kulit gelap</annotation>
 		<annotation cp="🚵🏿" type="tts">penunggang basikal bukit: ton kulit gelap</annotation>
-		<annotation cp="🚵🏻‍♂">basikal | berbasikal | gunung | lelaki | lelaki berbasikal gunung | penunggang basikal | ton kulit cerah</annotation>
+		<annotation cp="🚵🏻‍♂">basikal | berbasikal | gunung | lelaki | penunggang basikal | ton kulit cerah</annotation>
 		<annotation cp="🚵🏻‍♂" type="tts">lelaki berbasikal gunung: ton kulit cerah</annotation>
-		<annotation cp="🚵🏼‍♂">basikal | berbasikal | gunung | lelaki | lelaki berbasikal gunung | penunggang basikal | ton kulit sederhana cerah</annotation>
+		<annotation cp="🚵🏼‍♂">basikal | berbasikal | gunung | lelaki | penunggang basikal | ton kulit sederhana cerah</annotation>
 		<annotation cp="🚵🏼‍♂" type="tts">lelaki berbasikal gunung: ton kulit sederhana cerah</annotation>
-		<annotation cp="🚵🏽‍♂">basikal | berbasikal | gunung | lelaki | lelaki berbasikal gunung | penunggang basikal | ton kulit sederhana</annotation>
+		<annotation cp="🚵🏽‍♂">basikal | berbasikal | gunung | lelaki | penunggang basikal | ton kulit sederhana</annotation>
 		<annotation cp="🚵🏽‍♂" type="tts">lelaki berbasikal gunung: ton kulit sederhana</annotation>
-		<annotation cp="🚵🏾‍♂">basikal | berbasikal | gunung | lelaki | lelaki berbasikal gunung | penunggang basikal | ton kulit sederhana gelap</annotation>
+		<annotation cp="🚵🏾‍♂">basikal | berbasikal | gunung | lelaki | penunggang basikal | ton kulit sederhana gelap</annotation>
 		<annotation cp="🚵🏾‍♂" type="tts">lelaki berbasikal gunung: ton kulit sederhana gelap</annotation>
-		<annotation cp="🚵🏿‍♂">basikal | berbasikal | gunung | lelaki | lelaki berbasikal gunung | penunggang basikal | ton kulit gelap</annotation>
+		<annotation cp="🚵🏿‍♂">basikal | berbasikal | gunung | lelaki | penunggang basikal | ton kulit gelap</annotation>
 		<annotation cp="🚵🏿‍♂" type="tts">lelaki berbasikal gunung: ton kulit gelap</annotation>
-		<annotation cp="🚵🏻‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | wanita berbasikal gunung | ton kulit cerah</annotation>
+		<annotation cp="🚵🏻‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="🚵🏻‍♀" type="tts">wanita berbasikal gunung: ton kulit cerah</annotation>
-		<annotation cp="🚵🏼‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | wanita berbasikal gunung | ton kulit sederhana cerah</annotation>
+		<annotation cp="🚵🏼‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="🚵🏼‍♀" type="tts">wanita berbasikal gunung: ton kulit sederhana cerah</annotation>
-		<annotation cp="🚵🏽‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | wanita berbasikal gunung | ton kulit sederhana</annotation>
+		<annotation cp="🚵🏽‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="🚵🏽‍♀" type="tts">wanita berbasikal gunung: ton kulit sederhana</annotation>
-		<annotation cp="🚵🏾‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | wanita berbasikal gunung | ton kulit sederhana gelap</annotation>
+		<annotation cp="🚵🏾‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="🚵🏾‍♀" type="tts">wanita berbasikal gunung: ton kulit sederhana gelap</annotation>
-		<annotation cp="🚵🏿‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | wanita berbasikal gunung | ton kulit gelap</annotation>
+		<annotation cp="🚵🏿‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">wanita berbasikal gunung: ton kulit gelap</annotation>
 		<annotation cp="🤸🏻">gimnastik | orang | putar roda | sukan | ton kulit cerah</annotation>
 		<annotation cp="🤸🏻" type="tts">putar roda: ton kulit cerah</annotation>
@@ -1723,15 +1703,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">wanita membuat putar roda: ton kulit sederhana gelap</annotation>
 		<annotation cp="🤸🏿‍♀">gimnastik | orang | perempuan | putar roda | sukan | wanita | wanita membuat putar roda | ton kulit gelap</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">wanita membuat putar roda: ton kulit gelap</annotation>
-		<annotation cp="🤽🏻">air | orang | polo | polo air | sukan | ton kulit cerah</annotation>
+		<annotation cp="🤽🏻">air | orang | polo | sukan | ton kulit cerah</annotation>
 		<annotation cp="🤽🏻" type="tts">polo air: ton kulit cerah</annotation>
-		<annotation cp="🤽🏼">air | orang | polo | polo air | sukan | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤽🏼">air | orang | polo | sukan | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤽🏼" type="tts">polo air: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤽🏽">air | orang | polo | polo air | sukan | ton kulit sederhana</annotation>
+		<annotation cp="🤽🏽">air | orang | polo | sukan | ton kulit sederhana</annotation>
 		<annotation cp="🤽🏽" type="tts">polo air: ton kulit sederhana</annotation>
-		<annotation cp="🤽🏾">air | orang | polo | polo air | sukan | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤽🏾">air | orang | polo | sukan | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤽🏾" type="tts">polo air: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤽🏿">air | orang | polo | polo air | sukan | ton kulit gelap</annotation>
+		<annotation cp="🤽🏿">air | orang | polo | sukan | ton kulit gelap</annotation>
 		<annotation cp="🤽🏿" type="tts">polo air: ton kulit gelap</annotation>
 		<annotation cp="🤽🏻‍♂">lelaki | lelaki bermain polo air | polo air | sukan | ton kulit cerah</annotation>
 		<annotation cp="🤽🏻‍♂" type="tts">lelaki bermain polo air: ton kulit cerah</annotation>
@@ -1793,25 +1773,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤹🏾" type="tts">menjugel: ton kulit sederhana gelap</annotation>
 		<annotation cp="🤹🏿">jugel | kemahiran | keseimbangan | menjugel | pelbagai aksi | ton kulit gelap</annotation>
 		<annotation cp="🤹🏿" type="tts">menjugel: ton kulit gelap</annotation>
-		<annotation cp="🤹🏻‍♂">berbilang tugas | lelaki | lelaki menjugel | menjugel | ton kulit cerah</annotation>
+		<annotation cp="🤹🏻‍♂">berbilang tugas | lelaki | menjugel | ton kulit cerah</annotation>
 		<annotation cp="🤹🏻‍♂" type="tts">lelaki menjugel: ton kulit cerah</annotation>
-		<annotation cp="🤹🏼‍♂">berbilang tugas | lelaki | lelaki menjugel | menjugel | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤹🏼‍♂">berbilang tugas | lelaki | menjugel | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤹🏼‍♂" type="tts">lelaki menjugel: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤹🏽‍♂">berbilang tugas | lelaki | lelaki menjugel | menjugel | ton kulit sederhana</annotation>
+		<annotation cp="🤹🏽‍♂">berbilang tugas | lelaki | menjugel | ton kulit sederhana</annotation>
 		<annotation cp="🤹🏽‍♂" type="tts">lelaki menjugel: ton kulit sederhana</annotation>
-		<annotation cp="🤹🏾‍♂">berbilang tugas | lelaki | lelaki menjugel | menjugel | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤹🏾‍♂">berbilang tugas | lelaki | menjugel | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤹🏾‍♂" type="tts">lelaki menjugel: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤹🏿‍♂">berbilang tugas | lelaki | lelaki menjugel | menjugel | ton kulit gelap</annotation>
+		<annotation cp="🤹🏿‍♂">berbilang tugas | lelaki | menjugel | ton kulit gelap</annotation>
 		<annotation cp="🤹🏿‍♂" type="tts">lelaki menjugel: ton kulit gelap</annotation>
-		<annotation cp="🤹🏻‍♀">berbilang tugas | menjugel | perempuan | wanita | wanita menjugel | ton kulit cerah</annotation>
+		<annotation cp="🤹🏻‍♀">berbilang tugas | menjugel | perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="🤹🏻‍♀" type="tts">wanita menjugel: ton kulit cerah</annotation>
-		<annotation cp="🤹🏼‍♀">berbilang tugas | menjugel | perempuan | wanita | wanita menjugel | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤹🏼‍♀">berbilang tugas | menjugel | perempuan | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤹🏼‍♀" type="tts">wanita menjugel: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤹🏽‍♀">berbilang tugas | menjugel | perempuan | wanita | wanita menjugel | ton kulit sederhana</annotation>
+		<annotation cp="🤹🏽‍♀">berbilang tugas | menjugel | perempuan | wanita | ton kulit sederhana</annotation>
 		<annotation cp="🤹🏽‍♀" type="tts">wanita menjugel: ton kulit sederhana</annotation>
-		<annotation cp="🤹🏾‍♀">berbilang tugas | menjugel | perempuan | wanita | wanita menjugel | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤹🏾‍♀">berbilang tugas | menjugel | perempuan | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤹🏾‍♀" type="tts">wanita menjugel: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤹🏿‍♀">berbilang tugas | menjugel | perempuan | wanita | wanita menjugel | ton kulit gelap</annotation>
+		<annotation cp="🤹🏿‍♀">berbilang tugas | menjugel | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">wanita menjugel: ton kulit gelap</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">cium | pasangan | percintaan | perempuan | lelaki</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">cium: perempuan dan lelaki</annotation>
@@ -1965,15 +1945,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="✌🏾" type="tts">simbol kemenangan: ton kulit sederhana gelap</annotation>
 		<annotation cp="✌🏿">badan | kemenangan | simbol kemenangan | tangan | v | ton kulit gelap</annotation>
 		<annotation cp="✌🏿" type="tts">simbol kemenangan: ton kulit gelap</annotation>
-		<annotation cp="🤞🏻">jari | nasib | silang | silang jari | tangan | ton kulit cerah</annotation>
+		<annotation cp="🤞🏻">jari | nasib | silang | tangan | ton kulit cerah</annotation>
 		<annotation cp="🤞🏻" type="tts">silang jari: ton kulit cerah</annotation>
-		<annotation cp="🤞🏼">jari | nasib | silang | silang jari | tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤞🏼">jari | nasib | silang | tangan | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤞🏼" type="tts">silang jari: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤞🏽">jari | nasib | silang | silang jari | tangan | ton kulit sederhana</annotation>
+		<annotation cp="🤞🏽">jari | nasib | silang | tangan | ton kulit sederhana</annotation>
 		<annotation cp="🤞🏽" type="tts">silang jari: ton kulit sederhana</annotation>
-		<annotation cp="🤞🏾">jari | nasib | silang | silang jari | tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤞🏾">jari | nasib | silang | tangan | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤞🏾" type="tts">silang jari: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤞🏿">jari | nasib | silang | silang jari | tangan | ton kulit gelap</annotation>
+		<annotation cp="🤞🏿">jari | nasib | silang | tangan | ton kulit gelap</annotation>
 		<annotation cp="🤞🏿" type="tts">silang jari: ton kulit gelap</annotation>
 		<annotation cp="🖖🏻">badan | jari | spock | tabik vulcan | tangan | valkan | ton kulit cerah</annotation>
 		<annotation cp="🖖🏻" type="tts">tabik vulcan: ton kulit cerah</annotation>
@@ -2105,15 +2085,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤚🏾" type="tts">angkat belakang tapak tangan: ton kulit sederhana gelap</annotation>
 		<annotation cp="🤚🏿">angkat | angkat belakang tapak tangan | tapak tangan | ton kulit gelap</annotation>
 		<annotation cp="🤚🏿" type="tts">angkat belakang tapak tangan: ton kulit gelap</annotation>
-		<annotation cp="👋🏻">badan | lambai | lambai tangan | melambai | tangan | ton kulit cerah</annotation>
+		<annotation cp="👋🏻">badan | lambai | melambai | tangan | ton kulit cerah</annotation>
 		<annotation cp="👋🏻" type="tts">lambai tangan: ton kulit cerah</annotation>
-		<annotation cp="👋🏼">badan | lambai | lambai tangan | melambai | tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="👋🏼">badan | lambai | melambai | tangan | ton kulit sederhana cerah</annotation>
 		<annotation cp="👋🏼" type="tts">lambai tangan: ton kulit sederhana cerah</annotation>
-		<annotation cp="👋🏽">badan | lambai | lambai tangan | melambai | tangan | ton kulit sederhana</annotation>
+		<annotation cp="👋🏽">badan | lambai | melambai | tangan | ton kulit sederhana</annotation>
 		<annotation cp="👋🏽" type="tts">lambai tangan: ton kulit sederhana</annotation>
-		<annotation cp="👋🏾">badan | lambai | lambai tangan | melambai | tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="👋🏾">badan | lambai | melambai | tangan | ton kulit sederhana gelap</annotation>
 		<annotation cp="👋🏾" type="tts">lambai tangan: ton kulit sederhana gelap</annotation>
-		<annotation cp="👋🏿">badan | lambai | lambai tangan | melambai | tangan | ton kulit gelap</annotation>
+		<annotation cp="👋🏿">badan | lambai | melambai | tangan | ton kulit gelap</annotation>
 		<annotation cp="👋🏿" type="tts">lambai tangan: ton kulit gelap</annotation>
 		<annotation cp="🤟🏻">ACK | gerak isyarat cinta kamu | tangan | ton kulit cerah</annotation>
 		<annotation cp="🤟🏻" type="tts">gerak isyarat cinta kamu: ton kulit cerah</annotation>
@@ -2145,15 +2125,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👏🏾" type="tts">bertepuk tangan: ton kulit sederhana gelap</annotation>
 		<annotation cp="👏🏿">badan | bertepuk tangan | tangan | tepuk | ton kulit gelap</annotation>
 		<annotation cp="👏🏿" type="tts">bertepuk tangan: ton kulit gelap</annotation>
-		<annotation cp="👐🏻">badan | tangan | tangan terbuka | terbuka | ton kulit cerah</annotation>
+		<annotation cp="👐🏻">badan | tangan | terbuka | ton kulit cerah</annotation>
 		<annotation cp="👐🏻" type="tts">tangan terbuka: ton kulit cerah</annotation>
-		<annotation cp="👐🏼">badan | tangan | tangan terbuka | terbuka | ton kulit sederhana cerah</annotation>
+		<annotation cp="👐🏼">badan | tangan | terbuka | ton kulit sederhana cerah</annotation>
 		<annotation cp="👐🏼" type="tts">tangan terbuka: ton kulit sederhana cerah</annotation>
-		<annotation cp="👐🏽">badan | tangan | tangan terbuka | terbuka | ton kulit sederhana</annotation>
+		<annotation cp="👐🏽">badan | tangan | terbuka | ton kulit sederhana</annotation>
 		<annotation cp="👐🏽" type="tts">tangan terbuka: ton kulit sederhana</annotation>
-		<annotation cp="👐🏾">badan | tangan | tangan terbuka | terbuka | ton kulit sederhana gelap</annotation>
+		<annotation cp="👐🏾">badan | tangan | terbuka | ton kulit sederhana gelap</annotation>
 		<annotation cp="👐🏾" type="tts">tangan terbuka: ton kulit sederhana gelap</annotation>
-		<annotation cp="👐🏿">badan | tangan | tangan terbuka | terbuka | ton kulit gelap</annotation>
+		<annotation cp="👐🏿">badan | tangan | terbuka | ton kulit gelap</annotation>
 		<annotation cp="👐🏿" type="tts">tangan terbuka: ton kulit gelap</annotation>
 		<annotation cp="🙌🏻">angkat | badan | hore | isyarat | orang mengangkat tangan | perayaan | tangan | ton kulit cerah</annotation>
 		<annotation cp="🙌🏻" type="tts">orang mengangkat tangan: ton kulit cerah</annotation>
@@ -2185,15 +2165,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙏🏾" type="tts">menyusun jari: ton kulit sederhana gelap</annotation>
 		<annotation cp="🙏🏿">badan | doa | isyarat | menyusun jari | susun | tangan | tanya | terima kasih | tolong | tunduk | ton kulit gelap</annotation>
 		<annotation cp="🙏🏿" type="tts">menyusun jari: ton kulit gelap</annotation>
-		<annotation cp="💅🏻">badan | kosmetik | kuku | pengilat | pengilat kuku | penjagaan | rias tangan | ton kulit cerah</annotation>
+		<annotation cp="💅🏻">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit cerah</annotation>
 		<annotation cp="💅🏻" type="tts">pengilat kuku: ton kulit cerah</annotation>
-		<annotation cp="💅🏼">badan | kosmetik | kuku | pengilat | pengilat kuku | penjagaan | rias tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="💅🏼">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana cerah</annotation>
 		<annotation cp="💅🏼" type="tts">pengilat kuku: ton kulit sederhana cerah</annotation>
-		<annotation cp="💅🏽">badan | kosmetik | kuku | pengilat | pengilat kuku | penjagaan | rias tangan | ton kulit sederhana</annotation>
+		<annotation cp="💅🏽">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana</annotation>
 		<annotation cp="💅🏽" type="tts">pengilat kuku: ton kulit sederhana</annotation>
-		<annotation cp="💅🏾">badan | kosmetik | kuku | pengilat | pengilat kuku | penjagaan | rias tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="💅🏾">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana gelap</annotation>
 		<annotation cp="💅🏾" type="tts">pengilat kuku: ton kulit sederhana gelap</annotation>
-		<annotation cp="💅🏿">badan | kosmetik | kuku | pengilat | pengilat kuku | penjagaan | rias tangan | ton kulit gelap</annotation>
+		<annotation cp="💅🏿">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit gelap</annotation>
 		<annotation cp="💅🏿" type="tts">pengilat kuku: ton kulit gelap</annotation>
 		<annotation cp="👂🏻">badan | telinga | ton kulit cerah</annotation>
 		<annotation cp="👂🏻" type="tts">telinga: ton kulit cerah</annotation>
@@ -2743,5 +2723,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Scotland</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">bendera</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+		<annotation cp="0⃣">keycap</annotation>
+		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
+		<annotation cp="1⃣">keycap</annotation>
+		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
+		<annotation cp="2⃣">keycap</annotation>
+		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
+		<annotation cp="3⃣">keycap</annotation>
+		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
+		<annotation cp="4⃣">keycap</annotation>
+		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
+		<annotation cp="5⃣">keycap</annotation>
+		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
+		<annotation cp="6⃣">keycap</annotation>
+		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
+		<annotation cp="7⃣">keycap</annotation>
+		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
+		<annotation cp="8⃣">keycap</annotation>
+		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
+		<annotation cp="9⃣">keycap</annotation>
+		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
 	</annotations>
 </ldml>

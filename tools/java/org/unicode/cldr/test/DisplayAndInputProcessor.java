@@ -417,8 +417,12 @@ public class DisplayAndInputProcessor {
                 value = normalizeHyphens(value);
             }
 
-            if (path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS)) {
-                value = annotationsForDisplay(value);
+            if (path.startsWith("//ldml/annotations/annotation")) {
+                if (path.contains(Emoji.TYPE_TTS)) {
+                    value = SPLIT_BAR.split(value).iterator().next();
+                } else {
+                    value = annotationsForDisplay(value);
+                }
             }
 
             return value;
@@ -432,7 +436,7 @@ public class DisplayAndInputProcessor {
 
     private static final boolean REMOVE_COVERED_KEYWORDS = true;
     
-    private String annotationsForDisplay(String value) {
+    private static String annotationsForDisplay(String value) {
         TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
         sorted.addAll(SPLIT_BAR.splitToList(value));
         if (REMOVE_COVERED_KEYWORDS) {
@@ -442,7 +446,7 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
-    private void filterCoveredKeywords(TreeSet<String> sorted) {
+    public static void filterCoveredKeywords(TreeSet<String> sorted) {
         // for now, just do single items
         HashSet<String> toRemove = new HashSet<>();
         

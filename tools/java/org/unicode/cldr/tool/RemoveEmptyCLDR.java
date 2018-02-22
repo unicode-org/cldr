@@ -20,7 +20,7 @@ public class RemoveEmptyCLDR {
                 for (File f : new File(CLDRPaths.COMMON_DIRECTORY + dir).listFiles()) {
                     List<Pair<String, String>> data = new ArrayList<>();
                     String canonicalPath = f.getCanonicalPath();
-                    if (!canonicalPath.endsWith(".xml")) {
+                    if (!canonicalPath.endsWith(".xml") || canonicalPath.endsWith("root.xml")) {
                         continue;
                     }
                     XMLFileReader.loadPathValues(canonicalPath, data, false);

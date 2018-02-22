@@ -2098,14 +2098,18 @@ public class CLDRModify {
                 String sourceLocaleId = resolved.getSourceLocaleID(keywordPath, null);
                 sorted.clear();
                 sorted.add(name);
+                List<String> items;
                 if (!sourceLocaleId.equals(XMLSource.ROOT_ID) && !sourceLocaleId.equals(XMLSource.CODE_FALLBACK_ID)) {
-                    List<String> items = Annotations.splitter.splitToList(keywordValue);
+                    items = Annotations.splitter.splitToList(keywordValue);
                     sorted.addAll(items);
                 } else {
                     int debug = 0;
                 }
+                DisplayAndInputProcessor.filterCoveredKeywords(sorted);
                 String newKeywordValue = CollectionUtilities.join(sorted, " | ");
-                replace(keywordPath, keywordPath, newKeywordValue);
+                if (!newKeywordValue.equals(keywordValue)) {
+                    replace(keywordPath, keywordPath, newKeywordValue);
+                }
             }
         });
 

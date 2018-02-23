@@ -240,6 +240,7 @@ public class CLDRFileTransformer {
                 ) {
                 continue;
             }
+            System.out.println("\nDirectory: " + dir);
             Factory factory = Factory.make(CLDRPaths.COMMON_DIRECTORY + dir + "/", ".*");
             CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator);
             for (LocaleTransform localeTransform : LocaleTransform.values()) {
@@ -252,11 +253,12 @@ public class CLDRFileTransformer {
                 String outputFile = output.getLocaleID() + ".xml";
                 PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
                 System.out.println("Generating locale file: " + outputDir + outputFile);
+                if (!transformer.unconverted.isEmpty()) {
+                    System.out.println("Untransformed characters: " + transformer.unconverted);
+                    transformer.unconverted.clear();
+                }
                 output.write(out);
                 out.close();
-            }
-            if (!transformer.unconverted.isEmpty()) {
-                System.out.println("Untransformed characters: " + transformer.unconverted);
             }
         }
     }

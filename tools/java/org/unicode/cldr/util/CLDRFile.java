@@ -2345,6 +2345,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
         String localeKeyTypePattern, String localePattern, String localeSeparator,
         Transform<String, String> altPicker) {
+        
+        // Hack for seed
+        if (localePattern == null) {
+            localePattern = "{0} ({1})";
+        }
 
         // Hack - support BCP47 ids
         if (localeOrTZID.contains("-") && !localeOrTZID.contains("@") && !localeOrTZID.contains("_")) {

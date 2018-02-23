@@ -695,6 +695,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">Istočna Evropa</territory>
 			<territory type="154">Severna Evropa</territory>
 			<territory type="155">Zapadna Evropa</territory>
+			<territory type="202" draft="contributed">Afrika južno od Sahare</territory>
 			<territory type="419">Latinska Amerika</territory>
 			<territory type="AC">Ostrvo Asension</territory>
 			<territory type="AD">Andora</territory>
@@ -7117,6 +7118,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">saotomska dobra</displayName>
 				<displayName count="few">saotomske dobre</displayName>
 				<displayName count="other">saotomskih dobri</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
@@ -7574,6 +7576,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one" draft="contributed">{0} sat</pluralMinimalPairs>
+			<pluralMinimalPairs count="few" draft="contributed">{0} sata</pluralMinimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">{0} sati</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="contributed">Skrenite u {0}. desno.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

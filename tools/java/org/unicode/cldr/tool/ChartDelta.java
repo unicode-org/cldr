@@ -57,6 +57,8 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class ChartDelta extends Chart {
+    private static final String DIR_NAME = "delta";
+
     private static final boolean SKIP_REFORMAT_ANNOTATIONS = ToolConstants.PREVIOUS_CHART_VERSION.compareTo("30") >= 0;
 
     private static final PageId DEBUG_PAGE_ID = PageId.DayPeriod;
@@ -112,7 +114,7 @@ public class ChartDelta extends Chart {
     private static final String DEBUG_FILE = null; // "windowsZones.xml";
     static Pattern fileMatcher = PatternCache.get(".*");
 
-    static String DIR = CLDRPaths.CHART_DIRECTORY + "/delta/";
+    static String DIR = CLDRPaths.CHART_DIRECTORY + "/" + DIR_NAME + "/";
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
     static final Set<String> DONT_CARE = new HashSet<>(Arrays.asList("draft", "standard", "reference"));
 
@@ -176,7 +178,7 @@ public class ChartDelta extends Chart {
     Counter<ChangeType> counter = new Counter<>();
     Map<String, Counter<ChangeType>> fileCounters = new TreeMap<>();
     Set<String> badHeaders = new TreeSet<>();
-    
+
     private void addChange(String file, ChangeType changeType, int count) {
         counter.add(changeType, count); // unified add
         Counter<ChangeType> fileCounter = fileCounters.get(file);
@@ -187,8 +189,8 @@ public class ChartDelta extends Chart {
     }
 
     private void showTotals() {
-        try (PrintWriter pw = FileUtilities.openUTF8Writer(LOG_DIR, "ChartDelta.log.txt")) {
-            pw.println("# percentages\tare of *new* total");
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + "_summary.tsv")) {
+            pw.println("# percentages are of *new* total");
             pw.print("# dir\tfile");
             for (ChangeType item : ChangeType.values()) {
                 pw.print("\t" + (item == ChangeType.same ? "total" : item.toString()));
@@ -202,6 +204,7 @@ public class ChartDelta extends Chart {
             for (String s : badHeaders) {
                 pw.println(s);
             }
+            pw.println("# EOF");
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -212,7 +215,7 @@ public class ChartDelta extends Chart {
         NumberFormat pf = NumberFormat.getPercentInstance();
         pf.setMinimumFractionDigits(2);
         NumberFormat nf = NumberFormat.getIntegerInstance();
-        pw.print(title2.replace("/", "/t"));
+        pw.print(title2.replace("/", "\t"));
         for (ChangeType item : ChangeType.values()) {
             if (item == ChangeType.same) {
                 pw.print("\t" + nf.format(total));
@@ -224,15 +227,21 @@ public class ChartDelta extends Chart {
         pw.println();
     }
 
-    public void writeSubcharts(Anchors anchors) {
+    public void writeSubcharts(Anchors anchors) throws IOException {
         FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
         counter.clear();
         fileCounters.clear();
-        writeLdml(anchors);
-        writeNonLdmlPlain(anchors, getDirectory());
+        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + ".tsv")) {
+            writeLdml(anchors, tsvFile);
+            tsvFile.println("# EOF");
+        }
+        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + "_supp.tsv")) {
+            writeNonLdmlPlain(anchors, getDirectory(), tsvFile);
+            tsvFile.println("# EOF");
+        }
     }
 
-    private void writeLdml(Anchors anchors) {
+    private void writeLdml(Anchors anchors, PrintWriter tsvFile) {
         // set up factories
         List<Factory> factories = new ArrayList<>();
         List<Factory> oldFactories = new ArrayList<>();
@@ -382,7 +391,7 @@ public class ChartDelta extends Chart {
                     }
                 }
             }
-            writeDiffs(anchors, base, diff);
+            writeDiffs(anchors, base, diff, tsvFile);
             diff.clear();
         }
         writeDiffs(anchors, diffAll);
@@ -565,7 +574,7 @@ public class ChartDelta extends Chart {
         return buf.toString();
     }
 
-    private void writeDiffs(Anchors anchors, String file, String title, Multimap<PathHeader, String> bcp) {
+    private void writeDiffs(Anchors anchors, String file, String title, Multimap<PathHeader, String> bcp, PrintWriter tsvFile) {
         TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)//.setRepeatDivider(true)
@@ -593,7 +602,7 @@ public class ChartDelta extends Chart {
                 .finishRow();
             }
         }
-        writeTable(anchors, file, tablePrinter, title);
+        writeTable(anchors, file, tablePrinter, title, tsvFile);
     }
 
     private void writeDiffs(Anchors anchors, Relation<PathHeader, String> diffAll) {
@@ -616,7 +625,7 @@ public class ChartDelta extends Chart {
         }
     }
 
-    private void writeDiffs(Anchors anchors, String file, Set<PathDiff> diff) {
+    private void writeDiffs(Anchors anchors, String file, Set<PathDiff> diff, PrintWriter tsvFile) {
         if (diff.isEmpty()) {
             return;
         }
@@ -662,7 +671,7 @@ public class ChartDelta extends Chart {
             .addCell(coverageLevel)
             .finishRow();
         }
-        writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta");
+        writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta", tsvFile);
         diff.clear();
     }
 
@@ -670,12 +679,14 @@ public class ChartDelta extends Chart {
         String title;
         String file;
         private TablePrinter tablePrinter;
+        private PrintWriter tsvFile;
 
-        public ChartDeltaSub(String title, String file, TablePrinter tablePrinter) {
+        public ChartDeltaSub(String title, String file, TablePrinter tablePrinter, PrintWriter tsvFile) {
             super();
             this.title = title;
             this.file = file;
             this.tablePrinter = tablePrinter;
+            this.tsvFile = tsvFile;
         }
 
         @Override
@@ -709,14 +720,16 @@ public class ChartDelta extends Chart {
         @Override
         public void writeContents(FormattedFileWriter pw) throws IOException {
             pw.write(tablePrinter.toTable());
+            tablePrinter.toTsv(tsvFile);
         }
     }
 
-    private void writeTable(Anchors anchors, String file, TablePrinter tablePrinter, String title) {
-        new ChartDeltaSub(title, file, tablePrinter).writeChart(anchors);
+    private void writeTable(Anchors anchors, String file, TablePrinter tablePrinter, String title, PrintWriter tsvFile) {
+        ChartDeltaSub chartDeltaSub = new ChartDeltaSub(title, file, tablePrinter, tsvFile);
+        chartDeltaSub.writeChart(anchors);
     }
 
-    public void writeNonLdmlPlain(Anchors anchors, String directory) {
+    public void writeNonLdmlPlain(Anchors anchors, String directory, PrintWriter tsvFile) {
         Multimap<PathHeader, String> bcp = TreeMultimap.create();
         Multimap<PathHeader, String> supplemental = TreeMultimap.create();
         Multimap<PathHeader, String> transforms = TreeMultimap.create();
@@ -819,9 +832,9 @@ public class ChartDelta extends Chart {
         }
         //    private void writeDiffs(Anchors anchors, String file, String title, Relation<PathHeader, String> bcp) {
 
-        writeDiffs(anchors, "bcp47", "¤¤BCP47 Delta", bcp);
-        writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Delta", supplemental);
-        writeDiffs(anchors, "transforms", "¤¤Transforms Delta", transforms);
+        writeDiffs(anchors, "bcp47", "¤¤BCP47 Delta", bcp, tsvFile);
+        writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Delta", supplemental, tsvFile);
+        writeDiffs(anchors, "transforms", "¤¤Transforms Delta", transforms, tsvFile);
     }
 
     private void addRow(Multimap<PathHeader, String> target, PathHeader key, String oldItem, String newItem) {

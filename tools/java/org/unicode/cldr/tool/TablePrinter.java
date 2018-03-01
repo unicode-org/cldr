@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
@@ -13,16 +14,16 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TablePrinter {
-    
+
     public static void main(String[] args) {
         // quick test;
         TablePrinter tablePrinter = new TablePrinter()
-        .setTableAttributes("style='border-collapse: collapse' border='1'")
-        .addColumn("Language").setSpanRows(true).setSortPriority(0).setBreakSpans(true)
-        .addColumn("Junk").setSpanRows(true)
-        .addColumn("Territory").setHeaderAttributes("bgcolor='green'").setCellAttributes("align='right'")
-        .setSpanRows(true)
-        .setSortPriority(1).setSortAscending(false);
+            .setTableAttributes("style='border-collapse: collapse' border='1'")
+            .addColumn("Language").setSpanRows(true).setSortPriority(0).setBreakSpans(true)
+            .addColumn("Junk").setSpanRows(true)
+            .addColumn("Territory").setHeaderAttributes("bgcolor='green'").setCellAttributes("align='right'")
+            .setSpanRows(true)
+            .setSortPriority(1).setSortAscending(false);
         Comparable<?>[][] data = {
             { "German", 1.3d, 3 },
             { "French", 1.3d, 2 },
@@ -193,7 +194,7 @@ public class TablePrinter {
     public TablePrinter finishRow() {
         if (partialRow.size() != columns.size()) {
             throw new IllegalArgumentException("Items in row (" + partialRow.size()
-                + " not same as number of columns" + columns.size());
+            + " not same as number of columns" + columns.size());
         }
         addRow(partialRow);
         partialRow = null;
@@ -228,6 +229,11 @@ public class TablePrinter {
 
     public String toString() {
         return toTable();
+    }
+
+    public void toTsv(PrintWriter tsvFile) {
+        Comparable[][] sortedFlat = (Comparable[][]) (rows.toArray(new Comparable[rows.size()][]));
+        toTsvInternal(sortedFlat, tsvFile);
     }
 
     @SuppressWarnings("rawtypes")
@@ -283,6 +289,41 @@ public class TablePrinter {
     @SuppressWarnings("rawtypes")
     ColumnSorter<Comparable> columnSorter = new ColumnSorter<Comparable>();
     private boolean sort;
+
+    public void toTsvInternal(@SuppressWarnings("rawtypes") Comparable[][] sortedFlat, PrintWriter tsvFile) {
+        Object[] patternArgs = new Object[columns.size() + 1];
+        if (sort) {
+            Arrays.sort(sortedFlat, columnSorter);
+        }
+        columnsFlat = columns.toArray(new Column[0]);
+        for (int i = 0; i < sortedFlat.length; ++i) {
+            System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
+
+            String sep = "";
+            for (int j = 0; j < sortedFlat[i].length; ++j) {
+                if (columnsFlat[j].hidden) {
+                    continue;
+                }
+                patternArgs[0] = sortedFlat[i][j];
+
+                if (false && columnsFlat[j].cellPattern != null) {
+                    try {
+                        patternArgs[0] = sortedFlat[i][j];
+                        System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
+                        tsvFile.append(sep).append(format(columnsFlat[j].cellPattern.format(patternArgs)));
+                    } catch (RuntimeException e) {
+                        throw (RuntimeException) new IllegalArgumentException("cellPattern<" + i + ", " + j + "> = "
+                            + sortedFlat[i][j]).initCause(e);
+                    }
+                } else {
+                    tsvFile.append(sep).append(format(sortedFlat[i][j]));
+                }
+                sep = "\t";
+            }
+            tsvFile.println();
+        }
+
+    }
 
     @SuppressWarnings("rawtypes")
     public String toTableInternal(Comparable[][] sortedFlat) {

@@ -107,4 +107,12 @@ public abstract class Chart {
             throw new ICUUncheckedIOException(e);
         }
     }
+
+    public static String getTsvDir(String targetDir, String topicName) {
+        String target = targetDir.replaceAll(topicName, "tsv");
+        if (target.equals(targetDir)) {
+            throw new IllegalArgumentException("Can't make TSV directory from " + targetDir);
+        }
+        return  target;
+    }
 }

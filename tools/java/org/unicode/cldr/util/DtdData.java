@@ -1458,6 +1458,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public final static Splitter SPACE_SPLITTER = Splitter.on(CharMatcher.whitespace()).trimResults().omitEmptyStrings();
+    public final static Splitter BAR_SPLITTER = Splitter.on('|').trimResults().omitEmptyStrings();
     public final static Splitter CR_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r")).trimResults().omitEmptyStrings();
 
     private static class XPathPartsSet {
@@ -1617,6 +1618,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public static Splitter getValueSplitter(XPathParts pathPlain) {
         if (!Collections.disjoint(pathPlain.getElements(), SPACED_VALUES)) {
             return SPACE_SPLITTER;
+        } else if (pathPlain.getElement(-1).equals("annotation") 
+            && !pathPlain.getAttributeKeys(-1).contains("tts")) {
+            return BAR_SPLITTER;
         }
         return CR_SPLITTER;
     }

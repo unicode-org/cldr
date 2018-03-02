@@ -310,13 +310,13 @@ public class TablePrinter {
                     try {
                         patternArgs[0] = sortedFlat[i][j];
                         System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
-                        tsvFile.append(sep).append(format(columnsFlat[j].cellPattern.format(patternArgs)));
+                        tsvFile.append(sep).append(format(columnsFlat[j].cellPattern.format(patternArgs)).replace("<br>", " "));
                     } catch (RuntimeException e) {
                         throw (RuntimeException) new IllegalArgumentException("cellPattern<" + i + ", " + j + "> = "
                             + sortedFlat[i][j]).initCause(e);
                     }
                 } else {
-                    tsvFile.append(sep).append(format(sortedFlat[i][j]));
+                    tsvFile.append(sep).append(format(sortedFlat[i][j]).replace("<br>", " "));
                 }
                 sep = "\t";
             }

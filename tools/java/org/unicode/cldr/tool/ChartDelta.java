@@ -526,21 +526,46 @@ public class ChartDelta extends Chart {
     }
 
     private void addValueDiff(File sourceDir, String valueOld, String valueCurrent, String locale, PathHeader ph, Set<PathDiff> diff, Relation<PathHeader, String> diffAll) {
-//        String path = ph.getOriginalPath();
-        // handle stuff with lines specially
+        // handle stuff that can be split specially
+        Splitter splitter = getSplitter(ph.getOriginalPath(), valueOld, valueCurrent);
+        int count = 1;
+        String parentAndName = parentAndName(sourceDir, locale);
         if (Objects.equals(valueCurrent, valueOld)) {
-            addChange(parentAndName(sourceDir, locale), ChangeType.same, 1);
-        } else {
-            if (valueOld != null && valueCurrent != null && (valueOld.contains("\n") || valueCurrent.contains("\n"))) {
-                List<String> setOld = DtdData.CR_SPLITTER.splitToList(valueOld);
-                List<String> setNew = DtdData.CR_SPLITTER.splitToList(valueCurrent);
-                valueOld = getFilteredValue(setOld, setNew);
-                valueCurrent = getFilteredValue(setNew, setOld);
+            if (splitter != null && valueCurrent != null) {
+                count = splitHandlingNull(splitter, valueCurrent).size();
             }
-            addChange(parentAndName(sourceDir, locale), ChangeType.get(valueOld, valueCurrent), 1);
+            addChange(parentAndName, ChangeType.same, count);
+        } else {
+            if (splitter != null) {
+                List<String> setOld = splitHandlingNull(splitter, valueOld);
+                List<String> setNew = splitHandlingNull(splitter, valueCurrent);
+                int[] sameAndNotInSecond = new int[2]; 
+                valueOld = getFilteredValue(setOld, setNew, sameAndNotInSecond);
+                addChange(parentAndName, ChangeType.same, sameAndNotInSecond[0]);
+                addChange(parentAndName, ChangeType.deleted, sameAndNotInSecond[1]);
+                sameAndNotInSecond[0] = sameAndNotInSecond[1] = 0;
+                valueCurrent = getFilteredValue(setNew, setOld, sameAndNotInSecond);
+                addChange(parentAndName, ChangeType.added, sameAndNotInSecond[1]);
+            } else {
+                addChange(parentAndName, ChangeType.get(valueOld, valueCurrent), count);
+            }
             PathDiff row = new PathDiff(locale, new PathHeaderSegment(ph, -1, ""), valueOld, valueCurrent);
             diff.add(row);
             diffAll.put(ph, locale);
+        }
+    }
+
+    private List<String> splitHandlingNull(Splitter splitter, String value) {
+        return value == null ? null : splitter.splitToList(value);
+    }
+
+    private Splitter getSplitter(String path, String valueOld, String valueCurrent) {
+        if (path.contains("/annotation") && !path.contains("tts")) {
+            return DtdData.BAR_SPLITTER;
+        } else if (valueOld != null && valueOld.contains("\n") || valueCurrent != null && valueCurrent.contains("\n")) {
+            return DtdData.CR_SPLITTER;
+        } else {
+            return null;
         }
     }
 
@@ -550,15 +575,20 @@ public class ChartDelta extends Chart {
      * @param linesToRemove
      * @return
      */
-    private String getFilteredValue(Collection<String> toGetStringFor, Collection<String> linesToRemove) {
-        String valueOld;
+    private String getFilteredValue(Collection<String> toGetStringFor, Collection<String> linesToRemove,
+        int[] sameAndDiff) {
+        if (toGetStringFor == null) {
+            return null;
+        }
         StringBuilder buf = new StringBuilder();
-        Set<String> toRemove = new HashSet<>(linesToRemove);
+        Set<String> toRemove = linesToRemove == null ? Collections.emptySet() : new HashSet<>(linesToRemove);
         boolean removed = false;
         for (String old : toGetStringFor) {
             if (toRemove.contains(old)) {
                 removed = true;
+                sameAndDiff[0]++;
             } else {
+                sameAndDiff[1]++;
                 if (removed) {
                     buf.append("…\n");
                     removed = false;
@@ -816,15 +846,15 @@ public class ChartDelta extends Chart {
                         } else {
                             String valueOld;
                             String valueCurrent;
-                            if (s1M2.size() > 1 || s2M1.size() > 1) {
-                                valueOld = getFilteredValue(s1M2, s2M1);
-                                valueCurrent = getFilteredValue(s2M1, s1M2);
-                            } else {
-                                valueOld = s1M2.iterator().next();
-                                valueCurrent = s2M1.iterator().next();
-                            }
+                            
+                            int[] sameAndNotInSecond = new int[2];
+                            valueOld = getFilteredValue(s1M2, s1M2, sameAndNotInSecond);
+                            addChange(parentAndFile, ChangeType.same, sameAndNotInSecond[0]);
+                            addChange(parentAndFile, ChangeType.deleted, sameAndNotInSecond[1]);
+                            sameAndNotInSecond[1] = 0;
+                            valueCurrent = getFilteredValue(s2M1, s1M2, sameAndNotInSecond);
+                            addChange(parentAndFile, ChangeType.added, sameAndNotInSecond[1]);
                             addRow(target, key, valueOld, valueCurrent);
-                            addChange(parentAndFile, ChangeType.changed, (s1M2.size() + s2M1.size())/2);
                         }
                     }
                 }

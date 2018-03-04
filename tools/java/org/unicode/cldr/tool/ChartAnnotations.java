@@ -28,6 +28,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -157,6 +158,7 @@ public class ChartAnnotations extends Chart {
 
             TablePrinter tablePrinter = new TablePrinter()
                 .addColumn("Char", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source-image'", true)
+                .addColumn("Hex", "class='source' width='1%'", null, "class='source-image'", true)
                 //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
                 ;
 
@@ -172,6 +174,7 @@ public class ChartAnnotations extends Chart {
                 tablePrinter
                 .addRow()
                 .addCell(cp)
+                .addCell(Utility.hex(cp, 4, " "))
                 //.addCell(getName(cp))
                 ;
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {

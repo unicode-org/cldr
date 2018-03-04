@@ -158,7 +158,7 @@ public class ChartAnnotations extends Chart {
 
             TablePrinter tablePrinter = new TablePrinter()
                 .addColumn("Char", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source-image'", true)
-                .addColumn("Hex", "class='source' width='1%'", null, "class='source-image'", true)
+                .addColumn("Hex", "class='source' width='1%'", null, "class='source'", true)
                 //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
                 ;
 

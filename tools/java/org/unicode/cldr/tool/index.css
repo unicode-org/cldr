@@ -190,3 +190,16 @@ td.plain {
 	align-items: center;
 	border: 2px solid #ccc;
 }
+
+/* formatting for date time review */
+.dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}
+.dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}
+.dtf-th {background-color:#EEE; padding:4px}
+.dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}
+.dtf-sep {background-color:#EEF; text-align:center}
+.dtf-s {text-align:center;}
+.dtf-int {width:100%; height:100%}
+.dtf-fix {width:1px}
+.dtf-left {text-align:left;}
+.dtf-nopad {padding:0px; vertical-align:top;}
+.dtf-gray {background-color:#EEF}

@@ -173,7 +173,7 @@ public class SupplementalDataInfo {
         }
 
         public double getWritingPercent() {
-            return writingPopulation/population;
+            return 100*writingPopulation/population;
         }
 
         public double getPopulation() {

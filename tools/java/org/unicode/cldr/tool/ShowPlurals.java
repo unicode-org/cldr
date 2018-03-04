@@ -49,17 +49,24 @@ public class ShowPlurals {
 
         final String title = "Language Plural Rules";
         final PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, ShowLanguages.SUPPLEMENTAL_INDEX_ANCHORS));
+
+        pw.append("<div style='margin-right:2em; margin-left:2em'>\n");
         ShowLanguages.showContents(pw, "rules", "Rules", "comparison", "Comparison");
 
         pw.append("<h2>" + CldrUtility.getDoubleLinkedText("rules", "1. " + section1) + "</h2>" + System.lineSeparator());
+        pw.append("<div style='margin-right:2em; margin-left:2em'>\n");
         printPluralTable(english, localeFilter, pw, factory);
+        pw.append("</div>\n");
 
         pw.append("<h2>" + CldrUtility.getDoubleLinkedText("comparison", "2. " + section2) + "</h2>" + System.lineSeparator());
         pw.append("<p style='text-align:left'>The plural forms are abbreviated by first letter, with 'x' for 'other'. "
             +
             "If values are made redundant by explicit 0 and 1, they are underlined. " +
             "The fractional and integral results are separated for clarity.</p>" + System.lineSeparator());
+        pw.append("<div style='margin-right:2em; margin-left:2em'>\n");
         PluralSnapshot.writeTables(english, pw);
+        pw.append("</div>\n");
+        pw.append("</div>\n");
         appendBlanksForScrolling(pw);
         pw.close();
     }

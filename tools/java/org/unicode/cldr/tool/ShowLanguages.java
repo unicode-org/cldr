@@ -124,9 +124,6 @@ public class ShowLanguages {
 
         // since we don't want these listed on the supplemental page, use null
         
-        new ChartAnnotations().writeChart(null);
-        new ChartSubdivisionNames().writeChart(null);
-        
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 

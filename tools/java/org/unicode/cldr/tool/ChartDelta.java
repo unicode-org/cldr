@@ -232,10 +232,12 @@ public class ChartDelta extends Chart {
         counter.clear();
         fileCounters.clear();
         try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + ".tsv")) {
+            tsvFile.println("# Section\tPage\tHeader\tCode\tLocale\tOld\tNew\tLevel");
             writeLdml(anchors, tsvFile);
             tsvFile.println("# EOF");
         }
         try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + "_supp.tsv")) {
+            tsvFile.println("# Section\tPage\tHeader\tCode\tOld\tNew");
             writeNonLdmlPlain(anchors, getDirectory(), tsvFile);
             tsvFile.println("# EOF");
         }

@@ -22,12 +22,13 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Pair;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
@@ -97,8 +98,8 @@ public class ChartAnnotations extends Chart {
         // set up right order for columns
 
         Map<String, String> nameToCode = new LinkedHashMap<String, String>();
-        Relation<LanguageGroup, Pair<String, String>> groupToNameAndCodeSorted = Relation.of(
-            new EnumMap<LanguageGroup, Set<Pair<String, String>>>(LanguageGroup.class),
+        Relation<LanguageGroup, R3<Integer, String, String>> groupToNameAndCodeSorted = Relation.of(
+            new EnumMap<LanguageGroup, Set<R3<Integer, String, String>>>(LanguageGroup.class),
             TreeSet.class);
 
         Multimap<String,String> localeToSub = TreeMultimap.create();
@@ -125,10 +126,11 @@ public class ChartAnnotations extends Chart {
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));
             LanguageGroup group = LanguageGroup.get(loc);
-            groupToNameAndCodeSorted.put(group, Pair.of(name, locale));
+            int rank = LanguageGroup.rankInGroup(loc);
+            groupToNameAndCodeSorted.put(group, Row.of(rank, name, locale));
         }
 
-        for (Entry<LanguageGroup, Set<Pair<String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
+        for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
             String ename = ENGLISH.getName("en", true);
             nameToCode.clear();
@@ -136,21 +138,21 @@ public class ChartAnnotations extends Chart {
 
             // add English variants if they exist
 
-            for (Pair<String, String> pair : groupPairs.getValue()) {
-                String name = pair.getFirst();
-                String locale = pair.getSecond();
+            for (R3<Integer, String, String> pair : groupPairs.getValue()) {
+                String name = pair.get1();
+                String locale = pair.get2();
                 if (locale.startsWith("en_")) {
                     nameToCode.put(name, locale);
                 }
             }
 
-            for (Pair<String, String> pair : groupPairs.getValue()) {
-                String name = pair.getFirst();
-                String locale = pair.getSecond();
+            for (R3<Integer, String, String> pair : groupPairs.getValue()) {
+                String name = pair.get1();
+                String locale = pair.get2();
 
                 nameToCode.put(name, locale);
+                System.out.println(pair);
             }
-
             // now build table with right order for columns
             double width = ((int)((99.0 / (locales.size() + 1))*1000))/1000.0;
             //String widthString = "class='source' width='"+ width + "%'";

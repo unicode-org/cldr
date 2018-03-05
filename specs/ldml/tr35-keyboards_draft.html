@@ -332,6 +332,7 @@ h2, h3, h4, table {
 			whether the modifier RAlt (=AltGr) should be merged with Option. In
 			the end, they were kept separate, but for comparison across platforms
 			implementers may choose to unify them.</p>
+		<p class='changed'>Note that in parts of this document, the format <strong>@x</strong> is used to indicate the <em>attribute</em> <strong>x</strong>.</p>
 		<h2>
 			3 <a name="Definitions" href="#Definitions">Definitions</a>
 		</h2>
@@ -1534,6 +1535,206 @@ h2, h3, h4, table {
 			Each is a rule that matches against a string of characters with the 
 			action of setting the various ordering attributes (primary, tertiary, 
 			tertiary_base, prebase) for the matched characters in the string.</p>
+		<blockquote>
+		<p class="changed"><strong>from</strong> This attribute follows the transform/@from attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS#35 section 5.3.3). This attribute is required.</p>
+		<p class="changed"><strong>before</strong> This attribute follows the transform/@before attribute and contains the element string that must match the string immediately preceding the start of the string that the @from matches.</p>
+		<p class="changed"><strong>after</strong> This attribute follows the transform/@after attribute and contains the element string that must match the string immediately following the end of the string that the @from matches.</p>
+		<p class="changed"><strong>order</strong> This attribute gives the primary order for the elements in the matched string in the @from attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.</p>
+		<ul>
+		  <li class="changed">If the value is 0 and its tertiary value is 0, then the character is the base of a new run.
+	      </li>
+		  <li class="changed">If the value is 0 and its tertiary value is non-zero, then it is a normal character in a run, with ordering semantics as described in the @tertiary attribute.
+	      </li>
+		  <li class="changed">If the value is negative, then the character is a primary character and will reorder to be before the base of the run.
+	      </li>
+		  <li class="changed">If the value is positive, then the character is a primary character and is sorted based on the order value as the primary key following a previous base character.
+	      </li>
+	  </ul>
+		<p class="changed">A character with a zero tertiary value is a primary character and receives a sort key consisting of:</p>
+		<ul>
+		  <li class="changed">Primary weight is the order value
+	      </li>
+		  <li class="changed">Secondary weight is the index of the character. This may be any value (character index, codepoint index) such that its value is greater than the character before it and less than the character after it.
+	      </li>
+		  <li class="changed">Tertiary weight is 0.
+	      </li>
+		  <li class="changed">Quaternary weight is the same as the secondary weight.
+	      </li>
+	  </ul>
+		<p class="changed"><strong>tertiary</strong> This attribute gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.</p>
+		<ul>
+		  <li class="changed">If the value is 0 then the character is considered to have a primary order as specified in its order value and is a primary character.
+	      </li>
+		  <li class="changed">If the value is non zero, then the order value must be zero otherwise it is an error. The character is considered as a tertiary character for the purposes of ordering.
+	      </li>
+	  </ul>
+		<p class="changed">A tertiary character receives its primary order and index from a previous character, which it is intended to sort closely after. The sort key for a tertiary character consists of:</p>
+		<ul>
+		  <li class="changed">Primary weight is the primary weight of the primary character
+	      </li>
+		  <li class="changed">Secondary weight is the index of the primary character, not the tertiary character
+	      </li>
+		  <li class="changed">Tertiary weight is the tertiary value for the character.
+	      </li>
+		  <li class="changed">Quaternary weight is the index of the tertiary character.
+	      </li>
+	  </ul>
+		<p class="changed"><strong>tertiary_base</strong> This attribute is a space separated list of &quot;true&quot; or &quot;false&quot; values corresponding to each character matched. It is illegal for a tertiary character to have a true tertiary_base value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true tertiary_base attribute is used. Primary characters with an @order value of 0 automatically are treated as having tertiary_base true regardless of what is specified for them.</p>
+		<p class="changed"><strong>prebase</strong> This attribute gives the prebase attribute for each character matched. The value may be &quot;true&quot; or &quot;false&quot; or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.</p>
+		<p class="changed">If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus @primary may not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of &quot;false&quot; indicates that the character is not a prebase.</p>
+		</blockquote>
+	  <p class="changed">There is no @error attribute.</p>
+		<p class="changed">For @from attributes with a match string length greater than 1, the sort key information (@order, @tertiary, @tertiary_base, @prebase) may consist of a space separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the @from attribute:</p>
+		<pre class="changed">  if len(@from) &lt; len(@list) then error<br />  else 
+    while len(@from) &gt; len(@list)<br />      append lastitem(@list) to @list<br />    endwhile
+  endif</pre>
+		<p class="changed"><span class="reviewnote">[Review Note: Martin, I had to do a fair amount of cleanup on the following. Please review.]</span></p>
+		<p class="changed">For example, consider the word Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:</p>
+		<table class='simple'>
+		  <tr class='changed'>
+			  <th>name</th>
+		    <td><em>ka</em></td>
+		    <td><em>asat</em></td>
+		    <td><em>wa</em></td>
+		    <td><em>o</em><em></em></td>
+		    <td><em>t2</em></td>
+	      </tr>
+	      		  <tr class='changed'>
+			  <th>code</th>
+		    <td>1A21</td>
+		    <td>1A60</td>
+		    <td>1A45</td>
+		    <td>1A6B<em></em></td>
+		    <td>1A76</td>
+	      </tr>
+   		  <tr class='changed'>
+			  <th>ccc</th>
+		    <td>0</td>
+		    <td>9</td>
+		    <td>0</td>
+		    <td>0<em></em></td>
+		    <td>230</td>
+	      </tr>
+
+	  </table>
+		<p class="changed">The sequence (a) is already in NFC format. The   Combining_Character_Class values for these are:</p>
+		<p class="changed">Some users may type the upper component of the vowel first, and the tone before or after the lower component. Thus someone might type it as:</p>
+		<table class='simple'>
+		  <tr class='changed'>
+		    <th>name</th>
+		    <td><em>ka</em></td>
+		    <td><em>o</em><em></em></td>
+		    <td><em>t2</em></td>
+		    <td><em>asat</em></td>
+		    <td><em>wa</em></td>
+	      </tr>
+		  <tr class='changed'>
+		    <th>code</th>
+		    <td>1A21</td>
+		    <td>1A6B<em></em></td>
+		    <td>1A76</td>
+		    <td>1A60</td>
+		    <td>1A45</td>
+	      </tr>
+		  <tr class='changed'>
+		    <th>ccc</th>
+		    <td>0</td>
+		    <td>0<em></em></td>
+		    <td>230</td>
+		    <td>9</td>
+		    <td>0</td>
+	      </tr>
+	  </table>
+		<p class="changed">The Unicode NFC format of that typed value reorders to: </p>
+		<table class='simple'>
+		  <tr class='changed'>
+		    <th>name</th>
+		    <td><em>ka</em></td>
+		    <td><em>o</em><em></em></td>
+		    <td><em>asat</em></td>
+		    <td><em>t2</em></td>
+		    <td><em>wa</em></td>
+	      </tr>
+		  <tr class='changed'>
+		    <th>code</th>
+		    <td>1A21</td>
+		    <td>1A6B<em></em></td>
+		    <td>1A60</td>
+		    <td>1A76</td>
+		    <td>1A45</td>
+	      </tr>
+		  <tr class='changed'>
+		    <th>ccc</th>
+		    <td>0</td>
+		    <td>0<em></em></td>
+		    <td>9</td>
+		    <td>230</td>
+		    <td>0</td>
+	      </tr>
+	  </table>
+		<p class="changed">Finally, the user might also type in the sequence with the tone <em>after</em> the lower component. </p>
+		<blockquote class="changed">d) U+1A21 U+1A6B U+1A60 U+1A45 U+1A76</blockquote>
+		<table class='simple'>
+		  <tr class='changed'>
+		    <th>name</th>
+		    <td><em>ka</em></td>
+		    <td><em>o</em><em></em></td>
+		    <td><em>asat</em></td>
+		    <td><em>wa</em></td>
+		    <td><em>t2</em></td>
+	      </tr>
+		  <tr class='changed'>
+		    <th>code</th>
+		    <td>1A21</td>
+		    <td>1A6B<em></em></td>
+		    <td>1A60</td>
+		    <td>1A45</td>
+		    <td>1A76</td>
+	      </tr>
+		  <tr class='changed'>
+		    <th>ccc</th>
+		    <td>0</td>
+		    <td>0<em></em></td>
+		    <td>9</td>
+		    <td>0</td>
+		    <td>230</td>
+	      </tr>
+	  </table>
+		<p class="changed">We want all of these  sequences to end up ordered as the first. To do this, we use the following rules:</p>
+		<pre class="changed">  &lt;reorder from=&quot;\u1A60&quot; order=&quot;127&quot;/&gt; &nbsp;	&lt;!-- max possible order --&gt;
+  &lt;reorder from=&quot;\u1A6B&quot; order=&quot;42&quot;/&gt;
+  &lt;reorder from=&quot;[\u1A75-\u1A7C]&quot; order=&quot;55&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B&quot; from=&quot;\u1A60\u1A45&quot; order=&quot;10&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B[\u1A75-\u1A7C]&quot; from=&quot;\u1A60\u1A45&quot; order=&quot;10&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B&quot; from=&quot;\u1A60[\u1A75-\u1A7C]\u1A45&quot; order=&quot;10 55 10&quot;/&gt;</pre>
+		<p class="changed">The first reorder is the default ordering for the asat which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the asat and wa characters a primary order that places them before the <em>o</em>. Notice particularly the final reorder rule where the asat+wa is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalised text.</p>
+		<p class="changed">&lt;reorder&gt; elements are priority ordered based first on the length of string their @from attribute matches and then the sum of the lengths of the strings their @before and @after attributes match.</p>
+		<p class="changed">If a layout has two &lt;transforms&gt; elements of type reorder, e.g. from importing one and specifying the second, then &lt;transform&gt; elements are merged. The @from string in a &lt;reorder&gt; element describes a set of strings that it matches. This also holds for the @before and @after attributes. The intersection of two &lt;reorder&gt; elements consists of the intersections of their @from, @before and @after string sets. It is illegal for the intersection between any two &lt;reorder&gt; elements in the same &lt;transforms&gt; element to be non empty, although implementors are encouraged to have pity on layout authors when reporting such errors, since they can be hard to track down.</p>
+		<p class="changed">If two &lt;reorder&gt; elements in two different &lt;transforms&gt; elements have a non empty intersection, then they are split and merged. They are split such that where there were two &lt;reorder&gt; elements, there are, in effect (but not actuality), three elements consisting of:</p>
+		<ul>
+		  <li class="changed">@from, @before, @after that match the intersection of the two rules. The other attributes are merged, as described below.
+	      </li>
+		  <li class="changed">@from, @before, @after that match the set of strings in the first rule not in the intersection with the other attributes from the first rule.
+	      </li>
+		  <li class="changed">@from, @before, @after that match the set of strings in the second rule not in the intersection, with the other attributes from the second rule.
+	      </li>
+	  </ul>
+		<p class="changed">When merging the other attributes, the second rule is taken to have priority (occurring later in the layout description file). Where the second rule does not define the value for a character but the first does, it is taken from the first rule, otherwise it is taken from the second rule.</p>
+		<p class="changed">Notice that it is possible for two rules to match the same string, but for them not to merge because the distribution of the string across @before, @from, and @after is different. For example:</p>
+		<pre class="changed"> &lt;reorder before=&quot;ab&quot; from=&quot;cd&quot; after=&quot;e&quot;/&gt;</pre>
+		<p class="changed">would not merge with:</p>
+		<pre class="changed"> &lt;reorder before=&quot;a&quot; from=&quot;bcd&quot; after=&quot;e&quot;/&gt;</pre>
+		<p class="changed">When two &lt;transforms&gt; elements merge the resulting reorder elements are sorted into priority order for matching.</p>
+		<p class="changed">Consider this fragment from a shared reordering for the Myanmar script:</p>
+		<pre class="changed">  &lt;reorder from=&quot;\u103C&quot; order=&quot;20&quot;/&gt;
+  &lt;reorder from=&quot;[\u103D\u1082]&quot; order=&quot;25&quot;/&gt;<br />  &lt;reorder from=&quot;[\u103E\u1082]\u103A&quot; order=&quot;27&quot;/&gt; &nbsp;	&lt;!-- Mon asat --&gt;<br />  &lt;reorder from=&quot;[\u103E\u1060]&quot; order=&quot;27&quot;/&gt;<br />  &lt;reorder from=&quot;[\u1031\u1084]&quot; order=&quot;30&quot;/&gt;<br />  &lt;reorder from=&quot;[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]&quot; order=&quot;35&quot;/&gt;</pre>
+		<p class="changed">A particular Myanmar keyboard layout  can have this transforms element:</p>
+		<pre class="changed">&lt;reorders type=&quot;reorder&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;reorder from=&quot;\u1004\u103A\u1039&quot; order=&quot;-1&quot;/&gt;
+  &nbsp;&lt;reorder from=&quot;\u1031&quot; prebase=&quot;1&quot;/&gt;
+  &nbsp;&lt;reorder from=&quot;\u103C&quot; prebase=&quot;1&quot;/&gt;<br>&lt;/reorders&gt;</pre>
+		<p class="changed">The effect of this that the character \u1031 will be identified as a prebase and will have an order of 30. Likewise a \u103C will be identified as a prebase and will have an order of 20. Notice that a U+1084 will not be identified as a prebase (even if it should be!). The kinzi is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.		</p>
+		<p class="reviewnote"><span class="reviewnote">[Review Note: Martin, this  bit was particularly troublesome.</span></p>
+		<p class="reviewnote">Added &quot;<span class="changed">from a shared reordering for the Myanmar</span>&quot; since I otherwise couldn't understand. Also added &quot;<span class="changed">in other keyboards or even</span>&quot;</p>
+		<p class="reviewnote"><span class="">What's a kinzi? (not defined)</span></p>
+		<p class="reviewnote">Way easier to understand if the codes are also given names. And it is clear which code has which name.</p>
+		<p class="reviewnote"><span class="reviewnote">]</span></p>
 		<hr>
 		<h3 class="changed">
 			5.20 <a name="Element_final" href="#Element_final">Element:

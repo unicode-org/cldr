@@ -295,7 +295,9 @@ public class TestDtdData  extends TestFmwk {
                 for (Attribute attribute : element.getAttributes().keySet()) {
                     boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
                     boolean distinguishedOld = isDistinguishingOld(type, element.name, attribute.name);
-                    assertEquals("isDistinguished " + type + ":" + attribute, distinguishedOld, distinguishedNew);
+                    assertEquals("isDistinguished " + type 
+                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")"
+                        , distinguishedOld, distinguishedNew);
                     deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
                     deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
                     assertEquals("isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
@@ -566,7 +568,26 @@ public class TestDtdData  extends TestFmwk {
                 || elementName.equals("keyMap") && attribute.equals("modifiers")
                 || elementName.equals("map") && attribute.equals("iso")
                 || elementName.equals("transforms") && attribute.equals("type")
-                || elementName.equals("transform") && attribute.equals("from");
+                || elementName.equals("transform") && attribute.equals("from")
+                || elementName.equals("import") && attribute.equals("path")
+                || elementName.equals("reorder") && attribute.equals("before")
+                || elementName.equals("reorder") && attribute.equals("from")
+                || elementName.equals("reorder") && attribute.equals("after")
+                || elementName.equals("layer") && attribute.equals("modifier")
+                || elementName.equals("switch") && attribute.equals("iso")
+                || elementName.equals("transform") && attribute.equals("before")
+                || elementName.equals("transform") && attribute.equals("after")
+                || elementName.equals("backspace") && attribute.equals("before")
+                || elementName.equals("backspace") && attribute.equals("from")
+                || elementName.equals("backspace") && attribute.equals("after")
+                || elementName.equals("vkeys") && attribute.equals("type")
+                || elementName.equals("flick") && attribute.equals("directions")
+                || elementName.equals("row") && attribute.equals("keys")
+                || elementName.equals("vkey") && attribute.equals("iso")
+                || elementName.equals("display") && attribute.equals("to")
+                || elementName.equals("flicks") && attribute.equals("iso")
+                ;
+
         case platform:
             return attribute.equals("_q")
                 || elementName.equals("platform") && attribute.equals("id")

@@ -416,9 +416,9 @@ h2, h3, h4, table {
 			individual keys that are pressed. Each key has a unique identifier 
 			and the arrangement doesn't change, even if the mapping of those keys 
 			does.</p>
-		<p><b>Transform:</b> A transform is simply a combination of key presses
-			that gets transformed into one (or more) final characters. For
-			example, in most latin keyboards hitting the "^" dead-key followed by
+		<p><b>Transform:</b><span class="changed">A transform is an element that specifies a set of
+			conversions from sequences of code points into one (or more) other
+			code points.</span> For example, in most latin keyboards hitting the "^" dead-key followed by
 			the "e" key produces "ê".</p>
 		<p class="changed"><b>Virtual keyboard</b> is a keyboard that is 
 			rendered on a, typically, touch surface. It has a dynamic arrangement 
@@ -1041,6 +1041,9 @@ h2, h3, h4, table {
 			top visual row being stored first. The row element introduces the keyId which 
 			may be an ISOKey or a specialKey. More formally:</p>
 		<pre class="changed">	keyId = ISOKey | specialKey<br/>	ISOKey = [A-Z][0-9][0-9]<br/>	specialKey = [a-z][a-zA-Z0-9]{2,7}</pre>
+		<p class="changed">ISOKey denotes a key having an <a href="#Definitions">ISO
+			Position</a>. SpecialKey is used to identify functional keys occurring
+			on a virtual keyboard layout. </p>
 		<dl class="changed">
 			<dt>Attribute: keys (required)</dt>
 			<dd>This is a string that lists the keyId for each of the keys 
@@ -1059,6 +1062,14 @@ h2, h3, h4, table {
 			<li>all the reserved modifier names</li>
 			<li>specialKeys starting with the letter "x" for future reserved names.</li>
 		</ul>
+		<p class="changed">Here is an example of a row element:</p>
+		<pre class="changed">	&lt;layer modifier=&quot;none&quot;&gt;
+		&lt;row keys=&quot;D01-D10&quot;/&gt;
+		&lt;row keys=&quot;C01-C09&quot;/&gt;
+		&lt;row keys=&quot;shift B01-B07 bksp&quot;/&gt;
+		&lt;row keys=&quot;sym A01 smilies A02-A03 enter&quot;/&gt;
+	&lt;/layer&gt;
+		</pre>
 		<hr>
 		<h3 class="changed">
 			5.14 <a name="Element_switch" href="#Element_switch">Element:
@@ -1081,8 +1092,7 @@ h2, h3, h4, table {
 			<dt>Attribute: display (required)</dt>
 			<dd>A string to be displayed on the key.</dd>
 		</dl>
-		<p class="changed">Here is a short example of a switch element for 
-			a shift key:</p>
+		<p class="changed">Here is an example of a switch element for a shift key:</p>
 		<pre class="changed">	&lt;layer modifier=&quot;none&quot;&gt;
 		&lt;row keys=&quot;D01-D10&quot;/&gt;
 		&lt;row keys=&quot;C01-C09&quot;/&gt;
@@ -1260,8 +1270,11 @@ h2, h3, h4, table {
 		</h3>
 		<p>This element must have the transforms element as its parent.
 			This element represents a single transform that may be performed
-			using the keyboard layout. A transform is simply a combination of key
-			presses that gets transformed into one (or more) final characters.
+			using the keyboard layout. <span class="removed">A transform is simply a combination of key
+			presses that gets transformed into one (or more) final characters
+			</span><span class="changed">A transform is an element that specifies a set
+			of conversions from sequences of code points into one (or more) other
+			code points.</span>.
 			For example, in most French keyboards hitting the "^" dead-key
 			followed by the "e" key produces "ê".</p>
 		<p>Syntax</p>
@@ -1362,7 +1375,9 @@ h2, h3, h4, table {
 		<dl>
 			<dt>Attribute: to (required)</dt>
 			<dd>This attribute represents the characters that are output from
-			the transform. This may be more than one, so you could have
+			the transform. <span class="removed">This may be more than one,</span>
+			<span class="changed">The output can contain more than one character,</span>
+			so you could have
 			&lt;transform from=&quot;´A&quot; to=&quot;Fred&quot;/&gt;</dd>
 		</dl>
 		<p>Control characters, whitespace (other than the regular space
@@ -1373,9 +1388,10 @@ h2, h3, h4, table {
 		<dl class="changed">
 			<dt>Attribute: before (optional)</dt>
 			<dd>This attribute consists of a sequence of elements (codepoint 
-				or UnicodeSet) and matches as a zero-width assertion preceding 
-				the current position being matched in the text. The attribute 
-				must match for the transform to apply. If missing, no before 
+				or UnicodeSet) to match the text up to the current position in
+				the text (this is similar to a regex &quot;look behind&quot; assertion:
+				(?&lt;=a)b matches a &quot;b&quot; that is preceded by an &quot;a&quot;).
+				The attribute must match for the transform to apply. If missing, no before 
 				constraint is applied. The attribute value must not be empty.</dd>
 		</dl>
 		<dl class="changed">
@@ -1397,16 +1413,17 @@ h2, h3, h4, table {
 		<dl class="changed">
 			<dt>Attribute: error (optional)</dt>
 			<dd>If set this attribute indicates that the keyboarding 
-				application may indicate an error to the user in some way. 
-				Processing would stop and rewind any state to before the key was 
-				pressed. There is no @to attribute in transform elements for 
-				which @error is set. The @error attribute takes the value "fail", 
-				or must be absent. Since processing is considered to stop after 
-				an error, no further transforms on the same input are applied.</dd>
+			application may indicate an error to the user in some way. 
+			Processing may stop and rewind to any state before the key was 
+			pressed. If processing does stop, no further transforms on the 
+			same input are applied. The @error attribute takes the value 
+			"fail", or must be absent. If processing continues, the @to is 
+			used for output as normal. It thus should contain a reasonable 
+			value.</dd>
 		</dl>
 		<p class="changed">For example:</p>
 			<blockquote class="changed">
-				&lt;transform from=&quot;\u037A\u037A&quot; error=&quot;fail&quot;/&gt;
+				&lt;transform from=&quot;\u037A\u037A&quot; error=&quot;fail&quot; to=&quot;\u037A&quot;/&gt;
 			</blockquote>
 		<p class="changed">This indicates that it is an error to type two 
 			iota subscripts immediately after each other.</p>
@@ -1429,8 +1446,7 @@ h2, h3, h4, table {
 			string, looking back (using @before) to match the B.</p>
 		<p class="changed">There are other keying behaviors that are needed 
 			particularly in handling languages and scripts from various parts of 
-			the world. The behaviours intended to be covered by the proposed 
-			transforms are:</p>
+			the world. The behaviors intended to be covered by the transforms are:</p>
 		<ul class="changed">
 			<li>Reordering combining marks. The order required for underlying 
 				storage may differ considerably from the desired typing order. In 
@@ -1454,23 +1470,18 @@ h2, h3, h4, table {
 			5.19 <a name="Element_reorder" href="#Element_reorder">Element:
 				reorder</a>
 		</h3>
-		<p class="changed">The reorder transform is applied after any 
-			transform except for those with type=“final” or type=“backspace”.</p>
+		<p class="changed">The reorder transform is applied after all 
+			transform except for those with type=“final”.</p>
 		<p class="changed">This transform has the job of reordering sequences 
 			of characters that have been typed, from their typed order to the 
 			desired output order. The primary concern in this transform is to 
 			sort combining marks into their correct relative order after a base, 
-			as described in this section. The reorder transform executes after 
-			the simple transform (the transform element that is in CLDR v32), 
-			taking its output as its input. While keyboard layout designers are 
-			very unlikely to get involved in the core aspects of the algorithm 
-			and its configuration, the algorithm is data driven and can be 
-			configured within any keyboard layout. Keyboard layouts will almost 
-			always import a standard definition of this transforms.</p>
-		<p class="changed">The reordering algorithm consists of three parts:</p>
-		<ul class="changed">
+			as described in this section. The reorder transforms can be quite
+			complex, keyboard layouts will almost always import them.</p>
+		<p class="changed">The reordering algorithm consists of four parts:</p>
+		<ol class="changed">
 			<li>Create a sort key for each character in the input string. A 
-				sort key has 3 parts: (primary, index, tertiary).
+				sort key has 4 parts: (primary, index, tertiary).
 				<ul>
 					<li>The <b>primary weight</b> is the primary order value.</li>
 					<li>The <b>secondary weight</b> is the index, a position 
@@ -1489,16 +1500,17 @@ h2, h3, h4, table {
 				starts with a prefix that contains any prebase characters and a 
 				single base character whose primary and tertiary key is 0. The 
 				run extends until, but not including, the start of the prefix of 
-				the next run.
+				the next run or end of the string.
 				<ul>
 					<li>run := prebase* (primary=0 && tertiary=0) ((primary≠0 || tertiary≠0) && !prebase)*</li>
 				</ul>
 			</li>
 			<li>Sort the character order of each character in the run based 
 				on its sort key.</li>
-		</ul>
-		<p class="changed">The primary order of a character with a CCC of 0 
-			may well not be 0. In addition, a character may receive a different 
+		</ol>
+		<p class="changed">The primary order of a character with the Unicode
+			property Combining_Character_Class (ccc) of 0 may well not be 0.
+			In addition, a character may receive a different 
 			primary order dependent on context. For example, in the Devanagari 
 			sequence ka halant ka, the first ka would have a primary order 0 
 			while the halant ka sequence would give both halant and the second ka 
@@ -1539,18 +1551,12 @@ h2, h3, h4, table {
 		&lt;transform from=&quot;\u17C1\u17B6&quot; to=&quot;\u17C4&quot;/&gt;
 	&lt;/transforms&gt;</pre>
 		<p class="changed">Another example allows a keyboard implementation 
-			to alert or stop people typing two lower vowels in a Burmese cluster, 
-			regardless of whether other diacritics are typed in between:</p>
-		<pre class="changed">&lt;transform from=&quot;[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]&quot; error=&quot;true&quot;/&gt;</pre>
+			to alert or stop people typing two lower vowels in a Burmese cluster:</p>
+		<pre class="changed">&lt;transform from=&quot;[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]&quot; error=&quot;fail&quot;/&gt;</pre>
 		<hr>
 		<h3 class="changed">
 			5.21 <a name="Element_backspaces" href="#Element_backspaces">Element:
 				backspaces</a>
-		<p class="removed">A description of the backspaces element</p>
-		<hr>
-		<h3 class="changed">
-			5.22 <a name="Element_backspace" href="#Element_backspace">Element:
-				backspace</a>
 		</h3>
 		<p class="changed">The backspace transform is an optional transform 
 			that is not applied on input of normal characters, but is only used 
@@ -1585,12 +1591,18 @@ h2, h3, h4, table {
 			specifying a set of backspace rules that match a string before the 
 			cursor and replace it with another string. The rules are expressed as 
 			backspace elements encapsulated in a backspaces element.</p>
-		<p class="changed">The backspace element consists of the same 
-			@before, @from, @after, @to, @errors of the transform element.</p>
-		<p class="changed">For a simple example, consider deleting a 
+			<hr>
+		<h3 class="changed">
+			5.22 <a name="Element_backspace" href="#Element_backspace">Element:
+				backspace</a>
+		</h3>
+		<p class="changed">The backspace element has the same 
+			@before, @from, @after, @to, @errors of the transform element. The @to
+			is optional with backspace.</p>
+		<p class="changed">For example, consider deleting a 
 			Devanagari ksha:</p>
 		<pre class="changed">
-	&lt;backspaces type=&quot;backspace&quot;&gt;
+	&lt;backspaces&gt;
 		&lt;backspace from=&quot;\u0915\u094D\u0936&quot;/&gt;
 	&lt;/backspaces&gt;</pre>
 		<p class="changed">Here there is no @to attribute since the whole 
@@ -1599,7 +1611,7 @@ h2, h3, h4, table {
 		<p class="changed">A more complex example comes from a Burmese 
 			visually ordered keyboard:</p>
 		<pre class="changed">
-	&lt;backspaces type=&quot;backspace&quot;&gt;
+	&lt;backspaces&gt;
 		&lt;backspace from=&quot;[\u1004\u101B\u105A]\u103A\u1039&quot;/&gt;
 		&lt;backspace from=&quot;\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]&quot;/&gt;
 		&lt;backspace from=&quot;\u102B\u103A&quot;/&gt;
@@ -1612,7 +1624,9 @@ h2, h3, h4, table {
 		&lt;backspace from=&quot;[\u1000-\u102A\u103F-\u1049\u104E]\u103C&quot; to=&quot;\uFDDF\u103C&quot;/&gt;
 		&lt;backspace from=&quot;\uFDDF[\u1031\u103C]&quot;/&gt;
 	&lt;/backspaces&gt;</pre>
-		<p class="changed">The character \uFDDF is special. When a keyboard 
+		<p class="changed">The character \uFDDF does not represent a literal
+			character, but is instead a special placeholder, a &quot;filler
+			string&quot;. When a keyboard 
 			implementation handles a user pressing a key that inserts a prebase 
 			character, it also has to insert a special filler string before the 
 			prebase to ensure that the prebase character does not combine with 
@@ -1623,7 +1637,7 @@ h2, h3, h4, table {
 			may use to reference this filler string. It is up to the keyboard 
 			implementation to, in effect, replace that character with the filler 
 			string.</p>
-		<p class="changed">The first three transforms delete various 
+		<p class="changed">The first three transforms above delete various 
 			ligatures with a single keypress. The other transforms handle prebase 
 			characters. There are two in this Burmese keyboard. The transforms 
 			delete the characters preceding the prebase character up to base 

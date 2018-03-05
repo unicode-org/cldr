@@ -89,11 +89,11 @@ public class TestComparisonBuilder extends TestFmwk {
     public void TestDtdElements() {
         Set<String> specials = new HashSet<String>(Arrays.asList(new String[] {
             "EMPTY", "PCDATA", "ANY" }));
-        Builder<String> builder = new Builder<String>(Ordering.NATURAL);
         for (DtdType dtd : DtdType.values()) {
             if (dtd.rootType != dtd) {
                 continue;
             }
+            Builder<String> builder = new Builder<String>(Ordering.NATURAL);
             builder.add(dtd.toString());
             Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(
                 dtd).getElement2Children();
@@ -103,21 +103,18 @@ public class TestComparisonBuilder extends TestFmwk {
                 children.removeAll(specials);
                 if (children.size() == 0)
                     continue;
-                // logln(dtd + ": " + element + ": " + children);
+                logln(dtd + ": " + element + ": " + children);
                 builder.add(children);
             }
-        }
-        DiscreteComparator<String> comp = builder.get();
-        logln("Element Ordering: " + comp.getOrdering().toString());
-        for (DtdType dtd : DtdType.values()) {
-            if (dtd.rootType != dtd) {
-                continue;
-            }
-            Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(
+
+            DiscreteComparator<String> comp = builder.get();
+            logln("Element Ordering: " + comp.getOrdering().toString());
+
+            Relation<String, String> eaInfo2 = ElementAttributeInfo.getInstance(
                 dtd).getElement2Children();
             // check that the ordering is right
-            for (String element : eaInfo.keySet()) {
-                Set<String> elements = eaInfo.getAll(element);
+            for (String element : eaInfo2.keySet()) {
+                Set<String> elements = eaInfo2.getAll(element);
                 Set<String> children = new LinkedHashSet<String>(elements);
                 children.removeAll(specials);
                 verifyOrdering(comp, children);
@@ -125,10 +122,10 @@ public class TestComparisonBuilder extends TestFmwk {
             // check that all can be ordered
             try {
                 Set<String> items = new TreeSet<String>(comp);
-                items.addAll(eaInfo.keySet()); // we'll get exception if it
+                items.addAll(eaInfo2.keySet()); // we'll get exception if it
                 // fails
             } catch (Exception e) {
-                Set<String> missing = new LinkedHashSet<String>(eaInfo.keySet());
+                Set<String> missing = new LinkedHashSet<String>(eaInfo2.keySet());
                 missing.removeAll(comp.getOrdering());
                 errln(dtd + "\t" + e.getClass().getName() + "\t"
                     + e.getMessage() + ";\tMissing: " + missing);
@@ -211,7 +208,7 @@ public class TestComparisonBuilder extends TestFmwk {
                 DiscreteComparator<String> comp = builder.get();
             } catch (CycleException e) {
                 logln("Expected cycle and got one at:\t" + e.getMessage()
-                    + ", " + builder.getCycle());
+                + ", " + builder.getCycle());
                 return;
             }
             throw new IllegalArgumentException(

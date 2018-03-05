@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT keyboard ( version, generation?, names, settings?, keyMap+, transforms? ) >
+<!ELEMENT keyboard ( version, generation?, names, settings?, import*, keyMap+, displayMap?, layer*, vkeys*, transforms*, reorders?, backspaces? ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
 
 <!ELEMENT version EMPTY >
@@ -42,7 +42,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST settings transformPartial (hide) #IMPLIED >
     <!--@VALUE-->
 
-<!ELEMENT keyMap ( map+ ) >
+<!ELEMENT import EMPTY >
+<!ATTLIST import path CDATA #REQUIRED >
+     
+<!ELEMENT keyMap ( map | flicks )+ >
 <!ATTLIST keyMap modifiers CDATA #IMPLIED >
 
 <!ELEMENT map EMPTY >
@@ -53,11 +56,81 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@VALUE-->
 <!ATTLIST map transform (no) #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST map multitap (no) #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT flicks (flick+) >
+<!ATTLIST flicks iso CDATA #REQUIRED >
+
+<!ELEMENT flick EMPTY >
+<!ATTLIST flick directions CDATA #REQUIRED >
+<!ATTLIST flick to NMTOKENS #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT displayMap ( display+ ) >
+
+<!ELEMENT display EMPTY >
+<!ATTLIST display to CDATA #REQUIRED >
+<!ATTLIST display display CDATA #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT layer ( row+, switch*, vkeys* ) >
+<!ATTLIST layer modifier CDATA #REQUIRED >
+
+<!ELEMENT row EMPTY >
+<!ATTLIST row keys CDATA #REQUIRED >
+
+<!ELEMENT switch EMPTY >
+<!ATTLIST switch iso CDATA #REQUIRED >
+<!ATTLIST switch layer CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST switch display CDATA #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT vkeys ( vkey+ ) >
+<!ATTLIST vkeys type CDATA #REQUIRED >
+
+<!ELEMENT vkey EMPTY >
+<!ATTLIST vkey iso CDATA #REQUIRED >
+<!ATTLIST vkey vkey CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST vkey modifier CDATA #REQUIRED >
+    <!--@VALUE-->
 
 <!ELEMENT transforms ( transform+ ) >
 <!ATTLIST transforms type CDATA #REQUIRED >
 
 <!ELEMENT transform EMPTY >
+<!ATTLIST transform before CDATA #IMPLIED >
 <!ATTLIST transform from CDATA #REQUIRED >
+<!ATTLIST transform after CDATA #IMPLIED >
 <!ATTLIST transform to CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST transform error (fail) #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT reorders ( reorder+ ) >
+
+<!ELEMENT reorder EMPTY >
+<!ATTLIST reorder before CDATA #IMPLIED >
+<!ATTLIST reorder from CDATA #REQUIRED >
+<!ATTLIST reorder after CDATA #IMPLIED >
+<!ATTLIST reorder order NMTOKENS #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST reorder tertiary NMTOKENS #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST reorder tertiary_base NMTOKENS #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST reorder prebase NMTOKENS #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT backspaces ( backspace+ ) >
+
+<!ELEMENT backspace EMPTY >
+<!ATTLIST backspace before CDATA #IMPLIED >
+<!ATTLIST backspace from CDATA #REQUIRED >
+<!ATTLIST backspace after CDATA #IMPLIED >
+<!ATTLIST backspace to CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST backspace error (fail) #IMPLIED >
     <!--@VALUE-->

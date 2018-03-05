@@ -881,6 +881,39 @@ h2, h3, h4, table {
 				participate in a transform. This attribute value must be no if it is
 				present.</dd>
 		</dl>
+		<dl class='changed'>
+			<dt>Attribute: longPress-status (optional)</dt>
+			<dd>
+				Indicates optional longPress values. Must only occur with a
+				longPress value. May be suppressed or shown, depending on user
+				settings. There can be two map elements that differ only by
+				long-press-status, allowing two different sets of longpress values.<br>
+				<br> <em>Example:</em><br> <br> &lt;map
+				iso=&quot;D01&quot; to=&quot;a&quot; longPress=&quot;à â % æ á ä ã å
+				ā ª&quot;/&gt;<br> &lt;map iso=&quot;D01&quot; to=&quot;a&quot;
+				longPress=&quot;à â á ä ã å ā&quot;
+				longPress-status=&quot;optional&quot;/&gt;
+
+			</dd>
+		</dl>
+		<dl class='changed'>
+
+			<dt>Attribute: optional (optional)</dt>
+			<dd>Indicates optional mappings. May be suppressed or shown,
+				depending on user settings.</dd>
+		</dl>
+		<dl class='changed'>
+			<dt>Attribute: hint (optional)</dt>
+			<dd>
+				Indicates a hint as to long-press contents, such as the first
+				character of the longPress value, that can be displayed on the key.
+				May be suppressed or shown, depending on user Settings.<br> <br>
+				<i>Example:</i> where the hint is "{":<br>
+				<div style='text-align: center'>
+					<img src='images/keycapHint.png'>
+				</div>
+			</dd>
+		</dl>
 		<p>For example, suppose there are the following keys, their output
 			and one transform:</p>
 		<blockquote>
@@ -1498,10 +1531,8 @@ h2, h3, h4, table {
 		</dl>
 		<p class="changed">For example:</p>
 		<blockquote class="changed">&lt;transform
-			from=&quot;\u037A\u037A&quot; 
-			to=&quot;\u037A&quot;
-			error=&quot;fail&quot;
-			/&gt;</blockquote>
+			from=&quot;\u037A\u037A&quot; to=&quot;\u037A&quot;
+			error=&quot;fail&quot; /&gt;</blockquote>
 		<p class="changed">This indicates that it is an error to type two
 			iota subscripts immediately after each other.</p>
 		<p class="changed">In terms of how these different attributes work
@@ -1868,15 +1899,16 @@ h2, h3, h4, table {
   &lt;reorder from=&quot;\u1A6B&quot; order=&quot;42&quot;/&gt;
   &lt;reorder from=&quot;[\u1A75-\u1A7C]&quot; order=&quot;55&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B&quot; from=&quot;\u1A60\u1A45&quot; order=&quot;10&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B[\u1A75-\u1A7C]&quot; from=&quot;\u1A60\u1A45&quot; order=&quot;10&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B&quot; from=&quot;\u1A60[\u1A75-\u1A7C]\u1A45&quot; order=&quot;10 55 10&quot;/&gt;</pre>
 		<p class="changed">
-			The first reorder is the default ordering for the <i>asat</i> which allows
-			for it to be placed anywhere in a sequence, but moves any
+			The first reorder is the default ordering for the <i>asat</i> which
+			allows for it to be placed anywhere in a sequence, but moves any
 			non-consonants that may immediately follow it, back before it in the
 			sequence. The next two rules give the orders for the top vowel
 			component and tone marks respectively. The next three rules give the
-			<i>asat</i> and <i>wa</i> characters a primary order that places them before the <em>o</em>.
-			Notice particularly the final reorder rule where the <i>asat</i>+<i>wa</i> is split
-			by the tone mark. This rule is necessary in case someone types into
-			the middle of previously normalized text.
+			<i>asat</i> and <i>wa</i> characters a primary order that places them
+			before the <em>o</em>. Notice particularly the final reorder rule
+			where the <i>asat</i>+<i>wa</i> is split by the tone mark. This rule
+			is necessary in case someone types into the middle of previously
+			normalized text.
 		</p>
 		<p class="changed">&lt;reorder&gt; elements are priority ordered
 			based first on the length of string their @from attribute matches and
@@ -1921,9 +1953,9 @@ h2, h3, h4, table {
 		<pre class="changed"> &lt;reorder before=&quot;ab&quot; from=&quot;cd&quot; after=&quot;e&quot;/&gt;</pre>
 		<p class="changed">would not merge with:</p>
 		<pre class="changed"> &lt;reorder before=&quot;a&quot; from=&quot;bcd&quot; after=&quot;e&quot;/&gt;</pre>
-		<p class="changed">When two &lt;reorders&gt; elements merge as the result of an import, the
-			resulting reorder elements are sorted into priority order for
-			matching.</p>
+		<p class="changed">When two &lt;reorders&gt; elements merge as the
+			result of an import, the resulting reorder elements are sorted into
+			priority order for matching.</p>
 		<p class="changed">Consider this fragment from a shared reordering
 			for the Myanmar script:</p>
 		<pre class="changed">  &lt;reorder from=&quot;\u103C&quot; order=&quot;20&quot;/&gt;

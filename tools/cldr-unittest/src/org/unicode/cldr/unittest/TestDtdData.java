@@ -567,6 +567,8 @@ public class TestDtdData  extends TestFmwk {
                 || elementName.equals("keyboard") && attribute.equals("locale")
                 || elementName.equals("keyMap") && attribute.equals("modifiers")
                 || elementName.equals("map") && attribute.equals("iso")
+                || elementName.equals("map") && attribute.equals("optional")
+                || elementName.equals("map") && attribute.equals("longpress-status")
                 || elementName.equals("transforms") && attribute.equals("type")
                 || elementName.equals("transform") && attribute.equals("from")
                 || elementName.equals("import") && attribute.equals("path")

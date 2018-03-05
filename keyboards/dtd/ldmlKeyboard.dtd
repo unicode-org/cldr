@@ -54,10 +54,14 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@VALUE-->
 <!ATTLIST map longPress CDATA #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST map longpress-status (optional) #IMPLIED >
 <!ATTLIST map transform (no) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST map multitap (no) #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST map hint CDATA #IMPLIED > 
+    <!--@VALUE-->
+<!ATTLIST map optional NMTOKEN #IMPLIED >
 
 <!ELEMENT flicks (flick+) >
 <!ATTLIST flicks iso CDATA #REQUIRED >

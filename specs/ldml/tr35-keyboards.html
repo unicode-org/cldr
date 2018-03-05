@@ -226,7 +226,7 @@ h2, h3, h4, table {
 					<li>5.8 <a href="#Element_map">Element: map</a></li>
 					<li class="removed">5.9 <a href="#Element_transforms">Element: transforms</a></li>
 					<li class="removed">5.10 <a href="#Element_transform">Element: transform</a></li>
-					<li class="changed">5.9 <a href="#Element_include">Element: include</a></li>
+					<li class="changed">5.9 <a href="#Element_import">Element: import</a></li>
 					<li class="changed">5.10 <a href="#Element_displayMap">Element: displayMap</a></li>
 					<li class="changed">5.11 <a href="#Element_display">Element: display</a></li>
 					<li class="changed">5.12 <a href="#Element_layer">Element: layer</a></li>
@@ -845,12 +845,12 @@ h2, h3, h4, table {
 		<pre>&lt;keyboard locale=&quot;fr-BE-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers=&quot;shift&quot;&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;A&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;Z&quot; /&gt; &lt;!-- key=W --&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;E&quot; /&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;R&quot; /&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;T&quot; /&gt;<br>		&lt;map iso=&quot;D06&quot; to=&quot;Y&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;ps-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers='altR+caps? ctrl+alt+caps?'&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;\u{200e}&quot; /&gt; &lt;!-- key=R base=ق --&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;\u{200f}&quot; /&gt; &lt;!-- key=T base=ف --&gt;<br>		&lt;map iso=&quot;D08&quot; to=&quot;\u{670}&quot; /&gt; &lt;!-- key=I base=ه to= ٰ --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;</pre>
 		<hr>
 		<h3 class="changed">
-			5.9 <a name="Element_include" href="#Element_include">Element:
-				include</a>
+			5.9 <a name="Element_import" href="#Element_import">Element:
+				import</a>
 		</h3>
-		<p class="changed">The include element references another file of the same type and
+		<p class="changed">The import element references another file of the same type and
 			includes all the subelements of the top level element as though
-			the include element were being replaced by those elements.
+			the import element were being replaced by those elements, in the appropriate section of the XML file.
 			For example:</p>
 			<pre class="changed">	&lt;import path=&quot;standard_transforms.xml&quot;&gt;</pre>
 		<dl class="changed">

@@ -131,8 +131,8 @@ h2, h3, h4, table {
 
 		<!-- NOT YET APPROVED -->
 		<p>
-				<i class="changed">This is a<b><font color="#ff3333">
-				draft </font></b>document which may be updated, replaced, or superseded by
+			<i class="changed">This is a<b><font color="#ff3333">
+						draft </font></b>document which may be updated, replaced, or superseded by
 				other documents at any time. Publication does not imply endorsement
 				by the Unicode Consortium. This is not a stable document; it is
 				inappropriate to cite this document as other than a work in
@@ -224,22 +224,38 @@ h2, h3, h4, table {
 						</ul>
 					</li>
 					<li>5.8 <a href="#Element_map">Element: map</a></li>
-					<li class="removed">5.9 <a href="#Element_transforms">Element: transforms</a></li>
-					<li class="removed">5.10 <a href="#Element_transform">Element: transform</a></li>
-					<li class="changed">5.9 <a href="#Element_import">Element: import</a></li>
-					<li class="changed">5.10 <a href="#Element_displayMap">Element: displayMap</a></li>
-					<li class="changed">5.11 <a href="#Element_display">Element: display</a></li>
-					<li class="changed">5.12 <a href="#Element_layer">Element: layer</a></li>
-					<li class="changed">5.13 <a href="#Element_row">Element: row</a></li>
-					<li class="changed">5.14 <a href="#Element_switch">Element: switch</a></li>
-					<li class="changed">5.15 <a href="#Element_vkeys">Element: vkeys</a></li>
-					<li class="changed">5.16 <a href="#Element_vkey">Element: vkey</a></li>
-					<li class="changed">5.17 <a href="#Element_transforms">Element: transforms</a></li>
-					<li class="changed">5.18 <a href="#Element_transform">Element: transform</a></li>
-					<li class="changed">5.19 <a href="#Element_reorder">Element: reorder</a></li>
-					<li class="changed">5.20 <a href="#Element_final">Element: final</a></li>
-					<li class="changed">5.21 <a href="#Element_backspaces">Element: backspaces</a></li>
-					<li class="changed">5.22 <a href="#Element_backspace">Element: backspace</a></li>
+					<li class="removed">5.9 <a href="#Element_transforms">Element:
+							transforms</a></li>
+					<li class="removed">5.10 <a href="#Element_transform">Element:
+							transform</a></li>
+					<li class="changed">5.9 <a href="#Element_import">Element:
+							import</a></li>
+					<li class="changed">5.10 <a href="#Element_displayMap">Element:
+							displayMap</a></li>
+					<li class="changed">5.11 <a href="#Element_display">Element:
+							display</a></li>
+					<li class="changed">5.12 <a href="#Element_layer">Element:
+							layer</a></li>
+					<li class="changed">5.13 <a href="#Element_row">Element:
+							row</a></li>
+					<li class="changed">5.14 <a href="#Element_switch">Element:
+							switch</a></li>
+					<li class="changed">5.15 <a href="#Element_vkeys">Element:
+							vkeys</a></li>
+					<li class="changed">5.16 <a href="#Element_vkey">Element:
+							vkey</a></li>
+					<li class="changed">5.17 <a href="#Element_transforms">Element:
+							transforms</a></li>
+					<li class="changed">5.18 <a href="#Element_transform">Element:
+							transform</a></li>
+					<li class="changed">5.19 <a href="#Element_reorder">Element:
+							reorder</a></li>
+					<li class="changed">5.20 <a href="#Element_final">Element:
+							final</a></li>
+					<li class="changed">5.21 <a href="#Element_backspaces">Element:
+							backspaces</a></li>
+					<li class="changed">5.22 <a href="#Element_backspace">Element:
+							backspace</a></li>
 				</ul>
 			</li>
 			<li>6 <a href="#Element_Heirarchy_Platform_File">Element
@@ -332,45 +348,60 @@ h2, h3, h4, table {
 			whether the modifier RAlt (=AltGr) should be merged with Option. In
 			the end, they were kept separate, but for comparison across platforms
 			implementers may choose to unify them.</p>
-		<p class='changed'>Note that in parts of this document, the format <strong>@x</strong> is used to indicate the <em>attribute</em> <strong>x</strong>.</p>
+		<p class='changed'>
+			Note that in parts of this document, the format <strong>@x</strong>
+			is used to indicate the <em>attribute</em> <strong>x</strong>.
+		</p>
 		<h2>
 			3 <a name="Definitions" href="#Definitions">Definitions</a>
 		</h2>
-		<p class="changed"><b>Arrangement</b> is the term used to describe 
-			the relative position of the rectangles that represent keys, either 
-			physically or virtually. A physical keyboard has a static arrangement 
-			while a virtual keyboard may have a dynamic arrangement that changes 
-			per language and/or layer. While the arrangement of keys on a 
-			keyboard may be fixed, the mapping of those keys may vary.</p>
-		<p><b>Base character:</b> The character emitted by a particular key when
-			no modifiers are active. In ISO terms, this is group 1, level 1.</p>
-		<p><b>Base map:</b> A mapping from the ISO positions to the base
+		<p class="changed">
+			<b>Arrangement</b> is the term used to describe the relative position
+			of the rectangles that represent keys, either physically or
+			virtually. A physical keyboard has a static arrangement while a
+			virtual keyboard may have a dynamic arrangement that changes per
+			language and/or layer. While the arrangement of keys on a keyboard
+			may be fixed, the mapping of those keys may vary.
+		</p>
+		<p>
+			<b>Base character:</b> The character emitted by a particular key when
+			no modifiers are active. In ISO terms, this is group 1, level 1.
+		</p>
+		<p>
+			<b>Base map:</b> A mapping from the ISO positions to the base
 			characters. There is only one base map per layout. The characters on
-			this map can be output by not using any modifier keys.</p>
-		<p class="changed"><b>Core keyboard layout:</b> also known as “alpha” block.
-			The primary set of key values on a keyboard that are used for typing
-			the target language of the keyboard. For example, the three rows of
-			letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM)
-			together with the most significant punctuation keys. Usually this
-			equates to the minimal keyset for a language as seen on mobile phone
-			keyboards.</p>
-		<p><b>Hardware map:</b> A mapping between key codes and ISO layout
-			positions.</p>
-		<p class="changed"><b>Input Method Editor (IME):</b> a component or program that supports
-			input of large character sets. Typically, IMEs employ contextual logic
-			and candidate UI to identify the Unicode characters intended by the
-			user.</p>
-		<p><b>ISO position:</b> The corresponding position of a key using the ISO
-			layout convention where rows are identified by letters and columns
-			are identified by numbers. For example, "D01" corresponds to the "Q"
-			key on a US keyboard. For the purposes of this document, an ISO
-			layout position is depicted by a one-letter row identifier followed
-			by a two digit column number (like "B03", "E12" or "C00"). The
-			following diagram depicts a typical US keyboard layout superimposed
-			with the ISO layout indicators (it is important to note that the
-			number of keys and their physical placement relative to each-other in
-			this diagram is irrelevant, rather what is important is their logical
-			placement using the ISO convention):<img
+			this map can be output by not using any modifier keys.
+		</p>
+		<p class="changed">
+			<b>Core keyboard layout:</b> also known as “alpha” block. The primary
+			set of key values on a keyboard that are used for typing the target
+			language of the keyboard. For example, the three rows of letters on a
+			standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together
+			with the most significant punctuation keys. Usually this equates to
+			the minimal keyset for a language as seen on mobile phone keyboards.
+		</p>
+		<p>
+			<b>Hardware map:</b> A mapping between key codes and ISO layout
+			positions.
+		</p>
+		<p class="changed">
+			<b>Input Method Editor (IME):</b> a component or program that
+			supports input of large character sets. Typically, IMEs employ
+			contextual logic and candidate UI to identify the Unicode characters
+			intended by the user.
+		</p>
+		<p>
+			<b>ISO position:</b> The corresponding position of a key using the
+			ISO layout convention where rows are identified by letters and
+			columns are identified by numbers. For example, "D01" corresponds to
+			the "Q" key on a US keyboard. For the purposes of this document, an
+			ISO layout position is depicted by a one-letter row identifier
+			followed by a two digit column number (like "B03", "E12" or "C00").
+			The following diagram depicts a typical US keyboard layout
+			superimposed with the ISO layout indicators (it is important to note
+			that the number of keys and their physical placement relative to
+			each-other in this diagram is irrelevant, rather what is important is
+			their logical placement using the ISO convention):<img
 				src="images/keyPositions.png"
 				alt="keyboard layout example showing ISO key numbering">
 		</p>
@@ -388,45 +419,70 @@ h2, h3, h4, table {
 			the ISO layout to support keys that are located to the left of the
 			"00" column by using negative column numbers "-01", "-02" and so on,
 			or 100's complement "99", "98",...</p>
-		<p><b>Key:</b> A key on a physical keyboard.</p>
-		<p><b>Key code:</b> The integer code sent to the application on pressing
-			a key.</p>
-		<p><b>Key map:</b> The basic mapping between ISO positions and the output
-			characters for each set of modifier combinations associated with a
-			particular layout. There may be multiple key maps for each layout.</p>
-		<p><b>Keyboard:</b> The physical keyboard.</p>
-		<p><b><span class="changed">Keyboard</span> layout:</b> A layout is the overall keyboard configuration for a
-			particular locale. Within a keyboard layout, there is a single base
-			map, one or more key maps and <span class="removed">one</span><span class="changed">zero</span> or more transforms.</p>
-		<p class="changed"><b>Layer</b> is an arrangement of keys on a 
-			virtual keyboard. Since it is often not intended to use two hands on 
-			a visual keyboard to allow the pressing of modifier keys. Modifier 
-			keys are made sticky in that one presses one, the visual 
-			representation, and even arrangement, of the keys change, and you 
-			press the key. This visual representation is a layer. Thus a virtual 
-			keyboard is made up of a set of layers.</p>
-		<p class="changed"><b>Long-press key:</b> also known as a “child key”. A secondary
-			key that is invoked from a top level key on a software keyboard.
+		<p>
+			<b>Key:</b> A key on a physical keyboard.
+		</p>
+		<p>
+			<b>Key code:</b> The integer code sent to the application on pressing
+			a key.
+		</p>
+		<p>
+			<b>Key map:</b> The basic mapping between ISO positions and the
+			output characters for each set of modifier combinations associated
+			with a particular layout. There may be multiple key maps for each
+			layout.
+		</p>
+		<p>
+			<b>Keyboard:</b> The physical keyboard.
+		</p>
+		<p>
+			<b><span class="changed">Keyboard</span> layout:</b> A layout is the
+			overall keyboard configuration for a particular locale. Within a
+			keyboard layout, there is a single base map, one or more key maps and
+			<span class="removed">one</span><span class="changed">zero</span> or
+			more transforms.
+		</p>
+		<p class="changed">
+			<b>Layer</b> is an arrangement of keys on a virtual keyboard. Since
+			it is often not intended to use two hands on a visual keyboard to
+			allow the pressing of modifier keys. Modifier keys are made sticky in
+			that one presses one, the visual representation, and even
+			arrangement, of the keys change, and you press the key. This visual
+			representation is a layer. Thus a virtual keyboard is made up of a
+			set of layers.
+		</p>
+		<p class="changed">
+			<b>Long-press key:</b> also known as a “child key”. A secondary key
+			that is invoked from a top level key on a software keyboard.
 			Secondary keys typically provide access to variants of the top level
-			key, such as accented variants (a => á, à, ä, ã)</p>
-		<p><b>Modifier:</b> A key that is held to change the behavior of a
+			key, such as accented variants (a => á, à, ä, ã)
+		</p>
+		<p>
+			<b>Modifier:</b> A key that is held to change the behavior of a
 			keyboard. For example, the "Shift" key allows access to upper-case
 			characters on a US keyboard. Other modifier keys include but is not
-			limited to: Ctrl, Alt, Option, Command and Caps Lock.</p>
-		<p class="changed"><b>Physical keyboard</b> is a keyboard that has 
-			individual keys that are pressed. Each key has a unique identifier 
-			and the arrangement doesn't change, even if the mapping of those keys 
-			does.</p>
-		<p><b>Transform:</b><span class="changed">A transform is an element that specifies a set of
-			conversions from sequences of code points into one (or more) other
-			code points.</span> For example, in most latin keyboards hitting the "^" dead-key followed by
-			the "e" key produces "ê".</p>
-		<p class="changed"><b>Virtual keyboard</b> is a keyboard that is 
-			rendered on a, typically, touch surface. It has a dynamic arrangement 
-			and contrasts with a physical keyboard. This term has many synonyms: 
-			touch keyboard, software keyboard, SIP (Software Input Panel). This 
-			contrasts with other uses of the term virtual keyboard as an 
-			on-screen keyboard for reference or accessibility data entry.</p>
+			limited to: Ctrl, Alt, Option, Command and Caps Lock.
+		</p>
+		<p class="changed">
+			<b>Physical keyboard</b> is a keyboard that has individual keys that
+			are pressed. Each key has a unique identifier and the arrangement
+			doesn't change, even if the mapping of those keys does.
+		</p>
+		<p>
+			<b>Transform:</b><span class="changed">A transform is an
+				element that specifies a set of conversions from sequences of code
+				points into one (or more) other code points.</span> For example, in most
+			latin keyboards hitting the "^" dead-key followed by the "e" key
+			produces "ê".
+		</p>
+		<p class="changed">
+			<b>Virtual keyboard</b> is a keyboard that is rendered on a,
+			typically, touch surface. It has a dynamic arrangement and contrasts
+			with a physical keyboard. This term has many synonyms: touch
+			keyboard, software keyboard, SIP (Software Input Panel). This
+			contrasts with other uses of the term virtual keyboard as an
+			on-screen keyboard for reference or accessibility data entry.
+		</p>
 		<h2>
 			4 <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File
 				and Directory Structure</a>
@@ -470,12 +526,14 @@ h2, h3, h4, table {
 		<p>&lt;/keyboard&gt;</p>
 		<dl>
 			<dt>Attribute: locale (required)</dt>
-			<dd>This mandatory attribute represents the locale of the keyboard using
-			Unicode locale identifiers (see <a href="tr35.html">LDML</a>) - for
-			example &#39;el&#39; for Greek. Sometimes, the locale may not specify
-			the base language. For example, a Devanagari keyboard for many
-			languages could be specified by BCP-47 code: 'und-Deva'. For details,
-			see <a href="#Keyboard_IDs">Keyboard IDs</a> .</dd>
+			<dd>
+				This mandatory attribute represents the locale of the keyboard using
+				Unicode locale identifiers (see <a href="tr35.html">LDML</a>) - for
+				example &#39;el&#39; for Greek. Sometimes, the locale may not
+				specify the base language. For example, a Devanagari keyboard for
+				many languages could be specified by BCP-47 code: 'und-Deva'. For
+				details, see <a href="#Keyboard_IDs">Keyboard IDs</a> .
+			</dd>
 		</dl>
 		<p>Examples (for illustrative purposes only, not indicative of the
 			real data)</p>
@@ -500,12 +558,12 @@ h2, h3, h4, table {
 		<dl>
 			<dt>Attribute: platform (required)</dt>
 			<dd>The platform source version. Specifies what version of the
-			platform the data is from. For example, data from Mac OSX 10.4 would
-			be specified as platform=&quot;10.4&quot;. For platforms that have
-			unstable version numbers which change frequently (like Linux), this
-			field is set to an integer representing the iteration of the data
-			starting with "1". This number would only increase if there were any
-			significant changes in the keyboard data.</dd>
+				platform the data is from. For example, data from Mac OSX 10.4 would
+				be specified as platform=&quot;10.4&quot;. For platforms that have
+				unstable version numbers which change frequently (like Linux), this
+				field is set to an integer representing the iteration of the data
+				starting with "1". This number would only increase if there were any
+				significant changes in the keyboard data.</dd>
 		</dl>
 		<dl>
 			<dt>Attribute: number (required)</dt>
@@ -514,8 +572,8 @@ h2, h3, h4, table {
 		<dl>
 			<dt>Attribute: cldrVersion (fixed by DTD)</dt>
 			<dd>The CLDR specification version that is associated with this
-			data file. This value is fixed and is inherited from the DTD file
-			and therefore does not show up directly in the XML file.</dd>
+				data file. This value is fixed and is inherited from the DTD file
+				and therefore does not show up directly in the XML file.</dd>
 		</dl>
 		<p>Example</p>
 		<p>&lt;keyboard locale=&quot;..-osx&quot;&gt;</p>
@@ -530,7 +588,8 @@ h2, h3, h4, table {
 		</h3>
 		<p>
 			The generation element is now deprecated. It was used to keep track
-			of the generation date of the data.<br><span class="removed"><br> Syntax</span>
+			of the generation date of the data.<br> <span class="removed"><br>
+				Syntax</span>
 		</p>
 		<p class="removed">
 			&lt;generation date=&quot;..&quot;&gt;<br>
@@ -603,16 +662,16 @@ h2, h3, h4, table {
 		</p>
 		<dl>
 			<dt>Attribute: fallback=&quot;omit&quot; (optional)</dt>
-			<dd>The presence of this attribute means that when a modifier key
-				combination goes unmatched, no output is produced. The default
+			<dd>The presence of this attribute means that when a modifier
+				key combination goes unmatched, no output is produced. The default
 				behavior (when this attribute is not present) is to fallback to the
 				base map when the modifier key combination goes unmatched.</dd>
 		</dl>
 		<p>If this attribute is present, it must have a value of omit.</p>
 		<dl>
 			<dt>Attribute: transformFailure=&quot;omit&quot; (optional)</dt>
-			<dd>This attribute describes the behavior of a transform when it is
-				escaped (see the transform element in the Layout file for more
+			<dd>This attribute describes the behavior of a transform when it
+				is escaped (see the transform element in the Layout file for more
 				information). A transform is escaped when it can no longer continue
 				due to the entry of an invalid key. For example, suppose the
 				following set of transforms are valid:</dd>
@@ -635,8 +694,8 @@ h2, h3, h4, table {
 			<dt>Attribute: transformPartial=&quot;hide&quot; (optional)</dt>
 			<dd>This attribute describes the behavior the system while in a
 				transform. When this attribute is present then don't show the values
-				of the buffer as the user is typing a transform (this behavior can be
-				seen on Windows or Linux platforms).</dd>
+				of the buffer as the user is typing a transform (this behavior can
+				be seen on Windows or Linux platforms).</dd>
 		</dl>
 		<p>By default (when this attribute is not present), show the
 			values of the buffer as the user is typing a transform (this behavior
@@ -679,7 +738,7 @@ h2, h3, h4, table {
 				"active". Each combination is separated by a space. The
 				interpretation is that there is a match if any of the combinations
 				match, that is, they are ORed. Therefore, the order of the
-				combinations within this attribute does not matter.<br><br>
+				combinations within this attribute does not matter.<br> <br>
 				A combination is simply a concatenation of words to represent the
 				simultaneous activation of one or more modifier keys. The order of
 				the modifier keys within a combination does not matter, although
@@ -687,10 +746,10 @@ h2, h3, h4, table {
 				readability (see next paragraph). For example: "cmd+caps" represents
 				the Caps Lock and Command modifier key combination. Some keys have
 				right or left variant keys, specified by a 'R' or 'L' suffix. For
-				example: "ctrlR+caps" would represent the Right-Control and Caps Lock
-				combination. For simplicity, the presence of a modifier without a 'R'
-				or 'L' suffix means that either its left or right variants are valid.
-				So "ctrl+caps" represents the same as "ctrlL+ctrlR?+caps
+				example: "ctrlR+caps" would represent the Right-Control and Caps
+				Lock combination. For simplicity, the presence of a modifier without
+				a 'R' or 'L' suffix means that either its left or right variants are
+				valid. So "ctrl+caps" represents the same as "ctrlL+ctrlR?+caps
 				ctrlL?+ctrlR+caps"
 			</dd>
 		</dl>
@@ -774,7 +833,7 @@ h2, h3, h4, table {
 		<p>If the modifiers attribute is not present on a keyMap then that
 			particular key map is the base map.</p>
 		<hr class="changed">
-			<h3>
+		<h3>
 			5.8 <a name="Element_map" href="#Element_map">Element: map</a>
 		</h3>
 		<p>This element defines a mapping between the base character and
@@ -790,37 +849,37 @@ h2, h3, h4, table {
  [transform=&quot;no&quot;]
 /&gt;&lt;!-- {Comment to improve readability (if needed)} --&gt;</pre>
 		<dl>
-		<dt>Attribute: iso (exactly one of base and iso is required)</dt>
-		<dd>The iso attribute represents the ISO layout position of the key
-			(see the definition at the beginning of the document for more
-			information).</dd>
+			<dt>Attribute: iso (exactly one of base and iso is required)</dt>
+			<dd>The iso attribute represents the ISO layout position of the
+				key (see the definition at the beginning of the document for more
+				information).</dd>
 		</dl>
 		<dl>
-		<dt>Attribute: to (required)</dt>
-		<dd>The to attribute contains the output sequence of characters
-			that is emitted when pressing this particular key. Control
-			characters, whitespace (other than the regular space character) and
-			combining marks in this attribute are escaped using the \u{...}
-			notation.</dd>
+			<dt>Attribute: to (required)</dt>
+			<dd>The to attribute contains the output sequence of characters
+				that is emitted when pressing this particular key. Control
+				characters, whitespace (other than the regular space character) and
+				combining marks in this attribute are escaped using the \u{...}
+				notation.</dd>
 		</dl>
 		<dl>
-		<dt>Attribute: longPress (optional)</dt>
-		<dd>The longPress attribute contains any characters that can be
-			emitted by "long-pressing" a key, this feature is prominent in mobile
-			devices. The possible sequences of characters that can be emitted are
-			whitespace delimited. Control characters, combining marks and
-			whitespace (which is intended to be a long-press option) in this
-			attribute are escaped using the \u{...} notation.</dd>
+			<dt>Attribute: longPress (optional)</dt>
+			<dd>The longPress attribute contains any characters that can be
+				emitted by "long-pressing" a key, this feature is prominent in
+				mobile devices. The possible sequences of characters that can be
+				emitted are whitespace delimited. Control characters, combining
+				marks and whitespace (which is intended to be a long-press option)
+				in this attribute are escaped using the \u{...} notation.</dd>
 		</dl>
 		<dl>
-		<dt>Attribute: transform=&quot;no&quot; (optional)</dt>
-		<dd>The transform attribute is used to define a key that never
-			participates in a transform but its output shows up as part of a
-			transform. This attribute is necessary because two different keys
-			could output the same characters (with different keys or modifier
-			combinations) but only one of them is intended to be a dead-key and
-			participate in a transform. This attribute value must be no if it is
-			present.</dd>
+			<dt>Attribute: transform=&quot;no&quot; (optional)</dt>
+			<dd>The transform attribute is used to define a key that never
+				participates in a transform but its output shows up as part of a
+				transform. This attribute is necessary because two different keys
+				could output the same characters (with different keys or modifier
+				combinations) but only one of them is intended to be a dead-key and
+				participate in a transform. This attribute value must be no if it is
+				present.</dd>
 		</dl>
 		<p>For example, suppose there are the following keys, their output
 			and one transform:</p>
@@ -848,29 +907,30 @@ h2, h3, h4, table {
 			5.9 <a name="Element_import" href="#Element_import">Element:
 				import</a>
 		</h3>
-		<p class="changed">The import element references another file of the same type and
-			includes all the subelements of the top level element as though
-			the import element were being replaced by those elements, in the appropriate section of the XML file.
-			For example:</p>
-			<pre class="changed">	&lt;import path=&quot;standard_transforms.xml&quot;&gt;</pre>
+		<p class="changed">The import element references another file of
+			the same type and includes all the subelements of the top level
+			element as though the import element were being replaced by those
+			elements, in the appropriate section of the XML file. For example:</p>
+		<pre class="changed">	&lt;import path=&quot;standard_transforms.xml&quot;&gt;</pre>
 		<dl class="changed">
 			<dt>Attribute: path (required)</dt>
-			<dd>The value is contains a relative path to the included ldml file.
-				There is a standard set of directories to be searched that an
+			<dd>The value is contains a relative path to the included ldml
+				file. There is a standard set of directories to be searched that an
 				application may provide. This set is always prepended with the
 				directory in which the current file being read, is stored.</dd>
 		</dl>
-		<p class="changed">If two identical elements, as described below, are defined,
-			the later element will take precedence. Thus if a hardwareMap/map for
-			the same keycode on the same page is defined twice (for example once
-			in an included file), the later one will be the resulting mapping.</p>
-		<p class="changed">Elements are considered to have three attributes that
-			make them unique: the tag of the element, the parent and the
-			identifying attribute. The parent in its turn is a unique element
-			and so on up the chain. If the distinguishing attribute is optional,
-			its non-existence is represented with an empty value. Here is a list
-			of elements and their defining attributes. If an element is not
-			listed then if it is a leaf element, only one occurs and it is
+		<p class="changed">If two identical elements, as described below,
+			are defined, the later element will take precedence. Thus if a
+			hardwareMap/map for the same keycode on the same page is defined
+			twice (for example once in an included file), the later one will be
+			the resulting mapping.</p>
+		<p class="changed">Elements are considered to have three
+			attributes that make them unique: the tag of the element, the parent
+			and the identifying attribute. The parent in its turn is a unique
+			element and so on up the chain. If the distinguishing attribute is
+			optional, its non-existence is represented with an empty value. Here
+			is a list of elements and their defining attributes. If an element is
+			not listed then if it is a leaf element, only one occurs and it is
 			merely replaced. If it has children, then the sub elements are
 			considered, in effect merging the element in question.</p>
 		<table class="changed">
@@ -903,12 +963,12 @@ h2, h3, h4, table {
 				</tr>
 			</tbody>
 		</table>
-		<p class="changed">In order to help identify mistakes, it is an error if
-			a file contains two elements that override each other. All element
-			overrides must come as a result of an &lt;include&gt; element either
-			for the element overridden or the element overriding.</p>
-		<p class="changed">The following elements are not imported from the
-			source file:</p>
+		<p class="changed">In order to help identify mistakes, it is an
+			error if a file contains two elements that override each other. All
+			element overrides must come as a result of an &lt;include&gt; element
+			either for the element overridden or the element overriding.</p>
+		<p class="changed">The following elements are not imported from
+			the source file:</p>
 		<ul class="changed">
 			<li>version</li>
 			<li>generation</li>
@@ -920,35 +980,35 @@ h2, h3, h4, table {
 			5.10 <a name="Element_displayMap" href="#Element_displayMap">Element:
 				displayMap</a>
 		</h3>
-		<p class="changed">The displayMap can be used to describe what is to be
-			displayed on the keytops for various keys. 
-			For the most part, such explicit information is unnecessary since the 
-			@char element from the keyMap/map element can be used. But there are 
-			some characters, such as diacritics, that do not display well on 
-			their own and so explicit overrides for such characters can help. The 
-			displayMap consists of a list of display sub elements.</p>
-		<p class="changed">DisplayMaps are designed to be shared across many 
-			different keyboard layout descriptions, and included in where 
+		<p class="changed">The displayMap can be used to describe what is
+			to be displayed on the keytops for various keys. For the most part,
+			such explicit information is unnecessary since the @char element from
+			the keyMap/map element can be used. But there are some characters,
+			such as diacritics, that do not display well on their own and so
+			explicit overrides for such characters can help. The displayMap
+			consists of a list of display sub elements.</p>
+		<p class="changed">DisplayMaps are designed to be shared across
+			many different keyboard layout descriptions, and included in where
 			needed.</p>
 		<hr>
 		<h3 class="changed">
 			5.11 <a name="Element_display" href="#Element_display">Element:
 				display</a>
 		</h3>
-		<p class="changed">The display element describes how a character, that has 
-			come from a keyMap/map element, should be displayed on a keyboard layout 
-			where such display is possible.</p>
+		<p class="changed">The display element describes how a character,
+			that has come from a keyMap/map element, should be displayed on a
+			keyboard layout where such display is possible.</p>
 		<dl class="changed">
 			<dt>Attribute: mapOutput (required)</dt>
-			<dd>Specifies the character or character sequence from 
-			the keyMap/map element that is to have a special display.</dd>
+			<dd>Specifies the character or character sequence from the
+				keyMap/map element that is to have a special display.</dd>
 		</dl>
 		<dl class="changed">
 			<dt>Attribute: display (required)</dt>
-			<dd>Required and specifies the character sequence that 
-			should be displayed on the keytop for any key that generates the 
-			@mapOutput sequence. (It is an error if the value of the display 
-			attribute is the same as the value of the char attribute.)</dd>
+			<dd>Required and specifies the character sequence that should be
+				displayed on the keytop for any key that generates the @mapOutput
+				sequence. (It is an error if the value of the display attribute is
+				the same as the value of the char attribute.)</dd>
 		</dl>
 		<pre class="changed">	&lt;keyboard &gt;
 		&lt;keyboardMap&gt;
@@ -957,42 +1017,41 @@ h2, h3, h4, table {
 		&lt;displayMap&gt;
 			&lt;display mapOutput=&quot;\u0300&quot; display=&quot;u\u02CB&quot;/&gt;
 			&lt;display mapOutput=&quot;\u0301&quot; display=&quot;u\u02CA&quot;/&gt;
-		&lt;/displayMap&gt;<br/>	&lt;/keyboard &gt;</pre>
-			<p class="changed">To allow displayMaps to be shared across 
-			descriptions, there is no requirement that @mapOutput matches any @to 
+		&lt;/displayMap&gt;<br />	&lt;/keyboard &gt;</pre>
+		<p class="changed">To allow displayMaps to be shared across
+			descriptions, there is no requirement that @mapOutput matches any @to
 			in any keyMap/map element in the keyboard description.</p>
 		<hr>
 		<h3 class="changed">
-			5.12 <a name="Element_layer" href="#Element_layer">Element:
-				layer</a>
+			5.12 <a name="Element_layer" href="#Element_layer">Element: layer</a>
 		</h3>
-		<p class="changed">A layer element describes the configuration of 
-			keys on a particular layer of a keyboard. It contains row elements to 
-			describe which keys exist in each row and also switch elements that 
-			describe how keys in the layer switch the layer to another. In 
-			addition, for platforms that require a mapping from a key to a 
-			virtual key (for example Windows or Mac) there is also a vkeys 
+		<p class="changed">A layer element describes the configuration of
+			keys on a particular layer of a keyboard. It contains row elements to
+			describe which keys exist in each row and also switch elements that
+			describe how keys in the layer switch the layer to another. In
+			addition, for platforms that require a mapping from a key to a
+			virtual key (for example Windows or Mac) there is also a vkeys
 			element to describe the mapping.</p>
 		<dl class="changed">
 			<dt>Attribute: modifier (required)</dt>
-			<dd>This has two roles. It acts as an identifier for 
-			the layer element and also provides the linkage into a keyMap. A 
-			modifier is a single modifier combination such that it is matched by 
-			one of the modifier combinations in one of the keyMap/@modifiers 
-			attribute. To indicate that no modifiers apply the reserved name of 
-			"none" is used. For the purposes of fallback vkey mapping, the 
-			following modifier components are reserved: "shift", "ctrl", "alt", 
-			"caps", "cmd", "opt" along with the "L" and "R" optional single 
-			suffixes for the first 3 in that list. There must be a keyMap whose
-			@modifiers attribute matches the @modifier attribute of the layer
-			element. It is an error if there is no such keyMap.</dd>
+			<dd>This has two roles. It acts as an identifier for the layer
+				element and also provides the linkage into a keyMap. A modifier is a
+				single modifier combination such that it is matched by one of the
+				modifier combinations in one of the keyMap/@modifiers attribute. To
+				indicate that no modifiers apply the reserved name of "none" is
+				used. For the purposes of fallback vkey mapping, the following
+				modifier components are reserved: "shift", "ctrl", "alt", "caps",
+				"cmd", "opt" along with the "L" and "R" optional single suffixes for
+				the first 3 in that list. There must be a keyMap whose @modifiers
+				attribute matches the @modifier attribute of the layer element. It
+				is an error if there is no such keyMap.</dd>
 		</dl>
-		<p class="changed">The keymap/@modifier often includes multiple 
-			combinations that match. It is not necessary (or prefered) to include 
-			all of these. Instead a minimal matching element should be used, such 
+		<p class="changed">The keymap/@modifier often includes multiple
+			combinations that match. It is not necessary (or prefered) to include
+			all of these. Instead a minimal matching element should be used, such
 			that exactly one keymap is matched.</p>
-		<p class="changed">The following are examples of situations where the 
-			@modifiers and @modifier do not match, with a different keymap 
+		<p class="changed">The following are examples of situations where
+			the @modifiers and @modifier do not match, with a different keymap
 			definition than above.</p>
 		<table class="changed">
 			<!-- nocaption -->
@@ -1029,39 +1088,43 @@ h2, h3, h4, table {
 				</tr>
 			</tbody>
 		</table>
-		<p class="changed">The use of @modifier as an identifier for a layer, 
-			is sufficient since it is always unique among the set of layer 
+		<p class="changed">The use of @modifier as an identifier for a
+			layer, is sufficient since it is always unique among the set of layer
 			elements in a keyboard.</p>
 		<hr>
 		<h3 class="changed">
-			5.13 <a name="Element_row" href="#Element_row">Element:
-				row</a>
+			5.13 <a name="Element_row" href="#Element_row">Element: row</a>
 		</h3>
-		<p class="changed">A row element describes the keys that are present in the 
-			row of a keyboard. Row elements are ordered within a layout element with the 
-			top visual row being stored first. The row element introduces the keyId which 
-			may be an ISOKey or a specialKey. More formally:</p>
-		<pre class="changed">	keyId = ISOKey | specialKey<br/>	ISOKey = [A-Z][0-9][0-9]<br/>	specialKey = [a-z][a-zA-Z0-9]{2,7}</pre>
-		<p class="changed">ISOKey denotes a key having an <a href="#Definitions">ISO
-			Position</a>. SpecialKey is used to identify functional keys occurring
-			on a virtual keyboard layout. </p>
+		<p class="changed">A row element describes the keys that are
+			present in the row of a keyboard. Row elements are ordered within a
+			layout element with the top visual row being stored first. The row
+			element introduces the keyId which may be an ISOKey or a specialKey.
+			More formally:</p>
+		<pre class="changed">	keyId = ISOKey | specialKey<br />	ISOKey = [A-Z][0-9][0-9]<br />	specialKey = [a-z][a-zA-Z0-9]{2,7}</pre>
+		<p class="changed">
+			ISOKey denotes a key having an <a href="#Definitions">ISO
+				Position</a>. SpecialKey is used to identify functional keys occurring
+			on a virtual keyboard layout.
+		</p>
 		<dl class="changed">
 			<dt>Attribute: keys (required)</dt>
-			<dd>This is a string that lists the keyId for each of the keys 
-			in a row. Key ranges may be contracted to firstkey-lastkey but only for 
-			ISOKey type keyIds. The interpolation between the first and last keys names 
-			is entirely numeric. Thus D00-D03 is equivalent to D00 D01 D02 D03.
-			It is an error if the first and last keys do not have the same
-			alphabetic prefix or the last key numeric component is less than or
-			equal to the first key numeric component.</dd>
+			<dd>This is a string that lists the keyId for each of the keys
+				in a row. Key ranges may be contracted to firstkey-lastkey but only
+				for ISOKey type keyIds. The interpolation between the first and last
+				keys names is entirely numeric. Thus D00-D03 is equivalent to D00
+				D01 D02 D03. It is an error if the first and last keys do not have
+				the same alphabetic prefix or the last key numeric component is less
+				than or equal to the first key numeric component.</dd>
 		</dl>
-		<p class="changed">specialKey type keyIds may take any value within their 
-			syntactic constraint. But the following specialKeys are reserved to allow 
-			applications to identify them and give them special handling:</p>
+		<p class="changed">specialKey type keyIds may take any value
+			within their syntactic constraint. But the following specialKeys are
+			reserved to allow applications to identify them and give them special
+			handling:</p>
 		<ul class="changed">
 			<li>"bksp", "enter", "space", "tab", "esc", "sym", "num"</li>
 			<li>all the reserved modifier names</li>
-			<li>specialKeys starting with the letter "x" for future reserved names.</li>
+			<li>specialKeys starting with the letter "x" for future reserved
+				names.</li>
 		</ul>
 		<p class="changed">Here is an example of a row element:</p>
 		<pre class="changed">	&lt;layer modifier=&quot;none&quot;&gt;
@@ -1076,24 +1139,25 @@ h2, h3, h4, table {
 			5.14 <a name="Element_switch" href="#Element_switch">Element:
 				switch</a>
 		</h3>
-		<p class="changed">The switch element describes a function key that has been 
-			included in the layout. It specifies which layer pressing the key switches 
-			you to and also what the key looks like.</p>
+		<p class="changed">The switch element describes a function key
+			that has been included in the layout. It specifies which layer
+			pressing the key switches you to and also what the key looks like.</p>
 		<dl class="changed">
 			<dt>Attribute: iso (required)</dt>
-			<dd>The keyId as specified in one of the row elements. 
-			This must be a specialKey and not an ISOKey.</dd>
+			<dd>The keyId as specified in one of the row elements. This must
+				be a specialKey and not an ISOKey.</dd>
 		</dl>
 		<dl class="changed">
 			<dt>Attribute: layout (required)</dt>
-			<dd>The modifier attribute of the resulting layout 
-			element that describes the layer the user gets switched to.</dd>
+			<dd>The modifier attribute of the resulting layout element that
+				describes the layer the user gets switched to.</dd>
 		</dl>
 		<dl class="changed">
 			<dt>Attribute: display (required)</dt>
 			<dd>A string to be displayed on the key.</dd>
 		</dl>
-		<p class="changed">Here is an example of a switch element for a shift key:</p>
+		<p class="changed">Here is an example of a switch element for a
+			shift key:</p>
 		<pre class="changed">	&lt;layer modifier=&quot;none&quot;&gt;
 		&lt;row keys=&quot;D01-D10&quot;/&gt;
 		&lt;row keys=&quot;C01-C09&quot;/&gt;
@@ -1108,52 +1172,52 @@ h2, h3, h4, table {
 		&lt;row keys=&quot;sym A01 smilies A02-A03 enter&quot;/&gt;
 		&lt;switch iso=&quot;shift&quot; layout=&quot;none&quot; display=&quot;&amp;#x21EA;&quot;/&gt;
 	&lt;/layer&gt;</pre>
-			<hr>
-		<h3 class="changed">
-			5.15 <a name="Element_vkeys" href="#Element_vkeys">Element:
-				vkeys</a>
-		</h3>
-		<p class="changed">On some architectures, applications may directly 
-			interact with keys before they are converted to characters. The keys 
-			are identified using a virtual key identifier or vkey. The mapping 
-			between a physical keyboard key and a vkey is keyboard-layout 
-			dependent. For example, a French keyboard would identify the D01 key 
-			as being an 'a' with a vkey of 'a' as opposed to 'q' on a US English 
-			keyboard. While vkeys are layout dependent, they are not modifier 
-			dependent. A shifted key always has the same vkey as its unshifted 
-			counterpart. In effect, a key is identified by its vkey and the 
-			modifiers active at the time the key was pressed.</p>
-		<p class="changed">For a physical keyboard there is a layout specific 
-			default mapping of keys to vkeys. These are listed in a vkeys element 
-			which takes a list of vkey element mappings and is identified by a 
-			type. There are different vkey mappings required for different 
-			platforms. While type="windows" vkeys are very similar to type="osx"
-			vkeys, they are not identical and require their own mapping.</p>
-		<p class="changed">The most common model for specifying vkeys is to 
-			import a standard mapping, say to the US layout, and then to add a 
-			vkeys element to change the mapping appropriately for the specific 
-			layout.</p>
-		<p class="changed">In addition to describing physical keyboards, 
-			vkeys also get used in virtual keyboards. Here the vkey mapping is 
-			local to a layer and therefore a vkeys element may occur within a 
-			layout element. In the case where a layout element has no vkeys 
-			element then the resulting mapping may either be empty (none of the 
-			keys represent keys that have vkey identifiers) or may fallback to 
-			the layout wide vkeys mapping. Fallback only occurs if the layout's 
-			modifier attribute consists only of standard modifiers as listed as 
-			being reserved in the description of the layout/@modifier attribute, 
-			and if the modifiers are standard for the platform involved. So for 
-			Windows, 'cmd' is a reserved modifier but it is not standard for 
-			Windows. Therefore on Windows the vkey mapping for a layout with 
-			@modifier="cmd" would be empty.</p>
-		<p class="changed">A vkeys element consists of a list of vkey elements.</p>
 		<hr>
 		<h3 class="changed">
-			5.16 <a name="Element_vkey" href="#Element_vkey">Element:
-				vkey</a>
+			5.15 <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
 		</h3>
-		<p class="changed">A vkey element describes a mapping between a key 
-			and a vkey for a particular platform.</p>
+		<p class="changed">On some architectures, applications may
+			directly interact with keys before they are converted to characters.
+			The keys are identified using a virtual key identifier or vkey. The
+			mapping between a physical keyboard key and a vkey is keyboard-layout
+			dependent. For example, a French keyboard would identify the D01 key
+			as being an 'a' with a vkey of 'a' as opposed to 'q' on a US English
+			keyboard. While vkeys are layout dependent, they are not modifier
+			dependent. A shifted key always has the same vkey as its unshifted
+			counterpart. In effect, a key is identified by its vkey and the
+			modifiers active at the time the key was pressed.</p>
+		<p class="changed">For a physical keyboard there is a layout
+			specific default mapping of keys to vkeys. These are listed in a
+			vkeys element which takes a list of vkey element mappings and is
+			identified by a type. There are different vkey mappings required for
+			different platforms. While type="windows" vkeys are very similar to
+			type="osx" vkeys, they are not identical and require their own
+			mapping.</p>
+		<p class="changed">The most common model for specifying vkeys is
+			to import a standard mapping, say to the US layout, and then to add a
+			vkeys element to change the mapping appropriately for the specific
+			layout.</p>
+		<p class="changed">In addition to describing physical keyboards,
+			vkeys also get used in virtual keyboards. Here the vkey mapping is
+			local to a layer and therefore a vkeys element may occur within a
+			layout element. In the case where a layout element has no vkeys
+			element then the resulting mapping may either be empty (none of the
+			keys represent keys that have vkey identifiers) or may fallback to
+			the layout wide vkeys mapping. Fallback only occurs if the layout's
+			modifier attribute consists only of standard modifiers as listed as
+			being reserved in the description of the layout/@modifier attribute,
+			and if the modifiers are standard for the platform involved. So for
+			Windows, 'cmd' is a reserved modifier but it is not standard for
+			Windows. Therefore on Windows the vkey mapping for a layout with
+			@modifier="cmd" would be empty.</p>
+		<p class="changed">A vkeys element consists of a list of vkey
+			elements.</p>
+		<hr>
+		<h3 class="changed">
+			5.16 <a name="Element_vkey" href="#Element_vkey">Element: vkey</a>
+		</h3>
+		<p class="changed">A vkey element describes a mapping between a
+			key and a vkey for a particular platform.</p>
 		<dl class="changed">
 			<dt>Attribute: iso (required)</dt>
 			<dd>The ISOkey being mapped.</dd>
@@ -1168,11 +1232,11 @@ h2, h3, h4, table {
 		</dl>
 		<dl class="changed">
 			<dt>Attribute: modifier</dt>
-			<dd>This attribute may only be used if the parent 
-				vkeys element is a child of a layout element. If present it allows an 
-				unmodified key from a layer to represent a modified virtual key.</dd>
+			<dd>This attribute may only be used if the parent vkeys element
+				is a child of a layout element. If present it allows an unmodified
+				key from a layer to represent a modified virtual key.</dd>
 		</dl>
-		<p class="changed">This example shows some of the mappings for a 
+		<p class="changed">This example shows some of the mappings for a
 			French keyboard layout:</p>
 		<pre class="changed">	<i>shared/win-vkey.xml</i>
 	&lt;keyboard&gt;
@@ -1182,7 +1246,7 @@ h2, h3, h4, table {
 			&lt;vkey iso=&quot;C01&quot; vkey=&quot;VK_A&quot;/&gt;
 			&lt;vkey iso=&quot;B01&quot; vkey=&quot;VK_Z&quot;/&gt;
 		&lt;/vkeys&gt;
-	&lt;/keyboard&gt;<br/>
+	&lt;/keyboard&gt;<br />
 	<i>shared/win-fr.xml</i>
 	&lt;keyboard&gt;
 		&lt;import path=&quot;shared/win-vkey.xml&quot;&gt;
@@ -1191,13 +1255,13 @@ h2, h3, h4, table {
 			&lt;map iso=&quot;D02&quot; to=&quot;z&quot;/&gt;
 			&lt;map iso=&quot;C01&quot; to=&quot;q&quot;/&gt;
 			&lt;map iso=&quot;B01&quot; to=&quot;w&quot;/&gt;
-		&lt;/keyMap&gt;<br/>
+		&lt;/keyMap&gt;<br />
 		&lt;keyMap modifiers=&quot;shift&quot;&gt;
 			&lt;map iso=&quot;D01&quot; to=&quot;A&quot;/&gt;
 			&lt;map iso=&quot;D02&quot; to=&quot;Z&quot;/&gt;
 			&lt;map iso=&quot;C01&quot; to=&quot;Q&quot;/&gt;
 			&lt;map iso=&quot;B01&quot; to=&quot;W&quot;/&gt;
-		&lt;/keyMap&gt;<br/>
+		&lt;/keyMap&gt;<br />
 		&lt;vkeys type=&quot;windows&quot;&gt;
 			&lt;vkey iso=&quot;D01&quot; vkey=&quot;VK_A&quot;/&gt;
 			&lt;vkey iso=&quot;D02&quot; vkey=&quot;VK_Z&quot;/&gt;
@@ -1205,8 +1269,8 @@ h2, h3, h4, table {
 			&lt;vkey iso=&quot;B01&quot; vkey=&quot;VK_W&quot;/&gt;
 		&lt;/vkeys&gt;
 	&lt;/keyboard&gt;</pre>
-		<p class="changed">In the context of a virtual keyboard there might 
-			be a symbol layer with the following layout:</p>
+		<p class="changed">In the context of a virtual keyboard there
+			might be a symbol layer with the following layout:</p>
 		<pre class="changed">	&lt;keyboard&gt;
 		&lt;keyMap&gt;
 			&lt;map iso=&quot;D01&quot; to=&quot;1&quot;/&gt;
@@ -1219,7 +1283,7 @@ h2, h3, h4, table {
 			...
 			&lt;map iso=&quot;C09&quot; to=&quot;(&quot;/&gt;
 			&lt;map iso=&quot;C10&quot; to=&quot;)&quot;/&gt;
-		&lt;/keyMap&gt;<br/>
+		&lt;/keyMap&gt;<br />
 		&lt;layer modifier=&quot;sym&quot;&gt;
 			&lt;row keys=&quot;D01-D10&quot;/&gt;
 			&lt;row keys=&quot;C01-C09&quot;/&gt;
@@ -1238,60 +1302,69 @@ h2, h3, h4, table {
 		&lt;/layer&gt;
 	&lt;/keyboard&gt;</pre>
 		<hr>
-		<h3>5.<span class="removed">9</span><span class="changed">17</span>
-			<a name="Element_transforms" href="#Element_transforms">Element:
+		<h3>
+			5.<span class="removed">9</span><span class="changed">17</span> <a
+				name="Element_transforms" href="#Element_transforms">Element:
 				transforms</a>
 		</h3>
 		<p>This element defines a group of one or more transform elements
 			associated with this keyboard layout. This is used to support
 			dead-keys using a straightforward structure that works for all the
 			keyboards tested, and that results in readable source data.</p>
-		<p>There can be multiple &lt;transforms&gt; elements<span class="removed">;
-			at this point the "simple" one is defined.</span></p>
+		<p>
+			There can be multiple &lt;transforms&gt; elements<span
+				class="removed">; at this point the "simple" one is defined.</span>
+		</p>
 		<p>Syntax</p>
 		<p>&lt;transforms type=&quot;...&quot;&gt;</p>
 		<p>{a set of transform elements}</p>
 		<p>&lt;/transforms&gt;</p>
 		<dl>
 			<dt>Attribute: type (required)</dt>
-			<dd class="removed">The value is "simple" for the transforms listed below. People
-			have legitimate needs for more complex transforms, and more
-			sophisticated types of transforms may be added over time. (Doing the
-			more sophisticated transforms would take much more time, since it
-			would require a thorough survey of the major keyboard mechanisms that
-			use them, development of a unified mechanism that handles all the
-			requirements, and coding to ensure sure programmatically mapping
-			those mechanisms into the standard is possible, and so on.)</dd>
+			<dd class="removed">The value is "simple" for the transforms
+				listed below. People have legitimate needs for more complex
+				transforms, and more sophisticated types of transforms may be added
+				over time. (Doing the more sophisticated transforms would take much
+				more time, since it would require a thorough survey of the major
+				keyboard mechanisms that use them, development of a unified
+				mechanism that handles all the requirements, and coding to ensure
+				sure programmatically mapping those mechanisms into the standard is
+				possible, and so on.)</dd>
 			<dd class="changed">Current values: simple, final, backspace.</dd>
 		</dl>
 		<hr class="changed">
-		<h3>5.<span class="removed">10</span><span class="changed">18</span>
-			<a name="Element_transform" href="#Element_transform">Element:
+		<h3>
+			5.<span class="removed">10</span><span class="changed">18</span> <a
+				name="Element_transform" href="#Element_transform">Element:
 				transform</a>
 		</h3>
-		<p>This element must have the transforms element as its parent.
-			This element represents a single transform that may be performed
-			using the keyboard layout. <span class="removed">A transform is simply a combination of key
-			presses that gets transformed into one (or more) final characters
-			</span><span class="changed">A transform is an element that specifies a set
-			of conversions from sequences of code points into one (or more) other
-			code points.</span>.
-			For example, in most French keyboards hitting the "^" dead-key
-			followed by the "e" key produces "ê".</p>
+		<p>
+			This element must have the transforms element as its parent. This
+			element represents a single transform that may be performed using the
+			keyboard layout. <span class="removed">A transform is simply a
+				combination of key presses that gets transformed into one (or more)
+				final characters </span><span class="changed">A transform is an
+				element that specifies a set of conversions from sequences of code
+				points into one (or more) other code points.</span>. For example, in most
+			French keyboards hitting the "^" dead-key followed by the "e" key
+			produces "ê".
+		</p>
 		<p>Syntax</p>
 		<p>&lt;transform from="{combination of characters}"
 			to="{output}"&gt;</p>
 		<dl>
 			<dt>Attribute: from (required)</dt>
-			<dd class="removed">This is the combination of keys that must be pressed in order
-			to activate this transform. Each character in this series of
-			characters must match a character that is located in some chars
-			attribute in the document.</dd>
-			<dd class="changed">The from attribute consists of a sequence of 
-			elements. Each element matches one character and may consist of a 
-			codepoint or a UnicodeSet (both as defined in <a 
-			href="http://www.unicode.org/reports/tr35/#Unicode_Sets">UTS#35 
-			section 5.3.3</a>).</dd>
+			<dd class="removed">This is the combination of keys that must be
+				pressed in order to activate this transform. Each character in this
+				series of characters must match a character that is located in some
+				chars attribute in the document.</dd>
+			<dd class="changed">
+				The from attribute consists of a sequence of elements. Each element
+				matches one character and may consist of a codepoint or a UnicodeSet
+				(both as defined in <a
+					href="http://www.unicode.org/reports/tr35/#Unicode_Sets">UTS#35
+					section 5.3.3</a>).
+			</dd>
 		</dl>
 		<p>For example, suppose there are the following transforms:</p>
 		<blockquote>
@@ -1375,11 +1448,13 @@ h2, h3, h4, table {
 			attribute are escaped using the \u{...} notation.</p>
 		<dl>
 			<dt>Attribute: to (required)</dt>
-			<dd>This attribute represents the characters that are output from
-			the transform. <span class="removed">This may be more than one,</span>
-			<span class="changed">The output can contain more than one character,</span>
-			so you could have
-			&lt;transform from=&quot;´A&quot; to=&quot;Fred&quot;/&gt;</dd>
+			<dd>
+				This attribute represents the characters that are output from the
+				transform. <span class="removed">This may be more than one,</span> <span
+					class="changed">The output can contain more than one
+					character,</span> so you could have &lt;transform from=&quot;´A&quot;
+				to=&quot;Fred&quot;/&gt;
+			</dd>
 		</dl>
 		<p>Control characters, whitespace (other than the regular space
 			character) and combining marks in this attribute are escaped using
@@ -1388,428 +1463,581 @@ h2, h3, h4, table {
 		<pre>&lt;keyboard locale=&quot;fr-CA-t-k0-CSA-osx&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;´e&quot; to=&quot;é&quot; /&gt;<br>		&lt;transform from=&quot;´E&quot; to=&quot;É&quot; /&gt;<br>		&lt;transform from=&quot;´i&quot; to=&quot;í&quot; /&gt;<br>		&lt;transform from=&quot;´I&quot; to=&quot;Í&quot; /&gt;<br>		&lt;transform from=&quot;´o&quot; to=&quot;ó&quot; /&gt;<br>		&lt;transform from=&quot;´O&quot; to=&quot;Ó&quot; /&gt;<br>		&lt;transform from=&quot;´u&quot; to=&quot;ú&quot; /&gt;<br>		&lt;transform from=&quot;´U&quot; to=&quot;Ú&quot; /&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;nl-BE-t-k0-chromeos&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;\u{30c}a&quot; to=&quot;ǎ&quot; /&gt; &lt;!-- ̌a → ǎ --&gt;<br>		&lt;transform from=&quot;\u{30c}A&quot; to=&quot;Ǎ&quot; /&gt; &lt;!-- ̌A → Ǎ --&gt;<br>		&lt;transform from=&quot;\u{30a}a&quot; to=&quot;å&quot; /&gt; &lt;!-- ̊a → å --&gt;<br>		&lt;transform from=&quot;\u{30a}A&quot; to=&quot;Å&quot; /&gt; &lt;!-- ̊A → Å --&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;</pre>
 		<dl class="changed">
 			<dt>Attribute: before (optional)</dt>
-			<dd>This attribute consists of a sequence of elements (codepoint 
-				or UnicodeSet) to match the text up to the current position in
-				the text (this is similar to a regex &quot;look behind&quot; assertion:
-				(?&lt;=a)b matches a &quot;b&quot; that is preceded by an &quot;a&quot;).
-				The attribute must match for the transform to apply. If missing, no before 
-				constraint is applied. The attribute value must not be empty.</dd>
+			<dd>This attribute consists of a sequence of elements (codepoint
+				or UnicodeSet) to match the text up to the current position in the
+				text (this is similar to a regex &quot;look behind&quot; assertion:
+				(?&lt;=a)b matches a &quot;b&quot; that is preceded by an
+				&quot;a&quot;). The attribute must match for the transform to apply.
+				If missing, no before constraint is applied. The attribute value
+				must not be empty.</dd>
 		</dl>
 		<dl class="changed">
 			<dt>Attribute: after (optional)</dt>
-			<dd>This attribute consists of a sequence of elements (codepoint 
-				or UnicodeSet) and matches as a zero-width assertion after the 
-				@from sequence. The attribute must match for the transform to 
-				apply. If missing, no after constraint is applied. The attribute 
-				value must not be empty. When the transform is applied, the 
-				string matched by the @from attribute is replaced by the string 
-				in the @to attribute, with the text matched by the @after 
-				attribute left unchanged. After the change, the current position 
-				is reset to just after the text output from the @to attribute and 
-				just before the text matched by the @after attribute. Warning: 
-				some legacy implementations may not be able to make such an 
-				adjustment and will place the current position after the @after 
-				matched string.</dd>
+			<dd>This attribute consists of a sequence of elements (codepoint
+				or UnicodeSet) and matches as a zero-width assertion after the @from
+				sequence. The attribute must match for the transform to apply. If
+				missing, no after constraint is applied. The attribute value must
+				not be empty. When the transform is applied, the string matched by
+				the @from attribute is replaced by the string in the @to attribute,
+				with the text matched by the @after attribute left unchanged. After
+				the change, the current position is reset to just after the text
+				output from the @to attribute and just before the text matched by
+				the @after attribute. Warning: some legacy implementations may not
+				be able to make such an adjustment and will place the current
+				position after the @after matched string.</dd>
 		</dl>
 		<dl class="changed">
 			<dt>Attribute: error (optional)</dt>
-			<dd>If set this attribute indicates that the keyboarding 
-			application may indicate an error to the user in some way. 
-			Processing may stop and rewind to any state before the key was 
-			pressed. If processing does stop, no further transforms on the 
-			same input are applied. The @error attribute takes the value 
-			"fail", or must be absent. If processing continues, the @to is 
-			used for output as normal. It thus should contain a reasonable 
-			value.</dd>
+			<dd>If set this attribute indicates that the keyboarding
+				application may indicate an error to the user in some way.
+				Processing may stop and rewind to any state before the key was
+				pressed. If processing does stop, no further transforms on the same
+				input are applied. The @error attribute takes the value "fail", or
+				must be absent. If processing continues, the @to is used for output
+				as normal. It thus should contain a reasonable value.</dd>
 		</dl>
 		<p class="changed">For example:</p>
-			<blockquote class="changed">
-				&lt;transform from=&quot;\u037A\u037A&quot; error=&quot;fail&quot; to=&quot;\u037A&quot;/&gt;
-			</blockquote>
-		<p class="changed">This indicates that it is an error to type two 
+		<blockquote class="changed">&lt;transform
+			from=&quot;\u037A\u037A&quot; 
+			to=&quot;\u037A&quot;
+			error=&quot;fail&quot;
+			/&gt;</blockquote>
+		<p class="changed">This indicates that it is an error to type two
 			iota subscripts immediately after each other.</p>
-		<p class="changed">In terms of how these different attributes work in 
-			processing a sequences of transforms, consider the transform:</p>
-		<blockquote class="changed">
-			&lt;transform before=&quot;X&quot; from=&quot;Y&quot;
-			after=&quot;Y&quot; to=&quot;B&quot;/&gt;
-		</blockquote>
+		<p class="changed">In terms of how these different attributes work
+			in processing a sequences of transforms, consider the transform:</p>
+		<blockquote class="changed">&lt;transform
+			before=&quot;X&quot; from=&quot;Y&quot; after=&quot;Y&quot;
+			to=&quot;B&quot;/&gt;</blockquote>
 		<p class="changed">This would transform the string:</p>
-		<blockquote class="changed">
-			XYZ → XBZ
-		</blockquote>
-		<p class="changed">If we mark where the current match position is 
+		<blockquote class="changed">XYZ → XBZ</blockquote>
+		<p class="changed">If we mark where the current match position is
 			before and after the transform we see:</p>
-		<blockquote class="changed">
-			X | Y Z → X B | Z
-		</blockquote>
-		<p class="changed">And a subsequent transform could transform the Z 
-			string, looking back (using @before) to match the B.</p>
-		<p class="changed">There are other keying behaviors that are needed 
-			particularly in handling languages and scripts from various parts of 
-			the world. The behaviors intended to be covered by the transforms are:</p>
+		<blockquote class="changed">X | Y Z → X B | Z</blockquote>
+		<p class="changed">And a subsequent transform could transform the
+			Z string, looking back (using @before) to match the B.</p>
+		<p class="changed">There are other keying behaviors that are
+			needed particularly in handling languages and scripts from various
+			parts of the world. The behaviors intended to be covered by the
+			transforms are:</p>
 		<ul class="changed">
-			<li>Reordering combining marks. The order required for underlying 
-				storage may differ considerably from the desired typing order. In 
-				addition, a keyboard may want to allow for different typing 
-				orders.</li>
-			<li>Error indication. Sometimes a keyboard layout will want to 
-				specify to the application that a particular keying sequence in a 
-				context is in error and that the application should indicate that 
+			<li>Reordering combining marks. The order required for
+				underlying storage may differ considerably from the desired typing
+				order. In addition, a keyboard may want to allow for different
+				typing orders.</li>
+			<li>Error indication. Sometimes a keyboard layout will want to
+				specify to the application that a particular keying sequence in a
+				context is in error and that the application should indicate that
 				that particular keypress is erroneous.</li>
-			<li>Backspace handling. There are various approaches to handling 
-				the backspace key. An application may treat it as an undo of the 
-				last key input, or it may simply delete the last character in the 
-				currently output text, or it may use transform rules to tell it 
-				how much to delete.</li>
+			<li>Backspace handling. There are various approaches to handling
+				the backspace key. An application may treat it as an undo of the
+				last key input, or it may simply delete the last character in the
+				currently output text, or it may use transform rules to tell it how
+				much to delete.</li>
 		</ul>
-		<p class="changed">We consider each transform type in turn and 
-			consider attributes to the &lt;transforms&gt; element pertinent to 
+		<p class="changed">We consider each transform type in turn and
+			consider attributes to the &lt;transforms&gt; element pertinent to
 			that type.</p>
 		<hr>
 		<h3 class="changed">
 			5.19 <a name="Element_reorder" href="#Element_reorder">Element:
 				reorder</a>
 		</h3>
-		<p class="changed">The reorder transform is applied after all 
+		<p class="changed">The reorder transform is applied after all
 			transform except for those with type=“final”.</p>
-		<p class="changed">This transform has the job of reordering sequences 
-			of characters that have been typed, from their typed order to the 
-			desired output order. The primary concern in this transform is to 
-			sort combining marks into their correct relative order after a base, 
-			as described in this section. The reorder transforms can be quite
-			complex, keyboard layouts will almost always import them.</p>
-		<p class="changed">The reordering algorithm consists of four parts:</p>
+		<p class="changed">This transform has the job of reordering
+			sequences of characters that have been typed, from their typed order
+			to the desired output order. The primary concern in this transform is
+			to sort combining marks into their correct relative order after a
+			base, as described in this section. The reorder transforms can be
+			quite complex, keyboard layouts will almost always import them.</p>
+		<p class="changed">The reordering algorithm consists of four
+			parts:</p>
 		<ol class="changed">
-			<li>Create a sort key for each character in the input string. A 
+			<li>Create a sort key for each character in the input string. A
 				sort key has 4 parts: (primary, index, tertiary).
 				<ul>
-					<li>The <b>primary weight</b> is the primary order value.</li>
-					<li>The <b>secondary weight</b> is the index, a position 
-						in the input string, usually of the character itself, but 
-						it may be of a character earlier in the string.</li>
-					<li>The <b>tertiary weight</b> is a tertiary order value (defaulting to 0).</li>
-					<li>The <b>quaternary weight</b> is the index of the 
-						character in the string. This ensures a stable sort for 
-						sequences of characters with the same tertiary weight.</li>
+					<li>The <b>primary weight</b> is the primary order value.
+					</li>
+					<li>The <b>secondary weight</b> is the index, a position in
+						the input string, usually of the character itself, but it may be
+						of a character earlier in the string.
+					</li>
+					<li>The <b>tertiary weight</b> is a tertiary order value
+						(defaulting to 0).
+					</li>
+					<li>The <b>quaternary weight</b> is the index of the character
+						in the string. This ensures a stable sort for sequences of
+						characters with the same tertiary weight.
+					</li>
 				</ul>
 			</li>
-			<li>Mark each character as to whether it is a prebase character, 
-				one that is typed before the base and logically stored after. 
-				Thus it will have a primary order > 0.</li>
-			<li>Use the sort key and the prebase mark to identify runs. A run 
-				starts with a prefix that contains any prebase characters and a 
-				single base character whose primary and tertiary key is 0. The 
-				run extends until, but not including, the start of the prefix of 
-				the next run or end of the string.
+			<li>Mark each character as to whether it is a prebase character,
+				one that is typed before the base and logically stored after. Thus
+				it will have a primary order > 0.</li>
+			<li>Use the sort key and the prebase mark to identify runs. A
+				run starts with a prefix that contains any prebase characters and a
+				single base character whose primary and tertiary key is 0. The run
+				extends until, but not including, the start of the prefix of the
+				next run or end of the string.
 				<ul>
-					<li>run := prebase* (primary=0 && tertiary=0) ((primary≠0 || tertiary≠0) && !prebase)*</li>
+					<li>run := prebase* (primary=0 && tertiary=0) ((primary≠0 ||
+						tertiary≠0) && !prebase)*</li>
 				</ul>
 			</li>
-			<li>Sort the character order of each character in the run based 
+			<li>Sort the character order of each character in the run based
 				on its sort key.</li>
 		</ol>
-		<p class="changed">The primary order of a character with the Unicode
-			property Combining_Character_Class (ccc) of 0 may well not be 0.
-			In addition, a character may receive a different 
-			primary order dependent on context. For example, in the Devanagari 
-			sequence ka halant ka, the first ka would have a primary order 0 
-			while the halant ka sequence would give both halant and the second ka 
-			a primary order &gt; 0, for example 2. Note that “base” character in 
-			this discussion is not a Unicode base character. It is instead a 
-			character with primary=0.</p>
-		<p class="changed">In order to get the characters into the correct 
-			relative order, it is necessary not only to order combining marks 
-			relative to the base character, but also to order some combining 
-			marks in a subsequence following another combining mark. For example 
-			in Devanagari, a nukta may follow consonant character, but it may 
-			also follow a conjunct consisting of a consonant, halant, consonant. 
-			Notice that the second consonant is not, in this model, the start of 
-			a new run because some characters may need to be reordered to before 
-			the first base, for example repha. The repha would get primary &lt; 
-			0, and be sorted before the character with order = 0, which is, in 
-			the case of Devanagari, the initial consonant of the orthographic 
+		<p class="changed">The primary order of a character with the
+			Unicode property Combining_Character_Class (ccc) of 0 may well not be
+			0. In addition, a character may receive a different primary order
+			dependent on context. For example, in the Devanagari sequence ka
+			halant ka, the first ka would have a primary order 0 while the halant
+			ka sequence would give both halant and the second ka a primary order
+			&gt; 0, for example 2. Note that “base” character in this discussion
+			is not a Unicode base character. It is instead a character with
+			primary=0.</p>
+		<p class="changed">In order to get the characters into the correct
+			relative order, it is necessary not only to order combining marks
+			relative to the base character, but also to order some combining
+			marks in a subsequence following another combining mark. For example
+			in Devanagari, a nukta may follow consonant character, but it may
+			also follow a conjunct consisting of a consonant, halant, consonant.
+			Notice that the second consonant is not, in this model, the start of
+			a new run because some characters may need to be reordered to before
+			the first base, for example repha. The repha would get primary &lt;
+			0, and be sorted before the character with order = 0, which is, in
+			the case of Devanagari, the initial consonant of the orthographic
 			syllable.</p>
-		<p class="changed">The reorder transform consists of a single element 
-			type: &lt;reorder&gt; encapsulated in a &lt;reorders&gt; element. 
-			Each is a rule that matches against a string of characters with the 
-			action of setting the various ordering attributes (primary, tertiary, 
-			tertiary_base, prebase) for the matched characters in the string.</p>
+		<p class="changed">The reorder transform consists of a single
+			element type: &lt;reorder&gt; encapsulated in a &lt;reorders&gt;
+			element. Each is a rule that matches against a string of characters
+			with the action of setting the various ordering attributes (primary,
+			tertiary, tertiary_base, prebase) for the matched characters in the
+			string.</p>
 		<blockquote>
-		<p class="changed"><strong>from</strong> This attribute follows the transform/@from attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS#35 section 5.3.3). This attribute is required.</p>
-		<p class="changed"><strong>before</strong> This attribute follows the transform/@before attribute and contains the element string that must match the string immediately preceding the start of the string that the @from matches.</p>
-		<p class="changed"><strong>after</strong> This attribute follows the transform/@after attribute and contains the element string that must match the string immediately following the end of the string that the @from matches.</p>
-		<p class="changed"><strong>order</strong> This attribute gives the primary order for the elements in the matched string in the @from attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.</p>
-		<ul>
-		  <li class="changed">If the value is 0 and its tertiary value is 0, then the character is the base of a new run.
-	      </li>
-		  <li class="changed">If the value is 0 and its tertiary value is non-zero, then it is a normal character in a run, with ordering semantics as described in the @tertiary attribute.
-	      </li>
-		  <li class="changed">If the value is negative, then the character is a primary character and will reorder to be before the base of the run.
-	      </li>
-		  <li class="changed">If the value is positive, then the character is a primary character and is sorted based on the order value as the primary key following a previous base character.
-	      </li>
-	  </ul>
-		<p class="changed">A character with a zero tertiary value is a primary character and receives a sort key consisting of:</p>
-		<ul>
-		  <li class="changed">Primary weight is the order value
-	      </li>
-		  <li class="changed">Secondary weight is the index of the character. This may be any value (character index, codepoint index) such that its value is greater than the character before it and less than the character after it.
-	      </li>
-		  <li class="changed">Tertiary weight is 0.
-	      </li>
-		  <li class="changed">Quaternary weight is the same as the secondary weight.
-	      </li>
-	  </ul>
-		<p class="changed"><strong>tertiary</strong> This attribute gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.</p>
-		<ul>
-		  <li class="changed">If the value is 0 then the character is considered to have a primary order as specified in its order value and is a primary character.
-	      </li>
-		  <li class="changed">If the value is non zero, then the order value must be zero otherwise it is an error. The character is considered as a tertiary character for the purposes of ordering.
-	      </li>
-	  </ul>
-		<p class="changed">A tertiary character receives its primary order and index from a previous character, which it is intended to sort closely after. The sort key for a tertiary character consists of:</p>
-		<ul>
-		  <li class="changed">Primary weight is the primary weight of the primary character
-	      </li>
-		  <li class="changed">Secondary weight is the index of the primary character, not the tertiary character
-	      </li>
-		  <li class="changed">Tertiary weight is the tertiary value for the character.
-	      </li>
-		  <li class="changed">Quaternary weight is the index of the tertiary character.
-	      </li>
-	  </ul>
-		<p class="changed"><strong>tertiary_base</strong> This attribute is a space separated list of &quot;true&quot; or &quot;false&quot; values corresponding to each character matched. It is illegal for a tertiary character to have a true tertiary_base value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true tertiary_base attribute is used. Primary characters with an @order value of 0 automatically are treated as having tertiary_base true regardless of what is specified for them.</p>
-		<p class="changed"><strong>prebase</strong> This attribute gives the prebase attribute for each character matched. The value may be &quot;true&quot; or &quot;false&quot; or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.</p>
-		<p class="changed">If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus @primary may not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of &quot;false&quot; indicates that the character is not a prebase.</p>
+			<p class="changed">
+				<strong>from</strong> This attribute follows the transform/@from
+				attribute and contains a string of elements. Each element matches
+				one character and may consist of a codepoint or a UnicodeSet (both
+				as defined in UTS#35 section 5.3.3). This attribute is required.
+			</p>
+			<p class="changed">
+				<strong>before</strong> This attribute follows the transform/@before
+				attribute and contains the element string that must match the string
+				immediately preceding the start of the string that the @from
+				matches.
+			</p>
+			<p class="changed">
+				<strong>after</strong> This attribute follows the transform/@after
+				attribute and contains the element string that must match the string
+				immediately following the end of the string that the @from matches.
+			</p>
+			<p class="changed">
+				<strong>order</strong> This attribute gives the primary order for
+				the elements in the matched string in the @from attribute. The value
+				is a simple integer between -128 and +127 inclusive, or a space
+				separated list of such integers. For a single integer, it is applied
+				to all the elements in the matched string. Details of such list type
+				attributes are given after all the attributes are described. If
+				missing, the order value of all the matched characters is 0. We
+				consider the order value for a matched character in the string.
+			</p>
+			<ul>
+				<li class="changed">If the value is 0 and its tertiary value is
+					0, then the character is the base of a new run.</li>
+				<li class="changed">If the value is 0 and its tertiary value is
+					non-zero, then it is a normal character in a run, with ordering
+					semantics as described in the @tertiary attribute.</li>
+				<li class="changed">If the value is negative, then the
+					character is a primary character and will reorder to be before the
+					base of the run.</li>
+				<li class="changed">If the value is positive, then the
+					character is a primary character and is sorted based on the order
+					value as the primary key following a previous base character.</li>
+			</ul>
+			<p class="changed">A character with a zero tertiary value is a
+				primary character and receives a sort key consisting of:</p>
+			<ul>
+				<li class="changed">Primary weight is the order value</li>
+				<li class="changed">Secondary weight is the index of the
+					character. This may be any value (character index, codepoint index)
+					such that its value is greater than the character before it and
+					less than the character after it.</li>
+				<li class="changed">Tertiary weight is 0.</li>
+				<li class="changed">Quaternary weight is the same as the
+					secondary weight.</li>
+			</ul>
+			<p class="changed">
+				<strong>tertiary</strong> This attribute gives the tertiary order
+				value to the characters matched. The value is a simple integer
+				between -128 and +127 inclusive, or a space separated list of such
+				integers. If missing, the value for all the characters matched is 0.
+				We consider the tertiary value for a matched character in the
+				string.
+			</p>
+			<ul>
+				<li class="changed">If the value is 0 then the character is
+					considered to have a primary order as specified in its order value
+					and is a primary character.</li>
+				<li class="changed">If the value is non zero, then the order
+					value must be zero otherwise it is an error. The character is
+					considered as a tertiary character for the purposes of ordering.</li>
+			</ul>
+			<p class="changed">A tertiary character receives its primary
+				order and index from a previous character, which it is intended to
+				sort closely after. The sort key for a tertiary character consists
+				of:</p>
+			<ul>
+				<li class="changed">Primary weight is the primary weight of the
+					primary character</li>
+				<li class="changed">Secondary weight is the index of the
+					primary character, not the tertiary character</li>
+				<li class="changed">Tertiary weight is the tertiary value for
+					the character.</li>
+				<li class="changed">Quaternary weight is the index of the
+					tertiary character.</li>
+			</ul>
+			<p class="changed">
+				<strong>tertiary_base</strong> This attribute is a space separated
+				list of &quot;true&quot; or &quot;false&quot; values corresponding
+				to each character matched. It is illegal for a tertiary character to
+				have a true tertiary_base value. For a primary character it marks
+				that this character may have tertiary characters moved after it.
+				When calculating the secondary weight for a tertiary character, the
+				most recently encountered primary character with a true
+				tertiary_base attribute is used. Primary characters with an @order
+				value of 0 automatically are treated as having tertiary_base true
+				regardless of what is specified for them.
+			</p>
+			<p class="changed">
+				<strong>prebase</strong> This attribute gives the prebase attribute
+				for each character matched. The value may be &quot;true&quot; or
+				&quot;false&quot; or a space separated list of such values. If
+				missing the value for all the characters matched is false. It is
+				illegal for a tertiary character to have a true prebase value.
+			</p>
+			<p class="changed">If a primary character has a true prebase
+				value then the character is marked as being typed before the base
+				character of a run, even though it is intended to be stored after
+				it. The primary order gives the intended position in the order after
+				the base character, that the prebase character will end up. Thus
+				@primary may not be 0. These characters are part of the run prefix.
+				If such characters are typed then, in order to give the run a base
+				character after which characters can be sorted, an appropriate base
+				character, such as a dotted circle, is inserted into the output run,
+				until a real base character has been typed. A value of
+				&quot;false&quot; indicates that the character is not a prebase.</p>
 		</blockquote>
-	  <p class="changed">There is no @error attribute.</p>
-		<p class="changed">For @from attributes with a match string length greater than 1, the sort key information (@order, @tertiary, @tertiary_base, @prebase) may consist of a space separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the @from attribute:</p>
+		<p class="changed">There is no @error attribute.</p>
+		<p class="changed">For @from attributes with a match string length
+			greater than 1, the sort key information (@order, @tertiary,
+			@tertiary_base, @prebase) may consist of a space separated list of
+			values, one for each element matched. The last value is repeated to
+			fill out any missing values. Such a list may not contain more values
+			than there are elements in the @from attribute:</p>
 		<pre class="changed">  if len(@from) &lt; len(@list) then error<br />  else 
     while len(@from) &gt; len(@list)<br />      append lastitem(@list) to @list<br />    endwhile
   endif</pre>
-		<p class="changed"><span class="reviewnote">[Review Note: Martin, I had to do a fair amount of cleanup on the following. Please review.]</span></p>
-		<p class="changed">For example, consider the word Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:</p>
+		<p class="changed">
+			<span class="reviewnote">[Review Note: Martin, I had to do a
+				fair amount of cleanup on the following. Please review.]</span>
+		</p>
+		<p class="changed">For example, consider the word Northern Thai
+			(nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the
+			following:</p>
 		<table class='simple'>
-		  <tr class='changed'>
-			  <th>name</th>
-		    <td><em>ka</em></td>
-		    <td><em>asat</em></td>
-		    <td><em>wa</em></td>
-		    <td><em>o</em><em></em></td>
-		    <td><em>t2</em></td>
-	      </tr>
-	      		  <tr class='changed'>
-			  <th>code</th>
-		    <td>1A21</td>
-		    <td>1A60</td>
-		    <td>1A45</td>
-		    <td>1A6B<em></em></td>
-		    <td>1A76</td>
-	      </tr>
-   		  <tr class='changed'>
-			  <th>ccc</th>
-		    <td>0</td>
-		    <td>9</td>
-		    <td>0</td>
-		    <td>0<em></em></td>
-		    <td>230</td>
-	      </tr>
+			<tr class='changed'>
+				<th>name</th>
+				<td><em>ka</em></td>
+				<td><em>asat</em></td>
+				<td><em>wa</em></td>
+				<td><em>o</em><em></em></td>
+				<td><em>t2</em></td>
+			</tr>
+			<tr class='changed'>
+				<th>code</th>
+				<td>1A21</td>
+				<td>1A60</td>
+				<td>1A45</td>
+				<td>1A6B<em></em></td>
+				<td>1A76</td>
+			</tr>
+			<tr class='changed'>
+				<th>ccc</th>
+				<td>0</td>
+				<td>9</td>
+				<td>0</td>
+				<td>0<em></em></td>
+				<td>230</td>
+			</tr>
 
-	  </table>
-		<p class="changed">The sequence (a) is already in NFC format. The   Combining_Character_Class values for these are:</p>
-		<p class="changed">Some users may type the upper component of the vowel first, and the tone before or after the lower component. Thus someone might type it as:</p>
+		</table>
+		<p class="changed">(That sequence is already in NFC format.)</p>
+		<p class="changed">Some users may type the upper component of the
+			vowel first, and the tone before or after the lower component. Thus
+			someone might type it as:</p>
 		<table class='simple'>
-		  <tr class='changed'>
-		    <th>name</th>
-		    <td><em>ka</em></td>
-		    <td><em>o</em><em></em></td>
-		    <td><em>t2</em></td>
-		    <td><em>asat</em></td>
-		    <td><em>wa</em></td>
-	      </tr>
-		  <tr class='changed'>
-		    <th>code</th>
-		    <td>1A21</td>
-		    <td>1A6B<em></em></td>
-		    <td>1A76</td>
-		    <td>1A60</td>
-		    <td>1A45</td>
-	      </tr>
-		  <tr class='changed'>
-		    <th>ccc</th>
-		    <td>0</td>
-		    <td>0<em></em></td>
-		    <td>230</td>
-		    <td>9</td>
-		    <td>0</td>
-	      </tr>
-	  </table>
-		<p class="changed">The Unicode NFC format of that typed value reorders to: </p>
+			<tr class='changed'>
+				<th>name</th>
+				<td><em>ka</em></td>
+				<td><em>o</em><em></em></td>
+				<td><em>t2</em></td>
+				<td><em>asat</em></td>
+				<td><em>wa</em></td>
+			</tr>
+			<tr class='changed'>
+				<th>code</th>
+				<td>1A21</td>
+				<td>1A6B<em></em></td>
+				<td>1A76</td>
+				<td>1A60</td>
+				<td>1A45</td>
+			</tr>
+			<tr class='changed'>
+				<th>ccc</th>
+				<td>0</td>
+				<td>0<em></em></td>
+				<td>230</td>
+				<td>9</td>
+				<td>0</td>
+			</tr>
+		</table>
+		<p class="changed">The Unicode NFC format of that typed value
+			reorders to:</p>
 		<table class='simple'>
-		  <tr class='changed'>
-		    <th>name</th>
-		    <td><em>ka</em></td>
-		    <td><em>o</em><em></em></td>
-		    <td><em>asat</em></td>
-		    <td><em>t2</em></td>
-		    <td><em>wa</em></td>
-	      </tr>
-		  <tr class='changed'>
-		    <th>code</th>
-		    <td>1A21</td>
-		    <td>1A6B<em></em></td>
-		    <td>1A60</td>
-		    <td>1A76</td>
-		    <td>1A45</td>
-	      </tr>
-		  <tr class='changed'>
-		    <th>ccc</th>
-		    <td>0</td>
-		    <td>0<em></em></td>
-		    <td>9</td>
-		    <td>230</td>
-		    <td>0</td>
-	      </tr>
-	  </table>
-		<p class="changed">Finally, the user might also type in the sequence with the tone <em>after</em> the lower component. </p>
-		<blockquote class="changed">d) U+1A21 U+1A6B U+1A60 U+1A45 U+1A76</blockquote>
+			<tr class='changed'>
+				<th>name</th>
+				<td><em>ka</em></td>
+				<td><em>o</em><em></em></td>
+				<td><em>asat</em></td>
+				<td><em>t2</em></td>
+				<td><em>wa</em></td>
+			</tr>
+			<tr class='changed'>
+				<th>code</th>
+				<td>1A21</td>
+				<td>1A6B<em></em></td>
+				<td>1A60</td>
+				<td>1A76</td>
+				<td>1A45</td>
+			</tr>
+			<tr class='changed'>
+				<th>ccc</th>
+				<td>0</td>
+				<td>0<em></em></td>
+				<td>9</td>
+				<td>230</td>
+				<td>0</td>
+			</tr>
+		</table>
+		<p class="changed">
+			Finally, the user might also type in the sequence with the tone <em>after</em>
+			the lower component.
+		</p>
 		<table class='simple'>
-		  <tr class='changed'>
-		    <th>name</th>
-		    <td><em>ka</em></td>
-		    <td><em>o</em><em></em></td>
-		    <td><em>asat</em></td>
-		    <td><em>wa</em></td>
-		    <td><em>t2</em></td>
-	      </tr>
-		  <tr class='changed'>
-		    <th>code</th>
-		    <td>1A21</td>
-		    <td>1A6B<em></em></td>
-		    <td>1A60</td>
-		    <td>1A45</td>
-		    <td>1A76</td>
-	      </tr>
-		  <tr class='changed'>
-		    <th>ccc</th>
-		    <td>0</td>
-		    <td>0<em></em></td>
-		    <td>9</td>
-		    <td>0</td>
-		    <td>230</td>
-	      </tr>
-	  </table>
-		<p class="changed">We want all of these  sequences to end up ordered as the first. To do this, we use the following rules:</p>
+			<tr class='changed'>
+				<th>name</th>
+				<td><em>ka</em></td>
+				<td><em>o</em><em></em></td>
+				<td><em>asat</em></td>
+				<td><em>wa</em></td>
+				<td><em>t2</em></td>
+			</tr>
+			<tr class='changed'>
+				<th>code</th>
+				<td>1A21</td>
+				<td>1A6B<em></em></td>
+				<td>1A60</td>
+				<td>1A45</td>
+				<td>1A76</td>
+			</tr>
+			<tr class='changed'>
+				<th>ccc</th>
+				<td>0</td>
+				<td>0<em></em></td>
+				<td>9</td>
+				<td>0</td>
+				<td>230</td>
+			</tr>
+		</table>
+		<p class="changed">(That sequence is already in NFC format.)</p>
+		<p class="changed">We want all of these sequences to end up
+			ordered as the first. To do this, we use the following rules:</p>
 		<pre class="changed">  &lt;reorder from=&quot;\u1A60&quot; order=&quot;127&quot;/&gt; &nbsp;	&lt;!-- max possible order --&gt;
   &lt;reorder from=&quot;\u1A6B&quot; order=&quot;42&quot;/&gt;
   &lt;reorder from=&quot;[\u1A75-\u1A7C]&quot; order=&quot;55&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B&quot; from=&quot;\u1A60\u1A45&quot; order=&quot;10&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B[\u1A75-\u1A7C]&quot; from=&quot;\u1A60\u1A45&quot; order=&quot;10&quot;/&gt;<br />  &lt;reorder before=&quot;\u1A6B&quot; from=&quot;\u1A60[\u1A75-\u1A7C]\u1A45&quot; order=&quot;10 55 10&quot;/&gt;</pre>
-		<p class="changed">The first reorder is the default ordering for the asat which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the asat and wa characters a primary order that places them before the <em>o</em>. Notice particularly the final reorder rule where the asat+wa is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalised text.</p>
-		<p class="changed">&lt;reorder&gt; elements are priority ordered based first on the length of string their @from attribute matches and then the sum of the lengths of the strings their @before and @after attributes match.</p>
-		<p class="changed">If a layout has two &lt;transforms&gt; elements of type reorder, e.g. from importing one and specifying the second, then &lt;transform&gt; elements are merged. The @from string in a &lt;reorder&gt; element describes a set of strings that it matches. This also holds for the @before and @after attributes. The intersection of two &lt;reorder&gt; elements consists of the intersections of their @from, @before and @after string sets. It is illegal for the intersection between any two &lt;reorder&gt; elements in the same &lt;transforms&gt; element to be non empty, although implementors are encouraged to have pity on layout authors when reporting such errors, since they can be hard to track down.</p>
-		<p class="changed">If two &lt;reorder&gt; elements in two different &lt;transforms&gt; elements have a non empty intersection, then they are split and merged. They are split such that where there were two &lt;reorder&gt; elements, there are, in effect (but not actuality), three elements consisting of:</p>
+		<p class="changed">
+			The first reorder is the default ordering for the <i>asat</i> which allows
+			for it to be placed anywhere in a sequence, but moves any
+			non-consonants that may immediately follow it, back before it in the
+			sequence. The next two rules give the orders for the top vowel
+			component and tone marks respectively. The next three rules give the
+			<i>asat</i> and <i>wa</i> characters a primary order that places them before the <em>o</em>.
+			Notice particularly the final reorder rule where the <i>asat</i>+<i>wa</i> is split
+			by the tone mark. This rule is necessary in case someone types into
+			the middle of previously normalized text.
+		</p>
+		<p class="changed">&lt;reorder&gt; elements are priority ordered
+			based first on the length of string their @from attribute matches and
+			then the sum of the lengths of the strings their @before and @after
+			attributes match.</p>
+		<p class="changed">If a layout has two &lt;transforms&gt; elements
+			of type reorder, e.g. from importing one and specifying the second,
+			then &lt;transform&gt; elements are merged. The @from string in a
+			&lt;reorder&gt; element describes a set of strings that it matches.
+			This also holds for the @before and @after attributes. The
+			intersection of two &lt;reorder&gt; elements consists of the
+			intersections of their @from, @before and @after string sets. It is
+			illegal for the intersection between any two &lt;reorder&gt; elements
+			in the same &lt;transforms&gt; element to be non empty, although
+			implementors are encouraged to have pity on layout authors when
+			reporting such errors, since they can be hard to track down.</p>
+		<p class="changed">If two &lt;reorder&gt; elements in two
+			different &lt;transforms&gt; elements have a non empty intersection,
+			then they are split and merged. They are split such that where there
+			were two &lt;reorder&gt; elements, there are, in effect (but not
+			actuality), three elements consisting of:</p>
 		<ul>
-		  <li class="changed">@from, @before, @after that match the intersection of the two rules. The other attributes are merged, as described below.
-	      </li>
-		  <li class="changed">@from, @before, @after that match the set of strings in the first rule not in the intersection with the other attributes from the first rule.
-	      </li>
-		  <li class="changed">@from, @before, @after that match the set of strings in the second rule not in the intersection, with the other attributes from the second rule.
-	      </li>
-	  </ul>
-		<p class="changed">When merging the other attributes, the second rule is taken to have priority (occurring later in the layout description file). Where the second rule does not define the value for a character but the first does, it is taken from the first rule, otherwise it is taken from the second rule.</p>
-		<p class="changed">Notice that it is possible for two rules to match the same string, but for them not to merge because the distribution of the string across @before, @from, and @after is different. For example:</p>
+			<li class="changed">@from, @before, @after that match the
+				intersection of the two rules. The other attributes are merged, as
+				described below.</li>
+			<li class="changed">@from, @before, @after that match the set of
+				strings in the first rule not in the intersection with the other
+				attributes from the first rule.</li>
+			<li class="changed">@from, @before, @after that match the set of
+				strings in the second rule not in the intersection, with the other
+				attributes from the second rule.</li>
+		</ul>
+		<p class="changed">When merging the other attributes, the second
+			rule is taken to have priority (occurring later in the layout
+			description file). Where the second rule does not define the value
+			for a character but the first does, it is taken from the first rule,
+			otherwise it is taken from the second rule.</p>
+		<p class="changed">Notice that it is possible for two rules to
+			match the same string, but for them not to merge because the
+			distribution of the string across @before, @from, and @after is
+			different. For example:</p>
 		<pre class="changed"> &lt;reorder before=&quot;ab&quot; from=&quot;cd&quot; after=&quot;e&quot;/&gt;</pre>
 		<p class="changed">would not merge with:</p>
 		<pre class="changed"> &lt;reorder before=&quot;a&quot; from=&quot;bcd&quot; after=&quot;e&quot;/&gt;</pre>
-		<p class="changed">When two &lt;transforms&gt; elements merge the resulting reorder elements are sorted into priority order for matching.</p>
-		<p class="changed">Consider this fragment from a shared reordering for the Myanmar script:</p>
+		<p class="changed">When two &lt;reorders&gt; elements merge as the result of an import, the
+			resulting reorder elements are sorted into priority order for
+			matching.</p>
+		<p class="changed">Consider this fragment from a shared reordering
+			for the Myanmar script:</p>
 		<pre class="changed">  &lt;reorder from=&quot;\u103C&quot; order=&quot;20&quot;/&gt;
-  &lt;reorder from=&quot;[\u103D\u1082]&quot; order=&quot;25&quot;/&gt;<br />  &lt;reorder from=&quot;[\u103E\u1082]\u103A&quot; order=&quot;27&quot;/&gt; &nbsp;	&lt;!-- Mon asat --&gt;<br />  &lt;reorder from=&quot;[\u103E\u1060]&quot; order=&quot;27&quot;/&gt;<br />  &lt;reorder from=&quot;[\u1031\u1084]&quot; order=&quot;30&quot;/&gt;<br />  &lt;reorder from=&quot;[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]&quot; order=&quot;35&quot;/&gt;</pre>
-		<p class="changed">A particular Myanmar keyboard layout  can have this transforms element:</p>
+  &lt;reorder from=&quot;[\u103D\u1082]&quot; order=&quot;25&quot;/&gt;<br />  &lt;reorder from=&quot;[\u103E\u1082]\u103A&quot; order=&quot;27&quot;/&gt; &nbsp;	&lt;!-- Mon <i>asat</i> --&gt;<br />  &lt;reorder from=&quot;[\u103E\u1060]&quot; order=&quot;27&quot;/&gt;<br />  &lt;reorder from=&quot;[\u1031\u1084]&quot; order=&quot;30&quot;/&gt;<br />  &lt;reorder from=&quot;[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]&quot; order=&quot;35&quot;/&gt;</pre>
+		<p class="changed">A particular Myanmar keyboard layout can have
+			this transforms element:</p>
 		<pre class="changed">&lt;reorders type=&quot;reorder&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;reorder from=&quot;\u1004\u103A\u1039&quot; order=&quot;-1&quot;/&gt;
   &nbsp;&lt;reorder from=&quot;\u1031&quot; prebase=&quot;1&quot;/&gt;
   &nbsp;&lt;reorder from=&quot;\u103C&quot; prebase=&quot;1&quot;/&gt;<br>&lt;/reorders&gt;</pre>
-		<p class="changed">The effect of this that the character \u1031 will be identified as a prebase and will have an order of 30. Likewise a \u103C will be identified as a prebase and will have an order of 20. Notice that a U+1084 will not be identified as a prebase (even if it should be!). The kinzi is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.		</p>
-		<p class="reviewnote"><span class="reviewnote">[Review Note: Martin, this  bit was particularly troublesome.</span></p>
-		<p class="reviewnote">Added &quot;<span class="changed">from a shared reordering for the Myanmar</span>&quot; since I otherwise couldn't understand. Also added &quot;<span class="changed">in other keyboards or even</span>&quot;</p>
-		<p class="reviewnote"><span class="">What's a kinzi? (not defined)</span></p>
-		<p class="reviewnote">Way easier to understand if the codes are also given names. And it is clear which code has which name.</p>
-		<p class="reviewnote"><span class="reviewnote">]</span></p>
+		<p class="changed">The effect of this that the character \u1031
+			will be identified as a prebase and will have an order of 30.
+			Likewise a \u103C will be identified as a prebase and will have an
+			order of 20. Notice that a U+1084 will not be identified as a prebase
+			(even if it should be!). The kinzi is described in the layout since
+			it moves something across a run boundary. By separating such
+			movements (prebase or moving to in front of a base) from the shared
+			ordering rules, the shared ordering rules become a self-contained
+			combining order description that can be used in other keyboards or
+			even in other contexts than keyboarding.</p>
+		<p class="reviewnote">
+			<span class="reviewnote">[Review Note: Martin, this bit was
+				particularly troublesome.</span>
+		</p>
+		<p class="reviewnote">
+			Added &quot;<span class="changed">from a shared reordering for
+				the Myanmar</span>&quot; since I otherwise couldn't understand. Also added
+			&quot;<span class="changed">in other keyboards or even</span>&quot;
+		</p>
+		<p class="reviewnote">
+			<span class="">What's a kinzi? (not defined)</span>
+		</p>
+		<p class="reviewnote">Way easier to understand if the codes are
+			also given names. And it is clear which code has which name.</p>
+		<p class="reviewnote">
+			<span class="reviewnote">]</span>
+		</p>
 		<hr>
 		<h3 class="changed">
-			5.20 <a name="Element_final" href="#Element_final">Element:
-				final</a>
+			5.20 <a name="Element_final" href="#Element_final">Element: final</a>
 		</h3>
-		<p class="changed">The final transform is applied after the reorder 
-			transform. It executes in a similar way to the simple transform with 
-			the settings ignored, as if there were no settings in the <settings> 
-			element.</p>
-		<p class="changed">This is an example from Khmer where split vowels 
-			are combined after reordering.</p>
+		<p class="changed">The final transform is applied after the
+			reorder transform. It executes in a similar way to the simple
+			transform with the settings ignored, as if there were no settings in
+			the &lt;settings&gt; element.</p>
+		<p class="changed">This is an example from Khmer where split
+			vowels are combined after reordering.</p>
 		<pre class="changed">
-	&lt;transforms type=&quot;final&quot;&gt;
-			&lt;transform from=&quot;\u17C1\u17B8&quot; to=&quot;\u17BE&quot;/&gt;
-		&lt;transform from=&quot;\u17C1\u17B6&quot; to=&quot;\u17C4&quot;/&gt;
-	&lt;/transforms&gt;</pre>
-		<p class="changed">Another example allows a keyboard implementation 
-			to alert or stop people typing two lower vowels in a Burmese cluster:</p>
-		<pre class="changed">&lt;transform from=&quot;[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]&quot; error=&quot;fail&quot;/&gt;</pre>
+  &lt;transforms type=&quot;final&quot;&gt;
+    &lt;transform from=&quot;\u17C1\u17B8&quot; to=&quot;\u17BE&quot;/&gt;
+    &lt;transform from=&quot;\u17C1\u17B6&quot; to=&quot;\u17C4&quot;/&gt;
+  &lt;/transforms&gt;</pre>
+		<p class="changed">Another example allows a keyboard
+			implementation to alert or stop people typing two lower vowels in a
+			Burmese cluster:</p>
+		<pre class="changed"> &lt;transform from=&quot;[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]&quot; error=&quot;fail&quot;/&gt;</pre>
 		<hr>
 		<h3 class="changed">
 			5.21 <a name="Element_backspaces" href="#Element_backspaces">Element:
 				backspaces</a>
 		</h3>
-		<p class="changed">The backspace transform is an optional transform 
-			that is not applied on input of normal characters, but is only used 
-			to perform extra backspace modifications to previously committed 
-			text.</p>
-		<p class="changed">Keyboarding applications typically, but are not 
+		<p class="changed">The backspace transform is an optional
+			transform that is not applied on input of normal characters, but is
+			only used to perform extra backspace modifications to previously
+			committed text.</p>
+		<p class="changed">Keyboarding applications typically, but are not
 			required, to work in one of two modes:</p>
 		<dl class="changed">
-			<dt><b>text entry</b></dt>
-			<dd>text entry happens while a user is typing new text. A user 
-			typically wants the backspace key to undo whatever they last 
-			typed, whether or not they typed things in the 'right' order.</dd>
+			<dt>
+				<b>text entry</b>
+			</dt>
+			<dd>text entry happens while a user is typing new text. A user
+				typically wants the backspace key to undo whatever they last typed,
+				whether or not they typed things in the 'right' order.</dd>
 		</dl>
 		<dl class="changed">
-			<dt><b>text editing</b></dt>
-			<dd>text editing happens when a user moves the cursor into some 
-			previously entered text which may have been entered by someone 
-			else. As such, there is no way to know in which order things were 
-			typed, but a user will still want appropriate behaviour when they 
-			press backspace. This may involve deleting more than one 
-			character or replacing a sequence of characters with a different 
-			sequence.</dd>
+			<dt>
+				<b>text editing</b>
+			</dt>
+			<dd>text editing happens when a user moves the cursor into some
+				previously entered text which may have been entered by someone else.
+				As such, there is no way to know in which order things were typed,
+				but a user will still want appropriate behaviour when they press
+				backspace. This may involve deleting more than one character or
+				replacing a sequence of characters with a different sequence.</dd>
 		</dl>
-		<p class="changed">In the text entry mode, there is no need for any 
-			special description of backspace behaviour. A keyboarding application 
-			will typically keep a history of previous output states and just 
-			revert to the previous state when backspace is hit.</p>
-		<p class="changed">In text editing mode, different keyboard layouts 
-			may behave differently in the same textual context. The backspace 
-			transform allows the keyboard layout to specify the effect of 
-			pressing backspace in a particular textual context. This is done by 
-			specifying a set of backspace rules that match a string before the 
-			cursor and replace it with another string. The rules are expressed as 
+		<p class="changed">In the text entry mode, there is no need for
+			any special description of backspace behaviour. A keyboarding
+			application will typically keep a history of previous output states
+			and just revert to the previous state when backspace is hit.</p>
+		<p class="changed">In text editing mode, different keyboard
+			layouts may behave differently in the same textual context. The
+			backspace transform allows the keyboard layout to specify the effect
+			of pressing backspace in a particular textual context. This is done
+			by specifying a set of backspace rules that match a string before the
+			cursor and replace it with another string. The rules are expressed as
 			backspace elements encapsulated in a backspaces element.</p>
-			<hr>
+		<hr>
 		<h3 class="changed">
 			5.22 <a name="Element_backspace" href="#Element_backspace">Element:
 				backspace</a>
 		</h3>
-		<p class="changed">The backspace element has the same 
-			@before, @from, @after, @to, @errors of the transform element. The @to
-			is optional with backspace.</p>
-		<p class="changed">For example, consider deleting a 
-			Devanagari ksha:</p>
+		<p class="changed">The backspace element has the same @before,
+			@from, @after, @to, @errors of the transform element. The @to is
+			optional with backspace.</p>
+		<p class="changed">For example, consider deleting a Devanagari
+			ksha:</p>
 		<pre class="changed">
 	&lt;backspaces&gt;
 		&lt;backspace from=&quot;\u0915\u094D\u0936&quot;/&gt;
 	&lt;/backspaces&gt;</pre>
-		<p class="changed">Here there is no @to attribute since the whole 
-			string is being deleted. This is not uncommon in the backspace 
+		<p class="changed">Here there is no @to attribute since the whole
+			string is being deleted. This is not uncommon in the backspace
 			transforms.</p>
-		<p class="changed">A more complex example comes from a Burmese 
+		<p class="changed">A more complex example comes from a Burmese
 			visually ordered keyboard:</p>
 		<pre class="changed">
 	&lt;backspaces&gt;
@@ -1825,45 +2053,39 @@ h2, h3, h4, table {
 		&lt;backspace from=&quot;[\u1000-\u102A\u103F-\u1049\u104E]\u103C&quot; to=&quot;\uFDDF\u103C&quot;/&gt;
 		&lt;backspace from=&quot;\uFDDF[\u1031\u103C]&quot;/&gt;
 	&lt;/backspaces&gt;</pre>
-		<p class="changed">The character \uFDDF does not represent a literal
-			character, but is instead a special placeholder, a &quot;filler
-			string&quot;. When a keyboard 
-			implementation handles a user pressing a key that inserts a prebase 
-			character, it also has to insert a special filler string before the 
-			prebase to ensure that the prebase character does not combine with 
-			the previous cluster. See the reorder transform for details. The 
-			precise filler string is implementation dependent. Rather than 
-			requiring keyboard layout designers to know what the filler string 
-			is, we reserve a special character that the keyboard layout designer 
-			may use to reference this filler string. It is up to the keyboard 
-			implementation to, in effect, replace that character with the filler 
-			string.</p>
-		<p class="changed">The first three transforms above delete various 
-			ligatures with a single keypress. The other transforms handle prebase 
-			characters. There are two in this Burmese keyboard. The transforms 
-			delete the characters preceding the prebase character up to base 
-			which gets replaced with the prebase filler string, which represents 
-			a null base. Finally the prebase filler string + prebase is deleted 
+		<p class="changed">The character \uFDDF does not represent a
+			literal character, but is instead a special placeholder, a
+			&quot;filler string&quot;. When a keyboard implementation handles a
+			user pressing a key that inserts a prebase character, it also has to
+			insert a special filler string before the prebase to ensure that the
+			prebase character does not combine with the previous cluster. See the
+			reorder transform for details. The precise filler string is
+			implementation dependent. Rather than requiring keyboard layout
+			designers to know what the filler string is, we reserve a special
+			character that the keyboard layout designer may use to reference this
+			filler string. It is up to the keyboard implementation to, in effect,
+			replace that character with the filler string.</p>
+		<p class="changed">The first three transforms above delete various
+			ligatures with a single keypress. The other transforms handle prebase
+			characters. There are two in this Burmese keyboard. The transforms
+			delete the characters preceding the prebase character up to base
+			which gets replaced with the prebase filler string, which represents
+			a null base. Finally the prebase filler string + prebase is deleted
 			as a unit.</p>
-		<p class="changed">The backspace transform is much like other 
-			transforms except in its processing model. If we consider the same 
+		<p class="changed">The backspace transform is much like other
+			transforms except in its processing model. If we consider the same
 			transform as in the simple transform example, but as a backspace:</p>
-		<blockquote class="changed">
-			&lt;backspace before=&quot;X&quot; from=&quot;Y&quot; 
-			after=&quot;Z&quot; to=&quot;B&quot;/&gt;
-		</blockquote>
+		<blockquote class="changed">&lt;backspace
+			before=&quot;X&quot; from=&quot;Y&quot; after=&quot;Z&quot;
+			to=&quot;B&quot;/&gt;</blockquote>
 		<p class="changed">This would transform the string:</p>
-		<blockquote class="changed">
-			XYZ → XBZ
-		</blockquote>
-		<p class="changed">If we mark where the current match position is 
+		<blockquote class="changed">XYZ → XBZ</blockquote>
+		<p class="changed">If we mark where the current match position is
 			before and after the transform we see:</p>
-		<blockquote class="changed">
-			X Y | Z → X B | Z
-		</blockquote>
-		<p class="changed">Whereas a simple or final transform would then run 
-			other transforms in the transform list, advancing the processing 
-			position until it gets to the end of the string, the backspace 
+		<blockquote class="changed">X Y | Z → X B | Z</blockquote>
+		<p class="changed">Whereas a simple or final transform would then
+			run other transforms in the transform list, advancing the processing
+			position until it gets to the end of the string, the backspace
 			transform only matches a single backspace rule and then finishes.</p>
 		<hr>
 		<h2>
@@ -1912,15 +2134,15 @@ h2, h3, h4, table {
 		<dl>
 			<dt>Attribute: keycode (required)</dt>
 			<dd>The hardware key code value of the key. This value is an
-			integer which is provided by the keyboard driver.</dd>
+				integer which is provided by the keyboard driver.</dd>
 		</dl>
 		<dl>
 			<dt>Attribute: iso (required)</dt>
 			<dd>The corresponding position of a key using the ISO layout
-			convention where rows are identified by letters and columns are
-			identified by numbers. For example, "D01" corresponds to the "Q" key
-			on a US keyboard. (See the definition at the beginning of the
-			document for a diagram).</dd>
+				convention where rows are identified by letters and columns are
+				identified by numbers. For example, "D01" corresponds to the "Q" key
+				on a US keyboard. (See the definition at the beginning of the
+				document for a diagram).</dd>
 		</dl>
 		<p>Examples</p>
 		<pre>&lt;platform&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;2&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;3&quot; iso=&quot;E02&quot; /&gt;<br>		&lt;map keycode=&quot;4&quot; iso=&quot;E03&quot; /&gt;<br>		&lt;map keycode=&quot;5&quot; iso=&quot;E04&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;E05&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;E06&quot; /&gt;<br>		&lt;map keycode=&quot;41&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
@@ -2212,14 +2434,13 @@ h2, h3, h4, table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–2018 Unicode, Inc. All
-			Rights Reserved. The Unicode Consortium makes no expressed or implied
-			warranty of any kind, and assumes no liability for errors or
-			omissions. No liability is assumed for incidental and consequential
-			damages in connection with or arising out of the use of the
-			information or programs contained or accompanying this technical
-			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
-				of Use</a> apply.
+			Copyright © 2001–2018 Unicode, Inc. All Rights Reserved. The Unicode
+			Consortium makes no expressed or implied warranty of any kind, and
+			assumes no liability for errors or omissions. No liability is assumed
+			for incidental and consequential damages in connection with or
+			arising out of the use of the information or programs contained or
+			accompanying this technical report. The Unicode <a
+				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

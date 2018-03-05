@@ -31,7 +31,8 @@ public enum LanguageGroup {
         Integer.class);
 
     private static void add(Map<ULocale, LanguageGroup> map, LanguageGroup group, String... baseLanguages) {
-        int count = 0;
+        Map<ULocale, Integer> soFar = GROUP_LANGUAGE.get(group);
+        int count = soFar == null ? 0 : soFar.size();
         for (String s : baseLanguages) {
             ULocale loc = new ULocale(s);
             if (map.put(loc, group) != null) {

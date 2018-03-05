@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -18,13 +19,14 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.util.ULocale;
 
 public class ChartSubdivisionNames extends Chart {
@@ -80,8 +82,8 @@ public class ChartSubdivisionNames extends Chart {
         // set up right order for columns
 
         Map<String, String> nameToCode = new LinkedHashMap<String, String>();
-        Relation<LanguageGroup, Pair<String, String>> groupToNameAndCodeSorted = Relation.of(
-            new EnumMap<LanguageGroup, Set<Pair<String, String>>>(LanguageGroup.class),
+        Relation<LanguageGroup, R3<Integer, String, String>> groupToNameAndCodeSorted = Relation.of(
+            new EnumMap<LanguageGroup, Set<R3<Integer, String, String>>>(LanguageGroup.class),
             TreeSet.class);
 
         Set<String> locales = factory.getAvailable();
@@ -99,10 +101,11 @@ public class ChartSubdivisionNames extends Chart {
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));
             LanguageGroup group = LanguageGroup.get(loc);
-            groupToNameAndCodeSorted.put(group, Pair.of(name, locale));
+            int rank = LanguageGroup.rankInGroup(loc);
+            groupToNameAndCodeSorted.put(group, Row.of(rank, name, locale));
         }
 
-        for (Entry<LanguageGroup, Set<Pair<String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
+        for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
             String ename = ENGLISH.getName("en", true);
             nameToCode.clear();
@@ -110,17 +113,17 @@ public class ChartSubdivisionNames extends Chart {
 
             // add English variants if they exist
 
-            for (Pair<String, String> pair : groupPairs.getValue()) {
-                String name = pair.getFirst();
-                String locale = pair.getSecond();
+            for (R3<Integer, String, String> pair : groupPairs.getValue()) {
+                String name = pair.get1();
+                String locale = pair.get2();
                 if (locale.startsWith("en_")) {
                     nameToCode.put(name, locale);
                 }
             }
 
-            for (Pair<String, String> pair : groupPairs.getValue()) {
-                String name = pair.getFirst();
-                String locale = pair.getSecond();
+            for (R3<Integer, String, String> pair : groupPairs.getValue()) {
+                String name = pair.get1();
+                String locale = pair.get2();
 
                 nameToCode.put(name, locale);
             }
@@ -131,6 +134,7 @@ public class ChartSubdivisionNames extends Chart {
             String widthStringTarget = "class='target' width='" + width + "%'";
 
             TablePrinter tablePrinter = new TablePrinter()
+                .addColumn("Name", "class='source' width='1%'", null, "class='source'", true)
                 .addColumn("Code", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
             ;
@@ -143,8 +147,8 @@ public class ChartSubdivisionNames extends Chart {
             for (String code : subdivisions) {
                 tablePrinter
                     .addRow()
+                    .addCell(english.getName(CLDRFile.TERRITORY_NAME,code.substring(0, 2).toUpperCase(Locale.ENGLISH)))
                     .addCell(code)
-                //.addCell(getName(cp))
                 ;
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();

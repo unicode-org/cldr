@@ -4463,6 +4463,56 @@ h2, h3, h4, table {
 <tr><th>nonspacing</th><td>nonspacing</td>
   <td>Uses for characters that occupy no width by themselves, such as the ¨ over the a in ä.</td></tr>
 </table>
+<div class='changed'>
+		  		<h3>
+			14.3 <a name="Character_Labels" href="#Character_Labels">Typographic Names</a>
+		</h3>
+
+		<p class='dtd'>&lt;!ELEMENT typographicNames ( alias | ( axisName*, styleName*, featureName*, special* ) ) &gt;</p>
+		<p class='dtd'>&lt;!ELEMENT axisName ( #PCDATA ) &gt;<br>
+		  &lt;!ATTLIST axisName type (ital | opsz | slnt | wdth | wght) #REQUIRED &gt;<br>
+	  &lt;!ATTLIST axisName alt NMTOKENS #IMPLIED &gt;</p>
+		<p class='dtd'>&lt;!ELEMENT styleName ( #PCDATA ) &gt;<br>
+		  &lt;!ATTLIST styleName type (ital | opsz | slnt | wdth | wght) #REQUIRED &gt;<br>
+		  &lt;!ATTLIST styleName subtype NMTOKEN #REQUIRED &gt;<br>
+	  &lt;!ATTLIST styleName alt NMTOKENS #IMPLIED &gt;</p>
+		<p class='dtd'>&lt;!ELEMENT featureName ( #PCDATA ) &gt;<br>
+		  &lt;!ATTLIST featureName type (afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero) #REQUIRED &gt;<br>
+	  &lt;!ATTLIST featureName alt NMTOKENS #IMPLIED &gt;</p>
+		<p>The typographic names provide for names of font features for use in a UI. This is useful for apps that show the name of font styles and design axes according to the user’s languages. It would also be useful for system-level libraries.</p>
+		<p>The identifers (types) use the tags from the OpenType Feature Tag Registry. Given their large number, only the names of frequently-used OpenType feature names are available CLDR. (Many features are not user-visible settings, but instead serve as a data channel for sofware to pass information to the font). 
+		The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.</p>
+<p>To find a localized subfamily name such as &ldquo;Extraleicht Schmal&rdquo; for a font called &ldquo;Extralight Condensed&rdquo;, a system or application library might do the following: </p>
+        <ol>
+          <li>
+            <p>Determine the set of languages in which the subfamily name can potentially be returned.This is the union of the languages for which the font contains &lsquo;name&rsquo; table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names. </p>
+          </li>
+          <li>
+            <p>Use a language matching algorithm such as in ICU to find the best available language given the user preferences. The resulting subfamily name will be localized to this language. </p>
+          </li>
+          <li>
+            <p>If the font&rsquo;s &lsquo;name&rsquo; table contains a typographic subfamily name (ID17) in this language and all font variation axes are set to their defaults, return this name. </p>
+          </li>
+          <li>
+            <p>If the font&rsquo;s &lsquo;name&rsquo; table contains a font subfamilyname (&lsquo;name&rsquo;ID2) in this language and all font variation axes are set to their defaults, return this name. </p>
+          </li>
+          <li>
+            <p>If the font has a style attributes (STAT) table, lookup the design axis tags and their ordering. If the font has no STAT table, assume [Width, Weight, Slant] as axis ordering, and infer the font&rsquo;s style atributes from other available data in the font (eg. the OS/2 table). </p>
+          </li>
+          <li>For each design axis, find a localized style name for its value.
+             <ol>
+            <li>If the font&rsquo;s style attributes point to a &lsquo;name&rsquo; table entry that is available the result language, use this name.</li>
+            <li>Otherwise, generate a fallback name from CLDR style Name data. 
+               <ol>
+                <li>The type key is the OpenType axis tag ( &lsquo;wght&rsquo;). The subtype and alt keys are taken from the entry in English CLDR where the string is equal to the English name in the font. For example, when the font uses a weight whose English style name is &ldquo;Extralight&rdquo;, this will lead to subtype = &ldquo;200&rdquo; and alt = &ldquo;variant&rdquo;. If there is no match, take the axis value (&ldquo;200&rdquo;) for subtype and the empty string for alt. </li>
+              <li>Look up (type, subtype) in a data table derived from CLDR&rsquo;s style names. If CLDR supplies multiple alternate names for this (type, subtype), use the one whose &ldquo;alt&rdquo; key is matching; otherwise, use the default alternate (which has no &ldquo;alt&rdquo; atribute in CLDR).</li>
+            </ol>
+          </li>
+        </ol>
+        </li>
+        <li>Concatenate the strings, with a separator between them.</li>
+        </ol>
+	</div>
 
 	  <hr>
 		<p class="copyright">

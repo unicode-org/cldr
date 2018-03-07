@@ -935,6 +935,18 @@ h2, h3, h4, table {
 			some of them may be obvious.</p>
 		<p>Examples</p>
 		<pre>&lt;keyboard locale=&quot;fr-BE-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers=&quot;shift&quot;&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;A&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;Z&quot; /&gt; &lt;!-- key=W --&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;E&quot; /&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;R&quot; /&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;T&quot; /&gt;<br>		&lt;map iso=&quot;D06&quot; to=&quot;Y&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;ps-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers='altR+caps? ctrl+alt+caps?'&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;\u{200e}&quot; /&gt; &lt;!-- key=R base=ق --&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;\u{200f}&quot; /&gt; &lt;!-- key=T base=ف --&gt;<br>		&lt;map iso=&quot;D08&quot; to=&quot;\u{670}&quot; /&gt; &lt;!-- key=I base=ه to= ٰ --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;</pre>
+		<h4 class="changed">
+			5.8.1 <a name="Element_flicks" href="#Element_flicks">Elements:
+				flicks, flick</a></h4>
+		<p class='changed dtd'>&lt;!ELEMENT flick EMPTY&gt;<br>
+		&lt;!ATTLIST flick directions NMTOKENS&gt;<br>
+		&lt;!ATTLIST flick to CDATA&gt;<br>
+		&lt;!--@VALUE--&gt;</p>
+		<p class='changed'>The flicks element is used to generate results from a &quot;flick&quot; of the finger on a mobile device. The <strong>directions</strong> attribute value is a space-delimited list of keywords, currently restricted to the cardinal and intercardinal directions {n e s w ne nw se sw}. The <strong>to</strong> attribute value is the result of (one or more) flicks.</p>
+		<p class='changed'>Example </p>
+		<pre class='changed'>&lt;flicks iso=&quot;C01&quot;&gt;
+  &lt;flick directions=“ne s” to=“\uABCD\uDCBA”&gt;
+&lt;/flicks&gt;</pre>
 		<hr>
 		<h3 class="changed">
 			5.9 <a name="Element_import" href="#Element_import">Element:
@@ -1336,13 +1348,13 @@ h2, h3, h4, table {
 	&lt;/keyboard&gt;</pre>
 		<hr>
 		<h3>
-			5.<span class="removed">9</span><span class="changed">17</span> <a
+			5.<span class="changed">17</span><span class="removed">9</span> <a
 				name="Element_transforms" href="#Element_transforms">Element:
 				transforms</a>
 		</h3>
 		<p>This element defines a group of one or more transform elements
 			associated with this keyboard layout. This is used to support
-			dead-keys using a straightforward structure that works for all the
+			<span class="changed">such as</span> dead-keys using a straightforward structure that works for all the
 			keyboards tested, and that results in readable source data.</p>
 		<p>
 			There can be multiple &lt;transforms&gt; elements<span
@@ -1363,11 +1375,11 @@ h2, h3, h4, table {
 				mechanism that handles all the requirements, and coding to ensure
 				sure programmatically mapping those mechanisms into the standard is
 				possible, and so on.)</dd>
-			<dd class="changed">Current values: simple, final, backspace.</dd>
+			<dd class="changed">Current values: simple, final.</dd>
 		</dl>
 		<hr class="changed">
 		<h3>
-			5.<span class="removed">10</span><span class="changed">18</span> <a
+			5.<span class="changed">18</span><span class="removed">10</span> <a
 				name="Element_transform" href="#Element_transform">Element:
 				transform</a>
 		</h3>
@@ -1770,10 +1782,6 @@ h2, h3, h4, table {
 		<pre class="changed">  if len(@from) &lt; len(@list) then error<br />  else 
     while len(@from) &gt; len(@list)<br />      append lastitem(@list) to @list<br />    endwhile
   endif</pre>
-		<p class="changed">
-			<span class="reviewnote">[Review Note: Martin, I had to do a
-				fair amount of cleanup on the following. Please review.]</span>
-		</p>
 		<p class="changed">For example, consider the word Northern Thai
 			(nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the
 			following:</p>
@@ -1958,40 +1966,37 @@ h2, h3, h4, table {
 			priority order for matching.</p>
 		<p class="changed">Consider this fragment from a shared reordering
 			for the Myanmar script:</p>
-		<pre class="changed">  &lt;reorder from=&quot;\u103C&quot; order=&quot;20&quot;/&gt;
-  &lt;reorder from=&quot;[\u103D\u1082]&quot; order=&quot;25&quot;/&gt;<br />  &lt;reorder from=&quot;[\u103E\u1082]\u103A&quot; order=&quot;27&quot;/&gt; &nbsp;	&lt;!-- Mon <i>asat</i> --&gt;<br />  &lt;reorder from=&quot;[\u103E\u1060]&quot; order=&quot;27&quot;/&gt;<br />  &lt;reorder from=&quot;[\u1031\u1084]&quot; order=&quot;30&quot;/&gt;<br />  &lt;reorder from=&quot;[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]&quot; order=&quot;35&quot;/&gt;</pre>
+		<pre class="changed">&lt;!-- medial-r --&gt;
+  &lt;reorder from=&quot;\u103C&quot; order=&quot;20&quot;/&gt;
+
+&lt;!-- [medial-wa or shan-medial-wa] --&gt;
+  &lt;reorder from=&quot;[\u103D\u1082]&quot; order=&quot;25&quot;/&gt;
+
+&lt;!-- [medial-ha or shan-medial-wa]+asat = Mon <i>asat</i> --&gt;<br />  &lt;reorder from=&quot;[\u103E\u1082]\u103A&quot; order=&quot;27&quot;/&gt;
+
+&lt;!-- [medial-ha or mon-medial-wa] --&gt;<br />  &lt;reorder from=&quot;[\u103E\u1060]&quot; order=&quot;27&quot;/&gt;
+
+&lt;!-- [e-vowel or shan-e-vowel] --&gt;<br />  &lt;reorder from=&quot;[\u1031\u1084]&quot; order=&quot;30&quot;/&gt;
+<br />  &lt;reorder from=&quot;[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]&quot; order=&quot;35&quot;/&gt;</pre>
 		<p class="changed">A particular Myanmar keyboard layout can have
-			this transforms element:</p>
-		<pre class="changed">&lt;reorders type=&quot;reorder&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;reorder from=&quot;\u1004\u103A\u1039&quot; order=&quot;-1&quot;/&gt;
-  &nbsp;&lt;reorder from=&quot;\u1031&quot; prebase=&quot;1&quot;/&gt;
-  &nbsp;&lt;reorder from=&quot;\u103C&quot; prebase=&quot;1&quot;/&gt;<br>&lt;/reorders&gt;</pre>
-		<p class="changed">The effect of this that the character \u1031
-			will be identified as a prebase and will have an order of 30.
-			Likewise a \u103C will be identified as a prebase and will have an
-			order of 20. Notice that a U+1084 will not be identified as a prebase
-			(even if it should be!). The kinzi is described in the layout since
+			this reorders element:</p>
+		<pre class="changed">&lt;reorders type=&quot;reorder&quot;&gt;<br>&lt;!-- Kinzi --&gt;
+  &lt;reorder from=&quot;\u1004\u103A\u1039&quot; order=&quot;-1&quot;/&gt;
+
+&lt;!-- e-vowel --&gt;
+&nbsp; &lt;reorder from=&quot;\u1031&quot; prebase=&quot;1&quot;/&gt;&nbsp;
+
+&lt;!-- medial-r --&gt;
+  &lt;reorder from=&quot;\u103C&quot; prebase=&quot;1&quot;/&gt;<br>&lt;/reorders&gt;</pre>
+		<p class="changed">The effect of this that the <em>e-vowel</em> will be identified as a prebase and will have an order of 30.
+			Likewise a <em>medial-r</em> will be identified as a prebase and will have an
+			order of 20. Notice that a <em>shan-e-vowel</em> will not be identified as a prebase
+			(even if it should be!). The <em>kinzi</em> is described in the layout since
 			it moves something across a run boundary. By separating such
 			movements (prebase or moving to in front of a base) from the shared
 			ordering rules, the shared ordering rules become a self-contained
 			combining order description that can be used in other keyboards or
-			even in other contexts than keyboarding.</p>
-		<p class="reviewnote">
-			<span class="reviewnote">[Review Note: Martin, this bit was
-				particularly troublesome.</span>
-		</p>
-		<p class="reviewnote">
-			Added &quot;<span class="changed">from a shared reordering for
-				the Myanmar</span>&quot; since I otherwise couldn't understand. Also added
-			&quot;<span class="changed">in other keyboards or even</span>&quot;
-		</p>
-		<p class="reviewnote">
-			<span class="">What's a kinzi? (not defined)</span>
-		</p>
-		<p class="reviewnote">Way easier to understand if the codes are
-			also given names. And it is clear which code has which name.</p>
-		<p class="reviewnote">
-			<span class="reviewnote">]</span>
-		</p>
+			even in other contexts than keyboarding.		</p>
 		<hr>
 		<h3 class="changed">
 			5.20 <a name="Element_final" href="#Element_final">Element: final</a>
@@ -2071,32 +2076,39 @@ h2, h3, h4, table {
 			transforms.</p>
 		<p class="changed">A more complex example comes from a Burmese
 			visually ordered keyboard:</p>
-		<pre class="changed">
-	&lt;backspaces&gt;
-		&lt;backspace from=&quot;[\u1004\u101B\u105A]\u103A\u1039&quot;/&gt;
-		&lt;backspace from=&quot;\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]&quot;/&gt;
-		&lt;backspace from=&quot;\u102B\u103A&quot;/&gt;
-		&lt;!-- Handle prebases --&gt;
-		&lt;backspace from=&quot;[\u103A-\u103F\u105E-\u1060\u1082]\u1031&quot; to=&quot;\u1031&quot;/&gt;
-		&lt;backspace from=&quot;[\u103A-\u103B\u105E-\u105F]\u103C&quot; to=&quot;\u103C&quot;/&gt;
-		&lt;backspace from=&quot;\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031&quot; to=&quot;\u1031&quot;/&gt;
-		&lt;backspace from=&quot;[\u1000-\u102A\u103F-\u1049\u104E]\u1031&quot; to=&quot;\uFDDF\u1031&quot;/&gt;
-		&lt;backspace from=&quot;\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C&quot; to=&quot;\u103C&quot;/&gt;
-		&lt;backspace from=&quot;[\u1000-\u102A\u103F-\u1049\u104E]\u103C&quot; to=&quot;\uFDDF\u103C&quot;/&gt;
-		&lt;backspace from=&quot;\uFDDF[\u1031\u103C]&quot;/&gt;
-	&lt;/backspaces&gt;</pre>
+		<pre class="changed"> &lt;backspaces&gt;
+&lt;!-- Kinzi --&gt;<br>  &lt;backspace from=&quot;[\u1004\u101B\u105A]\u103A\u1039&quot;/&gt;
+
+&lt;!-- subjoined consonant --&gt;<br>  &lt;backspace from=&quot;\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]&quot;/&gt;
+<br>&lt;!-- tone mark --&gt;
+  &lt;backspace from=&quot;\u102B\u103A&quot;/&gt;
+<br>&lt;!-- Handle prebases --&gt;
+&lt;!-- diacritics stored before e-vowel --&gt;<br>  &lt;backspace from=&quot;[\u103A-\u103F\u105E-\u1060\u1082]\u1031&quot; to=&quot;\u1031&quot;/&gt;
+
+&lt;!-- diacritics stored before medial r --&gt;<br>  &lt;backspace from=&quot;[\u103A-\u103B\u105E-\u105F]\u103C&quot; to=&quot;\u103C&quot;/&gt;
+<br>&lt;!-- subjoined consonant before e-vowel --&gt;
+  &lt;backspace from=&quot;\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031&quot; to=&quot;\u1031&quot;/&gt;
+<br>&lt;!-- base consonant before e-vowel --&gt;
+  &lt;backspace from=&quot;[\u1000-\u102A\u103F-\u1049\u104E]\u1031&quot; to=&quot;\uFDDF\u1031&quot;/&gt;
+<br>&lt;!-- subjoined consonant before medial r --&gt;
+  &lt;backspace from=&quot;\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C&quot; to=&quot;\u103C&quot;/&gt;
+<br>&lt;!-- base consonant before medial r --&gt;
+  &lt;backspace from=&quot;[\u1000-\u102A\u103F-\u1049\u104E]\u103C&quot; to=&quot;\uFDDF\u103C&quot;/&gt;
+<br>&lt;!-- delete lone medial r or e-vowel --&gt;
+  &lt;backspace from=&quot;\uFDDF[\u1031\u103C]&quot;/&gt;<br>&lt;/backspaces&gt;</pre>
+		<p class="changed">The above example is simplified, and doesn't fully handle the interaction between medial-r and e-vowel.</p>
 		<p class="changed">The character \uFDDF does not represent a
-			literal character, but is instead a special placeholder, a
-			&quot;filler string&quot;. When a keyboard implementation handles a
-			user pressing a key that inserts a prebase character, it also has to
-			insert a special filler string before the prebase to ensure that the
-			prebase character does not combine with the previous cluster. See the
-			reorder transform for details. The precise filler string is
-			implementation dependent. Rather than requiring keyboard layout
-			designers to know what the filler string is, we reserve a special
-			character that the keyboard layout designer may use to reference this
-			filler string. It is up to the keyboard implementation to, in effect,
-			replace that character with the filler string.</p>
+		  literal character, but is instead a special placeholder, a
+		  &quot;filler string&quot;. When a keyboard implementation handles a
+		  user pressing a key that inserts a prebase character, it also has to
+		  insert a special filler string before the prebase to ensure that the
+		  prebase character does not combine with the previous cluster. See the
+		  reorder transform for details. The precise filler string is
+		  implementation dependent. Rather than requiring keyboard layout
+		  designers to know what the filler string is, we reserve a special
+		  character that the keyboard layout designer may use to reference this
+		  filler string. It is up to the keyboard implementation to, in effect,
+		  replace that character with the filler string.</p>
 		<p class="changed">The first three transforms above delete various
 			ligatures with a single keypress. The other transforms handle prebase
 			characters. There are two in this Burmese keyboard. The transforms

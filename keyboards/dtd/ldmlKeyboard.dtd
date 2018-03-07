@@ -67,8 +67,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST flicks iso CDATA #REQUIRED >
 
 <!ELEMENT flick EMPTY >
-<!ATTLIST flick directions CDATA #REQUIRED >
-<!ATTLIST flick to NMTOKENS #REQUIRED >
+<!ATTLIST flick directions NMTOKENS #REQUIRED >
+<!ATTLIST flick to CDATA #REQUIRED >
     <!--@VALUE-->
 
 <!ELEMENT displayMap ( display+ ) >
@@ -119,13 +119,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST reorder before CDATA #IMPLIED >
 <!ATTLIST reorder from CDATA #REQUIRED >
 <!ATTLIST reorder after CDATA #IMPLIED >
-<!ATTLIST reorder order NMTOKENS #IMPLIED >
+<!ATTLIST reorder order CDATA #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST reorder tertiary NMTOKENS #IMPLIED >
+<!ATTLIST reorder tertiary CDATA #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST reorder tertiary_base NMTOKENS #IMPLIED >
+<!ATTLIST reorder tertiary_base CDATA #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST reorder prebase NMTOKENS #IMPLIED >
+<!ATTLIST reorder prebase CDATA #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT backspaces ( backspace+ ) >

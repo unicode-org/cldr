@@ -942,8 +942,8 @@ h2, h3, h4, table {
 		&lt;!ATTLIST flick directions NMTOKENS&gt;<br>
 		&lt;!ATTLIST flick to CDATA&gt;<br>
 		&lt;!--@VALUE--&gt;</p>
-		<p class='changed'>The flicks element is used to generate results from a &quot;flick&quot; of the finger on a mobile device. The <strong>directions</strong> attribute value is a space-delimited list of keywords, currently restricted to the cardinal and intercardinal directions {n e s w ne nw se sw}. The <strong>to</strong> attribute value is the result of (one or more) flicks.</p>
-		<p class='changed'>Example </p>
+		<p class='changed'>The flicks element is used to generate results from a &quot;flick&quot; of the finger on a mobile device. The <strong>directions</strong> attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions {n e s w ne nw se sw}. The <strong>to</strong> attribute value is the result of (one or more) flicks.</p>
+		<p class='changed'>Example: where a flick to the Northeast then South produces two code points.</p>
 		<pre class='changed'>&lt;flicks iso=&quot;C01&quot;&gt;
   &lt;flick directions=“ne s” to=“\uABCD\uDCBA”&gt;
 &lt;/flicks&gt;</pre>

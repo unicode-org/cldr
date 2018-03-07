@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2017-03-05</td>
+				<td class="changed">2017-03-07</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -5961,6 +5961,74 @@ root</pre>
 				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>]. A UnicodeSet may be used in specifications
 				outside of the domain of LDML. In such a case, the specification may
 				support a subset of the syntax provided here.</p>
+	  <p class='changed'>The following provides EBNF syntax for a UnicodeSet:</p>
+	  <div align='center'>
+		<table class='simple changed'>
+<tr>
+  <th>Symbol</th>
+  <th>Expression</th>
+  <th>Examples</th>
+</tr>
+<tr><th>root</th>
+	<td><code>= prop <br>| '[-]' <br>| '[' [\-\^]? s seq+ ']'</code></td>
+	<td>\p{x=y},<br>
+	  [abc]</td>
+</tr>
+<tr><th>seq</th>
+	<td><code>= root (s [\&amp;\-] s root)* s <br>| range s</code></td>
+	<td>[abc]-[cde], a	  <br></td>
+</tr>
+<tr><th>range</th>
+	<td><code>= char ('-' char)? <br>| '{' (s char)+ s '}'</code></td>
+	<td>a, a-c, {abc}</td>
+</tr>
+<tr><th>prop</th>
+	<td><code>= '\' [pP] '{' propName ([≠=] s value1+)? '}' <br>| '[:' '^'? propName ([≠=] s value2+)? ':]'</code></td>
+	<td>\p{x=y}, [:x=y:]<br></td>
+</tr>
+<tr><th>propName</th>
+	<td><code>= s [A-Za-z0-9] [A-Za-z0-9_\x20]* s</code></td>
+	<td>General_Category,<br>
+	  General Category</td>
+</tr>
+<tr><th>value1</th>
+	<td><code>= [^\}] <br>| '\' quoted </code></td>
+	<td>Lm,<br>
+	  a\nb\}</td>
+</tr>
+<tr><th>value2</th>
+	<td><code>= [^:] <br>| '\' quoted</code></td>
+	<td>Lm,<br>
+a\nb\:</td>
+</tr>
+<tr><th>char</th>
+	<td><code>= [^\&amp; \- \[ \[ \] \\ \} \{ [:Pat_WS:]] <br>| '\' quoted</code></td>
+	<td>a, b, c, \n</td>
+</tr>
+<tr><th>quoted</th>
+<td><code>= 'u' (hex{4} | bracketedHex) <br>  
+	| 'x' (hex{2} | bracketedHex) <br>  | 'U00' ('0' hex{5} | '10' hex{4}) <br>| 'N{' propName '}' <br>| [\u0000-\U00010FFFF]</code></td>
+<td>&nbsp;</td>
+</tr>
+<tr><th>bracketedHex</th>
+	<td><code>= '{' s hexCodePoint (s hexCodePoint)* s '}'</code></td>
+	<td>{61 2019 62}</td>
+</tr>
+<tr><th>hexCodePoint</th>
+	<td><code>= hex{1,5} | '10' hex{4}</code></td>
+	<td>&nbsp;</td>
+</tr>
+<tr><th>hex</th>
+	<td><code>= [0-9A-Fa-f]</code></td>
+	<td>&nbsp;</td>
+</tr>
+<tr><th>s</th>
+	<td><code>= [:Pattern_White_Space:]*</code></td>
+	<td>optional whitespace</td>
+</tr>
+	</table>
+</div>
+		<p class='changed'>Some constraints on UnicodeSet syntax is  not captured by this EBNF. Notably, property names and values are restricted to those supported by the implementation.</p>
 		<p>The syntax characters are listed in the table below:</p>
 		<table>
 		  <tbody>
@@ -6074,9 +6142,14 @@ root</pre>
 		</p>
 	  <table class='simple'>
 			<tr>
-				<td>\x{h...h}</td>
-				<td>1-6 hex digits ([0-9A-Fa-f])</td>
-			</tr>
+			  <td>\x{h...h}<br>
+	          <span class='changed'>\u{h...h}</span></td>
+			  <td class='changed'>list of 1-6 hex digits ([0-9A-Fa-f]), separated by spaces</td>
+	    </tr>
+			<tr>
+			  <td>\xhh</td>
+			  <td>1-2 hex digits</td>
+	    </tr>
 			<tr>
 				<td>\uhhhh</td>
 				<td>Exactly 4 hex digits</td>
@@ -6084,10 +6157,6 @@ root</pre>
 			<tr>
 				<td>\Uhhhhhhhh</td>
 				<td>Exactly 8 hex digits</td>
-			</tr>
-			<tr>
-				<td>\xhh</td>
-				<td>1-2 hex digits</td>
 			</tr>
 			<tr>
 				<td>\a</td>
@@ -6293,6 +6362,10 @@ root</pre>
 				<td>The code point &#39;a&#39; and the multi-code point strings
 					&quot;ab&quot; and &quot;ac&quot;</td>
 			</tr>
+			<tr class='changed'>
+			  <td nowrap>[x\u{61 2019 62}y]</td>
+			  <td>Equivalent to [x\u0061\u201\u0062y] (= [xa’by])</td>
+		  </tr>
 			<tr>
 				<td nowrap>[{ax}-{bz}]</td>
 				<td>The set containing [{ax} {ay} {az} {bx} {by} {bz}], using
@@ -8531,11 +8604,23 @@ decimal?, group?, special*)) &gt;</pre>
 		<h2>
 			<a name="Modifications" href="#Modifications">Modifications</a>
 		</h2>
-
-<p class="changed"><b>Revision 50</b></p>
-<p class="changed"><strong>Part 7</strong>: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings) </p>
-<ul class='changed'>
-  <li>Major extensions to handle more complex scripts.</li>
+<div class='changed'>
+<p><b>Revision 50</b></p>
+<p><strong>Part 1: <a href="tr35.html#Contents">Core</a></strong></p>
+<ul>
+  <li><strong>Section 5.3.3 <a href="#Unicode_Sets">Unicode Sets</a></strong>
+    <ul>
+      <li>Added EBNF notation, as in <a href="http://www.unicode.org/reports/tr18/#Hex_notation">Hex notation</a>. [<a
+				  href="http://unicode.org/cldr/trac/ticket/10670">#10670</a>]</li>
+      <li>Added \u{xxx} notation. [<a
+				  href="http://unicode.org/cldr/trac/ticket/10669">#10669</a>]</li>
+    </ul>
+  </li>
+</ul>
+<p><strong>Part 7</strong>: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings) </p>
+  <p><em>Major extensions to handle more complex scripts, including the following:</em> [<a
+				  href="http://unicode.org/cldr/trac/ticket/10926">#10926</a>]</p>
+<ul>
   <li>Section 5.8 <a href="#Element_map">Element: map</a>
     <ul>
       <li>Added 3 attributes to control appearance and behavior.</li>
@@ -8562,7 +8647,8 @@ decimal?, group?, special*)) &gt;</pre>
       <li>5.21 <a href="tr35-keyboards.html#Element_backspaces">Element: backspaces</a></li>
       <li>5.22 <a href="tr35-keyboards.html#Element_backspace">Element: backspace</a></li>
     </ul>
-  </ul>
+	</ul>
+	</div>
 		<p class='reviewnote'>The following are for copying, and will be removed once the modifications for 33 are complete.</p>
 <div class='removed'>
 <p><b>Revision 49</b></p>

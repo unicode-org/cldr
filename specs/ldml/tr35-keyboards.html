@@ -832,7 +832,7 @@ h2, h3, h4, table {
 			key map.</p>
 		<p>If the modifiers attribute is not present on a keyMap then that
 			particular key map is the base map.</p>
-		<hr class="changed">
+		<hr>
 		<h3>
 			5.8 <a name="Element_map" href="#Element_map">Element: map</a>
 		</h3>
@@ -882,6 +882,13 @@ h2, h3, h4, table {
 				present.</dd>
 		</dl>
 		<dl class='changed'>
+			<dt>Attribute: multitap (optional)</dt>
+			<dd>
+				A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, two taps on the key C01 will produce a “c” in the following example. <br>
+				<br> <em>Example:</em><br> <br> 
+				&lt;map iso=&quot;C01&quot; to=&quot;a&quot; multitap=&quot;bb c d&quot;&gt;</dd>
+		</dl>
+		<dl class='changed'>
 			<dt>Attribute: longPress-status (optional)</dt>
 			<dd>
 				Indicates optional longPress values. Must only occur with a
@@ -895,7 +902,7 @@ h2, h3, h4, table {
 				longPress-status=&quot;optional&quot;/&gt;
 
 			</dd>
-		</dl>
+	  </dl>
 		<dl class='changed'>
 
 			<dt>Attribute: optional (optional)</dt>
@@ -938,7 +945,8 @@ h2, h3, h4, table {
 		<h4 class="changed">
 			5.8.1 <a name="Element_flicks" href="#Element_flicks">Elements:
 				flicks, flick</a></h4>
-		<p class='changed dtd'>&lt;!ELEMENT flick EMPTY&gt;<br>
+		<p class='changed dtd'>&lt;!ELEMENT keyMap ( map | flicks )+ &gt;<br>
+		  &lt;!ELEMENT flick EMPTY&gt;<br>
 		&lt;!ATTLIST flick directions NMTOKENS&gt;<br>
 		&lt;!ATTLIST flick to CDATA&gt;<br>
 		&lt;!--@VALUE--&gt;</p>

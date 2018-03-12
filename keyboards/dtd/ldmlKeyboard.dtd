@@ -57,7 +57,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST map longpress-status (optional) #IMPLIED >
 <!ATTLIST map transform (no) #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST map multitap (no) #IMPLIED >
+<!ATTLIST map multitap CDATA #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST map hint CDATA #IMPLIED > 
     <!--@VALUE-->

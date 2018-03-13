@@ -1,9 +1,11 @@
 package org.unicode.cldr.tool;
 
+import java.util.EnumSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
@@ -19,6 +21,7 @@ import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.Output;
 
@@ -96,8 +99,7 @@ public class SearchCLDR {
         pathMatcher = getMatcher(myOptions.get("path").getValue(), exclude);
         Boolean pathExclude = exclude.value;
 
-        Matcher levelMatcher = getMatcher(myOptions.get("level").getValue(), exclude);
-        Boolean levelExclude = exclude.value;
+        Set<Level> levelMatcher = getEnumMatcher(myOptions.get("level").getValue(), exclude);
 
         Matcher valueMatcher = getMatcher(myOptions.get("value").getValue(), exclude);
         Boolean valueExclude = exclude.value;
@@ -172,7 +174,7 @@ public class SearchCLDR {
                     levelCounter.add(pathLevel, 1);
                 }
 
-                if (levelMatcher != null && levelExclude == levelMatcher.reset(pathLevel.toString()).find()) {
+                if (!levelMatcher.contains(pathLevel)) {
                     continue;
                 }
 
@@ -254,5 +256,25 @@ public class SearchCLDR {
             property = property.substring(1);
         }
         return PatternCache.get(property).matcher("");
+    }
+
+    private static Set<Level> getEnumMatcher(String property, Output<Boolean> exclude) {
+        exclude.value = false;
+        if (property == null) {
+            return null;
+        }
+        if (property.startsWith("!")) {
+            exclude.value = true;
+            property = property.substring(1);
+        }
+        EnumSet<Level> result = EnumSet.noneOf(Level.class);
+        Matcher matcher = Pattern.compile(property, Pattern.CASE_INSENSITIVE).matcher("");
+        
+        for (Level level : Level.values()) {
+            if (matcher.reset(level.toString()).matches() != exclude.value) {
+                result.add(level);
+            }
+        }
+        return ImmutableSet.copyOf(result);
     }
 }

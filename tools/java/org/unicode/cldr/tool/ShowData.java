@@ -700,7 +700,7 @@ public class ShowData {
         .add("%index%", "index.html")
         .add("%header%", header)
         .add("%version%", version)
-        .add("%date%", CldrUtility.isoFormatDateOnly(new Date()));
+        .add("%date%", showDate ? CldrUtility.isoFormatDateOnly(new Date()) : "");
         if (indexTitle != null) {
             langTag
             .add("%index-title%", indexTitle)

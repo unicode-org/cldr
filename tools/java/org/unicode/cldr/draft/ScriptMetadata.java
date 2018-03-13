@@ -24,13 +24,17 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.VersionInfo;
 
 public class ScriptMetadata {
     private static final int MAX_RANK = 33;
     private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
+    private static final VersionInfo UNICODE_VERSION = VersionInfo.getInstance(CldrUtility.getProperty("SCRIPT_UNICODE_VERSION", "10"));
 
-    // To get the data, go do the Script MetaData spreadsheet, and Download As Comma Separated Items into DATA_FILE
+    // To get the data, go do the Script MetaData spreadsheet
+    // Download As Comma Separated Items into DATA_FILE
+    // Set the last string in the UNICODE_VERSION line above to the right Unicode Version (for Unicode beta).
     // Run TestScriptMetadata.
     // Then run GenerateScriptMetadata.
     // See http://cldr.unicode.org/development/updating-codes/updating-script-metadata
@@ -142,6 +146,9 @@ public class ScriptMetadata {
         String code = map.get(oldTerm.toUpperCase(Locale.ENGLISH));
         map.put(newTerm.toUpperCase(Locale.ENGLISH), code);
     }
+    
+    public static final class SkipNewUnicodeException extends ICUException {
+    }
 
     public static class Info implements Comparable<Info> {
         public final int rank;
@@ -161,6 +168,9 @@ public class ScriptMetadata {
             // 3,Han,Hani,1.1,"75,963",字,5B57,China,3,Chinese,zh,Recommended,no,Yes,no,Yes,no
             rank = Math.min(Column.WR.getInt(items, 999), MAX_RANK);
             age = VersionInfo.getInstance(Column.AGE.getItem(items));
+            if (age.compareTo(UNICODE_VERSION) > 0) {
+                throw new SkipNewUnicodeException();
+            }
             // Parse the code point of the sample character, rather than the sample character itself.
             // The code point is more reliable, especially when the spreadsheet has a bug
             // for supplementary characters.
@@ -269,6 +279,8 @@ public class ScriptMetadata {
             Info info;
             try {
                 info = new Info(items);
+            } catch (SkipNewUnicodeException e) {
+                return true;
             } catch (Exception e) {
                 errors.add(e.getClass().getName() + "\t" + e.getMessage() + "\t" + Arrays.asList(items));
                 return true;

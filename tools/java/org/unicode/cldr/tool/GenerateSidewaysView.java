@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -195,7 +196,11 @@ public class GenerateSidewaysView {
         // }
         String headerString = getHeader(path_value_locales.keySet());
         FileCopier.copyAndReplace(GenerateSidewaysView.class, "bytype-index.html", options[DESTDIR].value, "index.html",
-            ImmutableMap.of("%header%", headerString));
+            ImmutableMap.of(
+                "%header%", headerString, 
+                "%version%", ToolConstants.CHART_DISPLAY_VERSION,
+                "%index-title%", "Main Charts Index",
+                "%date%", CldrUtility.isoFormatDateOnly(new Date())));
 //        FileUtilities.copyFile(GenerateSidewaysView.class, "bytype-index.html", options[DESTDIR].value, "index.html",
 //            new String[] { "%header%", headerString });
 

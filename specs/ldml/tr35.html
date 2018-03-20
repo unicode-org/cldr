@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2017-03-07</td>
+				<td class="changed">2017-03-20</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -463,6 +463,7 @@ h5 {
 				<ul class="toc">
 					<li>6.1 <a href="#Script_Metadata">Script Metadata</a></li>
 					<li>6.2 <a href="#Extended_Pictographic">Extended Pictographic</a></li>
+					<li class='changed'>6.3 <a href="#Labels.txt">Labels.txt</a></li>
 				</ul>
 			</li>
 			<li>7 <a href="#Format_Parse_Issues">Issues in Formatting
@@ -5983,7 +5984,7 @@ root</pre>
 	<td>a, a-c, {abc}</td>
 </tr>
 <tr><th>prop</th>
-	<td><code>= '\' [pP] '{' propName ([≠=] s value1+)? '}' <br>| '[:' '^'? propName ([≠=] s value2+)? ':]'</code></td>
+	<td><code>= '\\' [pP] '{' propName ([≠=] s value1+)? '}' <br>| '[:' '^'? propName ([≠=] s value2+)? ':]'</code></td>
 	<td>\p{x=y}, [:x=y:]<br></td>
 </tr>
 <tr><th>propName</th>
@@ -5992,17 +5993,22 @@ root</pre>
 	  General Category</td>
 </tr>
 <tr><th>value1</th>
-	<td><code>= [^\}] <br>| '\' quoted </code></td>
+	<td><code>= [^\}] <br>
+	  | '\\' quoted </code></td>
 	<td>Lm,<br>
-	  a\nb\}</td>
+	  \n,<br>
+	  \}</td>
 </tr>
 <tr><th>value2</th>
-	<td><code>= [^:] <br>| '\' quoted</code></td>
+	<td><code>= [^:] <br>
+	  | '\\' quoted</code></td>
 	<td>Lm,<br>
-a\nb\:</td>
+      \n,<br>
+      \:</td>
 </tr>
 <tr><th>char</th>
-	<td><code>= [^\&amp; \- \[ \[ \] \\ \} \{ [:Pat_WS:]] <br>| '\' quoted</code></td>
+	<td><code>= [^\&amp; \- \[ \[ \] \\ \} \{ [:Pat_WS:]] <br>
+	  | '\\' quoted</code></td>
 	<td>a, b, c, \n</td>
 </tr>
 <tr><th>quoted</th>
@@ -6850,9 +6856,12 @@ decimal?, group?, special*)) &gt;</pre>
 		<p>Each file has a header that explains the format and usage of
 			the data.</p>
 		<h3><a name="Script_Metadata" href="#Script_Metadata">6.1 Script Metadata</a></h3>
-		<p><code>scriptMetadata.txt</code>: This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR.</p>
-		<h3><a name="Extended_Pictographic" href="#Extended_Pictographic">6.2 Extended Pictographic</a></h3>
-        <p><code>ExtendedPictographic.txt</code>: This file defines the Extended_Pictographic (EP) property,  a binary code point property for characters that are pictographic  (or otherwise similar in kind to characters with the Emoji property) and used to customize segmentation so that possible future emoji zwj sequences will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.</p>
+		<p><code>scriptMetadata.txt</code>: </p>
+		<p>This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR. <span class='changed'>The format is similar to Unicode Character Database property file, and is documented in the header of the data file.</span></p>
+		<h3><a name="Extended_Pictographic" href="#Extended_Pictographic">6.2 Extended Pictographic</a>        </h3>
+		<p><code>ExtendedPictographic.txt</code></p>
+	  <p class='changed'>This file was used to define the ExtendedPictographic data used for “future-proofing” emoji behavior, especially in segmentation. As of Emoji version 11.0, the set of Extended_Pictographic is incorporated into the emoji data files found at <a href="https://unicode.org/Public/emoji/">unicode.org/Public/emoji/</a>.</p>
+		<div class='removed'><p>This file defines the Extended_Pictographic (EP) property,  a binary code point property for characters that are pictographic  (or otherwise similar in kind to characters with the Emoji property) and used to customize segmentation so that possible future emoji zwj sequences will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.</p>
         <p>It is used in the following customized rules for  UAX #29 and UAX #14: </p>
         <blockquote>
           <p>Let Extended_Pictographic be defined as in <strong>ExtendedPictographic.txt</strong> </p>
@@ -6863,7 +6872,14 @@ decimal?, group?, special*)) &gt;</pre>
 <p> </p>
 <p>GB11′  (Extended_Pictographic | EmojiNRK) Extend* ZWJ × (Extended_Pictographic |EmojiNRK)</p>
         <p>WB3c′  ZWJ × (Extended_Pictographic | EmojiNRK)</p>
-        <p>LB8a′ ZWJ × (ID | Extended_Pictographic | EmojiNRK)        </p>
+			<p>LB8a′ ZWJ × (ID | Extended_Pictographic | EmojiNRK)        </p>
+      </div>
+      <div class='changed'>
+	  <h3><a name="Labels.txt" href="#Labels.txt">6.3 Labels.txt</a>        </h3>
+		<p><code>labels.txt</code>: </p>
+		  <p>This file provides general information about associations of labels to characters that may be useful to implementations of character-picking applications. The information is the best currently available, and may change between versions of CLDR. <span class='changed'>The format is similar to Unicode Character Database property file, and is documented in the header of the data file.</span></p>
+		  <p>Initially, the contents are focused on emoji, but may be expanded in the future to other types of characters. Note that a character may have multiple labels.</p>
+       </div>
         <h2>
 			<a name="Format_Parse_Issues" href="#Format_Parse_Issues">7
 				Issues in Formatting and Parsing</a>
@@ -8614,8 +8630,19 @@ decimal?, group?, special*)) &gt;</pre>
 				  href="http://unicode.org/cldr/trac/ticket/10670">#10670</a>]</li>
       <li>Added \u{xxx} notation. [<a
 				  href="http://unicode.org/cldr/trac/ticket/10669">#10669</a>]</li>
-    </ul>
+      </ul>
   </li>
+  <li>Sections 6.2 <a href="#Extended_Pictographic">Extended Pictographic</a>
+<ul>
+  <li>Retracted ExtendedPictographic.txt, since it is now part of the emoji data. [<a
+				  href="http://unicode.org/cldr/trac/ticket/10931">#10931</a>]</li>
+</ul>
+  </li>
+  <li>Section 6.3 <a href="#Labels.txt">Labels.txt</a></li>
+  <ul>
+    <li>Added new section on character label data. [<a
+				  href="http://unicode.org/cldr/trac/ticket/10931">#10931</a>]</li>
+  </ul>
   </ul>
 <p><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong></p>
 <ul>

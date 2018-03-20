@@ -6621,21 +6621,23 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
 			blockingItems elements NMTOKENS #IMPLIED &gt;
 		</p>
 		<p>
-			The blockingItems indicate which elements (and their child elements)
+			The blockingItems <span class="changed">were used to </span>indicate which elements (and their child elements)
 			do not inherit. For example, because supplementalData is a blocking
 			item, all paths containing the element <span class="element">supplementalData</span>
-			do not inherit.
+			do not inherit.<span class="changed"> However, <strong>the &lt;blockingItems&gt; element is now deprecated,</strong>
+			having been replaced by the annotations in the DTD and the DTDData classes in CLDR tooling.</span>
 		</p>
 		<pre class="dtd">&lt;!ELEMENT distinguishingItems EMPTY &gt;
 &lt;!ATTLIST distinguishingItems exclude ( true | false ) #IMPLIED &gt;
 &lt;!ATTLIST distinguishingItems elements NMTOKENS #IMPLIED &gt;
 &lt;!ATTLIST distinguishingItems attributes NMTOKENS #IMPLIED &gt;</pre>
 		<p>
-			The distinguishing items indicate which combinations of elements and
+			The distinguishing items <span class="changed">were used to </span>indicate which combinations of elements and
 			attributes (in unblocked environments) are <i>distinguishing</i> in
 			performing inheritance. For example, the attribute type is
 			distinguishing <i>except</i> in combination with certain elements,
-			such as in:
+			such as in<span class="changed"> the following. However, <strong>the &lt;distinguishingItems&gt; element is now deprecated,</strong>
+			having been replaced by the annotations in the DTD and the DTDData classes in CLDR tooling.</span>
 		</p>
 		<pre>&lt;distinguishingItems
   exclude=&quot;true&quot;
@@ -8630,20 +8632,31 @@ decimal?, group?, special*)) &gt;</pre>
 				  href="http://unicode.org/cldr/trac/ticket/10670">#10670</a>]</li>
       <li>Added \u{xxx} notation. [<a
 				  href="http://unicode.org/cldr/trac/ticket/10669">#10669</a>]</li>
-      </ul>
+    </ul>
   </li>
+
+  <li>Section 5.5 <a href="#Valid_Attribute_Values">Valid Attribute Values</a>
+    <ul>
+      <li>Noted that the &lt;blockingItems&gt; and &lt;distinguishingItems&gt; elements are now
+      	deprecated. [<a
+			href="http://unicode.org/cldr/trac/ticket/10194">#10194</a>]</li>
+    </ul>
+  </li>
+
   <li>Sections 6.2 <a href="#Extended_Pictographic">Extended Pictographic</a>
-<ul>
-  <li>Retracted ExtendedPictographic.txt, since it is now part of the emoji data. [<a
+	<ul>
+		<li>Retracted ExtendedPictographic.txt, since it is now part of the emoji data. [<a
 				  href="http://unicode.org/cldr/trac/ticket/10931">#10931</a>]</li>
-</ul>
+	</ul>
   </li>
-  <li>Section 6.3 <a href="#Labels.txt">Labels.txt</a></li>
-  <ul>
-    <li>Added new section on character label data. [<a
+
+  <li>Section 6.3 <a href="#Labels.txt">Labels.txt</a>
+ 	 <ul>
+    	<li>Added new section on character label data. [<a
 				  href="http://unicode.org/cldr/trac/ticket/10931">#10931</a>]</li>
-  </ul>
-  </ul>
+  	</ul>
+  </li>
+</ul>
 <p><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong></p>
 <ul>
   <li>Section 5 <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>

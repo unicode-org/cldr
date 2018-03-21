@@ -86,18 +86,8 @@ public class PathHeader implements Comparable<PathHeader> {
      * the human name
      */
     public enum SectionId {
-        Core_Data("Core Data"),
-        Locale_Display_Names("Locale Display Names"),
-        DateTime("Date & Time"),
-        Timezones,
-        Numbers,
-        Currencies,
-        Units,
-        Characters,
-        Misc("Miscellaneous"),
-        BCP47,
-        Supplemental,
-        Special;
+        Core_Data("Core Data"), Locale_Display_Names("Locale Display Names"), DateTime("Date & Time"), Timezones, Numbers, Currencies, Units, Characters, Misc(
+            "Miscellaneous"), BCP47, Supplemental, Special;
 
         private SectionId(String... alternateNames) {
             SectionIdNames.add(this, alternateNames);
@@ -114,7 +104,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
     private static EnumNames<PageId> PageIdNames = new EnumNames<PageId>();
     private static Relation<SectionId, PageId> SectionIdToPageIds = Relation.of(new TreeMap<SectionId, Set<PageId>>(),
-            TreeSet.class);
+        TreeSet.class);
 
     private static class SubstringOrder implements Comparable<SubstringOrder> {
         final String mainOrder;
@@ -125,9 +115,9 @@ public class PathHeader implements Comparable<PathHeader> {
             int ordering = COUNTS.indexOf(source.substring(pos));
             // account for digits, and "some" future proofing.
             order = ordering < 0
-                    ? source.charAt(pos)
-                            : 0x10000 + ordering;
-                    mainOrder = source.substring(0, pos);
+                ? source.charAt(pos)
+                : 0x10000 + ordering;
+            mainOrder = source.substring(0, pos);
         }
 
         @Override
@@ -151,143 +141,100 @@ public class PathHeader implements Comparable<PathHeader> {
      * Western Asia
      */
     public enum PageId {
-        Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"),
-        Numbering_Systems(SectionId.Core_Data, "Numbering Systems"),
-        Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"),
-        Languages_A_D(SectionId.Locale_Display_Names, "Languages (A-D)"),
-        Languages_E_J(SectionId.Locale_Display_Names, "Languages (E-J)"),
-        Languages_K_N(SectionId.Locale_Display_Names, "Languages (K-N)"),
-        Languages_O_S(SectionId.Locale_Display_Names, "Languages (O-S)"),
-        Languages_T_Z(SectionId.Locale_Display_Names, "Languages (T-Z)"),
-        Scripts(SectionId.Locale_Display_Names),
-        Territories(SectionId.Locale_Display_Names, "Geographic Regions"),
-        T_NAmerica(SectionId.Locale_Display_Names, "Territories (North America)"),
-        T_SAmerica(SectionId.Locale_Display_Names, "Territories (South America)"),
-        T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"),
-        T_Europe(SectionId.Locale_Display_Names, "Territories (Europe)"),
-        T_Asia(SectionId.Locale_Display_Names, "Territories (Asia)"),
-        T_Oceania(SectionId.Locale_Display_Names, "Territories (Oceania)"),
-        Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"),
-        Keys(SectionId.Locale_Display_Names),
-        Fields(SectionId.DateTime),
-        Gregorian(SectionId.DateTime),
-        Generic(SectionId.DateTime),
-        Buddhist(SectionId.DateTime),
-        Chinese(SectionId.DateTime),
-        Coptic(SectionId.DateTime),
-        Dangi(SectionId.DateTime),
-        Ethiopic(SectionId.DateTime),
-        Ethiopic_Amete_Alem(SectionId.DateTime, "Ethiopic-Amete-Alem"),
-        Hebrew(SectionId.DateTime),
-        Indian(SectionId.DateTime),
-        Islamic(SectionId.DateTime),
-        Japanese(SectionId.DateTime),
-        Persian(SectionId.DateTime),
-        Minguo(SectionId.DateTime),
-        Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"),
-        NAmerica(SectionId.Timezones, "North America"),
-        SAmerica(SectionId.Timezones, "South America"),
-        Africa(SectionId.Timezones),
-        Europe(SectionId.Timezones),
-        Russia(SectionId.Timezones),
-        WAsia(SectionId.Timezones, "Western Asia"),
-        CAsia(SectionId.Timezones, "Central Asia"),
-        EAsia(SectionId.Timezones, "Eastern Asia"),
-        SAsia(SectionId.Timezones, "Southern Asia"),
-        SEAsia(SectionId.Timezones, "Southeast Asia"),
-        Australasia(SectionId.Timezones),
-        Antarctica(SectionId.Timezones),
-        Oceania(SectionId.Timezones),
-        UnknownT(SectionId.Timezones, "Unknown Region"),
-        Overrides(SectionId.Timezones),
-        Symbols(SectionId.Numbers),
-        MinimalPairs(SectionId.Numbers, "Minimal Pairs"),
-        Number_Formatting_Patterns(SectionId.Numbers, "Number Formatting Patterns"),
-        Compact_Decimal_Formatting(SectionId.Numbers, "Compact Decimal Formatting"),
-        Compact_Decimal_Formatting_Other(SectionId.Numbers, "Compact Decimal Formatting (Other Numbering Systems)"),
-        Measurement_Systems(SectionId.Units, "Measurement Systems"),
-        Duration(SectionId.Units),
-        Length(SectionId.Units),
-        Area(SectionId.Units),
-        Volume(SectionId.Units),
-        SpeedAcceleration(SectionId.Units, "Speed and Acceleration"),
-        MassWeight(SectionId.Units, "Mass and Weight"),
-        EnergyPower(SectionId.Units, "Energy and Power"),
-        ElectricalFrequency(SectionId.Units, "Electrical and Frequency"),
-        Weather(SectionId.Units),
-        Digital(SectionId.Units),
-        Coordinates(SectionId.Units),
-        OtherUnits(SectionId.Units, "Other Units"),
-        CompoundUnits(SectionId.Units, "Compound Units"),
-        Displaying_Lists(SectionId.Misc, "Displaying Lists"),
-        LinguisticElements(SectionId.Misc, "Linguistic Elements"),
-        Transforms(SectionId.Misc),
-        Identity(SectionId.Special),
-        Version(SectionId.Special),
-        Suppress(SectionId.Special),
-        Deprecated(SectionId.Special),
-        Unknown(SectionId.Special),
-        C_NAmerica(SectionId.Currencies, "North America (C)"), //need to add (C) to differentiate from Timezone territories
-        C_SAmerica(SectionId.Currencies, "South America (C)"),
-        C_NWEurope(SectionId.Currencies, "Northern/Western Europe"),
-        C_SEEurope(SectionId.Currencies, "Southern/Eastern Europe"),
-        C_NAfrica(SectionId.Currencies, "Northern Africa"),
-        C_WAfrica(SectionId.Currencies, "Western Africa"),
-        C_MAfrica(SectionId.Currencies, "Middle Africa"),
-        C_EAfrica(SectionId.Currencies, "Eastern Africa"),
-        C_SAfrica(SectionId.Currencies, "Southern Africa"),
-        C_WAsia(SectionId.Currencies, "Western Asia (C)"),
-        C_CAsia(SectionId.Currencies, "Central Asia (C)"),
-        C_EAsia(SectionId.Currencies, "Eastern Asia (C)"),
-        C_SAsia(SectionId.Currencies, "Southern Asia (C)"),
-        C_SEAsia(SectionId.Currencies, "Southeast Asia (C)"),
-        C_Oceania(SectionId.Currencies, "Oceania (C)"),
-        C_Unknown(SectionId.Currencies, "Unknown Region (C)"), 
+        Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"), Numbering_Systems(SectionId.Core_Data,
+            "Numbering Systems"), Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"), Languages_A_D(SectionId.Locale_Display_Names,
+                "Languages (A-D)"), Languages_E_J(SectionId.Locale_Display_Names, "Languages (E-J)"), Languages_K_N(SectionId.Locale_Display_Names,
+                    "Languages (K-N)"), Languages_O_S(SectionId.Locale_Display_Names, "Languages (O-S)"), Languages_T_Z(SectionId.Locale_Display_Names,
+                        "Languages (T-Z)"), Scripts(SectionId.Locale_Display_Names), Territories(SectionId.Locale_Display_Names,
+                            "Geographic Regions"), T_NAmerica(SectionId.Locale_Display_Names, "Territories (North America)"), T_SAmerica(
+                                SectionId.Locale_Display_Names,
+                                "Territories (South America)"), T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"), T_Europe(
+                                    SectionId.Locale_Display_Names,
+                                    "Territories (Europe)"), T_Asia(SectionId.Locale_Display_Names, "Territories (Asia)"), T_Oceania(
+                                        SectionId.Locale_Display_Names,
+                                        "Territories (Oceania)"), Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"), Keys(
+                                            SectionId.Locale_Display_Names), Fields(SectionId.DateTime), Gregorian(SectionId.DateTime), Generic(
+                                                SectionId.DateTime), Buddhist(SectionId.DateTime), Chinese(SectionId.DateTime), Coptic(
+                                                    SectionId.DateTime), Dangi(SectionId.DateTime), Ethiopic(SectionId.DateTime), Ethiopic_Amete_Alem(
+                                                        SectionId.DateTime, "Ethiopic-Amete-Alem"), Hebrew(SectionId.DateTime), Indian(
+                                                            SectionId.DateTime), Islamic(SectionId.DateTime), Japanese(SectionId.DateTime), Persian(
+                                                                SectionId.DateTime), Minguo(SectionId.DateTime), Timezone_Display_Patterns(SectionId.Timezones,
+                                                                    "Timezone Display Patterns"), NAmerica(SectionId.Timezones, "North America"), SAmerica(
+                                                                        SectionId.Timezones, "South America"), Africa(SectionId.Timezones), Europe(
+                                                                            SectionId.Timezones), Russia(SectionId.Timezones), WAsia(SectionId.Timezones,
+                                                                                "Western Asia"), CAsia(SectionId.Timezones, "Central Asia"), EAsia(
+                                                                                    SectionId.Timezones,
+                                                                                    "Eastern Asia"), SAsia(SectionId.Timezones, "Southern Asia"), SEAsia(
+                                                                                        SectionId.Timezones,
+                                                                                        "Southeast Asia"), Australasia(SectionId.Timezones), Antarctica(
+                                                                                            SectionId.Timezones), Oceania(SectionId.Timezones), UnknownT(
+                                                                                                SectionId.Timezones,
+                                                                                                "Unknown Region"), Overrides(SectionId.Timezones), Symbols(
+                                                                                                    SectionId.Numbers), MinimalPairs(SectionId.Numbers,
+                                                                                                        "Minimal Pairs"), Number_Formatting_Patterns(
+                                                                                                            SectionId.Numbers,
+                                                                                                            "Number Formatting Patterns"), Compact_Decimal_Formatting(
+                                                                                                                SectionId.Numbers,
+                                                                                                                "Compact Decimal Formatting"), Compact_Decimal_Formatting_Other(
+                                                                                                                    SectionId.Numbers,
+                                                                                                                    "Compact Decimal Formatting (Other Numbering Systems)"), Measurement_Systems(
+                                                                                                                        SectionId.Units,
+                                                                                                                        "Measurement Systems"), Duration(
+                                                                                                                            SectionId.Units), Length(
+                                                                                                                                SectionId.Units), Area(
+                                                                                                                                    SectionId.Units), Volume(
+                                                                                                                                        SectionId.Units), SpeedAcceleration(
+                                                                                                                                            SectionId.Units,
+                                                                                                                                            "Speed and Acceleration"), MassWeight(
+                                                                                                                                                SectionId.Units,
+                                                                                                                                                "Mass and Weight"), EnergyPower(
+                                                                                                                                                    SectionId.Units,
+                                                                                                                                                    "Energy and Power"), ElectricalFrequency(
+                                                                                                                                                        SectionId.Units,
+                                                                                                                                                        "Electrical and Frequency"), Weather(
+                                                                                                                                                            SectionId.Units), Digital(
+                                                                                                                                                                SectionId.Units), Coordinates(
+                                                                                                                                                                    SectionId.Units), OtherUnits(
+                                                                                                                                                                        SectionId.Units,
+                                                                                                                                                                        "Other Units"), CompoundUnits(
+                                                                                                                                                                            SectionId.Units,
+                                                                                                                                                                            "Compound Units"), Displaying_Lists(
+                                                                                                                                                                                SectionId.Misc,
+                                                                                                                                                                                "Displaying Lists"), LinguisticElements(
+                                                                                                                                                                                    SectionId.Misc,
+                                                                                                                                                                                    "Linguistic Elements"), Transforms(
+                                                                                                                                                                                        SectionId.Misc), Identity(
+                                                                                                                                                                                            SectionId.Special), Version(
+                                                                                                                                                                                                SectionId.Special), Suppress(
+                                                                                                                                                                                                    SectionId.Special), Deprecated(
+                                                                                                                                                                                                        SectionId.Special), Unknown(
+                                                                                                                                                                                                            SectionId.Special), C_NAmerica(
+                                                                                                                                                                                                                SectionId.Currencies,
+                                                                                                                                                                                                                "North America (C)"), //need to add (C) to differentiate from Timezone territories
+        C_SAmerica(SectionId.Currencies, "South America (C)"), C_NWEurope(SectionId.Currencies, "Northern/Western Europe"), C_SEEurope(SectionId.Currencies,
+            "Southern/Eastern Europe"), C_NAfrica(SectionId.Currencies, "Northern Africa"), C_WAfrica(SectionId.Currencies, "Western Africa"), C_MAfrica(
+                SectionId.Currencies, "Middle Africa"), C_EAfrica(SectionId.Currencies, "Eastern Africa"), C_SAfrica(SectionId.Currencies,
+                    "Southern Africa"), C_WAsia(SectionId.Currencies, "Western Asia (C)"), C_CAsia(SectionId.Currencies, "Central Asia (C)"), C_EAsia(
+                        SectionId.Currencies, "Eastern Asia (C)"), C_SAsia(SectionId.Currencies, "Southern Asia (C)"), C_SEAsia(SectionId.Currencies,
+                            "Southeast Asia (C)"), C_Oceania(SectionId.Currencies, "Oceania (C)"), C_Unknown(SectionId.Currencies, "Unknown Region (C)"),
         // BCP47
-        u_Extension(SectionId.BCP47), 
-        t_Extension(SectionId.BCP47), 
+        u_Extension(SectionId.BCP47), t_Extension(SectionId.BCP47),
         // Supplemental
-        Alias(SectionId.Supplemental), 
-        IdValidity(SectionId.Supplemental),
-        Locale(SectionId.Supplemental),
-        RegionMapping(SectionId.Supplemental),
-        WZoneMapping(SectionId.Supplemental),
-        Transform(SectionId.Supplemental),
-        UnitPreferences(SectionId.Supplemental),
-        Likely(SectionId.Supplemental),
-        LanguageMatch(SectionId.Supplemental),
-        TerritoryInfo(SectionId.Supplemental),
-        LanguageInfo(SectionId.Supplemental),
-        LanguageGroup(SectionId.Supplemental),
-        Fallback(SectionId.Supplemental),
-        Gender(SectionId.Supplemental),
-        Metazone(SectionId.Supplemental),
-        NumberSystem(SectionId.Supplemental),
-        Plural(SectionId.Supplemental),
-        PluralRange(SectionId.Supplemental),
-        Containment(SectionId.Supplemental),
-        Currency(SectionId.Supplemental),
-        Calendar(SectionId.Supplemental),
-        WeekData(SectionId.Supplemental),
-        Measurement(SectionId.Supplemental),
-        Language(SectionId.Supplemental),
-        RBNF(SectionId.Supplemental),
-        Segmentation(SectionId.Supplemental),
-        DayPeriod(SectionId.Supplemental),
+        Alias(SectionId.Supplemental), IdValidity(SectionId.Supplemental), Locale(SectionId.Supplemental), RegionMapping(SectionId.Supplemental), WZoneMapping(
+            SectionId.Supplemental), Transform(SectionId.Supplemental), UnitPreferences(SectionId.Supplemental), Likely(SectionId.Supplemental), LanguageMatch(
+                SectionId.Supplemental), TerritoryInfo(SectionId.Supplemental), LanguageInfo(SectionId.Supplemental), LanguageGroup(
+                    SectionId.Supplemental), Fallback(SectionId.Supplemental), Gender(SectionId.Supplemental), Metazone(SectionId.Supplemental), NumberSystem(
+                        SectionId.Supplemental), Plural(SectionId.Supplemental), PluralRange(SectionId.Supplemental), Containment(
+                            SectionId.Supplemental), Currency(SectionId.Supplemental), Calendar(SectionId.Supplemental), WeekData(
+                                SectionId.Supplemental), Measurement(SectionId.Supplemental), Language(SectionId.Supplemental), RBNF(
+                                    SectionId.Supplemental), Segmentation(SectionId.Supplemental), DayPeriod(SectionId.Supplemental),
 
         Category(SectionId.Characters),
         // [Smileys, People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags]
-        Smileys(SectionId.Characters),
-        People(SectionId.Characters),
-        Animals_Nature(SectionId.Characters, "Animals & Nature"),
-        Food_Drink(SectionId.Characters, "Food & Drink"),
-        Travel_Places(SectionId.Characters, "Travel & Places"),
-        Activities(SectionId.Characters),
-        Objects(SectionId.Characters),
-        Symbols2(SectionId.Characters),
-        Flags(SectionId.Characters),
-        Component(SectionId.Characters),
-        
+        Smileys(SectionId.Characters), People(SectionId.Characters), Animals_Nature(SectionId.Characters, "Animals & Nature"), Food_Drink(SectionId.Characters,
+            "Food & Drink"), Travel_Places(SectionId.Characters, "Travel & Places"), Activities(SectionId.Characters), Objects(
+                SectionId.Characters), Symbols2(SectionId.Characters), Flags(SectionId.Characters), Component(SectionId.Characters),
+
         Typography(SectionId.Characters),
         ;
 
@@ -346,10 +293,10 @@ public class PathHeader implements Comparable<PathHeader> {
 
     static final Pattern SEMI = PatternCache.get("\\s*;\\s*");
     static final Matcher ALT_MATCHER = PatternCache.get(
-            "\\[@alt=\"([^\"]*+)\"]")
-            .matcher("");
+        "\\[@alt=\"([^\"]*+)\"]")
+        .matcher("");
 
-     static final Collator alphabetic = CLDRConfig.getInstance().getCollator();// (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+    static final Collator alphabetic = CLDRConfig.getInstance().getCollator();// (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
 
 //    static final RuleBasedCollator alphabetic = (RuleBasedCollator) Collator
 //            .getInstance(ULocale.ENGLISH);
@@ -360,7 +307,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
     static final Map<String, String> metazoneToContinent = supplementalDataInfo
-            .getMetazoneToContinentMap();
+        .getMetazoneToContinentMap();
     static final StandardCodes standardCode = StandardCodes.make();
     static final Map<String, String> metazoneToPageTerritory = new HashMap<String, String>();
     static {
@@ -407,8 +354,8 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param status
      */
     private PathHeader(SectionId sectionId, PageId pageId, String header,
-            int headerOrder, String code, int codeOrder, SubstringOrder suborder, SurveyToolStatus status,
-            String originalPath) {
+        int headerOrder, String code, int codeOrder, SubstringOrder suborder, SurveyToolStatus status,
+        String originalPath) {
         this.sectionId = sectionId;
         this.pageId = pageId;
         this.header = header;
@@ -434,7 +381,7 @@ public class PathHeader implements Comparable<PathHeader> {
             }
             if (!englishFile.getLocaleID().equals(ULocale.ENGLISH.getBaseName())) {
                 throw new IllegalArgumentException("PathHeader's CLDRFile must be '" +
-                        ULocale.ENGLISH.getBaseName() + "', but found '" + englishFile.getLocaleID() + "'");
+                    ULocale.ENGLISH.getBaseName() + "', but found '" + englishFile.getLocaleID() + "'");
             }
             factorySingleton = new Factory(englishFile);
         }
@@ -486,10 +433,10 @@ public class PathHeader implements Comparable<PathHeader> {
     @Override
     public String toString() {
         return sectionId
-                + "\t" + pageId
-                + "\t" + header // + "\t" + headerOrder
-                + "\t" + code // + "\t" + codeOrder
-                ;
+            + "\t" + pageId
+            + "\t" + header // + "\t" + headerOrder
+            + "\t" + code // + "\t" + codeOrder
+        ;
     }
 
     @Override
@@ -582,7 +529,7 @@ public class PathHeader implements Comparable<PathHeader> {
             return false;
         }
         return sectionId == other.sectionId && pageId == other.pageId
-                && header.equals(other.header) && code.equals(other.code);
+            && header.equals(other.header) && code.equals(other.code);
     }
 
     @Override
@@ -592,12 +539,12 @@ public class PathHeader implements Comparable<PathHeader> {
 
     public static class Factory implements Transform<String, PathHeader> {
         static final RegexLookup<RawData> lookup = RegexLookup
-                .of(new PathHeaderTransform())
-                .setPatternTransform(
-                        RegexLookup.RegexFinderTransformPath)
-                        .loadFromFile(
-                                PathHeader.class,
-                                "data/PathHeader.txt");
+            .of(new PathHeaderTransform())
+            .setPatternTransform(
+                RegexLookup.RegexFinderTransformPath)
+            .loadFromFile(
+                PathHeader.class,
+                "data/PathHeader.txt");
         // synchronized with lookup
         static final Output<String[]> args = new Output<String[]>();
         // synchronized with lookup
@@ -611,10 +558,10 @@ public class PathHeader implements Comparable<PathHeader> {
         static final Map<String, PathHeader> cache = new HashMap<String, PathHeader>();
         // synchronized with cache
         static final Map<SectionId, Map<PageId, SectionPage>> sectionToPageToSectionPage = new EnumMap<SectionId, Map<PageId, SectionPage>>(
-                SectionId.class);
+            SectionId.class);
         static final Relation<SectionPage, String> sectionPageToPaths = Relation
-                .of(new TreeMap<SectionPage, Set<String>>(),
-                        HashSet.class);
+            .of(new TreeMap<SectionPage, Set<String>>(),
+                HashSet.class);
         private static CLDRFile englishFile;
         private Set<String> matchersFound = new HashSet<String>();
 
@@ -690,7 +637,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     if (ALT_MATCHER.reset(cleanPath).find()) {
                         alt = ALT_MATCHER.group(1);
                         cleanPath = cleanPath.substring(0, ALT_MATCHER.start())
-                                + cleanPath.substring(ALT_MATCHER.end());
+                            + cleanPath.substring(ALT_MATCHER.end());
                         int pos = alt.indexOf("proposed");
                         if (pos >= 0 && !path.startsWith("//ldml/collations")) {
                             alt = pos == 0 ? null : alt.substring(0, pos - 1);
@@ -713,16 +660,16 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
                 try {
                     PathHeader result = new PathHeader(
-                            SectionId.forString(fix(data.section, 0)),
-                            PageId.forString(fix(data.page, 0)),
-                            fix(data.header, data.headerOrder),
-                            order, // only valid after call to fix. TODO, make
-                            // this cleaner
-                            fix(data.code + (alt == null ? "" : ("-" + alt)), data.codeOrder),
-                            order, // only valid after call to fix
-                            suborder,
-                            data.status,
-                            path);
+                        SectionId.forString(fix(data.section, 0)),
+                        PageId.forString(fix(data.page, 0)),
+                        fix(data.header, data.headerOrder),
+                        order, // only valid after call to fix. TODO, make
+                        // this cleaner
+                        fix(data.code + (alt == null ? "" : ("-" + alt)), data.codeOrder),
+                        order, // only valid after call to fix
+                        suborder,
+                        data.status,
+                        path);
                     synchronized (cache) {
                         PathHeader old = cache.get(path);
                         if (old == null) {
@@ -731,10 +678,9 @@ public class PathHeader implements Comparable<PathHeader> {
                             result = old;
                         }
                         Map<PageId, SectionPage> pageToPathHeaders = sectionToPageToSectionPage
-                                .get(result.sectionId);
+                            .get(result.sectionId);
                         if (pageToPathHeaders == null) {
-                            sectionToPageToSectionPage.put(result.sectionId, pageToPathHeaders
-                                    = new EnumMap<PageId, SectionPage>(PageId.class));
+                            sectionToPageToSectionPage.put(result.sectionId, pageToPathHeaders = new EnumMap<PageId, SectionPage>(PageId.class));
                         }
                         SectionPage sectionPage = pageToPathHeaders.get(result.pageId);
                         if (sectionPage == null) {
@@ -746,8 +692,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
-                            "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + cleanPath,
-                            e);
+                        "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + cleanPath,
+                        e);
                 }
             }
         }
@@ -814,7 +760,7 @@ public class PathHeader implements Comparable<PathHeader> {
             Set<String> target = new HashSet<String>();
             synchronized (cache) {
                 Map<PageId, SectionPage> pageToSectionPage = sectionToPageToSectionPage
-                        .get(sectionId);
+                    .get(sectionId);
                 if (pageToSectionPage == null) {
                     return target;
                 }
@@ -981,10 +927,10 @@ public class PathHeader implements Comparable<PathHeader> {
             @Override
             public String toString() {
                 return section + "\t"
-                        + page + "\t"
-                        + header + "\t" + headerOrder + "\t"
-                        + code + "\t" + codeOrder + "\t"
-                        + status;
+                    + page + "\t"
+                    + header + "\t" + headerOrder + "\t"
+                    + code + "\t" + codeOrder + "\t"
+                    + status;
             }
         }
 
@@ -1003,7 +949,7 @@ public class PathHeader implements Comparable<PathHeader> {
         public class CounterData extends Row.R4<String, RawData, String, String> {
             public CounterData(String a, RawData b, String c) {
                 super(a, b, c == null ? "no sample" : c, c == null ? "no sample" : fromPath(c)
-                        .toString());
+                    .toString());
             }
         }
 
@@ -1030,14 +976,14 @@ public class PathHeader implements Comparable<PathHeader> {
             "Apr", "May", "Jun",
             "Jul", "Aug", "Sep",
             "Oct", "Nov", "Dec",
-        "Und" };
+            "Und" };
         static List<String> days = Arrays.asList("sun", "mon",
-                "tue", "wed", "thu",
-                "fri", "sat");
+            "tue", "wed", "thu",
+            "fri", "sat");
         static List<String> unitOrder = DtdData.unitOrder.getOrder();
         static final MapComparator<String> dayPeriods = new MapComparator<String>().add(
-                "am", "pm", "midnight", "noon",
-                "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
+            "am", "pm", "midnight", "noon",
+            "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2").freeze();
         // static Map<String, String> likelySubtags =
         // supplementalDataInfo.getLikelySubtags();
         static LikelySubtags likelySubtags = new LikelySubtags();
@@ -1118,12 +1064,12 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("calendar", new Transform<String, String>() {
                 Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
-                        .put("islamicc", "Islamic Civil")
-                        .put("roc", "Minguo")
-                        .put("Ethioaa", "Ethiopic Amete Alem")
-                        .put("Gregory", "Gregorian")
-                        .put("iso8601", "ISO 8601")
-                        .freeze();
+                    .put("islamicc", "Islamic Civil")
+                    .put("roc", "Minguo")
+                    .put("Ethioaa", "Ethiopic Amete Alem")
+                    .put("Gregory", "Gregorian")
+                    .put("iso8601", "ISO 8601")
+                    .freeze();
 
                 public String transform(String source) {
                     String result = fixNames.get(source);
@@ -1136,41 +1082,41 @@ public class PathHeader implements Comparable<PathHeader> {
                     String[] fields = source.split(":", 3);
                     order = 0;
                     final List<String> widthValues = Arrays.asList(
-                            "wide", "abbreviated", "short", "narrow");
+                        "wide", "abbreviated", "short", "narrow");
                     final List<String> calendarFieldValues = Arrays.asList(
-                            "Eras",
-                            "Quarters",
-                            "Months",
-                            "Days",
-                            "DayPeriods",
-                            "Formats");
+                        "Eras",
+                        "Quarters",
+                        "Months",
+                        "Days",
+                        "DayPeriods",
+                        "Formats");
                     final List<String> calendarFormatTypes = Arrays.asList(
-                            "Standard",
-                            "Flexible",
-                            "Intervals");
+                        "Standard",
+                        "Flexible",
+                        "Intervals");
                     final List<String> calendarContextTypes = Arrays.asList(
-                            "none",
-                            "format",
-                            "stand-alone");
+                        "none",
+                        "format",
+                        "stand-alone");
                     final List<String> calendarFormatSubtypes = Arrays.asList(
-                            "date",
-                            "time",
-                            "time12",
-                            "time24",
-                            "dateTime",
-                            "fallback");
+                        "date",
+                        "time",
+                        "time12",
+                        "time24",
+                        "dateTime",
+                        "fallback");
 
                     Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
-                            .put("DayPeriods", "Day Periods")
-                            .put("format", "Formatting")
-                            .put("stand-alone", "Standalone")
-                            .put("none", "")
-                            .put("date", "Date Formats")
-                            .put("time", "Time Formats")
-                            .put("time12", "12 Hour Time Formats")
-                            .put("time24", "24 Hour Time Formats")
-                            .put("dateTime", "Date & Time Combination Formats")
-                            .freeze();
+                        .put("DayPeriods", "Day Periods")
+                        .put("format", "Formatting")
+                        .put("stand-alone", "Standalone")
+                        .put("none", "")
+                        .put("date", "Date Formats")
+                        .put("time", "Time Formats")
+                        .put("time12", "12 Hour Time Formats")
+                        .put("time24", "24 Hour Time Formats")
+                        .put("dateTime", "Date & Time Combination Formats")
+                        .freeze();
 
                     if (calendarFieldValues.contains(fields[0])) {
                         order = calendarFieldValues.indexOf(fields[0]) * 100;
@@ -1209,8 +1155,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
 
                     return fixedFields[0] +
-                            " - " + fixedFields[1] +
-                            (fixedFields[2].length() > 0 ? " - " + fixedFields[2] : "");
+                        " - " + fixedFields[1] +
+                        (fixedFields[2].length() > 0 ? " - " + fixedFields[2] : "");
                 }
             });
 
@@ -1232,11 +1178,11 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("categoryFromKey", new Transform<String, String>() {
                 Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
-                        .put("lb", "Line Break")
-                        .put("hc", "Hour Cycle")
-                        .put("ms", "Measurement System")
-                        .put("cf", "Currency Format")
-                        .freeze();
+                    .put("lb", "Line Break")
+                    .put("hc", "Hour Cycle")
+                    .put("ms", "Measurement System")
+                    .put("cf", "Currency Format")
+                    .freeze();
 
                 public String transform(String source) {
                     String fixedName = fixNames.get(source);
@@ -1252,7 +1198,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     for (int i = 0; i < languageRangeStartPoints.length; i++) {
                         if (firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i]) {
                             return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i])
-                                    + ")";
+                                + ")";
                         }
                     }
                     return "Languages";
@@ -1285,26 +1231,27 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     String scriptName = englishFile.getName(CLDRFile.SCRIPT_NAME, script);
                     return "Languages in " + (script.equals("Hans") || script.equals("Hant") ? "Han Script"
-                            : scriptName.endsWith(" Script") ? scriptName
-                                    : scriptName + " Script");
+                        : scriptName.endsWith(" Script") ? scriptName
+                            : scriptName + " Script");
                 }
             });
             functionMap.put("categoryFromTerritory",
-                    catFromTerritory = new Transform<String, String>() {
-                public String transform(String source) {
-                    String territory = getSubdivisionsTerritory(source, null);
-                    String container = Containment.getContainer(territory);
-                    order = Containment.getOrder(territory);
-                    return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
-                }
-            });
+                catFromTerritory = new Transform<String, String>() {
+                    public String transform(String source) {
+                        String territory = getSubdivisionsTerritory(source, null);
+                        String container = Containment.getContainer(territory);
+                        order = Containment.getOrder(territory);
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
+                    }
+                });
             functionMap.put("territorySection", new Transform<String, String>() {
                 final Set<String> specialRegions = new HashSet<String>(Arrays.asList("EZ", "EU", "QO", "UN", "ZZ"));
+
                 public String transform(String source0) {
                     // support subdivisions
                     String theTerritory = getSubdivisionsTerritory(source0, null);
                     try {
-                        if (specialRegions.contains(theTerritory) 
+                        if (specialRegions.contains(theTerritory)
                             || theTerritory.charAt(0) < 'A' && Integer.valueOf(theTerritory) > 0) {
                             return "Geographic Regions";
                         }
@@ -1326,15 +1273,15 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("categoryFromTimezone",
-                    catFromTimezone = new Transform<String, String>() {
-                public String transform(String source0) {
-                    String territory = Containment.getRegionFromZone(source0);
-                    if (territory == null) {
-                        territory = "ZZ";
+                catFromTimezone = new Transform<String, String>() {
+                    public String transform(String source0) {
+                        String territory = Containment.getRegionFromZone(source0);
+                        if (territory == null) {
+                            territory = "ZZ";
+                        }
+                        return catFromTerritory.transform(territory);
                     }
-                    return catFromTerritory.transform(territory);
-                }
-            });
+                });
             functionMap.put("timeZonePage", new Transform<String, String>() {
                 Set<String> singlePageTerritories = new HashSet<String>(Arrays.asList("AQ", "RU", "ZZ"));
 
@@ -1371,12 +1318,12 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("timezoneSorting", new Transform<String, String>() {
                 public String transform(String source) {
                     final List<String> codeValues = Arrays.asList(
-                            "generic-long",
-                            "generic-short",
-                            "standard-long",
-                            "standard-short",
-                            "daylight-long",
-                            "daylight-short");
+                        "generic-long",
+                        "generic-short",
+                        "standard-long",
+                        "standard-short",
+                        "daylight-long",
+                        "daylight-short");
                     if (codeValues.contains(source)) {
                         order = codeValues.indexOf(source);
                     } else {
@@ -1389,22 +1336,22 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("tzdpField", new Transform<String, String>() {
                 public String transform(String source) {
                     Map<String, String> fieldNames = Builder.with(new HashMap<String, String>())
-                            .put("regionFormat", "Region Format - Generic")
-                            .put("regionFormat-standard", "Region Format - Standard")
-                            .put("regionFormat-daylight", "Region Format - Daylight")
-                            .put("gmtFormat", "GMT Format")
-                            .put("hourFormat", "GMT Hours/Minutes Format")
-                            .put("gmtZeroFormat", "GMT Zero Format")
-                            .put("fallbackFormat", "Location Fallback Format")
-                            .freeze();
+                        .put("regionFormat", "Region Format - Generic")
+                        .put("regionFormat-standard", "Region Format - Standard")
+                        .put("regionFormat-daylight", "Region Format - Daylight")
+                        .put("gmtFormat", "GMT Format")
+                        .put("hourFormat", "GMT Hours/Minutes Format")
+                        .put("gmtZeroFormat", "GMT Zero Format")
+                        .put("fallbackFormat", "Location Fallback Format")
+                        .freeze();
                     final List<String> fieldOrder = Arrays.asList(
-                            "regionFormat",
-                            "regionFormat-standard",
-                            "regionFormat-daylight",
-                            "gmtFormat",
-                            "hourFormat",
-                            "gmtZeroFormat",
-                            "fallbackFormat");
+                        "regionFormat",
+                        "regionFormat-standard",
+                        "regionFormat-daylight",
+                        "gmtFormat",
+                        "hourFormat",
+                        "gmtZeroFormat",
+                        "fallbackFormat");
 
                     if (fieldOrder.contains(source)) {
                         order = fieldOrder.indexOf(source);
@@ -1451,65 +1398,65 @@ public class PathHeader implements Comparable<PathHeader> {
             });
 
             Object[][] ctto = {
-                    { "BUK", "MM" },
-                    { "CSD", "RS" },
-                    { "CSK", "CZ" },
-                    { "DDM", "DE" },
-                    { "EUR", "ZZ" },
-                    { "RHD", "ZW" },
-                    { "SUR", "RU" },
-                    { "TPE", "TL" },
-                    { "XAG", "ZZ" },
-                    { "XAU", "ZZ" },
-                    { "XBA", "ZZ" },
-                    { "XBB", "ZZ" },
-                    { "XBC", "ZZ" },
-                    { "XBD", "ZZ" },
-                    { "XDR", "ZZ" },
-                    { "XEU", "ZZ" },
-                    { "XFO", "ZZ" },
-                    { "XFU", "ZZ" },
-                    { "XPD", "ZZ" },
-                    { "XPT", "ZZ" },
-                    { "XRE", "ZZ" },
-                    { "XSU", "ZZ" },
-                    { "XTS", "ZZ" },
-                    { "XUA", "ZZ" },
-                    { "XXX", "ZZ" },
-                    { "YDD", "YE" },
-                    { "YUD", "RS" },
-                    { "YUM", "RS" },
-                    { "YUN", "RS" },
-                    { "YUR", "RS" },
-                    { "ZRN", "CD" },
-                    { "ZRZ", "CD" },
+                { "BUK", "MM" },
+                { "CSD", "RS" },
+                { "CSK", "CZ" },
+                { "DDM", "DE" },
+                { "EUR", "ZZ" },
+                { "RHD", "ZW" },
+                { "SUR", "RU" },
+                { "TPE", "TL" },
+                { "XAG", "ZZ" },
+                { "XAU", "ZZ" },
+                { "XBA", "ZZ" },
+                { "XBB", "ZZ" },
+                { "XBC", "ZZ" },
+                { "XBD", "ZZ" },
+                { "XDR", "ZZ" },
+                { "XEU", "ZZ" },
+                { "XFO", "ZZ" },
+                { "XFU", "ZZ" },
+                { "XPD", "ZZ" },
+                { "XPT", "ZZ" },
+                { "XRE", "ZZ" },
+                { "XSU", "ZZ" },
+                { "XTS", "ZZ" },
+                { "XUA", "ZZ" },
+                { "XXX", "ZZ" },
+                { "YDD", "YE" },
+                { "YUD", "RS" },
+                { "YUM", "RS" },
+                { "YUN", "RS" },
+                { "YUR", "RS" },
+                { "ZRN", "CD" },
+                { "ZRZ", "CD" },
             };
 
             Object[][] sctc = {
-                    { "Northern America", "North America (C)" },
-                    { "Central America", "North America (C)" },
-                    { "Caribbean", "North America (C)" },
-                    { "South America", "South America (C)" },
-                    { "Northern Africa", "Northern Africa" },
-                    { "Western Africa", "Western Africa" },
-                    { "Middle Africa", "Middle Africa" },
-                    { "Eastern Africa", "Eastern Africa" },
-                    { "Southern Africa", "Southern Africa" },
-                    { "Europe", "Northern/Western Europe" },
-                    { "Northern Europe", "Northern/Western Europe" },
-                    { "Western Europe", "Northern/Western Europe" },
-                    { "Eastern Europe", "Southern/Eastern Europe" },
-                    { "Southern Europe", "Southern/Eastern Europe" },
-                    { "Western Asia", "Western Asia (C)" },
-                    { "Central Asia", "Central Asia (C)" },
-                    { "Eastern Asia", "Eastern Asia (C)" },
-                    { "Southern Asia", "Southern Asia (C)" },
-                    { "Southeast Asia", "Southeast Asia (C)" },
-                    { "Australasia", "Oceania (C)" },
-                    { "Melanesia", "Oceania (C)" },
-                    { "Micronesian Region", "Oceania (C)" }, // HACK
-                    { "Polynesia", "Oceania (C)" },
-                    { "Unknown Region", "Unknown Region (C)" },
+                { "Northern America", "North America (C)" },
+                { "Central America", "North America (C)" },
+                { "Caribbean", "North America (C)" },
+                { "South America", "South America (C)" },
+                { "Northern Africa", "Northern Africa" },
+                { "Western Africa", "Western Africa" },
+                { "Middle Africa", "Middle Africa" },
+                { "Eastern Africa", "Eastern Africa" },
+                { "Southern Africa", "Southern Africa" },
+                { "Europe", "Northern/Western Europe" },
+                { "Northern Europe", "Northern/Western Europe" },
+                { "Western Europe", "Northern/Western Europe" },
+                { "Eastern Europe", "Southern/Eastern Europe" },
+                { "Southern Europe", "Southern/Eastern Europe" },
+                { "Western Asia", "Western Asia (C)" },
+                { "Central Asia", "Central Asia (C)" },
+                { "Eastern Asia", "Eastern Asia (C)" },
+                { "Southern Asia", "Southern Asia (C)" },
+                { "Southeast Asia", "Southeast Asia (C)" },
+                { "Australasia", "Oceania (C)" },
+                { "Melanesia", "Oceania (C)" },
+                { "Micronesian Region", "Oceania (C)" }, // HACK
+                { "Polynesia", "Oceania (C)" },
+                { "Unknown Region", "Unknown Region (C)" },
             };
 
             final Map<String, String> currencyToTerritoryOverrides = CldrUtility.asMap(ctto);
@@ -1541,8 +1488,8 @@ public class PathHeader implements Comparable<PathHeader> {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, territory) + ": " + source0;
                     } else {
                         return catFromTerritory.transform(territory) + ": "
-                                + englishFile.getName(CLDRFile.TERRITORY_NAME, territory)
-                                + tenderOrNot;
+                            + englishFile.getName(CLDRFile.TERRITORY_NAME, territory)
+                            + tenderOrNot;
                     }
                 }
             });
@@ -1573,32 +1520,32 @@ public class PathHeader implements Comparable<PathHeader> {
                         return "";
                     }
                     String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@key=\"numbers\"][@type=\""
-                            + source0 + "\"]");
+                        + source0 + "\"]");
                     return "using " + (displayName == null ? source0 : displayName + " (" + source0 + ")");
                 }
             });
 
             functionMap.put("datefield", new Transform<String, String>() {
                 private final String[] datefield = {
-                        "era", "era-short", "era-narrow",
-                        "century", "century-short", "century-narrow",
-                        "year", "year-short", "year-narrow",
-                        "quarter", "quarter-short", "quarter-narrow",
-                        "month", "month-short", "month-narrow",
-                        "week", "week-short", "week-narrow",
-                        "weekOfMonth", "weekOfMonth-short", "weekOfMonth-narrow",
-                        "day", "day-short", "day-narrow",
-                        "dayOfYear", "dayOfYear-short", "dayOfYear-narrow",
-                        "weekday", "weekday-short", "weekday-narrow",
-                        "weekdayOfMonth", "weekdayOfMonth-short", "weekdayOfMonth-narrow",
-                        "dayperiod", "dayperiod-short", "dayperiod-narrow",
-                        "zone", "zone-short", "zone-narrow",
-                        "hour", "hour-short", "hour-narrow",
-                        "minute", "minute-short", "minute-narrow",
-                        "second", "second-short", "second-narrow",
-                        "millisecond", "millisecond-short", "millisecond-narrow",
-                        "microsecond", "microsecond-short", "microsecond-narrow",
-                        "nanosecond", "nanosecond-short", "nanosecond-narrow",
+                    "era", "era-short", "era-narrow",
+                    "century", "century-short", "century-narrow",
+                    "year", "year-short", "year-narrow",
+                    "quarter", "quarter-short", "quarter-narrow",
+                    "month", "month-short", "month-narrow",
+                    "week", "week-short", "week-narrow",
+                    "weekOfMonth", "weekOfMonth-short", "weekOfMonth-narrow",
+                    "day", "day-short", "day-narrow",
+                    "dayOfYear", "dayOfYear-short", "dayOfYear-narrow",
+                    "weekday", "weekday-short", "weekday-narrow",
+                    "weekdayOfMonth", "weekdayOfMonth-short", "weekdayOfMonth-narrow",
+                    "dayperiod", "dayperiod-short", "dayperiod-narrow",
+                    "zone", "zone-short", "zone-narrow",
+                    "hour", "hour-short", "hour-narrow",
+                    "minute", "minute-short", "minute-narrow",
+                    "second", "second-short", "second-narrow",
+                    "millisecond", "millisecond-short", "millisecond-narrow",
+                    "microsecond", "microsecond-short", "microsecond-narrow",
+                    "nanosecond", "nanosecond-short", "nanosecond-narrow",
 
                 };
 
@@ -1610,38 +1557,38 @@ public class PathHeader implements Comparable<PathHeader> {
             // //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]
             functionMap.put("relativeDate", new Transform<String, String>() {
                 private final String[] relativeDateField = {
-                        "year", "year-short", "year-narrow",
-                        "quarter", "quarter-short", "quarter-narrow",
-                        "month", "month-short", "month-narrow",
-                        "week", "week-short", "week-narrow",
-                        "day", "day-short", "day-narrow",
-                        "hour", "hour-short", "hour-narrow",
-                        "minute", "minute-short", "minute-narrow",
-                        "second", "second-short", "second-narrow",
-                        "sun", "sun-short", "sun-narrow",
-                        "mon", "mon-short", "mon-narrow",
-                        "tue", "tue-short", "tue-narrow",
-                        "wed", "wed-short", "wed-narrow",
-                        "thu", "thu-short", "thu-narrow",
-                        "fri", "fri-short", "fri-narrow",
-                        "sat", "sat-short", "sat-narrow",
+                    "year", "year-short", "year-narrow",
+                    "quarter", "quarter-short", "quarter-narrow",
+                    "month", "month-short", "month-narrow",
+                    "week", "week-short", "week-narrow",
+                    "day", "day-short", "day-narrow",
+                    "hour", "hour-short", "hour-narrow",
+                    "minute", "minute-short", "minute-narrow",
+                    "second", "second-short", "second-narrow",
+                    "sun", "sun-short", "sun-narrow",
+                    "mon", "mon-short", "mon-narrow",
+                    "tue", "tue-short", "tue-narrow",
+                    "wed", "wed-short", "wed-narrow",
+                    "thu", "thu-short", "thu-narrow",
+                    "fri", "fri-short", "fri-narrow",
+                    "sat", "sat-short", "sat-narrow",
                 };
                 private final String[] longNames = {
-                        "Year", "Year Short", "Year Narrow",
-                        "Quarter", "Quarter Short", "Quarter Narrow",
-                        "Month", "Month Short", "Month Narrow",
-                        "Week", "Week Short", "Week Narrow",
-                        "Day", "Day Short", "Day Narrow",
-                        "Hour", "Hour Short", "Hour Narrow",
-                        "Minute", "Minute Short", "Minute Narrow",
-                        "Second", "Second Short", "Second Narrow",
-                        "Sunday", "Sunday Short", "Sunday Narrow",
-                        "Monday", "Monday Short", "Monday Narrow",
-                        "Tuesday", "Tuesday Short", "Tuesday Narrow",
-                        "Wednesday", "Wednesday Short", "Wednesday Narrow",
-                        "Thursday", "Thursday Short", "Thursday Narrow",
-                        "Friday", "Friday Short", "Friday Narrow",
-                        "Saturday", "Saturday Short", "Saturday Narrow",
+                    "Year", "Year Short", "Year Narrow",
+                    "Quarter", "Quarter Short", "Quarter Narrow",
+                    "Month", "Month Short", "Month Narrow",
+                    "Week", "Week Short", "Week Narrow",
+                    "Day", "Day Short", "Day Narrow",
+                    "Hour", "Hour Short", "Hour Narrow",
+                    "Minute", "Minute Short", "Minute Narrow",
+                    "Second", "Second Short", "Second Narrow",
+                    "Sunday", "Sunday Short", "Sunday Narrow",
+                    "Monday", "Monday Short", "Monday Narrow",
+                    "Tuesday", "Tuesday Short", "Tuesday Narrow",
+                    "Wednesday", "Wednesday Short", "Wednesday Narrow",
+                    "Thursday", "Thursday Short", "Thursday Narrow",
+                    "Friday", "Friday Short", "Friday Narrow",
+                    "Saturday", "Saturday Short", "Saturday Narrow",
                 };
 
                 public String transform(String source) {
@@ -1652,9 +1599,9 @@ public class PathHeader implements Comparable<PathHeader> {
             // Sorts numberSystem items (except for decimal formats).
             functionMap.put("number", new Transform<String, String>() {
                 private final String[] symbols = { "decimal", "group",
-                        "plusSign", "minusSign", "percentSign", "perMille",
-                        "exponential", "superscriptingExponent",
-                        "infinity", "nan", "list", "currencies"
+                    "plusSign", "minusSign", "percentSign", "perMille",
+                    "exponential", "superscriptingExponent",
+                    "infinity", "nan", "list", "currencies"
                 };
 
                 public String transform(String source) {
@@ -1670,11 +1617,11 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("numberFormat", new Transform<String, String>() {
                 public String transform(String source) {
                     final List<String> fieldOrder = Arrays.asList(
-                            "standard-decimal",
-                            "standard-currency",
-                            "standard-currency-accounting",
-                            "standard-percent",
-                            "standard-scientific");
+                        "standard-decimal",
+                        "standard-currency",
+                        "standard-currency-accounting",
+                        "standard-percent",
+                        "standard-scientific");
 
                     if (fieldOrder.contains(source)) {
                         order = fieldOrder.indexOf(source);
@@ -1714,13 +1661,14 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("transform", new Transform<String, String>() {
                 Splitter commas = Splitter.on(',').trimResults();
+
                 @Override
                 public String transform(String source) {
                     List<String> parts = commas.splitToList(source);
                     return parts.get(1)
-                            + (parts.get(0).equals("both") ? "↔︎" : "→")
-                            + parts.get(2)
-                            + (parts.size() > 3 ? "/"+parts.get(3) : "");
+                        + (parts.get(0).equals("both") ? "↔︎" : "→")
+                        + parts.get(2)
+                        + (parts.size() > 3 ? "/" + parts.get(3) : "");
                 }
             });
             functionMap.put("major", new Transform<String, String>() {
@@ -1743,7 +1691,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     } else {
                         return PageId.Smileys.toString();
                     }
-               }
+                }
             });
             functionMap.put("minor", new Transform<String, String>() {
                 @Override
@@ -1814,7 +1762,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 int functionEnd = input.indexOf('(', functionStart);
                 int argEnd = input.indexOf(')', functionEnd);
                 Transform<String, String> func = functionMap.get(input.substring(functionStart + 1,
-                        functionEnd));
+                    functionEnd));
                 final String arg = input.substring(functionEnd + 1, argEnd);
                 String temp = func.transform(arg);
                 if (temp == null) {
@@ -1883,8 +1831,7 @@ public class PathHeader implements Comparable<PathHeader> {
     public enum BaseUrl {
         //http://st.unicode.org/smoketest/survey?_=af&strid=55053dffac611328
         //http://st.unicode.org/cldr-apps/survey?_=en&strid=3cd31261bf6738e1
-        SMOKE("http://st.unicode.org/smoketest/survey"),
-        PRODUCTION("http://st.unicode.org/cldr-apps/survey");
+        SMOKE("http://st.unicode.org/smoketest/survey"), PRODUCTION("http://st.unicode.org/cldr-apps/survey");
         final String base;
 
         private BaseUrl(String url) {
@@ -1973,7 +1920,7 @@ public class PathHeader implements Comparable<PathHeader> {
             int territoryEnd = input.charAt(0) < 'A' ? 3 : 2;
             theTerritory = input.substring(0, territoryEnd).toUpperCase(Locale.ROOT);
             if (suffix != null) {
-                suffix.value =  input.substring(territoryEnd);
+                suffix.value = input.substring(territoryEnd);
             }
         } else {
             theTerritory = input;

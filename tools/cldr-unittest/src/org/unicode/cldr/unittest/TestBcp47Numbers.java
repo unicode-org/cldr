@@ -55,8 +55,8 @@ public class TestBcp47Numbers extends TestFmwk {
         // special case
         decimalSystems.put("fullwide", "Full width digits");
         decimalSystems
-        .put("hanidec",
-            "Positional decimal system using Chinese number ideographs as digits");
+            .put("hanidec",
+                "Positional decimal system using Chinese number ideographs as digits");
 
         Map<String, String> typeDescription = new TreeMap<String, String>();
         final Map<R2<String, String>, String> keyTypeToDescription = info

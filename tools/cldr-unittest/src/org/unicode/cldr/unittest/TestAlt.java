@@ -20,12 +20,14 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 
-public class TestAlt extends TestFmwk{
+public class TestAlt extends TestFmwk {
     private static final Set<String> SINGLETON_ALT = Collections.singleton("alt");
     static CLDRConfig testInfo = CLDRConfig.getInstance();
+
     public static void main(String[] args) {
         new TestAlt().run(args);
     }
+
     public void testValues() {
         Factory cldrFactory = testInfo.getCldrFactory();
         HashMap<String, String> altPaths = new HashMap<>();
@@ -40,10 +42,10 @@ public class TestAlt extends TestFmwk{
             }
         }
         available.addAll(cldrFactory.getAvailable());
-        
+
         for (String locale : available) {
             CLDRFile cldrFile = cldrFactory.make(locale, false);
-            for (String xpath : cldrFile){
+            for (String xpath : cldrFile) {
                 if (altPaths.containsKey(xpath)) {
                     continue;
                 }
@@ -70,4 +72,3 @@ public class TestAlt extends TestFmwk{
         }
     }
 }
-

@@ -59,19 +59,19 @@ public class XLocaleDistance {
         return SDI.getLanguageMatcherData("written");
     }
 
-    static final Multimap<String,String> CONTAINER_TO_CONTAINED;
-    static final Multimap<String,String> CONTAINER_TO_CONTAINED_FINAL;
+    static final Multimap<String, String> CONTAINER_TO_CONTAINED;
+    static final Multimap<String, String> CONTAINER_TO_CONTAINED_FINAL;
     static {
         TreeMultimap<String, String> containerToContainedTemp = TreeMultimap.create();
         fill("001", containerToContainedTemp);
         CONTAINER_TO_CONTAINED = ImmutableMultimap.copyOf(containerToContainedTemp);
         // get hard-coded data because ICU fails to copy information
-        
+
         for (String container : SDI.getContainers()) {
             Set<String> contained = SDI.getContained(container);
             System.out.println(".putAll(\"" + container + "\", \"" + CollectionUtilities.join(contained, "\", \"") + "\")");
         }
-        
+
         ImmutableMultimap.Builder<String, String> containerToFinalContainedBuilder = new ImmutableMultimap.Builder<>();
         for (Entry<String, Collection<String>> entry : CONTAINER_TO_CONTAINED.asMap().entrySet()) {
             String container = entry.getKey();
@@ -83,6 +83,7 @@ public class XLocaleDistance {
         }
         CONTAINER_TO_CONTAINED_FINAL = containerToFinalContainedBuilder.build();
     }
+
     // TODO make this a single pass
     private static Collection<String> fill(String region, Multimap<String, String> toAddTo) {
         Set<String> contained = SDI.getContained(region);
@@ -109,20 +110,26 @@ public class XLocaleDistance {
     @Deprecated
     public static abstract class DistanceTable {
         abstract int getDistance(String desiredLang, String supportedlang, Output<DistanceTable> table, boolean starEquals);
+
         abstract Set<String> getCloser(int threshold);
+
         abstract String toString(boolean abbreviate);
+
         public DistanceTable compact() {
             return this;
         }
+
 //        public Integer getInternalDistance(String a, String b) {
 //            return null;
 //        }
         public DistanceNode getInternalNode(String any, String any2) {
             return null;
         }
+
         public Map<String, Set<String>> getInternalMatches() {
             return null;
         }
+
         public boolean isEmpty() {
             return true;
         }
@@ -148,21 +155,23 @@ public class XLocaleDistance {
             DistanceNode other = (DistanceNode) obj;
             return distance == other.distance;
         }
+
         @Override
         public int hashCode() {
             return distance;
         }
+
         @Override
         public String toString() {
             return "\ndistance: " + distance;
         }
     }
 
-    private interface IdMapper<K,V> {
+    private interface IdMapper<K, V> {
         public V toId(K source);
     }
 
-    static class IdMakerFull<T> implements IdMapper<T,Integer> {
+    static class IdMakerFull<T> implements IdMapper<T, Integer> {
         private final Map<T, Integer> objectToInt = new HashMap<>();
         private final List<T> intToObject = new ArrayList<>();
         final String name; // for debugging
@@ -199,7 +208,7 @@ public class XLocaleDistance {
          * Return an id, or null if there is none.
          */
         public Integer toId(T source) {
-            return objectToInt.get(source); 
+            return objectToInt.get(source);
 //            return value == null ? 0 : value; 
         }
 
@@ -207,7 +216,7 @@ public class XLocaleDistance {
          * Return the object for the id, or null if there is none.
          */
         public T fromId(int id) {
-            return intToObject.get(id); 
+            return intToObject.get(id);
         }
 
         /**
@@ -220,6 +229,7 @@ public class XLocaleDistance {
         public int size() {
             return intToObject.size();
         }
+
         /**
          * Same as add, except if the object didn't have an id, return null;
          */
@@ -237,6 +247,7 @@ public class XLocaleDistance {
         public String toString() {
             return size() + ": " + intToObject;
         }
+
         @Override
         public boolean equals(Object obj) {
             if (!(obj instanceof IdMakerFull)) {
@@ -245,6 +256,7 @@ public class XLocaleDistance {
             IdMakerFull<T> other = (IdMakerFull) obj;
             return intToObject.equals(other.intToObject);
         }
+
         @Override
         public int hashCode() {
             return intToObject.hashCode();
@@ -256,7 +268,7 @@ public class XLocaleDistance {
 
         public StringDistanceNode(int distance, DistanceTable distanceTable) {
             super(distance);
-            this.distanceTable = distanceTable;     
+            this.distanceTable = distanceTable;
         }
 
         @Override
@@ -267,6 +279,7 @@ public class XLocaleDistance {
             StringDistanceNode other = (StringDistanceNode) obj;
             return distance == other.distance && Objects.equal(distanceTable, other.distanceTable);
         }
+
         @Override
         public int hashCode() {
             return distance ^ Objects.hashCode(distanceTable);
@@ -279,6 +292,7 @@ public class XLocaleDistance {
         public void addSubtables(String desiredSub, String supportedSub, CopyIfEmpty r) {
             ((StringDistanceTable) distanceTable).addSubtables(desiredSub, supportedSub, r);
         }
+
         @Override
         public String toString() {
             return "distance: " + distance + "\n" + distanceTable;
@@ -286,7 +300,7 @@ public class XLocaleDistance {
 
         public void copyTables(StringDistanceTable value) {
             if (value != null) {
-                ((StringDistanceTable)distanceTable).copy(value);
+                ((StringDistanceTable) distanceTable).copy(value);
             }
         }
 
@@ -301,9 +315,9 @@ public class XLocaleDistance {
 
         StringDistanceNode languageNode = (StringDistanceNode) ((StringDistanceTable) languageDesired2Supported).subtables.get(ANY).get(ANY);
         defaultLanguageDistance = languageNode.distance;
-        StringDistanceNode scriptNode = (StringDistanceNode) ((StringDistanceTable)languageNode.distanceTable).subtables.get(ANY).get(ANY);
+        StringDistanceNode scriptNode = (StringDistanceNode) ((StringDistanceTable) languageNode.distanceTable).subtables.get(ANY).get(ANY);
         defaultScriptDistance = scriptNode.distance;
-        DistanceNode regionNode = ((StringDistanceTable)scriptNode.distanceTable).subtables.get(ANY).get(ANY);
+        DistanceNode regionNode = ((StringDistanceTable) scriptNode.distanceTable).subtables.get(ANY).get(ANY);
         defaultRegionDistance = regionNode.distance;
     }
 
@@ -321,6 +335,7 @@ public class XLocaleDistance {
         StringDistanceTable(Map<String, Map<String, DistanceNode>> tables) {
             subtables = tables;
         }
+
         StringDistanceTable() {
             this(newMap());
         }
@@ -337,6 +352,7 @@ public class XLocaleDistance {
             StringDistanceTable other = (StringDistanceTable) obj;
             return subtables.equals(other.subtables);
         }
+
         @Override
         public int hashCode() {
             return subtables.hashCode();
@@ -349,14 +365,14 @@ public class XLocaleDistance {
                 sub2 = subtables.get(ANY); // <*, supported>
                 star = true;
             }
-            DistanceNode value = sub2.get(supported);   // <*/desired, supported>
+            DistanceNode value = sub2.get(supported); // <*/desired, supported>
             if (value == null) {
-                value = sub2.get(ANY);  // <*/desired, *>
+                value = sub2.get(ANY); // <*/desired, *>
                 if (value == null && !star) {
-                    sub2 = subtables.get(ANY);   // <*, supported>
+                    sub2 = subtables.get(ANY); // <*, supported>
                     value = sub2.get(supported);
                     if (value == null) {
-                        value = sub2.get(ANY);   // <*, *>
+                        value = sub2.get(ANY); // <*, *>
                     }
                 }
                 star = true;
@@ -402,11 +418,10 @@ public class XLocaleDistance {
             return sub2.get(supported);
         }
 
-
         /** add table for each subitem that matches and doesn't have a table already
          */
         public void addSubtables(
-            String desired, String supported, 
+            String desired, String supported,
             Predicate<DistanceNode> action) {
             int count = 0;
             DistanceNode node = getNode(desired, supported);
@@ -417,14 +432,14 @@ public class XLocaleDistance {
                 // now add it
                 node = addSubtable(desired, supported, distance);
                 if (node2.value != null) {
-                    ((StringDistanceNode)node).copyTables((StringDistanceTable)(node2.value));
+                    ((StringDistanceNode) node).copyTables((StringDistanceTable) (node2.value));
                 }
             }
             action.apply(node);
         }
 
-        public void addSubtables(String desiredLang, String supportedLang, 
-            String desiredScript, String supportedScript, 
+        public void addSubtables(String desiredLang, String supportedLang,
+            String desiredScript, String supportedScript,
             int percentage) {
 
             // add to all the values that have the matching desiredLang and supportedLang
@@ -439,7 +454,7 @@ public class XLocaleDistance {
                         haveKeys |= (desiredIsKey && supportedIsKey);
                         if (supportedIsKey || supportedLang.equals(ANY)) {
                             DistanceNode value = e2.getValue();
-                            ((StringDistanceTable)value.getDistanceTable()).addSubtable(desiredScript, supportedScript, percentage);
+                            ((StringDistanceTable) value.getDistanceTable()).addSubtable(desiredScript, supportedScript, percentage);
                         }
                     }
                 }
@@ -451,9 +466,9 @@ public class XLocaleDistance {
             addSubtables(desiredLang, supportedLang, r);
         }
 
-        public void addSubtables(String desiredLang, String supportedLang, 
-            String desiredScript, String supportedScript, 
-            String desiredRegion, String supportedRegion, 
+        public void addSubtables(String desiredLang, String supportedLang,
+            String desiredScript, String supportedScript,
+            String desiredRegion, String supportedRegion,
             int percentage) {
 
             // add to all the values that have the matching desiredLang and supportedLang
@@ -468,7 +483,8 @@ public class XLocaleDistance {
                         haveKeys |= (desiredIsKey && supportedIsKey);
                         if (supportedIsKey || supportedLang.equals(ANY)) {
                             StringDistanceNode value = (StringDistanceNode) e2.getValue();
-                            ((StringDistanceTable)value.distanceTable).addSubtables(desiredScript, supportedScript, desiredRegion, supportedRegion, percentage);
+                            ((StringDistanceTable) value.distanceTable).addSubtables(desiredScript, supportedScript, desiredRegion, supportedRegion,
+                                percentage);
                         }
                     }
                 }
@@ -478,7 +494,7 @@ public class XLocaleDistance {
             StringDistanceTable dt = new StringDistanceTable();
             dt.addSubtable(desiredRegion, supportedRegion, percentage);
             AddSub r = new AddSub(desiredScript, supportedScript, dt);
-            addSubtables(desiredLang,  supportedLang,  r);  
+            addSubtables(desiredLang, supportedLang, r);
         }
 
         @Override
@@ -495,37 +511,39 @@ public class XLocaleDistance {
             Integer id = abbreviate ? intern.getOldAndAdd(subtables) : null;
             if (id != null) {
                 buffer.append(indent2).append('#').append(id).append('\n');
-            } else for (Entry<String, Map<String, DistanceNode>> e1 : subtables.entrySet()) {
-                final Map<String, DistanceNode> subsubtable = e1.getValue();
-                buffer.append(indent2).append(e1.getKey());
-                String indent3 = "\t";
-                id = abbreviate ? intern.getOldAndAdd(subsubtable) : null;
-                if (id != null) {
-                    buffer.append(indent3).append('#').append(id).append('\n');
-                } else for (Entry<String, DistanceNode> e2 : subsubtable.entrySet()) {
-                    DistanceNode value = e2.getValue();
-                    buffer.append(indent3).append(e2.getKey());
-                    id = abbreviate ? intern.getOldAndAdd(value) : null;
+            } else
+                for (Entry<String, Map<String, DistanceNode>> e1 : subtables.entrySet()) {
+                    final Map<String, DistanceNode> subsubtable = e1.getValue();
+                    buffer.append(indent2).append(e1.getKey());
+                    String indent3 = "\t";
+                    id = abbreviate ? intern.getOldAndAdd(subsubtable) : null;
                     if (id != null) {
-                        buffer.append('\t').append('#').append(id).append('\n');
-                    } else {
-                        buffer.append('\t').append(value.distance);
-                        final DistanceTable distanceTable = value.getDistanceTable();
-                        if (distanceTable != null) {
-                            id = abbreviate ? intern.getOldAndAdd(distanceTable) : null;
+                        buffer.append(indent3).append('#').append(id).append('\n');
+                    } else
+                        for (Entry<String, DistanceNode> e2 : subsubtable.entrySet()) {
+                            DistanceNode value = e2.getValue();
+                            buffer.append(indent3).append(e2.getKey());
+                            id = abbreviate ? intern.getOldAndAdd(value) : null;
                             if (id != null) {
                                 buffer.append('\t').append('#').append(id).append('\n');
                             } else {
-                                ((StringDistanceTable)distanceTable).toString(abbreviate, indent+"\t\t\t", intern, buffer);
+                                buffer.append('\t').append(value.distance);
+                                final DistanceTable distanceTable = value.getDistanceTable();
+                                if (distanceTable != null) {
+                                    id = abbreviate ? intern.getOldAndAdd(distanceTable) : null;
+                                    if (id != null) {
+                                        buffer.append('\t').append('#').append(id).append('\n');
+                                    } else {
+                                        ((StringDistanceTable) distanceTable).toString(abbreviate, indent + "\t\t\t", intern, buffer);
+                                    }
+                                } else {
+                                    buffer.append('\n');
+                                }
                             }
-                        } else {
-                            buffer.append('\n');
+                            indent3 = indent + '\t';
                         }
-                    }
-                    indent3 = indent+'\t';
+                    indent2 = indent;
                 }
-                indent2 = indent;
-            }
             return buffer;
         }
 
@@ -576,9 +594,11 @@ public class XLocaleDistance {
 
     static class CopyIfEmpty implements Predicate<DistanceNode> {
         private final StringDistanceTable toCopy;
+
         CopyIfEmpty(StringDistanceTable resetIfNotNull) {
             this.toCopy = resetIfNotNull;
         }
+
         @Override
         public boolean apply(DistanceNode node) {
             final StringDistanceTable subtables = (StringDistanceTable) node.getDistanceTable();
@@ -599,12 +619,13 @@ public class XLocaleDistance {
             this.desiredSub = desiredSub;
             this.supportedSub = supportedSub;
         }
+
         @Override
         public boolean apply(DistanceNode node) {
             if (node == null) {
                 throw new IllegalArgumentException("bad structure");
             } else {
-                ((StringDistanceNode)node).addSubtables(desiredSub, supportedSub, r);
+                ((StringDistanceNode) node).addSubtables(desiredSub, supportedSub, r);
             }
             return true;
         }
@@ -625,21 +646,23 @@ public class XLocaleDistance {
      * @return
      */
     public int distanceRaw(LSR desired, LSR supported, int threshold, DistanceOption distanceOption) {
-        return distanceRaw(desired.language, supported.language, 
-            desired.script, supported.script, 
+        return distanceRaw(desired.language, supported.language,
+            desired.script, supported.script,
             desired.region, supported.region,
             threshold, distanceOption);
     }
 
-    public enum DistanceOption {NORMAL, SCRIPT_FIRST}
-    
+    public enum DistanceOption {
+        NORMAL, SCRIPT_FIRST
+    }
+
     /**
      * Returns distance, from 0 to ABOVE_THRESHOLD.
      * ULocales must be in canonical, addLikelySubtags format. Returns distance
      */
     public int distanceRaw(
-        String desiredLang, String supportedlang, 
-        String desiredScript, String supportedScript, 
+        String desiredLang, String supportedlang,
+        String desiredScript, String supportedScript,
         String desiredRegion, String supportedRegion,
         int threshold,
         DistanceOption distanceOption) {
@@ -706,7 +729,6 @@ public class XLocaleDistance {
         return distance >= threshold ? ABOVE_THRESHOLD : distance;
     }
 
-
     private static final XLocaleDistance DEFAULT;
 
     public static XLocaleDistance getDefault() {
@@ -715,39 +737,39 @@ public class XLocaleDistance {
 
     static {
         String[][] variableOverrides = {
-            {"$enUS", "AS+GU+MH+MP+PR+UM+US+VI"},
+            { "$enUS", "AS+GU+MH+MP+PR+UM+US+VI" },
 
-            {"$cnsar", "HK+MO"},
+            { "$cnsar", "HK+MO" },
 
-            {"$americas", "019"},
+            { "$americas", "019" },
 
-            {"$maghreb", "MA+DZ+TN+LY+MR+EH"},
+            { "$maghreb", "MA+DZ+TN+LY+MR+EH" },
         };
         String[] paradigmRegions = {
             "en", "en-GB", "es", "es-419", "pt-BR", "pt-PT"
         };
         String[][] regionRuleOverrides = {
-            {"ar_*_$maghreb", "ar_*_$maghreb", "96"},
-            {"ar_*_$!maghreb", "ar_*_$!maghreb", "96"},
-            {"ar_*_*", "ar_*_*", "95"},
+            { "ar_*_$maghreb", "ar_*_$maghreb", "96" },
+            { "ar_*_$!maghreb", "ar_*_$!maghreb", "96" },
+            { "ar_*_*", "ar_*_*", "95" },
 
-            {"en_*_$enUS", "en_*_$enUS", "96"},
-            {"en_*_$!enUS", "en_*_$!enUS", "96"},
-            {"en_*_*", "en_*_*", "95"},
+            { "en_*_$enUS", "en_*_$enUS", "96" },
+            { "en_*_$!enUS", "en_*_$!enUS", "96" },
+            { "en_*_*", "en_*_*", "95" },
 
-            {"es_*_$americas", "es_*_$americas", "96"},
-            {"es_*_$!americas", "es_*_$!americas", "96"},
-            {"es_*_*", "es_*_*", "95"},
+            { "es_*_$americas", "es_*_$americas", "96" },
+            { "es_*_$!americas", "es_*_$!americas", "96" },
+            { "es_*_*", "es_*_*", "95" },
 
-            {"pt_*_$americas", "pt_*_$americas", "96"},
-            {"pt_*_$!americas", "pt_*_$!americas", "96"},
-            {"pt_*_*", "pt_*_*", "95"},
+            { "pt_*_$americas", "pt_*_$americas", "96" },
+            { "pt_*_$!americas", "pt_*_$!americas", "96" },
+            { "pt_*_*", "pt_*_*", "95" },
 
-            {"zh_Hant_$cnsar", "zh_Hant_$cnsar", "96"},
-            {"zh_Hant_$!cnsar", "zh_Hant_$!cnsar", "96"},
-            {"zh_Hant_*", "zh_Hant_*", "95"},
+            { "zh_Hant_$cnsar", "zh_Hant_$cnsar", "96" },
+            { "zh_Hant_$!cnsar", "zh_Hant_$!cnsar", "96" },
+            { "zh_Hant_*", "zh_Hant_*", "95" },
 
-            {"*_*_*", "*_*_*", "96"},
+            { "*_*_*", "*_*_*", "96" },
         };
 
         Builder rmb = new RegionMapper.Builder().addParadigms(paradigmRegions);
@@ -757,12 +779,12 @@ public class XLocaleDistance {
         if (PRINT_OVERRIDES) {
             System.out.println("\t\t<languageMatches type=\"written\" alt=\"enhanced\">");
             System.out.println("\t\t\t<paradigmLocales locales=\"" + CollectionUtilities.join(paradigmRegions, " ")
-            + "\"/>");
+                + "\"/>");
             for (String[] variableRule : variableOverrides) {
                 System.out.println("\t\t\t<matchVariable id=\"" + variableRule[0]
                     + "\" value=\""
                     + variableRule[1]
-                        + "\"/>");
+                    + "\"/>");
             }
         }
 
@@ -784,13 +806,13 @@ public class XLocaleDistance {
             List<String> supported = bar.splitToList(supportedRaw);
             Boolean oneway = info.get3();
             Integer percentRaw = desiredRaw.equals("*_*") ? 50 : info.get2();
-            final int distance = 100-percentRaw;
+            final int distance = 100 - percentRaw;
             int size = desired.size();
 
             // for now, skip size == 3
             if (size == 3) continue;
 
-            sorted[size-1].add(Row.of(desired, supported, distance, oneway));
+            sorted[size - 1].add(Row.of(desired, supported, distance, oneway));
         }
 
         for (List<Row.R4<List<String>, List<String>, Integer, Boolean>> item1 : sorted) {
@@ -822,7 +844,7 @@ public class XLocaleDistance {
             }
             List<String> desiredBase = new ArrayList<>(bar.splitToList(rule[0]));
             List<String> supportedBase = new ArrayList<>(bar.splitToList(rule[1]));
-            Integer distance = 100-Integer.parseInt(rule[2]);
+            Integer distance = 100 - Integer.parseInt(rule[2]);
             printMatchXml(desiredBase, supportedBase, distance, false);
 
             Collection<String> desiredRegions = defaultRegionMapper.getIdsFromVariable(desiredBase.get(2));
@@ -873,7 +895,7 @@ public class XLocaleDistance {
     private static String fixedName(List<String> match) {
         List<String> alt = new ArrayList<String>(match);
         StringBuilder result = new StringBuilder();
-        switch(alt.size()) {
+        switch (alt.size()) {
         case 3:
             String region = alt.get(2);
             if (region.equals("*") || region.startsWith("$")) {
@@ -930,7 +952,6 @@ public class XLocaleDistance {
         return regionMapper + "\n" + languageDesired2Supported.toString(abbreviate);
     }
 
-
 //    public static XLocaleDistance createDefaultInt() {
 //        IntDistanceTable d = new IntDistanceTable(DEFAULT_DISTANCE_TABLE);
 //        return new XLocaleDistance(d, DEFAULT_REGION_MAPPER);
@@ -946,22 +967,22 @@ public class XLocaleDistance {
         return output;
     }
 
-    static class RegionMapper implements IdMapper<String,String> { 
+    static class RegionMapper implements IdMapper<String, String> {
         /**
          * Used for processing rules. At the start we have a variable setting like $A1=US+CA+MX. We generate a mapping from $A1 to a set of partitions {P1, P2}
          * When we hit a rule that contains a variable, we replace that rule by multiple rules for the partitions.
          */
-        final Multimap<String,String> variableToPartition;
+        final Multimap<String, String> variableToPartition;
         /**
          * Used for executing the rules. We map a region to a partition before processing.
          */
-        final Map<String,String> regionToPartition;
+        final Map<String, String> regionToPartition;
         /**
          * Used to support es_419 compared to es_AR, etc.
          * @param variableToPartitionIn
          * @param regionToPartitionIn
          */
-        final Multimap<String,String> macroToPartitions;
+        final Multimap<String, String> macroToPartitions;
         /**
          * Used to get the paradigm region for a cluster, if there is one
          */
@@ -970,7 +991,7 @@ public class XLocaleDistance {
         private RegionMapper(
             Multimap<String, String> variableToPartitionIn,
             Map<String, String> regionToPartitionIn,
-            Multimap<String,String> macroToPartitionsIn,
+            Multimap<String, String> macroToPartitionsIn,
             Set<ULocale> paradigmsIn) {
             variableToPartition = ImmutableMultimap.copyOf(variableToPartitionIn);
             regionToPartition = ImmutableMap.copyOf(regionToPartitionIn);
@@ -1054,14 +1075,14 @@ public class XLocaleDistance {
 
             RegionMapper build() {
                 final IdMakerFull<Collection<String>> id = new IdMakerFull<>("partition");
-                Multimap<String,String> variableToPartitions = TreeMultimap.create(); 
-                Map<String,String> regionToPartition = new TreeMap<>();
-                Multimap<String,String> partitionToRegions = TreeMultimap.create();
+                Multimap<String, String> variableToPartitions = TreeMultimap.create();
+                Map<String, String> regionToPartition = new TreeMap<>();
+                Multimap<String, String> partitionToRegions = TreeMultimap.create();
 
                 for (Entry<String, Collection<String>> e : regionToRawPartition.asMap().entrySet()) {
                     final String region = e.getKey();
                     final Collection<String> rawPartition = e.getValue();
-                    String partition = String.valueOf((char)('α' + id.add(rawPartition)));
+                    String partition = String.valueOf((char) ('α' + id.add(rawPartition)));
 
                     regionToPartition.put(region, partition);
                     partitionToRegions.put(partition, region);
@@ -1072,7 +1093,7 @@ public class XLocaleDistance {
                 }
 
                 // we get a mapping of each macro to the partitions it intersects with
-                Multimap<String,String> macroToPartitions = TreeMultimap.create();
+                Multimap<String, String> macroToPartitions = TreeMultimap.create();
                 for (Entry<String, Collection<String>> e : CONTAINER_TO_CONTAINED.asMap().entrySet()) {
                     String macro = e.getKey();
                     for (Entry<String, Collection<String>> e2 : partitionToRegions.asMap().entrySet()) {
@@ -1100,7 +1121,10 @@ public class XLocaleDistance {
      * No precedence, so "x+y-y+z" is (((x+y)-y)+z) NOT (x+y)-(y+z)
      */
     private static class RegionSet {
-        private enum Operation {add, remove}
+        private enum Operation {
+            add, remove
+        }
+
         // temporaries used in processing
         final private Set<String> tempRegions = new TreeSet<>();
         private Operation operation = null;
@@ -1112,16 +1136,16 @@ public class XLocaleDistance {
             int i = 0;
             for (; i < barString.length(); ++i) {
                 char c = barString.charAt(i); // UTF16 is ok, since syntax is only ascii
-                switch(c) {
+                switch (c) {
                 case '+':
                     add(barString, last, i);
-                    last = i+1;
-                    operation = Operation.add; 
+                    last = i + 1;
+                    operation = Operation.add;
                     break;
-                case '-': 
+                case '-':
                     add(barString, last, i);
-                    last = i+1;
-                    operation = Operation.remove; 
+                    last = i + 1;
+                    operation = Operation.remove;
                     break;
                 }
             }
@@ -1137,7 +1161,7 @@ public class XLocaleDistance {
 
         private void add(String barString, int last, int i) {
             if (i > last) {
-                String region = barString.substring(last,i);
+                String region = barString.substring(last, i);
                 changeSet(operation, region);
             }
         }
@@ -1158,7 +1182,7 @@ public class XLocaleDistance {
         }
     }
 
-    public static <K,V> Multimap<K,V> invertMap(Map<V,K> map) {
+    public static <K, V> Multimap<K, V> invertMap(Map<V, K> map) {
         return Multimaps.invertFrom(Multimaps.forMap(map), ArrayListMultimap.create());
     }
 
@@ -1185,21 +1209,23 @@ public class XLocaleDistance {
             }
             return new StringDistanceTable(compact(item.subtables, 0));
         }
-        <K,T> Map<K,T> compact(Map<K,T> item, int level) {
+
+        <K, T> Map<K, T> compact(Map<K, T> item, int level) {
             if (toId(item) != null) {
-                return (Map<K,T>)intern(item);
+                return (Map<K, T>) intern(item);
             }
-            Map<K,T> copy = new LinkedHashMap<>();
-            for (Entry<K,T> entry : item.entrySet()) {
+            Map<K, T> copy = new LinkedHashMap<>();
+            for (Entry<K, T> entry : item.entrySet()) {
                 T value = entry.getValue();
                 if (value instanceof Map) {
-                    copy.put(entry.getKey(), (T)compact((Map)value, level+1));
+                    copy.put(entry.getKey(), (T) compact((Map) value, level + 1));
                 } else {
-                    copy.put(entry.getKey(), (T)compact((DistanceNode)value));
+                    copy.put(entry.getKey(), (T) compact((DistanceNode) value));
                 }
             }
             return ImmutableMap.copyOf(copy);
         }
+
         DistanceNode compact(DistanceNode item) {
             if (toId(item) != null) {
                 return (DistanceNode) intern(item);
@@ -1208,7 +1234,7 @@ public class XLocaleDistance {
             if (distanceTable == null || distanceTable.isEmpty()) {
                 return new DistanceNode(item.distance);
             } else {
-                return new StringDistanceNode(item.distance, compact((StringDistanceTable)((StringDistanceNode)item).distanceTable));
+                return new StringDistanceNode(item.distance, compact((StringDistanceTable) ((StringDistanceNode) item).distanceTable));
             }
         }
     }

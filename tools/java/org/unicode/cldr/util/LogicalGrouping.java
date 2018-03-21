@@ -38,7 +38,7 @@ public class LogicalGrouping {
     public static final ImmutableSet<String> calendarsWith13Months = ImmutableSet.of("coptic", "ethiopic", "hebrew");
     public static final ImmutableSet<String> compactDecimalFormatLengths = ImmutableSet.of("short", "long");
     private static final ImmutableSet<String> ampm = ImmutableSet.of("am", "pm");
-    private static final ImmutableSet<String> nowUnits = ImmutableSet.of("second", "second-short", "second-narrow", 
+    private static final ImmutableSet<String> nowUnits = ImmutableSet.of("second", "second-short", "second-narrow",
         "minute", "minute-short", "minute-narrow", "hour", "hour-short", "hour-narrow");
 
     /**
@@ -138,7 +138,7 @@ public class LogicalGrouping {
                     if (fieldType != null && fieldType.startsWith("day")) {
                         limit = 3;
                     }
-                    for (Integer i = -1*limit; i <= limit; i++) {
+                    for (Integer i = -1 * limit; i <= limit; i++) {
                         parts.setAttribute("relative", "type", i.toString());
                         result.add(parts.toString());
                     }
@@ -198,7 +198,7 @@ public class LogicalGrouping {
             String relativeType = parts.findAttributeValue("relative", "type");
             Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
             if (fieldType != null && fieldType.startsWith("day") && Math.abs(relativeValue.intValue()) >= 2) {
-                return true;   // relative days +2 +3 -2 -3 are optional in a logical group.
+                return true; // relative days +2 +3 -2 -3 are optional in a logical group.
             }
         }
         // Paths with count="(zero|one)" are optional if their usage is covered

@@ -36,7 +36,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 
 @CLDRTool(
     alias = "generate-validity-data",
-    url="http://cldr.unicode.org/development/updating-codes/update-validity-xml")
+    url = "http://cldr.unicode.org/development/updating-codes/update-validity-xml")
 public class GenerateValidityXml {
     private static final Map<LstrType, Map<String, Map<LstrField, String>>> LSTREG = StandardCodes.getEnumLstreg();
 
@@ -101,7 +101,7 @@ public class GenerateValidityXml {
     static final Map<String, Info> types = Info.types;
 
     public static void main(String[] args) throws IOException {
-        
+
         doLstr(types);
         doSubdivisions(types);
         doCurrency(types);
@@ -190,7 +190,7 @@ public class GenerateValidityXml {
                 info.statusMap.put(status, contained.toLowerCase(Locale.ROOT).replace("-", ""));
             }
         }
-        
+
         // find out which items were valid, but are no longer in the containment map
         // add them as deprecated
         Map<Status, Set<String>> subdivisionData = OLD_VALIDITY.getStatusToCodes(LstrType.subdivision);
@@ -212,7 +212,7 @@ public class GenerateValidityXml {
         System.out.println(missing);
         info.statusComment.put(Status.deprecated,
             "Deprecated values include those that are not formally deprecated in the country in question, but have their own region codes.\n"
-            + "It also include codes that were previously in CLDR, for compatibility.");
+                + "It also include codes that were previously in CLDR, for compatibility.");
         info.statusComment.put(Status.unknown,
             "Unknown/Undetermined subdivision codes (ZZZZ) are defined for all regular region codes.");
     }
@@ -285,6 +285,6 @@ public class GenerateValidityXml {
         }
         System.out.println("Skipping non-Unicode scripts: " + Joiner.on(' ').join(skippedScripts));
     }
-    
+
     static final Set<String> VARIANT_EXTRAS = ImmutableSet.of("POSIX", "REVISED", "SAAHO");
 }

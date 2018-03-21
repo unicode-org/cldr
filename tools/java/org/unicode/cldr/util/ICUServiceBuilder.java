@@ -492,14 +492,14 @@ public class ICUServiceBuilder {
                         : null;
             if (result == null) throw new IllegalArgumentException();
             // snagged from currency
-            if (isChoiceFormat != null ) {
+            if (isChoiceFormat != null) {
                 isChoiceFormat[0] = false;
             }
             int i = 0;
             while (i < result.length() && result.charAt(i) == '=' && i < 2) {
                 ++i;
             }
-            if (isChoiceFormat != null ) {
+            if (isChoiceFormat != null) {
                 isChoiceFormat[0] = (i == 1);
             }
             if (i != 0) {
@@ -719,7 +719,7 @@ public class ICUServiceBuilder {
         }
         return symbols;
     }
-    
+
     public DecimalFormatSymbols getDecimalFormatSymbols(String numberSystem) {
         return (DecimalFormatSymbols) _getDecimalFormatSymbols(numberSystem).clone();
     }
@@ -838,14 +838,11 @@ public class ICUServiceBuilder {
     }
 
     public enum Width {
-        wide,
-        abbreviated,
-        narrow
+        wide, abbreviated, narrow
     }
 
     public enum Context {
-        format,
-        stand_alone;
+        format, stand_alone;
         public String toString() {
             return name().replace('_', '-');
         }

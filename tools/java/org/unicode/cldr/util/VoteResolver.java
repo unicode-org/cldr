@@ -166,8 +166,8 @@ public class VoteResolver<T> {
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
             return (this == admin) || // admin can set any level
                 (otherLevel != expert && // expert can't be set by any users but admin
-                canManageSomeUsers() && // must be some sort of manager
-                otherLevel.getSTLevel() >= getSTLevel()); // can't gain higher privs
+                    canManageSomeUsers() && // must be some sort of manager
+                    otherLevel.getSTLevel() >= getSTLevel()); // can't gain higher privs
         }
 
     };
@@ -252,6 +252,7 @@ public class VoteResolver<T> {
                 && name.equals(other.name)
                 && Objects.equal(locales, other.locales);
         }
+
         @Override
         public int hashCode() {
             return organization.hashCode() ^ level.hashCode() ^ name.hashCode();
@@ -336,7 +337,7 @@ public class VoteResolver<T> {
             return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
         }
 
-        public Map<String, Long> getNameTime(){
+        public Map<String, Long> getNameTime() {
             return nameTime;
         }
 
@@ -390,23 +391,23 @@ public class VoteResolver<T> {
             //long time = new Date().getTime();
             totalVotes.add(value, votes, time.getTime());
             nameTime.put(info.getName(), time.getTime());
-            if(DEBUG){
+            if (DEBUG) {
                 System.out.println("totalVotes Info: " + totalVotes.toString());
             }
-            if(DEBUG){
+            if (DEBUG) {
                 System.out.println("VoteInfo: " + info.getName() + info.getOrganization());
             }
             Organization organization = info.getOrganization();
             //orgToVotes.get(organization).clear();
             orgToVotes.get(organization).add(value, votes, time.getTime());
-            if(DEBUG){
-                System.out.println("Adding now Info: " + organization.displayName + info.getName() + " is adding: " + votes + value + new Timestamp(time.getTime()).toString());
+            if (DEBUG) {
+                System.out.println("Adding now Info: " + organization.displayName + info.getName() + " is adding: " + votes + value
+                    + new Timestamp(time.getTime()).toString());
             }
 
-            if(DEBUG){
+            if (DEBUG) {
                 System.out.println("addInternal: " + organization.displayName + " : " + orgToVotes.get(organization).toString());
             }
-
 
             // add the new votes to orgToMax, if they are greater that what was there
             Integer max = orgToMax.get(info.getOrganization());
@@ -438,7 +439,7 @@ public class VoteResolver<T> {
                 T value = iterator.next();
                 long weight = items.getCount(value);
                 Organization org = entry.getKey();
-                if(DEBUG){
+                if (DEBUG) {
                     System.out.println("sortedKeys?? " + value + " " + org.displayName);
                 }
 
@@ -466,17 +467,17 @@ public class VoteResolver<T> {
                             if(item.equals("Metric")){
                                 System.out.println("ADDING METRIC");
                                 totals.add(item, count);
-
+                
                             }
-
-
+                
+                
                         }
                     }
                     else{ */
                 /*  for (T item : items.keySet()) {
                             long count = items.getCount(item);
                             totals.add(item, count);
-
+                
                         }*/
                 //    }
 
@@ -486,29 +487,29 @@ public class VoteResolver<T> {
                 long maxtime = 0;
                 long considerTime = 0;
                 for (T item : items.keySet()) {
-                    if(DEBUG){
+                    if (DEBUG) {
                         System.out.println("Items in order: " + item.toString() + new Timestamp(items.getTime(item)).toString());
                     }
                     long count = items.getCount(item);
                     long time = items.getTime(item);
-                    if(count > maxCount){
+                    if (count > maxCount) {
                         maxCount = count;
                         maxtime = time;
                         considerItem = item;
-                        if(DEBUG){
-                            System.out.println("count>maxCount: " + considerItem.toString() + ":" + new Timestamp(considerTime).toString() + " COUNT: " + considerCount + "MAXCOUNT: " + maxCount);
+                        if (DEBUG) {
+                            System.out.println("count>maxCount: " + considerItem.toString() + ":" + new Timestamp(considerTime).toString() + " COUNT: "
+                                + considerCount + "MAXCOUNT: " + maxCount);
                         }
                         considerCount = items.getCount(considerItem);
                         considerTime = items.getTime(considerItem);
 
-                    }
-                    else if((time > maxtime) && (count == maxCount)){
+                    } else if ((time > maxtime) && (count == maxCount)) {
                         maxCount = count;
                         maxtime = time;
                         considerItem = item;
                         considerCount = items.getCount(considerItem);
                         considerTime = items.getTime(considerItem);
-                        if(DEBUG){
+                        if (DEBUG) {
                             System.out.println("time>maxTime: " + considerItem.toString() + ":" + new Timestamp(considerTime).toString());
                         }
                     }
@@ -516,14 +517,13 @@ public class VoteResolver<T> {
                 orgToAdd.put(org, considerItem);
                 totals.add(considerItem, considerCount, considerTime);
 
-                if(DEBUG){
+                if (DEBUG) {
                     System.out.println("Totals: " + totals.toString() + " : " + new Timestamp(considerTime).toString());
                 }
 
-
             }
 
-            if(DEBUG){
+            if (DEBUG) {
                 System.out.println("FINALTotals: " + totals.toString());
             }
             return totals;
@@ -570,7 +570,7 @@ public class VoteResolver<T> {
             }
             EnumSet<Organization> conflicted = EnumSet.noneOf(Organization.class);
             return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: "
-            + conflicted + "}";
+                + conflicted + "}";
         }
 
         /**
@@ -588,12 +588,12 @@ public class VoteResolver<T> {
 
             // NEW CODE
             T value = orgToAdd.get(org);
-            if (hasExplicitInheritanceMarker && Objects.equal(value,baileyValue)) {
+            if (hasExplicitInheritanceMarker && Objects.equal(value, baileyValue)) {
                 return (T) CldrUtility.INHERITANCE_MARKER;
             }
             return value;
         }
-        
+
         public T getOrgVoteRaw(Organization orgOfUser) {
             return orgToAdd.get(orgOfUser);
         }
@@ -619,7 +619,6 @@ public class VoteResolver<T> {
     /**
      * Data built internally
      */
-
 
     private T winningValue;
     private T oValue; // optimal value; winning if better approval status than old
@@ -767,14 +766,13 @@ public class VoteResolver<T> {
         values.add(value);
     }
 
-
     /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
      *
      * @param value
      * @param voter
      * @param withVotes override to lower the user's voting permission. May be null for default.
-
+    
      */
     public void add(T value, int voter, Integer withVotes) {
         if (resolved) {
@@ -785,7 +783,6 @@ public class VoteResolver<T> {
         values.add(value);
     }
 
-
     /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
      *
@@ -793,6 +790,7 @@ public class VoteResolver<T> {
      * @param voter
      */
     int maxcounter = 100;
+
     public void add(T value, int voter) {
         Date date = new Date(++maxcounter);
         add(value, voter, null, date);
@@ -837,7 +835,7 @@ public class VoteResolver<T> {
         valuesWithSameVotes.clear();
         totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
         final Set<T> sortedValues = totals.getKeysetSortedByCount(false, votesThenUcaCollator);
-        if(DEBUG){
+        if (DEBUG) {
             System.out.println("sortedValues :" + sortedValues.toString());
         }
         Iterator<T> iterator = sortedValues.iterator();
@@ -888,7 +886,7 @@ public class VoteResolver<T> {
             }
         }
         //    System.out.println("Winning 764: " + winningValue);
-        if (organizationToValueAndVote.hasExplicitInheritanceMarker 
+        if (organizationToValueAndVote.hasExplicitInheritanceMarker
             && !organizationToValueAndVote.hasExplicitBailey
             && winningValue.equals(organizationToValueAndVote.baileyValue)
             && winningValue instanceof CharSequence) {
@@ -912,10 +910,10 @@ public class VoteResolver<T> {
         return weight1 > weight2 &&
             (weight1 >= requiredVotes) ? Status.approved
                 : weight1 > weight2 &&
-                (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
-                || weight1 >= 2 && orgCount >= 2) ? Status.contributed
-                    : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-                        : Status.unconfirmed;
+                    (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
+                        || weight1 >= 2 && orgCount >= 2) ? Status.contributed
+                            : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
+                                : Status.unconfirmed;
     }
 
     public Status getPossibleWinningStatus() {
@@ -1027,7 +1025,7 @@ public class VoteResolver<T> {
         return organizationToValueAndVote.getOrgToVotes(org);
     }
 
-    public Map<String, Long> getNameTime(){
+    public Map<String, Long> getNameTime() {
         return organizationToValueAndVote.getNameTime();
     }
 
@@ -1035,7 +1033,7 @@ public class VoteResolver<T> {
         return "{"
             + "test: {" + "randomTest }, "
             + "lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
-            + "bailey: " + (organizationToValueAndVote.baileySet?("“"+organizationToValueAndVote.baileyValue+"” "):"none ")
+            + "bailey: " + (organizationToValueAndVote.baileySet ? ("“" + organizationToValueAndVote.baileyValue + "” ") : "none ")
             + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
             + organizationToValueAndVote
             + ", sameVotes: " + valuesWithSameVotes
@@ -1163,7 +1161,8 @@ public class VoteResolver<T> {
                     "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" +
                     "|locales\\[@type=\"([^\"]*)\"]" +
                     "(?:/locale\\[@id=\"([^\"]*)\"])?"
-                    + ")", Pattern.COMMENTS);
+                    + ")",
+                Pattern.COMMENTS);
 
         enum Group {
             all, userId, mainType, n, levelType, localeType, localeId;
@@ -1417,12 +1416,12 @@ public class VoteResolver<T> {
         if (lastReleaseValue != null && !totals.containsKey(lastReleaseValue)) {
             result.put(lastReleaseValue, 0L);
         }
-        for(T value : organizationToValueAndVote.totalVotes.getMap().keySet()){
-            if(!result.containsKey(value)){
+        for (T value : organizationToValueAndVote.totalVotes.getMap().keySet()) {
+            if (!result.containsKey(value)) {
                 result.put(value, 0L);
             }
         }
-        if(DEBUG){
+        if (DEBUG) {
             System.out.println("getResolvedVoteCounts :" + result.toString());
         }
         return result;
@@ -1465,11 +1464,11 @@ public class VoteResolver<T> {
             return VoteStatus.ok;
         }
     }
-    
+
     private boolean equalsOrgVote(T value, T orgVote) {
-        return orgVote == null 
-            || orgVote.equals(value) 
-            || CldrUtility.INHERITANCE_MARKER.equals(value) 
-            && orgVote.equals(organizationToValueAndVote.baileyValue);
+        return orgVote == null
+            || orgVote.equals(value)
+            || CldrUtility.INHERITANCE_MARKER.equals(value)
+                && orgVote.equals(organizationToValueAndVote.baileyValue);
     }
 }

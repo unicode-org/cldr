@@ -75,7 +75,7 @@ public class CheckHtmlFiles {
             "|Acknowledge?ments" +
             "|Rights to .*Images" +
             "|Modifications" +
-        "|(Revision \\d+\\.?)");
+            "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = PatternCache.get("Revision \\d+\\.?");
     static Pattern SPACES = PatternCache.get("\\s+");
 
@@ -83,11 +83,10 @@ public class CheckHtmlFiles {
 //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
         target(".*", CLDRPaths.BASE_DIRECTORY + "specs" + File.separator + "ldml" + File.separator +
             "tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
-            + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
-            verbose(".*", "none", "verbose debugging messages"),
+                + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"), verbose(".*", "none", "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
-            // /cldr-archive
-            ;
+        // /cldr-archive
+        ;
 
         // boilerplate
         final Option option;
@@ -103,7 +102,7 @@ public class CheckHtmlFiles {
             return input == null ? Verbosity.none : Verbosity.valueOf(input.toLowerCase(Locale.ROOT));
         }
     }
-    
+
     static Verbosity verbose;
     static boolean doContents;
     static boolean isLdml;
@@ -626,24 +625,26 @@ public class CheckHtmlFiles {
     static class ElementLine {
         final String element;
         final int line;
+
         public ElementLine(String element, int line) {
             super();
             this.element = element;
             this.line = line;
         }
+
         @Override
         public String toString() {
             return element + '[' + line + ']';
         }
     }
-    
+
     static class Data implements Iterable<String> {
         private static final Pattern ELEMENT_ATTLIST = Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
         List<String> sentences = new ArrayList<String>();
         M4<String, String, String, Boolean> dtdItems = ChainedMap.of(
-            new LinkedHashMap<String,Object>(), 
-            new TreeMap<String,Object>(), 
-            new TreeMap<String,Object>(), Boolean.class);
+            new LinkedHashMap<String, Object>(),
+            new TreeMap<String, Object>(),
+            new TreeMap<String, Object>(), Boolean.class);
         Counter<String> hashedSentences = new Counter<String>();
         int count = 0;
         int totalErrorCount = 0;
@@ -781,8 +782,8 @@ public class CheckHtmlFiles {
                             elementStack.pop();
                         }
                         if (!peek.element.equals(contentString)) {
-                            System.out.println(lineCount 
-                                + "\tCouldn't pop: " + contentString 
+                            System.out.println(lineCount
+                                + "\tCouldn't pop: " + contentString
                                 + ", " + showElementStack(elementStack));
                         } else {
                             elementStack.pop();
@@ -841,7 +842,7 @@ public class CheckHtmlFiles {
                     contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                     buffer.append(contentString.indexOf('&') >= 0
                         ? TransliteratorUtilities.fromHTML.transform(contentString)
-                            : contentString);
+                        : contentString);
                     if (inHeading) {
                         heading.addText(contentString);
                     }
@@ -884,8 +885,7 @@ public class CheckHtmlFiles {
                     + "\n\t\t\t<caption>Private Use Codes in CLDR</a></caption>"
                     + "\n\tOften the sentence just before the <table> can be made into the caption."
                     + "\n\tThe next time you run this program, you’ll be prompted with double-links."
-                    + "\n\tIf it really shouldn't have a caption, add <!-- nocaption --> after the <table> instead."
-                    );
+                    + "\n\tIf it really shouldn't have a caption, add <!-- nocaption --> after the <table> instead.");
             }
             int fatalCount = headingInfoList.showErrors();
             totalFatalCount += fatalCount;

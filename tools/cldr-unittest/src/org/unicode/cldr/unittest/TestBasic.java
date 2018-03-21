@@ -85,29 +85,26 @@ import com.ibm.icu.util.ULocale;
 public class TestBasic extends TestFmwkPlus {
 
     private static final boolean DEBUG = false;
-    
+
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
         .getSupplementalDataInfo();
 
-    private static final ImmutableSet<Pair<String, String>> knownElementExceptions =
-        ImmutableSet.of(
-            Pair.of("ldml", "usesMetazone"),
-            Pair.of("ldmlICU", "usesMetazone"));
+    private static final ImmutableSet<Pair<String, String>> knownElementExceptions = ImmutableSet.of(
+        Pair.of("ldml", "usesMetazone"),
+        Pair.of("ldmlICU", "usesMetazone"));
 
-    private static final ImmutableSet<Pair<String, String>> knownAttributeExceptions =
-        ImmutableSet.of(
-            Pair.of("ldml", "version"),
-            Pair.of("supplementalData", "version"),
-            Pair.of("ldmlICU", "version"),
-            Pair.of("layout", "standard"));
+    private static final ImmutableSet<Pair<String, String>> knownAttributeExceptions = ImmutableSet.of(
+        Pair.of("ldml", "version"),
+        Pair.of("supplementalData", "version"),
+        Pair.of("ldmlICU", "version"),
+        Pair.of("layout", "standard"));
 
-    private static final ImmutableSet<Pair<String, String>> knownChildExceptions =
-        ImmutableSet.of(
-            Pair.of("abbreviationFallback", "special"),
-            Pair.of("inList", "special"),
-            Pair.of("preferenceOrdering", "special"));
+    private static final ImmutableSet<Pair<String, String>> knownChildExceptions = ImmutableSet.of(
+        Pair.of("abbreviationFallback", "special"),
+        Pair.of("inList", "special"),
+        Pair.of("preferenceOrdering", "special"));
 
     /**
      * Simple test that loads each file in the cldr directory, thus verifying
@@ -183,7 +180,7 @@ public class TestBasic extends TestFmwkPlus {
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
-                    ) {
+                ) {
                     CLDRFile cldrfile = CLDRFile.loadFromFile(fileName, "temp",
                         DraftStatus.unconfirmed);
                     for (String xpath : cldrfile) {
@@ -276,8 +273,8 @@ public class TestBasic extends TestFmwkPlus {
             .keyValueSet()) {
             R3<Boolean, DtdType, String> typeElementUsed = s.getValue();
             logln(s.getKey() + "\t" + typeElementUsed.get0()
-            + "\t" + typeElementUsed.get1() + "\t"
-            + typeElementUsed.get2());
+                + "\t" + typeElementUsed.get1() + "\t"
+                + typeElementUsed.get2());
         }
     }
 
@@ -293,7 +290,8 @@ public class TestBasic extends TestFmwkPlus {
             String attributeName = "«"
                 + attribute
                 + (!"NONE".equals(attribute) && CLDRFile.isDistinguishing(type, element, attribute) ? "*"
-                    : "") + "»";
+                    : "")
+                + "»";
             if (!"NONE".equals(attribute) && SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element, attribute,
                 "*")) {
                 if (bdep.length() != 0) {
@@ -381,9 +379,9 @@ public class TestBasic extends TestFmwkPlus {
 
             final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet(
                 "[\\u0000-\\u00FF]").addAll(safeExemplars(file, ""))
-                .addAll(safeExemplars(file, "auxiliary"))
+                    .addAll(safeExemplars(file, "auxiliary"))
 //                .addAll(safeExemplars(file, "currencySymbol"))
-                .freeze();
+                    .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {
@@ -450,7 +448,7 @@ public class TestBasic extends TestFmwkPlus {
                                             + it2.getString()
                                             + "\t"
                                             + UCharacter
-                                            .getName(fishyCodepoint));
+                                                .getName(fishyCodepoint));
                                     }
                                     if (fallback == null) {
                                         fallback = fb;
@@ -485,9 +483,9 @@ public class TestBasic extends TestFmwkPlus {
         Map<String, Counter<Level>> abstactPaths = new TreeMap<String, Counter<Level>>();
         RegexTransform abstractPathTransform = new RegexTransform(
             RegexTransform.Processing.ONE_PASS).add("//ldml/", "")
-            .add("\\[@alt=\"[^\"]*\"\\]", "").add("=\"[^\"]*\"", "=\"*\"")
-            .add("([^]])\\[", "$1\t[").add("([^]])/", "$1\t/")
-            .add("/", "\t");
+                .add("\\[@alt=\"[^\"]*\"\\]", "").add("=\"[^\"]*\"", "=\"*\"")
+                .add("([^]])\\[", "$1\t[").add("([^]])/", "$1\t/")
+                .add("/", "\t");
 
         for (String locale : getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable()) {
             CLDRFile file = testInfo.getCLDRFile(locale, resolved);
@@ -533,7 +531,7 @@ public class TestBasic extends TestFmwkPlus {
                 result.append(' ');
             }
             result.append("L").append(level.ordinal()).append("=")
-            .append(counter.get(level));
+                .append(counter.get(level));
         }
         return result;
     }
@@ -561,7 +559,8 @@ public class TestBasic extends TestFmwkPlus {
 
         Relation<String, String> pathToLocale = Relation.of(
             new TreeMap<String, Set<String>>(CLDRFile
-                .getComparator(DtdType.ldml)), TreeSet.class, null);
+                .getComparator(DtdType.ldml)),
+            TreeSet.class, null);
         Set<String> localesToTest = getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable();
         for (String locale : localesToTest) {
             CLDRFile file = testInfo.getCLDRFile(locale, resolved);
@@ -719,7 +718,7 @@ public class TestBasic extends TestFmwkPlus {
 
     public void TestDefaultContents() {
         Set<String> defaultContents = Inheritance.defaultContents;
-        Multimap<String,String> parentToChildren = Inheritance.parentToChildren;
+        Multimap<String, String> parentToChildren = Inheritance.parentToChildren;
 
         if (DEBUG) {
             Inheritance.showChain("", "", "root");
@@ -806,7 +805,8 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     private String highestShared(String parent, Set<String> children) {
-        M4<PathHeader, String, String, Boolean> data = ChainedMap.of(new TreeMap<PathHeader,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
+        M4<PathHeader, String, String, Boolean> data = ChainedMap.of(new TreeMap<PathHeader, Object>(), new TreeMap<String, Object>(),
+            new TreeMap<String, Object>(), Boolean.class);
         CLDRFile parentFile = testInfo.getCLDRFile(parent, true);
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         for (String child : children) {
@@ -833,9 +833,9 @@ public class TestBasic extends TestFmwkPlus {
         for (Entry<PathHeader, Map<String, Map<String, Boolean>>> entry : data) {
             for (Entry<String, Map<String, Boolean>> item : entry.getValue().entrySet()) {
                 result.append("\n")
-                .append(entry.getKey())
-                .append("\t")
-                .append(item.getKey() + "\t" + item.getValue().keySet());
+                    .append(entry.getKey())
+                    .append("\t")
+                    .append(item.getKey() + "\t" + item.getValue().keySet());
             }
         }
         return result.toString();
@@ -844,10 +844,10 @@ public class TestBasic extends TestFmwkPlus {
     public static class Inheritance {
         public static final Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO
             .getDefaultContentLocales();
-        public static final Multimap<String,String> parentToChildren;
+        public static final Multimap<String, String> parentToChildren;
 
         static {
-            Multimap<String,String> _parentToChildren = TreeMultimap.create();
+            Multimap<String, String> _parentToChildren = TreeMultimap.create();
             for (String child : testInfo.getCldrFactory().getAvailable()) {
                 if (child.equals("root")) {
                     continue;
@@ -872,7 +872,7 @@ public class TestBasic extends TestFmwkPlus {
             Set<String> leaves = new LinkedHashSet<>(children);
             leaves.removeAll(parentToChildren.keySet());
             if (!leaves.isEmpty()) {
-                List<String> presentation = new ArrayList<>(); 
+                List<String> presentation = new ArrayList<>();
                 boolean gotDc = false;
                 for (String s : leaves) {
                     String shown = s;
@@ -886,7 +886,7 @@ public class TestBasic extends TestFmwkPlus {
                     if (!shown.equals(s)) {
                         presentation.add(0, shown);
                     } else {
-                        presentation.add(shown); 
+                        presentation.add(shown);
                     }
                 }
                 if (!gotDc) {
@@ -1137,7 +1137,7 @@ public class TestBasic extends TestFmwkPlus {
             Arrays.asList(new String[] { "version", "languageCoverage",
                 "scriptCoverage", "territoryCoverage",
                 "currencyCoverage", "timezoneCoverage",
-            "skipDefaultLocale" }));
+                "skipDefaultLocale" }));
         Set<String> PCDATA = new HashSet<String>();
         PCDATA.add("PCDATA");
         Set<String> EMPTY = new HashSet<String>();
@@ -1308,7 +1308,7 @@ public class TestBasic extends TestFmwkPlus {
                 Collections.EMPTY_SET, elementsWithoutAlias);
             assertEquals(
                 type
-                + " DTD elements with children must have 'special' elements",
+                    + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
 
             // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
@@ -1377,7 +1377,7 @@ public class TestBasic extends TestFmwkPlus {
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldChild.getName() + "»",
-                                    newChild);
+                                newChild);
                         }
                         for (Attribute oldAttribute : oldElement
                             .getAttributes().keySet()) {
@@ -1393,7 +1393,7 @@ public class TestBasic extends TestFmwkPlus {
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldAttribute.getName() + "»",
-                                    newAttribute);
+                                newAttribute);
 
                         }
                     }

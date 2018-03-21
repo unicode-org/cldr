@@ -19,7 +19,7 @@ public class SimpleHtmlParserTest {
                 .getUTF8Data("chart_messages.html");
             try {
                 SimpleHtmlParser simple = new SimpleHtmlParser()
-                .setReader(reader);
+                    .setReader(reader);
                 StringBuilder result = new StringBuilder();
                 Type x;
                 do {

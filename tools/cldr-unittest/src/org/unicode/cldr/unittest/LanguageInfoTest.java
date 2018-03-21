@@ -152,7 +152,8 @@ public class LanguageInfoTest extends TestFmwk {
             final LocaleMatcher matcher = new LocaleMatcher(
                 LocalePriorityList
                     .add(MUL).add(supported)
-                    .build(), data);
+                    .build(),
+                data);
 
             ULocale bestMatch = matcher.getBestMatch(desired);
             if (!assertEquals("fallback for " + desired + ", " + score, supported, bestMatch)) {

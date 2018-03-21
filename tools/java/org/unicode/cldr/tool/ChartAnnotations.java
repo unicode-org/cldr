@@ -83,10 +83,10 @@ public class ChartAnnotations extends Chart {
 
     static final UnicodeSet EXTRAS = new UnicodeSet()
         .addAll(Arrays.asList(
-            "🇪🇺", "🔟", "#️⃣", "👶🏽", "👩‍❤️‍💋‍👩", "👩‍❤️‍👩", "👩‍👩‍👧", "👨🏻‍⚕️", "👮🏿‍♂️", "👮🏽‍♀️", "👩‍❤️‍💋‍👩", "👮🏽‍♀️", 
-            "💏","👩‍❤️‍💋‍👩","💑","👩‍❤️‍👩","👪","👩‍👩‍👧",
-            "👦🏻","👩🏿","👨‍⚖","👨🏿‍⚖","👩‍⚖","👩🏼‍⚖","👮","👮‍♂️","👮🏼‍♂️","👮‍♀️","👮🏿‍♀️",
-            "🚴","🚴🏿","🚴‍♂️","🚴🏿‍♂️","🚴‍♀️","🚴🏿‍♀️"))
+            "🇪🇺", "🔟", "#️⃣", "👶🏽", "👩‍❤️‍💋‍👩", "👩‍❤️‍👩", "👩‍👩‍👧", "👨🏻‍⚕️", "👮🏿‍♂️", "👮🏽‍♀️", "👩‍❤️‍💋‍👩", "👮🏽‍♀️",
+            "💏", "👩‍❤️‍💋‍👩", "💑", "👩‍❤️‍👩", "👪", "👩‍👩‍👧",
+            "👦🏻", "👩🏿", "👨‍⚖", "👨🏿‍⚖", "👩‍⚖", "👩🏼‍⚖", "👮", "👮‍♂️", "👮🏼‍♂️", "👮‍♀️", "👮🏿‍♀️",
+            "🚴", "🚴🏿", "🚴‍♂️", "🚴🏿‍♂️", "🚴‍♀️", "🚴🏿‍♀️"))
         .freeze();
 
     public void writeSubcharts(Anchors anchors) throws IOException {
@@ -102,7 +102,7 @@ public class ChartAnnotations extends Chart {
             new EnumMap<LanguageGroup, Set<R3<Integer, String, String>>>(LanguageGroup.class),
             TreeSet.class);
 
-        Multimap<String,String> localeToSub = TreeMultimap.create();
+        Multimap<String, String> localeToSub = TreeMultimap.create();
         LanguageTagParser ltp = new LanguageTagParser();
 
         for (String locale : locales) {
@@ -154,15 +154,15 @@ public class ChartAnnotations extends Chart {
                 System.out.println(pair);
             }
             // now build table with right order for columns
-            double width = ((int)((99.0 / (locales.size() + 1))*1000))/1000.0;
+            double width = ((int) ((99.0 / (locales.size() + 1)) * 1000)) / 1000.0;
             //String widthString = "class='source' width='"+ width + "%'";
             String widthStringTarget = "class='target' width='" + width + "%'";
 
             TablePrinter tablePrinter = new TablePrinter()
                 .addColumn("Char", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source-image'", true)
                 .addColumn("Hex", "class='source' width='1%'", null, "class='source'", true)
-                //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
-                ;
+            //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
+            ;
 
             for (Entry<String, String> entry : nameToCode.entrySet()) {
                 String name = entry.getKey();
@@ -170,13 +170,13 @@ public class ChartAnnotations extends Chart {
             }
             // sort the characters
             Set<String> sorted = new TreeSet<>(RBC);
-            Multimap<String,String> valueToSub = TreeMultimap.create();
+            Multimap<String, String> valueToSub = TreeMultimap.create();
 
             for (String cp : s.addAllTo(sorted)) {
                 tablePrinter
-                .addRow()
-                .addCell(cp)
-                .addCell(Utility.hex(cp, 4, " "))
+                    .addRow()
+                    .addCell(cp)
+                    .addCell(Utility.hex(cp, 4, " "))
                 //.addCell(getName(cp))
                 ;
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
@@ -192,7 +192,7 @@ public class ChartAnnotations extends Chart {
                     Collection<String> subs = localeToSub.get(locale);
                     if (!subs.isEmpty()) {
                         valueToSub.clear();
-                        for (String sub : subs)  {
+                        for (String sub : subs) {
                             AnnotationSet subAnnotations = Annotations.getDataSet(sub);
                             AnnotationSet subParentAnnotations = Annotations.getDataSet(LocaleIDParser.getParent(locale));
                             String baseAnnotation2 = subAnnotations.toString(cp, true, subParentAnnotations);
@@ -201,7 +201,7 @@ public class ChartAnnotations extends Chart {
                             }
                         }
                         for (Entry<String, Collection<String>> entry : valueToSub.asMap().entrySet()) {
-                            baseAnnotation += "<hr><i>" + CollectionUtilities.join(entry.getValue(), ", ") + "</i>: "+ entry.getKey();
+                            baseAnnotation += "<hr><i>" + CollectionUtilities.join(entry.getValue(), ", ") + "</i>: " + entry.getKey();
                         }
                     }
                     tablePrinter.addCell(baseAnnotation);

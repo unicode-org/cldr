@@ -136,7 +136,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
                     distinguishingAttributeToElements.put(attribute, element);
                 } else {
                     nondistinguishingAttributeToElements
-                    .put(attribute, element);
+                        .put(attribute, element);
                 }
             }
         }
@@ -546,7 +546,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
                             for (String old : new TreeSet<String>(oldAlways)) {
                                 if (!attributes.contains(old)) {
                                     nodeData.elementToAttributesAlwaysFound
-                                    .remove(element, old);
+                                        .remove(element, old);
                                 }
                             }
                         }
@@ -626,7 +626,8 @@ public class TestDTDAttributes extends TestFmwkPlus {
         logln(Utility.repeat("\t", indent)
             + elementName
             + checkAttributeStructure(dtdType, element,
-                toAttributes.getAll(element), toAttributeData) + values);
+                toAttributes.getAll(element), toAttributeData)
+            + values);
         if (myChildren == null || skipChildren)
             return;
         for (String child : myChildren) {

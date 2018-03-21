@@ -12,9 +12,8 @@ import org.unicode.cldr.util.DtdType;
 import com.ibm.icu.text.CaseMap;
 
 public class GenerateDtd {
-    
-    private static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE =
-        CaseMap.toTitle().wholeString().noLowercase();
+
+    private static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();
 
     public static void main(String[] args) throws IOException {
         //System.setProperty("show_all", "true");

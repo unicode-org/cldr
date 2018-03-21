@@ -135,7 +135,7 @@ public class TestPathHeader extends TestFmwkPlus {
         }
         ArrayList<String> shortFiles = new ArrayList<>(files);
         if (getInclusion() > 5) {
-            max += (files.size() - 30)*(getInclusion()-5)/10; // use proportional amount
+            max += (files.size() - 30) * (getInclusion() - 5) / 10; // use proportional amount
         }
         return shortFiles.subList(0, max);
     }
@@ -147,15 +147,15 @@ public class TestPathHeader extends TestFmwkPlus {
         Multimap<PathHeader.PageId, PathHeader.SectionId> pageUniqueness = TreeMultimap.create();
         Multimap<String, Pair<PathHeader.SectionId, PathHeader.PageId>> headerUniqueness = TreeMultimap.create();
         Set<String> toTest;
-        switch(getInclusion()) {
-        default: 
+        switch (getInclusion()) {
+        default:
             toTest = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
             break;
         case 10:
             toTest = factory.getAvailable();
             break;
         }
-        toTest = ImmutableSet.<String>builder().add("en").addAll(toTest).build();
+        toTest = ImmutableSet.<String> builder().add("en").addAll(toTest).build();
         Set<String> seenPaths = new HashSet<>();
         Set<String> localSeenPaths = new TreeSet<>();
         for (String locale : toTest) {
@@ -186,7 +186,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 final SectionId sectionId = ph.getSectionId();
                 if (sectionId != SectionId.Special) {
                     pageUniqueness.put(ph.getPageId(), sectionId);
-                    headerUniqueness.put(ph.getHeader(), new Pair<>(sectionId,ph.getPageId()));
+                    headerUniqueness.put(ph.getHeader(), new Pair<>(sectionId, ph.getPageId()));
                 }
             }
             if (!localSeenPaths.isEmpty()) {
@@ -1049,8 +1049,8 @@ public class TestPathHeader extends TestFmwkPlus {
         logln("\nInternal Counter:\t" + counterData.size());
         for (PathHeader.Factory.CounterData item : counterData.keySet()) {
             logln("\t" + counterData.getCount(item) + "\t" + item.get2() // externals
-            + "\t" + item.get3() + "\t" + item.get0() // internals
-            + "\t" + item.get1());
+                + "\t" + item.get3() + "\t" + item.get0() // internals
+                + "\t" + item.get1());
         }
         logln("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {
@@ -1139,23 +1139,24 @@ public class TestPathHeader extends TestFmwkPlus {
                             int debug = 0;
                         }
                         pathChecker.checkPathHeader(dtdData, path);
-                    };
+                    }
+                    ;
                 }
             }
         }
     }
-
 
     private class PathChecker {
         PathHeader.Factory phf = pathHeaderFactory;
         PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
 
         Set<String> badHeaders = new TreeSet<>();
-        Map<PathHeader,PathHeader> goodHeaders = new HashMap<>();
+        Map<PathHeader, PathHeader> goodHeaders = new HashMap<>();
         Set<PathHeader> seenBad = new HashSet<>();
         {
             phf.clearCache();
         }
+
         public void checkPathHeader(DtdData dtdData, String rawPath) {
             XPathParts pathPlain = XPathParts.getFrozenInstance(rawPath);
             if (dtdData.isMetadata(pathPlain)) {
@@ -1188,12 +1189,11 @@ public class TestPathHeader extends TestFmwkPlus {
                     return; // don't care
                 }
                 if (ph.getPageId() != PageId.Unknown) {
-                    PathHeader old = goodHeaders.put(ph,ph);
+                    PathHeader old = goodHeaders.put(ph, ph);
                     if (old != null && !path.equals(old.getOriginalPath())) {
-                        errln("Duplicate path header for: " + ph 
+                        errln("Duplicate path header for: " + ph
                             + "\n\t\t " + path
-                            + "\n\t\t≠" + old.getOriginalPath()
-                            );
+                            + "\n\t\t≠" + old.getOriginalPath());
                         seenBad.add(ph);
                     }
                     return;
@@ -1238,14 +1238,14 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void test10232() {
         String[][] tests = {
-            {"MMM","Formats - Flexible - Date Formats"},
-            {"dMM","Formats - Flexible - Date Formats"},
-            {"h","Formats - Flexible - 12 Hour Time Formats"},
-            {"hm","Formats - Flexible - 12 Hour Time Formats"},
-            {"Ehm","Formats - Flexible - 12 Hour Time Formats"},
-            {"H","Formats - Flexible - 24 Hour Time Formats"},
-            {"Hm","Formats - Flexible - 24 Hour Time Formats"},
-            {"EHm","Formats - Flexible - 24 Hour Time Formats"},
+            { "MMM", "Formats - Flexible - Date Formats" },
+            { "dMM", "Formats - Flexible - Date Formats" },
+            { "h", "Formats - Flexible - 12 Hour Time Formats" },
+            { "hm", "Formats - Flexible - 12 Hour Time Formats" },
+            { "Ehm", "Formats - Flexible - 12 Hour Time Formats" },
+            { "H", "Formats - Flexible - 24 Hour Time Formats" },
+            { "Hm", "Formats - Flexible - 24 Hour Time Formats" },
+            { "EHm", "Formats - Flexible - 24 Hour Time Formats" },
         };
         for (String[] test : tests) {
             String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""

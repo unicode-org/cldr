@@ -39,8 +39,7 @@ public class IcuTextWriter {
      * ICU paths have a simple comparison, alphabetical within a level. We do
      * have to catch the / so that it is lower than everything.
      */
-    public static final Comparator<String> PATH_COMPARATOR =
-        new Comparator<String>() {
+    public static final Comparator<String> PATH_COMPARATOR = new Comparator<String>() {
         @Override
         public int compare(String arg0, String arg1) {
             int min = Math.min(arg0.length(), arg1.length());
@@ -282,7 +281,7 @@ public class IcuTextWriter {
         for (int i = end - 1; i > end - 10;) {
             char current = quoted.charAt(i--);
             if (!Character.toString(current).matches("[0-9A-Fa-f]")) {
-                if ((current=='u' || current=='U') && i > end-10 && quoted.charAt(i) == '\\') {
+                if ((current == 'u' || current == 'U') && i > end - 10 && quoted.charAt(i) == '\\') {
                     return i;
                 }
                 break;

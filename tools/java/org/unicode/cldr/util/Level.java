@@ -9,14 +9,10 @@ import java.util.Locale;
  *
  */
 public enum Level {
-    UNDETERMINED(0, "none", 0),
-    CORE(10, "G4", 100),
+    UNDETERMINED(0, "none", 0), CORE(10, "G4", 100),
     // POSIX(20, "G4", 100),
     // MINIMAL(30, "G3.5", 90),
-    BASIC(40, "G3", 80),
-    MODERATE(60, "G2", 70),
-    MODERN(80, "G1", 50),
-    COMPREHENSIVE(100, "G0", 2);
+    BASIC(40, "G3", 80), MODERATE(60, "G2", 70), MODERN(80, "G1", 50), COMPREHENSIVE(100, "G0", 2);
     //OPTIONAL(101, "optional", 1);
 
     @Deprecated

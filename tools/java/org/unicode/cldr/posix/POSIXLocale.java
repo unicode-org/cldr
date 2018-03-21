@@ -57,30 +57,26 @@ public class POSIXLocale {
         CLDRFile collrules = collFactory.makeWithFallback(locale_name);
 
         if (repertoire.isEmpty() && codeset.equals("UTF-8")) // Generate default repertoire set from exemplar
-            // characters;
+        // characters;
         {
             String SearchLocation = "//ldml/characters/exemplarCharacters";
             UnicodeSet ExemplarCharacters = new UnicodeSet(doc.getStringValue(SearchLocation));
             UnicodeSetIterator ec = new UnicodeSetIterator(ExemplarCharacters);
-            while (ec.next())
-            {
+            while (ec.next()) {
                 if ((ec.codepoint != UnicodeSetIterator.IS_STRING) && (ec.codepoint <= 0x00ffff))
                     repertoire.add(ec.codepoint);
             }
             UnicodeSet CaseFoldedExemplars = new UnicodeSet(ExemplarCharacters.closeOver(UnicodeSet.CASE));
             UnicodeSetIterator cfe = new UnicodeSetIterator(CaseFoldedExemplars);
-            while (cfe.next())
-            {
+            while (cfe.next()) {
                 if ((cfe.codepoint != UnicodeSetIterator.IS_STRING) && (cfe.codepoint <= 0x00ffff))
                     repertoire.add(cfe.codepoint);
             }
 
             UnicodeSetIterator it = new UnicodeSetIterator(repertoire);
             int PreviousScript = UScript.INVALID_CODE;
-            while (it.next())
-            {
-                if ((it.codepoint != UnicodeSetIterator.IS_STRING) && (it.codepoint <= 0x00ffff))
-                {
+            while (it.next()) {
+                if ((it.codepoint != UnicodeSetIterator.IS_STRING) && (it.codepoint <= 0x00ffff)) {
                     int Script = UScript.getScript(it.codepoint);
                     if (Script != UScript.COMMON &&
                         Script != UScript.INHERITED &&
@@ -90,8 +86,7 @@ public class POSIXLocale {
                     {
                         UnicodeSet ThisScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT, Script);
                         UnicodeSetIterator ts = new UnicodeSetIterator(ThisScript);
-                        while (ts.next())
-                        {
+                        while (ts.next()) {
                             if ((ts.codepoint != UnicodeSetIterator.IS_STRING) && (ts.codepoint <= 0x00ffff))
                                 repertoire.add(ts.codepoint);
                         }
@@ -102,17 +97,14 @@ public class POSIXLocale {
 
             repertoire.add(0x0000, 0x007f); // Always add the ASCII set
 
-        }
-        else if (!codeset.equals("UTF-8"))
-        {
+        } else if (!codeset.equals("UTF-8")) {
             UnicodeSet csset = new SimpleConverter(cs).getCharset();
             repertoire = new UnicodeSet(UnicodeSet.MIN_VALUE, UnicodeSet.MAX_VALUE).retainAll(csset);
             POSIXUtilities.setRepertoire(repertoire);
         }
 
         UnicodeSetIterator rep = new UnicodeSetIterator(repertoire);
-        while (rep.next())
-        {
+        while (rep.next()) {
             if (!UCharacter.isDefined(rep.codepoint) && (rep.codepoint != UnicodeSetIterator.IS_STRING))
                 repertoire.remove(rep.codepoint);
         }
@@ -121,18 +113,15 @@ public class POSIXLocale {
 
         lc_collate = new POSIX_LCCollate(doc, repertoire, collrules, collateset, codeset, variant);
 
-        if (codeset.equals("UTF-8"))
-        {
+        if (codeset.equals("UTF-8")) {
             UnicodeSet tailored = lc_collate.col.getTailoredSet();
 
             // Add the tailored characters, and close over script
 
             UnicodeSetIterator it = new UnicodeSetIterator(tailored);
             int PreviousScript = UScript.INVALID_CODE;
-            while (it.next())
-            {
-                if (it.codepoint != UnicodeSetIterator.IS_STRING && (it.codepoint <= 0x00ffff))
-                {
+            while (it.next()) {
+                if (it.codepoint != UnicodeSetIterator.IS_STRING && (it.codepoint <= 0x00ffff)) {
                     int Script = UScript.getScript(it.codepoint);
                     if (Script != UScript.COMMON &&
                         Script != UScript.INHERITED &&
@@ -142,8 +131,7 @@ public class POSIXLocale {
                     {
                         UnicodeSet ThisScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT, Script);
                         UnicodeSetIterator ts = new UnicodeSetIterator(ThisScript);
-                        while (ts.next())
-                        {
+                        while (ts.next()) {
                             if ((ts.codepoint != UnicodeSetIterator.IS_STRING) && (ts.codepoint <= 0x00ffff))
                                 repertoire.add(ts.codepoint);
                         }

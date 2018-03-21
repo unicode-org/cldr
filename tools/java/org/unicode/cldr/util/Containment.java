@@ -33,8 +33,8 @@ public class Containment {
     static final Relation<String, String> containedToContainer = (Relation<String, String>) Relation
         .of(new HashMap<String, Set<String>>(),
             HashSet.class)
-            .addAllInverted(containmentFull)
-            .freeze();
+        .addAllInverted(containmentFull)
+        .freeze();
 
     static final Relation<String, String> leavesToContainers;
     static {
@@ -57,8 +57,8 @@ public class Containment {
     static final Relation<String, String> containedToContainerCore = (Relation<String, String>) Relation
         .of(new HashMap<String, Set<String>>(),
             HashSet.class)
-            .addAllInverted(containmentCore)
-            .freeze();
+        .addAllInverted(containmentCore)
+        .freeze();
     static final Map<String, Integer> toOrder = new LinkedHashMap<String, Integer>();
     static int level = 0;
     static int order;
@@ -105,8 +105,8 @@ public class Containment {
         }
         String container = containers != null
             ? containers.iterator().next()
-                : territory.equals("001") ? "001" : "ZZ";
-            return container;
+            : territory.equals("001") ? "001" : "ZZ";
+        return container;
     }
 
     /**
@@ -211,7 +211,7 @@ public class Containment {
         Collection<String> parents = multimap.get(lang);
         int size = parents.size();
         if (size == 0) {
-            targets.add(target); 
+            targets.add(target);
         } else if (size == 1) {
             for (String parent : parents) {
                 getAllDirected(multimap, parent, target, targets);

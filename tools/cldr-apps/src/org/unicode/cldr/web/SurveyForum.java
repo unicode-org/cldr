@@ -65,8 +65,7 @@ public class SurveyForum {
         0x0D, 0x0D,
         0x20, 0xD7FF,
         0xe000, 0xfffd,
-        0x10000, 0x10ffff
-        ).freeze();
+        0x10000, 0x10ffff).freeze();
 
     private static java.util.logging.Logger logger;
 
@@ -499,8 +498,7 @@ public class SurveyForum {
                         }
                         ctx.println(w.toString());
                     }
-                }
-                else
+                } else
                     ctx.redirect(ctx.base() + "?_=" + ctx.getLocale().toString() + "&" + F_FORUM + "=" + forum + "#post" + postId);
                 return;
 
@@ -571,18 +569,20 @@ public class SurveyForum {
         }
 
         if (SurveyMain.isPhaseBeta()) {
-            ctx.println("<div class='ferrbox'>Please remember that the Survey Tool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
+            ctx.println(
+                "<div class='ferrbox'>Please remember that the Survey Tool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
         }
 
         ctx.println("<b>Subject</b>: <input name='subj' size=40 value='" + subj + "'><br>");
         ctx.println("<textarea rows=12 cols=60 name='text'>" + (text == null ? "" : text) + "</textarea>");
         ctx.println("<br>");
         ctx.println("<input name=post " +
-            // (ctx.hasField("text")?"":"disabled")+ // require preview
+        // (ctx.hasField("text")?"":"disabled")+ // require preview
             " type=submit value=Post>");
         ctx.println("<input type=submit name=preview value=Preview><br>");
         if (SurveyMain.isPhaseBeta()) {
-            ctx.println("<div class='ferrbox'>Please remember that the Survey Tool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
+            ctx.println(
+                "<div class='ferrbox'>Please remember that the Survey Tool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
         }
         ctx.println("</form>");
 
@@ -1237,11 +1237,11 @@ public class SurveyForum {
         theU = sm.reg.getInfo(uid);
         String aLink = null;
         if ((theU != null) && (me != null) && ((uid == me.id) || // if it's us
-            // or..
+        // or..
             (UserRegistry.userIsTC(me) || // or TC..
-            (UserRegistry.userIsVetter(me) && (true || // approved vetter or
-            // ..
-            me.org.equals(theU.org)))))) { // vetter&same org
+                (UserRegistry.userIsVetter(me) && (true || // approved vetter or
+                // ..
+                    me.org.equals(theU.org)))))) { // vetter&same org
             if ((me == null) || (me.org == null)) {
                 throw new InternalError("null: c.s.u.o");
             }
@@ -1264,11 +1264,11 @@ public class SurveyForum {
         theU = sm.reg.getInfo(uid);
         String aLink = null;
         if ((theU != null) && (me != null) && ((uid == me.id) || // if it's us
-            // or..
+        // or..
             (UserRegistry.userIsTC(me) || // or TC..
-            (UserRegistry.userIsVetter(me) && (true || // approved vetter or
-            // ..
-            me.org.equals(theU.org)))))) { // vetter&same org
+                (UserRegistry.userIsVetter(me) && (true || // approved vetter or
+                // ..
+                    me.org.equals(theU.org)))))) { // vetter&same org
             if ((me == null) || (me.org == null)) {
                 throw new InternalError("null: c.s.u.o");
             }
@@ -1905,10 +1905,9 @@ public class SurveyForum {
         if (VALID_FOR_XML.containsAll(str)) {
             return str;
         } else {
-            UnicodeSet tmpSet =
-                new UnicodeSet(VALID_FOR_XML)
-                    .complement()
-                    .retainAll(str);
+            UnicodeSet tmpSet = new UnicodeSet(VALID_FOR_XML)
+                .complement()
+                .retainAll(str);
             StringBuilder sb = new StringBuilder(str.length());
             sb.append("((INVALID CHARS: " + tmpSet.toString() + " )) ");
             int cp;
@@ -2097,7 +2096,8 @@ public class SurveyForum {
                                 + " WHERE (" + forumPosts + ".forum =? AND "
                                 + /* DBUtils.Table.FORUM_POSTS + " .xpath =? AND " +*/forumPosts + " .id =?) ORDER BY "
                                 + forumPosts
-                                + ".last_time DESC", forumNumber,/* base_xpath,*/ident);
+                                + ".last_time DESC",
+                            forumNumber, /* base_xpath,*/ident);
                     } else {
                         // just a restriction - specific post, specific xpath
                         o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
@@ -2158,12 +2158,12 @@ public class SurveyForum {
      * @return
      */
     private CharSequence forumTable(String cldrVersion) {
-        if(cldrVersion != null) {
+        if (cldrVersion != null) {
             cldrVersion = new Integer(Integer.parseInt(cldrVersion)).toString(); // sanitize
         }
         final Table FORUM_POSTS = DBUtils.Table.FORUM_POSTS;
-        return (cldrVersion==null)
-            ?(FORUM_POSTS.toString()):(FORUM_POSTS.forVersion(cldrVersion, false));
+        return (cldrVersion == null)
+            ? (FORUM_POSTS.toString()) : (FORUM_POSTS.forVersion(cldrVersion, false));
     }
 
     private void assertCanAccessForum(CookieSession session, CLDRLocale locale) throws SurveyException {
@@ -2184,6 +2184,7 @@ public class SurveyForum {
         Table forumPosts = DBUtils.Table.FORUM_POSTS;
         return getPallresult(forumPosts.toString());
     }
+
     private static String getPallresult(String forumPosts) {
         return forumPosts + ".poster," + forumPosts + ".subj," + forumPosts + ".text,"
             + forumPosts.toString()
@@ -2197,6 +2198,7 @@ public class SurveyForum {
         Table forumPosts = DBUtils.Table.FORUM_POSTS;
         return getPallresultfora(forumPosts.toString());
     }
+
     private static String getPallresultfora(final CharSequence forumPosts) {
         return forumPosts + ".poster," + forumPosts + ".subj," + forumPosts + ".text,"
             + forumPosts.toString()

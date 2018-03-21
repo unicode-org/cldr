@@ -152,8 +152,8 @@ public class GenerateTransform {
             for (UnicodeSet[] pair : items) {
                 // ← x {·} Y ;
                 result
-                .append(" ← " + show(pair[0]) + " {‧} " + show(pair[1]) + " ;"
-                    + CldrUtility.LINE_SEPARATOR);
+                    .append(" ← " + show(pair[0]) + " {‧} " + show(pair[1]) + " ;"
+                        + CldrUtility.LINE_SEPARATOR);
             }
         }
 

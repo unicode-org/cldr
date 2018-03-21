@@ -38,7 +38,7 @@ abstract public class DataDrivenTestHelper {
                 List<String> components = lines.get(i);
                 String comment = comments.get(i);
                 if (components.isEmpty()) {
-                    if(!comment.isEmpty()) {
+                    if (!comment.isEmpty()) {
                         out.append("# ").append(comment);
                     }
                 } else {
@@ -62,7 +62,7 @@ abstract public class DataDrivenTestHelper {
         comments.add(commentBase);
         return this;
     }
-    
+
     public DataDrivenTestHelper run(Class<?> classFileIsRelativeTo, String file) {
         return load(classFileIsRelativeTo, file)
             .test();
@@ -71,7 +71,7 @@ abstract public class DataDrivenTestHelper {
     public boolean isTestLine(List<String> arguments) {
         return !arguments.isEmpty() && !arguments.equals(DEBUG_LINE);
     }
-    
+
     public DataDrivenTestHelper test() {
         boolean breakpoint = false;
         for (int i = 0; i < lines.size(); ++i) {
@@ -120,8 +120,8 @@ abstract public class DataDrivenTestHelper {
                 String comment = "";
                 String commentBase = "";
                 if (hash >= 0) {
-                    commentBase = line.substring(hash+1).trim();
-                    line = line.substring(0,hash).trim();
+                    commentBase = line.substring(hash + 1).trim();
+                    line = line.substring(0, hash).trim();
                     comment = "# " + commentBase;
                     if (!line.isEmpty()) {
                         comment = "\t" + comment;
@@ -132,7 +132,7 @@ abstract public class DataDrivenTestHelper {
                     continue;
                 }
                 if (line.startsWith("@")) {
-                    List<String> keyValue = EQUAL_SPLIT.splitToList(line);             
+                    List<String> keyValue = EQUAL_SPLIT.splitToList(line);
                     addLine(keyValue, comment);
                     continue;
                 }
@@ -156,14 +156,14 @@ abstract public class DataDrivenTestHelper {
     }
 
     private final String stringFor(Object obj) {
-        return obj == null ? "null" 
-            : obj instanceof String ? "\"" + obj + '"' 
+        return obj == null ? "null"
+            : obj instanceof String ? "\"" + obj + '"'
                 : obj instanceof Number ? String.valueOf(obj)
                     : obj.getClass().getName() + "<" + obj + ">";
     }
 
     abstract public void handle(boolean breakpoint, String commentBase, List<String> arguments);
-    
+
     public void handleParams(String comment, List<String> arguments) {
         throw new IllegalArgumentException("Unrecognized parameter: " + arguments);
     }

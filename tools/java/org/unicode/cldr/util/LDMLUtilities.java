@@ -102,7 +102,8 @@ public class LDMLUtilities {
                 try {
                     java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
                         new java.io.FileOutputStream("./" + File.separator
-                            + "root_debug.xml"), "UTF-8");
+                            + "root_debug.xml"),
+                        "UTF-8");
                     LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
                         "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                     writer.flush();
@@ -161,7 +162,8 @@ public class LDMLUtilities {
                         try {
                             java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
                                 new java.io.FileOutputStream("./" + File.separator + loc
-                                    + "_debug.xml"), "UTF-8");
+                                    + "_debug.xml"),
+                                "UTF-8");
                             LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
                                 "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                             writer.flush();
@@ -200,7 +202,8 @@ public class LDMLUtilities {
             try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
                     new java.io.FileOutputStream("./" + File.separator + locale
-                        + "_ba_debug.xml"), "UTF-8");
+                        + "_ba_debug.xml"),
+                    "UTF-8");
                 LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
                     "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                 writer.flush();
@@ -217,7 +220,8 @@ public class LDMLUtilities {
             try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
                     new java.io.FileOutputStream("./" + File.separator + locale
-                        + "_aa_debug.xml"), "UTF-8");
+                        + "_aa_debug.xml"),
+                    "UTF-8");
                 LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
                     "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                 writer.flush();
@@ -1386,16 +1390,13 @@ public class LDMLUtilities {
         return false;
     }
 
-    private static final Node getNonAltNodeIfPossible(NodeList list)
-    {
+    private static final Node getNonAltNodeIfPossible(NodeList list) {
         // A nonalt node is one which .. does not have alternate
         // attribute set
         Node node = null;
-        for (int i = 0; i < list.getLength(); i++)
-        {
+        for (int i = 0; i < list.getLength(); i++) {
             node = list.item(i);
-            if (/* !isDraft(node, xpath)&& */!isAlternate(node))
-            {
+            if (/* !isDraft(node, xpath)&& */!isAlternate(node)) {
                 return node;
             }
         }
@@ -1796,7 +1797,8 @@ public class LDMLUtilities {
             try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
                     new java.io.FileOutputStream("./" + File.separator + locale
-                        + "_debug_1.xml"), "UTF-8");
+                        + "_debug_1.xml"),
+                    "UTF-8");
                 LDMLUtilities.printDOMTree(doc, new PrintWriter(writer),
                     "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                 writer.flush();
@@ -1891,8 +1893,7 @@ public class LDMLUtilities {
     }
 
     private static DocumentBuilder newDocumentBuilder(boolean validating) {
-        try
-        {
+        try {
             DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
             // Always set namespaces on
             dfactory.setNamespaceAware(true);
@@ -1914,14 +1915,12 @@ public class LDMLUtilities {
 
     public static Document parse(InputSource docSrc, String filename, boolean ignoreError) {
         Document doc = null;
-        try
-        {
+        try {
             // First, attempt to parse as XML (preferred)...
             DocumentBuilder docBuilder = newDocumentBuilder(true);
             docBuilder.setErrorHandler(getNullErrorHandler(filename, ignoreError));
             doc = docBuilder.parse(docSrc);
-        } catch (Throwable se)
-        {
+        } catch (Throwable se) {
             // ... if we couldn't parse as XML, attempt parse as HTML...
             System.err.println(filename + ": ERROR :" + se.getMessage());
             se.printStackTrace();
@@ -1986,8 +1985,7 @@ public class LDMLUtilities {
         // (which we should have forced above)
         if (tmp.startsWith("/")) {
             return "file://" + tmp;
-        }
-        else {
+        } else {
             return "file:///" + tmp;
         }
     }
@@ -2000,8 +1998,7 @@ public class LDMLUtilities {
      * @param out
      * @throws IOException
      */
-    public static void printDOMTree(Node node, PrintWriter out, String docType, String copyright) throws IOException
-    {
+    public static void printDOMTree(Node node, PrintWriter out, String docType, String copyright) throws IOException {
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -2030,13 +2027,11 @@ public class LDMLUtilities {
     // Utility functions, HTML and such.
     public static String CVSBASE = "http://www.unicode.org/cldr/trac/browser/trunk";
 
-    public static final String getCVSLink(String locale)
-    {
+    public static final String getCVSLink(String locale) {
         return "<a href=\"" + CVSBASE + "/common/main/" + locale + ".xml\">";
     }
 
-    public static final String getCVSLink(String locale, String version)
-    {
+    public static final String getCVSLink(String locale, String version) {
         return "<a href=\"" + CVSBASE + "/common/main/" + locale + ".xml?rev=" +
             version + "\">";
 
@@ -2048,8 +2043,7 @@ public class LDMLUtilities {
      * @param fileName
      * @return
      */
-    static public String loadFileRevision(String fileName)
-    {
+    static public String loadFileRevision(String fileName) {
         int index = fileName.lastIndexOf(File.separatorChar);
         if (index == -1) {
             return null;
@@ -2297,8 +2291,7 @@ public class LDMLUtilities {
         XPath xPath = factory.newXPath();
         setNamespace(xPath, xpath);
         try {
-            XPathExpression xPathExpression =
-                xPath.compile(xpath);
+            XPathExpression xPathExpression = xPath.compile(xpath);
             return (NodeList) xPathExpression.evaluate(node, XPathConstants.NODESET);
         } catch (XPathExpressionException e) {
             throw new TransformerException("Exception in XPathAPI_selectNodeList: " + xpath, e);
@@ -2311,8 +2304,7 @@ public class LDMLUtilities {
         XPath xPath = factory.newXPath();
         setNamespace(xPath, xpath);
         try {
-            XPathExpression xPathExpression =
-                xPath.compile(xpath);
+            XPathExpression xPathExpression = xPath.compile(xpath);
             return (NodeList) xPathExpression.evaluate(doc, XPathConstants.NODESET);
         } catch (XPathExpressionException e) {
             throw new TransformerException("Exception in XPathAPI_selectNodeList: " + xpath, e);
@@ -2325,8 +2317,7 @@ public class LDMLUtilities {
         XPath xPath = factory.newXPath();
         setNamespace(xPath, xpath);
         try {
-            XPathExpression xPathExpression =
-                xPath.compile(xpath);
+            XPathExpression xPathExpression = xPath.compile(xpath);
             return (NodeList) xPathExpression.evaluate(context, XPathConstants.NODESET);
         } catch (XPathExpressionException e) {
             throw new TransformerException("Exception in XPathAPI_selectNodeList: " + xpath, e);

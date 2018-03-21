@@ -27,7 +27,7 @@ public class CompareEn {
                 CLDRFile en_GB = factory.make("en_GB", false);
 
                 // walk through all the new paths and values to check them.
-                
+
                 Set<String> paths = CollectionUtilities.addAll(en_GB.iterator(), new TreeSet<>());
                 for (String path : paths) {
                     if (path.startsWith("//ldml/identity")) {
@@ -36,9 +36,9 @@ public class CompareEn {
                     String value001 = en_001.getStringValue(path);
                     String valueGB = en_GB.getStringValue(path);
                     String value = en.getStringValue(path);
-                    
+
                     // drop the cases that will disappear with minimization
-                    
+
                     if (valueGB == null
                         || Objects.equals(value001, valueGB)
                         || (value001 == null && Objects.equals(value, valueGB))) {
@@ -47,8 +47,7 @@ public class CompareEn {
                     out.println(path
                         + "\t" + value
                         + "\t" + value001
-                        + "\t" + valueGB
-                        );
+                        + "\t" + valueGB);
                 }
             }
         }

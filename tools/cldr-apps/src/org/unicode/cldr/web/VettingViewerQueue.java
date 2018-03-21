@@ -425,7 +425,7 @@ public class VettingViewerQueue {
                 CLDRLocale loc = CLDRLocale.getInstance(item);
                 return (aLocs.contains(item) || // a
                     covGroupsForOrg.contains(loc.getBaseName()) || // b
-                anyVotesFromOrg.contains(loc)); // c
+                    anyVotesFromOrg.contains(loc)); // c
             }
         };
 
@@ -511,8 +511,7 @@ public class VettingViewerQueue {
         EnumSet<Choice> choices,
         String localeID,
         boolean nonVettingPhase,
-        boolean quick, WebContext ctx
-        ) {
+        boolean quick, WebContext ctx) {
 
         try {
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
@@ -549,11 +548,9 @@ public class VettingViewerQueue {
                                 return o1.get3().compareTo(o2.get3());
                             else
                                 return 0;
-                        }
-                        else
+                        } else
                             return compSection;
-                    }
-                    else
+                    } else
                         return compChoice;
                 }
             };
@@ -718,8 +715,7 @@ public class VettingViewerQueue {
                 Relation file = vv.generateFileInfoReview(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
                 this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFile(locale.getBaseName(), true), file, choiceSet,
                     locale.getBaseName(), true, quick, ctx);
-            }
-            else
+            } else
                 vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
         } else {
             if (DEBUG)

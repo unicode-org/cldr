@@ -32,11 +32,10 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     public static final int FAIL = XLocaleDistance.ABOVE_THRESHOLD;
 
-    
     private XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
     DataDrivenTestHelper tfh = new MyTestFileHandler()
-    .setFramework(this)
-    .load(XLocaleDistanceTest.class, "data/localeDistanceTest.txt");
+        .setFramework(this)
+        .load(XLocaleDistanceTest.class, "data/localeDistanceTest.txt");
 
     static class Arguments {
         final ULocale desired;
@@ -71,7 +70,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         final int maxIterations = 10000;
 
         for (int iterations = maxIterations; iterations > 0; --iterations) {
-            int count=0;
+            int count = 0;
             for (Arguments test : tests) {
                 final ULocale desired = test.desired;
                 final ULocale supported = test.supported;
@@ -81,32 +80,32 @@ public class XLocaleDistanceTest extends TestFmwk {
                 long temp = System.nanoTime();
                 final ULocale desiredMax = ULocale.addLikelySubtags(desired);
                 final ULocale supportedMax = ULocale.addLikelySubtags(supported);
-                likelyTime += System.nanoTime()-temp;
+                likelyTime += System.nanoTime() - temp;
 
                 temp = System.nanoTime();
                 double distOld1 = oldLocaleMatcher.match(desired, desiredMax, supported, supportedMax);
                 double distOld2 = oldLocaleMatcher.match(supported, supportedMax, desired, desiredMax);
-                oldTimeMinusLikely += System.nanoTime()-temp;
+                oldTimeMinusLikely += System.nanoTime() - temp;
 
                 temp = System.nanoTime();
                 final LSR desiredLSR = LSR.fromMaximalized(desired);
                 final LSR supportedLSR = LSR.fromMaximalized(supported);
-                newLikelyTime += System.nanoTime()-temp;
+                newLikelyTime += System.nanoTime() - temp;
 
                 temp = System.nanoTime();
                 int dist1 = localeMatcher.distanceRaw(desiredLSR, supportedLSR, 1000, DistanceOption.NORMAL);
                 int dist2 = localeMatcher.distanceRaw(supportedLSR, desiredLSR, 1000, DistanceOption.NORMAL);
-                newTimeMinusLikely += System.nanoTime()-temp;
+                newTimeMinusLikely += System.nanoTime() - temp;
             }
         }
-        final long oldTime = oldTimeMinusLikely+likelyTime;
-        final long newTime = newLikelyTime+newTimeMinusLikely;
+        final long oldTime = oldTimeMinusLikely + likelyTime;
+        final long newTime = newLikelyTime + newTimeMinusLikely;
         logln("\n");
-        logln("\tlikelyTime:\t" + likelyTime/maxIterations);
-        logln("\toldTime-likelyTime:\t" + oldTimeMinusLikely/maxIterations);
-        logln("totalOld:\t" + oldTime/maxIterations);
-        logln("\tnewLikelyTime:\t" + newLikelyTime/maxIterations);
-        logln("totalNew:\t" + newTime/maxIterations);
+        logln("\tlikelyTime:\t" + likelyTime / maxIterations);
+        logln("\toldTime-likelyTime:\t" + oldTimeMinusLikely / maxIterations);
+        logln("totalOld:\t" + oldTime / maxIterations);
+        logln("\tnewLikelyTime:\t" + newLikelyTime / maxIterations);
+        logln("totalNew:\t" + newTime / maxIterations);
         assertTrue("newTime < 20% of oldTime", newTime * 5 < oldTime);
         //logln("\tnewIntTime-newLikelyTime-extractTime:\t" + intTime/maxIterations);
         //logln("totalInt:\t" + (intTime)/maxIterations);
@@ -145,7 +144,7 @@ public class XLocaleDistanceTest extends TestFmwk {
                     if (distanceNode.getClass() == DistanceNode.class) {
                         logln("should NOT be plain DistanceNode");
                     }
-                    checkTables(subDistanceTable, first + "," + second + ",", depth+1);
+                    checkTables(subDistanceTable, first + "," + second + ",", depth + 1);
                 }
             }
         }
@@ -182,20 +181,21 @@ public class XLocaleDistanceTest extends TestFmwk {
                 assertEquals(supportedTag + " to " + desiredTag + comment, args.supportedToDesired, supportedToDesiredActual);
             }
         }
+
         @Override
         public void handleParams(String comment, List<String> arguments) {
-            switch(arguments.get(0)) {
-            case "@DistanceOption": 
-                distanceOption = DistanceOption.valueOf(arguments.get(1)); 
+            switch (arguments.get(0)) {
+            case "@DistanceOption":
+                distanceOption = DistanceOption.valueOf(arguments.get(1));
                 break;
-            case "@Threshold": 
-                threshold = Integer.valueOf(arguments.get(1)); 
+            case "@Threshold":
+                threshold = Integer.valueOf(arguments.get(1));
                 break;
-            default: 
+            default:
                 super.handleParams(comment, arguments);
                 break;
             }
-            return;         
+            return;
         }
     }
 

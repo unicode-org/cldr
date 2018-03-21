@@ -30,7 +30,7 @@ public class XLikelySubtags {
     private static final Map<String, R2<List<String>, String>> REGION_ALIASES = aliasInfo.get("territory");
     private static final Map<String, R2<List<String>, String>> LANGUAGE_ALIASES = aliasInfo.get("language");
     private static final XLikelySubtags DEFAULT = new XLikelySubtags(SDI.getLikelySubtags(), true);
-    
+
     public static final XLikelySubtags getDefault() {
         return DEFAULT;
     }
@@ -41,7 +41,7 @@ public class XLikelySubtags {
         abstract <V> V make();
 
         @SuppressWarnings("unchecked")
-        public <K,V> V getSubtable(Map<K, V> langTable, final K language) {
+        public <K, V> V getSubtable(Map<K, V> langTable, final K language) {
             V scriptTable = langTable.get(language);
             if (scriptTable == null) {
                 langTable.put(language, scriptTable = (V) make());
@@ -51,14 +51,14 @@ public class XLikelySubtags {
 
         static final Maker HASHMAP = new Maker() {
             @SuppressWarnings("unchecked")
-            public Map<Object,Object> make() {
+            public Map<Object, Object> make() {
                 return new HashMap<>();
             }
         };
 
         static final Maker TREEMAP = new Maker() {
             @SuppressWarnings("unchecked")
-            public Map<Object,Object> make() {
+            public Map<Object, Object> make() {
                 return new TreeMap<>();
             }
         };
@@ -68,15 +68,15 @@ public class XLikelySubtags {
         public final String language;
         public final String script;
         public final String region;
-        
+
         public static LSR from(String language, String script, String region) {
             return new LSR(language, script, region);
         }
-        
+
         public static LSR from(ULocale locale) {
             return new LSR(locale.getLanguage(), locale.getScript(), locale.getCountry());
         }
-        
+
         public static LSR fromMaximalized(ULocale locale) {
             return fromMaximalized(locale.getLanguage(), locale.getScript(), locale.getCountry());
         }
@@ -88,10 +88,10 @@ public class XLikelySubtags {
                 canonicalLanguage = "ro";
             }
             String canonicalRegion = getCanonical(REGION_ALIASES.get(region));
-            
+
             return DEFAULT.maximize(
-                canonicalLanguage == null ? language : canonicalLanguage, 
-                script, 
+                canonicalLanguage == null ? language : canonicalLanguage,
+                script,
                 canonicalRegion == null ? region : canonicalRegion);
         }
 
@@ -100,7 +100,7 @@ public class XLikelySubtags {
             this.script = script;
             this.region = region;
         }
-        
+
         @Override
         public String toString() {
             StringBuilder result = new StringBuilder(language);
@@ -112,26 +112,29 @@ public class XLikelySubtags {
             }
             return result.toString();
         }
+
         public LSR replace(String language2, String script2, String region2) {
             if (language2 == null && script2 == null && region2 == null) return this;
             return new LSR(
-                language2 == null ? language: language2, 
-                    script2 == null ? script : script2, 
-                        region2 == null ? region : region2);
+                language2 == null ? language : language2,
+                script2 == null ? script : script2,
+                region2 == null ? region : region2);
         }
+
         @Override
         public boolean equals(Object obj) {
             LSR other = (LSR) obj;
-            return language.equals(other.language) 
-                && script.equals(other.script) 
+            return language.equals(other.language)
+                && script.equals(other.script)
                 && region.equals(other.region);
         }
+
         @Override
         public int hashCode() {
             return Objects.hash(language, script, region);
         }
     }
-    
+
     final Map<String, Map<String, Map<String, LSR>>> langTable;
 
     public XLikelySubtags(Map<String, String> rawData, boolean skipNoncanonical) {
@@ -140,13 +143,13 @@ public class XLikelySubtags {
 
     private Map<String, Map<String, Map<String, LSR>>> init(final Map<String, String> rawData, boolean skipNoncanonical) {
         // prepare alias info. We want a mapping from the canonical form to all aliases
-        
-        Multimap<String,String> canonicalToAliasLanguage = HashMultimap.create();
+
+        Multimap<String, String> canonicalToAliasLanguage = HashMultimap.create();
         getAliasInfo(LANGUAGE_ALIASES, canonicalToAliasLanguage);
 
         // Don't bother with script; there are none
-        
-        Multimap<String,String> canonicalToAliasRegion = HashMultimap.create();
+
+        Multimap<String, String> canonicalToAliasRegion = HashMultimap.create();
         getAliasInfo(REGION_ALIASES, canonicalToAliasRegion);
 
         Maker maker = Maker.TREEMAP;
@@ -155,7 +158,7 @@ public class XLikelySubtags {
         Splitter bar = Splitter.on('_');
         int last = -1;
         // set the base data
-        Map<LSR,LSR> internCache = new HashMap<>();
+        Map<LSR, LSR> internCache = new HashMap<>();
         for (Entry<String, String> sourceTarget : rawData.entrySet()) {
             ltp.set(sourceTarget.getKey());
             final String language = ltp.getLanguage();
@@ -183,12 +186,12 @@ public class XLikelySubtags {
                         continue;
                     }
                     set(result, languageAlias, script, regionAlias, languageTarget, scriptTarget, regionTarget, internCache);
-                }                
+                }
             }
         }
         // hack
         set(result, "und", "Latn", "", "en", "Latn", "US", internCache);
-        
+
         // hack, ensure that if und-YY => und-Xxxx-YY, then we add Xxxx=>YY to the table
         // <likelySubtag from="und_GH" to="ak_Latn_GH"/>
 
@@ -264,7 +267,7 @@ public class XLikelySubtags {
         }
         set(langTable, language, script, region, oldValue);
     }
-    
+
     private void set(Map<String, Map<String, Map<String, LSR>>> langTable, final String language, final String script, final String region, LSR newValue) {
         Map<String, Map<String, LSR>> scriptTable = Maker.TREEMAP.getSubtable(langTable, language);
         Map<String, LSR> regionTable = Maker.TREEMAP.getSubtable(scriptTable, script);
@@ -274,7 +277,7 @@ public class XLikelySubtags {
         }
         regionTable.put(region, newValue);
     }
-    
+
     /**
      * Convenience methods
      * @param source
@@ -308,7 +311,7 @@ public class XLikelySubtags {
         } else if (!language.equals("und")) {
             retainOldMask |= 4;
         }
-        
+
         if (script.equals("Zzzz")) {
             script = "";
         }
@@ -319,7 +322,7 @@ public class XLikelySubtags {
         } else if (!script.isEmpty()) {
             retainOldMask |= 2;
         }
-        
+
         if (region.equals("ZZ")) {
             region = "";
         }
@@ -333,32 +336,40 @@ public class XLikelySubtags {
         } else if (!region.isEmpty()) {
             retainOldMask |= 1;
         }
-        
+
         switch (retainOldMask) {
         default:
-        case 0: return result;
-        case 1: return result.replace(null, null, region);
-        case 2: return result.replace(null, script, null);
-        case 3: return result.replace(null, script, region);
-        case 4: return result.replace(language, null, null);
-        case 5: return result.replace(language, null, region);
-        case 6: return result.replace(language, script, null);
-        case 7: return result.replace(language, script, region);
+        case 0:
+            return result;
+        case 1:
+            return result.replace(null, null, region);
+        case 2:
+            return result.replace(null, script, null);
+        case 3:
+            return result.replace(null, script, region);
+        case 4:
+            return result.replace(language, null, null);
+        case 5:
+            return result.replace(language, null, region);
+        case 6:
+            return result.replace(language, script, null);
+        case 7:
+            return result.replace(language, script, region);
         }
     }
 
     private LSR minimizeSubtags(String languageIn, String scriptIn, String regionIn, Minimize fieldToFavor) {
         LSR result = maximize(languageIn, scriptIn, regionIn);
-        
+
         // We could try just a series of checks, like:
         // LSR result2 = addLikelySubtags(languageIn, "", "");
         // if result.equals(result2) return result2;
         // However, we can optimize 2 of the cases:
         //   (languageIn, "", "")
         //   (languageIn, "", regionIn)
-        
+
         Map<String, Map<String, LSR>> scriptTable = langTable.get(result.language);
-        
+
         Map<String, LSR> regionTable0 = scriptTable.get("");
         LSR value00 = regionTable0.get("");
         boolean favorRegionOk = false;
@@ -371,7 +382,7 @@ public class XLikelySubtags {
                 favorRegionOk = true;
             }
         }
-        
+
         // The last case is not as easy to optimize.
         // Maybe do later, but for now use the straightforward code.
         LSR result2 = maximize(languageIn, scriptIn, "");
@@ -383,14 +394,14 @@ public class XLikelySubtags {
         return result;
     }
 
-    private static <V> StringBuilder show(Map<String,V> map, String indent, StringBuilder output) {
+    private static <V> StringBuilder show(Map<String, V> map, String indent, StringBuilder output) {
         String first = indent.isEmpty() ? "" : "\t";
-        for (Entry<String,V> e : map.entrySet()) {
+        for (Entry<String, V> e : map.entrySet()) {
             String key = e.getKey();
             V value = e.getValue();
             output.append(first + (key.isEmpty() ? "∅" : key));
             if (value instanceof Map) {
-                show((Map)value, indent+"\t", output);
+                show((Map) value, indent + "\t", output);
             } else {
                 output.append("\t" + CldrUtility.toString(value)).append("\n");
             }
@@ -412,7 +423,7 @@ public class XLikelySubtags {
         XLikelySubtags ls = XLikelySubtags.getDefault();
         System.out.println(ls);
         ls.maximize(new ULocale("iw"));
-if (true) return;
+        if (true) return;
 
         LanguageTagParser ltp = new LanguageTagParser();
 //        String[][] tests = {
@@ -443,7 +454,7 @@ if (true) return;
 //            boolean same = max.toLanguageTag().equals(result.toString());
 //            System.out.println(sourceTarget[0] + "\t" + sourceTarget[1] + "\t" + result + (same ? "" : "\t≠" + max.toLanguageTag()));
 //        }
-        
+
         // get all the languages, scripts, and regions
         Set<String> languages = new TreeSet<String>();
         Set<String> scripts = new TreeSet<String>();
@@ -451,7 +462,7 @@ if (true) return;
         Counter<String> languageCounter = new Counter<>();
         Counter<String> scriptCounter = new Counter<>();
         Counter<String> regionCounter = new Counter<>();
-        
+
         for (Entry<String, String> sourceTarget : rawData.entrySet()) {
             final String source = sourceTarget.getKey();
             ltp.set(source);
@@ -468,23 +479,22 @@ if (true) return;
         languageCounter.add(ltp.getLanguage(), 1);
         scriptCounter.add(ltp.getScript(), 1);
         regionCounter.add(ltp.getRegion(), 1);
-        
+
         if (SHORT) {
-        removeSingletons(languages, languageCounter);
-        removeSingletons(scripts, scriptCounter);
-        removeSingletons(regions, regionCounter);
+            removeSingletons(languages, languageCounter);
+            removeSingletons(scripts, scriptCounter);
+            removeSingletons(regions, regionCounter);
         }
-        
+
         System.out.println("languages: " + languages.size() + "\n\t" + languages + "\n\t" + languageCounter);
         System.out.println("scripts: " + scripts.size() + "\n\t" + scripts + "\n\t" + scriptCounter);
         System.out.println("regions: " + regions.size() + "\n\t" + regions + "\n\t" + regionCounter);
-        
+
         int maxCount = Integer.MAX_VALUE;
-        
+
         int counter = maxCount;
         long tempTime = System.nanoTime();
-        newMax:
-        for (String language : languages) {
+        newMax: for (String language : languages) {
             for (String script : scripts) {
                 for (String region : regions) {
                     if (--counter < 0) break newMax;
@@ -494,11 +504,10 @@ if (true) return;
         }
         long newMaxTime = System.nanoTime() - tempTime;
         System.out.println("newMaxTime: " + newMaxTime);
-        
+
         counter = maxCount;
         tempTime = System.nanoTime();
-        newMin:
-        for (String language : languages) {
+        newMin: for (String language : languages) {
             for (String script : scripts) {
                 for (String region : regions) {
                     if (--counter < 0) break newMin;
@@ -513,8 +522,7 @@ if (true) return;
 
         tempTime = System.nanoTime();
         counter = maxCount;
-        oldMax:
-        for (String language : languages) {
+        oldMax: for (String language : languages) {
             for (String script : scripts) {
                 for (String region : regions) {
                     if (--counter < 0) break oldMax;
@@ -524,12 +532,11 @@ if (true) return;
             }
         }
         long oldMaxTime = System.nanoTime() - tempTime;
-        System.out.println("oldMaxTime: " + oldMaxTime + "\t" + oldMaxTime/newMaxTime + "x");
-       
+        System.out.println("oldMaxTime: " + oldMaxTime + "\t" + oldMaxTime / newMaxTime + "x");
+
         counter = maxCount;
         tempTime = System.nanoTime();
-        oldMin:
-        for (String language : languages) {
+        oldMin: for (String language : languages) {
             for (String script : scripts) {
                 for (String region : regions) {
                     if (--counter < 0) break oldMin;
@@ -539,11 +546,10 @@ if (true) return;
             }
         }
         long oldMinTime = System.nanoTime() - tempTime;
-        System.out.println("oldMinTime: " + oldMinTime + "\t" + oldMinTime/newMinTime + "x");
+        System.out.println("oldMinTime: " + oldMinTime + "\t" + oldMinTime / newMinTime + "x");
 
         counter = maxCount;
-        testMain:
-        for (String language : languages) {
+        testMain: for (String language : languages) {
             System.out.println(language);
             int tests = 0;
             for (String script : scripts) {
@@ -558,12 +564,12 @@ if (true) return;
                     ULocale maxOld = ULocale.addLikelySubtags(tempLocale);
                     ULocale minOldS = ULocale.minimizeSubtags(tempLocale, Minimize.FAVOR_SCRIPT);
                     ULocale minOldR = ULocale.minimizeSubtags(tempLocale, Minimize.FAVOR_REGION);
-                    
+
                     // check values
                     final String maxNewS = String.valueOf(maxNew);
                     final String maxOldS = maxOld.toLanguageTag();
                     boolean sameMax = maxOldS.equals(maxNewS);
-                    
+
                     final String minNewSS = String.valueOf(minNewS);
                     final String minOldSS = minOldS.toLanguageTag();
                     boolean sameMinS = minNewSS.equals(minOldSS);
@@ -573,14 +579,13 @@ if (true) return;
                     boolean sameMinR = minNewRS.equals(minOldRS);
 
                     if (sameMax && sameMinS && sameMinR) continue;
-                    System.out.println(new LSR(language, script, region) 
+                    System.out.println(new LSR(language, script, region)
                         + "\tmax: " + maxNew
                         + (sameMax ? "" : "≠" + maxOldS)
                         + "\tminS: " + minNewS
                         + (sameMinS ? "" : "≠" + minOldS)
                         + "\tminR: " + minNewR
-                        + (sameMinR ? "" : "≠" + minOldR)
-                        );        
+                        + (sameMinR ? "" : "≠" + minOldR));
                 }
             }
             System.out.println(language + ": " + tests);

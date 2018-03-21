@@ -20,41 +20,39 @@ import com.google.common.base.Function;
 import com.google.common.collect.ImmutableMap;
 
 public class RegexModify {
-    
+
     enum MyOptions {
         verbose(new Params()
-            .setHelp("verbose debugging messages")),
-        sourceDirectory(new Params()
-            .setHelp("sourceDirectory")
-            .setDefault(CLDRPaths.COMMON_DIRECTORY)
-            .setMatch(".+")),
-        targetDirectory(new Params()
-            .setHelp("targetDirectory")
-            .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
-            .setMatch(".+")),
-        fileRegex(new Params()
-            .setHelp("filename regex")
-            .setMatch(".*")
-            .setDefault(".*\\.xml")),
-        lineRegex(new Params()
-            .setHelp("line regex")
-            .setMatch(".*")),
-        applyFunction(new Params()
-            .setHelp("function name to apply")
-            .setMatch(".*")),
-        ;
+            .setHelp("verbose debugging messages")), sourceDirectory(new Params()
+                .setHelp("sourceDirectory")
+                .setDefault(CLDRPaths.COMMON_DIRECTORY)
+                .setMatch(".+")), targetDirectory(new Params()
+                    .setHelp("targetDirectory")
+                    .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
+                    .setMatch(".+")), fileRegex(new Params()
+                        .setHelp("filename regex")
+                        .setMatch(".*")
+                        .setDefault(".*\\.xml")), lineRegex(new Params()
+                            .setHelp("line regex")
+                            .setMatch(".*")), applyFunction(new Params()
+                                .setHelp("function name to apply")
+                                .setMatch(".*")),
+                                ;
 
         // BOILERPLATE TO COPY
         final Option option;
+
         private MyOptions(Params params) {
             option = new Option(this, params);
         }
+
         private static Options myOptions = new Options();
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
             }
         }
+
         private static Set<String> parse(String[] args, boolean showArguments) {
             return myOptions.parse(MyOptions.values()[0], args, true);
         }
@@ -67,7 +65,7 @@ public class RegexModify {
         Matcher fileMatcher = Pattern.compile(MyOptions.fileRegex.option.getValue()).matcher("");
         String functionName = MyOptions.applyFunction.option.getValue();
         RegexFunction f = getFunction(RegexModify.class, functionName);
-        
+
         for (String file : sourceDirectory.list()) {
             if (!fileMatcher.reset(file).matches()) {
                 continue;
@@ -86,7 +84,7 @@ public class RegexModify {
             }
         }
     }
-    
+
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static <T> T getFunction(Class class1, String applyFunction) {
         Map<String, Class<Function>> methods = getMethods(class1);
@@ -95,7 +93,7 @@ public class RegexModify {
             return (T) result.newInstance();
         } catch (Exception e) {
             throw new IllegalArgumentException("-a value must be in " + methods.keySet()
-            + " but is “" + applyFunction + "”");
+                + " but is “" + applyFunction + "”");
         }
     }
 
@@ -108,53 +106,61 @@ public class RegexModify {
                 || !Function.class.isAssignableFrom(classMember)) {
                 continue;
             }
-            
+
             String name = classMember.getName();
-            result.put(name.substring(name.indexOf('$')+1), classMember);
+            result.put(name.substring(name.indexOf('$') + 1), classMember);
         }
         return result.build();
     }
 
-    public static abstract class RegexFunction implements Function<String,String> {
+    public static abstract class RegexFunction implements Function<String, String> {
         protected Matcher lineMatcher;
         private int count;
-        
+
         public RegexFunction() {
             lineMatcher = Pattern.compile(getPattern()).matcher("");
         }
+
         public void clear() {
-            count = 0;   
+            count = 0;
         }
+
         public int getChangedCount() {
             return count;
         }
+
         public String apply(String line) {
-           if (lineMatcher.reset(line).matches()) {
-               String oldLine = line;
-               line = fixLine();
-               if (!line.equals(oldLine)) {
-                   ++count;
-               }
+            if (lineMatcher.reset(line).matches()) {
+                String oldLine = line;
+                line = fixLine();
+                if (!line.equals(oldLine)) {
+                    ++count;
+                }
             } else if (getCheckOnPattern() != null && line.contains(getCheckOnPattern())) {
                 System.out.println(RegexUtilities.showMismatch(lineMatcher, line));
             }
             return line;
         }
+
         public abstract String getPattern();
+
         public abstract String getCheckOnPattern(); // for debugging the regex
+
         public abstract String fixLine();
     }
-    
+
     public static class Subdivision extends RegexFunction {
         @Override
         public String getCheckOnPattern() {
             return "subdivision";
         }
+
         @Override
         public String getPattern() {
             //return "(.*<subdivision(?:Alias)? type=\")([^\"]+)(\".*)";
             return "(.*<subdivision(?:Alias)? type=\")([^\"]+)(\" replacement=\")([^\"]+)(\".*)";
         }
+
         @Override
         public String fixLine() {
             String value = convertToCldr(lineMatcher.group(2));
@@ -162,7 +168,7 @@ public class RegexModify {
             //return lineMatcher.replaceAll("$1"+value+"$3"); // TODO modify to be cleaner
             return lineMatcher.replaceAll("$1" + value + "$3" + value2 + "$5"); // TODO modify to be cleaner
         }
-        
+
         private static boolean isRegionCode(String s) {
             return s.length() == 2 || (s.length() == 3 && s.compareTo("A") < 0);
         }

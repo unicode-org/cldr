@@ -23,13 +23,13 @@ public class PathStarrer implements Transform<String, String> {
     private final List<String> attributes = new ArrayList<String>();
     private final List<String> protectedAttributes = Collections.unmodifiableList(attributes);
     private String substitutionPattern = STAR_PATTERN;
-    
+
     private static final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
     private final StringBuilder starredPathOld = new StringBuilder();
 
     public String set(String path) {
         XPathParts parts = XPathParts.getInstance(path);
-        return set(parts, Collections.<String>emptySet());
+        return set(parts, Collections.<String> emptySet());
     }
 
     /**
@@ -50,7 +50,7 @@ public class PathStarrer implements Transform<String, String> {
         starredPathString = parts.toString();
         return starredPathString;
     }
-    
+
     public String setOld(String path) {
         Matcher starAttributeMatcher = ATTRIBUTE_PATTERN_OLD.matcher(path);
         starredPathOld.setLength(0);

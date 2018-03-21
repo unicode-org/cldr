@@ -78,8 +78,8 @@ public class VerifyAttributeValues extends SimpleHandler {
         try {
             final VerifyAttributeValues platformHandler = new VerifyAttributeValues(fileName, errors, missing);
             new XMLFileReader()
-            .setHandler(platformHandler)
-            .read(fileName, -1, true);
+                .setHandler(platformHandler)
+                .read(fileName, -1, true);
         } catch (Exception e) {
             throw new IllegalArgumentException(fileName, e);
         }
@@ -158,8 +158,8 @@ public class VerifyAttributeValues extends SimpleHandler {
             && !name.equals("specs")
             && !name.equals("tools")
             && !file.toString().contains(".svn")
-            // && !name.equals("keyboards") // TODO reenable keyboards
-            ) {
+        // && !name.equals("keyboards") // TODO reenable keyboards
+        ) {
             int processed = 0;
             int count = max;
             for (File subfile : file.listFiles()) {

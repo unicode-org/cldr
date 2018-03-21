@@ -40,7 +40,7 @@ public class Bcp47Mapper {
         for (File file : new File(sourceDir).listFiles()) {
             final String filenameXml = file.getName();
             if (filenameXml.endsWith(".xml") && !filenameXml.equals("timezone.xml")) {
-                fillFromFile(filenameXml.substring(0,filenameXml.length()-4), 
+                fillFromFile(filenameXml.substring(0, filenameXml.length() - 4),
                     keyTypeData, keyMap);
             }
         }
@@ -159,7 +159,7 @@ public class Bcp47Mapper {
                         icuData.add(typeAliasPrefix + formatName(aliases[i]), mainAlias);
                     }
                 }
-                addOtherInfo(qName, attr, lastKeyName+"/"+typeName, SKIP_KEY_ATTRIBUTES);
+                addOtherInfo(qName, attr, lastKeyName + "/" + typeName, SKIP_KEY_ATTRIBUTES);
             }
         }
 

@@ -72,7 +72,6 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         return this;
     }
 
-
     /**
      * @return Returns the rankToName.
      */
@@ -139,7 +138,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         }
         // must handle halfway case, otherwise we are not transitive!!!
         if (aa == null && bb != null) {
-            return before ;
+            return before;
         }
         if (aa != null && bb == null) {
             return -before;

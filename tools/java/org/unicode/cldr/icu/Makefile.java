@@ -81,7 +81,7 @@ class Makefile {
 
     public void print(String outputDir, String filename) throws IOException {
         PrintWriter out = FileUtilities.openUTF8Writer(outputDir, filename);
-        ImmutableMap<String,String> params = ImmutableMap.of(
+        ImmutableMap<String, String> params = ImmutableMap.of(
             "%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)),
             "%prefix%", prefix,
             "%local%", filename.replace("files.mk", "local.mk"),

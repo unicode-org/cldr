@@ -3,7 +3,6 @@ package org.unicode.cldr.draft;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
-
 /**
  * Stuff used by the 'draft' class that doesn't belong in CLDR core.
  * @author srl

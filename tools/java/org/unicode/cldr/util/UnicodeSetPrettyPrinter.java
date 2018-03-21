@@ -26,7 +26,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 /** Provides more flexible formatting of UnicodeSet patterns.
  */
 public class UnicodeSetPrettyPrinter {
-    private static final StringComparator CODEPOINT_ORDER = new UTF16.StringComparator(true,false,0);
+    private static final StringComparator CODEPOINT_ORDER = new UTF16.StringComparator(true, false, 0);
     private static final UnicodeSet PATTERN_WHITESPACE = (UnicodeSet) new UnicodeSet("[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]").freeze();
     private static final UnicodeSet SORT_AT_END = (UnicodeSet) new UnicodeSet("[[:Cn:][:Cs:][:Co:][:Ideographic:]]").freeze();
     private static final UnicodeSet QUOTED_SYNTAX = (UnicodeSet) new UnicodeSet("[\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]").addAll(PATTERN_WHITESPACE).freeze();
@@ -104,13 +104,12 @@ public class UnicodeSetPrettyPrinter {
      */
     public UnicodeSetPrettyPrinter setToQuote(UnicodeSet toQuote) {
         if (toQuote != null) {
-            toQuote = (UnicodeSet)toQuote.cloneAsThawed();
+            toQuote = (UnicodeSet) toQuote.cloneAsThawed();
             toQuote.addAll(PATTERN_WHITESPACE);
             this.toQuote = toQuote;
         }
         return this;
     }
-
 
     /**
      * Get the pattern for a particular set.
@@ -179,6 +178,7 @@ public class UnicodeSetPrettyPrinter {
             firstCodePoint = lastCodePoint = cp;
         }
     }
+
     /**
      * 
      */
@@ -188,7 +188,7 @@ public class UnicodeSetPrettyPrinter {
         } else if (spaceComp != null && spaceComp.compare(s, lastString) != 0) {
             target.append(' ');
         } else {
-            int cp = UTF16.charAt(s,0);
+            int cp = UTF16.charAt(s, 0);
             if (!toQuote.contains(cp) && !QUOTED_SYNTAX.contains(cp)) {
                 int type = UCharacter.getType(cp);
                 if (type == UCharacter.NON_SPACING_MARK || type == UCharacter.ENCLOSING_MARK) {
@@ -221,7 +221,6 @@ public class UnicodeSetPrettyPrinter {
         }
     }
 
-
     private void appendQuoted(String s) {
         if (toQuote.containsSome(s) && quoter != null) {
             target.append(quoter.transform(s));
@@ -243,10 +242,10 @@ public class UnicodeSetPrettyPrinter {
             }
             if (codePoint > 0xFFFF) {
                 target.append("\\U");
-                target.append(Utility.hex(codePoint,8));
+                target.append(Utility.hex(codePoint, 8));
             } else {
                 target.append("\\u");
-                target.append(Utility.hex(codePoint,4));                    
+                target.append(Utility.hex(codePoint, 4));
             }
             return this;
         }
@@ -272,7 +271,7 @@ public class UnicodeSetPrettyPrinter {
         }
         UTF16.append(target, codePoint);
         return this;
-    }        
+    }
     //  Appender append(String s) {
     //  target.append(s);
     //  return this;

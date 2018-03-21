@@ -147,9 +147,8 @@ public class ChartSubdivisionNames extends Chart {
             for (String code : subdivisions) {
                 tablePrinter
                     .addRow()
-                    .addCell(english.getName(CLDRFile.TERRITORY_NAME,code.substring(0, 2).toUpperCase(Locale.ENGLISH)))
-                    .addCell(code)
-                ;
+                    .addCell(english.getName(CLDRFile.TERRITORY_NAME, code.substring(0, 2).toUpperCase(Locale.ENGLISH)))
+                    .addCell(code);
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();

@@ -51,8 +51,7 @@ public class POSIX_LCMonetary {
         String[] monetary_formats = new String[2];
         if (grouping_pattern.indexOf(";") > 0)
             monetary_formats = grouping_pattern.split(";", 2);
-        else
-        {
+        else {
             monetary_formats[POSITIVE] = grouping_pattern;
             monetary_formats[NEGATIVE] = "-" + grouping_pattern;
         }
@@ -61,8 +60,7 @@ public class POSIX_LCMonetary {
 
         String territory = ULocale.getCountry(doc.getLocaleID());
 
-        if (variant.currency.equals("default"))
-        {
+        if (variant.currency.equals("default")) {
             Set<SupplementalDataInfo.CurrencyDateInfo> ci = supp.getCurrencyDateInfo(territory);
             Iterator<SupplementalDataInfo.CurrencyDateInfo> it = ci.iterator();
             SupplementalDataInfo.CurrencyDateInfo currentCI = null;
@@ -81,8 +79,7 @@ public class POSIX_LCMonetary {
             } else {
                 int_curr_symbol = currentCI.getCurrency();
             }
-        }
-        else
+        } else
             int_curr_symbol = variant.currency;
 
         String tmp_currency_symbol;
@@ -91,22 +88,18 @@ public class POSIX_LCMonetary {
 
         // Check to see if currency symbol has a choice pattern
 
-        if (tmp_currency_symbol.indexOf("|") >= 0)
-        {
+        if (tmp_currency_symbol.indexOf("|") >= 0) {
             String[] choices = tmp_currency_symbol.split("\\u007c");
-            for (int i = choices.length - 1; i >= 0; i--)
-            {
+            for (int i = choices.length - 1; i >= 0; i--) {
                 String[] numvalue = choices[i].split("[<\\u2264]", 2);
                 Float num = Float.valueOf(numvalue[0]);
                 Float ten = new Float(10);
-                if (num.compareTo(ten) <= 0 || i == 0)
-                {
+                if (num.compareTo(ten) <= 0 || i == 0) {
                     currency_symbol = POSIXUtilities.POSIXCharName(numvalue[1]);
                     i = 0;
                 }
             }
-        }
-        else
+        } else
             currency_symbol = POSIXUtilities.POSIXCharName(tmp_currency_symbol);
 
         numsys = doc.getWinningValue("//ldml/numbers/defaultNumberingSystem");
@@ -135,20 +128,16 @@ public class POSIX_LCMonetary {
 
         int_frac_digits = frac_digits;
 
-        if (monetary_formats[POSITIVE].indexOf('+') >= 0)
-        {
+        if (monetary_formats[POSITIVE].indexOf('+') >= 0) {
             positive_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='"
                 + numsys + "']/plusSign"));
-        }
-        else
+        } else
             positive_sign = "";
 
-        if (monetary_formats[NEGATIVE].indexOf('-') >= 0)
-        {
+        if (monetary_formats[NEGATIVE].indexOf('-') >= 0) {
             negative_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='"
                 + numsys + "']/minusSign"));
-        }
-        else
+        } else
             negative_sign = POSIXUtilities.POSIXCharName("-");
 
         // Parse Positive Monetary Formats
@@ -172,22 +161,18 @@ public class POSIX_LCMonetary {
 
         int_p_cs_precedes = p_cs_precedes;
 
-        if (positive_sign == "")
-        {
+        if (positive_sign == "") {
             if ((leftparen_position < decimal_symbol_position) &&
                 (rightparen_position > decimal_symbol_position))
                 p_sign_posn = "0";
             else
                 p_sign_posn = "1";
-        }
-        else if (sign_position < currency_symbol_position)
-        {
+        } else if (sign_position < currency_symbol_position) {
             if (sign_position < decimal_symbol_position)
                 p_sign_posn = "1";
             else
                 p_sign_posn = "3";
-        }
-        else // sign_position >= currency_symbol_position
+        } else // sign_position >= currency_symbol_position
         {
             if (sign_position > decimal_symbol_position)
                 p_sign_posn = "2";
@@ -204,16 +189,13 @@ public class POSIX_LCMonetary {
             ((currency_symbol_position > decimal_symbol_position) && (sign_position > decimal_symbol_position)))
             currency_and_sign_are_adjacent = true;
 
-        if (currency_and_sign_are_adjacent && (sign_position >= 0))
-        {
+        if (currency_and_sign_are_adjacent && (sign_position >= 0)) {
             if (POSIXUtilities.isBetween(currency_symbol_position, space_position, decimal_symbol_position) &&
                 POSIXUtilities.isBetween(sign_position, space_position, decimal_symbol_position))
                 p_sep_by_space = "1";
             if (POSIXUtilities.isBetween(currency_symbol_position, space_position, sign_position))
                 p_sep_by_space = "2";
-        }
-        else
-        {
+        } else {
             if ((currency_symbol_position > decimal_symbol_position && space_position == currency_symbol_position - 1)
                 ||
                 (currency_symbol_position < decimal_symbol_position && space_position == currency_symbol_position + 1))
@@ -246,22 +228,18 @@ public class POSIX_LCMonetary {
 
         int_n_cs_precedes = n_cs_precedes;
 
-        if (negative_sign == "")
-        {
+        if (negative_sign == "") {
             if ((leftparen_position < decimal_symbol_position) &&
                 (rightparen_position > decimal_symbol_position))
                 n_sign_posn = "0";
             else
                 n_sign_posn = "1";
-        }
-        else if (sign_position < currency_symbol_position)
-        {
+        } else if (sign_position < currency_symbol_position) {
             if (sign_position < decimal_symbol_position)
                 n_sign_posn = "1";
             else
                 n_sign_posn = "3";
-        }
-        else // sign_position >= currency_symbol_position
+        } else // sign_position >= currency_symbol_position
         {
             if (sign_position > decimal_symbol_position)
                 n_sign_posn = "2";
@@ -278,16 +256,13 @@ public class POSIX_LCMonetary {
             ((currency_symbol_position > decimal_symbol_position) && (sign_position > decimal_symbol_position)))
             currency_and_sign_are_adjacent = true;
 
-        if (currency_and_sign_are_adjacent && (sign_position >= 0))
-        {
+        if (currency_and_sign_are_adjacent && (sign_position >= 0)) {
             if (POSIXUtilities.isBetween(currency_symbol_position, space_position, decimal_symbol_position) &&
                 POSIXUtilities.isBetween(sign_position, space_position, decimal_symbol_position))
                 n_sep_by_space = "1";
             if (POSIXUtilities.isBetween(currency_symbol_position, space_position, sign_position))
                 n_sep_by_space = "2";
-        }
-        else
-        {
+        } else {
             if ((currency_symbol_position > decimal_symbol_position && space_position == currency_symbol_position - 1)
                 ||
                 (currency_symbol_position < decimal_symbol_position && space_position == currency_symbol_position + 1))

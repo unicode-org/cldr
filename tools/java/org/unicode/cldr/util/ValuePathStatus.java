@@ -11,7 +11,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 
 public class ValuePathStatus {
-    
+
     public enum MissingOK {
         ok, latin, alias, compact
     }
@@ -69,8 +69,8 @@ public class ValuePathStatus {
             }
             String otherPath = "//ldml/numbers/decimalFormats[@numberSystem=\"" + arguments.value[1]
                 + "\"]/decimalFormatLength[@type=\"" + arguments.value[2]
-                    + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" + arguments.value[3]
-                        + "\"][@count=\"other\"]";
+                + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" + arguments.value[3]
+                + "\"][@count=\"other\"]";
             String otherValue = sourceFile.getWinningValue(otherPath);
             if (otherValue == null) {
                 return false; // something's wrong, bail
@@ -85,7 +85,7 @@ public class ValuePathStatus {
             // SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
             PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());
             return plurals == null || !plurals.hasSamples(c, digits); // ok if no samples
-            // TODO: handle fractions
+        // TODO: handle fractions
         default:
             throw new IllegalArgumentException();
         }

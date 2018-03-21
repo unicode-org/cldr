@@ -358,8 +358,7 @@ public class RegexLogger {
                 this.matchFailCount,
                 this.matchMatchCount,
                 this.calledFromRegexFinder,
-                this.callLocations
-                );
+                this.callLocations);
         }
 
         public String getPattern() {
@@ -452,8 +451,7 @@ public class RegexLogger {
     }
 
     public enum LogType {
-        FIND,
-        MATCH
+        FIND, MATCH
     }
 
     private static interface IterableTransformer<E, F> {

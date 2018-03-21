@@ -207,7 +207,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
             + " end=\"" + end + "\"" + Utility.repeat(" ", 5 - end.toString().length());
         return result == null
             ? "<!--         " + startEnd + " result=? -->"
-                : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
+            : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
     }
 
     /**

@@ -55,28 +55,29 @@ public class ShowStarredCoverage {
     static final CLDRConfig config = CLDRConfig.getInstance();
 
     enum MyOptions {
-        language(".*", "it", "language to gather coverage data for"),
-        tag(".*", null, "gather data on language tags"),
-        dtdTypes(".*", "ldml", "dtdTypes, comma separated."),
+        language(".*", "it", "language to gather coverage data for"), tag(".*", null, "gather data on language tags"), dtdTypes(".*", "ldml",
+            "dtdTypes, comma separated."),
         //filter(".*", "en_001", "locale ancestor"),
         ;
 
         // BOILERPLATE TO COPY
         final Option option;
+
         private MyOptions(String argumentPattern, String defaultArgument, String helpText) {
             option = new Option(this, argumentPattern, defaultArgument, helpText);
         }
+
         static Options myOptions = new Options();
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
             }
         }
+
         private static Set<String> parse(String[] args, boolean showArguments) {
             return myOptions.parse(MyOptions.values()[0], args, true);
         }
     }
-
 
     static final PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
     static final Factory phf = PathHeader.getFactory(config.getEnglish());
@@ -102,7 +103,6 @@ public class ShowStarredCoverage {
             new TreeMap<Level, Object>(),
             new TreeMap<PathHeader, Object>(),
             Boolean.class);
-
 
         for (DtdType dtdType : DtdType.values()) {
             if (dtdTypes != null && !dtdTypes.contains(dtdType)) {
@@ -138,32 +138,32 @@ public class ShowStarredCoverage {
         PageId pageId = ph.getPageId();
         String category = sectionId + "|" + pageId;
         switch (sectionId) {
-        case Core_Data: 
-            category = sectionId.toString(); 
+        case Core_Data:
+            category = sectionId.toString();
             break;
-        case Currencies: 
-            category = sectionId + " — " + (starredPath.contains("@count") ? "long name" : starredPath.contains("/symbol") ? "symbol" : "name"); 
+        case Currencies:
+            category = sectionId + " — " + (starredPath.contains("@count") ? "long name" : starredPath.contains("/symbol") ? "symbol" : "name");
             break;
         case DateTime:
-            category = sectionId + " — " + (starredPath.contains("/displayName") ? "field labels" 
-                : starredPath.contains("/interval") ? "intervals" 
+            category = sectionId + " — " + (starredPath.contains("/displayName") ? "field labels"
+                : starredPath.contains("/interval") ? "intervals"
                     : pageId == PageId.Fields ? "relative"
                         : "basic");
             category += MainDateTimePages.contains(pageId) ? "" : " (non-greg)";
             break;
-        case Locale_Display_Names: 
-            category = "Names — " + (starredPath.contains("/subdivision") ? "Country subdivisions" 
-                : pageId == PageId.Territories ? "Continents & Sub~" 
+        case Locale_Display_Names:
+            category = "Names — " + (starredPath.contains("/subdivision") ? "Country subdivisions"
+                : pageId == PageId.Territories ? "Continents & Sub~"
                     : pageId.toString().startsWith("Territor") ? "Countries"
-                        : pageId.toString()); 
+                        : pageId.toString());
             break;
         case Numbers:
-            category = pageId == PageId.Compact_Decimal_Formatting ? (starredPath.contains("currency") ? "Currency" : "Number") + " Formats — compact" 
-                : sectionId.toString(); 
+            category = pageId == PageId.Compact_Decimal_Formatting ? (starredPath.contains("currency") ? "Currency" : "Number") + " Formats — compact"
+                : sectionId.toString();
             break;
         case Misc:
             category = starredPath.contains("/annotation") ? "Emoji " + (starredPath.contains("@type") ? "names" : "keywords")
-                : starredPath.contains("/characterLabel") ? "Character Labels" 
+                : starredPath.contains("/characterLabel") ? "Character Labels"
                     : PageId.LinguisticElements.toString();
             break;
         case Timezones:
@@ -287,8 +287,6 @@ public class ShowStarredCoverage {
         return false;
     }
 
-
-
     private static void doLdml(String dir, String fileLocale, M3<Level, PathHeader, Boolean> levelToPathHeaders) {
         Status status = new Status();
         boolean isMain = "main".equals(dir);
@@ -357,9 +355,9 @@ public class ShowStarredCoverage {
                         System.out.println(count
                             + "\t" + level
                             + "\t" + starredStatus[0]
-                                + "\t" + starredStatus[1]
-                                    + "\t" + starredStatus[2]
-                                        + "\t" + samples);
+                            + "\t" + starredStatus[1]
+                            + "\t" + starredStatus[2]
+                            + "\t" + samples);
                     }
                 }
             }
@@ -374,7 +372,6 @@ public class ShowStarredCoverage {
 //            showResults("header+code count", level, pageCount.build());
 //        }
     }
-
 
     static class LanguageTagCollector {
         private static final CLDRConfig CldrConfig = CLDRConfig.getInstance();

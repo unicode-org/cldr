@@ -18,107 +18,107 @@ import com.google.common.collect.ImmutableMap;
  * (indentation and line breaks) to the written XML elements.
  */
 final class XmlWriter {
-  private final XMLStreamWriter writer;
-  private int depth = 0;
+    private final XMLStreamWriter writer;
+    private int depth = 0;
 
-  private XmlWriter(XMLStreamWriter writer) {
-    this.writer = checkNotNull(writer);
-  }
-
-  static XmlWriter newXmlWriter(Writer writer) {
-    XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
-    XMLStreamWriter xmlStreamWriter;
-    try {
-      xmlStreamWriter = outputFactory.createXMLStreamWriter(writer);
-    } catch (XMLStreamException e) {
-      throw new RuntimeException(e);
+    private XmlWriter(XMLStreamWriter writer) {
+        this.writer = checkNotNull(writer);
     }
-    return new XmlWriter(xmlStreamWriter);
-  }
 
-  XmlWriter startDocument(String doctype, String dtdLocation) {
-    try {
-      writer.writeStartDocument("UTF-8", "1.0");
-      writer.writeCharacters("\n");
-      writer.writeDTD("<!DOCTYPE " + doctype + " SYSTEM \"" + dtdLocation + "\">");
-      writer.writeCharacters("\n");
-    } catch (XMLStreamException e) {
-      throw new RuntimeException(e);
+    static XmlWriter newXmlWriter(Writer writer) {
+        XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
+        XMLStreamWriter xmlStreamWriter;
+        try {
+            xmlStreamWriter = outputFactory.createXMLStreamWriter(writer);
+        } catch (XMLStreamException e) {
+            throw new RuntimeException(e);
+        }
+        return new XmlWriter(xmlStreamWriter);
     }
-    return this;
-  }
 
-  XmlWriter endDocument() {
-    checkState(depth == 0, "Cannot close document with unclosed elements");
-    try {
-      writer.writeEndDocument();
-      writer.close();
-    } catch (XMLStreamException e) {
-      throw new RuntimeException(e);
+    XmlWriter startDocument(String doctype, String dtdLocation) {
+        try {
+            writer.writeStartDocument("UTF-8", "1.0");
+            writer.writeCharacters("\n");
+            writer.writeDTD("<!DOCTYPE " + doctype + " SYSTEM \"" + dtdLocation + "\">");
+            writer.writeCharacters("\n");
+        } catch (XMLStreamException e) {
+            throw new RuntimeException(e);
+        }
+        return this;
     }
-    return this;
-  }
 
-  XmlWriter startElement(String name) {
-    return startElement(name, ImmutableMap.<String, Object>of());
-  }
-
-  XmlWriter startElement(String name, Map<String, ?> attributeToValue) {
-    addIndent();
-    try {
-      writer.writeStartElement(name);
-      for (Entry<String, ?> entry : attributeToValue.entrySet()) {
-        writer.writeAttribute(entry.getKey(), "" + entry.getValue());
-      }
-      writer.writeCharacters("\n");
-    } catch (XMLStreamException e) {
-      throw new RuntimeException(e);
+    XmlWriter endDocument() {
+        checkState(depth == 0, "Cannot close document with unclosed elements");
+        try {
+            writer.writeEndDocument();
+            writer.close();
+        } catch (XMLStreamException e) {
+            throw new RuntimeException(e);
+        }
+        return this;
     }
-    depth++;
-    return this;
-  }
 
-  XmlWriter endElement() {
-    depth--;
-    addIndent();
-    try {
-      writer.writeEndElement();
-      writer.writeCharacters("\n");
-    } catch (XMLStreamException e) {
-      throw new RuntimeException(e);
+    XmlWriter startElement(String name) {
+        return startElement(name, ImmutableMap.<String, Object> of());
     }
-    return this;
-  }
 
-  XmlWriter addElement(String name, Map<String, ?> attributeToValue) {
-    return addElement(name, attributeToValue, "");
-  }
+    XmlWriter startElement(String name, Map<String, ?> attributeToValue) {
+        addIndent();
+        try {
+            writer.writeStartElement(name);
+            for (Entry<String, ?> entry : attributeToValue.entrySet()) {
+                writer.writeAttribute(entry.getKey(), "" + entry.getValue());
+            }
+            writer.writeCharacters("\n");
+        } catch (XMLStreamException e) {
+            throw new RuntimeException(e);
+        }
+        depth++;
+        return this;
+    }
 
-  XmlWriter addElement(String name, Map<String, ?> attributeToValue, String comment) {
-    addIndent();
-    try {
-      writer.writeEmptyElement(name);
-      for (Entry<String, ?> entry : attributeToValue.entrySet()) {
-        writer.writeAttribute(entry.getKey(), "" + entry.getValue());
-      }
-      if (!comment.isEmpty()) {
-        writer.writeCharacters(" ");
-        writer.writeComment(" " + comment + " ");
-      }
-      writer.writeCharacters("\n");
-    } catch (XMLStreamException e) {
-      throw new RuntimeException(e);
+    XmlWriter endElement() {
+        depth--;
+        addIndent();
+        try {
+            writer.writeEndElement();
+            writer.writeCharacters("\n");
+        } catch (XMLStreamException e) {
+            throw new RuntimeException(e);
+        }
+        return this;
     }
-    return this;
-  }
-  
-  private void addIndent() {
-    for (int i = 0; i < depth; i++) {
-      try {
-        writer.writeCharacters("\t");
-      } catch (XMLStreamException e) {
-        throw new RuntimeException(e);
-      }
+
+    XmlWriter addElement(String name, Map<String, ?> attributeToValue) {
+        return addElement(name, attributeToValue, "");
     }
-  }
+
+    XmlWriter addElement(String name, Map<String, ?> attributeToValue, String comment) {
+        addIndent();
+        try {
+            writer.writeEmptyElement(name);
+            for (Entry<String, ?> entry : attributeToValue.entrySet()) {
+                writer.writeAttribute(entry.getKey(), "" + entry.getValue());
+            }
+            if (!comment.isEmpty()) {
+                writer.writeCharacters(" ");
+                writer.writeComment(" " + comment + " ");
+            }
+            writer.writeCharacters("\n");
+        } catch (XMLStreamException e) {
+            throw new RuntimeException(e);
+        }
+        return this;
+    }
+
+    private void addIndent() {
+        for (int i = 0; i < depth; i++) {
+            try {
+                writer.writeCharacters("\t");
+            } catch (XMLStreamException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

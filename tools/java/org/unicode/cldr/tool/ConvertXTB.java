@@ -579,11 +579,11 @@ public class ConvertXTB {
     }
 
     private static final Options options = new Options()
-    .add("source_dir", ".*", "The source directory containing the xtb and wsb files to be read")
-    .add("destination_dir", ".*", "The destination directory to write the XML files to")
-    .add("locale_filter", ".*", ".*", "A regex filter for (Google) locales to be processed")
-    .add("test_filter", ".*", ".*", "A regex filter for CheckCLDR tests")
-    .add("error_file", ".*", "./errors.tsv", "The file that checking results should be written to");
+        .add("source_dir", ".*", "The source directory containing the xtb and wsb files to be read")
+        .add("destination_dir", ".*", "The destination directory to write the XML files to")
+        .add("locale_filter", ".*", ".*", "A regex filter for (Google) locales to be processed")
+        .add("test_filter", ".*", ".*", "A regex filter for CheckCLDR tests")
+        .add("error_file", ".*", "./errors.tsv", "The file that checking results should be written to");
 
     /**
      * @param args

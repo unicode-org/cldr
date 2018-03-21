@@ -50,25 +50,21 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     }
 
     private static enum Type {
-        LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX, 0),
-        SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX, 1),
-        TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX, 2),
-        VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX, 3),
-        CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX, 4),
-        ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX, 5),
-        METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX, 6),
-        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", MatchType.PREFIX, 7),
-        UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX, 8),
-        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX, 9),
-        UNITS_COORDINATE("//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX, 10),
-        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX, 11),
-        UNITS("//ldml/units/unitLength", MatchType.PREFIX, 12),
-        FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 13),
-        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14),
-        ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]", MatchType.REGEX, 15),
-        CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX, 16),
-        ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX, 17),
-        ;
+        LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX, 0), SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX,
+            1), TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX, 2), VARIANT("//ldml/localeDisplayNames/variants/variant",
+                MatchType.PREFIX, 3), CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX, 4), ZONE("//ldml/dates/timeZoneNames/zone",
+                    MatchType.PREFIX, 5), METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX, 6), DECIMAL_FORMAT("//ldml/numbers/decimalFormats",
+                        MatchType.PREFIX, 7), UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX,
+                            8), UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX, 9), UNITS_COORDINATE(
+                                "//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX,
+                                10), UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX, 11), UNITS("//ldml/units/unitLength",
+                                    MatchType.PREFIX,
+                                    12), FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative",
+                                        MatchType.REGEX, 13), FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]",
+                                            MatchType.REGEX, 14), ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]",
+                                                MatchType.REGEX, 15), CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX,
+                                                    16), ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX, 17),
+                                                    ;
 
         private MatchType matchType;
         private String basePrefix;
@@ -216,19 +212,19 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         set18.add("/unit[@type=\"pressure-hectopascal\"]");
         mapPathPartsToSets.put("/unit[@type=\"pressure-millibar\"]", set18);
 
-         // Add OK collisions for /unit[@type=\"mass-pound\"]
+        // Add OK collisions for /unit[@type=\"mass-pound\"]
         Set<String> set19 = new HashSet<String>();
         set19.add("/unit[@type=\"length-point\"]");
         mapPathPartsToSets.put("/unit[@type=\"mass-pound\"]", set19);
 
-       // all done, return immutable version
+        // all done, return immutable version
         return Collections.unmodifiableMap(mapPathPartsToSets);
     }
 
     public CheckDisplayCollisions(Factory factory) {
         super(factory);
     }
-    
+
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -534,8 +530,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         String value, Type myType,
         String myPrefix, Matcher matcher,
         Matcher currentAttributesToIgnore,
-        Equivalence equivalence
-        ) {
+        Equivalence equivalence) {
 
         if (path.equals(DEBUG_PATH)) {
             int debug = 0;
@@ -642,8 +637,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
      *         the specified region code
      */
     public String getRegionException(String regionCode) {
-        if (exceptions != null)
-        {
+        if (exceptions != null) {
             String lookup = exceptions.get(regionCode);
             return lookup;
         }

@@ -384,6 +384,7 @@ public class TestSTFactory extends TestFmwk {
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
             final Map<String, UserRegistry.User> users = new TreeMap<String, UserRegistry.User>();
             int pathCount = 0;
+
             public void handlePathValue(String path, String value) {
                 ++pathCount;
                 if (value != null && value.startsWith("$")) {
@@ -498,7 +499,7 @@ public class TestSTFactory extends TestFmwk {
                     if (expStatus == Status.provisional) {
                         int debug = 0;
                     }
-                    
+
                     VoteResolver<String> r = box.getResolver(xpath);
                     Status winStatus = r.getWinningStatus();
                     if (winStatus == expStatus) {
@@ -513,14 +514,14 @@ public class TestSTFactory extends TestFmwk {
                     CLDRFile.Status newPath = new CLDRFile.Status();
                     CLDRLocale newLocale = CLDRLocale.getInstance(cf.getSourceLocaleID(fullXpath, newPath));
                     final boolean localeChanged = newLocale != null && !newLocale.equals(locale);
-                    final boolean pathChanged = newPath.pathWhereFound!=null && !newPath.pathWhereFound.equals(xpath);
+                    final boolean pathChanged = newPath.pathWhereFound != null && !newPath.pathWhereFound.equals(xpath);
                     final boolean itMoved = localeChanged || pathChanged;
-                    if(localeChanged && pathChanged) {
-                        logln("Aliased(locale+path): "+locale+"->"+newLocale+" and "+xpath+"->"+newPath.pathWhereFound);
-                    } else if(localeChanged) {
-                        logln("Aliased(locale): "+locale+"->"+newLocale);
-                    } else if(pathChanged) {
-                        logln("Aliased(path): "+xpath+"->"+newPath.pathWhereFound);
+                    if (localeChanged && pathChanged) {
+                        logln("Aliased(locale+path): " + locale + "->" + newLocale + " and " + xpath + "->" + newPath.pathWhereFound);
+                    } else if (localeChanged) {
+                        logln("Aliased(locale): " + locale + "->" + newLocale);
+                    } else if (pathChanged) {
+                        logln("Aliased(path): " + xpath + "->" + newPath.pathWhereFound);
                     }
                     if ((fullXpath == null) || itMoved) {
                         xpathStatus = Status.missing;
@@ -597,7 +598,7 @@ public class TestSTFactory extends TestFmwk {
                     if (xpathStatusBack == expStatus) {
                         logln("OK from XML: Status=" + xpathStatusBack + " " + locale + ":" + fullXpathBack + " Resolver="
                             + box.getResolver(xpath));
-                    } else if(xpathStatusBack != winStatus) {
+                    } else if (xpathStatusBack != winStatus) {
                         logln("Warning: Problem from XML: Winning Status=" + winStatus + " got " + xpathStatusBack + " " + locale + ":"
                             + fullXpathBack + " Resolver=" + box.getResolver(xpath));
                     } else {
@@ -607,8 +608,7 @@ public class TestSTFactory extends TestFmwk {
 
                 }
                     break;
-                case "verifyUser":
-                {
+                case "verifyUser": {
                     final User u = getUserFromAttrs(attrs, "name");
                     final User onUser = getUserFromAttrs(attrs, "onUser");
 
@@ -625,19 +625,17 @@ public class TestSTFactory extends TestFmwk {
                         actualResult = actualResult && UserRegistry.userCanCreateUsers(u);
                         if (!u.isSameOrg(onUser)) {
                             actualResult = actualResult && UserRegistry.userCreateOtherOrgs(u); // if of different org
-                        }
-                        {
-                            // test both of these functions.
-                            final boolean newTest = (uLevel.canCreateOrSetLevelTo(onLevel));
-                            final boolean oldTest = UserRegistry.userCanCreateUsers(u)
-                                && (onUser.userlevel == UserRegistry.userCanCreateUserOfLevel(u, onUser.userlevel));
-                            assertEquals("New(ex) vs old(got) create test: " + uLevel + "/" + onLevel, newTest, oldTest);
-                            actualResult = actualResult && newTest;
-                        }
+                        } {
+                        // test both of these functions.
+                        final boolean newTest = (uLevel.canCreateOrSetLevelTo(onLevel));
+                        final boolean oldTest = UserRegistry.userCanCreateUsers(u)
+                            && (onUser.userlevel == UserRegistry.userCanCreateUserOfLevel(u, onUser.userlevel));
+                        assertEquals("New(ex) vs old(got) create test: " + uLevel + "/" + onLevel, newTest, oldTest);
+                        actualResult = actualResult && newTest;
+                    }
                         break;
                     case "delete": // assume same perms for now (?)
-                    case "modify":
-                    {
+                    case "modify": {
                         final boolean oldTest = u.isAdminFor(onUser);
                         final boolean newTest = uLevel.canManageSomeUsers() && uLevel.isManagerFor(u.getOrganization(), onLevel, onUser.getOrganization());
                         assertEquals("New(ex) vs old(got) manage test: " + uLevel + "/" + onLevel, newTest, oldTest);
@@ -806,28 +804,28 @@ public class TestSTFactory extends TestFmwk {
             config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, SurveyMain.NEWVERSION_EPOCH);
             config.setProperty(SurveyMain.CLDR_NEWVERSION, "111x");
             config.setProperty(SurveyMain.CLDR_OLDVERSION, "000x");
-
+    
             STFactory fac = resetFactory();
-
+    
             final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
             final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
             final CLDRLocale loc = CLDRLocale.getInstance("und");
             final String aValueOld = "oldValue";
             final String aValueNew = "newValue";
             String origBase = ANY;
-
+    
             {
                 CLDRFile file = fac.make(loc, false);
                 BallotBox<User> box = fac.ballotBoxForLocale(loc);
                 box.voteForValue(getMyUser(), somePath, null); // unvote
                 origBase = expect(somePath, ANY, false, file, box);
                 logln(loc + ":" + somePath + " = " + origBase);
-
+    
                 box.voteForValue(getMyUser(), somePath, aValueOld); // unvote
                 expect(somePath, aValueOld, true, file, box);
-
+    
             }
-
+    
             logln("Sleeping at .." + new Date());
             Thread.sleep(2000); // so that the 'old' vote is prior to the cut
             Date cutTime = new Date();
@@ -835,12 +833,12 @@ public class TestSTFactory extends TestFmwk {
             config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, cutEpoch);
             config.setProperty(SurveyMain.CLDR_NEWVERSION, "222x");  // new version
             config.setProperty(SurveyMain.CLDR_OLDVERSION, "111x");
-
+    
             logln("Sleeping.. (set old release cut to " + cutEpoch);
             Thread.sleep(2000); // so that the 'new' vote is after the cut
             logln("Retesting at " + new Date());
             fac = resetFactory();
-
+    
             {
                 CLDRFile file = fac.make(loc, false);
                 BallotBox<User> box = fac.ballotBoxForLocale(loc);
@@ -852,17 +850,17 @@ public class TestSTFactory extends TestFmwk {
                         .queryToJSON("select xpath,value,last_mod from " + DBUtils.Table.VOTE_VALUE.toString() + " where locale=?", loc);
                     logln("*: " + query.toString());
                 }
-
+    
                 logln("Expect to find the old value gone (too old)");
                 expect(somePath, origBase, false, file, box);
                 logln("Expect to find the new value  in the new path OK gone (new)");
                 expect(somePath2, aValueNew, true, file, box);
-
+    
                 logln("Expect to find the new value after revoting");
                 box.voteForValue(getMyUser(), somePath, aValueNew);
                 expect(somePath, aValueNew, true, file, box);
             }
-
+    
         }*/
 
     private void verifyReadOnly(CLDRFile f) {

@@ -198,7 +198,8 @@ public class TestMetazoneTransitions {
                     + CldrUtility.join(
                         slice(chronologicalList,
                             chronologicalList.size() - limit,
-                            chronologicalList.size()), separator);
+                            chronologicalList.size()),
+                        separator);
             }
             return CldrUtility.join(chronologicalList, separator);
         }
@@ -282,10 +283,10 @@ public class TestMetazoneTransitions {
 
         System.out.println();
         System.out
-        .println("=====================================================");
+            .println("=====================================================");
         System.out.println("*** Non-Daylight Partition");
         System.out
-        .println("=====================================================");
+            .println("=====================================================");
         System.out.println();
 
         count = 0;
@@ -334,15 +335,15 @@ public class TestMetazoneTransitions {
         }
         System.out.println();
         System.out
-        .println("*** Non-Daylight Partitions with no canonical meta");
+            .println("*** Non-Daylight Partitions with no canonical meta");
         System.out.println("\t"
             + CldrUtility.join(noMeta, CldrUtility.LINE_SEPARATOR + "\t"));
         System.out.println();
         System.out
-        .println("*** Non-Daylight Partitions with more than one canonical meta");
+            .println("*** Non-Daylight Partitions with more than one canonical meta");
         System.out.println("\t"
             + CldrUtility
-            .join(multiMeta, CldrUtility.LINE_SEPARATOR + "\t"));
+                .join(multiMeta, CldrUtility.LINE_SEPARATOR + "\t"));
         System.out.println();
         System.out.println("*** Stable Non-Daylight Partitions");
         System.out.println("\t"
@@ -357,10 +358,10 @@ public class TestMetazoneTransitions {
 
         System.out.println();
         System.out
-        .println("=====================================================");
+            .println("=====================================================");
         System.out.println("*** Daylight Partition");
         System.out
-        .println("=====================================================");
+            .println("=====================================================");
         System.out.println();
 
         ZoneTransitions lastTransitions = null;

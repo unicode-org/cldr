@@ -32,13 +32,12 @@ import com.ibm.icu.util.Calendar;
 
 public class RBNFWriter {
 
-    private static final int
-    SOURCEDIR = 2,
-    DESTDIR = 3,
-    FROMFILE = 4,
-    TOFILE = 5,
-    SPEC = 6,
-    COPYRIGHT = 7;
+    private static final int SOURCEDIR = 2,
+        DESTDIR = 3,
+        FROMFILE = 4,
+        TOFILE = 5,
+        SPEC = 6,
+        COPYRIGHT = 7;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -101,9 +100,9 @@ public class RBNFWriter {
 
         if (pieces.length > 1)
             if (pieces[1].length() == 2)
-                out.println("        <territory type=\"" + pieces[1] + "\"/>");
+            out.println("        <territory type=\"" + pieces[1] + "\"/>");
             else
-                out.println("        <script type=\"" + pieces[1] + "\"/>");
+            out.println("        <script type=\"" + pieces[1] + "\"/>");
 
         out.println("    </identity>");
         if (options[SPEC].value.equals("true")) {
@@ -156,8 +155,7 @@ public class RBNFWriter {
                         numberString = parts[0];
                         ruleString = parts[1];
                         if (numberString.contains("x") || numberString.contains(">")
-                                || numberString.equals("Inf") || numberString.equals("NaN"))
-                        {
+                            || numberString.equals("Inf") || numberString.equals("NaN")) {
                             currentRuleValue = new BigInteger("-1");
                             numberString = numberString.replace('>', RARROW).replaceAll(",", "");
                         } else {
@@ -174,8 +172,7 @@ public class RBNFWriter {
                             numberString = currentRuleValue.toString();
                         }
                     }
-                }
-                else {
+                } else {
                     ruleString = ruleText;
                     numberString = currentRuleValue.toString();
                 }

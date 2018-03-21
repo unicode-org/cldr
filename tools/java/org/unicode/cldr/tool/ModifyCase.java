@@ -31,8 +31,7 @@ import com.ibm.icu.lang.UCharacter;
  *         TODO : handling of multiple xpaths not fully working - where elements have same parents - too amny parent
  *         elements get written
  */
-public class ModifyCase
-{
+public class ModifyCase {
     static final int INDENT = 8;
     static BufferedWriter m_out;
 
@@ -43,18 +42,15 @@ public class ModifyCase
     static String m_destDir; // = "/home/pn153353/CLDR/BUGS/casing_1177/src";
 
     /** Creates a new instance of ModifyCase */
-    public ModifyCase()
-    {
+    public ModifyCase() {
     }
 
-    private static final int
-    HELP1 = 0,
-    HELP2 = 1,
-    DESTDIR = 2,
-    LOCALES = 3,
-    SOURCEDIR = 4,
-    XPATHS = 5
-    ;
+    private static final int HELP1 = 0,
+        HELP2 = 1,
+        DESTDIR = 2,
+        LOCALES = 3,
+        SOURCEDIR = 4,
+        XPATHS = 5;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -65,59 +61,50 @@ public class ModifyCase
         UOption.create("xpaths", 'x', UOption.REQUIRES_ARG),
     };
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         UOption.parseArgs(args, options);
         if (processArgs() == false)
             return;
 
-        for (int i = 0; i < m_locales.length; i++)
-        {
+        for (int i = 0; i < m_locales.length; i++) {
             System.err.println("Locale : " + m_locales[i]);
             String srcfile = m_sourceDir + "/" + m_locales[i] + ".xml";
             String destfile = m_destDir + "/" + m_locales[i] + ".xml";
             Document doc = LDMLUtilities.parse(srcfile, false);
             if (doc == null)
                 continue;
-            try
-            {
+            try {
                 m_out = new BufferedWriter(new FileWriter(destfile));
                 openLDML(m_locales[i], doc);
 
-                for (int j = 0; j < m_xpaths.length; j++)
-                {
+                for (int j = 0; j < m_xpaths.length; j++) {
                     makeLowerCase(doc, m_xpaths[j]);
                 }
                 closeLDML();
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
             }
         }
     }
 
-    private static void usage()
-    {
+    private static void usage() {
         System.err.println("org.unicode.cldr.tool.ModifyCase allows the casing of the first letter to be changed");
         System.err
-        .println("The output is just the data category which has changed. Run CLDRModify to merge with source");
+            .println("The output is just the data category which has changed. Run CLDRModify to merge with source");
         System.err.println("-d : specify dest dir (must exist) where resulting modified data is written");
         System.err.println("-l : specify comma separated list of LDML locales to be changed");
         System.err.println("-s : specify src dir of LDML data to be modified");
         System.err.println("-x : specify comma separated list of xpaths to data to be modified");
         System.err
-        .println("Example : ModifyCase -d /dest -s /cldr/comon/main -l bg,en,it,fr -x //ldml/localeDisplayNames/languages/language");
+            .println("Example : ModifyCase -d /dest -s /cldr/comon/main -l bg,en,it,fr -x //ldml/localeDisplayNames/languages/language");
     }
 
-    private static boolean processArgs()
-    {
-        if (options[HELP1].doesOccur || options[HELP2].doesOccur)
-        {
+    private static boolean processArgs() {
+        if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
             usage();
             return false;
         }
         if (options[DESTDIR].value == null || options[LOCALES].value == null ||
-            options[SOURCEDIR].value == null || options[XPATHS].value == null)
-        {
+            options[SOURCEDIR].value == null || options[XPATHS].value == null) {
             usage();
             return false;
         }
@@ -129,10 +116,8 @@ public class ModifyCase
         return true;
     }
 
-    public static void openLDML(String locale, Document doc)
-    {
-        try
-        {
+    public static void openLDML(String locale, Document doc) {
+        try {
             m_out.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
             m_out.write("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.5/ldml.dtd\">\n");
             m_out.write("<ldml>\n");
@@ -147,28 +132,23 @@ public class ModifyCase
             String parts[] = locale.split("_");
             indent(INDENT * 2);
             m_out.write("<language type=\"" + parts[0] + "\"/>\n");
-            if (parts.length > 1)
-            {
+            if (parts.length > 1) {
                 indent(INDENT * 2);
                 m_out.write("<territory type=\"" + parts[1] + "\"/>\n");
             }
             indent(INDENT);
             m_out.write("</identity>\n");
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
         }
     }
 
-    public static void makeLowerCase(Document doc, String xpath)
-    {
+    public static void makeLowerCase(Document doc, String xpath) {
         // parse the xpath to write the LDML
-        try
-        {
+        try {
             // remove //ldml prefix and split
             String path = xpath.substring(xpath.indexOf("//ldml") + 7);
             String parts[] = path.split("/");
-            for (int i = 0; i < parts.length - 1; i++)
-            {
+            for (int i = 0; i < parts.length - 1; i++) {
                 indent(INDENT * (i + 1));
                 if (addCasingAttribute(parts[i]))
                     m_out.write("<" + parts[i] + " casing=\"lowercase-words\">\n");
@@ -183,17 +163,14 @@ public class ModifyCase
                 n[0] = LDMLUtilities.getNode(doc, xpath);
             }
 
-            for (int j = 0; j < n.length; j++)
-            {
-                if (n[j] != null)
-                {
+            for (int j = 0; j < n.length; j++) {
+                if (n[j] != null) {
                     String value = LDMLUtilities.getNodeValue(n[j]);
                     boolean bUpperFound = false;
                     for (int k = 1; k < value.length(); k++) // skip first char
                     {
                         int c = value.codePointAt(k);
-                        if (UCharacter.isUUppercase(c))
-                        {
+                        if (UCharacter.isUUppercase(c)) {
                             bUpperFound = true;
                             break;
                         }
@@ -213,8 +190,7 @@ public class ModifyCase
                     m_out.write("<" + parts[parts.length - 1]);
 
                     NamedNodeMap map = n[j].getAttributes();
-                    for (int k = 0; k < map.getLength(); k++)
-                    {
+                    for (int k = 0; k < map.getLength(); k++) {
                         Node node = map.item(k);
                         m_out.write(" " + node.getNodeName() + "=\"" + node.getNodeValue() + "\"");
                     }
@@ -223,13 +199,11 @@ public class ModifyCase
                 }
             }
 
-            for (int i = parts.length - 2; i >= 0; i--)
-            {
+            for (int i = parts.length - 2; i >= 0; i--) {
                 indent(INDENT * (i + 1));
                 m_out.write("</" + parts[i] + ">\n");
             }
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
         }
 
         // Factory cldrFactory = Factory.make(sourceDir, ".*");
@@ -240,41 +214,33 @@ public class ModifyCase
 
     }
 
-    public static void closeLDML()
-    {
-        try
-        {
+    public static void closeLDML() {
+        try {
             m_out.write("</ldml>\n");
             m_out.close();
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
         }
 
     }
 
-    private static void indent(int n)
-    {
-        try
-        {
+    private static void indent(int n) {
+        try {
             String spaces = "";
             for (int i = 0; i < n; i++)
                 spaces += " ";
             m_out.write(spaces);
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
         }
     }
 
     /* checks if the element can have a casing attribute */
-    private static boolean addCasingAttribute(String element)
-    {
+    private static boolean addCasingAttribute(String element) {
         String[] elements_with_casing_attribute = {
             "languages", "scripts", "territories", "variants",
             "keys", "types", "measurementSystemNames", "monthWidth",
             "dayWidth", "quarterWidth", "long" /* tz */, "fields", "currency" };
 
-        for (int i = 0; i < elements_with_casing_attribute.length; i++)
-        {
+        for (int i = 0; i < elements_with_casing_attribute.length; i++) {
             if (element.compareTo(elements_with_casing_attribute[i]) == 0)
                 return true;
         }

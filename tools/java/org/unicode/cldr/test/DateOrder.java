@@ -193,8 +193,7 @@ public class DateOrder implements Comparable<DateOrder> {
     }
 
     private static void addItem(CLDRFile plain, String path, DateOrder sample,
-        String conflictingPath, Map<String,
-        Map<DateOrder, String>> pathsWithConflictingOrder2sample) {
+        String conflictingPath, Map<String, Map<DateOrder, String>> pathsWithConflictingOrder2sample) {
         String value = plain.getStringValue(path);
         if (value == null) {
             return;

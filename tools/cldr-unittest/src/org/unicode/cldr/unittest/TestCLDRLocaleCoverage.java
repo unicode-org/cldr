@@ -46,7 +46,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         EnumSet<Level> modernModerate = EnumSet.of(Level.MODERATE, Level.MODERN);
         Set<String> orgLocalesModerate = sc.getLocaleCoverageLocales(organization, modernModerate);
         Set<String> cldrLocalesModerate = sc.getLocaleCoverageLocales(Organization.cldr, modernModerate);
-        Set<String> failures = checkCldrLocalesSuperset(modernModerate, cldrLocalesModerate, organization, orgLocalesModerate, warningLevel, Collections.emptySet());
+        Set<String> failures = checkCldrLocalesSuperset(modernModerate, cldrLocalesModerate, organization, orgLocalesModerate, warningLevel,
+            Collections.emptySet());
 
         EnumSet<Level> modernSet = EnumSet.of(Level.MODERN);
         Set<String> orgLocalesModern = sc.getLocaleCoverageLocales(organization, modernSet);
@@ -54,7 +55,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         checkCldrLocalesSuperset(modernSet, cldrLocalesModern, organization, orgLocalesModern, warningLevel, failures);
     }
 
-    private Set<String> checkCldrLocalesSuperset(Set<Level> level, Set<String> cldrLocales, Organization organization, Set<String> orgLocales, int warningLevel, Set<String> skip) {
+    private Set<String> checkCldrLocalesSuperset(Set<Level> level, Set<String> cldrLocales, Organization organization, Set<String> orgLocales, int warningLevel,
+        Set<String> skip) {
         if (!cldrLocales.containsAll(orgLocales)) {
             Set<String> diff2 = new LinkedHashSet<>(Sets.difference(orgLocales, cldrLocales));
             diff2.removeAll(skip);
@@ -65,7 +67,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                     diffString += "\n\t" + localeId + "\t" + CLDRConfig.getInstance().getEnglish().getName(localeId);
                 }
                 msg("The following " + organization.displayName + " " + levelString + " locales were absent from the "
-                    + Organization.cldr.displayName + " " + levelString + " locales:" + diffString, 
+                    + Organization.cldr.displayName + " " + levelString + " locales:" + diffString,
                     warningLevel, true, true);
             }
             return diff2;

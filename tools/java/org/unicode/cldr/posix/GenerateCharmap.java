@@ -34,10 +34,9 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 public class GenerateCharmap {
 
-    private static final int
-    DESTDIR = 2,
-    UNICODESET = 3,
-    CHARSET = 4;
+    private static final int DESTDIR = 2,
+        UNICODESET = 3,
+        CHARSET = 4;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -57,14 +56,12 @@ public class GenerateCharmap {
         out.close();
     }
 
-    public class CharmapLine implements Comparable<Object>
-    {
+    public class CharmapLine implements Comparable<Object> {
         public String CharacterValue;
         public String CharacterName;
         public String CharacterAltName;
 
-        public CharmapLine(String Name, String AltName, String Value)
-        {
+        public CharmapLine(String Name, String AltName, String Value) {
             CharacterName = Name;
             CharacterAltName = AltName;
             CharacterValue = Value;
@@ -72,8 +69,7 @@ public class GenerateCharmap {
                 CharacterAltName = "";
         }
 
-        public int compareTo(Object o)
-        {
+        public int compareTo(Object o) {
             CharmapLine c = (CharmapLine) o;
             return (CharacterValue.compareTo(c.CharacterValue));
         }
@@ -134,8 +130,7 @@ public class GenerateCharmap {
     /**
      * @param out
      */
-    private void doCharmap(PrintWriter out, Charset cs)
-    {
+    private void doCharmap(PrintWriter out, Charset cs) {
 
         // print character types, restricted to the charset
         int LongestCharNameLength = 0;
@@ -143,8 +138,7 @@ public class GenerateCharmap {
         UnicodeSet us = new UnicodeSet("[^[:Noncharacter_Code_Point:][:Cn:][:Cs:]]").retainAll(chars);
         List<CharmapLine> cml = new ArrayList<CharmapLine>();
         CharmapLine current;
-        for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next();)
-        {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next();) {
             String Name = POSIXUtilities.POSIXCharFullName(it.getString());
             String AltName = POSIXUtilities.POSIXCharName(it.getString());
             String Value = getCodepointValue(it.getString(), cs);
@@ -168,16 +162,14 @@ public class GenerateCharmap {
         out.println();
         out.println("CHARMAP");
 
-        for (ListIterator<CharmapLine> li = cml.listIterator(); li.hasNext();)
-        {
+        for (ListIterator<CharmapLine> li = cml.listIterator(); li.hasNext();) {
             current = li.next();
 
             out.print(current.CharacterName);
             for (int i = LongestCharNameLength + 1; i > current.CharacterName.length(); i--)
                 out.print(" ");
             out.println(current.CharacterValue);
-            if (current.CharacterAltName.length() > 0)
-            {
+            if (current.CharacterAltName.length() > 0) {
                 out.print(current.CharacterAltName);
                 for (int i = LongestCharNameLength + 1; i > current.CharacterAltName.length(); i--)
                     out.print(" ");
@@ -191,13 +183,11 @@ public class GenerateCharmap {
 
     }
 
-    private String getCodepointValue(String cp, Charset cs)
-    {
+    private String getCodepointValue(String cp, Charset cs) {
         StringBuffer result = new StringBuffer();
         ByteBuffer bb = cs.encode(cp);
         int i;
-        while (bb.hasRemaining())
-        {
+        while (bb.hasRemaining()) {
             result.append("\\x");
             byte b = bb.get();
             if (b < 0)

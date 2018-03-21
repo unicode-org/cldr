@@ -43,15 +43,18 @@ public class DiffCldr {
 
         // BOILERPLATE TO COPY
         final Option option;
+
         private MyOptions(String argumentPattern, String defaultArgument, String helpText) {
             option = new Option(this, argumentPattern, defaultArgument, helpText);
         }
+
         static Options myOptions = new Options();
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
             }
         }
+
         private static Set<String> parse(String[] args, boolean showArguments) {
             return myOptions.parse(MyOptions.values()[0], args, true);
         }
@@ -66,7 +69,7 @@ public class DiffCldr {
 
         // load data
 
-        M3<PathHeader, String, String> data = ChainedMap.of(new TreeMap<PathHeader,Object>(), new TreeMap<String,Object>(), String.class);
+        M3<PathHeader, String, String> data = ChainedMap.of(new TreeMap<PathHeader, Object>(), new TreeMap<String, Object>(), String.class);
         Counter<String> localeCounter = new Counter<>();
         Counter<PathHeader> pathHeaderCounter = new Counter<>();
         int total = 0;
@@ -76,7 +79,7 @@ public class DiffCldr {
 //        Output<Boolean> hasReformattedValue = new Output<Boolean>();
         Multimap<String, String> extras = TreeMultimap.create();
 
-        for (String dir :DtdType.ldml.directories) {
+        for (String dir : DtdType.ldml.directories) {
             Factory factory = SimpleFactory.make(dirBase + dir, ".*");
             Set<String> available = factory.getAvailable();
             Set<String> locales = new LinkedHashSet<>();
@@ -160,14 +163,14 @@ public class DiffCldr {
             final Map<String, String> localeToValue = data.get(ph);
             currentValues.addAll(localeToValue.values());
             if (currentValues.size() <= 1) {
-                continue;            
+                continue;
             }
 
             // have difference, so print
 
             System.out.print(++sort + "\t" + ph + "\t" + pathHeaderCounter.get(ph));
             for (String locale : localeList) {
-                System.out.print("\t" + CldrUtility.ifNull(localeToValue.get(locale),""));
+                System.out.print("\t" + CldrUtility.ifNull(localeToValue.get(locale), ""));
             }
             System.out.println();
         }

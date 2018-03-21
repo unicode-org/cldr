@@ -124,9 +124,9 @@ public class CheckEnglishCurrencyNames {
                         currency);
                     System.out.println(
                         currency + "\t" + english.getName(CLDRFile.CURRENCY_NAME, currency)
-                        + "\t" + territory + "\t" + english.getName(CLDRFile.TERRITORY_NAME, territory)
-                        + "\t" + language + "\t" + english.getName(language)
-                        + "\t" + symbol);
+                            + "\t" + territory + "\t" + english.getName(CLDRFile.TERRITORY_NAME, territory)
+                            + "\t" + language + "\t" + english.getName(language)
+                            + "\t" + symbol);
                     // TODO add script
                     if (nativeLanguage != null) {
                         currency2symbols.put(currency, symbol);
@@ -151,8 +151,7 @@ public class CheckEnglishCurrencyNames {
             System.out.println(currency + "\t" + english.getName(CLDRFile.CURRENCY_NAME, currency)
                 + "\t" + symbols.size()
                 + "\t" + symbols
-                + "\t" + currency2symbol2locales.get(currency)
-                );
+                + "\t" + currency2symbol2locales.get(currency));
         }
 
     }

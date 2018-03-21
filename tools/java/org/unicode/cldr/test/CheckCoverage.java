@@ -85,7 +85,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         } else if (getCldrFileToCheck() == null) {
             throw new InternalCldrException("No file to check!");
         }
-        
+
         boolean isAliased = path.equals(status.pathWhereFound);
         if (ValuePathStatus.isMissingOk(resolvedCldrFileToCheck, path, latin, isAliased)) {
             return this; // skip!
@@ -122,9 +122,9 @@ public class CheckCoverage extends FactoryCheckCLDR {
             PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
             if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")) {
                 possibleErrors.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
-                .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",
-                    new Object[] {}));
+                    .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
+                    .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",
+                        new Object[] {}));
             }
         }
 
@@ -139,7 +139,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
 
         setSkipTest(false);
         latin = ValuePathStatus.isLatinScriptLocale(cldrFileToCheck);
-        
+
         return this;
     }
 

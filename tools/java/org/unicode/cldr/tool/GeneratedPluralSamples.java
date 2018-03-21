@@ -338,8 +338,7 @@ public class GeneratedPluralSamples {
                         + " computation from rule ≠ from items"
                         + "; keyword: " + keyword
                         + "; count: " + noTrailing
-                        + "; rule:\n\t" + rule.toString().replace(";", ";\n\t")
-                        );
+                        + "; rule:\n\t" + rule.toString().replace(";", ";\n\t"));
                 }
             }
             return bounded;
@@ -539,11 +538,9 @@ public class GeneratedPluralSamples {
     private static boolean CHECK_VALUE = false;
 
     enum MyOptions {
-        output(".*", CLDRPaths.GEN_DIRECTORY + "supplemental/", "output data directory"),
-        filter(".*", null, "filter locales"),
+        output(".*", CLDRPaths.GEN_DIRECTORY + "supplemental/", "output data directory"), filter(".*", null, "filter locales"),
         //xml(null, null, "xml file format"),
-        multiline(null, null, "multiple lines in file"),
-        sortNew(null, null, "sort without backwards compatible hack");
+        multiline(null, null, "multiple lines in file"), sortNew(null, null, "sort without backwards compatible hack");
         // boilerplate
         final Option option;
 
@@ -594,7 +591,7 @@ public class GeneratedPluralSamples {
             // sort if necessary
             Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<Entry<PluralInfo, Set<String>>>()
                 : new TreeSet<Entry<PluralInfo, Set<String>>>(new HackComparator(type == PluralType.cardinal
-                ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
+                    ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
             for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                 sorted.add(entry);
             }

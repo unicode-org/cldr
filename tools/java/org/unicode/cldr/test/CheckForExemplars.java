@@ -175,9 +175,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         if (cldrFile.getLocaleID().equals("root")) {
             return this;
         }
-        
+
         errorDefaultOption = options.get(Options.Option.exemplarErrors) != null;
-        
+
         String locale = cldrFile.getLocaleID();
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
@@ -199,7 +199,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             exemplars = new UnicodeSet(exemplars); // modifiable copy
         }
 
-        
         boolean isRTL = RTL.containsSome(exemplars);
         if (isRTL) {
             exemplars.addAll(RTL_CONTROLS);
@@ -286,22 +285,22 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         if (containsPart(path, EXEMPLAR_SKIPS)) {
             return this;
-        } 
+        }
 
-        CheckStatus.Type errorOption = errorDefaultOption & sourceLocale.equals(getResolvedCldrFileToCheck().getLocaleID()) 
+        CheckStatus.Type errorOption = errorDefaultOption & sourceLocale.equals(getResolvedCldrFileToCheck().getLocaleID())
             ? CheckStatus.errorType : CheckStatus.warningType;
-            
+
         value = checkAndReplacePlaceholders(path, value, result);
         if (path.startsWith("//ldml/numbers/miscPatterns") && path.contains("[@type=\"range\"]")) {
             if (DISALLOWED_IN_RANGE.containsSome(value)) {
                 result
-                .add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.illegalCharactersInPattern)
-                    .setMessage(
-                        "Range patterns should not have letters.",
-                        new Object[] {}));
+                    .add(new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.illegalCharactersInPattern)
+                        .setMessage(
+                            "Range patterns should not have letters.",
+                            new Object[] {}));
             }
         }
         // Now handle date patterns.
@@ -434,7 +433,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
                 }
             }
-        } else if (path.contains("/annotations") && !path.contains("[@type"))  {
+        } else if (path.contains("/annotations") && !path.contains("[@type")) {
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
                 addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
                     Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
@@ -572,7 +571,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 if (localeID == null) {
                     throw new IllegalArgumentException(
                         "A likely subtag for " + parser.getLanguage() +
-                        " is required to get its script.");
+                            " is required to get its script.");
                 }
             }
             script = parser.set(localeID).getScript();
@@ -686,14 +685,14 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             scriptString.append("}");
         }
         result
-        .add(new CheckStatus()
-            .setCause(this)
-            .setMainType(warningVsError)
-            .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
-            .setMessage(
-                "The characters \u200E{0}\u200E {1} {2}. "
-                    +
-                    "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Characters</a>.",
+            .add(new CheckStatus()
+                .setCause(this)
+                .setMainType(warningVsError)
+                .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
+                .setMessage(
+                    "The characters \u200E{0}\u200E {1} {2}. "
+                        +
+                        "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Characters</a>.",
                     new Object[] { fixedMissing, scriptString, qualifier }));
     }
 

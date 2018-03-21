@@ -251,8 +251,7 @@ public class TestMetazones {
             buffer.append("delta=\t"
                 + hours.format(startDelta / (double) HOUR) + " hours:\t" + DateRange.format(start) + "\tto\t" +
                 DateRange.format(end) + ";\ttotal:\t" + days.format((errorPeriod) / (double) DAY) + " days"
-                + CldrUtility.LINE_SEPARATOR + "\t"
-                );
+                + CldrUtility.LINE_SEPARATOR + "\t");
         }
         buffer.append("\tTotal Period in Error:\t" + days.format((totalErrorPeriod) / (double) DAY) + " days");
         return buffer.toString();
@@ -404,7 +403,7 @@ public class TestMetazones {
 
         errorLog.println();
         errorLog
-        .println("*** Verify that every metazone has at least one zone that is always in that metazone, over the span of the metazone's existance.");
+            .println("*** Verify that every metazone has at least one zone that is always in that metazone, over the span of the metazone's existance.");
         errorLog.println();
 
         // get the best exemplars
@@ -734,7 +733,7 @@ public class TestMetazones {
 
         public static String format(Date date) {
             return (// date.equals(MIN_DATE) ? "-∞" : date.equals(MAX_DATE) ? "+∞" :
-                iso1.format(date));
+            iso1.format(date));
         }
 
         public static String format(long date) {

@@ -61,7 +61,7 @@ public class DisplayAndInputProcessor {
             "[:Default_Ignorable_Code_Point:]" +
             "[:patternwhitespace:]" +
             "[:Me:][:Mn:]]" // add non-spacing marks
-        ).freeze();
+    ).freeze();
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
@@ -100,8 +100,8 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
-    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE =
-        new HashSet<String>(Arrays.asList("br", "bss", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<String>(
+        Arrays.asList("br", "bss", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -270,7 +270,7 @@ public class DisplayAndInputProcessor {
     }
 
     private boolean hasUnicodeSetValue(String path) {
-        return path.startsWith("//ldml/characters/exemplarCharacters")  || path.startsWith("//ldml/characters/parseLenients");
+        return path.startsWith("//ldml/characters/exemplarCharacters") || path.startsWith("//ldml/characters/parseLenients");
     }
 
     static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
@@ -435,7 +435,7 @@ public class DisplayAndInputProcessor {
     }
 
     private static final boolean REMOVE_COVERED_KEYWORDS = true;
-    
+
     private static String annotationsForDisplay(String value) {
         TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
         sorted.addAll(SPLIT_BAR.splitToList(value));
@@ -449,7 +449,7 @@ public class DisplayAndInputProcessor {
     public static void filterCoveredKeywords(TreeSet<String> sorted) {
         // for now, just do single items
         HashSet<String> toRemove = new HashSet<>();
-        
+
         for (String item : sorted) {
             List<String> list = SPLIT_SPACE.splitToList(item);
             if (list.size() < 2) {
@@ -548,7 +548,7 @@ public class DisplayAndInputProcessor {
             } else if (c == ')') {
                 inParentheses = false;
             }
-            if (inParentheses && c == '-' && Character.isDigit(value.charAt(i-1))) {
+            if (inParentheses && c == '-' && Character.isDigit(value.charAt(i - 1))) {
                 c = 0x2013; /* Replace hyphen-minus with dash for date ranges */
             }
             result.append(c);
@@ -717,8 +717,7 @@ public class DisplayAndInputProcessor {
     private static Pattern UNNORMALIZED_MALAYALAM = PatternCache.get(
         "(\u0D23|\u0D28|\u0D30|\u0D32|\u0D33|\u0D15)\u0D4D\u200D");
 
-    private static Map<Character, Character> NORMALIZING_MAP =
-        Builder.with(new HashMap<Character, Character>())
+    private static Map<Character, Character> NORMALIZING_MAP = Builder.with(new HashMap<Character, Character>())
         .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
         .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
         .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
@@ -858,13 +857,9 @@ public class DisplayAndInputProcessor {
      * This tests what type a numeric pattern is.
      */
     public enum NumericType {
-        CURRENCY(new int[] { 1, 2, 2 }, new int[] { 1, 2, 2 }),
-        CURRENCY_ABBREVIATED(),
-        DECIMAL(new int[] { 1, 0, 3 }, new int[] { 1, 0, 6 }),
-        DECIMAL_ABBREVIATED(),
-        PERCENT(new int[] { 1, 0, 0 }, new int[] { 1, 0, 0 }),
-        SCIENTIFIC(new int[] { 0, 0, 0 }, new int[] { 1, 6, 6 }),
-        NOT_NUMERIC;
+        CURRENCY(new int[] { 1, 2, 2 }, new int[] { 1, 2, 2 }), CURRENCY_ABBREVIATED(), DECIMAL(new int[] { 1, 0, 3 },
+            new int[] { 1, 0, 6 }), DECIMAL_ABBREVIATED(), PERCENT(new int[] { 1, 0, 0 },
+                new int[] { 1, 0, 0 }), SCIENTIFIC(new int[] { 0, 0, 0 }, new int[] { 1, 6, 6 }), NOT_NUMERIC;
 
         private static final Pattern NUMBER_PATH = Pattern
             .compile("//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");

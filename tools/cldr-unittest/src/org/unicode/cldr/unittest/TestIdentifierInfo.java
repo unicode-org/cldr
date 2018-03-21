@@ -29,22 +29,22 @@ public class TestIdentifierInfo extends TestFmwk {
             { "ーか", "HIGHLY_RESTRICTIVE", "Hira" },
             { "かーカa", "HIGHLY_RESTRICTIVE", "Kana Hira Latn" },
             { "a、 〃", "HIGHLY_RESTRICTIVE", "Zyyy Latn",
-            "Bopo Hani Hang Hira Kana" },
+                "Bopo Hani Hang Hira Kana" },
             { "a、 〃カ一", "HIGHLY_RESTRICTIVE", "Zyyy Latn Kana Hani" },
             { "a가一", "HIGHLY_RESTRICTIVE", "Hani Hang Latn" },
             { "aㄅ一", "HIGHLY_RESTRICTIVE", "Bopo Hani Latn" },
             { "٢", "HIGHLY_RESTRICTIVE", "", "Arab Thaa", "[٠]" },
             { "٢\u0670", "HIGHLY_RESTRICTIVE", "", "Arab Thaa; Arab Syrc",
-            "[٠]" },
+                "[٠]" },
             { "٢\u0670ـ", "HIGHLY_RESTRICTIVE", "", "Arab Thaa; Arab Syrc",
-            "[٠]" },
+                "[٠]" },
             { "٢\u0670ـ،", "HIGHLY_RESTRICTIVE", "",
                 "Arab Thaa; Arab Syrc", "[٠]" },
-                { "AᎪ", "MINIMALLY_RESTRICTIVE", "Cher Latn" },
-                { "aА가一", "MINIMALLY_RESTRICTIVE", "Cyrl Hani Hang Latn" },
-                { "AᎪА♥", "MINIMALLY_RESTRICTIVE", "Zyyy Cher Cyrl Latn" },
-                { "a1२", "UNRESTRICTIVE", "Zyyy Latn", "Deva Kthi Mahj", "[0०]" },
-                { "a1٢", "UNRESTRICTIVE", "Zyyy Latn", "Arab Thaa", "[0٠]" }, };
+            { "AᎪ", "MINIMALLY_RESTRICTIVE", "Cher Latn" },
+            { "aА가一", "MINIMALLY_RESTRICTIVE", "Cyrl Hani Hang Latn" },
+            { "AᎪА♥", "MINIMALLY_RESTRICTIVE", "Zyyy Cher Cyrl Latn" },
+            { "a1२", "UNRESTRICTIVE", "Zyyy Latn", "Deva Kthi Mahj", "[0०]" },
+            { "a1٢", "UNRESTRICTIVE", "Zyyy Latn", "Arab Thaa", "[0٠]" }, };
         IdentifierInfo actualInfo = new IdentifierInfo();
 
         int item = 0;

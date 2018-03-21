@@ -138,7 +138,7 @@ public class CldrUtility {
             return null;
         }
         final File file = filename == null ? new File(path)
-        : new File(path, filename);
+            : new File(path, filename);
         try {
             return file.getCanonicalPath() + File.separatorChar;
         } catch (IOException e) {
@@ -515,8 +515,7 @@ public class CldrUtility {
     }
 
     private static final Set<Object> KNOWN_IMMUTABLES = new HashSet<Object>(Arrays.asList(
-        String.class
-        ));
+        String.class));
 
     public static boolean isImmutable(Object source) {
         return source == null
@@ -652,8 +651,8 @@ public class CldrUtility {
     private static final Transliterator DEFAULT_REGEX_ESCAPER = Transliterator.createFromRules(
         "foo",
         "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
-        // + " ([:c:]) > &hex($1);"
-        + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
+            // + " ([:c:]) > &hex($1);"
+            + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
         Transliterator.FORWARD);
 
     /**
@@ -758,7 +757,7 @@ public class CldrUtility {
             for (UnicodeSet last : lastToFirst.keySet()) {
                 ++alternateCount;
                 alternates.append('|').append(toRegex(lastToFirst.get(last), escaper, onlyBmp))
-                .append(toRegex(last, escaper, onlyBmp));
+                    .append(toRegex(last, escaper, onlyBmp));
             }
         }
         // Return the output. We separate cases in order to get the minimal extra apparatus
@@ -956,9 +955,9 @@ public class CldrUtility {
                     : o2First == null ? 1
                         : comp1 == null ? o1First.compareTo(o2First)
                             : comp1.compare(o1First, o2First);
-                        if (diff != 0) {
-                            return diff;
-                        }
+                if (diff != 0) {
+                    return diff;
+                }
             }
             V o1Second = o1.getSecond();
             V o2Second = o2.getSecond();
@@ -1098,7 +1097,7 @@ public class CldrUtility {
             return rules;
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + filename)
-            .initCause(e);
+                .initCause(e);
         }
     }
 
@@ -1356,7 +1355,7 @@ public class CldrUtility {
     public static String getDoubleLinkMsg() {
         return "<a name=''{0}'' href=''#{0}''>{0}</a>";
     }
-    
+
     public static String getDoubleLinkMsg2() {
         return "<a name=''{0}{1}'' href=''#{0}{1}''>{0}</a>";
     }
@@ -1364,9 +1363,9 @@ public class CldrUtility {
     public static String getCopyrightString() {
         // now do the rest
         return "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
-        + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
-        + "Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries." + CldrUtility.LINE_SEPARATOR
-        + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
+            + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
+            + "Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries." + CldrUtility.LINE_SEPARATOR
+            + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
     }
 
     // TODO Move to collection utilities
@@ -1437,7 +1436,7 @@ public class CldrUtility {
                     }
                 } catch (Exception e) {
                     throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
-                    .initCause(e);
+                        .initCause(e);
                 }
             }
         }
@@ -1445,8 +1444,8 @@ public class CldrUtility {
     }
 
     public static <T> T ifNull(T x, T y) {
-        return x == null 
-            ? y 
+        return x == null
+            ? y
             : x;
     }
 
@@ -1495,7 +1494,7 @@ public class CldrUtility {
         List<String> list = splitter.splitToList(source);
         return list.toArray(new String[list.size()]);
     }
-    
+
     public static String toHex(String in, boolean javaStyle) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < in.length(); ++i) {
@@ -1520,7 +1519,7 @@ public class CldrUtility {
         String prefix = javaStyle ? "\\u" : "U+";
         return prefix + "000".substring(0, gap) + hexString;
     }
-    
+
     /**
      * get string format for debugging, since Java has a useless display for many items
      * @param item
@@ -1535,7 +1534,7 @@ public class CldrUtility {
             return "{" + toString(((Map) item).entrySet()) + "}";
         } else if (item instanceof Collection) {
             List<String> result = new ArrayList<>();
-            for (Object subitem : (Collection)item) {
+            for (Object subitem : (Collection) item) {
                 result.add(toString(subitem));
             }
             return result.toString();

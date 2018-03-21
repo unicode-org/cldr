@@ -191,21 +191,21 @@ public class GenerateComparison {
 
             final String localeDisplayName = english.getName(locale);
             TablePrinter table = new TablePrinter()
-            .setCaption("Changes in " + localeDisplayName + " (" + locale + ")")
-            .addColumn("PRETTY_SORT1").setSortPriority(1).setHidden(true).setRepeatHeader(true)
-            .addColumn("PRETTY_SORT2").setSortPriority(2).setHidden(true)
-            .addColumn("PRETTY_SORT3").setSortPriority(3).setHidden(true)
-            .addColumn("ESCAPED_PATH").setHidden(true)
-            .addColumn("Inh.").setCellAttributes("class=\"{0}\"").setSortPriority(0).setSpanRows(true)
-            .setRepeatHeader(true)
-            .addColumn("Section").setSpanRows(true).setCellAttributes("class='section'")
-            .addColumn("Subsection").setSpanRows(true).setCellAttributes("class='subsection'")
-            .addColumn("Item").setSpanRows(true).setCellPattern("<a href=\"{4}\">{0}</a>")
-            .setCellAttributes("class='item'")
-            .addColumn("English").setCellAttributes("class='english'")
-            .addColumn("Status").setSortPriority(4).setCellAttributes("class=\"{0}\"")
-            .addColumn("Old" + localeDisplayName).setCellAttributes("class='old'")
-            .addColumn("New" + localeDisplayName).setCellAttributes("class='new'");
+                .setCaption("Changes in " + localeDisplayName + " (" + locale + ")")
+                .addColumn("PRETTY_SORT1").setSortPriority(1).setHidden(true).setRepeatHeader(true)
+                .addColumn("PRETTY_SORT2").setSortPriority(2).setHidden(true)
+                .addColumn("PRETTY_SORT3").setSortPriority(3).setHidden(true)
+                .addColumn("ESCAPED_PATH").setHidden(true)
+                .addColumn("Inh.").setCellAttributes("class=\"{0}\"").setSortPriority(0).setSpanRows(true)
+                .setRepeatHeader(true)
+                .addColumn("Section").setSpanRows(true).setCellAttributes("class='section'")
+                .addColumn("Subsection").setSpanRows(true).setCellAttributes("class='subsection'")
+                .addColumn("Item").setSpanRows(true).setCellPattern("<a href=\"{4}\">{0}</a>")
+                .setCellAttributes("class='item'")
+                .addColumn("English").setCellAttributes("class='english'")
+                .addColumn("Status").setSortPriority(4).setCellAttributes("class=\"{0}\"")
+                .addColumn("Old" + localeDisplayName).setCellAttributes("class='old'")
+                .addColumn("New" + localeDisplayName).setCellAttributes("class='new'");
             Counter<String> fileCounter = new Counter<String>();
 
             for (String path : paths) {
@@ -332,19 +332,19 @@ public class GenerateComparison {
                 // http://kwanyin.unicode.org/cldr-apps/survey?_=kw_GB&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22mt%22%5D
 
                 table.addRow()
-                .addCell(prettySort1)
-                .addCell(prettySort2)
-                .addCell(prettySort3)
-                .addCell(escapedPath)
-                .addCell(isAliased ? "I" : "")
-                .addCell(pretty1)
-                .addCell(pretty2)
-                .addCell(pretty3)
-                .addCell(englishValue == null ? "-" : englishValue)
-                .addCell(coreStatus)
-                .addCell(oldValue == null ? "-" : oldValue)
-                .addCell(newValue == null ? "-" : newValue)
-                .finishRow();
+                    .addCell(prettySort1)
+                    .addCell(prettySort2)
+                    .addCell(prettySort3)
+                    .addCell(escapedPath)
+                    .addCell(isAliased ? "I" : "")
+                    .addCell(pretty1)
+                    .addCell(pretty2)
+                    .addCell(pretty3)
+                    .addCell(englishValue == null ? "-" : englishValue)
+                    .addCell(coreStatus)
+                    .addCell(oldValue == null ? "-" : oldValue)
+                    .addCell(newValue == null ? "-" : newValue)
+                    .finishRow();
 
                 totalDifferences++;
                 differences++;
@@ -377,22 +377,21 @@ public class GenerateComparison {
                 + "</h1>"
                 + CldrUtility.LINE_SEPARATOR
                 + "<a href='index.html'>Index</a> | <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
-                + warningMessage
-                );
+                + warningMessage);
 
             TablePrinter table2 = new TablePrinter()
-            .setCaption("Totals")
-            .addColumn("Inh.").setSortPriority(0)
-            .addColumn("Status").setSortPriority(1)
-            .addColumn("Total");
+                .setCaption("Totals")
+                .addColumn("Inh.").setSortPriority(0)
+                .addColumn("Status").setSortPriority(1)
+                .addColumn("Total");
 
             for (String key : fileCounter.getKeysetSortedByKey()) {
                 boolean inherited = key.startsWith("I+");
                 table2.addRow()
-                .addCell(inherited ? "I" : "")
-                .addCell(inherited ? key.substring(2) : key)
-                .addCell(format.format(fileCounter.getCount(key)))
-                .finishRow();
+                    .addCell(inherited ? "I" : "")
+                    .addCell(inherited ? key.substring(2) : key)
+                    .addCell(format.format(fileCounter.getCount(key)))
+                    .finishRow();
             }
             out.println(table2);
             out.println("<br>");
@@ -412,32 +411,32 @@ public class GenerateComparison {
         }
         PrintWriter indexFile = FileUtilities.openUTF8Writer(changesDirectory, "index.html");
         indexFile
-        .println("<html>"
-            +
-            "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-            + CldrUtility.LINE_SEPARATOR
-            +
-            "<title>"
-            + "Change Summary"
-            + "</title>"
-            + CldrUtility.LINE_SEPARATOR
-            +
-            "<link rel='stylesheet' href='index.css' type='text/css'>"
-            + CldrUtility.LINE_SEPARATOR
-            +
-            "<base target='_blank'>"
-            + CldrUtility.LINE_SEPARATOR
-            +
-            "</head><body>"
-            + CldrUtility.LINE_SEPARATOR
-            +
-            "<h1>"
-            + "Change Summary"
-            + "</h1>"
-            + CldrUtility.LINE_SEPARATOR
-            + "<a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
-            + warningMessage
-            + "<table><tr>");
+            .println("<html>"
+                +
+                "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
+                + CldrUtility.LINE_SEPARATOR
+                +
+                "<title>"
+                + "Change Summary"
+                + "</title>"
+                + CldrUtility.LINE_SEPARATOR
+                +
+                "<link rel='stylesheet' href='index.css' type='text/css'>"
+                + CldrUtility.LINE_SEPARATOR
+                +
+                "<base target='_blank'>"
+                + CldrUtility.LINE_SEPARATOR
+                +
+                "</head><body>"
+                + CldrUtility.LINE_SEPARATOR
+                +
+                "<h1>"
+                + "Change Summary"
+                + "</h1>"
+                + CldrUtility.LINE_SEPARATOR
+                + "<a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
+                + warningMessage
+                + "<table><tr>");
 
         String separator = "";
         int last = 0;

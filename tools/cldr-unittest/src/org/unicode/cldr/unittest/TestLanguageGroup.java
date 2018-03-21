@@ -25,7 +25,7 @@ import com.ibm.icu.util.ULocale;
 public class TestLanguageGroup extends TestFmwk {
     static CLDRConfig CONF = CLDRConfig.getInstance();
     static CLDRFile ENGLISH = CONF.getEnglish();
-    static SupplementalDataInfo  SDI = CONF.getSupplementalDataInfo();
+    static SupplementalDataInfo SDI = CONF.getSupplementalDataInfo();
     static Multimap<String, String> PARENT_TO_CHILDREN = SDI.getLanguageGroups();
     static Multimap<String, String> CHILDREN_TO_PARENT = ImmutableMultimap.copyOf(Multimaps.invertFrom(PARENT_TO_CHILDREN, TreeMultimap.create()));
 
@@ -71,6 +71,7 @@ public class TestLanguageGroup extends TestFmwk {
     }
 
     public static Set<LanguageGroup> SPECIALS = ImmutableSet.of(LanguageGroup.root, LanguageGroup.cjk, LanguageGroup.other, LanguageGroup.american);
+
     public void TestOldLangaugeGroup() {
         for (LanguageGroup item : LanguageGroup.values()) {
             if (SPECIALS.contains(item)) { // special cases
@@ -78,7 +79,7 @@ public class TestLanguageGroup extends TestFmwk {
             }
             Set<ULocale> locales = LanguageGroup.getLocales(item);
             String parent = item.iso;
-            parent = parent.replace("_001","");
+            parent = parent.replace("_001", "");
             logln(parent + ": " + new TreeSet<>(locales));
             logln(parent + ": " + getAllChildren(parent));
             for (ULocale child : locales) {
@@ -97,7 +98,8 @@ public class TestLanguageGroup extends TestFmwk {
 
     private String fixedName(String code) {
         switch (code) {
-        case "grk": return "Hellenic";
+        case "grk":
+            return "Hellenic";
         default:
             return ENGLISH.getName(code).replace(" [Other]", "");
         }
@@ -133,7 +135,6 @@ public class TestLanguageGroup extends TestFmwk {
     <T extends Collection<String>> Set<List<String>> getAllAncestors(String lang) {
         return Containment.getAllDirected(CHILDREN_TO_PARENT, lang);
     }
-
 
     <T extends Collection<String>> Set<List<String>> getAllChildren(String lang) {
         return Containment.getAllDirected(PARENT_TO_CHILDREN, lang);

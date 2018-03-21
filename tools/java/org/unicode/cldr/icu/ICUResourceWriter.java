@@ -118,13 +118,11 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
-        public void setSize()
-        {
+        public void setSize() {
             size = 0;
         }
 
-        public Resource()
-        {
+        public Resource() {
             isTop = false;
         }
 
@@ -254,8 +252,7 @@ public class ICUResourceWriter {
             }
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
             // should never get called
             System.err.println("Unexpected type: " + this.getClass().toString());
             System.err.println("Resource Name: " + this.name);
@@ -379,16 +376,14 @@ public class ICUResourceWriter {
          * @param out
          *            A File output stream which has already been set up to write to.
          */
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
             byte[] valLenBytes;
             byte[] valBytes;
             byte[] padding;
 
             valLenBytes = intToBytes(val.length());
 
-            try
-            {
+            try {
                 valBytes = (val + STRTERM).getBytes(LDML2ICUBinaryWriter.CHARSET16);
                 padding = create32Padding(valBytes.length);
                 out.write(valLenBytes);
@@ -397,24 +392,20 @@ public class ICUResourceWriter {
                 out.write(valBytes);
                 LDML2ICUBinaryWriter.written += valBytes.length;
 
-                if (padding != null)
-                {
+                if (padding != null) {
                     out.write(padding);
                     LDML2ICUBinaryWriter.written += padding.length;
                 }
 
-            } catch (UnsupportedEncodingException e)
-            {
+            } catch (UnsupportedEncodingException e) {
                 errUnsupportedEncoding();
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 errIO();
             }
             return usedOffset;
         }
 
-        public void setSize()
-        {
+        public void setSize() {
             // a pointer + the string
             size = SIZE_OF_INT + ((val.length() + 1) * SIZE_OF_CHAR);
         }
@@ -457,67 +448,47 @@ public class ICUResourceWriter {
             }
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
             int count = 0;
             int[] resources = new int[numChildren];
             byte[] resourceBytes;
             Resource current = this.first;
 
             // if there are items in the array
-            if (current != null)
-            {
+            if (current != null) {
                 // start at the first one and loop
-                while (current != null)
-                {
+                while (current != null) {
                     // if it's an int: resources[i] = (current->fType << 28) | (current->u.fIntValue.fValue &
                     // 0xFFFFFFF);
-                    if (current instanceof ResourceInt)
-                    {
+                    if (current instanceof ResourceInt) {
                         int value = 0;
 
-                        try
-                        {
+                        try {
                             value = Integer.parseInt(((ResourceInt) current).val);
-                        } catch (NumberFormatException e)
-                        {
+                        } catch (NumberFormatException e) {
                             System.err.println("Error converting string to int: " + e.getMessage());
                             System.exit(1);
                         }
                         resources[count] = LDML2ICUBinaryWriter.URES_INT << 28 | (value & 0xFFFFFFF);
-                    }
-                    else
-                    {
+                    } else {
                         // write the current object
                         usedOffset = current.writeBinary(out, usedOffset);
 
                         // write 32 bits for identification?
-                        if (current instanceof ResourceString)
-                        {
+                        if (current instanceof ResourceString) {
                             resources[count] = LDML2ICUBinaryWriter.URES_STRING << 28 | usedOffset >>> 2;
-                        }
-                        else if (current instanceof ResourceTable)
-                        {
-                            if (((ResourceTable) current).is32Bit())
-                            {
+                        } else if (current instanceof ResourceTable) {
+                            if (((ResourceTable) current).is32Bit()) {
                                 resources[count] = LDML2ICUBinaryWriter.URES_TABLE32 << 28 | usedOffset >>> 2;
-                            }
-                            else
-                            {
+                            } else {
                                 resources[count] = LDML2ICUBinaryWriter.URES_TABLE << 28 | usedOffset >>> 2;
                             }
 
-                        }
-                        else if (current instanceof ResourceAlias)
-                        {
+                        } else if (current instanceof ResourceAlias) {
                             resources[count] = LDML2ICUBinaryWriter.URES_ALIAS << 28 | usedOffset >>> 2;
-                        }
-                        else if (current instanceof ResourceArray)
-                        {
+                        } else if (current instanceof ResourceArray) {
                             resources[count] = LDML2ICUBinaryWriter.URES_ARRAY << 28 | usedOffset >>> 2;
-                        }
-                        else if (current instanceof ResourceIntVector)
-                        {
+                        } else if (current instanceof ResourceIntVector) {
                             resources[count] = LDML2ICUBinaryWriter.URES_INT_VECTOR << 28 | usedOffset >>> 2;
                         }
 
@@ -530,8 +501,7 @@ public class ICUResourceWriter {
                 // convert the resource array into the resourceBytes
                 resourceBytes = intArrayToBytes(resources);
 
-                try
-                {
+                try {
                     // write the array count (int32)
                     out.write(intToBytes(count));
                     LDML2ICUBinaryWriter.written += intToBytes(count).length;
@@ -539,20 +509,16 @@ public class ICUResourceWriter {
                     // write the resources array...should be size of int32 * array count
                     out.write(resourceBytes);
                     LDML2ICUBinaryWriter.written += resourceBytes.length;
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     errIO();
                 }
 
-            }
-            else // Empty array
+            } else // Empty array
             {
-                try
-                {
+                try {
                     out.write(intToBytes(0));
                     LDML2ICUBinaryWriter.written += intToBytes(0).length;
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     errIO();
                 }
             }
@@ -563,22 +529,19 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource.
          */
-        public void setSize()
-        {
+        public void setSize() {
             // Arrays have children.
             int x = 0;
             Resource current = this.first;
 
             this.sizeOfChildren = 0;
 
-            while (current != null)
-            {
+            while (current != null) {
                 x++;
 
                 this.sizeOfChildren += current.size + pad32(current.size);
 
-                if (current instanceof ResourceTable || current instanceof ResourceArray)
-                {
+                if (current instanceof ResourceTable || current instanceof ResourceArray) {
                     this.sizeOfChildren += current.sizeOfChildren;
                 }
 
@@ -608,16 +571,14 @@ public class ICUResourceWriter {
             }
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
             return usedOffset;
         }
 
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
-        public void setSize()
-        {
+        public void setSize() {
             size = 0;
 
         }
@@ -648,15 +609,13 @@ public class ICUResourceWriter {
             write(writer, CLOSEBRACE + LINESEP);
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
             int count = 0;
             int[] numbers = new int[numChildren];
             byte[] numBytes;
             Resource current = this.first;
 
-            while (current != null)
-            {
+            while (current != null) {
                 numbers[count] = Integer.parseInt(((ResourceInt) current).val);
                 count++;
                 current = current.next;
@@ -664,15 +623,13 @@ public class ICUResourceWriter {
 
             numBytes = intArrayToBytes(numbers);
 
-            try
-            {
+            try {
                 out.write(intToBytes(count));
                 LDML2ICUBinaryWriter.written += intToBytes(count).length;
 
                 out.write(numBytes);
                 LDML2ICUBinaryWriter.written += numBytes.length;
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 errIO();
             }
             return usedOffset;
@@ -681,14 +638,12 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
-        public void setSize()
-        {
+        public void setSize() {
             // has children
             int x = 0;
             Resource current = this.first;
 
-            while (current != null)
-            {
+            while (current != null) {
                 x++;
                 current = current.next;
             }
@@ -798,12 +753,10 @@ public class ICUResourceWriter {
             }
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
 
             // clean up quotes if any
-            if (this.val.indexOf("\"") >= 0)
-            {
+            if (this.val.indexOf("\"") >= 0) {
                 this.val = LDML2ICUBinaryWriter.removeQuotes(this.val);
             }
 
@@ -814,8 +767,7 @@ public class ICUResourceWriter {
 
             valLenBytes = intToBytes(val.length());
 
-            try
-            {
+            try {
                 valBytes = valPlusTerm.getBytes(LDML2ICUBinaryWriter.CHARSET16);
                 padding = create32Padding(valBytes.length);
                 out.write(valLenBytes); // 32 bit int
@@ -824,17 +776,14 @@ public class ICUResourceWriter {
                 out.write(valBytes); // The string plus a null terminator
                 LDML2ICUBinaryWriter.written += valBytes.length;
 
-                if (padding != null)
-                {
+                if (padding != null) {
                     out.write(padding);
                     LDML2ICUBinaryWriter.written += padding.length;
                 }
-            } catch (UnsupportedEncodingException e)
-            {
+            } catch (UnsupportedEncodingException e) {
                 System.err.print("Problems converting string resource to " + LDML2ICUBinaryWriter.CHARSET16);
                 System.exit(1);
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 System.err.print("Problems writing the string resource to file.");
                 System.exit(1);
             }
@@ -844,8 +793,7 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
-        public void setSize()
-        {
+        public void setSize() {
             // a pointer to the key + a string
             size = SIZE_OF_INT + (SIZE_OF_CHAR * (val.length() + 1));
         }
@@ -919,15 +867,12 @@ public class ICUResourceWriter {
 
         } // end sort()
 
-        public boolean is32Bit()
-        {
+        public boolean is32Bit() {
             Resource current = this.first;
             boolean mustBe32 = false;
 
-            while (current != null)
-            {
-                if (current.keyStringOffset > 0xFFFF)
-                {
+            while (current != null) {
+                if (current.keyStringOffset > 0xFFFF) {
                     mustBe32 = true;
                 }
                 current = current.next;
@@ -935,8 +880,7 @@ public class ICUResourceWriter {
             return mustBe32;
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
             int count = 0;
             int pad;
             Resource current = this.first;
@@ -946,73 +890,51 @@ public class ICUResourceWriter {
             boolean is32Bit = this.is32Bit();
             byte[] padding;
 
-            if (is32Bit)
-            {
+            if (is32Bit) {
                 keys32 = new int[numChildren];
-            }
-            else
-            {
+            } else {
                 keys16 = new short[numChildren];
             }
 
             // if the table has objects in it
-            if (current != null)
-            {
+            if (current != null) {
 
                 // loop through them all
-                while (current != null)
-                {
+                while (current != null) {
                     // get the key ptr for current (size depends on table size, store in array
-                    if (is32Bit)
-                    {
+                    if (is32Bit) {
                         keys32[count] = current.keyStringOffset;
-                    }
-                    else
-                    {
+                    } else {
                         keys16[count] = (short) current.keyStringOffset;
                     }
 
                     // if INT
-                    if (current instanceof ResourceInt)
-                    {
+                    if (current instanceof ResourceInt) {
                         // resources[i] = (current->fType << 28) | (current->u.fIntValue.fValue & 0xFFFFFFF);
                         int value = 0;
 
-                        try
-                        {
+                        try {
                             value = Integer.parseInt(((ResourceInt) current).val);
-                        } catch (NumberFormatException e)
-                        {
+                        } catch (NumberFormatException e) {
                             System.err.println("Error converting string to int: " + e.getMessage());
                             System.exit(1);
                         }
                         resources[count] = LDML2ICUBinaryWriter.URES_INT << 28 | (value & 0xFFFFFFF);
 
-                    }
-                    else
-                    {
+                    } else {
                         // write the current object
                         usedOffset = current.writeBinary(out, usedOffset);
 
                         // write 32 bits for identification?
-                        if (current instanceof ResourceString)
-                        {
+                        if (current instanceof ResourceString) {
                             resources[count] = LDML2ICUBinaryWriter.URES_STRING << 28 | usedOffset >>> 2;
-                        }
-                        else if (current instanceof ResourceTable)
-                        {
+                        } else if (current instanceof ResourceTable) {
                             resources[count] = LDML2ICUBinaryWriter.URES_TABLE << 28 | usedOffset >>> 2;
-                        }
-                        else if (current instanceof ResourceAlias)
-                        {
+                        } else if (current instanceof ResourceAlias) {
                             resources[count] = LDML2ICUBinaryWriter.URES_ALIAS << 28 | usedOffset >>> 2;
-                        }
-                        else if (current instanceof ResourceArray)
-                        {
+                        } else if (current instanceof ResourceArray) {
                             resources[count] = LDML2ICUBinaryWriter.URES_ARRAY << 28 | usedOffset >>> 2;
-                        }
-                        else if (current instanceof ResourceIntVector)
-                        {
+                        } else if (current instanceof ResourceIntVector) {
                             resources[count] = LDML2ICUBinaryWriter.URES_INT_VECTOR << 28 | usedOffset >>> 2;
                         }
 
@@ -1023,10 +945,8 @@ public class ICUResourceWriter {
                 }
 
                 // write the member count and the key offsets
-                if (is32Bit)
-                {
-                    try
-                    {
+                if (is32Bit) {
+                    try {
                         // write a 32 bit block with the number of items in this table
                         out.write(intToBytes(count));
                         LDML2ICUBinaryWriter.written += intToBytes(count).length;
@@ -1037,16 +957,12 @@ public class ICUResourceWriter {
 
                         out.write(intArrayToBytes(resources));
                         LDML2ICUBinaryWriter.written += intArrayToBytes(resources).length;
-                    } catch (IOException e)
-                    {
+                    } catch (IOException e) {
                         errIO();
                     }
 
-                }
-                else
-                {
-                    try
-                    {
+                } else {
+                    try {
                         // write 2 byte block with the number of items in this table
                         out.write(shortToBytes((short) count));
                         LDML2ICUBinaryWriter.written += shortToBytes((short) count).length;
@@ -1057,8 +973,7 @@ public class ICUResourceWriter {
 
                         pad = pad32(this.size);
                         padding = createPadding(pad);
-                        if (padding != null)
-                        {
+                        if (padding != null) {
                             out.write(padding);
                             LDML2ICUBinaryWriter.written += padding.length;
                         }
@@ -1066,34 +981,29 @@ public class ICUResourceWriter {
                         out.write(intArrayToBytes(resources));
                         LDML2ICUBinaryWriter.written += intArrayToBytes(resources).length;
 
-                    } catch (IOException e)
-                    {
+                    } catch (IOException e) {
                         errIO();
                     }
 
                 }
-            }
-            else // else (the table is empty)
+            } else // else (the table is empty)
             {
                 short zero = 0;
 
                 // We'll write it as a 16 bit table, because it's empty...
-                try
-                {
+                try {
                     // write a 16 bit zero.
                     out.write(shortToBytes(zero));
                     LDML2ICUBinaryWriter.written += shortToBytes(zero).length;
 
                     // pad it
                     padding = createPadding(pad16Bytes(2));
-                    if (padding != null)
-                    {
+                    if (padding != null) {
                         out.write(padding);
                         LDML2ICUBinaryWriter.written += padding.length;
                     }
 
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     errIO();
                 }
             }
@@ -1103,37 +1013,30 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
-        public void setSize()
-        {
+        public void setSize() {
             // Tables have children.
             int x = 0;
             Resource current = this.first;
             this.sizeOfChildren = 0;
-            while (current != null)
-            {
+            while (current != null) {
                 x++;
                 this.sizeOfChildren += current.size + pad32(current.size);
 
-                if (current instanceof ResourceTable || current instanceof ResourceArray)
-                {
+                if (current instanceof ResourceTable || current instanceof ResourceArray) {
                     this.sizeOfChildren += current.sizeOfChildren;
                 }
 
                 current = current.next;
             }
 
-            if (x > maxTableLength)
-            {
+            if (x > maxTableLength) {
                 maxTableLength = x;
             }
 
-            if (this.is32Bit())
-            {
+            if (this.is32Bit()) {
                 // this resources key offset + a key offset for each child + a pointer to their resource object.
                 size = SIZE_OF_INT + (x * 2 * SIZE_OF_INT);
-            }
-            else
-            {
+            } else {
                 // this resources key offset + a pointer to each childs resource + a 16 bit pointer to each childs key
                 size = SIZE_OF_INT / 2 + (x * (SIZE_OF_INT + (SIZE_OF_INT / 2)));
             }
@@ -1141,48 +1044,39 @@ public class ICUResourceWriter {
     }
 
     /* Currently there is nothing in LDML which converts to a Binary resource. So this type is currently unused. */
-    public static class ResourceBinary extends Resource
-    {
+    public static class ResourceBinary extends Resource {
         String internal;
         String external;
         byte[] data;
 
-        public void write(OutputStream writer, int numIndent, boolean bare)
-        {
+        public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
-            if (internal == null)
-            {
+            if (internal == null) {
                 String line = ((name == null) ? EMPTY : name) + COLON + IMPORT + OPENBRACE + QUOTE + external + QUOTE
                     + CLOSEBRACE + ((bare == true) ? EMPTY : LINESEP);
                 write(writer, line);
-            }
-            else
-            {
+            } else {
                 String line = ((name == null) ? EMPTY : name) + COLON + BIN + OPENBRACE + internal + CLOSEBRACE
                     + ((bare == true) ? EMPTY : LINESEP);
                 write(writer, line);
             }
         }
 
-        public void setSize()
-        {
+        public void setSize() {
             // sizeof(int32_t) + sizeof(uint8_t) * length + BIN_ALIGNMENT;
             size = SIZE_OF_INT + data.length + BIN_ALIGNMENT;
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
             int pad = 0;
             int extrapad = pad32(this.size);
             int dataStart = usedOffset + SIZE_OF_INT;
 
-            try
-            {
+            try {
 
                 // write some padding
-                if (dataStart % BIN_ALIGNMENT != 0)
-                {
+                if (dataStart % BIN_ALIGNMENT != 0) {
                     pad = (BIN_ALIGNMENT - (dataStart % BIN_ALIGNMENT));
                     out.write(createPadding(pad));
                     usedOffset += pad;
@@ -1192,15 +1086,13 @@ public class ICUResourceWriter {
                 out.write(intToBytes(data.length));
 
                 // if there is data, write it
-                if (data.length > 0)
-                {
+                if (data.length > 0) {
                     out.write(data);
                 }
 
                 // write some more padding
                 out.write(createPadding(BIN_ALIGNMENT - pad + extrapad));
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.err.println("Had problems writing Binary Resource");
             }
             return usedOffset;
@@ -1211,8 +1103,7 @@ public class ICUResourceWriter {
         String val;
         String ext;
 
-        public void write(OutputStream writer, int numIndent, boolean bare)
-        {
+        public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
             String line = ((name == null) ? EMPTY : name) + COLON + PROCESS +
@@ -1227,14 +1118,10 @@ public class ICUResourceWriter {
             }
         }
 
-        public int writeBinary(FileOutputStream out, int usedOffset)
-        {
-            if (this.name.equals("depends"))
-            {
+        public int writeBinary(FileOutputStream out, int usedOffset) {
+            if (this.name.equals("depends")) {
 
-            }
-            else
-            {
+            } else {
 
                 // should never get called
                 System.err.println("Unexpected type: " + this.getClass().toString());
@@ -1298,28 +1185,23 @@ public class ICUResourceWriter {
         return new ResourceString(name, val);
     }
 
-    private static int pad32(int x)
-    {
+    private static int pad32(int x) {
         return ((x % SIZE_OF_INT) == 0) ? 0 : (SIZE_OF_INT - (x % SIZE_OF_INT));
     }
 
-    private static byte[] create32Padding(int x)
-    {
+    private static byte[] create32Padding(int x) {
         byte[] b = new byte[pad32(x)];
-        if (pad32(x) == 0)
-        {
+        if (pad32(x) == 0) {
             return null;
         }
 
-        for (int z = 0; z < b.length; z++)
-        {
+        for (int z = 0; z < b.length; z++) {
             b[z] = 0;
         }
         return b;
     }
 
-    private static int pad16Bytes(int x)
-    {
+    private static int pad16Bytes(int x) {
         return ((x % 16) == 0) ? 0 : (16 - (x % 16));
     }
 
@@ -1327,8 +1209,7 @@ public class ICUResourceWriter {
      * Takes a 32 bit integer and returns an array of 4 bytes.
      *
      */
-    private static byte[] intToBytes(int x)
-    {
+    private static byte[] intToBytes(int x) {
         byte[] b = new byte[4];
         b[3] = (byte) (x); // just the last byte
 
@@ -1350,42 +1231,35 @@ public class ICUResourceWriter {
      * @param x
      * @return
      */
-    private static byte[] intArrayToBytes(int[] x)
-    {
+    private static byte[] intArrayToBytes(int[] x) {
         byte[] b = new byte[x.length * 4];
         byte[] temp;
         int i, z;
 
-        for (i = 0; i < x.length; i++)
-        {
+        for (i = 0; i < x.length; i++) {
             temp = intToBytes(x[i]);
-            for (z = 0; z < temp.length; z++)
-            {
+            for (z = 0; z < temp.length; z++) {
                 b[i * temp.length + z] = temp[z];
             }
         }
         return b;
     }
 
-    private static byte[] shortArrayToBytes(short[] x)
-    {
+    private static byte[] shortArrayToBytes(short[] x) {
         byte[] b = new byte[x.length * 2];
         byte[] temp;
         int i, z;
 
-        for (i = 0; i < x.length; i++)
-        {
+        for (i = 0; i < x.length; i++) {
             temp = shortToBytes(x[i]);
-            for (z = 0; z < temp.length; z++)
-            {
+            for (z = 0; z < temp.length; z++) {
                 b[i * temp.length + z] = temp[z];
             }
         }
         return b;
     }
 
-    private static byte[] shortToBytes(short x)
-    {
+    private static byte[] shortToBytes(short x) {
         byte[] b = new byte[2];
         b[1] = (byte) (x); // bitwise AND with the lower byte
         b[0] = (byte) (x >>> 8); // shift four bits to the right and fill with zeros, and then bitwise and with the
@@ -1393,28 +1267,23 @@ public class ICUResourceWriter {
         return b;
     }
 
-    private static void errUnsupportedEncoding()
-    {
+    private static void errUnsupportedEncoding() {
         System.err.print("Unsupported Encoding");
         System.exit(1);
     }
 
-    private static void errIO()
-    {
+    private static void errIO() {
         System.err.print("An error occured while writing to file.");
         System.exit(1);
     }
 
-    private static byte[] createPadding(int length)
-    {
+    private static byte[] createPadding(int length) {
         byte x = (byte) 0x00;
         byte[] b = new byte[length];
-        if (length == 0)
-        {
+        if (length == 0) {
             return null;
         }
-        for (int z = 0; z < b.length; z++)
-        {
+        for (int z = 0; z < b.length; z++) {
             b[z] = x;
         }
 

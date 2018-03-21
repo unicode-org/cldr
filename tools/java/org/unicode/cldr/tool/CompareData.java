@@ -20,13 +20,11 @@ import com.ibm.icu.util.ULocale;
 
 public class CompareData {
 
-    private static final int
-    HELP1 = 0,
-    HELP2 = 1,
-    SOURCEDIR = 2,
-    DESTDIR = 3,
-    MATCH = 4
-    ;
+    private static final int HELP1 = 0,
+        HELP2 = 1,
+        SOURCEDIR = 2,
+        DESTDIR = 3,
+        MATCH = 4;
 
     private static final UOption[] options = {
         UOption.HELP_H(),

@@ -55,15 +55,14 @@ public class GenerateLanguageData {
                     + "\t" + terrData.getGdp()
                     + "\t" + terrData.getLiteratePopulation()
                     + "\t" + terrData.getPopulation()
-                    + "\t" + (terrData.getLiteratePopulationPercent()/100)
-                    );
+                    + "\t" + (terrData.getLiteratePopulationPercent() / 100));
             }
 
             out.flush();
             out.println("\n@sheet:CLDR Language Data");
             out.println("LC\tName\tCC\tName\tStatus\tLitPop");
 
-            Map<String,Counter2<String>> langToCountriesOfficial = new TreeMap<>();
+            Map<String, Counter2<String>> langToCountriesOfficial = new TreeMap<>();
 
             for (String languageCode : info.getLanguages()) {
                 String languageName = english.getName(languageCode);
@@ -103,7 +102,7 @@ public class GenerateLanguageData {
                     double populationRegion = terrData.getPopulation();
                     double literatePopulationRegion = terrData.getLiteratePopulation();
                     double factor = literatePopulationLangRegion / literatePopulationRegion;
-                    
+
                     //out.println("LC\tName\tCC\tName\tStatus\tLitPop\tblank\t%LitPop(CC)");
 
                     out.println(fixLang(languageCode)
@@ -114,7 +113,7 @@ public class GenerateLanguageData {
                         + "\t" + literatePopulationLangRegion
 //                        + "\t" + ""
 //                        + "\t" + factor
-                        );
+                    );
                     // double gdp = terrData.getGdp() * factor;
                     // if (!Double.isNaN(gdp)) {
                     // langToGDP.add(baseLanguage, gdp);
@@ -132,7 +131,7 @@ public class GenerateLanguageData {
 
                 String lang = entry.getKey();
                 out.println(fixLang(lang)
-                    + "\t" + (top.size() < 6 ? CollectionUtilities.join(top, ", ") 
+                    + "\t" + (top.size() < 6 ? CollectionUtilities.join(top, ", ")
                         : CollectionUtilities.join(top.subList(0, 5), ", ") + ", …"));
                 missing.remove(lang);
             }
@@ -150,8 +149,8 @@ public class GenerateLanguageData {
             // }
         }
     }
+
     private String fixLang(String key) {
         return key.replace('_', '-');
     }
 }
-

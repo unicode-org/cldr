@@ -21,6 +21,7 @@ public class VariableReplacer {
         m.put(variable, value);
         return this;
     }
+
     public String replace(String source) {
         String oldSource;
         do {
@@ -33,12 +34,12 @@ public class VariableReplacer {
         } while (!source.equals(oldSource));
         return source;
     }
+
     public String replaceAll(String source, String key, String value) {
         while (true) {
             int pos = source.indexOf(key);
             if (pos < 0) return source;
-            source = source.substring(0,pos) + value + source.substring(pos+key.length());
+            source = source.substring(0, pos) + value + source.substring(pos + key.length());
         }
     }
 }
-

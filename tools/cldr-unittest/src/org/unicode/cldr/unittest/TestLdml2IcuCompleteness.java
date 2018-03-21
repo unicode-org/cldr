@@ -16,21 +16,21 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
-public class TestLdml2IcuCompleteness extends TestFmwk{
-    
+public class TestLdml2IcuCompleteness extends TestFmwk {
+
     private static final String CLDR_BASE = CLDRConfig.getInstance().getCldrBaseDirectory() + "/common";
     private static final String ICU_BASE = CLDRConfig.getInstance().getCldrBaseDirectory() + "/../icu4c/data/"; // "/Users/markdavis/workspace/icu4c/data";
 
-    static Multimap<String,File> icuFiles = TreeMultimap.create();
-    static Multimap<String,File> cldrFiles = TreeMultimap.create();
-    
+    static Multimap<String, File> icuFiles = TreeMultimap.create();
+    static Multimap<String, File> cldrFiles = TreeMultimap.create();
+
     static Set<String> SKIP_DIRS = ImmutableSet.of(
         "transforms", "translit", // temp
-        "unidata", 
-        "sprep", 
+        "unidata",
+        "sprep",
         "mappings");
     static Set<String> SKIP_FILES = ImmutableSet.of(
-        "attributeValueValidity", 
+        "attributeValueValidity",
         "tzdbNames");
 
     static {
@@ -45,7 +45,6 @@ public class TestLdml2IcuCompleteness extends TestFmwk{
         }
     }
 
-    
     static void fillMap(File file, String suffix, Multimap<String, File> fileList) {
         try {
             for (File f : file.listFiles()) {
@@ -63,7 +62,7 @@ public class TestLdml2IcuCompleteness extends TestFmwk{
                     if (name.endsWith("dict.txt") || name.contains("readme")) {
                         continue;
                     }
-                    name = name.substring(0, name.length()-suffix.length());
+                    name = name.substring(0, name.length() - suffix.length());
                     if (SKIP_FILES.contains(name)) {
                         continue;
                     }
@@ -78,7 +77,7 @@ public class TestLdml2IcuCompleteness extends TestFmwk{
     public static void main(String[] args) {
         new TestLdml2IcuCompleteness().run(args);
     }
-    
+
     public void TestFiles() {
         verifySuperset("cldrFiles-icuFiles", cldrFiles.keySet(), icuFiles.keySet());
         verifySuperset("icuFiles-cldrFiles", icuFiles.keySet(), cldrFiles.keySet());
@@ -89,7 +88,7 @@ public class TestLdml2IcuCompleteness extends TestFmwk{
         diff.removeAll(set2);
         assertEquals(title, Collections.EMPTY_SET, diff);
     }
-    
+
     public void TestLocales() {
         for (Entry<String, Collection<File>> entry : cldrFiles.asMap().entrySet()) {
             String file = entry.getKey();
@@ -105,4 +104,3 @@ public class TestLdml2IcuCompleteness extends TestFmwk{
         return null;
     }
 }
-

@@ -40,7 +40,8 @@ public class WritePluralRulesSpreadsheets {
 
     // TODO rewrite to use Options, generate file instead of console.
 
-    public static String[] tests = {"or", "tk", "ps", "as", "sd"};
+    public static String[] tests = { "or", "tk", "ps", "as", "sd" };
+
     public static void main(String[] args) {
         //writePluralChecklist(tests);
         ranges();
@@ -54,7 +55,7 @@ public class WritePluralRulesSpreadsheets {
         Multimap<Set<String>, String> missingMinimalPairs = HashMultimap.create();
         System.out.println("Type\tCode\tName\tRange\tResult\tResult Example\tStart-Range Example\tEnd-Range Example");
         Set<String> cldrLocales = // new TreeSet<>(Arrays.asList(tests));
-        new TreeSet<>(STD.getLocaleCoverageLocales(Organization.cldr));
+            new TreeSet<>(STD.getLocaleCoverageLocales(Organization.cldr));
         cldrLocales.addAll(STD.getLocaleCoverageLocales(Organization.google));
 
         writeRanges("Core", cldrLocales, missingMinimalPairs);
@@ -80,29 +81,28 @@ public class WritePluralRulesSpreadsheets {
     }
 
     private static void writePluralChecklist(String... locales) {
-        List<String> sampleStrings = Arrays.asList("0", 
-            "0.1", 
+        List<String> sampleStrings = Arrays.asList("0",
+            "0.1",
             "0.2",
             "0.9",
             "1.9",
-            "1", 
-            "1.0", 
-            "1.2", 
-            "2.0", 
-            "2.1", 
-            "0.00", 
-            "0.01", 
-            "0.10", 
-            "0.11", 
-            "0.02", 
-            "1.00", 
-            "1.10", 
-            "1.11", 
-            "1.02", 
-            "2.00", 
-            "2.01", 
-            "2.9"
-            );
+            "1",
+            "1.0",
+            "1.2",
+            "2.0",
+            "2.1",
+            "0.00",
+            "0.01",
+            "0.10",
+            "0.11",
+            "0.02",
+            "1.00",
+            "1.10",
+            "1.11",
+            "1.02",
+            "2.00",
+            "2.01",
+            "2.9");
         for (String locale : locales) {
             if ("root".equals(locale) || locale.contains("_")) {
                 continue;
@@ -118,20 +118,19 @@ public class WritePluralRulesSpreadsheets {
             // header
             System.out.print(
                 locale
-                + "\t" + "Number"
-                + "\t" + "Cat."
-                + "\t" + "Sample"
-                + "\t" + "Replacement for Sample"
-                );
+                    + "\t" + "Number"
+                    + "\t" + "Cat."
+                    + "\t" + "Sample"
+                    + "\t" + "Replacement for Sample");
             for (String keyword : keywords) {
                 System.out.print("\t" + Count.valueOf(keyword));
                 HashSet<Double> items = new HashSet<>(rules.getSamples(keyword, SampleType.INTEGER));
                 for (int i = 0; i < 5; ++i) {
-                    items.add(i+0d);
-                    items.add(i+10d);
-                    items.add(i+20d);
-                    items.add(i+100d);
-                    items.add(i+110d);
+                    items.add(i + 0d);
+                    items.add(i + 10d);
+                    items.add(i + 20d);
+                    items.add(i + 100d);
+                    items.add(i + 110d);
                 }
                 for (Double sample : items) {
                     FixedDecimal fd = new FixedDecimal(sample);
@@ -149,11 +148,10 @@ public class WritePluralRulesSpreadsheets {
                 String sample = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(cat));
                 System.out.print(
                     locale
-                    + "\t" + " " + number
-                    + "\t" + cat
-                    + "\t" + sample.replace("{0}", number.toString())
-                    + "\t" + "«replace if Sample wrong»"
-                    );
+                        + "\t" + " " + number
+                        + "\t" + cat
+                        + "\t" + sample.replace("{0}", number.toString())
+                        + "\t" + "«replace if Sample wrong»");
                 for (String keyword : keywords) {
                     String sample2 = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(keyword));
                     System.out.print("\t" + sample2.replace("{0}", number.toString()));
@@ -202,8 +200,7 @@ public class WritePluralRulesSpreadsheets {
                         + "\t" + (rangeCount == null ? "?" : rangeCount.toString())
                         + "\t" + (rangeCountPattern.contains("{0}") ? rangeCountPattern.replace("{0}", range) : rangeCountPattern)
                         + "\t" + (startPattern.contains("{0}") ? startPattern.replace("{0}", range) : "?")
-                        + "\t" + (endPattern.contains("{0}") ? endPattern.replace("{0}", range) : "?")
-                        );
+                        + "\t" + (endPattern.contains("{0}") ? endPattern.replace("{0}", range) : "?"));
                 }
             }
             System.out.println();

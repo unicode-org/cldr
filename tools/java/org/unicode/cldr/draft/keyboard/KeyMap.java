@@ -23,55 +23,59 @@ import com.google.common.collect.Maps;
  * </ul>
  */
 public final class KeyMap implements Comparable<KeyMap> {
-  private final ModifierKeyCombinationSet modifierKeyCombinationSet;
-  private final ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap;
+    private final ModifierKeyCombinationSet modifierKeyCombinationSet;
+    private final ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap;
 
-  private KeyMap(ModifierKeyCombinationSet modifierKeyCombinationSet,
-      ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap) {
-    this.modifierKeyCombinationSet = checkNotNull(modifierKeyCombinationSet);
-    this.isoLayoutToCharacterMap = checkNotNull(isoLayoutToCharacterMap);
-  }
-
-  /** Creates a key map from the given modifier key combination set and characer maps. */
-  public static KeyMap of(ModifierKeyCombinationSet modifierKeyCombinationSet,
-      ImmutableSet<CharacterMap> characterMaps) {
-    return new KeyMap(modifierKeyCombinationSet, ImmutableSortedMap.copyOf(Maps.uniqueIndex(
-        characterMaps, CharacterMap.isoLayoutPositionFunction())));
-  }
-
-  public ModifierKeyCombinationSet modifierKeyCombinationSet() {
-    return modifierKeyCombinationSet;
-  }
-
-  public ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap() {
-    return isoLayoutToCharacterMap;
-  }
-
-  @Override public String toString() {
-    return MoreObjects.toStringHelper(this)
-        .add("modifierKeyCombinationSet", modifierKeyCombinationSet)
-        .add("isoLayoutToCharacterMap", isoLayoutToCharacterMap)
-        .toString();
-  }
-
-  @Override public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    private KeyMap(ModifierKeyCombinationSet modifierKeyCombinationSet,
+        ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap) {
+        this.modifierKeyCombinationSet = checkNotNull(modifierKeyCombinationSet);
+        this.isoLayoutToCharacterMap = checkNotNull(isoLayoutToCharacterMap);
     }
-    if (o instanceof KeyMap) {
-      KeyMap other = (KeyMap) o;
-      return modifierKeyCombinationSet.equals(other.modifierKeyCombinationSet)
-          && isoLayoutToCharacterMap.equals(other.isoLayoutToCharacterMap);
+
+    /** Creates a key map from the given modifier key combination set and characer maps. */
+    public static KeyMap of(ModifierKeyCombinationSet modifierKeyCombinationSet,
+        ImmutableSet<CharacterMap> characterMaps) {
+        return new KeyMap(modifierKeyCombinationSet, ImmutableSortedMap.copyOf(Maps.uniqueIndex(
+            characterMaps, CharacterMap.isoLayoutPositionFunction())));
     }
-    return false;
-  }
 
-  @Override public int hashCode() {
-    return Objects.hashCode(modifierKeyCombinationSet, isoLayoutToCharacterMap);
-  }
+    public ModifierKeyCombinationSet modifierKeyCombinationSet() {
+        return modifierKeyCombinationSet;
+    }
 
-  @Override public int compareTo(KeyMap o) {
-    // Order the key maps by their modifier sets.
-    return modifierKeyCombinationSet.compareTo(o.modifierKeyCombinationSet);
-  }
+    public ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap() {
+        return isoLayoutToCharacterMap;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+            .add("modifierKeyCombinationSet", modifierKeyCombinationSet)
+            .add("isoLayoutToCharacterMap", isoLayoutToCharacterMap)
+            .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o instanceof KeyMap) {
+            KeyMap other = (KeyMap) o;
+            return modifierKeyCombinationSet.equals(other.modifierKeyCombinationSet)
+                && isoLayoutToCharacterMap.equals(other.isoLayoutToCharacterMap);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(modifierKeyCombinationSet, isoLayoutToCharacterMap);
+    }
+
+    @Override
+    public int compareTo(KeyMap o) {
+        // Order the key maps by their modifier sets.
+        return modifierKeyCombinationSet.compareTo(o.modifierKeyCombinationSet);
+    }
 }

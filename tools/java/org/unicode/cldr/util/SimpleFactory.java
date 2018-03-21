@@ -273,7 +273,7 @@ public class SimpleFactory extends Factory {
         public String toString() {
             StringBuilder builder = new StringBuilder();
             builder.append("SimpleFactoryCacheKey [sourceDirectories=").append(sourceDirectories).append(", matchString=").append(matchString)
-            .append(", mimimalDraftStatus=").append(mimimalDraftStatus).append("]");
+                .append(", mimimalDraftStatus=").append(mimimalDraftStatus).append("]");
             return builder.toString();
         }
 
@@ -467,14 +467,17 @@ public class SimpleFactory extends Factory {
     public static class NoSourceDirectoryException extends ICUUncheckedIOException {
         private static final long serialVersionUID = 1L;
         private final String localeName;
+
         public NoSourceDirectoryException(String localeName) {
             this.localeName = localeName;
         }
+
         @Override
         public String getMessage() {
             return "Unable to determine the source directory for locale " + localeName;
         }
     }
+
     /**
      * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
      * use clone().
@@ -495,12 +498,10 @@ public class SimpleFactory extends Factory {
         final Object cacheKey;
         CLDRFile result; // result of the lookup / generation
         if (USE_OLD_HANDLEMAKE_CODE) {
-            final Map<String, CLDRFile> cache = resolved ?
-                resolvedCache[minimalDraftStatus.ordinal()] :
-                    mainCache[minimalDraftStatus.ordinal()];
-                mapToSynchronizeOn = cache;
-                cacheKey = localeName;
-                result = cache.get(localeName);
+            final Map<String, CLDRFile> cache = resolved ? resolvedCache[minimalDraftStatus.ordinal()] : mainCache[minimalDraftStatus.ordinal()];
+            mapToSynchronizeOn = cache;
+            cacheKey = localeName;
+            result = cache.get(localeName);
         } else {
             // Use double-check idiom
             cacheKey = new CLDRCacheKey(localeName, resolved, minimalDraftStatus, parentDirs);
@@ -671,14 +672,14 @@ public class SimpleFactory extends Factory {
         boolean isSupplemental = CLDRFile.isSupplementalName(localeName);
         for (File sourceDirectory : this.sourceDirectories) {
             if (isSupplemental) {
-                sourceDirectory = new File(sourceDirectory.getAbsolutePath().
-                    replace("incoming" + File.separator + "vetted" + File.separator, "common" + File.separator));
+                sourceDirectory = new File(
+                    sourceDirectory.getAbsolutePath().replace("incoming" + File.separator + "vetted" + File.separator, "common" + File.separator));
             }
             final File dir = isSupplemental ? new File(sourceDirectory, "../supplemental") : sourceDirectory;
             final File xmlFile = makeFileName(localeName, dir);
             if (xmlFile.canRead()) {
                 if (result == null) {
-                    result = ImmutableList.<File>builder();
+                    result = ImmutableList.<File> builder();
                 }
                 result.add(dir);
             }

@@ -31,7 +31,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
-public class TestDtdData  extends TestFmwk {
+public class TestDtdData extends TestFmwk {
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
@@ -45,31 +45,30 @@ public class TestDtdData  extends TestFmwk {
         String[][] tests = {
 
             // has a value & value attribute
-            {"//supplementalData/plurals/pluralRanges[@locales=\"id ja\"]/pluralRange[@start=\"a\"][@end=\"b\"][@result=\"c\"]",
+            { "//supplementalData/plurals/pluralRanges[@locales=\"id ja\"]/pluralRange[@start=\"a\"][@end=\"b\"][@result=\"c\"]",
                 "//supplementalData/plurals/pluralRanges[@locales=\"id\"]/pluralRange[@end=\"b\"][@start=\"a\"]/_result==c",
                 "//supplementalData/plurals/pluralRanges[@locales=\"ja\"]/pluralRange[@end=\"b\"][@start=\"a\"]/_result==c"
             },
 
-
-            {"//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"am as bn\"]/pluralRule[@count=\"other\"]",
+            { "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"am as bn\"]/pluralRule[@count=\"other\"]",
                 "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"am\"]/pluralRule[@count=\"other\"]==VALUE",
                 "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"as\"]/pluralRule[@count=\"other\"]==VALUE",
                 "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"bn\"]/pluralRule[@count=\"other\"]==VALUE"
-            },        
+            },
 
             // no change
-            {"//supplementalData/primaryZones/primaryZone[@iso3166=\"CL\"]",
+            { "//supplementalData/primaryZones/primaryZone[@iso3166=\"CL\"]",
                 "//supplementalData/primaryZones/primaryZone[@iso3166=\"CL\"]==VALUE"
             },
 
             // has only value attributes
-            {"//supplementalData/version[@number=\"$Revision: 12197 $\"][@cldrVersion=\"29\"][@unicodeVersion=\"8.0.0\"]",
+            { "//supplementalData/version[@number=\"$Revision: 12197 $\"][@cldrVersion=\"29\"][@unicodeVersion=\"8.0.0\"]",
                 "//supplementalData/version/_cldrVersion==29",
                 "//supplementalData/version/_unicodeVersion==8.0.0"
             },
 
             // no change
-            {"//ldml/identity/language[@type=\"af\"]",
+            { "//ldml/identity/language[@type=\"af\"]",
                 "//ldml/identity/language[@type=\"af\"]==VALUE"
             },
 
@@ -80,26 +79,26 @@ public class TestDtdData  extends TestFmwk {
 //            },
 
             // has a value & value attribute
-            {"//ldml/rbnf/rulesetGrouping[@type=\"SpelloutRules\"]/ruleset[@type=\"2d-year\"][@access=\"private\"]/rbnfrule[@value=\"0\"]",
+            { "//ldml/rbnf/rulesetGrouping[@type=\"SpelloutRules\"]/ruleset[@type=\"2d-year\"][@access=\"private\"]/rbnfrule[@value=\"0\"]",
                 "//ldml/rbnf/rulesetGrouping[@type=\"SpelloutRules\"]/ruleset[@type=\"2d-year\"]/_access==private",
                 "//ldml/rbnf/rulesetGrouping[@type=\"SpelloutRules\"]/ruleset[@type=\"2d-year\"]/rbnfrule==VALUE",
                 "//ldml/rbnf/rulesetGrouping[@type=\"SpelloutRules\"]/ruleset[@type=\"2d-year\"]/rbnfrule_/_value==0"
             },
 
             // has a value attribute
-            {"//ldmlBCP47/version[@number=\"$Revision: 12232 $\"][@cldrVersion=\"29\"]",
+            { "//ldmlBCP47/version[@number=\"$Revision: 12232 $\"][@cldrVersion=\"29\"]",
                 "//ldmlBCP47/version/_cldrVersion==29"
             },
 
             // has a value & value attribute
-            {"//ldmlBCP47/keyword/key[@name=\"ca\"][@description=\"Calendar algorithm key\"][@deprecated=\"false\"][@alias=\"calendar\"][@valueType=\"incremental\"]/type[@name=\"chinese\"][@description=\"Traditional Chinese calendar\"][@deprecated=\"false\"]",
+            { "//ldmlBCP47/keyword/key[@name=\"ca\"][@description=\"Calendar algorithm key\"][@deprecated=\"false\"][@alias=\"calendar\"][@valueType=\"incremental\"]/type[@name=\"chinese\"][@description=\"Traditional Chinese calendar\"][@deprecated=\"false\"]",
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/_alias==calendar",
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/_description==Calendar algorithm key",
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/_valueType==incremental",
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/type[@name=\"chinese\"]/_description==Traditional Chinese calendar",
-                "//ldmlBCP47/keyword/key[@name=\"ca\"]/_deprecated==false", 
+                "//ldmlBCP47/keyword/key[@name=\"ca\"]/_deprecated==false",
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/type[@name=\"chinese\"]/_deprecated==false"
-            },        
+            },
 
         };
         Multimap<String, String> extras = TreeMultimap.create();
@@ -145,11 +144,11 @@ public class TestDtdData  extends TestFmwk {
                     continue;
                 }
                 List<Pair<String, String>> data = new ArrayList<>();
-                for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(file.toString(), data , true)) {
+                for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(file.toString(), data, true)) {
                     DtdType dtdTypeFromPath = DtdType.fromPath(pathValue.getFirst());
                     if (!dtdTypeFromPath.directories.contains(dir.getName())) {
-                        errln("Mismatch in " + file.toString() 
-                        + ": " + dtdTypeFromPath + ", " + dtdTypeFromPath.directories);
+                        errln("Mismatch in " + file.toString()
+                            + ": " + dtdTypeFromPath + ", " + dtdTypeFromPath.directories);
                     }
                     logln("\t" + file.getName() + "\t" + dtdTypeFromPath);
                     break;
@@ -160,14 +159,14 @@ public class TestDtdData  extends TestFmwk {
     }
 
     public void TestValueAttributesWithChildren() {
-        Multimap<String,String> m = TreeMultimap.create();
+        Multimap<String, String> m = TreeMultimap.create();
         for (DtdType type : DtdType.values()) {
             if (type == DtdType.ldmlICU) {
                 continue;
             }
             DtdData dtdData = DtdData.getInstance(type);
             Element special = dtdData.getElementFromName().get("special");
-            checkEmpty(m, type, dtdData.ROOT, special, new HashSet<Element>(), 
+            checkEmpty(m, type, dtdData.ROOT, special, new HashSet<Element>(),
                 new ArrayList<Element>(Arrays.asList(dtdData.ROOT)));
         }
         Collection<String> items = m.get("error");
@@ -191,7 +190,7 @@ public class TestDtdData  extends TestFmwk {
      * @param type 
      * @param seen 
      */
-    private void checkEmpty(Multimap<String,String> m, DtdType type, Element element, Element special, HashSet<Element> seen,
+    private void checkEmpty(Multimap<String, String> m, DtdType type, Element element, Element special, HashSet<Element> seen,
         List<Element> parents) {
         if (seen.contains(element)) {
             return;
@@ -208,14 +207,16 @@ public class TestDtdData  extends TestFmwk {
             switch (attribute.getStatus()) {
             case value:
                 //if (attribute.mode == Mode.REQUIRED || attribute.mode == Mode.FIXED) {//strong test
-                valueAttributes.add(attribute); break;
+                valueAttributes.add(attribute);
+                break;
             case distinguished:
-                distAttributes.add(attribute); break;
+                distAttributes.add(attribute);
+                break;
             }
         }
         ElementType elementType = element.getType();
         switch (elementType) {
-        case EMPTY: 
+        case EMPTY:
             if (valueAttributes.isEmpty()) {
                 if (!distAttributes.isEmpty()) {
                     m.put("warn", type + "\t||" + showPath(parents) + "||path has neither value NOR value attributes NOR dist. attrs.||");
@@ -248,27 +249,26 @@ public class TestDtdData  extends TestFmwk {
                 break;
             }
             if (!valueAttributes.isEmpty()) {
-                switch(element.getName()) {
+                switch (element.getName()) {
                 case "ruleset":
-                    logKnownIssue("cldrbug:8909", "waiting for RBNF to use data"); 
+                    logKnownIssue("cldrbug:8909", "waiting for RBNF to use data");
                     break;
                 case "key":
                 case "territory":
                 case "transform":
-                    logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml"); 
+                    logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml");
                     break;
-                default: 
+                default:
                     m.put("error", "\t||" + showPath(parents) + "||path has both children AND value attributes"
                         + "||" + valueAttributes
-                        + "||" + children + "||"
-                        );
+                        + "||" + children + "||");
                     break;
                 }
             }
             for (Element child : children) {
                 parents.add(child);
                 checkEmpty(m, type, child, special, seen, parents);
-                parents.remove(parents.size()-1);
+                parents.remove(parents.size() - 1);
             }
             break;
         }
@@ -295,9 +295,8 @@ public class TestDtdData  extends TestFmwk {
                 for (Attribute attribute : element.getAttributes().keySet()) {
                     boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
                     boolean distinguishedOld = isDistinguishingOld(type, element.name, attribute.name);
-                    assertEquals("isDistinguished " + type 
-                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")"
-                        , distinguishedOld, distinguishedNew);
+                    assertEquals("isDistinguished " + type
+                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")", distinguishedOld, distinguishedNew);
                     deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
                     deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
                     assertEquals("isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
@@ -419,7 +418,7 @@ public class TestDtdData  extends TestFmwk {
             "coverageLevel", // needed for supplemental/coverageLevel.xml
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute" // needed for characters.xml
-            )));
+    )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
         return orderedElements.contains(element);
@@ -453,8 +452,7 @@ public class TestDtdData  extends TestFmwk {
                 || (elementName.equals("parseLenients") && (attribute.equals("scope") || attribute.equals("level")))
                 || (elementName.equals("parseLenient") && attribute.equals("sample"))
                 || (elementName.equals("ordinalMinimalPairs") && attribute.equals("ordinal"))
-		|| (elementName.equals("styleName") && attribute.equals("subtype"))
-                ;
+                || (elementName.equals("styleName") && attribute.equals("subtype"));
         case ldmlBCP47:
             return attribute.equals("_q")
                 //|| attribute.equals("alias")
@@ -466,101 +464,101 @@ public class TestDtdData  extends TestFmwk {
                 || attribute.equals("iso4217")
                 || attribute.equals("iso3166")
                 || attribute.equals("code")
-                || (attribute.equals("type") && !elementName.equals("calendarSystem") && !elementName.equals("mapZone") && !elementName.equals("numberingSystem") && !elementName.equals("variable"))
+                || (attribute.equals("type") && !elementName.equals("calendarSystem") && !elementName.equals("mapZone")
+                    && !elementName.equals("numberingSystem") && !elementName.equals("variable"))
                 || attribute.equals("id") && elementName.equals("variable")
                 || attribute.equals("alt")
                 || attribute.equals("dtds")
                 || attribute.equals("idStatus")
                 || elementName.equals("deprecatedItems")
-                && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
+                    && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
                 || elementName.equals("character")
-                && attribute.equals("value")
+                    && attribute.equals("value")
                 || elementName.equals("dayPeriodRules")
-                && attribute.equals("locales")
+                    && attribute.equals("locales")
                 || elementName.equals("dayPeriodRule")
-                && (attribute.equals("type"))
+                    && (attribute.equals("type"))
                 || elementName.equals("metazones") && attribute.equals("type")
                 || elementName.equals("subgroup") && attribute.equals("subtype")
                 || elementName.equals("mapZone")
-                && (attribute.equals("other") || attribute.equals("territory"))
+                    && (attribute.equals("other") || attribute.equals("territory"))
                 || elementName.equals("postCodeRegex")
-                && attribute.equals("territoryId")
+                    && attribute.equals("territoryId")
                 || elementName.equals("calendarPreference")
-                && attribute.equals("territories")
+                    && attribute.equals("territories")
                 || elementName.equals("minDays")
-                && attribute.equals("count")
+                    && attribute.equals("count")
                 || elementName.equals("firstDay")
-                && attribute.equals("day")
+                    && attribute.equals("day")
                 || elementName.equals("weekendStart")
-                && attribute.equals("day")
+                    && attribute.equals("day")
                 || elementName.equals("weekendEnd")
-                && attribute.equals("day")
+                    && attribute.equals("day")
                 || elementName.equals("measurementSystem")
-                && attribute.equals("category")
+                    && attribute.equals("category")
                 || elementName.equals("unitPreferences")
-                && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
+                    && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
                 || elementName.equals("unitPreference")
-                && attribute.equals("regions")
+                    && attribute.equals("regions")
                 || elementName.equals("distinguishingItems")
-                && attribute.equals("attributes")
+                    && attribute.equals("attributes")
                 || elementName.equals("codesByTerritory")
-                && attribute.equals("territory")
+                    && attribute.equals("territory")
                 || elementName.equals("currency")
-                && attribute.equals("iso4217")
+                    && attribute.equals("iso4217")
                 || elementName.equals("territoryAlias")
-                && attribute.equals("type")
+                    && attribute.equals("type")
                 || elementName.equals("territoryCodes")
-                && attribute.equals("type")
+                    && attribute.equals("type")
                 || elementName.equals("group")
-                && (attribute.equals("status")) //  || attribute.equals("grouping")
+                    && (attribute.equals("status")) //  || attribute.equals("grouping")
                 || elementName.equals("plurals")
-                && attribute.equals("type")
+                    && attribute.equals("type")
                 || elementName.equals("pluralRules")
-                && attribute.equals("locales")
+                    && attribute.equals("locales")
                 || elementName.equals("pluralRule")
-                && attribute.equals("count")
+                    && attribute.equals("count")
                 || elementName.equals("pluralRanges")
-                && attribute.equals("locales")
+                    && attribute.equals("locales")
                 || elementName.equals("pluralRange")
-                && (attribute.equals("start") || attribute.equals("end"))
+                    && (attribute.equals("start") || attribute.equals("end"))
                 || elementName.equals("hours")
-                && (attribute.equals("preferred") || attribute.equals("allowed"))
+                    && (attribute.equals("preferred") || attribute.equals("allowed"))
                 || elementName.equals("personList") && attribute.equals("type")
                 || elementName.equals("likelySubtag")
-                && attribute.equals("from")
+                    && attribute.equals("from")
                 || elementName.equals("rgPath")
-                && attribute.equals("path")
+                    && attribute.equals("path")
                 || elementName.equals("timezone")
-                && attribute.equals("type")
+                    && attribute.equals("type")
                 || elementName.equals("usesMetazone")
-                && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
+                    && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
                 || elementName.equals("numberingSystem")
-                && attribute.equals("id")
+                    && attribute.equals("id")
                 || elementName.equals("group")
-                && attribute.equals("type")
+                    && attribute.equals("type")
                 || elementName.equals("currency")
-                && attribute.equals("from")
+                    && attribute.equals("from")
                 || elementName.equals("currency")
-                && attribute.equals("to")
+                    && attribute.equals("to")
                 || elementName.equals("currency")
-                && attribute.equals("iso4217")
+                    && attribute.equals("iso4217")
                 || (elementName.equals("parentLocale") || elementName.equals("languageGroup"))
-                && attribute.equals("parent")
+                    && attribute.equals("parent")
                 || elementName.equals("currencyCodes")
-                && attribute.equals("type")
+                    && attribute.equals("type")
                 || elementName.equals("approvalRequirement")
-                && (attribute.equals("locales") || attribute.equals("paths"))
+                    && (attribute.equals("locales") || attribute.equals("paths"))
                 || elementName.equals("weekOfPreference")
-                && attribute.equals("locales")
+                    && attribute.equals("locales")
                 || elementName.equals("coverageVariable")
-                && attribute.equals("key")
+                    && attribute.equals("key")
                 || elementName.equals("coverageLevel")
-                && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                    && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
                 || elementName.equals("languageMatch")
-                && (attribute.equals("desired") || attribute.equals("supported"))
+                    && (attribute.equals("desired") || attribute.equals("supported"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
-                    .equals("variant")))
-                ;
+                    .equals("variant")));
 
         case keyboard:
             return attribute.equals("_q")
@@ -587,8 +585,7 @@ public class TestDtdData  extends TestFmwk {
                 || elementName.equals("row") && attribute.equals("keys")
                 || elementName.equals("vkey") && attribute.equals("iso")
                 || elementName.equals("display") && attribute.equals("to")
-                || elementName.equals("flicks") && attribute.equals("iso")
-                ;
+                || elementName.equals("flicks") && attribute.equals("iso");
 
         case platform:
             return attribute.equals("_q")

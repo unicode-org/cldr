@@ -273,15 +273,16 @@ public class CLDRConfig extends Properties {
         synchronized (FULL_FACTORY_SYNC) {
             if (mainAndAnnotationsFactory == null) {
                 File[] paths = {
-                    new File(CLDRPaths.MAIN_DIRECTORY), 
+                    new File(CLDRPaths.MAIN_DIRECTORY),
                     new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
                 mainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
             }
         }
         return mainAndAnnotationsFactory;
     }
-    
+
     static Factory allFactory;
+
     public Factory getCommonSeedExemplarsFactory() {
         synchronized (FULL_FACTORY_SYNC) {
             if (allFactory == null) {
@@ -294,8 +295,8 @@ public class CLDRConfig extends Properties {
     public Factory getCommonAndSeedAndMainAndAnnotationsFactory() {
         synchronized (FULL_FACTORY_SYNC) {
             if (commonAndSeedAndMainAndAnnotationsFactory == null) {
-                File[] paths = { 
-                    new File(CLDRPaths.MAIN_DIRECTORY), 
+                File[] paths = {
+                    new File(CLDRPaths.MAIN_DIRECTORY),
                     new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
                     new File(CLDRPaths.SEED_DIRECTORY)
                 };
@@ -330,8 +331,7 @@ public class CLDRConfig extends Properties {
 
     public CLDRFile getCLDRFile(String locale, boolean resolved) {
 
-        return resolved ? cldrFileResolvedCache.getUnchecked(locale) :
-            cldrFileUnresolvedCache.getUnchecked(locale);
+        return resolved ? cldrFileResolvedCache.getUnchecked(locale) : cldrFileUnresolvedCache.getUnchecked(locale);
 
     }
 
@@ -576,7 +576,6 @@ public class CLDRConfig extends Properties {
         return ret;
     }
 
-    
     /**
      * Add subdirectories to file list as needed, from STANDARD_SUBDIRS.
      * <ul><li>map "common","seed" -> "common/main", "seed/main"
@@ -612,7 +611,7 @@ public class CLDRConfig extends Properties {
         }
         return fileList;
     }
-    
+
     private void addIfExists(List<File> ret, File baseFile, String sub) {
         File file = new File(baseFile, sub);
         if (file.exists()) {

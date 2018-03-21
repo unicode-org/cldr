@@ -18,7 +18,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     public CheckLogicalGroupings(Factory factory) {
         super(factory);
     }
-    
+
     // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about
     // contributed or higher. This can help to reduce the error count when you have a lot of new data.
 
@@ -28,7 +28,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*
 
     //private XPathParts parts = new XPathParts(); // used to parse out a path
-    
+
     /**
      * We are not as strict with sublocales (where the parent is neither root nor code_fallback). 
      * @param path
@@ -50,7 +50,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
         return !source.equals(XMLSource.ROOT_ID) && !source.equals(XMLSource.CODE_FALLBACK_ID);
     }
-    
+
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         // if (fullPath == null) return this; // skip paths that we don't have
@@ -70,7 +70,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             }
         }
         if (logicalGroupingCount == 0) return this; // skip if the logical grouping is empty
-        if (!isHereOrNonRoot(path) || 
+        if (!isHereOrNonRoot(path) ||
             (this.getPhase().equals(Phase.FINAL_TESTING) && logicalGroupingCount != paths.size())) {
             CheckStatus.Type showError = CheckStatus.errorType;
             if (this.getPhase().equals(Phase.BUILD)) {
@@ -145,7 +145,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             if (myStatus != null) { // remove my status from the list
                 draftStatuses.remove(myStatus);
             }
-            CheckStatus.Type showError = CheckStatus.warningType;           
+            CheckStatus.Type showError = CheckStatus.warningType;
             if (this.getPhase().equals(Phase.FINAL_TESTING)) {
                 showError = CheckStatus.errorType;
             }

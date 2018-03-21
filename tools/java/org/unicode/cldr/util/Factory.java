@@ -53,7 +53,7 @@ public abstract class Factory implements SublocaleProvider {
         List<File> temp = getSourceDirectoriesForLocale(localeID);
         return temp == null ? null : temp.get(0);
     }
-    
+
     /**
      * Classify the tree according to type (maturity)
      *

@@ -102,8 +102,9 @@ public class ConvertLanguageData {
 
     static Set<String> skipLocales = new HashSet<String>(
         Arrays
-        .asList("sh sh_BA sh_CS sh_YU characters supplementalData supplementalData-old supplementalData-old2 supplementalData-old3 supplementalMetadata root"
-            .split("\\s")));
+            .asList(
+                "sh sh_BA sh_CS sh_YU characters supplementalData supplementalData-old supplementalData-old2 supplementalData-old3 supplementalMetadata root"
+                    .split("\\s")));
 
     static Map<String, String> defaultContent = new TreeMap<String, String>();
 
@@ -174,7 +175,7 @@ public class ConvertLanguageData {
                             continue;
                         }
                         BadItem.ERROR.show("missing language/population data for CLDR locale", locale + " = " + getLanguageCodeAndName(locale)
-                        + " but have data for " + getLanguageCodeAndName(withoutScript));
+                            + " but have data for " + getLanguageCodeAndName(withoutScript));
                     }
                 }
             }
@@ -381,7 +382,7 @@ public class ConvertLanguageData {
             if (!CldrUtility.equals(oldValue, newValue)) {
                 temp.setLength(0);
                 temp.append("[").append(s).append(":")
-                .append(english.getName(s.length() == 4 ? "script" : "region", s)).append("] ");
+                    .append(english.getName(s.length() == 4 ? "script" : "region", s)).append("] ");
                 if (oldValue == null) {
                     temp.append(" added as ").append(newValue);
                 } else if (newValue == null) {
@@ -460,9 +461,9 @@ public class ConvertLanguageData {
             String locale = ltp.getLanguage() + (ltp.getRegion().length() == 0 ? "" : "_" + ltp.getRegion());
             population.add(locale);
             RowData rowData = localeToRowData.get(rawLocale);
-            if (rowData.getLanguagePopulation() / rowData.countryPopulation >= 0.2 
-                //|| rowData.getLanguagePopulation() > 900000
-                ) {
+            if (rowData.getLanguagePopulation() / rowData.countryPopulation >= 0.2
+            //|| rowData.getLanguagePopulation() > 900000
+            ) {
                 populationOver20.add(locale);
             } else {
                 PopulationData popData = supplementalData.getLanguageAndTerritoryPopulationData(
@@ -484,18 +485,17 @@ public class ConvertLanguageData {
             // Afghanistan AF "29,928,987" 28.10% "21,500,000,000" Hazaragi haz "1,770,000" 28.10%
             BadItem.WARNING.show("In Basic Data but not Population > 20%",
                 getDisplayCountry(region)
-                + "\t" + region
-                + "\t\"" + formatNumber(popData.getPopulation(), 0, false) + "\""
-                + "\t\"" + formatPercent(popData.getLiteratePopulation() / popData.getPopulation(), 0, false)
-                + "\""
-                + "\t\"" + formatPercent(popData.getGdp(), 0, false) + "\""
-                + "\t" + ""
-                + "\t" + getLanguageName(language)
-                + "\t" + language
-                + "\t" + -1
-                + "\t\"" + formatPercent(popData.getLiteratePopulation() / popData.getPopulation(), 0, false)
-                + "\""
-                );
+                    + "\t" + region
+                    + "\t\"" + formatNumber(popData.getPopulation(), 0, false) + "\""
+                    + "\t\"" + formatPercent(popData.getLiteratePopulation() / popData.getPopulation(), 0, false)
+                    + "\""
+                    + "\t\"" + formatPercent(popData.getGdp(), 0, false) + "\""
+                    + "\t" + ""
+                    + "\t" + getLanguageName(language)
+                    + "\t" + language
+                    + "\t" + -1
+                    + "\t\"" + formatPercent(popData.getLiteratePopulation() / popData.getPopulation(), 0, false)
+                    + "\"");
         }
 
         Set<String> inPopulationButNotBasic = new TreeSet<String>(populationOver20);
@@ -655,7 +655,8 @@ public class ConvertLanguageData {
                 * countryPopulation1;
             if ((officialStatus.isMajor())
                 && languagePopulation1 * 100 < countryPopulation && languagePopulation1 < 1000000) {
-                BadItem.WARNING.show("official language has population < 1% of country & < 1,000,000", languageCode + ", " + Math.round(languagePopulation1), row);
+                BadItem.WARNING.show("official language has population < 1% of country & < 1,000,000", languageCode + ", " + Math.round(languagePopulation1),
+                    row);
             }
             if (languagePopulation1 < 0.999) {
                 BadItem.WARNING.show("suspect language population, < 1", languageCode + ", " + Math.round(languagePopulation1), row);
@@ -804,12 +805,12 @@ public class ConvertLanguageData {
 
         public String toString(boolean b) {
             return "region:\t" + getCountryCodeAndName(countryCode)
-            + "\tpop:\t" + countryPopulation
-            + "\tgdp:\t" + countryGdp
-            + "\tlit:\t" + countryLiteracy
-            + "\tlang:\t" + getLanguageCodeAndName(languageCode)
-            + "\tpop:\t" + languagePopulation
-            + "\tlit:\t" + languageLiteracy;
+                + "\tpop:\t" + countryPopulation
+                + "\tgdp:\t" + countryGdp
+                + "\tlit:\t" + countryLiteracy
+                + "\tlang:\t" + getLanguageCodeAndName(languageCode)
+                + "\tpop:\t" + languagePopulation
+                + "\tlit:\t" + languageLiteracy;
         }
 
         static boolean MARK_OUTPUT = false;
@@ -828,7 +829,7 @@ public class ConvertLanguageData {
             return languageCode;
         }
 
-        static Map<String,String> oldToFixed = new HashMap<>();
+        static Map<String, String> oldToFixed = new HashMap<>();
 
         public String getRickLanguageName() {
             String cldrResult = getExcelQuote(english.getName(languageCode, true));
@@ -882,7 +883,7 @@ public class ConvertLanguageData {
                 return getExcelQuote(relativeLanguagePopulation
                     && percent > 0.03
                     && languagePopulation > 10000
-                    ? formatPercent(percent, 2, false)
+                        ? formatPercent(percent, 2, false)
                         : formatNumber(languagePopulation, 3, false));
             } catch (IllegalArgumentException e) {
                 return "NaN";
@@ -964,7 +965,7 @@ public class ConvertLanguageData {
             if (languageCode.length() != 0
                 && languagePopulationPercent > 0.0000
                 && (ALLOW_SMALL_NUMBERS || languagePopulationPercent >= 1 || languagePopulationRaw > 100000
-                || languageCode.equals("haw") || row.officialStatus.isOfficial())) {
+                    || languageCode.equals("haw") || row.officialStatus.isOfficial())) {
                 // add best case
                 addBestRegion(languageCode, countryCode, languagePopulationRaw);
                 String baseScriptLanguage = ltp.set(languageCode).getLanguageScript();
@@ -985,7 +986,7 @@ public class ConvertLanguageData {
                     + "\""
                     + (DoubleMath.fuzzyCompare(languageLiteracy, countryLiteracy, 0.0001) == 0 ? ""
                         : (DoubleMath.fuzzyCompare(languageLiteracy, 0.05, 0.0001) == 0 ? " writingPercent=\"" : " literacyPercent=\"")
-                        + formatPercent(languageLiteracy, 2, true) + "\"")
+                            + formatPercent(languageLiteracy, 2, true) + "\"")
                     + " populationPercent=\"" + formatPercent(languagePopulationPercent, 2, true) + "\""
                     + (row.officialStatus.isOfficial() ? " officialStatus=\"" + row.officialStatus + "\"" : "")
                     + references.addReference(row.notes)
@@ -1000,8 +1001,7 @@ public class ConvertLanguageData {
                     + "countryPopulation: " + countryPopulation + "\t"
                     + "countryGDP: " + countryGDP + "\t"
                     + "languageCode: " + languageCode + "\t"
-                    + "languagePopulation: " + languagePopulation + CldrUtility.LINE_SEPARATOR
-                );
+                    + "languagePopulation: " + languagePopulation + CldrUtility.LINE_SEPARATOR);
             // }
         }
 
@@ -1186,7 +1186,7 @@ public class ConvertLanguageData {
                     + join(Arrays.asList(e.getStackTrace()), ";\t"));
             } catch (RuntimeException e) {
                 throw (RuntimeException) new IllegalArgumentException("Failure on line " + count + ")\t" + row)
-                .initCause(e);
+                    .initCause(e);
             }
         }
         // System.out.println("Note: the following Status values were found in the data: " +
@@ -1233,8 +1233,7 @@ public class ConvertLanguageData {
                 "\tLPopulation" +
                 "\tWritingPop" +
                 "\tReferences" +
-                "\tNotes"
-            );
+                "\tNotes");
         RickComparator rickSorting = new RickComparator();
         Set<RowData> rickSorted = new TreeSet<RowData>(rickSorting);
         rickSorted.addAll(sortedInput);
@@ -1244,18 +1243,17 @@ public class ConvertLanguageData {
             final String countryLit = row.getCountryLiteracyString();
             log.println(
                 row.getCountryName()
-                + "\t" + row.countryCode
-                + "\t" + row.getCountryPopulationString()
-                + "\t" + countryLit
-                + "\t" + row.getCountryGdpString()
-                + "\t" + (row.officialStatus == OfficialStatus.unknown ? "" : row.officialStatus)
-                + "\t" + row.getRickLanguageName()
-                + "\t" + row.getRickLanguageCode()
-                + "\t" + row.getLanguagePopulationString()
-                + "\t" + (langLit.equals(countryLit) ? "" : langLit)
-                + "\t" + getExcelQuote(row.comment)
-                + "\t" + getExcelQuote(row.notes)
-                );
+                    + "\t" + row.countryCode
+                    + "\t" + row.getCountryPopulationString()
+                    + "\t" + countryLit
+                    + "\t" + row.getCountryGdpString()
+                    + "\t" + (row.officialStatus == OfficialStatus.unknown ? "" : row.officialStatus)
+                    + "\t" + row.getRickLanguageName()
+                    + "\t" + row.getRickLanguageCode()
+                    + "\t" + row.getLanguagePopulationString()
+                    + "\t" + (langLit.equals(countryLit) ? "" : langLit)
+                    + "\t" + getExcelQuote(row.comment)
+                    + "\t" + getExcelQuote(row.notes));
         }
         log.close();
         return sortedInput;
@@ -1760,14 +1758,14 @@ public class ConvertLanguageData {
         public int compare(T a, T b) {
             return other == null
                 ? ((Comparable) b).compareTo(a)
-                    : other.compare(b, a);
+                : other.compare(b, a);
         }
     }
 
     static Set<String> languagesNeeded = new TreeSet<String>(
         Arrays
-        .asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na nb rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv"
-            .split("\\s")));
+            .asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na nb rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv"
+                .split("\\s")));
 
     static void generateIso639_2Data() {
         for (String languageSubtag : sc.getAvailableCodes("language")) {
@@ -1833,7 +1831,8 @@ public class ConvertLanguageData {
                     IdUsage idUsage = scriptInfo.idUsage;
                     if (status == BasicLanguageData.Type.primary && idUsage != IdUsage.RECOMMENDED) {
                         if (idUsage == IdUsage.ASPIRATIONAL || idUsage == IdUsage.LIMITED_USE) {
-                            BadItem.WARNING.toString("Script has unexpected usage; make secondary if a Recommended script is used widely for the langauge", idUsage + ", " + script + "=" + getULocaleScriptName(script), row);
+                            BadItem.WARNING.toString("Script has unexpected usage; make secondary if a Recommended script is used widely for the langauge",
+                                idUsage + ", " + script + "=" + getULocaleScriptName(script), row);
                         } else {
                             BadItem.ERROR.toString("Script is not modern; make secondary", idUsage + ", " + script + "=" + getULocaleScriptName(script), row);
                             status = BasicLanguageData.Type.secondary;
@@ -1883,7 +1882,7 @@ public class ConvertLanguageData {
                 Relation<BasicLanguageData.Type, String> status_scripts = language_status_scripts.get(language);
                 if (status_scripts == null) {
                     System.out
-                    .println("Missing Suppress-Script: " + language + "\tSuppress-Script:\t" + suppressScript);
+                        .println("Missing Suppress-Script: " + language + "\tSuppress-Script:\t" + suppressScript);
                 } else if (!status_scripts.values().contains(suppressScript)) {
                     System.out.println("Missing Suppress-Script: " + language + "\tSuppress-Script:\t" + suppressScript
                         + "\tall:\t" + status_scripts.values());
@@ -2067,12 +2066,12 @@ public class ConvertLanguageData {
             if (scripts.size() != 0) {
                 language2BasicLanguageData.put(languageSubtag,
                     new BasicLanguageData().setType(BasicLanguageData.Type.secondary).setScripts(scripts)
-                    .setTerritories(territories));
+                        .setTerritories(territories));
             }
             if (scriptsAlt.size() != 0) {
                 language2BasicLanguageData.put(languageSubtag,
                     new BasicLanguageData().setType(BasicLanguageData.Type.secondary).setScripts(scriptsAlt)
-                    .setTerritories(territories));
+                        .setTerritories(territories));
             }
         }
         in.close();
@@ -2235,10 +2234,7 @@ public class ConvertLanguageData {
     }
 
     enum BadItem {
-        ERROR, 
-        WARNING,
-        DETAIL
-        ;
+        ERROR, WARNING, DETAIL;
 
         void show(String problem, String details, String... items) {
             System.out.println(toString(problem, details, items));
@@ -2253,10 +2249,10 @@ public class ConvertLanguageData {
         }
 
         private String toString(String problem, String details, List<String> row) {
-            return "* " + this 
+            return "* " + this
                 + " *\t" + problem + ":"
                 + "\t" + details
-                + (row != null && row.size() > 0 ? "\t" + CollectionUtilities.join(row,"\t") : "");
+                + (row != null && row.size() > 0 ? "\t" + CollectionUtilities.join(row, "\t") : "");
         }
     }
 
@@ -2277,10 +2273,12 @@ public class ConvertLanguageData {
         return english.getName(languageCode, true);
         //return new ULocale(languageCode).getDisplayName();
     }
+
     private static String getULocaleScriptName(String scriptCode) {
         return english.getName(CLDRFile.SCRIPT_NAME, scriptCode);
         // return ULocale.getDisplayScript("und_" + scriptCode, ULocale.ENGLISH);
     }
+
     private static String getULocaleCountryName(String countryCode) {
         return english.getName(CLDRFile.TERRITORY_NAME, countryCode);
         //return ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);

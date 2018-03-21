@@ -167,7 +167,7 @@ public class VariantFolder {
                 // then we add the cross product of shorter strings
                 for (int breakPoint = start + 1; breakPoint < limit; ++breakPoint) {
                     addCrossProduct(combos[breakPoint - start - 1][start], combos[limit
-                                                                                  - breakPoint - 1][breakPoint], current);
+                        - breakPoint - 1][breakPoint], current);
                 }
             }
         }

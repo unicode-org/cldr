@@ -12,8 +12,7 @@ package org.unicode.cldr.icu;
  * @author Brian Rower - June 2008
  *
  */
-public class UDataInfo
-{
+public class UDataInfo {
 
     /**
      * Use to signify that this data is in Big Endian form.
@@ -91,33 +90,27 @@ public class UDataInfo
      */
     public byte[] dataVersion;
 
-    class IncorrectArrayLengthException extends Exception
-    {
+    class IncorrectArrayLengthException extends Exception {
         /**
          *
          */
         private static final long serialVersionUID = -3238261375903639881L;
 
-        IncorrectArrayLengthException(String message)
-        {
+        IncorrectArrayLengthException(String message) {
             super(message);
         }
     }
 
     public UDataInfo(short size, short reservedWord, byte isBigEndian, byte charsetFamily, byte sizeofUChar,
         byte reservedByte, byte[] dataFormat, byte[] formatVersion, byte[] dataVersion)
-            throws IncorrectArrayLengthException
-    {
-        if (dataFormat.length != 4)
-        {
+        throws IncorrectArrayLengthException {
+        if (dataFormat.length != 4) {
             throw new IncorrectArrayLengthException("The byte array 'dataFormat' must be of length 4.");
         }
-        if (formatVersion.length != 4)
-        {
+        if (formatVersion.length != 4) {
             throw new IncorrectArrayLengthException("The byte array 'formatVersion' must be of length 4.");
         }
-        if (dataVersion.length != 4)
-        {
+        if (dataVersion.length != 4) {
             throw new IncorrectArrayLengthException("The byte array 'dataVersion' must be of length 4.");
         }
         this.size = size;
@@ -143,8 +136,7 @@ public class UDataInfo
      *
      * @return The number of bytes that UDataInfo occupies
      */
-    public static short getSize()
-    {
+    public static short getSize() {
         /*
          * number of short elements = 2
          * number of byte elements = 4
@@ -159,8 +151,7 @@ public class UDataInfo
      *
      * @returns a byte array of the contents of this UDataStructure.
      */
-    public byte[] getByteArray()
-    {
+    public byte[] getByteArray() {
         // This size may change, see get size method above.
         byte[] b = new byte[20];
         byte[] sizeBytes = shortToBytes(size);
@@ -212,8 +203,7 @@ public class UDataInfo
      * [0] = 0110 0000 or 0x60
      * [1] = 0110 1101 or 0x6D
      */
-    private static byte[] shortToBytes(short x)
-    {
+    private static byte[] shortToBytes(short x) {
         byte[] b = new byte[2];
         byte mask = (byte) 0xFF;
         b[1] = (byte) (x & mask); // bitwise and with the lower byte

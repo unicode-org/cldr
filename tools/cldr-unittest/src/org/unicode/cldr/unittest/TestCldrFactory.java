@@ -38,9 +38,9 @@ public class TestCldrFactory extends TestFmwkPlus {
 
     public void testDirectories() {
         File[] paths = {
-            new File(CLDRPaths.MAIN_DIRECTORY), 
-            new File(CLDRPaths.ANNOTATIONS_DIRECTORY), 
-            new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY) 
+            new File(CLDRPaths.MAIN_DIRECTORY),
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+            new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY)
         };
         Factory factory = SimpleFactory.make(paths, ".*");
         List<File> enExpected = Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY));
@@ -64,7 +64,7 @@ public class TestCldrFactory extends TestFmwkPlus {
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);
         assertEquals("annotations only", Status.onlyAnnotations, checkAnnotations(enAnnotations));
 
-        File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY)};
+        File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
         Factory factoryDouble = SimpleFactory.make(paths, ".*");
 
         CLDRFile enDouble = factoryDouble.make("en", false);
@@ -78,7 +78,9 @@ public class TestCldrFactory extends TestFmwkPlus {
         assertEquals("enAnnotations subset of enDouble", null, getUncontainedPath(enAnnotations, enDouble));
     }
 
-    enum Status {none, onlyAnnotations, noAnnotations, mixed}
+    enum Status {
+        none, onlyAnnotations, noAnnotations, mixed
+    }
 
     private Status checkAnnotations(CLDRFile cldrFile) {
         Status status = Status.none;
@@ -87,18 +89,18 @@ public class TestCldrFactory extends TestFmwkPlus {
             boolean isAnnotation = xpath.startsWith("//ldml/annotation");
             if (isAnnotation) {
                 switch (status) {
-                case none: 
-                    status = Status.onlyAnnotations; 
+                case none:
+                    status = Status.onlyAnnotations;
                     break;
-                case noAnnotations: 
+                case noAnnotations:
                     return Status.mixed;
                 }
             } else {
                 switch (status) {
-                case none: 
-                    status = Status.noAnnotations; 
+                case none:
+                    status = Status.noAnnotations;
                     break;
-                case onlyAnnotations: 
+                case onlyAnnotations:
                     return Status.mixed;
                 }
             }
@@ -153,15 +155,15 @@ public class TestCldrFactory extends TestFmwkPlus {
 
     public void testWrite() {
         Predicate<String> isAnnotations = x -> x.startsWith("//ldml/annotations");
-        Map<String,?> skipAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations);
-        Map<String,?> keepAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations.negate());
+        Map<String, ?> skipAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations);
+        Map<String, ?> keepAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations.negate());
 
         CLDRFile enMain = testInfo.getCldrFactory().make("en", false);
 
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);
 
-        File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY)};
+        File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
         Factory factoryDouble = SimpleFactory.make(paths, ".*");
         CLDRFile enDouble = factoryDouble.make("en", false);
 
@@ -190,7 +192,7 @@ public class TestCldrFactory extends TestFmwkPlus {
         return filteredCldrFile;
     }
 
-    private String cldrFileToString(CLDRFile sourceCldrFile, Map<String,?> options) {
+    private String cldrFileToString(CLDRFile sourceCldrFile, Map<String, ?> options) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter pw = new PrintWriter(stringWriter);
         sourceCldrFile.write(pw, options);

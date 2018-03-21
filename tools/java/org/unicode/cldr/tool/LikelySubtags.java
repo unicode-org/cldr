@@ -264,8 +264,7 @@ public class LikelySubtags {
         return maximized;
     }
 
-    static final Map<String, String> EXTRA_SCRIPTS =
-        Builder.with(new HashMap<String, String>())
+    static final Map<String, String> EXTRA_SCRIPTS = Builder.with(new HashMap<String, String>())
         .on("crs", "pcm", "tlh").put("Latn")
         .freeze();
 

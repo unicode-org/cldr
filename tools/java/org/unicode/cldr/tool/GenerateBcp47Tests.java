@@ -56,7 +56,7 @@ public class GenerateBcp47Tests {
                             if (non_deprecated == null) {
                                 System.out.println("{\"OK\", \"en-" + extension + "-" + key + "-" + subtype + "\"}, // "
                                     + keyDescription + "; " + subtypeDescription);
-                                non_deprecated = subtype; 
+                                non_deprecated = subtype;
                             }
                         }
                     }

@@ -230,7 +230,7 @@ public class CDL {
                 String s = o.toString();
                 if (s.length() > 0
                     && (s.indexOf(',') >= 0 || s.indexOf('\n') >= 0 || s.indexOf('\r') >= 0 || s.indexOf(0) >= 0 || s
-                    .charAt(0) == '"')) {
+                        .charAt(0) == '"')) {
                     sb.append('"');
                     int length = s.length();
                     for (int j = 0; j < length; j += 1) {

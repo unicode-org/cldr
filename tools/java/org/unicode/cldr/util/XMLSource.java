@@ -333,8 +333,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
         public String toString() {
             return
-                // "oldLocaleID: " + oldLocaleID + ", " +
-                "newLocaleID: " + newLocaleID + ",\t"
+            // "oldLocaleID: " + oldLocaleID + ", " +
+            "newLocaleID: " + newLocaleID + ",\t"
                 +
                 "oldPath: " + oldPath + ",\n\t"
                 +
@@ -713,8 +713,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             }
             if (TRACE_VALUE) System.out.println("\t*xpath: " + xpath
                 + CldrUtility.LINE_SEPARATOR + "\t*source: " + currentSource.getClass().getName()
-                + CldrUtility.LINE_SEPARATOR + "\t*locale: " + currentSource.getLocaleID()
-                );
+                + CldrUtility.LINE_SEPARATOR + "\t*locale: " + currentSource.getLocaleID());
             String result = null;
             AliasLocation fullStatus = getCachedFullStatus(xpath);
             if (fullStatus != null) {
@@ -1414,14 +1413,14 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/keys/key" +
                         "[@type=\"" + keyDisplayNames[i] + "\"]",
-                        keyDisplayNames[i]);
+                    keyDisplayNames[i]);
             }
             for (int i = 0; i < typeDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/types/type"
                         + "[@key=\"" + typeDisplayNames[i][1] + "\"]"
                         + "[@type=\"" + typeDisplayNames[i][0] + "\"]",
-                        typeDisplayNames[i][0]);
+                    typeDisplayNames[i][0]);
             }
             //            String[][] relativeValues = {
             //                // {"Three days ago", "-3"},

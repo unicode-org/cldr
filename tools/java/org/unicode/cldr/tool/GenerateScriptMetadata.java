@@ -39,8 +39,8 @@ public class GenerateScriptMetadata {
         for (R3<Integer, String, Info> s : sorted) {
             String script = s.get1();
             Info i = s.get2();
-            String comment = i.age.compareTo(currentUnicodeVersion) > 0 ?
-                    "  # provisional data for future Unicode " + i.age.getVersionString(2, 2) + " script" : "";
+            String comment = i.age.compareTo(currentUnicodeVersion) > 0 ? "  # provisional data for future Unicode " + i.age.getVersionString(2, 2) + " script"
+                : "";
             out.println(script
                 + "; " + i.rank
                 + "; " + Utility.hex(i.sampleChar)
@@ -53,8 +53,7 @@ public class GenerateScriptMetadata {
                 + "; " + i.shapingReq
                 + "; " + i.ime
                 + "; " + i.hasCase
-                + comment
-                );
+                + comment);
             // RTL? LB letters? Shaping Req? IME? Has Case?
         }
         out.println();

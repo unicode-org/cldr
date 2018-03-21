@@ -12,7 +12,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
-
 public class GenerateTempDateData {
     /*
      * <dates>

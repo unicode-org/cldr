@@ -300,7 +300,7 @@ public class LikelySubtagsTest extends TestFmwk {
             metadataScripts.remove(shortName);
         }
         metadataScripts
-        .removeAll(Arrays.asList("Hans", "Hant", "Hanb", "Jamo", "Jpan", "Kore")); // remove
+            .removeAll(Arrays.asList("Hans", "Hant", "Hanb", "Jamo", "Jpan", "Kore")); // remove
         // "combo"
         // scripts
         if (!metadataScripts.isEmpty()) {
@@ -387,8 +387,8 @@ public class LikelySubtagsTest extends TestFmwk {
             String likelyExpansion = likely.get(undScript);
             if (likelyExpansion == null) {
                 String msg = "Missing likely language for script (und_" + script
-                        + ")  should be something like:\t "
-                        + showOverride(script, originCountry, langScript);
+                    + ")  should be something like:\t "
+                    + showOverride(script, originCountry, langScript);
                 if (i.age.compareTo(icuUnicodeVersion) <= 0) {
                     // Error: Missing data for a script in ICU's Unicode version.
                     errln(msg);

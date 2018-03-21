@@ -22,8 +22,8 @@ final public class Differ<T> {
     public Differ(int stackSize, int matchCount) {
         this.STACKSIZE = stackSize;
         this.EQUALSIZE = matchCount;
-        a = (T[]) new Object[stackSize+matchCount];
-        b = (T[]) new Object[stackSize+matchCount];
+        a = (T[]) new Object[stackSize + matchCount];
+        b = (T[]) new Object[stackSize + matchCount];
     }
 
     public void add(T aStr, T bStr) {
@@ -47,16 +47,16 @@ final public class Differ<T> {
 
     public T getA(int offset) {
         if (offset < 0) return last;
-        if (offset > aTop-maxSame) return next;
+        if (offset > aTop - maxSame) return next;
         return a[maxSame + offset];
     }
 
     public int getACount() {
-        return aTop-maxSame;
+        return aTop - maxSame;
     }
 
     public int getBCount() {
-        return bTop-maxSame;
+        return bTop - maxSame;
     }
 
     public int getBLine(int offset) {
@@ -65,7 +65,7 @@ final public class Differ<T> {
 
     public T getB(int offset) {
         if (offset < 0) return last;
-        if (offset > bTop-maxSame) return next;
+        if (offset > bTop - maxSame) return next;
         return b[maxSame + offset];
     }
 
@@ -87,7 +87,7 @@ final public class Differ<T> {
         // at this point, all items up to i are equal
         maxSame = i;
         aTop = bTop = maxSame;
-        if (maxSame > 0) last = a[maxSame-1];
+        if (maxSame > 0) last = a[maxSame - 1];
         next = null;
 
         if (finalPass) {
@@ -100,16 +100,16 @@ final public class Differ<T> {
         if (aCount - maxSame < EQUALSIZE || bCount - maxSame < EQUALSIZE) return;
 
         // now see if the last few a's occur anywhere in the b's, or vice versa
-        int match = find(a, aCount-EQUALSIZE, aCount, b, maxSame, bCount);
+        int match = find(a, aCount - EQUALSIZE, aCount, b, maxSame, bCount);
         if (match != -1) {
-            aTop = aCount-EQUALSIZE;
+            aTop = aCount - EQUALSIZE;
             bTop = match;
             next = a[aTop];
             return;
         }
-        match = find(b, bCount-EQUALSIZE, bCount, a, maxSame, aCount);
+        match = find(b, bCount - EQUALSIZE, bCount, a, maxSame, aCount);
         if (match != -1) {
-            bTop = bCount-EQUALSIZE;
+            bTop = bCount - EQUALSIZE;
             aTop = match;
             next = b[bTop];
             return;
@@ -129,8 +129,7 @@ final public class Differ<T> {
     private int find(T[] aArr, int aStart, int aEnd, T[] bArr, int bStart, int bEnd) {
         int len = aEnd - aStart;
         int bEndMinus = bEnd - len;
-        tryA:
-        for (int i = bStart; i <= bEndMinus; ++i) {
+        tryA: for (int i = bStart; i <= bEndMinus; ++i) {
             for (int j = 0; j < len; ++j) {
                 if (!bArr[i + j].equals(aArr[aStart + j])) continue tryA;
             }
@@ -144,7 +143,7 @@ final public class Differ<T> {
     /** Removes equal prefixes of both arrays. */
     private void flush() {
         if (aTop != 0) {
-            int newCount = aCount-aTop;
+            int newCount = aCount - aTop;
             System.arraycopy(a, aTop, a, 0, newCount);
             aCount = newCount;
             aLine += aTop;
@@ -152,7 +151,7 @@ final public class Differ<T> {
         }
 
         if (bTop != 0) {
-            int newCount = bCount-bTop;
+            int newCount = bCount - bTop;
             System.arraycopy(b, bTop, b, 0, newCount);
             bCount = newCount;
             bLine += bTop;
@@ -166,8 +165,8 @@ final public class Differ<T> {
     // a[] and b[] are equal at 0 to before maxSame.
     // maxSame to before *Top are different.
     // *Top to *Count are equal again.
-    private T [] a;
-    private T [] b;
+    private T[] a;
+    private T[] b;
     private T last = null;
     private T next = null;
     private int aCount = 0;

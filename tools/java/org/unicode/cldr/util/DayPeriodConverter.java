@@ -285,7 +285,8 @@ public class DayPeriodConverter {
                     + dayPeriod.toString().toLowerCase(Locale.ENGLISH)
                     + "\" "
                     + (start == end ? "at=\"" + start
-                        : startType + "=\"" + start + ":00\" before=\"" + end) + ":00\"/>" +
+                        : startType + "=\"" + start + ":00\" before=\"" + end)
+                    + ":00\"/>" +
                     " <!-- " + getNativeName(locale, dayPeriod)
                     + " -->");
             }

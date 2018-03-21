@@ -41,8 +41,8 @@ public class BuildIcuCompactDecimalFormat {
     public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile,
         Set<String> debugCreationErrors, String[] debugOriginals,
         CompactStyle style, ULocale locale, CurrencyStyle currencyStyle, String currencyCodeOrUnit) {
-        
-        final Map<String,Map<String,String>> customData = new HashMap<String,Map<String,String>>();
+
+        final Map<String, Map<String, String>> customData = new HashMap<String, Map<String, String>>();
 //        Map<String,String> inner = new HashMap<String,String>();
 //        inner.put("one", "0 qwerty");
 //        inner.put("other", "0 dvorak");
@@ -73,12 +73,10 @@ public class BuildIcuCompactDecimalFormat {
         // for (String path :
         // With.in(resolvedCldrFile.iterator("//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/")))
         // {
-        String prefix = currencyStyle == CurrencyStyle.PLAIN ? 
-            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength"
+        String prefix = currencyStyle == CurrencyStyle.PLAIN ? "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength"
             : "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength";
-        
-        Iterator<String> it = resolvedCldrFile.iterator(prefix);
 
+        Iterator<String> it = resolvedCldrFile.iterator(prefix);
 
         String styleString = style.toString().toLowerCase(Locale.ENGLISH);
         while (it.hasNext()) {
@@ -105,9 +103,9 @@ public class BuildIcuCompactDecimalFormat {
             /*
                     <pattern type="1000" count="one">0K</pattern>
              */
-            
+
             add(customData, type, key, pattern);
-            
+
 //            if (DEBUG && path.contains("miliony")) {
 //                System.out.println(key + ", " + path);
 //            }
@@ -253,7 +251,7 @@ public class BuildIcuCompactDecimalFormat {
 //        } catch (Exception e) {
 //            debugCreationErrors.add(e.getMessage());
 //            return null;
-        
+
         CompactDecimalFormat cdf = CompactDecimalFormat.getInstance(locale, style);
         ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(resolvedCldrFile);
 
@@ -274,7 +272,7 @@ public class BuildIcuCompactDecimalFormat {
             unitPrefixes, unitSuffixes,
             currencyAffixes, new CompactDecimalFormatTest.MyCurrencySymbolDisplay(resolvedCldrFile),
             debugCreationErrors
-
+        
          */
         //        CompactDecimalFormat cdf = new CompactDecimalFormat(
         //                "#,###.00",
@@ -286,7 +284,7 @@ public class BuildIcuCompactDecimalFormat {
 
     }
 
-    private static <A,B,C> void add(Map<A, Map<B, C>> customData, A a, B b, C c) {
+    private static <A, B, C> void add(Map<A, Map<B, C>> customData, A a, B b, C c) {
         Map<B, C> inner = customData.get(a);
         if (inner == null) {
             customData.put(a, inner = new HashMap<>());
@@ -294,9 +292,9 @@ public class BuildIcuCompactDecimalFormat {
         inner.put(b, c);
     }
 
-    private static String[] addPrefixSuffixInfo(Map<String, String[]> unitPrefixes, String count, 
+    private static String[] addPrefixSuffixInfo(Map<String, String[]> unitPrefixes, String count,
         final String prefix, final String suffix) {
-        return unitPrefixes.put(count, new String[]{escape(prefix), escape(suffix)});
+        return unitPrefixes.put(count, new String[] { escape(prefix), escape(suffix) });
     }
 
     private static String escape(String prefix) {
@@ -319,7 +317,7 @@ public class BuildIcuCompactDecimalFormat {
             it = resolvedCldrFile.iterator(
                 "//ldml/numbers/currencies/currency[@type=\"" +
                     currencyCode +
-                "\"]/displayName");
+                    "\"]/displayName");
             // //ldml/numbers/currencies/currency[@type="SRD"]/symbol
             while (it.hasNext()) {
                 String path = it.next();

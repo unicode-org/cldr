@@ -74,7 +74,8 @@ public class ShowDtdDiffs {
         checkNames(prefix, dtdCurrent, oldNameToElement, "/", dtdCurrent.ROOT, new HashSet<Element>());
     }
 
-    private static void checkNames(String prefix, DtdData dtdCurrent, Map<String, Element> oldNameToElement, String path, Element element, HashSet<Element> seen) {
+    private static void checkNames(String prefix, DtdData dtdCurrent, Map<String, Element> oldNameToElement, String path, Element element,
+        HashSet<Element> seen) {
         if (seen.contains(element)) {
             return;
         }

@@ -30,15 +30,13 @@ public class POSIX_LCCtype {
         boolean ExemplarError = false;
         UnicodeSetIterator it = new UnicodeSetIterator(ExemplarCharacters);
         while (it.next())
-            if (it.codepoint != -1 && !chars.contains(it.codepoint))
-            {
+            if (it.codepoint != -1 && !chars.contains(it.codepoint)) {
                 System.out.println("WARNING: Target codeset does not contain exemplar character : " +
                     POSIXUtilities.POSIXCharName(it.codepoint));
                 ExemplarError = true;
             }
 
-        if (ExemplarError)
-        {
+        if (ExemplarError) {
             System.out.println("WARNING: Not all exemplar characters are in the target codeset.");
             System.out.println("    The resulting locale source might not compile.");
         }

@@ -109,8 +109,7 @@ public class FindWidths {
                 + "\t«" + data.value + "»"
                 + "\t+" + nf.format(sizeIncrease)
                 + "\t" + data.width
-                + "\t" + data.count
-                );
+                + "\t" + data.count);
         }
     }
 }

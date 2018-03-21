@@ -82,9 +82,9 @@ public class GenerateSeedDurations {
             for (String combinationUnit : combinationUnits) {
                 String pattern = combinationUnit.length() == 2
                     ? listFormat.format("{0}", "{1}")
-                        : listFormat.format("{0}", "{1}", "{2}");
-                    System.out.println("        <combinationUnit type=\"" + combinationUnit + "\">" + pattern
-                        + "<combinationUnit>");
+                    : listFormat.format("{0}", "{1}", "{2}");
+                System.out.println("        <combinationUnit type=\"" + combinationUnit + "\">" + pattern
+                    + "<combinationUnit>");
             }
             System.out.println("    </combinationUnits>");
         }

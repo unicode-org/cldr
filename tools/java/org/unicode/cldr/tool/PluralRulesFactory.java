@@ -209,19 +209,18 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
 //            samplePatterns.freeze();
 //            temp.put(ulocale, samplePatterns);
 
-
-            /*
-             *      <minimalPairs>
-            <pluralMinimalPairs count="one">{0} day</pluralMinimalPairs>
-            <pluralMinimalPairs count="other">{0} days</pluralMinimalPairs>
-            <ordinalMinimalPairs ordinal="few">Take the {0}rd right.</ordinalMinimalPairs>
-            <ordinalMinimalPairs ordinal="one">Take the {0}st right.</ordinalMinimalPairs>
-            <ordinalMinimalPairs ordinal="other">Take the {0}th right.</ordinalMinimalPairs>
-            <ordinalMinimalPairs ordinal="two">Take the {0}nd right.</ordinalMinimalPairs>
+        /*
+         *      <minimalPairs>
+        <pluralMinimalPairs count="one">{0} day</pluralMinimalPairs>
+        <pluralMinimalPairs count="other">{0} days</pluralMinimalPairs>
+        <ordinalMinimalPairs ordinal="few">Take the {0}rd right.</ordinalMinimalPairs>
+        <ordinalMinimalPairs ordinal="one">Take the {0}st right.</ordinalMinimalPairs>
+        <ordinalMinimalPairs ordinal="other">Take the {0}th right.</ordinalMinimalPairs>
+        <ordinalMinimalPairs ordinal="two">Take the {0}nd right.</ordinalMinimalPairs>
         </minimalPairs>
-    </numbers>
-
-             */
+        </numbers>
+        
+         */
 //        }
 
 //        for (String[] row : SAMPLE_PATTERNS) {

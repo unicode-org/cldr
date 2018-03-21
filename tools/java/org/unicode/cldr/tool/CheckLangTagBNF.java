@@ -137,9 +137,9 @@ class CheckLangTagBNF {
     public BNF getBnf() {
         if (bnf != null) return bnf;
         bnf = new BNF(new Random(2), new Quoter.RuleQuoter())
-        .setMaxRepeat(5)
-        .addRules(generationRules)
-        .complete();
+            .setMaxRepeat(5)
+            .addRules(generationRules)
+            .complete();
         return bnf;
     }
 
@@ -199,11 +199,11 @@ class CheckLangTagBNF {
         // TODO make all numeric and all alpha more common
         System.out.println("*** ILL-FORMED ***");
         BNF invalidBNF = new BNF(new Random(0), new Quoter.RuleQuoter())
-        .setMaxRepeat(5)
-        .addRules("$tag = ([A-Z a-z 0-9]{1,8} 50% 20% 10% 5% 5% 5% 5%);")
-        .addRules("$s = [-_] ;")
-        .addRules("$root = $tag ($s $tag){0,7} 10% 10% 10% 10% 10% 10% 10% 10% ; ")
-        .complete();
+            .setMaxRepeat(5)
+            .addRules("$tag = ([A-Z a-z 0-9]{1,8} 50% 20% 10% 5% 5% 5% 5%);")
+            .addRules("$s = [-_] ;")
+            .addRules("$root = $tag ($s $tag){0,7} 10% 10% 10% 10% 10% 10% 10% 10% ; ")
+            .complete();
 
         for (int i = 0; i < 100; ++i) {
             String trial = invalidBNF.next();

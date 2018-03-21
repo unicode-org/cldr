@@ -14,7 +14,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
 public abstract class Visitor {
-    
+
     public void doAt(Object item) {
         if (item instanceof Collection) {
             doAt((Collection) item);
@@ -44,20 +44,22 @@ public abstract class Visitor {
     }
 
     // the default implementation boxing
-    
+
     public void doAt(int o) {
         doSimpleAt(new Integer(o));
     }
+
     public void doAt(double o) {
         doSimpleAt(new Double(o));
     }
+
     public void doAt(char o) {
         doSimpleAt(new Character(o));
     }
-    
+
     // for subclassing
-    
-    protected void doAt (Collection c) {
+
+    protected void doAt(Collection c) {
         if (c.size() == 0) doBefore(c, null);
         Iterator it = c.iterator();
         boolean first = true;
@@ -69,17 +71,17 @@ public abstract class Visitor {
                 first = false;
             } else {
                 doBetween(c, last, item);
-            }    
-            doAt(last=item);
+            }
+            doAt(last = item);
         }
         doAfter(c, last);
     }
 
-    protected void doAt (Map c) {
+    protected void doAt(Map c) {
         doAt(c.entrySet());
     }
 
-    protected void doAt (UnicodeSet c) {
+    protected void doAt(UnicodeSet c) {
         if (c.size() == 0) doBefore(c, null);
         UnicodeSetIterator it = new UnicodeSetIterator(c);
         boolean first = true;
@@ -88,16 +90,16 @@ public abstract class Visitor {
         CodePointRange cpr0 = new CodePointRange();
         CodePointRange cpr1 = new CodePointRange();
         CodePointRange cpr;
-        
-        while(it.nextRange()) {
+
+        while (it.nextRange()) {
             if (it.codepoint == UnicodeSetIterator.IS_STRING) {
                 item = it.string;
             } else {
-                cpr = last == cpr0 ? cpr1 : cpr0;   // make sure we don't override last
+                cpr = last == cpr0 ? cpr1 : cpr0; // make sure we don't override last
                 cpr.codepoint = it.codepoint;
                 cpr.codepointEnd = it.codepointEnd;
                 item = cpr;
-            }           
+            }
             if (!first) {
                 doBefore(c, item);
                 first = true;
@@ -108,8 +110,8 @@ public abstract class Visitor {
         }
         doAfter(c, last);
     }
-    
-    protected void doAt (Object[] c) {
+
+    protected void doAt(Object[] c) {
         doBefore(c, c.length == 0 ? null : c[0]);
         Object last = null;
         for (int i = 0; i < c.length; ++i) {
@@ -118,20 +120,24 @@ public abstract class Visitor {
         }
         doAfter(c, last);
     }
-    
-    public static class CodePointRange{
+
+    public static class CodePointRange {
         public int codepoint, codepointEnd;
+
         @Override
         public String toString() {
             return "[" + codepoint + ", " + codepointEnd + "]";
         }
     }
-    
+
     // ===== MUST BE OVERRIDEN =====
-    
+
     abstract protected void doBefore(Object container, Object item);
+
     abstract protected void doBetween(Object container, Object lastItem, Object nextItem);
-    abstract protected void doAfter(Object container, Object item);   
+
+    abstract protected void doAfter(Object container, Object item);
+
     abstract protected void doSimpleAt(Object o);
-    
+
 }

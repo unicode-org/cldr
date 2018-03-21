@@ -350,8 +350,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                         String childFinderPattern = child._finder.toString();
                         if (childFinderPattern.length() > 0 && childFinderPattern.charAt(childFinderPattern.length() - 1) == '$') {
                             childFinderPattern = childFinderPattern.substring(0, childFinderPattern.length() - 1); //takes into account the added "$"
-                        }
-                        else if (child._rank == -1) {
+                        } else if (child._rank == -1) {
                             childFinderPattern = childFinderPattern.substring(0, childFinderPattern.length() - 2); //takes into account the added ".*"
                         }
 
@@ -385,8 +384,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                     String finderPattern = this._finder.toString();
                     if (finderPattern.length() > 0 && finderPattern.charAt(finderPattern.length() - 1) == '$') {
                         finderPattern = finderPattern.substring(0, finderPattern.length() - 1); //takes into account the added "$"
-                    }
-                    else if (!(finderPattern.equals("")) && this._rank == -1) {
+                    } else if (!(finderPattern.equals("")) && this._rank == -1) {
                         finderPattern = finderPattern.substring(0, finderPattern.length() - 2); //takes into account the added ".*"
                     }
 
@@ -432,8 +430,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
                         if (childFinderPattern.length() > 0 && childFinderPattern.charAt(childFinderPattern.length() - 1) == '$') {
                             childFinderPattern = childFinderPattern.substring(0, childFinderPattern.length() - 1); //takes into account the added "$"
-                        }
-                        else if (child._rank == -1) {
+                        } else if (child._rank == -1) {
                             childFinderPattern = childFinderPattern.substring(0, childFinderPattern.length() - 2); //takes into account the added ".*"
                         }
 
@@ -507,11 +504,10 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             private StringBuilder toString(String prefix, StringBuilder result) {
                 result.append(prefix).append(this._finder.toString()).append("\n");
                 for (RegexTree<T>.RTNode child : _children) {
-                    child.toString(prefix+"\t", result);
+                    child.toString(prefix + "\t", result);
                 }
                 return result;
             }
-
 
             //greatest common prefix between two strings
             public String greatestCommonPrefix(String a, String b) {
@@ -542,6 +538,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 }
             }
         }
+
         public String toString() {
             return root.toString();
         }
@@ -697,7 +694,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             final String newSource = source.replace("[@", "\\[@");
             return new RegexFinder(newSource.startsWith("//")
                 ? "^" + newSource
-                    : newSource);
+                : newSource);
         }
     };
 
@@ -710,10 +707,9 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             final String newSource = source.replace("[@", "\\[@").replace('\'', '"');
             return new RegexFinder(newSource.startsWith("//")
                 ? "^" + newSource
-                    : newSource);
+                : newSource);
         }
     };
-
 
     /**
      * Allows for merging items of the same type.
@@ -1156,6 +1152,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             return MEntries.size();
         }
     }
+
     @Override
     public String toString() {
         return storage.toString();

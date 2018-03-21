@@ -33,8 +33,7 @@ public class WritePluralRules {
             rulesToLocales.put(rules, locale);
         }
         System.out.println(
-            formatPluralHeader(PluralType.cardinal, "WritePluralRules")
-            );
+            formatPluralHeader(PluralType.cardinal, "WritePluralRules"));
         TreeSet<Entry<PluralRules, Set<String>>> sorted = new TreeSet<Entry<PluralRules, Set<String>>>(new HackComparator());
         sorted.addAll(rulesToLocales.keyValuesSet());
         for (Entry<PluralRules, Set<String>> entry : sorted) {
@@ -58,7 +57,7 @@ public class WritePluralRules {
             <pluralRule count="few">n mod 100 in 3..10</pluralRule>
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
             </pluralRules>
-
+            
              */
         }
         System.out.println(formatPluralFooter());
@@ -90,8 +89,8 @@ public class WritePluralRules {
     public static String formatPluralRuleHeader(Set<String> values) {
         String locales = CollectionUtilities.join(values, " ");
         String result = ("        <pluralRules locales=\"" + locales + "\">"
-            //+ (comment != null ? comment : "")
-            );
+        //+ (comment != null ? comment : "")
+        );
         return result;
     }
 
@@ -178,6 +177,6 @@ public class WritePluralRules {
         PluralRules override = null; // PluralRulesFactory.getPluralOverrides().get(new ULocale(locale));
         return override != null
             ? override
-                : sInfo.getPlurals(locale).getPluralRules();
+            : sInfo.getPlurals(locale).getPluralRules();
     }
 }

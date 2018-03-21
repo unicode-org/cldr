@@ -54,11 +54,11 @@ public class TestCoverage extends TestFmwkPlus {
             showDiff("Extra", coreCoverage, none);
         }
     }
-    
+
     public void TestSelected() {
         Object[][] tests = {
-            {"en", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", Level.MODERN, 20},
-            {"en", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", Level.MODERN, 20}
+            { "en", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", Level.MODERN, 20 },
+            { "en", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", Level.MODERN, 20 }
         };
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         for (Object[] test : tests) {
@@ -69,8 +69,8 @@ public class TestCoverage extends TestFmwkPlus {
             Level level = coverageLevel.getLevel(path);
             PathHeader ph = phf.fromPath(path);
             CLDRLocale loc = CLDRLocale.getInstance(localeId);
-            int expectedVotes = sdi.getRequiredVotes(loc , ph);
-            
+            int expectedVotes = sdi.getRequiredVotes(loc, ph);
+
         }
     }
 

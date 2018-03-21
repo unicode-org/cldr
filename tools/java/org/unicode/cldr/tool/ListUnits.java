@@ -34,9 +34,7 @@ public class ListUnits {
     }
 
     enum Type {
-        root,
-        en,
-        other;
+        root, en, other;
         static Type fromString(String type) {
             return type.equals("en") ? en : type.equals("root") ? root : other;
         }
@@ -78,7 +76,8 @@ public class ListUnits {
             case showDecimals: {
                 String compactPathPrefix = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]";
                 String currencyPattern = cldrFile
-                    .getStringValue("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+                    .getStringValue(
+                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
                 String firstPart = SEMI.split(currencyPattern).iterator().next();
                 if (!currencyMatcher.reset(firstPart).matches()) {
                     throw new IllegalArgumentException("bad matcher");

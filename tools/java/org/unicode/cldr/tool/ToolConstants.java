@@ -40,7 +40,7 @@ public class ToolConstants {
     public static final String CHART_DISPLAY_VERSION = CHART_VERSION + (BETA ? "β" : "");
     public static final String CHART_SOURCE = "http://unicode.org/repos/cldr/"
         + (CHART_STATUS != ChartStatus.release ? "trunk/" : "tags/release-" + CHART_VERSION + "/");
-    
+
     public static final List<String> CLDR_VERSIONS = ImmutableList.of(
         "1.1.1",
         "1.2.0",
@@ -64,14 +64,14 @@ public class ToolConstants {
         "30.0",
         "31.0",
         "32.0"
-        // add to this once the release is final!
-        );
+    // add to this once the release is final!
+    );
     public static final String PREVIOUS_CHART_VERSION;
     static {
         String last = "";
         for (String current : CLDR_VERSIONS) {
             if (current.equals(LAST_CHART_VERSION)) {
-               break; 
+                break;
             }
             last = current;
         }

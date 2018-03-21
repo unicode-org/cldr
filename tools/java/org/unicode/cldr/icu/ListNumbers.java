@@ -137,8 +137,7 @@ public class ListNumbers {
                 // This should never happen. Summary of UTF-8 to UTF-16 conversion per codepoint:
                 // 1 byte -> 1 char, 2 bytes -> 1 char, 3 bytes -> 1 char, 4 bytes -> 2 chars.
                 throw new IOException("File encoding expanded when converting to UTF-16");
-            }
-            else if (i > 0) {
+            } else if (i > 0) {
                 str = new String(buffer, 0, i);
             }
         } catch (Exception e) {
@@ -173,8 +172,7 @@ public class ListNumbers {
             formatter.format("%.3f", num);
             numStr = sb.toString();
             formatter.close();
-        }
-        else {
+        } else {
             numStr = Long.toString(longVal);
         }
 
@@ -253,8 +251,7 @@ public class ListNumbers {
                 new RuleBasedNumberFormat(fileToString(args[1]), new ULocale(args[0]))
             };
             printTable(new ULocale(args[0]), rbnfs);
-        }
-        else {
+        } else {
             for (ULocale loc : NumberFormat.getAvailableULocales()) {
                 RuleBasedNumberFormat[] rbnfs = new RuleBasedNumberFormat[] {
                     new RuleBasedNumberFormat(loc, RuleBasedNumberFormat.SPELLOUT),

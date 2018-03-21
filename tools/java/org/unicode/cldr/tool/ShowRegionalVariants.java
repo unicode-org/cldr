@@ -49,7 +49,7 @@ public class ShowRegionalVariants {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        targetDir(".*", CLDRPaths.GEN_DIRECTORY + "/regional/", "target output file."), ;
+        targetDir(".*", CLDRPaths.GEN_DIRECTORY + "/regional/", "target output file."),;
         // boilderplate
         final Option option;
 
@@ -111,7 +111,8 @@ public class ShowRegionalVariants {
             grandSummary.println("Parent\tName\tTotal Diff Count\tChildren");
             summary.println("Parent\tName\tDiff Count\tChild\tChild Name");
             detailFile
-            .println("№\tBase\tParent Locales I\tParent Locales II\tChild Locales\tEnglish value\tParent value I\tParent value II\tChild value\tCorrected Child value\tComments\tFix Parent value?\tSection\tPage\tHeader\tCode");
+                .println(
+                    "№\tBase\tParent Locales I\tParent Locales II\tChild Locales\tEnglish value\tParent value I\tParent value II\tChild value\tCorrected Child value\tComments\tFix Parent value?\tSection\tPage\tHeader\tCode");
             PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
             String lastBase = "";
             for (Entry<CLDRLocale, Set<CLDRLocale>> item : parentToChildren.keyValuesSet()) {
@@ -230,8 +231,7 @@ public class ShowRegionalVariants {
 
                         detailFile.print(
                             ++count
-                            + "\t" + base
-                            );
+                                + "\t" + base);
 
                         for (Entry<String, Set<String>> entry : keyValuesSet) {
                             detailFile.print("\t" + entry.getValue());
@@ -241,8 +241,7 @@ public class ShowRegionalVariants {
                         }
                         detailFile.print(""
                             + "\t" + childLocales
-                            + "\t" + quote(englishValue)
-                            );
+                            + "\t" + quote(englishValue));
                         for (Entry<String, Set<String>> entry : keyValuesSet) {
                             detailFile.print("\t" + entry.getKey());
                         }
@@ -254,8 +253,7 @@ public class ShowRegionalVariants {
                             + "\t" + ""
                             + "\t" + ""
                             + "\t" + ""
-                            + "\t" + ph
-                            );
+                            + "\t" + ph);
                         detailFile.println();
                     }
                 }

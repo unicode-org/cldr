@@ -24,7 +24,7 @@ import com.ibm.icu.text.UnicodeSet;
 public class TestValidity extends TestFmwkPlus {
 
     private boolean DEBUG = false;
-    
+
     public static void main(String[] args) {
         new TestValidity().run(args);
     }
@@ -61,7 +61,7 @@ public class TestValidity extends TestFmwkPlus {
             { LstrType.currency, Validity.Status.unknown, true, "XXX" },
             { LstrType.currency, Validity.Status.deprecated, true, "ADP" },
 
-            { LstrType.unit, Validity.Status.regular, true, "area-acre"},
+            { LstrType.unit, Validity.Status.regular, true, "area-acre" },
         };
         for (Object[] test : tests) {
             LstrType lstr = (LstrType) test[0];
@@ -72,13 +72,13 @@ public class TestValidity extends TestFmwkPlus {
                 List<Status> subtypes = subtypeRaw == null ? Arrays.asList(Status.values()) : Collections.singletonList(subtypeRaw);
                 for (Status subtype : subtypes) {
                     Set<String> actual = validity.getStatusToCodes(lstr).get(subtype);
-                    assertRelation("Validity", desired, CldrUtility.ifNull(actual,Collections.EMPTY_SET), TestFmwkPlus.CONTAINS, code);
+                    assertRelation("Validity", desired, CldrUtility.ifNull(actual, Collections.EMPTY_SET), TestFmwkPlus.CONTAINS, code);
                 }
             }
         }
         if (isVerbose()) {
 
-            for (LstrType lstrType : LstrType.values()) { 
+            for (LstrType lstrType : LstrType.values()) {
                 logln(lstrType.toString());
                 final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(lstrType);
                 for (Entry<Validity.Status, Set<String>> entry2 : statusToCodes.entrySet()) {
@@ -100,7 +100,7 @@ public class TestValidity extends TestFmwkPlus {
 
         final String oldCommon = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.PREVIOUS_CHART_VERSION + "/common/";
         Validity oldValidity = Validity.getInstance(oldCommon);
-        for (LstrType type : LstrType.values()) { 
+        for (LstrType type : LstrType.values()) {
             final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(type);
             if (statusToCodes == null) {
                 logln("validity data unavailable: " + type);
@@ -118,9 +118,9 @@ public class TestValidity extends TestFmwkPlus {
                     }
                     if (newStatus == null && !ALLOWED_MISSING.contains(code)) {
                         errln(type + ":" + code + ":" + oldStatus + " — missing in new data");
-                    } 
+                    }
                     if (oldStatus == Status.deprecated && !ALLOWED_UNDELETIONS.contains(code)) {
-                        errln(type + ":" + code + ":" + oldStatus + " => " + newStatus 
+                        errln(type + ":" + code + ":" + oldStatus + " => " + newStatus
                             + " // add to exception list if really un-deprecated");
                     } else {
                         logln(type + ":" + code + " was " + oldStatus + " => " + newStatus);
@@ -167,7 +167,7 @@ public class TestValidity extends TestFmwkPlus {
         Splitter HYPHEN_SPLITTER = Splitter.on('-');
         UnicodeSet allowed = new UnicodeSet("[a-z0-9A-Z]").freeze();
         Validity validity = Validity.getInstance(CLDRPaths.COMMON_DIRECTORY);
-        Map<String,String> shortened = ImmutableMap.<String,String>builder()
+        Map<String, String> shortened = ImmutableMap.<String, String> builder()
             .put("acceleration", "accel")
             .put("revolution", "revol")
             .put("centimeter", "cmeter")
@@ -233,7 +233,7 @@ public class TestValidity extends TestFmwkPlus {
                 }
             }
         }
-        
+
         if (DEBUG) {
             for (Entry<String, String> e : shortened.entrySet()) {
                 System.out.println('"' + e.getKey() + "\", \"" + e.getValue() + "\",");
@@ -241,16 +241,23 @@ public class TestValidity extends TestFmwkPlus {
         }
     }
 
-
     private String shorten(String subcode, Map<String, String> shortened) {
         String result = shortened.get(subcode);
         if (result != null) return result;
 
         switch (subcode) {
-        case "temperature": result = "temp"; break;
-        case "acceleration": result =  "accel"; break;
-        case "frequency": result =  "freq"; break;
-        default: result = subcode.substring(0, 8); break;
+        case "temperature":
+            result = "temp";
+            break;
+        case "acceleration":
+            result = "accel";
+            break;
+        case "frequency":
+            result = "freq";
+            break;
+        default:
+            result = subcode.substring(0, 8);
+            break;
         }
         shortened.put(subcode, result);
         return result;
@@ -258,8 +265,8 @@ public class TestValidity extends TestFmwkPlus {
 
     public void TestLanguageTagParser() {
         String[][] tests = {
-            {"en-cyrl_ru_variant2_variant1", "en_Cyrl_RU_VARIANT1_VARIANT2", "en-Cyrl-RU-variant1-variant2"},
-            {"EN-U-CO-PHONEBK-EM-EMOJI-T_RU", "en_t_ru_u_co_phonebk_em_emoji", "en-t-ru-u-co-phonebk-em-emoji"},
+            { "en-cyrl_ru_variant2_variant1", "en_Cyrl_RU_VARIANT1_VARIANT2", "en-Cyrl-RU-variant1-variant2" },
+            { "EN-U-CO-PHONEBK-EM-EMOJI-T_RU", "en_t_ru_u_co_phonebk_em_emoji", "en-t-ru-u-co-phonebk-em-emoji" },
         };
         LanguageTagParser ltp = new LanguageTagParser();
         for (String[] test : tests) {
@@ -273,19 +280,19 @@ public class TestValidity extends TestFmwkPlus {
             assertEquals("Language subtag (BCP47) for " + source, expectedLanguageSubtagParserBCP, actualLanguageSubtagParserBCP);
         }
     }
-    
+
     public void TestLanguageTagCanonicalizer() {
         String[][] tests = {
-            { "de-fonipa", "de_FONIPA" }, 
-            { "el-1901-polytoni-aaland", "el_AX_1901_POLYTON" }, 
+            { "de-fonipa", "de_FONIPA" },
+            { "el-1901-polytoni-aaland", "el_AX_1901_POLYTON" },
             { "en-POLYTONI-WHATEVER-ANYTHING-AALAND", "en_AX_ANYTHING_POLYTON_WHATEVER" },
-            { "eng-840", "en" }, 
+            { "eng-840", "en" },
             { "sh_ba", "sr_Latn_BA" },
-            { "iw-arab-010", "he_Arab_AQ" }, 
+            { "iw-arab-010", "he_Arab_AQ" },
             { "und", "und" },
-            { "und_us", "und_US" }, 
-            { "und_su", "und_RU" }, 
-            };
+            { "und_us", "und_US" },
+            { "und_su", "und_RU" },
+        };
         LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
         for (String[] inputExpected : tests) {
             assertEquals("Canonicalize", inputExpected[1], canon.transform(inputExpected[0]));

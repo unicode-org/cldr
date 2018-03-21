@@ -38,7 +38,7 @@ public class DeriveScripts {
     static final Map<String, String> SUPPRESS;
 
     static {
-        File[] paths = { 
+        File[] paths = {
 //            new File(CLDRPaths.MAIN_DIRECTORY), 
 //            new File(CLDRPaths.SEED_DIRECTORY), 
             new File(CLDRPaths.EXEMPLARS_DIRECTORY) };
@@ -49,7 +49,7 @@ public class DeriveScripts {
 
         Multimap<String, String> langToScript = TreeMultimap.create();
 
-        Map<String,String> suppress = new TreeMap<>();
+        Map<String, String> suppress = new TreeMap<>();
         final Map<String, Map<LstrField, String>> langToInfo = StandardCodes.getLstregEnumRaw().get(LstrType.language);
         for (Entry<String, Map<LstrField, String>> entry : langToInfo.entrySet()) {
             final String suppressValue = entry.getValue().get(LstrField.Suppress_Script);
@@ -64,7 +64,7 @@ public class DeriveScripts {
 //                    }
                     continue;
                 }
-                suppress.put(langCode,suppressValue);
+                suppress.put(langCode, suppressValue);
             }
         }
         SUPPRESS = ImmutableMap.copyOf(suppress);
@@ -73,7 +73,7 @@ public class DeriveScripts {
 
         for (String file : fullCldrFactory.getAvailable()) {
             String langScript = ltp.set(file).getLanguage();
-            if (!file.equals(langScript)) {  // skip other variants
+            if (!file.equals(langScript)) { // skip other variants
                 continue;
             }
 //            System.out.println(file);
@@ -99,7 +99,7 @@ public class DeriveScripts {
 
             CLDRFile cldrFile = fullCldrFactory.make(lang, false);
             UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
-            for (String s : exemplars){
+            for (String s : exemplars) {
                 int scriptNum = UScript.getScript(s.codePointAt(0));
                 if (scriptNum != UScript.COMMON && scriptNum != UScript.INHERITED && scriptNum != UScript.UNKNOWN) {
                     script = UScript.getShortName(scriptNum);
@@ -122,16 +122,15 @@ public class DeriveScripts {
     }
 
     public static Multimap<String, String> getLanguageToScript() {
-        return LANG_TO_SCRIPT; 
+        return LANG_TO_SCRIPT;
     }
 
     public static void showLine(String language, String scriptField, String status) {
         CLDRFile english = CONFIG.getEnglish();
         System.out.println(language + ";\t" + scriptField + "\t# " + english.getName(CLDRFile.LANGUAGE_NAME, language)
-        + ";\t" + status
-        + ";\t" + Iso639Data.getScope(language)
-        + ";\t" + Iso639Data.getType(language)
-            );
+            + ";\t" + status
+            + ";\t" + Iso639Data.getScope(language)
+            + ";\t" + Iso639Data.getType(language));
     }
 
     public static void main(String[] args) {
@@ -150,7 +149,7 @@ public class DeriveScripts {
         boolean haveMore = true;
 
         System.out.println("\n#From Exemplars");
-        for (int scriptCount = 1; haveMore ; ++scriptCount) {
+        for (int scriptCount = 1; haveMore; ++scriptCount) {
             haveMore = false;
             if (scriptCount != 1) {
                 System.out.println("\n#NEEDS RESOLUTION:\t" + scriptCount + " scripts");
@@ -165,14 +164,14 @@ public class DeriveScripts {
                     continue;
                 }
 
-                String lang = entry.getKey();                
-                showLine(lang,scripts.size() == 1 ? scripts.iterator().next() : scripts.toString(), "Exemplars" + (scripts.size() == 1 ? "" : "*"));
+                String lang = entry.getKey();
+                showLine(lang, scripts.size() == 1 ? scripts.iterator().next() : scripts.toString(), "Exemplars" + (scripts.size() == 1 ? "" : "*"));
                 ++i;
                 String likelyScript = scriptsSize == 1 ? "" : ls.getLikelyScript(lang);
-                System.out.println(++count + "\t" + scriptsSize + "\t" + lang + "\t" + english.getName(lang)  
-                + "\t" + scripts + "\t" + likelyScript
+                System.out.println(++count + "\t" + scriptsSize + "\t" + lang + "\t" + english.getName(lang)
+                    + "\t" + scripts + "\t" + likelyScript
 //                + "\t" + script + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-                    );
+                );
             }
             System.out.println("#total:\t" + i);
             i = 0;

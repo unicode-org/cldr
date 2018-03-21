@@ -32,11 +32,11 @@ public class FormattedFileWriter extends java.io.Writer {
         @Override
         public String toString() {
             /*
-<div id="chits">
-<div class='chit chGold'>
-    <a name='g002C' title='U+002C &#x002C; COMMA' href='#g002C'>
-        <img class='chitImg' src='/consortium/aacimg/002C.png' alt='&#x002C;'></a>Mark Davis and Anne Gundelfinger
-</div>
+            <div id="chits">
+            <div class='chit chGold'>
+            <a name='g002C' title='U+002C &#x002C; COMMA' href='#g002C'>
+            <img class='chitImg' src='/consortium/aacimg/002C.png' alt='&#x002C;'></a>Mark Davis and Anne Gundelfinger
+            </div>
              */
             //StringBuffer contents = new StringBuffer("<div align='center'>" + Chart.LS + "<table>" + Chart.LS); //
             StringBuffer contents = new StringBuffer("<div id='chits'>" + Chart.LS); //
@@ -45,7 +45,8 @@ public class FormattedFileWriter extends java.io.Writer {
                 String title = item[0];
                 String fileName = item[1];
                 String explanation = item[2];
-                contents.append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
+                contents
+                    .append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
                 if (hasExplanations) {
                     contents.append("\t<div class='chit'>" + explanation + "</div>" + Chart.LS);
                 }

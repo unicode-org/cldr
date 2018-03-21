@@ -71,7 +71,7 @@ public class TestFmwkPlus extends TestFmwk {
         String message, E expected, E actual, T transform, S source) {
         String simpleName = transform instanceof Transliterator ? ((Transliterator) transform)
             .getID() : transform.getClass().getSimpleName();
-            return prefix + sourceLocationPlus() + " "
+        return prefix + sourceLocationPlus() + " "
             + (message == null ? "" : message + " : ") + "got ‹" + actual
             + "› from " + simpleName + "(‹" + source + "›)";
     }
@@ -87,9 +87,9 @@ public class TestFmwkPlus extends TestFmwk {
             others.append(relation.showOther(arg));
         }
         return prefix + sourceLocationPlus() + " "
-        + (message == null ? "" : message + " : ")
-        + relation.showFirst(arg0) + (expected ? " " : " NOT ")
-        + relation + " " + others;
+            + (message == null ? "" : message + " : ")
+            + relation.showFirst(arg0) + (expected ? " " : " NOT ")
+            + relation + " " + others;
     }
 
     public abstract static class TestRelation<T, U> {
@@ -236,7 +236,7 @@ public class TestFmwkPlus extends TestFmwk {
                 if (!(b instanceof Collection)) {
                     return false;
                 }
-                if (Collections.disjoint(a, (Collection)b)) {
+                if (Collections.disjoint(a, (Collection) b)) {
                     return false;
                 }
             }
@@ -248,7 +248,6 @@ public class TestFmwkPlus extends TestFmwk {
             return "contains-some";
         }
     };
-
 
     @SuppressWarnings("rawtypes")
     public static TestRelation EMPTY = new TestRelation<Collection, Object>() {

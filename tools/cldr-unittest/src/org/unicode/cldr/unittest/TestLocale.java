@@ -125,23 +125,23 @@ public class TestLocale extends TestFmwkPlus {
                 parser.iterateThroughNodeSet(XPATH_ALIAS_STRING,
                     new XPathExpressionParser.NodeHandlingInterface() {
 
-                    // Handle gets called for every node of the node set
-                    @Override
-                    public void handle(Node result) {
-                        if (result instanceof Element) {
-                            Element el = (Element) result;
-                            // this node likely has an attribute source
-                            if (el.hasAttributes()) {
-                                String sourceAttr = el
-                                    .getAttribute("source");
-                                if (sourceAttr != null
-                                    && !sourceAttr.isEmpty()) {
-                                    localesWithAliases.add(localeName);
+                        // Handle gets called for every node of the node set
+                        @Override
+                        public void handle(Node result) {
+                            if (result instanceof Element) {
+                                Element el = (Element) result;
+                                // this node likely has an attribute source
+                                if (el.hasAttributes()) {
+                                    String sourceAttr = el
+                                        .getAttribute("source");
+                                    if (sourceAttr != null
+                                        && !sourceAttr.isEmpty()) {
+                                        localesWithAliases.add(localeName);
+                                    }
                                 }
                             }
                         }
-                    }
-                });
+                    });
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -335,21 +335,21 @@ public class TestLocale extends TestFmwkPlus {
                 "Anglish (abc)",
                 "en",
                 "Anglish [abc]",
-            "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
+                "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
             {
                 "script",
                 "Latn",
                 "Latine (def)",
                 "en_Latn",
                 "Anglish [abc] (Latine [def])",
-            "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
+                "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
             {
                 "territory",
                 "US",
                 "U.S. (ghi)",
                 "en_Latn_US",
                 "Anglish [abc] (Latine [def], U.S. [ghi])",
-            "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
+                "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
             { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
             { "variant", "FOOBAR", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null },
             { "key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=foo)", null },
@@ -391,7 +391,8 @@ public class TestLocale extends TestFmwkPlus {
                 if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
                     typeCode = CLDRFile.typeNameToCode(row[0]);
                     standAlone = f.getName(typeCode, row[1]);
-                };
+                }
+                ;
                 if (row[5] != null) {
                     String path = CLDRFile.getKey(typeCode, row[1]);
                     String example = eg
@@ -425,7 +426,7 @@ public class TestLocale extends TestFmwkPlus {
             testInfo.getEnglish().getName("zh_Hans"));
         assertEquals("Extended language translation",
             "Simplified Chinese (Singapore)", testInfo.getEnglish()
-            .getName("zh_Hans_SG"));
+                .getName("zh_Hans_SG"));
         assertEquals("Extended language translation", "American English",
             testInfo.getEnglish().getName("en-US"));
         assertEquals("Extended language translation",

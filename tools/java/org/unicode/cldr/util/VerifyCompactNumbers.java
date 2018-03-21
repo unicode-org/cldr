@@ -36,9 +36,7 @@ public class VerifyCompactNumbers {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        organization(".*", "CLDR", "organization"),
-        filter(".*", ".*", "locale filter (regex)"),
-        currency(".*", "EUR", "show currency"), ;
+        organization(".*", "CLDR", "organization"), filter(".*", ".*", "locale filter (regex)"), currency(".*", "EUR", "show currency"),;
         // boilerplate
         final Option option;
 
@@ -131,15 +129,15 @@ public class VerifyCompactNumbers {
             String locale = cldrFile.getLocaleID();
 
             TablePrinter tablePrinter1 = new TablePrinter()
-            // .setCaption("Timezone Formats")
-            .setTableAttributes("class='dtf-table'")
-            .addColumn("Numeric Format").setHeaderCell(true).setHeaderAttributes("class='dtf-th'")
+                // .setCaption("Timezone Formats")
+                .setTableAttributes("class='dtf-table'")
+                .addColumn("Numeric Format").setHeaderCell(true).setHeaderAttributes("class='dtf-th'")
                 .setCellAttributes("class='dtf-s'")
-            .addColumn("Compact-Short").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
-            .addColumn("Compact-Long").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
+                .addColumn("Compact-Short").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+                .addColumn("Compact-Long").setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
             if (showCurrency) {
                 tablePrinter1
-                .addColumn("Compact-Short<br>+Currency")
+                    .addColumn("Compact-Short<br>+Currency")
                     .setHeaderAttributes("class='dtf-th'")
                     .setCellAttributes("class='dtf-s'")
 //                    .addColumn("Compact-Short<br>+Unit")
@@ -245,12 +243,12 @@ public class VerifyCompactNumbers {
                     // + "\t__" + compactLongFormattedNumber
                     // );
                     tablePrinter1.addRow()
-                    .addCell(formattedNumber)
-                    .addCell(compactFormattedNumber)
-                    .addCell(compactLongFormattedNumber);
+                        .addCell(formattedNumber)
+                        .addCell(compactFormattedNumber)
+                        .addCell(compactLongFormattedNumber);
                     if (showCurrency) {
                         tablePrinter1
-                        .addCell(cdfCurr == null ? "n/a" : cdfCurr.format(source))
+                            .addCell(cdfCurr == null ? "n/a" : cdfCurr.format(source))
 //                            .addCell(cdfU.format(source))
 //                             .addCell(cdfsCurr.format(source))
                         // .addCell(cdfsCurrLong.format(source))
@@ -263,7 +261,7 @@ public class VerifyCompactNumbers {
                     //                            ? ""
                     //                                    : view);
                     tablePrinter1
-                    .finishRow();
+                        .finishRow();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -276,12 +274,12 @@ public class VerifyCompactNumbers {
             out.append(tablePrinter1.toString() + "\n");
             out.append("<h3>Plural Rules</h3>");
             out.append("<p>Look over the Minimal Pairs to make sure they are ok. "
-                    + "Then review the examples in the cell to the left. "
-                    + "All of those you should be able to substitute for the numbers in the Minimal Pairs, "
-                    + "with an acceptable result. "
-                    + "If any would be incorrect, please "
-                    + "<a target='ticket' href='https://unicode.org/cldr/trac/newticket'>file a ticket</a>.</p>"
-                    + "<p>For more details, see " +
+                + "Then review the examples in the cell to the left. "
+                + "All of those you should be able to substitute for the numbers in the Minimal Pairs, "
+                + "with an acceptable result. "
+                + "If any would be incorrect, please "
+                + "<a target='ticket' href='https://unicode.org/cldr/trac/newticket'>file a ticket</a>.</p>"
+                + "<p>For more details, see " +
                 "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/cldr-spec/plural-rules'>Plural Rules</a>.</p>");
             ShowPlurals showPlurals = new ShowPlurals(CLDR_CONFIG.getSupplementalDataInfo());
             showPlurals.printPluralTable(cldrFile, locale, out, factory);

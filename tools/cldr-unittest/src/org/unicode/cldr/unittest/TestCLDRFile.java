@@ -57,17 +57,16 @@ public class TestCLDRFile extends TestFmwk {
 
     public void testFallbackNames() {
         String[][] tests = {
-            {"zh-Hanb", "Chinese (Han with Bopomofo)"},
-            {"aaa", "Ghotuo"},
-            {"zh-RR", "Chinese (RR)"},
-            {"new_Newa_NP", "Newari (Newa, Nepal)"},
+            { "zh-Hanb", "Chinese (Han with Bopomofo)" },
+            { "aaa", "Ghotuo" },
+            { "zh-RR", "Chinese (RR)" },
+            { "new_Newa_NP", "Newari (Newa, Nepal)" },
         };
         CLDRFile english = testInfo.getEnglish(); // testInfo.getFullCldrFactory().make("en", false);
         for (String[] test : tests) {
             assertEquals("", test[1], english.getName(test[0]));
         }
     }
-
 
     // verify for all paths, if there is a count="other", then there is a
     // count="x", for all x in keywords
@@ -135,10 +134,12 @@ public class TestCLDRFile extends TestFmwk {
         Map<String, LocaleInfo> localeInfos = new LinkedHashMap<String, LocaleInfo>();
         Relation<String, String> missingPathsToLocales = Relation.of(
             new TreeMap<String, Set<String>>(CLDRFile
-                .getComparator(DtdType.ldml)), TreeSet.class);
+                .getComparator(DtdType.ldml)),
+            TreeSet.class);
         Relation<String, String> extraPathsToLocales = Relation.of(
             new TreeMap<String, Set<String>>(CLDRFile
-                .getComparator(DtdType.ldml)), TreeSet.class);
+                .getComparator(DtdType.ldml)),
+            TreeSet.class);
 
         for (String locale : new String[] { "en", "root", "fr", "ar", "ja" }) {
             localeInfos.put(locale, new LocaleInfo(locale));
@@ -168,12 +169,12 @@ public class TestCLDRFile extends TestFmwk {
                             .contains("[@type=\"gregorian\"]"))
                         || (path.contains("/eras/") && path
                             .contains("[@alt=\"variant\"]")) // it is OK
-                        // for
-                        // just
-                        // "en"
-                        // to
-                        // have
-                        // /eras/.../era[@type=...][@alt="variant"]
+                    // for
+                    // just
+                    // "en"
+                    // to
+                    // have
+                    // /eras/.../era[@type=...][@alt="variant"]
                         || path.contains("[@type=\"japanese\"]")
                         || path.contains("[@type=\"coptic\"]")
                         || path.contains("[@type=\"hebrew\"]")
@@ -184,12 +185,11 @@ public class TestCLDRFile extends TestFmwk {
                         || path.startsWith("//ldml/contextTransforms/contextTransformUsage")
                         || path.contains("[@alt=\"variant\"]")
                         || (path.contains("dayPeriod[@type=")
-                            && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]")
-                                )) // morning1, afternoon1, ...
+                            && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]"))) // morning1, afternoon1, ...
                         || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
                             && localeInfo.locale.equals("root"))
-                        // //ldml/characters/exemplarCharacters[@type="index"][root]
-                        ) {
+                    // //ldml/characters/exemplarCharacters[@type="index"][root]
+                    ) {
                         continue;
                     }
                     String localeAndStatus = localeInfo.locale
@@ -237,7 +237,8 @@ public class TestCLDRFile extends TestFmwk {
                 + (englishInfo.cldrFile.isHere(path) ? "" : " (source_locale:"
                     + originalLocale
                     + (path.equals(status.pathWhereFound) ? "" : ", source_path: "
-                        + status) + ")");
+                        + status)
+                    + ")");
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.contains("[@alt=\"accounting\"]")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
@@ -251,8 +252,8 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> locales = entry.getValue();
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.startsWith("//ldml/numbers/otherNumberingSystems/")
-                // || path.contains("[@alt=\"accounting\"]")
-                ) {
+            // || path.contains("[@alt=\"accounting\"]")
+            ) {
                 logln("-en, +" + locales + "\t" + path);
             } else {
                 logln("-en, +" + locales + "\t" + path);
@@ -291,7 +292,7 @@ public class TestCLDRFile extends TestFmwk {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
                 errln(cldr.getLocaleID() + "\t" + cldr.getStringValue(path)
-                + "\t" + cldr.getFullXPath(path));
+                    + "\t" + cldr.getFullXPath(path));
             }
             if (path == null) {
                 errln("Null path");
@@ -445,23 +446,26 @@ public class TestCLDRFile extends TestFmwk {
                     if (topValue != null) {
                         assertEquals(
                             "top≠resolved\t" + locale + "\t"
-                                + phf.fromPath(path), topValue,
-                                resolvedValue);
+                                + phf.fromPath(path),
+                            topValue,
+                            resolvedValue);
                     } else {
                         String locale2 = cldrFile.getSourceLocaleID(path,
                             status);
                         assertEquals(
                             "bailey value≠\t" + locale + "\t"
-                                + phf.fromPath(path), resolvedValue,
-                                baileyValue);
+                                + phf.fromPath(path),
+                            resolvedValue,
+                            baileyValue);
                         assertEquals(
                             "bailey locale≠\t" + locale + "\t"
-                                + phf.fromPath(path), locale2,
-                                localeWhereFound.value);
+                                + phf.fromPath(path),
+                            locale2,
+                            localeWhereFound.value);
                         assertEquals(
                             "bailey path≠\t" + locale + "\t"
                                 + phf.fromPath(path),
-                                status.pathWhereFound, pathWhereFound.value);
+                            status.pathWhereFound, pathWhereFound.value);
                     }
                 }
 
@@ -567,8 +571,8 @@ public class TestCLDRFile extends TestFmwk {
     public void TestFileIds() {
         Output<Map<String, Multimap<LdmlDir, Source>>> localeToDirToSource = new Output<>();
         Map<LdmlDir, Multimap<String, Source>> dirToLocaleToSource = getFiles(localeToDirToSource);
-        
-        for ( Entry<String, Multimap<LdmlDir, Source>> e : localeToDirToSource.value.entrySet()) {
+
+        for (Entry<String, Multimap<LdmlDir, Source>> e : localeToDirToSource.value.entrySet()) {
             String locale = e.getKey();
             if (locale.equals("root")) {
                 continue; // allow multiple root locales
@@ -595,7 +599,7 @@ public class TestCLDRFile extends TestFmwk {
                 }
                 Source source = localeAndDir.getValue();
                 String parent = LocaleIDParser.getParent(loc);
-                String parent2 = LanguageTagParser.getSimpleParent(loc); 
+                String parent2 = LanguageTagParser.getSimpleParent(loc);
                 if (parent2.isEmpty()) {
                     parent2 = "root";
                 }
@@ -613,7 +617,6 @@ public class TestCLDRFile extends TestFmwk {
                 }
             }
 
-
             // establish that the parent of locale is somewhere in the same 
 //                assertEquals(dir + " locale file has minimal id: ", min, loc);
 //            if (!dir.endsWith("exemplars")) {
@@ -625,19 +628,11 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     enum Source {
-        common, 
-        seed, 
-        exemplars}
-    
+        common, seed, exemplars
+    }
+
     enum LdmlDir {
-        main,
-        annotations,
-        annotationsDerived,
-        casing,
-        collation,
-        rbnf,
-        segments,
-        subdivisions
+        main, annotations, annotationsDerived, casing, collation, rbnf, segments, subdivisions
     }
 
     /**
@@ -690,7 +685,7 @@ public class TestCLDRFile extends TestFmwk {
         }
         dirToSource.put(b, c);
     }
-    
+
     public void TestSwissHighGerman() {
         CLDRFile swissHighGerman = testInfo.getCommonSeedExemplarsFactory().make("de_CH", true);
         for (String xpath : swissHighGerman) {

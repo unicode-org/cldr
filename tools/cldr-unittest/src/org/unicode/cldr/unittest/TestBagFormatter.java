@@ -30,11 +30,11 @@ import com.ibm.icu.text.UnicodeSet;
 
 // TODO change to use test framework
 public class TestBagFormatter {
-    
+
     static final void generatePropertyAliases(boolean showValues) {
         generatePropertyAliases(showValues, ICUPropertyFactory.make());
     }
-    
+
     static final void generatePropertyAliases(boolean showValues, UnicodeProperty.Factory ups) {
         Collator order = Collator.getInstance(Locale.ENGLISH);
         TreeSet props = new TreeSet(order);
@@ -45,10 +45,10 @@ public class TestBagFormatter {
             System.out.println(UnicodeProperty.getTypeName(i));
             Iterator it = props.iterator();
             while (it.hasNext()) {
-                String propAlias = (String)it.next();
+                String propAlias = (String) it.next();
                 UnicodeProperty up = ups.getProperty(propAlias);
                 int type = up.getType();
-                if (type != i) continue;                
+                if (type != i) continue;
                 System.out.println();
                 System.out.println(propAlias + "\t" + bf.join(up.getNameAliases()));
                 if (!showValues) continue;
@@ -63,20 +63,20 @@ public class TestBagFormatter {
                 values.addAll(up.getAvailableValues());
                 Iterator it2 = values.iterator();
                 while (it2.hasNext()) {
-                    String valueAlias = (String)it2.next();
+                    String valueAlias = (String) it2.next();
                     System.out.println("\t" + bf.join(valueAlias + "\t" + up.getValueAliases(valueAlias)));
                 }
             }
         }
     }
-    
+
     static class NumberComparator implements Comparator {
         public int compare(Object o1, Object o2) {
             if (o1 == o2) return 0;
             if (o1 == null) return 1;
             if (o2 == null) return -1;
-            double n1 = Double.parseDouble((String)o1);
-            double n2 = Double.parseDouble((String)o2);
+            double n1 = Double.parseDouble((String) o1);
+            double n2 = Double.parseDouble((String) o2);
             return n1 < n2 ? -1 : n1 > n2 ? 1 : 0;
         }
     }
@@ -87,28 +87,28 @@ public class TestBagFormatter {
             //readCharacters();
             UnicodeProperty prop = ICUPropertyFactory.make().getProperty("Canonicalcombiningclass");
             prop.getAvailableValues();
-            
+
             generatePropertyAliases(true);
-            
+
             BagFormatter bf = new BagFormatter();
 
-            UnicodeSet us = new UnicodeSet("[:gc=nd:]");  
+            UnicodeSet us = new UnicodeSet("[:gc=nd:]");
             FileUtilities.CONSOLE.println("[:gc=nd:]");
-            bf.showSetNames(FileUtilities.CONSOLE,us);
+            bf.showSetNames(FileUtilities.CONSOLE, us);
 
-            us = new UnicodeSet("[:numeric_value=2:]");  
+            us = new UnicodeSet("[:numeric_value=2:]");
             FileUtilities.CONSOLE.println("[:numeric_value=2:]");
-            bf.showSetNames(FileUtilities.CONSOLE,us);
-            
-            us = new UnicodeSet("[:numeric_type=numeric:]");   
+            bf.showSetNames(FileUtilities.CONSOLE, us);
+
+            us = new UnicodeSet("[:numeric_type=numeric:]");
             FileUtilities.CONSOLE.println("[:numeric_type=numeric:]");
-            bf.showSetNames(FileUtilities.CONSOLE,us);
-            
+            bf.showSetNames(FileUtilities.CONSOLE, us);
+
             UnicodeProperty.Factory ups = ICUPropertyFactory.make();
-            us = ups.getSet("gc=mn", null, null); 
+            us = ups.getSet("gc=mn", null, null);
             FileUtilities.CONSOLE.println("gc=mn");
             bf.showSetNames(FileUtilities.CONSOLE, us);
-            
+
             if (true) return;
             //showNames("Name", ".*MARK.*");
             //showNames("NFD", "a.+");
@@ -117,13 +117,12 @@ public class TestBagFormatter {
             //TestUnicodePropertySource.test(true);
             //showNames(".*\\ \\-.*");
 
-
             //checkHTML();
             //testIsRTL();
-           
+
             //TestTokenizer.test();
             //RandomCollator.generate("collationTest.txt", null);
-            
+
             //TestPick.test();
             //printRandoms();
             //if (true) return;
@@ -143,10 +142,10 @@ public class TestBagFormatter {
             */
         } finally {
             System.out.println("End");
-       }
+        }
 
     }
-    
+
     static void testLocales() throws IOException {
         Locale[] locales = Collator.getAvailableLocales();
         Set s = new TreeSet(Collator.getInstance());
@@ -157,11 +156,10 @@ public class TestBagFormatter {
             String dcountry = locales[i].getDisplayCountry();
             if (country.equals("")) continue;
             s.add(""
-                + "\t" + dcountry 
-                + "\t" + country 
+                + "\t" + dcountry
+                + "\t" + country
                 + "\t" + dlang
-                + "\t" + lang 
-            );
+                + "\t" + lang);
         }
         //CollectionFormatter cf = new CollectionFormatter();
         PrintWriter pw = FileUtilities.openUTF8Writer("", "countries.txt");
@@ -171,27 +169,26 @@ public class TestBagFormatter {
         }
         pw.close();
     }
-    
-    
+
     /*
      * Use the number of significant digits to round get a rounding value.
      */
-/*    static final double LOG10 = Math.log(10);
+    /*    static final double LOG10 = Math.log(10);
     public static void useSignificantDigits(double value, int digits) {
         double log10 = Math.log(value)/LOG10; // log[e]
         
     }*/
-    
+
     static final UnicodeSet RTL = new UnicodeSet("[[:L:]&[[:bidi class=R:][:bidi class=AL:]]]");
-    
-    static boolean isRTL(Locale loc) {        
+
+    static boolean isRTL(Locale loc) {
         // in 2.8 we can use the exemplar characters, but for 2.6 we have to work around it
         int[] scripts = UScript.getCode(loc);
         return new UnicodeSet()
             .applyIntPropertyValue(UProperty.SCRIPT, scripts == null ? UScript.LATIN : scripts[0])
             .retainAll(RTL).size() != 0;
     }
-    
+
     static void testIsRTL() {
         Locale[] locales = Locale.getAvailableLocales();
         Set s = new TreeSet();
@@ -205,20 +202,20 @@ public class TestBagFormatter {
     }
 
     static final Transliterator toHTML = Transliterator.createFromRules(
-        "any-html",        
-            "'<' > '&lt;' ;" +
+        "any-html",
+        "'<' > '&lt;' ;" +
             "'&' > '&amp;' ;" +
             "'>' > '&gt;' ;" +
             "'\"' > '&quot;' ; ",
         Transliterator.FORWARD);
     static final Transliterator fromHTML = Transliterator.createFromRules(
-        "html-any",        
-            "'<' < '&'[lL][Tt]';' ;" +
+        "html-any",
+        "'<' < '&'[lL][Tt]';' ;" +
             "'&' < '&'[aA][mM][pP]';' ;" +
             "'>' < '&'[gG][tT]';' ;" +
             "'\"' < '&'[qQ][uU][oO][tT]';' ; ",
         Transliterator.REVERSE);
-        
+
     static void checkHTML() {
         String foo = "& n < b < \"ab\"";
         String fii = toHTML.transliterate(foo);

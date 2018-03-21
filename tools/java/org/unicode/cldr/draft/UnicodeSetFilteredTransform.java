@@ -25,8 +25,7 @@ public class UnicodeSetFilteredTransform extends FilteredTransform {
             return false; // done
         }
         int cp;
-        findOut:
-        {
+        findOut: {
             // scan for items that are not in set
             for (; i < length; i += Character.charCount(cp)) {
                 cp = text.codePointAt(i);
@@ -38,8 +37,7 @@ public class UnicodeSetFilteredTransform extends FilteredTransform {
             startEnd[0] = startEnd[1] = i;
             return true;
         }
-        findIn:
-        {
+        findIn: {
             // now for items that are
             for (; i < length; i += Character.charCount(cp)) {
                 cp = text.codePointAt(i);

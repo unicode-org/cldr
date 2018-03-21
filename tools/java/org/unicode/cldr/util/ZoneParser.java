@@ -853,16 +853,16 @@ public class ZoneParser {
                     if (DEBUG) {
                         System.out.println("Too many canonicals in: " + equivalents);
                         System.out
-                        .println("\t*Don't* put these into the same equivalence class: "
-                            + canonicals);
+                            .println("\t*Don't* put these into the same equivalence class: "
+                                + canonicals);
                     }
                     Set<String> remainder = new TreeSet<String>(equivalents);
                     remainder.removeAll(isCanonical);
                     if (remainder.size() != 0) {
                         if (DEBUG) {
                             System.out
-                            .println("\tThe following should be equivalent to others: "
-                                + remainder);
+                                .println("\tThe following should be equivalent to others: "
+                                    + remainder);
                         }
                     }
                 }

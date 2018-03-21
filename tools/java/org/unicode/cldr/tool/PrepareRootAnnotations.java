@@ -15,12 +15,12 @@ import com.ibm.icu.dev.util.UnicodeMap;
 
 public class PrepareRootAnnotations {
 
-    public static void main(String[] args) throws IOException { 
+    public static void main(String[] args) throws IOException {
         // flesh out root with new values
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         CLDRFile oldAnnotations = factoryAnnotations.make("root", false);
         UnicodeMap<String> oldValues = new UnicodeMap<>();
-        for (String path: oldAnnotations) {
+        for (String path : oldAnnotations) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (parts.getElement(1).equals("identity")) {
                 continue;
@@ -34,15 +34,15 @@ public class PrepareRootAnnotations {
         for (String cp : Emoji.getNonConstructed()) {
             String value = oldValues.get(cp);
             if (value == null) {
-                oldValues.put(cp, value = "E"+(counter++));
+                oldValues.put(cp, value = "E" + (counter++));
             }
-            String base = "//ldml/annotations/annotation[@cp=\""+cp+"\"]";
+            String base = "//ldml/annotations/annotation[@cp=\"" + cp + "\"]";
             String namePath = base + Emoji.TYPE_TTS;
             String keywordPath = base;
             annotations.add(namePath, value);
             annotations.add(keywordPath, value);
         }
-        
+
         try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "annotations/", "root.xml")) {
             annotations.write(pw);
             pw.flush();

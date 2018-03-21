@@ -41,7 +41,7 @@ public final class WikiSubdivisionLanguages {
 
     private static final boolean DEBUG_CONSOLE = false;
     private static final String DEBUG_LANG_FILTER = null; // "az";
-    
+
     private static final String BEFORE_TYPE = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"";
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
@@ -49,14 +49,13 @@ public final class WikiSubdivisionLanguages {
 
     enum Items {
         // http://www.wikidata.org/entity/Q24260    كانيلو  AD-02   ar
-        wid,
-        translation,
-        subdivisionId,
-        languageId
+        wid, translation, subdivisionId, languageId
     }
 
-    private static ChainedMap.M3<String, String, String> SUB_LANG_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
-    private static ChainedMap.M3<String, String, String> LANG_SUB_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
+    private static ChainedMap.M3<String, String, String> SUB_LANG_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
+        String.class);
+    private static ChainedMap.M3<String, String, String> LANG_SUB_NAME = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(),
+        String.class);
     private static Set<String> bogus = new TreeSet<>();
     private static Multimap<Status, String> bogusStatus = TreeMultimap.create();
 
@@ -85,7 +84,6 @@ public final class WikiSubdivisionLanguages {
         }
         return null;
     }
-
 
     //static Map<String, String> WIKIDATA_TO_MID = new TreeMap<>();
     static {
@@ -124,7 +122,7 @@ public final class WikiSubdivisionLanguages {
         // postprocess
         String oldLang = null;
         DisplayAndInputProcessor daip = null;
-        Exception[] internalException = {null};
+        Exception[] internalException = { null };
 
         for (R3<String, String, String> row : LANG_SUB_NAME.rows()) {
             String lang = row.get0();
@@ -136,8 +134,8 @@ public final class WikiSubdivisionLanguages {
             }
             String path = getSubdivisionPath(subdivision);
             String name2 = daip.processInput(
-                path, 
-                name.replace("\u00AD", ""), 
+                path,
+                name.replace("\u00AD", ""),
                 internalException);
             // TODO remove soft hyphen in DAIP
             if (internalException[0] != null) {
@@ -150,11 +148,13 @@ public final class WikiSubdivisionLanguages {
         }
 
     }
+
     private static String getSubdivisionPath(String subdivision) {
         return BEFORE_TYPE + subdivision + "\"][@draft=\"contributed\"]";
     }
+
     private static String getSubdivisionFromPath(String path) {
-        return path.substring(BEFORE_TYPE.length(), path.indexOf('"',BEFORE_TYPE.length()));
+        return path.substring(BEFORE_TYPE.length(), path.indexOf('"', BEFORE_TYPE.length()));
     }
 
     public static void main(String[] args) {
@@ -163,16 +163,16 @@ public final class WikiSubdivisionLanguages {
         Factory cldrFactorySubdivisions = Factory.make(CLDRPaths.SUBDIVISIONS_DIRECTORY, ".*");
         CLDRFile file = null;
         UnicodeSet exemplars = null;
-        
+
         ChainedMap.M4<Integer, String, String, String> exemplarFailureLangSubdivisionName = ChainedMap.of(
             new TreeMap<Integer, Object>(),
-            new TreeMap<String, Object>(), 
-            new TreeMap<String, Object>(), 
+            new TreeMap<String, Object>(),
+            new TreeMap<String, Object>(),
             String.class);
 
         for (Entry<String, Map<String, String>> entry : LANG_SUB_NAME) {
             String lang = entry.getKey();
-            file = cldrFactory.make(lang,true);
+            file = cldrFactory.make(lang, true);
 
             CLDRFile oldFileSubdivisions;
             try {
@@ -203,7 +203,7 @@ public final class WikiSubdivisionLanguages {
                 .addAll(punctuation)
                 .addAll(numbers)
                 .addAll(new UnicodeSet("[\\ ]")).freeze();
-            
+
             for (Entry<String, String> entry2 : entry.getValue().entrySet()) {
                 String subdivision = entry2.getKey();
                 String name = entry2.getValue();
@@ -242,7 +242,7 @@ public final class WikiSubdivisionLanguages {
                     continue;
                 }
                 if (paths.size() > 3) {
-                    int debug=0;
+                    int debug = 0;
                 }
                 // we only care about collisions *within* a region.
                 // so group them together
@@ -299,7 +299,8 @@ public final class WikiSubdivisionLanguages {
         }
     }
 
-    private static void addExemplarFailures(M4<Integer, String, String, String> exemplarFailureLangSubdivisionName, UnicodeSet exemplarFailures, String language, String subdivision, String name) {
+    private static void addExemplarFailures(M4<Integer, String, String, String> exemplarFailureLangSubdivisionName, UnicodeSet exemplarFailures,
+        String language, String subdivision, String name) {
         for (String s : exemplarFailures) {
             exemplarFailureLangSubdivisionName.put(s.codePointAt(0), language, subdivision, name);
         }
@@ -310,18 +311,18 @@ public final class WikiSubdivisionLanguages {
             fail(title, entry.get1(), entry.get2(), entry.get3(), entry.get0());
         }
     }
+
     private static void fail(String title, String lang, String subdivision, String name, int exemplarFailure) {
-        System.out.println(title 
-            + ":\t" + lang 
-            + "\t"  + subdivision 
+        System.out.println(title
+            + ":\t" + lang
+            + "\t" + subdivision
             + "\t" + (exemplarFailure < 0 ? "" : "«" + UTF16.valueOf(exemplarFailure) + "»")
             + "\t" + (exemplarFailure < 0 ? "" : "U+" + Utility.hex(exemplarFailure))
-            + "\t" + CldrUtility.ifNull(getBestWikiEnglishName(subdivision),"")
-            + "\t" + CldrUtility.ifNull(name,"").replace("\"", "&quot;")
-            );
+            + "\t" + CldrUtility.ifNull(getBestWikiEnglishName(subdivision), "")
+            + "\t" + CldrUtility.ifNull(name, "").replace("\"", "&quot;"));
     }
 
-    static final List<String> MARKERS = Arrays.asList("¹","²","³"); // if there are more than 3 of the same kind, throw exception
+    static final List<String> MARKERS = Arrays.asList("¹", "²", "³"); // if there are more than 3 of the same kind, throw exception
 
     private static UnicodeSet scriptsFor(UnicodeSet main) {
         UnicodeSet result = UnicodeSet.EMPTY;

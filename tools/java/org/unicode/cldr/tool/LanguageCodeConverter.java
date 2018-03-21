@@ -28,16 +28,15 @@ public class LanguageCodeConverter {
     private static Set<String> exceptionCodes = new TreeSet<String>();
     private static Set<String> parseErrors = new LinkedHashSet<String>();
 
-    private static Map<String, R2<List<String>, String>> languageAliases =
-        CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo().get("language");
+    private static Map<String, R2<List<String>, String>> languageAliases = CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo()
+        .get("language");
 
     /**
      * Public only for testing.
      *
      * @internal
      */
-    public static final Map<String, String> GOOGLE_CLDR =
-        Builder.with(new LinkedHashMap<String, String>()) // preserve order
+    public static final Map<String, String> GOOGLE_CLDR = Builder.with(new LinkedHashMap<String, String>()) // preserve order
         .put("iw", "he")
         .put("jw", "jv")
         .put("no", "nb")
@@ -64,8 +63,7 @@ public class LanguageCodeConverter {
      *
      * @internal
      */
-    public static final Map<String, String> CLDR_GOOGLE =
-        Builder.with(new HashMap<String, String>())
+    public static final Map<String, String> CLDR_GOOGLE = Builder.with(new HashMap<String, String>())
         .putAllTransposed(GOOGLE_CLDR)
         .freeze();
 
@@ -74,8 +72,7 @@ public class LanguageCodeConverter {
      *
      * @internal
      */
-    public static final Map<String, String> EXTRA_SCRIPTS =
-        Builder.with(new HashMap<String, String>())
+    public static final Map<String, String> EXTRA_SCRIPTS = Builder.with(new HashMap<String, String>())
         .on("crs", "pcm", "tlh").put("Latn")
         .freeze();
 

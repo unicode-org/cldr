@@ -24,8 +24,7 @@ import com.ibm.icu.text.UTF16;
  * @author Brian Rower - June 2008
  *
  */
-public class LDML2ICUBinaryWriter
-{
+public class LDML2ICUBinaryWriter {
     /**
      * This string is the copyright to be written into the file.
      * In the C version, can be found in <I>icu4c_root</I>/source/common/unicode/uversion.h
@@ -162,8 +161,7 @@ public class LDML2ICUBinaryWriter
     // must be set if writing transliteration
     private static Hashtable<String, String> ruleStringsHash = null;
 
-    public static void main()
-    {
+    public static void main() {
 
     }
 
@@ -180,8 +178,7 @@ public class LDML2ICUBinaryWriter
      *            The name of the output file. If filename has an extension other than .res
      *            (ex: .txt) this method will strip that extention and replace with .res.
      */
-    public static void writeBinaryFile(ICUResourceWriter.Resource resTop, String outDir, String outFile)
-    {
+    public static void writeBinaryFile(ICUResourceWriter.Resource resTop, String outDir, String outFile) {
         String fileName = "";
         int usedOffset = 0;
         String directoryPath = "";
@@ -194,18 +191,14 @@ public class LDML2ICUBinaryWriter
 
         // Do some checks on the file name
         // if it has a period in it...get rid of everything after the period
-        if (outFile.indexOf('.') > -1)
-        {
+        if (outFile.indexOf('.') > -1) {
             fileName = outFile.substring(0, outFile.indexOf('.'));
-            if (fileName.length() == 0)
-            {
+            if (fileName.length() == 0) {
                 printError(outFile + " is not a valid file name.");
                 System.exit(1);
             }
             fileName = fileName + ".res";
-        }
-        else
-        {
+        } else {
             fileName = outFile + ".res";
         }
         // add the .res part to the file name
@@ -215,8 +208,7 @@ public class LDML2ICUBinaryWriter
         directoryPath = outDir.replace('\\', '/');
 
         // if the path does not end in a slash, then we'll add one
-        if (directoryPath.charAt(directoryPath.length() - 1) != '/')
-        {
+        if (directoryPath.charAt(directoryPath.length() - 1) != '/') {
             directoryPath = directoryPath + "/";
         }
 
@@ -243,8 +235,7 @@ public class LDML2ICUBinaryWriter
         dataVersion[3] = 0;
 
         // now that the file and directory name are formatted, lets try to create an output stream
-        try
-        {
+        try {
             System.out.println("Creating file: " + directoryPath + fileName);
             File f = new File(directoryPath, fileName);
             out = new FileOutputStream(f);
@@ -269,56 +260,45 @@ public class LDML2ICUBinaryWriter
 
             usedOffset = resTop.writeBinary(out, usedOffset);
             padding = createPadding(pad32(usedOffset));
-            if (padding != null)
-            {
+            if (padding != null) {
                 out.write(padding);
                 written += padding.length;
             }
             out.close();
             System.out.println("Finished writing binary.");
-        } catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             printError(directoryPath + fileName + " could not be opened, please ensure the correct path is given.");
             e.printStackTrace();
             System.exit(1);
-        } catch (SecurityException e)
-        {
+        } catch (SecurityException e) {
             printError("access denied: " + directoryPath + fileName);
             e.printStackTrace();
             System.exit(1);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             printError(e.getMessage());
             System.exit(1);
         }
     }
 
-    private static int getSpecialType(ICUResourceWriter.Resource res)
-    {
-        if (!res.hasKey)
-        {
+    private static int getSpecialType(ICUResourceWriter.Resource res) {
+        if (!res.hasKey) {
             return SPECIAL_NONE;
         }
 
-        if (res.name.equals("CollationElements") && res instanceof ICUResourceWriter.ResourceTable)
-        {
+        if (res.name.equals("CollationElements") && res instanceof ICUResourceWriter.ResourceTable) {
             return SPECIAL_COLLATIONELEMENTS;
         }
 
-        if (res.name.equals("collations") && res instanceof ICUResourceWriter.ResourceTable)
-        {
+        if (res.name.equals("collations") && res instanceof ICUResourceWriter.ResourceTable) {
             return SPECIAL_COLLATIONS;
         }
 
-        if (res.name.equals("depends") && res instanceof ICUResourceWriter.ResourceProcess)
-        {
+        if (res.name.equals("depends") && res instanceof ICUResourceWriter.ResourceProcess) {
             return SPECIAL_DEPENDENCY;
         }
 
-        if (res instanceof ICUResourceWriter.ResourceProcess)
-        {
-            if (((ICUResourceWriter.ResourceProcess) res).ext.equals(ICUResourceWriter.TRANSLITERATOR))
-            {
+        if (res instanceof ICUResourceWriter.ResourceProcess) {
+            if (((ICUResourceWriter.ResourceProcess) res).ext.equals(ICUResourceWriter.TRANSLITERATOR)) {
                 return SPECIAL_TRANSLITERATOR;
             }
         }
@@ -334,17 +314,13 @@ public class LDML2ICUBinaryWriter
      * @param top
      *            The top of the Resource Tree
      */
-    private static void dealWithSpecialElements(ICUResourceWriter.Resource top, String outDir)
-    {
+    private static void dealWithSpecialElements(ICUResourceWriter.Resource top, String outDir) {
         // if it's a table
-        if (top instanceof ICUResourceWriter.ResourceTable)
-        {
+        if (top instanceof ICUResourceWriter.ResourceTable) {
             // loop through all it's elements and check if they're anything specialCollationElements or Collation
             ICUResourceWriter.Resource cur = top.first;
-            while (cur != null)
-            {
-                switch (getSpecialType(cur))
-                {
+            while (cur != null) {
+                switch (getSpecialType(cur)) {
                 case SPECIAL_COLLATIONELEMENTS:
                     addCollation(cur);
                     break;
@@ -369,25 +345,21 @@ public class LDML2ICUBinaryWriter
         // if it's not a table...don't do anything...
     }
 
-    public static void setRulesHash(Hashtable<String, String> hash)
-    {
+    public static void setRulesHash(Hashtable<String, String> hash) {
         ruleStringsHash = hash;
     }
 
     // Parallels the C function for parseTransliterator in parse.c of genrb
     private static void addTransliteration(ICUResourceWriter.ResourceTable parent,
-        ICUResourceWriter.ResourceProcess trans)
-    {
-        if (ruleStringsHash == null)
-        {
+        ICUResourceWriter.ResourceProcess trans) {
+        if (ruleStringsHash == null) {
             System.err.println("If you are processing transliteration, you must set the Rules Hashtable.");
             System.exit(-1);
         }
 
         String dataString = ruleStringsHash.get(trans.val);
 
-        if (dataString == null)
-        {
+        if (dataString == null) {
             System.err.println("Could not find data for: " + trans.val);
             System.exit(-1);
         }
@@ -404,51 +376,39 @@ public class LDML2ICUBinaryWriter
 
         // yes, we're using an address comparison below...because they should both be pointing the the same object when
         // we find it.
-        if (current != trans)
-        {
-            while (current != null && current.next != trans)
-            {
+        if (current != trans) {
+            while (current != null && current.next != trans) {
                 current = current.next;
             }
-            if (current != null)
-            {
+            if (current != null) {
                 replacement.next = trans.next;
                 current.next = replacement;
-            }
-            else
-            {
+            } else {
                 System.err.println("An unexpected error has occured: Could not find Transliteration resource.");
                 System.exit(-1);
             }
-        }
-        else
-        {
+        } else {
             replacement.next = trans.next;
             parent.first = replacement;
         }
 
     }
 
-    private static boolean isUWhiteSpace(char c)
-    {
+    private static boolean isUWhiteSpace(char c) {
         return (c >= 0x0009 && c <= 0x2029 && (c <= 0x000D || c == 0x0020 || c == 0x0085 ||
             c == 0x200E || c == 0x200F || c >= 0x2028));
     }
 
-    private static boolean isNewLine(char c)
-    {
-        if (c == 0x000d || c == 0x000a)
-        {
+    private static boolean isNewLine(char c) {
+        if (c == 0x000d || c == 0x000a) {
             return true;
         }
         return false;
     }
 
-    private static boolean isPunctuation(char c)
-    {
+    private static boolean isPunctuation(char c) {
         int x = UCharacter.getType(c);
-        switch (x)
-        {
+        switch (x) {
         case ECharacterCategory.CONNECTOR_PUNCTUATION:
         case ECharacterCategory.DASH_PUNCTUATION:
         case ECharacterCategory.END_PUNCTUATION:
@@ -462,11 +422,9 @@ public class LDML2ICUBinaryWriter
         }
     }
 
-    private static boolean isControl(char c)
-    {
+    private static boolean isControl(char c) {
         int x = UCharacter.getType(c);
-        switch (x)
-        {
+        switch (x) {
         case ECharacterCategory.CONTROL:
             return true;
         default:
@@ -475,8 +433,7 @@ public class LDML2ICUBinaryWriter
     }
 
     // parallels the C++ function utrans_stripRules in rbt_pars.cpp in i18n project
-    private static String stripRules(String data)
-    {
+    private static String stripRules(String data) {
         String newData = "";
         int currentIndex = 0;
         char curChar;
@@ -484,73 +441,57 @@ public class LDML2ICUBinaryWriter
         boolean needChar2 = false;
         boolean quoted = false;
 
-        try
-        {
+        try {
 
-            while (currentIndex < data.length())
-            {
+            while (currentIndex < data.length()) {
                 needChar2 = false;
                 curChar = data.charAt(currentIndex);
                 // if it's a quote, set the flag
-                if (curChar == '\'')
-                {
+                if (curChar == '\'') {
                     quoted = !quoted;
                 }
                 // otherwise...if the quote flag is NOT set.
-                else if (!quoted)
-                {
+                else if (!quoted) {
                     // IF comment... ignore comment lines ...starting with #....and until a carriage return or line feed
-                    if (curChar == '#')
-                    {
+                    if (curChar == '#') {
                         // if the preceeding characters were whitepace or new lines, go back and get rid of them
 
                         while (newData.length() > 0
                             && (isNewLine(newData.charAt(newData.length() - 1)) || isUWhiteSpace(newData.charAt(newData
-                                .length() - 1))))
-                        {
-                            if (newData.length() == 1)
-                            {
+                                .length() - 1)))) {
+                            if (newData.length() == 1) {
                                 newData = "";
-                            }
-                            else
-                            {
+                            } else {
                                 newData = newData.substring(0, newData.length() - 2);
                             }
 
                         }
 
                         // move to the end of the line
-                        while (!isNewLine(curChar) && currentIndex < data.length())
-                        {
+                        while (!isNewLine(curChar) && currentIndex < data.length()) {
                             currentIndex++;
-                            if (currentIndex < data.length())
-                            {
+                            if (currentIndex < data.length()) {
                                 curChar = data.charAt(currentIndex);
                             }
                         }
                         // grab the first character of this new line (no longer part of the comment
                         currentIndex++;
-                        if (currentIndex < data.length())
-                        {
+                        if (currentIndex < data.length()) {
                             curChar = data.charAt(currentIndex);
                         }
 
-                    }
-                    else if (curChar == '\\') // OR if its an escape char //((UChar)0x005C) - \
+                    } else if (curChar == '\\') // OR if its an escape char //((UChar)0x005C) - \
                     {
                         // skip over the \ and then skip any line breaks that may follow
-                        do
-                        {
+                        do {
                             currentIndex++;
-                            if (currentIndex < data.length())
-                            {
+                            if (currentIndex < data.length()) {
                                 curChar = data.charAt(currentIndex);
                             }
                         } while (isNewLine(curChar) && currentIndex < data.length());
 
                         // if it's a u and there are 4 more characters after it
-                        if (curChar == 'u' && (data.length() - currentIndex) >= 4)
-                        {
+                        if (curChar == 'u' && (data.length() - currentIndex) >= 4) {
                             // convert it to a character from a codepoint (String)UTF16.valueOf(int)
 
                             String hexString = data.substring(currentIndex + 1, currentIndex + 5);
@@ -561,20 +502,17 @@ public class LDML2ICUBinaryWriter
                             tempChar = temp.charAt(0);
 
                             // if its 0xFFFFFFFF
-                            if (tempChar == 0xFFFFFFFF)
-                            {
+                            if (tempChar == 0xFFFFFFFF) {
                                 System.err.println("Invalid character found while processing file.");
                                 System.exit(-1);
                             }
                             // if NOT whitespace(isUWhiteSpace) && NOT a control character? && not punctuation
-                            if (!isUWhiteSpace(tempChar) && !isPunctuation(tempChar) && !isControl(tempChar))
-                            {
+                            if (!isUWhiteSpace(tempChar) && !isPunctuation(tempChar) && !isControl(tempChar)) {
                                 // set the current character to this character
                                 curChar = tempChar;
                                 currentIndex += 4; // the 4 numbers...will add one more for the u, already did one for
                                 // the slash
-                                if (temp.length() > 1)
-                                {
+                                if (temp.length() > 1) {
                                     curChar2 = temp.charAt(1);
                                     needChar2 = true;
                                 }
@@ -582,26 +520,21 @@ public class LDML2ICUBinaryWriter
 
                         }
 
-                    }
-                    else if (curChar == '\'')// OR if it's a quote
+                    } else if (curChar == '\'')// OR if it's a quote
                     {
                         quoted = !quoted;
                     }
                 } // end not quoted
 
-                if (isNewLine(curChar))
-                {
+                if (isNewLine(curChar)) {
                     quoted = false;
                     // while we're not hitting the end of the string
-                    while (currentIndex < data.length())
-                    {
-                        if (!isNewLine(curChar))
-                        {
+                    while (currentIndex < data.length()) {
+                        if (!isNewLine(curChar)) {
                             break;
                         }
                         currentIndex++;
-                        if (currentIndex < data.length())
-                        {
+                        if (currentIndex < data.length()) {
                             curChar = data.charAt(currentIndex);
                         }
                     }
@@ -611,40 +544,34 @@ public class LDML2ICUBinaryWriter
                 // append the character to the new string, because we've decided it's ok
                 newData += curChar;
                 currentIndex++;
-                if (needChar2)
-                {
+                if (needChar2) {
                     newData += curChar2;
                 }
-            }// end loop
+            } // end loop
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.err.println("Had a problem...");
         }
-        if (newData.length() > data.length())
-        {
+        if (newData.length() > data.length()) {
             return null;
         }
         return newData;
     }
 
     private static void addDependency(ICUResourceWriter.ResourceTable parent, ICUResourceWriter.ResourceProcess dep,
-        String outDir)
-    {
+        String outDir) {
         String filename;
         File f;
 
         filename = outDir;
-        if (!(outDir.charAt(outDir.length() - 1) == '/' || outDir.charAt(outDir.length() - 1) == '\\'))
-        {
+        if (!(outDir.charAt(outDir.length() - 1) == '/' || outDir.charAt(outDir.length() - 1) == '\\')) {
             filename += "/";
         }
 
         filename += dep.val;
 
         f = new File(filename);
-        if (!f.exists())
-        {
+        if (!f.exists()) {
             System.err.println("WARNING: Could not find dependancy: " + filename);
         }
         // create the %%DEPENDENCY array with a string containing the path, add it to the table.
@@ -661,8 +588,7 @@ public class LDML2ICUBinaryWriter
 
         // yes, we're using an address comparison below...because they should both be pointing the the same object when
         // we find it.
-        while (current != null && current.next != dep)
-        {
+        while (current != null && current.next != dep) {
             current = current.next;
         }
         replacement.next = dep.next;
@@ -670,33 +596,26 @@ public class LDML2ICUBinaryWriter
 
     }
 
-    private static void addCollationElements(ICUResourceWriter.Resource elementTable)
-    {
+    private static void addCollationElements(ICUResourceWriter.Resource elementTable) {
         // Element table name is "Collation"
         // loops through sub tables of Collation and adds CollationBinary as nessisary
         ICUResourceWriter.Resource cur = elementTable.first;
 
-        while (cur != null)
-        {
+        while (cur != null) {
             addCollation(cur);
             cur = cur.next;
         }
     }
 
-    private static void addCollation(ICUResourceWriter.Resource element)
-    {
+    private static void addCollation(ICUResourceWriter.Resource element) {
         ICUResourceWriter.Resource cur = element.first;
 
-        while (cur != null)
-        {
-            if (cur.hasKey && (cur instanceof ICUResourceWriter.ResourceString))
-            {
+        while (cur != null) {
+            if (cur.hasKey && (cur instanceof ICUResourceWriter.ResourceString)) {
                 ICUResourceWriter.ResourceString strElement = (ICUResourceWriter.ResourceString) cur;
 
-                if (strElement.name.equals("Sequence"))
-                {
-                    try
-                    {
+                if (strElement.name.equals("Sequence")) {
+                    try {
                         // RuleBasedCollator rbc = new RuleBasedCollator(strElement.val);
                         // TODO Generate proper binary data for Collator
                         /*
@@ -712,8 +631,7 @@ public class LDML2ICUBinaryWriter
                         // b.name = "%%CollationBin";
                         // element.addAfter(b);
 
-                    } catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         System.err.println("Could not create Collation Binary");
                     }
                 }
@@ -733,8 +651,7 @@ public class LDML2ICUBinaryWriter
      * @param info
      * @param copyright
      */
-    private static void writeBinaryHeader(FileOutputStream out, UDataInfo info, String copyright)
-    {
+    private static void writeBinaryHeader(FileOutputStream out, UDataInfo info, String copyright) {
         short headSize = 0;
         byte[] magics = new byte[2];
         int pad = 0;
@@ -748,16 +665,14 @@ public class LDML2ICUBinaryWriter
         if (copyright != null && INCLUDE_COPYRIGHT) {
             headSize += copyright.length() + 1;
         }
-        if ((pad = pad16Bytes(headSize)) != 0)
-        {
+        if ((pad = pad16Bytes(headSize)) != 0) {
             headSize += pad;
         }
 
         magics[0] = MAGIC1;
         magics[1] = MAGIC2;
 
-        try
-        {
+        try {
             // write the size of the header
             out.write(shortToBytes(headSize));
             written += (shortToBytes(headSize)).length;
@@ -771,26 +686,22 @@ public class LDML2ICUBinaryWriter
             written += info.getByteArray().length;
 
             // write the copyright and null terminating byte(s) if writing it
-            if (copyright != null && INCLUDE_COPYRIGHT)
-            {
+            if (copyright != null && INCLUDE_COPYRIGHT) {
                 out.write((copyright + "\0").getBytes(CHARSET8));
                 written += ((copyright + "\0").getBytes(CHARSET8)).length;
 
             }
 
-            if (pad != 0)
-            {
+            if (pad != 0) {
                 padding = new byte[pad];
-                for (int i = 0; i < padding.length; i++)
-                {
+                for (int i = 0; i < padding.length; i++) {
                     padding[i] = 0;
                 }
                 out.write(padding);
                 written += padding.length;
             }
 
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             printError(e.getMessage());
             e.printStackTrace();
             System.exit(1);
@@ -826,8 +737,7 @@ public class LDML2ICUBinaryWriter
      * @param resTop
      *            The top of the resource tree whose keys shall be written
      */
-    private static int writeKeyString(FileOutputStream out, ICUResourceWriter.Resource resTop)
-    {
+    private static int writeKeyString(FileOutputStream out, ICUResourceWriter.Resource resTop) {
         String keyList = "";
         byte[] padding = null;
         int padBytes = 0;
@@ -858,11 +768,9 @@ public class LDML2ICUBinaryWriter
         end = sizeOfIndexesAndKeys + resTop.sizeOfChildren;
 
         // if it is not 16 byte aligned
-        if ((padBytes = pad32(sizeOfIndexesAndKeys)) != 0)
-        {
+        if ((padBytes = pad32(sizeOfIndexesAndKeys)) != 0) {
             padding = createPadding(padBytes);
-            if (padding != null)
-            {
+            if (padding != null) {
                 usedOffset += padding.length;
                 end += padding.length;
             }
@@ -872,12 +780,9 @@ public class LDML2ICUBinaryWriter
         // build a set of 32 bits (in C this variable is called 'root' in reslist.c)
         // the number of bytes included in the keyList, keyList padding, all the children
 
-        if (((ICUResourceWriter.ResourceTable) resTop).is32Bit())
-        {
+        if (((ICUResourceWriter.ResourceTable) resTop).is32Bit()) {
             tableID = (URES_TABLE32 << 28);
-        }
-        else
-        {
+        } else {
             tableID = (URES_TABLE << 28);
         }
         root = (end >>> 2) | (tableID);
@@ -890,39 +795,36 @@ public class LDML2ICUBinaryWriter
 
         indexes[URES_INDEX_LENGTH] = URES_INDEX_TOP;
         indexes[URES_INDEX_STRINGS_TOP] = usedOffset >>> 2;
-                indexes[URES_INDEX_RESOURCES_TOP] = (end) >> 2;
-                        indexes[URES_INDEX_BUNDLE_TOP] = indexes[URES_INDEX_RESOURCES_TOP];
-                        indexes[URES_INDEX_MAX_TABLE_LENGTH] = ICUResourceWriter.maxTableLength;
+        indexes[URES_INDEX_RESOURCES_TOP] = (end) >> 2;
+        indexes[URES_INDEX_BUNDLE_TOP] = indexes[URES_INDEX_RESOURCES_TOP];
+        indexes[URES_INDEX_MAX_TABLE_LENGTH] = ICUResourceWriter.maxTableLength;
 
-                        indexBytes = intArrayToBytes(indexes);
+        indexBytes = intArrayToBytes(indexes);
 
-                        try
-                        {
-                            // write the "root" object
-                            out.write(rootBytes);
-                            written += rootBytes.length;
+        try {
+            // write the "root" object
+            out.write(rootBytes);
+            written += rootBytes.length;
 
-                            // write the indexes array
-                            out.write(indexBytes);
-                            written += indexBytes.length;
+            // write the indexes array
+            out.write(indexBytes);
+            written += indexBytes.length;
 
-                            // write the keyList and padding if nessicary
-                            keyBytes = keyList.getBytes(CHARSET8);
-                            out.write(keyBytes);
-                            written += keyBytes.length;
+            // write the keyList and padding if nessicary
+            keyBytes = keyList.getBytes(CHARSET8);
+            out.write(keyBytes);
+            written += keyBytes.length;
 
-                            if (padding != null)
-                            {
-                                out.write(padding);
-                                written += padding.length;
-                            }
-                        } catch (IOException e)
-                        {
-                            printError("Could not write key string to file. " + e.getMessage());
-                            System.exit(1);
-                        }
+            if (padding != null) {
+                out.write(padding);
+                written += padding.length;
+            }
+        } catch (IOException e) {
+            printError("Could not write key string to file. " + e.getMessage());
+            System.exit(1);
+        }
 
-                        return usedOffset;
+        return usedOffset;
     }
 
     /**
@@ -935,17 +837,14 @@ public class LDML2ICUBinaryWriter
      *            The resource whose keys shall be written to the keyList.
      * @return
      */
-    private static String buildKeyList(String keyList, ICUResourceWriter.Resource resTop, int usedOffset)
-    {
+    private static String buildKeyList(String keyList, ICUResourceWriter.Resource resTop, int usedOffset) {
         ICUResourceWriter.Resource current = resTop.first;
         int x = 0;
 
         // add this resources key to the list unless it is the top resource or doesn't have a key
-        if (!resTop.isTop && resTop.hasKey)
-        {
+        if (!resTop.isTop && resTop.hasKey) {
             // clean up quotes if any
-            if (resTop.name.indexOf("\"") >= 0)
-            {
+            if (resTop.name.indexOf("\"") >= 0) {
                 resTop.name = removeQuotes(resTop.name);
             }
             // set the keyStringOffset
@@ -955,11 +854,9 @@ public class LDML2ICUBinaryWriter
         }
 
         // if it has children, call this method on them too
-        while (current != null)
-        {
+        while (current != null) {
             if (resTop instanceof ICUResourceWriter.ResourceArray
-                || resTop instanceof ICUResourceWriter.ResourceIntVector)
-            {
+                || resTop instanceof ICUResourceWriter.ResourceIntVector) {
                 current.hasKey = false;
             }
 
@@ -984,8 +881,7 @@ public class LDML2ICUBinaryWriter
      * [0] = 0110 0000 or 0x60
      * [1] = 0110 1101 or 0x6D
      */
-    private static byte[] shortToBytes(short x)
-    {
+    private static byte[] shortToBytes(short x) {
         byte[] b = new byte[2];
         b[1] = (byte) (x); // bitwise AND with the lower byte
         b[0] = (byte) (x >>> 8); // shift four bits to the right and fill with zeros, and then bitwise and with the
@@ -997,8 +893,7 @@ public class LDML2ICUBinaryWriter
      * Takes a 32 bit integer and returns an array of 4 bytes.
      *
      */
-    private static byte[] intToBytes(int x)
-    {
+    private static byte[] intToBytes(int x) {
         byte[] b = new byte[4];
         b[3] = (byte) (x); // just the last byte
 
@@ -1020,17 +915,14 @@ public class LDML2ICUBinaryWriter
      * @param x
      * @return
      */
-    private static byte[] intArrayToBytes(int[] x)
-    {
+    private static byte[] intArrayToBytes(int[] x) {
         byte[] b = new byte[x.length * 4];
         byte[] temp;
         int i, z;
 
-        for (i = 0; i < x.length; i++)
-        {
+        for (i = 0; i < x.length; i++) {
             temp = intToBytes(x[i]);
-            for (z = 0; z < 4; z++)
-            {
+            for (z = 0; z < 4; z++) {
                 b[(i * 4) + z] = temp[z];
             }
         }
@@ -1043,48 +935,40 @@ public class LDML2ICUBinaryWriter
      * @param x
      * @return
      */
-    private static int pad32(int x)
-    {
+    private static int pad32(int x) {
         return ((x % 4) == 0) ? 0 : (4 - (x % 4));
     }
 
-    private static int pad16Bytes(int x)
-    {
+    private static int pad16Bytes(int x) {
         return ((x % 16) == 0) ? 0 : (16 - (x % 16));
     }
 
     /**
      * for printing errors.
      */
-    private static void printError(String message)
-    {
+    private static void printError(String message) {
 
         System.err.println("LDML2ICUBinaryWriter : ERROR : " + message);
     }
 
-    private static byte[] createPadding(int length)
-    {
+    private static byte[] createPadding(int length) {
         byte x = (byte) 0x00;
         byte[] b = new byte[length];
-        if (length == 0)
-        {
+        if (length == 0) {
             return null;
         }
-        for (int z = 0; z < b.length; z++)
-        {
+        for (int z = 0; z < b.length; z++) {
             b[z] = x;
         }
 
         return b;
     }
 
-    public static String removeQuotes(String s)
-    {
+    public static String removeQuotes(String s) {
         String temp = s;
         String temp2;
         int x;
-        while (temp.indexOf("\"") >= 0)
-        {
+        while (temp.indexOf("\"") >= 0) {
             x = temp.indexOf("\"");
             temp2 = temp.substring(0, x);
             temp2 += temp.substring(x + 1, temp.length());

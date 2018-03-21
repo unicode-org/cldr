@@ -17,7 +17,7 @@ import java.util.Set;
 
 import com.ibm.icu.text.Transform;
 
-public class XEquivalenceClass<T,R> implements Iterable<T> {
+public class XEquivalenceClass<T, R> implements Iterable<T> {
     private static final String ARROW = "\u2192";
 
     public SetMaker<T> getSetMaker() {
@@ -27,12 +27,12 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
     // quick test
     static public void main(String[] args) {
         XEquivalenceClass<String, Integer> foo1 = new XEquivalenceClass<String, Integer>(1);
-        String[][] tests = {{"b","a1"}, {"b", "c"}, {"a1", "c"}, {"d", "e"}, {"e", "f"}, {"c", "d"}};
+        String[][] tests = { { "b", "a1" }, { "b", "c" }, { "a1", "c" }, { "d", "e" }, { "e", "f" }, { "c", "d" } };
         for (int i = 0; i < tests.length; ++i) {
             System.out.println("Adding: " + tests[i][0] + ", " + tests[i][1]);
             foo1.add(tests[i][0], tests[i][1], new Integer(i));
             for (String item : foo1.getExplicitItems()) {
-                System.out.println("\t" + item  + ";\t" + foo1.getSample(item) + ";\t" + foo1.getEquivalences(item));
+                System.out.println("\t" + item + ";\t" + foo1.getSample(item) + ";\t" + foo1.getEquivalences(item));
                 List<Linkage<String, Integer>> reasons = foo1.getReasons(item, foo1.getSample(item));
                 if (reasons != null) {
                     System.out.println("\t\t" + XEquivalenceClass.toString(reasons, null));
@@ -41,11 +41,11 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
         }
     }
 
-    private Map<T,Set<T>> toPartitionSet = new HashMap();
-    private Map<T,Map<T,Set<R>>> obj_obj_reasons = new HashMap();
+    private Map<T, Set<T>> toPartitionSet = new HashMap();
+    private Map<T, Map<T, Set<R>>> obj_obj_reasons = new HashMap();
     private R defaultReason;
     private SetMaker setMaker;
-    
+
     public interface SetMaker<T> {
         Set<T> make();
     }
@@ -74,7 +74,7 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
     public XEquivalenceClass(R defaultReason) {
         this.defaultReason = defaultReason;
     }
-    
+
     /**
      * Create class with comparator, and default reason.
      *
@@ -88,14 +88,14 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
      * Add two equivalent items, with NO_REASON for the reason.
      */
     public XEquivalenceClass add(T a, T b) {
-        return add(a,b,null);
+        return add(a, b, null);
     }
 
     /**
      * Add two equivalent items, with NO_REASON for the reason.
      */
     public XEquivalenceClass add(T a, T b, R reason) {
-        return add(a,b,reason, reason);
+        return add(a, b, reason, reason);
     }
 
     /**
@@ -105,10 +105,10 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
         if (a.equals(b)) return this;
         if (reasonAB == null) reasonAB = defaultReason;
         if (reasonBA == null) reasonBA = defaultReason;
-        addReason(a,b,reasonAB);
-        addReason(b,a,reasonBA);
-        Set<T>aPartitionSet = toPartitionSet.get(a);
-        Set<T>bPartitionSet = toPartitionSet.get(b);
+        addReason(a, b, reasonAB);
+        addReason(b, a, reasonBA);
+        Set<T> aPartitionSet = toPartitionSet.get(a);
+        Set<T> bPartitionSet = toPartitionSet.get(b);
         if (aPartitionSet == null) {
             if (bPartitionSet == null) { // both null, set up bSet
                 bPartitionSet = setMaker != null ? setMaker.make() : new HashSet();
@@ -120,7 +120,7 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
         } else if (bPartitionSet == null) { // aSet is not null, bSet null
             aPartitionSet.add(b);
             toPartitionSet.put(b, aPartitionSet);
-        } else if (aPartitionSet != bPartitionSet) {  // both non-null, not equal, merge.  Equality check ok here
+        } else if (aPartitionSet != bPartitionSet) { // both non-null, not equal, merge.  Equality check ok here
             aPartitionSet.addAll(bPartitionSet);
             // remap every x that had x => bPartitionSet
             for (T item : bPartitionSet) {
@@ -134,13 +134,13 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
      * Add all the information from the other class
      *
      */
-    public XEquivalenceClass<T,R> addAll(XEquivalenceClass<T,R> other) {
+    public XEquivalenceClass<T, R> addAll(XEquivalenceClass<T, R> other) {
         // For now, does the simple, not optimized version
         for (T a : other.obj_obj_reasons.keySet()) {
-            Map<T,Set<R>> obj_reasons = other.obj_obj_reasons.get(a);
+            Map<T, Set<R>> obj_reasons = other.obj_obj_reasons.get(a);
             for (T b : obj_reasons.keySet()) {
                 Set<R> reasons = obj_reasons.get(b);
-                for (R reason: reasons) {
+                for (R reason : reasons) {
                     add(a, b, reason);
                 }
             }
@@ -152,7 +152,7 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
      * 
      */
     private void addReason(T a, T b, R reason) {
-        Map<T,Set<R>> obj_reasons = obj_obj_reasons.get(a);
+        Map<T, Set<R>> obj_reasons = obj_obj_reasons.get(a);
         if (obj_reasons == null) obj_obj_reasons.put(a, obj_reasons = new HashMap());
         Set<R> reasons = obj_reasons.get(b);
         if (reasons == null) obj_reasons.put(b, reasons = new HashSet());
@@ -172,15 +172,15 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
      * Returns an unmodifiable set of all the equivalent objects
      *
      */
-    public Set<T>getEquivalences(T a) {
+    public Set<T> getEquivalences(T a) {
         Set<T> aPartitionSet = toPartitionSet.get(a);
         if (aPartitionSet == null) { // manufacture an equivalence
             aPartitionSet = new HashSet<T>();
-            aPartitionSet.add(a); 
+            aPartitionSet.add(a);
         }
         return Collections.unmodifiableSet(aPartitionSet);
     }
-    
+
     public boolean hasEquivalences(T a) {
         return toPartitionSet.get(a) != null;
     }
@@ -193,13 +193,14 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
         }
         return result;
     }
+
     /**
      * returns true iff a is equivalent to b (or a.equals b)
      *
      */
     public boolean isEquivalent(T a, T b) {
         if (a.equals(b)) return true;
-        Set<T>aPartitionSet = toPartitionSet.get(a);
+        Set<T> aPartitionSet = toPartitionSet.get(a);
         if (aPartitionSet == null) return false;
         return aPartitionSet.contains(b);
     }
@@ -246,8 +247,8 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
     public Iterator<T> iterator() {
         return getSamples().iterator();
     }
-    
-    public static class Linkage<T,R> {
+
+    public static class Linkage<T, R> {
         public Set<R> reasons;
         public T result;
 
@@ -255,14 +256,15 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
             this.reasons = reasons;
             this.result = result;
         }
+
         public String toString() {
             return reasons + (result == null ? "" : ARROW + result);
         }
     }
 
-    public static <T,R> String toString(List<Linkage<T,R>> others, Transform<Linkage<T,R>,String> itemTransform) {
+    public static <T, R> String toString(List<Linkage<T, R>> others, Transform<Linkage<T, R>, String> itemTransform) {
         StringBuffer result = new StringBuffer();
-        for (Linkage<T,R> item : others) {
+        for (Linkage<T, R> item : others) {
             result.append(itemTransform == null ? item.toString() : itemTransform.transform(item));
         }
         return result.toString();
@@ -273,7 +275,7 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
      * The last linkage has a null result.<br>
      * Returns null if there is no connection.
      */
-    public List<Linkage<T,R>> getReasons(T a, T b) {
+    public List<Linkage<T, R>> getReasons(T a, T b) {
         // use dumb algorithm for getting shortest path
         // don't bother with optimization
         Set<T> aPartitionSet = toPartitionSet.get(a);
@@ -282,9 +284,9 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
         // see if they connect
         if (aPartitionSet == null || bPartitionSet == null || aPartitionSet != bPartitionSet || a.equals(b)) return null;
 
-        ArrayList<Linkage<T,R>> list = new ArrayList<Linkage<T,R>>();
+        ArrayList<Linkage<T, R>> list = new ArrayList<Linkage<T, R>>();
         list.add(new Linkage(null, a));
-        ArrayList<ArrayList<Linkage<T,R>>> lists = new ArrayList<ArrayList<Linkage<T,R>>>();
+        ArrayList<ArrayList<Linkage<T, R>>> lists = new ArrayList<ArrayList<Linkage<T, R>>>();
         lists.add(list);
 
         // this will contain the results
@@ -294,24 +296,24 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
         // each time, we extend each lists by one (adding multiple other lists)
         while (true) { // foundLists.size() == 0
             ArrayList extendedList = new ArrayList();
-            Set<T>sawThisTime = new HashSet();
-            for (ArrayList<Linkage<T,R>> lista : lists) {
-                Linkage<T,R> last = lista.get(lista.size()-1);
-                Map<T,Set<R>> obj_reasons = obj_obj_reasons.get(last.result);
+            Set<T> sawThisTime = new HashSet();
+            for (ArrayList<Linkage<T, R>> lista : lists) {
+                Linkage<T, R> last = lista.get(lista.size() - 1);
+                Map<T, Set<R>> obj_reasons = obj_obj_reasons.get(last.result);
                 for (T result : obj_reasons.keySet()) {
                     if (sawLastTime.contains(result)) {
                         continue; // skip since we have shorter
                     }
                     sawThisTime.add(result);
                     Set<R> reasons = obj_reasons.get(result);
-                    ArrayList<Linkage<T,R>> lista2 = (ArrayList<Linkage<T,R>>) lista.clone();
-                    lista2.add(new Linkage(reasons,result));
+                    ArrayList<Linkage<T, R>> lista2 = (ArrayList<Linkage<T, R>>) lista.clone();
+                    lista2.add(new Linkage(reasons, result));
                     extendedList.add(lista2);
                     if (result.equals(b)) {
                         // remove first and last
-                        ArrayList<Linkage<T,R>> found = (ArrayList<Linkage<T,R>>) lista2.clone();
+                        ArrayList<Linkage<T, R>> found = (ArrayList<Linkage<T, R>>) lista2.clone();
                         found.remove(0);
-                        found.get(found.size()-1).result = null;
+                        found.get(found.size() - 1).result = null;
                         return found;
                     }
                 }
@@ -321,7 +323,7 @@ public class XEquivalenceClass<T,R> implements Iterable<T> {
         }
         // return foundLists;
     }
-    
+
     /**
      * For debugging.
      */

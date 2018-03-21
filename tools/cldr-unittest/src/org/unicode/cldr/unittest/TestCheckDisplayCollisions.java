@@ -15,10 +15,11 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestCheckDisplayCollisions().run(args);
     }
+
     public void testInheritance() {
         XMLSource rootSource = new SimpleXMLSource("root");
         CLDRFile root = new CLDRFile(rootSource);
-        
+
         XMLSource enSource = new SimpleXMLSource("en");
         CLDRFile en = new CLDRFile(enSource);
 
@@ -36,13 +37,13 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         factory.addFile(en);
         factory.addFile(fr);
         factory.addFile(frCA);
-        
+
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
         CLDRFile frCaResolved = factory.make("fr_CA", true);
         cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
         checkFile(cdc, frCA, frCaResolved);
     }
-    
+
     private void checkFile(CheckDisplayCollisions cdc, CLDRFile frCa, CLDRFile frCaResolved) {
         List<CheckStatus> possibleErrors = new ArrayList<>();
         Options options = new Options();

@@ -138,7 +138,7 @@ public class XPathTable {
                 xpathindex = "xpath(768)";
             }
             sql = ("create table " + CLDR_XPATHS + "(id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " + "xpath "
-                + DBUtils.DB_SQL_VARCHARXPATH + DBUtils.DB_SQL_MB4 + " NOT NULL" + uniqueness + ") "  + DBUtils.DB_SQL_ENGINE_INNO + DBUtils.DB_SQL_MB4 );
+                + DBUtils.DB_SQL_VARCHARXPATH + DBUtils.DB_SQL_MB4 + " NOT NULL" + uniqueness + ") " + DBUtils.DB_SQL_ENGINE_INNO + DBUtils.DB_SQL_MB4);
             s.execute(sql);
             sql = ("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS + " (" + xpathindex + ")");
             s.execute(sql);
@@ -209,11 +209,11 @@ public class XPathTable {
         PreparedStatement queryStmt = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            if(false) {
+            if (false) {
                 addXpaths(unloadedXpaths, conn);
             } else {
                 // Debug: add paths one by one.
-                for(final String path : unloadedXpaths) {
+                for (final String path : unloadedXpaths) {
                     try {
                         addXpaths(Collections.singleton(path), conn);
                     } catch (SQLException se) {
@@ -244,7 +244,7 @@ public class XPathTable {
         PreparedStatement queryStmt = null;
         PreparedStatement insertStmt = null;
         // Insert new xpaths.
-        insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values (" 
+        insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values ("
             + " ?)");
         for (String xpath : xpaths) {
             insertStmt.setString(1, Utility.escape(xpath));
@@ -289,7 +289,7 @@ public class XPathTable {
                 conn = DBUtils.getInstance().getDBConnection();
             }
             queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + " where XPATH="
-                +  " ? ");
+                + " ? ");
             queryStmt.setString(1, Utility.escape(xpath));
             // First, try to query it back from the DB.
             ResultSet rs = queryStmt.executeQuery();
@@ -299,7 +299,7 @@ public class XPathTable {
                 } else {
                     // add it
                     insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath ) " + " values ("
-                        +" ?)", Statement.RETURN_GENERATED_KEYS);
+                        + " ?)", Statement.RETURN_GENERATED_KEYS);
 
                     insertStmt.setString(1, Utility.escape(xpath));
                     insertStmt.execute();
@@ -509,7 +509,7 @@ public class XPathTable {
 //        }
 //        return undistinguishingAttributes;
 //    }
-    
+
     public Map<String, String> getUndistinguishingElementsFor(String path, XPathParts xpp) {
         return XPathParts.getFrozenInstance(path).getSpecialNondistinguishingAttributes();
     }
@@ -637,21 +637,21 @@ public class XPathTable {
         // SurveyLog.logger.warning("Type on " + path + " with -1 is " + type );
         if ((type == null) && (path.indexOf(what) >= 0))
             try {
-                // less common case - type isn't the last
+            // less common case - type isn't the last
             for (int n = -2; (type == null) && ((0 - xpp.size()) < n); n--) {
-                // SurveyLog.logger.warning("Type on n="+n
-                // +", "+path+" with "+n+" is " + type );
-                lastAtts = xpp.getAttributes(n);
-                if (lastAtts != null) {
-                    type = lastAtts.get(what);
-                    if (type != null) {
-                        xpp.removeAttribute(n, what);
-                    }
-                }
+            // SurveyLog.logger.warning("Type on n="+n
+            // +", "+path+" with "+n+" is " + type );
+            lastAtts = xpp.getAttributes(n);
+            if (lastAtts != null) {
+            type = lastAtts.get(what);
+            if (type != null) {
+            xpp.removeAttribute(n, what);
             }
-        } catch (ArrayIndexOutOfBoundsException aioobe) {
+            }
+            }
+            } catch (ArrayIndexOutOfBoundsException aioobe) {
             // means we ran out of elements.
-        }
+            }
         return type;
     }
 

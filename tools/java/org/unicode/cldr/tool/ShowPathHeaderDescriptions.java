@@ -30,7 +30,6 @@ public class ShowPathHeaderDescriptions {
 
         // where X, *, * => single value, write it as such
 
-
         Multimap<SectionId, String> sv = TreeMultimap.create();
         Multimap<PageId, String> pv = TreeMultimap.create();
         Multimap<String, String> hv = TreeMultimap.create();
@@ -41,7 +40,7 @@ public class ShowPathHeaderDescriptions {
 
         Multimap<R3<SectionId, PageId, String>, String> sphv = TreeMultimap.create();
         Multimap<String, R3<SectionId, PageId, String>> valueToKey = TreeMultimap.create();
-        
+
         Set<String> urls = new TreeSet<>();
 
         for (String path : english) {
@@ -54,7 +53,7 @@ public class ShowPathHeaderDescriptions {
                 url = extractUrl(pdx);
             }
             urls.add(url);
-            
+
             SectionId sectionId = pathHeader.getSectionId();
             PageId pageId = pathHeader.getPageId();
             String header = pathHeader.getHeader();
@@ -77,21 +76,21 @@ public class ShowPathHeaderDescriptions {
             sphv.put(full, url);
             valueToKey.put(url, full);
         }
-        
+
         Set<String> done = new HashSet<>();
 
         process(SphType.s, sv, done);
         process(SphType.p, pv, done);
         process(SphType.h, hv, done);
-        
+
         showProgress(done, valueToKey);
-        
+
         process(SphType.sp, spv, done);
         process(SphType.sh, shv, done);
         process(SphType.ph, phv, done);
-        
+
         process(SphType.sph, sphv, done);
-        
+
         System.out.println(CollectionUtilities.join(urls, "\n"));
     }
 
@@ -101,7 +100,9 @@ public class ShowPathHeaderDescriptions {
         System.out.println(temp);
     }
 
-    enum SphType {s, p, h, sp, sh, ph, sph}
+    enum SphType {
+        s, p, h, sp, sh, ph, sph
+    }
 
     private static <K> void process(SphType type, Multimap<K, String> sv, Set<String> done) {
         Set<String> newDone = new HashSet<>();
@@ -123,25 +124,33 @@ public class ShowPathHeaderDescriptions {
     }
 
     private static <K> String getThree(SphType type, K k) {
-        switch(type) {
-        case s: return k + "\t" + "*" + "\t" + "*";
-        case p: return "*\t" + k + "\t*";
-        case h: return "*\t*\t" + k;
-        case sp: return ((R2)k).get0() + "\t" + ((R2)k).get1() + "\t" + "*";
-        case sh: return ((R2)k).get0() + "\t" + "*" + "\t" + ((R2)k).get2();
-        case ph: return "*" + "\t" + ((R2)k).get1() + "\t" + ((R2)k).get2();
-        case sph: return ((R3)k).get0() + "\t" + ((R3)k).get1() + "\t" + ((R3)k).get2();
-        default: throw new IllegalArgumentException();
+        switch (type) {
+        case s:
+            return k + "\t" + "*" + "\t" + "*";
+        case p:
+            return "*\t" + k + "\t*";
+        case h:
+            return "*\t*\t" + k;
+        case sp:
+            return ((R2) k).get0() + "\t" + ((R2) k).get1() + "\t" + "*";
+        case sh:
+            return ((R2) k).get0() + "\t" + "*" + "\t" + ((R2) k).get2();
+        case ph:
+            return "*" + "\t" + ((R2) k).get1() + "\t" + ((R2) k).get2();
+        case sph:
+            return ((R3) k).get0() + "\t" + ((R3) k).get1() + "\t" + ((R3) k).get2();
+        default:
+            throw new IllegalArgumentException();
         }
     }
 
     private static String extractUrl(String pd) {
         String value = pd.replaceAll("^.*(http://.*)$", "$1");
         if (value.endsWith(".")) {
-            value = value.substring(0, value.length()-1);
+            value = value.substring(0, value.length() - 1);
         }
         if (value.endsWith(" for details")) {
-            value = value.substring(0, value.length()-" for details".length());
+            value = value.substring(0, value.length() - " for details".length());
         }
         return value;
     }

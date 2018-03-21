@@ -27,7 +27,6 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 public class TestCldrFileWrite extends TestFmwkPlus {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 
-
     public static void main(String[] args) {
         new TestCldrFileWrite().run(args);
     }
@@ -38,23 +37,24 @@ public class TestCldrFileWrite extends TestFmwkPlus {
             public boolean apply(String input) {
                 return !exclude.contains(input);
             }
+
             Set<String> exclude = ImmutableSet.of("tools", "specs");
         };
         checkDir(new File(CLDRPaths.BASE_DIRECTORY), new File(CLDRPaths.GEN_DIRECTORY + "formatted"), retain);
     }
 
-
-    static Function<String,String> MyFilter = new Function<String,String>() {
+    static Function<String, String> MyFilter = new Function<String, String>() {
         Pattern spaceHandler = Pattern.compile("\\s+");
+
         @Override
         public String apply(String input) {
             return spaceHandler.matcher(input).replaceAll(" ");
         }
     };
 
-    static final Predicate<Pair<String,String>> MyPredicate = new Predicate<Pair<String,String>>() {
+    static final Predicate<Pair<String, String>> MyPredicate = new Predicate<Pair<String, String>>() {
         @Override
-        public boolean apply(Pair<String,String> input) {
+        public boolean apply(Pair<String, String> input) {
             return input.getFirst().contains("//ldml/identity/version[@number");
         }
     };
@@ -78,7 +78,7 @@ public class TestCldrFileWrite extends TestFmwkPlus {
         // TODO cache factories
         String dirName = dirIn.toString();
         Factory afactory = SimpleFactory.make(dirName, ".*");
-        String fileNameMinusXml = fileName.substring(0,fileName.length()-4);
+        String fileNameMinusXml = fileName.substring(0, fileName.length() - 4);
         CLDRFile cldrFile = afactory.make(fileNameMinusXml, false);
         String outDir = dirOut.toString();
         try (PrintWriter out = new PrintWriter(FileUtilities.openUTF8Writer(outDir, fileName))) {
@@ -93,9 +93,9 @@ public class TestCldrFileWrite extends TestFmwkPlus {
         File fileIn = new File(dirIn, fileName);
         File fileOut = new File(dirOut, fileName);
         new ArrayList<Pair<String, String>>();
-        Multiset<Pair<String,String>> cldrPaths = HashMultiset.create(XMLFileReader.loadPathValues(
+        Multiset<Pair<String, String>> cldrPaths = HashMultiset.create(XMLFileReader.loadPathValues(
             fileIn.toString(), new ArrayList<Pair<String, String>>(), true, false, MyFilter));
-        Multiset<Pair<String,String>> rewritePaths = HashMultiset.create(XMLFileReader.loadPathValues(
+        Multiset<Pair<String, String>> rewritePaths = HashMultiset.create(XMLFileReader.loadPathValues(
             fileOut.toString(), new ArrayList<Pair<String, String>>(), true, false, MyFilter));
 
         checkAMinusB(fileIn + "\tnot copied\t", cldrPaths, rewritePaths, MyPredicate);

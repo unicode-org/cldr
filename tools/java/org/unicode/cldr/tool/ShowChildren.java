@@ -94,7 +94,7 @@ public class ShowChildren {
         }
 
         System.out
-        .println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
+            .println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
     }
 
     private static String getParentWithoutRegion(LanguageTagParser ltp, String locale) {

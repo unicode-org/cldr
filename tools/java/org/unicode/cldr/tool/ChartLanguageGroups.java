@@ -36,7 +36,7 @@ public class ChartLanguageGroups extends Chart {
     static final Set<String> COLLECTIONS;
     static {
         Map<String, Map<LstrField, String>> languages = StandardCodes.getEnumLstreg().get(LstrType.language);
-        Builder<String> _collections = ImmutableSet.<String>builder();
+        Builder<String> _collections = ImmutableSet.<String> builder();
         for (Entry<String, Map<LstrField, String>> e : languages.entrySet()) {
             String scope = e.getValue().get(LstrField.Scope);
             if (scope != null
@@ -75,8 +75,7 @@ public class ChartLanguageGroups extends Chart {
             + "<a href='http://unicode.org/reports/tr35/#unicode_language_subtag'>valid language codes</a> is used."
             + "The containment data is not complete: "
             + "if a language doesn't appear in the chart it could be an isolate, or just be missing data."
-            + "The data doesn't completely match wikipedia’s; there are some patches for CLDR languages.</p>\n"
-            ;
+            + "The data doesn't completely match wikipedia’s; there are some patches for CLDR languages.</p>\n";
     }
 
     Collator ENGLISH_ORDER = Collator.getInstance(ULocale.ENGLISH);
@@ -103,7 +102,7 @@ public class ChartLanguageGroups extends Chart {
         if (children == null || children.isEmpty()) {
             return;
         }
-        TreeSet<Pair<String,String>> nameAndCode = new TreeSet<>(new Comparator<Pair<String,String>>() {
+        TreeSet<Pair<String, String>> nameAndCode = new TreeSet<>(new Comparator<Pair<String, String>>() {
             @Override
             public int compare(Pair<String, String> o1, Pair<String, String> o2) {
                 int diff = ENGLISH_ORDER.compare(o1.getFirst(), o2.getFirst());
@@ -119,13 +118,13 @@ public class ChartLanguageGroups extends Chart {
         }
         StringBuilder treeList = new StringBuilder();
         StringBuilder leafList = new StringBuilder();
-        LinkedHashSet<Pair<String,String>> nameAndCodeWithChildren = new LinkedHashSet<>();
+        LinkedHashSet<Pair<String, String>> nameAndCodeWithChildren = new LinkedHashSet<>();
         for (Pair<String, String> pair : nameAndCode) {
             String code = pair.getSecond();
             if (lg.containsKey(code)) {
                 addChildren(treeList, TREE_NODES, pair, false);
                 nameAndCodeWithChildren.add(pair);
-            } else if (!code.equals("und")){
+            } else if (!code.equals("und")) {
                 addChildren(leafList, LEAF_NODES, pair, true);
             }
         }
@@ -143,11 +142,11 @@ public class ChartLanguageGroups extends Chart {
 
     private void addRow(String parent, TablePrinter tablePrinter, String marker, StringBuilder treeList) {
         tablePrinter.addRow()
-        .addCell(parent)
-        .addCell(getLangName(parent))
-        .addCell(marker)
-        .addCell(treeList.toString())
-        .finishRow();
+            .addCell(parent)
+            .addCell(getLangName(parent))
+            .addCell(marker)
+            .addCell(treeList.toString())
+            .finishRow();
     }
 
     private void addChildren(StringBuilder treeList, String marker, Pair<String, String> pair, boolean showCollections) {
@@ -158,14 +157,13 @@ public class ChartLanguageGroups extends Chart {
     }
 
     private String getPairName(Pair<String, String> pair, boolean showCollection) {
-        return (showCollection && COLLECTIONS.contains(pair.getSecond()) 
-            ? SHOULD_NOT_BE_LEAF_NODE + " ": 
-            "")
+        return (showCollection && COLLECTIONS.contains(pair.getSecond())
+            ? SHOULD_NOT_BE_LEAF_NODE + " " : "")
             + pair.getSecond() + " “" + pair.getFirst() + "”";
     }
 
     private String getLangName(String langCode) {
-        return langCode.equals("mul") ? "All" 
+        return langCode.equals("mul") ? "All"
             : langCode.equals("zh") ? "Mandarin Chinese"
                 : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, langCode).replace(" (Other)", "").replace(" languages", "");
     }

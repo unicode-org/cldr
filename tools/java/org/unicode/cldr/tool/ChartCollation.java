@@ -120,7 +120,8 @@ public class ChartCollation extends Chart {
                 + "\\[@type=\"([^\"]+)\"]"
                 + "(.*)?"
                 + "/(settings|import|cr)"
-                + "(.*)").matcher("");
+                + "(.*)")
+            .matcher("");
         Splitter settingSplitter = Splitter.onPattern("[\\[\\]@]").omitEmptyStrings().trimResults();
         File baseDir = new File(CLDRPaths.COMMON_DIRECTORY + "collation/");
         Transliterator fromUnicode = Transliterator.getInstance("Hex-Any");
@@ -158,21 +159,21 @@ public class ChartCollation extends Chart {
                     addCollator(data, value, "defaultCollation", Arrays.asList("true"));
                     continue;
                 }
-                
+
                 // Root collator being empty isn't really a failure - just skip it.
                 if (xmlName.equals("root.xml") && path.equals("//ldml/collations/collation[@type=\"standard\"]")) {
                     continue;
                 }
-               
+
                 xpp.set(path);
                 DraftStatus status = DraftStatus.forString(xpp.findFirstAttributeValue("draft"));
                 if (status == DraftStatus.unconfirmed) {
-                    System.out.println("Skipping " + path +" in: " + xmlName + " due to draft status = " + status.toString());
+                    System.out.println("Skipping " + path + " in: " + xmlName + " due to draft status = " + status.toString());
                     continue;
                 }
 
                 if (!settingsMatcher.reset(path).matches()) {
-                    System.out.println("Failure in " + xmlName +" with: " + path);
+                    System.out.println("Failure in " + xmlName + " with: " + path);
                     continue;
                 }
                 String type = settingsMatcher.group(1);
@@ -291,7 +292,7 @@ public class ChartCollation extends Chart {
             UnicodeSet exemplars_auxiliary = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
             UnicodeSet exemplars_punctuation = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
             exemplars_all.addAll(exemplars_auxiliary)
-            .addAll(exemplars_punctuation);
+                .addAll(exemplars_punctuation);
 
             for (NumberingSystem system : NumberingSystem.values()) {
                 UnicodeSet exemplars_numeric = cldrFile.getExemplarsNumeric(system);
@@ -303,8 +304,8 @@ public class ChartCollation extends Chart {
             exemplars_all.freeze();
 
             TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Type", "class='source'", null, "class='source'", true)
-            .addColumn("Ordering", "class='target'", null, "class='target_nofont'", true);
+                .addColumn("Type", "class='source'", null, "class='source'", true)
+                .addColumn("Ordering", "class='target'", null, "class='target_nofont'", true);
 
             for (Entry<String, Data> entry : data.entrySet()) {
                 // sort the characters
@@ -354,9 +355,9 @@ public class ChartCollation extends Chart {
                     }
                 }
                 tablePrinter
-                .addRow()
-                .addCell(type)
-                .addCell(list.toString());
+                    .addRow()
+                    .addCell(type)
+                    .addCell(list.toString());
                 tablePrinter.finishRow();
             }
             pw.write(tablePrinter.toTable());

@@ -237,7 +237,7 @@ public class TestCollationStringByteConverter {
                         testLocale)).toPattern()
                         + " "
                         + ((SimpleDateFormat) dateInstance).toPattern(),
-                        testLocale);
+                    testLocale);
                 simpleDateFormat.setTimeZone(testTimeZone);
                 tests.add(simpleDateFormat);
                 // tests.put(DateFormat.getTimeInstance(style,
@@ -327,7 +327,8 @@ public class TestCollationStringByteConverter {
             + "|"
             + test.substring(parsePosition.getIndex())
             + (parsePosition.getErrorIndex() == -1 ? "" : "/"
-                + parsePosition.getErrorIndex()) + "}";
+                + parsePosition.getErrorIndex())
+            + "}";
     }
 
     public static void check() throws Exception {
@@ -358,7 +359,7 @@ public class TestCollationStringByteConverter {
                 .setText(
                     new DictionaryCharList<String>(converter
                         .getDictionary(), test))
-                        .convert(new StringBuffer()).toString();
+                .convert(new StringBuffer()).toString();
             System.out.println(test + "\t=>\t" + result);
             int len = converter.toBytes(test, output, 0);
             String result2 = converter.fromBytes(output, 0, len,
@@ -386,11 +387,13 @@ public class TestCollationStringByteConverter {
 
         TestStateDictionaryBuilder.tryFind(string,
             new DictionaryCharList<String>(converter.getDictionary(),
-                string), dict, Filter.ALL);
+                string),
+            dict, Filter.ALL);
 
         TestStateDictionaryBuilder.tryFind(string,
             new DictionaryCharList<String>(converter.getDictionary(),
-                string), dict, Filter.LONGEST_MATCH);
+                string),
+            dict, Filter.LONGEST_MATCH);
 
     }
 }

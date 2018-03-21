@@ -137,10 +137,10 @@ public class OutdatedPaths {
         String dataFileName = filename;
         InputStream fileInputStream = directory == null
             ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName) :
-                //: new FileInputStream(new File(directory, dataFileName));
-                InputStreamFactory.createInputStream(new File(directory, dataFileName));
-            DataInputStream dataIn = new DataInputStream(fileInputStream);
-            return dataIn;
+            //: new FileInputStream(new File(directory, dataFileName));
+            InputStreamFactory.createInputStream(new File(directory, dataFileName));
+        DataInputStream dataIn = new DataInputStream(fileInputStream);
+        return dataIn;
     }
 
     /**

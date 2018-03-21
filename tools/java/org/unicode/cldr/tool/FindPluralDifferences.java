@@ -35,7 +35,7 @@ public class FindPluralDifferences {
 
         SupplementalDataInfo supplementalNew = null;
         String newVersion = null;
-        
+
         List<String> items = new ArrayList<>(ToolConstants.CLDR_VERSIONS);
         items.add("trunk");
 
@@ -153,7 +153,7 @@ public class FindPluralDifferences {
                 result.append(start);
                 if (end != start) {
                     result.append("–")
-                    .append(end);
+                        .append(end);
                 }
                 start = limit;
             }

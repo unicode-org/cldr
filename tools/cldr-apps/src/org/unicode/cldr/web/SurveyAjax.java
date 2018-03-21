@@ -169,7 +169,7 @@ public class SurveyAjax extends HttpServlet {
                 if (orgVote == null)
                     continue;
                 Map<String, Long> votes = r.getOrgToVotes(o);
-               
+
                 JSONObject org = new JSONObject();
                 org.put("status", r.getStatusForOrganization(o));
                 org.put("orgVote", orgVote);
@@ -378,7 +378,8 @@ public class SurveyAjax extends HttpServlet {
                 {
                     // exclude old votes
                     final String sql2 = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
-                        + " as new_votes where " + StatisticsUtils.getExcludeOldVotesSql() + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                        + " as new_votes where " + StatisticsUtils.getExcludeOldVotesSql()
+                        + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
                         : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
                             + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
                     final JSONObject query2 = DBUtils
@@ -428,9 +429,9 @@ public class SurveyAjax extends HttpServlet {
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
                     try {
-                        u = sm.reg.getInfo(Integer.parseInt(user));
+                    u = sm.reg.getInfo(Integer.parseInt(user));
                     } catch (Throwable t) {
-                        SurveyLog.logException(t, "Parsing user " + user);
+                    SurveyLog.logException(t, "Parsing user " + user);
                     }
 
                 JSONObject query;
@@ -454,9 +455,9 @@ public class SurveyAjax extends HttpServlet {
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
                     try {
-                        u = sm.reg.getInfo(Integer.parseInt(user));
+                    u = sm.reg.getInfo(Integer.parseInt(user));
                     } catch (Throwable t) {
-                        SurveyLog.logException(t, "Parsing user " + user);
+                    SurveyLog.logException(t, "Parsing user " + user);
                     }
                 System.out.println("SQL: " + q1 + q2);
                 JSONObject query;
@@ -504,8 +505,7 @@ public class SurveyAjax extends HttpServlet {
                         request.getParameter("locale"));
                 }
                 this.send(new JSONWriter(), out);
-            }
-            else if (what.equals(WHAT_REVIEW_ADD_POST)) {
+            } else if (what.equals(WHAT_REVIEW_ADD_POST)) {
                 CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
 
@@ -521,8 +521,7 @@ public class SurveyAjax extends HttpServlet {
                 }
 
                 this.send(postJson, out);
-            }
-            else if (sess != null && !sess.isEmpty()) { // this and following:
+            } else if (sess != null && !sess.isEmpty()) { // this and following:
                 // session needed
                 CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
@@ -607,7 +606,8 @@ public class SurveyAjax extends HttpServlet {
                                         .setCause(new CheckCLDR() {
 
                                             @Override
-                                            public CheckCLDR handleCheck(String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+                                            public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
+                                                List<CheckStatus> result) {
                                                 // TODO Auto-generated method stub
                                                 return null;
                                             }
@@ -625,7 +625,8 @@ public class SurveyAjax extends HttpServlet {
                                         .setCause(new CheckCLDR() {
 
                                             @Override
-                                            public CheckCLDR handleCheck(String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+                                            public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
+                                                List<CheckStatus> result) {
                                                 // TODO Auto-generated method stub
                                                 return null;
                                             }
@@ -816,7 +817,7 @@ public class SurveyAjax extends HttpServlet {
                         } else {
                             mySession.userDidAction();
                             r.put("what", what);
-    
+
                             //String xp = sm.xpt.getById(id);
                             r.put("loc", loc);
                             r.put("xpath", xpath);
@@ -942,7 +943,8 @@ public class SurveyAjax extends HttpServlet {
                                                 System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and "
                                                     + oldVotesPref
                                                     + "=" + oldVoteRemind);
-                                            r.put("oldVotesRemind", new JSONObject().put("pref", oldVotesPref).put("remind", oldVoteRemind).put("count", count));
+                                            r.put("oldVotesRemind",
+                                                new JSONObject().put("pref", oldVotesPref).put("remind", oldVoteRemind).put("count", count));
                                         }
                                     } else {
                                         SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
@@ -1323,7 +1325,7 @@ public class SurveyAjax extends HttpServlet {
                             }
                             send(r, out);
                         }
-                        break;
+                            break;
                         case WHAT_USER_LIST: {
                             if (mySession.user.isAdminForOrg(mySession.user.org)) { // for now- only admin can do these
                                 try {
@@ -1375,7 +1377,7 @@ public class SurveyAjax extends HttpServlet {
                                 throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
                             }
                         }
-                        break;
+                            break;
                         case WHAT_USER_OLDVOTES: {
                             String u = request.getParameter("old_user_id");
                             if (u == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
@@ -1394,7 +1396,7 @@ public class SurveyAjax extends HttpServlet {
                                 throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
                             }
                         }
-                        break;
+                            break;
                         case WHAT_USER_XFEROLDVOTES: {
                             // // what=user_xferoldvotes&from_user_id=182&from_locale=de&to_user_id=105&to_locale=de_CH"
                             Integer from_user_id = getIntParameter(request, "from_user_id");
@@ -1439,7 +1441,7 @@ public class SurveyAjax extends HttpServlet {
                                 throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
                             }
                         }
-                        break;
+                            break;
                         default:
                             sendError(out, "Unknown User Session-based Request: " + what, ErrorCode.E_INTERNAL);
                         }

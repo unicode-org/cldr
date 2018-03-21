@@ -352,7 +352,8 @@ public class GenerateCldrTests {
         CLDRFile localeFile = mainCldrFactory.make(locale, true);
         out.println(" <!-- "
             + TransliteratorUtilities.toXML.transliterate(english.getName(locale)
-                + " [" + localeFile.getName(locale)) + "] -->");
+                + " [" + localeFile.getName(locale))
+            + "] -->");
         generateItems(locale, allLocales, NumberShower);
         generateItems(locale, allLocales, DateShower);
         generateItems(locale, allLocales, ZoneFieldShower);
@@ -811,8 +812,8 @@ public class GenerateCldrTests {
     /*
      * Equator CollationEquator = new Equator() {
      *//**
-     * Must both be ULocales
-     */
+       * Must both be ULocales
+       */
     /*
      * public boolean equals(Object o1, Object o2) { try { ULocale loc1 =
      * (ULocale) o1; ULocale loc2 = (ULocale) o2; if (loc1.equals(loc2)) return
@@ -821,353 +822,353 @@ public class GenerateCldrTests {
      * (loc2)); } catch (RuntimeException e) { System.out.println("Failed on: "
      * + o1 + " ;\t" + o2); throw e; } } };
      */static ULocale zhHack = new ULocale("zh"); // FIXME
-     // hack
-     // for
-     // zh
+    // hack
+    // for
+    // zh
 
-     DataShower CollationShower = new DataShower() {
-         public ResultsPrinter show(String locale, DraftStatus minimalDraftStatus) {
-             // if
-             // (locale.equals(zhHack))
-             // return;
+    DataShower CollationShower = new DataShower() {
+        public ResultsPrinter show(String locale, DraftStatus minimalDraftStatus) {
+            // if
+            // (locale.equals(zhHack))
+            // return;
 
-             Collator col = cldrCollations.getInstance(locale); // Collator.getInstance(locale);
+            Collator col = cldrCollations.getInstance(locale); // Collator.getInstance(locale);
 
-             UnicodeSet tailored = new UnicodeSet();
-             if (col != null) {
-                 tailored = col.getTailoredSet();
-                 if (new LanguageTagParser().set(locale).getLanguage().equals("zh")) {
-                     tailored.addAll(new UnicodeSet("[[a-z]-[v]]"));
-                     Log.logln("HACK for Pinyin");
-                 }
-                 tailored = createCaseClosure(tailored);
-                 tailored = nfc(tailored);
-             } else {
-                 System.out.println("No collation for: " + locale);
-                 col = cldrCollations.getInstance("root");
-             }
-             // System.out.println(tailored.toPattern(true));
+            UnicodeSet tailored = new UnicodeSet();
+            if (col != null) {
+                tailored = col.getTailoredSet();
+                if (new LanguageTagParser().set(locale).getLanguage().equals("zh")) {
+                    tailored.addAll(new UnicodeSet("[[a-z]-[v]]"));
+                    Log.logln("HACK for Pinyin");
+                }
+                tailored = createCaseClosure(tailored);
+                tailored = nfc(tailored);
+            } else {
+                System.out.println("No collation for: " + locale);
+                col = cldrCollations.getInstance("root");
+            }
+            // System.out.println(tailored.toPattern(true));
 
-             UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE,
-                 minimalDraftStatus);
-             // add all the exemplars
+            UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE,
+                minimalDraftStatus);
+            // add all the exemplars
 
-             exemplars = createCaseClosure(exemplars);
-             exemplars = nfc(exemplars);
-             // System.out.println(exemplars.toPattern(true));
-             tailored.addAll(exemplars);
-             // UnicodeSet
-             // tailoredMinusHan = new
-             // UnicodeSet(tailored).removeAll(SKIP_COLLATION_SET);
-             if (!exemplars.containsAll(tailored)) {
-                 // BagFormatter bf =
-                 // new
-                 // BagFormatter();
-                 Log.logln("In Tailored, but not Exemplar; Locale: " + locale + "\t"
-                     + english.getName(locale));
-                 Log.logln(new UnicodeSet(tailored).removeAll(exemplars)
-                     .toPattern(false));
-                 // bf.(log,"tailored",
-                 // tailored,
-                 // "exemplars",
-                 // exemplars);
-                 Log.getLog().flush();
-             }
-             tailored.addAll(new UnicodeSet("[\\ .02{12}]"));
-             tailored.removeAll(SKIP_COLLATION_SET);
+            exemplars = createCaseClosure(exemplars);
+            exemplars = nfc(exemplars);
+            // System.out.println(exemplars.toPattern(true));
+            tailored.addAll(exemplars);
+            // UnicodeSet
+            // tailoredMinusHan = new
+            // UnicodeSet(tailored).removeAll(SKIP_COLLATION_SET);
+            if (!exemplars.containsAll(tailored)) {
+                // BagFormatter bf =
+                // new
+                // BagFormatter();
+                Log.logln("In Tailored, but not Exemplar; Locale: " + locale + "\t"
+                    + english.getName(locale));
+                Log.logln(new UnicodeSet(tailored).removeAll(exemplars)
+                    .toPattern(false));
+                // bf.(log,"tailored",
+                // tailored,
+                // "exemplars",
+                // exemplars);
+                Log.getLog().flush();
+            }
+            tailored.addAll(new UnicodeSet("[\\ .02{12}]"));
+            tailored.removeAll(SKIP_COLLATION_SET);
 
-             SortedBag bag = new SortedBag(col);
-             return doCollationResult(col, tailored, bag);
-         }
+            SortedBag bag = new SortedBag(col);
+            return doCollationResult(col, tailored, bag);
+        }
 
-         public String getElement() {
-             return "collation";
-         }
-     };
+        public String getElement() {
+            return "collation";
+        }
+    };
 
-     /*
-      * public void show(ULocale locale, Collection others) {
-      * showLocales("collation", others);
-      *
-      * Collator col = cldrCollations.getInstance(locale); //
-      * Collator.getInstance(locale);
-      *
-      * UnicodeSet tailored = col.getTailoredSet(); if
-      * (locale.getLanguage().equals("zh")) { tailored.addAll(new
-      * UnicodeSet("[[a-z]-[v]]")); log.println("HACK for Pinyin"); } tailored =
-      * createCaseClosure(tailored); tailored = nfc(tailored);
-      * //System.out.println(tailored.toPattern(true));
-      *
-      * UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE); // add
-      * all the exemplars if (false) for (Iterator it = others.iterator();
-      * it.hasNext(); ) { exemplars.addAll(getExemplarSet((ULocale)it.next(),
-      * UnicodeSet.CASE)); }
-      *
-      * exemplars = createCaseClosure(exemplars); exemplars = nfc(exemplars);
-      * //System.out.println(exemplars.toPattern(true));
-      * tailored.addAll(exemplars); //UnicodeSet tailoredMinusHan = new
-      * UnicodeSet(tailored).removeAll(SKIP_COLLATION_SET); if
-      * (!exemplars.containsAll(tailored)) { //BagFormatter bf = new
-      * BagFormatter(); log.println("In Tailored, but not Exemplar; Locale: " +
-      * locale + "\t" + locale.getDisplayName()); log.println(new
-      * UnicodeSet(tailored).removeAll(exemplars).toPattern(false));
-      * //bf.(log,"tailored", tailored, "exemplars", exemplars); log.flush(); }
-      * tailored.addAll(new UnicodeSet("[\\ .02{12}]"));
-      * tailored.removeAll(SKIP_COLLATION_SET);
-      *
-      * SortedBag bag = new SortedBag(col); doCollationResult(col, tailored,
-      * bag); out.println("  </collation>"); }};
-      */
-     static final UnicodeSet SKIP_COLLATION_SET = new UnicodeSet(
-         "[[:script=han:][:script=hangul:]-[\u4e00-\u4eff \u9f00-\u9fff \uac00-\uacff \ud700-\ud7ff]]");
+    /*
+     * public void show(ULocale locale, Collection others) {
+     * showLocales("collation", others);
+     *
+     * Collator col = cldrCollations.getInstance(locale); //
+     * Collator.getInstance(locale);
+     *
+     * UnicodeSet tailored = col.getTailoredSet(); if
+     * (locale.getLanguage().equals("zh")) { tailored.addAll(new
+     * UnicodeSet("[[a-z]-[v]]")); log.println("HACK for Pinyin"); } tailored =
+     * createCaseClosure(tailored); tailored = nfc(tailored);
+     * //System.out.println(tailored.toPattern(true));
+     *
+     * UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE); // add
+     * all the exemplars if (false) for (Iterator it = others.iterator();
+     * it.hasNext(); ) { exemplars.addAll(getExemplarSet((ULocale)it.next(),
+     * UnicodeSet.CASE)); }
+     *
+     * exemplars = createCaseClosure(exemplars); exemplars = nfc(exemplars);
+     * //System.out.println(exemplars.toPattern(true));
+     * tailored.addAll(exemplars); //UnicodeSet tailoredMinusHan = new
+     * UnicodeSet(tailored).removeAll(SKIP_COLLATION_SET); if
+     * (!exemplars.containsAll(tailored)) { //BagFormatter bf = new
+     * BagFormatter(); log.println("In Tailored, but not Exemplar; Locale: " +
+     * locale + "\t" + locale.getDisplayName()); log.println(new
+     * UnicodeSet(tailored).removeAll(exemplars).toPattern(false));
+     * //bf.(log,"tailored", tailored, "exemplars", exemplars); log.flush(); }
+     * tailored.addAll(new UnicodeSet("[\\ .02{12}]"));
+     * tailored.removeAll(SKIP_COLLATION_SET);
+     *
+     * SortedBag bag = new SortedBag(col); doCollationResult(col, tailored,
+     * bag); out.println("  </collation>"); }};
+     */
+    static final UnicodeSet SKIP_COLLATION_SET = new UnicodeSet(
+        "[[:script=han:][:script=hangul:]-[\u4e00-\u4eff \u9f00-\u9fff \uac00-\uacff \ud700-\ud7ff]]");
 
-     /**
-      * @param col
-      * @param tailored
-      * @param bag
-      */
-     private ResultsPrinter doCollationResult(Collator col, UnicodeSet tailored,
-         SortedBag bag) {
-         for (UnicodeSetIterator usi = new UnicodeSetIterator(tailored); usi.next();) {
-             String s = usi.getString();
-             bag.add('x' + s);
-             bag.add('X' + s);
-             bag.add('x' + s + 'x');
-         }
-         // out.println("   <set locale='" + locale + "'/>");
-         /*
-          * if (others != null) for (Iterator it = others.iterator();
-          * it.hasNext(); ) { ULocale uloc = (ULocale) it.next(); if
-          * (uloc.equals(locale)) continue; out.println("   <other locale='" +
-          * uloc + "'/>"); }
-          */
-         String last = "";
-         boolean needEquals = false;
-         StringBuffer tempResult = new StringBuffer(CldrUtility.LINE_SEPARATOR);
-         for (Iterator<String> it = bag.iterator(); it.hasNext();) {
-             String s = it.next();
-             if (col.compare(s, last) != 0) {
-                 if (needEquals)
-                     tempResult.append(last).append(CldrUtility.LINE_SEPARATOR);
-                 needEquals = false;
-                 last = s;
-             } else {
-                 needEquals = true;
-             }
-             tempResult.append(TransliteratorUtilities.toXML.transliterate(s)).append(
-                 CldrUtility.LINE_SEPARATOR);
-         }
-         ResultsPrinter result = new ResultsPrinter();
-         result.setResult(tempResult.toString());
-         return result;
-     }
+    /**
+     * @param col
+     * @param tailored
+     * @param bag
+     */
+    private ResultsPrinter doCollationResult(Collator col, UnicodeSet tailored,
+        SortedBag bag) {
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(tailored); usi.next();) {
+            String s = usi.getString();
+            bag.add('x' + s);
+            bag.add('X' + s);
+            bag.add('x' + s + 'x');
+        }
+        // out.println("   <set locale='" + locale + "'/>");
+        /*
+         * if (others != null) for (Iterator it = others.iterator();
+         * it.hasNext(); ) { ULocale uloc = (ULocale) it.next(); if
+         * (uloc.equals(locale)) continue; out.println("   <other locale='" +
+         * uloc + "'/>"); }
+         */
+        String last = "";
+        boolean needEquals = false;
+        StringBuffer tempResult = new StringBuffer(CldrUtility.LINE_SEPARATOR);
+        for (Iterator<String> it = bag.iterator(); it.hasNext();) {
+            String s = it.next();
+            if (col.compare(s, last) != 0) {
+                if (needEquals)
+                    tempResult.append(last).append(CldrUtility.LINE_SEPARATOR);
+                needEquals = false;
+                last = s;
+            } else {
+                needEquals = true;
+            }
+            tempResult.append(TransliteratorUtilities.toXML.transliterate(s)).append(
+                CldrUtility.LINE_SEPARATOR);
+        }
+        ResultsPrinter result = new ResultsPrinter();
+        result.setResult(tempResult.toString());
+        return result;
+    }
 
-     static public Set<String> getMatchingXMLFiles(String dir, String localeRegex) {
-         Matcher m = PatternCache.get(localeRegex).matcher("");
-         Set<String> s = new TreeSet<String>();
-         File[] files = new File(dir).listFiles();
-         for (int i = 0; i < files.length; ++i) {
-             String name = files[i].getName();
-             if (!name.endsWith(".xml"))
-                 continue;
-             if (name.startsWith("supplementalData"))
-                 continue;
-             String locale = name.substring(0, name.length() - 4); // drop .xml
-             if (!locale.equals("root") && !m.reset(locale).matches())
-                 continue;
-             s.add(locale);
-         }
-         return s;
-     }
+    static public Set<String> getMatchingXMLFiles(String dir, String localeRegex) {
+        Matcher m = PatternCache.get(localeRegex).matcher("");
+        Set<String> s = new TreeSet<String>();
+        File[] files = new File(dir).listFiles();
+        for (int i = 0; i < files.length; ++i) {
+            String name = files[i].getName();
+            if (!name.endsWith(".xml"))
+                continue;
+            if (name.startsWith("supplementalData"))
+                continue;
+            String locale = name.substring(0, name.length() - 4); // drop .xml
+            if (!locale.equals("root") && !m.reset(locale).matches())
+                continue;
+            s.add(locale);
+        }
+        return s;
+    }
 
-     /*
-      * public static boolean isDraft(Node node) { for (; node.getNodeType() !=
-      * Node.DOCUMENT_NODE; node = node.getParentNode()){ NamedNodeMap attributes
-      * = node.getAttributes(); if (attributes == null) continue; for (int i = 0;
-      * i < attributes.getLength(); ++i) { Node attribute = attributes.item(i);
-      * if (attribute.getNodeName().equals("draft") &&
-      * attribute.getNodeValue().equals("true")) return true; } } return false; }
-      */
-     public static String getXPath(Node node) {
-         StringBuffer xpathFragment = new StringBuffer();
-         StringBuffer xpath = new StringBuffer();
-         for (; node.getNodeType() != Node.DOCUMENT_NODE; node = node
-             .getParentNode()) {
-             xpathFragment.setLength(0);
-             xpathFragment.append('/').append(node.getNodeName());
-             NamedNodeMap attributes = node.getAttributes();
-             if (attributes != null) {
-                 for (int i = 0; i < attributes.getLength(); ++i) {
-                     Node attribute = attributes.item(i);
-                     xpathFragment.append("[@").append(attribute.getNodeName())
-                     .append('=').append(attribute.getNodeValue()).append(']');
-                 }
-             }
-             xpath.insert(0, xpathFragment);
-         }
-         xpath.insert(0, '/');
-         return xpath.toString();
-     }
+    /*
+     * public static boolean isDraft(Node node) { for (; node.getNodeType() !=
+     * Node.DOCUMENT_NODE; node = node.getParentNode()){ NamedNodeMap attributes
+     * = node.getAttributes(); if (attributes == null) continue; for (int i = 0;
+     * i < attributes.getLength(); ++i) { Node attribute = attributes.item(i);
+     * if (attribute.getNodeName().equals("draft") &&
+     * attribute.getNodeValue().equals("true")) return true; } } return false; }
+     */
+    public static String getXPath(Node node) {
+        StringBuffer xpathFragment = new StringBuffer();
+        StringBuffer xpath = new StringBuffer();
+        for (; node.getNodeType() != Node.DOCUMENT_NODE; node = node
+            .getParentNode()) {
+            xpathFragment.setLength(0);
+            xpathFragment.append('/').append(node.getNodeName());
+            NamedNodeMap attributes = node.getAttributes();
+            if (attributes != null) {
+                for (int i = 0; i < attributes.getLength(); ++i) {
+                    Node attribute = attributes.item(i);
+                    xpathFragment.append("[@").append(attribute.getNodeName())
+                        .append('=').append(attribute.getNodeValue()).append(']');
+                }
+            }
+            xpath.insert(0, xpathFragment);
+        }
+        xpath.insert(0, '/');
+        return xpath.toString();
+    }
 
-     public static String replace(String source, String pattern, String replacement) {
-         // dumb code for now
-         for (int pos = source.indexOf(pattern, 0); pos >= 0; pos = source.indexOf(
-             pattern, pos + 1)) {
-             source = source.substring(0, pos) + replacement
-                 + source.substring(pos + pattern.length());
-         }
-         return source;
-     }
+    public static String replace(String source, String pattern, String replacement) {
+        // dumb code for now
+        for (int pos = source.indexOf(pattern, 0); pos >= 0; pos = source.indexOf(
+            pattern, pos + 1)) {
+            source = source.substring(0, pos) + replacement
+                + source.substring(pos + pattern.length());
+        }
+        return source;
+    }
 
-     public static interface Apply {
-         String apply(String source);
-     }
+    public static interface Apply {
+        String apply(String source);
+    }
 
-     static UnicodeSet apply(UnicodeSet source, Apply apply) {
-         UnicodeSet target = new UnicodeSet();
-         for (UnicodeSetIterator usi = new UnicodeSetIterator(source); usi.next();) {
-             String s = usi.getString();
-             target.add(apply.apply(s));
-         }
-         return target;
-     }
+    static UnicodeSet apply(UnicodeSet source, Apply apply) {
+        UnicodeSet target = new UnicodeSet();
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(source); usi.next();) {
+            String s = usi.getString();
+            target.add(apply.apply(s));
+        }
+        return target;
+    }
 
-     static UnicodeSet nfc(UnicodeSet source) {
-         return apply(source, new Apply() {
-             public String apply(String source) {
-                 return Normalizer.compose(source, false);
-             }
-         });
-     }
+    static UnicodeSet nfc(UnicodeSet source) {
+        return apply(source, new Apply() {
+            public String apply(String source) {
+                return Normalizer.compose(source, false);
+            }
+        });
+    }
 
-     public static interface CloseCodePoint {
-         /**
-          * @param cp
-          *            code point to get closure for
-          * @param toAddTo
-          *            Unicode set for the closure
-          * @return toAddTo (for chaining)
-          */
-         UnicodeSet close(int cp, UnicodeSet toAddTo);
-     }
+    public static interface CloseCodePoint {
+        /**
+         * @param cp
+         *            code point to get closure for
+         * @param toAddTo
+         *            Unicode set for the closure
+         * @return toAddTo (for chaining)
+         */
+        UnicodeSet close(int cp, UnicodeSet toAddTo);
+    }
 
-     public static UnicodeSet createCaseClosure(UnicodeSet source) {
-         UnicodeSet target = new UnicodeSet();
-         for (UnicodeSetIterator usi = new UnicodeSetIterator(source); usi.next();) {
-             String s = usi.getString();
-             UnicodeSet temp = createClosure(s, CCCP);
-             if (temp == null)
-                 target.add(s);
-             else
-                 target.addAll(temp);
-         }
-         return target;
-     }
+    public static UnicodeSet createCaseClosure(UnicodeSet source) {
+        UnicodeSet target = new UnicodeSet();
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(source); usi.next();) {
+            String s = usi.getString();
+            UnicodeSet temp = createClosure(s, CCCP);
+            if (temp == null)
+                target.add(s);
+            else
+                target.addAll(temp);
+        }
+        return target;
+    }
 
-     public static class UnicodeSetComparator implements Comparator<Object> {
-         UnicodeSetIterator ait = new UnicodeSetIterator();
+    public static class UnicodeSetComparator implements Comparator<Object> {
+        UnicodeSetIterator ait = new UnicodeSetIterator();
 
-         UnicodeSetIterator bit = new UnicodeSetIterator();
+        UnicodeSetIterator bit = new UnicodeSetIterator();
 
-         public int compare(Object o1, Object o2) {
-             if (o1 == o2)
-                 return 0;
-             if (o1 == null)
-                 return -1;
-             if (o2 == null)
-                 return 1;
-             UnicodeSet a = (UnicodeSet) o1;
-             UnicodeSet b = (UnicodeSet) o2;
-             if (a.size() != b.size()) {
-                 return a.size() < b.size() ? -1 : 1;
-             }
-             ait.reset(a);
-             bit.reset(b);
-             while (ait.nextRange()) {
-                 bit.nextRange();
-                 if (ait.codepoint != bit.codepoint) {
-                     return ait.codepoint < bit.codepoint ? -1 : 1;
-                 }
-                 if (ait.codepoint == UnicodeSetIterator.IS_STRING) {
-                     int result = ait.string.compareTo(bit.string);
-                     if (result != 0)
-                         return result;
-                 } else if (ait.codepointEnd != bit.codepointEnd) {
-                     return ait.codepointEnd < bit.codepointEnd ? -1 : 1;
-                 }
-             }
-             return 0;
-         }
-     }
+        public int compare(Object o1, Object o2) {
+            if (o1 == o2)
+                return 0;
+            if (o1 == null)
+                return -1;
+            if (o2 == null)
+                return 1;
+            UnicodeSet a = (UnicodeSet) o1;
+            UnicodeSet b = (UnicodeSet) o2;
+            if (a.size() != b.size()) {
+                return a.size() < b.size() ? -1 : 1;
+            }
+            ait.reset(a);
+            bit.reset(b);
+            while (ait.nextRange()) {
+                bit.nextRange();
+                if (ait.codepoint != bit.codepoint) {
+                    return ait.codepoint < bit.codepoint ? -1 : 1;
+                }
+                if (ait.codepoint == UnicodeSetIterator.IS_STRING) {
+                    int result = ait.string.compareTo(bit.string);
+                    if (result != 0)
+                        return result;
+                } else if (ait.codepointEnd != bit.codepointEnd) {
+                    return ait.codepointEnd < bit.codepointEnd ? -1 : 1;
+                }
+            }
+            return 0;
+        }
+    }
 
-     public static final CloseCodePoint CCCP = new CloseCodePoint() {
-         Locale locale = Locale.ENGLISH;
+    public static final CloseCodePoint CCCP = new CloseCodePoint() {
+        Locale locale = Locale.ENGLISH;
 
-         UnicodeSet NONE = new UnicodeSet();
+        UnicodeSet NONE = new UnicodeSet();
 
-         UnicodeMap<UnicodeSet> map = new UnicodeMap<UnicodeSet>(); // new
+        UnicodeMap<UnicodeSet> map = new UnicodeMap<UnicodeSet>(); // new
 
-         // UnicodeSetComparator()
+        // UnicodeSetComparator()
 
-         public UnicodeSet close(int cp, UnicodeSet toAddTo) {
-             UnicodeSet result = map.getValue(cp);
-             if (result == null) {
-                 result = new UnicodeSet();
-                 result.add(cp);
-                 String s = UCharacter.toLowerCase(locale, UTF16.valueOf(cp));
-                 result.add(s);
-                 s = UCharacter.toUpperCase(locale, UTF16.valueOf(cp));
-                 result.add(s);
-                 s = UCharacter.toTitleCase(locale, UTF16.valueOf(cp), null);
-                 result.add(s);
-                 // special hack
-                 if (result.contains("SS"))
-                     result.add("sS").add("ss");
-                 if (result.size() == 1)
-                     result = NONE;
-                 map.put(cp, result);
-             }
-             if (result != NONE)
-                 toAddTo.addAll(result);
-             else
-                 toAddTo.add(cp);
-             return toAddTo;
-         }
-     };
+        public UnicodeSet close(int cp, UnicodeSet toAddTo) {
+            UnicodeSet result = map.getValue(cp);
+            if (result == null) {
+                result = new UnicodeSet();
+                result.add(cp);
+                String s = UCharacter.toLowerCase(locale, UTF16.valueOf(cp));
+                result.add(s);
+                s = UCharacter.toUpperCase(locale, UTF16.valueOf(cp));
+                result.add(s);
+                s = UCharacter.toTitleCase(locale, UTF16.valueOf(cp), null);
+                result.add(s);
+                // special hack
+                if (result.contains("SS"))
+                    result.add("sS").add("ss");
+                if (result.size() == 1)
+                    result = NONE;
+                map.put(cp, result);
+            }
+            if (result != NONE)
+                toAddTo.addAll(result);
+            else
+                toAddTo.add(cp);
+            return toAddTo;
+        }
+    };
 
-     public static UnicodeSet createClosure(String source, CloseCodePoint closer) {
-         return createClosure(source, 0, closer);
-     }
+    public static UnicodeSet createClosure(String source, CloseCodePoint closer) {
+        return createClosure(source, 0, closer);
+    }
 
-     public static UnicodeSet createClosure(String source, int position,
-         CloseCodePoint closer) {
-         UnicodeSet result = new UnicodeSet();
-         // if at end, return empty set
-         if (position >= source.length())
-             return result;
-         int cp = UTF16.charAt(source, position);
-         // if last character, return its set
-         int endPosition = position + UTF16.getCharCount(cp);
-         if (endPosition >= source.length())
-             return closer.close(cp, result);
-         // otherwise concatenate its set with the remainder
-         UnicodeSet remainder = createClosure(source, endPosition, closer);
-         return createAppend(closer.close(cp, result), remainder);
-     }
+    public static UnicodeSet createClosure(String source, int position,
+        CloseCodePoint closer) {
+        UnicodeSet result = new UnicodeSet();
+        // if at end, return empty set
+        if (position >= source.length())
+            return result;
+        int cp = UTF16.charAt(source, position);
+        // if last character, return its set
+        int endPosition = position + UTF16.getCharCount(cp);
+        if (endPosition >= source.length())
+            return closer.close(cp, result);
+        // otherwise concatenate its set with the remainder
+        UnicodeSet remainder = createClosure(source, endPosition, closer);
+        return createAppend(closer.close(cp, result), remainder);
+    }
 
-     /**
-      * Produce the result of appending each element of this to each element of
-      * other. That is, [a{cd}] + [d{ef}] => [{ad}{aef}{cdd}{cdef}]
-      */
-     public static UnicodeSet createAppend(UnicodeSet a, UnicodeSet b) {
-         UnicodeSet target = new UnicodeSet();
-         for (UnicodeSetIterator usi = new UnicodeSetIterator(a); usi.next();) {
-             String s = usi.getString();
-             for (UnicodeSetIterator usi2 = new UnicodeSetIterator(b); usi2.next();) {
-                 String s2 = usi2.getString();
-                 target.add(s + s2);
-             }
-         }
-         return target;
-     }
+    /**
+     * Produce the result of appending each element of this to each element of
+     * other. That is, [a{cd}] + [d{ef}] => [{ad}{aef}{cdd}{cdef}]
+     */
+    public static UnicodeSet createAppend(UnicodeSet a, UnicodeSet b) {
+        UnicodeSet target = new UnicodeSet();
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(a); usi.next();) {
+            String s = usi.getString();
+            for (UnicodeSetIterator usi2 = new UnicodeSetIterator(b); usi2.next();) {
+                String s2 = usi2.getString();
+                target.add(s + s2);
+            }
+        }
+        return target;
+    }
 }

@@ -48,7 +48,8 @@ class SimpleLocaleParser {
             "   | zh [-_] (?: cmn (?: [-_] Hans | [-_] Hant )? | gan | min (?: [-_] nan)? | wuu | yue ) ) )" +
             " (?: \\@ ((?: [a-z 0-9]+ \\= [a-z 0-9]+) (?: \\; (?: [a-z 0-9]+ \\= [a-z 0-9]+))*))?" + // CLDR/ICU
             // keywords
-            "", Pattern.COMMENTS | Pattern.CASE_INSENSITIVE); // TODO change above to be lowercase, since source is
+            "",
+        Pattern.COMMENTS | Pattern.CASE_INSENSITIVE); // TODO change above to be lowercase, since source is
     // already when we compare
     // Other regex patterns for splitting apart lists of items detected above.
     private static final Pattern variantSeparatorPattern = PatternCache.get("[-_]");

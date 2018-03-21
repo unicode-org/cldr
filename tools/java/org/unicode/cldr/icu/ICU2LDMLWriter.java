@@ -19,8 +19,7 @@ import com.ibm.icu.dev.tool.UOption;
  *
  */
 @SuppressWarnings("deprecation")
-public class ICU2LDMLWriter extends CLDRConverterTool
-{
+public class ICU2LDMLWriter extends CLDRConverterTool {
     private static final UOption[] options = new UOption[] {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
@@ -44,35 +43,29 @@ public class ICU2LDMLWriter extends CLDRConverterTool
 
     private String currentLocaleName = null;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         ICU2LDMLWriter w = new ICU2LDMLWriter();
         w.processArgs(args);
     }
 
-    public void processArgs(String[] args)
-    {
+    public void processArgs(String[] args) {
         int remainingArgc = 0;
         // for some reason when
         // Class classDefinition = Class.forName(className);
         // object = classDefinition.newInstance();
         // is done then the options are not reset!!
-        for (int i = 0; i < options.length; i++)
-        {
+        for (int i = 0; i < options.length; i++) {
             options[i].doesOccur = false;
         }
-        try
-        {
+        try {
             remainingArgc = UOption.parseArgs(args, options);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             printError("(parsing args): " + e.toString());
             e.printStackTrace();
             usage();
         }
 
-        if (options[OP_HELP1].doesOccur || options[OP_HELP2].doesOccur || args.length == 0)
-        {
+        if (options[OP_HELP1].doesOccur || options[OP_HELP2].doesOccur || args.length == 0) {
             usage();
         }
 
@@ -80,31 +73,29 @@ public class ICU2LDMLWriter extends CLDRConverterTool
 
     }
 
-    private void usage()
-    {
+    private void usage() {
         System.out
-        .println("\nUsage: ICU2LDMLWriter [OPTIONS] -d OUTPUTFOLDER [FILES]\n"
-            +
-            "This program generates LDML documents which represent the data currently inside of your ICU installation\n"
-            +
-            "If no files are given, a file for each supported locale will be produced.\n"
-            +
-            "If no destination folder is given, the file structure will be created in the current working directory.\n"
-            +
-            "Options:\n" +
-            "-m or --main			Generate the main locale files.\n" +
-            "-t or --trans			Generate the transliteration locale files.\n" +
-            "-c or --coll			Generate the collation files.\n" +
-            "If none of the above options are given, all three types of files will be generated.\n" +
-            "\n" +
-            "** Note: ICU2LDMLWriter is no longer supported or functional. **\n");
+            .println("\nUsage: ICU2LDMLWriter [OPTIONS] -d OUTPUTFOLDER [FILES]\n"
+                +
+                "This program generates LDML documents which represent the data currently inside of your ICU installation\n"
+                +
+                "If no files are given, a file for each supported locale will be produced.\n"
+                +
+                "If no destination folder is given, the file structure will be created in the current working directory.\n"
+                +
+                "Options:\n" +
+                "-m or --main			Generate the main locale files.\n" +
+                "-t or --trans			Generate the transliteration locale files.\n" +
+                "-c or --coll			Generate the collation files.\n" +
+                "If none of the above options are given, all three types of files will be generated.\n" +
+                "\n" +
+                "** Note: ICU2LDMLWriter is no longer supported or functional. **\n");
         System.exit(-1);
     }
 
     // **********************Printing Methods *********************************
 
-    private void printError(String message)
-    {
+    private void printError(String message) {
         System.err.println("ERROR : " + currentLocaleName + ": " + message);
     }
 }

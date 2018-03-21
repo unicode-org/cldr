@@ -147,8 +147,7 @@ public class TestMetadata {
 
     public static <T> String showDifference(Iterable<T> a, Iterable<T> b, String separator,
         Transform<T, String> aDisplay,
-        Transform<T, String> bDisplay
-        ) {
+        Transform<T, String> bDisplay) {
         Differ<T> differ = new Differ<T>(300, 10);
         StringBuilder out = new StringBuilder();
         Iterator<T> ai = a.iterator();

@@ -828,9 +828,9 @@ public class CLDRTest extends TestFmwk {
     private String getDateKey(String monthOrDay, String width, String code) {
         // String context = width.equals("narrow") ? "format" : "stand-alone";
         return "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
-        + monthOrDay + "s/" + monthOrDay + "Context[@type=\"format\"]/"
-        + monthOrDay + "Width[@type=\"" + width + "\"]/" + monthOrDay
-        + "[@type=\"" + code + "\"]";
+            + monthOrDay + "s/" + monthOrDay + "Context[@type=\"format\"]/"
+            + monthOrDay + "Width[@type=\"" + width + "\"]/" + monthOrDay
+            + "[@type=\"" + code + "\"]";
     }
 
     /**

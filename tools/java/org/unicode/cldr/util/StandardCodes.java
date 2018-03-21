@@ -670,7 +670,7 @@ public class StandardCodes {
     // ========== PRIVATES ==========
 
     private StandardCodes() {
-        String[] files = {/* "lstreg.txt", */"ISO4217.txt" }; // , "TZID.txt"
+        String[] files = { /* "lstreg.txt", */"ISO4217.txt" }; // , "TZID.txt"
         type_code_preferred.put(CodeType.tzid, new TreeMap<String, String>());
         add(CodeType.language, "root", "Root");
         String originalLine = null;
@@ -769,7 +769,7 @@ public class StandardCodes {
                     + " may be a corrupted UTF-8 file. Please check.");
                 throw (IllegalArgumentException) new IllegalArgumentException(
                     "Can't read " + files[fileIndex] + "\t" + originalLine)
-                .initCause(e);
+                        .initCause(e);
             }
             country_modernCurrency = CldrUtility.protectCollection(country_modernCurrency);
         }
@@ -1024,17 +1024,10 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und", "zxx", "mul", "mis", "root"),
-        script("Zzzz", "Zsym", "Zxxx", "Zmth"),
-        region("ZZ"),
-        variant(),
-        extlang(true, false),
-        grandfathered(true, false),
-        redundant(true, false),
+        language("und", "zxx", "mul", "mis", "root"), script("Zzzz", "Zsym", "Zxxx", "Zmth"), region("ZZ"), variant(), extlang(true, false), grandfathered(true,
+            false), redundant(true, false),
         /** specialized codes for validity; TODO: rename LstrType **/
-        currency(false, true, "XXX"),
-        subdivision(false, true),
-        unit(false, true);
+        currency(false, true, "XXX"), subdivision(false, true), unit(false, true);
 
         public final Set<String> specials;
         public final String unknown;
@@ -1061,16 +1054,16 @@ public class StandardCodes {
 
         boolean isWellFormed(String candidate) {
             switch (this) {
-            case subdivision: 
+            case subdivision:
                 return WELLFORMED.matcher(candidate).matches();
-            default: throw new UnsupportedOperationException();
+            default:
+                throw new UnsupportedOperationException();
             }
         }
     }
 
     public enum LstrField {
-        Type, Subtag, Description, Added, Scope, Tag, Suppress_Script,
-        Macrolanguage, Deprecated, Preferred_Value, Comments, Prefix, CLDR;
+        Type, Subtag, Description, Added, Scope, Tag, Suppress_Script, Macrolanguage, Deprecated, Preferred_Value, Comments, Prefix, CLDR;
         public static LstrField from(String s) {
             return LstrField.valueOf(s.trim().replace("-", "_"));
         }
@@ -1453,14 +1446,14 @@ public class StandardCodes {
      * @return
      */
     public static boolean isCountry(String territory) {
-        switch(territory) {
-        case "ZZ": 
-        case "QO": 
-        case "EU": 
-        case "UN": 
+        switch (territory) {
+        case "ZZ":
+        case "QO":
+        case "EU":
+        case "UN":
         case "EZ":
             return false;
-        default: 
+        default:
             return territory.length() == 2 && COUNTRY.containsAll(territory);
         }
     }

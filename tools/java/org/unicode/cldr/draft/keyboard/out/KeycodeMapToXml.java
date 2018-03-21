@@ -13,32 +13,32 @@ import com.google.common.collect.ImmutableMap;
 
 /** Utility class that writes the given key code map into the LDML XML format. */
 public final class KeycodeMapToXml {
-  private final KeycodeMap keycodeMap;
-  private final Platform platform;
-  private final XmlWriter xmlWriter;
+    private final KeycodeMap keycodeMap;
+    private final Platform platform;
+    private final XmlWriter xmlWriter;
 
-  private KeycodeMapToXml(KeycodeMap keycodeMap, Platform platform, XmlWriter xmlWriter) {
-    this.keycodeMap = checkNotNull(keycodeMap);
-    this.platform = checkNotNull(platform);
-    this.xmlWriter = checkNotNull(xmlWriter);
-  }
-
-  /** Writes the given key code map in XML format to the provided writer. */
-  public static void writeToXml(KeycodeMap keycodeMap, Platform platform, Writer writer) {
-    XmlWriter xmlWriter = XmlWriter.newXmlWriter(writer);
-    KeycodeMapToXml keycodeMapToXml = new KeycodeMapToXml(keycodeMap, platform, xmlWriter);
-    keycodeMapToXml.toXml();
-  }
-
-  private void toXml() {
-    xmlWriter.startDocument("platform", "../dtd/ldmlPlatform.dtd");
-    xmlWriter.startElement("platform", ImmutableMap.of("id", platform));
-    xmlWriter.startElement("hardwareMap");
-    for (Entry<Integer, IsoLayoutPosition> entry : keycodeMap.keycodeToIsoLayout().entrySet()) {
-      xmlWriter.addElement("map", ImmutableMap.of("keycode", entry.getKey(), "iso", entry.getValue()));
+    private KeycodeMapToXml(KeycodeMap keycodeMap, Platform platform, XmlWriter xmlWriter) {
+        this.keycodeMap = checkNotNull(keycodeMap);
+        this.platform = checkNotNull(platform);
+        this.xmlWriter = checkNotNull(xmlWriter);
     }
-    xmlWriter.endElement();
-    xmlWriter.endElement();
-    xmlWriter.endDocument();
-  }
+
+    /** Writes the given key code map in XML format to the provided writer. */
+    public static void writeToXml(KeycodeMap keycodeMap, Platform platform, Writer writer) {
+        XmlWriter xmlWriter = XmlWriter.newXmlWriter(writer);
+        KeycodeMapToXml keycodeMapToXml = new KeycodeMapToXml(keycodeMap, platform, xmlWriter);
+        keycodeMapToXml.toXml();
+    }
+
+    private void toXml() {
+        xmlWriter.startDocument("platform", "../dtd/ldmlPlatform.dtd");
+        xmlWriter.startElement("platform", ImmutableMap.of("id", platform));
+        xmlWriter.startElement("hardwareMap");
+        for (Entry<Integer, IsoLayoutPosition> entry : keycodeMap.keycodeToIsoLayout().entrySet()) {
+            xmlWriter.addElement("map", ImmutableMap.of("keycode", entry.getKey(), "iso", entry.getValue()));
+        }
+        xmlWriter.endElement();
+        xmlWriter.endElement();
+        xmlWriter.endDocument();
+    }
 }

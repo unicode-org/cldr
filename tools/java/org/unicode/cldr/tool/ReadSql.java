@@ -38,21 +38,23 @@ public class ReadSql {
     static UserMap umap = new UserMap(CLDRPaths.DATA_DIRECTORY + "cldr/users.xml");
 
     enum MyOptions {
-        organization(".*", "google", "organization"),
-        verbose("", "", "verbose"),
+        organization(".*", "google", "organization"), verbose("", "", "verbose"),
         ;
 
         // BOILERPLATE TO COPY
         final Option option;
+
         private MyOptions(String argumentPattern, String defaultArgument, String helpText) {
             option = new Option(this, argumentPattern, defaultArgument, helpText);
         }
+
         static Options options = new Options();
         static {
             for (MyOptions option : MyOptions.values()) {
                 options.add(option, option.option);
             }
         }
+
         private static Set<String> parse(String[] args, boolean showArguments) {
             return options.parse(MyOptions.values()[0], args, true);
         }
@@ -101,7 +103,7 @@ public class ReadSql {
     }
 
     private static String trunc(String line, int len) {
-        return line.length() <= len ? line : line.substring(0,len) + "…";
+        return line.length() <= len ? line : line.substring(0, len) + "…";
     }
 
     static final Pattern INSERT = Pattern.compile("INSERT\\s+INTO\\s+`([^`]+)`\\s+VALUES\\s*");
@@ -118,13 +120,13 @@ public class ReadSql {
             } catch (Exception e) {
                 System.out.println("No user for: " + key + ": " + raw);
                 return null;
-            } 
+            }
         }
 
         private Items(String key, List<String> raw) {
             Date temp;
             try {
-                temp = df.parse(raw.get(raw.size()-1));
+                temp = df.parse(raw.get(raw.size() - 1));
             } catch (ParseException e) {
                 temp = null;
             }
@@ -135,8 +137,8 @@ public class ReadSql {
             } else {
                 String ownerField;
                 switch (key) {
-                case "FEEDBACK": 
-                    ownerField = raw.get(1); 
+                case "FEEDBACK":
+                    ownerField = raw.get(1);
                     break;
                 default:
                     ownerField = raw.get(2);
@@ -153,12 +155,16 @@ public class ReadSql {
     }
 
     static class DateMap {
-        M5<Integer,Integer,Integer,Integer, Boolean> yearMonthDays = ChainedMap.of(new TreeMap<>(), new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
+        M5<Integer, Integer, Integer, Integer, Boolean> yearMonthDays = ChainedMap.of(new TreeMap<>(), new TreeMap(), new TreeMap(), new TreeMap(),
+            Boolean.class);
         int current = 0;
+
         void add(Date d) {
-            yearMonthDays.put(d.getYear()+1900, d.getMonth()+1, d.getDate(), current++, Boolean.TRUE);
+            yearMonthDays.put(d.getYear() + 1900, d.getMonth() + 1, d.getDate(), current++, Boolean.TRUE);
         }
+
         static DateFormat monthFormat = new SimpleDateFormat("MMM");
+
         @Override
         public String toString() {
             StringBuilder result = new StringBuilder();
@@ -176,7 +182,7 @@ public class ReadSql {
                         result.append("; ");
                     }
                     final int month = monthDay.getKey();
-                    result.append(monthFormat.format(new Date(year-1900, month-1, 1)));
+                    result.append(monthFormat.format(new Date(year - 1900, month - 1, 1)));
                     result.append(": ");
                     int days = 0;
                     for (Entry<Integer, Map<Integer, Boolean>> dayCount : monthDay.getValue().entrySet()) {
@@ -201,7 +207,7 @@ public class ReadSql {
     static class Data {
         final String key;
         final List<Items> dataItems = new ArrayList<Items>();
-        static Map<String,Data> map = new TreeMap<>();
+        static Map<String, Data> map = new TreeMap<>();
 
         public Data(String key) {
             this.key = key;
@@ -224,7 +230,7 @@ public class ReadSql {
                     continue;
                 }
                 Counter<User> counter = new Counter<>();
-                Map<User,DateMap> dateMaps = new HashMap<>();
+                Map<User, DateMap> dateMaps = new HashMap<>();
                 for (Items item : data.dataItems) {
                     if (item.owner.org == organization) {
                         counter.add(item.owner, 1);
@@ -285,10 +291,10 @@ public class ReadSql {
                 i += Character.charCount(cp);
                 if (inQuote) {
                     switch (cp) {
-                    case '\'': 
+                    case '\'':
                         inQuote = false;
                         break;
-                    case '\\': 
+                    case '\\':
                         cp = line.codePointAt(i);
                         i += Character.charCount(cp);
                         // fall through
@@ -298,7 +304,7 @@ public class ReadSql {
                     }
                 } else {
                     switch (cp) {
-                    case '\'': 
+                    case '\'':
                         inQuote = true;
                         break;
                     case ',':
@@ -323,7 +329,7 @@ public class ReadSql {
                         }
                         items = new ArrayList<>();
                         break;
-                    case '\\': 
+                    case '\\':
                         cp = line.codePointAt(i);
                         i += Character.charCount(cp);
                         // fall through
@@ -352,20 +358,20 @@ public class ReadSql {
             this.org = Organization.fromString(parts.getAttributeValue(-1, "org"));
             this.locales = ImmutableSet.copyOf(Arrays.asList(parts.getAttributeValue(-1, "locales").split("[, ]+")));
         }
+
         @Override
         public String toString() {
-            return "id: " + id 
+            return "id: " + id
                 + "; email: " + email
                 + "; name: " + name
                 + "; level: " + level
                 + "; org: " + org
-                + "; locales: " + locales
-                ;
+                + "; locales: " + locales;
         }
     }
 
     static class UserMap {
-        Map<Integer,User> map = new HashMap<>();
+        Map<Integer, User> map = new HashMap<>();
 
         UserMap(String filename) {
             List<Pair<String, String>> data = new ArrayList<>();

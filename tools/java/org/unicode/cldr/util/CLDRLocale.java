@@ -348,8 +348,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Hashcode - is the hashcode of the full string
      */
-    public int hashCode()
-    {
+    public int hashCode() {
         return fullname.hashCode();
     }
 

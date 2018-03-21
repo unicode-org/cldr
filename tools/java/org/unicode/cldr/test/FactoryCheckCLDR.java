@@ -34,7 +34,7 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
         }
         return pathHeaderFactory;
     }
-    
+
     public FactoryCheckCLDR(Factory factory) {
         super();
         this.factory = factory;

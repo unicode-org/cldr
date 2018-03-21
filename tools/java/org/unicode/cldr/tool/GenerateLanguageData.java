@@ -40,10 +40,10 @@ public class GenerateLanguageData {
         if (args.length > 0 && args[0].equals("--en")) {
             CLDRConfig cldrConfig = CLDRConfig.getInstance();
             XPathParts xpp = new XPathParts(null, null)
-            .addElement(LDMLConstants.LDML)
-            .addElement(LDMLConstants.LDN)
-            .addElement(LDMLConstants.LANGUAGES)
-            .addElement(LDMLConstants.LANGUAGE);
+                .addElement(LDMLConstants.LDML)
+                .addElement(LDMLConstants.LDN)
+                .addElement(LDMLConstants.LANGUAGES)
+                .addElement(LDMLConstants.LANGUAGE);
             // could add draft status here, ex:
             xpp.setAttribute(-1, LDMLConstants.DRAFT, DraftStatus.unconfirmed.toString());
             System.out.println("generating en.xml.. to " + CLDRPaths.GEN_DIRECTORY);
@@ -54,8 +54,8 @@ public class GenerateLanguageData {
             newEn.addComment("//ldml", "by " +
                 GenerateLanguageData.class.getSimpleName() +
                 " from Iso639Data v" + iso639Data.getVersion() + " on " + new java.util.Date()
-            + " - " + all.size() + " codes.",
-            CommentType.PREBLOCK);
+                + " - " + all.size() + " codes.",
+                CommentType.PREBLOCK);
             System.out.println(all.size() + " ISO 639 codes to process");
             for (String languageCode : all) {
                 xpp.setAttribute(-1, LDMLConstants.TYPE, languageCode);
@@ -75,8 +75,7 @@ public class GenerateLanguageData {
                 }
             }
             final String filename = newEn.getLocaleID() + ".xml";
-            try (PrintWriter w =
-                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, filename)) {
+            try (PrintWriter w = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, filename)) {
                 newEn.write(w);
                 System.out.println("Wrote to " + CLDRPaths.GEN_DIRECTORY + "/" + filename);
             }
@@ -102,15 +101,14 @@ public class GenerateLanguageData {
             for (String suffix : new TreeSet<String>(suffixes)) {
                 System.out.println(
                     languageCode
-                    + "\t" + (bcp47languages.contains(languageCode) ? "4646" : "new")
-                    + "\t" + Iso639Data.getNames(languageCode).iterator().next() // Utility.join(iso639Data.getNames(languageCode),"; ")
-                    + "\t" + suffix
-                    // + "\t" + iso639Data.getSource(suffix)
-                    + "\t" + (bcp47languages.contains(suffix) ? "4646" : "new")
-                    // + "\t" + iso639Data.getScope(suffix)
-                    // + "\t" + iso639Data.getType(suffix)
-                    + "\t" + Iso639Data.getNames(suffix).iterator().next()
-                    );
+                        + "\t" + (bcp47languages.contains(languageCode) ? "4646" : "new")
+                        + "\t" + Iso639Data.getNames(languageCode).iterator().next() // Utility.join(iso639Data.getNames(languageCode),"; ")
+                        + "\t" + suffix
+                        // + "\t" + iso639Data.getSource(suffix)
+                        + "\t" + (bcp47languages.contains(suffix) ? "4646" : "new")
+                        // + "\t" + iso639Data.getScope(suffix)
+                        // + "\t" + iso639Data.getType(suffix)
+                        + "\t" + Iso639Data.getNames(suffix).iterator().next());
             }
         }
         System.out.println("All");
@@ -132,11 +130,10 @@ public class GenerateLanguageData {
             }
             System.out.println(
                 fullCode
-                + "\t" + source
-                + "\t" + scopeString
-                + "\t" + type
-                + "\t" + prefixName + CldrUtility.join(names, "\t")
-                );
+                    + "\t" + source
+                    + "\t" + scopeString
+                    + "\t" + type
+                    + "\t" + prefixName + CldrUtility.join(names, "\t"));
             type_codes.put(source + "\t" + scopeString + "\t" + type, fullCode);
         }
         for (String type : type_codes.keySet()) {

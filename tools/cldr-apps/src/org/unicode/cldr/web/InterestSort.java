@@ -168,10 +168,10 @@ public class InterestSort extends SortMode {
                 // return "root".equals(p.aliasFromLocale) ||
                 // XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
                 return p.inheritedValue != null && // found inherited item
-                    // (extrapaths and some
-                    // special paths may not
-                    // have an inherited
-                    // item)
+                // (extrapaths and some
+                // special paths may not
+                // have an inherited
+                // item)
                     (CLDRLocale.ROOT == p.inheritedValue.inheritFrom || XMLSource.CODE_FALLBACK_ID
                         .equals(p.inheritedValue.inheritFrom.getBaseName()));
                 /*

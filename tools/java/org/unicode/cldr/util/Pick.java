@@ -17,14 +17,14 @@ import com.ibm.icu.text.UnicodeSet;
 
 abstract public class Pick {
     private static boolean DEBUG = false;
-    
+
     // for using to get strings
-    
+
     static class Target {
         private Pick pick;
         private Random random;
         private Quoter quoter;
-        
+
         public static Target make(Pick pick, Random random, Quoter quoter) {
             Target result = new Target();
             result.pick = pick;
@@ -32,20 +32,25 @@ abstract public class Pick {
             result.quoter = quoter;
             return result;
         }
+
         public String next() {
             quoter.clear();
             pick.addTo(this);
             return get();
-        }        
+        }
+
         public String get() {
             return quoter.toString();
         }
+
         private void copyState(Target other) {
             random = other.random;
         }
+
         private void clear() {
             quoter.clear();
         }
+
         /*private int length() {
             return quoter.length();
         }*/
@@ -53,10 +58,12 @@ abstract public class Pick {
             quoter.append(codepoint);
             return this;
         }
+
         private Target append(String s) {
             quoter.append(s);
             return this;
         }
+
         // must return value between 0 (inc) and 1 (exc)
         private double nextDouble() {
             return random.nextDouble();
@@ -64,20 +71,21 @@ abstract public class Pick {
     }
 
     // for Building
-    
+
     public Pick replace(String toReplace, Pick replacement) {
-       Replacer visitor = new Replacer(toReplace, replacement);
-       return visit(visitor);
+        Replacer visitor = new Replacer(toReplace, replacement);
+        return visit(visitor);
     }
 
     public Pick name(String nameStr) {
         name = nameStr;
         return this;
     }
-    
+
     static public Pick.Sequence makeSequence() {
         return new Sequence();
     }
+
     static public Pick.Alternation makeAlternation() {
         return new Alternation();
     }
@@ -113,14 +121,15 @@ abstract public class Pick {
         return new CodePoint(new UnicodeSet(source));
     }
     */
-    
+
     static public Pick repeat(int minCount, int maxCount, int[] itemWeights, Pick item) {
         return new Repeat(minCount, maxCount, itemWeights, item);
     }
-    
+
     static public Pick codePoint(UnicodeSet source) {
         return new CodePoint(source);
     }
+
     static public Pick string(String source) {
         return new Literal(source);
     }
@@ -132,42 +141,49 @@ abstract public class Pick {
         return new Morph(item, minLength, maxLength);
     }
     */
-    
+
     public abstract String getInternal(int depth, Set alreadySeen);
     // Internals
-   
+
     protected String name;
-    
+
     protected abstract void addTo(Target target);
+
     public abstract boolean match(String input, Position p);
-    
+
     public static class Sequence extends ListPick {
-        public Sequence and2 (Pick item) {
-            addInternal(new Pick[] {item}); // we don't care about perf
+        public Sequence and2(Pick item) {
+            addInternal(new Pick[] { item }); // we don't care about perf
             return this; // for chaining
         }
-        public Sequence and2 (Pick[] itemArray) {
+
+        public Sequence and2(Pick[] itemArray) {
             addInternal(itemArray);
             return this; // for chaining
         }
+
         protected void addTo(Target target) {
             for (int i = 0; i < items.length; ++i) {
                 items[i].addTo(target);
             }
         }
+
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
             result = indent(depth) + result + "SEQ(";
             for (int i = 0; i < items.length; ++i) {
                 if (i != 0) result += ", ";
-                result += items[i].getInternal(depth+1, alreadySeen);
+                result += items[i].getInternal(depth + 1, alreadySeen);
             }
             result += ")";
             return result;
         }
+
         // keep private
-        private Sequence() {}
+        private Sequence() {
+        }
+
         public boolean match(String input, Position p) {
             int originalIndex = p.index;
             for (int i = 0; i < items.length; ++i) {
@@ -179,7 +195,7 @@ abstract public class Pick {
             return true;
         }
     }
-    
+
     String checkName(String nameStr, Set alreadySeen) {
         if (nameStr == null) return "";
         if (alreadySeen.contains(nameStr)) return nameStr;
@@ -189,55 +205,62 @@ abstract public class Pick {
 
     public static class Alternation extends ListPick {
         private WeightedIndex weightedIndex = new WeightedIndex(0);
-           
-        public Alternation or2 (Pick[] newItems) {
+
+        public Alternation or2(Pick[] newItems) {
             return or2(1, newItems);
         }
-        public Alternation or2 (int itemWeight, Pick item) {
-            return or2(itemWeight, new Pick[] {item}); // we don't care about perf
+
+        public Alternation or2(int itemWeight, Pick item) {
+            return or2(itemWeight, new Pick[] { item }); // we don't care about perf
         }
-        public Alternation or2 (int itemWeight, Pick[] newItems) {
+
+        public Alternation or2(int itemWeight, Pick[] newItems) {
             int[] itemWeights = new int[newItems.length];
-            Arrays.fill(itemWeights,itemWeight);
+            Arrays.fill(itemWeights, itemWeight);
             return or2(itemWeights, newItems); // we don't care about perf
         }
-        public Alternation or2 (int[] itemWeights, Pick[] newItems) {
+
+        public Alternation or2(int[] itemWeights, Pick[] newItems) {
             if (newItems.length != itemWeights.length) {
                 throw new ArrayIndexOutOfBoundsException(
                     "or lengths must be equal: " + newItems.length + " != " + itemWeights.length);
             }
-           // int lastLen = this.items.length;
+            // int lastLen = this.items.length;
             addInternal(newItems);
             weightedIndex.add(itemWeights);
             return this; // for chaining
         }
+
         protected void addTo(Target target) {
             items[weightedIndex.toIndex(target.nextDouble())].addTo(target);
-        }    
-        
+        }
+
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
             result = indent(depth) + result + "OR(";
             for (int i = 0; i < items.length; ++i) {
                 if (i != 0) result += ", ";
-                result += items[i].getInternal(depth+1, alreadySeen) + "/" + weightedIndex.weights[i];
+                result += items[i].getInternal(depth + 1, alreadySeen) + "/" + weightedIndex.weights[i];
             }
             return result + ")";
         }
+
         // keep private
-        private Alternation() {}
+        private Alternation() {
+        }
+
         // take first matching option
         public boolean match(String input, Position p) {
             for (int i = 0; i < weightedIndex.weights.length; ++i) {
-                if (p.isFailure(this,i)) continue;
+                if (p.isFailure(this, i)) continue;
                 if (items[i].match(input, p)) return true;
                 p.setFailure(this, i);
             }
             return false;
         }
     }
-    
+
     private static String indent(int depth) {
         String result = "\r\n";
         for (int i = 0; i < depth; ++i) {
@@ -245,15 +268,16 @@ abstract public class Pick {
         }
         return result;
     }
-    
+
     private static class Repeat extends ItemPick {
         WeightedIndex weightedIndex;
         int minCount = 0;
-            
+
         private Repeat(int minCount, int maxCount, int[] itemWeights, Pick item) {
             super(item);
-            weightedIndex = new WeightedIndex(minCount).add(maxCount-minCount+1, itemWeights);
+            weightedIndex = new WeightedIndex(minCount).add(maxCount - minCount + 1, itemWeights);
         }
+
         /*private Repeat(int minCount, int maxCount, int itemWeight, Pick item) {
             super(item);
             weightedIndex = new WeightedIndex(minCount).add(maxCount-minCount+1, itemWeight);
@@ -270,27 +294,28 @@ abstract public class Pick {
                 item.addTo(target);
             }
         }
+
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
             result = indent(depth) + result + "REPEAT(" + weightedIndex
-            + "; "+ item.getInternal(depth+1, alreadySeen) 
-            + ")";
+                + "; " + item.getInternal(depth + 1, alreadySeen)
+                + ")";
             return result;
         }
-        
+
         // match longest, e.g. up to just before a failure
         public boolean match(String input, Position p) {
             //int bestMatch = p.index;
             int count = 0;
             for (int i = 0; i < weightedIndex.weights.length; ++i) {
-                if (p.isFailure(this,i)) break;
+                if (p.isFailure(this, i)) break;
                 if (!item.match(input, p)) {
-                    p.setFailure(this,i);
+                    p.setFailure(this, i);
                     break;
-                } 
+                }
                 //bestMatch = p.index;
-                count++;               
+                count++;
             }
             if (count >= minCount) {
                 return true;
@@ -299,16 +324,18 @@ abstract public class Pick {
             return false;
         }
     }
-    
+
     private static class CodePoint extends FinalPick {
         private UnicodeSet source;
-        
+
         private CodePoint(UnicodeSet source) {
             this.source = source;
         }
+
         protected void addTo(Target target) {
-            target.append(source.charAt(pick(target.random,0,source.size()-1)));
+            target.append(source.charAt(pick(target.random, 0, source.size() - 1)));
         }
+
         public boolean match(String s, Position p) {
             int cp = UTF16.charAt(s, p.index);
             if (source.contains(cp)) {
@@ -318,6 +345,7 @@ abstract public class Pick {
             p.setMax("codePoint");
             return false;
         }
+
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
@@ -329,17 +357,17 @@ abstract public class Pick {
         Morph(Pick item) {
             super(item);
         }
-    
+
         private String lastValue = null;
         private Target addBuffer = Target.make(this, null, new Quoter.RuleQuoter());
         private StringBuffer mergeBuffer = new StringBuffer();
-    
+
         private static final int COPY_NEW = 0, COPY_BOTH = 1, COPY_LAST = 3, SKIP = 4,
-                                 LEAST_SKIP = 4;
+            LEAST_SKIP = 4;
         // give weights to the above. make sure we delete about the same as we insert
         private static final WeightedIndex choice = new WeightedIndex(0)
-            .add(new int[] {10, 10, 100, 10});
-        
+            .add(new int[] { 10, 10, 100, 10 });
+
         protected void addTo(Target target) {
             // get contents into separate buffer
             addBuffer.copyState(target);
@@ -355,10 +383,10 @@ abstract public class Pick {
                 int newIndex = 0;
                 // the new length is a random value between old and new.
                 int newLenLimit = (int) pick(target.random, lastValue.length(), newValue.length());
-                
+
                 while (mergeBuffer.length() < newLenLimit
-                  && newIndex < newValue.length()
-                  && lastIndex < lastValue.length()) {
+                    && newIndex < newValue.length()
+                    && lastIndex < lastValue.length()) {
                     int c = choice.toIndex(target.nextDouble());
                     if (c == COPY_NEW || c == COPY_BOTH || c == SKIP) {
                         newIndex = getChar(newValue, newIndex, mergeBuffer, c < LEAST_SKIP);
@@ -379,7 +407,7 @@ abstract public class Pick {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
             return indent(depth) + result + "MORPH("
-                + item.getInternal(depth+1, alreadySeen)
+                + item.getInternal(depth + 1, alreadySeen)
                 + ")";
         }
 
@@ -391,12 +419,12 @@ abstract public class Pick {
             return false;
         }
     }
-    
+
     /* Add character if we can
      */
     static int getChar(String newValue, int newIndex, StringBuffer mergeBuffer, boolean copy) {
         if (newIndex >= newValue.length()) return newIndex;
-        int cp = UTF16.charAt(newValue,newIndex);
+        int cp = UTF16.charAt(newValue, newIndex);
         if (copy) UTF16.append(mergeBuffer, cp);
         return newIndex + UTF16.getCharCount(cp);
     }
@@ -412,17 +440,17 @@ abstract public class Pick {
     }
     */
 
-
     static class Quote extends ItemPick {
         Quote(Pick item) {
             super(item);
         }
+
         protected void addTo(Target target) {
             target.quoter.setQuoting(true);
             item.addTo(target);
             target.quoter.setQuoting(false);
         }
-        
+
         public boolean match(String s, Position p) {
             return false;
         }
@@ -430,21 +458,24 @@ abstract public class Pick {
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
-            return indent(depth) + result + "QUOTE(" + item.getInternal(depth+1, alreadySeen)
+            return indent(depth) + result + "QUOTE(" + item.getInternal(depth + 1, alreadySeen)
                 + ")";
         }
     }
-    
+
     private static class Literal extends FinalPick {
         public String toString() {
-            return name;     
-        }        
-        private Literal(String source) {  
+            return name;
+        }
+
+        private Literal(String source) {
             this.name = source;
         }
+
         protected void addTo(Target target) {
             target.append(name);
         }
+
         public boolean match(String input, Position p) {
             int len = name.length();
             if (input.regionMatches(p.index, name, 0, len)) {
@@ -454,21 +485,24 @@ abstract public class Pick {
             p.setMax("literal");
             return false;
         }
+
         public String getInternal(int depth, Set alreadySeen) {
             return "'" + name + "'";
         }
     }
-    
+
     public static class Position {
         public ArrayList failures = new ArrayList();
         public int index;
         public int maxInt;
         public String maxType;
+
         public void setMax(String type) {
             if (index >= maxInt) {
                 maxType = type;
             }
         }
+
         public String toString() {
             return "index; " + index
                 + ", maxInt:" + maxInt
@@ -476,21 +510,22 @@ abstract public class Pick {
         }
         /*private static final Object BAD = new Object();
         private static final Object GOOD = new Object();*/
-        
+
         public boolean isFailure(Pick pick, int item) {
-            ArrayList val = (ArrayList)failures.get(index);
+            ArrayList val = (ArrayList) failures.get(index);
             if (val == null) return false;
-            Set set = (Set)val.get(item);
+            Set set = (Set) val.get(item);
             if (set == null) return false;
             return !set.contains(pick);
         }
+
         public void setFailure(Pick pick, int item) {
-            ArrayList val = (ArrayList)failures.get(index);
+            ArrayList val = (ArrayList) failures.get(index);
             if (val == null) {
                 val = new ArrayList();
                 failures.set(index, val);
             }
-            Set set = (Set)val.get(item);
+            Set set = (Set) val.get(item);
             if (set == null) {
                 set = new HashSet();
                 val.set(item, set);
@@ -498,11 +533,11 @@ abstract public class Pick {
             set.add(pick);
         }
     }
-    
+
     /*
     public static final Pick NOTHING = new Nothing();
     
-
+    
     private static class Nothing extends FinalPick {
         protected void addTo(Target target) {}
         protected boolean match(String input, Position p) {
@@ -513,61 +548,66 @@ abstract public class Pick {
         }
     }
     */
-    
+
     // intermediates
-    
+
     abstract static class Visitor {
         Set already = new HashSet();
+
         // Note: each visitor should return the Pick that will replace a (or a itself)
         abstract Pick handle(Pick a);
+
         boolean alreadyEntered(Pick item) {
             boolean result = already.contains(item);
             already.add(item);
             return result;
         }
+
         void reset() {
             already.clear();
         }
     }
-    
+
     protected abstract Pick visit(Visitor visitor);
-    
+
     static class Replacer extends Visitor {
         String toReplace;
         Pick replacement;
+
         Replacer(String toReplace, Pick replacement) {
             this.toReplace = toReplace;
             this.replacement = replacement;
         }
+
         public Pick handle(Pick a) {
             if (toReplace.equals(a.name)) {
                 a = replacement;
-            } 
+            }
             return a;
-       }
+        }
     }
 
     abstract private static class FinalPick extends Pick {
         public Pick visit(Visitor visitor) {
             return visitor.handle(this);
-       }
+        }
     }
-    
+
     private abstract static class ItemPick extends Pick {
-       protected Pick item;
-       
-       ItemPick (Pick item) {
-           this.item = item;
-       }
-       
-       public Pick visit(Visitor visitor) {
-           Pick result = visitor.handle(this);
-           if (visitor.alreadyEntered(this)) return result;
-           if (item != null) item = item.visit(visitor);
-           return result;
-       }
+        protected Pick item;
+
+        ItemPick(Pick item) {
+            this.item = item;
+        }
+
+        public Pick visit(Visitor visitor) {
+            Pick result = visitor.handle(this);
+            if (visitor.alreadyEntered(this)) return result;
+            if (item != null) item = item.visit(visitor);
+            return result;
+        }
     }
-   
+
     private abstract static class ListPick extends Pick {
         protected Pick[] items = new Pick[0];
 
@@ -582,11 +622,11 @@ abstract public class Pick {
         }
 
         Pick getLast() {
-            return items[items.length-1];
+            return items[items.length - 1];
         }
 
         void setLast(Pick newOne) {
-            items[items.length-1] = newOne;
+            items[items.length - 1] = newOne;
         }
 
         protected void addInternal(Pick[] objs) {
@@ -606,7 +646,7 @@ abstract public class Pick {
             return result;
         }
     }
-    
+
     /**
      * Simple class to distribute a number between 0 (inclusive) and 1 (exclusive) among
      * a number of indices, where each index is weighted.
@@ -618,11 +658,11 @@ abstract public class Pick {
         private int[] weights = new int[0];
         private int minCount = 0;
         private double total;
-        
+
         public WeightedIndex(int minCount) {
             this.minCount = minCount;
         }
-        
+
         public WeightedIndex add(int count, int itemWeights) {
             if (count > 0) {
                 int[] newWeights = new int[count];
@@ -636,14 +676,14 @@ abstract public class Pick {
         public WeightedIndex add(int[] newWeights) {
             return add(newWeights.length, newWeights);
         }
-        
+
         public WeightedIndex add(int maxCount, int[] newWeights) {
-            if (newWeights == null) newWeights = new int[]{1};
+            if (newWeights == null) newWeights = new int[] { 1 };
             int oldLen = weights.length;
             if (maxCount < newWeights.length) maxCount = newWeights.length;
             weights = (int[]) realloc(weights, weights.length + maxCount);
             System.arraycopy(newWeights, 0, weights, oldLen, newWeights.length);
-            int lastWeight = weights[oldLen + newWeights.length-1];
+            int lastWeight = weights[oldLen + newWeights.length - 1];
             for (int i = oldLen + newWeights.length; i < maxCount; ++i) {
                 weights[i] = lastWeight;
             }
@@ -651,15 +691,15 @@ abstract public class Pick {
             for (int i = 0; i < weights.length; ++i) {
                 if (weights[i] < 0) {
                     throw new RuntimeException("only positive weights: " + i);
-                } 
+                }
                 total += weights[i];
             }
             return this; // for chaining
         }
-        
+
         // TODO, make this more efficient
         public int toIndex(double zeroToOne) {
-            double weight = zeroToOne*total;
+            double weight = zeroToOne * total;
             int i;
             for (i = 0; i < weights.length; ++i) {
                 weight -= weights[i];
@@ -667,6 +707,7 @@ abstract public class Pick {
             }
             return i + minCount;
         }
+
         public String toString() {
             String result = "";
             for (int i = 0; i < minCount; ++i) {
@@ -687,57 +728,57 @@ abstract public class Pick {
     }
     */
     // Useful statics
-    
+
     static public int pick(Random random, int start, int end) {
-        return start + (int)(random.nextDouble() * (end + 1 - start));
+        return start + (int) (random.nextDouble() * (end + 1 - start));
     }
-    
+
     static public double pick(Random random, double start, double end) {
         return start + (random.nextDouble() * (end + 1 - start));
     }
-    
+
     static public boolean pick(Random random, double percent) {
         return random.nextDouble() <= percent;
     }
-    
+
     static public int pick(Random random, UnicodeSet s) {
-        return s.charAt(pick(random, 0,s.size()-1));
+        return s.charAt(pick(random, 0, s.size() - 1));
     }
-    
+
     static public String pick(Random random, String[] source) {
-        return source[pick(random, 0, source.length-1)];
+        return source[pick(random, 0, source.length - 1)];
     }
-    
+
     // these utilities really ought to be in Java
-    
-public static double[] realloc(double[] source, int newSize) {
-    double[] temp = new double[newSize];
-    if (newSize > source.length) newSize = source.length;
-    if (newSize != 0) System.arraycopy(source,0,temp,0,newSize);
-    return temp;
-}
-    
-public static int[] realloc(int[] source, int newSize) {
-    int[] temp = new int[newSize];
-    if (newSize > source.length) newSize = source.length;
-    if (newSize != 0) System.arraycopy(source,0,temp,0,newSize);
-    return temp;
-}
-    
+
+    public static double[] realloc(double[] source, int newSize) {
+        double[] temp = new double[newSize];
+        if (newSize > source.length) newSize = source.length;
+        if (newSize != 0) System.arraycopy(source, 0, temp, 0, newSize);
+        return temp;
+    }
+
+    public static int[] realloc(int[] source, int newSize) {
+        int[] temp = new int[newSize];
+        if (newSize > source.length) newSize = source.length;
+        if (newSize != 0) System.arraycopy(source, 0, temp, 0, newSize);
+        return temp;
+    }
+
     public static Pick[] realloc(Pick[] source, int newSize) {
         Pick[] temp = new Pick[newSize];
         if (newSize > source.length) newSize = source.length;
-        if (newSize != 0) System.arraycopy(source,0,temp,0,newSize);
+        if (newSize != 0) System.arraycopy(source, 0, temp, 0, newSize);
         return temp;
     }
-    
+
     // test utilities
     /*private static void append(StringBuffer target, String toAdd, StringBuffer quoteBuffer) {
         Utility.appendToRule(target, (int)-1, true, false, quoteBuffer); // close previous quote
         if (DEBUG) System.out.println("\"" + toAdd + "\"");
         target.append(toAdd);
     }
-
+    
     private static void appendQuoted(StringBuffer target, String toAdd, StringBuffer quoteBuffer) {
         if (DEBUG) System.out.println("\"" + toAdd + "\"");
         Utility.appendToRule(target, toAdd, false, false, quoteBuffer);
@@ -786,7 +827,6 @@ public static int[] realloc(int[] source, int newSize) {
         return start + (int)(spread.spread(random.nextDouble()) * (end + 1 - start));
     }
     
-   */
-    
+    */
 
 }

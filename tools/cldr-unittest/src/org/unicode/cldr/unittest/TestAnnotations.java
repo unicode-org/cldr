@@ -99,33 +99,33 @@ public class TestAnnotations extends TestFmwkPlus {
     public void TestNames() {
         AnnotationSet eng = Annotations.getDataSet("en");
         String[][] tests = {
-            {"🇪🇺","European Union","flag"},
-            {"#️⃣","keycap: #","keycap"},
-            {"9️⃣","keycap: 9","keycap"},
-            {"💏","kiss","couple | kiss"},
-            {"👩‍❤️‍💋‍👩","kiss: woman, woman","couple | kiss | woman"},
-            {"💑","couple with heart","couple | couple with heart | love"},
-            {"👩‍❤️‍👩","couple with heart: woman, woman","couple | couple with heart | love | woman"},
-            {"👪","family","family"},
-            {"👩‍👩‍👧","family: woman, woman, girl","family | woman | girl"},
-            {"👦🏻","boy: light skin tone","boy | young | light skin tone"},
-            {"👩🏿","woman: dark skin tone","woman | dark skin tone"},
-            {"👨‍⚖","man judge","justice | man | man judge | scales"},
-            {"👨🏿‍⚖","man judge: dark skin tone","justice | man | man judge | scales | dark skin tone"},
-            {"👩‍⚖","woman judge","judge | scales | woman"},
-            {"👩🏼‍⚖","woman judge: medium-light skin tone","judge | scales | woman | medium-light skin tone"},
-            {"👮","police officer","cop | officer | police"},
-            {"👮🏿","police officer: dark skin tone","cop | officer | police | dark skin tone"},
-            {"👮‍♂️","man police officer","cop | man | officer | police"},
-            {"👮🏼‍♂️","man police officer: medium-light skin tone","cop | man | officer | police | medium-light skin tone"},
-            {"👮‍♀️","woman police officer","cop | officer | police | woman"},
-            {"👮🏿‍♀️","woman police officer: dark skin tone","cop | officer | police | woman | dark skin tone"},
-            {"🚴","person biking","bicycle | biking | cyclist | person biking"},
-            {"🚴🏿","person biking: dark skin tone","bicycle | biking | cyclist | person biking | dark skin tone"},
-            {"🚴‍♂️","man biking","bicycle | biking | cyclist | man"},
-            {"🚴🏿‍♂️","man biking: dark skin tone","bicycle | biking | cyclist | man | dark skin tone"},
-            {"🚴‍♀️","woman biking","bicycle | biking | cyclist | woman"},
-            {"🚴🏿‍♀️","woman biking: dark skin tone","bicycle | biking | cyclist | woman | dark skin tone"},
+            { "🇪🇺", "European Union", "flag" },
+            { "#️⃣", "keycap: #", "keycap" },
+            { "9️⃣", "keycap: 9", "keycap" },
+            { "💏", "kiss", "couple | kiss" },
+            { "👩‍❤️‍💋‍👩", "kiss: woman, woman", "couple | kiss | woman" },
+            { "💑", "couple with heart", "couple | couple with heart | love" },
+            { "👩‍❤️‍👩", "couple with heart: woman, woman", "couple | couple with heart | love | woman" },
+            { "👪", "family", "family" },
+            { "👩‍👩‍👧", "family: woman, woman, girl", "family | woman | girl" },
+            { "👦🏻", "boy: light skin tone", "boy | young | light skin tone" },
+            { "👩🏿", "woman: dark skin tone", "woman | dark skin tone" },
+            { "👨‍⚖", "man judge", "justice | man | man judge | scales" },
+            { "👨🏿‍⚖", "man judge: dark skin tone", "justice | man | man judge | scales | dark skin tone" },
+            { "👩‍⚖", "woman judge", "judge | scales | woman" },
+            { "👩🏼‍⚖", "woman judge: medium-light skin tone", "judge | scales | woman | medium-light skin tone" },
+            { "👮", "police officer", "cop | officer | police" },
+            { "👮🏿", "police officer: dark skin tone", "cop | officer | police | dark skin tone" },
+            { "👮‍♂️", "man police officer", "cop | man | officer | police" },
+            { "👮🏼‍♂️", "man police officer: medium-light skin tone", "cop | man | officer | police | medium-light skin tone" },
+            { "👮‍♀️", "woman police officer", "cop | officer | police | woman" },
+            { "👮🏿‍♀️", "woman police officer: dark skin tone", "cop | officer | police | woman | dark skin tone" },
+            { "🚴", "person biking", "bicycle | biking | cyclist | person biking" },
+            { "🚴🏿", "person biking: dark skin tone", "bicycle | biking | cyclist | person biking | dark skin tone" },
+            { "🚴‍♂️", "man biking", "bicycle | biking | cyclist | man" },
+            { "🚴🏿‍♂️", "man biking: dark skin tone", "bicycle | biking | cyclist | man | dark skin tone" },
+            { "🚴‍♀️", "woman biking", "bicycle | biking | cyclist | woman" },
+            { "🚴🏿‍♀️", "woman biking: dark skin tone", "bicycle | biking | cyclist | woman | dark skin tone" },
         };
 
         Splitter BAR = Splitter.on('|').trimResults();
@@ -136,7 +136,7 @@ public class TestAnnotations extends TestFmwkPlus {
             Set<String> expectedKeywords = new HashSet<>(BAR.splitToList(test[2]));
             final String shortName = eng.getShortName(emoji);
             final Set<String> keywords = eng.getKeywords(emoji);
-            ok &=assertEquals("short name for " + emoji, expectedName, shortName);
+            ok &= assertEquals("short name for " + emoji, expectedName, shortName);
             ok &= assertEquals("keywords for " + emoji, expectedKeywords, keywords);
         }
         if (!ok) {
@@ -145,9 +145,9 @@ public class TestAnnotations extends TestFmwkPlus {
                 String emoji = test[0];
                 final String shortName = eng.getShortName(emoji);
                 final Set<String> keywords = eng.getKeywords(emoji);
-                System.out.println("{\"" + emoji 
-                    + "\",\"" + shortName 
-                    + "\",\"" + CollectionUtilities.join(keywords, " | ") 
+                System.out.println("{\"" + emoji
+                    + "\",\"" + shortName
+                    + "\",\"" + CollectionUtilities.join(keywords, " | ")
                     + "\"},");
             }
         }
@@ -182,11 +182,11 @@ public class TestAnnotations extends TestFmwkPlus {
                 }
                 nameToEmoji.put(name, emoji);
             }
-            for ( Entry<String, Collection<String>> entry : nameToEmoji.asMap().entrySet()) {
+            for (Entry<String, Collection<String>> entry : nameToEmoji.asMap().entrySet()) {
                 String name = entry.getKey();
                 Collection<String> emojis = entry.getValue();
                 if (emojis.size() > 1) {
-                    errln("Duplicate name in " + locale + ": “" + name + "” for " 
+                    errln("Duplicate name in " + locale + ": “" + name + "” for "
                         + CollectionUtilities.join(emojis, " & "));
                     localeToNameToEmoji.putAll(locale + "\t" + name, emojis);
                 }
@@ -194,13 +194,12 @@ public class TestAnnotations extends TestFmwkPlus {
         }
         if (isVerbose() && !localeToNameToEmoji.isEmpty()) {
             System.out.println("\nCollisions");
-            for ( Entry<String, String> entry : localeToNameToEmoji.entries()) {
+            for (Entry<String, String> entry : localeToNameToEmoji.entries()) {
                 String locale = entry.getKey();
                 String emoji = entry.getValue();
                 System.out.println(locale
                     + "\t" + english.get(emoji).getShortName()
-                    + "\t" + emoji
-                    );
+                    + "\t" + emoji);
             }
         }
         if (isVerbose() && !localeToMissing.isEmpty()) {
@@ -212,9 +211,9 @@ public class TestAnnotations extends TestFmwkPlus {
                     System.out.println(locale
                         + "\t" + emoji
                         + "\t" + english.get(emoji).getShortName()
-                        + "\t" + "=GOOGLETRANSLATE(C"+count+",\"en\",A"+count+")"
-                        // =GOOGLETRANSLATE(C2,"en",A2)
-                        );
+                        + "\t" + "=GOOGLETRANSLATE(C" + count + ",\"en\",A" + count + ")"
+                    // =GOOGLETRANSLATE(C2,"en",A2)
+                    );
                     ++count;
                 }
             }
@@ -239,11 +238,11 @@ public class TestAnnotations extends TestFmwkPlus {
         for (String locale : Arrays.asList("en", "root")) {
             CLDRFile enAnnotations = factoryAnnotations.make(locale, false);
             //               //ldml/annotations/annotation[@cp="🧜"][@type="tts"]
-            Set<String> annotationPaths = enAnnotations.getPaths("//ldml/anno", 
+            Set<String> annotationPaths = enAnnotations.getPaths("//ldml/anno",
                 Pattern.compile("//ldml/annotations/annotation.*tts.*").matcher(""), new TreeSet<>());
             Set<String> annotationPathsExpected = Emoji.getNamePaths();
-            checkAMinusBIsC(locale + ".xml - Emoji.getNamePaths", annotationPaths, annotationPathsExpected, Collections.<String>emptySet());
-            checkAMinusBIsC("Emoji.getNamePaths - " + locale + ".xml", annotationPathsExpected, annotationPaths, Collections.<String>emptySet());
+            checkAMinusBIsC(locale + ".xml - Emoji.getNamePaths", annotationPaths, annotationPathsExpected, Collections.<String> emptySet());
+            checkAMinusBIsC("Emoji.getNamePaths - " + locale + ".xml", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
         }
     }
 
@@ -313,10 +312,9 @@ public class TestAnnotations extends TestFmwkPlus {
         return superfluous;
     }
 
-
     private void checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
         Set<String> aMb = new TreeSet<>(a);
-        aMb.removeAll(b); 
+        aMb.removeAll(b);
         assertEquals(title, c, aMb);
     }
 }

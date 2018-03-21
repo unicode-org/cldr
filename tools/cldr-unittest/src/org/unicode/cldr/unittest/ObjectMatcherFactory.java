@@ -187,7 +187,7 @@ class ObjectMatcherFactory {
             String key, boolean defaultVal) {
             ObjectMatcherFactory.MatcherPattern mpTemp = col.get(key);
             matcher = mpTemp == null ? new DefaultingMatcher(defaultVal)
-            : mpTemp.matcher;
+                : mpTemp.matcher;
         }
 
         @Override

@@ -13,6 +13,7 @@ import com.ibm.icu.impl.Row.R2;
 public class UpdateAliasedCodes {
     static CLDRConfig config = CLDRConfig.getInstance();
     static SupplementalDataInfo sdi = config.getSupplementalDataInfo();
+
     public static void main(String[] args) {
         Map<String, R2<List<String>, String>> togood = sdi.getLocaleAliasInfo().get("subdivision");
         // first find non-transitive cases
@@ -26,15 +27,15 @@ public class UpdateAliasedCodes {
                 }
             }
         }
-        
+
         for (String locale : SubdivisionNames.getAvailableLocales()) {
             if (!"en".equals(locale)) {
                 continue;
             }
-            Map<String,String> ok = new TreeMap<>();
-            Map<String,String> fixed = new TreeMap<>();
+            Map<String, String> ok = new TreeMap<>();
+            Map<String, String> fixed = new TreeMap<>();
             SubdivisionNames names = new SubdivisionNames(locale);
-            
+
             for (Entry<String, String> subdivisionAndName : names.entrySet()) {
                 String code = subdivisionAndName.getKey();
                 if (code.equals("AS")) {
@@ -59,19 +60,18 @@ public class UpdateAliasedCodes {
                     // regular code, skip
                     continue;
                 }
-                
+
                 // see if there is a conflict
-                
+
                 String oldName = names.get(goodCode);
                 if (oldName == null || oldName.isEmpty()) {
-                    fixed.put(goodCode,name);
+                    fixed.put(goodCode, name);
                 } else if (oldName.equals(name)) {
                     ok.put(code, name);
                 } else {
                     System.out.println(locale + " Conflicting name "
                         + "<old:«" + code + "»«" + name + "»>"
-                        + "<repl:«" + goodCode + "»«" + oldName + "»>"
-                        );
+                        + "<repl:«" + goodCode + "»«" + oldName + "»>");
                 }
             }
             System.out.println(locale + "\t" + fixed);

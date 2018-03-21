@@ -17,12 +17,14 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.text.PluralRules.PluralType;
 
 public class PluralMinimalPairs {
-    private Map<PluralType,Map<PluralInfo.Count, String>> typeToCountToSample = new EnumMap<>(PluralType.class);
-    private PluralMinimalPairs() {}
-    
+    private Map<PluralType, Map<PluralInfo.Count, String>> typeToCountToSample = new EnumMap<>(PluralType.class);
+
+    private PluralMinimalPairs() {
+    }
+
     private static Map<String, PluralMinimalPairs> cache = new ConcurrentHashMap<>();
     public static PluralMinimalPairs EMPTY = new PluralMinimalPairs().freeze();
-    
+
     // TODO should use builder pattern
     public static PluralMinimalPairs getInstance(String ulocale) {
         PluralMinimalPairs samplePatterns = cache.get(ulocale);
@@ -43,7 +45,7 @@ public class PluralMinimalPairs {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String sample = cldrFile.getStringValue(path);
                 String element = parts.getElement(-1);
-                PluralType type = "pluralMinimalPairs".equals(element) ? PluralType.CARDINAL 
+                PluralType type = "pluralMinimalPairs".equals(element) ? PluralType.CARDINAL
                     : "ordinalMinimalPairs".equals(element) ? PluralType.ORDINAL
                         : null;
                 PluralInfo.Count category = PluralInfo.Count.valueOf(
@@ -58,13 +60,13 @@ public class PluralMinimalPairs {
             } else {
                 samplePatterns.freeze();
             }
-        } catch (Exception e) { 
+        } catch (Exception e) {
             samplePatterns = EMPTY;
         }
         cache.put(ulocale, samplePatterns);
         return samplePatterns;
     }
-    
+
     public void put(String locale, PluralType type, Count count, String sample) {
         Map<Count, String> countToSample = typeToCountToSample.get(type);
         if (countToSample == null) {
@@ -87,7 +89,7 @@ public class PluralMinimalPairs {
         typeToCountToSample = CldrUtility.protectCollection(typeToCountToSample);
         return this;
     }
-    
+
     @Override
     public String toString() {
         return typeToCountToSample.toString();

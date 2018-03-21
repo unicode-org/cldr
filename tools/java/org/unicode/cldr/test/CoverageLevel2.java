@@ -107,12 +107,12 @@ public class CoverageLevel2 {
                     return localeSpecificInfo.cvi.targetTimeZones.contains(groupMatch);
                 case Target_Currencies:
                     return localeSpecificInfo.cvi.targetCurrencies.contains(groupMatch);
-                    // For Target_Plurals, we have to account for the fact that the @count= part might not be in the
-                    // xpath, so we shouldn't reject the match because of that. ( i.e. The regex is usually
-                    // ([@count='${Target-Plurals}'])?
+                // For Target_Plurals, we have to account for the fact that the @count= part might not be in the
+                // xpath, so we shouldn't reject the match because of that. ( i.e. The regex is usually
+                // ([@count='${Target-Plurals}'])?
                 case Target_Plurals:
                     return (groupMatch == null ||
-                    groupMatch.length() == 0 || localeSpecificInfo.cvi.targetPlurals.contains(groupMatch));
+                        groupMatch.length() == 0 || localeSpecificInfo.cvi.targetPlurals.contains(groupMatch));
                 case Calendar_List:
                     return localeSpecificInfo.cvi.calendars.contains(groupMatch);
                 }

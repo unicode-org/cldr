@@ -110,12 +110,7 @@ public class SupplementalDataInfo {
      * Official status of languages
      */
     public enum OfficialStatus {
-        unknown("U", 1),
-        recognized("R", 1),
-        official_minority("OM", 2),
-        official_regional("OR", 3),
-        de_facto_official("OD", 10),
-        official("O", 10);
+        unknown("U", 1), recognized("R", 1), official_minority("OM", 2), official_regional("OR", 3), de_facto_official("OD", 10), official("O", 10);
 
         private final String shortName;
         private final int weight;
@@ -165,7 +160,7 @@ public class SupplementalDataInfo {
         }
 
         public double getLiteratePopulationPercent() {
-            return 100*literatePopulation/population;
+            return 100 * literatePopulation / population;
         }
 
         public double getWritingPopulation() {
@@ -173,7 +168,7 @@ public class SupplementalDataInfo {
         }
 
         public double getWritingPercent() {
-            return 100*writingPopulation/population;
+            return 100 * writingPopulation / population;
         }
 
         public double getPopulation() {
@@ -285,7 +280,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements Comparable<BasicLanguageData>,
-    com.ibm.icu.util.Freezable<BasicLanguageData> {
+        com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };
@@ -360,13 +355,13 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-            + languageSubtag
-            + "\""
-            + (scripts.size() == 0 ? "" : " scripts=\""
-                + CldrUtility.join(scripts, " ") + "\"")
-            + (territories.size() == 0 ? "" : " territories=\""
-                + CldrUtility.join(territories, " ") + "\"")
-            + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+                + languageSubtag
+                + "\""
+                + (scripts.size() == 0 ? "" : " scripts=\""
+                    + CldrUtility.join(scripts, " ") + "\"")
+                + (territories.size() == 0 ? "" : " territories=\""
+                    + CldrUtility.join(territories, " ") + "\"")
+                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public String toString() {
@@ -561,8 +556,8 @@ public class SupplementalDataInfo {
 
         public String toString() {
             return "{" + formatDate(from)
-            + ", "
-            + formatDate(to) + "}";
+                + ", "
+                + formatDate(to) + "}";
         }
 
         public static String formatDate(long date) {
@@ -839,11 +834,10 @@ public class SupplementalDataInfo {
     private Relation<String, String> languageToTerritories = Relation.of(new TreeMap<String, Set<String>>(),
         LinkedHashSet.class);
 
-    transient private Relation<String, Pair<Boolean, Pair<Double, String>>> languageToTerritories2 =
-        Relation.of(new TreeMap<String, Set<Pair<Boolean, Pair<Double, String>>>>(), TreeSet.class);
+    transient private Relation<String, Pair<Boolean, Pair<Double, String>>> languageToTerritories2 = Relation
+        .of(new TreeMap<String, Set<Pair<Boolean, Pair<Double, String>>>>(), TreeSet.class);
 
-    private Map<String, Map<BasicLanguageData.Type, BasicLanguageData>> languageToBasicLanguageData =
-        new TreeMap<String, Map<BasicLanguageData.Type, BasicLanguageData>>();
+    private Map<String, Map<BasicLanguageData.Type, BasicLanguageData>> languageToBasicLanguageData = new TreeMap<String, Map<BasicLanguageData.Type, BasicLanguageData>>();
 
     // private Map<String, BasicLanguageData> languageToBasicLanguageData2 = new
     // TreeMap();
@@ -920,8 +914,8 @@ public class SupplementalDataInfo {
     public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<String, Row.R2<String, String>>();
     public Map<AttributeValidityInfo, String> attributeValidityInfo = new LinkedHashMap<>();
 
-    public Multimap<String,String> languageGroups = TreeMultimap.create();
-    
+    public Multimap<String, String> languageGroups = TreeMultimap.create();
+
     public enum MeasurementType {
         measurementSystem, paperSize
     }
@@ -1170,10 +1164,10 @@ public class SupplementalDataInfo {
         parentLocales = Collections.unmodifiableMap(parentLocales);
         languageGroups = ImmutableSetMultimap.copyOf(languageGroups);
 
-        ImmutableSet.Builder<String> newScripts = ImmutableSet.<String>builder();
+        ImmutableSet.Builder<String> newScripts = ImmutableSet.<String> builder();
         Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getStatusToCodes(LstrType.script);
         for (Entry<Status, Set<String>> e : scripts.entrySet()) {
-            switch(e.getKey()) {
+            switch (e.getKey()) {
             case regular:
             case special:
             case unknown:
@@ -1194,7 +1188,6 @@ public class SupplementalDataInfo {
     // }
     // return Collections.unmodifiableMap(temp);
     // }
-
 
     /**
      * Core function used to process each of the paths, and add the data to the appropriate data member.
@@ -1470,7 +1463,7 @@ public class SupplementalDataInfo {
             if (alt != null) {
                 type += "_" + alt;
             }
-            switch(parts.getElement(3)) {
+            switch (parts.getElement(3)) {
             case "paradigmLocales":
                 List<String> locales = WHITESPACE_SPLTTER.splitToList(parts.getAttributeValue(3, "locales"));
                 // TODO
@@ -1492,13 +1485,14 @@ public class SupplementalDataInfo {
                 String percent = parts.getAttributeValue(3, "percent");
                 String distance = parts.getAttributeValue(3, "distance");
                 matches.add(Row.of(
-                    parts.getAttributeValue(3, "desired"), 
+                    parts.getAttributeValue(3, "desired"),
                     parts.getAttributeValue(3, "supported"),
-                    percent != null ? Integer.parseInt(percent) 
-                        : 100-Integer.parseInt(distance),
-                        "true".equals(parts.getAttributeValue(3, "oneway"))));
+                    percent != null ? Integer.parseInt(percent)
+                        : 100 - Integer.parseInt(distance),
+                    "true".equals(parts.getAttributeValue(3, "oneway"))));
                 break;
-                default: throw new IllegalArgumentException("Unknown element");
+            default:
+                throw new IllegalArgumentException("Unknown element");
             }
             return true;
         }
@@ -1683,7 +1677,7 @@ public class SupplementalDataInfo {
                 if (replacement != null) {
                     Set<String> builder = new LinkedHashSet<>();
                     for (String item : replacement.split("\\s+")) {
-                        String cleaned = SubdivisionNames.isRegionCode(item) ? item : replacement.replace("-","").toLowerCase(Locale.ROOT); 
+                        String cleaned = SubdivisionNames.isRegionCode(item) ? item : replacement.replace("-", "").toLowerCase(Locale.ROOT);
 //                            : replacement.replace("-", "_");
                         builder.add(cleaned);
                     }
@@ -1801,13 +1795,13 @@ public class SupplementalDataInfo {
                     .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
                     .setWritingPopulation(writingPercent * languagePopulation / 100)
                     .setOfficialStatus(officialStatus)
-                    // .setGdp(languageGdp)
-                    ;
+                // .setGdp(languageGdp)
+                ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                    .println("Internal Problem in supplementalData: multiple data items for "
-                        + language + ", " + territory + "\tSkipping " + newData);
+                        .println("Internal Problem in supplementalData: multiple data items for "
+                            + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -1849,8 +1843,7 @@ public class SupplementalDataInfo {
                         parseIntegerOrNull(parts.getAttributeValue(3, "digits")),
                         parseIntegerOrNull(parts.getAttributeValue(3, "rounding")),
                         parseIntegerOrNull(parts.getAttributeValue(3, "cashDigits")),
-                        parseIntegerOrNull(parts.getAttributeValue(3, "cashRounding")))
-                    );
+                        parseIntegerOrNull(parts.getAttributeValue(3, "cashRounding"))));
                 return true;
             }
             /*
@@ -1928,10 +1921,10 @@ public class SupplementalDataInfo {
             String language = (String) parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                : BasicLanguageData.Type.secondary);
+                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                    : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-            .setTerritories(parts.getAttributeValue(2, "territories"));
+                .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
                 languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(
@@ -1948,8 +1941,8 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-            .println("Internal Problem in supplementalData: range check fails for "
-                + input + ", min: " + min + ", max:" + max + "\t" + path);
+                .println("Internal Problem in supplementalData: range check fails for "
+                    + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
@@ -2494,15 +2487,15 @@ public class SupplementalDataInfo {
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
             String regex = "//ldml/" + ci.match.replace('\'', '"')
-            .replaceAll("\\[", "\\\\[")
-            .replaceAll("\\]", "\\\\]")
-            .replace("${Target-Language}", targetLanguage)
-            .replace("${Target-Scripts}", targetScriptString)
-            .replace("${Target-Territories}", targetTerritoryString)
-            .replace("${Target-TimeZones}", targetTimeZoneString)
-            .replace("${Target-Currencies}", targetCurrencyString)
-            .replace("${Target-Plurals}", targetPluralsString)
-            .replace("${Calendar-List}", calendarListString);
+                .replaceAll("\\[", "\\\\[")
+                .replaceAll("\\]", "\\\\]")
+                .replace("${Target-Language}", targetLanguage)
+                .replace("${Target-Scripts}", targetScriptString)
+                .replace("${Target-Territories}", targetTerritoryString)
+                .replace("${Target-TimeZones}", targetTimeZoneString)
+                .replace("${Target-Currencies}", targetCurrencyString)
+                .replace("${Target-Plurals}", targetPluralsString)
+                .replace("${Calendar-List}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
             // to certain territories
@@ -2514,8 +2507,7 @@ public class SupplementalDataInfo {
                     if (containedTerritories.isEmpty()) {
                         continue;
                     }
-                }
-                else {
+                } else {
                     if (!cvi.targetTerritories.contains(ci.inTerritory)) {
                         continue;
                     }
@@ -2902,8 +2894,7 @@ public class SupplementalDataInfo {
     }
 
     public enum PluralType {
-        cardinal(PluralRules.PluralType.CARDINAL),
-        ordinal(PluralRules.PluralType.ORDINAL);
+        cardinal(PluralRules.PluralType.CARDINAL), ordinal(PluralRules.PluralType.ORDINAL);
 
         // add some gorp to interwork until we clean things up
 
@@ -2953,7 +2944,7 @@ public class SupplementalDataInfo {
         String locales = path.getAttributeValue(2, "locales").trim();
         DayPeriodInfo.Type type = typeString == null
             ? DayPeriodInfo.Type.format
-                : DayPeriodInfo.Type.valueOf(typeString.trim());
+            : DayPeriodInfo.Type.valueOf(typeString.trim());
         if (!locales.equals(lastDayPeriodLocales) || type != lastDayPeriodType) {
             if (lastDayPeriodLocales != null) {
                 addDayPeriodInfo();
@@ -3053,8 +3044,7 @@ public class SupplementalDataInfo {
             String result = path.getAttributeValue(-1, "result");
             lastPluralRanges.add(rangeStart == null ? null : Count.valueOf(rangeStart),
                 rangeEnd == null ? null : Count.valueOf(rangeEnd),
-                    Count.valueOf(result)
-                );
+                Count.valueOf(result));
             return true;
         } else if ("pluralRules".equals(element)) {
 
@@ -3421,7 +3411,7 @@ public class SupplementalDataInfo {
                 }
                 String strippedExamples = examples.replaceAll("(, …)|(; ...)", "");
                 String[] exampleArray = strippedExamples.split("(, )|(-)");
-                for (String example: exampleArray) {
+                for (String example : exampleArray) {
                     if (example == null || example.length() == 0) {
                         continue;
                     }
@@ -4215,7 +4205,7 @@ public class SupplementalDataInfo {
         ltp.setScript("");
         String trial = ltp.toString();
         String newMax = LikelySubtags.maximize(trial, likely);
-        if (Objects.equals(newMax,max)) {
+        if (Objects.equals(newMax, max)) {
             locales.add(trial);
         }
 
@@ -4223,7 +4213,7 @@ public class SupplementalDataInfo {
         ltp.setRegion("");
         trial = ltp.toString();
         newMax = LikelySubtags.maximize(trial, likely);
-        if (Objects.equals(newMax,max)) {
+        if (Objects.equals(newMax, max)) {
             locales.add(trial);
         }
 

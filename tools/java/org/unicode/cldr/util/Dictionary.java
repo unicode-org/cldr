@@ -328,9 +328,9 @@ public abstract class Dictionary<T> {
                     return lastStatus;
                 } else if (status == Status.MATCH
                     || (status == Status.PARTIAL
-                    && (filter == Filter.LONGEST
-                    || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
-                    || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
+                        && (filter == Filter.LONGEST
+                            || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
+                            || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
                     if (filter == Filter.MATCHES) {
                         return status;
                     }

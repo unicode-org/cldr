@@ -12,6 +12,7 @@ public class CheckUnits extends CheckCLDR {
     private static final Pattern MINUTE_SYMBOL = PatternCache.get("m{1,2}");
     private static final Pattern SECONDS_SYMBOL = PatternCache.get("ss");
     private static XPathParts xpp = new XPathParts();
+
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {

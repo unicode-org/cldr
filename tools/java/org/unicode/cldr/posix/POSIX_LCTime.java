@@ -31,8 +31,7 @@ public class POSIX_LCTime {
     String date_fmt;
     String nlldate;
 
-    public POSIX_LCTime(CLDRFile doc, POSIXVariant variant)
-    {
+    public POSIX_LCTime(CLDRFile doc, POSIXVariant variant) {
         abday = new String[7];
         day = new String[7];
         abmon = new String[12];
@@ -43,8 +42,7 @@ public class POSIX_LCTime {
         String[] days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
         String SearchLocation;
 
-        for (int i = 0; i < 7; i++)
-        {
+        for (int i = 0; i < 7; i++) {
             // Get each value for abbreviated day names ( abday )
             SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='abbreviated']/day[@type='"
                 + days[i] + "']";
@@ -56,8 +54,7 @@ public class POSIX_LCTime {
             day[i] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));
         }
 
-        for (int i = 0; i < 12; i++)
-        {
+        for (int i = 0; i < 12; i++) {
             // Get each value for abbreviated month names ( abmon )
             SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='abbreviated']/month[@type='"
                 + String.valueOf(i + 1) + "']";
@@ -72,8 +69,7 @@ public class POSIX_LCTime {
         // alt_digits
         alt_digits[0] = "";
         String numsys = doc.getWinningValue("//ldml/numbers/defaultNumberingSystem");
-        if (numsys != null && !numsys.equals("latn"))
-        {
+        if (numsys != null && !numsys.equals("latn")) {
             NumberingSystem ns = NumberingSystem.getInstanceByName(numsys);
             String nativeZeroDigit = ns.getDescription().substring(0, 1);
             // Character ThisDigit;
@@ -93,13 +89,11 @@ public class POSIX_LCTime {
 
         if (t_fmt.indexOf("%p") >= 0)
             t_fmt_ampm = t_fmt;
-        else
-        {
+        else {
             SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='hms']";
             t_fmt_ampm = doc.getWinningValue(SearchLocation);
 
-            if (t_fmt_ampm != null)
-            {
+            if (t_fmt_ampm != null) {
                 t_fmt_ampm = POSIXUtilities.POSIXDateTimeFormat(t_fmt_ampm, alt_digits[0].length() > 0, variant);
                 t_fmt_ampm = t_fmt_ampm.replaceAll("\"", "/\""); // excaping of " in strings
             }
@@ -147,8 +141,7 @@ public class POSIX_LCTime {
             "/dayPeriod[@type='pm']";
         am_pm[1] = POSIXUtilities.POSIXCharName(doc.getWinningValue(SearchLocation));
 
-        if (variant.platform.equals(POSIXVariant.SOLARIS))
-        {
+        if (variant.platform.equals(POSIXVariant.SOLARIS)) {
             // date_fmt
             SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern";
             date_fmt = doc.getWinningValue(SearchLocation);
@@ -163,17 +156,14 @@ public class POSIX_LCTime {
             date_fmt = POSIXUtilities.POSIXCharNameNP(date_fmt);
             date_fmt = date_fmt.replaceAll("\"", "/\""); // excaping of " in strings
 
-        }
-        else if (variant.platform.equals(POSIXVariant.AIX))
-        {
+        } else if (variant.platform.equals(POSIXVariant.AIX)) {
             // nlldate - prefer 0 padded date, if only alt nodes are found then an exception is thrown, in this case use
             // fallback
             nlldate = "";
             String SearchLocations[] = {
                 "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='yyyyMMMdd']",
-            "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='yyyyMMMd']" };
-            for (int i = 0; i < SearchLocations.length; i++)
-            {
+                "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='yyyyMMMd']" };
+            for (int i = 0; i < SearchLocations.length; i++) {
                 nlldate = doc.getWinningValue(SearchLocation); // throws exception if only alt nodes found, returns null
                 // if nothing found
                 if (nlldate != null) break;
@@ -183,8 +173,7 @@ public class POSIX_LCTime {
                 nlldate = POSIXUtilities.POSIXDateTimeFormat(nlldate, alt_digits[0].length() > 0, variant);
 
             // if no match found or erroneous data, use default dd MMM yyyy
-            if ((nlldate.indexOf("%d") < 0) || (nlldate.indexOf("%b") < 0) || (nlldate.indexOf("%Y") < 0))
-            {
+            if ((nlldate.indexOf("%d") < 0) || (nlldate.indexOf("%b") < 0) || (nlldate.indexOf("%Y") < 0)) {
                 nlldate = "%d %b %Y"; // dd MMM yyyy
                 nlldate = nlldate.replaceAll("\"", "/\""); // excaping of " in strings
             }
@@ -201,60 +190,48 @@ public class POSIX_LCTime {
 
         // abday
         out.print("abday   \"");
-        for (int i = 0; i < 7; i++)
-        {
+        for (int i = 0; i < 7; i++) {
             out.print(abday[i]);
-            if (i < 6)
-            {
+            if (i < 6) {
                 out.println("\";/");
                 out.print("        \"");
-            }
-            else
+            } else
                 out.println("\"");
         }
         out.println();
 
         // day
         out.print("day     \"");
-        for (int i = 0; i < 7; i++)
-        {
+        for (int i = 0; i < 7; i++) {
             out.print(day[i]);
-            if (i < 6)
-            {
+            if (i < 6) {
                 out.println("\";/");
                 out.print("        \"");
-            }
-            else
+            } else
                 out.println("\"");
         }
         out.println();
 
         // abmon
         out.print("abmon   \"");
-        for (int i = 0; i < 12; i++)
-        {
+        for (int i = 0; i < 12; i++) {
             out.print(abmon[i]);
-            if (i < 11)
-            {
+            if (i < 11) {
                 out.println("\";/");
                 out.print("        \"");
-            }
-            else
+            } else
                 out.println("\"");
         }
         out.println();
 
         // mon
         out.print("mon     \"");
-        for (int i = 0; i < 12; i++)
-        {
+        for (int i = 0; i < 12; i++) {
             out.print(mon[i]);
-            if (i < 11)
-            {
+            if (i < 11) {
                 out.println("\";/");
                 out.print("        \"");
-            }
-            else
+            } else
                 out.println("\"");
         }
         out.println();
@@ -279,32 +256,25 @@ public class POSIX_LCTime {
         out.println("t_fmt_ampm  \"" + t_fmt_ampm + "\"");
         out.println();
 
-        if (variant.platform.equals(POSIXVariant.SOLARIS))
-        {
+        if (variant.platform.equals(POSIXVariant.SOLARIS)) {
             // date_fmt
             out.println("date_fmt    \"" + date_fmt + "\"");
             out.println();
-        }
-        else if (variant.platform.equals(POSIXVariant.AIX))
-        {
+        } else if (variant.platform.equals(POSIXVariant.AIX)) {
             // nlldate
             out.println("nlldate    \"" + nlldate + "\"");
             out.println();
         }
 
         // alt_digits
-        if (!alt_digits[0].equals(""))
-        {
+        if (!alt_digits[0].equals("")) {
             out.print("alt_digits \"");
-            for (int i = 0; i < 100; i++)
-            {
+            for (int i = 0; i < 100; i++) {
                 out.print(alt_digits[i]);
-                if (i < 99)
-                {
+                if (i < 99) {
                     out.println("\";/");
                     out.print("           \"");
-                }
-                else
+                } else
                     out.println("\"");
             }
         }

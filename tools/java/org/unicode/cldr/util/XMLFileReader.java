@@ -214,8 +214,7 @@ public class XMLFileReader {
         public void startDTD(String name, String publicId, String systemId) throws SAXException {
             if (SHOW_ALL) Log.logln("startDTD name: " + name
                 + ", publicId: " + publicId
-                + ", systemId: " + systemId
-                );
+                + ", systemId: " + systemId);
             simpleHandler.handleStartDtd(name, publicId, systemId);
         }
 
@@ -265,8 +264,7 @@ public class XMLFileReader {
         public void notationDecl(String name, String publicId, String systemId) {
             if (SHOW_ALL) Log.logln("notationDecl: " + name
                 + ", " + publicId
-                + ", " + systemId
-                );
+                + ", " + systemId);
         }
 
         public void processingInstruction(String target, String data)
@@ -284,8 +282,7 @@ public class XMLFileReader {
             if (SHOW_ALL) Log.logln("unparsedEntityDecl: " + name
                 + ", " + publicId
                 + ", " + systemId
-                + ", " + notationName
-                );
+                + ", " + notationName);
         }
 
         public void setDocumentLocator(Locator locator) {
@@ -381,9 +378,9 @@ public class XMLFileReader {
             try {
                 result = (testList[i].length() != 0)
                     ? XMLReaderFactory.createXMLReader(testList[i])
-                        : XMLReaderFactory.createXMLReader();
-                    result.setFeature("http://xml.org/sax/features/validation", validating);
-                    break;
+                    : XMLReaderFactory.createXMLReader();
+                result.setFeature("http://xml.org/sax/features/validation", validating);
+                break;
             } catch (SAXException e1) {
             }
         }
@@ -393,8 +390,8 @@ public class XMLFileReader {
             result.setEntityResolver(new CachingEntityResolver());
         } catch (Throwable e) {
             System.err
-            .println("WARNING: Can't set caching entity resolver  -  error "
-                + e.toString());
+                .println("WARNING: Can't set caching entity resolver  -  error "
+                    + e.toString());
             e.printStackTrace();
         }
         return result;
@@ -449,7 +446,7 @@ public class XMLFileReader {
             return x;
         }
     }
-    
+
     public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating) {
         return loadPathValues(filename, data, validating, false);
     }
@@ -457,12 +454,13 @@ public class XMLFileReader {
     public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full) {
         return loadPathValues(filename, data, validating, full, null);
     }
-    
-    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full, Function<String,String> valueFilter) {
+
+    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full,
+        Function<String, String> valueFilter) {
         try {
             new XMLFileReader()
-            .setHandler(new PathValueListHandler(data, full, valueFilter))
-            .read(filename, -1, validating);
+                .setHandler(new PathValueListHandler(data, full, valueFilter))
+                .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
             throw new IllegalArgumentException(filename, e);
@@ -492,6 +490,7 @@ public class XMLFileReader {
                 }
             }
         }
+
         @Override
         public void handleComment(String path, String comment) {
             if (!full || path.equals("/")) {

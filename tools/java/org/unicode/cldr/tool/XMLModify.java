@@ -24,16 +24,13 @@ public class XMLModify {
         sourceDirectory(new Params()
             .setHelp("sourceDirectory")
             .setDefault(CLDRPaths.COMMON_DIRECTORY)
-            .setMatch(".+")),
-        targetDirectory(new Params()
-            .setHelp("targetDirectory")
-            .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
-            .setMatch(".+")),
-        fileRegex(new Params().setHelp("filename regex")
-            .setMatch(".*")
-            .setDefault(".*")),
-        pathRegex(new Params().setHelp("path regex")
-            .setMatch(".*")),
+            .setMatch(".+")), targetDirectory(new Params()
+                .setHelp("targetDirectory")
+                .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
+                .setMatch(".+")), fileRegex(new Params().setHelp("filename regex")
+                    .setMatch(".*")
+                    .setDefault(".*")), pathRegex(new Params().setHelp("path regex")
+                        .setMatch(".*")),
 //        PathReplacement(new Params().setHelp("path replacement")
 //            .setMatch(".*")),
 //        valueRegex(new Params().setHelp("path regex")
@@ -45,15 +42,18 @@ public class XMLModify {
 
         // BOILERPLATE TO COPY
         final Option option;
+
         private MyOptions(Params params) {
             option = new Option(this, params);
         }
+
         private static Options myOptions = new Options();
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
             }
         }
+
         private static Set<String> parse(String[] args, boolean showArguments) {
             return myOptions.parse(MyOptions.values()[0], args, true);
         }
@@ -74,9 +74,8 @@ public class XMLModify {
                 data.clear();
                 out.println(file);
                 XPathParts lastParts = new XPathParts();
-                for (Pair<String, String> pathValue : 
-                    XMLFileReader.loadPathValues(
-                        sourceDirectory.toString() + "/" + file, data, true, true)) {
+                for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
+                    sourceDirectory.toString() + "/" + file, data, true, true)) {
                     String value = pathValue.getSecond();
                     String path = pathValue.getFirst();
                     if (path.equals("!")) {

@@ -21,14 +21,14 @@ public class MakeAnnotationHistogram {
     public static void main(String[] args) {
         AnnotationSet english = Annotations.getDataSet("en");
         UnicodeSet codes = english.getExplicitValues().keySet();
-        Multimap<String,ULocale> missingCodeToLocales = TreeMultimap.create();
-        Map<String,Counter<Integer>> codeToCounter = new TreeMap<>();
+        Multimap<String, ULocale> missingCodeToLocales = TreeMultimap.create();
+        Map<String, Counter<Integer>> codeToCounter = new TreeMap<>();
         int maxmax = 0;
         for (String locale : Annotations.getAvailable()) {
             ULocale ulocale = new ULocale(locale);
             AnnotationSet annotationSet = Annotations.getDataSet(locale);
             Counter<Integer> counter = new Counter<>();
-            
+
             int max = 0;
             for (String code : codes) {
                 String name = annotationSet.getShortName(code);
@@ -39,12 +39,12 @@ public class MakeAnnotationHistogram {
                 int clusterCount = getCount(name, ulocale);
                 counter.add(clusterCount, 1);
                 max = Math.max(max, clusterCount);
-                
+
                 Counter<Integer> counterForCode = codeToCounter.get(code);
                 if (counterForCode == null) {
                     codeToCounter.put(code, counterForCode = new Counter<>());
                 }
-                counterForCode.add(clusterCount,1);
+                counterForCode.add(clusterCount, 1);
             }
             System.out.print(locale + "\t" + ulocale.getDisplayName());
             for (int i = 1; i <= max; ++i) {
@@ -79,7 +79,7 @@ public class MakeAnnotationHistogram {
         BreakIterator boundary = BreakIterator.getCharacterInstance(locale);
         int count = 0;
         boundary.setText(name);
-        
+
         int start = boundary.first();
         for (int end = boundary.next(); end != BreakIterator.DONE; start = end, end = boundary.next()) {
             if (name.charAt(start) == ' ') {
@@ -90,4 +90,3 @@ public class MakeAnnotationHistogram {
         return count;
     }
 }
-

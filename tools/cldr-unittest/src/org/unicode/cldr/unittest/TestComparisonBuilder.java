@@ -208,7 +208,7 @@ public class TestComparisonBuilder extends TestFmwk {
                 DiscreteComparator<String> comp = builder.get();
             } catch (CycleException e) {
                 logln("Expected cycle and got one at:\t" + e.getMessage()
-                + ", " + builder.getCycle());
+                    + ", " + builder.getCycle());
                 return;
             }
             throw new IllegalArgumentException(

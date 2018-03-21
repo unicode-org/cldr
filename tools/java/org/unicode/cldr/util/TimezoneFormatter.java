@@ -80,14 +80,9 @@ public class TimezoneFormatter extends UFormat {
     }
 
     public enum Format {
-        VVVV(Type.GENERIC, Location.LOCATION, Length.OTHER),
-        vvvv(Type.GENERIC, Location.NON_LOCATION, Length.LONG),
-        v(Type.GENERIC, Location.NON_LOCATION, Length.SHORT),
-        zzzz(Type.SPECIFIC, Location.NON_LOCATION, Length.LONG),
-        z(Type.SPECIFIC, Location.NON_LOCATION, Length.SHORT),
-        ZZZZ(Type.GENERIC, Location.GMT, Length.LONG),
-        Z(Type.GENERIC, Location.GMT, Length.SHORT),
-        ZZZZZ(Type.GENERIC, Location.GMT, Length.OTHER);
+        VVVV(Type.GENERIC, Location.LOCATION, Length.OTHER), vvvv(Type.GENERIC, Location.NON_LOCATION, Length.LONG), v(Type.GENERIC, Location.NON_LOCATION,
+            Length.SHORT), zzzz(Type.SPECIFIC, Location.NON_LOCATION, Length.LONG), z(Type.SPECIFIC, Location.NON_LOCATION, Length.SHORT), ZZZZ(Type.GENERIC,
+                Location.GMT, Length.LONG), Z(Type.GENERIC, Location.GMT, Length.SHORT), ZZZZZ(Type.GENERIC, Location.GMT, Length.OTHER);
         final Type type;
         final Location location;
         final Length length;
@@ -123,7 +118,7 @@ public class TimezoneFormatter extends UFormat {
     private transient SimpleDateFormat hourFormatPlus = new SimpleDateFormat();
     private transient SimpleDateFormat hourFormatMinus = new SimpleDateFormat();
     private transient MessageFormat gmtFormat, regionFormat,
-    regionFormatStandard, regionFormatDaylight, fallbackFormat;
+        regionFormatStandard, regionFormatDaylight, fallbackFormat;
     //private transient String abbreviationFallback, preferenceOrdering;
     private transient Set<String> singleCountriesSet;
 
@@ -297,12 +292,12 @@ public class TimezoneFormatter extends UFormat {
             calendar.setTimeInMillis(Math.abs(gmtOffset1));
             result = format.format(calendar);
             return gmtFormat.format(new Object[] { result });
-            // 4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the ISO 8601.
-            // America/Los_Angeles → "-08:00"
-            // Etc/GMT → Z // special case of UTC
-            // Note: The digits in this case are always from the western digits, 0..9.
+        // 4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the ISO 8601.
+        // America/Los_Angeles → "-08:00"
+        // Etc/GMT → Z // special case of UTC
+        // Note: The digits in this case are always from the western digits, 0..9.
 
-            // TODO
+        // TODO
         case NON_LOCATION:
             // 5. For the non-location formats (generic or specific),
             // 5.1 if there is an explicit translation for the TZID in timeZoneNames according to type (generic,
@@ -409,20 +404,20 @@ public class TimezoneFormatter extends UFormat {
             // 6.1 For the generic location format:
             return getRegionFallback(zoneid, regionFormat);
 
-            // FIX examples
-            // Otherwise, get both the exemplar city and country name. Format them with the fallbackRegionFormat (for
-            // example, "{1} Time ({0})". For example:
-            // America/Buenos_Aires → "Argentina Time (Buenos Aires)"
-            // // if the fallbackRegionFormat is "{1} Time ({0})".
-            // America/Buenos_Aires → "Аргентина (Буэнос-Айрес)"
-            // // if both are translated, and the fallbackRegionFormat is "{1} ({0})".
-            // America/Buenos_Aires → "AR (Буэнос-Айрес)"
-            // // if Argentina is not translated.
-            // America/Buenos_Aires → "Аргентина (Buenos Aires)"
-            // // if Buenos Aires is not translated.
-            // America/Buenos_Aires → "AR (Buenos Aires)"
-            // // if both are not translated.
-            // Note: As with the regionFormat, exceptional cases need to be explicitly translated.
+        // FIX examples
+        // Otherwise, get both the exemplar city and country name. Format them with the fallbackRegionFormat (for
+        // example, "{1} Time ({0})". For example:
+        // America/Buenos_Aires → "Argentina Time (Buenos Aires)"
+        // // if the fallbackRegionFormat is "{1} Time ({0})".
+        // America/Buenos_Aires → "Аргентина (Буэнос-Айрес)"
+        // // if both are translated, and the fallbackRegionFormat is "{1} ({0})".
+        // America/Buenos_Aires → "AR (Буэнос-Айрес)"
+        // // if Argentina is not translated.
+        // America/Buenos_Aires → "Аргентина (Buenos Aires)"
+        // // if Buenos Aires is not translated.
+        // America/Buenos_Aires → "AR (Buenos Aires)"
+        // // if both are not translated.
+        // Note: As with the regionFormat, exceptional cases need to be explicitly translated.
         }
     }
 

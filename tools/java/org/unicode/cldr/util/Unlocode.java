@@ -238,18 +238,12 @@ public class Unlocode {
     //    }
 
     enum SubdivisionFields {
-        Subdivision_category,
-        Code_3166_2,
-        Subdivision_name,
-        Language_code,
-        Romanization_system,
-        Parent_subdivision
+        Subdivision_category, Code_3166_2, Subdivision_name, Language_code, Romanization_system, Parent_subdivision
     }
 
     public static void loadIso() throws IOException {
-        BufferedReader br =
-            FileReaders.openFile(CldrUtility.class,
-                "data/external/subdivisionData.txt", CldrUtility.UTF8);
+        BufferedReader br = FileReaders.openFile(CldrUtility.class,
+            "data/external/subdivisionData.txt", CldrUtility.UTF8);
         while (true) {
             // Subdivision category TAB 3166-2 code TAB Subdivision name TAB Language code TAB Romanization system TAB Parent subdivision
 
@@ -414,8 +408,8 @@ public class Unlocode {
             }
             name = paren2 == name.length()
                 ? name.substring(0, paren).trim()
-                    : (name.substring(0, paren) + name.substring(paren2 + 1)).replace("  ", " ").trim();
-                //System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
+                : (name.substring(0, paren) + name.substring(paren2 + 1)).replace("  ", " ").trim();
+            //System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
         }
         return name;
     }

@@ -240,8 +240,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         // only first
         MergeLists<String> mergeLists = new MergeLists<String>(new TreeSet<String>(new UTF16.StringComparator(true,
             false, 0)))
-            .add(Arrays.asList("ldml"))
-            .addAll(elementOrderings); //
+                .add(Arrays.asList("ldml"))
+                .addAll(elementOrderings); //
         List<String> result = mergeLists.merge();
         Collection badOrder = MergeLists.hasConsistentOrderWithEachOf(result, elementOrderings);
         if (badOrder != null) {
@@ -547,7 +547,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         // if (ELEMENT_SKIP_LIST.contains(name)) return;
         if (name.indexOf("contractions") >= 0
             || model
-            .indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0) {
+                .indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0) {
         }
         allDefinedElements.add(name);
         if (SHOW_PROGRESS) {

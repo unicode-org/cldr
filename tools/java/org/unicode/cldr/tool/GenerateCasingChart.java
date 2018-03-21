@@ -34,29 +34,15 @@ import com.ibm.icu.util.ULocale;
 public class GenerateCasingChart {
 
     enum ContextTransformUsage {
-        languages,
-        script,
-        keyValue,
-        calendar_field,
-        day_format_except_narrow,
-        day_standalone_except_narrow,
-        month_format_except_narrow,
-        month_standalone_except_narrow,
-        era_name,
-        era_abbr,
-        relative,
-        currencyName,
-        number_spellout
+        languages, script, keyValue, calendar_field, day_format_except_narrow, day_standalone_except_narrow, month_format_except_narrow, month_standalone_except_narrow, era_name, era_abbr, relative, currencyName, number_spellout
     }
 
     enum ContextTransformType {
-        stand_alone,
-        uiListOrMenu
+        stand_alone, uiListOrMenu
     }
 
     enum ContextTransformValue {
-        titlecase_firstword,
-        none // for "∅∅∅"
+        titlecase_firstword, none // for "∅∅∅"
     }
 
     /*
@@ -75,7 +61,7 @@ public class GenerateCasingChart {
         <contextTransformUsage type="month-standalone-except-narrow">
             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
         </contextTransformUsage>
-
+    
      */
     public static void main(String[] args) {
         check(ULocale.ENGLISH);
@@ -181,9 +167,8 @@ public class GenerateCasingChart {
         LocaleDisplayNames localeDisplayNames = LocaleDisplayNames.getInstance(locale, DisplayContext.CAPITALIZATION_FOR_UI_LIST_OR_MENU);
         System.out.println(
             locale.getDisplayName(ULocale.ENGLISH)
-            + "\t" + locale.getDisplayName(locale)
-            + "\t" + localeDisplayNames.localeDisplayName(locale)
-            );
+                + "\t" + locale.getDisplayName(locale)
+                + "\t" + localeDisplayNames.localeDisplayName(locale));
     }
 
 }

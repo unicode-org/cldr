@@ -48,8 +48,7 @@ public class DateTimeFormats {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        organization(".*", "CLDR", "organization"),
-        filter(".*", ".*", "locale filter (regex)");
+        organization(".*", "CLDR", "organization"), filter(".*", ".*", "locale filter (regex)");
         // boilerplate
         final Option option;
 
@@ -68,8 +67,7 @@ public class DateTimeFormats {
     private static final TimeZone GMT = TimeZone.getTimeZone("GMT");
 
     private static final String[] STOCK = { "short", "medium", "long", "full" };
-    private static final String[] CALENDAR_FIELD_TO_PATTERN_LETTER =
-    {
+    private static final String[] CALENDAR_FIELD_TO_PATTERN_LETTER = {
         "G", "y", "M",
         "w", "W", "d",
         "D", "E", "F",
@@ -878,9 +876,10 @@ public class DateTimeFormats {
             formats.addTable(english, out);
             formats.addDateTable(englishFile, out);
             formats.addDayPeriods(englishFile, out);
-            out.println("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"
-                +
-                "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+            out.println(
+                "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"
+                    +
+                    "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
             out.println("</body></html>");
             out.close();
             int first = name.codePointAt(0);
@@ -902,25 +901,25 @@ public class DateTimeFormats {
         PrintWriter index = FileUtilities.openUTF8Writer(directory, "index.html");
         index
             .println(
-            "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n"
-                +
-                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
-                +
-                "<title>"
-                + title
-                + " Charts</title>\n"
-                +
-                "</head><body><h1>"
-                + title
-                + " Charts</h1>"
-                +
-                "<p style='float:left; text-align:left'><a href='../index.html'>Index</a></p>\n"
-                +
-                // "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
-                "<p style='float:right; text-align:right'>"
-                + dateString
-                + "</p>\n"
-                + "<div style='clear:both; margin:2em'>");
+                "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n"
+                    +
+                    "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
+                    +
+                    "<title>"
+                    + title
+                    + " Charts</title>\n"
+                    +
+                    "</head><body><h1>"
+                    + title
+                    + " Charts</h1>"
+                    +
+                    "<p style='float:left; text-align:left'><a href='../index.html'>Index</a></p>\n"
+                    +
+                    // "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
+                    "<p style='float:right; text-align:right'>"
+                    + dateString
+                    + "</p>\n"
+                    + "<div style='clear:both; margin:2em'>");
         return index;
     }
 
@@ -938,8 +937,7 @@ public class DateTimeFormats {
             ".dtf-fix {width:1px}\n" +
             ".dtf-left {text-align:left;}\n" +
             ".dtf-nopad {padding:0px; align:top}\n" +
-            ".dtf-gray {background-color:#EEF}\n"
-            );
+            ".dtf-gray {background-color:#EEF}\n");
         out.close();
     }
 
@@ -979,8 +977,7 @@ public class DateTimeFormats {
                     + "<th class='dtf-th'>Native</th>"
                     + "<th class='dtf-th'>Native</th>"
                     + "<th class='dtf-th'>Native</th>"
-                    + "</tr>\n"
-                );
+                    + "</tr>\n");
             DayPeriodInfo dayPeriodInfo = sdi.getDayPeriods(DayPeriodInfo.Type.format, file.getLocaleID());
             Set<DayPeriodInfo.DayPeriod> dayPeriods = new LinkedHashSet<>(dayPeriodInfo.getPeriods());
             DayPeriodInfo dayPeriodInfo2 = sdi.getDayPeriods(DayPeriodInfo.Type.format, "en");

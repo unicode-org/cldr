@@ -37,9 +37,9 @@ public class TestBCP47 extends TestFmwk {
         new TestBCP47().run(args);
     }
 
-    private static final ChainedMap.M3<String,String,String> keyTypeTranslations = ChainedMap.of(
-        new TreeMap<String,Object>(), 
-        new TreeMap<String,Object>(), 
+    private static final ChainedMap.M3<String, String, String> keyTypeTranslations = ChainedMap.of(
+        new TreeMap<String, Object>(),
+        new TreeMap<String, Object>(),
         String.class);
     static {
         for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/keys/key"))) {
@@ -65,9 +65,9 @@ public class TestBCP47 extends TestFmwk {
 
     public void TestEnglishKeyTranslations() {
         logKnownIssue("cldr7631", "Using just warnings for now, until issues are resolved. Change WARNING/ERROR when removing this.");
-        ChainedMap.M3<String,String,String> foundEnglish = ChainedMap.of(
-            new TreeMap<String,Object>(), 
-            new TreeMap<String,Object>(), 
+        ChainedMap.M3<String, String, String> foundEnglish = ChainedMap.of(
+            new TreeMap<String, Object>(),
+            new TreeMap<String, Object>(),
             String.class);
         for (String bcp47Key : bcp47key_types.keySet()) {
             final R2<String, String> keyRow = Row.of(bcp47Key, "");
@@ -76,7 +76,7 @@ public class TestBCP47 extends TestFmwk {
                 continue;
             }
             String keyTrans = keyTypeTranslations.get(bcp47Key, "");
-            Set<String> keyAliases = CldrUtility.ifNull(bcp47keyType_aliases.get(keyRow), Collections.<String>emptySet());
+            Set<String> keyAliases = CldrUtility.ifNull(bcp47keyType_aliases.get(keyRow), Collections.<String> emptySet());
             String engKey = bcp47Key;
             if (keyTrans != null) {
                 foundEnglish.put(engKey, "", keyTrans);
@@ -92,9 +92,10 @@ public class TestBCP47 extends TestFmwk {
                 }
             }
             if (keyTrans != null) {
-                logln(showData(bcp47Key, "", SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow), keyAliases, Collections.<String>emptySet(), keyTrans));
+                logln(showData(bcp47Key, "", SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow), keyAliases, Collections.<String> emptySet(), keyTrans));
             } else {
-                msg(showData(bcp47Key, "", SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow), keyAliases, Collections.<String>emptySet(), "MISSING"), ERROR, true, true);
+                msg(showData(bcp47Key, "", SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow), keyAliases, Collections.<String> emptySet(), "MISSING"),
+                    ERROR, true, true);
             }
             if (bcp47Key.equals("tz")) {
                 continue;
@@ -115,9 +116,11 @@ public class TestBCP47 extends TestFmwk {
             final String trans = extra.get2();
             if (foundEnglish.get(key, type) == null) {
                 if (key.equals("x")) {
-                    msg("OK Extra English: " + showData(key, type, "MISSING", Collections.<String>emptySet(), Collections.<String>emptySet(), trans), LOG, true, true);
+                    msg("OK Extra English: " + showData(key, type, "MISSING", Collections.<String> emptySet(), Collections.<String> emptySet(), trans), LOG,
+                        true, true);
                 } else {
-                    msg("*Extra English: " + showData(key, type, "MISSING", Collections.<String>emptySet(), Collections.<String>emptySet(), trans), ERROR, true, true);
+                    msg("*Extra English: " + showData(key, type, "MISSING", Collections.<String> emptySet(), Collections.<String> emptySet(), trans), ERROR,
+                        true, true);
                 }
             }
         }
@@ -126,10 +129,10 @@ public class TestBCP47 extends TestFmwk {
     static final ImmutableSet<String> SKIP_TYPES = ImmutableSet.of("REORDER_CODE", "RG_KEY_VALUE", "SUBDIVISION_CODE", "CODEPOINTS", "PRIVATE_USE");
 
     private void checkKeyType(
-        String bcp47Key, 
+        String bcp47Key,
         Set<String> keyAliases,
-        String engKey, 
-        String bcp47Type, 
+        String engKey,
+        String bcp47Type,
         ChainedMap.M3<String, String, String> foundEnglish) {
         if (SKIP_TYPES.contains(bcp47Type)) {
             logln("Skipping generic key/type:\t" + bcp47Key + "/" + bcp47Type);
@@ -140,7 +143,7 @@ public class TestBCP47 extends TestFmwk {
             logln("Skipping deprecated key/type:\t" + bcp47Key + "/" + bcp47Type);
             return;
         }
-        Set<String> typeAliases = CldrUtility.ifNull(bcp47keyType_aliases.get(row), Collections.<String>emptySet());
+        Set<String> typeAliases = CldrUtility.ifNull(bcp47keyType_aliases.get(row), Collections.<String> emptySet());
         String engType = bcp47Type;
         String trans = keyTypeTranslations.get(engKey, engType);
         if (trans != null) {
@@ -151,15 +154,16 @@ public class TestBCP47 extends TestFmwk {
                 if (trans != null) {
                     engType = typeAlias;
                     foundEnglish.put(engKey, engType, trans);
-                    msg("Type for English 'key+type' translation is " + engKey + "+" + engType + ", while bcp47 is " + bcp47Key + "+" + bcp47Type, WARNING, true, true);
+                    msg("Type for English 'key+type' translation is " + engKey + "+" + engType + ", while bcp47 is " + bcp47Key + "+" + bcp47Type, WARNING,
+                        true, true);
                     break;
                 }
             }
         }
         if (trans == null) {
-            switch(bcp47Key) {
-            case "cu": 
-                trans = ENGLISH.getStringValue("//ldml/numbers/currencies/currency[@type=\"" + bcp47Type.toUpperCase(Locale.ENGLISH)+ "\"]/displayName"); 
+            switch (bcp47Key) {
+            case "cu":
+                trans = ENGLISH.getStringValue("//ldml/numbers/currencies/currency[@type=\"" + bcp47Type.toUpperCase(Locale.ENGLISH) + "\"]/displayName");
                 break;
             }
         }
@@ -171,6 +175,7 @@ public class TestBCP47 extends TestFmwk {
     }
 
     private String showData(String key, String type, String bcp47Description, Set<String> keyAliases, Set<String> typeAliases, String eng) {
-        return "key: " + key + "\taliases: " + keyAliases + (type.isEmpty() ? "" : "\ttype: " + type + "\taliases: " + typeAliases) + "\tbcp: " + bcp47Description + ",\teng: " + eng;
+        return "key: " + key + "\taliases: " + keyAliases + (type.isEmpty() ? "" : "\ttype: " + type + "\taliases: " + typeAliases) + "\tbcp: "
+            + bcp47Description + ",\teng: " + eng;
     }
 }

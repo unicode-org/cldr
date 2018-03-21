@@ -278,7 +278,7 @@ public class StateDictionary<T> extends Dictionary<T> {
         private static final boolean SHOW_DEBUG = false;
 
         final private byte[] matchByteBuffer = new byte[byteString
-                                                        .getMaxBytesPerChar()];
+            .getMaxBytesPerChar()];
 
         private int matchByteStringIndex;
 
@@ -566,7 +566,7 @@ public class StateDictionary<T> extends Dictionary<T> {
                         }
                     }
                     debugTreeView.append("\t<").append(key2).append(">\t<")
-                    .append(value2).append(">" + CldrUtility.LINE_SEPARATOR);
+                        .append(value2).append(">" + CldrUtility.LINE_SEPARATOR);
                 }
                 if (cell.nextRow != null) {
                     getDebugWords(byteLength + 1, currentValue, cell.nextRow,

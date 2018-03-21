@@ -71,7 +71,7 @@ public class Annotations {
                 shortName.startsWith("#") || // skip other junk files
                 shortName.startsWith(".")
 //                || shortName.contains("001") // skip world english for now
-                ) continue; // skip dot files (backups, etc)
+            ) continue; // skip dot files (backups, etc)
             temp.add(dotSplitter.split(shortName).iterator().next());
         }
         LOCALES = temp.build();
@@ -103,15 +103,15 @@ public class Annotations {
                     } else if (myValue == null) {
                         templocaleData.put(key, parentValue);
                     } else { // need to combine
-                        String tts = myValue.tts == null 
+                        String tts = myValue.tts == null
                             ? parentValue.tts : myValue.tts;
-                        Set<String> annotations = myValue.annotations == null || myValue.annotations.isEmpty() 
+                        Set<String> annotations = myValue.annotations == null || myValue.annotations.isEmpty()
                             ? parentValue.annotations : myValue.annotations;
                         templocaleData.put(key, new Annotations(annotations, tts));
                     }
                 }
             }
-            
+
             final AnnotationSet result = new AnnotationSet(locale, localeData, templocaleData);
             dirCache.put(locale, result);
             return result;
@@ -140,7 +140,7 @@ public class Annotations {
             if (alt != null) {
                 // do nothing for now
             } else if ("tts".equals(type)) {
-                addItems(localeData, us, Collections.<String>emptySet(), value);
+                addItems(localeData, us, Collections.<String> emptySet(), value);
             } else {
                 Set<String> attributes = new TreeSet<>(splitter.splitToList(value));
                 addItems(localeData, us, attributes, tts);
@@ -164,12 +164,12 @@ public class Annotations {
     }
 
     public Annotations(Set<String> attributes, String tts2) {
-        annotations = attributes == null ? Collections.<String>emptySet() : ImmutableSet.copyOf(attributes);
+        annotations = attributes == null ? Collections.<String> emptySet() : ImmutableSet.copyOf(attributes);
         tts = tts2;
     }
 
     public Annotations add(Set<String> attributes, String tts2) {
-        return new Annotations(getKeywords() == null ? attributes : attributes == null ? getKeywords() : union(attributes, getKeywords()), 
+        return new Annotations(getKeywords() == null ? attributes : attributes == null ? getKeywords() : union(attributes, getKeywords()),
             getShortName() == null ? tts2 : tts2 == null ? getShortName() : throwDup());
     }
 
@@ -207,10 +207,12 @@ public class Annotations {
         public static final String WOMAN = "👩";
         public static final String JOINER_MALE_SIGN = JOINER_STRING + MALE_SIGN;
         public static final String JOINER_FEMALE_SIGN = JOINER_STRING + FEMALE_SIGN;
+
         //public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
         public static String getFlagCode(String s) {
-            return String.valueOf((char)(s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
+            return String.valueOf((char) (s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
         }
+
         public static final UnicodeSet FAMILY_MARKERS = new UnicodeSet()
             .add(0x1F466, 0x1F469).add(0x1F476)
             .add(JOINER_STRING)
@@ -224,6 +226,7 @@ public class Annotations {
             .freeze();
         public static final String TAG_TERM = UTF16.valueOf(0xE007F);
         public static final String BLACK_FLAG = UTF16.valueOf(0x1F3F4);
+
         public static String getTagSpec(String code) {
             StringBuilder b = new StringBuilder();
             for (int codePoint : CharSequences.codePoints(code)) {
@@ -242,7 +245,7 @@ public class Annotations {
         static final Factory factory = CONFIG.getCldrFactory();
         static final CLDRFile ENGLISH = CONFIG.getEnglish();
         static final Factory SUBDIVISION_FACTORY = Factory.make(CLDRPaths.COMMON_DIRECTORY + "subdivisions/", ".*");
-        static final CLDRFile ENGLISH_SUBDIVISIONS = SUBDIVISION_FACTORY.make("en", true); 
+        static final CLDRFile ENGLISH_SUBDIVISIONS = SUBDIVISION_FACTORY.make("en", true);
 
         private final String locale;
         private final UnicodeMap<Annotations> baseData;
@@ -267,13 +270,14 @@ public class Annotations {
             CLDRFile _cldrFileSubdivisions = null;
             try {
                 _cldrFileSubdivisions = SUBDIVISION_FACTORY.make(locale, true);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
             cldrFileSubdivisions = _cldrFileSubdivisions;
             listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
-            final String regexPattern = ("\\Q"+initialPatternString.replace("{0}","\\E.*\\Q").replace("{1}","\\E.*\\Q")+"\\E")
-                .replace("\\Q\\E",""); // HACK to detect use of prefix pattern
+            final String regexPattern = ("\\Q" + initialPatternString.replace("{0}", "\\E.*\\Q").replace("{1}", "\\E.*\\Q") + "\\E")
+                .replace("\\Q\\E", ""); // HACK to detect use of prefix pattern
             initialRegexPattern = Pattern.compile(regexPattern);
             flagLabelSet = getLabelSet("flag");
             keycapLabelSet = getLabelSet("keycap");
@@ -281,19 +285,23 @@ public class Annotations {
 //            maleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"male\"]");
 //            femaleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"female\"]");
         }
+
         /**
          * @deprecated Use {@link #getLabelSet(String)} instead
          */
         private Set<String> getLabelSet() {
             return getLabelSet("flag");
         }
+
         private Set<String> getLabelSet(String typeAttributeValue) {
             String label = getStringValue("//ldml/characterLabels/characterLabel[@type=\"" + typeAttributeValue + "\"]");
-            return label == null ? Collections.<String>emptySet() : Collections.singleton(label);
+            return label == null ? Collections.<String> emptySet() : Collections.singleton(label);
         }
+
         private String getStringValue(String xpath) {
             return getStringValue(xpath, cldrFile, ENGLISH);
         }
+
         private String getStringValue(String xpath, CLDRFile cldrFile2, CLDRFile english) {
             String result = cldrFile2.getStringValue(xpath);
             if (result == null) {
@@ -309,12 +317,13 @@ public class Annotations {
         public String getShortName(String code) {
             return getShortName(code, null);
         }
-        public String getShortName(String code, Transform<String,String> otherSource) {
+
+        public String getShortName(String code, Transform<String, String> otherSource) {
             if (code.equals("🧙‍♀️")) {
                 int debug = 0;
             }
 
-            code = code.replace(EmojiConstants.EMOJI_VARIANT_STRING,"");
+            code = code.replace(EmojiConstants.EMOJI_VARIANT_STRING, "");
             Annotations stock = baseData.get(code);
             if (stock != null && stock.tts != null) {
                 return stock.tts;
@@ -332,7 +341,7 @@ public class Annotations {
         }
 
         public Set<String> getKeywords(String code) {
-            code = code.replace(EmojiConstants.EMOJI_VARIANT_STRING,"");
+            code = code.replace(EmojiConstants.EMOJI_VARIANT_STRING, "");
             Annotations stock = baseData.get(code);
             if (stock != null && stock.annotations != null) {
                 return stock.annotations;
@@ -346,9 +355,9 @@ public class Annotations {
                 localeCache.put(code, stock);
                 return stock.annotations;
             }
-            return Collections.<String>emptySet();
+            return Collections.<String> emptySet();
         }
-        
+
         /** Returns the set of all keys for which annotations are available. WARNING: keys have the Emoji Presentation Selector removed!
          */
         public UnicodeSet keySet() {
@@ -368,19 +377,19 @@ public class Annotations {
                     if (tempName == null) {
                         return null;
                     }
-                    return new Annotations(Collections.<String>emptySet(), tempName);
+                    return new Annotations(Collections.<String> emptySet(), tempName);
                 } else { // fall back to English if possible, but mark it.
                     tempName = getDataSet("en").getShortName(code);
                     if (tempName == null) {
                         return null;
                     }
-                    return new Annotations(Collections.<String>emptySet(), ENGLISH_MARKER + tempName);
+                    return new Annotations(Collections.<String> emptySet(), ENGLISH_MARKER + tempName);
                 }
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
                 return new Annotations(flagLabelSet, getStringValue(path));
-            } else if (code.startsWith(EmojiConstants.BLACK_FLAG) 
+            } else if (code.startsWith(EmojiConstants.BLACK_FLAG)
                 && code.endsWith(EmojiConstants.TAG_TERM)) {
                 String subdivisionCode = EmojiConstants.getTagSpec(code);
                 String path = CLDRFile.getKey(CLDRFile.SUBDIVISION_NAME, subdivisionCode);
@@ -436,7 +445,8 @@ public class Annotations {
             return baseName != null && initialRegexPattern.matcher(baseName).matches();
         }
 
-        private Annotations getBasePlusRemainder(CLDRFile cldrFile, String base, String rem, UnicodeSet ignore, SimpleFormatter pattern, Transform<String, String> otherSource) {
+        private Annotations getBasePlusRemainder(CLDRFile cldrFile, String base, String rem, UnicodeSet ignore, SimpleFormatter pattern,
+            Transform<String, String> otherSource) {
             String shortName = null;
             Set<String> annotations = new LinkedHashSet<>();
             boolean needMarker = true;
@@ -485,6 +495,7 @@ public class Annotations {
         public String toString(String code, boolean html) {
             return toString(code, html, null);
         }
+
         public String toString(String code, boolean html, AnnotationSet parentAnnotations) {
             if (locale.equals("be") && code.equals("🤗")) {
                 int debug = 0;
@@ -516,9 +527,11 @@ public class Annotations {
             }
             return result;
         }
+
         public UnicodeMap<Annotations> getExplicitValues() {
             return baseData;
         }
+
         public UnicodeMap<Annotations> getUnresolvedExplicitValues() {
             return unresolvedData;
         }
@@ -533,7 +546,6 @@ public class Annotations {
             return keywords;
         }
     }
-
 
     public static AnnotationSet getDataSet(String locale) {
         return getDataSet(DIR, locale);
@@ -610,6 +622,7 @@ public class Annotations {
     public String getShortName() {
         return tts;
     }
+
     public static void main(String[] args) {
         if (true) {
             writeList();
@@ -629,21 +642,19 @@ public class Annotations {
             System.out.println(Utility.hex(key, 4, "_").toLowerCase(Locale.ROOT)
                 + "\t" + key
                 + "\t" + map.get(key).getShortName()
-                + "\t" + CollectionUtilities.join(map.get(key).getKeywords(), " | ")
-                );
+                + "\t" + CollectionUtilities.join(map.get(key).getKeywords(), " | "));
         }
         for (String s : Arrays.asList(
             "💏", "👩‍❤️‍💋‍👩",
             "💑", "👩‍❤️‍👩",
             "👪", "👩‍👩‍👧",
             "👦🏻", "👩🏿",
-            "👨‍⚖", "👨🏿‍⚖", "👩‍⚖","👩🏼‍⚖",
+            "👨‍⚖", "👨🏿‍⚖", "👩‍⚖", "👩🏼‍⚖",
             "👮", "👮‍♂️", "👮🏼‍♂️", "👮‍♀️", "👮🏿‍♀️",
-            "🚴", "🚴🏿", "🚴‍♂️", "🚴🏿‍♂️", "🚴‍♀️", "🚴🏿‍♀️"
-            )) {
+            "🚴", "🚴🏿", "🚴‍♂️", "🚴🏿‍♂️", "🚴‍♀️", "🚴🏿‍♀️")) {
             final String shortName = eng.getShortName(s);
             final Set<String> keywords = eng.getKeywords(s);
-            System.out.println("{\"" + s + "\",\"" + shortName + "\",\"" + CollectionUtilities.join(keywords,"|") + "\"},");
+            System.out.println("{\"" + s + "\",\"" + shortName + "\",\"" + CollectionUtilities.join(keywords, "|") + "\"},");
         }
     }
 
@@ -658,13 +669,12 @@ public class Annotations {
         for (String key : keys) {
             Annotations value = map.get(key);
             Annotations value100 = map100.get(key);
-            Set<String>  keywords100 = (value100 == null ? null : value100.getKeywords());
+            Set<String> keywords100 = (value100 == null ? null : value100.getKeywords());
             System.out.println(key + "\tname\t"
-                + "\t" + value.getShortName() 
+                + "\t" + value.getShortName()
                 + "\t" + (value100 == null ? "" : value100.getShortName())
                 + "\t" + CollectionUtilities.join(value.getKeywords(), " | ")
-                + "\t" + (keywords100 == null ? "" : CollectionUtilities.join(keywords100, " | "))
-                );
+                + "\t" + (keywords100 == null ? "" : CollectionUtilities.join(keywords100, " | ")));
         }
     }
 }

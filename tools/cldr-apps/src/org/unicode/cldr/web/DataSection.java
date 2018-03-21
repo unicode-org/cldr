@@ -430,7 +430,8 @@ public class DataSection implements JSONString {
                     } else {
                         pClass = "class='fallback' title='Translated in "
                             + ((inheritFrom == null) ? "(unknown)" : CLDRLocale.getDefaultFormatter().getDisplayName(
-                                inheritFrom)) + " and inherited here.'";
+                                inheritFrom))
+                            + " and inherited here.'";
                     }
                 } else if (altProposed != null) {
                     pClass = "class='loser' title='proposed, losing item'";
@@ -507,7 +508,7 @@ public class DataSection implements JSONString {
                            * if (!(isCodeFallback && (status.getCause()
                            * instanceof
                            * org.unicode.cldr.test.CheckForExemplars)))
-                           */{
+                           */ {
                         // skip codefallback exemplar complaints (i.e. 'JPY'
                         // isn't in exemplars).. they'll show up in missing
                         if (DEBUG)
@@ -535,7 +536,7 @@ public class DataSection implements JSONString {
                     if (warningCount > 0) /* row */
                         parentRow.hasWarnings = true;
 
-                    if (errorCount > 0) /* row */{
+                    if (errorCount > 0) /* row */ {
                         itemErrors = true;
                         anyItemHasErrors = true;
                         parentRow.anyItemHasErrors = true;
@@ -1756,9 +1757,10 @@ public class DataSection implements JSONString {
                 jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
                 jo.put("items", itemsJson);
                 jo.put("inheritedValue", inheritedValue != null ? inheritedValue.value : null);
-                jo.put("inheritedXPath", inheritedValue != null ? inheritedValue.pathWhereFound: null);
-                jo.put("inheritedXpid", (inheritedValue != null && inheritedValue.pathWhereFound != null) ? XPathTable.getStringIDString(inheritedValue.pathWhereFound): null);
-                jo.put("inheritedLocale", inheritedValue != null ? inheritedValue.inheritFrom: null);
+                jo.put("inheritedXPath", inheritedValue != null ? inheritedValue.pathWhereFound : null);
+                jo.put("inheritedXpid",
+                    (inheritedValue != null && inheritedValue.pathWhereFound != null) ? XPathTable.getStringIDString(inheritedValue.pathWhereFound) : null);
+                jo.put("inheritedLocale", inheritedValue != null ? inheritedValue.inheritFrom : null);
                 jo.put("inheritedPClass", inheritedValue != null ? inheritedValue.getPClass() : "fallback");
                 jo.put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
                 if (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) {
@@ -1891,7 +1893,7 @@ public class DataSection implements JSONString {
             if (true) { // showsearchmode
                 ctx.println("<div style='float: right;'>Items " + from + " to " + to + " of " + total + "</div>");
                 ctx.println("<p class='hang' > " + // float: right;
-                    // tyle='margin-left: 3em;'
+                // tyle='margin-left: 3em;'
                     "<b>Sorted:</b>  ");
                 {
                     // boolean sortAlpha =
@@ -2004,7 +2006,7 @@ public class DataSection implements JSONString {
                     if (partitions[j].name != null) {
                         ctx.print("<td  class='pagerln' align='left'><p style='margin-top: 2px; margin-bottom: 2px;' class='hang'><b>"
                             + partitions[j].name + ":</b>"
-                            /* + "</td><td class='pagerln'>" */);
+                        /* + "</td><td class='pagerln'>" */);
                     }
                     int ourStart = partitions[j].start;
                     int ourLimit = partitions[j].limit;
@@ -2143,10 +2145,10 @@ public class DataSection implements JSONString {
             this.status = status;
 
             hash = CookieSession.cheapEncode(DataSection.getN()) + // unique
-                // serial #-
-                // covers
-                // item,
-                // status..
+            // serial #-
+            // covers
+            // item,
+            // status..
                 p.fullFieldHash(); /*
                                    * fieldHash ensures that we don't get
                                    * the wrong field..

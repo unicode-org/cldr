@@ -43,39 +43,39 @@ public class StringRangeTest extends TestFmwk {
             { "a", "cd",
                 "Must have start-length ≥ end-length",
                 "", ""
-        },
+            },
             { "a", "",
                 "Must have end-length > 0",
                 "", ""
-        },
+            },
             { "ab", "ad",
                 "{ab}{ac}{ad}",
                 "{ab}-{ad}",
                 "{ab}-d",
                 "{ab}-{ad}",
                 "{ab}-d"
-        },
+            },
             { "ab", "cd",
                 "{ab}{ac}{ad}{bb}{bc}{bd}{cb}{cc}{cd}",
                 "{ab}-{ad} {bb}-{bd} {cb}-{cd}",
                 "{ab}-d {bb}-d {cb}-d",
                 "{ab}-{cd}",
                 "{ab}-{cd}"
-        },
+            },
             { "👦🏻", "👦🏿",
                 "{👦🏻}{👦🏼}{👦🏽}{👦🏾}{👦🏿}",
                 "{👦🏻}-{👦🏿}",
                 "{👦🏻}-🏿",
                 "{👦🏻}-{👦🏿}",
                 "{👦🏻}-🏿"
-        },
+            },
             { "qax👦🏻", "cx👦🏿",
                 "{qax👦🏻}{qax👦🏼}{qax👦🏽}{qax👦🏾}{qax👦🏿}{qbx👦🏻}{qbx👦🏼}{qbx👦🏽}{qbx👦🏾}{qbx👦🏿}{qcx👦🏻}{qcx👦🏼}{qcx👦🏽}{qcx👦🏾}{qcx👦🏿}",
                 "{qax👦🏻}-{qax👦🏿} {qbx👦🏻}-{qbx👦🏿} {qcx👦🏻}-{qcx👦🏿}",
                 "{qax👦🏻}-🏿 {qbx👦🏻}-🏿 {qcx👦🏻}-🏿",
                 "{qax👦🏻}-{qcx👦🏿}",
                 "{qax👦🏻}-{cx👦🏿}"
-        },
+            },
         };
         final StringBuilder b = new StringBuilder();
         Adder myAdder = new Adder() { // for testing: doesn't do quoting, etc
@@ -143,7 +143,7 @@ public class StringRangeTest extends TestFmwk {
         Validity validity = Validity.getInstance();
         NumberFormat pf = NumberFormat.getPercentInstance();
 
-        for (LstrType type : LstrType.values()) { 
+        for (LstrType type : LstrType.values()) {
             final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(type);
             for (Entry<Status, Set<String>> entry2 : statusToCodes.entrySet()) {
                 Set<String> values = entry2.getValue();

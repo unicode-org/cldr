@@ -54,7 +54,6 @@ public class TestSubdivisions extends TestFmwkPlus {
             SDI.getContainedSubdivisions("bewal"));
     }
 
-
     public void TestNames() {
         final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
         // <subdivisionAlias type="CN-71" replacement="TW" reason="overlong"/>
@@ -70,11 +69,11 @@ public class TestSubdivisions extends TestFmwkPlus {
         }
     }
 
-    private void checkSubdivisionFile(String file, 
-        final Map<String, R2<List<String>, String>> subdivisionAliases, 
+    private void checkSubdivisionFile(String file,
+        final Map<String, R2<List<String>, String>> subdivisionAliases,
         Map<String, Status> deprecated) {
         String lang = file.replace(".xml", "");
-        
+
         List<Pair<String, String>> data = new ArrayList<>();
         XMLFileReader.loadPathValues(SUB_DIR + file, data, true);
         logln(file + "\t" + data.size());
@@ -110,7 +109,7 @@ public class TestSubdivisions extends TestFmwkPlus {
                 if (subdivisionMap.size() == 1) {
                     continue;
                 }
-                logln(lang + "," + country + "Name «" + name + "» for "+ subdivisionMap.keySet());
+                logln(lang + "," + country + "Name «" + name + "» for " + subdivisionMap.keySet());
                 // we have multiple names.
                 // remove the deprecated ones, but generate aliases
                 problemSet.clear();
@@ -125,7 +124,7 @@ public class TestSubdivisions extends TestFmwkPlus {
                     continue;
                 }
                 // warn about collisions
-                errln(lang + "," + country + "Name collision for «" + name + "» in "+ problemSet);
+                errln(lang + "," + country + "Name collision for «" + name + "» in " + problemSet);
 
                 // show the possible aliases to add
                 String first = problemSet.iterator().next();

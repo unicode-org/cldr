@@ -13,13 +13,10 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {
-    root("und"),
-    germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine_001"), dravidian("dra"),
-    uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"),
-    afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"),
-    songhay("son"), american("und_019"),
-    art("art"), other("und_001");
-    
+    root("und"), germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine_001"), dravidian("dra"), uralic(
+        "urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"), afroasiatic(
+            "afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"), songhay("son"), american("und_019"), art("art"), other("und_001");
+
     public final String iso;
 
     LanguageGroup(String iso) {
@@ -148,21 +145,22 @@ public enum LanguageGroup {
             }
             prefix = "Other ";
             break;
-        case "": 
+        case "":
             break;
-        default: 
+        default:
             return cldrFile.getName(CLDRFile.TERRITORY_NAME, ltp.getRegion());
         }
         switch (ltp.getScript()) {
         case "Hani":
             return "CJK";
-        case "": 
+        case "":
             break;
-        default: 
+        default:
             throw new IllegalArgumentException("Need to fix code: " + ltp.getScript());
         }
         return prefix + cldrFile.getName(ltp.getLanguage()).replace(" [Other]", "").replace(" languages", "");
     }
+
     @Override
     public String toString() {
         return getName(CLDRConfig.getInstance().getEnglish());

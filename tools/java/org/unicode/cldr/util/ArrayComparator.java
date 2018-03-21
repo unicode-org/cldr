@@ -5,18 +5,19 @@
  *******************************************************************************
  */
 package org.unicode.cldr.util;
+
 import java.util.Comparator;
 
 public class ArrayComparator implements Comparator {
     public static final Comparator COMPARABLE = new Comparator() {
         public int compare(Object o1, Object o2) {
-            return ((Comparable)o1).compareTo(o2);
-        } 
+            return ((Comparable) o1).compareTo(o2);
+        }
     };
     private Comparator[] comparators;
     private int[] reordering;
-    
-    public ArrayComparator (Comparator[] comparators, int[] reordering) {
+
+    public ArrayComparator(Comparator[] comparators, int[] reordering) {
         this.comparators = comparators;
         this.reordering = reordering;
         if (this.reordering == null) {
@@ -30,11 +31,11 @@ public class ArrayComparator implements Comparator {
             }
         }
     }
-    
-    public ArrayComparator (Comparator... comparators) {
-        this(comparators,null);
+
+    public ArrayComparator(Comparator... comparators) {
+        this(comparators, null);
     }
-    
+
     /* Lexigraphic compare. Returns the first difference
      * @return zero if equal. Otherwise +/- (i+1) 
      * where i is the index of the first comparator finding a difference
@@ -49,15 +50,15 @@ public class ArrayComparator implements Comparator {
             if (comp == null) continue;
             int result = comp.compare(arg0[i], arg1[i]);
             if (result == 0) continue;
-            if (result > 0) return i+1;
-            return -(i+1);
+            if (result > 0) return i + 1;
+            return -(i + 1);
         }
         return 0;
     }
 
     static class CatchExceptionComparator implements Comparator {
         private Comparator other;
-        
+
         public CatchExceptionComparator(Comparator other) {
             this.other = other;
         }
@@ -72,5 +73,5 @@ public class ArrayComparator implements Comparator {
             }
         }
     }
-    
+
 }

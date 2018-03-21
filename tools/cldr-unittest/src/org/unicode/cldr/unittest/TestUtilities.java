@@ -144,7 +144,7 @@ public class TestUtilities extends TestFmwkPlus {
             .matcher("");
         for (int i = 1; i <= 0x10FFFF; i = i * 3 / 2 + 1) {
             String escaped = EscapingUtilities.urlEscape(new StringBuilder()
-            .appendCodePoint(i).toString());
+                .appendCodePoint(i).toString());
             logln(Integer.toHexString(i) + " => " + escaped);
             if (EscapingUtilities.OK_TO_NOT_QUOTE.contains(i)) {
                 assertTrue("Should be unquoted", escaped.length() == 1);
@@ -205,7 +205,6 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("problemCounter error", 2, problemCounter.get(Choice.error));
         assertEquals("problemCounter warning", 1, problemCounter.get(Choice.warning));
         assertEquals("problemCounter weLost", 0, problemCounter.get(Choice.weLost));
-
 
         Counter<Choice> otherCounter = new Counter<Choice>();
         otherCounter.addAll(problemCounter);
@@ -590,31 +589,23 @@ public class TestUtilities extends TestFmwkPlus {
                 + "\tpath:\t<" + pathValueInfo.getRealPath(item) + ">");
         }
     }
-    
+
     /** Test user data. Restructured to be easier to read, more typesafe */
     enum TestUser {
-        guestS(801, Organization.guest, Level.street),
-        gnomeS(701, Organization.gnome, Level.street),
-        googleV(404, Organization.google, Level.vetter),
-        googleS(411, Organization.google, Level.street),
-        googleV2(424, Organization.google, Level.vetter),
-        appleV(304, Organization.apple, Level.vetter),
-        adobeE(208, Organization.adobe, Level.expert),
-        ibmS(101, Organization.ibm, Level.street),
-        ibmV(134, Organization.ibm, Level.vetter),
-        ibmE(118, Organization.ibm, Level.expert),
-        ibmT(129, Organization.ibm, Level.tc),
-        guestS2(802,Organization.guest, Level.street),
-        ;
+        guestS(801, Organization.guest, Level.street), gnomeS(701, Organization.gnome, Level.street), googleV(404, Organization.google, Level.vetter), googleS(
+            411, Organization.google, Level.street), googleV2(424, Organization.google, Level.vetter), appleV(304, Organization.apple, Level.vetter), adobeE(
+                208, Organization.adobe, Level.expert), ibmS(101, Organization.ibm, Level.street), ibmV(134, Organization.ibm, Level.vetter), ibmE(118,
+                    Organization.ibm, Level.expert), ibmT(129, Organization.ibm, Level.tc), guestS2(802, Organization.guest, Level.street),
+                    ;
         public static final Map<Integer, VoterInfo> TEST_USERS;
         public final Integer voterId;
         public final VoterInfo voterInfo;
-        
+
         TestUser(int intVoterId, Organization organization, Level level) {
             voterId = intVoterId;
             voterInfo = new VoterInfo(organization, level, name());
         }
-        
+
         static {
             ImmutableMap.Builder<Integer, VoterInfo> temp = ImmutableMap.builder();
             for (TestUser testUser : values()) {
@@ -642,7 +633,7 @@ public class TestUtilities extends TestFmwkPlus {
 //            }
         }
     }
-    
+
     public static final Map<Integer, VoterInfo> testdata = TestUser.TEST_USERS;
 
     private int toVoterId(String s) {
@@ -1202,20 +1193,22 @@ public class TestUtilities extends TestFmwkPlus {
             "locales list",
             "http://st.unicode.org/cldr-apps/v#locales///",
             CLDRConfig.getInstance().urls()
-            .forSpecial(CLDRURLS.Special.Locales));
+                .forSpecial(CLDRURLS.Special.Locales));
         assertEquals("maltese", "http://st.unicode.org/cldr-apps/v#/mt//",
             CLDRConfig.getInstance().urls().forLocale(maltese));
         assertEquals("korean in maltese",
             "http://st.unicode.org/cldr-apps/v#/mt//"
-                + KOREAN_LANGUAGE_STRID, CLDRConfig.getInstance()
+                + KOREAN_LANGUAGE_STRID,
+            CLDRConfig.getInstance()
                 .urls().forXpath(maltese, KOREAN_LANGUAGE));
         assertEquals("korean in maltese via stringid",
             "http://st.unicode.org/cldr-apps/v#/mt//"
-                + KOREAN_LANGUAGE_STRID, CLDRConfig.getInstance()
+                + KOREAN_LANGUAGE_STRID,
+            CLDRConfig.getInstance()
                 .urls().forXpathHexId(maltese, KOREAN_LANGUAGE_STRID));
         assertEquals("south east asia in maltese",
             "http://st.unicode.org/cldr-apps/v#/mt/C_SEAsia/", CLDRConfig
-            .getInstance().urls().forPage(maltese, PageId.C_SEAsia));
+                .getInstance().urls().forPage(maltese, PageId.C_SEAsia));
         try {
             String ret = CLDRConfig.getInstance().urls()
                 .forXpathHexId(maltese, KOREAN_LANGUAGE);
@@ -1235,11 +1228,11 @@ public class TestUtilities extends TestFmwkPlus {
 
         assertEquals("korean in maltese - absoluteUrl",
             "http://st.unicode.org/cldr-apps/v#/mt//"
-                + KOREAN_LANGUAGE_STRID, CLDRConfig.getInstance()
+                + KOREAN_LANGUAGE_STRID,
+            CLDRConfig.getInstance()
                 .absoluteUrls().forXpath(maltese, KOREAN_LANGUAGE));
 
     }
-
 
     static final UnicodeMap<String> SCRIPTS = ICUPropertyFactory.make().getProperty("script").getUnicodeMap_internal();
     static final UnicodeMap<String> GC = ICUPropertyFactory.make().getProperty("general_category").getUnicodeMap_internal();
@@ -1258,7 +1251,7 @@ public class TestUtilities extends TestFmwkPlus {
 
 //        Map<Integer, String> map2 = new HashMap<Integer, String>();
 //        Map<Integer, String> map3 = new TreeMap<Integer, String>();
-        UnicodeMap<String> composed = ((UnicodeMap)SCRIPTS.cloneAsThawed()).composeWith(GC, composer);
+        UnicodeMap<String> composed = ((UnicodeMap) SCRIPTS.cloneAsThawed()).composeWith(GC, composer);
         String last = "";
         for (int i = 0; i < 0x10FFFF; ++i) {
 //            if (i == 888) {
@@ -1289,9 +1282,9 @@ public class TestUtilities extends TestFmwkPlus {
         int warmup = shortTest ? 1 : 20;
         umTime = checkUnicodeMapSetTime(warmup, 0);
         hashTime = checkUnicodeMapSetTime(warmup, 1);
-        logln("Percentage: " + pf.format(hashTime/umTime));
+        logln("Percentage: " + pf.format(hashTime / umTime));
         treeTime = checkUnicodeMapSetTime(warmup, 3);
-        logln("Percentage: " + pf.format(treeTime/umTime));
+        logln("Percentage: " + pf.format(treeTime / umTime));
         //logln(map1.toString());
 
         if (shortTest) {
@@ -1300,17 +1293,17 @@ public class TestUtilities extends TestFmwkPlus {
 
         umTime = checkUnicodeMapGetTime(1000, 0);
         hashTime = checkUnicodeMapGetTime(1000, 1);
-        logln("Percentage: " + pf.format(hashTime/umTime));
+        logln("Percentage: " + pf.format(hashTime / umTime));
         icuTime = checkUnicodeMapGetTime(1000, 2);
-        logln("Percentage: " + pf.format(icuTime/umTime));
+        logln("Percentage: " + pf.format(icuTime / umTime));
         treeTime = checkUnicodeMapGetTime(1000, 3);
-        logln("Percentage: " + pf.format(treeTime/umTime));
+        logln("Percentage: " + pf.format(treeTime / umTime));
     }
 
     private static final int propEnum = UProperty.GENERAL_CATEGORY;
 
     private double checkUnicodeMapSetTime(int iterations, int type) {
-        _checkUnicodeMapSetTime(1,type);
+        _checkUnicodeMapSetTime(1, type);
         double result = _checkUnicodeMapSetTime(iterations, type);
         logln((type == 0 ? "UnicodeMap" : type == 1 ? "HashMap" : type == 2 ? "ICU" : "TreeMap") + "\t" + nf.format(result));
         return result;
@@ -1318,7 +1311,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     private double _checkUnicodeMapSetTime(int iterations, int type) {
         UnicodeMap<String> map1 = SCRIPTS;
-        Map<Integer,String> map2 = map1.putAllCodepointsInto(new HashMap<Integer,String>());
+        Map<Integer, String> map2 = map1.putAllCodepointsInto(new HashMap<Integer, String>());
         Map<Integer, String> map3 = new TreeMap<Integer, String>(map2);
         System.gc();
         double start = System.currentTimeMillis();
@@ -1326,49 +1319,60 @@ public class TestUtilities extends TestFmwkPlus {
             for (int cp = 0; cp <= SET_LIMIT; ++cp) {
                 int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
                 if (enumValue <= 0) continue; // for smaller set
-                String value = UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
-                switch(type) {
-                case 0: map1.put(cp, value); break;
-                case 1: map2.put(cp, value); break;
-                case 3: map3.put(cp, value); break;
+                String value = UCharacter.getPropertyValueName(propEnum, enumValue, UProperty.NameChoice.LONG);
+                switch (type) {
+                case 0:
+                    map1.put(cp, value);
+                    break;
+                case 1:
+                    map2.put(cp, value);
+                    break;
+                case 3:
+                    map3.put(cp, value);
+                    break;
                 }
             }
         double end = System.currentTimeMillis();
-        return (end-start)/1000/iterations;
+        return (end - start) / 1000 / iterations;
     }
 
     private double checkUnicodeMapGetTime(int iterations, int type) {
         UnicodeMap<String> map1 = new UnicodeMap<String>();
-        Map<Integer,String> map2 = map1.putAllCodepointsInto(new HashMap<Integer,String>());
+        Map<Integer, String> map2 = map1.putAllCodepointsInto(new HashMap<Integer, String>());
         Map<Integer, String> map3 = new TreeMap<Integer, String>();
-        _checkUnicodeMapGetTime(map1, map2, map3, 1,type); // warmup
+        _checkUnicodeMapGetTime(map1, map2, map3, 1, type); // warmup
         double result = _checkUnicodeMapGetTime(map1, map2, map3, iterations, type);
         logln((type == 0 ? "UnicodeMap" : type == 1 ? "HashMap" : type == 2 ? "ICU" : "TreeMap") + "\t" + nf.format(result));
         return result;
     }
 
-    private double _checkUnicodeMapGetTime(UnicodeMap<String> map1, Map<Integer,String> map2, Map<Integer,String> map3, int iterations, int type) {
+    private double _checkUnicodeMapGetTime(UnicodeMap<String> map1, Map<Integer, String> map2, Map<Integer, String> map3, int iterations, int type) {
         System.gc();
         double start = System.currentTimeMillis();
         for (int j = 0; j < iterations; ++j)
             for (int cp = 0; cp < CHECK_LIMIT; ++cp) {
                 switch (type) {
-                case 0: map1.getValue(cp); break;
-                case 1: map2.get(cp); break;
+                case 0:
+                    map1.getValue(cp);
+                    break;
+                case 1:
+                    map2.get(cp);
+                    break;
                 case 2:
                     int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
                     //if (enumValue <= 0) continue;
-                    UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
-                    break;                
-                case 3: map3.get(cp); break;
+                    UCharacter.getPropertyValueName(propEnum, enumValue, UProperty.NameChoice.LONG);
+                    break;
+                case 3:
+                    map3.get(cp);
+                    break;
                 }
             }
         double end = System.currentTimeMillis();
-        return (end-start)/1000/iterations;
+        return (end - start) / 1000 / iterations;
     }
 
-
-    public void TestStevenTest(){
+    public void TestStevenTest() {
 
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
@@ -1386,7 +1390,6 @@ public class TestUtilities extends TestFmwkPlus {
             "sameVotes=test",
             "conflicts=[]",
             "check",
-
 
             //test1
             "comment=timestamp case1",
@@ -1479,8 +1482,8 @@ public class TestUtilities extends TestFmwkPlus {
                 final int voter = Integer.parseInt(name);
                 if (value == null || value.equals("null")) {
                     values.remove(voter);
-                    for(Map.Entry<Integer, VoteEntries> entry : valuesMap.entrySet()){
-                        if(entry.getValue().getVoter() == voter){
+                    for (Map.Entry<Integer, VoteEntries> entry : valuesMap.entrySet()) {
+                        if (entry.getValue().getVoter() == voter) {
                             valuesMap.remove(entry.getKey());
                         }
                     }
@@ -1527,55 +1530,54 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLocale("de");
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
-        
+
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add("bailey", TestUser.ibmV.voterId);
         resolver.add("bailey", TestUser.googleV.voterId);
         assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
-        
+
         resolver.clear();
         resolver.setLocale("de");
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
-        
+
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
         assertEquals("The bailey value and explicit value combine to win", "bailey", resolver.getWinningValue());
-        
+
         // The bailey value and explicit value combine to win
         resolver.clear();
         resolver.setLocale("de");
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
-        
+
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
         resolver.add("other-vote", TestUser.googleV.voterId);
         assertEquals("The bailey value and explicit value combine to win", "bailey", resolver.getWinningValue());
-        
+
         // The bailey value and explicit value combine to win
         resolver.clear();
         resolver.setLocale("de");
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
-        
+
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add("not-bailey", TestUser.ibmV.voterId);
         resolver.add("other-vote", TestUser.googleV.voterId);
         assertEquals("Split vote, no action", "foo", resolver.getWinningValue());
-        
+
         // Currently the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are.
         resolver.clear();
         resolver.setLocale("de");
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
-        
+
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
-        assertEquals("Currently the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+        assertEquals("Currently the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are", CldrUtility.INHERITANCE_MARKER,
+            resolver.getWinningValue());
     }
 }
-
-

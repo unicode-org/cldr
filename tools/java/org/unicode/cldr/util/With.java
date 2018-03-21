@@ -299,7 +299,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
             this.iterators
-            .add((Iterator<V>) new ToIterator<CharSequence>(new CharSequenceSimpleIterator(charSequence)));
+                .add((Iterator<V>) new ToIterator<CharSequence>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }

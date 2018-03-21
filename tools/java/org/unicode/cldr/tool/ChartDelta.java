@@ -71,21 +71,24 @@ public class ChartDelta extends Chart {
     private static final String LOG_DIR = CLDRPaths.GEN_DIRECTORY + "charts/";
 
     enum MyOptions {
-        fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")),
-        verbose(new Params().setHelp("verbose debugging messages")),
-        ;
+        fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")), verbose(
+            new Params().setHelp("verbose debugging messages")),
+            ;
 
         // BOILERPLATE TO COPY
         final Option option;
+
         private MyOptions(Params params) {
             option = new Option(this, params);
         }
+
         private static Options myOptions = new Options();
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
             }
         }
+
         private static Set<String> parse(String[] args, boolean showArguments) {
             return myOptions.parse(MyOptions.values()[0], args, true);
         }
@@ -163,10 +166,7 @@ public class ChartDelta extends Chart {
     static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
     enum ChangeType {
-        added,
-        deleted,
-        changed,
-        same;
+        added, deleted, changed, same;
         public static ChangeType get(String oldValue, String currentValue) {
             return oldValue == null ? added
                 : currentValue == null ? deleted
@@ -254,7 +254,7 @@ public class ChartDelta extends Chart {
             if (dir.equals("annotationsDerived") || dir.equals("casing")) {
                 continue;
             }
-            String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION) 
+            String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION)
                 ? CURRENT_DIRECTORY : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
             String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
             try {
@@ -315,7 +315,7 @@ public class ChartDelta extends Chart {
                 File sourceDir = sourceDirs.get(0);
                 String sourceDirLeaf = sourceDir.getName();
                 //System.out.println(sourceDirLeaf);
-                boolean resolving = !sourceDirLeaf.contains("subdivisions") 
+                boolean resolving = !sourceDirLeaf.contains("subdivisions")
                     && !sourceDirLeaf.contains("transforms");
                 for (String locale : baseNLocale.getValue()) {
                     //System.out.println("\t" + locale);
@@ -354,7 +354,7 @@ public class ChartDelta extends Chart {
                             || path.endsWith("/alias")
                             || path.startsWith("//ldml/segmentations") // do later
                             || path.startsWith("//ldml/rbnf") // do later
-                            ) {
+                        ) {
                             continue;
                         }
                         if (path.contains("/tRule")) {
@@ -511,9 +511,9 @@ public class ChartDelta extends Chart {
                 addChange(parentAndName, ChangeType.get(attributeValueOld, attributeValueCurrent), 1);
 
                 PathDiff row = new PathDiff(
-                    locale, 
-                    new PathHeaderSegment(ph, size - elementIndex - 1, attribute), 
-                    attributeValueOld, 
+                    locale,
+                    new PathHeaderSegment(ph, size - elementIndex - 1, attribute),
+                    attributeValueOld,
                     attributeValueCurrent);
                 if (DEBUG) {
                     System.out.println(row);
@@ -527,7 +527,8 @@ public class ChartDelta extends Chart {
         return sourceDir.getName() + "/" + locale + ".xml";
     }
 
-    private void addValueDiff(File sourceDir, String valueOld, String valueCurrent, String locale, PathHeader ph, Set<PathDiff> diff, Relation<PathHeader, String> diffAll) {
+    private void addValueDiff(File sourceDir, String valueOld, String valueCurrent, String locale, PathHeader ph, Set<PathDiff> diff,
+        Relation<PathHeader, String> diffAll) {
         // handle stuff that can be split specially
         Splitter splitter = getSplitter(ph.getOriginalPath(), valueOld, valueCurrent);
         int count = 1;
@@ -541,7 +542,7 @@ public class ChartDelta extends Chart {
             if (splitter != null) {
                 List<String> setOld = splitHandlingNull(splitter, valueOld);
                 List<String> setNew = splitHandlingNull(splitter, valueCurrent);
-                int[] sameAndNotInSecond = new int[2]; 
+                int[] sameAndNotInSecond = new int[2];
                 valueOld = getFilteredValue(setOld, setNew, sameAndNotInSecond);
                 addChange(parentAndName, ChangeType.same, sameAndNotInSecond[0]);
                 addChange(parentAndName, ChangeType.deleted, sameAndNotInSecond[1]);
@@ -601,7 +602,7 @@ public class ChartDelta extends Chart {
         if (removed) {
             buf.append("…");
         } else if (buf.length() > 0) {
-            buf.setLength(buf.length()-1); // remove final \n
+            buf.setLength(buf.length() - 1); // remove final \n
         }
         return buf.toString();
     }
@@ -625,13 +626,13 @@ public class ChartDelta extends Chart {
             for (String value : entry.getValue()) {
                 String[] oldNew = value.split(SEP);
                 tablePrinter.addRow()
-                .addCell(ph.getSectionId())
-                .addCell(ph.getPageId())
-                .addCell(ph.getHeader())
-                .addCell(ph.getCode())
-                .addCell(oldNew[0])
-                .addCell(oldNew[1])
-                .finishRow();
+                    .addCell(ph.getSectionId())
+                    .addCell(ph.getPageId())
+                    .addCell(ph.getHeader())
+                    .addCell(ph.getCode())
+                    .addCell(oldNew[0])
+                    .addCell(oldNew[1])
+                    .finishRow();
             }
         }
         writeTable(anchors, file, tablePrinter, title, tsvFile);
@@ -648,12 +649,12 @@ public class ChartDelta extends Chart {
             PathHeader ph = row.getKey();
             Set<String> locales = row.getValue();
             tablePrinter.addRow()
-            .addCell(ph.getSectionId())
-            .addCell(ph.getPageId())
-            .addCell(ph.getHeader())
-            .addCell(ph.getCode())
-            .addCell(CollectionUtilities.join(locales, " "))
-            .finishRow();
+                .addCell(ph.getSectionId())
+                .addCell(ph.getPageId())
+                .addCell(ph.getHeader())
+                .addCell(ph.getCode())
+                .addCell(CollectionUtilities.join(locales, " "))
+                .finishRow();
         }
     }
 
@@ -693,15 +694,15 @@ public class ChartDelta extends Chart {
             String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
 
             tablePrinter.addRow()
-            .addCell(ph.getSectionId())
-            .addCell(ph.getPageId())
-            .addCell(ph.getHeader())
-            .addCell(specialCode)
-            .addCell(locale)
-            .addCell(fixedOldValue)
-            .addCell(fixedNewValue)
-            .addCell(coverageLevel)
-            .finishRow();
+                .addCell(ph.getSectionId())
+                .addCell(ph.getPageId())
+                .addCell(ph.getHeader())
+                .addCell(specialCode)
+                .addCell(locale)
+                .addCell(fixedOldValue)
+                .addCell(fixedNewValue)
+                .addCell(coverageLevel)
+                .finishRow();
         }
         writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta", tsvFile);
         diff.clear();
@@ -772,7 +773,7 @@ public class ChartDelta extends Chart {
                 || dir.equals("dtd") // TODO as flat files
                 || dir.equals("properties") // TODO as flat files
                 || dir.equals("uca") // TODO as flat files
-                ) {
+            ) {
                 continue;
             }
             File dir1 = new File(LAST_ARCHIVE_DIRECTORY + "common/" + dir);
@@ -811,7 +812,7 @@ public class ChartDelta extends Chart {
                     }
                     Multimap<PathHeader, String> target = dtdType == DtdType.ldmlBCP47 ? bcp
                         : isTransform ? transforms
-                            : supplemental ;
+                            : supplemental;
                     Set<String> set1 = contents1.get(key);
                     Set<String> set2 = contents2.get(key);
 
@@ -848,7 +849,7 @@ public class ChartDelta extends Chart {
                         } else {
                             String valueOld;
                             String valueCurrent;
-                            
+
                             int[] sameAndNotInSecond = new int[2];
                             valueOld = getFilteredValue(s1M2, s1M2, sameAndNotInSecond);
                             addChange(parentAndFile, ChangeType.same, sameAndNotInSecond[0]);

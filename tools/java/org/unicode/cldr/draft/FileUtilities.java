@@ -36,7 +36,7 @@ public final class FileUtilities {
         SHOW_FILES = showFiles;
     }
 
-    public static final PrintWriter CONSOLE = new PrintWriter(System.out,true);
+    public static final PrintWriter CONSOLE = new PrintWriter(System.out, true);
 
     private static PrintWriter log = CONSOLE;
 
@@ -54,7 +54,7 @@ public final class FileUtilities {
             new InputStreamReader(
                 new FileInputStream(file),
                 encoding),
-            4*1024);
+            4 * 1024);
     }
 
     public static PrintWriter openUTF8Writer(String dir, String filename) throws IOException {
@@ -77,7 +77,7 @@ public final class FileUtilities {
                 new OutputStreamWriter(
                     new FileOutputStream(file),
                     encoding),
-                4*1024));
+                4 * 1024));
     }
 
     public static abstract class SemiFileReader extends FileProcessor {
@@ -322,7 +322,7 @@ public final class FileUtilities {
     }
 
     public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList,
-            PrintWriter out) {
+        PrintWriter out) {
         BufferedReader br = openFile(class1, filename, charset);
         try {
             try {
@@ -349,13 +349,13 @@ public final class FileUtilities {
     }
 
     public static void appendBufferedReader(BufferedReader br,
-            PrintWriter output, String[] replacementList) throws IOException {
+        PrintWriter output, String[] replacementList) throws IOException {
         while (true) {
             String line = br.readLine();
             if (line == null) break;
             if (replacementList != null) {
                 for (int i = 0; i < replacementList.length; i += 2) {
-                    line = replace(line, replacementList[i], replacementList[i+1]);
+                    line = replace(line, replacementList[i], replacementList[i + 1]);
                 }
             }
             output.println(line);
@@ -372,7 +372,7 @@ public final class FileUtilities {
         while (true) {
             pos = source.indexOf(piece, pos);
             if (pos < 0) return source;
-            source = source.substring(0,pos) + replacement + source.substring(pos + piece.length());
+            source = source.substring(0, pos) + replacement + source.substring(pos + piece.length());
             pos += replacement.length();
         }
     }
@@ -398,7 +398,7 @@ public final class FileUtilities {
 
     public static String anchorize(String source) {
         String result = source.toLowerCase(Locale.ENGLISH).replaceAll("[^\\p{L}\\p{N}]+", "_");
-        if (result.endsWith("_")) result = result.substring(0,result.length()-1);
+        if (result.endsWith("_")) result = result.substring(0, result.length() - 1);
         if (result.startsWith("_")) result = result.substring(1);
         return result;
     }

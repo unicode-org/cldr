@@ -127,8 +127,7 @@ public class ReviewHide {
                 if (!rs.next()) {
                     //the item is currently shown, not in the table, we can hide it
                     updateQuery = conn.prepareStatement("INSERT INTO " + DBUtils.Table.REVIEW_HIDE + " (path, user_id,choice,locale) VALUES(?,?,?,?)");
-                }
-                else {
+                } else {
                     updateQuery = conn.prepareStatement("DELETE FROM " + DBUtils.Table.REVIEW_HIDE + " WHERE path=? AND user_id=? AND choice=? AND locale=?");
                 }
 

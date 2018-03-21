@@ -36,7 +36,7 @@ public class RegexTransform implements Transform<String, String> {
             }
             break;
         }
-    return source;
+        return source;
     }
 
     public RegexTransform(Processing processing) {

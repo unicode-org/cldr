@@ -151,12 +151,13 @@ public class GenerateEnums {
             }
             Set<String> regions = unlimitedCurrencyCodes.getAll(code);
             System.out
-            .println(code
-                + "\t"
-                + englishName
-                + "\t"
-                + (validCurrencyCodes.contains(code) ? currencyCodes
-                    .contains(code) ? "" : "valid-only" : "supp-only") + "\t"
+                .println(code
+                    + "\t"
+                    + englishName
+                    + "\t"
+                    + (validCurrencyCodes.contains(code) ? currencyCodes
+                        .contains(code) ? "" : "valid-only" : "supp-only")
+                    + "\t"
                     + (regions != null ? regions : "unused"));
         }
     }
@@ -627,7 +628,8 @@ public class GenerateEnums {
             Log.formatln("    addRegion(RegionCode.%s, %s, %s, %s) // %s", territory,
                 format(popData.getPopulation()), format(popData
                     .getLiteratePopulation()
-                    / popData.getPopulation()), format(popData.getGdp()), english
+                    / popData.getPopulation()),
+                format(popData.getGdp()), english
                     .getName("territory", territory));
             // remove all the ISO 639-3 until they are part of BCP 47
             // we need to remove in earlier pass so we have the count
@@ -654,7 +656,8 @@ public class GenerateEnums {
                 Log.formatln("    .addLanguage(\"%s\", %s, %s)%s // %s", language,
                     format(popData.getPopulation()), format(popData
                         .getLiteratePopulation()
-                        / popData.getPopulation()), (count == 0 ? ";" : ""), english
+                        / popData.getPopulation()),
+                    (count == 0 ? ";" : ""), english
                         .getName(language));
             }
         }
@@ -825,7 +828,8 @@ public class GenerateEnums {
         }
         String path = supplementalMetadata.getFullXPath(
             "//supplementalData/metadata/alias/" + type + "Alias[@type=\""
-                + cldrTypeValue + "\"]", true);
+                + cldrTypeValue + "\"]",
+            true);
         if (path == null)
             return null;
         String replacement = new XPathParts().set(path).findAttributeValue(
@@ -850,34 +854,34 @@ public class GenerateEnums {
         String resolvedEnglishName = englishName != null ? englishName : type
             .equals("territory") ? getEnglishName(codeName) : type
                 .equals("currency") ? getName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
-                resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
+        resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
-                String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +
-                // threeDigit.format(numeric);
-                String printedCodeName = codeName;
-                if (replacement != null) {
-                    code_replacements.put(codeName, replacement);
-                    out.println(prefix);
-                    prefix = CODE_INDENT + " * @deprecated"
-                        + (replacement.length() == 0 ? "" : " see " + replacement);
-                    printedCodeName = "@Deprecated " + printedCodeName;
-                }
-                prefix += " */";
+        String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +
+        // threeDigit.format(numeric);
+        String printedCodeName = codeName;
+        if (replacement != null) {
+            code_replacements.put(codeName, replacement);
+            out.println(prefix);
+            prefix = CODE_INDENT + " * @deprecated"
+                + (replacement.length() == 0 ? "" : " see " + replacement);
+            printedCodeName = "@Deprecated " + printedCodeName;
+        }
+        prefix += " */";
 
-                if (codeName.equals("UN001")) {
-                    out.println();
-                }
-                if (prefix.length() > lineLength - (printedCodeName.length() + 1)) {
-                    // break at last space
-                    int lastFit = prefix.lastIndexOf(' ', lineLength
-                        - (printedCodeName.length() + 1) - 2);
-                    out.println(prefix.substring(0, lastFit));
-                    prefix = CODE_INDENT + " *" + prefix.substring(lastFit);
-                }
-                out.print(prefix);
-                out.print(Utility.repeat(" ", (lineLength
-                    - (prefix.length() + printedCodeName.length() + 1))));
-                out.println(printedCodeName + ",");
+        if (codeName.equals("UN001")) {
+            out.println();
+        }
+        if (prefix.length() > lineLength - (printedCodeName.length() + 1)) {
+            // break at last space
+            int lastFit = prefix.lastIndexOf(' ', lineLength
+                - (printedCodeName.length() + 1) - 2);
+            out.println(prefix.substring(0, lastFit));
+            prefix = CODE_INDENT + " *" + prefix.substring(lastFit);
+        }
+        out.print(prefix);
+        out.print(Utility.repeat(" ", (lineLength
+            - (prefix.length() + printedCodeName.length() + 1))));
+        out.println(printedCodeName + ",");
     }
 
     private String getEnglishName(String codeName) {

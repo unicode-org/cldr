@@ -96,8 +96,8 @@ public class XChoiceFormat {
             String numberPattern = item.substring(semiPosition + 1);
             results[i] = numberPattern.contains("#")
                 ? new DecimalFormat(numberPattern, new DecimalFormatSymbols(locale))
-            : numberPattern;
-                ++i;
+                : numberPattern;
+            ++i;
         }
         if (conditions[i - 1] != Condition.N) {
             throw new IllegalArgumentException("final condition must be CN");

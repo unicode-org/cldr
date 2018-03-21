@@ -37,9 +37,9 @@ public class CldrNode {
                 String value = node.distinguishingAttributes.get(key);
                 if (value != null && value.equals(suppressList[i + 1])) {
                     node.distinguishingAttributes.remove(key);
-                    
+
                 }
-                
+
             }
         }
         return node;

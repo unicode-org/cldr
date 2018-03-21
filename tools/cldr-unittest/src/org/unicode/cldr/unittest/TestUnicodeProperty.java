@@ -20,13 +20,13 @@ import com.ibm.icu.text.UnicodeSet;
  * @author markdavis
  *
  */
-public class TestUnicodeProperty extends TestFmwk{
+public class TestUnicodeProperty extends TestFmwk {
     public static void main(String[] args) {
         new TestUnicodeProperty().run(args);
     }
+
     static final UnicodeSet casedLetter = new UnicodeSet("[:gc=cased letter:]");
     static final UnicodeSet letter = new UnicodeSet("[:gc=L:]");
-
 
     public void TestBasic() {
         Factory factory = ICUPropertyFactory.make();
@@ -75,7 +75,6 @@ public class TestUnicodeProperty extends TestFmwk{
         }
     }
 
-
     /**
      * For testing, override to set A-M to Cn.
      */
@@ -85,6 +84,7 @@ public class TestUnicodeProperty extends TestFmwk{
             setName(icuProperty.getName());
             setType(icuProperty.getType());
         }
+
         @Override
         protected String _getValue(int codepoint) {
             if (codepoint >= 'A' && codepoint <= 'M') {
@@ -93,10 +93,12 @@ public class TestUnicodeProperty extends TestFmwk{
                 return icuProperty.getValue(codepoint);
             }
         }
+
         @Override
         protected List _getValueAliases(String valueAlias, List result) {
             return icuProperty.getValueAliases(valueAlias, result);
         }
+
         @Override
         public List _getNameAliases(List result) {
             return icuProperty.getNameAliases();

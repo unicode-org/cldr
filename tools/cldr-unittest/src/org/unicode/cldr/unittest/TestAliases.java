@@ -54,15 +54,17 @@ public class TestAliases extends TestFmwk {
      */
     public void testCountBase() {
         String[][] testCases = {
-            {"en", "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", 
-             "en", "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]"
+            { "en",
+                "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]"
             },
-            {"en", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
+            { "en", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
                 "en", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
-               },
-            {"ak", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
+            },
+            { "ak", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
                 "root", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"other\"]",
-               }
+            }
         };
         Status status = new Status();
 
@@ -111,8 +113,8 @@ public class TestAliases extends TestFmwk {
             }
             en.getSourceLocaleID(path, status); // for debugging
 
-            sorted.add("locale:\t" + actualLocale 
-                + "\nsource path:\t" + path 
+            sorted.add("locale:\t" + actualLocale
+                + "\nsource path:\t" + path
                 + "\nsource fpath:\t" + (path.equals(fullpath) ? "=" : fullpath)
                 + "\nactual path:\t" + (path.equals(actualPath) ? "=" : actualPath)
                 + "\nactual value:\t" + value);
@@ -130,26 +132,24 @@ public class TestAliases extends TestFmwk {
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.AUX_DIRECTORY + "temp", "inheritance0.txt")) {
             for (CLDRFile factory : Arrays.asList(
                 config.getCldrFactory().make("root", true),
-                en, 
+                en,
                 config.getCldrFactory().make("en_001", true), // example with double inheritance
                 config.getCldrFactory().make("ak", true) // example with few strings
-                )) {
+            )) {
                 sorted.clear();
                 out.println("source locale\tactual locale\tsource path\tactual path");
                 String locale = factory.getLocaleID();
                 for (String path : factory.fullIterable()) {
                     if (path.contains("calendar[@type=")
                         && !(path.contains("calendar[@type=\"gregorian")
-                            || path.contains("calendar[@type=\"generic"))
-                        ) {
+                            || path.contains("calendar[@type=\"generic"))) {
                         continue;
                     }
                     if (path.contains("[@numberSystem=")
                         && !(path.contains("[@numberSystem=\"latn")
-                            || path.contains("[@numberSystem=\"deva"))
-                        ) {
+                            || path.contains("[@numberSystem=\"deva"))) {
                         continue;
-                    }                    
+                    }
                     String actualLocale = factory.getSourceLocaleID(path, status);
                     String actualPath = status.pathWhereFound;
                     if (path.equals(actualPath)) {
@@ -157,10 +157,10 @@ public class TestAliases extends TestFmwk {
                     }
 
                     sorted.add(
-                        locale 
-                        + "\t" + (locale.equals(actualLocale) ? "=" : actualLocale) 
-                        + "\t" + path 
-                        + "\t" + (path.equals(actualPath) ? "=" : actualPath));
+                        locale
+                            + "\t" + (locale.equals(actualLocale) ? "=" : actualLocale)
+                            + "\t" + path
+                            + "\t" + (path.equals(actualPath) ? "=" : actualPath));
                 }
                 System.out.println(locale + "\t" + sorted.size());
                 sorted.forEach(x -> out.println(x));

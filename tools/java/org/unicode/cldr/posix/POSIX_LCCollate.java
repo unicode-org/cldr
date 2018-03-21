@@ -39,8 +39,7 @@ public class POSIX_LCCollate {
     int longest_char;
 
     public POSIX_LCCollate(CLDRFile doc, UnicodeSet repertoire, CLDRFile collrules, UnicodeSet CollateSet,
-        String codeset, POSIXVariant variant) throws Exception
-    {
+        String codeset, POSIXVariant variant) throws Exception {
         String rules = "";
         String collationType = "standard";
         boolean UsingDefaultCollateSet = false;
@@ -54,8 +53,7 @@ public class POSIX_LCCollate {
         chars = new UnicodeSet(repertoire).retainAll(CollateSet);
 
         this.collrules = collrules;
-        if (collrules != null)
-        {
+        if (collrules != null) {
             if (variant.collation_type == "default") {
                 String path = "//ldml/collations/defaultCollation";
                 collationType = collrules.getWinningValue(path);
@@ -78,12 +76,10 @@ public class POSIX_LCCollate {
             col = (RuleBasedCollator) RuleBasedCollator.getInstance();
 
         // Add all the tailored characters if we are using the default collation set
-        if (codeset.equals("UTF-8") && UsingDefaultCollateSet)
-        {
+        if (codeset.equals("UTF-8") && UsingDefaultCollateSet) {
             UnicodeSet tailored = col.getTailoredSet();
             UnicodeSetIterator it = new UnicodeSetIterator(tailored);
-            while (it.next())
-            {
+            while (it.next()) {
                 if (it.codepoint != UnicodeSetIterator.IS_STRING && UCharacter.isBMP(it.codepoint) &&
                     (!UCharacter.isLowSurrogate((char) it.codepoint) &&
                         !UCharacter.isHighSurrogate((char) it.codepoint)))
@@ -97,8 +93,7 @@ public class POSIX_LCCollate {
 
         // add all the chars
         longest_char = 0;
-        for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next();)
-        {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next();) {
             allItems.add(it.getString());
             int CharNameLength = POSIXUtilities.POSIXCharName(it.getString()).length();
             if (CharNameLength > longest_char)
@@ -170,10 +165,10 @@ public class POSIX_LCCollate {
             buffer.setLength(0);
             String s = (String) o;
             buffer.append("collating-element ")
-            .append(POSIXUtilities.POSIXContraction(s))
-            .append(" from \"")
-            .append(POSIXUtilities.POSIXCharName(s))
-            .append("\"");
+                .append(POSIXUtilities.POSIXContraction(s))
+                .append(" from \"")
+                .append(POSIXUtilities.POSIXCharName(s))
+                .append("\"");
             out.println(buffer.toString());
         }
     }
@@ -202,8 +197,7 @@ public class POSIX_LCCollate {
         out.println("");
 
         for (int i = 0; i < needToWrite.size(); ++i) {
-            if (needToWrite.get(i))
-            {
+            if (needToWrite.get(i)) {
                 out.print("collating-symbol ");
                 out.println(getID('X', i));
             }
@@ -240,14 +234,13 @@ public class POSIX_LCCollate {
         // gather data
         Weights w = stringToWeights.get(string);
         result.append(w.primaries)
-        .append(";")
-        .append(w.secondaries)
-        .append(";")
-        .append(w.tertiaries)
-        .append(";");
+            .append(";")
+            .append(w.secondaries)
+            .append(";")
+            .append(w.tertiaries)
+            .append(";");
 
-        if (nonUniqueWeights.contains(w))
-        {
+        if (nonUniqueWeights.contains(w)) {
             String decomposed = Normalizer.decompose(string, false);
             if (decomposed.length() > 1) {
                 result.append("\"");
@@ -256,8 +249,7 @@ public class POSIX_LCCollate {
             } else {
                 result.append(ThisChar);
             }
-        }
-        else
+        } else
             result.append(ThisChar);
 
         if (prefix.length() != 0) result.insert(0, prefix);

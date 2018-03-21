@@ -59,20 +59,20 @@ public class ChartDtdDelta extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
 
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setSortPriority(0)
-        .setSortAscending(false)
-        .setBreakSpans(true)
-        .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
-        .setSortPriority(1)
+            .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSortPriority(0)
+            .setSortAscending(false)
+            .setBreakSpans(true)
+            .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
+            .setSortPriority(1)
 
-        .addColumn("Intermediate Path", "class='source'", null, "class='target'", true)
-        .setSortPriority(2)
+            .addColumn("Intermediate Path", "class='source'", null, "class='target'", true)
+            .setSortPriority(2)
 
-        .addColumn("Element", "class='target'", null, "class='target'", true)
-        .setSpanRows(false)
-        .addColumn("Attributes", "class='target'", null, "class='target'", true)
-        .setSpanRows(false);
+            .addColumn("Element", "class='target'", null, "class='target'", true)
+            .setSpanRows(false)
+            .addColumn("Attributes", "class='target'", null, "class='target'", true)
+            .setSpanRows(false);
 
         String last = null;
         LinkedHashSet<String> allVersions = new LinkedHashSet<>(ToolConstants.CLDR_VERSIONS);
@@ -114,12 +114,12 @@ public class ChartDtdDelta extends Chart {
 
         for (DiffElement datum : data) {
             tablePrinter.addRow()
-            .addCell(datum.getVersionString())
-            .addCell(datum.dtdType)
-            .addCell(datum.newPath)
-            .addCell(datum.newElement)
-            .addCell(datum.attributeNames)
-            .finishRow();
+                .addCell(datum.getVersionString())
+                .addCell(datum.dtdType)
+                .addCell(datum.newPath)
+                .addCell(datum.newElement)
+                .addCell(datum.attributeNames)
+                .finishRow();
         }
         pw.write(tablePrinter.toTable());
         pw.write(Utility.repeat("<br>", 50));
@@ -207,7 +207,7 @@ public class ChartDtdDelta extends Chart {
         public DiffElement(DtdData dtdCurrent, String version, String newPath, String newElement, Set<String> attributeNames2) {
             isBeta = version.endsWith("β");
             try {
-                this.version = isBeta ? VersionInfo.getInstance(version.substring(0, version.length()-1)) : VersionInfo.getInstance(version);
+                this.version = isBeta ? VersionInfo.getInstance(version.substring(0, version.length() - 1)) : VersionInfo.getInstance(version);
             } catch (Exception e) {
                 e.printStackTrace();
                 throw e;

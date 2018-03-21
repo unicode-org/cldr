@@ -47,7 +47,7 @@ public class DiffWithParent {
                         if (!value.equals(pvalue) || !fullPath.equals(pfullPath)) {
                             String pathName = pp.getPrettyPath(path);
                             table.addRow().addCell(pathName).addCell(locale).addCell(value)
-                            .addCell(showDistinguishingAttributes(fullPath)).finishRow();
+                                .addCell(showDistinguishingAttributes(fullPath)).finishRow();
                             if (pvalue == null) {
                                 pvalue = "<i>none</i>";
                             }
@@ -64,11 +64,12 @@ public class DiffWithParent {
                     String title = locale + " " + english.getName(locale)
                         + " Diff with Parent";
                     out
-                    .println("<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
-                        + title + "</title></head><body>");
+                        .println(
+                            "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
+                                + title + "</title></head><body>");
                     out.println("<h1>" + title + "</h1>");
                     out
-                    .println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>");
+                        .println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>");
                     out.println(table.toString());
                     out.println("</table>");
                     out.println(CldrUtility.ANALYTICS);

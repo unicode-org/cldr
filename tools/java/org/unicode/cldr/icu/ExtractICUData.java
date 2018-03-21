@@ -233,14 +233,13 @@ public class ExtractICUData {
         return fixedLine;
     }
 
-    static String fixLineRules =
-        "'<>' > '\u2194';" +
-            "'<' > '\u2190';" +
-            "'>' > '\u2192';" +
-            "'&' > '\u00A7';" +
-            "('\\u00'[0-7][0-9A-Fa-f]) > $1;" + // leave ASCII alone
-            "('\\u'[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]) > |@&hex-any/java($1);" +
-            "([[:whitespace:][:Default_Ignorable_Code_Point:][:C:]-[\\u0020\\u200E\\0009]]) > &any-hex/java($1);"
+    static String fixLineRules = "'<>' > '\u2194';" +
+        "'<' > '\u2190';" +
+        "'>' > '\u2192';" +
+        "'&' > '\u00A7';" +
+        "('\\u00'[0-7][0-9A-Fa-f]) > $1;" + // leave ASCII alone
+        "('\\u'[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]) > |@&hex-any/java($1);" +
+        "([[:whitespace:][:Default_Ignorable_Code_Point:][:C:]-[\\u0020\\u200E\\0009]]) > &any-hex/java($1);"
 
     ;
     static Transliterator fixLine = Transliterator.createFromRules("foo", fixLineRules, Transliterator.FORWARD);

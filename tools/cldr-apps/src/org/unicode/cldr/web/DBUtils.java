@@ -107,8 +107,8 @@ public class DBUtils {
     public static String DB_SQL_LAST_MOD = " last_mod TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP  ";
     public static String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
     public static String DB_SQL_BINCOLLATE = "";
-    public static String DB_SQL_ENGINE_INNO="";
-    public static String DB_SQL_MB4="";
+    public static String DB_SQL_ENGINE_INNO = "";
+    public static String DB_SQL_MB4 = "";
     public static int db_number_open = 0;
     public static int db_number_used = 0;
     private static int db_UnicodeType = java.sql.Types.VARCHAR; /*
@@ -623,10 +623,10 @@ public class DBUtils {
             } finally {
                 if (c != null)
                     try {
-                        c.close();
+                    c.close();
                     } catch (Throwable tt) {
-                        System.err.println("Couldn't close datasource's conn: " + tt.toString());
-                        tt.printStackTrace();
+                    System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                    tt.printStackTrace();
                     }
             }
         } catch (NamingException nc) {
@@ -667,10 +667,10 @@ public class DBUtils {
         } finally {
             if (c != null)
                 try {
-                    c.close();
+                c.close();
                 } catch (Throwable tt) {
-                    System.err.println("Couldn't close datasource's conn: " + tt.toString());
-                    tt.printStackTrace();
+                System.err.println("Couldn't close datasource's conn: " + tt.toString());
+                tt.printStackTrace();
                 }
         }
     }
@@ -699,7 +699,7 @@ public class DBUtils {
             DB_SQL_UNICODE = "BLOB";
             db_UnicodeType = java.sql.Types.BLOB;
             DB_SQL_ALLTABLES = "show tables";
-            
+
             DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
         } else {
             System.err.println("*** WARNING: Don't know what kind of database is " + dbInfo + " - don't know what kind of hacky nonportable SQL to use!");
@@ -1564,12 +1564,7 @@ public class DBUtils {
      * Manage table names according to versions.
      */
     public enum Table {
-        VOTE_VALUE,
-        VOTE_VALUE_ALT,
-        VOTE_FLAGGED,
-        FORUM_POSTS,
-        REVIEW_HIDE,
-        REVIEW_POST;
+        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS, REVIEW_HIDE, REVIEW_POST;
 
         /**
          *

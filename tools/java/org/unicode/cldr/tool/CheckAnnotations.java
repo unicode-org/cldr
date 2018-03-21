@@ -16,7 +16,7 @@ public class CheckAnnotations {
 
         int i = 0;
         boolean needMore = true;
-        for (int spaceCount = 1; needMore; ++spaceCount) { 
+        for (int spaceCount = 1; needMore; ++spaceCount) {
             needMore = false;
             System.out.println("\nCOUNT: " + spaceCount);
             for (String key : data.keySet().addAllTo(sorted)) {

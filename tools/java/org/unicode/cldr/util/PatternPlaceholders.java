@@ -13,12 +13,10 @@ import com.ibm.icu.text.Transform;
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED ("No placeholders allowed."), 
-        OPTIONAL ("Zero or one placeholder allowed."), 
-        MULTIPLE ("Zero or more placeholders allowed."), 
-        LOCALE_DEPENDENT ("Varies by locale."), 
-        REQUIRED ("Placeholder required");
+        DISALLOWED("No placeholders allowed."), OPTIONAL("Zero or one placeholder allowed."), MULTIPLE("Zero or more placeholders allowed."), LOCALE_DEPENDENT(
+            "Varies by locale."), REQUIRED("Placeholder required");
         final String message;
+
         private PlaceholderStatus(String message) {
             this.message = message;
         }
@@ -74,7 +72,7 @@ public class PatternPlaceholders {
             try {
                 String[] parts = source.split("\\s*;\\s+");
                 for (String part : parts) {
-                    switch(part) {
+                    switch (part) {
                     case "optional":
                         result.status = PlaceholderStatus.OPTIONAL;
                         continue;

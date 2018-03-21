@@ -13,8 +13,8 @@ import com.google.common.collect.ImmutableSet;
 class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
-    public static final ImmutableSet<String> IGNORE_FILE_SET =
-        ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData", "pluralRanges", "subdivisions");
+    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData", "pluralRanges",
+        "subdivisions");
 
     /**
      * The attribute list that should become part of the name in form of
@@ -75,7 +75,7 @@ class LdmlConvertRules {
 
         // in common/supplemental/dayPeriods.xml
         "dayPeriodRules:dayPeriodRule:from",
-       
+
         // in common/supplemental/likelySubtags.xml
         "likelySubtags:likelySubtag:to",
 
@@ -158,7 +158,7 @@ class LdmlConvertRules {
         "timeFormats:default:choice",
         "dateTimeFormats:default:choice",
         "timeZoneNames:singleCountries:list",
-        
+
         //rbnf
         "ruleset:rbnfrule:value",
         // common/supplemental
@@ -202,8 +202,7 @@ class LdmlConvertRules {
     /**
      * The set of attributes that should be ignored in the conversion process.
      */
-    public static final ImmutableSet<String> IGNORABLE_NONDISTINGUISHING_ATTR_SET =
-        ImmutableSet.of("draft", "references");
+    public static final ImmutableSet<String> IGNORABLE_NONDISTINGUISHING_ATTR_SET = ImmutableSet.of("draft", "references");
 
     /**
      * List of attributes that should be suppressed.
@@ -275,18 +274,16 @@ class LdmlConvertRules {
     /**
      * The set that contains all timezone type of elements.
      */
-    public static final Set<String> TIMEZONE_ELEMENT_NAME_SET =
-        Builder.with(new HashSet<String>())
-            .add("zone").add("timezone")
-            .add("zoneItem").add("typeMap").freeze();
+    public static final Set<String> TIMEZONE_ELEMENT_NAME_SET = Builder.with(new HashSet<String>())
+        .add("zone").add("timezone")
+        .add("zoneItem").add("typeMap").freeze();
 
     /**
      * There are a handful of attribute values that are more properly represented as an array of strings rather than
      * as a single string.
      */
-    public static final Set<String> ATTRVALUE_AS_ARRAY_SET =
-        Builder.with(new HashSet<String>())
-            .add("territories").add("scripts").add("contains").freeze();
+    public static final Set<String> ATTRVALUE_AS_ARRAY_SET = Builder.with(new HashSet<String>())
+        .add("territories").add("scripts").add("contains").freeze();
 
     /**
      * Following is the list of elements that need to be sorted before output.
@@ -307,9 +304,9 @@ class LdmlConvertRules {
      */
     public static final Pattern ARRAY_ITEM_PATTERN = PatternCache.get(
         "(.*/collation[^/]*/rules[^/]*/" +
-            "|.*/character-fallback[^/]*/character[^/]*/" +            
-            "|.*/rbnfrule[^/]*/"+
-            "|.*/ruleset[^/]*/"+
+            "|.*/character-fallback[^/]*/character[^/]*/" +
+            "|.*/rbnfrule[^/]*/" +
+            "|.*/ruleset[^/]*/" +
             "|.*/languageMatching[^/]*/languageMatches[^/]*/" +
             "|.*/windowsZones[^/]*/mapTimezones[^/]*/" +
             "|.*/metaZones[^/]*/mapTimezones[^/]*/" +
@@ -373,7 +370,7 @@ class LdmlConvertRules {
         new PathTransformSpec(
             "(.*ldml/exemplarCharacters)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
-        
+
         // Add cldrVersion attribute
         new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
             + CLDRFile.GEN_VERSION + "\"\\]"),
@@ -440,6 +437,6 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*)/weekData/(.*)\\[@alt=\"variant\"\\](.*)", "$1/weekData/$2$3"),
         new PathTransformSpec("(.*)/unitPreferenceData/unitPreferences\\[@category=\"([^\"]*)\"\\]\\[@usage=\"([^\"]*)\"\\](.*)",
             "$1/unitPreferenceData/unitPreferences/$2/$3$4"),
-       
+
     };
 }

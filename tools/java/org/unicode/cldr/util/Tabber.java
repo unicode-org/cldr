@@ -15,8 +15,8 @@ import com.ibm.icu.text.UnicodeSet;
 
 public abstract class Tabber {
     public static final byte LEFT = 0, CENTER = 1, RIGHT = 2;
-    private static final String[] ALIGNMENT_NAMES = {"Left", "Center", "Right"};
-    
+    private static final String[] ALIGNMENT_NAMES = { "Left", "Center", "Right" };
+
     /**
      * Repeats a string n times
      * @param source
@@ -32,7 +32,7 @@ public abstract class Tabber {
         }
         return result.toString();
     }
-    
+
     public String process(String source) {
         StringBuffer result = new StringBuffer();
         int lastPos = 0;
@@ -40,45 +40,45 @@ public abstract class Tabber {
             int pos = source.indexOf('\t', lastPos);
             if (pos < 0) pos = source.length();
             process_field(count, source, lastPos, pos, result);
-            lastPos = pos+1;
+            lastPos = pos + 1;
         }
         return prefix + result.toString() + postfix;
     }
-    
+
     private String prefix = "";
     private String postfix = "";
-    
+
     public abstract void process_field(int count, String source, int start, int limit, StringBuffer output);
-    
+
     public Tabber clear() {
         return this;
     }
 
     public static class MonoTabber extends Tabber {
         int minGap = 0;
-    
+
         private List stops = new ArrayList();
         private List types = new ArrayList();
-        
+
         public Tabber clear() {
             stops.clear();
             types.clear();
             minGap = 0;
             return this;
         }
-        
+
         public String toString() {
             StringBuffer buffer = new StringBuffer();
             for (int i = 0; i < stops.size(); ++i) {
                 if (i != 0) buffer.append("; ");
                 buffer
-                .append(ALIGNMENT_NAMES[((Integer)types.get(i)).intValue()])
-                .append(",")
-                .append(stops.get(i));
-            } 
+                    .append(ALIGNMENT_NAMES[((Integer) types.get(i)).intValue()])
+                    .append(",")
+                    .append(stops.get(i));
+            }
             return buffer.toString();
         }
-    
+
         /**
          * Adds tab stop and how to align the text UP TO that stop
          * @param tabPos
@@ -89,43 +89,44 @@ public abstract class Tabber {
             types.add(new Integer(type));
             return this;
         }
-    
+
         /**
          * Adds relative tab stop and how to align the text UP TO that stop
          */
         public Tabber add(int fieldWidth, byte type) {
-            int last = getStop(stops.size()-1);
+            int last = getStop(stops.size() - 1);
             stops.add(new Integer(last + fieldWidth));
             types.add(new Integer(type));
             return this;
         }
-        
+
         public int getStop(int fieldNumber) {
             if (fieldNumber < 0) return 0;
             if (fieldNumber >= stops.size()) fieldNumber = stops.size() - 1;
-            return ((Integer)stops.get(fieldNumber)).intValue();
+            return ((Integer) stops.get(fieldNumber)).intValue();
         }
+
         public int getType(int fieldNumber) {
             if (fieldNumber < 0) return LEFT;
             if (fieldNumber >= stops.size()) return LEFT;
-            return ((Integer)types.get(fieldNumber)).intValue();
+            return ((Integer) types.get(fieldNumber)).intValue();
         }
 
         public void process_field(int count, String source, int start, int limit, StringBuffer output) {
             String piece = source.substring(start, limit);
-            int startPos = getStop(count-1);
+            int startPos = getStop(count - 1);
             int endPos = getStop(count) - minGap;
             int type = getType(count);
             final int pieceLength = getMonospaceWidth(piece);
             switch (type) {
-                case LEFT: 
-                    break;
-                case RIGHT: 
-                    startPos = endPos - pieceLength;
-                    break;
-                case CENTER: 
-                    startPos = (startPos + endPos - pieceLength + 1)/2;
-                    break;
+            case LEFT:
+                break;
+            case RIGHT:
+                startPos = endPos - pieceLength;
+                break;
+            case CENTER:
+                startPos = (startPos + endPos - pieceLength + 1) / 2;
+                break;
             }
 
             int gap = startPos - getMonospaceWidth(output);
@@ -135,7 +136,7 @@ public abstract class Tabber {
         }
 
         static final UnicodeSet IGNOREABLE = new UnicodeSet("[:di:]");
-        
+
         private int getMonospaceWidth(CharSequence piece) {
             int len = 0;
             for (int cp : CharSequences.codePoints(piece)) {
@@ -146,14 +147,14 @@ public abstract class Tabber {
             return len;
         }
     }
-    
+
     public static Tabber NULL_TABBER = new Tabber() {
         public void process_field(int count, String source, int start, int limit, StringBuffer output) {
-            if (count > 0) output.append( "\t");
+            if (count > 0) output.append("\t");
             output.append(source.substring(start, limit));
         }
     };
-    
+
     public static class HTMLTabber extends Tabber {
         private List<String> parameters = new ArrayList();
         private String element = "td";
@@ -161,15 +162,16 @@ public abstract class Tabber {
             setPrefix("<tr>");
             setPostfix("</tr>");
         }
+
         public HTMLTabber setParameters(int count, String params) {
             // fill in
             while (parameters.size() <= count) {
                 parameters.add(null);
             }
-            parameters.set(count,params);
+            parameters.set(count, params);
             return this;
         }
-        
+
         public String getElement() {
             return element;
         }
@@ -192,9 +194,10 @@ public abstract class Tabber {
             output.append(">");
             output.append(source.substring(start, limit));
             // TODO Quote string
-            output.append("</" + element + ">");            
+            output.append("</" + element + ">");
         }
     }
+
     /**
      */
     public String getPostfix() {

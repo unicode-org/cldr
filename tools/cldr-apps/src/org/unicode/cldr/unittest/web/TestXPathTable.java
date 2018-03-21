@@ -172,7 +172,6 @@ public class TestXPathTable extends TestFmwk {
         }
     }
 
-
 // Once we verify that this works in smoketest, 
 // Remove this test case (testNewUndistinguishing), plus:
 //  XPathTable.getUndistinguishingElementsForOLD

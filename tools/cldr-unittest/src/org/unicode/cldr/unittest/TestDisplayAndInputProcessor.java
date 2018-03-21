@@ -42,13 +42,13 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             String display = daip.processForDisplay(path, value);
             internalException[0] = null;
             String input = daip.processInput(path, display, internalException);
-            
+
             try {
                 UnicodeSet roundTrip = new UnicodeSet(input);
                 if (!assertEquals(test.toString() + "=>" + display, test, roundTrip)) {
                     input = daip.processInput(path, display, internalException); // for debugging
                 }
-           } catch (Exception e) {
+            } catch (Exception e) {
                 errln(test.toString() + "=>" + display + ": Failed to parse " + input);
             }
         }
@@ -242,7 +242,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         while (usi.next()) {
             if (usi.codepoint == MODIFIER_LETTER_APOSTROPHE
                 || (usi.codepoint == UnicodeSetIterator.IS_STRING && usi
-                .getString().indexOf(MODIFIER_LETTER_APOSTROPHE) >= 0)) {
+                    .getString().indexOf(MODIFIER_LETTER_APOSTROPHE) >= 0)) {
                 return true;
             }
         }
@@ -306,8 +306,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     + ">\n\t   diff<"
                     + diff
                     + (internalException[0] != null ? ">\n\texcep<"
-                        + internalException[0] : "") + ">\n\tpath<"
-                        + path + ">");
+                        + internalException[0] : "")
+                    + ">\n\tpath<"
+                    + path + ">");
                 daip.processInput(path, value, internalException); // for
                 // debugging
             } else if (!CharSequences.equals(value, display)
@@ -323,8 +324,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     + ">\n\tdiff<"
                     + diff
                     + (internalException[0] != null ? ">\n\texcep<"
-                        + internalException[0] : "") + ">\n\tpath<"
-                        + path + ">");
+                        + internalException[0] : "")
+                    + ">\n\tpath<"
+                    + path + ">");
             }
         }
     }

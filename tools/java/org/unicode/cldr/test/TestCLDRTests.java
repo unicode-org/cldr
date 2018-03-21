@@ -305,12 +305,12 @@ public class TestCLDRTests extends TestFmwk {
                 DateFormat dt = dateFormat == -1 ? DateFormat.getTimeInstance(timeFormat, oLocale)
                     : timeFormat == -1 ? DateFormat.getDateInstance(dateFormat, oLocale)
                         : DateFormat.getDateTimeInstance(dateFormat, timeFormat, oLocale);
-                    dt.setTimeZone(utc);
-                    String temp = dt.format(date).trim();
-                    result = result.trim(); // HACK because of SAX
-                    if (!temp.equals(result)) {
-                        myerrln("Mismatched DateTime: CLDR: <" + result + ">, Host: <" + temp + ">");
-                    }
+                dt.setTimeZone(utc);
+                String temp = dt.format(date).trim();
+                result = result.trim(); // HACK because of SAX
+                if (!temp.equals(result)) {
+                    myerrln("Mismatched DateTime: CLDR: <" + result + ">, Host: <" + temp + ">");
+                }
             }
         });
 
@@ -338,7 +338,7 @@ public class TestCLDRTests extends TestFmwk {
             String localName,
             String qName,
             Attributes attributes)
-                throws SAXException {
+            throws SAXException {
             // data.put(new ContextStack(contextStack), lastChars);
             // lastChars = "";
             try {
@@ -395,8 +395,7 @@ public class TestCLDRTests extends TestFmwk {
             throws SAXException {
             System.out.println("notationDecl: " + name
                 + ", " + publicId
-                + ", " + systemId
-                );
+                + ", " + systemId);
         }
 
         public void processingInstruction(String target, String data)
@@ -405,20 +404,17 @@ public class TestCLDRTests extends TestFmwk {
         }
 
         public void skippedEntity(String name)
-            throws SAXException
-        {
-            System.out.println("skippedEntity: " + name
-                );
+            throws SAXException {
+            System.out.println("skippedEntity: " + name);
         }
 
         public void unparsedEntityDecl(String name, String publicId,
             String systemId, String notationName)
-                throws SAXException {
+            throws SAXException {
             System.out.println("unparsedEntityDecl: " + name
                 + ", " + publicId
                 + ", " + systemId
-                + ", " + notationName
-                );
+                + ", " + notationName);
         }
 
     };

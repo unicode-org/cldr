@@ -35,8 +35,8 @@ public class CompareIcuOutput {
     private static final Options options = new Options(
         "Usage: RBChecker [OPTIONS] DIR1 DIR2 FILE_REGEX\n" +
             "This program is used to compare the RB text files in two different directories.\n" +
-        "  Example: org.unicode.cldr.icu.RBChecker olddatadir newdatadir .*")
-    .add("sort", 's', null, null, "Sort values for comparison");
+            "  Example: org.unicode.cldr.icu.RBChecker olddatadir newdatadir .*")
+                .add("sort", 's', null, null, "Sort values for comparison");
 
     private static final Comparator<String[]> comparator = new Comparator<String[]>() {
         @Override

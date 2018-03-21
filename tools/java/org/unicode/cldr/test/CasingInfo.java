@@ -43,9 +43,9 @@ import com.ibm.icu.text.UnicodeSet;
 public class CasingInfo {
     private static final Options options = new Options(
         "This program is used to generate casing files for locales.")
-    .add("locales", ".*", ".*", "A regex of the locales to generate casing information for")
-    .add("summary", null,
-        "generates a summary of the casing for all locales that had casing generated for this run");
+            .add("locales", ".*", ".*", "A regex of the locales to generate casing information for")
+            .add("summary", null,
+                "generates a summary of the casing for all locales that had casing generated for this run");
     private Map<String, Map<Category, CasingTypeAndErrFlag>> casing;
     private List<File> casingDirs;
 
@@ -110,7 +110,7 @@ public class CasingInfo {
                 xfr.read(casingFile.toString(), -1, true);
                 return handler;
             }
-        }// Fail silently if file not found.
+        } // Fail silently if file not found.
         return null;
     }
 
@@ -199,32 +199,31 @@ public class CasingInfo {
     private void createCasingXml(String localeID, Map<Category, CasingType> localeCasing) {
         // Load any existing overrides over casing info.
         CasingHandler handler = loadFromXml(localeID);
-        Map<Category, CasingType> overrides = handler == null ?
-            new EnumMap<Category, CasingType>(Category.class) : handler.getOverrides();
-            localeCasing.putAll(overrides);
+        Map<Category, CasingType> overrides = handler == null ? new EnumMap<Category, CasingType>(Category.class) : handler.getOverrides();
+        localeCasing.putAll(overrides);
 
-            XMLSource source = new SimpleXMLSource(localeID);
-            for (Category category : Category.values()) {
-                if (category == Category.NOT_USED) continue;
-                CasingType type = localeCasing.get(category);
-                if (overrides.containsKey(category)) {
-                    String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", category);
-                    source.putValueAtPath(path, type.toString());
-                } else if (type != CasingType.other) {
-                    String path = "//ldml/metadata/casingData/casingItem[@type=\"" + category + "\"]";
-                    source.putValueAtPath(path, type.toString());
-                }
+        XMLSource source = new SimpleXMLSource(localeID);
+        for (Category category : Category.values()) {
+            if (category == Category.NOT_USED) continue;
+            CasingType type = localeCasing.get(category);
+            if (overrides.containsKey(category)) {
+                String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", category);
+                source.putValueAtPath(path, type.toString());
+            } else if (type != CasingType.other) {
+                String path = "//ldml/metadata/casingData/casingItem[@type=\"" + category + "\"]";
+                source.putValueAtPath(path, type.toString());
             }
-            CLDRFile cldrFile = new CLDRFile(source);
-            File casingFile = new File(CLDRPaths.GEN_DIRECTORY + "/casing", localeID + ".xml");
+        }
+        CLDRFile cldrFile = new CLDRFile(source);
+        File casingFile = new File(CLDRPaths.GEN_DIRECTORY + "/casing", localeID + ".xml");
 
-            try {
-                PrintWriter out = new PrintWriter(casingFile);
-                cldrFile.write(out);
-                out.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            PrintWriter out = new PrintWriter(casingFile);
+            cldrFile.write(out);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

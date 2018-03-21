@@ -96,18 +96,15 @@ public class POSIXUtilities {
         controlCodeNames.put(0x009F, "APPLICATION_PROGRAM_COMMAND");
     }
 
-    public static void setRepertoire(UnicodeSet rep)
-    {
+    public static void setRepertoire(UnicodeSet rep) {
         repertoire = rep;
     }
 
-    public static void setCharFallback(CLDRFile fallbk)
-    {
+    public static void setCharFallback(CLDRFile fallbk) {
         char_fallbk = fallbk;
     }
 
-    public static String POSIXContraction(String s)
-    {
+    public static String POSIXContraction(String s) {
         int cp;
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
@@ -117,8 +114,7 @@ public class POSIXUtilities {
         return result.toString().replaceAll("><", "-");
     }
 
-    public static String POSIXCharName(String s)
-    {
+    public static String POSIXCharName(String s) {
         int cp;
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
@@ -128,8 +124,7 @@ public class POSIXUtilities {
         return result.toString();
     }
 
-    public static String POSIXCharName(int cp)
-    {
+    public static String POSIXCharName(int cp) {
 
         StringBuffer result = new StringBuffer();
         result.append("<");
@@ -140,14 +135,12 @@ public class POSIXUtilities {
         {
             String n = UCharacter.getExtendedName(cp);
             result.append(n.replaceAll(" ", "_").replaceAll("DIGIT_", "").toLowerCase());
-        }
-        else if ((cp >= 0x0000 && cp <= 0x001F) || (cp >= 0x007F && cp <= 0x009F)) { // Controls
+        } else if ((cp >= 0x0000 && cp <= 0x001F) || (cp >= 0x007F && cp <= 0x009F)) { // Controls
             if (controlCodeNames.isEmpty()) {
                 initControlCodeNames();
             }
             result.append(controlCodeNames.get(cp));
-        }
-        else if (cp == 0x0020)
+        } else if (cp == 0x0020)
             result.append("space"); // Required elements for POSIX portable character set
         else // everything else
         {
@@ -161,8 +154,7 @@ public class POSIXUtilities {
 
         result.append(">");
 
-        if (!repertoire.contains(cp))
-        {
+        if (!repertoire.contains(cp)) {
             System.out.println("WARNING: character " + result.toString() + " is not in the target codeset.");
 
             String substituteString = "";
@@ -171,28 +163,24 @@ public class POSIXUtilities {
                 + UCharacter.toString(cp) + "\"]/substitute";
 
             for (Iterator<String> it = char_fallbk.iterator(SearchLocation, char_fallbk.getComparator()); it.hasNext()
-                && !SubFound;)
-            {
+                && !SubFound;) {
                 String path = it.next();
                 substituteString = char_fallbk.getStringValue(path);
                 if (repertoire.containsAll(substituteString))
                     SubFound = true;
             }
 
-            if (SubFound)
-            {
+            if (SubFound) {
                 System.out.println("	Substituted: " + POSIXUtilities.POSIXCharName(substituteString));
                 result = new StringBuffer(POSIXUtilities.POSIXCharName(substituteString));
-            }
-            else
+            } else
                 System.out.println("	No acceptable substitute found. The resulting locale source may not compile.");
         }
 
         return result.toString();
     }
 
-    public static String POSIXCharFullName(String s)
-    {
+    public static String POSIXCharFullName(String s) {
         int cp;
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
@@ -202,8 +190,7 @@ public class POSIXUtilities {
         return result.toString();
     }
 
-    public static String POSIXCharFullName(int cp)
-    {
+    public static String POSIXCharFullName(int cp) {
         StringBuffer result = new StringBuffer();
         result.append("<");
         String n = UCharacter.getExtendedName(cp);
@@ -220,8 +207,7 @@ public class POSIXUtilities {
 
     // POSIXCharNameNP replaces all non-portable characters with their expanded POSIX character name.
 
-    public static String POSIXCharNameNP(String s)
-    {
+    public static String POSIXCharNameNP(String s) {
         int cp;
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
@@ -234,8 +220,7 @@ public class POSIXUtilities {
         return result.toString();
     }
 
-    public static String POSIXDateTimeFormat(String s, boolean UseAltDigits, POSIXVariant variant)
-    {
+    public static String POSIXDateTimeFormat(String s, boolean UseAltDigits, POSIXVariant variant) {
 
         // This is an array of the POSIX date / time field descriptors and their corresponding representations
         // in LDML. We use these to replace the LDML fields with POSIX field descriptors.
@@ -281,13 +266,10 @@ public class POSIXUtilities {
         boolean inquotes = false;
         StringBuffer result = new StringBuffer("");
 
-        for (int pos = 0; pos < s.length();)
-        {
+        for (int pos = 0; pos < s.length();) {
             boolean replaced = false;
-            for (int i = 0; i < FieldDescriptors.length && !replaced && !inquotes; i++)
-            {
-                if (s.indexOf(FieldDescriptors[i][0], pos) == pos)
-                {
+            for (int i = 0; i < FieldDescriptors.length && !replaced && !inquotes; i++) {
+                if (s.indexOf(FieldDescriptors[i][0], pos) == pos) {
                     if (UseAltDigits)
                         result.append(FieldDescriptors[i][2]);
                     else if (variant.platform.equals(POSIXVariant.SOLARIS))
@@ -299,19 +281,14 @@ public class POSIXUtilities {
                 }
             }
 
-            if (!replaced)
-            {
-                if (s.charAt(pos) == '\'')
-                {
-                    if (pos < (s.length() - 1) && s.charAt(pos + 1) == '\'')
-                    {
+            if (!replaced) {
+                if (s.charAt(pos) == '\'') {
+                    if (pos < (s.length() - 1) && s.charAt(pos + 1) == '\'') {
                         result.append('\'');
                         pos++;
-                    }
-                    else
+                    } else
                         inquotes = !inquotes;
-                }
-                else
+                } else
                     result.append(s.charAt(pos));
                 pos++;
             }
@@ -331,11 +308,9 @@ public class POSIXUtilities {
 
         if (i < 0)
             result = "-1";
-        else
-        {
+        else {
             result = new String();
-            while ((j = grouping_pattern.lastIndexOf(",", i - 1)) > 0)
-            {
+            while ((j = grouping_pattern.lastIndexOf(",", i - 1)) > 0) {
                 if (!first_grouping)
                     result = result.concat(";");
                 Integer num_digits = new Integer(i - j - 1);
@@ -357,16 +332,13 @@ public class POSIXUtilities {
         return ((a < b && b < c) || (c < b && b < a));
     }
 
-    public static String POSIXYesNoExpr(String s)
-    {
+    public static String POSIXYesNoExpr(String s) {
         StringBuffer result = new StringBuffer();
         String[] YesNoElements;
         YesNoElements = s.split(":");
-        for (int i = 0; i < YesNoElements.length; i++)
-        {
+        for (int i = 0; i < YesNoElements.length; i++) {
             String cur = YesNoElements[i];
-            if (cur.length() >= 1 && cur.toLowerCase().equals(cur))
-            {
+            if (cur.length() >= 1 && cur.toLowerCase().equals(cur)) {
                 if (result.length() > 0)
                     result.append(")|(");
                 else
@@ -374,12 +346,9 @@ public class POSIXUtilities {
 
                 StringCharacterIterator si = new StringCharacterIterator(cur);
                 boolean OptLastChars = false;
-                for (char c = si.first(); c != StringCharacterIterator.DONE; c = si.next())
-                {
-                    if (c != Character.toUpperCase(c))
-                    {
-                        if (si.getIndex() == 1)
-                        {
+                for (char c = si.first(); c != StringCharacterIterator.DONE; c = si.next()) {
+                    if (c != Character.toUpperCase(c)) {
+                        if (si.getIndex() == 1) {
                             result.append("(");
                             OptLastChars = true;
                         }
@@ -387,8 +356,7 @@ public class POSIXUtilities {
                         result.append(c);
                         result.append(Character.toUpperCase(c));
                         result.append("]");
-                    }
-                    else
+                    } else
                         result.append(c);
                 }
                 if (OptLastChars)

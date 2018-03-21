@@ -40,9 +40,7 @@ public class VerifyZones {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        organization(".*", "CLDR", "organization"),
-        filter(".*", ".*", "locale filter (regex)"),
-        timezoneFilter(".*", null, "timezone filter (regex)"), ;
+        organization(".*", "CLDR", "organization"), filter(".*", ".*", "locale filter (regex)"), timezoneFilter(".*", null, "timezone filter (regex)"),;
         // boilerplate
         final Option option;
 
@@ -308,8 +306,7 @@ public class VerifyZones {
                 "<title>" + title + "</title>\n" +
                 "<link rel='stylesheet' type='text/css' href='index.css'>\n" +
                 "</head><body><h1>" + title + "</h1>\n"
-                + "<p><a href='index.html'>Index</a></p>\n"
-                );
+                + "<p><a href='index.html'>Index</a></p>\n");
 
             showZones(timezoneFilter, englishCldrFile, cldrFile, out);
 
@@ -405,11 +402,11 @@ public class VerifyZones {
         CLDRFile englishCldrFile, CLDRFile nativeCdrFile,
         Appendable out) throws IOException {
         TablePrinter tablePrinter = new TablePrinter() // .setCaption("Timezone Formats")
-        .setTableAttributes("class='dtf-table'")
-        .addColumn("Metazone").setHeaderCell(true).setSpanRows(true)
-        .setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
-        .addColumn("Region: TZID").setHeaderCell(true).setSpanRows(true)
-        .setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+            .setTableAttributes("class='dtf-table'")
+            .addColumn("Metazone").setHeaderCell(true).setSpanRows(true)
+            .setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+            .addColumn("Region: TZID").setHeaderCell(true).setSpanRows(true)
+            .setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
         //.setCellPattern(CldrUtility.getDoubleLinkMsg())
         // HACK because anchors don't work any more
         // .addColumn("Region: City").setHeaderCell(true).setSpanRows(true)
@@ -461,8 +458,8 @@ public class VerifyZones {
             }
             String englishTerritory = englishCldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode2);
             output.addRow()
-            .addCell(metazoneInfo)
-            .addCell(englishTerritory + ": " + tzid.replace("/", "/\u200B"));
+                .addCell(metazoneInfo)
+                .addCell(englishTerritory + ": " + tzid.replace("/", "/\u200B"));
             long date2 = getStandardDate(tz);
             for (Format pattern : FORMAT_LIST) {
                 String formattedZone = tzformatter.getFormattedZone(tzid, pattern.toString(), date2);
@@ -486,7 +483,7 @@ public class VerifyZones {
 
             output.addCell(view == null
                 ? ""
-                    : view);
+                : view);
             output.finishRow();
         }
     }

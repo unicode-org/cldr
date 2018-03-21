@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -62,8 +61,6 @@ public class XLocaleMatcherTest extends TestFmwk {
         new XLocaleMatcherTest().run(args);
     }
 
-
-
     //    public void testParentLocales() {
     //        // find all the regions that have a closer relation because of an explicit parent
     //        Set<String> explicitParents = new HashSet<>(INFO.getExplicitParents());
@@ -90,7 +87,6 @@ public class XLocaleMatcherTest extends TestFmwk {
     //        }
     //    }
 
-
 // TBD reenable with override data
 //    public void testOverrideData() {
 //        double threshold = 0.05;
@@ -111,7 +107,6 @@ public class XLocaleMatcherTest extends TestFmwk {
 //        assertEquals(ULocale.ENGLISH, matcher.getBestMatch(new ULocale("es"))); // one
 //        // way
 //    }
-
 
     private void assertEquals(Object expected, Object string) {
         assertEquals("", expected, string);
@@ -156,7 +151,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         XLocaleMatcher matcher = newXLocaleMatcher(
             LocalePriorityList.add(
                 sorted.toArray(new ULocale[sorted.size()]))
-            .build());
+                .build());
         for (ULocale loc : sorted) {
             String stringLoc = loc.toString();
             assertEquals(stringLoc, matcher.getBestMatch(stringLoc).toString());
@@ -170,7 +165,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         for (int i = 0; i < 1000; ++i) {
             String x = codes[random.nextInt(codes.length)];
             String y = codes[random.nextInt(codes.length)];
-            double d = lm.distance(ULocale.forLanguageTag("xx-Xxxx-"+x), ULocale.forLanguageTag("xx-Xxxx-"+y));
+            double d = lm.distance(ULocale.forLanguageTag("xx-Xxxx-" + x), ULocale.forLanguageTag("xx-Xxxx-" + y));
             if (x.equals("ZZ") || y.equals("ZZ")) {
                 assertEquals("dist(regionDistance," + x + ") = 0", REGION_DISTANCE, d);
             } else if (x.equals(y)) {
@@ -181,7 +176,6 @@ public class XLocaleMatcherTest extends TestFmwk {
             }
         }
     }
-
 
     public void testPerf() {
         if (LANGUAGE_MATCHER_DATA == null) {
@@ -208,9 +202,9 @@ public class XLocaleMatcherTest extends TestFmwk {
         assertEquals(expected, matcherVeryLong.getBestMatch(desired));
         //XLocaleMatcher.DEBUG = false;
 
-        long timeShortNew=0;
-        long timeMediumNew=0;
-        long timeLongNew=0;
+        long timeShortNew = 0;
+        long timeMediumNew = 0;
+        long timeLongNew = 0;
 
         for (int i = 0; i < 2; ++i) {
             int iterations = i == 0 ? 1000 : 1000000;
@@ -220,9 +214,9 @@ public class XLocaleMatcherTest extends TestFmwk {
             timeLongNew = timeXLocaleMatcher("Duration (many supported):\t", desired, matcherVeryLong, showMessage, iterations);
         }
 
-        long timeShortOld=0;
-        long timeMediumOld=0;
-        long timeLongOld=0;
+        long timeShortOld = 0;
+        long timeMediumOld = 0;
+        long timeLongOld = 0;
 
         for (int i = 0; i < 2; ++i) {
             int iterations = i == 0 ? 1000 : 100000;
@@ -238,7 +232,7 @@ public class XLocaleMatcherTest extends TestFmwk {
 
     }
 
-    private long timeXLocaleMatcher(String title, ULocale desired, XLocaleMatcher matcher, 
+    private long timeXLocaleMatcher(String title, ULocale desired, XLocaleMatcher matcher,
         boolean showmessage, int iterations) {
         long start = System.nanoTime();
         for (int i = iterations; i > 0; --i) {
@@ -249,7 +243,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         return (delta / iterations);
     }
 
-    private long timeLocaleMatcher(String title, ULocale desired, LocaleMatcher matcher, 
+    private long timeLocaleMatcher(String title, ULocale desired, LocaleMatcher matcher,
         boolean showmessage, int iterations) {
         long start = System.nanoTime();
         for (int i = iterations; i > 0; --i) {
@@ -293,15 +287,15 @@ public class XLocaleMatcherTest extends TestFmwk {
             String expectedLanguageTag = expected.equals("null") ? null : new ULocale(expected).toLanguageTag();
 
             String expectedUi = arguments.size() < 4 ? null : arguments.get(3);
-            String expectedUiLanguageTag = expectedUi == null || expectedUi.equals("null") ? null 
+            String expectedUiLanguageTag = expectedUi == null || expectedUi.equals("null") ? null
                 : new ULocale(expectedUi).toLanguageTag();
 
             if (breakpoint) {
                 breakpoint = false; // put debugger breakpoint here to break at @debug in test file
             }
 
-            XLocaleMatcher matcher = threshold < 0 && distanceOption == DistanceOption.NORMAL 
-                ? newXLocaleMatcher(supportedList) 
+            XLocaleMatcher matcher = threshold < 0 && distanceOption == DistanceOption.NORMAL
+                ? newXLocaleMatcher(supportedList)
                 : newXLocaleMatcher(supportedList, threshold, distanceOption);
             ULocale bestSupported;
             if (expectedUi != null) {
@@ -317,18 +311,18 @@ public class XLocaleMatcherTest extends TestFmwk {
 
         @Override
         public void handleParams(String comment, List<String> arguments) {
-            switch(arguments.get(0)) {
-            case "@DistanceOption": 
-                distanceOption = DistanceOption.valueOf(arguments.get(1)); 
+            switch (arguments.get(0)) {
+            case "@DistanceOption":
+                distanceOption = DistanceOption.valueOf(arguments.get(1));
                 break;
-            case "@Threshold": 
-                threshold = Integer.valueOf(arguments.get(1)); 
+            case "@Threshold":
+                threshold = Integer.valueOf(arguments.get(1));
                 break;
-            default: 
+            default:
                 super.handleParams(comment, arguments);
                 break;
             }
-            return;         
+            return;
         }
     }
 }

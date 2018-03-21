@@ -24,15 +24,15 @@ public class BNF {
     private Tokenizer t;
     private Quoter quoter;
     private Random random;
-    
+
     public String next() {
         return target.next();
     }
-    
+
     public String getInternal() {
         return pick.getInternal(0, new HashSet());
     }
-    
+
     /*
     + "weight = integer '%';"
     + "range = '{' integer (',' integer?)? '}' weight*;"
@@ -53,24 +53,24 @@ public class BNF {
     {n}    Match exactly n times
     {n,}   Match at least n times
     {n,m}  Match at least n but not more than m times  
- 
- 
-
-    */
     
+    
+    
+    */
+
     public BNF(Random random, Quoter quoter) {
         this.random = random;
         this.quoter = quoter;
         t = new Tokenizer();
     }
-    
+
     public BNF addRules(String rules) {
-        t.setSource(rules);        
+        t.setSource(rules);
         while (addRule()) {
         }
         return this; // for chaining
     }
-    
+
     public BNF complete() {
         // check that the rules match the variables, except for $root in rules
         Set ruleSet = map.keySet();
@@ -82,33 +82,35 @@ public class BNF {
             if (msg.length() != 0) msg = "Error: Missing definitions for: " + msg;
             String temp = showDiff(ruleSet, variables);
             if (temp.length() != 0) temp = "Warning: Defined but not used: " + temp;
-            if (msg.length() == 0) msg = temp;
+            if (msg.length() == 0)
+                msg = temp;
             else if (temp.length() != 0) {
-                msg = msg + "; " + temp;           
+                msg = msg + "; " + temp;
             }
-            error(msg);           
-        } 
-        
+            error(msg);
+        }
+
         if (!ruleSet.equals(variables)) {
             String msg = showDiff(variables, ruleSet);
             if (msg.length() != 0) msg = "Missing definitions for: " + msg;
             String temp = showDiff(ruleSet, variables);
             if (temp.length() != 0) temp = "Defined but not used: " + temp;
-            if (msg.length() == 0) msg = temp;
+            if (msg.length() == 0)
+                msg = temp;
             else if (temp.length() != 0) {
-                msg = msg + "; " + temp;           
+                msg = msg + "; " + temp;
             }
-            error(msg);           
-        } 
-        
+            error(msg);
+        }
+
         // replace variables by definitions
         Iterator it = ruleSet.iterator();
         while (it.hasNext()) {
             String key = (String) it.next();
             Pick expression = (Pick) map.get(key);
-            Iterator it2 = ruleSet.iterator();  
+            Iterator it2 = ruleSet.iterator();
             if (false && key.equals("$crlf")) {
-                System.out.println("debug") ;
+                System.out.println("debug");
             }
             while (it2.hasNext()) {
                 Object key2 = it2.next();
@@ -122,7 +124,7 @@ public class BNF {
         // TODO remove temp collections
         return this;
     }
-    
+
     String showDiff(Set a, Set b) {
         Set temp = new HashSet();
         temp.addAll(a);
@@ -136,12 +138,12 @@ public class BNF {
         }
         return buffer.toString();
     }
-    
+
     void error(String msg) {
         throw new IllegalArgumentException(msg
-        + "\r\n" + t.toString());
+            + "\r\n" + t.toString());
     }
- 
+
     private boolean addRule() {
         int type = t.next();
         if (type == Tokenizer.DONE) return false;
@@ -153,7 +155,7 @@ public class BNF {
         Pick rule = getAlternation();
         if (rule == null) error("missing expression");
         t.addSymbol(s, t.getSource(), startBody, t.index);
-        if (t.next() != ';') error("missing ;");       
+        if (t.next() != ';') error("missing ;");
         return addPick(s, rule);
     }
 
@@ -164,58 +166,58 @@ public class BNF {
         map.put(s, rule);
         return true;
     }
-    
+
     public BNF addSet(String variable, UnicodeSet set) {
         if (set != null) {
             String body = set.toString();
-            t.addSymbol(variable, body, 0, body.length());        
+            t.addSymbol(variable, body, 0, body.length());
             addPick(variable, Pick.codePoint(set));
         }
         return this;
     }
-    
+
     int maxRepeat = 99;
-    
+
     Pick qualify(Pick item) {
         int[] weights;
         int type = t.next();
-        switch(type) {
-            case '@': 
-                return new Pick.Quote(item);
-            case '~': 
-                return new Pick.Morph(item);
-            case '?': 
-                int weight = getWeight();
-                if (weight == NO_WEIGHT) weight = 50;
-                weights = new int[] {100-weight, weight};
-                return Pick.repeat(0, 1, weights, item);
-            case '*': 
-                weights = getWeights();
-                return Pick.repeat(1, maxRepeat, weights, item);
-            case '+': 
-                weights = getWeights();
-                return Pick.repeat(1, maxRepeat, weights, item);
-            case '{':
-                if (t.next() != Tokenizer.NUMBER) error("missing number");
-                int start = (int) t.getNumber();
-                int end = start;
+        switch (type) {
+        case '@':
+            return new Pick.Quote(item);
+        case '~':
+            return new Pick.Morph(item);
+        case '?':
+            int weight = getWeight();
+            if (weight == NO_WEIGHT) weight = 50;
+            weights = new int[] { 100 - weight, weight };
+            return Pick.repeat(0, 1, weights, item);
+        case '*':
+            weights = getWeights();
+            return Pick.repeat(1, maxRepeat, weights, item);
+        case '+':
+            weights = getWeights();
+            return Pick.repeat(1, maxRepeat, weights, item);
+        case '{':
+            if (t.next() != Tokenizer.NUMBER) error("missing number");
+            int start = (int) t.getNumber();
+            int end = start;
+            type = t.next();
+            if (type == ',') {
+                end = maxRepeat;
                 type = t.next();
-                if (type == ',') {
-                    end = maxRepeat;
+                if (type == Tokenizer.NUMBER) {
+                    end = (int) t.getNumber();
                     type = t.next();
-                    if (type == Tokenizer.NUMBER) {
-                        end = (int)t.getNumber();
-                        type = t.next();
-                    }
                 }
-                if (type != '}') error("missing }");
-                weights = getWeights();
-                return Pick.repeat(start, end, weights, item);
+            }
+            if (type != '}') error("missing }");
+            weights = getWeights();
+            return Pick.repeat(start, end, weights, item);
         }
         t.backup();
         return item;
     }
-    
+
     Pick getCore() {
         int token = t.next();
         if (token == Tokenizer.STRING) {
@@ -224,7 +226,7 @@ public class BNF {
             return Pick.string(s);
         }
         if (token == Tokenizer.UNICODESET) {
-            return Pick.codePoint(t.getUnicodeSet());            
+            return Pick.codePoint(t.getUnicodeSet());
         }
         if (token != '(') {
             t.backup();
@@ -232,10 +234,10 @@ public class BNF {
         }
         Pick temp = getAlternation();
         token = t.next();
-        if (token != ')') error("missing )");    
-        return temp;    
+        if (token != ')') error("missing )");
+        return temp;
     }
-    
+
     Pick getSequence() {
         Pick.Sequence result = null;
         Pick last = null;
@@ -256,12 +258,12 @@ public class BNF {
             if (last == null) {
                 last = item;
             } else {
-                if (result == null) result = Pick.makeSequence().and2(last);            
+                if (result == null) result = Pick.makeSequence().and2(last);
                 result = result.and2(item);
             }
         }
     }
-    
+
     // for simplicity, we just use recursive descent
     Pick getAlternation() {
         Pick.Alternation result = null;
@@ -277,7 +279,7 @@ public class BNF {
                 lastWeight = weight;
             } else {
                 if (result == null) result = Pick.makeAlternation().or2(lastWeight, last);
-                result = result.or2(weight, temp);   
+                result = result.or2(weight, temp);
             }
             int token = t.next();
             if (token != '|') {
@@ -285,24 +287,24 @@ public class BNF {
                 if (result != null) return result;
                 if (last != null) return last;
             }
-        }        
+        }
     }
-    
+
     private static final int NO_WEIGHT = Integer.MIN_VALUE;
-    
-    int getWeight() {       
+
+    int getWeight() {
         int weight;
         int token = t.next();
         if (token != Tokenizer.NUMBER) {
             t.backup();
             return NO_WEIGHT;
         }
-        weight = (int)t.getNumber();
+        weight = (int) t.getNumber();
         token = t.next();
         if (token != '%') error("missing %");
         return weight;
     }
-    
+
     int[] getWeights() {
         ArrayList list = new ArrayList();
         while (true) {
@@ -313,17 +315,17 @@ public class BNF {
         if (list.size() == 0) return null;
         int[] result = new int[list.size()];
         for (int i = 0; i < list.size(); ++i) {
-            result[i] = ((Integer)list.get(i)).intValue();
+            result[i] = ((Integer) list.get(i)).intValue();
         }
         return result;
     }
 
     public int getMaxRepeat() {
-      return maxRepeat;
+        return maxRepeat;
     }
 
     public BNF setMaxRepeat(int maxRepeat) {
-      this.maxRepeat = maxRepeat;
-      return this;
+        this.maxRepeat = maxRepeat;
+        return this;
     }
 }

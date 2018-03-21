@@ -93,18 +93,17 @@ public class GenerateSidewaysView {
 
     static final boolean FIX_ZONE_ALIASES = true;
 
-    private static final int
-    HELP1 = 0,
-    HELP2 = 1,
-    SOURCEDIR = 2,
-    DESTDIR = 3,
-    MATCH = 4,
-    SKIP = 5,
-    TZADIR = 6,
-    NONVALIDATING = 7,
-    SHOW_DTD = 8,
-    TRANSLIT = 9,
-    PATH = 10;
+    private static final int HELP1 = 0,
+        HELP2 = 1,
+        SOURCEDIR = 2,
+        DESTDIR = 3,
+        MATCH = 4,
+        SKIP = 5,
+        TZADIR = 6,
+        NONVALIDATING = 7,
+        SHOW_DTD = 8,
+        TRANSLIT = 9,
+        PATH = 10;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -166,11 +165,11 @@ public class GenerateSidewaysView {
         pathMatcher = options[PATH].value == null ? null : PatternCache.get(options[PATH].value).matcher("");
 
         File[] paths = {
-            new File(CLDRPaths.MAIN_DIRECTORY), 
+            new File(CLDRPaths.MAIN_DIRECTORY),
             new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
-            new File(CLDRPaths.SUBDIVISIONS_DIRECTORY) 
+            new File(CLDRPaths.SUBDIVISIONS_DIRECTORY)
         };
-        Factory cldrFactory = SimpleFactory.make(paths, options[MATCH].value); 
+        Factory cldrFactory = SimpleFactory.make(paths, options[MATCH].value);
 
         // Factory cldrFactory = Factory.make(options[SOURCEDIR].value, options[MATCH].value);
         english = cldrFactory.make("en", true);
@@ -197,7 +196,7 @@ public class GenerateSidewaysView {
         String headerString = getHeader(path_value_locales.keySet());
         FileCopier.copyAndReplace(GenerateSidewaysView.class, "bytype-index.html", options[DESTDIR].value, "index.html",
             ImmutableMap.of(
-                "%header%", headerString, 
+                "%header%", headerString,
                 "%version%", ToolConstants.CHART_DISPLAY_VERSION,
                 "%index-title%", "Main Charts Index",
                 "%date%", CldrUtility.isoFormatDateOnly(new Date())));
@@ -234,7 +233,7 @@ public class GenerateSidewaysView {
             String header = path.getHeader();
             if (!header.equals(oldHeader) && !header.equals("null")) {
                 out.println("<tr><th colSpan='2' class='pathHeader'>" + CldrUtility.getDoubleLinkedText(header)
-                + "</th></tr>");
+                    + "</th></tr>");
                 oldHeader = header;
             }
             String anchorId = Long.toHexString(StringId.getId(path.getOriginalPath()));
@@ -259,12 +258,12 @@ public class GenerateSidewaysView {
                 }
                 out.println("<tr><th" + valueClass + ">" + DataShower.getPrettyValue(value) + "</th><td class='td'>");
                 tsvFile.value.print(
-                    path.getSection() 
-                    + "\t" + path.getPage() 
-                    + "\t" + path.getHeader() 
-                    + "\t" + path.getCode() 
-                    + "\t" + value 
-                    + "\t");
+                    path.getSection()
+                        + "\t" + path.getPage()
+                        + "\t" + path.getHeader()
+                        + "\t" + path.getCode()
+                        + "\t" + value
+                        + "\t");
 
                 Set<String> locales = value_locales.get(value);
                 boolean first = true;
@@ -324,9 +323,9 @@ public class GenerateSidewaysView {
         // TODO look at numbers, auxiliary
     };
 
-    private static PrintWriter showExemplars(PrintWriter out, String headerString, String pathName, String variant, String title, 
+    private static PrintWriter showExemplars(PrintWriter out, String headerString, String pathName, String variant, String title,
         Output<PrintWriter> tsvFile)
-            throws IOException {
+        throws IOException {
         PathHeader cleanPath = fixPath(pathName, null);
         String filename = getFileName2(cleanPath, variant);
         out = start(out, filename, headerString, title, tsvFile);
@@ -486,7 +485,8 @@ public class GenerateSidewaysView {
         return ("title='U+" +
             toHTML.transform(
                 Utility.hex(item, 4, ", U+", true, new StringBuilder())
-                + " " + UCharacter.getName(item, ", ")) + "'");
+                    + " " + UCharacter.getName(item, ", "))
+            + "'");
     }
 
     private static void exemplarHeader(PrintWriter out, Set<String> allChars) {

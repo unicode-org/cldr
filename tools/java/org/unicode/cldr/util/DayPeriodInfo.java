@@ -23,8 +23,7 @@ public class DayPeriodInfo {
     public static final int DAY_LIMIT = 24 * HOUR;
 
     public enum Type {
-        format("format"),
-        selection("stand-alone");
+        format("format"), selection("stand-alone");
         public final String pathValue;
 
         private Type(String _pathValue) {
@@ -99,10 +98,7 @@ public class DayPeriodInfo {
 
     public enum DayPeriod {
         // fixed
-        midnight(MIDNIGHT, MIDNIGHT),
-        am(MIDNIGHT, NOON),
-        noon(NOON, NOON),
-        pm(NOON, DAY_LIMIT),
+        midnight(MIDNIGHT, MIDNIGHT), am(MIDNIGHT, NOON), noon(NOON, NOON), pm(NOON, DAY_LIMIT),
         // flexible
         morning1, morning2, afternoon1, afternoon2, evening1, evening2, night1, night2;
 
@@ -150,13 +146,11 @@ public class DayPeriodInfo {
             return this;
         }
 
-        
         public DayPeriodInfo finish(String[] locales) {
             DayPeriodInfo result = new DayPeriodInfo(info, locales);
             info.clear();
             return result;
         }
-
 
         public boolean contains(DayPeriod dayPeriod) {
             for (Span span : info) {
@@ -182,7 +176,7 @@ public class DayPeriodInfo {
             }
             for (int i = 1; i < len; ++i) {
                 Span current = spans[i];
-                if (current.start != current.end && last.start != last.end){
+                if (current.start != current.end && last.start != last.end) {
                     if (current.start != last.end) {
                         throw new IllegalArgumentException("Gap or overlapping times:\t"
                             + current + "\t" + last + "\t" + Arrays.asList(locales));
@@ -273,7 +267,6 @@ public class DayPeriodInfo {
         }
     }
 
-
     /**
      * Returns the day period for the time.
      *
@@ -358,8 +351,7 @@ public class DayPeriodInfo {
     }
 
     // Day periods that are allowed to collide
-    private static final EnumMap<DayPeriod, EnumSet<DayPeriod>> allowableCollisions =
-        new EnumMap<DayPeriod, EnumSet<DayPeriod>>(DayPeriod.class);
+    private static final EnumMap<DayPeriod, EnumSet<DayPeriod>> allowableCollisions = new EnumMap<DayPeriod, EnumSet<DayPeriod>>(DayPeriod.class);
     static {
         allowableCollisions.put(DayPeriod.am, EnumSet.of(DayPeriod.morning1, DayPeriod.morning2));
         allowableCollisions.put(DayPeriod.pm, EnumSet.of(DayPeriod.afternoon1, DayPeriod.afternoon2, DayPeriod.evening1, DayPeriod.evening2));

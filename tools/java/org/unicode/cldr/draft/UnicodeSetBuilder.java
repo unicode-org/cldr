@@ -55,11 +55,7 @@ public class UnicodeSetBuilder {
     }
 
     public enum MyActions {
-        unhandled, doSetLiteral, doSetLiteralEscaped, doHex, doSetRange, doSetNegate, doName,
-        doPropName, doPropRelation, doPropValue, doStartSetProp, doSetBeginUnion, doSetEnd,
-        doSetBeginDifference1, doSetBeginIntersection1, doSetDifference2, doSetIntersection2,
-        doSetBackslash_s, doSetBackslash_S, doSetBackslash_w, doSetBackslash_W, doSetBackslash_d, doSetBackslash_D,
-        doSetAddAmp, doSetAddDash,
+        unhandled, doSetLiteral, doSetLiteralEscaped, doHex, doSetRange, doSetNegate, doName, doPropName, doPropRelation, doPropValue, doStartSetProp, doSetBeginUnion, doSetEnd, doSetBeginDifference1, doSetBeginIntersection1, doSetDifference2, doSetIntersection2, doSetBackslash_s, doSetBackslash_S, doSetBackslash_w, doSetBackslash_W, doSetBackslash_d, doSetBackslash_D, doSetAddAmp, doSetAddDash,
     };
 
     private static final class MyObjectBuilder extends StateObjectBuilder<UnicodeSet> {
@@ -234,7 +230,7 @@ public class UnicodeSetBuilder {
                     operation = popped.operation;
                 }
                 break;
-                default:
+            default:
             }
             if (StateMachine.SHOW_STATE_TRANSITIONS) {
                 System.out.println("\t\tLiteral:" + Integer.toHexString(lastLiteral));

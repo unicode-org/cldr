@@ -6,9 +6,8 @@ package org.unicode.cldr.draft;
  * @author markdavis
  */
 public final class CodePoints {
-    private static final int SUPPLEMENTAL_OFFSET =
-        (Character.MIN_HIGH_SURROGATE << 10) + Character.MIN_LOW_SURROGATE
-            - Character.MIN_SUPPLEMENTARY_CODE_POINT;
+    private static final int SUPPLEMENTAL_OFFSET = (Character.MIN_HIGH_SURROGATE << 10) + Character.MIN_LOW_SURROGATE
+        - Character.MIN_SUPPLEMENTARY_CODE_POINT;
 
     private CharSequence buffer;
     private int length;

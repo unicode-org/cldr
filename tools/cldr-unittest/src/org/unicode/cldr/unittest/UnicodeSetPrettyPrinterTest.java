@@ -18,17 +18,18 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static void main(String[] args) throws Exception {
         new UnicodeSetPrettyPrinterTest().run(args);
     }
+
     public static final UnicodeSet TO_QUOTE = new UnicodeSet("[[:z:][:me:][:mn:][:di:][:c:]-[\u0020]]");
 
     public void TestBasicUnicodeSet() {
 
         Collator spaceComp = Collator.getInstance(Locale.ENGLISH);
         spaceComp.setStrength(Collator.PRIMARY);
-        
+
         final UnicodeSetPrettyPrinter PRETTY_PRINTER = new UnicodeSetPrettyPrinter()
-        .setOrdering(Collator.getInstance(Locale.ENGLISH))
-        .setSpaceComparator(spaceComp)
-        .setToQuote(TO_QUOTE);
+            .setOrdering(Collator.getInstance(Locale.ENGLISH))
+            .setSpaceComparator(spaceComp)
+            .setToQuote(TO_QUOTE);
 
         UnicodeSet expected = new UnicodeSet("[:L:]");
         String formatted = PRETTY_PRINTER.format(expected);

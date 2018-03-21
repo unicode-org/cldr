@@ -245,7 +245,7 @@ public class XMLTokener extends JSONTokener {
         case '?':
             return XML.QUEST;
 
-            // Quoted string
+        // Quoted string
 
         case '"':
         case '\'':

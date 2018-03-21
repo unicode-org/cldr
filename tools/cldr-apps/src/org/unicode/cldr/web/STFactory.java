@@ -88,7 +88,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // set up the map
             sizeExceptions = new TreeMap<CLDRLocale, Map<String, Integer>>();
             exemplars_prefix.put(EXEMPLAR_CHARACTERS, EXEMPLAR_CHARACTERS_MAX);
-            String locs[] = { "ja", "ko", "zh", "zh_Hant" /*because of cross-script inheritance*/};
+            String locs[] = { "ja", "ko", "zh", "zh_Hant" /*because of cross-script inheritance*/ };
             for (String loc : locs) {
                 exemplars_set.add(CLDRLocale.getInstance(loc));
             }
@@ -425,8 +425,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 public String getValue() {
                     return vote;
                 }
-                
-                public Date getWhen(){
+
+                public Date getWhen() {
                     return when;
                 }
             };
@@ -591,9 +591,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             sm.xpt.loadXPaths(diskData);
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
             pathsForFile = phf.pathsForFile(diskFile);
-            
-            if(nextParent == null) {
-                fallbackParent =  null; // no fallback parent
+
+            if (nextParent == null) {
+                fallbackParent = null; // no fallback parent
             } else {
                 /**
                  * This will cause a load of the parent before the child.
@@ -624,8 +624,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public Set<String> allPXDPaths() {
             return xpathToData.keySet();
         }
-        
-        
+
         public final Stamp getStamp() {
             return stamp;
         }
@@ -642,7 +641,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 xpp.set(fullXPath);
                 String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
                 lastStatus = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
-                
+
                 // reset to missing if it is inherited from root or code-fallback
                 final String srcid = anOldFile.getSourceLocaleID(path, null);
                 if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
@@ -781,7 +780,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
                     SurveyLog.debug(et + " - RESOLVE_ALL_XPATHS  - resolved " + j + " additional items, " + n + " total.");
                 }
-                if (RE_RESOLVE_ALL_XPATHS) {                    
+                if (RE_RESOLVE_ALL_XPATHS) {
                     et = (SurveyLog.DEBUG) ? new ElapsedTimer("Re-resolver loading for xpaths in " + locale) : null;
                     int j = 0;
                     for (String xp : allPXDPaths()) {
@@ -929,24 +928,24 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             diskFile.getSourceLocaleID(path, status); // ask disk file
             String baileyValue = null;
             if (status.pathWhereFound.equals(path)) {
-              // we found it on the same path, so no aliasing
-              // for that case, it is safe to use the parent's value
-              if(fallbackParent == null) {
-                  // we are in root. 
-                  baileyValue = diskData.getBaileyValue(path, null, null);
-              } else {
-                  baileyValue = fallbackParent.getStringValue(path);
-              }
+                // we found it on the same path, so no aliasing
+                // for that case, it is safe to use the parent's value
+                if (fallbackParent == null) {
+                    // we are in root. 
+                    baileyValue = diskData.getBaileyValue(path, null, null);
+                } else {
+                    baileyValue = fallbackParent.getStringValue(path);
+                }
             } else {
-              // the path changed, so use that path to get the right value
-              // from the *current* file (not the parent)
+                // the path changed, so use that path to get the right value
+                // from the *current* file (not the parent)
 //              System.out.println("≥≥@@@>>" + path +" << " + status.pathWhereFound);
-              r = getResolverInternal(peekXpathData(status.pathWhereFound), status.pathWhereFound, r);
-              // Issue- "status.pathWhereFound"'s votes may not have been counted yet.
-              baileyValue = r.getWinningValue();
+                r = getResolverInternal(peekXpathData(status.pathWhereFound), status.pathWhereFound, r);
+                // Issue- "status.pathWhereFound"'s votes may not have been counted yet.
+                baileyValue = r.getWinningValue();
 //              System.out.println("≥≥@@@>>" + path +" << " + status.pathWhereFound + " == " + baileyValue);
 //              baileyValue = currentFile.getStringValue(status.pathWhereFound);
-               r.clear(); // clear it again
+                r.clear(); // clear it again
             }
 
             final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
@@ -975,8 +974,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.setTrunk(currentValue, currentStatus);
                 r.add(currentValue);
             }
-            
-            r.setBaileyValue(baileyValue); 
+
+            r.setBaileyValue(baileyValue);
 
             // add each vote
             if (perXPathData != null && !perXPathData.isEmpty()) {
@@ -1647,7 +1646,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public STFactory(SurveyMain sm) {
         super();
-        if(sm == null) {
+        if (sm == null) {
             throw new IllegalArgumentException("sm must not be null");
         }
         this.sm = sm;

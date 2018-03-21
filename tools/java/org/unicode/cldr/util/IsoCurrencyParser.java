@@ -36,8 +36,7 @@ public class IsoCurrencyParser {
      * These corrections are country descriptions that are in the ISO4217 tables but carry a different spelling
      * in the language subtag registry.
      */
-    private static final ImmutableMap<String, String> COUNTRY_CORRECTIONS =
-        new ImmutableMap.Builder<String, String>()
+    private static final ImmutableMap<String, String> COUNTRY_CORRECTIONS = new ImmutableMap.Builder<String, String>()
         .put("UNITED ARAB EMIRATES (THE)", "AE")
         .put(Utility.unescape("\u00C5LAND ISLANDS"), "AX")
         .put("SAINT BARTH\u00C9LEMY", "BL")

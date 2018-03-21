@@ -82,5 +82,5 @@ public class TestRangeAbbreviator {
     }
 
     static final String[] STYLE_NAMES = { "None", "Full", "Long", "Medium",
-    "Short" };
+        "Short" };
 }

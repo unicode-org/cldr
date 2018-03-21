@@ -22,7 +22,8 @@ public class GenerateLikelySubtagTests {
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
     public static void main(String[] args) throws IOException {
-        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "test/supplemental/likelySubtagTests" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
+            "test/supplemental/likelySubtagTests" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
         if (OUTPUT_STYLE == OutputStyle.C) {
             out.println("// START");
         } else {
@@ -83,11 +84,11 @@ public class GenerateLikelySubtagTests {
         if (OUTPUT_STYLE == OutputStyle.C) {
             out.print(
                 "  {"
-                // + SEPARATOR + "    // " + comment
-                + SEPARATOR + "    " + getItem(from) + ","
-                + SEPARATOR + "    " + getItem(maxFrom) + ","
-                + SEPARATOR + "    " + getItem(minFrom) // +","
-                + CldrUtility.LINE_SEPARATOR + "  },");
+                    // + SEPARATOR + "    // " + comment
+                    + SEPARATOR + "    " + getItem(from) + ","
+                    + SEPARATOR + "    " + getItem(maxFrom) + ","
+                    + SEPARATOR + "    " + getItem(minFrom) // +","
+                    + CldrUtility.LINE_SEPARATOR + "  },");
         } else {
             out.println("    <!-- " + printNameOrError(from) + " \u2192 " +
                 printNameOrError(maxFrom) + " \u2192 " +

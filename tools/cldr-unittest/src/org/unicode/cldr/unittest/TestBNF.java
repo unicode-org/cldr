@@ -16,67 +16,67 @@ import org.unicode.cldr.util.Tokenizer;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestBNF {
-    
+
     static final String[] testRules = {
         "$root = [ab]{3};",
-        
-        "$root = [ab]{3,};",
-        
-        "$root = [ab]{3,5};",
-        
-        "$root = [ab]*;",
-        
-        "$root = [ab]?;",
-        
-        "$root = [ab]+;",
-        
-        "$us = [a-z];" +
-        "$root = [0-9$us];",
-        
-        "$root = a $foo b? 25% end 30% | $foo 50%;\r\n" +
-        "$foo = c{1,5} 20%;",
-        
-        "$root = [a-z]{1,5}~;",
-        
-        "$root = [a-z]{5}~;",
-        
-        "$root = '\\' (u | U0010 | U000 $hex) $hex{4} ;\r\n" +
-        "$hex = [0-9A-Fa-f];",
-    };
-        
-    static String unicodeSetBNF = "" +
-    "$root = $leaf | '[' $s $root2 $s ']' ;\r\n" +
-    "$root2 = $leaf | '[' $s $root3 $s ']' | ($root3 $s ($op $root3 $s){0,3}) ;\r\n" +
-    "$root3 = $leaf | '[' $s $root4 $s ']' | ($root4 $s ($op $root4 $s){0,3}) ;\r\n" +
-    "$root4 = $leaf | ($leaf $s ($op $leaf $s){0,3}) ;\r\n" +
-    "$op = (('&' | '-') $s)? 70%;" +
-    "$leaf = '[' $s $list $s ']' | $prop;\r\n" +
-    "$list = ($char $s ('-' $s $char $s)? 30%){1,5} ;\r\n" +
-    "$prop = '\\' (p | P) '{' $s $propName $s '}' | '[:' '^'? $s $propName $s ':]';\r\n" +
-    "$needsQuote = [\\-\\][:whitespace:][:control:]] ;\r\n" +
-    "$char = [[\\u0000-\\U00010FFFF]-$needsQuote] | $quoted ;\r\n" +
-    "$quoted = '\\' ('u' | 'U0010' | 'U000' $hex) $hex{4} ;\r\n" +
-    "$hex = [0-9A-Fa-f];\r\n" +
-    "$s = ' '? 20%;\r\n" +
-    "$propName = (whitespace | ws) | (uppercase | uc) | (lowercase | lc) | $category;\r\n" +
-    "$category = ((general | gc) $s '=' $s)? $catvalue;\r\n" +
-    "$catvalue = (C | Other | Cc | Control | Cf | Format | Cn | Unassigned | L | Letter);\r\n";
 
-    public static void main (String[] args) {
+        "$root = [ab]{3,};",
+
+        "$root = [ab]{3,5};",
+
+        "$root = [ab]*;",
+
+        "$root = [ab]?;",
+
+        "$root = [ab]+;",
+
+        "$us = [a-z];" +
+            "$root = [0-9$us];",
+
+        "$root = a $foo b? 25% end 30% | $foo 50%;\r\n" +
+            "$foo = c{1,5} 20%;",
+
+        "$root = [a-z]{1,5}~;",
+
+        "$root = [a-z]{5}~;",
+
+        "$root = '\\' (u | U0010 | U000 $hex) $hex{4} ;\r\n" +
+            "$hex = [0-9A-Fa-f];",
+    };
+
+    static String unicodeSetBNF = "" +
+        "$root = $leaf | '[' $s $root2 $s ']' ;\r\n" +
+        "$root2 = $leaf | '[' $s $root3 $s ']' | ($root3 $s ($op $root3 $s){0,3}) ;\r\n" +
+        "$root3 = $leaf | '[' $s $root4 $s ']' | ($root4 $s ($op $root4 $s){0,3}) ;\r\n" +
+        "$root4 = $leaf | ($leaf $s ($op $leaf $s){0,3}) ;\r\n" +
+        "$op = (('&' | '-') $s)? 70%;" +
+        "$leaf = '[' $s $list $s ']' | $prop;\r\n" +
+        "$list = ($char $s ('-' $s $char $s)? 30%){1,5} ;\r\n" +
+        "$prop = '\\' (p | P) '{' $s $propName $s '}' | '[:' '^'? $s $propName $s ':]';\r\n" +
+        "$needsQuote = [\\-\\][:whitespace:][:control:]] ;\r\n" +
+        "$char = [[\\u0000-\\U00010FFFF]-$needsQuote] | $quoted ;\r\n" +
+        "$quoted = '\\' ('u' | 'U0010' | 'U000' $hex) $hex{4} ;\r\n" +
+        "$hex = [0-9A-Fa-f];\r\n" +
+        "$s = ' '? 20%;\r\n" +
+        "$propName = (whitespace | ws) | (uppercase | uc) | (lowercase | lc) | $category;\r\n" +
+        "$category = ((general | gc) $s '=' $s)? $catvalue;\r\n" +
+        "$catvalue = (C | Other | Cc | Control | Cf | Format | Cn | Unassigned | L | Letter);\r\n";
+
+    public static void main(String[] args) {
         testTokenizer();
         for (int i = 0; i < testRules.length; ++i) {
-            testBNF(testRules[i], null, 20);          
+            testBNF(testRules[i], null, 20);
         }
-        
+
         testBNF(unicodeSetBNF, null, 20);
         //testParser();
     }
-    
+
     static void testBNF(String rules, UnicodeSet chars, int count) {
         BNF bnf = new BNF(new Random(0), new Quoter.RuleQuoter())
-        .addSet("$chars", chars)
-        .addRules(rules)
-        .complete();
+            .addSet("$chars", chars)
+            .addRules(rules)
+            .complete();
 
         System.out.println("====================================");
         System.out.println("BNF");
@@ -86,7 +86,7 @@ public class TestBNF {
             System.out.println(i + ": " + bnf.next());
         }
     }
-    
+
     /*
     public static testManual() {
         Pick p = Pick.maybe(75,Pick.unquoted("a"));
@@ -110,11 +110,11 @@ public class TestBNF {
         // testEnglish();        
     }
     */
-    
+
     static void testMatch(Pick p, String source) {
         Pick.Position pp = new Pick.Position();
         boolean value = p.match(source, pp);
-        System.out.println("Match: " + value + ", " + pp);      
+        System.out.println("Match: " + value + ", " + pp);
     }
     /*
     static void testParser() {
@@ -129,15 +129,18 @@ public class TestBNF {
         }
     }
     */
-    
+
     static class Counts {
-        int[] counts;       
+        int[] counts;
+
         Counts(int max) {
-            counts = new int[max+1];
+            counts = new int[max + 1];
         }
+
         void inc(int index) {
             counts[index]++;
         }
+
         void show() {
             System.out.println("Printing Counts");
             for (int i = 0; i < counts.length; ++i) {
@@ -147,8 +150,8 @@ public class TestBNF {
             System.out.println();
         }
     }
-    
-/*    static final String[] rules = {
+
+    /*    static final String[] rules = {
         "$s = ' ';",
         "$noun = dog | house | government | wall | street | zebra;",
         "$adjective = red | glorious | simple | nasty | heavy | clean;",
@@ -164,7 +167,7 @@ public class TestBNF {
         "$conj = but | and | or;",
         "$sentence4 = $sentence1 | $sentence2 | $sentence3 20% | $sentence4 $conj $sentence4 20%;",
         "$sentence = $sentence4 '.';"};
- */
+     */
     /*
     private static void testEnglish() {
         Pick s = Pick.unquoted(" ");
@@ -216,19 +219,19 @@ public class TestBNF {
     */
     public static void printRandoms() {
         BNF bnf = new BNF(new Random(0), new Quoter.RuleQuoter())
-        .addRules("[a-z]{2,5}").complete();
+            .addRules("[a-z]{2,5}").complete();
         System.out.println("Start");
         for (int i = 0; i < 100; ++i) {
             String temp = bnf.next();
             System.out.println(i + ")\t" + temp);
         }
     }
-    
+
     public static void testTokenizer() {
         Tokenizer t = new Tokenizer();
-        
-        String[] samples = {"a'b'c d #abc\r e", "'a '123 321", 
-            "\\\\", "a'b", "a'", "abc def%?ghi", "%", "a", "\\ a", "a''''b"};
+
+        String[] samples = { "a'b'c d #abc\r e", "'a '123 321",
+            "\\\\", "a'b", "a'", "abc def%?ghi", "%", "a", "\\ a", "a''''b" };
         for (int i = 0; i < samples.length; ++i) {
             t.setSource(samples[i]);
             System.out.println();
@@ -242,4 +245,3 @@ public class TestBNF {
     }
 
 }
-

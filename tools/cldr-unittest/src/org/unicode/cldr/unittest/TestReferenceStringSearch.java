@@ -55,7 +55,7 @@ public class TestReferenceStringSearch {
             { "\u03BA\u03B1\u03B9", "\u03BA\u03B1\u1FBE" }, };
 
         ReferenceStringSearch refSearch = new ReferenceStringSearch()
-        .setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER);
+            .setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER);
         ExtendedRange extendedRange = new ExtendedRange();
         Range range = new Range();
 
@@ -76,7 +76,7 @@ public class TestReferenceStringSearch {
 
             refSearch.setNativeOffset(0);
             System.out
-            .println("Positions of '" + key + "' in '" + target + "'");
+                .println("Positions of '" + key + "' in '" + target + "'");
             count = 0;
             while (refSearch.searchForwards(range)) {
                 // System.out.println(range); // for the numeric offsets
@@ -134,8 +134,8 @@ public class TestReferenceStringSearch {
         count = 0;
         Range range = new Range();
         ReferenceStringSearch rss = new ReferenceStringSearch()
-        .setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER)
-        .setKey(key).setTarget(bigText);
+            .setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER)
+            .setKey(key).setTarget(bigText);
 
         rss.searchForwards(range);
         newPos[count++] = range.start;
@@ -229,7 +229,7 @@ public class TestReferenceStringSearch {
                 range.limit = limit;
                 return true;
             }
-        return true;
+            return true;
         }
 
         public DirectStringSearch setTarget(String textToSearchIn) {

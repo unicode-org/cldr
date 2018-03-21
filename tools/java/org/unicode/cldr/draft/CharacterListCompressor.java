@@ -199,11 +199,9 @@ public class CharacterListCompressor {
 
             if (lastCode < first) {
                 addPair(result, first - lastCode - 1, 0);
-            }
-            else if (lastCode > first) {
+            } else if (lastCode > first) {
                 addPair(result, lastCode - first - 1, 1);
-            }
-            else if (lastCode == first) {
+            } else if (lastCode == first) {
                 System.out.println("I am not expecting two contiguous chars to be the same");
             }
             lastCode = first;
@@ -239,12 +237,10 @@ public class CharacterListCompressor {
             if (type == 0) {
                 lastCode += value + 1;
                 addInterval(result, lastCode, lastCode);
-            }
-            else if (type == 1) {
+            } else if (type == 1) {
                 lastCode -= value + 1;
                 addInterval(result, lastCode, lastCode);
-            }
-            else if (type == 2) {
+            } else if (type == 2) {
                 int first = lastCode + 1;
                 int last = first + value;
                 addInterval(result, first, last);
@@ -355,8 +351,7 @@ public class CharacterListCompressor {
                     str = str.replaceAll("\\\\(.)", "$1");
                     System.out.println(str);
                     strBuild.append(str);
-                }
-                else {
+                } else {
                     sc.next();
                 }
             }

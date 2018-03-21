@@ -30,21 +30,21 @@ public class CLDRPaths {
     public static final String CASING_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, "casing/");
     public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN",
         CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "main"));
-    
+
     public static final String RBNF_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "rbnf/");
     public static final String TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "transforms/");
     public static final String ANNOTATIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "annotations/");
     public static final String SUBDIVISIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "subdivisions/");
     public static final String ANNOTATIONS_DERIVED_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "annotationsDerived/");
-    
+
     public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
         CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../seed/main"));
     public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../collation/");
     public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../casing/");
     public static final String SEED_ANNOTATIONS_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../annotations/");
-    
+
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/main/");
-    
+
     public static final String TMP_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp/")));
     public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
@@ -52,7 +52,7 @@ public class CLDRPaths {
     public static final String TMP2_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp2/")));
     // external data
-    public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE", 
+    public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-archive/")));
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
         ToolConstants.PREVIOUS_CHART_VERSION +
@@ -60,16 +60,14 @@ public class CLDRPaths {
     public static final String CLDR_PRIVATE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_PRIVATE_DATA",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-private/")));
 
-    public static final String LAST_COMMON_DIRECTORY =
-	CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
-    public static final String LAST_TRANSFORMS_DIRECTORY =
-	CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "transforms/");
-    
+    public static final String LAST_COMMON_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
+    public static final String LAST_TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "transforms/");
+
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         CldrUtility.getPath(LOCAL_DIRECTORY, "Generated/cldr/")));
     public static final String DATA_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_EXT_DATA_DIR",
         CldrUtility.getPath(LOCAL_DIRECTORY, "Data/")));
-    
+
     public static final String UCD_DATA_DIRECTORY = CldrUtility.getPath(EXTERNAL_DIRECTORY + "unicodetools/draft/");
     public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
     public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/births/");
@@ -95,39 +93,27 @@ public class CLDRPaths {
         CldrUtility.class, "data/");
 
     public enum DIRECTORIES {
-        common_dtd,
-        common_properties,
-        common_uca,
-        
+        common_dtd, common_properties, common_uca,
+
         common_bcp47(DtdType.ldmlBCP47),
-        
-        common_annotations(DtdType.ldml),
-        common_casing(DtdType.ldml),
-        common_collation(DtdType.ldml),
-        common_main(DtdType.ldml),
-        common_rbnf(DtdType.ldml),
-        common_segments(DtdType.ldml),
-        common_subdivisions(DtdType.ldml),
-        
-        common_supplemental(DtdType.supplementalData),
-        common_transforms(DtdType.supplementalData),
-        common_validity(DtdType.supplementalData),
-        
-        keyboards_android(DtdType.keyboard, DtdType.platform),
-        keyboards_chromeos(DtdType.keyboard, DtdType.platform),
-        keyboards_dtd(DtdType.keyboard, DtdType.platform),
-        keyboards_osx(DtdType.keyboard, DtdType.platform),
-        keyboards_und(DtdType.keyboard, DtdType.platform),
-        keyboards_windows(DtdType.keyboard, DtdType.platform),
-        ;
-        
+
+        common_annotations(DtdType.ldml), common_casing(DtdType.ldml), common_collation(DtdType.ldml), common_main(DtdType.ldml), common_rbnf(
+            DtdType.ldml), common_segments(DtdType.ldml), common_subdivisions(DtdType.ldml),
+
+        common_supplemental(DtdType.supplementalData), common_transforms(DtdType.supplementalData), common_validity(DtdType.supplementalData),
+
+        keyboards_android(DtdType.keyboard, DtdType.platform), keyboards_chromeos(DtdType.keyboard, DtdType.platform), keyboards_dtd(DtdType.keyboard,
+            DtdType.platform), keyboards_osx(DtdType.keyboard,
+                DtdType.platform), keyboards_und(DtdType.keyboard, DtdType.platform), keyboards_windows(DtdType.keyboard, DtdType.platform),
+                ;
+
         public final List<DtdType> dtdType;
-        
+
         private DIRECTORIES(DtdType... dtdType) {
             this.dtdType = ImmutableList.copyOf(dtdType);
         }
     }
-    
+
     @Deprecated //use DtdType.ldml.directories
 //    public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
 //        "main",

@@ -87,11 +87,9 @@ public class OutputFileManager {
     }
 
     public enum Kind {
-        vxml("Vetted XML. This is the 'final' output from the SurveyTool."),
-        xml("Input XML. This is the on-disk data as read by the SurveyTool."),
-        rxml("Fully resolved, vetted, XML. This includes all parent data. Huge and expensive."),
-        fxml("'Final' data. Obsolete."),
-        pxml("Proposed XML. This data contains all possible user proposals and can be used to reconstruct the voting situation.");
+        vxml("Vetted XML. This is the 'final' output from the SurveyTool."), xml("Input XML. This is the on-disk data as read by the SurveyTool."), rxml(
+            "Fully resolved, vetted, XML. This includes all parent data. Huge and expensive."), fxml("'Final' data. Obsolete."), pxml(
+                "Proposed XML. This data contains all possible user proposals and can be used to reconstruct the voting situation.");
 
         Kind(String desc) {
             this.desc = desc;
@@ -351,35 +349,35 @@ public class OutputFileManager {
                 if (false && /* for now- just add, don't commit */
                     tryCommit && outFile.exists())
                     try {
-                        File dirs[] = { outFile };
-                        ElapsedTimer et = new ElapsedTimer();
-                        SVNCommitInfo i = svnCommit(dirs);
-                        if (true)
-                            System.err.println("SVN: committed " + outFile.getAbsolutePath() + " - " + i.toString() + " t=" + et);
-                    } catch (SVNException e) {
-                        if (e.getMessage().contains("E155007")) {
-                            SurveyLog.logException(e,
-                                "Trying to commit [and giving up on SVN commits!]" + outFile.getAbsolutePath());
-                            tryCommit = false;
-                        } else if (e.getMessage().contains("E155011")) {
-                            SurveyLog.logException(e, "Out of date in commit - will update and REMOVE (to be regenerated) "
-                                + outFile.getAbsolutePath());
-                            try {
-                                long l = svnUpdate(outFile);
-                                System.err.println("Updated " + outFile.getAbsolutePath() + " to r" + l
-                                    + " - will now delete/rewrite it so that it up to date");
-                            } catch (SVNException e1) {
-                                SurveyLog.logException(e1, "While trying to update " + outFile.getAbsolutePath());
-                            } finally {
-                                outFile.delete(); //
-                    doWriteFile(loc, file, kind, isFlat, outFile);
-                    SurveyLog.debug("Updater: Updated, Re-Wrote: " + kind + "/" + loc + " - "
-                        + ElapsedTimer.elapsedTime(st));
+                    File dirs[] = { outFile };
+                    ElapsedTimer et = new ElapsedTimer();
+                    SVNCommitInfo i = svnCommit(dirs);
+                    if (true)
+                        System.err.println("SVN: committed " + outFile.getAbsolutePath() + " - " + i.toString() + " t=" + et);
+                } catch (SVNException e) {
+                    if (e.getMessage().contains("E155007")) {
+                        SurveyLog.logException(e,
+                            "Trying to commit [and giving up on SVN commits!]" + outFile.getAbsolutePath());
+                        tryCommit = false;
+                    } else if (e.getMessage().contains("E155011")) {
+                        SurveyLog.logException(e, "Out of date in commit - will update and REMOVE (to be regenerated) "
+                            + outFile.getAbsolutePath());
+                        try {
+                            long l = svnUpdate(outFile);
+                            System.err.println("Updated " + outFile.getAbsolutePath() + " to r" + l
+                                + " - will now delete/rewrite it so that it up to date");
+                        } catch (SVNException e1) {
+                            SurveyLog.logException(e1, "While trying to update " + outFile.getAbsolutePath());
+                        } finally {
+                            outFile.delete(); //
+                            doWriteFile(loc, file, kind, isFlat, outFile);
+                            SurveyLog.debug("Updater: Updated, Re-Wrote: " + kind + "/" + loc + " - "
+                                + ElapsedTimer.elapsedTime(st));
+                        }
+                    } else {
+                        SurveyLog.logException(e, "Trying to commit " + outFile.getAbsolutePath());
+                    }
                 }
-            } else {
-                SurveyLog.logException(e, "Trying to commit " + outFile.getAbsolutePath());
-            }
-        }
             }
             return outFile;
         } catch (IOException e) {
@@ -404,9 +402,9 @@ public class OutputFileManager {
 //    Map<String, Object> options = CldrUtility.asMap(new Object[][] {
 //        { "SUPPRESS_IM", true } });
     Map<String, Object> OPTS_SKIP_ANNOTATIONS = ImmutableMap.of("SUPPRESS_IM", true,
-           "SKIP_PATH", isAnnotations);
+        "SKIP_PATH", isAnnotations);
     Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of("SUPPRESS_IM", true,
-           "SKIP_PATH", isAnnotations.negate() );
+        "SKIP_PATH", isAnnotations.negate());
 
     /**
      * @param loc
@@ -418,20 +416,19 @@ public class OutputFileManager {
      */
     private void doWriteFile(CLDRLocale loc, CLDRFile file, String kind, boolean isFlat, File outFile) throws UnsupportedEncodingException,
         FileNotFoundException {
-        try(PrintWriter u8out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF8"))) {
-    
-    
+        try (PrintWriter u8out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF8"))) {
+
             if (!isFlat) {
                 if (kind.equals("vxml") || kind.equals("rxml")) {
                     file.write(u8out, OPTS_SKIP_ANNOTATIONS);
-                    
+
                     // output annotations, too
                     File parentDir = outFile.getParentFile().getParentFile();
                     File annotationsDir = new File(parentDir, "annotations");
                     annotationsDir.mkdirs();
-                    File aFile = new File(annotationsDir,outFile.getName()); // same name, different subdir
+                    File aFile = new File(annotationsDir, outFile.getName()); // same name, different subdir
 //                    System.out.println("Annotation: " + aFile.getAbsolutePath());
-                    try(PrintWriter u8outa = new PrintWriter(new OutputStreamWriter(new FileOutputStream(aFile), "UTF8"))) {
+                    try (PrintWriter u8outa = new PrintWriter(new OutputStreamWriter(new FileOutputStream(aFile), "UTF8"))) {
                         file.write(u8outa, OPTS_KEEP_ANNOTATIONS);
                     }
                 } else {

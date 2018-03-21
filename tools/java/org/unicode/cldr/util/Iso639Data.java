@@ -301,7 +301,7 @@ public class Iso639Data {
 
             int count = 0; // line count for debugging
             while (true) {
-                ++count; 
+                ++count;
                 String line = in.readLine();
                 if (line == null) {
                     break;

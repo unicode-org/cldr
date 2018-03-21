@@ -101,7 +101,7 @@ public class AttributeValueValidity {
         addCollectionVariable("$_bcp47_value", bcp47Values);
 
         Validity validity = Validity.getInstance();
-        for (LstrType key : LstrType.values()) { 
+        for (LstrType key : LstrType.values()) {
             final Map<Validity.Status, Set<String>> statusToCodes = validity.getStatusToCodes(key);
             if (statusToCodes == null) {
                 continue;
@@ -125,10 +125,10 @@ public class AttributeValueValidity {
                         if (item.contains("-")) {
                             List<String> parts = Splitter.on('-').splitToList(item);
                             prefix.add(parts.get(0));
-                            suffix.add(parts.get(1)); }
-                        else {
+                            suffix.add(parts.get(1));
+                        } else {
                             int prefixWidth = item.charAt(0) < 'A' ? 3 : 2;
-                            prefix.add(item.substring(0,prefixWidth));
+                            prefix.add(item.substring(0, prefixWidth));
                             suffix.add(item.substring(prefixWidth));
                         }
                     }
@@ -389,17 +389,7 @@ public class AttributeValueValidity {
 //    }
 
     enum MatcherTypes {
-        single,
-        choice,
-        list,
-        unicodeSet,
-        unicodeSetOrString,
-        regex,
-        locale,
-        bcp47,
-        subdivision,
-        localeSpecific,
-        TODO;
+        single, choice, list, unicodeSet, unicodeSetOrString, regex, locale, bcp47, subdivision, localeSpecific, TODO;
     }
 
     private static MatcherPattern getMatcherPattern2(String type, String value) {
@@ -593,7 +583,7 @@ public class AttributeValueValidity {
             return collection.toPattern(false);
         }
     }
-    
+
     public static class UnicodeSetOrStringMatcher extends MatcherPattern {
         private final UnicodeSet collection;
 
@@ -628,7 +618,6 @@ public class AttributeValueValidity {
             return collection.toPattern(false);
         }
     }
-
 
     public static class OrMatcher extends MatcherPattern {
         private final MatcherPattern[] operands;
@@ -785,8 +774,7 @@ public class AttributeValueValidity {
                 type, other.type,
                 element, other.element,
                 attribute, other.attribute,
-                attributeValue, other.attributeValue
-                );
+                attributeValue, other.attributeValue);
         }
 
         @Override
@@ -891,7 +879,7 @@ public class AttributeValueValidity {
     public static Set<String> getMatcherPatternIds() {
         return Collections.unmodifiableSet(variables.keySet());
     }
-    
+
     public static void main(String[] args) {
         for (DtdType type : DtdType.values()) {
             Relation<String, String> missing = getAllPossibleMissing(type);

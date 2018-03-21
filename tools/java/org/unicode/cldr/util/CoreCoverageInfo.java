@@ -30,18 +30,7 @@ public class CoreCoverageInfo {
     private static final LikelySubtags ls = new LikelySubtags(sdi);
 
     public enum CoreItems {
-        main_exemplar,
-        auxiliary_exemplar,
-        index_exemplar,
-        orientation,
-        plurals,
-        ordinals,
-        default_content,
-        likely_subtags,
-        country_data,
-        romanization,
-        casing,
-        collation;
+        main_exemplar, auxiliary_exemplar, index_exemplar, orientation, plurals, ordinals, default_content, likely_subtags, country_data, romanization, casing, collation;
         public static Set<CoreItems> ONLY_RECOMMENDED = Collections.unmodifiableSet(
             EnumSet.of(romanization, ordinals));
         public static final int COUNT = CoreItems.values().length;
@@ -249,5 +238,5 @@ public class CoreCoverageInfo {
         }
         return false;
     }
-    
+
 }

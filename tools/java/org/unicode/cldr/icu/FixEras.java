@@ -51,8 +51,7 @@ public class FixEras {
             "-s or --sourcedir          source directory followed by the path.\n" +
             "-d or --destination        destination directory, followed by the path, default is current directory.\n" +
             "-h or -? or --help         this usage text.\n" +
-            "example: com.ibm.icu.dev.tool.cldr.FixErs ar.xml\n"
-            );
+            "example: com.ibm.icu.dev.tool.cldr.FixErs ar.xml\n");
         System.exit(-1);
     }
 

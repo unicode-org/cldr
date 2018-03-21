@@ -49,7 +49,7 @@ public class TestCldrResolver extends TestFmwkPlus {
                 CLDRFile file) {
                 return super.shouldIgnorePath(distinguishedPath, file)
                     || file.getSourceLocaleID(distinguishedPath, null)
-                    .equals(CldrResolver.CODE_FALLBACK);
+                        .equals(CldrResolver.CODE_FALLBACK);
             }
         }.testResolution();
     }
@@ -138,7 +138,8 @@ public class TestCldrResolver extends TestFmwkPlus {
                                 + " is present in CLDR resolved file for locale "
                                 + locale
                                 + " but not in tool resolved file (CLDR value: '"
-                                + cldrValue + "').", toolValue);
+                                + cldrValue + "').",
+                            toolValue);
                         assertEquals("Tool resolved value for "
                             + distinguishedPath + " in locale " + locale
                             + " should match CLDRFile resolved value",
@@ -159,10 +160,10 @@ public class TestCldrResolver extends TestFmwkPlus {
                                 + " is present in tool resolved file for locale "
                                 + locale
                                 + " but not in CLDR resolved file.",
-                                cldrPaths.contains(canonicalPath)
+                            cldrPaths.contains(canonicalPath)
                                 || toolResolved
-                                .get(canonicalPath)
-                                .equals(CldrUtility.NO_INHERITANCE_MARKER));
+                                    .get(canonicalPath)
+                                    .equals(CldrUtility.NO_INHERITANCE_MARKER));
                     }
                 }
             }
@@ -185,8 +186,7 @@ public class TestCldrResolver extends TestFmwkPlus {
                 Map<String, String> resolvedParent = loadToolDataFromResolver(parent);
                 Map<String, String> resolvedChild = new HashMap<String, String>(
                     resolvedParent);
-                Map<String, String> unresolvedChild = super
-                    .loadToolDataFromResolver(locale);
+                Map<String, String> unresolvedChild = super.loadToolDataFromResolver(locale);
                 for (String distinguishedPath : unresolvedChild.keySet()) {
 
                     String childValue = unresolvedChild.get(distinguishedPath);
@@ -199,8 +199,9 @@ public class TestCldrResolver extends TestFmwkPlus {
                                 + locale
                                 + ") should not contain values that are the same in the truncation parent locale ("
                                 + parent + ") at path '"
-                                + distinguishedPath + "'.", childValue,
-                                parentValue);
+                                + distinguishedPath + "'.",
+                            childValue,
+                            parentValue);
                     }
                     // Overwrite the parent value
                     resolvedChild.put(distinguishedPath, childValue);

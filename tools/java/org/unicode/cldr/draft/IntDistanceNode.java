@@ -33,10 +33,12 @@ final class IntDistanceNode extends DistanceNode {
         IntDistanceNode other = (IntDistanceNode) obj;
         return distance == other.distance && Objects.equal(distanceTable, other.distanceTable);
     }
+
     @Override
     public int hashCode() {
         return distance ^ Objects.hashCode(distanceTable);
     }
+
     @Override
     public String toString() {
         return "\ndistance: " + distance + ", " + distanceTable;
@@ -45,9 +47,10 @@ final class IntDistanceNode extends DistanceNode {
     public static DistanceNode from(int distance, IntDistanceNode.IntDistanceTable otherTable) {
         return otherTable == null ? new DistanceNode(distance) : new IntDistanceNode(distance, otherTable);
     }
-    
+
     static class IntDistanceTable extends DistanceTable {
-        private static final IdMakerFull[] ids = {new IdMakerFull<String>("lang", XLocaleDistance.ANY), new IdMakerFull<String>("script", XLocaleDistance.ANY), new IdMakerFull<String>("region", XLocaleDistance.ANY)};
+        private static final IdMakerFull[] ids = { new IdMakerFull<String>("lang", XLocaleDistance.ANY), new IdMakerFull<String>("script", XLocaleDistance.ANY),
+            new IdMakerFull<String>("region", XLocaleDistance.ANY) };
         private static final IdMakerFull<IntDistanceNode.IntDistanceTable> cache = new IdMakerFull<>("table");
 
         private final IdMakerFull<String> id;
@@ -65,7 +68,7 @@ final class IntDistanceNode extends DistanceNode {
                     int supported = id.add(e2.getKey());
                     StringDistanceNode oldNode = (StringDistanceNode) e2.getValue();
                     if (oldNode.distanceTable != null) {
-                        loadIds((StringDistanceTable)oldNode.distanceTable, idNumber+1);
+                        loadIds((StringDistanceTable) oldNode.distanceTable, idNumber + 1);
                     }
                 }
             }
@@ -84,8 +87,8 @@ final class IntDistanceNode extends DistanceNode {
                     int supported = id.add(e2.getKey());
                     DistanceNode oldNode = e2.getValue();
                     final StringDistanceTable oldDistanceTable = (StringDistanceTable) oldNode.getDistanceTable();
-                    IntDistanceNode.IntDistanceTable otherTable = oldDistanceTable == null ? null 
-                        : cache.intern(new IntDistanceTable(oldDistanceTable, idNumber+1));
+                    IntDistanceNode.IntDistanceTable otherTable = oldDistanceTable == null ? null
+                        : cache.intern(new IntDistanceTable(oldDistanceTable, idNumber + 1));
                     DistanceNode node = IntDistanceNode.from(oldNode.distance, otherTable);
                     distanceNodes[desired][supported] = node;
                 }
@@ -118,7 +121,7 @@ final class IntDistanceNode extends DistanceNode {
             if (distanceTable != null) {
                 distanceTable.value = value.getDistanceTable();
             }
-            return starEquals && desiredId == supportedId && (desiredId != 0 || desired.equals(supported)) ? 0 
+            return starEquals && desiredId == supportedId && (desiredId != 0 || desired.equals(supported)) ? 0
                 : value.distance;
         }
 
@@ -127,9 +130,11 @@ final class IntDistanceNode extends DistanceNode {
             IntDistanceNode.IntDistanceTable other = (IntDistanceNode.IntDistanceTable) obj;
             if (!id.equals(other.id)) {
                 return false;
-            };
+            }
+            ;
             return Arrays.deepEquals(distanceNodes, other.distanceNodes);
         }
+
         @Override
         public int hashCode() {
             return id.hashCode() ^ Arrays.deepHashCode(distanceNodes);
@@ -137,10 +142,10 @@ final class IntDistanceNode extends DistanceNode {
 
         @Override
         public String toString() {
-            return abbreviate("\t", new HashMap<DistanceNode,Integer>(), new StringBuilder(id.name + ": ")).toString();
+            return abbreviate("\t", new HashMap<DistanceNode, Integer>(), new StringBuilder(id.name + ": ")).toString();
         }
 
-        private StringBuilder abbreviate(String indent, Map<DistanceNode,Integer> cache, StringBuilder result) {
+        private StringBuilder abbreviate(String indent, Map<DistanceNode, Integer> cache, StringBuilder result) {
             for (int i = 0; i < distanceNodes.length; ++i) {
                 DistanceNode[] row = distanceNodes[i];
                 for (int j = 0; j < row.length; ++j) {
@@ -162,12 +167,13 @@ final class IntDistanceNode extends DistanceNode {
                         final int table = cache.size();
                         cache.put(value, table);
                         result.append("\n" + indent + table + "=" + dt.id.name + ": ");
-                        dt.abbreviate(indent+"\t", cache, result);
+                        dt.abbreviate(indent + "\t", cache, result);
                     }
                 }
             }
             return result;
         }
+
         @Override
         public Set<String> getCloser(int threshold) {
             Set<String> result = new HashSet<>();

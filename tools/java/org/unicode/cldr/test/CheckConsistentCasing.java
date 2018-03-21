@@ -131,7 +131,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 case UCharacter.TITLECASE_LETTER:
                     return titlecase;
 
-                    // for other letters / numbers / symbols, return other
+                // for other letters / numbers / symbols, return other
                 case UCharacter.OTHER_LETTER:
                 case UCharacter.DECIMAL_DIGIT_NUMBER:
                 case UCharacter.LETTER_NUMBER:
@@ -141,7 +141,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 case UCharacter.MODIFIER_SYMBOL:
                 case UCharacter.OTHER_SYMBOL:
                     return other;
-                    // ignore everything else (whitespace, punctuation, etc) and keep going
+                // ignore everything else (whitespace, punctuation, etc) and keep going
                 }
             }
             return other;
@@ -156,12 +156,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     }
 
     public enum CasingTypeAndErrFlag {
-        titlecase_mismatchWarn(CasingType.titlecase, false),
-        titlecase_mismatchErr(CasingType.titlecase, true),
-        lowercase_mismatchWarn(CasingType.lowercase, false),
-        lowercase_mismatchErr(CasingType.lowercase, true),
-        other_mismatchWarn(CasingType.other, false),
-        other_mismatchErr(CasingType.other, true);
+        titlecase_mismatchWarn(CasingType.titlecase, false), titlecase_mismatchErr(CasingType.titlecase, true), lowercase_mismatchWarn(CasingType.lowercase,
+            false), lowercase_mismatchErr(CasingType.lowercase, true), other_mismatchWarn(CasingType.other, false), other_mismatchErr(CasingType.other, true);
 
         private final CasingType type;
         private final boolean flag; // force error instead of warning for mismatch
@@ -213,27 +209,15 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         .add("//ldml/numbers/currencies/currency.*/displayName", Category.currencyName)
         .add("//ldml/units/unit.*/unitPattern.*(past|future)", Category.relative)
         .add("//ldml/units/unit.*/unitPattern", Category.unit_pattern)
-        // ldml/localeDisplayNames/keys/key[@type=".*"]
-        // ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
-        // ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
-        ;
+    // ldml/localeDisplayNames/keys/key[@type=".*"]
+    // ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
+    // ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
+    ;
 
     Map<Category, CasingTypeAndErrFlag> types = new EnumMap<Category, CasingTypeAndErrFlag>(Category.class);
 
     public enum Category {
-        language, script, territory, variant, keyValue,
-        month_narrow, month_format_except_narrow, month_standalone_except_narrow,
-        day_narrow, day_format_except_narrow, day_standalone_except_narrow,
-        era_narrow, era_abbr, era_name,
-        quarter_narrow, quarter_abbreviated, quarter_format_wide, quarter_standalone_wide,
-        calendar_field,
-        zone_exemplarCity, zone_short, zone_long,
-        NOT_USED,
-        metazone_short, metazone_long,
-        symbol,
-        currencyName_count, currencyName,
-        relative, unit_pattern,
-        key;
+        language, script, territory, variant, keyValue, month_narrow, month_format_except_narrow, month_standalone_except_narrow, day_narrow, day_format_except_narrow, day_standalone_except_narrow, era_narrow, era_abbr, era_name, quarter_narrow, quarter_abbreviated, quarter_format_wide, quarter_standalone_wide, calendar_field, zone_exemplarCity, zone_short, zone_long, NOT_USED, metazone_short, metazone_long, symbol, currencyName_count, currencyName, relative, unit_pattern, key;
     }
 
     // //ldml/numbers/currencies/currency[@type="ADP"]/displayName
@@ -310,11 +294,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         return info;
     }
 
-    private static final String CASE_WARNING =
-        "The first letter of 〈{0}〉 is {1}, which differs from what is expected " +
-            "for the {2} category: that almost all values be {3}.\n\n" +
-            "For guidance, see ​http://cldr.org/translation/capitalization. " +
-            "If this warning is wrong, please file a ticket at http://unicode.org/cldr/trac/.";
+    private static final String CASE_WARNING = "The first letter of 〈{0}〉 is {1}, which differs from what is expected " +
+        "for the {2} category: that almost all values be {3}.\n\n" +
+        "For guidance, see ​http://cldr.org/translation/capitalization. " +
+        "If this warning is wrong, please file a ticket at http://unicode.org/cldr/trac/.";
 
     private void checkConsistentCasing(Category category, String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {

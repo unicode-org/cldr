@@ -450,10 +450,7 @@ public class LenientDateParser {
     static class Token {
 
         enum Type {
-            ERA, YEAR, MONTH, WEEKDAY, DAY, HOUR, MINUTE, SECOND, AMPM, TIMEZONE,
-            INTEGER,
-            SEPARATOR,
-            UNKNOWN;
+            ERA, YEAR, MONTH, WEEKDAY, DAY, HOUR, MINUTE, SECOND, AMPM, TIMEZONE, INTEGER, SEPARATOR, UNKNOWN;
 
             static Type getType(Object field) {
                 char ch = field.toString().charAt(0);
@@ -464,11 +461,11 @@ public class LenientDateParser {
                 case 'Y':
                 case 'u':
                     return Type.YEAR;
-                    // case 'Q': return Type.QUARTER;
+                // case 'Q': return Type.QUARTER;
                 case 'M':
                 case 'L':
                     return Type.MONTH;
-                    // case 'w': case 'W': return Type.WEEK;
+                // case 'w': case 'W': return Type.WEEK;
                 case 'e':
                 case 'E':
                 case 'c':
@@ -617,13 +614,12 @@ public class LenientDateParser {
 
         public IntegerToken(int value) {
             super(value, Type.INTEGER);
-            allowsAt =
-                value == 0 ? EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND)
-                    : value < 12 ? EnumSet.of(Type.YEAR, Type.MONTH, Type.DAY, Type.HOUR, Type.MINUTE, Type.SECOND)
-                        : value < 25 ? EnumSet.of(Type.YEAR, Type.DAY, Type.HOUR, Type.MINUTE, Type.SECOND)
-                            : value < 32 ? EnumSet.of(Type.YEAR, Type.DAY, Type.MINUTE, Type.SECOND)
-                                : value < 60 ? EnumSet.of(Type.YEAR, Type.MINUTE, Type.SECOND)
-                                    : EnumSet.of(Type.YEAR);
+            allowsAt = value == 0 ? EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND)
+                : value < 12 ? EnumSet.of(Type.YEAR, Type.MONTH, Type.DAY, Type.HOUR, Type.MINUTE, Type.SECOND)
+                    : value < 25 ? EnumSet.of(Type.YEAR, Type.DAY, Type.HOUR, Type.MINUTE, Type.SECOND)
+                        : value < 32 ? EnumSet.of(Type.YEAR, Type.DAY, Type.MINUTE, Type.SECOND)
+                            : value < 60 ? EnumSet.of(Type.YEAR, Type.MINUTE, Type.SECOND)
+                                : EnumSet.of(Type.YEAR);
         }
 
         public boolean restrictAndSetCalendarFieldIfPossible(EnumSet<Type> allowable, SoFar haveSoFar,

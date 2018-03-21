@@ -110,17 +110,17 @@ class ICUWriter {
         Calendar c = Calendar.getInstance();
         StringBuilder buffer = new StringBuilder();
         buffer.append("// ***************************************************************************")
-        .append(LINESEP)
-        .append("// *")
-        .append(LINESEP)
-        .append("// * Copyright (C) ")
-        .append(c.get(Calendar.YEAR))
-        .append(" International Business Machines")
-        .append(LINESEP)
-        .append("// * Corporation and others.  All Rights Reserved.")
-        .append(LINESEP)
-        .append("// * Tool: com.ibm.icu.dev.tool.cldr.LDML2ICUConverter.java")
-        .append(LINESEP);
+            .append(LINESEP)
+            .append("// *")
+            .append(LINESEP)
+            .append("// * Copyright (C) ")
+            .append(c.get(Calendar.YEAR))
+            .append(" International Business Machines")
+            .append(LINESEP)
+            .append("// * Corporation and others.  All Rights Reserved.")
+            .append(LINESEP)
+            .append("// * Tool: com.ibm.icu.dev.tool.cldr.LDML2ICUConverter.java")
+            .append(LINESEP);
         // buffer.append("// * Date & Time: ")
         // .append(c.get(Calendar.YEAR))
         // .append("/")
@@ -152,11 +152,11 @@ class ICUWriter {
             }
         }
         buffer.append("// * Source File:" + tempdir)
-        .append(LINESEP)
-        .append("// *")
-        .append(LINESEP)
-        .append("// ***************************************************************************")
-        .append(LINESEP);
+            .append(LINESEP)
+            .append("// *")
+            .append(LINESEP)
+            .append("// ***************************************************************************")
+            .append(LINESEP);
         writeLine(writer, buffer.toString());
     }
 

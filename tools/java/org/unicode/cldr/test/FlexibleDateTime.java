@@ -177,8 +177,8 @@ public class FlexibleDateTime {
 
     static class LocaleIDFixer {
         LocaleIDParser lip = new LocaleIDParser();
-        static final Set<String> mainLocales = new HashSet<String>(Arrays.asList(new String[]
-            { "ar_EG", "bn_IN", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT", "nl_NL", "pt_BR", "sv_SE", "zh_TW" }));
+        static final Set<String> mainLocales = new HashSet<String>(
+            Arrays.asList(new String[] { "ar_EG", "bn_IN", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT", "nl_NL", "pt_BR", "sv_SE", "zh_TW" }));
         DeprecatedCodeFixer dcf = new DeprecatedCodeFixer();
 
         Map<String, String> fixLocales(Collection<String> available, Map<String, String> result) {
@@ -260,8 +260,7 @@ public class FlexibleDateTime {
                 if (locale.length() == old.length()) {
                     locale = languageAlias.get(old);
                     break;
-                }
-                else if (locale.charAt(old.length()) == '_') {
+                } else if (locale.charAt(old.length()) == '_') {
                     locale = languageAlias.get(old) + locale.substring(old.length());
                     break;
                 }
@@ -436,8 +435,8 @@ public class FlexibleDateTime {
             case '0':
                 string = string.replace('0', 'S');
                 break; // ought to be more sophisticated, but this should work for normal stuff.
-                // case 'a': case 's': case 'm': return string; // ok as is
-                // default: return "x"; // cause error
+            // case 'a': case 's': case 'm': return string; // ok as is
+            // default: return "x"; // cause error
             }
             if (!allowedDateTimeCharacters.containsAll(string)) {
                 throw new IllegalArgumentException("bad char in: " + string);

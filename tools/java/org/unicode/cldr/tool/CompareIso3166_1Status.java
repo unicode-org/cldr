@@ -30,21 +30,11 @@ public class CompareIso3166_1Status {
     private static final Joiner SPACE_JOINER = Joiner.on(" ");
 
     public enum Iso3166Status {
-        officially_assigned,
-        private_use,
-        exceptionally_reserved,
-        indeterminately_reserved,
-        transitionally_reserved,
-        formerly_used,
-        out_of_scope
+        officially_assigned, private_use, exceptionally_reserved, indeterminately_reserved, transitionally_reserved, formerly_used, out_of_scope
     }
 
     public enum CldrStatus {
-        region,
-        macroregion,
-        deprecated,
-        privateUse,
-        unused,
+        region, macroregion, deprecated, privateUse, unused,
     }
 
     public static void main(String[] args) {
@@ -89,8 +79,7 @@ public class CompareIso3166_1Status {
                 + "\t" + bcp47Status.get(regionCode)
                 + "\t" + isoStatus2
                 //+ "\t" + description
-                + "\t" + bcp47Data
-                );
+                + "\t" + bcp47Data);
             seen.add(regionCode);
         }
 
@@ -111,8 +100,7 @@ public class CompareIso3166_1Status {
                 + "\t" + cldrStatus.get(regionCode)
                 + "\t" + bcp47Status.get(regionCode)
                 + "\t" + isoStatus2
-                + "\t" + isoDescription.get(regionCode)
-                );
+                + "\t" + isoDescription.get(regionCode));
         }
         System.out.println();
 

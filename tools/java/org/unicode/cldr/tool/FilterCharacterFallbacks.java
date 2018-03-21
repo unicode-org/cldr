@@ -64,8 +64,7 @@ public class FilterCharacterFallbacks {
                 }
             }
             out.close();
-        }
-        else
+        } else
             System.out.println("Couldn't open characters.xml...");
 
     }

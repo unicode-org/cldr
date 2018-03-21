@@ -65,7 +65,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     public void testSpecificPaths() {
         String[][] rows = {
-            {"//ldml/characters/parseLenients[@scope=\"number\"][@level=\"lenient\"]/parseLenient[@sample=\",\"]", "moderate", "20"}
+            { "//ldml/characters/parseLenients[@scope=\"number\"][@level=\"lenient\"]/parseLenient[@sample=\",\"]", "moderate", "20" }
         };
         Factory phf = PathHeader.getFactory(ENGLISH);
         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SDI, "fr");
@@ -131,7 +131,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             System.out.println(maxLevelCount
                 + "\t"
                 + localesWithUniqueLevels.size()
-                / localeCount
+                    / localeCount
                 + "\t"
                 + starred
                 + "\t"
@@ -253,15 +253,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
             switch (field) {
             case CLDRFile.LANGUAGE_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("language");
+                    .get("language");
                 break;
             case CLDRFile.TERRITORY_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("territory");
+                    .get("territory");
                 break;
             case CLDRFile.SCRIPT_NAME:
                 dep = SDI.getLocaleAliasInfo()
-                .get("script");
+                    .get("script");
                 break;
             default:
                 dep = null;
@@ -292,11 +292,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     RegexLookup<Level> exceptions = RegexLookup.of(null,
         new Transform<String, Level>() {
-        public Level transform(String source) {
-            return Level.fromLevel(Integer.parseInt(source));
-        }
-    }, null).loadFromFile(TestCoverageLevel.class,
-        "TestCoverageLevel.txt");
+            public Level transform(String source) {
+                return Level.fromLevel(Integer.parseInt(source));
+            }
+        }, null).loadFromFile(TestCoverageLevel.class,
+            "TestCoverageLevel.txt");
 
     public void TestExceptions() {
         for (Map.Entry<Finder, Level> x : exceptions) {
@@ -448,8 +448,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if (needsNumberSystem.contains(xpp.getElement(2))) {
                     continue;
                 }
-            }
-            else if (xpp.containsElement("zone")) {
+            } else if (xpp.containsElement("zone")) {
                 String zoneType = xpp.findAttributeValue("zone", "type");
                 if ((zoneType.startsWith("Etc/GMT") || zoneType.equals("Etc/UTC"))
                     && path.endsWith("exemplarCity")) {

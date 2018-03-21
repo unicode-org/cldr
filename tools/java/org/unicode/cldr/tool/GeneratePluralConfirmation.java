@@ -49,7 +49,7 @@ public class GeneratePluralConfirmation {
                         + "; action=add ; new_path="
                         + "//ldml/numbers/minimalPairs/"
                         + (type == PluralRules.PluralType.CARDINAL ? "plural" : "ordinal")
-                        + "MinimalPairs[@" 
+                        + "MinimalPairs[@"
                         + (type == PluralRules.PluralType.CARDINAL ? "count" : "ordinal")
                         + "=\"" + count.toString().toLowerCase(Locale.ENGLISH) + "\"]"
                         + "; new_value="
@@ -59,6 +59,7 @@ public class GeneratePluralConfirmation {
             }
         }
     }
+
     public static void mainOld2(String[] args) {
         Set<String> locales = STANDARD_CODES.getLocaleCoverageLocales(Organization.google);
         // SUPPLEMENTAL.getPluralLocales(PluralType.ordinal)
@@ -70,7 +71,7 @@ public class GeneratePluralConfirmation {
             }
             EnumSet<Count> counts = EnumSet.noneOf(Count.class);
             for (Count count : Count.VALUES) {
-                String pat = prf.getSamplePattern(loc, ICU_ORDINAL , count);
+                String pat = prf.getSamplePattern(loc, ICU_ORDINAL, count);
                 if (pat != null && !pat.contains("{no pattern available}")) {
                     counts.add(count);
                 }
@@ -80,23 +81,24 @@ public class GeneratePluralConfirmation {
                 System.out.format("%s\t%s\t%s\t%s\n", loc, "missing", "n/a", "n/a");
                 break;
             case 1: {
-                String pat = prf.getSamplePattern(loc, ICU_ORDINAL , Count.other);
+                String pat = prf.getSamplePattern(loc, ICU_ORDINAL, Count.other);
                 System.out.format("%s\t%s\t%s\t%s\n", loc, "constant", Count.other, "n/a");
             }
-            break;
+                break;
             default:
                 for (Count count : counts) {
-                    String pat = prf.getSamplePattern(loc, ICU_ORDINAL , count);
+                    String pat = prf.getSamplePattern(loc, ICU_ORDINAL, count);
                     System.out.format("%s\t%s\t%s\t%s\n", loc, "multiple", count, pat);
                 }
                 break;
             }
         }
     }
+
     public static void mainOld(String[] args) {
         Set<String> testLocales = new TreeSet(Arrays.asList(
             "az cy hy ka kk km ky lo mk mn my ne pa si sq uz eu my si sq vi zu"
-            .split(" ")));
+                .split(" ")));
         // STANDARD_CODES.getLocaleCoverageLocales("google");
         System.out.println(testLocales);
         LanguageTagParser ltp = new LanguageTagParser();

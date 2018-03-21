@@ -41,18 +41,8 @@ public class ScriptMetadata {
     private enum Column {
         // must match the spreadsheet header (caseless compare) or have the alternate header as an argument.
         // doesn't have to be in order
-        WR,
-        AGE,
-        SAMPLE_CODE,
-        ID_USAGE("ID Usage (UAX31)"),
-        RTL("RTL?"),
-        LB_LETTERS("LB letters?"),
-        SHAPING_REQ("Shaping Req?"),
-        IME("IME?"),
-        ORIGIN_COUNTRY("Origin Country"),
-        DENSITY("~Density"),
-        LANG_CODE,
-        HAS_CASE("Has Case?");
+        WR, AGE, SAMPLE_CODE, ID_USAGE("ID Usage (UAX31)"), RTL("RTL?"), LB_LETTERS("LB letters?"), SHAPING_REQ("Shaping Req?"), IME("IME?"), ORIGIN_COUNTRY(
+            "Origin Country"), DENSITY("~Density"), LANG_CODE, HAS_CASE("Has Case?");
 
         int columnNumber = -1;
         final Set<String> names = new HashSet<String>();
@@ -92,11 +82,7 @@ public class ScriptMetadata {
     }
 
     public enum IdUsage {
-        UNKNOWN("Other"),
-        EXCLUSION("Historic"),
-        LIMITED_USE("Limited Use"),
-        ASPIRATIONAL("Aspirational"),
-        RECOMMENDED("Major Use");
+        UNKNOWN("Other"), EXCLUSION("Historic"), LIMITED_USE("Limited Use"), ASPIRATIONAL("Aspirational"), RECOMMENDED("Major Use");
 
         public final String name;
 
@@ -146,7 +132,7 @@ public class ScriptMetadata {
         String code = map.get(oldTerm.toUpperCase(Locale.ENGLISH));
         map.put(newTerm.toUpperCase(Locale.ENGLISH), code);
     }
-    
+
     public static final class SkipNewUnicodeException extends ICUException {
     }
 
@@ -319,15 +305,9 @@ public class ScriptMetadata {
     }
 
     public enum Groupings {
-        EUROPEAN("150"),
-        MIDDLE_EASTERN("145"),
-        SOUTH_ASIAN("034"),
-        SOUTHEAST_ASIAN("035"),
-        EAST_ASIAN("030"),
-        AFRICAN("002"),
-        AMERICAN("019"), ;
+        EUROPEAN("150"), MIDDLE_EASTERN("145"), SOUTH_ASIAN("034"), SOUTHEAST_ASIAN("035"), EAST_ASIAN("030"), AFRICAN("002"), AMERICAN("019"),;
         public final Set<String> scripts;
-    
+
         private Groupings(String... regions) {
             scripts = With
                 .in(getScripts())
@@ -337,11 +317,11 @@ public class ScriptMetadata {
 
     static class RegionFilter implements com.ibm.icu.text.Transform<String, String> {
         final String[] containingRegion;
-    
+
         RegionFilter(String... containingRegion) {
             this.containingRegion = containingRegion;
         }
-    
+
         @Override
         public String transform(String script) {
             String currentRegion = getInfo(script).originCountry;

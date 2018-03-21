@@ -365,8 +365,7 @@ public class QuickCheck {
             + "\t" + stockPattern
             + "\t" + (areSame ? "" : flexiblePattern)
             + "\t'" + new SimpleDateFormat(stockPattern, dfs, ulocale).format(SAMPLE_DATE)
-            + "\t'" + (areSame ? "" : new SimpleDateFormat(flexiblePattern, dfs, ulocale).format(SAMPLE_DATE))
-            );
+            + "\t'" + (areSame ? "" : new SimpleDateFormat(flexiblePattern, dfs, ulocale).format(SAMPLE_DATE)));
         return areSame ? 0 : 1;
     }
 

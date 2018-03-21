@@ -15,12 +15,15 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     public enum HourStyle {
         H, Hb(H), HB(H), k, h, hb(h), hB(h), K;
         public final HourStyle base;
+
         HourStyle() {
             base = this;
         }
+
         HourStyle(HourStyle base) {
             this.base = base;
         }
+
         public static boolean isHourCharacter(String c) {
             try {
                 HourStyle.valueOf(c);
@@ -41,7 +44,7 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     public PreferredAndAllowedHour(Collection<HourStyle> allowed) {
         this(allowed.iterator().next(), allowed);
     }
-    
+
     public PreferredAndAllowedHour(HourStyle preferred, Collection<HourStyle> allowed) {
         if (preferred == null) {
             throw new NullPointerException();
@@ -54,7 +57,7 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
         this.preferred = preferred;
         this.allowed = ImmutableList.copyOf(new LinkedHashSet<>(allowed));
     }
-    
+
     public PreferredAndAllowedHour(String preferred2, String allowedString) {
         this(HourStyle.valueOf(preferred2), mungeOperands(allowedString));
     }
@@ -68,7 +71,7 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     }
 
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults();
-    
+
     private static LinkedHashSet<HourStyle> mungeOperands(String allowedString) {
         LinkedHashSet<HourStyle> allowed = new LinkedHashSet<>();
         for (String s : SPACE_SPLITTER.split(allowedString)) {
@@ -88,7 +91,7 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     public String toString() {
         return toString(Collections.singleton("?"));
     }
-    
+
     public String toString(Collection<String> regions) {
         return "<hours preferred=\""
             + preferred

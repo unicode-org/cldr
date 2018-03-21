@@ -22,7 +22,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class Tokenizer {
     protected String source;
-    
+
     protected StringBuffer buffer = new StringBuffer();
     protected long number;
     protected UnicodeSet unicodeSet = null;
@@ -33,8 +33,7 @@ public class Tokenizer {
     int lastValue = BACKEDUP_TOO_FAR;
     TokenSymbolTable symbolTable = new TokenSymbolTable();
 
-    private static final char
-        QUOTE = '\'',
+    private static final char QUOTE = '\'',
         BSLASH = '\\';
     private static final UnicodeSet QUOTERS = new UnicodeSet().add(QUOTE).add(BSLASH);
     private static final UnicodeSet WHITESPACE = new UnicodeSet("[" +
@@ -53,79 +52,78 @@ public class Tokenizer {
     private static final UnicodeSet NON_STRING = new UnicodeSet()
         .addAll(WHITESPACE)
         .addAll(SYNTAX);
-           
+
     protected UnicodeSet whiteSpace = WHITESPACE;
     protected UnicodeSet syntax = SYNTAX;
     private UnicodeSet non_string = NON_STRING;
 
     private void fixSets() {
         if (syntax.containsSome(QUOTERS) || syntax.containsSome(whiteSpace)) {
-            syntax = ((UnicodeSet)syntax.clone()).removeAll(QUOTERS).removeAll(whiteSpace);
+            syntax = ((UnicodeSet) syntax.clone()).removeAll(QUOTERS).removeAll(whiteSpace);
         }
         if (whiteSpace.containsSome(QUOTERS)) {
-            whiteSpace = ((UnicodeSet)whiteSpace.clone()).removeAll(QUOTERS);
+            whiteSpace = ((UnicodeSet) whiteSpace.clone()).removeAll(QUOTERS);
         }
         non_string = new UnicodeSet(syntax)
             .addAll(whiteSpace);
     }
-    
+
     public Tokenizer setSource(String source) {
         this.source = source;
         this.index = 0;
         return this; // for chaining
     }
-    
+
     public Tokenizer setIndex(int index) {
         this.index = index;
         return this; // for chaining
     }
-    
-    public static final int 
-        DONE = -1, 
-        NUMBER = -2, 
-        STRING = -3, 
-        UNICODESET = -4, 
+
+    public static final int DONE = -1,
+        NUMBER = -2,
+        STRING = -3,
+        UNICODESET = -4,
         UNTERMINATED_QUOTE = -5,
         BACKEDUP_TOO_FAR = -6;
-        
+
     private static final int
-        //FIRST = 0,
-        //IN_NUMBER = 1,
-        //IN_SPACE = 2,
-        AFTER_QUOTE = 3,    // warning: order is important for switch statement
-        IN_STRING = 4, 
-        AFTER_BSLASH = 5, 
+    //FIRST = 0,
+    //IN_NUMBER = 1,
+    //IN_SPACE = 2,
+    AFTER_QUOTE = 3, // warning: order is important for switch statement
+        IN_STRING = 4,
+        AFTER_BSLASH = 5,
         IN_QUOTE = 6;
-   
+
     public String toString(int type, boolean backedupBefore) {
         String s = backedup ? "@" : "*";
-        switch(type) {
-            case DONE: 
-                return s+"Done"+s;
-            case BACKEDUP_TOO_FAR:
-                return s+"Illegal Backup"+s;
-            case UNTERMINATED_QUOTE: 
-                return s+"Unterminated Quote=" + getString() + s;
-            case STRING:
-                return s+"s=" + getString() + s;
-            case NUMBER:
-                return s+"n=" + getNumber() + s;
-            case UNICODESET:
-                return s+"n=" + getUnicodeSet() + s;           
-            default:
-                return s+"c=" + usf.getName(type,true) + s;
+        switch (type) {
+        case DONE:
+            return s + "Done" + s;
+        case BACKEDUP_TOO_FAR:
+            return s + "Illegal Backup" + s;
+        case UNTERMINATED_QUOTE:
+            return s + "Unterminated Quote=" + getString() + s;
+        case STRING:
+            return s + "s=" + getString() + s;
+        case NUMBER:
+            return s + "n=" + getNumber() + s;
+        case UNICODESET:
+            return s + "n=" + getUnicodeSet() + s;
+        default:
+            return s + "c=" + usf.getName(type, true) + s;
         }
     }
-    
+
     private static final BagFormatter usf = new BagFormatter();
-    
+
     public void backup() {
         if (backedup) throw new IllegalArgumentException("backup too far");
         backedup = true;
         nextIndex = index;
         index = lastIndex;
     }
-    
+
     /*
     public int next2() {
         boolean backedupBefore = backedup;
@@ -134,7 +132,7 @@ public class Tokenizer {
         return result;
     }    
     */
-    
+
     public int next() {
         if (backedup) {
             backedup = false;
@@ -150,22 +148,23 @@ public class Tokenizer {
             if (inComment) {
                 if (NEWLINE.contains(cp)) inComment = false;
             } else {
-                if (cp == '#') inComment = true;
+                if (cp == '#')
+                    inComment = true;
                 else if (!whiteSpace.contains(cp)) break;
             }
         }
         // record the last index in case we have to backup
         lastIndex = index;
-        
+
         if (cp == '[') {
-            ParsePosition pos = new ParsePosition(index-1);
-            unicodeSet = new UnicodeSet(source,pos,symbolTable);
+            ParsePosition pos = new ParsePosition(index - 1);
+            unicodeSet = new UnicodeSet(source, pos, symbolTable);
             index = pos.getIndex();
             return lastValue = UNICODESET;
         }
         // get syntax character
         if (syntax.contains(cp)) return lastValue = cp;
-        
+
         // get number, if there is one
         if (UCharacter.getType(cp) == Character.DECIMAL_DIGIT_NUMBER) {
             number = UCharacter.getNumericValue(cp);
@@ -178,96 +177,113 @@ public class Tokenizer {
                 number *= 10;
                 number += UCharacter.getNumericValue(cp);
             }
-            return lastValue =  NUMBER;
+            return lastValue = NUMBER;
         }
         buffer.setLength(0);
         int status = IN_STRING;
-        main:
-        while (true) {
+        main: while (true) {
             switch (status) {
-                case AFTER_QUOTE: // check for double ''?
-                    if (cp == QUOTE) {
-                        UTF16.append(buffer, QUOTE);
-                        status = IN_QUOTE;
-                        break;
-                    }
-                    // OTHERWISE FALL THROUGH!!!
-                case IN_STRING: 
-                    if (cp == QUOTE) status = IN_QUOTE;
-                    else if (cp == BSLASH) status = AFTER_BSLASH;
-                    else if (non_string.contains(cp)) {
-                        index -= UTF16.getCharCount(cp); // BACKUP!
-                        break main;
-                    } else UTF16.append(buffer,cp);
+            case AFTER_QUOTE: // check for double ''?
+                if (cp == QUOTE) {
+                    UTF16.append(buffer, QUOTE);
+                    status = IN_QUOTE;
                     break;
-                case IN_QUOTE:
-                    if (cp == QUOTE) status = AFTER_QUOTE;
-                    else UTF16.append(buffer,cp);
+                }
+                // OTHERWISE FALL THROUGH!!!
+            case IN_STRING:
+                if (cp == QUOTE)
+                    status = IN_QUOTE;
+                else if (cp == BSLASH)
+                    status = AFTER_BSLASH;
+                else if (non_string.contains(cp)) {
+                    index -= UTF16.getCharCount(cp); // BACKUP!
+                    break main;
+                } else
+                    UTF16.append(buffer, cp);
+                break;
+            case IN_QUOTE:
+                if (cp == QUOTE)
+                    status = AFTER_QUOTE;
+                else
+                    UTF16.append(buffer, cp);
+                break;
+            case AFTER_BSLASH:
+                switch (cp) {
+                case 'n':
+                    cp = '\n';
                     break;
-                case AFTER_BSLASH:
-                    switch(cp) {
-                        case 'n': cp = '\n'; break;
-                        case 'r': cp = '\r'; break;
-                        case 't': cp = '\t'; break;
-                    }
-                    UTF16.append(buffer,cp);
-                    status = IN_STRING;
+                case 'r':
+                    cp = '\r';
                     break;
-                default: throw new IllegalArgumentException("Internal Error");
+                case 't':
+                    cp = '\t';
+                    break;
+                }
+                UTF16.append(buffer, cp);
+                status = IN_STRING;
+                break;
+            default:
+                throw new IllegalArgumentException("Internal Error");
             }
             if (index >= source.length()) break;
             cp = nextChar();
         }
         if (status > IN_STRING) return lastValue = UNTERMINATED_QUOTE;
-        return lastValue =  STRING;
+        return lastValue = STRING;
     }
-    
+
     public String getString() {
         return buffer.toString();
     }
-    
+
     public String toString() {
-        return source.substring(0,index) + "$$$" + source.substring(index);
+        return source.substring(0, index) + "$$$" + source.substring(index);
     }
-    
+
     public long getNumber() {
         return number;
     }
-    
+
     public UnicodeSet getUnicodeSet() {
         return unicodeSet;
     }
-    
+
     private int nextChar() {
-        int cp = UTF16.charAt(source,index);
+        int cp = UTF16.charAt(source, index);
         index += UTF16.getCharCount(cp);
         return cp;
     }
+
     public int getIndex() {
         return index;
     }
+
     public String getSource() {
         return source;
     }
+
     public UnicodeSet getSyntax() {
         return syntax;
     }
+
     public UnicodeSet getWhiteSpace() {
         return whiteSpace;
     }
+
     public void setSyntax(UnicodeSet set) {
         syntax = set;
         fixSets();
     }
+
     public void setWhiteSpace(UnicodeSet set) {
         whiteSpace = set;
         fixSets();
     }
-    
+
     public Set getLookedUpItems() {
         return symbolTable.itemsLookedUp;
     }
-    
+
     public void addSymbol(String var, String value, int start, int limit) {
         // the limit is after the ';', so remove it
         --limit;
@@ -275,24 +291,24 @@ public class Tokenizer {
         value.getChars(start, limit, body, 0);
         symbolTable.add(var, body);
     }
-    
+
     public class TokenSymbolTable implements SymbolTable {
         Map contents = new HashMap();
         Set itemsLookedUp = new HashSet();
-            
+
         public void add(String var, char[] body) {
             // start from 1 to avoid the $
             contents.put(var.substring(1), body);
         }
-            
+
         /* (non-Javadoc)
          * @see com.ibm.icu.text.SymbolTable#lookup(java.lang.String)
          */
         public char[] lookup(String s) {
             itemsLookedUp.add('$' + s);
-            return (char[])contents.get(s);
+            return (char[]) contents.get(s);
         }
-    
+
         /* (non-Javadoc)
          * @see com.ibm.icu.text.SymbolTable#lookupMatcher(int)
          */
@@ -300,7 +316,7 @@ public class Tokenizer {
             // TODO Auto-generated method stub
             return null;
         }
-    
+
         /* (non-Javadoc)
          * @see com.ibm.icu.text.SymbolTable#parseReference(java.lang.String, java.text.ParsePosition, int)
          */
@@ -315,8 +331,8 @@ public class Tokenizer {
                 }
             }
             pos.setIndex(i);
-            return text.substring(start,i);
+            return text.substring(start, i);
         }
-        
+
     }
 }

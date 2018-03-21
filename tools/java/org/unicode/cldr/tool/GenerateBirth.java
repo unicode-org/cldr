@@ -49,17 +49,17 @@ public class GenerateBirth {
     static final Factory[] factories = new Factory[VERSIONS.length];
 
     final static Options myOptions = new Options()
-    .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
-        "The target directory for building the text files that show the results.")
+        .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
+            "The target directory for building the text files that show the results.")
         .add("log", ".*", CLDRPaths.TMP_DIRECTORY + "dropbox/births/",
             "The target directory for building the text files that show the results.")
-            .add(
-                "file",
-                ".*",
-                ".*",
-                "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
-                .add("previous", "Stop after writing the English previous data.")
-                .add("debug", "Debug");
+        .add(
+            "file",
+            ".*",
+            ".*",
+            "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
+        .add("previous", "Stop after writing the English previous data.")
+        .add("debug", "Debug");
 
     public static void main(String[] args) throws IOException {
         myOptions.parse(args, true);
@@ -70,14 +70,13 @@ public class GenerateBirth {
 
         final CLDRConfig config = CLDRConfig.getInstance();
 
-
         String filePattern = myOptions.get("file").getValue();
 
         ArrayList<Factory> list = new ArrayList<Factory>();
         for (Versions version : VERSIONS) {
             String base = version == Versions.trunk
                 ? CLDRPaths.BASE_DIRECTORY
-                    : CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/";
+                : CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/";
             File[] paths = version.compareTo(Versions.v27_0) > 0 // warning, order is reversed
                 ? new File[] { new File(base + "common/main/") }
                 : new File[] { new File(base + "common/main/"), new File(base + "common/annotations/") };
@@ -306,8 +305,7 @@ public class GenerateBirth {
                         + "\t" + onlyNewerVersion
                         + "\t" + otherValue
                         + "\t" + olderOtherValue
-                        + "\t" + xpath
-                        );
+                        + "\t" + xpath);
 
                 }
             }

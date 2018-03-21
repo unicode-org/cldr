@@ -45,7 +45,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             AlwaysOK = new UnicodeSet(
                 "[[[:Nd:][:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]-[:C:] - [_]] [\u05BE \u05F3 \u066A-\u066C]" +
                     "[[؉][་ །༌][ཱ]‎‎{য়}য়]" + // TODO Fix this Hack
-                "]"); // [\\u200c-\\u200f] [:script=common:][:script=inherited:]
+                    "]"); // [\\u200c-\\u200f] [:script=common:][:script=inherited:]
         }
         AlwaysOK.freeze();
     }
@@ -56,41 +56,39 @@ public class CheckExemplars extends FactoryCheckCLDR {
             "‎‎‎[\u064B\u064E-\u0651\u0670]‎[:Nd:]‎[\u0951\u0952]‎[\u064B-\u0652\u0654-\u0657\u0670]‎[\u0A66-\u0A6F][\u0ED0-\u0ED9][\u064B-\u0652]‎[\\u02BB\\u02BC][\u0CE6-\u0CEF]‎‎[\u0966-\u096F]"
             +
             "‎‎‎[:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:] ]" // restore
-            // [:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]
-        ).freeze(); // add RLM, LRM [\u200C\u200D]‎
+    // [:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]
+    ).freeze(); // add RLM, LRM [\u200C\u200D]‎
 
     public static final UnicodeSet UAllowedInExemplars = new UnicodeSet("[[:assigned:]-[:Z:]]") // [:alphabetic:][:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]
-    .removeAll(AlwaysOK) // this will remove some
-    // [:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:] so we restore them
-    // in SPECIAL_ALLOW
-    .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
-    .freeze();
-    
+        .removeAll(AlwaysOK) // this will remove some
+        // [:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:] so we restore them
+        // in SPECIAL_ALLOW
+        .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
+        .freeze();
+
     public static final UnicodeSet UAllowedInNumbers = new UnicodeSet("[\u00A0\u202F[:N:][:P:][:Sm:][:Letter_Number:][:Numeric_Type=Numeric:]]") // [:alphabetic:][:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]
-    .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
-    .freeze();
+        .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
+        .freeze();
 
     public static final UnicodeSet AllowedInExemplars = new UnicodeSet(UAllowedInExemplars)
-    .removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
-    .freeze();
+        .removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
+        .freeze();
 
     public static final UnicodeSet ALLOWED_IN_PUNCTUATION = new UnicodeSet("[[:P:][:S:]-[:Sc:]]")
-    .freeze();
+        .freeze();
 
     public static final UnicodeSet ALLOWED_IN_AUX = new UnicodeSet(AllowedInExemplars)
-    .addAll(ALLOWED_IN_PUNCTUATION)
-    .removeAll(AlwaysOK) // this will remove some
-    // [:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:] so we restore them
-    // in SPECIAL_ALLOW
-    .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
-    .freeze();
+        .addAll(ALLOWED_IN_PUNCTUATION)
+        .removeAll(AlwaysOK) // this will remove some
+        // [:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:] so we restore them
+        // in SPECIAL_ALLOW
+        .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
+        .freeze();
 
     public enum ExemplarType {
-        main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true),
-        punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false),
-        auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)", true),
-        index(UAllowedInExemplars, "(specific-script - invisibles)", false),
-        numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
+        main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true), punctuation(ALLOWED_IN_PUNCTUATION, "punctuation",
+            false), auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)",
+                true), index(UAllowedInExemplars, "(specific-script - invisibles)", false), numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
         // currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", false)
         ;
 
@@ -127,9 +125,9 @@ public class CheckExemplars extends FactoryCheckCLDR {
         spaceCol.setStrength(Collator.PRIMARY);
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
         prettyPrinter = new UnicodeSetPrettyPrinter()
-        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-            .setStrength2(Collator.PRIMARY))
+            .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+            .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                .setStrength2(Collator.PRIMARY))
             .setCompressRanges(true);
 
         // check for auxiliary anyway
@@ -140,9 +138,9 @@ public class CheckExemplars extends FactoryCheckCLDR {
             if (auxiliarySet == null) {
                 possibleErrors.add(
                     new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.missingAuxiliaryExemplars)
-                    .setMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.missingAuxiliaryExemplars)
+                        .setMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));
             }
         }
         return this;
@@ -175,18 +173,18 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
                     if (overlap.size() != 0) {
                         String fixedExemplar1 = new UnicodeSetPrettyPrinter()
-                        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                            .setStrength2(Collator.PRIMARY))
+                            .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+                            .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                                .setStrength2(Collator.PRIMARY))
                             .setCompressRanges(true)
                             .format(overlap);
                         result
-                        .add(new CheckStatus()
-                        .setCause(this)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.auxiliaryExemplarsOverlap)
-                        .setMessage("Auxiliary characters also exist in main: \u200E{0}\u200E",
-                            new Object[] { fixedExemplar1 }));
+                            .add(new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.auxiliaryExemplarsOverlap)
+                                .setMessage("Auxiliary characters also exist in main: \u200E{0}\u200E",
+                                    new Object[] { fixedExemplar1 }));
                     }
                 }
             } else if (type == ExemplarType.punctuation) {
@@ -246,14 +244,15 @@ public class CheckExemplars extends FactoryCheckCLDR {
             while (mi.next()) {
                 if (mi.codepoint != UnicodeSetIterator.IS_STRING &&
                     (UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT ||
-                    UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT_ARABIC) &&
+                        UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT_ARABIC)
+                    &&
                     !localeIsRTL) {
                     result.add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.orientationDisagreesWithExemplars)
-                    .setMessage(
-                        "Main exemplar set contains RTL characters, but orientation of this locale is not RTL."));
+                        .setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.orientationDisagreesWithExemplars)
+                        .setMessage(
+                            "Main exemplar set contains RTL characters, but orientation of this locale is not RTL."));
                     break;
                 }
             }
@@ -274,14 +273,14 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     .setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.badParseLenient)
                     .setMessage("ParseLenient sample not in value: {0} ∌ {1}", us, sampleValue);
-                result.add(message);            
+                result.add(message);
             }
         } catch (Exception e) {
             CheckStatus message = new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.badParseLenient)
                 .setMessage(e.getMessage());
-            result.add(message);            
+            result.add(message);
         }
     }
 
@@ -413,13 +412,13 @@ public class CheckExemplars extends FactoryCheckCLDR {
             case punctuation:
             case main:
                 result.add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.missingMainExemplars)
-                .setMessage(
-                    "Exemplar set (" + exemplarType
-                    + ") must not be empty -- that would imply that this language uses no " +
-                    (exemplarType == ExemplarType.punctuation ? "punctuation" : "letters") + "!"));
+                    .setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.missingMainExemplars)
+                    .setMessage(
+                        "Exemplar set (" + exemplarType
+                            + ") must not be empty -- that would imply that this language uses no " +
+                            (exemplarType == ExemplarType.punctuation ? "punctuation" : "letters") + "!"));
                 break;
             }
         }

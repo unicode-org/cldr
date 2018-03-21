@@ -38,18 +38,15 @@ public class PivotData {
         case 1:
             conditions = EnumSet.of(LocaleIDParser.Level.Language,
                 LocaleIDParser.Level.Script,
-                LocaleIDParser.Level.Region
-                );
+                LocaleIDParser.Level.Region);
             break;
         case 2:
             conditions = EnumSet.of(LocaleIDParser.Level.Language,
-                LocaleIDParser.Level.Region
-                );
+                LocaleIDParser.Level.Region);
             break;
         case 3:
             conditions = EnumSet.of(LocaleIDParser.Level.Language,
-                LocaleIDParser.Level.Script
-                );
+                LocaleIDParser.Level.Script);
             break;
         }
 
@@ -252,8 +249,8 @@ public class PivotData {
     SimpleLineComparator lineComparer = new SimpleLineComparator(
         // SimpleLineComparator.SKIP_SPACES +
         SimpleLineComparator.TRIM +
-        SimpleLineComparator.SKIP_EMPTY +
-        SimpleLineComparator.SKIP_CVS_TAGS);
+            SimpleLineComparator.SKIP_EMPTY +
+            SimpleLineComparator.SKIP_CVS_TAGS);
 
     private void writeFile(CLDRFile newFile) throws IOException {
         String id = newFile.getLocaleID();

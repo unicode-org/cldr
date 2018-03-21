@@ -57,7 +57,8 @@ class GenerateStatistics {
         english = factory.make("en", true);
         Set<String> languages = new TreeSet<String>(col), countries = new TreeSet<String>(col), draftLanguages = new TreeSet<String>(
             col), draftCountries = new TreeSet<String>(col);
-        Set<Object> nativeLanguages = new TreeSet<Object>(), nativeCountries = new TreeSet<Object>(), draftNativeLanguages = new TreeSet<Object>(), draftNativeCountries = new TreeSet<Object>();
+        Set<Object> nativeLanguages = new TreeSet<Object>(), nativeCountries = new TreeSet<Object>(), draftNativeLanguages = new TreeSet<Object>(),
+            draftNativeCountries = new TreeSet<Object>();
         int localeCount = 0;
         int draftLocaleCount = 0;
 
@@ -92,7 +93,7 @@ class GenerateStatistics {
         }
         logHtml.println("<html><head>");
         logHtml
-        .println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+            .println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
         logHtml.println("</head><body>");
         logHtml.println("<p><b>Locales (" + localeCount + "):</b>");
         logHtml.println("<p><b>Languages (" + languages.size() + "):</b>");
@@ -270,9 +271,10 @@ class GenerateStatistics {
             }
 
             result.append(before)
-            .append(
-                TransliteratorUtilities.toHTML.transliterate(englishName
-                    + qualifiers)).append(after);
+                .append(
+                    TransliteratorUtilities.toHTML.transliterate(englishName
+                        + qualifiers))
+                .append(after);
         }
         return result.toString();
     }

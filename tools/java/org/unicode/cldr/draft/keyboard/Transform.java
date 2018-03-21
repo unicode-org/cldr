@@ -17,52 +17,56 @@ import com.google.common.base.Objects;
  * output 'ê'.
  */
 public final class Transform implements Comparable<Transform> {
-  private final String sequence;
-  private final String output;
+    private final String sequence;
+    private final String output;
 
-  private Transform(String sequence, String output) {
-    this.sequence = checkNotNull(sequence);
-    this.output = checkNotNull(output);
-  }
-
-  /** Creates a transform from the given source sequence and resulting output. */
-  public static Transform of(String sequence, String output) {
-    return new Transform(sequence, output);
-  }
-
-  /** Returns the sequence of characters that must be typed in order to activate this transform. */
-  public String sequence() {
-    return sequence;
-  }
-
-  /** Returns the result of the transform. */
-  public String output() {
-    return output;
-  }
-
-  @Override public String toString() {
-    return MoreObjects.toStringHelper(this)
-        .add("sequence", sequence)
-        .add("output", output)
-        .toString();
-  }
-
-  @Override public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    private Transform(String sequence, String output) {
+        this.sequence = checkNotNull(sequence);
+        this.output = checkNotNull(output);
     }
-    if (o instanceof Transform) {
-      Transform other = (Transform) o;
-      return sequence.equals(other.sequence) && output.equals(other.output);
+
+    /** Creates a transform from the given source sequence and resulting output. */
+    public static Transform of(String sequence, String output) {
+        return new Transform(sequence, output);
     }
-    return false;
-  }
 
-  @Override public int hashCode() {
-    return Objects.hashCode(sequence, output);
-  }
+    /** Returns the sequence of characters that must be typed in order to activate this transform. */
+    public String sequence() {
+        return sequence;
+    }
 
-  @Override public int compareTo(Transform o) {
-    return sequence.compareTo(o.sequence);
-  }
+    /** Returns the result of the transform. */
+    public String output() {
+        return output;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+            .add("sequence", sequence)
+            .add("output", output)
+            .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o instanceof Transform) {
+            Transform other = (Transform) o;
+            return sequence.equals(other.sequence) && output.equals(other.output);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(sequence, output);
+    }
+
+    @Override
+    public int compareTo(Transform o) {
+        return sequence.compareTo(o.sequence);
+    }
 }

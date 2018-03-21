@@ -56,35 +56,34 @@ public class GenerateLanguageContainment {
         .getSupplementalDataInfo()
         .getLocaleAliasInfo()
         .get("language");
-    static final Map<String, String> entityToLabel = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToLabel.tsv", 
+    static final Map<String, String> entityToLabel = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToLabel.tsv",
         null, null, null);
 
-    static final Function<String,String> NAME = code -> code.equals("mul") ? "root" : ENGLISH.getName(code) + " (" + code + ")";
+    static final Function<String, String> NAME = code -> code.equals("mul") ? "root" : ENGLISH.getName(code) + " (" + code + ")";
 
     static final Map<String, String> entityToCode = loadTsvPairsUnique(GenerateLanguageContainment.class, relDir + "entityToCode.tsv",
         code -> {
-            code = code.replace("\"","");
-            R2<List<String>, String> v = ALIAS_MAP.get(code); 
-            String result = v == null 
-                ? code : 
-                    v.get0().get(0);
-            result = result.contains("_") 
-                ? code 
-                    : result;
+            code = code.replace("\"", "");
+            R2<List<String>, String> v = ALIAS_MAP.get(code);
+            String result = v == null
+                ? code : v.get0().get(0);
+            result = result.contains("_")
+                ? code
+                : result;
             return result;
         },
         null, NAME);
 
-    static final Multimap<String,String> codeToEntity = ImmutableMultimap.copyOf(
+    static final Multimap<String, String> codeToEntity = ImmutableMultimap.copyOf(
         Multimaps.invertFrom(Multimaps.forMap(entityToCode), LinkedHashMultimap.create()));
 
-    static final Multimap<String, String> childToParent = loadTsvPairs(GenerateLanguageContainment.class, relDir + "childToParent.tsv", 
+    static final Multimap<String, String> childToParent = loadTsvPairs(GenerateLanguageContainment.class, relDir + "childToParent.tsv",
         code -> getEntityName(code), code -> getEntityName(code));
 
     static final Set<String> COLLECTIONS;
     static {
         Map<String, Map<LstrField, String>> languages = StandardCodes.getEnumLstreg().get(LstrType.language);
-        Builder<String> _collections = ImmutableSet.<String>builder();
+        Builder<String> _collections = ImmutableSet.<String> builder();
         for (Entry<String, Map<LstrField, String>> e : languages.entrySet()) {
             String scope = e.getValue().get(LstrField.Scope);
             if (scope != null
@@ -97,13 +96,14 @@ public class GenerateLanguageContainment {
 
     static class Tree {
         Set<String> leaves = new LinkedHashSet<>();
+
         void add(List<String> chain) {
             Collections.reverse(chain);
         }
     }
 
-    static final Multimap<String,String> EXTRA_PARENT_CHILDREN = ImmutableMultimap.<String,String>builder()
-        .put("mul", "art")  // we add art programmatically
+    static final Multimap<String, String> EXTRA_PARENT_CHILDREN = ImmutableMultimap.<String, String> builder()
+        .put("mul", "art") // we add art programmatically
         .put("gmw", "ksh")
         .put("gmw", "wae")
         .put("mul", "tai")
@@ -144,12 +144,12 @@ public class GenerateLanguageContainment {
         .put("grk", "grc")
         .put("grk", "gmy")
         .build();
-    
-    static final Multimap<String,String> REMOVE_PARENT_CHILDREN = ImmutableMultimap.<String,String>builder()
-        .put("mul", "und")  // anomaly
+
+    static final Multimap<String, String> REMOVE_PARENT_CHILDREN = ImmutableMultimap.<String, String> builder()
+        .put("mul", "und") // anomaly
         .put("mul", "crp")
-        .put("crp", "*")    // general Creole group interferes with French/Spanish/... language grouping
-        .put("sit", "zh")   // other cases where we have to remove items we add in different place above.
+        .put("crp", "*") // general Creole group interferes with French/Spanish/... language grouping
+        .put("sit", "zh") // other cases where we have to remove items we add in different place above.
         .put("inc", "rmg")
         .put("sla", "cu")
         .put("ine", "gmy")
@@ -226,7 +226,7 @@ public class GenerateLanguageContainment {
                 }
             }
         }
-        
+
         _parentToChild.putAll(EXTRA_PARENT_CHILDREN);
 
         // special code for artificial
@@ -236,7 +236,7 @@ public class GenerateLanguageContainment {
                 _parentToChild.put("art", code);
             }
         }
-        
+
         Multimap<String, String> parentToChild = ImmutableMultimap.copyOf(_parentToChild);
         Multimap<String, String> childToParent = ImmutableMultimap.copyOf(Multimaps.invertFrom(parentToChild, TreeMultimap.create()));
         System.out.println("Checking " + "he" + "\t" + Containment.getAllDirected(childToParent, "he"));
@@ -271,7 +271,7 @@ public class GenerateLanguageContainment {
                 item.forEach(new Consumer<String>() {
                     @Override
                     public void accept(String t) {
-                        System.out.println(t + "\t" + entityToCode.get(t) + "\t" + entityToLabel.get(t));                
+                        System.out.println(t + "\t" + entityToCode.get(t) + "\t" + entityToLabel.get(t));
                     }
                 });
                 System.out.println();
@@ -301,9 +301,8 @@ public class GenerateLanguageContainment {
         }
     }
 
-
     private static void print(Writer out, Multimap<String, String> parentToChild, List<String> line) {
-        String current = line.get(line.size()-1);
+        String current = line.get(line.size() - 1);
         Collection<String> children = parentToChild.get(current);
         if (children.isEmpty()) {
             try {
@@ -314,12 +313,13 @@ public class GenerateLanguageContainment {
                 }
                 out.append('\n');
                 out.flush();
-            } catch (IOException e) {}
+            } catch (IOException e) {
+            }
         } else {
             for (String child : children) {
                 line.add(child);
                 print(out, parentToChild, line);
-                line.remove(line.size()-1);
+                line.remove(line.size() - 1);
             }
         }
     }
@@ -327,46 +327,45 @@ public class GenerateLanguageContainment {
     private static Set<Set<String>> getAncestors(String leaf) {
         Set<List<String>> items = Containment.getAllDirected(childToParent, leaf);
         Set<Set<String>> itemsFixed = new LinkedHashSet<>();
-        main:
-            for (List<String> item : items) {
-                Set<String> chain = new LinkedHashSet<>();
-                for (String id : item) {
-                    String code = entityToCode.get(id);
-                    if (code == null) {
+        main: for (List<String> item : items) {
+            Set<String> chain = new LinkedHashSet<>();
+            for (String id : item) {
+                String code = entityToCode.get(id);
+                if (code == null) {
+                    continue;
+                }
+
+                // skip leaf nodes after the first
+
+                if (!chain.isEmpty() && !COLLECTIONS.contains(code)) {
+                    if (code.equals("zh")) {
+                        code = "zhx"; // rewrite collections usage
+                    } else {
+                        log("Skipping inheritance from\t" + chain + "\t" + code + "\tfrom\t" + items);
                         continue;
                     }
-                    
-                    // skip leaf nodes after the first
-                    
-                    if (!chain.isEmpty() && !COLLECTIONS.contains(code)) {
-                        if (code.equals("zh")) {
-                            code = "zhx"; // rewrite collections usage
-                        } else {
-                            log("Skipping inheritance from\t" + chain + "\t" + code + "\tfrom\t" + items);
-                            continue;
-                        }
-                    }
-
-                    // check for cycle, and skip if we have one
-                    
-                    boolean changed = chain.add(code);
-                    if (!changed) {
-                        log("Cycle in\t" + chain + "\tfrom\t" + items);
-                        continue main;
-                    }
                 }
-                if (chain.size() > 1) {
-                    chain.add("mul"); // root
-                    itemsFixed.add(chain);
+
+                // check for cycle, and skip if we have one
+
+                boolean changed = chain.add(code);
+                if (!changed) {
+                    log("Cycle in\t" + chain + "\tfrom\t" + items);
+                    continue main;
                 }
             }
+            if (chain.size() > 1) {
+                chain.add("mul"); // root
+                itemsFixed.add(chain);
+            }
+        }
         // remove subsets
         // eg [[smp, he, mul], [smp, he, sem, afa, mul]]
         // => [[smp, he, sem, afa, mul]]
         if (itemsFixed.size() > 1) {
             Set<Set<String>> removals = new HashSet<>();
             for (Set<String> chain1 : itemsFixed) {
-                for (Set<String>chain2 : itemsFixed) {
+                for (Set<String> chain2 : itemsFixed) {
                     if (chain1.containsAll(chain2) && !chain2.containsAll(chain1)) {
                         removals.add(chain2);
                     }
@@ -443,17 +442,18 @@ public class GenerateLanguageContainment {
                 if (name != null) {
                     return name;
                 }
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
-        String name = entityToLabel.get(key); 
+        String name = entityToLabel.get(key);
         if (name != null) {
             return name;
         }
         int last = key.lastIndexOf('/');
-        return key.substring(last+1, key.length()-1);
+        return key.substring(last + 1, key.length() - 1);
     }
 
-    private static Multimap<String, String> loadTsvPairs(Class<?> class1, String file, 
+    private static Multimap<String, String> loadTsvPairs(Class<?> class1, String file,
         Function<String, String> keyMapper, Function<String, String> valueMapper) {
         String rel = FileUtilities.getRelativeFileName(class1, file);
         System.out.println(rel);
@@ -470,9 +470,9 @@ public class GenerateLanguageContainment {
         return result;
     }
 
-    private static Map<String, String> loadTsvPairsUnique(Class<?> class1, String file, 
-        Function <String, String> fixValue, 
-        Function <String, String> keyMapper, Function <String, String> valueMapper) {
+    private static Map<String, String> loadTsvPairsUnique(Class<?> class1, String file,
+        Function<String, String> fixValue,
+        Function<String, String> keyMapper, Function<String, String> valueMapper) {
         String rel = FileUtilities.getRelativeFileName(class1, file);
         System.out.println(rel);
         Map<String, String> _keyToValue = new TreeMap<>();
@@ -496,7 +496,7 @@ public class GenerateLanguageContainment {
         return _keyToValue;
     }
 
-    private static void showDups(String file, Multimap<String, String> _keyToValues, 
+    private static void showDups(String file, Multimap<String, String> _keyToValues,
         Function<String, String> keyMapper, Function<String, String> valueMapper) {
         for (Entry<String, Collection<String>> entry : _keyToValues.asMap().entrySet()) {
             Collection<String> valueSet = entry.getValue();

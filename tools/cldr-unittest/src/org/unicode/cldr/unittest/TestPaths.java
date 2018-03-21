@@ -92,10 +92,10 @@ public class TestPaths extends TestFmwkPlus {
         StringBuilder b = new StringBuilder();
         for (PathHeader path : altPaths) {
             b.append("\n\t\t")
-            .append(path)
-            .append(":\t")
-            .append(testInfo.getEnglish().getStringValue(
-                path.getOriginalPath()));
+                .append(path)
+                .append(":\t")
+                .append(testInfo.getEnglish().getStringValue(
+                    path.getOriginalPath()));
         }
         return b.toString();
     }
@@ -171,7 +171,7 @@ public class TestPaths extends TestFmwkPlus {
         return params.inclusion <= 5 ? Arrays.asList("root", "en", "ja", "ar")
             : params.inclusion < 10 ? testInfo.getCldrFactory()
                 .getAvailableLanguages() : testInfo.getCldrFactory()
-                .getAvailable();
+                    .getAvailable();
     }
 
     /**
@@ -205,8 +205,7 @@ public class TestPaths extends TestFmwkPlus {
                     testPaths.errln("Deprecated item in data: "
                         + dtdData.dtdType
                         + ":" + elementName
-                        + " \t;" + fullName
-                        );
+                        + " \t;" + fullName);
                     return true;
                 }
                 data.put(dtdData.dtdType, elementName, "*", "*", true);
@@ -217,8 +216,7 @@ public class TestPaths extends TestFmwkPlus {
                             + dtdData.dtdType
                             + ":" + elementName
                             + ":" + attributeName
-                            + " \t;" + fullName
-                            );
+                            + " \t;" + fullName);
                         return true;
                     }
                     String attributeValue = attributeNValue.getValue();
@@ -228,8 +226,7 @@ public class TestPaths extends TestFmwkPlus {
                             + ":" + elementName
                             + ":" + attributeName
                             + ":" + attributeValue
-                            + " \t;" + fullName
-                            );
+                            + " \t;" + fullName);
                         return true;
                     }
                     data.put(dtdData.dtdType, elementName, attributeName, "*", true);
@@ -248,8 +245,7 @@ public class TestPaths extends TestFmwkPlus {
                 M4<String, String, String, Boolean> infoEAV = data.get(dtdType);
                 if (infoEAV == null) {
                     testPaths.warnln("Data doesn't contain: "
-                        + dtdType
-                        );
+                        + dtdType);
                     continue;
                 }
                 DtdData dtdData = DtdData.getInstance(dtdType);
@@ -261,8 +257,7 @@ public class TestPaths extends TestFmwkPlus {
                     if (infoAV == null) {
                         testPaths.logln("Data doesn't contain: "
                             + dtdType
-                            + ":" + element.name
-                            );
+                            + ":" + element.name);
                         continue;
                     }
 
@@ -275,8 +270,7 @@ public class TestPaths extends TestFmwkPlus {
                             testPaths.logln("Data doesn't contain: "
                                 + dtdType
                                 + ":" + element.name
-                                + ":" + attribute.name
-                                );
+                                + ":" + attribute.name);
                             continue;
                         }
                         for (String value : attribute.values.keySet()) {
@@ -288,8 +282,7 @@ public class TestPaths extends TestFmwkPlus {
                                     + dtdType
                                     + ":" + element.name
                                     + ":" + attribute.name
-                                    + ":" + value
-                                    );
+                                    + ":" + value);
                             }
                         }
                     }
@@ -297,7 +290,7 @@ public class TestPaths extends TestFmwkPlus {
             }
         }
     }
-    
+
     public void TestNonLdml() {
         int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);
@@ -320,7 +313,7 @@ public class TestPaths extends TestFmwkPlus {
 //                    || fileName.equals("dtd")  // TODO as flat files
 //                    || fileName.equals(".project")  // TODO as flat files
 //                    //|| dir.equals("uca") // TODO as flat files
-                    ) {
+                ) {
                     continue;
                 }
 
@@ -357,10 +350,9 @@ public class TestPaths extends TestFmwkPlus {
                             if (pathParts.size() > 1 && "identity".equals(pathParts.getElement(1))) {
                                 elementType = ElementType.EMPTY;
                                 logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
-                            } else if (pathParts.size() > 2 
-                                && "validity".equals(pathParts.getElement(2)) 
-                                && value.isEmpty()
-                                ) {
+                            } else if (pathParts.size() > 2
+                                && "validity".equals(pathParts.getElement(2))
+                                && value.isEmpty()) {
                                 String typeValue = pathParts.getAttributeValue(-1, "type");
                                 if ("TODO".equals(typeValue)
                                     || "locale".equals(typeValue)) {
@@ -368,10 +360,10 @@ public class TestPaths extends TestFmwkPlus {
                                     logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
                                 }
                             }
-                            if ((elementType==ElementType.PCDATA) == (value.isEmpty())) {
+                            if ((elementType == ElementType.PCDATA) == (value.isEmpty())) {
                                 errln("Inconsistency:"
-                                    + "\tfile="+fileName+"/"+file
-                                    +"\telementType=" + elementType 
+                                    + "\tfile=" + fileName + "/" + file
+                                    + "\telementType=" + elementType
                                     + "\tvalue=«" + value + "»"
                                     + "\tpath=" + path);
                                 haveErrorsAlready.add(finalElement); // suppress all but first error

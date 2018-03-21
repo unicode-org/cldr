@@ -28,10 +28,9 @@ public class TestUnContainment extends TestFmwkPlus {
         .getLocaleAliasInfo()
         .get("territory");
 
-
-    final Multimap<String,String> UnChildToParent;
+    final Multimap<String, String> UnChildToParent;
     {
-        Multimap<String,String> _UnChildToParent = TreeMultimap.create();
+        Multimap<String, String> _UnChildToParent = TreeMultimap.create();
         Splitter tab = Splitter.on('\t').trimResults();
         try (BufferedReader unCodes = CldrUtility.getUTF8Data("external/UnCodes.txt");) {
             for (String line : FileUtilities.in(unCodes)) {
@@ -59,9 +58,11 @@ public class TestUnContainment extends TestFmwkPlus {
             throw new ICUUncheckedIOException(e);
         }
     }
+
     public static void main(String[] args) {
         new TestUnContainment().run(args);
     }
+
     private String name(Collection<String> codes) {
         StringBuilder result = new StringBuilder();
         for (String code : codes) {
@@ -77,6 +78,7 @@ public class TestUnContainment extends TestFmwkPlus {
         String name = testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, code);
         return name + " (" + code + ")";
     }
+
     private String unToCldrCode(String code) {
         R2<List<String>, String> codeInfo = regionToInfo.get(code);
         if (codeInfo != null) {
@@ -106,10 +108,9 @@ public class TestUnContainment extends TestFmwkPlus {
                 }
                 int status = logKnownIssue("cldrbug:10187", "need to look at containment") ? WARN : ERR;
                 msg("Un doesn't match CLDR for " + name(unParent)
-                + ": cldr children " + children
-                + " don't contain UN " + name(unChild), status, true, true);
+                    + ": cldr children " + children
+                    + " don't contain UN " + name(unChild), status, true, true);
             }
         }
     }
 }
-

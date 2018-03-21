@@ -239,7 +239,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
             result.append(" colSpan='" + colSpan + "'");
         }
         result.append(" title='").append(item.toString()).append("'>")
-        .append(item.abbreviated()).append("</td>");
+            .append(item.abbreviated()).append("</td>");
     }
 
     private static <T> void appendItems(StringBuilder result, T[] plurals3, double offset) {

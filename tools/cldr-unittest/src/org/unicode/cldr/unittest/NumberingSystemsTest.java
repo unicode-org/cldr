@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
@@ -47,8 +46,8 @@ public class NumberingSystemsTest extends TestFmwk {
                     if (id.equals("latn")
                         && digits.equals("0123456789")
                         || id.equals("arab")
-                        && digits
-                        .equals("\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669")) {
+                            && digits
+                                .equals("\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669")) {
                         // ok
                     } else {
                         errln("Script doesn't match digits: " + id + ", "

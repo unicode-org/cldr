@@ -439,10 +439,10 @@ public class FilterFactory extends Factory {
 
     private static final Options options = new Options(
         "Filters CLDR XML files according to orgnizational coverage levels and an " +
-        "input file of replacement values/xpaths.")
-    //        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
-    .add("org", 'o', ".*", Organization.cldr.name(), "The organization that the filtering is for. If set, also removes duplicate paths.")
-    .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
+            "input file of replacement values/xpaths.")
+                //        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
+                .add("org", 'o', ".*", Organization.cldr.name(), "The organization that the filtering is for. If set, also removes duplicate paths.")
+                .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
 
     /**
      * Run FilterFactory for a specific organization.

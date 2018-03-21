@@ -52,15 +52,15 @@ public class CldrResolver {
     private static final Options options = new Options(
         "This program is used to convert CLDR XML files into their resolved versions.\n" +
             "Please refer to the following options. Options are not case sensitive.\n" +
-        "\texample: org.unicode.cldr.tool.resolver.CldrResolver -s xxx -d yyy -l en")
-    .add("locale", 'l', ".*", ".*", "The locales to generate resolved files for")
-    .add("sourcedir", ".*", "Source directory for CLDR files")
-    .add("destdir", ".*", "Destination directory for output files")
-    .add("resolutiontype", 'r', "\\w+", "simple", "The resolution type to be used")
-    .add("mindraftstatus", 'm', ".*", "unconfirmed", "The minimum draft status")
-    .add("verbosity", 'v', "\\d", "2", "The verbosity level for comments during generation")
-    .add("usealtvalues", 'a', null, null, "Use alternate values in FilterFactory for the locale data to be resolved.")
-    .add("organization", 'o', ".*", null, "Filter by this organization's coverage level");
+            "\texample: org.unicode.cldr.tool.resolver.CldrResolver -s xxx -d yyy -l en")
+                .add("locale", 'l', ".*", ".*", "The locales to generate resolved files for")
+                .add("sourcedir", ".*", "Source directory for CLDR files")
+                .add("destdir", ".*", "Destination directory for output files")
+                .add("resolutiontype", 'r', "\\w+", "simple", "The resolution type to be used")
+                .add("mindraftstatus", 'm', ".*", "unconfirmed", "The minimum draft status")
+                .add("verbosity", 'v', "\\d", "2", "The verbosity level for comments during generation")
+                .add("usealtvalues", 'a', null, null, "Use alternate values in FilterFactory for the locale data to be resolved.")
+                .add("organization", 'o', ".*", null, "Filter by this organization's coverage level");
 
     /* Private instance variables */
     private Factory cldrFactory;
@@ -115,7 +115,8 @@ public class CldrResolver {
         if (verbosityParsed < 0 || verbosityParsed > 5) {
             ResolverUtils.debugPrintln(
                 "Warning: Verbosity must be between 0 and 5, inclusive.  Using default value "
-                    + ResolverUtils.verbosity, 1);
+                    + ResolverUtils.verbosity,
+                1);
         } else {
             ResolverUtils.verbosity = verbosityParsed;
         }
@@ -279,8 +280,7 @@ public class CldrResolver {
 
             ResolverUtils.debugPrintln("  Adding to resolved file.", 5);
             // Suppress non-distinguishing attributes in simple inheritance
-            String path = resolutionType == ResolutionType.SIMPLE ?
-                distinguishedPath : file.getFullXPath(distinguishedPath);
+            String path = resolutionType == ResolutionType.SIMPLE ? distinguishedPath : file.getFullXPath(distinguishedPath);
             ResolverUtils.debugPrintln("Path to be saved: " + path, 5);
             resolved.add(path, baseValue);
         }
@@ -328,8 +328,7 @@ public class CldrResolver {
     private static void printToFile(CLDRFile cldrFile, File directory) {
         ResolverUtils.debugPrint("Printing file...", 2);
         try {
-            PrintWriter pw =
-                new PrintWriter(new File(directory, cldrFile.getLocaleID() + ".xml"), "UTF-8");
+            PrintWriter pw = new PrintWriter(new File(directory, cldrFile.getLocaleID() + ".xml"), "UTF-8");
             cldrFile.write(pw);
             pw.close();
             ResolverUtils.debugPrintln("done.\n", 2);

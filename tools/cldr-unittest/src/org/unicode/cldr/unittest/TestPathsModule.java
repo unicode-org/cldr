@@ -72,7 +72,7 @@ public class TestPathsModule extends TestFmwk {
             MyHandler myHandler = new MyHandler(dir, filename, tests);
             try {
                 XMLFileReader reader = new XMLFileReader()
-                .setHandler(myHandler);
+                    .setHandler(myHandler);
                 reader.read(fullFileName, XMLFileReader.CONTENT_HANDLER, true);
             } catch (Exception e) {
                 cantRead.put(name, e);
@@ -162,7 +162,7 @@ public class TestPathsModule extends TestFmwk {
                 }
             }
             temp.clear().addAll(value).addAll(nfkd.normalize(value))
-            .retainAll(nonspacing);
+                .retainAll(nonspacing);
             if (!chars.containsAll(temp)) {
                 chars.addAll(temp);
                 logln("Adding\t" + temp + "\t" + dir + "\t" + locale);

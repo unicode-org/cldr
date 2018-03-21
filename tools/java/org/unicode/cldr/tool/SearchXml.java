@@ -88,7 +88,7 @@ public class SearchXml {
 
         String sourceDirectory = myOptions.get("source").getValue();
         if (sourceDirectory == null) {
-            System.out.println("#"+"Need Source Directory! ");
+            System.out.println("#" + "Need Source Directory! ");
             return;
         }
         Output<Boolean> exclude = new Output<Boolean>();
@@ -132,7 +132,7 @@ public class SearchXml {
 
         File src = new File(sourceDirectory);
         if (!src.isDirectory()) {
-            System.err.println("#"+sourceDirectory + " must be a directory");
+            System.err.println("#" + sourceDirectory + " must be a directory");
             return;
         }
 
@@ -140,7 +140,7 @@ public class SearchXml {
         if (comparisonDirectoryString != null) {
             comparisonDirectory = new File(comparisonDirectoryString);
             if (!comparisonDirectory.isDirectory()) {
-                System.err.println("#"+comparisonDirectoryString + " must be a directory");
+                System.err.println("#" + comparisonDirectoryString + " must be a directory");
                 return;
             }
         }
@@ -157,24 +157,24 @@ public class SearchXml {
 
         if (kountRegexMatches != null) {
             for (String item : kountRegexMatches.getKeysetSortedByCount(false)) {
-                System.out.println("#"+kountRegexMatches.getCount(item) + "\t" + item);
+                System.out.println("#" + kountRegexMatches.getCount(item) + "\t" + item);
             }
         }
 
         if (unique) {
             for (String item : uniqueData.getKeysetSortedByCount(false)) {
-                System.out.println("#"+uniqueData.getCount(item) + item);
+                System.out.println("#" + uniqueData.getCount(item) + item);
             }
         }
 
         if (starCounter != null) {
             for (String path : starCounter.getKeysetSortedByCount(false)) {
-                System.out.println("#"+starCounter.get(path) + "\t" + path);
+                System.out.println("#" + starCounter.get(path) + "\t" + path);
             }
         }
         double deltaTime = System.currentTimeMillis() - startTime;
-        System.out.println("#"+"Elapsed: " + deltaTime / 1000.0 + " seconds");
-        System.out.println("#"+"Instances found: " + total);
+        System.out.println("#" + "Elapsed: " + deltaTime / 1000.0 + " seconds");
+        System.out.println("#" + "Instances found: " + total);
     }
 
     private static Matcher getMatcher(String property, Output<Boolean> exclude) {
@@ -191,12 +191,11 @@ public class SearchXml {
 
     private static void processDirectory(File src) throws IOException {
         if (comparisonDirectory != null) {
-            System.out.println("#"+"Locale" +
+            System.out.println("#" + "Locale" +
                 "\tFile" +
                 "\tBase" +
                 DiffInfo.DiffInfoHeader +
-                "\n#\tValue\tOtherValue\tPath"
-                );
+                "\n#\tValue\tOtherValue\tPath");
         }
         for (File file : src.listFiles()) {
             if (recursive && file.isDirectory()) {
@@ -218,16 +217,16 @@ public class SearchXml {
 
             if (fileMatcher != null && fileExclude == fileMatcher.reset(coreName).find()) {
                 if (verbose) {
-                    System.out.println("#"+"* Skipping " + canonicalFile);
+                    System.out.println("#" + "* Skipping " + canonicalFile);
                 }
                 continue;
             }
             if (verbose) {
-                System.out.println("#"+"Searching " + canonicalFile);
+                System.out.println("#" + "Searching " + canonicalFile);
             }
 
             if (showFiles) {
-                System.out.println("#"+"* " + canonicalFile);
+                System.out.println("#" + "* " + canonicalFile);
             }
 
             Relation<String, String> source = getXmlFileAsRelation(src, fileName);
@@ -239,11 +238,11 @@ public class SearchXml {
             checkFiles(recursive ? file.getParent() : null, fileName, coreName, source, other);
             System.out.flush();
         }
-        System.out.println("#"+"\t" + DiffInfo.DiffInfoHeader);
+        System.out.println("#" + "\t" + DiffInfo.DiffInfoHeader);
         DIFF_INFO.showValues("TOTAL");
 
         for (String error : ERRORS) {
-            System.err.println("#"+error);
+            System.err.println("#" + error);
         }
     }
 
@@ -278,11 +277,10 @@ public class SearchXml {
     static DiffInfo DIFF_INFO = new DiffInfo();
 
     static class DiffInfo {
-        static final String DiffInfoHeader =
-            "\tSame" +
-                "\tDeletions" +
-                "\tAdditions" +
-                "\tChanges";
+        static final String DiffInfoHeader = "\tSame" +
+            "\tDeletions" +
+            "\tAdditions" +
+            "\tChanges";
 
         int additionCount = 0;
         int deletionCount = 0;
@@ -290,12 +288,11 @@ public class SearchXml {
         int sameCount = 0;
 
         public void showValues(String title) {
-            System.out.println("#"+title +
+            System.out.println("#" + title +
                 "\t" + sameCount +
                 "\t" + deletionCount +
                 "\t" + additionCount +
-                "\t" + (changed2Values / 2)
-                );
+                "\t" + (changed2Values / 2));
             DIFF_INFO.additionCount += additionCount;
             DIFF_INFO.deletionCount += deletionCount;
             DIFF_INFO.changed2Values += changed2Values;
@@ -324,7 +321,6 @@ public class SearchXml {
         file = canonicalFile;
 
         DiffInfo diffInfo = new DiffInfo();
-
 
         if (levelMatcher != null || countOnly) {
             try {
@@ -417,27 +413,27 @@ public class SearchXml {
                         String data = groups
                             ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
                             : value + "\t" + path;
-                            if (!unique) {
-                                String pathHeaderInfo = "";
-                                if (PATH_HEADER_FACTORY != null) {
-                                    PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
-                                    if (pathHeader != null) {
-                                        pathHeaderInfo = "\n\t" + pathHeader
-                                            + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
-                                    }
+                        if (!unique) {
+                            String pathHeaderInfo = "";
+                            if (PATH_HEADER_FACTORY != null) {
+                                PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
+                                if (pathHeader != null) {
+                                    pathHeaderInfo = "\n\t" + pathHeader
+                                        + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
                                 }
-                                // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
-                                if (!groups && pathHeaderInfo.isEmpty()) {
-                                    show(file, path, Collections.singleton(value), null);
-                                } else {
-                                    System.out.println("#?"+
-                                        (recursive ? filePath + "\t" : "")
-                                        + file + "\t" + data
-                                        + pathHeaderInfo);
-                                }
-                            } else {
-                                uniqueData.add(data, 1);
                             }
+                            // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
+                            if (!groups && pathHeaderInfo.isEmpty()) {
+                                show(file, path, Collections.singleton(value), null);
+                            } else {
+                                System.out.println("#?" +
+                                    (recursive ? filePath + "\t" : "")
+                                    + file + "\t" + data
+                                    + pathHeaderInfo);
+                            }
+                        } else {
+                            uniqueData.add(data, 1);
+                        }
                     }
                 }
             }

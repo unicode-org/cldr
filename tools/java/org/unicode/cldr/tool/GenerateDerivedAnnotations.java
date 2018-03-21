@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedHashSet;
@@ -94,7 +93,7 @@ public class GenerateDerivedAnnotations {
         + "{🧛🏿‍♂}{🧜🏻}{🧜🏻‍♀}{🧜🏻‍♂}{🧜🏼}{🧜🏼‍♀}{🧜🏼‍♂}{🧜🏽}{🧜🏽‍♀}{🧜🏽‍♂}{🧜🏾}"
         + "{🧜🏾‍♀}{🧜🏾‍♂}{🧜🏿}{🧜🏿‍♀}{🧜🏿‍♂}{🧝🏻}{🧝🏻‍♀}{🧝🏻‍♂}{🧝🏼}{🧝🏼‍♀}{🧝🏼‍♂}"
         + "{🧝🏽}{🧝🏽‍♀}{🧝🏽‍♂}{🧝🏾}{🧝🏾‍♀}{🧝🏾‍♂}{🧝🏿}{🧝🏿‍♀}{🧝🏿‍♂}]");
- 
+
     static final UnicodeSet SKIP = new UnicodeSet()
         .add(Annotations.ENGLISH_MARKER)
         .add(Annotations.BAD_MARKER)
@@ -115,12 +114,14 @@ public class GenerateDerivedAnnotations {
                 continue;
             }
             CLDRFile target = new CLDRFile(new SimpleXMLSource(locale));
-            target.addComment("//ldml", "Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.", CommentType.PREBLOCK);
+            target.addComment("//ldml", "Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.",
+                CommentType.PREBLOCK);
             for (String derivable : DERIVABLES) {
                 String shortName = null;
                 try {
                     shortName = annotations.getShortName(derivable);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 if (shortName == null || SKIP.containsSome(shortName)) {
                     continue; // missing
                 }

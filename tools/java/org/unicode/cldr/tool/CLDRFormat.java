@@ -91,7 +91,7 @@ public class CLDRFormat {
             Set<String> extras = new TreeSet<String>(keys2);
             extras.removeAll(keys1);
             return "\tMissing: " + missing.toString().replace(", ", ",\n") + ";\n\tExtras: "
-            + extras.toString().replace(", ", ",\n");
+                + extras.toString().replace(", ", ",\n");
 
         }
         for (String path : keys1) {

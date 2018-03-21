@@ -235,17 +235,17 @@ public class SurveyThread extends Thread {
             }
             if (current != null)
                 try {
-                    if (DEBUG)
-                        System.err.println("SurveyThread(count:" + tasksRemaining() + "): About to run: " + current);
-                    current.run();
-                    if (DEBUG)
-                        System.err.println("SurveyThread(count:" + tasksRemaining() + "): Done running : " + current);
+                if (DEBUG)
+                    System.err.println("SurveyThread(count:" + tasksRemaining() + "): About to run: " + current);
+                current.run();
+                if (DEBUG)
+                    System.err.println("SurveyThread(count:" + tasksRemaining() + "): Done running : " + current);
                 } catch (Throwable t) {
-                    if (DEBUG)
-                        System.err.println("SurveyThread(count:" + tasksRemaining() + "): Got exception on: " + current + " - "
-                            + t.toString());
-                    t.printStackTrace();
-                    SurveyMain.busted("While working on task " + current + " - " + t.toString(), t);
+                if (DEBUG)
+                    System.err.println("SurveyThread(count:" + tasksRemaining() + "): Got exception on: " + current + " - "
+                        + t.toString());
+                t.printStackTrace();
+                SurveyMain.busted("While working on task " + current + " - " + t.toString(), t);
                 }
             current = null; /* done. */
             setName();

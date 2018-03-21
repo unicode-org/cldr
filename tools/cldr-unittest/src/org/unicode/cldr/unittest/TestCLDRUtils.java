@@ -121,7 +121,7 @@ public class TestCLDRUtils extends TestFmwk {
             logln(aloc.getBaseName()
                 + ".xml: "
                 + outStream.toString().replaceAll("\n", "\\\\n")
-                .replaceAll("\t", "\\\\t"));
+                    .replaceAll("\t", "\\\\t"));
         }
         if (outStream.toString().length() == 0) {
             errln("Error: empty CLDRFile of " + aloc
@@ -132,7 +132,7 @@ public class TestCLDRUtils extends TestFmwk {
     public void TestCLDRLocaleFormatNoFile() {
         logln("Tests for CLDRLocale:");
         CLDRLocale
-        .setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
+            .setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
         String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON",
             "__UND", "en", "en_GB", "en_Shav", "en_Shav_GB",
             "en_Latn_GB_POLYTON", "nnh", "sq_XK" };
@@ -217,7 +217,8 @@ public class TestCLDRUtils extends TestFmwk {
         logln("Reading" + fileName);
         myReader.read(TestCLDRUtils.class.getResource("data/" + fileName)
             .toString(), FileReaders.openFile(TestCLDRUtils.class, "data/"
-                + fileName), -1, true);
+                + fileName),
+            -1, true);
     }
 
     public void TestCLDRLocaleInheritance() {

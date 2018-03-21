@@ -45,15 +45,9 @@ public class PatternCache {
     static {
         if (USE_CACHE) {
             if (RECORD_STATISTICS) {
-                cache = CacheBuilder.newBuilder().
-                    initialCapacity(INITIAL_CAPACITY).
-                    maximumSize(MAX_CAPACITY).recordStats().
-                    build();
+                cache = CacheBuilder.newBuilder().initialCapacity(INITIAL_CAPACITY).maximumSize(MAX_CAPACITY).recordStats().build();
             } else {
-                cache = CacheBuilder.newBuilder().
-                    initialCapacity(INITIAL_CAPACITY).
-                    maximumSize(MAX_CAPACITY).
-                    build();
+                cache = CacheBuilder.newBuilder().initialCapacity(INITIAL_CAPACITY).maximumSize(MAX_CAPACITY).build();
             }
         } else {
             cache = null;

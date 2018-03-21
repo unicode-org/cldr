@@ -100,11 +100,7 @@ abstract public class CheckCLDR {
         /**
          * Disallow (for various reasons)
          */
-        FORBID_ERRORS(true),
-        FORBID_READONLY(true),
-        FORBID_UNLESS_DATA_SUBMISSION(true),
-        FORBID_COVERAGE(true),
-        FORBID_NEEDS_TICKET(true);
+        FORBID_ERRORS(true), FORBID_READONLY(true), FORBID_UNLESS_DATA_SUBMISSION(true), FORBID_COVERAGE(true), FORBID_NEEDS_TICKET(true);
 
         private final boolean isForbidden;
 
@@ -181,7 +177,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
 
             // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
@@ -214,7 +210,7 @@ abstract public class CheckCLDR {
             if (this == Phase.SUBMISSION) {
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
+                    : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
             // We are not in submission.
@@ -228,7 +224,7 @@ abstract public class CheckCLDR {
             if (valueStatus != ValueStatus.NONE) {
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
+                    : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 //            }
 
@@ -255,7 +251,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
             if (status != SurveyToolStatus.READ_WRITE && status != SurveyToolStatus.LTR_ALWAYS) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
@@ -334,15 +330,8 @@ abstract public class CheckCLDR {
     public static final class Options implements Comparable<Options> {
 
         public enum Option {
-            locale,
-            CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"),
-            CoverageLevel_localeType("CoverageLevel.localeType"), 
-            SHOW_TIMES, 
-            phase, 
-            lgWarningCheck,
-            CheckCoverage_skip("CheckCoverage.skip"),
-            exemplarErrors
-            ;
+            locale, CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"), CoverageLevel_localeType(
+                "CoverageLevel.localeType"), SHOW_TIMES, phase, lgWarningCheck, CheckCoverage_skip("CheckCoverage.skip"), exemplarErrors;
 
             private String key;
 
@@ -548,9 +537,9 @@ abstract public class CheckCLDR {
             for (Option o : Option.values()) {
                 if (options[o.ordinal()] != null) {
                     sb.append(o)
-                    .append('=')
-                    .append(options[o.ordinal()])
-                    .append(' ');
+                        .append('=')
+                        .append(options[o.ordinal()])
+                        .append(' ');
                 }
             }
             return sb.toString();
@@ -576,30 +565,30 @@ abstract public class CheckCLDR {
      */
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
-        .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
-        //.add(new CheckAttributeValues(factory))
-        .add(new CheckChildren(factory))
-        .add(new CheckCoverage(factory))
-        .add(new CheckDates(factory))
-        .add(new CheckForCopy(factory))
-        .add(new CheckDisplayCollisions(factory))
-        .add(new CheckExemplars(factory))
-        .add(new CheckForExemplars(factory))
-        .add(new CheckForInheritanceMarkers())
-        .add(new CheckNames())
-        .add(new CheckNumbers(factory))
-        // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
-        .add(new CheckMetazones())
-        .add(new CheckLogicalGroupings(factory))
-        .add(new CheckAlt())
-        .add(new CheckCurrencies())
-        .add(new CheckCasing())
-        .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
-        .add(new CheckQuotes())
-        .add(new CheckUnits())
-        .add(new CheckWidths())
-        .add(new CheckPlaceHolders())
-        .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
+            .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
+            //.add(new CheckAttributeValues(factory))
+            .add(new CheckChildren(factory))
+            .add(new CheckCoverage(factory))
+            .add(new CheckDates(factory))
+            .add(new CheckForCopy(factory))
+            .add(new CheckDisplayCollisions(factory))
+            .add(new CheckExemplars(factory))
+            .add(new CheckForExemplars(factory))
+            .add(new CheckForInheritanceMarkers())
+            .add(new CheckNames())
+            .add(new CheckNumbers(factory))
+            // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
+            .add(new CheckMetazones())
+            .add(new CheckLogicalGroupings(factory))
+            .add(new CheckAlt())
+            .add(new CheckCurrencies())
+            .add(new CheckCasing())
+            .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
+            .add(new CheckQuotes())
+            .add(new CheckUnits())
+            .add(new CheckWidths())
+            .add(new CheckPlaceHolders())
+            .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
         // not add a message if there are any.
         ;
     }
@@ -692,56 +681,22 @@ abstract public class CheckCLDR {
      * Status value returned from check
      */
     public static class CheckStatus {
-        public static final Type
-        alertType = Type.Comment,
-        warningType = Type.Warning,
-        errorType = Type.Error,
-        exampleType = Type.Example,
-        demoType = Type.Demo;
+        public static final Type alertType = Type.Comment,
+            warningType = Type.Warning,
+            errorType = Type.Error,
+            exampleType = Type.Example,
+            demoType = Type.Demo;
 
         public enum Type {
             Comment, Warning, Error, Example, Demo
         };
 
         public enum Subtype {
-            none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale,
-            incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel,
-            missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide,
-            displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders, shouldntHavePlaceholders,
-            couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, invalidCurrencyMatchSet,
-            multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow,
-            cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo,
-            deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError,
-            auxiliaryExemplarsOverlap, missingPunctuationCharacters,
+            none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders, shouldntHavePlaceholders, couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, invalidCurrencyMatchSet, multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow, cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo, deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, auxiliaryExemplarsOverlap, missingPunctuationCharacters,
 
-            charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars,
-            charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
+            charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars, charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
 
-            narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
-            inconsistentDatePattern, inconsistentTimePattern, missingDatePattern,
-            illegalDatePattern, missingMainExemplars,
-            mustNotStartOrEndWithSpace,
-            illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, missingMinusSign,
-            badNumericType,
-            percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
-            tooManyGroupingSeparators, inconsistentPluralFormat,
-            sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus,
-            errorOrWarningInLogicalGroup,
-            valueTooWide,
-            valueTooNarrow,
-            nameContainsYear,
-            patternCannotContainDigits, patternContainsInvalidCharacters, parenthesesNotAllowed,
-            illegalNumberingSystem,
-            unexpectedOrderOfEraYear,
-            invalidPlaceHolder,
-            asciiQuotesNotAllowed,
-            badMinimumGroupingDigits,
-            inconsistentPeriods,
-            inheritanceMarkerNotAllowed,
-            invalidDurationUnitPattern,
-            invalidDelimiter,
-            illegalCharactersInPattern,
-            badParseLenient;
+            narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars, inconsistentDatePattern, inconsistentTimePattern, missingDatePattern, illegalDatePattern, missingMainExemplars, mustNotStartOrEndWithSpace, illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, missingMinusSign, badNumericType, percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit, tooManyGroupingSeparators, inconsistentPluralFormat, sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus, errorOrWarningInLogicalGroup, valueTooWide, valueTooNarrow, nameContainsYear, patternCannotContainDigits, patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear, invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods, inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern, badParseLenient;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
@@ -750,16 +705,15 @@ abstract public class CheckCLDR {
             static Pattern TO_STRING = PatternCache.get("([A-Z])");
         };
 
-        public static EnumSet<Subtype> crossCheckSubtypes =
-            EnumSet.of(
-                Subtype.dateSymbolCollision,
-                Subtype.displayCollision,
-                Subtype.inconsistentDraftStatus,
-                Subtype.incompleteLogicalGroup,
-                Subtype.inconsistentPeriods,
-                Subtype.abbreviatedDateFieldTooWide,
-                Subtype.narrowDateFieldTooWide,
-                Subtype.coverageLevel);
+        public static EnumSet<Subtype> crossCheckSubtypes = EnumSet.of(
+            Subtype.dateSymbolCollision,
+            Subtype.displayCollision,
+            Subtype.inconsistentDraftStatus,
+            Subtype.incompleteLogicalGroup,
+            Subtype.inconsistentPeriods,
+            Subtype.abbreviatedDateFieldTooWide,
+            Subtype.narrowDateFieldTooWide,
+            Subtype.coverageLevel);
 
         private Type type;
         private Subtype subtype = Subtype.none;
@@ -1022,16 +976,16 @@ abstract public class CheckCLDR {
         public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted,
             String reparsed) {
             htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(pattern))
-            .append("'></td><td><input type='text' name='input' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(input))
-            .append("'></td><td>")
-            .append("<input type='submit' value='Test' name='Test'>")
-            .append("</td><td>" + "<input type='text' name='formatted' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(formatted))
-            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
-            .append("'></td></tr>");
+                .append(TransliteratorUtilities.toXML.transliterate(pattern))
+                .append("'></td><td><input type='text' name='input' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(input))
+                .append("'></td><td>")
+                .append("<input type='submit' value='Test' name='Test'>")
+                .append("</td><td>" + "<input type='text' name='formatted' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(formatted))
+                .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+                .append("'></td></tr>");
         }
 
         /**
@@ -1039,7 +993,7 @@ abstract public class CheckCLDR {
          */
         public static void appendTitle(StringBuffer htmlMessage) {
             htmlMessage.append("<table border='1' cellspacing='0' cellpadding='2'" +
-                // " style='border-collapse: collapse' style='width: 100%'" +
+            // " style='border-collapse: collapse' style='width: 100%'" +
                 "><tr>" +
                 "<th>Pattern</th>" +
                 "<th>Unlocalized Input</th>" +
@@ -1268,13 +1222,13 @@ abstract public class CheckCLDR {
 
         private void addError(List<CheckStatus> result, CheckCLDR item, Exception e) {
             result.add(new CheckStatus()
-            .setCause(this)
-            .setMainType(CheckStatus.errorType)
-            .setSubtype(Subtype.internalError)
-            .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
-                new Object[] { item.getClass().getName(), e.getClass().getName(), e,
-                Arrays.asList(e.getStackTrace())
-            }));
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.internalError)
+                .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
+                    new Object[] { item.getClass().getName(), e.getClass().getName(), e,
+                        Arrays.asList(e.getStackTrace())
+                    }));
         }
 
         public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,

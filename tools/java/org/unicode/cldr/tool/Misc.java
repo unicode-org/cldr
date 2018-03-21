@@ -62,22 +62,20 @@ public class Misc {
     static CLDRFile resolvedRoot;
     // WARNING: this file needs a serious cleanup
 
-    private static final int
-    HELP1 = 0,
-    HELP2 = 1,
-    SOURCEDIR = 2,
-    DESTDIR = 3,
-    MATCH = 4,
-    TO_LOCALIZE = 5,
-    CURRENT = 6,
-    WINDOWS = 7,
-    OBSOLETES = 8,
-    ALIASES = 9,
-    INFO = 10,
-    ZONES = 11,
-    LANGUAGE_TAGS = 12,
-    FUNCTION = 13
-    ;
+    private static final int HELP1 = 0,
+        HELP2 = 1,
+        SOURCEDIR = 2,
+        DESTDIR = 3,
+        MATCH = 4,
+        TO_LOCALIZE = 5,
+        CURRENT = 6,
+        WINDOWS = 7,
+        OBSOLETES = 8,
+        ALIASES = 9,
+        INFO = 10,
+        ZONES = 11,
+        LANGUAGE_TAGS = 12,
+        FUNCTION = 13;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -486,7 +484,7 @@ public class Misc {
         for (int i = 0; i < ZONE_MAP.length; i += 3) {
             System.out.println("\t\t\t<mapZone other=\"" + ZONE_MAP[i + 1]
                 + "\" type=\"" + ZONE_MAP[i]
-                    + "\"/> <!-- " + ZONE_MAP[i + 2] + "-->");
+                + "\"/> <!-- " + ZONE_MAP[i + 2] + "-->");
         }
         System.out.println("\t\t</mapTimezones>");
         System.out.println("\t</timezoneData>");
@@ -497,10 +495,9 @@ public class Misc {
             System.out.println(
                 ZONE_MAP[i]
                     + "\t" + ZONE_MAP[i + 1]
-                        + "\t" + ZONE_MAP[i + 2].substring(0, p1)
-                        + "\t" + ZONE_MAP[i + 2].substring(p1 + 1, p2)
-                        + "\t" + ZONE_MAP[i + 2].substring(p2 + 1)
-                );
+                    + "\t" + ZONE_MAP[i + 2].substring(0, p1)
+                    + "\t" + ZONE_MAP[i + 2].substring(p1 + 1, p2)
+                    + "\t" + ZONE_MAP[i + 2].substring(p2 + 1));
         }
 
     }
@@ -681,7 +678,8 @@ public class Misc {
             log.print("\u200E</td></tr></table></th></tr>");
             if (first) {
                 first = false;
-                log.println("<tr><th width=\"25%\">&nbsp;</th><th width=\"25%\">generic</th><th width=\"25%\">standard</th><th width=\"25%\">daylight</th></tr>");
+                log.println(
+                    "<tr><th width=\"25%\">&nbsp;</th><th width=\"25%\">generic</th><th width=\"25%\">standard</th><th width=\"25%\">daylight</th></tr>");
             } else {
                 log.println("<tr><th>&nbsp;</th><th>generic</th><th>standard</th><th>daylight</th></tr>");
             }
@@ -708,15 +706,15 @@ public class Misc {
     }
 
     static CldrUtility.VariableReplacer langTag = new CldrUtility.VariableReplacer()
-    .add("$alpha", "[a-zA-Z]")
-    .add("$digit", "[0-9]")
-    .add("$alphanum", "[a-zA-Z0-9]")
-    .add("$x", "[xX]")
-    .add("$grandfathered", "en-GB-oed" +
-        "|i-(?:ami|bnn|default|enochian|hak|klingon|lux|mingo|navajo|pwn|tao|tay|tsu)" +
-        "|no-(?:bok|nyn)" +
-        "|sgn-(?:BE-(?:fr|nl)|CH-de)" +
-        "|zh-(?:gan|min(?:-nan)?|wuu|yue)")
+        .add("$alpha", "[a-zA-Z]")
+        .add("$digit", "[0-9]")
+        .add("$alphanum", "[a-zA-Z0-9]")
+        .add("$x", "[xX]")
+        .add("$grandfathered", "en-GB-oed" +
+            "|i-(?:ami|bnn|default|enochian|hak|klingon|lux|mingo|navajo|pwn|tao|tay|tsu)" +
+            "|no-(?:bok|nyn)" +
+            "|sgn-(?:BE-(?:fr|nl)|CH-de)" +
+            "|zh-(?:gan|min(?:-nan)?|wuu|yue)")
         .add("$lang", "$alpha{2,8}")
         .add("$extlang", "(?:-$alpha{3})") // *3("-" 3ALPHA)
         .add("$script", "(?:-$alpha{4})") // ["-" script], 4ALPHA
@@ -734,8 +732,7 @@ public class Misc {
             + CldrUtility.LINE_SEPARATOR + "\t($extension*)"
             + CldrUtility.LINE_SEPARATOR + "\t($privateuse2?)"
             + CldrUtility.LINE_SEPARATOR + "|($grandfathered)"
-            + CldrUtility.LINE_SEPARATOR + "|($privateuse)"
-        );
+            + CldrUtility.LINE_SEPARATOR + "|($privateuse)");
     static String cleanedLangTagPattern = langTagPattern.replaceAll("[\\r\\t\\n\\s]", "");
     static Matcher regexLanguageTagOld = PatternCache.get(cleanedLangTagPattern).matcher("");
 
@@ -1045,8 +1042,7 @@ public class Misc {
             if (m == null) continue;
             if (false) System.out.println("Type: " + m.get("type")
                 + "\tscripts: " + m.get("scripts")
-                + "\tterritories: " + m.get("territories")
-                );
+                + "\tterritories: " + m.get("territories"));
         }
 
         // territories

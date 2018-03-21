@@ -39,7 +39,7 @@ public class Option {
     //private final Enum<?> optionEnumValue;
     private boolean doesOccur;
     private String value;
-    
+
     /** Arguments for setting up options.
      * Migration
      * from UOption.create("generate_html", 'g', UOption.OPTIONAL_ARG).setDefault(CLDRPaths.CHART_DIRECTORY + "/errors/"),
@@ -55,7 +55,7 @@ public class Option {
         private String defaultArgument = null;
         private String helpString = null;
         private char flag = 0;
-        
+
         /**
          * @param match the match to set
          */
@@ -63,7 +63,7 @@ public class Option {
             this.match = match;
             return this;
         }
-        
+
         /**
          * @param defaultArgument the defaultArgument to set
          */
@@ -81,7 +81,7 @@ public class Option {
         }
 
         public Params setFlag(char c) {
-            flag=c;
+            flag = c;
             return this;
         }
     }
@@ -109,7 +109,7 @@ public class Option {
     public String getValue() {
         return value;
     }
-    
+
     public String getExplicitValue() {
         return doesOccur ? value : null;
     }
@@ -123,12 +123,13 @@ public class Option {
     }
 
     public Option(Enum<?> optionEnumValue, String argumentPattern, String defaultArgument, String helpText) {
-        this(optionEnumValue, optionEnumValue.name(), (Character)(optionEnumValue.name().charAt(0)), Pattern.compile(argumentPattern), defaultArgument, helpText);
+        this(optionEnumValue, optionEnumValue.name(), (Character) (optionEnumValue.name().charAt(0)), Pattern.compile(argumentPattern), defaultArgument,
+            helpText);
     }
 
     public Option(Enum<?> enumOption, String tag, Character flag, Object argumentPatternIn, String defaultArgument, String helpString) {
         Pattern argumentPattern = getPattern(argumentPatternIn);
-        
+
         if (defaultArgument != null && argumentPattern != null) {
             if (!argumentPattern.matcher(defaultArgument).matches()) {
                 throw new IllegalArgumentException("Default argument doesn't match pattern: " + defaultArgument + ", "
@@ -141,27 +142,26 @@ public class Option {
         this.flag = flag;
         this.defaultArgument = defaultArgument;
     }
-    
+
     public Option(Enum<?> optionEnumValue, Params optionList) {
-        this(optionEnumValue, 
-            optionEnumValue.name(), 
-            optionList.flag != 0 ? optionList.flag : optionEnumValue.name().charAt(0), 
-            optionList.match, 
-            optionList.defaultArgument, 
+        this(optionEnumValue,
+            optionEnumValue.name(),
+            optionList.flag != 0 ? optionList.flag : optionEnumValue.name().charAt(0),
+            optionList.match,
+            optionList.defaultArgument,
             optionList.helpString);
     }
-    
-    
+
     private static Pattern getPattern(Object match) {
         if (match == null) {
             return null;
         } else if (match instanceof Pattern) {
             return (Pattern) match;
         } else if (match instanceof String) {
-            return Pattern.compile((String)match);
-        } else if (match instanceof Class){
+            return Pattern.compile((String) match);
+        } else if (match instanceof Class) {
             try {
-                Enum[] valuesMethod = (Enum[]) ((Class)match).getMethod("values").invoke(null);
+                Enum[] valuesMethod = (Enum[]) ((Class) match).getMethod("values").invoke(null);
                 return Pattern.compile(CollectionUtilities.join(valuesMethod, "|"));
             } catch (Exception e) {
                 throw new IllegalArgumentException(e);
@@ -173,13 +173,12 @@ public class Option {
     static final String PAD = "                    ";
 
     public String toString() {
-        return "-" + flag 
-            + " (" + tag + ")" 
+        return "-" + flag
+            + " (" + tag + ")"
             + PAD.substring(Math.min(tag.length(), PAD.length()))
-            + (match == null ? "no-arg" : "match: " + match.pattern()) 
+            + (match == null ? "no-arg" : "match: " + match.pattern())
             + (defaultArgument == null ? "" : " \tdefault=" + defaultArgument)
-            + " \t" + helpString
-            ;
+            + " \t" + helpString;
     }
 
     enum MatchResult {
@@ -275,7 +274,7 @@ public class Option {
                     + charToValues.get(option.flag));
             }
             stringToValues.put(option.tag, option);
-            charToValues.put(option.flag, option);        
+            charToValues.put(option.flag, option);
             if (optionEnumValue != null) {
                 enumToValues.put(optionEnumValue, option);
             }
@@ -363,7 +362,7 @@ public class Option {
                     if (!option.doesOccur && option.value == null) {
                         continue;
                     }
-                    System.out.println("#-" + option.flag 
+                    System.out.println("#-" + option.flag
                         + "\t" + option.tag
                         + (option.doesOccur ? "\t≔\t" : "\t≝\t") + option.value);
                 }
@@ -408,15 +407,17 @@ public class Option {
 
     }
 
-    private enum Test {A, B, C}
-    
+    private enum Test {
+        A, B, C
+    }
+
     final static Options myOptions = new Options()
-    .add("file", ".*", "Filter the information based on file name, using a regex argument")
-    .add("path", ".*", "default-path", "Filter the information based on path name, using a regex argument")
-    .add("content", ".*", "Filter the information based on content name, using a regex argument")
-    .add("gorp", null, null, "Gorp")
-    .add("enum", Test.class, null, "enum check")
-    .add("regex", "a*", null, "Gorp");
+        .add("file", ".*", "Filter the information based on file name, using a regex argument")
+        .add("path", ".*", "default-path", "Filter the information based on path name, using a regex argument")
+        .add("content", ".*", "Filter the information based on content name, using a regex argument")
+        .add("gorp", null, null, "Gorp")
+        .add("enum", Test.class, null, "enum check")
+        .add("regex", "a*", null, "Gorp");
 
     public static void main(String[] args) {
         if (args.length == 0) {

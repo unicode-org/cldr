@@ -95,8 +95,7 @@ public class GeneratePluralRanges {
                     + "\t" + rangeSample.max
                     + "\t" + rangeSample.startExample
                     + "\t" + rangeSample.endExample
-                    + "\t" + rangeSample.resultExample
-                    );
+                    + "\t" + rangeSample.resultExample);
             }
         }
     }
@@ -157,9 +156,8 @@ public class GeneratePluralRanges {
                     s, e, r,
                     minSample.value,
                     maxSample.value,
-                    getExample(locale, samplePatterns, s, minFormatted)
-                    , getExample(locale, samplePatterns, e, maxFormatted)
-                    , getExample(locale, samplePatterns, r, rangeFormatted)));
+                    getExample(locale, samplePatterns, s, minFormatted), getExample(locale, samplePatterns, e, maxFormatted),
+                    getExample(locale, samplePatterns, r, rangeFormatted)));
             }
         }
         return list;
@@ -332,12 +330,11 @@ public class GeneratePluralRanges {
             for (Count end : pluralInfo.getCounts()) {
                 Count r = matrix.endSame(end);
                 if (r != null
-                    //&& r != Count.other
-                    ) {
+                //&& r != Count.other
+                ) {
                     result.add("<pluralRange" +
                         "              \t\tend=\"" + end
-                        + "\"\tresult=\"" + r + "\"/>"
-                        );
+                        + "\"\tresult=\"" + r + "\"/>");
                     endDone.add(end);
                 }
             }
@@ -345,13 +342,12 @@ public class GeneratePluralRanges {
             for (Count start : pluralInfo.getCounts()) {
                 Count r = matrix.startSame(start, endDone, emit);
                 if (r != null
-                    // && r != Count.other
-                    ) {
+                // && r != Count.other
+                ) {
                     if (emit.value) {
                         result.add("<pluralRange" +
                             "\tstart=\"" + start
-                            + "\"          \t\tresult=\"" + r + "\"/>"
-                            );
+                            + "\"          \t\tresult=\"" + r + "\"/>");
                     }
                     startDone.add(start);
                 }
@@ -368,16 +364,14 @@ public class GeneratePluralRanges {
                 }
                 Count r = matrix.get(start, end);
                 if (r != null
-                    //&& !(MINIMAL && r == Count.other)
-                    ) {
-                    result.add(PluralRanges.showRange(start, end, r)
-                        );
+                //&& !(MINIMAL && r == Count.other)
+                ) {
+                    result.add(PluralRanges.showRange(start, end, r));
                 } else {
                     result.add("<!-- <pluralRange" +
                         "\tstart=\"" + start
                         + "\" \tend=\"" + end
-                        + "\" \tresult=\"" + r + "\"/> -->"
-                        );
+                        + "\" \tresult=\"" + r + "\"/> -->");
 
                 }
 

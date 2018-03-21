@@ -50,7 +50,6 @@ public class TestOutdatedPaths extends TestFmwkPlus {
     private void checkShow(PathHeader.Factory pathHeaders, String locale) {
         CLDRFile cldrFile = testInfo.getMainAndAnnotationsFactory().make(locale, true);
 
-
         Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
         logln("Count:\t" + outdatedPaths.countOutdated(locale));
         for (String spath : cldrFile) {
@@ -65,8 +64,9 @@ public class TestOutdatedPaths extends TestFmwkPlus {
                 + outdatedPaths.getPreviousEnglish(originalPath)
                 + "\t=>\t"
                 + CLDRConfig.getInstance().getEnglish()
-                .getStringValue(originalPath) + "\tNative(" + locale
-                    + "): "
+                    .getStringValue(originalPath)
+                + "\tNative(" + locale
+                + "): "
                 + cldrFile.getStringValue(originalPath) + "\tPath: "
                 + p.toString() + "\tXML Path: " + originalPath);
         }

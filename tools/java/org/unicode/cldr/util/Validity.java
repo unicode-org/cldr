@@ -18,13 +18,10 @@ import com.google.common.base.Splitter;
 public class Validity {
 
     public enum Status {
-        regular,
-        special, // for languages only (special codes like mul)
+        regular, special, // for languages only (special codes like mul)
         macroregion, // regions only (from M.49)
-        deprecated,
-        private_use, // for clients of cldr with prior agreements
-        unknown,
-        invalid; //  (anything else)
+        deprecated, private_use, // for clients of cldr with prior agreements
+        unknown, invalid; //  (anything else)
     }
 
     private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();
@@ -64,7 +61,7 @@ public class Validity {
                 continue;
             }
             List<Pair<String, String>> lineData = new ArrayList<>();
-            Map<Status, Set<String>> submap = data.get(type);            
+            Map<Status, Set<String>> submap = data.get(type);
             if (submap == null) {
                 data.put(type, submap = new EnumMap<>(Status.class));
             }
@@ -115,9 +112,11 @@ public class Validity {
     public Map<LstrType, Map<Status, Set<String>>> getData() {
         return typeToStatusToCodes;
     }
+
     public Map<Status, Set<String>> getStatusToCodes(LstrType type) {
         return typeToStatusToCodes.get(type);
     }
+
     public Map<String, Status> getCodeToStatus(LstrType type) {
         return typeToCodeToStatus.get(type);
     }

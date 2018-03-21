@@ -68,32 +68,29 @@ public abstract class Chart {
     }
 
     enum AnalyticsID {
-        CLDR("UA-7672775-1"),
-        ICU("UA-7670213-1"),
-        ICU_GUIDE("UA-7670256-1"),
-        UNICODE("UA-7670213-1"),
-        UNICODE_UTILITY("UA-8314904-1")
-        ;
+        CLDR("UA-7672775-1"), ICU("UA-7670213-1"), ICU_GUIDE("UA-7670256-1"), UNICODE("UA-7670213-1"), UNICODE_UTILITY("UA-8314904-1");
         public final String id;
+
         private AnalyticsID(String id) {
             this.id = id;
         }
     }
+
     public static void standardFooter(FormattedFileWriter pw, AnalyticsID analytics) throws IOException {
         pw.write("<div style='text-align: center; margin-top:2em; margin-bottom: 60em;'><br>\n"
-                + "<a href='http://www.unicode.org/unicode/copyright.html'>\n"
-                + "<img src='http://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height=50px;' alt='Access to Copyright and terms of use'>"
-                + "</a><br>\n<script language='Javascript' type='text/javascript' src='http://www.unicode.org/webscripts/lastModified.js'></script>"
-                + "</div><script>\n\n"
-                + "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
-                + "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"
-                + "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"
-                + "})(window,document,'script','//www.google-analytics.com/analytics.js','ga');"
-                + "  ga('create', '"
-                + analytics
-                + "', 'auto');"
-                + "  ga('send', 'pageview');"
-                + "</script>\n");
+            + "<a href='http://www.unicode.org/unicode/copyright.html'>\n"
+            + "<img src='http://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height=50px;' alt='Access to Copyright and terms of use'>"
+            + "</a><br>\n<script language='Javascript' type='text/javascript' src='http://www.unicode.org/webscripts/lastModified.js'></script>"
+            + "</div><script>\n\n"
+            + "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
+            + "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"
+            + "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"
+            + "})(window,document,'script','//www.google-analytics.com/analytics.js','ga');"
+            + "  ga('create', '"
+            + analytics
+            + "', 'auto');"
+            + "  ga('send', 'pageview');"
+            + "</script>\n");
     }
 
     public final void writeChart(Anchors anchors) {
@@ -113,6 +110,6 @@ public abstract class Chart {
         if (target.equals(targetDir)) {
             throw new IllegalArgumentException("Can't make TSV directory from " + targetDir);
         }
-        return  target;
+        return target;
     }
 }

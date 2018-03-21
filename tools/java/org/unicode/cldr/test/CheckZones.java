@@ -90,8 +90,7 @@ public class CheckZones extends FactoryCheckCLDR {
                     .setMessage("No metazone mapping between {0} and {1}",
                         new Object[] { previousTo, from }));
             }
-        }
-        else {
+        } else {
             if (previousFrom.compareTo("1970-01-01") != 0) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.noMetazoneMappingAfter1970)

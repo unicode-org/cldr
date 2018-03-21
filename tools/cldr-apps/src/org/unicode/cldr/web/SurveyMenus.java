@@ -115,12 +115,12 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                 Iterable<String> iter = getPagePaths();
                 if (iter != null)
                     for (String xp : iter) {
-                        ph = phf.fromPath(xp);
-                        SurveyToolStatus xStatus = ph.getSurveyToolStatus();
-                        if (xStatus == SurveyToolStatus.HIDE || xStatus == SurveyToolStatus.DEPRECATED) {
-                            pageStatus = SurveyToolStatus.HIDE;
-                        }
-                        break;
+                    ph = phf.fromPath(xp);
+                    SurveyToolStatus xStatus = ph.getSurveyToolStatus();
+                    if (xStatus == SurveyToolStatus.HIDE || xStatus == SurveyToolStatus.DEPRECATED) {
+                    pageStatus = SurveyToolStatus.HIDE;
+                    }
+                    break;
                     }
             }
 

@@ -175,8 +175,8 @@ public class CachingEntityResolver implements EntityResolver {
             if (!aDir.exists() || !aDir.isDirectory()) {
                 // doesn't exist or isn't a directory:
                 System.err
-                .println("CachingEntityResolver: Warning:  Cache not used, Directory doesn't exist, Check the value of  property "
-                    + CLDR_DTD_CACHE + " :  " + theCache);
+                    .println("CachingEntityResolver: Warning:  Cache not used, Directory doesn't exist, Check the value of  property "
+                        + CLDR_DTD_CACHE + " :  " + theCache);
                 return null;
             }
 

@@ -184,117 +184,117 @@ public class TestTransforms extends TestFmwkPlus {
     };
 
     private String makeLegacyTransformID(String source, String target, String variant) {
-	if (variant != null) {
-	    return source + "-" + target + "/" + variant;
-	} else {
-	    return source + "-" + target;
-	}
+        if (variant != null) {
+            return source + "-" + target + "/" + variant;
+        } else {
+            return source + "-" + target;
+        }
     }
 
     private void checkTransformID(String id, File file) {
-	if (id.indexOf("-t-") > 0) {
-	    String expected = ULocale.forLanguageTag(id).toLanguageTag();
-	    if (!id.equals(expected)) {
-		errln(file.getName() + ": BCP47-T identifier \"" +
-		      id + "\" should be \"" + expected + "\"");			
-	    }
+        if (id.indexOf("-t-") > 0) {
+            String expected = ULocale.forLanguageTag(id).toLanguageTag();
+            if (!id.equals(expected)) {
+                errln(file.getName() + ": BCP47-T identifier \"" +
+                    id + "\" should be \"" + expected + "\"");
+            }
         }
     }
 
     private void addTransformID(String id, File file, Map<String, File> ids) {
-	File oldFile = ids.get(id);
-	if (oldFile == null || oldFile.equals(file)) {
-	    ids.put(id, file);
-	} else {
-	    errln(file.getName() + ": Transform \"" + id +
-		  "\" already defined in " + oldFile.getName());
-	}
+        File oldFile = ids.get(id);
+        if (oldFile == null || oldFile.equals(file)) {
+            ids.put(id, file);
+        } else {
+            errln(file.getName() + ": Transform \"" + id +
+                "\" already defined in " + oldFile.getName());
+        }
     }
 
     private void addTransformIDs(File file, XPathParts parts, int element, Map<String, File> ids) {
-	String source = parts.getAttributeValue(element, "source");
-	String target = parts.getAttributeValue(element, "target");
-	String variant = parts.getAttributeValue(element, "variant");
-	String direction = parts.getAttributeValue(element, "direction");
+        String source = parts.getAttributeValue(element, "source");
+        String target = parts.getAttributeValue(element, "target");
+        String variant = parts.getAttributeValue(element, "variant");
+        String direction = parts.getAttributeValue(element, "direction");
 
-	if (source != null && target != null) {
-	    if ("forward".equals(direction)) {
-		addTransformID(makeLegacyTransformID(source, target, variant), file, ids);
-	    } else if ("both".equals(direction)) {
-		addTransformID(makeLegacyTransformID(source, target, variant), file, ids);
-		addTransformID(makeLegacyTransformID(target, source, variant), file, ids);
-	    }
-	}
+        if (source != null && target != null) {
+            if ("forward".equals(direction)) {
+                addTransformID(makeLegacyTransformID(source, target, variant), file, ids);
+            } else if ("both".equals(direction)) {
+                addTransformID(makeLegacyTransformID(source, target, variant), file, ids);
+                addTransformID(makeLegacyTransformID(target, source, variant), file, ids);
+            }
+        }
 
-	String alias = parts.getAttributeValue(element, "alias");
-	if (alias != null) {
-	    for (String id : alias.split("\\s+")) {
-		addTransformID(id, file, ids);
-	    }
-	}
+        String alias = parts.getAttributeValue(element, "alias");
+        if (alias != null) {
+            for (String id : alias.split("\\s+")) {
+                addTransformID(id, file, ids);
+            }
+        }
 
-	String backwardAlias = parts.getAttributeValue(element, "backwardAlias");
-	if (backwardAlias != null) {
-	    if (!"both".equals(direction)) {
-		errln(file.getName() + ": Expected direction=\"both\" " +
-		      "when backwardAlias is present");
-	    }
+        String backwardAlias = parts.getAttributeValue(element, "backwardAlias");
+        if (backwardAlias != null) {
+            if (!"both".equals(direction)) {
+                errln(file.getName() + ": Expected direction=\"both\" " +
+                    "when backwardAlias is present");
+            }
 
-	    for (String id : backwardAlias.split("\\s+")) {
-		addTransformID(id, file, ids);
-	    }
-	}
+            for (String id : backwardAlias.split("\\s+")) {
+                addTransformID(id, file, ids);
+            }
+        }
     }
 
     private Map<String, File> getTransformIDs(String transformsDirectoryPath) {
-	Map<String, File> ids = new HashMap<String, File>();
-	File dir = new File(transformsDirectoryPath);
-	if (!dir.exists()) {
-	    errln("Cannot find transforms directory at " + transformsDirectoryPath);
-	    return ids;
-	}
+        Map<String, File> ids = new HashMap<String, File>();
+        File dir = new File(transformsDirectoryPath);
+        if (!dir.exists()) {
+            errln("Cannot find transforms directory at " + transformsDirectoryPath);
+            return ids;
+        }
 
-	for (File file : dir.listFiles()) {
-	    if (!file.getName().endsWith(".xml")) {
-		continue;
-	    }
-	    List<Pair<String, String>> data = new ArrayList<>();
-	    XMLFileReader.loadPathValues(file.getPath(), data, true);
-	    for (Pair<String, String> entry : data) {
-		final String xpath = entry.getFirst();
-		if (xpath.startsWith("//supplementalData/transforms/transform[")) {
-		    String fileName = file.getName();
-		    XPathParts parts = XPathParts.getFrozenInstance(xpath);
-		    addTransformIDs(file, parts, 2, ids);
-		}
-	    }
-	}
-	return ids;
+        for (File file : dir.listFiles()) {
+            if (!file.getName().endsWith(".xml")) {
+                continue;
+            }
+            List<Pair<String, String>> data = new ArrayList<>();
+            XMLFileReader.loadPathValues(file.getPath(), data, true);
+            for (Pair<String, String> entry : data) {
+                final String xpath = entry.getFirst();
+                if (xpath.startsWith("//supplementalData/transforms/transform[")) {
+                    String fileName = file.getName();
+                    XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                    addTransformIDs(file, parts, 2, ids);
+                }
+            }
+        }
+        return ids;
     }
 
     public void TestTransformIDs() {
         Map<String, File> transforms = getTransformIDs(CLDRPaths.TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : transforms.entrySet()) {
-	    checkTransformID(entry.getKey(), entry.getValue());
+            checkTransformID(entry.getKey(), entry.getValue());
         }
 
- 	// Only run the rest in exhaustive mode since it requires CLDR_ARCHIVE_DIRECTORY.
+        // Only run the rest in exhaustive mode since it requires CLDR_ARCHIVE_DIRECTORY.
         if (getInclusion() <= 5) {
             return;
         }
 
-	Set<String> removedTransforms = new HashSet<String>();
-	removedTransforms.add("ASCII-Latin");  // http://unicode.org/cldr/trac/ticket/9163
+        Set<String> removedTransforms = new HashSet<String>();
+        removedTransforms.add("ASCII-Latin"); // http://unicode.org/cldr/trac/ticket/9163
 
         Map<String, File> oldTransforms = getTransformIDs(CLDRPaths.LAST_TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : oldTransforms.entrySet()) {
-	    String id = entry.getKey();
-	    if (!transforms.containsKey(id) && !removedTransforms.contains(id)) {
-		File oldFile = entry.getValue();
-		errln("Missing transform \"" + id +
-		      "\"; the previous CLDR release had defined it in " + oldFile.getName());
-	    }
-	}
+            String id = entry.getKey();
+            if (!transforms.containsKey(id) && !removedTransforms.contains(id)) {
+                File oldFile = entry.getValue();
+                errln("Missing transform \"" + id +
+                    "\"; the previous CLDR release had defined it in " + oldFile.getName());
+            }
+        }
     }
 
     public void Test1461() {
@@ -303,7 +303,8 @@ public class TestTransforms extends TestFmwkPlus {
         String[][] tests = {
             { "transliterator=", "Katakana-Latin" },
             { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F",
-            "ha hā ba pa" }, { "transliterator=", "Hangul-Latin" },
+                "ha hā ba pa" },
+            { "transliterator=", "Hangul-Latin" },
             { "roundtrip=", "true" }, { "갗", "gach" }, { "느", "neu" }, };
 
         Transliterator transform = null;
@@ -317,15 +318,15 @@ public class TestTransforms extends TestFmwkPlus {
                 switch (Options.valueOf(source
                     .substring(0, source.length() - 1).toLowerCase(
                         Locale.ENGLISH))) {
-                        case transliterator:
-                            id = target;
-                            transform = Transliterator.getInstance(id);
-                            inverse = Transliterator.getInstance(id,
-                                Transliterator.REVERSE);
-                            break;
-                        case roundtrip:
-                            roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
-                            break;
+                case transliterator:
+                    id = target;
+                    transform = Transliterator.getInstance(id);
+                    inverse = Transliterator.getInstance(id,
+                        Transliterator.REVERSE);
+                    break;
+                case roundtrip:
+                    roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
+                    break;
                 }
                 continue;
             }
@@ -345,8 +346,7 @@ public class TestTransforms extends TestFmwkPlus {
             trans.transliterate("Kornilʹev Kirill"));
     }
 
-    private Pattern rfc6497Pattern =
-        Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
+    private Pattern rfc6497Pattern = Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
 
     // cs-fonipa --> cs_fonipa; und-deva --> deva
     // TODO: Remove this workaround once ICU supports BCP47-T identifiers.
@@ -375,8 +375,8 @@ public class TestTransforms extends TestFmwkPlus {
         } else if (id.equalsIgnoreCase("my-t-my-s0-zawgyi")) {
             return Transliterator.getInstance("Zawgyi-my");
         } else if (id.equalsIgnoreCase("und-t-d0-ascii")) {
-	    return Transliterator.getInstance("Latin-ASCII");
-	}
+            return Transliterator.getInstance("Latin-ASCII");
+        }
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);
         if (rfc6497Matcher.matches()) {
@@ -577,7 +577,7 @@ public class TestTransforms extends TestFmwkPlus {
     private void showTransliterator(Transliterator t) {
         org.unicode.cldr.test.TestTransforms.showTransliterator("", t, 999);
     }
-    
+
     public void Test9925() {
         register();
         Transliterator pinyin = getTransliterator("und-Latn-t-und-hani");

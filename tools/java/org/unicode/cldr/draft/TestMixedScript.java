@@ -141,8 +141,7 @@ public class TestMixedScript {
                 return MixedScriptLevel.single;
             } else if (singleScriptsCount == 1) {
                 // Ensure that the single script is in fact the one.
-                skip:
-                {
+                skip: {
                     int single = singleScripts.nextSetBit(0);
                     for (BitSet combo : combinations) {
                         if (!combo.get(single)) {

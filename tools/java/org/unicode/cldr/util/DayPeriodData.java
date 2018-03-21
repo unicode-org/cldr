@@ -388,10 +388,9 @@ public class DayPeriodData {
         { "my", "16", "EVENING1", "ညနေ" },
         { "my", "19", "NIGHT1", "ည" },
     };
-    static final M3<String, DayPeriod, String> localeToDayPeriodToName =
-        ChainedMap.of(new HashMap<String, Object>(),
-            new TreeMap<DayPeriod, Object>(),
-            String.class);
+    static final M3<String, DayPeriod, String> localeToDayPeriodToName = ChainedMap.of(new HashMap<String, Object>(),
+        new TreeMap<DayPeriod, Object>(),
+        String.class);
     static {
         for (String[] data : RAW_DATA) {
             String locale = data[0];

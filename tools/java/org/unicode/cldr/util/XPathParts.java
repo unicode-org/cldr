@@ -152,9 +152,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     public static class Comments implements Cloneable {
         public enum CommentType {
-            LINE,
-            PREBLOCK,
-            POSTBLOCK
+            LINE, PREBLOCK, POSTBLOCK
         }
 
         private EnumMap<CommentType, Map<String, String>> comments = new EnumMap<CommentType, Map<String, String>>(
@@ -814,8 +812,8 @@ public final class XPathParts implements Freezable<XPathParts> {
                 }
                 try {
                     result.append(prefix).append(attribute).append("=\"")
-                    .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
-                    .append(postfix);
+                        .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
+                        .append(postfix);
                 } catch (RuntimeException e) {
                     throw e; // for debugging
                 }
@@ -845,8 +843,8 @@ public final class XPathParts implements Freezable<XPathParts> {
                 // == check is ok since we intern elements
                 return element == that.element
                     && (attributes == null ? that.attributes == null
-                    : that.attributes == null ? attributes == null
-                    : attributes.equals(that.attributes));
+                        : that.attributes == null ? attributes == null
+                            : attributes.equals(that.attributes));
             } catch (ClassCastException e) {
                 return false;
             }
@@ -1221,17 +1219,17 @@ public final class XPathParts implements Freezable<XPathParts> {
         }
         return builder.build();
     }
-    
-    public Map<String,String> getSpecialNondistinguishingAttributes() {
+
+    public Map<String, String> getSpecialNondistinguishingAttributes() {
         Map<String, String> ueMap = null; // common case, none found.
         for (int i = 0; i < this.size(); i++) {
             // taken from XPathTable.getUndistinguishingElementsFor, with some cleanup
             // from XPathTable.getUndistinguishingElements, we include alt, draft
-            for (Entry<String,String> entry : this.getAttributes(i).entrySet()) {
+            for (Entry<String, String> entry : this.getAttributes(i).entrySet()) {
                 String k = entry.getKey();
-                if (getDtdData().isDistinguishing(getElement(i), k) 
-                     || k.equals("alt") // is always distinguishing, so we don't really need this.
-                     || k.equals("draft")) {
+                if (getDtdData().isDistinguishing(getElement(i), k)
+                    || k.equals("alt") // is always distinguishing, so we don't really need this.
+                    || k.equals("draft")) {
                     continue;
                 }
                 if (ueMap == null) {

@@ -179,7 +179,7 @@ public class LanguageTagParser {
             throw new IllegalArgumentException("Language tag cannot be empty");
         }
         languageTag = languageTag.toLowerCase(Locale.ROOT);
-        
+
         // clear everything out
         language = region = script = "";
         grandfathered = false;
@@ -412,14 +412,15 @@ public class LanguageTagParser {
     }
 
     public enum OutputOption {
-        ICU('_'), 
-        BCP47('-');
+        ICU('_'), BCP47('-');
         final char separator;
         final Joiner joiner;
+
         private OutputOption(char separator) {
             this.separator = separator;
             joiner = Joiner.on(separator);
         }
+
         public Map<String, String> convert(Map<String, List<String>> mapToList) {
             if (mapToList.isEmpty()) {
                 return Collections.emptyMap();
@@ -450,7 +451,7 @@ public class LanguageTagParser {
                 String key = extension.getKey();
                 String value = oo.joiner.join(extension.getValue());
                 result.append(oo.separator).append(key)
-                .append(oo.separator).append(value);
+                    .append(oo.separator).append(value);
             }
         }
         if (this.localeExtensions.size() != 0) {
@@ -462,7 +463,7 @@ public class LanguageTagParser {
                 String key = extension.getKey();
                 String value = oo.joiner.join(extension.getValue());
                 result.append(oo != OutputOption.ICU ? key : key.toUpperCase(Locale.ROOT))
-                .append('=').append(oo != OutputOption.ICU ? value : value.toUpperCase(Locale.ROOT));
+                    .append('=').append(oo != OutputOption.ICU ? value : value.toUpperCase(Locale.ROOT));
             }
         }
         return result.toString();
@@ -548,7 +549,7 @@ public class LanguageTagParser {
         int lastBar = s.lastIndexOf('_');
         return lastBar >= 0 ? s.substring(0, lastBar) : "";
     }
-    
+
     private Map<String, List<String>> expandMap(Map<String, String> newLocaleExtensions, int minLength, int maxLength) {
         if (newLocaleExtensions.isEmpty()) {
             return Collections.emptyMap();

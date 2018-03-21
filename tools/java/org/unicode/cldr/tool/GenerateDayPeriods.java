@@ -22,7 +22,7 @@ import org.unicode.cldr.util.XPathParts;
 
 public class GenerateDayPeriods {
     static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
-    private static final int MILLIS_PER_DAY = 24*60*60*1000;
+    private static final int MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
 
     public static void main(String[] args) throws IOException {
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/supplemental", "dayPeriods.xml")) {
@@ -34,7 +34,7 @@ public class GenerateDayPeriods {
                     + (type == Type.format ? "" : " type=\"" + type + "\"")
                     + ">");
                 for (String locale : SDI.getDayPeriodLocales(type)) {
-                    DayPeriodInfo dayPeriodInfo = SDI.getDayPeriods(type, locale);                
+                    DayPeriodInfo dayPeriodInfo = SDI.getDayPeriods(type, locale);
                     out.println("\t\t<dayPeriodRules locales=\"" + locale + "\">");
                     Map<DayPeriod, String> localizations = getLocalizations(factory.make(locale, true));
                     for (DayPeriod dayPeriod : DayPeriod.values()) {
@@ -47,11 +47,11 @@ public class GenerateDayPeriods {
                             final String localization = localizations.get(dayPeriod);
                             out.println("\t\t\t<dayPeriodRule type=\""
                                 + span.dayPeriod
-                                + (span.start == span.end 
-                                ? "\" at=\"" + format(span.start, false) + "\"" 
+                                + (span.start == span.end
+                                    ? "\" at=\"" + format(span.start, false) + "\""
                                     : "\" from=\"" + format(span.start, false) + "\" before=\"" + format(span.end, true) + "\"")
-                                    + "/>"
-                                    + (localization == null ? "" : "\t<!-- " + localization + " -->"));
+                                + "/>"
+                                + (localization == null ? "" : "\t<!-- " + localization + " -->"));
                         }
                     }
                     out.println("\t\t</dayPeriodRules>");

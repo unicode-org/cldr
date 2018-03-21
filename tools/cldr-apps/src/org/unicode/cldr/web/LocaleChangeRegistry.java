@@ -64,7 +64,7 @@ public class LocaleChangeRegistry {
      * @param what
      *            what is being registered (ignored)
      */
-    public void register(/* other params: tree, etc.., */CLDRLocale locale, String key, Object /* notused */what) {
+    public void register(/* other params: tree, etc.., */CLDRLocale locale, String key, Object /* notused */ what) {
         synchronized (this) {
             while (locale != null) {
                 internalGetHash(locale).put(key, "what"); // Register as string

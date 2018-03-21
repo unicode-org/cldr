@@ -486,18 +486,10 @@ public class UserRegistry {
          */
         @Override
         public String toJSONString() throws JSONException {
-            return new JSONObject().
-                put("email", email).
-                put("emailHash", getEmailHash()).
-                put("name", name).
-                put("userlevel", userlevel).
-                put("votecount", getLevel().getVotes()).
-                put("votecount_alt", getLevel().canVoteAtReducedLevel()).
-                put("userlevelName", UserRegistry.levelAsStr(userlevel)).
-                put("org", vrOrg().name()).
-                put("orgName", vrOrg().displayName).
-                put("id", id).
-                toString();
+            return new JSONObject().put("email", email).put("emailHash", getEmailHash()).put("name", name).put("userlevel", userlevel)
+                .put("votecount", getLevel().getVotes()).put("votecount_alt", getLevel().canVoteAtReducedLevel())
+                .put("userlevelName", UserRegistry.levelAsStr(userlevel)).put("org", vrOrg().name()).put("orgName", vrOrg().displayName).put("id", id)
+                .toString();
         }
 
         public boolean canImportOldVotes() {
@@ -1757,14 +1749,10 @@ public class UserRegistry {
     }
 
     public enum ModifyDenial {
-        DENY_NULL_USER("No user specified"),
-        DENY_LOCALE_READONLY("Locale is read-only"),
-        DENY_PHASE_READONLY("SurveyTool is in read-only mode"),
-        DENY_ALIASLOCALE("Locale is an alias"),
-        DENY_DEFAULTCONTENT("Locale is the Default Content for another locale"),
-        DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"),
-        DENY_NO_RIGHTS("User does not have any voting rights"),
-        DENY_LOCALE_LIST("User does not have rights to vote for this locale");
+        DENY_NULL_USER("No user specified"), DENY_LOCALE_READONLY("Locale is read-only"), DENY_PHASE_READONLY(
+            "SurveyTool is in read-only mode"), DENY_ALIASLOCALE("Locale is an alias"), DENY_DEFAULTCONTENT(
+                "Locale is the Default Content for another locale"), DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"), DENY_NO_RIGHTS(
+                    "User does not have any voting rights"), DENY_LOCALE_LIST("User does not have rights to vote for this locale");
 
         ModifyDenial(String reason) {
             this.reason = reason;
@@ -2544,7 +2532,7 @@ public class UserRegistry {
                     }
                     out.println("\"/>");
                 }
-            }/* end synchronized(reg) */
+            } /* end synchronized(reg) */
         } catch (SQLException se) {
             SurveyLog.logger.log(java.util.logging.Level.WARNING,
                 "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);

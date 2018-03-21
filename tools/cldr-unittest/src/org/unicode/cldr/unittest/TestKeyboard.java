@@ -62,7 +62,7 @@ public class TestKeyboard extends TestFmwkPlus {
         logln(e + "\t" + e.getMessage());
         for (StackTraceElement ste : e.getStackTrace()) {
             String className = ste.getClassName();
-            if ((className.startsWith("org.unicode") && !className.contains("XMLFileReader")) 
+            if ((className.startsWith("org.unicode") && !className.contains("XMLFileReader"))
                 || (className.startsWith("com.ibm") && !className.contains("TestFmwk"))) {
                 logln("\t" + indent + ste);
             }
@@ -172,9 +172,9 @@ public class TestKeyboard extends TestFmwkPlus {
                         errorCount++;
                     }
                 }
-                msg(keyboardPlatformId + "\t" + keyboardId, 
+                msg(keyboardPlatformId + "\t" + keyboardId,
                     errors.size() == 0 ? LOG : errorCount == 0 ? WARN : ERR,
-                        true, true);
+                    true, true);
                 for (Exception item : errors) {
                     showException(item, "");
                 }

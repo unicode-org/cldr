@@ -54,41 +54,27 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      * The type of file to be converted.
      */
     enum Type {
-        locales,
-        dayPeriods,
-        genderList, likelySubtags,
-        metadata, metaZones,
-        numberingSystems,
-        plurals,
-        pluralRanges,
-        postalCodeData,
-        rgScope,
-        supplementalData,
-        windowsZones,
-        keyTypeData,
-        brkitr,
-        collation,
-        rbnf;
+        locales, dayPeriods, genderList, likelySubtags, metadata, metaZones, numberingSystems, plurals, pluralRanges, postalCodeData, rgScope, supplementalData, windowsZones, keyTypeData, brkitr, collation, rbnf;
     }
 
     private static final Options options = new Options(
         "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
             "This program is used to convert LDML files to ICU data text files.\n" +
             "Please refer to the following options. Options are not case sensitive.\n" +
-        "\texample: org.unicode.cldr.icu.Ldml2IcuConverter -s xxx -d yyy en")
-    .add("sourcedir", ".*", "Source directory for CLDR files")
-    .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
-    .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
-    .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
-    .add("keeptogether", 'k', null, null,
-        "Write locale data to one file instead of splitting into separate directories. For debugging")
-        .add("type", 't', "\\w+", null, "The type of file to be generated")
-        .add("xpath", 'x', ".*", null, "An optional xpath to debug the regexes with")
-        .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
-        .add("organization", 'o', ".*", null, "The organization to filter the data for")
-        .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
-            "The value to set should be the name of the makefile.")
-            .add("verbose", 'v', null, null, "Debugging aids");
+            "\texample: org.unicode.cldr.icu.Ldml2IcuConverter -s xxx -d yyy en")
+                .add("sourcedir", ".*", "Source directory for CLDR files")
+                .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
+                .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
+                .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
+                .add("keeptogether", 'k', null, null,
+                    "Write locale data to one file instead of splitting into separate directories. For debugging")
+                .add("type", 't', "\\w+", null, "The type of file to be generated")
+                .add("xpath", 'x', ".*", null, "An optional xpath to debug the regexes with")
+                .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
+                .add("organization", 'o', ".*", null, "The organization to filter the data for")
+                .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
+                    "The value to set should be the name of the makefile.")
+                .add("verbose", 'v', null, null, "Debugging aids");
 
     private static final String LOCALES_DIR = "locales";
 

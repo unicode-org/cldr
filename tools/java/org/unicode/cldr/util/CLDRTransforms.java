@@ -255,7 +255,7 @@ public class CLDRTransforms {
             addPivotDependency(script, "InterIndic");
             if (!script.equals("Arabic")) {
                 addDependency(script + "-Arabic",
-                              script + "-InterIndic", "InterIndic-Arabic");
+                    script + "-InterIndic", "InterIndic-Arabic");
             }
         }
 
@@ -547,7 +547,7 @@ public class CLDRTransforms {
                         filename = null;
                     } catch (RuntimeException e) {
                         throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
-                        .initCause(e);
+                            .initCause(e);
                     }
                 } else {
                     append(dir + "root.txt unhandled line:" + line);

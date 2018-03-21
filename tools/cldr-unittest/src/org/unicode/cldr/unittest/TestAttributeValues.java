@@ -58,8 +58,7 @@ public class TestAttributeValues extends TestFmwk {
 
     public void TestAttributeValueValidity() {
         for (String test : Arrays.asList(
-            "supplementalData;     territoryAlias;     replacement;    AA"
-            )) {
+            "supplementalData;     territoryAlias;     replacement;    AA")) {
             quickTest(test);
         }
     }
@@ -117,8 +116,7 @@ public class TestAttributeValues extends TestFmwk {
                     + "; \t" + item.get1().element
                     + "; \t" + item.get1().attribute
                     + "; \t" + item.get1().attributeValue
-                    + "; \t" + item.get2()
-                );
+                    + "; \t" + item.get2());
         }
 
         count = 0;
@@ -130,8 +128,7 @@ public class TestAttributeValues extends TestFmwk {
                     + "; \t" + item.get1().element
                     + "; \t" + item.get1().attribute
                     + "; \t" + item.get1().attributeValue
-                    + "; \t" + item.get2()
-                );
+                    + "; \t" + item.get2());
         }
     }
 }

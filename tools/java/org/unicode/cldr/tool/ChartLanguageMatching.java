@@ -63,14 +63,14 @@ public class ChartLanguageMatching extends Chart {
                 // <languageMatch desired="gsw" supported="de" percent="96" oneway="true" /> <!-- All Swiss speakers can read High German -->
 
                 tablePrinter.addRow()
-                //.addCell(ENGLISH.getName(locale))
-                .addCell(getName(row.get0(), true))
-                .addCell(getName(row.get1(), false))
-                .addCell(row.get0())
-                .addCell(row.get1())
-                .addCell((100 - row.get2()))
-                .addCell(row.get3() ? "→" : "⬌")
-                .finishRow();
+                    //.addCell(ENGLISH.getName(locale))
+                    .addCell(getName(row.get0(), true))
+                    .addCell(getName(row.get1(), false))
+                    .addCell(row.get0())
+                    .addCell(row.get1())
+                    .addCell((100 - row.get2()))
+                    .addCell(row.get3() ? "→" : "⬌")
+                    .finishRow();
             }
             pw.write(tablePrinter.toTable());
             tablePrinter.clearRows();
@@ -89,9 +89,9 @@ public class ChartLanguageMatching extends Chart {
             parts[1] = "Xxxx";
         }
         String parts2orig = "XY";
-        if (parts.length > 2) { 
+        if (parts.length > 2) {
             parts2orig = parts[2];
-            if(parts[2].equals("*")) {
+            if (parts[2].equals("*")) {
                 parts[2] = "XX";
             } else if (parts[2].startsWith("$")) {
                 parts[2] = "XY";
@@ -103,8 +103,7 @@ public class ChartLanguageMatching extends Chart {
                 .replace("Xxxx", "any-script")
                 .replace("xxx", "any-language")
                 .replace("XX", "any-region")
-                .replace("XY", parts2orig)
-                ;
+                .replace("XY", parts2orig);
         } else {
             result = replaceStar(result);
         }

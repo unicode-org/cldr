@@ -28,16 +28,15 @@ import com.ibm.icu.text.Transliterator;
  */
 public class ConvertTransforms extends CLDRConverterTool {
 
-    private static final int
-    HELP1 = 0,
-    HELP2 = 1,
-    SOURCEDIR = 2,
-    DESTDIR = 3,
-    MATCH = 4,
-    SKIP_COMMENTS = 5,
-    WRITE_INDEX = 6,
-    VERBOSE = 7,
-    APPROVED_ONLY = 8;
+    private static final int HELP1 = 0,
+        HELP2 = 1,
+        SOURCEDIR = 2,
+        DESTDIR = 3,
+        MATCH = 4,
+        SKIP_COMMENTS = 5,
+        WRITE_INDEX = 6,
+        VERBOSE = 7,
+        APPROVED_ONLY = 8;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -60,8 +59,8 @@ public class ConvertTransforms extends CLDRConverterTool {
         + CldrUtility.getCanonicalName(CLDRPaths.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
         + "-m<regex>\t to restrict the files to what matches <regex>" + XPathParts.NEWLINE
         + "-a\t to only include transforms with approved/contributed status" + XPathParts.NEWLINE
-        // "--writeIndex / -x   to write the index (trnsfiles.mk)"+ XPathParts.NEWLINE
-        ;
+    // "--writeIndex / -x   to write the index (trnsfiles.mk)"+ XPathParts.NEWLINE
+    ;
 
     // TODO add options to set input and output directories, matching pattern
     public static void main(String[] args) throws Exception {
@@ -79,8 +78,8 @@ public class ConvertTransforms extends CLDRConverterTool {
     public void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory)
         throws IOException {
         System.out.println(new File(inputDirectory).getCanonicalPath());
-        Factory cldrFactory = (approvedOnly)? Factory.make(inputDirectory, matchingPattern, DraftStatus.contributed):
-                                              Factory.make(inputDirectory, matchingPattern);
+        Factory cldrFactory = (approvedOnly) ? Factory.make(inputDirectory, matchingPattern, DraftStatus.contributed)
+            : Factory.make(inputDirectory, matchingPattern);
         Set<String> ids = cldrFactory.getAvailable();
         PrintWriter index = FileUtilities.openUTF8Writer(outputDirectory, "root.txt");
         doHeader(index, "//", "root.txt");
@@ -124,17 +123,14 @@ public class ConvertTransforms extends CLDRConverterTool {
         }
     }
 
-    public static PrintWriter makePrintWriter(ByteArrayOutputStream bytes)
-    {
-        try
-        {
+    public static PrintWriter makePrintWriter(ByteArrayOutputStream bytes) {
+        try {
             OutputStreamWriter outStream = new OutputStreamWriter(bytes, "UTF-8");
             BufferedWriter buff = new BufferedWriter(outStream, 4 * 1024);
             PrintWriter p = new PrintWriter(buff);
 
             return p;
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.err.println("Error: Could not create OutputStreamWriter.");
         }
         return null;
@@ -358,7 +354,7 @@ public class ConvertTransforms extends CLDRConverterTool {
                 ElapsedTimer et = new ElapsedTimer();
                 writeTransforms(sourceDir, match, targetDir + File.separator);
                 System.out.println("ConvertTransforms: wrote " + fileCount +
-                                   " files in " + et);
+                    " files in " + et);
             }
         } catch (IOException ex) {
             RuntimeException e = new RuntimeException();

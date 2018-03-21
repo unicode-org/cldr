@@ -464,7 +464,8 @@ public class MailSender implements Runnable {
                         Transport.send(ourMessage);
                     } else {
                         SurveyLog
-                            .warnOnce("Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
+                            .warnOnce(
+                                "Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
                     }
 
                     if (DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);

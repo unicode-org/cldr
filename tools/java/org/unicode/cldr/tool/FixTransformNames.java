@@ -78,7 +78,7 @@ public class FixTransformNames {
             <transformName type="x-Jamo">Jamo</transformName>
             <transformName type="x-Pinyin">Pinyin</transformName>
             <transformName type="x-Publishing">Publishing</transformName>
-
+        
         ??Accents   [Any-Accents]
         ??ConjoiningJamo    [Latin-ConjoiningJamo]
         ??Fullwidth [Fullwidth-Halfwidth]
@@ -96,7 +96,7 @@ public class FixTransformNames {
         ??Title [az-Title, el-Title, lt-Title, nl-Title, tr-Title]
         ??Traditional   [Simplified-Traditional]
         ??Upper [az-Upper, el-Upper, lt-Upper, tr-Upper]
-
+        
          */
 
         //CLDRTransforms transforms = CLDRTransforms.getInstance();

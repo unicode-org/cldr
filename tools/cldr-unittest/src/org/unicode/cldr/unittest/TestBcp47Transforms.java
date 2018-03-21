@@ -56,7 +56,7 @@ public class TestBcp47Transforms extends TestFmwk {
         }
         Map<String, String> old2newName = new TreeMap<String, String>();
         for (String file : Arrays.asList(new File(CLDRTransforms.TRANSFORM_DIR)
-        .list())) {
+            .list())) {
             if (!file.endsWith(".xml"))
                 continue;
             ParsedTransformID directionInfo = new ParsedTransformID();
@@ -126,10 +126,9 @@ public class TestBcp47Transforms extends TestFmwk {
     }
 
     static ULocale.Builder ubuilder = new ULocale.Builder();
-    static Relation<String, Row.R2<Type, String>> MISSING = Relation
-        .<String, Row.R2<Type, String>> of(
-            new TreeMap<String, Set<Row.R2<Type, String>>>(),
-            TreeSet.class);
+    static Relation<String, Row.R2<Type, String>> MISSING = Relation.<String, Row.R2<Type, String>> of(
+        new TreeMap<String, Set<Row.R2<Type, String>>>(),
+        TreeSet.class);
     static StandardCodes sc = StandardCodes.make();
 
     static Map<String, String> SPECIAL_CASES;
@@ -157,8 +156,8 @@ public class TestBcp47Transforms extends TestFmwk {
         }
         // real special cases
         builder.put("any", "und").put("simplified", "Hans")
-        .put("traditional", "Hant").put("ipa", "und-fonipa")
-        .put("xsampa", "und-fonxsamp").put("japanesekana", "und-Hrkt");
+            .put("traditional", "Hant").put("ipa", "und-fonipa")
+            .put("xsampa", "und-fonxsamp").put("japanesekana", "und-Hrkt");
         /*
          * source fullwidth source jamo target accents target ascii target
          * halfwidth target jamo target numericpinyin target publishing

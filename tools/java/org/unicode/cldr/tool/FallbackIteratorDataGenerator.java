@@ -23,11 +23,10 @@ public class FallbackIteratorDataGenerator {
             final boolean isLanguage = type.equals("language");
             final boolean isGrandfathered = type.equals("grandfathered");
             final boolean isRegion = type.equals("territory");
-            final String canonicalizationFormat =
-                isGrandfathered ? "\t\t\"%s;%s\","
-                    : isLanguage ? "\t\t\"%s(-.*)?;%s$1\","
-                        : isRegion ? "\t\t\"(.*-)%s(-.*)?;$1%s$2\","
-                            : null;
+            final String canonicalizationFormat = isGrandfathered ? "\t\t\"%s;%s\","
+                : isLanguage ? "\t\t\"%s(-.*)?;%s$1\","
+                    : isRegion ? "\t\t\"(.*-)%s(-.*)?;$1%s$2\","
+                        : null;
             if (canonicalizationFormat == null) {
                 continue;
             }

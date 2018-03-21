@@ -13,7 +13,7 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
 public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implements java.lang.Comparable<Pair<T, U>>,
-Cloneable, Freezable<Object> {
+    Cloneable, Freezable<Object> {
 
     private T first;
     private U second;

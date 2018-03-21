@@ -37,8 +37,8 @@ import org.unicode.cldr.util.VariantFolder;
 import org.unicode.cldr.util.VariantFolder.CanonicalFolder;
 import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
 import org.unicode.cldr.util.VariantFolder.CompatibilityFolder;
-import org.unicode.cldr.util.props.BagFormatter;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.props.BagFormatter;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
@@ -57,8 +57,7 @@ public class TestMisc {
     static Currency SWISS_FRANC = Currency.getInstance("CHF");
 
     static class Lists {
-        public static <E extends Comparable> List<E> sortedCopy(Collection<E> iterable)
-        {
+        public static <E extends Comparable> List<E> sortedCopy(Collection<E> iterable) {
             List<E> list = new ArrayList<E>();
             list.addAll(iterable);
             Collections.sort(list);
@@ -87,7 +86,7 @@ public class TestMisc {
         Locale locale = new Locale("abc-d αγζθ ?ef_g%hi", "abc-d αγζθ ?ef_g%hi", "abc-d αγζθ ?ef_g%hi");
 
         System.out
-        .println("Locale locale = new Locale(\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\");");
+            .println("Locale locale = new Locale(\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\");");
         System.out.println("locale.toString() == \"" + locale + "\"");
 
         MyXSymbolTable sym = new MyXSymbolTable();
@@ -109,13 +108,13 @@ public class TestMisc {
                 "-[,\u060C\u066B\u3001\uFE10\uFE11\uFE50\uFE51\uFF0C\uFF64]]" +
                 "[:close=compatibility:]]",
 
-                /*
-                 * "[[Åå{fi}][:close=canonical:]]",
-                 * "[[Åå{fi}][:close=compatibility:]]",
-                 * "[[Åå{fi}][:reduce=case:]]",
-                 * "[[Åå{fi}][:reduce=canonical:]]",
-                 * "[[Åå{fi}][:reduce=compatibility:]]",
-                 */
+            /*
+             * "[[Åå{fi}][:close=canonical:]]",
+             * "[[Åå{fi}][:close=compatibility:]]",
+             * "[[Åå{fi}][:reduce=case:]]",
+             * "[[Åå{fi}][:reduce=canonical:]]",
+             * "[[Åå{fi}][:reduce=compatibility:]]",
+             */
         }) {
             ParsePosition p = new ParsePosition(0);
             UnicodeSet set = new UnicodeSet(test, p, sym);
@@ -171,10 +170,10 @@ public class TestMisc {
         CLDRFile englishFile = cldrFactory.make("en", true);
         ExampleGenerator eg = new ExampleGenerator(englishFile, englishFile, CLDRPaths.SUPPLEMENTAL_DIRECTORY);
         System.out
-        .println(eg
-            .getHelpHtml(
-                "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
-                ""));
+            .println(eg
+                .getHelpHtml(
+                    "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
+                    ""));
         System.out.println(eg.getHelpHtml("/exemplarCharacters", ""));
         System.out.println(eg.getHelpHtml("/calendar/pattern", ""));
 
@@ -298,11 +297,9 @@ public class TestMisc {
 
         System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR
             + bf.showSetNames(new UnicodeSet(simpleCaseFolded)
-            .removeAll(caseFolded)
-            .retainAll(functionalExceptCase)
-            .removeAll(archaic).
-            removeAll(asciiIdn)
-                ));
+                .removeAll(caseFolded)
+                .retainAll(functionalExceptCase)
+                .removeAll(archaic).removeAll(asciiIdn)));
 
         UnicodeSet functional = (UnicodeSet) new UnicodeSet(functionalExceptCase).retainAll(caseFolded).freeze();
         System.out.println("functional: " + functional.size());
@@ -330,7 +327,7 @@ public class TestMisc {
             "[[:xid_continue:]" +
                 "&[:^NFKC_QuickCheck=No:]" +
                 "&[:^default_ignorable_code_point:]" +
-            "&[:^Pc:]]").retainAll(caseFolded);
+                "&[:^Pc:]]").retainAll(caseFolded);
 
         System.out.println(bf.showSetDifferences("IDNA Functional", functional,
             "Unicode XID & NFKC &!DefaultIgnorable &! Pc", restrictedXidContinue));
@@ -386,7 +383,7 @@ public class TestMisc {
 
     static void testToRegex() {
         String[] tests = { "\\-", "a", "d-f", "\\u2000", "\\uAC00-\\uAC12", "{AB}", "{CDE}", "\\uFFF0-\\U0010000F",
-        "\\U0010100F-\\U0010300F" }; // }; //
+            "\\U0010100F-\\U0010300F" }; // }; //
         for (int i = (1 << tests.length) - 1; i >= 0; --i) {
             String test = "[";
             for (int j = 0; j < tests.length; ++j) {
@@ -557,8 +554,7 @@ public class TestMisc {
                     + "\tfound locale:\t" + localeWhereFound
                     + "\tsame?\t" + localeWhereFound.equals(requestedLocale)
                     + "\tfound path:\t" + status.pathWhereFound
-                    + "\tsame?\t" + status.pathWhereFound.equals(requestedPath)
-                    );
+                    + "\tsame?\t" + status.pathWhereFound.equals(requestedPath));
             }
         }
     }

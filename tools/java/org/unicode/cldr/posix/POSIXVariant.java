@@ -28,23 +28,18 @@ public class POSIXVariant {
         String buf = new String(variant_string);
         String rest;
 
-        while (more_values)
-        {
+        while (more_values) {
             int comma_pos = buf.indexOf(',');
-            if (comma_pos >= 0)
-            {
+            if (comma_pos >= 0) {
                 rest = buf.substring(comma_pos + 1);
                 buf = buf.substring(0, comma_pos);
-            }
-            else
-            {
+            } else {
                 more_values = false;
                 rest = "";
             }
 
             int equal_pos = buf.indexOf('=');
-            if (equal_pos > 0)
-            {
+            if (equal_pos > 0) {
                 String field = buf.substring(0, equal_pos);
                 String field_value = buf.substring(equal_pos + 1);
 

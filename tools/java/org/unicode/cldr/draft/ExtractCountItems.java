@@ -69,7 +69,7 @@ public class ExtractCountItems {
 
         for (String locale : factory.getAvailableLanguages()) {
             Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(Organization.google);
-                                                                                                    
+
             if (locale_status == null) continue;
             Level level = locale_status.get(locale);
             if (level == null) continue;

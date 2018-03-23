@@ -88,7 +88,7 @@ h5 {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical Standard #35
+			Unicode Technical Standard #35
 		</h2>
 		<h1 style="text-align: center">Unicode Locale Data Markup Language (LDML)</h1>
 
@@ -96,7 +96,7 @@ h5 {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">33</td>
+				<td>33</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -108,17 +108,17 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2018-03-20</td>
+				<td>2018-03-23</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
 				<td>This Version</td>
-				<td class="changed">
-				<a ignoreme="http://www.unicode.org/reports/tr35/tr35-50/tr35.html">http://www.unicode.org/reports/tr35/tr35-50/tr35.html</a></td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-51/tr35.html">http://www.unicode.org/reports/tr35/tr35-51/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td class="changed">
+				<td>
 				<a href="http://www.unicode.org/reports/tr35/tr35-49/tr35.html">http://www.unicode.org/reports/tr35/tr35-49/tr35.html</a></td>
 			</tr>
 			<tr>
@@ -139,12 +139,12 @@ h5 {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td class="changed"><a href="http://unicode.org/cldr/dtd/33/">
+				<td><a href="http://unicode.org/cldr/dtd/33/">
 				http://unicode.org/cldr/dtd/33/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td class="changed"><a href="#Modifications">50</a></td>
+				<td><a href="#Modifications">51</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -161,7 +161,7 @@ h5 {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -171,8 +171,8 @@ h5 {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -180,7 +180,7 @@ h5 {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -463,7 +463,7 @@ h5 {
 				<ul class="toc">
 					<li>6.1 <a href="#Script_Metadata">Script Metadata</a></li>
 					<li>6.2 <a href="#Extended_Pictographic">Extended Pictographic</a></li>
-					<li class='changed'>6.3 <a href="#Labels.txt">Labels.txt</a></li>
+					<li>6.3 <a href="#Labels.txt">Labels.txt</a></li>
 				</ul>
 			</li>
 			<li>7 <a href="#Format_Parse_Issues">Issues in Formatting
@@ -5962,9 +5962,9 @@ root</pre>
 				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>]. A UnicodeSet may be used in specifications
 				outside of the domain of LDML. In such a case, the specification may
 				support a subset of the syntax provided here.</p>
-	  <p class='changed'>The following provides EBNF syntax for a UnicodeSet:</p>
+	  <p>The following provides EBNF syntax for a UnicodeSet:</p>
 	  <div align='center'>
-		<table class='simple changed'>
+		<table class='simple'>
 <tr>
   <th>Symbol</th>
   <th>Expression</th>
@@ -6034,7 +6034,7 @@ root</pre>
 </tr>
 	</table>
 </div>
-		<p class='changed'>Some constraints on UnicodeSet syntax are not captured by this EBNF. Notably, property names and values are restricted to those supported by the implementation.</p>
+		<p>Some constraints on UnicodeSet syntax are not captured by this EBNF. Notably, property names and values are restricted to those supported by the implementation.</p>
 		<p>The syntax characters are listed in the table below:</p>
 		<table>
 		  <tbody>
@@ -6149,8 +6149,8 @@ root</pre>
 	  <table class='simple'>
 			<tr>
 			  <td>\x{h...h}<br>
-	          <span class='changed'>\u{h...h}</span></td>
-			  <td class='changed'>list of 1-6 hex digits ([0-9A-Fa-f]), separated by spaces</td>
+	          \u{h...h}</td>
+			  <td>list of 1-6 hex digits ([0-9A-Fa-f]), separated by spaces</td>
 	    </tr>
 			<tr>
 			  <td>\xhh</td>
@@ -6368,7 +6368,7 @@ root</pre>
 				<td>The code point &#39;a&#39; and the multi-code point strings
 					&quot;ab&quot; and &quot;ac&quot;</td>
 			</tr>
-			<tr class='changed'>
+			<tr>
 			  <td nowrap>[x\u{61 2019 62}y]</td>
 			  <td>Equivalent to [x\u0061\u201\u0062y] (= [xa’by])</td>
 		  </tr>
@@ -6621,23 +6621,23 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
 			blockingItems elements NMTOKENS #IMPLIED &gt;
 		</p>
 		<p>
-			The blockingItems <span class="changed">were used to </span>indicate which elements (and their child elements)
+			The blockingItems were used to indicate which elements (and their child elements)
 			do not inherit. For example, because supplementalData is a blocking
 			item, all paths containing the element <span class="element">supplementalData</span>
-			do not inherit.<span class="changed"> However, <strong>the &lt;blockingItems&gt; element is now deprecated,</strong>
-			having been replaced by the annotations in the DTD and the DTDData classes in CLDR tooling.</span>
+			do not inherit. However, <strong>the &lt;blockingItems&gt; element is now deprecated,</strong>
+			having been replaced by the annotations in the DTD and the DTDData classes in CLDR tooling.
 		</p>
 		<pre class="dtd">&lt;!ELEMENT distinguishingItems EMPTY &gt;
 &lt;!ATTLIST distinguishingItems exclude ( true | false ) #IMPLIED &gt;
 &lt;!ATTLIST distinguishingItems elements NMTOKENS #IMPLIED &gt;
 &lt;!ATTLIST distinguishingItems attributes NMTOKENS #IMPLIED &gt;</pre>
 		<p>
-			The distinguishing items <span class="changed">were used to </span>indicate which combinations of elements and
+			The distinguishing items were used to indicate which combinations of elements and
 			attributes (in unblocked environments) are <i>distinguishing</i> in
 			performing inheritance. For example, the attribute type is
 			distinguishing <i>except</i> in combination with certain elements,
-			such as in<span class="changed"> the following. However, <strong>the &lt;distinguishingItems&gt; element is now deprecated,</strong>
-			having been replaced by the annotations in the DTD and the DTDData classes in CLDR tooling.</span>
+			such as in the following. However, <strong>the &lt;distinguishingItems&gt; element is now deprecated,</strong>
+			having been replaced by the annotations in the DTD and the DTDData classes in CLDR tooling.
 		</p>
 		<pre>&lt;distinguishingItems
   exclude=&quot;true&quot;
@@ -6859,29 +6859,32 @@ decimal?, group?, special*)) &gt;</pre>
 			the data.</p>
 		<h3><a name="Script_Metadata" href="#Script_Metadata">6.1 Script Metadata</a></h3>
 		<p><code>scriptMetadata.txt</code>: </p>
-		<p>This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR. <span class='changed'>The format is similar to Unicode Character Database property file, and is documented in the header of the data file.</span></p>
+		<p>This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR. The format is similar to Unicode Character Database property file, and is documented in the header of the data file.</p>
 		<h3><a name="Extended_Pictographic" href="#Extended_Pictographic">6.2 Extended Pictographic</a>        </h3>
 		<p><code>ExtendedPictographic.txt</code></p>
-	  <p class='changed'>This file was used to define the ExtendedPictographic data used for “future-proofing” emoji behavior, especially in segmentation. As of Emoji version 11.0, the set of Extended_Pictographic is incorporated into the emoji data files found at <a href="https://unicode.org/Public/emoji/">unicode.org/Public/emoji/</a>.</p>
-		<div class='removed'><p>This file defines the Extended_Pictographic (EP) property,  a binary code point property for characters that are pictographic  (or otherwise similar in kind to characters with the Emoji property) and used to customize segmentation so that possible future emoji zwj sequences will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.</p>
-        <p>It is used in the following customized rules for  UAX #29 and UAX #14: </p>
-        <blockquote>
-          <p>Let Extended_Pictographic be defined as in <strong>ExtendedPictographic.txt</strong> </p>
-          <p>Let EmojiRK = [\p{GCB=Regional_Indicator}[*#0-9©®™〰〽]]</p>
-          <p>Let EmojiNRK = [\p{Emoji=Yes}-EmojiRK]</p>
-        </blockquote>
-<p>The customized rules replacing GB11, WB3c, and LB8a are:</p>
-<p> </p>
-<p>GB11′  (Extended_Pictographic | EmojiNRK) Extend* ZWJ × (Extended_Pictographic |EmojiNRK)</p>
-        <p>WB3c′  ZWJ × (Extended_Pictographic | EmojiNRK)</p>
-			<p>LB8a′ ZWJ × (ID | Extended_Pictographic | EmojiNRK)        </p>
-      </div>
-      <div class='changed'>
+	  <p>This file was used to define the ExtendedPictographic data used for “future-proofing” emoji behavior, especially in segmentation. As of Emoji version 11.0, the set of Extended_Pictographic is incorporated into the emoji data files found at <a href="https://unicode.org/Public/emoji/">unicode.org/Public/emoji/</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 	  <h3><a name="Labels.txt" href="#Labels.txt">6.3 Labels.txt</a>        </h3>
 		<p><code>labels.txt</code>: </p>
-		  <p>This file provides general information about associations of labels to characters that may be useful to implementations of character-picking applications. The information is the best currently available, and may change between versions of CLDR. <span class='changed'>The format is similar to Unicode Character Database property file, and is documented in the header of the data file.</span></p>
+		  <p>This file provides general information about associations of labels to characters that may be useful to implementations of character-picking applications. The information is the best currently available, and may change between versions of CLDR. The format is similar to Unicode Character Database property file, and is documented in the header of the data file.</p>
 		  <p>Initially, the contents are focused on emoji, but may be expanded in the future to other types of characters. Note that a character may have multiple labels.</p>
-       </div>
+
         <h2>
 			<a name="Format_Parse_Issues" href="#Format_Parse_Issues">7
 				Issues in Formatting and Parsing</a>
@@ -8622,8 +8625,10 @@ decimal?, group?, special*)) &gt;</pre>
 		<h2>
 			<a name="Modifications" href="#Modifications">Modifications</a>
 		</h2>
-<div class='changed'>
-<p><b>Revision 50</b></p>
+
+
+
+<p><b>Revision 51</b></p>
 <p><strong>Part 1: <a href="tr35.html#Contents">Core</a></strong></p>
 <ul>
   <li>Section 5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
@@ -8706,110 +8711,13 @@ decimal?, group?, special*)) &gt;</pre>
       <li>5.22 <a href="tr35-keyboards.html#Element_backspace">Element: backspace</a></li>
     </ul>
 	</ul>
-	</div>
-		<p class='reviewnote'>The following are for copying, and will be removed once the modifications for 33 are complete.</p>
-<div class='removed'>
-<p><b>Revision 49</b></p>
 
-<ul><li>Revised for CLDR Version 32.</li></ul>
-		<p><strong>Part 1: <a href="tr35.html#Contents">Core</a></strong></p>
-		<ul>
-		  <li><strong>Section 5.3.3 <a href="#Unicode_Sets">Unicode Sets</a></strong>
-		    <ul>
-		      <li>Added table of syntax characters; removed statement about escaping with '.</li>
-	        </ul>
-		  </li>
-	    </ul>
-		<p><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong></p>
-        <ul>
-          <li><strong>Section 
-            3.1 <a href="tr35-general.html#Exemplars">Exemplars</a></strong>
-            <ul>
-              <li>Added numbers exemplars. [<a
-				  href="http://unicode.org/cldr/trac/ticket/6783">#6783</a>]</li>
-            </ul>
-          </li>
-          <li><strong>Section 11 <a href="tr35-general.html#ListPatterns">List Patterns</a></strong>
-            <ul>
-              <li>Described the listPattern <strong>type</strong> values. [<a
-				  href="http://unicode.org/cldr/trac/ticket/8107">#8107</a>]</li>
-            </ul>
-          </li>
-        </ul>
-        <p><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></strong></p>
-        <ul>
-          <li><strong>5.1.2 <a href="#Relations">Relations</a></strong><a href="#Relations"></a>
-            <ul>
-              <li>Fixed typo in example: 3 = 2..4,15</li>
-            </ul>
-          </li>
-        </ul>
-		<p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong></p>
-		<ul>
-		  <li><strong>Section 2.6.2 <a
-				href="tr35-dates.html#availableFormats_appendItems">Elements availableFormats, appendItems</a></strong>
-			<ul>
-			  <li>Added information on the use of day period pattern characters a, b, B
-			  	in availableFormats skeletons and patterns. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10233">#10233</a>]
-			  </li>
-		    </ul>
-		  </li>
 
-		  <li><strong>Section 2.6.2.1 <a
-				href="tr35-dates.html#Matching_Skeletons">Matching Skeletons</a></strong>
-			<ul>
-			  <li>Clarified that automatic expansion of an alphabetic skeleton field does
-			    not expand corresponding pattern fields that are numeric. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10540">#10540</a>]
-			  </li>
-		    </ul>
-		  </li>
-
-		  <li><strong>Section 7.1 <a
-				href="tr35-dates.html#Time_Zone_Format_Terminology">Time Zone Format Terminology</a></strong>
-			<ul>
-			  <li>In the Note under <strong>Generic location format</strong>, correct
-			  the pattern to VVVV, adjust wording for clarity. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10173">#10173</a>]</li>
-			  <li>Delete the misleading claim that the Generic formats sort well.</li>
-		    </ul>
-		  </li>
-
-		  <li><strong>Date Field Symbol Table <a
-				href="tr35-dates.html#dfst-period">period</a> section</strong>
-			<ul>
-			  <li>Separated examples of dayperiods themselves from usage examples. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10170">#10170</a>]
-			  </li>
-		    </ul>
-		  </li>
-	    </ul>
-		<p><strong>Part 5: <a href="tr35-collation.html#Contents">Collation</a></strong></p>
-        <ul>
-          <li><strong>Section 1.1.5 <a href="#Combining_Rules">Combining Rules</a></strong>
-            <ul>
-              <li>Added information on combining rules, showing how to get proper emoji ordering. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10097">#10097</a>] </li>
-            </ul>
-          </li>
-        </ul>
-        <p><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong><a href="tr35-info.html#Contents"></a></p>
-        <ul>
-          <li><strong>Section 3.1 <a
-				href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a></strong><a
-				href="#Supplemental_Language_Grouping"></a> 
-            <ul>
-              <li>Added  section describing new structure for language groupings</li>
-            </ul>
-          </li>
-        </ul>
-	  </div>
 	  <p>Modifications in previous versions are listed in those respective versions. Click on <strong>Previous Version</strong> in the header until you get to the desired version.</p>
 		
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">8</span> Unicode, Inc. All
+			Copyright © 2001–2018 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

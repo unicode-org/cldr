@@ -96,6 +96,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
         assertEquals("Arabic-Case", Trinary.NO, info0.hasCase);
     }
 
+    @SuppressWarnings("deprecation")
     public void TestScripts() {
         UnicodeSet temp = new UnicodeSet();
         Set<String> missingScripts = new TreeSet<String>();

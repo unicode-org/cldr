@@ -25,7 +25,7 @@ public class ToolConstants {
     // Change the following for each release depending on the phase
 
     private static final String DEFAULT_CHART_VERSION = "33";
-    private static final ChartStatus DEFAULT_CHART_STATUS = ChartStatus.beta;
+    private static final ChartStatus DEFAULT_CHART_STATUS = ChartStatus.release;
 
     // DON'T CHANGE ANY OF THE FOLLOWING; THEY ARE DRIVEN BY THE ABOVE
 

@@ -191,6 +191,11 @@ td.plain {
 	border: 2px solid #ccc;
 }
 
+.beta::after {
+    content: "β";
+    color: red;
+}
+
 /* formatting for date time review */
 .dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}
 .dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}

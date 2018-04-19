@@ -29,8 +29,12 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransforms;
+import org.unicode.cldr.tool.LikelySubtags;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -338,6 +342,16 @@ public class CLDRTransforms {
             + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
+    private BiMap<String,String> displayNameToId = HashBiMap.create();
+    
+    public BiMap<String, String> getDisplayNameToId() {
+        return displayNameToId;
+    }
+    
+    private void addDisplayNameToId(Map<String, String> ids2, ParsedTransformID directionInfo) {
+        displayNameToId.put(directionInfo.getDisplayId(), directionInfo.toString());
+    }
+
     public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
         ParsedTransformID directionInfo = new ParsedTransformID();
         String ruleString;
@@ -350,17 +364,21 @@ public class CLDRTransforms {
             }
             throw e;
         }
+        
+        String id = directionInfo.getId();
+        addDisplayNameToId(displayNameToId, directionInfo);
+        
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
-            internalRegister(directionInfo.getId(), ruleString, Transliterator.FORWARD);
+            internalRegister(id, ruleString, Transliterator.FORWARD);
             for (String alias : directionInfo.getAliases()) {
                 if (!keepDashTIds && alias.contains("-t-")) {
                     continue;
                 }
-                Transliterator.registerAlias(alias, directionInfo.getId());
+                Transliterator.registerAlias(alias, id);
             }
         }
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.backward) {
-            internalRegister(directionInfo.getId(), ruleString, Transliterator.REVERSE);
+            internalRegister(id, ruleString, Transliterator.REVERSE);
             for (String alias : directionInfo.getBackwardAliases()) {
                 if (!keepDashTIds && alias.contains("-t-")) {
                     continue;
@@ -727,6 +745,62 @@ public class CLDRTransforms {
             return getSource() + "-" + getTarget() + (getVariant() == null ? "" : "/" + getVariant());
         }
 
+        public String getDisplayId() {
+            return getDisplaySource() + "-" + getDisplayTarget() + (getVariant() == null ? "" : "/" + getDisplayVariant());
+        }
+
+        private String getDisplayVariant() {
+            return getVariant();
+        }
+
+        private String getDisplayTarget() {
+            return getDisplaySourceOrTarget(getTarget());
+        }
+
+        private String getDisplaySource() {
+            return getDisplaySourceOrTarget(getSource());
+        }
+
+        private String getDisplaySourceOrTarget(String sourceOrTarget) {
+            int uscript = UScript.getCodeFromName(sourceOrTarget);
+            if (uscript >= 0) {
+                return UScript.getName(uscript);
+            }
+            if (sourceOrTarget.contains("FONIPA")) {
+                return "IPA";
+            }
+            if (sourceOrTarget.equals("InterIndic")) {
+                return "Indic";
+            }
+            try {
+                String name = CLDRConfig.getInstance().getEnglish().getName(sourceOrTarget);
+                return name;
+            } catch (Exception e) {
+                return sourceOrTarget;
+            }
+        }
+        
+        static final LikelySubtags likely = new LikelySubtags();
+        
+        public static String getScriptCode(String sourceOrTarget) {
+            int uscript = UScript.getCodeFromName(sourceOrTarget);
+            if (uscript >= 0) {
+                return UScript.getShortName(uscript);
+            }
+            if (sourceOrTarget.contains("FONIPA")) {
+                return "Ipa0";
+            }
+            if (sourceOrTarget.equals("InterIndic")) {
+                return "Ind0";
+            }
+            try {
+                String max = likely.maximize(sourceOrTarget);
+                return max == null ? null : new LanguageTagParser().set(max).getScript();
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
         public String getBackwardId() {
             return getTarget() + "-" + getSource() + (getVariant() == null ? "" : "/" + getVariant());
         }
@@ -796,7 +870,7 @@ public class CLDRTransforms {
             this.target = target;
         }
 
-        protected String getTarget() {
+        public String getTarget() {
             return target;
         }
 
@@ -804,7 +878,7 @@ public class CLDRTransforms {
             this.source = source;
         }
 
-        protected String getSource() {
+        public String getSource() {
             return source;
         }
 

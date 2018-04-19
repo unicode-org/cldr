@@ -12,7 +12,7 @@ public class GenerateAllCharts {
         GenerateBcp47Text.main(args);
         GenerateSidewaysView.main(args);
         ShowData.main(args);
-        GenerateTransformCharts.main(args);
+        //GenerateTransformCharts.main(args);
         ShowKeyboards.main(args);
         ChartDelta.main(args);
         ChartCollation.main(args);

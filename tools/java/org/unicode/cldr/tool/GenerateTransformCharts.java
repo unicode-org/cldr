@@ -12,11 +12,10 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -28,9 +27,12 @@ import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.FileCopier;
-import org.unicode.cldr.util.SimpleEquivalenceClass;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
@@ -84,7 +86,8 @@ public class GenerateTransformCharts {
         FileCopier.copy(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
 
         // PrintWriter out = new PrintWriter(System.out);
-        CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null, true);
+        CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null, false);
+        System.out.println("Transliterators registered");
         try {
             showAllLatin();
             // doIndic();
@@ -352,46 +355,61 @@ public class GenerateTransformCharts {
         Set<String> nonScripts = new TreeSet<String>(Arrays.asList("ConjoiningJamo", "InterIndic", "Han",
             "el", "Jamo", "JapaneseKana", "Korean", "NumericPinyin", "ThaiLogical", "ThaiSemi"));
         try {
-            SimpleEquivalenceClass ec = new SimpleEquivalenceClass(UCA);
-            Set<String> availableTransliterators = getAvailableTransliterators();
-            Set<String> scripts = new TreeSet<String>();
-            for (String id : availableTransliterators) {
-                index.flush();
-                CLDRTransforms.ParsedTransformID parsedID = new CLDRTransforms.ParsedTransformID().set(id);
-                if (!hasScript(parsedID.source) || !hasScript(parsedID.target)) continue;
-                if (nonScripts.contains(parsedID.source) || nonScripts.contains(parsedID.target)) {
-                    continue;
+//            SimpleEquivalenceClass ec = new SimpleEquivalenceClass(UCA);
+            BiMap<String, String> availableTransliterators = getAvailableTransliterators();
+            Multimap<Pair<String,String>,String> scriptToIds = TreeMultimap.create();
+//            Set<String> scripts = new TreeSet<String>();
+            for (Entry<String, String> displayToId : availableTransliterators.entrySet()) {
+                String display = displayToId.getKey();
+                String id = displayToId.getValue();
+                System.out.println(display + " => " + id);
+
+                ParsedTransformID parsedID = new ParsedTransformID().set(id);
+                String sourceScript = ParsedTransformID.getScriptCode(parsedID.getSource());
+                String targetScript = ParsedTransformID.getScriptCode(parsedID.getTarget());
+//                String target = parsedID.target;
+                if (sourceScript == null || targetScript == null) {
+                    System.out.println("Skipping " + display + " => " + id);
+
+                    continue; // only handle scripts now
                 }
+
+                index.flush();
 
                 // if (parsedID.source.equals("Hangul") || parsedID.target.equals("Hangul")) {} else {
                 // continue;
                 // }
 
-                if (false && parsedID.variant != null) {
-                    if (!parsedID.target.equals("Latin")) ec.add(parsedID.target, parsedID.getTargetVariant());
-                    if (!parsedID.source.equals("Latin")) ec.add(parsedID.source, parsedID.getSourceVariant());
-                }
-
-                if (!parsedID.target.equals("Latin")) {
-                    if (!parsedID.source.equals("Latin")) {
-                        ec.add(parsedID.source, parsedID.getTargetVariant());
-                        ec.add(parsedID.target, parsedID.getSourceVariant());
-                    }
-                    continue;
-                }
-                scripts.add(parsedID.getTargetVariant());
-                ec.add(parsedID.getSourceVariant(), UScript.getName(getScriptFromScriptOrLanguage(parsedID.source)));
-                ec.add(parsedID.getTargetVariant(), UScript.getName(getScriptFromScriptOrLanguage(parsedID.target)));
+//                if (false && parsedID.variant != null) {
+//                    if (!isLatin(target)) ec.add(target, parsedID.getTargetVariant());
+//                    if (!isLatin(parsedID.source)) ec.add(parsedID.source, parsedID.getSourceVariant());
+//                }
+//
+//                System.out.println(parsedID);
+//                if (!isLatin(target)) {
+//                    if (!isLatin(parsedID.source)) {
+//                        ec.add(parsedID.source, parsedID.getTargetVariant());
+//                        ec.add(target, parsedID.getSourceVariant());
+//                    }
+//                    continue;
+//                }
+//                scripts.add(parsedID.getTargetVariant());
+                 Pair<String,String> key = sourceScript.compareTo(targetScript) < 0 ? Pair.of(sourceScript, targetScript) :  Pair.of(targetScript, sourceScript);
+                scriptToIds.put(key, id);
+//                ec.add(parsedID.getSourceVariant(), UScript.getName(UScript.getCodeFromName(sourceScript)));
+//                ec.add(parsedID.getTargetVariant(), UScript.getName(UScript.getCodeFromName(targetScript)));
             }
 
-            Set<String> alreadySeen = new HashSet<String>();
-            for (Iterator<Set<String>> it = ec.getSetIterator(null); it.hasNext();) {
-                Set<String> scriptSet = new TreeSet<String>(UCA);
-                scriptSet.addAll(it.next());
-                scriptSet.removeAll(alreadySeen);
-                if (scriptSet.size() <= 0) continue;
-                showLatin(getName(scriptSet), scriptSet);
-                alreadySeen.addAll(scriptSet);
+//            Set<String> alreadySeen = new HashSet<String>();
+            for (Entry<Pair<String,String>, Collection<String>> entry : scriptToIds.asMap().entrySet()) {
+//                Set<String> scriptSet = new TreeSet<String>(UCA);
+//                scriptSet.addAll(it.next());
+//                scriptSet.removeAll(alreadySeen);
+//                if (scriptSet.size() <= 0) continue;
+                System.out.println(entry.getKey() + " => " + entry.getValue());
+
+                showLatin(entry.getKey(), (Set<String>) entry.getValue());
+//                alreadySeen.addAll(scriptSet);
             }
         } finally {
             index.println("</ul>");
@@ -440,17 +458,21 @@ public class GenerateTransformCharts {
 
     }
 
-    private static String getName(Set<String> scriptSet) {
-        if (scriptSet.size() == 1) return scriptSet.iterator().next().toString();
-        if (scriptSet.contains("Bengali")) return "Indic";
-        if (scriptSet.contains("Katakana")) return "Kana";
-        // if (scriptSet.contains("Greek")) return "Greek";
-        return UScript.getName(getScriptFromScriptOrLanguage(scriptSet.iterator().next()));
+    private static boolean isLatin(String target) {
+        return target.equals("Latin") || target.equals("Latn");
     }
 
+//    private static String getName(Set<String> scriptSet) {
+//        if (scriptSet.size() == 1) return scriptSet.iterator().next().toString();
+//        if (scriptSet.contains("Bengali")) return "Indic";
+//        if (scriptSet.contains("Katakana")) return "Kana";
+//        // if (scriptSet.contains("Greek")) return "Greek";
+//        return UScript.getName(getScriptFromScriptOrLanguage(scriptSet.iterator().next()));
+//    }
+
     static UnicodeSet stuffToSkip = new UnicodeSet(
-        "[[:block=Hangul Syllables:][:NFKC_QuickCheck=No:][\\U00010000-\\U0010FFFF]]").freeze();
-    static Comparator UCA;
+        "[[:block=Hangul Syllables:][:NFKC_QuickCheck=No:]]").freeze(); // [\\U00010000-\\U0010FFFF]
+    static Comparator<String> UCA;
     static {
         RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         UCA2.setNumericCollation(true);
@@ -458,10 +480,10 @@ public class GenerateTransformCharts {
         UCA = new org.unicode.cldr.util.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0));
     }
 
-    private static void showLatin(String scriptChoice, Set<String> targetVariant) throws IOException {
-        if (scriptChoice.equals("Latin")) {
-            return;
-        }
+    private static void showLatin(Pair<String,String> scriptChoice, Set<String> targetVariant) throws IOException {
+//        if (scriptChoice.equals("Latin")) {
+//            return;
+//        }
         CLDRTransforms.ParsedTransformID parsedID = new CLDRTransforms.ParsedTransformID();
         Set<String> ids = new TreeSet<String>();
         Map<String, UnicodeSet> id_unmapped = new HashMap<String, UnicodeSet>();
@@ -477,18 +499,13 @@ public class GenerateTransformCharts {
 
         // gather info
         for (Iterator<String> i = targetVariant.iterator(); i.hasNext();) {
-            String nonLatinId = i.next();
-            String id = "Latin-" + nonLatinId; // put the variant in the right place
+            String id = i.next();
             parsedID.set(id);
-            id = parsedID.reverse().toString();
-            // String id = (String)i.next();
-            // parsedID.set(id);
-            // if (!parsedID.target.equals("Latin")) continue;
-            // if (parsedID.source.equals("Han")) continue;
-            String script = parsedID.source;
-            int scriptCode = getScriptFromScriptOrLanguage(script);
+            String nonLatinId = null;
+            String script = scriptChoice.getFirst();
+            int scriptCode = UScript.getCodeFromName(scriptChoice.getFirst());
             if (scriptCode < 0) {
-                throw new IllegalArgumentException("Missing script: " + script);
+                throw new IllegalArgumentException("Missing script: " + scriptChoice);
             }
             // if (scriptCode < 0) {
             // System.out.println("Skipping id: " + script);
@@ -571,9 +588,8 @@ public class GenerateTransformCharts {
                 }
         }
 
-        String filename = "Latin-" + scriptChoice + ".html";
-        filename = filename.replace('/', '-');
-        index.println("<li><a href='" + filename + "'>" + scriptChoice + "</a></li>");
+        String filename = scriptChoice.getFirst() + "-" + scriptChoice.getSecond() + ".html";
+        index.println("<li><a href='" + filename + "'>" + scriptChoice.getFirst() + "-" + scriptChoice.getSecond() + "</a></li>");
         PrintWriter pw = FileUtilities.openUTF8Writer(TRANSFORM_DIRECTORY, filename);
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate("Latin-" + scriptChoice + " Transliteration Chart",
@@ -617,12 +633,12 @@ public class GenerateTransformCharts {
         // pw.println("<th>No Round Trip</th>");
         pw.println("</tr><tr><td class='main'>");
 
-        doMainTable(parsedID, targetVariant, pw, nonLatinToLatinTagged, true, scriptChoice, totalNonLatinSet);
+        doMainTable(parsedID, targetVariant, pw, nonLatinToLatinTagged, true, scriptChoice.getFirst(), totalNonLatinSet);
 
         if (!latinToTaggedNonLatin.isEmpty()) {
             pw.println("</td><td class='main'>");
 
-            doMainTable(parsedID, targetVariant, pw, latinToTaggedNonLatin, false, scriptChoice, new UnicodeSet());
+            doMainTable(parsedID, targetVariant, pw, latinToTaggedNonLatin, false, scriptChoice.getFirst(), new UnicodeSet());
         }
 
         // pw.println("</td><td class='main'>");
@@ -742,18 +758,18 @@ public class GenerateTransformCharts {
         { "Uzbek", "Cyrillic" },
     });
 
-    private static int getScriptFromScriptOrLanguage(String script) {
-        int pos = script.indexOf('/');
-        if (pos >= 0) {
-            script = script.substring(0, pos);
-        }
-        String newScript = language_to_script.get(script);
-        if (newScript != null) {
-            script = newScript;
-        }
-        int codeFromName = UScript.getCodeFromName(script);
-        return codeFromName;
-    }
+//    private static int getScriptFromScriptOrLanguage(String script) {
+//        int pos = script.indexOf('/');
+//        if (pos >= 0) {
+//            script = script.substring(0, pos);
+//        }
+//        String newScript = language_to_script.get(script);
+//        if (newScript != null) {
+//            script = newScript;
+//        }
+//        int codeFromName = UScript.getCodeFromName(script);
+//        return codeFromName;
+//    }
 
     private static void doMainTable(CLDRTransforms.ParsedTransformID parsedID, Set<String> ids_old, PrintWriter pw,
         Map<String, Map<String, Map<String, Boolean>>> xToTagToYToRoundtrip, boolean fromNonLatinToLatin,
@@ -862,16 +878,12 @@ public class GenerateTransformCharts {
         }
     }
 
-    public static boolean hasScript(String string) {
-        return getScriptFromScriptOrLanguage(string) >= 0;
-    }
-
-    private static Set<String> getAvailableTransliterators() {
-        Set<String> results = new HashSet<String>();
-        for (Enumeration<String> e = Transliterator.getAvailableIDs(); e.hasMoreElements();) {
-            results.add(e.nextElement());
-        }
-        return results;
+//    public static boolean hasScript(String string) {
+//        return getScriptFromScriptOrLanguage(string) >= 0;
+//    }
+//
+    private static BiMap<String,String> getAvailableTransliterators() {
+        return CLDRTransforms.getInstance().getDisplayNameToId();
     }
 
     private static UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]").freeze();

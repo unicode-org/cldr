@@ -3485,7 +3485,7 @@ function updateRow(tr, theRow) {
 		var copyWinning = document.createElement("button");
 		copyWinning.className = "copyWinning btn btn-info btn-xs";
 		copyWinning.title = "Copy Winning";
-		copyWinning.type = "submit";
+		copyWinning.type = "button";
 		copyWinning.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
 		copyWinning.onclick = function(e) {
 			var theValue = null;
@@ -3501,7 +3501,7 @@ function updateRow(tr, theRow) {
 		var copyEnglish = document.createElement("button");
 		copyEnglish.className = "copyEnglish btn btn-info btn-xs";
 		copyEnglish.title = "Copy English";
-		copyEnglish.type = "submit";
+		copyEnglish.type = "button";
 		copyEnglish.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> English';
 		copyEnglish.onclick = function(e) {
 		    input.value = theRow.displayName || null;

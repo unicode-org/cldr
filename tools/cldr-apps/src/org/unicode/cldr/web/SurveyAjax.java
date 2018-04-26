@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Arrays; /* tbishop added; TODO: explain why it wasn't needed when Arrays.sort was in processRequest but seems needed for importOldVotes */
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -1022,223 +1022,7 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if (what.equals("oldvotes")) {
-                        mySession.userDidAction();
-                        JSONWriter r = newJSONStatus(sm);
-                        r.put("what", what);
-
-                        final String oldVotesTable = STFactory.getLastVoteTable();
-                        SurveyLog.warnOnce("old votes table is " + oldVotesTable);
-                        if (mySession.user == null) {
-                            r.put("err", "Must be logged in");
-                            r.put("err_code", ErrorCode.E_NOT_LOGGED_IN);
-                        } else if (!mySession.user.canImportOldVotes()) {
-                            r.put("err", "No permission to do this (may not be the right SurveyTool phase)");
-                            r.put("err_code", ErrorCode.E_NO_PERMISSION);
-                        } else if (DBUtils.hasTable(oldVotesTable) == false) {
-                            r.put("err", "No old votes available to import for " + SurveyMain.getLastVoteVersion());
-                            r.put("err_code", ErrorCode.E_NO_OLD_VOTES);
-                            SurveyLog.warnOnce("Could not import old votes, table " + oldVotesTable + " does not exist.");
-                        } else {
-                            JSONObject oldvotes = new JSONObject();
-                            final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
-                            oldvotes.put("votesafter", "(version" + SurveyMain.getLastVoteVersion() + ")");
-
-                            if (loc == null || loc.isEmpty()) {
-                                oldvotes.put(
-                                    "locales",
-                                    DBUtils.queryToJSON("select  locale,count(*) as count from " + oldVotesTable
-                                        + " where submitter=? " +
-                                        " and value is not null " +
-                                        " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
-                                        +
-                                        " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
-                                        + ".submitter )" +
-                                        "group by locale order by locale", mySession.user.id));
-                            } else {
-                                CLDRLocale locale = CLDRLocale.getInstance(loc);
-                                oldvotes.put("locale", locale);
-                                oldvotes.put("localeDisplayName", locale.getDisplayName());
-                                HTMLDirection dir = sm.getHTMLDirectionFor(locale);
-                                oldvotes.put("dir", dir);
-                                STFactory fac = sm.getSTFactory();
-                                //CLDRFile file = fac.make(loc, false);
-                                CLDRFile file = sm.getOldFile(loc, true);
-
-                                if (null != request.getParameter("doSubmit")) {
-                                    // submit time.
-                                    if (SurveyMain.isUnofficial())
-                                        System.out.println("User " + mySession.user.toString() + "  is migrating old votes in " + locale.getDisplayName());
-                                    JSONObject list = new JSONObject(val);
-
-                                    BallotBox<User> box = fac.ballotBoxForLocale(locale);
-
-                                    int deletions = 0;
-                                    int confirmations = 0;
-                                    int uncontested = 0;
-
-                                    JSONArray confirmList = list.getJSONArray("confirmList");
-                                    JSONArray deleteList = list.getJSONArray("deleteList");
-
-                                    Set<String> deleteSet = new HashSet<String>();
-                                    Set<String> confirmSet = new HashSet<String>();
-
-                                    // deletions
-                                    for (int i = 0; i < confirmList.length(); i++) {
-                                        String strid = confirmList.getString(i);
-                                        //String xp = sm.xpt.getByStringID(strid);
-                                        //box.unvoteFor(mySession.user,xp);
-                                        //deletions++;
-                                        confirmSet.add(strid);
-                                    }
-
-                                    // confirmations
-                                    for (int i = 0; i < deleteList.length(); i++) {
-                                        String strid = deleteList.getString(i);
-                                        //String xp = sm.xpt.getByStringID(strid);
-                                        //box.revoteFor(mySession.user,xp);
-                                        //confirmations++;
-                                        deleteSet.add(strid);
-                                    }
-
-                                    // now, get all
-                                    {
-                                        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
-                                            " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-                                            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
-                                            + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
-                                            + ".value is not null)";
-                                        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
-                                        //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
-
-                                        //JSONArray contested = new JSONArray();
-                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
-                                        Exception[] exceptionList = new Exception[1];
-                                        for (Map m : rows) {
-                                            String value = m.get("value").toString();
-                                            if (value == null) continue; // ignore unvotes.
-                                            int xp = (Integer) m.get("xpath");
-                                            String xpathString = sm.xpt.getById(xp);
-                                            value = daip.processInput(xpathString, value, exceptionList);
-                                            // String xpathStringHash = sm.xpt.getStringIDString(xp);
-                                            try {
-//                                                String curValue = file.getStringValue(xpathString);
-//                                                if (false && value.equals(curValue)) {
-//                                                    box.voteForValue(mySession.user, xpathString, value); // auto vote for uncontested
-//                                                    uncontested++;
-//                                                } else {
-                                                String strid = sm.xpt.getStringIDString(xp);
-                                                if (deleteSet.contains(strid)) {
-                                                    box.unvoteFor(mySession.user, xpathString);
-                                                    deletions++;
-                                                } else if (confirmSet.contains(strid)) {
-                                                    box.voteForValue(mySession.user, xpathString, value);
-                                                    confirmations++;
-                                                } else {
-                                                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
-                                                }
-//                                                }
-                                            } catch (InvalidXPathException ix) {
-                                                SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
-                                            } catch (VoteNotAcceptedException ix) {
-                                                SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
-                                            }
-                                        }
-                                    }
-
-                                    oldvotes.put("didUnvotes", deletions);
-                                    oldvotes.put("didRevotes", confirmations);
-                                    oldvotes.put("didUncontested", uncontested);
-                                    System.out.println("Old Vote migration for " + mySession.user + " " + locale + " - delete:" + deletions + ", confirm:"
-                                        + confirmations + ", uncontestedconfirm:" + uncontested);
-                                    oldvotes.put("ok", true);
-
-                                } else {
-                                    // view old votes
-                                    String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
-                                        " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-                                        + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
-                                        + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
-                                        + " and " + newVotesTable + ".value is not null)";
-                                    Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
-                                    //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
-
-                                    // extract the pathheaders
-                                    for (int i = 0; i < rows.length; i++) {
-                                        Map m = rows[i];
-                                        int xp = (Integer) m.get("xpath");
-                                        String xpathString = sm.xpt.getById(xp);
-                                        m.put("pathHeader", fac.getPathHeader(xpathString));
-                                    }
-
-                                    // sort by pathheader
-                                    Arrays.sort(rows, new Comparator<Map>() {
-
-                                        @Override
-                                        public int compare(Map o1, Map o2) {
-                                            return ((PathHeader) o1.get("pathHeader")).compareTo((PathHeader) o2.get("pathHeader"));
-                                        }
-                                    });
-
-                                    JSONArray uncontested = new JSONArray();
-                                    JSONArray contested = new JSONArray();
-
-                                    int bad = 0;
-
-                                    CLDRFile baseF = sm.getBaselineFile();
-
-                                    //CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
-
-                                    Set<String> validPaths = fac.getPathsForFile(locale);
-                                    CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
-                                    for (Map m : rows) {
-                                        String value = m.get("value").toString();
-                                        if (value == null) continue; // ignore unvotes.
-                                        PathHeader pathHeader = (PathHeader) m.get("pathHeader");
-                                        //                                        System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
-                                        if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
-                                            pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
-                                            bad++;
-                                            continue; // skip these
-                                        }
-                                        int xp = (Integer) m.get("xpath");
-                                        String xpathString = sm.xpt.getById(xp);
-                                        if (!validPaths.contains(xpathString)) {
-                                            bad++;
-                                            continue;
-                                        }
-                                        if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
-                                            //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
-                                            bad++;
-                                            continue; // out of coverage
-                                        }
-                                        String xpathStringHash = sm.xpt.getStringIDString(xp);
-                                        String curValue = file.getStringValue(xpathString);
-                                        JSONObject aRow = new JSONObject()
-                                            .put("strid", xpathStringHash)
-                                            .put("myValue", value)
-                                            .put("winValue", curValue)
-                                            .put("baseValue", baseF.getStringValue(xpathString))
-                                            .put("pathHeader", pathHeader.toString());
-                                        if (value.equals(curValue)) {
-                                            uncontested.put(aRow);
-                                        } else {
-                                            contested.put(aRow);
-                                        }
-                                    }
-
-                                    oldvotes.put("contested", contested);
-                                    oldvotes.put("uncontested", uncontested);
-                                    oldvotes.put("bad", bad);
-                                }
-                            }
-
-                            r.put("oldvotes", oldvotes);
-
-                            r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
-                            r.put("BASELINE_ID", SurveyMain.BASELINE_ID);
-                        }
-
-                        send(r, out);
+                        importOldVotes(mySession, sm, request, val, out, what, loc, xpath);
                     } else if (what.equals(WHAT_GETSIDEWAYS)) {
                         mySession.userDidAction();
                         final JSONWriter r = newJSONStatusQuick(sm);
@@ -1912,6 +1696,244 @@ public class SurveyAjax extends HttpServlet {
     public static void includeAjaxScript(HttpServletRequest request, HttpServletResponse response, AjaxType type)
         throws ServletException, IOException {
         WebContext.includeFragment(request, response, "ajax_" + type.name().toLowerCase() + ".jsp");
+    }
+
+    /**
+     * Import old votes.
+     * 
+     * @param mySession the cookie session that was passed to processRequest
+     * @param sm the SurveyMain instance that was gotten by processRequest
+     * @param request the HttpServletRequest request that was passed to processRequest
+     * @param val the String parameter that was passed to processRequest
+     * @param out the PrintWriter from response.getWriter() in processRequest
+     * @param what the String request.getParameter(REQ_WHAT)
+     * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE)
+     * @param xpath the string request.getParameter(SurveyForum.F_XPATH)
+     *
+     * Currently called only by processRequest. Will also eventually be called by unit test, therefore public.
+     */
+    public void importOldVotes(CookieSession mySession, SurveyMain sm, HttpServletRequest request,
+               String val, PrintWriter out, String what, String loc, String xpath)
+               throws ServletException, IOException, JSONException, SQLException {
+        SurveyLog.warnOnce("Hello my name is importOldVotes");
+
+        mySession.userDidAction();
+        JSONWriter r = newJSONStatus(sm);
+        r.put("what", what);
+
+        final String oldVotesTable = STFactory.getLastVoteTable();
+        SurveyLog.warnOnce("old votes table is " + oldVotesTable);
+        if (mySession.user == null) {
+            r.put("err", "Must be logged in");
+            r.put("err_code", ErrorCode.E_NOT_LOGGED_IN);
+        } else if (!mySession.user.canImportOldVotes()) {
+            r.put("err", "No permission to do this (may not be the right SurveyTool phase)");
+            r.put("err_code", ErrorCode.E_NO_PERMISSION);
+        } else if (DBUtils.hasTable(oldVotesTable) == false) {
+            r.put("err", "No old votes available to import for " + SurveyMain.getLastVoteVersion());
+            r.put("err_code", ErrorCode.E_NO_OLD_VOTES);
+            SurveyLog.warnOnce("Could not import old votes, table " + oldVotesTable + " does not exist.");
+        } else {
+            JSONObject oldvotes = new JSONObject();
+            final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
+            oldvotes.put("votesafter", "(version" + SurveyMain.getLastVoteVersion() + ")");
+
+            if (loc == null || loc.isEmpty()) {
+                oldvotes.put(
+                    "locales",
+                    DBUtils.queryToJSON("select  locale,count(*) as count from " + oldVotesTable
+                        + " where submitter=? " +
+                        " and value is not null " +
+                        " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
+                        +
+                        " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
+                        + ".submitter )" +
+                        "group by locale order by locale", mySession.user.id));
+            } else {
+                CLDRLocale locale = CLDRLocale.getInstance(loc);
+                oldvotes.put("locale", locale);
+                oldvotes.put("localeDisplayName", locale.getDisplayName());
+                HTMLDirection dir = sm.getHTMLDirectionFor(locale);
+                oldvotes.put("dir", dir);
+                STFactory fac = sm.getSTFactory();
+                //CLDRFile file = fac.make(loc, false);
+                CLDRFile file = sm.getOldFile(loc, true);
+
+                if (null != request.getParameter("doSubmit")) {
+                    // submit time.
+                    if (SurveyMain.isUnofficial())
+                        System.out.println("User " + mySession.user.toString() + "  is migrating old votes in " + locale.getDisplayName());
+                    JSONObject list = new JSONObject(val);
+
+                    BallotBox<User> box = fac.ballotBoxForLocale(locale);
+
+                    int deletions = 0;
+                    int confirmations = 0;
+                    int uncontested = 0;
+
+                    JSONArray confirmList = list.getJSONArray("confirmList");
+                    JSONArray deleteList = list.getJSONArray("deleteList");
+
+                    Set<String> deleteSet = new HashSet<String>();
+                    Set<String> confirmSet = new HashSet<String>();
+
+                    // deletions
+                    for (int i = 0; i < confirmList.length(); i++) {
+                        String strid = confirmList.getString(i);
+                        //String xp = sm.xpt.getByStringID(strid);
+                        //box.unvoteFor(mySession.user,xp);
+                        //deletions++;
+                        confirmSet.add(strid);
+                    }
+
+                    // confirmations
+                    for (int i = 0; i < deleteList.length(); i++) {
+                        String strid = deleteList.getString(i);
+                        //String xp = sm.xpt.getByStringID(strid);
+                        //box.revoteFor(mySession.user,xp);
+                        //confirmations++;
+                        deleteSet.add(strid);
+                    }
+
+                    // now, get all
+                    {
+                        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
+                            " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
+                            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
+                            + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
+                            + ".value is not null)";
+                        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                        //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+
+                        //JSONArray contested = new JSONArray();
+                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
+                        Exception[] exceptionList = new Exception[1];
+                        for (Map m : rows) {
+                            String value = m.get("value").toString();
+                            if (value == null) continue; // ignore unvotes.
+                            int xp = (Integer) m.get("xpath");
+                            String xpathString = sm.xpt.getById(xp);
+                            value = daip.processInput(xpathString, value, exceptionList);
+                            // String xpathStringHash = sm.xpt.getStringIDString(xp);
+                            try {
+//                                String curValue = file.getStringValue(xpathString);
+//                                if (false && value.equals(curValue)) {
+//                                    box.voteForValue(mySession.user, xpathString, value); // auto vote for uncontested
+//                                    uncontested++;
+//                                } else {
+                                String strid = sm.xpt.getStringIDString(xp);
+                                if (deleteSet.contains(strid)) {
+                                    box.unvoteFor(mySession.user, xpathString);
+                                    deletions++;
+                                } else if (confirmSet.contains(strid)) {
+                                    box.voteForValue(mySession.user, xpathString, value);
+                                    confirmations++;
+                                } else {
+                                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
+                                }
+//                                }
+                            } catch (InvalidXPathException ix) {
+                                SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
+                            } catch (VoteNotAcceptedException ix) {
+                                SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
+                            }
+                        }
+                    }
+
+                    oldvotes.put("didUnvotes", deletions);
+                    oldvotes.put("didRevotes", confirmations);
+                    oldvotes.put("didUncontested", uncontested);
+                    System.out.println("Old Vote migration for " + mySession.user + " " + locale + " - delete:" + deletions + ", confirm:"
+                        + confirmations + ", uncontestedconfirm:" + uncontested);
+                    oldvotes.put("ok", true);
+
+                } else {
+                    // view old votes
+                    String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
+                        " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
+                        + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
+                        + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
+                        + " and " + newVotesTable + ".value is not null)";
+                    Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                    //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+
+                    // extract the pathheaders
+                    for (int i = 0; i < rows.length; i++) {
+                        Map m = rows[i];
+                        int xp = (Integer) m.get("xpath");
+                        String xpathString = sm.xpt.getById(xp);
+                        m.put("pathHeader", fac.getPathHeader(xpathString));
+                    }
+
+                    // sort by pathheader
+                    Arrays.sort(rows, new Comparator<Map>() {
+
+                        @Override
+                        public int compare(Map o1, Map o2) {
+                            return ((PathHeader) o1.get("pathHeader")).compareTo((PathHeader) o2.get("pathHeader"));
+                        }
+                    });
+
+                    JSONArray uncontested = new JSONArray();
+                    JSONArray contested = new JSONArray();
+
+                    int bad = 0;
+
+                    CLDRFile baseF = sm.getBaselineFile();
+
+                    //CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
+
+                    Set<String> validPaths = fac.getPathsForFile(locale);
+                    CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
+                    for (Map m : rows) {
+                        String value = m.get("value").toString();
+                        if (value == null) continue; // ignore unvotes.
+                        PathHeader pathHeader = (PathHeader) m.get("pathHeader");
+                        //                                        System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
+                        if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
+                            pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
+                            bad++;
+                            continue; // skip these
+                        }
+                        int xp = (Integer) m.get("xpath");
+                        String xpathString = sm.xpt.getById(xp);
+                        if (!validPaths.contains(xpathString)) {
+                            bad++;
+                            continue;
+                        }
+                        if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
+                            //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
+                            bad++;
+                            continue; // out of coverage
+                        }
+                        String xpathStringHash = sm.xpt.getStringIDString(xp);
+                        String curValue = file.getStringValue(xpathString);
+                        JSONObject aRow = new JSONObject()
+                            .put("strid", xpathStringHash)
+                            .put("myValue", value)
+                            .put("winValue", curValue)
+                            .put("baseValue", baseF.getStringValue(xpathString))
+                            .put("pathHeader", pathHeader.toString());
+                        if (value.equals(curValue)) {
+                            uncontested.put(aRow);
+                        } else {
+                            contested.put(aRow);
+                        }
+                    }
+
+                    oldvotes.put("contested", contested);
+                    oldvotes.put("uncontested", uncontested);
+                    oldvotes.put("bad", bad);
+                }
+            }
+
+            r.put("oldvotes", oldvotes);
+
+            r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
+            r.put("BASELINE_ID", SurveyMain.BASELINE_ID);
+        }
+
+        send(r, out);
     }
 
 }

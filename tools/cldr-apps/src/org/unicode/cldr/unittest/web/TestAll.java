@@ -124,7 +124,8 @@ public class TestAll extends TestGroup {
             TestXPathTable.class.getName(),
             TestMisc.class.getName(),
             TestSTFactory.class.getName(),
-            TestUserSettingsData.class.getName() }, "All tests in CLDR Web");
+            TestUserSettingsData.class.getName(),
+            TestImportOldVotes.class.getName()}, "All tests in CLDR Web");
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR.Web";

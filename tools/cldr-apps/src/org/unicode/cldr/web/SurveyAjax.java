@@ -1710,7 +1710,7 @@ public class SurveyAjax extends HttpServlet {
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE)
      * @param xpath the string request.getParameter(SurveyForum.F_XPATH)
      *
-     * Currently called only by processRequest. Will also eventually be called by unit test, therefore public.
+     * Called locally by processRequest, and also by unit test TestImportOldVotes.java, therefore public.
      */
     public void importOldVotes(CookieSession mySession, SurveyMain sm, HttpServletRequest request,
                String val, PrintWriter out, String what, String loc, String xpath)
@@ -1934,18 +1934,5 @@ public class SurveyAjax extends HttpServlet {
         }
 
         send(r, out);
-    }
-
-    /**
-     * Test to be called by TestImportOldVotes.java, work in progress!
-     * @param test a String; if "fail", throw an exception.
-     * @return String "Forty-Two"
-      */
-    public String importOldVotesDummy(String test) throws SurveyException {
-        SurveyLog.warnOnce("Hello, my name is importOldVotesDummy");
-        if (test.equals("fail")) {
-            throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
-        }
-        return "Forty-Two 🤡";
     }
 }

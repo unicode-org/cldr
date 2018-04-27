@@ -23,7 +23,6 @@ public class TestImportOldVotes extends TestFmwk {
         SurveyAjax sa = null;
         String val = null;
         String loc = null;
-        String xpath = null;
         boolean isSubmit = false;
         JSONWriter r = null;
 
@@ -112,6 +111,23 @@ public class TestImportOldVotes extends TestFmwk {
             errln("user == null\n");
             return;
         }
+
+        /* TODO: test importOldVotesForValidatedUser
+            Three ways this function is called:
+            (1) loc == null, isSubmit == false: list locales to choose
+            (2) loc == 'aa', isSubmit == false: show winning/losing votes available for import
+            (3) loc == 'aa', isSubmit == true: update db based on vote
+
+            Check r for expected output... */
+        // importOldVotesForValidatedUser(r, user, sm, isSubmit, val, loc, oldVotesTable);
+
+        // TODO: test viewOldVotes
+        // Check JSONObject oldvotes for expected output...
+        // viewOldVotes(user, sm, loc, locale, oldVotesTable, newVotesTable, oldvotes, fac, file);
+        
+        // TODO: test submitOldVotes
+        // Check JSONObject oldvotes for expected output...
+        // submitOldVotes(user, sm, locale, val, oldVotesTable, newVotesTable, oldvotes, fac);
 
         errln("importOldVotes test reached end, but test is still incomplete.\n");
     }

@@ -1752,12 +1752,12 @@ public class SurveyAjax extends HttpServlet {
      * @param r the JSONWriter in which to write
      * @param user the User (see UserRegistry.java)
      * @param sm the SurveyMain instance
-     * @param isSubmit the boolean (request.getParameter("doSubmit") != null); false when called for "Import Old Votes", 
+     * @param isSubmit the boolean true when user clicks ""Vote for selected Winning/Losing Votes", false to show available votes
      *              also false when click on locale to choose it; true when ...?
      * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     * @param oldVotesTable the String (STFactory.getLastVoteTable) 
+     * @param oldVotesTable the String like "cldr_vote_value_33"
      *
      * Called locally by importOldVotes, and also by unit test TestImportOldVotes.java, therefore public.
      * 
@@ -1789,46 +1789,23 @@ public class SurveyAjax extends HttpServlet {
                     "group by locale order by locale", user.id));
         } else {
             // if isSubmit, import selected votes; else show votes available for import
-            importOldVotesWithLoc(user, sm, isSubmit, val, loc, oldVotesTable, newVotesTable, oldvotes);
+            CLDRLocale locale = CLDRLocale.getInstance(loc);
+            oldvotes.put("locale", locale);
+            oldvotes.put("localeDisplayName", locale.getDisplayName());
+            HTMLDirection dir = sm.getHTMLDirectionFor(locale);
+            oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
+            STFactory fac = sm.getSTFactory();
+            //CLDRFile file = fac.make(loc, false);
+            CLDRFile file = sm.getOldFile(loc, true); // file unused if isSubmit; does getOldFile have any necessary side-effect?
+            if (isSubmit) {
+                submitOldVotes(user, sm, locale, val, oldVotesTable, newVotesTable, oldvotes, fac);
+            } else {
+                viewOldVotes(user, sm, loc, locale, oldVotesTable, newVotesTable, oldvotes, fac, file);
+            }
         }
         r.put("oldvotes", oldvotes);
         r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
         r.put("BASELINE_ID", SurveyMain.BASELINE_ID);
-    }
-
-    /**
-     * Import old votes for the given validated user and the specified loc.
-     * If isSubmit, import selected votes; else show votes available for import.
-     *
-     * @param user the User (see UserRegistry.java)
-     * @param sm the SurveyMain instance
-     * @param isSubmit the boolean true when user clicks ""Vote for selected Winning/Losing Votes", false to show available votes
-     * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
-     * @param loc the non-empty String like "aa"
-     * @param oldVotesTable the String like "cldr_vote_value_33"
-     * @param oldVotesTable the String like "cldr_vote_value_33"
-     * @param oldvotes the JSONObject
-     *
-     * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
-     */
-    public void importOldVotesWithLoc(User user, SurveyMain sm, boolean isSubmit,
-               String val, String loc, final String oldVotesTable, final String newVotesTable, JSONObject oldvotes)
-               throws ServletException, IOException, JSONException, SQLException {
-
-        CLDRLocale locale = CLDRLocale.getInstance(loc);
-        oldvotes.put("locale", locale);
-        oldvotes.put("localeDisplayName", locale.getDisplayName());
-        HTMLDirection dir = sm.getHTMLDirectionFor(locale);
-        oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
-        STFactory fac = sm.getSTFactory();
-        //CLDRFile file = fac.make(loc, false);
-        CLDRFile file = sm.getOldFile(loc, true); // file unused if isSubmit; does getOldFile have any necessary side-effect?
-
-        if (isSubmit) {
-            submitOldVotes(user, sm, locale, val, oldVotesTable, newVotesTable, oldvotes, fac);
-        } else {
-            viewOldVotes(user, sm, loc, locale, oldVotesTable, newVotesTable, oldvotes, fac, file);
-        }
     }
 
     /**
@@ -1844,7 +1821,7 @@ public class SurveyAjax extends HttpServlet {
      * @param fac the STFactory to be used for getPathHeader, getPathsForFile
      * @param file the CLDRFile (...getOldFile...) to be used for getStringValue
      *
-     * Called locally by importOldVotesWithLoc, and also by unit test TestImportOldVotes.java, therefore public.
+     * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
      */
     public void viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale, 
                final String oldVotesTable, final String newVotesTable, JSONObject oldvotes,
@@ -1857,7 +1834,6 @@ public class SurveyAjax extends HttpServlet {
             + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
             + " and " + newVotesTable + ".value is not null)";
         Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
-        // System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
         // extract the pathheaders
         for (int i = 0; i < rows.length; i++) {
@@ -1883,15 +1859,14 @@ public class SurveyAjax extends HttpServlet {
 
         CLDRFile baseF = sm.getBaselineFile();
 
-        //CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
-
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (Map m : rows) {
             String value = m.get("value").toString();
-            if (value == null) continue; // ignore unvotes.
+            if (value == null) {
+                continue; // ignore unvotes.
+            }
             PathHeader pathHeader = (PathHeader) m.get("pathHeader");
-            // System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
             if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
                 pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
                 bad++;
@@ -1939,7 +1914,7 @@ public class SurveyAjax extends HttpServlet {
      * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory
      *
-     * Called locally by importOldVotesWithLoc, and also by unit test TestImportOldVotes.java, therefore public.
+     * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
      */
     public void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
                final String oldVotesTable, final String newVotesTable, JSONObject oldvotes,

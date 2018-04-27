@@ -26,12 +26,14 @@ public class TestImportOldVotes extends TestFmwk {
         String xpath = null;
         boolean isSubmit = false;
         JSONWriter r = null;
+        /* Confirm we can create a new SurveyAjax. */
         try {
             sa = new SurveyAjax();
         } catch (Exception e) {
             errln("new SurveyAjax threw unexpected exception: " + e.getMessage() + "\n");
             return;
         }
+        /* Confirm importOldVotes throws NullPointerException if SurveyMain is null. */
         boolean gotNullPointerException = false;
         try {
             r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
@@ -51,6 +53,7 @@ public class TestImportOldVotes extends TestFmwk {
             errln("importOldVotes with sm null, expected NullPointerException, got no exception\n");
             return;
         }
+        /* Confirm we can create a new SurveyMain. */
         try {
             // SurveyMain.cldrHome = SurveyMain.getHome() + "/cldr";
             // SurveyMain.vap = "testingvap";
@@ -59,22 +62,43 @@ public class TestImportOldVotes extends TestFmwk {
             errln("new SurveyMain threw unexpected exception: " + e.toString() + " - " + e.getMessage() + "\n");
             return;
         }
+        /* Confirm we can initialize and startup the SurveyMain. */
         try {
-            // problem: user == null, leads to E_NOT_LOGGED_IN in json string
-            r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
+            sm.init();
+            sm.doStartup();
         } catch (Exception e) {
-            errln("importOldVotes with sm not null, got exception: "
-                    + e.toString() + " - " + e.getMessage() + "\n");
+            errln("sm.init or doStartup threw unexpected exception: " + e.toString() + " - " + e.getMessage() + "\n");
             return;
         }
-        String json = r.toString();
-        errln("json = " + json + "\n");
-        /* Now we have the output of importOldVotes as a long json string, like:
-         * {"visitors":"","isBusted":"0","err":"Must be logged in","SurveyOK":"1","progress":"(obsolete-progress)","err_code":"E_NOT_LOGGED_IN",...}
-         * We can fix the parameters to importOldVotes so that, for example, it avoids E_NOT_LOGGED_IN; that may be difficult.
-         * Alternatively, start refactoring importOldVotes so that this unit testing is easier, with mock inputs;
-         * but that risks breaking importOldVotes before we have a unit test to reveal we've broken it...
-         */
+        
+        /* Confirm if user is null, importOldVotes returns E_NOT_LOGGED_IN in json but doesn't throw an exception. */
+        try {
+            r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
+        } catch (Exception e) {
+            errln("importOldVotes threw exception: " + e.toString() + " - " + e.getMessage() + "\n");
+            return;
+        }
+        String json = r.toString(); // {..."isBusted":"0","err":"Must be logged in","SurveyOK":"1" ... "err_code":"E_NOT_LOGGED_IN",...}
+        if (!json.contains("E_NOT_LOGGED_IN")) {
+            errln("importOldVotes wotj user NULL, expected json to contain E_NOT_LOGGED_IN, but json = " + json + "\n");
+            return;
+        }
+        /* Confirm we can create a user based on email address. */
+        if (sm.reg == null) {
+            errln("sm.reg == null\n");
+            return;
+        }
+        try {
+            // sm.reg == null
+            user = sm.reg.get("test@test2468.com");
+        } catch (Exception e) {
+            errln("sm.reg.get threw exception: " + e.toString() + " - " + e.getMessage() + "\n");
+            return;
+        }
+        if (user == null) {
+            errln("user == null\n");
+            return;
+        }
 
         errln("importOldVotes test reached end, but test is still incomplete.\n");
     }

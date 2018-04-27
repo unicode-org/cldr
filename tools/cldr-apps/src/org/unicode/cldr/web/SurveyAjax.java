@@ -1022,7 +1022,9 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if (what.equals("oldvotes")) {
-                        importOldVotes(mySession, sm, request, val, out, what, loc, xpath);
+                        boolean isSubmit = (request.getParameter("doSubmit") != null);
+                        JSONWriter r = importOldVotes(mySession, sm, isSubmit, val, what, loc, xpath);
+                        send(r, out);
                     } else if (what.equals(WHAT_GETSIDEWAYS)) {
                         mySession.userDidAction();
                         final JSONWriter r = newJSONStatusQuick(sm);
@@ -1700,20 +1702,21 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Import old votes.
-     * 
+     *
      * @param mySession the cookie session that was passed to processRequest
      * @param sm the SurveyMain instance that was gotten by processRequest
-     * @param request the HttpServletRequest request that was passed to processRequest
+     * @param isSubmit the boolean (request.getParameter("doSubmit") != null)
      * @param val the String parameter that was passed to processRequest
      * @param out the PrintWriter from response.getWriter() in processRequest
      * @param what the String request.getParameter(REQ_WHAT)
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE)
      * @param xpath the string request.getParameter(SurveyForum.F_XPATH)
+     * @return the JSONWriter
      *
      * Called locally by processRequest, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public void importOldVotes(CookieSession mySession, SurveyMain sm, HttpServletRequest request,
-               String val, PrintWriter out, String what, String loc, String xpath)
+    public JSONWriter importOldVotes(CookieSession mySession, SurveyMain sm, boolean isSubmit,
+               String val, String what, String loc, String xpath)
                throws ServletException, IOException, JSONException, SQLException {
         SurveyLog.warnOnce("Hello my name is importOldVotes");
 
@@ -1759,7 +1762,7 @@ public class SurveyAjax extends HttpServlet {
                 //CLDRFile file = fac.make(loc, false);
                 CLDRFile file = sm.getOldFile(loc, true);
 
-                if (null != request.getParameter("doSubmit")) {
+                if (isSubmit) {
                     // submit time.
                     if (SurveyMain.isUnofficial())
                         System.out.println("User " + mySession.user.toString() + "  is migrating old votes in " + locale.getDisplayName());
@@ -1932,7 +1935,6 @@ public class SurveyAjax extends HttpServlet {
             r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
             r.put("BASELINE_ID", SurveyMain.BASELINE_ID);
         }
-
-        send(r, out);
+        return r;
     }
 }

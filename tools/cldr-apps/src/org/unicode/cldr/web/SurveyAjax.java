@@ -246,6 +246,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_USER_LIST = "user_list";
     public static final String WHAT_USER_OLDVOTES = "user_oldvotes";
     public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes";
+    public static final String WHAT_OLDVOTES = "oldvotes";
     public static final String WHAT_FLAGGED = "flagged";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
@@ -1021,9 +1022,10 @@ public class SurveyAjax extends HttpServlet {
                         //                        }
 
                         send(r, out);
-                    } else if (what.equals("oldvotes")) {
+                    } else if (what.equals(WHAT_OLDVOTES)) {
+                        mySession.userDidAction();
                         boolean isSubmit = (request.getParameter("doSubmit") != null);
-                        JSONWriter r = importOldVotes(mySession, sm, isSubmit, val, what, loc, xpath);
+                        JSONWriter r = importOldVotes(mySession.user, sm, isSubmit, val, loc, xpath);
                         send(r, out);
                     } else if (what.equals(WHAT_GETSIDEWAYS)) {
                         mySession.userDidAction();
@@ -1703,33 +1705,29 @@ public class SurveyAjax extends HttpServlet {
     /**
      * Import old votes.
      *
-     * @param mySession the cookie session that was passed to processRequest
-     * @param sm the SurveyMain instance that was gotten by processRequest
-     * @param isSubmit the boolean (request.getParameter("doSubmit") != null)
-     * @param val the String parameter that was passed to processRequest
-     * @param out the PrintWriter from response.getWriter() in processRequest
-     * @param what the String request.getParameter(REQ_WHAT)
-     * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE)
-     * @param xpath the string request.getParameter(SurveyForum.F_XPATH)
+     * @param user the User (see UserRegistry.java)
+     * @param sm the SurveyMain instance
+     * @param isSubmit the boolean (request.getParameter("doSubmit") != null); false when called for "Import Old Votes", true when ...?
+     * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
+     * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
+     *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
+     * @param xpath the string request.getParameter(SurveyForum.F_XPATH); null when called for "Import Old Votes", non-null when ...?
      * @return the JSONWriter
      *
      * Called locally by processRequest, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public JSONWriter importOldVotes(CookieSession mySession, SurveyMain sm, boolean isSubmit,
-               String val, String what, String loc, String xpath)
+    public JSONWriter importOldVotes(User user, SurveyMain sm, boolean isSubmit,
+               String val, String loc, String xpath)
                throws ServletException, IOException, JSONException, SQLException {
-        SurveyLog.warnOnce("Hello my name is importOldVotes");
-
-        mySession.userDidAction();
         JSONWriter r = newJSONStatus(sm);
-        r.put("what", what);
+        r.put("what", WHAT_OLDVOTES);
 
         final String oldVotesTable = STFactory.getLastVoteTable();
         SurveyLog.warnOnce("old votes table is " + oldVotesTable);
-        if (mySession.user == null) {
+        if (user == null) {
             r.put("err", "Must be logged in");
             r.put("err_code", ErrorCode.E_NOT_LOGGED_IN);
-        } else if (!mySession.user.canImportOldVotes()) {
+        } else if (!user.canImportOldVotes()) {
             r.put("err", "No permission to do this (may not be the right SurveyTool phase)");
             r.put("err_code", ErrorCode.E_NO_PERMISSION);
         } else if (DBUtils.hasTable(oldVotesTable) == false) {
@@ -1751,7 +1749,7 @@ public class SurveyAjax extends HttpServlet {
                         +
                         " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
                         + ".submitter )" +
-                        "group by locale order by locale", mySession.user.id));
+                        "group by locale order by locale", user.id));
             } else {
                 CLDRLocale locale = CLDRLocale.getInstance(loc);
                 oldvotes.put("locale", locale);
@@ -1765,7 +1763,7 @@ public class SurveyAjax extends HttpServlet {
                 if (isSubmit) {
                     // submit time.
                     if (SurveyMain.isUnofficial())
-                        System.out.println("User " + mySession.user.toString() + "  is migrating old votes in " + locale.getDisplayName());
+                        System.out.println("User " + user.toString() + "  is migrating old votes in " + locale.getDisplayName());
                     JSONObject list = new JSONObject(val);
 
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
@@ -1784,7 +1782,7 @@ public class SurveyAjax extends HttpServlet {
                     for (int i = 0; i < confirmList.length(); i++) {
                         String strid = confirmList.getString(i);
                         //String xp = sm.xpt.getByStringID(strid);
-                        //box.unvoteFor(mySession.user,xp);
+                        //box.unvoteFor(user,xp);
                         //deletions++;
                         confirmSet.add(strid);
                     }
@@ -1793,7 +1791,7 @@ public class SurveyAjax extends HttpServlet {
                     for (int i = 0; i < deleteList.length(); i++) {
                         String strid = deleteList.getString(i);
                         //String xp = sm.xpt.getByStringID(strid);
-                        //box.revoteFor(mySession.user,xp);
+                        //box.revoteFor(user,xp);
                         //confirmations++;
                         deleteSet.add(strid);
                     }
@@ -1805,7 +1803,7 @@ public class SurveyAjax extends HttpServlet {
                             + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
                             + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
                             + ".value is not null)";
-                        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
                         //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
                         //JSONArray contested = new JSONArray();
@@ -1821,18 +1819,18 @@ public class SurveyAjax extends HttpServlet {
                             try {
 //                                String curValue = file.getStringValue(xpathString);
 //                                if (false && value.equals(curValue)) {
-//                                    box.voteForValue(mySession.user, xpathString, value); // auto vote for uncontested
+//                                    box.voteForValue(user, xpathString, value); // auto vote for uncontested
 //                                    uncontested++;
 //                                } else {
                                 String strid = sm.xpt.getStringIDString(xp);
                                 if (deleteSet.contains(strid)) {
-                                    box.unvoteFor(mySession.user, xpathString);
+                                    box.unvoteFor(user, xpathString);
                                     deletions++;
                                 } else if (confirmSet.contains(strid)) {
-                                    box.voteForValue(mySession.user, xpathString, value);
+                                    box.voteForValue(user, xpathString, value);
                                     confirmations++;
                                 } else {
-                                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
+                                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +user);
                                 }
 //                                }
                             } catch (InvalidXPathException ix) {
@@ -1846,7 +1844,7 @@ public class SurveyAjax extends HttpServlet {
                     oldvotes.put("didUnvotes", deletions);
                     oldvotes.put("didRevotes", confirmations);
                     oldvotes.put("didUncontested", uncontested);
-                    System.out.println("Old Vote migration for " + mySession.user + " " + locale + " - delete:" + deletions + ", confirm:"
+                    System.out.println("Old Vote migration for " + user + " " + locale + " - delete:" + deletions + ", confirm:"
                         + confirmations + ", uncontestedconfirm:" + uncontested);
                     oldvotes.put("ok", true);
 
@@ -1857,7 +1855,7 @@ public class SurveyAjax extends HttpServlet {
                         + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
                         + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
                         + " and " + newVotesTable + ".value is not null)";
-                    Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                    Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
                     //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
                     // extract the pathheaders

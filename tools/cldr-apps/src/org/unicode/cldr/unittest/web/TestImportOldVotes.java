@@ -1,9 +1,9 @@
 package org.unicode.cldr.unittest.web;
 
-import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyAjax;
 import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 import org.unicode.cldr.web.SurveyMain;
+import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -18,11 +18,10 @@ public class TestImportOldVotes extends TestFmwk {
      * Note: the name of this function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestImpOldVotes() {
+        User user = null;
         SurveyMain sm = null;
         SurveyAjax sa = null;
-        CookieSession mySession = null;
         String val = null;
-        String what = null;
         String loc = null;
         String xpath = null;
         boolean isSubmit = false;
@@ -35,7 +34,7 @@ public class TestImportOldVotes extends TestFmwk {
         }
         boolean gotNullPointerException = false;
         try {
-            r = sa.importOldVotes(mySession, sm, isSubmit, val, what, loc, xpath);
+            r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
         } catch (Exception e) {
             if (e instanceof NullPointerException) {
                 // This is expected, no errln
@@ -61,19 +60,8 @@ public class TestImportOldVotes extends TestFmwk {
             return;
         }
         try {
-            mySession = CookieSession.newSession(true /* isGuest */, "0.0.0.0" /* ip */, "?" /* fromID */);
-        } catch (Exception e) {
-            errln("CookieSession.newSession threw unexpected exception: "
-                + e.toString() + " - " + e.getMessage() + "\n");
-            return;
-        }
-        if (mySession == null) {
-            errln("CookieSession.newSession returned null\n");
-            return;
-        }
-        try {
-            // problem: mySession.user == null, leads to E_NOT_LOGGED_IN in json string
-            r = sa.importOldVotes(mySession, sm, isSubmit, val, what, loc, xpath);
+            // problem: user == null, leads to E_NOT_LOGGED_IN in json string
+            r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
         } catch (Exception e) {
             errln("importOldVotes with sm not null, got exception: "
                     + e.toString() + " - " + e.getMessage() + "\n");

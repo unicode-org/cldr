@@ -64,13 +64,20 @@ public class TestImportOldVotes extends TestFmwk {
         }
         /* Confirm we can initialize and startup the SurveyMain. */
         try {
+            // CLDRConfig config = CLDRConfig.getInstance();
+            // sm.init((ServletConfig) config);
+            // ServletConfig config = getServletConfig();
+            // sm.init(config);
+            // SurveyMain.cldrHome = SurveyMain.getHome() + "/cldr";
+            // SurveyMain.vap = "testingvap";
             sm.init();
             sm.doStartup();
+            // sm.doStartupDB();
         } catch (Exception e) {
             errln("sm.init or doStartup threw unexpected exception: " + e.toString() + " - " + e.getMessage() + "\n");
             return;
         }
-        
+
         /* Confirm if user is null, importOldVotes returns E_NOT_LOGGED_IN in json but doesn't throw an exception. */
         try {
             r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
@@ -83,14 +90,14 @@ public class TestImportOldVotes extends TestFmwk {
             errln("importOldVotes wotj user NULL, expected json to contain E_NOT_LOGGED_IN, but json = " + json + "\n");
             return;
         }
-        /* Confirm we can create a user based on email address. */
+        /* Confirm we can get a User for an existing user based on email address. */
         if (sm.reg == null) {
             errln("sm.reg == null\n");
             return;
         }
         try {
-            // sm.reg == null
-            user = sm.reg.get("test@test2468.com");
+            String email = "hinawlinguist.eqmvzyfzv@knyx.cldr.example.com";
+            user = sm.reg.get(email);
         } catch (Exception e) {
             errln("sm.reg.get threw exception: " + e.toString() + " - " + e.getMessage() + "\n");
             return;

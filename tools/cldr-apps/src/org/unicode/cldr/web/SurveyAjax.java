@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays; /* tbishop added; TODO: explain why it wasn't needed when Arrays.sort was in processRequest but seems needed for importOldVotes */
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -1025,7 +1025,8 @@ public class SurveyAjax extends HttpServlet {
                     } else if (what.equals(WHAT_OLDVOTES)) {
                         mySession.userDidAction();
                         boolean isSubmit = (request.getParameter("doSubmit") != null);
-                        JSONWriter r = importOldVotes(mySession.user, sm, isSubmit, val, loc, xpath);
+                        JSONWriter r = newJSONStatus(sm);
+                        importOldVotes(r, mySession.user, sm, isSubmit, val, loc);
                         send(r, out);
                     } else if (what.equals(WHAT_GETSIDEWAYS)) {
                         mySession.userDidAction();
@@ -1615,7 +1616,14 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private JSONWriter newJSONStatus(SurveyMain sm) {
+    /** Create a new JSONWriter and setup its status with the given SurveyMain.
+     *  
+     * @param sm the SurveyMain
+     * @return the JSONWriter
+     * 
+     * Public for use by unit test TestImportOldVotes.
+     */
+    public JSONWriter newJSONStatus(SurveyMain sm) {
         JSONWriter r = newJSON();
         setupStatus(sm, r);
         return r;
@@ -1705,21 +1713,20 @@ public class SurveyAjax extends HttpServlet {
     /**
      * Import old votes.
      *
+     * @param r the JSONWriter in which to write
      * @param user the User (see UserRegistry.java)
      * @param sm the SurveyMain instance
      * @param isSubmit the boolean (request.getParameter("doSubmit") != null); false when called for "Import Old Votes", true when ...?
      * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     * @param xpath the string request.getParameter(SurveyForum.F_XPATH); null when called for "Import Old Votes", non-null when ...?
-     * @return the JSONWriter
      *
      * Called locally by processRequest, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public JSONWriter importOldVotes(User user, SurveyMain sm, boolean isSubmit,
-               String val, String loc, String xpath)
+    public void importOldVotes(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
+               String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
-        JSONWriter r = newJSONStatus(sm);
+
         r.put("what", WHAT_OLDVOTES);
 
         final String oldVotesTable = STFactory.getLastVoteTable();
@@ -1735,9 +1742,8 @@ public class SurveyAjax extends HttpServlet {
             r.put("err_code", ErrorCode.E_NO_OLD_VOTES);
             SurveyLog.warnOnce("Could not import old votes, table " + oldVotesTable + " does not exist.");
         } else {
-            importOldVotesForValidatedUser(r, user, sm, isSubmit, val, loc, xpath, oldVotesTable);
+            importOldVotesForValidatedUser(r, user, sm, isSubmit, val, loc, oldVotesTable);
         }
-        return r;
     }
 
     /**
@@ -1751,27 +1757,26 @@ public class SurveyAjax extends HttpServlet {
      * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     * @param xpath the string request.getParameter(SurveyForum.F_XPATH); null when called for "Import Old Votes", non-null when ...?
      * @param oldVotesTable the String (STFactory.getLastVoteTable) 
      *
      * Called locally by importOldVotes, and also by unit test TestImportOldVotes.java, therefore public.
      * 
      *  Three ways this function is called:
 
-        (1) loc == null, isSubmit == false: list locations to choose
+        (1) loc == null, isSubmit == false: list locales to choose
         (2) loc == 'aa', isSubmit == false: show winning/losing votes available for import
         (3) loc == 'aa', isSubmit == true: update db based on vote
 
      */
     public void importOldVotesForValidatedUser(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
-               String val, String loc, String xpath, final String oldVotesTable)
+               String val, String loc, final String oldVotesTable)
                throws ServletException, IOException, JSONException, SQLException {
         JSONObject oldvotes = new JSONObject();
         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
         oldvotes.put("votesafter", "(version" + SurveyMain.getLastVoteVersion() + ")");
     
         if (loc == null || loc.isEmpty()) {
-            // list locations to choose
+            // list locales to choose
             oldvotes.put(
                 "locales",
                 DBUtils.queryToJSON("select  locale,count(*) as count from " + oldVotesTable
@@ -1784,7 +1789,7 @@ public class SurveyAjax extends HttpServlet {
                     "group by locale order by locale", user.id));
         } else {
             // if isSubmit, import selected votes; else show votes available for import
-            importOldVotesWithLoc(r, user, sm, isSubmit, val, loc, xpath, oldVotesTable, newVotesTable, oldvotes);
+            importOldVotesWithLoc(user, sm, isSubmit, val, loc, oldVotesTable, newVotesTable, oldvotes);
         }
         r.put("oldvotes", oldvotes);
         r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
@@ -1795,22 +1800,21 @@ public class SurveyAjax extends HttpServlet {
      * Import old votes for the given validated user and the specified loc.
      * If isSubmit, import selected votes; else show votes available for import.
      *
-     * @param r the JSONWriter in which to write
      * @param user the User (see UserRegistry.java)
      * @param sm the SurveyMain instance
      * @param isSubmit the boolean true when user clicks ""Vote for selected Winning/Losing Votes", false to show available votes
      * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
      * @param loc the non-empty String like "aa"
-     * @param xpath the string request.getParameter(SurveyForum.F_XPATH); null when called for "Import Old Votes", non-null when ...?
      * @param oldVotesTable the String like "cldr_vote_value_33"
      * @param oldVotesTable the String like "cldr_vote_value_33"
      * @param oldvotes the JSONObject
      *
      * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public void importOldVotesWithLoc(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
-               String val, String loc, String xpath, final String oldVotesTable, final String newVotesTable, JSONObject oldvotes)
+    public void importOldVotesWithLoc(User user, SurveyMain sm, boolean isSubmit,
+               String val, String loc, final String oldVotesTable, final String newVotesTable, JSONObject oldvotes)
                throws ServletException, IOException, JSONException, SQLException {
+
         CLDRLocale locale = CLDRLocale.getInstance(loc);
         oldvotes.put("locale", locale);
         oldvotes.put("localeDisplayName", locale.getDisplayName());
@@ -1818,110 +1822,128 @@ public class SurveyAjax extends HttpServlet {
         oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
         STFactory fac = sm.getSTFactory();
         //CLDRFile file = fac.make(loc, false);
-        CLDRFile file = sm.getOldFile(loc, true);
+        CLDRFile file = sm.getOldFile(loc, true); // file unused if isSubmit; does getOldFile have any necessary side-effect?
 
         if (isSubmit) {
-            submitOldVotes(r, user, sm, val, loc, xpath, oldVotesTable, newVotesTable, oldvotes, locale, fac);
+            submitOldVotes(user, sm, locale, val, oldVotesTable, newVotesTable, oldvotes, fac);
         } else {
-            // view old votes
-            String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
-                " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-                + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
-                + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
-                + " and " + newVotesTable + ".value is not null)";
-            Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
-            //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
-
-            // extract the pathheaders
-            for (int i = 0; i < rows.length; i++) {
-                Map m = rows[i];
-                int xp = (Integer) m.get("xpath");
-                String xpathString = sm.xpt.getById(xp);
-                m.put("pathHeader", fac.getPathHeader(xpathString));
-            }
-
-            // sort by pathheader
-            Arrays.sort(rows, new Comparator<Map>() {
-
-                @Override
-                public int compare(Map o1, Map o2) {
-                    return ((PathHeader) o1.get("pathHeader")).compareTo((PathHeader) o2.get("pathHeader"));
-                }
-            });
-
-            JSONArray uncontested = new JSONArray();
-            JSONArray contested = new JSONArray();
-
-            int bad = 0;
-
-            CLDRFile baseF = sm.getBaselineFile();
-
-            //CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
-
-            Set<String> validPaths = fac.getPathsForFile(locale);
-            CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
-            for (Map m : rows) {
-                String value = m.get("value").toString();
-                if (value == null) continue; // ignore unvotes.
-                PathHeader pathHeader = (PathHeader) m.get("pathHeader");
-                //                                        System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
-                if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
-                    pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
-                    bad++;
-                    continue; // skip these
-                }
-                int xp = (Integer) m.get("xpath");
-                String xpathString = sm.xpt.getById(xp);
-                if (!validPaths.contains(xpathString)) {
-                    bad++;
-                    continue;
-                }
-                if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
-                    //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
-                    bad++;
-                    continue; // out of coverage
-                }
-                String xpathStringHash = sm.xpt.getStringIDString(xp);
-                String curValue = file.getStringValue(xpathString);
-                JSONObject aRow = new JSONObject()
-                    .put("strid", xpathStringHash)
-                    .put("myValue", value)
-                    .put("winValue", curValue)
-                    .put("baseValue", baseF.getStringValue(xpathString))
-                    .put("pathHeader", pathHeader.toString());
-                if (value.equals(curValue)) {
-                    uncontested.put(aRow);
-                } else {
-                    contested.put(aRow);
-                }
-            }
-
-            oldvotes.put("contested", contested);
-            oldvotes.put("uncontested", uncontested);
-            oldvotes.put("bad", bad);
+            viewOldVotes(user, sm, loc, locale, oldVotesTable, newVotesTable, oldvotes, fac, file);
         }
     }
+
+    /**
+     * View old votes available to be imported for the given locale.
+     *
+     * @param user the User (see UserRegistry.java)
+     * @param sm the SurveyMain instance
+     * @param loc the non-empty String for the locale like "aa"
+     * @param locale the CLDRLocale matching loc
+     * @param oldVotesTable the String like "cldr_vote_value_33"
+     * @param newVotesTable the String like "cldr_vote_value_33"
+     * @param oldvotes the JSONObject to be added to
+     * @param fac the STFactory to be used for getPathHeader, getPathsForFile
+     * @param file the CLDRFile (...getOldFile...) to be used for getStringValue
+     *
+     * Called locally by importOldVotesWithLoc, and also by unit test TestImportOldVotes.java, therefore public.
+     */
+    public void viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale, 
+               final String oldVotesTable, final String newVotesTable, JSONObject oldvotes,
+               STFactory fac, CLDRFile file)
+               throws ServletException, IOException, JSONException, SQLException {
+
+        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
+            " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
+            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
+            + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
+            + " and " + newVotesTable + ".value is not null)";
+        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
+        // System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+
+        // extract the pathheaders
+        for (int i = 0; i < rows.length; i++) {
+            Map m = rows[i];
+            int xp = (Integer) m.get("xpath");
+            String xpathString = sm.xpt.getById(xp);
+            m.put("pathHeader", fac.getPathHeader(xpathString));
+        }
+
+        // sort by pathheader
+        Arrays.sort(rows, new Comparator<Map>() {
+
+            @Override
+            public int compare(Map o1, Map o2) {
+                return ((PathHeader) o1.get("pathHeader")).compareTo((PathHeader) o2.get("pathHeader"));
+            }
+        });
+
+        JSONArray uncontested = new JSONArray();
+        JSONArray contested = new JSONArray();
+
+        int bad = 0;
+
+        CLDRFile baseF = sm.getBaselineFile();
+
+        //CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
+
+        Set<String> validPaths = fac.getPathsForFile(locale);
+        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
+        for (Map m : rows) {
+            String value = m.get("value").toString();
+            if (value == null) continue; // ignore unvotes.
+            PathHeader pathHeader = (PathHeader) m.get("pathHeader");
+            // System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
+            if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
+                pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
+                bad++;
+                continue; // skip these
+            }
+            int xp = (Integer) m.get("xpath");
+            String xpathString = sm.xpt.getById(xp);
+            if (!validPaths.contains(xpathString)) {
+                bad++;
+                continue;
+            }
+            if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
+                //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
+                bad++;
+                continue; // out of coverage
+            }
+            String xpathStringHash = sm.xpt.getStringIDString(xp);
+            String curValue = file.getStringValue(xpathString);
+            JSONObject aRow = new JSONObject()
+                .put("strid", xpathStringHash)
+                .put("myValue", value)
+                .put("winValue", curValue)
+                .put("baseValue", baseF.getStringValue(xpathString))
+                .put("pathHeader", pathHeader.toString());
+            if (value.equals(curValue)) {
+                uncontested.put(aRow);
+            } else {
+                contested.put(aRow);
+            }
+        }
+        oldvotes.put("contested", contested);
+        oldvotes.put("uncontested", uncontested);
+        oldvotes.put("bad", bad);
+    }
+
     /**
      * Submit the selected old votes to be imported.
      *
-     * @param r the JSONWriter in which to write
      * @param user the User (see UserRegistry.java)
      * @param sm the SurveyMain instance
-     * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
-     * @param loc the non-empty String like "aa"
-     * @param xpath the string request.getParameter(SurveyForum.F_XPATH); null when called for "Import Old Votes", non-null when ...?
-     * @param oldVotesTable the String like "cldr_vote_value_33"
-     * @param oldVotesTable the String like "cldr_vote_value_33"
-     * @param oldvotes the JSONObject
      * @param locale the CLDRLocale
+     * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
+     * @param oldVotesTable the String like "cldr_vote_value_33"
+     * @param newVotesTable the String like "cldr_vote_value_33"
+     * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory
      *
      * Called locally by importOldVotesWithLoc, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public void submitOldVotes(JSONWriter r, User user, SurveyMain sm,
-               String val, String loc, String xpath,
+    public void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
                final String oldVotesTable, final String newVotesTable, JSONObject oldvotes,
-               CLDRLocale locale, STFactory fac)
+               STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
         if (SurveyMain.isUnofficial()) {
@@ -1960,50 +1982,38 @@ public class SurveyAjax extends HttpServlet {
         }
 
         // now, get all
-        {
-            String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
-                " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-                + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
-                + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
-                + ".value is not null)";
-            Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
-            //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
+            " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
+            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
+            + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
+            + ".value is not null)";
+        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
 
-            //JSONArray contested = new JSONArray();
-            DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
-            Exception[] exceptionList = new Exception[1];
-            for (Map m : rows) {
-                String value = m.get("value").toString();
-                if (value == null) continue; // ignore unvotes.
-                int xp = (Integer) m.get("xpath");
-                String xpathString = sm.xpt.getById(xp);
-                value = daip.processInput(xpathString, value, exceptionList);
-                // String xpathStringHash = sm.xpt.getStringIDString(xp);
-                try {
-//                        String curValue = file.getStringValue(xpathString);
-//                        if (false && value.equals(curValue)) {
-//                            box.voteForValue(user, xpathString, value); // auto vote for uncontested
-//                            uncontested++;
-//                        } else {
-                    String strid = sm.xpt.getStringIDString(xp);
-                    if (deleteSet.contains(strid)) {
-                        box.unvoteFor(user, xpathString);
-                        deletions++;
-                    } else if (confirmSet.contains(strid)) {
-                        box.voteForValue(user, xpathString, value);
-                        confirmations++;
-                    } else {
-                        //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +user);
-                    }
-//                        }
-                } catch (InvalidXPathException ix) {
-                    SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
-                } catch (VoteNotAcceptedException ix) {
-                    SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
+        Exception[] exceptionList = new Exception[1];
+        for (Map m : rows) {
+            String value = m.get("value").toString();
+            if (value == null) continue; // ignore unvotes.
+            int xp = (Integer) m.get("xpath");
+            String xpathString = sm.xpt.getById(xp);
+            value = daip.processInput(xpathString, value, exceptionList);
+            try {
+                String strid = sm.xpt.getStringIDString(xp);
+                if (deleteSet.contains(strid)) {
+                    box.unvoteFor(user, xpathString);
+                    deletions++;
+                } else if (confirmSet.contains(strid)) {
+                    box.voteForValue(user, xpathString, value);
+                    confirmations++;
+                } else {
+                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +user);
                 }
+            } catch (InvalidXPathException ix) {
+                SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
+            } catch (VoteNotAcceptedException ix) {
+                SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
             }
         }
-
         oldvotes.put("didUnvotes", deletions);
         oldvotes.put("didRevotes", confirmations);
         oldvotes.put("didUncontested", uncontested);
@@ -2011,5 +2021,4 @@ public class SurveyAjax extends HttpServlet {
             + confirmations + ", uncontestedconfirm:" + uncontested);
         oldvotes.put("ok", true);
     }
-
 }

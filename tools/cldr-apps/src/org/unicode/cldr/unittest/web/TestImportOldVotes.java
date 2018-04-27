@@ -26,6 +26,7 @@ public class TestImportOldVotes extends TestFmwk {
         String xpath = null;
         boolean isSubmit = false;
         JSONWriter r = null;
+
         /* Confirm we can create a new SurveyAjax. */
         try {
             sa = new SurveyAjax();
@@ -33,10 +34,11 @@ public class TestImportOldVotes extends TestFmwk {
             errln("new SurveyAjax threw unexpected exception: " + e.getMessage() + "\n");
             return;
         }
-        /* Confirm importOldVotes throws NullPointerException if SurveyMain is null. */
+
+        /* Confirm importOldVotes throws NullPointerException if JSONWriter and SurveyMain are null. */
         boolean gotNullPointerException = false;
         try {
-            r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
+            sa.importOldVotes(r, user, sm, isSubmit, val, loc);
         } catch (Exception e) {
             if (e instanceof NullPointerException) {
                 // This is expected, no errln
@@ -53,6 +55,7 @@ public class TestImportOldVotes extends TestFmwk {
             errln("importOldVotes with sm null, expected NullPointerException, got no exception\n");
             return;
         }
+
         /* Confirm we can create a new SurveyMain. */
         try {
             // SurveyMain.cldrHome = SurveyMain.getHome() + "/cldr";
@@ -62,6 +65,7 @@ public class TestImportOldVotes extends TestFmwk {
             errln("new SurveyMain threw unexpected exception: " + e.toString() + " - " + e.getMessage() + "\n");
             return;
         }
+
         /* Confirm we can initialize and startup the SurveyMain. */
         try {
             // CLDRConfig config = CLDRConfig.getInstance();
@@ -80,7 +84,8 @@ public class TestImportOldVotes extends TestFmwk {
 
         /* Confirm if user is null, importOldVotes returns E_NOT_LOGGED_IN in json but doesn't throw an exception. */
         try {
-            r = sa.importOldVotes(user, sm, isSubmit, val, loc, xpath);
+           r = sa.newJSONStatus(sm);
+           sa.importOldVotes(r, user, sm, isSubmit, val, loc);
         } catch (Exception e) {
             errln("importOldVotes threw exception: " + e.toString() + " - " + e.getMessage() + "\n");
             return;
@@ -90,6 +95,7 @@ public class TestImportOldVotes extends TestFmwk {
             errln("importOldVotes wotj user NULL, expected json to contain E_NOT_LOGGED_IN, but json = " + json + "\n");
             return;
         }
+
         /* Confirm we can get a User for an existing user based on email address. */
         if (sm.reg == null) {
             errln("sm.reg == null\n");

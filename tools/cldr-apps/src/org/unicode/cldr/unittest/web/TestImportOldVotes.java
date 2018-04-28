@@ -55,7 +55,9 @@ public class TestImportOldVotes extends TestFmwk {
             return;
         }
 
-        /* Confirm we can create a new SurveyMain. */
+        /* Confirm we can create a new SurveyMain.
+         * TODO: consider using getFactory().sm instead.
+         */
         try {
             // SurveyMain.cldrHome = SurveyMain.getHome() + "/cldr";
             // SurveyMain.vap = "testingvap";
@@ -65,7 +67,13 @@ public class TestImportOldVotes extends TestFmwk {
             return;
         }
 
-        /* Confirm we can initialize and startup the SurveyMain. */
+        /* Confirm we can initialize and startup the SurveyMain.
+         * 
+         *  Currently we get this message in the console:
+         *  "NOTE:  not inside of web process, using temporary CLDRHOME /Users/tbishop/Documents/WenlinDocs/Organizations/Unicode/CLDR_job/cldr/tools/cldr-apps/testing_cldr_home"
+         *  Also we get NullPointerException for this line in SurveyMain.java doStartup:
+         *      dbUtils.setupDBProperties(this, survprops);
+         */
         try {
             // CLDRConfig config = CLDRConfig.getInstance();
             // sm.init((ServletConfig) config);
@@ -95,7 +103,30 @@ public class TestImportOldVotes extends TestFmwk {
             return;
         }
 
-        /* Confirm we can get a User for an existing user based on email address. */
+        /* Confirm we can get a User for an existing user based on email address.
+         * TODO: The unit test should not depend on the state of the "real" DB.
+         * org.unicode.cldr.unittest.web.TestAll.getDataSource() is supposed to startup the datasource.
+         * See TestSTFactory.java for example of how to create an empty DB for testing, and create a new user.
+
+            final STFactory fac = getFactory();
+
+            fac.sm.reg = UserRegistry.createRegistry(SurveyLog.logger, sm);
+
+            String email = name + "@" + org + ".example.com";
+            UserRegistry.User u = fac.sm.reg.get(email);
+            if (u == null) {
+                UserRegistry.User proto = fac.sm.reg.getEmptyUser();
+                proto.email = email;
+                proto.name = name;
+                proto.org = org;
+                proto.password = UserRegistry.makePassword(proto.email);
+                proto.userlevel = level.getSTLevel();
+                proto.locales = UserRegistry.normalizeLocaleList(locales);
+                u = fac.sm.reg.newUser(null, proto);
+            }
+            
+            We'll also need to populate the db with old votes available for importing...
+         */
         if (sm.reg == null) {
             errln("sm.reg == null\n");
             return;

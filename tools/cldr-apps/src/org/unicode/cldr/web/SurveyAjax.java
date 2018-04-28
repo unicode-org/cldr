@@ -1716,8 +1716,9 @@ public class SurveyAjax extends HttpServlet {
      * @param r the JSONWriter in which to write
      * @param user the User (see UserRegistry.java)
      * @param sm the SurveyMain instance
-     * @param isSubmit the boolean (request.getParameter("doSubmit") != null); false when called for "Import Old Votes", true when ...?
-     * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
+     * @param isSubmit false when just showing options to user, true when user clicks "Vote for selected Winning/Losing Votes"
+     * @param val the String parameter that was passed to processRequest; null when first called for "Import Old Votes";
+     *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
      *
@@ -1750,14 +1751,14 @@ public class SurveyAjax extends HttpServlet {
      * Import old votes, having confirmed user has permission and has old votes available.
      *
      * @param r the JSONWriter in which to write
-     * @param user the User (see UserRegistry.java)
+     * @param user the User
      * @param sm the SurveyMain instance
-     * @param isSubmit the boolean true when user clicks ""Vote for selected Winning/Losing Votes", false to show available votes
-     *              also false when click on locale to choose it; true when ...?
-     * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
-     * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
+     * @param isSubmit false when just showing options to user, true when user clicks "Vote for selected Winning/Losing Votes"
+     * @param val the String parameter that was passed to processRequest; null when first called for "Import Old Votes";
+     *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
+     * @param loc the locale as a string, empty when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     * @param oldVotesTable the String like "cldr_vote_value_33"
+     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      *
      * Called locally by importOldVotes, and also by unit test TestImportOldVotes.java, therefore public.
      * 
@@ -1771,6 +1772,7 @@ public class SurveyAjax extends HttpServlet {
     public void importOldVotesForValidatedUser(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
                String val, String loc, final String oldVotesTable)
                throws ServletException, IOException, JSONException, SQLException {
+
         JSONObject oldvotes = new JSONObject();
         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
         oldvotes.put("votesafter", "(version" + SurveyMain.getLastVoteVersion() + ")");
@@ -1779,7 +1781,7 @@ public class SurveyAjax extends HttpServlet {
             // list locales to choose
             oldvotes.put(
                 "locales",
-                DBUtils.queryToJSON("select  locale,count(*) as count from " + oldVotesTable
+                DBUtils.queryToJSON("select locale,count(*) as count from " + oldVotesTable
                     + " where submitter=? " +
                     " and value is not null " +
                     " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
@@ -1788,14 +1790,12 @@ public class SurveyAjax extends HttpServlet {
                     + ".submitter )" +
                     "group by locale order by locale", user.id));
         } else {
-            // if isSubmit, import selected votes; else show votes available for import
             CLDRLocale locale = CLDRLocale.getInstance(loc);
             oldvotes.put("locale", locale);
             oldvotes.put("localeDisplayName", locale.getDisplayName());
             HTMLDirection dir = sm.getHTMLDirectionFor(locale);
             oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
             STFactory fac = sm.getSTFactory();
-            //CLDRFile file = fac.make(loc, false);
             CLDRFile file = sm.getOldFile(loc, true); // file unused if isSubmit; does getOldFile have any necessary side-effect?
             if (isSubmit) {
                 submitOldVotes(user, sm, locale, val, oldVotesTable, newVotesTable, oldvotes, fac);
@@ -1811,12 +1811,12 @@ public class SurveyAjax extends HttpServlet {
     /**
      * View old votes available to be imported for the given locale.
      *
-     * @param user the User (see UserRegistry.java)
+     * @param user the User (this function only uses user.id)
      * @param sm the SurveyMain instance
      * @param loc the non-empty String for the locale like "aa"
      * @param locale the CLDRLocale matching loc
-     * @param oldVotesTable the String like "cldr_vote_value_33"
-     * @param newVotesTable the String like "cldr_vote_value_33"
+     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
+     * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory to be used for getPathHeader, getPathsForFile
      * @param file the CLDRFile (...getOldFile...) to be used for getStringValue
@@ -1879,7 +1879,6 @@ public class SurveyAjax extends HttpServlet {
                 continue;
             }
             if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
-                //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
                 bad++;
                 continue; // out of coverage
             }
@@ -1905,20 +1904,19 @@ public class SurveyAjax extends HttpServlet {
     /**
      * Submit the selected old votes to be imported.
      *
-     * @param user the User (see UserRegistry.java)
+     * @param user the User
      * @param sm the SurveyMain instance
      * @param locale the CLDRLocale
-     * @param val the String parameter that was passed to processRequest; null when called for "Import Old Votes", non-null when ...?
-     * @param oldVotesTable the String like "cldr_vote_value_33"
-     * @param newVotesTable the String like "cldr_vote_value_33"
+     * @param val the JSON String like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}"
+     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
+     * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
-     * @param fac the STFactory
+     * @param fac the STFactory to be used for ballotBoxForLocale
      *
      * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
      */
     public void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
-               final String oldVotesTable, final String newVotesTable, JSONObject oldvotes,
-               STFactory fac)
+               final String oldVotesTable, final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
         if (SurveyMain.isUnofficial()) {
@@ -1941,18 +1939,12 @@ public class SurveyAjax extends HttpServlet {
         // deletions
         for (int i = 0; i < confirmList.length(); i++) {
             String strid = confirmList.getString(i);
-            //String xp = sm.xpt.getByStringID(strid);
-            //box.unvoteFor(user,xp);
-            //deletions++;
             confirmSet.add(strid);
         }
 
         // confirmations
         for (int i = 0; i < deleteList.length(); i++) {
             String strid = deleteList.getString(i);
-            //String xp = sm.xpt.getByStringID(strid);
-            //box.revoteFor(user,xp);
-            //confirmations++;
             deleteSet.add(strid);
         }
 

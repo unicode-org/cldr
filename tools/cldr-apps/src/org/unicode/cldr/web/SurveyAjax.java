@@ -947,7 +947,6 @@ public class SurveyAjax extends HttpServlet {
                                             }
                                             if (automaticallyImportOldWinningVotes
                                                 && importAllOldWinningVotes(r, mySession.user, sm, oldVotesTable) > 0) {
-                                                SurveyLog.warnOnce("importAllOldWinningVotes > 0");
                                             }
                                             else {
                                                 r.put("oldVotesRemind",
@@ -1972,7 +1971,7 @@ public class SurveyAjax extends HttpServlet {
 
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
         Exception[] exceptionList = new Exception[1];
-        for (Map m : rows) {
+        for (Map<String, Object> m : rows) {
             String value = m.get("value").toString();
             if (value == null) continue; // ignore unvotes.
             int xp = (Integer) m.get("xpath");
@@ -2068,14 +2067,11 @@ public class SurveyAjax extends HttpServlet {
             }
         }
         oldvotes.put("ok", true);
-
         r.put("what", WHAT_OLDVOTES);
         r.put("oldvotes", oldvotes);
-
         if (confirmations > 0) {
-            r.put("autoImportedOldWinningVotes", true);
-        }
-        
+            r.put("autoImportedOldWinningVotes", confirmations);
+        }      
         return confirmations;
     }
 }

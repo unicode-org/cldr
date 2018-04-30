@@ -5688,12 +5688,15 @@ function showV() {
 											tb.appendChild(tr);
 										}
 										t.appendChild(tb);
-										t.appendChild(createLinkToFn("v_oldvotes_all", function() {
-											for(var k in json.oldvotes[type]) {
-												var row = json.oldvotes[type][k];
-												row.box.checked = true;
-											}
-										}, "button"));
+
+										// Deleted this v_oldvotes_all button per https://unicode.org/cldr/trac/ticket/11056
+										// t.appendChild(createLinkToFn("v_oldvotes_all", function() {
+										//		for(var k in json.oldvotes[type]) {
+										//			var row = json.oldvotes[type][k];
+										//			row.box.checked = true;
+										//		}
+										// }, "button"));
+
 										t.appendChild(createLinkToFn("v_oldvotes_none", function() {
 											for(var k in json.oldvotes[type]) {
 												var row = json.oldvotes[type][k];
@@ -6167,23 +6170,33 @@ function showV() {
 					filterAllLocale();
 					//end of adding the locale data
 
-					if (json.autoImportedOldWinningVotes) {
+					if (json.autoImportedOldWinningVotes && !window.autoImportedOldWinningVotesAlready) {
+						var vals = { count: dojoNumber.format(json.autoImportedOldWinningVotes) };
 						var autoImportedDialog = new Dialog({
-							title: "Old Winning Votes Were Imported", // stui.sub("v_oldvote_remind_msg",vals)
-							content: "Old winning votes were automatically imported." // stui.sub("v_oldvote_remind_desc_msg", vals)
+							title: stui.sub("v_oldvote_auto_msg", vals),
+							content: stui.sub("v_oldvote_auto_desc_msg", vals)
 						});
 						autoImportedDialog.addChild(new Button({
 							label: "OK",
 							onClick: function() {
 								window.haveDialog = false;
 								autoImportedDialog.hide();
-								// surveyCurrentSpecial="oldvotes";
-								// surveyCurrentLocale='';
-								// surveyCurrentPage='';
-								// surveyCurrentSection='';
+								window.autoImportedOldWinningVotesAlready = true;
+								/* If do window.reload() here, then reloading is slow, and the oldVotesRemind
+								 * block below gets executed.
+								 * If do reloadV() here, reloading is faster, and the oldVotesRemind
+								 * block below does NOT get executed. How can we reloadV in such a way that
+								 * oldVotesRemind executes, in case there are still losing votes avail to import?
+								 * This code is in ready(function()...) so it's not going to execute again without
+								 * window.reload() unless we move it somewhere else.
+								 * TODO: ask people to clarify whether oldVotesRemind is even supposed to be kept,
+								 * before spending time on that detail. As it is, oldVotesRemind will happen the
+								 * next time the user logs in.
+								 */
 								reloadV();
+								// window.reload();
 							}
-						}));	
+						}));
 						autoImportedDialog.show();
 						window.haveDialog = true;
 						hideOverlayAndSidebar();

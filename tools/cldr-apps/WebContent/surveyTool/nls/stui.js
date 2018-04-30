@@ -239,7 +239,7 @@ define({
 		v_oldvotes_winning_msg: "CLDR ${version} winning",
 		v_oldvotes_mine: "My old vote",
 		v_oldvotes_accept: "Import?",
-		v_oldvotes_all: "Choose All",
+		// v_oldvotes_all: "Choose All", -- Deleted now-unused v_oldvotes_all per https://unicode.org/cldr/trac/ticket/11056
 		v_oldvotes_go: "view",
 		v_oldvotes_hide: "Close this section",
 		v_oldvotes_show: "Show: ",
@@ -249,7 +249,8 @@ define({
 		v_oldvotes_no_old: "No old votes to import. You're done with old votes!",
 		v_submit_msg: "Vote for selected ${type}",
 		v_submit_busy: "Submitting...",
-
+		v_oldvote_auto_msg: "CLDR: Old Winning Votes Imported Message",
+		v_oldvote_auto_desc_msg: "${count} old winning votes were automatically imported",
 		v_oldvote_remind_msg: "CLDR: Old Votes Reminder Message",
 		v_oldvote_remind_desc_msg: "You currently have ${count} votes from previous CLDR vetting periods. Would you like to view them for import into the current release?<p>  (Note: Until the Data Submission phase ends, you can review and import these votes later via the '<span class=notselected>Manage</span>' link once logged in.)",
 		v_oldvote_remind_yes: "Yes, review/import old votes now",

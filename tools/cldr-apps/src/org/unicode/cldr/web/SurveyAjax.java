@@ -2067,11 +2067,14 @@ public class SurveyAjax extends HttpServlet {
                 SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
             }
         }
-        oldvotes.put("didRevotes", confirmations);
         oldvotes.put("ok", true);
 
         r.put("what", WHAT_OLDVOTES);
         r.put("oldvotes", oldvotes);
+
+        if (confirmations > 0) {
+            r.put("autoImportedOldWinningVotes", true);
+        }
         
         return confirmations;
     }

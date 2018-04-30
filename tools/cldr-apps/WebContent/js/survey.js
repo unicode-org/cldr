@@ -6166,10 +6166,31 @@ function showV() {
 					
 					filterAllLocale();
 					//end of adding the locale data
-					
+
+					if (json.autoImportedOldWinningVotes) {
+						var autoImportedDialog = new Dialog({
+							title: "Old Winning Votes Were Imported", // stui.sub("v_oldvote_remind_msg",vals)
+							content: "Old winning votes were automatically imported." // stui.sub("v_oldvote_remind_desc_msg", vals)
+						});
+						autoImportedDialog.addChild(new Button({
+							label: "OK",
+							onClick: function() {
+								window.haveDialog = false;
+								autoImportedDialog.hide();
+								// surveyCurrentSpecial="oldvotes";
+								// surveyCurrentLocale='';
+								// surveyCurrentPage='';
+								// surveyCurrentSection='';
+								reloadV();
+							}
+						}));	
+						autoImportedDialog.show();
+						window.haveDialog = true;
+						hideOverlayAndSidebar();
+					}
 				
 					// any special message? "oldVotesRemind":{"count":60,"pref":"oldVoteRemind24", "remind":"* | ##"}
-					if(json.oldVotesRemind && surveyCurrentSpecial!='oldvotes') {
+					else if(json.oldVotesRemind && surveyCurrentSpecial!='oldvotes') {
 						var vals = { count: dojoNumber.format(json.oldVotesRemind.count) };
 
 						function updPrefTo(target) {

@@ -6173,7 +6173,8 @@ function showV() {
 						var vals = { count: dojoNumber.format(json.oldVotesRemind.count) };
 
 						function updPrefTo(target) {
-							var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=oldVoteRemind&_v="+target+cacheKill();                             myLoad(updurl, "updating coldremind " + target, function(json2) {
+							var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=oldVoteRemind&_v="+target+cacheKill();
+							myLoad(updurl, "updating coldremind " + target, function(json2) {
 								if(!verifyJson(json2,'pref')) {
 									return;
 								} else {

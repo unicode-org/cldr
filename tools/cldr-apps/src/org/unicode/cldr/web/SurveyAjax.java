@@ -251,12 +251,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_FLAGGED = "flagged";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
-        "oldVoteRemind", "dummy" }; // list
-    // of
-    // prefs
-    // OK
-    // to
-    // get/set
+        "dummy" }; // list of prefs OK to get/set
 
     private Set<String> prefsList = new HashSet<String>();
 
@@ -766,10 +761,6 @@ public class SurveyAjax extends HttpServlet {
                             sendError(out, "Bad or unsupported pref: " + pref, ErrorCode.E_INTERNAL);
                         }
 
-                        if (pref.equals("oldVoteRemind")) {
-                            pref = getOldVotesPref();
-                        }
-
                         if (val != null && !val.isEmpty()) {
                             if (val.equals("null")) {
                                 mySession.settings().set(pref, null);
@@ -911,7 +902,7 @@ public class SurveyAjax extends HttpServlet {
 
                             // list of modifyable locales
                             JSONArray modifyableLocs = new JSONArray();
-                            Set<CLDRLocale> rolocs = sm.getReadOnlyLocales();
+                            Set<CLDRLocale> rolocs = SurveyMain.getReadOnlyLocales();
                             for (CLDRLocale al : SurveyMain.getLocales()) {
                                 if (rolocs.contains(al)) continue;
                                 if (UserRegistry.userCanModifyLocale(mySession.user, al)) {
@@ -923,43 +914,26 @@ public class SurveyAjax extends HttpServlet {
                             }
                             // any special messages?
                             if (mySession.user != null && mySession.user.canImportOldVotes()) {
-
                                 // old votes?
-                                String oldVotesPref = getOldVotesPref();
-                                String oldVoteRemind = mySession.settings().get(oldVotesPref, null);
-                                if (oldVoteRemind == null || // never been asked
-                                    !oldVoteRemind.equals("*")) { //  dont ask again
-                                    String oldVotesTable = STFactory.getLastVoteTable();
-
-                                    if (DBUtils.hasTable(oldVotesTable)) {
-                                        SurveyLog.warnOnce("Old Votes table present: " + oldVotesTable);
-                                        int count = DBUtils.sqlCount("select  count(*) as count from " + oldVotesTable
-                                            + " where submitter=? " +
-                                            " and value is not null", mySession.user.id);
-
-                                        if (count == 0) { // may be -1 on error
-                                            mySession.settings().set(oldVotesPref, "*"); // Do not ask again this release
-                                        } else {
-                                            if (SurveyMain.isUnofficial()) {
-                                                System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and "
-                                                    + oldVotesPref
-                                                    + "=" + oldVoteRemind);
-                                            }
-                                            if (automaticallyImportOldWinningVotes
-                                                && importAllOldWinningVotes(r, mySession.user, sm, oldVotesTable) > 0) {
-                                            }
-                                            else {
-                                                r.put("oldVotesRemind",
-                                                    new JSONObject().put("pref", oldVotesPref).put("remind", oldVoteRemind).put("count", count));
-                                            }
+                                String oldVotesTable = STFactory.getLastVoteTable();
+                                if (DBUtils.hasTable(oldVotesTable)) {
+                                    SurveyLog.warnOnce("Old Votes table present: " + oldVotesTable);
+                                    int count = DBUtils.sqlCount("select  count(*) as count from " + oldVotesTable
+                                        + " where submitter=? " +
+                                        " and value is not null", mySession.user.id);
+                                    if (count > 0) { // may be -1 on error
+                                        if (SurveyMain.isUnofficial()) {
+                                            System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count);
                                         }
-                                    } else {
-                                        SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
+                                        if (automaticallyImportOldWinningVotes) {
+                                            importAllOldWinningVotes(r, mySession.user, sm, oldVotesTable);
+                                        }
                                     }
+                                } else {
+                                    SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
                                 }
                             }
                         }
-
                         send(r, out);
                     } else if (what.equals(WHAT_POSS_PROBLEMS)) {
                         mySession.userDidAction();
@@ -1217,8 +1191,6 @@ public class SurveyAjax extends HttpServlet {
                                         to_locale, to_user_id, from_user_id, from_locale);
                                     int rv = ps.executeUpdate();
                                     conn.commit();
-                                    // remind the user again to look at their votes.
-                                    toUser.settings().set(getOldVotesPref(), (String) null);
                                     final JSONWriter r = newJSONStatusQuick(sm);
                                     final JSONObject o = new JSONObject();
                                     o.put("from_user_id", from_user_id);
@@ -1454,14 +1426,6 @@ public class SurveyAjax extends HttpServlet {
         } catch (Throwable t) {
             //
         }
-    }
-
-    /**
-     * @return
-     */
-    public String getOldVotesPref() {
-        String oldVotesPref = DBUtils.appendVersionString(new StringBuilder("oldVoteRemind")).toString(); // version the preference
-        return oldVotesPref;
     }
 
     /**

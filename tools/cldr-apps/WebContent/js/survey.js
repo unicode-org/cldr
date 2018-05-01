@@ -6170,7 +6170,7 @@ function showV() {
 					filterAllLocale();
 					//end of adding the locale data
 
-					if (json.autoImportedOldWinningVotes && !window.autoImportedOldWinningVotesAlready) {
+					if (json.autoImportedOldWinningVotes) {
 						var vals = { count: dojoNumber.format(json.autoImportedOldWinningVotes) };
 						var autoImportedDialog = new Dialog({
 							title: stui.sub("v_oldvote_auto_msg", vals),
@@ -6181,87 +6181,12 @@ function showV() {
 							onClick: function() {
 								window.haveDialog = false;
 								autoImportedDialog.hide();
-								window.autoImportedOldWinningVotesAlready = true;
-								/* If do window.reload() here, then reloading is slow, and the oldVotesRemind
-								 * block below gets executed.
-								 * If do reloadV() here, reloading is faster, and the oldVotesRemind
-								 * block below does NOT get executed. How can we reloadV in such a way that
-								 * oldVotesRemind executes, in case there are still losing votes avail to import?
-								 * This code is in ready(function()...) so it's not going to execute again without
-								 * window.reload() unless we move it somewhere else.
-								 * TODO: ask people to clarify whether oldVotesRemind is even supposed to be kept,
-								 * before spending time on that detail. As it is, oldVotesRemind will happen the
-								 * next time the user logs in.
-								 */
 								reloadV();
-								// window.reload();
 							}
 						}));
 						autoImportedDialog.show();
 						window.haveDialog = true;
 						hideOverlayAndSidebar();
-					}
-				
-					// any special message? "oldVotesRemind":{"count":60,"pref":"oldVoteRemind24", "remind":"* | ##"}
-					else if(json.oldVotesRemind && surveyCurrentSpecial!='oldvotes') {
-						var vals = { count: dojoNumber.format(json.oldVotesRemind.count) };
-
-						function updPrefTo(target) {
-							var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=oldVoteRemind&_v="+target+cacheKill();
-							myLoad(updurl, "updating coldremind " + target, function(json2) {
-								if(!verifyJson(json2,'pref')) {
-									return;
-								} else {
-									console.log('Server set  coldremind successfully.');
-								}
-							});
-						}						
-						var oldVoteRemindDialog = new Dialog({
-							title: stui.sub("v_oldvote_remind_msg",vals), 
-							content: stui.sub("v_oldvote_remind_desc_msg", vals)});
-
-						oldVoteRemindDialog.addChild(new Button({
-							label: stui.str("v_oldvote_remind_yes"),
-							onClick: function() {
-								updPrefTo(new Date().getTime() + (1000 * 3600));// hide for 1 hr
-								window.haveDialog = false;
-								oldVoteRemindDialog.hide();
-								surveyCurrentSpecial="oldvotes";
-								surveyCurrentLocale='';
-								surveyCurrentPage='';
-								surveyCurrentSection='';
-								reloadV();
-							}
-
-						}));
-						oldVoteRemindDialog.addChild(new Button({
-							label: stui.str("v_oldvote_remind_no"),
-							onClick: function() {
-								updPrefTo(new Date().getTime() + (1000 * 86400)); // hide for 24 hours
-								oldVoteRemindDialog.hide();
-								window.haveDialog = false;
-							}                            	
-						}));
-						oldVoteRemindDialog.addChild(new Button({
-							label: stui.str("v_oldvote_remind_dontask"),
-							onClick: function() {
-								updPrefTo('*'); // hide permanently
-								oldVoteRemindDialog.hide();
-								window.haveDialog = false;
-							}
-						}));
-
-						var now = new Date();
-						if(json.oldVotesRemind.remind && now.getTime()<=parseInt(json.oldVotesRemind.remind)) {
-							console.log("Have " + json.oldVotesRemind.count + " old votes, but will remind again in " + (parseInt(json.oldVotesRemind.remind)-now.getTime())/1000 + " seconds.");
-						} else {
-							oldVoteRemindDialog.show();
-							window.haveDialog = true;
-		    				hideOverlayAndSidebar();
-		    				console.log("Showed oldVotesRemind 6");
-						}
-					} else {
-						stdebug("Did not need to showoldvotesremind : " + Object.keys(json).toString());
 					}
 
 					updateCovFromJson(json);

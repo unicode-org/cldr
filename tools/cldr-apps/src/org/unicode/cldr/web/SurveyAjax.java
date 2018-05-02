@@ -1080,7 +1080,6 @@ public class SurveyAjax extends HttpServlet {
                             final JSONWriter r = newJSONStatusQuick(sm);
                             r.put("what", what);
                             r.put("id", userid);
-                            JSONObject userPerms = new JSONObject();
 
                             UserRegistry.User them = sm.reg.getInfo(userid);
                             if ((them.id == mySession.user.id) || // it's me

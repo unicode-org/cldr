@@ -391,7 +391,6 @@ public class SurveyAjax extends HttpServlet {
                     int xpid = XPathTable.NO_XPATH;
                     String xpath_path = null;
                     String xpath_hex = null;
-                    PathHeader ph = null;
                     if (xpath.startsWith("/")) {
                         xpid = sm.xpt.getByXpath(xpath);
                         xpath_path = xpath;

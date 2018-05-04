@@ -168,7 +168,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Africa/Sao_Tome">
 				<usesMetazone to="2018-01-01 01:00" mzone="GMT"/>
-                <usesMetazone from="2018-01-01 01:00" mzone="Africa_Western"/>
+				<usesMetazone from="2018-01-01 01:00" mzone="Africa_Western"/>
 			</timezone>
 			<timezone type="Africa/Tripoli">
 				<usesMetazone to="1981-12-31 22:00" mzone="Europe_Eastern"/>
@@ -185,8 +185,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Africa/Windhoek">
 				<usesMetazone to="1990-03-20 22:00" mzone="Africa_Southern"/>
 				<usesMetazone to="1994-03-20 22:00" from="1990-03-20 22:00" mzone="Africa_Central"/>
-				<usesMetazone to="2017-09-03 01:00" from="1994-03-20 22:00" mzone="Africa_Western"/>
-				<usesMetazone from="2017-09-03 01:00" mzone="Africa_Central"/>
+				<usesMetazone to="2017-10-23 22:00" from="1994-03-20 22:00" mzone="Africa_Western"/>
+				<usesMetazone from="2017-10-23 22:00" mzone="Africa_Central"/>
 			</timezone>
 			<timezone type="America/Adak">
 				<usesMetazone to="1983-10-30 12:00" mzone="Bering"/>
@@ -1004,7 +1004,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Asia/Pyongyang">
 				<usesMetazone to="2015-08-14 15:00" mzone="Korea"/>
-				<usesMetazone from="2015-08-14 15:00" mzone="Pyongyang"/>
+				<usesMetazone to="2018-05-05 08:30" from="2015-08-14 15:00" mzone="Pyongyang"/>
+				<usesMetazone from="2018-05-05 08:30" mzone="Korea"/>
 			</timezone>
 			<timezone type="Asia/Qatar">
 				<usesMetazone to="1972-05-31 20:00" mzone="Gulf"/>
@@ -1556,7 +1557,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 		</metazoneInfo>
 
-		<mapTimezones type="metazones" typeVersion="2011n">
+		<mapTimezones type="metazones" typeVersion="2018e">
 			<mapZone other="Acre" territory="001" type="America/Rio_Branco"/>
 			<mapZone other="Afghanistan" territory="001" type="Asia/Kabul"/>
 			<mapZone other="Africa_Central" territory="001" type="Africa/Maputo"/>

@@ -1755,7 +1755,7 @@ public class ExampleGenerator {
             XPathParts emoji = XPathParts.getFrozenInstance(xpath);
             String cp = emoji.getAttributeValue(-1, "cp");
             String minimal = Utility.hex(cp.replace("", "")).replace(',', '_').toLowerCase(Locale.ROOT);
-            buffer.append("<br><img height='64px' width='auto' src='images/android/android_" + minimal + ".png'>");
+            buffer.append("<br><img height='64px' width='auto' src='images/emoji/emoji_" + minimal + ".png'>");
         }
 
         return buffer.toString();

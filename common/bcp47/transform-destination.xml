@@ -29,6 +29,7 @@
 			<type name="npinyin" description="map pinyin written with tones to the numeric form" since="29" alias="numericPinyin"/>
 			<type name="null" description="make no change in the string" since="29"/>
 			<type name="remove" description="remove every character in the string" since="29"/>
+			<type name="zawgyi" description="map Unicode to Zawgyi Myanmar encoding" since="34"/>
 		</key>
 		<key extension="t" name="s0" description="Transform source for non-languages/scripts."  since="29">
 			<type name="accents" description="accented characters to map base + punctuation, etc" since="29"/>

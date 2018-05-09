@@ -851,16 +851,31 @@ public class VoteResolver<T> {
             throw new IllegalArgumentException("No values added to resolver");
         }
         
-        boolean useEmojiAnnotationVotingMethod = vrPath != null && vrPath.startsWith("//ldml/annotations/annotation");
         if (DEBUG && vrPath == null) {
             System.out.println("resolveVotes: vrPath = null!!!");
         }
-
+       /* TODO: Clarify and encapsulate this dependency on "//ldml/annotations/annotation".
+         * What is Emoji.TYPE_TTS and does it matter here?
+         *  Compare in DisplayAndInputProcessor.java:
+            if (path.startsWith("//ldml/annotations/annotation")) {
+                if (path.contains(Emoji.TYPE_TTS)) {
+                    value = SPLIT_BAR.split(value).iterator().next();
+                } else {
+                    value = annotationsForDisplay(value);
+                }
+            }
+            ...
+            TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
+            sorted.addAll(SPLIT_BAR.splitToList(value));
+            if (REMOVE_COVERED_KEYWORDS) {
+                filterCoveredKeywords(sorted);
+            }
+            value = JOIN_BAR.join(sorted);
+        */
         HashMap<T, Long> voteCount = null;
-        if (useEmojiAnnotationVotingMethod) {
+        if (vrPath != null && vrPath.startsWith("//ldml/annotations/annotation")) {
             voteCount = makeVoteCountMap(sortedValues, totals);
-            // TODO: adjust voteCount per emoji annotation rules, then re-sort sortedValues
-            reviseVoteCountsForEmojiAnnotations(voteCount, sortedValues);
+            adjustBarJoinedAnnotationVoteCounts(voteCount, sortedValues);
         }
 
         long weights[] = setBestNextAndSameVoteValues(sortedValues, voteCount);
@@ -904,20 +919,23 @@ public class VoteResolver<T> {
     /**
      * Revise the effective votes for the emoji annotations, based on the components of each value,
      * and re-sort the array of values to reflect the revised vote counts.
-     * 
+     *
      * For example, a value "happy | joyful" has two components "happy" and "joyful", and a vote
      * for that value is treated as a vote for each of the components. Adjust the vote for that value
      * based on votes for components of other values.
      * 
      * @param voteCount the hash giving the vote count for each value in sortedValues
      * @param sortedValues the set of sorted values
+     * 
+     * public for unit testing, see TestAnnotationVotes.java
      */
-    private void reviseVoteCountsForEmojiAnnotations(HashMap<T, Long> voteCount, Set<T> sortedValues) {
+    public void adjustBarJoinedAnnotationVoteCounts(HashMap<T, Long> voteCount, Set<T> sortedValues) {
         // TODO: implement this. But first, implement a unit test for it, with various values for
         // the arguments, some for which sortedValues should remain unchanged, and some for which
         // sortedValues should change. Note that voteCount may change without necessarily changing
         // sortedValues.
-        return;
+        
+         return;
     }
 
     /**

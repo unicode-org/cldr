@@ -935,7 +935,14 @@ public class VoteResolver<T> {
         // sortedValues should change. Note that voteCount may change without necessarily changing
         // sortedValues.
         
-         return;
+        if (voteCount == null || sortedValues == null) {
+            return;
+        }
+        for (T value : sortedValues) {
+            System.out.println("adjustBarJoinedAnnotationVoteCounts: " + value);
+        }
+
+        // ...
     }
 
     /**

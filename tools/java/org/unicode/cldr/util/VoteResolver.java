@@ -420,7 +420,9 @@ public class VoteResolver<T> {
         /**
          * Return the overall vote for each organization. It is the max for each value.
          * When the organization is conflicted (the top two values have the same vote), the organization is also added
-         * to disputed
+         * to disputed.
+         * 
+         * @param conflictedOrganizations if not null, to be filled in with the set of conflicted organizations.  
          */
         public Counter<T> getTotals(EnumSet<Organization> conflictedOrganizations) {
             if (conflictedOrganizations != null) {
@@ -429,9 +431,6 @@ public class VoteResolver<T> {
             totals.clear();
 
             for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
-
-                //   for (Organization org : orgToVotes.keySet()) {
-//                Counter<T> items = orgToVotes.get(org);
                 Counter<T> items = entry.getValue();
                 if (items.size() == 0) {
                     continue;
@@ -444,11 +443,9 @@ public class VoteResolver<T> {
                     System.out.println("sortedKeys?? " + value + " " + org.displayName);
                 }
 
-                // System.out.println("Org: " + org);
                 // if there is more than one item, check that it is less
                 if (iterator.hasNext()) {
                     T value2 = iterator.next();
-                    //System.out.println("Value2: " + value2);
                     long weight2 = items.getCount(value2);
                     // if the votes for #1 are not better than #2, we have a dispute
                     if (weight == weight2) {
@@ -461,27 +458,6 @@ public class VoteResolver<T> {
                 orgToAdd.put(org, value);
 
                 // We add the max vote for each of the organizations choices
-                /*if(org.displayName.equals("IBM")){
-                       System.out.println("ADDING IBM");
-                        for (T item : items.keySet()) {
-                            long count = items.getCount(item);
-                            if(item.equals("Metric")){
-                                System.out.println("ADDING METRIC");
-                                totals.add(item, count);
-                
-                            }
-                
-                
-                        }
-                    }
-                    else{ */
-                /*  for (T item : items.keySet()) {
-                            long count = items.getCount(item);
-                            totals.add(item, count);
-                
-                        }*/
-                //    }
-
                 long maxCount = 0;
                 T considerItem = null;
                 long considerCount = 0;
@@ -528,7 +504,6 @@ public class VoteResolver<T> {
                 System.out.println("FINALTotals: " + totals.toString());
             }
             return totals;
-
         }
 
         public int getOrgCount(T winningValue) {
@@ -845,11 +820,19 @@ public class VoteResolver<T> {
         }
     };
 
+    /**
+     * Resolve the votes. Resolution entails counting votes and setting
+     *  members for this VoteResolver, including winningStatus, winningValue,
+     *  and many others.
+     */
     private void resolveVotes() {
         resolved = true;
         // get the votes for each organization
         valuesWithSameVotes.clear();
         totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
+        /* getKeysetSortedByCount actually returns a LinkedHashSet, "with predictable iteration order".
+         * TODO: guarantee iteration order will always be predictable; in general, for the iterator of a Set,
+         * "The elements are returned in no particular order (unless this set is an instance of some class that provides a guarantee)." */
         final Set<T> sortedValues = totals.getKeysetSortedByCount(false, votesThenUcaCollator);
         if (DEBUG) {
             System.out.println("sortedValues :" + sortedValues.toString());
@@ -866,7 +849,6 @@ public class VoteResolver<T> {
             valuesWithSameVotes.add(winningValue); // may be null
             return;
         }
-        // otherwise pick the smallest value.
         if (values.size() == 0) {
             throw new IllegalArgumentException("No values added to resolver");
         }
@@ -881,7 +863,13 @@ public class VoteResolver<T> {
             }
         }
 
-        long weights[] = setBestNextAndSameVoteValues(sortedValues);
+        HashMap<T, Long> voteCount = null;
+        if (useEmojiAnnotationVotingMethod) {
+            voteCount = makeVoteCountMap(sortedValues, totals);
+            // TODO: adjust voteCount per emoji annotation rules, then re-sort sortedValues
+        }
+
+        long weights[] = setBestNextAndSameVoteValues(sortedValues, voteCount);
         
         if (organizationToValueAndVote.hasExplicitInheritanceMarker
             && !organizationToValueAndVote.hasExplicitBailey
@@ -891,8 +879,8 @@ public class VoteResolver<T> {
         }
         oValue = winningValue;
 
-        // here is the meat.
         winningStatus = computeStatus(weights[0], weights[1], trunkStatus);
+
         // if we are not as good as the trunk, use the trunk
         if (trunkStatus != null && winningStatus.compareTo(trunkStatus) < 0) {
             winningStatus = trunkStatus;
@@ -902,46 +890,57 @@ public class VoteResolver<T> {
         }
     }
 
+    private HashMap<T, Long> makeVoteCountMap(Set<T> sortedValues, Counter<T> totals) {
+        HashMap<T, Long> map = new HashMap<T, Long>();
+        for (T value : sortedValues) {
+            map.put(value, totals.getCount(value));
+        }
+        return map;
+    }
+
     /**
-     * Given a list of sorted values, set these members of this VoteResolver:
-     *  winningValue, nValue, valuesWithSameVotes.
+     * Given a nonempty list of sorted values, set these members of this VoteResolver:
+     *  winningValue, nValue, valuesWithSameVotes (which is empty when this function is called).
      * 
-     * @param sortedValues the set of sorted values (declared as T but normally/always(?) String)
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value; if null, use the totals member of this VoteResolver instead
      * @return an array of two longs, the weights for the best and next-best values.
      */
-    private long[] setBestNextAndSameVoteValues(Set<T> sortedValues)
-    {
-        long weight1 = 0;
-        long weight2 = 0;
-        T value2 = null;
+    private long[] setBestNextAndSameVoteValues(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        long weightArray[] = new long[2];
+        weightArray[0] = 0;
+        weightArray[1] = 0;
+        nValue = null;
+
+        /* Loop through the sorted values, at least the first (best) for winningValue,
+         *  and the second (if any) for nValue (else nValue stays null),
+         *  and subsequent values that have as many votes as the first,
+         *  to add to valuesWithSameVotes.
+         */
         int i = -1;
         Iterator<T> iterator = sortedValues.iterator();
         for (T value : sortedValues) {
             ++i;
-            long valueWeight = totals.getCount(value);
+            long valueWeight = (voteCount != null) ? voteCount.get(value) : totals.getCount(value);
             if (i == 0) {
                 winningValue = value;
-                weight1 = valueWeight;
+                weightArray[0] = valueWeight;
                 valuesWithSameVotes.add(value);
             } else {
                 if (i == 1) {
                     // get the next item if there is one
                     if (iterator.hasNext()) {
-                        value2 = value;
-                        weight2 = valueWeight;
+                        nValue = value;
+                        weightArray[1] = valueWeight;
                     }
                 }
-                if (valueWeight == weight1) {
+                if (valueWeight == weightArray[0]) {
                     valuesWithSameVotes.add(value);
                 } else {
                     break;
                 }
             }
         }
-        nValue = value2;
-        long weightArray[] = new long[2];
-        weightArray[0] = weight1;
-        weightArray[1] = weight2;
         return weightArray;
     }
 

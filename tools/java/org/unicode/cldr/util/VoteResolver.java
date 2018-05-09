@@ -49,6 +49,7 @@ import com.ibm.icu.util.ULocale;
  * // For any particular base path, set the values
  * // set the 1.5 status (if we're working on 1.6). This &lt;b&gt;must&lt;/b&gt; be done for each new base path
  * resolver.newPath(oldValue, oldStatus);
+ * [TODO: function newPath doesn't exist, revise this documentation]
  *
  * // now add some values, with who voted for them
  * resolver.add(value1, voter1);
@@ -62,7 +63,7 @@ import com.ibm.icu.util.ULocale;
  * </pre>
  */
 public class VoteResolver<T> {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     /**
      * The status levels according to the committee, in ascending order
@@ -639,6 +640,19 @@ public class VoteResolver<T> {
     private int requiredVotes;
     private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
 
+    /**
+     * vrPath: for http://unicode.org/cldr/trac/ticket/10973, Emoji keywords,
+     * resolveVotes has special method of counting votes on keywords that have
+     * multiple values separated by bar, like "happy | joyful".
+     * resolveVotes will use that special method when the path starts
+     * with "ldml/annotations/annotation". Save a copy of the path as vrPath
+     * when creating a new VoteResolver so it will be available for resolveVotes.
+     * 
+     * public for now, set in STFactory.java; TODO: make vrPath private and add param to
+     * constructor, or establish another way for resolveVotes to access path.
+     */
+    public String vrPath = null;
+
     private final Comparator<T> ucaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
 
@@ -738,6 +752,8 @@ public class VoteResolver<T> {
         organizationToValueAndVote.clear();
         resolved = false;
         values.clear();
+        
+        // TODO: this.vrPath = ?
     }
 
     /**
@@ -838,7 +854,6 @@ public class VoteResolver<T> {
         if (DEBUG) {
             System.out.println("sortedValues :" + sortedValues.toString());
         }
-        Iterator<T> iterator = sortedValues.iterator();
         // if there are no (unconflicted) votes, return lastRelease
         if (sortedValues.size() == 0) {
             if (trunkStatus != null && (lastReleaseStatus == null || trunkStatus.compareTo(lastReleaseStatus) >= 0)) {
@@ -848,7 +863,6 @@ public class VoteResolver<T> {
                 winningStatus = lastReleaseStatus;
                 winningValue = lastReleaseValue;
             }
-            // System.out.println("Winning 727: " + winningValue);
             valuesWithSameVotes.add(winningValue); // may be null
             return;
         }
@@ -856,17 +870,57 @@ public class VoteResolver<T> {
         if (values.size() == 0) {
             throw new IllegalArgumentException("No values added to resolver");
         }
-        // get the optimal value, and the penoptimal value
+        
+        boolean useEmojiAnnotationVotingMethod = vrPath != null && vrPath.startsWith("//ldml/annotations/annotation");
+        if (DEBUG) {
+            if (vrPath == null) {
+                System.out.println("resolveVotes: vrPath = null; useEmojiAnnotationVotingMethod = " + useEmojiAnnotationVotingMethod);
+            }
+            else {
+                System.out.println("resolveVotes: vrPath = " + vrPath + "; useEmojiAnnotationVotingMethod = " + useEmojiAnnotationVotingMethod);
+            }
+        }
+
+        long weights[] = setBestNextAndSameVoteValues(sortedValues);
+        
+        if (organizationToValueAndVote.hasExplicitInheritanceMarker
+            && !organizationToValueAndVote.hasExplicitBailey
+            && winningValue.equals(organizationToValueAndVote.baileyValue)
+            && winningValue instanceof CharSequence) {
+            winningValue = (T) CldrUtility.INHERITANCE_MARKER;
+        }
+        oValue = winningValue;
+
+        // here is the meat.
+        winningStatus = computeStatus(weights[0], weights[1], trunkStatus);
+        // if we are not as good as the trunk, use the trunk
+        if (trunkStatus != null && winningStatus.compareTo(trunkStatus) < 0) {
+            winningStatus = trunkStatus;
+            winningValue = trunkValue;
+            valuesWithSameVotes.clear();
+            valuesWithSameVotes.add(winningValue);
+        }
+    }
+
+    /**
+     * Given a list of sorted values, set these members of this VoteResolver:
+     *  winningValue, nValue, valuesWithSameVotes.
+     * 
+     * @param sortedValues the set of sorted values (declared as T but normally/always(?) String)
+     * @return an array of two longs, the weights for the best and next-best values.
+     */
+    private long[] setBestNextAndSameVoteValues(Set<T> sortedValues)
+    {
         long weight1 = 0;
         long weight2 = 0;
         T value2 = null;
         int i = -1;
+        Iterator<T> iterator = sortedValues.iterator();
         for (T value : sortedValues) {
             ++i;
             long valueWeight = totals.getCount(value);
             if (i == 0) {
                 winningValue = value;
-                //    System.out.println("Winning 745: " + winningValue);
                 weight1 = valueWeight;
                 valuesWithSameVotes.add(value);
             } else {
@@ -878,31 +932,17 @@ public class VoteResolver<T> {
                     }
                 }
                 if (valueWeight == weight1) {
-                    //      System.out.println("Value 757: " + value);
                     valuesWithSameVotes.add(value);
                 } else {
                     break;
                 }
             }
         }
-        //    System.out.println("Winning 764: " + winningValue);
-        if (organizationToValueAndVote.hasExplicitInheritanceMarker
-            && !organizationToValueAndVote.hasExplicitBailey
-            && winningValue.equals(organizationToValueAndVote.baileyValue)
-            && winningValue instanceof CharSequence) {
-            winningValue = (T) CldrUtility.INHERITANCE_MARKER;
-        }
-        oValue = winningValue;
-        nValue = value2; // save this
-        // here is the meat.
-        winningStatus = computeStatus(weight1, weight2, trunkStatus);
-        // if we are not as good as the trunk, use the trunk
-        if (trunkStatus != null && winningStatus.compareTo(trunkStatus) < 0) {
-            winningStatus = trunkStatus;
-            winningValue = trunkValue;
-            valuesWithSameVotes.clear();
-            valuesWithSameVotes.add(winningValue);
-        }
+        nValue = value2;
+        long weightArray[] = new long[2];
+        weightArray[0] = weight1;
+        weightArray[1] = weight2;
+        return weightArray;
     }
 
     private Status computeStatus(long weight1, long weight2, Status oldStatus) {

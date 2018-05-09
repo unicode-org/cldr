@@ -922,7 +922,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 r.clear(); // reuse
             }
-
+            r.vrPath = path; // for http://unicode.org/cldr/trac/ticket/10973, Emoji keywords
+            
             // Workaround
             CLDRFile.Status status = new CLDRFile.Status();
             diskFile.getSourceLocaleID(path, status); // ask disk file

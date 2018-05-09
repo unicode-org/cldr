@@ -830,9 +830,7 @@ public class VoteResolver<T> {
         // get the votes for each organization
         valuesWithSameVotes.clear();
         totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
-        /* getKeysetSortedByCount actually returns a LinkedHashSet, "with predictable iteration order".
-         * TODO: guarantee iteration order will always be predictable; in general, for the iterator of a Set,
-         * "The elements are returned in no particular order (unless this set is an instance of some class that provides a guarantee)." */
+        /* Note: getKeysetSortedByCount actually returns a LinkedHashSet, "with predictable iteration order". */
         final Set<T> sortedValues = totals.getKeysetSortedByCount(false, votesThenUcaCollator);
         if (DEBUG) {
             System.out.println("sortedValues :" + sortedValues.toString());
@@ -854,19 +852,15 @@ public class VoteResolver<T> {
         }
         
         boolean useEmojiAnnotationVotingMethod = vrPath != null && vrPath.startsWith("//ldml/annotations/annotation");
-        if (DEBUG) {
-            if (vrPath == null) {
-                System.out.println("resolveVotes: vrPath = null; useEmojiAnnotationVotingMethod = " + useEmojiAnnotationVotingMethod);
-            }
-            else {
-                System.out.println("resolveVotes: vrPath = " + vrPath + "; useEmojiAnnotationVotingMethod = " + useEmojiAnnotationVotingMethod);
-            }
+        if (DEBUG && vrPath == null) {
+            System.out.println("resolveVotes: vrPath = null!!!");
         }
 
         HashMap<T, Long> voteCount = null;
         if (useEmojiAnnotationVotingMethod) {
             voteCount = makeVoteCountMap(sortedValues, totals);
             // TODO: adjust voteCount per emoji annotation rules, then re-sort sortedValues
+            reviseVoteCountsForEmojiAnnotations(voteCount, sortedValues);
         }
 
         long weights[] = setBestNextAndSameVoteValues(sortedValues, voteCount);
@@ -890,12 +884,40 @@ public class VoteResolver<T> {
         }
     }
 
+    /**
+     * Make a hash for the vote count of each value in the given sorted list.
+     * 
+     * This enables subsequent adjustment of the effective votes for the emoji annotations.
+     * 
+     * @param sortedValues the set of sorted values
+     * @param totals the Counter to get the count for each value.
+     * @return the HashMap.
+     */
     private HashMap<T, Long> makeVoteCountMap(Set<T> sortedValues, Counter<T> totals) {
         HashMap<T, Long> map = new HashMap<T, Long>();
         for (T value : sortedValues) {
             map.put(value, totals.getCount(value));
         }
         return map;
+    }
+
+    /**
+     * Revise the effective votes for the emoji annotations, based on the components of each value,
+     * and re-sort the array of values to reflect the revised vote counts.
+     * 
+     * For example, a value "happy | joyful" has two components "happy" and "joyful", and a vote
+     * for that value is treated as a vote for each of the components. Adjust the vote for that value
+     * based on votes for components of other values.
+     * 
+     * @param voteCount the hash giving the vote count for each value in sortedValues
+     * @param sortedValues the set of sorted values
+     */
+    private void reviseVoteCountsForEmojiAnnotations(HashMap<T, Long> voteCount, Set<T> sortedValues) {
+        // TODO: implement this. But first, implement a unit test for it, with various values for
+        // the arguments, some for which sortedValues should remain unchanged, and some for which
+        // sortedValues should change. Note that voteCount may change without necessarily changing
+        // sortedValues.
+        return;
     }
 
     /**

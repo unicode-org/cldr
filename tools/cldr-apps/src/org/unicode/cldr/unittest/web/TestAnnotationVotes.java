@@ -68,7 +68,19 @@ public class TestAnnotationVotes extends TestFmwk {
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV03() {
-        String test = "adjustAnnotationVoteCounts for a|b|c|f=8, a|b|e=6, a|e=4 should make a|b|e=winning";
+        String test = "adjustAnnotationVoteCounts for a=2, b=2, b|c=1 should make b, a, b|c";
+        String[] valI = {"a", "b", "b|c"}; // input
+        long[] votesI = { 2,   2,    1  }; // input vote counts
+        String[] valO = {"b", "a", "b|c"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV04() {
+        String test = "adjustAnnotationVoteCounts for a|b|c|f=8, a|b|e=6, a|e=4 should make a|b|e, a|b|c|f, a|e";
         String[] valI = {"a|b|c|f", "a|b|e", "a|e"};
         long[] votesI = {8, 6, 4};
         String[] valO = {"a|b|e", "a|b|c|f", "a|e"};

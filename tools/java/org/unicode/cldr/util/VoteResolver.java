@@ -906,7 +906,7 @@ public class VoteResolver<T> {
     /**
      * Make a hash for the vote count of each value in the given sorted list.
      * 
-     * This enables subsequent adjustment of the effective votes for the emoji annotations.
+     * This enables subsequent adjustment of the effective votes for bar-joined annotations.
      * 
      * @param sortedValues the set of sorted values
      * @param totals the Counter to get the count for each value.
@@ -921,12 +921,18 @@ public class VoteResolver<T> {
     }
 
     /**
-     * Revise the effective votes for the bar-joined annotations, based on the components of each value,
-     * and re-sort the array of values to reflect the revised vote counts.
+     * Adjust the effective votes for bar-joined annotations, based on the components of each value,
+     * and re-sort the array of values to reflect the adjusted vote counts.
      *
      * For example, a value "happy | joyful" has two components "happy" and "joyful", and a vote
      * for that value is treated as a vote for each of the components. Adjust the vote for that value
      * based on votes for components of other values.
+     * 
+     * Note: "Annotations provide names and keywords for Unicode characters, currently focusing on emoji."
+     * References:
+     *   http://unicode.org/cldr/charts/32/annotations/index.html
+     *   http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
+     *   http://unicode.org/repos/cldr/tags/latest/common/annotations/
      * 
      * @param sortedValues the set of sorted values
      * @param voteCount the hash giving the vote count for each value in sortedValues

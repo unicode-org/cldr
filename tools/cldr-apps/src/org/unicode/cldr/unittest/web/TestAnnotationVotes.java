@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest.web;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -13,87 +15,95 @@ public class TestAnnotationVotes extends TestFmwk {
 
     TestAll.WebTestInfo testInfo = WebTestInfo.getInstance();
 
+    VoteResolver<String> r = new VoteResolver<String>();
+    Set<String> sortedValuesI = null, sortedValuesO = null; // input and output
+    HashMap<String, Long> voteCountI = null, voteCountO = null; // input and output
+
     public static void main(String[] args) {
         new TestAnnotationVotes().run(args);
-        // new TestAnnotationVotes().run(TestAll.doResetDb(args));
     }
 
     /**
      * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
-     * Note: the name of this function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
-    public void TestAV() {
-        VoteResolver<String> r = new VoteResolver<String>();
-        HashMap<String, Long> voteCount = null;
-        Set<String> sortedValues = null;
+    public void TestAV00() {
         String test = "adjustBarJoinedAnnotationVoteCounts(null, null) should return quietly";
         try {
-            r.adjustBarJoinedAnnotationVoteCounts(voteCount, sortedValues);
+            r.adjustBarJoinedAnnotationVoteCounts(null, null);
         } catch (Exception e) {
-            errln("❌ " + test + ". Unexpected exception: "
-                    + e.toString() + " - " + e.getMessage());
+            errln("❌ " + test + ". Unexpected exception: " + e.toString() + " - " + e.getMessage());
             return;
         }
         // TODO: logln instead of System.out.println -- but how to make it display in log? Set "level" or "verbose" somewhere?
         System.out.println("✅ " + test);
-  
-        test = "adjustBarJoinedAnnotationVoteCounts for a=100, b=999, c=998 should return unchanged";
-        sortedValues = new LinkedHashSet<String>();
-        sortedValues.add("a");
-        sortedValues.add("b");
-        sortedValues.add("c");
-        voteCount = new HashMap<String, Long>();
-        long count = 100;
-        for (String value : sortedValues) {
-            voteCount.put(value, count--);
-        }
-        HashMap<String, Long> voteCount2 = new HashMap<String, Long>(voteCount);
-        Set<String> sortedValues2 =  new LinkedHashSet<String>(sortedValues);
-        try {
-            r.adjustBarJoinedAnnotationVoteCounts(voteCount, sortedValues);
-        } catch (Exception e) {
-            errln("❌ " + test + ". Unexpected exception: "
-                + e.toString() + " - " + e.getMessage());
-            return;
-        }
-        if (!sortedValues.equals(sortedValues2) || !voteCount.equals(voteCount2)) {
-            errln("❌ " + test);
-            return;
-        }
-        System.out.println("✅ " + test);
-        
-        test = "adjustBarJoinedAnnotationVoteCounts for a|b=1, c|d=2, e|f=3 should reverse order";
-        sortedValues.clear();
-        sortedValues.add("a|b");
-        sortedValues.add("c|d");
-        sortedValues.add("e|f");
-        sortedValues2.clear();
-        sortedValues.add("e|f");
-        sortedValues.add("c|d");
-        sortedValues.add("a|b");
-        voteCount.clear();
-        count = 1;
-        for (String value : sortedValues) {
-            voteCount.put(value, count++);
-        }
-        voteCount2.clear();
-        count = 1;
-        for (String value : sortedValues2) {
-            voteCount2.put(value, count++);
-        }
-        try {
-            r.adjustBarJoinedAnnotationVoteCounts(voteCount, sortedValues);
-        } catch (Exception e) {
-            errln("❌ " + test + ". Unexpected exception: "
-                + e.toString() + " - " + e.getMessage());
-            return;
-        }
-        if (!sortedValues.equals(sortedValues2) || !voteCount.equals(voteCount2)) {
-            errln("❌ " + test);
-            return;
-        }
-        System.out.println("✅ " + test);
+    }
 
-        errln("❌ This test is not yet fully implemented.");
+    /**
+     * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV01() {
+        String test = "adjustBarJoinedAnnotationVoteCounts for a=100, b=999, c=998 should return unchanged";
+        String[] valI = {"a", "b", "c"};
+        long[] votesI = {100, 999, 998};
+        String[] valO = {"a", "b", "c"};
+        long[] votesO = {100, 999, 998};
+        runTest(test, valI, votesI, valO, votesO);
+     }
+
+    /**
+     * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV02() {
+        String test = "adjustBarJoinedAnnotationVoteCounts for a|b=1, c|d=2, e|f=3 should reverse order";
+        String[] valI = {"a|b", "c|d", "e|f"};
+        long[] votesI = {1, 2, 3};
+        String[] valO = {"e|f", "c|d", "a|b"};
+        long[] votesO = {3, 2, 1};
+        runTest(test, valI, votesI, valO, votesO);
+    }
+
+    /**
+     * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV99() {
+        errln("❌ This set of tests is incomplete.");
+    }
+
+    private void runTest(String test, String[] valI, long[] votesI, String[] valO, long[] votesO) {
+        setupTestIO(valI, votesI, valO, votesO);
+        try {
+            r.adjustBarJoinedAnnotationVoteCounts(voteCountI, sortedValuesI);
+        } catch (Exception e) {
+            errln("❌ " + test + ". Unexpected exception: " + e.toString() + " - " + e.getMessage());
+            return;
+        }
+        // Convert sets to strings for comparison, otherwise the equals() function ignores differences in order.
+        if (!sortedValuesI.toString().equals(sortedValuesO.toString()) || !voteCountI.equals(voteCountO)) {
+            errln("❌ " + test);
+            return;
+        }
+        System.out.println("✅ " + test);
+    }
+    
+    /**
+     * Setup test inputs and outputs.
+     */
+    private void setupTestIO(String[] inValues, long[] inVotes, String[] outValues, long[] outVotes) {
+        sortedValuesI = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(inValues)));
+        sortedValuesO = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(outValues)));
+        voteCountI = new HashMap<String, Long>();
+        voteCountO = new HashMap<String, Long>();
+        int i = 0;
+        for (String value : inValues) {
+            voteCountI.put(value, inVotes[i++]);
+        }
+        i = 0;
+        for (String value : outValues) {
+            voteCountO.put(value, outVotes[i++]);
+        }
     }
 }

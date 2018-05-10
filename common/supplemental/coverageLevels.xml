@@ -636,6 +636,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="numbers/symbols[@numberSystem='latn']/infinity"/>
 		<coverageLevel value="moderate" match="numbers/symbols[@numberSystem='latn']/nan"/>
         <coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%compoundUnitTypes']/compoundUnitPattern"/>
+        <coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/coordinateUnit/displayName"/>
         <coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/coordinateUnit/coordinateUnitPattern[@type='%anyAlphaNum']"/>
 		<coverageLevel value="moderate" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="moderate" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/displayName"/>

@@ -249,6 +249,10 @@ characters/parseLenients/parseLenient[@sample='%anyAttribute'][@scope='%anyAttri
 //ldml/units/unitLength[@type="short"]/compoundUnit[@type="(%A)"]/compoundUnitPattern ; /unitsShort/compound/$1
 //ldml/units/unitLength[@type="long"]/compoundUnit[@type="(%A)"]/compoundUnitPattern ; /units/compound/$1
 
+//ldml/units/unitLength[@type="narrow"]/coordinateUnit/displayName ; /unitsNarrow/coordinate/dnam
+//ldml/units/unitLength[@type="short"]/coordinateUnit/displayName ; /unitsShort/coordinate/dnam
+//ldml/units/unitLength[@type="long"]/coordinateUnit/displayName ; /units/coordinate/dnam
+
 //ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="(%A)"] ; /unitsNarrow/coordinate/$1
 //ldml/units/unitLength[@type="short"]/coordinateUnit/coordinateUnitPattern[@type="(%A)"] ; /unitsShort/coordinate/$1
 //ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="(%A)"] ; /units/coordinate/$1

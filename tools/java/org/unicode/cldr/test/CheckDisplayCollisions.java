@@ -383,12 +383,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // Collisions between different lengths of the same field are allowed
         if (myType == Type.UNITS_COORDINATE) {
             XPathParts parts = new XPathParts().set(path);
-            String myFieldType = parts.findAttributeValue("coordinateUnitPattern", "type");
+            String myFieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
                 parts.set(curVal);
-                String fieldType = parts.findAttributeValue("coordinateUnitPattern", "type");
+                String fieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
                 if (myFieldType.equals(fieldType)) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH FIELD  " + fieldType);

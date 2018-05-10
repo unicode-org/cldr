@@ -2342,7 +2342,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT coordinateUnit ( alias | ( coordinateUnitPattern*, special* ) ) >
+<!ELEMENT coordinateUnit ( alias | ( displayName*, coordinateUnitPattern*, special* ) ) >
 <!ATTLIST coordinateUnit alt NMTOKENS #IMPLIED >
 <!ATTLIST coordinateUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->

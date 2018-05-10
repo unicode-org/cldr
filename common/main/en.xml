@@ -6336,6 +6336,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibars</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmospheres</displayName>
+				<unitPattern count="one">{0} atmosphere</unitPattern>
+				<unitPattern count="other">{0} atmospheres</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometers per hour</displayName>
 				<unitPattern count="one">{0} kilometer per hour</unitPattern>
@@ -7049,6 +7054,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/hour</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -7719,6 +7729,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0}mb</unitPattern>
 				<unitPattern count="other">{0}mb</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0}atm</unitPattern>
+				<unitPattern count="other">{0}atm</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/hr</displayName>

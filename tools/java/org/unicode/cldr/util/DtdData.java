@@ -1283,7 +1283,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
         "power-horsepower",
         "pressure-hectopascal", "pressure-millimeter-of-mercury",
-        "pressure-pound-per-square-inch", "pressure-inch-hg", "pressure-millibar",
+        "pressure-pound-per-square-inch", "pressure-inch-hg", "pressure-millibar", "pressure-atmosphere",
         "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
         "volume-cubic-kilometer", "volume-cubic-meter", "volume-cubic-centimeter",

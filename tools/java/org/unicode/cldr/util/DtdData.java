@@ -1256,7 +1256,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "concentr-part-per-million",
         "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
         "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",
-        "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
+        "digital-petabyte", "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
         "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
         "digital-byte", "digital-bit",
         "duration-century",

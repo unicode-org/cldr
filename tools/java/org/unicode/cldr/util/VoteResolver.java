@@ -19,6 +19,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
 import com.google.common.base.Objects;
@@ -856,7 +857,8 @@ public class VoteResolver<T> {
         }
        /* TODO: Clarify and encapsulate this dependency on "//ldml/annotations/annotation".
          * What is Emoji.TYPE_TTS and does it matter here?
-         *  Compare in DisplayAndInputProcessor.java:
+         * Should we filterCoveredKeywords here?
+         * Compare in DisplayAndInputProcessor.java:
             if (path.startsWith("//ldml/annotations/annotation")) {
                 if (path.contains(Emoji.TYPE_TTS)) {
                     value = SPLIT_BAR.split(value).iterator().next();
@@ -871,11 +873,13 @@ public class VoteResolver<T> {
                 filterCoveredKeywords(sorted);
             }
             value = JOIN_BAR.join(sorted);
+            
+            Also compare splitAnnotationIntoComponentsList.
         */
         HashMap<T, Long> voteCount = null;
         if (vrPath != null && vrPath.startsWith("//ldml/annotations/annotation")) {
             voteCount = makeVoteCountMap(sortedValues, totals);
-            adjustBarJoinedAnnotationVoteCounts(voteCount, sortedValues);
+            adjustAnnotationVoteCounts(sortedValues, voteCount);
         }
 
         long weights[] = setBestNextAndSameVoteValues(sortedValues, voteCount);
@@ -917,32 +921,152 @@ public class VoteResolver<T> {
     }
 
     /**
-     * Revise the effective votes for the emoji annotations, based on the components of each value,
+     * Revise the effective votes for the bar-joined annotations, based on the components of each value,
      * and re-sort the array of values to reflect the revised vote counts.
      *
      * For example, a value "happy | joyful" has two components "happy" and "joyful", and a vote
      * for that value is treated as a vote for each of the components. Adjust the vote for that value
      * based on votes for components of other values.
      * 
-     * @param voteCount the hash giving the vote count for each value in sortedValues
      * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value in sortedValues
      * 
      * public for unit testing, see TestAnnotationVotes.java
      */
-    public void adjustBarJoinedAnnotationVoteCounts(HashMap<T, Long> voteCount, Set<T> sortedValues) {
-        // TODO: implement this. But first, implement a unit test for it, with various values for
-        // the arguments, some for which sortedValues should remain unchanged, and some for which
-        // sortedValues should change. Note that voteCount may change without necessarily changing
-        // sortedValues.
-        
+    public void adjustAnnotationVoteCounts(Set<T> sortedValues, HashMap<T, Long> voteCount) {
         if (voteCount == null || sortedValues == null) {
             return;
         }
-        for (T value : sortedValues) {
-            System.out.println("adjustBarJoinedAnnotationVoteCounts: " + value);
-        }
+        // Make compMap map individual components to cumulative vote counts.
+        HashMap<T, Long> compMap = makeAnnotationComponentMap(sortedValues, voteCount);
+        
+        // Calculate new counts for original values, based on components.
+        calculateNewCountsBasedOnAnnotationComponents(sortedValues, voteCount, compMap);
 
-        // ...
+        // Re-sort sortedValues based on voteCount.
+        resortValuesBasedOnAdjustedVoteCounts(sortedValues, voteCount);
+    }
+
+    /**
+     * Make a hash that maps individual annotation components to cumulative vote counts.
+     * 
+     * For example, 3 votes for "a|b" and 2 votes for "a|c" makes 5 votes for "a", 3 for "b", and 2 for "c".
+     * 
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value in sortedValues
+     */
+    private HashMap<T, Long> makeAnnotationComponentMap(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        HashMap<T, Long> compMap = new HashMap<T, Long>();        
+        for (T value : sortedValues) {
+            Long count = voteCount.get(value);
+            List<T> comps = splitAnnotationIntoComponentsList(value);
+            for (T comp : comps) {
+                if (compMap.containsKey(comp)) {
+                    compMap.replace(comp, compMap.get(comp) + count);
+                }
+                else {
+                    compMap.put(comp, count);
+                }
+            }
+        }
+        if (DEBUG) {
+            System.out.println("\n\tComponents in adjustAnnotationVoteCounts:");
+            for (T comp : compMap.keySet()) {
+                System.out.println("\t" + comp + ":" + compMap.get(comp));
+            }
+        }
+        return compMap;
+    }    
+
+    /**
+     * Calculate new counts for original values, based on annotation components.
+     * 
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value in sortedValues
+     * @param compMap the hash that maps individual components to cumulative vote counts
+     *
+     * This function is where the essential algorithm needs to be implemented
+     * for http://unicode.org/cldr/trac/ticket/10973
+     *
+     * TODO: decide on the algorithm! Two different ideas have been proposed:
+     *
+     * (1) Given input {a|b|c|f=8, a|b|e=6, a|e=4},
+     *    we get compMap {a=18, b=14, c=8, e=10, f=8}.
+     *    Accept anything with > 1/2 the top vote count (18/2 = 9) as the top,
+     *    so we end up with a|b|e since a, b, and e all have > 8 in compMap.
+     *    Note that what we end up with might not be an input option (for example,
+     *    a|b is not one of the input options, although a|b|e is, coincidentally).
+     *    Ideally, we'd just introduce a new one. But in the meantime maybe we can
+     *    take the largest subset, and failing that the smallest superset, or something like that.
+     *
+     * (2) A, B, C in an item, D, E have votes, overall might be A+B+C-(D+E) votes.
+     *    That is, again given input {a|b|c|f=8, a|b|e=6, a|e=4},
+     *    we again get compMap {a=18, b=14, c=8, e=10, f=8}.
+     *    For a|b|c|f we get 18 + 14 + 8 - 10 + 8 = 38
+     *    For a|b|e   we get 18 + 14 - 8 + 10 - 8 = 26
+     *    For a|e     we get 18 - 14 - 8 + 10 - 8 = -2
+     *    The winner for (2) is a|b|c|f, not a|b|e as in (1).
+     * 
+     * The first implementation follows (2), since (1) isn't clearly defined,
+     * given that introducing a novel combination of components isn't considered an
+     * option for this ticket, and it's not clear yet what's meant about largest subset
+     * or smallest superset...
+     */
+    private void calculateNewCountsBasedOnAnnotationComponents(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> compMap) {
+        voteCount.clear();
+        for (T value : sortedValues) {
+            Long newCount = (long) 0;
+            List<T> comps = splitAnnotationIntoComponentsList(value);
+            Set<T> allComps = compMap.keySet();
+            for (T comp : allComps) {                
+                if (comps.contains(comp)) {
+                    // System.out.println("\tnewCount = " + newCount + "; newCount += " + compMap.get(comp));
+                    newCount += compMap.get(comp);
+                }
+                else {
+                    // System.out.println("\tnewCount = " + newCount + "; newCount -= " + compMap.get(comp));
+                    newCount -= compMap.get(comp);
+                }
+            }
+            voteCount.put(value, newCount);
+            // System.out.println("\tvoteCount.put(" + value + ", " + newCount + ")");
+        }
+    }
+
+    /**
+     * Split an annotation into a list of components.
+     * 
+     * For example, split "happy | joyful" into ["happy", "joyful"].
+     * 
+     * @param value the value like "happy | joyful"
+     * @return the list like ["happy", "joyful"]
+     * 
+     * Called by makeAnnotationComponentMap and calculateNewCountsBasedOnAnnotationComponents.
+     * Short, but needs encapsulation, should be consistent with similar code in DisplayAndInputProcessor.java.
+     * TODO: What is Emoji.TYPE_TTS and does it matter here? Should we filterCoveredKeywords here?
+     */
+    private List<T> splitAnnotationIntoComponentsList(T value) {
+        return (List<T>) DisplayAndInputProcessor.SPLIT_BAR.splitToList((CharSequence) value);
+    }
+
+    /**
+     * Re-sort the set of values to match the adjusted vote counts based on annotation components.
+     * 
+     * @param sortedValues the set of sorted values, maybe no longer sorted the way we want
+     * @param voteCount the hash giving the adjusted vote count for each value in sortedValues
+     * @param compMap the hash that maps individual components to cumulative vote counts
+     */
+    private void resortValuesBasedOnAdjustedVoteCounts(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        List<T> list = new ArrayList<T>(sortedValues);
+        Collections.sort(list, (v1, v2) -> {
+            // System.out.println("\tComparing " + v1 + "=" + voteCount.get(v1) +  " with " + v2 + "=" + voteCount.get(v2));
+            return (int) (voteCount.get(v2) - voteCount.get(v1)); // decreasing numeric order
+        });
+        sortedValues.clear();
+        for (T value : list) {
+            sortedValues.add(value);
+            // System.out.println("\t" + value);
+        }
     }
 
     /**

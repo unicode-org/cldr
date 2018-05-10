@@ -17,20 +17,20 @@ public class TestAnnotationVotes extends TestFmwk {
 
     VoteResolver<String> r = new VoteResolver<String>();
     Set<String> sortedValuesI = null, sortedValuesO = null; // input and output
-    HashMap<String, Long> voteCountI = null, voteCountO = null; // input and output
+    HashMap<String, Long> voteCountI = null; // input
 
     public static void main(String[] args) {
         new TestAnnotationVotes().run(args);
     }
 
     /**
-     * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV00() {
-        String test = "adjustBarJoinedAnnotationVoteCounts(null, null) should return quietly";
+        String test = "adjustAnnotationVoteCounts(null, null) should return quietly";
         try {
-            r.adjustBarJoinedAnnotationVoteCounts(null, null);
+            r.adjustAnnotationVoteCounts(null, null);
         } catch (Exception e) {
             errln("❌ " + test + ". Unexpected exception: " + e.toString() + " - " + e.getMessage());
             return;
@@ -40,70 +40,99 @@ public class TestAnnotationVotes extends TestFmwk {
     }
 
     /**
-     * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV01() {
-        String test = "adjustBarJoinedAnnotationVoteCounts for a=100, b=999, c=998 should return unchanged";
+        String test = "adjustAnnotationVoteCounts for a=100, b=99, c=98 should return unchanged";
         String[] valI = {"a", "b", "c"};
-        long[] votesI = {100, 999, 998};
+        long[] votesI = {100, 99, 98};
         String[] valO = {"a", "b", "c"};
-        long[] votesO = {100, 999, 998};
-        runTest(test, valI, votesI, valO, votesO);
+        runTest(test, valI, votesI, valO);
      }
 
     /**
-     * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV02() {
-        String test = "adjustBarJoinedAnnotationVoteCounts for a|b=1, c|d=2, e|f=3 should reverse order";
+        String test = "adjustAnnotationVoteCounts for a|b=1, c|d=2, e|f=3 should reverse order";
         String[] valI = {"a|b", "c|d", "e|f"};
         long[] votesI = {1, 2, 3};
         String[] valO = {"e|f", "c|d", "a|b"};
-        long[] votesO = {3, 2, 1};
-        runTest(test, valI, votesI, valO, votesO);
+        runTest(test, valI, votesI, valO);
     }
 
     /**
-     * Test features related to adjustBarJoinedAnnotationVoteCounts in VoteResolver.java.
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV03() {
+        String test = "adjustAnnotationVoteCounts for a|b|c|f=8, a|b|e=6, a|e=4 should make a|b|e=winning";
+        String[] valI = {"a|b|c|f", "a|b|e", "a|e"};
+        long[] votesI = {8, 6, 4};
+        String[] valO = {"a|b|e", "a|b|c|f", "a|e"};
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV99() {
         errln("❌ This set of tests is incomplete.");
     }
 
-    private void runTest(String test, String[] valI, long[] votesI, String[] valO, long[] votesO) {
-        setupTestIO(valI, votesI, valO, votesO);
+    /**
+     * Run adjustAnnotationVoteCounts with the given input and expected output.
+     * Test whether the actual output matches the expected output.
+     * 
+     * @param test the string describing what should happen
+     * @param valI the array of input values
+     * @param votesI the array of vote counts corresponding to valI
+     * @param valO the array of expected output values
+     * 
+     * Note: there is no array of expected output vote counts. Treat the test as passing
+     * or failing based only on the order of output values, not on the exact output vote counts.
+     */
+   private void runTest(String test, String[] valI, long[] votesI, String[] valO) {
+        setupTestIO(valI, votesI, valO);
+        String input = sortedValuesI.toString() + " " + voteCountI.toString(); // before adjusting
         try {
-            r.adjustBarJoinedAnnotationVoteCounts(voteCountI, sortedValuesI);
+            r.adjustAnnotationVoteCounts(sortedValuesI, voteCountI);
         } catch (Exception e) {
             errln("❌ " + test + ". Unexpected exception: " + e.toString() + " - " + e.getMessage());
             return;
         }
-        // Convert sets to strings for comparison, otherwise the equals() function ignores differences in order.
-        if (!sortedValuesI.toString().equals(sortedValuesO.toString()) || !voteCountI.equals(voteCountO)) {
-            errln("❌ " + test);
+        // Convert sets to strings for comparison, otherwise the set.equals() function ignores differences in order.
+        // Also, strings can be displayed more conveniently with errln.
+        String expected = sortedValuesO.toString();
+        String actually = sortedValuesI.toString();
+        if (!actually.equals(expected)) {
+            String msg = test + "."
+                + "\n\tInput:   \t" + input
+                + "\n\tExpected:\t" + expected
+                + "\n\tActually:\t" + actually + " " + voteCountI.toString();
+            errln("❌ " + msg);
             return;
         }
         System.out.println("✅ " + test);
     }
-    
+
     /**
-     * Setup test inputs and outputs.
+     * Set up test inputs and outputs.
+     * 
+     * @param valI the array of input values
+     * @param votesI the array of vote counts corresponding to valI
+     * @param valO the array of expected output values
      */
-    private void setupTestIO(String[] inValues, long[] inVotes, String[] outValues, long[] outVotes) {
-        sortedValuesI = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(inValues)));
-        sortedValuesO = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(outValues)));
+    private void setupTestIO(String[] valI, long[] votesI, String[] valO) {
+        sortedValuesI = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(valI)));
+        sortedValuesO = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(valO)));
         voteCountI = new HashMap<String, Long>();
-        voteCountO = new HashMap<String, Long>();
         int i = 0;
-        for (String value : inValues) {
-            voteCountI.put(value, inVotes[i++]);
-        }
-        i = 0;
-        for (String value : outValues) {
-            voteCountO.put(value, outVotes[i++]);
+        for (String value : valI) {
+            voteCountI.put(value, votesI[i++]);
         }
     }
 }

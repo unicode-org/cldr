@@ -808,11 +808,13 @@ public class SurveyAjax extends HttpServlet {
                         } else {
                             mySession.userDidAction();
                             r.put("what", what);
-
-                            //String xp = sm.xpt.getById(id);
                             r.put("loc", loc);
                             r.put("xpath", xpath);
-                            r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
+                            /* Don't use deprecated mySession.sm here; we already have sm.
+                             *  Note: for https://unicode.org/cldr/trac/ticket/10935 we can remove cldrVersion here...
+                             */
+                            r.put("ret", sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
+                            // r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {

@@ -1564,6 +1564,10 @@ public class DBUtils {
      * Manage table names according to versions.
      */
     public enum Table {
+ 
+        /* TODO: For https://unicode.org/cldr/trac/ticket/10935 change FORUM_POSTS
+         * to FORUM_POSTS(false, true) here...
+         */
         VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS, REVIEW_HIDE, REVIEW_POST;
 
         /**

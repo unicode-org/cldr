@@ -1310,7 +1310,7 @@ h2, h3, h4, table {
 			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
 			| other) #REQUIRED &gt; <br> <br> &lt;!ELEMENT
 			compoundUnitPattern ( #PCDATA ) &gt;<br> <br> &lt;!ELEMENT
-			coordinateUnit ( alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
+			coordinateUnit ( alias | ( <span class="changed">displayName*, </span>coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
 			coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
 			coordinateUnitPattern type (north | east | south | west) #REQUIRED
 			&gt; <br> <br> &lt;!ELEMENT durationUnitPattern ( #PCDATA )
@@ -1456,6 +1456,7 @@ h2, h3, h4, table {
 				<td><em>concentr</em></td>
 				<td>karat</td>
 				<td>{0} kt</td>
+				<td class="changed">dimensionless</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
@@ -1471,6 +1472,19 @@ h2, h3, h4, table {
 				<td><em>concentr</em></td>
 				<td>part-per-million</td>
 				<td>{0} ppm</td>
+				<td class="changed">dimensionless</td>
+			</tr>
+			<tr class="changed">
+				<td><em>concentr</em></td>
+				<td>percent</td>
+				<td>{0}%</td>
+				<td>dimensionless</td>
+			</tr>
+			<tr class="changed">
+				<td><em>concentr</em></td>
+				<td>permille</td>
+				<td>{0}‰</td>
+				<td>dimensionless</td>
 			</tr>
 			<tr>
 				<td><em>consumption</em></td>
@@ -1491,6 +1505,11 @@ h2, h3, h4, table {
 				<td><em>consumption</em></td>
 				<td>mile-per-gallon-imperial</td>
 				<td>{0} mpg Imp.</td>
+			</tr>
+			<tr class="changed">
+				<td><em>digital</em></td>
+				<td>petabyte</td>
+				<td>{0} PB</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
@@ -1903,6 +1922,11 @@ h2, h3, h4, table {
 				<td>millibar</td>
 				<td>{0} mbar</td>
 			</tr>
+			<tr class="changed">
+				<td><em>pressure</em></td>
+				<td>atmosphere</td>
+				<td>{0} atm</td>
+			</tr>
 			<tr>
 				<td><em>speed</em></td>
 				<td>kilometer-per-hour</td>
@@ -2197,13 +2221,15 @@ h2, h3, h4, table {
 		<p>
 			The <strong>coordinateUnitPattern</strong> is a special type of
 			pattern used for composing degrees of latitude and longitude, with an
-			indicator of the quadrant. There are exactly 4 type values. An angle
+			indicator of the quadrant. There are exactly 4 type values<span class="changed">,
+			plus a displayName for the items in this category</span>. An angle
 			is composed using the appropriate combination of the <strong>angle-degrees</strong>,
 			<strong>angle-arc-minute</strong> and <strong>angle-arc-second</strong>
 			values. It is then substituted for the placeholder field {0} in the
 			appropriate <strong>coordinateUnit</strong> pattern.
 		</p>
 		<p class="xmlExample">
+			<span class="changed">&lt;displayName&gt;direction&lt;/displayName&gt;<br></span>
 			&lt;coordinateUnitPattern
 			type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
 			&lt;coordinateUnitPattern

@@ -419,8 +419,13 @@ public class DisplayAndInputProcessor {
 
             if (path.startsWith("//ldml/annotations/annotation")) {
                 if (path.contains(Emoji.TYPE_TTS)) {
+                    // The row has something like "🦓 -name" in the first column.
+                    // Normally the value is like "zebra" or "unicorn face", without "|".
+                    // When does it have "|" for this SPLIT_BAR?
                     value = SPLIT_BAR.split(value).iterator().next();
                 } else {
+                    // The row has something like "🦓 –keywords" in the first column.
+                    // Normally the value is like "stripe | zebra", with "|".
                     value = annotationsForDisplay(value);
                 }
             }
@@ -436,6 +441,14 @@ public class DisplayAndInputProcessor {
 
     private static final boolean REMOVE_COVERED_KEYWORDS = true;
 
+    /**
+     * Produce a modification of the given annotation by sorting its components and filtering covered keywords.
+     * 
+     * Examples: Given "b | a", return "a | b". Given "bear | panda | panda bear", return "bear | panda".
+     *
+     * @param value the string
+     * @return the possibly modified string
+     */
     private static String annotationsForDisplay(String value) {
         TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
         sorted.addAll(SPLIT_BAR.splitToList(value));
@@ -446,6 +459,15 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
+    /**
+     * Filter from the given set some keywords that include spaces, if they duplicate,
+     * or are "covered by", other keywords in the set.
+     * 
+     * For example, if the set is {"bear", "panda", "panda bear"} (annotation was "bear | panda | panda bear"),
+     * then remove "panda bear", treating it as "covered" since the set already includes "panda" and "bear".
+     *
+     * @param sorted the set from which items may be removed
+     */
     public static void filterCoveredKeywords(TreeSet<String> sorted) {
         // for now, just do single items
         HashSet<String> toRemove = new HashSet<>();

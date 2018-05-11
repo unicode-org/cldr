@@ -80,19 +80,13 @@ public class TestAnnotationVotes extends TestFmwk {
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV04() {
+        // This test passes if we use IRV with supersets allowed for "next choice";
+        // it fails if only subsets are allowed for IRV "next choice".
         String test = "adjustAnnotationVoteCounts for a|b|c|f=8, a|b|e=6, a|e=4 should make a|b|e, a|b|c|f, a|e";
         String[] valI = {"a|b|c|f", "a|b|e", "a|e"};
         long[] votesI = {8, 6, 4};
         String[] valO = {"a|b|e", "a|b|c|f", "a|e"};
         runTest(test, valI, votesI, valO);
-    }
-
-    /**
-     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
-     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
-     */
-    public void TestAV99() {
-        errln("❌ This set of tests is incomplete.");
     }
 
     /**

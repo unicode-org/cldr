@@ -874,7 +874,7 @@ public class VoteResolver<T> {
                 filterCoveredKeywords(sorted);
             }
             value = JOIN_BAR.join(sorted);
-            
+
             Also compare splitAnnotationIntoComponentsList.
         */
         HashMap<T, Long> voteCount = null;
@@ -922,19 +922,21 @@ public class VoteResolver<T> {
     }
 
     /**
-     * Adjust the effective votes for bar-joined annotations, based on the components of each value,
+     * Adjust the effective votes for bar-joined annotations,
      * and re-sort the array of values to reflect the adjusted vote counts.
      *
-     * For example, a value "happy | joyful" has two components "happy" and "joyful", and a vote
-     * for that value is treated as a vote for each of the components. Adjust the vote for that value
-     * based on votes for components of other values.
+     * Use IRV (instant run-off voting) with implicit "next choices" based on subsets/supersets of annotation components.
      * 
      * Note: "Annotations provide names and keywords for Unicode characters, currently focusing on emoji."
+     * For example, an annotation "happy | joyful" has two components "happy" and "joyful".
      * References:
      *   http://unicode.org/cldr/charts/32/annotations/index.html
      *   http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
      *   http://unicode.org/repos/cldr/tags/latest/common/annotations/
-     * 
+     *
+     * This function is where the essential algorithm needs to be implemented
+     * for http://unicode.org/cldr/trac/ticket/10973
+     *
      * @param sortedValues the set of sorted values
      * @param voteCount the hash giving the vote count for each value in sortedValues
      * 
@@ -944,40 +946,6 @@ public class VoteResolver<T> {
         if (voteCount == null || sortedValues == null) {
             return;
         }
-        if (true) {
-            /* Use IRV where the "second choice" of voters for an eliminated annotation A is implied as follows:
-             * In the set of candidate annotations that haven't been eliminated, find the largest one B
-             * (largest in terms of having the most components) such that the components of B are a subset
-             * of the components of A.
-             * If B doesn't exist, then, in the set of candidate annotations that haven't
-             * been eliminated, find the smallest one C (smallest in terms of having the fewest components)
-             * such that the components of C are a superset of the components of A.
-             * If B or C exists, use it as the "second choice" of voters for A. 
-             * If neither B nor C exists, there is no "second choice" of voters for A.
-             */
-            calculateNewCountsWithAnnotationComponentsIRV(sortedValues, voteCount);
-        }
-        else {
-            // Make compMap map individual components to cumulative vote counts.
-            HashMap<T, Long> compMap = makeAnnotationComponentMap(sortedValues, voteCount);
-            
-            // Calculate new counts for original values, based on components.
-            calculateNewCountsBasedOnAnnotationComponents(sortedValues, voteCount, compMap);
-        }
-        // Re-sort sortedValues based on voteCount.
-        resortValuesBasedOnAdjustedVoteCounts(sortedValues, voteCount);
-    }
-
-    /**
-     * Calculate new counts for original values, based on IRV with subsets/supersets of annotation components.
-     * 
-     * @param sortedValues the set of sorted values
-     * @param voteCount the hash giving the vote count for each value in sortedValues
-     *
-     * This function is where the essential algorithm needs to be implemented
-     * for http://unicode.org/cldr/trac/ticket/10973
-     */
-    private void calculateNewCountsWithAnnotationComponentsIRV(Set<T> sortedValues, HashMap<T, Long> voteCount) {
         long totalVoteCount = 0;
         T topValue = null;
         T bottomValue = null;
@@ -991,6 +959,9 @@ public class VoteResolver<T> {
             if (bottomValue == null || c < voteCount.get(bottomValue)) {
                 bottomValue = value;
             }
+        }
+        if (topValue == null || bottomValue == null) {
+            throw new InternalError("null topValue or bottomValue");
         }
         long majorityThreshold = (totalVoteCount + 1) / 2;
         while (voteCount.get(topValue) < majorityThreshold) {
@@ -1007,124 +978,60 @@ public class VoteResolver<T> {
                 }
             }
         }
-    }
-
-    private long distributeEliminatedCandidateVotes(T bottomValue, Set<T> eligibleValues, HashMap<T, Long> voteCount, long totalVoteCount) {
-        T secondChoice = null;
-        int secondChoiceComponentCount = 0;
-        for (T value : eligibleValues) {
-            if (hasComponentSubset(value, bottomValue)) {
-                int compCount = countAnnotationComponents(value);
-                if (compCount > secondChoiceComponentCount) {
-                    secondChoice = value;
-                    secondChoiceComponentCount = compCount;
-                }
-            }
-        }
-        if (secondChoice != null) {
-            voteCount.replace(secondChoice, voteCount.get(secondChoice) + voteCount.get(bottomValue));
-            voteCount.replace(bottomValue, (long) 0);
-            return totalVoteCount;
-        }
-        // TODO: also try supersets
-        totalVoteCount -= voteCount.get(bottomValue);
-        voteCount.replace(bottomValue, (long) 0);
-        return totalVoteCount;
-    }
-
-    private boolean hasComponentSubset(T value, T bottomValue) {
-        // List<T> comps = splitAnnotationIntoComponentsList(value);
-        return false; // TODO;
-    }
-
-    private int countAnnotationComponents(T value) {
-        return 0; // TODO
+        // Re-sort sortedValues based on voteCount.
+        resortValuesBasedOnAdjustedVoteCounts(sortedValues, voteCount);
     }
 
     /**
-     * Make a hash that maps individual annotation components to cumulative vote counts.
+     * Distribute the votes for an eliminated candidate annotation.
      * 
-     * For example, 3 votes for "a|b" and 2 votes for "a|c" makes 5 votes for "a", 3 for "b", and 2 for "c".
-     * 
+     * Use IRV where the "next choice" of voters for an eliminated annotation A is implied as follows:
+     * In the set of candidate annotations that haven't been eliminated, find the largest one B
+     * (largest in terms of having the most components) such that the components of B are a subset
+     * of the components of A.
+     * If B doesn't exist, then, in the set of candidate annotations that haven't
+     * been eliminated, find the smallest one C (smallest in terms of having the fewest components)
+     * such that the components of C are a superset of the components of A.
+     * If B or C exists, use it as the "next choice" of voters for A. 
+     * If neither B nor C exists, there is no "next choice" of voters for A.
+     *
      * @param sortedValues the set of sorted values
      * @param voteCount the hash giving the vote count for each value in sortedValues
-     */
-    private HashMap<T, Long> makeAnnotationComponentMap(Set<T> sortedValues, HashMap<T, Long> voteCount) {
-        HashMap<T, Long> compMap = new HashMap<T, Long>();        
-        for (T value : sortedValues) {
-            Long count = voteCount.get(value);
-            List<T> comps = splitAnnotationIntoComponentsList(value);
-            for (T comp : comps) {
-                if (compMap.containsKey(comp)) {
-                    compMap.replace(comp, compMap.get(comp) + count);
-                }
-                else {
-                    compMap.put(comp, count);
-                }
-            }
-        }
-        if (DEBUG) {
-            System.out.println("\n\tComponents in adjustAnnotationVoteCounts:");
-            for (T comp : compMap.keySet()) {
-                System.out.println("\t" + comp + ":" + compMap.get(comp));
-            }
-        }
-        return compMap;
-    }    
-
-    /**
-     * Calculate new counts for original values, based on annotation components.
-     * 
-     * @param sortedValues the set of sorted values
-     * @param voteCount the hash giving the vote count for each value in sortedValues
-     * @param compMap the hash that maps individual components to cumulative vote counts
      *
      * This function is where the essential algorithm needs to be implemented
      * for http://unicode.org/cldr/trac/ticket/10973
-     *
-     * TODO: decide on the algorithm! Two different ideas have been proposed:
-     *
-     * (1) Given input {a|b|c|f=8, a|b|e=6, a|e=4},
-     *    we get compMap {a=18, b=14, c=8, e=10, f=8}.
-     *    Accept anything with > 1/2 the top vote count (18/2 = 9) as the top,
-     *    so we end up with a|b|e since a, b, and e all have > 8 in compMap.
-     *    Note that what we end up with might not be an input option (for example,
-     *    a|b is not one of the input options, although a|b|e is, coincidentally).
-     *    Ideally, we'd just introduce a new one. But in the meantime maybe we can
-     *    take the largest subset, and failing that the smallest superset, or something like that.
-     *
-     * (2) A, B, C in an item, D, E have votes, overall might be A+B+C-(D+E) votes.
-     *    That is, again given input {a|b|c|f=8, a|b|e=6, a|e=4},
-     *    we again get compMap {a=18, b=14, c=8, e=10, f=8}.
-     *    For a|b|c|f we get 18 + 14 + 8 - 10 + 8 = 38
-     *    For a|b|e   we get 18 + 14 - 8 + 10 - 8 = 26
-     *    For a|e     we get 18 - 14 - 8 + 10 - 8 = -2
-     *    The winner for (2) is a|b|c|f, not a|b|e as in (1).
-     * 
-     * The first implementation follows (2), since (1) isn't clearly defined,
-     * given that introducing a novel combination of components isn't considered an
-     * option for this ticket, and it's not clear yet what's meant about largest subset
-     * or smallest superset...
      */
-    private void calculateNewCountsBasedOnAnnotationComponents(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> compMap) {
-        voteCount.clear();
-        for (T value : sortedValues) {
-            Long newCount = (long) 0;
-            List<T> comps = splitAnnotationIntoComponentsList(value);
-            Set<T> allComps = compMap.keySet();
-            for (T comp : allComps) {                
-                if (comps.contains(comp)) {
-                    // System.out.println("\tnewCount = " + newCount + "; newCount += " + compMap.get(comp));
-                    newCount += compMap.get(comp);
-                }
-                else {
-                    // System.out.println("\tnewCount = " + newCount + "; newCount -= " + compMap.get(comp));
-                    newCount -= compMap.get(comp);
+    private long distributeEliminatedCandidateVotes(T bottomValue, Set<T> eligibleValues, HashMap<T, Long> voteCount, long totalVoteCount) {
+        T nextChoice = null;
+        // try subsets
+        Set<T> bottomComps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(bottomValue));
+        for (T value : eligibleValues) {
+            Set<T> comps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(value));
+            if (bottomComps.containsAll(comps)) {
+                if (nextChoice == null || comps.size() > splitAnnotationIntoComponentsList(nextChoice).size()) {
+                    nextChoice = value;
                 }
             }
-            voteCount.put(value, newCount);
-            // System.out.println("\tvoteCount.put(" + value + ", " + newCount + ")");
         }
+        if (nextChoice == null) {
+            // try supersets
+            for (T value : eligibleValues) {
+                Set<T> comps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(value));
+                if (comps.containsAll(bottomComps)) {
+                    if (nextChoice == null || comps.size() > splitAnnotationIntoComponentsList(nextChoice).size()) {
+                        nextChoice = value;
+                    }
+                }
+            }
+        }
+        if (nextChoice == null) {
+            totalVoteCount -= voteCount.get(bottomValue);
+        }
+        else {
+            voteCount.replace(nextChoice, voteCount.get(nextChoice) + voteCount.get(bottomValue));
+        }
+        voteCount.replace(bottomValue, (long) 0);
+        return totalVoteCount;
     }
 
     /**
@@ -1146,20 +1053,25 @@ public class VoteResolver<T> {
     /**
      * Re-sort the set of values to match the adjusted vote counts based on annotation components.
      * 
+     * Resolve ties using ULocale.ENGLISH collation for consistency with votesThenUcaCollator.
+     * 
      * @param sortedValues the set of sorted values, maybe no longer sorted the way we want
      * @param voteCount the hash giving the adjusted vote count for each value in sortedValues
      * @param compMap the hash that maps individual components to cumulative vote counts
      */
     private void resortValuesBasedOnAdjustedVoteCounts(Set<T> sortedValues, HashMap<T, Long> voteCount) {
         List<T> list = new ArrayList<T>(sortedValues);
+        Collator col = Collator.getInstance(ULocale.ENGLISH);
         Collections.sort(list, (v1, v2) -> {
-            // System.out.println("\tComparing " + v1 + "=" + voteCount.get(v1) +  " with " + v2 + "=" + voteCount.get(v2));
-            return (int) (voteCount.get(v2) - voteCount.get(v1)); // decreasing numeric order
+            long c1 = voteCount.get(v1), c2 = voteCount.get(v2);
+            if (c1 != c2) {
+                return (c1 < c2) ? 1 : -1; // decreasing numeric order
+            }
+            return col.compare(String.valueOf(v1), String.valueOf(v2));
         });
         sortedValues.clear();
         for (T value : list) {
             sortedValues.add(value);
-            // System.out.println("\t" + value);
         }
     }
 

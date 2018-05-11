@@ -278,7 +278,7 @@ public class DisplayAndInputProcessor {
 
     public static final Splitter SPLIT_BAR = Splitter.on('|').trimResults().omitEmptyStrings();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
-    public static final Joiner JOIN_BAR = Joiner.on(" | ");
+    static final Joiner JOIN_BAR = Joiner.on(" | ");
 
     /**
      * Process the value for input. The result is a cleaned-up value. For example,

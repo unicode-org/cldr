@@ -107,7 +107,7 @@ public class TestAnnotationVotes extends TestFmwk {
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV06() {
-        // Spreadsheet "scenario 3
+        // Spreadsheet "scenario 3"
         String test = "adjustAnnotationVoteCounts for a|b|c=8, a|b|d=6, a|d=4 should make a|b|d, a|d, a|b|c";
         String[] valI = {"a|b|c", "a|b|d", "a|d"};
         long[] votesI = {8,        6,       4};

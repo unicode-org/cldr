@@ -10,7 +10,6 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -856,29 +855,15 @@ public class VoteResolver<T> {
         if (DEBUG && vrPath == null) {
             System.out.println("resolveVotes: vrPath = null!!!");
         }
-       /* TODO: Clarify and encapsulate this dependency on "//ldml/annotations/annotation".
-         * What is Emoji.TYPE_TTS and does it matter here?
-         * Should we filterCoveredKeywords here?
-         * Compare in DisplayAndInputProcessor.java:
-            if (path.startsWith("//ldml/annotations/annotation")) {
-                if (path.contains(Emoji.TYPE_TTS)) {
-                    value = SPLIT_BAR.split(value).iterator().next();
-                } else {
-                    value = annotationsForDisplay(value);
-                }
-            }
-            ...
-            TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
-            sorted.addAll(SPLIT_BAR.splitToList(value));
-            if (REMOVE_COVERED_KEYWORDS) {
-                filterCoveredKeywords(sorted);
-            }
-            value = JOIN_BAR.join(sorted);
-
-            Also compare splitAnnotationIntoComponentsList.
-        */
+        /* Apply special voting method adjustAnnotationVoteCounts only to certain bar-separated keyword annotations.
+         * Their paths start with "//ldml/annotations/annotation" and do NOT include Emoji.TYPE_TTS.
+         * Both name paths (cf. namePath, getNamePaths) and keyword paths (cf. keywordPath, getKeywordPaths)
+         * have "//ldml/annotations/annotation". Name paths include Emoji.TYPE_TTS, and keyword paths don't.
+         * Special voting is for keyword paths, not for name paths.
+         * Compare path dependencies in DisplayAndInputProcessor.java. See also splitAnnotationIntoComponentsList.
+         */
         HashMap<T, Long> voteCount = null;
-        if (vrPath != null && vrPath.startsWith("//ldml/annotations/annotation")) {
+        if (vrPath != null && vrPath.startsWith("//ldml/annotations/annotation") && !vrPath.contains(Emoji.TYPE_TTS)) {
             voteCount = makeVoteCountMap(sortedValues, totals);
             adjustAnnotationVoteCounts(sortedValues, voteCount);
         }
@@ -925,8 +910,6 @@ public class VoteResolver<T> {
      * Adjust the effective votes for bar-joined annotations,
      * and re-sort the array of values to reflect the adjusted vote counts.
      *
-     * Use IRV (instant run-off voting) with implicit "next choices" based on subsets/supersets of annotation components.
-     * 
      * Note: "Annotations provide names and keywords for Unicode characters, currently focusing on emoji."
      * For example, an annotation "happy | joyful" has two components "happy" and "joyful".
      * References:
@@ -946,93 +929,77 @@ public class VoteResolver<T> {
         if (voteCount == null || sortedValues == null) {
             return;
         }
-        long totalVoteCount = 0;
-        T topValue = null;
-        T bottomValue = null;
-        Set<T> eligibleValues = new LinkedHashSet<T>(sortedValues);
-        for (T value : eligibleValues) {
-            long c = voteCount.get(value);
-            totalVoteCount += c;
-            if (topValue == null || c > voteCount.get(topValue)) {
-                topValue = value;
-            }
-            if (bottomValue == null || c < voteCount.get(bottomValue)) {
-                bottomValue = value;
-            }
-        }
-        if (topValue == null || bottomValue == null) {
-            throw new InternalError("null topValue or bottomValue");
-        }
-        long majorityThreshold = (totalVoteCount + 1) / 2;
-        while (voteCount.get(topValue) < majorityThreshold) {
-            eligibleValues.remove(bottomValue);
-            totalVoteCount = distributeEliminatedCandidateVotes(bottomValue, eligibleValues, voteCount, totalVoteCount);
-            majorityThreshold = (totalVoteCount + 1) / 2;
-            for (T value : eligibleValues) {
-                long c = voteCount.get(value);
-                if (c > voteCount.get(topValue)) {
-                    topValue = value;
-                }
-                if (c < voteCount.get(bottomValue)) {
-                    bottomValue = value;
-                }
-            }
-        }
+        // Make compMap map individual components to cumulative vote counts.
+        HashMap<T, Long> compMap = makeAnnotationComponentMap(sortedValues, voteCount);
+            
+        // Calculate new counts for original values, based on components.
+        calculateNewCountsBasedOnAnnotationComponents(sortedValues, voteCount, compMap);
+
         // Re-sort sortedValues based on voteCount.
         resortValuesBasedOnAdjustedVoteCounts(sortedValues, voteCount);
     }
 
     /**
-     * Distribute the votes for an eliminated candidate annotation.
+     * Make a hash that maps individual annotation components to cumulative vote counts.
      * 
-     * Use IRV where the "next choice" of voters for an eliminated annotation A is implied as follows:
-     * In the set of candidate annotations that haven't been eliminated, find the largest one B
-     * (largest in terms of having the most components) such that the components of B are a subset
-     * of the components of A.
-     * If B doesn't exist, then, in the set of candidate annotations that haven't
-     * been eliminated, find the smallest one C (smallest in terms of having the fewest components)
-     * such that the components of C are a superset of the components of A.
-     * If B or C exists, use it as the "next choice" of voters for A. 
-     * If neither B nor C exists, there is no "next choice" of voters for A.
-     *
+     * For example, 3 votes for "a|b" and 2 votes for "a|c" makes 5 votes for "a", 3 for "b", and 2 for "c".
+     * 
      * @param sortedValues the set of sorted values
      * @param voteCount the hash giving the vote count for each value in sortedValues
-     *
-     * This function is where the essential algorithm needs to be implemented
-     * for http://unicode.org/cldr/trac/ticket/10973
      */
-    private long distributeEliminatedCandidateVotes(T bottomValue, Set<T> eligibleValues, HashMap<T, Long> voteCount, long totalVoteCount) {
-        T nextChoice = null;
-        // try subsets
-        Set<T> bottomComps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(bottomValue));
-        for (T value : eligibleValues) {
-            Set<T> comps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(value));
-            if (bottomComps.containsAll(comps)) {
-                if (nextChoice == null || comps.size() > splitAnnotationIntoComponentsList(nextChoice).size()) {
-                    nextChoice = value;
+    private HashMap<T, Long> makeAnnotationComponentMap(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        HashMap<T, Long> compMap = new HashMap<T, Long>();        
+        for (T value : sortedValues) {
+            Long count = voteCount.get(value);
+            List<T> comps = splitAnnotationIntoComponentsList(value);
+            for (T comp : comps) {
+                if (compMap.containsKey(comp)) {
+                    compMap.replace(comp, compMap.get(comp) + count);
+                }
+                else {
+                    compMap.put(comp, count);
                 }
             }
         }
-        if (nextChoice == null) {
-            // try supersets
-            for (T value : eligibleValues) {
-                Set<T> comps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(value));
-                if (comps.containsAll(bottomComps)) {
-                    if (nextChoice == null || comps.size() > splitAnnotationIntoComponentsList(nextChoice).size()) {
-                        nextChoice = value;
-                    }
-                }
+        if (DEBUG) {
+            System.out.println("\n\tComponents in adjustAnnotationVoteCounts:");
+            for (T comp : compMap.keySet()) {
+                System.out.println("\t" + comp + ":" + compMap.get(comp));
             }
         }
-        if (nextChoice == null) {
-            totalVoteCount -= voteCount.get(bottomValue);
+        return compMap;
+    }    
+
+    /**
+     * Calculate new counts for original values, based on annotation components.
+     * 
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value in sortedValues
+     * @param compMap the hash that maps individual components to cumulative vote counts
+     *
+     * See http://unicode.org/cldr/trac/ticket/10973
+     */
+    private void calculateNewCountsBasedOnAnnotationComponents(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> compMap) {
+
+        /* Find the total votes for each component (eg "b" in "b|c"). As the "modified"
+            vote for the set, use the geometric mean of the components in the set.
+
+            Order the sets by that mean value, then by the smallest number of items in
+            the set, then the fallback we always use (alphabetical). */
+
+        voteCount.clear();
+        for (T value : sortedValues) {
+            List<T> comps = splitAnnotationIntoComponentsList(value);
+            double product = 1.0;
+            for (T comp : comps) {
+                product *= compMap.get(comp);
+            }
+            // multiply by ten to reduce problem with different doubles getting rounded to identical longs
+            Long newCount = Math.round(10.0 * Math.pow(product, 1.0 / comps.size())); // geometric mean
+            voteCount.put(value, newCount);
         }
-        else {
-            voteCount.replace(nextChoice, voteCount.get(nextChoice) + voteCount.get(bottomValue));
-        }
-        voteCount.replace(bottomValue, (long) 0);
-        return totalVoteCount;
     }
+
 
     /**
      * Split an annotation into a list of components.
@@ -1044,7 +1011,6 @@ public class VoteResolver<T> {
      * 
      * Called by makeAnnotationComponentMap and calculateNewCountsBasedOnAnnotationComponents.
      * Short, but needs encapsulation, should be consistent with similar code in DisplayAndInputProcessor.java.
-     * TODO: What is Emoji.TYPE_TTS and does it matter here? Should we filterCoveredKeywords here?
      */
     private List<T> splitAnnotationIntoComponentsList(T value) {
         return (List<T>) DisplayAndInputProcessor.SPLIT_BAR.splitToList((CharSequence) value);
@@ -1065,7 +1031,12 @@ public class VoteResolver<T> {
         Collections.sort(list, (v1, v2) -> {
             long c1 = voteCount.get(v1), c2 = voteCount.get(v2);
             if (c1 != c2) {
-                return (c1 < c2) ? 1 : -1; // decreasing numeric order
+                return (c1 < c2) ? 1 : -1; // decreasing numeric order (most votes wins)
+            }
+            int size1 = splitAnnotationIntoComponentsList(v1).size();
+            int size2 = splitAnnotationIntoComponentsList(v2).size();
+            if (size1 != size2) {
+                return (size1 < size2) ? -1 : 1; // increasing order of size (smallest set wins)
             }
             return col.compare(String.valueOf(v1), String.valueOf(v2));
         });

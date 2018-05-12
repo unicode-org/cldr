@@ -419,12 +419,12 @@ public class DisplayAndInputProcessor {
 
             if (path.startsWith("//ldml/annotations/annotation")) {
                 if (path.contains(Emoji.TYPE_TTS)) {
-                    // The row has something like "🦓 -name" in the first column.
+                    // The row has something like "🦓 -name" in the first column. Cf. namePath, getNamePaths.
                     // Normally the value is like "zebra" or "unicorn face", without "|".
                     // If the user enters a value with "|",  discard anything after "|"; e.g., change "a | b | c" to "a".
                     value = SPLIT_BAR.split(value).iterator().next();
                 } else {
-                    // The row has something like "🦓 –keywords" in the first column.
+                    // The row has something like "🦓 –keywords" in the first column. Cf. keywordPath, getKeywordPaths.
                     // Normally the value is like "stripe | zebra", with "|".
                     value = annotationsForDisplay(value);
                 }

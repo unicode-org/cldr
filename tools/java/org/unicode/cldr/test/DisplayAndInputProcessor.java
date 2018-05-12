@@ -421,7 +421,7 @@ public class DisplayAndInputProcessor {
                 if (path.contains(Emoji.TYPE_TTS)) {
                     // The row has something like "🦓 -name" in the first column.
                     // Normally the value is like "zebra" or "unicorn face", without "|".
-                    // When does it have "|" for this SPLIT_BAR?
+                    // If the user enters a value with "|",  discard anything after "|"; e.g., change "a | b | c" to "a".
                     value = SPLIT_BAR.split(value).iterator().next();
                 } else {
                     // The row has something like "🦓 –keywords" in the first column.

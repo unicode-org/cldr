@@ -65,7 +65,7 @@ import com.ibm.icu.util.ULocale;
  * </pre>
  */
 public class VoteResolver<T> {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     /**
      * The status levels according to the committee, in ascending order

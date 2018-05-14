@@ -3423,10 +3423,7 @@ function updateRow(tr, theRow) {
 			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}
 		
-		// The next line (listenToPop...) was commented out. I don't know why.
-		// I restored it for http://unicode.org/cldr/trac/ticket/10573 so that the
-		// right-side panel info changes when you click on the English column.
-		listenToPop(null,tr,children[config.comparisoncell]);
+		//listenToPop(null,tr,children[config.comparisoncell]);
 		children[config.comparisoncell].isSetup=true;
 	}
 	removeAllChildNodes(children[config.proposedcell]); // win

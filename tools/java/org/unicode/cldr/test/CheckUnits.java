@@ -28,14 +28,10 @@ public class CheckUnits extends CheckCLDR {
         boolean hasSecondsSymbol = SECONDS_SYMBOL.matcher(value).find();
 
         if (durationUnitType.contains("h") && !hasHourSymbol) {
-            /* Changed message from "The hour symbol (h or hh) is missing"
-             *  to "The hour indicator should be either h or hh for duration"
-             *  per http://unicode.org/cldr/trac/ticket/10999
-             */
             result.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.invalidDurationUnitPattern)
-                .setMessage("The hour indicator should be either h or hh for duration."));
+                .setMessage("The hour symbol (h or hh) is missing."));
         } else if (durationUnitType.contains("m") && !hasMinuteSymbol) {
             result.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.errorType)

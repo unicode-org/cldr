@@ -617,17 +617,13 @@ public class VoteResolver<T> {
     private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
 
     /**
-     * vrPath: for http://unicode.org/cldr/trac/ticket/10973, Emoji keywords,
-     * resolveVotes has special method of counting votes on keywords that have
-     * multiple values separated by bar, like "happy | joyful".
-     * resolveVotes will use that special method when the path starts
-     * with "ldml/annotations/annotation". Save a copy of the path as vrPath
-     * when creating a new VoteResolver so it will be available for resolveVotes.
-     * 
-     * public for now, set in STFactory.java; TODO: make vrPath private and add param to
-     * constructor, or establish another way for resolveVotes to access path.
+     * useKeywordAnnotationVoting: when true, use a special voting method for keyword
+     * annotations that have multiple values separated by bar, like "happy | joyful".
+     * See http://unicode.org/cldr/trac/ticket/10973 .
+     * public, set in STFactory.java; could make it private and add param to
+     * the VoteResolver constructor.
      */
-    public String vrPath = null;
+    public boolean useKeywordAnnotationVoting = false;
 
     private final Comparator<T> ucaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
@@ -725,7 +721,7 @@ public class VoteResolver<T> {
         this.lastReleaseStatus = Status.missing;
         this.trunkValue = null;
         this.trunkStatus = Status.missing;
-        this.vrPath = null;
+        this.useKeywordAnnotationVoting = false;
         organizationToValueAndVote.clear();
         resolved = false;
         values.clear();
@@ -851,18 +847,8 @@ public class VoteResolver<T> {
             throw new IllegalArgumentException("No values added to resolver");
         }
         
-        if (DEBUG && vrPath == null) {
-            System.out.println("resolveVotes: vrPath = null!!!");
-        }
-        /* Apply special voting method adjustAnnotationVoteCounts only to certain bar-separated keyword annotations.
-         * Their paths start with "//ldml/annotations/annotation" and do NOT include Emoji.TYPE_TTS.
-         * Both name paths (cf. namePath, getNamePaths) and keyword paths (cf. keywordPath, getKeywordPaths)
-         * have "//ldml/annotations/annotation". Name paths include Emoji.TYPE_TTS, and keyword paths don't.
-         * Special voting is for keyword paths, not for name paths.
-         * Compare path dependencies in DisplayAndInputProcessor.java. See also splitAnnotationIntoComponentsList.
-         */
         HashMap<T, Long> voteCount = null;
-        if (vrPath != null && vrPath.startsWith("//ldml/annotations/annotation") && !vrPath.contains(Emoji.TYPE_TTS)) {
+        if (useKeywordAnnotationVoting) {
             voteCount = makeVoteCountMap(sortedValues, totals);
             adjustAnnotationVoteCounts(sortedValues, voteCount);
         }

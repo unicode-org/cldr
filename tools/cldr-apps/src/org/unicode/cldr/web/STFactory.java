@@ -39,6 +39,7 @@ import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -922,12 +923,18 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 r.clear(); // reuse
             }
-            /* Set vrPath to enable special a voting method for annotation keywords, see http://unicode.org/cldr/trac/ticket/10973
+            /* Apply special voting method adjustAnnotationVoteCounts only to certain bar-separated keyword annotations.
+             * See http://unicode.org/cldr/trac/ticket/10973
+             * The paths for keyword annotations start with "//ldml/annotations/annotation" and do NOT include Emoji.TYPE_TTS.
+             * Both name paths (cf. namePath, getNamePaths) and keyword paths (cf. keywordPath, getKeywordPaths)
+             * have "//ldml/annotations/annotation". Name paths include Emoji.TYPE_TTS, and keyword paths don't.
+             * Special voting is only for keyword paths, not for name paths.
+             * Compare path dependencies in DisplayAndInputProcessor.java. See also VoteResolver.splitAnnotationIntoComponentsList.
              * Note: this does not affect the occurrences of "new VoteResolver" in ConsoleCheckCLDR.java or TestUtilities.java;
-             * if those tests ever involve annotation keywords, they could set vrPath as needed, or a new constructor
-             * for VoteResolver could take vrPath as a parameter.
+             * if those tests ever involve annotation keywords, they could set useKeywordAnnotationVoting as needed, or a new
+             * constructor for VoteResolver could take useKeywordAnnotationVoting (or the path) as a parameter.
              */
-            r.vrPath = path;
+            r.useKeywordAnnotationVoting = path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS);
 
             // Workaround
             CLDRFile.Status status = new CLDRFile.Status();

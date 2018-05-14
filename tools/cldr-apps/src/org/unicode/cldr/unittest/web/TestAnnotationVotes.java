@@ -82,10 +82,10 @@ public class TestAnnotationVotes extends TestFmwk {
     public void TestAV04() {
         // This test passes if we use IRV with supersets allowed for "next choice";
         // it fails if only subsets are allowed for IRV "next choice".
-        String test = "adjustAnnotationVoteCounts for a|b|c|f=8, a|b|e=6, a|e=4 should make a|b|e, a|b|c|f, a|e";
+        String test = "adjustAnnotationVoteCounts for a|b|c|f=8, a|b|e=6, a|e=4 should make a|b|e, a|e, a|b|c|f";
         String[] valI = {"a|b|c|f", "a|b|e", "a|e"};
         long[] votesI = {8, 6, 4};
-        String[] valO = {"a|b|e", "a|b|c|f", "a|e"};
+        String[] valO = {"a|b|e", "a|e", "a|b|c|f"};
         runTest(test, valI, votesI, valO);
     }
 

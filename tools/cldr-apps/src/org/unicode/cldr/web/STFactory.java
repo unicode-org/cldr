@@ -922,8 +922,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 r.clear(); // reuse
             }
-            r.vrPath = path; // for http://unicode.org/cldr/trac/ticket/10973, Emoji keywords
-            
+            /* Set vrPath to enable special a voting method for annotation keywords, see http://unicode.org/cldr/trac/ticket/10973
+             * Note: this does not affect the occurrences of "new VoteResolver" in ConsoleCheckCLDR.java or TestUtilities.java;
+             * if those tests ever involve annotation keywords, they could set vrPath as needed, or a new constructor
+             * for VoteResolver could take vrPath as a parameter.
+             */
+            r.vrPath = path;
+
             // Workaround
             CLDRFile.Status status = new CLDRFile.Status();
             diskFile.getSourceLocaleID(path, status); // ask disk file

@@ -3423,6 +3423,7 @@ function updateRow(tr, theRow) {
 			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}
 		
+		
 		//listenToPop(null,tr,children[config.comparisoncell]);
 		children[config.comparisoncell].isSetup=true;
 	}

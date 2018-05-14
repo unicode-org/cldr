@@ -725,11 +725,10 @@ public class VoteResolver<T> {
         this.lastReleaseStatus = Status.missing;
         this.trunkValue = null;
         this.trunkStatus = Status.missing;
+        this.vrPath = null;
         organizationToValueAndVote.clear();
         resolved = false;
         values.clear();
-        
-        // TODO: this.vrPath = ?
     }
 
     /**

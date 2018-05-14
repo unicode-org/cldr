@@ -1462,6 +1462,7 @@ public class PathHeader implements Comparable<PathHeader> {
             final Map<String, String> currencyToTerritoryOverrides = CldrUtility.asMap(ctto);
             final Map<String, String> subContinentToContinent = CldrUtility.asMap(sctc);
             final Set<String> fundCurrencies = new HashSet<String>(Arrays.asList("CHE", "CHW", "CLF", "COU", "ECV", "MXV", "USN", "USS", "UYI", "XEU", "ZAL"));
+            final Set<String> offshoreCurrencies = new HashSet<String>(Arrays.asList("CNH"));
             // TODO: Put this into supplementalDataInfo ?
 
             functionMap.put("categoryFromCurrency", new Transform<String, String>() {
@@ -1472,6 +1473,8 @@ public class PathHeader implements Comparable<PathHeader> {
                         String tag;
                         if (fundCurrencies.contains(source0)) {
                             tag = " (fund)";
+                        } else if (offshoreCurrencies.contains(source0)) {
+                            tag = " (offshore)";
                         } else {
                             tag = " (old)";
                         }

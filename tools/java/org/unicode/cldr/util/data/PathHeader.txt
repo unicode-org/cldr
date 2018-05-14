@@ -212,6 +212,7 @@
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern                        ; Units ; Compound Units ; $2 ; $1
 //ldml/units/durationUnit[@type="(hms|hm|ms)"]                                                        	; Units ; Duration ; Duration Patterns ; $1
 
+//ldml/units/unitLength[@type="%L"]/coordinateUnit/displayName                                          ; Units ; Coordinates ; all ; &unitCount($1-displayName)
 //ldml/units/unitLength[@type="%L"]/coordinateUnit/coordinateUnitPattern[@type="%A"]                    ; Units ; Coordinates ; $2 ; &unitCount($1)
 
 ### Miscellaneous

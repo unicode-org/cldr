@@ -73,7 +73,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     static final CLDRConfig info = CLDRConfig.getInstance();
-    static final Factory factory = info.getMainAndAnnotationsFactory();
+    static final Factory factory = info.getCommonAndSeedAndMainAndAnnotationsFactory();
     static final CLDRFile english = factory.make("en", true);
     static final SupplementalDataInfo supplemental = info
         .getSupplementalDataInfo();

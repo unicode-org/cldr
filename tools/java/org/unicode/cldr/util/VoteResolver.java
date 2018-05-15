@@ -19,6 +19,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
 import com.google.common.base.Objects;
@@ -49,6 +50,7 @@ import com.ibm.icu.util.ULocale;
  * // For any particular base path, set the values
  * // set the 1.5 status (if we're working on 1.6). This &lt;b&gt;must&lt;/b&gt; be done for each new base path
  * resolver.newPath(oldValue, oldStatus);
+ * [TODO: function newPath doesn't exist, revise this documentation]
  *
  * // now add some values, with who voted for them
  * resolver.add(value1, voter1);
@@ -419,7 +421,9 @@ public class VoteResolver<T> {
         /**
          * Return the overall vote for each organization. It is the max for each value.
          * When the organization is conflicted (the top two values have the same vote), the organization is also added
-         * to disputed
+         * to disputed.
+         * 
+         * @param conflictedOrganizations if not null, to be filled in with the set of conflicted organizations.  
          */
         public Counter<T> getTotals(EnumSet<Organization> conflictedOrganizations) {
             if (conflictedOrganizations != null) {
@@ -428,9 +432,6 @@ public class VoteResolver<T> {
             totals.clear();
 
             for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
-
-                //   for (Organization org : orgToVotes.keySet()) {
-//                Counter<T> items = orgToVotes.get(org);
                 Counter<T> items = entry.getValue();
                 if (items.size() == 0) {
                     continue;
@@ -443,11 +444,9 @@ public class VoteResolver<T> {
                     System.out.println("sortedKeys?? " + value + " " + org.displayName);
                 }
 
-                // System.out.println("Org: " + org);
                 // if there is more than one item, check that it is less
                 if (iterator.hasNext()) {
                     T value2 = iterator.next();
-                    //System.out.println("Value2: " + value2);
                     long weight2 = items.getCount(value2);
                     // if the votes for #1 are not better than #2, we have a dispute
                     if (weight == weight2) {
@@ -460,27 +459,6 @@ public class VoteResolver<T> {
                 orgToAdd.put(org, value);
 
                 // We add the max vote for each of the organizations choices
-                /*if(org.displayName.equals("IBM")){
-                       System.out.println("ADDING IBM");
-                        for (T item : items.keySet()) {
-                            long count = items.getCount(item);
-                            if(item.equals("Metric")){
-                                System.out.println("ADDING METRIC");
-                                totals.add(item, count);
-                
-                            }
-                
-                
-                        }
-                    }
-                    else{ */
-                /*  for (T item : items.keySet()) {
-                            long count = items.getCount(item);
-                            totals.add(item, count);
-                
-                        }*/
-                //    }
-
                 long maxCount = 0;
                 T considerItem = null;
                 long considerCount = 0;
@@ -527,7 +505,6 @@ public class VoteResolver<T> {
                 System.out.println("FINALTotals: " + totals.toString());
             }
             return totals;
-
         }
 
         public int getOrgCount(T winningValue) {
@@ -639,6 +616,15 @@ public class VoteResolver<T> {
     private int requiredVotes;
     private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
 
+    /**
+     * useKeywordAnnotationVoting: when true, use a special voting method for keyword
+     * annotations that have multiple values separated by bar, like "happy | joyful".
+     * See http://unicode.org/cldr/trac/ticket/10973 .
+     * public, set in STFactory.java; could make it private and add param to
+     * the VoteResolver constructor.
+     */
+    public boolean useKeywordAnnotationVoting = false;
+
     private final Comparator<T> ucaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
 
@@ -735,6 +721,7 @@ public class VoteResolver<T> {
         this.lastReleaseStatus = Status.missing;
         this.trunkValue = null;
         this.trunkStatus = Status.missing;
+        this.useKeywordAnnotationVoting = false;
         organizationToValueAndVote.clear();
         resolved = false;
         values.clear();
@@ -829,16 +816,21 @@ public class VoteResolver<T> {
         }
     };
 
+    /**
+     * Resolve the votes. Resolution entails counting votes and setting
+     *  members for this VoteResolver, including winningStatus, winningValue,
+     *  and many others.
+     */
     private void resolveVotes() {
         resolved = true;
         // get the votes for each organization
         valuesWithSameVotes.clear();
         totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
+        /* Note: getKeysetSortedByCount actually returns a LinkedHashSet, "with predictable iteration order". */
         final Set<T> sortedValues = totals.getKeysetSortedByCount(false, votesThenUcaCollator);
         if (DEBUG) {
             System.out.println("sortedValues :" + sortedValues.toString());
         }
-        Iterator<T> iterator = sortedValues.iterator();
         // if there are no (unconflicted) votes, return lastRelease
         if (sortedValues.size() == 0) {
             if (trunkStatus != null && (lastReleaseStatus == null || trunkStatus.compareTo(lastReleaseStatus) >= 0)) {
@@ -848,44 +840,21 @@ public class VoteResolver<T> {
                 winningStatus = lastReleaseStatus;
                 winningValue = lastReleaseValue;
             }
-            // System.out.println("Winning 727: " + winningValue);
             valuesWithSameVotes.add(winningValue); // may be null
             return;
         }
-        // otherwise pick the smallest value.
         if (values.size() == 0) {
             throw new IllegalArgumentException("No values added to resolver");
         }
-        // get the optimal value, and the penoptimal value
-        long weight1 = 0;
-        long weight2 = 0;
-        T value2 = null;
-        int i = -1;
-        for (T value : sortedValues) {
-            ++i;
-            long valueWeight = totals.getCount(value);
-            if (i == 0) {
-                winningValue = value;
-                //    System.out.println("Winning 745: " + winningValue);
-                weight1 = valueWeight;
-                valuesWithSameVotes.add(value);
-            } else {
-                if (i == 1) {
-                    // get the next item if there is one
-                    if (iterator.hasNext()) {
-                        value2 = value;
-                        weight2 = valueWeight;
-                    }
-                }
-                if (valueWeight == weight1) {
-                    //      System.out.println("Value 757: " + value);
-                    valuesWithSameVotes.add(value);
-                } else {
-                    break;
-                }
-            }
+        
+        HashMap<T, Long> voteCount = null;
+        if (useKeywordAnnotationVoting) {
+            voteCount = makeVoteCountMap(sortedValues, totals);
+            adjustAnnotationVoteCounts(sortedValues, voteCount);
         }
-        //    System.out.println("Winning 764: " + winningValue);
+
+        long weights[] = setBestNextAndSameVoteValues(sortedValues, voteCount);
+        
         if (organizationToValueAndVote.hasExplicitInheritanceMarker
             && !organizationToValueAndVote.hasExplicitBailey
             && winningValue.equals(organizationToValueAndVote.baileyValue)
@@ -893,9 +862,9 @@ public class VoteResolver<T> {
             winningValue = (T) CldrUtility.INHERITANCE_MARKER;
         }
         oValue = winningValue;
-        nValue = value2; // save this
-        // here is the meat.
-        winningStatus = computeStatus(weight1, weight2, trunkStatus);
+
+        winningStatus = computeStatus(weights[0], weights[1], trunkStatus);
+
         // if we are not as good as the trunk, use the trunk
         if (trunkStatus != null && winningStatus.compareTo(trunkStatus) < 0) {
             winningStatus = trunkStatus;
@@ -903,6 +872,209 @@ public class VoteResolver<T> {
             valuesWithSameVotes.clear();
             valuesWithSameVotes.add(winningValue);
         }
+    }
+
+    /**
+     * Make a hash for the vote count of each value in the given sorted list.
+     * 
+     * This enables subsequent adjustment of the effective votes for bar-joined annotations.
+     * 
+     * @param sortedValues the set of sorted values
+     * @param totals the Counter to get the count for each value.
+     * @return the HashMap.
+     */
+    private HashMap<T, Long> makeVoteCountMap(Set<T> sortedValues, Counter<T> totals) {
+        HashMap<T, Long> map = new HashMap<T, Long>();
+        for (T value : sortedValues) {
+            map.put(value, totals.getCount(value));
+        }
+        return map;
+    }
+
+    /**
+     * Adjust the effective votes for bar-joined annotations,
+     * and re-sort the array of values to reflect the adjusted vote counts.
+     *
+     * Note: "Annotations provide names and keywords for Unicode characters, currently focusing on emoji."
+     * For example, an annotation "happy | joyful" has two components "happy" and "joyful".
+     * References:
+     *   http://unicode.org/cldr/charts/32/annotations/index.html
+     *   http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
+     *   http://unicode.org/repos/cldr/tags/latest/common/annotations/
+     *
+     * This function is where the essential algorithm needs to be implemented
+     * for http://unicode.org/cldr/trac/ticket/10973
+     *
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value in sortedValues
+     * 
+     * public for unit testing, see TestAnnotationVotes.java
+     */
+    public void adjustAnnotationVoteCounts(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        if (voteCount == null || sortedValues == null) {
+            return;
+        }
+        // Make compMap map individual components to cumulative vote counts.
+        HashMap<T, Long> compMap = makeAnnotationComponentMap(sortedValues, voteCount);
+            
+        // Calculate new counts for original values, based on components.
+        calculateNewCountsBasedOnAnnotationComponents(sortedValues, voteCount, compMap);
+
+        // Re-sort sortedValues based on voteCount.
+        resortValuesBasedOnAdjustedVoteCounts(sortedValues, voteCount);
+    }
+
+    /**
+     * Make a hash that maps individual annotation components to cumulative vote counts.
+     * 
+     * For example, 3 votes for "a|b" and 2 votes for "a|c" makes 5 votes for "a", 3 for "b", and 2 for "c".
+     * 
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value in sortedValues
+     */
+    private HashMap<T, Long> makeAnnotationComponentMap(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        HashMap<T, Long> compMap = new HashMap<T, Long>();        
+        for (T value : sortedValues) {
+            Long count = voteCount.get(value);
+            List<T> comps = splitAnnotationIntoComponentsList(value);
+            for (T comp : comps) {
+                if (compMap.containsKey(comp)) {
+                    compMap.replace(comp, compMap.get(comp) + count);
+                }
+                else {
+                    compMap.put(comp, count);
+                }
+            }
+        }
+        if (DEBUG) {
+            System.out.println("\n\tComponents in adjustAnnotationVoteCounts:");
+            for (T comp : compMap.keySet()) {
+                System.out.println("\t" + comp + ":" + compMap.get(comp));
+            }
+        }
+        return compMap;
+    }    
+
+    /**
+     * Calculate new counts for original values, based on annotation components.
+     * 
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value in sortedValues
+     * @param compMap the hash that maps individual components to cumulative vote counts
+     *
+     * See http://unicode.org/cldr/trac/ticket/10973
+     */
+    private void calculateNewCountsBasedOnAnnotationComponents(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> compMap) {
+
+        /* Find the total votes for each component (eg "b" in "b|c"). As the "modified"
+            vote for the set, use the geometric mean of the components in the set.
+
+            Order the sets by that mean value, then by the smallest number of items in
+            the set, then the fallback we always use (alphabetical). */
+
+        voteCount.clear();
+        for (T value : sortedValues) {
+            List<T> comps = splitAnnotationIntoComponentsList(value);
+            double product = 1.0;
+            for (T comp : comps) {
+                product *= compMap.get(comp);
+            }
+            // multiply by ten to reduce problem with different doubles getting rounded to identical longs
+            Long newCount = Math.round(10.0 * Math.pow(product, 1.0 / comps.size())); // geometric mean
+            voteCount.put(value, newCount);
+        }
+    }
+
+
+    /**
+     * Split an annotation into a list of components.
+     * 
+     * For example, split "happy | joyful" into ["happy", "joyful"].
+     * 
+     * @param value the value like "happy | joyful"
+     * @return the list like ["happy", "joyful"]
+     * 
+     * Called by makeAnnotationComponentMap and calculateNewCountsBasedOnAnnotationComponents.
+     * Short, but needs encapsulation, should be consistent with similar code in DisplayAndInputProcessor.java.
+     */
+    private List<T> splitAnnotationIntoComponentsList(T value) {
+        return (List<T>) DisplayAndInputProcessor.SPLIT_BAR.splitToList((CharSequence) value);
+    }
+
+    /**
+     * Re-sort the set of values to match the adjusted vote counts based on annotation components.
+     * 
+     * Resolve ties using ULocale.ENGLISH collation for consistency with votesThenUcaCollator.
+     * 
+     * @param sortedValues the set of sorted values, maybe no longer sorted the way we want
+     * @param voteCount the hash giving the adjusted vote count for each value in sortedValues
+     * @param compMap the hash that maps individual components to cumulative vote counts
+     */
+    private void resortValuesBasedOnAdjustedVoteCounts(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        List<T> list = new ArrayList<T>(sortedValues);
+        Collator col = Collator.getInstance(ULocale.ENGLISH);
+        Collections.sort(list, (v1, v2) -> {
+            long c1 = voteCount.get(v1), c2 = voteCount.get(v2);
+            if (c1 != c2) {
+                return (c1 < c2) ? 1 : -1; // decreasing numeric order (most votes wins)
+            }
+            int size1 = splitAnnotationIntoComponentsList(v1).size();
+            int size2 = splitAnnotationIntoComponentsList(v2).size();
+            if (size1 != size2) {
+                return (size1 < size2) ? -1 : 1; // increasing order of size (smallest set wins)
+            }
+            return col.compare(String.valueOf(v1), String.valueOf(v2));
+        });
+        sortedValues.clear();
+        for (T value : list) {
+            sortedValues.add(value);
+        }
+    }
+
+    /**
+     * Given a nonempty list of sorted values, set these members of this VoteResolver:
+     *  winningValue, nValue, valuesWithSameVotes (which is empty when this function is called).
+     * 
+     * @param sortedValues the set of sorted values
+     * @param voteCount the hash giving the vote count for each value; if null, use the totals member of this VoteResolver instead
+     * @return an array of two longs, the weights for the best and next-best values.
+     */
+    private long[] setBestNextAndSameVoteValues(Set<T> sortedValues, HashMap<T, Long> voteCount) {
+        long weightArray[] = new long[2];
+        weightArray[0] = 0;
+        weightArray[1] = 0;
+        nValue = null;
+
+        /* Loop through the sorted values, at least the first (best) for winningValue,
+         *  and the second (if any) for nValue (else nValue stays null),
+         *  and subsequent values that have as many votes as the first,
+         *  to add to valuesWithSameVotes.
+         */
+        int i = -1;
+        Iterator<T> iterator = sortedValues.iterator();
+        for (T value : sortedValues) {
+            ++i;
+            long valueWeight = (voteCount != null) ? voteCount.get(value) : totals.getCount(value);
+            if (i == 0) {
+                winningValue = value;
+                weightArray[0] = valueWeight;
+                valuesWithSameVotes.add(value);
+            } else {
+                if (i == 1) {
+                    // get the next item if there is one
+                    if (iterator.hasNext()) {
+                        nValue = value;
+                        weightArray[1] = valueWeight;
+                    }
+                }
+                if (valueWeight == weightArray[0]) {
+                    valuesWithSameVotes.add(value);
+                } else {
+                    break;
+                }
+            }
+        }
+        return weightArray;
     }
 
     private Status computeStatus(long weight1, long weight2, Status oldStatus) {

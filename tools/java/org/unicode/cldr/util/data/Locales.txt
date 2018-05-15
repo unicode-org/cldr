@@ -276,23 +276,25 @@ Google	;	sr_Latn	;	modern		;	Tx	Serbian (auto-generated)
 				
 #Google	Tier	T5
 Google	;	eu	;	modern	;	T5	Basque
-Google	;	gl	;	modern	;	T5	Galician
-Google	;	zu	;	modern	;	T5	Zulu										
-Google	;	ga	;	modern	;	T5	Irish
-Google	;	bs	;	modern	;	T5	Bosnian
 Google	;	be	;	modern	;	T5	Belarusian
+Google	;	bs	;	modern	;	T5	Bosnian
+Google	;	gl	;	modern	;	T5	Galician
+Google	;	ga	;	modern	;	T5	Irish
+Google	;	zu	;	modern	;	T5	Zulu										
 Google	;	cy	;	modern	;	T5	Welsh
 Google	;	yue	;	modern	;	T5	Cantonese
+Google	;	or	;	modern	;	T5	Odia
+Google	;	tk	;	modern	;	T5	Turkmen
+Google	;	ps	;	modern	;	T5	Pashto
+Google	;	as	;	modern	;	T5	Assamese
+Google	;	sd	;	modern	;	T5	Sindhi
 
-#Google Tier M1
-Google	;	or	;	moderate	;	Odia
-Google	;	tk	;	moderate	;	Turkmen
-Google	;	ps	;	moderate	;	Pashto
-Google	;	as	;	moderate	;	Assamese
-Google	;	sd	;	moderate	;	Sindhi
+#Google Tier T6
+Google	;	jv	;	moderate	;	Javanese
+Google  ;   so  ;   moderate    ;   Somali
 
-#Google Tier B1
-Cherokee	;	chr	;	basic	;	T5 Cherokee
+#Google Tier T7
+Google	;	chr	;	basic	; Cherokee
 
 #Google Tier TR
 Google	;	es_US	;	modern	; TR Spanish (United States)
@@ -332,7 +334,6 @@ Google	;	ar_DZ	;	modern	; TR Arabic (Algeria)
 #Google	;	fo	;	basic	;	Faroese
 #Google	;	gaa	;	basic	;	Ga
 #Google	;	lg	;	basic	;	Ganda
-#Google	;	jw	;	basic	;	Javanese
 #Google	;	rw	;	basic	;	Kinyarwanda
 #Google	;	kg	;	basic	;	Kongo
 #Google	;	ln	;	basic	;	Lingala
@@ -606,11 +607,15 @@ Cldr	;	fr_CA	;	modern
 Cldr	;	zh_Hant_HK	;	modern
 
 #Cldr	other (from Google)		
-Cldr	;	or	;	moderate	;	Odia
-Cldr	;	tk	;	moderate	;	Turkmen
-Cldr	;	ps	;	moderate	;	Pashto
-Cldr	;	as	;	moderate	;	Assamese
-Cldr	;	sd	;	moderate	;	Sindhi
+Cldr	;	or	;	modern	;	Odia
+Cldr	;	tk	;	modern	;	Turkmen
+Cldr	;	ps	;	modern	;	Pashto
+Cldr	;	as	;	modern	;	Assamese
+Cldr	;	sd	;	modern	;	Sindhi
+
+Cldr	;	jv	;	moderate	;	Javanese
+Cldr  ;   so  ;   moderate    ;   Somali
+
 
 Bangor_Univ ;   cy   ;    modern  ; Welsh
 Bangor_Univ ;   *    ;    moderate  ; All others

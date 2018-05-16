@@ -586,12 +586,8 @@ public class SurveyForum {
             " type=submit value=Post>");
         ctx.println("<input type=submit name=preview value=Preview><br>");
         
-        // TODO: this message may no longer be accurate, for  https://unicode.org/cldr/trac/ticket/10935
-        // When does this function doXpathPost actually run??
-        if (SurveyMain.isPhaseBeta()) {
-            ctx.println(
-                "<div class='ferrbox'>Please remember that the Survey Tool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
-        }
+        // Deleted message "Survey Tool is in Beta" here per https://unicode.org/cldr/trac/ticket/10935
+
         ctx.println("</form>");
 
         if (ctx.field("post").length() > 0) {

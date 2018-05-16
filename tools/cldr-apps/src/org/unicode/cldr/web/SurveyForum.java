@@ -419,14 +419,19 @@ public class SurveyForum {
     }
 
     /**
+     * Post to a specific xpath.
+     * 
      * Called when user has permission to modify and is zoomed in.
-     *
+     * 
      * @param ctx
      * @param forum
      * @param forumNumber
      * @param base_xpath
      * @throws IOException
      * @throws SurveyException
+     * 
+     * Called only by doForum; User is logged in and ((base_xpath != -1) || (ctx.hasField("replyto"))).
+     * TODO: clarify when this function doXpathPost actually gets called, if ever.
      */
     void doXpathPost(WebContext ctx, String forum, int forumNumber, int base_xpath) throws IOException, SurveyException {
         String fieldStr = ctx.field("replyto", null);
@@ -580,6 +585,9 @@ public class SurveyForum {
         // (ctx.hasField("text")?"":"disabled")+ // require preview
             " type=submit value=Post>");
         ctx.println("<input type=submit name=preview value=Preview><br>");
+        
+        // TODO: this message may no longer be accurate, for  https://unicode.org/cldr/trac/ticket/10935
+        // When does this function doXpathPost actually run??
         if (SurveyMain.isPhaseBeta()) {
             ctx.println(
                 "<div class='ferrbox'>Please remember that the Survey Tool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
@@ -713,6 +721,8 @@ public class SurveyForum {
     }
 
     /**
+     * Respond to the user making a new forum post. Save the post in the database.
+     * 
      * @param base_xpath
      * @param replyTo
      * @param locale
@@ -733,6 +743,8 @@ public class SurveyForum {
             PreparedStatement pAdd = null;
             try {
                 conn = sm.dbUtils.getDBConnection();
+                /* Prepare a statement for inserting a new row into the forum table.
+                 * TODO: add "version" column...  */
                 pAdd = prepare_pAdd(conn);
 
                 pAdd.setInt(1, user.id);
@@ -740,12 +752,7 @@ public class SurveyForum {
                 DBUtils.setStringUTF8(pAdd, 3, preparePostText(text));
                 pAdd.setInt(4, forumNumber);
                 pAdd.setInt(5, replyTo); // record parent
-                pAdd.setString(6, locale.toString()); // real
-                // locale
-                // of
-                // item,
-                // not
-                // furm #
+                pAdd.setString(6, locale.toString()); // real locale of item, not furm #
                 pAdd.setInt(7, base_xpath);
 
                 int n = pAdd.executeUpdate();
@@ -1035,6 +1042,16 @@ public class SurveyForum {
      */
     static final int MSGS_PER_PAGE = 9925;
 
+    /**
+     * List what is in a certain forum.
+     * 
+     * @param ctx
+     * @param forum
+     * @param forumNumber
+     * 
+     * Called by doForum and by doForumView. When?
+     * TODO: clarify when this function doForumForum actually gets called, if ever.
+     */
     private void doForumForum(WebContext ctx, String forum, int forumNumber) {
         //        boolean didpost = ctx.hasField("didpost");
         int skip = ctx.fieldInt("skip", 0);
@@ -1127,6 +1144,12 @@ public class SurveyForum {
         showItem(ctx, forum, forumNumber, id, true);
     }
 
+    /**
+     * Show a forum item.
+     * 
+     * Called by doXpathPost and by doForumView.
+     * TODO: clarify when this function showItem is called, if ever.
+     */
     String showItem(WebContext ctx, String forum, int forumNumber, int id, boolean doTitle) {
         try {
             Connection conn = null;
@@ -1184,6 +1207,15 @@ public class SurveyForum {
 
     /*
      * Show one post, "long" form.
+     * 
+     * Called by doXpathPost, doForumForum, and showItem.
+     * TODO: clarify when this function showPost actually gets called, if ever.
+     * 
+     * Note: this function is not always called when a forum post is shown; instead
+     * commonly SurveyForum.toJSON is called to assemble the data, and then the formatting
+     * is done by parseForumContent in survey.js.
+     *
+     * Note: showPost is also the name of a JavaScript function in review.js.
      */
     void showPost(WebContext ctx, String forum, int poster, String subj, String text, int id, Timestamp time, CLDRLocale loc,
         int xpath) {
@@ -1191,10 +1223,12 @@ public class SurveyForum {
         // get the parent link
         int parentPost = DBUtils.sqlCount("select parent from " + DBUtils.Table.FORUM_POSTS + " where id=?", id);
 
-        // TODO: select version (CLDR version like 33) from db and display it.
-        // version is newly added column for https://unicode.org/cldr/trac/ticket/10935
+        /// get the CLDR version (like 33) from the db and display it.
+        /// version column was added for https://unicode.org/cldr/trac/ticket/10935
+        /// int cldrVersion = DBUtils.sqlCount("select version from " + DBUtils.Table.FORUM_POSTS + " where id=?", id);
 
         ctx.println("<div id='post" + id + "' " + (old ? "style='background-color: #dde;' " : "") + " class='respbox'>");
+        /// ctx.println(" [CLDR version " + cldrVersion + "] ");
         if (old) {
             ctx.println("<i style='background-color: white;'>Note: This is an old post, from a previous period of CLDR vetting.</i><br><br>");
         }
@@ -1518,6 +1552,7 @@ public class SurveyForum {
     }
 
     public static PreparedStatement prepare_pAdd(Connection conn) throws SQLException {
+        /* TODO: save cldr version as "version" column for new post */
         return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO " + DBUtils.Table.FORUM_POSTS.toString()
             + " (poster,subj,text,forum,parent,loc,xpath) values (?,?,?,?,?,?,?)");
     }
@@ -2053,12 +2088,14 @@ public class SurveyForum {
     }
 
     /**
+     * Gather forum post information into a JSONArray, in preparation for
+     * displaying it to the user (which is done by parseForumContent in survey.js).
      *
      * @param session
      * @param locale
      * @param base_xpath Base XPath of the item being viewed, if positive
      * @param ident If nonzero - select only this item. If zero, select all items.
-     * @return
+     * @return the JSONArray
      * @throws JSONException
      * @throws SurveyException
      */
@@ -2068,6 +2105,10 @@ public class SurveyForum {
         JSONArray ret = new JSONArray();
 
         int forumNumber = getForumNumber(locale);
+        
+        // TODO: get the CLDR version (like 33) from the db and display it.
+        // version column was added for https://unicode.org/cldr/trac/ticket/10935
+        // int cldrVersion = DBUtils.sqlCount("select version from " + DBUtils.Table.FORUM_POSTS + " where id=?", id);
 
         try {
             Connection conn = null;
@@ -2111,6 +2152,9 @@ public class SurveyForum {
                 // private final static String pAllResult =
                 // DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
                 if (o != null) {
+                    /* Show posts. Note that showPost is not called here. The data is gathered here,
+                     * and the formatting is done by parseForumContent in survey.js.
+                     */
                     for (int i = 0; i < o.length; i++) {
                         int poster = (Integer) o[i][0];
                         String subj2 = (String) o[i][1];
@@ -2124,7 +2168,7 @@ public class SurveyForum {
                         if (lastDate.after(oldOnOrBefore) || false) {
                             JSONObject post = new JSONObject();
                             post.put("poster", poster)
-                                .put("posterInfo", SurveyAjax.JSONWriter.wrap(CookieSession.sm.reg.getInfo(poster)))
+                                .put("posterInfo", SurveyAjax.JSONWriter.wrap(sm.reg.getInfo(poster)))
                                 .put("subject", subj2).put("text", text2).put("date", lastDate).put("date_long", lastDate.getTime()).put("id", id)
                                 .put("parent", parent);
                             if (loc != null) {
@@ -2204,7 +2248,8 @@ public class SurveyForum {
     }
 
     /**
-     *
+     * Respond when the user adds a new forum post.
+     * 
      * @param mySession
      * @param xpath of the form "stringid" or "#1234"
      * @param l

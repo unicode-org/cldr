@@ -2110,10 +2110,6 @@ public class SurveyForum {
         JSONArray ret = new JSONArray();
 
         int forumNumber = getForumNumber(locale);
-        
-        // TODO: get the CLDR version (like 33) from the db and display it.
-        // version column was added for https://unicode.org/cldr/trac/ticket/10935
-        // int cldrVersion = DBUtils.sqlCount("select version from " + DBUtils.Table.FORUM_POSTS + " where id=?", id);
 
         try {
             Connection conn = null;
@@ -2169,6 +2165,7 @@ public class SurveyForum {
                         int parent = (Integer) o[i][5];
                         int xpath = (Integer) o[i][6];
                         String loc = (String) o[i][7];
+                        String version = (String) o[i][8];
 
                         if (lastDate.after(oldOnOrBefore) || false) {
                             JSONObject post = new JSONObject();
@@ -2178,6 +2175,9 @@ public class SurveyForum {
                                 .put("parent", parent);
                             if (loc != null) {
                                 post.put("locale", loc);
+                            }
+                            if (version != null) {
+                                post.put("version", version);
                             }
                             post.put("xpath_id", xpath);
                             if (xpath > 0) {
@@ -2194,6 +2194,7 @@ public class SurveyForum {
                 DBUtils.close(conn);
             }
         } catch (SQLException se) {
+            // When query fails, set breakpoint here and look at se.detailMessage for clues
             String complaint = "SurveyForum:  Couldn't show posts in forum " + locale + " - " + DBUtils.unchainSqlException(se)
                 + " - fGetByLoc";
             logger.severe(complaint);
@@ -2245,11 +2246,17 @@ public class SurveyForum {
         return getPallresultfora(forumPosts.toString());
     }
 
+    /**
+     * Construct a portion of an sql query for getting all needed columns from the forum posts table.
+     * 
+     * @param forumPosts the table name
+     * @return the string to be used as part of a query
+     */
     private static String getPallresultfora(final CharSequence forumPosts) {
         return forumPosts + ".poster," + forumPosts + ".subj," + forumPosts + ".text,"
             + forumPosts.toString()
             + ".last_time," + forumPosts + ".id," + forumPosts + ".parent," + forumPosts + ".xpath, "
-            + forumPosts + ".loc";
+            + forumPosts + ".loc," + forumPosts + ".version";
     }
 
     /**

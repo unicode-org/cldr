@@ -785,7 +785,12 @@ function parseForumContent(json) {
 		headingLine.appendChild(userLevelChunk=
 			createChunk(stui.str("userlevel_"+post.posterInfo.userlevelName), "span", "userLevelName label-info label"));
 		userLevelChunk.title = stui.str("userlevel_"+post.posterInfo.userlevelName+"_desc");
-		var dateChunk = createChunk(fmtDateTime(post.date_long),"span","label label-primary pull-right forumLink");
+		
+		var formattedDate = fmtDateTime(post.date_long);
+		if (post.version) {
+			formattedDate += " [version " + post.version + "]";
+		}
+		var dateChunk = createChunk(formattedDate,"span","label label-primary pull-right forumLink");
 		(function(post) {
 			listenFor(dateChunk, "click", function(e) {
 				if(locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
@@ -802,9 +807,8 @@ function parseForumContent(json) {
 			});
 		})(post);
 		headingLine.appendChild(dateChunk);
-		
 		subpost.appendChild(headingLine);
-		
+
 		var subSubChunk = createChunk("","div","postHeaderInfoGroup");
 		subpost.appendChild(subSubChunk);
 		{
@@ -812,7 +816,7 @@ function parseForumContent(json) {
 			subSubChunk.appendChild(subChunk);
 			subChunk.appendChild(createChunk(post2text(post.subject),"b","postSubject"));
 		}
-				
+
 		// actual text
 		var postText = post2text(post.text);
 		var postContent;

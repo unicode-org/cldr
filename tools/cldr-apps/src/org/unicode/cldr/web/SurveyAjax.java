@@ -808,11 +808,13 @@ public class SurveyAjax extends HttpServlet {
                         } else {
                             mySession.userDidAction();
                             r.put("what", what);
-
-                            //String xp = sm.xpt.getById(id);
                             r.put("loc", loc);
                             r.put("xpath", xpath);
-                            r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
+                            /* Don't use deprecated mySession.sm here; we already have sm.
+                             *  For https://unicode.org/cldr/trac/ticket/10935 removed cldrVersion here.
+                             */
+                            r.put("ret", sm.fora.toJSON(mySession, locale, id, 0));
+                            // r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
@@ -827,7 +829,7 @@ public class SurveyAjax extends HttpServlet {
                         final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, replyTo);
                         r.put("postId", postId);
                         if (postId > 0) {
-                            r.put("ret", mySession.sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId, null/*current*/));
+                            r.put("ret", sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
                         }
                         send(r, out);
                     } else if (what.equals("mail")) {

@@ -304,13 +304,11 @@ define({
 		
 		special_general: "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
 		special_forum: "Forum Posts",
-		special_prevforum: "Old Forum Posts",
 		forum_noposts: "No posts in this forum.",
 		forum_item: "Item",
 		forum_reply: "Reply",
 		forum_msg: "Showing posts for ${forum} and all sublocales.",
 		forumGuidance: "This is the Forum page. This page will not reload when new posts come in, but you can use your browser's Refresh button to load new posts.",
-		prevforumGuidance: "This is the Old Forum page. This page will not reload when new posts come in. Click on Reply to continue the thread; this action in the Old Forum Posts will post a new thread in the current Forum. Go to Forum to see your posting of the reply. Your reply will not be shown in the Old Forum Posts even though you initiated the Reply there. This ensures that your thread will be captured for the current release.",
 		
 		generic_nolocale: "No locale chosen.",
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",

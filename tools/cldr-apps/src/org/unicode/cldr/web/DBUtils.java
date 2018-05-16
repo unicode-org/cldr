@@ -44,6 +44,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
+import org.unicode.cldr.web.SurveyMain.Phase;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
@@ -1564,18 +1565,32 @@ public class DBUtils {
      * Manage table names according to versions.
      */
     public enum Table {
-        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS, REVIEW_HIDE, REVIEW_POST;
+        /* These constants represent names and other attributes of database tables.
+         * 
+         * The FORUM_POSTS(false, false) constructor makes isVersioned, hasBeta both false for
+         * the FORUM_POSTS constant, as intended for new functionality, one forum for all versions.
+         * See https://unicode.org/cldr/trac/ticket/10935
+         * 
+         * Other constants here have default constructor equivalent to (true, true).
+         */
+        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS(false, false), REVIEW_HIDE, REVIEW_POST;
 
         /**
-         *
-         * @param isVersioned
-         * @param hasBeta
+         * Construct a Table constant with explicit parameters for isVersioned, hasBeta.
+         * 
+         * @param isVersioned true for tables whose name depends on version like cldr_vote_value_33,
+         *                    false for tables whose name is version independent, like forum_posts
+         * @param hasBeta true for tables whose name is different for beta versions like cldr_vote_value_32_beta,
+         *                false for tables whose name doesn't change for beta.
          */
         Table(boolean isVersioned, boolean hasBeta) {
             this.isVersioned = isVersioned;
             this.hasBeta = hasBeta;
         }
 
+        /**
+         * Construct a Table constant with isVersioned, hasBeta both true.
+         */
         Table() {
             this.isVersioned = true;
             this.hasBeta = true;
@@ -1594,7 +1609,7 @@ public class DBUtils {
                 if (!SurveyMain.isConfigSetup && CLDRConfig.getInstance().getEnvironment() != CLDRConfig.Environment.UNITTEST) {
                     throw new InternalError("Error: don't use Table.toString before CLDRConfig is setup.");
                 }
-                defaultString = forVersion(SurveyMain.getNewVersion(), SurveyMain.phase() == SurveyMain.phase().BETA).toString();
+                defaultString = forVersion(SurveyMain.getNewVersion(), SurveyMain.phase() == Phase.BETA).toString();
             }
             return defaultString;
         }

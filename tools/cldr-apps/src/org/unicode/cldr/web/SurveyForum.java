@@ -483,7 +483,7 @@ public class SurveyForum {
                 if (ctx.field("isReview").equals("1")) {
                     ctx.response.resetBuffer();
                     try {
-                        JSONArray post = this.toJSON(ctx.session, locale, base_xpath, postId, null);
+                        JSONArray post = this.toJSON(ctx.session, locale, base_xpath, postId);
                         ctx.println(post.get(0).toString());
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
@@ -1190,6 +1190,9 @@ public class SurveyForum {
         boolean old = time.before(oldOnOrBefore);
         // get the parent link
         int parentPost = DBUtils.sqlCount("select parent from " + DBUtils.Table.FORUM_POSTS + " where id=?", id);
+
+        // TODO: select version (CLDR version like 33) from db and display it.
+        // version is newly added column for https://unicode.org/cldr/trac/ticket/10935
 
         ctx.println("<div id='post" + id + "' " + (old ? "style='background-color: #dde;' " : "") + " class='respbox'>");
         if (old) {
@@ -2055,12 +2058,11 @@ public class SurveyForum {
      * @param locale
      * @param base_xpath Base XPath of the item being viewed, if positive
      * @param ident If nonzero - select only this item. If zero, select all items.
-     * @param cldrVersion if non-null - specific version is returned
      * @return
      * @throws JSONException
      * @throws SurveyException
      */
-    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident, String cldrVersion) throws JSONException, SurveyException {
+    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident) throws JSONException, SurveyException {
         assertCanAccessForum(session, locale);
 
         JSONArray ret = new JSONArray();
@@ -2072,7 +2074,7 @@ public class SurveyForum {
             try {
                 conn = sm.dbUtils.getDBConnection();
                 Object[][] o = null;
-                final CharSequence forumPosts = forumTable(cldrVersion);
+                final CharSequence forumPosts = forumTable();
                 if (ident == 0) {
                     if (base_xpath == 0) {
                         // all posts
@@ -2153,17 +2155,12 @@ public class SurveyForum {
     }
 
     /**
-     * Compute the SQL table for a certain CLDR version
-     * @param cldrVersion
-     * @return
+     * Get the SQL table name for forum posts
+     * @return the table name
      */
-    private CharSequence forumTable(String cldrVersion) {
-        if (cldrVersion != null) {
-            cldrVersion = new Integer(Integer.parseInt(cldrVersion)).toString(); // sanitize
-        }
+    private CharSequence forumTable() {
         final Table FORUM_POSTS = DBUtils.Table.FORUM_POSTS;
-        return (cldrVersion == null)
-            ? (FORUM_POSTS.toString()) : (FORUM_POSTS.forVersion(cldrVersion, false));
+        return FORUM_POSTS.toString();
     }
 
     private void assertCanAccessForum(CookieSession session, CLDRLocale locale) throws SurveyException {

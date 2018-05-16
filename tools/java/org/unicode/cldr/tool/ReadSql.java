@@ -273,7 +273,7 @@ public class ReadSql {
             } else {
                 throw new IllegalArgumentException();
             }
-            if (key.equals("FEEDBACK") || key.equals("sf_fora")) {
+            if (key.equals("FEEDBACK") || key.equals("sf_fora")) { // cf. private FeedBack.TABLE_FEEDBACK and public SurveyForum.DB_FORA
                 return; // old format
             }
             boolean inQuote = false;

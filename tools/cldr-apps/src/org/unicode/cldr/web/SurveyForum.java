@@ -258,6 +258,15 @@ public class SurveyForum {
         return emailCount;
     }
 
+    /**
+     * ...
+     * @param ctx
+     * @param sessionMessage
+     * @throws IOException
+     * @throws SurveyException
+     * 
+     * Called by SurveyAjax.java for WHAT_REVIEW_ADD_POST (never used??), and by SurveyMain.doSession for F_FORUM or F_XPATH
+     */
     void doForum(WebContext ctx, String sessionMessage) throws IOException, SurveyException {
         /* OK, let's see what we are doing here. */
         String forum = ctx.field(F_FORUM);
@@ -2171,7 +2180,11 @@ public class SurveyForum {
                             JSONObject post = new JSONObject();
                             post.put("poster", poster)
                                 .put("posterInfo", SurveyAjax.JSONWriter.wrap(sm.reg.getInfo(poster)))
-                                .put("subject", subj2).put("text", text2).put("date", lastDate).put("date_long", lastDate.getTime()).put("id", id)
+                                .put("subject", subj2)
+                                .put("text", text2)
+                                .put("date", lastDate)
+                                .put("date_long", lastDate.getTime())
+                                .put("id", id)
                                 .put("parent", parent);
                             if (loc != null) {
                                 post.put("locale", loc);

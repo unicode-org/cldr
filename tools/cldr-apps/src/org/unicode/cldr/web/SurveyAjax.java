@@ -239,15 +239,26 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_REPORT = "report";
     public static final String WHAT_SEARCH = "search";
     public static final String WHAT_REVIEW_HIDE = "review_hide";
+    
+    /* TODO: WHAT_REVIEW_ADD_POST appears never to be used except for the line
+     *      "if (what.equals(WHAT_REVIEW_ADD_POST)"
+     * which will always be false if the value is never set anywhere.
+     * At least I can't find any other occurrence of WHAT_REVIEW_ADD_POST
+     * or "add_post", though conceivably there could be "add" + "_post" somewhere.
+     * Possibly a lot of related code is now superfluous and should be removed.
+     */
     public static final String WHAT_REVIEW_ADD_POST = "add_post";
+
+    /* TODO: WHAT_REVIEW_GET_POST appears never to be used; remove it? */
     public static final String WHAT_REVIEW_GET_POST = "get_post";
-    public static final String WHAT_PARTICIPATING_USERS = "participating_users";
-    public static final String WHAT_USER_INFO = "user_info";
-    public static final String WHAT_USER_LIST = "user_list";
-    public static final String WHAT_USER_OLDVOTES = "user_oldvotes";
-    public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes";
-    public static final String WHAT_OLDVOTES = "oldvotes";
-    public static final String WHAT_FLAGGED = "flagged";
+
+    public static final String WHAT_PARTICIPATING_USERS = "participating_users"; // tc-emaillist.js
+    public static final String WHAT_USER_INFO = "user_info"; // usermap.js
+    public static final String WHAT_USER_LIST = "user_list"; // users.js
+    public static final String WHAT_USER_OLDVOTES = "user_oldvotes"; // users.js
+    public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes"; // users.js
+    public static final String WHAT_OLDVOTES = "oldvotes"; // survey.js
+    public static final String WHAT_FLAGGED = "flagged"; // survey.js
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "dummy" }; // list of prefs OK to get/set
@@ -500,7 +511,7 @@ public class SurveyAjax extends HttpServlet {
                         request.getParameter("locale"));
                 }
                 this.send(new JSONWriter(), out);
-            } else if (what.equals(WHAT_REVIEW_ADD_POST)) {
+            } else if (what.equals(WHAT_REVIEW_ADD_POST)) { // TODO: this is never true, not needed?
                 CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
 
@@ -1154,7 +1165,7 @@ public class SurveyAjax extends HttpServlet {
                                 JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + lastVoteTable
                                     + " where submitter=? group by locale order by locale", userid);
                                 final JSONWriter r = newJSONStatusQuick(sm);
-                                r.put("user_oldvotes", o);
+                                r.put("user_oldvotes", o); // WHAT_USER_OLDVOTES
                                 r.put("old_user_id", userid);
                                 r.put("lastVoteTable", lastVoteTable);
                                 send(r, out);

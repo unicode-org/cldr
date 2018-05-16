@@ -51,19 +51,21 @@ if(!String.prototype.trim && !String.trim) {
 	};
 }
 
-function haveIntl() {
-	return (window.Intl && typeof window.Intl === "object");
-}
-
 /**
- * Format a date and time.
+ * Format a date and time for display in a forum post.
+ * 
+ * @param x the number of seconds since 1970-01-01
+ * @returns the formatted date and time as a string
+ *
+ * Like "2018-05-16 13:45" per cldr-dev@unicode.org.
  */
 function fmtDateTime(x) {
-	var d = new Date(x);
-//	if(haveIntl()) {
-//		return d.toLocaleDateString()
-//	}
-	return d.toLocaleString();
+	const d = new Date(x);
+    function pad(n) {
+        return (n < 10) ? '0' + n : n;
+    }
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+    	   ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
 };
 
 /**
@@ -785,12 +787,11 @@ function parseForumContent(json) {
 		headingLine.appendChild(userLevelChunk=
 			createChunk(stui.str("userlevel_"+post.posterInfo.userlevelName), "span", "userLevelName label-info label"));
 		userLevelChunk.title = stui.str("userlevel_"+post.posterInfo.userlevelName+"_desc");
-		
-		var formattedDate = fmtDateTime(post.date_long);
+		var date = fmtDateTime(post.date_long);
 		if (post.version) {
-			formattedDate += " [version " + post.version + "]";
+			date = "[v" + post.version + "] " + date;
 		}
-		var dateChunk = createChunk(formattedDate,"span","label label-primary pull-right forumLink");
+		var dateChunk = createChunk(date, "span", "label label-primary pull-right forumLink");
 		(function(post) {
 			listenFor(dateChunk, "click", function(e) {
 				if(locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {

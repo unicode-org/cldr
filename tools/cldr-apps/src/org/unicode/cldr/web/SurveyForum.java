@@ -744,7 +744,7 @@ public class SurveyForum {
             try {
                 conn = sm.dbUtils.getDBConnection();
                 /* Prepare a statement for inserting a new row into the forum table.
-                 * TODO: add "version" column...  */
+                 * Add "version" column (string) for https://unicode.org/cldr/trac/ticket/10935 */
                 pAdd = prepare_pAdd(conn);
 
                 pAdd.setInt(1, user.id);
@@ -754,6 +754,7 @@ public class SurveyForum {
                 pAdd.setInt(5, replyTo); // record parent
                 pAdd.setString(6, locale.toString()); // real locale of item, not furm #
                 pAdd.setInt(7, base_xpath);
+                pAdd.setString(8, SurveyMain.getNewVersion()); // version
 
                 int n = pAdd.executeUpdate();
                 if (couldFlagOnLosing) {
@@ -1551,10 +1552,18 @@ public class SurveyForum {
             + " WHERE (id = ?)");
     }
 
+    /**
+     * Prepare a statement for adding a new post to the forum table.
+     * 
+     * @param conn the Connection
+     * @return the PreparedStatement
+     * @throws SQLException
+     * 
+     * Called only by doPostInternal -- could be private?
+     */
     public static PreparedStatement prepare_pAdd(Connection conn) throws SQLException {
-        /* TODO: save cldr version as "version" column for new post */
         return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO " + DBUtils.Table.FORUM_POSTS.toString()
-            + " (poster,subj,text,forum,parent,loc,xpath) values (?,?,?,?,?,?,?)");
+            + " (poster,subj,text,forum,parent,loc,xpath,version) values (?,?,?,?,?,?,?,?)");
     }
 
     public static PreparedStatement prepare_pAll(Connection conn) throws SQLException {

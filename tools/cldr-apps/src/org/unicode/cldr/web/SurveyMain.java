@@ -3578,9 +3578,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // ctx.println("</form>");
     }
 
+    /**
+     * Do session.
+     * 
+     * @param ctx
+     * @throws IOException
+     * @throws SurveyException
+     * 
+     * Called only by doGet. Called when user logs in or logs out, also when choose Settings from gear menu.
+     */
     public void doSession(WebContext ctx) throws IOException, SurveyException {
         // which
-        String which = ctx.field(QUERY_SECTION);
+        String which = ctx.field(QUERY_SECTION); // may be empty string ""
 
         setLocale(ctx);
 
@@ -3622,7 +3631,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
         // only do forum for logged in user
         if (ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
-            fora.doForum(ctx, sessionMessage);
+            fora.doForum(ctx, sessionMessage); // TODO: does this ever happen? If so, when??
             return;
         }
 

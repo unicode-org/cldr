@@ -122,6 +122,10 @@ public class SurveyAjax extends HttpServlet {
         }
 
         public static JSONObject wrap(UserRegistry.User u) throws JSONException {
+            // TODO: NullPointerException in wrap -- u == null when opening forum for French
+            if (u == null) {
+                return null;
+            }
             return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)
                 .put("emailHash", u.getEmailHash())
                 .put("userlevelName", u.getLevel()).put("org", u.org).put("time", u.last_connect);
@@ -239,19 +243,6 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_REPORT = "report";
     public static final String WHAT_SEARCH = "search";
     public static final String WHAT_REVIEW_HIDE = "review_hide";
-    
-    /* TODO: WHAT_REVIEW_ADD_POST appears never to be used except for the line
-     *      "if (what.equals(WHAT_REVIEW_ADD_POST)"
-     * which will always be false if the value is never set anywhere.
-     * At least I can't find any other occurrence of WHAT_REVIEW_ADD_POST
-     * or "add_post", though conceivably there could be "add" + "_post" somewhere.
-     * Possibly a lot of related code is now superfluous and should be removed.
-     */
-    public static final String WHAT_REVIEW_ADD_POST = "add_post";
-
-    /* TODO: WHAT_REVIEW_GET_POST appears never to be used; remove it? */
-    public static final String WHAT_REVIEW_GET_POST = "get_post";
-
     public static final String WHAT_PARTICIPATING_USERS = "participating_users"; // tc-emaillist.js
     public static final String WHAT_USER_INFO = "user_info"; // usermap.js
     public static final String WHAT_USER_LIST = "user_list"; // users.js
@@ -511,22 +502,6 @@ public class SurveyAjax extends HttpServlet {
                         request.getParameter("locale"));
                 }
                 this.send(new JSONWriter(), out);
-            } else if (what.equals(WHAT_REVIEW_ADD_POST)) { // TODO: this is never true, not needed?
-                CookieSession.checkForExpiredSessions();
-                mySession = CookieSession.retrieve(sess);
-
-                JSONWriter postJson = new JSONWriter();
-                if (mySession == null) {
-                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, ErrorCode.E_SESSION_DISCONNECTED);
-                } else {
-                    mySession.userDidAction();
-                    WebContext ctx = new WebContext(request, response);
-                    ctx.sm = sm;
-                    ctx.session = mySession;
-                    sm.fora.doForum(ctx, "");
-                }
-
-                this.send(postJson, out);
             } else if (sess != null && !sess.isEmpty()) { // this and following:
                 // session needed
                 CookieSession.checkForExpiredSessions();

@@ -1443,6 +1443,8 @@ function formatErrMsg(json, subkey) {
 	}
 	return stui.sub(msg_str,
 			{
+				/* Possibilities include: err_what_section, err_what_locmap, err_what_menus, err_what_status,
+					err_what_unknown, err_what_oldvotes, err_what_vote */
 				json: json, what: stui.str('err_what_'+subkey), code: theCode, err_data: json.err_data,
 				surveyCurrentLocale: surveyCurrentLocale,
 				surveyCurrentId: surveyCurrentId,

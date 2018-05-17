@@ -4,11 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 
 public class CheckNew extends FactoryCheckCLDR {
     private OutdatedPaths outdatedPaths;
+    private CLDRFile annotationsRoot;
 
     public CheckNew(Factory factory) {
         super(factory);
@@ -29,6 +32,7 @@ public class CheckNew extends FactoryCheckCLDR {
         //        }
 
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        annotationsRoot = CLDRConfig.getInstance().getAnnotationsFactory().make("root", false);
         return this;
     }
 
@@ -36,10 +40,33 @@ public class CheckNew extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
 
-        Date modified = getCldrFileToCheck().getLastModifiedDate(path);
+        CLDRFile cldrFileToCheck = getCldrFileToCheck();
+        if (path.startsWith("//ldml/annotations/annotation") && value != null) {
+            // first see if the value is inherited or not
+            boolean skip = false;
+            if (cldrFileToCheck.isResolved()) {
+                Status status = new Status();
+                String localeFound = cldrFileToCheck.getSourceLocaleID(path, status);
+                if ("root".equals(localeFound)) {
+                    skip = true;
+                }
+            }
+            if (!skip) {
+                String rootValue = annotationsRoot.getStringValue(path);
+                if (value.equals(rootValue)) {
+                    result.add(new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.valueMustBeOverridden)
+                        .setMessage("This value must be a real translation, NOT the name/keyword placeholder."));
+                }
+                return this;
+            }
+        }
+
+        Date modified = cldrFileToCheck.getLastModifiedDate(path);
         if (modified != null) return this;
 
-        boolean isOutdated = outdatedPaths.isOutdated(getCldrFileToCheck().getLocaleID(), path);
+        boolean isOutdated = outdatedPaths.isOutdated(cldrFileToCheck.getLocaleID(), path);
         if (!isOutdated) return this;
 
         // we skip if certain other errors are present

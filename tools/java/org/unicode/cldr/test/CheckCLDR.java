@@ -692,12 +692,32 @@ abstract public class CheckCLDR {
         };
 
         public enum Subtype {
-            none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders, shouldntHavePlaceholders, couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, invalidCurrencyMatchSet, multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow, cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo, deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, auxiliaryExemplarsOverlap, missingPunctuationCharacters,
+            none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, incorrectCasing, 
+            valueMustBeOverridden,
+            valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, missingPluralInfo, 
+            currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, displayCollision, 
+            illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders, 
+            shouldntHavePlaceholders, couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, 
+            invalidCurrencyMatchSet, multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, 
+            noMetazoneMappingBeforeNow, cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, 
+            missingEuroCountryInfo, deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, 
+            auxiliaryExemplarsOverlap, missingPunctuationCharacters,
 
-            charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars, charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
+            charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars, 
+            charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
 
-            narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars, inconsistentDatePattern, inconsistentTimePattern, missingDatePattern, illegalDatePattern, missingMainExemplars, mustNotStartOrEndWithSpace, illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, missingMinusSign, badNumericType, percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit, tooManyGroupingSeparators, inconsistentPluralFormat, sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus, errorOrWarningInLogicalGroup, valueTooWide, valueTooNarrow, nameContainsYear, patternCannotContainDigits, patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear, invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods, inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern, badParseLenient,
-            tooManyValues;
+            narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
+            inconsistentDatePattern, inconsistentTimePattern, missingDatePattern, illegalDatePattern, 
+            missingMainExemplars, mustNotStartOrEndWithSpace, illegalCharactersInNumberPattern, 
+            numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, missingMinusSign, 
+            badNumericType, percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, 
+            metazoneContainsDigit, tooManyGroupingSeparators, inconsistentPluralFormat, sameAsEnglishOrCode, 
+            dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus, 
+            errorOrWarningInLogicalGroup, valueTooWide, valueTooNarrow, nameContainsYear, patternCannotContainDigits, 
+            patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear, 
+            invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods, 
+            inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
+            badParseLenient, tooManyValues;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

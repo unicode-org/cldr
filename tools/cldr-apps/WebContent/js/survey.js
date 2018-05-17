@@ -758,35 +758,35 @@ function parseForumContent(json) {
 		var post = json.ret[num];
 		
 		var subpost = createChunk("","div","post"); // was: subpost
-		// Don't add to the DIV yet - will reparent into the topic Divs
+		// Don't add subpost to the DIV yet - will reparent into the topic Divs
 		///  --forumDiv.appendChild(subpost);
-		
-		postDivs[post.id] = subpost;
-		
-		subpost.id = "fp"+post.id;
-		
-//		var userChunk = createUser(post.posterInfo);
-		//subpost.appendChild(userChunk);
-		
-		var gravitar = createGravitar(post.posterInfo);
-		gravitar.className = "gravitar pull-left";
-		subpost.appendChild(gravitar);
+		postDivs[post.id] = subpost;		
+		subpost.id = "fp" + post.id;
+
 		var headingLine = createChunk("", "h4", "selected");
-		if(post.posterInfo.id == surveyUser.id) {
-			headingLine.appendChild(createChunk(stui.str("user_me"),"span", "forum-me"));
+
+		// If post.posterInfo is undefined, don't crash; insert "[Poster no longer active]".
+		if (!post.posterInfo) {
+			headingLine.appendChild(createChunk("[Poster no longer active]", "span", ""));
 		} else {
-			var usera = createChunk(post.posterInfo.name+' ', "a", "");
-			if(post.posterInfo.email) {
-				usera.appendChild(createChunk("","span","glyphicon glyphicon-envelope"));
-				usera.href = "mailto:"+post.posterInfo.email;
+			var gravitar = createGravitar(post.posterInfo);
+			gravitar.className = "gravitar pull-left";
+			subpost.appendChild(gravitar);
+			if (post.posterInfo.id == surveyUser.id) {
+				headingLine.appendChild(createChunk(stui.str("user_me"), "span", "forum-me"));
+			} else {
+				var usera = createChunk(post.posterInfo.name+' ', "a", "");
+				if(post.posterInfo.email) {
+					usera.appendChild(createChunk("", "span", "glyphicon glyphicon-envelope"));
+					usera.href = "mailto:" + post.posterInfo.email;
+				}
+				headingLine.appendChild(usera);
+				headingLine.appendChild(document.createTextNode(' ('+post.posterInfo.org+') '));
 			}
-			headingLine.appendChild(usera);
-			headingLine.appendChild(document.createTextNode(' ('+post.posterInfo.org+') '));
+			var userLevelChunk = createChunk(stui.str("userlevel_"+post.posterInfo.userlevelName), "span", "userLevelName label-info label");
+			userLevelChunk.title = stui.str("userlevel_"+post.posterInfo.userlevelName+"_desc");
+			headingLine.appendChild(userLevelChunk);
 		}
-		var userLevelChunk;
-		headingLine.appendChild(userLevelChunk=
-			createChunk(stui.str("userlevel_"+post.posterInfo.userlevelName), "span", "userLevelName label-info label"));
-		userLevelChunk.title = stui.str("userlevel_"+post.posterInfo.userlevelName+"_desc");
 		var date = fmtDateTime(post.date_long);
 		if (post.version) {
 			date = "[v" + post.version + "] " + date;
@@ -794,6 +794,7 @@ function parseForumContent(json) {
 		var dateChunk = createChunk(date, "span", "label label-primary pull-right forumLink");
 		(function(post) {
 			listenFor(dateChunk, "click", function(e) {
+				// TODO: what if post.locale not defined? See SurveyForum.java
 				if(locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
 					surveyCurrentLocale = locmap.getLanguage(post.locale);
 				}
@@ -1443,8 +1444,8 @@ function formatErrMsg(json, subkey) {
 	}
 	return stui.sub(msg_str,
 			{
-				/* Possibilities include: err_what_section, err_what_locmap, err_what_menus, err_what_status,
-					err_what_unknown, err_what_oldvotes, err_what_vote */
+				/* Possibilities include: err_what_section, err_what_locmap, err_what_menus,
+					err_what_status, err_what_unknown, err_what_oldvotes, err_what_vote */
 				json: json, what: stui.str('err_what_'+subkey), code: theCode, err_data: json.err_data,
 				surveyCurrentLocale: surveyCurrentLocale,
 				surveyCurrentId: surveyCurrentId,

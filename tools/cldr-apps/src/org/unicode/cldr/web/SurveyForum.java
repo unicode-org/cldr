@@ -2113,8 +2113,8 @@ public class SurveyForum {
                 // private final static String pAllResult =
                 // DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
                 if (o != null) {
-                    /* Show posts. Note that showPost is not called here. The data is gathered here,
-                     * and the formatting is done by parseForumContent in survey.js.
+                    /* Gather the post data. Note that showPost is not called here.
+                     * The formatting is done by parseForumContent in survey.js.
                      */
                     for (int i = 0; i < o.length; i++) {
                         int poster = (Integer) o[i][0];
@@ -2127,10 +2127,9 @@ public class SurveyForum {
                         String loc = (String) o[i][7];
                         String version = (String) o[i][8];
 
-                        if (lastDate.after(oldOnOrBefore) || false) {
+                        if (lastDate.after(oldOnOrBefore)) {
                             JSONObject post = new JSONObject();
                             post.put("poster", poster)
-                                .put("posterInfo", SurveyAjax.JSONWriter.wrap(sm.reg.getInfo(poster)))
                                 .put("subject", subj2)
                                 .put("text", text2)
                                 .put("date", lastDate)
@@ -2146,6 +2145,18 @@ public class SurveyForum {
                             post.put("xpath_id", xpath);
                             if (xpath > 0) {
                                 post.put("xpath", sm.xpt.getStringIDString(xpath));
+                            }
+                            /* sm.reg.getInfo(poster) may be null if the poster is no longer active.
+                             * This caused a NullPointerException in SurveyAjax.JSONWriter.wrap.
+                             * To prevent the exception, explicitly check for null here.
+                             * survey.js shows a suitable message if posterInfo isn't defined.
+                             */
+                            UserRegistry.User posterUser = sm.reg.getInfo(poster);
+                            if (posterUser != null) {
+                                JSONObject posterInfoJson = SurveyAjax.JSONWriter.wrap(posterUser);
+                                if (posterInfoJson != null) {
+                                    post.put("posterInfo", posterInfoJson);
+                                }
                             }
                             ret.put(post);
                         }

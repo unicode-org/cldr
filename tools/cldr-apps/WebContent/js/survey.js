@@ -794,8 +794,7 @@ function parseForumContent(json) {
 		var dateChunk = createChunk(date, "span", "label label-primary pull-right forumLink");
 		(function(post) {
 			listenFor(dateChunk, "click", function(e) {
-				// TODO: what if post.locale not defined? See SurveyForum.java
-				if(locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
+				if (post.locale && locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
 					surveyCurrentLocale = locmap.getLanguage(post.locale);
 				}
 				surveyCurrentPage = '';

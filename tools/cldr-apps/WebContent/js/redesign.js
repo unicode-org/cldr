@@ -241,7 +241,6 @@ function unpackMenuSideBar(json) {
 		html += '</ul></li>';
 	}
 	html += '<li class="list-unstyled" id="forum-link"><div>Forum<span class="pull-right glyphicon glyphicon-comment"></span></div></li>';
-	html += '<li class="list-unstyled" id="old-forum-link"><div>Old Forum Posts<span class="pull-right glyphicon glyphicon-comment"></span></div></li>';
 	html += '</ul>';
 	
 	html += '<ul>';
@@ -312,15 +311,7 @@ function unpackMenuSideBar(json) {
 		surveyCurrentId = '';
 		surveyCurrentPage = '';
 		reloadV();
-	});
-	//old forum link 
-	$('#old-forum-link').click(function() {
-		window.surveyCurrentSpecial = 'prevforum';
-		surveyCurrentId = '';
-		surveyCurrentPage = '';
-		reloadV();
-	});
-	
+	});	
 	
 	if(surveyCurrentLocale) {
 		$('a[data-original-title="'+surveyCurrentLocale+'"]').click();

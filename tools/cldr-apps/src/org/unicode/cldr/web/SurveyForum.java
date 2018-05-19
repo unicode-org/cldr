@@ -127,7 +127,7 @@ public class SurveyForum {
     /**
      * May return
      * @param forum
-     * @return forum number, or  BAD_FORUM or NO_FORUM
+     * @return forum number, or BAD_FORUM or NO_FORUM
      */
     synchronized int getForumNumber(String forum) {
         if (forum.length() == 0) {
@@ -186,6 +186,13 @@ public class SurveyForum {
         }
     }
 
+    /**
+     * 
+     * @param forum
+     * @return the forum number
+     * 
+     * Called only by getForumNumber.
+     */
     private int createForum(String forum) {
         int num = getForumNumberFromDB(forum);
         if (num == BAD_FORUM) {
@@ -258,6 +265,16 @@ public class SurveyForum {
         return emailCount;
     }
 
+    /**
+     * ...
+     * @param ctx
+     * @param sessionMessage
+     * @throws IOException
+     * @throws SurveyException
+     * 
+     * Called only by SurveyMain.doSession for F_FORUM or F_XPATH
+     * TODO: clarify whether this 113-line function doForum is ever actually executed. It doesn't seem to be.
+     */
     void doForum(WebContext ctx, String sessionMessage) throws IOException, SurveyException {
         /* OK, let's see what we are doing here. */
         String forum = ctx.field(F_FORUM);
@@ -372,6 +389,15 @@ public class SurveyForum {
             sm.printFooter(ctx);
     }
 
+    /**
+     * 
+     * @param ctx
+     * @param locale
+     * @param base_xpath
+     * @return
+     * 
+     * Called only by returnText
+     */
     String returnUrl(WebContext ctx, CLDRLocale locale, int base_xpath) {
         String xpath = sm.xpt.getById(base_xpath);
         if (xpath == null)
@@ -384,6 +410,14 @@ public class SurveyForum {
             + "#x" + base_xpath;
     }
 
+    /**
+     * 
+     * @param ctx
+     * @param base_xpath
+     * @param sessionMessage
+     * 
+     * Called only by doForum
+     */
     void doZoom(WebContext ctx, int base_xpath, String sessionMessage) {
         String xpath = sm.xpt.getById(base_xpath);
         if ((xpath == null) && (base_xpath != -1)) {
@@ -419,14 +453,19 @@ public class SurveyForum {
     }
 
     /**
+     * Post to a specific xpath.
+     * 
      * Called when user has permission to modify and is zoomed in.
-     *
+     * 
      * @param ctx
      * @param forum
      * @param forumNumber
      * @param base_xpath
      * @throws IOException
      * @throws SurveyException
+     * 
+     * Called only by doForum; User is logged in and ((base_xpath != -1) || (ctx.hasField("replyto"))).
+     * TODO: clarify when this 224-line function doXpathPost actually gets called, if ever.
      */
     void doXpathPost(WebContext ctx, String forum, int forumNumber, int base_xpath) throws IOException, SurveyException {
         String fieldStr = ctx.field("replyto", null);
@@ -483,7 +522,7 @@ public class SurveyForum {
                 if (ctx.field("isReview").equals("1")) {
                     ctx.response.resetBuffer();
                     try {
-                        JSONArray post = this.toJSON(ctx.session, locale, base_xpath, postId, null);
+                        JSONArray post = this.toJSON(ctx.session, locale, base_xpath, postId);
                         ctx.println(post.get(0).toString());
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
@@ -580,10 +619,9 @@ public class SurveyForum {
         // (ctx.hasField("text")?"":"disabled")+ // require preview
             " type=submit value=Post>");
         ctx.println("<input type=submit name=preview value=Preview><br>");
-        if (SurveyMain.isPhaseBeta()) {
-            ctx.println(
-                "<div class='ferrbox'>Please remember that the Survey Tool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
-        }
+        
+        // Deleted message "Survey Tool is in Beta" here per https://unicode.org/cldr/trac/ticket/10935
+
         ctx.println("</form>");
 
         if (ctx.field("post").length() > 0) {
@@ -654,6 +692,14 @@ public class SurveyForum {
         }
     }
 
+    /**
+     * 
+     * @param xpath
+     * @param loc
+     * @return
+     * 
+     * Called only by doXpathPost
+     */
     private String getDefaultSubject(String xpath, CLDRLocale loc) {
         String subj = null;
         if (xpath != null) {
@@ -673,6 +719,13 @@ public class SurveyForum {
         return subj;
     }
 
+    /**
+     * 
+     * @param replyTo
+     * @return
+     * 
+     * Called by doXpathPost and by doPost
+     */
     private int getXpathForPost(int replyTo) {
         int base_xpath;
         base_xpath = DBUtils.sqlCount("select xpath from " + DBUtils.Table.FORUM_POSTS + " where id=?", replyTo); // default to -1
@@ -686,6 +739,8 @@ public class SurveyForum {
      * @param subj
      * @param text
      * @param postId
+     * 
+     * Called by doPostInternal
      */
     public void emailNotify(UserRegistry.User user, CLDRLocale locale, int base_xpath, String subj, String text, Integer postId) {
         String forum = localeToForum(locale);
@@ -713,6 +768,8 @@ public class SurveyForum {
     }
 
     /**
+     * Respond to the user making a new forum post. Save the post in the database.
+     * 
      * @param base_xpath
      * @param replyTo
      * @param locale
@@ -733,6 +790,8 @@ public class SurveyForum {
             PreparedStatement pAdd = null;
             try {
                 conn = sm.dbUtils.getDBConnection();
+                /* Prepare a statement for inserting a new row into the forum table.
+                 * Add "version" column (string) for https://unicode.org/cldr/trac/ticket/10935 */
                 pAdd = prepare_pAdd(conn);
 
                 pAdd.setInt(1, user.id);
@@ -740,13 +799,9 @@ public class SurveyForum {
                 DBUtils.setStringUTF8(pAdd, 3, preparePostText(text));
                 pAdd.setInt(4, forumNumber);
                 pAdd.setInt(5, replyTo); // record parent
-                pAdd.setString(6, locale.toString()); // real
-                // locale
-                // of
-                // item,
-                // not
-                // furm #
+                pAdd.setString(6, locale.toString()); // real locale of item, not furm #
                 pAdd.setInt(7, base_xpath);
+                pAdd.setString(8, SurveyMain.getNewVersion()); // version
 
                 int n = pAdd.executeUpdate();
                 if (couldFlagOnLosing) {
@@ -1035,6 +1090,16 @@ public class SurveyForum {
      */
     static final int MSGS_PER_PAGE = 9925;
 
+    /**
+     * List what is in a certain forum.
+     * 
+     * @param ctx
+     * @param forum
+     * @param forumNumber
+     * 
+     * Called by doForum and by doForumView. When?
+     * TODO: clarify when this function doForumForum actually gets called, if ever.
+     */
     private void doForumForum(WebContext ctx, String forum, int forumNumber) {
         //        boolean didpost = ctx.hasField("didpost");
         int skip = ctx.fieldInt("skip", 0);
@@ -1116,6 +1181,15 @@ public class SurveyForum {
         sm.showTogglePref(subCtx, "SHOW_OLD_MSGS", "Show " + nold + "old messages?");
     }
 
+    /**
+     * 
+     * @param ctx
+     * @param forum
+     * @param forumNumber
+     * 
+     * Called only by doForum.
+     * TODO: clarify when this function doForumView is actually executed, if ever.
+     */
     private void doForumView(WebContext ctx, String forum, int forumNumber) {
 
         int id = ctx.fieldInt("id", -1);
@@ -1127,6 +1201,12 @@ public class SurveyForum {
         showItem(ctx, forum, forumNumber, id, true);
     }
 
+    /**
+     * Show a forum item.
+     * 
+     * Called by doXpathPost and by doForumView.
+     * TODO: clarify when this function showItem is called, if ever.
+     */
     String showItem(WebContext ctx, String forum, int forumNumber, int id, boolean doTitle) {
         try {
             Connection conn = null;
@@ -1184,6 +1264,15 @@ public class SurveyForum {
 
     /*
      * Show one post, "long" form.
+     * 
+     * Called by doXpathPost, doForumForum, and showItem.
+     * TODO: clarify when this function showPost actually gets called, if ever.
+     * 
+     * Note: this function is not always called when a forum post is shown; instead
+     * commonly SurveyForum.toJSON is called to assemble the data, and then the formatting
+     * is done by parseForumContent in survey.js.
+     *
+     * Note: showPost is also the name of a JavaScript function in review.js.
      */
     void showPost(WebContext ctx, String forum, int poster, String subj, String text, int id, Timestamp time, CLDRLocale loc,
         int xpath) {
@@ -1337,9 +1426,6 @@ public class SurveyForum {
                 // ElapsedTimer("setting up DB_LOC2FORUM");
                 Statement s = conn.createStatement();
                 if (!DBUtils.hasTable(conn, DB_LOC2FORUM)) { // user attribute
-                    sql = "";
-
-                    // System.err.println("setting up "+DB_LOC2FORUM);
                     sql = "CREATE TABLE " + DB_LOC2FORUM + " ( " + " locale VARCHAR(255) NOT NULL, "
                         + " forum VARCHAR(255) NOT NULL" + " )";
                     s.execute(sql);
@@ -1411,8 +1497,6 @@ public class SurveyForum {
 
         if (!DBUtils.hasTable(conn, DB_FORA)) { // user attribute
             Statement s = conn.createStatement();
-            sql = "";
-
             sql = "CREATE TABLE " + DB_FORA + " ( " + " id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY
                 + ", "
                 + " loc VARCHAR(122) NOT NULL, "
@@ -1425,25 +1509,34 @@ public class SurveyForum {
             s.close();
             conn.commit();
         }
-        if (!DBUtils.hasTable(conn, DBUtils.Table.FORUM_POSTS.toString())) { // user attribute
+        if (!DBUtils.hasTable(conn, DBUtils.Table.FORUM_POSTS.toString())) {
+            /* Create a new forum table.
+             * This code might only be executed under exceptional circumstances, such as in testing.
+             * New forum tables are no longer created for each CLDR version.
+             * FORUM_POSTS.isVersioned == FORUM_POSTS.hasBeta == false; now there is only one
+             * permanent name for the table, per https://unicode.org/cldr/trac/ticket/10935
+             * In addition to the name change, one column (first_time) has been removed and
+             * one column (version) has been added. 
+             * Alternative table-creation code is in a script
+             *   https://unicode.org/cldr/trac/raw-attachment/ticket/10935/cldr-make-forum.sql
+             * made for the one-time operation to merge the old cldr_forum_posts_28, cldr_forum_posts_30,
+             * cldr_forum_posts_32, and cldr_forum_posts_33, creating new cldr_forum_posts.
+             * On comparison of mysqldump output, the only difference in effect between
+             * cldr-make-forum.sql and the following code, except for backticks, is
+             * "CHARSET=utf8mb4 COLLATE=utf8mb4_bin" (in cldr-make-forum.sql) versus "CHARSET=latin1".
+             */
             Statement s = conn.createStatement();
-            sql = "";
-
             sql = "CREATE TABLE " + DBUtils.Table.FORUM_POSTS + " ( " + " id INT NOT NULL "
-                + DBUtils.DB_SQL_IDENTITY
-                + ", "
-                + " forum INT NOT NULL, "
-                + // which forum (DB_FORA), i.e. de
-                " poster INT NOT NULL, " + " subj " + DBUtils.DB_SQL_UNICODE + ", " + " text " + DBUtils.DB_SQL_UNICODE
+                + DBUtils.DB_SQL_IDENTITY + ", "
+                + " forum INT NOT NULL, " // which forum (DB_FORA), i.e. de
+                + " poster INT NOT NULL, " + " subj " + DBUtils.DB_SQL_UNICODE + ", " + " text " + DBUtils.DB_SQL_UNICODE
                 + " NOT NULL, " + " parent INT " + DBUtils.DB_SQL_WITHDEFAULT
                 + " -1, "
-                + " loc VARCHAR(122), "
-                + // specific locale, i.e. de_CH
-                " xpath INT, "
-                + // base xpath
-                " first_time " + DBUtils.DB_SQL_TIMESTAMP0 + " NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT + " "
-                + DBUtils.DB_SQL_CURRENT_TIMESTAMP0 + ", " + " last_time TIMESTAMP NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT
-                + " CURRENT_TIMESTAMP" + " )";
+                + " loc VARCHAR(122), " // specific locale, i.e. de_CH
+                + " xpath INT, " // base xpath
+                + " last_time TIMESTAMP NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT + " CURRENT_TIMESTAMP, "
+                + " version VARCHAR(122)" // CLDR version
+                + " )";
             s.execute(sql);
             sql = "CREATE UNIQUE INDEX " + DBUtils.Table.FORUM_POSTS + "_id ON " + DBUtils.Table.FORUM_POSTS + " (id) ";
             s.execute(sql);
@@ -1461,9 +1554,7 @@ public class SurveyForum {
             s.close();
             conn.commit();
         }
-
         reloadLocales(conn);
-        // }
     }
 
     SurveyMain sm = null;
@@ -1471,22 +1562,6 @@ public class SurveyForum {
     public String statistics() {
         return "SurveyForum: nothing to report";
     }
-
-    //
-    //
-    // public PreparedStatement prepareStatement(String name, String sql) {
-    // PreparedStatement ps = null;
-    // try {
-    // ps =
-    // conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-    // } catch ( SQLException se ) {
-    // String complaint = "Vetter:  Couldn't prepare " + name + " - " +
-    // DBUtils.unchainSqlException(se) + " - " + sql;
-    // logger.severe(complaint);
-    // throw new RuntimeException(complaint);
-    // }
-    // return ps;
-    // }
 
     public static PreparedStatement prepare_fGetById(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "fGetById", "SELECT loc FROM " + DB_FORA + " where id=?");
@@ -1514,9 +1589,18 @@ public class SurveyForum {
             + " WHERE (id = ?)");
     }
 
+    /**
+     * Prepare a statement for adding a new post to the forum table.
+     * 
+     * @param conn the Connection
+     * @return the PreparedStatement
+     * @throws SQLException
+     * 
+     * Called only by doPostInternal -- could be private?
+     */
     public static PreparedStatement prepare_pAdd(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO " + DBUtils.Table.FORUM_POSTS.toString()
-            + " (poster,subj,text,forum,parent,loc,xpath) values (?,?,?,?,?,?,?)");
+            + " (poster,subj,text,forum,parent,loc,xpath,version) values (?,?,?,?,?,?,?,?)");
     }
 
     public static PreparedStatement prepare_pAll(Connection conn) throws SQLException {
@@ -1524,18 +1608,6 @@ public class SurveyForum {
             + DBUtils.Table.FORUM_POSTS + ".forum = " + DB_FORA + ".id) ORDER BY " + DBUtils.Table.FORUM_POSTS + ".last_time DESC");
     }
 
-    // public static PreparedStatement prepare_pMine(Connection conn) throws
-    // SQLException { return DBUtils.prepareStatement(conn,"pAll",
-    // "SELECT "+DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc"+" FROM "
-    // + DB_POSTS +
-    // ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
-    // }
-    // public static PreparedStatement prepare_pAllN(Connection conn) throws
-    // SQLException { return DBUtils.prepareStatement(conn,"pAllN",
-    // "SELECT "+DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc"+" FROM "
-    // + DB_POSTS +
-    // ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
-    // }
     public static PreparedStatement prepare_pForMe(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "pForMe", "SELECT " + getPallresult() + " FROM " + DBUtils.Table.FORUM_POSTS.toString()
             + ","
@@ -1565,29 +1637,11 @@ public class SurveyForum {
     }
 
     void showForumLink(WebContext ctx, DataSection.DataRow p, int xpath, String contents) {
-        // if(ctx.session.user == null) {
-        // return; // no user?
-        // }
-        // String title;
-        /*
-         * if(!ctx.session.user.interestedIn(forum)) { title =
-         * " (not on your interest list)"; }
-         */
-        // title = null /*+ title*/;
         String forumLinkContents = getForumLink(ctx, p, xpath, contents);
         ctx.println(forumLinkContents);
     }
 
     void showForumLink(WebContext ctx, DataSection.DataRow p, String contents) {
-        // if(ctx.session.user == null) {
-        // return; // no user?
-        // }
-        // String title;
-        /*
-         * if(!ctx.session.user.interestedIn(forum)) { title =
-         * " (not on your interest list)"; }
-         */
-        // title = null /*+ title*/;
         String forumLinkContents = getForumLink(ctx, p, contents);
         ctx.println(forumLinkContents);
     }
@@ -1665,13 +1719,20 @@ public class SurveyForum {
         return ("?" + F_FORUM + "=" + forum);
     }
 
+    /**
+     * 
+     * @param ctx
+     * @param base_xpath
+     * @return
+     * 
+     * Called by doZoom and doXpathPost
+     */
     String returnText(WebContext ctx, int base_xpath) {
         return "Zoom out to <a href='" + returnUrl(ctx, ctx.getLocale(), base_xpath) + "'>"
             + ctx.iconHtml("zoom", "zoom out to " + ctx.getLocale()) + " " + ctx.getLocale() + "</a>";
     }
 
     // XML/RSS
-    //private static final String DATE_FORMAT = "yyyy-MM-dd";
 
     private static void sendErr(HttpServletRequest request, HttpServletResponse response, String err) throws IOException {
         response.setContentType("text/html; charset=utf-8");
@@ -1720,8 +1781,6 @@ public class SurveyForum {
             sendErr(request, response, "permission denied for locale " + loc);
             return true;
         }
-
-        // DateFormat dateParser = new SimpleDateFormat(DATE_FORMAT);
 
         try {
             SyndFeed feed = new SyndFeedImpl();
@@ -1956,31 +2015,7 @@ public class SurveyForum {
             + ("/feed?_=" + localeToForum(ctx.getLocale()) + "&amp;email=" + ctx.session.user.email + "&amp;pw="
                 + ctx.session.user.password + "&amp;");
 
-        return " <a href='" + feedUrl + "&feed=rss_2.0" + "'>" + ctx.iconHtml("feed", "RSS 2.0") + "<!-- Forum&nbsp;rss --></a>"; /*
-                                                                                                                                  * |
-                                                                                                                                  * "
-                                                                                                                                  * +
-                                                                                                                                  * "<a href='"
-                                                                                                                                  * +
-                                                                                                                                  * feedUrl
-                                                                                                                                  * +
-                                                                                                                                  * "&feed=rss_2.0"
-                                                                                                                                  * +
-                                                                                                                                  * "'>"
-                                                                                                                                  * +
-                                                                                                                                  * ctx
-                                                                                                                                  * .
-                                                                                                                                  * iconHtml
-                                                                                                                                  * (
-                                                                                                                                  * "feed"
-                                                                                                                                  * ,
-                                                                                                                                  * "RSS 1.0"
-                                                                                                                                  * )
-                                                                                                                                  * +
-                                                                                                                                  * "RSS 1.0</a>"
-                                                                                                                                  * ;
-                                                                                                                                  */
-
+        return " <a href='" + feedUrl + "&feed=rss_2.0" + "'>" + ctx.iconHtml("feed", "RSS 2.0") + "<!-- Forum&nbsp;rss --></a>";
     }
 
     String mainFeedStuff(WebContext ctx) {
@@ -2002,31 +2037,7 @@ public class SurveyForum {
         String feedUrl = ctx.schemeHostPort() + ctx.base()
             + ("/feed?email=" + ctx.session.user.email + "&amp;pw=" + ctx.session.user.password + "&amp;");
 
-        return "<a href='" + feedUrl + "&feed=rss_2.0" + "'>" + ctx.iconHtml("feed", "RSS 2.0") + "RSS 2.0</a>"; /*
-                                                                                                                 * |
-                                                                                                                 * "
-                                                                                                                 * +
-                                                                                                                 * "<a href='"
-                                                                                                                 * +
-                                                                                                                 * feedUrl
-                                                                                                                 * +
-                                                                                                                 * "&feed=rss_2.0"
-                                                                                                                 * +
-                                                                                                                 * "'>"
-                                                                                                                 * +
-                                                                                                                 * ctx
-                                                                                                                 * .
-                                                                                                                 * iconHtml
-                                                                                                                 * (
-                                                                                                                 * "feed"
-                                                                                                                 * ,
-                                                                                                                 * "RSS 1.0"
-                                                                                                                 * )
-                                                                                                                 * +
-                                                                                                                 * "RSS 1.0</a>"
-                                                                                                                 * ;
-                                                                                                                 */
-
+        return "<a href='" + feedUrl + "&feed=rss_2.0" + "'>" + ctx.iconHtml("feed", "RSS 2.0") + "RSS 2.0</a>";
     }
 
     public int postCountFor(CLDRLocale locale, int xpathId) {
@@ -2050,17 +2061,18 @@ public class SurveyForum {
     }
 
     /**
+     * Gather forum post information into a JSONArray, in preparation for
+     * displaying it to the user (which is done by parseForumContent in survey.js).
      *
      * @param session
      * @param locale
      * @param base_xpath Base XPath of the item being viewed, if positive
      * @param ident If nonzero - select only this item. If zero, select all items.
-     * @param cldrVersion if non-null - specific version is returned
-     * @return
+     * @return the JSONArray
      * @throws JSONException
      * @throws SurveyException
      */
-    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident, String cldrVersion) throws JSONException, SurveyException {
+    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident) throws JSONException, SurveyException {
         assertCanAccessForum(session, locale);
 
         JSONArray ret = new JSONArray();
@@ -2072,7 +2084,7 @@ public class SurveyForum {
             try {
                 conn = sm.dbUtils.getDBConnection();
                 Object[][] o = null;
-                final CharSequence forumPosts = forumTable(cldrVersion);
+                final CharSequence forumPosts = forumTable();
                 if (ident == 0) {
                     if (base_xpath == 0) {
                         // all posts
@@ -2109,6 +2121,9 @@ public class SurveyForum {
                 // private final static String pAllResult =
                 // DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
                 if (o != null) {
+                    /* Gather the post data. Note that showPost is not called here.
+                     * The formatting is done by parseForumContent in survey.js.
+                     */
                     for (int i = 0; i < o.length; i++) {
                         int poster = (Integer) o[i][0];
                         String subj2 = (String) o[i][1];
@@ -2118,19 +2133,38 @@ public class SurveyForum {
                         int parent = (Integer) o[i][5];
                         int xpath = (Integer) o[i][6];
                         String loc = (String) o[i][7];
+                        String version = (String) o[i][8];
 
-                        if (lastDate.after(oldOnOrBefore) || false) {
+                        if (lastDate.after(oldOnOrBefore)) {
                             JSONObject post = new JSONObject();
                             post.put("poster", poster)
-                                .put("posterInfo", SurveyAjax.JSONWriter.wrap(CookieSession.sm.reg.getInfo(poster)))
-                                .put("subject", subj2).put("text", text2).put("date", lastDate).put("date_long", lastDate.getTime()).put("id", id)
+                                .put("subject", subj2)
+                                .put("text", text2)
+                                .put("date", lastDate)
+                                .put("date_long", lastDate.getTime())
+                                .put("id", id)
                                 .put("parent", parent);
                             if (loc != null) {
                                 post.put("locale", loc);
                             }
+                            if (version != null) {
+                                post.put("version", version);
+                            }
                             post.put("xpath_id", xpath);
                             if (xpath > 0) {
                                 post.put("xpath", sm.xpt.getStringIDString(xpath));
+                            }
+                            /* sm.reg.getInfo(poster) may be null if the poster is no longer active.
+                             * This caused a NullPointerException in SurveyAjax.JSONWriter.wrap.
+                             * To prevent the exception, explicitly check for null here.
+                             * survey.js shows a suitable message if posterInfo isn't defined.
+                             */
+                            UserRegistry.User posterUser = sm.reg.getInfo(poster);
+                            if (posterUser != null) {
+                                JSONObject posterInfoJson = SurveyAjax.JSONWriter.wrap(posterUser);
+                                if (posterInfoJson != null) {
+                                    post.put("posterInfo", posterInfoJson);
+                                }
                             }
                             ret.put(post);
                         }
@@ -2143,6 +2177,7 @@ public class SurveyForum {
                 DBUtils.close(conn);
             }
         } catch (SQLException se) {
+            // When query fails, set breakpoint here and look at se.detailMessage for clues
             String complaint = "SurveyForum:  Couldn't show posts in forum " + locale + " - " + DBUtils.unchainSqlException(se)
                 + " - fGetByLoc";
             logger.severe(complaint);
@@ -2153,17 +2188,12 @@ public class SurveyForum {
     }
 
     /**
-     * Compute the SQL table for a certain CLDR version
-     * @param cldrVersion
-     * @return
+     * Get the SQL table name for forum posts
+     * @return the table name
      */
-    private CharSequence forumTable(String cldrVersion) {
-        if (cldrVersion != null) {
-            cldrVersion = new Integer(Integer.parseInt(cldrVersion)).toString(); // sanitize
-        }
+    private CharSequence forumTable() {
         final Table FORUM_POSTS = DBUtils.Table.FORUM_POSTS;
-        return (cldrVersion == null)
-            ? (FORUM_POSTS.toString()) : (FORUM_POSTS.forVersion(cldrVersion, false));
+        return FORUM_POSTS.toString();
     }
 
     private void assertCanAccessForum(CookieSession session, CLDRLocale locale) throws SurveyException {
@@ -2199,15 +2229,22 @@ public class SurveyForum {
         return getPallresultfora(forumPosts.toString());
     }
 
+    /**
+     * Construct a portion of an sql query for getting all needed columns from the forum posts table.
+     * 
+     * @param forumPosts the table name
+     * @return the string to be used as part of a query
+     */
     private static String getPallresultfora(final CharSequence forumPosts) {
         return forumPosts + ".poster," + forumPosts + ".subj," + forumPosts + ".text,"
             + forumPosts.toString()
             + ".last_time," + forumPosts + ".id," + forumPosts + ".parent," + forumPosts + ".xpath, "
-            + forumPosts + ".loc";
+            + forumPosts + ".loc," + forumPosts + ".version";
     }
 
     /**
-     *
+     * Respond when the user adds a new forum post.
+     * 
      * @param mySession
      * @param xpath of the form "stringid" or "#1234"
      * @param l
@@ -2222,7 +2259,7 @@ public class SurveyForum {
         int base_xpath;
         if (replyTo < 0) {
             replyTo = NO_PARENT;
-            base_xpath = mySession.sm.xpt.getXpathIdOrNoneFromStringID(xpath);
+            base_xpath = sm.xpt.getXpathIdOrNoneFromStringID(xpath);
         } else {
             base_xpath = getXpathForPost(replyTo); // base_xpath is ignored on replies.
         }
@@ -2231,6 +2268,6 @@ public class SurveyForum {
         if (couldFlagOnLosing) {
             text = text + FLAGGED_FOR_REVIEW_HTML;
         }
-        return mySession.sm.fora.doPostInternal(base_xpath, replyTo, l, subj, text, couldFlagOnLosing, mySession.user);
+        return sm.fora.doPostInternal(base_xpath, replyTo, l, subj, text, couldFlagOnLosing, mySession.user);
     }
 }

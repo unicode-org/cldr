@@ -121,6 +121,16 @@ public class SurveyAjax extends HttpServlet {
             };
         }
 
+        /**
+         * Wrap information about the given user into a JSONObject.
+         * 
+         * @param u the user
+         * @return the JSONObject
+         * @throws JSONException
+         * 
+         * This function threw NullPointerException for u == null from sm.reg.getInfo(poster),
+         * now fixed in SurveyForum.java. Maybe this function should check for u == null.
+         */
         public static JSONObject wrap(UserRegistry.User u) throws JSONException {
             return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)
                 .put("emailHash", u.getEmailHash())
@@ -239,15 +249,13 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_REPORT = "report";
     public static final String WHAT_SEARCH = "search";
     public static final String WHAT_REVIEW_HIDE = "review_hide";
-    public static final String WHAT_REVIEW_ADD_POST = "add_post";
-    public static final String WHAT_REVIEW_GET_POST = "get_post";
-    public static final String WHAT_PARTICIPATING_USERS = "participating_users";
-    public static final String WHAT_USER_INFO = "user_info";
-    public static final String WHAT_USER_LIST = "user_list";
-    public static final String WHAT_USER_OLDVOTES = "user_oldvotes";
-    public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes";
-    public static final String WHAT_OLDVOTES = "oldvotes";
-    public static final String WHAT_FLAGGED = "flagged";
+    public static final String WHAT_PARTICIPATING_USERS = "participating_users"; // tc-emaillist.js
+    public static final String WHAT_USER_INFO = "user_info"; // usermap.js
+    public static final String WHAT_USER_LIST = "user_list"; // users.js
+    public static final String WHAT_USER_OLDVOTES = "user_oldvotes"; // users.js
+    public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes"; // users.js
+    public static final String WHAT_OLDVOTES = "oldvotes"; // survey.js
+    public static final String WHAT_FLAGGED = "flagged"; // survey.js
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "dummy" }; // list of prefs OK to get/set
@@ -500,22 +508,6 @@ public class SurveyAjax extends HttpServlet {
                         request.getParameter("locale"));
                 }
                 this.send(new JSONWriter(), out);
-            } else if (what.equals(WHAT_REVIEW_ADD_POST)) {
-                CookieSession.checkForExpiredSessions();
-                mySession = CookieSession.retrieve(sess);
-
-                JSONWriter postJson = new JSONWriter();
-                if (mySession == null) {
-                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, ErrorCode.E_SESSION_DISCONNECTED);
-                } else {
-                    mySession.userDidAction();
-                    WebContext ctx = new WebContext(request, response);
-                    ctx.sm = sm;
-                    ctx.session = mySession;
-                    sm.fora.doForum(ctx, "");
-                }
-
-                this.send(postJson, out);
             } else if (sess != null && !sess.isEmpty()) { // this and following:
                 // session needed
                 CookieSession.checkForExpiredSessions();
@@ -808,11 +800,13 @@ public class SurveyAjax extends HttpServlet {
                         } else {
                             mySession.userDidAction();
                             r.put("what", what);
-
-                            //String xp = sm.xpt.getById(id);
                             r.put("loc", loc);
                             r.put("xpath", xpath);
-                            r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
+                            /* Don't use deprecated mySession.sm here; we already have sm.
+                             *  For https://unicode.org/cldr/trac/ticket/10935 removed cldrVersion here.
+                             */
+                            r.put("ret", sm.fora.toJSON(mySession, locale, id, 0));
+                            // r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
@@ -827,7 +821,7 @@ public class SurveyAjax extends HttpServlet {
                         final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, replyTo);
                         r.put("postId", postId);
                         if (postId > 0) {
-                            r.put("ret", mySession.sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId, null/*current*/));
+                            r.put("ret", sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
                         }
                         send(r, out);
                     } else if (what.equals("mail")) {
@@ -1152,7 +1146,7 @@ public class SurveyAjax extends HttpServlet {
                                 JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + lastVoteTable
                                     + " where submitter=? group by locale order by locale", userid);
                                 final JSONWriter r = newJSONStatusQuick(sm);
-                                r.put("user_oldvotes", o);
+                                r.put("user_oldvotes", o); // WHAT_USER_OLDVOTES
                                 r.put("old_user_id", userid);
                                 r.put("lastVoteTable", lastVoteTable);
                                 send(r, out);

@@ -121,11 +121,17 @@ public class SurveyAjax extends HttpServlet {
             };
         }
 
+        /**
+         * Wrap information about the given user into a JSONObject.
+         * 
+         * @param u the user
+         * @return the JSONObject
+         * @throws JSONException
+         * 
+         * This function threw NullPointerException for u == null from sm.reg.getInfo(poster),
+         * now fixed in SurveyForum.java. Maybe this function should check for u == null.
+         */
         public static JSONObject wrap(UserRegistry.User u) throws JSONException {
-            // TODO: NullPointerException in wrap -- u == null when opening forum for French
-            if (u == null) {
-                return null;
-            }
             return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)
                 .put("emailHash", u.getEmailHash())
                 .put("userlevelName", u.getLevel()).put("org", u.org).put("time", u.last_connect);

@@ -85,7 +85,9 @@
 ^//ldml/numbers/currencyFormats\[@numberSystem="([^"]*)"]/unitPattern\[@count="(\w++)"] ; Currency format used for numbers of type {2}. For more information, please see http://cldr.org/translation/number-patterns.
 
 ^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="range"] ; Format used to indicate a range of numbers. The '{'0'}' and '{'1'}' in the pattern represent the lowest and highest numbers in the range, respectively. For more information, please see http://cldr.org/translation/misc.
-^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="atLeast"] ; Format used to indicate a number is at least a certain value. For more information, please see http://cldr.org/translation/misc.
+^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="atLeast"] ; Format used to indicate a number is at least a certain value, often combined with other patterns to produce examples such as “≥12kg”. For more information, please see http://cldr.org/translation/misc.
+^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="atMost"] ; Format used to indicate a number is at most a certain value, often combined with other patterns to produce examples such as “≤12kg”. For more information, please see http://cldr.org/translation/misc.
+^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="approximately"] ; Format used to indicate a number is approximately a given value, often combined with other patterns to produce examples such as “~12kg”. For more information, please see http://cldr.org/translation/misc.
 
 ^//ldml/numbers/minimalPairs/ordinalMinimalPairs\[@ordinal="([^"]*)"] ; Minimal pairs for ordinals. For more information, please see http://cldr.org/translation/plurals#TOC-Minimal-Pairs.
 ^//ldml/numbers/minimalPairs/pluralMinimalPairs\[@count="([^"]*)"] ; Minimal pairs for plurals (cardinals). For more information, please see http://cldr.org/translation/plurals#TOC-Minimal-Pairs.

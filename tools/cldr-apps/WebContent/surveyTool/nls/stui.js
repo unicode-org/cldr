@@ -150,7 +150,7 @@ define({
 		pClass_alias: "This item is aliased from another location.",
 		pClass_fallback_code: "This item is an untranslated code.",
 		pClass_fallback_root: "This item is inherited from the root locale.",
-		pClass_loser: "This is a proposed item which is not currently winning.",
+		pClass_loser: "This item is currently losing.",
 		pClass_fallback: "This item is inherited.", //  ${inheritFromDisplay}.", - removed in r8801
 		pClassExplain_desc: "This area shows the item's status.",
 		followAlias: "Jump to Original ⇒",

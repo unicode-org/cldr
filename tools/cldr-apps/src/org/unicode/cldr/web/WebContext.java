@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
 import java.util.regex.Pattern;
@@ -42,6 +43,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PatternCache;
@@ -1393,7 +1395,16 @@ public class WebContext implements Cloneable, Appendable {
      * @see StandardCodes#getLocaleCoverageOrganizations()
      */
     static String[] getLocaleCoverageOrganizations() {
-        return StandardCodes.make().getLocaleCoverageOrganizations().toArray(new String[0]);
+        Set<Organization> set = StandardCodes.make().getLocaleCoverageOrganizations();
+        Organization[] orgArray = set.toArray(new Organization[0]);
+        String[] stringArray = new String[orgArray.length];
+        int i = 0;
+        for (Organization org : orgArray) {
+            stringArray[i++] = org.toString();
+        }
+        return stringArray;
+        // There was ArrayStoreException here:
+        // return StandardCodes.make().getLocaleCoverageOrganizations().toArray(new String[0]);
     }
 
     /**

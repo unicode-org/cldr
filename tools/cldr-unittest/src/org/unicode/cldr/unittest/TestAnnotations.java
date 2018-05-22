@@ -36,6 +36,9 @@ import com.ibm.icu.dev.util.UnicodeMap.EntryRange;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestAnnotations extends TestFmwkPlus {
+    private static final boolean SHOW_LIST = false;
+    private static final boolean SHOW_ENGLISH = false;
+
     public static void main(String[] args) {
         new TestAnnotations().run(args);
     }
@@ -87,6 +90,9 @@ public class TestAnnotations extends TestFmwkPlus {
     }
 
     public void TestList() {
+        if (!SHOW_LIST) {
+            return;
+        }
         if (isVerbose()) {
             for (String locale : Annotations.getAvailable()) {
                 for (EntryRange<Annotations> s : Annotations.getData(locale).entryRanges()) {
@@ -99,7 +105,12 @@ public class TestAnnotations extends TestFmwkPlus {
     public void TestNames() {
         AnnotationSet eng = Annotations.getDataSet("en");
         String[][] tests = {
-            { "🇪🇺", "European Union", "flag" },
+            {"👨🏻", "man: light skin tone", "man | light skin tone"},
+            {"👱‍♂️", "man: blond hair", "blond | blond-haired man | man"},
+            {"👱🏻‍♂️", "man: light skin tone, blond hair", "blond | blond-haired man | man | light skin tone | blond hair"},
+            {"👨‍🦰", "man: red hair", "man | red hair"},
+            { "👨🏻‍🦰", "man: light skin tone, red hair", "man | light skin tone| red hair"},
+            { "🇪🇺", "flag: European Union", "flag" },
             { "#️⃣", "keycap: #", "keycap" },
             { "9️⃣", "keycap: 9", "keycap" },
             { "💏", "kiss", "couple | kiss" },
@@ -155,28 +166,33 @@ public class TestAnnotations extends TestFmwkPlus {
     }
 
     // comment this out, since we now have console check for this.
-    public void oldTestUniqueness() {
+    public void TestUniqueness() {
 //        if (logKnownIssue("cldrbug:10104", "Disable until the uniqueness problems are fixed")) {
 //            return;
 //        }
-        LinkedHashSet<String> locales = new LinkedHashSet<>();
+        Set<String> locales = new TreeSet<>();
+        
         locales.add("en");
         locales.addAll(Annotations.getAvailable());
         locales.remove("root");
-        locales.remove("sr_Latn");
+//        if (getInclusion() < 6) {
+//            locales.retainAll(CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr));
+//        }
+        //locales.remove("sr_Latn");
         Multimap<String, String> localeToNameToEmoji = TreeMultimap.create();
         Multimap<String, String> nameToEmoji = TreeMultimap.create();
         UnicodeMap<Annotations> english = Annotations.getData("en");
+        AnnotationSet englishSet = Annotations.getDataSet("en");
         UnicodeSet englishKeys = getCurrent(english.keySet());
         Map<String, UnicodeSet> localeToMissing = new TreeMap<>();
 
         for (String locale : locales) {
-            UnicodeMap<Annotations> data = Annotations.getData(locale);
+            logln("uniqueness: " + locale);
+            AnnotationSet data = Annotations.getDataSet(locale);
             nameToEmoji.clear();
             localeToMissing.put(locale, new UnicodeSet(englishKeys).removeAll(data.keySet()).freeze());
-            for (Entry<String, Annotations> value : data.entrySet()) {
-                String emoji = value.getKey();
-                String name = value.getValue().getShortName();
+            for (String emoji : Emoji.getAllRgi()) { // Entry<String, Annotations> value : data.entrySet()) {
+                String name = data.getShortName(emoji);
                 if (name == null) {
                     continue;
                 }
@@ -198,11 +214,11 @@ public class TestAnnotations extends TestFmwkPlus {
                 String locale = entry.getKey();
                 String emoji = entry.getValue();
                 System.out.println(locale
-                    + "\t" + english.get(emoji).getShortName()
+                    + "\t" + englishSet.getShortName(emoji)
                     + "\t" + emoji);
             }
         }
-        if (isVerbose() && !localeToMissing.isEmpty()) {
+        if (SHOW_LIST && !localeToMissing.isEmpty()) {
             System.out.println("\nMissing");
             int count = 2;
             for (Entry<String, UnicodeSet> entry : localeToMissing.entrySet()) {
@@ -210,7 +226,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 for (String emoji : entry.getValue()) {
                     System.out.println(locale
                         + "\t" + emoji
-                        + "\t" + english.get(emoji).getShortName()
+                        + "\t" + englishSet.getShortName(emoji)
                         + "\t" + "=GOOGLETRANSLATE(C" + count + ",\"en\",A" + count + ")"
                     // =GOOGLETRANSLATE(C2,"en",A2)
                     );

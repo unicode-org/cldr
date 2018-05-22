@@ -50,21 +50,25 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     }
 
     private static enum Type {
-        LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX, 0), SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX,
-            1), TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX, 2), VARIANT("//ldml/localeDisplayNames/variants/variant",
-                MatchType.PREFIX, 3), CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX, 4), ZONE("//ldml/dates/timeZoneNames/zone",
-                    MatchType.PREFIX, 5), METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX, 6), DECIMAL_FORMAT("//ldml/numbers/decimalFormats",
-                        MatchType.PREFIX, 7), UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX,
-                            8), UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX, 9), UNITS_COORDINATE(
-                                "//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX,
-                                10), UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX, 11), UNITS("//ldml/units/unitLength",
-                                    MatchType.PREFIX,
-                                    12), FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative",
-                                        MatchType.REGEX, 13), FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]",
-                                            MatchType.REGEX, 14), ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]",
-                                                MatchType.REGEX, 15), CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX,
-                                                    16), ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX, 17),
-                                                    ;
+        LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX, 0),
+        SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX, 1),
+        TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX, 2),
+        VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX, 3),
+        CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX, 4),
+        ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX, 5),
+        METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX, 6),
+        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", MatchType.PREFIX, 7),
+        UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX, 8),
+        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX, 9),
+        UNITS_COORDINATE( "//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX, 10),
+        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX, 11),
+        UNITS("//ldml/units/unitLength", MatchType.PREFIX, 12),
+        FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 13),
+        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14),
+        ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]", MatchType.REGEX, 15),
+        CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX, 16),
+        ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX, 17), 
+        ;
 
         private MatchType matchType;
         private String basePrefix;
@@ -101,11 +105,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     if (path.startsWith(type.getPrefix())) {
                         return type;
                     }
-                }
-
-                Matcher m = type.getPattern().matcher(path);
-                if (m.matches()) {
-                    return type;
+                } else {
+                    Matcher m = type.getPattern().matcher(path);
+                    if (m.matches()) {
+                        return type;
+                    }
                 }
             }
             return null;
@@ -300,8 +304,25 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     }
                 }
             }
+            // account for collisions with England and the UK. Error message is a bit off for now.
+            String subdivisionPath = nameToSubdivisionId.get(value);
+            if (subdivisionPath != null) {
+                paths.add(subdivisionPath);
+            }
             paths.addAll(duplicatePaths);
         }
+
+        // Group territories into emoji (but asymmetric! — if a territory has the same name as an emoji, it is the emoji's fault!
+        // If the new format for synthesized flag names is accepted, this is no longer a problem, but leaving the code here for reference.
+//        if (myType == Type.ANNOTATIONS) {
+//            Set<String> duplicatePaths = getPathsWithValue(
+//                getResolvedCldrFileToCheck(), path, value, Type.TERRITORY,
+//                Type.TERRITORY.getPrefix(), null, currentAttributesToIgnore, Equivalence.normal);
+//            paths.addAll(duplicatePaths);
+//            // NOTE: this is slightly overdone, in that it also counts items like 019 colliding with 🌎. But doesn't hurt.
+//            // TODO, add 3 subdivisions
+//        }
+
 
         if (paths.isEmpty()) {
 //            System.out.println("Paths is empty");
@@ -603,11 +624,15 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         return locale.equals(XMLSource.CODE_FALLBACK_ID);
     }
 
+    private Map<String,String> nameToSubdivisionId = Collections.emptyMap();
+
     @Override
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        // pick up the 3 subdivisions
+        nameToSubdivisionId = EmojiSubdivisionNames.getNameToSubdivisionPath(cldrFileToCheck.getLocaleID());
         return this;
     }
 

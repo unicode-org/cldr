@@ -7960,13 +7960,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Венесуэльский боливар (1871–2008)</displayName>
 			</currency>
 			<currency type="VEF">
+				<displayName>венесуэльский боливар (2008–2018)</displayName>
+				<displayName count="one">венесуэльский боливар (2008–2018)</displayName>
+				<displayName count="few">венесуэльских боливара (2008–2018)</displayName>
+				<displayName count="many">венесуэльских боливаров (2008–2018)</displayName>
+				<displayName count="other">венесуэльского боливара (2008–2018)</displayName>
+				<symbol>VEF</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
+			</currency>
+			<currency type="VES">
 				<displayName>венесуэльский боливар</displayName>
 				<displayName count="one">венесуэльский боливар</displayName>
 				<displayName count="few">венесуэльских боливара</displayName>
 				<displayName count="many">венесуэльских боливаров</displayName>
 				<displayName count="other">венесуэльского боливара</displayName>
-				<symbol>VEF</symbol>
-				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>вьетнамский донг</displayName>
@@ -10833,8 +10840,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wght" subtype="900">черный</styleName>
 		<styleName type="wght" subtype="900" alt="heavy">тяжелый</styleName>
 		<styleName type="wght" subtype="950">сверхчерный</styleName>
-		<styleName type="wght" subtype="950" alt="ultraheavy">ультратяжелый</styleName>
 		<styleName type="wght" subtype="950" alt="ultrablack">ультрачерный</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ультратяжелый</styleName>
 		<featureName type="afrc">дроби с вертикальной чертой</featureName>
 		<featureName type="cpsp">интервал между заглавными</featureName>
 		<featureName type="dlig">необязательные лигатуры</featureName>

@@ -257,6 +257,8 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_OLDVOTES = "oldvotes"; // survey.js
     public static final String WHAT_FLAGGED = "flagged"; // survey.js
 
+    private static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
+
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "dummy" }; // list of prefs OK to get/set
 
@@ -904,26 +906,10 @@ public class SurveyAjax extends HttpServlet {
                             if (modifyableLocs.length() > 0) {
                                 r.put("canmodify", modifyableLocs);
                             }
-                            // any special messages?
                             // Import old votes if appropriate.
                             // TC votes don’t get imported automatically.
                             if (mySession.user != null && mySession.user.canImportOldVotes() && !UserRegistry.userIsTC(mySession.user)) {
-                                // old votes?
-                                String oldVotesTable = STFactory.getLastVoteTable();
-                                if (DBUtils.hasTable(oldVotesTable)) {
-                                    SurveyLog.warnOnce("Old Votes table present: " + oldVotesTable);
-                                    int count = DBUtils.sqlCount("select  count(*) as count from " + oldVotesTable
-                                        + " where submitter=? " +
-                                        " and value is not null", mySession.user.id);
-                                    if (count > 0) { // may be -1 on error
-                                        if (SurveyMain.isUnofficial()) {
-                                            System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count);
-                                        }
-                                        importAllOldWinningVotes(r, mySession.user, sm, oldVotesTable);
-                                    }
-                                } else {
-                                    SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
-                                }
+                                doAutoImportOldWinningVotes(r, mySession.user, sm);
                             }
                         }
                         send(r, out);
@@ -1961,9 +1947,11 @@ public class SurveyAjax extends HttpServlet {
     /**
      * Import all old winning votes for this user, without GUI interaction
      * other than a dialog when finished: 
-     * "Your old winning votes for locales ... have been imported." "OK"
+     * "Your old winning votes for locales ... have been imported." "OK".
      * 
-     * See https://unicode.org/cldr/trac/ticket/11056
+     * Caller already checked (user != null && user.canImportOldVotes() && !UserRegistry.userIsTC(user).
+     * 
+     * See https://unicode.org/cldr/trac/ticket/11056 AND https://unicode.org/cldr/trac/ticket/11123
      * 
      * Caller has already verified user.canImportOldVotes().
      * 
@@ -1976,14 +1964,64 @@ public class SurveyAjax extends HttpServlet {
      * @param sm the SurveyMain instance
      * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      * @return how many votes imported
+     * @throws ServletException
+     * @throws IOException
+     * @throws JSONException
+     * @throws SQLException
      *
      * Called locally by processRequest, and also eventually by unit test TestImportOldVotes.java, therefore public.
      */
-    public int importAllOldWinningVotes(JSONWriter r, User user, SurveyMain sm, final String oldVotesTable)
+    public int doAutoImportOldWinningVotes(JSONWriter r, User user, SurveyMain sm)
                throws ServletException, IOException, JSONException, SQLException {
 
-        JSONObject oldvotes = new JSONObject();
-        final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString(); // the table name like "cldr_vote_value_34"
+         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString(); // the table name like "cldr_vote_value_34" or "cldr_vote_value_34_beta"
+         JSONObject oldvotes = new JSONObject();
+
+        /* Loop thru multiple old votes tables in reverse chronological order:
+         *  cldr_vote_value_33, cldr_vote_value_32, cldr_vote_value_31, ..., cldr_vote_value_25.
+         *  If user voted for an item in version N, then ignore votes for the same item in versions before N 
+         *  (see box.getVoteValue in importAllOldWinningVotes).
+         */
+        int ver = Integer.parseInt(SurveyMain.getNewVersion());
+        int confirmations = 0;
+        while (--ver >= oldestVersionForImportingVotes) {
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                SurveyLog.warnOnce("Old Votes table present: " + oldVotesTable);
+                int count = DBUtils.sqlCount("select  count(*) as count from " + oldVotesTable
+                    + " where submitter=? " +
+                    " and value is not null", user.id);
+                if (count > 0) { // may be -1 on error
+                    if (SurveyMain.isUnofficial()) {
+                        System.out.println("Old Votes remaining: " + user + " oldVotesCount = " + count);
+                    }
+                    confirmations += importAllOldWinningVotes(r, user, sm, newVotesTable, oldVotesTable);
+                }
+            } else {
+                SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
+            }
+        }
+        oldvotes.put("ok", true);
+        r.put("what", WHAT_OLDVOTES);
+        r.put("oldvotes", oldvotes);
+        if (confirmations > 0) {
+            r.put("autoImportedOldWinningVotes", confirmations);
+        }      
+        return confirmations;
+    }
+
+    /**
+     * Import all old winning votes for this user in the specified old table.
+     *
+     * @param user the User
+     * @param sm the SurveyMain instance
+     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
+     * @return how many votes imported
+     *
+     * Called locally by doAutoImportOldWinningVotes.
+     */
+    private int importAllOldWinningVotes(JSONWriter r, User user, SurveyMain sm, final String newVotesTable, final String oldVotesTable)
+               throws ServletException, IOException, JSONException, SQLException {
         STFactory fac = sm.getSTFactory();
 
         // Different from similar queries elsewhere: since we're doing ALL locales for this user,
@@ -2011,9 +2049,12 @@ public class SurveyAjax extends HttpServlet {
             try {
                 String curValue = file.getStringValue(xpathString);
                 if (value.equals(curValue)) { // it's "winning" (uncontested).
-                    BallotBox<User> box = fac.ballotBoxForLocale(locale);
-                    box.voteForValue(user, xpathString, value);
-                    confirmations++;
+                    BallotBox<User> box = fac.ballotBoxForLocale(locale); // slow?
+                    // Skip if user already voted for this xpathString and value.
+                    if (box.getVoteValue(user, xpathString) == null) {
+                        box.voteForValue(user, xpathString, value);
+                        confirmations++;                        
+                    }
                 }
             } catch (InvalidXPathException ix) {
                 SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
@@ -2021,12 +2062,7 @@ public class SurveyAjax extends HttpServlet {
                 SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
             }
         }
-        oldvotes.put("ok", true);
-        r.put("what", WHAT_OLDVOTES);
-        r.put("oldvotes", oldvotes);
-        if (confirmations > 0) {
-            r.put("autoImportedOldWinningVotes", confirmations);
-        }      
+        // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
     }
 }

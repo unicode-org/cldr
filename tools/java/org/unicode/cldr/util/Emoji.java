@@ -104,7 +104,12 @@ public class Emoji {
     }
 
     public static String getMinorCategory(String emoji) {
-        return CldrUtility.ifNull(emojiToMinorCategory.get(emoji), "Component");
+        String minorCat = emojiToMinorCategory.get(emoji);
+        if (minorCat == null) {
+            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
+        }
+        return minorCat;
     }
 
     public static int getMinorToOrder(String minor) {
@@ -113,7 +118,12 @@ public class Emoji {
     }
 
     public static String getMajorCategory(String emoji) {
-        return CldrUtility.ifNull(emojiToMajorCategory.get(emoji), "Component");
+        String majorCat = emojiToMajorCategory.get(emoji);
+        if (majorCat == null) {
+            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"major\", ...");
+        }
+        return majorCat;
     }
 
     public static Set<String> getMajorCategories() {

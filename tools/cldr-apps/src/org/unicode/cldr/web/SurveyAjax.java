@@ -905,7 +905,9 @@ public class SurveyAjax extends HttpServlet {
                                 r.put("canmodify", modifyableLocs);
                             }
                             // any special messages?
-                            if (mySession.user != null && mySession.user.canImportOldVotes()) {
+                            // Import old votes if appropriate.
+                            // TC votes don’t get imported automatically.
+                            if (mySession.user != null && mySession.user.canImportOldVotes() && !UserRegistry.userIsTC(mySession.user)) {
                                 // old votes?
                                 String oldVotesTable = STFactory.getLastVoteTable();
                                 if (DBUtils.hasTable(oldVotesTable)) {

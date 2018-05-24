@@ -1671,31 +1671,22 @@ public class SurveyAjax extends HttpServlet {
      *
      * Called locally by processRequest, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public void importOldVotes(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
-               String val, String loc)
+    public void importOldVotes(JSONWriter r, User user, SurveyMain sm, boolean isSubmit, String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
-
         r.put("what", WHAT_OLDVOTES);
-
-        final String oldVotesTable = STFactory.getLastVoteTable();
-        SurveyLog.warnOnce("old votes table is " + oldVotesTable);
         if (user == null) {
             r.put("err", "Must be logged in");
             r.put("err_code", ErrorCode.E_NOT_LOGGED_IN);
         } else if (!user.canImportOldVotes()) {
             r.put("err", "No permission to do this (may not be the right SurveyTool phase)");
             r.put("err_code", ErrorCode.E_NO_PERMISSION);
-        } else if (DBUtils.hasTable(oldVotesTable) == false) {
-            r.put("err", "No old votes available to import for " + SurveyMain.getLastVoteVersion());
-            r.put("err_code", ErrorCode.E_NO_OLD_VOTES);
-            SurveyLog.warnOnce("Could not import old votes, table " + oldVotesTable + " does not exist.");
         } else {
-            importOldVotesForValidatedUser(r, user, sm, isSubmit, val, loc, oldVotesTable);
+            importOldVotesForValidatedUser(r, user, sm, isSubmit, val, loc);
         }
     }
 
     /**
-     * Import old votes, having confirmed user has permission and has old votes available.
+     * Import old votes, having confirmed user has permission.
      *
      * @param r the JSONWriter in which to write
      * @param user the User
@@ -1705,7 +1696,6 @@ public class SurveyAjax extends HttpServlet {
      *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
      * @param loc the locale as a string, empty when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      *
      * Called locally by importOldVotes, and also by unit test TestImportOldVotes.java, therefore public.
      * 
@@ -1717,25 +1707,23 @@ public class SurveyAjax extends HttpServlet {
 
      */
     public void importOldVotesForValidatedUser(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
-               String val, String loc, final String oldVotesTable)
+               String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
 
+        final String oldVotesTable = null;
+        if (DBUtils.hasTable(oldVotesTable) == false) {
+            r.put("err", "No old votes available to import for " + SurveyMain.getLastVoteVersion());
+            r.put("err_code", ErrorCode.E_NO_OLD_VOTES);
+            SurveyLog.warnOnce("Could not import old votes, table " + oldVotesTable + " does not exist.");
+            return;
+        }
         JSONObject oldvotes = new JSONObject();
         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
         oldvotes.put("votesafter", "(version" + SurveyMain.getLastVoteVersion() + ")");
 
         if (loc == null || loc.isEmpty()) {
             // list locales to choose
-            oldvotes.put(
-                "locales",
-                DBUtils.queryToJSON("select locale,count(*) as count from " + oldVotesTable
-                    + " where submitter=? " +
-                    " and value is not null " +
-                    " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
-                    +
-                    " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
-                    + ".submitter )" +
-                    "group by locale order by locale", user.id));
+            listLocalesForImportOldVotes(user, sm, loc, oldVotesTable, newVotesTable, oldvotes);
         } else {
             CLDRLocale locale = CLDRLocale.getInstance(loc);
             oldvotes.put("locale", locale);
@@ -1753,6 +1741,33 @@ public class SurveyAjax extends HttpServlet {
         r.put("oldvotes", oldvotes);
         r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
         r.put("BASELINE_ID", SurveyMain.BASELINE_ID);
+    }
+
+    /**
+     * List locales that have old votes available to be imported.
+     *
+     * @param user the User (this function only uses user.id)
+     * @param sm the SurveyMain instance
+     * @param loc the non-empty String for the locale like "aa"
+     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
+     * @param newVotesTable the String for the table name like "cldr_vote_value_34"
+     * @param oldvotes the JSONObject to be added to
+     *
+     */
+    public void listLocalesForImportOldVotes(User user, SurveyMain sm, String loc, 
+               final String oldVotesTable, final String newVotesTable, JSONObject oldvotes)
+               throws ServletException, IOException, JSONException, SQLException {
+
+        oldvotes.put(
+            "locales",
+            DBUtils.queryToJSON("select locale,count(*) as count from " + oldVotesTable
+                + " where submitter=? " +
+                " and value is not null " +
+                " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
+                +
+                " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
+                + ".submitter )" +
+                "group by locale order by locale", user.id));
     }
 
     /**
@@ -1960,7 +1975,7 @@ public class SurveyAjax extends HttpServlet {
      * as though the user had chosen to select all their old winning votes in viewOldVotes, and
      * submit them as in submitOldVotes.
      *
-     * @param r the JSONWriter to be filled in
+     * @param r the JSONWriter in which to write
      * @param user the User
      * @param sm the SurveyMain instance
      * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
@@ -1996,7 +2011,7 @@ public class SurveyAjax extends HttpServlet {
                     if (SurveyMain.isUnofficial()) {
                         System.out.println("Old Votes remaining: " + user + " oldVotesCount = " + count);
                     }
-                    confirmations += importAllOldWinningVotes(user, sm, newVotesTable, oldVotesTable);
+                    confirmations += importAllOldWinningVotes(user, sm, oldVotesTable, newVotesTable);
                 }
             } else {
                 SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
@@ -2016,13 +2031,13 @@ public class SurveyAjax extends HttpServlet {
      *
      * @param user the User
      * @param sm the SurveyMain instance
-     * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
+     * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @return how many votes imported
      *
      * Called locally by doAutoImportOldWinningVotes.
      */
-    private int importAllOldWinningVotes(User user, SurveyMain sm, final String newVotesTable, final String oldVotesTable)
+    private int importAllOldWinningVotes(User user, SurveyMain sm, final String oldVotesTable, final String newVotesTable)
                throws ServletException, IOException, JSONException, SQLException {
         STFactory fac = sm.getSTFactory();
 

@@ -11,6 +11,7 @@ public class EmojiConstants {
     public static final UnicodeSet REGIONAL_INDICATORS = new UnicodeSet(FIRST_REGIONAL, LAST_REGIONAL).freeze();
     public static final String KEYCAP_MARK_STRING = "\u20E3";
     public static final UnicodeSet MODIFIERS = new UnicodeSet(0x1F3FB, 0x1F3FF).freeze();
+    public static final UnicodeSet HAIR = new UnicodeSet(0x1F9B0, 0x1F9B3).freeze();
     public static final char JOINER = '\u200D';
     public static final String JOINER_STRING = String.valueOf(JOINER);
     public static final UnicodeSet COMPONENTS = new UnicodeSet(EmojiConstants.MODIFIERS)
@@ -33,6 +34,13 @@ public class EmojiConstants {
     //public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
     public static String getFlagCode(String s) {
         return String.valueOf((char) (s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
+    }
+    
+    public static String getEmojiFromRegionCodes(String chars) {
+        return new StringBuilder()
+                .appendCodePoint(chars.codePointAt(0) + FIRST_REGIONAL - 'A')
+                .appendCodePoint(chars.codePointAt(1) + FIRST_REGIONAL - 'A')
+                .toString();
     }
 
     public static final UnicodeSet FAMILY_MARKERS = new UnicodeSet()

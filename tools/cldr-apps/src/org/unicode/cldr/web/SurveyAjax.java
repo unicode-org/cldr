@@ -1964,6 +1964,8 @@ public class SurveyAjax extends HttpServlet {
      * @return the array of maps
      * @throws SQLException
      * @throws IOException
+     * 
+     * Called by viewOldVotes and submitOldVotes.
      */
     private static Map<String, Object>[] getOldVotesRows(final String newVotesTable, CLDRLocale locale, int id)
         throws SQLException, IOException {
@@ -2027,8 +2029,8 @@ public class SurveyAjax extends HttpServlet {
     public int doAutoImportOldWinningVotes(JSONWriter r, User user, SurveyMain sm)
                throws ServletException, IOException, JSONException, SQLException {
 
-         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString(); // the table name like "cldr_vote_value_34" or "cldr_vote_value_34_beta"
-         JSONObject oldvotes = new JSONObject();
+        final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString(); // the table name like "cldr_vote_value_34" or "cldr_vote_value_34_beta"
+        JSONObject oldvotes = new JSONObject();
 
         /* Loop thru multiple old votes tables in reverse chronological order:
          *  cldr_vote_value_33, cldr_vote_value_32, cldr_vote_value_31, ..., cldr_vote_value_25.

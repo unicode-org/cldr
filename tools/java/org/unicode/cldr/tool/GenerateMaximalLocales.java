@@ -150,6 +150,8 @@ public class GenerateMaximalLocales {
         "bsq_Bass_LR",
         "ccp_Cakm_BD",
         "blt_Tavt_VN",
+        "rhg_Arab_MM",
+        "rhg_Rohg_MM",
     };
 
     /**
@@ -264,6 +266,7 @@ public class GenerateMaximalLocales {
 //        {"bsq", "bsq_Bass_LR"},
 //        {"ccp", "ccp_Cakm_BD"},
 //        {"blt", "blt_Tavt_VN"},
+        { "mis_Medf", "mis_Medf_NG" },
     });
 
     /**

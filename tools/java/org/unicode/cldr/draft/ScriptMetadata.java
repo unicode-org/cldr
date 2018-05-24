@@ -305,13 +305,21 @@ public class ScriptMetadata {
     }
 
     public enum Groupings {
-        EUROPEAN("150"), MIDDLE_EASTERN("145"), SOUTH_ASIAN("034"), SOUTHEAST_ASIAN("035"), EAST_ASIAN("030"), AFRICAN("002"), AMERICAN("019"),;
+        EUROPEAN("150"),
+        MIDDLE_EASTERN("145"),
+        CENTRAL_ASIAN("143"),
+        SOUTH_ASIAN("034"),
+        SOUTHEAST_ASIAN("035"),
+        EAST_ASIAN("030"),
+        AFRICAN("002"),
+        AMERICAN("019"),;
         public final Set<String> scripts;
 
         private Groupings(String... regions) {
             scripts = With
                 .in(getScripts())
-                .toUnmodifiableCollection(new ScriptMetadata.RegionFilter(regions), new TreeSet());
+                .toUnmodifiableCollection(
+                    new ScriptMetadata.RegionFilter(regions), new TreeSet<String>());
         }
     }
 

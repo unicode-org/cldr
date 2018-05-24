@@ -1960,6 +1960,7 @@ public class SurveyAjax extends HttpServlet {
      * as though the user had chosen to select all their old winning votes in viewOldVotes, and
      * submit them as in submitOldVotes.
      *
+     * @param r the JSONWriter to be filled in
      * @param user the User
      * @param sm the SurveyMain instance
      * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
@@ -1995,7 +1996,7 @@ public class SurveyAjax extends HttpServlet {
                     if (SurveyMain.isUnofficial()) {
                         System.out.println("Old Votes remaining: " + user + " oldVotesCount = " + count);
                     }
-                    confirmations += importAllOldWinningVotes(r, user, sm, newVotesTable, oldVotesTable);
+                    confirmations += importAllOldWinningVotes(user, sm, newVotesTable, oldVotesTable);
                 }
             } else {
                 SurveyLog.warnOnce("Old Votes table missing: " + oldVotesTable);
@@ -2015,12 +2016,13 @@ public class SurveyAjax extends HttpServlet {
      *
      * @param user the User
      * @param sm the SurveyMain instance
+     * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      * @return how many votes imported
      *
      * Called locally by doAutoImportOldWinningVotes.
      */
-    private int importAllOldWinningVotes(JSONWriter r, User user, SurveyMain sm, final String newVotesTable, final String oldVotesTable)
+    private int importAllOldWinningVotes(User user, SurveyMain sm, final String newVotesTable, final String oldVotesTable)
                throws ServletException, IOException, JSONException, SQLException {
         STFactory fac = sm.getSTFactory();
 
@@ -2049,11 +2051,15 @@ public class SurveyAjax extends HttpServlet {
             try {
                 String curValue = file.getStringValue(xpathString);
                 if (value.equals(curValue)) { // it's "winning" (uncontested).
-                    BallotBox<User> box = fac.ballotBoxForLocale(locale); // slow?
-                    // Skip if user already voted for this xpathString and value.
+                    BallotBox<User> box = fac.ballotBoxForLocale(locale);
+                    /* Only import the most recent vote for the given user and xpathString.
+                     * Skip if user already has a vote for this xpathString (with ANY value).
+                     * Since we're going through tables in reverse chronological order, "already" here implies
+                     * "for a later version".
+                     */
                     if (box.getVoteValue(user, xpathString) == null) {
                         box.voteForValue(user, xpathString, value);
-                        confirmations++;                        
+                        confirmations++;
                     }
                 }
             } catch (InvalidXPathException ix) {

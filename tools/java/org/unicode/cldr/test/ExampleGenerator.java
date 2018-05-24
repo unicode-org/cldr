@@ -391,11 +391,12 @@ public class ExampleGenerator {
         case "category-list":
             List<String> examples = new ArrayList<>();
             CLDRFile cfile = getCldrFile();
-            SimpleFormatter initialPattern = SimpleFormatter.compile(value);
+            SimpleFormatter initialPattern = SimpleFormatter.compile(setBackground(value));
             String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "FR");
             String regionName = cfile.getStringValue(path);
             String flagName = cfile.getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
-            examples.add(EmojiConstants.getEmojiFromRegionCodes("FR") + " ⇒ " + initialPattern.format(flagName, regionName));
+            examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes("FR") 
+                + " ⇒ " + initialPattern.format(flagName, regionName)));
             return formatExampleList(examples);
         default: return null;
         }
@@ -411,7 +412,8 @@ public class ExampleGenerator {
             String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "FR");
             String regionName = cfile.getStringValue(path);
             SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
-            examples.add(EmojiConstants.getEmojiFromRegionCodes("FR") + " ⇒ " + initialPattern.format(value2, regionName));
+            examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes("FR") 
+                + " ⇒ " + initialPattern.format(value2, regionName)));
             return formatExampleList(examples);
         }
         case "keycap": { 
@@ -419,9 +421,9 @@ public class ExampleGenerator {
             List<String> examples = new ArrayList<>();
             CLDRFile cfile = getCldrFile();
             SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
-           examples.add(initialPattern.format(value2, "1"));
-            examples.add(initialPattern.format(value2, "10"));
-            examples.add(initialPattern.format(value2, "#"));
+           examples.add(invertBackground(initialPattern.format(value2, "1")));
+            examples.add(invertBackground(initialPattern.format(value2, "10")));
+            examples.add(invertBackground(initialPattern.format(value2, "#")));
             return formatExampleList(examples);
         }
         default:
@@ -445,33 +447,41 @@ public class ExampleGenerator {
         if (isSkin || EmojiConstants.HAIR.contains(first)) {
             String value2 = backgroundStartSymbol + value + backgroundEndSymbol;
             CLDRFile cfile = getCldrFile();
-            String person = "👩";
             String skin = "🏽";
-            String hair = EmojiConstants.JOINER_STRING + "🦰";
-            String personName = cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + person + "\"][@type=\"tts\"]");
+            String hair = "🦰";
             String skinName = cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + skin + "\"][@type=\"tts\"]");
             String hairName = cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + hair + "\"][@type=\"tts\"]");
-            if (hair == null) {
+            if (hairName == null) {
                 hair = "[missing]";
             }
             SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
             SimpleFormatter listPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
-            StringBuilder emoji = new StringBuilder(person).appendCodePoint(first);
-            cp = UTF16.valueOf(first);
-            cp = isSkin ? cp : EmojiConstants.JOINER_STRING + cp;
-            examples.add(person + cp + " ⇒ " + initialPattern.format(personName,value2));
-            emoji.setLength(0);
-            emoji.append(personName);
-            if (isSkin) {
-                skinName = value2;
-                skin = cp;
-            } else {
-                hairName = value2;
-                hair = cp;
-            }
-            examples.add(person + skin + hair + " ⇒ " + listPattern.format(initialPattern.format(personName, skinName), hairName));
+
+            hair = EmojiConstants.JOINER_STRING + hair;
+            formatPeople(cfile, first, isSkin, value2, "👩", skin, skinName, hair, hairName, initialPattern, listPattern, examples);
+            formatPeople(cfile, first, isSkin, value2, "👨", skin, skinName, hair, hairName, initialPattern, listPattern, examples);
         }
         return formatExampleList(examples);
+    }
+
+    private void formatPeople(CLDRFile cfile, int first, boolean isSkin, String value2, String person, String skin, String skinName, 
+        String hair, String hairName, SimpleFormatter initialPattern, SimpleFormatter listPattern, List<String> examples) {
+        String cp;
+        String personName = cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + person + "\"][@type=\"tts\"]");
+        StringBuilder emoji = new StringBuilder(person).appendCodePoint(first);
+        cp = UTF16.valueOf(first);
+        cp = isSkin ? cp : EmojiConstants.JOINER_STRING + cp;
+        examples.add(person + cp + " ⇒ " + invertBackground(initialPattern.format(personName,value2)));
+        emoji.setLength(0);
+        emoji.append(personName);
+        if (isSkin) {
+            skinName = value2;
+            skin = cp;
+        } else {
+            hairName = value2;
+            hair = cp;
+        }
+        examples.add(person + skin + hair + " ⇒ " + invertBackground(listPattern.format(initialPattern.format(personName, skinName), hairName)));
     }
 
     private String handleDayPeriod(String xpath, String value, ExampleContext context, ExampleType type) {
@@ -1609,6 +1619,7 @@ public class ExampleGenerator {
         for (String example : examples) {
             if (first) {
                 result = example;
+                first = false;
             } else {
                 result = addExampleResult(example, result);
             }
@@ -1635,7 +1646,6 @@ public class ExampleGenerator {
 
     /**
      * Put a background on an item, skipping enclosed patterns.
-     *
      * @param sampleTerritory
      * @return
      */
@@ -1647,7 +1657,6 @@ public class ExampleGenerator {
 
     /**
      * Put a background on an item, skipping enclosed patterns, except for {0}
-     *
      * @param patternToEmbed
      *            TODO
      * @param sampleTerritory

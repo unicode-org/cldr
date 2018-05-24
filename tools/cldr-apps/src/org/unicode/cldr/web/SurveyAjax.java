@@ -1710,20 +1710,12 @@ public class SurveyAjax extends HttpServlet {
                String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
 
-        final String oldVotesTable = null;
-        if (DBUtils.hasTable(oldVotesTable) == false) {
-            r.put("err", "No old votes available to import for " + SurveyMain.getLastVoteVersion());
-            r.put("err_code", ErrorCode.E_NO_OLD_VOTES);
-            SurveyLog.warnOnce("Could not import old votes, table " + oldVotesTable + " does not exist.");
-            return;
-        }
         JSONObject oldvotes = new JSONObject();
         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
         oldvotes.put("votesafter", "(version" + SurveyMain.getLastVoteVersion() + ")");
 
         if (loc == null || loc.isEmpty()) {
-            // list locales to choose
-            listLocalesForImportOldVotes(user, sm, loc, oldVotesTable, newVotesTable, oldvotes);
+            listLocalesForImportOldVotes(user, sm, newVotesTable, oldvotes);
         } else {
             CLDRLocale locale = CLDRLocale.getInstance(loc);
             oldvotes.put("locale", locale);
@@ -1731,11 +1723,10 @@ public class SurveyAjax extends HttpServlet {
             HTMLDirection dir = sm.getHTMLDirectionFor(locale);
             oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
             STFactory fac = sm.getSTFactory();
-            CLDRFile file = sm.getOldFile(loc, true); // file unused if isSubmit; does getOldFile have any necessary side-effect?
             if (isSubmit) {
-                submitOldVotes(user, sm, locale, val, oldVotesTable, newVotesTable, oldvotes, fac);
+                submitOldVotes(user, sm, locale, val, newVotesTable, oldvotes, fac);
             } else {
-                viewOldVotes(user, sm, loc, locale, oldVotesTable, newVotesTable, oldvotes, fac, file);
+                viewOldVotes(user, sm, loc, locale, newVotesTable, oldvotes, fac);
             }
         }
         r.put("oldvotes", oldvotes);
@@ -1748,26 +1739,45 @@ public class SurveyAjax extends HttpServlet {
      *
      * @param user the User (this function only uses user.id)
      * @param sm the SurveyMain instance
-     * @param loc the non-empty String for the locale like "aa"
-     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
      *
      */
-    public void listLocalesForImportOldVotes(User user, SurveyMain sm, String loc, 
-               final String oldVotesTable, final String newVotesTable, JSONObject oldvotes)
+    public void listLocalesForImportOldVotes(User user, SurveyMain sm, 
+               final String newVotesTable, JSONObject oldvotes)
                throws ServletException, IOException, JSONException, SQLException {
 
-        oldvotes.put(
-            "locales",
-            DBUtils.queryToJSON("select locale,count(*) as count from " + oldVotesTable
-                + " where submitter=? " +
-                " and value is not null " +
-                " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
-                +
-                " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
-                + ".submitter )" +
-                "group by locale order by locale", user.id));
+        /* Loop thru multiple old votes tables in reverse chronological order.
+         * Use "union" to combine into a single sql query.
+         */
+        int ver = Integer.parseInt(SurveyMain.getNewVersion());
+        String sql = "";
+        int tableCount = 0;
+        while (--ver >= oldestVersionForImportingVotes) {
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                if (!sql.isEmpty()) {
+                    sql += " UNION ALL ";
+                }
+                sql += "(select locale,count(*) as count from " + oldVotesTable
+                    + " where submitter=? " +
+                    " and value is not null " +
+                    " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
+                    +
+                    " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".submitter=" + oldVotesTable
+                    + ".submitter )" +
+                    "group by locale order by locale)";
+                ++tableCount;
+            }
+        }
+        Object args[] = new Object[tableCount];
+        for (int i = 0; i < tableCount; i++) {
+            args[i] = user.id; // one for each question mark in the query
+        }
+        /* DBUtils.queryToJSON returns something like this:
+         * {"data":[["aa",2,"Afar"],["af",2,"Afrikaans"]],"header":{"LOCALE":0,"COUNT":1,"LOCALE_NAME":2}}
+         */
+        oldvotes.put("locales", DBUtils.queryToJSON(sql, args));
     }
 
     /**
@@ -1777,25 +1787,17 @@ public class SurveyAjax extends HttpServlet {
      * @param sm the SurveyMain instance
      * @param loc the non-empty String for the locale like "aa"
      * @param locale the CLDRLocale matching loc
-     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory to be used for getPathHeader, getPathsForFile
-     * @param file the CLDRFile (...getOldFile...) to be used for getStringValue
      *
      * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
      */
     public void viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale, 
-               final String oldVotesTable, final String newVotesTable, JSONObject oldvotes,
-               STFactory fac, CLDRFile file)
+               final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
-        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
-            " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
-            + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
-            + " and " + newVotesTable + ".value is not null)";
-        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
+        Map<String, Object> rows[] = getOldVotesRows(newVotesTable, locale, user.id);
 
         // extract the pathheaders
         for (Map<String, Object> m : rows) {
@@ -1819,6 +1821,7 @@ public class SurveyAjax extends HttpServlet {
         int bad = 0;
 
         CLDRFile baseF = sm.getBaselineFile();
+        CLDRFile file = sm.getOldFile(loc, true);
 
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
@@ -1869,7 +1872,6 @@ public class SurveyAjax extends HttpServlet {
      * @param sm the SurveyMain instance
      * @param locale the CLDRLocale
      * @param val the JSON String like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}"
-     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory to be used for ballotBoxForLocale
@@ -1888,7 +1890,7 @@ public class SurveyAjax extends HttpServlet {
      * That saveList is what we receive here as "val", and expand into "list".
      */
     public void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
-               final String oldVotesTable, final String newVotesTable, JSONObject oldvotes, STFactory fac)
+               final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
         if (SurveyMain.isUnofficial()) {
@@ -1917,13 +1919,7 @@ public class SurveyAjax extends HttpServlet {
             deleteSet.add(strid);
         }
 
-        // now, get all
-        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
-            " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
-            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
-            + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter and " + newVotesTable
-            + ".value is not null)";
-        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, user.id);
+        Map<String, Object> rows[] = getOldVotesRows(newVotesTable, locale, user.id);
 
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
         Exception[] exceptionList = new Exception[1];
@@ -1957,6 +1953,47 @@ public class SurveyAjax extends HttpServlet {
         System.out.println("Old Vote migration for " + user + " " + locale + " - delete:" + deletions + ", confirm:"
             + confirmations + ", uncontestedconfirm:" + uncontestedCount);
         oldvotes.put("ok", true);
+    }
+
+    /**
+     * Make an array of maps for importing old votes.
+     *  
+     * @param newVotesTable
+     * @param locale
+     * @param id
+     * @return the array of maps
+     * @throws SQLException
+     * @throws IOException
+     */
+    private static Map<String, Object>[] getOldVotesRows(final String newVotesTable, CLDRLocale locale, int id)
+        throws SQLException, IOException {
+        /* Loop thru multiple old votes tables in reverse chronological order.
+         * Use "union" to combine into a single sql query.
+         */
+        int ver = Integer.parseInt(SurveyMain.getNewVersion());
+        String sql = "";
+        int tableCount = 0;
+        while (--ver >= oldestVersionForImportingVotes) {
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                if (!sql.isEmpty()) {
+                    sql += " UNION ALL ";
+                }
+                sql += "(select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
+                    " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
+                    + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  "
+                    + " and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter "
+                    + " and " + newVotesTable + ".value is not null))";
+                ++tableCount;
+            }
+        }
+        Object args[] = new Object[2 * tableCount];
+        for (int i = 0; i < 2 * tableCount; i += 2) {
+            args[i] = locale; // one for each locale=? in the query
+            args[i + 1] = id; // one for each submitter=? in the query
+        }
+        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sql, args);
+        return rows;
     }
 
     /**

@@ -1,22 +1,10 @@
 package org.unicode.cldr.unittest.web;
 
-import java.io.File;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Logger;
-
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
-import org.unicode.cldr.web.SurveyLog;
-import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
-import org.unicode.cldr.web.XPathTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.ElapsedTimer;
 
 public class TestImportOldVotes extends TestFmwk {
 
@@ -173,67 +161,5 @@ public class TestImportOldVotes extends TestFmwk {
         // submitOldVotes(user, sm, locale, val, oldVotesTable, newVotesTable, oldvotes, fac);
 
         // errln("importOldVotes test reached end, but test is still incomplete.\n");
-    }
-    
-    /**
-     * Get an STFactory for testing.
-     * This function is based on one in TestTFactory.java.
-     * @return the STFactory
-     */
-   private STFactory getFactory() throws SQLException {
-        if (gFac == null) {
-            long start = System.currentTimeMillis();
-            TestAll.setupTestDb();
-            logln("Set up test DB: " + ElapsedTimer.elapsedTime(start));
-
-            ElapsedTimer et0 = new ElapsedTimer("clearing directory");
-            //File cacheDir = TestAll.getEmptyDir(CACHETEST);
-            logln(et0.toString());
-
-            et0 = new ElapsedTimer("setup SurveyMain");
-            SurveyMain sm = new SurveyMain();
-            CookieSession.sm = sm; // hack - of course.
-            logln(et0.toString());
-
-            SurveyMain.fileBase = CLDRPaths.MAIN_DIRECTORY;
-            SurveyMain.fileBaseSeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/main/").getAbsolutePath();
-            SurveyMain.fileBaseA = new File(CLDRPaths.BASE_DIRECTORY, "common/annotations/").getAbsolutePath();
-            SurveyMain.fileBaseASeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
-
-            SurveyMain.setFileBaseOld(CLDRPaths.BASE_DIRECTORY);
-            // sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose
-            // vetting
-            SurveyLog.logger = Logger.getAnonymousLogger();
-
-            et0 = new ElapsedTimer("setup DB");
-            Connection conn = DBUtils.getInstance().getDBConnection();
-            logln(et0.toString());
-
-            et0 = new ElapsedTimer("setup Registry");
-            sm.reg = UserRegistry.createRegistry(SurveyLog.logger, sm);
-            logln(et0.toString());
-
-            et0 = new ElapsedTimer("setup XPT");
-            sm.xpt = XPathTable.createTable(conn, sm);
-            sm.xpt.getByXpath("//foo/bar[@type='baz']");
-            logln(et0.toString());
-            et0 = new ElapsedTimer("close connection");
-            DBUtils.closeDBConnection(conn);
-            logln(et0.toString());
-            // sm.vet = Vetting.createTable(sm.logger, sm);
-
-            // CLDRDBSourceFactory fac = new CLDRDBSourceFactory(sm,
-            // sm.fileBase, Logger.getAnonymousLogger(), cacheDir);
-            // logln("Setting up DB");
-            // sm.setDBSourceFactory(fac);ignore
-            // fac.setupDB(DBUtils.getInstance().getDBConnection());
-            // logln("Vetter Ready (this will take a while..)");
-            // fac.vetterReady(TestAll.getProgressIndicator(this));
-
-            et0 = new ElapsedTimer("Set up STFactory");
-            gFac = sm.getSTFactory();
-            logln(et0.toString());
-        }
-        return gFac;
     }
 }

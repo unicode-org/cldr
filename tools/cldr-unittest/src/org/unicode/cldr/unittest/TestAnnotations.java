@@ -105,11 +105,11 @@ public class TestAnnotations extends TestFmwkPlus {
     public void TestNames() {
         AnnotationSet eng = Annotations.getDataSet("en");
         String[][] tests = {
-            {"👨🏻", "man: light skin tone", "man | light skin tone"},
+            {"👨🏻", "man: light skin tone", "adult | man | light skin tone"},
             {"👱‍♂️", "man: blond hair", "blond | blond-haired man | man"},
             {"👱🏻‍♂️", "man: light skin tone, blond hair", "blond | blond-haired man | man | light skin tone | blond hair"},
-            {"👨‍🦰", "man: red hair", "man | red hair"},
-            { "👨🏻‍🦰", "man: light skin tone, red hair", "man | light skin tone| red hair"},
+            {"👨‍🦰", "man: red hair", "adult | man | red hair"},
+            { "👨🏻‍🦰", "man: light skin tone, red hair", "adult | man | light skin tone| red hair"},
             { "🇪🇺", "flag: European Union", "flag" },
             { "#️⃣", "keycap: #", "keycap" },
             { "9️⃣", "keycap: 9", "keycap" },
@@ -120,7 +120,7 @@ public class TestAnnotations extends TestFmwkPlus {
             { "👪", "family", "family" },
             { "👩‍👩‍👧", "family: woman, woman, girl", "family | woman | girl" },
             { "👦🏻", "boy: light skin tone", "boy | young | light skin tone" },
-            { "👩🏿", "woman: dark skin tone", "woman | dark skin tone" },
+            { "👩🏿", "woman: dark skin tone", "adult | woman | dark skin tone" },
             { "👨‍⚖", "man judge", "justice | man | man judge | scales" },
             { "👨🏿‍⚖", "man judge: dark skin tone", "justice | man | man judge | scales | dark skin tone" },
             { "👩‍⚖", "woman judge", "judge | scales | woman" },

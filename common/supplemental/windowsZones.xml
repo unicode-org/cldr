@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<windowsZones>
-		<mapTimezones otherVersion="7e10900" typeVersion="2018c">
+		<mapTimezones otherVersion="7e10900" typeVersion="2018d">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -629,6 +629,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+08:00) Perth -->
 			<mapZone other="W. Australia Standard Time" territory="001" type="Australia/Perth"/>
+			<mapZone other="W. Australia Standard Time" territory="AQ" type="Antarctica/Casey"/>
 			<mapZone other="W. Australia Standard Time" territory="AU" type="Australia/Perth"/>
 
 			<!-- (UTC+08:00) Taipei -->
@@ -726,7 +727,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+11:00) Solomon Is., New Caledonia -->
 			<mapZone other="Central Pacific Standard Time" territory="001" type="Pacific/Guadalcanal"/>
-			<mapZone other="Central Pacific Standard Time" territory="AQ" type="Antarctica/Casey"/>
 			<mapZone other="Central Pacific Standard Time" territory="AU" type="Antarctica/Macquarie"/>
 			<mapZone other="Central Pacific Standard Time" territory="FM" type="Pacific/Ponape Pacific/Kosrae"/>
 			<mapZone other="Central Pacific Standard Time" territory="NC" type="Pacific/Noumea"/>

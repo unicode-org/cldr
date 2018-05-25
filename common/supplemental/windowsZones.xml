@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<windowsZones>
-		<mapTimezones otherVersion="7e10900" typeVersion="2018d">
+		<mapTimezones otherVersion="7e10900" typeVersion="2018e">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -362,10 +362,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="W. Central Africa Standard Time" territory="TN" type="Africa/Tunis"/>
 			<mapZone other="W. Central Africa Standard Time" territory="ZZ" type="Etc/GMT-1"/>
 
-			<!-- (UTC+01:00) Windhoek -->
-			<mapZone other="Namibia Standard Time" territory="001" type="Africa/Windhoek"/>
-			<mapZone other="Namibia Standard Time" territory="NA" type="Africa/Windhoek"/>
-
 			<!-- (UTC+02:00) Amman -->
 			<mapZone other="Jordan Standard Time" territory="001" type="Asia/Amman"/>
 			<mapZone other="Jordan Standard Time" territory="JO" type="Asia/Amman"/>
@@ -436,6 +432,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+02:00) Tripoli -->
 			<mapZone other="Libya Standard Time" territory="001" type="Africa/Tripoli"/>
 			<mapZone other="Libya Standard Time" territory="LY" type="Africa/Tripoli"/>
+
+			<!-- (UTC+02:00) Windhoek -->
+			<mapZone other="Namibia Standard Time" territory="001" type="Africa/Windhoek"/>
+			<mapZone other="Namibia Standard Time" territory="NA" type="Africa/Windhoek"/>
 
 			<!-- (UTC+03:00) Baghdad -->
 			<mapZone other="Arabic Standard Time" territory="001" type="Asia/Baghdad"/>
@@ -640,10 +640,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Ulaanbaatar Standard Time" territory="001" type="Asia/Ulaanbaatar"/>
 			<mapZone other="Ulaanbaatar Standard Time" territory="MN" type="Asia/Ulaanbaatar Asia/Choibalsan"/>
 
-			<!-- (UTC+08:30) Pyongyang -->
-			<mapZone other="North Korea Standard Time" territory="001" type="Asia/Pyongyang"/>
-			<mapZone other="North Korea Standard Time" territory="KP" type="Asia/Pyongyang"/>
-
 			<!-- (UTC+08:45) Eucla -->
 			<mapZone other="Aus Central W. Standard Time" territory="001" type="Australia/Eucla"/>
 			<mapZone other="Aus Central W. Standard Time" territory="AU" type="Australia/Eucla"/>
@@ -659,6 +655,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Tokyo Standard Time" territory="PW" type="Pacific/Palau"/>
 			<mapZone other="Tokyo Standard Time" territory="TL" type="Asia/Dili"/>
 			<mapZone other="Tokyo Standard Time" territory="ZZ" type="Etc/GMT-9"/>
+
+			<!-- (UTC+09:00) Pyongyang -->
+			<mapZone other="North Korea Standard Time" territory="001" type="Asia/Pyongyang"/>
+			<mapZone other="North Korea Standard Time" territory="KP" type="Asia/Pyongyang"/>
 
 			<!-- (UTC+09:00) Seoul -->
 			<mapZone other="Korea Standard Time" territory="001" type="Asia/Seoul"/>

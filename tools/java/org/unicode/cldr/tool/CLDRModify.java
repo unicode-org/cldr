@@ -1331,10 +1331,10 @@ public class CLDRModify {
 
         fixList.add('c', "Fix transiton from an old currency code to a new one", new CLDRFilter() {
             public void handlePath(String xpath) {
-                String oldCurrencyCode = "MRO";
-                String newCurrencyCode = "MRU";
-                int fromDate = 1973;
-                int toDate = 2017;
+                String oldCurrencyCode = "VEF";
+                String newCurrencyCode = "VES";
+                int fromDate = 2008;
+                int toDate = 2018;
                 String leadingParenString = " (";
                 String trailingParenString = ")";
                 String separator = "\u2013";

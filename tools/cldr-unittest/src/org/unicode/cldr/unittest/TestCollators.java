@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
@@ -14,13 +15,31 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 
 public class TestCollators extends TestFmwk {
     public static void main(String[] args) {
         new TestCollators().run(args);
     }
-
+    
+    public void TestAccessByCldrConfig() {
+        Collator col = CLDRConfig.getInstance().getCollatorRoot();
+        String[] testSequence = {
+            "😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", 
+            "😎", "😍", "😘", "🥰", "ℹ", "a", "A", "b", 
+            null,
+            "🏻", "🏼", "🏽", "🏾", "🏿", "🦰", "🦱", "🦳", "🦲", "🏻a"};
+        String last = null;
+        for (String test : testSequence) {
+            if (last != null && test != null) {
+                int comp = col.compare(last, test);
+                assertEquals(last + " < " + test + " — " + Utility.hex(last) + " < " + Utility.hex(test), -1, comp);
+            }
+            last = test;
+        }
+    }
     public void TestBuildable() {
         for (String locale : CollatorSource.getAvailableLocales()) {
             logln(locale);

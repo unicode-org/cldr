@@ -296,7 +296,7 @@ public class PathHeader implements Comparable<PathHeader> {
         "\\[@alt=\"([^\"]*+)\"]")
         .matcher("");
 
-    static final Collator alphabetic = CLDRConfig.getInstance().getCollator();// (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+    static final Collator alphabetic = CLDRConfig.getInstance().getCollatorRoot();
 
 //    static final RuleBasedCollator alphabetic = (RuleBasedCollator) Collator
 //            .getInstance(ULocale.ENGLISH);

@@ -215,7 +215,7 @@ define({
 		// v.jsp
 		"v-title2_desc": "Locale title",
 		v_bad_special_msg:  "Bad URL (mistyped?), unknown special action: \"${special}\"",
-		v_oldvotes_title: "Old Votes - from before ${votesafter}",
+		v_oldvotes_title: "Old Votes",
 		v_oldvotes_count_msg: "Winning Vote Count: ${uncontested}, Losing Vote Count: ${contested}",
 		v_oldvotes_bad_msg: "You have ${bad} ignored items. These have been removed from or restructured in CLDR, and may not be imported.",
 		v_oldvotes_only_bad_msg: "You have only ${bad} ignored items. These have been removed from or restructured in CLDR, and may not be imported. You may consider this locale complete.",

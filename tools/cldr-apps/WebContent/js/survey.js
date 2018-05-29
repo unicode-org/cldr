@@ -5532,8 +5532,11 @@ function showV() {
 
 							removeAllChildNodes(theDiv);
 							
-							var h2var = {votesafter:json.oldvotes.votesafter, newVersion:json.status.newVersion};
-							var h2txt = stui.sub("v_oldvotes_title",h2var);
+							// changed h2txt, v_oldvotes_title per https://unicode.org/cldr/trac/ticket/11135
+							// TODO: simplify if votesafter, newVersion no longer used
+							// var h2var = {votesafter:json.oldvotes.votesafter, newVersion:json.status.newVersion};
+							// var h2txt = stui.sub("v_oldvotes_title",h2var);
+							var h2txt = stui.str("v_oldvotes_title");
 							theDiv.appendChild(createChunk(h2txt, "h2", "v-title"));
 							
 							if(!json.oldvotes.locale) {

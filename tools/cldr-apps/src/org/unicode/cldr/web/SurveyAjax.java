@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.DtdData.IllegalByDtdException;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -2120,6 +2121,8 @@ public class SurveyAjax extends HttpServlet {
                 SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
             } catch (VoteNotAcceptedException ix) {
                 SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
+            } catch (IllegalByDtdException ix) {
+                SurveyLog.logException(ix, "Illegal by DTD: Trying to vote for " + xpathString);
             }
         }
         // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);

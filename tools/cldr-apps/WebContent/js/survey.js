@@ -5549,6 +5549,7 @@ function showV() {
 								var header = json.oldvotes.locales.header;
 								
 								if(data.length > 0) {
+									data.sort((a, b) => a[header.LOCALE].localeCompare(b[header.LOCALE]));
 									for(var k in data) {
 										var li = document.createElement("li");
 										

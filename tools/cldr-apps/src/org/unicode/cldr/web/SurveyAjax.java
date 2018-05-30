@@ -1825,7 +1825,14 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * View old votes available to be imported for the given locale.
+     * 
+     * Add to the given "oldvotes" object an array of "contested" (losing) votes, and possibly
+     * also an array of "uncontested" (winning) votes, to get displayed by survey.js. 
      *
+     * In general, both winning (uncontested) and losing (contested) votes may be present.
+     * Normally, for non-TC users, winning votes are imported automatically. Therefore, only list
+     * winning votes if user is TC.
+     * 
      * @param user the User, for user.id and userIsTC
      * @param sm the SurveyMain instance, used for sm.xpt, sm.getBaselineFile, and sm.getOldFile
      * @param loc the non-empty String for the locale like "aa"
@@ -1834,7 +1841,7 @@ public class SurveyAjax extends HttpServlet {
      * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory to be used for getPathHeader, getPathsForFile
      *
-     * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
+     * Called locally by importOldVotesForValidatedUser, and also ideally by unit test TestImportOldVotes.java, therefore public.
      */
     public void viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale, 
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
@@ -1850,27 +1857,15 @@ public class SurveyAjax extends HttpServlet {
         }
 
         // sort by pathheader
-        Arrays.sort(rows, new Comparator<Map>() {
-
+        Arrays.sort(rows, new Comparator<Map<String, Object>>() {
             @Override
-            public int compare(Map o1, Map o2) {
+            public int compare(Map<String, Object> o1, Map<String, Object> o2) {
                 return ((PathHeader) o1.get("pathHeader")).compareTo((PathHeader) o2.get("pathHeader"));
             }
         });
 
-        /* In general, both winning (uncontested) and losing (contested) votes may be present.
-         * Normally, for non-TC users, winning votes are imported automatically. Therefore, only list
-         * winning votes if user is TC, per https://unicode.org/cldr/trac/ticket/11135
-         * 
-         * TODO: don't create or put "uncontested" array (even an empty array) unless TC; but
-         * first make sure survey.js won't complain if uncontested is undefined/null.
-         */
-        boolean shouldListWinningVotes = UserRegistry.userIsTC(user);
-        
-        JSONArray uncontested = new JSONArray(); // uncontested = winning; will stay empty unless shouldListWinningVotes
         JSONArray contested = new JSONArray(); // contested = losing
-
-        int bad = 0;
+        JSONArray uncontested = UserRegistry.userIsTC(user) ? new JSONArray() : null; // uncontested = winning
 
         CLDRFile baseF = sm.getBaselineFile();
         CLDRFile file = sm.getOldFile(loc, true);
@@ -1885,17 +1880,14 @@ public class SurveyAjax extends HttpServlet {
             PathHeader pathHeader = (PathHeader) m.get("pathHeader");
             if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
                 pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
-                bad++;
                 continue; // skip these
             }
             int xp = (Integer) m.get("xpath");
             String xpathString = sm.xpt.getById(xp);
             if (!validPaths.contains(xpathString)) {
-                bad++;
                 continue;
             }
             if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
-                bad++;
                 continue; // out of coverage
             }
             String xpathStringHash = sm.xpt.getStringIDString(xp);
@@ -1907,7 +1899,7 @@ public class SurveyAjax extends HttpServlet {
                 .put("baseValue", baseF.getStringValue(xpathString))
                 .put("pathHeader", pathHeader.toString());
             if (value.equals(curValue)) {
-                if (shouldListWinningVotes) {
+                if (uncontested != null) {
                     uncontested.put(aRow); // uncontested = winning                 
                 }
             } else {
@@ -1915,13 +1907,9 @@ public class SurveyAjax extends HttpServlet {
             }
         }
         oldvotes.put("contested", contested); // contested = losing
-        oldvotes.put("uncontested", uncontested); // uncontested = winning
-        /* "bad" here is for reporting the number of "ignored items" to the user:
-         *  v_oldvotes_bad_msg: "You have ${bad} ignored items. These have been removed from or restructured in CLDR, and may not be imported."
-         *  However, per https://unicode.org/cldr/trac/ticket/11135 that message will no longer be shown,
-         *  so this may be superfluous. TODO: remove put of "bad" here, after confirming survey.js won't complain.
-         *  Could simply set bad = 0 here to suppress error reporting without changing survey.js */
-        oldvotes.put("bad", bad);
+        if (uncontested != null) {
+            oldvotes.put("uncontested", uncontested); // uncontested = winning
+        }
     }
 
     /**

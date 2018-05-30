@@ -5718,7 +5718,7 @@ function showV() {
 									const oldVoteCount = (json.oldvotes.contested ? json.oldvotes.contested.length : 0) +
 									                     (json.oldvotes.uncontested ? json.oldvotes.uncontested.length : 0);
 									var summaryMsg = stui.sub("v_oldvotes_count_msg", {count: oldVoteCount});
-									frag.appendChild(createChunk(summaryMsg, "div", "helpHtml"));										
+									frag.appendChild(createChunk(summaryMsg, "div", ""));										
 
 									var navChunk = document.createElement("div");
 									navChunk.className = 'v-oldVotes-nav';
@@ -5733,17 +5733,13 @@ function showV() {
 
 										/* Normally this interface is for old "losing" (contested) votes only, since old "winning" (uncontested) votes
 										 * are imported automatically. An exception is for TC users, for whom auto-import is disabled. The server-side
-										 * code makes json.oldvotes.uncontested empty (or undefined) except for TC users. If json.oldvotes.uncontested
-										 * is empty or undefined, don't show any headings for "Winning/Losing".
+										 * code leaves json.oldvotes.uncontested undefined except for TC users.
+										 * Show headings for "Winning/Losing" only if json.oldvotes.uncontested is defined and non-empty.
 										 */
 										if ((json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0)) {
 											var title = stui.str(content.strid);											
 											content.title = title;
 											content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));											
-											
-											// v_oldvotes_desc_contested_msg or v_oldvotes_desc_uncontested_msg
-											var descr = stui.sub("v_oldvotes_desc_"+type+"_msg", {version: surveyLastVoteVersion});
-											content.appendChild(createChunk(descr, "p", "helpContent"));
 										}
 
 										content.appendChild(showVoteTable(jsondata, type));

@@ -5574,7 +5574,7 @@ function showV() {
 									
 									theDiv.appendChild(ul);
 									
-									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_list_help_msg", {version: surveyLastVoteVersion}),"p", "helpContent")); 
+									theDiv.appendChild(createChunk(stui.str("v_oldvotes_locale_list_help_msg"), "p", "helpContent")); 
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old"),"i")); // TODO fix
 								}

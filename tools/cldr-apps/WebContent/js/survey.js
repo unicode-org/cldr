@@ -5589,13 +5589,12 @@ function showV() {
 									stStopPropagation(e);
 									return false;
 								});
-								//loclink.href='#';
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
 								var oldVotesLocaleMsg = document.createElement("p");
 								oldVotesLocaleMsg.className = "helpContent";
 								oldVotesLocaleMsg.innerHTML = stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName});
 								theDiv.appendChild(oldVotesLocaleMsg);
-								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested.length > 0) {
+								if ((json.oldvotes.contested && json.oldvotes.contested.length > 0) || (json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0)) {
 
 									function showVoteTable(voteList, type) {
 										var t = document.createElement("table");
@@ -5704,14 +5703,6 @@ function showV() {
 										}
 										t.appendChild(tb);
 
-										// Deleted this v_oldvotes_all button per https://unicode.org/cldr/trac/ticket/11056
-										// t.appendChild(createLinkToFn("v_oldvotes_all", function() {
-										//		for(var k in json.oldvotes[type]) {
-										//			var row = json.oldvotes[type][k];
-										//			row.box.checked = true;
-										//		}
-										// }, "button"));
-
 										t.appendChild(createLinkToFn("v_oldvotes_none", function() {
 											for(var k in json.oldvotes[type]) {
 												var row = json.oldvotes[type][k];
@@ -5724,15 +5715,10 @@ function showV() {
 									
 									var frag = document.createDocumentFragment();
 
-									var summaryMsg = stui.sub("v_oldvotes_count_msg",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length });
-																		
-									frag.appendChild(createChunk(summaryMsg, "div", "helpHtml"));
-
-									if(json.oldvotes.bad > 0) {
-										var summaryMsg2 = stui.sub("v_oldvotes_bad_msg",json.oldvotes);
-										
-										frag.appendChild(createChunk(summaryMsg2, "div", "helpHtml"));
-									}
+									const oldVoteCount = (json.oldvotes.contested ? json.oldvotes.contested.length : 0) +
+									                     (json.oldvotes.uncontested ? json.oldvotes.uncontested.length : 0);
+									var summaryMsg = stui.sub("v_oldvotes_count_msg", {count: oldVoteCount});
+									frag.appendChild(createChunk(summaryMsg, "div", "helpHtml"));										
 
 									var navChunk = document.createElement("div");
 									navChunk.className = 'v-oldVotes-nav';
@@ -5742,28 +5728,30 @@ function showV() {
 									var contestedChunk = null;
 									
 									function addOldvotesType(type, jsondata, frag, navChunk) {
-										var content = createChunk("","div","v-oldVotes-subDiv");
-										
-										content.strid = "v_oldvotes_title_"+type;
+										var content = createChunk("", "div", "v-oldVotes-subDiv");
+										content.strid = "v_oldvotes_title_" + type; // v_oldvotes_title_contested or v_oldvotes_title_uncontested
 
-										var title = stui.str(content.strid);
-										
-										content.title = title;
-										
-										content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
-										
-										var descr = stui.sub("v_oldvotes_desc_"+type+"_msg", {version: surveyLastVoteVersion});
-										content.appendChild(createChunk(descr, "p", "helpContent"));
-										
-										
+										/* Normally this interface is for old "losing" (contested) votes only, since old "winning" (uncontested) votes
+										 * are imported automatically. An exception is for TC users, for whom auto-import is disabled. The server-side
+										 * code makes json.oldvotes.uncontested empty (or undefined) except for TC users. If json.oldvotes.uncontested
+										 * is empty or undefined, don't show any headings for "Winning/Losing".
+										 */
+										if ((json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0)) {
+											var title = stui.str(content.strid);											
+											content.title = title;
+											content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));											
+											
+											// v_oldvotes_desc_contested_msg or v_oldvotes_desc_uncontested_msg
+											var descr = stui.sub("v_oldvotes_desc_"+type+"_msg", {version: surveyLastVoteVersion});
+											content.appendChild(createChunk(descr, "p", "helpContent"));
+										}
+
 										content.appendChild(showVoteTable(jsondata, type));
 
 										var submit = BusyButton({
-//											id: 'oldVotesSubmit',
-											label: stui.sub("v_submit_msg", {type: title}),
+											label: stui.str("v_submit_msg"),
 											busyLabel: stui.str("v_submit_busy")
 										});
-
 
 										submit.on("click",function(e) {
 											setDisplayed(navChunk, false);
@@ -5810,10 +5798,10 @@ function showV() {
 									
 									
 									
-									if(json.oldvotes.uncontested.length > 0){
+									if (json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0){
 										uncontestedChunk = addOldvotesType("uncontested",json.oldvotes.uncontested, frag, navChunk);
 									}
-									if(json.oldvotes.contested.length > 0){
+									if (json.oldvotes.contested && json.oldvotes.contested.length > 0){
 										contestedChunk = addOldvotesType("contested",json.oldvotes.contested, frag, navChunk);
 									}
 
@@ -5843,12 +5831,6 @@ function showV() {
 									}
 
 									theDiv.appendChild(frag);
-								} else if(json.oldvotes.bad > 0) {
-									if(json.oldvotes.bad > 0) {
-										var summaryMsg2 = stui.sub("v_oldvotes_only_bad_msg",json.oldvotes);
-										
-										theDiv.appendChild(createChunk(summaryMsg2, "div", "helpHtml"));
-									}
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old_here"),"i",""));
 								}

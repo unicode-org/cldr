@@ -5591,7 +5591,10 @@ function showV() {
 								});
 								//loclink.href='#';
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
-								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName}), "p", "helpContent"));
+								var oldVotesLocaleMsg = document.createElement("p");
+								oldVotesLocaleMsg.className = "helpContent";
+								oldVotesLocaleMsg.innerHTML = stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName});
+								theDiv.appendChild(oldVotesLocaleMsg);
 								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested.length > 0) {
 
 									function showVoteTable(voteList, type) {

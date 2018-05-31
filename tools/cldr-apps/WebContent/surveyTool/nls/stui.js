@@ -222,6 +222,7 @@ define({
 		v_oldvotes_locale_list_help_msg: "Listed are locales which you have voted for in previous releases of CLDR. Click one to review and import your old votes. Note that some of the locales listed may have votes which are no longer applicable in CLDR.",
 		v_oldvotes_return_to_locale_list: "Return to List of Locales with old votes",
 		v_oldvotes_path: "Path",
+		v_oldvotes_winning_already_imported: "All of your votes that could be imported from all earlier versions, for items that match CLDR ${version}, have automatically been imported.",
 		v_oldvotes_locale_msg: "Below are your previous votes that differed from the final value in CLDR ${version} in ${locale}. You may choose to import them. However, please review each of the items first. If the current value in v${version} is OK — even if it is not absolutely optimal — then for <a target='_blank' href='http://cldr.unicode.org/translation#TOC-Data-stability'>data stability</a> it is better not to import the vote. You can instead raise the issue in the forum and try to get consensus for change. Select or deselect items by clicking, and hit the button at the bottom to import votes.",
 		"v-oldvotes-loc-help_desc": "Specific help on this locale's old votes",
 		"v-oldvotes-desc_desc": "Specific help on this type of vote",

@@ -136,7 +136,13 @@ public class CheckWidths extends CheckCLDR {
                     return false;
                 }
                 if (valueMeasure > errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive) {
-                    errorType = CheckStatus.errorType;
+                    // Workaround for ST submission phase only per TC discussion 2018-05-30
+                    // Make too many keywords be only a warning until we decide policy (JCE)
+                    if (cause.getPhase() == Phase.SUBMISSION && measure.equals(Measure.SET_ELEMENTS)) {
+                        errorType = CheckStatus.warningType;
+                    } else {
+                        errorType = CheckStatus.errorType;
+                    }
                 }
                 break;
             }

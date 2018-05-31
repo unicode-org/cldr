@@ -5590,10 +5590,14 @@ function showV() {
 									stStopPropagation(e);
 									return false;
 								});
-								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
+								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName, "h3","v-title2"));
 								var oldVotesLocaleMsg = document.createElement("p");
 								oldVotesLocaleMsg.className = "helpContent";
-								oldVotesLocaleMsg.innerHTML = stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName});
+								var ovLocMsg = stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName});
+								if (!json.oldvotes.uncontested || json.oldvotes.uncontested.length == 0) {
+									ovLocMsg = stui.sub("v_oldvotes_winning_already_imported", {version: surveyLastVoteVersion}) + " " + ovLocMsg;
+								}
+								oldVotesLocaleMsg.innerHTML = ovLocMsg;
 								theDiv.appendChild(oldVotesLocaleMsg);
 								if ((json.oldvotes.contested && json.oldvotes.contested.length > 0) || (json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0)) {
 

@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import java.util.Locale;
+
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -41,6 +43,18 @@ public class EmojiConstants {
                 .appendCodePoint(chars.codePointAt(0) + FIRST_REGIONAL - 'A')
                 .appendCodePoint(chars.codePointAt(1) + FIRST_REGIONAL - 'A')
                 .toString();
+    }
+    
+    public static final int TAG_BASE = 0xE0000;
+    public static final int TAG_TERM_CHAR = 0xE007F;
+
+    public static String getEmojiFromSubdivisionCodes(String string) {
+        string = string.toLowerCase(Locale.ROOT).replace("-","");
+        StringBuilder result = new StringBuilder().appendCodePoint(0x1F3F4);
+        for (int cp : CharSequences.codePoints(string)) {
+            result.appendCodePoint(TAG_BASE + cp);
+        }
+        return result.appendCodePoint(TAG_TERM_CHAR).toString();
     }
 
     public static final UnicodeSet FAMILY_MARKERS = new UnicodeSet()

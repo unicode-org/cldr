@@ -164,6 +164,8 @@ public class ExampleGenerator {
 
     private PluralSamples patternExamples;
 
+    private Map<String, String> subdivisionIdToName;
+
     /**
      * For getting the end of the "background" style. Default is "</span>". It is
      * used in composing patterns, so it can show the part that corresponds to the
@@ -227,6 +229,7 @@ public class ExampleGenerator {
         if (!resolvedCldrFile.isResolved()) throw new IllegalArgumentException("CLDRFile must be resolved");
         if (!englishFile.isResolved()) throw new IllegalArgumentException("English CLDRFile must be resolved");
         cldrFile = resolvedCldrFile;
+        subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(cldrFile.getLocaleID());
         this.englishFile = englishFile;
         synchronized (ExampleGenerator.class) {
             if (supplementalDataInfo == null) {
@@ -409,11 +412,12 @@ public class ExampleGenerator {
             String value2 = backgroundStartSymbol + value + backgroundEndSymbol;
             CLDRFile cfile = getCldrFile();
             List<String> examples = new ArrayList<>();
-            String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "FR");
-            String regionName = cfile.getStringValue(path);
             SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
-            examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes("FR") 
-                + " ⇒ " + initialPattern.format(value2, regionName)));
+            addFlag(value2, "FR", cfile, initialPattern, examples);
+            addFlag(value2, "CN", cfile, initialPattern, examples);
+            addSubdivisionFlag(value2, "gbeng", cfile, initialPattern, examples);
+            addSubdivisionFlag(value2, "gbsct", cfile, initialPattern, examples);
+            addSubdivisionFlag(value2, "gbwls", cfile, initialPattern, examples);
             return formatExampleList(examples);
         }
         case "keycap": { 
@@ -421,7 +425,7 @@ public class ExampleGenerator {
             List<String> examples = new ArrayList<>();
             CLDRFile cfile = getCldrFile();
             SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
-           examples.add(invertBackground(initialPattern.format(value2, "1")));
+            examples.add(invertBackground(initialPattern.format(value2, "1")));
             examples.add(invertBackground(initialPattern.format(value2, "10")));
             examples.add(invertBackground(initialPattern.format(value2, "#")));
             return formatExampleList(examples);
@@ -429,6 +433,22 @@ public class ExampleGenerator {
         default:
             return null;
         }
+    }
+
+    private void addFlag(String value2, String isoRegionCode, CLDRFile cfile, SimpleFormatter initialPattern, List<String> examples) {
+        String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, isoRegionCode);
+        String regionName = cfile.getStringValue(path);
+        examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes(isoRegionCode) 
+            + " ⇒ " + initialPattern.format(value2, regionName)));
+    }
+
+    private void addSubdivisionFlag(String value2, String isoSubdivisionCode, CLDRFile cfile, SimpleFormatter initialPattern, List<String> examples) {
+        String subdivisionName = subdivisionIdToName.get(isoSubdivisionCode);
+        if (subdivisionName == null) {
+            subdivisionName = isoSubdivisionCode;
+        }
+        examples.add(invertBackground(EmojiConstants.getEmojiFromSubdivisionCodes(isoSubdivisionCode) 
+            + " ⇒ " + initialPattern.format(value2, subdivisionName)));
     }
 
     private String handleAnnotationName(XPathParts parts, String value) {

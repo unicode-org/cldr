@@ -1913,9 +1913,9 @@ public class SurveyAjax extends HttpServlet {
             if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                 continue; // out of coverage
             }
-            String xpathStringHash = sm.xpt.getStringIDString(xp);
-            String curValue = file.getStringValue(xpathString);
             if (oldvotes != null) {
+                String xpathStringHash = sm.xpt.getStringIDString(xp);
+                String curValue = file.getStringValue(xpathString);
                 JSONObject aRow = new JSONObject()
                     .put("strid", xpathStringHash)
                     .put("myValue", value)

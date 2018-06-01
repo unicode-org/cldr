@@ -1887,11 +1887,19 @@ public class SurveyAjax extends HttpServlet {
 
         long viewableVoteCount = 0;
 
-        JSONArray contested = new JSONArray(); // contested = losing
-        JSONArray uncontested = UserRegistry.userIsTC(user) ? new JSONArray() : null; // uncontested = winning
-
-        CLDRFile baseF = sm.getBaselineFile();
-        CLDRFile file = sm.getOldFile(loc, true);
+        /* Some variables are only used if oldvotes != null; otherwise leave them null. */
+        JSONArray contested = null; // contested = losing
+        JSONArray uncontested = null; // uncontested = winning
+        CLDRFile baseF = null;
+        CLDRFile file = null;
+        if (oldvotes != null) {
+            contested = new JSONArray();
+            if (UserRegistry.userIsTC(user)) {
+                uncontested = new JSONArray();
+            }
+            baseF = sm.getBaselineFile();
+            file = sm.getOldFile(loc, true);
+        }
 
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();

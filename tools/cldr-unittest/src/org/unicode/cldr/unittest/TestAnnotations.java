@@ -14,15 +14,10 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.SimpleFactory;
 
 import com.google.common.base.Splitter;
@@ -259,28 +254,6 @@ public class TestAnnotations extends TestFmwkPlus {
             Set<String> annotationPathsExpected = Emoji.getNamePaths();
             checkAMinusBIsC(locale + ".xml - Emoji.getNamePaths", annotationPaths, annotationPathsExpected, Collections.<String> emptySet());
             checkAMinusBIsC("Emoji.getNamePaths - " + locale + ".xml", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
-        }
-    }
-
-    public void testPathHeaderSize() {
-        Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
-        CLDRFile englishAnnotations = factoryAnnotations.make("en", false);
-
-        PathHeader.Factory phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
-        ImmutableSet<String> englishPaths = ImmutableSortedSet.copyOf(englishAnnotations.iterator("//ldml/annotations/"));
-        Counter<SectionId> counterSectionId = new Counter<>();
-        Counter<PageId> counterPageId = new Counter<>();
-        for (String path : englishPaths) {
-            PathHeader ph = phf.fromPath(path);
-            counterSectionId.add(ph.getSectionId(), 1);
-            counterPageId.add(ph.getPageId(), 1);
-        }
-        for (PageId pageId : counterPageId) {
-            long size = counterPageId.get(pageId);
-            int maxSize = 500;
-            assertTrue(pageId.toString() + "size (" + size
-                + ") < " + maxSize + "?", size < maxSize);
-            // System.out.println(pageId + "\t" + size);
         }
     }
 

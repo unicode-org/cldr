@@ -1692,7 +1692,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         String minorCat = Emoji.getMinorCategory(source);
                         if (minorCat.equals("skin-tone") || minorCat.equals("hair-style")) {
                             return PageId.Component.toString();
-                        } else if (minorCat.startsWith("person")) {
+                        } else if (!minorCat.contains("face")) {
                             return PageId.People.toString();
                         } else {
                             return PageId.Smileys.toString();

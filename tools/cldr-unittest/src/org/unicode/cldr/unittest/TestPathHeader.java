@@ -1254,4 +1254,42 @@ public class TestPathHeader extends TestFmwkPlus {
             assertEquals("flexible formats", test[1] + "|" + test[0], pathHeader.getHeader() + "|" + pathHeader.getCode());
         }
     }
+    
+    // Moved from TestAnnotations and generalized
+    public void testPathHeaderSize() {
+        String locale = "ar"; // choose one with lots of plurals
+        int maxSize = 700;
+        boolean showTable = false; // only printed if test fails or verbose
+
+        Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        CLDRFile english = factory.make(locale, true);
+
+        PathHeader.Factory phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
+        Counter<PageId> counterPageId = new Counter<>();
+        Counter<PageId> counterPageIdAll = new Counter<>();
+        for (String path : english) {
+            Level level = CLDRConfig.getInstance().getSupplementalDataInfo().getCoverageLevel(path, locale);
+            PathHeader ph = phf.fromPath(path);
+            if (level.compareTo(Level.MODERN) <= 0) {
+                counterPageId.add(ph.getPageId(), 1);
+            }
+            counterPageIdAll.add(ph.getPageId(), 1);
+        }
+        Set<R2<Long, PageId>> entrySetSortedByCount = counterPageId.getEntrySetSortedByCount(false, null);
+        for (R2<Long, PageId> sizeAndPageId : entrySetSortedByCount) {
+            long size = sizeAndPageId.get0();
+            PageId pageId = sizeAndPageId.get1();
+            if (!assertTrue(pageId.getSectionId() + "/" + pageId + " size (" + size
+                + ") < " + maxSize + "?", size < maxSize)) {
+                showTable = true;
+            }
+            // System.out.println(pageId + "\t" + size);
+        }
+        if (showTable || isVerbose()) {
+            for (R2<Long, PageId> sizeAndPageId : entrySetSortedByCount) {
+                PageId pageId = sizeAndPageId.get1();
+                System.out.println(pageId.getSectionId() + "\t" + pageId + "\t" + sizeAndPageId.get0() + "\t" + counterPageIdAll.get(pageId));
+            }
+        }
+    }
 }

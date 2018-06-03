@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -44,6 +45,7 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
@@ -461,33 +463,64 @@ public class ExampleGenerator {
         if (cp == null || cp.isEmpty()) {
             return null;
         }
-        List<String> examples = new ArrayList<>();
+        Set<String> examples = new LinkedHashSet<>();
         int first = cp.codePointAt(0);
-        boolean isSkin = EmojiConstants.MODIFIERS.contains(first);
-        if (isSkin || EmojiConstants.HAIR.contains(first)) {
-            String value2 = backgroundStartSymbol + value + backgroundEndSymbol;
-            CLDRFile cfile = getCldrFile();
-            String skin = "🏽";
-            String hair = "🦰";
-            String skinName = cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + skin + "\"][@type=\"tts\"]");
-            String hairName = cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + hair + "\"][@type=\"tts\"]");
-            if (hairName == null) {
-                hair = "[missing]";
-            }
-            SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
-            SimpleFormatter listPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
+        switch(first) {
+        case 0x1F46A: // 👪  U+1F46A FAMILY
+            examples.add(formatGroup(parts, value, "👨", "👩", "👦", "👦"));
+            break;
+        case 0x1F48F: // 💏  U+1F48F KISS 👩👨
+            examples.add(formatGroup(parts, value, "👨", "👩"));
+           break;
+        case 0x1F491: // 💑  U+1F491     COUPLE WITH HEART
+            examples.add(formatGroup(parts, value, "👨", "👩"));
+            break;
+        default:
+            boolean isSkin = EmojiConstants.MODIFIERS.contains(first);
+            if (isSkin || EmojiConstants.HAIR.contains(first)) {
+                String value2 = backgroundStartSymbol + value + backgroundEndSymbol;
+                CLDRFile cfile = getCldrFile();
+                String skin = "🏽";
+                String hair = "🦰";
+                String skinName = getEmojiName(cfile, skin);
+                String hairName = getEmojiName(cfile, hair);
+                if (hairName == null) {
+                    hair = "[missing]";
+                }
+                SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
+                SimpleFormatter listPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
 
-            hair = EmojiConstants.JOINER_STRING + hair;
-            formatPeople(cfile, first, isSkin, value2, "👩", skin, skinName, hair, hairName, initialPattern, listPattern, examples);
-            formatPeople(cfile, first, isSkin, value2, "👨", skin, skinName, hair, hairName, initialPattern, listPattern, examples);
+                hair = EmojiConstants.JOINER_STRING + hair;
+                formatPeople(cfile, first, isSkin, value2, "👩", skin, skinName, hair, hairName, initialPattern, listPattern, examples);
+                formatPeople(cfile, first, isSkin, value2, "👨", skin, skinName, hair, hairName, initialPattern, listPattern, examples);
+            }
+            break;
         }
         return formatExampleList(examples);
     }
 
+    private String getEmojiName(CLDRFile cfile, String skin) {
+        return cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + skin + "\"][@type=\"tts\"]");
+    }
+
+    //ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"]
+    private String formatGroup(XPathParts parts, String value, String... components) {
+        CLDRFile cfile = getCldrFile();
+        SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
+        String value2 = backgroundEndSymbol + value + backgroundStartSymbol;
+        String[] names = new String[components.length];
+        int i = 0;
+        for (String component : components) {
+            names[i++] = getEmojiName(cfile, component);
+        }
+        return initialPattern.format(value2, 
+            longListPatternExample(ListTypeLength.AND_SHORT.getPath(), "n/a", "n/a2", names));
+    }
+
     private void formatPeople(CLDRFile cfile, int first, boolean isSkin, String value2, String person, String skin, String skinName, 
-        String hair, String hairName, SimpleFormatter initialPattern, SimpleFormatter listPattern, List<String> examples) {
+        String hair, String hairName, SimpleFormatter initialPattern, SimpleFormatter listPattern, Collection<String> examples) {
         String cp;
-        String personName = cfile.getStringValue("//ldml/annotations/annotation[@cp=\"" + person + "\"][@type=\"tts\"]");
+        String personName = getEmojiName(cfile, person);
         StringBuilder emoji = new StringBuilder(person).appendCodePoint(first);
         cp = UTF16.valueOf(first);
         cp = isSkin ? cp : EmojiConstants.JOINER_STRING + cp;
@@ -669,16 +702,16 @@ public class ExampleGenerator {
     }
 
     private String handleListPatterns(XPathParts parts, String value) {
-        // listPatternType is either "duration" or null
+        // listPatternType is either "duration" or null/other list
         String listPatternType = parts.getAttributeValue(-2, "type");
         if (listPatternType == null || !listPatternType.contains("unit")) {
-            return handleRegularListPatterns(parts, value);
+            return handleRegularListPatterns(parts, value, ListTypeLength.from(listPatternType));
         } else {
             return handleDurationListPatterns(parts, value, UnitLength.from(listPatternType));
         }
     }
 
-    private String handleRegularListPatterns(XPathParts parts, String value) {
+    private String handleRegularListPatterns(XPathParts parts, String value, ListTypeLength listTypeLength) {
         String patternType = parts.getAttributeValue(-1, "type");
         String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
         String territory1 = getValueFromFormat(pathFormat, "CH");
@@ -688,9 +721,8 @@ public class ExampleGenerator {
         }
         String territory3 = getValueFromFormat(pathFormat, "EG");
         String territory4 = getValueFromFormat(pathFormat, "CA");
-        String listPathFormat = "//ldml/listPatterns/listPattern/listPatternPart[@type=\"{0}\"]";
         return longListPatternExample(
-            listPathFormat, patternType, value, territory1, territory2, territory3, territory4);
+            listTypeLength.getPath(), patternType, value, territory1, territory2, territory3, territory4);
     }
 
     private String handleDurationListPatterns(XPathParts parts, String value, UnitLength unitWidth) {
@@ -702,19 +734,44 @@ public class ExampleGenerator {
         }
         String duration3 = getFormattedUnit("duration-minute", unitWidth, 37);
         String duration4 = getFormattedUnit("duration-second", unitWidth, 23);
-        String listPathFormat = "//ldml/listPatterns/listPattern"
-            + unitWidth.listTypeLength.typeString
-            + "/listPatternPart[@type=\"{0}\"]";
         return longListPatternExample(
-            listPathFormat, patternType, value, duration1, duration2, duration3, duration4);
+            unitWidth.listTypeLength.getPath(), patternType, value, duration1, duration2, duration3, duration4);
     }
 
     public enum ListTypeLength {
-        NORMAL(""), UNIT_WIDE("[@type=\"unit\"]"), UNIT_SHORT("[@type=\"unit-short\"]"), UNIT_NARROW("[@type=\"unit-narrow\"]");
+        NORMAL(""), 
+        AND_SHORT("[@type=\"standard-short\"]"), 
+        OR_WIDE("[@type=\"or\"]"), 
+        UNIT_WIDE("[@type=\"unit\"]"), 
+        UNIT_SHORT("[@type=\"unit-short\"]"), 
+        UNIT_NARROW("[@type=\"unit-narrow\"]")
+        ;
+
         final String typeString;
 
-        ListTypeLength(String typeString) {
+        static final Map<String, ListTypeLength> stringToEnum;
+        static {
+            Map<String, ListTypeLength> _stringToEnum = new LinkedHashMap<>();
+            for (ListTypeLength value : values()) {
+                if (value != NORMAL) {
+                    _stringToEnum.put(value.typeString.substring(value.typeString.indexOf('"')+1, value.typeString.lastIndexOf('"')), value);
+                }
+            }
+            stringToEnum = ImmutableMap.copyOf(_stringToEnum);
+        }
+        private ListTypeLength(String typeString) {
             this.typeString = typeString;
+        }
+        public static ListTypeLength from(String listPatternType) {
+            if (listPatternType == null) {
+                return NORMAL;
+            }
+            return stringToEnum.get(listPatternType);
+        }
+        public String getPath() {
+            return "//ldml/listPatterns/listPattern"
+                + typeString
+                + "/listPatternPart[@type=\"{0}\"]";
         }
     }
 
@@ -757,16 +814,34 @@ public class ExampleGenerator {
         return format(getValueFromFormat(pathFormat, unitType, form), formattedUnitAmount);
     }
 
-    private String longListPatternExample(String listPathFormat, String patternType, String value, String territory1, String territory2, String territory3,
-        String territory4) {
-        String startPattern = getPattern(listPathFormat, "start", patternType, value);
-        String middlePattern = getPattern(listPathFormat, "middle", patternType, value);
-        String endPattern = getPattern(listPathFormat, "end", patternType, value);
+    //ldml/listPatterns/listPattern/listPatternPart[@type="2"] — And
+    //ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"] Short And
+    //ldml/listPatterns/listPattern[@type="or"]/listPatternPart[@type="2"] or list
+    //ldml/listPatterns/listPattern[@type="unit"]/listPatternPart[@type="2"]
+    //ldml/listPatterns/listPattern[@type="unit-short"]/listPatternPart[@type="2"]
+    //ldml/listPatterns/listPattern[@type="unit-narrow"]/listPatternPart[@type="2"]
 
-        String example = format(startPattern, territory1,
-            format(middlePattern, territory2, format(endPattern, territory3, territory4)));
+    private String longListPatternExample(String listPathFormat, String patternType, String value, String... item) {
+        String example;
+        switch (item.length) {
+        case 2:
+            String doublePattern = getPattern(listPathFormat, "2", patternType, value);
+            example = format(doublePattern, item[0], item[1]);
+            break;
+        case 4:
+            String startPattern = getPattern(listPathFormat, "start", patternType, value);
+            String middlePattern = getPattern(listPathFormat, "middle", patternType, value);
+            String endPattern = getPattern(listPathFormat, "end", patternType, value);
+
+            example = format(startPattern, item[0],
+                format(middlePattern, item[1], format(endPattern, item[2], item[3])));
+            break;
+        default: 
+            return null;
+        }
         return invertBackground(example);
     }
+
 
     /**
      * Helper method for handleListPatterns. Returns the pattern to be used for
@@ -1633,7 +1708,15 @@ public class ExampleGenerator {
         return result;
     }
 
-    private String formatExampleList(Iterable<String> examples) {
+    /**
+     * Return examples formatted as string, with null returned for null or empty examples.
+     * @param examples
+     * @return
+     */
+    private String formatExampleList(Collection<String> examples) {
+        if (examples == null || examples.isEmpty()) {
+            return null;
+        }
         String result = "";
         boolean first = true;
         for (String example : examples) {

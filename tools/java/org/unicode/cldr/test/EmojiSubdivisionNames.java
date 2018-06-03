@@ -2,7 +2,9 @@ package org.unicode.cldr.test;
 
 import java.io.File;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,11 +12,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.EmojiConstants;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StandardCodes;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 
 public class EmojiSubdivisionNames {
@@ -24,14 +31,14 @@ public class EmojiSubdivisionNames {
     private static final Map<String,Map<String,String>> localeToSubdivisionIdToName = new ConcurrentHashMap<>();
 
     private static final Pattern SUBDIVISION_PATTERN = Pattern.compile("\\s*<subdivision\\s+type=\"(gb(?:eng|sct|wls))\">([^<]+)</subdivision>");
-    private static final SortedSet<String> SUBDIVISION_LOCALES = ImmutableSortedSet.copyOf(
+    private static final SortedSet<String> SUBDIVISION_FILE_NAMES = ImmutableSortedSet.copyOf(
         new File(CLDRPaths.SUBDIVISIONS_DIRECTORY).list()
         );
 
     static {
         localeToNameToSubdivisionId.put("root", Collections.emptyMap());
     }
-    
+
     public static Map<String, String> getSubdivisionIdToName(String localeID) {
         Map<String,String> result = localeToSubdivisionIdToName.get(localeID);
         if (result == null) {
@@ -60,9 +67,9 @@ public class EmojiSubdivisionNames {
         try {
             Map<String,String> _subdivisionIdToName;
             Map<String, String> _nameToSubdivisionId;
-            
+
             String fileName = localeID + ".xml";
-            if (SUBDIVISION_LOCALES.contains(fileName)) {
+            if (SUBDIVISION_FILE_NAMES.contains(fileName)) {
                 _nameToSubdivisionId = new TreeMap<>();
                 _subdivisionIdToName = new TreeMap<>();
                 Matcher m = SUBDIVISION_PATTERN.matcher("");
@@ -86,9 +93,41 @@ public class EmojiSubdivisionNames {
             localeToSubdivisionIdToName.put(localeID, _subdivisionIdToName);
         } catch (Exception e) {}
     }
-    
+
+    static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");
+
     public static void main(String[] args) {
-        System.out.println(getSubdivisionIdToName("fr"));
-        System.out.println(getNameToSubdivisionPath("fr"));
+        System.out.print("Locale\tCode");
+        for (String sd : SUBDIVISIONS) {
+            System.out.print('\t');
+            System.out.print(sd);
+
+        }
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        Set<String> locales = new HashSet<>();
+        for (String filename : SUBDIVISION_FILE_NAMES) {
+            if (filename.endsWith(".xml")) {
+                String locale = filename.substring(0, filename.length()-4);
+                Map<String, String> map = getSubdivisionIdToName(locale);
+                if (!map.isEmpty()) {
+                    locales.add(locale);
+                    System.out.print(english.getName(locale) + "\t" + locale);
+                    for (String sd : SUBDIVISIONS) {
+                        System.out.print('\t');
+                        System.out.print(map.get(sd));
+                    }
+                    System.out.println();
+                }
+            }
+        }
+        for (String locale : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)) {
+            if (locales.contains(locale)) {
+                continue;
+            }
+            System.out.println(english.getName(locale) + "\t" + locale);
+        }
+
+//        System.out.println(getSubdivisionIdToName("fr"));
+//        System.out.println(getNameToSubdivisionPath("fr"));
     }
 }

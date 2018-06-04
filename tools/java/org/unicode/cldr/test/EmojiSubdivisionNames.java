@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.EmojiConstants;
+import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
@@ -23,6 +24,7 @@ import org.unicode.cldr.util.StandardCodes;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import com.ibm.icu.util.ULocale;
 
 public class EmojiSubdivisionNames {
     private static final String subdivisionPathPrefix = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"";
@@ -97,12 +99,13 @@ public class EmojiSubdivisionNames {
     static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");
 
     public static void main(String[] args) {
-        System.out.print("Locale\tCode");
+        System.out.print("Group\tOrd.\tLocale\tCode");
         for (String sd : SUBDIVISIONS) {
             System.out.print('\t');
             System.out.print(sd);
 
         }
+        System.out.println();
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
         Set<String> locales = new HashSet<>();
         for (String filename : SUBDIVISION_FILE_NAMES) {
@@ -111,7 +114,10 @@ public class EmojiSubdivisionNames {
                 Map<String, String> map = getSubdivisionIdToName(locale);
                 if (!map.isEmpty()) {
                     locales.add(locale);
-                    System.out.print(english.getName(locale) + "\t" + locale);
+                    ULocale ulocale = new ULocale(locale);
+                    LanguageGroup group = LanguageGroup.get(ulocale);
+                    int rank = LanguageGroup.rankInGroup(ulocale);
+                    System.out.print(group + "\t" + rank + "\t" + english.getName(locale) + "\t" + locale);
                     for (String sd : SUBDIVISIONS) {
                         System.out.print('\t');
                         System.out.print(map.get(sd));
@@ -124,7 +130,14 @@ public class EmojiSubdivisionNames {
             if (locales.contains(locale)) {
                 continue;
             }
-            System.out.println(english.getName(locale) + "\t" + locale);
+            ULocale ulocale = new ULocale(locale);
+            String region = ulocale.getCountry();
+            if (!region.isEmpty() && !region.equals("PT") && !region.equals("GB")) {
+                continue;
+            }
+            LanguageGroup group = LanguageGroup.get(ulocale);
+            int rank = LanguageGroup.rankInGroup(ulocale);
+            System.out.println(group + "\t" + rank + "\t" + english.getName(locale) + "\t" + locale);
         }
 
 //        System.out.println(getSubdivisionIdToName("fr"));

@@ -50,7 +50,7 @@ public enum LanguageGroup {
         add(temp, romance, "fr", "pt", "gl", "es", "ca", "ast", "it", "rm", "ro");
         add(temp, slavic, "pl", "cs", "sk", "sl", "hr", "bs", "mk", "sr", "bg", "ru", "be", "uk");
         add(temp, baltic, "lt", "lv");
-        add(temp, other_indo, "el", "sq", "hy", "fa", "ps", "os");
+        add(temp, other_indo, "el", "hy", "sq", "fa", "ps", "os");
         add(temp, indic, "ur", "hi", "gu", "sd", "bn", "as", "ccp", "or", "mr", "ne", "pa", "si");
         add(temp, dravidian, "ta", "te", "ml", "kn");
         add(temp, cjk, "zh", "yue", "ja", "ko");
@@ -58,7 +58,7 @@ public enum LanguageGroup {
         add(temp, uralic, "hu", "fi", "et", "se", "smn");
         add(temp, afroasiatic, "ar", "mt", "he", "om", "so", "ha", "am", "tzm", "zgh");
         add(temp, tai, "th", "lo");
-        add(temp, austronesian, "id", "ms", "fil", "haw");
+        add(temp, austronesian, "id", "ms", "jv", "fil", "haw");
         add(temp, austroasiatic, "vi", "km");
         add(temp, niger_congo, "sw", "swc", "yo", "ig", "ff", "sn", "zu");
         add(temp, other, "ka", "eu", "mn", "naq");
@@ -81,7 +81,7 @@ public enum LanguageGroup {
     }
 
     public static LanguageGroup get(ULocale locale) {
-        return CldrUtility.ifNull(LANGUAGE_GROUP.get(locale), LanguageGroup.other);
+        return CldrUtility.ifNull(LANGUAGE_GROUP.get(new ULocale(locale.getLanguage())), LanguageGroup.other);
     }
 
     public static Set<ULocale> getExplicit() {
@@ -98,6 +98,7 @@ public enum LanguageGroup {
      * @return
      */
     public static int rankInGroup(ULocale locale) {
+        locale = new ULocale(locale.getLanguage());
         LanguageGroup group = LANGUAGE_GROUP.get(locale);
         if (group == null) {
             return Integer.MAX_VALUE;

@@ -2,9 +2,11 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -213,7 +215,7 @@ public class Annotations {
         private final Map<String, String> subdivisionIdToName;
         private final SimpleFormatter initialPattern;
         private final Pattern initialRegexPattern;
-        private final SimpleFormatter listPattern;
+        private final XListFormatter listPattern;
         private final Set<String> flagLabelSet;
         private final Set<String> keycapLabelSet;
         private final String keycapLabel;
@@ -230,7 +232,7 @@ public class Annotations {
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
             subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(locale);
-            listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
+            listPattern = new XListFormatter(cldrFile, EmojiConstants.COMPOSED_NAME_LIST);
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
             final String regexPattern = ("\\Q" + initialPatternString.replace("{0}", "\\E.*\\Q").replace("{1}", "\\E.*\\Q") + "\\E")
@@ -261,15 +263,15 @@ public class Annotations {
         }
 
         private String getStringValue(String xpath, CLDRFile cldrFile2, CLDRFile english) {
-                String result = cldrFile2.getStringValue(xpath);
-                if (result == null) {
-                    return ENGLISH_MARKER + english.getStringValue(xpath);
-                }
-                String sourceLocale = cldrFile2.getSourceLocaleID(xpath, null);
-                if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
-                    return MISSING_MARKER + result;
-                }
-                return result;
+            String result = cldrFile2.getStringValue(xpath);
+            if (result == null) {
+                return ENGLISH_MARKER + english.getStringValue(xpath);
+            }
+            String sourceLocale = cldrFile2.getSourceLocaleID(xpath, null);
+            if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
+                return MISSING_MARKER + result;
+            }
+            return result;
         }
 
         public String getShortName(String code) {
@@ -442,8 +444,9 @@ public class Annotations {
                     return null;
                 }
             }
-            
+
             boolean hackBlond = EmojiConstants.HAIR_EXPLICIT.contains(base.codePointAt(0));
+            List<String> arguments = new ArrayList<>();
             
             for (int mod : CharSequences.codePoints(rem)) {
                 if (ignore.contains(mod)) {
@@ -476,18 +479,21 @@ public class Annotations {
                     if (splitPoint >= 0) {
                         String modName0 = shortName.substring(splitPoint+sep.length());
                         shortName = shortName.substring(0, splitPoint);
-                        shortName = pattern.format(shortName, modName);
-                        if (modName != null) annotations.add(modName);
-                        pattern = listPattern;
+                        if (modName != null) {
+                            arguments.add(modName);
+                            annotations.add(modName);
+                        }
                         modName = modName0;
                     }
                     hackBlond = false;
                 }
 
-                shortName = shortName == null ? modName : pattern.format(shortName, modName);
-                if (modName != null) annotations.add(modName);
-                pattern = listPattern;
+                if (modName != null) {
+                    arguments.add(modName);
+                    annotations.add(modName);
+                }
             }
+            shortName = pattern.format(shortName, listPattern.format(arguments));
             Annotations result = new Annotations(annotations, (needMarker ? ENGLISH_MARKER : "") + shortName);
             return result;
         }

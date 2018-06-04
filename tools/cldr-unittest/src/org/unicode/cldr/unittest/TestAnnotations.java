@@ -14,11 +14,14 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.XListFormatter;
+import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
@@ -307,5 +310,23 @@ public class TestAnnotations extends TestFmwkPlus {
         Set<String> aMb = new TreeSet<>(a);
         aMb.removeAll(b);
         assertEquals(title, c, aMb);
+    }
+    
+    public void testListFormatter() {
+        Object[][] tests = {
+            {"en", ListTypeLength.NORMAL, "ABC", "A, B, and C"},
+            {"en", ListTypeLength.AND_SHORT, "ABC", "A, B, and C"},
+            {"en", ListTypeLength.OR_WIDE, "ABC", "A, B, or C"}
+        };
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        for (Object[] test : tests) {
+            CLDRFile cldrFile = factory.make((String)(test[0]), true);
+            ListTypeLength listTypeLength = (ListTypeLength)(test[1]);
+            String expected = (String)test[3];
+            XListFormatter xlistFormatter = new XListFormatter(cldrFile, listTypeLength);
+            String source = (String)test[2];
+            String actual = xlistFormatter.formatCodePoints(source);
+            assertEquals(test[0] + ", " + listTypeLength + ", " + source, expected, actual);
+        }
     }
 }

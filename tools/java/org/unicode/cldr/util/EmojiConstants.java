@@ -2,6 +2,8 @@ package org.unicode.cldr.util;
 
 import java.util.Locale;
 
+import org.unicode.cldr.util.XListFormatter.ListTypeLength;
+
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -32,6 +34,8 @@ public class EmojiConstants {
     public static final String JOINER_MALE_SIGN = JOINER_STRING + MALE_SIGN;
     public static final String JOINER_FEMALE_SIGN = JOINER_STRING + FEMALE_SIGN;
     public static final UnicodeSet HAIR_EXPLICIT = new UnicodeSet("[🧔 👱]").freeze();
+    
+    public static final ListTypeLength COMPOSED_NAME_LIST = ListTypeLength.UNIT_SHORT;
 
     //public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
     public static String getFlagCode(String s) {

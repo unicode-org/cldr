@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -43,9 +42,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
@@ -54,6 +53,7 @@ import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
+import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
@@ -467,13 +467,16 @@ public class ExampleGenerator {
         int first = cp.codePointAt(0);
         switch(first) {
         case 0x1F46A: // 👪  U+1F46A FAMILY
-            examples.add(formatGroup(parts, value, "👨", "👩", "👦", "👦"));
+            examples.add(formatGroup(parts, value, "👨‍👩‍👧‍👦", "👨", "👩", "👧", "👦"));
+            examples.add(formatGroup(parts, value, "👩‍👩‍👦", "👩", "👩", "👦"));
             break;
         case 0x1F48F: // 💏  U+1F48F KISS 👩👨
-            examples.add(formatGroup(parts, value, "👨", "👩"));
+            examples.add(formatGroup(parts, value, "👩‍❤️‍💋‍👨", "👩", "👨"));
+            examples.add(formatGroup(parts, value, "👩‍❤️‍💋‍👩", "👩", "👩"));
            break;
         case 0x1F491: // 💑  U+1F491     COUPLE WITH HEART
-            examples.add(formatGroup(parts, value, "👨", "👩"));
+            examples.add(formatGroup(parts, value, "👩‍❤️‍👨", "👩", "👨"));
+            examples.add(formatGroup(parts, value, "👩‍❤️‍👩", "👩", "👩"));
             break;
         default:
             boolean isSkin = EmojiConstants.MODIFIERS.contains(first);
@@ -504,7 +507,7 @@ public class ExampleGenerator {
     }
 
     //ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"]
-    private String formatGroup(XPathParts parts, String value, String... components) {
+    private String formatGroup(XPathParts parts, String value, String sourceEmoji, String... components) {
         CLDRFile cfile = getCldrFile();
         SimpleFormatter initialPattern = SimpleFormatter.compile(cfile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
         String value2 = backgroundEndSymbol + value + backgroundStartSymbol;
@@ -513,8 +516,8 @@ public class ExampleGenerator {
         for (String component : components) {
             names[i++] = getEmojiName(cfile, component);
         }
-        return initialPattern.format(value2, 
-            longListPatternExample(ListTypeLength.AND_SHORT.getPath(), "n/a", "n/a2", names));
+        return backgroundStartSymbol + sourceEmoji + " ⇒ " + initialPattern.format(value2, 
+            longListPatternExample(EmojiConstants.COMPOSED_NAME_LIST.getPath(), "n/a", "n/a2", names));
     }
 
     private void formatPeople(CLDRFile cfile, int first, boolean isSkin, String value2, String person, String skin, String skinName, 
@@ -738,43 +741,6 @@ public class ExampleGenerator {
             unitWidth.listTypeLength.getPath(), patternType, value, duration1, duration2, duration3, duration4);
     }
 
-    public enum ListTypeLength {
-        NORMAL(""), 
-        AND_SHORT("[@type=\"standard-short\"]"), 
-        OR_WIDE("[@type=\"or\"]"), 
-        UNIT_WIDE("[@type=\"unit\"]"), 
-        UNIT_SHORT("[@type=\"unit-short\"]"), 
-        UNIT_NARROW("[@type=\"unit-narrow\"]")
-        ;
-
-        final String typeString;
-
-        static final Map<String, ListTypeLength> stringToEnum;
-        static {
-            Map<String, ListTypeLength> _stringToEnum = new LinkedHashMap<>();
-            for (ListTypeLength value : values()) {
-                if (value != NORMAL) {
-                    _stringToEnum.put(value.typeString.substring(value.typeString.indexOf('"')+1, value.typeString.lastIndexOf('"')), value);
-                }
-            }
-            stringToEnum = ImmutableMap.copyOf(_stringToEnum);
-        }
-        private ListTypeLength(String typeString) {
-            this.typeString = typeString;
-        }
-        public static ListTypeLength from(String listPatternType) {
-            if (listPatternType == null) {
-                return NORMAL;
-            }
-            return stringToEnum.get(listPatternType);
-        }
-        public String getPath() {
-            return "//ldml/listPatterns/listPattern"
-                + typeString
-                + "/listPatternPart[@type=\"{0}\"]";
-        }
-    }
-
     public enum UnitLength {
         LONG(ListTypeLength.UNIT_WIDE), SHORT(ListTypeLength.UNIT_SHORT), NARROW(ListTypeLength.UNIT_NARROW);
         final String typeString;
@@ -821,24 +787,13 @@ public class ExampleGenerator {
     //ldml/listPatterns/listPattern[@type="unit-short"]/listPatternPart[@type="2"]
     //ldml/listPatterns/listPattern[@type="unit-narrow"]/listPatternPart[@type="2"]
 
-    private String longListPatternExample(String listPathFormat, String patternType, String value, String... item) {
-        String example;
-        switch (item.length) {
-        case 2:
-            String doublePattern = getPattern(listPathFormat, "2", patternType, value);
-            example = format(doublePattern, item[0], item[1]);
-            break;
-        case 4:
-            String startPattern = getPattern(listPathFormat, "start", patternType, value);
-            String middlePattern = getPattern(listPathFormat, "middle", patternType, value);
-            String endPattern = getPattern(listPathFormat, "end", patternType, value);
-
-            example = format(startPattern, item[0],
-                format(middlePattern, item[1], format(endPattern, item[2], item[3])));
-            break;
-        default: 
-            return null;
-        }
+    private String longListPatternExample(String listPathFormat, String patternType, String value, String... items) {
+        String doublePattern = getPattern(listPathFormat, "2", patternType, value);
+        String startPattern = getPattern(listPathFormat, "start", patternType, value);
+        String middlePattern = getPattern(listPathFormat, "middle", patternType, value);
+        String endPattern = getPattern(listPathFormat, "end", patternType, value);
+        ListFormatter listFormatter = new ListFormatter(doublePattern, startPattern, middlePattern, endPattern);
+        String example = listFormatter.format(items);
         return invertBackground(example);
     }
 
@@ -853,8 +808,7 @@ public class ExampleGenerator {
      * @param value
      * @return
      */
-    private String getPattern(String pathFormat, String pathPatternType,
-        String valuePatternType, String value) {
+    private String getPattern(String pathFormat, String pathPatternType, String valuePatternType, String value) {
         return valuePatternType.equals(pathPatternType) ? setBackground(value) : getValueFromFormat(pathFormat, pathPatternType);
     }
 

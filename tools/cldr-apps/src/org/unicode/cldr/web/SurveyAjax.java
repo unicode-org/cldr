@@ -1816,22 +1816,20 @@ public class SurveyAjax extends HttpServlet {
         JSONObject header = new JSONObject().put("LOCALE", 0).put("COUNT", 1).put("LOCALE_NAME", 2);
         JSONArray data = new JSONArray();
         STFactory fac = sm.getSTFactory();
-        /* Create the data array. Confirm/revise the vote count for each locale, to match how viewOldVotes
-         * will assemble the data; viewOldVotes may filter out some votes. Call viewOldVotes here with
-         * oldVotes = null meaning, just count the votes.
+        /* Create the data array. Revise the vote count for each locale, to match how viewOldVotes
+         * will assemble the data, since viewOldVotes may filter out some votes. Call viewOldVotes here
+         * with null for its oldvotes parameter, meaning just count the votes.
          */
-        JSONObject oldVotes = null;
+        JSONObject oldVotesNull = null;
         localeCount.forEach((loc, count) -> {
-            long realCount = 0;
-            boolean gotException = false;
+            /* We may get realCount <= count due to filtering. If we catch an exception here thrown in
+             * viewOldVotes, use the value already in count, still enabling the user to select the locale.
+             */
+            long realCount = count;
             try {
-                realCount = viewOldVotes(user, sm, loc, CLDRLocale.getInstance(loc), newVotesTable, oldVotes, fac);
+                realCount = viewOldVotes(user, sm, loc, CLDRLocale.getInstance(loc), newVotesTable, oldVotesNull, fac);
             } catch (Throwable t) {
                 SurveyLog.logException(t, "listLocalesForImportOldVotes: loc = " + loc);
-                gotException = true;
-            }
-            if (gotException && realCount == 0) {
-                realCount = count; // approximation better than nothing
             }
             if (realCount > 0) {
                 data.put(new JSONArray().put(loc).put(realCount).put(localeName.get(loc)));
@@ -1842,14 +1840,15 @@ public class SurveyAjax extends HttpServlet {
     }
 
     /**
-     * View old votes available to be imported for the given locale.
+     * View old votes available to be imported for the given locale; or, if the oldvotes
+     * argument is null, just return the number of old votes available.
      * 
      * Add to the given "oldvotes" object an array of "contested" (losing) votes, and possibly
      * also an array of "uncontested" (winning) votes, to get displayed by survey.js.
      *
-     * In general, both winning (uncontested) and losing (contested) votes may be present.
-     * Normally, for non-TC users, winning votes are imported automatically. Therefore, only list
-     * winning votes if user is TC.
+     * In general, both winning (uncontested) and losing (contested) votes may be present in the db.
+     * Normally, for non-TC users, winning votes are imported automatically. Therefore, don't count
+     * or list winning votes unless user is TC.
      * 
      * @param user the User, for user.id and userIsTC
      * @param sm the SurveyMain instance, used for sm.xpt, sm.getBaselineFile, and sm.getOldFile
@@ -1885,24 +1884,23 @@ public class SurveyAjax extends HttpServlet {
             }
         });
 
-        long viewableVoteCount = 0;
+        boolean useWinningVotes = UserRegistry.userIsTC(user);
 
         /* Some variables are only used if oldvotes != null; otherwise leave them null. */
         JSONArray contested = null; // contested = losing
         JSONArray uncontested = null; // uncontested = winning
         CLDRFile baseF = null;
-        CLDRFile file = null;
         if (oldvotes != null) {
             contested = new JSONArray();
-            if (UserRegistry.userIsTC(user)) {
+            if (useWinningVotes) {
                 uncontested = new JSONArray();
             }
-            baseF = sm.getBaselineFile();
-            file = sm.getOldFile(loc, true);
+            baseF = sm.getBaselineFile();      
         }
-
+        CLDRFile file = sm.getOldFile(loc, true);
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
+        long viewableVoteCount = 0;
         for (Map<String, Object> m : rows) {
             String value = m.get("value").toString();
             if (value == null) {
@@ -1921,9 +1919,9 @@ public class SurveyAjax extends HttpServlet {
             if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                 continue; // out of coverage
             }
+            String curValue = file.getStringValue(xpathString);
             if (oldvotes != null) {
                 String xpathStringHash = sm.xpt.getStringIDString(xp);
-                String curValue = file.getStringValue(xpathString);
                 JSONObject aRow = new JSONObject()
                     .put("strid", xpathStringHash)
                     .put("myValue", value)
@@ -1932,15 +1930,25 @@ public class SurveyAjax extends HttpServlet {
                     .put("pathHeader", pathHeader.toString());
                 if (value.equals(curValue)) {
                     if (uncontested != null) {
-                        uncontested.put(aRow); // uncontested = winning                 
+                        uncontested.put(aRow); // uncontested = winning
+                        ++viewableVoteCount;
                     }
                 } else {
                     if (contested != null) {
                         contested.put(aRow); // contested = losing
+                        ++viewableVoteCount;
                     }
                 }
-            }
-            ++viewableVoteCount;
+           } else {
+               if (value.equals(curValue)) {
+                   if (useWinningVotes) {
+                       ++viewableVoteCount;
+                   }
+               }
+               else { // always count losing votes
+                   ++viewableVoteCount;
+               }
+           }
         }
         if (oldvotes != null) {
             if (contested != null) {
@@ -2053,7 +2061,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws SQLException
      * @throws IOException
      * 
-     * Called by getOldVoteCountForLocale, viewOldVotes and submitOldVotes.
+     * Called by viewOldVotes and submitOldVotes.
      */
     private static Map<String, Object>[] getOldVotesRows(final String newVotesTable, CLDRLocale locale, int id)
         throws SQLException, IOException {

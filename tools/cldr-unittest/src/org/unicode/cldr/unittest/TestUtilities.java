@@ -931,14 +931,20 @@ public class TestUtilities extends TestFmwkPlus {
         verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters", VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "mt",
+            "//ldml/characters/exemplarCharacters",
+            VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+            VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "mt",
+            "//ldml/characters/exemplarCharacters[@type=\"numbers\"]",
+            VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "mt",
+            "//ldml/characters/exemplarCharacters[@type=\"punctuation\"]",
             VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "mt",
             "//ldml/characters/exemplarCharacters[@type=\"index\"]",
             VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(resolver, "mt",
-            "//ldml/characters/exemplarCharacters[@type=\"punctuation\"]",
-            4);
         verifyRequiredVotes(
             resolver,
             "es",

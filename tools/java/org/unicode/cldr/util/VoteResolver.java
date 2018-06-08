@@ -1058,6 +1058,8 @@ public class VoteResolver<T> {
      *             it gets modified if superior subsets exist
      * @param rawVoteCount the vote count for each value in sortedValues BEFORE calculateNewCountsBasedOnAnnotationComponents;
      *             rawVoteCount is not changed by this function
+     *
+     * Reference: https://unicode.org/cldr/trac/ticket/10973                 
      */
     private void promoteSuperiorAnnotationSuperset(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> rawVoteCount) {
         final long requiredGap = 2;

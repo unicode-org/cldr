@@ -10,6 +10,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -19,6 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckWidths;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
@@ -916,12 +918,18 @@ public class VoteResolver<T> {
         }
         // Make compMap map individual components to cumulative vote counts.
         HashMap<T, Long> compMap = makeAnnotationComponentMap(sortedValues, voteCount);
-            
+
+        // Save a copy of the "raw" vote count before adjustment, since it's needed by promoteSuperiorAnnotationSuperset.
+        HashMap<T, Long> rawVoteCount = new HashMap<T, Long>(voteCount);
+
         // Calculate new counts for original values, based on components.
         calculateNewCountsBasedOnAnnotationComponents(sortedValues, voteCount, compMap);
 
         // Re-sort sortedValues based on voteCount.
         resortValuesBasedOnAdjustedVoteCounts(sortedValues, voteCount);
+
+        // If the set that so far is winning has supersets with superior raw vote count, promote the supersets.
+        promoteSuperiorAnnotationSuperset(sortedValues, voteCount, rawVoteCount);
     }
 
     /**
@@ -958,6 +966,12 @@ public class VoteResolver<T> {
     /**
      * Calculate new counts for original values, based on annotation components.
      * 
+     * Find the total votes for each component (e.g., "b" in "b|c"). As the "modified"
+     * vote for the set, use the geometric mean of the components in the set.
+     *
+     * Order the sets by that mean value, then by the smallest number of items in
+     * the set, then the fallback we always use (alphabetical).
+     *
      * @param sortedValues the set of sorted values
      * @param voteCount the hash giving the vote count for each value in sortedValues
      * @param compMap the hash that maps individual components to cumulative vote counts
@@ -965,13 +979,6 @@ public class VoteResolver<T> {
      * See http://unicode.org/cldr/trac/ticket/10973
      */
     private void calculateNewCountsBasedOnAnnotationComponents(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> compMap) {
-
-        /* Find the total votes for each component (eg "b" in "b|c"). As the "modified"
-            vote for the set, use the geometric mean of the components in the set.
-
-            Order the sets by that mean value, then by the smallest number of items in
-            the set, then the fallback we always use (alphabetical). */
-
         voteCount.clear();
         for (T value : sortedValues) {
             List<T> comps = splitAnnotationIntoComponentsList(value);
@@ -984,7 +991,6 @@ public class VoteResolver<T> {
             voteCount.put(value, newCount);
         }
     }
-
 
     /**
      * Split an annotation into a list of components.
@@ -1028,6 +1034,69 @@ public class VoteResolver<T> {
         sortedValues.clear();
         for (T value : list) {
             sortedValues.add(value);
+        }
+    }
+
+    /**
+     * For annotation votes, if the set that so far is winning has one or more supersets with "superior" (see
+     * below) raw vote count, promote those supersets to become the new winner, and also the new second place
+     * if there are two or more superior supersets.
+     *
+     * That is, after finding the set X with the largest geometric mean, check whether there are any supersets
+     * with "superior" raw votes, and that don't exceed the width limit. If so, promote Y, the one of those
+     * supersets with the most raw votes (using the normal tie breaker), to be the winning set.
+     *
+     * "Superior" here means that rawVote(Y) ≥ rawVote(X) + 2, where the value 2 (see requiredGap) is for the
+     * purpose of requiring at least one non-guest vote.
+     *
+     * If any other "superior" supersets exist, promote to second place the one with the next most raw votes.
+     * 
+     * Accomplish promotion by increasing vote counts in the voteCount hash.
+     *
+     * @param sortedValues the set of sorted values
+     * @param voteCount the vote count for each value in sortedValues AFTER calculateNewCountsBasedOnAnnotationComponents;
+     *             it gets modified if superior subsets exist
+     * @param rawVoteCount the vote count for each value in sortedValues BEFORE calculateNewCountsBasedOnAnnotationComponents;
+     *             rawVoteCount is not changed by this function
+     */
+    private void promoteSuperiorAnnotationSuperset(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> rawVoteCount) {
+        final long requiredGap = 2;
+        T oldWinner = null;
+        long oldWinnerRawCount = 0;
+        LinkedHashSet<T> oldWinnerComps = null;
+        LinkedHashSet<T> superiorSupersets = null;
+        for (T value : sortedValues) {
+            if (oldWinner == null) {
+                oldWinner = value;
+                oldWinnerRawCount = rawVoteCount.get(value);
+                oldWinnerComps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(value));
+            } else {
+                Set<T> comps = new LinkedHashSet<T>(splitAnnotationIntoComponentsList(value));
+                if (comps.size() <= CheckWidths.MAX_COMPONENTS_PER_ANNOTATION &&
+                        comps.containsAll(oldWinnerComps) &&
+                        rawVoteCount.get(value) >= oldWinnerRawCount + requiredGap) {
+                    if (superiorSupersets == null) {
+                        superiorSupersets = new LinkedHashSet<T>();
+                    }
+                    superiorSupersets.add(value);
+                }
+            }
+        }
+        if (superiorSupersets != null) {
+            // Sort the supersets by raw vote count, then make their adjusted vote counts higher than the old winner's.
+            resortValuesBasedOnAdjustedVoteCounts(superiorSupersets, rawVoteCount);
+            T newWinner = null, newSecond = null; // only adjust votes for first and second place
+            for (T value : superiorSupersets) {
+                if (newWinner == null) {
+                    newWinner = value;
+                    voteCount.put(newWinner, voteCount.get(oldWinner) + 2); // more than oldWinner and newSecond
+                } else if (newSecond == null) {
+                    newSecond = value;
+                    voteCount.put(newSecond, voteCount.get(oldWinner) + 1); // more than oldWinner, less than newWinner
+                    break;
+                }
+            }
+            resortValuesBasedOnAdjustedVoteCounts(sortedValues, voteCount);
         }
     }
 

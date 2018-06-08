@@ -124,6 +124,160 @@ public class TestAnnotationVotes extends TestFmwk {
     }
 
     /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV08() {
+        // References:
+        //  https://unicode.org/cldr/trac/ticket/11165
+        //  https://unicode.org/cldr/trac/ticket/10973
+        String test = "adjustAnnotationVoteCounts for hmyz | malárie | moskyt | štípnutí | virus, dengue | hmyz | malárie | moskyt | štípnutí | virus ...";
+        String[] valI = {"hmyz | malárie | moskyt | štípnutí | virus", "dengue | hmyz | malárie | moskyt | štípnutí | virus"}; // input
+        long[] votesI = {4,                                             8                                                   }; // input vote counts
+        String[] valO = {"dengue | hmyz | malárie | moskyt | štípnutí | virus", "hmyz | malárie | moskyt | štípnutí | virus"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV09() {
+        // same as TestAV08 except one-letter names
+        String test = "adjustAnnotationVoteCounts for b|c|d|e|f=4, a|b|c|d|e|f=8 should make a|b|c|d|e|f, b|c|d|e|f";
+        String[] valI = {"b|c|d|e|f", "a|b|c|d|e|f"}; // input
+        long[] votesI = {4,            8           }; // input vote counts
+        String[] valO = {"a|b|c|d|e|f", "b|c|d|e|f"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV10() {
+        // same input and output as TestAV09, different vote counts
+        String test = "adjustAnnotationVoteCounts for b|c|d|e|f=4, a|b|c|d|e|f=6 should make a|b|c|d|e|f, b|c|d|e|f";
+        String[] valI = {"b|c|d|e|f", "a|b|c|d|e|f"}; // input
+        long[] votesI = {4,            6           }; // input vote counts
+        String[] valO = {"a|b|c|d|e|f", "b|c|d|e|f"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV11() {
+        // same input as TestAV09, different vote counts and output
+        String test = "adjustAnnotationVoteCounts for b|c|d|e|f=4, a|b|c|d|e|f=5 should make b|c|d|e|f, a|b|c|d|e|f";
+        String[] valI = {"b|c|d|e|f", "a|b|c|d|e|f"}; // input
+        long[] votesI = {4,            5           }; // input vote counts
+        String[] valO = {"b|c|d|e|f", "a|b|c|d|e|f"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV12() {
+        // test superior supersets with alphabetical fallback: a|b|c before a|b|d
+        String test = "adjustAnnotationVoteCounts for a|b=4, a|b|d=8, a|b|c=8 should make a|b|c, a|b|d, a|b";
+        String[] valI = {"a|b", "a|b|d", "a|b|c"}; // input
+        long[] votesI = {4,      8,       8     }; // input vote counts
+        String[] valO = {"a|b|c", "a|b|d", "a|b"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV13() {
+        String test = "adjustAnnotationVoteCounts for a|b=4, a|b|d=8, a|b|c=7 should make a|b|d, a|b|c, a|b";
+        String[] valI = {"a|b", "a|b|d", "a|b|c"}; // input
+        long[] votesI = {4,      8,       7     }; // input vote counts
+        String[] valO = {"a|b|d", "a|b|c", "a|b"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV14() {
+        String test = "adjustAnnotationVoteCounts for a|b=8, a=8 should make a, a|b";
+        String[] valI = {"a|b", "a"}; // input
+        long[] votesI = {8,      8 }; // input vote counts
+        String[] valO = {"a", "a|b"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV15() {
+        String test = "adjustAnnotationVoteCounts for a|b=8, a=4 should make a|b, a";
+        String[] valI = {"a|b", "a"}; // input
+        long[] votesI = {8,      4 }; // input vote counts
+        String[] valO = {"a|b", "a"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV16() {
+        String test = "adjustAnnotationVoteCounts for a|b=4, a|b|d=8, a|b|c=7 should make a|b|d, a|b|c, a|b";
+        String[] valI = {"a|b", "a|b|d", "a|b|c"}; // input
+        long[] votesI = {4,      8,       7     }; // input vote counts
+        String[] valO = {"a|b|d", "a|b|c", "a|b"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV17() {
+        // test superior supersets with shorter-set fallback: a|b|e before a|b|c|d
+        String test = "adjustAnnotationVoteCounts for a|b=4, a|b|c|d=8, a|b|e=8 should make a|b|e, a|b|c|d, a|b";
+        String[] valI = {"a|b", "a|b|c|d", "a|b|e"}; // input
+        long[] votesI = {4,      8,         8     }; // input vote counts
+        String[] valO = {"a|b|e", "a|b|c|d", "a|b"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV18() {
+        // test shorter-set fallback: a|b|e before a|b|c|d
+        String test = "adjustAnnotationVoteCounts for a|b|c|d=8, a|b|e=8 should make a|b|e, a|b|c|d";
+        String[] valI = {"a|b|c|d", "a|b|e"}; // input
+        long[] votesI = {8,          8     }; // input vote counts
+        String[] valO = {"a|b|e", "a|b|c|d"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
+     * Test features related to adjustAnnotationVoteCounts in VoteResolver.java.
+     * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
+     */
+    public void TestAV19() {
+        // Superior supersets can't have more than 7 = CheckWidths.MAX_COMPONENTS_PER_ANNOTATION.
+        String test = "adjustAnnotationVoteCounts for a|b=4, a|b|c|d|e|f|g|h=9, a|b|c|x|y=8 should make a|b|c|x|y, a|b, a|b|c|d|e|f|g|h";
+        String[] valI = {"a|b", "a|b|c|d|e|f|g|h", "a|b|c|x|y"}; // input
+        long[] votesI = {4,      9,                 8         }; // input vote counts
+        String[] valO = {"a|b|c|x|y", "a|b", "a|b|c|d|e|f|g|h"}; // expected/desired output
+        runTest(test, valI, votesI, valO);
+    }
+
+    /**
      * Run adjustAnnotationVoteCounts with the given input and expected output.
      * Test whether the actual output matches the expected output.
      * 

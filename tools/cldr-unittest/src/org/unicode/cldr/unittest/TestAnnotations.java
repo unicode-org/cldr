@@ -23,6 +23,7 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XListFormatter;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
@@ -102,10 +103,10 @@ public class TestAnnotations extends TestFmwkPlus {
 
     public void TestNames() {
         AnnotationSet eng = Annotations.getDataSet("en");
-        String[][] tests = {
+        String[][] tests = { // the expected value for keywords can use , as well as |.
             {"👨🏻", "man: light skin tone", "adult | man | light skin tone"},
-            {"👱‍♂️", "man: blond hair", "blond | blond-haired man | man"},
-            {"👱🏻‍♂️", "man: light skin tone, blond hair", "blond | blond-haired man | man | light skin tone | blond hair"},
+            {"👱‍♂️", "man: blond hair", "blond | blond-haired man | man | man: blond hair"},
+            {"👱🏻‍♂️", "man: light skin tone, blond hair", "blond, blond-haired man, man, man: blond hair, light skin tone, blond hair"},
             {"👨‍🦰", "man: red hair", "adult | man | red hair"},
             { "👨🏻‍🦰", "man: light skin tone, red hair", "adult | man | light skin tone| red hair"},
             { "🇪🇺", "flag: European Union", "flag" },
@@ -137,7 +138,7 @@ public class TestAnnotations extends TestFmwkPlus {
             { "🚴🏿‍♀️", "woman biking: dark skin tone", "bicycle | biking | cyclist | woman | dark skin tone" },
         };
 
-        Splitter BAR = Splitter.on('|').trimResults();
+        Splitter BAR = Splitter.on(CharMatcher.anyOf("|,")).trimResults();
         boolean ok = true;
         for (String[] test : tests) {
             String emoji = test[0];

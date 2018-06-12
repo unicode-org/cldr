@@ -273,7 +273,7 @@ public class TestAnnotationVotes extends TestFmwk {
         String test = "adjustAnnotationVoteCounts for a|b=4, a|b|c|d|e|f|g|h=9, a|b|c|x|y=8 should make a|b|c|x|y, a|b, a|b|c|d|e|f|g|h";
         String[] valI = {"a|b", "a|b|c|d|e|f|g|h", "a|b|c|x|y"}; // input
         long[] votesI = {4,      9,                 8         }; // input vote counts
-        String[] valO = {"a|b|c|x|y", "a|b", "a|b|c|d|e|f|g|h"}; // expected/desired output
+        String[] valO = {"a|b|c|d|e|f|g|h", "a|b|c|x|y", "a|b"}; // expected/desired output
         runTest(test, valI, votesI, valO);
     }
 

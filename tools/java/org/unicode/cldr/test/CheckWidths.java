@@ -19,7 +19,7 @@ public class CheckWidths extends CheckCLDR {
     private static CoverageLevel2 coverageLevel;
     private Level requiredLevel;
 
-    public static final int MAX_COMPONENTS_PER_ANNOTATION = 7;
+    public static final int MAX_COMPONENTS_PER_ANNOTATION = 16;
     
     SupplementalDataInfo supplementalData;
 

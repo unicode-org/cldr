@@ -4,8 +4,9 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
-<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1982,55 +1983,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍❤‍👩">hombre y mujer enamorados | mujer</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">hombre y mujer enamorados: mujer y mujer</annotation>
 		<annotation cp="👨‍👩‍👦">familia | hija | hijo | madre | padre | hombre | mujer | niño</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">familia: hombre, mujer, niño</annotation>
 		<annotation cp="👨‍👩‍👧">familia | hija | hijo | madre | padre | hombre | mujer | niña</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">familia: hombre, mujer, niña</annotation>
 		<annotation cp="👨‍👩‍👧‍👦">familia | hija | hijo | madre | padre | hombre | mujer | niña | niño</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">familia: hombre, mujer, niña, niño</annotation>
 		<annotation cp="👨‍👩‍👦‍👦">familia | hija | hijo | madre | padre | hombre | mujer | niño</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">familia: hombre, mujer, niño, niño</annotation>
 		<annotation cp="👨‍👩‍👧‍👧">familia | hija | hijo | madre | padre | hombre | mujer | niña</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">familia: hombre, mujer, niña, niña</annotation>
 		<annotation cp="👨‍👨‍👦">familia | hija | hijo | madre | padre | hombre | niño</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">familia: hombre, hombre, niño</annotation>
 		<annotation cp="👨‍👨‍👧">familia | hija | hijo | madre | padre | hombre | niña</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">familia: hombre, hombre, niña</annotation>
 		<annotation cp="👨‍👨‍👧‍👦">familia | hija | hijo | madre | padre | hombre | niña | niño</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">familia: hombre, hombre, niña, niño</annotation>
 		<annotation cp="👨‍👨‍👦‍👦">familia | hija | hijo | madre | padre | hombre | niño</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">familia: hombre, hombre, niño, niño</annotation>
 		<annotation cp="👨‍👨‍👧‍👧">familia | hija | hijo | madre | padre | hombre | niña</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">familia: hombre, hombre, niña, niña</annotation>
 		<annotation cp="👩‍👩‍👦">familia | hija | hijo | madre | padre | mujer | niño</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">familia: mujer, mujer, niño</annotation>
 		<annotation cp="👩‍👩‍👧">familia | hija | hijo | madre | padre | mujer | niña</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">familia: mujer, mujer, niña</annotation>
 		<annotation cp="👩‍👩‍👧‍👦">familia | hija | hijo | madre | padre | mujer | niña | niño</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">familia: mujer, mujer, niña, niño</annotation>
 		<annotation cp="👩‍👩‍👦‍👦">familia | hija | hijo | madre | padre | mujer | niño</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">familia: mujer, mujer, niño, niño</annotation>
 		<annotation cp="👩‍👩‍👧‍👧">familia | hija | hijo | madre | padre | mujer | niña</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">familia: mujer, mujer, niña, niña</annotation>
 		<annotation cp="👨‍👦">familia | hija | hijo | madre | padre | hombre | niño</annotation>
-		<annotation cp="👨‍👦" type="tts">familia: hombre y niño</annotation>
 		<annotation cp="👨‍👦‍👦">familia | hija | hijo | madre | padre | hombre | niño</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">familia: hombre, niño, niño</annotation>
 		<annotation cp="👨‍👧">familia | hija | hijo | madre | padre | hombre | niña</annotation>
-		<annotation cp="👨‍👧" type="tts">familia: hombre y niña</annotation>
 		<annotation cp="👨‍👧‍👦">familia | hija | hijo | madre | padre | hombre | niña | niño</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">familia: hombre, niña, niño</annotation>
 		<annotation cp="👨‍👧‍👧">familia | hija | hijo | madre | padre | hombre | niña</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">familia: hombre, niña, niña</annotation>
 		<annotation cp="👩‍👦">familia | hija | hijo | madre | padre | mujer | niño</annotation>
-		<annotation cp="👩‍👦" type="tts">familia: mujer y niño</annotation>
 		<annotation cp="👩‍👦‍👦">familia | hija | hijo | madre | padre | mujer | niño</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">familia: mujer, niño, niño</annotation>
 		<annotation cp="👩‍👧">familia | hija | hijo | madre | padre | mujer | niña</annotation>
-		<annotation cp="👩‍👧" type="tts">familia: mujer y niña</annotation>
 		<annotation cp="👩‍👧‍👦">familia | hija | hijo | madre | padre | mujer | niña | niño</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">familia: mujer, niña, niño</annotation>
 		<annotation cp="👩‍👧‍👧">familia | hija | hijo | madre | padre | mujer | niña</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">familia: mujer, niña, niña</annotation>
 		<annotation cp="🤳🏻">selfi | tono de piel claro</annotation>
 		<annotation cp="🤳🏻" type="tts">selfi: tono de piel claro</annotation>
 		<annotation cp="🤳🏼">selfi | tono de piel claro medio</annotation>

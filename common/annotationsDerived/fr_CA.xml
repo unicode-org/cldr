@@ -4,8 +4,9 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
-<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -13,25 +14,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="CA"/>
 	</identity>
 	<annotations>
-		<annotation cp="🦵🏻">coup de pied | jambe | membre | peau claire</annotation>
 		<annotation cp="🦵🏻" type="tts">jambe : peau claire</annotation>
 		<annotation cp="🦵🏼">coup de pied | jambe | membre | peau modérément claire</annotation>
 		<annotation cp="🦵🏼" type="tts">jambe : peau modérément claire</annotation>
-		<annotation cp="🦵🏽">coup de pied | jambe | membre | peau légèrement mate</annotation>
 		<annotation cp="🦵🏽" type="tts">jambe : peau légèrement mate</annotation>
 		<annotation cp="🦵🏾">coup de pied | jambe | membre | peau modérément foncée</annotation>
 		<annotation cp="🦵🏾" type="tts">jambe : peau modérément foncée</annotation>
-		<annotation cp="🦵🏿">coup de pied | jambe | membre | peau foncée</annotation>
 		<annotation cp="🦵🏿" type="tts">jambe : peau foncée</annotation>
-		<annotation cp="🦶🏻">coup de pied | pas lourd | pied | peau claire</annotation>
 		<annotation cp="🦶🏻" type="tts">pied : peau claire</annotation>
 		<annotation cp="🦶🏼">coup de pied | pas lourd | pied | peau modérément claire</annotation>
 		<annotation cp="🦶🏼" type="tts">pied : peau modérément claire</annotation>
-		<annotation cp="🦶🏽">coup de pied | pas lourd | pied | peau légèrement mate</annotation>
 		<annotation cp="🦶🏽" type="tts">pied : peau légèrement mate</annotation>
 		<annotation cp="🦶🏾">coup de pied | pas lourd | pied | peau modérément foncée</annotation>
 		<annotation cp="🦶🏾" type="tts">pied : peau modérément foncée</annotation>
-		<annotation cp="🦶🏿">coup de pied | pas lourd | pied | peau foncée</annotation>
 		<annotation cp="🦶🏿" type="tts">pied : peau foncée</annotation>
 		<annotation cp="🦸🏻">gentil, héroïne, héros, super pouvoirs | peau claire</annotation>
 		<annotation cp="🦸🏻" type="tts">super-héros : peau claire</annotation>
@@ -113,15 +108,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧒🏾" type="tts">enfant : peau modérément foncée</annotation>
 		<annotation cp="🧒🏿">enfant | genre non défini | jeune | peau foncée</annotation>
 		<annotation cp="🧒🏿" type="tts">enfant : peau foncée</annotation>
-		<annotation cp="👦🏻">garçon | jeune | peau claire</annotation>
 		<annotation cp="👦🏻" type="tts">garçon : peau claire</annotation>
 		<annotation cp="👦🏼">garçon | jeune | peau modérément claire</annotation>
 		<annotation cp="👦🏼" type="tts">garçon : peau modérément claire</annotation>
-		<annotation cp="👦🏽">garçon | jeune | peau légèrement mate</annotation>
 		<annotation cp="👦🏽" type="tts">garçon : peau légèrement mate</annotation>
 		<annotation cp="👦🏾">garçon | jeune | peau modérément foncée</annotation>
 		<annotation cp="👦🏾" type="tts">garçon : peau modérément foncée</annotation>
-		<annotation cp="👦🏿">garçon | jeune | peau foncée</annotation>
 		<annotation cp="👦🏿" type="tts">garçon : peau foncée</annotation>
 		<annotation cp="👧🏻">fille | jeune | vierge | zodiaque | peau claire</annotation>
 		<annotation cp="👧🏻" type="tts">fille : peau claire</annotation>
@@ -289,65 +281,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👵🏾" type="tts">femme âgée : peau modérément foncée</annotation>
 		<annotation cp="👵🏿">adulte | femme | âgée | peau foncée</annotation>
 		<annotation cp="👵🏿" type="tts">femme âgée : peau foncée</annotation>
-		<annotation cp="👨🏻‍⚕">docteur | homme | infirmier | professionnel de la santé | santé | peau claire</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">professionnel de la santé : peau claire</annotation>
 		<annotation cp="👨🏼‍⚕">docteur | homme | infirmier | professionnel de la santé | santé | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍⚕" type="tts">professionnel de la santé : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍⚕">docteur | homme | infirmier | professionnel de la santé | santé | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍⚕" type="tts">professionnel de la santé : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍⚕">docteur | homme | infirmier | professionnel de la santé | santé | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍⚕" type="tts">professionnel de la santé : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍⚕">docteur | homme | infirmier | professionnel de la santé | santé | peau foncée</annotation>
 		<annotation cp="👨🏿‍⚕" type="tts">professionnel de la santé : peau foncée</annotation>
-		<annotation cp="👩🏻‍⚕">docteur | femme | infirmière | professionnelle de la santé | santé | peau claire</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">professionnelle de la santé : peau claire</annotation>
 		<annotation cp="👩🏼‍⚕">docteur | femme | infirmière | professionnelle de la santé | santé | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍⚕" type="tts">professionnelle de la santé : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍⚕">docteur | femme | infirmière | professionnelle de la santé | santé | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍⚕" type="tts">professionnelle de la santé : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍⚕">docteur | femme | infirmière | professionnelle de la santé | santé | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍⚕" type="tts">professionnelle de la santé : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍⚕">docteur | femme | infirmière | professionnelle de la santé | santé | peau foncée</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">professionnelle de la santé : peau foncée</annotation>
-		<annotation cp="👨🏻‍🎓">diplômé | homme | étudiant | peau claire</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">étudiant : peau claire</annotation>
 		<annotation cp="👨🏼‍🎓">diplômé | homme | étudiant | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍🎓" type="tts">étudiant : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍🎓">diplômé | homme | étudiant | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🎓" type="tts">étudiant : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍🎓">diplômé | homme | étudiant | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍🎓" type="tts">étudiant : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍🎓">diplômé | homme | étudiant | peau foncée</annotation>
 		<annotation cp="👨🏿‍🎓" type="tts">étudiant : peau foncée</annotation>
-		<annotation cp="👩🏻‍🎓">diplômée | femme | étudiante | peau claire</annotation>
 		<annotation cp="👩🏻‍🎓" type="tts">étudiante : peau claire</annotation>
 		<annotation cp="👩🏼‍🎓">diplômée | femme | étudiante | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍🎓" type="tts">étudiante : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍🎓">diplômée | femme | étudiante | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🎓" type="tts">étudiante : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍🎓">diplômée | femme | étudiante | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍🎓" type="tts">étudiante : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍🎓">diplômée | femme | étudiante | peau foncée</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">étudiante : peau foncée</annotation>
-		<annotation cp="👨🏻‍🏫">enseignant | homme | instituteur | instructeur | professeur | peau claire</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">enseignant : peau claire</annotation>
 		<annotation cp="👨🏼‍🏫">enseignant | homme | instituteur | instructeur | professeur | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍🏫" type="tts">enseignant : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍🏫">enseignant | homme | instituteur | instructeur | professeur | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🏫" type="tts">enseignant : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍🏫">enseignant | homme | instituteur | instructeur | professeur | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍🏫" type="tts">enseignant : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍🏫">enseignant | homme | instituteur | instructeur | professeur | peau foncée</annotation>
 		<annotation cp="👨🏿‍🏫" type="tts">enseignant : peau foncée</annotation>
-		<annotation cp="👩🏻‍🏫">enseignante | femme | institutrice | instructrice | professeure | peau claire</annotation>
 		<annotation cp="👩🏻‍🏫" type="tts">enseignante : peau claire</annotation>
 		<annotation cp="👩🏼‍🏫">enseignante | femme | institutrice | instructrice | professeure | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍🏫" type="tts">enseignante : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍🏫">enseignante | femme | institutrice | instructrice | professeure | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🏫" type="tts">enseignante : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍🏫">enseignante | femme | institutrice | instructrice | professeure | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍🏫" type="tts">enseignante : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍🏫">enseignante | femme | institutrice | instructrice | professeure | peau foncée</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">enseignante : peau foncée</annotation>
 		<annotation cp="👨🏻‍⚖">balance | homme | juge | justice | peau claire</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">juge homme : peau claire</annotation>
@@ -359,75 +333,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍⚖" type="tts">juge homme : peau modérément foncée</annotation>
 		<annotation cp="👨🏿‍⚖">balance | homme | juge | justice | peau foncée</annotation>
 		<annotation cp="👨🏿‍⚖" type="tts">juge homme : peau foncée</annotation>
-		<annotation cp="👩🏻‍⚖">balance | femme | juge | peau claire</annotation>
 		<annotation cp="👩🏻‍⚖" type="tts">juge femme : peau claire</annotation>
 		<annotation cp="👩🏼‍⚖">balance | femme | juge | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍⚖" type="tts">juge femme : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍⚖">balance | femme | juge | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍⚖" type="tts">juge femme : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍⚖">balance | femme | juge | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍⚖" type="tts">juge femme : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍⚖">balance | femme | juge | peau foncée</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">juge femme : peau foncée</annotation>
-		<annotation cp="👨🏻‍🌾">agriculteur | fermier | homme | jardinier | peau claire</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">fermier : peau claire</annotation>
 		<annotation cp="👨🏼‍🌾">agriculteur | fermier | homme | jardinier | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍🌾" type="tts">fermier : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍🌾">agriculteur | fermier | homme | jardinier | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🌾" type="tts">fermier : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍🌾">agriculteur | fermier | homme | jardinier | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍🌾" type="tts">fermier : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍🌾">agriculteur | fermier | homme | jardinier | peau foncée</annotation>
 		<annotation cp="👨🏿‍🌾" type="tts">fermier : peau foncée</annotation>
-		<annotation cp="👩🏻‍🌾">agricultrice | femme | fermière | jardinière | peau claire</annotation>
 		<annotation cp="👩🏻‍🌾" type="tts">fermière : peau claire</annotation>
 		<annotation cp="👩🏼‍🌾">agricultrice | femme | fermière | jardinière | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍🌾" type="tts">fermière : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍🌾">agricultrice | femme | fermière | jardinière | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🌾" type="tts">fermière : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍🌾">agricultrice | femme | fermière | jardinière | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍🌾" type="tts">fermière : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍🌾">agricultrice | femme | fermière | jardinière | peau foncée</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">fermière : peau foncée</annotation>
-		<annotation cp="👨🏻‍🍳">chef | cuisinier | homme | peau claire</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">cuisinier : peau claire</annotation>
 		<annotation cp="👨🏼‍🍳">chef | cuisinier | homme | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍🍳" type="tts">cuisinier : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍🍳">chef | cuisinier | homme | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🍳" type="tts">cuisinier : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍🍳">chef | cuisinier | homme | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍🍳" type="tts">cuisinier : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍🍳">chef | cuisinier | homme | peau foncée</annotation>
 		<annotation cp="👨🏿‍🍳" type="tts">cuisinier : peau foncée</annotation>
-		<annotation cp="👩🏻‍🍳">chef | cuisinière | femme | peau claire</annotation>
 		<annotation cp="👩🏻‍🍳" type="tts">cuisinière : peau claire</annotation>
 		<annotation cp="👩🏼‍🍳">chef | cuisinière | femme | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍🍳" type="tts">cuisinière : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍🍳">chef | cuisinière | femme | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🍳" type="tts">cuisinière : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍🍳">chef | cuisinière | femme | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍🍳" type="tts">cuisinière : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍🍳">chef | cuisinière | femme | peau foncée</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">cuisinière : peau foncée</annotation>
-		<annotation cp="👨🏻‍🔧">homme | mécanicien | mécanique | plombier | électricien | peau claire</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mécanicien : peau claire</annotation>
 		<annotation cp="👨🏼‍🔧">homme | mécanicien | mécanique | plombier | électricien | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍🔧" type="tts">mécanicien : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍🔧">homme | mécanicien | mécanique | plombier | électricien | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🔧" type="tts">mécanicien : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍🔧">homme | mécanicien | mécanique | plombier | électricien | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍🔧" type="tts">mécanicien : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍🔧">homme | mécanicien | mécanique | plombier | électricien | peau foncée</annotation>
 		<annotation cp="👨🏿‍🔧" type="tts">mécanicien : peau foncée</annotation>
-		<annotation cp="👩🏻‍🔧">femme | mécanicienne | mécanique | plombier | électricienne | peau claire</annotation>
 		<annotation cp="👩🏻‍🔧" type="tts">mécanicienne : peau claire</annotation>
 		<annotation cp="👩🏼‍🔧">femme | mécanicienne | mécanique | plombier | électricienne | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍🔧" type="tts">mécanicienne : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍🔧">femme | mécanicienne | mécanique | plombier | électricienne | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🔧" type="tts">mécanicienne : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍🔧">femme | mécanicienne | mécanique | plombier | électricienne | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍🔧" type="tts">mécanicienne : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍🔧">femme | mécanicienne | mécanique | plombier | électricienne | peau foncée</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mécanicienne : peau foncée</annotation>
 		<annotation cp="👨🏻‍🏭">assemblage | homme | industrie | ouvrier | usine | peau claire</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">ouvrier : peau claire</annotation>
@@ -449,25 +402,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">ouvrière : peau modérément foncée</annotation>
 		<annotation cp="👩🏿‍🏭">assemblage | femme | industrie | ouvrière | usine | peau foncée</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">ouvrière : peau foncée</annotation>
-		<annotation cp="👨🏻‍💼">affaires | architecte | bureau | employé de bureau | homme | peau claire</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">employé de bureau : peau claire</annotation>
 		<annotation cp="👨🏼‍💼">affaires | architecte | bureau | employé de bureau | homme | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍💼" type="tts">employé de bureau : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍💼">affaires | architecte | bureau | employé de bureau | homme | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍💼" type="tts">employé de bureau : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍💼">affaires | architecte | bureau | employé de bureau | homme | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍💼" type="tts">employé de bureau : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍💼">affaires | architecte | bureau | employé de bureau | homme | peau foncée</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">employé de bureau : peau foncée</annotation>
-		<annotation cp="👩🏻‍💼">affaires | architecte | bureau | employée de bureau | femme | peau claire</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">employée de bureau : peau claire</annotation>
 		<annotation cp="👩🏼‍💼">affaires | architecte | bureau | employée de bureau | femme | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍💼" type="tts">employée de bureau : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍💼">affaires | architecte | bureau | employée de bureau | femme | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍💼" type="tts">employée de bureau : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍💼">affaires | architecte | bureau | employée de bureau | femme | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍💼" type="tts">employée de bureau : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍💼">affaires | architecte | bureau | employée de bureau | femme | peau foncée</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">employée de bureau : peau foncée</annotation>
 		<annotation cp="👨🏻‍🔬">biologiste | chimiste | homme | physicien | scientifique | peau claire</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">scientifique homme : peau claire</annotation>
@@ -489,25 +436,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">scientifique femme : peau modérément foncée</annotation>
 		<annotation cp="👩🏿‍🔬">biologiste | chimiste | femme | physicienne | scientifique | peau foncée</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">scientifique femme : peau foncée</annotation>
-		<annotation cp="👨🏻‍💻">développeur | homme | informaticien | logiciels | technologie | peau claire</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">informaticien : peau claire</annotation>
 		<annotation cp="👨🏼‍💻">développeur | homme | informaticien | logiciels | technologie | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍💻" type="tts">informaticien : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍💻">développeur | homme | informaticien | logiciels | technologie | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍💻" type="tts">informaticien : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍💻">développeur | homme | informaticien | logiciels | technologie | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍💻" type="tts">informaticien : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍💻">développeur | homme | informaticien | logiciels | technologie | peau foncée</annotation>
 		<annotation cp="👨🏿‍💻" type="tts">informaticien : peau foncée</annotation>
-		<annotation cp="👩🏻‍💻">développeuse | femme | informaticienne | logiciels | technologie | peau claire</annotation>
 		<annotation cp="👩🏻‍💻" type="tts">informaticienne : peau claire</annotation>
 		<annotation cp="👩🏼‍💻">développeuse | femme | informaticienne | logiciels | technologie | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍💻" type="tts">informaticienne : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍💻">développeuse | femme | informaticienne | logiciels | technologie | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍💻" type="tts">informaticienne : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍💻">développeuse | femme | informaticienne | logiciels | technologie | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍💻" type="tts">informaticienne : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍💻">développeuse | femme | informaticienne | logiciels | technologie | peau foncée</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">informaticienne : peau foncée</annotation>
 		<annotation cp="👨🏻‍🎤">artiste | chanteur | homme | rock | vedette | peau claire</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">chanteur : peau claire</annotation>
@@ -549,65 +490,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">artiste femme : peau modérément foncée</annotation>
 		<annotation cp="👩🏿‍🎨">artiste | femme | peintre | peau foncée</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">artiste femme : peau foncée</annotation>
-		<annotation cp="👨🏻‍✈">avion | homme | pilote | peau claire</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilote homme : peau claire</annotation>
 		<annotation cp="👨🏼‍✈">avion | homme | pilote | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍✈" type="tts">pilote homme : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍✈">avion | homme | pilote | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍✈" type="tts">pilote homme : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍✈">avion | homme | pilote | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍✈" type="tts">pilote homme : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍✈">avion | homme | pilote | peau foncée</annotation>
 		<annotation cp="👨🏿‍✈" type="tts">pilote homme : peau foncée</annotation>
-		<annotation cp="👩🏻‍✈">avion | femme | pilote | peau claire</annotation>
 		<annotation cp="👩🏻‍✈" type="tts">pilote femme : peau claire</annotation>
 		<annotation cp="👩🏼‍✈">avion | femme | pilote | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍✈" type="tts">pilote femme : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍✈">avion | femme | pilote | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍✈" type="tts">pilote femme : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍✈">avion | femme | pilote | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍✈" type="tts">pilote femme : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍✈">avion | femme | pilote | peau foncée</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilote femme : peau foncée</annotation>
-		<annotation cp="👨🏻‍🚀">astronaute | espace | fusée | homme | peau claire</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">astronaute homme : peau claire</annotation>
 		<annotation cp="👨🏼‍🚀">astronaute | espace | fusée | homme | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍🚀" type="tts">astronaute homme : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍🚀">astronaute | espace | fusée | homme | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🚀" type="tts">astronaute homme : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍🚀">astronaute | espace | fusée | homme | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍🚀" type="tts">astronaute homme : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍🚀">astronaute | espace | fusée | homme | peau foncée</annotation>
 		<annotation cp="👨🏿‍🚀" type="tts">astronaute homme : peau foncée</annotation>
-		<annotation cp="👩🏻‍🚀">astronaute | espace | femme | fusée | peau claire</annotation>
 		<annotation cp="👩🏻‍🚀" type="tts">astronaute femme : peau claire</annotation>
 		<annotation cp="👩🏼‍🚀">astronaute | espace | femme | fusée | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍🚀" type="tts">astronaute femme : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍🚀">astronaute | espace | femme | fusée | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🚀" type="tts">astronaute femme : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍🚀">astronaute | espace | femme | fusée | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍🚀" type="tts">astronaute femme : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍🚀">astronaute | espace | femme | fusée | peau foncée</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">astronaute femme : peau foncée</annotation>
-		<annotation cp="👨🏻‍🚒">camion de pompiers | homme | pompier | peau claire</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">pompier homme : peau claire</annotation>
 		<annotation cp="👨🏼‍🚒">camion de pompiers | homme | pompier | peau modérément claire</annotation>
 		<annotation cp="👨🏼‍🚒" type="tts">pompier homme : peau modérément claire</annotation>
-		<annotation cp="👨🏽‍🚒">camion de pompiers | homme | pompier | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🚒" type="tts">pompier homme : peau légèrement mate</annotation>
 		<annotation cp="👨🏾‍🚒">camion de pompiers | homme | pompier | peau modérément foncée</annotation>
 		<annotation cp="👨🏾‍🚒" type="tts">pompier homme : peau modérément foncée</annotation>
-		<annotation cp="👨🏿‍🚒">camion de pompiers | homme | pompier | peau foncée</annotation>
 		<annotation cp="👨🏿‍🚒" type="tts">pompier homme : peau foncée</annotation>
-		<annotation cp="👩🏻‍🚒">camion de pompiers | femme | pompier | peau claire</annotation>
 		<annotation cp="👩🏻‍🚒" type="tts">pompier femme : peau claire</annotation>
 		<annotation cp="👩🏼‍🚒">camion de pompiers | femme | pompier | peau modérément claire</annotation>
 		<annotation cp="👩🏼‍🚒" type="tts">pompier femme : peau modérément claire</annotation>
-		<annotation cp="👩🏽‍🚒">camion de pompiers | femme | pompier | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🚒" type="tts">pompier femme : peau légèrement mate</annotation>
 		<annotation cp="👩🏾‍🚒">camion de pompiers | femme | pompier | peau modérément foncée</annotation>
 		<annotation cp="👩🏾‍🚒" type="tts">pompier femme : peau modérément foncée</annotation>
-		<annotation cp="👩🏿‍🚒">camion de pompiers | femme | pompier | peau foncée</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">pompier femme : peau foncée</annotation>
 		<annotation cp="👮🏻">agent de la paix | flic | officier | police | peau claire</annotation>
 		<annotation cp="👮🏻" type="tts">agent de la paix : peau claire</annotation>
@@ -619,45 +542,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👮🏾" type="tts">agent de la paix : peau modérément foncée</annotation>
 		<annotation cp="👮🏿">agent de la paix | flic | officier | police | peau foncée</annotation>
 		<annotation cp="👮🏿" type="tts">agent de la paix : peau foncée</annotation>
-		<annotation cp="👮🏻‍♂">flic | homme | officier | police | policier | peau claire</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">policier : peau claire</annotation>
 		<annotation cp="👮🏼‍♂">flic | homme | officier | police | policier | peau modérément claire</annotation>
 		<annotation cp="👮🏼‍♂" type="tts">policier : peau modérément claire</annotation>
-		<annotation cp="👮🏽‍♂">flic | homme | officier | police | policier | peau légèrement mate</annotation>
 		<annotation cp="👮🏽‍♂" type="tts">policier : peau légèrement mate</annotation>
 		<annotation cp="👮🏾‍♂">flic | homme | officier | police | policier | peau modérément foncée</annotation>
 		<annotation cp="👮🏾‍♂" type="tts">policier : peau modérément foncée</annotation>
-		<annotation cp="👮🏿‍♂">flic | homme | officier | police | policier | peau foncée</annotation>
 		<annotation cp="👮🏿‍♂" type="tts">policier : peau foncée</annotation>
-		<annotation cp="👮🏻‍♀">femme | flic | officier | police | policière | peau claire</annotation>
 		<annotation cp="👮🏻‍♀" type="tts">policière : peau claire</annotation>
 		<annotation cp="👮🏼‍♀">femme | flic | officier | police | policière | peau modérément claire</annotation>
 		<annotation cp="👮🏼‍♀" type="tts">policière : peau modérément claire</annotation>
-		<annotation cp="👮🏽‍♀">femme | flic | officier | police | policière | peau légèrement mate</annotation>
 		<annotation cp="👮🏽‍♀" type="tts">policière : peau légèrement mate</annotation>
 		<annotation cp="👮🏾‍♀">femme | flic | officier | police | policière | peau modérément foncée</annotation>
 		<annotation cp="👮🏾‍♀" type="tts">policière : peau modérément foncée</annotation>
-		<annotation cp="👮🏿‍♀">femme | flic | officier | police | policière | peau foncée</annotation>
 		<annotation cp="👮🏿‍♀" type="tts">policière : peau foncée</annotation>
-		<annotation cp="🕵🏻">détective | enquêteur | espion | peau claire</annotation>
 		<annotation cp="🕵🏻" type="tts">détective : peau claire</annotation>
 		<annotation cp="🕵🏼">détective | enquêteur | espion | peau modérément claire</annotation>
 		<annotation cp="🕵🏼" type="tts">détective : peau modérément claire</annotation>
-		<annotation cp="🕵🏽">détective | enquêteur | espion | peau légèrement mate</annotation>
 		<annotation cp="🕵🏽" type="tts">détective : peau légèrement mate</annotation>
 		<annotation cp="🕵🏾">détective | enquêteur | espion | peau modérément foncée</annotation>
 		<annotation cp="🕵🏾" type="tts">détective : peau modérément foncée</annotation>
-		<annotation cp="🕵🏿">détective | enquêteur | espion | peau foncée</annotation>
 		<annotation cp="🕵🏿" type="tts">détective : peau foncée</annotation>
-		<annotation cp="🕵🏻‍♂">détective | enquêteur | espion | homme | peau claire</annotation>
 		<annotation cp="🕵🏻‍♂" type="tts">détective homme : peau claire</annotation>
 		<annotation cp="🕵🏼‍♂">détective | enquêteur | espion | homme | peau modérément claire</annotation>
 		<annotation cp="🕵🏼‍♂" type="tts">détective homme : peau modérément claire</annotation>
-		<annotation cp="🕵🏽‍♂">détective | enquêteur | espion | homme | peau légèrement mate</annotation>
 		<annotation cp="🕵🏽‍♂" type="tts">détective homme : peau légèrement mate</annotation>
 		<annotation cp="🕵🏾‍♂">détective | enquêteur | espion | homme | peau modérément foncée</annotation>
 		<annotation cp="🕵🏾‍♂" type="tts">détective homme : peau modérément foncée</annotation>
-		<annotation cp="🕵🏿‍♂">détective | enquêteur | espion | homme | peau foncée</annotation>
 		<annotation cp="🕵🏿‍♂" type="tts">détective homme : peau foncée</annotation>
 		<annotation cp="🕵🏻‍♀">détective | enquêteuse | enquêtrice | espionne | femme | peau claire</annotation>
 		<annotation cp="🕵🏻‍♀" type="tts">détective femme : peau claire</annotation>
@@ -669,75 +580,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕵🏾‍♀" type="tts">détective femme : peau modérément foncée</annotation>
 		<annotation cp="🕵🏿‍♀">détective | enquêteuse | enquêtrice | espionne | femme | peau foncée</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">détective femme : peau foncée</annotation>
-		<annotation cp="💂🏻">garde | peau claire</annotation>
 		<annotation cp="💂🏻" type="tts">garde : peau claire</annotation>
 		<annotation cp="💂🏼">garde | peau modérément claire</annotation>
 		<annotation cp="💂🏼" type="tts">garde : peau modérément claire</annotation>
-		<annotation cp="💂🏽">garde | peau légèrement mate</annotation>
 		<annotation cp="💂🏽" type="tts">garde : peau légèrement mate</annotation>
 		<annotation cp="💂🏾">garde | peau modérément foncée</annotation>
 		<annotation cp="💂🏾" type="tts">garde : peau modérément foncée</annotation>
-		<annotation cp="💂🏿">garde | peau foncée</annotation>
 		<annotation cp="💂🏿" type="tts">garde : peau foncée</annotation>
-		<annotation cp="💂🏻‍♂">garde | homme | peau claire</annotation>
 		<annotation cp="💂🏻‍♂" type="tts">garde homme : peau claire</annotation>
 		<annotation cp="💂🏼‍♂">garde | homme | peau modérément claire</annotation>
 		<annotation cp="💂🏼‍♂" type="tts">garde homme : peau modérément claire</annotation>
-		<annotation cp="💂🏽‍♂">garde | homme | peau légèrement mate</annotation>
 		<annotation cp="💂🏽‍♂" type="tts">garde homme : peau légèrement mate</annotation>
 		<annotation cp="💂🏾‍♂">garde | homme | peau modérément foncée</annotation>
 		<annotation cp="💂🏾‍♂" type="tts">garde homme : peau modérément foncée</annotation>
-		<annotation cp="💂🏿‍♂">garde | homme | peau foncée</annotation>
 		<annotation cp="💂🏿‍♂" type="tts">garde homme : peau foncée</annotation>
-		<annotation cp="💂🏻‍♀">femme | garde | peau claire</annotation>
 		<annotation cp="💂🏻‍♀" type="tts">garde femme : peau claire</annotation>
 		<annotation cp="💂🏼‍♀">femme | garde | peau modérément claire</annotation>
 		<annotation cp="💂🏼‍♀" type="tts">garde femme : peau modérément claire</annotation>
-		<annotation cp="💂🏽‍♀">femme | garde | peau légèrement mate</annotation>
 		<annotation cp="💂🏽‍♀" type="tts">garde femme : peau légèrement mate</annotation>
 		<annotation cp="💂🏾‍♀">femme | garde | peau modérément foncée</annotation>
 		<annotation cp="💂🏾‍♀" type="tts">garde femme : peau modérément foncée</annotation>
-		<annotation cp="💂🏿‍♀">femme | garde | peau foncée</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">garde femme : peau foncée</annotation>
-		<annotation cp="👷🏻">bâtiment | casque | ouvrier | personnel du bâtiment | peau claire</annotation>
 		<annotation cp="👷🏻" type="tts">personnel du bâtiment : peau claire</annotation>
 		<annotation cp="👷🏼">bâtiment | casque | ouvrier | personnel du bâtiment | peau modérément claire</annotation>
 		<annotation cp="👷🏼" type="tts">personnel du bâtiment : peau modérément claire</annotation>
-		<annotation cp="👷🏽">bâtiment | casque | ouvrier | personnel du bâtiment | peau légèrement mate</annotation>
 		<annotation cp="👷🏽" type="tts">personnel du bâtiment : peau légèrement mate</annotation>
 		<annotation cp="👷🏾">bâtiment | casque | ouvrier | personnel du bâtiment | peau modérément foncée</annotation>
 		<annotation cp="👷🏾" type="tts">personnel du bâtiment : peau modérément foncée</annotation>
-		<annotation cp="👷🏿">bâtiment | casque | ouvrier | personnel du bâtiment | peau foncée</annotation>
 		<annotation cp="👷🏿" type="tts">personnel du bâtiment : peau foncée</annotation>
-		<annotation cp="👷🏻‍♂">bâtiment | homme | ouvrier | ouvrier du bâtiment | peau claire</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">ouvrier du bâtiment : peau claire</annotation>
 		<annotation cp="👷🏼‍♂">bâtiment | homme | ouvrier | ouvrier du bâtiment | peau modérément claire</annotation>
 		<annotation cp="👷🏼‍♂" type="tts">ouvrier du bâtiment : peau modérément claire</annotation>
-		<annotation cp="👷🏽‍♂">bâtiment | homme | ouvrier | ouvrier du bâtiment | peau légèrement mate</annotation>
 		<annotation cp="👷🏽‍♂" type="tts">ouvrier du bâtiment : peau légèrement mate</annotation>
 		<annotation cp="👷🏾‍♂">bâtiment | homme | ouvrier | ouvrier du bâtiment | peau modérément foncée</annotation>
 		<annotation cp="👷🏾‍♂" type="tts">ouvrier du bâtiment : peau modérément foncée</annotation>
-		<annotation cp="👷🏿‍♂">bâtiment | homme | ouvrier | ouvrier du bâtiment | peau foncée</annotation>
 		<annotation cp="👷🏿‍♂" type="tts">ouvrier du bâtiment : peau foncée</annotation>
-		<annotation cp="👷🏻‍♀">bâtiment | femme | ouvrière | ouvrière du bâtiment | peau claire</annotation>
 		<annotation cp="👷🏻‍♀" type="tts">ouvrière du bâtiment : peau claire</annotation>
 		<annotation cp="👷🏼‍♀">bâtiment | femme | ouvrière | ouvrière du bâtiment | peau modérément claire</annotation>
 		<annotation cp="👷🏼‍♀" type="tts">ouvrière du bâtiment : peau modérément claire</annotation>
-		<annotation cp="👷🏽‍♀">bâtiment | femme | ouvrière | ouvrière du bâtiment | peau légèrement mate</annotation>
 		<annotation cp="👷🏽‍♀" type="tts">ouvrière du bâtiment : peau légèrement mate</annotation>
 		<annotation cp="👷🏾‍♀">bâtiment | femme | ouvrière | ouvrière du bâtiment | peau modérément foncée</annotation>
 		<annotation cp="👷🏾‍♀" type="tts">ouvrière du bâtiment : peau modérément foncée</annotation>
-		<annotation cp="👷🏿‍♀">bâtiment | femme | ouvrière | ouvrière du bâtiment | peau foncée</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">ouvrière du bâtiment : peau foncée</annotation>
-		<annotation cp="🤴🏻">prince | peau claire</annotation>
 		<annotation cp="🤴🏻" type="tts">prince : peau claire</annotation>
 		<annotation cp="🤴🏼">prince | peau modérément claire</annotation>
 		<annotation cp="🤴🏼" type="tts">prince : peau modérément claire</annotation>
-		<annotation cp="🤴🏽">prince | peau légèrement mate</annotation>
 		<annotation cp="🤴🏽" type="tts">prince : peau légèrement mate</annotation>
 		<annotation cp="🤴🏾">prince | peau modérément foncée</annotation>
 		<annotation cp="🤴🏾" type="tts">prince : peau modérément foncée</annotation>
-		<annotation cp="🤴🏿">prince | peau foncée</annotation>
 		<annotation cp="🤴🏿" type="tts">prince : peau foncée</annotation>
 		<annotation cp="👸🏻">conte de fées | fantastique | princesse | peau claire</annotation>
 		<annotation cp="👸🏻" type="tts">princesse : peau claire</annotation>
@@ -749,35 +639,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏾" type="tts">princesse : peau modérément foncée</annotation>
 		<annotation cp="👸🏿">conte de fées | fantastique | princesse | peau foncée</annotation>
 		<annotation cp="👸🏿" type="tts">princesse : peau foncée</annotation>
-		<annotation cp="👳🏻">personne en turban | turban | peau claire</annotation>
 		<annotation cp="👳🏻" type="tts">personne en turban : peau claire</annotation>
 		<annotation cp="👳🏼">personne en turban | turban | peau modérément claire</annotation>
 		<annotation cp="👳🏼" type="tts">personne en turban : peau modérément claire</annotation>
-		<annotation cp="👳🏽">personne en turban | turban | peau légèrement mate</annotation>
 		<annotation cp="👳🏽" type="tts">personne en turban : peau légèrement mate</annotation>
 		<annotation cp="👳🏾">personne en turban | turban | peau modérément foncée</annotation>
 		<annotation cp="👳🏾" type="tts">personne en turban : peau modérément foncée</annotation>
-		<annotation cp="👳🏿">personne en turban | turban | peau foncée</annotation>
 		<annotation cp="👳🏿" type="tts">personne en turban : peau foncée</annotation>
-		<annotation cp="👳🏻‍♂">homme | homme en turban | turban | peau claire</annotation>
 		<annotation cp="👳🏻‍♂" type="tts">homme en turban : peau claire</annotation>
 		<annotation cp="👳🏼‍♂">homme | homme en turban | turban | peau modérément claire</annotation>
 		<annotation cp="👳🏼‍♂" type="tts">homme en turban : peau modérément claire</annotation>
-		<annotation cp="👳🏽‍♂">homme | homme en turban | turban | peau légèrement mate</annotation>
 		<annotation cp="👳🏽‍♂" type="tts">homme en turban : peau légèrement mate</annotation>
 		<annotation cp="👳🏾‍♂">homme | homme en turban | turban | peau modérément foncée</annotation>
 		<annotation cp="👳🏾‍♂" type="tts">homme en turban : peau modérément foncée</annotation>
-		<annotation cp="👳🏿‍♂">homme | homme en turban | turban | peau foncée</annotation>
 		<annotation cp="👳🏿‍♂" type="tts">homme en turban : peau foncée</annotation>
-		<annotation cp="👳🏻‍♀">femme | femme en turban | turban | peau claire</annotation>
 		<annotation cp="👳🏻‍♀" type="tts">femme en turban : peau claire</annotation>
 		<annotation cp="👳🏼‍♀">femme | femme en turban | turban | peau modérément claire</annotation>
 		<annotation cp="👳🏼‍♀" type="tts">femme en turban : peau modérément claire</annotation>
-		<annotation cp="👳🏽‍♀">femme | femme en turban | turban | peau légèrement mate</annotation>
 		<annotation cp="👳🏽‍♀" type="tts">femme en turban : peau légèrement mate</annotation>
 		<annotation cp="👳🏾‍♀">femme | femme en turban | turban | peau modérément foncée</annotation>
 		<annotation cp="👳🏾‍♀" type="tts">femme en turban : peau modérément foncée</annotation>
-		<annotation cp="👳🏿‍♀">femme | femme en turban | turban | peau foncée</annotation>
 		<annotation cp="👳🏿‍♀" type="tts">femme en turban : peau foncée</annotation>
 		<annotation cp="👲🏻">calotte chinoise | chapeau | gua pi mao | homme | homme coiffé d’une calotte chinoise | peau claire</annotation>
 		<annotation cp="👲🏻" type="tts">homme coiffé d’une calotte chinoise : peau claire</annotation>
@@ -789,15 +670,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">homme coiffé d’une calotte chinoise : peau modérément foncée</annotation>
 		<annotation cp="👲🏿">calotte chinoise | chapeau | gua pi mao | homme | homme coiffé d’une calotte chinoise | peau foncée</annotation>
 		<annotation cp="👲🏿" type="tts">homme coiffé d’une calotte chinoise : peau foncée</annotation>
-		<annotation cp="🧕🏻">femme avec foulard | foulard | hijab | mantilla | tichel | peau claire</annotation>
 		<annotation cp="🧕🏻" type="tts">femme avec foulard : peau claire</annotation>
 		<annotation cp="🧕🏼">femme avec foulard | foulard | hijab | mantilla | tichel | peau modérément claire</annotation>
 		<annotation cp="🧕🏼" type="tts">femme avec foulard : peau modérément claire</annotation>
-		<annotation cp="🧕🏽">femme avec foulard | foulard | hijab | mantilla | tichel | peau légèrement mate</annotation>
 		<annotation cp="🧕🏽" type="tts">femme avec foulard : peau légèrement mate</annotation>
 		<annotation cp="🧕🏾">femme avec foulard | foulard | hijab | mantilla | tichel | peau modérément foncée</annotation>
 		<annotation cp="🧕🏾" type="tts">femme avec foulard : peau modérément foncée</annotation>
-		<annotation cp="🧕🏿">femme avec foulard | foulard | hijab | mantilla | tichel | peau foncée</annotation>
 		<annotation cp="🧕🏿" type="tts">femme avec foulard : peau foncée</annotation>
 		<annotation cp="🧔🏻">barbe | barbu | personne | peau claire</annotation>
 		<annotation cp="🧔🏻" type="tts">personne barbue : peau claire</annotation>
@@ -809,35 +687,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧔🏾" type="tts">personne barbue : peau modérément foncée</annotation>
 		<annotation cp="🧔🏿">barbe | barbu | personne | peau foncée</annotation>
 		<annotation cp="🧔🏿" type="tts">personne barbue : peau foncée</annotation>
-		<annotation cp="👱🏻">blond | personne blonde | peau claire</annotation>
 		<annotation cp="👱🏻" type="tts">personne blonde : peau claire</annotation>
 		<annotation cp="👱🏼">blond | personne blonde | peau modérément claire</annotation>
 		<annotation cp="👱🏼" type="tts">personne blonde : peau modérément claire</annotation>
-		<annotation cp="👱🏽">blond | personne blonde | peau légèrement mate</annotation>
 		<annotation cp="👱🏽" type="tts">personne blonde : peau légèrement mate</annotation>
 		<annotation cp="👱🏾">blond | personne blonde | peau modérément foncée</annotation>
 		<annotation cp="👱🏾" type="tts">personne blonde : peau modérément foncée</annotation>
-		<annotation cp="👱🏿">blond | personne blonde | peau foncée</annotation>
 		<annotation cp="👱🏿" type="tts">personne blonde : peau foncée</annotation>
-		<annotation cp="👱🏻‍♂">blond | homme | peau claire</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">homme blond : peau claire</annotation>
 		<annotation cp="👱🏼‍♂">blond | homme | peau modérément claire</annotation>
 		<annotation cp="👱🏼‍♂" type="tts">homme blond : peau modérément claire</annotation>
-		<annotation cp="👱🏽‍♂">blond | homme | peau légèrement mate</annotation>
 		<annotation cp="👱🏽‍♂" type="tts">homme blond : peau légèrement mate</annotation>
 		<annotation cp="👱🏾‍♂">blond | homme | peau modérément foncée</annotation>
 		<annotation cp="👱🏾‍♂" type="tts">homme blond : peau modérément foncée</annotation>
-		<annotation cp="👱🏿‍♂">blond | homme | peau foncée</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">homme blond : peau foncée</annotation>
-		<annotation cp="👱🏻‍♀">blonde | femme | peau claire</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">femme blonde : peau claire</annotation>
 		<annotation cp="👱🏼‍♀">blonde | femme | peau modérément claire</annotation>
 		<annotation cp="👱🏼‍♀" type="tts">femme blonde : peau modérément claire</annotation>
-		<annotation cp="👱🏽‍♀">blonde | femme | peau légèrement mate</annotation>
 		<annotation cp="👱🏽‍♀" type="tts">femme blonde : peau légèrement mate</annotation>
 		<annotation cp="👱🏾‍♀">blonde | femme | peau modérément foncée</annotation>
 		<annotation cp="👱🏾‍♀" type="tts">femme blonde : peau modérément foncée</annotation>
-		<annotation cp="👱🏿‍♀">blonde | femme | peau foncée</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">femme blonde : peau foncée</annotation>
 		<annotation cp="🤵🏻">complet | homme | homme portant un complet | smoking | peau claire</annotation>
 		<annotation cp="🤵🏻" type="tts">homme portant un complet : peau claire</annotation>
@@ -859,35 +728,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">mariée avec voile : peau modérément foncée</annotation>
 		<annotation cp="👰🏿">mariage | mariée | voile | peau foncée</annotation>
 		<annotation cp="👰🏿" type="tts">mariée avec voile : peau foncée</annotation>
-		<annotation cp="🤰🏻">enceinte | femme | peau claire</annotation>
 		<annotation cp="🤰🏻" type="tts">femme enceinte : peau claire</annotation>
 		<annotation cp="🤰🏼">enceinte | femme | peau modérément claire</annotation>
 		<annotation cp="🤰🏼" type="tts">femme enceinte : peau modérément claire</annotation>
-		<annotation cp="🤰🏽">enceinte | femme | peau légèrement mate</annotation>
 		<annotation cp="🤰🏽" type="tts">femme enceinte : peau légèrement mate</annotation>
 		<annotation cp="🤰🏾">enceinte | femme | peau modérément foncée</annotation>
 		<annotation cp="🤰🏾" type="tts">femme enceinte : peau modérément foncée</annotation>
-		<annotation cp="🤰🏿">enceinte | femme | peau foncée</annotation>
 		<annotation cp="🤰🏿" type="tts">femme enceinte : peau foncée</annotation>
-		<annotation cp="🤱🏻">allaitement | bébé | sein | peau claire</annotation>
 		<annotation cp="🤱🏻" type="tts">allaitement : peau claire</annotation>
 		<annotation cp="🤱🏼">allaitement | bébé | sein | peau modérément claire</annotation>
 		<annotation cp="🤱🏼" type="tts">allaitement : peau modérément claire</annotation>
-		<annotation cp="🤱🏽">allaitement | bébé | sein | peau légèrement mate</annotation>
 		<annotation cp="🤱🏽" type="tts">allaitement : peau légèrement mate</annotation>
 		<annotation cp="🤱🏾">allaitement | bébé | sein | peau modérément foncée</annotation>
 		<annotation cp="🤱🏾" type="tts">allaitement : peau modérément foncée</annotation>
-		<annotation cp="🤱🏿">allaitement | bébé | sein | peau foncée</annotation>
 		<annotation cp="🤱🏿" type="tts">allaitement : peau foncée</annotation>
-		<annotation cp="👼🏻">ange | bébé | fantastique | visage | peau claire</annotation>
 		<annotation cp="👼🏻" type="tts">bébé ange : peau claire</annotation>
 		<annotation cp="👼🏼">ange | bébé | fantastique | visage | peau modérément claire</annotation>
 		<annotation cp="👼🏼" type="tts">bébé ange : peau modérément claire</annotation>
-		<annotation cp="👼🏽">ange | bébé | fantastique | visage | peau légèrement mate</annotation>
 		<annotation cp="👼🏽" type="tts">bébé ange : peau légèrement mate</annotation>
 		<annotation cp="👼🏾">ange | bébé | fantastique | visage | peau modérément foncée</annotation>
 		<annotation cp="👼🏾" type="tts">bébé ange : peau modérément foncée</annotation>
-		<annotation cp="👼🏿">ange | bébé | fantastique | visage | peau foncée</annotation>
 		<annotation cp="👼🏿" type="tts">bébé ange : peau foncée</annotation>
 		<annotation cp="🎅🏻">Noël | célébration | fête | père | peau claire</annotation>
 		<annotation cp="🎅🏻" type="tts">père Noël : peau claire</annotation>
@@ -969,15 +829,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧚🏾‍♂" type="tts">féetaud : peau modérément foncée</annotation>
 		<annotation cp="🧚🏿‍♂">féetaud | homme | peau foncée</annotation>
 		<annotation cp="🧚🏿‍♂" type="tts">féetaud : peau foncée</annotation>
-		<annotation cp="🧛🏻">Dracula | mort-vivant | vampire | peau claire</annotation>
 		<annotation cp="🧛🏻" type="tts">vampire : peau claire</annotation>
 		<annotation cp="🧛🏼">Dracula | mort-vivant | vampire | peau modérément claire</annotation>
 		<annotation cp="🧛🏼" type="tts">vampire : peau modérément claire</annotation>
-		<annotation cp="🧛🏽">Dracula | mort-vivant | vampire | peau légèrement mate</annotation>
 		<annotation cp="🧛🏽" type="tts">vampire : peau légèrement mate</annotation>
 		<annotation cp="🧛🏾">Dracula | mort-vivant | vampire | peau modérément foncée</annotation>
 		<annotation cp="🧛🏾" type="tts">vampire : peau modérément foncée</annotation>
-		<annotation cp="🧛🏿">Dracula | mort-vivant | vampire | peau foncée</annotation>
 		<annotation cp="🧛🏿" type="tts">vampire : peau foncée</annotation>
 		<annotation cp="🧛🏻‍♀">femme | morte-vivante | vampire | peau claire</annotation>
 		<annotation cp="🧛🏻‍♀" type="tts">vampire femme : peau claire</annotation>
@@ -999,25 +856,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧛🏾‍♂" type="tts">vampire homme : peau modérément foncée</annotation>
 		<annotation cp="🧛🏿‍♂">Dracula | homme | mort-vivant | vampire | peau foncée</annotation>
 		<annotation cp="🧛🏿‍♂" type="tts">vampire homme : peau foncée</annotation>
-		<annotation cp="🧜🏻">créature aquatique | sirène | triton | peau claire</annotation>
 		<annotation cp="🧜🏻" type="tts">créature aquatique : peau claire</annotation>
 		<annotation cp="🧜🏼">créature aquatique | sirène | triton | peau modérément claire</annotation>
 		<annotation cp="🧜🏼" type="tts">créature aquatique : peau modérément claire</annotation>
-		<annotation cp="🧜🏽">créature aquatique | sirène | triton | peau légèrement mate</annotation>
 		<annotation cp="🧜🏽" type="tts">créature aquatique : peau légèrement mate</annotation>
 		<annotation cp="🧜🏾">créature aquatique | sirène | triton | peau modérément foncée</annotation>
 		<annotation cp="🧜🏾" type="tts">créature aquatique : peau modérément foncée</annotation>
-		<annotation cp="🧜🏿">créature aquatique | sirène | triton | peau foncée</annotation>
 		<annotation cp="🧜🏿" type="tts">créature aquatique : peau foncée</annotation>
-		<annotation cp="🧜🏻‍♀">sirène | peau claire</annotation>
 		<annotation cp="🧜🏻‍♀" type="tts">sirène : peau claire</annotation>
 		<annotation cp="🧜🏼‍♀">sirène | peau modérément claire</annotation>
 		<annotation cp="🧜🏼‍♀" type="tts">sirène : peau modérément claire</annotation>
-		<annotation cp="🧜🏽‍♀">sirène | peau légèrement mate</annotation>
 		<annotation cp="🧜🏽‍♀" type="tts">sirène : peau légèrement mate</annotation>
 		<annotation cp="🧜🏾‍♀">sirène | peau modérément foncée</annotation>
 		<annotation cp="🧜🏾‍♀" type="tts">sirène : peau modérément foncée</annotation>
-		<annotation cp="🧜🏿‍♀">sirène | peau foncée</annotation>
 		<annotation cp="🧜🏿‍♀" type="tts">sirène : peau foncée</annotation>
 		<annotation cp="🧜🏻‍♂">triton | peau claire</annotation>
 		<annotation cp="🧜🏻‍♂" type="tts">triton : peau claire</annotation>
@@ -1029,15 +880,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧜🏾‍♂" type="tts">triton : peau modérément foncée</annotation>
 		<annotation cp="🧜🏿‍♂">triton | peau foncée</annotation>
 		<annotation cp="🧜🏿‍♂" type="tts">triton : peau foncée</annotation>
-		<annotation cp="🧝🏻">elfe | magique | peau claire</annotation>
 		<annotation cp="🧝🏻" type="tts">elfe : peau claire</annotation>
 		<annotation cp="🧝🏼">elfe | magique | peau modérément claire</annotation>
 		<annotation cp="🧝🏼" type="tts">elfe : peau modérément claire</annotation>
-		<annotation cp="🧝🏽">elfe | magique | peau légèrement mate</annotation>
 		<annotation cp="🧝🏽" type="tts">elfe : peau légèrement mate</annotation>
 		<annotation cp="🧝🏾">elfe | magique | peau modérément foncée</annotation>
 		<annotation cp="🧝🏾" type="tts">elfe : peau modérément foncée</annotation>
-		<annotation cp="🧝🏿">elfe | magique | peau foncée</annotation>
 		<annotation cp="🧝🏿" type="tts">elfe : peau foncée</annotation>
 		<annotation cp="🧝🏻‍♀">elfe | femme | magique | peau claire</annotation>
 		<annotation cp="🧝🏻‍♀" type="tts">elfe femme : peau claire</annotation>
@@ -1209,35 +1057,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁🏾‍♀" type="tts">guichetière : peau modérément foncée</annotation>
 		<annotation cp="💁🏿‍♀">aide | assistante | concierge | femme | guichetière | information | réceptionniste | peau foncée</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">guichetière : peau foncée</annotation>
-		<annotation cp="🙋🏻">content | geste | levée | main | personne qui lève la main | peau claire</annotation>
 		<annotation cp="🙋🏻" type="tts">personne qui lève la main : peau claire</annotation>
 		<annotation cp="🙋🏼">content | geste | levée | main | personne qui lève la main | peau modérément claire</annotation>
 		<annotation cp="🙋🏼" type="tts">personne qui lève la main : peau modérément claire</annotation>
-		<annotation cp="🙋🏽">content | geste | levée | main | personne qui lève la main | peau légèrement mate</annotation>
 		<annotation cp="🙋🏽" type="tts">personne qui lève la main : peau légèrement mate</annotation>
 		<annotation cp="🙋🏾">content | geste | levée | main | personne qui lève la main | peau modérément foncée</annotation>
 		<annotation cp="🙋🏾" type="tts">personne qui lève la main : peau modérément foncée</annotation>
-		<annotation cp="🙋🏿">content | geste | levée | main | personne qui lève la main | peau foncée</annotation>
 		<annotation cp="🙋🏿" type="tts">personne qui lève la main : peau foncée</annotation>
-		<annotation cp="🙋🏻‍♂">geste | homme | homme qui lève la main | main levée | peau claire</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">homme qui lève la main : peau claire</annotation>
 		<annotation cp="🙋🏼‍♂">geste | homme | homme qui lève la main | main levée | peau modérément claire</annotation>
 		<annotation cp="🙋🏼‍♂" type="tts">homme qui lève la main : peau modérément claire</annotation>
-		<annotation cp="🙋🏽‍♂">geste | homme | homme qui lève la main | main levée | peau légèrement mate</annotation>
 		<annotation cp="🙋🏽‍♂" type="tts">homme qui lève la main : peau légèrement mate</annotation>
 		<annotation cp="🙋🏾‍♂">geste | homme | homme qui lève la main | main levée | peau modérément foncée</annotation>
 		<annotation cp="🙋🏾‍♂" type="tts">homme qui lève la main : peau modérément foncée</annotation>
-		<annotation cp="🙋🏿‍♂">geste | homme | homme qui lève la main | main levée | peau foncée</annotation>
 		<annotation cp="🙋🏿‍♂" type="tts">homme qui lève la main : peau foncée</annotation>
-		<annotation cp="🙋🏻‍♀">femme | femme qui lève la main | geste | main levée | peau claire</annotation>
 		<annotation cp="🙋🏻‍♀" type="tts">femme qui lève la main : peau claire</annotation>
 		<annotation cp="🙋🏼‍♀">femme | femme qui lève la main | geste | main levée | peau modérément claire</annotation>
 		<annotation cp="🙋🏼‍♀" type="tts">femme qui lève la main : peau modérément claire</annotation>
-		<annotation cp="🙋🏽‍♀">femme | femme qui lève la main | geste | main levée | peau légèrement mate</annotation>
 		<annotation cp="🙋🏽‍♀" type="tts">femme qui lève la main : peau légèrement mate</annotation>
 		<annotation cp="🙋🏾‍♀">femme | femme qui lève la main | geste | main levée | peau modérément foncée</annotation>
 		<annotation cp="🙋🏾‍♀" type="tts">femme qui lève la main : peau modérément foncée</annotation>
-		<annotation cp="🙋🏿‍♀">femme | femme qui lève la main | geste | main levée | peau foncée</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">femme qui lève la main : peau foncée</annotation>
 		<annotation cp="🙇🏻">personne qui s’incline | peau claire</annotation>
 		<annotation cp="🙇🏻" type="tts">personne qui s’incline : peau claire</annotation>
@@ -1309,65 +1148,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾" type="tts">personne qui hausse les épaules : peau modérément foncée</annotation>
 		<annotation cp="🤷🏿">personne qui hausse les épaules | peau foncée</annotation>
 		<annotation cp="🤷🏿" type="tts">personne qui hausse les épaules : peau foncée</annotation>
-		<annotation cp="🤷🏻‍♂">haussement | homme | homme qui hausse les épaules | ignorance | indifférence | peau claire</annotation>
 		<annotation cp="🤷🏻‍♂" type="tts">homme qui hausse les épaules : peau claire</annotation>
 		<annotation cp="🤷🏼‍♂">haussement | homme | homme qui hausse les épaules | ignorance | indifférence | peau modérément claire</annotation>
 		<annotation cp="🤷🏼‍♂" type="tts">homme qui hausse les épaules : peau modérément claire</annotation>
-		<annotation cp="🤷🏽‍♂">haussement | homme | homme qui hausse les épaules | ignorance | indifférence | peau légèrement mate</annotation>
 		<annotation cp="🤷🏽‍♂" type="tts">homme qui hausse les épaules : peau légèrement mate</annotation>
 		<annotation cp="🤷🏾‍♂">haussement | homme | homme qui hausse les épaules | ignorance | indifférence | peau modérément foncée</annotation>
 		<annotation cp="🤷🏾‍♂" type="tts">homme qui hausse les épaules : peau modérément foncée</annotation>
-		<annotation cp="🤷🏿‍♂">haussement | homme | homme qui hausse les épaules | ignorance | indifférence | peau foncée</annotation>
 		<annotation cp="🤷🏿‍♂" type="tts">homme qui hausse les épaules : peau foncée</annotation>
-		<annotation cp="🤷🏻‍♀">femme | femme qui hausse les épaules | haussement | ignorance | indifférence | peau claire</annotation>
 		<annotation cp="🤷🏻‍♀" type="tts">femme qui hausse les épaules : peau claire</annotation>
 		<annotation cp="🤷🏼‍♀">femme | femme qui hausse les épaules | haussement | ignorance | indifférence | peau modérément claire</annotation>
 		<annotation cp="🤷🏼‍♀" type="tts">femme qui hausse les épaules : peau modérément claire</annotation>
-		<annotation cp="🤷🏽‍♀">femme | femme qui hausse les épaules | haussement | ignorance | indifférence | peau légèrement mate</annotation>
 		<annotation cp="🤷🏽‍♀" type="tts">femme qui hausse les épaules : peau légèrement mate</annotation>
 		<annotation cp="🤷🏾‍♀">femme | femme qui hausse les épaules | haussement | ignorance | indifférence | peau modérément foncée</annotation>
 		<annotation cp="🤷🏾‍♀" type="tts">femme qui hausse les épaules : peau modérément foncée</annotation>
-		<annotation cp="🤷🏿‍♀">femme | femme qui hausse les épaules | haussement | ignorance | indifférence | peau foncée</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">femme qui hausse les épaules : peau foncée</annotation>
-		<annotation cp="💆🏻">massage | personne qui se fait masser | salon | visage | peau claire</annotation>
 		<annotation cp="💆🏻" type="tts">personne qui se fait masser : peau claire</annotation>
 		<annotation cp="💆🏼">massage | personne qui se fait masser | salon | visage | peau modérément claire</annotation>
 		<annotation cp="💆🏼" type="tts">personne qui se fait masser : peau modérément claire</annotation>
-		<annotation cp="💆🏽">massage | personne qui se fait masser | salon | visage | peau légèrement mate</annotation>
 		<annotation cp="💆🏽" type="tts">personne qui se fait masser : peau légèrement mate</annotation>
 		<annotation cp="💆🏾">massage | personne qui se fait masser | salon | visage | peau modérément foncée</annotation>
 		<annotation cp="💆🏾" type="tts">personne qui se fait masser : peau modérément foncée</annotation>
-		<annotation cp="💆🏿">massage | personne qui se fait masser | salon | visage | peau foncée</annotation>
 		<annotation cp="💆🏿" type="tts">personne qui se fait masser : peau foncée</annotation>
-		<annotation cp="💆🏻‍♂">homme | homme qui se fait masser | massage | visage | peau claire</annotation>
 		<annotation cp="💆🏻‍♂" type="tts">homme qui se fait masser : peau claire</annotation>
 		<annotation cp="💆🏼‍♂">homme | homme qui se fait masser | massage | visage | peau modérément claire</annotation>
 		<annotation cp="💆🏼‍♂" type="tts">homme qui se fait masser : peau modérément claire</annotation>
-		<annotation cp="💆🏽‍♂">homme | homme qui se fait masser | massage | visage | peau légèrement mate</annotation>
 		<annotation cp="💆🏽‍♂" type="tts">homme qui se fait masser : peau légèrement mate</annotation>
 		<annotation cp="💆🏾‍♂">homme | homme qui se fait masser | massage | visage | peau modérément foncée</annotation>
 		<annotation cp="💆🏾‍♂" type="tts">homme qui se fait masser : peau modérément foncée</annotation>
-		<annotation cp="💆🏿‍♂">homme | homme qui se fait masser | massage | visage | peau foncée</annotation>
 		<annotation cp="💆🏿‍♂" type="tts">homme qui se fait masser : peau foncée</annotation>
-		<annotation cp="💆🏻‍♀">femme | femme qui se fait masser | massage | visage | peau claire</annotation>
 		<annotation cp="💆🏻‍♀" type="tts">femme qui se fait masser : peau claire</annotation>
 		<annotation cp="💆🏼‍♀">femme | femme qui se fait masser | massage | visage | peau modérément claire</annotation>
 		<annotation cp="💆🏼‍♀" type="tts">femme qui se fait masser : peau modérément claire</annotation>
-		<annotation cp="💆🏽‍♀">femme | femme qui se fait masser | massage | visage | peau légèrement mate</annotation>
 		<annotation cp="💆🏽‍♀" type="tts">femme qui se fait masser : peau légèrement mate</annotation>
 		<annotation cp="💆🏾‍♀">femme | femme qui se fait masser | massage | visage | peau modérément foncée</annotation>
 		<annotation cp="💆🏾‍♀" type="tts">femme qui se fait masser : peau modérément foncée</annotation>
-		<annotation cp="💆🏿‍♀">femme | femme qui se fait masser | massage | visage | peau foncée</annotation>
 		<annotation cp="💆🏿‍♀" type="tts">femme qui se fait masser : peau foncée</annotation>
-		<annotation cp="💇🏻">barbier | beauté | coiffure | personne qui se fait couper les cheveux | salon | peau claire</annotation>
 		<annotation cp="💇🏻" type="tts">personne qui se fait couper les cheveux : peau claire</annotation>
 		<annotation cp="💇🏼">barbier | beauté | coiffure | personne qui se fait couper les cheveux | salon | peau modérément claire</annotation>
 		<annotation cp="💇🏼" type="tts">personne qui se fait couper les cheveux : peau modérément claire</annotation>
-		<annotation cp="💇🏽">barbier | beauté | coiffure | personne qui se fait couper les cheveux | salon | peau légèrement mate</annotation>
 		<annotation cp="💇🏽" type="tts">personne qui se fait couper les cheveux : peau légèrement mate</annotation>
 		<annotation cp="💇🏾">barbier | beauté | coiffure | personne qui se fait couper les cheveux | salon | peau modérément foncée</annotation>
 		<annotation cp="💇🏾" type="tts">personne qui se fait couper les cheveux : peau modérément foncée</annotation>
-		<annotation cp="💇🏿">barbier | beauté | coiffure | personne qui se fait couper les cheveux | salon | peau foncée</annotation>
 		<annotation cp="💇🏿" type="tts">personne qui se fait couper les cheveux : peau foncée</annotation>
 		<annotation cp="💇🏻‍♂">homme qui se fait couper les cheveux | peau claire</annotation>
 		<annotation cp="💇🏻‍♂" type="tts">homme qui se fait couper les cheveux : peau claire</annotation>
@@ -1449,25 +1270,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃🏾‍♀" type="tts">femme qui court : peau modérément foncée</annotation>
 		<annotation cp="🏃🏿‍♀">femme qui court | peau foncée</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">femme qui court : peau foncée</annotation>
-		<annotation cp="💃🏻">danse | danseuse | femme | peau claire</annotation>
 		<annotation cp="💃🏻" type="tts">danseuse : peau claire</annotation>
 		<annotation cp="💃🏼">danse | danseuse | femme | peau modérément claire</annotation>
 		<annotation cp="💃🏼" type="tts">danseuse : peau modérément claire</annotation>
-		<annotation cp="💃🏽">danse | danseuse | femme | peau légèrement mate</annotation>
 		<annotation cp="💃🏽" type="tts">danseuse : peau légèrement mate</annotation>
 		<annotation cp="💃🏾">danse | danseuse | femme | peau modérément foncée</annotation>
 		<annotation cp="💃🏾" type="tts">danseuse : peau modérément foncée</annotation>
-		<annotation cp="💃🏿">danse | danseuse | femme | peau foncée</annotation>
 		<annotation cp="💃🏿" type="tts">danseuse : peau foncée</annotation>
-		<annotation cp="🕺🏻">danse | danseur | homme | peau claire</annotation>
 		<annotation cp="🕺🏻" type="tts">danseur : peau claire</annotation>
 		<annotation cp="🕺🏼">danse | danseur | homme | peau modérément claire</annotation>
 		<annotation cp="🕺🏼" type="tts">danseur : peau modérément claire</annotation>
-		<annotation cp="🕺🏽">danse | danseur | homme | peau légèrement mate</annotation>
 		<annotation cp="🕺🏽" type="tts">danseur : peau légèrement mate</annotation>
 		<annotation cp="🕺🏾">danse | danseur | homme | peau modérément foncée</annotation>
 		<annotation cp="🕺🏾" type="tts">danseur : peau modérément foncée</annotation>
-		<annotation cp="🕺🏿">danse | danseur | homme | peau foncée</annotation>
 		<annotation cp="🕺🏿" type="tts">danseur : peau foncée</annotation>
 		<annotation cp="🧖🏻">hammam | personne dans un bain de vapeur | sauna | peau claire</annotation>
 		<annotation cp="🧖🏻" type="tts">personne dans un bain de vapeur : peau claire</annotation>
@@ -1499,85 +1314,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧖🏾‍♂" type="tts">homme dans un bain de vapeur : peau modérément foncée</annotation>
 		<annotation cp="🧖🏿‍♂">hammam | homme dans un bain de vapeur | sauna | peau foncée</annotation>
 		<annotation cp="🧖🏿‍♂" type="tts">homme dans un bain de vapeur : peau foncée</annotation>
-		<annotation cp="🧗🏻">alpiniste | grimpeur | personne qui grimpe | peau claire</annotation>
 		<annotation cp="🧗🏻" type="tts">personne qui grimpe : peau claire</annotation>
 		<annotation cp="🧗🏼">alpiniste | grimpeur | personne qui grimpe | peau modérément claire</annotation>
 		<annotation cp="🧗🏼" type="tts">personne qui grimpe : peau modérément claire</annotation>
-		<annotation cp="🧗🏽">alpiniste | grimpeur | personne qui grimpe | peau légèrement mate</annotation>
 		<annotation cp="🧗🏽" type="tts">personne qui grimpe : peau légèrement mate</annotation>
 		<annotation cp="🧗🏾">alpiniste | grimpeur | personne qui grimpe | peau modérément foncée</annotation>
 		<annotation cp="🧗🏾" type="tts">personne qui grimpe : peau modérément foncée</annotation>
-		<annotation cp="🧗🏿">alpiniste | grimpeur | personne qui grimpe | peau foncée</annotation>
 		<annotation cp="🧗🏿" type="tts">personne qui grimpe : peau foncée</annotation>
-		<annotation cp="🧗🏻‍♀">alpiniste | femme qui grimpe | grimpeuse | peau claire</annotation>
 		<annotation cp="🧗🏻‍♀" type="tts">femme qui grimpe : peau claire</annotation>
 		<annotation cp="🧗🏼‍♀">alpiniste | femme qui grimpe | grimpeuse | peau modérément claire</annotation>
 		<annotation cp="🧗🏼‍♀" type="tts">femme qui grimpe : peau modérément claire</annotation>
-		<annotation cp="🧗🏽‍♀">alpiniste | femme qui grimpe | grimpeuse | peau légèrement mate</annotation>
 		<annotation cp="🧗🏽‍♀" type="tts">femme qui grimpe : peau légèrement mate</annotation>
 		<annotation cp="🧗🏾‍♀">alpiniste | femme qui grimpe | grimpeuse | peau modérément foncée</annotation>
 		<annotation cp="🧗🏾‍♀" type="tts">femme qui grimpe : peau modérément foncée</annotation>
-		<annotation cp="🧗🏿‍♀">alpiniste | femme qui grimpe | grimpeuse | peau foncée</annotation>
 		<annotation cp="🧗🏿‍♀" type="tts">femme qui grimpe : peau foncée</annotation>
-		<annotation cp="🧗🏻‍♂">alpiniste | grimpeur | homme qui grimpe | peau claire</annotation>
 		<annotation cp="🧗🏻‍♂" type="tts">homme qui grimpe : peau claire</annotation>
 		<annotation cp="🧗🏼‍♂">alpiniste | grimpeur | homme qui grimpe | peau modérément claire</annotation>
 		<annotation cp="🧗🏼‍♂" type="tts">homme qui grimpe : peau modérément claire</annotation>
-		<annotation cp="🧗🏽‍♂">alpiniste | grimpeur | homme qui grimpe | peau légèrement mate</annotation>
 		<annotation cp="🧗🏽‍♂" type="tts">homme qui grimpe : peau légèrement mate</annotation>
 		<annotation cp="🧗🏾‍♂">alpiniste | grimpeur | homme qui grimpe | peau modérément foncée</annotation>
 		<annotation cp="🧗🏾‍♂" type="tts">homme qui grimpe : peau modérément foncée</annotation>
-		<annotation cp="🧗🏿‍♂">alpiniste | grimpeur | homme qui grimpe | peau foncée</annotation>
 		<annotation cp="🧗🏿‍♂" type="tts">homme qui grimpe : peau foncée</annotation>
-		<annotation cp="🧘🏻">méditation | personne dans la posture du lotus | yoga | peau claire</annotation>
 		<annotation cp="🧘🏻" type="tts">personne dans la posture du lotus : peau claire</annotation>
 		<annotation cp="🧘🏼">méditation | personne dans la posture du lotus | yoga | peau modérément claire</annotation>
 		<annotation cp="🧘🏼" type="tts">personne dans la posture du lotus : peau modérément claire</annotation>
-		<annotation cp="🧘🏽">méditation | personne dans la posture du lotus | yoga | peau légèrement mate</annotation>
 		<annotation cp="🧘🏽" type="tts">personne dans la posture du lotus : peau légèrement mate</annotation>
 		<annotation cp="🧘🏾">méditation | personne dans la posture du lotus | yoga | peau modérément foncée</annotation>
 		<annotation cp="🧘🏾" type="tts">personne dans la posture du lotus : peau modérément foncée</annotation>
-		<annotation cp="🧘🏿">méditation | personne dans la posture du lotus | yoga | peau foncée</annotation>
 		<annotation cp="🧘🏿" type="tts">personne dans la posture du lotus : peau foncée</annotation>
-		<annotation cp="🧘🏻‍♀">femme dans la posture du lotus | méditation | yoga | peau claire</annotation>
 		<annotation cp="🧘🏻‍♀" type="tts">femme dans la posture du lotus : peau claire</annotation>
 		<annotation cp="🧘🏼‍♀">femme dans la posture du lotus | méditation | yoga | peau modérément claire</annotation>
 		<annotation cp="🧘🏼‍♀" type="tts">femme dans la posture du lotus : peau modérément claire</annotation>
-		<annotation cp="🧘🏽‍♀">femme dans la posture du lotus | méditation | yoga | peau légèrement mate</annotation>
 		<annotation cp="🧘🏽‍♀" type="tts">femme dans la posture du lotus : peau légèrement mate</annotation>
 		<annotation cp="🧘🏾‍♀">femme dans la posture du lotus | méditation | yoga | peau modérément foncée</annotation>
 		<annotation cp="🧘🏾‍♀" type="tts">femme dans la posture du lotus : peau modérément foncée</annotation>
-		<annotation cp="🧘🏿‍♀">femme dans la posture du lotus | méditation | yoga | peau foncée</annotation>
 		<annotation cp="🧘🏿‍♀" type="tts">femme dans la posture du lotus : peau foncée</annotation>
-		<annotation cp="🧘🏻‍♂">homme dans la posture du lotus | méditation | yoga | peau claire</annotation>
 		<annotation cp="🧘🏻‍♂" type="tts">homme dans la posture du lotus : peau claire</annotation>
 		<annotation cp="🧘🏼‍♂">homme dans la posture du lotus | méditation | yoga | peau modérément claire</annotation>
 		<annotation cp="🧘🏼‍♂" type="tts">homme dans la posture du lotus : peau modérément claire</annotation>
-		<annotation cp="🧘🏽‍♂">homme dans la posture du lotus | méditation | yoga | peau légèrement mate</annotation>
 		<annotation cp="🧘🏽‍♂" type="tts">homme dans la posture du lotus : peau légèrement mate</annotation>
 		<annotation cp="🧘🏾‍♂">homme dans la posture du lotus | méditation | yoga | peau modérément foncée</annotation>
 		<annotation cp="🧘🏾‍♂" type="tts">homme dans la posture du lotus : peau modérément foncée</annotation>
-		<annotation cp="🧘🏿‍♂">homme dans la posture du lotus | méditation | yoga | peau foncée</annotation>
 		<annotation cp="🧘🏿‍♂" type="tts">homme dans la posture du lotus : peau foncée</annotation>
-		<annotation cp="🛀🏻">bain | personne prenant un bain | peau claire</annotation>
 		<annotation cp="🛀🏻" type="tts">personne prenant un bain : peau claire</annotation>
 		<annotation cp="🛀🏼">bain | personne prenant un bain | peau modérément claire</annotation>
 		<annotation cp="🛀🏼" type="tts">personne prenant un bain : peau modérément claire</annotation>
-		<annotation cp="🛀🏽">bain | personne prenant un bain | peau légèrement mate</annotation>
 		<annotation cp="🛀🏽" type="tts">personne prenant un bain : peau légèrement mate</annotation>
 		<annotation cp="🛀🏾">bain | personne prenant un bain | peau modérément foncée</annotation>
 		<annotation cp="🛀🏾" type="tts">personne prenant un bain : peau modérément foncée</annotation>
-		<annotation cp="🛀🏿">bain | personne prenant un bain | peau foncée</annotation>
 		<annotation cp="🛀🏿" type="tts">personne prenant un bain : peau foncée</annotation>
-		<annotation cp="🛌🏻">lit | personne au lit | peau claire</annotation>
 		<annotation cp="🛌🏻" type="tts">personne au lit : peau claire</annotation>
 		<annotation cp="🛌🏼">lit | personne au lit | peau modérément claire</annotation>
 		<annotation cp="🛌🏼" type="tts">personne au lit : peau modérément claire</annotation>
-		<annotation cp="🛌🏽">lit | personne au lit | peau légèrement mate</annotation>
 		<annotation cp="🛌🏽" type="tts">personne au lit : peau légèrement mate</annotation>
 		<annotation cp="🛌🏾">lit | personne au lit | peau modérément foncée</annotation>
 		<annotation cp="🛌🏾" type="tts">personne au lit : peau modérément foncée</annotation>
-		<annotation cp="🛌🏿">lit | personne au lit | peau foncée</annotation>
 		<annotation cp="🛌🏿" type="tts">personne au lit : peau foncée</annotation>
 		<annotation cp="🕴🏻">affaires | complet | homme | lévitation | peau claire</annotation>
 		<annotation cp="🕴🏻" type="tts">homme d’affaires en lévitation : peau claire</annotation>
@@ -1609,35 +1400,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏂🏾" type="tts">planchiste : peau modérément foncée</annotation>
 		<annotation cp="🏂🏿">neige | planche de neige | planchiste | ski | peau foncée</annotation>
 		<annotation cp="🏂🏿" type="tts">planchiste : peau foncée</annotation>
-		<annotation cp="🏌🏻">balle | golf | joueur de golf | peau claire</annotation>
 		<annotation cp="🏌🏻" type="tts">joueur de golf : peau claire</annotation>
 		<annotation cp="🏌🏼">balle | golf | joueur de golf | peau modérément claire</annotation>
 		<annotation cp="🏌🏼" type="tts">joueur de golf : peau modérément claire</annotation>
-		<annotation cp="🏌🏽">balle | golf | joueur de golf | peau légèrement mate</annotation>
 		<annotation cp="🏌🏽" type="tts">joueur de golf : peau légèrement mate</annotation>
 		<annotation cp="🏌🏾">balle | golf | joueur de golf | peau modérément foncée</annotation>
 		<annotation cp="🏌🏾" type="tts">joueur de golf : peau modérément foncée</annotation>
-		<annotation cp="🏌🏿">balle | golf | joueur de golf | peau foncée</annotation>
 		<annotation cp="🏌🏿" type="tts">joueur de golf : peau foncée</annotation>
-		<annotation cp="🏌🏻‍♂">golf | golfeur | homme | peau claire</annotation>
 		<annotation cp="🏌🏻‍♂" type="tts">golfeur : peau claire</annotation>
 		<annotation cp="🏌🏼‍♂">golf | golfeur | homme | peau modérément claire</annotation>
 		<annotation cp="🏌🏼‍♂" type="tts">golfeur : peau modérément claire</annotation>
-		<annotation cp="🏌🏽‍♂">golf | golfeur | homme | peau légèrement mate</annotation>
 		<annotation cp="🏌🏽‍♂" type="tts">golfeur : peau légèrement mate</annotation>
 		<annotation cp="🏌🏾‍♂">golf | golfeur | homme | peau modérément foncée</annotation>
 		<annotation cp="🏌🏾‍♂" type="tts">golfeur : peau modérément foncée</annotation>
-		<annotation cp="🏌🏿‍♂">golf | golfeur | homme | peau foncée</annotation>
 		<annotation cp="🏌🏿‍♂" type="tts">golfeur : peau foncée</annotation>
-		<annotation cp="🏌🏻‍♀">femme | golf | golfeuse | peau claire</annotation>
 		<annotation cp="🏌🏻‍♀" type="tts">golfeuse : peau claire</annotation>
 		<annotation cp="🏌🏼‍♀">femme | golf | golfeuse | peau modérément claire</annotation>
 		<annotation cp="🏌🏼‍♀" type="tts">golfeuse : peau modérément claire</annotation>
-		<annotation cp="🏌🏽‍♀">femme | golf | golfeuse | peau légèrement mate</annotation>
 		<annotation cp="🏌🏽‍♀" type="tts">golfeuse : peau légèrement mate</annotation>
 		<annotation cp="🏌🏾‍♀">femme | golf | golfeuse | peau modérément foncée</annotation>
 		<annotation cp="🏌🏾‍♀" type="tts">golfeuse : peau modérément foncée</annotation>
-		<annotation cp="🏌🏿‍♀">femme | golf | golfeuse | peau foncée</annotation>
 		<annotation cp="🏌🏿‍♀" type="tts">golfeuse : peau foncée</annotation>
 		<annotation cp="🏄🏻">personne | personne qui fait du surf | surf | peau claire</annotation>
 		<annotation cp="🏄🏻" type="tts">personne qui fait du surf : peau claire</annotation>
@@ -1649,25 +1431,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏄🏾" type="tts">personne qui fait du surf : peau modérément foncée</annotation>
 		<annotation cp="🏄🏿">personne | personne qui fait du surf | surf | peau foncée</annotation>
 		<annotation cp="🏄🏿" type="tts">personne qui fait du surf : peau foncée</annotation>
-		<annotation cp="🏄🏻‍♂">homme | surf | surfeur | peau claire</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">surfeur : peau claire</annotation>
 		<annotation cp="🏄🏼‍♂">homme | surf | surfeur | peau modérément claire</annotation>
 		<annotation cp="🏄🏼‍♂" type="tts">surfeur : peau modérément claire</annotation>
-		<annotation cp="🏄🏽‍♂">homme | surf | surfeur | peau légèrement mate</annotation>
 		<annotation cp="🏄🏽‍♂" type="tts">surfeur : peau légèrement mate</annotation>
 		<annotation cp="🏄🏾‍♂">homme | surf | surfeur | peau modérément foncée</annotation>
 		<annotation cp="🏄🏾‍♂" type="tts">surfeur : peau modérément foncée</annotation>
-		<annotation cp="🏄🏿‍♂">homme | surf | surfeur | peau foncée</annotation>
 		<annotation cp="🏄🏿‍♂" type="tts">surfeur : peau foncée</annotation>
-		<annotation cp="🏄🏻‍♀">femme | surf | surfeuse | peau claire</annotation>
 		<annotation cp="🏄🏻‍♀" type="tts">surfeuse : peau claire</annotation>
 		<annotation cp="🏄🏼‍♀">femme | surf | surfeuse | peau modérément claire</annotation>
 		<annotation cp="🏄🏼‍♀" type="tts">surfeuse : peau modérément claire</annotation>
-		<annotation cp="🏄🏽‍♀">femme | surf | surfeuse | peau légèrement mate</annotation>
 		<annotation cp="🏄🏽‍♀" type="tts">surfeuse : peau légèrement mate</annotation>
 		<annotation cp="🏄🏾‍♀">femme | surf | surfeuse | peau modérément foncée</annotation>
 		<annotation cp="🏄🏾‍♀" type="tts">surfeuse : peau modérément foncée</annotation>
-		<annotation cp="🏄🏿‍♀">femme | surf | surfeuse | peau foncée</annotation>
 		<annotation cp="🏄🏿‍♀" type="tts">surfeuse : peau foncée</annotation>
 		<annotation cp="🚣🏻">barque | bateau | personne | personne qui rame dans une barque | ramer | peau claire</annotation>
 		<annotation cp="🚣🏻" type="tts">personne qui rame dans une barque : peau claire</annotation>
@@ -1709,25 +1485,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏊🏾" type="tts">personne qui nage : peau modérément foncée</annotation>
 		<annotation cp="🏊🏿">nager | natation | personne qui nage | peau foncée</annotation>
 		<annotation cp="🏊🏿" type="tts">personne qui nage : peau foncée</annotation>
-		<annotation cp="🏊🏻‍♂">homme | nage | nageur | peau claire</annotation>
 		<annotation cp="🏊🏻‍♂" type="tts">nageur : peau claire</annotation>
 		<annotation cp="🏊🏼‍♂">homme | nage | nageur | peau modérément claire</annotation>
 		<annotation cp="🏊🏼‍♂" type="tts">nageur : peau modérément claire</annotation>
-		<annotation cp="🏊🏽‍♂">homme | nage | nageur | peau légèrement mate</annotation>
 		<annotation cp="🏊🏽‍♂" type="tts">nageur : peau légèrement mate</annotation>
 		<annotation cp="🏊🏾‍♂">homme | nage | nageur | peau modérément foncée</annotation>
 		<annotation cp="🏊🏾‍♂" type="tts">nageur : peau modérément foncée</annotation>
-		<annotation cp="🏊🏿‍♂">homme | nage | nageur | peau foncée</annotation>
 		<annotation cp="🏊🏿‍♂" type="tts">nageur : peau foncée</annotation>
-		<annotation cp="🏊🏻‍♀">femme | nage | nageuse | peau claire</annotation>
 		<annotation cp="🏊🏻‍♀" type="tts">nageuse : peau claire</annotation>
 		<annotation cp="🏊🏼‍♀">femme | nage | nageuse | peau modérément claire</annotation>
 		<annotation cp="🏊🏼‍♀" type="tts">nageuse : peau modérément claire</annotation>
-		<annotation cp="🏊🏽‍♀">femme | nage | nageuse | peau légèrement mate</annotation>
 		<annotation cp="🏊🏽‍♀" type="tts">nageuse : peau légèrement mate</annotation>
 		<annotation cp="🏊🏾‍♀">femme | nage | nageuse | peau modérément foncée</annotation>
 		<annotation cp="🏊🏾‍♀" type="tts">nageuse : peau modérément foncée</annotation>
-		<annotation cp="🏊🏿‍♀">femme | nage | nageuse | peau foncée</annotation>
 		<annotation cp="🏊🏿‍♀" type="tts">nageuse : peau foncée</annotation>
 		<annotation cp="⛹🏻">ballon | personne qui fait rebondir un ballon | rebond | rebondir | peau claire</annotation>
 		<annotation cp="⛹🏻" type="tts">personne qui fait rebondir un ballon : peau claire</annotation>
@@ -1939,35 +1709,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤾🏾‍♀" type="tts">handballeuse : peau modérément foncée</annotation>
 		<annotation cp="🤾🏿‍♀">femme | handball | handballeuse | peau foncée</annotation>
 		<annotation cp="🤾🏿‍♀" type="tts">handballeuse : peau foncée</annotation>
-		<annotation cp="🤹🏻">jongler | jongleur | multitâche | personne qui jongle | peau claire</annotation>
 		<annotation cp="🤹🏻" type="tts">personne qui jongle : peau claire</annotation>
 		<annotation cp="🤹🏼">jongler | jongleur | multitâche | personne qui jongle | peau modérément claire</annotation>
 		<annotation cp="🤹🏼" type="tts">personne qui jongle : peau modérément claire</annotation>
-		<annotation cp="🤹🏽">jongler | jongleur | multitâche | personne qui jongle | peau légèrement mate</annotation>
 		<annotation cp="🤹🏽" type="tts">personne qui jongle : peau légèrement mate</annotation>
 		<annotation cp="🤹🏾">jongler | jongleur | multitâche | personne qui jongle | peau modérément foncée</annotation>
 		<annotation cp="🤹🏾" type="tts">personne qui jongle : peau modérément foncée</annotation>
-		<annotation cp="🤹🏿">jongler | jongleur | multitâche | personne qui jongle | peau foncée</annotation>
 		<annotation cp="🤹🏿" type="tts">personne qui jongle : peau foncée</annotation>
-		<annotation cp="🤹🏻‍♂">homme | jonglage | jongleur | multitâche | peau claire</annotation>
 		<annotation cp="🤹🏻‍♂" type="tts">jongleur : peau claire</annotation>
 		<annotation cp="🤹🏼‍♂">homme | jonglage | jongleur | multitâche | peau modérément claire</annotation>
 		<annotation cp="🤹🏼‍♂" type="tts">jongleur : peau modérément claire</annotation>
-		<annotation cp="🤹🏽‍♂">homme | jonglage | jongleur | multitâche | peau légèrement mate</annotation>
 		<annotation cp="🤹🏽‍♂" type="tts">jongleur : peau légèrement mate</annotation>
 		<annotation cp="🤹🏾‍♂">homme | jonglage | jongleur | multitâche | peau modérément foncée</annotation>
 		<annotation cp="🤹🏾‍♂" type="tts">jongleur : peau modérément foncée</annotation>
-		<annotation cp="🤹🏿‍♂">homme | jonglage | jongleur | multitâche | peau foncée</annotation>
 		<annotation cp="🤹🏿‍♂" type="tts">jongleur : peau foncée</annotation>
-		<annotation cp="🤹🏻‍♀">femme | jonglage | jongleuse | multitâche | peau claire</annotation>
 		<annotation cp="🤹🏻‍♀" type="tts">jongleuse : peau claire</annotation>
 		<annotation cp="🤹🏼‍♀">femme | jonglage | jongleuse | multitâche | peau modérément claire</annotation>
 		<annotation cp="🤹🏼‍♀" type="tts">jongleuse : peau modérément claire</annotation>
-		<annotation cp="🤹🏽‍♀">femme | jonglage | jongleuse | multitâche | peau légèrement mate</annotation>
 		<annotation cp="🤹🏽‍♀" type="tts">jongleuse : peau légèrement mate</annotation>
 		<annotation cp="🤹🏾‍♀">femme | jonglage | jongleuse | multitâche | peau modérément foncée</annotation>
 		<annotation cp="🤹🏾‍♀" type="tts">jongleuse : peau modérément foncée</annotation>
-		<annotation cp="🤹🏿‍♀">femme | jonglage | jongleuse | multitâche | peau foncée</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">jongleuse : peau foncée</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">baiser | bisou | couple | femme | homme</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">bisou : femme et homme</annotation>
@@ -1981,55 +1742,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍❤‍👨" type="tts">couple avec cœur : homme et homme</annotation>
 		<annotation cp="👩‍❤‍👩">amour | couple | cœur | femme</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">couple avec cœur : femme et femme</annotation>
-		<annotation cp="👨‍👩‍👦">enfant | famille | mère | père | homme | femme | garçon</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">famille : homme, femme et garçon</annotation>
-		<annotation cp="👨‍👩‍👧">enfant | famille | mère | père | homme | femme | fille</annotation>
 		<annotation cp="👨‍👩‍👧" type="tts">famille : homme, femme et fille</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">enfant | famille | mère | père | homme | femme | fille | garçon</annotation>
 		<annotation cp="👨‍👩‍👧‍👦" type="tts">famille : homme, femme, fille et garçon</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">enfant | famille | mère | père | homme | femme | garçon</annotation>
 		<annotation cp="👨‍👩‍👦‍👦" type="tts">famille : homme, femme, garçon et garçon</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">enfant | famille | mère | père | homme | femme | fille</annotation>
 		<annotation cp="👨‍👩‍👧‍👧" type="tts">famille : homme, femme, fille et fille</annotation>
-		<annotation cp="👨‍👨‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👨‍👦" type="tts">famille : homme, homme et garçon</annotation>
-		<annotation cp="👨‍👨‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👨‍👧" type="tts">famille : homme, homme et fille</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">enfant | famille | mère | père | homme | fille | garçon</annotation>
 		<annotation cp="👨‍👨‍👧‍👦" type="tts">famille : homme, homme, fille et garçon</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👨‍👦‍👦" type="tts">famille : homme, homme, garçon et garçon</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👨‍👧‍👧" type="tts">famille : homme, homme, fille et fille</annotation>
-		<annotation cp="👩‍👩‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👩‍👦" type="tts">famille : femme, femme et garçon</annotation>
-		<annotation cp="👩‍👩‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👩‍👧" type="tts">famille : femme, femme et fille</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">enfant | famille | mère | père | femme | fille | garçon</annotation>
 		<annotation cp="👩‍👩‍👧‍👦" type="tts">famille : femme, femme, fille et garçon</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👩‍👦‍👦" type="tts">famille : femme, femme, garçon et garçon</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👩‍👧‍👧" type="tts">famille : femme, femme, fille et fille</annotation>
-		<annotation cp="👨‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👦" type="tts">famille : homme et garçon</annotation>
-		<annotation cp="👨‍👦‍👦">enfant | famille | mère | père | homme | garçon</annotation>
 		<annotation cp="👨‍👦‍👦" type="tts">famille : homme, garçon et garçon</annotation>
-		<annotation cp="👨‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👧" type="tts">famille : homme et fille</annotation>
-		<annotation cp="👨‍👧‍👦">enfant | famille | mère | père | homme | fille | garçon</annotation>
 		<annotation cp="👨‍👧‍👦" type="tts">famille : homme, fille et garçon</annotation>
-		<annotation cp="👨‍👧‍👧">enfant | famille | mère | père | homme | fille</annotation>
 		<annotation cp="👨‍👧‍👧" type="tts">famille : homme, fille et fille</annotation>
-		<annotation cp="👩‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👦" type="tts">famille : femme et garçon</annotation>
-		<annotation cp="👩‍👦‍👦">enfant | famille | mère | père | femme | garçon</annotation>
 		<annotation cp="👩‍👦‍👦" type="tts">famille : femme, garçon et garçon</annotation>
-		<annotation cp="👩‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👧" type="tts">famille : femme et fille</annotation>
-		<annotation cp="👩‍👧‍👦">enfant | famille | mère | père | femme | fille | garçon</annotation>
 		<annotation cp="👩‍👧‍👦" type="tts">famille : femme, fille et garçon</annotation>
-		<annotation cp="👩‍👧‍👧">enfant | famille | mère | père | femme | fille</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">famille : femme, fille et fille</annotation>
 		<annotation cp="🤳🏻">appareil photo | autophoto | selfie | téléphone | peau claire</annotation>
 		<annotation cp="🤳🏻" type="tts">autophoto : peau claire</annotation>
@@ -2041,15 +1777,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤳🏾" type="tts">autophoto : peau modérément foncée</annotation>
 		<annotation cp="🤳🏿">appareil photo | autophoto | selfie | téléphone | peau foncée</annotation>
 		<annotation cp="🤳🏿" type="tts">autophoto : peau foncée</annotation>
-		<annotation cp="💪🏻">biceps | contracté | corps | muscle | peau claire</annotation>
 		<annotation cp="💪🏻" type="tts">biceps contracté : peau claire</annotation>
 		<annotation cp="💪🏼">biceps | contracté | corps | muscle | peau modérément claire</annotation>
 		<annotation cp="💪🏼" type="tts">biceps contracté : peau modérément claire</annotation>
-		<annotation cp="💪🏽">biceps | contracté | corps | muscle | peau légèrement mate</annotation>
 		<annotation cp="💪🏽" type="tts">biceps contracté : peau légèrement mate</annotation>
 		<annotation cp="💪🏾">biceps | contracté | corps | muscle | peau modérément foncée</annotation>
 		<annotation cp="💪🏾" type="tts">biceps contracté : peau modérément foncée</annotation>
-		<annotation cp="💪🏿">biceps | contracté | corps | muscle | peau foncée</annotation>
 		<annotation cp="💪🏿" type="tts">biceps contracté : peau foncée</annotation>
 		<annotation cp="👈🏻">dos de la main avec index pointant vers la gauche | gauche | index | main | peau claire</annotation>
 		<annotation cp="👈🏻" type="tts">dos de la main avec index pointant vers la gauche : peau claire</annotation>
@@ -2111,15 +1844,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇🏾" type="tts">dos de la main avec index pointant vers le bas : peau modérément foncée</annotation>
 		<annotation cp="👇🏿">bas | dos de la main avec index pointant vers le bas | index | main | peau foncée</annotation>
 		<annotation cp="👇🏿" type="tts">dos de la main avec index pointant vers le bas : peau foncée</annotation>
-		<annotation cp="✌🏻">V de la victoire | ciseaux | victoire | peau claire</annotation>
 		<annotation cp="✌🏻" type="tts">V de la victoire : peau claire</annotation>
 		<annotation cp="✌🏼">V de la victoire | ciseaux | victoire | peau modérément claire</annotation>
 		<annotation cp="✌🏼" type="tts">V de la victoire : peau modérément claire</annotation>
-		<annotation cp="✌🏽">V de la victoire | ciseaux | victoire | peau légèrement mate</annotation>
 		<annotation cp="✌🏽" type="tts">V de la victoire : peau légèrement mate</annotation>
 		<annotation cp="✌🏾">V de la victoire | ciseaux | victoire | peau modérément foncée</annotation>
 		<annotation cp="✌🏾" type="tts">V de la victoire : peau modérément foncée</annotation>
-		<annotation cp="✌🏿">V de la victoire | ciseaux | victoire | peau foncée</annotation>
 		<annotation cp="✌🏿" type="tts">V de la victoire : peau foncée</annotation>
 		<annotation cp="🤞🏻">chance | croisés | doigts | main | peau claire</annotation>
 		<annotation cp="🤞🏻" type="tts">doigts croisés : peau claire</annotation>
@@ -2221,15 +1951,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✊🏾" type="tts">poing levé : peau modérément foncée</annotation>
 		<annotation cp="✊🏿">levé | main | pierre | poing | peau foncée</annotation>
 		<annotation cp="✊🏿" type="tts">poing levé : peau foncée</annotation>
-		<annotation cp="👊🏻">coup de poing | main | poing | poing de face | peau claire</annotation>
 		<annotation cp="👊🏻" type="tts">poing de face : peau claire</annotation>
 		<annotation cp="👊🏼">coup de poing | main | poing | poing de face | peau modérément claire</annotation>
 		<annotation cp="👊🏼" type="tts">poing de face : peau modérément claire</annotation>
-		<annotation cp="👊🏽">coup de poing | main | poing | poing de face | peau légèrement mate</annotation>
 		<annotation cp="👊🏽" type="tts">poing de face : peau légèrement mate</annotation>
 		<annotation cp="👊🏾">coup de poing | main | poing | poing de face | peau modérément foncée</annotation>
 		<annotation cp="👊🏾" type="tts">poing de face : peau modérément foncée</annotation>
-		<annotation cp="👊🏿">coup de poing | main | poing | poing de face | peau foncée</annotation>
 		<annotation cp="👊🏿" type="tts">poing de face : peau foncée</annotation>
 		<annotation cp="🤛🏻">gauche | poing | peau claire</annotation>
 		<annotation cp="🤛🏻" type="tts">poing à gauche : peau claire</annotation>
@@ -2351,25 +2078,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💅🏾" type="tts">vernis à ongles : peau modérément foncée</annotation>
 		<annotation cp="💅🏿">manucure | maquillage | ongle | vernis | peau foncée</annotation>
 		<annotation cp="💅🏿" type="tts">vernis à ongles : peau foncée</annotation>
-		<annotation cp="👂🏻">corps | oreille | peau claire</annotation>
 		<annotation cp="👂🏻" type="tts">oreille : peau claire</annotation>
 		<annotation cp="👂🏼">corps | oreille | peau modérément claire</annotation>
 		<annotation cp="👂🏼" type="tts">oreille : peau modérément claire</annotation>
-		<annotation cp="👂🏽">corps | oreille | peau légèrement mate</annotation>
 		<annotation cp="👂🏽" type="tts">oreille : peau légèrement mate</annotation>
 		<annotation cp="👂🏾">corps | oreille | peau modérément foncée</annotation>
 		<annotation cp="👂🏾" type="tts">oreille : peau modérément foncée</annotation>
-		<annotation cp="👂🏿">corps | oreille | peau foncée</annotation>
 		<annotation cp="👂🏿" type="tts">oreille : peau foncée</annotation>
-		<annotation cp="👃🏻">corps | nez | peau claire</annotation>
 		<annotation cp="👃🏻" type="tts">nez : peau claire</annotation>
 		<annotation cp="👃🏼">corps | nez | peau modérément claire</annotation>
 		<annotation cp="👃🏼" type="tts">nez : peau modérément claire</annotation>
-		<annotation cp="👃🏽">corps | nez | peau légèrement mate</annotation>
 		<annotation cp="👃🏽" type="tts">nez : peau légèrement mate</annotation>
 		<annotation cp="👃🏾">corps | nez | peau modérément foncée</annotation>
 		<annotation cp="👃🏾" type="tts">nez : peau modérément foncée</annotation>
-		<annotation cp="👃🏿">corps | nez | peau foncée</annotation>
 		<annotation cp="👃🏿" type="tts">nez : peau foncée</annotation>
 		<annotation cp="#⃣">dessus de touche</annotation>
 		<annotation cp="#⃣" type="tts">dessus de touche : #</annotation>
@@ -2377,527 +2098,266 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="*⃣" type="tts">dessus de touche : *</annotation>
 		<annotation cp="🔟">dessus de touche</annotation>
 		<annotation cp="🔟" type="tts">dessus de touche : 10</annotation>
-		<annotation cp="🇦🇨">drapeau</annotation>
 		<annotation cp="🇦🇨" type="tts">drapeau : île de l’Ascension</annotation>
-		<annotation cp="🇦🇩">drapeau</annotation>
 		<annotation cp="🇦🇩" type="tts">drapeau : Andorre</annotation>
-		<annotation cp="🇦🇪">drapeau</annotation>
 		<annotation cp="🇦🇪" type="tts">drapeau : Émirats arabes unis</annotation>
-		<annotation cp="🇦🇫">drapeau</annotation>
 		<annotation cp="🇦🇫" type="tts">drapeau : Afghanistan</annotation>
-		<annotation cp="🇦🇬">drapeau</annotation>
 		<annotation cp="🇦🇬" type="tts">drapeau : Antigua-et-Barbuda</annotation>
-		<annotation cp="🇦🇮">drapeau</annotation>
 		<annotation cp="🇦🇮" type="tts">drapeau : Anguilla</annotation>
-		<annotation cp="🇦🇱">drapeau</annotation>
 		<annotation cp="🇦🇱" type="tts">drapeau : Albanie</annotation>
-		<annotation cp="🇦🇲">drapeau</annotation>
 		<annotation cp="🇦🇲" type="tts">drapeau : Arménie</annotation>
-		<annotation cp="🇦🇴">drapeau</annotation>
 		<annotation cp="🇦🇴" type="tts">drapeau : Angola</annotation>
-		<annotation cp="🇦🇶">drapeau</annotation>
 		<annotation cp="🇦🇶" type="tts">drapeau : Antarctique</annotation>
-		<annotation cp="🇦🇷">drapeau</annotation>
 		<annotation cp="🇦🇷" type="tts">drapeau : Argentine</annotation>
-		<annotation cp="🇦🇸">drapeau</annotation>
 		<annotation cp="🇦🇸" type="tts">drapeau : Samoa américaines</annotation>
-		<annotation cp="🇦🇹">drapeau</annotation>
 		<annotation cp="🇦🇹" type="tts">drapeau : Autriche</annotation>
-		<annotation cp="🇦🇺">drapeau</annotation>
 		<annotation cp="🇦🇺" type="tts">drapeau : Australie</annotation>
-		<annotation cp="🇦🇼">drapeau</annotation>
 		<annotation cp="🇦🇼" type="tts">drapeau : Aruba</annotation>
-		<annotation cp="🇦🇽">drapeau</annotation>
 		<annotation cp="🇦🇽" type="tts">drapeau : îles d’Åland</annotation>
-		<annotation cp="🇦🇿">drapeau</annotation>
 		<annotation cp="🇦🇿" type="tts">drapeau : Azerbaïdjan</annotation>
-		<annotation cp="🇧🇦">drapeau</annotation>
 		<annotation cp="🇧🇦" type="tts">drapeau : Bosnie-Herzégovine</annotation>
-		<annotation cp="🇧🇧">drapeau</annotation>
 		<annotation cp="🇧🇧" type="tts">drapeau : Barbade</annotation>
-		<annotation cp="🇧🇩">drapeau</annotation>
 		<annotation cp="🇧🇩" type="tts">drapeau : Bangladesh</annotation>
-		<annotation cp="🇧🇪">drapeau</annotation>
 		<annotation cp="🇧🇪" type="tts">drapeau : Belgique</annotation>
-		<annotation cp="🇧🇫">drapeau</annotation>
 		<annotation cp="🇧🇫" type="tts">drapeau : Burkina Faso</annotation>
-		<annotation cp="🇧🇬">drapeau</annotation>
 		<annotation cp="🇧🇬" type="tts">drapeau : Bulgarie</annotation>
-		<annotation cp="🇧🇭">drapeau</annotation>
 		<annotation cp="🇧🇭" type="tts">drapeau : Bahreïn</annotation>
-		<annotation cp="🇧🇮">drapeau</annotation>
 		<annotation cp="🇧🇮" type="tts">drapeau : Burundi</annotation>
-		<annotation cp="🇧🇯">drapeau</annotation>
 		<annotation cp="🇧🇯" type="tts">drapeau : Bénin</annotation>
-		<annotation cp="🇧🇱">drapeau</annotation>
 		<annotation cp="🇧🇱" type="tts">drapeau : Saint-Barthélemy</annotation>
-		<annotation cp="🇧🇲">drapeau</annotation>
 		<annotation cp="🇧🇲" type="tts">drapeau : Bermudes</annotation>
-		<annotation cp="🇧🇳">drapeau</annotation>
 		<annotation cp="🇧🇳" type="tts">drapeau : Brunei</annotation>
-		<annotation cp="🇧🇴">drapeau</annotation>
 		<annotation cp="🇧🇴" type="tts">drapeau : Bolivie</annotation>
-		<annotation cp="🇧🇶">drapeau</annotation>
 		<annotation cp="🇧🇶" type="tts">drapeau : Pays-Bas caribéens</annotation>
-		<annotation cp="🇧🇷">drapeau</annotation>
 		<annotation cp="🇧🇷" type="tts">drapeau : Brésil</annotation>
-		<annotation cp="🇧🇸">drapeau</annotation>
 		<annotation cp="🇧🇸" type="tts">drapeau : Bahamas</annotation>
-		<annotation cp="🇧🇹">drapeau</annotation>
 		<annotation cp="🇧🇹" type="tts">drapeau : Bhoutan</annotation>
-		<annotation cp="🇧🇻">drapeau</annotation>
 		<annotation cp="🇧🇻" type="tts">drapeau : île Bouvet</annotation>
-		<annotation cp="🇧🇼">drapeau</annotation>
 		<annotation cp="🇧🇼" type="tts">drapeau : Botswana</annotation>
-		<annotation cp="🇧🇾">drapeau</annotation>
 		<annotation cp="🇧🇾" type="tts">drapeau : Bélarus</annotation>
-		<annotation cp="🇧🇿">drapeau</annotation>
 		<annotation cp="🇧🇿" type="tts">drapeau : Belize</annotation>
-		<annotation cp="🇨🇦">drapeau</annotation>
 		<annotation cp="🇨🇦" type="tts">drapeau : Canada</annotation>
-		<annotation cp="🇨🇨">drapeau</annotation>
 		<annotation cp="🇨🇨" type="tts">drapeau : îles Cocos (Keeling)</annotation>
-		<annotation cp="🇨🇩">drapeau</annotation>
 		<annotation cp="🇨🇩" type="tts">drapeau : Congo-Kinshasa</annotation>
-		<annotation cp="🇨🇫">drapeau</annotation>
 		<annotation cp="🇨🇫" type="tts">drapeau : République centrafricaine</annotation>
-		<annotation cp="🇨🇬">drapeau</annotation>
 		<annotation cp="🇨🇬" type="tts">drapeau : Congo-Brazzaville</annotation>
-		<annotation cp="🇨🇭">drapeau</annotation>
 		<annotation cp="🇨🇭" type="tts">drapeau : Suisse</annotation>
-		<annotation cp="🇨🇮">drapeau</annotation>
 		<annotation cp="🇨🇮" type="tts">drapeau : Côte d’Ivoire</annotation>
-		<annotation cp="🇨🇰">drapeau</annotation>
 		<annotation cp="🇨🇰" type="tts">drapeau : îles Cook</annotation>
-		<annotation cp="🇨🇱">drapeau</annotation>
 		<annotation cp="🇨🇱" type="tts">drapeau : Chili</annotation>
-		<annotation cp="🇨🇲">drapeau</annotation>
 		<annotation cp="🇨🇲" type="tts">drapeau : Cameroun</annotation>
-		<annotation cp="🇨🇳">drapeau</annotation>
 		<annotation cp="🇨🇳" type="tts">drapeau : Chine</annotation>
-		<annotation cp="🇨🇴">drapeau</annotation>
 		<annotation cp="🇨🇴" type="tts">drapeau : Colombie</annotation>
-		<annotation cp="🇨🇵">drapeau</annotation>
 		<annotation cp="🇨🇵" type="tts">drapeau : Île Clipperton</annotation>
-		<annotation cp="🇨🇷">drapeau</annotation>
 		<annotation cp="🇨🇷" type="tts">drapeau : Costa Rica</annotation>
-		<annotation cp="🇨🇺">drapeau</annotation>
 		<annotation cp="🇨🇺" type="tts">drapeau : Cuba</annotation>
-		<annotation cp="🇨🇻">drapeau</annotation>
 		<annotation cp="🇨🇻" type="tts">drapeau : Cap-Vert</annotation>
-		<annotation cp="🇨🇼">drapeau</annotation>
 		<annotation cp="🇨🇼" type="tts">drapeau : Curaçao</annotation>
-		<annotation cp="🇨🇽">drapeau</annotation>
 		<annotation cp="🇨🇽" type="tts">drapeau : île Christmas</annotation>
-		<annotation cp="🇨🇾">drapeau</annotation>
 		<annotation cp="🇨🇾" type="tts">drapeau : Chypre</annotation>
-		<annotation cp="🇨🇿">drapeau</annotation>
 		<annotation cp="🇨🇿" type="tts">drapeau : Tchéquie</annotation>
-		<annotation cp="🇩🇪">drapeau</annotation>
 		<annotation cp="🇩🇪" type="tts">drapeau : Allemagne</annotation>
-		<annotation cp="🇩🇬">drapeau</annotation>
 		<annotation cp="🇩🇬" type="tts">drapeau : Diego Garcia</annotation>
-		<annotation cp="🇩🇯">drapeau</annotation>
 		<annotation cp="🇩🇯" type="tts">drapeau : Djibouti</annotation>
-		<annotation cp="🇩🇰">drapeau</annotation>
 		<annotation cp="🇩🇰" type="tts">drapeau : Danemark</annotation>
-		<annotation cp="🇩🇲">drapeau</annotation>
 		<annotation cp="🇩🇲" type="tts">drapeau : Dominique</annotation>
-		<annotation cp="🇩🇴">drapeau</annotation>
 		<annotation cp="🇩🇴" type="tts">drapeau : République dominicaine</annotation>
-		<annotation cp="🇩🇿">drapeau</annotation>
 		<annotation cp="🇩🇿" type="tts">drapeau : Algérie</annotation>
-		<annotation cp="🇪🇦">drapeau</annotation>
 		<annotation cp="🇪🇦" type="tts">drapeau : Ceuta et Melilla</annotation>
-		<annotation cp="🇪🇨">drapeau</annotation>
 		<annotation cp="🇪🇨" type="tts">drapeau : Équateur</annotation>
-		<annotation cp="🇪🇪">drapeau</annotation>
 		<annotation cp="🇪🇪" type="tts">drapeau : Estonie</annotation>
-		<annotation cp="🇪🇬">drapeau</annotation>
 		<annotation cp="🇪🇬" type="tts">drapeau : Égypte</annotation>
-		<annotation cp="🇪🇭">drapeau</annotation>
 		<annotation cp="🇪🇭" type="tts">drapeau : Sahara occidental</annotation>
-		<annotation cp="🇪🇷">drapeau</annotation>
 		<annotation cp="🇪🇷" type="tts">drapeau : Érythrée</annotation>
-		<annotation cp="🇪🇸">drapeau</annotation>
 		<annotation cp="🇪🇸" type="tts">drapeau : Espagne</annotation>
-		<annotation cp="🇪🇹">drapeau</annotation>
 		<annotation cp="🇪🇹" type="tts">drapeau : Éthiopie</annotation>
-		<annotation cp="🇪🇺">drapeau</annotation>
 		<annotation cp="🇪🇺" type="tts">drapeau : Union européenne</annotation>
-		<annotation cp="🇫🇮">drapeau</annotation>
 		<annotation cp="🇫🇮" type="tts">drapeau : Finlande</annotation>
-		<annotation cp="🇫🇯">drapeau</annotation>
 		<annotation cp="🇫🇯" type="tts">drapeau : Fidji</annotation>
-		<annotation cp="🇫🇰">drapeau</annotation>
 		<annotation cp="🇫🇰" type="tts">drapeau : îles Malouines</annotation>
-		<annotation cp="🇫🇲">drapeau</annotation>
 		<annotation cp="🇫🇲" type="tts">drapeau : Micronésie</annotation>
-		<annotation cp="🇫🇴">drapeau</annotation>
 		<annotation cp="🇫🇴" type="tts">drapeau : îles Féroé</annotation>
-		<annotation cp="🇫🇷">drapeau</annotation>
 		<annotation cp="🇫🇷" type="tts">drapeau : France</annotation>
-		<annotation cp="🇬🇦">drapeau</annotation>
 		<annotation cp="🇬🇦" type="tts">drapeau : Gabon</annotation>
-		<annotation cp="🇬🇧">drapeau</annotation>
 		<annotation cp="🇬🇧" type="tts">drapeau : Royaume-Uni</annotation>
-		<annotation cp="🇬🇩">drapeau</annotation>
 		<annotation cp="🇬🇩" type="tts">drapeau : Grenade</annotation>
-		<annotation cp="🇬🇪">drapeau</annotation>
 		<annotation cp="🇬🇪" type="tts">drapeau : Géorgie</annotation>
-		<annotation cp="🇬🇫">drapeau</annotation>
 		<annotation cp="🇬🇫" type="tts">drapeau : Guyane française</annotation>
-		<annotation cp="🇬🇬">drapeau</annotation>
 		<annotation cp="🇬🇬" type="tts">drapeau : Guernesey</annotation>
-		<annotation cp="🇬🇭">drapeau</annotation>
 		<annotation cp="🇬🇭" type="tts">drapeau : Ghana</annotation>
-		<annotation cp="🇬🇮">drapeau</annotation>
 		<annotation cp="🇬🇮" type="tts">drapeau : Gibraltar</annotation>
-		<annotation cp="🇬🇱">drapeau</annotation>
 		<annotation cp="🇬🇱" type="tts">drapeau : Groenland</annotation>
-		<annotation cp="🇬🇲">drapeau</annotation>
 		<annotation cp="🇬🇲" type="tts">drapeau : Gambie</annotation>
-		<annotation cp="🇬🇳">drapeau</annotation>
 		<annotation cp="🇬🇳" type="tts">drapeau : Guinée</annotation>
-		<annotation cp="🇬🇵">drapeau</annotation>
 		<annotation cp="🇬🇵" type="tts">drapeau : Guadeloupe</annotation>
-		<annotation cp="🇬🇶">drapeau</annotation>
 		<annotation cp="🇬🇶" type="tts">drapeau : Guinée équatoriale</annotation>
-		<annotation cp="🇬🇷">drapeau</annotation>
 		<annotation cp="🇬🇷" type="tts">drapeau : Grèce</annotation>
-		<annotation cp="🇬🇸">drapeau</annotation>
 		<annotation cp="🇬🇸" type="tts">drapeau : Géorgie du Sud et îles Sandwich du Sud</annotation>
-		<annotation cp="🇬🇹">drapeau</annotation>
 		<annotation cp="🇬🇹" type="tts">drapeau : Guatemala</annotation>
-		<annotation cp="🇬🇺">drapeau</annotation>
 		<annotation cp="🇬🇺" type="tts">drapeau : Guam</annotation>
-		<annotation cp="🇬🇼">drapeau</annotation>
 		<annotation cp="🇬🇼" type="tts">drapeau : Guinée-Bissau</annotation>
-		<annotation cp="🇬🇾">drapeau</annotation>
 		<annotation cp="🇬🇾" type="tts">drapeau : Guyana</annotation>
-		<annotation cp="🇭🇰">drapeau</annotation>
 		<annotation cp="🇭🇰" type="tts">drapeau : R.A.S. chinoise de Hong Kong</annotation>
-		<annotation cp="🇭🇲">drapeau</annotation>
 		<annotation cp="🇭🇲" type="tts">drapeau : îles Heard et McDonald</annotation>
-		<annotation cp="🇭🇳">drapeau</annotation>
 		<annotation cp="🇭🇳" type="tts">drapeau : Honduras</annotation>
-		<annotation cp="🇭🇷">drapeau</annotation>
 		<annotation cp="🇭🇷" type="tts">drapeau : Croatie</annotation>
-		<annotation cp="🇭🇹">drapeau</annotation>
 		<annotation cp="🇭🇹" type="tts">drapeau : Haïti</annotation>
-		<annotation cp="🇭🇺">drapeau</annotation>
 		<annotation cp="🇭🇺" type="tts">drapeau : Hongrie</annotation>
-		<annotation cp="🇮🇨">drapeau</annotation>
 		<annotation cp="🇮🇨" type="tts">drapeau : îles Canaries</annotation>
-		<annotation cp="🇮🇩">drapeau</annotation>
 		<annotation cp="🇮🇩" type="tts">drapeau : Indonésie</annotation>
-		<annotation cp="🇮🇪">drapeau</annotation>
 		<annotation cp="🇮🇪" type="tts">drapeau : Irlande</annotation>
-		<annotation cp="🇮🇱">drapeau</annotation>
 		<annotation cp="🇮🇱" type="tts">drapeau : Israël</annotation>
-		<annotation cp="🇮🇲">drapeau</annotation>
 		<annotation cp="🇮🇲" type="tts">drapeau : île de Man</annotation>
-		<annotation cp="🇮🇳">drapeau</annotation>
 		<annotation cp="🇮🇳" type="tts">drapeau : Inde</annotation>
-		<annotation cp="🇮🇴">drapeau</annotation>
 		<annotation cp="🇮🇴" type="tts">drapeau : territoire britannique de l’océan Indien</annotation>
-		<annotation cp="🇮🇶">drapeau</annotation>
 		<annotation cp="🇮🇶" type="tts">drapeau : Irak</annotation>
-		<annotation cp="🇮🇷">drapeau</annotation>
 		<annotation cp="🇮🇷" type="tts">drapeau : Iran</annotation>
-		<annotation cp="🇮🇸">drapeau</annotation>
 		<annotation cp="🇮🇸" type="tts">drapeau : Islande</annotation>
-		<annotation cp="🇮🇹">drapeau</annotation>
 		<annotation cp="🇮🇹" type="tts">drapeau : Italie</annotation>
-		<annotation cp="🇯🇪">drapeau</annotation>
 		<annotation cp="🇯🇪" type="tts">drapeau : Jersey</annotation>
-		<annotation cp="🇯🇲">drapeau</annotation>
 		<annotation cp="🇯🇲" type="tts">drapeau : Jamaïque</annotation>
-		<annotation cp="🇯🇴">drapeau</annotation>
 		<annotation cp="🇯🇴" type="tts">drapeau : Jordanie</annotation>
-		<annotation cp="🇯🇵">drapeau</annotation>
 		<annotation cp="🇯🇵" type="tts">drapeau : Japon</annotation>
-		<annotation cp="🇰🇪">drapeau</annotation>
 		<annotation cp="🇰🇪" type="tts">drapeau : Kenya</annotation>
-		<annotation cp="🇰🇬">drapeau</annotation>
 		<annotation cp="🇰🇬" type="tts">drapeau : Kirghizistan</annotation>
-		<annotation cp="🇰🇭">drapeau</annotation>
 		<annotation cp="🇰🇭" type="tts">drapeau : Cambodge</annotation>
-		<annotation cp="🇰🇮">drapeau</annotation>
 		<annotation cp="🇰🇮" type="tts">drapeau : Kiribati</annotation>
-		<annotation cp="🇰🇲">drapeau</annotation>
 		<annotation cp="🇰🇲" type="tts">drapeau : Comores</annotation>
-		<annotation cp="🇰🇳">drapeau</annotation>
 		<annotation cp="🇰🇳" type="tts">drapeau : Saint-Christophe-et-Niévès</annotation>
-		<annotation cp="🇰🇵">drapeau</annotation>
 		<annotation cp="🇰🇵" type="tts">drapeau : Corée du Nord</annotation>
-		<annotation cp="🇰🇷">drapeau</annotation>
 		<annotation cp="🇰🇷" type="tts">drapeau : Corée du Sud</annotation>
-		<annotation cp="🇰🇼">drapeau</annotation>
 		<annotation cp="🇰🇼" type="tts">drapeau : Koweït</annotation>
-		<annotation cp="🇰🇾">drapeau</annotation>
 		<annotation cp="🇰🇾" type="tts">drapeau : Îles Caïmans</annotation>
-		<annotation cp="🇰🇿">drapeau</annotation>
 		<annotation cp="🇰🇿" type="tts">drapeau : Kazakhstan</annotation>
-		<annotation cp="🇱🇦">drapeau</annotation>
 		<annotation cp="🇱🇦" type="tts">drapeau : Laos</annotation>
-		<annotation cp="🇱🇧">drapeau</annotation>
 		<annotation cp="🇱🇧" type="tts">drapeau : Liban</annotation>
-		<annotation cp="🇱🇨">drapeau</annotation>
 		<annotation cp="🇱🇨" type="tts">drapeau : Sainte-Lucie</annotation>
-		<annotation cp="🇱🇮">drapeau</annotation>
 		<annotation cp="🇱🇮" type="tts">drapeau : Liechtenstein</annotation>
-		<annotation cp="🇱🇰">drapeau</annotation>
 		<annotation cp="🇱🇰" type="tts">drapeau : Sri Lanka</annotation>
-		<annotation cp="🇱🇷">drapeau</annotation>
 		<annotation cp="🇱🇷" type="tts">drapeau : Libéria</annotation>
-		<annotation cp="🇱🇸">drapeau</annotation>
 		<annotation cp="🇱🇸" type="tts">drapeau : Lesotho</annotation>
-		<annotation cp="🇱🇹">drapeau</annotation>
 		<annotation cp="🇱🇹" type="tts">drapeau : Lituanie</annotation>
-		<annotation cp="🇱🇺">drapeau</annotation>
 		<annotation cp="🇱🇺" type="tts">drapeau : Luxembourg</annotation>
-		<annotation cp="🇱🇻">drapeau</annotation>
 		<annotation cp="🇱🇻" type="tts">drapeau : Lettonie</annotation>
-		<annotation cp="🇱🇾">drapeau</annotation>
 		<annotation cp="🇱🇾" type="tts">drapeau : Libye</annotation>
-		<annotation cp="🇲🇦">drapeau</annotation>
 		<annotation cp="🇲🇦" type="tts">drapeau : Maroc</annotation>
-		<annotation cp="🇲🇨">drapeau</annotation>
 		<annotation cp="🇲🇨" type="tts">drapeau : Monaco</annotation>
-		<annotation cp="🇲🇩">drapeau</annotation>
 		<annotation cp="🇲🇩" type="tts">drapeau : Moldavie</annotation>
-		<annotation cp="🇲🇪">drapeau</annotation>
 		<annotation cp="🇲🇪" type="tts">drapeau : Monténégro</annotation>
-		<annotation cp="🇲🇫">drapeau</annotation>
 		<annotation cp="🇲🇫" type="tts">drapeau : Saint-Martin (France)</annotation>
-		<annotation cp="🇲🇬">drapeau</annotation>
 		<annotation cp="🇲🇬" type="tts">drapeau : Madagascar</annotation>
-		<annotation cp="🇲🇭">drapeau</annotation>
 		<annotation cp="🇲🇭" type="tts">drapeau : Îles Marshall</annotation>
-		<annotation cp="🇲🇰">drapeau</annotation>
 		<annotation cp="🇲🇰" type="tts">drapeau : Macédoine</annotation>
-		<annotation cp="🇲🇱">drapeau</annotation>
 		<annotation cp="🇲🇱" type="tts">drapeau : Mali</annotation>
-		<annotation cp="🇲🇲">drapeau</annotation>
 		<annotation cp="🇲🇲" type="tts">drapeau : Myanmar</annotation>
-		<annotation cp="🇲🇳">drapeau</annotation>
 		<annotation cp="🇲🇳" type="tts">drapeau : Mongolie</annotation>
-		<annotation cp="🇲🇴">drapeau</annotation>
 		<annotation cp="🇲🇴" type="tts">drapeau : R.A.S. chinoise de Macao</annotation>
-		<annotation cp="🇲🇵">drapeau</annotation>
 		<annotation cp="🇲🇵" type="tts">drapeau : Mariannes du Nord</annotation>
-		<annotation cp="🇲🇶">drapeau</annotation>
 		<annotation cp="🇲🇶" type="tts">drapeau : Martinique</annotation>
-		<annotation cp="🇲🇷">drapeau</annotation>
 		<annotation cp="🇲🇷" type="tts">drapeau : Mauritanie</annotation>
-		<annotation cp="🇲🇸">drapeau</annotation>
 		<annotation cp="🇲🇸" type="tts">drapeau : Montserrat</annotation>
-		<annotation cp="🇲🇹">drapeau</annotation>
 		<annotation cp="🇲🇹" type="tts">drapeau : Malte</annotation>
-		<annotation cp="🇲🇺">drapeau</annotation>
 		<annotation cp="🇲🇺" type="tts">drapeau : Maurice</annotation>
-		<annotation cp="🇲🇻">drapeau</annotation>
 		<annotation cp="🇲🇻" type="tts">drapeau : Maldives</annotation>
-		<annotation cp="🇲🇼">drapeau</annotation>
 		<annotation cp="🇲🇼" type="tts">drapeau : Malawi</annotation>
-		<annotation cp="🇲🇽">drapeau</annotation>
 		<annotation cp="🇲🇽" type="tts">drapeau : Mexique</annotation>
-		<annotation cp="🇲🇾">drapeau</annotation>
 		<annotation cp="🇲🇾" type="tts">drapeau : Malaisie</annotation>
-		<annotation cp="🇲🇿">drapeau</annotation>
 		<annotation cp="🇲🇿" type="tts">drapeau : Mozambique</annotation>
-		<annotation cp="🇳🇦">drapeau</annotation>
 		<annotation cp="🇳🇦" type="tts">drapeau : Namibie</annotation>
-		<annotation cp="🇳🇨">drapeau</annotation>
 		<annotation cp="🇳🇨" type="tts">drapeau : Nouvelle-Calédonie</annotation>
-		<annotation cp="🇳🇪">drapeau</annotation>
 		<annotation cp="🇳🇪" type="tts">drapeau : Niger</annotation>
-		<annotation cp="🇳🇫">drapeau</annotation>
 		<annotation cp="🇳🇫" type="tts">drapeau : île Norfolk</annotation>
-		<annotation cp="🇳🇬">drapeau</annotation>
 		<annotation cp="🇳🇬" type="tts">drapeau : Nigéria</annotation>
-		<annotation cp="🇳🇮">drapeau</annotation>
 		<annotation cp="🇳🇮" type="tts">drapeau : Nicaragua</annotation>
-		<annotation cp="🇳🇱">drapeau</annotation>
 		<annotation cp="🇳🇱" type="tts">drapeau : Pays-Bas</annotation>
-		<annotation cp="🇳🇴">drapeau</annotation>
 		<annotation cp="🇳🇴" type="tts">drapeau : Norvège</annotation>
-		<annotation cp="🇳🇵">drapeau</annotation>
 		<annotation cp="🇳🇵" type="tts">drapeau : Népal</annotation>
-		<annotation cp="🇳🇷">drapeau</annotation>
 		<annotation cp="🇳🇷" type="tts">drapeau : Nauru</annotation>
-		<annotation cp="🇳🇺">drapeau</annotation>
 		<annotation cp="🇳🇺" type="tts">drapeau : Niue</annotation>
-		<annotation cp="🇳🇿">drapeau</annotation>
 		<annotation cp="🇳🇿" type="tts">drapeau : Nouvelle-Zélande</annotation>
-		<annotation cp="🇴🇲">drapeau</annotation>
 		<annotation cp="🇴🇲" type="tts">drapeau : Oman</annotation>
-		<annotation cp="🇵🇦">drapeau</annotation>
 		<annotation cp="🇵🇦" type="tts">drapeau : Panama</annotation>
-		<annotation cp="🇵🇪">drapeau</annotation>
 		<annotation cp="🇵🇪" type="tts">drapeau : Pérou</annotation>
-		<annotation cp="🇵🇫">drapeau</annotation>
 		<annotation cp="🇵🇫" type="tts">drapeau : Polynésie française</annotation>
-		<annotation cp="🇵🇬">drapeau</annotation>
 		<annotation cp="🇵🇬" type="tts">drapeau : Papouasie-Nouvelle-Guinée</annotation>
-		<annotation cp="🇵🇭">drapeau</annotation>
 		<annotation cp="🇵🇭" type="tts">drapeau : Philippines</annotation>
-		<annotation cp="🇵🇰">drapeau</annotation>
 		<annotation cp="🇵🇰" type="tts">drapeau : Pakistan</annotation>
-		<annotation cp="🇵🇱">drapeau</annotation>
 		<annotation cp="🇵🇱" type="tts">drapeau : Pologne</annotation>
-		<annotation cp="🇵🇲">drapeau</annotation>
 		<annotation cp="🇵🇲" type="tts">drapeau : Saint-Pierre-et-Miquelon</annotation>
-		<annotation cp="🇵🇳">drapeau</annotation>
 		<annotation cp="🇵🇳" type="tts">drapeau : îles Pitcairn</annotation>
-		<annotation cp="🇵🇷">drapeau</annotation>
 		<annotation cp="🇵🇷" type="tts">drapeau : Porto Rico</annotation>
-		<annotation cp="🇵🇸">drapeau</annotation>
 		<annotation cp="🇵🇸" type="tts">drapeau : Territoires palestiniens</annotation>
-		<annotation cp="🇵🇹">drapeau</annotation>
 		<annotation cp="🇵🇹" type="tts">drapeau : Portugal</annotation>
-		<annotation cp="🇵🇼">drapeau</annotation>
 		<annotation cp="🇵🇼" type="tts">drapeau : Palaos</annotation>
-		<annotation cp="🇵🇾">drapeau</annotation>
 		<annotation cp="🇵🇾" type="tts">drapeau : Paraguay</annotation>
-		<annotation cp="🇶🇦">drapeau</annotation>
 		<annotation cp="🇶🇦" type="tts">drapeau : Qatar</annotation>
-		<annotation cp="🇷🇪">drapeau</annotation>
 		<annotation cp="🇷🇪" type="tts">drapeau : la Réunion</annotation>
-		<annotation cp="🇷🇴">drapeau</annotation>
 		<annotation cp="🇷🇴" type="tts">drapeau : Roumanie</annotation>
-		<annotation cp="🇷🇸">drapeau</annotation>
 		<annotation cp="🇷🇸" type="tts">drapeau : Serbie</annotation>
-		<annotation cp="🇷🇺">drapeau</annotation>
 		<annotation cp="🇷🇺" type="tts">drapeau : Russie</annotation>
-		<annotation cp="🇷🇼">drapeau</annotation>
 		<annotation cp="🇷🇼" type="tts">drapeau : Rwanda</annotation>
-		<annotation cp="🇸🇦">drapeau</annotation>
 		<annotation cp="🇸🇦" type="tts">drapeau : Arabie saoudite</annotation>
-		<annotation cp="🇸🇧">drapeau</annotation>
 		<annotation cp="🇸🇧" type="tts">drapeau : Îles Salomon</annotation>
-		<annotation cp="🇸🇨">drapeau</annotation>
 		<annotation cp="🇸🇨" type="tts">drapeau : Seychelles</annotation>
-		<annotation cp="🇸🇩">drapeau</annotation>
 		<annotation cp="🇸🇩" type="tts">drapeau : Soudan</annotation>
-		<annotation cp="🇸🇪">drapeau</annotation>
 		<annotation cp="🇸🇪" type="tts">drapeau : Suède</annotation>
-		<annotation cp="🇸🇬">drapeau</annotation>
 		<annotation cp="🇸🇬" type="tts">drapeau : Singapour</annotation>
-		<annotation cp="🇸🇭">drapeau</annotation>
 		<annotation cp="🇸🇭" type="tts">drapeau : Sainte-Hélène</annotation>
-		<annotation cp="🇸🇮">drapeau</annotation>
 		<annotation cp="🇸🇮" type="tts">drapeau : Slovénie</annotation>
-		<annotation cp="🇸🇯">drapeau</annotation>
 		<annotation cp="🇸🇯" type="tts">drapeau : Svalbard et Jan Mayen</annotation>
-		<annotation cp="🇸🇰">drapeau</annotation>
 		<annotation cp="🇸🇰" type="tts">drapeau : Slovaquie</annotation>
-		<annotation cp="🇸🇱">drapeau</annotation>
 		<annotation cp="🇸🇱" type="tts">drapeau : Sierra Leone</annotation>
-		<annotation cp="🇸🇲">drapeau</annotation>
 		<annotation cp="🇸🇲" type="tts">drapeau : Saint-Marin</annotation>
-		<annotation cp="🇸🇳">drapeau</annotation>
 		<annotation cp="🇸🇳" type="tts">drapeau : Sénégal</annotation>
-		<annotation cp="🇸🇴">drapeau</annotation>
 		<annotation cp="🇸🇴" type="tts">drapeau : Somalie</annotation>
-		<annotation cp="🇸🇷">drapeau</annotation>
 		<annotation cp="🇸🇷" type="tts">drapeau : Suriname</annotation>
-		<annotation cp="🇸🇸">drapeau</annotation>
 		<annotation cp="🇸🇸" type="tts">drapeau : Soudan du Sud</annotation>
-		<annotation cp="🇸🇹">drapeau</annotation>
 		<annotation cp="🇸🇹" type="tts">drapeau : Sao Tomé-et-Principe</annotation>
-		<annotation cp="🇸🇻">drapeau</annotation>
 		<annotation cp="🇸🇻" type="tts">drapeau : Salvador</annotation>
-		<annotation cp="🇸🇽">drapeau</annotation>
 		<annotation cp="🇸🇽" type="tts">drapeau : Saint-Martin (Pays-Bas)</annotation>
-		<annotation cp="🇸🇾">drapeau</annotation>
 		<annotation cp="🇸🇾" type="tts">drapeau : Syrie</annotation>
-		<annotation cp="🇸🇿">drapeau</annotation>
 		<annotation cp="🇸🇿" type="tts">drapeau : Swaziland</annotation>
-		<annotation cp="🇹🇦">drapeau</annotation>
 		<annotation cp="🇹🇦" type="tts">drapeau : Tristan da Cunha</annotation>
-		<annotation cp="🇹🇨">drapeau</annotation>
 		<annotation cp="🇹🇨" type="tts">drapeau : Îles Turques-et-Caïques</annotation>
-		<annotation cp="🇹🇩">drapeau</annotation>
 		<annotation cp="🇹🇩" type="tts">drapeau : Tchad</annotation>
-		<annotation cp="🇹🇫">drapeau</annotation>
 		<annotation cp="🇹🇫" type="tts">drapeau : Terres australes françaises</annotation>
-		<annotation cp="🇹🇬">drapeau</annotation>
 		<annotation cp="🇹🇬" type="tts">drapeau : Togo</annotation>
-		<annotation cp="🇹🇭">drapeau</annotation>
 		<annotation cp="🇹🇭" type="tts">drapeau : Thaïlande</annotation>
-		<annotation cp="🇹🇯">drapeau</annotation>
 		<annotation cp="🇹🇯" type="tts">drapeau : Tadjikistan</annotation>
-		<annotation cp="🇹🇰">drapeau</annotation>
 		<annotation cp="🇹🇰" type="tts">drapeau : Tokelau</annotation>
-		<annotation cp="🇹🇱">drapeau</annotation>
 		<annotation cp="🇹🇱" type="tts">drapeau : Timor-Leste</annotation>
-		<annotation cp="🇹🇲">drapeau</annotation>
 		<annotation cp="🇹🇲" type="tts">drapeau : Turkménistan</annotation>
-		<annotation cp="🇹🇳">drapeau</annotation>
 		<annotation cp="🇹🇳" type="tts">drapeau : Tunisie</annotation>
-		<annotation cp="🇹🇴">drapeau</annotation>
 		<annotation cp="🇹🇴" type="tts">drapeau : Tonga</annotation>
-		<annotation cp="🇹🇷">drapeau</annotation>
 		<annotation cp="🇹🇷" type="tts">drapeau : Turquie</annotation>
-		<annotation cp="🇹🇹">drapeau</annotation>
 		<annotation cp="🇹🇹" type="tts">drapeau : Trinité-et-Tobago</annotation>
-		<annotation cp="🇹🇻">drapeau</annotation>
 		<annotation cp="🇹🇻" type="tts">drapeau : Tuvalu</annotation>
-		<annotation cp="🇹🇼">drapeau</annotation>
 		<annotation cp="🇹🇼" type="tts">drapeau : Taïwan</annotation>
-		<annotation cp="🇹🇿">drapeau</annotation>
 		<annotation cp="🇹🇿" type="tts">drapeau : Tanzanie</annotation>
-		<annotation cp="🇺🇦">drapeau</annotation>
 		<annotation cp="🇺🇦" type="tts">drapeau : Ukraine</annotation>
-		<annotation cp="🇺🇬">drapeau</annotation>
 		<annotation cp="🇺🇬" type="tts">drapeau : Ouganda</annotation>
-		<annotation cp="🇺🇲">drapeau</annotation>
 		<annotation cp="🇺🇲" type="tts">drapeau : îles mineures éloignées des États-Unis</annotation>
-		<annotation cp="🇺🇳">drapeau</annotation>
 		<annotation cp="🇺🇳" type="tts">drapeau : Nations Unies</annotation>
-		<annotation cp="🇺🇸">drapeau</annotation>
 		<annotation cp="🇺🇸" type="tts">drapeau : États-Unis</annotation>
-		<annotation cp="🇺🇾">drapeau</annotation>
 		<annotation cp="🇺🇾" type="tts">drapeau : Uruguay</annotation>
-		<annotation cp="🇺🇿">drapeau</annotation>
 		<annotation cp="🇺🇿" type="tts">drapeau : Ouzbékistan</annotation>
-		<annotation cp="🇻🇦">drapeau</annotation>
 		<annotation cp="🇻🇦" type="tts">drapeau : Cité du Vatican</annotation>
-		<annotation cp="🇻🇨">drapeau</annotation>
 		<annotation cp="🇻🇨" type="tts">drapeau : Saint-Vincent-et-les Grenadines</annotation>
-		<annotation cp="🇻🇪">drapeau</annotation>
 		<annotation cp="🇻🇪" type="tts">drapeau : Venezuela</annotation>
-		<annotation cp="🇻🇬">drapeau</annotation>
 		<annotation cp="🇻🇬" type="tts">drapeau : îles Vierges britanniques</annotation>
-		<annotation cp="🇻🇮">drapeau</annotation>
 		<annotation cp="🇻🇮" type="tts">drapeau : îles Vierges américaines</annotation>
-		<annotation cp="🇻🇳">drapeau</annotation>
 		<annotation cp="🇻🇳" type="tts">drapeau : Vietnam</annotation>
-		<annotation cp="🇻🇺">drapeau</annotation>
 		<annotation cp="🇻🇺" type="tts">drapeau : Vanuatu</annotation>
-		<annotation cp="🇼🇫">drapeau</annotation>
 		<annotation cp="🇼🇫" type="tts">drapeau : Wallis-et-Futuna</annotation>
-		<annotation cp="🇼🇸">drapeau</annotation>
 		<annotation cp="🇼🇸" type="tts">drapeau : Samoa</annotation>
-		<annotation cp="🇽🇰">drapeau</annotation>
 		<annotation cp="🇽🇰" type="tts">drapeau : Kosovo</annotation>
-		<annotation cp="🇾🇪">drapeau</annotation>
 		<annotation cp="🇾🇪" type="tts">drapeau : Yémen</annotation>
-		<annotation cp="🇾🇹">drapeau</annotation>
 		<annotation cp="🇾🇹" type="tts">drapeau : Mayotte</annotation>
-		<annotation cp="🇿🇦">drapeau</annotation>
 		<annotation cp="🇿🇦" type="tts">drapeau : Afrique du Sud</annotation>
-		<annotation cp="🇿🇲">drapeau</annotation>
 		<annotation cp="🇿🇲" type="tts">drapeau : Zambie</annotation>
-		<annotation cp="🇿🇼">drapeau</annotation>
 		<annotation cp="🇿🇼" type="tts">drapeau : Zimbabwe</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">drapeau</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">drapeau : Angleterre</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">drapeau</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">drapeau : Écosse</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">drapeau</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">drapeau : Pays de Galles</annotation>
 		<annotation cp="0⃣">dessus de touche</annotation>
 		<annotation cp="0⃣" type="tts">dessus de touche : 0</annotation>

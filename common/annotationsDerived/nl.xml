@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="nl"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">been | ledemaat | schoppen | lichte huidskleur</annotation>
+		<annotation cp="🦵🏻" type="tts">been: lichte huidskleur</annotation>
+		<annotation cp="🦵🏼">been | ledemaat | schoppen | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦵🏼" type="tts">been: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦵🏽">been | ledemaat | schoppen | getinte huidskleur</annotation>
+		<annotation cp="🦵🏽" type="tts">been: getinte huidskleur</annotation>
+		<annotation cp="🦵🏾">been | ledemaat | schoppen | donkergetinte huidskleur</annotation>
+		<annotation cp="🦵🏾" type="tts">been: donkergetinte huidskleur</annotation>
+		<annotation cp="🦵🏿">been | ledemaat | schoppen | donkere huidskleur</annotation>
+		<annotation cp="🦵🏿" type="tts">been: donkere huidskleur</annotation>
+		<annotation cp="🦶🏻">schoppen | stampen | voet | lichte huidskleur</annotation>
+		<annotation cp="🦶🏻" type="tts">voet: lichte huidskleur</annotation>
+		<annotation cp="🦶🏼">schoppen | stampen | voet | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦶🏼" type="tts">voet: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦶🏽">schoppen | stampen | voet | getinte huidskleur</annotation>
+		<annotation cp="🦶🏽" type="tts">voet: getinte huidskleur</annotation>
+		<annotation cp="🦶🏾">schoppen | stampen | voet | donkergetinte huidskleur</annotation>
+		<annotation cp="🦶🏾" type="tts">voet: donkergetinte huidskleur</annotation>
+		<annotation cp="🦶🏿">schoppen | stampen | voet | donkere huidskleur</annotation>
+		<annotation cp="🦶🏿" type="tts">voet: donkere huidskleur</annotation>
+		<annotation cp="🦸🏻">goed | held | heldin | superheld | superkrachten | lichte huidskleur</annotation>
+		<annotation cp="🦸🏻" type="tts">superheld: lichte huidskleur</annotation>
+		<annotation cp="🦸🏼">goed | held | heldin | superheld | superkrachten | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦸🏼" type="tts">superheld: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦸🏽">goed | held | heldin | superheld | superkrachten | getinte huidskleur</annotation>
+		<annotation cp="🦸🏽" type="tts">superheld: getinte huidskleur</annotation>
+		<annotation cp="🦸🏾">goed | held | heldin | superheld | superkrachten | donkergetinte huidskleur</annotation>
+		<annotation cp="🦸🏾" type="tts">superheld: donkergetinte huidskleur</annotation>
+		<annotation cp="🦸🏿">goed | held | heldin | superheld | superkrachten | donkere huidskleur</annotation>
+		<annotation cp="🦸🏿" type="tts">superheld: donkere huidskleur</annotation>
+		<annotation cp="🦸🏻‍♀">goed | held | heldin | superkrachten | vrouw | vrouwelijke superheld | lichte huidskleur</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">vrouwelijke superheld: lichte huidskleur</annotation>
+		<annotation cp="🦸🏼‍♀">goed | held | heldin | superkrachten | vrouw | vrouwelijke superheld | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">vrouwelijke superheld: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦸🏽‍♀">goed | held | heldin | superkrachten | vrouw | vrouwelijke superheld | getinte huidskleur</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">vrouwelijke superheld: getinte huidskleur</annotation>
+		<annotation cp="🦸🏾‍♀">goed | held | heldin | superkrachten | vrouw | vrouwelijke superheld | donkergetinte huidskleur</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">vrouwelijke superheld: donkergetinte huidskleur</annotation>
+		<annotation cp="🦸🏿‍♀">goed | held | heldin | superkrachten | vrouw | vrouwelijke superheld | donkere huidskleur</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">vrouwelijke superheld: donkere huidskleur</annotation>
+		<annotation cp="🦸🏻‍♂">goed | held | man | mannelijke superheld | superkrachten | lichte huidskleur</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">mannelijke superheld: lichte huidskleur</annotation>
+		<annotation cp="🦸🏼‍♂">goed | held | man | mannelijke superheld | superkrachten | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">mannelijke superheld: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦸🏽‍♂">goed | held | man | mannelijke superheld | superkrachten | getinte huidskleur</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">mannelijke superheld: getinte huidskleur</annotation>
+		<annotation cp="🦸🏾‍♂">goed | held | man | mannelijke superheld | superkrachten | donkergetinte huidskleur</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">mannelijke superheld: donkergetinte huidskleur</annotation>
+		<annotation cp="🦸🏿‍♂">goed | held | man | mannelijke superheld | superkrachten | donkere huidskleur</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">mannelijke superheld: donkere huidskleur</annotation>
+		<annotation cp="🦹🏻">boef | crimineel | slecht | superkrachten | superschurk | lichte huidskleur</annotation>
+		<annotation cp="🦹🏻" type="tts">superschurk: lichte huidskleur</annotation>
+		<annotation cp="🦹🏼">boef | crimineel | slecht | superkrachten | superschurk | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦹🏼" type="tts">superschurk: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦹🏽">boef | crimineel | slecht | superkrachten | superschurk | getinte huidskleur</annotation>
+		<annotation cp="🦹🏽" type="tts">superschurk: getinte huidskleur</annotation>
+		<annotation cp="🦹🏾">boef | crimineel | slecht | superkrachten | superschurk | donkergetinte huidskleur</annotation>
+		<annotation cp="🦹🏾" type="tts">superschurk: donkergetinte huidskleur</annotation>
+		<annotation cp="🦹🏿">boef | crimineel | slecht | superkrachten | superschurk | donkere huidskleur</annotation>
+		<annotation cp="🦹🏿" type="tts">superschurk: donkere huidskleur</annotation>
+		<annotation cp="🦹🏻‍♀">boef | crimineel | slecht | superkrachten | vrouw | vrouwelijke superschurk | lichte huidskleur</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">vrouwelijke superschurk: lichte huidskleur</annotation>
+		<annotation cp="🦹🏼‍♀">boef | crimineel | slecht | superkrachten | vrouw | vrouwelijke superschurk | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">vrouwelijke superschurk: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦹🏽‍♀">boef | crimineel | slecht | superkrachten | vrouw | vrouwelijke superschurk | getinte huidskleur</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">vrouwelijke superschurk: getinte huidskleur</annotation>
+		<annotation cp="🦹🏾‍♀">boef | crimineel | slecht | superkrachten | vrouw | vrouwelijke superschurk | donkergetinte huidskleur</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">vrouwelijke superschurk: donkergetinte huidskleur</annotation>
+		<annotation cp="🦹🏿‍♀">boef | crimineel | slecht | superkrachten | vrouw | vrouwelijke superschurk | donkere huidskleur</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">vrouwelijke superschurk: donkere huidskleur</annotation>
+		<annotation cp="🦹🏻‍♂">boef | crimineel | man | mannelijke superschurk | slecht | superkrachten | lichte huidskleur</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">mannelijke superschurk: lichte huidskleur</annotation>
+		<annotation cp="🦹🏼‍♂">boef | crimineel | man | mannelijke superschurk | slecht | superkrachten | lichtgetinte huidskleur</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">mannelijke superschurk: lichtgetinte huidskleur</annotation>
+		<annotation cp="🦹🏽‍♂">boef | crimineel | man | mannelijke superschurk | slecht | superkrachten | getinte huidskleur</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">mannelijke superschurk: getinte huidskleur</annotation>
+		<annotation cp="🦹🏾‍♂">boef | crimineel | man | mannelijke superschurk | slecht | superkrachten | donkergetinte huidskleur</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">mannelijke superschurk: donkergetinte huidskleur</annotation>
+		<annotation cp="🦹🏿‍♂">boef | crimineel | man | mannelijke superschurk | slecht | superkrachten | donkere huidskleur</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">mannelijke superschurk: donkere huidskleur</annotation>
 		<annotation cp="👶🏻">baby | jong | lichte huidskleur</annotation>
 		<annotation cp="👶🏻" type="tts">baby: lichte huidskleur</annotation>
 		<annotation cp="👶🏼">baby | jong | lichtgetinte huidskleur</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">man: donkergetinte huidskleur</annotation>
 		<annotation cp="👨🏿">man | donkere huidskleur</annotation>
 		<annotation cp="👨🏿" type="tts">man: donkere huidskleur</annotation>
+		<annotation cp="👨‍🦰">man | rood haar</annotation>
+		<annotation cp="👨‍🦰" type="tts">man: rood haar</annotation>
+		<annotation cp="👨🏻‍🦰">man | lichte huidskleur | rood haar</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">man: lichte huidskleur, rood haar</annotation>
+		<annotation cp="👨🏼‍🦰">man | lichtgetinte huidskleur | rood haar</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">man: lichtgetinte huidskleur, rood haar</annotation>
+		<annotation cp="👨🏽‍🦰">man | getinte huidskleur | rood haar</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">man: getinte huidskleur, rood haar</annotation>
+		<annotation cp="👨🏾‍🦰">man | donkergetinte huidskleur | rood haar</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">man: donkergetinte huidskleur, rood haar</annotation>
+		<annotation cp="👨🏿‍🦰">man | donkere huidskleur | rood haar</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">man: donkere huidskleur, rood haar</annotation>
+		<annotation cp="👨‍🦱">man | krullend haar</annotation>
+		<annotation cp="👨‍🦱" type="tts">man: krullend haar</annotation>
+		<annotation cp="👨🏻‍🦱">man | lichte huidskleur | krullend haar</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">man: lichte huidskleur, krullend haar</annotation>
+		<annotation cp="👨🏼‍🦱">man | lichtgetinte huidskleur | krullend haar</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">man: lichtgetinte huidskleur, krullend haar</annotation>
+		<annotation cp="👨🏽‍🦱">man | getinte huidskleur | krullend haar</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">man: getinte huidskleur, krullend haar</annotation>
+		<annotation cp="👨🏾‍🦱">man | donkergetinte huidskleur | krullend haar</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">man: donkergetinte huidskleur, krullend haar</annotation>
+		<annotation cp="👨🏿‍🦱">man | donkere huidskleur | krullend haar</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">man: donkere huidskleur, krullend haar</annotation>
+		<annotation cp="👨‍🦲">man | kaal</annotation>
+		<annotation cp="👨‍🦲" type="tts">man: kaal</annotation>
+		<annotation cp="👨🏻‍🦲">man | lichte huidskleur | kaal</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">man: lichte huidskleur, kaal</annotation>
+		<annotation cp="👨🏼‍🦲">man | lichtgetinte huidskleur | kaal</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">man: lichtgetinte huidskleur, kaal</annotation>
+		<annotation cp="👨🏽‍🦲">man | getinte huidskleur | kaal</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">man: getinte huidskleur, kaal</annotation>
+		<annotation cp="👨🏾‍🦲">man | donkergetinte huidskleur | kaal</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">man: donkergetinte huidskleur, kaal</annotation>
+		<annotation cp="👨🏿‍🦲">man | donkere huidskleur | kaal</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">man: donkere huidskleur, kaal</annotation>
+		<annotation cp="👨‍🦳">man | wit haar</annotation>
+		<annotation cp="👨‍🦳" type="tts">man: wit haar</annotation>
+		<annotation cp="👨🏻‍🦳">man | lichte huidskleur | wit haar</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">man: lichte huidskleur, wit haar</annotation>
+		<annotation cp="👨🏼‍🦳">man | lichtgetinte huidskleur | wit haar</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">man: lichtgetinte huidskleur, wit haar</annotation>
+		<annotation cp="👨🏽‍🦳">man | getinte huidskleur | wit haar</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">man: getinte huidskleur, wit haar</annotation>
+		<annotation cp="👨🏾‍🦳">man | donkergetinte huidskleur | wit haar</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">man: donkergetinte huidskleur, wit haar</annotation>
+		<annotation cp="👨🏿‍🦳">man | donkere huidskleur | wit haar</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">man: donkere huidskleur, wit haar</annotation>
 		<annotation cp="👩🏻">vrouw | lichte huidskleur</annotation>
 		<annotation cp="👩🏻" type="tts">vrouw: lichte huidskleur</annotation>
 		<annotation cp="👩🏼">vrouw | lichtgetinte huidskleur</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">vrouw: donkergetinte huidskleur</annotation>
 		<annotation cp="👩🏿">vrouw | donkere huidskleur</annotation>
 		<annotation cp="👩🏿" type="tts">vrouw: donkere huidskleur</annotation>
+		<annotation cp="👩‍🦰">vrouw | rood haar</annotation>
+		<annotation cp="👩‍🦰" type="tts">vrouw: rood haar</annotation>
+		<annotation cp="👩🏻‍🦰">vrouw | lichte huidskleur | rood haar</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">vrouw: lichte huidskleur, rood haar</annotation>
+		<annotation cp="👩🏼‍🦰">vrouw | lichtgetinte huidskleur | rood haar</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">vrouw: lichtgetinte huidskleur, rood haar</annotation>
+		<annotation cp="👩🏽‍🦰">vrouw | getinte huidskleur | rood haar</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">vrouw: getinte huidskleur, rood haar</annotation>
+		<annotation cp="👩🏾‍🦰">vrouw | donkergetinte huidskleur | rood haar</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">vrouw: donkergetinte huidskleur, rood haar</annotation>
+		<annotation cp="👩🏿‍🦰">vrouw | donkere huidskleur | rood haar</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">vrouw: donkere huidskleur, rood haar</annotation>
+		<annotation cp="👩‍🦱">vrouw | krullend haar</annotation>
+		<annotation cp="👩‍🦱" type="tts">vrouw: krullend haar</annotation>
+		<annotation cp="👩🏻‍🦱">vrouw | lichte huidskleur | krullend haar</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">vrouw: lichte huidskleur, krullend haar</annotation>
+		<annotation cp="👩🏼‍🦱">vrouw | lichtgetinte huidskleur | krullend haar</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">vrouw: lichtgetinte huidskleur, krullend haar</annotation>
+		<annotation cp="👩🏽‍🦱">vrouw | getinte huidskleur | krullend haar</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">vrouw: getinte huidskleur, krullend haar</annotation>
+		<annotation cp="👩🏾‍🦱">vrouw | donkergetinte huidskleur | krullend haar</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">vrouw: donkergetinte huidskleur, krullend haar</annotation>
+		<annotation cp="👩🏿‍🦱">vrouw | donkere huidskleur | krullend haar</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">vrouw: donkere huidskleur, krullend haar</annotation>
+		<annotation cp="👩‍🦲">vrouw | kaal</annotation>
+		<annotation cp="👩‍🦲" type="tts">vrouw: kaal</annotation>
+		<annotation cp="👩🏻‍🦲">vrouw | lichte huidskleur | kaal</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">vrouw: lichte huidskleur, kaal</annotation>
+		<annotation cp="👩🏼‍🦲">vrouw | lichtgetinte huidskleur | kaal</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">vrouw: lichtgetinte huidskleur, kaal</annotation>
+		<annotation cp="👩🏽‍🦲">vrouw | getinte huidskleur | kaal</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">vrouw: getinte huidskleur, kaal</annotation>
+		<annotation cp="👩🏾‍🦲">vrouw | donkergetinte huidskleur | kaal</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">vrouw: donkergetinte huidskleur, kaal</annotation>
+		<annotation cp="👩🏿‍🦲">vrouw | donkere huidskleur | kaal</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">vrouw: donkere huidskleur, kaal</annotation>
+		<annotation cp="👩‍🦳">vrouw | wit haar</annotation>
+		<annotation cp="👩‍🦳" type="tts">vrouw: wit haar</annotation>
+		<annotation cp="👩🏻‍🦳">vrouw | lichte huidskleur | wit haar</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">vrouw: lichte huidskleur, wit haar</annotation>
+		<annotation cp="👩🏼‍🦳">vrouw | lichtgetinte huidskleur | wit haar</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">vrouw: lichtgetinte huidskleur, wit haar</annotation>
+		<annotation cp="👩🏽‍🦳">vrouw | getinte huidskleur | wit haar</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">vrouw: getinte huidskleur, wit haar</annotation>
+		<annotation cp="👩🏾‍🦳">vrouw | donkergetinte huidskleur | wit haar</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">vrouw: donkergetinte huidskleur, wit haar</annotation>
+		<annotation cp="👩🏿‍🦳">vrouw | donkere huidskleur | wit haar</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">vrouw: donkere huidskleur, wit haar</annotation>
 		<annotation cp="🧓🏻">genderneutraal | oud | oudere volwassene | lichte huidskleur</annotation>
 		<annotation cp="🧓🏻" type="tts">oudere volwassene: lichte huidskleur</annotation>
 		<annotation cp="🧓🏼">genderneutraal | oud | oudere volwassene | lichtgetinte huidskleur</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">toets</annotation>
 		<annotation cp="🔟" type="tts">toets: 10</annotation>
 		<annotation cp="🇦🇨">vlag</annotation>
-		<annotation cp="🇦🇨" type="tts">Ascension</annotation>
+		<annotation cp="🇦🇨" type="tts">vlag: Ascension</annotation>
 		<annotation cp="🇦🇩">vlag</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">vlag: Andorra</annotation>
 		<annotation cp="🇦🇪">vlag</annotation>
-		<annotation cp="🇦🇪" type="tts">Verenigde Arabische Emiraten</annotation>
+		<annotation cp="🇦🇪" type="tts">vlag: Verenigde Arabische Emiraten</annotation>
 		<annotation cp="🇦🇫">vlag</annotation>
-		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇫" type="tts">vlag: Afghanistan</annotation>
 		<annotation cp="🇦🇬">vlag</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua en Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">vlag: Antigua en Barbuda</annotation>
 		<annotation cp="🇦🇮">vlag</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">vlag: Anguilla</annotation>
 		<annotation cp="🇦🇱">vlag</annotation>
-		<annotation cp="🇦🇱" type="tts">Albanië</annotation>
+		<annotation cp="🇦🇱" type="tts">vlag: Albanië</annotation>
 		<annotation cp="🇦🇲">vlag</annotation>
-		<annotation cp="🇦🇲" type="tts">Armenië</annotation>
+		<annotation cp="🇦🇲" type="tts">vlag: Armenië</annotation>
 		<annotation cp="🇦🇴">vlag</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">vlag: Angola</annotation>
 		<annotation cp="🇦🇶">vlag</annotation>
-		<annotation cp="🇦🇶" type="tts">Antarctica</annotation>
+		<annotation cp="🇦🇶" type="tts">vlag: Antarctica</annotation>
 		<annotation cp="🇦🇷">vlag</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentinië</annotation>
+		<annotation cp="🇦🇷" type="tts">vlag: Argentinië</annotation>
 		<annotation cp="🇦🇸">vlag</annotation>
-		<annotation cp="🇦🇸" type="tts">Amerikaans-Samoa</annotation>
+		<annotation cp="🇦🇸" type="tts">vlag: Amerikaans-Samoa</annotation>
 		<annotation cp="🇦🇹">vlag</annotation>
-		<annotation cp="🇦🇹" type="tts">Oostenrijk</annotation>
+		<annotation cp="🇦🇹" type="tts">vlag: Oostenrijk</annotation>
 		<annotation cp="🇦🇺">vlag</annotation>
-		<annotation cp="🇦🇺" type="tts">Australië</annotation>
+		<annotation cp="🇦🇺" type="tts">vlag: Australië</annotation>
 		<annotation cp="🇦🇼">vlag</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">vlag: Aruba</annotation>
 		<annotation cp="🇦🇽">vlag</annotation>
-		<annotation cp="🇦🇽" type="tts">Åland</annotation>
+		<annotation cp="🇦🇽" type="tts">vlag: Åland</annotation>
 		<annotation cp="🇦🇿">vlag</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbeidzjan</annotation>
+		<annotation cp="🇦🇿" type="tts">vlag: Azerbeidzjan</annotation>
 		<annotation cp="🇧🇦">vlag</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnië en Herzegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">vlag: Bosnië en Herzegovina</annotation>
 		<annotation cp="🇧🇧">vlag</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">vlag: Barbados</annotation>
 		<annotation cp="🇧🇩">vlag</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">vlag: Bangladesh</annotation>
 		<annotation cp="🇧🇪">vlag</annotation>
-		<annotation cp="🇧🇪" type="tts">België</annotation>
+		<annotation cp="🇧🇪" type="tts">vlag: België</annotation>
 		<annotation cp="🇧🇫">vlag</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">vlag: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">vlag</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgarije</annotation>
+		<annotation cp="🇧🇬" type="tts">vlag: Bulgarije</annotation>
 		<annotation cp="🇧🇭">vlag</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrein</annotation>
+		<annotation cp="🇧🇭" type="tts">vlag: Bahrein</annotation>
 		<annotation cp="🇧🇮">vlag</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">vlag: Burundi</annotation>
 		<annotation cp="🇧🇯">vlag</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">vlag: Benin</annotation>
 		<annotation cp="🇧🇱">vlag</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">vlag: Saint-Barthélemy</annotation>
 		<annotation cp="🇧🇲">vlag</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">vlag: Bermuda</annotation>
 		<annotation cp="🇧🇳">vlag</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">vlag: Brunei</annotation>
 		<annotation cp="🇧🇴">vlag</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇴" type="tts">vlag: Bolivia</annotation>
 		<annotation cp="🇧🇶">vlag</annotation>
-		<annotation cp="🇧🇶" type="tts">Caribisch Nederland</annotation>
+		<annotation cp="🇧🇶" type="tts">vlag: Caribisch Nederland</annotation>
 		<annotation cp="🇧🇷">vlag</annotation>
-		<annotation cp="🇧🇷" type="tts">Brazilië</annotation>
+		<annotation cp="🇧🇷" type="tts">vlag: Brazilië</annotation>
 		<annotation cp="🇧🇸">vlag</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahama’s</annotation>
+		<annotation cp="🇧🇸" type="tts">vlag: Bahama’s</annotation>
 		<annotation cp="🇧🇹">vlag</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">vlag: Bhutan</annotation>
 		<annotation cp="🇧🇻">vlag</annotation>
-		<annotation cp="🇧🇻" type="tts">Bouveteiland</annotation>
+		<annotation cp="🇧🇻" type="tts">vlag: Bouveteiland</annotation>
 		<annotation cp="🇧🇼">vlag</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">vlag: Botswana</annotation>
 		<annotation cp="🇧🇾">vlag</annotation>
-		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
+		<annotation cp="🇧🇾" type="tts">vlag: Belarus</annotation>
 		<annotation cp="🇧🇿">vlag</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">vlag: Belize</annotation>
 		<annotation cp="🇨🇦">vlag</annotation>
-		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇦" type="tts">vlag: Canada</annotation>
 		<annotation cp="🇨🇨">vlag</annotation>
-		<annotation cp="🇨🇨" type="tts">Cocoseilanden</annotation>
+		<annotation cp="🇨🇨" type="tts">vlag: Cocoseilanden</annotation>
 		<annotation cp="🇨🇩">vlag</annotation>
-		<annotation cp="🇨🇩" type="tts">Congo-Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">vlag: Congo-Kinshasa</annotation>
 		<annotation cp="🇨🇫">vlag</annotation>
-		<annotation cp="🇨🇫" type="tts">Centraal-Afrikaanse Republiek</annotation>
+		<annotation cp="🇨🇫" type="tts">vlag: Centraal-Afrikaanse Republiek</annotation>
 		<annotation cp="🇨🇬">vlag</annotation>
-		<annotation cp="🇨🇬" type="tts">Congo-Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">vlag: Congo-Brazzaville</annotation>
 		<annotation cp="🇨🇭">vlag</annotation>
-		<annotation cp="🇨🇭" type="tts">Zwitserland</annotation>
+		<annotation cp="🇨🇭" type="tts">vlag: Zwitserland</annotation>
 		<annotation cp="🇨🇮">vlag</annotation>
-		<annotation cp="🇨🇮" type="tts">Ivoorkust</annotation>
+		<annotation cp="🇨🇮" type="tts">vlag: Ivoorkust</annotation>
 		<annotation cp="🇨🇰">vlag</annotation>
-		<annotation cp="🇨🇰" type="tts">Cookeilanden</annotation>
+		<annotation cp="🇨🇰" type="tts">vlag: Cookeilanden</annotation>
 		<annotation cp="🇨🇱">vlag</annotation>
-		<annotation cp="🇨🇱" type="tts">Chili</annotation>
+		<annotation cp="🇨🇱" type="tts">vlag: Chili</annotation>
 		<annotation cp="🇨🇲">vlag</annotation>
-		<annotation cp="🇨🇲" type="tts">Kameroen</annotation>
+		<annotation cp="🇨🇲" type="tts">vlag: Kameroen</annotation>
 		<annotation cp="🇨🇳">vlag</annotation>
-		<annotation cp="🇨🇳" type="tts">China</annotation>
+		<annotation cp="🇨🇳" type="tts">vlag: China</annotation>
 		<annotation cp="🇨🇴">vlag</annotation>
-		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇴" type="tts">vlag: Colombia</annotation>
 		<annotation cp="🇨🇵">vlag</annotation>
-		<annotation cp="🇨🇵" type="tts">Clipperton</annotation>
+		<annotation cp="🇨🇵" type="tts">vlag: Clipperton</annotation>
 		<annotation cp="🇨🇷">vlag</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">vlag: Costa Rica</annotation>
 		<annotation cp="🇨🇺">vlag</annotation>
-		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇺" type="tts">vlag: Cuba</annotation>
 		<annotation cp="🇨🇻">vlag</annotation>
-		<annotation cp="🇨🇻" type="tts">Kaapverdië</annotation>
+		<annotation cp="🇨🇻" type="tts">vlag: Kaapverdië</annotation>
 		<annotation cp="🇨🇼">vlag</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">vlag: Curaçao</annotation>
 		<annotation cp="🇨🇽">vlag</annotation>
-		<annotation cp="🇨🇽" type="tts">Christmaseiland</annotation>
+		<annotation cp="🇨🇽" type="tts">vlag: Christmaseiland</annotation>
 		<annotation cp="🇨🇾">vlag</annotation>
-		<annotation cp="🇨🇾" type="tts">Cyprus</annotation>
+		<annotation cp="🇨🇾" type="tts">vlag: Cyprus</annotation>
 		<annotation cp="🇨🇿">vlag</annotation>
-		<annotation cp="🇨🇿" type="tts">Tsjechië</annotation>
+		<annotation cp="🇨🇿" type="tts">vlag: Tsjechië</annotation>
 		<annotation cp="🇩🇪">vlag</annotation>
-		<annotation cp="🇩🇪" type="tts">Duitsland</annotation>
+		<annotation cp="🇩🇪" type="tts">vlag: Duitsland</annotation>
 		<annotation cp="🇩🇬">vlag</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">vlag: Diego Garcia</annotation>
 		<annotation cp="🇩🇯">vlag</annotation>
-		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇯" type="tts">vlag: Djibouti</annotation>
 		<annotation cp="🇩🇰">vlag</annotation>
-		<annotation cp="🇩🇰" type="tts">Denemarken</annotation>
+		<annotation cp="🇩🇰" type="tts">vlag: Denemarken</annotation>
 		<annotation cp="🇩🇲">vlag</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇲" type="tts">vlag: Dominica</annotation>
 		<annotation cp="🇩🇴">vlag</annotation>
-		<annotation cp="🇩🇴" type="tts">Dominicaanse Republiek</annotation>
+		<annotation cp="🇩🇴" type="tts">vlag: Dominicaanse Republiek</annotation>
 		<annotation cp="🇩🇿">vlag</annotation>
-		<annotation cp="🇩🇿" type="tts">Algerije</annotation>
+		<annotation cp="🇩🇿" type="tts">vlag: Algerije</annotation>
 		<annotation cp="🇪🇦">vlag</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta en Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">vlag: Ceuta en Melilla</annotation>
 		<annotation cp="🇪🇨">vlag</annotation>
-		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">vlag: Ecuador</annotation>
 		<annotation cp="🇪🇪">vlag</annotation>
-		<annotation cp="🇪🇪" type="tts">Estland</annotation>
+		<annotation cp="🇪🇪" type="tts">vlag: Estland</annotation>
 		<annotation cp="🇪🇬">vlag</annotation>
-		<annotation cp="🇪🇬" type="tts">Egypte</annotation>
+		<annotation cp="🇪🇬" type="tts">vlag: Egypte</annotation>
 		<annotation cp="🇪🇭">vlag</annotation>
-		<annotation cp="🇪🇭" type="tts">Westelijke Sahara</annotation>
+		<annotation cp="🇪🇭" type="tts">vlag: Westelijke Sahara</annotation>
 		<annotation cp="🇪🇷">vlag</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">vlag: Eritrea</annotation>
 		<annotation cp="🇪🇸">vlag</annotation>
-		<annotation cp="🇪🇸" type="tts">Spanje</annotation>
+		<annotation cp="🇪🇸" type="tts">vlag: Spanje</annotation>
 		<annotation cp="🇪🇹">vlag</annotation>
-		<annotation cp="🇪🇹" type="tts">Ethiopië</annotation>
+		<annotation cp="🇪🇹" type="tts">vlag: Ethiopië</annotation>
 		<annotation cp="🇪🇺">vlag</annotation>
-		<annotation cp="🇪🇺" type="tts">Europese Unie</annotation>
+		<annotation cp="🇪🇺" type="tts">vlag: Europese Unie</annotation>
 		<annotation cp="🇫🇮">vlag</annotation>
-		<annotation cp="🇫🇮" type="tts">Finland</annotation>
+		<annotation cp="🇫🇮" type="tts">vlag: Finland</annotation>
 		<annotation cp="🇫🇯">vlag</annotation>
-		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇯" type="tts">vlag: Fiji</annotation>
 		<annotation cp="🇫🇰">vlag</annotation>
-		<annotation cp="🇫🇰" type="tts">Falklandeilanden</annotation>
+		<annotation cp="🇫🇰" type="tts">vlag: Falklandeilanden</annotation>
 		<annotation cp="🇫🇲">vlag</annotation>
-		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">vlag: Micronesia</annotation>
 		<annotation cp="🇫🇴">vlag</annotation>
-		<annotation cp="🇫🇴" type="tts">Faeröer</annotation>
+		<annotation cp="🇫🇴" type="tts">vlag: Faeröer</annotation>
 		<annotation cp="🇫🇷">vlag</annotation>
-		<annotation cp="🇫🇷" type="tts">Frankrijk</annotation>
+		<annotation cp="🇫🇷" type="tts">vlag: Frankrijk</annotation>
 		<annotation cp="🇬🇦">vlag</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">vlag: Gabon</annotation>
 		<annotation cp="🇬🇧">vlag</annotation>
-		<annotation cp="🇬🇧" type="tts">Verenigd Koninkrijk</annotation>
+		<annotation cp="🇬🇧" type="tts">vlag: Verenigd Koninkrijk</annotation>
 		<annotation cp="🇬🇩">vlag</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">vlag: Grenada</annotation>
 		<annotation cp="🇬🇪">vlag</annotation>
-		<annotation cp="🇬🇪" type="tts">Georgië</annotation>
+		<annotation cp="🇬🇪" type="tts">vlag: Georgië</annotation>
 		<annotation cp="🇬🇫">vlag</annotation>
-		<annotation cp="🇬🇫" type="tts">Frans-Guyana</annotation>
+		<annotation cp="🇬🇫" type="tts">vlag: Frans-Guyana</annotation>
 		<annotation cp="🇬🇬">vlag</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">vlag: Guernsey</annotation>
 		<annotation cp="🇬🇭">vlag</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">vlag: Ghana</annotation>
 		<annotation cp="🇬🇮">vlag</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">vlag: Gibraltar</annotation>
 		<annotation cp="🇬🇱">vlag</annotation>
-		<annotation cp="🇬🇱" type="tts">Groenland</annotation>
+		<annotation cp="🇬🇱" type="tts">vlag: Groenland</annotation>
 		<annotation cp="🇬🇲">vlag</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">vlag: Gambia</annotation>
 		<annotation cp="🇬🇳">vlag</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinee</annotation>
+		<annotation cp="🇬🇳" type="tts">vlag: Guinee</annotation>
 		<annotation cp="🇬🇵">vlag</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">vlag: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">vlag</annotation>
-		<annotation cp="🇬🇶" type="tts">Equatoriaal-Guinea</annotation>
+		<annotation cp="🇬🇶" type="tts">vlag: Equatoriaal-Guinea</annotation>
 		<annotation cp="🇬🇷">vlag</annotation>
-		<annotation cp="🇬🇷" type="tts">Griekenland</annotation>
+		<annotation cp="🇬🇷" type="tts">vlag: Griekenland</annotation>
 		<annotation cp="🇬🇸">vlag</annotation>
-		<annotation cp="🇬🇸" type="tts">Zuid-Georgia en Zuidelijke Sandwicheilanden</annotation>
+		<annotation cp="🇬🇸" type="tts">vlag: Zuid-Georgia en Zuidelijke Sandwicheilanden</annotation>
 		<annotation cp="🇬🇹">vlag</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">vlag: Guatemala</annotation>
 		<annotation cp="🇬🇺">vlag</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">vlag: Guam</annotation>
 		<annotation cp="🇬🇼">vlag</annotation>
-		<annotation cp="🇬🇼" type="tts">Guinee-Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">vlag: Guinee-Bissau</annotation>
 		<annotation cp="🇬🇾">vlag</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">vlag: Guyana</annotation>
 		<annotation cp="🇭🇰">vlag</annotation>
-		<annotation cp="🇭🇰" type="tts">Hongkong SAR van China</annotation>
+		<annotation cp="🇭🇰" type="tts">vlag: Hongkong SAR van China</annotation>
 		<annotation cp="🇭🇲">vlag</annotation>
-		<annotation cp="🇭🇲" type="tts">Heard en McDonaldeilanden</annotation>
+		<annotation cp="🇭🇲" type="tts">vlag: Heard en McDonaldeilanden</annotation>
 		<annotation cp="🇭🇳">vlag</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">vlag: Honduras</annotation>
 		<annotation cp="🇭🇷">vlag</annotation>
-		<annotation cp="🇭🇷" type="tts">Kroatië</annotation>
+		<annotation cp="🇭🇷" type="tts">vlag: Kroatië</annotation>
 		<annotation cp="🇭🇹">vlag</annotation>
-		<annotation cp="🇭🇹" type="tts">Haïti</annotation>
+		<annotation cp="🇭🇹" type="tts">vlag: Haïti</annotation>
 		<annotation cp="🇭🇺">vlag</annotation>
-		<annotation cp="🇭🇺" type="tts">Hongarije</annotation>
+		<annotation cp="🇭🇺" type="tts">vlag: Hongarije</annotation>
 		<annotation cp="🇮🇨">vlag</annotation>
-		<annotation cp="🇮🇨" type="tts">Canarische Eilanden</annotation>
+		<annotation cp="🇮🇨" type="tts">vlag: Canarische Eilanden</annotation>
 		<annotation cp="🇮🇩">vlag</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonesië</annotation>
+		<annotation cp="🇮🇩" type="tts">vlag: Indonesië</annotation>
 		<annotation cp="🇮🇪">vlag</annotation>
-		<annotation cp="🇮🇪" type="tts">Ierland</annotation>
+		<annotation cp="🇮🇪" type="tts">vlag: Ierland</annotation>
 		<annotation cp="🇮🇱">vlag</annotation>
-		<annotation cp="🇮🇱" type="tts">Israël</annotation>
+		<annotation cp="🇮🇱" type="tts">vlag: Israël</annotation>
 		<annotation cp="🇮🇲">vlag</annotation>
-		<annotation cp="🇮🇲" type="tts">Isle of Man</annotation>
+		<annotation cp="🇮🇲" type="tts">vlag: Isle of Man</annotation>
 		<annotation cp="🇮🇳">vlag</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">vlag: India</annotation>
 		<annotation cp="🇮🇴">vlag</annotation>
-		<annotation cp="🇮🇴" type="tts">Brits Indische Oceaanterritorium</annotation>
+		<annotation cp="🇮🇴" type="tts">vlag: Brits Indische Oceaanterritorium</annotation>
 		<annotation cp="🇮🇶">vlag</annotation>
-		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇶" type="tts">vlag: Irak</annotation>
 		<annotation cp="🇮🇷">vlag</annotation>
-		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">vlag: Iran</annotation>
 		<annotation cp="🇮🇸">vlag</annotation>
-		<annotation cp="🇮🇸" type="tts">IJsland</annotation>
+		<annotation cp="🇮🇸" type="tts">vlag: IJsland</annotation>
 		<annotation cp="🇮🇹">vlag</annotation>
-		<annotation cp="🇮🇹" type="tts">Italië</annotation>
+		<annotation cp="🇮🇹" type="tts">vlag: Italië</annotation>
 		<annotation cp="🇯🇪">vlag</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">vlag: Jersey</annotation>
 		<annotation cp="🇯🇲">vlag</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">vlag: Jamaica</annotation>
 		<annotation cp="🇯🇴">vlag</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordanië</annotation>
+		<annotation cp="🇯🇴" type="tts">vlag: Jordanië</annotation>
 		<annotation cp="🇯🇵">vlag</annotation>
-		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇯🇵" type="tts">vlag: Japan</annotation>
 		<annotation cp="🇰🇪">vlag</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenia</annotation>
+		<annotation cp="🇰🇪" type="tts">vlag: Kenia</annotation>
 		<annotation cp="🇰🇬">vlag</annotation>
-		<annotation cp="🇰🇬" type="tts">Kirgizië</annotation>
+		<annotation cp="🇰🇬" type="tts">vlag: Kirgizië</annotation>
 		<annotation cp="🇰🇭">vlag</annotation>
-		<annotation cp="🇰🇭" type="tts">Cambodja</annotation>
+		<annotation cp="🇰🇭" type="tts">vlag: Cambodja</annotation>
 		<annotation cp="🇰🇮">vlag</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">vlag: Kiribati</annotation>
 		<annotation cp="🇰🇲">vlag</annotation>
-		<annotation cp="🇰🇲" type="tts">Comoren</annotation>
+		<annotation cp="🇰🇲" type="tts">vlag: Comoren</annotation>
 		<annotation cp="🇰🇳">vlag</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint Kitts en Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">vlag: Saint Kitts en Nevis</annotation>
 		<annotation cp="🇰🇵">vlag</annotation>
-		<annotation cp="🇰🇵" type="tts">Noord-Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">vlag: Noord-Korea</annotation>
 		<annotation cp="🇰🇷">vlag</annotation>
-		<annotation cp="🇰🇷" type="tts">Zuid-Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">vlag: Zuid-Korea</annotation>
 		<annotation cp="🇰🇼">vlag</annotation>
-		<annotation cp="🇰🇼" type="tts">Koeweit</annotation>
+		<annotation cp="🇰🇼" type="tts">vlag: Koeweit</annotation>
 		<annotation cp="🇰🇾">vlag</annotation>
-		<annotation cp="🇰🇾" type="tts">Kaaimaneilanden</annotation>
+		<annotation cp="🇰🇾" type="tts">vlag: Kaaimaneilanden</annotation>
 		<annotation cp="🇰🇿">vlag</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazachstan</annotation>
+		<annotation cp="🇰🇿" type="tts">vlag: Kazachstan</annotation>
 		<annotation cp="🇱🇦">vlag</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">vlag: Laos</annotation>
 		<annotation cp="🇱🇧">vlag</annotation>
-		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇧" type="tts">vlag: Libanon</annotation>
 		<annotation cp="🇱🇨">vlag</annotation>
-		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">vlag: Saint Lucia</annotation>
 		<annotation cp="🇱🇮">vlag</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">vlag: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">vlag</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">vlag: Sri Lanka</annotation>
 		<annotation cp="🇱🇷">vlag</annotation>
-		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇷" type="tts">vlag: Liberia</annotation>
 		<annotation cp="🇱🇸">vlag</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">vlag: Lesotho</annotation>
 		<annotation cp="🇱🇹">vlag</annotation>
-		<annotation cp="🇱🇹" type="tts">Litouwen</annotation>
+		<annotation cp="🇱🇹" type="tts">vlag: Litouwen</annotation>
 		<annotation cp="🇱🇺">vlag</annotation>
-		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇺" type="tts">vlag: Luxemburg</annotation>
 		<annotation cp="🇱🇻">vlag</annotation>
-		<annotation cp="🇱🇻" type="tts">Letland</annotation>
+		<annotation cp="🇱🇻" type="tts">vlag: Letland</annotation>
 		<annotation cp="🇱🇾">vlag</annotation>
-		<annotation cp="🇱🇾" type="tts">Libië</annotation>
+		<annotation cp="🇱🇾" type="tts">vlag: Libië</annotation>
 		<annotation cp="🇲🇦">vlag</annotation>
-		<annotation cp="🇲🇦" type="tts">Marokko</annotation>
+		<annotation cp="🇲🇦" type="tts">vlag: Marokko</annotation>
 		<annotation cp="🇲🇨">vlag</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">vlag: Monaco</annotation>
 		<annotation cp="🇲🇩">vlag</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldavië</annotation>
+		<annotation cp="🇲🇩" type="tts">vlag: Moldavië</annotation>
 		<annotation cp="🇲🇪">vlag</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">vlag: Montenegro</annotation>
 		<annotation cp="🇲🇫">vlag</annotation>
-		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">vlag: Saint-Martin</annotation>
 		<annotation cp="🇲🇬">vlag</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇬" type="tts">vlag: Madagaskar</annotation>
 		<annotation cp="🇲🇭">vlag</annotation>
-		<annotation cp="🇲🇭" type="tts">Marshalleilanden</annotation>
+		<annotation cp="🇲🇭" type="tts">vlag: Marshalleilanden</annotation>
 		<annotation cp="🇲🇰">vlag</annotation>
-		<annotation cp="🇲🇰" type="tts">Macedonië</annotation>
+		<annotation cp="🇲🇰" type="tts">vlag: Macedonië</annotation>
 		<annotation cp="🇲🇱">vlag</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">vlag: Mali</annotation>
 		<annotation cp="🇲🇲">vlag</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Birma)</annotation>
+		<annotation cp="🇲🇲" type="tts">vlag: Myanmar (Birma)</annotation>
 		<annotation cp="🇲🇳">vlag</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolië</annotation>
+		<annotation cp="🇲🇳" type="tts">vlag: Mongolië</annotation>
 		<annotation cp="🇲🇴">vlag</annotation>
-		<annotation cp="🇲🇴" type="tts">Macau SAR van China</annotation>
+		<annotation cp="🇲🇴" type="tts">vlag: Macau SAR van China</annotation>
 		<annotation cp="🇲🇵">vlag</annotation>
-		<annotation cp="🇲🇵" type="tts">Noordelijke Marianen</annotation>
+		<annotation cp="🇲🇵" type="tts">vlag: Noordelijke Marianen</annotation>
 		<annotation cp="🇲🇶">vlag</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇶" type="tts">vlag: Martinique</annotation>
 		<annotation cp="🇲🇷">vlag</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritanië</annotation>
+		<annotation cp="🇲🇷" type="tts">vlag: Mauritanië</annotation>
 		<annotation cp="🇲🇸">vlag</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">vlag: Montserrat</annotation>
 		<annotation cp="🇲🇹">vlag</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">vlag: Malta</annotation>
 		<annotation cp="🇲🇺">vlag</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">vlag: Mauritius</annotation>
 		<annotation cp="🇲🇻">vlag</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldiven</annotation>
+		<annotation cp="🇲🇻" type="tts">vlag: Maldiven</annotation>
 		<annotation cp="🇲🇼">vlag</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">vlag: Malawi</annotation>
 		<annotation cp="🇲🇽">vlag</annotation>
-		<annotation cp="🇲🇽" type="tts">Mexico</annotation>
+		<annotation cp="🇲🇽" type="tts">vlag: Mexico</annotation>
 		<annotation cp="🇲🇾">vlag</annotation>
-		<annotation cp="🇲🇾" type="tts">Maleisië</annotation>
+		<annotation cp="🇲🇾" type="tts">vlag: Maleisië</annotation>
 		<annotation cp="🇲🇿">vlag</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
+		<annotation cp="🇲🇿" type="tts">vlag: Mozambique</annotation>
 		<annotation cp="🇳🇦">vlag</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibië</annotation>
+		<annotation cp="🇳🇦" type="tts">vlag: Namibië</annotation>
 		<annotation cp="🇳🇨">vlag</annotation>
-		<annotation cp="🇳🇨" type="tts">Nieuw-Caledonië</annotation>
+		<annotation cp="🇳🇨" type="tts">vlag: Nieuw-Caledonië</annotation>
 		<annotation cp="🇳🇪">vlag</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">vlag: Niger</annotation>
 		<annotation cp="🇳🇫">vlag</annotation>
-		<annotation cp="🇳🇫" type="tts">Norfolk</annotation>
+		<annotation cp="🇳🇫" type="tts">vlag: Norfolk</annotation>
 		<annotation cp="🇳🇬">vlag</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇬" type="tts">vlag: Nigeria</annotation>
 		<annotation cp="🇳🇮">vlag</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">vlag: Nicaragua</annotation>
 		<annotation cp="🇳🇱">vlag</annotation>
-		<annotation cp="🇳🇱" type="tts">Nederland</annotation>
+		<annotation cp="🇳🇱" type="tts">vlag: Nederland</annotation>
 		<annotation cp="🇳🇴">vlag</annotation>
-		<annotation cp="🇳🇴" type="tts">Noorwegen</annotation>
+		<annotation cp="🇳🇴" type="tts">vlag: Noorwegen</annotation>
 		<annotation cp="🇳🇵">vlag</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">vlag: Nepal</annotation>
 		<annotation cp="🇳🇷">vlag</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">vlag: Nauru</annotation>
 		<annotation cp="🇳🇺">vlag</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">vlag: Niue</annotation>
 		<annotation cp="🇳🇿">vlag</annotation>
-		<annotation cp="🇳🇿" type="tts">Nieuw-Zeeland</annotation>
+		<annotation cp="🇳🇿" type="tts">vlag: Nieuw-Zeeland</annotation>
 		<annotation cp="🇴🇲">vlag</annotation>
-		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">vlag: Oman</annotation>
 		<annotation cp="🇵🇦">vlag</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">vlag: Panama</annotation>
 		<annotation cp="🇵🇪">vlag</annotation>
-		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇪" type="tts">vlag: Peru</annotation>
 		<annotation cp="🇵🇫">vlag</annotation>
-		<annotation cp="🇵🇫" type="tts">Frans-Polynesië</annotation>
+		<annotation cp="🇵🇫" type="tts">vlag: Frans-Polynesië</annotation>
 		<annotation cp="🇵🇬">vlag</annotation>
-		<annotation cp="🇵🇬" type="tts">Papoea-Nieuw-Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">vlag: Papoea-Nieuw-Guinea</annotation>
 		<annotation cp="🇵🇭">vlag</annotation>
-		<annotation cp="🇵🇭" type="tts">Filipijnen</annotation>
+		<annotation cp="🇵🇭" type="tts">vlag: Filipijnen</annotation>
 		<annotation cp="🇵🇰">vlag</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">vlag: Pakistan</annotation>
 		<annotation cp="🇵🇱">vlag</annotation>
-		<annotation cp="🇵🇱" type="tts">Polen</annotation>
+		<annotation cp="🇵🇱" type="tts">vlag: Polen</annotation>
 		<annotation cp="🇵🇲">vlag</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre en Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">vlag: Saint-Pierre en Miquelon</annotation>
 		<annotation cp="🇵🇳">vlag</annotation>
-		<annotation cp="🇵🇳" type="tts">Pitcairneilanden</annotation>
+		<annotation cp="🇵🇳" type="tts">vlag: Pitcairneilanden</annotation>
 		<annotation cp="🇵🇷">vlag</annotation>
-		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">vlag: Puerto Rico</annotation>
 		<annotation cp="🇵🇸">vlag</annotation>
-		<annotation cp="🇵🇸" type="tts">Palestijnse gebieden</annotation>
+		<annotation cp="🇵🇸" type="tts">vlag: Palestijnse gebieden</annotation>
 		<annotation cp="🇵🇹">vlag</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇹" type="tts">vlag: Portugal</annotation>
 		<annotation cp="🇵🇼">vlag</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">vlag: Palau</annotation>
 		<annotation cp="🇵🇾">vlag</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">vlag: Paraguay</annotation>
 		<annotation cp="🇶🇦">vlag</annotation>
-		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇶🇦" type="tts">vlag: Qatar</annotation>
 		<annotation cp="🇷🇪">vlag</annotation>
-		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇪" type="tts">vlag: Réunion</annotation>
 		<annotation cp="🇷🇴">vlag</annotation>
-		<annotation cp="🇷🇴" type="tts">Roemenië</annotation>
+		<annotation cp="🇷🇴" type="tts">vlag: Roemenië</annotation>
 		<annotation cp="🇷🇸">vlag</annotation>
-		<annotation cp="🇷🇸" type="tts">Servië</annotation>
+		<annotation cp="🇷🇸" type="tts">vlag: Servië</annotation>
 		<annotation cp="🇷🇺">vlag</annotation>
-		<annotation cp="🇷🇺" type="tts">Rusland</annotation>
+		<annotation cp="🇷🇺" type="tts">vlag: Rusland</annotation>
 		<annotation cp="🇷🇼">vlag</annotation>
-		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇷🇼" type="tts">vlag: Rwanda</annotation>
 		<annotation cp="🇸🇦">vlag</annotation>
-		<annotation cp="🇸🇦" type="tts">Saoedi-Arabië</annotation>
+		<annotation cp="🇸🇦" type="tts">vlag: Saoedi-Arabië</annotation>
 		<annotation cp="🇸🇧">vlag</annotation>
-		<annotation cp="🇸🇧" type="tts">Salomonseilanden</annotation>
+		<annotation cp="🇸🇧" type="tts">vlag: Salomonseilanden</annotation>
 		<annotation cp="🇸🇨">vlag</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychellen</annotation>
+		<annotation cp="🇸🇨" type="tts">vlag: Seychellen</annotation>
 		<annotation cp="🇸🇩">vlag</annotation>
-		<annotation cp="🇸🇩" type="tts">Soedan</annotation>
+		<annotation cp="🇸🇩" type="tts">vlag: Soedan</annotation>
 		<annotation cp="🇸🇪">vlag</annotation>
-		<annotation cp="🇸🇪" type="tts">Zweden</annotation>
+		<annotation cp="🇸🇪" type="tts">vlag: Zweden</annotation>
 		<annotation cp="🇸🇬">vlag</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇬" type="tts">vlag: Singapore</annotation>
 		<annotation cp="🇸🇭">vlag</annotation>
-		<annotation cp="🇸🇭" type="tts">Sint-Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">vlag: Sint-Helena</annotation>
 		<annotation cp="🇸🇮">vlag</annotation>
-		<annotation cp="🇸🇮" type="tts">Slovenië</annotation>
+		<annotation cp="🇸🇮" type="tts">vlag: Slovenië</annotation>
 		<annotation cp="🇸🇯">vlag</annotation>
-		<annotation cp="🇸🇯" type="tts">Spitsbergen en Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">vlag: Spitsbergen en Jan Mayen</annotation>
 		<annotation cp="🇸🇰">vlag</annotation>
-		<annotation cp="🇸🇰" type="tts">Slowakije</annotation>
+		<annotation cp="🇸🇰" type="tts">vlag: Slowakije</annotation>
 		<annotation cp="🇸🇱">vlag</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">vlag: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">vlag</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">vlag: San Marino</annotation>
 		<annotation cp="🇸🇳">vlag</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">vlag: Senegal</annotation>
 		<annotation cp="🇸🇴">vlag</annotation>
-		<annotation cp="🇸🇴" type="tts">Somalië</annotation>
+		<annotation cp="🇸🇴" type="tts">vlag: Somalië</annotation>
 		<annotation cp="🇸🇷">vlag</annotation>
-		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇷" type="tts">vlag: Suriname</annotation>
 		<annotation cp="🇸🇸">vlag</annotation>
-		<annotation cp="🇸🇸" type="tts">Zuid-Soedan</annotation>
+		<annotation cp="🇸🇸" type="tts">vlag: Zuid-Soedan</annotation>
 		<annotation cp="🇸🇹">vlag</annotation>
-		<annotation cp="🇸🇹" type="tts">Sao Tomé en Principe</annotation>
+		<annotation cp="🇸🇹" type="tts">vlag: Sao Tomé en Principe</annotation>
 		<annotation cp="🇸🇻">vlag</annotation>
-		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">vlag: El Salvador</annotation>
 		<annotation cp="🇸🇽">vlag</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint-Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">vlag: Sint-Maarten</annotation>
 		<annotation cp="🇸🇾">vlag</annotation>
-		<annotation cp="🇸🇾" type="tts">Syrië</annotation>
+		<annotation cp="🇸🇾" type="tts">vlag: Syrië</annotation>
 		<annotation cp="🇸🇿">vlag</annotation>
-		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇸🇿" type="tts">vlag: Swaziland</annotation>
 		<annotation cp="🇹🇦">vlag</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">vlag: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">vlag</annotation>
-		<annotation cp="🇹🇨" type="tts">Turks- en Caicoseilanden</annotation>
+		<annotation cp="🇹🇨" type="tts">vlag: Turks- en Caicoseilanden</annotation>
 		<annotation cp="🇹🇩">vlag</annotation>
-		<annotation cp="🇹🇩" type="tts">Tsjaad</annotation>
+		<annotation cp="🇹🇩" type="tts">vlag: Tsjaad</annotation>
 		<annotation cp="🇹🇫">vlag</annotation>
-		<annotation cp="🇹🇫" type="tts">Franse Gebieden in de zuidelijke Indische Oceaan</annotation>
+		<annotation cp="🇹🇫" type="tts">vlag: Franse Gebieden in de zuidelijke Indische Oceaan</annotation>
 		<annotation cp="🇹🇬">vlag</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">vlag: Togo</annotation>
 		<annotation cp="🇹🇭">vlag</annotation>
-		<annotation cp="🇹🇭" type="tts">Thailand</annotation>
+		<annotation cp="🇹🇭" type="tts">vlag: Thailand</annotation>
 		<annotation cp="🇹🇯">vlag</annotation>
-		<annotation cp="🇹🇯" type="tts">Tadzjikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">vlag: Tadzjikistan</annotation>
 		<annotation cp="🇹🇰">vlag</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">vlag: Tokelau</annotation>
 		<annotation cp="🇹🇱">vlag</annotation>
-		<annotation cp="🇹🇱" type="tts">Oost-Timor</annotation>
+		<annotation cp="🇹🇱" type="tts">vlag: Oost-Timor</annotation>
 		<annotation cp="🇹🇲">vlag</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">vlag: Turkmenistan</annotation>
 		<annotation cp="🇹🇳">vlag</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunesië</annotation>
+		<annotation cp="🇹🇳" type="tts">vlag: Tunesië</annotation>
 		<annotation cp="🇹🇴">vlag</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">vlag: Tonga</annotation>
 		<annotation cp="🇹🇷">vlag</annotation>
-		<annotation cp="🇹🇷" type="tts">Turkije</annotation>
+		<annotation cp="🇹🇷" type="tts">vlag: Turkije</annotation>
 		<annotation cp="🇹🇹">vlag</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad en Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">vlag: Trinidad en Tobago</annotation>
 		<annotation cp="🇹🇻">vlag</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">vlag: Tuvalu</annotation>
 		<annotation cp="🇹🇼">vlag</annotation>
-		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">vlag: Taiwan</annotation>
 		<annotation cp="🇹🇿">vlag</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇹🇿" type="tts">vlag: Tanzania</annotation>
 		<annotation cp="🇺🇦">vlag</annotation>
-		<annotation cp="🇺🇦" type="tts">Oekraïne</annotation>
+		<annotation cp="🇺🇦" type="tts">vlag: Oekraïne</annotation>
 		<annotation cp="🇺🇬">vlag</annotation>
-		<annotation cp="🇺🇬" type="tts">Oeganda</annotation>
+		<annotation cp="🇺🇬" type="tts">vlag: Oeganda</annotation>
 		<annotation cp="🇺🇲">vlag</annotation>
-		<annotation cp="🇺🇲" type="tts">Kleine afgelegen eilanden van de Verenigde Staten</annotation>
+		<annotation cp="🇺🇲" type="tts">vlag: Kleine afgelegen eilanden van de Verenigde Staten</annotation>
 		<annotation cp="🇺🇳">vlag</annotation>
-		<annotation cp="🇺🇳" type="tts">Verenigde Naties</annotation>
+		<annotation cp="🇺🇳" type="tts">vlag: Verenigde Naties</annotation>
 		<annotation cp="🇺🇸">vlag</annotation>
-		<annotation cp="🇺🇸" type="tts">Verenigde Staten</annotation>
+		<annotation cp="🇺🇸" type="tts">vlag: Verenigde Staten</annotation>
 		<annotation cp="🇺🇾">vlag</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">vlag: Uruguay</annotation>
 		<annotation cp="🇺🇿">vlag</annotation>
-		<annotation cp="🇺🇿" type="tts">Oezbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">vlag: Oezbekistan</annotation>
 		<annotation cp="🇻🇦">vlag</annotation>
-		<annotation cp="🇻🇦" type="tts">Vaticaanstad</annotation>
+		<annotation cp="🇻🇦" type="tts">vlag: Vaticaanstad</annotation>
 		<annotation cp="🇻🇨">vlag</annotation>
-		<annotation cp="🇻🇨" type="tts">Saint Vincent en de Grenadines</annotation>
+		<annotation cp="🇻🇨" type="tts">vlag: Saint Vincent en de Grenadines</annotation>
 		<annotation cp="🇻🇪">vlag</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">vlag: Venezuela</annotation>
 		<annotation cp="🇻🇬">vlag</annotation>
-		<annotation cp="🇻🇬" type="tts">Britse Maagdeneilanden</annotation>
+		<annotation cp="🇻🇬" type="tts">vlag: Britse Maagdeneilanden</annotation>
 		<annotation cp="🇻🇮">vlag</annotation>
-		<annotation cp="🇻🇮" type="tts">Amerikaanse Maagdeneilanden</annotation>
+		<annotation cp="🇻🇮" type="tts">vlag: Amerikaanse Maagdeneilanden</annotation>
 		<annotation cp="🇻🇳">vlag</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">vlag: Vietnam</annotation>
 		<annotation cp="🇻🇺">vlag</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">vlag: Vanuatu</annotation>
 		<annotation cp="🇼🇫">vlag</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis en Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">vlag: Wallis en Futuna</annotation>
 		<annotation cp="🇼🇸">vlag</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">vlag: Samoa</annotation>
 		<annotation cp="🇽🇰">vlag</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">vlag: Kosovo</annotation>
 		<annotation cp="🇾🇪">vlag</annotation>
-		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇪" type="tts">vlag: Jemen</annotation>
 		<annotation cp="🇾🇹">vlag</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">vlag: Mayotte</annotation>
 		<annotation cp="🇿🇦">vlag</annotation>
-		<annotation cp="🇿🇦" type="tts">Zuid-Afrika</annotation>
+		<annotation cp="🇿🇦" type="tts">vlag: Zuid-Afrika</annotation>
 		<annotation cp="🇿🇲">vlag</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">vlag: Zambia</annotation>
 		<annotation cp="🇿🇼">vlag</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">vlag: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">vlag</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Engeland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">vlag: Engeland</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">vlag</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Schotland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">vlag: Schotland</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">vlag</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">vlag: Wales</annotation>
 		<annotation cp="0⃣">toets</annotation>
 		<annotation cp="0⃣" type="tts">toets: 0</annotation>
 		<annotation cp="1⃣">toets</annotation>

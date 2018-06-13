@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="cy"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">cicio | coes | arlliw croen golau</annotation>
+		<annotation cp="🦵🏻" type="tts">coes: arlliw croen golau</annotation>
+		<annotation cp="🦵🏼">cicio | coes | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦵🏼" type="tts">coes: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦵🏽">cicio | coes | arlliw croen canolog</annotation>
+		<annotation cp="🦵🏽" type="tts">coes: arlliw croen canolog</annotation>
+		<annotation cp="🦵🏾">cicio | coes | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦵🏾" type="tts">coes: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦵🏿">cicio | coes | arlliw croen tywyll</annotation>
+		<annotation cp="🦵🏿" type="tts">coes: arlliw croen tywyll</annotation>
+		<annotation cp="🦶🏻">cic | stomp | troed | arlliw croen golau</annotation>
+		<annotation cp="🦶🏻" type="tts">troed: arlliw croen golau</annotation>
+		<annotation cp="🦶🏼">cic | stomp | troed | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦶🏼" type="tts">troed: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦶🏽">cic | stomp | troed | arlliw croen canolog</annotation>
+		<annotation cp="🦶🏽" type="tts">troed: arlliw croen canolog</annotation>
+		<annotation cp="🦶🏾">cic | stomp | troed | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦶🏾" type="tts">troed: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦶🏿">cic | stomp | troed | arlliw croen tywyll</annotation>
+		<annotation cp="🦶🏿" type="tts">troed: arlliw croen tywyll</annotation>
+		<annotation cp="🦸🏻">archarwr | archbŵer | arwr | arwres | da | arlliw croen golau</annotation>
+		<annotation cp="🦸🏻" type="tts">archarwr: arlliw croen golau</annotation>
+		<annotation cp="🦸🏼">archarwr | archbŵer | arwr | arwres | da | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦸🏼" type="tts">archarwr: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦸🏽">archarwr | archbŵer | arwr | arwres | da | arlliw croen canolog</annotation>
+		<annotation cp="🦸🏽" type="tts">archarwr: arlliw croen canolog</annotation>
+		<annotation cp="🦸🏾">archarwr | archbŵer | arwr | arwres | da | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦸🏾" type="tts">archarwr: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦸🏿">archarwr | archbŵer | arwr | arwres | da | arlliw croen tywyll</annotation>
+		<annotation cp="🦸🏿" type="tts">archarwr: arlliw croen tywyll</annotation>
+		<annotation cp="🦸🏻‍♀">archarwr benywaidd | archbŵer | arwr | arwres | da | menyw | arlliw croen golau</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">archarwr benywaidd: arlliw croen golau</annotation>
+		<annotation cp="🦸🏼‍♀">archarwr benywaidd | archbŵer | arwr | arwres | da | menyw | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">archarwr benywaidd: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦸🏽‍♀">archarwr benywaidd | archbŵer | arwr | arwres | da | menyw | arlliw croen canolog</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">archarwr benywaidd: arlliw croen canolog</annotation>
+		<annotation cp="🦸🏾‍♀">archarwr benywaidd | archbŵer | arwr | arwres | da | menyw | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">archarwr benywaidd: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦸🏿‍♀">archarwr benywaidd | archbŵer | arwr | arwres | da | menyw | arlliw croen tywyll</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">archarwr benywaidd: arlliw croen tywyll</annotation>
+		<annotation cp="🦸🏻‍♂">archarwr gwrywaidd | archbŵer | arwr | da | dyn | arlliw croen golau</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">archarwr gwrywaidd: arlliw croen golau</annotation>
+		<annotation cp="🦸🏼‍♂">archarwr gwrywaidd | archbŵer | arwr | da | dyn | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">archarwr gwrywaidd: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦸🏽‍♂">archarwr gwrywaidd | archbŵer | arwr | da | dyn | arlliw croen canolog</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">archarwr gwrywaidd: arlliw croen canolog</annotation>
+		<annotation cp="🦸🏾‍♂">archarwr gwrywaidd | archbŵer | arwr | da | dyn | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">archarwr gwrywaidd: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦸🏿‍♂">archarwr gwrywaidd | archbŵer | arwr | da | dyn | arlliw croen tywyll</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">archarwr gwrywaidd: arlliw croen tywyll</annotation>
+		<annotation cp="🦹🏻">archbŵer | archleidr | drwg | dyn drwg | troseddwr | arlliw croen golau</annotation>
+		<annotation cp="🦹🏻" type="tts">archleidr: arlliw croen golau</annotation>
+		<annotation cp="🦹🏼">archbŵer | archleidr | drwg | dyn drwg | troseddwr | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦹🏼" type="tts">archleidr: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦹🏽">archbŵer | archleidr | drwg | dyn drwg | troseddwr | arlliw croen canolog</annotation>
+		<annotation cp="🦹🏽" type="tts">archleidr: arlliw croen canolog</annotation>
+		<annotation cp="🦹🏾">archbŵer | archleidr | drwg | dyn drwg | troseddwr | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦹🏾" type="tts">archleidr: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦹🏿">archbŵer | archleidr | drwg | dyn drwg | troseddwr | arlliw croen tywyll</annotation>
+		<annotation cp="🦹🏿" type="tts">archleidr: arlliw croen tywyll</annotation>
+		<annotation cp="🦹🏻‍♀">archbŵer | archleidr benywaidd | drwg | dyn drwg | menyw | troseddwr | arlliw croen golau</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">archleidr benywaidd: arlliw croen golau</annotation>
+		<annotation cp="🦹🏼‍♀">archbŵer | archleidr benywaidd | drwg | dyn drwg | menyw | troseddwr | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">archleidr benywaidd: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦹🏽‍♀">archbŵer | archleidr benywaidd | drwg | dyn drwg | menyw | troseddwr | arlliw croen canolog</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">archleidr benywaidd: arlliw croen canolog</annotation>
+		<annotation cp="🦹🏾‍♀">archbŵer | archleidr benywaidd | drwg | dyn drwg | menyw | troseddwr | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">archleidr benywaidd: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦹🏿‍♀">archbŵer | archleidr benywaidd | drwg | dyn drwg | menyw | troseddwr | arlliw croen tywyll</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">archleidr benywaidd: arlliw croen tywyll</annotation>
+		<annotation cp="🦹🏻‍♂">archbŵer | archleidr gwrywaidd | drwg | dyn | troseddwr | arlliw croen golau</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">archleidr gwrywaidd: arlliw croen golau</annotation>
+		<annotation cp="🦹🏼‍♂">archbŵer | archleidr gwrywaidd | drwg | dyn | troseddwr | arlliw croen canolig-golau</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">archleidr gwrywaidd: arlliw croen canolig-golau</annotation>
+		<annotation cp="🦹🏽‍♂">archbŵer | archleidr gwrywaidd | drwg | dyn | troseddwr | arlliw croen canolog</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">archleidr gwrywaidd: arlliw croen canolog</annotation>
+		<annotation cp="🦹🏾‍♂">archbŵer | archleidr gwrywaidd | drwg | dyn | troseddwr | arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">archleidr gwrywaidd: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🦹🏿‍♂">archbŵer | archleidr gwrywaidd | drwg | dyn | troseddwr | arlliw croen tywyll</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">archleidr gwrywaidd: arlliw croen tywyll</annotation>
 		<annotation cp="👶🏻">babi | arlliw croen golau</annotation>
 		<annotation cp="👶🏻" type="tts">babi: arlliw croen golau</annotation>
 		<annotation cp="👶🏼">babi | arlliw croen canolig-golau</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">dyn: arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👨🏿">dyn | gwrywaidd | arlliw croen tywyll</annotation>
 		<annotation cp="👨🏿" type="tts">dyn: arlliw croen tywyll</annotation>
+		<annotation cp="👨‍🦰">dyn | gwrywaidd | gwallt coch</annotation>
+		<annotation cp="👨‍🦰" type="tts">dyn: gwallt coch</annotation>
+		<annotation cp="👨🏻‍🦰">dyn | gwrywaidd | arlliw croen golau | gwallt coch</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">dyn: arlliw croen golau, gwallt coch</annotation>
+		<annotation cp="👨🏼‍🦰">dyn | gwrywaidd | arlliw croen canolig-golau | gwallt coch</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">dyn: arlliw croen canolig-golau, gwallt coch</annotation>
+		<annotation cp="👨🏽‍🦰">dyn | gwrywaidd | arlliw croen canolog | gwallt coch</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">dyn: arlliw croen canolog, gwallt coch</annotation>
+		<annotation cp="👨🏾‍🦰">dyn | gwrywaidd | arlliw croen canolig-tywyll | gwallt coch</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">dyn: arlliw croen canolig-tywyll, gwallt coch</annotation>
+		<annotation cp="👨🏿‍🦰">dyn | gwrywaidd | arlliw croen tywyll | gwallt coch</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">dyn: arlliw croen tywyll, gwallt coch</annotation>
+		<annotation cp="👨‍🦱">dyn | gwrywaidd | gwallt cyrliog</annotation>
+		<annotation cp="👨‍🦱" type="tts">dyn: gwallt cyrliog</annotation>
+		<annotation cp="👨🏻‍🦱">dyn | gwrywaidd | arlliw croen golau | gwallt cyrliog</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">dyn: arlliw croen golau, gwallt cyrliog</annotation>
+		<annotation cp="👨🏼‍🦱">dyn | gwrywaidd | arlliw croen canolig-golau | gwallt cyrliog</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">dyn: arlliw croen canolig-golau, gwallt cyrliog</annotation>
+		<annotation cp="👨🏽‍🦱">dyn | gwrywaidd | arlliw croen canolog | gwallt cyrliog</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">dyn: arlliw croen canolog, gwallt cyrliog</annotation>
+		<annotation cp="👨🏾‍🦱">dyn | gwrywaidd | arlliw croen canolig-tywyll | gwallt cyrliog</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">dyn: arlliw croen canolig-tywyll, gwallt cyrliog</annotation>
+		<annotation cp="👨🏿‍🦱">dyn | gwrywaidd | arlliw croen tywyll | gwallt cyrliog</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">dyn: arlliw croen tywyll, gwallt cyrliog</annotation>
+		<annotation cp="👨‍🦲">dyn | gwrywaidd | moel</annotation>
+		<annotation cp="👨‍🦲" type="tts">dyn: moel</annotation>
+		<annotation cp="👨🏻‍🦲">dyn | gwrywaidd | arlliw croen golau | moel</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">dyn: arlliw croen golau, moel</annotation>
+		<annotation cp="👨🏼‍🦲">dyn | gwrywaidd | arlliw croen canolig-golau | moel</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">dyn: arlliw croen canolig-golau, moel</annotation>
+		<annotation cp="👨🏽‍🦲">dyn | gwrywaidd | arlliw croen canolog | moel</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">dyn: arlliw croen canolog, moel</annotation>
+		<annotation cp="👨🏾‍🦲">dyn | gwrywaidd | arlliw croen canolig-tywyll | moel</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">dyn: arlliw croen canolig-tywyll, moel</annotation>
+		<annotation cp="👨🏿‍🦲">dyn | gwrywaidd | arlliw croen tywyll | moel</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">dyn: arlliw croen tywyll, moel</annotation>
+		<annotation cp="👨‍🦳">dyn | gwrywaidd | gwallt gwyn</annotation>
+		<annotation cp="👨‍🦳" type="tts">dyn: gwallt gwyn</annotation>
+		<annotation cp="👨🏻‍🦳">dyn | gwrywaidd | arlliw croen golau | gwallt gwyn</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">dyn: arlliw croen golau, gwallt gwyn</annotation>
+		<annotation cp="👨🏼‍🦳">dyn | gwrywaidd | arlliw croen canolig-golau | gwallt gwyn</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">dyn: arlliw croen canolig-golau, gwallt gwyn</annotation>
+		<annotation cp="👨🏽‍🦳">dyn | gwrywaidd | arlliw croen canolog | gwallt gwyn</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">dyn: arlliw croen canolog, gwallt gwyn</annotation>
+		<annotation cp="👨🏾‍🦳">dyn | gwrywaidd | arlliw croen canolig-tywyll | gwallt gwyn</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">dyn: arlliw croen canolig-tywyll, gwallt gwyn</annotation>
+		<annotation cp="👨🏿‍🦳">dyn | gwrywaidd | arlliw croen tywyll | gwallt gwyn</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">dyn: arlliw croen tywyll, gwallt gwyn</annotation>
 		<annotation cp="👩🏻">benywaidd | menyw | arlliw croen golau</annotation>
 		<annotation cp="👩🏻" type="tts">menyw: arlliw croen golau</annotation>
 		<annotation cp="👩🏼">benywaidd | menyw | arlliw croen canolig-golau</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">menyw: arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👩🏿">benywaidd | menyw | arlliw croen tywyll</annotation>
 		<annotation cp="👩🏿" type="tts">menyw: arlliw croen tywyll</annotation>
+		<annotation cp="👩‍🦰">benywaidd | menyw | gwallt coch</annotation>
+		<annotation cp="👩‍🦰" type="tts">menyw: gwallt coch</annotation>
+		<annotation cp="👩🏻‍🦰">benywaidd | menyw | arlliw croen golau | gwallt coch</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">menyw: arlliw croen golau, gwallt coch</annotation>
+		<annotation cp="👩🏼‍🦰">benywaidd | menyw | arlliw croen canolig-golau | gwallt coch</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">menyw: arlliw croen canolig-golau, gwallt coch</annotation>
+		<annotation cp="👩🏽‍🦰">benywaidd | menyw | arlliw croen canolog | gwallt coch</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">menyw: arlliw croen canolog, gwallt coch</annotation>
+		<annotation cp="👩🏾‍🦰">benywaidd | menyw | arlliw croen canolig-tywyll | gwallt coch</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">menyw: arlliw croen canolig-tywyll, gwallt coch</annotation>
+		<annotation cp="👩🏿‍🦰">benywaidd | menyw | arlliw croen tywyll | gwallt coch</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">menyw: arlliw croen tywyll, gwallt coch</annotation>
+		<annotation cp="👩‍🦱">benywaidd | menyw | gwallt cyrliog</annotation>
+		<annotation cp="👩‍🦱" type="tts">menyw: gwallt cyrliog</annotation>
+		<annotation cp="👩🏻‍🦱">benywaidd | menyw | arlliw croen golau | gwallt cyrliog</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">menyw: arlliw croen golau, gwallt cyrliog</annotation>
+		<annotation cp="👩🏼‍🦱">benywaidd | menyw | arlliw croen canolig-golau | gwallt cyrliog</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">menyw: arlliw croen canolig-golau, gwallt cyrliog</annotation>
+		<annotation cp="👩🏽‍🦱">benywaidd | menyw | arlliw croen canolog | gwallt cyrliog</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">menyw: arlliw croen canolog, gwallt cyrliog</annotation>
+		<annotation cp="👩🏾‍🦱">benywaidd | menyw | arlliw croen canolig-tywyll | gwallt cyrliog</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">menyw: arlliw croen canolig-tywyll, gwallt cyrliog</annotation>
+		<annotation cp="👩🏿‍🦱">benywaidd | menyw | arlliw croen tywyll | gwallt cyrliog</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">menyw: arlliw croen tywyll, gwallt cyrliog</annotation>
+		<annotation cp="👩‍🦲">benywaidd | menyw | moel</annotation>
+		<annotation cp="👩‍🦲" type="tts">menyw: moel</annotation>
+		<annotation cp="👩🏻‍🦲">benywaidd | menyw | arlliw croen golau | moel</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">menyw: arlliw croen golau, moel</annotation>
+		<annotation cp="👩🏼‍🦲">benywaidd | menyw | arlliw croen canolig-golau | moel</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">menyw: arlliw croen canolig-golau, moel</annotation>
+		<annotation cp="👩🏽‍🦲">benywaidd | menyw | arlliw croen canolog | moel</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">menyw: arlliw croen canolog, moel</annotation>
+		<annotation cp="👩🏾‍🦲">benywaidd | menyw | arlliw croen canolig-tywyll | moel</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">menyw: arlliw croen canolig-tywyll, moel</annotation>
+		<annotation cp="👩🏿‍🦲">benywaidd | menyw | arlliw croen tywyll | moel</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">menyw: arlliw croen tywyll, moel</annotation>
+		<annotation cp="👩‍🦳">benywaidd | menyw | gwallt gwyn</annotation>
+		<annotation cp="👩‍🦳" type="tts">menyw: gwallt gwyn</annotation>
+		<annotation cp="👩🏻‍🦳">benywaidd | menyw | arlliw croen golau | gwallt gwyn</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">menyw: arlliw croen golau, gwallt gwyn</annotation>
+		<annotation cp="👩🏼‍🦳">benywaidd | menyw | arlliw croen canolig-golau | gwallt gwyn</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">menyw: arlliw croen canolig-golau, gwallt gwyn</annotation>
+		<annotation cp="👩🏽‍🦳">benywaidd | menyw | arlliw croen canolog | gwallt gwyn</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">menyw: arlliw croen canolog, gwallt gwyn</annotation>
+		<annotation cp="👩🏾‍🦳">benywaidd | menyw | arlliw croen canolig-tywyll | gwallt gwyn</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">menyw: arlliw croen canolig-tywyll, gwallt gwyn</annotation>
+		<annotation cp="👩🏿‍🦳">benywaidd | menyw | arlliw croen tywyll | gwallt gwyn</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">menyw: arlliw croen tywyll, gwallt gwyn</annotation>
 		<annotation cp="🧓🏻">hen | niwtral o ran rhyw | oedolyn oedranus | arlliw croen golau</annotation>
 		<annotation cp="🧓🏻" type="tts">oedolyn oedranus: arlliw croen golau</annotation>
 		<annotation cp="🧓🏼">hen | niwtral o ran rhyw | oedolyn oedranus | arlliw croen canolig-golau</annotation>
@@ -2202,521 +2377,521 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">gorchudd bysell</annotation>
 		<annotation cp="🔟" type="tts">gorchudd bysell: 10</annotation>
 		<annotation cp="🇦🇨">baner</annotation>
-		<annotation cp="🇦🇨" type="tts">Ynys Ascension</annotation>
+		<annotation cp="🇦🇨" type="tts">baner: Ynys Ascension</annotation>
 		<annotation cp="🇦🇩">baner</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">baner: Andorra</annotation>
 		<annotation cp="🇦🇪">baner</annotation>
-		<annotation cp="🇦🇪" type="tts">Emiradau Arabaidd Unedig</annotation>
+		<annotation cp="🇦🇪" type="tts">baner: Emiradau Arabaidd Unedig</annotation>
 		<annotation cp="🇦🇫">baner</annotation>
-		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇫" type="tts">baner: Afghanistan</annotation>
 		<annotation cp="🇦🇬">baner</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua a Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">baner: Antigua a Barbuda</annotation>
 		<annotation cp="🇦🇮">baner</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">baner: Anguilla</annotation>
 		<annotation cp="🇦🇱">baner</annotation>
-		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇱" type="tts">baner: Albania</annotation>
 		<annotation cp="🇦🇲">baner</annotation>
-		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇲" type="tts">baner: Armenia</annotation>
 		<annotation cp="🇦🇴">baner</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">baner: Angola</annotation>
 		<annotation cp="🇦🇶">baner</annotation>
-		<annotation cp="🇦🇶" type="tts">Antarctica</annotation>
+		<annotation cp="🇦🇶" type="tts">baner: Antarctica</annotation>
 		<annotation cp="🇦🇷">baner</annotation>
-		<annotation cp="🇦🇷" type="tts">Yr Ariannin</annotation>
+		<annotation cp="🇦🇷" type="tts">baner: Yr Ariannin</annotation>
 		<annotation cp="🇦🇸">baner</annotation>
-		<annotation cp="🇦🇸" type="tts">Samoa America</annotation>
+		<annotation cp="🇦🇸" type="tts">baner: Samoa America</annotation>
 		<annotation cp="🇦🇹">baner</annotation>
-		<annotation cp="🇦🇹" type="tts">Awstria</annotation>
+		<annotation cp="🇦🇹" type="tts">baner: Awstria</annotation>
 		<annotation cp="🇦🇺">baner</annotation>
-		<annotation cp="🇦🇺" type="tts">Awstralia</annotation>
+		<annotation cp="🇦🇺" type="tts">baner: Awstralia</annotation>
 		<annotation cp="🇦🇼">baner</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">baner: Aruba</annotation>
 		<annotation cp="🇦🇽">baner</annotation>
-		<annotation cp="🇦🇽" type="tts">Ynysoedd Åland</annotation>
+		<annotation cp="🇦🇽" type="tts">baner: Ynysoedd Åland</annotation>
 		<annotation cp="🇦🇿">baner</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbaijan</annotation>
+		<annotation cp="🇦🇿" type="tts">baner: Azerbaijan</annotation>
 		<annotation cp="🇧🇦">baner</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnia &amp; Herzegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">baner: Bosnia &amp; Herzegovina</annotation>
 		<annotation cp="🇧🇧">baner</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">baner: Barbados</annotation>
 		<annotation cp="🇧🇩">baner</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">baner: Bangladesh</annotation>
 		<annotation cp="🇧🇪">baner</annotation>
-		<annotation cp="🇧🇪" type="tts">Gwlad Belg</annotation>
+		<annotation cp="🇧🇪" type="tts">baner: Gwlad Belg</annotation>
 		<annotation cp="🇧🇫">baner</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">baner: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">baner</annotation>
-		<annotation cp="🇧🇬" type="tts">Bwlgaria</annotation>
+		<annotation cp="🇧🇬" type="tts">baner: Bwlgaria</annotation>
 		<annotation cp="🇧🇭">baner</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇭" type="tts">baner: Bahrain</annotation>
 		<annotation cp="🇧🇮">baner</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">baner: Burundi</annotation>
 		<annotation cp="🇧🇯">baner</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">baner: Benin</annotation>
 		<annotation cp="🇧🇱">baner</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">baner: Saint Barthélemy</annotation>
 		<annotation cp="🇧🇲">baner</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">baner: Bermuda</annotation>
 		<annotation cp="🇧🇳">baner</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">baner: Brunei</annotation>
 		<annotation cp="🇧🇴">baner</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolifia</annotation>
+		<annotation cp="🇧🇴" type="tts">baner: Bolifia</annotation>
 		<annotation cp="🇧🇶">baner</annotation>
-		<annotation cp="🇧🇶" type="tts">Antilles yr Iseldiroedd</annotation>
+		<annotation cp="🇧🇶" type="tts">baner: Antilles yr Iseldiroedd</annotation>
 		<annotation cp="🇧🇷">baner</annotation>
-		<annotation cp="🇧🇷" type="tts">Brasil</annotation>
+		<annotation cp="🇧🇷" type="tts">baner: Brasil</annotation>
 		<annotation cp="🇧🇸">baner</annotation>
-		<annotation cp="🇧🇸" type="tts">Y Bahamas</annotation>
+		<annotation cp="🇧🇸" type="tts">baner: Y Bahamas</annotation>
 		<annotation cp="🇧🇹">baner</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">baner: Bhutan</annotation>
 		<annotation cp="🇧🇻">baner</annotation>
-		<annotation cp="🇧🇻" type="tts">Ynys Bouvet</annotation>
+		<annotation cp="🇧🇻" type="tts">baner: Ynys Bouvet</annotation>
 		<annotation cp="🇧🇼">baner</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">baner: Botswana</annotation>
 		<annotation cp="🇧🇾">baner</annotation>
-		<annotation cp="🇧🇾" type="tts">Belarws</annotation>
+		<annotation cp="🇧🇾" type="tts">baner: Belarws</annotation>
 		<annotation cp="🇧🇿">baner</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">baner: Belize</annotation>
 		<annotation cp="🇨🇦">baner</annotation>
-		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇦" type="tts">baner: Canada</annotation>
 		<annotation cp="🇨🇨">baner</annotation>
-		<annotation cp="🇨🇨" type="tts">Ynysoedd Cocos (Keeling)</annotation>
+		<annotation cp="🇨🇨" type="tts">baner: Ynysoedd Cocos (Keeling)</annotation>
 		<annotation cp="🇨🇩">baner</annotation>
-		<annotation cp="🇨🇩" type="tts">Y Congo - Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">baner: Y Congo - Kinshasa</annotation>
 		<annotation cp="🇨🇫">baner</annotation>
-		<annotation cp="🇨🇫" type="tts">Gweriniaeth Canolbarth Affrica</annotation>
+		<annotation cp="🇨🇫" type="tts">baner: Gweriniaeth Canolbarth Affrica</annotation>
 		<annotation cp="🇨🇬">baner</annotation>
-		<annotation cp="🇨🇬" type="tts">Y Congo - Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">baner: Y Congo - Brazzaville</annotation>
 		<annotation cp="🇨🇭">baner</annotation>
-		<annotation cp="🇨🇭" type="tts">Y Swistir</annotation>
+		<annotation cp="🇨🇭" type="tts">baner: Y Swistir</annotation>
 		<annotation cp="🇨🇮">baner</annotation>
-		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇮" type="tts">baner: Côte d’Ivoire</annotation>
 		<annotation cp="🇨🇰">baner</annotation>
-		<annotation cp="🇨🇰" type="tts">Ynysoedd Cook</annotation>
+		<annotation cp="🇨🇰" type="tts">baner: Ynysoedd Cook</annotation>
 		<annotation cp="🇨🇱">baner</annotation>
-		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇱" type="tts">baner: Chile</annotation>
 		<annotation cp="🇨🇲">baner</annotation>
-		<annotation cp="🇨🇲" type="tts">Camerŵn</annotation>
+		<annotation cp="🇨🇲" type="tts">baner: Camerŵn</annotation>
 		<annotation cp="🇨🇳">baner</annotation>
-		<annotation cp="🇨🇳" type="tts">Tsieina</annotation>
+		<annotation cp="🇨🇳" type="tts">baner: Tsieina</annotation>
 		<annotation cp="🇨🇴">baner</annotation>
-		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇴" type="tts">baner: Colombia</annotation>
 		<annotation cp="🇨🇵">baner</annotation>
-		<annotation cp="🇨🇵" type="tts">Ynys Clipperton</annotation>
+		<annotation cp="🇨🇵" type="tts">baner: Ynys Clipperton</annotation>
 		<annotation cp="🇨🇷">baner</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">baner: Costa Rica</annotation>
 		<annotation cp="🇨🇺">baner</annotation>
-		<annotation cp="🇨🇺" type="tts">Ciwba</annotation>
+		<annotation cp="🇨🇺" type="tts">baner: Ciwba</annotation>
 		<annotation cp="🇨🇻">baner</annotation>
-		<annotation cp="🇨🇻" type="tts">Cabo Verde</annotation>
+		<annotation cp="🇨🇻" type="tts">baner: Cabo Verde</annotation>
 		<annotation cp="🇨🇼">baner</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">baner: Curaçao</annotation>
 		<annotation cp="🇨🇽">baner</annotation>
-		<annotation cp="🇨🇽" type="tts">Ynys y Nadolig</annotation>
+		<annotation cp="🇨🇽" type="tts">baner: Ynys y Nadolig</annotation>
 		<annotation cp="🇨🇾">baner</annotation>
-		<annotation cp="🇨🇾" type="tts">Cyprus</annotation>
+		<annotation cp="🇨🇾" type="tts">baner: Cyprus</annotation>
 		<annotation cp="🇨🇿">baner</annotation>
-		<annotation cp="🇨🇿" type="tts">Tsiecia</annotation>
+		<annotation cp="🇨🇿" type="tts">baner: Tsiecia</annotation>
 		<annotation cp="🇩🇪">baner</annotation>
-		<annotation cp="🇩🇪" type="tts">Yr Almaen</annotation>
+		<annotation cp="🇩🇪" type="tts">baner: Yr Almaen</annotation>
 		<annotation cp="🇩🇬">baner</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">baner: Diego Garcia</annotation>
 		<annotation cp="🇩🇯">baner</annotation>
-		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇯" type="tts">baner: Djibouti</annotation>
 		<annotation cp="🇩🇰">baner</annotation>
-		<annotation cp="🇩🇰" type="tts">Denmarc</annotation>
+		<annotation cp="🇩🇰" type="tts">baner: Denmarc</annotation>
 		<annotation cp="🇩🇲">baner</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇲" type="tts">baner: Dominica</annotation>
 		<annotation cp="🇩🇴">baner</annotation>
-		<annotation cp="🇩🇴" type="tts">Gweriniaeth Dominica</annotation>
+		<annotation cp="🇩🇴" type="tts">baner: Gweriniaeth Dominica</annotation>
 		<annotation cp="🇩🇿">baner</annotation>
-		<annotation cp="🇩🇿" type="tts">Algeria</annotation>
+		<annotation cp="🇩🇿" type="tts">baner: Algeria</annotation>
 		<annotation cp="🇪🇦">baner</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta a Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">baner: Ceuta a Melilla</annotation>
 		<annotation cp="🇪🇨">baner</annotation>
-		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">baner: Ecuador</annotation>
 		<annotation cp="🇪🇪">baner</annotation>
-		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇪" type="tts">baner: Estonia</annotation>
 		<annotation cp="🇪🇬">baner</annotation>
-		<annotation cp="🇪🇬" type="tts">Yr Aifft</annotation>
+		<annotation cp="🇪🇬" type="tts">baner: Yr Aifft</annotation>
 		<annotation cp="🇪🇭">baner</annotation>
-		<annotation cp="🇪🇭" type="tts">Gorllewin Sahara</annotation>
+		<annotation cp="🇪🇭" type="tts">baner: Gorllewin Sahara</annotation>
 		<annotation cp="🇪🇷">baner</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">baner: Eritrea</annotation>
 		<annotation cp="🇪🇸">baner</annotation>
-		<annotation cp="🇪🇸" type="tts">Sbaen</annotation>
+		<annotation cp="🇪🇸" type="tts">baner: Sbaen</annotation>
 		<annotation cp="🇪🇹">baner</annotation>
-		<annotation cp="🇪🇹" type="tts">Ethiopia</annotation>
+		<annotation cp="🇪🇹" type="tts">baner: Ethiopia</annotation>
 		<annotation cp="🇪🇺">baner</annotation>
-		<annotation cp="🇪🇺" type="tts">Yr Undeb Ewropeaidd</annotation>
+		<annotation cp="🇪🇺" type="tts">baner: Yr Undeb Ewropeaidd</annotation>
 		<annotation cp="🇫🇮">baner</annotation>
-		<annotation cp="🇫🇮" type="tts">Y Ffindir</annotation>
+		<annotation cp="🇫🇮" type="tts">baner: Y Ffindir</annotation>
 		<annotation cp="🇫🇯">baner</annotation>
-		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇯" type="tts">baner: Fiji</annotation>
 		<annotation cp="🇫🇰">baner</annotation>
-		<annotation cp="🇫🇰" type="tts">Ynysoedd y Falkland/Malvinas</annotation>
+		<annotation cp="🇫🇰" type="tts">baner: Ynysoedd y Falkland/Malvinas</annotation>
 		<annotation cp="🇫🇲">baner</annotation>
-		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">baner: Micronesia</annotation>
 		<annotation cp="🇫🇴">baner</annotation>
-		<annotation cp="🇫🇴" type="tts">Ynysoedd Ffaro</annotation>
+		<annotation cp="🇫🇴" type="tts">baner: Ynysoedd Ffaro</annotation>
 		<annotation cp="🇫🇷">baner</annotation>
-		<annotation cp="🇫🇷" type="tts">Ffrainc</annotation>
+		<annotation cp="🇫🇷" type="tts">baner: Ffrainc</annotation>
 		<annotation cp="🇬🇦">baner</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">baner: Gabon</annotation>
 		<annotation cp="🇬🇧">baner</annotation>
-		<annotation cp="🇬🇧" type="tts">Y Deyrnas Unedig</annotation>
+		<annotation cp="🇬🇧" type="tts">baner: Y Deyrnas Unedig</annotation>
 		<annotation cp="🇬🇩">baner</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">baner: Grenada</annotation>
 		<annotation cp="🇬🇪">baner</annotation>
-		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇪" type="tts">baner: Georgia</annotation>
 		<annotation cp="🇬🇫">baner</annotation>
-		<annotation cp="🇬🇫" type="tts">Guyane Ffrengig</annotation>
+		<annotation cp="🇬🇫" type="tts">baner: Guyane Ffrengig</annotation>
 		<annotation cp="🇬🇬">baner</annotation>
-		<annotation cp="🇬🇬" type="tts">Ynys y Garn</annotation>
+		<annotation cp="🇬🇬" type="tts">baner: Ynys y Garn</annotation>
 		<annotation cp="🇬🇭">baner</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">baner: Ghana</annotation>
 		<annotation cp="🇬🇮">baner</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">baner: Gibraltar</annotation>
 		<annotation cp="🇬🇱">baner</annotation>
-		<annotation cp="🇬🇱" type="tts">Yr Ynys Las</annotation>
+		<annotation cp="🇬🇱" type="tts">baner: Yr Ynys Las</annotation>
 		<annotation cp="🇬🇲">baner</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">baner: Gambia</annotation>
 		<annotation cp="🇬🇳">baner</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinée</annotation>
+		<annotation cp="🇬🇳" type="tts">baner: Guinée</annotation>
 		<annotation cp="🇬🇵">baner</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">baner: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">baner</annotation>
-		<annotation cp="🇬🇶" type="tts">Guinea Gyhydeddol</annotation>
+		<annotation cp="🇬🇶" type="tts">baner: Guinea Gyhydeddol</annotation>
 		<annotation cp="🇬🇷">baner</annotation>
-		<annotation cp="🇬🇷" type="tts">Gwlad Groeg</annotation>
+		<annotation cp="🇬🇷" type="tts">baner: Gwlad Groeg</annotation>
 		<annotation cp="🇬🇸">baner</annotation>
-		<annotation cp="🇬🇸" type="tts">De Georgia ac Ynysoedd Sandwich y De</annotation>
+		<annotation cp="🇬🇸" type="tts">baner: De Georgia ac Ynysoedd Sandwich y De</annotation>
 		<annotation cp="🇬🇹">baner</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">baner: Guatemala</annotation>
 		<annotation cp="🇬🇺">baner</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">baner: Guam</annotation>
 		<annotation cp="🇬🇼">baner</annotation>
-		<annotation cp="🇬🇼" type="tts">Guiné-Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">baner: Guiné-Bissau</annotation>
 		<annotation cp="🇬🇾">baner</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">baner: Guyana</annotation>
 		<annotation cp="🇭🇰">baner</annotation>
-		<annotation cp="🇭🇰" type="tts">Hong Kong RhGA Tsieina</annotation>
+		<annotation cp="🇭🇰" type="tts">baner: Hong Kong RhGA Tsieina</annotation>
 		<annotation cp="🇭🇲">baner</annotation>
-		<annotation cp="🇭🇲" type="tts">Ynys Heard ac Ynysoedd McDonald</annotation>
+		<annotation cp="🇭🇲" type="tts">baner: Ynys Heard ac Ynysoedd McDonald</annotation>
 		<annotation cp="🇭🇳">baner</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">baner: Honduras</annotation>
 		<annotation cp="🇭🇷">baner</annotation>
-		<annotation cp="🇭🇷" type="tts">Croatia</annotation>
+		<annotation cp="🇭🇷" type="tts">baner: Croatia</annotation>
 		<annotation cp="🇭🇹">baner</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">baner: Haiti</annotation>
 		<annotation cp="🇭🇺">baner</annotation>
-		<annotation cp="🇭🇺" type="tts">Hwngari</annotation>
+		<annotation cp="🇭🇺" type="tts">baner: Hwngari</annotation>
 		<annotation cp="🇮🇨">baner</annotation>
-		<annotation cp="🇮🇨" type="tts">Yr Ynysoedd Dedwydd</annotation>
+		<annotation cp="🇮🇨" type="tts">baner: Yr Ynysoedd Dedwydd</annotation>
 		<annotation cp="🇮🇩">baner</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇩" type="tts">baner: Indonesia</annotation>
 		<annotation cp="🇮🇪">baner</annotation>
-		<annotation cp="🇮🇪" type="tts">Iwerddon</annotation>
+		<annotation cp="🇮🇪" type="tts">baner: Iwerddon</annotation>
 		<annotation cp="🇮🇱">baner</annotation>
-		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇱" type="tts">baner: Israel</annotation>
 		<annotation cp="🇮🇲">baner</annotation>
-		<annotation cp="🇮🇲" type="tts">Ynys Manaw</annotation>
+		<annotation cp="🇮🇲" type="tts">baner: Ynys Manaw</annotation>
 		<annotation cp="🇮🇳">baner</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">baner: India</annotation>
 		<annotation cp="🇮🇴">baner</annotation>
-		<annotation cp="🇮🇴" type="tts">Tiriogaeth Brydeinig Cefnfor India</annotation>
+		<annotation cp="🇮🇴" type="tts">baner: Tiriogaeth Brydeinig Cefnfor India</annotation>
 		<annotation cp="🇮🇶">baner</annotation>
-		<annotation cp="🇮🇶" type="tts">Irac</annotation>
+		<annotation cp="🇮🇶" type="tts">baner: Irac</annotation>
 		<annotation cp="🇮🇷">baner</annotation>
-		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">baner: Iran</annotation>
 		<annotation cp="🇮🇸">baner</annotation>
-		<annotation cp="🇮🇸" type="tts">Gwlad yr Iâ</annotation>
+		<annotation cp="🇮🇸" type="tts">baner: Gwlad yr Iâ</annotation>
 		<annotation cp="🇮🇹">baner</annotation>
-		<annotation cp="🇮🇹" type="tts">Yr Eidal</annotation>
+		<annotation cp="🇮🇹" type="tts">baner: Yr Eidal</annotation>
 		<annotation cp="🇯🇪">baner</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">baner: Jersey</annotation>
 		<annotation cp="🇯🇲">baner</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">baner: Jamaica</annotation>
 		<annotation cp="🇯🇴">baner</annotation>
-		<annotation cp="🇯🇴" type="tts">Gwlad Iorddonen</annotation>
+		<annotation cp="🇯🇴" type="tts">baner: Gwlad Iorddonen</annotation>
 		<annotation cp="🇯🇵">baner</annotation>
-		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇯🇵" type="tts">baner: Japan</annotation>
 		<annotation cp="🇰🇪">baner</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇪" type="tts">baner: Kenya</annotation>
 		<annotation cp="🇰🇬">baner</annotation>
-		<annotation cp="🇰🇬" type="tts">Kyrgyzstan</annotation>
+		<annotation cp="🇰🇬" type="tts">baner: Kyrgyzstan</annotation>
 		<annotation cp="🇰🇭">baner</annotation>
-		<annotation cp="🇰🇭" type="tts">Cambodia</annotation>
+		<annotation cp="🇰🇭" type="tts">baner: Cambodia</annotation>
 		<annotation cp="🇰🇮">baner</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">baner: Kiribati</annotation>
 		<annotation cp="🇰🇲">baner</annotation>
-		<annotation cp="🇰🇲" type="tts">Comoros</annotation>
+		<annotation cp="🇰🇲" type="tts">baner: Comoros</annotation>
 		<annotation cp="🇰🇳">baner</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint Kitts a Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">baner: Saint Kitts a Nevis</annotation>
 		<annotation cp="🇰🇵">baner</annotation>
-		<annotation cp="🇰🇵" type="tts">Gogledd Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">baner: Gogledd Korea</annotation>
 		<annotation cp="🇰🇷">baner</annotation>
-		<annotation cp="🇰🇷" type="tts">De Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">baner: De Korea</annotation>
 		<annotation cp="🇰🇼">baner</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇼" type="tts">baner: Kuwait</annotation>
 		<annotation cp="🇰🇾">baner</annotation>
-		<annotation cp="🇰🇾" type="tts">Ynysoedd Cayman</annotation>
+		<annotation cp="🇰🇾" type="tts">baner: Ynysoedd Cayman</annotation>
 		<annotation cp="🇰🇿">baner</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazakstan</annotation>
+		<annotation cp="🇰🇿" type="tts">baner: Kazakstan</annotation>
 		<annotation cp="🇱🇦">baner</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">baner: Laos</annotation>
 		<annotation cp="🇱🇧">baner</annotation>
-		<annotation cp="🇱🇧" type="tts">Libanus</annotation>
+		<annotation cp="🇱🇧" type="tts">baner: Libanus</annotation>
 		<annotation cp="🇱🇨">baner</annotation>
-		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">baner: Saint Lucia</annotation>
 		<annotation cp="🇱🇮">baner</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">baner: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">baner</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">baner: Sri Lanka</annotation>
 		<annotation cp="🇱🇷">baner</annotation>
-		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇷" type="tts">baner: Liberia</annotation>
 		<annotation cp="🇱🇸">baner</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">baner: Lesotho</annotation>
 		<annotation cp="🇱🇹">baner</annotation>
-		<annotation cp="🇱🇹" type="tts">Lithuania</annotation>
+		<annotation cp="🇱🇹" type="tts">baner: Lithuania</annotation>
 		<annotation cp="🇱🇺">baner</annotation>
-		<annotation cp="🇱🇺" type="tts">Lwcsembwrg</annotation>
+		<annotation cp="🇱🇺" type="tts">baner: Lwcsembwrg</annotation>
 		<annotation cp="🇱🇻">baner</annotation>
-		<annotation cp="🇱🇻" type="tts">Latfia</annotation>
+		<annotation cp="🇱🇻" type="tts">baner: Latfia</annotation>
 		<annotation cp="🇱🇾">baner</annotation>
-		<annotation cp="🇱🇾" type="tts">Libya</annotation>
+		<annotation cp="🇱🇾" type="tts">baner: Libya</annotation>
 		<annotation cp="🇲🇦">baner</annotation>
-		<annotation cp="🇲🇦" type="tts">Moroco</annotation>
+		<annotation cp="🇲🇦" type="tts">baner: Moroco</annotation>
 		<annotation cp="🇲🇨">baner</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">baner: Monaco</annotation>
 		<annotation cp="🇲🇩">baner</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldofa</annotation>
+		<annotation cp="🇲🇩" type="tts">baner: Moldofa</annotation>
 		<annotation cp="🇲🇪">baner</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">baner: Montenegro</annotation>
 		<annotation cp="🇲🇫">baner</annotation>
-		<annotation cp="🇲🇫" type="tts">Saint Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">baner: Saint Martin</annotation>
 		<annotation cp="🇲🇬">baner</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagascar</annotation>
+		<annotation cp="🇲🇬" type="tts">baner: Madagascar</annotation>
 		<annotation cp="🇲🇭">baner</annotation>
-		<annotation cp="🇲🇭" type="tts">Ynysoedd Marshall</annotation>
+		<annotation cp="🇲🇭" type="tts">baner: Ynysoedd Marshall</annotation>
 		<annotation cp="🇲🇰">baner</annotation>
-		<annotation cp="🇲🇰" type="tts">Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">baner: Macedonia</annotation>
 		<annotation cp="🇲🇱">baner</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">baner: Mali</annotation>
 		<annotation cp="🇲🇲">baner</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇲" type="tts">baner: Myanmar (Burma)</annotation>
 		<annotation cp="🇲🇳">baner</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇳" type="tts">baner: Mongolia</annotation>
 		<annotation cp="🇲🇴">baner</annotation>
-		<annotation cp="🇲🇴" type="tts">Macau RhGA Tsieina</annotation>
+		<annotation cp="🇲🇴" type="tts">baner: Macau RhGA Tsieina</annotation>
 		<annotation cp="🇲🇵">baner</annotation>
-		<annotation cp="🇲🇵" type="tts">Ynysoedd Gogledd Mariana</annotation>
+		<annotation cp="🇲🇵" type="tts">baner: Ynysoedd Gogledd Mariana</annotation>
 		<annotation cp="🇲🇶">baner</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇶" type="tts">baner: Martinique</annotation>
 		<annotation cp="🇲🇷">baner</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇷" type="tts">baner: Mauritania</annotation>
 		<annotation cp="🇲🇸">baner</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">baner: Montserrat</annotation>
 		<annotation cp="🇲🇹">baner</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">baner: Malta</annotation>
 		<annotation cp="🇲🇺">baner</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">baner: Mauritius</annotation>
 		<annotation cp="🇲🇻">baner</annotation>
-		<annotation cp="🇲🇻" type="tts">Y Maldives</annotation>
+		<annotation cp="🇲🇻" type="tts">baner: Y Maldives</annotation>
 		<annotation cp="🇲🇼">baner</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">baner: Malawi</annotation>
 		<annotation cp="🇲🇽">baner</annotation>
-		<annotation cp="🇲🇽" type="tts">Mecsico</annotation>
+		<annotation cp="🇲🇽" type="tts">baner: Mecsico</annotation>
 		<annotation cp="🇲🇾">baner</annotation>
-		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇾" type="tts">baner: Malaysia</annotation>
 		<annotation cp="🇲🇿">baner</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
+		<annotation cp="🇲🇿" type="tts">baner: Mozambique</annotation>
 		<annotation cp="🇳🇦">baner</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇦" type="tts">baner: Namibia</annotation>
 		<annotation cp="🇳🇨">baner</annotation>
-		<annotation cp="🇳🇨" type="tts">Caledonia Newydd</annotation>
+		<annotation cp="🇳🇨" type="tts">baner: Caledonia Newydd</annotation>
 		<annotation cp="🇳🇪">baner</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">baner: Niger</annotation>
 		<annotation cp="🇳🇫">baner</annotation>
-		<annotation cp="🇳🇫" type="tts">Ynys Norfolk</annotation>
+		<annotation cp="🇳🇫" type="tts">baner: Ynys Norfolk</annotation>
 		<annotation cp="🇳🇬">baner</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇬" type="tts">baner: Nigeria</annotation>
 		<annotation cp="🇳🇮">baner</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">baner: Nicaragua</annotation>
 		<annotation cp="🇳🇱">baner</annotation>
-		<annotation cp="🇳🇱" type="tts">Yr Iseldiroedd</annotation>
+		<annotation cp="🇳🇱" type="tts">baner: Yr Iseldiroedd</annotation>
 		<annotation cp="🇳🇴">baner</annotation>
-		<annotation cp="🇳🇴" type="tts">Norwy</annotation>
+		<annotation cp="🇳🇴" type="tts">baner: Norwy</annotation>
 		<annotation cp="🇳🇵">baner</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">baner: Nepal</annotation>
 		<annotation cp="🇳🇷">baner</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">baner: Nauru</annotation>
 		<annotation cp="🇳🇺">baner</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">baner: Niue</annotation>
 		<annotation cp="🇳🇿">baner</annotation>
-		<annotation cp="🇳🇿" type="tts">Seland Newydd</annotation>
+		<annotation cp="🇳🇿" type="tts">baner: Seland Newydd</annotation>
 		<annotation cp="🇴🇲">baner</annotation>
-		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">baner: Oman</annotation>
 		<annotation cp="🇵🇦">baner</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">baner: Panama</annotation>
 		<annotation cp="🇵🇪">baner</annotation>
-		<annotation cp="🇵🇪" type="tts">Periw</annotation>
+		<annotation cp="🇵🇪" type="tts">baner: Periw</annotation>
 		<annotation cp="🇵🇫">baner</annotation>
-		<annotation cp="🇵🇫" type="tts">Polynesia Ffrengig</annotation>
+		<annotation cp="🇵🇫" type="tts">baner: Polynesia Ffrengig</annotation>
 		<annotation cp="🇵🇬">baner</annotation>
-		<annotation cp="🇵🇬" type="tts">Papua Guinea Newydd</annotation>
+		<annotation cp="🇵🇬" type="tts">baner: Papua Guinea Newydd</annotation>
 		<annotation cp="🇵🇭">baner</annotation>
-		<annotation cp="🇵🇭" type="tts">Y Philipinau</annotation>
+		<annotation cp="🇵🇭" type="tts">baner: Y Philipinau</annotation>
 		<annotation cp="🇵🇰">baner</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">baner: Pakistan</annotation>
 		<annotation cp="🇵🇱">baner</annotation>
-		<annotation cp="🇵🇱" type="tts">Gwlad Pwyl</annotation>
+		<annotation cp="🇵🇱" type="tts">baner: Gwlad Pwyl</annotation>
 		<annotation cp="🇵🇲">baner</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre-et-Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">baner: Saint-Pierre-et-Miquelon</annotation>
 		<annotation cp="🇵🇳">baner</annotation>
-		<annotation cp="🇵🇳" type="tts">Ynysoedd Pitcairn</annotation>
+		<annotation cp="🇵🇳" type="tts">baner: Ynysoedd Pitcairn</annotation>
 		<annotation cp="🇵🇷">baner</annotation>
-		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">baner: Puerto Rico</annotation>
 		<annotation cp="🇵🇸">baner</annotation>
-		<annotation cp="🇵🇸" type="tts">Tiriogaethau Palesteinaidd</annotation>
+		<annotation cp="🇵🇸" type="tts">baner: Tiriogaethau Palesteinaidd</annotation>
 		<annotation cp="🇵🇹">baner</annotation>
-		<annotation cp="🇵🇹" type="tts">Portiwgal</annotation>
+		<annotation cp="🇵🇹" type="tts">baner: Portiwgal</annotation>
 		<annotation cp="🇵🇼">baner</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">baner: Palau</annotation>
 		<annotation cp="🇵🇾">baner</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">baner: Paraguay</annotation>
 		<annotation cp="🇶🇦">baner</annotation>
-		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇶🇦" type="tts">baner: Qatar</annotation>
 		<annotation cp="🇷🇪">baner</annotation>
-		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇪" type="tts">baner: Réunion</annotation>
 		<annotation cp="🇷🇴">baner</annotation>
-		<annotation cp="🇷🇴" type="tts">Rwmania</annotation>
+		<annotation cp="🇷🇴" type="tts">baner: Rwmania</annotation>
 		<annotation cp="🇷🇸">baner</annotation>
-		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇸" type="tts">baner: Serbia</annotation>
 		<annotation cp="🇷🇺">baner</annotation>
-		<annotation cp="🇷🇺" type="tts">Rwsia</annotation>
+		<annotation cp="🇷🇺" type="tts">baner: Rwsia</annotation>
 		<annotation cp="🇷🇼">baner</annotation>
-		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇷🇼" type="tts">baner: Rwanda</annotation>
 		<annotation cp="🇸🇦">baner</annotation>
-		<annotation cp="🇸🇦" type="tts">Saudi Arabia</annotation>
+		<annotation cp="🇸🇦" type="tts">baner: Saudi Arabia</annotation>
 		<annotation cp="🇸🇧">baner</annotation>
-		<annotation cp="🇸🇧" type="tts">Ynysoedd Solomon</annotation>
+		<annotation cp="🇸🇧" type="tts">baner: Ynysoedd Solomon</annotation>
 		<annotation cp="🇸🇨">baner</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
+		<annotation cp="🇸🇨" type="tts">baner: Seychelles</annotation>
 		<annotation cp="🇸🇩">baner</annotation>
-		<annotation cp="🇸🇩" type="tts">Swdan</annotation>
+		<annotation cp="🇸🇩" type="tts">baner: Swdan</annotation>
 		<annotation cp="🇸🇪">baner</annotation>
-		<annotation cp="🇸🇪" type="tts">Sweden</annotation>
+		<annotation cp="🇸🇪" type="tts">baner: Sweden</annotation>
 		<annotation cp="🇸🇬">baner</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇬" type="tts">baner: Singapore</annotation>
 		<annotation cp="🇸🇭">baner</annotation>
-		<annotation cp="🇸🇭" type="tts">Saint Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">baner: Saint Helena</annotation>
 		<annotation cp="🇸🇮">baner</annotation>
-		<annotation cp="🇸🇮" type="tts">Slofenia</annotation>
+		<annotation cp="🇸🇮" type="tts">baner: Slofenia</annotation>
 		<annotation cp="🇸🇯">baner</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard a Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">baner: Svalbard a Jan Mayen</annotation>
 		<annotation cp="🇸🇰">baner</annotation>
-		<annotation cp="🇸🇰" type="tts">Slofacia</annotation>
+		<annotation cp="🇸🇰" type="tts">baner: Slofacia</annotation>
 		<annotation cp="🇸🇱">baner</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">baner: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">baner</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">baner: San Marino</annotation>
 		<annotation cp="🇸🇳">baner</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">baner: Senegal</annotation>
 		<annotation cp="🇸🇴">baner</annotation>
-		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇴" type="tts">baner: Somalia</annotation>
 		<annotation cp="🇸🇷">baner</annotation>
-		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇷" type="tts">baner: Suriname</annotation>
 		<annotation cp="🇸🇸">baner</annotation>
-		<annotation cp="🇸🇸" type="tts">De Swdan</annotation>
+		<annotation cp="🇸🇸" type="tts">baner: De Swdan</annotation>
 		<annotation cp="🇸🇹">baner</annotation>
-		<annotation cp="🇸🇹" type="tts">São Tomé a Príncipe</annotation>
+		<annotation cp="🇸🇹" type="tts">baner: São Tomé a Príncipe</annotation>
 		<annotation cp="🇸🇻">baner</annotation>
-		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">baner: El Salvador</annotation>
 		<annotation cp="🇸🇽">baner</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">baner: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">baner</annotation>
-		<annotation cp="🇸🇾" type="tts">Syria</annotation>
+		<annotation cp="🇸🇾" type="tts">baner: Syria</annotation>
 		<annotation cp="🇸🇿">baner</annotation>
-		<annotation cp="🇸🇿" type="tts">Gwlad Swazi</annotation>
+		<annotation cp="🇸🇿" type="tts">baner: Gwlad Swazi</annotation>
 		<annotation cp="🇹🇦">baner</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">baner: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">baner</annotation>
-		<annotation cp="🇹🇨" type="tts">Ynysoedd Turks a Caicos</annotation>
+		<annotation cp="🇹🇨" type="tts">baner: Ynysoedd Turks a Caicos</annotation>
 		<annotation cp="🇹🇩">baner</annotation>
-		<annotation cp="🇹🇩" type="tts">Tchad</annotation>
+		<annotation cp="🇹🇩" type="tts">baner: Tchad</annotation>
 		<annotation cp="🇹🇫">baner</annotation>
-		<annotation cp="🇹🇫" type="tts">Tiroedd Deheuol ac Antarctig Ffrainc</annotation>
+		<annotation cp="🇹🇫" type="tts">baner: Tiroedd Deheuol ac Antarctig Ffrainc</annotation>
 		<annotation cp="🇹🇬">baner</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">baner: Togo</annotation>
 		<annotation cp="🇹🇭">baner</annotation>
-		<annotation cp="🇹🇭" type="tts">Gwlad Thai</annotation>
+		<annotation cp="🇹🇭" type="tts">baner: Gwlad Thai</annotation>
 		<annotation cp="🇹🇯">baner</annotation>
-		<annotation cp="🇹🇯" type="tts">Tajikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">baner: Tajikistan</annotation>
 		<annotation cp="🇹🇰">baner</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">baner: Tokelau</annotation>
 		<annotation cp="🇹🇱">baner</annotation>
-		<annotation cp="🇹🇱" type="tts">Timor-Leste</annotation>
+		<annotation cp="🇹🇱" type="tts">baner: Timor-Leste</annotation>
 		<annotation cp="🇹🇲">baner</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">baner: Turkmenistan</annotation>
 		<annotation cp="🇹🇳">baner</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇳" type="tts">baner: Tunisia</annotation>
 		<annotation cp="🇹🇴">baner</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">baner: Tonga</annotation>
 		<annotation cp="🇹🇷">baner</annotation>
-		<annotation cp="🇹🇷" type="tts">Twrci</annotation>
+		<annotation cp="🇹🇷" type="tts">baner: Twrci</annotation>
 		<annotation cp="🇹🇹">baner</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad a Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">baner: Trinidad a Tobago</annotation>
 		<annotation cp="🇹🇻">baner</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">baner: Tuvalu</annotation>
 		<annotation cp="🇹🇼">baner</annotation>
-		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">baner: Taiwan</annotation>
 		<annotation cp="🇹🇿">baner</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇹🇿" type="tts">baner: Tanzania</annotation>
 		<annotation cp="🇺🇦">baner</annotation>
-		<annotation cp="🇺🇦" type="tts">Wcráin</annotation>
+		<annotation cp="🇺🇦" type="tts">baner: Wcráin</annotation>
 		<annotation cp="🇺🇬">baner</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">baner: Uganda</annotation>
 		<annotation cp="🇺🇲">baner</annotation>
-		<annotation cp="🇺🇲" type="tts">Ynysoedd Pellennig UDA</annotation>
+		<annotation cp="🇺🇲" type="tts">baner: Ynysoedd Pellennig UDA</annotation>
 		<annotation cp="🇺🇳">baner</annotation>
-		<annotation cp="🇺🇳" type="tts">y Cenhedloedd Unedig</annotation>
+		<annotation cp="🇺🇳" type="tts">baner: y Cenhedloedd Unedig</annotation>
 		<annotation cp="🇺🇸">baner</annotation>
-		<annotation cp="🇺🇸" type="tts">Yr Unol Daleithiau</annotation>
+		<annotation cp="🇺🇸" type="tts">baner: Yr Unol Daleithiau</annotation>
 		<annotation cp="🇺🇾">baner</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">baner: Uruguay</annotation>
 		<annotation cp="🇺🇿">baner</annotation>
-		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">baner: Uzbekistan</annotation>
 		<annotation cp="🇻🇦">baner</annotation>
-		<annotation cp="🇻🇦" type="tts">Y Fatican</annotation>
+		<annotation cp="🇻🇦" type="tts">baner: Y Fatican</annotation>
 		<annotation cp="🇻🇨">baner</annotation>
-		<annotation cp="🇻🇨" type="tts">Saint Vincent a’r Grenadines</annotation>
+		<annotation cp="🇻🇨" type="tts">baner: Saint Vincent a’r Grenadines</annotation>
 		<annotation cp="🇻🇪">baner</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">baner: Venezuela</annotation>
 		<annotation cp="🇻🇬">baner</annotation>
-		<annotation cp="🇻🇬" type="tts">Ynysoedd Gwyryf Prydain</annotation>
+		<annotation cp="🇻🇬" type="tts">baner: Ynysoedd Gwyryf Prydain</annotation>
 		<annotation cp="🇻🇮">baner</annotation>
-		<annotation cp="🇻🇮" type="tts">Ynysoedd Gwyryf yr Unol Daleithiau</annotation>
+		<annotation cp="🇻🇮" type="tts">baner: Ynysoedd Gwyryf yr Unol Daleithiau</annotation>
 		<annotation cp="🇻🇳">baner</annotation>
-		<annotation cp="🇻🇳" type="tts">Fietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">baner: Fietnam</annotation>
 		<annotation cp="🇻🇺">baner</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">baner: Vanuatu</annotation>
 		<annotation cp="🇼🇫">baner</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis a Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">baner: Wallis a Futuna</annotation>
 		<annotation cp="🇼🇸">baner</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">baner: Samoa</annotation>
 		<annotation cp="🇽🇰">baner</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">baner: Kosovo</annotation>
 		<annotation cp="🇾🇪">baner</annotation>
-		<annotation cp="🇾🇪" type="tts">Yemen</annotation>
+		<annotation cp="🇾🇪" type="tts">baner: Yemen</annotation>
 		<annotation cp="🇾🇹">baner</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">baner: Mayotte</annotation>
 		<annotation cp="🇿🇦">baner</annotation>
-		<annotation cp="🇿🇦" type="tts">De Affrica</annotation>
+		<annotation cp="🇿🇦" type="tts">baner: De Affrica</annotation>
 		<annotation cp="🇿🇲">baner</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">baner: Zambia</annotation>
 		<annotation cp="🇿🇼">baner</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">baner: Zimbabwe</annotation>
 		<annotation cp="0⃣">gorchudd bysell</annotation>
 		<annotation cp="0⃣" type="tts">gorchudd bysell: 0</annotation>
 		<annotation cp="1⃣">gorchudd bysell</annotation>

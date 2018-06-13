@@ -4,9 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -14,6 +13,86 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<script type="Hans"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">肢 | 腳 | 踢 | 浅肤色</annotation>
+		<annotation cp="🦵🏻" type="tts">腳: 浅肤色</annotation>
+		<annotation cp="🦵🏼">肢 | 腳 | 踢 | 中浅肤色</annotation>
+		<annotation cp="🦵🏼" type="tts">腳: 中浅肤色</annotation>
+		<annotation cp="🦵🏽">肢 | 腳 | 踢 | 中肤色</annotation>
+		<annotation cp="🦵🏽" type="tts">腳: 中肤色</annotation>
+		<annotation cp="🦵🏾">肢 | 腳 | 踢 | 中深肤色</annotation>
+		<annotation cp="🦵🏾" type="tts">腳: 中深肤色</annotation>
+		<annotation cp="🦵🏿">肢 | 腳 | 踢 | 深肤色</annotation>
+		<annotation cp="🦵🏿" type="tts">腳: 深肤色</annotation>
+		<annotation cp="🦶🏻">腳掌 | 踏 | 踢 | 浅肤色</annotation>
+		<annotation cp="🦶🏻" type="tts">腳掌: 浅肤色</annotation>
+		<annotation cp="🦶🏼">腳掌 | 踏 | 踢 | 中浅肤色</annotation>
+		<annotation cp="🦶🏼" type="tts">腳掌: 中浅肤色</annotation>
+		<annotation cp="🦶🏽">腳掌 | 踏 | 踢 | 中肤色</annotation>
+		<annotation cp="🦶🏽" type="tts">腳掌: 中肤色</annotation>
+		<annotation cp="🦶🏾">腳掌 | 踏 | 踢 | 中深肤色</annotation>
+		<annotation cp="🦶🏾" type="tts">腳掌: 中深肤色</annotation>
+		<annotation cp="🦶🏿">腳掌 | 踏 | 踢 | 深肤色</annotation>
+		<annotation cp="🦶🏿" type="tts">腳掌: 深肤色</annotation>
+		<annotation cp="🦸🏻">好 | 英雄 | 超人 | 超級 | 浅肤色</annotation>
+		<annotation cp="🦸🏻" type="tts">超人: 浅肤色</annotation>
+		<annotation cp="🦸🏼">好 | 英雄 | 超人 | 超級 | 中浅肤色</annotation>
+		<annotation cp="🦸🏼" type="tts">超人: 中浅肤色</annotation>
+		<annotation cp="🦸🏽">好 | 英雄 | 超人 | 超級 | 中肤色</annotation>
+		<annotation cp="🦸🏽" type="tts">超人: 中肤色</annotation>
+		<annotation cp="🦸🏾">好 | 英雄 | 超人 | 超級 | 中深肤色</annotation>
+		<annotation cp="🦸🏾" type="tts">超人: 中深肤色</annotation>
+		<annotation cp="🦸🏿">好 | 英雄 | 超人 | 超級 | 深肤色</annotation>
+		<annotation cp="🦸🏿" type="tts">超人: 深肤色</annotation>
+		<annotation cp="🦸🏻‍♀">女 | 女超人 | 好 | 英雄 | 超級 | 浅肤色</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">女超人: 浅肤色</annotation>
+		<annotation cp="🦸🏼‍♀">女 | 女超人 | 好 | 英雄 | 超級 | 中浅肤色</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">女超人: 中浅肤色</annotation>
+		<annotation cp="🦸🏽‍♀">女 | 女超人 | 好 | 英雄 | 超級 | 中肤色</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">女超人: 中肤色</annotation>
+		<annotation cp="🦸🏾‍♀">女 | 女超人 | 好 | 英雄 | 超級 | 中深肤色</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">女超人: 中深肤色</annotation>
+		<annotation cp="🦸🏿‍♀">女 | 女超人 | 好 | 英雄 | 超級 | 深肤色</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">女超人: 深肤色</annotation>
+		<annotation cp="🦸🏻‍♂">好 | 男 | 男超人 | 英雄 | 超級 | 浅肤色</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">男超人: 浅肤色</annotation>
+		<annotation cp="🦸🏼‍♂">好 | 男 | 男超人 | 英雄 | 超級 | 中浅肤色</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">男超人: 中浅肤色</annotation>
+		<annotation cp="🦸🏽‍♂">好 | 男 | 男超人 | 英雄 | 超級 | 中肤色</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">男超人: 中肤色</annotation>
+		<annotation cp="🦸🏾‍♂">好 | 男 | 男超人 | 英雄 | 超級 | 中深肤色</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">男超人: 中深肤色</annotation>
+		<annotation cp="🦸🏿‍♂">好 | 男 | 男超人 | 英雄 | 超級 | 深肤色</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">男超人: 深肤色</annotation>
+		<annotation cp="🦹🏻">壞人 | 犯罪 | 超人 | 超級壞人 | 邪惡 | 浅肤色</annotation>
+		<annotation cp="🦹🏻" type="tts">超級壞人: 浅肤色</annotation>
+		<annotation cp="🦹🏼">壞人 | 犯罪 | 超人 | 超級壞人 | 邪惡 | 中浅肤色</annotation>
+		<annotation cp="🦹🏼" type="tts">超級壞人: 中浅肤色</annotation>
+		<annotation cp="🦹🏽">壞人 | 犯罪 | 超人 | 超級壞人 | 邪惡 | 中肤色</annotation>
+		<annotation cp="🦹🏽" type="tts">超級壞人: 中肤色</annotation>
+		<annotation cp="🦹🏾">壞人 | 犯罪 | 超人 | 超級壞人 | 邪惡 | 中深肤色</annotation>
+		<annotation cp="🦹🏾" type="tts">超級壞人: 中深肤色</annotation>
+		<annotation cp="🦹🏿">壞人 | 犯罪 | 超人 | 超級壞人 | 邪惡 | 深肤色</annotation>
+		<annotation cp="🦹🏿" type="tts">超級壞人: 深肤色</annotation>
+		<annotation cp="🦹🏻‍♀">壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女 | 浅肤色</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">超級女壞人: 浅肤色</annotation>
+		<annotation cp="🦹🏼‍♀">壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女 | 中浅肤色</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">超級女壞人: 中浅肤色</annotation>
+		<annotation cp="🦹🏽‍♀">壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女 | 中肤色</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">超級女壞人: 中肤色</annotation>
+		<annotation cp="🦹🏾‍♀">壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女 | 中深肤色</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">超級女壞人: 中深肤色</annotation>
+		<annotation cp="🦹🏿‍♀">壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女 | 深肤色</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">超級女壞人: 深肤色</annotation>
+		<annotation cp="🦹🏻‍♂">壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男 | 浅肤色</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">超級男壞人: 浅肤色</annotation>
+		<annotation cp="🦹🏼‍♂">壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男 | 中浅肤色</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">超級男壞人: 中浅肤色</annotation>
+		<annotation cp="🦹🏽‍♂">壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男 | 中肤色</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">超級男壞人: 中肤色</annotation>
+		<annotation cp="🦹🏾‍♂">壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男 | 中深肤色</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">超級男壞人: 中深肤色</annotation>
+		<annotation cp="🦹🏿‍♂">壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男 | 深肤色</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">超級男壞人: 深肤色</annotation>
 		<annotation cp="👶🏻">婴儿 | 年青 | 浅肤色</annotation>
 		<annotation cp="👶🏻" type="tts">婴儿: 浅肤色</annotation>
 		<annotation cp="👶🏼">婴儿 | 年青 | 中浅肤色</annotation>
@@ -74,6 +153,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">男人: 中深肤色</annotation>
 		<annotation cp="👨🏿">男人 | 深肤色</annotation>
 		<annotation cp="👨🏿" type="tts">男人: 深肤色</annotation>
+		<annotation cp="👨‍🦰">男人 | 紅色頭髮</annotation>
+		<annotation cp="👨‍🦰" type="tts">男人: 紅色頭髮</annotation>
+		<annotation cp="👨🏻‍🦰">男人 | 浅肤色 | 紅色頭髮</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">男人: 浅肤色 紅色頭髮</annotation>
+		<annotation cp="👨🏼‍🦰">男人 | 中浅肤色 | 紅色頭髮</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">男人: 中浅肤色 紅色頭髮</annotation>
+		<annotation cp="👨🏽‍🦰">男人 | 中肤色 | 紅色頭髮</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">男人: 中肤色 紅色頭髮</annotation>
+		<annotation cp="👨🏾‍🦰">男人 | 中深肤色 | 紅色頭髮</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">男人: 中深肤色 紅色頭髮</annotation>
+		<annotation cp="👨🏿‍🦰">男人 | 深肤色 | 紅色頭髮</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">男人: 深肤色 紅色頭髮</annotation>
+		<annotation cp="👨‍🦱">男人 | 曲髮</annotation>
+		<annotation cp="👨‍🦱" type="tts">男人: 曲髮</annotation>
+		<annotation cp="👨🏻‍🦱">男人 | 浅肤色 | 曲髮</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">男人: 浅肤色 曲髮</annotation>
+		<annotation cp="👨🏼‍🦱">男人 | 中浅肤色 | 曲髮</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">男人: 中浅肤色 曲髮</annotation>
+		<annotation cp="👨🏽‍🦱">男人 | 中肤色 | 曲髮</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">男人: 中肤色 曲髮</annotation>
+		<annotation cp="👨🏾‍🦱">男人 | 中深肤色 | 曲髮</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">男人: 中深肤色 曲髮</annotation>
+		<annotation cp="👨🏿‍🦱">男人 | 深肤色 | 曲髮</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">男人: 深肤色 曲髮</annotation>
+		<annotation cp="👨‍🦲">男人 | 光頭</annotation>
+		<annotation cp="👨‍🦲" type="tts">男人: 光頭</annotation>
+		<annotation cp="👨🏻‍🦲">男人 | 浅肤色 | 光頭</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">男人: 浅肤色 光頭</annotation>
+		<annotation cp="👨🏼‍🦲">男人 | 中浅肤色 | 光頭</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">男人: 中浅肤色 光頭</annotation>
+		<annotation cp="👨🏽‍🦲">男人 | 中肤色 | 光頭</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">男人: 中肤色 光頭</annotation>
+		<annotation cp="👨🏾‍🦲">男人 | 中深肤色 | 光頭</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">男人: 中深肤色 光頭</annotation>
+		<annotation cp="👨🏿‍🦲">男人 | 深肤色 | 光頭</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">男人: 深肤色 光頭</annotation>
+		<annotation cp="👨‍🦳">男人 | 白色頭髮</annotation>
+		<annotation cp="👨‍🦳" type="tts">男人: 白色頭髮</annotation>
+		<annotation cp="👨🏻‍🦳">男人 | 浅肤色 | 白色頭髮</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">男人: 浅肤色 白色頭髮</annotation>
+		<annotation cp="👨🏼‍🦳">男人 | 中浅肤色 | 白色頭髮</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">男人: 中浅肤色 白色頭髮</annotation>
+		<annotation cp="👨🏽‍🦳">男人 | 中肤色 | 白色頭髮</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">男人: 中肤色 白色頭髮</annotation>
+		<annotation cp="👨🏾‍🦳">男人 | 中深肤色 | 白色頭髮</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">男人: 中深肤色 白色頭髮</annotation>
+		<annotation cp="👨🏿‍🦳">男人 | 深肤色 | 白色頭髮</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">男人: 深肤色 白色頭髮</annotation>
 		<annotation cp="👩🏻">女人 | 浅肤色</annotation>
 		<annotation cp="👩🏻" type="tts">女人: 浅肤色</annotation>
 		<annotation cp="👩🏼">女人 | 中浅肤色</annotation>
@@ -84,6 +211,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">女人: 中深肤色</annotation>
 		<annotation cp="👩🏿">女人 | 深肤色</annotation>
 		<annotation cp="👩🏿" type="tts">女人: 深肤色</annotation>
+		<annotation cp="👩‍🦰">女人 | 紅色頭髮</annotation>
+		<annotation cp="👩‍🦰" type="tts">女人: 紅色頭髮</annotation>
+		<annotation cp="👩🏻‍🦰">女人 | 浅肤色 | 紅色頭髮</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">女人: 浅肤色 紅色頭髮</annotation>
+		<annotation cp="👩🏼‍🦰">女人 | 中浅肤色 | 紅色頭髮</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">女人: 中浅肤色 紅色頭髮</annotation>
+		<annotation cp="👩🏽‍🦰">女人 | 中肤色 | 紅色頭髮</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">女人: 中肤色 紅色頭髮</annotation>
+		<annotation cp="👩🏾‍🦰">女人 | 中深肤色 | 紅色頭髮</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">女人: 中深肤色 紅色頭髮</annotation>
+		<annotation cp="👩🏿‍🦰">女人 | 深肤色 | 紅色頭髮</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">女人: 深肤色 紅色頭髮</annotation>
+		<annotation cp="👩‍🦱">女人 | 曲髮</annotation>
+		<annotation cp="👩‍🦱" type="tts">女人: 曲髮</annotation>
+		<annotation cp="👩🏻‍🦱">女人 | 浅肤色 | 曲髮</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">女人: 浅肤色 曲髮</annotation>
+		<annotation cp="👩🏼‍🦱">女人 | 中浅肤色 | 曲髮</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">女人: 中浅肤色 曲髮</annotation>
+		<annotation cp="👩🏽‍🦱">女人 | 中肤色 | 曲髮</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">女人: 中肤色 曲髮</annotation>
+		<annotation cp="👩🏾‍🦱">女人 | 中深肤色 | 曲髮</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">女人: 中深肤色 曲髮</annotation>
+		<annotation cp="👩🏿‍🦱">女人 | 深肤色 | 曲髮</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">女人: 深肤色 曲髮</annotation>
+		<annotation cp="👩‍🦲">女人 | 光頭</annotation>
+		<annotation cp="👩‍🦲" type="tts">女人: 光頭</annotation>
+		<annotation cp="👩🏻‍🦲">女人 | 浅肤色 | 光頭</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">女人: 浅肤色 光頭</annotation>
+		<annotation cp="👩🏼‍🦲">女人 | 中浅肤色 | 光頭</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">女人: 中浅肤色 光頭</annotation>
+		<annotation cp="👩🏽‍🦲">女人 | 中肤色 | 光頭</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">女人: 中肤色 光頭</annotation>
+		<annotation cp="👩🏾‍🦲">女人 | 中深肤色 | 光頭</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">女人: 中深肤色 光頭</annotation>
+		<annotation cp="👩🏿‍🦲">女人 | 深肤色 | 光頭</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">女人: 深肤色 光頭</annotation>
+		<annotation cp="👩‍🦳">女人 | 白色頭髮</annotation>
+		<annotation cp="👩‍🦳" type="tts">女人: 白色頭髮</annotation>
+		<annotation cp="👩🏻‍🦳">女人 | 浅肤色 | 白色頭髮</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">女人: 浅肤色 白色頭髮</annotation>
+		<annotation cp="👩🏼‍🦳">女人 | 中浅肤色 | 白色頭髮</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">女人: 中浅肤色 白色頭髮</annotation>
+		<annotation cp="👩🏽‍🦳">女人 | 中肤色 | 白色頭髮</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">女人: 中肤色 白色頭髮</annotation>
+		<annotation cp="👩🏾‍🦳">女人 | 中深肤色 | 白色頭髮</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">女人: 中深肤色 白色頭髮</annotation>
+		<annotation cp="👩🏿‍🦳">女人 | 深肤色 | 白色頭髮</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">女人: 深肤色 白色頭髮</annotation>
 		<annotation cp="🧓🏻">中性 | 老人 | 老年 | 浅肤色</annotation>
 		<annotation cp="🧓🏻" type="tts">老人: 浅肤色</annotation>
 		<annotation cp="🧓🏼">中性 | 老人 | 老年 | 中浅肤色</annotation>
@@ -2203,521 +2378,521 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">键帽</annotation>
 		<annotation cp="🔟" type="tts">键帽: 10</annotation>
 		<annotation cp="🇦🇨">旗</annotation>
-		<annotation cp="🇦🇨" type="tts">阿森松岛</annotation>
+		<annotation cp="🇦🇨" type="tts">旗: 阿森松岛</annotation>
 		<annotation cp="🇦🇩">旗</annotation>
-		<annotation cp="🇦🇩" type="tts">安道尔</annotation>
+		<annotation cp="🇦🇩" type="tts">旗: 安道尔</annotation>
 		<annotation cp="🇦🇪">旗</annotation>
-		<annotation cp="🇦🇪" type="tts">阿拉伯联合大公国</annotation>
+		<annotation cp="🇦🇪" type="tts">旗: 阿拉伯联合大公国</annotation>
 		<annotation cp="🇦🇫">旗</annotation>
-		<annotation cp="🇦🇫" type="tts">阿富汗</annotation>
+		<annotation cp="🇦🇫" type="tts">旗: 阿富汗</annotation>
 		<annotation cp="🇦🇬">旗</annotation>
-		<annotation cp="🇦🇬" type="tts">安提瓜同巴布达</annotation>
+		<annotation cp="🇦🇬" type="tts">旗: 安提瓜同巴布达</annotation>
 		<annotation cp="🇦🇮">旗</annotation>
-		<annotation cp="🇦🇮" type="tts">安圭拉</annotation>
+		<annotation cp="🇦🇮" type="tts">旗: 安圭拉</annotation>
 		<annotation cp="🇦🇱">旗</annotation>
-		<annotation cp="🇦🇱" type="tts">阿尔巴尼亚</annotation>
+		<annotation cp="🇦🇱" type="tts">旗: 阿尔巴尼亚</annotation>
 		<annotation cp="🇦🇲">旗</annotation>
-		<annotation cp="🇦🇲" type="tts">亚美尼亚</annotation>
+		<annotation cp="🇦🇲" type="tts">旗: 亚美尼亚</annotation>
 		<annotation cp="🇦🇴">旗</annotation>
-		<annotation cp="🇦🇴" type="tts">安哥拉</annotation>
+		<annotation cp="🇦🇴" type="tts">旗: 安哥拉</annotation>
 		<annotation cp="🇦🇶">旗</annotation>
-		<annotation cp="🇦🇶" type="tts">南极洲</annotation>
+		<annotation cp="🇦🇶" type="tts">旗: 南极洲</annotation>
 		<annotation cp="🇦🇷">旗</annotation>
-		<annotation cp="🇦🇷" type="tts">阿根廷</annotation>
+		<annotation cp="🇦🇷" type="tts">旗: 阿根廷</annotation>
 		<annotation cp="🇦🇸">旗</annotation>
-		<annotation cp="🇦🇸" type="tts">美属萨摩亚</annotation>
+		<annotation cp="🇦🇸" type="tts">旗: 美属萨摩亚</annotation>
 		<annotation cp="🇦🇹">旗</annotation>
-		<annotation cp="🇦🇹" type="tts">奥地利</annotation>
+		<annotation cp="🇦🇹" type="tts">旗: 奥地利</annotation>
 		<annotation cp="🇦🇺">旗</annotation>
-		<annotation cp="🇦🇺" type="tts">澳洲</annotation>
+		<annotation cp="🇦🇺" type="tts">旗: 澳洲</annotation>
 		<annotation cp="🇦🇼">旗</annotation>
-		<annotation cp="🇦🇼" type="tts">荷属阿鲁巴</annotation>
+		<annotation cp="🇦🇼" type="tts">旗: 荷属阿鲁巴</annotation>
 		<annotation cp="🇦🇽">旗</annotation>
-		<annotation cp="🇦🇽" type="tts">奥兰群岛</annotation>
+		<annotation cp="🇦🇽" type="tts">旗: 奥兰群岛</annotation>
 		<annotation cp="🇦🇿">旗</annotation>
-		<annotation cp="🇦🇿" type="tts">亚塞拜然</annotation>
+		<annotation cp="🇦🇿" type="tts">旗: 亚塞拜然</annotation>
 		<annotation cp="🇧🇦">旗</annotation>
-		<annotation cp="🇧🇦" type="tts">波斯尼亚同黑塞哥维那</annotation>
+		<annotation cp="🇧🇦" type="tts">旗: 波斯尼亚同黑塞哥维那</annotation>
 		<annotation cp="🇧🇧">旗</annotation>
-		<annotation cp="🇧🇧" type="tts">巴贝多</annotation>
+		<annotation cp="🇧🇧" type="tts">旗: 巴贝多</annotation>
 		<annotation cp="🇧🇩">旗</annotation>
-		<annotation cp="🇧🇩" type="tts">孟加拉</annotation>
+		<annotation cp="🇧🇩" type="tts">旗: 孟加拉</annotation>
 		<annotation cp="🇧🇪">旗</annotation>
-		<annotation cp="🇧🇪" type="tts">比利时</annotation>
+		<annotation cp="🇧🇪" type="tts">旗: 比利时</annotation>
 		<annotation cp="🇧🇫">旗</annotation>
-		<annotation cp="🇧🇫" type="tts">布吉纳法索</annotation>
+		<annotation cp="🇧🇫" type="tts">旗: 布吉纳法索</annotation>
 		<annotation cp="🇧🇬">旗</annotation>
-		<annotation cp="🇧🇬" type="tts">保加利亚</annotation>
+		<annotation cp="🇧🇬" type="tts">旗: 保加利亚</annotation>
 		<annotation cp="🇧🇭">旗</annotation>
-		<annotation cp="🇧🇭" type="tts">巴林</annotation>
+		<annotation cp="🇧🇭" type="tts">旗: 巴林</annotation>
 		<annotation cp="🇧🇮">旗</annotation>
-		<annotation cp="🇧🇮" type="tts">蒲隆地</annotation>
+		<annotation cp="🇧🇮" type="tts">旗: 蒲隆地</annotation>
 		<annotation cp="🇧🇯">旗</annotation>
-		<annotation cp="🇧🇯" type="tts">贝南</annotation>
+		<annotation cp="🇧🇯" type="tts">旗: 贝南</annotation>
 		<annotation cp="🇧🇱">旗</annotation>
-		<annotation cp="🇧🇱" type="tts">圣巴瑟米</annotation>
+		<annotation cp="🇧🇱" type="tts">旗: 圣巴瑟米</annotation>
 		<annotation cp="🇧🇲">旗</annotation>
-		<annotation cp="🇧🇲" type="tts">百慕达</annotation>
+		<annotation cp="🇧🇲" type="tts">旗: 百慕达</annotation>
 		<annotation cp="🇧🇳">旗</annotation>
-		<annotation cp="🇧🇳" type="tts">汶莱</annotation>
+		<annotation cp="🇧🇳" type="tts">旗: 汶莱</annotation>
 		<annotation cp="🇧🇴">旗</annotation>
-		<annotation cp="🇧🇴" type="tts">玻利维亚</annotation>
+		<annotation cp="🇧🇴" type="tts">旗: 玻利维亚</annotation>
 		<annotation cp="🇧🇶">旗</annotation>
-		<annotation cp="🇧🇶" type="tts">荷兰加勒比区</annotation>
+		<annotation cp="🇧🇶" type="tts">旗: 荷兰加勒比区</annotation>
 		<annotation cp="🇧🇷">旗</annotation>
-		<annotation cp="🇧🇷" type="tts">巴西</annotation>
+		<annotation cp="🇧🇷" type="tts">旗: 巴西</annotation>
 		<annotation cp="🇧🇸">旗</annotation>
-		<annotation cp="🇧🇸" type="tts">巴哈马</annotation>
+		<annotation cp="🇧🇸" type="tts">旗: 巴哈马</annotation>
 		<annotation cp="🇧🇹">旗</annotation>
-		<annotation cp="🇧🇹" type="tts">不丹</annotation>
+		<annotation cp="🇧🇹" type="tts">旗: 不丹</annotation>
 		<annotation cp="🇧🇻">旗</annotation>
-		<annotation cp="🇧🇻" type="tts">布威岛</annotation>
+		<annotation cp="🇧🇻" type="tts">旗: 布威岛</annotation>
 		<annotation cp="🇧🇼">旗</annotation>
-		<annotation cp="🇧🇼" type="tts">波札那</annotation>
+		<annotation cp="🇧🇼" type="tts">旗: 波札那</annotation>
 		<annotation cp="🇧🇾">旗</annotation>
-		<annotation cp="🇧🇾" type="tts">白俄罗斯</annotation>
+		<annotation cp="🇧🇾" type="tts">旗: 白俄罗斯</annotation>
 		<annotation cp="🇧🇿">旗</annotation>
-		<annotation cp="🇧🇿" type="tts">贝里斯</annotation>
+		<annotation cp="🇧🇿" type="tts">旗: 贝里斯</annotation>
 		<annotation cp="🇨🇦">旗</annotation>
-		<annotation cp="🇨🇦" type="tts">加拿大</annotation>
+		<annotation cp="🇨🇦" type="tts">旗: 加拿大</annotation>
 		<annotation cp="🇨🇨">旗</annotation>
-		<annotation cp="🇨🇨" type="tts">科科斯（基林）群岛</annotation>
+		<annotation cp="🇨🇨" type="tts">旗: 科科斯（基林）群岛</annotation>
 		<annotation cp="🇨🇩">旗</annotation>
-		<annotation cp="🇨🇩" type="tts">刚果（金夏沙）</annotation>
+		<annotation cp="🇨🇩" type="tts">旗: 刚果（金夏沙）</annotation>
 		<annotation cp="🇨🇫">旗</annotation>
-		<annotation cp="🇨🇫" type="tts">中非共和国</annotation>
+		<annotation cp="🇨🇫" type="tts">旗: 中非共和国</annotation>
 		<annotation cp="🇨🇬">旗</annotation>
-		<annotation cp="🇨🇬" type="tts">刚果（布拉萨）</annotation>
+		<annotation cp="🇨🇬" type="tts">旗: 刚果（布拉萨）</annotation>
 		<annotation cp="🇨🇭">旗</annotation>
-		<annotation cp="🇨🇭" type="tts">瑞士</annotation>
+		<annotation cp="🇨🇭" type="tts">旗: 瑞士</annotation>
 		<annotation cp="🇨🇮">旗</annotation>
-		<annotation cp="🇨🇮" type="tts">象牙海岸</annotation>
+		<annotation cp="🇨🇮" type="tts">旗: 象牙海岸</annotation>
 		<annotation cp="🇨🇰">旗</annotation>
-		<annotation cp="🇨🇰" type="tts">库克群岛</annotation>
+		<annotation cp="🇨🇰" type="tts">旗: 库克群岛</annotation>
 		<annotation cp="🇨🇱">旗</annotation>
-		<annotation cp="🇨🇱" type="tts">智利</annotation>
+		<annotation cp="🇨🇱" type="tts">旗: 智利</annotation>
 		<annotation cp="🇨🇲">旗</annotation>
-		<annotation cp="🇨🇲" type="tts">喀麦隆</annotation>
+		<annotation cp="🇨🇲" type="tts">旗: 喀麦隆</annotation>
 		<annotation cp="🇨🇳">旗</annotation>
-		<annotation cp="🇨🇳" type="tts">中华人民共和国</annotation>
+		<annotation cp="🇨🇳" type="tts">旗: 中华人民共和国</annotation>
 		<annotation cp="🇨🇴">旗</annotation>
-		<annotation cp="🇨🇴" type="tts">哥伦比亚</annotation>
+		<annotation cp="🇨🇴" type="tts">旗: 哥伦比亚</annotation>
 		<annotation cp="🇨🇵">旗</annotation>
-		<annotation cp="🇨🇵" type="tts">克里派顿岛</annotation>
+		<annotation cp="🇨🇵" type="tts">旗: 克里派顿岛</annotation>
 		<annotation cp="🇨🇷">旗</annotation>
-		<annotation cp="🇨🇷" type="tts">哥斯大黎加</annotation>
+		<annotation cp="🇨🇷" type="tts">旗: 哥斯大黎加</annotation>
 		<annotation cp="🇨🇺">旗</annotation>
-		<annotation cp="🇨🇺" type="tts">古巴</annotation>
+		<annotation cp="🇨🇺" type="tts">旗: 古巴</annotation>
 		<annotation cp="🇨🇻">旗</annotation>
-		<annotation cp="🇨🇻" type="tts">维德角</annotation>
+		<annotation cp="🇨🇻" type="tts">旗: 维德角</annotation>
 		<annotation cp="🇨🇼">旗</annotation>
-		<annotation cp="🇨🇼" type="tts">库拉索</annotation>
+		<annotation cp="🇨🇼" type="tts">旗: 库拉索</annotation>
 		<annotation cp="🇨🇽">旗</annotation>
-		<annotation cp="🇨🇽" type="tts">圣诞岛</annotation>
+		<annotation cp="🇨🇽" type="tts">旗: 圣诞岛</annotation>
 		<annotation cp="🇨🇾">旗</annotation>
-		<annotation cp="🇨🇾" type="tts">赛普勒斯</annotation>
+		<annotation cp="🇨🇾" type="tts">旗: 赛普勒斯</annotation>
 		<annotation cp="🇨🇿">旗</annotation>
-		<annotation cp="🇨🇿" type="tts">捷克</annotation>
+		<annotation cp="🇨🇿" type="tts">旗: 捷克</annotation>
 		<annotation cp="🇩🇪">旗</annotation>
-		<annotation cp="🇩🇪" type="tts">德国</annotation>
+		<annotation cp="🇩🇪" type="tts">旗: 德国</annotation>
 		<annotation cp="🇩🇬">旗</annotation>
-		<annotation cp="🇩🇬" type="tts">迪亚哥加西亚岛</annotation>
+		<annotation cp="🇩🇬" type="tts">旗: 迪亚哥加西亚岛</annotation>
 		<annotation cp="🇩🇯">旗</annotation>
-		<annotation cp="🇩🇯" type="tts">吉布地</annotation>
+		<annotation cp="🇩🇯" type="tts">旗: 吉布地</annotation>
 		<annotation cp="🇩🇰">旗</annotation>
-		<annotation cp="🇩🇰" type="tts">丹麦</annotation>
+		<annotation cp="🇩🇰" type="tts">旗: 丹麦</annotation>
 		<annotation cp="🇩🇲">旗</annotation>
-		<annotation cp="🇩🇲" type="tts">多米尼克</annotation>
+		<annotation cp="🇩🇲" type="tts">旗: 多米尼克</annotation>
 		<annotation cp="🇩🇴">旗</annotation>
-		<annotation cp="🇩🇴" type="tts">多明尼加共和国</annotation>
+		<annotation cp="🇩🇴" type="tts">旗: 多明尼加共和国</annotation>
 		<annotation cp="🇩🇿">旗</annotation>
-		<annotation cp="🇩🇿" type="tts">阿尔及利亚</annotation>
+		<annotation cp="🇩🇿" type="tts">旗: 阿尔及利亚</annotation>
 		<annotation cp="🇪🇦">旗</annotation>
-		<annotation cp="🇪🇦" type="tts">休达与梅利利亚</annotation>
+		<annotation cp="🇪🇦" type="tts">旗: 休达与梅利利亚</annotation>
 		<annotation cp="🇪🇨">旗</annotation>
-		<annotation cp="🇪🇨" type="tts">厄瓜多</annotation>
+		<annotation cp="🇪🇨" type="tts">旗: 厄瓜多</annotation>
 		<annotation cp="🇪🇪">旗</annotation>
-		<annotation cp="🇪🇪" type="tts">爱沙尼亚</annotation>
+		<annotation cp="🇪🇪" type="tts">旗: 爱沙尼亚</annotation>
 		<annotation cp="🇪🇬">旗</annotation>
-		<annotation cp="🇪🇬" type="tts">埃及</annotation>
+		<annotation cp="🇪🇬" type="tts">旗: 埃及</annotation>
 		<annotation cp="🇪🇭">旗</annotation>
-		<annotation cp="🇪🇭" type="tts">西撒哈拉</annotation>
+		<annotation cp="🇪🇭" type="tts">旗: 西撒哈拉</annotation>
 		<annotation cp="🇪🇷">旗</annotation>
-		<annotation cp="🇪🇷" type="tts">厄利垂亚</annotation>
+		<annotation cp="🇪🇷" type="tts">旗: 厄利垂亚</annotation>
 		<annotation cp="🇪🇸">旗</annotation>
-		<annotation cp="🇪🇸" type="tts">西班牙</annotation>
+		<annotation cp="🇪🇸" type="tts">旗: 西班牙</annotation>
 		<annotation cp="🇪🇹">旗</annotation>
-		<annotation cp="🇪🇹" type="tts">衣索比亚</annotation>
+		<annotation cp="🇪🇹" type="tts">旗: 衣索比亚</annotation>
 		<annotation cp="🇪🇺">旗</annotation>
-		<annotation cp="🇪🇺" type="tts">欧盟</annotation>
+		<annotation cp="🇪🇺" type="tts">旗: 欧盟</annotation>
 		<annotation cp="🇫🇮">旗</annotation>
-		<annotation cp="🇫🇮" type="tts">芬兰</annotation>
+		<annotation cp="🇫🇮" type="tts">旗: 芬兰</annotation>
 		<annotation cp="🇫🇯">旗</annotation>
-		<annotation cp="🇫🇯" type="tts">斐济</annotation>
+		<annotation cp="🇫🇯" type="tts">旗: 斐济</annotation>
 		<annotation cp="🇫🇰">旗</annotation>
-		<annotation cp="🇫🇰" type="tts">福克兰群岛</annotation>
+		<annotation cp="🇫🇰" type="tts">旗: 福克兰群岛</annotation>
 		<annotation cp="🇫🇲">旗</annotation>
-		<annotation cp="🇫🇲" type="tts">密克罗尼西亚群岛</annotation>
+		<annotation cp="🇫🇲" type="tts">旗: 密克罗尼西亚群岛</annotation>
 		<annotation cp="🇫🇴">旗</annotation>
-		<annotation cp="🇫🇴" type="tts">法罗群岛</annotation>
+		<annotation cp="🇫🇴" type="tts">旗: 法罗群岛</annotation>
 		<annotation cp="🇫🇷">旗</annotation>
-		<annotation cp="🇫🇷" type="tts">法国</annotation>
+		<annotation cp="🇫🇷" type="tts">旗: 法国</annotation>
 		<annotation cp="🇬🇦">旗</annotation>
-		<annotation cp="🇬🇦" type="tts">加彭</annotation>
+		<annotation cp="🇬🇦" type="tts">旗: 加彭</annotation>
 		<annotation cp="🇬🇧">旗</annotation>
-		<annotation cp="🇬🇧" type="tts">英国</annotation>
+		<annotation cp="🇬🇧" type="tts">旗: 英国</annotation>
 		<annotation cp="🇬🇩">旗</annotation>
-		<annotation cp="🇬🇩" type="tts">格瑞那达</annotation>
+		<annotation cp="🇬🇩" type="tts">旗: 格瑞那达</annotation>
 		<annotation cp="🇬🇪">旗</annotation>
-		<annotation cp="🇬🇪" type="tts">乔治亚共和国</annotation>
+		<annotation cp="🇬🇪" type="tts">旗: 乔治亚共和国</annotation>
 		<annotation cp="🇬🇫">旗</annotation>
-		<annotation cp="🇬🇫" type="tts">法属圭亚那</annotation>
+		<annotation cp="🇬🇫" type="tts">旗: 法属圭亚那</annotation>
 		<annotation cp="🇬🇬">旗</annotation>
-		<annotation cp="🇬🇬" type="tts">根西岛</annotation>
+		<annotation cp="🇬🇬" type="tts">旗: 根西岛</annotation>
 		<annotation cp="🇬🇭">旗</annotation>
-		<annotation cp="🇬🇭" type="tts">迦纳</annotation>
+		<annotation cp="🇬🇭" type="tts">旗: 迦纳</annotation>
 		<annotation cp="🇬🇮">旗</annotation>
-		<annotation cp="🇬🇮" type="tts">直布罗陀</annotation>
+		<annotation cp="🇬🇮" type="tts">旗: 直布罗陀</annotation>
 		<annotation cp="🇬🇱">旗</annotation>
-		<annotation cp="🇬🇱" type="tts">格陵兰</annotation>
+		<annotation cp="🇬🇱" type="tts">旗: 格陵兰</annotation>
 		<annotation cp="🇬🇲">旗</annotation>
-		<annotation cp="🇬🇲" type="tts">甘比亚</annotation>
+		<annotation cp="🇬🇲" type="tts">旗: 甘比亚</annotation>
 		<annotation cp="🇬🇳">旗</annotation>
-		<annotation cp="🇬🇳" type="tts">几内亚</annotation>
+		<annotation cp="🇬🇳" type="tts">旗: 几内亚</annotation>
 		<annotation cp="🇬🇵">旗</annotation>
-		<annotation cp="🇬🇵" type="tts">瓜地洛普</annotation>
+		<annotation cp="🇬🇵" type="tts">旗: 瓜地洛普</annotation>
 		<annotation cp="🇬🇶">旗</annotation>
-		<annotation cp="🇬🇶" type="tts">赤道几内亚</annotation>
+		<annotation cp="🇬🇶" type="tts">旗: 赤道几内亚</annotation>
 		<annotation cp="🇬🇷">旗</annotation>
-		<annotation cp="🇬🇷" type="tts">希腊</annotation>
+		<annotation cp="🇬🇷" type="tts">旗: 希腊</annotation>
 		<annotation cp="🇬🇸">旗</annotation>
-		<annotation cp="🇬🇸" type="tts">南佐治亚岛同南桑威奇群岛</annotation>
+		<annotation cp="🇬🇸" type="tts">旗: 南佐治亚岛同南桑威奇群岛</annotation>
 		<annotation cp="🇬🇹">旗</annotation>
-		<annotation cp="🇬🇹" type="tts">瓜地马拉</annotation>
+		<annotation cp="🇬🇹" type="tts">旗: 瓜地马拉</annotation>
 		<annotation cp="🇬🇺">旗</annotation>
-		<annotation cp="🇬🇺" type="tts">关岛</annotation>
+		<annotation cp="🇬🇺" type="tts">旗: 关岛</annotation>
 		<annotation cp="🇬🇼">旗</annotation>
-		<annotation cp="🇬🇼" type="tts">几内亚比索</annotation>
+		<annotation cp="🇬🇼" type="tts">旗: 几内亚比索</annotation>
 		<annotation cp="🇬🇾">旗</annotation>
-		<annotation cp="🇬🇾" type="tts">盖亚那</annotation>
+		<annotation cp="🇬🇾" type="tts">旗: 盖亚那</annotation>
 		<annotation cp="🇭🇰">旗</annotation>
-		<annotation cp="🇭🇰" type="tts">中华人民共和国香港特别行政区</annotation>
+		<annotation cp="🇭🇰" type="tts">旗: 中华人民共和国香港特别行政区</annotation>
 		<annotation cp="🇭🇲">旗</annotation>
-		<annotation cp="🇭🇲" type="tts">赫德岛同麦克唐纳群岛</annotation>
+		<annotation cp="🇭🇲" type="tts">旗: 赫德岛同麦克唐纳群岛</annotation>
 		<annotation cp="🇭🇳">旗</annotation>
-		<annotation cp="🇭🇳" type="tts">宏都拉斯</annotation>
+		<annotation cp="🇭🇳" type="tts">旗: 宏都拉斯</annotation>
 		<annotation cp="🇭🇷">旗</annotation>
-		<annotation cp="🇭🇷" type="tts">克罗埃西亚</annotation>
+		<annotation cp="🇭🇷" type="tts">旗: 克罗埃西亚</annotation>
 		<annotation cp="🇭🇹">旗</annotation>
-		<annotation cp="🇭🇹" type="tts">海地</annotation>
+		<annotation cp="🇭🇹" type="tts">旗: 海地</annotation>
 		<annotation cp="🇭🇺">旗</annotation>
-		<annotation cp="🇭🇺" type="tts">匈牙利</annotation>
+		<annotation cp="🇭🇺" type="tts">旗: 匈牙利</annotation>
 		<annotation cp="🇮🇨">旗</annotation>
-		<annotation cp="🇮🇨" type="tts">加那利群岛</annotation>
+		<annotation cp="🇮🇨" type="tts">旗: 加那利群岛</annotation>
 		<annotation cp="🇮🇩">旗</annotation>
-		<annotation cp="🇮🇩" type="tts">印尼</annotation>
+		<annotation cp="🇮🇩" type="tts">旗: 印尼</annotation>
 		<annotation cp="🇮🇪">旗</annotation>
-		<annotation cp="🇮🇪" type="tts">爱尔兰</annotation>
+		<annotation cp="🇮🇪" type="tts">旗: 爱尔兰</annotation>
 		<annotation cp="🇮🇱">旗</annotation>
-		<annotation cp="🇮🇱" type="tts">以色列</annotation>
+		<annotation cp="🇮🇱" type="tts">旗: 以色列</annotation>
 		<annotation cp="🇮🇲">旗</annotation>
-		<annotation cp="🇮🇲" type="tts">曼岛</annotation>
+		<annotation cp="🇮🇲" type="tts">旗: 曼岛</annotation>
 		<annotation cp="🇮🇳">旗</annotation>
-		<annotation cp="🇮🇳" type="tts">印度</annotation>
+		<annotation cp="🇮🇳" type="tts">旗: 印度</annotation>
 		<annotation cp="🇮🇴">旗</annotation>
-		<annotation cp="🇮🇴" type="tts">英属印度洋领地</annotation>
+		<annotation cp="🇮🇴" type="tts">旗: 英属印度洋领地</annotation>
 		<annotation cp="🇮🇶">旗</annotation>
-		<annotation cp="🇮🇶" type="tts">伊拉克</annotation>
+		<annotation cp="🇮🇶" type="tts">旗: 伊拉克</annotation>
 		<annotation cp="🇮🇷">旗</annotation>
-		<annotation cp="🇮🇷" type="tts">伊朗</annotation>
+		<annotation cp="🇮🇷" type="tts">旗: 伊朗</annotation>
 		<annotation cp="🇮🇸">旗</annotation>
-		<annotation cp="🇮🇸" type="tts">冰岛</annotation>
+		<annotation cp="🇮🇸" type="tts">旗: 冰岛</annotation>
 		<annotation cp="🇮🇹">旗</annotation>
-		<annotation cp="🇮🇹" type="tts">义大利</annotation>
+		<annotation cp="🇮🇹" type="tts">旗: 义大利</annotation>
 		<annotation cp="🇯🇪">旗</annotation>
-		<annotation cp="🇯🇪" type="tts">泽西岛</annotation>
+		<annotation cp="🇯🇪" type="tts">旗: 泽西岛</annotation>
 		<annotation cp="🇯🇲">旗</annotation>
-		<annotation cp="🇯🇲" type="tts">牙买加</annotation>
+		<annotation cp="🇯🇲" type="tts">旗: 牙买加</annotation>
 		<annotation cp="🇯🇴">旗</annotation>
-		<annotation cp="🇯🇴" type="tts">约旦</annotation>
+		<annotation cp="🇯🇴" type="tts">旗: 约旦</annotation>
 		<annotation cp="🇯🇵">旗</annotation>
-		<annotation cp="🇯🇵" type="tts">日本</annotation>
+		<annotation cp="🇯🇵" type="tts">旗: 日本</annotation>
 		<annotation cp="🇰🇪">旗</annotation>
-		<annotation cp="🇰🇪" type="tts">肯亚</annotation>
+		<annotation cp="🇰🇪" type="tts">旗: 肯亚</annotation>
 		<annotation cp="🇰🇬">旗</annotation>
-		<annotation cp="🇰🇬" type="tts">吉尔吉斯</annotation>
+		<annotation cp="🇰🇬" type="tts">旗: 吉尔吉斯</annotation>
 		<annotation cp="🇰🇭">旗</annotation>
-		<annotation cp="🇰🇭" type="tts">柬埔寨</annotation>
+		<annotation cp="🇰🇭" type="tts">旗: 柬埔寨</annotation>
 		<annotation cp="🇰🇮">旗</annotation>
-		<annotation cp="🇰🇮" type="tts">吉里巴斯</annotation>
+		<annotation cp="🇰🇮" type="tts">旗: 吉里巴斯</annotation>
 		<annotation cp="🇰🇲">旗</annotation>
-		<annotation cp="🇰🇲" type="tts">葛摩</annotation>
+		<annotation cp="🇰🇲" type="tts">旗: 葛摩</annotation>
 		<annotation cp="🇰🇳">旗</annotation>
-		<annotation cp="🇰🇳" type="tts">圣基茨同尼维斯</annotation>
+		<annotation cp="🇰🇳" type="tts">旗: 圣基茨同尼维斯</annotation>
 		<annotation cp="🇰🇵">旗</annotation>
-		<annotation cp="🇰🇵" type="tts">北韩</annotation>
+		<annotation cp="🇰🇵" type="tts">旗: 北韩</annotation>
 		<annotation cp="🇰🇷">旗</annotation>
-		<annotation cp="🇰🇷" type="tts">南韩</annotation>
+		<annotation cp="🇰🇷" type="tts">旗: 南韩</annotation>
 		<annotation cp="🇰🇼">旗</annotation>
-		<annotation cp="🇰🇼" type="tts">科威特</annotation>
+		<annotation cp="🇰🇼" type="tts">旗: 科威特</annotation>
 		<annotation cp="🇰🇾">旗</annotation>
-		<annotation cp="🇰🇾" type="tts">开曼群岛</annotation>
+		<annotation cp="🇰🇾" type="tts">旗: 开曼群岛</annotation>
 		<annotation cp="🇰🇿">旗</annotation>
-		<annotation cp="🇰🇿" type="tts">哈萨克</annotation>
+		<annotation cp="🇰🇿" type="tts">旗: 哈萨克</annotation>
 		<annotation cp="🇱🇦">旗</annotation>
-		<annotation cp="🇱🇦" type="tts">寮国</annotation>
+		<annotation cp="🇱🇦" type="tts">旗: 寮国</annotation>
 		<annotation cp="🇱🇧">旗</annotation>
-		<annotation cp="🇱🇧" type="tts">黎巴嫩</annotation>
+		<annotation cp="🇱🇧" type="tts">旗: 黎巴嫩</annotation>
 		<annotation cp="🇱🇨">旗</annotation>
-		<annotation cp="🇱🇨" type="tts">圣露西亚</annotation>
+		<annotation cp="🇱🇨" type="tts">旗: 圣露西亚</annotation>
 		<annotation cp="🇱🇮">旗</annotation>
-		<annotation cp="🇱🇮" type="tts">列支敦斯登</annotation>
+		<annotation cp="🇱🇮" type="tts">旗: 列支敦斯登</annotation>
 		<annotation cp="🇱🇰">旗</annotation>
-		<annotation cp="🇱🇰" type="tts">斯里兰卡</annotation>
+		<annotation cp="🇱🇰" type="tts">旗: 斯里兰卡</annotation>
 		<annotation cp="🇱🇷">旗</annotation>
-		<annotation cp="🇱🇷" type="tts">赖比瑞亚</annotation>
+		<annotation cp="🇱🇷" type="tts">旗: 赖比瑞亚</annotation>
 		<annotation cp="🇱🇸">旗</annotation>
-		<annotation cp="🇱🇸" type="tts">赖索托</annotation>
+		<annotation cp="🇱🇸" type="tts">旗: 赖索托</annotation>
 		<annotation cp="🇱🇹">旗</annotation>
-		<annotation cp="🇱🇹" type="tts">立陶宛</annotation>
+		<annotation cp="🇱🇹" type="tts">旗: 立陶宛</annotation>
 		<annotation cp="🇱🇺">旗</annotation>
-		<annotation cp="🇱🇺" type="tts">卢森堡</annotation>
+		<annotation cp="🇱🇺" type="tts">旗: 卢森堡</annotation>
 		<annotation cp="🇱🇻">旗</annotation>
-		<annotation cp="🇱🇻" type="tts">拉脱维亚</annotation>
+		<annotation cp="🇱🇻" type="tts">旗: 拉脱维亚</annotation>
 		<annotation cp="🇱🇾">旗</annotation>
-		<annotation cp="🇱🇾" type="tts">利比亚</annotation>
+		<annotation cp="🇱🇾" type="tts">旗: 利比亚</annotation>
 		<annotation cp="🇲🇦">旗</annotation>
-		<annotation cp="🇲🇦" type="tts">摩洛哥</annotation>
+		<annotation cp="🇲🇦" type="tts">旗: 摩洛哥</annotation>
 		<annotation cp="🇲🇨">旗</annotation>
-		<annotation cp="🇲🇨" type="tts">摩纳哥</annotation>
+		<annotation cp="🇲🇨" type="tts">旗: 摩纳哥</annotation>
 		<annotation cp="🇲🇩">旗</annotation>
-		<annotation cp="🇲🇩" type="tts">摩尔多瓦</annotation>
+		<annotation cp="🇲🇩" type="tts">旗: 摩尔多瓦</annotation>
 		<annotation cp="🇲🇪">旗</annotation>
-		<annotation cp="🇲🇪" type="tts">蒙特内哥罗</annotation>
+		<annotation cp="🇲🇪" type="tts">旗: 蒙特内哥罗</annotation>
 		<annotation cp="🇲🇫">旗</annotation>
-		<annotation cp="🇲🇫" type="tts">法属圣马丁</annotation>
+		<annotation cp="🇲🇫" type="tts">旗: 法属圣马丁</annotation>
 		<annotation cp="🇲🇬">旗</annotation>
-		<annotation cp="🇲🇬" type="tts">马达加斯加</annotation>
+		<annotation cp="🇲🇬" type="tts">旗: 马达加斯加</annotation>
 		<annotation cp="🇲🇭">旗</annotation>
-		<annotation cp="🇲🇭" type="tts">马绍尔群岛</annotation>
+		<annotation cp="🇲🇭" type="tts">旗: 马绍尔群岛</annotation>
 		<annotation cp="🇲🇰">旗</annotation>
-		<annotation cp="🇲🇰" type="tts">马其顿</annotation>
+		<annotation cp="🇲🇰" type="tts">旗: 马其顿</annotation>
 		<annotation cp="🇲🇱">旗</annotation>
-		<annotation cp="🇲🇱" type="tts">马利</annotation>
+		<annotation cp="🇲🇱" type="tts">旗: 马利</annotation>
 		<annotation cp="🇲🇲">旗</annotation>
-		<annotation cp="🇲🇲" type="tts">缅甸</annotation>
+		<annotation cp="🇲🇲" type="tts">旗: 缅甸</annotation>
 		<annotation cp="🇲🇳">旗</annotation>
-		<annotation cp="🇲🇳" type="tts">蒙古</annotation>
+		<annotation cp="🇲🇳" type="tts">旗: 蒙古</annotation>
 		<annotation cp="🇲🇴">旗</annotation>
-		<annotation cp="🇲🇴" type="tts">中华人民共和国澳门特别行政区</annotation>
+		<annotation cp="🇲🇴" type="tts">旗: 中华人民共和国澳门特别行政区</annotation>
 		<annotation cp="🇲🇵">旗</annotation>
-		<annotation cp="🇲🇵" type="tts">北马里亚纳群岛</annotation>
+		<annotation cp="🇲🇵" type="tts">旗: 北马里亚纳群岛</annotation>
 		<annotation cp="🇲🇶">旗</annotation>
-		<annotation cp="🇲🇶" type="tts">马丁尼克岛</annotation>
+		<annotation cp="🇲🇶" type="tts">旗: 马丁尼克岛</annotation>
 		<annotation cp="🇲🇷">旗</annotation>
-		<annotation cp="🇲🇷" type="tts">茅利塔尼亚</annotation>
+		<annotation cp="🇲🇷" type="tts">旗: 茅利塔尼亚</annotation>
 		<annotation cp="🇲🇸">旗</annotation>
-		<annotation cp="🇲🇸" type="tts">蒙哲腊</annotation>
+		<annotation cp="🇲🇸" type="tts">旗: 蒙哲腊</annotation>
 		<annotation cp="🇲🇹">旗</annotation>
-		<annotation cp="🇲🇹" type="tts">马尔他</annotation>
+		<annotation cp="🇲🇹" type="tts">旗: 马尔他</annotation>
 		<annotation cp="🇲🇺">旗</annotation>
-		<annotation cp="🇲🇺" type="tts">模里西斯</annotation>
+		<annotation cp="🇲🇺" type="tts">旗: 模里西斯</annotation>
 		<annotation cp="🇲🇻">旗</annotation>
-		<annotation cp="🇲🇻" type="tts">马尔地夫</annotation>
+		<annotation cp="🇲🇻" type="tts">旗: 马尔地夫</annotation>
 		<annotation cp="🇲🇼">旗</annotation>
-		<annotation cp="🇲🇼" type="tts">马拉威</annotation>
+		<annotation cp="🇲🇼" type="tts">旗: 马拉威</annotation>
 		<annotation cp="🇲🇽">旗</annotation>
-		<annotation cp="🇲🇽" type="tts">墨西哥</annotation>
+		<annotation cp="🇲🇽" type="tts">旗: 墨西哥</annotation>
 		<annotation cp="🇲🇾">旗</annotation>
-		<annotation cp="🇲🇾" type="tts">马来西亚</annotation>
+		<annotation cp="🇲🇾" type="tts">旗: 马来西亚</annotation>
 		<annotation cp="🇲🇿">旗</annotation>
-		<annotation cp="🇲🇿" type="tts">莫三比克</annotation>
+		<annotation cp="🇲🇿" type="tts">旗: 莫三比克</annotation>
 		<annotation cp="🇳🇦">旗</annotation>
-		<annotation cp="🇳🇦" type="tts">纳米比亚</annotation>
+		<annotation cp="🇳🇦" type="tts">旗: 纳米比亚</annotation>
 		<annotation cp="🇳🇨">旗</annotation>
-		<annotation cp="🇳🇨" type="tts">新喀里多尼亚</annotation>
+		<annotation cp="🇳🇨" type="tts">旗: 新喀里多尼亚</annotation>
 		<annotation cp="🇳🇪">旗</annotation>
-		<annotation cp="🇳🇪" type="tts">尼日</annotation>
+		<annotation cp="🇳🇪" type="tts">旗: 尼日</annotation>
 		<annotation cp="🇳🇫">旗</annotation>
-		<annotation cp="🇳🇫" type="tts">诺福克岛</annotation>
+		<annotation cp="🇳🇫" type="tts">旗: 诺福克岛</annotation>
 		<annotation cp="🇳🇬">旗</annotation>
-		<annotation cp="🇳🇬" type="tts">奈及利亚</annotation>
+		<annotation cp="🇳🇬" type="tts">旗: 奈及利亚</annotation>
 		<annotation cp="🇳🇮">旗</annotation>
-		<annotation cp="🇳🇮" type="tts">尼加拉瓜</annotation>
+		<annotation cp="🇳🇮" type="tts">旗: 尼加拉瓜</annotation>
 		<annotation cp="🇳🇱">旗</annotation>
-		<annotation cp="🇳🇱" type="tts">荷兰</annotation>
+		<annotation cp="🇳🇱" type="tts">旗: 荷兰</annotation>
 		<annotation cp="🇳🇴">旗</annotation>
-		<annotation cp="🇳🇴" type="tts">挪威</annotation>
+		<annotation cp="🇳🇴" type="tts">旗: 挪威</annotation>
 		<annotation cp="🇳🇵">旗</annotation>
-		<annotation cp="🇳🇵" type="tts">尼泊尔</annotation>
+		<annotation cp="🇳🇵" type="tts">旗: 尼泊尔</annotation>
 		<annotation cp="🇳🇷">旗</annotation>
-		<annotation cp="🇳🇷" type="tts">诺鲁</annotation>
+		<annotation cp="🇳🇷" type="tts">旗: 诺鲁</annotation>
 		<annotation cp="🇳🇺">旗</annotation>
-		<annotation cp="🇳🇺" type="tts">纽埃岛</annotation>
+		<annotation cp="🇳🇺" type="tts">旗: 纽埃岛</annotation>
 		<annotation cp="🇳🇿">旗</annotation>
-		<annotation cp="🇳🇿" type="tts">纽西兰</annotation>
+		<annotation cp="🇳🇿" type="tts">旗: 纽西兰</annotation>
 		<annotation cp="🇴🇲">旗</annotation>
-		<annotation cp="🇴🇲" type="tts">阿曼王国</annotation>
+		<annotation cp="🇴🇲" type="tts">旗: 阿曼王国</annotation>
 		<annotation cp="🇵🇦">旗</annotation>
-		<annotation cp="🇵🇦" type="tts">巴拿马</annotation>
+		<annotation cp="🇵🇦" type="tts">旗: 巴拿马</annotation>
 		<annotation cp="🇵🇪">旗</annotation>
-		<annotation cp="🇵🇪" type="tts">秘鲁</annotation>
+		<annotation cp="🇵🇪" type="tts">旗: 秘鲁</annotation>
 		<annotation cp="🇵🇫">旗</annotation>
-		<annotation cp="🇵🇫" type="tts">法属玻里尼西亚</annotation>
+		<annotation cp="🇵🇫" type="tts">旗: 法属玻里尼西亚</annotation>
 		<annotation cp="🇵🇬">旗</annotation>
-		<annotation cp="🇵🇬" type="tts">巴布亚纽几内亚</annotation>
+		<annotation cp="🇵🇬" type="tts">旗: 巴布亚纽几内亚</annotation>
 		<annotation cp="🇵🇭">旗</annotation>
-		<annotation cp="🇵🇭" type="tts">菲律宾</annotation>
+		<annotation cp="🇵🇭" type="tts">旗: 菲律宾</annotation>
 		<annotation cp="🇵🇰">旗</annotation>
-		<annotation cp="🇵🇰" type="tts">巴基斯坦</annotation>
+		<annotation cp="🇵🇰" type="tts">旗: 巴基斯坦</annotation>
 		<annotation cp="🇵🇱">旗</annotation>
-		<annotation cp="🇵🇱" type="tts">波兰</annotation>
+		<annotation cp="🇵🇱" type="tts">旗: 波兰</annotation>
 		<annotation cp="🇵🇲">旗</annotation>
-		<annotation cp="🇵🇲" type="tts">圣皮埃尔同密克隆群岛</annotation>
+		<annotation cp="🇵🇲" type="tts">旗: 圣皮埃尔同密克隆群岛</annotation>
 		<annotation cp="🇵🇳">旗</annotation>
-		<annotation cp="🇵🇳" type="tts">皮特肯群岛</annotation>
+		<annotation cp="🇵🇳" type="tts">旗: 皮特肯群岛</annotation>
 		<annotation cp="🇵🇷">旗</annotation>
-		<annotation cp="🇵🇷" type="tts">波多黎各</annotation>
+		<annotation cp="🇵🇷" type="tts">旗: 波多黎各</annotation>
 		<annotation cp="🇵🇸">旗</annotation>
-		<annotation cp="🇵🇸" type="tts">巴勒斯坦自治区</annotation>
+		<annotation cp="🇵🇸" type="tts">旗: 巴勒斯坦自治区</annotation>
 		<annotation cp="🇵🇹">旗</annotation>
-		<annotation cp="🇵🇹" type="tts">葡萄牙</annotation>
+		<annotation cp="🇵🇹" type="tts">旗: 葡萄牙</annotation>
 		<annotation cp="🇵🇼">旗</annotation>
-		<annotation cp="🇵🇼" type="tts">帛琉</annotation>
+		<annotation cp="🇵🇼" type="tts">旗: 帛琉</annotation>
 		<annotation cp="🇵🇾">旗</annotation>
-		<annotation cp="🇵🇾" type="tts">巴拉圭</annotation>
+		<annotation cp="🇵🇾" type="tts">旗: 巴拉圭</annotation>
 		<annotation cp="🇶🇦">旗</annotation>
-		<annotation cp="🇶🇦" type="tts">卡达</annotation>
+		<annotation cp="🇶🇦" type="tts">旗: 卡达</annotation>
 		<annotation cp="🇷🇪">旗</annotation>
-		<annotation cp="🇷🇪" type="tts">留尼旺</annotation>
+		<annotation cp="🇷🇪" type="tts">旗: 留尼旺</annotation>
 		<annotation cp="🇷🇴">旗</annotation>
-		<annotation cp="🇷🇴" type="tts">罗马尼亚</annotation>
+		<annotation cp="🇷🇴" type="tts">旗: 罗马尼亚</annotation>
 		<annotation cp="🇷🇸">旗</annotation>
-		<annotation cp="🇷🇸" type="tts">塞尔维亚</annotation>
+		<annotation cp="🇷🇸" type="tts">旗: 塞尔维亚</annotation>
 		<annotation cp="🇷🇺">旗</annotation>
-		<annotation cp="🇷🇺" type="tts">俄罗斯</annotation>
+		<annotation cp="🇷🇺" type="tts">旗: 俄罗斯</annotation>
 		<annotation cp="🇷🇼">旗</annotation>
-		<annotation cp="🇷🇼" type="tts">卢安达</annotation>
+		<annotation cp="🇷🇼" type="tts">旗: 卢安达</annotation>
 		<annotation cp="🇸🇦">旗</annotation>
-		<annotation cp="🇸🇦" type="tts">沙乌地阿拉伯</annotation>
+		<annotation cp="🇸🇦" type="tts">旗: 沙乌地阿拉伯</annotation>
 		<annotation cp="🇸🇧">旗</annotation>
-		<annotation cp="🇸🇧" type="tts">索罗门群岛</annotation>
+		<annotation cp="🇸🇧" type="tts">旗: 索罗门群岛</annotation>
 		<annotation cp="🇸🇨">旗</annotation>
-		<annotation cp="🇸🇨" type="tts">塞席尔</annotation>
+		<annotation cp="🇸🇨" type="tts">旗: 塞席尔</annotation>
 		<annotation cp="🇸🇩">旗</annotation>
-		<annotation cp="🇸🇩" type="tts">苏丹</annotation>
+		<annotation cp="🇸🇩" type="tts">旗: 苏丹</annotation>
 		<annotation cp="🇸🇪">旗</annotation>
-		<annotation cp="🇸🇪" type="tts">瑞典</annotation>
+		<annotation cp="🇸🇪" type="tts">旗: 瑞典</annotation>
 		<annotation cp="🇸🇬">旗</annotation>
-		<annotation cp="🇸🇬" type="tts">新加坡</annotation>
+		<annotation cp="🇸🇬" type="tts">旗: 新加坡</annotation>
 		<annotation cp="🇸🇭">旗</annotation>
-		<annotation cp="🇸🇭" type="tts">圣赫勒拿岛</annotation>
+		<annotation cp="🇸🇭" type="tts">旗: 圣赫勒拿岛</annotation>
 		<annotation cp="🇸🇮">旗</annotation>
-		<annotation cp="🇸🇮" type="tts">斯洛维尼亚</annotation>
+		<annotation cp="🇸🇮" type="tts">旗: 斯洛维尼亚</annotation>
 		<annotation cp="🇸🇯">旗</annotation>
-		<annotation cp="🇸🇯" type="tts">斯瓦尔巴特群岛同扬马延岛</annotation>
+		<annotation cp="🇸🇯" type="tts">旗: 斯瓦尔巴特群岛同扬马延岛</annotation>
 		<annotation cp="🇸🇰">旗</annotation>
-		<annotation cp="🇸🇰" type="tts">斯洛伐克</annotation>
+		<annotation cp="🇸🇰" type="tts">旗: 斯洛伐克</annotation>
 		<annotation cp="🇸🇱">旗</annotation>
-		<annotation cp="🇸🇱" type="tts">狮子山</annotation>
+		<annotation cp="🇸🇱" type="tts">旗: 狮子山</annotation>
 		<annotation cp="🇸🇲">旗</annotation>
-		<annotation cp="🇸🇲" type="tts">圣马利诺</annotation>
+		<annotation cp="🇸🇲" type="tts">旗: 圣马利诺</annotation>
 		<annotation cp="🇸🇳">旗</annotation>
-		<annotation cp="🇸🇳" type="tts">塞内加尔</annotation>
+		<annotation cp="🇸🇳" type="tts">旗: 塞内加尔</annotation>
 		<annotation cp="🇸🇴">旗</annotation>
-		<annotation cp="🇸🇴" type="tts">索马利亚</annotation>
+		<annotation cp="🇸🇴" type="tts">旗: 索马利亚</annotation>
 		<annotation cp="🇸🇷">旗</annotation>
-		<annotation cp="🇸🇷" type="tts">苏利南</annotation>
+		<annotation cp="🇸🇷" type="tts">旗: 苏利南</annotation>
 		<annotation cp="🇸🇸">旗</annotation>
-		<annotation cp="🇸🇸" type="tts">南苏丹</annotation>
+		<annotation cp="🇸🇸" type="tts">旗: 南苏丹</annotation>
 		<annotation cp="🇸🇹">旗</annotation>
-		<annotation cp="🇸🇹" type="tts">圣多美同普林西比</annotation>
+		<annotation cp="🇸🇹" type="tts">旗: 圣多美同普林西比</annotation>
 		<annotation cp="🇸🇻">旗</annotation>
-		<annotation cp="🇸🇻" type="tts">萨尔瓦多</annotation>
+		<annotation cp="🇸🇻" type="tts">旗: 萨尔瓦多</annotation>
 		<annotation cp="🇸🇽">旗</annotation>
-		<annotation cp="🇸🇽" type="tts">荷属圣马丁</annotation>
+		<annotation cp="🇸🇽" type="tts">旗: 荷属圣马丁</annotation>
 		<annotation cp="🇸🇾">旗</annotation>
-		<annotation cp="🇸🇾" type="tts">叙利亚</annotation>
+		<annotation cp="🇸🇾" type="tts">旗: 叙利亚</annotation>
 		<annotation cp="🇸🇿">旗</annotation>
-		<annotation cp="🇸🇿" type="tts">史瓦济兰</annotation>
+		<annotation cp="🇸🇿" type="tts">旗: 史瓦济兰</annotation>
 		<annotation cp="🇹🇦">旗</annotation>
-		<annotation cp="🇹🇦" type="tts">特里斯坦达库尼亚群岛</annotation>
+		<annotation cp="🇹🇦" type="tts">旗: 特里斯坦达库尼亚群岛</annotation>
 		<annotation cp="🇹🇨">旗</annotation>
-		<annotation cp="🇹🇨" type="tts">土克斯及开科斯群岛</annotation>
+		<annotation cp="🇹🇨" type="tts">旗: 土克斯及开科斯群岛</annotation>
 		<annotation cp="🇹🇩">旗</annotation>
-		<annotation cp="🇹🇩" type="tts">查德</annotation>
+		<annotation cp="🇹🇩" type="tts">旗: 查德</annotation>
 		<annotation cp="🇹🇫">旗</annotation>
-		<annotation cp="🇹🇫" type="tts">法属南方属地</annotation>
+		<annotation cp="🇹🇫" type="tts">旗: 法属南方属地</annotation>
 		<annotation cp="🇹🇬">旗</annotation>
-		<annotation cp="🇹🇬" type="tts">多哥</annotation>
+		<annotation cp="🇹🇬" type="tts">旗: 多哥</annotation>
 		<annotation cp="🇹🇭">旗</annotation>
-		<annotation cp="🇹🇭" type="tts">泰国</annotation>
+		<annotation cp="🇹🇭" type="tts">旗: 泰国</annotation>
 		<annotation cp="🇹🇯">旗</annotation>
-		<annotation cp="🇹🇯" type="tts">塔吉克</annotation>
+		<annotation cp="🇹🇯" type="tts">旗: 塔吉克</annotation>
 		<annotation cp="🇹🇰">旗</annotation>
-		<annotation cp="🇹🇰" type="tts">托克劳群岛</annotation>
+		<annotation cp="🇹🇰" type="tts">旗: 托克劳群岛</annotation>
 		<annotation cp="🇹🇱">旗</annotation>
-		<annotation cp="🇹🇱" type="tts">东帝汶</annotation>
+		<annotation cp="🇹🇱" type="tts">旗: 东帝汶</annotation>
 		<annotation cp="🇹🇲">旗</annotation>
-		<annotation cp="🇹🇲" type="tts">土库曼</annotation>
+		<annotation cp="🇹🇲" type="tts">旗: 土库曼</annotation>
 		<annotation cp="🇹🇳">旗</annotation>
-		<annotation cp="🇹🇳" type="tts">突尼西亚</annotation>
+		<annotation cp="🇹🇳" type="tts">旗: 突尼西亚</annotation>
 		<annotation cp="🇹🇴">旗</annotation>
-		<annotation cp="🇹🇴" type="tts">东加</annotation>
+		<annotation cp="🇹🇴" type="tts">旗: 东加</annotation>
 		<annotation cp="🇹🇷">旗</annotation>
-		<annotation cp="🇹🇷" type="tts">土耳其</annotation>
+		<annotation cp="🇹🇷" type="tts">旗: 土耳其</annotation>
 		<annotation cp="🇹🇹">旗</annotation>
-		<annotation cp="🇹🇹" type="tts">千里达同多巴哥</annotation>
+		<annotation cp="🇹🇹" type="tts">旗: 千里达同多巴哥</annotation>
 		<annotation cp="🇹🇻">旗</annotation>
-		<annotation cp="🇹🇻" type="tts">吐瓦鲁</annotation>
+		<annotation cp="🇹🇻" type="tts">旗: 吐瓦鲁</annotation>
 		<annotation cp="🇹🇼">旗</annotation>
-		<annotation cp="🇹🇼" type="tts">台湾</annotation>
+		<annotation cp="🇹🇼" type="tts">旗: 台湾</annotation>
 		<annotation cp="🇹🇿">旗</annotation>
-		<annotation cp="🇹🇿" type="tts">坦尚尼亚</annotation>
+		<annotation cp="🇹🇿" type="tts">旗: 坦尚尼亚</annotation>
 		<annotation cp="🇺🇦">旗</annotation>
-		<annotation cp="🇺🇦" type="tts">乌克兰</annotation>
+		<annotation cp="🇺🇦" type="tts">旗: 乌克兰</annotation>
 		<annotation cp="🇺🇬">旗</annotation>
-		<annotation cp="🇺🇬" type="tts">乌干达</annotation>
+		<annotation cp="🇺🇬" type="tts">旗: 乌干达</annotation>
 		<annotation cp="🇺🇲">旗</annotation>
-		<annotation cp="🇺🇲" type="tts">美国本土外小岛屿</annotation>
+		<annotation cp="🇺🇲" type="tts">旗: 美国本土外小岛屿</annotation>
 		<annotation cp="🇺🇳">旗</annotation>
-		<annotation cp="🇺🇳" type="tts">联合国</annotation>
+		<annotation cp="🇺🇳" type="tts">旗: 联合国</annotation>
 		<annotation cp="🇺🇸">旗</annotation>
-		<annotation cp="🇺🇸" type="tts">美国</annotation>
+		<annotation cp="🇺🇸" type="tts">旗: 美国</annotation>
 		<annotation cp="🇺🇾">旗</annotation>
-		<annotation cp="🇺🇾" type="tts">乌拉圭</annotation>
+		<annotation cp="🇺🇾" type="tts">旗: 乌拉圭</annotation>
 		<annotation cp="🇺🇿">旗</annotation>
-		<annotation cp="🇺🇿" type="tts">乌兹别克</annotation>
+		<annotation cp="🇺🇿" type="tts">旗: 乌兹别克</annotation>
 		<annotation cp="🇻🇦">旗</annotation>
-		<annotation cp="🇻🇦" type="tts">梵蒂冈</annotation>
+		<annotation cp="🇻🇦" type="tts">旗: 梵蒂冈</annotation>
 		<annotation cp="🇻🇨">旗</annotation>
-		<annotation cp="🇻🇨" type="tts">圣文森特同格林纳丁斯</annotation>
+		<annotation cp="🇻🇨" type="tts">旗: 圣文森特同格林纳丁斯</annotation>
 		<annotation cp="🇻🇪">旗</annotation>
-		<annotation cp="🇻🇪" type="tts">委内瑞拉</annotation>
+		<annotation cp="🇻🇪" type="tts">旗: 委内瑞拉</annotation>
 		<annotation cp="🇻🇬">旗</annotation>
-		<annotation cp="🇻🇬" type="tts">英属维京群岛</annotation>
+		<annotation cp="🇻🇬" type="tts">旗: 英属维京群岛</annotation>
 		<annotation cp="🇻🇮">旗</annotation>
-		<annotation cp="🇻🇮" type="tts">美属维京群岛</annotation>
+		<annotation cp="🇻🇮" type="tts">旗: 美属维京群岛</annotation>
 		<annotation cp="🇻🇳">旗</annotation>
-		<annotation cp="🇻🇳" type="tts">越南</annotation>
+		<annotation cp="🇻🇳" type="tts">旗: 越南</annotation>
 		<annotation cp="🇻🇺">旗</annotation>
-		<annotation cp="🇻🇺" type="tts">万那杜</annotation>
+		<annotation cp="🇻🇺" type="tts">旗: 万那杜</annotation>
 		<annotation cp="🇼🇫">旗</annotation>
-		<annotation cp="🇼🇫" type="tts">瓦利斯同富图纳群岛</annotation>
+		<annotation cp="🇼🇫" type="tts">旗: 瓦利斯同富图纳群岛</annotation>
 		<annotation cp="🇼🇸">旗</annotation>
-		<annotation cp="🇼🇸" type="tts">萨摩亚</annotation>
+		<annotation cp="🇼🇸" type="tts">旗: 萨摩亚</annotation>
 		<annotation cp="🇽🇰">旗</annotation>
-		<annotation cp="🇽🇰" type="tts">科索沃</annotation>
+		<annotation cp="🇽🇰" type="tts">旗: 科索沃</annotation>
 		<annotation cp="🇾🇪">旗</annotation>
-		<annotation cp="🇾🇪" type="tts">叶门</annotation>
+		<annotation cp="🇾🇪" type="tts">旗: 叶门</annotation>
 		<annotation cp="🇾🇹">旗</annotation>
-		<annotation cp="🇾🇹" type="tts">马约特</annotation>
+		<annotation cp="🇾🇹" type="tts">旗: 马约特</annotation>
 		<annotation cp="🇿🇦">旗</annotation>
-		<annotation cp="🇿🇦" type="tts">南非</annotation>
+		<annotation cp="🇿🇦" type="tts">旗: 南非</annotation>
 		<annotation cp="🇿🇲">旗</annotation>
-		<annotation cp="🇿🇲" type="tts">尚比亚</annotation>
+		<annotation cp="🇿🇲" type="tts">旗: 尚比亚</annotation>
 		<annotation cp="🇿🇼">旗</annotation>
-		<annotation cp="🇿🇼" type="tts">辛巴威</annotation>
+		<annotation cp="🇿🇼" type="tts">旗: 辛巴威</annotation>
 		<annotation cp="0⃣">键帽</annotation>
 		<annotation cp="0⃣" type="tts">键帽: 0</annotation>
 		<annotation cp="1⃣">键帽</annotation>

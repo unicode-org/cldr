@@ -32,6 +32,7 @@ public class Emoji {
     static final Map<String, Integer> minorToOrder = new HashMap<>();
     static final UnicodeSet nonConstructed = new UnicodeSet();
     static final UnicodeSet allRgi = new UnicodeSet();
+    static final UnicodeSet allRgiNoES = new UnicodeSet();
 
     static {
         /*
@@ -65,6 +66,7 @@ public class Emoji {
             String type = it.next();
             if (type.startsWith("fully-qualified")) {
                 allRgi.add(original);
+                allRgiNoES.add(original.replace(Emoji.EMOJI_VARIANT, ""));
             }
             emojiToMajorCategory.put(original, majorCategory);
             emojiToMinorCategory.put(original, minorCategory);
@@ -97,10 +99,15 @@ public class Emoji {
         nonConstructed.add(MODIFIERS); // needed for names
         nonConstructed.freeze();
         allRgi.freeze();
+        allRgiNoES.freeze();
     }
 
     public static UnicodeSet getAllRgi() {
         return allRgi;
+    }
+
+    public static UnicodeSet getAllRgiNoES() {
+        return allRgiNoES;
     }
 
     public static String getMinorCategory(String emoji) {

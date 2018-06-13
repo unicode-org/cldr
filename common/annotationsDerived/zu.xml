@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="zu"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">kick | limb | umlenze | uhlobo-1-2</annotation>
+		<annotation cp="🦵🏻" type="tts">umlenze: uhlobo-1-2</annotation>
+		<annotation cp="🦵🏼">kick | limb | umlenze | uhlobo-3</annotation>
+		<annotation cp="🦵🏼" type="tts">umlenze: uhlobo-3</annotation>
+		<annotation cp="🦵🏽">kick | limb | umlenze | uhlobo-4</annotation>
+		<annotation cp="🦵🏽" type="tts">umlenze: uhlobo-4</annotation>
+		<annotation cp="🦵🏾">kick | limb | umlenze | uhlobo-5</annotation>
+		<annotation cp="🦵🏾" type="tts">umlenze: uhlobo-5</annotation>
+		<annotation cp="🦵🏿">kick | limb | umlenze | uhlobo-6</annotation>
+		<annotation cp="🦵🏿" type="tts">umlenze: uhlobo-6</annotation>
+		<annotation cp="🦶🏻">kick | stomp | unyawo | uhlobo-1-2</annotation>
+		<annotation cp="🦶🏻" type="tts">unyawo: uhlobo-1-2</annotation>
+		<annotation cp="🦶🏼">kick | stomp | unyawo | uhlobo-3</annotation>
+		<annotation cp="🦶🏼" type="tts">unyawo: uhlobo-3</annotation>
+		<annotation cp="🦶🏽">kick | stomp | unyawo | uhlobo-4</annotation>
+		<annotation cp="🦶🏽" type="tts">unyawo: uhlobo-4</annotation>
+		<annotation cp="🦶🏾">kick | stomp | unyawo | uhlobo-5</annotation>
+		<annotation cp="🦶🏾" type="tts">unyawo: uhlobo-5</annotation>
+		<annotation cp="🦶🏿">kick | stomp | unyawo | uhlobo-6</annotation>
+		<annotation cp="🦶🏿" type="tts">unyawo: uhlobo-6</annotation>
+		<annotation cp="🦸🏻">good | hero | heroine | iqhawe | superpower | uhlobo-1-2</annotation>
+		<annotation cp="🦸🏻" type="tts">iqhawe: uhlobo-1-2</annotation>
+		<annotation cp="🦸🏼">good | hero | heroine | iqhawe | superpower | uhlobo-3</annotation>
+		<annotation cp="🦸🏼" type="tts">iqhawe: uhlobo-3</annotation>
+		<annotation cp="🦸🏽">good | hero | heroine | iqhawe | superpower | uhlobo-4</annotation>
+		<annotation cp="🦸🏽" type="tts">iqhawe: uhlobo-4</annotation>
+		<annotation cp="🦸🏾">good | hero | heroine | iqhawe | superpower | uhlobo-5</annotation>
+		<annotation cp="🦸🏾" type="tts">iqhawe: uhlobo-5</annotation>
+		<annotation cp="🦸🏿">good | hero | heroine | iqhawe | superpower | uhlobo-6</annotation>
+		<annotation cp="🦸🏿" type="tts">iqhawe: uhlobo-6</annotation>
+		<annotation cp="🦸🏻‍♀">good | hero | heroine | superpower | woman | woman superhero | uhlobo-1-2</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">woman superhero: uhlobo-1-2</annotation>
+		<annotation cp="🦸🏼‍♀">good | hero | heroine | superpower | woman | woman superhero | uhlobo-3</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">woman superhero: uhlobo-3</annotation>
+		<annotation cp="🦸🏽‍♀">good | hero | heroine | superpower | woman | woman superhero | uhlobo-4</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">woman superhero: uhlobo-4</annotation>
+		<annotation cp="🦸🏾‍♀">good | hero | heroine | superpower | woman | woman superhero | uhlobo-5</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">woman superhero: uhlobo-5</annotation>
+		<annotation cp="🦸🏿‍♀">good | hero | heroine | superpower | woman | woman superhero | uhlobo-6</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">woman superhero: uhlobo-6</annotation>
+		<annotation cp="🦸🏻‍♂">good | hero | man | man superhero | superpower | uhlobo-1-2</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">man superhero: uhlobo-1-2</annotation>
+		<annotation cp="🦸🏼‍♂">good | hero | man | man superhero | superpower | uhlobo-3</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">man superhero: uhlobo-3</annotation>
+		<annotation cp="🦸🏽‍♂">good | hero | man | man superhero | superpower | uhlobo-4</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">man superhero: uhlobo-4</annotation>
+		<annotation cp="🦸🏾‍♂">good | hero | man | man superhero | superpower | uhlobo-5</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">man superhero: uhlobo-5</annotation>
+		<annotation cp="🦸🏿‍♂">good | hero | man | man superhero | superpower | uhlobo-6</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">man superhero: uhlobo-6</annotation>
+		<annotation cp="🦹🏻">criminal | evil | superpower | supervillain | villain | uhlobo-1-2</annotation>
+		<annotation cp="🦹🏻" type="tts">supervillain: uhlobo-1-2</annotation>
+		<annotation cp="🦹🏼">criminal | evil | superpower | supervillain | villain | uhlobo-3</annotation>
+		<annotation cp="🦹🏼" type="tts">supervillain: uhlobo-3</annotation>
+		<annotation cp="🦹🏽">criminal | evil | superpower | supervillain | villain | uhlobo-4</annotation>
+		<annotation cp="🦹🏽" type="tts">supervillain: uhlobo-4</annotation>
+		<annotation cp="🦹🏾">criminal | evil | superpower | supervillain | villain | uhlobo-5</annotation>
+		<annotation cp="🦹🏾" type="tts">supervillain: uhlobo-5</annotation>
+		<annotation cp="🦹🏿">criminal | evil | superpower | supervillain | villain | uhlobo-6</annotation>
+		<annotation cp="🦹🏿" type="tts">supervillain: uhlobo-6</annotation>
+		<annotation cp="🦹🏻‍♀">criminal | evil | superpower | villain | woman | woman supervillain | uhlobo-1-2</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">woman supervillain: uhlobo-1-2</annotation>
+		<annotation cp="🦹🏼‍♀">criminal | evil | superpower | villain | woman | woman supervillain | uhlobo-3</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">woman supervillain: uhlobo-3</annotation>
+		<annotation cp="🦹🏽‍♀">criminal | evil | superpower | villain | woman | woman supervillain | uhlobo-4</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">woman supervillain: uhlobo-4</annotation>
+		<annotation cp="🦹🏾‍♀">criminal | evil | superpower | villain | woman | woman supervillain | uhlobo-5</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">woman supervillain: uhlobo-5</annotation>
+		<annotation cp="🦹🏿‍♀">criminal | evil | superpower | villain | woman | woman supervillain | uhlobo-6</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">woman supervillain: uhlobo-6</annotation>
+		<annotation cp="🦹🏻‍♂">criminal | evil | man | man supervillain | superpower | villain | uhlobo-1-2</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">man supervillain: uhlobo-1-2</annotation>
+		<annotation cp="🦹🏼‍♂">criminal | evil | man | man supervillain | superpower | villain | uhlobo-3</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">man supervillain: uhlobo-3</annotation>
+		<annotation cp="🦹🏽‍♂">criminal | evil | man | man supervillain | superpower | villain | uhlobo-4</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">man supervillain: uhlobo-4</annotation>
+		<annotation cp="🦹🏾‍♂">criminal | evil | man | man supervillain | superpower | villain | uhlobo-5</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">man supervillain: uhlobo-5</annotation>
+		<annotation cp="🦹🏿‍♂">criminal | evil | man | man supervillain | superpower | villain | uhlobo-6</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">man supervillain: uhlobo-6</annotation>
 		<annotation cp="👶🏻">ingane | usana | uhlobo-1-2</annotation>
 		<annotation cp="👶🏻" type="tts">usana: uhlobo-1-2</annotation>
 		<annotation cp="👶🏼">ingane | usana | uhlobo-3</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">indoda: uhlobo-5</annotation>
 		<annotation cp="👨🏿">indoda | owesilisa | ubaba | uhlobo-6</annotation>
 		<annotation cp="👨🏿" type="tts">indoda: uhlobo-6</annotation>
+		<annotation cp="👨‍🦰">indoda | owesilisa | ubaba | izinwele ezibomvu</annotation>
+		<annotation cp="👨‍🦰" type="tts">indoda: izinwele ezibomvu</annotation>
+		<annotation cp="👨🏻‍🦰">indoda | owesilisa | ubaba | uhlobo-1-2 | izinwele ezibomvu</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">indoda: uhlobo-1-2, izinwele ezibomvu</annotation>
+		<annotation cp="👨🏼‍🦰">indoda | owesilisa | ubaba | uhlobo-3 | izinwele ezibomvu</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">indoda: uhlobo-3, izinwele ezibomvu</annotation>
+		<annotation cp="👨🏽‍🦰">indoda | owesilisa | ubaba | uhlobo-4 | izinwele ezibomvu</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">indoda: uhlobo-4, izinwele ezibomvu</annotation>
+		<annotation cp="👨🏾‍🦰">indoda | owesilisa | ubaba | uhlobo-5 | izinwele ezibomvu</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">indoda: uhlobo-5, izinwele ezibomvu</annotation>
+		<annotation cp="👨🏿‍🦰">indoda | owesilisa | ubaba | uhlobo-6 | izinwele ezibomvu</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">indoda: uhlobo-6, izinwele ezibomvu</annotation>
+		<annotation cp="👨‍🦱">indoda | owesilisa | ubaba | curly hair</annotation>
+		<annotation cp="👨‍🦱" type="tts">indoda: curly hair</annotation>
+		<annotation cp="👨🏻‍🦱">indoda | owesilisa | ubaba | uhlobo-1-2 | curly hair</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">indoda: uhlobo-1-2, curly hair</annotation>
+		<annotation cp="👨🏼‍🦱">indoda | owesilisa | ubaba | uhlobo-3 | curly hair</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">indoda: uhlobo-3, curly hair</annotation>
+		<annotation cp="👨🏽‍🦱">indoda | owesilisa | ubaba | uhlobo-4 | curly hair</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">indoda: uhlobo-4, curly hair</annotation>
+		<annotation cp="👨🏾‍🦱">indoda | owesilisa | ubaba | uhlobo-5 | curly hair</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">indoda: uhlobo-5, curly hair</annotation>
+		<annotation cp="👨🏿‍🦱">indoda | owesilisa | ubaba | uhlobo-6 | curly hair</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">indoda: uhlobo-6, curly hair</annotation>
+		<annotation cp="👨‍🦲">indoda | owesilisa | ubaba | imbungculu</annotation>
+		<annotation cp="👨‍🦲" type="tts">indoda: imbungculu</annotation>
+		<annotation cp="👨🏻‍🦲">indoda | owesilisa | ubaba | uhlobo-1-2 | imbungculu</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">indoda: uhlobo-1-2, imbungculu</annotation>
+		<annotation cp="👨🏼‍🦲">indoda | owesilisa | ubaba | uhlobo-3 | imbungculu</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">indoda: uhlobo-3, imbungculu</annotation>
+		<annotation cp="👨🏽‍🦲">indoda | owesilisa | ubaba | uhlobo-4 | imbungculu</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">indoda: uhlobo-4, imbungculu</annotation>
+		<annotation cp="👨🏾‍🦲">indoda | owesilisa | ubaba | uhlobo-5 | imbungculu</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">indoda: uhlobo-5, imbungculu</annotation>
+		<annotation cp="👨🏿‍🦲">indoda | owesilisa | ubaba | uhlobo-6 | imbungculu</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">indoda: uhlobo-6, imbungculu</annotation>
+		<annotation cp="👨‍🦳">indoda | owesilisa | ubaba | izinwele ezimhlophe</annotation>
+		<annotation cp="👨‍🦳" type="tts">indoda: izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏻‍🦳">indoda | owesilisa | ubaba | uhlobo-1-2 | izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">indoda: uhlobo-1-2, izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏼‍🦳">indoda | owesilisa | ubaba | uhlobo-3 | izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">indoda: uhlobo-3, izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏽‍🦳">indoda | owesilisa | ubaba | uhlobo-4 | izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">indoda: uhlobo-4, izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏾‍🦳">indoda | owesilisa | ubaba | uhlobo-5 | izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">indoda: uhlobo-5, izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏿‍🦳">indoda | owesilisa | ubaba | uhlobo-6 | izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">indoda: uhlobo-6, izinwele ezimhlophe</annotation>
 		<annotation cp="👩🏻">owesimame | umama | uhlobo-1-2</annotation>
 		<annotation cp="👩🏻" type="tts">umama: uhlobo-1-2</annotation>
 		<annotation cp="👩🏼">owesimame | umama | uhlobo-3</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">umama: uhlobo-5</annotation>
 		<annotation cp="👩🏿">owesimame | umama | uhlobo-6</annotation>
 		<annotation cp="👩🏿" type="tts">umama: uhlobo-6</annotation>
+		<annotation cp="👩‍🦰">owesimame | umama | izinwele ezibomvu</annotation>
+		<annotation cp="👩‍🦰" type="tts">umama: izinwele ezibomvu</annotation>
+		<annotation cp="👩🏻‍🦰">owesimame | umama | uhlobo-1-2 | izinwele ezibomvu</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">umama: uhlobo-1-2, izinwele ezibomvu</annotation>
+		<annotation cp="👩🏼‍🦰">owesimame | umama | uhlobo-3 | izinwele ezibomvu</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">umama: uhlobo-3, izinwele ezibomvu</annotation>
+		<annotation cp="👩🏽‍🦰">owesimame | umama | uhlobo-4 | izinwele ezibomvu</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">umama: uhlobo-4, izinwele ezibomvu</annotation>
+		<annotation cp="👩🏾‍🦰">owesimame | umama | uhlobo-5 | izinwele ezibomvu</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">umama: uhlobo-5, izinwele ezibomvu</annotation>
+		<annotation cp="👩🏿‍🦰">owesimame | umama | uhlobo-6 | izinwele ezibomvu</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">umama: uhlobo-6, izinwele ezibomvu</annotation>
+		<annotation cp="👩‍🦱">owesimame | umama | curly hair</annotation>
+		<annotation cp="👩‍🦱" type="tts">umama: curly hair</annotation>
+		<annotation cp="👩🏻‍🦱">owesimame | umama | uhlobo-1-2 | curly hair</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">umama: uhlobo-1-2, curly hair</annotation>
+		<annotation cp="👩🏼‍🦱">owesimame | umama | uhlobo-3 | curly hair</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">umama: uhlobo-3, curly hair</annotation>
+		<annotation cp="👩🏽‍🦱">owesimame | umama | uhlobo-4 | curly hair</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">umama: uhlobo-4, curly hair</annotation>
+		<annotation cp="👩🏾‍🦱">owesimame | umama | uhlobo-5 | curly hair</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">umama: uhlobo-5, curly hair</annotation>
+		<annotation cp="👩🏿‍🦱">owesimame | umama | uhlobo-6 | curly hair</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">umama: uhlobo-6, curly hair</annotation>
+		<annotation cp="👩‍🦲">owesimame | umama | imbungculu</annotation>
+		<annotation cp="👩‍🦲" type="tts">umama: imbungculu</annotation>
+		<annotation cp="👩🏻‍🦲">owesimame | umama | uhlobo-1-2 | imbungculu</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">umama: uhlobo-1-2, imbungculu</annotation>
+		<annotation cp="👩🏼‍🦲">owesimame | umama | uhlobo-3 | imbungculu</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">umama: uhlobo-3, imbungculu</annotation>
+		<annotation cp="👩🏽‍🦲">owesimame | umama | uhlobo-4 | imbungculu</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">umama: uhlobo-4, imbungculu</annotation>
+		<annotation cp="👩🏾‍🦲">owesimame | umama | uhlobo-5 | imbungculu</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">umama: uhlobo-5, imbungculu</annotation>
+		<annotation cp="👩🏿‍🦲">owesimame | umama | uhlobo-6 | imbungculu</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">umama: uhlobo-6, imbungculu</annotation>
+		<annotation cp="👩‍🦳">owesimame | umama | izinwele ezimhlophe</annotation>
+		<annotation cp="👩‍🦳" type="tts">umama: izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏻‍🦳">owesimame | umama | uhlobo-1-2 | izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">umama: uhlobo-1-2, izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏼‍🦳">owesimame | umama | uhlobo-3 | izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">umama: uhlobo-3, izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏽‍🦳">owesimame | umama | uhlobo-4 | izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">umama: uhlobo-4, izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏾‍🦳">owesimame | umama | uhlobo-5 | izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">umama: uhlobo-5, izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏿‍🦳">owesimame | umama | uhlobo-6 | izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">umama: uhlobo-6, izinwele ezimhlophe</annotation>
 		<annotation cp="🧓🏻">mdala | omdala omdala | ubulili-phakathi | uhlobo-1-2</annotation>
 		<annotation cp="🧓🏻" type="tts">omdala omdala: uhlobo-1-2</annotation>
 		<annotation cp="🧓🏼">mdala | omdala omdala | ubulili-phakathi | uhlobo-3</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">i-keycap</annotation>
 		<annotation cp="🔟" type="tts">i-keycap: 10</annotation>
 		<annotation cp="🇦🇨">ifulegi</annotation>
-		<annotation cp="🇦🇨" type="tts">i-Ascension Island</annotation>
+		<annotation cp="🇦🇨" type="tts">ifulegi: i-Ascension Island</annotation>
 		<annotation cp="🇦🇩">ifulegi</annotation>
-		<annotation cp="🇦🇩" type="tts">i-Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">ifulegi: i-Andorra</annotation>
 		<annotation cp="🇦🇪">ifulegi</annotation>
-		<annotation cp="🇦🇪" type="tts">i-United Arab Emirates</annotation>
+		<annotation cp="🇦🇪" type="tts">ifulegi: i-United Arab Emirates</annotation>
 		<annotation cp="🇦🇫">ifulegi</annotation>
-		<annotation cp="🇦🇫" type="tts">i-Afghanistan</annotation>
+		<annotation cp="🇦🇫" type="tts">ifulegi: i-Afghanistan</annotation>
 		<annotation cp="🇦🇬">ifulegi</annotation>
-		<annotation cp="🇦🇬" type="tts">i-Antigua ne-Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">ifulegi: i-Antigua ne-Barbuda</annotation>
 		<annotation cp="🇦🇮">ifulegi</annotation>
-		<annotation cp="🇦🇮" type="tts">i-Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">ifulegi: i-Anguilla</annotation>
 		<annotation cp="🇦🇱">ifulegi</annotation>
-		<annotation cp="🇦🇱" type="tts">i-Albania</annotation>
+		<annotation cp="🇦🇱" type="tts">ifulegi: i-Albania</annotation>
 		<annotation cp="🇦🇲">ifulegi</annotation>
-		<annotation cp="🇦🇲" type="tts">i-Armenia</annotation>
+		<annotation cp="🇦🇲" type="tts">ifulegi: i-Armenia</annotation>
 		<annotation cp="🇦🇴">ifulegi</annotation>
-		<annotation cp="🇦🇴" type="tts">i-Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">ifulegi: i-Angola</annotation>
 		<annotation cp="🇦🇶">ifulegi</annotation>
-		<annotation cp="🇦🇶" type="tts">i-Antarctica</annotation>
+		<annotation cp="🇦🇶" type="tts">ifulegi: i-Antarctica</annotation>
 		<annotation cp="🇦🇷">ifulegi</annotation>
-		<annotation cp="🇦🇷" type="tts">i-Argentina</annotation>
+		<annotation cp="🇦🇷" type="tts">ifulegi: i-Argentina</annotation>
 		<annotation cp="🇦🇸">ifulegi</annotation>
-		<annotation cp="🇦🇸" type="tts">i-American Samoa</annotation>
+		<annotation cp="🇦🇸" type="tts">ifulegi: i-American Samoa</annotation>
 		<annotation cp="🇦🇹">ifulegi</annotation>
-		<annotation cp="🇦🇹" type="tts">i-Austria</annotation>
+		<annotation cp="🇦🇹" type="tts">ifulegi: i-Austria</annotation>
 		<annotation cp="🇦🇺">ifulegi</annotation>
-		<annotation cp="🇦🇺" type="tts">i-Australia</annotation>
+		<annotation cp="🇦🇺" type="tts">ifulegi: i-Australia</annotation>
 		<annotation cp="🇦🇼">ifulegi</annotation>
-		<annotation cp="🇦🇼" type="tts">i-Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">ifulegi: i-Aruba</annotation>
 		<annotation cp="🇦🇽">ifulegi</annotation>
-		<annotation cp="🇦🇽" type="tts">i-Åland Islands</annotation>
+		<annotation cp="🇦🇽" type="tts">ifulegi: i-Åland Islands</annotation>
 		<annotation cp="🇦🇿">ifulegi</annotation>
-		<annotation cp="🇦🇿" type="tts">i-Azerbaijan</annotation>
+		<annotation cp="🇦🇿" type="tts">ifulegi: i-Azerbaijan</annotation>
 		<annotation cp="🇧🇦">ifulegi</annotation>
-		<annotation cp="🇧🇦" type="tts">i-Bosnia ne-Herzegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">ifulegi: i-Bosnia ne-Herzegovina</annotation>
 		<annotation cp="🇧🇧">ifulegi</annotation>
-		<annotation cp="🇧🇧" type="tts">i-Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">ifulegi: i-Barbados</annotation>
 		<annotation cp="🇧🇩">ifulegi</annotation>
-		<annotation cp="🇧🇩" type="tts">i-Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">ifulegi: i-Bangladesh</annotation>
 		<annotation cp="🇧🇪">ifulegi</annotation>
-		<annotation cp="🇧🇪" type="tts">i-Belgium</annotation>
+		<annotation cp="🇧🇪" type="tts">ifulegi: i-Belgium</annotation>
 		<annotation cp="🇧🇫">ifulegi</annotation>
-		<annotation cp="🇧🇫" type="tts">i-Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">ifulegi: i-Burkina Faso</annotation>
 		<annotation cp="🇧🇬">ifulegi</annotation>
-		<annotation cp="🇧🇬" type="tts">i-Bulgaria</annotation>
+		<annotation cp="🇧🇬" type="tts">ifulegi: i-Bulgaria</annotation>
 		<annotation cp="🇧🇭">ifulegi</annotation>
-		<annotation cp="🇧🇭" type="tts">i-Bahrain</annotation>
+		<annotation cp="🇧🇭" type="tts">ifulegi: i-Bahrain</annotation>
 		<annotation cp="🇧🇮">ifulegi</annotation>
-		<annotation cp="🇧🇮" type="tts">i-Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">ifulegi: i-Burundi</annotation>
 		<annotation cp="🇧🇯">ifulegi</annotation>
-		<annotation cp="🇧🇯" type="tts">i-Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">ifulegi: i-Benin</annotation>
 		<annotation cp="🇧🇱">ifulegi</annotation>
-		<annotation cp="🇧🇱" type="tts">i-Saint Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">ifulegi: i-Saint Barthélemy</annotation>
 		<annotation cp="🇧🇲">ifulegi</annotation>
-		<annotation cp="🇧🇲" type="tts">i-Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">ifulegi: i-Bermuda</annotation>
 		<annotation cp="🇧🇳">ifulegi</annotation>
-		<annotation cp="🇧🇳" type="tts">i-Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">ifulegi: i-Brunei</annotation>
 		<annotation cp="🇧🇴">ifulegi</annotation>
-		<annotation cp="🇧🇴" type="tts">i-Bolivia</annotation>
+		<annotation cp="🇧🇴" type="tts">ifulegi: i-Bolivia</annotation>
 		<annotation cp="🇧🇶">ifulegi</annotation>
-		<annotation cp="🇧🇶" type="tts">i-Caribbean Netherlands</annotation>
+		<annotation cp="🇧🇶" type="tts">ifulegi: i-Caribbean Netherlands</annotation>
 		<annotation cp="🇧🇷">ifulegi</annotation>
-		<annotation cp="🇧🇷" type="tts">i-Brazil</annotation>
+		<annotation cp="🇧🇷" type="tts">ifulegi: i-Brazil</annotation>
 		<annotation cp="🇧🇸">ifulegi</annotation>
-		<annotation cp="🇧🇸" type="tts">i-Bahamas</annotation>
+		<annotation cp="🇧🇸" type="tts">ifulegi: i-Bahamas</annotation>
 		<annotation cp="🇧🇹">ifulegi</annotation>
-		<annotation cp="🇧🇹" type="tts">i-Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">ifulegi: i-Bhutan</annotation>
 		<annotation cp="🇧🇻">ifulegi</annotation>
-		<annotation cp="🇧🇻" type="tts">i-Bouvet Island</annotation>
+		<annotation cp="🇧🇻" type="tts">ifulegi: i-Bouvet Island</annotation>
 		<annotation cp="🇧🇼">ifulegi</annotation>
-		<annotation cp="🇧🇼" type="tts">iBotswana</annotation>
+		<annotation cp="🇧🇼" type="tts">ifulegi: iBotswana</annotation>
 		<annotation cp="🇧🇾">ifulegi</annotation>
-		<annotation cp="🇧🇾" type="tts">i-Belarus</annotation>
+		<annotation cp="🇧🇾" type="tts">ifulegi: i-Belarus</annotation>
 		<annotation cp="🇧🇿">ifulegi</annotation>
-		<annotation cp="🇧🇿" type="tts">i-Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">ifulegi: i-Belize</annotation>
 		<annotation cp="🇨🇦">ifulegi</annotation>
-		<annotation cp="🇨🇦" type="tts">i-Canada</annotation>
+		<annotation cp="🇨🇦" type="tts">ifulegi: i-Canada</annotation>
 		<annotation cp="🇨🇨">ifulegi</annotation>
-		<annotation cp="🇨🇨" type="tts">i-Cocos (Keeling) Islands</annotation>
+		<annotation cp="🇨🇨" type="tts">ifulegi: i-Cocos (Keeling) Islands</annotation>
 		<annotation cp="🇨🇩">ifulegi</annotation>
-		<annotation cp="🇨🇩" type="tts">i-Congo - Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">ifulegi: i-Congo - Kinshasa</annotation>
 		<annotation cp="🇨🇫">ifulegi</annotation>
-		<annotation cp="🇨🇫" type="tts">i-Central African Republic</annotation>
+		<annotation cp="🇨🇫" type="tts">ifulegi: i-Central African Republic</annotation>
 		<annotation cp="🇨🇬">ifulegi</annotation>
-		<annotation cp="🇨🇬" type="tts">i-Congo - Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">ifulegi: i-Congo - Brazzaville</annotation>
 		<annotation cp="🇨🇭">ifulegi</annotation>
-		<annotation cp="🇨🇭" type="tts">i-Switzerland</annotation>
+		<annotation cp="🇨🇭" type="tts">ifulegi: i-Switzerland</annotation>
 		<annotation cp="🇨🇮">ifulegi</annotation>
-		<annotation cp="🇨🇮" type="tts">i-Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇮" type="tts">ifulegi: i-Côte d’Ivoire</annotation>
 		<annotation cp="🇨🇰">ifulegi</annotation>
-		<annotation cp="🇨🇰" type="tts">i-Cook Islands</annotation>
+		<annotation cp="🇨🇰" type="tts">ifulegi: i-Cook Islands</annotation>
 		<annotation cp="🇨🇱">ifulegi</annotation>
-		<annotation cp="🇨🇱" type="tts">i-Chile</annotation>
+		<annotation cp="🇨🇱" type="tts">ifulegi: i-Chile</annotation>
 		<annotation cp="🇨🇲">ifulegi</annotation>
-		<annotation cp="🇨🇲" type="tts">i-Cameroon</annotation>
+		<annotation cp="🇨🇲" type="tts">ifulegi: i-Cameroon</annotation>
 		<annotation cp="🇨🇳">ifulegi</annotation>
-		<annotation cp="🇨🇳" type="tts">i-China</annotation>
+		<annotation cp="🇨🇳" type="tts">ifulegi: i-China</annotation>
 		<annotation cp="🇨🇴">ifulegi</annotation>
-		<annotation cp="🇨🇴" type="tts">i-Colombia</annotation>
+		<annotation cp="🇨🇴" type="tts">ifulegi: i-Colombia</annotation>
 		<annotation cp="🇨🇵">ifulegi</annotation>
-		<annotation cp="🇨🇵" type="tts">i-Clipperton Island</annotation>
+		<annotation cp="🇨🇵" type="tts">ifulegi: i-Clipperton Island</annotation>
 		<annotation cp="🇨🇷">ifulegi</annotation>
-		<annotation cp="🇨🇷" type="tts">i-Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">ifulegi: i-Costa Rica</annotation>
 		<annotation cp="🇨🇺">ifulegi</annotation>
-		<annotation cp="🇨🇺" type="tts">i-Cuba</annotation>
+		<annotation cp="🇨🇺" type="tts">ifulegi: i-Cuba</annotation>
 		<annotation cp="🇨🇻">ifulegi</annotation>
-		<annotation cp="🇨🇻" type="tts">i-Cape Verde</annotation>
+		<annotation cp="🇨🇻" type="tts">ifulegi: i-Cape Verde</annotation>
 		<annotation cp="🇨🇼">ifulegi</annotation>
-		<annotation cp="🇨🇼" type="tts">i-Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">ifulegi: i-Curaçao</annotation>
 		<annotation cp="🇨🇽">ifulegi</annotation>
-		<annotation cp="🇨🇽" type="tts">i-Christmas Island</annotation>
+		<annotation cp="🇨🇽" type="tts">ifulegi: i-Christmas Island</annotation>
 		<annotation cp="🇨🇾">ifulegi</annotation>
-		<annotation cp="🇨🇾" type="tts">i-Cyprus</annotation>
+		<annotation cp="🇨🇾" type="tts">ifulegi: i-Cyprus</annotation>
 		<annotation cp="🇨🇿">ifulegi</annotation>
-		<annotation cp="🇨🇿" type="tts">i-Czechia</annotation>
+		<annotation cp="🇨🇿" type="tts">ifulegi: i-Czechia</annotation>
 		<annotation cp="🇩🇪">ifulegi</annotation>
-		<annotation cp="🇩🇪" type="tts">i-Germany</annotation>
+		<annotation cp="🇩🇪" type="tts">ifulegi: i-Germany</annotation>
 		<annotation cp="🇩🇬">ifulegi</annotation>
-		<annotation cp="🇩🇬" type="tts">i-Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">ifulegi: i-Diego Garcia</annotation>
 		<annotation cp="🇩🇯">ifulegi</annotation>
-		<annotation cp="🇩🇯" type="tts">i-Djibouti</annotation>
+		<annotation cp="🇩🇯" type="tts">ifulegi: i-Djibouti</annotation>
 		<annotation cp="🇩🇰">ifulegi</annotation>
-		<annotation cp="🇩🇰" type="tts">i-Denmark</annotation>
+		<annotation cp="🇩🇰" type="tts">ifulegi: i-Denmark</annotation>
 		<annotation cp="🇩🇲">ifulegi</annotation>
-		<annotation cp="🇩🇲" type="tts">i-Dominica</annotation>
+		<annotation cp="🇩🇲" type="tts">ifulegi: i-Dominica</annotation>
 		<annotation cp="🇩🇴">ifulegi</annotation>
-		<annotation cp="🇩🇴" type="tts">i-Dominican Republic</annotation>
+		<annotation cp="🇩🇴" type="tts">ifulegi: i-Dominican Republic</annotation>
 		<annotation cp="🇩🇿">ifulegi</annotation>
-		<annotation cp="🇩🇿" type="tts">i-Algeria</annotation>
+		<annotation cp="🇩🇿" type="tts">ifulegi: i-Algeria</annotation>
 		<annotation cp="🇪🇦">ifulegi</annotation>
-		<annotation cp="🇪🇦" type="tts">i-Cueta ne-Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">ifulegi: i-Cueta ne-Melilla</annotation>
 		<annotation cp="🇪🇨">ifulegi</annotation>
-		<annotation cp="🇪🇨" type="tts">i-Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">ifulegi: i-Ecuador</annotation>
 		<annotation cp="🇪🇪">ifulegi</annotation>
-		<annotation cp="🇪🇪" type="tts">i-Estonia</annotation>
+		<annotation cp="🇪🇪" type="tts">ifulegi: i-Estonia</annotation>
 		<annotation cp="🇪🇬">ifulegi</annotation>
-		<annotation cp="🇪🇬" type="tts">i-Egypt</annotation>
+		<annotation cp="🇪🇬" type="tts">ifulegi: i-Egypt</annotation>
 		<annotation cp="🇪🇭">ifulegi</annotation>
-		<annotation cp="🇪🇭" type="tts">i-Western Sahara</annotation>
+		<annotation cp="🇪🇭" type="tts">ifulegi: i-Western Sahara</annotation>
 		<annotation cp="🇪🇷">ifulegi</annotation>
-		<annotation cp="🇪🇷" type="tts">i-Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">ifulegi: i-Eritrea</annotation>
 		<annotation cp="🇪🇸">ifulegi</annotation>
-		<annotation cp="🇪🇸" type="tts">i-Spain</annotation>
+		<annotation cp="🇪🇸" type="tts">ifulegi: i-Spain</annotation>
 		<annotation cp="🇪🇹">ifulegi</annotation>
-		<annotation cp="🇪🇹" type="tts">i-Ethiopia</annotation>
+		<annotation cp="🇪🇹" type="tts">ifulegi: i-Ethiopia</annotation>
 		<annotation cp="🇪🇺">ifulegi</annotation>
-		<annotation cp="🇪🇺" type="tts">i-European Union</annotation>
+		<annotation cp="🇪🇺" type="tts">ifulegi: i-European Union</annotation>
 		<annotation cp="🇫🇮">ifulegi</annotation>
-		<annotation cp="🇫🇮" type="tts">i-Finland</annotation>
+		<annotation cp="🇫🇮" type="tts">ifulegi: i-Finland</annotation>
 		<annotation cp="🇫🇯">ifulegi</annotation>
-		<annotation cp="🇫🇯" type="tts">i-Fiji</annotation>
+		<annotation cp="🇫🇯" type="tts">ifulegi: i-Fiji</annotation>
 		<annotation cp="🇫🇰">ifulegi</annotation>
-		<annotation cp="🇫🇰" type="tts">i-Falkland Islands</annotation>
+		<annotation cp="🇫🇰" type="tts">ifulegi: i-Falkland Islands</annotation>
 		<annotation cp="🇫🇲">ifulegi</annotation>
-		<annotation cp="🇫🇲" type="tts">i-Micronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">ifulegi: i-Micronesia</annotation>
 		<annotation cp="🇫🇴">ifulegi</annotation>
-		<annotation cp="🇫🇴" type="tts">i-Faroe Islands</annotation>
+		<annotation cp="🇫🇴" type="tts">ifulegi: i-Faroe Islands</annotation>
 		<annotation cp="🇫🇷">ifulegi</annotation>
-		<annotation cp="🇫🇷" type="tts">i-France</annotation>
+		<annotation cp="🇫🇷" type="tts">ifulegi: i-France</annotation>
 		<annotation cp="🇬🇦">ifulegi</annotation>
-		<annotation cp="🇬🇦" type="tts">i-Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">ifulegi: i-Gabon</annotation>
 		<annotation cp="🇬🇧">ifulegi</annotation>
-		<annotation cp="🇬🇧" type="tts">i-United Kingdom</annotation>
+		<annotation cp="🇬🇧" type="tts">ifulegi: i-United Kingdom</annotation>
 		<annotation cp="🇬🇩">ifulegi</annotation>
-		<annotation cp="🇬🇩" type="tts">i-Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">ifulegi: i-Grenada</annotation>
 		<annotation cp="🇬🇪">ifulegi</annotation>
-		<annotation cp="🇬🇪" type="tts">i-Georgia</annotation>
+		<annotation cp="🇬🇪" type="tts">ifulegi: i-Georgia</annotation>
 		<annotation cp="🇬🇫">ifulegi</annotation>
-		<annotation cp="🇬🇫" type="tts">i-French Guiana</annotation>
+		<annotation cp="🇬🇫" type="tts">ifulegi: i-French Guiana</annotation>
 		<annotation cp="🇬🇬">ifulegi</annotation>
-		<annotation cp="🇬🇬" type="tts">i-Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">ifulegi: i-Guernsey</annotation>
 		<annotation cp="🇬🇭">ifulegi</annotation>
-		<annotation cp="🇬🇭" type="tts">i-Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">ifulegi: i-Ghana</annotation>
 		<annotation cp="🇬🇮">ifulegi</annotation>
-		<annotation cp="🇬🇮" type="tts">i-Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">ifulegi: i-Gibraltar</annotation>
 		<annotation cp="🇬🇱">ifulegi</annotation>
-		<annotation cp="🇬🇱" type="tts">i-Greenland</annotation>
+		<annotation cp="🇬🇱" type="tts">ifulegi: i-Greenland</annotation>
 		<annotation cp="🇬🇲">ifulegi</annotation>
-		<annotation cp="🇬🇲" type="tts">i-Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">ifulegi: i-Gambia</annotation>
 		<annotation cp="🇬🇳">ifulegi</annotation>
-		<annotation cp="🇬🇳" type="tts">i-Guinea</annotation>
+		<annotation cp="🇬🇳" type="tts">ifulegi: i-Guinea</annotation>
 		<annotation cp="🇬🇵">ifulegi</annotation>
-		<annotation cp="🇬🇵" type="tts">i-Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">ifulegi: i-Guadeloupe</annotation>
 		<annotation cp="🇬🇶">ifulegi</annotation>
-		<annotation cp="🇬🇶" type="tts">i-Equatorial Guinea</annotation>
+		<annotation cp="🇬🇶" type="tts">ifulegi: i-Equatorial Guinea</annotation>
 		<annotation cp="🇬🇷">ifulegi</annotation>
-		<annotation cp="🇬🇷" type="tts">i-Greece</annotation>
+		<annotation cp="🇬🇷" type="tts">ifulegi: i-Greece</annotation>
 		<annotation cp="🇬🇸">ifulegi</annotation>
-		<annotation cp="🇬🇸" type="tts">i-South Georgia ne-South Sandwich Islands</annotation>
+		<annotation cp="🇬🇸" type="tts">ifulegi: i-South Georgia ne-South Sandwich Islands</annotation>
 		<annotation cp="🇬🇹">ifulegi</annotation>
-		<annotation cp="🇬🇹" type="tts">i-Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">ifulegi: i-Guatemala</annotation>
 		<annotation cp="🇬🇺">ifulegi</annotation>
-		<annotation cp="🇬🇺" type="tts">i-Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">ifulegi: i-Guam</annotation>
 		<annotation cp="🇬🇼">ifulegi</annotation>
-		<annotation cp="🇬🇼" type="tts">i-Guinea-Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">ifulegi: i-Guinea-Bissau</annotation>
 		<annotation cp="🇬🇾">ifulegi</annotation>
-		<annotation cp="🇬🇾" type="tts">i-Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">ifulegi: i-Guyana</annotation>
 		<annotation cp="🇭🇰">ifulegi</annotation>
-		<annotation cp="🇭🇰" type="tts">i-Hong Kong SAR China</annotation>
+		<annotation cp="🇭🇰" type="tts">ifulegi: i-Hong Kong SAR China</annotation>
 		<annotation cp="🇭🇲">ifulegi</annotation>
-		<annotation cp="🇭🇲" type="tts">i-Heard Island ne-McDonald Islands</annotation>
+		<annotation cp="🇭🇲" type="tts">ifulegi: i-Heard Island ne-McDonald Islands</annotation>
 		<annotation cp="🇭🇳">ifulegi</annotation>
-		<annotation cp="🇭🇳" type="tts">i-Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">ifulegi: i-Honduras</annotation>
 		<annotation cp="🇭🇷">ifulegi</annotation>
-		<annotation cp="🇭🇷" type="tts">i-Croatia</annotation>
+		<annotation cp="🇭🇷" type="tts">ifulegi: i-Croatia</annotation>
 		<annotation cp="🇭🇹">ifulegi</annotation>
-		<annotation cp="🇭🇹" type="tts">i-Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">ifulegi: i-Haiti</annotation>
 		<annotation cp="🇭🇺">ifulegi</annotation>
-		<annotation cp="🇭🇺" type="tts">i-Hungary</annotation>
+		<annotation cp="🇭🇺" type="tts">ifulegi: i-Hungary</annotation>
 		<annotation cp="🇮🇨">ifulegi</annotation>
-		<annotation cp="🇮🇨" type="tts">i-Canary Islands</annotation>
+		<annotation cp="🇮🇨" type="tts">ifulegi: i-Canary Islands</annotation>
 		<annotation cp="🇮🇩">ifulegi</annotation>
-		<annotation cp="🇮🇩" type="tts">i-Indonesia</annotation>
+		<annotation cp="🇮🇩" type="tts">ifulegi: i-Indonesia</annotation>
 		<annotation cp="🇮🇪">ifulegi</annotation>
-		<annotation cp="🇮🇪" type="tts">i-Ireland</annotation>
+		<annotation cp="🇮🇪" type="tts">ifulegi: i-Ireland</annotation>
 		<annotation cp="🇮🇱">ifulegi</annotation>
-		<annotation cp="🇮🇱" type="tts">kwa-Israel</annotation>
+		<annotation cp="🇮🇱" type="tts">ifulegi: kwa-Israel</annotation>
 		<annotation cp="🇮🇲">ifulegi</annotation>
-		<annotation cp="🇮🇲" type="tts">i-Isle of Man</annotation>
+		<annotation cp="🇮🇲" type="tts">ifulegi: i-Isle of Man</annotation>
 		<annotation cp="🇮🇳">ifulegi</annotation>
-		<annotation cp="🇮🇳" type="tts">i-India</annotation>
+		<annotation cp="🇮🇳" type="tts">ifulegi: i-India</annotation>
 		<annotation cp="🇮🇴">ifulegi</annotation>
-		<annotation cp="🇮🇴" type="tts">i-British Indian Ocean Territory</annotation>
+		<annotation cp="🇮🇴" type="tts">ifulegi: i-British Indian Ocean Territory</annotation>
 		<annotation cp="🇮🇶">ifulegi</annotation>
-		<annotation cp="🇮🇶" type="tts">i-Iraq</annotation>
+		<annotation cp="🇮🇶" type="tts">ifulegi: i-Iraq</annotation>
 		<annotation cp="🇮🇷">ifulegi</annotation>
-		<annotation cp="🇮🇷" type="tts">i-Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">ifulegi: i-Iran</annotation>
 		<annotation cp="🇮🇸">ifulegi</annotation>
-		<annotation cp="🇮🇸" type="tts">i-Iceland</annotation>
+		<annotation cp="🇮🇸" type="tts">ifulegi: i-Iceland</annotation>
 		<annotation cp="🇮🇹">ifulegi</annotation>
-		<annotation cp="🇮🇹" type="tts">i-Italy</annotation>
+		<annotation cp="🇮🇹" type="tts">ifulegi: i-Italy</annotation>
 		<annotation cp="🇯🇪">ifulegi</annotation>
-		<annotation cp="🇯🇪" type="tts">i-Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">ifulegi: i-Jersey</annotation>
 		<annotation cp="🇯🇲">ifulegi</annotation>
-		<annotation cp="🇯🇲" type="tts">i-Jamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">ifulegi: i-Jamaica</annotation>
 		<annotation cp="🇯🇴">ifulegi</annotation>
-		<annotation cp="🇯🇴" type="tts">i-Jordan</annotation>
+		<annotation cp="🇯🇴" type="tts">ifulegi: i-Jordan</annotation>
 		<annotation cp="🇯🇵">ifulegi</annotation>
-		<annotation cp="🇯🇵" type="tts">i-Japan</annotation>
+		<annotation cp="🇯🇵" type="tts">ifulegi: i-Japan</annotation>
 		<annotation cp="🇰🇪">ifulegi</annotation>
-		<annotation cp="🇰🇪" type="tts">i-Kenya</annotation>
+		<annotation cp="🇰🇪" type="tts">ifulegi: i-Kenya</annotation>
 		<annotation cp="🇰🇬">ifulegi</annotation>
-		<annotation cp="🇰🇬" type="tts">i-Kyrgyzstan</annotation>
+		<annotation cp="🇰🇬" type="tts">ifulegi: i-Kyrgyzstan</annotation>
 		<annotation cp="🇰🇭">ifulegi</annotation>
-		<annotation cp="🇰🇭" type="tts">i-Cambodia</annotation>
+		<annotation cp="🇰🇭" type="tts">ifulegi: i-Cambodia</annotation>
 		<annotation cp="🇰🇮">ifulegi</annotation>
-		<annotation cp="🇰🇮" type="tts">i-Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">ifulegi: i-Kiribati</annotation>
 		<annotation cp="🇰🇲">ifulegi</annotation>
-		<annotation cp="🇰🇲" type="tts">i-Comoros</annotation>
+		<annotation cp="🇰🇲" type="tts">ifulegi: i-Comoros</annotation>
 		<annotation cp="🇰🇳">ifulegi</annotation>
-		<annotation cp="🇰🇳" type="tts">i-Saint Kitts ne-Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">ifulegi: i-Saint Kitts ne-Nevis</annotation>
 		<annotation cp="🇰🇵">ifulegi</annotation>
-		<annotation cp="🇰🇵" type="tts">i-North Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">ifulegi: i-North Korea</annotation>
 		<annotation cp="🇰🇷">ifulegi</annotation>
-		<annotation cp="🇰🇷" type="tts">i-South Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">ifulegi: i-South Korea</annotation>
 		<annotation cp="🇰🇼">ifulegi</annotation>
-		<annotation cp="🇰🇼" type="tts">i-Kuwait</annotation>
+		<annotation cp="🇰🇼" type="tts">ifulegi: i-Kuwait</annotation>
 		<annotation cp="🇰🇾">ifulegi</annotation>
-		<annotation cp="🇰🇾" type="tts">i-Cayman Islands</annotation>
+		<annotation cp="🇰🇾" type="tts">ifulegi: i-Cayman Islands</annotation>
 		<annotation cp="🇰🇿">ifulegi</annotation>
-		<annotation cp="🇰🇿" type="tts">i-Kazakhstan</annotation>
+		<annotation cp="🇰🇿" type="tts">ifulegi: i-Kazakhstan</annotation>
 		<annotation cp="🇱🇦">ifulegi</annotation>
-		<annotation cp="🇱🇦" type="tts">i-Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">ifulegi: i-Laos</annotation>
 		<annotation cp="🇱🇧">ifulegi</annotation>
-		<annotation cp="🇱🇧" type="tts">i-Lebanon</annotation>
+		<annotation cp="🇱🇧" type="tts">ifulegi: i-Lebanon</annotation>
 		<annotation cp="🇱🇨">ifulegi</annotation>
-		<annotation cp="🇱🇨" type="tts">i-Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">ifulegi: i-Saint Lucia</annotation>
 		<annotation cp="🇱🇮">ifulegi</annotation>
-		<annotation cp="🇱🇮" type="tts">i-Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">ifulegi: i-Liechtenstein</annotation>
 		<annotation cp="🇱🇰">ifulegi</annotation>
-		<annotation cp="🇱🇰" type="tts">i-Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">ifulegi: i-Sri Lanka</annotation>
 		<annotation cp="🇱🇷">ifulegi</annotation>
-		<annotation cp="🇱🇷" type="tts">i-Liberia</annotation>
+		<annotation cp="🇱🇷" type="tts">ifulegi: i-Liberia</annotation>
 		<annotation cp="🇱🇸">ifulegi</annotation>
-		<annotation cp="🇱🇸" type="tts">iLesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">ifulegi: iLesotho</annotation>
 		<annotation cp="🇱🇹">ifulegi</annotation>
-		<annotation cp="🇱🇹" type="tts">i-Lithuania</annotation>
+		<annotation cp="🇱🇹" type="tts">ifulegi: i-Lithuania</annotation>
 		<annotation cp="🇱🇺">ifulegi</annotation>
-		<annotation cp="🇱🇺" type="tts">i-Luxembourg</annotation>
+		<annotation cp="🇱🇺" type="tts">ifulegi: i-Luxembourg</annotation>
 		<annotation cp="🇱🇻">ifulegi</annotation>
-		<annotation cp="🇱🇻" type="tts">i-Latvia</annotation>
+		<annotation cp="🇱🇻" type="tts">ifulegi: i-Latvia</annotation>
 		<annotation cp="🇱🇾">ifulegi</annotation>
-		<annotation cp="🇱🇾" type="tts">i-Libya</annotation>
+		<annotation cp="🇱🇾" type="tts">ifulegi: i-Libya</annotation>
 		<annotation cp="🇲🇦">ifulegi</annotation>
-		<annotation cp="🇲🇦" type="tts">i-Morocco</annotation>
+		<annotation cp="🇲🇦" type="tts">ifulegi: i-Morocco</annotation>
 		<annotation cp="🇲🇨">ifulegi</annotation>
-		<annotation cp="🇲🇨" type="tts">i-Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">ifulegi: i-Monaco</annotation>
 		<annotation cp="🇲🇩">ifulegi</annotation>
-		<annotation cp="🇲🇩" type="tts">i-Moldova</annotation>
+		<annotation cp="🇲🇩" type="tts">ifulegi: i-Moldova</annotation>
 		<annotation cp="🇲🇪">ifulegi</annotation>
-		<annotation cp="🇲🇪" type="tts">i-Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">ifulegi: i-Montenegro</annotation>
 		<annotation cp="🇲🇫">ifulegi</annotation>
-		<annotation cp="🇲🇫" type="tts">i-Saint Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">ifulegi: i-Saint Martin</annotation>
 		<annotation cp="🇲🇬">ifulegi</annotation>
-		<annotation cp="🇲🇬" type="tts">i-Madagascar</annotation>
+		<annotation cp="🇲🇬" type="tts">ifulegi: i-Madagascar</annotation>
 		<annotation cp="🇲🇭">ifulegi</annotation>
-		<annotation cp="🇲🇭" type="tts">i-Marshall Islands</annotation>
+		<annotation cp="🇲🇭" type="tts">ifulegi: i-Marshall Islands</annotation>
 		<annotation cp="🇲🇰">ifulegi</annotation>
-		<annotation cp="🇲🇰" type="tts">i-Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">ifulegi: i-Macedonia</annotation>
 		<annotation cp="🇲🇱">ifulegi</annotation>
-		<annotation cp="🇲🇱" type="tts">iMali</annotation>
+		<annotation cp="🇲🇱" type="tts">ifulegi: iMali</annotation>
 		<annotation cp="🇲🇲">ifulegi</annotation>
-		<annotation cp="🇲🇲" type="tts">i-Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇲" type="tts">ifulegi: i-Myanmar (Burma)</annotation>
 		<annotation cp="🇲🇳">ifulegi</annotation>
-		<annotation cp="🇲🇳" type="tts">i-Mongolia</annotation>
+		<annotation cp="🇲🇳" type="tts">ifulegi: i-Mongolia</annotation>
 		<annotation cp="🇲🇴">ifulegi</annotation>
-		<annotation cp="🇲🇴" type="tts">i-Macau SAR China</annotation>
+		<annotation cp="🇲🇴" type="tts">ifulegi: i-Macau SAR China</annotation>
 		<annotation cp="🇲🇵">ifulegi</annotation>
-		<annotation cp="🇲🇵" type="tts">i-Northern Mariana Islands</annotation>
+		<annotation cp="🇲🇵" type="tts">ifulegi: i-Northern Mariana Islands</annotation>
 		<annotation cp="🇲🇶">ifulegi</annotation>
-		<annotation cp="🇲🇶" type="tts">i-Martinique</annotation>
+		<annotation cp="🇲🇶" type="tts">ifulegi: i-Martinique</annotation>
 		<annotation cp="🇲🇷">ifulegi</annotation>
-		<annotation cp="🇲🇷" type="tts">i-Mauritania</annotation>
+		<annotation cp="🇲🇷" type="tts">ifulegi: i-Mauritania</annotation>
 		<annotation cp="🇲🇸">ifulegi</annotation>
-		<annotation cp="🇲🇸" type="tts">i-Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">ifulegi: i-Montserrat</annotation>
 		<annotation cp="🇲🇹">ifulegi</annotation>
-		<annotation cp="🇲🇹" type="tts">i-Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">ifulegi: i-Malta</annotation>
 		<annotation cp="🇲🇺">ifulegi</annotation>
-		<annotation cp="🇲🇺" type="tts">i-Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">ifulegi: i-Mauritius</annotation>
 		<annotation cp="🇲🇻">ifulegi</annotation>
-		<annotation cp="🇲🇻" type="tts">i-Maldives</annotation>
+		<annotation cp="🇲🇻" type="tts">ifulegi: i-Maldives</annotation>
 		<annotation cp="🇲🇼">ifulegi</annotation>
-		<annotation cp="🇲🇼" type="tts">iMalawi</annotation>
+		<annotation cp="🇲🇼" type="tts">ifulegi: iMalawi</annotation>
 		<annotation cp="🇲🇽">ifulegi</annotation>
-		<annotation cp="🇲🇽" type="tts">i-Mexico</annotation>
+		<annotation cp="🇲🇽" type="tts">ifulegi: i-Mexico</annotation>
 		<annotation cp="🇲🇾">ifulegi</annotation>
-		<annotation cp="🇲🇾" type="tts">i-Malaysia</annotation>
+		<annotation cp="🇲🇾" type="tts">ifulegi: i-Malaysia</annotation>
 		<annotation cp="🇲🇿">ifulegi</annotation>
-		<annotation cp="🇲🇿" type="tts">i-Mozambique</annotation>
+		<annotation cp="🇲🇿" type="tts">ifulegi: i-Mozambique</annotation>
 		<annotation cp="🇳🇦">ifulegi</annotation>
-		<annotation cp="🇳🇦" type="tts">i-Namibia</annotation>
+		<annotation cp="🇳🇦" type="tts">ifulegi: i-Namibia</annotation>
 		<annotation cp="🇳🇨">ifulegi</annotation>
-		<annotation cp="🇳🇨" type="tts">i-New Caledonia</annotation>
+		<annotation cp="🇳🇨" type="tts">ifulegi: i-New Caledonia</annotation>
 		<annotation cp="🇳🇪">ifulegi</annotation>
-		<annotation cp="🇳🇪" type="tts">i-Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">ifulegi: i-Niger</annotation>
 		<annotation cp="🇳🇫">ifulegi</annotation>
-		<annotation cp="🇳🇫" type="tts">i-Norfolk Island</annotation>
+		<annotation cp="🇳🇫" type="tts">ifulegi: i-Norfolk Island</annotation>
 		<annotation cp="🇳🇬">ifulegi</annotation>
-		<annotation cp="🇳🇬" type="tts">i-Nigeria</annotation>
+		<annotation cp="🇳🇬" type="tts">ifulegi: i-Nigeria</annotation>
 		<annotation cp="🇳🇮">ifulegi</annotation>
-		<annotation cp="🇳🇮" type="tts">i-Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">ifulegi: i-Nicaragua</annotation>
 		<annotation cp="🇳🇱">ifulegi</annotation>
-		<annotation cp="🇳🇱" type="tts">i-Netherlands</annotation>
+		<annotation cp="🇳🇱" type="tts">ifulegi: i-Netherlands</annotation>
 		<annotation cp="🇳🇴">ifulegi</annotation>
-		<annotation cp="🇳🇴" type="tts">i-Norway</annotation>
+		<annotation cp="🇳🇴" type="tts">ifulegi: i-Norway</annotation>
 		<annotation cp="🇳🇵">ifulegi</annotation>
-		<annotation cp="🇳🇵" type="tts">i-Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">ifulegi: i-Nepal</annotation>
 		<annotation cp="🇳🇷">ifulegi</annotation>
-		<annotation cp="🇳🇷" type="tts">i-Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">ifulegi: i-Nauru</annotation>
 		<annotation cp="🇳🇺">ifulegi</annotation>
-		<annotation cp="🇳🇺" type="tts">i-Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">ifulegi: i-Niue</annotation>
 		<annotation cp="🇳🇿">ifulegi</annotation>
-		<annotation cp="🇳🇿" type="tts">i-New Zealand</annotation>
+		<annotation cp="🇳🇿" type="tts">ifulegi: i-New Zealand</annotation>
 		<annotation cp="🇴🇲">ifulegi</annotation>
-		<annotation cp="🇴🇲" type="tts">i-Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">ifulegi: i-Oman</annotation>
 		<annotation cp="🇵🇦">ifulegi</annotation>
-		<annotation cp="🇵🇦" type="tts">i-Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">ifulegi: i-Panama</annotation>
 		<annotation cp="🇵🇪">ifulegi</annotation>
-		<annotation cp="🇵🇪" type="tts">i-Peru</annotation>
+		<annotation cp="🇵🇪" type="tts">ifulegi: i-Peru</annotation>
 		<annotation cp="🇵🇫">ifulegi</annotation>
-		<annotation cp="🇵🇫" type="tts">i-French Polynesia</annotation>
+		<annotation cp="🇵🇫" type="tts">ifulegi: i-French Polynesia</annotation>
 		<annotation cp="🇵🇬">ifulegi</annotation>
-		<annotation cp="🇵🇬" type="tts">i-Papua New Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">ifulegi: i-Papua New Guinea</annotation>
 		<annotation cp="🇵🇭">ifulegi</annotation>
-		<annotation cp="🇵🇭" type="tts">i-Philippines</annotation>
+		<annotation cp="🇵🇭" type="tts">ifulegi: i-Philippines</annotation>
 		<annotation cp="🇵🇰">ifulegi</annotation>
-		<annotation cp="🇵🇰" type="tts">i-Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">ifulegi: i-Pakistan</annotation>
 		<annotation cp="🇵🇱">ifulegi</annotation>
-		<annotation cp="🇵🇱" type="tts">i-Poland</annotation>
+		<annotation cp="🇵🇱" type="tts">ifulegi: i-Poland</annotation>
 		<annotation cp="🇵🇲">ifulegi</annotation>
-		<annotation cp="🇵🇲" type="tts">i-Saint Pierre kanye ne-Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">ifulegi: i-Saint Pierre kanye ne-Miquelon</annotation>
 		<annotation cp="🇵🇳">ifulegi</annotation>
-		<annotation cp="🇵🇳" type="tts">i-Pitcairn Islands</annotation>
+		<annotation cp="🇵🇳" type="tts">ifulegi: i-Pitcairn Islands</annotation>
 		<annotation cp="🇵🇷">ifulegi</annotation>
-		<annotation cp="🇵🇷" type="tts">i-Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">ifulegi: i-Puerto Rico</annotation>
 		<annotation cp="🇵🇸">ifulegi</annotation>
-		<annotation cp="🇵🇸" type="tts">i-Palestinian Territories</annotation>
+		<annotation cp="🇵🇸" type="tts">ifulegi: i-Palestinian Territories</annotation>
 		<annotation cp="🇵🇹">ifulegi</annotation>
-		<annotation cp="🇵🇹" type="tts">i-Portugal</annotation>
+		<annotation cp="🇵🇹" type="tts">ifulegi: i-Portugal</annotation>
 		<annotation cp="🇵🇼">ifulegi</annotation>
-		<annotation cp="🇵🇼" type="tts">i-Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">ifulegi: i-Palau</annotation>
 		<annotation cp="🇵🇾">ifulegi</annotation>
-		<annotation cp="🇵🇾" type="tts">i-Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">ifulegi: i-Paraguay</annotation>
 		<annotation cp="🇶🇦">ifulegi</annotation>
-		<annotation cp="🇶🇦" type="tts">i-Qatar</annotation>
+		<annotation cp="🇶🇦" type="tts">ifulegi: i-Qatar</annotation>
 		<annotation cp="🇷🇪">ifulegi</annotation>
-		<annotation cp="🇷🇪" type="tts">i-Réunion</annotation>
+		<annotation cp="🇷🇪" type="tts">ifulegi: i-Réunion</annotation>
 		<annotation cp="🇷🇴">ifulegi</annotation>
-		<annotation cp="🇷🇴" type="tts">i-Romania</annotation>
+		<annotation cp="🇷🇴" type="tts">ifulegi: i-Romania</annotation>
 		<annotation cp="🇷🇸">ifulegi</annotation>
-		<annotation cp="🇷🇸" type="tts">i-Serbia</annotation>
+		<annotation cp="🇷🇸" type="tts">ifulegi: i-Serbia</annotation>
 		<annotation cp="🇷🇺">ifulegi</annotation>
-		<annotation cp="🇷🇺" type="tts">i-Russia</annotation>
+		<annotation cp="🇷🇺" type="tts">ifulegi: i-Russia</annotation>
 		<annotation cp="🇷🇼">ifulegi</annotation>
-		<annotation cp="🇷🇼" type="tts">i-Rwanda</annotation>
+		<annotation cp="🇷🇼" type="tts">ifulegi: i-Rwanda</annotation>
 		<annotation cp="🇸🇦">ifulegi</annotation>
-		<annotation cp="🇸🇦" type="tts">i-Saudi Arabia</annotation>
+		<annotation cp="🇸🇦" type="tts">ifulegi: i-Saudi Arabia</annotation>
 		<annotation cp="🇸🇧">ifulegi</annotation>
-		<annotation cp="🇸🇧" type="tts">i-Solomon Islands</annotation>
+		<annotation cp="🇸🇧" type="tts">ifulegi: i-Solomon Islands</annotation>
 		<annotation cp="🇸🇨">ifulegi</annotation>
-		<annotation cp="🇸🇨" type="tts">i-Seychelles</annotation>
+		<annotation cp="🇸🇨" type="tts">ifulegi: i-Seychelles</annotation>
 		<annotation cp="🇸🇩">ifulegi</annotation>
-		<annotation cp="🇸🇩" type="tts">i-Sudan</annotation>
+		<annotation cp="🇸🇩" type="tts">ifulegi: i-Sudan</annotation>
 		<annotation cp="🇸🇪">ifulegi</annotation>
-		<annotation cp="🇸🇪" type="tts">i-Sweden</annotation>
+		<annotation cp="🇸🇪" type="tts">ifulegi: i-Sweden</annotation>
 		<annotation cp="🇸🇬">ifulegi</annotation>
-		<annotation cp="🇸🇬" type="tts">i-Singapore</annotation>
+		<annotation cp="🇸🇬" type="tts">ifulegi: i-Singapore</annotation>
 		<annotation cp="🇸🇭">ifulegi</annotation>
-		<annotation cp="🇸🇭" type="tts">i-St. Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">ifulegi: i-St. Helena</annotation>
 		<annotation cp="🇸🇮">ifulegi</annotation>
-		<annotation cp="🇸🇮" type="tts">i-Slovenia</annotation>
+		<annotation cp="🇸🇮" type="tts">ifulegi: i-Slovenia</annotation>
 		<annotation cp="🇸🇯">ifulegi</annotation>
-		<annotation cp="🇸🇯" type="tts">i-Svalbard ne-Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">ifulegi: i-Svalbard ne-Jan Mayen</annotation>
 		<annotation cp="🇸🇰">ifulegi</annotation>
-		<annotation cp="🇸🇰" type="tts">i-Slovakia</annotation>
+		<annotation cp="🇸🇰" type="tts">ifulegi: i-Slovakia</annotation>
 		<annotation cp="🇸🇱">ifulegi</annotation>
-		<annotation cp="🇸🇱" type="tts">i-Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">ifulegi: i-Sierra Leone</annotation>
 		<annotation cp="🇸🇲">ifulegi</annotation>
-		<annotation cp="🇸🇲" type="tts">i-San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">ifulegi: i-San Marino</annotation>
 		<annotation cp="🇸🇳">ifulegi</annotation>
-		<annotation cp="🇸🇳" type="tts">i-Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">ifulegi: i-Senegal</annotation>
 		<annotation cp="🇸🇴">ifulegi</annotation>
-		<annotation cp="🇸🇴" type="tts">i-Somalia</annotation>
+		<annotation cp="🇸🇴" type="tts">ifulegi: i-Somalia</annotation>
 		<annotation cp="🇸🇷">ifulegi</annotation>
-		<annotation cp="🇸🇷" type="tts">i-Suriname</annotation>
+		<annotation cp="🇸🇷" type="tts">ifulegi: i-Suriname</annotation>
 		<annotation cp="🇸🇸">ifulegi</annotation>
-		<annotation cp="🇸🇸" type="tts">i-South Sudan</annotation>
+		<annotation cp="🇸🇸" type="tts">ifulegi: i-South Sudan</annotation>
 		<annotation cp="🇸🇹">ifulegi</annotation>
-		<annotation cp="🇸🇹" type="tts">i-São Tomé kanye ne-Príncipe</annotation>
+		<annotation cp="🇸🇹" type="tts">ifulegi: i-São Tomé kanye ne-Príncipe</annotation>
 		<annotation cp="🇸🇻">ifulegi</annotation>
-		<annotation cp="🇸🇻" type="tts">i-El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">ifulegi: i-El Salvador</annotation>
 		<annotation cp="🇸🇽">ifulegi</annotation>
-		<annotation cp="🇸🇽" type="tts">i-Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">ifulegi: i-Sint Maarten</annotation>
 		<annotation cp="🇸🇾">ifulegi</annotation>
-		<annotation cp="🇸🇾" type="tts">i-Syria</annotation>
+		<annotation cp="🇸🇾" type="tts">ifulegi: i-Syria</annotation>
 		<annotation cp="🇸🇿">ifulegi</annotation>
-		<annotation cp="🇸🇿" type="tts">i-Swaziland</annotation>
+		<annotation cp="🇸🇿" type="tts">ifulegi: i-Swaziland</annotation>
 		<annotation cp="🇹🇦">ifulegi</annotation>
-		<annotation cp="🇹🇦" type="tts">i-Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">ifulegi: i-Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">ifulegi</annotation>
-		<annotation cp="🇹🇨" type="tts">i-Turks ne-Caicos Islands</annotation>
+		<annotation cp="🇹🇨" type="tts">ifulegi: i-Turks ne-Caicos Islands</annotation>
 		<annotation cp="🇹🇩">ifulegi</annotation>
-		<annotation cp="🇹🇩" type="tts">i-Chad</annotation>
+		<annotation cp="🇹🇩" type="tts">ifulegi: i-Chad</annotation>
 		<annotation cp="🇹🇫">ifulegi</annotation>
-		<annotation cp="🇹🇫" type="tts">i-French Southern Territories</annotation>
+		<annotation cp="🇹🇫" type="tts">ifulegi: i-French Southern Territories</annotation>
 		<annotation cp="🇹🇬">ifulegi</annotation>
-		<annotation cp="🇹🇬" type="tts">i-Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">ifulegi: i-Togo</annotation>
 		<annotation cp="🇹🇭">ifulegi</annotation>
-		<annotation cp="🇹🇭" type="tts">i-Thailand</annotation>
+		<annotation cp="🇹🇭" type="tts">ifulegi: i-Thailand</annotation>
 		<annotation cp="🇹🇯">ifulegi</annotation>
-		<annotation cp="🇹🇯" type="tts">i-Tajikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">ifulegi: i-Tajikistan</annotation>
 		<annotation cp="🇹🇰">ifulegi</annotation>
-		<annotation cp="🇹🇰" type="tts">i-Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">ifulegi: i-Tokelau</annotation>
 		<annotation cp="🇹🇱">ifulegi</annotation>
-		<annotation cp="🇹🇱" type="tts">i-Timor-Leste</annotation>
+		<annotation cp="🇹🇱" type="tts">ifulegi: i-Timor-Leste</annotation>
 		<annotation cp="🇹🇲">ifulegi</annotation>
-		<annotation cp="🇹🇲" type="tts">i-Turkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">ifulegi: i-Turkmenistan</annotation>
 		<annotation cp="🇹🇳">ifulegi</annotation>
-		<annotation cp="🇹🇳" type="tts">i-Tunisia</annotation>
+		<annotation cp="🇹🇳" type="tts">ifulegi: i-Tunisia</annotation>
 		<annotation cp="🇹🇴">ifulegi</annotation>
-		<annotation cp="🇹🇴" type="tts">i-Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">ifulegi: i-Tonga</annotation>
 		<annotation cp="🇹🇷">ifulegi</annotation>
-		<annotation cp="🇹🇷" type="tts">i-Turkey</annotation>
+		<annotation cp="🇹🇷" type="tts">ifulegi: i-Turkey</annotation>
 		<annotation cp="🇹🇹">ifulegi</annotation>
-		<annotation cp="🇹🇹" type="tts">i-Trinidad ne-Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">ifulegi: i-Trinidad ne-Tobago</annotation>
 		<annotation cp="🇹🇻">ifulegi</annotation>
-		<annotation cp="🇹🇻" type="tts">i-Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">ifulegi: i-Tuvalu</annotation>
 		<annotation cp="🇹🇼">ifulegi</annotation>
-		<annotation cp="🇹🇼" type="tts">i-Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">ifulegi: i-Taiwan</annotation>
 		<annotation cp="🇹🇿">ifulegi</annotation>
-		<annotation cp="🇹🇿" type="tts">i-Tanzania</annotation>
+		<annotation cp="🇹🇿" type="tts">ifulegi: i-Tanzania</annotation>
 		<annotation cp="🇺🇦">ifulegi</annotation>
-		<annotation cp="🇺🇦" type="tts">i-Ukraine</annotation>
+		<annotation cp="🇺🇦" type="tts">ifulegi: i-Ukraine</annotation>
 		<annotation cp="🇺🇬">ifulegi</annotation>
-		<annotation cp="🇺🇬" type="tts">i-Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">ifulegi: i-Uganda</annotation>
 		<annotation cp="🇺🇲">ifulegi</annotation>
-		<annotation cp="🇺🇲" type="tts">i-U.S. Minor Outlying Islands</annotation>
+		<annotation cp="🇺🇲" type="tts">ifulegi: i-U.S. Minor Outlying Islands</annotation>
 		<annotation cp="🇺🇳">ifulegi</annotation>
-		<annotation cp="🇺🇳" type="tts">I-United Nations</annotation>
+		<annotation cp="🇺🇳" type="tts">ifulegi: I-United Nations</annotation>
 		<annotation cp="🇺🇸">ifulegi</annotation>
-		<annotation cp="🇺🇸" type="tts">i-United States</annotation>
+		<annotation cp="🇺🇸" type="tts">ifulegi: i-United States</annotation>
 		<annotation cp="🇺🇾">ifulegi</annotation>
-		<annotation cp="🇺🇾" type="tts">i-Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">ifulegi: i-Uruguay</annotation>
 		<annotation cp="🇺🇿">ifulegi</annotation>
-		<annotation cp="🇺🇿" type="tts">i-Uzbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">ifulegi: i-Uzbekistan</annotation>
 		<annotation cp="🇻🇦">ifulegi</annotation>
-		<annotation cp="🇻🇦" type="tts">i-Vatican City</annotation>
+		<annotation cp="🇻🇦" type="tts">ifulegi: i-Vatican City</annotation>
 		<annotation cp="🇻🇨">ifulegi</annotation>
-		<annotation cp="🇻🇨" type="tts">i-Saint Vincent ne-Grenadines</annotation>
+		<annotation cp="🇻🇨" type="tts">ifulegi: i-Saint Vincent ne-Grenadines</annotation>
 		<annotation cp="🇻🇪">ifulegi</annotation>
-		<annotation cp="🇻🇪" type="tts">i-Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">ifulegi: i-Venezuela</annotation>
 		<annotation cp="🇻🇬">ifulegi</annotation>
-		<annotation cp="🇻🇬" type="tts">i-British Virgin Islands</annotation>
+		<annotation cp="🇻🇬" type="tts">ifulegi: i-British Virgin Islands</annotation>
 		<annotation cp="🇻🇮">ifulegi</annotation>
-		<annotation cp="🇻🇮" type="tts">i-U.S. Virgin Islands</annotation>
+		<annotation cp="🇻🇮" type="tts">ifulegi: i-U.S. Virgin Islands</annotation>
 		<annotation cp="🇻🇳">ifulegi</annotation>
-		<annotation cp="🇻🇳" type="tts">i-Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">ifulegi: i-Vietnam</annotation>
 		<annotation cp="🇻🇺">ifulegi</annotation>
-		<annotation cp="🇻🇺" type="tts">i-Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">ifulegi: i-Vanuatu</annotation>
 		<annotation cp="🇼🇫">ifulegi</annotation>
-		<annotation cp="🇼🇫" type="tts">i-Wallis ne-Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">ifulegi: i-Wallis ne-Futuna</annotation>
 		<annotation cp="🇼🇸">ifulegi</annotation>
-		<annotation cp="🇼🇸" type="tts">i-Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">ifulegi: i-Samoa</annotation>
 		<annotation cp="🇽🇰">ifulegi</annotation>
-		<annotation cp="🇽🇰" type="tts">i-Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">ifulegi: i-Kosovo</annotation>
 		<annotation cp="🇾🇪">ifulegi</annotation>
-		<annotation cp="🇾🇪" type="tts">i-Yemen</annotation>
+		<annotation cp="🇾🇪" type="tts">ifulegi: i-Yemen</annotation>
 		<annotation cp="🇾🇹">ifulegi</annotation>
-		<annotation cp="🇾🇹" type="tts">i-Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">ifulegi: i-Mayotte</annotation>
 		<annotation cp="🇿🇦">ifulegi</annotation>
-		<annotation cp="🇿🇦" type="tts">iNingizimu Afrika</annotation>
+		<annotation cp="🇿🇦" type="tts">ifulegi: iNingizimu Afrika</annotation>
 		<annotation cp="🇿🇲">ifulegi</annotation>
-		<annotation cp="🇿🇲" type="tts">i-Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">ifulegi: i-Zambia</annotation>
 		<annotation cp="🇿🇼">ifulegi</annotation>
-		<annotation cp="🇿🇼" type="tts">iZimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">ifulegi: iZimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">ifulegi</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">I-England</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">ifulegi: I-England</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">ifulegi</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">I-Scotland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">ifulegi: I-Scotland</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">ifulegi</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">I-Wales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">ifulegi: I-Wales</annotation>
 		<annotation cp="0⃣">i-keycap</annotation>
 		<annotation cp="0⃣" type="tts">i-keycap: 0</annotation>
 		<annotation cp="1⃣">i-keycap</annotation>

@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="eu"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">gorputz-adar | hanka | ostikada | 1–2. mota</annotation>
+		<annotation cp="🦵🏻" type="tts">hanka: 1–2. mota</annotation>
+		<annotation cp="🦵🏼">gorputz-adar | hanka | ostikada | 3. mota</annotation>
+		<annotation cp="🦵🏼" type="tts">hanka: 3. mota</annotation>
+		<annotation cp="🦵🏽">gorputz-adar | hanka | ostikada | bitarteko azal-tonua</annotation>
+		<annotation cp="🦵🏽" type="tts">hanka: bitarteko azal-tonua</annotation>
+		<annotation cp="🦵🏾">gorputz-adar | hanka | ostikada | 5. mota</annotation>
+		<annotation cp="🦵🏾" type="tts">hanka: 5. mota</annotation>
+		<annotation cp="🦵🏿">gorputz-adar | hanka | ostikada | 6. mota</annotation>
+		<annotation cp="🦵🏿" type="tts">hanka: 6. mota</annotation>
+		<annotation cp="🦶🏻">oina | ostikada | zanpatu | 1–2. mota</annotation>
+		<annotation cp="🦶🏻" type="tts">oina: 1–2. mota</annotation>
+		<annotation cp="🦶🏼">oina | ostikada | zanpatu | 3. mota</annotation>
+		<annotation cp="🦶🏼" type="tts">oina: 3. mota</annotation>
+		<annotation cp="🦶🏽">oina | ostikada | zanpatu | bitarteko azal-tonua</annotation>
+		<annotation cp="🦶🏽" type="tts">oina: bitarteko azal-tonua</annotation>
+		<annotation cp="🦶🏾">oina | ostikada | zanpatu | 5. mota</annotation>
+		<annotation cp="🦶🏾" type="tts">oina: 5. mota</annotation>
+		<annotation cp="🦶🏿">oina | ostikada | zanpatu | 6. mota</annotation>
+		<annotation cp="🦶🏿" type="tts">oina: 6. mota</annotation>
+		<annotation cp="🦸🏻">heroi | on | superbotere | superheroi | 1–2. mota</annotation>
+		<annotation cp="🦸🏻" type="tts">superheroi: 1–2. mota</annotation>
+		<annotation cp="🦸🏼">heroi | on | superbotere | superheroi | 3. mota</annotation>
+		<annotation cp="🦸🏼" type="tts">superheroi: 3. mota</annotation>
+		<annotation cp="🦸🏽">heroi | on | superbotere | superheroi | bitarteko azal-tonua</annotation>
+		<annotation cp="🦸🏽" type="tts">superheroi: bitarteko azal-tonua</annotation>
+		<annotation cp="🦸🏾">heroi | on | superbotere | superheroi | 5. mota</annotation>
+		<annotation cp="🦸🏾" type="tts">superheroi: 5. mota</annotation>
+		<annotation cp="🦸🏿">heroi | on | superbotere | superheroi | 6. mota</annotation>
+		<annotation cp="🦸🏿" type="tts">superheroi: 6. mota</annotation>
+		<annotation cp="🦸🏻‍♀">emakume | emakumezko superheroi | heroi | on | superbotere | 1–2. mota</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">emakumezko superheroi: 1–2. mota</annotation>
+		<annotation cp="🦸🏼‍♀">emakume | emakumezko superheroi | heroi | on | superbotere | 3. mota</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">emakumezko superheroi: 3. mota</annotation>
+		<annotation cp="🦸🏽‍♀">emakume | emakumezko superheroi | heroi | on | superbotere | bitarteko azal-tonua</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">emakumezko superheroi: bitarteko azal-tonua</annotation>
+		<annotation cp="🦸🏾‍♀">emakume | emakumezko superheroi | heroi | on | superbotere | 5. mota</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">emakumezko superheroi: 5. mota</annotation>
+		<annotation cp="🦸🏿‍♀">emakume | emakumezko superheroi | heroi | on | superbotere | 6. mota</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">emakumezko superheroi: 6. mota</annotation>
+		<annotation cp="🦸🏻‍♂">gizon | gizonezko superheroi | heroi | on | superbotere | 1–2. mota</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">gizonezko superheroi: 1–2. mota</annotation>
+		<annotation cp="🦸🏼‍♂">gizon | gizonezko superheroi | heroi | on | superbotere | 3. mota</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">gizonezko superheroi: 3. mota</annotation>
+		<annotation cp="🦸🏽‍♂">gizon | gizonezko superheroi | heroi | on | superbotere | bitarteko azal-tonua</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">gizonezko superheroi: bitarteko azal-tonua</annotation>
+		<annotation cp="🦸🏾‍♂">gizon | gizonezko superheroi | heroi | on | superbotere | 5. mota</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">gizonezko superheroi: 5. mota</annotation>
+		<annotation cp="🦸🏿‍♂">gizon | gizonezko superheroi | heroi | on | superbotere | 6. mota</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">gizonezko superheroi: 6. mota</annotation>
+		<annotation cp="🦹🏻">bilau | gaizto | kriminal | superbilau | superbotere | 1–2. mota</annotation>
+		<annotation cp="🦹🏻" type="tts">superbilau: 1–2. mota</annotation>
+		<annotation cp="🦹🏼">bilau | gaizto | kriminal | superbilau | superbotere | 3. mota</annotation>
+		<annotation cp="🦹🏼" type="tts">superbilau: 3. mota</annotation>
+		<annotation cp="🦹🏽">bilau | gaizto | kriminal | superbilau | superbotere | bitarteko azal-tonua</annotation>
+		<annotation cp="🦹🏽" type="tts">superbilau: bitarteko azal-tonua</annotation>
+		<annotation cp="🦹🏾">bilau | gaizto | kriminal | superbilau | superbotere | 5. mota</annotation>
+		<annotation cp="🦹🏾" type="tts">superbilau: 5. mota</annotation>
+		<annotation cp="🦹🏿">bilau | gaizto | kriminal | superbilau | superbotere | 6. mota</annotation>
+		<annotation cp="🦹🏿" type="tts">superbilau: 6. mota</annotation>
+		<annotation cp="🦹🏻‍♀">bilau | emakume | emakumezko superbilau | gaizto | kriminal | superbotere | 1–2. mota</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">emakumezko superbilau: 1–2. mota</annotation>
+		<annotation cp="🦹🏼‍♀">bilau | emakume | emakumezko superbilau | gaizto | kriminal | superbotere | 3. mota</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">emakumezko superbilau: 3. mota</annotation>
+		<annotation cp="🦹🏽‍♀">bilau | emakume | emakumezko superbilau | gaizto | kriminal | superbotere | bitarteko azal-tonua</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">emakumezko superbilau: bitarteko azal-tonua</annotation>
+		<annotation cp="🦹🏾‍♀">bilau | emakume | emakumezko superbilau | gaizto | kriminal | superbotere | 5. mota</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">emakumezko superbilau: 5. mota</annotation>
+		<annotation cp="🦹🏿‍♀">bilau | emakume | emakumezko superbilau | gaizto | kriminal | superbotere | 6. mota</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">emakumezko superbilau: 6. mota</annotation>
+		<annotation cp="🦹🏻‍♂">bilau | gaizto | gizon | gizonezko superbilau | kriminal | superbotere | 1–2. mota</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">gizonezko superbilau: 1–2. mota</annotation>
+		<annotation cp="🦹🏼‍♂">bilau | gaizto | gizon | gizonezko superbilau | kriminal | superbotere | 3. mota</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">gizonezko superbilau: 3. mota</annotation>
+		<annotation cp="🦹🏽‍♂">bilau | gaizto | gizon | gizonezko superbilau | kriminal | superbotere | bitarteko azal-tonua</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">gizonezko superbilau: bitarteko azal-tonua</annotation>
+		<annotation cp="🦹🏾‍♂">bilau | gaizto | gizon | gizonezko superbilau | kriminal | superbotere | 5. mota</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">gizonezko superbilau: 5. mota</annotation>
+		<annotation cp="🦹🏿‍♂">bilau | gaizto | gizon | gizonezko superbilau | kriminal | superbotere | 6. mota</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">gizonezko superbilau: 6. mota</annotation>
 		<annotation cp="👶🏻">haurtxo | haurtxoa | 1–2. mota</annotation>
 		<annotation cp="👶🏻" type="tts">haurtxoa: 1–2. mota</annotation>
 		<annotation cp="👶🏼">haurtxo | haurtxoa | 3. mota</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">gizona: 5. mota</annotation>
 		<annotation cp="👨🏿">gizon | gizona | gizonezko | 6. mota</annotation>
 		<annotation cp="👨🏿" type="tts">gizona: 6. mota</annotation>
+		<annotation cp="👨‍🦰">gizon | gizona | gizonezko | ilegorri</annotation>
+		<annotation cp="👨‍🦰" type="tts">gizona: ilegorri</annotation>
+		<annotation cp="👨🏻‍🦰">gizon | gizona | gizonezko | 1–2. mota | ilegorri</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">gizona: 1–2. mota eta ilegorri</annotation>
+		<annotation cp="👨🏼‍🦰">gizon | gizona | gizonezko | 3. mota | ilegorri</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">gizona: 3. mota eta ilegorri</annotation>
+		<annotation cp="👨🏽‍🦰">gizon | gizona | gizonezko | bitarteko azal-tonua | ilegorri</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">gizona: bitarteko azal-tonua eta ilegorri</annotation>
+		<annotation cp="👨🏾‍🦰">gizon | gizona | gizonezko | 5. mota | ilegorri</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">gizona: 5. mota eta ilegorri</annotation>
+		<annotation cp="👨🏿‍🦰">gizon | gizona | gizonezko | 6. mota | ilegorri</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">gizona: 6. mota eta ilegorri</annotation>
+		<annotation cp="👨‍🦱">gizon | gizona | gizonezko | ile kizkur</annotation>
+		<annotation cp="👨‍🦱" type="tts">gizona: ile kizkur</annotation>
+		<annotation cp="👨🏻‍🦱">gizon | gizona | gizonezko | 1–2. mota | ile kizkur</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">gizona: 1–2. mota eta ile kizkur</annotation>
+		<annotation cp="👨🏼‍🦱">gizon | gizona | gizonezko | 3. mota | ile kizkur</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">gizona: 3. mota eta ile kizkur</annotation>
+		<annotation cp="👨🏽‍🦱">gizon | gizona | gizonezko | bitarteko azal-tonua | ile kizkur</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">gizona: bitarteko azal-tonua eta ile kizkur</annotation>
+		<annotation cp="👨🏾‍🦱">gizon | gizona | gizonezko | 5. mota | ile kizkur</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">gizona: 5. mota eta ile kizkur</annotation>
+		<annotation cp="👨🏿‍🦱">gizon | gizona | gizonezko | 6. mota | ile kizkur</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">gizona: 6. mota eta ile kizkur</annotation>
+		<annotation cp="👨‍🦲">gizon | gizona | gizonezko | burusoil</annotation>
+		<annotation cp="👨‍🦲" type="tts">gizona: burusoil</annotation>
+		<annotation cp="👨🏻‍🦲">gizon | gizona | gizonezko | 1–2. mota | burusoil</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">gizona: 1–2. mota eta burusoil</annotation>
+		<annotation cp="👨🏼‍🦲">gizon | gizona | gizonezko | 3. mota | burusoil</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">gizona: 3. mota eta burusoil</annotation>
+		<annotation cp="👨🏽‍🦲">gizon | gizona | gizonezko | bitarteko azal-tonua | burusoil</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">gizona: bitarteko azal-tonua eta burusoil</annotation>
+		<annotation cp="👨🏾‍🦲">gizon | gizona | gizonezko | 5. mota | burusoil</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">gizona: 5. mota eta burusoil</annotation>
+		<annotation cp="👨🏿‍🦲">gizon | gizona | gizonezko | 6. mota | burusoil</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">gizona: 6. mota eta burusoil</annotation>
+		<annotation cp="👨‍🦳">gizon | gizona | gizonezko | ilezuri</annotation>
+		<annotation cp="👨‍🦳" type="tts">gizona: ilezuri</annotation>
+		<annotation cp="👨🏻‍🦳">gizon | gizona | gizonezko | 1–2. mota | ilezuri</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">gizona: 1–2. mota eta ilezuri</annotation>
+		<annotation cp="👨🏼‍🦳">gizon | gizona | gizonezko | 3. mota | ilezuri</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">gizona: 3. mota eta ilezuri</annotation>
+		<annotation cp="👨🏽‍🦳">gizon | gizona | gizonezko | bitarteko azal-tonua | ilezuri</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">gizona: bitarteko azal-tonua eta ilezuri</annotation>
+		<annotation cp="👨🏾‍🦳">gizon | gizona | gizonezko | 5. mota | ilezuri</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">gizona: 5. mota eta ilezuri</annotation>
+		<annotation cp="👨🏿‍🦳">gizon | gizona | gizonezko | 6. mota | ilezuri</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">gizona: 6. mota eta ilezuri</annotation>
 		<annotation cp="👩🏻">emakume | emakumea | emakumezko | 1–2. mota</annotation>
 		<annotation cp="👩🏻" type="tts">emakumea: 1–2. mota</annotation>
 		<annotation cp="👩🏼">emakume | emakumea | emakumezko | 3. mota</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">emakumea: 5. mota</annotation>
 		<annotation cp="👩🏿">emakume | emakumea | emakumezko | 6. mota</annotation>
 		<annotation cp="👩🏿" type="tts">emakumea: 6. mota</annotation>
+		<annotation cp="👩‍🦰">emakume | emakumea | emakumezko | ilegorri</annotation>
+		<annotation cp="👩‍🦰" type="tts">emakumea: ilegorri</annotation>
+		<annotation cp="👩🏻‍🦰">emakume | emakumea | emakumezko | 1–2. mota | ilegorri</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">emakumea: 1–2. mota eta ilegorri</annotation>
+		<annotation cp="👩🏼‍🦰">emakume | emakumea | emakumezko | 3. mota | ilegorri</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">emakumea: 3. mota eta ilegorri</annotation>
+		<annotation cp="👩🏽‍🦰">emakume | emakumea | emakumezko | bitarteko azal-tonua | ilegorri</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">emakumea: bitarteko azal-tonua eta ilegorri</annotation>
+		<annotation cp="👩🏾‍🦰">emakume | emakumea | emakumezko | 5. mota | ilegorri</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">emakumea: 5. mota eta ilegorri</annotation>
+		<annotation cp="👩🏿‍🦰">emakume | emakumea | emakumezko | 6. mota | ilegorri</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">emakumea: 6. mota eta ilegorri</annotation>
+		<annotation cp="👩‍🦱">emakume | emakumea | emakumezko | ile kizkur</annotation>
+		<annotation cp="👩‍🦱" type="tts">emakumea: ile kizkur</annotation>
+		<annotation cp="👩🏻‍🦱">emakume | emakumea | emakumezko | 1–2. mota | ile kizkur</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">emakumea: 1–2. mota eta ile kizkur</annotation>
+		<annotation cp="👩🏼‍🦱">emakume | emakumea | emakumezko | 3. mota | ile kizkur</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">emakumea: 3. mota eta ile kizkur</annotation>
+		<annotation cp="👩🏽‍🦱">emakume | emakumea | emakumezko | bitarteko azal-tonua | ile kizkur</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">emakumea: bitarteko azal-tonua eta ile kizkur</annotation>
+		<annotation cp="👩🏾‍🦱">emakume | emakumea | emakumezko | 5. mota | ile kizkur</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">emakumea: 5. mota eta ile kizkur</annotation>
+		<annotation cp="👩🏿‍🦱">emakume | emakumea | emakumezko | 6. mota | ile kizkur</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">emakumea: 6. mota eta ile kizkur</annotation>
+		<annotation cp="👩‍🦲">emakume | emakumea | emakumezko | burusoil</annotation>
+		<annotation cp="👩‍🦲" type="tts">emakumea: burusoil</annotation>
+		<annotation cp="👩🏻‍🦲">emakume | emakumea | emakumezko | 1–2. mota | burusoil</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">emakumea: 1–2. mota eta burusoil</annotation>
+		<annotation cp="👩🏼‍🦲">emakume | emakumea | emakumezko | 3. mota | burusoil</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">emakumea: 3. mota eta burusoil</annotation>
+		<annotation cp="👩🏽‍🦲">emakume | emakumea | emakumezko | bitarteko azal-tonua | burusoil</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">emakumea: bitarteko azal-tonua eta burusoil</annotation>
+		<annotation cp="👩🏾‍🦲">emakume | emakumea | emakumezko | 5. mota | burusoil</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">emakumea: 5. mota eta burusoil</annotation>
+		<annotation cp="👩🏿‍🦲">emakume | emakumea | emakumezko | 6. mota | burusoil</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">emakumea: 6. mota eta burusoil</annotation>
+		<annotation cp="👩‍🦳">emakume | emakumea | emakumezko | ilezuri</annotation>
+		<annotation cp="👩‍🦳" type="tts">emakumea: ilezuri</annotation>
+		<annotation cp="👩🏻‍🦳">emakume | emakumea | emakumezko | 1–2. mota | ilezuri</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">emakumea: 1–2. mota eta ilezuri</annotation>
+		<annotation cp="👩🏼‍🦳">emakume | emakumea | emakumezko | 3. mota | ilezuri</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">emakumea: 3. mota eta ilezuri</annotation>
+		<annotation cp="👩🏽‍🦳">emakume | emakumea | emakumezko | bitarteko azal-tonua | ilezuri</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">emakumea: bitarteko azal-tonua eta ilezuri</annotation>
+		<annotation cp="👩🏾‍🦳">emakume | emakumea | emakumezko | 5. mota | ilezuri</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">emakumea: 5. mota eta ilezuri</annotation>
+		<annotation cp="👩🏿‍🦳">emakume | emakumea | emakumezko | 6. mota | ilezuri</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">emakumea: 6. mota eta ilezuri</annotation>
 		<annotation cp="🧓🏻">adineko | agure | genero neutroko | 1–2. mota</annotation>
 		<annotation cp="🧓🏻" type="tts">agure: 1–2. mota</annotation>
 		<annotation cp="🧓🏼">adineko | agure | genero neutroko | 3. mota</annotation>
@@ -713,15 +888,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👼🏾" type="tts">aingeru-itxura duen haurtxoa: 5. mota</annotation>
 		<annotation cp="👼🏿">aingeru | aingeru-itxura duen haurtxoa | aurpegi | fantasia | haurtxo | ipuin | 6. mota</annotation>
 		<annotation cp="👼🏿" type="tts">aingeru-itxura duen haurtxoa: 6. mota</annotation>
-		<annotation cp="🎅🏻">aita | aita noel | fantasia | gabonak | ipuin | ospakizun | santa | 1–2. mota</annotation>
+		<annotation cp="🎅🏻">aita | aita noel | fantasia | gabonak | ospakizun | 1–2. mota</annotation>
 		<annotation cp="🎅🏻" type="tts">aita noel: 1–2. mota</annotation>
-		<annotation cp="🎅🏼">aita | aita noel | fantasia | gabonak | ipuin | ospakizun | santa | 3. mota</annotation>
+		<annotation cp="🎅🏼">aita | aita noel | fantasia | gabonak | ospakizun | 3. mota</annotation>
 		<annotation cp="🎅🏼" type="tts">aita noel: 3. mota</annotation>
-		<annotation cp="🎅🏽">aita | aita noel | fantasia | gabonak | ipuin | ospakizun | santa | bitarteko azal-tonua</annotation>
+		<annotation cp="🎅🏽">aita | aita noel | fantasia | gabonak | ospakizun | bitarteko azal-tonua</annotation>
 		<annotation cp="🎅🏽" type="tts">aita noel: bitarteko azal-tonua</annotation>
-		<annotation cp="🎅🏾">aita | aita noel | fantasia | gabonak | ipuin | ospakizun | santa | 5. mota</annotation>
+		<annotation cp="🎅🏾">aita | aita noel | fantasia | gabonak | ospakizun | 5. mota</annotation>
 		<annotation cp="🎅🏾" type="tts">aita noel: 5. mota</annotation>
-		<annotation cp="🎅🏿">aita | aita noel | fantasia | gabonak | ipuin | ospakizun | santa | 6. mota</annotation>
+		<annotation cp="🎅🏿">aita | aita noel | fantasia | gabonak | ospakizun | 6. mota</annotation>
 		<annotation cp="🎅🏿" type="tts">aita noel: 6. mota</annotation>
 		<annotation cp="🤶🏻">ama | gabonak | gabonetako ama | 1–2. mota</annotation>
 		<annotation cp="🤶🏻" type="tts">gabonetako ama: 1–2. mota</annotation>
@@ -1163,26 +1338,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💆🏾" type="tts">masajea egiten ari dioten pertsona: 5. mota</annotation>
 		<annotation cp="💆🏿">aurpegi | masaje | masajea egiten ari dioten pertsona | zentro | 6. mota</annotation>
 		<annotation cp="💆🏿" type="tts">masajea egiten ari dioten pertsona: 6. mota</annotation>
-		<annotation cp="💆🏻‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | 1–2. mota</annotation>
-		<annotation cp="💆🏻‍♂" type="tts">aurpegian masajea egiten ari dioten pertsona: 1–2. mota</annotation>
-		<annotation cp="💆🏼‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | 3. mota</annotation>
-		<annotation cp="💆🏼‍♂" type="tts">aurpegian masajea egiten ari dioten pertsona: 3. mota</annotation>
-		<annotation cp="💆🏽‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | bitarteko azal-tonua</annotation>
-		<annotation cp="💆🏽‍♂" type="tts">aurpegian masajea egiten ari dioten pertsona: bitarteko azal-tonua</annotation>
-		<annotation cp="💆🏾‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | 5. mota</annotation>
-		<annotation cp="💆🏾‍♂" type="tts">aurpegian masajea egiten ari dioten pertsona: 5. mota</annotation>
-		<annotation cp="💆🏿‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | 6. mota</annotation>
-		<annotation cp="💆🏿‍♂" type="tts">aurpegian masajea egiten ari dioten pertsona: 6. mota</annotation>
-		<annotation cp="💆🏻‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | 1–2. mota</annotation>
-		<annotation cp="💆🏻‍♀" type="tts">aurpegian masajea egiten ari dioten emakumea: 1–2. mota</annotation>
-		<annotation cp="💆🏼‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | 3. mota</annotation>
-		<annotation cp="💆🏼‍♀" type="tts">aurpegian masajea egiten ari dioten emakumea: 3. mota</annotation>
-		<annotation cp="💆🏽‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | bitarteko azal-tonua</annotation>
-		<annotation cp="💆🏽‍♀" type="tts">aurpegian masajea egiten ari dioten emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="💆🏾‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | 5. mota</annotation>
-		<annotation cp="💆🏾‍♀" type="tts">aurpegian masajea egiten ari dioten emakumea: 5. mota</annotation>
-		<annotation cp="💆🏿‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | 6. mota</annotation>
-		<annotation cp="💆🏿‍♀" type="tts">aurpegian masajea egiten ari dioten emakumea: 6. mota</annotation>
+		<annotation cp="💆🏻‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | masajea jasotzen ari den pertsona | 1–2. mota</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">masajea jasotzen ari den pertsona: 1–2. mota</annotation>
+		<annotation cp="💆🏼‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | masajea jasotzen ari den pertsona | 3. mota</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">masajea jasotzen ari den pertsona: 3. mota</annotation>
+		<annotation cp="💆🏽‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | masajea jasotzen ari den pertsona | bitarteko azal-tonua</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">masajea jasotzen ari den pertsona: bitarteko azal-tonua</annotation>
+		<annotation cp="💆🏾‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | masajea jasotzen ari den pertsona | 5. mota</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">masajea jasotzen ari den pertsona: 5. mota</annotation>
+		<annotation cp="💆🏿‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | masajea jasotzen ari den pertsona | 6. mota</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">masajea jasotzen ari den pertsona: 6. mota</annotation>
+		<annotation cp="💆🏻‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | masajea jasotzen ari den emakumea | 1–2. mota</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">masajea jasotzen ari den emakumea: 1–2. mota</annotation>
+		<annotation cp="💆🏼‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | masajea jasotzen ari den emakumea | 3. mota</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">masajea jasotzen ari den emakumea: 3. mota</annotation>
+		<annotation cp="💆🏽‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | masajea jasotzen ari den emakumea | bitarteko azal-tonua</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">masajea jasotzen ari den emakumea: bitarteko azal-tonua</annotation>
+		<annotation cp="💆🏾‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | masajea jasotzen ari den emakumea | 5. mota</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">masajea jasotzen ari den emakumea: 5. mota</annotation>
+		<annotation cp="💆🏿‍♀">aurpegi | aurpegian masajea egiten ari dioten emakumea | emakume | emakumezko | masaje | masajea jasotzen ari den emakumea | 6. mota</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">masajea jasotzen ari den emakumea: 6. mota</annotation>
 		<annotation cp="💇🏻">edertasun | ile-apaintzaile | ilea mozten ari dioten pertsona | moztu | zentro | 1–2. mota</annotation>
 		<annotation cp="💇🏻" type="tts">ilea mozten ari dioten pertsona: 1–2. mota</annotation>
 		<annotation cp="💇🏼">edertasun | ile-apaintzaile | ilea mozten ari dioten pertsona | moztu | zentro | 3. mota</annotation>
@@ -1253,25 +1428,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾" type="tts">korrika ari den pertsona: 5. mota</annotation>
 		<annotation cp="🏃🏿">korrika | korrika ari den pertsona | maratoi | 6. mota</annotation>
 		<annotation cp="🏃🏿" type="tts">korrika ari den pertsona: 6. mota</annotation>
-		<annotation cp="🏃🏻‍♂">gizon | gizonezko | korrika | korrika ari den gizona | lasterketa | maratoi | 1–2. mota</annotation>
+		<annotation cp="🏃🏻‍♂">gizon | korrika | korrika ari den gizona | lasterketa | maratoi | 1–2. mota</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">korrika ari den gizona: 1–2. mota</annotation>
-		<annotation cp="🏃🏼‍♂">gizon | gizonezko | korrika | korrika ari den gizona | lasterketa | maratoi | 3. mota</annotation>
+		<annotation cp="🏃🏼‍♂">gizon | korrika | korrika ari den gizona | lasterketa | maratoi | 3. mota</annotation>
 		<annotation cp="🏃🏼‍♂" type="tts">korrika ari den gizona: 3. mota</annotation>
-		<annotation cp="🏃🏽‍♂">gizon | gizonezko | korrika | korrika ari den gizona | lasterketa | maratoi | bitarteko azal-tonua</annotation>
+		<annotation cp="🏃🏽‍♂">gizon | korrika | korrika ari den gizona | lasterketa | maratoi | bitarteko azal-tonua</annotation>
 		<annotation cp="🏃🏽‍♂" type="tts">korrika ari den gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="🏃🏾‍♂">gizon | gizonezko | korrika | korrika ari den gizona | lasterketa | maratoi | 5. mota</annotation>
+		<annotation cp="🏃🏾‍♂">gizon | korrika | korrika ari den gizona | lasterketa | maratoi | 5. mota</annotation>
 		<annotation cp="🏃🏾‍♂" type="tts">korrika ari den gizona: 5. mota</annotation>
-		<annotation cp="🏃🏿‍♂">gizon | gizonezko | korrika | korrika ari den gizona | lasterketa | maratoi | 6. mota</annotation>
+		<annotation cp="🏃🏿‍♂">gizon | korrika | korrika ari den gizona | lasterketa | maratoi | 6. mota</annotation>
 		<annotation cp="🏃🏿‍♂" type="tts">korrika ari den gizona: 6. mota</annotation>
-		<annotation cp="🏃🏻‍♀">emakume | emakumezko | korrika | korrika ari den emakumea | lasterketa | maratoi | 1–2. mota</annotation>
+		<annotation cp="🏃🏻‍♀">emakume | korrika | korrika ari den emakumea | lasterketa | maratoi | 1–2. mota</annotation>
 		<annotation cp="🏃🏻‍♀" type="tts">korrika ari den emakumea: 1–2. mota</annotation>
-		<annotation cp="🏃🏼‍♀">emakume | emakumezko | korrika | korrika ari den emakumea | lasterketa | maratoi | 3. mota</annotation>
+		<annotation cp="🏃🏼‍♀">emakume | korrika | korrika ari den emakumea | lasterketa | maratoi | 3. mota</annotation>
 		<annotation cp="🏃🏼‍♀" type="tts">korrika ari den emakumea: 3. mota</annotation>
-		<annotation cp="🏃🏽‍♀">emakume | emakumezko | korrika | korrika ari den emakumea | lasterketa | maratoi | bitarteko azal-tonua</annotation>
+		<annotation cp="🏃🏽‍♀">emakume | korrika | korrika ari den emakumea | lasterketa | maratoi | bitarteko azal-tonua</annotation>
 		<annotation cp="🏃🏽‍♀" type="tts">korrika ari den emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="🏃🏾‍♀">emakume | emakumezko | korrika | korrika ari den emakumea | lasterketa | maratoi | 5. mota</annotation>
+		<annotation cp="🏃🏾‍♀">emakume | korrika | korrika ari den emakumea | lasterketa | maratoi | 5. mota</annotation>
 		<annotation cp="🏃🏾‍♀" type="tts">korrika ari den emakumea: 5. mota</annotation>
-		<annotation cp="🏃🏿‍♀">emakume | emakumezko | korrika | korrika ari den emakumea | lasterketa | maratoi | 6. mota</annotation>
+		<annotation cp="🏃🏿‍♀">emakume | korrika | korrika ari den emakumea | lasterketa | maratoi | 6. mota</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">korrika ari den emakumea: 6. mota</annotation>
 		<annotation cp="💃🏻">dantza | dantzan ari den emakumea | emakume | 1–2. mota</annotation>
 		<annotation cp="💃🏻" type="tts">dantzan ari den emakumea: 1–2. mota</annotation>
@@ -1623,25 +1798,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚴🏾" type="tts">txirrindularia: 5. mota</annotation>
 		<annotation cp="🚴🏿">bizikleta | txirrindulari | txirrindularia | txirringa | 6. mota</annotation>
 		<annotation cp="🚴🏿" type="tts">txirrindularia: 6. mota</annotation>
-		<annotation cp="🚴🏻‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | txirringa | 1–2. mota</annotation>
+		<annotation cp="🚴🏻‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | 1–2. mota</annotation>
 		<annotation cp="🚴🏻‍♂" type="tts">gizon txirrindularia: 1–2. mota</annotation>
-		<annotation cp="🚴🏼‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | txirringa | 3. mota</annotation>
+		<annotation cp="🚴🏼‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | 3. mota</annotation>
 		<annotation cp="🚴🏼‍♂" type="tts">gizon txirrindularia: 3. mota</annotation>
-		<annotation cp="🚴🏽‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | txirringa | bitarteko azal-tonua</annotation>
+		<annotation cp="🚴🏽‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | bitarteko azal-tonua</annotation>
 		<annotation cp="🚴🏽‍♂" type="tts">gizon txirrindularia: bitarteko azal-tonua</annotation>
-		<annotation cp="🚴🏾‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | txirringa | 5. mota</annotation>
+		<annotation cp="🚴🏾‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | 5. mota</annotation>
 		<annotation cp="🚴🏾‍♂" type="tts">gizon txirrindularia: 5. mota</annotation>
-		<annotation cp="🚴🏿‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | txirringa | 6. mota</annotation>
+		<annotation cp="🚴🏿‍♂">bizikleta | gizon | gizon txirrindularia | gizonezko | txirrindulari | 6. mota</annotation>
 		<annotation cp="🚴🏿‍♂" type="tts">gizon txirrindularia: 6. mota</annotation>
-		<annotation cp="🚴🏻‍♀">bizikleta | emakume txirrindularia | gizon | gizonezko | txirrindulari | txirringa | 1–2. mota</annotation>
+		<annotation cp="🚴🏻‍♀">bizikleta | emakume | emakume txirrindularia | txirrindulari | 1–2. mota</annotation>
 		<annotation cp="🚴🏻‍♀" type="tts">emakume txirrindularia: 1–2. mota</annotation>
-		<annotation cp="🚴🏼‍♀">bizikleta | emakume txirrindularia | gizon | gizonezko | txirrindulari | txirringa | 3. mota</annotation>
+		<annotation cp="🚴🏼‍♀">bizikleta | emakume | emakume txirrindularia | txirrindulari | 3. mota</annotation>
 		<annotation cp="🚴🏼‍♀" type="tts">emakume txirrindularia: 3. mota</annotation>
-		<annotation cp="🚴🏽‍♀">bizikleta | emakume txirrindularia | gizon | gizonezko | txirrindulari | txirringa | bitarteko azal-tonua</annotation>
+		<annotation cp="🚴🏽‍♀">bizikleta | emakume | emakume txirrindularia | txirrindulari | bitarteko azal-tonua</annotation>
 		<annotation cp="🚴🏽‍♀" type="tts">emakume txirrindularia: bitarteko azal-tonua</annotation>
-		<annotation cp="🚴🏾‍♀">bizikleta | emakume txirrindularia | gizon | gizonezko | txirrindulari | txirringa | 5. mota</annotation>
+		<annotation cp="🚴🏾‍♀">bizikleta | emakume | emakume txirrindularia | txirrindulari | 5. mota</annotation>
 		<annotation cp="🚴🏾‍♀" type="tts">emakume txirrindularia: 5. mota</annotation>
-		<annotation cp="🚴🏿‍♀">bizikleta | emakume txirrindularia | gizon | gizonezko | txirrindulari | txirringa | 6. mota</annotation>
+		<annotation cp="🚴🏿‍♀">bizikleta | emakume | emakume txirrindularia | txirrindulari | 6. mota</annotation>
 		<annotation cp="🚴🏿‍♀" type="tts">emakume txirrindularia: 6. mota</annotation>
 		<annotation cp="🚵🏻">bizikleta | mendi | mendiko bizikletan dabilen pertsona | txirrindulari | txirringa | 1–2. mota</annotation>
 		<annotation cp="🚵🏻" type="tts">mendiko bizikletan dabilen pertsona: 1–2. mota</annotation>
@@ -1653,25 +1828,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚵🏾" type="tts">mendiko bizikletan dabilen pertsona: 5. mota</annotation>
 		<annotation cp="🚵🏿">bizikleta | mendi | mendiko bizikletan dabilen pertsona | txirrindulari | txirringa | 6. mota</annotation>
 		<annotation cp="🚵🏿" type="tts">mendiko bizikletan dabilen pertsona: 6. mota</annotation>
-		<annotation cp="🚵🏻‍♂">bizikleta | gizon | gizonezko | mendi | mendiko bizikletan dabilen gizona | txirrindulari | txirringa | 1–2. mota</annotation>
+		<annotation cp="🚵🏻‍♂">bizikleta | gizon | mendi | mendiko bizikletan dabilen gizona | txirrindulari | 1–2. mota</annotation>
 		<annotation cp="🚵🏻‍♂" type="tts">mendiko bizikletan dabilen gizona: 1–2. mota</annotation>
-		<annotation cp="🚵🏼‍♂">bizikleta | gizon | gizonezko | mendi | mendiko bizikletan dabilen gizona | txirrindulari | txirringa | 3. mota</annotation>
+		<annotation cp="🚵🏼‍♂">bizikleta | gizon | mendi | mendiko bizikletan dabilen gizona | txirrindulari | 3. mota</annotation>
 		<annotation cp="🚵🏼‍♂" type="tts">mendiko bizikletan dabilen gizona: 3. mota</annotation>
-		<annotation cp="🚵🏽‍♂">bizikleta | gizon | gizonezko | mendi | mendiko bizikletan dabilen gizona | txirrindulari | txirringa | bitarteko azal-tonua</annotation>
+		<annotation cp="🚵🏽‍♂">bizikleta | gizon | mendi | mendiko bizikletan dabilen gizona | txirrindulari | bitarteko azal-tonua</annotation>
 		<annotation cp="🚵🏽‍♂" type="tts">mendiko bizikletan dabilen gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="🚵🏾‍♂">bizikleta | gizon | gizonezko | mendi | mendiko bizikletan dabilen gizona | txirrindulari | txirringa | 5. mota</annotation>
+		<annotation cp="🚵🏾‍♂">bizikleta | gizon | mendi | mendiko bizikletan dabilen gizona | txirrindulari | 5. mota</annotation>
 		<annotation cp="🚵🏾‍♂" type="tts">mendiko bizikletan dabilen gizona: 5. mota</annotation>
-		<annotation cp="🚵🏿‍♂">bizikleta | gizon | gizonezko | mendi | mendiko bizikletan dabilen gizona | txirrindulari | txirringa | 6. mota</annotation>
+		<annotation cp="🚵🏿‍♂">bizikleta | gizon | mendi | mendiko bizikletan dabilen gizona | txirrindulari | 6. mota</annotation>
 		<annotation cp="🚵🏿‍♂" type="tts">mendiko bizikletan dabilen gizona: 6. mota</annotation>
-		<annotation cp="🚵🏻‍♀">bizikleta | emakume | emakumezko | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | txirringa | 1–2. mota</annotation>
+		<annotation cp="🚵🏻‍♀">bizikleta | emakume | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | 1–2. mota</annotation>
 		<annotation cp="🚵🏻‍♀" type="tts">mendiko bizikletan dabilen emakumea: 1–2. mota</annotation>
-		<annotation cp="🚵🏼‍♀">bizikleta | emakume | emakumezko | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | txirringa | 3. mota</annotation>
+		<annotation cp="🚵🏼‍♀">bizikleta | emakume | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | 3. mota</annotation>
 		<annotation cp="🚵🏼‍♀" type="tts">mendiko bizikletan dabilen emakumea: 3. mota</annotation>
-		<annotation cp="🚵🏽‍♀">bizikleta | emakume | emakumezko | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | txirringa | bitarteko azal-tonua</annotation>
+		<annotation cp="🚵🏽‍♀">bizikleta | emakume | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | bitarteko azal-tonua</annotation>
 		<annotation cp="🚵🏽‍♀" type="tts">mendiko bizikletan dabilen emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="🚵🏾‍♀">bizikleta | emakume | emakumezko | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | txirringa | 5. mota</annotation>
+		<annotation cp="🚵🏾‍♀">bizikleta | emakume | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | 5. mota</annotation>
 		<annotation cp="🚵🏾‍♀" type="tts">mendiko bizikletan dabilen emakumea: 5. mota</annotation>
-		<annotation cp="🚵🏿‍♀">bizikleta | emakume | emakumezko | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | txirringa | 6. mota</annotation>
+		<annotation cp="🚵🏿‍♀">bizikleta | emakume | mendi | mendiko bizikletan dabilen emakumea | txirrindulari | 6. mota</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">mendiko bizikletan dabilen emakumea: 6. mota</annotation>
 		<annotation cp="🤸🏻">alboko gurpil | alboko gurpila | gimnasia | kirol | pertsona | 1–2. mota</annotation>
 		<annotation cp="🤸🏻" type="tts">alboko gurpila: 1–2. mota</annotation>
@@ -1683,25 +1858,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾" type="tts">alboko gurpila: 5. mota</annotation>
 		<annotation cp="🤸🏿">alboko gurpil | alboko gurpila | gimnasia | kirol | pertsona | 6. mota</annotation>
 		<annotation cp="🤸🏿" type="tts">alboko gurpila: 6. mota</annotation>
-		<annotation cp="🤸🏻‍♂">gimnasia | gizon | gizonezko | gurpil | gurpil-ariketa egiten ari den gizona | kirol | pertsona | 1–2. mota</annotation>
+		<annotation cp="🤸🏻‍♂">gimnasia | gizon | gurpil | gurpil-ariketa egiten ari den gizona | kirol | 1–2. mota</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">gurpil-ariketa egiten ari den gizona: 1–2. mota</annotation>
-		<annotation cp="🤸🏼‍♂">gimnasia | gizon | gizonezko | gurpil | gurpil-ariketa egiten ari den gizona | kirol | pertsona | 3. mota</annotation>
+		<annotation cp="🤸🏼‍♂">gimnasia | gizon | gurpil | gurpil-ariketa egiten ari den gizona | kirol | 3. mota</annotation>
 		<annotation cp="🤸🏼‍♂" type="tts">gurpil-ariketa egiten ari den gizona: 3. mota</annotation>
-		<annotation cp="🤸🏽‍♂">gimnasia | gizon | gizonezko | gurpil | gurpil-ariketa egiten ari den gizona | kirol | pertsona | bitarteko azal-tonua</annotation>
+		<annotation cp="🤸🏽‍♂">gimnasia | gizon | gurpil | gurpil-ariketa egiten ari den gizona | kirol | bitarteko azal-tonua</annotation>
 		<annotation cp="🤸🏽‍♂" type="tts">gurpil-ariketa egiten ari den gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="🤸🏾‍♂">gimnasia | gizon | gizonezko | gurpil | gurpil-ariketa egiten ari den gizona | kirol | pertsona | 5. mota</annotation>
+		<annotation cp="🤸🏾‍♂">gimnasia | gizon | gurpil | gurpil-ariketa egiten ari den gizona | kirol | 5. mota</annotation>
 		<annotation cp="🤸🏾‍♂" type="tts">gurpil-ariketa egiten ari den gizona: 5. mota</annotation>
-		<annotation cp="🤸🏿‍♂">gimnasia | gizon | gizonezko | gurpil | gurpil-ariketa egiten ari den gizona | kirol | pertsona | 6. mota</annotation>
+		<annotation cp="🤸🏿‍♂">gimnasia | gizon | gurpil | gurpil-ariketa egiten ari den gizona | kirol | 6. mota</annotation>
 		<annotation cp="🤸🏿‍♂" type="tts">gurpil-ariketa egiten ari den gizona: 6. mota</annotation>
-		<annotation cp="🤸🏻‍♀">emakume | emakumezko | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | pertsona | 1–2. mota</annotation>
+		<annotation cp="🤸🏻‍♀">emakume | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | 1–2. mota</annotation>
 		<annotation cp="🤸🏻‍♀" type="tts">gurpil-ariketa egiten ari den emakumea: 1–2. mota</annotation>
-		<annotation cp="🤸🏼‍♀">emakume | emakumezko | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | pertsona | 3. mota</annotation>
+		<annotation cp="🤸🏼‍♀">emakume | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | 3. mota</annotation>
 		<annotation cp="🤸🏼‍♀" type="tts">gurpil-ariketa egiten ari den emakumea: 3. mota</annotation>
-		<annotation cp="🤸🏽‍♀">emakume | emakumezko | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | pertsona | bitarteko azal-tonua</annotation>
+		<annotation cp="🤸🏽‍♀">emakume | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | bitarteko azal-tonua</annotation>
 		<annotation cp="🤸🏽‍♀" type="tts">gurpil-ariketa egiten ari den emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="🤸🏾‍♀">emakume | emakumezko | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | pertsona | 5. mota</annotation>
+		<annotation cp="🤸🏾‍♀">emakume | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | 5. mota</annotation>
 		<annotation cp="🤸🏾‍♀" type="tts">gurpil-ariketa egiten ari den emakumea: 5. mota</annotation>
-		<annotation cp="🤸🏿‍♀">emakume | emakumezko | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | pertsona | 6. mota</annotation>
+		<annotation cp="🤸🏿‍♀">emakume | gimnasia | gurpil | gurpil-ariketa egiten ari den emakumea | kirol | 6. mota</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">gurpil-ariketa egiten ari den emakumea: 6. mota</annotation>
 		<annotation cp="🤽🏻">kirol | pertsona | waterpolo | waterpoloa | 1–2. mota</annotation>
 		<annotation cp="🤽🏻" type="tts">waterpoloa: 1–2. mota</annotation>
@@ -1713,25 +1888,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤽🏾" type="tts">waterpoloa: 5. mota</annotation>
 		<annotation cp="🤽🏿">kirol | pertsona | waterpolo | waterpoloa | 6. mota</annotation>
 		<annotation cp="🤽🏿" type="tts">waterpoloa: 6. mota</annotation>
-		<annotation cp="🤽🏻‍♂">gizon | gizona waterpoloan jolasten | gizonezko | kirol | polo | ur | 1–2. mota</annotation>
+		<annotation cp="🤽🏻‍♂">gizon | gizona waterpoloan jolasten | kirol | polo | ur | 1–2. mota</annotation>
 		<annotation cp="🤽🏻‍♂" type="tts">gizona waterpoloan jolasten: 1–2. mota</annotation>
-		<annotation cp="🤽🏼‍♂">gizon | gizona waterpoloan jolasten | gizonezko | kirol | polo | ur | 3. mota</annotation>
+		<annotation cp="🤽🏼‍♂">gizon | gizona waterpoloan jolasten | kirol | polo | ur | 3. mota</annotation>
 		<annotation cp="🤽🏼‍♂" type="tts">gizona waterpoloan jolasten: 3. mota</annotation>
-		<annotation cp="🤽🏽‍♂">gizon | gizona waterpoloan jolasten | gizonezko | kirol | polo | ur | bitarteko azal-tonua</annotation>
+		<annotation cp="🤽🏽‍♂">gizon | gizona waterpoloan jolasten | kirol | polo | ur | bitarteko azal-tonua</annotation>
 		<annotation cp="🤽🏽‍♂" type="tts">gizona waterpoloan jolasten: bitarteko azal-tonua</annotation>
-		<annotation cp="🤽🏾‍♂">gizon | gizona waterpoloan jolasten | gizonezko | kirol | polo | ur | 5. mota</annotation>
+		<annotation cp="🤽🏾‍♂">gizon | gizona waterpoloan jolasten | kirol | polo | ur | 5. mota</annotation>
 		<annotation cp="🤽🏾‍♂" type="tts">gizona waterpoloan jolasten: 5. mota</annotation>
-		<annotation cp="🤽🏿‍♂">gizon | gizona waterpoloan jolasten | gizonezko | kirol | polo | ur | 6. mota</annotation>
+		<annotation cp="🤽🏿‍♂">gizon | gizona waterpoloan jolasten | kirol | polo | ur | 6. mota</annotation>
 		<annotation cp="🤽🏿‍♂" type="tts">gizona waterpoloan jolasten: 6. mota</annotation>
-		<annotation cp="🤽🏻‍♀">emakume | emakumea waterpoloan jolasten | emakumezko | kirol | polo | ur | 1–2. mota</annotation>
+		<annotation cp="🤽🏻‍♀">emakume | emakumea waterpoloan jolasten | kirol | polo | ur | 1–2. mota</annotation>
 		<annotation cp="🤽🏻‍♀" type="tts">emakumea waterpoloan jolasten: 1–2. mota</annotation>
-		<annotation cp="🤽🏼‍♀">emakume | emakumea waterpoloan jolasten | emakumezko | kirol | polo | ur | 3. mota</annotation>
+		<annotation cp="🤽🏼‍♀">emakume | emakumea waterpoloan jolasten | kirol | polo | ur | 3. mota</annotation>
 		<annotation cp="🤽🏼‍♀" type="tts">emakumea waterpoloan jolasten: 3. mota</annotation>
-		<annotation cp="🤽🏽‍♀">emakume | emakumea waterpoloan jolasten | emakumezko | kirol | polo | ur | bitarteko azal-tonua</annotation>
+		<annotation cp="🤽🏽‍♀">emakume | emakumea waterpoloan jolasten | kirol | polo | ur | bitarteko azal-tonua</annotation>
 		<annotation cp="🤽🏽‍♀" type="tts">emakumea waterpoloan jolasten: bitarteko azal-tonua</annotation>
-		<annotation cp="🤽🏾‍♀">emakume | emakumea waterpoloan jolasten | emakumezko | kirol | polo | ur | 5. mota</annotation>
+		<annotation cp="🤽🏾‍♀">emakume | emakumea waterpoloan jolasten | kirol | polo | ur | 5. mota</annotation>
 		<annotation cp="🤽🏾‍♀" type="tts">emakumea waterpoloan jolasten: 5. mota</annotation>
-		<annotation cp="🤽🏿‍♀">emakume | emakumea waterpoloan jolasten | emakumezko | kirol | polo | ur | 6. mota</annotation>
+		<annotation cp="🤽🏿‍♀">emakume | emakumea waterpoloan jolasten | kirol | polo | ur | 6. mota</annotation>
 		<annotation cp="🤽🏿‍♀" type="tts">emakumea waterpoloan jolasten: 6. mota</annotation>
 		<annotation cp="🤾🏻">baloi | eskubaloi | eskubaloia | kirol | pertsona | 1–2. mota</annotation>
 		<annotation cp="🤾🏻" type="tts">eskubaloia: 1–2. mota</annotation>
@@ -1806,55 +1981,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩‍❤‍👩">bihotz | bihotza erdian duen bikotea | bikote | maitasun | emakumea</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">bihotza erdian duen bikotea: emakumea eta emakumea</annotation>
 		<annotation cp="👨‍👩‍👦">aita | ama | familia | haur | gizona | emakumea | mutila</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">familia: gizona eta emakumea eta mutila</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">familia: gizona, emakumea eta mutila</annotation>
 		<annotation cp="👨‍👩‍👧">aita | ama | familia | haur | gizona | emakumea | neska</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">familia: gizona eta emakumea eta neska</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">familia: gizona, emakumea eta neska</annotation>
 		<annotation cp="👨‍👩‍👧‍👦">aita | ama | familia | haur | gizona | emakumea | neska | mutila</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">familia: gizona eta emakumea eta neska eta mutila</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">familia: gizona, emakumea, neska eta mutila</annotation>
 		<annotation cp="👨‍👩‍👦‍👦">aita | ama | familia | haur | gizona | emakumea | mutila</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">familia: gizona eta emakumea eta mutila eta mutila</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">familia: gizona, emakumea, mutila eta mutila</annotation>
 		<annotation cp="👨‍👩‍👧‍👧">aita | ama | familia | haur | gizona | emakumea | neska</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">familia: gizona eta emakumea eta neska eta neska</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">familia: gizona, emakumea, neska eta neska</annotation>
 		<annotation cp="👨‍👨‍👦">aita | ama | familia | haur | gizona | mutila</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">familia: gizona eta gizona eta mutila</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">familia: gizona, gizona eta mutila</annotation>
 		<annotation cp="👨‍👨‍👧">aita | ama | familia | haur | gizona | neska</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">familia: gizona eta gizona eta neska</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">familia: gizona, gizona eta neska</annotation>
 		<annotation cp="👨‍👨‍👧‍👦">aita | ama | familia | haur | gizona | neska | mutila</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">familia: gizona eta gizona eta neska eta mutila</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">familia: gizona, gizona, neska eta mutila</annotation>
 		<annotation cp="👨‍👨‍👦‍👦">aita | ama | familia | haur | gizona | mutila</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">familia: gizona eta gizona eta mutila eta mutila</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">familia: gizona, gizona, mutila eta mutila</annotation>
 		<annotation cp="👨‍👨‍👧‍👧">aita | ama | familia | haur | gizona | neska</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">familia: gizona eta gizona eta neska eta neska</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">familia: gizona, gizona, neska eta neska</annotation>
 		<annotation cp="👩‍👩‍👦">aita | ama | familia | haur | emakumea | mutila</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">familia: emakumea eta emakumea eta mutila</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">familia: emakumea, emakumea eta mutila</annotation>
 		<annotation cp="👩‍👩‍👧">aita | ama | familia | haur | emakumea | neska</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">familia: emakumea eta emakumea eta neska</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">familia: emakumea, emakumea eta neska</annotation>
 		<annotation cp="👩‍👩‍👧‍👦">aita | ama | familia | haur | emakumea | neska | mutila</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">familia: emakumea eta emakumea eta neska eta mutila</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">familia: emakumea, emakumea, neska eta mutila</annotation>
 		<annotation cp="👩‍👩‍👦‍👦">aita | ama | familia | haur | emakumea | mutila</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">familia: emakumea eta emakumea eta mutila eta mutila</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">familia: emakumea, emakumea, mutila eta mutila</annotation>
 		<annotation cp="👩‍👩‍👧‍👧">aita | ama | familia | haur | emakumea | neska</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">familia: emakumea eta emakumea eta neska eta neska</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">familia: emakumea, emakumea, neska eta neska</annotation>
 		<annotation cp="👨‍👦">aita | ama | familia | haur | gizona | mutila</annotation>
 		<annotation cp="👨‍👦" type="tts">familia: gizona eta mutila</annotation>
 		<annotation cp="👨‍👦‍👦">aita | ama | familia | haur | gizona | mutila</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">familia: gizona eta mutila eta mutila</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">familia: gizona, mutila eta mutila</annotation>
 		<annotation cp="👨‍👧">aita | ama | familia | haur | gizona | neska</annotation>
 		<annotation cp="👨‍👧" type="tts">familia: gizona eta neska</annotation>
 		<annotation cp="👨‍👧‍👦">aita | ama | familia | haur | gizona | neska | mutila</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">familia: gizona eta neska eta mutila</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">familia: gizona, neska eta mutila</annotation>
 		<annotation cp="👨‍👧‍👧">aita | ama | familia | haur | gizona | neska</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">familia: gizona eta neska eta neska</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">familia: gizona, neska eta neska</annotation>
 		<annotation cp="👩‍👦">aita | ama | familia | haur | emakumea | mutila</annotation>
 		<annotation cp="👩‍👦" type="tts">familia: emakumea eta mutila</annotation>
 		<annotation cp="👩‍👦‍👦">aita | ama | familia | haur | emakumea | mutila</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">familia: emakumea eta mutila eta mutila</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">familia: emakumea, mutila eta mutila</annotation>
 		<annotation cp="👩‍👧">aita | ama | familia | haur | emakumea | neska</annotation>
 		<annotation cp="👩‍👧" type="tts">familia: emakumea eta neska</annotation>
 		<annotation cp="👩‍👧‍👦">aita | ama | familia | haur | emakumea | neska | mutila</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">familia: emakumea eta neska eta mutila</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">familia: emakumea, neska eta mutila</annotation>
 		<annotation cp="👩‍👧‍👧">aita | ama | familia | haur | emakumea | neska</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">familia: emakumea eta neska eta neska</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">familia: emakumea, neska eta neska</annotation>
 		<annotation cp="🤳🏻">autoargazki | autoargazkia | kamera | telefono | 1–2. mota</annotation>
 		<annotation cp="🤳🏻" type="tts">autoargazkia: 1–2. mota</annotation>
 		<annotation cp="🤳🏼">autoargazki | autoargazkia | kamera | telefono | 3. mota</annotation>
@@ -1865,56 +2040,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤳🏾" type="tts">autoargazkia: 5. mota</annotation>
 		<annotation cp="🤳🏿">autoargazki | autoargazkia | kamera | telefono | 6. mota</annotation>
 		<annotation cp="🤳🏿" type="tts">autoargazkia: 6. mota</annotation>
-		<annotation cp="💪🏻">bizeps | bizepsak | flexio | gihar | gorputz | kokimi | 1–2. mota</annotation>
+		<annotation cp="💪🏻">bizeps | bizepsak | flexio | gihar | gorputz | komiki | 1–2. mota</annotation>
 		<annotation cp="💪🏻" type="tts">bizepsak: 1–2. mota</annotation>
-		<annotation cp="💪🏼">bizeps | bizepsak | flexio | gihar | gorputz | kokimi | 3. mota</annotation>
+		<annotation cp="💪🏼">bizeps | bizepsak | flexio | gihar | gorputz | komiki | 3. mota</annotation>
 		<annotation cp="💪🏼" type="tts">bizepsak: 3. mota</annotation>
-		<annotation cp="💪🏽">bizeps | bizepsak | flexio | gihar | gorputz | kokimi | bitarteko azal-tonua</annotation>
+		<annotation cp="💪🏽">bizeps | bizepsak | flexio | gihar | gorputz | komiki | bitarteko azal-tonua</annotation>
 		<annotation cp="💪🏽" type="tts">bizepsak: bitarteko azal-tonua</annotation>
-		<annotation cp="💪🏾">bizeps | bizepsak | flexio | gihar | gorputz | kokimi | 5. mota</annotation>
+		<annotation cp="💪🏾">bizeps | bizepsak | flexio | gihar | gorputz | komiki | 5. mota</annotation>
 		<annotation cp="💪🏾" type="tts">bizepsak: 5. mota</annotation>
-		<annotation cp="💪🏿">bizeps | bizepsak | flexio | gihar | gorputz | kokimi | 6. mota</annotation>
+		<annotation cp="💪🏿">bizeps | bizepsak | flexio | gihar | gorputz | komiki | 6. mota</annotation>
 		<annotation cp="💪🏿" type="tts">bizepsak: 6. mota</annotation>
-		<annotation cp="👈🏻">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 1–2. mota</annotation>
+		<annotation cp="👈🏻">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 1–2. mota</annotation>
 		<annotation cp="👈🏻" type="tts">ezkerrera seinalatzen ari den hatz erakuslea: 1–2. mota</annotation>
-		<annotation cp="👈🏼">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 3. mota</annotation>
+		<annotation cp="👈🏼">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 3. mota</annotation>
 		<annotation cp="👈🏼" type="tts">ezkerrera seinalatzen ari den hatz erakuslea: 3. mota</annotation>
-		<annotation cp="👈🏽">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | bitarteko azal-tonua</annotation>
+		<annotation cp="👈🏽">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | hatz | seinalatu | bitarteko azal-tonua</annotation>
 		<annotation cp="👈🏽" type="tts">ezkerrera seinalatzen ari den hatz erakuslea: bitarteko azal-tonua</annotation>
-		<annotation cp="👈🏾">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 5. mota</annotation>
+		<annotation cp="👈🏾">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 5. mota</annotation>
 		<annotation cp="👈🏾" type="tts">ezkerrera seinalatzen ari den hatz erakuslea: 5. mota</annotation>
-		<annotation cp="👈🏿">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 6. mota</annotation>
+		<annotation cp="👈🏿">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 6. mota</annotation>
 		<annotation cp="👈🏿" type="tts">ezkerrera seinalatzen ari den hatz erakuslea: 6. mota</annotation>
-		<annotation cp="👉🏻">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 1–2. mota</annotation>
+		<annotation cp="👉🏻">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 1–2. mota</annotation>
 		<annotation cp="👉🏻" type="tts">eskuinera seinalatzen ari den hatz erakuslea: 1–2. mota</annotation>
-		<annotation cp="👉🏼">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 3. mota</annotation>
+		<annotation cp="👉🏼">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 3. mota</annotation>
 		<annotation cp="👉🏼" type="tts">eskuinera seinalatzen ari den hatz erakuslea: 3. mota</annotation>
-		<annotation cp="👉🏽">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | bitarteko azal-tonua</annotation>
+		<annotation cp="👉🏽">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | hatz | seinalatu | bitarteko azal-tonua</annotation>
 		<annotation cp="👉🏽" type="tts">eskuinera seinalatzen ari den hatz erakuslea: bitarteko azal-tonua</annotation>
-		<annotation cp="👉🏾">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 5. mota</annotation>
+		<annotation cp="👉🏾">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 5. mota</annotation>
 		<annotation cp="👉🏾" type="tts">eskuinera seinalatzen ari den hatz erakuslea: 5. mota</annotation>
-		<annotation cp="👉🏿">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 6. mota</annotation>
+		<annotation cp="👉🏿">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | hatz | seinalatu | 6. mota</annotation>
 		<annotation cp="👉🏿" type="tts">eskuinera seinalatzen ari den hatz erakuslea: 6. mota</annotation>
-		<annotation cp="☝🏻">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 1–2. mota</annotation>
+		<annotation cp="☝🏻">erakusle | esku | gora seinalatzen ari den hatz erakuslea | hatz | seinalatu | 1–2. mota</annotation>
 		<annotation cp="☝🏻" type="tts">gora seinalatzen ari den hatz erakuslea: 1–2. mota</annotation>
-		<annotation cp="☝🏼">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 3. mota</annotation>
+		<annotation cp="☝🏼">erakusle | esku | gora seinalatzen ari den hatz erakuslea | hatz | seinalatu | 3. mota</annotation>
 		<annotation cp="☝🏼" type="tts">gora seinalatzen ari den hatz erakuslea: 3. mota</annotation>
-		<annotation cp="☝🏽">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | bitarteko azal-tonua</annotation>
+		<annotation cp="☝🏽">erakusle | esku | gora seinalatzen ari den hatz erakuslea | hatz | seinalatu | bitarteko azal-tonua</annotation>
 		<annotation cp="☝🏽" type="tts">gora seinalatzen ari den hatz erakuslea: bitarteko azal-tonua</annotation>
-		<annotation cp="☝🏾">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 5. mota</annotation>
+		<annotation cp="☝🏾">erakusle | esku | gora seinalatzen ari den hatz erakuslea | hatz | seinalatu | 5. mota</annotation>
 		<annotation cp="☝🏾" type="tts">gora seinalatzen ari den hatz erakuslea: 5. mota</annotation>
-		<annotation cp="☝🏿">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslea | gorputz | hatz | seinalatu | 6. mota</annotation>
+		<annotation cp="☝🏿">erakusle | esku | gora seinalatzen ari den hatz erakuslea | hatz | seinalatu | 6. mota</annotation>
 		<annotation cp="☝🏿" type="tts">gora seinalatzen ari den hatz erakuslea: 6. mota</annotation>
-		<annotation cp="👆🏻">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslearen atzealdea | gorputz | hatz | seinalatu | 1–2. mota</annotation>
-		<annotation cp="👆🏻" type="tts">gora seinalatzen ari den hatz erakuslearen atzealdea: 1–2. mota</annotation>
-		<annotation cp="👆🏼">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslearen atzealdea | gorputz | hatz | seinalatu | 3. mota</annotation>
-		<annotation cp="👆🏼" type="tts">gora seinalatzen ari den hatz erakuslearen atzealdea: 3. mota</annotation>
-		<annotation cp="👆🏽">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslearen atzealdea | gorputz | hatz | seinalatu | bitarteko azal-tonua</annotation>
-		<annotation cp="👆🏽" type="tts">gora seinalatzen ari den hatz erakuslearen atzealdea: bitarteko azal-tonua</annotation>
-		<annotation cp="👆🏾">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslearen atzealdea | gorputz | hatz | seinalatu | 5. mota</annotation>
-		<annotation cp="👆🏾" type="tts">gora seinalatzen ari den hatz erakuslearen atzealdea: 5. mota</annotation>
-		<annotation cp="👆🏿">erakusle | esku | gora | gora seinalatzen ari den hatz erakuslearen atzealdea | gorputz | hatz | seinalatu | 6. mota</annotation>
-		<annotation cp="👆🏿" type="tts">gora seinalatzen ari den hatz erakuslearen atzealdea: 6. mota</annotation>
+		<annotation cp="👆🏻">erakusle | esku | gora seinalatzen ari den hatz erakuslearen atzealdea | gora seinalatzen ari den hatza | hatz | seinalatu | 1–2. mota</annotation>
+		<annotation cp="👆🏻" type="tts">gora seinalatzen ari den hatza: 1–2. mota</annotation>
+		<annotation cp="👆🏼">erakusle | esku | gora seinalatzen ari den hatz erakuslearen atzealdea | gora seinalatzen ari den hatza | hatz | seinalatu | 3. mota</annotation>
+		<annotation cp="👆🏼" type="tts">gora seinalatzen ari den hatza: 3. mota</annotation>
+		<annotation cp="👆🏽">erakusle | esku | gora seinalatzen ari den hatz erakuslearen atzealdea | gora seinalatzen ari den hatza | hatz | seinalatu | bitarteko azal-tonua</annotation>
+		<annotation cp="👆🏽" type="tts">gora seinalatzen ari den hatza: bitarteko azal-tonua</annotation>
+		<annotation cp="👆🏾">erakusle | esku | gora seinalatzen ari den hatz erakuslearen atzealdea | gora seinalatzen ari den hatza | hatz | seinalatu | 5. mota</annotation>
+		<annotation cp="👆🏾" type="tts">gora seinalatzen ari den hatza: 5. mota</annotation>
+		<annotation cp="👆🏿">erakusle | esku | gora seinalatzen ari den hatz erakuslearen atzealdea | gora seinalatzen ari den hatza | hatz | seinalatu | 6. mota</annotation>
+		<annotation cp="👆🏿" type="tts">gora seinalatzen ari den hatza: 6. mota</annotation>
 		<annotation cp="🖕🏻">erdiko hatza | esku | gorputz | hatz | 1–2. mota</annotation>
 		<annotation cp="🖕🏻" type="tts">erdiko hatza: 1–2. mota</annotation>
 		<annotation cp="🖕🏼">erdiko hatza | esku | gorputz | hatz | 3. mota</annotation>
@@ -1925,16 +2100,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🖕🏾" type="tts">erdiko hatza: 5. mota</annotation>
 		<annotation cp="🖕🏿">erdiko hatza | esku | gorputz | hatz | 6. mota</annotation>
 		<annotation cp="🖕🏿" type="tts">erdiko hatza: 6. mota</annotation>
-		<annotation cp="👇🏻">behera | behera seinalatzen ari den hatz erakuslearen atzealdea | erakusle | esku | gorputz | hatz | seinalatu | 1–2. mota</annotation>
-		<annotation cp="👇🏻" type="tts">behera seinalatzen ari den hatz erakuslearen atzealdea: 1–2. mota</annotation>
-		<annotation cp="👇🏼">behera | behera seinalatzen ari den hatz erakuslearen atzealdea | erakusle | esku | gorputz | hatz | seinalatu | 3. mota</annotation>
-		<annotation cp="👇🏼" type="tts">behera seinalatzen ari den hatz erakuslearen atzealdea: 3. mota</annotation>
-		<annotation cp="👇🏽">behera | behera seinalatzen ari den hatz erakuslearen atzealdea | erakusle | esku | gorputz | hatz | seinalatu | bitarteko azal-tonua</annotation>
-		<annotation cp="👇🏽" type="tts">behera seinalatzen ari den hatz erakuslearen atzealdea: bitarteko azal-tonua</annotation>
-		<annotation cp="👇🏾">behera | behera seinalatzen ari den hatz erakuslearen atzealdea | erakusle | esku | gorputz | hatz | seinalatu | 5. mota</annotation>
-		<annotation cp="👇🏾" type="tts">behera seinalatzen ari den hatz erakuslearen atzealdea: 5. mota</annotation>
-		<annotation cp="👇🏿">behera | behera seinalatzen ari den hatz erakuslearen atzealdea | erakusle | esku | gorputz | hatz | seinalatu | 6. mota</annotation>
-		<annotation cp="👇🏿" type="tts">behera seinalatzen ari den hatz erakuslearen atzealdea: 6. mota</annotation>
+		<annotation cp="👇🏻">behera seinalatzen ari den hatz erakuslearen atzealdea | behera seinalatzen ari den hatza | erakusle | esku | hatz | seinalatu | 1–2. mota</annotation>
+		<annotation cp="👇🏻" type="tts">behera seinalatzen ari den hatza: 1–2. mota</annotation>
+		<annotation cp="👇🏼">behera seinalatzen ari den hatz erakuslearen atzealdea | behera seinalatzen ari den hatza | erakusle | esku | hatz | seinalatu | 3. mota</annotation>
+		<annotation cp="👇🏼" type="tts">behera seinalatzen ari den hatza: 3. mota</annotation>
+		<annotation cp="👇🏽">behera seinalatzen ari den hatz erakuslearen atzealdea | behera seinalatzen ari den hatza | erakusle | esku | hatz | seinalatu | bitarteko azal-tonua</annotation>
+		<annotation cp="👇🏽" type="tts">behera seinalatzen ari den hatza: bitarteko azal-tonua</annotation>
+		<annotation cp="👇🏾">behera seinalatzen ari den hatz erakuslearen atzealdea | behera seinalatzen ari den hatza | erakusle | esku | hatz | seinalatu | 5. mota</annotation>
+		<annotation cp="👇🏾" type="tts">behera seinalatzen ari den hatza: 5. mota</annotation>
+		<annotation cp="👇🏿">behera seinalatzen ari den hatz erakuslearen atzealdea | behera seinalatzen ari den hatza | erakusle | esku | hatz | seinalatu | 6. mota</annotation>
+		<annotation cp="👇🏿" type="tts">behera seinalatzen ari den hatza: 6. mota</annotation>
 		<annotation cp="✌🏻">esku | garaipen | garaipena adierazten duen eskua | gorputz | v | 1–2. mota</annotation>
 		<annotation cp="✌🏻" type="tts">garaipena adierazten duen eskua: 1–2. mota</annotation>
 		<annotation cp="✌🏼">esku | garaipen | garaipena adierazten duen eskua | gorputz | v | 3. mota</annotation>
@@ -1955,15 +2130,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤞🏾" type="tts">hatz gurutzatuak: 5. mota</annotation>
 		<annotation cp="🤞🏿">esku | gurutzatu | hatz | hatz gurutzatuak | zorte | 6. mota</annotation>
 		<annotation cp="🤞🏿" type="tts">hatz gurutzatuak: 6. mota</annotation>
-		<annotation cp="🖖🏻">esku | gorputz | hatz | spock | vulkaniar | vulkaniar agurra | 1–2. mota</annotation>
+		<annotation cp="🖖🏻">agur vulkaniar | esku | hatz | spock | vulkaniar | vulkaniar agurra | 1–2. mota</annotation>
 		<annotation cp="🖖🏻" type="tts">vulkaniar agurra: 1–2. mota</annotation>
-		<annotation cp="🖖🏼">esku | gorputz | hatz | spock | vulkaniar | vulkaniar agurra | 3. mota</annotation>
+		<annotation cp="🖖🏼">agur vulkaniar | esku | hatz | spock | vulkaniar | vulkaniar agurra | 3. mota</annotation>
 		<annotation cp="🖖🏼" type="tts">vulkaniar agurra: 3. mota</annotation>
-		<annotation cp="🖖🏽">esku | gorputz | hatz | spock | vulkaniar | vulkaniar agurra | bitarteko azal-tonua</annotation>
+		<annotation cp="🖖🏽">agur vulkaniar | esku | hatz | spock | vulkaniar | vulkaniar agurra | bitarteko azal-tonua</annotation>
 		<annotation cp="🖖🏽" type="tts">vulkaniar agurra: bitarteko azal-tonua</annotation>
-		<annotation cp="🖖🏾">esku | gorputz | hatz | spock | vulkaniar | vulkaniar agurra | 5. mota</annotation>
+		<annotation cp="🖖🏾">agur vulkaniar | esku | hatz | spock | vulkaniar | vulkaniar agurra | 5. mota</annotation>
 		<annotation cp="🖖🏾" type="tts">vulkaniar agurra: 5. mota</annotation>
-		<annotation cp="🖖🏿">esku | gorputz | hatz | spock | vulkaniar | vulkaniar agurra | 6. mota</annotation>
+		<annotation cp="🖖🏿">agur vulkaniar | esku | hatz | spock | vulkaniar | vulkaniar agurra | 6. mota</annotation>
 		<annotation cp="🖖🏿" type="tts">vulkaniar agurra: 6. mota</annotation>
 		<annotation cp="🤘🏻">adar | adarrak adierazten dituen eskua | esku | gorputz | hatz | 1–2. mota</annotation>
 		<annotation cp="🤘🏻" type="tts">adarrak adierazten dituen eskua: 1–2. mota</annotation>
@@ -2035,15 +2210,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👎🏾" type="tts">erpurua behera: 5. mota</annotation>
 		<annotation cp="👎🏿">behera | erpuru | erpurua behera | esku | gorputz | 6. mota</annotation>
 		<annotation cp="👎🏿" type="tts">erpurua behera: 6. mota</annotation>
-		<annotation cp="✊🏻">esku | estutu | gorputz | ukabil | ukabil altxatua | ukabilkada | 1–2. mota</annotation>
+		<annotation cp="✊🏻">esku | estutu | ukabil | ukabil altxatua | ukabilkada | 1–2. mota</annotation>
 		<annotation cp="✊🏻" type="tts">ukabil altxatua: 1–2. mota</annotation>
-		<annotation cp="✊🏼">esku | estutu | gorputz | ukabil | ukabil altxatua | ukabilkada | 3. mota</annotation>
+		<annotation cp="✊🏼">esku | estutu | ukabil | ukabil altxatua | ukabilkada | 3. mota</annotation>
 		<annotation cp="✊🏼" type="tts">ukabil altxatua: 3. mota</annotation>
-		<annotation cp="✊🏽">esku | estutu | gorputz | ukabil | ukabil altxatua | ukabilkada | bitarteko azal-tonua</annotation>
+		<annotation cp="✊🏽">esku | estutu | ukabil | ukabil altxatua | ukabilkada | bitarteko azal-tonua</annotation>
 		<annotation cp="✊🏽" type="tts">ukabil altxatua: bitarteko azal-tonua</annotation>
-		<annotation cp="✊🏾">esku | estutu | gorputz | ukabil | ukabil altxatua | ukabilkada | 5. mota</annotation>
+		<annotation cp="✊🏾">esku | estutu | ukabil | ukabil altxatua | ukabilkada | 5. mota</annotation>
 		<annotation cp="✊🏾" type="tts">ukabil altxatua: 5. mota</annotation>
-		<annotation cp="✊🏿">esku | estutu | gorputz | ukabil | ukabil altxatua | ukabilkada | 6. mota</annotation>
+		<annotation cp="✊🏿">esku | estutu | ukabil | ukabil altxatua | ukabilkada | 6. mota</annotation>
 		<annotation cp="✊🏿" type="tts">ukabil altxatua: 6. mota</annotation>
 		<annotation cp="👊🏻">esku | estutu | gorputz | ukabil | ukabilkada | 1–2. mota</annotation>
 		<annotation cp="👊🏻" type="tts">ukabilkada: 1–2. mota</annotation>
@@ -2135,15 +2310,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👐🏾" type="tts">esku irekiak: 5. mota</annotation>
 		<annotation cp="👐🏿">esku | esku irekiak | gorputz | ireki | 6. mota</annotation>
 		<annotation cp="👐🏿" type="tts">esku irekiak: 6. mota</annotation>
-		<annotation cp="🙌🏻">altxatu | esku | eskuak altxatzen ari den pertsona | gorputz | keinu | ospakizun | 1–2. mota</annotation>
+		<annotation cp="🙌🏻">altxatu | esku | eskuak altxatzen ari den pertsona | keinu | ospakizun | 1–2. mota</annotation>
 		<annotation cp="🙌🏻" type="tts">eskuak altxatzen ari den pertsona: 1–2. mota</annotation>
-		<annotation cp="🙌🏼">altxatu | esku | eskuak altxatzen ari den pertsona | gorputz | keinu | ospakizun | 3. mota</annotation>
+		<annotation cp="🙌🏼">altxatu | esku | eskuak altxatzen ari den pertsona | keinu | ospakizun | 3. mota</annotation>
 		<annotation cp="🙌🏼" type="tts">eskuak altxatzen ari den pertsona: 3. mota</annotation>
-		<annotation cp="🙌🏽">altxatu | esku | eskuak altxatzen ari den pertsona | gorputz | keinu | ospakizun | bitarteko azal-tonua</annotation>
+		<annotation cp="🙌🏽">altxatu | esku | eskuak altxatzen ari den pertsona | keinu | ospakizun | bitarteko azal-tonua</annotation>
 		<annotation cp="🙌🏽" type="tts">eskuak altxatzen ari den pertsona: bitarteko azal-tonua</annotation>
-		<annotation cp="🙌🏾">altxatu | esku | eskuak altxatzen ari den pertsona | gorputz | keinu | ospakizun | 5. mota</annotation>
+		<annotation cp="🙌🏾">altxatu | esku | eskuak altxatzen ari den pertsona | keinu | ospakizun | 5. mota</annotation>
 		<annotation cp="🙌🏾" type="tts">eskuak altxatzen ari den pertsona: 5. mota</annotation>
-		<annotation cp="🙌🏿">altxatu | esku | eskuak altxatzen ari den pertsona | gorputz | keinu | ospakizun | 6. mota</annotation>
+		<annotation cp="🙌🏿">altxatu | esku | eskuak altxatzen ari den pertsona | keinu | ospakizun | 6. mota</annotation>
 		<annotation cp="🙌🏿" type="tts">eskuak altxatzen ari den pertsona: 6. mota</annotation>
 		<annotation cp="🤲🏻">esku-azpiak elkartuta | otoitza | 1–2. mota</annotation>
 		<annotation cp="🤲🏻" type="tts">esku-azpiak elkartuta: 1–2. mota</annotation>
@@ -2155,15 +2330,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤲🏾" type="tts">esku-azpiak elkartuta: 5. mota</annotation>
 		<annotation cp="🤲🏿">esku-azpiak elkartuta | otoitza | 6. mota</annotation>
 		<annotation cp="🤲🏿" type="tts">esku-azpiak elkartuta: 6. mota</annotation>
-		<annotation cp="🙏🏻">erregu | erregutzen ari diren eskuak | eskatu | eskerrak | esku | gorputz | keinu | makurtu | mesedez | otoitz | 1–2. mota</annotation>
+		<annotation cp="🙏🏻">erregutzen ari diren eskuak | eskatu | eskerrak | mesedez | otoitz | 1–2. mota</annotation>
 		<annotation cp="🙏🏻" type="tts">erregutzen ari diren eskuak: 1–2. mota</annotation>
-		<annotation cp="🙏🏼">erregu | erregutzen ari diren eskuak | eskatu | eskerrak | esku | gorputz | keinu | makurtu | mesedez | otoitz | 3. mota</annotation>
+		<annotation cp="🙏🏼">erregutzen ari diren eskuak | eskatu | eskerrak | mesedez | otoitz | 3. mota</annotation>
 		<annotation cp="🙏🏼" type="tts">erregutzen ari diren eskuak: 3. mota</annotation>
-		<annotation cp="🙏🏽">erregu | erregutzen ari diren eskuak | eskatu | eskerrak | esku | gorputz | keinu | makurtu | mesedez | otoitz | bitarteko azal-tonua</annotation>
+		<annotation cp="🙏🏽">erregutzen ari diren eskuak | eskatu | eskerrak | mesedez | otoitz | bitarteko azal-tonua</annotation>
 		<annotation cp="🙏🏽" type="tts">erregutzen ari diren eskuak: bitarteko azal-tonua</annotation>
-		<annotation cp="🙏🏾">erregu | erregutzen ari diren eskuak | eskatu | eskerrak | esku | gorputz | keinu | makurtu | mesedez | otoitz | 5. mota</annotation>
+		<annotation cp="🙏🏾">erregutzen ari diren eskuak | eskatu | eskerrak | mesedez | otoitz | 5. mota</annotation>
 		<annotation cp="🙏🏾" type="tts">erregutzen ari diren eskuak: 5. mota</annotation>
-		<annotation cp="🙏🏿">erregu | erregutzen ari diren eskuak | eskatu | eskerrak | esku | gorputz | keinu | makurtu | mesedez | otoitz | 6. mota</annotation>
+		<annotation cp="🙏🏿">erregutzen ari diren eskuak | eskatu | eskerrak | mesedez | otoitz | 6. mota</annotation>
 		<annotation cp="🙏🏿" type="tts">erregutzen ari diren eskuak: 6. mota</annotation>
 		<annotation cp="💅🏻">azazkal | azazkaletako esmaltea | edertasun | esmalte | gorputz | kosmetika | manikura | 1–2. mota</annotation>
 		<annotation cp="💅🏻" type="tts">azazkaletako esmaltea: 1–2. mota</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">tekla</annotation>
 		<annotation cp="🔟" type="tts">tekla: 10</annotation>
 		<annotation cp="🇦🇨">bandera</annotation>
-		<annotation cp="🇦🇨" type="tts">Ascension uhartea</annotation>
+		<annotation cp="🇦🇨" type="tts">bandera: Ascension uhartea</annotation>
 		<annotation cp="🇦🇩">bandera</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">bandera: Andorra</annotation>
 		<annotation cp="🇦🇪">bandera</annotation>
-		<annotation cp="🇦🇪" type="tts">Arabiar Emirerri Batuak</annotation>
+		<annotation cp="🇦🇪" type="tts">bandera: Arabiar Emirerri Batuak</annotation>
 		<annotation cp="🇦🇫">bandera</annotation>
-		<annotation cp="🇦🇫" type="tts">Afganistan</annotation>
+		<annotation cp="🇦🇫" type="tts">bandera: Afganistan</annotation>
 		<annotation cp="🇦🇬">bandera</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua eta Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">bandera: Antigua eta Barbuda</annotation>
 		<annotation cp="🇦🇮">bandera</annotation>
-		<annotation cp="🇦🇮" type="tts">Aingira</annotation>
+		<annotation cp="🇦🇮" type="tts">bandera: Aingira</annotation>
 		<annotation cp="🇦🇱">bandera</annotation>
-		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇱" type="tts">bandera: Albania</annotation>
 		<annotation cp="🇦🇲">bandera</annotation>
-		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇲" type="tts">bandera: Armenia</annotation>
 		<annotation cp="🇦🇴">bandera</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">bandera: Angola</annotation>
 		<annotation cp="🇦🇶">bandera</annotation>
-		<annotation cp="🇦🇶" type="tts">Antartika</annotation>
+		<annotation cp="🇦🇶" type="tts">bandera: Antartika</annotation>
 		<annotation cp="🇦🇷">bandera</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇷" type="tts">bandera: Argentina</annotation>
 		<annotation cp="🇦🇸">bandera</annotation>
-		<annotation cp="🇦🇸" type="tts">Samoa Estatubatuarra</annotation>
+		<annotation cp="🇦🇸" type="tts">bandera: Samoa Estatubatuarra</annotation>
 		<annotation cp="🇦🇹">bandera</annotation>
-		<annotation cp="🇦🇹" type="tts">Austria</annotation>
+		<annotation cp="🇦🇹" type="tts">bandera: Austria</annotation>
 		<annotation cp="🇦🇺">bandera</annotation>
-		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇺" type="tts">bandera: Australia</annotation>
 		<annotation cp="🇦🇼">bandera</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">bandera: Aruba</annotation>
 		<annotation cp="🇦🇽">bandera</annotation>
-		<annotation cp="🇦🇽" type="tts">Aland uharteak</annotation>
+		<annotation cp="🇦🇽" type="tts">bandera: Aland uharteak</annotation>
 		<annotation cp="🇦🇿">bandera</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbaijan</annotation>
+		<annotation cp="🇦🇿" type="tts">bandera: Azerbaijan</annotation>
 		<annotation cp="🇧🇦">bandera</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnia-Herzegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">bandera: Bosnia-Herzegovina</annotation>
 		<annotation cp="🇧🇧">bandera</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">bandera: Barbados</annotation>
 		<annotation cp="🇧🇩">bandera</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">bandera: Bangladesh</annotation>
 		<annotation cp="🇧🇪">bandera</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgika</annotation>
+		<annotation cp="🇧🇪" type="tts">bandera: Belgika</annotation>
 		<annotation cp="🇧🇫">bandera</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">bandera: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">bandera</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgaria</annotation>
+		<annotation cp="🇧🇬" type="tts">bandera: Bulgaria</annotation>
 		<annotation cp="🇧🇭">bandera</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇭" type="tts">bandera: Bahrain</annotation>
 		<annotation cp="🇧🇮">bandera</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">bandera: Burundi</annotation>
 		<annotation cp="🇧🇯">bandera</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">bandera: Benin</annotation>
 		<annotation cp="🇧🇱">bandera</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">bandera: Saint Barthélemy</annotation>
 		<annotation cp="🇧🇲">bandera</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">bandera: Bermuda</annotation>
 		<annotation cp="🇧🇳">bandera</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">bandera: Brunei</annotation>
 		<annotation cp="🇧🇴">bandera</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇴" type="tts">bandera: Bolivia</annotation>
 		<annotation cp="🇧🇶">bandera</annotation>
-		<annotation cp="🇧🇶" type="tts">Karibeko Herbehereak</annotation>
+		<annotation cp="🇧🇶" type="tts">bandera: Karibeko Herbehereak</annotation>
 		<annotation cp="🇧🇷">bandera</annotation>
-		<annotation cp="🇧🇷" type="tts">Brasil</annotation>
+		<annotation cp="🇧🇷" type="tts">bandera: Brasil</annotation>
 		<annotation cp="🇧🇸">bandera</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahamak</annotation>
+		<annotation cp="🇧🇸" type="tts">bandera: Bahamak</annotation>
 		<annotation cp="🇧🇹">bandera</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">bandera: Bhutan</annotation>
 		<annotation cp="🇧🇻">bandera</annotation>
-		<annotation cp="🇧🇻" type="tts">Bouvet uhartea</annotation>
+		<annotation cp="🇧🇻" type="tts">bandera: Bouvet uhartea</annotation>
 		<annotation cp="🇧🇼">bandera</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">bandera: Botswana</annotation>
 		<annotation cp="🇧🇾">bandera</annotation>
-		<annotation cp="🇧🇾" type="tts">Bielorrusia</annotation>
+		<annotation cp="🇧🇾" type="tts">bandera: Bielorrusia</annotation>
 		<annotation cp="🇧🇿">bandera</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">bandera: Belize</annotation>
 		<annotation cp="🇨🇦">bandera</annotation>
-		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇦" type="tts">bandera: Kanada</annotation>
 		<annotation cp="🇨🇨">bandera</annotation>
-		<annotation cp="🇨🇨" type="tts">Cocos uharteak</annotation>
+		<annotation cp="🇨🇨" type="tts">bandera: Cocos uharteak</annotation>
 		<annotation cp="🇨🇩">bandera</annotation>
-		<annotation cp="🇨🇩" type="tts">Kongoko Errepublika Demokratikoa</annotation>
+		<annotation cp="🇨🇩" type="tts">bandera: Kongoko Errepublika Demokratikoa</annotation>
 		<annotation cp="🇨🇫">bandera</annotation>
-		<annotation cp="🇨🇫" type="tts">Afrika Erdiko Errepublika</annotation>
+		<annotation cp="🇨🇫" type="tts">bandera: Afrika Erdiko Errepublika</annotation>
 		<annotation cp="🇨🇬">bandera</annotation>
-		<annotation cp="🇨🇬" type="tts">Kongo</annotation>
+		<annotation cp="🇨🇬" type="tts">bandera: Kongo</annotation>
 		<annotation cp="🇨🇭">bandera</annotation>
-		<annotation cp="🇨🇭" type="tts">Suitza</annotation>
+		<annotation cp="🇨🇭" type="tts">bandera: Suitza</annotation>
 		<annotation cp="🇨🇮">bandera</annotation>
-		<annotation cp="🇨🇮" type="tts">Boli Kosta</annotation>
+		<annotation cp="🇨🇮" type="tts">bandera: Boli Kosta</annotation>
 		<annotation cp="🇨🇰">bandera</annotation>
-		<annotation cp="🇨🇰" type="tts">Cook uharteak</annotation>
+		<annotation cp="🇨🇰" type="tts">bandera: Cook uharteak</annotation>
 		<annotation cp="🇨🇱">bandera</annotation>
-		<annotation cp="🇨🇱" type="tts">Txile</annotation>
+		<annotation cp="🇨🇱" type="tts">bandera: Txile</annotation>
 		<annotation cp="🇨🇲">bandera</annotation>
-		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇲" type="tts">bandera: Kamerun</annotation>
 		<annotation cp="🇨🇳">bandera</annotation>
-		<annotation cp="🇨🇳" type="tts">Txina</annotation>
+		<annotation cp="🇨🇳" type="tts">bandera: Txina</annotation>
 		<annotation cp="🇨🇴">bandera</annotation>
-		<annotation cp="🇨🇴" type="tts">Kolonbia</annotation>
+		<annotation cp="🇨🇴" type="tts">bandera: Kolonbia</annotation>
 		<annotation cp="🇨🇵">bandera</annotation>
-		<annotation cp="🇨🇵" type="tts">Clipperton uhartea</annotation>
+		<annotation cp="🇨🇵" type="tts">bandera: Clipperton uhartea</annotation>
 		<annotation cp="🇨🇷">bandera</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">bandera: Costa Rica</annotation>
 		<annotation cp="🇨🇺">bandera</annotation>
-		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇺" type="tts">bandera: Kuba</annotation>
 		<annotation cp="🇨🇻">bandera</annotation>
-		<annotation cp="🇨🇻" type="tts">Cabo Verde</annotation>
+		<annotation cp="🇨🇻" type="tts">bandera: Cabo Verde</annotation>
 		<annotation cp="🇨🇼">bandera</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">bandera: Curaçao</annotation>
 		<annotation cp="🇨🇽">bandera</annotation>
-		<annotation cp="🇨🇽" type="tts">Christmas uhartea</annotation>
+		<annotation cp="🇨🇽" type="tts">bandera: Christmas uhartea</annotation>
 		<annotation cp="🇨🇾">bandera</annotation>
-		<annotation cp="🇨🇾" type="tts">Zipre</annotation>
+		<annotation cp="🇨🇾" type="tts">bandera: Zipre</annotation>
 		<annotation cp="🇨🇿">bandera</annotation>
-		<annotation cp="🇨🇿" type="tts">Txekia</annotation>
+		<annotation cp="🇨🇿" type="tts">bandera: Txekia</annotation>
 		<annotation cp="🇩🇪">bandera</annotation>
-		<annotation cp="🇩🇪" type="tts">Alemania</annotation>
+		<annotation cp="🇩🇪" type="tts">bandera: Alemania</annotation>
 		<annotation cp="🇩🇬">bandera</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego García</annotation>
+		<annotation cp="🇩🇬" type="tts">bandera: Diego García</annotation>
 		<annotation cp="🇩🇯">bandera</annotation>
-		<annotation cp="🇩🇯" type="tts">Djibuti</annotation>
+		<annotation cp="🇩🇯" type="tts">bandera: Djibuti</annotation>
 		<annotation cp="🇩🇰">bandera</annotation>
-		<annotation cp="🇩🇰" type="tts">Danimarka</annotation>
+		<annotation cp="🇩🇰" type="tts">bandera: Danimarka</annotation>
 		<annotation cp="🇩🇲">bandera</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominika</annotation>
+		<annotation cp="🇩🇲" type="tts">bandera: Dominika</annotation>
 		<annotation cp="🇩🇴">bandera</annotation>
-		<annotation cp="🇩🇴" type="tts">Dominikar Errepublika</annotation>
+		<annotation cp="🇩🇴" type="tts">bandera: Dominikar Errepublika</annotation>
 		<annotation cp="🇩🇿">bandera</annotation>
-		<annotation cp="🇩🇿" type="tts">Aljeria</annotation>
+		<annotation cp="🇩🇿" type="tts">bandera: Aljeria</annotation>
 		<annotation cp="🇪🇦">bandera</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta eta Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">bandera: Ceuta eta Melilla</annotation>
 		<annotation cp="🇪🇨">bandera</annotation>
-		<annotation cp="🇪🇨" type="tts">Ekuador</annotation>
+		<annotation cp="🇪🇨" type="tts">bandera: Ekuador</annotation>
 		<annotation cp="🇪🇪">bandera</annotation>
-		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇪" type="tts">bandera: Estonia</annotation>
 		<annotation cp="🇪🇬">bandera</annotation>
-		<annotation cp="🇪🇬" type="tts">Egipto</annotation>
+		<annotation cp="🇪🇬" type="tts">bandera: Egipto</annotation>
 		<annotation cp="🇪🇭">bandera</annotation>
-		<annotation cp="🇪🇭" type="tts">Mendebaldeko Sahara</annotation>
+		<annotation cp="🇪🇭" type="tts">bandera: Mendebaldeko Sahara</annotation>
 		<annotation cp="🇪🇷">bandera</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">bandera: Eritrea</annotation>
 		<annotation cp="🇪🇸">bandera</annotation>
-		<annotation cp="🇪🇸" type="tts">Espainia</annotation>
+		<annotation cp="🇪🇸" type="tts">bandera: Espainia</annotation>
 		<annotation cp="🇪🇹">bandera</annotation>
-		<annotation cp="🇪🇹" type="tts">Etiopia</annotation>
+		<annotation cp="🇪🇹" type="tts">bandera: Etiopia</annotation>
 		<annotation cp="🇪🇺">bandera</annotation>
-		<annotation cp="🇪🇺" type="tts">Europar Batasuna</annotation>
+		<annotation cp="🇪🇺" type="tts">bandera: Europar Batasuna</annotation>
 		<annotation cp="🇫🇮">bandera</annotation>
-		<annotation cp="🇫🇮" type="tts">Finlandia</annotation>
+		<annotation cp="🇫🇮" type="tts">bandera: Finlandia</annotation>
 		<annotation cp="🇫🇯">bandera</annotation>
-		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇯" type="tts">bandera: Fiji</annotation>
 		<annotation cp="🇫🇰">bandera</annotation>
-		<annotation cp="🇫🇰" type="tts">Malvinak</annotation>
+		<annotation cp="🇫🇰" type="tts">bandera: Malvinak</annotation>
 		<annotation cp="🇫🇲">bandera</annotation>
-		<annotation cp="🇫🇲" type="tts">Mikronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">bandera: Mikronesia</annotation>
 		<annotation cp="🇫🇴">bandera</annotation>
-		<annotation cp="🇫🇴" type="tts">Faroe uharteak</annotation>
+		<annotation cp="🇫🇴" type="tts">bandera: Faroe uharteak</annotation>
 		<annotation cp="🇫🇷">bandera</annotation>
-		<annotation cp="🇫🇷" type="tts">Frantzia</annotation>
+		<annotation cp="🇫🇷" type="tts">bandera: Frantzia</annotation>
 		<annotation cp="🇬🇦">bandera</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">bandera: Gabon</annotation>
 		<annotation cp="🇬🇧">bandera</annotation>
-		<annotation cp="🇬🇧" type="tts">Erresuma Batua</annotation>
+		<annotation cp="🇬🇧" type="tts">bandera: Erresuma Batua</annotation>
 		<annotation cp="🇬🇩">bandera</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">bandera: Grenada</annotation>
 		<annotation cp="🇬🇪">bandera</annotation>
-		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇪" type="tts">bandera: Georgia</annotation>
 		<annotation cp="🇬🇫">bandera</annotation>
-		<annotation cp="🇬🇫" type="tts">Guyana Frantsesa</annotation>
+		<annotation cp="🇬🇫" type="tts">bandera: Guyana Frantsesa</annotation>
 		<annotation cp="🇬🇬">bandera</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernesey</annotation>
+		<annotation cp="🇬🇬" type="tts">bandera: Guernesey</annotation>
 		<annotation cp="🇬🇭">bandera</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">bandera: Ghana</annotation>
 		<annotation cp="🇬🇮">bandera</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">bandera: Gibraltar</annotation>
 		<annotation cp="🇬🇱">bandera</annotation>
-		<annotation cp="🇬🇱" type="tts">Groenlandia</annotation>
+		<annotation cp="🇬🇱" type="tts">bandera: Groenlandia</annotation>
 		<annotation cp="🇬🇲">bandera</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">bandera: Gambia</annotation>
 		<annotation cp="🇬🇳">bandera</annotation>
-		<annotation cp="🇬🇳" type="tts">Ginea</annotation>
+		<annotation cp="🇬🇳" type="tts">bandera: Ginea</annotation>
 		<annotation cp="🇬🇵">bandera</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadalupe</annotation>
+		<annotation cp="🇬🇵" type="tts">bandera: Guadalupe</annotation>
 		<annotation cp="🇬🇶">bandera</annotation>
-		<annotation cp="🇬🇶" type="tts">Ekuatore Ginea</annotation>
+		<annotation cp="🇬🇶" type="tts">bandera: Ekuatore Ginea</annotation>
 		<annotation cp="🇬🇷">bandera</annotation>
-		<annotation cp="🇬🇷" type="tts">Grezia</annotation>
+		<annotation cp="🇬🇷" type="tts">bandera: Grezia</annotation>
 		<annotation cp="🇬🇸">bandera</annotation>
-		<annotation cp="🇬🇸" type="tts">Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak</annotation>
+		<annotation cp="🇬🇸" type="tts">bandera: Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak</annotation>
 		<annotation cp="🇬🇹">bandera</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">bandera: Guatemala</annotation>
 		<annotation cp="🇬🇺">bandera</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">bandera: Guam</annotation>
 		<annotation cp="🇬🇼">bandera</annotation>
-		<annotation cp="🇬🇼" type="tts">Ginea Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">bandera: Ginea Bissau</annotation>
 		<annotation cp="🇬🇾">bandera</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">bandera: Guyana</annotation>
 		<annotation cp="🇭🇰">bandera</annotation>
-		<annotation cp="🇭🇰" type="tts">Hong Kong Txinako AEB</annotation>
+		<annotation cp="🇭🇰" type="tts">bandera: Hong Kong Txinako AEB</annotation>
 		<annotation cp="🇭🇲">bandera</annotation>
-		<annotation cp="🇭🇲" type="tts">Heard eta McDonald uharteak</annotation>
+		<annotation cp="🇭🇲" type="tts">bandera: Heard eta McDonald uharteak</annotation>
 		<annotation cp="🇭🇳">bandera</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">bandera: Honduras</annotation>
 		<annotation cp="🇭🇷">bandera</annotation>
-		<annotation cp="🇭🇷" type="tts">Kroazia</annotation>
+		<annotation cp="🇭🇷" type="tts">bandera: Kroazia</annotation>
 		<annotation cp="🇭🇹">bandera</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">bandera: Haiti</annotation>
 		<annotation cp="🇭🇺">bandera</annotation>
-		<annotation cp="🇭🇺" type="tts">Hungaria</annotation>
+		<annotation cp="🇭🇺" type="tts">bandera: Hungaria</annotation>
 		<annotation cp="🇮🇨">bandera</annotation>
-		<annotation cp="🇮🇨" type="tts">Kanariak</annotation>
+		<annotation cp="🇮🇨" type="tts">bandera: Kanariak</annotation>
 		<annotation cp="🇮🇩">bandera</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇩" type="tts">bandera: Indonesia</annotation>
 		<annotation cp="🇮🇪">bandera</annotation>
-		<annotation cp="🇮🇪" type="tts">Irlanda</annotation>
+		<annotation cp="🇮🇪" type="tts">bandera: Irlanda</annotation>
 		<annotation cp="🇮🇱">bandera</annotation>
-		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇱" type="tts">bandera: Israel</annotation>
 		<annotation cp="🇮🇲">bandera</annotation>
-		<annotation cp="🇮🇲" type="tts">Man uhartea</annotation>
+		<annotation cp="🇮🇲" type="tts">bandera: Man uhartea</annotation>
 		<annotation cp="🇮🇳">bandera</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">bandera: India</annotation>
 		<annotation cp="🇮🇴">bandera</annotation>
-		<annotation cp="🇮🇴" type="tts">Indiako Ozeanoko lurralde britainiarra</annotation>
+		<annotation cp="🇮🇴" type="tts">bandera: Indiako Ozeanoko lurralde britainiarra</annotation>
 		<annotation cp="🇮🇶">bandera</annotation>
-		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇶" type="tts">bandera: Irak</annotation>
 		<annotation cp="🇮🇷">bandera</annotation>
-		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">bandera: Iran</annotation>
 		<annotation cp="🇮🇸">bandera</annotation>
-		<annotation cp="🇮🇸" type="tts">Islandia</annotation>
+		<annotation cp="🇮🇸" type="tts">bandera: Islandia</annotation>
 		<annotation cp="🇮🇹">bandera</annotation>
-		<annotation cp="🇮🇹" type="tts">Italia</annotation>
+		<annotation cp="🇮🇹" type="tts">bandera: Italia</annotation>
 		<annotation cp="🇯🇪">bandera</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">bandera: Jersey</annotation>
 		<annotation cp="🇯🇲">bandera</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaika</annotation>
+		<annotation cp="🇯🇲" type="tts">bandera: Jamaika</annotation>
 		<annotation cp="🇯🇴">bandera</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordania</annotation>
+		<annotation cp="🇯🇴" type="tts">bandera: Jordania</annotation>
 		<annotation cp="🇯🇵">bandera</annotation>
-		<annotation cp="🇯🇵" type="tts">Japonia</annotation>
+		<annotation cp="🇯🇵" type="tts">bandera: Japonia</annotation>
 		<annotation cp="🇰🇪">bandera</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇪" type="tts">bandera: Kenya</annotation>
 		<annotation cp="🇰🇬">bandera</annotation>
-		<annotation cp="🇰🇬" type="tts">Kirgizistan</annotation>
+		<annotation cp="🇰🇬" type="tts">bandera: Kirgizistan</annotation>
 		<annotation cp="🇰🇭">bandera</annotation>
-		<annotation cp="🇰🇭" type="tts">Kanbodia</annotation>
+		<annotation cp="🇰🇭" type="tts">bandera: Kanbodia</annotation>
 		<annotation cp="🇰🇮">bandera</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">bandera: Kiribati</annotation>
 		<annotation cp="🇰🇲">bandera</annotation>
-		<annotation cp="🇰🇲" type="tts">Komoreak</annotation>
+		<annotation cp="🇰🇲" type="tts">bandera: Komoreak</annotation>
 		<annotation cp="🇰🇳">bandera</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint Kitts eta Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">bandera: Saint Kitts eta Nevis</annotation>
 		<annotation cp="🇰🇵">bandera</annotation>
-		<annotation cp="🇰🇵" type="tts">Ipar Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">bandera: Ipar Korea</annotation>
 		<annotation cp="🇰🇷">bandera</annotation>
-		<annotation cp="🇰🇷" type="tts">Hego Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">bandera: Hego Korea</annotation>
 		<annotation cp="🇰🇼">bandera</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇼" type="tts">bandera: Kuwait</annotation>
 		<annotation cp="🇰🇾">bandera</annotation>
-		<annotation cp="🇰🇾" type="tts">Kaiman uharteak</annotation>
+		<annotation cp="🇰🇾" type="tts">bandera: Kaiman uharteak</annotation>
 		<annotation cp="🇰🇿">bandera</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazakhstan</annotation>
+		<annotation cp="🇰🇿" type="tts">bandera: Kazakhstan</annotation>
 		<annotation cp="🇱🇦">bandera</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">bandera: Laos</annotation>
 		<annotation cp="🇱🇧">bandera</annotation>
-		<annotation cp="🇱🇧" type="tts">Libano</annotation>
+		<annotation cp="🇱🇧" type="tts">bandera: Libano</annotation>
 		<annotation cp="🇱🇨">bandera</annotation>
-		<annotation cp="🇱🇨" type="tts">Santa Luzia</annotation>
+		<annotation cp="🇱🇨" type="tts">bandera: Santa Luzia</annotation>
 		<annotation cp="🇱🇮">bandera</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">bandera: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">bandera</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">bandera: Sri Lanka</annotation>
 		<annotation cp="🇱🇷">bandera</annotation>
-		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇷" type="tts">bandera: Liberia</annotation>
 		<annotation cp="🇱🇸">bandera</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">bandera: Lesotho</annotation>
 		<annotation cp="🇱🇹">bandera</annotation>
-		<annotation cp="🇱🇹" type="tts">Lituania</annotation>
+		<annotation cp="🇱🇹" type="tts">bandera: Lituania</annotation>
 		<annotation cp="🇱🇺">bandera</annotation>
-		<annotation cp="🇱🇺" type="tts">Luxenburgo</annotation>
+		<annotation cp="🇱🇺" type="tts">bandera: Luxenburgo</annotation>
 		<annotation cp="🇱🇻">bandera</annotation>
-		<annotation cp="🇱🇻" type="tts">Letonia</annotation>
+		<annotation cp="🇱🇻" type="tts">bandera: Letonia</annotation>
 		<annotation cp="🇱🇾">bandera</annotation>
-		<annotation cp="🇱🇾" type="tts">Libia</annotation>
+		<annotation cp="🇱🇾" type="tts">bandera: Libia</annotation>
 		<annotation cp="🇲🇦">bandera</annotation>
-		<annotation cp="🇲🇦" type="tts">Maroko</annotation>
+		<annotation cp="🇲🇦" type="tts">bandera: Maroko</annotation>
 		<annotation cp="🇲🇨">bandera</annotation>
-		<annotation cp="🇲🇨" type="tts">Monako</annotation>
+		<annotation cp="🇲🇨" type="tts">bandera: Monako</annotation>
 		<annotation cp="🇲🇩">bandera</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldavia</annotation>
+		<annotation cp="🇲🇩" type="tts">bandera: Moldavia</annotation>
 		<annotation cp="🇲🇪">bandera</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">bandera: Montenegro</annotation>
 		<annotation cp="🇲🇫">bandera</annotation>
-		<annotation cp="🇲🇫" type="tts">San Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">bandera: San Martin</annotation>
 		<annotation cp="🇲🇬">bandera</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇬" type="tts">bandera: Madagaskar</annotation>
 		<annotation cp="🇲🇭">bandera</annotation>
-		<annotation cp="🇲🇭" type="tts">Marshall Uharteak</annotation>
+		<annotation cp="🇲🇭" type="tts">bandera: Marshall Uharteak</annotation>
 		<annotation cp="🇲🇰">bandera</annotation>
-		<annotation cp="🇲🇰" type="tts">Mazedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">bandera: Mazedonia</annotation>
 		<annotation cp="🇲🇱">bandera</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">bandera: Mali</annotation>
 		<annotation cp="🇲🇲">bandera</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Birmania)</annotation>
+		<annotation cp="🇲🇲" type="tts">bandera: Myanmar (Birmania)</annotation>
 		<annotation cp="🇲🇳">bandera</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇳" type="tts">bandera: Mongolia</annotation>
 		<annotation cp="🇲🇴">bandera</annotation>
-		<annotation cp="🇲🇴" type="tts">Macau Txinako AEB</annotation>
+		<annotation cp="🇲🇴" type="tts">bandera: Macau Txinako AEB</annotation>
 		<annotation cp="🇲🇵">bandera</annotation>
-		<annotation cp="🇲🇵" type="tts">Ipar Mariana uharteak</annotation>
+		<annotation cp="🇲🇵" type="tts">bandera: Ipar Mariana uharteak</annotation>
 		<annotation cp="🇲🇶">bandera</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinika</annotation>
+		<annotation cp="🇲🇶" type="tts">bandera: Martinika</annotation>
 		<annotation cp="🇲🇷">bandera</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇷" type="tts">bandera: Mauritania</annotation>
 		<annotation cp="🇲🇸">bandera</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">bandera: Montserrat</annotation>
 		<annotation cp="🇲🇹">bandera</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">bandera: Malta</annotation>
 		<annotation cp="🇲🇺">bandera</annotation>
-		<annotation cp="🇲🇺" type="tts">Maurizio</annotation>
+		<annotation cp="🇲🇺" type="tts">bandera: Maurizio</annotation>
 		<annotation cp="🇲🇻">bandera</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldivak</annotation>
+		<annotation cp="🇲🇻" type="tts">bandera: Maldivak</annotation>
 		<annotation cp="🇲🇼">bandera</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">bandera: Malawi</annotation>
 		<annotation cp="🇲🇽">bandera</annotation>
-		<annotation cp="🇲🇽" type="tts">Mexiko</annotation>
+		<annotation cp="🇲🇽" type="tts">bandera: Mexiko</annotation>
 		<annotation cp="🇲🇾">bandera</annotation>
-		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇾" type="tts">bandera: Malaysia</annotation>
 		<annotation cp="🇲🇿">bandera</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambike</annotation>
+		<annotation cp="🇲🇿" type="tts">bandera: Mozambike</annotation>
 		<annotation cp="🇳🇦">bandera</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇦" type="tts">bandera: Namibia</annotation>
 		<annotation cp="🇳🇨">bandera</annotation>
-		<annotation cp="🇳🇨" type="tts">Kaledonia Berria</annotation>
+		<annotation cp="🇳🇨" type="tts">bandera: Kaledonia Berria</annotation>
 		<annotation cp="🇳🇪">bandera</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">bandera: Niger</annotation>
 		<annotation cp="🇳🇫">bandera</annotation>
-		<annotation cp="🇳🇫" type="tts">Norfolk uhartea</annotation>
+		<annotation cp="🇳🇫" type="tts">bandera: Norfolk uhartea</annotation>
 		<annotation cp="🇳🇬">bandera</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇬" type="tts">bandera: Nigeria</annotation>
 		<annotation cp="🇳🇮">bandera</annotation>
-		<annotation cp="🇳🇮" type="tts">Nikaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">bandera: Nikaragua</annotation>
 		<annotation cp="🇳🇱">bandera</annotation>
-		<annotation cp="🇳🇱" type="tts">Herbehereak</annotation>
+		<annotation cp="🇳🇱" type="tts">bandera: Herbehereak</annotation>
 		<annotation cp="🇳🇴">bandera</annotation>
-		<annotation cp="🇳🇴" type="tts">Norvegia</annotation>
+		<annotation cp="🇳🇴" type="tts">bandera: Norvegia</annotation>
 		<annotation cp="🇳🇵">bandera</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">bandera: Nepal</annotation>
 		<annotation cp="🇳🇷">bandera</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">bandera: Nauru</annotation>
 		<annotation cp="🇳🇺">bandera</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">bandera: Niue</annotation>
 		<annotation cp="🇳🇿">bandera</annotation>
-		<annotation cp="🇳🇿" type="tts">Zeelanda Berria</annotation>
+		<annotation cp="🇳🇿" type="tts">bandera: Zeelanda Berria</annotation>
 		<annotation cp="🇴🇲">bandera</annotation>
-		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">bandera: Oman</annotation>
 		<annotation cp="🇵🇦">bandera</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">bandera: Panama</annotation>
 		<annotation cp="🇵🇪">bandera</annotation>
-		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇪" type="tts">bandera: Peru</annotation>
 		<annotation cp="🇵🇫">bandera</annotation>
-		<annotation cp="🇵🇫" type="tts">Polinesia Frantsesa</annotation>
+		<annotation cp="🇵🇫" type="tts">bandera: Polinesia Frantsesa</annotation>
 		<annotation cp="🇵🇬">bandera</annotation>
-		<annotation cp="🇵🇬" type="tts">Papua Ginea Berria</annotation>
+		<annotation cp="🇵🇬" type="tts">bandera: Papua Ginea Berria</annotation>
 		<annotation cp="🇵🇭">bandera</annotation>
-		<annotation cp="🇵🇭" type="tts">Filipinak</annotation>
+		<annotation cp="🇵🇭" type="tts">bandera: Filipinak</annotation>
 		<annotation cp="🇵🇰">bandera</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">bandera: Pakistan</annotation>
 		<annotation cp="🇵🇱">bandera</annotation>
-		<annotation cp="🇵🇱" type="tts">Polonia</annotation>
+		<annotation cp="🇵🇱" type="tts">bandera: Polonia</annotation>
 		<annotation cp="🇵🇲">bandera</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre eta Mikelune</annotation>
+		<annotation cp="🇵🇲" type="tts">bandera: Saint-Pierre eta Mikelune</annotation>
 		<annotation cp="🇵🇳">bandera</annotation>
-		<annotation cp="🇵🇳" type="tts">Pitcairn uharteak</annotation>
+		<annotation cp="🇵🇳" type="tts">bandera: Pitcairn uharteak</annotation>
 		<annotation cp="🇵🇷">bandera</annotation>
-		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">bandera: Puerto Rico</annotation>
 		<annotation cp="🇵🇸">bandera</annotation>
-		<annotation cp="🇵🇸" type="tts">Palestinako Lurraldeak</annotation>
+		<annotation cp="🇵🇸" type="tts">bandera: Palestinako Lurraldeak</annotation>
 		<annotation cp="🇵🇹">bandera</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇹" type="tts">bandera: Portugal</annotation>
 		<annotation cp="🇵🇼">bandera</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">bandera: Palau</annotation>
 		<annotation cp="🇵🇾">bandera</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguai</annotation>
+		<annotation cp="🇵🇾" type="tts">bandera: Paraguai</annotation>
 		<annotation cp="🇶🇦">bandera</annotation>
-		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇶🇦" type="tts">bandera: Qatar</annotation>
 		<annotation cp="🇷🇪">bandera</annotation>
-		<annotation cp="🇷🇪" type="tts">Reunion</annotation>
+		<annotation cp="🇷🇪" type="tts">bandera: Reunion</annotation>
 		<annotation cp="🇷🇴">bandera</annotation>
-		<annotation cp="🇷🇴" type="tts">Errumania</annotation>
+		<annotation cp="🇷🇴" type="tts">bandera: Errumania</annotation>
 		<annotation cp="🇷🇸">bandera</annotation>
-		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇸" type="tts">bandera: Serbia</annotation>
 		<annotation cp="🇷🇺">bandera</annotation>
-		<annotation cp="🇷🇺" type="tts">Errusia</annotation>
+		<annotation cp="🇷🇺" type="tts">bandera: Errusia</annotation>
 		<annotation cp="🇷🇼">bandera</annotation>
-		<annotation cp="🇷🇼" type="tts">Ruanda</annotation>
+		<annotation cp="🇷🇼" type="tts">bandera: Ruanda</annotation>
 		<annotation cp="🇸🇦">bandera</annotation>
-		<annotation cp="🇸🇦" type="tts">Saudi Arabia</annotation>
+		<annotation cp="🇸🇦" type="tts">bandera: Saudi Arabia</annotation>
 		<annotation cp="🇸🇧">bandera</annotation>
-		<annotation cp="🇸🇧" type="tts">Salomon Uharteak</annotation>
+		<annotation cp="🇸🇧" type="tts">bandera: Salomon Uharteak</annotation>
 		<annotation cp="🇸🇨">bandera</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychelleak</annotation>
+		<annotation cp="🇸🇨" type="tts">bandera: Seychelleak</annotation>
 		<annotation cp="🇸🇩">bandera</annotation>
-		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇩" type="tts">bandera: Sudan</annotation>
 		<annotation cp="🇸🇪">bandera</annotation>
-		<annotation cp="🇸🇪" type="tts">Suedia</annotation>
+		<annotation cp="🇸🇪" type="tts">bandera: Suedia</annotation>
 		<annotation cp="🇸🇬">bandera</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapur</annotation>
+		<annotation cp="🇸🇬" type="tts">bandera: Singapur</annotation>
 		<annotation cp="🇸🇭">bandera</annotation>
-		<annotation cp="🇸🇭" type="tts">Santa Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">bandera: Santa Helena</annotation>
 		<annotation cp="🇸🇮">bandera</annotation>
-		<annotation cp="🇸🇮" type="tts">Eslovenia</annotation>
+		<annotation cp="🇸🇮" type="tts">bandera: Eslovenia</annotation>
 		<annotation cp="🇸🇯">bandera</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard eta Jan Mayen uharteak</annotation>
+		<annotation cp="🇸🇯" type="tts">bandera: Svalbard eta Jan Mayen uharteak</annotation>
 		<annotation cp="🇸🇰">bandera</annotation>
-		<annotation cp="🇸🇰" type="tts">Eslovakia</annotation>
+		<annotation cp="🇸🇰" type="tts">bandera: Eslovakia</annotation>
 		<annotation cp="🇸🇱">bandera</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leona</annotation>
+		<annotation cp="🇸🇱" type="tts">bandera: Sierra Leona</annotation>
 		<annotation cp="🇸🇲">bandera</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">bandera: San Marino</annotation>
 		<annotation cp="🇸🇳">bandera</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">bandera: Senegal</annotation>
 		<annotation cp="🇸🇴">bandera</annotation>
-		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇴" type="tts">bandera: Somalia</annotation>
 		<annotation cp="🇸🇷">bandera</annotation>
-		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇷" type="tts">bandera: Surinam</annotation>
 		<annotation cp="🇸🇸">bandera</annotation>
-		<annotation cp="🇸🇸" type="tts">Hego Sudan</annotation>
+		<annotation cp="🇸🇸" type="tts">bandera: Hego Sudan</annotation>
 		<annotation cp="🇸🇹">bandera</annotation>
-		<annotation cp="🇸🇹" type="tts">Sao Tome eta Principe</annotation>
+		<annotation cp="🇸🇹" type="tts">bandera: Sao Tome eta Principe</annotation>
 		<annotation cp="🇸🇻">bandera</annotation>
-		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">bandera: El Salvador</annotation>
 		<annotation cp="🇸🇽">bandera</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">bandera: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">bandera</annotation>
-		<annotation cp="🇸🇾" type="tts">Siria</annotation>
+		<annotation cp="🇸🇾" type="tts">bandera: Siria</annotation>
 		<annotation cp="🇸🇿">bandera</annotation>
-		<annotation cp="🇸🇿" type="tts">Swazilandia</annotation>
+		<annotation cp="🇸🇿" type="tts">bandera: Swazilandia</annotation>
 		<annotation cp="🇹🇦">bandera</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">bandera: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">bandera</annotation>
-		<annotation cp="🇹🇨" type="tts">Turk eta Caico uharteak</annotation>
+		<annotation cp="🇹🇨" type="tts">bandera: Turk eta Caico uharteak</annotation>
 		<annotation cp="🇹🇩">bandera</annotation>
-		<annotation cp="🇹🇩" type="tts">Txad</annotation>
+		<annotation cp="🇹🇩" type="tts">bandera: Txad</annotation>
 		<annotation cp="🇹🇫">bandera</annotation>
-		<annotation cp="🇹🇫" type="tts">Hegoaldeko lurralde frantsesak</annotation>
+		<annotation cp="🇹🇫" type="tts">bandera: Hegoaldeko lurralde frantsesak</annotation>
 		<annotation cp="🇹🇬">bandera</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">bandera: Togo</annotation>
 		<annotation cp="🇹🇭">bandera</annotation>
-		<annotation cp="🇹🇭" type="tts">Thailandia</annotation>
+		<annotation cp="🇹🇭" type="tts">bandera: Thailandia</annotation>
 		<annotation cp="🇹🇯">bandera</annotation>
-		<annotation cp="🇹🇯" type="tts">Tajikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">bandera: Tajikistan</annotation>
 		<annotation cp="🇹🇰">bandera</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">bandera: Tokelau</annotation>
 		<annotation cp="🇹🇱">bandera</annotation>
-		<annotation cp="🇹🇱" type="tts">Ekialdeko Timor</annotation>
+		<annotation cp="🇹🇱" type="tts">bandera: Ekialdeko Timor</annotation>
 		<annotation cp="🇹🇲">bandera</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">bandera: Turkmenistan</annotation>
 		<annotation cp="🇹🇳">bandera</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇳" type="tts">bandera: Tunisia</annotation>
 		<annotation cp="🇹🇴">bandera</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">bandera: Tonga</annotation>
 		<annotation cp="🇹🇷">bandera</annotation>
-		<annotation cp="🇹🇷" type="tts">Turkia</annotation>
+		<annotation cp="🇹🇷" type="tts">bandera: Turkia</annotation>
 		<annotation cp="🇹🇹">bandera</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad eta Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">bandera: Trinidad eta Tobago</annotation>
 		<annotation cp="🇹🇻">bandera</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">bandera: Tuvalu</annotation>
 		<annotation cp="🇹🇼">bandera</annotation>
-		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">bandera: Taiwan</annotation>
 		<annotation cp="🇹🇿">bandera</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇹🇿" type="tts">bandera: Tanzania</annotation>
 		<annotation cp="🇺🇦">bandera</annotation>
-		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇦" type="tts">bandera: Ukraina</annotation>
 		<annotation cp="🇺🇬">bandera</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">bandera: Uganda</annotation>
 		<annotation cp="🇺🇲">bandera</annotation>
-		<annotation cp="🇺🇲" type="tts">Ameriketako Estatu Batuetako Kanpoaldeko Uharte Txikiak</annotation>
+		<annotation cp="🇺🇲" type="tts">bandera: Ameriketako Estatu Batuetako Kanpoaldeko Uharte Txikiak</annotation>
 		<annotation cp="🇺🇳">bandera</annotation>
-		<annotation cp="🇺🇳" type="tts">Nazio Batuak</annotation>
+		<annotation cp="🇺🇳" type="tts">bandera: Nazio Batuak</annotation>
 		<annotation cp="🇺🇸">bandera</annotation>
-		<annotation cp="🇺🇸" type="tts">Ameriketako Estatu Batuak</annotation>
+		<annotation cp="🇺🇸" type="tts">bandera: Ameriketako Estatu Batuak</annotation>
 		<annotation cp="🇺🇾">bandera</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguai</annotation>
+		<annotation cp="🇺🇾" type="tts">bandera: Uruguai</annotation>
 		<annotation cp="🇺🇿">bandera</annotation>
-		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">bandera: Uzbekistan</annotation>
 		<annotation cp="🇻🇦">bandera</annotation>
-		<annotation cp="🇻🇦" type="tts">Vatikano Hiria</annotation>
+		<annotation cp="🇻🇦" type="tts">bandera: Vatikano Hiria</annotation>
 		<annotation cp="🇻🇨">bandera</annotation>
-		<annotation cp="🇻🇨" type="tts">Saint Vincent eta Grenadinak</annotation>
+		<annotation cp="🇻🇨" type="tts">bandera: Saint Vincent eta Grenadinak</annotation>
 		<annotation cp="🇻🇪">bandera</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">bandera: Venezuela</annotation>
 		<annotation cp="🇻🇬">bandera</annotation>
-		<annotation cp="🇻🇬" type="tts">Birjina uharte britainiarrak</annotation>
+		<annotation cp="🇻🇬" type="tts">bandera: Birjina uharte britainiarrak</annotation>
 		<annotation cp="🇻🇮">bandera</annotation>
-		<annotation cp="🇻🇮" type="tts">Birjina uharte amerikarrak</annotation>
+		<annotation cp="🇻🇮" type="tts">bandera: Birjina uharte amerikarrak</annotation>
 		<annotation cp="🇻🇳">bandera</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">bandera: Vietnam</annotation>
 		<annotation cp="🇻🇺">bandera</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">bandera: Vanuatu</annotation>
 		<annotation cp="🇼🇫">bandera</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis eta Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">bandera: Wallis eta Futuna</annotation>
 		<annotation cp="🇼🇸">bandera</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">bandera: Samoa</annotation>
 		<annotation cp="🇽🇰">bandera</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">bandera: Kosovo</annotation>
 		<annotation cp="🇾🇪">bandera</annotation>
-		<annotation cp="🇾🇪" type="tts">Yemen</annotation>
+		<annotation cp="🇾🇪" type="tts">bandera: Yemen</annotation>
 		<annotation cp="🇾🇹">bandera</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">bandera: Mayotte</annotation>
 		<annotation cp="🇿🇦">bandera</annotation>
-		<annotation cp="🇿🇦" type="tts">Hegoafrika</annotation>
+		<annotation cp="🇿🇦" type="tts">bandera: Hegoafrika</annotation>
 		<annotation cp="🇿🇲">bandera</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">bandera: Zambia</annotation>
 		<annotation cp="🇿🇼">bandera</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">bandera: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">bandera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Ingalaterra</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">bandera: Ingalaterra</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">bandera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Eskozia</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">bandera: Eskozia</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">bandera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Gales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">bandera: Gales</annotation>
 		<annotation cp="0⃣">tekla</annotation>
 		<annotation cp="0⃣" type="tts">tekla: 0</annotation>
 		<annotation cp="1⃣">tekla</annotation>

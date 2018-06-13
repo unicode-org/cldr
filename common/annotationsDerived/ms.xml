@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="ms"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">bahagian kaki | kaki | tendang | ton kulit cerah</annotation>
+		<annotation cp="🦵🏻" type="tts">kaki: ton kulit cerah</annotation>
+		<annotation cp="🦵🏼">bahagian kaki | kaki | tendang | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦵🏼" type="tts">kaki: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦵🏽">bahagian kaki | kaki | tendang | ton kulit sederhana</annotation>
+		<annotation cp="🦵🏽" type="tts">kaki: ton kulit sederhana</annotation>
+		<annotation cp="🦵🏾">bahagian kaki | kaki | tendang | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦵🏾" type="tts">kaki: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦵🏿">bahagian kaki | kaki | tendang | ton kulit gelap</annotation>
+		<annotation cp="🦵🏿" type="tts">kaki: ton kulit gelap</annotation>
+		<annotation cp="🦶🏻">hentak | hujung kaki | tendang | ton kulit cerah</annotation>
+		<annotation cp="🦶🏻" type="tts">hujung kaki: ton kulit cerah</annotation>
+		<annotation cp="🦶🏼">hentak | hujung kaki | tendang | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦶🏼" type="tts">hujung kaki: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦶🏽">hentak | hujung kaki | tendang | ton kulit sederhana</annotation>
+		<annotation cp="🦶🏽" type="tts">hujung kaki: ton kulit sederhana</annotation>
+		<annotation cp="🦶🏾">hentak | hujung kaki | tendang | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦶🏾" type="tts">hujung kaki: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦶🏿">hentak | hujung kaki | tendang | ton kulit gelap</annotation>
+		<annotation cp="🦶🏿" type="tts">hujung kaki: ton kulit gelap</annotation>
+		<annotation cp="🦸🏻">adi wira | baik | sangat berkuasa | wira | wirawati | ton kulit cerah</annotation>
+		<annotation cp="🦸🏻" type="tts">adi wira: ton kulit cerah</annotation>
+		<annotation cp="🦸🏼">adi wira | baik | sangat berkuasa | wira | wirawati | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦸🏼" type="tts">adi wira: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦸🏽">adi wira | baik | sangat berkuasa | wira | wirawati | ton kulit sederhana</annotation>
+		<annotation cp="🦸🏽" type="tts">adi wira: ton kulit sederhana</annotation>
+		<annotation cp="🦸🏾">adi wira | baik | sangat berkuasa | wira | wirawati | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦸🏾" type="tts">adi wira: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦸🏿">adi wira | baik | sangat berkuasa | wira | wirawati | ton kulit gelap</annotation>
+		<annotation cp="🦸🏿" type="tts">adi wira: ton kulit gelap</annotation>
+		<annotation cp="🦸🏻‍♀">adi wira wanita | baik | sangat berkuasa | wanita | wira | wirawati | ton kulit cerah</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">adi wira wanita: ton kulit cerah</annotation>
+		<annotation cp="🦸🏼‍♀">adi wira wanita | baik | sangat berkuasa | wanita | wira | wirawati | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">adi wira wanita: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦸🏽‍♀">adi wira wanita | baik | sangat berkuasa | wanita | wira | wirawati | ton kulit sederhana</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">adi wira wanita: ton kulit sederhana</annotation>
+		<annotation cp="🦸🏾‍♀">adi wira wanita | baik | sangat berkuasa | wanita | wira | wirawati | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">adi wira wanita: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦸🏿‍♀">adi wira wanita | baik | sangat berkuasa | wanita | wira | wirawati | ton kulit gelap</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">adi wira wanita: ton kulit gelap</annotation>
+		<annotation cp="🦸🏻‍♂">adi wira lelaki | baik | lelaki | sangat berkuasa | wira | ton kulit cerah</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">adi wira lelaki: ton kulit cerah</annotation>
+		<annotation cp="🦸🏼‍♂">adi wira lelaki | baik | lelaki | sangat berkuasa | wira | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">adi wira lelaki: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦸🏽‍♂">adi wira lelaki | baik | lelaki | sangat berkuasa | wira | ton kulit sederhana</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">adi wira lelaki: ton kulit sederhana</annotation>
+		<annotation cp="🦸🏾‍♂">adi wira lelaki | baik | lelaki | sangat berkuasa | wira | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">adi wira lelaki: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦸🏿‍♂">adi wira lelaki | baik | lelaki | sangat berkuasa | wira | ton kulit gelap</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">adi wira lelaki: ton kulit gelap</annotation>
+		<annotation cp="🦹🏻">jahat | ketua penjahat | penjahat | penjenayah | sangat berkuasa | ton kulit cerah</annotation>
+		<annotation cp="🦹🏻" type="tts">ketua penjahat: ton kulit cerah</annotation>
+		<annotation cp="🦹🏼">jahat | ketua penjahat | penjahat | penjenayah | sangat berkuasa | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦹🏼" type="tts">ketua penjahat: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦹🏽">jahat | ketua penjahat | penjahat | penjenayah | sangat berkuasa | ton kulit sederhana</annotation>
+		<annotation cp="🦹🏽" type="tts">ketua penjahat: ton kulit sederhana</annotation>
+		<annotation cp="🦹🏾">jahat | ketua penjahat | penjahat | penjenayah | sangat berkuasa | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦹🏾" type="tts">ketua penjahat: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦹🏿">jahat | ketua penjahat | penjahat | penjenayah | sangat berkuasa | ton kulit gelap</annotation>
+		<annotation cp="🦹🏿" type="tts">ketua penjahat: ton kulit gelap</annotation>
+		<annotation cp="🦹🏻‍♀">jahat | ketua penjahat wanita | penjahat | penjenayah | sangat berkuasa | wanita | ton kulit cerah</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">ketua penjahat wanita: ton kulit cerah</annotation>
+		<annotation cp="🦹🏼‍♀">jahat | ketua penjahat wanita | penjahat | penjenayah | sangat berkuasa | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">ketua penjahat wanita: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦹🏽‍♀">jahat | ketua penjahat wanita | penjahat | penjenayah | sangat berkuasa | wanita | ton kulit sederhana</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">ketua penjahat wanita: ton kulit sederhana</annotation>
+		<annotation cp="🦹🏾‍♀">jahat | ketua penjahat wanita | penjahat | penjenayah | sangat berkuasa | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">ketua penjahat wanita: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦹🏿‍♀">jahat | ketua penjahat wanita | penjahat | penjenayah | sangat berkuasa | wanita | ton kulit gelap</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">ketua penjahat wanita: ton kulit gelap</annotation>
+		<annotation cp="🦹🏻‍♂">jahat | ketua penjahat lelaki | lelaki | penjahat | penjenayah | sangat berkuasa | ton kulit cerah</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">ketua penjahat lelaki: ton kulit cerah</annotation>
+		<annotation cp="🦹🏼‍♂">jahat | ketua penjahat lelaki | lelaki | penjahat | penjenayah | sangat berkuasa | ton kulit sederhana cerah</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">ketua penjahat lelaki: ton kulit sederhana cerah</annotation>
+		<annotation cp="🦹🏽‍♂">jahat | ketua penjahat lelaki | lelaki | penjahat | penjenayah | sangat berkuasa | ton kulit sederhana</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">ketua penjahat lelaki: ton kulit sederhana</annotation>
+		<annotation cp="🦹🏾‍♂">jahat | ketua penjahat lelaki | lelaki | penjahat | penjenayah | sangat berkuasa | ton kulit sederhana gelap</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">ketua penjahat lelaki: ton kulit sederhana gelap</annotation>
+		<annotation cp="🦹🏿‍♂">jahat | ketua penjahat lelaki | lelaki | penjahat | penjenayah | sangat berkuasa | ton kulit gelap</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">ketua penjahat lelaki: ton kulit gelap</annotation>
 		<annotation cp="👶🏻">bayi | ton kulit cerah</annotation>
 		<annotation cp="👶🏻" type="tts">bayi: ton kulit cerah</annotation>
 		<annotation cp="👶🏼">bayi | ton kulit sederhana cerah</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">lelaki: ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏿">lelaki | ton kulit gelap</annotation>
 		<annotation cp="👨🏿" type="tts">lelaki: ton kulit gelap</annotation>
+		<annotation cp="👨‍🦰">lelaki | rambut merah</annotation>
+		<annotation cp="👨‍🦰" type="tts">lelaki: rambut merah</annotation>
+		<annotation cp="👨🏻‍🦰">lelaki | ton kulit cerah | rambut merah</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">lelaki: ton kulit cerah dan rambut merah</annotation>
+		<annotation cp="👨🏼‍🦰">lelaki | ton kulit sederhana cerah | rambut merah</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">lelaki: ton kulit sederhana cerah dan rambut merah</annotation>
+		<annotation cp="👨🏽‍🦰">lelaki | ton kulit sederhana | rambut merah</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">lelaki: ton kulit sederhana dan rambut merah</annotation>
+		<annotation cp="👨🏾‍🦰">lelaki | ton kulit sederhana gelap | rambut merah</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">lelaki: ton kulit sederhana gelap dan rambut merah</annotation>
+		<annotation cp="👨🏿‍🦰">lelaki | ton kulit gelap | rambut merah</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">lelaki: ton kulit gelap dan rambut merah</annotation>
+		<annotation cp="👨‍🦱">lelaki | rambut kerinting</annotation>
+		<annotation cp="👨‍🦱" type="tts">lelaki: rambut kerinting</annotation>
+		<annotation cp="👨🏻‍🦱">lelaki | ton kulit cerah | rambut kerinting</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">lelaki: ton kulit cerah dan rambut kerinting</annotation>
+		<annotation cp="👨🏼‍🦱">lelaki | ton kulit sederhana cerah | rambut kerinting</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">lelaki: ton kulit sederhana cerah dan rambut kerinting</annotation>
+		<annotation cp="👨🏽‍🦱">lelaki | ton kulit sederhana | rambut kerinting</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">lelaki: ton kulit sederhana dan rambut kerinting</annotation>
+		<annotation cp="👨🏾‍🦱">lelaki | ton kulit sederhana gelap | rambut kerinting</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">lelaki: ton kulit sederhana gelap dan rambut kerinting</annotation>
+		<annotation cp="👨🏿‍🦱">lelaki | ton kulit gelap | rambut kerinting</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">lelaki: ton kulit gelap dan rambut kerinting</annotation>
+		<annotation cp="👨‍🦲">lelaki | botak</annotation>
+		<annotation cp="👨‍🦲" type="tts">lelaki: botak</annotation>
+		<annotation cp="👨🏻‍🦲">lelaki | ton kulit cerah | botak</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">lelaki: ton kulit cerah dan botak</annotation>
+		<annotation cp="👨🏼‍🦲">lelaki | ton kulit sederhana cerah | botak</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">lelaki: ton kulit sederhana cerah dan botak</annotation>
+		<annotation cp="👨🏽‍🦲">lelaki | ton kulit sederhana | botak</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">lelaki: ton kulit sederhana dan botak</annotation>
+		<annotation cp="👨🏾‍🦲">lelaki | ton kulit sederhana gelap | botak</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">lelaki: ton kulit sederhana gelap dan botak</annotation>
+		<annotation cp="👨🏿‍🦲">lelaki | ton kulit gelap | botak</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">lelaki: ton kulit gelap dan botak</annotation>
+		<annotation cp="👨‍🦳">lelaki | rambut putih</annotation>
+		<annotation cp="👨‍🦳" type="tts">lelaki: rambut putih</annotation>
+		<annotation cp="👨🏻‍🦳">lelaki | ton kulit cerah | rambut putih</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">lelaki: ton kulit cerah dan rambut putih</annotation>
+		<annotation cp="👨🏼‍🦳">lelaki | ton kulit sederhana cerah | rambut putih</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">lelaki: ton kulit sederhana cerah dan rambut putih</annotation>
+		<annotation cp="👨🏽‍🦳">lelaki | ton kulit sederhana | rambut putih</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">lelaki: ton kulit sederhana dan rambut putih</annotation>
+		<annotation cp="👨🏾‍🦳">lelaki | ton kulit sederhana gelap | rambut putih</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">lelaki: ton kulit sederhana gelap dan rambut putih</annotation>
+		<annotation cp="👨🏿‍🦳">lelaki | ton kulit gelap | rambut putih</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">lelaki: ton kulit gelap dan rambut putih</annotation>
 		<annotation cp="👩🏻">perempuan | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻" type="tts">perempuan: ton kulit cerah</annotation>
 		<annotation cp="👩🏼">perempuan | wanita | ton kulit sederhana cerah</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">perempuan: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿">perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿" type="tts">perempuan: ton kulit gelap</annotation>
+		<annotation cp="👩‍🦰">perempuan | wanita | rambut merah</annotation>
+		<annotation cp="👩‍🦰" type="tts">perempuan: rambut merah</annotation>
+		<annotation cp="👩🏻‍🦰">perempuan | wanita | ton kulit cerah | rambut merah</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">perempuan: ton kulit cerah dan rambut merah</annotation>
+		<annotation cp="👩🏼‍🦰">perempuan | wanita | ton kulit sederhana cerah | rambut merah</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">perempuan: ton kulit sederhana cerah dan rambut merah</annotation>
+		<annotation cp="👩🏽‍🦰">perempuan | wanita | ton kulit sederhana | rambut merah</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">perempuan: ton kulit sederhana dan rambut merah</annotation>
+		<annotation cp="👩🏾‍🦰">perempuan | wanita | ton kulit sederhana gelap | rambut merah</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">perempuan: ton kulit sederhana gelap dan rambut merah</annotation>
+		<annotation cp="👩🏿‍🦰">perempuan | wanita | ton kulit gelap | rambut merah</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">perempuan: ton kulit gelap dan rambut merah</annotation>
+		<annotation cp="👩‍🦱">perempuan | wanita | rambut kerinting</annotation>
+		<annotation cp="👩‍🦱" type="tts">perempuan: rambut kerinting</annotation>
+		<annotation cp="👩🏻‍🦱">perempuan | wanita | ton kulit cerah | rambut kerinting</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">perempuan: ton kulit cerah dan rambut kerinting</annotation>
+		<annotation cp="👩🏼‍🦱">perempuan | wanita | ton kulit sederhana cerah | rambut kerinting</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">perempuan: ton kulit sederhana cerah dan rambut kerinting</annotation>
+		<annotation cp="👩🏽‍🦱">perempuan | wanita | ton kulit sederhana | rambut kerinting</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">perempuan: ton kulit sederhana dan rambut kerinting</annotation>
+		<annotation cp="👩🏾‍🦱">perempuan | wanita | ton kulit sederhana gelap | rambut kerinting</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">perempuan: ton kulit sederhana gelap dan rambut kerinting</annotation>
+		<annotation cp="👩🏿‍🦱">perempuan | wanita | ton kulit gelap | rambut kerinting</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">perempuan: ton kulit gelap dan rambut kerinting</annotation>
+		<annotation cp="👩‍🦲">perempuan | wanita | botak</annotation>
+		<annotation cp="👩‍🦲" type="tts">perempuan: botak</annotation>
+		<annotation cp="👩🏻‍🦲">perempuan | wanita | ton kulit cerah | botak</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">perempuan: ton kulit cerah dan botak</annotation>
+		<annotation cp="👩🏼‍🦲">perempuan | wanita | ton kulit sederhana cerah | botak</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">perempuan: ton kulit sederhana cerah dan botak</annotation>
+		<annotation cp="👩🏽‍🦲">perempuan | wanita | ton kulit sederhana | botak</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">perempuan: ton kulit sederhana dan botak</annotation>
+		<annotation cp="👩🏾‍🦲">perempuan | wanita | ton kulit sederhana gelap | botak</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">perempuan: ton kulit sederhana gelap dan botak</annotation>
+		<annotation cp="👩🏿‍🦲">perempuan | wanita | ton kulit gelap | botak</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">perempuan: ton kulit gelap dan botak</annotation>
+		<annotation cp="👩‍🦳">perempuan | wanita | rambut putih</annotation>
+		<annotation cp="👩‍🦳" type="tts">perempuan: rambut putih</annotation>
+		<annotation cp="👩🏻‍🦳">perempuan | wanita | ton kulit cerah | rambut putih</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">perempuan: ton kulit cerah dan rambut putih</annotation>
+		<annotation cp="👩🏼‍🦳">perempuan | wanita | ton kulit sederhana cerah | rambut putih</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">perempuan: ton kulit sederhana cerah dan rambut putih</annotation>
+		<annotation cp="👩🏽‍🦳">perempuan | wanita | ton kulit sederhana | rambut putih</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">perempuan: ton kulit sederhana dan rambut putih</annotation>
+		<annotation cp="👩🏾‍🦳">perempuan | wanita | ton kulit sederhana gelap | rambut putih</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">perempuan: ton kulit sederhana gelap dan rambut putih</annotation>
+		<annotation cp="👩🏿‍🦳">perempuan | wanita | ton kulit gelap | rambut putih</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">perempuan: ton kulit gelap dan rambut putih</annotation>
 		<annotation cp="🧓🏻">dewasa lebih tua | gender-neutral | tua | ton kulit cerah</annotation>
 		<annotation cp="🧓🏻" type="tts">dewasa lebih tua: ton kulit cerah</annotation>
 		<annotation cp="🧓🏼">dewasa lebih tua | gender-neutral | tua | ton kulit sederhana cerah</annotation>
@@ -283,15 +458,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍💼" type="tts">pekerja pejabat lelaki: ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏿‍💼">arkitek | kolar putih | lelaki | pejabat | pekerja pejabat lelaki | pengurus | perniagaan | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">pekerja pejabat lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍💼">arkitek | kolar putih | pejabat | pekerja pejabat wanita | pengurus | perempuan | perniagaan | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍💼">kolar putih | pekerja pejabat wanita | pengurus | urus niaga | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">pekerja pejabat wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍💼">arkitek | kolar putih | pejabat | pekerja pejabat wanita | pengurus | perempuan | perniagaan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍💼">kolar putih | pekerja pejabat wanita | pengurus | urus niaga | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍💼" type="tts">pekerja pejabat wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍💼">arkitek | kolar putih | pejabat | pekerja pejabat wanita | pengurus | perempuan | perniagaan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍💼">kolar putih | pekerja pejabat wanita | pengurus | urus niaga | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍💼" type="tts">pekerja pejabat wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍💼">arkitek | kolar putih | pejabat | pekerja pejabat wanita | pengurus | perempuan | perniagaan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍💼">kolar putih | pekerja pejabat wanita | pengurus | urus niaga | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍💼" type="tts">pekerja pejabat wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍💼">arkitek | kolar putih | pejabat | pekerja pejabat wanita | pengurus | perempuan | perniagaan | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍💼">kolar putih | pekerja pejabat wanita | pengurus | urus niaga | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">pekerja pejabat wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">saintis lelaki: ton kulit cerah</annotation>
@@ -303,15 +478,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🔬" type="tts">saintis lelaki: ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏿‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | lelaki | saintis | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">saintis lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🔬">ahli biologi | ahli fizik | ahli kimia | saintis | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">saintis wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🔬">ahli biologi | ahli fizik | ahli kimia | saintis | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">saintis wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🔬">ahli biologi | ahli fizik | ahli kimia | saintis | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">saintis wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🔬">ahli biologi | ahli fizik | ahli kimia | saintis | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">saintis wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🔬">ahli biologi | ahli fizik | ahli kimia | ahli matematik | jurutera | perempuan | saintis | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🔬">ahli biologi | ahli fizik | ahli kimia | saintis | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">saintis wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍💻">ahli teknologi | ahli teknologi lelaki | lelaki | pembangun | pencipta | pengekod | perisian | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">ahli teknologi lelaki: ton kulit cerah</annotation>
@@ -323,15 +498,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍💻" type="tts">ahli teknologi lelaki: ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏿‍💻">ahli teknologi | ahli teknologi lelaki | lelaki | pembangun | pencipta | pengekod | perisian | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍💻" type="tts">ahli teknologi lelaki: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | perempuan | perisian | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍💻" type="tts">ahli teknologi wanita: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | perempuan | perisian | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍💻" type="tts">ahli teknologi wanita: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | perempuan | perisian | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍💻" type="tts">ahli teknologi wanita: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | perempuan | perisian | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍💻" type="tts">ahli teknologi wanita: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | perempuan | perisian | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍💻">ahli teknologi | ahli teknologi wanita | pembangun | pencipta | pengekod | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">ahli teknologi wanita: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍🎤">bintang | lelaki | pelakon | penghibur | penyanyi | rock | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">penyanyi lelaki: ton kulit cerah</annotation>
@@ -393,25 +568,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">juruterbang wanita: ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏿‍✈">juruterbang | kapal terbang | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">juruterbang wanita: ton kulit gelap</annotation>
-		<annotation cp="👨🏻‍🚀">angkasa | angkasawan | lelaki | roket | ton kulit cerah</annotation>
+		<annotation cp="👨🏻‍🚀">angkasawan | lelaki | roket | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">angkasawan: ton kulit cerah</annotation>
-		<annotation cp="👨🏼‍🚀">angkasa | angkasawan | lelaki | roket | ton kulit sederhana cerah</annotation>
+		<annotation cp="👨🏼‍🚀">angkasawan | lelaki | roket | ton kulit sederhana cerah</annotation>
 		<annotation cp="👨🏼‍🚀" type="tts">angkasawan: ton kulit sederhana cerah</annotation>
-		<annotation cp="👨🏽‍🚀">angkasa | angkasawan | lelaki | roket | ton kulit sederhana</annotation>
+		<annotation cp="👨🏽‍🚀">angkasawan | lelaki | roket | ton kulit sederhana</annotation>
 		<annotation cp="👨🏽‍🚀" type="tts">angkasawan: ton kulit sederhana</annotation>
-		<annotation cp="👨🏾‍🚀">angkasa | angkasawan | lelaki | roket | ton kulit sederhana gelap</annotation>
+		<annotation cp="👨🏾‍🚀">angkasawan | lelaki | roket | ton kulit sederhana gelap</annotation>
 		<annotation cp="👨🏾‍🚀" type="tts">angkasawan: ton kulit sederhana gelap</annotation>
-		<annotation cp="👨🏿‍🚀">angkasa | angkasawan | lelaki | roket | ton kulit gelap</annotation>
+		<annotation cp="👨🏿‍🚀">angkasawan | lelaki | roket | ton kulit gelap</annotation>
 		<annotation cp="👨🏿‍🚀" type="tts">angkasawan: ton kulit gelap</annotation>
-		<annotation cp="👩🏻‍🚀">angkasa | angkasawati | perempuan | roket | wanita | ton kulit cerah</annotation>
+		<annotation cp="👩🏻‍🚀">angkasawati | perempuan | roket | wanita | ton kulit cerah</annotation>
 		<annotation cp="👩🏻‍🚀" type="tts">angkasawati: ton kulit cerah</annotation>
-		<annotation cp="👩🏼‍🚀">angkasa | angkasawati | perempuan | roket | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="👩🏼‍🚀">angkasawati | perempuan | roket | wanita | ton kulit sederhana cerah</annotation>
 		<annotation cp="👩🏼‍🚀" type="tts">angkasawati: ton kulit sederhana cerah</annotation>
-		<annotation cp="👩🏽‍🚀">angkasa | angkasawati | perempuan | roket | wanita | ton kulit sederhana</annotation>
+		<annotation cp="👩🏽‍🚀">angkasawati | perempuan | roket | wanita | ton kulit sederhana</annotation>
 		<annotation cp="👩🏽‍🚀" type="tts">angkasawati: ton kulit sederhana</annotation>
-		<annotation cp="👩🏾‍🚀">angkasa | angkasawati | perempuan | roket | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="👩🏾‍🚀">angkasawati | perempuan | roket | wanita | ton kulit sederhana gelap</annotation>
 		<annotation cp="👩🏾‍🚀" type="tts">angkasawati: ton kulit sederhana gelap</annotation>
-		<annotation cp="👩🏿‍🚀">angkasa | angkasawati | perempuan | roket | wanita | ton kulit gelap</annotation>
+		<annotation cp="👩🏿‍🚀">angkasawati | perempuan | roket | wanita | ton kulit gelap</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">angkasawati: ton kulit gelap</annotation>
 		<annotation cp="👨🏻‍🚒">ahli bomba | ahli bomba lelaki | lelaki | trak bomba | ton kulit cerah</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">ahli bomba lelaki: ton kulit cerah</annotation>
@@ -963,15 +1138,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙅🏾‍♂" type="tts">lelaki memberi isyarat tidak ok: ton kulit sederhana gelap</annotation>
 		<annotation cp="🙅🏿‍♂">dilarang | gerak isyarat | lelaki | lelaki memberi isyarat tidak ok | tangan | tidak | tidak ok | ton kulit gelap</annotation>
 		<annotation cp="🙅🏿‍♂" type="tts">lelaki memberi isyarat tidak ok: ton kulit gelap</annotation>
-		<annotation cp="🙅🏻‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat tidak ok | tangan | tidak | tidak ok | wanita | ton kulit cerah</annotation>
+		<annotation cp="🙅🏻‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat TIDAK | perempuan memberi isyarat tidak ok | tangan | ton kulit cerah</annotation>
 		<annotation cp="🙅🏻‍♀" type="tts">perempuan memberi isyarat tidak ok: ton kulit cerah</annotation>
-		<annotation cp="🙅🏼‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat tidak ok | tangan | tidak | tidak ok | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="🙅🏼‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat TIDAK | perempuan memberi isyarat tidak ok | tangan | ton kulit sederhana cerah</annotation>
 		<annotation cp="🙅🏼‍♀" type="tts">perempuan memberi isyarat tidak ok: ton kulit sederhana cerah</annotation>
-		<annotation cp="🙅🏽‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat tidak ok | tangan | tidak | tidak ok | wanita | ton kulit sederhana</annotation>
+		<annotation cp="🙅🏽‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat TIDAK | perempuan memberi isyarat tidak ok | tangan | ton kulit sederhana</annotation>
 		<annotation cp="🙅🏽‍♀" type="tts">perempuan memberi isyarat tidak ok: ton kulit sederhana</annotation>
-		<annotation cp="🙅🏾‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat tidak ok | tangan | tidak | tidak ok | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="🙅🏾‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat TIDAK | perempuan memberi isyarat tidak ok | tangan | ton kulit sederhana gelap</annotation>
 		<annotation cp="🙅🏾‍♀" type="tts">perempuan memberi isyarat tidak ok: ton kulit sederhana gelap</annotation>
-		<annotation cp="🙅🏿‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat tidak ok | tangan | tidak | tidak ok | wanita | ton kulit gelap</annotation>
+		<annotation cp="🙅🏿‍♀">dilarang | gerak isyarat | perempuan | perempuan memberi isyarat TIDAK | perempuan memberi isyarat tidak ok | tangan | ton kulit gelap</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">perempuan memberi isyarat tidak ok: ton kulit gelap</annotation>
 		<annotation cp="🙆🏻">gerak isyarat okey | isyarat | okey | tangan | ton kulit cerah</annotation>
 		<annotation cp="🙆🏻" type="tts">gerak isyarat okey: ton kulit cerah</annotation>
@@ -1663,15 +1838,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚵🏾‍♂" type="tts">lelaki berbasikal gunung: ton kulit sederhana gelap</annotation>
 		<annotation cp="🚵🏿‍♂">basikal | berbasikal | gunung | lelaki | penunggang basikal | ton kulit gelap</annotation>
 		<annotation cp="🚵🏿‍♂" type="tts">lelaki berbasikal gunung: ton kulit gelap</annotation>
-		<annotation cp="🚵🏻‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit cerah</annotation>
+		<annotation cp="🚵🏻‍♀">basikal | berbasikal | penunggang basikal | wanita | wanita berbasikal gunung | ton kulit cerah</annotation>
 		<annotation cp="🚵🏻‍♀" type="tts">wanita berbasikal gunung: ton kulit cerah</annotation>
-		<annotation cp="🚵🏼‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit sederhana cerah</annotation>
+		<annotation cp="🚵🏼‍♀">basikal | berbasikal | penunggang basikal | wanita | wanita berbasikal gunung | ton kulit sederhana cerah</annotation>
 		<annotation cp="🚵🏼‍♀" type="tts">wanita berbasikal gunung: ton kulit sederhana cerah</annotation>
-		<annotation cp="🚵🏽‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit sederhana</annotation>
+		<annotation cp="🚵🏽‍♀">basikal | berbasikal | penunggang basikal | wanita | wanita berbasikal gunung | ton kulit sederhana</annotation>
 		<annotation cp="🚵🏽‍♀" type="tts">wanita berbasikal gunung: ton kulit sederhana</annotation>
-		<annotation cp="🚵🏾‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit sederhana gelap</annotation>
+		<annotation cp="🚵🏾‍♀">basikal | berbasikal | penunggang basikal | wanita | wanita berbasikal gunung | ton kulit sederhana gelap</annotation>
 		<annotation cp="🚵🏾‍♀" type="tts">wanita berbasikal gunung: ton kulit sederhana gelap</annotation>
-		<annotation cp="🚵🏿‍♀">basikal | berbasikal | gunung | penunggang basikal | perempuan | wanita | ton kulit gelap</annotation>
+		<annotation cp="🚵🏿‍♀">basikal | berbasikal | penunggang basikal | wanita | wanita berbasikal gunung | ton kulit gelap</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">wanita berbasikal gunung: ton kulit gelap</annotation>
 		<annotation cp="🤸🏻">gimnastik | orang | putar roda | sukan | ton kulit cerah</annotation>
 		<annotation cp="🤸🏻" type="tts">putar roda: ton kulit cerah</annotation>
@@ -1683,25 +1858,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾" type="tts">putar roda: ton kulit sederhana gelap</annotation>
 		<annotation cp="🤸🏿">gimnastik | orang | putar roda | sukan | ton kulit gelap</annotation>
 		<annotation cp="🤸🏿" type="tts">putar roda: ton kulit gelap</annotation>
-		<annotation cp="🤸🏻‍♂">gimnastik | lelaki | lelaki membuat putar roda | orang | putar roda | sukan | ton kulit cerah</annotation>
+		<annotation cp="🤸🏻‍♂">gimnastik | leaki buat putar roda | lelaki | lelaki membuat putar roda | putar roda | ton kulit cerah</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">lelaki membuat putar roda: ton kulit cerah</annotation>
-		<annotation cp="🤸🏼‍♂">gimnastik | lelaki | lelaki membuat putar roda | orang | putar roda | sukan | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤸🏼‍♂">gimnastik | leaki buat putar roda | lelaki | lelaki membuat putar roda | putar roda | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤸🏼‍♂" type="tts">lelaki membuat putar roda: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤸🏽‍♂">gimnastik | lelaki | lelaki membuat putar roda | orang | putar roda | sukan | ton kulit sederhana</annotation>
+		<annotation cp="🤸🏽‍♂">gimnastik | leaki buat putar roda | lelaki | lelaki membuat putar roda | putar roda | ton kulit sederhana</annotation>
 		<annotation cp="🤸🏽‍♂" type="tts">lelaki membuat putar roda: ton kulit sederhana</annotation>
-		<annotation cp="🤸🏾‍♂">gimnastik | lelaki | lelaki membuat putar roda | orang | putar roda | sukan | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤸🏾‍♂">gimnastik | leaki buat putar roda | lelaki | lelaki membuat putar roda | putar roda | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤸🏾‍♂" type="tts">lelaki membuat putar roda: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤸🏿‍♂">gimnastik | lelaki | lelaki membuat putar roda | orang | putar roda | sukan | ton kulit gelap</annotation>
+		<annotation cp="🤸🏿‍♂">gimnastik | leaki buat putar roda | lelaki | lelaki membuat putar roda | putar roda | ton kulit gelap</annotation>
 		<annotation cp="🤸🏿‍♂" type="tts">lelaki membuat putar roda: ton kulit gelap</annotation>
-		<annotation cp="🤸🏻‍♀">gimnastik | orang | perempuan | putar roda | sukan | wanita | wanita membuat putar roda | ton kulit cerah</annotation>
+		<annotation cp="🤸🏻‍♀">gimnastik | putar roda | wanita | wanita buat putar roda | wanita membuat putar roda | ton kulit cerah</annotation>
 		<annotation cp="🤸🏻‍♀" type="tts">wanita membuat putar roda: ton kulit cerah</annotation>
-		<annotation cp="🤸🏼‍♀">gimnastik | orang | perempuan | putar roda | sukan | wanita | wanita membuat putar roda | ton kulit sederhana cerah</annotation>
+		<annotation cp="🤸🏼‍♀">gimnastik | putar roda | wanita | wanita buat putar roda | wanita membuat putar roda | ton kulit sederhana cerah</annotation>
 		<annotation cp="🤸🏼‍♀" type="tts">wanita membuat putar roda: ton kulit sederhana cerah</annotation>
-		<annotation cp="🤸🏽‍♀">gimnastik | orang | perempuan | putar roda | sukan | wanita | wanita membuat putar roda | ton kulit sederhana</annotation>
+		<annotation cp="🤸🏽‍♀">gimnastik | putar roda | wanita | wanita buat putar roda | wanita membuat putar roda | ton kulit sederhana</annotation>
 		<annotation cp="🤸🏽‍♀" type="tts">wanita membuat putar roda: ton kulit sederhana</annotation>
-		<annotation cp="🤸🏾‍♀">gimnastik | orang | perempuan | putar roda | sukan | wanita | wanita membuat putar roda | ton kulit sederhana gelap</annotation>
+		<annotation cp="🤸🏾‍♀">gimnastik | putar roda | wanita | wanita buat putar roda | wanita membuat putar roda | ton kulit sederhana gelap</annotation>
 		<annotation cp="🤸🏾‍♀" type="tts">wanita membuat putar roda: ton kulit sederhana gelap</annotation>
-		<annotation cp="🤸🏿‍♀">gimnastik | orang | perempuan | putar roda | sukan | wanita | wanita membuat putar roda | ton kulit gelap</annotation>
+		<annotation cp="🤸🏿‍♀">gimnastik | putar roda | wanita | wanita buat putar roda | wanita membuat putar roda | ton kulit gelap</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">wanita membuat putar roda: ton kulit gelap</annotation>
 		<annotation cp="🤽🏻">air | orang | polo | sukan | ton kulit cerah</annotation>
 		<annotation cp="🤽🏻" type="tts">polo air: ton kulit cerah</annotation>
@@ -1793,11 +1968,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤹🏾‍♀" type="tts">wanita menjugel: ton kulit sederhana gelap</annotation>
 		<annotation cp="🤹🏿‍♀">berbilang tugas | menjugel | perempuan | wanita | ton kulit gelap</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">wanita menjugel: ton kulit gelap</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">cium | pasangan | percintaan | perempuan | lelaki</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">cium | pasangan | perempuan | lelaki</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">cium: perempuan dan lelaki</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">cium | pasangan | percintaan | lelaki</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">cium | pasangan | lelaki</annotation>
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">cium: lelaki dan lelaki</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">cium | pasangan | percintaan | perempuan</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">cium | pasangan | perempuan</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">cium: perempuan dan perempuan</annotation>
 		<annotation cp="👩‍❤‍👨">cinta | hati | pasangan | pasangan dengan simbol hati | percintaan | perempuan | lelaki</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">pasangan dengan simbol hati: perempuan dan lelaki</annotation>
@@ -1806,55 +1981,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩‍❤‍👩">cinta | hati | pasangan | pasangan dengan simbol hati | percintaan | perempuan</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">pasangan dengan simbol hati: perempuan dan perempuan</annotation>
 		<annotation cp="👨‍👩‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">keluarga: lelaki dan perempuan dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">keluarga: lelaki, perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👩‍👧">bapa | ibu | kanak-kanak | keluarga | lelaki | perempuan | budak perempuan</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">keluarga: lelaki dan perempuan dan budak perempuan</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">keluarga: lelaki, perempuan dan budak perempuan</annotation>
 		<annotation cp="👨‍👩‍👧‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | perempuan | budak perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">keluarga: lelaki dan perempuan dan budak perempuan dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">keluarga: lelaki, perempuan, budak perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👩‍👦‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">keluarga: lelaki dan perempuan dan kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">keluarga: lelaki, perempuan, kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👩‍👧‍👧">bapa | ibu | kanak-kanak | keluarga | lelaki | perempuan | budak perempuan</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">keluarga: lelaki dan perempuan dan budak perempuan dan budak perempuan</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">keluarga: lelaki, perempuan, budak perempuan dan budak perempuan</annotation>
 		<annotation cp="👨‍👨‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">keluarga: lelaki dan lelaki dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">keluarga: lelaki, lelaki dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👨‍👧">bapa | ibu | kanak-kanak | keluarga | lelaki | budak perempuan</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">keluarga: lelaki dan lelaki dan budak perempuan</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">keluarga: lelaki, lelaki dan budak perempuan</annotation>
 		<annotation cp="👨‍👨‍👧‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | budak perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">keluarga: lelaki dan lelaki dan budak perempuan dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">keluarga: lelaki, lelaki, budak perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👨‍👦‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">keluarga: lelaki dan lelaki dan kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">keluarga: lelaki, lelaki, kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👨‍👧‍👧">bapa | ibu | kanak-kanak | keluarga | lelaki | budak perempuan</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">keluarga: lelaki dan lelaki dan budak perempuan dan budak perempuan</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">keluarga: lelaki, lelaki, budak perempuan dan budak perempuan</annotation>
 		<annotation cp="👩‍👩‍👦">bapa | ibu | kanak-kanak | keluarga | perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">keluarga: perempuan dan perempuan dan kanak-kanak lelaki</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">keluarga: perempuan, perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👩‍👩‍👧">bapa | ibu | kanak-kanak | keluarga | perempuan | budak perempuan</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">keluarga: perempuan dan perempuan dan budak perempuan</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">keluarga: perempuan, perempuan dan budak perempuan</annotation>
 		<annotation cp="👩‍👩‍👧‍👦">bapa | ibu | kanak-kanak | keluarga | perempuan | budak perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">keluarga: perempuan dan perempuan dan budak perempuan dan kanak-kanak lelaki</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">keluarga: perempuan, perempuan, budak perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👩‍👩‍👦‍👦">bapa | ibu | kanak-kanak | keluarga | perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">keluarga: perempuan dan perempuan dan kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">keluarga: perempuan, perempuan, kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
 		<annotation cp="👩‍👩‍👧‍👧">bapa | ibu | kanak-kanak | keluarga | perempuan | budak perempuan</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">keluarga: perempuan dan perempuan dan budak perempuan dan budak perempuan</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">keluarga: perempuan, perempuan, budak perempuan dan budak perempuan</annotation>
 		<annotation cp="👨‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👦" type="tts">keluarga: lelaki dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👦‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">keluarga: lelaki dan kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">keluarga: lelaki, kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👧">bapa | ibu | kanak-kanak | keluarga | lelaki | budak perempuan</annotation>
 		<annotation cp="👨‍👧" type="tts">keluarga: lelaki dan budak perempuan</annotation>
 		<annotation cp="👨‍👧‍👦">bapa | ibu | kanak-kanak | keluarga | lelaki | budak perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">keluarga: lelaki dan budak perempuan dan kanak-kanak lelaki</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">keluarga: lelaki, budak perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👨‍👧‍👧">bapa | ibu | kanak-kanak | keluarga | lelaki | budak perempuan</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">keluarga: lelaki dan budak perempuan dan budak perempuan</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">keluarga: lelaki, budak perempuan dan budak perempuan</annotation>
 		<annotation cp="👩‍👦">bapa | ibu | kanak-kanak | keluarga | perempuan | kanak-kanak lelaki</annotation>
 		<annotation cp="👩‍👦" type="tts">keluarga: perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👩‍👦‍👦">bapa | ibu | kanak-kanak | keluarga | perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">keluarga: perempuan dan kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">keluarga: perempuan, kanak-kanak lelaki dan kanak-kanak lelaki</annotation>
 		<annotation cp="👩‍👧">bapa | ibu | kanak-kanak | keluarga | perempuan | budak perempuan</annotation>
 		<annotation cp="👩‍👧" type="tts">keluarga: perempuan dan budak perempuan</annotation>
 		<annotation cp="👩‍👧‍👦">bapa | ibu | kanak-kanak | keluarga | perempuan | budak perempuan | kanak-kanak lelaki</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">keluarga: perempuan dan budak perempuan dan kanak-kanak lelaki</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">keluarga: perempuan, budak perempuan dan kanak-kanak lelaki</annotation>
 		<annotation cp="👩‍👧‍👧">bapa | ibu | kanak-kanak | keluarga | perempuan | budak perempuan</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">keluarga: perempuan dan budak perempuan dan budak perempuan</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">keluarga: perempuan, budak perempuan dan budak perempuan</annotation>
 		<annotation cp="🤳🏻">kamera | selfie | swafoto | telefon | ton kulit cerah</annotation>
 		<annotation cp="🤳🏻" type="tts">swafoto: ton kulit cerah</annotation>
 		<annotation cp="🤳🏼">kamera | selfie | swafoto | telefon | ton kulit sederhana cerah</annotation>
@@ -1865,56 +2040,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤳🏾" type="tts">swafoto: ton kulit sederhana gelap</annotation>
 		<annotation cp="🤳🏿">kamera | selfie | swafoto | telefon | ton kulit gelap</annotation>
 		<annotation cp="🤳🏿" type="tts">swafoto: ton kulit gelap</annotation>
-		<annotation cp="💪🏻">badan | biseps | biseps dilenturtegang | komik | lentur tegang | otot | ton kulit cerah</annotation>
+		<annotation cp="💪🏻">bisep | bisep dilentur | biseps dilenturtegang | komik | lentur | otot | ton kulit cerah</annotation>
 		<annotation cp="💪🏻" type="tts">biseps dilenturtegang: ton kulit cerah</annotation>
-		<annotation cp="💪🏼">badan | biseps | biseps dilenturtegang | komik | lentur tegang | otot | ton kulit sederhana cerah</annotation>
+		<annotation cp="💪🏼">bisep | bisep dilentur | biseps dilenturtegang | komik | lentur | otot | ton kulit sederhana cerah</annotation>
 		<annotation cp="💪🏼" type="tts">biseps dilenturtegang: ton kulit sederhana cerah</annotation>
-		<annotation cp="💪🏽">badan | biseps | biseps dilenturtegang | komik | lentur tegang | otot | ton kulit sederhana</annotation>
+		<annotation cp="💪🏽">bisep | bisep dilentur | biseps dilenturtegang | komik | lentur | otot | ton kulit sederhana</annotation>
 		<annotation cp="💪🏽" type="tts">biseps dilenturtegang: ton kulit sederhana</annotation>
-		<annotation cp="💪🏾">badan | biseps | biseps dilenturtegang | komik | lentur tegang | otot | ton kulit sederhana gelap</annotation>
+		<annotation cp="💪🏾">bisep | bisep dilentur | biseps dilenturtegang | komik | lentur | otot | ton kulit sederhana gelap</annotation>
 		<annotation cp="💪🏾" type="tts">biseps dilenturtegang: ton kulit sederhana gelap</annotation>
-		<annotation cp="💪🏿">badan | biseps | biseps dilenturtegang | komik | lentur tegang | otot | ton kulit gelap</annotation>
+		<annotation cp="💪🏿">bisep | bisep dilentur | biseps dilenturtegang | komik | lentur | otot | ton kulit gelap</annotation>
 		<annotation cp="💪🏿" type="tts">biseps dilenturtegang: ton kulit gelap</annotation>
-		<annotation cp="👈🏻">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kiri | tangan | telunjuk | tunjuk | ton kulit cerah</annotation>
-		<annotation cp="👈🏻" type="tts">jari telunjuk belakang tangan menunjuk ke kiri: ton kulit cerah</annotation>
-		<annotation cp="👈🏼">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kiri | tangan | telunjuk | tunjuk | ton kulit sederhana cerah</annotation>
-		<annotation cp="👈🏼" type="tts">jari telunjuk belakang tangan menunjuk ke kiri: ton kulit sederhana cerah</annotation>
-		<annotation cp="👈🏽">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kiri | tangan | telunjuk | tunjuk | ton kulit sederhana</annotation>
-		<annotation cp="👈🏽" type="tts">jari telunjuk belakang tangan menunjuk ke kiri: ton kulit sederhana</annotation>
-		<annotation cp="👈🏾">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kiri | tangan | telunjuk | tunjuk | ton kulit sederhana gelap</annotation>
-		<annotation cp="👈🏾" type="tts">jari telunjuk belakang tangan menunjuk ke kiri: ton kulit sederhana gelap</annotation>
-		<annotation cp="👈🏿">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kiri | tangan | telunjuk | tunjuk | ton kulit gelap</annotation>
-		<annotation cp="👈🏿" type="tts">jari telunjuk belakang tangan menunjuk ke kiri: ton kulit gelap</annotation>
-		<annotation cp="👉🏻">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kanan | tangan | telunjuk | tunjuk | ton kulit cerah</annotation>
-		<annotation cp="👉🏻" type="tts">jari telunjuk belakang tangan menunjuk ke kanan: ton kulit cerah</annotation>
-		<annotation cp="👉🏼">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kanan | tangan | telunjuk | tunjuk | ton kulit sederhana cerah</annotation>
-		<annotation cp="👉🏼" type="tts">jari telunjuk belakang tangan menunjuk ke kanan: ton kulit sederhana cerah</annotation>
-		<annotation cp="👉🏽">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kanan | tangan | telunjuk | tunjuk | ton kulit sederhana</annotation>
-		<annotation cp="👉🏽" type="tts">jari telunjuk belakang tangan menunjuk ke kanan: ton kulit sederhana</annotation>
-		<annotation cp="👉🏾">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kanan | tangan | telunjuk | tunjuk | ton kulit sederhana gelap</annotation>
-		<annotation cp="👉🏾" type="tts">jari telunjuk belakang tangan menunjuk ke kanan: ton kulit sederhana gelap</annotation>
-		<annotation cp="👉🏿">badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke kanan | tangan | telunjuk | tunjuk | ton kulit gelap</annotation>
-		<annotation cp="👉🏿" type="tts">jari telunjuk belakang tangan menunjuk ke kanan: ton kulit gelap</annotation>
-		<annotation cp="☝🏻">atas | badan | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit cerah</annotation>
+		<annotation cp="👈🏻">jari telunjuk tunjuk kiri | ton kulit cerah</annotation>
+		<annotation cp="👈🏻" type="tts">jari telunjuk tunjuk kiri: ton kulit cerah</annotation>
+		<annotation cp="👈🏼">jari telunjuk tunjuk kiri | ton kulit sederhana cerah</annotation>
+		<annotation cp="👈🏼" type="tts">jari telunjuk tunjuk kiri: ton kulit sederhana cerah</annotation>
+		<annotation cp="👈🏽">jari telunjuk tunjuk kiri | ton kulit sederhana</annotation>
+		<annotation cp="👈🏽" type="tts">jari telunjuk tunjuk kiri: ton kulit sederhana</annotation>
+		<annotation cp="👈🏾">jari telunjuk tunjuk kiri | ton kulit sederhana gelap</annotation>
+		<annotation cp="👈🏾" type="tts">jari telunjuk tunjuk kiri: ton kulit sederhana gelap</annotation>
+		<annotation cp="👈🏿">jari telunjuk tunjuk kiri | ton kulit gelap</annotation>
+		<annotation cp="👈🏿" type="tts">jari telunjuk tunjuk kiri: ton kulit gelap</annotation>
+		<annotation cp="👉🏻">belakang tangan | jari telunjuk tunjuk kanan | tunjuk | ton kulit cerah</annotation>
+		<annotation cp="👉🏻" type="tts">jari telunjuk tunjuk kanan: ton kulit cerah</annotation>
+		<annotation cp="👉🏼">belakang tangan | jari telunjuk tunjuk kanan | tunjuk | ton kulit sederhana cerah</annotation>
+		<annotation cp="👉🏼" type="tts">jari telunjuk tunjuk kanan: ton kulit sederhana cerah</annotation>
+		<annotation cp="👉🏽">belakang tangan | jari telunjuk tunjuk kanan | tunjuk | ton kulit sederhana</annotation>
+		<annotation cp="👉🏽" type="tts">jari telunjuk tunjuk kanan: ton kulit sederhana</annotation>
+		<annotation cp="👉🏾">belakang tangan | jari telunjuk tunjuk kanan | tunjuk | ton kulit sederhana gelap</annotation>
+		<annotation cp="👉🏾" type="tts">jari telunjuk tunjuk kanan: ton kulit sederhana gelap</annotation>
+		<annotation cp="👉🏿">belakang tangan | jari telunjuk tunjuk kanan | tunjuk | ton kulit gelap</annotation>
+		<annotation cp="👉🏿" type="tts">jari telunjuk tunjuk kanan: ton kulit gelap</annotation>
+		<annotation cp="☝🏻">hala ke atas | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | ton kulit cerah</annotation>
 		<annotation cp="☝🏻" type="tts">jari telunjuk menunjuk ke atas: ton kulit cerah</annotation>
-		<annotation cp="☝🏼">atas | badan | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana cerah</annotation>
+		<annotation cp="☝🏼">hala ke atas | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | ton kulit sederhana cerah</annotation>
 		<annotation cp="☝🏼" type="tts">jari telunjuk menunjuk ke atas: ton kulit sederhana cerah</annotation>
-		<annotation cp="☝🏽">atas | badan | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana</annotation>
+		<annotation cp="☝🏽">hala ke atas | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | ton kulit sederhana</annotation>
 		<annotation cp="☝🏽" type="tts">jari telunjuk menunjuk ke atas: ton kulit sederhana</annotation>
-		<annotation cp="☝🏾">atas | badan | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana gelap</annotation>
+		<annotation cp="☝🏾">hala ke atas | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | ton kulit sederhana gelap</annotation>
 		<annotation cp="☝🏾" type="tts">jari telunjuk menunjuk ke atas: ton kulit sederhana gelap</annotation>
-		<annotation cp="☝🏿">atas | badan | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit gelap</annotation>
+		<annotation cp="☝🏿">hala ke atas | jari | jari telunjuk menunjuk ke atas | tangan | telunjuk | ton kulit gelap</annotation>
 		<annotation cp="☝🏿" type="tts">jari telunjuk menunjuk ke atas: ton kulit gelap</annotation>
-		<annotation cp="👆🏻">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit cerah</annotation>
-		<annotation cp="👆🏻" type="tts">jari telunjuk belakang tangan menunjuk ke atas: ton kulit cerah</annotation>
-		<annotation cp="👆🏼">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana cerah</annotation>
-		<annotation cp="👆🏼" type="tts">jari telunjuk belakang tangan menunjuk ke atas: ton kulit sederhana cerah</annotation>
-		<annotation cp="👆🏽">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana</annotation>
-		<annotation cp="👆🏽" type="tts">jari telunjuk belakang tangan menunjuk ke atas: ton kulit sederhana</annotation>
-		<annotation cp="👆🏾">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana gelap</annotation>
-		<annotation cp="👆🏾" type="tts">jari telunjuk belakang tangan menunjuk ke atas: ton kulit sederhana gelap</annotation>
-		<annotation cp="👆🏿">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | tangan | telunjuk | tunjuk | ton kulit gelap</annotation>
-		<annotation cp="👆🏿" type="tts">jari telunjuk belakang tangan menunjuk ke atas: ton kulit gelap</annotation>
+		<annotation cp="👆🏻">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | jari telunjuk tunjuk hala ke atas | tangan | telunjuk | tunjuk | ton kulit cerah</annotation>
+		<annotation cp="👆🏻" type="tts">jari telunjuk tunjuk hala ke atas: ton kulit cerah</annotation>
+		<annotation cp="👆🏼">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | jari telunjuk tunjuk hala ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana cerah</annotation>
+		<annotation cp="👆🏼" type="tts">jari telunjuk tunjuk hala ke atas: ton kulit sederhana cerah</annotation>
+		<annotation cp="👆🏽">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | jari telunjuk tunjuk hala ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana</annotation>
+		<annotation cp="👆🏽" type="tts">jari telunjuk tunjuk hala ke atas: ton kulit sederhana</annotation>
+		<annotation cp="👆🏾">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | jari telunjuk tunjuk hala ke atas | tangan | telunjuk | tunjuk | ton kulit sederhana gelap</annotation>
+		<annotation cp="👆🏾" type="tts">jari telunjuk tunjuk hala ke atas: ton kulit sederhana gelap</annotation>
+		<annotation cp="👆🏿">atas | badan | belakang tangan | jari | jari telunjuk belakang tangan menunjuk ke atas | jari telunjuk tunjuk hala ke atas | tangan | telunjuk | tunjuk | ton kulit gelap</annotation>
+		<annotation cp="👆🏿" type="tts">jari telunjuk tunjuk hala ke atas: ton kulit gelap</annotation>
 		<annotation cp="🖕🏻">badan | jari | jari hantu | tangan | ton kulit cerah</annotation>
 		<annotation cp="🖕🏻" type="tts">jari hantu: ton kulit cerah</annotation>
 		<annotation cp="🖕🏼">badan | jari | jari hantu | tangan | ton kulit sederhana cerah</annotation>
@@ -2165,15 +2340,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙏🏾" type="tts">menyusun jari: ton kulit sederhana gelap</annotation>
 		<annotation cp="🙏🏿">badan | doa | isyarat | menyusun jari | susun | tangan | tanya | terima kasih | tolong | tunduk | ton kulit gelap</annotation>
 		<annotation cp="🙏🏿" type="tts">menyusun jari: ton kulit gelap</annotation>
-		<annotation cp="💅🏻">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit cerah</annotation>
+		<annotation cp="💅🏻">kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit cerah</annotation>
 		<annotation cp="💅🏻" type="tts">pengilat kuku: ton kulit cerah</annotation>
-		<annotation cp="💅🏼">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana cerah</annotation>
+		<annotation cp="💅🏼">kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana cerah</annotation>
 		<annotation cp="💅🏼" type="tts">pengilat kuku: ton kulit sederhana cerah</annotation>
-		<annotation cp="💅🏽">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana</annotation>
+		<annotation cp="💅🏽">kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana</annotation>
 		<annotation cp="💅🏽" type="tts">pengilat kuku: ton kulit sederhana</annotation>
-		<annotation cp="💅🏾">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana gelap</annotation>
+		<annotation cp="💅🏾">kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit sederhana gelap</annotation>
 		<annotation cp="💅🏾" type="tts">pengilat kuku: ton kulit sederhana gelap</annotation>
-		<annotation cp="💅🏿">badan | kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit gelap</annotation>
+		<annotation cp="💅🏿">kosmetik | kuku | pengilat | penjagaan | rias tangan | ton kulit gelap</annotation>
 		<annotation cp="💅🏿" type="tts">pengilat kuku: ton kulit gelap</annotation>
 		<annotation cp="👂🏻">badan | telinga | ton kulit cerah</annotation>
 		<annotation cp="👂🏻" type="tts">telinga: ton kulit cerah</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">keycap</annotation>
 		<annotation cp="🔟" type="tts">keycap: 10</annotation>
 		<annotation cp="🇦🇨">bendera</annotation>
-		<annotation cp="🇦🇨" type="tts">Pulau Ascension</annotation>
+		<annotation cp="🇦🇨" type="tts">bendera: Pulau Ascension</annotation>
 		<annotation cp="🇦🇩">bendera</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">bendera: Andorra</annotation>
 		<annotation cp="🇦🇪">bendera</annotation>
-		<annotation cp="🇦🇪" type="tts">Emiriah Arab Bersatu</annotation>
+		<annotation cp="🇦🇪" type="tts">bendera: Emiriah Arab Bersatu</annotation>
 		<annotation cp="🇦🇫">bendera</annotation>
-		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇫" type="tts">bendera: Afghanistan</annotation>
 		<annotation cp="🇦🇬">bendera</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua dan Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">bendera: Antigua dan Barbuda</annotation>
 		<annotation cp="🇦🇮">bendera</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">bendera: Anguilla</annotation>
 		<annotation cp="🇦🇱">bendera</annotation>
-		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇱" type="tts">bendera: Albania</annotation>
 		<annotation cp="🇦🇲">bendera</annotation>
-		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇲" type="tts">bendera: Armenia</annotation>
 		<annotation cp="🇦🇴">bendera</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">bendera: Angola</annotation>
 		<annotation cp="🇦🇶">bendera</annotation>
-		<annotation cp="🇦🇶" type="tts">Antartika</annotation>
+		<annotation cp="🇦🇶" type="tts">bendera: Antartika</annotation>
 		<annotation cp="🇦🇷">bendera</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇷" type="tts">bendera: Argentina</annotation>
 		<annotation cp="🇦🇸">bendera</annotation>
-		<annotation cp="🇦🇸" type="tts">Samoa Amerika</annotation>
+		<annotation cp="🇦🇸" type="tts">bendera: Samoa Amerika</annotation>
 		<annotation cp="🇦🇹">bendera</annotation>
-		<annotation cp="🇦🇹" type="tts">Austria</annotation>
+		<annotation cp="🇦🇹" type="tts">bendera: Austria</annotation>
 		<annotation cp="🇦🇺">bendera</annotation>
-		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇺" type="tts">bendera: Australia</annotation>
 		<annotation cp="🇦🇼">bendera</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">bendera: Aruba</annotation>
 		<annotation cp="🇦🇽">bendera</annotation>
-		<annotation cp="🇦🇽" type="tts">Kepulauan Aland</annotation>
+		<annotation cp="🇦🇽" type="tts">bendera: Kepulauan Aland</annotation>
 		<annotation cp="🇦🇿">bendera</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbaijan</annotation>
+		<annotation cp="🇦🇿" type="tts">bendera: Azerbaijan</annotation>
 		<annotation cp="🇧🇦">bendera</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnia dan Herzegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">bendera: Bosnia dan Herzegovina</annotation>
 		<annotation cp="🇧🇧">bendera</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">bendera: Barbados</annotation>
 		<annotation cp="🇧🇩">bendera</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">bendera: Bangladesh</annotation>
 		<annotation cp="🇧🇪">bendera</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgium</annotation>
+		<annotation cp="🇧🇪" type="tts">bendera: Belgium</annotation>
 		<annotation cp="🇧🇫">bendera</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">bendera: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">bendera</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgaria</annotation>
+		<annotation cp="🇧🇬" type="tts">bendera: Bulgaria</annotation>
 		<annotation cp="🇧🇭">bendera</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇭" type="tts">bendera: Bahrain</annotation>
 		<annotation cp="🇧🇮">bendera</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">bendera: Burundi</annotation>
 		<annotation cp="🇧🇯">bendera</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">bendera: Benin</annotation>
 		<annotation cp="🇧🇱">bendera</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">bendera: Saint Barthélemy</annotation>
 		<annotation cp="🇧🇲">bendera</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">bendera: Bermuda</annotation>
 		<annotation cp="🇧🇳">bendera</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">bendera: Brunei</annotation>
 		<annotation cp="🇧🇴">bendera</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇴" type="tts">bendera: Bolivia</annotation>
 		<annotation cp="🇧🇶">bendera</annotation>
-		<annotation cp="🇧🇶" type="tts">Belanda Caribbean</annotation>
+		<annotation cp="🇧🇶" type="tts">bendera: Belanda Caribbean</annotation>
 		<annotation cp="🇧🇷">bendera</annotation>
-		<annotation cp="🇧🇷" type="tts">Brazil</annotation>
+		<annotation cp="🇧🇷" type="tts">bendera: Brazil</annotation>
 		<annotation cp="🇧🇸">bendera</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇸" type="tts">bendera: Bahamas</annotation>
 		<annotation cp="🇧🇹">bendera</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">bendera: Bhutan</annotation>
 		<annotation cp="🇧🇻">bendera</annotation>
-		<annotation cp="🇧🇻" type="tts">Pulau Bouvet</annotation>
+		<annotation cp="🇧🇻" type="tts">bendera: Pulau Bouvet</annotation>
 		<annotation cp="🇧🇼">bendera</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">bendera: Botswana</annotation>
 		<annotation cp="🇧🇾">bendera</annotation>
-		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
+		<annotation cp="🇧🇾" type="tts">bendera: Belarus</annotation>
 		<annotation cp="🇧🇿">bendera</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">bendera: Belize</annotation>
 		<annotation cp="🇨🇦">bendera</annotation>
-		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇦" type="tts">bendera: Kanada</annotation>
 		<annotation cp="🇨🇨">bendera</annotation>
-		<annotation cp="🇨🇨" type="tts">Kepulauan Cocos (Keeling)</annotation>
+		<annotation cp="🇨🇨" type="tts">bendera: Kepulauan Cocos (Keeling)</annotation>
 		<annotation cp="🇨🇩">bendera</annotation>
-		<annotation cp="🇨🇩" type="tts">Congo - Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">bendera: Congo - Kinshasa</annotation>
 		<annotation cp="🇨🇫">bendera</annotation>
-		<annotation cp="🇨🇫" type="tts">Republik Afrika Tengah</annotation>
+		<annotation cp="🇨🇫" type="tts">bendera: Republik Afrika Tengah</annotation>
 		<annotation cp="🇨🇬">bendera</annotation>
-		<annotation cp="🇨🇬" type="tts">Congo - Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">bendera: Congo - Brazzaville</annotation>
 		<annotation cp="🇨🇭">bendera</annotation>
-		<annotation cp="🇨🇭" type="tts">Switzerland</annotation>
+		<annotation cp="🇨🇭" type="tts">bendera: Switzerland</annotation>
 		<annotation cp="🇨🇮">bendera</annotation>
-		<annotation cp="🇨🇮" type="tts">Cote d’Ivoire</annotation>
+		<annotation cp="🇨🇮" type="tts">bendera: Cote d’Ivoire</annotation>
 		<annotation cp="🇨🇰">bendera</annotation>
-		<annotation cp="🇨🇰" type="tts">Kepulauan Cook</annotation>
+		<annotation cp="🇨🇰" type="tts">bendera: Kepulauan Cook</annotation>
 		<annotation cp="🇨🇱">bendera</annotation>
-		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇱" type="tts">bendera: Chile</annotation>
 		<annotation cp="🇨🇲">bendera</annotation>
-		<annotation cp="🇨🇲" type="tts">Cameroon</annotation>
+		<annotation cp="🇨🇲" type="tts">bendera: Cameroon</annotation>
 		<annotation cp="🇨🇳">bendera</annotation>
-		<annotation cp="🇨🇳" type="tts">China</annotation>
+		<annotation cp="🇨🇳" type="tts">bendera: China</annotation>
 		<annotation cp="🇨🇴">bendera</annotation>
-		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇴" type="tts">bendera: Colombia</annotation>
 		<annotation cp="🇨🇵">bendera</annotation>
-		<annotation cp="🇨🇵" type="tts">Pulau Clipperton</annotation>
+		<annotation cp="🇨🇵" type="tts">bendera: Pulau Clipperton</annotation>
 		<annotation cp="🇨🇷">bendera</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">bendera: Costa Rica</annotation>
 		<annotation cp="🇨🇺">bendera</annotation>
-		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇺" type="tts">bendera: Cuba</annotation>
 		<annotation cp="🇨🇻">bendera</annotation>
-		<annotation cp="🇨🇻" type="tts">Cape Verde</annotation>
+		<annotation cp="🇨🇻" type="tts">bendera: Cape Verde</annotation>
 		<annotation cp="🇨🇼">bendera</annotation>
-		<annotation cp="🇨🇼" type="tts">Curacao</annotation>
+		<annotation cp="🇨🇼" type="tts">bendera: Curacao</annotation>
 		<annotation cp="🇨🇽">bendera</annotation>
-		<annotation cp="🇨🇽" type="tts">Pulau Krismas</annotation>
+		<annotation cp="🇨🇽" type="tts">bendera: Pulau Krismas</annotation>
 		<annotation cp="🇨🇾">bendera</annotation>
-		<annotation cp="🇨🇾" type="tts">Cyprus</annotation>
+		<annotation cp="🇨🇾" type="tts">bendera: Cyprus</annotation>
 		<annotation cp="🇨🇿">bendera</annotation>
-		<annotation cp="🇨🇿" type="tts">Czechia</annotation>
+		<annotation cp="🇨🇿" type="tts">bendera: Czechia</annotation>
 		<annotation cp="🇩🇪">bendera</annotation>
-		<annotation cp="🇩🇪" type="tts">Jerman</annotation>
+		<annotation cp="🇩🇪" type="tts">bendera: Jerman</annotation>
 		<annotation cp="🇩🇬">bendera</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">bendera: Diego Garcia</annotation>
 		<annotation cp="🇩🇯">bendera</annotation>
-		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇯" type="tts">bendera: Djibouti</annotation>
 		<annotation cp="🇩🇰">bendera</annotation>
-		<annotation cp="🇩🇰" type="tts">Denmark</annotation>
+		<annotation cp="🇩🇰" type="tts">bendera: Denmark</annotation>
 		<annotation cp="🇩🇲">bendera</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇲" type="tts">bendera: Dominica</annotation>
 		<annotation cp="🇩🇴">bendera</annotation>
-		<annotation cp="🇩🇴" type="tts">Republik Dominica</annotation>
+		<annotation cp="🇩🇴" type="tts">bendera: Republik Dominica</annotation>
 		<annotation cp="🇩🇿">bendera</annotation>
-		<annotation cp="🇩🇿" type="tts">Algeria</annotation>
+		<annotation cp="🇩🇿" type="tts">bendera: Algeria</annotation>
 		<annotation cp="🇪🇦">bendera</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta dan Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">bendera: Ceuta dan Melilla</annotation>
 		<annotation cp="🇪🇨">bendera</annotation>
-		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">bendera: Ecuador</annotation>
 		<annotation cp="🇪🇪">bendera</annotation>
-		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇪" type="tts">bendera: Estonia</annotation>
 		<annotation cp="🇪🇬">bendera</annotation>
-		<annotation cp="🇪🇬" type="tts">Mesir</annotation>
+		<annotation cp="🇪🇬" type="tts">bendera: Mesir</annotation>
 		<annotation cp="🇪🇭">bendera</annotation>
-		<annotation cp="🇪🇭" type="tts">Sahara Barat</annotation>
+		<annotation cp="🇪🇭" type="tts">bendera: Sahara Barat</annotation>
 		<annotation cp="🇪🇷">bendera</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">bendera: Eritrea</annotation>
 		<annotation cp="🇪🇸">bendera</annotation>
-		<annotation cp="🇪🇸" type="tts">Sepanyol</annotation>
+		<annotation cp="🇪🇸" type="tts">bendera: Sepanyol</annotation>
 		<annotation cp="🇪🇹">bendera</annotation>
-		<annotation cp="🇪🇹" type="tts">Ethiopia</annotation>
+		<annotation cp="🇪🇹" type="tts">bendera: Ethiopia</annotation>
 		<annotation cp="🇪🇺">bendera</annotation>
-		<annotation cp="🇪🇺" type="tts">Kesatuan Eropah</annotation>
+		<annotation cp="🇪🇺" type="tts">bendera: Kesatuan Eropah</annotation>
 		<annotation cp="🇫🇮">bendera</annotation>
-		<annotation cp="🇫🇮" type="tts">Finland</annotation>
+		<annotation cp="🇫🇮" type="tts">bendera: Finland</annotation>
 		<annotation cp="🇫🇯">bendera</annotation>
-		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇯" type="tts">bendera: Fiji</annotation>
 		<annotation cp="🇫🇰">bendera</annotation>
-		<annotation cp="🇫🇰" type="tts">Kepulauan Falkland</annotation>
+		<annotation cp="🇫🇰" type="tts">bendera: Kepulauan Falkland</annotation>
 		<annotation cp="🇫🇲">bendera</annotation>
-		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">bendera: Micronesia</annotation>
 		<annotation cp="🇫🇴">bendera</annotation>
-		<annotation cp="🇫🇴" type="tts">Kepulauan Faroe</annotation>
+		<annotation cp="🇫🇴" type="tts">bendera: Kepulauan Faroe</annotation>
 		<annotation cp="🇫🇷">bendera</annotation>
-		<annotation cp="🇫🇷" type="tts">Perancis</annotation>
+		<annotation cp="🇫🇷" type="tts">bendera: Perancis</annotation>
 		<annotation cp="🇬🇦">bendera</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">bendera: Gabon</annotation>
 		<annotation cp="🇬🇧">bendera</annotation>
-		<annotation cp="🇬🇧" type="tts">United Kingdom</annotation>
+		<annotation cp="🇬🇧" type="tts">bendera: United Kingdom</annotation>
 		<annotation cp="🇬🇩">bendera</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">bendera: Grenada</annotation>
 		<annotation cp="🇬🇪">bendera</annotation>
-		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇪" type="tts">bendera: Georgia</annotation>
 		<annotation cp="🇬🇫">bendera</annotation>
-		<annotation cp="🇬🇫" type="tts">Guiana Perancis</annotation>
+		<annotation cp="🇬🇫" type="tts">bendera: Guiana Perancis</annotation>
 		<annotation cp="🇬🇬">bendera</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">bendera: Guernsey</annotation>
 		<annotation cp="🇬🇭">bendera</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">bendera: Ghana</annotation>
 		<annotation cp="🇬🇮">bendera</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">bendera: Gibraltar</annotation>
 		<annotation cp="🇬🇱">bendera</annotation>
-		<annotation cp="🇬🇱" type="tts">Greenland</annotation>
+		<annotation cp="🇬🇱" type="tts">bendera: Greenland</annotation>
 		<annotation cp="🇬🇲">bendera</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">bendera: Gambia</annotation>
 		<annotation cp="🇬🇳">bendera</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇳" type="tts">bendera: Guinea</annotation>
 		<annotation cp="🇬🇵">bendera</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">bendera: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">bendera</annotation>
-		<annotation cp="🇬🇶" type="tts">Guinea Khatulistiwa</annotation>
+		<annotation cp="🇬🇶" type="tts">bendera: Guinea Khatulistiwa</annotation>
 		<annotation cp="🇬🇷">bendera</annotation>
-		<annotation cp="🇬🇷" type="tts">Greece</annotation>
+		<annotation cp="🇬🇷" type="tts">bendera: Greece</annotation>
 		<annotation cp="🇬🇸">bendera</annotation>
-		<annotation cp="🇬🇸" type="tts">Kepulauan Georgia Selatan &amp; Sandwich Selatan</annotation>
+		<annotation cp="🇬🇸" type="tts">bendera: Kepulauan Georgia Selatan &amp; Sandwich Selatan</annotation>
 		<annotation cp="🇬🇹">bendera</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">bendera: Guatemala</annotation>
 		<annotation cp="🇬🇺">bendera</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">bendera: Guam</annotation>
 		<annotation cp="🇬🇼">bendera</annotation>
-		<annotation cp="🇬🇼" type="tts">Guinea Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">bendera: Guinea Bissau</annotation>
 		<annotation cp="🇬🇾">bendera</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">bendera: Guyana</annotation>
 		<annotation cp="🇭🇰">bendera</annotation>
-		<annotation cp="🇭🇰" type="tts">Hong Kong SAR China</annotation>
+		<annotation cp="🇭🇰" type="tts">bendera: Hong Kong SAR China</annotation>
 		<annotation cp="🇭🇲">bendera</annotation>
-		<annotation cp="🇭🇲" type="tts">Kepulauan Heard &amp; McDonald</annotation>
+		<annotation cp="🇭🇲" type="tts">bendera: Kepulauan Heard &amp; McDonald</annotation>
 		<annotation cp="🇭🇳">bendera</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">bendera: Honduras</annotation>
 		<annotation cp="🇭🇷">bendera</annotation>
-		<annotation cp="🇭🇷" type="tts">Croatia</annotation>
+		<annotation cp="🇭🇷" type="tts">bendera: Croatia</annotation>
 		<annotation cp="🇭🇹">bendera</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">bendera: Haiti</annotation>
 		<annotation cp="🇭🇺">bendera</annotation>
-		<annotation cp="🇭🇺" type="tts">Hungary</annotation>
+		<annotation cp="🇭🇺" type="tts">bendera: Hungary</annotation>
 		<annotation cp="🇮🇨">bendera</annotation>
-		<annotation cp="🇮🇨" type="tts">Kepulauan Canary</annotation>
+		<annotation cp="🇮🇨" type="tts">bendera: Kepulauan Canary</annotation>
 		<annotation cp="🇮🇩">bendera</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇩" type="tts">bendera: Indonesia</annotation>
 		<annotation cp="🇮🇪">bendera</annotation>
-		<annotation cp="🇮🇪" type="tts">Ireland</annotation>
+		<annotation cp="🇮🇪" type="tts">bendera: Ireland</annotation>
 		<annotation cp="🇮🇱">bendera</annotation>
-		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇱" type="tts">bendera: Israel</annotation>
 		<annotation cp="🇮🇲">bendera</annotation>
-		<annotation cp="🇮🇲" type="tts">Isle of Man</annotation>
+		<annotation cp="🇮🇲" type="tts">bendera: Isle of Man</annotation>
 		<annotation cp="🇮🇳">bendera</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">bendera: India</annotation>
 		<annotation cp="🇮🇴">bendera</annotation>
-		<annotation cp="🇮🇴" type="tts">Wilayah Lautan Hindi British</annotation>
+		<annotation cp="🇮🇴" type="tts">bendera: Wilayah Lautan Hindi British</annotation>
 		<annotation cp="🇮🇶">bendera</annotation>
-		<annotation cp="🇮🇶" type="tts">Iraq</annotation>
+		<annotation cp="🇮🇶" type="tts">bendera: Iraq</annotation>
 		<annotation cp="🇮🇷">bendera</annotation>
-		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">bendera: Iran</annotation>
 		<annotation cp="🇮🇸">bendera</annotation>
-		<annotation cp="🇮🇸" type="tts">Iceland</annotation>
+		<annotation cp="🇮🇸" type="tts">bendera: Iceland</annotation>
 		<annotation cp="🇮🇹">bendera</annotation>
-		<annotation cp="🇮🇹" type="tts">Itali</annotation>
+		<annotation cp="🇮🇹" type="tts">bendera: Itali</annotation>
 		<annotation cp="🇯🇪">bendera</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">bendera: Jersey</annotation>
 		<annotation cp="🇯🇲">bendera</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">bendera: Jamaica</annotation>
 		<annotation cp="🇯🇴">bendera</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordan</annotation>
+		<annotation cp="🇯🇴" type="tts">bendera: Jordan</annotation>
 		<annotation cp="🇯🇵">bendera</annotation>
-		<annotation cp="🇯🇵" type="tts">Jepun</annotation>
+		<annotation cp="🇯🇵" type="tts">bendera: Jepun</annotation>
 		<annotation cp="🇰🇪">bendera</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇪" type="tts">bendera: Kenya</annotation>
 		<annotation cp="🇰🇬">bendera</annotation>
-		<annotation cp="🇰🇬" type="tts">Kyrgyzstan</annotation>
+		<annotation cp="🇰🇬" type="tts">bendera: Kyrgyzstan</annotation>
 		<annotation cp="🇰🇭">bendera</annotation>
-		<annotation cp="🇰🇭" type="tts">Kemboja</annotation>
+		<annotation cp="🇰🇭" type="tts">bendera: Kemboja</annotation>
 		<annotation cp="🇰🇮">bendera</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">bendera: Kiribati</annotation>
 		<annotation cp="🇰🇲">bendera</annotation>
-		<annotation cp="🇰🇲" type="tts">Comoros</annotation>
+		<annotation cp="🇰🇲" type="tts">bendera: Comoros</annotation>
 		<annotation cp="🇰🇳">bendera</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint Kitts dan Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">bendera: Saint Kitts dan Nevis</annotation>
 		<annotation cp="🇰🇵">bendera</annotation>
-		<annotation cp="🇰🇵" type="tts">Korea Utara</annotation>
+		<annotation cp="🇰🇵" type="tts">bendera: Korea Utara</annotation>
 		<annotation cp="🇰🇷">bendera</annotation>
-		<annotation cp="🇰🇷" type="tts">Korea Selatan</annotation>
+		<annotation cp="🇰🇷" type="tts">bendera: Korea Selatan</annotation>
 		<annotation cp="🇰🇼">bendera</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇼" type="tts">bendera: Kuwait</annotation>
 		<annotation cp="🇰🇾">bendera</annotation>
-		<annotation cp="🇰🇾" type="tts">Kepulauan Cayman</annotation>
+		<annotation cp="🇰🇾" type="tts">bendera: Kepulauan Cayman</annotation>
 		<annotation cp="🇰🇿">bendera</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazakhstan</annotation>
+		<annotation cp="🇰🇿" type="tts">bendera: Kazakhstan</annotation>
 		<annotation cp="🇱🇦">bendera</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">bendera: Laos</annotation>
 		<annotation cp="🇱🇧">bendera</annotation>
-		<annotation cp="🇱🇧" type="tts">Lubnan</annotation>
+		<annotation cp="🇱🇧" type="tts">bendera: Lubnan</annotation>
 		<annotation cp="🇱🇨">bendera</annotation>
-		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">bendera: Saint Lucia</annotation>
 		<annotation cp="🇱🇮">bendera</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">bendera: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">bendera</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">bendera: Sri Lanka</annotation>
 		<annotation cp="🇱🇷">bendera</annotation>
-		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇷" type="tts">bendera: Liberia</annotation>
 		<annotation cp="🇱🇸">bendera</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">bendera: Lesotho</annotation>
 		<annotation cp="🇱🇹">bendera</annotation>
-		<annotation cp="🇱🇹" type="tts">Lithuania</annotation>
+		<annotation cp="🇱🇹" type="tts">bendera: Lithuania</annotation>
 		<annotation cp="🇱🇺">bendera</annotation>
-		<annotation cp="🇱🇺" type="tts">Luxembourg</annotation>
+		<annotation cp="🇱🇺" type="tts">bendera: Luxembourg</annotation>
 		<annotation cp="🇱🇻">bendera</annotation>
-		<annotation cp="🇱🇻" type="tts">Latvia</annotation>
+		<annotation cp="🇱🇻" type="tts">bendera: Latvia</annotation>
 		<annotation cp="🇱🇾">bendera</annotation>
-		<annotation cp="🇱🇾" type="tts">Libya</annotation>
+		<annotation cp="🇱🇾" type="tts">bendera: Libya</annotation>
 		<annotation cp="🇲🇦">bendera</annotation>
-		<annotation cp="🇲🇦" type="tts">Maghribi</annotation>
+		<annotation cp="🇲🇦" type="tts">bendera: Maghribi</annotation>
 		<annotation cp="🇲🇨">bendera</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">bendera: Monaco</annotation>
 		<annotation cp="🇲🇩">bendera</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇩" type="tts">bendera: Moldova</annotation>
 		<annotation cp="🇲🇪">bendera</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">bendera: Montenegro</annotation>
 		<annotation cp="🇲🇫">bendera</annotation>
-		<annotation cp="🇲🇫" type="tts">Saint Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">bendera: Saint Martin</annotation>
 		<annotation cp="🇲🇬">bendera</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇬" type="tts">bendera: Madagaskar</annotation>
 		<annotation cp="🇲🇭">bendera</annotation>
-		<annotation cp="🇲🇭" type="tts">Kepulauan Marshall</annotation>
+		<annotation cp="🇲🇭" type="tts">bendera: Kepulauan Marshall</annotation>
 		<annotation cp="🇲🇰">bendera</annotation>
-		<annotation cp="🇲🇰" type="tts">Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">bendera: Macedonia</annotation>
 		<annotation cp="🇲🇱">bendera</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">bendera: Mali</annotation>
 		<annotation cp="🇲🇲">bendera</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇲" type="tts">bendera: Myanmar (Burma)</annotation>
 		<annotation cp="🇲🇳">bendera</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇳" type="tts">bendera: Mongolia</annotation>
 		<annotation cp="🇲🇴">bendera</annotation>
-		<annotation cp="🇲🇴" type="tts">Macau SAR China</annotation>
+		<annotation cp="🇲🇴" type="tts">bendera: Macau SAR China</annotation>
 		<annotation cp="🇲🇵">bendera</annotation>
-		<annotation cp="🇲🇵" type="tts">Kepulauan Mariana Utara</annotation>
+		<annotation cp="🇲🇵" type="tts">bendera: Kepulauan Mariana Utara</annotation>
 		<annotation cp="🇲🇶">bendera</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇶" type="tts">bendera: Martinique</annotation>
 		<annotation cp="🇲🇷">bendera</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇷" type="tts">bendera: Mauritania</annotation>
 		<annotation cp="🇲🇸">bendera</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">bendera: Montserrat</annotation>
 		<annotation cp="🇲🇹">bendera</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">bendera: Malta</annotation>
 		<annotation cp="🇲🇺">bendera</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">bendera: Mauritius</annotation>
 		<annotation cp="🇲🇻">bendera</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldives</annotation>
+		<annotation cp="🇲🇻" type="tts">bendera: Maldives</annotation>
 		<annotation cp="🇲🇼">bendera</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">bendera: Malawi</annotation>
 		<annotation cp="🇲🇽">bendera</annotation>
-		<annotation cp="🇲🇽" type="tts">Mexico</annotation>
+		<annotation cp="🇲🇽" type="tts">bendera: Mexico</annotation>
 		<annotation cp="🇲🇾">bendera</annotation>
-		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇾" type="tts">bendera: Malaysia</annotation>
 		<annotation cp="🇲🇿">bendera</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
+		<annotation cp="🇲🇿" type="tts">bendera: Mozambique</annotation>
 		<annotation cp="🇳🇦">bendera</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇦" type="tts">bendera: Namibia</annotation>
 		<annotation cp="🇳🇨">bendera</annotation>
-		<annotation cp="🇳🇨" type="tts">New Caledonia</annotation>
+		<annotation cp="🇳🇨" type="tts">bendera: New Caledonia</annotation>
 		<annotation cp="🇳🇪">bendera</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">bendera: Niger</annotation>
 		<annotation cp="🇳🇫">bendera</annotation>
-		<annotation cp="🇳🇫" type="tts">Pulau Norfolk</annotation>
+		<annotation cp="🇳🇫" type="tts">bendera: Pulau Norfolk</annotation>
 		<annotation cp="🇳🇬">bendera</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇬" type="tts">bendera: Nigeria</annotation>
 		<annotation cp="🇳🇮">bendera</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">bendera: Nicaragua</annotation>
 		<annotation cp="🇳🇱">bendera</annotation>
-		<annotation cp="🇳🇱" type="tts">Belanda</annotation>
+		<annotation cp="🇳🇱" type="tts">bendera: Belanda</annotation>
 		<annotation cp="🇳🇴">bendera</annotation>
-		<annotation cp="🇳🇴" type="tts">Norway</annotation>
+		<annotation cp="🇳🇴" type="tts">bendera: Norway</annotation>
 		<annotation cp="🇳🇵">bendera</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">bendera: Nepal</annotation>
 		<annotation cp="🇳🇷">bendera</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">bendera: Nauru</annotation>
 		<annotation cp="🇳🇺">bendera</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">bendera: Niue</annotation>
 		<annotation cp="🇳🇿">bendera</annotation>
-		<annotation cp="🇳🇿" type="tts">New Zealand</annotation>
+		<annotation cp="🇳🇿" type="tts">bendera: New Zealand</annotation>
 		<annotation cp="🇴🇲">bendera</annotation>
-		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">bendera: Oman</annotation>
 		<annotation cp="🇵🇦">bendera</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">bendera: Panama</annotation>
 		<annotation cp="🇵🇪">bendera</annotation>
-		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇪" type="tts">bendera: Peru</annotation>
 		<annotation cp="🇵🇫">bendera</annotation>
-		<annotation cp="🇵🇫" type="tts">Polinesia Perancis</annotation>
+		<annotation cp="🇵🇫" type="tts">bendera: Polinesia Perancis</annotation>
 		<annotation cp="🇵🇬">bendera</annotation>
-		<annotation cp="🇵🇬" type="tts">Papua New Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">bendera: Papua New Guinea</annotation>
 		<annotation cp="🇵🇭">bendera</annotation>
-		<annotation cp="🇵🇭" type="tts">Filipina</annotation>
+		<annotation cp="🇵🇭" type="tts">bendera: Filipina</annotation>
 		<annotation cp="🇵🇰">bendera</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">bendera: Pakistan</annotation>
 		<annotation cp="🇵🇱">bendera</annotation>
-		<annotation cp="🇵🇱" type="tts">Poland</annotation>
+		<annotation cp="🇵🇱" type="tts">bendera: Poland</annotation>
 		<annotation cp="🇵🇲">bendera</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint Pierre dan Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">bendera: Saint Pierre dan Miquelon</annotation>
 		<annotation cp="🇵🇳">bendera</annotation>
-		<annotation cp="🇵🇳" type="tts">Kepulauan Pitcairn</annotation>
+		<annotation cp="🇵🇳" type="tts">bendera: Kepulauan Pitcairn</annotation>
 		<annotation cp="🇵🇷">bendera</annotation>
-		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">bendera: Puerto Rico</annotation>
 		<annotation cp="🇵🇸">bendera</annotation>
-		<annotation cp="🇵🇸" type="tts">Wilayah Palestin</annotation>
+		<annotation cp="🇵🇸" type="tts">bendera: Wilayah Palestin</annotation>
 		<annotation cp="🇵🇹">bendera</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇹" type="tts">bendera: Portugal</annotation>
 		<annotation cp="🇵🇼">bendera</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">bendera: Palau</annotation>
 		<annotation cp="🇵🇾">bendera</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">bendera: Paraguay</annotation>
 		<annotation cp="🇶🇦">bendera</annotation>
-		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇶🇦" type="tts">bendera: Qatar</annotation>
 		<annotation cp="🇷🇪">bendera</annotation>
-		<annotation cp="🇷🇪" type="tts">Reunion</annotation>
+		<annotation cp="🇷🇪" type="tts">bendera: Reunion</annotation>
 		<annotation cp="🇷🇴">bendera</annotation>
-		<annotation cp="🇷🇴" type="tts">Romania</annotation>
+		<annotation cp="🇷🇴" type="tts">bendera: Romania</annotation>
 		<annotation cp="🇷🇸">bendera</annotation>
-		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇸" type="tts">bendera: Serbia</annotation>
 		<annotation cp="🇷🇺">bendera</annotation>
-		<annotation cp="🇷🇺" type="tts">Rusia</annotation>
+		<annotation cp="🇷🇺" type="tts">bendera: Rusia</annotation>
 		<annotation cp="🇷🇼">bendera</annotation>
-		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇷🇼" type="tts">bendera: Rwanda</annotation>
 		<annotation cp="🇸🇦">bendera</annotation>
-		<annotation cp="🇸🇦" type="tts">Arab Saudi</annotation>
+		<annotation cp="🇸🇦" type="tts">bendera: Arab Saudi</annotation>
 		<annotation cp="🇸🇧">bendera</annotation>
-		<annotation cp="🇸🇧" type="tts">Kepulauan Solomon</annotation>
+		<annotation cp="🇸🇧" type="tts">bendera: Kepulauan Solomon</annotation>
 		<annotation cp="🇸🇨">bendera</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
+		<annotation cp="🇸🇨" type="tts">bendera: Seychelles</annotation>
 		<annotation cp="🇸🇩">bendera</annotation>
-		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇩" type="tts">bendera: Sudan</annotation>
 		<annotation cp="🇸🇪">bendera</annotation>
-		<annotation cp="🇸🇪" type="tts">Sweden</annotation>
+		<annotation cp="🇸🇪" type="tts">bendera: Sweden</annotation>
 		<annotation cp="🇸🇬">bendera</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapura</annotation>
+		<annotation cp="🇸🇬" type="tts">bendera: Singapura</annotation>
 		<annotation cp="🇸🇭">bendera</annotation>
-		<annotation cp="🇸🇭" type="tts">Saint Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">bendera: Saint Helena</annotation>
 		<annotation cp="🇸🇮">bendera</annotation>
-		<annotation cp="🇸🇮" type="tts">Slovenia</annotation>
+		<annotation cp="🇸🇮" type="tts">bendera: Slovenia</annotation>
 		<annotation cp="🇸🇯">bendera</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard dan Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">bendera: Svalbard dan Jan Mayen</annotation>
 		<annotation cp="🇸🇰">bendera</annotation>
-		<annotation cp="🇸🇰" type="tts">Slovakia</annotation>
+		<annotation cp="🇸🇰" type="tts">bendera: Slovakia</annotation>
 		<annotation cp="🇸🇱">bendera</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">bendera: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">bendera</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">bendera: San Marino</annotation>
 		<annotation cp="🇸🇳">bendera</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">bendera: Senegal</annotation>
 		<annotation cp="🇸🇴">bendera</annotation>
-		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇴" type="tts">bendera: Somalia</annotation>
 		<annotation cp="🇸🇷">bendera</annotation>
-		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇷" type="tts">bendera: Surinam</annotation>
 		<annotation cp="🇸🇸">bendera</annotation>
-		<annotation cp="🇸🇸" type="tts">Sudan Selatan</annotation>
+		<annotation cp="🇸🇸" type="tts">bendera: Sudan Selatan</annotation>
 		<annotation cp="🇸🇹">bendera</annotation>
-		<annotation cp="🇸🇹" type="tts">Sao Tome dan Principe</annotation>
+		<annotation cp="🇸🇹" type="tts">bendera: Sao Tome dan Principe</annotation>
 		<annotation cp="🇸🇻">bendera</annotation>
-		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">bendera: El Salvador</annotation>
 		<annotation cp="🇸🇽">bendera</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">bendera: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">bendera</annotation>
-		<annotation cp="🇸🇾" type="tts">Syria</annotation>
+		<annotation cp="🇸🇾" type="tts">bendera: Syria</annotation>
 		<annotation cp="🇸🇿">bendera</annotation>
-		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇸🇿" type="tts">bendera: Swaziland</annotation>
 		<annotation cp="🇹🇦">bendera</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">bendera: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">bendera</annotation>
-		<annotation cp="🇹🇨" type="tts">Kepulauan Turks dan Caicos</annotation>
+		<annotation cp="🇹🇨" type="tts">bendera: Kepulauan Turks dan Caicos</annotation>
 		<annotation cp="🇹🇩">bendera</annotation>
-		<annotation cp="🇹🇩" type="tts">Chad</annotation>
+		<annotation cp="🇹🇩" type="tts">bendera: Chad</annotation>
 		<annotation cp="🇹🇫">bendera</annotation>
-		<annotation cp="🇹🇫" type="tts">Wilayah Selatan Perancis</annotation>
+		<annotation cp="🇹🇫" type="tts">bendera: Wilayah Selatan Perancis</annotation>
 		<annotation cp="🇹🇬">bendera</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">bendera: Togo</annotation>
 		<annotation cp="🇹🇭">bendera</annotation>
-		<annotation cp="🇹🇭" type="tts">Thailand</annotation>
+		<annotation cp="🇹🇭" type="tts">bendera: Thailand</annotation>
 		<annotation cp="🇹🇯">bendera</annotation>
-		<annotation cp="🇹🇯" type="tts">Tajikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">bendera: Tajikistan</annotation>
 		<annotation cp="🇹🇰">bendera</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">bendera: Tokelau</annotation>
 		<annotation cp="🇹🇱">bendera</annotation>
-		<annotation cp="🇹🇱" type="tts">Timor-Leste</annotation>
+		<annotation cp="🇹🇱" type="tts">bendera: Timor-Leste</annotation>
 		<annotation cp="🇹🇲">bendera</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">bendera: Turkmenistan</annotation>
 		<annotation cp="🇹🇳">bendera</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇳" type="tts">bendera: Tunisia</annotation>
 		<annotation cp="🇹🇴">bendera</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">bendera: Tonga</annotation>
 		<annotation cp="🇹🇷">bendera</annotation>
-		<annotation cp="🇹🇷" type="tts">Turki</annotation>
+		<annotation cp="🇹🇷" type="tts">bendera: Turki</annotation>
 		<annotation cp="🇹🇹">bendera</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad dan Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">bendera: Trinidad dan Tobago</annotation>
 		<annotation cp="🇹🇻">bendera</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">bendera: Tuvalu</annotation>
 		<annotation cp="🇹🇼">bendera</annotation>
-		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">bendera: Taiwan</annotation>
 		<annotation cp="🇹🇿">bendera</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇹🇿" type="tts">bendera: Tanzania</annotation>
 		<annotation cp="🇺🇦">bendera</annotation>
-		<annotation cp="🇺🇦" type="tts">Ukraine</annotation>
+		<annotation cp="🇺🇦" type="tts">bendera: Ukraine</annotation>
 		<annotation cp="🇺🇬">bendera</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">bendera: Uganda</annotation>
 		<annotation cp="🇺🇲">bendera</annotation>
-		<annotation cp="🇺🇲" type="tts">Kepulauan Terpencil A.S.</annotation>
+		<annotation cp="🇺🇲" type="tts">bendera: Kepulauan Terpencil A.S.</annotation>
 		<annotation cp="🇺🇳">bendera</annotation>
-		<annotation cp="🇺🇳" type="tts">Bangsa-bangsa Bersatu</annotation>
+		<annotation cp="🇺🇳" type="tts">bendera: Bangsa-bangsa Bersatu</annotation>
 		<annotation cp="🇺🇸">bendera</annotation>
-		<annotation cp="🇺🇸" type="tts">Amerika Syarikat</annotation>
+		<annotation cp="🇺🇸" type="tts">bendera: Amerika Syarikat</annotation>
 		<annotation cp="🇺🇾">bendera</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">bendera: Uruguay</annotation>
 		<annotation cp="🇺🇿">bendera</annotation>
-		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">bendera: Uzbekistan</annotation>
 		<annotation cp="🇻🇦">bendera</annotation>
-		<annotation cp="🇻🇦" type="tts">Kota Vatican</annotation>
+		<annotation cp="🇻🇦" type="tts">bendera: Kota Vatican</annotation>
 		<annotation cp="🇻🇨">bendera</annotation>
-		<annotation cp="🇻🇨" type="tts">Saint Vincent dan Grenadines</annotation>
+		<annotation cp="🇻🇨" type="tts">bendera: Saint Vincent dan Grenadines</annotation>
 		<annotation cp="🇻🇪">bendera</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">bendera: Venezuela</annotation>
 		<annotation cp="🇻🇬">bendera</annotation>
-		<annotation cp="🇻🇬" type="tts">Kepulauan Virgin British</annotation>
+		<annotation cp="🇻🇬" type="tts">bendera: Kepulauan Virgin British</annotation>
 		<annotation cp="🇻🇮">bendera</annotation>
-		<annotation cp="🇻🇮" type="tts">Kepulauan Virgin A.S.</annotation>
+		<annotation cp="🇻🇮" type="tts">bendera: Kepulauan Virgin A.S.</annotation>
 		<annotation cp="🇻🇳">bendera</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">bendera: Vietnam</annotation>
 		<annotation cp="🇻🇺">bendera</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">bendera: Vanuatu</annotation>
 		<annotation cp="🇼🇫">bendera</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis dan Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">bendera: Wallis dan Futuna</annotation>
 		<annotation cp="🇼🇸">bendera</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">bendera: Samoa</annotation>
 		<annotation cp="🇽🇰">bendera</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">bendera: Kosovo</annotation>
 		<annotation cp="🇾🇪">bendera</annotation>
-		<annotation cp="🇾🇪" type="tts">Yaman</annotation>
+		<annotation cp="🇾🇪" type="tts">bendera: Yaman</annotation>
 		<annotation cp="🇾🇹">bendera</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">bendera: Mayotte</annotation>
 		<annotation cp="🇿🇦">bendera</annotation>
-		<annotation cp="🇿🇦" type="tts">Afrika Selatan</annotation>
+		<annotation cp="🇿🇦" type="tts">bendera: Afrika Selatan</annotation>
 		<annotation cp="🇿🇲">bendera</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">bendera: Zambia</annotation>
 		<annotation cp="🇿🇼">bendera</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">bendera: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">bendera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">England</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">bendera: England</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">bendera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Scotland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">bendera: Scotland</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">bendera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">bendera: Wales</annotation>
 		<annotation cp="0⃣">keycap</annotation>
 		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
 		<annotation cp="1⃣">keycap</annotation>

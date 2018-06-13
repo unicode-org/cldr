@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="cs"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">končetina | kopanec | kopnutí | noha | světlý odstín pleti</annotation>
+		<annotation cp="🦵🏻" type="tts">noha: světlý odstín pleti</annotation>
+		<annotation cp="🦵🏼">končetina | kopanec | kopnutí | noha | středně světlý odstín pleti</annotation>
+		<annotation cp="🦵🏼" type="tts">noha: středně světlý odstín pleti</annotation>
+		<annotation cp="🦵🏽">končetina | kopanec | kopnutí | noha | střední odstín pleti</annotation>
+		<annotation cp="🦵🏽" type="tts">noha: střední odstín pleti</annotation>
+		<annotation cp="🦵🏾">končetina | kopanec | kopnutí | noha | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦵🏾" type="tts">noha: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦵🏿">končetina | kopanec | kopnutí | noha | tmavý odstín pleti</annotation>
+		<annotation cp="🦵🏿" type="tts">noha: tmavý odstín pleti</annotation>
+		<annotation cp="🦶🏻">chodidlo | kopanec | kopnutí | noha | šlapka | šlápnutí | světlý odstín pleti</annotation>
+		<annotation cp="🦶🏻" type="tts">chodidlo: světlý odstín pleti</annotation>
+		<annotation cp="🦶🏼">chodidlo | kopanec | kopnutí | noha | šlapka | šlápnutí | středně světlý odstín pleti</annotation>
+		<annotation cp="🦶🏼" type="tts">chodidlo: středně světlý odstín pleti</annotation>
+		<annotation cp="🦶🏽">chodidlo | kopanec | kopnutí | noha | šlapka | šlápnutí | střední odstín pleti</annotation>
+		<annotation cp="🦶🏽" type="tts">chodidlo: střední odstín pleti</annotation>
+		<annotation cp="🦶🏾">chodidlo | kopanec | kopnutí | noha | šlapka | šlápnutí | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦶🏾" type="tts">chodidlo: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦶🏿">chodidlo | kopanec | kopnutí | noha | šlapka | šlápnutí | tmavý odstín pleti</annotation>
+		<annotation cp="🦶🏿" type="tts">chodidlo: tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏻">hrdina | hrdinka | kladná postava | superhrdina | superhrdinka | superhrdinská postava | superschopnost | světlý odstín pleti</annotation>
+		<annotation cp="🦸🏻" type="tts">superhrdinská postava: světlý odstín pleti</annotation>
+		<annotation cp="🦸🏼">hrdina | hrdinka | kladná postava | superhrdina | superhrdinka | superhrdinská postava | superschopnost | středně světlý odstín pleti</annotation>
+		<annotation cp="🦸🏼" type="tts">superhrdinská postava: středně světlý odstín pleti</annotation>
+		<annotation cp="🦸🏽">hrdina | hrdinka | kladná postava | superhrdina | superhrdinka | superhrdinská postava | superschopnost | střední odstín pleti</annotation>
+		<annotation cp="🦸🏽" type="tts">superhrdinská postava: střední odstín pleti</annotation>
+		<annotation cp="🦸🏾">hrdina | hrdinka | kladná postava | superhrdina | superhrdinka | superhrdinská postava | superschopnost | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏾" type="tts">superhrdinská postava: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏿">hrdina | hrdinka | kladná postava | superhrdina | superhrdinka | superhrdinská postava | superschopnost | tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏿" type="tts">superhrdinská postava: tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏻‍♀">hrdinka | kladná postava | superhrdina | superhrdinka | superschopnost | žena | světlý odstín pleti</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">superhrdinka: světlý odstín pleti</annotation>
+		<annotation cp="🦸🏼‍♀">hrdinka | kladná postava | superhrdina | superhrdinka | superschopnost | žena | středně světlý odstín pleti</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">superhrdinka: středně světlý odstín pleti</annotation>
+		<annotation cp="🦸🏽‍♀">hrdinka | kladná postava | superhrdina | superhrdinka | superschopnost | žena | střední odstín pleti</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">superhrdinka: střední odstín pleti</annotation>
+		<annotation cp="🦸🏾‍♀">hrdinka | kladná postava | superhrdina | superhrdinka | superschopnost | žena | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">superhrdinka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏿‍♀">hrdinka | kladná postava | superhrdina | superhrdinka | superschopnost | žena | tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">superhrdinka: tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏻‍♂">hrdina | kladná postava | muž | superhrdina | superschopnost | světlý odstín pleti</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">superhrdina: světlý odstín pleti</annotation>
+		<annotation cp="🦸🏼‍♂">hrdina | kladná postava | muž | superhrdina | superschopnost | středně světlý odstín pleti</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">superhrdina: středně světlý odstín pleti</annotation>
+		<annotation cp="🦸🏽‍♂">hrdina | kladná postava | muž | superhrdina | superschopnost | střední odstín pleti</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">superhrdina: střední odstín pleti</annotation>
+		<annotation cp="🦸🏾‍♂">hrdina | kladná postava | muž | superhrdina | superschopnost | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">superhrdina: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏿‍♂">hrdina | kladná postava | muž | superhrdina | superschopnost | tmavý odstín pleti</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">superhrdina: tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏻">superpadouch | superschopnost | superzloduch | superzločinec | zločinec | záporná postava | světlý odstín pleti</annotation>
+		<annotation cp="🦹🏻" type="tts">superzločinec: světlý odstín pleti</annotation>
+		<annotation cp="🦹🏼">superpadouch | superschopnost | superzloduch | superzločinec | zločinec | záporná postava | středně světlý odstín pleti</annotation>
+		<annotation cp="🦹🏼" type="tts">superzločinec: středně světlý odstín pleti</annotation>
+		<annotation cp="🦹🏽">superpadouch | superschopnost | superzloduch | superzločinec | zločinec | záporná postava | střední odstín pleti</annotation>
+		<annotation cp="🦹🏽" type="tts">superzločinec: střední odstín pleti</annotation>
+		<annotation cp="🦹🏾">superpadouch | superschopnost | superzloduch | superzločinec | zločinec | záporná postava | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏾" type="tts">superzločinec: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏿">superpadouch | superschopnost | superzloduch | superzločinec | zločinec | záporná postava | tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏿" type="tts">superzločinec: tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏻‍♀">padouška | superpadouška | superschopnost | superzloduška | záporná postava | žena | světlý odstín pleti</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">superpadouška: světlý odstín pleti</annotation>
+		<annotation cp="🦹🏼‍♀">padouška | superpadouška | superschopnost | superzloduška | záporná postava | žena | středně světlý odstín pleti</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">superpadouška: středně světlý odstín pleti</annotation>
+		<annotation cp="🦹🏽‍♀">padouška | superpadouška | superschopnost | superzloduška | záporná postava | žena | střední odstín pleti</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">superpadouška: střední odstín pleti</annotation>
+		<annotation cp="🦹🏾‍♀">padouška | superpadouška | superschopnost | superzloduška | záporná postava | žena | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">superpadouška: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏿‍♀">padouška | superpadouška | superschopnost | superzloduška | záporná postava | žena | tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">superpadouška: tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏻‍♂">muž | padouch | superpadouch | superschopnost | superzločinec | záporná postava | světlý odstín pleti</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">superpadouch: světlý odstín pleti</annotation>
+		<annotation cp="🦹🏼‍♂">muž | padouch | superpadouch | superschopnost | superzločinec | záporná postava | středně světlý odstín pleti</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">superpadouch: středně světlý odstín pleti</annotation>
+		<annotation cp="🦹🏽‍♂">muž | padouch | superpadouch | superschopnost | superzločinec | záporná postava | střední odstín pleti</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">superpadouch: střední odstín pleti</annotation>
+		<annotation cp="🦹🏾‍♂">muž | padouch | superpadouch | superschopnost | superzločinec | záporná postava | středně tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">superpadouch: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏿‍♂">muž | padouch | superpadouch | superschopnost | superzločinec | záporná postava | tmavý odstín pleti</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">superpadouch: tmavý odstín pleti</annotation>
 		<annotation cp="👶🏻">batole | kojenec | malé dítě | nemluvně | světlý odstín pleti</annotation>
 		<annotation cp="👶🏻" type="tts">nemluvně: světlý odstín pleti</annotation>
 		<annotation cp="👶🏼">batole | kojenec | malé dítě | nemluvně | středně světlý odstín pleti</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">muž: středně tmavý odstín pleti</annotation>
 		<annotation cp="👨🏿">muž | tmavý odstín pleti</annotation>
 		<annotation cp="👨🏿" type="tts">muž: tmavý odstín pleti</annotation>
+		<annotation cp="👨‍🦰">muž | zrzavé vlasy</annotation>
+		<annotation cp="👨‍🦰" type="tts">muž: zrzavé vlasy</annotation>
+		<annotation cp="👨🏻‍🦰">muž | světlý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">muž: světlý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👨🏼‍🦰">muž | středně světlý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">muž: středně světlý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👨🏽‍🦰">muž | střední odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">muž: střední odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👨🏾‍🦰">muž | středně tmavý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">muž: středně tmavý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👨🏿‍🦰">muž | tmavý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">muž: tmavý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👨‍🦱">muž | kudrnaté vlasy</annotation>
+		<annotation cp="👨‍🦱" type="tts">muž: kudrnaté vlasy</annotation>
+		<annotation cp="👨🏻‍🦱">muž | světlý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">muž: světlý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👨🏼‍🦱">muž | středně světlý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">muž: středně světlý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👨🏽‍🦱">muž | střední odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">muž: střední odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👨🏾‍🦱">muž | středně tmavý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">muž: středně tmavý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👨🏿‍🦱">muž | tmavý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">muž: tmavý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👨‍🦲">muž | bez vlasů</annotation>
+		<annotation cp="👨‍🦲" type="tts">muž: bez vlasů</annotation>
+		<annotation cp="👨🏻‍🦲">muž | světlý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">muž: světlý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👨🏼‍🦲">muž | středně světlý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">muž: středně světlý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👨🏽‍🦲">muž | střední odstín pleti | bez vlasů</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">muž: střední odstín pleti, bez vlasů</annotation>
+		<annotation cp="👨🏾‍🦲">muž | středně tmavý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">muž: středně tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👨🏿‍🦲">muž | tmavý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">muž: tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👨‍🦳">muž | bílé vlasy</annotation>
+		<annotation cp="👨‍🦳" type="tts">muž: bílé vlasy</annotation>
+		<annotation cp="👨🏻‍🦳">muž | světlý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">muž: světlý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👨🏼‍🦳">muž | středně světlý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">muž: středně světlý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👨🏽‍🦳">muž | střední odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">muž: střední odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👨🏾‍🦳">muž | středně tmavý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">muž: středně tmavý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👨🏿‍🦳">muž | tmavý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">muž: tmavý odstín pleti, bílé vlasy</annotation>
 		<annotation cp="👩🏻">žena | světlý odstín pleti</annotation>
 		<annotation cp="👩🏻" type="tts">žena: světlý odstín pleti</annotation>
 		<annotation cp="👩🏼">žena | středně světlý odstín pleti</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">žena: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿">žena | tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿" type="tts">žena: tmavý odstín pleti</annotation>
+		<annotation cp="👩‍🦰">žena | zrzavé vlasy</annotation>
+		<annotation cp="👩‍🦰" type="tts">žena: zrzavé vlasy</annotation>
+		<annotation cp="👩🏻‍🦰">žena | světlý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">žena: světlý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👩🏼‍🦰">žena | středně světlý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">žena: středně světlý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👩🏽‍🦰">žena | střední odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">žena: střední odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👩🏾‍🦰">žena | středně tmavý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">žena: středně tmavý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👩🏿‍🦰">žena | tmavý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">žena: tmavý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="👩‍🦱">žena | kudrnaté vlasy</annotation>
+		<annotation cp="👩‍🦱" type="tts">žena: kudrnaté vlasy</annotation>
+		<annotation cp="👩🏻‍🦱">žena | světlý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">žena: světlý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👩🏼‍🦱">žena | středně světlý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">žena: středně světlý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👩🏽‍🦱">žena | střední odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">žena: střední odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👩🏾‍🦱">žena | středně tmavý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">žena: středně tmavý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👩🏿‍🦱">žena | tmavý odstín pleti | kudrnaté vlasy</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">žena: tmavý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="👩‍🦲">žena | bez vlasů</annotation>
+		<annotation cp="👩‍🦲" type="tts">žena: bez vlasů</annotation>
+		<annotation cp="👩🏻‍🦲">žena | světlý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">žena: světlý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👩🏼‍🦲">žena | středně světlý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">žena: středně světlý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👩🏽‍🦲">žena | střední odstín pleti | bez vlasů</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">žena: střední odstín pleti, bez vlasů</annotation>
+		<annotation cp="👩🏾‍🦲">žena | středně tmavý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">žena: středně tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👩🏿‍🦲">žena | tmavý odstín pleti | bez vlasů</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">žena: tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👩‍🦳">žena | bílé vlasy</annotation>
+		<annotation cp="👩‍🦳" type="tts">žena: bílé vlasy</annotation>
+		<annotation cp="👩🏻‍🦳">žena | světlý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">žena: světlý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👩🏼‍🦳">žena | středně světlý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">žena: středně světlý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👩🏽‍🦳">žena | střední odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">žena: střední odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👩🏾‍🦳">žena | středně tmavý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">žena: středně tmavý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="👩🏿‍🦳">žena | tmavý odstín pleti | bílé vlasy</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">žena: tmavý odstín pleti, bílé vlasy</annotation>
 		<annotation cp="🧓🏻">neutrální | osoba | stará | starý | starší dospělý člověk | člověk | světlý odstín pleti</annotation>
 		<annotation cp="🧓🏻" type="tts">starší dospělý člověk: světlý odstín pleti</annotation>
 		<annotation cp="🧓🏼">neutrální | osoba | stará | starý | starší dospělý člověk | člověk | středně světlý odstín pleti</annotation>
@@ -1806,55 +1981,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩‍❤‍👩">dvojice | láska | pár | pár se srdcem | romance | romantika | srdce | žena</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">pár se srdcem: žena, žena</annotation>
 		<annotation cp="👨‍👩‍👦">dítě | matka | otec | rodina | muž | žena | chlapec</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">rodina: muž, žena, chlapec</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">rodina: muž, žena a chlapec</annotation>
 		<annotation cp="👨‍👩‍👧">dítě | matka | otec | rodina | muž | žena | dívka</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">rodina: muž, žena, dívka</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">rodina: muž, žena a dívka</annotation>
 		<annotation cp="👨‍👩‍👧‍👦">dítě | matka | otec | rodina | muž | žena | dívka | chlapec</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">rodina: muž, žena, dívka, chlapec</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">rodina: muž, žena, dívka a chlapec</annotation>
 		<annotation cp="👨‍👩‍👦‍👦">dítě | matka | otec | rodina | muž | žena | chlapec</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">rodina: muž, žena, chlapec, chlapec</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">rodina: muž, žena, chlapec a chlapec</annotation>
 		<annotation cp="👨‍👩‍👧‍👧">dítě | matka | otec | rodina | muž | žena | dívka</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">rodina: muž, žena, dívka, dívka</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">rodina: muž, žena, dívka a dívka</annotation>
 		<annotation cp="👨‍👨‍👦">dítě | matka | otec | rodina | muž | chlapec</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">rodina: muž, muž, chlapec</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">rodina: muž, muž a chlapec</annotation>
 		<annotation cp="👨‍👨‍👧">dítě | matka | otec | rodina | muž | dívka</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">rodina: muž, muž, dívka</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">rodina: muž, muž a dívka</annotation>
 		<annotation cp="👨‍👨‍👧‍👦">dítě | matka | otec | rodina | muž | dívka | chlapec</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">rodina: muž, muž, dívka, chlapec</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">rodina: muž, muž, dívka a chlapec</annotation>
 		<annotation cp="👨‍👨‍👦‍👦">dítě | matka | otec | rodina | muž | chlapec</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">rodina: muž, muž, chlapec, chlapec</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">rodina: muž, muž, chlapec a chlapec</annotation>
 		<annotation cp="👨‍👨‍👧‍👧">dítě | matka | otec | rodina | muž | dívka</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">rodina: muž, muž, dívka, dívka</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">rodina: muž, muž, dívka a dívka</annotation>
 		<annotation cp="👩‍👩‍👦">dítě | matka | otec | rodina | žena | chlapec</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">rodina: žena, žena, chlapec</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">rodina: žena, žena a chlapec</annotation>
 		<annotation cp="👩‍👩‍👧">dítě | matka | otec | rodina | žena | dívka</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">rodina: žena, žena, dívka</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">rodina: žena, žena a dívka</annotation>
 		<annotation cp="👩‍👩‍👧‍👦">dítě | matka | otec | rodina | žena | dívka | chlapec</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">rodina: žena, žena, dívka, chlapec</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">rodina: žena, žena, dívka a chlapec</annotation>
 		<annotation cp="👩‍👩‍👦‍👦">dítě | matka | otec | rodina | žena | chlapec</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">rodina: žena, žena, chlapec, chlapec</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">rodina: žena, žena, chlapec a chlapec</annotation>
 		<annotation cp="👩‍👩‍👧‍👧">dítě | matka | otec | rodina | žena | dívka</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">rodina: žena, žena, dívka, dívka</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">rodina: žena, žena, dívka a dívka</annotation>
 		<annotation cp="👨‍👦">dítě | matka | otec | rodina | muž | chlapec</annotation>
 		<annotation cp="👨‍👦" type="tts">rodina: muž, chlapec</annotation>
 		<annotation cp="👨‍👦‍👦">dítě | matka | otec | rodina | muž | chlapec</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">rodina: muž, chlapec, chlapec</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">rodina: muž, chlapec a chlapec</annotation>
 		<annotation cp="👨‍👧">dítě | matka | otec | rodina | muž | dívka</annotation>
 		<annotation cp="👨‍👧" type="tts">rodina: muž, dívka</annotation>
 		<annotation cp="👨‍👧‍👦">dítě | matka | otec | rodina | muž | dívka | chlapec</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">rodina: muž, dívka, chlapec</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">rodina: muž, dívka a chlapec</annotation>
 		<annotation cp="👨‍👧‍👧">dítě | matka | otec | rodina | muž | dívka</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">rodina: muž, dívka, dívka</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">rodina: muž, dívka a dívka</annotation>
 		<annotation cp="👩‍👦">dítě | matka | otec | rodina | žena | chlapec</annotation>
 		<annotation cp="👩‍👦" type="tts">rodina: žena, chlapec</annotation>
 		<annotation cp="👩‍👦‍👦">dítě | matka | otec | rodina | žena | chlapec</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">rodina: žena, chlapec, chlapec</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">rodina: žena, chlapec a chlapec</annotation>
 		<annotation cp="👩‍👧">dítě | matka | otec | rodina | žena | dívka</annotation>
 		<annotation cp="👩‍👧" type="tts">rodina: žena, dívka</annotation>
 		<annotation cp="👩‍👧‍👦">dítě | matka | otec | rodina | žena | dívka | chlapec</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">rodina: žena, dívka, chlapec</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">rodina: žena, dívka a chlapec</annotation>
 		<annotation cp="👩‍👧‍👧">dítě | matka | otec | rodina | žena | dívka</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">rodina: žena, dívka, dívka</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">rodina: žena, dívka a dívka</annotation>
 		<annotation cp="🤳🏻">fotoaparát | selfie | selfíčko | telefon | světlý odstín pleti</annotation>
 		<annotation cp="🤳🏻" type="tts">selfie: světlý odstín pleti</annotation>
 		<annotation cp="🤳🏼">fotoaparát | selfie | selfíčko | telefon | středně světlý odstín pleti</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">klávesy</annotation>
 		<annotation cp="🔟" type="tts">klávesy: 10</annotation>
 		<annotation cp="🇦🇨">vlajka</annotation>
-		<annotation cp="🇦🇨" type="tts">Ascension</annotation>
+		<annotation cp="🇦🇨" type="tts">vlajka: Ascension</annotation>
 		<annotation cp="🇦🇩">vlajka</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">vlajka: Andorra</annotation>
 		<annotation cp="🇦🇪">vlajka</annotation>
-		<annotation cp="🇦🇪" type="tts">Spojené arabské emiráty</annotation>
+		<annotation cp="🇦🇪" type="tts">vlajka: Spojené arabské emiráty</annotation>
 		<annotation cp="🇦🇫">vlajka</annotation>
-		<annotation cp="🇦🇫" type="tts">Afghánistán</annotation>
+		<annotation cp="🇦🇫" type="tts">vlajka: Afghánistán</annotation>
 		<annotation cp="🇦🇬">vlajka</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua a Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">vlajka: Antigua a Barbuda</annotation>
 		<annotation cp="🇦🇮">vlajka</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">vlajka: Anguilla</annotation>
 		<annotation cp="🇦🇱">vlajka</annotation>
-		<annotation cp="🇦🇱" type="tts">Albánie</annotation>
+		<annotation cp="🇦🇱" type="tts">vlajka: Albánie</annotation>
 		<annotation cp="🇦🇲">vlajka</annotation>
-		<annotation cp="🇦🇲" type="tts">Arménie</annotation>
+		<annotation cp="🇦🇲" type="tts">vlajka: Arménie</annotation>
 		<annotation cp="🇦🇴">vlajka</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">vlajka: Angola</annotation>
 		<annotation cp="🇦🇶">vlajka</annotation>
-		<annotation cp="🇦🇶" type="tts">Antarktida</annotation>
+		<annotation cp="🇦🇶" type="tts">vlajka: Antarktida</annotation>
 		<annotation cp="🇦🇷">vlajka</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇷" type="tts">vlajka: Argentina</annotation>
 		<annotation cp="🇦🇸">vlajka</annotation>
-		<annotation cp="🇦🇸" type="tts">Americká Samoa</annotation>
+		<annotation cp="🇦🇸" type="tts">vlajka: Americká Samoa</annotation>
 		<annotation cp="🇦🇹">vlajka</annotation>
-		<annotation cp="🇦🇹" type="tts">Rakousko</annotation>
+		<annotation cp="🇦🇹" type="tts">vlajka: Rakousko</annotation>
 		<annotation cp="🇦🇺">vlajka</annotation>
-		<annotation cp="🇦🇺" type="tts">Austrálie</annotation>
+		<annotation cp="🇦🇺" type="tts">vlajka: Austrálie</annotation>
 		<annotation cp="🇦🇼">vlajka</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">vlajka: Aruba</annotation>
 		<annotation cp="🇦🇽">vlajka</annotation>
-		<annotation cp="🇦🇽" type="tts">Ålandy</annotation>
+		<annotation cp="🇦🇽" type="tts">vlajka: Ålandy</annotation>
 		<annotation cp="🇦🇿">vlajka</annotation>
-		<annotation cp="🇦🇿" type="tts">Ázerbájdžán</annotation>
+		<annotation cp="🇦🇿" type="tts">vlajka: Ázerbájdžán</annotation>
 		<annotation cp="🇧🇦">vlajka</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosna a Hercegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">vlajka: Bosna a Hercegovina</annotation>
 		<annotation cp="🇧🇧">vlajka</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">vlajka: Barbados</annotation>
 		<annotation cp="🇧🇩">vlajka</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladéš</annotation>
+		<annotation cp="🇧🇩" type="tts">vlajka: Bangladéš</annotation>
 		<annotation cp="🇧🇪">vlajka</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgie</annotation>
+		<annotation cp="🇧🇪" type="tts">vlajka: Belgie</annotation>
 		<annotation cp="🇧🇫">vlajka</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">vlajka: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">vlajka</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulharsko</annotation>
+		<annotation cp="🇧🇬" type="tts">vlajka: Bulharsko</annotation>
 		<annotation cp="🇧🇭">vlajka</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrajn</annotation>
+		<annotation cp="🇧🇭" type="tts">vlajka: Bahrajn</annotation>
 		<annotation cp="🇧🇮">vlajka</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">vlajka: Burundi</annotation>
 		<annotation cp="🇧🇯">vlajka</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">vlajka: Benin</annotation>
 		<annotation cp="🇧🇱">vlajka</annotation>
-		<annotation cp="🇧🇱" type="tts">Svatý Bartoloměj</annotation>
+		<annotation cp="🇧🇱" type="tts">vlajka: Svatý Bartoloměj</annotation>
 		<annotation cp="🇧🇲">vlajka</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermudy</annotation>
+		<annotation cp="🇧🇲" type="tts">vlajka: Bermudy</annotation>
 		<annotation cp="🇧🇳">vlajka</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunej</annotation>
+		<annotation cp="🇧🇳" type="tts">vlajka: Brunej</annotation>
 		<annotation cp="🇧🇴">vlajka</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolívie</annotation>
+		<annotation cp="🇧🇴" type="tts">vlajka: Bolívie</annotation>
 		<annotation cp="🇧🇶">vlajka</annotation>
-		<annotation cp="🇧🇶" type="tts">Karibské Nizozemsko</annotation>
+		<annotation cp="🇧🇶" type="tts">vlajka: Karibské Nizozemsko</annotation>
 		<annotation cp="🇧🇷">vlajka</annotation>
-		<annotation cp="🇧🇷" type="tts">Brazílie</annotation>
+		<annotation cp="🇧🇷" type="tts">vlajka: Brazílie</annotation>
 		<annotation cp="🇧🇸">vlajka</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahamy</annotation>
+		<annotation cp="🇧🇸" type="tts">vlajka: Bahamy</annotation>
 		<annotation cp="🇧🇹">vlajka</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhútán</annotation>
+		<annotation cp="🇧🇹" type="tts">vlajka: Bhútán</annotation>
 		<annotation cp="🇧🇻">vlajka</annotation>
-		<annotation cp="🇧🇻" type="tts">Bouvetův ostrov</annotation>
+		<annotation cp="🇧🇻" type="tts">vlajka: Bouvetův ostrov</annotation>
 		<annotation cp="🇧🇼">vlajka</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">vlajka: Botswana</annotation>
 		<annotation cp="🇧🇾">vlajka</annotation>
-		<annotation cp="🇧🇾" type="tts">Bělorusko</annotation>
+		<annotation cp="🇧🇾" type="tts">vlajka: Bělorusko</annotation>
 		<annotation cp="🇧🇿">vlajka</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">vlajka: Belize</annotation>
 		<annotation cp="🇨🇦">vlajka</annotation>
-		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇦" type="tts">vlajka: Kanada</annotation>
 		<annotation cp="🇨🇨">vlajka</annotation>
-		<annotation cp="🇨🇨" type="tts">Kokosové ostrovy</annotation>
+		<annotation cp="🇨🇨" type="tts">vlajka: Kokosové ostrovy</annotation>
 		<annotation cp="🇨🇩">vlajka</annotation>
-		<annotation cp="🇨🇩" type="tts">Kongo – Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">vlajka: Kongo – Kinshasa</annotation>
 		<annotation cp="🇨🇫">vlajka</annotation>
-		<annotation cp="🇨🇫" type="tts">Středoafrická republika</annotation>
+		<annotation cp="🇨🇫" type="tts">vlajka: Středoafrická republika</annotation>
 		<annotation cp="🇨🇬">vlajka</annotation>
-		<annotation cp="🇨🇬" type="tts">Kongo – Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">vlajka: Kongo – Brazzaville</annotation>
 		<annotation cp="🇨🇭">vlajka</annotation>
-		<annotation cp="🇨🇭" type="tts">Švýcarsko</annotation>
+		<annotation cp="🇨🇭" type="tts">vlajka: Švýcarsko</annotation>
 		<annotation cp="🇨🇮">vlajka</annotation>
-		<annotation cp="🇨🇮" type="tts">Pobřeží slonoviny</annotation>
+		<annotation cp="🇨🇮" type="tts">vlajka: Pobřeží slonoviny</annotation>
 		<annotation cp="🇨🇰">vlajka</annotation>
-		<annotation cp="🇨🇰" type="tts">Cookovy ostrovy</annotation>
+		<annotation cp="🇨🇰" type="tts">vlajka: Cookovy ostrovy</annotation>
 		<annotation cp="🇨🇱">vlajka</annotation>
-		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇱" type="tts">vlajka: Chile</annotation>
 		<annotation cp="🇨🇲">vlajka</annotation>
-		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇲" type="tts">vlajka: Kamerun</annotation>
 		<annotation cp="🇨🇳">vlajka</annotation>
-		<annotation cp="🇨🇳" type="tts">Čína</annotation>
+		<annotation cp="🇨🇳" type="tts">vlajka: Čína</annotation>
 		<annotation cp="🇨🇴">vlajka</annotation>
-		<annotation cp="🇨🇴" type="tts">Kolumbie</annotation>
+		<annotation cp="🇨🇴" type="tts">vlajka: Kolumbie</annotation>
 		<annotation cp="🇨🇵">vlajka</annotation>
-		<annotation cp="🇨🇵" type="tts">Clippertonův ostrov</annotation>
+		<annotation cp="🇨🇵" type="tts">vlajka: Clippertonův ostrov</annotation>
 		<annotation cp="🇨🇷">vlajka</annotation>
-		<annotation cp="🇨🇷" type="tts">Kostarika</annotation>
+		<annotation cp="🇨🇷" type="tts">vlajka: Kostarika</annotation>
 		<annotation cp="🇨🇺">vlajka</annotation>
-		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇺" type="tts">vlajka: Kuba</annotation>
 		<annotation cp="🇨🇻">vlajka</annotation>
-		<annotation cp="🇨🇻" type="tts">Kapverdy</annotation>
+		<annotation cp="🇨🇻" type="tts">vlajka: Kapverdy</annotation>
 		<annotation cp="🇨🇼">vlajka</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">vlajka: Curaçao</annotation>
 		<annotation cp="🇨🇽">vlajka</annotation>
-		<annotation cp="🇨🇽" type="tts">Vánoční ostrov</annotation>
+		<annotation cp="🇨🇽" type="tts">vlajka: Vánoční ostrov</annotation>
 		<annotation cp="🇨🇾">vlajka</annotation>
-		<annotation cp="🇨🇾" type="tts">Kypr</annotation>
+		<annotation cp="🇨🇾" type="tts">vlajka: Kypr</annotation>
 		<annotation cp="🇨🇿">vlajka</annotation>
-		<annotation cp="🇨🇿" type="tts">Česko</annotation>
+		<annotation cp="🇨🇿" type="tts">vlajka: Česko</annotation>
 		<annotation cp="🇩🇪">vlajka</annotation>
-		<annotation cp="🇩🇪" type="tts">Německo</annotation>
+		<annotation cp="🇩🇪" type="tts">vlajka: Německo</annotation>
 		<annotation cp="🇩🇬">vlajka</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego García</annotation>
+		<annotation cp="🇩🇬" type="tts">vlajka: Diego García</annotation>
 		<annotation cp="🇩🇯">vlajka</annotation>
-		<annotation cp="🇩🇯" type="tts">Džibutsko</annotation>
+		<annotation cp="🇩🇯" type="tts">vlajka: Džibutsko</annotation>
 		<annotation cp="🇩🇰">vlajka</annotation>
-		<annotation cp="🇩🇰" type="tts">Dánsko</annotation>
+		<annotation cp="🇩🇰" type="tts">vlajka: Dánsko</annotation>
 		<annotation cp="🇩🇲">vlajka</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominika</annotation>
+		<annotation cp="🇩🇲" type="tts">vlajka: Dominika</annotation>
 		<annotation cp="🇩🇴">vlajka</annotation>
-		<annotation cp="🇩🇴" type="tts">Dominikánská republika</annotation>
+		<annotation cp="🇩🇴" type="tts">vlajka: Dominikánská republika</annotation>
 		<annotation cp="🇩🇿">vlajka</annotation>
-		<annotation cp="🇩🇿" type="tts">Alžírsko</annotation>
+		<annotation cp="🇩🇿" type="tts">vlajka: Alžírsko</annotation>
 		<annotation cp="🇪🇦">vlajka</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta a Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">vlajka: Ceuta a Melilla</annotation>
 		<annotation cp="🇪🇨">vlajka</annotation>
-		<annotation cp="🇪🇨" type="tts">Ekvádor</annotation>
+		<annotation cp="🇪🇨" type="tts">vlajka: Ekvádor</annotation>
 		<annotation cp="🇪🇪">vlajka</annotation>
-		<annotation cp="🇪🇪" type="tts">Estonsko</annotation>
+		<annotation cp="🇪🇪" type="tts">vlajka: Estonsko</annotation>
 		<annotation cp="🇪🇬">vlajka</annotation>
-		<annotation cp="🇪🇬" type="tts">Egypt</annotation>
+		<annotation cp="🇪🇬" type="tts">vlajka: Egypt</annotation>
 		<annotation cp="🇪🇭">vlajka</annotation>
-		<annotation cp="🇪🇭" type="tts">Západní Sahara</annotation>
+		<annotation cp="🇪🇭" type="tts">vlajka: Západní Sahara</annotation>
 		<annotation cp="🇪🇷">vlajka</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">vlajka: Eritrea</annotation>
 		<annotation cp="🇪🇸">vlajka</annotation>
-		<annotation cp="🇪🇸" type="tts">Španělsko</annotation>
+		<annotation cp="🇪🇸" type="tts">vlajka: Španělsko</annotation>
 		<annotation cp="🇪🇹">vlajka</annotation>
-		<annotation cp="🇪🇹" type="tts">Etiopie</annotation>
+		<annotation cp="🇪🇹" type="tts">vlajka: Etiopie</annotation>
 		<annotation cp="🇪🇺">vlajka</annotation>
-		<annotation cp="🇪🇺" type="tts">Evropská unie</annotation>
+		<annotation cp="🇪🇺" type="tts">vlajka: Evropská unie</annotation>
 		<annotation cp="🇫🇮">vlajka</annotation>
-		<annotation cp="🇫🇮" type="tts">Finsko</annotation>
+		<annotation cp="🇫🇮" type="tts">vlajka: Finsko</annotation>
 		<annotation cp="🇫🇯">vlajka</annotation>
-		<annotation cp="🇫🇯" type="tts">Fidži</annotation>
+		<annotation cp="🇫🇯" type="tts">vlajka: Fidži</annotation>
 		<annotation cp="🇫🇰">vlajka</annotation>
-		<annotation cp="🇫🇰" type="tts">Falklandské ostrovy</annotation>
+		<annotation cp="🇫🇰" type="tts">vlajka: Falklandské ostrovy</annotation>
 		<annotation cp="🇫🇲">vlajka</annotation>
-		<annotation cp="🇫🇲" type="tts">Mikronésie</annotation>
+		<annotation cp="🇫🇲" type="tts">vlajka: Mikronésie</annotation>
 		<annotation cp="🇫🇴">vlajka</annotation>
-		<annotation cp="🇫🇴" type="tts">Faerské ostrovy</annotation>
+		<annotation cp="🇫🇴" type="tts">vlajka: Faerské ostrovy</annotation>
 		<annotation cp="🇫🇷">vlajka</annotation>
-		<annotation cp="🇫🇷" type="tts">Francie</annotation>
+		<annotation cp="🇫🇷" type="tts">vlajka: Francie</annotation>
 		<annotation cp="🇬🇦">vlajka</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">vlajka: Gabon</annotation>
 		<annotation cp="🇬🇧">vlajka</annotation>
-		<annotation cp="🇬🇧" type="tts">Spojené království</annotation>
+		<annotation cp="🇬🇧" type="tts">vlajka: Spojené království</annotation>
 		<annotation cp="🇬🇩">vlajka</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">vlajka: Grenada</annotation>
 		<annotation cp="🇬🇪">vlajka</annotation>
-		<annotation cp="🇬🇪" type="tts">Gruzie</annotation>
+		<annotation cp="🇬🇪" type="tts">vlajka: Gruzie</annotation>
 		<annotation cp="🇬🇫">vlajka</annotation>
-		<annotation cp="🇬🇫" type="tts">Francouzská Guyana</annotation>
+		<annotation cp="🇬🇫" type="tts">vlajka: Francouzská Guyana</annotation>
 		<annotation cp="🇬🇬">vlajka</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">vlajka: Guernsey</annotation>
 		<annotation cp="🇬🇭">vlajka</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">vlajka: Ghana</annotation>
 		<annotation cp="🇬🇮">vlajka</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">vlajka: Gibraltar</annotation>
 		<annotation cp="🇬🇱">vlajka</annotation>
-		<annotation cp="🇬🇱" type="tts">Grónsko</annotation>
+		<annotation cp="🇬🇱" type="tts">vlajka: Grónsko</annotation>
 		<annotation cp="🇬🇲">vlajka</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambie</annotation>
+		<annotation cp="🇬🇲" type="tts">vlajka: Gambie</annotation>
 		<annotation cp="🇬🇳">vlajka</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇳" type="tts">vlajka: Guinea</annotation>
 		<annotation cp="🇬🇵">vlajka</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">vlajka: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">vlajka</annotation>
-		<annotation cp="🇬🇶" type="tts">Rovníková Guinea</annotation>
+		<annotation cp="🇬🇶" type="tts">vlajka: Rovníková Guinea</annotation>
 		<annotation cp="🇬🇷">vlajka</annotation>
-		<annotation cp="🇬🇷" type="tts">Řecko</annotation>
+		<annotation cp="🇬🇷" type="tts">vlajka: Řecko</annotation>
 		<annotation cp="🇬🇸">vlajka</annotation>
-		<annotation cp="🇬🇸" type="tts">Jižní Georgie a Jižní Sandwichovy ostrovy</annotation>
+		<annotation cp="🇬🇸" type="tts">vlajka: Jižní Georgie a Jižní Sandwichovy ostrovy</annotation>
 		<annotation cp="🇬🇹">vlajka</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">vlajka: Guatemala</annotation>
 		<annotation cp="🇬🇺">vlajka</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">vlajka: Guam</annotation>
 		<annotation cp="🇬🇼">vlajka</annotation>
-		<annotation cp="🇬🇼" type="tts">Guinea-Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">vlajka: Guinea-Bissau</annotation>
 		<annotation cp="🇬🇾">vlajka</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">vlajka: Guyana</annotation>
 		<annotation cp="🇭🇰">vlajka</annotation>
-		<annotation cp="🇭🇰" type="tts">Hongkong – ZAO Číny</annotation>
+		<annotation cp="🇭🇰" type="tts">vlajka: Hongkong – ZAO Číny</annotation>
 		<annotation cp="🇭🇲">vlajka</annotation>
-		<annotation cp="🇭🇲" type="tts">Heardův ostrov a McDonaldovy ostrovy</annotation>
+		<annotation cp="🇭🇲" type="tts">vlajka: Heardův ostrov a McDonaldovy ostrovy</annotation>
 		<annotation cp="🇭🇳">vlajka</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">vlajka: Honduras</annotation>
 		<annotation cp="🇭🇷">vlajka</annotation>
-		<annotation cp="🇭🇷" type="tts">Chorvatsko</annotation>
+		<annotation cp="🇭🇷" type="tts">vlajka: Chorvatsko</annotation>
 		<annotation cp="🇭🇹">vlajka</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">vlajka: Haiti</annotation>
 		<annotation cp="🇭🇺">vlajka</annotation>
-		<annotation cp="🇭🇺" type="tts">Maďarsko</annotation>
+		<annotation cp="🇭🇺" type="tts">vlajka: Maďarsko</annotation>
 		<annotation cp="🇮🇨">vlajka</annotation>
-		<annotation cp="🇮🇨" type="tts">Kanárské ostrovy</annotation>
+		<annotation cp="🇮🇨" type="tts">vlajka: Kanárské ostrovy</annotation>
 		<annotation cp="🇮🇩">vlajka</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonésie</annotation>
+		<annotation cp="🇮🇩" type="tts">vlajka: Indonésie</annotation>
 		<annotation cp="🇮🇪">vlajka</annotation>
-		<annotation cp="🇮🇪" type="tts">Irsko</annotation>
+		<annotation cp="🇮🇪" type="tts">vlajka: Irsko</annotation>
 		<annotation cp="🇮🇱">vlajka</annotation>
-		<annotation cp="🇮🇱" type="tts">Izrael</annotation>
+		<annotation cp="🇮🇱" type="tts">vlajka: Izrael</annotation>
 		<annotation cp="🇮🇲">vlajka</annotation>
-		<annotation cp="🇮🇲" type="tts">Ostrov Man</annotation>
+		<annotation cp="🇮🇲" type="tts">vlajka: Ostrov Man</annotation>
 		<annotation cp="🇮🇳">vlajka</annotation>
-		<annotation cp="🇮🇳" type="tts">Indie</annotation>
+		<annotation cp="🇮🇳" type="tts">vlajka: Indie</annotation>
 		<annotation cp="🇮🇴">vlajka</annotation>
-		<annotation cp="🇮🇴" type="tts">Britské indickooceánské území</annotation>
+		<annotation cp="🇮🇴" type="tts">vlajka: Britské indickooceánské území</annotation>
 		<annotation cp="🇮🇶">vlajka</annotation>
-		<annotation cp="🇮🇶" type="tts">Irák</annotation>
+		<annotation cp="🇮🇶" type="tts">vlajka: Irák</annotation>
 		<annotation cp="🇮🇷">vlajka</annotation>
-		<annotation cp="🇮🇷" type="tts">Írán</annotation>
+		<annotation cp="🇮🇷" type="tts">vlajka: Írán</annotation>
 		<annotation cp="🇮🇸">vlajka</annotation>
-		<annotation cp="🇮🇸" type="tts">Island</annotation>
+		<annotation cp="🇮🇸" type="tts">vlajka: Island</annotation>
 		<annotation cp="🇮🇹">vlajka</annotation>
-		<annotation cp="🇮🇹" type="tts">Itálie</annotation>
+		<annotation cp="🇮🇹" type="tts">vlajka: Itálie</annotation>
 		<annotation cp="🇯🇪">vlajka</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">vlajka: Jersey</annotation>
 		<annotation cp="🇯🇲">vlajka</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamajka</annotation>
+		<annotation cp="🇯🇲" type="tts">vlajka: Jamajka</annotation>
 		<annotation cp="🇯🇴">vlajka</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordánsko</annotation>
+		<annotation cp="🇯🇴" type="tts">vlajka: Jordánsko</annotation>
 		<annotation cp="🇯🇵">vlajka</annotation>
-		<annotation cp="🇯🇵" type="tts">Japonsko</annotation>
+		<annotation cp="🇯🇵" type="tts">vlajka: Japonsko</annotation>
 		<annotation cp="🇰🇪">vlajka</annotation>
-		<annotation cp="🇰🇪" type="tts">Keňa</annotation>
+		<annotation cp="🇰🇪" type="tts">vlajka: Keňa</annotation>
 		<annotation cp="🇰🇬">vlajka</annotation>
-		<annotation cp="🇰🇬" type="tts">Kyrgyzstán</annotation>
+		<annotation cp="🇰🇬" type="tts">vlajka: Kyrgyzstán</annotation>
 		<annotation cp="🇰🇭">vlajka</annotation>
-		<annotation cp="🇰🇭" type="tts">Kambodža</annotation>
+		<annotation cp="🇰🇭" type="tts">vlajka: Kambodža</annotation>
 		<annotation cp="🇰🇮">vlajka</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">vlajka: Kiribati</annotation>
 		<annotation cp="🇰🇲">vlajka</annotation>
-		<annotation cp="🇰🇲" type="tts">Komory</annotation>
+		<annotation cp="🇰🇲" type="tts">vlajka: Komory</annotation>
 		<annotation cp="🇰🇳">vlajka</annotation>
-		<annotation cp="🇰🇳" type="tts">Svatý Kryštof a Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">vlajka: Svatý Kryštof a Nevis</annotation>
 		<annotation cp="🇰🇵">vlajka</annotation>
-		<annotation cp="🇰🇵" type="tts">Severní Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">vlajka: Severní Korea</annotation>
 		<annotation cp="🇰🇷">vlajka</annotation>
-		<annotation cp="🇰🇷" type="tts">Jižní Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">vlajka: Jižní Korea</annotation>
 		<annotation cp="🇰🇼">vlajka</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuvajt</annotation>
+		<annotation cp="🇰🇼" type="tts">vlajka: Kuvajt</annotation>
 		<annotation cp="🇰🇾">vlajka</annotation>
-		<annotation cp="🇰🇾" type="tts">Kajmanské ostrovy</annotation>
+		<annotation cp="🇰🇾" type="tts">vlajka: Kajmanské ostrovy</annotation>
 		<annotation cp="🇰🇿">vlajka</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazachstán</annotation>
+		<annotation cp="🇰🇿" type="tts">vlajka: Kazachstán</annotation>
 		<annotation cp="🇱🇦">vlajka</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">vlajka: Laos</annotation>
 		<annotation cp="🇱🇧">vlajka</annotation>
-		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇧" type="tts">vlajka: Libanon</annotation>
 		<annotation cp="🇱🇨">vlajka</annotation>
-		<annotation cp="🇱🇨" type="tts">Svatá Lucie</annotation>
+		<annotation cp="🇱🇨" type="tts">vlajka: Svatá Lucie</annotation>
 		<annotation cp="🇱🇮">vlajka</annotation>
-		<annotation cp="🇱🇮" type="tts">Lichtenštejnsko</annotation>
+		<annotation cp="🇱🇮" type="tts">vlajka: Lichtenštejnsko</annotation>
 		<annotation cp="🇱🇰">vlajka</annotation>
-		<annotation cp="🇱🇰" type="tts">Srí Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">vlajka: Srí Lanka</annotation>
 		<annotation cp="🇱🇷">vlajka</annotation>
-		<annotation cp="🇱🇷" type="tts">Libérie</annotation>
+		<annotation cp="🇱🇷" type="tts">vlajka: Libérie</annotation>
 		<annotation cp="🇱🇸">vlajka</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">vlajka: Lesotho</annotation>
 		<annotation cp="🇱🇹">vlajka</annotation>
-		<annotation cp="🇱🇹" type="tts">Litva</annotation>
+		<annotation cp="🇱🇹" type="tts">vlajka: Litva</annotation>
 		<annotation cp="🇱🇺">vlajka</annotation>
-		<annotation cp="🇱🇺" type="tts">Lucembursko</annotation>
+		<annotation cp="🇱🇺" type="tts">vlajka: Lucembursko</annotation>
 		<annotation cp="🇱🇻">vlajka</annotation>
-		<annotation cp="🇱🇻" type="tts">Lotyšsko</annotation>
+		<annotation cp="🇱🇻" type="tts">vlajka: Lotyšsko</annotation>
 		<annotation cp="🇱🇾">vlajka</annotation>
-		<annotation cp="🇱🇾" type="tts">Libye</annotation>
+		<annotation cp="🇱🇾" type="tts">vlajka: Libye</annotation>
 		<annotation cp="🇲🇦">vlajka</annotation>
-		<annotation cp="🇲🇦" type="tts">Maroko</annotation>
+		<annotation cp="🇲🇦" type="tts">vlajka: Maroko</annotation>
 		<annotation cp="🇲🇨">vlajka</annotation>
-		<annotation cp="🇲🇨" type="tts">Monako</annotation>
+		<annotation cp="🇲🇨" type="tts">vlajka: Monako</annotation>
 		<annotation cp="🇲🇩">vlajka</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldavsko</annotation>
+		<annotation cp="🇲🇩" type="tts">vlajka: Moldavsko</annotation>
 		<annotation cp="🇲🇪">vlajka</annotation>
-		<annotation cp="🇲🇪" type="tts">Černá Hora</annotation>
+		<annotation cp="🇲🇪" type="tts">vlajka: Černá Hora</annotation>
 		<annotation cp="🇲🇫">vlajka</annotation>
-		<annotation cp="🇲🇫" type="tts">Svatý Martin (Francie)</annotation>
+		<annotation cp="🇲🇫" type="tts">vlajka: Svatý Martin (Francie)</annotation>
 		<annotation cp="🇲🇬">vlajka</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇬" type="tts">vlajka: Madagaskar</annotation>
 		<annotation cp="🇲🇭">vlajka</annotation>
-		<annotation cp="🇲🇭" type="tts">Marshallovy ostrovy</annotation>
+		<annotation cp="🇲🇭" type="tts">vlajka: Marshallovy ostrovy</annotation>
 		<annotation cp="🇲🇰">vlajka</annotation>
-		<annotation cp="🇲🇰" type="tts">Makedonie</annotation>
+		<annotation cp="🇲🇰" type="tts">vlajka: Makedonie</annotation>
 		<annotation cp="🇲🇱">vlajka</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">vlajka: Mali</annotation>
 		<annotation cp="🇲🇲">vlajka</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Barma)</annotation>
+		<annotation cp="🇲🇲" type="tts">vlajka: Myanmar (Barma)</annotation>
 		<annotation cp="🇲🇳">vlajka</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolsko</annotation>
+		<annotation cp="🇲🇳" type="tts">vlajka: Mongolsko</annotation>
 		<annotation cp="🇲🇴">vlajka</annotation>
-		<annotation cp="🇲🇴" type="tts">Macao – ZAO Číny</annotation>
+		<annotation cp="🇲🇴" type="tts">vlajka: Macao – ZAO Číny</annotation>
 		<annotation cp="🇲🇵">vlajka</annotation>
-		<annotation cp="🇲🇵" type="tts">Severní Mariany</annotation>
+		<annotation cp="🇲🇵" type="tts">vlajka: Severní Mariany</annotation>
 		<annotation cp="🇲🇶">vlajka</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinik</annotation>
+		<annotation cp="🇲🇶" type="tts">vlajka: Martinik</annotation>
 		<annotation cp="🇲🇷">vlajka</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritánie</annotation>
+		<annotation cp="🇲🇷" type="tts">vlajka: Mauritánie</annotation>
 		<annotation cp="🇲🇸">vlajka</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">vlajka: Montserrat</annotation>
 		<annotation cp="🇲🇹">vlajka</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">vlajka: Malta</annotation>
 		<annotation cp="🇲🇺">vlajka</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauricius</annotation>
+		<annotation cp="🇲🇺" type="tts">vlajka: Mauricius</annotation>
 		<annotation cp="🇲🇻">vlajka</annotation>
-		<annotation cp="🇲🇻" type="tts">Maledivy</annotation>
+		<annotation cp="🇲🇻" type="tts">vlajka: Maledivy</annotation>
 		<annotation cp="🇲🇼">vlajka</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">vlajka: Malawi</annotation>
 		<annotation cp="🇲🇽">vlajka</annotation>
-		<annotation cp="🇲🇽" type="tts">Mexiko</annotation>
+		<annotation cp="🇲🇽" type="tts">vlajka: Mexiko</annotation>
 		<annotation cp="🇲🇾">vlajka</annotation>
-		<annotation cp="🇲🇾" type="tts">Malajsie</annotation>
+		<annotation cp="🇲🇾" type="tts">vlajka: Malajsie</annotation>
 		<annotation cp="🇲🇿">vlajka</annotation>
-		<annotation cp="🇲🇿" type="tts">Mosambik</annotation>
+		<annotation cp="🇲🇿" type="tts">vlajka: Mosambik</annotation>
 		<annotation cp="🇳🇦">vlajka</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibie</annotation>
+		<annotation cp="🇳🇦" type="tts">vlajka: Namibie</annotation>
 		<annotation cp="🇳🇨">vlajka</annotation>
-		<annotation cp="🇳🇨" type="tts">Nová Kaledonie</annotation>
+		<annotation cp="🇳🇨" type="tts">vlajka: Nová Kaledonie</annotation>
 		<annotation cp="🇳🇪">vlajka</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">vlajka: Niger</annotation>
 		<annotation cp="🇳🇫">vlajka</annotation>
-		<annotation cp="🇳🇫" type="tts">Norfolk</annotation>
+		<annotation cp="🇳🇫" type="tts">vlajka: Norfolk</annotation>
 		<annotation cp="🇳🇬">vlajka</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigérie</annotation>
+		<annotation cp="🇳🇬" type="tts">vlajka: Nigérie</annotation>
 		<annotation cp="🇳🇮">vlajka</annotation>
-		<annotation cp="🇳🇮" type="tts">Nikaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">vlajka: Nikaragua</annotation>
 		<annotation cp="🇳🇱">vlajka</annotation>
-		<annotation cp="🇳🇱" type="tts">Nizozemsko</annotation>
+		<annotation cp="🇳🇱" type="tts">vlajka: Nizozemsko</annotation>
 		<annotation cp="🇳🇴">vlajka</annotation>
-		<annotation cp="🇳🇴" type="tts">Norsko</annotation>
+		<annotation cp="🇳🇴" type="tts">vlajka: Norsko</annotation>
 		<annotation cp="🇳🇵">vlajka</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepál</annotation>
+		<annotation cp="🇳🇵" type="tts">vlajka: Nepál</annotation>
 		<annotation cp="🇳🇷">vlajka</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">vlajka: Nauru</annotation>
 		<annotation cp="🇳🇺">vlajka</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">vlajka: Niue</annotation>
 		<annotation cp="🇳🇿">vlajka</annotation>
-		<annotation cp="🇳🇿" type="tts">Nový Zéland</annotation>
+		<annotation cp="🇳🇿" type="tts">vlajka: Nový Zéland</annotation>
 		<annotation cp="🇴🇲">vlajka</annotation>
-		<annotation cp="🇴🇲" type="tts">Omán</annotation>
+		<annotation cp="🇴🇲" type="tts">vlajka: Omán</annotation>
 		<annotation cp="🇵🇦">vlajka</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">vlajka: Panama</annotation>
 		<annotation cp="🇵🇪">vlajka</annotation>
-		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇪" type="tts">vlajka: Peru</annotation>
 		<annotation cp="🇵🇫">vlajka</annotation>
-		<annotation cp="🇵🇫" type="tts">Francouzská Polynésie</annotation>
+		<annotation cp="🇵🇫" type="tts">vlajka: Francouzská Polynésie</annotation>
 		<annotation cp="🇵🇬">vlajka</annotation>
-		<annotation cp="🇵🇬" type="tts">Papua-Nová Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">vlajka: Papua-Nová Guinea</annotation>
 		<annotation cp="🇵🇭">vlajka</annotation>
-		<annotation cp="🇵🇭" type="tts">Filipíny</annotation>
+		<annotation cp="🇵🇭" type="tts">vlajka: Filipíny</annotation>
 		<annotation cp="🇵🇰">vlajka</annotation>
-		<annotation cp="🇵🇰" type="tts">Pákistán</annotation>
+		<annotation cp="🇵🇰" type="tts">vlajka: Pákistán</annotation>
 		<annotation cp="🇵🇱">vlajka</annotation>
-		<annotation cp="🇵🇱" type="tts">Polsko</annotation>
+		<annotation cp="🇵🇱" type="tts">vlajka: Polsko</annotation>
 		<annotation cp="🇵🇲">vlajka</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre a Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">vlajka: Saint-Pierre a Miquelon</annotation>
 		<annotation cp="🇵🇳">vlajka</annotation>
-		<annotation cp="🇵🇳" type="tts">Pitcairnovy ostrovy</annotation>
+		<annotation cp="🇵🇳" type="tts">vlajka: Pitcairnovy ostrovy</annotation>
 		<annotation cp="🇵🇷">vlajka</annotation>
-		<annotation cp="🇵🇷" type="tts">Portoriko</annotation>
+		<annotation cp="🇵🇷" type="tts">vlajka: Portoriko</annotation>
 		<annotation cp="🇵🇸">vlajka</annotation>
-		<annotation cp="🇵🇸" type="tts">Palestinská území</annotation>
+		<annotation cp="🇵🇸" type="tts">vlajka: Palestinská území</annotation>
 		<annotation cp="🇵🇹">vlajka</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugalsko</annotation>
+		<annotation cp="🇵🇹" type="tts">vlajka: Portugalsko</annotation>
 		<annotation cp="🇵🇼">vlajka</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">vlajka: Palau</annotation>
 		<annotation cp="🇵🇾">vlajka</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">vlajka: Paraguay</annotation>
 		<annotation cp="🇶🇦">vlajka</annotation>
-		<annotation cp="🇶🇦" type="tts">Katar</annotation>
+		<annotation cp="🇶🇦" type="tts">vlajka: Katar</annotation>
 		<annotation cp="🇷🇪">vlajka</annotation>
-		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇪" type="tts">vlajka: Réunion</annotation>
 		<annotation cp="🇷🇴">vlajka</annotation>
-		<annotation cp="🇷🇴" type="tts">Rumunsko</annotation>
+		<annotation cp="🇷🇴" type="tts">vlajka: Rumunsko</annotation>
 		<annotation cp="🇷🇸">vlajka</annotation>
-		<annotation cp="🇷🇸" type="tts">Srbsko</annotation>
+		<annotation cp="🇷🇸" type="tts">vlajka: Srbsko</annotation>
 		<annotation cp="🇷🇺">vlajka</annotation>
-		<annotation cp="🇷🇺" type="tts">Rusko</annotation>
+		<annotation cp="🇷🇺" type="tts">vlajka: Rusko</annotation>
 		<annotation cp="🇷🇼">vlajka</annotation>
-		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇷🇼" type="tts">vlajka: Rwanda</annotation>
 		<annotation cp="🇸🇦">vlajka</annotation>
-		<annotation cp="🇸🇦" type="tts">Saúdská Arábie</annotation>
+		<annotation cp="🇸🇦" type="tts">vlajka: Saúdská Arábie</annotation>
 		<annotation cp="🇸🇧">vlajka</annotation>
-		<annotation cp="🇸🇧" type="tts">Šalamounovy ostrovy</annotation>
+		<annotation cp="🇸🇧" type="tts">vlajka: Šalamounovy ostrovy</annotation>
 		<annotation cp="🇸🇨">vlajka</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychely</annotation>
+		<annotation cp="🇸🇨" type="tts">vlajka: Seychely</annotation>
 		<annotation cp="🇸🇩">vlajka</annotation>
-		<annotation cp="🇸🇩" type="tts">Súdán</annotation>
+		<annotation cp="🇸🇩" type="tts">vlajka: Súdán</annotation>
 		<annotation cp="🇸🇪">vlajka</annotation>
-		<annotation cp="🇸🇪" type="tts">Švédsko</annotation>
+		<annotation cp="🇸🇪" type="tts">vlajka: Švédsko</annotation>
 		<annotation cp="🇸🇬">vlajka</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapur</annotation>
+		<annotation cp="🇸🇬" type="tts">vlajka: Singapur</annotation>
 		<annotation cp="🇸🇭">vlajka</annotation>
-		<annotation cp="🇸🇭" type="tts">Svatá Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">vlajka: Svatá Helena</annotation>
 		<annotation cp="🇸🇮">vlajka</annotation>
-		<annotation cp="🇸🇮" type="tts">Slovinsko</annotation>
+		<annotation cp="🇸🇮" type="tts">vlajka: Slovinsko</annotation>
 		<annotation cp="🇸🇯">vlajka</annotation>
-		<annotation cp="🇸🇯" type="tts">Špicberky a Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">vlajka: Špicberky a Jan Mayen</annotation>
 		<annotation cp="🇸🇰">vlajka</annotation>
-		<annotation cp="🇸🇰" type="tts">Slovensko</annotation>
+		<annotation cp="🇸🇰" type="tts">vlajka: Slovensko</annotation>
 		<annotation cp="🇸🇱">vlajka</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">vlajka: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">vlajka</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">vlajka: San Marino</annotation>
 		<annotation cp="🇸🇳">vlajka</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">vlajka: Senegal</annotation>
 		<annotation cp="🇸🇴">vlajka</annotation>
-		<annotation cp="🇸🇴" type="tts">Somálsko</annotation>
+		<annotation cp="🇸🇴" type="tts">vlajka: Somálsko</annotation>
 		<annotation cp="🇸🇷">vlajka</annotation>
-		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇷" type="tts">vlajka: Surinam</annotation>
 		<annotation cp="🇸🇸">vlajka</annotation>
-		<annotation cp="🇸🇸" type="tts">Jižní Súdán</annotation>
+		<annotation cp="🇸🇸" type="tts">vlajka: Jižní Súdán</annotation>
 		<annotation cp="🇸🇹">vlajka</annotation>
-		<annotation cp="🇸🇹" type="tts">Svatý Tomáš a Princův ostrov</annotation>
+		<annotation cp="🇸🇹" type="tts">vlajka: Svatý Tomáš a Princův ostrov</annotation>
 		<annotation cp="🇸🇻">vlajka</annotation>
-		<annotation cp="🇸🇻" type="tts">Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">vlajka: Salvador</annotation>
 		<annotation cp="🇸🇽">vlajka</annotation>
-		<annotation cp="🇸🇽" type="tts">Svatý Martin (Nizozemsko)</annotation>
+		<annotation cp="🇸🇽" type="tts">vlajka: Svatý Martin (Nizozemsko)</annotation>
 		<annotation cp="🇸🇾">vlajka</annotation>
-		<annotation cp="🇸🇾" type="tts">Sýrie</annotation>
+		<annotation cp="🇸🇾" type="tts">vlajka: Sýrie</annotation>
 		<annotation cp="🇸🇿">vlajka</annotation>
-		<annotation cp="🇸🇿" type="tts">Svazijsko</annotation>
+		<annotation cp="🇸🇿" type="tts">vlajka: Svazijsko</annotation>
 		<annotation cp="🇹🇦">vlajka</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">vlajka: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">vlajka</annotation>
-		<annotation cp="🇹🇨" type="tts">Turks a Caicos</annotation>
+		<annotation cp="🇹🇨" type="tts">vlajka: Turks a Caicos</annotation>
 		<annotation cp="🇹🇩">vlajka</annotation>
-		<annotation cp="🇹🇩" type="tts">Čad</annotation>
+		<annotation cp="🇹🇩" type="tts">vlajka: Čad</annotation>
 		<annotation cp="🇹🇫">vlajka</annotation>
-		<annotation cp="🇹🇫" type="tts">Francouzská jižní území</annotation>
+		<annotation cp="🇹🇫" type="tts">vlajka: Francouzská jižní území</annotation>
 		<annotation cp="🇹🇬">vlajka</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">vlajka: Togo</annotation>
 		<annotation cp="🇹🇭">vlajka</annotation>
-		<annotation cp="🇹🇭" type="tts">Thajsko</annotation>
+		<annotation cp="🇹🇭" type="tts">vlajka: Thajsko</annotation>
 		<annotation cp="🇹🇯">vlajka</annotation>
-		<annotation cp="🇹🇯" type="tts">Tádžikistán</annotation>
+		<annotation cp="🇹🇯" type="tts">vlajka: Tádžikistán</annotation>
 		<annotation cp="🇹🇰">vlajka</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">vlajka: Tokelau</annotation>
 		<annotation cp="🇹🇱">vlajka</annotation>
-		<annotation cp="🇹🇱" type="tts">Východní Timor</annotation>
+		<annotation cp="🇹🇱" type="tts">vlajka: Východní Timor</annotation>
 		<annotation cp="🇹🇲">vlajka</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenistán</annotation>
+		<annotation cp="🇹🇲" type="tts">vlajka: Turkmenistán</annotation>
 		<annotation cp="🇹🇳">vlajka</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunisko</annotation>
+		<annotation cp="🇹🇳" type="tts">vlajka: Tunisko</annotation>
 		<annotation cp="🇹🇴">vlajka</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">vlajka: Tonga</annotation>
 		<annotation cp="🇹🇷">vlajka</annotation>
-		<annotation cp="🇹🇷" type="tts">Turecko</annotation>
+		<annotation cp="🇹🇷" type="tts">vlajka: Turecko</annotation>
 		<annotation cp="🇹🇹">vlajka</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad a Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">vlajka: Trinidad a Tobago</annotation>
 		<annotation cp="🇹🇻">vlajka</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">vlajka: Tuvalu</annotation>
 		<annotation cp="🇹🇼">vlajka</annotation>
-		<annotation cp="🇹🇼" type="tts">Tchaj-wan</annotation>
+		<annotation cp="🇹🇼" type="tts">vlajka: Tchaj-wan</annotation>
 		<annotation cp="🇹🇿">vlajka</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzanie</annotation>
+		<annotation cp="🇹🇿" type="tts">vlajka: Tanzanie</annotation>
 		<annotation cp="🇺🇦">vlajka</annotation>
-		<annotation cp="🇺🇦" type="tts">Ukrajina</annotation>
+		<annotation cp="🇺🇦" type="tts">vlajka: Ukrajina</annotation>
 		<annotation cp="🇺🇬">vlajka</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">vlajka: Uganda</annotation>
 		<annotation cp="🇺🇲">vlajka</annotation>
-		<annotation cp="🇺🇲" type="tts">Menší odlehlé ostrovy USA</annotation>
+		<annotation cp="🇺🇲" type="tts">vlajka: Menší odlehlé ostrovy USA</annotation>
 		<annotation cp="🇺🇳">vlajka</annotation>
-		<annotation cp="🇺🇳" type="tts">Organizace spojených národů</annotation>
+		<annotation cp="🇺🇳" type="tts">vlajka: Organizace spojených národů</annotation>
 		<annotation cp="🇺🇸">vlajka</annotation>
-		<annotation cp="🇺🇸" type="tts">Spojené státy</annotation>
+		<annotation cp="🇺🇸" type="tts">vlajka: Spojené státy</annotation>
 		<annotation cp="🇺🇾">vlajka</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">vlajka: Uruguay</annotation>
 		<annotation cp="🇺🇿">vlajka</annotation>
-		<annotation cp="🇺🇿" type="tts">Uzbekistán</annotation>
+		<annotation cp="🇺🇿" type="tts">vlajka: Uzbekistán</annotation>
 		<annotation cp="🇻🇦">vlajka</annotation>
-		<annotation cp="🇻🇦" type="tts">Vatikán</annotation>
+		<annotation cp="🇻🇦" type="tts">vlajka: Vatikán</annotation>
 		<annotation cp="🇻🇨">vlajka</annotation>
-		<annotation cp="🇻🇨" type="tts">Svatý Vincenc a Grenadiny</annotation>
+		<annotation cp="🇻🇨" type="tts">vlajka: Svatý Vincenc a Grenadiny</annotation>
 		<annotation cp="🇻🇪">vlajka</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">vlajka: Venezuela</annotation>
 		<annotation cp="🇻🇬">vlajka</annotation>
-		<annotation cp="🇻🇬" type="tts">Britské Panenské ostrovy</annotation>
+		<annotation cp="🇻🇬" type="tts">vlajka: Britské Panenské ostrovy</annotation>
 		<annotation cp="🇻🇮">vlajka</annotation>
-		<annotation cp="🇻🇮" type="tts">Americké Panenské ostrovy</annotation>
+		<annotation cp="🇻🇮" type="tts">vlajka: Americké Panenské ostrovy</annotation>
 		<annotation cp="🇻🇳">vlajka</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">vlajka: Vietnam</annotation>
 		<annotation cp="🇻🇺">vlajka</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">vlajka: Vanuatu</annotation>
 		<annotation cp="🇼🇫">vlajka</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis a Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">vlajka: Wallis a Futuna</annotation>
 		<annotation cp="🇼🇸">vlajka</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">vlajka: Samoa</annotation>
 		<annotation cp="🇽🇰">vlajka</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">vlajka: Kosovo</annotation>
 		<annotation cp="🇾🇪">vlajka</annotation>
-		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇪" type="tts">vlajka: Jemen</annotation>
 		<annotation cp="🇾🇹">vlajka</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">vlajka: Mayotte</annotation>
 		<annotation cp="🇿🇦">vlajka</annotation>
-		<annotation cp="🇿🇦" type="tts">Jihoafrická republika</annotation>
+		<annotation cp="🇿🇦" type="tts">vlajka: Jihoafrická republika</annotation>
 		<annotation cp="🇿🇲">vlajka</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambie</annotation>
+		<annotation cp="🇿🇲" type="tts">vlajka: Zambie</annotation>
 		<annotation cp="🇿🇼">vlajka</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">vlajka: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">vlajka</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Anglie</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">vlajka: Anglie</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">vlajka</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Skotsko</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">vlajka: Skotsko</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">vlajka</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">vlajka: Wales</annotation>
 		<annotation cp="0⃣">klávesy</annotation>
 		<annotation cp="0⃣" type="tts">klávesy: 0</annotation>
 		<annotation cp="1⃣">klávesy</annotation>

@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="ja"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">キック | 脚 | 足 | 肌色1–2</annotation>
+		<annotation cp="🦵🏻" type="tts">脚: 肌色1–2</annotation>
+		<annotation cp="🦵🏼">キック | 脚 | 足 | 肌色3</annotation>
+		<annotation cp="🦵🏼" type="tts">脚: 肌色3</annotation>
+		<annotation cp="🦵🏽">キック | 脚 | 足 | 肌色4</annotation>
+		<annotation cp="🦵🏽" type="tts">脚: 肌色4</annotation>
+		<annotation cp="🦵🏾">キック | 脚 | 足 | 肌色5</annotation>
+		<annotation cp="🦵🏾" type="tts">脚: 肌色5</annotation>
+		<annotation cp="🦵🏿">キック | 脚 | 足 | 肌色6</annotation>
+		<annotation cp="🦵🏿" type="tts">脚: 肌色6</annotation>
+		<annotation cp="🦶🏻">キック | ダンス | 足 | 踏みつける | 肌色1–2</annotation>
+		<annotation cp="🦶🏻" type="tts">足: 肌色1–2</annotation>
+		<annotation cp="🦶🏼">キック | ダンス | 足 | 踏みつける | 肌色3</annotation>
+		<annotation cp="🦶🏼" type="tts">足: 肌色3</annotation>
+		<annotation cp="🦶🏽">キック | ダンス | 足 | 踏みつける | 肌色4</annotation>
+		<annotation cp="🦶🏽" type="tts">足: 肌色4</annotation>
+		<annotation cp="🦶🏾">キック | ダンス | 足 | 踏みつける | 肌色5</annotation>
+		<annotation cp="🦶🏾" type="tts">足: 肌色5</annotation>
+		<annotation cp="🦶🏿">キック | ダンス | 足 | 踏みつける | 肌色6</annotation>
+		<annotation cp="🦶🏿" type="tts">足: 肌色6</annotation>
+		<annotation cp="🦸🏻">スーパーヒーロー | ヒロイン | ヒーロー | 善 | 超人 | 肌色1–2</annotation>
+		<annotation cp="🦸🏻" type="tts">スーパーヒーロー: 肌色1–2</annotation>
+		<annotation cp="🦸🏼">スーパーヒーロー | ヒロイン | ヒーロー | 善 | 超人 | 肌色3</annotation>
+		<annotation cp="🦸🏼" type="tts">スーパーヒーロー: 肌色3</annotation>
+		<annotation cp="🦸🏽">スーパーヒーロー | ヒロイン | ヒーロー | 善 | 超人 | 肌色4</annotation>
+		<annotation cp="🦸🏽" type="tts">スーパーヒーロー: 肌色4</annotation>
+		<annotation cp="🦸🏾">スーパーヒーロー | ヒロイン | ヒーロー | 善 | 超人 | 肌色5</annotation>
+		<annotation cp="🦸🏾" type="tts">スーパーヒーロー: 肌色5</annotation>
+		<annotation cp="🦸🏿">スーパーヒーロー | ヒロイン | ヒーロー | 善 | 超人 | 肌色6</annotation>
+		<annotation cp="🦸🏿" type="tts">スーパーヒーロー: 肌色6</annotation>
+		<annotation cp="🦸🏻‍♀">ヒロイン | ヒーロー | 善 | 女性 | 女性のスーパーヒーロー | 超人 | 肌色1–2</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">女性のスーパーヒーロー: 肌色1–2</annotation>
+		<annotation cp="🦸🏼‍♀">ヒロイン | ヒーロー | 善 | 女性 | 女性のスーパーヒーロー | 超人 | 肌色3</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">女性のスーパーヒーロー: 肌色3</annotation>
+		<annotation cp="🦸🏽‍♀">ヒロイン | ヒーロー | 善 | 女性 | 女性のスーパーヒーロー | 超人 | 肌色4</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">女性のスーパーヒーロー: 肌色4</annotation>
+		<annotation cp="🦸🏾‍♀">ヒロイン | ヒーロー | 善 | 女性 | 女性のスーパーヒーロー | 超人 | 肌色5</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">女性のスーパーヒーロー: 肌色5</annotation>
+		<annotation cp="🦸🏿‍♀">ヒロイン | ヒーロー | 善 | 女性 | 女性のスーパーヒーロー | 超人 | 肌色6</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">女性のスーパーヒーロー: 肌色6</annotation>
+		<annotation cp="🦸🏻‍♂">ヒーロー | 善 | 男性 | 男性のスーパーヒーロー | 超人 | 肌色1–2</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">男性のスーパーヒーロー: 肌色1–2</annotation>
+		<annotation cp="🦸🏼‍♂">ヒーロー | 善 | 男性 | 男性のスーパーヒーロー | 超人 | 肌色3</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">男性のスーパーヒーロー: 肌色3</annotation>
+		<annotation cp="🦸🏽‍♂">ヒーロー | 善 | 男性 | 男性のスーパーヒーロー | 超人 | 肌色4</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">男性のスーパーヒーロー: 肌色4</annotation>
+		<annotation cp="🦸🏾‍♂">ヒーロー | 善 | 男性 | 男性のスーパーヒーロー | 超人 | 肌色5</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">男性のスーパーヒーロー: 肌色5</annotation>
+		<annotation cp="🦸🏿‍♂">ヒーロー | 善 | 男性 | 男性のスーパーヒーロー | 超人 | 肌色6</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">男性のスーパーヒーロー: 肌色6</annotation>
+		<annotation cp="🦹🏻">ヴィラン | 悪 | 悪役 | 犯人 | 超人 | 肌色1–2</annotation>
+		<annotation cp="🦹🏻" type="tts">悪役: 肌色1–2</annotation>
+		<annotation cp="🦹🏼">ヴィラン | 悪 | 悪役 | 犯人 | 超人 | 肌色3</annotation>
+		<annotation cp="🦹🏼" type="tts">悪役: 肌色3</annotation>
+		<annotation cp="🦹🏽">ヴィラン | 悪 | 悪役 | 犯人 | 超人 | 肌色4</annotation>
+		<annotation cp="🦹🏽" type="tts">悪役: 肌色4</annotation>
+		<annotation cp="🦹🏾">ヴィラン | 悪 | 悪役 | 犯人 | 超人 | 肌色5</annotation>
+		<annotation cp="🦹🏾" type="tts">悪役: 肌色5</annotation>
+		<annotation cp="🦹🏿">ヴィラン | 悪 | 悪役 | 犯人 | 超人 | 肌色6</annotation>
+		<annotation cp="🦹🏿" type="tts">悪役: 肌色6</annotation>
+		<annotation cp="🦹🏻‍♀">ヴィラン | 女性 | 女性の悪役 | 悪 | 犯人 | 超人 | 肌色1–2</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">女性の悪役: 肌色1–2</annotation>
+		<annotation cp="🦹🏼‍♀">ヴィラン | 女性 | 女性の悪役 | 悪 | 犯人 | 超人 | 肌色3</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">女性の悪役: 肌色3</annotation>
+		<annotation cp="🦹🏽‍♀">ヴィラン | 女性 | 女性の悪役 | 悪 | 犯人 | 超人 | 肌色4</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">女性の悪役: 肌色4</annotation>
+		<annotation cp="🦹🏾‍♀">ヴィラン | 女性 | 女性の悪役 | 悪 | 犯人 | 超人 | 肌色5</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">女性の悪役: 肌色5</annotation>
+		<annotation cp="🦹🏿‍♀">ヴィラン | 女性 | 女性の悪役 | 悪 | 犯人 | 超人 | 肌色6</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">女性の悪役: 肌色6</annotation>
+		<annotation cp="🦹🏻‍♂">ヴィラン | 悪 | 犯人 | 男性 | 男性の悪役 | 超人 | 肌色1–2</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">男性の悪役: 肌色1–2</annotation>
+		<annotation cp="🦹🏼‍♂">ヴィラン | 悪 | 犯人 | 男性 | 男性の悪役 | 超人 | 肌色3</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">男性の悪役: 肌色3</annotation>
+		<annotation cp="🦹🏽‍♂">ヴィラン | 悪 | 犯人 | 男性 | 男性の悪役 | 超人 | 肌色4</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">男性の悪役: 肌色4</annotation>
+		<annotation cp="🦹🏾‍♂">ヴィラン | 悪 | 犯人 | 男性 | 男性の悪役 | 超人 | 肌色5</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">男性の悪役: 肌色5</annotation>
+		<annotation cp="🦹🏿‍♂">ヴィラン | 悪 | 犯人 | 男性 | 男性の悪役 | 超人 | 肌色6</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">男性の悪役: 肌色6</annotation>
 		<annotation cp="👶🏻">ベビー | 赤ちゃん | 赤ん坊 | 顔 | 肌色1–2</annotation>
 		<annotation cp="👶🏻" type="tts">赤ん坊: 肌色1–2</annotation>
 		<annotation cp="👶🏼">ベビー | 赤ちゃん | 赤ん坊 | 顔 | 肌色3</annotation>
@@ -33,56 +112,152 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧒🏾" type="tts">子供: 肌色5</annotation>
 		<annotation cp="🧒🏿">子供 | 顔 | 肌色6</annotation>
 		<annotation cp="🧒🏿" type="tts">子供: 肌色6</annotation>
-		<annotation cp="👦🏻">子供 | 男 | 男の子 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👦🏻">子供 | 少年 | 男の子 | 顔 | 肌色1–2</annotation>
 		<annotation cp="👦🏻" type="tts">男の子: 肌色1–2</annotation>
-		<annotation cp="👦🏼">子供 | 男 | 男の子 | 顔 | 肌色3</annotation>
+		<annotation cp="👦🏼">子供 | 少年 | 男の子 | 顔 | 肌色3</annotation>
 		<annotation cp="👦🏼" type="tts">男の子: 肌色3</annotation>
-		<annotation cp="👦🏽">子供 | 男 | 男の子 | 顔 | 肌色4</annotation>
+		<annotation cp="👦🏽">子供 | 少年 | 男の子 | 顔 | 肌色4</annotation>
 		<annotation cp="👦🏽" type="tts">男の子: 肌色4</annotation>
-		<annotation cp="👦🏾">子供 | 男 | 男の子 | 顔 | 肌色5</annotation>
+		<annotation cp="👦🏾">子供 | 少年 | 男の子 | 顔 | 肌色5</annotation>
 		<annotation cp="👦🏾" type="tts">男の子: 肌色5</annotation>
-		<annotation cp="👦🏿">子供 | 男 | 男の子 | 顔 | 肌色6</annotation>
+		<annotation cp="👦🏿">子供 | 少年 | 男の子 | 顔 | 肌色6</annotation>
 		<annotation cp="👦🏿" type="tts">男の子: 肌色6</annotation>
-		<annotation cp="👧🏻">女 | 女の子 | 子供 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👧🏻">女 | 女の子 | 子供 | 少女 | 顔 | 肌色1–2</annotation>
 		<annotation cp="👧🏻" type="tts">女の子: 肌色1–2</annotation>
-		<annotation cp="👧🏼">女 | 女の子 | 子供 | 顔 | 肌色3</annotation>
+		<annotation cp="👧🏼">女 | 女の子 | 子供 | 少女 | 顔 | 肌色3</annotation>
 		<annotation cp="👧🏼" type="tts">女の子: 肌色3</annotation>
-		<annotation cp="👧🏽">女 | 女の子 | 子供 | 顔 | 肌色4</annotation>
+		<annotation cp="👧🏽">女 | 女の子 | 子供 | 少女 | 顔 | 肌色4</annotation>
 		<annotation cp="👧🏽" type="tts">女の子: 肌色4</annotation>
-		<annotation cp="👧🏾">女 | 女の子 | 子供 | 顔 | 肌色5</annotation>
+		<annotation cp="👧🏾">女 | 女の子 | 子供 | 少女 | 顔 | 肌色5</annotation>
 		<annotation cp="👧🏾" type="tts">女の子: 肌色5</annotation>
-		<annotation cp="👧🏿">女 | 女の子 | 子供 | 顔 | 肌色6</annotation>
+		<annotation cp="👧🏿">女 | 女の子 | 子供 | 少女 | 顔 | 肌色6</annotation>
 		<annotation cp="👧🏿" type="tts">女の子: 肌色6</annotation>
-		<annotation cp="🧑🏻">大人 | 顔 | 肌色1–2</annotation>
+		<annotation cp="🧑🏻">大人 | 成人 | 顔 | 肌色1–2</annotation>
 		<annotation cp="🧑🏻" type="tts">大人: 肌色1–2</annotation>
-		<annotation cp="🧑🏼">大人 | 顔 | 肌色3</annotation>
+		<annotation cp="🧑🏼">大人 | 成人 | 顔 | 肌色3</annotation>
 		<annotation cp="🧑🏼" type="tts">大人: 肌色3</annotation>
-		<annotation cp="🧑🏽">大人 | 顔 | 肌色4</annotation>
+		<annotation cp="🧑🏽">大人 | 成人 | 顔 | 肌色4</annotation>
 		<annotation cp="🧑🏽" type="tts">大人: 肌色4</annotation>
-		<annotation cp="🧑🏾">大人 | 顔 | 肌色5</annotation>
+		<annotation cp="🧑🏾">大人 | 成人 | 顔 | 肌色5</annotation>
 		<annotation cp="🧑🏾" type="tts">大人: 肌色5</annotation>
-		<annotation cp="🧑🏿">大人 | 顔 | 肌色6</annotation>
+		<annotation cp="🧑🏿">大人 | 成人 | 顔 | 肌色6</annotation>
 		<annotation cp="🧑🏿" type="tts">大人: 肌色6</annotation>
-		<annotation cp="👨🏻">男 | 男性 | 顔 | 肌色1–2</annotation>
-		<annotation cp="👨🏻" type="tts">男: 肌色1–2</annotation>
-		<annotation cp="👨🏼">男 | 男性 | 顔 | 肌色3</annotation>
-		<annotation cp="👨🏼" type="tts">男: 肌色3</annotation>
-		<annotation cp="👨🏽">男 | 男性 | 顔 | 肌色4</annotation>
-		<annotation cp="👨🏽" type="tts">男: 肌色4</annotation>
-		<annotation cp="👨🏾">男 | 男性 | 顔 | 肌色5</annotation>
-		<annotation cp="👨🏾" type="tts">男: 肌色5</annotation>
-		<annotation cp="👨🏿">男 | 男性 | 顔 | 肌色6</annotation>
-		<annotation cp="👨🏿" type="tts">男: 肌色6</annotation>
-		<annotation cp="👩🏻">女 | 女性 | 顔 | 肌色1–2</annotation>
-		<annotation cp="👩🏻" type="tts">女: 肌色1–2</annotation>
-		<annotation cp="👩🏼">女 | 女性 | 顔 | 肌色3</annotation>
-		<annotation cp="👩🏼" type="tts">女: 肌色3</annotation>
-		<annotation cp="👩🏽">女 | 女性 | 顔 | 肌色4</annotation>
-		<annotation cp="👩🏽" type="tts">女: 肌色4</annotation>
-		<annotation cp="👩🏾">女 | 女性 | 顔 | 肌色5</annotation>
-		<annotation cp="👩🏾" type="tts">女: 肌色5</annotation>
-		<annotation cp="👩🏿">女 | 女性 | 顔 | 肌色6</annotation>
-		<annotation cp="👩🏿" type="tts">女: 肌色6</annotation>
+		<annotation cp="👨🏻">大人 | 男 | 男性 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👨🏻" type="tts">男性: 肌色1–2</annotation>
+		<annotation cp="👨🏼">大人 | 男 | 男性 | 顔 | 肌色3</annotation>
+		<annotation cp="👨🏼" type="tts">男性: 肌色3</annotation>
+		<annotation cp="👨🏽">大人 | 男 | 男性 | 顔 | 肌色4</annotation>
+		<annotation cp="👨🏽" type="tts">男性: 肌色4</annotation>
+		<annotation cp="👨🏾">大人 | 男 | 男性 | 顔 | 肌色5</annotation>
+		<annotation cp="👨🏾" type="tts">男性: 肌色5</annotation>
+		<annotation cp="👨🏿">大人 | 男 | 男性 | 顔 | 肌色6</annotation>
+		<annotation cp="👨🏿" type="tts">男性: 肌色6</annotation>
+		<annotation cp="👨‍🦰">大人 | 男 | 男性 | 顔 | 赤毛</annotation>
+		<annotation cp="👨‍🦰" type="tts">男性: 赤毛</annotation>
+		<annotation cp="👨🏻‍🦰">大人 | 男 | 男性 | 顔 | 肌色1–2 | 赤毛</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">男性: 肌色1–2 赤毛</annotation>
+		<annotation cp="👨🏼‍🦰">大人 | 男 | 男性 | 顔 | 肌色3 | 赤毛</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">男性: 肌色3 赤毛</annotation>
+		<annotation cp="👨🏽‍🦰">大人 | 男 | 男性 | 顔 | 肌色4 | 赤毛</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">男性: 肌色4 赤毛</annotation>
+		<annotation cp="👨🏾‍🦰">大人 | 男 | 男性 | 顔 | 肌色5 | 赤毛</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">男性: 肌色5 赤毛</annotation>
+		<annotation cp="👨🏿‍🦰">大人 | 男 | 男性 | 顔 | 肌色6 | 赤毛</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">男性: 肌色6 赤毛</annotation>
+		<annotation cp="👨‍🦱">大人 | 男 | 男性 | 顔 | 巻き毛</annotation>
+		<annotation cp="👨‍🦱" type="tts">男性: 巻き毛</annotation>
+		<annotation cp="👨🏻‍🦱">大人 | 男 | 男性 | 顔 | 肌色1–2 | 巻き毛</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">男性: 肌色1–2 巻き毛</annotation>
+		<annotation cp="👨🏼‍🦱">大人 | 男 | 男性 | 顔 | 肌色3 | 巻き毛</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">男性: 肌色3 巻き毛</annotation>
+		<annotation cp="👨🏽‍🦱">大人 | 男 | 男性 | 顔 | 肌色4 | 巻き毛</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">男性: 肌色4 巻き毛</annotation>
+		<annotation cp="👨🏾‍🦱">大人 | 男 | 男性 | 顔 | 肌色5 | 巻き毛</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">男性: 肌色5 巻き毛</annotation>
+		<annotation cp="👨🏿‍🦱">大人 | 男 | 男性 | 顔 | 肌色6 | 巻き毛</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">男性: 肌色6 巻き毛</annotation>
+		<annotation cp="👨‍🦲">大人 | 男 | 男性 | 顔 | はげ頭</annotation>
+		<annotation cp="👨‍🦲" type="tts">男性: はげ頭</annotation>
+		<annotation cp="👨🏻‍🦲">大人 | 男 | 男性 | 顔 | 肌色1–2 | はげ頭</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">男性: 肌色1–2 はげ頭</annotation>
+		<annotation cp="👨🏼‍🦲">大人 | 男 | 男性 | 顔 | 肌色3 | はげ頭</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">男性: 肌色3 はげ頭</annotation>
+		<annotation cp="👨🏽‍🦲">大人 | 男 | 男性 | 顔 | 肌色4 | はげ頭</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">男性: 肌色4 はげ頭</annotation>
+		<annotation cp="👨🏾‍🦲">大人 | 男 | 男性 | 顔 | 肌色5 | はげ頭</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">男性: 肌色5 はげ頭</annotation>
+		<annotation cp="👨🏿‍🦲">大人 | 男 | 男性 | 顔 | 肌色6 | はげ頭</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">男性: 肌色6 はげ頭</annotation>
+		<annotation cp="👨‍🦳">大人 | 男 | 男性 | 顔 | 白髪</annotation>
+		<annotation cp="👨‍🦳" type="tts">男性: 白髪</annotation>
+		<annotation cp="👨🏻‍🦳">大人 | 男 | 男性 | 顔 | 肌色1–2 | 白髪</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">男性: 肌色1–2 白髪</annotation>
+		<annotation cp="👨🏼‍🦳">大人 | 男 | 男性 | 顔 | 肌色3 | 白髪</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">男性: 肌色3 白髪</annotation>
+		<annotation cp="👨🏽‍🦳">大人 | 男 | 男性 | 顔 | 肌色4 | 白髪</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">男性: 肌色4 白髪</annotation>
+		<annotation cp="👨🏾‍🦳">大人 | 男 | 男性 | 顔 | 肌色5 | 白髪</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">男性: 肌色5 白髪</annotation>
+		<annotation cp="👨🏿‍🦳">大人 | 男 | 男性 | 顔 | 肌色6 | 白髪</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">男性: 肌色6 白髪</annotation>
+		<annotation cp="👩🏻">大人 | 女 | 女性 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👩🏻" type="tts">女性: 肌色1–2</annotation>
+		<annotation cp="👩🏼">大人 | 女 | 女性 | 顔 | 肌色3</annotation>
+		<annotation cp="👩🏼" type="tts">女性: 肌色3</annotation>
+		<annotation cp="👩🏽">大人 | 女 | 女性 | 顔 | 肌色4</annotation>
+		<annotation cp="👩🏽" type="tts">女性: 肌色4</annotation>
+		<annotation cp="👩🏾">大人 | 女 | 女性 | 顔 | 肌色5</annotation>
+		<annotation cp="👩🏾" type="tts">女性: 肌色5</annotation>
+		<annotation cp="👩🏿">大人 | 女 | 女性 | 顔 | 肌色6</annotation>
+		<annotation cp="👩🏿" type="tts">女性: 肌色6</annotation>
+		<annotation cp="👩‍🦰">大人 | 女 | 女性 | 顔 | 赤毛</annotation>
+		<annotation cp="👩‍🦰" type="tts">女性: 赤毛</annotation>
+		<annotation cp="👩🏻‍🦰">大人 | 女 | 女性 | 顔 | 肌色1–2 | 赤毛</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">女性: 肌色1–2 赤毛</annotation>
+		<annotation cp="👩🏼‍🦰">大人 | 女 | 女性 | 顔 | 肌色3 | 赤毛</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">女性: 肌色3 赤毛</annotation>
+		<annotation cp="👩🏽‍🦰">大人 | 女 | 女性 | 顔 | 肌色4 | 赤毛</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">女性: 肌色4 赤毛</annotation>
+		<annotation cp="👩🏾‍🦰">大人 | 女 | 女性 | 顔 | 肌色5 | 赤毛</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">女性: 肌色5 赤毛</annotation>
+		<annotation cp="👩🏿‍🦰">大人 | 女 | 女性 | 顔 | 肌色6 | 赤毛</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">女性: 肌色6 赤毛</annotation>
+		<annotation cp="👩‍🦱">大人 | 女 | 女性 | 顔 | 巻き毛</annotation>
+		<annotation cp="👩‍🦱" type="tts">女性: 巻き毛</annotation>
+		<annotation cp="👩🏻‍🦱">大人 | 女 | 女性 | 顔 | 肌色1–2 | 巻き毛</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">女性: 肌色1–2 巻き毛</annotation>
+		<annotation cp="👩🏼‍🦱">大人 | 女 | 女性 | 顔 | 肌色3 | 巻き毛</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">女性: 肌色3 巻き毛</annotation>
+		<annotation cp="👩🏽‍🦱">大人 | 女 | 女性 | 顔 | 肌色4 | 巻き毛</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">女性: 肌色4 巻き毛</annotation>
+		<annotation cp="👩🏾‍🦱">大人 | 女 | 女性 | 顔 | 肌色5 | 巻き毛</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">女性: 肌色5 巻き毛</annotation>
+		<annotation cp="👩🏿‍🦱">大人 | 女 | 女性 | 顔 | 肌色6 | 巻き毛</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">女性: 肌色6 巻き毛</annotation>
+		<annotation cp="👩‍🦲">大人 | 女 | 女性 | 顔 | はげ頭</annotation>
+		<annotation cp="👩‍🦲" type="tts">女性: はげ頭</annotation>
+		<annotation cp="👩🏻‍🦲">大人 | 女 | 女性 | 顔 | 肌色1–2 | はげ頭</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">女性: 肌色1–2 はげ頭</annotation>
+		<annotation cp="👩🏼‍🦲">大人 | 女 | 女性 | 顔 | 肌色3 | はげ頭</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">女性: 肌色3 はげ頭</annotation>
+		<annotation cp="👩🏽‍🦲">大人 | 女 | 女性 | 顔 | 肌色4 | はげ頭</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">女性: 肌色4 はげ頭</annotation>
+		<annotation cp="👩🏾‍🦲">大人 | 女 | 女性 | 顔 | 肌色5 | はげ頭</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">女性: 肌色5 はげ頭</annotation>
+		<annotation cp="👩🏿‍🦲">大人 | 女 | 女性 | 顔 | 肌色6 | はげ頭</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">女性: 肌色6 はげ頭</annotation>
+		<annotation cp="👩‍🦳">大人 | 女 | 女性 | 顔 | 白髪</annotation>
+		<annotation cp="👩‍🦳" type="tts">女性: 白髪</annotation>
+		<annotation cp="👩🏻‍🦳">大人 | 女 | 女性 | 顔 | 肌色1–2 | 白髪</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">女性: 肌色1–2 白髪</annotation>
+		<annotation cp="👩🏼‍🦳">大人 | 女 | 女性 | 顔 | 肌色3 | 白髪</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">女性: 肌色3 白髪</annotation>
+		<annotation cp="👩🏽‍🦳">大人 | 女 | 女性 | 顔 | 肌色4 | 白髪</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">女性: 肌色4 白髪</annotation>
+		<annotation cp="👩🏾‍🦳">大人 | 女 | 女性 | 顔 | 肌色5 | 白髪</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">女性: 肌色5 白髪</annotation>
+		<annotation cp="👩🏿‍🦳">大人 | 女 | 女性 | 顔 | 肌色6 | 白髪</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">女性: 肌色6 白髪</annotation>
 		<annotation cp="🧓🏻">お年寄り | 老人 | 顔 | 高齢者 | 肌色1–2</annotation>
 		<annotation cp="🧓🏻" type="tts">お年寄り: 肌色1–2</annotation>
 		<annotation cp="🧓🏼">お年寄り | 老人 | 顔 | 高齢者 | 肌色3</annotation>
@@ -133,25 +308,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">女性の医者: 肌色5</annotation>
 		<annotation cp="👩🏿‍⚕">医師 | 医者 | 女 | 女性 | 女性の医者 | 肌色6</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">女性の医者: 肌色6</annotation>
-		<annotation cp="👨🏻‍🎓">卒業 | 学生 | 生徒 | 男 | 男子学生 | 男子生徒 | 男性 | 角帽 | 肌色1–2</annotation>
+		<annotation cp="👨🏻‍🎓">卒業 | 学生 | 男 | 男子学生 | 男性 | 角帽 | 肌色1–2</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">男子学生: 肌色1–2</annotation>
-		<annotation cp="👨🏼‍🎓">卒業 | 学生 | 生徒 | 男 | 男子学生 | 男子生徒 | 男性 | 角帽 | 肌色3</annotation>
+		<annotation cp="👨🏼‍🎓">卒業 | 学生 | 男 | 男子学生 | 男性 | 角帽 | 肌色3</annotation>
 		<annotation cp="👨🏼‍🎓" type="tts">男子学生: 肌色3</annotation>
-		<annotation cp="👨🏽‍🎓">卒業 | 学生 | 生徒 | 男 | 男子学生 | 男子生徒 | 男性 | 角帽 | 肌色4</annotation>
+		<annotation cp="👨🏽‍🎓">卒業 | 学生 | 男 | 男子学生 | 男性 | 角帽 | 肌色4</annotation>
 		<annotation cp="👨🏽‍🎓" type="tts">男子学生: 肌色4</annotation>
-		<annotation cp="👨🏾‍🎓">卒業 | 学生 | 生徒 | 男 | 男子学生 | 男子生徒 | 男性 | 角帽 | 肌色5</annotation>
+		<annotation cp="👨🏾‍🎓">卒業 | 学生 | 男 | 男子学生 | 男性 | 角帽 | 肌色5</annotation>
 		<annotation cp="👨🏾‍🎓" type="tts">男子学生: 肌色5</annotation>
-		<annotation cp="👨🏿‍🎓">卒業 | 学生 | 生徒 | 男 | 男子学生 | 男子生徒 | 男性 | 角帽 | 肌色6</annotation>
+		<annotation cp="👨🏿‍🎓">卒業 | 学生 | 男 | 男子学生 | 男性 | 角帽 | 肌色6</annotation>
 		<annotation cp="👨🏿‍🎓" type="tts">男子学生: 肌色6</annotation>
-		<annotation cp="👩🏻‍🎓">卒業 | 女 | 女子学生 | 女子生徒 | 女性 | 学生 | 生徒 | 角帽 | 肌色1–2</annotation>
+		<annotation cp="👩🏻‍🎓">卒業 | 女 | 女子学生 | 女性 | 学生 | 角帽 | 肌色1–2</annotation>
 		<annotation cp="👩🏻‍🎓" type="tts">女子学生: 肌色1–2</annotation>
-		<annotation cp="👩🏼‍🎓">卒業 | 女 | 女子学生 | 女子生徒 | 女性 | 学生 | 生徒 | 角帽 | 肌色3</annotation>
+		<annotation cp="👩🏼‍🎓">卒業 | 女 | 女子学生 | 女性 | 学生 | 角帽 | 肌色3</annotation>
 		<annotation cp="👩🏼‍🎓" type="tts">女子学生: 肌色3</annotation>
-		<annotation cp="👩🏽‍🎓">卒業 | 女 | 女子学生 | 女子生徒 | 女性 | 学生 | 生徒 | 角帽 | 肌色4</annotation>
+		<annotation cp="👩🏽‍🎓">卒業 | 女 | 女子学生 | 女性 | 学生 | 角帽 | 肌色4</annotation>
 		<annotation cp="👩🏽‍🎓" type="tts">女子学生: 肌色4</annotation>
-		<annotation cp="👩🏾‍🎓">卒業 | 女 | 女子学生 | 女子生徒 | 女性 | 学生 | 生徒 | 角帽 | 肌色5</annotation>
+		<annotation cp="👩🏾‍🎓">卒業 | 女 | 女子学生 | 女性 | 学生 | 角帽 | 肌色5</annotation>
 		<annotation cp="👩🏾‍🎓" type="tts">女子学生: 肌色5</annotation>
-		<annotation cp="👩🏿‍🎓">卒業 | 女 | 女子学生 | 女子生徒 | 女性 | 学生 | 生徒 | 角帽 | 肌色6</annotation>
+		<annotation cp="👩🏿‍🎓">卒業 | 女 | 女子学生 | 女性 | 学生 | 角帽 | 肌色6</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">女子学生: 肌色6</annotation>
 		<annotation cp="👨🏻‍🏫">先生 | 教師 | 教授 | 男 | 男性 | 男性の教師 | 肌色1–2</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">男性の教師: 肌色1–2</annotation>
@@ -373,25 +548,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">女性の芸術家: 肌色5</annotation>
 		<annotation cp="👩🏿‍🎨">アーティスト | 女 | 女性 | 女性の芸術家 | 画家 | 芸術家 | 肌色6</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">女性の芸術家: 肌色6</annotation>
-		<annotation cp="👨🏻‍✈">パイロット | 男 | 男性 | 男性パイロット | 肌色1–2</annotation>
+		<annotation cp="👨🏻‍✈">操縦士 | 男 | 男性 | 男性パイロット | 肌色1–2</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">男性パイロット: 肌色1–2</annotation>
-		<annotation cp="👨🏼‍✈">パイロット | 男 | 男性 | 男性パイロット | 肌色3</annotation>
+		<annotation cp="👨🏼‍✈">操縦士 | 男 | 男性 | 男性パイロット | 肌色3</annotation>
 		<annotation cp="👨🏼‍✈" type="tts">男性パイロット: 肌色3</annotation>
-		<annotation cp="👨🏽‍✈">パイロット | 男 | 男性 | 男性パイロット | 肌色4</annotation>
+		<annotation cp="👨🏽‍✈">操縦士 | 男 | 男性 | 男性パイロット | 肌色4</annotation>
 		<annotation cp="👨🏽‍✈" type="tts">男性パイロット: 肌色4</annotation>
-		<annotation cp="👨🏾‍✈">パイロット | 男 | 男性 | 男性パイロット | 肌色5</annotation>
+		<annotation cp="👨🏾‍✈">操縦士 | 男 | 男性 | 男性パイロット | 肌色5</annotation>
 		<annotation cp="👨🏾‍✈" type="tts">男性パイロット: 肌色5</annotation>
-		<annotation cp="👨🏿‍✈">パイロット | 男 | 男性 | 男性パイロット | 肌色6</annotation>
+		<annotation cp="👨🏿‍✈">操縦士 | 男 | 男性 | 男性パイロット | 肌色6</annotation>
 		<annotation cp="👨🏿‍✈" type="tts">男性パイロット: 肌色6</annotation>
-		<annotation cp="👩🏻‍✈">パイロット | 女 | 女性 | 女性パイロット | 肌色1–2</annotation>
+		<annotation cp="👩🏻‍✈">女 | 女性 | 女性パイロット | 操縦士 | 肌色1–2</annotation>
 		<annotation cp="👩🏻‍✈" type="tts">女性パイロット: 肌色1–2</annotation>
-		<annotation cp="👩🏼‍✈">パイロット | 女 | 女性 | 女性パイロット | 肌色3</annotation>
+		<annotation cp="👩🏼‍✈">女 | 女性 | 女性パイロット | 操縦士 | 肌色3</annotation>
 		<annotation cp="👩🏼‍✈" type="tts">女性パイロット: 肌色3</annotation>
-		<annotation cp="👩🏽‍✈">パイロット | 女 | 女性 | 女性パイロット | 肌色4</annotation>
+		<annotation cp="👩🏽‍✈">女 | 女性 | 女性パイロット | 操縦士 | 肌色4</annotation>
 		<annotation cp="👩🏽‍✈" type="tts">女性パイロット: 肌色4</annotation>
-		<annotation cp="👩🏾‍✈">パイロット | 女 | 女性 | 女性パイロット | 肌色5</annotation>
+		<annotation cp="👩🏾‍✈">女 | 女性 | 女性パイロット | 操縦士 | 肌色5</annotation>
 		<annotation cp="👩🏾‍✈" type="tts">女性パイロット: 肌色5</annotation>
-		<annotation cp="👩🏿‍✈">パイロット | 女 | 女性 | 女性パイロット | 肌色6</annotation>
+		<annotation cp="👩🏿‍✈">女 | 女性 | 女性パイロット | 操縦士 | 肌色6</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">女性パイロット: 肌色6</annotation>
 		<annotation cp="👨🏻‍🚀">宇宙飛行士 | 男 | 男性 | 男性宇宙飛行士 | 肌色1–2</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">男性宇宙飛行士: 肌色1–2</annotation>
@@ -453,25 +628,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👮🏾‍♂" type="tts">男性警察官: 肌色5</annotation>
 		<annotation cp="👮🏿‍♂">お巡りさん | 男 | 男性 | 男性警察官 | 警官 | 警察 | 警察官 | 肌色6</annotation>
 		<annotation cp="👮🏿‍♂" type="tts">男性警察官: 肌色6</annotation>
-		<annotation cp="👮🏻‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 婦警 | 警官 | 警察 | 警察官 | 肌色1–2</annotation>
+		<annotation cp="👮🏻‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 警官 | 警察 | 警察官 | 肌色1–2</annotation>
 		<annotation cp="👮🏻‍♀" type="tts">女性警察官: 肌色1–2</annotation>
-		<annotation cp="👮🏼‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 婦警 | 警官 | 警察 | 警察官 | 肌色3</annotation>
+		<annotation cp="👮🏼‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 警官 | 警察 | 警察官 | 肌色3</annotation>
 		<annotation cp="👮🏼‍♀" type="tts">女性警察官: 肌色3</annotation>
-		<annotation cp="👮🏽‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 婦警 | 警官 | 警察 | 警察官 | 肌色4</annotation>
+		<annotation cp="👮🏽‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 警官 | 警察 | 警察官 | 肌色4</annotation>
 		<annotation cp="👮🏽‍♀" type="tts">女性警察官: 肌色4</annotation>
-		<annotation cp="👮🏾‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 婦警 | 警官 | 警察 | 警察官 | 肌色5</annotation>
+		<annotation cp="👮🏾‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 警官 | 警察 | 警察官 | 肌色5</annotation>
 		<annotation cp="👮🏾‍♀" type="tts">女性警察官: 肌色5</annotation>
-		<annotation cp="👮🏿‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 婦警 | 警官 | 警察 | 警察官 | 肌色6</annotation>
+		<annotation cp="👮🏿‍♀">お巡りさん | 女 | 女性 | 女性警察官 | 警官 | 警察 | 警察官 | 肌色6</annotation>
 		<annotation cp="👮🏿‍♀" type="tts">女性警察官: 肌色6</annotation>
-		<annotation cp="🕵🏻">探偵 | 顔 | 肌色1–2</annotation>
+		<annotation cp="🕵🏻">スパイ | 探偵 | 虫めがね | 肌色1–2</annotation>
 		<annotation cp="🕵🏻" type="tts">探偵: 肌色1–2</annotation>
-		<annotation cp="🕵🏼">探偵 | 顔 | 肌色3</annotation>
+		<annotation cp="🕵🏼">スパイ | 探偵 | 虫めがね | 肌色3</annotation>
 		<annotation cp="🕵🏼" type="tts">探偵: 肌色3</annotation>
-		<annotation cp="🕵🏽">探偵 | 顔 | 肌色4</annotation>
+		<annotation cp="🕵🏽">スパイ | 探偵 | 虫めがね | 肌色4</annotation>
 		<annotation cp="🕵🏽" type="tts">探偵: 肌色4</annotation>
-		<annotation cp="🕵🏾">探偵 | 顔 | 肌色5</annotation>
+		<annotation cp="🕵🏾">スパイ | 探偵 | 虫めがね | 肌色5</annotation>
 		<annotation cp="🕵🏾" type="tts">探偵: 肌色5</annotation>
-		<annotation cp="🕵🏿">探偵 | 顔 | 肌色6</annotation>
+		<annotation cp="🕵🏿">スパイ | 探偵 | 虫めがね | 肌色6</annotation>
 		<annotation cp="🕵🏿" type="tts">探偵: 肌色6</annotation>
 		<annotation cp="🕵🏻‍♂">探偵 | 男 | 男性 | 男性の探偵 | 虫めがね | 肌色1–2</annotation>
 		<annotation cp="🕵🏻‍♂" type="tts">男性の探偵: 肌色1–2</annotation>
@@ -493,146 +668,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕵🏾‍♀" type="tts">女性の探偵: 肌色5</annotation>
 		<annotation cp="🕵🏿‍♀">女 | 女性 | 女性の探偵 | 探偵 | 虫めがね | 肌色6</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">女性の探偵: 肌色6</annotation>
-		<annotation cp="💂🏻">衛兵 | 警備 | 門番 | 顔 | 肌色1–2</annotation>
+		<annotation cp="💂🏻">守衛 | 衛兵 | 警備 | 門番 | 肌色1–2</annotation>
 		<annotation cp="💂🏻" type="tts">衛兵: 肌色1–2</annotation>
-		<annotation cp="💂🏼">衛兵 | 警備 | 門番 | 顔 | 肌色3</annotation>
+		<annotation cp="💂🏼">守衛 | 衛兵 | 警備 | 門番 | 肌色3</annotation>
 		<annotation cp="💂🏼" type="tts">衛兵: 肌色3</annotation>
-		<annotation cp="💂🏽">衛兵 | 警備 | 門番 | 顔 | 肌色4</annotation>
+		<annotation cp="💂🏽">守衛 | 衛兵 | 警備 | 門番 | 肌色4</annotation>
 		<annotation cp="💂🏽" type="tts">衛兵: 肌色4</annotation>
-		<annotation cp="💂🏾">衛兵 | 警備 | 門番 | 顔 | 肌色5</annotation>
+		<annotation cp="💂🏾">守衛 | 衛兵 | 警備 | 門番 | 肌色5</annotation>
 		<annotation cp="💂🏾" type="tts">衛兵: 肌色5</annotation>
-		<annotation cp="💂🏿">衛兵 | 警備 | 門番 | 顔 | 肌色6</annotation>
+		<annotation cp="💂🏿">守衛 | 衛兵 | 警備 | 門番 | 肌色6</annotation>
 		<annotation cp="💂🏿" type="tts">衛兵: 肌色6</annotation>
-		<annotation cp="💂🏻‍♂">男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 門番 | 肌色1–2</annotation>
+		<annotation cp="💂🏻‍♂">守衛 | 男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 肌色1–2</annotation>
 		<annotation cp="💂🏻‍♂" type="tts">男性の衛兵: 肌色1–2</annotation>
-		<annotation cp="💂🏼‍♂">男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 門番 | 肌色3</annotation>
+		<annotation cp="💂🏼‍♂">守衛 | 男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 肌色3</annotation>
 		<annotation cp="💂🏼‍♂" type="tts">男性の衛兵: 肌色3</annotation>
-		<annotation cp="💂🏽‍♂">男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 門番 | 肌色4</annotation>
+		<annotation cp="💂🏽‍♂">守衛 | 男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 肌色4</annotation>
 		<annotation cp="💂🏽‍♂" type="tts">男性の衛兵: 肌色4</annotation>
-		<annotation cp="💂🏾‍♂">男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 門番 | 肌色5</annotation>
+		<annotation cp="💂🏾‍♂">守衛 | 男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 肌色5</annotation>
 		<annotation cp="💂🏾‍♂" type="tts">男性の衛兵: 肌色5</annotation>
-		<annotation cp="💂🏿‍♂">男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 門番 | 肌色6</annotation>
+		<annotation cp="💂🏿‍♂">守衛 | 男 | 男性 | 男性の衛兵 | 衛兵 | 警備 | 肌色6</annotation>
 		<annotation cp="💂🏿‍♂" type="tts">男性の衛兵: 肌色6</annotation>
-		<annotation cp="💂🏻‍♀">女 | 女性 | 女性の衛兵 | 衛兵 | 警備 | 門番 | 肌色1–2</annotation>
+		<annotation cp="💂🏻‍♀">女 | 女性 | 女性の衛兵 | 守衛 | 衛兵 | 警備 | 門番 | 肌色1–2</annotation>
 		<annotation cp="💂🏻‍♀" type="tts">女性の衛兵: 肌色1–2</annotation>
-		<annotation cp="💂🏼‍♀">女 | 女性 | 女性の衛兵 | 衛兵 | 警備 | 門番 | 肌色3</annotation>
+		<annotation cp="💂🏼‍♀">女 | 女性 | 女性の衛兵 | 守衛 | 衛兵 | 警備 | 門番 | 肌色3</annotation>
 		<annotation cp="💂🏼‍♀" type="tts">女性の衛兵: 肌色3</annotation>
-		<annotation cp="💂🏽‍♀">女 | 女性 | 女性の衛兵 | 衛兵 | 警備 | 門番 | 肌色4</annotation>
+		<annotation cp="💂🏽‍♀">女 | 女性 | 女性の衛兵 | 守衛 | 衛兵 | 警備 | 門番 | 肌色4</annotation>
 		<annotation cp="💂🏽‍♀" type="tts">女性の衛兵: 肌色4</annotation>
-		<annotation cp="💂🏾‍♀">女 | 女性 | 女性の衛兵 | 衛兵 | 警備 | 門番 | 肌色5</annotation>
+		<annotation cp="💂🏾‍♀">女 | 女性 | 女性の衛兵 | 守衛 | 衛兵 | 警備 | 門番 | 肌色5</annotation>
 		<annotation cp="💂🏾‍♀" type="tts">女性の衛兵: 肌色5</annotation>
-		<annotation cp="💂🏿‍♀">女 | 女性 | 女性の衛兵 | 衛兵 | 警備 | 門番 | 肌色6</annotation>
+		<annotation cp="💂🏿‍♀">女 | 女性 | 女性の衛兵 | 守衛 | 衛兵 | 警備 | 門番 | 肌色6</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">女性の衛兵: 肌色6</annotation>
-		<annotation cp="👷🏻">かなづち | とんかち | ハンマー | ヘルメット | 作業員 | 工事 | 建設作業員 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👷🏻">かなづち | ハンマー | ヘルメット | 工事 | 建設作業員 | 肌色1–2</annotation>
 		<annotation cp="👷🏻" type="tts">建設作業員: 肌色1–2</annotation>
-		<annotation cp="👷🏼">かなづち | とんかち | ハンマー | ヘルメット | 作業員 | 工事 | 建設作業員 | 顔 | 肌色3</annotation>
+		<annotation cp="👷🏼">かなづち | ハンマー | ヘルメット | 工事 | 建設作業員 | 肌色3</annotation>
 		<annotation cp="👷🏼" type="tts">建設作業員: 肌色3</annotation>
-		<annotation cp="👷🏽">かなづち | とんかち | ハンマー | ヘルメット | 作業員 | 工事 | 建設作業員 | 顔 | 肌色4</annotation>
+		<annotation cp="👷🏽">かなづち | ハンマー | ヘルメット | 工事 | 建設作業員 | 肌色4</annotation>
 		<annotation cp="👷🏽" type="tts">建設作業員: 肌色4</annotation>
-		<annotation cp="👷🏾">かなづち | とんかち | ハンマー | ヘルメット | 作業員 | 工事 | 建設作業員 | 顔 | 肌色5</annotation>
+		<annotation cp="👷🏾">かなづち | ハンマー | ヘルメット | 工事 | 建設作業員 | 肌色5</annotation>
 		<annotation cp="👷🏾" type="tts">建設作業員: 肌色5</annotation>
-		<annotation cp="👷🏿">かなづち | とんかち | ハンマー | ヘルメット | 作業員 | 工事 | 建設作業員 | 顔 | 肌色6</annotation>
+		<annotation cp="👷🏿">かなづち | ハンマー | ヘルメット | 工事 | 建設作業員 | 肌色6</annotation>
 		<annotation cp="👷🏿" type="tts">建設作業員: 肌色6</annotation>
-		<annotation cp="👷🏻‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性建設作業員 | 肌色1–2</annotation>
-		<annotation cp="👷🏻‍♂" type="tts">男性建設作業員: 肌色1–2</annotation>
-		<annotation cp="👷🏼‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性建設作業員 | 肌色3</annotation>
-		<annotation cp="👷🏼‍♂" type="tts">男性建設作業員: 肌色3</annotation>
-		<annotation cp="👷🏽‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性建設作業員 | 肌色4</annotation>
-		<annotation cp="👷🏽‍♂" type="tts">男性建設作業員: 肌色4</annotation>
-		<annotation cp="👷🏾‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性建設作業員 | 肌色5</annotation>
-		<annotation cp="👷🏾‍♂" type="tts">男性建設作業員: 肌色5</annotation>
-		<annotation cp="👷🏿‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性建設作業員 | 肌色6</annotation>
-		<annotation cp="👷🏿‍♂" type="tts">男性建設作業員: 肌色6</annotation>
-		<annotation cp="👷🏻‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性建設作業員 | 工事 | 建設作業員 | 肌色1–2</annotation>
-		<annotation cp="👷🏻‍♀" type="tts">女性建設作業員: 肌色1–2</annotation>
-		<annotation cp="👷🏼‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性建設作業員 | 工事 | 建設作業員 | 肌色3</annotation>
-		<annotation cp="👷🏼‍♀" type="tts">女性建設作業員: 肌色3</annotation>
-		<annotation cp="👷🏽‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性建設作業員 | 工事 | 建設作業員 | 肌色4</annotation>
-		<annotation cp="👷🏽‍♀" type="tts">女性建設作業員: 肌色4</annotation>
-		<annotation cp="👷🏾‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性建設作業員 | 工事 | 建設作業員 | 肌色5</annotation>
-		<annotation cp="👷🏾‍♀" type="tts">女性建設作業員: 肌色5</annotation>
-		<annotation cp="👷🏿‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性建設作業員 | 工事 | 建設作業員 | 肌色6</annotation>
-		<annotation cp="👷🏿‍♀" type="tts">女性建設作業員: 肌色6</annotation>
-		<annotation cp="🤴🏻">プリンス | 王子 | 男 | 男性 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👷🏻‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性の建設作業員 | 男性建設作業員 | 肌色1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">男性の建設作業員: 肌色1–2</annotation>
+		<annotation cp="👷🏼‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性の建設作業員 | 男性建設作業員 | 肌色3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">男性の建設作業員: 肌色3</annotation>
+		<annotation cp="👷🏽‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性の建設作業員 | 男性建設作業員 | 肌色4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">男性の建設作業員: 肌色4</annotation>
+		<annotation cp="👷🏾‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性の建設作業員 | 男性建設作業員 | 肌色5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">男性の建設作業員: 肌色5</annotation>
+		<annotation cp="👷🏿‍♂">かなづち | とんかち | ハンマー | ヘルメット | 工事 | 建設作業員 | 男 | 男性 | 男性の建設作業員 | 男性建設作業員 | 肌色6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">男性の建設作業員: 肌色6</annotation>
+		<annotation cp="👷🏻‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性の建設作業員 | 女性建設作業員 | 工事 | 建設作業員 | 肌色1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">女性の建設作業員: 肌色1–2</annotation>
+		<annotation cp="👷🏼‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性の建設作業員 | 女性建設作業員 | 工事 | 建設作業員 | 肌色3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">女性の建設作業員: 肌色3</annotation>
+		<annotation cp="👷🏽‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性の建設作業員 | 女性建設作業員 | 工事 | 建設作業員 | 肌色4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">女性の建設作業員: 肌色4</annotation>
+		<annotation cp="👷🏾‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性の建設作業員 | 女性建設作業員 | 工事 | 建設作業員 | 肌色5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">女性の建設作業員: 肌色5</annotation>
+		<annotation cp="👷🏿‍♀">かなづち | とんかち | ハンマー | ヘルメット | 女 | 女性 | 女性の建設作業員 | 女性建設作業員 | 工事 | 建設作業員 | 肌色6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">女性の建設作業員: 肌色6</annotation>
+		<annotation cp="🤴🏻">プリンス | 王子 | 男 | 男性 | 肌色1–2</annotation>
 		<annotation cp="🤴🏻" type="tts">プリンス: 肌色1–2</annotation>
-		<annotation cp="🤴🏼">プリンス | 王子 | 男 | 男性 | 顔 | 肌色3</annotation>
+		<annotation cp="🤴🏼">プリンス | 王子 | 男 | 男性 | 肌色3</annotation>
 		<annotation cp="🤴🏼" type="tts">プリンス: 肌色3</annotation>
-		<annotation cp="🤴🏽">プリンス | 王子 | 男 | 男性 | 顔 | 肌色4</annotation>
+		<annotation cp="🤴🏽">プリンス | 王子 | 男 | 男性 | 肌色4</annotation>
 		<annotation cp="🤴🏽" type="tts">プリンス: 肌色4</annotation>
-		<annotation cp="🤴🏾">プリンス | 王子 | 男 | 男性 | 顔 | 肌色5</annotation>
+		<annotation cp="🤴🏾">プリンス | 王子 | 男 | 男性 | 肌色5</annotation>
 		<annotation cp="🤴🏾" type="tts">プリンス: 肌色5</annotation>
-		<annotation cp="🤴🏿">プリンス | 王子 | 男 | 男性 | 顔 | 肌色6</annotation>
+		<annotation cp="🤴🏿">プリンス | 王子 | 男 | 男性 | 肌色6</annotation>
 		<annotation cp="🤴🏿" type="tts">プリンス: 肌色6</annotation>
-		<annotation cp="👸🏻">お姫さま | クイーン | プリンセス | 女 | 女性 | 王女 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👸🏻">お姫さま | プリンセス | 女 | 女性 | 王女 | 肌色1–2</annotation>
 		<annotation cp="👸🏻" type="tts">プリンセス: 肌色1–2</annotation>
-		<annotation cp="👸🏼">お姫さま | クイーン | プリンセス | 女 | 女性 | 王女 | 顔 | 肌色3</annotation>
+		<annotation cp="👸🏼">お姫さま | プリンセス | 女 | 女性 | 王女 | 肌色3</annotation>
 		<annotation cp="👸🏼" type="tts">プリンセス: 肌色3</annotation>
-		<annotation cp="👸🏽">お姫さま | クイーン | プリンセス | 女 | 女性 | 王女 | 顔 | 肌色4</annotation>
+		<annotation cp="👸🏽">お姫さま | プリンセス | 女 | 女性 | 王女 | 肌色4</annotation>
 		<annotation cp="👸🏽" type="tts">プリンセス: 肌色4</annotation>
-		<annotation cp="👸🏾">お姫さま | クイーン | プリンセス | 女 | 女性 | 王女 | 顔 | 肌色5</annotation>
+		<annotation cp="👸🏾">お姫さま | プリンセス | 女 | 女性 | 王女 | 肌色5</annotation>
 		<annotation cp="👸🏾" type="tts">プリンセス: 肌色5</annotation>
-		<annotation cp="👸🏿">お姫さま | クイーン | プリンセス | 女 | 女性 | 王女 | 顔 | 肌色6</annotation>
+		<annotation cp="👸🏿">お姫さま | プリンセス | 女 | 女性 | 王女 | 肌色6</annotation>
 		<annotation cp="👸🏿" type="tts">プリンセス: 肌色6</annotation>
-		<annotation cp="👳🏻">ターバン | ターバンの人 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👳🏻">ターバン | ターバンの人 | 肌色1–2</annotation>
 		<annotation cp="👳🏻" type="tts">ターバンの人: 肌色1–2</annotation>
-		<annotation cp="👳🏼">ターバン | ターバンの人 | 顔 | 肌色3</annotation>
+		<annotation cp="👳🏼">ターバン | ターバンの人 | 肌色3</annotation>
 		<annotation cp="👳🏼" type="tts">ターバンの人: 肌色3</annotation>
-		<annotation cp="👳🏽">ターバン | ターバンの人 | 顔 | 肌色4</annotation>
+		<annotation cp="👳🏽">ターバン | ターバンの人 | 肌色4</annotation>
 		<annotation cp="👳🏽" type="tts">ターバンの人: 肌色4</annotation>
-		<annotation cp="👳🏾">ターバン | ターバンの人 | 顔 | 肌色5</annotation>
+		<annotation cp="👳🏾">ターバン | ターバンの人 | 肌色5</annotation>
 		<annotation cp="👳🏾" type="tts">ターバンの人: 肌色5</annotation>
-		<annotation cp="👳🏿">ターバン | ターバンの人 | 顔 | 肌色6</annotation>
+		<annotation cp="👳🏿">ターバン | ターバンの人 | 肌色6</annotation>
 		<annotation cp="👳🏿" type="tts">ターバンの人: 肌色6</annotation>
-		<annotation cp="👳🏻‍♂">ターバン | ターバンの男 | 男 | 男性 | 肌色1–2</annotation>
-		<annotation cp="👳🏻‍♂" type="tts">ターバンの男: 肌色1–2</annotation>
-		<annotation cp="👳🏼‍♂">ターバン | ターバンの男 | 男 | 男性 | 肌色3</annotation>
-		<annotation cp="👳🏼‍♂" type="tts">ターバンの男: 肌色3</annotation>
-		<annotation cp="👳🏽‍♂">ターバン | ターバンの男 | 男 | 男性 | 肌色4</annotation>
-		<annotation cp="👳🏽‍♂" type="tts">ターバンの男: 肌色4</annotation>
-		<annotation cp="👳🏾‍♂">ターバン | ターバンの男 | 男 | 男性 | 肌色5</annotation>
-		<annotation cp="👳🏾‍♂" type="tts">ターバンの男: 肌色5</annotation>
-		<annotation cp="👳🏿‍♂">ターバン | ターバンの男 | 男 | 男性 | 肌色6</annotation>
-		<annotation cp="👳🏿‍♂" type="tts">ターバンの男: 肌色6</annotation>
-		<annotation cp="👳🏻‍♀">ターバン | ターバンの女 | 女 | 女性 | 肌色1–2</annotation>
-		<annotation cp="👳🏻‍♀" type="tts">ターバンの女: 肌色1–2</annotation>
-		<annotation cp="👳🏼‍♀">ターバン | ターバンの女 | 女 | 女性 | 肌色3</annotation>
-		<annotation cp="👳🏼‍♀" type="tts">ターバンの女: 肌色3</annotation>
-		<annotation cp="👳🏽‍♀">ターバン | ターバンの女 | 女 | 女性 | 肌色4</annotation>
-		<annotation cp="👳🏽‍♀" type="tts">ターバンの女: 肌色4</annotation>
-		<annotation cp="👳🏾‍♀">ターバン | ターバンの女 | 女 | 女性 | 肌色5</annotation>
-		<annotation cp="👳🏾‍♀" type="tts">ターバンの女: 肌色5</annotation>
-		<annotation cp="👳🏿‍♀">ターバン | ターバンの女 | 女 | 女性 | 肌色6</annotation>
-		<annotation cp="👳🏿‍♀" type="tts">ターバンの女: 肌色6</annotation>
-		<annotation cp="👲🏻">おわん帽 | 中華帽の男 | 顔 | 肌色1–2</annotation>
-		<annotation cp="👲🏻" type="tts">中華帽の男: 肌色1–2</annotation>
-		<annotation cp="👲🏼">おわん帽 | 中華帽の男 | 顔 | 肌色3</annotation>
-		<annotation cp="👲🏼" type="tts">中華帽の男: 肌色3</annotation>
-		<annotation cp="👲🏽">おわん帽 | 中華帽の男 | 顔 | 肌色4</annotation>
-		<annotation cp="👲🏽" type="tts">中華帽の男: 肌色4</annotation>
-		<annotation cp="👲🏾">おわん帽 | 中華帽の男 | 顔 | 肌色5</annotation>
-		<annotation cp="👲🏾" type="tts">中華帽の男: 肌色5</annotation>
-		<annotation cp="👲🏿">おわん帽 | 中華帽の男 | 顔 | 肌色6</annotation>
-		<annotation cp="👲🏿" type="tts">中華帽の男: 肌色6</annotation>
-		<annotation cp="🧕🏻">スカーフ | スカーフの女 | ヒジャブ | ベール | 女 | 女性 | 顔 | 肌色1–2</annotation>
-		<annotation cp="🧕🏻" type="tts">スカーフの女: 肌色1–2</annotation>
-		<annotation cp="🧕🏼">スカーフ | スカーフの女 | ヒジャブ | ベール | 女 | 女性 | 顔 | 肌色3</annotation>
-		<annotation cp="🧕🏼" type="tts">スカーフの女: 肌色3</annotation>
-		<annotation cp="🧕🏽">スカーフ | スカーフの女 | ヒジャブ | ベール | 女 | 女性 | 顔 | 肌色4</annotation>
-		<annotation cp="🧕🏽" type="tts">スカーフの女: 肌色4</annotation>
-		<annotation cp="🧕🏾">スカーフ | スカーフの女 | ヒジャブ | ベール | 女 | 女性 | 顔 | 肌色5</annotation>
-		<annotation cp="🧕🏾" type="tts">スカーフの女: 肌色5</annotation>
-		<annotation cp="🧕🏿">スカーフ | スカーフの女 | ヒジャブ | ベール | 女 | 女性 | 顔 | 肌色6</annotation>
-		<annotation cp="🧕🏿" type="tts">スカーフの女: 肌色6</annotation>
-		<annotation cp="🧔🏻">あごひげ | あごひげの人 | 顔 | 肌色1–2</annotation>
-		<annotation cp="🧔🏻" type="tts">あごひげの人: 肌色1–2</annotation>
-		<annotation cp="🧔🏼">あごひげ | あごひげの人 | 顔 | 肌色3</annotation>
-		<annotation cp="🧔🏼" type="tts">あごひげの人: 肌色3</annotation>
-		<annotation cp="🧔🏽">あごひげ | あごひげの人 | 顔 | 肌色4</annotation>
-		<annotation cp="🧔🏽" type="tts">あごひげの人: 肌色4</annotation>
-		<annotation cp="🧔🏾">あごひげ | あごひげの人 | 顔 | 肌色5</annotation>
-		<annotation cp="🧔🏾" type="tts">あごひげの人: 肌色5</annotation>
-		<annotation cp="🧔🏿">あごひげ | あごひげの人 | 顔 | 肌色6</annotation>
-		<annotation cp="🧔🏿" type="tts">あごひげの人: 肌色6</annotation>
+		<annotation cp="👳🏻‍♂">ターバン | ターバンの男性 | 男 | 男性 | 肌色1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">ターバンの男性: 肌色1–2</annotation>
+		<annotation cp="👳🏼‍♂">ターバン | ターバンの男性 | 男 | 男性 | 肌色3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">ターバンの男性: 肌色3</annotation>
+		<annotation cp="👳🏽‍♂">ターバン | ターバンの男性 | 男 | 男性 | 肌色4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">ターバンの男性: 肌色4</annotation>
+		<annotation cp="👳🏾‍♂">ターバン | ターバンの男性 | 男 | 男性 | 肌色5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">ターバンの男性: 肌色5</annotation>
+		<annotation cp="👳🏿‍♂">ターバン | ターバンの男性 | 男 | 男性 | 肌色6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">ターバンの男性: 肌色6</annotation>
+		<annotation cp="👳🏻‍♀">ターバン | ターバンの女性 | 女 | 女性 | 肌色1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">ターバンの女性: 肌色1–2</annotation>
+		<annotation cp="👳🏼‍♀">ターバン | ターバンの女性 | 女 | 女性 | 肌色3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">ターバンの女性: 肌色3</annotation>
+		<annotation cp="👳🏽‍♀">ターバン | ターバンの女性 | 女 | 女性 | 肌色4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">ターバンの女性: 肌色4</annotation>
+		<annotation cp="👳🏾‍♀">ターバン | ターバンの女性 | 女 | 女性 | 肌色5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">ターバンの女性: 肌色5</annotation>
+		<annotation cp="👳🏿‍♀">ターバン | ターバンの女性 | 女 | 女性 | 肌色6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">ターバンの女性: 肌色6</annotation>
+		<annotation cp="👲🏻">おわん帽 | 中華帽の男性 | 男 | 男性 | 肌色1–2</annotation>
+		<annotation cp="👲🏻" type="tts">中華帽の男性: 肌色1–2</annotation>
+		<annotation cp="👲🏼">おわん帽 | 中華帽の男性 | 男 | 男性 | 肌色3</annotation>
+		<annotation cp="👲🏼" type="tts">中華帽の男性: 肌色3</annotation>
+		<annotation cp="👲🏽">おわん帽 | 中華帽の男性 | 男 | 男性 | 肌色4</annotation>
+		<annotation cp="👲🏽" type="tts">中華帽の男性: 肌色4</annotation>
+		<annotation cp="👲🏾">おわん帽 | 中華帽の男性 | 男 | 男性 | 肌色5</annotation>
+		<annotation cp="👲🏾" type="tts">中華帽の男性: 肌色5</annotation>
+		<annotation cp="👲🏿">おわん帽 | 中華帽の男性 | 男 | 男性 | 肌色6</annotation>
+		<annotation cp="👲🏿" type="tts">中華帽の男性: 肌色6</annotation>
+		<annotation cp="🧕🏻">スカーフ | スカーフの女性 | ヒジャブ | ベール | 女 | 女性 | 肌色1–2</annotation>
+		<annotation cp="🧕🏻" type="tts">スカーフの女性: 肌色1–2</annotation>
+		<annotation cp="🧕🏼">スカーフ | スカーフの女性 | ヒジャブ | ベール | 女 | 女性 | 肌色3</annotation>
+		<annotation cp="🧕🏼" type="tts">スカーフの女性: 肌色3</annotation>
+		<annotation cp="🧕🏽">スカーフ | スカーフの女性 | ヒジャブ | ベール | 女 | 女性 | 肌色4</annotation>
+		<annotation cp="🧕🏽" type="tts">スカーフの女性: 肌色4</annotation>
+		<annotation cp="🧕🏾">スカーフ | スカーフの女性 | ヒジャブ | ベール | 女 | 女性 | 肌色5</annotation>
+		<annotation cp="🧕🏾" type="tts">スカーフの女性: 肌色5</annotation>
+		<annotation cp="🧕🏿">スカーフ | スカーフの女性 | ヒジャブ | ベール | 女 | 女性 | 肌色6</annotation>
+		<annotation cp="🧕🏿" type="tts">スカーフの女性: 肌色6</annotation>
+		<annotation cp="🧔🏻">あごひげ | あごひげの男性 | 顔 | 肌色1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">あごひげの男性: 肌色1–2</annotation>
+		<annotation cp="🧔🏼">あごひげ | あごひげの男性 | 顔 | 肌色3</annotation>
+		<annotation cp="🧔🏼" type="tts">あごひげの男性: 肌色3</annotation>
+		<annotation cp="🧔🏽">あごひげ | あごひげの男性 | 顔 | 肌色4</annotation>
+		<annotation cp="🧔🏽" type="tts">あごひげの男性: 肌色4</annotation>
+		<annotation cp="🧔🏾">あごひげ | あごひげの男性 | 顔 | 肌色5</annotation>
+		<annotation cp="🧔🏾" type="tts">あごひげの男性: 肌色5</annotation>
+		<annotation cp="🧔🏿">あごひげ | あごひげの男性 | 顔 | 肌色6</annotation>
+		<annotation cp="🧔🏿" type="tts">あごひげの男性: 肌色6</annotation>
 		<annotation cp="👱🏻">ブロンド | 金髪 | 金髪の人 | 顔 | 肌色1–2</annotation>
 		<annotation cp="👱🏻" type="tts">金髪の人: 肌色1–2</annotation>
 		<annotation cp="👱🏼">ブロンド | 金髪 | 金髪の人 | 顔 | 肌色3</annotation>
@@ -643,35 +818,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">金髪の人: 肌色5</annotation>
 		<annotation cp="👱🏿">ブロンド | 金髪 | 金髪の人 | 顔 | 肌色6</annotation>
 		<annotation cp="👱🏿" type="tts">金髪の人: 肌色6</annotation>
-		<annotation cp="👱🏻‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男 | 肌色1–2</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">金髪の男: 肌色1–2</annotation>
-		<annotation cp="👱🏼‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男 | 肌色3</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">金髪の男: 肌色3</annotation>
-		<annotation cp="👱🏽‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男 | 肌色4</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">金髪の男: 肌色4</annotation>
-		<annotation cp="👱🏾‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男 | 肌色5</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">金髪の男: 肌色5</annotation>
-		<annotation cp="👱🏿‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男 | 肌色6</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">金髪の男: 肌色6</annotation>
-		<annotation cp="👱🏻‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女 | 肌色1–2</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">金髪の女: 肌色1–2</annotation>
-		<annotation cp="👱🏼‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女 | 肌色3</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">金髪の女: 肌色3</annotation>
-		<annotation cp="👱🏽‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女 | 肌色4</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">金髪の女: 肌色4</annotation>
-		<annotation cp="👱🏾‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女 | 肌色5</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">金髪の女: 肌色5</annotation>
-		<annotation cp="👱🏿‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女 | 肌色6</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">金髪の女: 肌色6</annotation>
-		<annotation cp="🤵🏻">タキシード | 男 | 男性 | 結婚 | 花婿 | 顔 | 肌色1–2</annotation>
+		<annotation cp="👱🏻‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男性 | 肌色1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">金髪の男性: 肌色1–2</annotation>
+		<annotation cp="👱🏼‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男性 | 肌色3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">金髪の男性: 肌色3</annotation>
+		<annotation cp="👱🏽‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男性 | 肌色4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">金髪の男性: 肌色4</annotation>
+		<annotation cp="👱🏾‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男性 | 肌色5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">金髪の男性: 肌色5</annotation>
+		<annotation cp="👱🏿‍♂">ブロンド | 男 | 男性 | 金髪 | 金髪の男性 | 肌色6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">金髪の男性: 肌色6</annotation>
+		<annotation cp="👱🏻‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女性 | 肌色1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">金髪の女性: 肌色1–2</annotation>
+		<annotation cp="👱🏼‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女性 | 肌色3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">金髪の女性: 肌色3</annotation>
+		<annotation cp="👱🏽‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女性 | 肌色4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">金髪の女性: 肌色4</annotation>
+		<annotation cp="👱🏾‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女性 | 肌色5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">金髪の女性: 肌色5</annotation>
+		<annotation cp="👱🏿‍♀">ブロンド | 女 | 女性 | 金髪 | 金髪の女性 | 肌色6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">金髪の女性: 肌色6</annotation>
+		<annotation cp="🤵🏻">タキシード | 男 | 男性 | 結婚 | 花婿 | 肌色1–2</annotation>
 		<annotation cp="🤵🏻" type="tts">花婿: 肌色1–2</annotation>
-		<annotation cp="🤵🏼">タキシード | 男 | 男性 | 結婚 | 花婿 | 顔 | 肌色3</annotation>
+		<annotation cp="🤵🏼">タキシード | 男 | 男性 | 結婚 | 花婿 | 肌色3</annotation>
 		<annotation cp="🤵🏼" type="tts">花婿: 肌色3</annotation>
-		<annotation cp="🤵🏽">タキシード | 男 | 男性 | 結婚 | 花婿 | 顔 | 肌色4</annotation>
+		<annotation cp="🤵🏽">タキシード | 男 | 男性 | 結婚 | 花婿 | 肌色4</annotation>
 		<annotation cp="🤵🏽" type="tts">花婿: 肌色4</annotation>
-		<annotation cp="🤵🏾">タキシード | 男 | 男性 | 結婚 | 花婿 | 顔 | 肌色5</annotation>
+		<annotation cp="🤵🏾">タキシード | 男 | 男性 | 結婚 | 花婿 | 肌色5</annotation>
 		<annotation cp="🤵🏾" type="tts">花婿: 肌色5</annotation>
-		<annotation cp="🤵🏿">タキシード | 男 | 男性 | 結婚 | 花婿 | 顔 | 肌色6</annotation>
+		<annotation cp="🤵🏿">タキシード | 男 | 男性 | 結婚 | 花婿 | 肌色6</annotation>
 		<annotation cp="🤵🏿" type="tts">花婿: 肌色6</annotation>
 		<annotation cp="👰🏻">女 | 女性 | 結婚 | 花嫁 | 顔 | 肌色1–2</annotation>
 		<annotation cp="👰🏻" type="tts">花嫁: 肌色1–2</annotation>
@@ -723,15 +898,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🎅🏾" type="tts">サンタ: 肌色5</annotation>
 		<annotation cp="🎅🏿">クリスマス | サンタ | サンタクロース | 顔 | 肌色6</annotation>
 		<annotation cp="🎅🏿" type="tts">サンタ: 肌色6</annotation>
-		<annotation cp="🤶🏻">クリスマス | 女 | 女性 | 女性のサンタ | 顔 | 肌色1–2</annotation>
+		<annotation cp="🤶🏻">クリスマス | サンタクロース | 女 | 女性 | 女性のサンタ | 肌色1–2</annotation>
 		<annotation cp="🤶🏻" type="tts">女性のサンタ: 肌色1–2</annotation>
-		<annotation cp="🤶🏼">クリスマス | 女 | 女性 | 女性のサンタ | 顔 | 肌色3</annotation>
+		<annotation cp="🤶🏼">クリスマス | サンタクロース | 女 | 女性 | 女性のサンタ | 肌色3</annotation>
 		<annotation cp="🤶🏼" type="tts">女性のサンタ: 肌色3</annotation>
-		<annotation cp="🤶🏽">クリスマス | 女 | 女性 | 女性のサンタ | 顔 | 肌色4</annotation>
+		<annotation cp="🤶🏽">クリスマス | サンタクロース | 女 | 女性 | 女性のサンタ | 肌色4</annotation>
 		<annotation cp="🤶🏽" type="tts">女性のサンタ: 肌色4</annotation>
-		<annotation cp="🤶🏾">クリスマス | 女 | 女性 | 女性のサンタ | 顔 | 肌色5</annotation>
+		<annotation cp="🤶🏾">クリスマス | サンタクロース | 女 | 女性 | 女性のサンタ | 肌色5</annotation>
 		<annotation cp="🤶🏾" type="tts">女性のサンタ: 肌色5</annotation>
-		<annotation cp="🤶🏿">クリスマス | 女 | 女性 | 女性のサンタ | 顔 | 肌色6</annotation>
+		<annotation cp="🤶🏿">クリスマス | サンタクロース | 女 | 女性 | 女性のサンタ | 肌色6</annotation>
 		<annotation cp="🤶🏿" type="tts">女性のサンタ: 肌色6</annotation>
 		<annotation cp="🧙🏻">魔女 | 魔法 | 魔法使い | 肌色1–2</annotation>
 		<annotation cp="🧙🏻" type="tts">魔法使い: 肌色1–2</annotation>
@@ -853,15 +1028,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧜🏾‍♂" type="tts">マーマン: 肌色5</annotation>
 		<annotation cp="🧜🏿‍♂">マーマン | 人魚 | 男 | 男性 | 肌色6</annotation>
 		<annotation cp="🧜🏿‍♂" type="tts">マーマン: 肌色6</annotation>
-		<annotation cp="🧝🏻">エルフ | 小妖精 | 肌色1–2</annotation>
+		<annotation cp="🧝🏻">エルフ | 妖精 | 小妖精 | 肌色1–2</annotation>
 		<annotation cp="🧝🏻" type="tts">エルフ: 肌色1–2</annotation>
-		<annotation cp="🧝🏼">エルフ | 小妖精 | 肌色3</annotation>
+		<annotation cp="🧝🏼">エルフ | 妖精 | 小妖精 | 肌色3</annotation>
 		<annotation cp="🧝🏼" type="tts">エルフ: 肌色3</annotation>
-		<annotation cp="🧝🏽">エルフ | 小妖精 | 肌色4</annotation>
+		<annotation cp="🧝🏽">エルフ | 妖精 | 小妖精 | 肌色4</annotation>
 		<annotation cp="🧝🏽" type="tts">エルフ: 肌色4</annotation>
-		<annotation cp="🧝🏾">エルフ | 小妖精 | 肌色5</annotation>
+		<annotation cp="🧝🏾">エルフ | 妖精 | 小妖精 | 肌色5</annotation>
 		<annotation cp="🧝🏾" type="tts">エルフ: 肌色5</annotation>
-		<annotation cp="🧝🏿">エルフ | 小妖精 | 肌色6</annotation>
+		<annotation cp="🧝🏿">エルフ | 妖精 | 小妖精 | 肌色6</annotation>
 		<annotation cp="🧝🏿" type="tts">エルフ: 肌色6</annotation>
 		<annotation cp="🧝🏻‍♀">エルフ | 女 | 女のエルフ | 女性 | 肌色1–2</annotation>
 		<annotation cp="🧝🏻‍♀" type="tts">女のエルフ: 肌色1–2</annotation>
@@ -883,15 +1058,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧝🏾‍♂" type="tts">男のエルフ: 肌色5</annotation>
 		<annotation cp="🧝🏿‍♂">エルフ | 男 | 男のエルフ | 男性 | 肌色6</annotation>
 		<annotation cp="🧝🏿‍♂" type="tts">男のエルフ: 肌色6</annotation>
-		<annotation cp="🙍🏻">しかめっ面 | しかめっ面の人 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色1–2</annotation>
+		<annotation cp="🙍🏻">しかめっ面 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">しかめ面の人: 肌色1–2</annotation>
-		<annotation cp="🙍🏼">しかめっ面 | しかめっ面の人 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色3</annotation>
+		<annotation cp="🙍🏼">しかめっ面 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色3</annotation>
 		<annotation cp="🙍🏼" type="tts">しかめ面の人: 肌色3</annotation>
-		<annotation cp="🙍🏽">しかめっ面 | しかめっ面の人 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色4</annotation>
+		<annotation cp="🙍🏽">しかめっ面 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色4</annotation>
 		<annotation cp="🙍🏽" type="tts">しかめ面の人: 肌色4</annotation>
-		<annotation cp="🙍🏾">しかめっ面 | しかめっ面の人 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色5</annotation>
+		<annotation cp="🙍🏾">しかめっ面 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色5</annotation>
 		<annotation cp="🙍🏾" type="tts">しかめ面の人: 肌色5</annotation>
-		<annotation cp="🙍🏿">しかめっ面 | しかめっ面の人 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色6</annotation>
+		<annotation cp="🙍🏿">しかめっ面 | しかめ面 | しかめ面の人 | しかめ顔 | 肌色6</annotation>
 		<annotation cp="🙍🏿" type="tts">しかめ面の人: 肌色6</annotation>
 		<annotation cp="🙍🏻‍♂">しかめっ面 | しかめ面 | しかめ面の男 | しかめ顔 | 男 | 男性 | 肌色1–2</annotation>
 		<annotation cp="🙍🏻‍♂" type="tts">しかめ面の男: 肌色1–2</annotation>
@@ -913,35 +1088,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙍🏾‍♀" type="tts">しかめ面の女: 肌色5</annotation>
 		<annotation cp="🙍🏿‍♀">しかめっ面 | しかめ面 | しかめ面の女 | しかめ顔 | 女 | 女性 | 肌色6</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">しかめ面の女: 肌色6</annotation>
-		<annotation cp="🙎🏻">プンプン | 不機嫌 | 不機嫌な人 | 人 | 肌色1–2</annotation>
+		<annotation cp="🙎🏻">ぷんぷん | 不機嫌 | 不機嫌な人 | 人 | 肌色1–2</annotation>
 		<annotation cp="🙎🏻" type="tts">不機嫌な人: 肌色1–2</annotation>
-		<annotation cp="🙎🏼">プンプン | 不機嫌 | 不機嫌な人 | 人 | 肌色3</annotation>
+		<annotation cp="🙎🏼">ぷんぷん | 不機嫌 | 不機嫌な人 | 人 | 肌色3</annotation>
 		<annotation cp="🙎🏼" type="tts">不機嫌な人: 肌色3</annotation>
-		<annotation cp="🙎🏽">プンプン | 不機嫌 | 不機嫌な人 | 人 | 肌色4</annotation>
+		<annotation cp="🙎🏽">ぷんぷん | 不機嫌 | 不機嫌な人 | 人 | 肌色4</annotation>
 		<annotation cp="🙎🏽" type="tts">不機嫌な人: 肌色4</annotation>
-		<annotation cp="🙎🏾">プンプン | 不機嫌 | 不機嫌な人 | 人 | 肌色5</annotation>
+		<annotation cp="🙎🏾">ぷんぷん | 不機嫌 | 不機嫌な人 | 人 | 肌色5</annotation>
 		<annotation cp="🙎🏾" type="tts">不機嫌な人: 肌色5</annotation>
-		<annotation cp="🙎🏿">プンプン | 不機嫌 | 不機嫌な人 | 人 | 肌色6</annotation>
+		<annotation cp="🙎🏿">ぷんぷん | 不機嫌 | 不機嫌な人 | 人 | 肌色6</annotation>
 		<annotation cp="🙎🏿" type="tts">不機嫌な人: 肌色6</annotation>
-		<annotation cp="🙎🏻‍♂">プンプン | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色1–2</annotation>
+		<annotation cp="🙎🏻‍♂">ぷんぷん | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色1–2</annotation>
 		<annotation cp="🙎🏻‍♂" type="tts">不機嫌な男: 肌色1–2</annotation>
-		<annotation cp="🙎🏼‍♂">プンプン | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色3</annotation>
+		<annotation cp="🙎🏼‍♂">ぷんぷん | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色3</annotation>
 		<annotation cp="🙎🏼‍♂" type="tts">不機嫌な男: 肌色3</annotation>
-		<annotation cp="🙎🏽‍♂">プンプン | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色4</annotation>
+		<annotation cp="🙎🏽‍♂">ぷんぷん | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色4</annotation>
 		<annotation cp="🙎🏽‍♂" type="tts">不機嫌な男: 肌色4</annotation>
-		<annotation cp="🙎🏾‍♂">プンプン | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色5</annotation>
+		<annotation cp="🙎🏾‍♂">ぷんぷん | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色5</annotation>
 		<annotation cp="🙎🏾‍♂" type="tts">不機嫌な男: 肌色5</annotation>
-		<annotation cp="🙎🏿‍♂">プンプン | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色6</annotation>
+		<annotation cp="🙎🏿‍♂">ぷんぷん | 不機嫌 | 不機嫌な男 | 男 | 男性 | 肌色6</annotation>
 		<annotation cp="🙎🏿‍♂" type="tts">不機嫌な男: 肌色6</annotation>
-		<annotation cp="🙎🏻‍♀">プンプン | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色1–2</annotation>
+		<annotation cp="🙎🏻‍♀">ぷんぷん | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色1–2</annotation>
 		<annotation cp="🙎🏻‍♀" type="tts">不機嫌な女: 肌色1–2</annotation>
-		<annotation cp="🙎🏼‍♀">プンプン | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色3</annotation>
+		<annotation cp="🙎🏼‍♀">ぷんぷん | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色3</annotation>
 		<annotation cp="🙎🏼‍♀" type="tts">不機嫌な女: 肌色3</annotation>
-		<annotation cp="🙎🏽‍♀">プンプン | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色4</annotation>
+		<annotation cp="🙎🏽‍♀">ぷんぷん | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色4</annotation>
 		<annotation cp="🙎🏽‍♀" type="tts">不機嫌な女: 肌色4</annotation>
-		<annotation cp="🙎🏾‍♀">プンプン | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色5</annotation>
+		<annotation cp="🙎🏾‍♀">ぷんぷん | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色5</annotation>
 		<annotation cp="🙎🏾‍♀" type="tts">不機嫌な女: 肌色5</annotation>
-		<annotation cp="🙎🏿‍♀">プンプン | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色6</annotation>
+		<annotation cp="🙎🏿‍♀">ぷんぷん | 不機嫌 | 不機嫌な女 | 女 | 女性 | 肌色6</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">不機嫌な女: 肌色6</annotation>
 		<annotation cp="🙅🏻">NG | だめ | ジェスチャー | ダメのポーズをする人 | バツ | 人 | 肌色1–2</annotation>
 		<annotation cp="🙅🏻" type="tts">ダメのポーズをする人: 肌色1–2</annotation>
@@ -973,15 +1148,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙅🏾‍♀" type="tts">ダメのポーズをする女: 肌色5</annotation>
 		<annotation cp="🙅🏿‍♀">NG | だめ | ジェスチャー | ダメのポーズをする女 | バツ | 女 | 女性 | 肌色6</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">ダメのポーズをする女: 肌色6</annotation>
-		<annotation cp="🙆🏻">OK | OKのポーズをする人 | オッケー | オーケー | ジェスチャー | 丸 | 人 | 肌色1–2</annotation>
+		<annotation cp="🙆🏻">OK | OKのポーズをする人 | オーケー | ジェスチャー | 丸 | 人 | 肌色1–2</annotation>
 		<annotation cp="🙆🏻" type="tts">OKのポーズをする人: 肌色1–2</annotation>
-		<annotation cp="🙆🏼">OK | OKのポーズをする人 | オッケー | オーケー | ジェスチャー | 丸 | 人 | 肌色3</annotation>
+		<annotation cp="🙆🏼">OK | OKのポーズをする人 | オーケー | ジェスチャー | 丸 | 人 | 肌色3</annotation>
 		<annotation cp="🙆🏼" type="tts">OKのポーズをする人: 肌色3</annotation>
-		<annotation cp="🙆🏽">OK | OKのポーズをする人 | オッケー | オーケー | ジェスチャー | 丸 | 人 | 肌色4</annotation>
+		<annotation cp="🙆🏽">OK | OKのポーズをする人 | オーケー | ジェスチャー | 丸 | 人 | 肌色4</annotation>
 		<annotation cp="🙆🏽" type="tts">OKのポーズをする人: 肌色4</annotation>
-		<annotation cp="🙆🏾">OK | OKのポーズをする人 | オッケー | オーケー | ジェスチャー | 丸 | 人 | 肌色5</annotation>
+		<annotation cp="🙆🏾">OK | OKのポーズをする人 | オーケー | ジェスチャー | 丸 | 人 | 肌色5</annotation>
 		<annotation cp="🙆🏾" type="tts">OKのポーズをする人: 肌色5</annotation>
-		<annotation cp="🙆🏿">OK | OKのポーズをする人 | オッケー | オーケー | ジェスチャー | 丸 | 人 | 肌色6</annotation>
+		<annotation cp="🙆🏿">OK | OKのポーズをする人 | オーケー | ジェスチャー | 丸 | 人 | 肌色6</annotation>
 		<annotation cp="🙆🏿" type="tts">OKのポーズをする人: 肌色6</annotation>
 		<annotation cp="🙆🏻‍♂">OK | OKのポーズをする男 | オッケー | オーケー | ジェスチャー | 丸 | 男 | 男性 | 肌色1–2</annotation>
 		<annotation cp="🙆🏻‍♂" type="tts">OKのポーズをする男: 肌色1–2</annotation>
@@ -1413,15 +1588,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">浮いてるビジネスマン: 肌色5</annotation>
 		<annotation cp="🕴🏿">スーツ | ビジネスマン | 浮いてるビジネスマン | 男 | 男性 | 空中浮遊 | 肌色6</annotation>
 		<annotation cp="🕴🏿" type="tts">浮いてるビジネスマン: 肌色6</annotation>
-		<annotation cp="🏇🏻">ギャンブル | ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色1–2</annotation>
+		<annotation cp="🏇🏻">ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色1–2</annotation>
 		<annotation cp="🏇🏻" type="tts">競馬: 肌色1–2</annotation>
-		<annotation cp="🏇🏼">ギャンブル | ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色3</annotation>
+		<annotation cp="🏇🏼">ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色3</annotation>
 		<annotation cp="🏇🏼" type="tts">競馬: 肌色3</annotation>
-		<annotation cp="🏇🏽">ギャンブル | ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色4</annotation>
+		<annotation cp="🏇🏽">ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色4</annotation>
 		<annotation cp="🏇🏽" type="tts">競馬: 肌色4</annotation>
-		<annotation cp="🏇🏾">ギャンブル | ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色5</annotation>
+		<annotation cp="🏇🏾">ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色5</annotation>
 		<annotation cp="🏇🏾" type="tts">競馬: 肌色5</annotation>
-		<annotation cp="🏇🏿">ギャンブル | ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色6</annotation>
+		<annotation cp="🏇🏿">ジョッキー | スポーツ | 乗馬 | 競馬 | 騎手 | 肌色6</annotation>
 		<annotation cp="🏇🏿" type="tts">競馬: 肌色6</annotation>
 		<annotation cp="🏂🏻">スノボ | スノーボーダー | スノーボード | スポーツ | 肌色1–2</annotation>
 		<annotation cp="🏂🏻" type="tts">スノーボーダー: 肌色1–2</annotation>
@@ -1433,36 +1608,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏂🏾" type="tts">スノーボーダー: 肌色5</annotation>
 		<annotation cp="🏂🏿">スノボ | スノーボーダー | スノーボード | スポーツ | 肌色6</annotation>
 		<annotation cp="🏂🏿" type="tts">スノーボーダー: 肌色6</annotation>
-		<annotation cp="🏌🏻">ゴルフ | ゴルフする人 | ゴルファー | スポーツ | 肌色1–2</annotation>
-		<annotation cp="🏌🏻" type="tts">ゴルフする人: 肌色1–2</annotation>
-		<annotation cp="🏌🏼">ゴルフ | ゴルフする人 | ゴルファー | スポーツ | 肌色3</annotation>
-		<annotation cp="🏌🏼" type="tts">ゴルフする人: 肌色3</annotation>
-		<annotation cp="🏌🏽">ゴルフ | ゴルフする人 | ゴルファー | スポーツ | 肌色4</annotation>
-		<annotation cp="🏌🏽" type="tts">ゴルフする人: 肌色4</annotation>
-		<annotation cp="🏌🏾">ゴルフ | ゴルフする人 | ゴルファー | スポーツ | 肌色5</annotation>
-		<annotation cp="🏌🏾" type="tts">ゴルフする人: 肌色5</annotation>
-		<annotation cp="🏌🏿">ゴルフ | ゴルフする人 | ゴルファー | スポーツ | 肌色6</annotation>
-		<annotation cp="🏌🏿" type="tts">ゴルフする人: 肌色6</annotation>
-		<annotation cp="🏌🏻‍♂">ゴルフ | ゴルフする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色1–2</annotation>
-		<annotation cp="🏌🏻‍♂" type="tts">ゴルフする男: 肌色1–2</annotation>
-		<annotation cp="🏌🏼‍♂">ゴルフ | ゴルフする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色3</annotation>
-		<annotation cp="🏌🏼‍♂" type="tts">ゴルフする男: 肌色3</annotation>
-		<annotation cp="🏌🏽‍♂">ゴルフ | ゴルフする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色4</annotation>
-		<annotation cp="🏌🏽‍♂" type="tts">ゴルフする男: 肌色4</annotation>
-		<annotation cp="🏌🏾‍♂">ゴルフ | ゴルフする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色5</annotation>
-		<annotation cp="🏌🏾‍♂" type="tts">ゴルフする男: 肌色5</annotation>
-		<annotation cp="🏌🏿‍♂">ゴルフ | ゴルフする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色6</annotation>
-		<annotation cp="🏌🏿‍♂" type="tts">ゴルフする男: 肌色6</annotation>
-		<annotation cp="🏌🏻‍♀">ゴルフ | ゴルフする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色1–2</annotation>
-		<annotation cp="🏌🏻‍♀" type="tts">ゴルフする女: 肌色1–2</annotation>
-		<annotation cp="🏌🏼‍♀">ゴルフ | ゴルフする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色3</annotation>
-		<annotation cp="🏌🏼‍♀" type="tts">ゴルフする女: 肌色3</annotation>
-		<annotation cp="🏌🏽‍♀">ゴルフ | ゴルフする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色4</annotation>
-		<annotation cp="🏌🏽‍♀" type="tts">ゴルフする女: 肌色4</annotation>
-		<annotation cp="🏌🏾‍♀">ゴルフ | ゴルフする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色5</annotation>
-		<annotation cp="🏌🏾‍♀" type="tts">ゴルフする女: 肌色5</annotation>
-		<annotation cp="🏌🏿‍♀">ゴルフ | ゴルフする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色6</annotation>
-		<annotation cp="🏌🏿‍♀" type="tts">ゴルフする女: 肌色6</annotation>
+		<annotation cp="🏌🏻">ゴルフ | ゴルフをする人 | ゴルファー | スポーツ | 肌色1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">ゴルフをする人: 肌色1–2</annotation>
+		<annotation cp="🏌🏼">ゴルフ | ゴルフをする人 | ゴルファー | スポーツ | 肌色3</annotation>
+		<annotation cp="🏌🏼" type="tts">ゴルフをする人: 肌色3</annotation>
+		<annotation cp="🏌🏽">ゴルフ | ゴルフをする人 | ゴルファー | スポーツ | 肌色4</annotation>
+		<annotation cp="🏌🏽" type="tts">ゴルフをする人: 肌色4</annotation>
+		<annotation cp="🏌🏾">ゴルフ | ゴルフをする人 | ゴルファー | スポーツ | 肌色5</annotation>
+		<annotation cp="🏌🏾" type="tts">ゴルフをする人: 肌色5</annotation>
+		<annotation cp="🏌🏿">ゴルフ | ゴルフをする人 | ゴルファー | スポーツ | 肌色6</annotation>
+		<annotation cp="🏌🏿" type="tts">ゴルフをする人: 肌色6</annotation>
+		<annotation cp="🏌🏻‍♂">ゴルフ | ゴルフをする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">ゴルフをする男: 肌色1–2</annotation>
+		<annotation cp="🏌🏼‍♂">ゴルフ | ゴルフをする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">ゴルフをする男: 肌色3</annotation>
+		<annotation cp="🏌🏽‍♂">ゴルフ | ゴルフをする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">ゴルフをする男: 肌色4</annotation>
+		<annotation cp="🏌🏾‍♂">ゴルフ | ゴルフをする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">ゴルフをする男: 肌色5</annotation>
+		<annotation cp="🏌🏿‍♂">ゴルフ | ゴルフをする男 | ゴルファー | スポーツ | 男 | 男性 | 肌色6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">ゴルフをする男: 肌色6</annotation>
+		<annotation cp="🏌🏻‍♀">ゴルフ | ゴルフをする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">ゴルフをする女: 肌色1–2</annotation>
+		<annotation cp="🏌🏼‍♀">ゴルフ | ゴルフをする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">ゴルフをする女: 肌色3</annotation>
+		<annotation cp="🏌🏽‍♀">ゴルフ | ゴルフをする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">ゴルフをする女: 肌色4</annotation>
+		<annotation cp="🏌🏾‍♀">ゴルフ | ゴルフをする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">ゴルフをする女: 肌色5</annotation>
+		<annotation cp="🏌🏿‍♀">ゴルフ | ゴルフをする女 | ゴルファー | スポーツ | 女 | 女性 | 肌色6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">ゴルフをする女: 肌色6</annotation>
 		<annotation cp="🏄🏻">サーファー | サーフィン | サーフィンする人 | スポーツ | 波乗り | 肌色1–2</annotation>
 		<annotation cp="🏄🏻" type="tts">サーフィンする人: 肌色1–2</annotation>
 		<annotation cp="🏄🏼">サーファー | サーフィン | サーフィンする人 | スポーツ | 波乗り | 肌色3</annotation>
@@ -1623,25 +1798,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚴🏾" type="tts">自転車に乗る人: 肌色5</annotation>
 		<annotation cp="🚴🏿">サイクリング | スポーツ | ロードバイク | ロードレース | 競輪 | 自転車 | 自転車に乗る人 | 肌色6</annotation>
 		<annotation cp="🚴🏿" type="tts">自転車に乗る人: 肌色6</annotation>
-		<annotation cp="🚴🏻‍♂">サイクリング | スポーツ | ロードバイク | ロードレース | 男 | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色1–2</annotation>
+		<annotation cp="🚴🏻‍♂">サイクリング | スポーツ | ロードレース | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色1–2</annotation>
 		<annotation cp="🚴🏻‍♂" type="tts">自転車に乗る男: 肌色1–2</annotation>
-		<annotation cp="🚴🏼‍♂">サイクリング | スポーツ | ロードバイク | ロードレース | 男 | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色3</annotation>
+		<annotation cp="🚴🏼‍♂">サイクリング | スポーツ | ロードレース | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色3</annotation>
 		<annotation cp="🚴🏼‍♂" type="tts">自転車に乗る男: 肌色3</annotation>
-		<annotation cp="🚴🏽‍♂">サイクリング | スポーツ | ロードバイク | ロードレース | 男 | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色4</annotation>
+		<annotation cp="🚴🏽‍♂">サイクリング | スポーツ | ロードレース | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色4</annotation>
 		<annotation cp="🚴🏽‍♂" type="tts">自転車に乗る男: 肌色4</annotation>
-		<annotation cp="🚴🏾‍♂">サイクリング | スポーツ | ロードバイク | ロードレース | 男 | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色5</annotation>
+		<annotation cp="🚴🏾‍♂">サイクリング | スポーツ | ロードレース | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色5</annotation>
 		<annotation cp="🚴🏾‍♂" type="tts">自転車に乗る男: 肌色5</annotation>
-		<annotation cp="🚴🏿‍♂">サイクリング | スポーツ | ロードバイク | ロードレース | 男 | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色6</annotation>
+		<annotation cp="🚴🏿‍♂">サイクリング | スポーツ | ロードレース | 男性 | 競輪 | 自転車 | 自転車に乗る男 | 肌色6</annotation>
 		<annotation cp="🚴🏿‍♂" type="tts">自転車に乗る男: 肌色6</annotation>
-		<annotation cp="🚴🏻‍♀">サイクリング | スポーツ | ロードバイク | ロードレース | 女 | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色1–2</annotation>
+		<annotation cp="🚴🏻‍♀">サイクリング | スポーツ | ロードレース | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色1–2</annotation>
 		<annotation cp="🚴🏻‍♀" type="tts">自転車に乗る女: 肌色1–2</annotation>
-		<annotation cp="🚴🏼‍♀">サイクリング | スポーツ | ロードバイク | ロードレース | 女 | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色3</annotation>
+		<annotation cp="🚴🏼‍♀">サイクリング | スポーツ | ロードレース | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色3</annotation>
 		<annotation cp="🚴🏼‍♀" type="tts">自転車に乗る女: 肌色3</annotation>
-		<annotation cp="🚴🏽‍♀">サイクリング | スポーツ | ロードバイク | ロードレース | 女 | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色4</annotation>
+		<annotation cp="🚴🏽‍♀">サイクリング | スポーツ | ロードレース | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色4</annotation>
 		<annotation cp="🚴🏽‍♀" type="tts">自転車に乗る女: 肌色4</annotation>
-		<annotation cp="🚴🏾‍♀">サイクリング | スポーツ | ロードバイク | ロードレース | 女 | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色5</annotation>
+		<annotation cp="🚴🏾‍♀">サイクリング | スポーツ | ロードレース | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色5</annotation>
 		<annotation cp="🚴🏾‍♀" type="tts">自転車に乗る女: 肌色5</annotation>
-		<annotation cp="🚴🏿‍♀">サイクリング | スポーツ | ロードバイク | ロードレース | 女 | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色6</annotation>
+		<annotation cp="🚴🏿‍♀">サイクリング | スポーツ | ロードレース | 女性 | 競輪 | 自転車 | 自転車に乗る女 | 肌色6</annotation>
 		<annotation cp="🚴🏿‍♀" type="tts">自転車に乗る女: 肌色6</annotation>
 		<annotation cp="🚵🏻">サイクリング | スポーツ | マウンテンバイク | マウンテンバイクに乗る人 | 自転車 | 肌色1–2</annotation>
 		<annotation cp="🚵🏻" type="tts">マウンテンバイクに乗る人: 肌色1–2</annotation>
@@ -1703,158 +1878,158 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">側転する女: 肌色5</annotation>
 		<annotation cp="🤸🏿‍♀">スポーツ | 体操 | 側転 | 側転する女 | 女 | 女性 | 肌色6</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">側転する女: 肌色6</annotation>
-		<annotation cp="🤽🏻">スポーツ | 水球 | 水球する人 | 球技 | 肌色1–2</annotation>
-		<annotation cp="🤽🏻" type="tts">水球する人: 肌色1–2</annotation>
-		<annotation cp="🤽🏼">スポーツ | 水球 | 水球する人 | 球技 | 肌色3</annotation>
-		<annotation cp="🤽🏼" type="tts">水球する人: 肌色3</annotation>
-		<annotation cp="🤽🏽">スポーツ | 水球 | 水球する人 | 球技 | 肌色4</annotation>
-		<annotation cp="🤽🏽" type="tts">水球する人: 肌色4</annotation>
-		<annotation cp="🤽🏾">スポーツ | 水球 | 水球する人 | 球技 | 肌色5</annotation>
-		<annotation cp="🤽🏾" type="tts">水球する人: 肌色5</annotation>
-		<annotation cp="🤽🏿">スポーツ | 水球 | 水球する人 | 球技 | 肌色6</annotation>
-		<annotation cp="🤽🏿" type="tts">水球する人: 肌色6</annotation>
-		<annotation cp="🤽🏻‍♂">スポーツ | 水球 | 水球する男 | 球技 | 男 | 男性 | 肌色1–2</annotation>
-		<annotation cp="🤽🏻‍♂" type="tts">水球する男: 肌色1–2</annotation>
-		<annotation cp="🤽🏼‍♂">スポーツ | 水球 | 水球する男 | 球技 | 男 | 男性 | 肌色3</annotation>
-		<annotation cp="🤽🏼‍♂" type="tts">水球する男: 肌色3</annotation>
-		<annotation cp="🤽🏽‍♂">スポーツ | 水球 | 水球する男 | 球技 | 男 | 男性 | 肌色4</annotation>
-		<annotation cp="🤽🏽‍♂" type="tts">水球する男: 肌色4</annotation>
-		<annotation cp="🤽🏾‍♂">スポーツ | 水球 | 水球する男 | 球技 | 男 | 男性 | 肌色5</annotation>
-		<annotation cp="🤽🏾‍♂" type="tts">水球する男: 肌色5</annotation>
-		<annotation cp="🤽🏿‍♂">スポーツ | 水球 | 水球する男 | 球技 | 男 | 男性 | 肌色6</annotation>
-		<annotation cp="🤽🏿‍♂" type="tts">水球する男: 肌色6</annotation>
-		<annotation cp="🤽🏻‍♀">スポーツ | 女 | 女性 | 水球 | 水球する女 | 球技 | 肌色1–2</annotation>
-		<annotation cp="🤽🏻‍♀" type="tts">水球する女: 肌色1–2</annotation>
-		<annotation cp="🤽🏼‍♀">スポーツ | 女 | 女性 | 水球 | 水球する女 | 球技 | 肌色3</annotation>
-		<annotation cp="🤽🏼‍♀" type="tts">水球する女: 肌色3</annotation>
-		<annotation cp="🤽🏽‍♀">スポーツ | 女 | 女性 | 水球 | 水球する女 | 球技 | 肌色4</annotation>
-		<annotation cp="🤽🏽‍♀" type="tts">水球する女: 肌色4</annotation>
-		<annotation cp="🤽🏾‍♀">スポーツ | 女 | 女性 | 水球 | 水球する女 | 球技 | 肌色5</annotation>
-		<annotation cp="🤽🏾‍♀" type="tts">水球する女: 肌色5</annotation>
-		<annotation cp="🤽🏿‍♀">スポーツ | 女 | 女性 | 水球 | 水球する女 | 球技 | 肌色6</annotation>
-		<annotation cp="🤽🏿‍♀" type="tts">水球する女: 肌色6</annotation>
-		<annotation cp="🤾🏻">スポーツ | ハンドボール | ハンドボールする人 | 球技 | 肌色1–2</annotation>
-		<annotation cp="🤾🏻" type="tts">ハンドボールする人: 肌色1–2</annotation>
-		<annotation cp="🤾🏼">スポーツ | ハンドボール | ハンドボールする人 | 球技 | 肌色3</annotation>
-		<annotation cp="🤾🏼" type="tts">ハンドボールする人: 肌色3</annotation>
-		<annotation cp="🤾🏽">スポーツ | ハンドボール | ハンドボールする人 | 球技 | 肌色4</annotation>
-		<annotation cp="🤾🏽" type="tts">ハンドボールする人: 肌色4</annotation>
-		<annotation cp="🤾🏾">スポーツ | ハンドボール | ハンドボールする人 | 球技 | 肌色5</annotation>
-		<annotation cp="🤾🏾" type="tts">ハンドボールする人: 肌色5</annotation>
-		<annotation cp="🤾🏿">スポーツ | ハンドボール | ハンドボールする人 | 球技 | 肌色6</annotation>
-		<annotation cp="🤾🏿" type="tts">ハンドボールする人: 肌色6</annotation>
-		<annotation cp="🤾🏻‍♂">スポーツ | ハンドボール | ハンドボールする男 | 球技 | 男 | 男性 | 肌色1–2</annotation>
-		<annotation cp="🤾🏻‍♂" type="tts">ハンドボールする男: 肌色1–2</annotation>
-		<annotation cp="🤾🏼‍♂">スポーツ | ハンドボール | ハンドボールする男 | 球技 | 男 | 男性 | 肌色3</annotation>
-		<annotation cp="🤾🏼‍♂" type="tts">ハンドボールする男: 肌色3</annotation>
-		<annotation cp="🤾🏽‍♂">スポーツ | ハンドボール | ハンドボールする男 | 球技 | 男 | 男性 | 肌色4</annotation>
-		<annotation cp="🤾🏽‍♂" type="tts">ハンドボールする男: 肌色4</annotation>
-		<annotation cp="🤾🏾‍♂">スポーツ | ハンドボール | ハンドボールする男 | 球技 | 男 | 男性 | 肌色5</annotation>
-		<annotation cp="🤾🏾‍♂" type="tts">ハンドボールする男: 肌色5</annotation>
-		<annotation cp="🤾🏿‍♂">スポーツ | ハンドボール | ハンドボールする男 | 球技 | 男 | 男性 | 肌色6</annotation>
-		<annotation cp="🤾🏿‍♂" type="tts">ハンドボールする男: 肌色6</annotation>
-		<annotation cp="🤾🏻‍♀">スポーツ | ハンドボール | ハンドボールする女 | 女 | 女性 | 球技 | 肌色1–2</annotation>
-		<annotation cp="🤾🏻‍♀" type="tts">ハンドボールする女: 肌色1–2</annotation>
-		<annotation cp="🤾🏼‍♀">スポーツ | ハンドボール | ハンドボールする女 | 女 | 女性 | 球技 | 肌色3</annotation>
-		<annotation cp="🤾🏼‍♀" type="tts">ハンドボールする女: 肌色3</annotation>
-		<annotation cp="🤾🏽‍♀">スポーツ | ハンドボール | ハンドボールする女 | 女 | 女性 | 球技 | 肌色4</annotation>
-		<annotation cp="🤾🏽‍♀" type="tts">ハンドボールする女: 肌色4</annotation>
-		<annotation cp="🤾🏾‍♀">スポーツ | ハンドボール | ハンドボールする女 | 女 | 女性 | 球技 | 肌色5</annotation>
-		<annotation cp="🤾🏾‍♀" type="tts">ハンドボールする女: 肌色5</annotation>
-		<annotation cp="🤾🏿‍♀">スポーツ | ハンドボール | ハンドボールする女 | 女 | 女性 | 球技 | 肌色6</annotation>
-		<annotation cp="🤾🏿‍♀" type="tts">ハンドボールする女: 肌色6</annotation>
-		<annotation cp="🤹🏻">ジャグラー | ジャグリング | ジャグリングする人 | 大道芸 | 肌色1–2</annotation>
-		<annotation cp="🤹🏻" type="tts">ジャグリングする人: 肌色1–2</annotation>
-		<annotation cp="🤹🏼">ジャグラー | ジャグリング | ジャグリングする人 | 大道芸 | 肌色3</annotation>
-		<annotation cp="🤹🏼" type="tts">ジャグリングする人: 肌色3</annotation>
-		<annotation cp="🤹🏽">ジャグラー | ジャグリング | ジャグリングする人 | 大道芸 | 肌色4</annotation>
-		<annotation cp="🤹🏽" type="tts">ジャグリングする人: 肌色4</annotation>
-		<annotation cp="🤹🏾">ジャグラー | ジャグリング | ジャグリングする人 | 大道芸 | 肌色5</annotation>
-		<annotation cp="🤹🏾" type="tts">ジャグリングする人: 肌色5</annotation>
-		<annotation cp="🤹🏿">ジャグラー | ジャグリング | ジャグリングする人 | 大道芸 | 肌色6</annotation>
-		<annotation cp="🤹🏿" type="tts">ジャグリングする人: 肌色6</annotation>
-		<annotation cp="🤹🏻‍♂">ジャグラー | ジャグリング | ジャグリングする男 | 大道芸 | 男 | 男性 | 肌色1–2</annotation>
-		<annotation cp="🤹🏻‍♂" type="tts">ジャグリングする男: 肌色1–2</annotation>
-		<annotation cp="🤹🏼‍♂">ジャグラー | ジャグリング | ジャグリングする男 | 大道芸 | 男 | 男性 | 肌色3</annotation>
-		<annotation cp="🤹🏼‍♂" type="tts">ジャグリングする男: 肌色3</annotation>
-		<annotation cp="🤹🏽‍♂">ジャグラー | ジャグリング | ジャグリングする男 | 大道芸 | 男 | 男性 | 肌色4</annotation>
-		<annotation cp="🤹🏽‍♂" type="tts">ジャグリングする男: 肌色4</annotation>
-		<annotation cp="🤹🏾‍♂">ジャグラー | ジャグリング | ジャグリングする男 | 大道芸 | 男 | 男性 | 肌色5</annotation>
-		<annotation cp="🤹🏾‍♂" type="tts">ジャグリングする男: 肌色5</annotation>
-		<annotation cp="🤹🏿‍♂">ジャグラー | ジャグリング | ジャグリングする男 | 大道芸 | 男 | 男性 | 肌色6</annotation>
-		<annotation cp="🤹🏿‍♂" type="tts">ジャグリングする男: 肌色6</annotation>
-		<annotation cp="🤹🏻‍♀">ジャグラー | ジャグリング | ジャグリングする女 | 大道芸 | 女 | 女性 | 肌色1–2</annotation>
-		<annotation cp="🤹🏻‍♀" type="tts">ジャグリングする女: 肌色1–2</annotation>
-		<annotation cp="🤹🏼‍♀">ジャグラー | ジャグリング | ジャグリングする女 | 大道芸 | 女 | 女性 | 肌色3</annotation>
-		<annotation cp="🤹🏼‍♀" type="tts">ジャグリングする女: 肌色3</annotation>
-		<annotation cp="🤹🏽‍♀">ジャグラー | ジャグリング | ジャグリングする女 | 大道芸 | 女 | 女性 | 肌色4</annotation>
-		<annotation cp="🤹🏽‍♀" type="tts">ジャグリングする女: 肌色4</annotation>
-		<annotation cp="🤹🏾‍♀">ジャグラー | ジャグリング | ジャグリングする女 | 大道芸 | 女 | 女性 | 肌色5</annotation>
-		<annotation cp="🤹🏾‍♀" type="tts">ジャグリングする女: 肌色5</annotation>
-		<annotation cp="🤹🏿‍♀">ジャグラー | ジャグリング | ジャグリングする女 | 大道芸 | 女 | 女性 | 肌色6</annotation>
-		<annotation cp="🤹🏿‍♀" type="tts">ジャグリングする女: 肌色6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">ちゅっ | カップル | キス | ハート | ロマンス | 二人でキス | 恋人 | 女 | 男</annotation>
-		<annotation cp="👩‍❤‍💋‍👨" type="tts">二人でキス: 女 男</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">ちゅっ | カップル | キス | ハート | ロマンス | 二人でキス | 恋人 | 男</annotation>
-		<annotation cp="👨‍❤‍💋‍👨" type="tts">二人でキス: 男 男</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">ちゅっ | カップル | キス | ハート | ロマンス | 二人でキス | 恋人 | 女</annotation>
-		<annotation cp="👩‍❤‍💋‍👩" type="tts">二人でキス: 女 女</annotation>
-		<annotation cp="👩‍❤‍👨">カップル | ハート | ハートのカップル | 恋人 | 熱々 | 女 | 男</annotation>
-		<annotation cp="👩‍❤‍👨" type="tts">ハートのカップル: 女 男</annotation>
-		<annotation cp="👨‍❤‍👨">カップル | ハート | ハートのカップル | 恋人 | 熱々 | 男</annotation>
-		<annotation cp="👨‍❤‍👨" type="tts">ハートのカップル: 男 男</annotation>
-		<annotation cp="👩‍❤‍👩">カップル | ハート | ハートのカップル | 恋人 | 熱々 | 女</annotation>
-		<annotation cp="👩‍❤‍👩" type="tts">ハートのカップル: 女 女</annotation>
-		<annotation cp="👨‍👩‍👦">家族 | 親子 | 男 | 女 | 男の子</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">家族: 男 女 男の子</annotation>
-		<annotation cp="👨‍👩‍👧">家族 | 親子 | 男 | 女 | 女の子</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">家族: 男 女 女の子</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">家族 | 親子 | 男 | 女 | 女の子 | 男の子</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">家族: 男 女 女の子 男の子</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">家族 | 親子 | 男 | 女 | 男の子</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">家族: 男 女 男の子 男の子</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">家族 | 親子 | 男 | 女 | 女の子</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">家族: 男 女 女の子 女の子</annotation>
-		<annotation cp="👨‍👨‍👦">家族 | 親子 | 男 | 男の子</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">家族: 男 男 男の子</annotation>
-		<annotation cp="👨‍👨‍👧">家族 | 親子 | 男 | 女の子</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">家族: 男 男 女の子</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">家族 | 親子 | 男 | 女の子 | 男の子</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">家族: 男 男 女の子 男の子</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">家族 | 親子 | 男 | 男の子</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">家族: 男 男 男の子 男の子</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">家族 | 親子 | 男 | 女の子</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">家族: 男 男 女の子 女の子</annotation>
-		<annotation cp="👩‍👩‍👦">家族 | 親子 | 女 | 男の子</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">家族: 女 女 男の子</annotation>
-		<annotation cp="👩‍👩‍👧">家族 | 親子 | 女 | 女の子</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">家族: 女 女 女の子</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">家族 | 親子 | 女 | 女の子 | 男の子</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">家族: 女 女 女の子 男の子</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">家族 | 親子 | 女 | 男の子</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">家族: 女 女 男の子 男の子</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">家族 | 親子 | 女 | 女の子</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">家族: 女 女 女の子 女の子</annotation>
-		<annotation cp="👨‍👦">家族 | 親子 | 男 | 男の子</annotation>
-		<annotation cp="👨‍👦" type="tts">家族: 男 男の子</annotation>
-		<annotation cp="👨‍👦‍👦">家族 | 親子 | 男 | 男の子</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">家族: 男 男の子 男の子</annotation>
-		<annotation cp="👨‍👧">家族 | 親子 | 男 | 女の子</annotation>
-		<annotation cp="👨‍👧" type="tts">家族: 男 女の子</annotation>
-		<annotation cp="👨‍👧‍👦">家族 | 親子 | 男 | 女の子 | 男の子</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">家族: 男 女の子 男の子</annotation>
-		<annotation cp="👨‍👧‍👧">家族 | 親子 | 男 | 女の子</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">家族: 男 女の子 女の子</annotation>
-		<annotation cp="👩‍👦">家族 | 親子 | 女 | 男の子</annotation>
-		<annotation cp="👩‍👦" type="tts">家族: 女 男の子</annotation>
-		<annotation cp="👩‍👦‍👦">家族 | 親子 | 女 | 男の子</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">家族: 女 男の子 男の子</annotation>
-		<annotation cp="👩‍👧">家族 | 親子 | 女 | 女の子</annotation>
-		<annotation cp="👩‍👧" type="tts">家族: 女 女の子</annotation>
-		<annotation cp="👩‍👧‍👦">家族 | 親子 | 女 | 女の子 | 男の子</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">家族: 女 女の子 男の子</annotation>
-		<annotation cp="👩‍👧‍👧">家族 | 親子 | 女 | 女の子</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">家族: 女 女の子 女の子</annotation>
+		<annotation cp="🤽🏻">スポーツ | 水球 | 水球をする人 | 球技 | 肌色1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">水球をする人: 肌色1–2</annotation>
+		<annotation cp="🤽🏼">スポーツ | 水球 | 水球をする人 | 球技 | 肌色3</annotation>
+		<annotation cp="🤽🏼" type="tts">水球をする人: 肌色3</annotation>
+		<annotation cp="🤽🏽">スポーツ | 水球 | 水球をする人 | 球技 | 肌色4</annotation>
+		<annotation cp="🤽🏽" type="tts">水球をする人: 肌色4</annotation>
+		<annotation cp="🤽🏾">スポーツ | 水球 | 水球をする人 | 球技 | 肌色5</annotation>
+		<annotation cp="🤽🏾" type="tts">水球をする人: 肌色5</annotation>
+		<annotation cp="🤽🏿">スポーツ | 水球 | 水球をする人 | 球技 | 肌色6</annotation>
+		<annotation cp="🤽🏿" type="tts">水球をする人: 肌色6</annotation>
+		<annotation cp="🤽🏻‍♂">スポーツ | 水球 | 水球をする男 | 球技 | 男 | 男性 | 肌色1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">水球をする男: 肌色1–2</annotation>
+		<annotation cp="🤽🏼‍♂">スポーツ | 水球 | 水球をする男 | 球技 | 男 | 男性 | 肌色3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">水球をする男: 肌色3</annotation>
+		<annotation cp="🤽🏽‍♂">スポーツ | 水球 | 水球をする男 | 球技 | 男 | 男性 | 肌色4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">水球をする男: 肌色4</annotation>
+		<annotation cp="🤽🏾‍♂">スポーツ | 水球 | 水球をする男 | 球技 | 男 | 男性 | 肌色5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">水球をする男: 肌色5</annotation>
+		<annotation cp="🤽🏿‍♂">スポーツ | 水球 | 水球をする男 | 球技 | 男 | 男性 | 肌色6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">水球をする男: 肌色6</annotation>
+		<annotation cp="🤽🏻‍♀">スポーツ | 女 | 女性 | 水球 | 水球をする女 | 球技 | 肌色1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">水球をする女: 肌色1–2</annotation>
+		<annotation cp="🤽🏼‍♀">スポーツ | 女 | 女性 | 水球 | 水球をする女 | 球技 | 肌色3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">水球をする女: 肌色3</annotation>
+		<annotation cp="🤽🏽‍♀">スポーツ | 女 | 女性 | 水球 | 水球をする女 | 球技 | 肌色4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">水球をする女: 肌色4</annotation>
+		<annotation cp="🤽🏾‍♀">スポーツ | 女 | 女性 | 水球 | 水球をする女 | 球技 | 肌色5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">水球をする女: 肌色5</annotation>
+		<annotation cp="🤽🏿‍♀">スポーツ | 女 | 女性 | 水球 | 水球をする女 | 球技 | 肌色6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">水球をする女: 肌色6</annotation>
+		<annotation cp="🤾🏻">スポーツ | ハンドボール | ハンドボールをする人 | 球技 | 肌色1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">ハンドボールをする人: 肌色1–2</annotation>
+		<annotation cp="🤾🏼">スポーツ | ハンドボール | ハンドボールをする人 | 球技 | 肌色3</annotation>
+		<annotation cp="🤾🏼" type="tts">ハンドボールをする人: 肌色3</annotation>
+		<annotation cp="🤾🏽">スポーツ | ハンドボール | ハンドボールをする人 | 球技 | 肌色4</annotation>
+		<annotation cp="🤾🏽" type="tts">ハンドボールをする人: 肌色4</annotation>
+		<annotation cp="🤾🏾">スポーツ | ハンドボール | ハンドボールをする人 | 球技 | 肌色5</annotation>
+		<annotation cp="🤾🏾" type="tts">ハンドボールをする人: 肌色5</annotation>
+		<annotation cp="🤾🏿">スポーツ | ハンドボール | ハンドボールをする人 | 球技 | 肌色6</annotation>
+		<annotation cp="🤾🏿" type="tts">ハンドボールをする人: 肌色6</annotation>
+		<annotation cp="🤾🏻‍♂">スポーツ | ハンドボール | ハンドボールをする男 | 球技 | 男 | 男性 | 肌色1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">ハンドボールをする男: 肌色1–2</annotation>
+		<annotation cp="🤾🏼‍♂">スポーツ | ハンドボール | ハンドボールをする男 | 球技 | 男 | 男性 | 肌色3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">ハンドボールをする男: 肌色3</annotation>
+		<annotation cp="🤾🏽‍♂">スポーツ | ハンドボール | ハンドボールをする男 | 球技 | 男 | 男性 | 肌色4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">ハンドボールをする男: 肌色4</annotation>
+		<annotation cp="🤾🏾‍♂">スポーツ | ハンドボール | ハンドボールをする男 | 球技 | 男 | 男性 | 肌色5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">ハンドボールをする男: 肌色5</annotation>
+		<annotation cp="🤾🏿‍♂">スポーツ | ハンドボール | ハンドボールをする男 | 球技 | 男 | 男性 | 肌色6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">ハンドボールをする男: 肌色6</annotation>
+		<annotation cp="🤾🏻‍♀">スポーツ | ハンドボール | ハンドボールをする女 | 女 | 女性 | 球技 | 肌色1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">ハンドボールをする女: 肌色1–2</annotation>
+		<annotation cp="🤾🏼‍♀">スポーツ | ハンドボール | ハンドボールをする女 | 女 | 女性 | 球技 | 肌色3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">ハンドボールをする女: 肌色3</annotation>
+		<annotation cp="🤾🏽‍♀">スポーツ | ハンドボール | ハンドボールをする女 | 女 | 女性 | 球技 | 肌色4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">ハンドボールをする女: 肌色4</annotation>
+		<annotation cp="🤾🏾‍♀">スポーツ | ハンドボール | ハンドボールをする女 | 女 | 女性 | 球技 | 肌色5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">ハンドボールをする女: 肌色5</annotation>
+		<annotation cp="🤾🏿‍♀">スポーツ | ハンドボール | ハンドボールをする女 | 女 | 女性 | 球技 | 肌色6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">ハンドボールをする女: 肌色6</annotation>
+		<annotation cp="🤹🏻">ジャグラー | ジャグリング | ジャグリングをする人 | 大道芸 | 肌色1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">ジャグリングをする人: 肌色1–2</annotation>
+		<annotation cp="🤹🏼">ジャグラー | ジャグリング | ジャグリングをする人 | 大道芸 | 肌色3</annotation>
+		<annotation cp="🤹🏼" type="tts">ジャグリングをする人: 肌色3</annotation>
+		<annotation cp="🤹🏽">ジャグラー | ジャグリング | ジャグリングをする人 | 大道芸 | 肌色4</annotation>
+		<annotation cp="🤹🏽" type="tts">ジャグリングをする人: 肌色4</annotation>
+		<annotation cp="🤹🏾">ジャグラー | ジャグリング | ジャグリングをする人 | 大道芸 | 肌色5</annotation>
+		<annotation cp="🤹🏾" type="tts">ジャグリングをする人: 肌色5</annotation>
+		<annotation cp="🤹🏿">ジャグラー | ジャグリング | ジャグリングをする人 | 大道芸 | 肌色6</annotation>
+		<annotation cp="🤹🏿" type="tts">ジャグリングをする人: 肌色6</annotation>
+		<annotation cp="🤹🏻‍♂">ジャグラー | ジャグリング | ジャグリングをする男 | 大道芸 | 男 | 男性 | 肌色1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">ジャグリングをする男: 肌色1–2</annotation>
+		<annotation cp="🤹🏼‍♂">ジャグラー | ジャグリング | ジャグリングをする男 | 大道芸 | 男 | 男性 | 肌色3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">ジャグリングをする男: 肌色3</annotation>
+		<annotation cp="🤹🏽‍♂">ジャグラー | ジャグリング | ジャグリングをする男 | 大道芸 | 男 | 男性 | 肌色4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">ジャグリングをする男: 肌色4</annotation>
+		<annotation cp="🤹🏾‍♂">ジャグラー | ジャグリング | ジャグリングをする男 | 大道芸 | 男 | 男性 | 肌色5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">ジャグリングをする男: 肌色5</annotation>
+		<annotation cp="🤹🏿‍♂">ジャグラー | ジャグリング | ジャグリングをする男 | 大道芸 | 男 | 男性 | 肌色6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">ジャグリングをする男: 肌色6</annotation>
+		<annotation cp="🤹🏻‍♀">ジャグラー | ジャグリング | ジャグリングをする女 | 大道芸 | 女 | 女性 | 肌色1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">ジャグリングをする女: 肌色1–2</annotation>
+		<annotation cp="🤹🏼‍♀">ジャグラー | ジャグリング | ジャグリングをする女 | 大道芸 | 女 | 女性 | 肌色3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">ジャグリングをする女: 肌色3</annotation>
+		<annotation cp="🤹🏽‍♀">ジャグラー | ジャグリング | ジャグリングをする女 | 大道芸 | 女 | 女性 | 肌色4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">ジャグリングをする女: 肌色4</annotation>
+		<annotation cp="🤹🏾‍♀">ジャグラー | ジャグリング | ジャグリングをする女 | 大道芸 | 女 | 女性 | 肌色5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">ジャグリングをする女: 肌色5</annotation>
+		<annotation cp="🤹🏿‍♀">ジャグラー | ジャグリング | ジャグリングをする女 | 大道芸 | 女 | 女性 | 肌色6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">ジャグリングをする女: 肌色6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">2人でキス | ちゅっ | カップル | キス | ハート | 女性 | 男性</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">2人でキス: 女性 男性</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">2人でキス | ちゅっ | カップル | キス | ハート | 男性</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">2人でキス: 男性 男性</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">2人でキス | ちゅっ | カップル | キス | ハート | 女性</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">2人でキス: 女性 女性</annotation>
+		<annotation cp="👩‍❤‍👨">カップル | カップルとハート | ハート | 恋人 | 熱々 | 女性 | 男性</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">カップルとハート: 女性 男性</annotation>
+		<annotation cp="👨‍❤‍👨">カップル | カップルとハート | ハート | 恋人 | 熱々 | 男性</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">カップルとハート: 男性 男性</annotation>
+		<annotation cp="👩‍❤‍👩">カップル | カップルとハート | ハート | 恋人 | 熱々 | 女性</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">カップルとハート: 女性 女性</annotation>
+		<annotation cp="👨‍👩‍👦">家族 | 親子 | 男性 | 女性 | 男の子</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">家族: 男性 女性 男の子</annotation>
+		<annotation cp="👨‍👩‍👧">家族 | 親子 | 男性 | 女性 | 女の子</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">家族: 男性 女性 女の子</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">家族 | 親子 | 男性 | 女性 | 女の子 | 男の子</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">家族: 男性 女性 女の子 男の子</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">家族 | 親子 | 男性 | 女性 | 男の子</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">家族: 男性 女性 男の子 男の子</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">家族 | 親子 | 男性 | 女性 | 女の子</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">家族: 男性 女性 女の子 女の子</annotation>
+		<annotation cp="👨‍👨‍👦">家族 | 親子 | 男性 | 男の子</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">家族: 男性 男性 男の子</annotation>
+		<annotation cp="👨‍👨‍👧">家族 | 親子 | 男性 | 女の子</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">家族: 男性 男性 女の子</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">家族 | 親子 | 男性 | 女の子 | 男の子</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">家族: 男性 男性 女の子 男の子</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">家族 | 親子 | 男性 | 男の子</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">家族: 男性 男性 男の子 男の子</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">家族 | 親子 | 男性 | 女の子</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">家族: 男性 男性 女の子 女の子</annotation>
+		<annotation cp="👩‍👩‍👦">家族 | 親子 | 女性 | 男の子</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">家族: 女性 女性 男の子</annotation>
+		<annotation cp="👩‍👩‍👧">家族 | 親子 | 女性 | 女の子</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">家族: 女性 女性 女の子</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">家族 | 親子 | 女性 | 女の子 | 男の子</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">家族: 女性 女性 女の子 男の子</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">家族 | 親子 | 女性 | 男の子</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">家族: 女性 女性 男の子 男の子</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">家族 | 親子 | 女性 | 女の子</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">家族: 女性 女性 女の子 女の子</annotation>
+		<annotation cp="👨‍👦">家族 | 親子 | 男性 | 男の子</annotation>
+		<annotation cp="👨‍👦" type="tts">家族: 男性 男の子</annotation>
+		<annotation cp="👨‍👦‍👦">家族 | 親子 | 男性 | 男の子</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">家族: 男性 男の子 男の子</annotation>
+		<annotation cp="👨‍👧">家族 | 親子 | 男性 | 女の子</annotation>
+		<annotation cp="👨‍👧" type="tts">家族: 男性 女の子</annotation>
+		<annotation cp="👨‍👧‍👦">家族 | 親子 | 男性 | 女の子 | 男の子</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">家族: 男性 女の子 男の子</annotation>
+		<annotation cp="👨‍👧‍👧">家族 | 親子 | 男性 | 女の子</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">家族: 男性 女の子 女の子</annotation>
+		<annotation cp="👩‍👦">家族 | 親子 | 女性 | 男の子</annotation>
+		<annotation cp="👩‍👦" type="tts">家族: 女性 男の子</annotation>
+		<annotation cp="👩‍👦‍👦">家族 | 親子 | 女性 | 男の子</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">家族: 女性 男の子 男の子</annotation>
+		<annotation cp="👩‍👧">家族 | 親子 | 女性 | 女の子</annotation>
+		<annotation cp="👩‍👧" type="tts">家族: 女性 女の子</annotation>
+		<annotation cp="👩‍👧‍👦">家族 | 親子 | 女性 | 女の子 | 男の子</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">家族: 女性 女の子 男の子</annotation>
+		<annotation cp="👩‍👧‍👧">家族 | 親子 | 女性 | 女の子</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">家族: 女性 女の子 女の子</annotation>
 		<annotation cp="🤳🏻">スマホ | セルフィー | 自分撮り | 自撮り | 肌色1–2</annotation>
 		<annotation cp="🤳🏻" type="tts">セルフィー: 肌色1–2</annotation>
 		<annotation cp="🤳🏼">スマホ | セルフィー | 自分撮り | 自撮り | 肌色3</annotation>
@@ -1865,85 +2040,85 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤳🏾" type="tts">セルフィー: 肌色5</annotation>
 		<annotation cp="🤳🏿">スマホ | セルフィー | 自分撮り | 自撮り | 肌色6</annotation>
 		<annotation cp="🤳🏿" type="tts">セルフィー: 肌色6</annotation>
-		<annotation cp="💪🏻">力こぶ | 筋肉 | 肌色1–2</annotation>
+		<annotation cp="💪🏻">ムキムキ | 力こぶ | 筋トレ | 筋肉 | 肌色1–2</annotation>
 		<annotation cp="💪🏻" type="tts">力こぶ: 肌色1–2</annotation>
-		<annotation cp="💪🏼">力こぶ | 筋肉 | 肌色3</annotation>
+		<annotation cp="💪🏼">ムキムキ | 力こぶ | 筋トレ | 筋肉 | 肌色3</annotation>
 		<annotation cp="💪🏼" type="tts">力こぶ: 肌色3</annotation>
-		<annotation cp="💪🏽">力こぶ | 筋肉 | 肌色4</annotation>
+		<annotation cp="💪🏽">ムキムキ | 力こぶ | 筋トレ | 筋肉 | 肌色4</annotation>
 		<annotation cp="💪🏽" type="tts">力こぶ: 肌色4</annotation>
-		<annotation cp="💪🏾">力こぶ | 筋肉 | 肌色5</annotation>
+		<annotation cp="💪🏾">ムキムキ | 力こぶ | 筋トレ | 筋肉 | 肌色5</annotation>
 		<annotation cp="💪🏾" type="tts">力こぶ: 肌色5</annotation>
-		<annotation cp="💪🏿">力こぶ | 筋肉 | 肌色6</annotation>
+		<annotation cp="💪🏿">ムキムキ | 力こぶ | 筋トレ | 筋肉 | 肌色6</annotation>
 		<annotation cp="💪🏿" type="tts">力こぶ: 肌色6</annotation>
-		<annotation cp="👈🏻">左 | 左指差し | 手 | 指差し | 指差す | 矢印 | 肌色1–2</annotation>
+		<annotation cp="👈🏻">左 | 左指差し | 手 | 指差し | 肌色1–2</annotation>
 		<annotation cp="👈🏻" type="tts">左指差し: 肌色1–2</annotation>
-		<annotation cp="👈🏼">左 | 左指差し | 手 | 指差し | 指差す | 矢印 | 肌色3</annotation>
+		<annotation cp="👈🏼">左 | 左指差し | 手 | 指差し | 肌色3</annotation>
 		<annotation cp="👈🏼" type="tts">左指差し: 肌色3</annotation>
-		<annotation cp="👈🏽">左 | 左指差し | 手 | 指差し | 指差す | 矢印 | 肌色4</annotation>
+		<annotation cp="👈🏽">左 | 左指差し | 手 | 指差し | 肌色4</annotation>
 		<annotation cp="👈🏽" type="tts">左指差し: 肌色4</annotation>
-		<annotation cp="👈🏾">左 | 左指差し | 手 | 指差し | 指差す | 矢印 | 肌色5</annotation>
+		<annotation cp="👈🏾">左 | 左指差し | 手 | 指差し | 肌色5</annotation>
 		<annotation cp="👈🏾" type="tts">左指差し: 肌色5</annotation>
-		<annotation cp="👈🏿">左 | 左指差し | 手 | 指差し | 指差す | 矢印 | 肌色6</annotation>
+		<annotation cp="👈🏿">左 | 左指差し | 手 | 指差し | 肌色6</annotation>
 		<annotation cp="👈🏿" type="tts">左指差し: 肌色6</annotation>
-		<annotation cp="👉🏻">右 | 右指差し | 手 | 指差し | 指差す | 矢印 | 肌色1–2</annotation>
+		<annotation cp="👉🏻">右 | 右指差し | 手 | 指差し | 肌色1–2</annotation>
 		<annotation cp="👉🏻" type="tts">右指差し: 肌色1–2</annotation>
-		<annotation cp="👉🏼">右 | 右指差し | 手 | 指差し | 指差す | 矢印 | 肌色3</annotation>
+		<annotation cp="👉🏼">右 | 右指差し | 手 | 指差し | 肌色3</annotation>
 		<annotation cp="👉🏼" type="tts">右指差し: 肌色3</annotation>
-		<annotation cp="👉🏽">右 | 右指差し | 手 | 指差し | 指差す | 矢印 | 肌色4</annotation>
+		<annotation cp="👉🏽">右 | 右指差し | 手 | 指差し | 肌色4</annotation>
 		<annotation cp="👉🏽" type="tts">右指差し: 肌色4</annotation>
-		<annotation cp="👉🏾">右 | 右指差し | 手 | 指差し | 指差す | 矢印 | 肌色5</annotation>
+		<annotation cp="👉🏾">右 | 右指差し | 手 | 指差し | 肌色5</annotation>
 		<annotation cp="👉🏾" type="tts">右指差し: 肌色5</annotation>
-		<annotation cp="👉🏿">右 | 右指差し | 手 | 指差し | 指差す | 矢印 | 肌色6</annotation>
+		<annotation cp="👉🏿">右 | 右指差し | 手 | 指差し | 肌色6</annotation>
 		<annotation cp="👉🏿" type="tts">右指差し: 肌色6</annotation>
-		<annotation cp="☝🏻">上 | 上指差し | 手 | 指差し | 指差す | 矢印 | 肌色1–2</annotation>
+		<annotation cp="☝🏻">上 | 上指差し | 手 | 指差し | 肌色1–2</annotation>
 		<annotation cp="☝🏻" type="tts">上指差し: 肌色1–2</annotation>
-		<annotation cp="☝🏼">上 | 上指差し | 手 | 指差し | 指差す | 矢印 | 肌色3</annotation>
+		<annotation cp="☝🏼">上 | 上指差し | 手 | 指差し | 肌色3</annotation>
 		<annotation cp="☝🏼" type="tts">上指差し: 肌色3</annotation>
-		<annotation cp="☝🏽">上 | 上指差し | 手 | 指差し | 指差す | 矢印 | 肌色4</annotation>
+		<annotation cp="☝🏽">上 | 上指差し | 手 | 指差し | 肌色4</annotation>
 		<annotation cp="☝🏽" type="tts">上指差し: 肌色4</annotation>
-		<annotation cp="☝🏾">上 | 上指差し | 手 | 指差し | 指差す | 矢印 | 肌色5</annotation>
+		<annotation cp="☝🏾">上 | 上指差し | 手 | 指差し | 肌色5</annotation>
 		<annotation cp="☝🏾" type="tts">上指差し: 肌色5</annotation>
-		<annotation cp="☝🏿">上 | 上指差し | 手 | 指差し | 指差す | 矢印 | 肌色6</annotation>
+		<annotation cp="☝🏿">上 | 上指差し | 手 | 指差し | 肌色6</annotation>
 		<annotation cp="☝🏿" type="tts">上指差し: 肌色6</annotation>
-		<annotation cp="👆🏻">上 | 手 | 手の甲上指差し | 指差し | 指差す | 矢印 | 肌色1–2</annotation>
+		<annotation cp="👆🏻">上 | 手 | 手の甲上指差し | 指差し | 肌色1–2</annotation>
 		<annotation cp="👆🏻" type="tts">手の甲上指差し: 肌色1–2</annotation>
-		<annotation cp="👆🏼">上 | 手 | 手の甲上指差し | 指差し | 指差す | 矢印 | 肌色3</annotation>
+		<annotation cp="👆🏼">上 | 手 | 手の甲上指差し | 指差し | 肌色3</annotation>
 		<annotation cp="👆🏼" type="tts">手の甲上指差し: 肌色3</annotation>
-		<annotation cp="👆🏽">上 | 手 | 手の甲上指差し | 指差し | 指差す | 矢印 | 肌色4</annotation>
+		<annotation cp="👆🏽">上 | 手 | 手の甲上指差し | 指差し | 肌色4</annotation>
 		<annotation cp="👆🏽" type="tts">手の甲上指差し: 肌色4</annotation>
-		<annotation cp="👆🏾">上 | 手 | 手の甲上指差し | 指差し | 指差す | 矢印 | 肌色5</annotation>
+		<annotation cp="👆🏾">上 | 手 | 手の甲上指差し | 指差し | 肌色5</annotation>
 		<annotation cp="👆🏾" type="tts">手の甲上指差し: 肌色5</annotation>
-		<annotation cp="👆🏿">上 | 手 | 手の甲上指差し | 指差し | 指差す | 矢印 | 肌色6</annotation>
+		<annotation cp="👆🏿">上 | 手 | 手の甲上指差し | 指差し | 肌色6</annotation>
 		<annotation cp="👆🏿" type="tts">手の甲上指差し: 肌色6</annotation>
-		<annotation cp="🖕🏻">上 | 中指 | 手 | 指差し | 指差す | 矢印 | 立てた中指 | 肌色1–2</annotation>
+		<annotation cp="🖕🏻">上 | 中指 | 手 | 指差し | 立てた中指 | 肌色1–2</annotation>
 		<annotation cp="🖕🏻" type="tts">立てた中指: 肌色1–2</annotation>
-		<annotation cp="🖕🏼">上 | 中指 | 手 | 指差し | 指差す | 矢印 | 立てた中指 | 肌色3</annotation>
+		<annotation cp="🖕🏼">上 | 中指 | 手 | 指差し | 立てた中指 | 肌色3</annotation>
 		<annotation cp="🖕🏼" type="tts">立てた中指: 肌色3</annotation>
-		<annotation cp="🖕🏽">上 | 中指 | 手 | 指差し | 指差す | 矢印 | 立てた中指 | 肌色4</annotation>
+		<annotation cp="🖕🏽">上 | 中指 | 手 | 指差し | 立てた中指 | 肌色4</annotation>
 		<annotation cp="🖕🏽" type="tts">立てた中指: 肌色4</annotation>
-		<annotation cp="🖕🏾">上 | 中指 | 手 | 指差し | 指差す | 矢印 | 立てた中指 | 肌色5</annotation>
+		<annotation cp="🖕🏾">上 | 中指 | 手 | 指差し | 立てた中指 | 肌色5</annotation>
 		<annotation cp="🖕🏾" type="tts">立てた中指: 肌色5</annotation>
-		<annotation cp="🖕🏿">上 | 中指 | 手 | 指差し | 指差す | 矢印 | 立てた中指 | 肌色6</annotation>
+		<annotation cp="🖕🏿">上 | 中指 | 手 | 指差し | 立てた中指 | 肌色6</annotation>
 		<annotation cp="🖕🏿" type="tts">立てた中指: 肌色6</annotation>
-		<annotation cp="👇🏻">下 | 下指差し | 手 | 指差し | 指差す | 矢印 | 肌色1–2</annotation>
+		<annotation cp="👇🏻">下 | 下指差し | 手 | 指差し | 肌色1–2</annotation>
 		<annotation cp="👇🏻" type="tts">下指差し: 肌色1–2</annotation>
-		<annotation cp="👇🏼">下 | 下指差し | 手 | 指差し | 指差す | 矢印 | 肌色3</annotation>
+		<annotation cp="👇🏼">下 | 下指差し | 手 | 指差し | 肌色3</annotation>
 		<annotation cp="👇🏼" type="tts">下指差し: 肌色3</annotation>
-		<annotation cp="👇🏽">下 | 下指差し | 手 | 指差し | 指差す | 矢印 | 肌色4</annotation>
+		<annotation cp="👇🏽">下 | 下指差し | 手 | 指差し | 肌色4</annotation>
 		<annotation cp="👇🏽" type="tts">下指差し: 肌色4</annotation>
-		<annotation cp="👇🏾">下 | 下指差し | 手 | 指差し | 指差す | 矢印 | 肌色5</annotation>
+		<annotation cp="👇🏾">下 | 下指差し | 手 | 指差し | 肌色5</annotation>
 		<annotation cp="👇🏾" type="tts">下指差し: 肌色5</annotation>
-		<annotation cp="👇🏿">下 | 下指差し | 手 | 指差し | 指差す | 矢印 | 肌色6</annotation>
+		<annotation cp="👇🏿">下 | 下指差し | 手 | 指差し | 肌色6</annotation>
 		<annotation cp="👇🏿" type="tts">下指差し: 肌色6</annotation>
-		<annotation cp="✌🏻">Vサイン | ピース | 手 | 肌色1–2</annotation>
+		<annotation cp="✌🏻">Vサイン | チョキ | ピース | 手 | 肌色1–2</annotation>
 		<annotation cp="✌🏻" type="tts">Vサイン: 肌色1–2</annotation>
-		<annotation cp="✌🏼">Vサイン | ピース | 手 | 肌色3</annotation>
+		<annotation cp="✌🏼">Vサイン | チョキ | ピース | 手 | 肌色3</annotation>
 		<annotation cp="✌🏼" type="tts">Vサイン: 肌色3</annotation>
-		<annotation cp="✌🏽">Vサイン | ピース | 手 | 肌色4</annotation>
+		<annotation cp="✌🏽">Vサイン | チョキ | ピース | 手 | 肌色4</annotation>
 		<annotation cp="✌🏽" type="tts">Vサイン: 肌色4</annotation>
-		<annotation cp="✌🏾">Vサイン | ピース | 手 | 肌色5</annotation>
+		<annotation cp="✌🏾">Vサイン | チョキ | ピース | 手 | 肌色5</annotation>
 		<annotation cp="✌🏾" type="tts">Vサイン: 肌色5</annotation>
-		<annotation cp="✌🏿">Vサイン | ピース | 手 | 肌色6</annotation>
+		<annotation cp="✌🏿">Vサイン | チョキ | ピース | 手 | 肌色6</annotation>
 		<annotation cp="✌🏿" type="tts">Vサイン: 肌色6</annotation>
 		<annotation cp="🤞🏻">手 | 指 | 指をクロス | 肌色1–2</annotation>
 		<annotation cp="🤞🏻" type="tts">指をクロス: 肌色1–2</annotation>
@@ -1975,15 +2150,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤘🏾" type="tts">角の指サイン: 肌色5</annotation>
 		<annotation cp="🤘🏿">キツネ | 手 | 角の指サイン | 肌色6</annotation>
 		<annotation cp="🤘🏿" type="tts">角の指サイン: 肌色6</annotation>
-		<annotation cp="🤙🏻">手 | 電話 | 電話の合図 | 肌色1–2</annotation>
+		<annotation cp="🤙🏻">手 | 電話 | 電話のジェスチャー | 電話の合図 | 肌色1–2</annotation>
 		<annotation cp="🤙🏻" type="tts">電話の合図: 肌色1–2</annotation>
-		<annotation cp="🤙🏼">手 | 電話 | 電話の合図 | 肌色3</annotation>
+		<annotation cp="🤙🏼">手 | 電話 | 電話のジェスチャー | 電話の合図 | 肌色3</annotation>
 		<annotation cp="🤙🏼" type="tts">電話の合図: 肌色3</annotation>
-		<annotation cp="🤙🏽">手 | 電話 | 電話の合図 | 肌色4</annotation>
+		<annotation cp="🤙🏽">手 | 電話 | 電話のジェスチャー | 電話の合図 | 肌色4</annotation>
 		<annotation cp="🤙🏽" type="tts">電話の合図: 肌色4</annotation>
-		<annotation cp="🤙🏾">手 | 電話 | 電話の合図 | 肌色5</annotation>
+		<annotation cp="🤙🏾">手 | 電話 | 電話のジェスチャー | 電話の合図 | 肌色5</annotation>
 		<annotation cp="🤙🏾" type="tts">電話の合図: 肌色5</annotation>
-		<annotation cp="🤙🏿">手 | 電話 | 電話の合図 | 肌色6</annotation>
+		<annotation cp="🤙🏿">手 | 電話 | 電話のジェスチャー | 電話の合図 | 肌色6</annotation>
 		<annotation cp="🤙🏿" type="tts">電話の合図: 肌色6</annotation>
 		<annotation cp="🖐🏻">パー | 手 | 開いた手 | 肌色1–2</annotation>
 		<annotation cp="🖐🏻" type="tts">開いた手: 肌色1–2</annotation>
@@ -2015,25 +2190,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">OKの手: 肌色5</annotation>
 		<annotation cp="👌🏿">OK | OKの手 | オッケー | オーケー | 手 | 肌色6</annotation>
 		<annotation cp="👌🏿" type="tts">OKの手: 肌色6</annotation>
-		<annotation cp="👍🏻">OK | オッケー | オーケー | グッド | サムアップ | サムズアップ | 上 | 手 | 親指 | 肌色1–2</annotation>
+		<annotation cp="👍🏻">OK | オッケー | オーケー | グッド | サムズアップ | 上 | 手 | 親指 | 肌色1–2</annotation>
 		<annotation cp="👍🏻" type="tts">サムズアップ: 肌色1–2</annotation>
-		<annotation cp="👍🏼">OK | オッケー | オーケー | グッド | サムアップ | サムズアップ | 上 | 手 | 親指 | 肌色3</annotation>
+		<annotation cp="👍🏼">OK | オッケー | オーケー | グッド | サムズアップ | 上 | 手 | 親指 | 肌色3</annotation>
 		<annotation cp="👍🏼" type="tts">サムズアップ: 肌色3</annotation>
-		<annotation cp="👍🏽">OK | オッケー | オーケー | グッド | サムアップ | サムズアップ | 上 | 手 | 親指 | 肌色4</annotation>
+		<annotation cp="👍🏽">OK | オッケー | オーケー | グッド | サムズアップ | 上 | 手 | 親指 | 肌色4</annotation>
 		<annotation cp="👍🏽" type="tts">サムズアップ: 肌色4</annotation>
-		<annotation cp="👍🏾">OK | オッケー | オーケー | グッド | サムアップ | サムズアップ | 上 | 手 | 親指 | 肌色5</annotation>
+		<annotation cp="👍🏾">OK | オッケー | オーケー | グッド | サムズアップ | 上 | 手 | 親指 | 肌色5</annotation>
 		<annotation cp="👍🏾" type="tts">サムズアップ: 肌色5</annotation>
-		<annotation cp="👍🏿">OK | オッケー | オーケー | グッド | サムアップ | サムズアップ | 上 | 手 | 親指 | 肌色6</annotation>
+		<annotation cp="👍🏿">OK | オッケー | オーケー | グッド | サムズアップ | 上 | 手 | 親指 | 肌色6</annotation>
 		<annotation cp="👍🏿" type="tts">サムズアップ: 肌色6</annotation>
-		<annotation cp="👎🏻">NG | だめ | サムズダウン | ブーイング | 下 | 手 | 肌色1–2</annotation>
+		<annotation cp="👎🏻">NG | だめ | サムズダウン | ブーイング | ボツ | 下 | 手 | 肌色1–2</annotation>
 		<annotation cp="👎🏻" type="tts">サムズダウン: 肌色1–2</annotation>
-		<annotation cp="👎🏼">NG | だめ | サムズダウン | ブーイング | 下 | 手 | 肌色3</annotation>
+		<annotation cp="👎🏼">NG | だめ | サムズダウン | ブーイング | ボツ | 下 | 手 | 肌色3</annotation>
 		<annotation cp="👎🏼" type="tts">サムズダウン: 肌色3</annotation>
-		<annotation cp="👎🏽">NG | だめ | サムズダウン | ブーイング | 下 | 手 | 肌色4</annotation>
+		<annotation cp="👎🏽">NG | だめ | サムズダウン | ブーイング | ボツ | 下 | 手 | 肌色4</annotation>
 		<annotation cp="👎🏽" type="tts">サムズダウン: 肌色4</annotation>
-		<annotation cp="👎🏾">NG | だめ | サムズダウン | ブーイング | 下 | 手 | 肌色5</annotation>
+		<annotation cp="👎🏾">NG | だめ | サムズダウン | ブーイング | ボツ | 下 | 手 | 肌色5</annotation>
 		<annotation cp="👎🏾" type="tts">サムズダウン: 肌色5</annotation>
-		<annotation cp="👎🏿">NG | だめ | サムズダウン | ブーイング | 下 | 手 | 肌色6</annotation>
+		<annotation cp="👎🏿">NG | だめ | サムズダウン | ブーイング | ボツ | 下 | 手 | 肌色6</annotation>
 		<annotation cp="👎🏿" type="tts">サムズダウン: 肌色6</annotation>
 		<annotation cp="✊🏻">げんこつ | グー | 手 | 肌色1–2</annotation>
 		<annotation cp="✊🏻" type="tts">げんこつ: 肌色1–2</annotation>
@@ -2085,15 +2260,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤚🏾" type="tts">手の甲: 肌色5</annotation>
 		<annotation cp="🤚🏿">手 | 手の甲 | 肌色6</annotation>
 		<annotation cp="🤚🏿" type="tts">手の甲: 肌色6</annotation>
-		<annotation cp="👋🏻">手 | 手を振る | 肌色1–2</annotation>
+		<annotation cp="👋🏻">バイバイ | 手 | 手を振る | 肌色1–2</annotation>
 		<annotation cp="👋🏻" type="tts">手を振る: 肌色1–2</annotation>
-		<annotation cp="👋🏼">手 | 手を振る | 肌色3</annotation>
+		<annotation cp="👋🏼">バイバイ | 手 | 手を振る | 肌色3</annotation>
 		<annotation cp="👋🏼" type="tts">手を振る: 肌色3</annotation>
-		<annotation cp="👋🏽">手 | 手を振る | 肌色4</annotation>
+		<annotation cp="👋🏽">バイバイ | 手 | 手を振る | 肌色4</annotation>
 		<annotation cp="👋🏽" type="tts">手を振る: 肌色4</annotation>
-		<annotation cp="👋🏾">手 | 手を振る | 肌色5</annotation>
+		<annotation cp="👋🏾">バイバイ | 手 | 手を振る | 肌色5</annotation>
 		<annotation cp="👋🏾" type="tts">手を振る: 肌色5</annotation>
-		<annotation cp="👋🏿">手 | 手を振る | 肌色6</annotation>
+		<annotation cp="👋🏿">バイバイ | 手 | 手を振る | 肌色6</annotation>
 		<annotation cp="👋🏿" type="tts">手を振る: 肌色6</annotation>
 		<annotation cp="🤟🏻">アイラブユー | 愛してる | 手 | 肌色1–2</annotation>
 		<annotation cp="🤟🏻" type="tts">アイラブユー: 肌色1–2</annotation>
@@ -2135,15 +2310,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👐🏾" type="tts">両手のひら: 肌色5</annotation>
 		<annotation cp="👐🏿">おっはー | 両手のひら | 手 | 手のひら | 肌色6</annotation>
 		<annotation cp="👐🏿" type="tts">両手のひら: 肌色6</annotation>
-		<annotation cp="🙌🏻">バンザイ | 両手 | 両手を上げる人 | 手 | 手を上げる | 肌色1–2</annotation>
+		<annotation cp="🙌🏻">バンザイ | 両手 | 手 | 手を上げる | 肌色1–2</annotation>
 		<annotation cp="🙌🏻" type="tts">バンザイ: 肌色1–2</annotation>
-		<annotation cp="🙌🏼">バンザイ | 両手 | 両手を上げる人 | 手 | 手を上げる | 肌色3</annotation>
+		<annotation cp="🙌🏼">バンザイ | 両手 | 手 | 手を上げる | 肌色3</annotation>
 		<annotation cp="🙌🏼" type="tts">バンザイ: 肌色3</annotation>
-		<annotation cp="🙌🏽">バンザイ | 両手 | 両手を上げる人 | 手 | 手を上げる | 肌色4</annotation>
+		<annotation cp="🙌🏽">バンザイ | 両手 | 手 | 手を上げる | 肌色4</annotation>
 		<annotation cp="🙌🏽" type="tts">バンザイ: 肌色4</annotation>
-		<annotation cp="🙌🏾">バンザイ | 両手 | 両手を上げる人 | 手 | 手を上げる | 肌色5</annotation>
+		<annotation cp="🙌🏾">バンザイ | 両手 | 手 | 手を上げる | 肌色5</annotation>
 		<annotation cp="🙌🏾" type="tts">バンザイ: 肌色5</annotation>
-		<annotation cp="🙌🏿">バンザイ | 両手 | 両手を上げる人 | 手 | 手を上げる | 肌色6</annotation>
+		<annotation cp="🙌🏿">バンザイ | 両手 | 手 | 手を上げる | 肌色6</annotation>
 		<annotation cp="🙌🏿" type="tts">バンザイ: 肌色6</annotation>
 		<annotation cp="🤲🏻">両手 | 手 | 手のひらを揃えた両手 | 祈り | 肌色1–2</annotation>
 		<annotation cp="🤲🏻" type="tts">手のひらを揃えた両手: 肌色1–2</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">囲み数字</annotation>
 		<annotation cp="🔟" type="tts">囲み数字: 10</annotation>
 		<annotation cp="🇦🇨">旗</annotation>
-		<annotation cp="🇦🇨" type="tts">アセンション島</annotation>
+		<annotation cp="🇦🇨" type="tts">旗: アセンション島</annotation>
 		<annotation cp="🇦🇩">旗</annotation>
-		<annotation cp="🇦🇩" type="tts">アンドラ</annotation>
+		<annotation cp="🇦🇩" type="tts">旗: アンドラ</annotation>
 		<annotation cp="🇦🇪">旗</annotation>
-		<annotation cp="🇦🇪" type="tts">アラブ首長国連邦</annotation>
+		<annotation cp="🇦🇪" type="tts">旗: アラブ首長国連邦</annotation>
 		<annotation cp="🇦🇫">旗</annotation>
-		<annotation cp="🇦🇫" type="tts">アフガニスタン</annotation>
+		<annotation cp="🇦🇫" type="tts">旗: アフガニスタン</annotation>
 		<annotation cp="🇦🇬">旗</annotation>
-		<annotation cp="🇦🇬" type="tts">アンティグア・バーブーダ</annotation>
+		<annotation cp="🇦🇬" type="tts">旗: アンティグア・バーブーダ</annotation>
 		<annotation cp="🇦🇮">旗</annotation>
-		<annotation cp="🇦🇮" type="tts">アンギラ</annotation>
+		<annotation cp="🇦🇮" type="tts">旗: アンギラ</annotation>
 		<annotation cp="🇦🇱">旗</annotation>
-		<annotation cp="🇦🇱" type="tts">アルバニア</annotation>
+		<annotation cp="🇦🇱" type="tts">旗: アルバニア</annotation>
 		<annotation cp="🇦🇲">旗</annotation>
-		<annotation cp="🇦🇲" type="tts">アルメニア</annotation>
+		<annotation cp="🇦🇲" type="tts">旗: アルメニア</annotation>
 		<annotation cp="🇦🇴">旗</annotation>
-		<annotation cp="🇦🇴" type="tts">アンゴラ</annotation>
+		<annotation cp="🇦🇴" type="tts">旗: アンゴラ</annotation>
 		<annotation cp="🇦🇶">旗</annotation>
-		<annotation cp="🇦🇶" type="tts">南極</annotation>
+		<annotation cp="🇦🇶" type="tts">旗: 南極</annotation>
 		<annotation cp="🇦🇷">旗</annotation>
-		<annotation cp="🇦🇷" type="tts">アルゼンチン</annotation>
+		<annotation cp="🇦🇷" type="tts">旗: アルゼンチン</annotation>
 		<annotation cp="🇦🇸">旗</annotation>
-		<annotation cp="🇦🇸" type="tts">米領サモア</annotation>
+		<annotation cp="🇦🇸" type="tts">旗: 米領サモア</annotation>
 		<annotation cp="🇦🇹">旗</annotation>
-		<annotation cp="🇦🇹" type="tts">オーストリア</annotation>
+		<annotation cp="🇦🇹" type="tts">旗: オーストリア</annotation>
 		<annotation cp="🇦🇺">旗</annotation>
-		<annotation cp="🇦🇺" type="tts">オーストラリア</annotation>
+		<annotation cp="🇦🇺" type="tts">旗: オーストラリア</annotation>
 		<annotation cp="🇦🇼">旗</annotation>
-		<annotation cp="🇦🇼" type="tts">アルバ</annotation>
+		<annotation cp="🇦🇼" type="tts">旗: アルバ</annotation>
 		<annotation cp="🇦🇽">旗</annotation>
-		<annotation cp="🇦🇽" type="tts">オーランド諸島</annotation>
+		<annotation cp="🇦🇽" type="tts">旗: オーランド諸島</annotation>
 		<annotation cp="🇦🇿">旗</annotation>
-		<annotation cp="🇦🇿" type="tts">アゼルバイジャン</annotation>
+		<annotation cp="🇦🇿" type="tts">旗: アゼルバイジャン</annotation>
 		<annotation cp="🇧🇦">旗</annotation>
-		<annotation cp="🇧🇦" type="tts">ボスニア・ヘルツェゴビナ</annotation>
+		<annotation cp="🇧🇦" type="tts">旗: ボスニア・ヘルツェゴビナ</annotation>
 		<annotation cp="🇧🇧">旗</annotation>
-		<annotation cp="🇧🇧" type="tts">バルバドス</annotation>
+		<annotation cp="🇧🇧" type="tts">旗: バルバドス</annotation>
 		<annotation cp="🇧🇩">旗</annotation>
-		<annotation cp="🇧🇩" type="tts">バングラデシュ</annotation>
+		<annotation cp="🇧🇩" type="tts">旗: バングラデシュ</annotation>
 		<annotation cp="🇧🇪">旗</annotation>
-		<annotation cp="🇧🇪" type="tts">ベルギー</annotation>
+		<annotation cp="🇧🇪" type="tts">旗: ベルギー</annotation>
 		<annotation cp="🇧🇫">旗</annotation>
-		<annotation cp="🇧🇫" type="tts">ブルキナファソ</annotation>
+		<annotation cp="🇧🇫" type="tts">旗: ブルキナファソ</annotation>
 		<annotation cp="🇧🇬">旗</annotation>
-		<annotation cp="🇧🇬" type="tts">ブルガリア</annotation>
+		<annotation cp="🇧🇬" type="tts">旗: ブルガリア</annotation>
 		<annotation cp="🇧🇭">旗</annotation>
-		<annotation cp="🇧🇭" type="tts">バーレーン</annotation>
+		<annotation cp="🇧🇭" type="tts">旗: バーレーン</annotation>
 		<annotation cp="🇧🇮">旗</annotation>
-		<annotation cp="🇧🇮" type="tts">ブルンジ</annotation>
+		<annotation cp="🇧🇮" type="tts">旗: ブルンジ</annotation>
 		<annotation cp="🇧🇯">旗</annotation>
-		<annotation cp="🇧🇯" type="tts">ベナン</annotation>
+		<annotation cp="🇧🇯" type="tts">旗: ベナン</annotation>
 		<annotation cp="🇧🇱">旗</annotation>
-		<annotation cp="🇧🇱" type="tts">サン・バルテルミー</annotation>
+		<annotation cp="🇧🇱" type="tts">旗: サン・バルテルミー</annotation>
 		<annotation cp="🇧🇲">旗</annotation>
-		<annotation cp="🇧🇲" type="tts">バミューダ</annotation>
+		<annotation cp="🇧🇲" type="tts">旗: バミューダ</annotation>
 		<annotation cp="🇧🇳">旗</annotation>
-		<annotation cp="🇧🇳" type="tts">ブルネイ</annotation>
+		<annotation cp="🇧🇳" type="tts">旗: ブルネイ</annotation>
 		<annotation cp="🇧🇴">旗</annotation>
-		<annotation cp="🇧🇴" type="tts">ボリビア</annotation>
+		<annotation cp="🇧🇴" type="tts">旗: ボリビア</annotation>
 		<annotation cp="🇧🇶">旗</annotation>
-		<annotation cp="🇧🇶" type="tts">オランダ領カリブ</annotation>
+		<annotation cp="🇧🇶" type="tts">旗: オランダ領カリブ</annotation>
 		<annotation cp="🇧🇷">旗</annotation>
-		<annotation cp="🇧🇷" type="tts">ブラジル</annotation>
+		<annotation cp="🇧🇷" type="tts">旗: ブラジル</annotation>
 		<annotation cp="🇧🇸">旗</annotation>
-		<annotation cp="🇧🇸" type="tts">バハマ</annotation>
+		<annotation cp="🇧🇸" type="tts">旗: バハマ</annotation>
 		<annotation cp="🇧🇹">旗</annotation>
-		<annotation cp="🇧🇹" type="tts">ブータン</annotation>
+		<annotation cp="🇧🇹" type="tts">旗: ブータン</annotation>
 		<annotation cp="🇧🇻">旗</annotation>
-		<annotation cp="🇧🇻" type="tts">ブーベ島</annotation>
+		<annotation cp="🇧🇻" type="tts">旗: ブーベ島</annotation>
 		<annotation cp="🇧🇼">旗</annotation>
-		<annotation cp="🇧🇼" type="tts">ボツワナ</annotation>
+		<annotation cp="🇧🇼" type="tts">旗: ボツワナ</annotation>
 		<annotation cp="🇧🇾">旗</annotation>
-		<annotation cp="🇧🇾" type="tts">ベラルーシ</annotation>
+		<annotation cp="🇧🇾" type="tts">旗: ベラルーシ</annotation>
 		<annotation cp="🇧🇿">旗</annotation>
-		<annotation cp="🇧🇿" type="tts">ベリーズ</annotation>
+		<annotation cp="🇧🇿" type="tts">旗: ベリーズ</annotation>
 		<annotation cp="🇨🇦">旗</annotation>
-		<annotation cp="🇨🇦" type="tts">カナダ</annotation>
+		<annotation cp="🇨🇦" type="tts">旗: カナダ</annotation>
 		<annotation cp="🇨🇨">旗</annotation>
-		<annotation cp="🇨🇨" type="tts">ココス(キーリング)諸島</annotation>
+		<annotation cp="🇨🇨" type="tts">旗: ココス(キーリング)諸島</annotation>
 		<annotation cp="🇨🇩">旗</annotation>
-		<annotation cp="🇨🇩" type="tts">コンゴ民主共和国(キンシャサ)</annotation>
+		<annotation cp="🇨🇩" type="tts">旗: コンゴ民主共和国(キンシャサ)</annotation>
 		<annotation cp="🇨🇫">旗</annotation>
-		<annotation cp="🇨🇫" type="tts">中央アフリカ共和国</annotation>
+		<annotation cp="🇨🇫" type="tts">旗: 中央アフリカ共和国</annotation>
 		<annotation cp="🇨🇬">旗</annotation>
-		<annotation cp="🇨🇬" type="tts">コンゴ共和国(ブラザビル)</annotation>
+		<annotation cp="🇨🇬" type="tts">旗: コンゴ共和国(ブラザビル)</annotation>
 		<annotation cp="🇨🇭">旗</annotation>
-		<annotation cp="🇨🇭" type="tts">スイス</annotation>
+		<annotation cp="🇨🇭" type="tts">旗: スイス</annotation>
 		<annotation cp="🇨🇮">旗</annotation>
-		<annotation cp="🇨🇮" type="tts">コートジボワール</annotation>
+		<annotation cp="🇨🇮" type="tts">旗: コートジボワール</annotation>
 		<annotation cp="🇨🇰">旗</annotation>
-		<annotation cp="🇨🇰" type="tts">クック諸島</annotation>
+		<annotation cp="🇨🇰" type="tts">旗: クック諸島</annotation>
 		<annotation cp="🇨🇱">旗</annotation>
-		<annotation cp="🇨🇱" type="tts">チリ</annotation>
+		<annotation cp="🇨🇱" type="tts">旗: チリ</annotation>
 		<annotation cp="🇨🇲">旗</annotation>
-		<annotation cp="🇨🇲" type="tts">カメルーン</annotation>
+		<annotation cp="🇨🇲" type="tts">旗: カメルーン</annotation>
 		<annotation cp="🇨🇳">旗</annotation>
-		<annotation cp="🇨🇳" type="tts">中国</annotation>
+		<annotation cp="🇨🇳" type="tts">旗: 中国</annotation>
 		<annotation cp="🇨🇴">旗</annotation>
-		<annotation cp="🇨🇴" type="tts">コロンビア</annotation>
+		<annotation cp="🇨🇴" type="tts">旗: コロンビア</annotation>
 		<annotation cp="🇨🇵">旗</annotation>
-		<annotation cp="🇨🇵" type="tts">クリッパートン島</annotation>
+		<annotation cp="🇨🇵" type="tts">旗: クリッパートン島</annotation>
 		<annotation cp="🇨🇷">旗</annotation>
-		<annotation cp="🇨🇷" type="tts">コスタリカ</annotation>
+		<annotation cp="🇨🇷" type="tts">旗: コスタリカ</annotation>
 		<annotation cp="🇨🇺">旗</annotation>
-		<annotation cp="🇨🇺" type="tts">キューバ</annotation>
+		<annotation cp="🇨🇺" type="tts">旗: キューバ</annotation>
 		<annotation cp="🇨🇻">旗</annotation>
-		<annotation cp="🇨🇻" type="tts">カーボベルデ</annotation>
+		<annotation cp="🇨🇻" type="tts">旗: カーボベルデ</annotation>
 		<annotation cp="🇨🇼">旗</annotation>
-		<annotation cp="🇨🇼" type="tts">キュラソー</annotation>
+		<annotation cp="🇨🇼" type="tts">旗: キュラソー</annotation>
 		<annotation cp="🇨🇽">旗</annotation>
-		<annotation cp="🇨🇽" type="tts">クリスマス島</annotation>
+		<annotation cp="🇨🇽" type="tts">旗: クリスマス島</annotation>
 		<annotation cp="🇨🇾">旗</annotation>
-		<annotation cp="🇨🇾" type="tts">キプロス</annotation>
+		<annotation cp="🇨🇾" type="tts">旗: キプロス</annotation>
 		<annotation cp="🇨🇿">旗</annotation>
-		<annotation cp="🇨🇿" type="tts">チェコ</annotation>
+		<annotation cp="🇨🇿" type="tts">旗: チェコ</annotation>
 		<annotation cp="🇩🇪">旗</annotation>
-		<annotation cp="🇩🇪" type="tts">ドイツ</annotation>
+		<annotation cp="🇩🇪" type="tts">旗: ドイツ</annotation>
 		<annotation cp="🇩🇬">旗</annotation>
-		<annotation cp="🇩🇬" type="tts">ディエゴガルシア島</annotation>
+		<annotation cp="🇩🇬" type="tts">旗: ディエゴガルシア島</annotation>
 		<annotation cp="🇩🇯">旗</annotation>
-		<annotation cp="🇩🇯" type="tts">ジブチ</annotation>
+		<annotation cp="🇩🇯" type="tts">旗: ジブチ</annotation>
 		<annotation cp="🇩🇰">旗</annotation>
-		<annotation cp="🇩🇰" type="tts">デンマーク</annotation>
+		<annotation cp="🇩🇰" type="tts">旗: デンマーク</annotation>
 		<annotation cp="🇩🇲">旗</annotation>
-		<annotation cp="🇩🇲" type="tts">ドミニカ国</annotation>
+		<annotation cp="🇩🇲" type="tts">旗: ドミニカ国</annotation>
 		<annotation cp="🇩🇴">旗</annotation>
-		<annotation cp="🇩🇴" type="tts">ドミニカ共和国</annotation>
+		<annotation cp="🇩🇴" type="tts">旗: ドミニカ共和国</annotation>
 		<annotation cp="🇩🇿">旗</annotation>
-		<annotation cp="🇩🇿" type="tts">アルジェリア</annotation>
+		<annotation cp="🇩🇿" type="tts">旗: アルジェリア</annotation>
 		<annotation cp="🇪🇦">旗</annotation>
-		<annotation cp="🇪🇦" type="tts">セウタ・メリリャ</annotation>
+		<annotation cp="🇪🇦" type="tts">旗: セウタ・メリリャ</annotation>
 		<annotation cp="🇪🇨">旗</annotation>
-		<annotation cp="🇪🇨" type="tts">エクアドル</annotation>
+		<annotation cp="🇪🇨" type="tts">旗: エクアドル</annotation>
 		<annotation cp="🇪🇪">旗</annotation>
-		<annotation cp="🇪🇪" type="tts">エストニア</annotation>
+		<annotation cp="🇪🇪" type="tts">旗: エストニア</annotation>
 		<annotation cp="🇪🇬">旗</annotation>
-		<annotation cp="🇪🇬" type="tts">エジプト</annotation>
+		<annotation cp="🇪🇬" type="tts">旗: エジプト</annotation>
 		<annotation cp="🇪🇭">旗</annotation>
-		<annotation cp="🇪🇭" type="tts">西サハラ</annotation>
+		<annotation cp="🇪🇭" type="tts">旗: 西サハラ</annotation>
 		<annotation cp="🇪🇷">旗</annotation>
-		<annotation cp="🇪🇷" type="tts">エリトリア</annotation>
+		<annotation cp="🇪🇷" type="tts">旗: エリトリア</annotation>
 		<annotation cp="🇪🇸">旗</annotation>
-		<annotation cp="🇪🇸" type="tts">スペイン</annotation>
+		<annotation cp="🇪🇸" type="tts">旗: スペイン</annotation>
 		<annotation cp="🇪🇹">旗</annotation>
-		<annotation cp="🇪🇹" type="tts">エチオピア</annotation>
+		<annotation cp="🇪🇹" type="tts">旗: エチオピア</annotation>
 		<annotation cp="🇪🇺">旗</annotation>
-		<annotation cp="🇪🇺" type="tts">欧州連合</annotation>
+		<annotation cp="🇪🇺" type="tts">旗: 欧州連合</annotation>
 		<annotation cp="🇫🇮">旗</annotation>
-		<annotation cp="🇫🇮" type="tts">フィンランド</annotation>
+		<annotation cp="🇫🇮" type="tts">旗: フィンランド</annotation>
 		<annotation cp="🇫🇯">旗</annotation>
-		<annotation cp="🇫🇯" type="tts">フィジー</annotation>
+		<annotation cp="🇫🇯" type="tts">旗: フィジー</annotation>
 		<annotation cp="🇫🇰">旗</annotation>
-		<annotation cp="🇫🇰" type="tts">フォークランド諸島</annotation>
+		<annotation cp="🇫🇰" type="tts">旗: フォークランド諸島</annotation>
 		<annotation cp="🇫🇲">旗</annotation>
-		<annotation cp="🇫🇲" type="tts">ミクロネシア連邦</annotation>
+		<annotation cp="🇫🇲" type="tts">旗: ミクロネシア連邦</annotation>
 		<annotation cp="🇫🇴">旗</annotation>
-		<annotation cp="🇫🇴" type="tts">フェロー諸島</annotation>
+		<annotation cp="🇫🇴" type="tts">旗: フェロー諸島</annotation>
 		<annotation cp="🇫🇷">旗</annotation>
-		<annotation cp="🇫🇷" type="tts">フランス</annotation>
+		<annotation cp="🇫🇷" type="tts">旗: フランス</annotation>
 		<annotation cp="🇬🇦">旗</annotation>
-		<annotation cp="🇬🇦" type="tts">ガボン</annotation>
+		<annotation cp="🇬🇦" type="tts">旗: ガボン</annotation>
 		<annotation cp="🇬🇧">旗</annotation>
-		<annotation cp="🇬🇧" type="tts">イギリス</annotation>
+		<annotation cp="🇬🇧" type="tts">旗: イギリス</annotation>
 		<annotation cp="🇬🇩">旗</annotation>
-		<annotation cp="🇬🇩" type="tts">グレナダ</annotation>
+		<annotation cp="🇬🇩" type="tts">旗: グレナダ</annotation>
 		<annotation cp="🇬🇪">旗</annotation>
-		<annotation cp="🇬🇪" type="tts">ジョージア</annotation>
+		<annotation cp="🇬🇪" type="tts">旗: ジョージア</annotation>
 		<annotation cp="🇬🇫">旗</annotation>
-		<annotation cp="🇬🇫" type="tts">仏領ギアナ</annotation>
+		<annotation cp="🇬🇫" type="tts">旗: 仏領ギアナ</annotation>
 		<annotation cp="🇬🇬">旗</annotation>
-		<annotation cp="🇬🇬" type="tts">ガーンジー</annotation>
+		<annotation cp="🇬🇬" type="tts">旗: ガーンジー</annotation>
 		<annotation cp="🇬🇭">旗</annotation>
-		<annotation cp="🇬🇭" type="tts">ガーナ</annotation>
+		<annotation cp="🇬🇭" type="tts">旗: ガーナ</annotation>
 		<annotation cp="🇬🇮">旗</annotation>
-		<annotation cp="🇬🇮" type="tts">ジブラルタル</annotation>
+		<annotation cp="🇬🇮" type="tts">旗: ジブラルタル</annotation>
 		<annotation cp="🇬🇱">旗</annotation>
-		<annotation cp="🇬🇱" type="tts">グリーンランド</annotation>
+		<annotation cp="🇬🇱" type="tts">旗: グリーンランド</annotation>
 		<annotation cp="🇬🇲">旗</annotation>
-		<annotation cp="🇬🇲" type="tts">ガンビア</annotation>
+		<annotation cp="🇬🇲" type="tts">旗: ガンビア</annotation>
 		<annotation cp="🇬🇳">旗</annotation>
-		<annotation cp="🇬🇳" type="tts">ギニア</annotation>
+		<annotation cp="🇬🇳" type="tts">旗: ギニア</annotation>
 		<annotation cp="🇬🇵">旗</annotation>
-		<annotation cp="🇬🇵" type="tts">グアドループ</annotation>
+		<annotation cp="🇬🇵" type="tts">旗: グアドループ</annotation>
 		<annotation cp="🇬🇶">旗</annotation>
-		<annotation cp="🇬🇶" type="tts">赤道ギニア</annotation>
+		<annotation cp="🇬🇶" type="tts">旗: 赤道ギニア</annotation>
 		<annotation cp="🇬🇷">旗</annotation>
-		<annotation cp="🇬🇷" type="tts">ギリシャ</annotation>
+		<annotation cp="🇬🇷" type="tts">旗: ギリシャ</annotation>
 		<annotation cp="🇬🇸">旗</annotation>
-		<annotation cp="🇬🇸" type="tts">サウスジョージア・サウスサンドウィッチ諸島</annotation>
+		<annotation cp="🇬🇸" type="tts">旗: サウスジョージア・サウスサンドウィッチ諸島</annotation>
 		<annotation cp="🇬🇹">旗</annotation>
-		<annotation cp="🇬🇹" type="tts">グアテマラ</annotation>
+		<annotation cp="🇬🇹" type="tts">旗: グアテマラ</annotation>
 		<annotation cp="🇬🇺">旗</annotation>
-		<annotation cp="🇬🇺" type="tts">グアム</annotation>
+		<annotation cp="🇬🇺" type="tts">旗: グアム</annotation>
 		<annotation cp="🇬🇼">旗</annotation>
-		<annotation cp="🇬🇼" type="tts">ギニアビサウ</annotation>
+		<annotation cp="🇬🇼" type="tts">旗: ギニアビサウ</annotation>
 		<annotation cp="🇬🇾">旗</annotation>
-		<annotation cp="🇬🇾" type="tts">ガイアナ</annotation>
+		<annotation cp="🇬🇾" type="tts">旗: ガイアナ</annotation>
 		<annotation cp="🇭🇰">旗</annotation>
-		<annotation cp="🇭🇰" type="tts">中華人民共和国香港特別行政区</annotation>
+		<annotation cp="🇭🇰" type="tts">旗: 中華人民共和国香港特別行政区</annotation>
 		<annotation cp="🇭🇲">旗</annotation>
-		<annotation cp="🇭🇲" type="tts">ハード島・マクドナルド諸島</annotation>
+		<annotation cp="🇭🇲" type="tts">旗: ハード島・マクドナルド諸島</annotation>
 		<annotation cp="🇭🇳">旗</annotation>
-		<annotation cp="🇭🇳" type="tts">ホンジュラス</annotation>
+		<annotation cp="🇭🇳" type="tts">旗: ホンジュラス</annotation>
 		<annotation cp="🇭🇷">旗</annotation>
-		<annotation cp="🇭🇷" type="tts">クロアチア</annotation>
+		<annotation cp="🇭🇷" type="tts">旗: クロアチア</annotation>
 		<annotation cp="🇭🇹">旗</annotation>
-		<annotation cp="🇭🇹" type="tts">ハイチ</annotation>
+		<annotation cp="🇭🇹" type="tts">旗: ハイチ</annotation>
 		<annotation cp="🇭🇺">旗</annotation>
-		<annotation cp="🇭🇺" type="tts">ハンガリー</annotation>
+		<annotation cp="🇭🇺" type="tts">旗: ハンガリー</annotation>
 		<annotation cp="🇮🇨">旗</annotation>
-		<annotation cp="🇮🇨" type="tts">カナリア諸島</annotation>
+		<annotation cp="🇮🇨" type="tts">旗: カナリア諸島</annotation>
 		<annotation cp="🇮🇩">旗</annotation>
-		<annotation cp="🇮🇩" type="tts">インドネシア</annotation>
+		<annotation cp="🇮🇩" type="tts">旗: インドネシア</annotation>
 		<annotation cp="🇮🇪">旗</annotation>
-		<annotation cp="🇮🇪" type="tts">アイルランド</annotation>
+		<annotation cp="🇮🇪" type="tts">旗: アイルランド</annotation>
 		<annotation cp="🇮🇱">旗</annotation>
-		<annotation cp="🇮🇱" type="tts">イスラエル</annotation>
+		<annotation cp="🇮🇱" type="tts">旗: イスラエル</annotation>
 		<annotation cp="🇮🇲">旗</annotation>
-		<annotation cp="🇮🇲" type="tts">マン島</annotation>
+		<annotation cp="🇮🇲" type="tts">旗: マン島</annotation>
 		<annotation cp="🇮🇳">旗</annotation>
-		<annotation cp="🇮🇳" type="tts">インド</annotation>
+		<annotation cp="🇮🇳" type="tts">旗: インド</annotation>
 		<annotation cp="🇮🇴">旗</annotation>
-		<annotation cp="🇮🇴" type="tts">英領インド洋地域</annotation>
+		<annotation cp="🇮🇴" type="tts">旗: 英領インド洋地域</annotation>
 		<annotation cp="🇮🇶">旗</annotation>
-		<annotation cp="🇮🇶" type="tts">イラク</annotation>
+		<annotation cp="🇮🇶" type="tts">旗: イラク</annotation>
 		<annotation cp="🇮🇷">旗</annotation>
-		<annotation cp="🇮🇷" type="tts">イラン</annotation>
+		<annotation cp="🇮🇷" type="tts">旗: イラン</annotation>
 		<annotation cp="🇮🇸">旗</annotation>
-		<annotation cp="🇮🇸" type="tts">アイスランド</annotation>
+		<annotation cp="🇮🇸" type="tts">旗: アイスランド</annotation>
 		<annotation cp="🇮🇹">旗</annotation>
-		<annotation cp="🇮🇹" type="tts">イタリア</annotation>
+		<annotation cp="🇮🇹" type="tts">旗: イタリア</annotation>
 		<annotation cp="🇯🇪">旗</annotation>
-		<annotation cp="🇯🇪" type="tts">ジャージー</annotation>
+		<annotation cp="🇯🇪" type="tts">旗: ジャージー</annotation>
 		<annotation cp="🇯🇲">旗</annotation>
-		<annotation cp="🇯🇲" type="tts">ジャマイカ</annotation>
+		<annotation cp="🇯🇲" type="tts">旗: ジャマイカ</annotation>
 		<annotation cp="🇯🇴">旗</annotation>
-		<annotation cp="🇯🇴" type="tts">ヨルダン</annotation>
+		<annotation cp="🇯🇴" type="tts">旗: ヨルダン</annotation>
 		<annotation cp="🇯🇵">旗</annotation>
-		<annotation cp="🇯🇵" type="tts">日本</annotation>
+		<annotation cp="🇯🇵" type="tts">旗: 日本</annotation>
 		<annotation cp="🇰🇪">旗</annotation>
-		<annotation cp="🇰🇪" type="tts">ケニア</annotation>
+		<annotation cp="🇰🇪" type="tts">旗: ケニア</annotation>
 		<annotation cp="🇰🇬">旗</annotation>
-		<annotation cp="🇰🇬" type="tts">キルギス</annotation>
+		<annotation cp="🇰🇬" type="tts">旗: キルギス</annotation>
 		<annotation cp="🇰🇭">旗</annotation>
-		<annotation cp="🇰🇭" type="tts">カンボジア</annotation>
+		<annotation cp="🇰🇭" type="tts">旗: カンボジア</annotation>
 		<annotation cp="🇰🇮">旗</annotation>
-		<annotation cp="🇰🇮" type="tts">キリバス</annotation>
+		<annotation cp="🇰🇮" type="tts">旗: キリバス</annotation>
 		<annotation cp="🇰🇲">旗</annotation>
-		<annotation cp="🇰🇲" type="tts">コモロ</annotation>
+		<annotation cp="🇰🇲" type="tts">旗: コモロ</annotation>
 		<annotation cp="🇰🇳">旗</annotation>
-		<annotation cp="🇰🇳" type="tts">セントクリストファー・ネーヴィス</annotation>
+		<annotation cp="🇰🇳" type="tts">旗: セントクリストファー・ネーヴィス</annotation>
 		<annotation cp="🇰🇵">旗</annotation>
-		<annotation cp="🇰🇵" type="tts">北朝鮮</annotation>
+		<annotation cp="🇰🇵" type="tts">旗: 北朝鮮</annotation>
 		<annotation cp="🇰🇷">旗</annotation>
-		<annotation cp="🇰🇷" type="tts">韓国</annotation>
+		<annotation cp="🇰🇷" type="tts">旗: 韓国</annotation>
 		<annotation cp="🇰🇼">旗</annotation>
-		<annotation cp="🇰🇼" type="tts">クウェート</annotation>
+		<annotation cp="🇰🇼" type="tts">旗: クウェート</annotation>
 		<annotation cp="🇰🇾">旗</annotation>
-		<annotation cp="🇰🇾" type="tts">ケイマン諸島</annotation>
+		<annotation cp="🇰🇾" type="tts">旗: ケイマン諸島</annotation>
 		<annotation cp="🇰🇿">旗</annotation>
-		<annotation cp="🇰🇿" type="tts">カザフスタン</annotation>
+		<annotation cp="🇰🇿" type="tts">旗: カザフスタン</annotation>
 		<annotation cp="🇱🇦">旗</annotation>
-		<annotation cp="🇱🇦" type="tts">ラオス</annotation>
+		<annotation cp="🇱🇦" type="tts">旗: ラオス</annotation>
 		<annotation cp="🇱🇧">旗</annotation>
-		<annotation cp="🇱🇧" type="tts">レバノン</annotation>
+		<annotation cp="🇱🇧" type="tts">旗: レバノン</annotation>
 		<annotation cp="🇱🇨">旗</annotation>
-		<annotation cp="🇱🇨" type="tts">セントルシア</annotation>
+		<annotation cp="🇱🇨" type="tts">旗: セントルシア</annotation>
 		<annotation cp="🇱🇮">旗</annotation>
-		<annotation cp="🇱🇮" type="tts">リヒテンシュタイン</annotation>
+		<annotation cp="🇱🇮" type="tts">旗: リヒテンシュタイン</annotation>
 		<annotation cp="🇱🇰">旗</annotation>
-		<annotation cp="🇱🇰" type="tts">スリランカ</annotation>
+		<annotation cp="🇱🇰" type="tts">旗: スリランカ</annotation>
 		<annotation cp="🇱🇷">旗</annotation>
-		<annotation cp="🇱🇷" type="tts">リベリア</annotation>
+		<annotation cp="🇱🇷" type="tts">旗: リベリア</annotation>
 		<annotation cp="🇱🇸">旗</annotation>
-		<annotation cp="🇱🇸" type="tts">レソト</annotation>
+		<annotation cp="🇱🇸" type="tts">旗: レソト</annotation>
 		<annotation cp="🇱🇹">旗</annotation>
-		<annotation cp="🇱🇹" type="tts">リトアニア</annotation>
+		<annotation cp="🇱🇹" type="tts">旗: リトアニア</annotation>
 		<annotation cp="🇱🇺">旗</annotation>
-		<annotation cp="🇱🇺" type="tts">ルクセンブルク</annotation>
+		<annotation cp="🇱🇺" type="tts">旗: ルクセンブルク</annotation>
 		<annotation cp="🇱🇻">旗</annotation>
-		<annotation cp="🇱🇻" type="tts">ラトビア</annotation>
+		<annotation cp="🇱🇻" type="tts">旗: ラトビア</annotation>
 		<annotation cp="🇱🇾">旗</annotation>
-		<annotation cp="🇱🇾" type="tts">リビア</annotation>
+		<annotation cp="🇱🇾" type="tts">旗: リビア</annotation>
 		<annotation cp="🇲🇦">旗</annotation>
-		<annotation cp="🇲🇦" type="tts">モロッコ</annotation>
+		<annotation cp="🇲🇦" type="tts">旗: モロッコ</annotation>
 		<annotation cp="🇲🇨">旗</annotation>
-		<annotation cp="🇲🇨" type="tts">モナコ</annotation>
+		<annotation cp="🇲🇨" type="tts">旗: モナコ</annotation>
 		<annotation cp="🇲🇩">旗</annotation>
-		<annotation cp="🇲🇩" type="tts">モルドバ</annotation>
+		<annotation cp="🇲🇩" type="tts">旗: モルドバ</annotation>
 		<annotation cp="🇲🇪">旗</annotation>
-		<annotation cp="🇲🇪" type="tts">モンテネグロ</annotation>
+		<annotation cp="🇲🇪" type="tts">旗: モンテネグロ</annotation>
 		<annotation cp="🇲🇫">旗</annotation>
-		<annotation cp="🇲🇫" type="tts">サン・マルタン</annotation>
+		<annotation cp="🇲🇫" type="tts">旗: サン・マルタン</annotation>
 		<annotation cp="🇲🇬">旗</annotation>
-		<annotation cp="🇲🇬" type="tts">マダガスカル</annotation>
+		<annotation cp="🇲🇬" type="tts">旗: マダガスカル</annotation>
 		<annotation cp="🇲🇭">旗</annotation>
-		<annotation cp="🇲🇭" type="tts">マーシャル諸島</annotation>
+		<annotation cp="🇲🇭" type="tts">旗: マーシャル諸島</annotation>
 		<annotation cp="🇲🇰">旗</annotation>
-		<annotation cp="🇲🇰" type="tts">マケドニア</annotation>
+		<annotation cp="🇲🇰" type="tts">旗: マケドニア</annotation>
 		<annotation cp="🇲🇱">旗</annotation>
-		<annotation cp="🇲🇱" type="tts">マリ</annotation>
+		<annotation cp="🇲🇱" type="tts">旗: マリ</annotation>
 		<annotation cp="🇲🇲">旗</annotation>
-		<annotation cp="🇲🇲" type="tts">ミャンマー (ビルマ)</annotation>
+		<annotation cp="🇲🇲" type="tts">旗: ミャンマー (ビルマ)</annotation>
 		<annotation cp="🇲🇳">旗</annotation>
-		<annotation cp="🇲🇳" type="tts">モンゴル</annotation>
+		<annotation cp="🇲🇳" type="tts">旗: モンゴル</annotation>
 		<annotation cp="🇲🇴">旗</annotation>
-		<annotation cp="🇲🇴" type="tts">中華人民共和国マカオ特別行政区</annotation>
+		<annotation cp="🇲🇴" type="tts">旗: 中華人民共和国マカオ特別行政区</annotation>
 		<annotation cp="🇲🇵">旗</annotation>
-		<annotation cp="🇲🇵" type="tts">北マリアナ諸島</annotation>
+		<annotation cp="🇲🇵" type="tts">旗: 北マリアナ諸島</annotation>
 		<annotation cp="🇲🇶">旗</annotation>
-		<annotation cp="🇲🇶" type="tts">マルティニーク</annotation>
+		<annotation cp="🇲🇶" type="tts">旗: マルティニーク</annotation>
 		<annotation cp="🇲🇷">旗</annotation>
-		<annotation cp="🇲🇷" type="tts">モーリタニア</annotation>
+		<annotation cp="🇲🇷" type="tts">旗: モーリタニア</annotation>
 		<annotation cp="🇲🇸">旗</annotation>
-		<annotation cp="🇲🇸" type="tts">モントセラト</annotation>
+		<annotation cp="🇲🇸" type="tts">旗: モントセラト</annotation>
 		<annotation cp="🇲🇹">旗</annotation>
-		<annotation cp="🇲🇹" type="tts">マルタ</annotation>
+		<annotation cp="🇲🇹" type="tts">旗: マルタ</annotation>
 		<annotation cp="🇲🇺">旗</annotation>
-		<annotation cp="🇲🇺" type="tts">モーリシャス</annotation>
+		<annotation cp="🇲🇺" type="tts">旗: モーリシャス</annotation>
 		<annotation cp="🇲🇻">旗</annotation>
-		<annotation cp="🇲🇻" type="tts">モルディブ</annotation>
+		<annotation cp="🇲🇻" type="tts">旗: モルディブ</annotation>
 		<annotation cp="🇲🇼">旗</annotation>
-		<annotation cp="🇲🇼" type="tts">マラウイ</annotation>
+		<annotation cp="🇲🇼" type="tts">旗: マラウイ</annotation>
 		<annotation cp="🇲🇽">旗</annotation>
-		<annotation cp="🇲🇽" type="tts">メキシコ</annotation>
+		<annotation cp="🇲🇽" type="tts">旗: メキシコ</annotation>
 		<annotation cp="🇲🇾">旗</annotation>
-		<annotation cp="🇲🇾" type="tts">マレーシア</annotation>
+		<annotation cp="🇲🇾" type="tts">旗: マレーシア</annotation>
 		<annotation cp="🇲🇿">旗</annotation>
-		<annotation cp="🇲🇿" type="tts">モザンビーク</annotation>
+		<annotation cp="🇲🇿" type="tts">旗: モザンビーク</annotation>
 		<annotation cp="🇳🇦">旗</annotation>
-		<annotation cp="🇳🇦" type="tts">ナミビア</annotation>
+		<annotation cp="🇳🇦" type="tts">旗: ナミビア</annotation>
 		<annotation cp="🇳🇨">旗</annotation>
-		<annotation cp="🇳🇨" type="tts">ニューカレドニア</annotation>
+		<annotation cp="🇳🇨" type="tts">旗: ニューカレドニア</annotation>
 		<annotation cp="🇳🇪">旗</annotation>
-		<annotation cp="🇳🇪" type="tts">ニジェール</annotation>
+		<annotation cp="🇳🇪" type="tts">旗: ニジェール</annotation>
 		<annotation cp="🇳🇫">旗</annotation>
-		<annotation cp="🇳🇫" type="tts">ノーフォーク島</annotation>
+		<annotation cp="🇳🇫" type="tts">旗: ノーフォーク島</annotation>
 		<annotation cp="🇳🇬">旗</annotation>
-		<annotation cp="🇳🇬" type="tts">ナイジェリア</annotation>
+		<annotation cp="🇳🇬" type="tts">旗: ナイジェリア</annotation>
 		<annotation cp="🇳🇮">旗</annotation>
-		<annotation cp="🇳🇮" type="tts">ニカラグア</annotation>
+		<annotation cp="🇳🇮" type="tts">旗: ニカラグア</annotation>
 		<annotation cp="🇳🇱">旗</annotation>
-		<annotation cp="🇳🇱" type="tts">オランダ</annotation>
+		<annotation cp="🇳🇱" type="tts">旗: オランダ</annotation>
 		<annotation cp="🇳🇴">旗</annotation>
-		<annotation cp="🇳🇴" type="tts">ノルウェー</annotation>
+		<annotation cp="🇳🇴" type="tts">旗: ノルウェー</annotation>
 		<annotation cp="🇳🇵">旗</annotation>
-		<annotation cp="🇳🇵" type="tts">ネパール</annotation>
+		<annotation cp="🇳🇵" type="tts">旗: ネパール</annotation>
 		<annotation cp="🇳🇷">旗</annotation>
-		<annotation cp="🇳🇷" type="tts">ナウル</annotation>
+		<annotation cp="🇳🇷" type="tts">旗: ナウル</annotation>
 		<annotation cp="🇳🇺">旗</annotation>
-		<annotation cp="🇳🇺" type="tts">ニウエ</annotation>
+		<annotation cp="🇳🇺" type="tts">旗: ニウエ</annotation>
 		<annotation cp="🇳🇿">旗</annotation>
-		<annotation cp="🇳🇿" type="tts">ニュージーランド</annotation>
+		<annotation cp="🇳🇿" type="tts">旗: ニュージーランド</annotation>
 		<annotation cp="🇴🇲">旗</annotation>
-		<annotation cp="🇴🇲" type="tts">オマーン</annotation>
+		<annotation cp="🇴🇲" type="tts">旗: オマーン</annotation>
 		<annotation cp="🇵🇦">旗</annotation>
-		<annotation cp="🇵🇦" type="tts">パナマ</annotation>
+		<annotation cp="🇵🇦" type="tts">旗: パナマ</annotation>
 		<annotation cp="🇵🇪">旗</annotation>
-		<annotation cp="🇵🇪" type="tts">ペルー</annotation>
+		<annotation cp="🇵🇪" type="tts">旗: ペルー</annotation>
 		<annotation cp="🇵🇫">旗</annotation>
-		<annotation cp="🇵🇫" type="tts">仏領ポリネシア</annotation>
+		<annotation cp="🇵🇫" type="tts">旗: 仏領ポリネシア</annotation>
 		<annotation cp="🇵🇬">旗</annotation>
-		<annotation cp="🇵🇬" type="tts">パプアニューギニア</annotation>
+		<annotation cp="🇵🇬" type="tts">旗: パプアニューギニア</annotation>
 		<annotation cp="🇵🇭">旗</annotation>
-		<annotation cp="🇵🇭" type="tts">フィリピン</annotation>
+		<annotation cp="🇵🇭" type="tts">旗: フィリピン</annotation>
 		<annotation cp="🇵🇰">旗</annotation>
-		<annotation cp="🇵🇰" type="tts">パキスタン</annotation>
+		<annotation cp="🇵🇰" type="tts">旗: パキスタン</annotation>
 		<annotation cp="🇵🇱">旗</annotation>
-		<annotation cp="🇵🇱" type="tts">ポーランド</annotation>
+		<annotation cp="🇵🇱" type="tts">旗: ポーランド</annotation>
 		<annotation cp="🇵🇲">旗</annotation>
-		<annotation cp="🇵🇲" type="tts">サンピエール島・ミクロン島</annotation>
+		<annotation cp="🇵🇲" type="tts">旗: サンピエール島・ミクロン島</annotation>
 		<annotation cp="🇵🇳">旗</annotation>
-		<annotation cp="🇵🇳" type="tts">ピトケアン諸島</annotation>
+		<annotation cp="🇵🇳" type="tts">旗: ピトケアン諸島</annotation>
 		<annotation cp="🇵🇷">旗</annotation>
-		<annotation cp="🇵🇷" type="tts">プエルトリコ</annotation>
+		<annotation cp="🇵🇷" type="tts">旗: プエルトリコ</annotation>
 		<annotation cp="🇵🇸">旗</annotation>
-		<annotation cp="🇵🇸" type="tts">パレスチナ自治区</annotation>
+		<annotation cp="🇵🇸" type="tts">旗: パレスチナ自治区</annotation>
 		<annotation cp="🇵🇹">旗</annotation>
-		<annotation cp="🇵🇹" type="tts">ポルトガル</annotation>
+		<annotation cp="🇵🇹" type="tts">旗: ポルトガル</annotation>
 		<annotation cp="🇵🇼">旗</annotation>
-		<annotation cp="🇵🇼" type="tts">パラオ</annotation>
+		<annotation cp="🇵🇼" type="tts">旗: パラオ</annotation>
 		<annotation cp="🇵🇾">旗</annotation>
-		<annotation cp="🇵🇾" type="tts">パラグアイ</annotation>
+		<annotation cp="🇵🇾" type="tts">旗: パラグアイ</annotation>
 		<annotation cp="🇶🇦">旗</annotation>
-		<annotation cp="🇶🇦" type="tts">カタール</annotation>
+		<annotation cp="🇶🇦" type="tts">旗: カタール</annotation>
 		<annotation cp="🇷🇪">旗</annotation>
-		<annotation cp="🇷🇪" type="tts">レユニオン</annotation>
+		<annotation cp="🇷🇪" type="tts">旗: レユニオン</annotation>
 		<annotation cp="🇷🇴">旗</annotation>
-		<annotation cp="🇷🇴" type="tts">ルーマニア</annotation>
+		<annotation cp="🇷🇴" type="tts">旗: ルーマニア</annotation>
 		<annotation cp="🇷🇸">旗</annotation>
-		<annotation cp="🇷🇸" type="tts">セルビア</annotation>
+		<annotation cp="🇷🇸" type="tts">旗: セルビア</annotation>
 		<annotation cp="🇷🇺">旗</annotation>
-		<annotation cp="🇷🇺" type="tts">ロシア</annotation>
+		<annotation cp="🇷🇺" type="tts">旗: ロシア</annotation>
 		<annotation cp="🇷🇼">旗</annotation>
-		<annotation cp="🇷🇼" type="tts">ルワンダ</annotation>
+		<annotation cp="🇷🇼" type="tts">旗: ルワンダ</annotation>
 		<annotation cp="🇸🇦">旗</annotation>
-		<annotation cp="🇸🇦" type="tts">サウジアラビア</annotation>
+		<annotation cp="🇸🇦" type="tts">旗: サウジアラビア</annotation>
 		<annotation cp="🇸🇧">旗</annotation>
-		<annotation cp="🇸🇧" type="tts">ソロモン諸島</annotation>
+		<annotation cp="🇸🇧" type="tts">旗: ソロモン諸島</annotation>
 		<annotation cp="🇸🇨">旗</annotation>
-		<annotation cp="🇸🇨" type="tts">セーシェル</annotation>
+		<annotation cp="🇸🇨" type="tts">旗: セーシェル</annotation>
 		<annotation cp="🇸🇩">旗</annotation>
-		<annotation cp="🇸🇩" type="tts">スーダン</annotation>
+		<annotation cp="🇸🇩" type="tts">旗: スーダン</annotation>
 		<annotation cp="🇸🇪">旗</annotation>
-		<annotation cp="🇸🇪" type="tts">スウェーデン</annotation>
+		<annotation cp="🇸🇪" type="tts">旗: スウェーデン</annotation>
 		<annotation cp="🇸🇬">旗</annotation>
-		<annotation cp="🇸🇬" type="tts">シンガポール</annotation>
+		<annotation cp="🇸🇬" type="tts">旗: シンガポール</annotation>
 		<annotation cp="🇸🇭">旗</annotation>
-		<annotation cp="🇸🇭" type="tts">セントヘレナ</annotation>
+		<annotation cp="🇸🇭" type="tts">旗: セントヘレナ</annotation>
 		<annotation cp="🇸🇮">旗</annotation>
-		<annotation cp="🇸🇮" type="tts">スロベニア</annotation>
+		<annotation cp="🇸🇮" type="tts">旗: スロベニア</annotation>
 		<annotation cp="🇸🇯">旗</annotation>
-		<annotation cp="🇸🇯" type="tts">スバールバル諸島・ヤンマイエン島</annotation>
+		<annotation cp="🇸🇯" type="tts">旗: スバールバル諸島・ヤンマイエン島</annotation>
 		<annotation cp="🇸🇰">旗</annotation>
-		<annotation cp="🇸🇰" type="tts">スロバキア</annotation>
+		<annotation cp="🇸🇰" type="tts">旗: スロバキア</annotation>
 		<annotation cp="🇸🇱">旗</annotation>
-		<annotation cp="🇸🇱" type="tts">シエラレオネ</annotation>
+		<annotation cp="🇸🇱" type="tts">旗: シエラレオネ</annotation>
 		<annotation cp="🇸🇲">旗</annotation>
-		<annotation cp="🇸🇲" type="tts">サンマリノ</annotation>
+		<annotation cp="🇸🇲" type="tts">旗: サンマリノ</annotation>
 		<annotation cp="🇸🇳">旗</annotation>
-		<annotation cp="🇸🇳" type="tts">セネガル</annotation>
+		<annotation cp="🇸🇳" type="tts">旗: セネガル</annotation>
 		<annotation cp="🇸🇴">旗</annotation>
-		<annotation cp="🇸🇴" type="tts">ソマリア</annotation>
+		<annotation cp="🇸🇴" type="tts">旗: ソマリア</annotation>
 		<annotation cp="🇸🇷">旗</annotation>
-		<annotation cp="🇸🇷" type="tts">スリナム</annotation>
+		<annotation cp="🇸🇷" type="tts">旗: スリナム</annotation>
 		<annotation cp="🇸🇸">旗</annotation>
-		<annotation cp="🇸🇸" type="tts">南スーダン</annotation>
+		<annotation cp="🇸🇸" type="tts">旗: 南スーダン</annotation>
 		<annotation cp="🇸🇹">旗</annotation>
-		<annotation cp="🇸🇹" type="tts">サントメ・プリンシペ</annotation>
+		<annotation cp="🇸🇹" type="tts">旗: サントメ・プリンシペ</annotation>
 		<annotation cp="🇸🇻">旗</annotation>
-		<annotation cp="🇸🇻" type="tts">エルサルバドル</annotation>
+		<annotation cp="🇸🇻" type="tts">旗: エルサルバドル</annotation>
 		<annotation cp="🇸🇽">旗</annotation>
-		<annotation cp="🇸🇽" type="tts">シント・マールテン</annotation>
+		<annotation cp="🇸🇽" type="tts">旗: シント・マールテン</annotation>
 		<annotation cp="🇸🇾">旗</annotation>
-		<annotation cp="🇸🇾" type="tts">シリア</annotation>
+		<annotation cp="🇸🇾" type="tts">旗: シリア</annotation>
 		<annotation cp="🇸🇿">旗</annotation>
-		<annotation cp="🇸🇿" type="tts">スワジランド</annotation>
+		<annotation cp="🇸🇿" type="tts">旗: スワジランド</annotation>
 		<annotation cp="🇹🇦">旗</annotation>
-		<annotation cp="🇹🇦" type="tts">トリスタン・ダ・クーニャ</annotation>
+		<annotation cp="🇹🇦" type="tts">旗: トリスタン・ダ・クーニャ</annotation>
 		<annotation cp="🇹🇨">旗</annotation>
-		<annotation cp="🇹🇨" type="tts">タークス・カイコス諸島</annotation>
+		<annotation cp="🇹🇨" type="tts">旗: タークス・カイコス諸島</annotation>
 		<annotation cp="🇹🇩">旗</annotation>
-		<annotation cp="🇹🇩" type="tts">チャド</annotation>
+		<annotation cp="🇹🇩" type="tts">旗: チャド</annotation>
 		<annotation cp="🇹🇫">旗</annotation>
-		<annotation cp="🇹🇫" type="tts">仏領極南諸島</annotation>
+		<annotation cp="🇹🇫" type="tts">旗: 仏領極南諸島</annotation>
 		<annotation cp="🇹🇬">旗</annotation>
-		<annotation cp="🇹🇬" type="tts">トーゴ</annotation>
+		<annotation cp="🇹🇬" type="tts">旗: トーゴ</annotation>
 		<annotation cp="🇹🇭">旗</annotation>
-		<annotation cp="🇹🇭" type="tts">タイ</annotation>
+		<annotation cp="🇹🇭" type="tts">旗: タイ</annotation>
 		<annotation cp="🇹🇯">旗</annotation>
-		<annotation cp="🇹🇯" type="tts">タジキスタン</annotation>
+		<annotation cp="🇹🇯" type="tts">旗: タジキスタン</annotation>
 		<annotation cp="🇹🇰">旗</annotation>
-		<annotation cp="🇹🇰" type="tts">トケラウ</annotation>
+		<annotation cp="🇹🇰" type="tts">旗: トケラウ</annotation>
 		<annotation cp="🇹🇱">旗</annotation>
-		<annotation cp="🇹🇱" type="tts">東ティモール</annotation>
+		<annotation cp="🇹🇱" type="tts">旗: 東ティモール</annotation>
 		<annotation cp="🇹🇲">旗</annotation>
-		<annotation cp="🇹🇲" type="tts">トルクメニスタン</annotation>
+		<annotation cp="🇹🇲" type="tts">旗: トルクメニスタン</annotation>
 		<annotation cp="🇹🇳">旗</annotation>
-		<annotation cp="🇹🇳" type="tts">チュニジア</annotation>
+		<annotation cp="🇹🇳" type="tts">旗: チュニジア</annotation>
 		<annotation cp="🇹🇴">旗</annotation>
-		<annotation cp="🇹🇴" type="tts">トンガ</annotation>
+		<annotation cp="🇹🇴" type="tts">旗: トンガ</annotation>
 		<annotation cp="🇹🇷">旗</annotation>
-		<annotation cp="🇹🇷" type="tts">トルコ</annotation>
+		<annotation cp="🇹🇷" type="tts">旗: トルコ</annotation>
 		<annotation cp="🇹🇹">旗</annotation>
-		<annotation cp="🇹🇹" type="tts">トリニダード・トバゴ</annotation>
+		<annotation cp="🇹🇹" type="tts">旗: トリニダード・トバゴ</annotation>
 		<annotation cp="🇹🇻">旗</annotation>
-		<annotation cp="🇹🇻" type="tts">ツバル</annotation>
+		<annotation cp="🇹🇻" type="tts">旗: ツバル</annotation>
 		<annotation cp="🇹🇼">旗</annotation>
-		<annotation cp="🇹🇼" type="tts">台湾</annotation>
+		<annotation cp="🇹🇼" type="tts">旗: 台湾</annotation>
 		<annotation cp="🇹🇿">旗</annotation>
-		<annotation cp="🇹🇿" type="tts">タンザニア</annotation>
+		<annotation cp="🇹🇿" type="tts">旗: タンザニア</annotation>
 		<annotation cp="🇺🇦">旗</annotation>
-		<annotation cp="🇺🇦" type="tts">ウクライナ</annotation>
+		<annotation cp="🇺🇦" type="tts">旗: ウクライナ</annotation>
 		<annotation cp="🇺🇬">旗</annotation>
-		<annotation cp="🇺🇬" type="tts">ウガンダ</annotation>
+		<annotation cp="🇺🇬" type="tts">旗: ウガンダ</annotation>
 		<annotation cp="🇺🇲">旗</annotation>
-		<annotation cp="🇺🇲" type="tts">合衆国領有小離島</annotation>
+		<annotation cp="🇺🇲" type="tts">旗: 合衆国領有小離島</annotation>
 		<annotation cp="🇺🇳">旗</annotation>
-		<annotation cp="🇺🇳" type="tts">国際連合</annotation>
+		<annotation cp="🇺🇳" type="tts">旗: 国際連合</annotation>
 		<annotation cp="🇺🇸">旗</annotation>
-		<annotation cp="🇺🇸" type="tts">アメリカ合衆国</annotation>
+		<annotation cp="🇺🇸" type="tts">旗: アメリカ合衆国</annotation>
 		<annotation cp="🇺🇾">旗</annotation>
-		<annotation cp="🇺🇾" type="tts">ウルグアイ</annotation>
+		<annotation cp="🇺🇾" type="tts">旗: ウルグアイ</annotation>
 		<annotation cp="🇺🇿">旗</annotation>
-		<annotation cp="🇺🇿" type="tts">ウズベキスタン</annotation>
+		<annotation cp="🇺🇿" type="tts">旗: ウズベキスタン</annotation>
 		<annotation cp="🇻🇦">旗</annotation>
-		<annotation cp="🇻🇦" type="tts">バチカン市国</annotation>
+		<annotation cp="🇻🇦" type="tts">旗: バチカン市国</annotation>
 		<annotation cp="🇻🇨">旗</annotation>
-		<annotation cp="🇻🇨" type="tts">セントビンセント及びグレナディーン諸島</annotation>
+		<annotation cp="🇻🇨" type="tts">旗: セントビンセント及びグレナディーン諸島</annotation>
 		<annotation cp="🇻🇪">旗</annotation>
-		<annotation cp="🇻🇪" type="tts">ベネズエラ</annotation>
+		<annotation cp="🇻🇪" type="tts">旗: ベネズエラ</annotation>
 		<annotation cp="🇻🇬">旗</annotation>
-		<annotation cp="🇻🇬" type="tts">英領ヴァージン諸島</annotation>
+		<annotation cp="🇻🇬" type="tts">旗: 英領ヴァージン諸島</annotation>
 		<annotation cp="🇻🇮">旗</annotation>
-		<annotation cp="🇻🇮" type="tts">米領ヴァージン諸島</annotation>
+		<annotation cp="🇻🇮" type="tts">旗: 米領ヴァージン諸島</annotation>
 		<annotation cp="🇻🇳">旗</annotation>
-		<annotation cp="🇻🇳" type="tts">ベトナム</annotation>
+		<annotation cp="🇻🇳" type="tts">旗: ベトナム</annotation>
 		<annotation cp="🇻🇺">旗</annotation>
-		<annotation cp="🇻🇺" type="tts">バヌアツ</annotation>
+		<annotation cp="🇻🇺" type="tts">旗: バヌアツ</annotation>
 		<annotation cp="🇼🇫">旗</annotation>
-		<annotation cp="🇼🇫" type="tts">ウォリス・フツナ</annotation>
+		<annotation cp="🇼🇫" type="tts">旗: ウォリス・フツナ</annotation>
 		<annotation cp="🇼🇸">旗</annotation>
-		<annotation cp="🇼🇸" type="tts">サモア</annotation>
+		<annotation cp="🇼🇸" type="tts">旗: サモア</annotation>
 		<annotation cp="🇽🇰">旗</annotation>
-		<annotation cp="🇽🇰" type="tts">コソボ</annotation>
+		<annotation cp="🇽🇰" type="tts">旗: コソボ</annotation>
 		<annotation cp="🇾🇪">旗</annotation>
-		<annotation cp="🇾🇪" type="tts">イエメン</annotation>
+		<annotation cp="🇾🇪" type="tts">旗: イエメン</annotation>
 		<annotation cp="🇾🇹">旗</annotation>
-		<annotation cp="🇾🇹" type="tts">マヨット</annotation>
+		<annotation cp="🇾🇹" type="tts">旗: マヨット</annotation>
 		<annotation cp="🇿🇦">旗</annotation>
-		<annotation cp="🇿🇦" type="tts">南アフリカ</annotation>
+		<annotation cp="🇿🇦" type="tts">旗: 南アフリカ</annotation>
 		<annotation cp="🇿🇲">旗</annotation>
-		<annotation cp="🇿🇲" type="tts">ザンビア</annotation>
+		<annotation cp="🇿🇲" type="tts">旗: ザンビア</annotation>
 		<annotation cp="🇿🇼">旗</annotation>
-		<annotation cp="🇿🇼" type="tts">ジンバブエ</annotation>
+		<annotation cp="🇿🇼" type="tts">旗: ジンバブエ</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">旗</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">イングランド</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">旗: イングランド</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">旗</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">スコットランド</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">旗: スコットランド</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">旗</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">ウェールズ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">旗: ウェールズ</annotation>
 		<annotation cp="0⃣">囲み数字</annotation>
 		<annotation cp="0⃣" type="tts">囲み数字: 0</annotation>
 		<annotation cp="1⃣">囲み数字</annotation>

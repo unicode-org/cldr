@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="et"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">jalalöök | jalg | jäse | hele nahatoon</annotation>
+		<annotation cp="🦵🏻" type="tts">jalg: hele nahatoon</annotation>
+		<annotation cp="🦵🏼">jalalöök | jalg | jäse | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦵🏼" type="tts">jalg: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦵🏽">jalalöök | jalg | jäse | keskmine nahatoon</annotation>
+		<annotation cp="🦵🏽" type="tts">jalg: keskmine nahatoon</annotation>
+		<annotation cp="🦵🏾">jalalöök | jalg | jäse | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦵🏾" type="tts">jalg: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦵🏿">jalalöök | jalg | jäse | tume nahatoon</annotation>
+		<annotation cp="🦵🏿" type="tts">jalg: tume nahatoon</annotation>
+		<annotation cp="🦶🏻">jalalaba | jalalöök | trampimine | hele nahatoon</annotation>
+		<annotation cp="🦶🏻" type="tts">jalalaba: hele nahatoon</annotation>
+		<annotation cp="🦶🏼">jalalaba | jalalöök | trampimine | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦶🏼" type="tts">jalalaba: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦶🏽">jalalaba | jalalöök | trampimine | keskmine nahatoon</annotation>
+		<annotation cp="🦶🏽" type="tts">jalalaba: keskmine nahatoon</annotation>
+		<annotation cp="🦶🏾">jalalaba | jalalöök | trampimine | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦶🏾" type="tts">jalalaba: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦶🏿">jalalaba | jalalöök | trampimine | tume nahatoon</annotation>
+		<annotation cp="🦶🏿" type="tts">jalalaba: tume nahatoon</annotation>
+		<annotation cp="🦸🏻">hea | kangelane | kangelanna | superkangelane | supervõime | hele nahatoon</annotation>
+		<annotation cp="🦸🏻" type="tts">superkangelane: hele nahatoon</annotation>
+		<annotation cp="🦸🏼">hea | kangelane | kangelanna | superkangelane | supervõime | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦸🏼" type="tts">superkangelane: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦸🏽">hea | kangelane | kangelanna | superkangelane | supervõime | keskmine nahatoon</annotation>
+		<annotation cp="🦸🏽" type="tts">superkangelane: keskmine nahatoon</annotation>
+		<annotation cp="🦸🏾">hea | kangelane | kangelanna | superkangelane | supervõime | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦸🏾" type="tts">superkangelane: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦸🏿">hea | kangelane | kangelanna | superkangelane | supervõime | tume nahatoon</annotation>
+		<annotation cp="🦸🏿" type="tts">superkangelane: tume nahatoon</annotation>
+		<annotation cp="🦸🏻‍♀">hea | kangelane | kangelanna | naine | naissuperkangelane | supervõimed | hele nahatoon</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">naissuperkangelane: hele nahatoon</annotation>
+		<annotation cp="🦸🏼‍♀">hea | kangelane | kangelanna | naine | naissuperkangelane | supervõimed | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">naissuperkangelane: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦸🏽‍♀">hea | kangelane | kangelanna | naine | naissuperkangelane | supervõimed | keskmine nahatoon</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">naissuperkangelane: keskmine nahatoon</annotation>
+		<annotation cp="🦸🏾‍♀">hea | kangelane | kangelanna | naine | naissuperkangelane | supervõimed | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">naissuperkangelane: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦸🏿‍♀">hea | kangelane | kangelanna | naine | naissuperkangelane | supervõimed | tume nahatoon</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">naissuperkangelane: tume nahatoon</annotation>
+		<annotation cp="🦸🏻‍♂">hea | kangelane | mees | meeskangelane | supervõimed | hele nahatoon</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">meeskangelane: hele nahatoon</annotation>
+		<annotation cp="🦸🏼‍♂">hea | kangelane | mees | meeskangelane | supervõimed | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">meeskangelane: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦸🏽‍♂">hea | kangelane | mees | meeskangelane | supervõimed | keskmine nahatoon</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">meeskangelane: keskmine nahatoon</annotation>
+		<annotation cp="🦸🏾‍♂">hea | kangelane | mees | meeskangelane | supervõimed | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">meeskangelane: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦸🏿‍♂">hea | kangelane | mees | meeskangelane | supervõimed | tume nahatoon</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">meeskangelane: tume nahatoon</annotation>
+		<annotation cp="🦹🏻">kuri | kurikael | kurjategija | superkurikael | supervõimed | hele nahatoon</annotation>
+		<annotation cp="🦹🏻" type="tts">superkurikael: hele nahatoon</annotation>
+		<annotation cp="🦹🏼">kuri | kurikael | kurjategija | superkurikael | supervõimed | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦹🏼" type="tts">superkurikael: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦹🏽">kuri | kurikael | kurjategija | superkurikael | supervõimed | keskmine nahatoon</annotation>
+		<annotation cp="🦹🏽" type="tts">superkurikael: keskmine nahatoon</annotation>
+		<annotation cp="🦹🏾">kuri | kurikael | kurjategija | superkurikael | supervõimed | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦹🏾" type="tts">superkurikael: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦹🏿">kuri | kurikael | kurjategija | superkurikael | supervõimed | tume nahatoon</annotation>
+		<annotation cp="🦹🏿" type="tts">superkurikael: tume nahatoon</annotation>
+		<annotation cp="🦹🏻‍♀">kuri | kurikael | kurjategija | naine | naissoost superkurikael | supervõimed | hele nahatoon</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">naissoost superkurikael: hele nahatoon</annotation>
+		<annotation cp="🦹🏼‍♀">kuri | kurikael | kurjategija | naine | naissoost superkurikael | supervõimed | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">naissoost superkurikael: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦹🏽‍♀">kuri | kurikael | kurjategija | naine | naissoost superkurikael | supervõimed | keskmine nahatoon</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">naissoost superkurikael: keskmine nahatoon</annotation>
+		<annotation cp="🦹🏾‍♀">kuri | kurikael | kurjategija | naine | naissoost superkurikael | supervõimed | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">naissoost superkurikael: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦹🏿‍♀">kuri | kurikael | kurjategija | naine | naissoost superkurikael | supervõimed | tume nahatoon</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">naissoost superkurikael: tume nahatoon</annotation>
+		<annotation cp="🦹🏻‍♂">kuri | kurikael | kurjategija | mees | meessoost superkurikael | supervõimed | hele nahatoon</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">meessoost superkurikael: hele nahatoon</annotation>
+		<annotation cp="🦹🏼‍♂">kuri | kurikael | kurjategija | mees | meessoost superkurikael | supervõimed | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">meessoost superkurikael: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🦹🏽‍♂">kuri | kurikael | kurjategija | mees | meessoost superkurikael | supervõimed | keskmine nahatoon</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">meessoost superkurikael: keskmine nahatoon</annotation>
+		<annotation cp="🦹🏾‍♂">kuri | kurikael | kurjategija | mees | meessoost superkurikael | supervõimed | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">meessoost superkurikael: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🦹🏿‍♂">kuri | kurikael | kurjategija | mees | meessoost superkurikael | supervõimed | tume nahatoon</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">meessoost superkurikael: tume nahatoon</annotation>
 		<annotation cp="👶🏻">beebi | imik | tita | titt | hele nahatoon</annotation>
 		<annotation cp="👶🏻" type="tts">beebi: hele nahatoon</annotation>
 		<annotation cp="👶🏼">beebi | imik | tita | titt | keskmiselt hele nahatoon</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">mees: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏿">mees | tume nahatoon</annotation>
 		<annotation cp="👨🏿" type="tts">mees: tume nahatoon</annotation>
+		<annotation cp="👨‍🦰">mees | punased juuksed</annotation>
+		<annotation cp="👨‍🦰" type="tts">mees: punased juuksed</annotation>
+		<annotation cp="👨🏻‍🦰">mees | hele nahatoon | punased juuksed</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">mees: hele nahatoon, punased juuksed</annotation>
+		<annotation cp="👨🏼‍🦰">mees | keskmiselt hele nahatoon | punased juuksed</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">mees: keskmiselt hele nahatoon, punased juuksed</annotation>
+		<annotation cp="👨🏽‍🦰">mees | keskmine nahatoon | punased juuksed</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">mees: keskmine nahatoon, punased juuksed</annotation>
+		<annotation cp="👨🏾‍🦰">mees | keskmiselt tume nahatoon | punased juuksed</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">mees: keskmiselt tume nahatoon, punased juuksed</annotation>
+		<annotation cp="👨🏿‍🦰">mees | tume nahatoon | punased juuksed</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">mees: tume nahatoon, punased juuksed</annotation>
+		<annotation cp="👨‍🦱">mees | lokkis juuksed</annotation>
+		<annotation cp="👨‍🦱" type="tts">mees: lokkis juuksed</annotation>
+		<annotation cp="👨🏻‍🦱">mees | hele nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">mees: hele nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👨🏼‍🦱">mees | keskmiselt hele nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">mees: keskmiselt hele nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👨🏽‍🦱">mees | keskmine nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">mees: keskmine nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👨🏾‍🦱">mees | keskmiselt tume nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">mees: keskmiselt tume nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👨🏿‍🦱">mees | tume nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">mees: tume nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👨‍🦲">mees | kiilaspea</annotation>
+		<annotation cp="👨‍🦲" type="tts">mees: kiilaspea</annotation>
+		<annotation cp="👨🏻‍🦲">mees | hele nahatoon | kiilaspea</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">mees: hele nahatoon, kiilaspea</annotation>
+		<annotation cp="👨🏼‍🦲">mees | keskmiselt hele nahatoon | kiilaspea</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">mees: keskmiselt hele nahatoon, kiilaspea</annotation>
+		<annotation cp="👨🏽‍🦲">mees | keskmine nahatoon | kiilaspea</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">mees: keskmine nahatoon, kiilaspea</annotation>
+		<annotation cp="👨🏾‍🦲">mees | keskmiselt tume nahatoon | kiilaspea</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">mees: keskmiselt tume nahatoon, kiilaspea</annotation>
+		<annotation cp="👨🏿‍🦲">mees | tume nahatoon | kiilaspea</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">mees: tume nahatoon, kiilaspea</annotation>
+		<annotation cp="👨‍🦳">mees | heledad juuksed</annotation>
+		<annotation cp="👨‍🦳" type="tts">mees: heledad juuksed</annotation>
+		<annotation cp="👨🏻‍🦳">mees | hele nahatoon | heledad juuksed</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">mees: hele nahatoon, heledad juuksed</annotation>
+		<annotation cp="👨🏼‍🦳">mees | keskmiselt hele nahatoon | heledad juuksed</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">mees: keskmiselt hele nahatoon, heledad juuksed</annotation>
+		<annotation cp="👨🏽‍🦳">mees | keskmine nahatoon | heledad juuksed</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">mees: keskmine nahatoon, heledad juuksed</annotation>
+		<annotation cp="👨🏾‍🦳">mees | keskmiselt tume nahatoon | heledad juuksed</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">mees: keskmiselt tume nahatoon, heledad juuksed</annotation>
+		<annotation cp="👨🏿‍🦳">mees | tume nahatoon | heledad juuksed</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">mees: tume nahatoon, heledad juuksed</annotation>
 		<annotation cp="👩🏻">naine | hele nahatoon</annotation>
 		<annotation cp="👩🏻" type="tts">naine: hele nahatoon</annotation>
 		<annotation cp="👩🏼">naine | keskmiselt hele nahatoon</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏿">naine | tume nahatoon</annotation>
 		<annotation cp="👩🏿" type="tts">naine: tume nahatoon</annotation>
+		<annotation cp="👩‍🦰">naine | punased juuksed</annotation>
+		<annotation cp="👩‍🦰" type="tts">naine: punased juuksed</annotation>
+		<annotation cp="👩🏻‍🦰">naine | hele nahatoon | punased juuksed</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">naine: hele nahatoon, punased juuksed</annotation>
+		<annotation cp="👩🏼‍🦰">naine | keskmiselt hele nahatoon | punased juuksed</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">naine: keskmiselt hele nahatoon, punased juuksed</annotation>
+		<annotation cp="👩🏽‍🦰">naine | keskmine nahatoon | punased juuksed</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">naine: keskmine nahatoon, punased juuksed</annotation>
+		<annotation cp="👩🏾‍🦰">naine | keskmiselt tume nahatoon | punased juuksed</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">naine: keskmiselt tume nahatoon, punased juuksed</annotation>
+		<annotation cp="👩🏿‍🦰">naine | tume nahatoon | punased juuksed</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">naine: tume nahatoon, punased juuksed</annotation>
+		<annotation cp="👩‍🦱">naine | lokkis juuksed</annotation>
+		<annotation cp="👩‍🦱" type="tts">naine: lokkis juuksed</annotation>
+		<annotation cp="👩🏻‍🦱">naine | hele nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">naine: hele nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👩🏼‍🦱">naine | keskmiselt hele nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">naine: keskmiselt hele nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👩🏽‍🦱">naine | keskmine nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">naine: keskmine nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👩🏾‍🦱">naine | keskmiselt tume nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">naine: keskmiselt tume nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👩🏿‍🦱">naine | tume nahatoon | lokkis juuksed</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">naine: tume nahatoon, lokkis juuksed</annotation>
+		<annotation cp="👩‍🦲">naine | kiilaspea</annotation>
+		<annotation cp="👩‍🦲" type="tts">naine: kiilaspea</annotation>
+		<annotation cp="👩🏻‍🦲">naine | hele nahatoon | kiilaspea</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">naine: hele nahatoon, kiilaspea</annotation>
+		<annotation cp="👩🏼‍🦲">naine | keskmiselt hele nahatoon | kiilaspea</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">naine: keskmiselt hele nahatoon, kiilaspea</annotation>
+		<annotation cp="👩🏽‍🦲">naine | keskmine nahatoon | kiilaspea</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">naine: keskmine nahatoon, kiilaspea</annotation>
+		<annotation cp="👩🏾‍🦲">naine | keskmiselt tume nahatoon | kiilaspea</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">naine: keskmiselt tume nahatoon, kiilaspea</annotation>
+		<annotation cp="👩🏿‍🦲">naine | tume nahatoon | kiilaspea</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">naine: tume nahatoon, kiilaspea</annotation>
+		<annotation cp="👩‍🦳">naine | heledad juuksed</annotation>
+		<annotation cp="👩‍🦳" type="tts">naine: heledad juuksed</annotation>
+		<annotation cp="👩🏻‍🦳">naine | hele nahatoon | heledad juuksed</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">naine: hele nahatoon, heledad juuksed</annotation>
+		<annotation cp="👩🏼‍🦳">naine | keskmiselt hele nahatoon | heledad juuksed</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">naine: keskmiselt hele nahatoon, heledad juuksed</annotation>
+		<annotation cp="👩🏽‍🦳">naine | keskmine nahatoon | heledad juuksed</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">naine: keskmine nahatoon, heledad juuksed</annotation>
+		<annotation cp="👩🏾‍🦳">naine | keskmiselt tume nahatoon | heledad juuksed</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">naine: keskmiselt tume nahatoon, heledad juuksed</annotation>
+		<annotation cp="👩🏿‍🦳">naine | tume nahatoon | heledad juuksed</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">naine: tume nahatoon, heledad juuksed</annotation>
 		<annotation cp="🧓🏻">eakas | sooliselt neutraalne | vana | hele nahatoon</annotation>
 		<annotation cp="🧓🏻" type="tts">eakas: hele nahatoon</annotation>
 		<annotation cp="🧓🏼">eakas | sooliselt neutraalne | vana | keskmiselt hele nahatoon</annotation>
@@ -113,25 +288,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👵🏾" type="tts">eakas naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👵🏿">eakas naine | naine | vana | tume nahatoon</annotation>
 		<annotation cp="👵🏿" type="tts">eakas naine: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍⚕">arst | doktor | meditsiin | meditsiiniõde | mees | meesarst | hele nahatoon</annotation>
+		<annotation cp="👨🏻‍⚕">arst | meditsiin | meditsiiniõde | mees | meesarst | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">meesarst: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍⚕">arst | doktor | meditsiin | meditsiiniõde | mees | meesarst | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏼‍⚕">arst | meditsiin | meditsiiniõde | mees | meesarst | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👨🏼‍⚕" type="tts">meesarst: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍⚕">arst | doktor | meditsiin | meditsiiniõde | mees | meesarst | keskmine nahatoon</annotation>
+		<annotation cp="👨🏽‍⚕">arst | meditsiin | meditsiiniõde | mees | meesarst | keskmine nahatoon</annotation>
 		<annotation cp="👨🏽‍⚕" type="tts">meesarst: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍⚕">arst | doktor | meditsiin | meditsiiniõde | mees | meesarst | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏾‍⚕">arst | meditsiin | meditsiiniõde | mees | meesarst | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏾‍⚕" type="tts">meesarst: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍⚕">arst | doktor | meditsiin | meditsiiniõde | mees | meesarst | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍⚕">arst | meditsiin | meditsiiniõde | mees | meesarst | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍⚕" type="tts">meesarst: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍⚕">arst | doktor | meditsiin | meditsiiniõde | naine | naisarst | hele nahatoon</annotation>
+		<annotation cp="👩🏻‍⚕">arst | meditsiin | meditsiiniõde | naine | naisarst | hele nahatoon</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">naisarst: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍⚕">arst | doktor | meditsiin | meditsiiniõde | naine | naisarst | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏼‍⚕">arst | meditsiin | meditsiiniõde | naine | naisarst | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👩🏼‍⚕" type="tts">naisarst: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍⚕">arst | doktor | meditsiin | meditsiiniõde | naine | naisarst | keskmine nahatoon</annotation>
+		<annotation cp="👩🏽‍⚕">arst | meditsiin | meditsiiniõde | naine | naisarst | keskmine nahatoon</annotation>
 		<annotation cp="👩🏽‍⚕" type="tts">naisarst: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍⚕">arst | doktor | meditsiin | meditsiiniõde | naine | naisarst | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏾‍⚕">arst | meditsiin | meditsiiniõde | naine | naisarst | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏾‍⚕" type="tts">naisarst: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍⚕">arst | doktor | meditsiin | meditsiiniõde | naine | naisarst | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍⚕">arst | meditsiin | meditsiiniõde | naine | naisarst | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">naisarst: tume nahatoon</annotation>
 		<annotation cp="👨🏻‍🎓">lõpetaja | mees | meesõpilane | õpilane | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">meesõpilane: hele nahatoon</annotation>
@@ -253,105 +428,105 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">naismehaanik: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🔧">elektrik | mehaanik | naine | naismehaanik | torulukksepp | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">naismehaanik: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | tööstus | hele nahatoon</annotation>
+		<annotation cp="👨🏻‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">meessoost tehasetööline: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | tööstus | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏼‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">meessoost tehasetööline: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | tööstus | keskmine nahatoon</annotation>
+		<annotation cp="👨🏽‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | keskmine nahatoon</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">meessoost tehasetööline: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | tööstus | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏾‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">meessoost tehasetööline: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | tööstus | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">meessoost tehasetööline: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | tööstus | hele nahatoon</annotation>
+		<annotation cp="👩🏻‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | hele nahatoon</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">naissoost tehasetööline: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | tööstus | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏼‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👩🏼‍🏭" type="tts">naissoost tehasetööline: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | tööstus | keskmine nahatoon</annotation>
+		<annotation cp="👩🏽‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | keskmine nahatoon</annotation>
 		<annotation cp="👩🏽‍🏭" type="tts">naissoost tehasetööline: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | tööstus | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏾‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏾‍🏭" type="tts">naissoost tehasetööline: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | tööstus | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">naissoost tehasetööline: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍💼">arhitekt | direktor | juhataja | kontor | mees | meeskontoritöötaja | valgekrae | äri | ärimees | hele nahatoon</annotation>
+		<annotation cp="👨🏻‍💼">arhitekt | juhataja | meeskontoritöötaja | valgekrae | ärimees | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">meeskontoritöötaja: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍💼">arhitekt | direktor | juhataja | kontor | mees | meeskontoritöötaja | valgekrae | äri | ärimees | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏼‍💼">arhitekt | juhataja | meeskontoritöötaja | valgekrae | ärimees | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👨🏼‍💼" type="tts">meeskontoritöötaja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍💼">arhitekt | direktor | juhataja | kontor | mees | meeskontoritöötaja | valgekrae | äri | ärimees | keskmine nahatoon</annotation>
+		<annotation cp="👨🏽‍💼">arhitekt | juhataja | meeskontoritöötaja | valgekrae | ärimees | keskmine nahatoon</annotation>
 		<annotation cp="👨🏽‍💼" type="tts">meeskontoritöötaja: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍💼">arhitekt | direktor | juhataja | kontor | mees | meeskontoritöötaja | valgekrae | äri | ärimees | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏾‍💼">arhitekt | juhataja | meeskontoritöötaja | valgekrae | ärimees | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏾‍💼" type="tts">meeskontoritöötaja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍💼">arhitekt | direktor | juhataja | kontor | mees | meeskontoritöötaja | valgekrae | äri | ärimees | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍💼">arhitekt | juhataja | meeskontoritöötaja | valgekrae | ärimees | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">meeskontoritöötaja: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍💼">arhitekt | direktor | juhataja | kontor | naine | naiskontoritöötaja | valgekrae | äri | ärinaine | hele nahatoon</annotation>
+		<annotation cp="👩🏻‍💼">arhitekt | juhataja | naiskontoritöötaja | valgekrae | ärinaine | hele nahatoon</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">naiskontoritöötaja: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍💼">arhitekt | direktor | juhataja | kontor | naine | naiskontoritöötaja | valgekrae | äri | ärinaine | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏼‍💼">arhitekt | juhataja | naiskontoritöötaja | valgekrae | ärinaine | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👩🏼‍💼" type="tts">naiskontoritöötaja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍💼">arhitekt | direktor | juhataja | kontor | naine | naiskontoritöötaja | valgekrae | äri | ärinaine | keskmine nahatoon</annotation>
+		<annotation cp="👩🏽‍💼">arhitekt | juhataja | naiskontoritöötaja | valgekrae | ärinaine | keskmine nahatoon</annotation>
 		<annotation cp="👩🏽‍💼" type="tts">naiskontoritöötaja: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍💼">arhitekt | direktor | juhataja | kontor | naine | naiskontoritöötaja | valgekrae | äri | ärinaine | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏾‍💼">arhitekt | juhataja | naiskontoritöötaja | valgekrae | ärinaine | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏾‍💼" type="tts">naiskontoritöötaja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍💼">arhitekt | direktor | juhataja | kontor | naine | naiskontoritöötaja | valgekrae | äri | ärinaine | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍💼">arhitekt | juhataja | naiskontoritöötaja | valgekrae | ärinaine | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">naiskontoritöötaja: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍🔬">bioloog | füüsik | insener | keemik | matemaatik | mees | meesteadlane | teadlane | hele nahatoon</annotation>
+		<annotation cp="👨🏻‍🔬">bioloog | füüsik | insener | keemik | meesteadlane | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">meesteadlane: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍🔬">bioloog | füüsik | insener | keemik | matemaatik | mees | meesteadlane | teadlane | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏼‍🔬">bioloog | füüsik | insener | keemik | meesteadlane | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👨🏼‍🔬" type="tts">meesteadlane: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍🔬">bioloog | füüsik | insener | keemik | matemaatik | mees | meesteadlane | teadlane | keskmine nahatoon</annotation>
+		<annotation cp="👨🏽‍🔬">bioloog | füüsik | insener | keemik | meesteadlane | keskmine nahatoon</annotation>
 		<annotation cp="👨🏽‍🔬" type="tts">meesteadlane: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍🔬">bioloog | füüsik | insener | keemik | matemaatik | mees | meesteadlane | teadlane | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏾‍🔬">bioloog | füüsik | insener | keemik | meesteadlane | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏾‍🔬" type="tts">meesteadlane: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍🔬">bioloog | füüsik | insener | keemik | matemaatik | mees | meesteadlane | teadlane | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🔬">bioloog | füüsik | insener | keemik | meesteadlane | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">meesteadlane: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍🔬">bioloog | füüsik | insener | keemik | matemaatik | naine | naisteadlane | teadlane | hele nahatoon</annotation>
+		<annotation cp="👩🏻‍🔬">bioloog | füüsik | insener | keemik | naisteadlane | hele nahatoon</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">naisteadlane: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍🔬">bioloog | füüsik | insener | keemik | matemaatik | naine | naisteadlane | teadlane | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏼‍🔬">bioloog | füüsik | insener | keemik | naisteadlane | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">naisteadlane: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍🔬">bioloog | füüsik | insener | keemik | matemaatik | naine | naisteadlane | teadlane | keskmine nahatoon</annotation>
+		<annotation cp="👩🏽‍🔬">bioloog | füüsik | insener | keemik | naisteadlane | keskmine nahatoon</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">naisteadlane: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍🔬">bioloog | füüsik | insener | keemik | matemaatik | naine | naisteadlane | teadlane | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏾‍🔬">bioloog | füüsik | insener | keemik | naisteadlane | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">naisteadlane: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍🔬">bioloog | füüsik | insener | keemik | matemaatik | naine | naisteadlane | teadlane | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🔬">bioloog | füüsik | insener | keemik | naisteadlane | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">naisteadlane: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍💻">arendaja | leiutaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | hele nahatoon</annotation>
+		<annotation cp="👨🏻‍💻">arendaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">meesprogrammeerija: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍💻">arendaja | leiutaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏼‍💻">arendaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👨🏼‍💻" type="tts">meesprogrammeerija: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍💻">arendaja | leiutaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmine nahatoon</annotation>
+		<annotation cp="👨🏽‍💻">arendaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmine nahatoon</annotation>
 		<annotation cp="👨🏽‍💻" type="tts">meesprogrammeerija: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍💻">arendaja | leiutaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏾‍💻">arendaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏾‍💻" type="tts">meesprogrammeerija: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍💻">arendaja | leiutaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍💻">arendaja | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍💻" type="tts">meesprogrammeerija: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍💻">arendaja | leiutaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | hele nahatoon</annotation>
+		<annotation cp="👩🏻‍💻">arendaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | hele nahatoon</annotation>
 		<annotation cp="👩🏻‍💻" type="tts">naisprogrammeerija: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍💻">arendaja | leiutaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏼‍💻">arendaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👩🏼‍💻" type="tts">naisprogrammeerija: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍💻">arendaja | leiutaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmine nahatoon</annotation>
+		<annotation cp="👩🏽‍💻">arendaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmine nahatoon</annotation>
 		<annotation cp="👩🏽‍💻" type="tts">naisprogrammeerija: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍💻">arendaja | leiutaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏾‍💻">arendaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏾‍💻" type="tts">naisprogrammeerija: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍💻">arendaja | leiutaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍💻">arendaja | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">naisprogrammeerija: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍🎤">artist | esitaja | laulja | mees | meeslaulja | näitleja | staar | hele nahatoon</annotation>
+		<annotation cp="👨🏻‍🎤">artist | laulja | mees | meeslaulja | staar | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">meeslaulja: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍🎤">artist | esitaja | laulja | mees | meeslaulja | näitleja | staar | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏼‍🎤">artist | laulja | mees | meeslaulja | staar | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">meeslaulja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍🎤">artist | esitaja | laulja | mees | meeslaulja | näitleja | staar | keskmine nahatoon</annotation>
+		<annotation cp="👨🏽‍🎤">artist | laulja | mees | meeslaulja | staar | keskmine nahatoon</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">meeslaulja: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍🎤">artist | esitaja | laulja | mees | meeslaulja | näitleja | staar | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏾‍🎤">artist | laulja | mees | meeslaulja | staar | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">meeslaulja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍🎤">artist | esitaja | laulja | mees | meeslaulja | näitleja | staar | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🎤">artist | laulja | mees | meeslaulja | staar | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">meeslaulja: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍🎤">artist | esitaja | laulja | naine | naislaulja | näitleja | staar | hele nahatoon</annotation>
+		<annotation cp="👩🏻‍🎤">artist | laulja | naine | naislaulja | staar | hele nahatoon</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">naislaulja: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍🎤">artist | esitaja | laulja | naine | naislaulja | näitleja | staar | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏼‍🎤">artist | laulja | naine | naislaulja | staar | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👩🏼‍🎤" type="tts">naislaulja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍🎤">artist | esitaja | laulja | naine | naislaulja | näitleja | staar | keskmine nahatoon</annotation>
+		<annotation cp="👩🏽‍🎤">artist | laulja | naine | naislaulja | staar | keskmine nahatoon</annotation>
 		<annotation cp="👩🏽‍🎤" type="tts">naislaulja: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍🎤">artist | esitaja | laulja | naine | naislaulja | näitleja | staar | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏾‍🎤">artist | laulja | naine | naislaulja | staar | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏾‍🎤" type="tts">naislaulja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍🎤">artist | esitaja | laulja | naine | naislaulja | näitleja | staar | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🎤">artist | laulja | naine | naislaulja | staar | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">naislaulja: tume nahatoon</annotation>
 		<annotation cp="👨🏻‍🎨">kunstnik | mees | meeskunstnik | palett | hele nahatoon</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">meeskunstnik: hele nahatoon</annotation>
@@ -533,25 +708,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👷🏾" type="tts">ehitaja: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👷🏿">ehitaja | ehitus | kiiver | tööline | tume nahatoon</annotation>
 		<annotation cp="👷🏿" type="tts">ehitaja: tume nahatoon</annotation>
-		<annotation cp="👷🏻‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | tööline | hele nahatoon</annotation>
+		<annotation cp="👷🏻‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | hele nahatoon</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">meesehitaja: hele nahatoon</annotation>
-		<annotation cp="👷🏼‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | tööline | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👷🏼‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👷🏼‍♂" type="tts">meesehitaja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👷🏽‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | tööline | keskmine nahatoon</annotation>
+		<annotation cp="👷🏽‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | keskmine nahatoon</annotation>
 		<annotation cp="👷🏽‍♂" type="tts">meesehitaja: keskmine nahatoon</annotation>
-		<annotation cp="👷🏾‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | tööline | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👷🏾‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👷🏾‍♂" type="tts">meesehitaja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👷🏿‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | tööline | tume nahatoon</annotation>
+		<annotation cp="👷🏿‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja | tume nahatoon</annotation>
 		<annotation cp="👷🏿‍♂" type="tts">meesehitaja: tume nahatoon</annotation>
-		<annotation cp="👷🏻‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | tööline | hele nahatoon</annotation>
+		<annotation cp="👷🏻‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | hele nahatoon</annotation>
 		<annotation cp="👷🏻‍♀" type="tts">naisehitaja: hele nahatoon</annotation>
-		<annotation cp="👷🏼‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | tööline | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👷🏼‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👷🏼‍♀" type="tts">naisehitaja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👷🏽‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | tööline | keskmine nahatoon</annotation>
+		<annotation cp="👷🏽‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | keskmine nahatoon</annotation>
 		<annotation cp="👷🏽‍♀" type="tts">naisehitaja: keskmine nahatoon</annotation>
-		<annotation cp="👷🏾‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | tööline | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👷🏾‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👷🏾‍♀" type="tts">naisehitaja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👷🏿‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | tööline | tume nahatoon</annotation>
+		<annotation cp="👷🏿‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | tume nahatoon</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">naisehitaja: tume nahatoon</annotation>
 		<annotation cp="🤴🏻">prints | hele nahatoon</annotation>
 		<annotation cp="🤴🏻" type="tts">prints: hele nahatoon</annotation>
@@ -703,15 +878,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤱🏾" type="tts">rinnaga toitmine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤱🏿">imetamine | imik | rind | rinnaga toitmine | tume nahatoon</annotation>
 		<annotation cp="🤱🏿" type="tts">rinnaga toitmine: tume nahatoon</annotation>
-		<annotation cp="👼🏻">beebi | ingel | inglibeebi | laps | muinasjutt | nägu | hele nahatoon</annotation>
+		<annotation cp="👼🏻">ingel | inglibeebi | inglilaps | laps | lapsenägu | muinasjutt | hele nahatoon</annotation>
 		<annotation cp="👼🏻" type="tts">inglibeebi: hele nahatoon</annotation>
-		<annotation cp="👼🏼">beebi | ingel | inglibeebi | laps | muinasjutt | nägu | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👼🏼">ingel | inglibeebi | inglilaps | laps | lapsenägu | muinasjutt | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👼🏼" type="tts">inglibeebi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👼🏽">beebi | ingel | inglibeebi | laps | muinasjutt | nägu | keskmine nahatoon</annotation>
+		<annotation cp="👼🏽">ingel | inglibeebi | inglilaps | laps | lapsenägu | muinasjutt | keskmine nahatoon</annotation>
 		<annotation cp="👼🏽" type="tts">inglibeebi: keskmine nahatoon</annotation>
-		<annotation cp="👼🏾">beebi | ingel | inglibeebi | laps | muinasjutt | nägu | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👼🏾">ingel | inglibeebi | inglilaps | laps | lapsenägu | muinasjutt | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👼🏾" type="tts">inglibeebi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👼🏿">beebi | ingel | inglibeebi | laps | muinasjutt | nägu | tume nahatoon</annotation>
+		<annotation cp="👼🏿">ingel | inglibeebi | inglilaps | laps | lapsenägu | muinasjutt | tume nahatoon</annotation>
 		<annotation cp="👼🏿" type="tts">inglibeebi: tume nahatoon</annotation>
 		<annotation cp="🎅🏻">jõulud | jõuluvana | muinasjutt | hele nahatoon</annotation>
 		<annotation cp="🎅🏻" type="tts">jõuluvana: hele nahatoon</annotation>
@@ -953,25 +1128,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙅🏾" type="tts">eitav žest: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙅🏿">ei | eitav žest | keelatud | käed | žest | tume nahatoon</annotation>
 		<annotation cp="🙅🏿" type="tts">eitav žest: tume nahatoon</annotation>
-		<annotation cp="🙅🏻‍♂">ei | eitavat žesti näitav mees | keelatud | käed ristis | mees | pole korras | žest | hele nahatoon</annotation>
+		<annotation cp="🙅🏻‍♂">eitavat žesti näitav mees | keelatud | käed ristis | mees | žest | hele nahatoon</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">eitavat žesti näitav mees: hele nahatoon</annotation>
-		<annotation cp="🙅🏼‍♂">ei | eitavat žesti näitav mees | keelatud | käed ristis | mees | pole korras | žest | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🙅🏼‍♂">eitavat žesti näitav mees | keelatud | käed ristis | mees | žest | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🙅🏼‍♂" type="tts">eitavat žesti näitav mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🙅🏽‍♂">ei | eitavat žesti näitav mees | keelatud | käed ristis | mees | pole korras | žest | keskmine nahatoon</annotation>
+		<annotation cp="🙅🏽‍♂">eitavat žesti näitav mees | keelatud | käed ristis | mees | žest | keskmine nahatoon</annotation>
 		<annotation cp="🙅🏽‍♂" type="tts">eitavat žesti näitav mees: keskmine nahatoon</annotation>
-		<annotation cp="🙅🏾‍♂">ei | eitavat žesti näitav mees | keelatud | käed ristis | mees | pole korras | žest | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🙅🏾‍♂">eitavat žesti näitav mees | keelatud | käed ristis | mees | žest | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙅🏾‍♂" type="tts">eitavat žesti näitav mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🙅🏿‍♂">ei | eitavat žesti näitav mees | keelatud | käed ristis | mees | pole korras | žest | tume nahatoon</annotation>
+		<annotation cp="🙅🏿‍♂">eitavat žesti näitav mees | keelatud | käed ristis | mees | žest | tume nahatoon</annotation>
 		<annotation cp="🙅🏿‍♂" type="tts">eitavat žesti näitav mees: tume nahatoon</annotation>
-		<annotation cp="🙅🏻‍♀">ei | eitavat žesti näitav naine | keelatud | käed ristis | naine | pole korras | žest | hele nahatoon</annotation>
+		<annotation cp="🙅🏻‍♀">eitavat žesti näitav naine | keelatud | käed ristis | naine | žest | hele nahatoon</annotation>
 		<annotation cp="🙅🏻‍♀" type="tts">eitavat žesti näitav naine: hele nahatoon</annotation>
-		<annotation cp="🙅🏼‍♀">ei | eitavat žesti näitav naine | keelatud | käed ristis | naine | pole korras | žest | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🙅🏼‍♀">eitavat žesti näitav naine | keelatud | käed ristis | naine | žest | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🙅🏼‍♀" type="tts">eitavat žesti näitav naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🙅🏽‍♀">ei | eitavat žesti näitav naine | keelatud | käed ristis | naine | pole korras | žest | keskmine nahatoon</annotation>
+		<annotation cp="🙅🏽‍♀">eitavat žesti näitav naine | keelatud | käed ristis | naine | žest | keskmine nahatoon</annotation>
 		<annotation cp="🙅🏽‍♀" type="tts">eitavat žesti näitav naine: keskmine nahatoon</annotation>
-		<annotation cp="🙅🏾‍♀">ei | eitavat žesti näitav naine | keelatud | käed ristis | naine | pole korras | žest | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🙅🏾‍♀">eitavat žesti näitav naine | keelatud | käed ristis | naine | žest | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙅🏾‍♀" type="tts">eitavat žesti näitav naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🙅🏿‍♀">ei | eitavat žesti näitav naine | keelatud | käed ristis | naine | pole korras | žest | tume nahatoon</annotation>
+		<annotation cp="🙅🏿‍♀">eitavat žesti näitav naine | keelatud | käed ristis | naine | žest | tume nahatoon</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">eitavat žesti näitav naine: tume nahatoon</annotation>
 		<annotation cp="🙆🏻">käed | nõustuv žest | ok | žest | hele nahatoon</annotation>
 		<annotation cp="🙆🏻" type="tts">nõustuv žest: hele nahatoon</annotation>
@@ -983,25 +1158,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙆🏾" type="tts">nõustuv žest: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙆🏿">käed | nõustuv žest | ok | žest | tume nahatoon</annotation>
 		<annotation cp="🙆🏿" type="tts">nõustuv žest: tume nahatoon</annotation>
-		<annotation cp="🙆🏻‍♂">korras | käed pea peal | mees | nõustuv | nõustuvat žesti näitav mees | ok | žest | hele nahatoon</annotation>
+		<annotation cp="🙆🏻‍♂">korras | käed pea peal | nõustuvat žesti näitav mees | ok | žest | hele nahatoon</annotation>
 		<annotation cp="🙆🏻‍♂" type="tts">nõustuvat žesti näitav mees: hele nahatoon</annotation>
-		<annotation cp="🙆🏼‍♂">korras | käed pea peal | mees | nõustuv | nõustuvat žesti näitav mees | ok | žest | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🙆🏼‍♂">korras | käed pea peal | nõustuvat žesti näitav mees | ok | žest | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🙆🏼‍♂" type="tts">nõustuvat žesti näitav mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🙆🏽‍♂">korras | käed pea peal | mees | nõustuv | nõustuvat žesti näitav mees | ok | žest | keskmine nahatoon</annotation>
+		<annotation cp="🙆🏽‍♂">korras | käed pea peal | nõustuvat žesti näitav mees | ok | žest | keskmine nahatoon</annotation>
 		<annotation cp="🙆🏽‍♂" type="tts">nõustuvat žesti näitav mees: keskmine nahatoon</annotation>
-		<annotation cp="🙆🏾‍♂">korras | käed pea peal | mees | nõustuv | nõustuvat žesti näitav mees | ok | žest | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🙆🏾‍♂">korras | käed pea peal | nõustuvat žesti näitav mees | ok | žest | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙆🏾‍♂" type="tts">nõustuvat žesti näitav mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🙆🏿‍♂">korras | käed pea peal | mees | nõustuv | nõustuvat žesti näitav mees | ok | žest | tume nahatoon</annotation>
+		<annotation cp="🙆🏿‍♂">korras | käed pea peal | nõustuvat žesti näitav mees | ok | žest | tume nahatoon</annotation>
 		<annotation cp="🙆🏿‍♂" type="tts">nõustuvat žesti näitav mees: tume nahatoon</annotation>
-		<annotation cp="🙆🏻‍♀">korras | käed pea peal | naine | nõustuv | nõustuvat žesti näitav naine | ok | žest | hele nahatoon</annotation>
+		<annotation cp="🙆🏻‍♀">korras | käed pea peal | nõustuvat žesti näitav naine | ok | žest | hele nahatoon</annotation>
 		<annotation cp="🙆🏻‍♀" type="tts">nõustuvat žesti näitav naine: hele nahatoon</annotation>
-		<annotation cp="🙆🏼‍♀">korras | käed pea peal | naine | nõustuv | nõustuvat žesti näitav naine | ok | žest | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🙆🏼‍♀">korras | käed pea peal | nõustuvat žesti näitav naine | ok | žest | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🙆🏼‍♀" type="tts">nõustuvat žesti näitav naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🙆🏽‍♀">korras | käed pea peal | naine | nõustuv | nõustuvat žesti näitav naine | ok | žest | keskmine nahatoon</annotation>
+		<annotation cp="🙆🏽‍♀">korras | käed pea peal | nõustuvat žesti näitav naine | ok | žest | keskmine nahatoon</annotation>
 		<annotation cp="🙆🏽‍♀" type="tts">nõustuvat žesti näitav naine: keskmine nahatoon</annotation>
-		<annotation cp="🙆🏾‍♀">korras | käed pea peal | naine | nõustuv | nõustuvat žesti näitav naine | ok | žest | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🙆🏾‍♀">korras | käed pea peal | nõustuvat žesti näitav naine | ok | žest | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙆🏾‍♀" type="tts">nõustuvat žesti näitav naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🙆🏿‍♀">korras | käed pea peal | naine | nõustuv | nõustuvat žesti näitav naine | ok | žest | tume nahatoon</annotation>
+		<annotation cp="🙆🏿‍♀">korras | käed pea peal | nõustuvat žesti näitav naine | ok | žest | tume nahatoon</annotation>
 		<annotation cp="🙆🏿‍♀" type="tts">nõustuvat žesti näitav naine: tume nahatoon</annotation>
 		<annotation cp="💁🏻">abi | info | infoleti töötaja | käsi | teave | hele nahatoon</annotation>
 		<annotation cp="💁🏻" type="tts">infoleti töötaja: hele nahatoon</annotation>
@@ -1013,26 +1188,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💁🏾" type="tts">infoleti töötaja: keskmiselt tume nahatoon</annotation>
 		<annotation cp="💁🏿">abi | info | infoleti töötaja | käsi | teave | tume nahatoon</annotation>
 		<annotation cp="💁🏿" type="tts">infoleti töötaja: tume nahatoon</annotation>
-		<annotation cp="💁🏻‍♂">jootraha | jootraha paluv mees | mees | nõudlik | hele nahatoon</annotation>
-		<annotation cp="💁🏻‍♂" type="tts">jootraha paluv mees: hele nahatoon</annotation>
-		<annotation cp="💁🏼‍♂">jootraha | jootraha paluv mees | mees | nõudlik | keskmiselt hele nahatoon</annotation>
-		<annotation cp="💁🏼‍♂" type="tts">jootraha paluv mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="💁🏽‍♂">jootraha | jootraha paluv mees | mees | nõudlik | keskmine nahatoon</annotation>
-		<annotation cp="💁🏽‍♂" type="tts">jootraha paluv mees: keskmine nahatoon</annotation>
-		<annotation cp="💁🏾‍♂">jootraha | jootraha paluv mees | mees | nõudlik | keskmiselt tume nahatoon</annotation>
-		<annotation cp="💁🏾‍♂" type="tts">jootraha paluv mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="💁🏿‍♂">jootraha | jootraha paluv mees | mees | nõudlik | tume nahatoon</annotation>
-		<annotation cp="💁🏿‍♂" type="tts">jootraha paluv mees: tume nahatoon</annotation>
-		<annotation cp="💁🏻‍♀">jootraha | jootraha paluv naine | naine | nõudlik | hele nahatoon</annotation>
-		<annotation cp="💁🏻‍♀" type="tts">jootraha paluv naine: hele nahatoon</annotation>
-		<annotation cp="💁🏼‍♀">jootraha | jootraha paluv naine | naine | nõudlik | keskmiselt hele nahatoon</annotation>
-		<annotation cp="💁🏼‍♀" type="tts">jootraha paluv naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="💁🏽‍♀">jootraha | jootraha paluv naine | naine | nõudlik | keskmine nahatoon</annotation>
-		<annotation cp="💁🏽‍♀" type="tts">jootraha paluv naine: keskmine nahatoon</annotation>
-		<annotation cp="💁🏾‍♀">jootraha | jootraha paluv naine | naine | nõudlik | keskmiselt tume nahatoon</annotation>
-		<annotation cp="💁🏾‍♀" type="tts">jootraha paluv naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="💁🏿‍♀">jootraha | jootraha paluv naine | naine | nõudlik | tume nahatoon</annotation>
-		<annotation cp="💁🏿‍♀" type="tts">jootraha paluv naine: tume nahatoon</annotation>
+		<annotation cp="💁🏻‍♂">abi | infoleti meestöötaja | mees | teave | hele nahatoon</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">infoleti meestöötaja: hele nahatoon</annotation>
+		<annotation cp="💁🏼‍♂">abi | infoleti meestöötaja | mees | teave | keskmiselt hele nahatoon</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">infoleti meestöötaja: keskmiselt hele nahatoon</annotation>
+		<annotation cp="💁🏽‍♂">abi | infoleti meestöötaja | mees | teave | keskmine nahatoon</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">infoleti meestöötaja: keskmine nahatoon</annotation>
+		<annotation cp="💁🏾‍♂">abi | infoleti meestöötaja | mees | teave | keskmiselt tume nahatoon</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">infoleti meestöötaja: keskmiselt tume nahatoon</annotation>
+		<annotation cp="💁🏿‍♂">abi | infoleti meestöötaja | mees | teave | tume nahatoon</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">infoleti meestöötaja: tume nahatoon</annotation>
+		<annotation cp="💁🏻‍♀">abi | infoleti naistöötaja | naine | teave | hele nahatoon</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">infoleti naistöötaja: hele nahatoon</annotation>
+		<annotation cp="💁🏼‍♀">abi | infoleti naistöötaja | naine | teave | keskmiselt hele nahatoon</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">infoleti naistöötaja: keskmiselt hele nahatoon</annotation>
+		<annotation cp="💁🏽‍♀">abi | infoleti naistöötaja | naine | teave | keskmine nahatoon</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">infoleti naistöötaja: keskmine nahatoon</annotation>
+		<annotation cp="💁🏾‍♀">abi | infoleti naistöötaja | naine | teave | keskmiselt tume nahatoon</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">infoleti naistöötaja: keskmiselt tume nahatoon</annotation>
+		<annotation cp="💁🏿‍♀">abi | infoleti naistöötaja | naine | teave | tume nahatoon</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">infoleti naistöötaja: tume nahatoon</annotation>
 		<annotation cp="🙋🏻">käsi | kätt tõstev rõõmus inimene | rõõmus | õnnelik | žest | hele nahatoon</annotation>
 		<annotation cp="🙋🏻" type="tts">kätt tõstev rõõmus inimene: hele nahatoon</annotation>
 		<annotation cp="🙋🏼">käsi | kätt tõstev rõõmus inimene | rõõmus | õnnelik | žest | keskmiselt hele nahatoon</annotation>
@@ -1073,25 +1248,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙇🏾" type="tts">kummardav inimene: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙇🏿">kummardav inimene | kummardus | vabandus | žest | tume nahatoon</annotation>
 		<annotation cp="🙇🏿" type="tts">kummardav inimene: tume nahatoon</annotation>
-		<annotation cp="🙇🏻‍♂">kummardus | mees | sügavalt kummarduv mees | teene | vabandus | žest | hele nahatoon</annotation>
+		<annotation cp="🙇🏻‍♂">kummardus | mees | sügavalt kummarduv mees | vabandus | žest | hele nahatoon</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">sügavalt kummarduv mees: hele nahatoon</annotation>
-		<annotation cp="🙇🏼‍♂">kummardus | mees | sügavalt kummarduv mees | teene | vabandus | žest | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🙇🏼‍♂">kummardus | mees | sügavalt kummarduv mees | vabandus | žest | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🙇🏼‍♂" type="tts">sügavalt kummarduv mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🙇🏽‍♂">kummardus | mees | sügavalt kummarduv mees | teene | vabandus | žest | keskmine nahatoon</annotation>
+		<annotation cp="🙇🏽‍♂">kummardus | mees | sügavalt kummarduv mees | vabandus | žest | keskmine nahatoon</annotation>
 		<annotation cp="🙇🏽‍♂" type="tts">sügavalt kummarduv mees: keskmine nahatoon</annotation>
-		<annotation cp="🙇🏾‍♂">kummardus | mees | sügavalt kummarduv mees | teene | vabandus | žest | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🙇🏾‍♂">kummardus | mees | sügavalt kummarduv mees | vabandus | žest | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙇🏾‍♂" type="tts">sügavalt kummarduv mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🙇🏿‍♂">kummardus | mees | sügavalt kummarduv mees | teene | vabandus | žest | tume nahatoon</annotation>
+		<annotation cp="🙇🏿‍♂">kummardus | mees | sügavalt kummarduv mees | vabandus | žest | tume nahatoon</annotation>
 		<annotation cp="🙇🏿‍♂" type="tts">sügavalt kummarduv mees: tume nahatoon</annotation>
-		<annotation cp="🙇🏻‍♀">kummardus | naine | sügavalt kummarduv naine | teene | vabandus | žest | hele nahatoon</annotation>
+		<annotation cp="🙇🏻‍♀">kummardus | naine | sügavalt kummarduv naine | vabandus | žest | hele nahatoon</annotation>
 		<annotation cp="🙇🏻‍♀" type="tts">sügavalt kummarduv naine: hele nahatoon</annotation>
-		<annotation cp="🙇🏼‍♀">kummardus | naine | sügavalt kummarduv naine | teene | vabandus | žest | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🙇🏼‍♀">kummardus | naine | sügavalt kummarduv naine | vabandus | žest | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🙇🏼‍♀" type="tts">sügavalt kummarduv naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🙇🏽‍♀">kummardus | naine | sügavalt kummarduv naine | teene | vabandus | žest | keskmine nahatoon</annotation>
+		<annotation cp="🙇🏽‍♀">kummardus | naine | sügavalt kummarduv naine | vabandus | žest | keskmine nahatoon</annotation>
 		<annotation cp="🙇🏽‍♀" type="tts">sügavalt kummarduv naine: keskmine nahatoon</annotation>
-		<annotation cp="🙇🏾‍♀">kummardus | naine | sügavalt kummarduv naine | teene | vabandus | žest | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🙇🏾‍♀">kummardus | naine | sügavalt kummarduv naine | vabandus | žest | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙇🏾‍♀" type="tts">sügavalt kummarduv naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🙇🏿‍♀">kummardus | naine | sügavalt kummarduv naine | teene | vabandus | žest | tume nahatoon</annotation>
+		<annotation cp="🙇🏿‍♀">kummardus | naine | sügavalt kummarduv naine | vabandus | žest | tume nahatoon</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">sügavalt kummarduv naine: tume nahatoon</annotation>
 		<annotation cp="🤦🏻">meeleheide | nägu | umbusk | hele nahatoon</annotation>
 		<annotation cp="🤦🏻" type="tts">meeleheide: hele nahatoon</annotation>
@@ -1133,25 +1308,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾" type="tts">õlakehitus: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤷🏿">kehitus | õlakehitus | õlg | ükskõiksus | tume nahatoon</annotation>
 		<annotation cp="🤷🏿" type="tts">õlakehitus: tume nahatoon</annotation>
-		<annotation cp="🤷🏻‍♂">kehitus | mees | õlakehitus | õlg | õlgu kehitav mees | ükskõiksus | hele nahatoon</annotation>
+		<annotation cp="🤷🏻‍♂">kehitus | mees | õlakehitus | õlgu kehitav mees | ükskõiksus | hele nahatoon</annotation>
 		<annotation cp="🤷🏻‍♂" type="tts">õlgu kehitav mees: hele nahatoon</annotation>
-		<annotation cp="🤷🏼‍♂">kehitus | mees | õlakehitus | õlg | õlgu kehitav mees | ükskõiksus | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤷🏼‍♂">kehitus | mees | õlakehitus | õlgu kehitav mees | ükskõiksus | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🤷🏼‍♂" type="tts">õlgu kehitav mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤷🏽‍♂">kehitus | mees | õlakehitus | õlg | õlgu kehitav mees | ükskõiksus | keskmine nahatoon</annotation>
+		<annotation cp="🤷🏽‍♂">kehitus | mees | õlakehitus | õlgu kehitav mees | ükskõiksus | keskmine nahatoon</annotation>
 		<annotation cp="🤷🏽‍♂" type="tts">õlgu kehitav mees: keskmine nahatoon</annotation>
-		<annotation cp="🤷🏾‍♂">kehitus | mees | õlakehitus | õlg | õlgu kehitav mees | ükskõiksus | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤷🏾‍♂">kehitus | mees | õlakehitus | õlgu kehitav mees | ükskõiksus | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤷🏾‍♂" type="tts">õlgu kehitav mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤷🏿‍♂">kehitus | mees | õlakehitus | õlg | õlgu kehitav mees | ükskõiksus | tume nahatoon</annotation>
+		<annotation cp="🤷🏿‍♂">kehitus | mees | õlakehitus | õlgu kehitav mees | ükskõiksus | tume nahatoon</annotation>
 		<annotation cp="🤷🏿‍♂" type="tts">õlgu kehitav mees: tume nahatoon</annotation>
-		<annotation cp="🤷🏻‍♀">kehitus | naine | õlakehitus | õlg | õlgu kehitav naine | ükskõiksus | hele nahatoon</annotation>
+		<annotation cp="🤷🏻‍♀">kehitus | naine | õlakehitus | õlgu kehitav naine | ükskõiksus | hele nahatoon</annotation>
 		<annotation cp="🤷🏻‍♀" type="tts">õlgu kehitav naine: hele nahatoon</annotation>
-		<annotation cp="🤷🏼‍♀">kehitus | naine | õlakehitus | õlg | õlgu kehitav naine | ükskõiksus | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤷🏼‍♀">kehitus | naine | õlakehitus | õlgu kehitav naine | ükskõiksus | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🤷🏼‍♀" type="tts">õlgu kehitav naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤷🏽‍♀">kehitus | naine | õlakehitus | õlg | õlgu kehitav naine | ükskõiksus | keskmine nahatoon</annotation>
+		<annotation cp="🤷🏽‍♀">kehitus | naine | õlakehitus | õlgu kehitav naine | ükskõiksus | keskmine nahatoon</annotation>
 		<annotation cp="🤷🏽‍♀" type="tts">õlgu kehitav naine: keskmine nahatoon</annotation>
-		<annotation cp="🤷🏾‍♀">kehitus | naine | õlakehitus | õlg | õlgu kehitav naine | ükskõiksus | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤷🏾‍♀">kehitus | naine | õlakehitus | õlgu kehitav naine | ükskõiksus | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤷🏾‍♀" type="tts">õlgu kehitav naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤷🏿‍♀">kehitus | naine | õlakehitus | õlg | õlgu kehitav naine | ükskõiksus | tume nahatoon</annotation>
+		<annotation cp="🤷🏿‍♀">kehitus | naine | õlakehitus | õlgu kehitav naine | ükskõiksus | tume nahatoon</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">õlgu kehitav naine: tume nahatoon</annotation>
 		<annotation cp="💆🏻">massaaž | näomassaaž | hele nahatoon</annotation>
 		<annotation cp="💆🏻" type="tts">näomassaaž: hele nahatoon</annotation>
@@ -1653,25 +1828,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚵🏾" type="tts">mägirattur: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🚵🏿">jalgratas | mägi | mägirattur | rattur | tume nahatoon</annotation>
 		<annotation cp="🚵🏿" type="tts">mägirattur: tume nahatoon</annotation>
-		<annotation cp="🚵🏻‍♂">MTB | jalgratas | mees | meesmägirattur | mägiratas | ratas | rattur | hele nahatoon</annotation>
+		<annotation cp="🚵🏻‍♂">jalgratas | mees | meesmägirattur | mägiratas | rattur | hele nahatoon</annotation>
 		<annotation cp="🚵🏻‍♂" type="tts">meesmägirattur: hele nahatoon</annotation>
-		<annotation cp="🚵🏼‍♂">MTB | jalgratas | mees | meesmägirattur | mägiratas | ratas | rattur | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🚵🏼‍♂">jalgratas | mees | meesmägirattur | mägiratas | rattur | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🚵🏼‍♂" type="tts">meesmägirattur: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🚵🏽‍♂">MTB | jalgratas | mees | meesmägirattur | mägiratas | ratas | rattur | keskmine nahatoon</annotation>
+		<annotation cp="🚵🏽‍♂">jalgratas | mees | meesmägirattur | mägiratas | rattur | keskmine nahatoon</annotation>
 		<annotation cp="🚵🏽‍♂" type="tts">meesmägirattur: keskmine nahatoon</annotation>
-		<annotation cp="🚵🏾‍♂">MTB | jalgratas | mees | meesmägirattur | mägiratas | ratas | rattur | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🚵🏾‍♂">jalgratas | mees | meesmägirattur | mägiratas | rattur | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🚵🏾‍♂" type="tts">meesmägirattur: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🚵🏿‍♂">MTB | jalgratas | mees | meesmägirattur | mägiratas | ratas | rattur | tume nahatoon</annotation>
+		<annotation cp="🚵🏿‍♂">jalgratas | mees | meesmägirattur | mägiratas | rattur | tume nahatoon</annotation>
 		<annotation cp="🚵🏿‍♂" type="tts">meesmägirattur: tume nahatoon</annotation>
-		<annotation cp="🚵🏻‍♀">MTB | jalgratas | mägiratas | naine | naismägirattur | ratas | rattur | hele nahatoon</annotation>
+		<annotation cp="🚵🏻‍♀">jalgratas | mägiratas | naine | naismägirattur | rattur | hele nahatoon</annotation>
 		<annotation cp="🚵🏻‍♀" type="tts">naismägirattur: hele nahatoon</annotation>
-		<annotation cp="🚵🏼‍♀">MTB | jalgratas | mägiratas | naine | naismägirattur | ratas | rattur | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🚵🏼‍♀">jalgratas | mägiratas | naine | naismägirattur | rattur | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🚵🏼‍♀" type="tts">naismägirattur: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🚵🏽‍♀">MTB | jalgratas | mägiratas | naine | naismägirattur | ratas | rattur | keskmine nahatoon</annotation>
+		<annotation cp="🚵🏽‍♀">jalgratas | mägiratas | naine | naismägirattur | rattur | keskmine nahatoon</annotation>
 		<annotation cp="🚵🏽‍♀" type="tts">naismägirattur: keskmine nahatoon</annotation>
-		<annotation cp="🚵🏾‍♀">MTB | jalgratas | mägiratas | naine | naismägirattur | ratas | rattur | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🚵🏾‍♀">jalgratas | mägiratas | naine | naismägirattur | rattur | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🚵🏾‍♀" type="tts">naismägirattur: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🚵🏿‍♀">MTB | jalgratas | mägiratas | naine | naismägirattur | ratas | rattur | tume nahatoon</annotation>
+		<annotation cp="🚵🏿‍♀">jalgratas | mägiratas | naine | naismägirattur | rattur | tume nahatoon</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">naismägirattur: tume nahatoon</annotation>
 		<annotation cp="🤸🏻">hundiratas | hundiratast viskav inimene | iluvõimlemine | inimene | sport | hele nahatoon</annotation>
 		<annotation cp="🤸🏻" type="tts">hundiratast viskav inimene: hele nahatoon</annotation>
@@ -1683,25 +1858,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾" type="tts">hundiratast viskav inimene: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤸🏿">hundiratas | hundiratast viskav inimene | iluvõimlemine | inimene | sport | tume nahatoon</annotation>
 		<annotation cp="🤸🏿" type="tts">hundiratast viskav inimene: tume nahatoon</annotation>
-		<annotation cp="🤸🏻‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | inimene | mees | sport | hele nahatoon</annotation>
+		<annotation cp="🤸🏻‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | mees | sport | hele nahatoon</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">hundiratast viskav mees: hele nahatoon</annotation>
-		<annotation cp="🤸🏼‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | inimene | mees | sport | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤸🏼‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | mees | sport | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🤸🏼‍♂" type="tts">hundiratast viskav mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤸🏽‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | inimene | mees | sport | keskmine nahatoon</annotation>
+		<annotation cp="🤸🏽‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | mees | sport | keskmine nahatoon</annotation>
 		<annotation cp="🤸🏽‍♂" type="tts">hundiratast viskav mees: keskmine nahatoon</annotation>
-		<annotation cp="🤸🏾‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | inimene | mees | sport | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤸🏾‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | mees | sport | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤸🏾‍♂" type="tts">hundiratast viskav mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤸🏿‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | inimene | mees | sport | tume nahatoon</annotation>
+		<annotation cp="🤸🏿‍♂">hundiratas | hundiratast viskav mees | iluvõimlemine | mees | sport | tume nahatoon</annotation>
 		<annotation cp="🤸🏿‍♂" type="tts">hundiratast viskav mees: tume nahatoon</annotation>
-		<annotation cp="🤸🏻‍♀">hundiratas | hundiratast viskav naine | iluvõimlemine | inimene | naine | sport | hele nahatoon</annotation>
+		<annotation cp="🤸🏻‍♀">hundiratas | hundiratast viskav naine | naine | sport | hele nahatoon</annotation>
 		<annotation cp="🤸🏻‍♀" type="tts">hundiratast viskav naine: hele nahatoon</annotation>
-		<annotation cp="🤸🏼‍♀">hundiratas | hundiratast viskav naine | iluvõimlemine | inimene | naine | sport | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤸🏼‍♀">hundiratas | hundiratast viskav naine | naine | sport | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🤸🏼‍♀" type="tts">hundiratast viskav naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤸🏽‍♀">hundiratas | hundiratast viskav naine | iluvõimlemine | inimene | naine | sport | keskmine nahatoon</annotation>
+		<annotation cp="🤸🏽‍♀">hundiratas | hundiratast viskav naine | naine | sport | keskmine nahatoon</annotation>
 		<annotation cp="🤸🏽‍♀" type="tts">hundiratast viskav naine: keskmine nahatoon</annotation>
-		<annotation cp="🤸🏾‍♀">hundiratas | hundiratast viskav naine | iluvõimlemine | inimene | naine | sport | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤸🏾‍♀">hundiratas | hundiratast viskav naine | naine | sport | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤸🏾‍♀" type="tts">hundiratast viskav naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤸🏿‍♀">hundiratas | hundiratast viskav naine | iluvõimlemine | inimene | naine | sport | tume nahatoon</annotation>
+		<annotation cp="🤸🏿‍♀">hundiratas | hundiratast viskav naine | naine | sport | tume nahatoon</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">hundiratast viskav naine: tume nahatoon</annotation>
 		<annotation cp="🤽🏻">inimene | sport | veepall | veepalli mängiv inimene | hele nahatoon</annotation>
 		<annotation cp="🤽🏻" type="tts">veepalli mängiv inimene: hele nahatoon</annotation>
@@ -1743,25 +1918,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤾🏾" type="tts">käsipalli mängiv inimene: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤾🏿">inimene | käsipall | käsipalli mängiv inimene | pall | sport | tume nahatoon</annotation>
 		<annotation cp="🤾🏿" type="tts">käsipalli mängiv inimene: tume nahatoon</annotation>
-		<annotation cp="🤾🏻‍♂">inimene | käsipall | käsipalli mängiv mees | mees | pall | sport | hele nahatoon</annotation>
+		<annotation cp="🤾🏻‍♂">käsipall | käsipalli mängiv mees | mees | pall | sport | hele nahatoon</annotation>
 		<annotation cp="🤾🏻‍♂" type="tts">käsipalli mängiv mees: hele nahatoon</annotation>
-		<annotation cp="🤾🏼‍♂">inimene | käsipall | käsipalli mängiv mees | mees | pall | sport | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤾🏼‍♂">käsipall | käsipalli mängiv mees | mees | pall | sport | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🤾🏼‍♂" type="tts">käsipalli mängiv mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤾🏽‍♂">inimene | käsipall | käsipalli mängiv mees | mees | pall | sport | keskmine nahatoon</annotation>
+		<annotation cp="🤾🏽‍♂">käsipall | käsipalli mängiv mees | mees | pall | sport | keskmine nahatoon</annotation>
 		<annotation cp="🤾🏽‍♂" type="tts">käsipalli mängiv mees: keskmine nahatoon</annotation>
-		<annotation cp="🤾🏾‍♂">inimene | käsipall | käsipalli mängiv mees | mees | pall | sport | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤾🏾‍♂">käsipall | käsipalli mängiv mees | mees | pall | sport | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤾🏾‍♂" type="tts">käsipalli mängiv mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤾🏿‍♂">inimene | käsipall | käsipalli mängiv mees | mees | pall | sport | tume nahatoon</annotation>
+		<annotation cp="🤾🏿‍♂">käsipall | käsipalli mängiv mees | mees | pall | sport | tume nahatoon</annotation>
 		<annotation cp="🤾🏿‍♂" type="tts">käsipalli mängiv mees: tume nahatoon</annotation>
-		<annotation cp="🤾🏻‍♀">inimene | käsipall | käsipalli mängiv naine | naine | pall | sport | hele nahatoon</annotation>
+		<annotation cp="🤾🏻‍♀">käsipall | käsipalli mängiv naine | naine | pall | sport | hele nahatoon</annotation>
 		<annotation cp="🤾🏻‍♀" type="tts">käsipalli mängiv naine: hele nahatoon</annotation>
-		<annotation cp="🤾🏼‍♀">inimene | käsipall | käsipalli mängiv naine | naine | pall | sport | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤾🏼‍♀">käsipall | käsipalli mängiv naine | naine | pall | sport | keskmiselt hele nahatoon</annotation>
 		<annotation cp="🤾🏼‍♀" type="tts">käsipalli mängiv naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤾🏽‍♀">inimene | käsipall | käsipalli mängiv naine | naine | pall | sport | keskmine nahatoon</annotation>
+		<annotation cp="🤾🏽‍♀">käsipall | käsipalli mängiv naine | naine | pall | sport | keskmine nahatoon</annotation>
 		<annotation cp="🤾🏽‍♀" type="tts">käsipalli mängiv naine: keskmine nahatoon</annotation>
-		<annotation cp="🤾🏾‍♀">inimene | käsipall | käsipalli mängiv naine | naine | pall | sport | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤾🏾‍♀">käsipall | käsipalli mängiv naine | naine | pall | sport | keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤾🏾‍♀" type="tts">käsipalli mängiv naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤾🏿‍♀">inimene | käsipall | käsipalli mängiv naine | naine | pall | sport | tume nahatoon</annotation>
+		<annotation cp="🤾🏿‍♀">käsipall | käsipalli mängiv naine | naine | pall | sport | tume nahatoon</annotation>
 		<annotation cp="🤾🏿‍♀" type="tts">käsipalli mängiv naine: tume nahatoon</annotation>
 		<annotation cp="🤹🏻">oskused | tasakaal | žongleerimine | žonglöör | hele nahatoon</annotation>
 		<annotation cp="🤹🏻" type="tts">žonglöör: hele nahatoon</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">klahv</annotation>
 		<annotation cp="🔟" type="tts">klahv: 10</annotation>
 		<annotation cp="🇦🇨">lipp</annotation>
-		<annotation cp="🇦🇨" type="tts">Ascensioni saar</annotation>
+		<annotation cp="🇦🇨" type="tts">lipp: Ascensioni saar</annotation>
 		<annotation cp="🇦🇩">lipp</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">lipp: Andorra</annotation>
 		<annotation cp="🇦🇪">lipp</annotation>
-		<annotation cp="🇦🇪" type="tts">Araabia Ühendemiraadid</annotation>
+		<annotation cp="🇦🇪" type="tts">lipp: Araabia Ühendemiraadid</annotation>
 		<annotation cp="🇦🇫">lipp</annotation>
-		<annotation cp="🇦🇫" type="tts">Afganistan</annotation>
+		<annotation cp="🇦🇫" type="tts">lipp: Afganistan</annotation>
 		<annotation cp="🇦🇬">lipp</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua ja Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">lipp: Antigua ja Barbuda</annotation>
 		<annotation cp="🇦🇮">lipp</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">lipp: Anguilla</annotation>
 		<annotation cp="🇦🇱">lipp</annotation>
-		<annotation cp="🇦🇱" type="tts">Albaania</annotation>
+		<annotation cp="🇦🇱" type="tts">lipp: Albaania</annotation>
 		<annotation cp="🇦🇲">lipp</annotation>
-		<annotation cp="🇦🇲" type="tts">Armeenia</annotation>
+		<annotation cp="🇦🇲" type="tts">lipp: Armeenia</annotation>
 		<annotation cp="🇦🇴">lipp</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">lipp: Angola</annotation>
 		<annotation cp="🇦🇶">lipp</annotation>
-		<annotation cp="🇦🇶" type="tts">Antarktika</annotation>
+		<annotation cp="🇦🇶" type="tts">lipp: Antarktika</annotation>
 		<annotation cp="🇦🇷">lipp</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇷" type="tts">lipp: Argentina</annotation>
 		<annotation cp="🇦🇸">lipp</annotation>
-		<annotation cp="🇦🇸" type="tts">Ameerika Samoa</annotation>
+		<annotation cp="🇦🇸" type="tts">lipp: Ameerika Samoa</annotation>
 		<annotation cp="🇦🇹">lipp</annotation>
-		<annotation cp="🇦🇹" type="tts">Austria</annotation>
+		<annotation cp="🇦🇹" type="tts">lipp: Austria</annotation>
 		<annotation cp="🇦🇺">lipp</annotation>
-		<annotation cp="🇦🇺" type="tts">Austraalia</annotation>
+		<annotation cp="🇦🇺" type="tts">lipp: Austraalia</annotation>
 		<annotation cp="🇦🇼">lipp</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">lipp: Aruba</annotation>
 		<annotation cp="🇦🇽">lipp</annotation>
-		<annotation cp="🇦🇽" type="tts">Ahvenamaa</annotation>
+		<annotation cp="🇦🇽" type="tts">lipp: Ahvenamaa</annotation>
 		<annotation cp="🇦🇿">lipp</annotation>
-		<annotation cp="🇦🇿" type="tts">Aserbaidžaan</annotation>
+		<annotation cp="🇦🇿" type="tts">lipp: Aserbaidžaan</annotation>
 		<annotation cp="🇧🇦">lipp</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnia ja Hertsegoviina</annotation>
+		<annotation cp="🇧🇦" type="tts">lipp: Bosnia ja Hertsegoviina</annotation>
 		<annotation cp="🇧🇧">lipp</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">lipp: Barbados</annotation>
 		<annotation cp="🇧🇩">lipp</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">lipp: Bangladesh</annotation>
 		<annotation cp="🇧🇪">lipp</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgia</annotation>
+		<annotation cp="🇧🇪" type="tts">lipp: Belgia</annotation>
 		<annotation cp="🇧🇫">lipp</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">lipp: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">lipp</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgaaria</annotation>
+		<annotation cp="🇧🇬" type="tts">lipp: Bulgaaria</annotation>
 		<annotation cp="🇧🇭">lipp</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrein</annotation>
+		<annotation cp="🇧🇭" type="tts">lipp: Bahrein</annotation>
 		<annotation cp="🇧🇮">lipp</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">lipp: Burundi</annotation>
 		<annotation cp="🇧🇯">lipp</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">lipp: Benin</annotation>
 		<annotation cp="🇧🇱">lipp</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">lipp: Saint-Barthélemy</annotation>
 		<annotation cp="🇧🇲">lipp</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">lipp: Bermuda</annotation>
 		<annotation cp="🇧🇳">lipp</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">lipp: Brunei</annotation>
 		<annotation cp="🇧🇴">lipp</annotation>
-		<annotation cp="🇧🇴" type="tts">Boliivia</annotation>
+		<annotation cp="🇧🇴" type="tts">lipp: Boliivia</annotation>
 		<annotation cp="🇧🇶">lipp</annotation>
-		<annotation cp="🇧🇶" type="tts">Hollandi Kariibi mere saared</annotation>
+		<annotation cp="🇧🇶" type="tts">lipp: Hollandi Kariibi mere saared</annotation>
 		<annotation cp="🇧🇷">lipp</annotation>
-		<annotation cp="🇧🇷" type="tts">Brasiilia</annotation>
+		<annotation cp="🇧🇷" type="tts">lipp: Brasiilia</annotation>
 		<annotation cp="🇧🇸">lipp</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahama</annotation>
+		<annotation cp="🇧🇸" type="tts">lipp: Bahama</annotation>
 		<annotation cp="🇧🇹">lipp</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">lipp: Bhutan</annotation>
 		<annotation cp="🇧🇻">lipp</annotation>
-		<annotation cp="🇧🇻" type="tts">Bouvet’ saar</annotation>
+		<annotation cp="🇧🇻" type="tts">lipp: Bouvet’ saar</annotation>
 		<annotation cp="🇧🇼">lipp</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">lipp: Botswana</annotation>
 		<annotation cp="🇧🇾">lipp</annotation>
-		<annotation cp="🇧🇾" type="tts">Valgevene</annotation>
+		<annotation cp="🇧🇾" type="tts">lipp: Valgevene</annotation>
 		<annotation cp="🇧🇿">lipp</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">lipp: Belize</annotation>
 		<annotation cp="🇨🇦">lipp</annotation>
-		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇦" type="tts">lipp: Kanada</annotation>
 		<annotation cp="🇨🇨">lipp</annotation>
-		<annotation cp="🇨🇨" type="tts">Kookossaared</annotation>
+		<annotation cp="🇨🇨" type="tts">lipp: Kookossaared</annotation>
 		<annotation cp="🇨🇩">lipp</annotation>
-		<annotation cp="🇨🇩" type="tts">Kongo DV</annotation>
+		<annotation cp="🇨🇩" type="tts">lipp: Kongo DV</annotation>
 		<annotation cp="🇨🇫">lipp</annotation>
-		<annotation cp="🇨🇫" type="tts">Kesk-Aafrika Vabariik</annotation>
+		<annotation cp="🇨🇫" type="tts">lipp: Kesk-Aafrika Vabariik</annotation>
 		<annotation cp="🇨🇬">lipp</annotation>
-		<annotation cp="🇨🇬" type="tts">Kongo Vabariik</annotation>
+		<annotation cp="🇨🇬" type="tts">lipp: Kongo Vabariik</annotation>
 		<annotation cp="🇨🇭">lipp</annotation>
-		<annotation cp="🇨🇭" type="tts">Šveits</annotation>
+		<annotation cp="🇨🇭" type="tts">lipp: Šveits</annotation>
 		<annotation cp="🇨🇮">lipp</annotation>
-		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇮" type="tts">lipp: Côte d’Ivoire</annotation>
 		<annotation cp="🇨🇰">lipp</annotation>
-		<annotation cp="🇨🇰" type="tts">Cooki saared</annotation>
+		<annotation cp="🇨🇰" type="tts">lipp: Cooki saared</annotation>
 		<annotation cp="🇨🇱">lipp</annotation>
-		<annotation cp="🇨🇱" type="tts">Tšiili</annotation>
+		<annotation cp="🇨🇱" type="tts">lipp: Tšiili</annotation>
 		<annotation cp="🇨🇲">lipp</annotation>
-		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇲" type="tts">lipp: Kamerun</annotation>
 		<annotation cp="🇨🇳">lipp</annotation>
-		<annotation cp="🇨🇳" type="tts">Hiina</annotation>
+		<annotation cp="🇨🇳" type="tts">lipp: Hiina</annotation>
 		<annotation cp="🇨🇴">lipp</annotation>
-		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇴" type="tts">lipp: Colombia</annotation>
 		<annotation cp="🇨🇵">lipp</annotation>
-		<annotation cp="🇨🇵" type="tts">Clippertoni saar</annotation>
+		<annotation cp="🇨🇵" type="tts">lipp: Clippertoni saar</annotation>
 		<annotation cp="🇨🇷">lipp</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">lipp: Costa Rica</annotation>
 		<annotation cp="🇨🇺">lipp</annotation>
-		<annotation cp="🇨🇺" type="tts">Kuuba</annotation>
+		<annotation cp="🇨🇺" type="tts">lipp: Kuuba</annotation>
 		<annotation cp="🇨🇻">lipp</annotation>
-		<annotation cp="🇨🇻" type="tts">Roheneemesaared</annotation>
+		<annotation cp="🇨🇻" type="tts">lipp: Roheneemesaared</annotation>
 		<annotation cp="🇨🇼">lipp</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">lipp: Curaçao</annotation>
 		<annotation cp="🇨🇽">lipp</annotation>
-		<annotation cp="🇨🇽" type="tts">Jõulusaar</annotation>
+		<annotation cp="🇨🇽" type="tts">lipp: Jõulusaar</annotation>
 		<annotation cp="🇨🇾">lipp</annotation>
-		<annotation cp="🇨🇾" type="tts">Küpros</annotation>
+		<annotation cp="🇨🇾" type="tts">lipp: Küpros</annotation>
 		<annotation cp="🇨🇿">lipp</annotation>
-		<annotation cp="🇨🇿" type="tts">Tšehhi</annotation>
+		<annotation cp="🇨🇿" type="tts">lipp: Tšehhi</annotation>
 		<annotation cp="🇩🇪">lipp</annotation>
-		<annotation cp="🇩🇪" type="tts">Saksamaa</annotation>
+		<annotation cp="🇩🇪" type="tts">lipp: Saksamaa</annotation>
 		<annotation cp="🇩🇬">lipp</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">lipp: Diego Garcia</annotation>
 		<annotation cp="🇩🇯">lipp</annotation>
-		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇯" type="tts">lipp: Djibouti</annotation>
 		<annotation cp="🇩🇰">lipp</annotation>
-		<annotation cp="🇩🇰" type="tts">Taani</annotation>
+		<annotation cp="🇩🇰" type="tts">lipp: Taani</annotation>
 		<annotation cp="🇩🇲">lipp</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇲" type="tts">lipp: Dominica</annotation>
 		<annotation cp="🇩🇴">lipp</annotation>
-		<annotation cp="🇩🇴" type="tts">Dominikaani Vabariik</annotation>
+		<annotation cp="🇩🇴" type="tts">lipp: Dominikaani Vabariik</annotation>
 		<annotation cp="🇩🇿">lipp</annotation>
-		<annotation cp="🇩🇿" type="tts">Alžeeria</annotation>
+		<annotation cp="🇩🇿" type="tts">lipp: Alžeeria</annotation>
 		<annotation cp="🇪🇦">lipp</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta ja Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">lipp: Ceuta ja Melilla</annotation>
 		<annotation cp="🇪🇨">lipp</annotation>
-		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">lipp: Ecuador</annotation>
 		<annotation cp="🇪🇪">lipp</annotation>
-		<annotation cp="🇪🇪" type="tts">Eesti</annotation>
+		<annotation cp="🇪🇪" type="tts">lipp: Eesti</annotation>
 		<annotation cp="🇪🇬">lipp</annotation>
-		<annotation cp="🇪🇬" type="tts">Egiptus</annotation>
+		<annotation cp="🇪🇬" type="tts">lipp: Egiptus</annotation>
 		<annotation cp="🇪🇭">lipp</annotation>
-		<annotation cp="🇪🇭" type="tts">Lääne-Sahara</annotation>
+		<annotation cp="🇪🇭" type="tts">lipp: Lääne-Sahara</annotation>
 		<annotation cp="🇪🇷">lipp</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">lipp: Eritrea</annotation>
 		<annotation cp="🇪🇸">lipp</annotation>
-		<annotation cp="🇪🇸" type="tts">Hispaania</annotation>
+		<annotation cp="🇪🇸" type="tts">lipp: Hispaania</annotation>
 		<annotation cp="🇪🇹">lipp</annotation>
-		<annotation cp="🇪🇹" type="tts">Etioopia</annotation>
+		<annotation cp="🇪🇹" type="tts">lipp: Etioopia</annotation>
 		<annotation cp="🇪🇺">lipp</annotation>
-		<annotation cp="🇪🇺" type="tts">Euroopa Liit</annotation>
+		<annotation cp="🇪🇺" type="tts">lipp: Euroopa Liit</annotation>
 		<annotation cp="🇫🇮">lipp</annotation>
-		<annotation cp="🇫🇮" type="tts">Soome</annotation>
+		<annotation cp="🇫🇮" type="tts">lipp: Soome</annotation>
 		<annotation cp="🇫🇯">lipp</annotation>
-		<annotation cp="🇫🇯" type="tts">Fidži</annotation>
+		<annotation cp="🇫🇯" type="tts">lipp: Fidži</annotation>
 		<annotation cp="🇫🇰">lipp</annotation>
-		<annotation cp="🇫🇰" type="tts">Falklandi saared</annotation>
+		<annotation cp="🇫🇰" type="tts">lipp: Falklandi saared</annotation>
 		<annotation cp="🇫🇲">lipp</annotation>
-		<annotation cp="🇫🇲" type="tts">Mikroneesia</annotation>
+		<annotation cp="🇫🇲" type="tts">lipp: Mikroneesia</annotation>
 		<annotation cp="🇫🇴">lipp</annotation>
-		<annotation cp="🇫🇴" type="tts">Fääri saared</annotation>
+		<annotation cp="🇫🇴" type="tts">lipp: Fääri saared</annotation>
 		<annotation cp="🇫🇷">lipp</annotation>
-		<annotation cp="🇫🇷" type="tts">Prantsusmaa</annotation>
+		<annotation cp="🇫🇷" type="tts">lipp: Prantsusmaa</annotation>
 		<annotation cp="🇬🇦">lipp</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">lipp: Gabon</annotation>
 		<annotation cp="🇬🇧">lipp</annotation>
-		<annotation cp="🇬🇧" type="tts">Suurbritannia</annotation>
+		<annotation cp="🇬🇧" type="tts">lipp: Suurbritannia</annotation>
 		<annotation cp="🇬🇩">lipp</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">lipp: Grenada</annotation>
 		<annotation cp="🇬🇪">lipp</annotation>
-		<annotation cp="🇬🇪" type="tts">Gruusia</annotation>
+		<annotation cp="🇬🇪" type="tts">lipp: Gruusia</annotation>
 		<annotation cp="🇬🇫">lipp</annotation>
-		<annotation cp="🇬🇫" type="tts">Prantsuse Guajaana</annotation>
+		<annotation cp="🇬🇫" type="tts">lipp: Prantsuse Guajaana</annotation>
 		<annotation cp="🇬🇬">lipp</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">lipp: Guernsey</annotation>
 		<annotation cp="🇬🇭">lipp</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">lipp: Ghana</annotation>
 		<annotation cp="🇬🇮">lipp</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">lipp: Gibraltar</annotation>
 		<annotation cp="🇬🇱">lipp</annotation>
-		<annotation cp="🇬🇱" type="tts">Gröönimaa</annotation>
+		<annotation cp="🇬🇱" type="tts">lipp: Gröönimaa</annotation>
 		<annotation cp="🇬🇲">lipp</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">lipp: Gambia</annotation>
 		<annotation cp="🇬🇳">lipp</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇳" type="tts">lipp: Guinea</annotation>
 		<annotation cp="🇬🇵">lipp</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">lipp: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">lipp</annotation>
-		<annotation cp="🇬🇶" type="tts">Ekvatoriaal-Guinea</annotation>
+		<annotation cp="🇬🇶" type="tts">lipp: Ekvatoriaal-Guinea</annotation>
 		<annotation cp="🇬🇷">lipp</annotation>
-		<annotation cp="🇬🇷" type="tts">Kreeka</annotation>
+		<annotation cp="🇬🇷" type="tts">lipp: Kreeka</annotation>
 		<annotation cp="🇬🇸">lipp</annotation>
-		<annotation cp="🇬🇸" type="tts">Lõuna-Georgia ja Lõuna-Sandwichi saared</annotation>
+		<annotation cp="🇬🇸" type="tts">lipp: Lõuna-Georgia ja Lõuna-Sandwichi saared</annotation>
 		<annotation cp="🇬🇹">lipp</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">lipp: Guatemala</annotation>
 		<annotation cp="🇬🇺">lipp</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">lipp: Guam</annotation>
 		<annotation cp="🇬🇼">lipp</annotation>
-		<annotation cp="🇬🇼" type="tts">Guinea-Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">lipp: Guinea-Bissau</annotation>
 		<annotation cp="🇬🇾">lipp</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">lipp: Guyana</annotation>
 		<annotation cp="🇭🇰">lipp</annotation>
-		<annotation cp="🇭🇰" type="tts">Hongkongi erihalduspiirkond</annotation>
+		<annotation cp="🇭🇰" type="tts">lipp: Hongkongi erihalduspiirkond</annotation>
 		<annotation cp="🇭🇲">lipp</annotation>
-		<annotation cp="🇭🇲" type="tts">Heardi ja McDonaldi saared</annotation>
+		<annotation cp="🇭🇲" type="tts">lipp: Heardi ja McDonaldi saared</annotation>
 		<annotation cp="🇭🇳">lipp</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">lipp: Honduras</annotation>
 		<annotation cp="🇭🇷">lipp</annotation>
-		<annotation cp="🇭🇷" type="tts">Horvaatia</annotation>
+		<annotation cp="🇭🇷" type="tts">lipp: Horvaatia</annotation>
 		<annotation cp="🇭🇹">lipp</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">lipp: Haiti</annotation>
 		<annotation cp="🇭🇺">lipp</annotation>
-		<annotation cp="🇭🇺" type="tts">Ungari</annotation>
+		<annotation cp="🇭🇺" type="tts">lipp: Ungari</annotation>
 		<annotation cp="🇮🇨">lipp</annotation>
-		<annotation cp="🇮🇨" type="tts">Kanaari saared</annotation>
+		<annotation cp="🇮🇨" type="tts">lipp: Kanaari saared</annotation>
 		<annotation cp="🇮🇩">lipp</annotation>
-		<annotation cp="🇮🇩" type="tts">Indoneesia</annotation>
+		<annotation cp="🇮🇩" type="tts">lipp: Indoneesia</annotation>
 		<annotation cp="🇮🇪">lipp</annotation>
-		<annotation cp="🇮🇪" type="tts">Iirimaa</annotation>
+		<annotation cp="🇮🇪" type="tts">lipp: Iirimaa</annotation>
 		<annotation cp="🇮🇱">lipp</annotation>
-		<annotation cp="🇮🇱" type="tts">Iisrael</annotation>
+		<annotation cp="🇮🇱" type="tts">lipp: Iisrael</annotation>
 		<annotation cp="🇮🇲">lipp</annotation>
-		<annotation cp="🇮🇲" type="tts">Mani saar</annotation>
+		<annotation cp="🇮🇲" type="tts">lipp: Mani saar</annotation>
 		<annotation cp="🇮🇳">lipp</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">lipp: India</annotation>
 		<annotation cp="🇮🇴">lipp</annotation>
-		<annotation cp="🇮🇴" type="tts">Briti India ookeani ala</annotation>
+		<annotation cp="🇮🇴" type="tts">lipp: Briti India ookeani ala</annotation>
 		<annotation cp="🇮🇶">lipp</annotation>
-		<annotation cp="🇮🇶" type="tts">Iraak</annotation>
+		<annotation cp="🇮🇶" type="tts">lipp: Iraak</annotation>
 		<annotation cp="🇮🇷">lipp</annotation>
-		<annotation cp="🇮🇷" type="tts">Iraan</annotation>
+		<annotation cp="🇮🇷" type="tts">lipp: Iraan</annotation>
 		<annotation cp="🇮🇸">lipp</annotation>
-		<annotation cp="🇮🇸" type="tts">Island</annotation>
+		<annotation cp="🇮🇸" type="tts">lipp: Island</annotation>
 		<annotation cp="🇮🇹">lipp</annotation>
-		<annotation cp="🇮🇹" type="tts">Itaalia</annotation>
+		<annotation cp="🇮🇹" type="tts">lipp: Itaalia</annotation>
 		<annotation cp="🇯🇪">lipp</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">lipp: Jersey</annotation>
 		<annotation cp="🇯🇲">lipp</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">lipp: Jamaica</annotation>
 		<annotation cp="🇯🇴">lipp</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordaania</annotation>
+		<annotation cp="🇯🇴" type="tts">lipp: Jordaania</annotation>
 		<annotation cp="🇯🇵">lipp</annotation>
-		<annotation cp="🇯🇵" type="tts">Jaapan</annotation>
+		<annotation cp="🇯🇵" type="tts">lipp: Jaapan</annotation>
 		<annotation cp="🇰🇪">lipp</annotation>
-		<annotation cp="🇰🇪" type="tts">Keenia</annotation>
+		<annotation cp="🇰🇪" type="tts">lipp: Keenia</annotation>
 		<annotation cp="🇰🇬">lipp</annotation>
-		<annotation cp="🇰🇬" type="tts">Kõrgõzstan</annotation>
+		<annotation cp="🇰🇬" type="tts">lipp: Kõrgõzstan</annotation>
 		<annotation cp="🇰🇭">lipp</annotation>
-		<annotation cp="🇰🇭" type="tts">Kambodža</annotation>
+		<annotation cp="🇰🇭" type="tts">lipp: Kambodža</annotation>
 		<annotation cp="🇰🇮">lipp</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">lipp: Kiribati</annotation>
 		<annotation cp="🇰🇲">lipp</annotation>
-		<annotation cp="🇰🇲" type="tts">Komoorid</annotation>
+		<annotation cp="🇰🇲" type="tts">lipp: Komoorid</annotation>
 		<annotation cp="🇰🇳">lipp</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint Kitts ja Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">lipp: Saint Kitts ja Nevis</annotation>
 		<annotation cp="🇰🇵">lipp</annotation>
-		<annotation cp="🇰🇵" type="tts">Põhja-Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">lipp: Põhja-Korea</annotation>
 		<annotation cp="🇰🇷">lipp</annotation>
-		<annotation cp="🇰🇷" type="tts">Lõuna-Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">lipp: Lõuna-Korea</annotation>
 		<annotation cp="🇰🇼">lipp</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuveit</annotation>
+		<annotation cp="🇰🇼" type="tts">lipp: Kuveit</annotation>
 		<annotation cp="🇰🇾">lipp</annotation>
-		<annotation cp="🇰🇾" type="tts">Kaimanisaared</annotation>
+		<annotation cp="🇰🇾" type="tts">lipp: Kaimanisaared</annotation>
 		<annotation cp="🇰🇿">lipp</annotation>
-		<annotation cp="🇰🇿" type="tts">Kasahstan</annotation>
+		<annotation cp="🇰🇿" type="tts">lipp: Kasahstan</annotation>
 		<annotation cp="🇱🇦">lipp</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">lipp: Laos</annotation>
 		<annotation cp="🇱🇧">lipp</annotation>
-		<annotation cp="🇱🇧" type="tts">Liibanon</annotation>
+		<annotation cp="🇱🇧" type="tts">lipp: Liibanon</annotation>
 		<annotation cp="🇱🇨">lipp</annotation>
-		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">lipp: Saint Lucia</annotation>
 		<annotation cp="🇱🇮">lipp</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">lipp: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">lipp</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">lipp: Sri Lanka</annotation>
 		<annotation cp="🇱🇷">lipp</annotation>
-		<annotation cp="🇱🇷" type="tts">Libeeria</annotation>
+		<annotation cp="🇱🇷" type="tts">lipp: Libeeria</annotation>
 		<annotation cp="🇱🇸">lipp</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">lipp: Lesotho</annotation>
 		<annotation cp="🇱🇹">lipp</annotation>
-		<annotation cp="🇱🇹" type="tts">Leedu</annotation>
+		<annotation cp="🇱🇹" type="tts">lipp: Leedu</annotation>
 		<annotation cp="🇱🇺">lipp</annotation>
-		<annotation cp="🇱🇺" type="tts">Luksemburg</annotation>
+		<annotation cp="🇱🇺" type="tts">lipp: Luksemburg</annotation>
 		<annotation cp="🇱🇻">lipp</annotation>
-		<annotation cp="🇱🇻" type="tts">Läti</annotation>
+		<annotation cp="🇱🇻" type="tts">lipp: Läti</annotation>
 		<annotation cp="🇱🇾">lipp</annotation>
-		<annotation cp="🇱🇾" type="tts">Liibüa</annotation>
+		<annotation cp="🇱🇾" type="tts">lipp: Liibüa</annotation>
 		<annotation cp="🇲🇦">lipp</annotation>
-		<annotation cp="🇲🇦" type="tts">Maroko</annotation>
+		<annotation cp="🇲🇦" type="tts">lipp: Maroko</annotation>
 		<annotation cp="🇲🇨">lipp</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">lipp: Monaco</annotation>
 		<annotation cp="🇲🇩">lipp</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇩" type="tts">lipp: Moldova</annotation>
 		<annotation cp="🇲🇪">lipp</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">lipp: Montenegro</annotation>
 		<annotation cp="🇲🇫">lipp</annotation>
-		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">lipp: Saint-Martin</annotation>
 		<annotation cp="🇲🇬">lipp</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇬" type="tts">lipp: Madagaskar</annotation>
 		<annotation cp="🇲🇭">lipp</annotation>
-		<annotation cp="🇲🇭" type="tts">Marshalli Saared</annotation>
+		<annotation cp="🇲🇭" type="tts">lipp: Marshalli Saared</annotation>
 		<annotation cp="🇲🇰">lipp</annotation>
-		<annotation cp="🇲🇰" type="tts">Makedoonia</annotation>
+		<annotation cp="🇲🇰" type="tts">lipp: Makedoonia</annotation>
 		<annotation cp="🇲🇱">lipp</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">lipp: Mali</annotation>
 		<annotation cp="🇲🇲">lipp</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Birma)</annotation>
+		<annotation cp="🇲🇲" type="tts">lipp: Myanmar (Birma)</annotation>
 		<annotation cp="🇲🇳">lipp</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongoolia</annotation>
+		<annotation cp="🇲🇳" type="tts">lipp: Mongoolia</annotation>
 		<annotation cp="🇲🇴">lipp</annotation>
-		<annotation cp="🇲🇴" type="tts">Macau erihalduspiirkond</annotation>
+		<annotation cp="🇲🇴" type="tts">lipp: Macau erihalduspiirkond</annotation>
 		<annotation cp="🇲🇵">lipp</annotation>
-		<annotation cp="🇲🇵" type="tts">Põhja-Mariaanid</annotation>
+		<annotation cp="🇲🇵" type="tts">lipp: Põhja-Mariaanid</annotation>
 		<annotation cp="🇲🇶">lipp</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇶" type="tts">lipp: Martinique</annotation>
 		<annotation cp="🇲🇷">lipp</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritaania</annotation>
+		<annotation cp="🇲🇷" type="tts">lipp: Mauritaania</annotation>
 		<annotation cp="🇲🇸">lipp</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">lipp: Montserrat</annotation>
 		<annotation cp="🇲🇹">lipp</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">lipp: Malta</annotation>
 		<annotation cp="🇲🇺">lipp</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">lipp: Mauritius</annotation>
 		<annotation cp="🇲🇻">lipp</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldiivid</annotation>
+		<annotation cp="🇲🇻" type="tts">lipp: Maldiivid</annotation>
 		<annotation cp="🇲🇼">lipp</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">lipp: Malawi</annotation>
 		<annotation cp="🇲🇽">lipp</annotation>
-		<annotation cp="🇲🇽" type="tts">Mehhiko</annotation>
+		<annotation cp="🇲🇽" type="tts">lipp: Mehhiko</annotation>
 		<annotation cp="🇲🇾">lipp</annotation>
-		<annotation cp="🇲🇾" type="tts">Malaisia</annotation>
+		<annotation cp="🇲🇾" type="tts">lipp: Malaisia</annotation>
 		<annotation cp="🇲🇿">lipp</annotation>
-		<annotation cp="🇲🇿" type="tts">Mosambiik</annotation>
+		<annotation cp="🇲🇿" type="tts">lipp: Mosambiik</annotation>
 		<annotation cp="🇳🇦">lipp</annotation>
-		<annotation cp="🇳🇦" type="tts">Namiibia</annotation>
+		<annotation cp="🇳🇦" type="tts">lipp: Namiibia</annotation>
 		<annotation cp="🇳🇨">lipp</annotation>
-		<annotation cp="🇳🇨" type="tts">Uus-Kaledoonia</annotation>
+		<annotation cp="🇳🇨" type="tts">lipp: Uus-Kaledoonia</annotation>
 		<annotation cp="🇳🇪">lipp</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">lipp: Niger</annotation>
 		<annotation cp="🇳🇫">lipp</annotation>
-		<annotation cp="🇳🇫" type="tts">Norfolk</annotation>
+		<annotation cp="🇳🇫" type="tts">lipp: Norfolk</annotation>
 		<annotation cp="🇳🇬">lipp</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigeeria</annotation>
+		<annotation cp="🇳🇬" type="tts">lipp: Nigeeria</annotation>
 		<annotation cp="🇳🇮">lipp</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">lipp: Nicaragua</annotation>
 		<annotation cp="🇳🇱">lipp</annotation>
-		<annotation cp="🇳🇱" type="tts">Holland</annotation>
+		<annotation cp="🇳🇱" type="tts">lipp: Holland</annotation>
 		<annotation cp="🇳🇴">lipp</annotation>
-		<annotation cp="🇳🇴" type="tts">Norra</annotation>
+		<annotation cp="🇳🇴" type="tts">lipp: Norra</annotation>
 		<annotation cp="🇳🇵">lipp</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">lipp: Nepal</annotation>
 		<annotation cp="🇳🇷">lipp</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">lipp: Nauru</annotation>
 		<annotation cp="🇳🇺">lipp</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">lipp: Niue</annotation>
 		<annotation cp="🇳🇿">lipp</annotation>
-		<annotation cp="🇳🇿" type="tts">Uus-Meremaa</annotation>
+		<annotation cp="🇳🇿" type="tts">lipp: Uus-Meremaa</annotation>
 		<annotation cp="🇴🇲">lipp</annotation>
-		<annotation cp="🇴🇲" type="tts">Omaan</annotation>
+		<annotation cp="🇴🇲" type="tts">lipp: Omaan</annotation>
 		<annotation cp="🇵🇦">lipp</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">lipp: Panama</annotation>
 		<annotation cp="🇵🇪">lipp</annotation>
-		<annotation cp="🇵🇪" type="tts">Peruu</annotation>
+		<annotation cp="🇵🇪" type="tts">lipp: Peruu</annotation>
 		<annotation cp="🇵🇫">lipp</annotation>
-		<annotation cp="🇵🇫" type="tts">Prantsuse Polüneesia</annotation>
+		<annotation cp="🇵🇫" type="tts">lipp: Prantsuse Polüneesia</annotation>
 		<annotation cp="🇵🇬">lipp</annotation>
-		<annotation cp="🇵🇬" type="tts">Paapua Uus-Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">lipp: Paapua Uus-Guinea</annotation>
 		<annotation cp="🇵🇭">lipp</annotation>
-		<annotation cp="🇵🇭" type="tts">Filipiinid</annotation>
+		<annotation cp="🇵🇭" type="tts">lipp: Filipiinid</annotation>
 		<annotation cp="🇵🇰">lipp</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">lipp: Pakistan</annotation>
 		<annotation cp="🇵🇱">lipp</annotation>
-		<annotation cp="🇵🇱" type="tts">Poola</annotation>
+		<annotation cp="🇵🇱" type="tts">lipp: Poola</annotation>
 		<annotation cp="🇵🇲">lipp</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre ja Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">lipp: Saint-Pierre ja Miquelon</annotation>
 		<annotation cp="🇵🇳">lipp</annotation>
-		<annotation cp="🇵🇳" type="tts">Pitcairni saared</annotation>
+		<annotation cp="🇵🇳" type="tts">lipp: Pitcairni saared</annotation>
 		<annotation cp="🇵🇷">lipp</annotation>
-		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">lipp: Puerto Rico</annotation>
 		<annotation cp="🇵🇸">lipp</annotation>
-		<annotation cp="🇵🇸" type="tts">Palestiina alad</annotation>
+		<annotation cp="🇵🇸" type="tts">lipp: Palestiina alad</annotation>
 		<annotation cp="🇵🇹">lipp</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇹" type="tts">lipp: Portugal</annotation>
 		<annotation cp="🇵🇼">lipp</annotation>
-		<annotation cp="🇵🇼" type="tts">Belau</annotation>
+		<annotation cp="🇵🇼" type="tts">lipp: Belau</annotation>
 		<annotation cp="🇵🇾">lipp</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">lipp: Paraguay</annotation>
 		<annotation cp="🇶🇦">lipp</annotation>
-		<annotation cp="🇶🇦" type="tts">Katar</annotation>
+		<annotation cp="🇶🇦" type="tts">lipp: Katar</annotation>
 		<annotation cp="🇷🇪">lipp</annotation>
-		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇪" type="tts">lipp: Réunion</annotation>
 		<annotation cp="🇷🇴">lipp</annotation>
-		<annotation cp="🇷🇴" type="tts">Rumeenia</annotation>
+		<annotation cp="🇷🇴" type="tts">lipp: Rumeenia</annotation>
 		<annotation cp="🇷🇸">lipp</annotation>
-		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇸" type="tts">lipp: Serbia</annotation>
 		<annotation cp="🇷🇺">lipp</annotation>
-		<annotation cp="🇷🇺" type="tts">Venemaa</annotation>
+		<annotation cp="🇷🇺" type="tts">lipp: Venemaa</annotation>
 		<annotation cp="🇷🇼">lipp</annotation>
-		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇷🇼" type="tts">lipp: Rwanda</annotation>
 		<annotation cp="🇸🇦">lipp</annotation>
-		<annotation cp="🇸🇦" type="tts">Saudi Araabia</annotation>
+		<annotation cp="🇸🇦" type="tts">lipp: Saudi Araabia</annotation>
 		<annotation cp="🇸🇧">lipp</annotation>
-		<annotation cp="🇸🇧" type="tts">Saalomoni Saared</annotation>
+		<annotation cp="🇸🇧" type="tts">lipp: Saalomoni Saared</annotation>
 		<annotation cp="🇸🇨">lipp</annotation>
-		<annotation cp="🇸🇨" type="tts">Seišellid</annotation>
+		<annotation cp="🇸🇨" type="tts">lipp: Seišellid</annotation>
 		<annotation cp="🇸🇩">lipp</annotation>
-		<annotation cp="🇸🇩" type="tts">Sudaan</annotation>
+		<annotation cp="🇸🇩" type="tts">lipp: Sudaan</annotation>
 		<annotation cp="🇸🇪">lipp</annotation>
-		<annotation cp="🇸🇪" type="tts">Rootsi</annotation>
+		<annotation cp="🇸🇪" type="tts">lipp: Rootsi</annotation>
 		<annotation cp="🇸🇬">lipp</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapur</annotation>
+		<annotation cp="🇸🇬" type="tts">lipp: Singapur</annotation>
 		<annotation cp="🇸🇭">lipp</annotation>
-		<annotation cp="🇸🇭" type="tts">Saint Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">lipp: Saint Helena</annotation>
 		<annotation cp="🇸🇮">lipp</annotation>
-		<annotation cp="🇸🇮" type="tts">Sloveenia</annotation>
+		<annotation cp="🇸🇮" type="tts">lipp: Sloveenia</annotation>
 		<annotation cp="🇸🇯">lipp</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard ja Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">lipp: Svalbard ja Jan Mayen</annotation>
 		<annotation cp="🇸🇰">lipp</annotation>
-		<annotation cp="🇸🇰" type="tts">Slovakkia</annotation>
+		<annotation cp="🇸🇰" type="tts">lipp: Slovakkia</annotation>
 		<annotation cp="🇸🇱">lipp</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">lipp: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">lipp</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">lipp: San Marino</annotation>
 		<annotation cp="🇸🇳">lipp</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">lipp: Senegal</annotation>
 		<annotation cp="🇸🇴">lipp</annotation>
-		<annotation cp="🇸🇴" type="tts">Somaalia</annotation>
+		<annotation cp="🇸🇴" type="tts">lipp: Somaalia</annotation>
 		<annotation cp="🇸🇷">lipp</annotation>
-		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇷" type="tts">lipp: Suriname</annotation>
 		<annotation cp="🇸🇸">lipp</annotation>
-		<annotation cp="🇸🇸" type="tts">Lõuna-Sudaan</annotation>
+		<annotation cp="🇸🇸" type="tts">lipp: Lõuna-Sudaan</annotation>
 		<annotation cp="🇸🇹">lipp</annotation>
-		<annotation cp="🇸🇹" type="tts">São Tomé ja Príncipe</annotation>
+		<annotation cp="🇸🇹" type="tts">lipp: São Tomé ja Príncipe</annotation>
 		<annotation cp="🇸🇻">lipp</annotation>
-		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">lipp: El Salvador</annotation>
 		<annotation cp="🇸🇽">lipp</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">lipp: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">lipp</annotation>
-		<annotation cp="🇸🇾" type="tts">Süüria</annotation>
+		<annotation cp="🇸🇾" type="tts">lipp: Süüria</annotation>
 		<annotation cp="🇸🇿">lipp</annotation>
-		<annotation cp="🇸🇿" type="tts">Svaasimaa</annotation>
+		<annotation cp="🇸🇿" type="tts">lipp: Svaasimaa</annotation>
 		<annotation cp="🇹🇦">lipp</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">lipp: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">lipp</annotation>
-		<annotation cp="🇹🇨" type="tts">Turks ja Caicos</annotation>
+		<annotation cp="🇹🇨" type="tts">lipp: Turks ja Caicos</annotation>
 		<annotation cp="🇹🇩">lipp</annotation>
-		<annotation cp="🇹🇩" type="tts">Tšaad</annotation>
+		<annotation cp="🇹🇩" type="tts">lipp: Tšaad</annotation>
 		<annotation cp="🇹🇫">lipp</annotation>
-		<annotation cp="🇹🇫" type="tts">Prantsuse Lõunaalad</annotation>
+		<annotation cp="🇹🇫" type="tts">lipp: Prantsuse Lõunaalad</annotation>
 		<annotation cp="🇹🇬">lipp</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">lipp: Togo</annotation>
 		<annotation cp="🇹🇭">lipp</annotation>
-		<annotation cp="🇹🇭" type="tts">Tai</annotation>
+		<annotation cp="🇹🇭" type="tts">lipp: Tai</annotation>
 		<annotation cp="🇹🇯">lipp</annotation>
-		<annotation cp="🇹🇯" type="tts">Tadžikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">lipp: Tadžikistan</annotation>
 		<annotation cp="🇹🇰">lipp</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">lipp: Tokelau</annotation>
 		<annotation cp="🇹🇱">lipp</annotation>
-		<annotation cp="🇹🇱" type="tts">Ida-Timor</annotation>
+		<annotation cp="🇹🇱" type="tts">lipp: Ida-Timor</annotation>
 		<annotation cp="🇹🇲">lipp</annotation>
-		<annotation cp="🇹🇲" type="tts">Türkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">lipp: Türkmenistan</annotation>
 		<annotation cp="🇹🇳">lipp</annotation>
-		<annotation cp="🇹🇳" type="tts">Tuneesia</annotation>
+		<annotation cp="🇹🇳" type="tts">lipp: Tuneesia</annotation>
 		<annotation cp="🇹🇴">lipp</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">lipp: Tonga</annotation>
 		<annotation cp="🇹🇷">lipp</annotation>
-		<annotation cp="🇹🇷" type="tts">Türgi</annotation>
+		<annotation cp="🇹🇷" type="tts">lipp: Türgi</annotation>
 		<annotation cp="🇹🇹">lipp</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad ja Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">lipp: Trinidad ja Tobago</annotation>
 		<annotation cp="🇹🇻">lipp</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">lipp: Tuvalu</annotation>
 		<annotation cp="🇹🇼">lipp</annotation>
-		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">lipp: Taiwan</annotation>
 		<annotation cp="🇹🇿">lipp</annotation>
-		<annotation cp="🇹🇿" type="tts">Tansaania</annotation>
+		<annotation cp="🇹🇿" type="tts">lipp: Tansaania</annotation>
 		<annotation cp="🇺🇦">lipp</annotation>
-		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇦" type="tts">lipp: Ukraina</annotation>
 		<annotation cp="🇺🇬">lipp</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">lipp: Uganda</annotation>
 		<annotation cp="🇺🇲">lipp</annotation>
-		<annotation cp="🇺🇲" type="tts">Ühendriikide hajasaared</annotation>
+		<annotation cp="🇺🇲" type="tts">lipp: Ühendriikide hajasaared</annotation>
 		<annotation cp="🇺🇳">lipp</annotation>
-		<annotation cp="🇺🇳" type="tts">Ühendatud Rahvaste Organisatsioon</annotation>
+		<annotation cp="🇺🇳" type="tts">lipp: Ühendatud Rahvaste Organisatsioon</annotation>
 		<annotation cp="🇺🇸">lipp</annotation>
-		<annotation cp="🇺🇸" type="tts">Ameerika Ühendriigid</annotation>
+		<annotation cp="🇺🇸" type="tts">lipp: Ameerika Ühendriigid</annotation>
 		<annotation cp="🇺🇾">lipp</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">lipp: Uruguay</annotation>
 		<annotation cp="🇺🇿">lipp</annotation>
-		<annotation cp="🇺🇿" type="tts">Usbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">lipp: Usbekistan</annotation>
 		<annotation cp="🇻🇦">lipp</annotation>
-		<annotation cp="🇻🇦" type="tts">Vatikan</annotation>
+		<annotation cp="🇻🇦" type="tts">lipp: Vatikan</annotation>
 		<annotation cp="🇻🇨">lipp</annotation>
-		<annotation cp="🇻🇨" type="tts">Saint Vincent ja Grenadiinid</annotation>
+		<annotation cp="🇻🇨" type="tts">lipp: Saint Vincent ja Grenadiinid</annotation>
 		<annotation cp="🇻🇪">lipp</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">lipp: Venezuela</annotation>
 		<annotation cp="🇻🇬">lipp</annotation>
-		<annotation cp="🇻🇬" type="tts">Briti Neitsisaared</annotation>
+		<annotation cp="🇻🇬" type="tts">lipp: Briti Neitsisaared</annotation>
 		<annotation cp="🇻🇮">lipp</annotation>
-		<annotation cp="🇻🇮" type="tts">USA Neitsisaared</annotation>
+		<annotation cp="🇻🇮" type="tts">lipp: USA Neitsisaared</annotation>
 		<annotation cp="🇻🇳">lipp</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">lipp: Vietnam</annotation>
 		<annotation cp="🇻🇺">lipp</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">lipp: Vanuatu</annotation>
 		<annotation cp="🇼🇫">lipp</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis ja Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">lipp: Wallis ja Futuna</annotation>
 		<annotation cp="🇼🇸">lipp</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">lipp: Samoa</annotation>
 		<annotation cp="🇽🇰">lipp</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">lipp: Kosovo</annotation>
 		<annotation cp="🇾🇪">lipp</annotation>
-		<annotation cp="🇾🇪" type="tts">Jeemen</annotation>
+		<annotation cp="🇾🇪" type="tts">lipp: Jeemen</annotation>
 		<annotation cp="🇾🇹">lipp</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">lipp: Mayotte</annotation>
 		<annotation cp="🇿🇦">lipp</annotation>
-		<annotation cp="🇿🇦" type="tts">Lõuna-Aafrika Vabariik</annotation>
+		<annotation cp="🇿🇦" type="tts">lipp: Lõuna-Aafrika Vabariik</annotation>
 		<annotation cp="🇿🇲">lipp</annotation>
-		<annotation cp="🇿🇲" type="tts">Sambia</annotation>
+		<annotation cp="🇿🇲" type="tts">lipp: Sambia</annotation>
 		<annotation cp="🇿🇼">lipp</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">lipp: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">lipp</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Inglismaa</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">lipp: Inglismaa</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">lipp</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Šotimaa</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">lipp: Šotimaa</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">lipp</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">lipp: Wales</annotation>
 		<annotation cp="0⃣">klahv</annotation>
 		<annotation cp="0⃣" type="tts">klahv: 0</annotation>
 		<annotation cp="1⃣">klahv</annotation>

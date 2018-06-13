@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="hu"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">comb | lábszár | rúgás | világos bőrtónus</annotation>
+		<annotation cp="🦵🏻" type="tts">lábszár: világos bőrtónus</annotation>
+		<annotation cp="🦵🏼">comb | lábszár | rúgás | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦵🏼" type="tts">lábszár: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦵🏽">comb | lábszár | rúgás | közepes bőrtónus</annotation>
+		<annotation cp="🦵🏽" type="tts">lábszár: közepes bőrtónus</annotation>
+		<annotation cp="🦵🏾">comb | lábszár | rúgás | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦵🏾" type="tts">lábszár: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦵🏿">comb | lábszár | rúgás | sötét bőrtónus</annotation>
+		<annotation cp="🦵🏿" type="tts">lábszár: sötét bőrtónus</annotation>
+		<annotation cp="🦶🏻">dobogás | lábfej | rúgás | világos bőrtónus</annotation>
+		<annotation cp="🦶🏻" type="tts">lábfej: világos bőrtónus</annotation>
+		<annotation cp="🦶🏼">dobogás | lábfej | rúgás | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦶🏼" type="tts">lábfej: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦶🏽">dobogás | lábfej | rúgás | közepes bőrtónus</annotation>
+		<annotation cp="🦶🏽" type="tts">lábfej: közepes bőrtónus</annotation>
+		<annotation cp="🦶🏾">dobogás | lábfej | rúgás | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦶🏾" type="tts">lábfej: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦶🏿">dobogás | lábfej | rúgás | sötét bőrtónus</annotation>
+		<annotation cp="🦶🏿" type="tts">lábfej: sötét bőrtónus</annotation>
+		<annotation cp="🦸🏻">hős | hősnő | jó | szuperhős | szuperképesség | világos bőrtónus</annotation>
+		<annotation cp="🦸🏻" type="tts">szuperhős: világos bőrtónus</annotation>
+		<annotation cp="🦸🏼">hős | hősnő | jó | szuperhős | szuperképesség | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦸🏼" type="tts">szuperhős: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦸🏽">hős | hősnő | jó | szuperhős | szuperképesség | közepes bőrtónus</annotation>
+		<annotation cp="🦸🏽" type="tts">szuperhős: közepes bőrtónus</annotation>
+		<annotation cp="🦸🏾">hős | hősnő | jó | szuperhős | szuperképesség | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦸🏾" type="tts">szuperhős: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦸🏿">hős | hősnő | jó | szuperhős | szuperképesség | sötét bőrtónus</annotation>
+		<annotation cp="🦸🏿" type="tts">szuperhős: sötét bőrtónus</annotation>
+		<annotation cp="🦸🏻‍♀">hős | hősnő | jó | nő | női szuperhős | szuperképesség | világos bőrtónus</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">női szuperhős: világos bőrtónus</annotation>
+		<annotation cp="🦸🏼‍♀">hős | hősnő | jó | nő | női szuperhős | szuperképesség | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">női szuperhős: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦸🏽‍♀">hős | hősnő | jó | nő | női szuperhős | szuperképesség | közepes bőrtónus</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">női szuperhős: közepes bőrtónus</annotation>
+		<annotation cp="🦸🏾‍♀">hős | hősnő | jó | nő | női szuperhős | szuperképesség | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">női szuperhős: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦸🏿‍♀">hős | hősnő | jó | nő | női szuperhős | szuperképesség | sötét bőrtónus</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">női szuperhős: sötét bőrtónus</annotation>
+		<annotation cp="🦸🏻‍♂">férfi | férfi szuperhős | hős | hősnő | jó | szuperképesség | világos bőrtónus</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">férfi szuperhős: világos bőrtónus</annotation>
+		<annotation cp="🦸🏼‍♂">férfi | férfi szuperhős | hős | hősnő | jó | szuperképesség | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">férfi szuperhős: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦸🏽‍♂">férfi | férfi szuperhős | hős | hősnő | jó | szuperképesség | közepes bőrtónus</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">férfi szuperhős: közepes bőrtónus</annotation>
+		<annotation cp="🦸🏾‍♂">férfi | férfi szuperhős | hős | hősnő | jó | szuperképesség | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">férfi szuperhős: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦸🏿‍♂">férfi | férfi szuperhős | hős | hősnő | jó | szuperképesség | sötét bőrtónus</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">férfi szuperhős: sötét bőrtónus</annotation>
+		<annotation cp="🦹🏻">bűnöző | főgonosz | gazember | gonosz | szuperképesség | világos bőrtónus</annotation>
+		<annotation cp="🦹🏻" type="tts">főgonosz: világos bőrtónus</annotation>
+		<annotation cp="🦹🏼">bűnöző | főgonosz | gazember | gonosz | szuperképesség | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦹🏼" type="tts">főgonosz: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦹🏽">bűnöző | főgonosz | gazember | gonosz | szuperképesség | közepes bőrtónus</annotation>
+		<annotation cp="🦹🏽" type="tts">főgonosz: közepes bőrtónus</annotation>
+		<annotation cp="🦹🏾">bűnöző | főgonosz | gazember | gonosz | szuperképesség | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦹🏾" type="tts">főgonosz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦹🏿">bűnöző | főgonosz | gazember | gonosz | szuperképesség | sötét bőrtónus</annotation>
+		<annotation cp="🦹🏿" type="tts">főgonosz: sötét bőrtónus</annotation>
+		<annotation cp="🦹🏻‍♀">bűnöző | gazember | gonosz | nő | női főgonosz | szuperképesség | világos bőrtónus</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">női főgonosz: világos bőrtónus</annotation>
+		<annotation cp="🦹🏼‍♀">bűnöző | gazember | gonosz | nő | női főgonosz | szuperképesség | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">női főgonosz: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦹🏽‍♀">bűnöző | gazember | gonosz | nő | női főgonosz | szuperképesség | közepes bőrtónus</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">női főgonosz: közepes bőrtónus</annotation>
+		<annotation cp="🦹🏾‍♀">bűnöző | gazember | gonosz | nő | női főgonosz | szuperképesség | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">női főgonosz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦹🏿‍♀">bűnöző | gazember | gonosz | nő | női főgonosz | szuperképesség | sötét bőrtónus</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">női főgonosz: sötét bőrtónus</annotation>
+		<annotation cp="🦹🏻‍♂">bűnöző | férfi | férfi főgonosz | gazember | gonosz | szuperképesség | világos bőrtónus</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">férfi főgonosz: világos bőrtónus</annotation>
+		<annotation cp="🦹🏼‍♂">bűnöző | férfi | férfi főgonosz | gazember | gonosz | szuperképesség | közepesen világos bőrtónus</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">férfi főgonosz: közepesen világos bőrtónus</annotation>
+		<annotation cp="🦹🏽‍♂">bűnöző | férfi | férfi főgonosz | gazember | gonosz | szuperképesség | közepes bőrtónus</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">férfi főgonosz: közepes bőrtónus</annotation>
+		<annotation cp="🦹🏾‍♂">bűnöző | férfi | férfi főgonosz | gazember | gonosz | szuperképesség | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">férfi főgonosz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🦹🏿‍♂">bűnöző | férfi | férfi főgonosz | gazember | gonosz | szuperképesség | sötét bőrtónus</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">férfi főgonosz: sötét bőrtónus</annotation>
 		<annotation cp="👶🏻">baba | kisbaba | világos bőrtónus</annotation>
 		<annotation cp="👶🏻" type="tts">baba: világos bőrtónus</annotation>
 		<annotation cp="👶🏼">baba | kisbaba | közepesen világos bőrtónus</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">férfi: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👨🏿">férfi | sötét bőrtónus</annotation>
 		<annotation cp="👨🏿" type="tts">férfi: sötét bőrtónus</annotation>
+		<annotation cp="👨‍🦰">férfi | vörös haj</annotation>
+		<annotation cp="👨‍🦰" type="tts">férfi: vörös haj</annotation>
+		<annotation cp="👨🏻‍🦰">férfi | világos bőrtónus | vörös haj</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">férfi: világos bőrtónus és vörös haj</annotation>
+		<annotation cp="👨🏼‍🦰">férfi | közepesen világos bőrtónus | vörös haj</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">férfi: közepesen világos bőrtónus és vörös haj</annotation>
+		<annotation cp="👨🏽‍🦰">férfi | közepes bőrtónus | vörös haj</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">férfi: közepes bőrtónus és vörös haj</annotation>
+		<annotation cp="👨🏾‍🦰">férfi | közepesen sötét bőrtónus | vörös haj</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">férfi: közepesen sötét bőrtónus és vörös haj</annotation>
+		<annotation cp="👨🏿‍🦰">férfi | sötét bőrtónus | vörös haj</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">férfi: sötét bőrtónus és vörös haj</annotation>
+		<annotation cp="👨‍🦱">férfi | göndör haj</annotation>
+		<annotation cp="👨‍🦱" type="tts">férfi: göndör haj</annotation>
+		<annotation cp="👨🏻‍🦱">férfi | világos bőrtónus | göndör haj</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">férfi: világos bőrtónus és göndör haj</annotation>
+		<annotation cp="👨🏼‍🦱">férfi | közepesen világos bőrtónus | göndör haj</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">férfi: közepesen világos bőrtónus és göndör haj</annotation>
+		<annotation cp="👨🏽‍🦱">férfi | közepes bőrtónus | göndör haj</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">férfi: közepes bőrtónus és göndör haj</annotation>
+		<annotation cp="👨🏾‍🦱">férfi | közepesen sötét bőrtónus | göndör haj</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">férfi: közepesen sötét bőrtónus és göndör haj</annotation>
+		<annotation cp="👨🏿‍🦱">férfi | sötét bőrtónus | göndör haj</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">férfi: sötét bőrtónus és göndör haj</annotation>
+		<annotation cp="👨‍🦲">férfi | kopasz</annotation>
+		<annotation cp="👨‍🦲" type="tts">férfi: kopasz</annotation>
+		<annotation cp="👨🏻‍🦲">férfi | világos bőrtónus | kopasz</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">férfi: világos bőrtónus és kopasz</annotation>
+		<annotation cp="👨🏼‍🦲">férfi | közepesen világos bőrtónus | kopasz</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">férfi: közepesen világos bőrtónus és kopasz</annotation>
+		<annotation cp="👨🏽‍🦲">férfi | közepes bőrtónus | kopasz</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">férfi: közepes bőrtónus és kopasz</annotation>
+		<annotation cp="👨🏾‍🦲">férfi | közepesen sötét bőrtónus | kopasz</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">férfi: közepesen sötét bőrtónus és kopasz</annotation>
+		<annotation cp="👨🏿‍🦲">férfi | sötét bőrtónus | kopasz</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">férfi: sötét bőrtónus és kopasz</annotation>
+		<annotation cp="👨‍🦳">férfi | ősz haj</annotation>
+		<annotation cp="👨‍🦳" type="tts">férfi: ősz haj</annotation>
+		<annotation cp="👨🏻‍🦳">férfi | világos bőrtónus | ősz haj</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">férfi: világos bőrtónus és ősz haj</annotation>
+		<annotation cp="👨🏼‍🦳">férfi | közepesen világos bőrtónus | ősz haj</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">férfi: közepesen világos bőrtónus és ősz haj</annotation>
+		<annotation cp="👨🏽‍🦳">férfi | közepes bőrtónus | ősz haj</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">férfi: közepes bőrtónus és ősz haj</annotation>
+		<annotation cp="👨🏾‍🦳">férfi | közepesen sötét bőrtónus | ősz haj</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">férfi: közepesen sötét bőrtónus és ősz haj</annotation>
+		<annotation cp="👨🏿‍🦳">férfi | sötét bőrtónus | ősz haj</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">férfi: sötét bőrtónus és ősz haj</annotation>
 		<annotation cp="👩🏻">nő | világos bőrtónus</annotation>
 		<annotation cp="👩🏻" type="tts">nő: világos bőrtónus</annotation>
 		<annotation cp="👩🏼">nő | közepesen világos bőrtónus</annotation>
@@ -83,6 +210,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">nő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿">nő | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿" type="tts">nő: sötét bőrtónus</annotation>
+		<annotation cp="👩‍🦰">nő | vörös haj</annotation>
+		<annotation cp="👩‍🦰" type="tts">nő: vörös haj</annotation>
+		<annotation cp="👩🏻‍🦰">nő | világos bőrtónus | vörös haj</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">nő: világos bőrtónus és vörös haj</annotation>
+		<annotation cp="👩🏼‍🦰">nő | közepesen világos bőrtónus | vörös haj</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">nő: közepesen világos bőrtónus és vörös haj</annotation>
+		<annotation cp="👩🏽‍🦰">nő | közepes bőrtónus | vörös haj</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">nő: közepes bőrtónus és vörös haj</annotation>
+		<annotation cp="👩🏾‍🦰">nő | közepesen sötét bőrtónus | vörös haj</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">nő: közepesen sötét bőrtónus és vörös haj</annotation>
+		<annotation cp="👩🏿‍🦰">nő | sötét bőrtónus | vörös haj</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">nő: sötét bőrtónus és vörös haj</annotation>
+		<annotation cp="👩‍🦱">nő | göndör haj</annotation>
+		<annotation cp="👩‍🦱" type="tts">nő: göndör haj</annotation>
+		<annotation cp="👩🏻‍🦱">nő | világos bőrtónus | göndör haj</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">nő: világos bőrtónus és göndör haj</annotation>
+		<annotation cp="👩🏼‍🦱">nő | közepesen világos bőrtónus | göndör haj</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">nő: közepesen világos bőrtónus és göndör haj</annotation>
+		<annotation cp="👩🏽‍🦱">nő | közepes bőrtónus | göndör haj</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">nő: közepes bőrtónus és göndör haj</annotation>
+		<annotation cp="👩🏾‍🦱">nő | közepesen sötét bőrtónus | göndör haj</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">nő: közepesen sötét bőrtónus és göndör haj</annotation>
+		<annotation cp="👩🏿‍🦱">nő | sötét bőrtónus | göndör haj</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">nő: sötét bőrtónus és göndör haj</annotation>
+		<annotation cp="👩‍🦲">nő | kopasz</annotation>
+		<annotation cp="👩‍🦲" type="tts">nő: kopasz</annotation>
+		<annotation cp="👩🏻‍🦲">nő | világos bőrtónus | kopasz</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">nő: világos bőrtónus és kopasz</annotation>
+		<annotation cp="👩🏼‍🦲">nő | közepesen világos bőrtónus | kopasz</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">nő: közepesen világos bőrtónus és kopasz</annotation>
+		<annotation cp="👩🏽‍🦲">nő | közepes bőrtónus | kopasz</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">nő: közepes bőrtónus és kopasz</annotation>
+		<annotation cp="👩🏾‍🦲">nő | közepesen sötét bőrtónus | kopasz</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">nő: közepesen sötét bőrtónus és kopasz</annotation>
+		<annotation cp="👩🏿‍🦲">nő | sötét bőrtónus | kopasz</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">nő: sötét bőrtónus és kopasz</annotation>
+		<annotation cp="👩‍🦳">nő | ősz haj</annotation>
+		<annotation cp="👩‍🦳" type="tts">nő: ősz haj</annotation>
+		<annotation cp="👩🏻‍🦳">nő | világos bőrtónus | ősz haj</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">nő: világos bőrtónus és ősz haj</annotation>
+		<annotation cp="👩🏼‍🦳">nő | közepesen világos bőrtónus | ősz haj</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">nő: közepesen világos bőrtónus és ősz haj</annotation>
+		<annotation cp="👩🏽‍🦳">nő | közepes bőrtónus | ősz haj</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">nő: közepes bőrtónus és ősz haj</annotation>
+		<annotation cp="👩🏾‍🦳">nő | közepesen sötét bőrtónus | ősz haj</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">nő: közepesen sötét bőrtónus és ősz haj</annotation>
+		<annotation cp="👩🏿‍🦳">nő | sötét bőrtónus | ősz haj</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">nő: sötét bőrtónus és ősz haj</annotation>
 		<annotation cp="🧓🏻">idős | idősebb felnőtt | nemi szempontból semleges | világos bőrtónus</annotation>
 		<annotation cp="🧓🏻" type="tts">idősebb felnőtt: világos bőrtónus</annotation>
 		<annotation cp="🧓🏼">idős | idősebb felnőtt | nemi szempontból semleges | közepesen világos bőrtónus</annotation>
@@ -1806,55 +1981,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩‍❤‍👩">pár | pár szívvel | romantika | szerelem | szív | nő</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">pár szívvel: nő és nő</annotation>
 		<annotation cp="👨‍👩‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | nő | fiú</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">család: férfi és nő és fiú</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">család: férfi, nő és fiú</annotation>
 		<annotation cp="👨‍👩‍👧">anya | anyuka | apa | apuka | család | gyermek | férfi | nő | lány</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">család: férfi és nő és lány</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">család: férfi, nő és lány</annotation>
 		<annotation cp="👨‍👩‍👧‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | nő | lány | fiú</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">család: férfi és nő és lány és fiú</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">család: férfi, nő, lány és fiú</annotation>
 		<annotation cp="👨‍👩‍👦‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | nő | fiú</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">család: férfi és nő és fiú és fiú</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">család: férfi, nő, fiú és fiú</annotation>
 		<annotation cp="👨‍👩‍👧‍👧">anya | anyuka | apa | apuka | család | gyermek | férfi | nő | lány</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">család: férfi és nő és lány és lány</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">család: férfi, nő, lány és lány</annotation>
 		<annotation cp="👨‍👨‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | fiú</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">család: férfi és férfi és fiú</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">család: férfi, férfi és fiú</annotation>
 		<annotation cp="👨‍👨‍👧">anya | anyuka | apa | apuka | család | gyermek | férfi | lány</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">család: férfi és férfi és lány</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">család: férfi, férfi és lány</annotation>
 		<annotation cp="👨‍👨‍👧‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | lány | fiú</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">család: férfi és férfi és lány és fiú</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">család: férfi, férfi, lány és fiú</annotation>
 		<annotation cp="👨‍👨‍👦‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | fiú</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">család: férfi és férfi és fiú és fiú</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">család: férfi, férfi, fiú és fiú</annotation>
 		<annotation cp="👨‍👨‍👧‍👧">anya | anyuka | apa | apuka | család | gyermek | férfi | lány</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">család: férfi és férfi és lány és lány</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">család: férfi, férfi, lány és lány</annotation>
 		<annotation cp="👩‍👩‍👦">anya | anyuka | apa | apuka | család | gyermek | nő | fiú</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">család: nő és nő és fiú</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">család: nő, nő és fiú</annotation>
 		<annotation cp="👩‍👩‍👧">anya | anyuka | apa | apuka | család | gyermek | nő | lány</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">család: nő és nő és lány</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">család: nő, nő és lány</annotation>
 		<annotation cp="👩‍👩‍👧‍👦">anya | anyuka | apa | apuka | család | gyermek | nő | lány | fiú</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">család: nő és nő és lány és fiú</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">család: nő, nő, lány és fiú</annotation>
 		<annotation cp="👩‍👩‍👦‍👦">anya | anyuka | apa | apuka | család | gyermek | nő | fiú</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">család: nő és nő és fiú és fiú</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">család: nő, nő, fiú és fiú</annotation>
 		<annotation cp="👩‍👩‍👧‍👧">anya | anyuka | apa | apuka | család | gyermek | nő | lány</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">család: nő és nő és lány és lány</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">család: nő, nő, lány és lány</annotation>
 		<annotation cp="👨‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | fiú</annotation>
 		<annotation cp="👨‍👦" type="tts">család: férfi és fiú</annotation>
 		<annotation cp="👨‍👦‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | fiú</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">család: férfi és fiú és fiú</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">család: férfi, fiú és fiú</annotation>
 		<annotation cp="👨‍👧">anya | anyuka | apa | apuka | család | gyermek | férfi | lány</annotation>
 		<annotation cp="👨‍👧" type="tts">család: férfi és lány</annotation>
 		<annotation cp="👨‍👧‍👦">anya | anyuka | apa | apuka | család | gyermek | férfi | lány | fiú</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">család: férfi és lány és fiú</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">család: férfi, lány és fiú</annotation>
 		<annotation cp="👨‍👧‍👧">anya | anyuka | apa | apuka | család | gyermek | férfi | lány</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">család: férfi és lány és lány</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">család: férfi, lány és lány</annotation>
 		<annotation cp="👩‍👦">anya | anyuka | apa | apuka | család | gyermek | nő | fiú</annotation>
 		<annotation cp="👩‍👦" type="tts">család: nő és fiú</annotation>
 		<annotation cp="👩‍👦‍👦">anya | anyuka | apa | apuka | család | gyermek | nő | fiú</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">család: nő és fiú és fiú</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">család: nő, fiú és fiú</annotation>
 		<annotation cp="👩‍👧">anya | anyuka | apa | apuka | család | gyermek | nő | lány</annotation>
 		<annotation cp="👩‍👧" type="tts">család: nő és lány</annotation>
 		<annotation cp="👩‍👧‍👦">anya | anyuka | apa | apuka | család | gyermek | nő | lány | fiú</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">család: nő és lány és fiú</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">család: nő, lány és fiú</annotation>
 		<annotation cp="👩‍👧‍👧">anya | anyuka | apa | apuka | család | gyermek | nő | lány</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">család: nő és lány és lány</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">család: nő, lány és lány</annotation>
 		<annotation cp="🤳🏻">fényképező | szelfi | telefon | világos bőrtónus</annotation>
 		<annotation cp="🤳🏻" type="tts">szelfi: világos bőrtónus</annotation>
 		<annotation cp="🤳🏼">fényképező | szelfi | telefon | közepesen világos bőrtónus</annotation>
@@ -1965,15 +2140,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🖖🏾" type="tts">star trek-üdvözlet: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🖖🏿">kéz | spock | star trek | star trek-üdvözlet | test | ujj | vulcan | sötét bőrtónus</annotation>
 		<annotation cp="🖖🏿" type="tts">star trek-üdvözlet: sötét bőrtónus</annotation>
-		<annotation cp="🤘🏻">kéz | metál | metálvilla | rock | szarvak | test | ujj | ördögvilla | világos bőrtónus</annotation>
+		<annotation cp="🤘🏻">kéz | metál | metálvilla | szarvak | ördögvilla | világos bőrtónus</annotation>
 		<annotation cp="🤘🏻" type="tts">metálvilla: világos bőrtónus</annotation>
-		<annotation cp="🤘🏼">kéz | metál | metálvilla | rock | szarvak | test | ujj | ördögvilla | közepesen világos bőrtónus</annotation>
+		<annotation cp="🤘🏼">kéz | metál | metálvilla | szarvak | ördögvilla | közepesen világos bőrtónus</annotation>
 		<annotation cp="🤘🏼" type="tts">metálvilla: közepesen világos bőrtónus</annotation>
-		<annotation cp="🤘🏽">kéz | metál | metálvilla | rock | szarvak | test | ujj | ördögvilla | közepes bőrtónus</annotation>
+		<annotation cp="🤘🏽">kéz | metál | metálvilla | szarvak | ördögvilla | közepes bőrtónus</annotation>
 		<annotation cp="🤘🏽" type="tts">metálvilla: közepes bőrtónus</annotation>
-		<annotation cp="🤘🏾">kéz | metál | metálvilla | rock | szarvak | test | ujj | ördögvilla | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🤘🏾">kéz | metál | metálvilla | szarvak | ördögvilla | közepesen sötét bőrtónus</annotation>
 		<annotation cp="🤘🏾" type="tts">metálvilla: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🤘🏿">kéz | metál | metálvilla | rock | szarvak | test | ujj | ördögvilla | sötét bőrtónus</annotation>
+		<annotation cp="🤘🏿">kéz | metál | metálvilla | szarvak | ördögvilla | sötét bőrtónus</annotation>
 		<annotation cp="🤘🏿" type="tts">metálvilla: sötét bőrtónus</annotation>
 		<annotation cp="🤙🏻">hívás | kéz | „hívj fel” kézjel | világos bőrtónus</annotation>
 		<annotation cp="🤙🏻" type="tts">„hívj fel” kézjel: világos bőrtónus</annotation>
@@ -2165,15 +2340,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙏🏾" type="tts">összetett kéz: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🙏🏿">ima | kérés | köszönet | test | összetett kéz | sötét bőrtónus</annotation>
 		<annotation cp="🙏🏿" type="tts">összetett kéz: sötét bőrtónus</annotation>
-		<annotation cp="💅🏻">kifestés | kéz | köröm | körömlakk | körömápolás | lakk | manikűr | test | világos bőrtónus</annotation>
+		<annotation cp="💅🏻">kifestés | köröm | körömlakk | lakk | manikűr | világos bőrtónus</annotation>
 		<annotation cp="💅🏻" type="tts">körömlakk: világos bőrtónus</annotation>
-		<annotation cp="💅🏼">kifestés | kéz | köröm | körömlakk | körömápolás | lakk | manikűr | test | közepesen világos bőrtónus</annotation>
+		<annotation cp="💅🏼">kifestés | köröm | körömlakk | lakk | manikűr | közepesen világos bőrtónus</annotation>
 		<annotation cp="💅🏼" type="tts">körömlakk: közepesen világos bőrtónus</annotation>
-		<annotation cp="💅🏽">kifestés | kéz | köröm | körömlakk | körömápolás | lakk | manikűr | test | közepes bőrtónus</annotation>
+		<annotation cp="💅🏽">kifestés | köröm | körömlakk | lakk | manikűr | közepes bőrtónus</annotation>
 		<annotation cp="💅🏽" type="tts">körömlakk: közepes bőrtónus</annotation>
-		<annotation cp="💅🏾">kifestés | kéz | köröm | körömlakk | körömápolás | lakk | manikűr | test | közepesen sötét bőrtónus</annotation>
+		<annotation cp="💅🏾">kifestés | köröm | körömlakk | lakk | manikűr | közepesen sötét bőrtónus</annotation>
 		<annotation cp="💅🏾" type="tts">körömlakk: közepesen sötét bőrtónus</annotation>
-		<annotation cp="💅🏿">kifestés | kéz | köröm | körömlakk | körömápolás | lakk | manikűr | test | sötét bőrtónus</annotation>
+		<annotation cp="💅🏿">kifestés | köröm | körömlakk | lakk | manikűr | sötét bőrtónus</annotation>
 		<annotation cp="💅🏿" type="tts">körömlakk: sötét bőrtónus</annotation>
 		<annotation cp="👂🏻">fej | fül | test | testrész | világos bőrtónus</annotation>
 		<annotation cp="👂🏻" type="tts">fül: világos bőrtónus</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">gombfej</annotation>
 		<annotation cp="🔟" type="tts">gombfej: 10</annotation>
 		<annotation cp="🇦🇨">zászló</annotation>
-		<annotation cp="🇦🇨" type="tts">Ascension-sziget</annotation>
+		<annotation cp="🇦🇨" type="tts">zászló: Ascension-sziget</annotation>
 		<annotation cp="🇦🇩">zászló</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">zászló: Andorra</annotation>
 		<annotation cp="🇦🇪">zászló</annotation>
-		<annotation cp="🇦🇪" type="tts">Egyesült Arab Emírségek</annotation>
+		<annotation cp="🇦🇪" type="tts">zászló: Egyesült Arab Emírségek</annotation>
 		<annotation cp="🇦🇫">zászló</annotation>
-		<annotation cp="🇦🇫" type="tts">Afganisztán</annotation>
+		<annotation cp="🇦🇫" type="tts">zászló: Afganisztán</annotation>
 		<annotation cp="🇦🇬">zászló</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua és Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">zászló: Antigua és Barbuda</annotation>
 		<annotation cp="🇦🇮">zászló</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">zászló: Anguilla</annotation>
 		<annotation cp="🇦🇱">zászló</annotation>
-		<annotation cp="🇦🇱" type="tts">Albánia</annotation>
+		<annotation cp="🇦🇱" type="tts">zászló: Albánia</annotation>
 		<annotation cp="🇦🇲">zászló</annotation>
-		<annotation cp="🇦🇲" type="tts">Örményország</annotation>
+		<annotation cp="🇦🇲" type="tts">zászló: Örményország</annotation>
 		<annotation cp="🇦🇴">zászló</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">zászló: Angola</annotation>
 		<annotation cp="🇦🇶">zászló</annotation>
-		<annotation cp="🇦🇶" type="tts">Antarktisz</annotation>
+		<annotation cp="🇦🇶" type="tts">zászló: Antarktisz</annotation>
 		<annotation cp="🇦🇷">zászló</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentína</annotation>
+		<annotation cp="🇦🇷" type="tts">zászló: Argentína</annotation>
 		<annotation cp="🇦🇸">zászló</annotation>
-		<annotation cp="🇦🇸" type="tts">Amerikai Szamoa</annotation>
+		<annotation cp="🇦🇸" type="tts">zászló: Amerikai Szamoa</annotation>
 		<annotation cp="🇦🇹">zászló</annotation>
-		<annotation cp="🇦🇹" type="tts">Ausztria</annotation>
+		<annotation cp="🇦🇹" type="tts">zászló: Ausztria</annotation>
 		<annotation cp="🇦🇺">zászló</annotation>
-		<annotation cp="🇦🇺" type="tts">Ausztrália</annotation>
+		<annotation cp="🇦🇺" type="tts">zászló: Ausztrália</annotation>
 		<annotation cp="🇦🇼">zászló</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">zászló: Aruba</annotation>
 		<annotation cp="🇦🇽">zászló</annotation>
-		<annotation cp="🇦🇽" type="tts">Åland-szigetek</annotation>
+		<annotation cp="🇦🇽" type="tts">zászló: Åland-szigetek</annotation>
 		<annotation cp="🇦🇿">zászló</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbajdzsán</annotation>
+		<annotation cp="🇦🇿" type="tts">zászló: Azerbajdzsán</annotation>
 		<annotation cp="🇧🇦">zászló</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosznia-Hercegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">zászló: Bosznia-Hercegovina</annotation>
 		<annotation cp="🇧🇧">zászló</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">zászló: Barbados</annotation>
 		<annotation cp="🇧🇩">zászló</annotation>
-		<annotation cp="🇧🇩" type="tts">Banglades</annotation>
+		<annotation cp="🇧🇩" type="tts">zászló: Banglades</annotation>
 		<annotation cp="🇧🇪">zászló</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgium</annotation>
+		<annotation cp="🇧🇪" type="tts">zászló: Belgium</annotation>
 		<annotation cp="🇧🇫">zászló</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">zászló: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">zászló</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgária</annotation>
+		<annotation cp="🇧🇬" type="tts">zászló: Bulgária</annotation>
 		<annotation cp="🇧🇭">zászló</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrein</annotation>
+		<annotation cp="🇧🇭" type="tts">zászló: Bahrein</annotation>
 		<annotation cp="🇧🇮">zászló</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">zászló: Burundi</annotation>
 		<annotation cp="🇧🇯">zászló</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">zászló: Benin</annotation>
 		<annotation cp="🇧🇱">zászló</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">zászló: Saint-Barthélemy</annotation>
 		<annotation cp="🇧🇲">zászló</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">zászló: Bermuda</annotation>
 		<annotation cp="🇧🇳">zászló</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">zászló: Brunei</annotation>
 		<annotation cp="🇧🇴">zászló</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolívia</annotation>
+		<annotation cp="🇧🇴" type="tts">zászló: Bolívia</annotation>
 		<annotation cp="🇧🇶">zászló</annotation>
-		<annotation cp="🇧🇶" type="tts">Holland Karib-térség</annotation>
+		<annotation cp="🇧🇶" type="tts">zászló: Holland Karib-térség</annotation>
 		<annotation cp="🇧🇷">zászló</annotation>
-		<annotation cp="🇧🇷" type="tts">Brazília</annotation>
+		<annotation cp="🇧🇷" type="tts">zászló: Brazília</annotation>
 		<annotation cp="🇧🇸">zászló</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahama-szigetek</annotation>
+		<annotation cp="🇧🇸" type="tts">zászló: Bahama-szigetek</annotation>
 		<annotation cp="🇧🇹">zászló</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhután</annotation>
+		<annotation cp="🇧🇹" type="tts">zászló: Bhután</annotation>
 		<annotation cp="🇧🇻">zászló</annotation>
-		<annotation cp="🇧🇻" type="tts">Bouvet-sziget</annotation>
+		<annotation cp="🇧🇻" type="tts">zászló: Bouvet-sziget</annotation>
 		<annotation cp="🇧🇼">zászló</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">zászló: Botswana</annotation>
 		<annotation cp="🇧🇾">zászló</annotation>
-		<annotation cp="🇧🇾" type="tts">Belarusz</annotation>
+		<annotation cp="🇧🇾" type="tts">zászló: Belarusz</annotation>
 		<annotation cp="🇧🇿">zászló</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">zászló: Belize</annotation>
 		<annotation cp="🇨🇦">zászló</annotation>
-		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇦" type="tts">zászló: Kanada</annotation>
 		<annotation cp="🇨🇨">zászló</annotation>
-		<annotation cp="🇨🇨" type="tts">Kókusz (Keeling)-szigetek</annotation>
+		<annotation cp="🇨🇨" type="tts">zászló: Kókusz (Keeling)-szigetek</annotation>
 		<annotation cp="🇨🇩">zászló</annotation>
-		<annotation cp="🇨🇩" type="tts">Kongó - Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">zászló: Kongó - Kinshasa</annotation>
 		<annotation cp="🇨🇫">zászló</annotation>
-		<annotation cp="🇨🇫" type="tts">Közép-afrikai Köztársaság</annotation>
+		<annotation cp="🇨🇫" type="tts">zászló: Közép-afrikai Köztársaság</annotation>
 		<annotation cp="🇨🇬">zászló</annotation>
-		<annotation cp="🇨🇬" type="tts">Kongó - Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">zászló: Kongó - Brazzaville</annotation>
 		<annotation cp="🇨🇭">zászló</annotation>
-		<annotation cp="🇨🇭" type="tts">Svájc</annotation>
+		<annotation cp="🇨🇭" type="tts">zászló: Svájc</annotation>
 		<annotation cp="🇨🇮">zászló</annotation>
-		<annotation cp="🇨🇮" type="tts">Elefántcsontpart</annotation>
+		<annotation cp="🇨🇮" type="tts">zászló: Elefántcsontpart</annotation>
 		<annotation cp="🇨🇰">zászló</annotation>
-		<annotation cp="🇨🇰" type="tts">Cook-szigetek</annotation>
+		<annotation cp="🇨🇰" type="tts">zászló: Cook-szigetek</annotation>
 		<annotation cp="🇨🇱">zászló</annotation>
-		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇱" type="tts">zászló: Chile</annotation>
 		<annotation cp="🇨🇲">zászló</annotation>
-		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇲" type="tts">zászló: Kamerun</annotation>
 		<annotation cp="🇨🇳">zászló</annotation>
-		<annotation cp="🇨🇳" type="tts">Kína</annotation>
+		<annotation cp="🇨🇳" type="tts">zászló: Kína</annotation>
 		<annotation cp="🇨🇴">zászló</annotation>
-		<annotation cp="🇨🇴" type="tts">Kolumbia</annotation>
+		<annotation cp="🇨🇴" type="tts">zászló: Kolumbia</annotation>
 		<annotation cp="🇨🇵">zászló</annotation>
-		<annotation cp="🇨🇵" type="tts">Clipperton-sziget</annotation>
+		<annotation cp="🇨🇵" type="tts">zászló: Clipperton-sziget</annotation>
 		<annotation cp="🇨🇷">zászló</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">zászló: Costa Rica</annotation>
 		<annotation cp="🇨🇺">zászló</annotation>
-		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇺" type="tts">zászló: Kuba</annotation>
 		<annotation cp="🇨🇻">zászló</annotation>
-		<annotation cp="🇨🇻" type="tts">Zöld-foki Köztársaság</annotation>
+		<annotation cp="🇨🇻" type="tts">zászló: Zöld-foki Köztársaság</annotation>
 		<annotation cp="🇨🇼">zászló</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">zászló: Curaçao</annotation>
 		<annotation cp="🇨🇽">zászló</annotation>
-		<annotation cp="🇨🇽" type="tts">Karácsony-sziget</annotation>
+		<annotation cp="🇨🇽" type="tts">zászló: Karácsony-sziget</annotation>
 		<annotation cp="🇨🇾">zászló</annotation>
-		<annotation cp="🇨🇾" type="tts">Ciprus</annotation>
+		<annotation cp="🇨🇾" type="tts">zászló: Ciprus</annotation>
 		<annotation cp="🇨🇿">zászló</annotation>
-		<annotation cp="🇨🇿" type="tts">Csehország</annotation>
+		<annotation cp="🇨🇿" type="tts">zászló: Csehország</annotation>
 		<annotation cp="🇩🇪">zászló</annotation>
-		<annotation cp="🇩🇪" type="tts">Németország</annotation>
+		<annotation cp="🇩🇪" type="tts">zászló: Németország</annotation>
 		<annotation cp="🇩🇬">zászló</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">zászló: Diego Garcia</annotation>
 		<annotation cp="🇩🇯">zászló</annotation>
-		<annotation cp="🇩🇯" type="tts">Dzsibuti</annotation>
+		<annotation cp="🇩🇯" type="tts">zászló: Dzsibuti</annotation>
 		<annotation cp="🇩🇰">zászló</annotation>
-		<annotation cp="🇩🇰" type="tts">Dánia</annotation>
+		<annotation cp="🇩🇰" type="tts">zászló: Dánia</annotation>
 		<annotation cp="🇩🇲">zászló</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominika</annotation>
+		<annotation cp="🇩🇲" type="tts">zászló: Dominika</annotation>
 		<annotation cp="🇩🇴">zászló</annotation>
-		<annotation cp="🇩🇴" type="tts">Dominikai Köztársaság</annotation>
+		<annotation cp="🇩🇴" type="tts">zászló: Dominikai Köztársaság</annotation>
 		<annotation cp="🇩🇿">zászló</annotation>
-		<annotation cp="🇩🇿" type="tts">Algéria</annotation>
+		<annotation cp="🇩🇿" type="tts">zászló: Algéria</annotation>
 		<annotation cp="🇪🇦">zászló</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta és Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">zászló: Ceuta és Melilla</annotation>
 		<annotation cp="🇪🇨">zászló</annotation>
-		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">zászló: Ecuador</annotation>
 		<annotation cp="🇪🇪">zászló</annotation>
-		<annotation cp="🇪🇪" type="tts">Észtország</annotation>
+		<annotation cp="🇪🇪" type="tts">zászló: Észtország</annotation>
 		<annotation cp="🇪🇬">zászló</annotation>
-		<annotation cp="🇪🇬" type="tts">Egyiptom</annotation>
+		<annotation cp="🇪🇬" type="tts">zászló: Egyiptom</annotation>
 		<annotation cp="🇪🇭">zászló</annotation>
-		<annotation cp="🇪🇭" type="tts">Nyugat-Szahara</annotation>
+		<annotation cp="🇪🇭" type="tts">zászló: Nyugat-Szahara</annotation>
 		<annotation cp="🇪🇷">zászló</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">zászló: Eritrea</annotation>
 		<annotation cp="🇪🇸">zászló</annotation>
-		<annotation cp="🇪🇸" type="tts">Spanyolország</annotation>
+		<annotation cp="🇪🇸" type="tts">zászló: Spanyolország</annotation>
 		<annotation cp="🇪🇹">zászló</annotation>
-		<annotation cp="🇪🇹" type="tts">Etiópia</annotation>
+		<annotation cp="🇪🇹" type="tts">zászló: Etiópia</annotation>
 		<annotation cp="🇪🇺">zászló</annotation>
-		<annotation cp="🇪🇺" type="tts">Európai Unió</annotation>
+		<annotation cp="🇪🇺" type="tts">zászló: Európai Unió</annotation>
 		<annotation cp="🇫🇮">zászló</annotation>
-		<annotation cp="🇫🇮" type="tts">Finnország</annotation>
+		<annotation cp="🇫🇮" type="tts">zászló: Finnország</annotation>
 		<annotation cp="🇫🇯">zászló</annotation>
-		<annotation cp="🇫🇯" type="tts">Fidzsi</annotation>
+		<annotation cp="🇫🇯" type="tts">zászló: Fidzsi</annotation>
 		<annotation cp="🇫🇰">zászló</annotation>
-		<annotation cp="🇫🇰" type="tts">Falkland-szigetek</annotation>
+		<annotation cp="🇫🇰" type="tts">zászló: Falkland-szigetek</annotation>
 		<annotation cp="🇫🇲">zászló</annotation>
-		<annotation cp="🇫🇲" type="tts">Mikronézia</annotation>
+		<annotation cp="🇫🇲" type="tts">zászló: Mikronézia</annotation>
 		<annotation cp="🇫🇴">zászló</annotation>
-		<annotation cp="🇫🇴" type="tts">Feröer-szigetek</annotation>
+		<annotation cp="🇫🇴" type="tts">zászló: Feröer-szigetek</annotation>
 		<annotation cp="🇫🇷">zászló</annotation>
-		<annotation cp="🇫🇷" type="tts">Franciaország</annotation>
+		<annotation cp="🇫🇷" type="tts">zászló: Franciaország</annotation>
 		<annotation cp="🇬🇦">zászló</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">zászló: Gabon</annotation>
 		<annotation cp="🇬🇧">zászló</annotation>
-		<annotation cp="🇬🇧" type="tts">Egyesült Királyság</annotation>
+		<annotation cp="🇬🇧" type="tts">zászló: Egyesült Királyság</annotation>
 		<annotation cp="🇬🇩">zászló</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">zászló: Grenada</annotation>
 		<annotation cp="🇬🇪">zászló</annotation>
-		<annotation cp="🇬🇪" type="tts">Grúzia</annotation>
+		<annotation cp="🇬🇪" type="tts">zászló: Grúzia</annotation>
 		<annotation cp="🇬🇫">zászló</annotation>
-		<annotation cp="🇬🇫" type="tts">Francia Guyana</annotation>
+		<annotation cp="🇬🇫" type="tts">zászló: Francia Guyana</annotation>
 		<annotation cp="🇬🇬">zászló</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">zászló: Guernsey</annotation>
 		<annotation cp="🇬🇭">zászló</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghána</annotation>
+		<annotation cp="🇬🇭" type="tts">zászló: Ghána</annotation>
 		<annotation cp="🇬🇮">zászló</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltár</annotation>
+		<annotation cp="🇬🇮" type="tts">zászló: Gibraltár</annotation>
 		<annotation cp="🇬🇱">zászló</annotation>
-		<annotation cp="🇬🇱" type="tts">Grönland</annotation>
+		<annotation cp="🇬🇱" type="tts">zászló: Grönland</annotation>
 		<annotation cp="🇬🇲">zászló</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">zászló: Gambia</annotation>
 		<annotation cp="🇬🇳">zászló</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇳" type="tts">zászló: Guinea</annotation>
 		<annotation cp="🇬🇵">zászló</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">zászló: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">zászló</annotation>
-		<annotation cp="🇬🇶" type="tts">Egyenlítői-Guinea</annotation>
+		<annotation cp="🇬🇶" type="tts">zászló: Egyenlítői-Guinea</annotation>
 		<annotation cp="🇬🇷">zászló</annotation>
-		<annotation cp="🇬🇷" type="tts">Görögország</annotation>
+		<annotation cp="🇬🇷" type="tts">zászló: Görögország</annotation>
 		<annotation cp="🇬🇸">zászló</annotation>
-		<annotation cp="🇬🇸" type="tts">Déli-Georgia és Déli-Sandwich-szigetek</annotation>
+		<annotation cp="🇬🇸" type="tts">zászló: Déli-Georgia és Déli-Sandwich-szigetek</annotation>
 		<annotation cp="🇬🇹">zászló</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">zászló: Guatemala</annotation>
 		<annotation cp="🇬🇺">zászló</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">zászló: Guam</annotation>
 		<annotation cp="🇬🇼">zászló</annotation>
-		<annotation cp="🇬🇼" type="tts">Bissau-Guinea</annotation>
+		<annotation cp="🇬🇼" type="tts">zászló: Bissau-Guinea</annotation>
 		<annotation cp="🇬🇾">zászló</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">zászló: Guyana</annotation>
 		<annotation cp="🇭🇰">zászló</annotation>
-		<annotation cp="🇭🇰" type="tts">Hongkong KKT</annotation>
+		<annotation cp="🇭🇰" type="tts">zászló: Hongkong KKT</annotation>
 		<annotation cp="🇭🇲">zászló</annotation>
-		<annotation cp="🇭🇲" type="tts">Heard-sziget és McDonald-szigetek</annotation>
+		<annotation cp="🇭🇲" type="tts">zászló: Heard-sziget és McDonald-szigetek</annotation>
 		<annotation cp="🇭🇳">zászló</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">zászló: Honduras</annotation>
 		<annotation cp="🇭🇷">zászló</annotation>
-		<annotation cp="🇭🇷" type="tts">Horvátország</annotation>
+		<annotation cp="🇭🇷" type="tts">zászló: Horvátország</annotation>
 		<annotation cp="🇭🇹">zászló</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">zászló: Haiti</annotation>
 		<annotation cp="🇭🇺">zászló</annotation>
-		<annotation cp="🇭🇺" type="tts">Magyarország</annotation>
+		<annotation cp="🇭🇺" type="tts">zászló: Magyarország</annotation>
 		<annotation cp="🇮🇨">zászló</annotation>
-		<annotation cp="🇮🇨" type="tts">Kanári-szigetek</annotation>
+		<annotation cp="🇮🇨" type="tts">zászló: Kanári-szigetek</annotation>
 		<annotation cp="🇮🇩">zászló</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonézia</annotation>
+		<annotation cp="🇮🇩" type="tts">zászló: Indonézia</annotation>
 		<annotation cp="🇮🇪">zászló</annotation>
-		<annotation cp="🇮🇪" type="tts">Írország</annotation>
+		<annotation cp="🇮🇪" type="tts">zászló: Írország</annotation>
 		<annotation cp="🇮🇱">zászló</annotation>
-		<annotation cp="🇮🇱" type="tts">Izrael</annotation>
+		<annotation cp="🇮🇱" type="tts">zászló: Izrael</annotation>
 		<annotation cp="🇮🇲">zászló</annotation>
-		<annotation cp="🇮🇲" type="tts">Man-sziget</annotation>
+		<annotation cp="🇮🇲" type="tts">zászló: Man-sziget</annotation>
 		<annotation cp="🇮🇳">zászló</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">zászló: India</annotation>
 		<annotation cp="🇮🇴">zászló</annotation>
-		<annotation cp="🇮🇴" type="tts">Brit Indiai-óceáni Terület</annotation>
+		<annotation cp="🇮🇴" type="tts">zászló: Brit Indiai-óceáni Terület</annotation>
 		<annotation cp="🇮🇶">zászló</annotation>
-		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇶" type="tts">zászló: Irak</annotation>
 		<annotation cp="🇮🇷">zászló</annotation>
-		<annotation cp="🇮🇷" type="tts">Irán</annotation>
+		<annotation cp="🇮🇷" type="tts">zászló: Irán</annotation>
 		<annotation cp="🇮🇸">zászló</annotation>
-		<annotation cp="🇮🇸" type="tts">Izland</annotation>
+		<annotation cp="🇮🇸" type="tts">zászló: Izland</annotation>
 		<annotation cp="🇮🇹">zászló</annotation>
-		<annotation cp="🇮🇹" type="tts">Olaszország</annotation>
+		<annotation cp="🇮🇹" type="tts">zászló: Olaszország</annotation>
 		<annotation cp="🇯🇪">zászló</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">zászló: Jersey</annotation>
 		<annotation cp="🇯🇲">zászló</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">zászló: Jamaica</annotation>
 		<annotation cp="🇯🇴">zászló</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordánia</annotation>
+		<annotation cp="🇯🇴" type="tts">zászló: Jordánia</annotation>
 		<annotation cp="🇯🇵">zászló</annotation>
-		<annotation cp="🇯🇵" type="tts">Japán</annotation>
+		<annotation cp="🇯🇵" type="tts">zászló: Japán</annotation>
 		<annotation cp="🇰🇪">zászló</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇪" type="tts">zászló: Kenya</annotation>
 		<annotation cp="🇰🇬">zászló</annotation>
-		<annotation cp="🇰🇬" type="tts">Kirgizisztán</annotation>
+		<annotation cp="🇰🇬" type="tts">zászló: Kirgizisztán</annotation>
 		<annotation cp="🇰🇭">zászló</annotation>
-		<annotation cp="🇰🇭" type="tts">Kambodzsa</annotation>
+		<annotation cp="🇰🇭" type="tts">zászló: Kambodzsa</annotation>
 		<annotation cp="🇰🇮">zászló</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">zászló: Kiribati</annotation>
 		<annotation cp="🇰🇲">zászló</annotation>
-		<annotation cp="🇰🇲" type="tts">Comore-szigetek</annotation>
+		<annotation cp="🇰🇲" type="tts">zászló: Comore-szigetek</annotation>
 		<annotation cp="🇰🇳">zászló</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint Kitts és Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">zászló: Saint Kitts és Nevis</annotation>
 		<annotation cp="🇰🇵">zászló</annotation>
-		<annotation cp="🇰🇵" type="tts">Észak-Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">zászló: Észak-Korea</annotation>
 		<annotation cp="🇰🇷">zászló</annotation>
-		<annotation cp="🇰🇷" type="tts">Dél-Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">zászló: Dél-Korea</annotation>
 		<annotation cp="🇰🇼">zászló</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuvait</annotation>
+		<annotation cp="🇰🇼" type="tts">zászló: Kuvait</annotation>
 		<annotation cp="🇰🇾">zászló</annotation>
-		<annotation cp="🇰🇾" type="tts">Kajmán-szigetek</annotation>
+		<annotation cp="🇰🇾" type="tts">zászló: Kajmán-szigetek</annotation>
 		<annotation cp="🇰🇿">zászló</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazahsztán</annotation>
+		<annotation cp="🇰🇿" type="tts">zászló: Kazahsztán</annotation>
 		<annotation cp="🇱🇦">zászló</annotation>
-		<annotation cp="🇱🇦" type="tts">Laosz</annotation>
+		<annotation cp="🇱🇦" type="tts">zászló: Laosz</annotation>
 		<annotation cp="🇱🇧">zászló</annotation>
-		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇧" type="tts">zászló: Libanon</annotation>
 		<annotation cp="🇱🇨">zászló</annotation>
-		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">zászló: Saint Lucia</annotation>
 		<annotation cp="🇱🇮">zászló</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">zászló: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">zászló</annotation>
-		<annotation cp="🇱🇰" type="tts">Srí Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">zászló: Srí Lanka</annotation>
 		<annotation cp="🇱🇷">zászló</annotation>
-		<annotation cp="🇱🇷" type="tts">Libéria</annotation>
+		<annotation cp="🇱🇷" type="tts">zászló: Libéria</annotation>
 		<annotation cp="🇱🇸">zászló</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">zászló: Lesotho</annotation>
 		<annotation cp="🇱🇹">zászló</annotation>
-		<annotation cp="🇱🇹" type="tts">Litvánia</annotation>
+		<annotation cp="🇱🇹" type="tts">zászló: Litvánia</annotation>
 		<annotation cp="🇱🇺">zászló</annotation>
-		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇺" type="tts">zászló: Luxemburg</annotation>
 		<annotation cp="🇱🇻">zászló</annotation>
-		<annotation cp="🇱🇻" type="tts">Lettország</annotation>
+		<annotation cp="🇱🇻" type="tts">zászló: Lettország</annotation>
 		<annotation cp="🇱🇾">zászló</annotation>
-		<annotation cp="🇱🇾" type="tts">Líbia</annotation>
+		<annotation cp="🇱🇾" type="tts">zászló: Líbia</annotation>
 		<annotation cp="🇲🇦">zászló</annotation>
-		<annotation cp="🇲🇦" type="tts">Marokkó</annotation>
+		<annotation cp="🇲🇦" type="tts">zászló: Marokkó</annotation>
 		<annotation cp="🇲🇨">zászló</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">zászló: Monaco</annotation>
 		<annotation cp="🇲🇩">zászló</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇩" type="tts">zászló: Moldova</annotation>
 		<annotation cp="🇲🇪">zászló</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegró</annotation>
+		<annotation cp="🇲🇪" type="tts">zászló: Montenegró</annotation>
 		<annotation cp="🇲🇫">zászló</annotation>
-		<annotation cp="🇲🇫" type="tts">Saint Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">zászló: Saint Martin</annotation>
 		<annotation cp="🇲🇬">zászló</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagaszkár</annotation>
+		<annotation cp="🇲🇬" type="tts">zászló: Madagaszkár</annotation>
 		<annotation cp="🇲🇭">zászló</annotation>
-		<annotation cp="🇲🇭" type="tts">Marshall-szigetek</annotation>
+		<annotation cp="🇲🇭" type="tts">zászló: Marshall-szigetek</annotation>
 		<annotation cp="🇲🇰">zászló</annotation>
-		<annotation cp="🇲🇰" type="tts">Macedónia</annotation>
+		<annotation cp="🇲🇰" type="tts">zászló: Macedónia</annotation>
 		<annotation cp="🇲🇱">zászló</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">zászló: Mali</annotation>
 		<annotation cp="🇲🇲">zászló</annotation>
-		<annotation cp="🇲🇲" type="tts">Mianmar (Burma)</annotation>
+		<annotation cp="🇲🇲" type="tts">zászló: Mianmar (Burma)</annotation>
 		<annotation cp="🇲🇳">zászló</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongólia</annotation>
+		<annotation cp="🇲🇳" type="tts">zászló: Mongólia</annotation>
 		<annotation cp="🇲🇴">zászló</annotation>
-		<annotation cp="🇲🇴" type="tts">Makaó KKT</annotation>
+		<annotation cp="🇲🇴" type="tts">zászló: Makaó KKT</annotation>
 		<annotation cp="🇲🇵">zászló</annotation>
-		<annotation cp="🇲🇵" type="tts">Északi Mariana-szigetek</annotation>
+		<annotation cp="🇲🇵" type="tts">zászló: Északi Mariana-szigetek</annotation>
 		<annotation cp="🇲🇶">zászló</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇶" type="tts">zászló: Martinique</annotation>
 		<annotation cp="🇲🇷">zászló</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritánia</annotation>
+		<annotation cp="🇲🇷" type="tts">zászló: Mauritánia</annotation>
 		<annotation cp="🇲🇸">zászló</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">zászló: Montserrat</annotation>
 		<annotation cp="🇲🇹">zászló</annotation>
-		<annotation cp="🇲🇹" type="tts">Málta</annotation>
+		<annotation cp="🇲🇹" type="tts">zászló: Málta</annotation>
 		<annotation cp="🇲🇺">zászló</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">zászló: Mauritius</annotation>
 		<annotation cp="🇲🇻">zászló</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldív-szigetek</annotation>
+		<annotation cp="🇲🇻" type="tts">zászló: Maldív-szigetek</annotation>
 		<annotation cp="🇲🇼">zászló</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">zászló: Malawi</annotation>
 		<annotation cp="🇲🇽">zászló</annotation>
-		<annotation cp="🇲🇽" type="tts">Mexikó</annotation>
+		<annotation cp="🇲🇽" type="tts">zászló: Mexikó</annotation>
 		<annotation cp="🇲🇾">zászló</annotation>
-		<annotation cp="🇲🇾" type="tts">Malajzia</annotation>
+		<annotation cp="🇲🇾" type="tts">zászló: Malajzia</annotation>
 		<annotation cp="🇲🇿">zászló</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambik</annotation>
+		<annotation cp="🇲🇿" type="tts">zászló: Mozambik</annotation>
 		<annotation cp="🇳🇦">zászló</annotation>
-		<annotation cp="🇳🇦" type="tts">Namíbia</annotation>
+		<annotation cp="🇳🇦" type="tts">zászló: Namíbia</annotation>
 		<annotation cp="🇳🇨">zászló</annotation>
-		<annotation cp="🇳🇨" type="tts">Új-Kaledónia</annotation>
+		<annotation cp="🇳🇨" type="tts">zászló: Új-Kaledónia</annotation>
 		<annotation cp="🇳🇪">zászló</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">zászló: Niger</annotation>
 		<annotation cp="🇳🇫">zászló</annotation>
-		<annotation cp="🇳🇫" type="tts">Norfolk-sziget</annotation>
+		<annotation cp="🇳🇫" type="tts">zászló: Norfolk-sziget</annotation>
 		<annotation cp="🇳🇬">zászló</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigéria</annotation>
+		<annotation cp="🇳🇬" type="tts">zászló: Nigéria</annotation>
 		<annotation cp="🇳🇮">zászló</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">zászló: Nicaragua</annotation>
 		<annotation cp="🇳🇱">zászló</annotation>
-		<annotation cp="🇳🇱" type="tts">Hollandia</annotation>
+		<annotation cp="🇳🇱" type="tts">zászló: Hollandia</annotation>
 		<annotation cp="🇳🇴">zászló</annotation>
-		<annotation cp="🇳🇴" type="tts">Norvégia</annotation>
+		<annotation cp="🇳🇴" type="tts">zászló: Norvégia</annotation>
 		<annotation cp="🇳🇵">zászló</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepál</annotation>
+		<annotation cp="🇳🇵" type="tts">zászló: Nepál</annotation>
 		<annotation cp="🇳🇷">zászló</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">zászló: Nauru</annotation>
 		<annotation cp="🇳🇺">zászló</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">zászló: Niue</annotation>
 		<annotation cp="🇳🇿">zászló</annotation>
-		<annotation cp="🇳🇿" type="tts">Új-Zéland</annotation>
+		<annotation cp="🇳🇿" type="tts">zászló: Új-Zéland</annotation>
 		<annotation cp="🇴🇲">zászló</annotation>
-		<annotation cp="🇴🇲" type="tts">Omán</annotation>
+		<annotation cp="🇴🇲" type="tts">zászló: Omán</annotation>
 		<annotation cp="🇵🇦">zászló</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">zászló: Panama</annotation>
 		<annotation cp="🇵🇪">zászló</annotation>
-		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇪" type="tts">zászló: Peru</annotation>
 		<annotation cp="🇵🇫">zászló</annotation>
-		<annotation cp="🇵🇫" type="tts">Francia Polinézia</annotation>
+		<annotation cp="🇵🇫" type="tts">zászló: Francia Polinézia</annotation>
 		<annotation cp="🇵🇬">zászló</annotation>
-		<annotation cp="🇵🇬" type="tts">Pápua Új-Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">zászló: Pápua Új-Guinea</annotation>
 		<annotation cp="🇵🇭">zászló</annotation>
-		<annotation cp="🇵🇭" type="tts">Fülöp-szigetek</annotation>
+		<annotation cp="🇵🇭" type="tts">zászló: Fülöp-szigetek</annotation>
 		<annotation cp="🇵🇰">zászló</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakisztán</annotation>
+		<annotation cp="🇵🇰" type="tts">zászló: Pakisztán</annotation>
 		<annotation cp="🇵🇱">zászló</annotation>
-		<annotation cp="🇵🇱" type="tts">Lengyelország</annotation>
+		<annotation cp="🇵🇱" type="tts">zászló: Lengyelország</annotation>
 		<annotation cp="🇵🇲">zászló</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre és Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">zászló: Saint-Pierre és Miquelon</annotation>
 		<annotation cp="🇵🇳">zászló</annotation>
-		<annotation cp="🇵🇳" type="tts">Pitcairn-szigetek</annotation>
+		<annotation cp="🇵🇳" type="tts">zászló: Pitcairn-szigetek</annotation>
 		<annotation cp="🇵🇷">zászló</annotation>
-		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">zászló: Puerto Rico</annotation>
 		<annotation cp="🇵🇸">zászló</annotation>
-		<annotation cp="🇵🇸" type="tts">Palesztin Terület</annotation>
+		<annotation cp="🇵🇸" type="tts">zászló: Palesztin Terület</annotation>
 		<annotation cp="🇵🇹">zászló</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugália</annotation>
+		<annotation cp="🇵🇹" type="tts">zászló: Portugália</annotation>
 		<annotation cp="🇵🇼">zászló</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">zászló: Palau</annotation>
 		<annotation cp="🇵🇾">zászló</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">zászló: Paraguay</annotation>
 		<annotation cp="🇶🇦">zászló</annotation>
-		<annotation cp="🇶🇦" type="tts">Katar</annotation>
+		<annotation cp="🇶🇦" type="tts">zászló: Katar</annotation>
 		<annotation cp="🇷🇪">zászló</annotation>
-		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇪" type="tts">zászló: Réunion</annotation>
 		<annotation cp="🇷🇴">zászló</annotation>
-		<annotation cp="🇷🇴" type="tts">Románia</annotation>
+		<annotation cp="🇷🇴" type="tts">zászló: Románia</annotation>
 		<annotation cp="🇷🇸">zászló</annotation>
-		<annotation cp="🇷🇸" type="tts">Szerbia</annotation>
+		<annotation cp="🇷🇸" type="tts">zászló: Szerbia</annotation>
 		<annotation cp="🇷🇺">zászló</annotation>
-		<annotation cp="🇷🇺" type="tts">Oroszország</annotation>
+		<annotation cp="🇷🇺" type="tts">zászló: Oroszország</annotation>
 		<annotation cp="🇷🇼">zászló</annotation>
-		<annotation cp="🇷🇼" type="tts">Ruanda</annotation>
+		<annotation cp="🇷🇼" type="tts">zászló: Ruanda</annotation>
 		<annotation cp="🇸🇦">zászló</annotation>
-		<annotation cp="🇸🇦" type="tts">Szaúd-Arábia</annotation>
+		<annotation cp="🇸🇦" type="tts">zászló: Szaúd-Arábia</annotation>
 		<annotation cp="🇸🇧">zászló</annotation>
-		<annotation cp="🇸🇧" type="tts">Salamon-szigetek</annotation>
+		<annotation cp="🇸🇧" type="tts">zászló: Salamon-szigetek</annotation>
 		<annotation cp="🇸🇨">zászló</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychelle-szigetek</annotation>
+		<annotation cp="🇸🇨" type="tts">zászló: Seychelle-szigetek</annotation>
 		<annotation cp="🇸🇩">zászló</annotation>
-		<annotation cp="🇸🇩" type="tts">Szudán</annotation>
+		<annotation cp="🇸🇩" type="tts">zászló: Szudán</annotation>
 		<annotation cp="🇸🇪">zászló</annotation>
-		<annotation cp="🇸🇪" type="tts">Svédország</annotation>
+		<annotation cp="🇸🇪" type="tts">zászló: Svédország</annotation>
 		<annotation cp="🇸🇬">zászló</annotation>
-		<annotation cp="🇸🇬" type="tts">Szingapúr</annotation>
+		<annotation cp="🇸🇬" type="tts">zászló: Szingapúr</annotation>
 		<annotation cp="🇸🇭">zászló</annotation>
-		<annotation cp="🇸🇭" type="tts">Szent Ilona</annotation>
+		<annotation cp="🇸🇭" type="tts">zászló: Szent Ilona</annotation>
 		<annotation cp="🇸🇮">zászló</annotation>
-		<annotation cp="🇸🇮" type="tts">Szlovénia</annotation>
+		<annotation cp="🇸🇮" type="tts">zászló: Szlovénia</annotation>
 		<annotation cp="🇸🇯">zászló</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard és Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">zászló: Svalbard és Jan Mayen</annotation>
 		<annotation cp="🇸🇰">zászló</annotation>
-		<annotation cp="🇸🇰" type="tts">Szlovákia</annotation>
+		<annotation cp="🇸🇰" type="tts">zászló: Szlovákia</annotation>
 		<annotation cp="🇸🇱">zászló</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">zászló: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">zászló</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">zászló: San Marino</annotation>
 		<annotation cp="🇸🇳">zászló</annotation>
-		<annotation cp="🇸🇳" type="tts">Szenegál</annotation>
+		<annotation cp="🇸🇳" type="tts">zászló: Szenegál</annotation>
 		<annotation cp="🇸🇴">zászló</annotation>
-		<annotation cp="🇸🇴" type="tts">Szomália</annotation>
+		<annotation cp="🇸🇴" type="tts">zászló: Szomália</annotation>
 		<annotation cp="🇸🇷">zászló</annotation>
-		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇷" type="tts">zászló: Suriname</annotation>
 		<annotation cp="🇸🇸">zászló</annotation>
-		<annotation cp="🇸🇸" type="tts">Dél-Szudán</annotation>
+		<annotation cp="🇸🇸" type="tts">zászló: Dél-Szudán</annotation>
 		<annotation cp="🇸🇹">zászló</annotation>
-		<annotation cp="🇸🇹" type="tts">São Tomé és Príncipe</annotation>
+		<annotation cp="🇸🇹" type="tts">zászló: São Tomé és Príncipe</annotation>
 		<annotation cp="🇸🇻">zászló</annotation>
-		<annotation cp="🇸🇻" type="tts">Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">zászló: Salvador</annotation>
 		<annotation cp="🇸🇽">zászló</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">zászló: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">zászló</annotation>
-		<annotation cp="🇸🇾" type="tts">Szíria</annotation>
+		<annotation cp="🇸🇾" type="tts">zászló: Szíria</annotation>
 		<annotation cp="🇸🇿">zászló</annotation>
-		<annotation cp="🇸🇿" type="tts">Szváziföld</annotation>
+		<annotation cp="🇸🇿" type="tts">zászló: Szváziföld</annotation>
 		<annotation cp="🇹🇦">zászló</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">zászló: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">zászló</annotation>
-		<annotation cp="🇹🇨" type="tts">Turks- és Caicos-szigetek</annotation>
+		<annotation cp="🇹🇨" type="tts">zászló: Turks- és Caicos-szigetek</annotation>
 		<annotation cp="🇹🇩">zászló</annotation>
-		<annotation cp="🇹🇩" type="tts">Csád</annotation>
+		<annotation cp="🇹🇩" type="tts">zászló: Csád</annotation>
 		<annotation cp="🇹🇫">zászló</annotation>
-		<annotation cp="🇹🇫" type="tts">Francia Déli Területek</annotation>
+		<annotation cp="🇹🇫" type="tts">zászló: Francia Déli Területek</annotation>
 		<annotation cp="🇹🇬">zászló</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">zászló: Togo</annotation>
 		<annotation cp="🇹🇭">zászló</annotation>
-		<annotation cp="🇹🇭" type="tts">Thaiföld</annotation>
+		<annotation cp="🇹🇭" type="tts">zászló: Thaiföld</annotation>
 		<annotation cp="🇹🇯">zászló</annotation>
-		<annotation cp="🇹🇯" type="tts">Tádzsikisztán</annotation>
+		<annotation cp="🇹🇯" type="tts">zászló: Tádzsikisztán</annotation>
 		<annotation cp="🇹🇰">zászló</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">zászló: Tokelau</annotation>
 		<annotation cp="🇹🇱">zászló</annotation>
-		<annotation cp="🇹🇱" type="tts">Kelet-Timor</annotation>
+		<annotation cp="🇹🇱" type="tts">zászló: Kelet-Timor</annotation>
 		<annotation cp="🇹🇲">zászló</annotation>
-		<annotation cp="🇹🇲" type="tts">Türkmenisztán</annotation>
+		<annotation cp="🇹🇲" type="tts">zászló: Türkmenisztán</annotation>
 		<annotation cp="🇹🇳">zászló</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunézia</annotation>
+		<annotation cp="🇹🇳" type="tts">zászló: Tunézia</annotation>
 		<annotation cp="🇹🇴">zászló</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">zászló: Tonga</annotation>
 		<annotation cp="🇹🇷">zászló</annotation>
-		<annotation cp="🇹🇷" type="tts">Törökország</annotation>
+		<annotation cp="🇹🇷" type="tts">zászló: Törökország</annotation>
 		<annotation cp="🇹🇹">zászló</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad és Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">zászló: Trinidad és Tobago</annotation>
 		<annotation cp="🇹🇻">zászló</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">zászló: Tuvalu</annotation>
 		<annotation cp="🇹🇼">zászló</annotation>
-		<annotation cp="🇹🇼" type="tts">Tajvan</annotation>
+		<annotation cp="🇹🇼" type="tts">zászló: Tajvan</annotation>
 		<annotation cp="🇹🇿">zászló</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzánia</annotation>
+		<annotation cp="🇹🇿" type="tts">zászló: Tanzánia</annotation>
 		<annotation cp="🇺🇦">zászló</annotation>
-		<annotation cp="🇺🇦" type="tts">Ukrajna</annotation>
+		<annotation cp="🇺🇦" type="tts">zászló: Ukrajna</annotation>
 		<annotation cp="🇺🇬">zászló</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">zászló: Uganda</annotation>
 		<annotation cp="🇺🇲">zászló</annotation>
-		<annotation cp="🇺🇲" type="tts">Az USA lakatlan külbirtokai</annotation>
+		<annotation cp="🇺🇲" type="tts">zászló: Az USA lakatlan külbirtokai</annotation>
 		<annotation cp="🇺🇳">zászló</annotation>
-		<annotation cp="🇺🇳" type="tts">Egyesült Nemzetek Szervezete</annotation>
+		<annotation cp="🇺🇳" type="tts">zászló: Egyesült Nemzetek Szervezete</annotation>
 		<annotation cp="🇺🇸">zászló</annotation>
-		<annotation cp="🇺🇸" type="tts">Egyesült Államok</annotation>
+		<annotation cp="🇺🇸" type="tts">zászló: Egyesült Államok</annotation>
 		<annotation cp="🇺🇾">zászló</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">zászló: Uruguay</annotation>
 		<annotation cp="🇺🇿">zászló</annotation>
-		<annotation cp="🇺🇿" type="tts">Üzbegisztán</annotation>
+		<annotation cp="🇺🇿" type="tts">zászló: Üzbegisztán</annotation>
 		<annotation cp="🇻🇦">zászló</annotation>
-		<annotation cp="🇻🇦" type="tts">Vatikán</annotation>
+		<annotation cp="🇻🇦" type="tts">zászló: Vatikán</annotation>
 		<annotation cp="🇻🇨">zászló</annotation>
-		<annotation cp="🇻🇨" type="tts">Saint Vincent és a Grenadine-szigetek</annotation>
+		<annotation cp="🇻🇨" type="tts">zászló: Saint Vincent és a Grenadine-szigetek</annotation>
 		<annotation cp="🇻🇪">zászló</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">zászló: Venezuela</annotation>
 		<annotation cp="🇻🇬">zászló</annotation>
-		<annotation cp="🇻🇬" type="tts">Brit Virgin-szigetek</annotation>
+		<annotation cp="🇻🇬" type="tts">zászló: Brit Virgin-szigetek</annotation>
 		<annotation cp="🇻🇮">zászló</annotation>
-		<annotation cp="🇻🇮" type="tts">Amerikai Virgin-szigetek</annotation>
+		<annotation cp="🇻🇮" type="tts">zászló: Amerikai Virgin-szigetek</annotation>
 		<annotation cp="🇻🇳">zászló</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">zászló: Vietnam</annotation>
 		<annotation cp="🇻🇺">zászló</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">zászló: Vanuatu</annotation>
 		<annotation cp="🇼🇫">zászló</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis és Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">zászló: Wallis és Futuna</annotation>
 		<annotation cp="🇼🇸">zászló</annotation>
-		<annotation cp="🇼🇸" type="tts">Szamoa</annotation>
+		<annotation cp="🇼🇸" type="tts">zászló: Szamoa</annotation>
 		<annotation cp="🇽🇰">zászló</annotation>
-		<annotation cp="🇽🇰" type="tts">Koszovó</annotation>
+		<annotation cp="🇽🇰" type="tts">zászló: Koszovó</annotation>
 		<annotation cp="🇾🇪">zászló</annotation>
-		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇪" type="tts">zászló: Jemen</annotation>
 		<annotation cp="🇾🇹">zászló</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">zászló: Mayotte</annotation>
 		<annotation cp="🇿🇦">zászló</annotation>
-		<annotation cp="🇿🇦" type="tts">Dél-afrikai Köztársaság</annotation>
+		<annotation cp="🇿🇦" type="tts">zászló: Dél-afrikai Köztársaság</annotation>
 		<annotation cp="🇿🇲">zászló</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">zászló: Zambia</annotation>
 		<annotation cp="🇿🇼">zászló</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">zászló: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">zászló</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Anglia</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">zászló: Anglia</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">zászló</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Skócia</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">zászló: Skócia</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">zászló</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">zászló: Wales</annotation>
 		<annotation cp="0⃣">gombfej</annotation>
 		<annotation cp="0⃣" type="tts">gombfej: 0</annotation>
 		<annotation cp="1⃣">gombfej</annotation>

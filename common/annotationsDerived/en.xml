@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="en"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">kick | leg | limb | light skin tone</annotation>
+		<annotation cp="🦵🏻" type="tts">leg: light skin tone</annotation>
+		<annotation cp="🦵🏼">kick | leg | limb | medium-light skin tone</annotation>
+		<annotation cp="🦵🏼" type="tts">leg: medium-light skin tone</annotation>
+		<annotation cp="🦵🏽">kick | leg | limb | medium skin tone</annotation>
+		<annotation cp="🦵🏽" type="tts">leg: medium skin tone</annotation>
+		<annotation cp="🦵🏾">kick | leg | limb | medium-dark skin tone</annotation>
+		<annotation cp="🦵🏾" type="tts">leg: medium-dark skin tone</annotation>
+		<annotation cp="🦵🏿">kick | leg | limb | dark skin tone</annotation>
+		<annotation cp="🦵🏿" type="tts">leg: dark skin tone</annotation>
+		<annotation cp="🦶🏻">foot | kick | stomp | light skin tone</annotation>
+		<annotation cp="🦶🏻" type="tts">foot: light skin tone</annotation>
+		<annotation cp="🦶🏼">foot | kick | stomp | medium-light skin tone</annotation>
+		<annotation cp="🦶🏼" type="tts">foot: medium-light skin tone</annotation>
+		<annotation cp="🦶🏽">foot | kick | stomp | medium skin tone</annotation>
+		<annotation cp="🦶🏽" type="tts">foot: medium skin tone</annotation>
+		<annotation cp="🦶🏾">foot | kick | stomp | medium-dark skin tone</annotation>
+		<annotation cp="🦶🏾" type="tts">foot: medium-dark skin tone</annotation>
+		<annotation cp="🦶🏿">foot | kick | stomp | dark skin tone</annotation>
+		<annotation cp="🦶🏿" type="tts">foot: dark skin tone</annotation>
+		<annotation cp="🦸🏻">good | hero | heroine | superhero | superpower | light skin tone</annotation>
+		<annotation cp="🦸🏻" type="tts">superhero: light skin tone</annotation>
+		<annotation cp="🦸🏼">good | hero | heroine | superhero | superpower | medium-light skin tone</annotation>
+		<annotation cp="🦸🏼" type="tts">superhero: medium-light skin tone</annotation>
+		<annotation cp="🦸🏽">good | hero | heroine | superhero | superpower | medium skin tone</annotation>
+		<annotation cp="🦸🏽" type="tts">superhero: medium skin tone</annotation>
+		<annotation cp="🦸🏾">good | hero | heroine | superhero | superpower | medium-dark skin tone</annotation>
+		<annotation cp="🦸🏾" type="tts">superhero: medium-dark skin tone</annotation>
+		<annotation cp="🦸🏿">good | hero | heroine | superhero | superpower | dark skin tone</annotation>
+		<annotation cp="🦸🏿" type="tts">superhero: dark skin tone</annotation>
+		<annotation cp="🦸🏻‍♀">good | hero | heroine | superpower | woman | woman superhero | light skin tone</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">woman superhero: light skin tone</annotation>
+		<annotation cp="🦸🏼‍♀">good | hero | heroine | superpower | woman | woman superhero | medium-light skin tone</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">woman superhero: medium-light skin tone</annotation>
+		<annotation cp="🦸🏽‍♀">good | hero | heroine | superpower | woman | woman superhero | medium skin tone</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">woman superhero: medium skin tone</annotation>
+		<annotation cp="🦸🏾‍♀">good | hero | heroine | superpower | woman | woman superhero | medium-dark skin tone</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">woman superhero: medium-dark skin tone</annotation>
+		<annotation cp="🦸🏿‍♀">good | hero | heroine | superpower | woman | woman superhero | dark skin tone</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">woman superhero: dark skin tone</annotation>
+		<annotation cp="🦸🏻‍♂">good | hero | man | man superhero | superpower | light skin tone</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">man superhero: light skin tone</annotation>
+		<annotation cp="🦸🏼‍♂">good | hero | man | man superhero | superpower | medium-light skin tone</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">man superhero: medium-light skin tone</annotation>
+		<annotation cp="🦸🏽‍♂">good | hero | man | man superhero | superpower | medium skin tone</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">man superhero: medium skin tone</annotation>
+		<annotation cp="🦸🏾‍♂">good | hero | man | man superhero | superpower | medium-dark skin tone</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">man superhero: medium-dark skin tone</annotation>
+		<annotation cp="🦸🏿‍♂">good | hero | man | man superhero | superpower | dark skin tone</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">man superhero: dark skin tone</annotation>
+		<annotation cp="🦹🏻">criminal | evil | superpower | supervillain | villain | light skin tone</annotation>
+		<annotation cp="🦹🏻" type="tts">supervillain: light skin tone</annotation>
+		<annotation cp="🦹🏼">criminal | evil | superpower | supervillain | villain | medium-light skin tone</annotation>
+		<annotation cp="🦹🏼" type="tts">supervillain: medium-light skin tone</annotation>
+		<annotation cp="🦹🏽">criminal | evil | superpower | supervillain | villain | medium skin tone</annotation>
+		<annotation cp="🦹🏽" type="tts">supervillain: medium skin tone</annotation>
+		<annotation cp="🦹🏾">criminal | evil | superpower | supervillain | villain | medium-dark skin tone</annotation>
+		<annotation cp="🦹🏾" type="tts">supervillain: medium-dark skin tone</annotation>
+		<annotation cp="🦹🏿">criminal | evil | superpower | supervillain | villain | dark skin tone</annotation>
+		<annotation cp="🦹🏿" type="tts">supervillain: dark skin tone</annotation>
+		<annotation cp="🦹🏻‍♀">criminal | evil | superpower | villain | woman | woman supervillain | light skin tone</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">woman supervillain: light skin tone</annotation>
+		<annotation cp="🦹🏼‍♀">criminal | evil | superpower | villain | woman | woman supervillain | medium-light skin tone</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">woman supervillain: medium-light skin tone</annotation>
+		<annotation cp="🦹🏽‍♀">criminal | evil | superpower | villain | woman | woman supervillain | medium skin tone</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">woman supervillain: medium skin tone</annotation>
+		<annotation cp="🦹🏾‍♀">criminal | evil | superpower | villain | woman | woman supervillain | medium-dark skin tone</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">woman supervillain: medium-dark skin tone</annotation>
+		<annotation cp="🦹🏿‍♀">criminal | evil | superpower | villain | woman | woman supervillain | dark skin tone</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">woman supervillain: dark skin tone</annotation>
+		<annotation cp="🦹🏻‍♂">criminal | evil | man | man supervillain | superpower | villain | light skin tone</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">man supervillain: light skin tone</annotation>
+		<annotation cp="🦹🏼‍♂">criminal | evil | man | man supervillain | superpower | villain | medium-light skin tone</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">man supervillain: medium-light skin tone</annotation>
+		<annotation cp="🦹🏽‍♂">criminal | evil | man | man supervillain | superpower | villain | medium skin tone</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">man supervillain: medium skin tone</annotation>
+		<annotation cp="🦹🏾‍♂">criminal | evil | man | man supervillain | superpower | villain | medium-dark skin tone</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">man supervillain: medium-dark skin tone</annotation>
+		<annotation cp="🦹🏿‍♂">criminal | evil | man | man supervillain | superpower | villain | dark skin tone</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">man supervillain: dark skin tone</annotation>
 		<annotation cp="👶🏻">baby | young | light skin tone</annotation>
 		<annotation cp="👶🏻" type="tts">baby: light skin tone</annotation>
 		<annotation cp="👶🏼">baby | young | medium-light skin tone</annotation>
@@ -23,15 +102,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👶🏾" type="tts">baby: medium-dark skin tone</annotation>
 		<annotation cp="👶🏿">baby | young | dark skin tone</annotation>
 		<annotation cp="👶🏿" type="tts">baby: dark skin tone</annotation>
-		<annotation cp="🧒🏻">child | gender-neutral | young | light skin tone</annotation>
+		<annotation cp="🧒🏻">child | gender-neutral | unspecified gender | young | light skin tone</annotation>
 		<annotation cp="🧒🏻" type="tts">child: light skin tone</annotation>
-		<annotation cp="🧒🏼">child | gender-neutral | young | medium-light skin tone</annotation>
+		<annotation cp="🧒🏼">child | gender-neutral | unspecified gender | young | medium-light skin tone</annotation>
 		<annotation cp="🧒🏼" type="tts">child: medium-light skin tone</annotation>
-		<annotation cp="🧒🏽">child | gender-neutral | young | medium skin tone</annotation>
+		<annotation cp="🧒🏽">child | gender-neutral | unspecified gender | young | medium skin tone</annotation>
 		<annotation cp="🧒🏽" type="tts">child: medium skin tone</annotation>
-		<annotation cp="🧒🏾">child | gender-neutral | young | medium-dark skin tone</annotation>
+		<annotation cp="🧒🏾">child | gender-neutral | unspecified gender | young | medium-dark skin tone</annotation>
 		<annotation cp="🧒🏾" type="tts">child: medium-dark skin tone</annotation>
-		<annotation cp="🧒🏿">child | gender-neutral | young | dark skin tone</annotation>
+		<annotation cp="🧒🏿">child | gender-neutral | unspecified gender | young | dark skin tone</annotation>
 		<annotation cp="🧒🏿" type="tts">child: dark skin tone</annotation>
 		<annotation cp="👦🏻">boy | young | light skin tone</annotation>
 		<annotation cp="👦🏻" type="tts">boy: light skin tone</annotation>
@@ -53,65 +132,161 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👧🏾" type="tts">girl: medium-dark skin tone</annotation>
 		<annotation cp="👧🏿">Virgo | girl | young | zodiac | dark skin tone</annotation>
 		<annotation cp="👧🏿" type="tts">girl: dark skin tone</annotation>
-		<annotation cp="🧑🏻">adult | gender-neutral | light skin tone</annotation>
-		<annotation cp="🧑🏻" type="tts">adult: light skin tone</annotation>
-		<annotation cp="🧑🏼">adult | gender-neutral | medium-light skin tone</annotation>
-		<annotation cp="🧑🏼" type="tts">adult: medium-light skin tone</annotation>
-		<annotation cp="🧑🏽">adult | gender-neutral | medium skin tone</annotation>
-		<annotation cp="🧑🏽" type="tts">adult: medium skin tone</annotation>
-		<annotation cp="🧑🏾">adult | gender-neutral | medium-dark skin tone</annotation>
-		<annotation cp="🧑🏾" type="tts">adult: medium-dark skin tone</annotation>
-		<annotation cp="🧑🏿">adult | gender-neutral | dark skin tone</annotation>
-		<annotation cp="🧑🏿" type="tts">adult: dark skin tone</annotation>
-		<annotation cp="👨🏻">man | light skin tone</annotation>
+		<annotation cp="🧑🏻">adult | gender-neutral | person | unspecified gender | light skin tone</annotation>
+		<annotation cp="🧑🏻" type="tts">person: light skin tone</annotation>
+		<annotation cp="🧑🏼">adult | gender-neutral | person | unspecified gender | medium-light skin tone</annotation>
+		<annotation cp="🧑🏼" type="tts">person: medium-light skin tone</annotation>
+		<annotation cp="🧑🏽">adult | gender-neutral | person | unspecified gender | medium skin tone</annotation>
+		<annotation cp="🧑🏽" type="tts">person: medium skin tone</annotation>
+		<annotation cp="🧑🏾">adult | gender-neutral | person | unspecified gender | medium-dark skin tone</annotation>
+		<annotation cp="🧑🏾" type="tts">person: medium-dark skin tone</annotation>
+		<annotation cp="🧑🏿">adult | gender-neutral | person | unspecified gender | dark skin tone</annotation>
+		<annotation cp="🧑🏿" type="tts">person: dark skin tone</annotation>
+		<annotation cp="👨🏻">adult | man | light skin tone</annotation>
 		<annotation cp="👨🏻" type="tts">man: light skin tone</annotation>
-		<annotation cp="👨🏼">man | medium-light skin tone</annotation>
+		<annotation cp="👨🏼">adult | man | medium-light skin tone</annotation>
 		<annotation cp="👨🏼" type="tts">man: medium-light skin tone</annotation>
-		<annotation cp="👨🏽">man | medium skin tone</annotation>
+		<annotation cp="👨🏽">adult | man | medium skin tone</annotation>
 		<annotation cp="👨🏽" type="tts">man: medium skin tone</annotation>
-		<annotation cp="👨🏾">man | medium-dark skin tone</annotation>
+		<annotation cp="👨🏾">adult | man | medium-dark skin tone</annotation>
 		<annotation cp="👨🏾" type="tts">man: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿">man | dark skin tone</annotation>
+		<annotation cp="👨🏿">adult | man | dark skin tone</annotation>
 		<annotation cp="👨🏿" type="tts">man: dark skin tone</annotation>
-		<annotation cp="👩🏻">woman | light skin tone</annotation>
+		<annotation cp="👨‍🦰">adult | man | red hair</annotation>
+		<annotation cp="👨‍🦰" type="tts">man: red hair</annotation>
+		<annotation cp="👨🏻‍🦰">adult | man | light skin tone | red hair</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">man: light skin tone, red hair</annotation>
+		<annotation cp="👨🏼‍🦰">adult | man | medium-light skin tone | red hair</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">man: medium-light skin tone, red hair</annotation>
+		<annotation cp="👨🏽‍🦰">adult | man | medium skin tone | red hair</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">man: medium skin tone, red hair</annotation>
+		<annotation cp="👨🏾‍🦰">adult | man | medium-dark skin tone | red hair</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">man: medium-dark skin tone, red hair</annotation>
+		<annotation cp="👨🏿‍🦰">adult | man | dark skin tone | red hair</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">man: dark skin tone, red hair</annotation>
+		<annotation cp="👨‍🦱">adult | man | curly hair</annotation>
+		<annotation cp="👨‍🦱" type="tts">man: curly hair</annotation>
+		<annotation cp="👨🏻‍🦱">adult | man | light skin tone | curly hair</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">man: light skin tone, curly hair</annotation>
+		<annotation cp="👨🏼‍🦱">adult | man | medium-light skin tone | curly hair</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">man: medium-light skin tone, curly hair</annotation>
+		<annotation cp="👨🏽‍🦱">adult | man | medium skin tone | curly hair</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">man: medium skin tone, curly hair</annotation>
+		<annotation cp="👨🏾‍🦱">adult | man | medium-dark skin tone | curly hair</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">man: medium-dark skin tone, curly hair</annotation>
+		<annotation cp="👨🏿‍🦱">adult | man | dark skin tone | curly hair</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">man: dark skin tone, curly hair</annotation>
+		<annotation cp="👨‍🦲">adult | man | bald</annotation>
+		<annotation cp="👨‍🦲" type="tts">man: bald</annotation>
+		<annotation cp="👨🏻‍🦲">adult | man | light skin tone | bald</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">man: light skin tone, bald</annotation>
+		<annotation cp="👨🏼‍🦲">adult | man | medium-light skin tone | bald</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">man: medium-light skin tone, bald</annotation>
+		<annotation cp="👨🏽‍🦲">adult | man | medium skin tone | bald</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">man: medium skin tone, bald</annotation>
+		<annotation cp="👨🏾‍🦲">adult | man | medium-dark skin tone | bald</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">man: medium-dark skin tone, bald</annotation>
+		<annotation cp="👨🏿‍🦲">adult | man | dark skin tone | bald</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">man: dark skin tone, bald</annotation>
+		<annotation cp="👨‍🦳">adult | man | white hair</annotation>
+		<annotation cp="👨‍🦳" type="tts">man: white hair</annotation>
+		<annotation cp="👨🏻‍🦳">adult | man | light skin tone | white hair</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">man: light skin tone, white hair</annotation>
+		<annotation cp="👨🏼‍🦳">adult | man | medium-light skin tone | white hair</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">man: medium-light skin tone, white hair</annotation>
+		<annotation cp="👨🏽‍🦳">adult | man | medium skin tone | white hair</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">man: medium skin tone, white hair</annotation>
+		<annotation cp="👨🏾‍🦳">adult | man | medium-dark skin tone | white hair</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">man: medium-dark skin tone, white hair</annotation>
+		<annotation cp="👨🏿‍🦳">adult | man | dark skin tone | white hair</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">man: dark skin tone, white hair</annotation>
+		<annotation cp="👩🏻">adult | woman | light skin tone</annotation>
 		<annotation cp="👩🏻" type="tts">woman: light skin tone</annotation>
-		<annotation cp="👩🏼">woman | medium-light skin tone</annotation>
+		<annotation cp="👩🏼">adult | woman | medium-light skin tone</annotation>
 		<annotation cp="👩🏼" type="tts">woman: medium-light skin tone</annotation>
-		<annotation cp="👩🏽">woman | medium skin tone</annotation>
+		<annotation cp="👩🏽">adult | woman | medium skin tone</annotation>
 		<annotation cp="👩🏽" type="tts">woman: medium skin tone</annotation>
-		<annotation cp="👩🏾">woman | medium-dark skin tone</annotation>
+		<annotation cp="👩🏾">adult | woman | medium-dark skin tone</annotation>
 		<annotation cp="👩🏾" type="tts">woman: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿">woman | dark skin tone</annotation>
+		<annotation cp="👩🏿">adult | woman | dark skin tone</annotation>
 		<annotation cp="👩🏿" type="tts">woman: dark skin tone</annotation>
-		<annotation cp="🧓🏻">gender-neutral | old | older adult | light skin tone</annotation>
-		<annotation cp="🧓🏻" type="tts">older adult: light skin tone</annotation>
-		<annotation cp="🧓🏼">gender-neutral | old | older adult | medium-light skin tone</annotation>
-		<annotation cp="🧓🏼" type="tts">older adult: medium-light skin tone</annotation>
-		<annotation cp="🧓🏽">gender-neutral | old | older adult | medium skin tone</annotation>
-		<annotation cp="🧓🏽" type="tts">older adult: medium skin tone</annotation>
-		<annotation cp="🧓🏾">gender-neutral | old | older adult | medium-dark skin tone</annotation>
-		<annotation cp="🧓🏾" type="tts">older adult: medium-dark skin tone</annotation>
-		<annotation cp="🧓🏿">gender-neutral | old | older adult | dark skin tone</annotation>
-		<annotation cp="🧓🏿" type="tts">older adult: dark skin tone</annotation>
-		<annotation cp="👴🏻">man | old | light skin tone</annotation>
+		<annotation cp="👩‍🦰">adult | woman | red hair</annotation>
+		<annotation cp="👩‍🦰" type="tts">woman: red hair</annotation>
+		<annotation cp="👩🏻‍🦰">adult | woman | light skin tone | red hair</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">woman: light skin tone, red hair</annotation>
+		<annotation cp="👩🏼‍🦰">adult | woman | medium-light skin tone | red hair</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">woman: medium-light skin tone, red hair</annotation>
+		<annotation cp="👩🏽‍🦰">adult | woman | medium skin tone | red hair</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">woman: medium skin tone, red hair</annotation>
+		<annotation cp="👩🏾‍🦰">adult | woman | medium-dark skin tone | red hair</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">woman: medium-dark skin tone, red hair</annotation>
+		<annotation cp="👩🏿‍🦰">adult | woman | dark skin tone | red hair</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">woman: dark skin tone, red hair</annotation>
+		<annotation cp="👩‍🦱">adult | woman | curly hair</annotation>
+		<annotation cp="👩‍🦱" type="tts">woman: curly hair</annotation>
+		<annotation cp="👩🏻‍🦱">adult | woman | light skin tone | curly hair</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">woman: light skin tone, curly hair</annotation>
+		<annotation cp="👩🏼‍🦱">adult | woman | medium-light skin tone | curly hair</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">woman: medium-light skin tone, curly hair</annotation>
+		<annotation cp="👩🏽‍🦱">adult | woman | medium skin tone | curly hair</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">woman: medium skin tone, curly hair</annotation>
+		<annotation cp="👩🏾‍🦱">adult | woman | medium-dark skin tone | curly hair</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">woman: medium-dark skin tone, curly hair</annotation>
+		<annotation cp="👩🏿‍🦱">adult | woman | dark skin tone | curly hair</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">woman: dark skin tone, curly hair</annotation>
+		<annotation cp="👩‍🦲">adult | woman | bald</annotation>
+		<annotation cp="👩‍🦲" type="tts">woman: bald</annotation>
+		<annotation cp="👩🏻‍🦲">adult | woman | light skin tone | bald</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">woman: light skin tone, bald</annotation>
+		<annotation cp="👩🏼‍🦲">adult | woman | medium-light skin tone | bald</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">woman: medium-light skin tone, bald</annotation>
+		<annotation cp="👩🏽‍🦲">adult | woman | medium skin tone | bald</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">woman: medium skin tone, bald</annotation>
+		<annotation cp="👩🏾‍🦲">adult | woman | medium-dark skin tone | bald</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">woman: medium-dark skin tone, bald</annotation>
+		<annotation cp="👩🏿‍🦲">adult | woman | dark skin tone | bald</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">woman: dark skin tone, bald</annotation>
+		<annotation cp="👩‍🦳">adult | woman | white hair</annotation>
+		<annotation cp="👩‍🦳" type="tts">woman: white hair</annotation>
+		<annotation cp="👩🏻‍🦳">adult | woman | light skin tone | white hair</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">woman: light skin tone, white hair</annotation>
+		<annotation cp="👩🏼‍🦳">adult | woman | medium-light skin tone | white hair</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">woman: medium-light skin tone, white hair</annotation>
+		<annotation cp="👩🏽‍🦳">adult | woman | medium skin tone | white hair</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">woman: medium skin tone, white hair</annotation>
+		<annotation cp="👩🏾‍🦳">adult | woman | medium-dark skin tone | white hair</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">woman: medium-dark skin tone, white hair</annotation>
+		<annotation cp="👩🏿‍🦳">adult | woman | dark skin tone | white hair</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">woman: dark skin tone, white hair</annotation>
+		<annotation cp="🧓🏻">adult | gender-neutral | old | older person | unspecified gender | light skin tone</annotation>
+		<annotation cp="🧓🏻" type="tts">older person: light skin tone</annotation>
+		<annotation cp="🧓🏼">adult | gender-neutral | old | older person | unspecified gender | medium-light skin tone</annotation>
+		<annotation cp="🧓🏼" type="tts">older person: medium-light skin tone</annotation>
+		<annotation cp="🧓🏽">adult | gender-neutral | old | older person | unspecified gender | medium skin tone</annotation>
+		<annotation cp="🧓🏽" type="tts">older person: medium skin tone</annotation>
+		<annotation cp="🧓🏾">adult | gender-neutral | old | older person | unspecified gender | medium-dark skin tone</annotation>
+		<annotation cp="🧓🏾" type="tts">older person: medium-dark skin tone</annotation>
+		<annotation cp="🧓🏿">adult | gender-neutral | old | older person | unspecified gender | dark skin tone</annotation>
+		<annotation cp="🧓🏿" type="tts">older person: dark skin tone</annotation>
+		<annotation cp="👴🏻">adult | man | old | light skin tone</annotation>
 		<annotation cp="👴🏻" type="tts">old man: light skin tone</annotation>
-		<annotation cp="👴🏼">man | old | medium-light skin tone</annotation>
+		<annotation cp="👴🏼">adult | man | old | medium-light skin tone</annotation>
 		<annotation cp="👴🏼" type="tts">old man: medium-light skin tone</annotation>
-		<annotation cp="👴🏽">man | old | medium skin tone</annotation>
+		<annotation cp="👴🏽">adult | man | old | medium skin tone</annotation>
 		<annotation cp="👴🏽" type="tts">old man: medium skin tone</annotation>
-		<annotation cp="👴🏾">man | old | medium-dark skin tone</annotation>
+		<annotation cp="👴🏾">adult | man | old | medium-dark skin tone</annotation>
 		<annotation cp="👴🏾" type="tts">old man: medium-dark skin tone</annotation>
-		<annotation cp="👴🏿">man | old | dark skin tone</annotation>
+		<annotation cp="👴🏿">adult | man | old | dark skin tone</annotation>
 		<annotation cp="👴🏿" type="tts">old man: dark skin tone</annotation>
-		<annotation cp="👵🏻">old | woman | light skin tone</annotation>
+		<annotation cp="👵🏻">adult | old | woman | light skin tone</annotation>
 		<annotation cp="👵🏻" type="tts">old woman: light skin tone</annotation>
-		<annotation cp="👵🏼">old | woman | medium-light skin tone</annotation>
+		<annotation cp="👵🏼">adult | old | woman | medium-light skin tone</annotation>
 		<annotation cp="👵🏼" type="tts">old woman: medium-light skin tone</annotation>
-		<annotation cp="👵🏽">old | woman | medium skin tone</annotation>
+		<annotation cp="👵🏽">adult | old | woman | medium skin tone</annotation>
 		<annotation cp="👵🏽" type="tts">old woman: medium skin tone</annotation>
-		<annotation cp="👵🏾">old | woman | medium-dark skin tone</annotation>
+		<annotation cp="👵🏾">adult | old | woman | medium-dark skin tone</annotation>
 		<annotation cp="👵🏾" type="tts">old woman: medium-dark skin tone</annotation>
-		<annotation cp="👵🏿">old | woman | dark skin tone</annotation>
+		<annotation cp="👵🏿">adult | old | woman | dark skin tone</annotation>
 		<annotation cp="👵🏿" type="tts">old woman: dark skin tone</annotation>
 		<annotation cp="👨🏻‍⚕">doctor | healthcare | man | man health worker | nurse | therapist | light skin tone</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">man health worker: light skin tone</annotation>
@@ -273,45 +448,45 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">woman factory worker: medium-dark skin tone</annotation>
 		<annotation cp="👩🏿‍🏭">assembly | factory | industrial | woman | worker | dark skin tone</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">woman factory worker: dark skin tone</annotation>
-		<annotation cp="👨🏻‍💼">architect | business | man | man office worker | manager | office | white-collar | light skin tone</annotation>
+		<annotation cp="👨🏻‍💼">architect | business | man | man office worker | manager | white-collar | light skin tone</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">man office worker: light skin tone</annotation>
-		<annotation cp="👨🏼‍💼">architect | business | man | man office worker | manager | office | white-collar | medium-light skin tone</annotation>
+		<annotation cp="👨🏼‍💼">architect | business | man | man office worker | manager | white-collar | medium-light skin tone</annotation>
 		<annotation cp="👨🏼‍💼" type="tts">man office worker: medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍💼">architect | business | man | man office worker | manager | office | white-collar | medium skin tone</annotation>
+		<annotation cp="👨🏽‍💼">architect | business | man | man office worker | manager | white-collar | medium skin tone</annotation>
 		<annotation cp="👨🏽‍💼" type="tts">man office worker: medium skin tone</annotation>
-		<annotation cp="👨🏾‍💼">architect | business | man | man office worker | manager | office | white-collar | medium-dark skin tone</annotation>
+		<annotation cp="👨🏾‍💼">architect | business | man | man office worker | manager | white-collar | medium-dark skin tone</annotation>
 		<annotation cp="👨🏾‍💼" type="tts">man office worker: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍💼">architect | business | man | man office worker | manager | office | white-collar | dark skin tone</annotation>
+		<annotation cp="👨🏿‍💼">architect | business | man | man office worker | manager | white-collar | dark skin tone</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">man office worker: dark skin tone</annotation>
-		<annotation cp="👩🏻‍💼">architect | business | manager | office | white-collar | woman | woman office worker | light skin tone</annotation>
+		<annotation cp="👩🏻‍💼">architect | business | manager | white-collar | woman | woman office worker | light skin tone</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">woman office worker: light skin tone</annotation>
-		<annotation cp="👩🏼‍💼">architect | business | manager | office | white-collar | woman | woman office worker | medium-light skin tone</annotation>
+		<annotation cp="👩🏼‍💼">architect | business | manager | white-collar | woman | woman office worker | medium-light skin tone</annotation>
 		<annotation cp="👩🏼‍💼" type="tts">woman office worker: medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍💼">architect | business | manager | office | white-collar | woman | woman office worker | medium skin tone</annotation>
+		<annotation cp="👩🏽‍💼">architect | business | manager | white-collar | woman | woman office worker | medium skin tone</annotation>
 		<annotation cp="👩🏽‍💼" type="tts">woman office worker: medium skin tone</annotation>
-		<annotation cp="👩🏾‍💼">architect | business | manager | office | white-collar | woman | woman office worker | medium-dark skin tone</annotation>
+		<annotation cp="👩🏾‍💼">architect | business | manager | white-collar | woman | woman office worker | medium-dark skin tone</annotation>
 		<annotation cp="👩🏾‍💼" type="tts">woman office worker: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍💼">architect | business | manager | office | white-collar | woman | woman office worker | dark skin tone</annotation>
+		<annotation cp="👩🏿‍💼">architect | business | manager | white-collar | woman | woman office worker | dark skin tone</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">woman office worker: dark skin tone</annotation>
-		<annotation cp="👨🏻‍🔬">biologist | chemist | engineer | man | mathematician | physicist | scientist | light skin tone</annotation>
+		<annotation cp="👨🏻‍🔬">biologist | chemist | engineer | man | physicist | scientist | light skin tone</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">man scientist: light skin tone</annotation>
-		<annotation cp="👨🏼‍🔬">biologist | chemist | engineer | man | mathematician | physicist | scientist | medium-light skin tone</annotation>
+		<annotation cp="👨🏼‍🔬">biologist | chemist | engineer | man | physicist | scientist | medium-light skin tone</annotation>
 		<annotation cp="👨🏼‍🔬" type="tts">man scientist: medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🔬">biologist | chemist | engineer | man | mathematician | physicist | scientist | medium skin tone</annotation>
+		<annotation cp="👨🏽‍🔬">biologist | chemist | engineer | man | physicist | scientist | medium skin tone</annotation>
 		<annotation cp="👨🏽‍🔬" type="tts">man scientist: medium skin tone</annotation>
-		<annotation cp="👨🏾‍🔬">biologist | chemist | engineer | man | mathematician | physicist | scientist | medium-dark skin tone</annotation>
+		<annotation cp="👨🏾‍🔬">biologist | chemist | engineer | man | physicist | scientist | medium-dark skin tone</annotation>
 		<annotation cp="👨🏾‍🔬" type="tts">man scientist: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🔬">biologist | chemist | engineer | man | mathematician | physicist | scientist | dark skin tone</annotation>
+		<annotation cp="👨🏿‍🔬">biologist | chemist | engineer | man | physicist | scientist | dark skin tone</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">man scientist: dark skin tone</annotation>
-		<annotation cp="👩🏻‍🔬">biologist | chemist | engineer | mathematician | physicist | scientist | woman | light skin tone</annotation>
+		<annotation cp="👩🏻‍🔬">biologist | chemist | engineer | physicist | scientist | woman | light skin tone</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">woman scientist: light skin tone</annotation>
-		<annotation cp="👩🏼‍🔬">biologist | chemist | engineer | mathematician | physicist | scientist | woman | medium-light skin tone</annotation>
+		<annotation cp="👩🏼‍🔬">biologist | chemist | engineer | physicist | scientist | woman | medium-light skin tone</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">woman scientist: medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🔬">biologist | chemist | engineer | mathematician | physicist | scientist | woman | medium skin tone</annotation>
+		<annotation cp="👩🏽‍🔬">biologist | chemist | engineer | physicist | scientist | woman | medium skin tone</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">woman scientist: medium skin tone</annotation>
-		<annotation cp="👩🏾‍🔬">biologist | chemist | engineer | mathematician | physicist | scientist | woman | medium-dark skin tone</annotation>
+		<annotation cp="👩🏾‍🔬">biologist | chemist | engineer | physicist | scientist | woman | medium-dark skin tone</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">woman scientist: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🔬">biologist | chemist | engineer | mathematician | physicist | scientist | woman | dark skin tone</annotation>
+		<annotation cp="👩🏿‍🔬">biologist | chemist | engineer | physicist | scientist | woman | dark skin tone</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">woman scientist: dark skin tone</annotation>
 		<annotation cp="👨🏻‍💻">coder | developer | inventor | man | software | technologist | light skin tone</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">man technologist: light skin tone</annotation>
@@ -623,46 +798,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧕🏾" type="tts">woman with headscarf: medium-dark skin tone</annotation>
 		<annotation cp="🧕🏿">headscarf | hijab | mantilla | tichel | woman with headscarf | dark skin tone</annotation>
 		<annotation cp="🧕🏿" type="tts">woman with headscarf: dark skin tone</annotation>
-		<annotation cp="🧔🏻">beard | bearded person | light skin tone</annotation>
-		<annotation cp="🧔🏻" type="tts">bearded person: light skin tone</annotation>
-		<annotation cp="🧔🏼">beard | bearded person | medium-light skin tone</annotation>
-		<annotation cp="🧔🏼" type="tts">bearded person: medium-light skin tone</annotation>
-		<annotation cp="🧔🏽">beard | bearded person | medium skin tone</annotation>
-		<annotation cp="🧔🏽" type="tts">bearded person: medium skin tone</annotation>
-		<annotation cp="🧔🏾">beard | bearded person | medium-dark skin tone</annotation>
-		<annotation cp="🧔🏾" type="tts">bearded person: medium-dark skin tone</annotation>
-		<annotation cp="🧔🏿">beard | bearded person | dark skin tone</annotation>
-		<annotation cp="🧔🏿" type="tts">bearded person: dark skin tone</annotation>
-		<annotation cp="👱🏻">blond | blond-haired person | light skin tone</annotation>
-		<annotation cp="👱🏻" type="tts">blond-haired person: light skin tone</annotation>
-		<annotation cp="👱🏼">blond | blond-haired person | medium-light skin tone</annotation>
-		<annotation cp="👱🏼" type="tts">blond-haired person: medium-light skin tone</annotation>
-		<annotation cp="👱🏽">blond | blond-haired person | medium skin tone</annotation>
-		<annotation cp="👱🏽" type="tts">blond-haired person: medium skin tone</annotation>
-		<annotation cp="👱🏾">blond | blond-haired person | medium-dark skin tone</annotation>
-		<annotation cp="👱🏾" type="tts">blond-haired person: medium-dark skin tone</annotation>
-		<annotation cp="👱🏿">blond | blond-haired person | dark skin tone</annotation>
-		<annotation cp="👱🏿" type="tts">blond-haired person: dark skin tone</annotation>
-		<annotation cp="👱🏻‍♂">blond | blond-haired man | man | light skin tone</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">blond-haired man: light skin tone</annotation>
-		<annotation cp="👱🏼‍♂">blond | blond-haired man | man | medium-light skin tone</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">blond-haired man: medium-light skin tone</annotation>
-		<annotation cp="👱🏽‍♂">blond | blond-haired man | man | medium skin tone</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">blond-haired man: medium skin tone</annotation>
-		<annotation cp="👱🏾‍♂">blond | blond-haired man | man | medium-dark skin tone</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">blond-haired man: medium-dark skin tone</annotation>
-		<annotation cp="👱🏿‍♂">blond | blond-haired man | man | dark skin tone</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">blond-haired man: dark skin tone</annotation>
-		<annotation cp="👱🏻‍♀">blond-haired woman | blonde | woman | light skin tone</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">blond-haired woman: light skin tone</annotation>
-		<annotation cp="👱🏼‍♀">blond-haired woman | blonde | woman | medium-light skin tone</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">blond-haired woman: medium-light skin tone</annotation>
-		<annotation cp="👱🏽‍♀">blond-haired woman | blonde | woman | medium skin tone</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">blond-haired woman: medium skin tone</annotation>
-		<annotation cp="👱🏾‍♀">blond-haired woman | blonde | woman | medium-dark skin tone</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">blond-haired woman: medium-dark skin tone</annotation>
-		<annotation cp="👱🏿‍♀">blond-haired woman | blonde | woman | dark skin tone</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">blond-haired woman: dark skin tone</annotation>
+		<annotation cp="🧔🏻">beard | man: beard | person | light skin tone</annotation>
+		<annotation cp="🧔🏻" type="tts">man: light skin tone, beard</annotation>
+		<annotation cp="🧔🏼">beard | man: beard | person | medium-light skin tone</annotation>
+		<annotation cp="🧔🏼" type="tts">man: medium-light skin tone, beard</annotation>
+		<annotation cp="🧔🏽">beard | man: beard | person | medium skin tone</annotation>
+		<annotation cp="🧔🏽" type="tts">man: medium skin tone, beard</annotation>
+		<annotation cp="🧔🏾">beard | man: beard | person | medium-dark skin tone</annotation>
+		<annotation cp="🧔🏾" type="tts">man: medium-dark skin tone, beard</annotation>
+		<annotation cp="🧔🏿">beard | man: beard | person | dark skin tone</annotation>
+		<annotation cp="🧔🏿" type="tts">man: dark skin tone, beard</annotation>
+		<annotation cp="👱🏻">blond | blond-haired person | person: blond hair | light skin tone | blond hair</annotation>
+		<annotation cp="👱🏻" type="tts">person: light skin tone, blond hair</annotation>
+		<annotation cp="👱🏼">blond | blond-haired person | person: blond hair | medium-light skin tone | blond hair</annotation>
+		<annotation cp="👱🏼" type="tts">person: medium-light skin tone, blond hair</annotation>
+		<annotation cp="👱🏽">blond | blond-haired person | person: blond hair | medium skin tone | blond hair</annotation>
+		<annotation cp="👱🏽" type="tts">person: medium skin tone, blond hair</annotation>
+		<annotation cp="👱🏾">blond | blond-haired person | person: blond hair | medium-dark skin tone | blond hair</annotation>
+		<annotation cp="👱🏾" type="tts">person: medium-dark skin tone, blond hair</annotation>
+		<annotation cp="👱🏿">blond | blond-haired person | person: blond hair | dark skin tone | blond hair</annotation>
+		<annotation cp="👱🏿" type="tts">person: dark skin tone, blond hair</annotation>
+		<annotation cp="👱🏻‍♂">blond | blond-haired man | man | man: blond hair | light skin tone | blond hair</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">man: light skin tone, blond hair</annotation>
+		<annotation cp="👱🏼‍♂">blond | blond-haired man | man | man: blond hair | medium-light skin tone | blond hair</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">man: medium-light skin tone, blond hair</annotation>
+		<annotation cp="👱🏽‍♂">blond | blond-haired man | man | man: blond hair | medium skin tone | blond hair</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">man: medium skin tone, blond hair</annotation>
+		<annotation cp="👱🏾‍♂">blond | blond-haired man | man | man: blond hair | medium-dark skin tone | blond hair</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">man: medium-dark skin tone, blond hair</annotation>
+		<annotation cp="👱🏿‍♂">blond | blond-haired man | man | man: blond hair | dark skin tone | blond hair</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">man: dark skin tone, blond hair</annotation>
+		<annotation cp="👱🏻‍♀">blond-haired woman | blonde | woman | woman: blond hair | light skin tone | blond hair</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">woman: light skin tone, blond hair</annotation>
+		<annotation cp="👱🏼‍♀">blond-haired woman | blonde | woman | woman: blond hair | medium-light skin tone | blond hair</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">woman: medium-light skin tone, blond hair</annotation>
+		<annotation cp="👱🏽‍♀">blond-haired woman | blonde | woman | woman: blond hair | medium skin tone | blond hair</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">woman: medium skin tone, blond hair</annotation>
+		<annotation cp="👱🏾‍♀">blond-haired woman | blonde | woman | woman: blond hair | medium-dark skin tone | blond hair</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">woman: medium-dark skin tone, blond hair</annotation>
+		<annotation cp="👱🏿‍♀">blond-haired woman | blonde | woman | woman: blond hair | dark skin tone | blond hair</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">woman: dark skin tone, blond hair</annotation>
 		<annotation cp="🤵🏻">groom | man | man in tuxedo | tuxedo | light skin tone</annotation>
 		<annotation cp="🤵🏻" type="tts">man in tuxedo: light skin tone</annotation>
 		<annotation cp="🤵🏼">groom | man | man in tuxedo | tuxedo | medium-light skin tone</annotation>
@@ -943,35 +1118,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙎🏾‍♀" type="tts">woman pouting: medium-dark skin tone</annotation>
 		<annotation cp="🙎🏿‍♀">gesture | pouting | woman | dark skin tone</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">woman pouting: dark skin tone</annotation>
-		<annotation cp="🙅🏻">forbidden | gesture | hand | no | not | person gesturing NO | prohibited | light skin tone</annotation>
+		<annotation cp="🙅🏻">forbidden | gesture | hand | person gesturing NO | prohibited | light skin tone</annotation>
 		<annotation cp="🙅🏻" type="tts">person gesturing NO: light skin tone</annotation>
-		<annotation cp="🙅🏼">forbidden | gesture | hand | no | not | person gesturing NO | prohibited | medium-light skin tone</annotation>
+		<annotation cp="🙅🏼">forbidden | gesture | hand | person gesturing NO | prohibited | medium-light skin tone</annotation>
 		<annotation cp="🙅🏼" type="tts">person gesturing NO: medium-light skin tone</annotation>
-		<annotation cp="🙅🏽">forbidden | gesture | hand | no | not | person gesturing NO | prohibited | medium skin tone</annotation>
+		<annotation cp="🙅🏽">forbidden | gesture | hand | person gesturing NO | prohibited | medium skin tone</annotation>
 		<annotation cp="🙅🏽" type="tts">person gesturing NO: medium skin tone</annotation>
-		<annotation cp="🙅🏾">forbidden | gesture | hand | no | not | person gesturing NO | prohibited | medium-dark skin tone</annotation>
+		<annotation cp="🙅🏾">forbidden | gesture | hand | person gesturing NO | prohibited | medium-dark skin tone</annotation>
 		<annotation cp="🙅🏾" type="tts">person gesturing NO: medium-dark skin tone</annotation>
-		<annotation cp="🙅🏿">forbidden | gesture | hand | no | not | person gesturing NO | prohibited | dark skin tone</annotation>
+		<annotation cp="🙅🏿">forbidden | gesture | hand | person gesturing NO | prohibited | dark skin tone</annotation>
 		<annotation cp="🙅🏿" type="tts">person gesturing NO: dark skin tone</annotation>
-		<annotation cp="🙅🏻‍♂">forbidden | gesture | hand | man | man gesturing NO | no | prohibited | light skin tone</annotation>
+		<annotation cp="🙅🏻‍♂">forbidden | gesture | hand | man | man gesturing NO | prohibited | light skin tone</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">man gesturing NO: light skin tone</annotation>
-		<annotation cp="🙅🏼‍♂">forbidden | gesture | hand | man | man gesturing NO | no | prohibited | medium-light skin tone</annotation>
+		<annotation cp="🙅🏼‍♂">forbidden | gesture | hand | man | man gesturing NO | prohibited | medium-light skin tone</annotation>
 		<annotation cp="🙅🏼‍♂" type="tts">man gesturing NO: medium-light skin tone</annotation>
-		<annotation cp="🙅🏽‍♂">forbidden | gesture | hand | man | man gesturing NO | no | prohibited | medium skin tone</annotation>
+		<annotation cp="🙅🏽‍♂">forbidden | gesture | hand | man | man gesturing NO | prohibited | medium skin tone</annotation>
 		<annotation cp="🙅🏽‍♂" type="tts">man gesturing NO: medium skin tone</annotation>
-		<annotation cp="🙅🏾‍♂">forbidden | gesture | hand | man | man gesturing NO | no | prohibited | medium-dark skin tone</annotation>
+		<annotation cp="🙅🏾‍♂">forbidden | gesture | hand | man | man gesturing NO | prohibited | medium-dark skin tone</annotation>
 		<annotation cp="🙅🏾‍♂" type="tts">man gesturing NO: medium-dark skin tone</annotation>
-		<annotation cp="🙅🏿‍♂">forbidden | gesture | hand | man | man gesturing NO | no | prohibited | dark skin tone</annotation>
+		<annotation cp="🙅🏿‍♂">forbidden | gesture | hand | man | man gesturing NO | prohibited | dark skin tone</annotation>
 		<annotation cp="🙅🏿‍♂" type="tts">man gesturing NO: dark skin tone</annotation>
-		<annotation cp="🙅🏻‍♀">forbidden | gesture | hand | no | prohibited | woman | woman gesturing NO | light skin tone</annotation>
+		<annotation cp="🙅🏻‍♀">forbidden | gesture | hand | prohibited | woman | woman gesturing NO | light skin tone</annotation>
 		<annotation cp="🙅🏻‍♀" type="tts">woman gesturing NO: light skin tone</annotation>
-		<annotation cp="🙅🏼‍♀">forbidden | gesture | hand | no | prohibited | woman | woman gesturing NO | medium-light skin tone</annotation>
+		<annotation cp="🙅🏼‍♀">forbidden | gesture | hand | prohibited | woman | woman gesturing NO | medium-light skin tone</annotation>
 		<annotation cp="🙅🏼‍♀" type="tts">woman gesturing NO: medium-light skin tone</annotation>
-		<annotation cp="🙅🏽‍♀">forbidden | gesture | hand | no | prohibited | woman | woman gesturing NO | medium skin tone</annotation>
+		<annotation cp="🙅🏽‍♀">forbidden | gesture | hand | prohibited | woman | woman gesturing NO | medium skin tone</annotation>
 		<annotation cp="🙅🏽‍♀" type="tts">woman gesturing NO: medium skin tone</annotation>
-		<annotation cp="🙅🏾‍♀">forbidden | gesture | hand | no | prohibited | woman | woman gesturing NO | medium-dark skin tone</annotation>
+		<annotation cp="🙅🏾‍♀">forbidden | gesture | hand | prohibited | woman | woman gesturing NO | medium-dark skin tone</annotation>
 		<annotation cp="🙅🏾‍♀" type="tts">woman gesturing NO: medium-dark skin tone</annotation>
-		<annotation cp="🙅🏿‍♀">forbidden | gesture | hand | no | prohibited | woman | woman gesturing NO | dark skin tone</annotation>
+		<annotation cp="🙅🏿‍♀">forbidden | gesture | hand | prohibited | woman | woman gesturing NO | dark skin tone</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">woman gesturing NO: dark skin tone</annotation>
 		<annotation cp="🙆🏻">OK | gesture | hand | person gesturing OK | light skin tone</annotation>
 		<annotation cp="🙆🏻" type="tts">person gesturing OK: light skin tone</annotation>
@@ -1905,15 +2080,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="☝🏾" type="tts">index pointing up: medium-dark skin tone</annotation>
 		<annotation cp="☝🏿">finger | hand | index | index pointing up | point | up | dark skin tone</annotation>
 		<annotation cp="☝🏿" type="tts">index pointing up: dark skin tone</annotation>
-		<annotation cp="👆🏻">backhand | backhand index pointing up | finger | hand | index | point | up | light skin tone</annotation>
+		<annotation cp="👆🏻">backhand | backhand index pointing up | finger | hand | point | up | light skin tone</annotation>
 		<annotation cp="👆🏻" type="tts">backhand index pointing up: light skin tone</annotation>
-		<annotation cp="👆🏼">backhand | backhand index pointing up | finger | hand | index | point | up | medium-light skin tone</annotation>
+		<annotation cp="👆🏼">backhand | backhand index pointing up | finger | hand | point | up | medium-light skin tone</annotation>
 		<annotation cp="👆🏼" type="tts">backhand index pointing up: medium-light skin tone</annotation>
-		<annotation cp="👆🏽">backhand | backhand index pointing up | finger | hand | index | point | up | medium skin tone</annotation>
+		<annotation cp="👆🏽">backhand | backhand index pointing up | finger | hand | point | up | medium skin tone</annotation>
 		<annotation cp="👆🏽" type="tts">backhand index pointing up: medium skin tone</annotation>
-		<annotation cp="👆🏾">backhand | backhand index pointing up | finger | hand | index | point | up | medium-dark skin tone</annotation>
+		<annotation cp="👆🏾">backhand | backhand index pointing up | finger | hand | point | up | medium-dark skin tone</annotation>
 		<annotation cp="👆🏾" type="tts">backhand index pointing up: medium-dark skin tone</annotation>
-		<annotation cp="👆🏿">backhand | backhand index pointing up | finger | hand | index | point | up | dark skin tone</annotation>
+		<annotation cp="👆🏿">backhand | backhand index pointing up | finger | hand | point | up | dark skin tone</annotation>
 		<annotation cp="👆🏿" type="tts">backhand index pointing up: dark skin tone</annotation>
 		<annotation cp="🖕🏻">finger | hand | middle finger | light skin tone</annotation>
 		<annotation cp="🖕🏻" type="tts">middle finger: light skin tone</annotation>
@@ -1925,15 +2100,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🖕🏾" type="tts">middle finger: medium-dark skin tone</annotation>
 		<annotation cp="🖕🏿">finger | hand | middle finger | dark skin tone</annotation>
 		<annotation cp="🖕🏿" type="tts">middle finger: dark skin tone</annotation>
-		<annotation cp="👇🏻">backhand | backhand index pointing down | down | finger | hand | index | point | light skin tone</annotation>
+		<annotation cp="👇🏻">backhand | backhand index pointing down | down | finger | hand | point | light skin tone</annotation>
 		<annotation cp="👇🏻" type="tts">backhand index pointing down: light skin tone</annotation>
-		<annotation cp="👇🏼">backhand | backhand index pointing down | down | finger | hand | index | point | medium-light skin tone</annotation>
+		<annotation cp="👇🏼">backhand | backhand index pointing down | down | finger | hand | point | medium-light skin tone</annotation>
 		<annotation cp="👇🏼" type="tts">backhand index pointing down: medium-light skin tone</annotation>
-		<annotation cp="👇🏽">backhand | backhand index pointing down | down | finger | hand | index | point | medium skin tone</annotation>
+		<annotation cp="👇🏽">backhand | backhand index pointing down | down | finger | hand | point | medium skin tone</annotation>
 		<annotation cp="👇🏽" type="tts">backhand index pointing down: medium skin tone</annotation>
-		<annotation cp="👇🏾">backhand | backhand index pointing down | down | finger | hand | index | point | medium-dark skin tone</annotation>
+		<annotation cp="👇🏾">backhand | backhand index pointing down | down | finger | hand | point | medium-dark skin tone</annotation>
 		<annotation cp="👇🏾" type="tts">backhand index pointing down: medium-dark skin tone</annotation>
-		<annotation cp="👇🏿">backhand | backhand index pointing down | down | finger | hand | index | point | dark skin tone</annotation>
+		<annotation cp="👇🏿">backhand | backhand index pointing down | down | finger | hand | point | dark skin tone</annotation>
 		<annotation cp="👇🏿" type="tts">backhand index pointing down: dark skin tone</annotation>
 		<annotation cp="✌🏻">hand | v | victory | light skin tone</annotation>
 		<annotation cp="✌🏻" type="tts">victory hand: light skin tone</annotation>
@@ -2155,15 +2330,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤲🏾" type="tts">palms up together: medium-dark skin tone</annotation>
 		<annotation cp="🤲🏿">palms up together | prayer | dark skin tone</annotation>
 		<annotation cp="🤲🏿" type="tts">palms up together: dark skin tone</annotation>
-		<annotation cp="🙏🏻">ask | bow | folded | folded hands | gesture | hand | please | pray | thanks | light skin tone</annotation>
+		<annotation cp="🙏🏻">ask | folded hands | hand | please | pray | thanks | light skin tone</annotation>
 		<annotation cp="🙏🏻" type="tts">folded hands: light skin tone</annotation>
-		<annotation cp="🙏🏼">ask | bow | folded | folded hands | gesture | hand | please | pray | thanks | medium-light skin tone</annotation>
+		<annotation cp="🙏🏼">ask | folded hands | hand | please | pray | thanks | medium-light skin tone</annotation>
 		<annotation cp="🙏🏼" type="tts">folded hands: medium-light skin tone</annotation>
-		<annotation cp="🙏🏽">ask | bow | folded | folded hands | gesture | hand | please | pray | thanks | medium skin tone</annotation>
+		<annotation cp="🙏🏽">ask | folded hands | hand | please | pray | thanks | medium skin tone</annotation>
 		<annotation cp="🙏🏽" type="tts">folded hands: medium skin tone</annotation>
-		<annotation cp="🙏🏾">ask | bow | folded | folded hands | gesture | hand | please | pray | thanks | medium-dark skin tone</annotation>
+		<annotation cp="🙏🏾">ask | folded hands | hand | please | pray | thanks | medium-dark skin tone</annotation>
 		<annotation cp="🙏🏾" type="tts">folded hands: medium-dark skin tone</annotation>
-		<annotation cp="🙏🏿">ask | bow | folded | folded hands | gesture | hand | please | pray | thanks | dark skin tone</annotation>
+		<annotation cp="🙏🏿">ask | folded hands | hand | please | pray | thanks | dark skin tone</annotation>
 		<annotation cp="🙏🏿" type="tts">folded hands: dark skin tone</annotation>
 		<annotation cp="💅🏻">care | cosmetics | manicure | nail | polish | light skin tone</annotation>
 		<annotation cp="💅🏻" type="tts">nail polish: light skin tone</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">keycap</annotation>
 		<annotation cp="🔟" type="tts">keycap: 10</annotation>
 		<annotation cp="🇦🇨">flag</annotation>
-		<annotation cp="🇦🇨" type="tts">Ascension Island</annotation>
+		<annotation cp="🇦🇨" type="tts">flag: Ascension Island</annotation>
 		<annotation cp="🇦🇩">flag</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">flag: Andorra</annotation>
 		<annotation cp="🇦🇪">flag</annotation>
-		<annotation cp="🇦🇪" type="tts">United Arab Emirates</annotation>
+		<annotation cp="🇦🇪" type="tts">flag: United Arab Emirates</annotation>
 		<annotation cp="🇦🇫">flag</annotation>
-		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇫" type="tts">flag: Afghanistan</annotation>
 		<annotation cp="🇦🇬">flag</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua &amp; Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">flag: Antigua &amp; Barbuda</annotation>
 		<annotation cp="🇦🇮">flag</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">flag: Anguilla</annotation>
 		<annotation cp="🇦🇱">flag</annotation>
-		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇱" type="tts">flag: Albania</annotation>
 		<annotation cp="🇦🇲">flag</annotation>
-		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇲" type="tts">flag: Armenia</annotation>
 		<annotation cp="🇦🇴">flag</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">flag: Angola</annotation>
 		<annotation cp="🇦🇶">flag</annotation>
-		<annotation cp="🇦🇶" type="tts">Antarctica</annotation>
+		<annotation cp="🇦🇶" type="tts">flag: Antarctica</annotation>
 		<annotation cp="🇦🇷">flag</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇷" type="tts">flag: Argentina</annotation>
 		<annotation cp="🇦🇸">flag</annotation>
-		<annotation cp="🇦🇸" type="tts">American Samoa</annotation>
+		<annotation cp="🇦🇸" type="tts">flag: American Samoa</annotation>
 		<annotation cp="🇦🇹">flag</annotation>
-		<annotation cp="🇦🇹" type="tts">Austria</annotation>
+		<annotation cp="🇦🇹" type="tts">flag: Austria</annotation>
 		<annotation cp="🇦🇺">flag</annotation>
-		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇺" type="tts">flag: Australia</annotation>
 		<annotation cp="🇦🇼">flag</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">flag: Aruba</annotation>
 		<annotation cp="🇦🇽">flag</annotation>
-		<annotation cp="🇦🇽" type="tts">Åland Islands</annotation>
+		<annotation cp="🇦🇽" type="tts">flag: Åland Islands</annotation>
 		<annotation cp="🇦🇿">flag</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbaijan</annotation>
+		<annotation cp="🇦🇿" type="tts">flag: Azerbaijan</annotation>
 		<annotation cp="🇧🇦">flag</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnia &amp; Herzegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">flag: Bosnia &amp; Herzegovina</annotation>
 		<annotation cp="🇧🇧">flag</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">flag: Barbados</annotation>
 		<annotation cp="🇧🇩">flag</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">flag: Bangladesh</annotation>
 		<annotation cp="🇧🇪">flag</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgium</annotation>
+		<annotation cp="🇧🇪" type="tts">flag: Belgium</annotation>
 		<annotation cp="🇧🇫">flag</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">flag: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">flag</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgaria</annotation>
+		<annotation cp="🇧🇬" type="tts">flag: Bulgaria</annotation>
 		<annotation cp="🇧🇭">flag</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇭" type="tts">flag: Bahrain</annotation>
 		<annotation cp="🇧🇮">flag</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">flag: Burundi</annotation>
 		<annotation cp="🇧🇯">flag</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">flag: Benin</annotation>
 		<annotation cp="🇧🇱">flag</annotation>
-		<annotation cp="🇧🇱" type="tts">St. Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">flag: St. Barthélemy</annotation>
 		<annotation cp="🇧🇲">flag</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">flag: Bermuda</annotation>
 		<annotation cp="🇧🇳">flag</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">flag: Brunei</annotation>
 		<annotation cp="🇧🇴">flag</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇴" type="tts">flag: Bolivia</annotation>
 		<annotation cp="🇧🇶">flag</annotation>
-		<annotation cp="🇧🇶" type="tts">Caribbean Netherlands</annotation>
+		<annotation cp="🇧🇶" type="tts">flag: Caribbean Netherlands</annotation>
 		<annotation cp="🇧🇷">flag</annotation>
-		<annotation cp="🇧🇷" type="tts">Brazil</annotation>
+		<annotation cp="🇧🇷" type="tts">flag: Brazil</annotation>
 		<annotation cp="🇧🇸">flag</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇸" type="tts">flag: Bahamas</annotation>
 		<annotation cp="🇧🇹">flag</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">flag: Bhutan</annotation>
 		<annotation cp="🇧🇻">flag</annotation>
-		<annotation cp="🇧🇻" type="tts">Bouvet Island</annotation>
+		<annotation cp="🇧🇻" type="tts">flag: Bouvet Island</annotation>
 		<annotation cp="🇧🇼">flag</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">flag: Botswana</annotation>
 		<annotation cp="🇧🇾">flag</annotation>
-		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
+		<annotation cp="🇧🇾" type="tts">flag: Belarus</annotation>
 		<annotation cp="🇧🇿">flag</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">flag: Belize</annotation>
 		<annotation cp="🇨🇦">flag</annotation>
-		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇦" type="tts">flag: Canada</annotation>
 		<annotation cp="🇨🇨">flag</annotation>
-		<annotation cp="🇨🇨" type="tts">Cocos (Keeling) Islands</annotation>
+		<annotation cp="🇨🇨" type="tts">flag: Cocos (Keeling) Islands</annotation>
 		<annotation cp="🇨🇩">flag</annotation>
-		<annotation cp="🇨🇩" type="tts">Congo - Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">flag: Congo - Kinshasa</annotation>
 		<annotation cp="🇨🇫">flag</annotation>
-		<annotation cp="🇨🇫" type="tts">Central African Republic</annotation>
+		<annotation cp="🇨🇫" type="tts">flag: Central African Republic</annotation>
 		<annotation cp="🇨🇬">flag</annotation>
-		<annotation cp="🇨🇬" type="tts">Congo - Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">flag: Congo - Brazzaville</annotation>
 		<annotation cp="🇨🇭">flag</annotation>
-		<annotation cp="🇨🇭" type="tts">Switzerland</annotation>
+		<annotation cp="🇨🇭" type="tts">flag: Switzerland</annotation>
 		<annotation cp="🇨🇮">flag</annotation>
-		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇮" type="tts">flag: Côte d’Ivoire</annotation>
 		<annotation cp="🇨🇰">flag</annotation>
-		<annotation cp="🇨🇰" type="tts">Cook Islands</annotation>
+		<annotation cp="🇨🇰" type="tts">flag: Cook Islands</annotation>
 		<annotation cp="🇨🇱">flag</annotation>
-		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇱" type="tts">flag: Chile</annotation>
 		<annotation cp="🇨🇲">flag</annotation>
-		<annotation cp="🇨🇲" type="tts">Cameroon</annotation>
+		<annotation cp="🇨🇲" type="tts">flag: Cameroon</annotation>
 		<annotation cp="🇨🇳">flag</annotation>
-		<annotation cp="🇨🇳" type="tts">China</annotation>
+		<annotation cp="🇨🇳" type="tts">flag: China</annotation>
 		<annotation cp="🇨🇴">flag</annotation>
-		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇴" type="tts">flag: Colombia</annotation>
 		<annotation cp="🇨🇵">flag</annotation>
-		<annotation cp="🇨🇵" type="tts">Clipperton Island</annotation>
+		<annotation cp="🇨🇵" type="tts">flag: Clipperton Island</annotation>
 		<annotation cp="🇨🇷">flag</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">flag: Costa Rica</annotation>
 		<annotation cp="🇨🇺">flag</annotation>
-		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇺" type="tts">flag: Cuba</annotation>
 		<annotation cp="🇨🇻">flag</annotation>
-		<annotation cp="🇨🇻" type="tts">Cape Verde</annotation>
+		<annotation cp="🇨🇻" type="tts">flag: Cape Verde</annotation>
 		<annotation cp="🇨🇼">flag</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">flag: Curaçao</annotation>
 		<annotation cp="🇨🇽">flag</annotation>
-		<annotation cp="🇨🇽" type="tts">Christmas Island</annotation>
+		<annotation cp="🇨🇽" type="tts">flag: Christmas Island</annotation>
 		<annotation cp="🇨🇾">flag</annotation>
-		<annotation cp="🇨🇾" type="tts">Cyprus</annotation>
+		<annotation cp="🇨🇾" type="tts">flag: Cyprus</annotation>
 		<annotation cp="🇨🇿">flag</annotation>
-		<annotation cp="🇨🇿" type="tts">Czechia</annotation>
+		<annotation cp="🇨🇿" type="tts">flag: Czechia</annotation>
 		<annotation cp="🇩🇪">flag</annotation>
-		<annotation cp="🇩🇪" type="tts">Germany</annotation>
+		<annotation cp="🇩🇪" type="tts">flag: Germany</annotation>
 		<annotation cp="🇩🇬">flag</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">flag: Diego Garcia</annotation>
 		<annotation cp="🇩🇯">flag</annotation>
-		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇯" type="tts">flag: Djibouti</annotation>
 		<annotation cp="🇩🇰">flag</annotation>
-		<annotation cp="🇩🇰" type="tts">Denmark</annotation>
+		<annotation cp="🇩🇰" type="tts">flag: Denmark</annotation>
 		<annotation cp="🇩🇲">flag</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇲" type="tts">flag: Dominica</annotation>
 		<annotation cp="🇩🇴">flag</annotation>
-		<annotation cp="🇩🇴" type="tts">Dominican Republic</annotation>
+		<annotation cp="🇩🇴" type="tts">flag: Dominican Republic</annotation>
 		<annotation cp="🇩🇿">flag</annotation>
-		<annotation cp="🇩🇿" type="tts">Algeria</annotation>
+		<annotation cp="🇩🇿" type="tts">flag: Algeria</annotation>
 		<annotation cp="🇪🇦">flag</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta &amp; Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">flag: Ceuta &amp; Melilla</annotation>
 		<annotation cp="🇪🇨">flag</annotation>
-		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">flag: Ecuador</annotation>
 		<annotation cp="🇪🇪">flag</annotation>
-		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇪" type="tts">flag: Estonia</annotation>
 		<annotation cp="🇪🇬">flag</annotation>
-		<annotation cp="🇪🇬" type="tts">Egypt</annotation>
+		<annotation cp="🇪🇬" type="tts">flag: Egypt</annotation>
 		<annotation cp="🇪🇭">flag</annotation>
-		<annotation cp="🇪🇭" type="tts">Western Sahara</annotation>
+		<annotation cp="🇪🇭" type="tts">flag: Western Sahara</annotation>
 		<annotation cp="🇪🇷">flag</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">flag: Eritrea</annotation>
 		<annotation cp="🇪🇸">flag</annotation>
-		<annotation cp="🇪🇸" type="tts">Spain</annotation>
+		<annotation cp="🇪🇸" type="tts">flag: Spain</annotation>
 		<annotation cp="🇪🇹">flag</annotation>
-		<annotation cp="🇪🇹" type="tts">Ethiopia</annotation>
+		<annotation cp="🇪🇹" type="tts">flag: Ethiopia</annotation>
 		<annotation cp="🇪🇺">flag</annotation>
-		<annotation cp="🇪🇺" type="tts">European Union</annotation>
+		<annotation cp="🇪🇺" type="tts">flag: European Union</annotation>
 		<annotation cp="🇫🇮">flag</annotation>
-		<annotation cp="🇫🇮" type="tts">Finland</annotation>
+		<annotation cp="🇫🇮" type="tts">flag: Finland</annotation>
 		<annotation cp="🇫🇯">flag</annotation>
-		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇯" type="tts">flag: Fiji</annotation>
 		<annotation cp="🇫🇰">flag</annotation>
-		<annotation cp="🇫🇰" type="tts">Falkland Islands</annotation>
+		<annotation cp="🇫🇰" type="tts">flag: Falkland Islands</annotation>
 		<annotation cp="🇫🇲">flag</annotation>
-		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">flag: Micronesia</annotation>
 		<annotation cp="🇫🇴">flag</annotation>
-		<annotation cp="🇫🇴" type="tts">Faroe Islands</annotation>
+		<annotation cp="🇫🇴" type="tts">flag: Faroe Islands</annotation>
 		<annotation cp="🇫🇷">flag</annotation>
-		<annotation cp="🇫🇷" type="tts">France</annotation>
+		<annotation cp="🇫🇷" type="tts">flag: France</annotation>
 		<annotation cp="🇬🇦">flag</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">flag: Gabon</annotation>
 		<annotation cp="🇬🇧">flag</annotation>
-		<annotation cp="🇬🇧" type="tts">United Kingdom</annotation>
+		<annotation cp="🇬🇧" type="tts">flag: United Kingdom</annotation>
 		<annotation cp="🇬🇩">flag</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">flag: Grenada</annotation>
 		<annotation cp="🇬🇪">flag</annotation>
-		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇪" type="tts">flag: Georgia</annotation>
 		<annotation cp="🇬🇫">flag</annotation>
-		<annotation cp="🇬🇫" type="tts">French Guiana</annotation>
+		<annotation cp="🇬🇫" type="tts">flag: French Guiana</annotation>
 		<annotation cp="🇬🇬">flag</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">flag: Guernsey</annotation>
 		<annotation cp="🇬🇭">flag</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">flag: Ghana</annotation>
 		<annotation cp="🇬🇮">flag</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇮" type="tts">flag: Gibraltar</annotation>
 		<annotation cp="🇬🇱">flag</annotation>
-		<annotation cp="🇬🇱" type="tts">Greenland</annotation>
+		<annotation cp="🇬🇱" type="tts">flag: Greenland</annotation>
 		<annotation cp="🇬🇲">flag</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">flag: Gambia</annotation>
 		<annotation cp="🇬🇳">flag</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇳" type="tts">flag: Guinea</annotation>
 		<annotation cp="🇬🇵">flag</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">flag: Guadeloupe</annotation>
 		<annotation cp="🇬🇶">flag</annotation>
-		<annotation cp="🇬🇶" type="tts">Equatorial Guinea</annotation>
+		<annotation cp="🇬🇶" type="tts">flag: Equatorial Guinea</annotation>
 		<annotation cp="🇬🇷">flag</annotation>
-		<annotation cp="🇬🇷" type="tts">Greece</annotation>
+		<annotation cp="🇬🇷" type="tts">flag: Greece</annotation>
 		<annotation cp="🇬🇸">flag</annotation>
-		<annotation cp="🇬🇸" type="tts">South Georgia &amp; South Sandwich Islands</annotation>
+		<annotation cp="🇬🇸" type="tts">flag: South Georgia &amp; South Sandwich Islands</annotation>
 		<annotation cp="🇬🇹">flag</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">flag: Guatemala</annotation>
 		<annotation cp="🇬🇺">flag</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">flag: Guam</annotation>
 		<annotation cp="🇬🇼">flag</annotation>
-		<annotation cp="🇬🇼" type="tts">Guinea-Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">flag: Guinea-Bissau</annotation>
 		<annotation cp="🇬🇾">flag</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">flag: Guyana</annotation>
 		<annotation cp="🇭🇰">flag</annotation>
-		<annotation cp="🇭🇰" type="tts">Hong Kong SAR China</annotation>
+		<annotation cp="🇭🇰" type="tts">flag: Hong Kong SAR China</annotation>
 		<annotation cp="🇭🇲">flag</annotation>
-		<annotation cp="🇭🇲" type="tts">Heard &amp; McDonald Islands</annotation>
+		<annotation cp="🇭🇲" type="tts">flag: Heard &amp; McDonald Islands</annotation>
 		<annotation cp="🇭🇳">flag</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">flag: Honduras</annotation>
 		<annotation cp="🇭🇷">flag</annotation>
-		<annotation cp="🇭🇷" type="tts">Croatia</annotation>
+		<annotation cp="🇭🇷" type="tts">flag: Croatia</annotation>
 		<annotation cp="🇭🇹">flag</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">flag: Haiti</annotation>
 		<annotation cp="🇭🇺">flag</annotation>
-		<annotation cp="🇭🇺" type="tts">Hungary</annotation>
+		<annotation cp="🇭🇺" type="tts">flag: Hungary</annotation>
 		<annotation cp="🇮🇨">flag</annotation>
-		<annotation cp="🇮🇨" type="tts">Canary Islands</annotation>
+		<annotation cp="🇮🇨" type="tts">flag: Canary Islands</annotation>
 		<annotation cp="🇮🇩">flag</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇩" type="tts">flag: Indonesia</annotation>
 		<annotation cp="🇮🇪">flag</annotation>
-		<annotation cp="🇮🇪" type="tts">Ireland</annotation>
+		<annotation cp="🇮🇪" type="tts">flag: Ireland</annotation>
 		<annotation cp="🇮🇱">flag</annotation>
-		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇱" type="tts">flag: Israel</annotation>
 		<annotation cp="🇮🇲">flag</annotation>
-		<annotation cp="🇮🇲" type="tts">Isle of Man</annotation>
+		<annotation cp="🇮🇲" type="tts">flag: Isle of Man</annotation>
 		<annotation cp="🇮🇳">flag</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">flag: India</annotation>
 		<annotation cp="🇮🇴">flag</annotation>
-		<annotation cp="🇮🇴" type="tts">British Indian Ocean Territory</annotation>
+		<annotation cp="🇮🇴" type="tts">flag: British Indian Ocean Territory</annotation>
 		<annotation cp="🇮🇶">flag</annotation>
-		<annotation cp="🇮🇶" type="tts">Iraq</annotation>
+		<annotation cp="🇮🇶" type="tts">flag: Iraq</annotation>
 		<annotation cp="🇮🇷">flag</annotation>
-		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">flag: Iran</annotation>
 		<annotation cp="🇮🇸">flag</annotation>
-		<annotation cp="🇮🇸" type="tts">Iceland</annotation>
+		<annotation cp="🇮🇸" type="tts">flag: Iceland</annotation>
 		<annotation cp="🇮🇹">flag</annotation>
-		<annotation cp="🇮🇹" type="tts">Italy</annotation>
+		<annotation cp="🇮🇹" type="tts">flag: Italy</annotation>
 		<annotation cp="🇯🇪">flag</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">flag: Jersey</annotation>
 		<annotation cp="🇯🇲">flag</annotation>
-		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">flag: Jamaica</annotation>
 		<annotation cp="🇯🇴">flag</annotation>
-		<annotation cp="🇯🇴" type="tts">Jordan</annotation>
+		<annotation cp="🇯🇴" type="tts">flag: Jordan</annotation>
 		<annotation cp="🇯🇵">flag</annotation>
-		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇯🇵" type="tts">flag: Japan</annotation>
 		<annotation cp="🇰🇪">flag</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇪" type="tts">flag: Kenya</annotation>
 		<annotation cp="🇰🇬">flag</annotation>
-		<annotation cp="🇰🇬" type="tts">Kyrgyzstan</annotation>
+		<annotation cp="🇰🇬" type="tts">flag: Kyrgyzstan</annotation>
 		<annotation cp="🇰🇭">flag</annotation>
-		<annotation cp="🇰🇭" type="tts">Cambodia</annotation>
+		<annotation cp="🇰🇭" type="tts">flag: Cambodia</annotation>
 		<annotation cp="🇰🇮">flag</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">flag: Kiribati</annotation>
 		<annotation cp="🇰🇲">flag</annotation>
-		<annotation cp="🇰🇲" type="tts">Comoros</annotation>
+		<annotation cp="🇰🇲" type="tts">flag: Comoros</annotation>
 		<annotation cp="🇰🇳">flag</annotation>
-		<annotation cp="🇰🇳" type="tts">St. Kitts &amp; Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">flag: St. Kitts &amp; Nevis</annotation>
 		<annotation cp="🇰🇵">flag</annotation>
-		<annotation cp="🇰🇵" type="tts">North Korea</annotation>
+		<annotation cp="🇰🇵" type="tts">flag: North Korea</annotation>
 		<annotation cp="🇰🇷">flag</annotation>
-		<annotation cp="🇰🇷" type="tts">South Korea</annotation>
+		<annotation cp="🇰🇷" type="tts">flag: South Korea</annotation>
 		<annotation cp="🇰🇼">flag</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇼" type="tts">flag: Kuwait</annotation>
 		<annotation cp="🇰🇾">flag</annotation>
-		<annotation cp="🇰🇾" type="tts">Cayman Islands</annotation>
+		<annotation cp="🇰🇾" type="tts">flag: Cayman Islands</annotation>
 		<annotation cp="🇰🇿">flag</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazakhstan</annotation>
+		<annotation cp="🇰🇿" type="tts">flag: Kazakhstan</annotation>
 		<annotation cp="🇱🇦">flag</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">flag: Laos</annotation>
 		<annotation cp="🇱🇧">flag</annotation>
-		<annotation cp="🇱🇧" type="tts">Lebanon</annotation>
+		<annotation cp="🇱🇧" type="tts">flag: Lebanon</annotation>
 		<annotation cp="🇱🇨">flag</annotation>
-		<annotation cp="🇱🇨" type="tts">St. Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">flag: St. Lucia</annotation>
 		<annotation cp="🇱🇮">flag</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">flag: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">flag</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">flag: Sri Lanka</annotation>
 		<annotation cp="🇱🇷">flag</annotation>
-		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇷" type="tts">flag: Liberia</annotation>
 		<annotation cp="🇱🇸">flag</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">flag: Lesotho</annotation>
 		<annotation cp="🇱🇹">flag</annotation>
-		<annotation cp="🇱🇹" type="tts">Lithuania</annotation>
+		<annotation cp="🇱🇹" type="tts">flag: Lithuania</annotation>
 		<annotation cp="🇱🇺">flag</annotation>
-		<annotation cp="🇱🇺" type="tts">Luxembourg</annotation>
+		<annotation cp="🇱🇺" type="tts">flag: Luxembourg</annotation>
 		<annotation cp="🇱🇻">flag</annotation>
-		<annotation cp="🇱🇻" type="tts">Latvia</annotation>
+		<annotation cp="🇱🇻" type="tts">flag: Latvia</annotation>
 		<annotation cp="🇱🇾">flag</annotation>
-		<annotation cp="🇱🇾" type="tts">Libya</annotation>
+		<annotation cp="🇱🇾" type="tts">flag: Libya</annotation>
 		<annotation cp="🇲🇦">flag</annotation>
-		<annotation cp="🇲🇦" type="tts">Morocco</annotation>
+		<annotation cp="🇲🇦" type="tts">flag: Morocco</annotation>
 		<annotation cp="🇲🇨">flag</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">flag: Monaco</annotation>
 		<annotation cp="🇲🇩">flag</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldova</annotation>
+		<annotation cp="🇲🇩" type="tts">flag: Moldova</annotation>
 		<annotation cp="🇲🇪">flag</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">flag: Montenegro</annotation>
 		<annotation cp="🇲🇫">flag</annotation>
-		<annotation cp="🇲🇫" type="tts">St. Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">flag: St. Martin</annotation>
 		<annotation cp="🇲🇬">flag</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagascar</annotation>
+		<annotation cp="🇲🇬" type="tts">flag: Madagascar</annotation>
 		<annotation cp="🇲🇭">flag</annotation>
-		<annotation cp="🇲🇭" type="tts">Marshall Islands</annotation>
+		<annotation cp="🇲🇭" type="tts">flag: Marshall Islands</annotation>
 		<annotation cp="🇲🇰">flag</annotation>
-		<annotation cp="🇲🇰" type="tts">Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">flag: Macedonia</annotation>
 		<annotation cp="🇲🇱">flag</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">flag: Mali</annotation>
 		<annotation cp="🇲🇲">flag</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇲" type="tts">flag: Myanmar (Burma)</annotation>
 		<annotation cp="🇲🇳">flag</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇳" type="tts">flag: Mongolia</annotation>
 		<annotation cp="🇲🇴">flag</annotation>
-		<annotation cp="🇲🇴" type="tts">Macau SAR China</annotation>
+		<annotation cp="🇲🇴" type="tts">flag: Macau SAR China</annotation>
 		<annotation cp="🇲🇵">flag</annotation>
-		<annotation cp="🇲🇵" type="tts">Northern Mariana Islands</annotation>
+		<annotation cp="🇲🇵" type="tts">flag: Northern Mariana Islands</annotation>
 		<annotation cp="🇲🇶">flag</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇶" type="tts">flag: Martinique</annotation>
 		<annotation cp="🇲🇷">flag</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇷" type="tts">flag: Mauritania</annotation>
 		<annotation cp="🇲🇸">flag</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">flag: Montserrat</annotation>
 		<annotation cp="🇲🇹">flag</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">flag: Malta</annotation>
 		<annotation cp="🇲🇺">flag</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">flag: Mauritius</annotation>
 		<annotation cp="🇲🇻">flag</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldives</annotation>
+		<annotation cp="🇲🇻" type="tts">flag: Maldives</annotation>
 		<annotation cp="🇲🇼">flag</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">flag: Malawi</annotation>
 		<annotation cp="🇲🇽">flag</annotation>
-		<annotation cp="🇲🇽" type="tts">Mexico</annotation>
+		<annotation cp="🇲🇽" type="tts">flag: Mexico</annotation>
 		<annotation cp="🇲🇾">flag</annotation>
-		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇾" type="tts">flag: Malaysia</annotation>
 		<annotation cp="🇲🇿">flag</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
+		<annotation cp="🇲🇿" type="tts">flag: Mozambique</annotation>
 		<annotation cp="🇳🇦">flag</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇦" type="tts">flag: Namibia</annotation>
 		<annotation cp="🇳🇨">flag</annotation>
-		<annotation cp="🇳🇨" type="tts">New Caledonia</annotation>
+		<annotation cp="🇳🇨" type="tts">flag: New Caledonia</annotation>
 		<annotation cp="🇳🇪">flag</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">flag: Niger</annotation>
 		<annotation cp="🇳🇫">flag</annotation>
-		<annotation cp="🇳🇫" type="tts">Norfolk Island</annotation>
+		<annotation cp="🇳🇫" type="tts">flag: Norfolk Island</annotation>
 		<annotation cp="🇳🇬">flag</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇬" type="tts">flag: Nigeria</annotation>
 		<annotation cp="🇳🇮">flag</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">flag: Nicaragua</annotation>
 		<annotation cp="🇳🇱">flag</annotation>
-		<annotation cp="🇳🇱" type="tts">Netherlands</annotation>
+		<annotation cp="🇳🇱" type="tts">flag: Netherlands</annotation>
 		<annotation cp="🇳🇴">flag</annotation>
-		<annotation cp="🇳🇴" type="tts">Norway</annotation>
+		<annotation cp="🇳🇴" type="tts">flag: Norway</annotation>
 		<annotation cp="🇳🇵">flag</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">flag: Nepal</annotation>
 		<annotation cp="🇳🇷">flag</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">flag: Nauru</annotation>
 		<annotation cp="🇳🇺">flag</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">flag: Niue</annotation>
 		<annotation cp="🇳🇿">flag</annotation>
-		<annotation cp="🇳🇿" type="tts">New Zealand</annotation>
+		<annotation cp="🇳🇿" type="tts">flag: New Zealand</annotation>
 		<annotation cp="🇴🇲">flag</annotation>
-		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">flag: Oman</annotation>
 		<annotation cp="🇵🇦">flag</annotation>
-		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇦" type="tts">flag: Panama</annotation>
 		<annotation cp="🇵🇪">flag</annotation>
-		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇪" type="tts">flag: Peru</annotation>
 		<annotation cp="🇵🇫">flag</annotation>
-		<annotation cp="🇵🇫" type="tts">French Polynesia</annotation>
+		<annotation cp="🇵🇫" type="tts">flag: French Polynesia</annotation>
 		<annotation cp="🇵🇬">flag</annotation>
-		<annotation cp="🇵🇬" type="tts">Papua New Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">flag: Papua New Guinea</annotation>
 		<annotation cp="🇵🇭">flag</annotation>
-		<annotation cp="🇵🇭" type="tts">Philippines</annotation>
+		<annotation cp="🇵🇭" type="tts">flag: Philippines</annotation>
 		<annotation cp="🇵🇰">flag</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">flag: Pakistan</annotation>
 		<annotation cp="🇵🇱">flag</annotation>
-		<annotation cp="🇵🇱" type="tts">Poland</annotation>
+		<annotation cp="🇵🇱" type="tts">flag: Poland</annotation>
 		<annotation cp="🇵🇲">flag</annotation>
-		<annotation cp="🇵🇲" type="tts">St. Pierre &amp; Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">flag: St. Pierre &amp; Miquelon</annotation>
 		<annotation cp="🇵🇳">flag</annotation>
-		<annotation cp="🇵🇳" type="tts">Pitcairn Islands</annotation>
+		<annotation cp="🇵🇳" type="tts">flag: Pitcairn Islands</annotation>
 		<annotation cp="🇵🇷">flag</annotation>
-		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇷" type="tts">flag: Puerto Rico</annotation>
 		<annotation cp="🇵🇸">flag</annotation>
-		<annotation cp="🇵🇸" type="tts">Palestinian Territories</annotation>
+		<annotation cp="🇵🇸" type="tts">flag: Palestinian Territories</annotation>
 		<annotation cp="🇵🇹">flag</annotation>
-		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇹" type="tts">flag: Portugal</annotation>
 		<annotation cp="🇵🇼">flag</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">flag: Palau</annotation>
 		<annotation cp="🇵🇾">flag</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">flag: Paraguay</annotation>
 		<annotation cp="🇶🇦">flag</annotation>
-		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇶🇦" type="tts">flag: Qatar</annotation>
 		<annotation cp="🇷🇪">flag</annotation>
-		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇪" type="tts">flag: Réunion</annotation>
 		<annotation cp="🇷🇴">flag</annotation>
-		<annotation cp="🇷🇴" type="tts">Romania</annotation>
+		<annotation cp="🇷🇴" type="tts">flag: Romania</annotation>
 		<annotation cp="🇷🇸">flag</annotation>
-		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇸" type="tts">flag: Serbia</annotation>
 		<annotation cp="🇷🇺">flag</annotation>
-		<annotation cp="🇷🇺" type="tts">Russia</annotation>
+		<annotation cp="🇷🇺" type="tts">flag: Russia</annotation>
 		<annotation cp="🇷🇼">flag</annotation>
-		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇷🇼" type="tts">flag: Rwanda</annotation>
 		<annotation cp="🇸🇦">flag</annotation>
-		<annotation cp="🇸🇦" type="tts">Saudi Arabia</annotation>
+		<annotation cp="🇸🇦" type="tts">flag: Saudi Arabia</annotation>
 		<annotation cp="🇸🇧">flag</annotation>
-		<annotation cp="🇸🇧" type="tts">Solomon Islands</annotation>
+		<annotation cp="🇸🇧" type="tts">flag: Solomon Islands</annotation>
 		<annotation cp="🇸🇨">flag</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
+		<annotation cp="🇸🇨" type="tts">flag: Seychelles</annotation>
 		<annotation cp="🇸🇩">flag</annotation>
-		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇩" type="tts">flag: Sudan</annotation>
 		<annotation cp="🇸🇪">flag</annotation>
-		<annotation cp="🇸🇪" type="tts">Sweden</annotation>
+		<annotation cp="🇸🇪" type="tts">flag: Sweden</annotation>
 		<annotation cp="🇸🇬">flag</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇬" type="tts">flag: Singapore</annotation>
 		<annotation cp="🇸🇭">flag</annotation>
-		<annotation cp="🇸🇭" type="tts">St. Helena</annotation>
+		<annotation cp="🇸🇭" type="tts">flag: St. Helena</annotation>
 		<annotation cp="🇸🇮">flag</annotation>
-		<annotation cp="🇸🇮" type="tts">Slovenia</annotation>
+		<annotation cp="🇸🇮" type="tts">flag: Slovenia</annotation>
 		<annotation cp="🇸🇯">flag</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard &amp; Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">flag: Svalbard &amp; Jan Mayen</annotation>
 		<annotation cp="🇸🇰">flag</annotation>
-		<annotation cp="🇸🇰" type="tts">Slovakia</annotation>
+		<annotation cp="🇸🇰" type="tts">flag: Slovakia</annotation>
 		<annotation cp="🇸🇱">flag</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">flag: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">flag</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">flag: San Marino</annotation>
 		<annotation cp="🇸🇳">flag</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">flag: Senegal</annotation>
 		<annotation cp="🇸🇴">flag</annotation>
-		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇴" type="tts">flag: Somalia</annotation>
 		<annotation cp="🇸🇷">flag</annotation>
-		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇷" type="tts">flag: Suriname</annotation>
 		<annotation cp="🇸🇸">flag</annotation>
-		<annotation cp="🇸🇸" type="tts">South Sudan</annotation>
+		<annotation cp="🇸🇸" type="tts">flag: South Sudan</annotation>
 		<annotation cp="🇸🇹">flag</annotation>
-		<annotation cp="🇸🇹" type="tts">São Tomé &amp; Príncipe</annotation>
+		<annotation cp="🇸🇹" type="tts">flag: São Tomé &amp; Príncipe</annotation>
 		<annotation cp="🇸🇻">flag</annotation>
-		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">flag: El Salvador</annotation>
 		<annotation cp="🇸🇽">flag</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">flag: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">flag</annotation>
-		<annotation cp="🇸🇾" type="tts">Syria</annotation>
+		<annotation cp="🇸🇾" type="tts">flag: Syria</annotation>
 		<annotation cp="🇸🇿">flag</annotation>
-		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇸🇿" type="tts">flag: Swaziland</annotation>
 		<annotation cp="🇹🇦">flag</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">flag: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">flag</annotation>
-		<annotation cp="🇹🇨" type="tts">Turks &amp; Caicos Islands</annotation>
+		<annotation cp="🇹🇨" type="tts">flag: Turks &amp; Caicos Islands</annotation>
 		<annotation cp="🇹🇩">flag</annotation>
-		<annotation cp="🇹🇩" type="tts">Chad</annotation>
+		<annotation cp="🇹🇩" type="tts">flag: Chad</annotation>
 		<annotation cp="🇹🇫">flag</annotation>
-		<annotation cp="🇹🇫" type="tts">French Southern Territories</annotation>
+		<annotation cp="🇹🇫" type="tts">flag: French Southern Territories</annotation>
 		<annotation cp="🇹🇬">flag</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">flag: Togo</annotation>
 		<annotation cp="🇹🇭">flag</annotation>
-		<annotation cp="🇹🇭" type="tts">Thailand</annotation>
+		<annotation cp="🇹🇭" type="tts">flag: Thailand</annotation>
 		<annotation cp="🇹🇯">flag</annotation>
-		<annotation cp="🇹🇯" type="tts">Tajikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">flag: Tajikistan</annotation>
 		<annotation cp="🇹🇰">flag</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">flag: Tokelau</annotation>
 		<annotation cp="🇹🇱">flag</annotation>
-		<annotation cp="🇹🇱" type="tts">Timor-Leste</annotation>
+		<annotation cp="🇹🇱" type="tts">flag: Timor-Leste</annotation>
 		<annotation cp="🇹🇲">flag</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">flag: Turkmenistan</annotation>
 		<annotation cp="🇹🇳">flag</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇳" type="tts">flag: Tunisia</annotation>
 		<annotation cp="🇹🇴">flag</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">flag: Tonga</annotation>
 		<annotation cp="🇹🇷">flag</annotation>
-		<annotation cp="🇹🇷" type="tts">Turkey</annotation>
+		<annotation cp="🇹🇷" type="tts">flag: Turkey</annotation>
 		<annotation cp="🇹🇹">flag</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad &amp; Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">flag: Trinidad &amp; Tobago</annotation>
 		<annotation cp="🇹🇻">flag</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">flag: Tuvalu</annotation>
 		<annotation cp="🇹🇼">flag</annotation>
-		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">flag: Taiwan</annotation>
 		<annotation cp="🇹🇿">flag</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇹🇿" type="tts">flag: Tanzania</annotation>
 		<annotation cp="🇺🇦">flag</annotation>
-		<annotation cp="🇺🇦" type="tts">Ukraine</annotation>
+		<annotation cp="🇺🇦" type="tts">flag: Ukraine</annotation>
 		<annotation cp="🇺🇬">flag</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">flag: Uganda</annotation>
 		<annotation cp="🇺🇲">flag</annotation>
-		<annotation cp="🇺🇲" type="tts">U.S. Outlying Islands</annotation>
+		<annotation cp="🇺🇲" type="tts">flag: U.S. Outlying Islands</annotation>
 		<annotation cp="🇺🇳">flag</annotation>
-		<annotation cp="🇺🇳" type="tts">United Nations</annotation>
+		<annotation cp="🇺🇳" type="tts">flag: United Nations</annotation>
 		<annotation cp="🇺🇸">flag</annotation>
-		<annotation cp="🇺🇸" type="tts">United States</annotation>
+		<annotation cp="🇺🇸" type="tts">flag: United States</annotation>
 		<annotation cp="🇺🇾">flag</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">flag: Uruguay</annotation>
 		<annotation cp="🇺🇿">flag</annotation>
-		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">flag: Uzbekistan</annotation>
 		<annotation cp="🇻🇦">flag</annotation>
-		<annotation cp="🇻🇦" type="tts">Vatican City</annotation>
+		<annotation cp="🇻🇦" type="tts">flag: Vatican City</annotation>
 		<annotation cp="🇻🇨">flag</annotation>
-		<annotation cp="🇻🇨" type="tts">St. Vincent &amp; Grenadines</annotation>
+		<annotation cp="🇻🇨" type="tts">flag: St. Vincent &amp; Grenadines</annotation>
 		<annotation cp="🇻🇪">flag</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">flag: Venezuela</annotation>
 		<annotation cp="🇻🇬">flag</annotation>
-		<annotation cp="🇻🇬" type="tts">British Virgin Islands</annotation>
+		<annotation cp="🇻🇬" type="tts">flag: British Virgin Islands</annotation>
 		<annotation cp="🇻🇮">flag</annotation>
-		<annotation cp="🇻🇮" type="tts">U.S. Virgin Islands</annotation>
+		<annotation cp="🇻🇮" type="tts">flag: U.S. Virgin Islands</annotation>
 		<annotation cp="🇻🇳">flag</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">flag: Vietnam</annotation>
 		<annotation cp="🇻🇺">flag</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">flag: Vanuatu</annotation>
 		<annotation cp="🇼🇫">flag</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis &amp; Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">flag: Wallis &amp; Futuna</annotation>
 		<annotation cp="🇼🇸">flag</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">flag: Samoa</annotation>
 		<annotation cp="🇽🇰">flag</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">flag: Kosovo</annotation>
 		<annotation cp="🇾🇪">flag</annotation>
-		<annotation cp="🇾🇪" type="tts">Yemen</annotation>
+		<annotation cp="🇾🇪" type="tts">flag: Yemen</annotation>
 		<annotation cp="🇾🇹">flag</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">flag: Mayotte</annotation>
 		<annotation cp="🇿🇦">flag</annotation>
-		<annotation cp="🇿🇦" type="tts">South Africa</annotation>
+		<annotation cp="🇿🇦" type="tts">flag: South Africa</annotation>
 		<annotation cp="🇿🇲">flag</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">flag: Zambia</annotation>
 		<annotation cp="🇿🇼">flag</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">flag: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">flag</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">England</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">flag: England</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">flag</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Scotland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">flag: Scotland</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">flag</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">flag: Wales</annotation>
 		<annotation cp="0⃣">keycap</annotation>
 		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
 		<annotation cp="1⃣">keycap</annotation>

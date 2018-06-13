@@ -4,15 +4,94 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="it"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦵🏻">arto | calcio | gamba | fototipo 1–2</annotation>
+		<annotation cp="🦵🏻" type="tts">gamba: fototipo 1–2</annotation>
+		<annotation cp="🦵🏼">arto | calcio | gamba | fototipo 3</annotation>
+		<annotation cp="🦵🏼" type="tts">gamba: fototipo 3</annotation>
+		<annotation cp="🦵🏽">arto | calcio | gamba | fototipo 4</annotation>
+		<annotation cp="🦵🏽" type="tts">gamba: fototipo 4</annotation>
+		<annotation cp="🦵🏾">arto | calcio | gamba | fototipo 5</annotation>
+		<annotation cp="🦵🏾" type="tts">gamba: fototipo 5</annotation>
+		<annotation cp="🦵🏿">arto | calcio | gamba | fototipo 6</annotation>
+		<annotation cp="🦵🏿" type="tts">gamba: fototipo 6</annotation>
+		<annotation cp="🦶🏻">calciare | camminare | piede | fototipo 1–2</annotation>
+		<annotation cp="🦶🏻" type="tts">piede: fototipo 1–2</annotation>
+		<annotation cp="🦶🏼">calciare | camminare | piede | fototipo 3</annotation>
+		<annotation cp="🦶🏼" type="tts">piede: fototipo 3</annotation>
+		<annotation cp="🦶🏽">calciare | camminare | piede | fototipo 4</annotation>
+		<annotation cp="🦶🏽" type="tts">piede: fototipo 4</annotation>
+		<annotation cp="🦶🏾">calciare | camminare | piede | fototipo 5</annotation>
+		<annotation cp="🦶🏾" type="tts">piede: fototipo 5</annotation>
+		<annotation cp="🦶🏿">calciare | camminare | piede | fototipo 6</annotation>
+		<annotation cp="🦶🏿" type="tts">piede: fototipo 6</annotation>
+		<annotation cp="🦸🏻">eroina | supereroe | supereroina | superpoteri | fototipo 1–2</annotation>
+		<annotation cp="🦸🏻" type="tts">supereroe: fototipo 1–2</annotation>
+		<annotation cp="🦸🏼">eroina | supereroe | supereroina | superpoteri | fototipo 3</annotation>
+		<annotation cp="🦸🏼" type="tts">supereroe: fototipo 3</annotation>
+		<annotation cp="🦸🏽">eroina | supereroe | supereroina | superpoteri | fototipo 4</annotation>
+		<annotation cp="🦸🏽" type="tts">supereroe: fototipo 4</annotation>
+		<annotation cp="🦸🏾">eroina | supereroe | supereroina | superpoteri | fototipo 5</annotation>
+		<annotation cp="🦸🏾" type="tts">supereroe: fototipo 5</annotation>
+		<annotation cp="🦸🏿">eroina | supereroe | supereroina | superpoteri | fototipo 6</annotation>
+		<annotation cp="🦸🏿" type="tts">supereroe: fototipo 6</annotation>
+		<annotation cp="🦸🏻‍♀">donna | supereroina | superpoteri | fototipo 1–2</annotation>
+		<annotation cp="🦸🏻‍♀" type="tts">supereroina: fototipo 1–2</annotation>
+		<annotation cp="🦸🏼‍♀">donna | supereroina | superpoteri | fototipo 3</annotation>
+		<annotation cp="🦸🏼‍♀" type="tts">supereroina: fototipo 3</annotation>
+		<annotation cp="🦸🏽‍♀">donna | supereroina | superpoteri | fototipo 4</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">supereroina: fototipo 4</annotation>
+		<annotation cp="🦸🏾‍♀">donna | supereroina | superpoteri | fototipo 5</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">supereroina: fototipo 5</annotation>
+		<annotation cp="🦸🏿‍♀">donna | supereroina | superpoteri | fototipo 6</annotation>
+		<annotation cp="🦸🏿‍♀" type="tts">supereroina: fototipo 6</annotation>
+		<annotation cp="🦸🏻‍♂">eroe | supereroe | uomo | fototipo 1–2</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">supereroe uomo: fototipo 1–2</annotation>
+		<annotation cp="🦸🏼‍♂">eroe | supereroe | uomo | fototipo 3</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">supereroe uomo: fototipo 3</annotation>
+		<annotation cp="🦸🏽‍♂">eroe | supereroe | uomo | fototipo 4</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">supereroe uomo: fototipo 4</annotation>
+		<annotation cp="🦸🏾‍♂">eroe | supereroe | uomo | fototipo 5</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">supereroe uomo: fototipo 5</annotation>
+		<annotation cp="🦸🏿‍♂">eroe | supereroe | uomo | fototipo 6</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">supereroe uomo: fototipo 6</annotation>
+		<annotation cp="🦹🏻">cattivo | criminale | supercattivo | superpotere | fototipo 1–2</annotation>
+		<annotation cp="🦹🏻" type="tts">supercattivo: fototipo 1–2</annotation>
+		<annotation cp="🦹🏼">cattivo | criminale | supercattivo | superpotere | fototipo 3</annotation>
+		<annotation cp="🦹🏼" type="tts">supercattivo: fototipo 3</annotation>
+		<annotation cp="🦹🏽">cattivo | criminale | supercattivo | superpotere | fototipo 4</annotation>
+		<annotation cp="🦹🏽" type="tts">supercattivo: fototipo 4</annotation>
+		<annotation cp="🦹🏾">cattivo | criminale | supercattivo | superpotere | fototipo 5</annotation>
+		<annotation cp="🦹🏾" type="tts">supercattivo: fototipo 5</annotation>
+		<annotation cp="🦹🏿">cattivo | criminale | supercattivo | superpotere | fototipo 6</annotation>
+		<annotation cp="🦹🏿" type="tts">supercattivo: fototipo 6</annotation>
+		<annotation cp="🦹🏻‍♀">cattivo | criminale | donna | supercattiva | superpotere | fototipo 1–2</annotation>
+		<annotation cp="🦹🏻‍♀" type="tts">supercattiva: fototipo 1–2</annotation>
+		<annotation cp="🦹🏼‍♀">cattivo | criminale | donna | supercattiva | superpotere | fototipo 3</annotation>
+		<annotation cp="🦹🏼‍♀" type="tts">supercattiva: fototipo 3</annotation>
+		<annotation cp="🦹🏽‍♀">cattivo | criminale | donna | supercattiva | superpotere | fototipo 4</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">supercattiva: fototipo 4</annotation>
+		<annotation cp="🦹🏾‍♀">cattivo | criminale | donna | supercattiva | superpotere | fototipo 5</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">supercattiva: fototipo 5</annotation>
+		<annotation cp="🦹🏿‍♀">cattivo | criminale | donna | supercattiva | superpotere | fototipo 6</annotation>
+		<annotation cp="🦹🏿‍♀" type="tts">supercattiva: fototipo 6</annotation>
+		<annotation cp="🦹🏻‍♂">cattivo | criminale | supercattivo uomo | superpotere | uomo | fototipo 1–2</annotation>
+		<annotation cp="🦹🏻‍♂" type="tts">supercattivo uomo: fototipo 1–2</annotation>
+		<annotation cp="🦹🏼‍♂">cattivo | criminale | supercattivo uomo | superpotere | uomo | fototipo 3</annotation>
+		<annotation cp="🦹🏼‍♂" type="tts">supercattivo uomo: fototipo 3</annotation>
+		<annotation cp="🦹🏽‍♂">cattivo | criminale | supercattivo uomo | superpotere | uomo | fototipo 4</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">supercattivo uomo: fototipo 4</annotation>
+		<annotation cp="🦹🏾‍♂">cattivo | criminale | supercattivo uomo | superpotere | uomo | fototipo 5</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">supercattivo uomo: fototipo 5</annotation>
+		<annotation cp="🦹🏿‍♂">cattivo | criminale | supercattivo uomo | superpotere | uomo | fototipo 6</annotation>
+		<annotation cp="🦹🏿‍♂" type="tts">supercattivo uomo: fototipo 6</annotation>
 		<annotation cp="👶🏻">bebè | figlio | neonato | persone | fototipo 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">neonato: fototipo 1–2</annotation>
 		<annotation cp="👶🏼">bebè | figlio | neonato | persone | fototipo 3</annotation>
@@ -53,15 +132,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👧🏾" type="tts">bambina: fototipo 5</annotation>
 		<annotation cp="👧🏿">bambina | persone | ragazzina | fototipo 6</annotation>
 		<annotation cp="👧🏿" type="tts">bambina: fototipo 6</annotation>
-		<annotation cp="🧑🏻">adulto | fototipo 1–2</annotation>
+		<annotation cp="🧑🏻">adulto | persona | fototipo 1–2</annotation>
 		<annotation cp="🧑🏻" type="tts">adulto: fototipo 1–2</annotation>
-		<annotation cp="🧑🏼">adulto | fototipo 3</annotation>
+		<annotation cp="🧑🏼">adulto | persona | fototipo 3</annotation>
 		<annotation cp="🧑🏼" type="tts">adulto: fototipo 3</annotation>
-		<annotation cp="🧑🏽">adulto | fototipo 4</annotation>
+		<annotation cp="🧑🏽">adulto | persona | fototipo 4</annotation>
 		<annotation cp="🧑🏽" type="tts">adulto: fototipo 4</annotation>
-		<annotation cp="🧑🏾">adulto | fototipo 5</annotation>
+		<annotation cp="🧑🏾">adulto | persona | fototipo 5</annotation>
 		<annotation cp="🧑🏾" type="tts">adulto: fototipo 5</annotation>
-		<annotation cp="🧑🏿">adulto | fototipo 6</annotation>
+		<annotation cp="🧑🏿">adulto | persona | fototipo 6</annotation>
 		<annotation cp="🧑🏿" type="tts">adulto: fototipo 6</annotation>
 		<annotation cp="👨🏻">maschio | persone | uomo | fototipo 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">uomo: fototipo 1–2</annotation>
@@ -73,6 +152,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">uomo: fototipo 5</annotation>
 		<annotation cp="👨🏿">maschio | persone | uomo | fototipo 6</annotation>
 		<annotation cp="👨🏿" type="tts">uomo: fototipo 6</annotation>
+		<annotation cp="👨‍🦰">maschio | persone | uomo | capelli rossi</annotation>
+		<annotation cp="👨‍🦰" type="tts">uomo: capelli rossi</annotation>
+		<annotation cp="👨🏻‍🦰">maschio | persone | uomo | fototipo 1–2 | capelli rossi</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">uomo: fototipo 1–2 e capelli rossi</annotation>
+		<annotation cp="👨🏼‍🦰">maschio | persone | uomo | fototipo 3 | capelli rossi</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">uomo: fototipo 3 e capelli rossi</annotation>
+		<annotation cp="👨🏽‍🦰">maschio | persone | uomo | fototipo 4 | capelli rossi</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">uomo: fototipo 4 e capelli rossi</annotation>
+		<annotation cp="👨🏾‍🦰">maschio | persone | uomo | fototipo 5 | capelli rossi</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">uomo: fototipo 5 e capelli rossi</annotation>
+		<annotation cp="👨🏿‍🦰">maschio | persone | uomo | fototipo 6 | capelli rossi</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">uomo: fototipo 6 e capelli rossi</annotation>
+		<annotation cp="👨‍🦱">maschio | persone | uomo | capelli ricci</annotation>
+		<annotation cp="👨‍🦱" type="tts">uomo: capelli ricci</annotation>
+		<annotation cp="👨🏻‍🦱">maschio | persone | uomo | fototipo 1–2 | capelli ricci</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">uomo: fototipo 1–2 e capelli ricci</annotation>
+		<annotation cp="👨🏼‍🦱">maschio | persone | uomo | fototipo 3 | capelli ricci</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">uomo: fototipo 3 e capelli ricci</annotation>
+		<annotation cp="👨🏽‍🦱">maschio | persone | uomo | fototipo 4 | capelli ricci</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">uomo: fototipo 4 e capelli ricci</annotation>
+		<annotation cp="👨🏾‍🦱">maschio | persone | uomo | fototipo 5 | capelli ricci</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">uomo: fototipo 5 e capelli ricci</annotation>
+		<annotation cp="👨🏿‍🦱">maschio | persone | uomo | fototipo 6 | capelli ricci</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">uomo: fototipo 6 e capelli ricci</annotation>
+		<annotation cp="👨‍🦲">maschio | persone | uomo | calvo</annotation>
+		<annotation cp="👨‍🦲" type="tts">uomo: calvo</annotation>
+		<annotation cp="👨🏻‍🦲">maschio | persone | uomo | fototipo 1–2 | calvo</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">uomo: fototipo 1–2 e calvo</annotation>
+		<annotation cp="👨🏼‍🦲">maschio | persone | uomo | fototipo 3 | calvo</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">uomo: fototipo 3 e calvo</annotation>
+		<annotation cp="👨🏽‍🦲">maschio | persone | uomo | fototipo 4 | calvo</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">uomo: fototipo 4 e calvo</annotation>
+		<annotation cp="👨🏾‍🦲">maschio | persone | uomo | fototipo 5 | calvo</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">uomo: fototipo 5 e calvo</annotation>
+		<annotation cp="👨🏿‍🦲">maschio | persone | uomo | fototipo 6 | calvo</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">uomo: fototipo 6 e calvo</annotation>
+		<annotation cp="👨‍🦳">maschio | persone | uomo | capelli bianchi</annotation>
+		<annotation cp="👨‍🦳" type="tts">uomo: capelli bianchi</annotation>
+		<annotation cp="👨🏻‍🦳">maschio | persone | uomo | fototipo 1–2 | capelli bianchi</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">uomo: fototipo 1–2 e capelli bianchi</annotation>
+		<annotation cp="👨🏼‍🦳">maschio | persone | uomo | fototipo 3 | capelli bianchi</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">uomo: fototipo 3 e capelli bianchi</annotation>
+		<annotation cp="👨🏽‍🦳">maschio | persone | uomo | fototipo 4 | capelli bianchi</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">uomo: fototipo 4 e capelli bianchi</annotation>
+		<annotation cp="👨🏾‍🦳">maschio | persone | uomo | fototipo 5 | capelli bianchi</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">uomo: fototipo 5 e capelli bianchi</annotation>
+		<annotation cp="👨🏿‍🦳">maschio | persone | uomo | fototipo 6 | capelli bianchi</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">uomo: fototipo 6 e capelli bianchi</annotation>
 		<annotation cp="👩🏻">donna | femmina | persone | fototipo 1–2</annotation>
 		<annotation cp="👩🏻" type="tts">donna: fototipo 1–2</annotation>
 		<annotation cp="👩🏼">donna | femmina | persone | fototipo 3</annotation>
@@ -83,15 +210,63 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">donna: fototipo 5</annotation>
 		<annotation cp="👩🏿">donna | femmina | persone | fototipo 6</annotation>
 		<annotation cp="👩🏿" type="tts">donna: fototipo 6</annotation>
-		<annotation cp="🧓🏻">adulto anziano | fototipo 1–2</annotation>
+		<annotation cp="👩‍🦰">donna | femmina | persone | capelli rossi</annotation>
+		<annotation cp="👩‍🦰" type="tts">donna: capelli rossi</annotation>
+		<annotation cp="👩🏻‍🦰">donna | femmina | persone | fototipo 1–2 | capelli rossi</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">donna: fototipo 1–2 e capelli rossi</annotation>
+		<annotation cp="👩🏼‍🦰">donna | femmina | persone | fototipo 3 | capelli rossi</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">donna: fototipo 3 e capelli rossi</annotation>
+		<annotation cp="👩🏽‍🦰">donna | femmina | persone | fototipo 4 | capelli rossi</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">donna: fototipo 4 e capelli rossi</annotation>
+		<annotation cp="👩🏾‍🦰">donna | femmina | persone | fototipo 5 | capelli rossi</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">donna: fototipo 5 e capelli rossi</annotation>
+		<annotation cp="👩🏿‍🦰">donna | femmina | persone | fototipo 6 | capelli rossi</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">donna: fototipo 6 e capelli rossi</annotation>
+		<annotation cp="👩‍🦱">donna | femmina | persone | capelli ricci</annotation>
+		<annotation cp="👩‍🦱" type="tts">donna: capelli ricci</annotation>
+		<annotation cp="👩🏻‍🦱">donna | femmina | persone | fototipo 1–2 | capelli ricci</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">donna: fototipo 1–2 e capelli ricci</annotation>
+		<annotation cp="👩🏼‍🦱">donna | femmina | persone | fototipo 3 | capelli ricci</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">donna: fototipo 3 e capelli ricci</annotation>
+		<annotation cp="👩🏽‍🦱">donna | femmina | persone | fototipo 4 | capelli ricci</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">donna: fototipo 4 e capelli ricci</annotation>
+		<annotation cp="👩🏾‍🦱">donna | femmina | persone | fototipo 5 | capelli ricci</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">donna: fototipo 5 e capelli ricci</annotation>
+		<annotation cp="👩🏿‍🦱">donna | femmina | persone | fototipo 6 | capelli ricci</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">donna: fototipo 6 e capelli ricci</annotation>
+		<annotation cp="👩‍🦲">donna | femmina | persone | calvo</annotation>
+		<annotation cp="👩‍🦲" type="tts">donna: calvo</annotation>
+		<annotation cp="👩🏻‍🦲">donna | femmina | persone | fototipo 1–2 | calvo</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">donna: fototipo 1–2 e calvo</annotation>
+		<annotation cp="👩🏼‍🦲">donna | femmina | persone | fototipo 3 | calvo</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">donna: fototipo 3 e calvo</annotation>
+		<annotation cp="👩🏽‍🦲">donna | femmina | persone | fototipo 4 | calvo</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">donna: fototipo 4 e calvo</annotation>
+		<annotation cp="👩🏾‍🦲">donna | femmina | persone | fototipo 5 | calvo</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">donna: fototipo 5 e calvo</annotation>
+		<annotation cp="👩🏿‍🦲">donna | femmina | persone | fototipo 6 | calvo</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">donna: fototipo 6 e calvo</annotation>
+		<annotation cp="👩‍🦳">donna | femmina | persone | capelli bianchi</annotation>
+		<annotation cp="👩‍🦳" type="tts">donna: capelli bianchi</annotation>
+		<annotation cp="👩🏻‍🦳">donna | femmina | persone | fototipo 1–2 | capelli bianchi</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">donna: fototipo 1–2 e capelli bianchi</annotation>
+		<annotation cp="👩🏼‍🦳">donna | femmina | persone | fototipo 3 | capelli bianchi</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">donna: fototipo 3 e capelli bianchi</annotation>
+		<annotation cp="👩🏽‍🦳">donna | femmina | persone | fototipo 4 | capelli bianchi</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">donna: fototipo 4 e capelli bianchi</annotation>
+		<annotation cp="👩🏾‍🦳">donna | femmina | persone | fototipo 5 | capelli bianchi</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">donna: fototipo 5 e capelli bianchi</annotation>
+		<annotation cp="👩🏿‍🦳">donna | femmina | persone | fototipo 6 | capelli bianchi</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">donna: fototipo 6 e capelli bianchi</annotation>
+		<annotation cp="🧓🏻">adulto anziano | anziano | fototipo 1–2</annotation>
 		<annotation cp="🧓🏻" type="tts">adulto anziano: fototipo 1–2</annotation>
-		<annotation cp="🧓🏼">adulto anziano | fototipo 3</annotation>
+		<annotation cp="🧓🏼">adulto anziano | anziano | fototipo 3</annotation>
 		<annotation cp="🧓🏼" type="tts">adulto anziano: fototipo 3</annotation>
-		<annotation cp="🧓🏽">adulto anziano | fototipo 4</annotation>
+		<annotation cp="🧓🏽">adulto anziano | anziano | fototipo 4</annotation>
 		<annotation cp="🧓🏽" type="tts">adulto anziano: fototipo 4</annotation>
-		<annotation cp="🧓🏾">adulto anziano | fototipo 5</annotation>
+		<annotation cp="🧓🏾">adulto anziano | anziano | fototipo 5</annotation>
 		<annotation cp="🧓🏾" type="tts">adulto anziano: fototipo 5</annotation>
-		<annotation cp="🧓🏿">adulto anziano | fototipo 6</annotation>
+		<annotation cp="🧓🏿">adulto anziano | anziano | fototipo 6</annotation>
 		<annotation cp="🧓🏿" type="tts">adulto anziano: fototipo 6</annotation>
 		<annotation cp="👴🏻">anziano | nonno | persone | uomo | fototipo 1–2</annotation>
 		<annotation cp="👴🏻" type="tts">uomo anziano: fototipo 1–2</annotation>
@@ -123,15 +298,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍⚕" type="tts">operatore sanitario: fototipo 5</annotation>
 		<annotation cp="👨🏿‍⚕">camice | dottore | operatore sanitario | ospedale | uomo | fototipo 6</annotation>
 		<annotation cp="👨🏿‍⚕" type="tts">operatore sanitario: fototipo 6</annotation>
-		<annotation cp="👩🏻‍⚕">camice | donna | dottore | operatrice sanitaria | ospedale | fototipo 1–2</annotation>
+		<annotation cp="👩🏻‍⚕">camice | donna | dottoressa | operatrice sanitaria | ospedale | fototipo 1–2</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">operatrice sanitaria: fototipo 1–2</annotation>
-		<annotation cp="👩🏼‍⚕">camice | donna | dottore | operatrice sanitaria | ospedale | fototipo 3</annotation>
+		<annotation cp="👩🏼‍⚕">camice | donna | dottoressa | operatrice sanitaria | ospedale | fototipo 3</annotation>
 		<annotation cp="👩🏼‍⚕" type="tts">operatrice sanitaria: fototipo 3</annotation>
-		<annotation cp="👩🏽‍⚕">camice | donna | dottore | operatrice sanitaria | ospedale | fototipo 4</annotation>
+		<annotation cp="👩🏽‍⚕">camice | donna | dottoressa | operatrice sanitaria | ospedale | fototipo 4</annotation>
 		<annotation cp="👩🏽‍⚕" type="tts">operatrice sanitaria: fototipo 4</annotation>
-		<annotation cp="👩🏾‍⚕">camice | donna | dottore | operatrice sanitaria | ospedale | fototipo 5</annotation>
+		<annotation cp="👩🏾‍⚕">camice | donna | dottoressa | operatrice sanitaria | ospedale | fototipo 5</annotation>
 		<annotation cp="👩🏾‍⚕" type="tts">operatrice sanitaria: fototipo 5</annotation>
-		<annotation cp="👩🏿‍⚕">camice | donna | dottore | operatrice sanitaria | ospedale | fototipo 6</annotation>
+		<annotation cp="👩🏿‍⚕">camice | donna | dottoressa | operatrice sanitaria | ospedale | fototipo 6</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">operatrice sanitaria: fototipo 6</annotation>
 		<annotation cp="👨🏻‍🎓">laurea | maschio | ragazzo | studente | fototipo 1–2</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">studente: fototipo 1–2</annotation>
@@ -613,26 +788,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👲🏾" type="tts">uomo con zucchetto cinese: fototipo 5</annotation>
 		<annotation cp="👲🏿">persone | uomo con zucchetto | uomo con zucchetto cinese | zucchetto | fototipo 6</annotation>
 		<annotation cp="👲🏿" type="tts">uomo con zucchetto cinese: fototipo 6</annotation>
-		<annotation cp="🧕🏻">donna con foulard | fototipo 1–2</annotation>
+		<annotation cp="🧕🏻">donna con foulard | donna con hijab | fototipo 1–2</annotation>
 		<annotation cp="🧕🏻" type="tts">donna con foulard: fototipo 1–2</annotation>
-		<annotation cp="🧕🏼">donna con foulard | fototipo 3</annotation>
+		<annotation cp="🧕🏼">donna con foulard | donna con hijab | fototipo 3</annotation>
 		<annotation cp="🧕🏼" type="tts">donna con foulard: fototipo 3</annotation>
-		<annotation cp="🧕🏽">donna con foulard | fototipo 4</annotation>
+		<annotation cp="🧕🏽">donna con foulard | donna con hijab | fototipo 4</annotation>
 		<annotation cp="🧕🏽" type="tts">donna con foulard: fototipo 4</annotation>
-		<annotation cp="🧕🏾">donna con foulard | fototipo 5</annotation>
+		<annotation cp="🧕🏾">donna con foulard | donna con hijab | fototipo 5</annotation>
 		<annotation cp="🧕🏾" type="tts">donna con foulard: fototipo 5</annotation>
-		<annotation cp="🧕🏿">donna con foulard | fototipo 6</annotation>
+		<annotation cp="🧕🏿">donna con foulard | donna con hijab | fototipo 6</annotation>
 		<annotation cp="🧕🏿" type="tts">donna con foulard: fototipo 6</annotation>
-		<annotation cp="🧔🏻">barba | persona con la barba | fototipo 1–2</annotation>
-		<annotation cp="🧔🏻" type="tts">persona con la barba: fototipo 1–2</annotation>
-		<annotation cp="🧔🏼">barba | persona con la barba | fototipo 3</annotation>
-		<annotation cp="🧔🏼" type="tts">persona con la barba: fototipo 3</annotation>
-		<annotation cp="🧔🏽">barba | persona con la barba | fototipo 4</annotation>
-		<annotation cp="🧔🏽" type="tts">persona con la barba: fototipo 4</annotation>
-		<annotation cp="🧔🏾">barba | persona con la barba | fototipo 5</annotation>
-		<annotation cp="🧔🏾" type="tts">persona con la barba: fototipo 5</annotation>
-		<annotation cp="🧔🏿">barba | persona con la barba | fototipo 6</annotation>
-		<annotation cp="🧔🏿" type="tts">persona con la barba: fototipo 6</annotation>
+		<annotation cp="🧔🏻">barba | persona con la barba | uomo con la barba | fototipo 1–2</annotation>
+		<annotation cp="🧔🏻" type="tts">uomo con la barba: fototipo 1–2</annotation>
+		<annotation cp="🧔🏼">barba | persona con la barba | uomo con la barba | fototipo 3</annotation>
+		<annotation cp="🧔🏼" type="tts">uomo con la barba: fototipo 3</annotation>
+		<annotation cp="🧔🏽">barba | persona con la barba | uomo con la barba | fototipo 4</annotation>
+		<annotation cp="🧔🏽" type="tts">uomo con la barba: fototipo 4</annotation>
+		<annotation cp="🧔🏾">barba | persona con la barba | uomo con la barba | fototipo 5</annotation>
+		<annotation cp="🧔🏾" type="tts">uomo con la barba: fototipo 5</annotation>
+		<annotation cp="🧔🏿">barba | persona con la barba | uomo con la barba | fototipo 6</annotation>
+		<annotation cp="🧔🏿" type="tts">uomo con la barba: fototipo 6</annotation>
 		<annotation cp="👱🏻">biondo | persona bionda | persone | fototipo 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">persona bionda: fototipo 1–2</annotation>
 		<annotation cp="👱🏼">biondo | persona bionda | persone | fototipo 3</annotation>
@@ -943,15 +1118,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙎🏾‍♀" type="tts">donna imbronciata: fototipo 5</annotation>
 		<annotation cp="🙎🏿‍♀">donna | femmina | gesto | imbronciata | fototipo 6</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">donna imbronciata: fototipo 6</annotation>
-		<annotation cp="🙅🏻">faccina | gesto | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 1–2</annotation>
+		<annotation cp="🙅🏻">faccina | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 1–2</annotation>
 		<annotation cp="🙅🏻" type="tts">rifiuto: fototipo 1–2</annotation>
-		<annotation cp="🙅🏼">faccina | gesto | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 3</annotation>
+		<annotation cp="🙅🏼">faccina | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 3</annotation>
 		<annotation cp="🙅🏼" type="tts">rifiuto: fototipo 3</annotation>
-		<annotation cp="🙅🏽">faccina | gesto | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 4</annotation>
+		<annotation cp="🙅🏽">faccina | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 4</annotation>
 		<annotation cp="🙅🏽" type="tts">rifiuto: fototipo 4</annotation>
-		<annotation cp="🙅🏾">faccina | gesto | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 5</annotation>
+		<annotation cp="🙅🏾">faccina | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 5</annotation>
 		<annotation cp="🙅🏾" type="tts">rifiuto: fototipo 5</annotation>
-		<annotation cp="🙅🏿">faccina | gesto | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 6</annotation>
+		<annotation cp="🙅🏿">faccina | gesto di rifiuto | non bene | rifiuto | vietato | fototipo 6</annotation>
 		<annotation cp="🙅🏿" type="tts">rifiuto: fototipo 6</annotation>
 		<annotation cp="🙅🏻‍♂">no | proibito | rifiuto | uomo | uomo con gesto di rifiuto | fototipo 1–2</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">uomo con gesto di rifiuto: fototipo 1–2</annotation>
@@ -1033,15 +1208,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💁🏾‍♀" type="tts">donna con suggerimento: fototipo 5</annotation>
 		<annotation cp="💁🏿‍♀">donna | donna con suggerimento | indicazione | informazioni | fototipo 6</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">donna con suggerimento: fototipo 6</annotation>
-		<annotation cp="🙋🏻">felice | gesto | mano alzata | persona | persona con mano alzata | persona felice con mano alzata | fototipo 1–2</annotation>
+		<annotation cp="🙋🏻">felice | gesto | mano alzata | persona | persona con mano alzata | fototipo 1–2</annotation>
 		<annotation cp="🙋🏻" type="tts">persona con mano alzata: fototipo 1–2</annotation>
-		<annotation cp="🙋🏼">felice | gesto | mano alzata | persona | persona con mano alzata | persona felice con mano alzata | fototipo 3</annotation>
+		<annotation cp="🙋🏼">felice | gesto | mano alzata | persona | persona con mano alzata | fototipo 3</annotation>
 		<annotation cp="🙋🏼" type="tts">persona con mano alzata: fototipo 3</annotation>
-		<annotation cp="🙋🏽">felice | gesto | mano alzata | persona | persona con mano alzata | persona felice con mano alzata | fototipo 4</annotation>
+		<annotation cp="🙋🏽">felice | gesto | mano alzata | persona | persona con mano alzata | fototipo 4</annotation>
 		<annotation cp="🙋🏽" type="tts">persona con mano alzata: fototipo 4</annotation>
-		<annotation cp="🙋🏾">felice | gesto | mano alzata | persona | persona con mano alzata | persona felice con mano alzata | fototipo 5</annotation>
+		<annotation cp="🙋🏾">felice | gesto | mano alzata | persona | persona con mano alzata | fototipo 5</annotation>
 		<annotation cp="🙋🏾" type="tts">persona con mano alzata: fototipo 5</annotation>
-		<annotation cp="🙋🏿">felice | gesto | mano alzata | persona | persona con mano alzata | persona felice con mano alzata | fototipo 6</annotation>
+		<annotation cp="🙋🏿">felice | gesto | mano alzata | persona | persona con mano alzata | fototipo 6</annotation>
 		<annotation cp="🙋🏿" type="tts">persona con mano alzata: fototipo 6</annotation>
 		<annotation cp="🙋🏻‍♂">gesto | mano alzata | uomo | uomo con mano alzata | fototipo 1–2</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">uomo con mano alzata: fototipo 1–2</annotation>
@@ -1093,15 +1268,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙇🏾‍♀" type="tts">donna che fa inchino profondo: fototipo 5</annotation>
 		<annotation cp="🙇🏿‍♀">donna | donna che fa inchino profondo | gesto | inchino | scuse | fototipo 6</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">donna che fa inchino profondo: fototipo 6</annotation>
-		<annotation cp="🤦🏻">esasperazione | facepalm | frustrazione | incredulità | mano in fronte | persona esasperata | fototipo 1–2</annotation>
+		<annotation cp="🤦🏻">esasperazione | facepalm | incredulità | mano in fronte | persona esasperata | fototipo 1–2</annotation>
 		<annotation cp="🤦🏻" type="tts">persona esasperata: fototipo 1–2</annotation>
-		<annotation cp="🤦🏼">esasperazione | facepalm | frustrazione | incredulità | mano in fronte | persona esasperata | fototipo 3</annotation>
+		<annotation cp="🤦🏼">esasperazione | facepalm | incredulità | mano in fronte | persona esasperata | fototipo 3</annotation>
 		<annotation cp="🤦🏼" type="tts">persona esasperata: fototipo 3</annotation>
-		<annotation cp="🤦🏽">esasperazione | facepalm | frustrazione | incredulità | mano in fronte | persona esasperata | fototipo 4</annotation>
+		<annotation cp="🤦🏽">esasperazione | facepalm | incredulità | mano in fronte | persona esasperata | fototipo 4</annotation>
 		<annotation cp="🤦🏽" type="tts">persona esasperata: fototipo 4</annotation>
-		<annotation cp="🤦🏾">esasperazione | facepalm | frustrazione | incredulità | mano in fronte | persona esasperata | fototipo 5</annotation>
+		<annotation cp="🤦🏾">esasperazione | facepalm | incredulità | mano in fronte | persona esasperata | fototipo 5</annotation>
 		<annotation cp="🤦🏾" type="tts">persona esasperata: fototipo 5</annotation>
-		<annotation cp="🤦🏿">esasperazione | facepalm | frustrazione | incredulità | mano in fronte | persona esasperata | fototipo 6</annotation>
+		<annotation cp="🤦🏿">esasperazione | facepalm | incredulità | mano in fronte | persona esasperata | fototipo 6</annotation>
 		<annotation cp="🤦🏿" type="tts">persona esasperata: fototipo 6</annotation>
 		<annotation cp="🤦🏻‍♂">esasperazione | facepalm | gesto | uomo | uomo esasperato | fototipo 1–2</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">uomo esasperato: fototipo 1–2</annotation>
@@ -1213,15 +1388,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💇🏾‍♀" type="tts">taglio di capelli per donna: fototipo 5</annotation>
 		<annotation cp="💇🏿‍♀">bellezza | donna | taglio di capelli | taglio di capelli per donna | fototipo 6</annotation>
 		<annotation cp="💇🏿‍♀" type="tts">taglio di capelli per donna: fototipo 6</annotation>
-		<annotation cp="🚶🏻">omino a piedi | pedone | fototipo 1–2</annotation>
+		<annotation cp="🚶🏻">camminare | passeggiata | pedone | uomo | fototipo 1–2</annotation>
 		<annotation cp="🚶🏻" type="tts">pedone: fototipo 1–2</annotation>
-		<annotation cp="🚶🏼">omino a piedi | pedone | fototipo 3</annotation>
+		<annotation cp="🚶🏼">camminare | passeggiata | pedone | uomo | fototipo 3</annotation>
 		<annotation cp="🚶🏼" type="tts">pedone: fototipo 3</annotation>
-		<annotation cp="🚶🏽">omino a piedi | pedone | fototipo 4</annotation>
+		<annotation cp="🚶🏽">camminare | passeggiata | pedone | uomo | fototipo 4</annotation>
 		<annotation cp="🚶🏽" type="tts">pedone: fototipo 4</annotation>
-		<annotation cp="🚶🏾">omino a piedi | pedone | fototipo 5</annotation>
+		<annotation cp="🚶🏾">camminare | passeggiata | pedone | uomo | fototipo 5</annotation>
 		<annotation cp="🚶🏾" type="tts">pedone: fototipo 5</annotation>
-		<annotation cp="🚶🏿">omino a piedi | pedone | fototipo 6</annotation>
+		<annotation cp="🚶🏿">camminare | passeggiata | pedone | uomo | fototipo 6</annotation>
 		<annotation cp="🚶🏿" type="tts">pedone: fototipo 6</annotation>
 		<annotation cp="🚶🏻‍♂">camminare | passeggiata | pedone | uomo | uomo che cammina | fototipo 1–2</annotation>
 		<annotation cp="🚶🏻‍♂" type="tts">uomo che cammina: fototipo 1–2</annotation>
@@ -1273,15 +1448,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾‍♀" type="tts">donna che corre: fototipo 5</annotation>
 		<annotation cp="🏃🏿‍♀">correre | corsa | donna | donna che corre | sport | fototipo 6</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">donna che corre: fototipo 6</annotation>
-		<annotation cp="💃🏻">ballare | donna che balla | persone | fototipo 1–2</annotation>
+		<annotation cp="💃🏻">ballare | donna | donna che balla | fototipo 1–2</annotation>
 		<annotation cp="💃🏻" type="tts">donna che balla: fototipo 1–2</annotation>
-		<annotation cp="💃🏼">ballare | donna che balla | persone | fototipo 3</annotation>
+		<annotation cp="💃🏼">ballare | donna | donna che balla | fototipo 3</annotation>
 		<annotation cp="💃🏼" type="tts">donna che balla: fototipo 3</annotation>
-		<annotation cp="💃🏽">ballare | donna che balla | persone | fototipo 4</annotation>
+		<annotation cp="💃🏽">ballare | donna | donna che balla | fototipo 4</annotation>
 		<annotation cp="💃🏽" type="tts">donna che balla: fototipo 4</annotation>
-		<annotation cp="💃🏾">ballare | donna che balla | persone | fototipo 5</annotation>
+		<annotation cp="💃🏾">ballare | donna | donna che balla | fototipo 5</annotation>
 		<annotation cp="💃🏾" type="tts">donna che balla: fototipo 5</annotation>
-		<annotation cp="💃🏿">ballare | donna che balla | persone | fototipo 6</annotation>
+		<annotation cp="💃🏿">ballare | donna | donna che balla | fototipo 6</annotation>
 		<annotation cp="💃🏿" type="tts">donna che balla: fototipo 6</annotation>
 		<annotation cp="🕺🏻">ballare | uomo | uomo che balla | fototipo 1–2</annotation>
 		<annotation cp="🕺🏻" type="tts">uomo che balla: fototipo 1–2</annotation>
@@ -1413,15 +1588,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">uomo elegante che levita: fototipo 5</annotation>
 		<annotation cp="🕴🏿">uomo | uomo elegante che levita | vestito elegante | fototipo 6</annotation>
 		<annotation cp="🕴🏿" type="tts">uomo elegante che levita: fototipo 6</annotation>
-		<annotation cp="🏇🏻">cavallo | cavallo da corsa | corse | fantino | ippica | sport | fototipo 1–2</annotation>
+		<annotation cp="🏇🏻">cavallo | cavallo da corsa | corse | fantino | ippica | fototipo 1–2</annotation>
 		<annotation cp="🏇🏻" type="tts">ippica: fototipo 1–2</annotation>
-		<annotation cp="🏇🏼">cavallo | cavallo da corsa | corse | fantino | ippica | sport | fototipo 3</annotation>
+		<annotation cp="🏇🏼">cavallo | cavallo da corsa | corse | fantino | ippica | fototipo 3</annotation>
 		<annotation cp="🏇🏼" type="tts">ippica: fototipo 3</annotation>
-		<annotation cp="🏇🏽">cavallo | cavallo da corsa | corse | fantino | ippica | sport | fototipo 4</annotation>
+		<annotation cp="🏇🏽">cavallo | cavallo da corsa | corse | fantino | ippica | fototipo 4</annotation>
 		<annotation cp="🏇🏽" type="tts">ippica: fototipo 4</annotation>
-		<annotation cp="🏇🏾">cavallo | cavallo da corsa | corse | fantino | ippica | sport | fototipo 5</annotation>
+		<annotation cp="🏇🏾">cavallo | cavallo da corsa | corse | fantino | ippica | fototipo 5</annotation>
 		<annotation cp="🏇🏾" type="tts">ippica: fototipo 5</annotation>
-		<annotation cp="🏇🏿">cavallo | cavallo da corsa | corse | fantino | ippica | sport | fototipo 6</annotation>
+		<annotation cp="🏇🏿">cavallo | cavallo da corsa | corse | fantino | ippica | fototipo 6</annotation>
 		<annotation cp="🏇🏿" type="tts">ippica: fototipo 6</annotation>
 		<annotation cp="🏂🏻">snowboard | sport | uomo sullo snowboard | fototipo 1–2</annotation>
 		<annotation cp="🏂🏻" type="tts">uomo sullo snowboard: fototipo 1–2</annotation>
@@ -1433,15 +1608,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏂🏾" type="tts">uomo sullo snowboard: fototipo 5</annotation>
 		<annotation cp="🏂🏿">snowboard | sport | uomo sullo snowboard | fototipo 6</annotation>
 		<annotation cp="🏂🏿" type="tts">uomo sullo snowboard: fototipo 6</annotation>
-		<annotation cp="🏌🏻">buca | giocatore di golf | mazza | pallina | sport | tiro | fototipo 1–2</annotation>
+		<annotation cp="🏌🏻">buca | giocatore di golf | mazza | pallina | tiro | fototipo 1–2</annotation>
 		<annotation cp="🏌🏻" type="tts">giocatore di golf: fototipo 1–2</annotation>
-		<annotation cp="🏌🏼">buca | giocatore di golf | mazza | pallina | sport | tiro | fototipo 3</annotation>
+		<annotation cp="🏌🏼">buca | giocatore di golf | mazza | pallina | tiro | fototipo 3</annotation>
 		<annotation cp="🏌🏼" type="tts">giocatore di golf: fototipo 3</annotation>
-		<annotation cp="🏌🏽">buca | giocatore di golf | mazza | pallina | sport | tiro | fototipo 4</annotation>
+		<annotation cp="🏌🏽">buca | giocatore di golf | mazza | pallina | tiro | fototipo 4</annotation>
 		<annotation cp="🏌🏽" type="tts">giocatore di golf: fototipo 4</annotation>
-		<annotation cp="🏌🏾">buca | giocatore di golf | mazza | pallina | sport | tiro | fototipo 5</annotation>
+		<annotation cp="🏌🏾">buca | giocatore di golf | mazza | pallina | tiro | fototipo 5</annotation>
 		<annotation cp="🏌🏾" type="tts">giocatore di golf: fototipo 5</annotation>
-		<annotation cp="🏌🏿">buca | giocatore di golf | mazza | pallina | sport | tiro | fototipo 6</annotation>
+		<annotation cp="🏌🏿">buca | giocatore di golf | mazza | pallina | tiro | fototipo 6</annotation>
 		<annotation cp="🏌🏿" type="tts">giocatore di golf: fototipo 6</annotation>
 		<annotation cp="🏌🏻‍♂">golf | golfista uomo | mazza | sport | uomo | fototipo 1–2</annotation>
 		<annotation cp="🏌🏻‍♂" type="tts">golfista uomo: fototipo 1–2</annotation>
@@ -1493,15 +1668,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏄🏾‍♀" type="tts">surfista donna: fototipo 5</annotation>
 		<annotation cp="🏄🏿‍♀">donna | sport | surf | surfista donna | tavola da surf | fototipo 6</annotation>
 		<annotation cp="🏄🏿‍♀" type="tts">surfista donna: fototipo 6</annotation>
-		<annotation cp="🚣🏻">barca | persona in barca a remi | remi | veicolo | fototipo 1–2</annotation>
+		<annotation cp="🚣🏻">barca | persona | persona in barca a remi | remi | fototipo 1–2</annotation>
 		<annotation cp="🚣🏻" type="tts">persona in barca a remi: fototipo 1–2</annotation>
-		<annotation cp="🚣🏼">barca | persona in barca a remi | remi | veicolo | fototipo 3</annotation>
+		<annotation cp="🚣🏼">barca | persona | persona in barca a remi | remi | fototipo 3</annotation>
 		<annotation cp="🚣🏼" type="tts">persona in barca a remi: fototipo 3</annotation>
-		<annotation cp="🚣🏽">barca | persona in barca a remi | remi | veicolo | fototipo 4</annotation>
+		<annotation cp="🚣🏽">barca | persona | persona in barca a remi | remi | fototipo 4</annotation>
 		<annotation cp="🚣🏽" type="tts">persona in barca a remi: fototipo 4</annotation>
-		<annotation cp="🚣🏾">barca | persona in barca a remi | remi | veicolo | fototipo 5</annotation>
+		<annotation cp="🚣🏾">barca | persona | persona in barca a remi | remi | fototipo 5</annotation>
 		<annotation cp="🚣🏾" type="tts">persona in barca a remi: fototipo 5</annotation>
-		<annotation cp="🚣🏿">barca | persona in barca a remi | remi | veicolo | fototipo 6</annotation>
+		<annotation cp="🚣🏿">barca | persona | persona in barca a remi | remi | fototipo 6</annotation>
 		<annotation cp="🚣🏿" type="tts">persona in barca a remi: fototipo 6</annotation>
 		<annotation cp="🚣🏻‍♂">barca | remi | uomo | uomo in barca a remi | fototipo 1–2</annotation>
 		<annotation cp="🚣🏻‍♂" type="tts">uomo in barca a remi: fototipo 1–2</annotation>
@@ -1553,15 +1728,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏊🏾‍♀" type="tts">nuotatrice: fototipo 5</annotation>
 		<annotation cp="🏊🏿‍♀">donna | nuotatrice | nuoto | piscina | sport | fototipo 6</annotation>
 		<annotation cp="🏊🏿‍♀" type="tts">nuotatrice: fototipo 6</annotation>
-		<annotation cp="⛹🏻">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | sport | fototipo 1–2</annotation>
+		<annotation cp="⛹🏻">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | fototipo 1–2</annotation>
 		<annotation cp="⛹🏻" type="tts">persona che fa rimbalzare una palla: fototipo 1–2</annotation>
-		<annotation cp="⛹🏼">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | sport | fototipo 3</annotation>
+		<annotation cp="⛹🏼">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | fototipo 3</annotation>
 		<annotation cp="⛹🏼" type="tts">persona che fa rimbalzare una palla: fototipo 3</annotation>
-		<annotation cp="⛹🏽">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | sport | fototipo 4</annotation>
+		<annotation cp="⛹🏽">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | fototipo 4</annotation>
 		<annotation cp="⛹🏽" type="tts">persona che fa rimbalzare una palla: fototipo 4</annotation>
-		<annotation cp="⛹🏾">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | sport | fototipo 5</annotation>
+		<annotation cp="⛹🏾">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | fototipo 5</annotation>
 		<annotation cp="⛹🏾" type="tts">persona che fa rimbalzare una palla: fototipo 5</annotation>
-		<annotation cp="⛹🏿">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | sport | fototipo 6</annotation>
+		<annotation cp="⛹🏿">basket | campo | giocatore | palla | persona che fa rimbalzare una palla | fototipo 6</annotation>
 		<annotation cp="⛹🏿" type="tts">persona che fa rimbalzare una palla: fototipo 6</annotation>
 		<annotation cp="⛹🏻‍♂">palla | sport | uomo | uomo che fa rimbalzare una palla | fototipo 1–2</annotation>
 		<annotation cp="⛹🏻‍♂" type="tts">uomo che fa rimbalzare una palla: fototipo 1–2</annotation>
@@ -1673,15 +1848,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚵🏾‍♀" type="tts">ciclista donna di mountain bike: fototipo 5</annotation>
 		<annotation cp="🚵🏿‍♀">bici | bicicletta | ciclista donna di mountain bike | mountain bike | sport | fototipo 6</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">ciclista donna di mountain bike: fototipo 6</annotation>
-		<annotation cp="🤸🏻">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | sport | fototipo 1–2</annotation>
+		<annotation cp="🤸🏻">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | fototipo 1–2</annotation>
 		<annotation cp="🤸🏻" type="tts">persona che fa la ruota: fototipo 1–2</annotation>
-		<annotation cp="🤸🏼">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | sport | fototipo 3</annotation>
+		<annotation cp="🤸🏼">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | fototipo 3</annotation>
 		<annotation cp="🤸🏼" type="tts">persona che fa la ruota: fototipo 3</annotation>
-		<annotation cp="🤸🏽">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | sport | fototipo 4</annotation>
+		<annotation cp="🤸🏽">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | fototipo 4</annotation>
 		<annotation cp="🤸🏽" type="tts">persona che fa la ruota: fototipo 4</annotation>
-		<annotation cp="🤸🏾">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | sport | fototipo 5</annotation>
+		<annotation cp="🤸🏾">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | fototipo 5</annotation>
 		<annotation cp="🤸🏾" type="tts">persona che fa la ruota: fototipo 5</annotation>
-		<annotation cp="🤸🏿">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | sport | fototipo 6</annotation>
+		<annotation cp="🤸🏿">ginnasta | ginnastica | persona | persona che fa la ruota | ruota | fototipo 6</annotation>
 		<annotation cp="🤸🏿" type="tts">persona che fa la ruota: fototipo 6</annotation>
 		<annotation cp="🤸🏻‍♂">ginnastica | ruota | sport | uomo | uomo che fa la ruota | fototipo 1–2</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">uomo che fa la ruota: fototipo 1–2</annotation>
@@ -1703,15 +1878,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">donna che fa la ruota: fototipo 5</annotation>
 		<annotation cp="🤸🏿‍♀">donna | donna che fa la ruota | ginnastica | ruota | sport | fototipo 6</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">donna che fa la ruota: fototipo 6</annotation>
-		<annotation cp="🤽🏻">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | sport | fototipo 1–2</annotation>
+		<annotation cp="🤽🏻">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | fototipo 1–2</annotation>
 		<annotation cp="🤽🏻" type="tts">persona che gioca a pallanuoto: fototipo 1–2</annotation>
-		<annotation cp="🤽🏼">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | sport | fototipo 3</annotation>
+		<annotation cp="🤽🏼">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | fototipo 3</annotation>
 		<annotation cp="🤽🏼" type="tts">persona che gioca a pallanuoto: fototipo 3</annotation>
-		<annotation cp="🤽🏽">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | sport | fototipo 4</annotation>
+		<annotation cp="🤽🏽">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | fototipo 4</annotation>
 		<annotation cp="🤽🏽" type="tts">persona che gioca a pallanuoto: fototipo 4</annotation>
-		<annotation cp="🤽🏾">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | sport | fototipo 5</annotation>
+		<annotation cp="🤽🏾">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | fototipo 5</annotation>
 		<annotation cp="🤽🏾" type="tts">persona che gioca a pallanuoto: fototipo 5</annotation>
-		<annotation cp="🤽🏿">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | sport | fototipo 6</annotation>
+		<annotation cp="🤽🏿">acqua | pallanuoto | persona | persona che gioca a pallanuoto | piscina | fototipo 6</annotation>
 		<annotation cp="🤽🏿" type="tts">persona che gioca a pallanuoto: fototipo 6</annotation>
 		<annotation cp="🤽🏻‍♂">pallanuotista uomo | pallanuoto | piscina | sport | uomo | fototipo 1–2</annotation>
 		<annotation cp="🤽🏻‍♂" type="tts">pallanuotista uomo: fototipo 1–2</annotation>
@@ -1793,11 +1968,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤹🏾‍♀" type="tts">giocoliere donna: fototipo 5</annotation>
 		<annotation cp="🤹🏿‍♀">abilità | donna | equilibrio | giocoliere | fototipo 6</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">giocoliere donna: fototipo 6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">baciarsi | bacio tra coppia | coppia | coppietta | persone | romanticismo | donna | uomo</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">baciarsi | bacio tra coppia | coppia | coppietta | persone | donna | uomo</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">bacio tra coppia: donna e uomo</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">baciarsi | bacio tra coppia | coppia | coppietta | persone | romanticismo | uomo</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">baciarsi | bacio tra coppia | coppia | coppietta | persone | uomo</annotation>
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">bacio tra coppia: uomo e uomo</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">baciarsi | bacio tra coppia | coppia | coppietta | persone | romanticismo | donna</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">baciarsi | bacio tra coppia | coppia | coppietta | persone | donna</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">bacio tra coppia: donna e donna</annotation>
 		<annotation cp="👩‍❤‍👨">coppia con cuore | cuore | persone | romanticismo | donna | uomo</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">coppia con cuore: donna e uomo</annotation>
@@ -1806,55 +1981,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩‍❤‍👩">coppia con cuore | cuore | persone | romanticismo | donna</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">coppia con cuore: donna e donna</annotation>
 		<annotation cp="👨‍👩‍👦">bambino | famiglia | mamma | papà | persone | uomo | donna</annotation>
-		<annotation cp="👨‍👩‍👦" type="tts">famiglia: uomo e donna e bambino</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">famiglia: uomo, donna e bambino</annotation>
 		<annotation cp="👨‍👩‍👧">bambino | famiglia | mamma | papà | persone | uomo | donna | bambina</annotation>
-		<annotation cp="👨‍👩‍👧" type="tts">famiglia: uomo e donna e bambina</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">famiglia: uomo, donna e bambina</annotation>
 		<annotation cp="👨‍👩‍👧‍👦">bambino | famiglia | mamma | papà | persone | uomo | donna | bambina</annotation>
-		<annotation cp="👨‍👩‍👧‍👦" type="tts">famiglia: uomo e donna e bambina e bambino</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">famiglia: uomo, donna, bambina e bambino</annotation>
 		<annotation cp="👨‍👩‍👦‍👦">bambino | famiglia | mamma | papà | persone | uomo | donna</annotation>
-		<annotation cp="👨‍👩‍👦‍👦" type="tts">famiglia: uomo e donna e bambino e bambino</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">famiglia: uomo, donna, bambino e bambino</annotation>
 		<annotation cp="👨‍👩‍👧‍👧">bambino | famiglia | mamma | papà | persone | uomo | donna | bambina</annotation>
-		<annotation cp="👨‍👩‍👧‍👧" type="tts">famiglia: uomo e donna e bambina e bambina</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">famiglia: uomo, donna, bambina e bambina</annotation>
 		<annotation cp="👨‍👨‍👦">bambino | famiglia | mamma | papà | persone | uomo</annotation>
-		<annotation cp="👨‍👨‍👦" type="tts">famiglia: uomo e uomo e bambino</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">famiglia: uomo, uomo e bambino</annotation>
 		<annotation cp="👨‍👨‍👧">bambino | famiglia | mamma | papà | persone | uomo | bambina</annotation>
-		<annotation cp="👨‍👨‍👧" type="tts">famiglia: uomo e uomo e bambina</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">famiglia: uomo, uomo e bambina</annotation>
 		<annotation cp="👨‍👨‍👧‍👦">bambino | famiglia | mamma | papà | persone | uomo | bambina</annotation>
-		<annotation cp="👨‍👨‍👧‍👦" type="tts">famiglia: uomo e uomo e bambina e bambino</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">famiglia: uomo, uomo, bambina e bambino</annotation>
 		<annotation cp="👨‍👨‍👦‍👦">bambino | famiglia | mamma | papà | persone | uomo</annotation>
-		<annotation cp="👨‍👨‍👦‍👦" type="tts">famiglia: uomo e uomo e bambino e bambino</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">famiglia: uomo, uomo, bambino e bambino</annotation>
 		<annotation cp="👨‍👨‍👧‍👧">bambino | famiglia | mamma | papà | persone | uomo | bambina</annotation>
-		<annotation cp="👨‍👨‍👧‍👧" type="tts">famiglia: uomo e uomo e bambina e bambina</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">famiglia: uomo, uomo, bambina e bambina</annotation>
 		<annotation cp="👩‍👩‍👦">bambino | famiglia | mamma | papà | persone | donna</annotation>
-		<annotation cp="👩‍👩‍👦" type="tts">famiglia: donna e donna e bambino</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">famiglia: donna, donna e bambino</annotation>
 		<annotation cp="👩‍👩‍👧">bambino | famiglia | mamma | papà | persone | donna | bambina</annotation>
-		<annotation cp="👩‍👩‍👧" type="tts">famiglia: donna e donna e bambina</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">famiglia: donna, donna e bambina</annotation>
 		<annotation cp="👩‍👩‍👧‍👦">bambino | famiglia | mamma | papà | persone | donna | bambina</annotation>
-		<annotation cp="👩‍👩‍👧‍👦" type="tts">famiglia: donna e donna e bambina e bambino</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">famiglia: donna, donna, bambina e bambino</annotation>
 		<annotation cp="👩‍👩‍👦‍👦">bambino | famiglia | mamma | papà | persone | donna</annotation>
-		<annotation cp="👩‍👩‍👦‍👦" type="tts">famiglia: donna e donna e bambino e bambino</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">famiglia: donna, donna, bambino e bambino</annotation>
 		<annotation cp="👩‍👩‍👧‍👧">bambino | famiglia | mamma | papà | persone | donna | bambina</annotation>
-		<annotation cp="👩‍👩‍👧‍👧" type="tts">famiglia: donna e donna e bambina e bambina</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">famiglia: donna, donna, bambina e bambina</annotation>
 		<annotation cp="👨‍👦">bambino | famiglia | mamma | papà | persone | uomo</annotation>
 		<annotation cp="👨‍👦" type="tts">famiglia: uomo e bambino</annotation>
 		<annotation cp="👨‍👦‍👦">bambino | famiglia | mamma | papà | persone | uomo</annotation>
-		<annotation cp="👨‍👦‍👦" type="tts">famiglia: uomo e bambino e bambino</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">famiglia: uomo, bambino e bambino</annotation>
 		<annotation cp="👨‍👧">bambino | famiglia | mamma | papà | persone | uomo | bambina</annotation>
 		<annotation cp="👨‍👧" type="tts">famiglia: uomo e bambina</annotation>
 		<annotation cp="👨‍👧‍👦">bambino | famiglia | mamma | papà | persone | uomo | bambina</annotation>
-		<annotation cp="👨‍👧‍👦" type="tts">famiglia: uomo e bambina e bambino</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">famiglia: uomo, bambina e bambino</annotation>
 		<annotation cp="👨‍👧‍👧">bambino | famiglia | mamma | papà | persone | uomo | bambina</annotation>
-		<annotation cp="👨‍👧‍👧" type="tts">famiglia: uomo e bambina e bambina</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">famiglia: uomo, bambina e bambina</annotation>
 		<annotation cp="👩‍👦">bambino | famiglia | mamma | papà | persone | donna</annotation>
 		<annotation cp="👩‍👦" type="tts">famiglia: donna e bambino</annotation>
 		<annotation cp="👩‍👦‍👦">bambino | famiglia | mamma | papà | persone | donna</annotation>
-		<annotation cp="👩‍👦‍👦" type="tts">famiglia: donna e bambino e bambino</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">famiglia: donna, bambino e bambino</annotation>
 		<annotation cp="👩‍👧">bambino | famiglia | mamma | papà | persone | donna | bambina</annotation>
 		<annotation cp="👩‍👧" type="tts">famiglia: donna e bambina</annotation>
 		<annotation cp="👩‍👧‍👦">bambino | famiglia | mamma | papà | persone | donna | bambina</annotation>
-		<annotation cp="👩‍👧‍👦" type="tts">famiglia: donna e bambina e bambino</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">famiglia: donna, bambina e bambino</annotation>
 		<annotation cp="👩‍👧‍👧">bambino | famiglia | mamma | papà | persone | donna | bambina</annotation>
-		<annotation cp="👩‍👧‍👧" type="tts">famiglia: donna e bambina e bambina</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">famiglia: donna, bambina e bambina</annotation>
 		<annotation cp="🤳🏻">autoscatto | fotocamera | selfie | telefono | fototipo 1–2</annotation>
 		<annotation cp="🤳🏻" type="tts">selfie: fototipo 1–2</annotation>
 		<annotation cp="🤳🏼">autoscatto | fotocamera | selfie | telefono | fototipo 3</annotation>
@@ -1905,15 +2080,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="☝🏾" type="tts">indice verso l’alto: fototipo 5</annotation>
 		<annotation cp="☝🏿">dito | dito verso l’alto | indicare | indice verso l’alto | tu | fototipo 6</annotation>
 		<annotation cp="☝🏿" type="tts">indice verso l’alto: fototipo 6</annotation>
-		<annotation cp="👆🏻">dito | dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 1–2</annotation>
+		<annotation cp="👆🏻">dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 1–2</annotation>
 		<annotation cp="👆🏻" type="tts">indice alzato: fototipo 1–2</annotation>
-		<annotation cp="👆🏼">dito | dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 3</annotation>
+		<annotation cp="👆🏼">dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 3</annotation>
 		<annotation cp="👆🏼" type="tts">indice alzato: fototipo 3</annotation>
-		<annotation cp="👆🏽">dito | dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 4</annotation>
+		<annotation cp="👆🏽">dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 4</annotation>
 		<annotation cp="👆🏽" type="tts">indice alzato: fototipo 4</annotation>
-		<annotation cp="👆🏾">dito | dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 5</annotation>
+		<annotation cp="👆🏾">dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 5</annotation>
 		<annotation cp="👆🏾" type="tts">indice alzato: fototipo 5</annotation>
-		<annotation cp="👆🏿">dito | dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 6</annotation>
+		<annotation cp="👆🏿">dito alzato | dito in su | dito indice | indice alzato | indice in su | fototipo 6</annotation>
 		<annotation cp="👆🏿" type="tts">indice alzato: fototipo 6</annotation>
 		<annotation cp="🖕🏻">dito medio | insulto | offendere | fototipo 1–2</annotation>
 		<annotation cp="🖕🏻" type="tts">dito medio: fototipo 1–2</annotation>
@@ -1925,15 +2100,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🖕🏾" type="tts">dito medio: fototipo 5</annotation>
 		<annotation cp="🖕🏿">dito medio | insulto | offendere | fototipo 6</annotation>
 		<annotation cp="🖕🏿" type="tts">dito medio: fototipo 6</annotation>
-		<annotation cp="👇🏻">dito | dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 1–2</annotation>
+		<annotation cp="👇🏻">dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 1–2</annotation>
 		<annotation cp="👇🏻" type="tts">indice abbassato: fototipo 1–2</annotation>
-		<annotation cp="👇🏼">dito | dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 3</annotation>
+		<annotation cp="👇🏼">dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 3</annotation>
 		<annotation cp="👇🏼" type="tts">indice abbassato: fototipo 3</annotation>
-		<annotation cp="👇🏽">dito | dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 4</annotation>
+		<annotation cp="👇🏽">dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 4</annotation>
 		<annotation cp="👇🏽" type="tts">indice abbassato: fototipo 4</annotation>
-		<annotation cp="👇🏾">dito | dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 5</annotation>
+		<annotation cp="👇🏾">dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 5</annotation>
 		<annotation cp="👇🏾" type="tts">indice abbassato: fototipo 5</annotation>
-		<annotation cp="👇🏿">dito | dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 6</annotation>
+		<annotation cp="👇🏿">dito abbassato | dito in giù | dito indice | indice abbassato | indice in giù | fototipo 6</annotation>
 		<annotation cp="👇🏿" type="tts">indice abbassato: fototipo 6</annotation>
 		<annotation cp="✌🏻">forbice | mano | segno di vittoria | vittoria | yeah | fototipo 1–2</annotation>
 		<annotation cp="✌🏻" type="tts">vittoria: fototipo 1–2</annotation>
@@ -2005,15 +2180,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="✋🏾" type="tts">mano alzata: fototipo 5</annotation>
 		<annotation cp="✋🏿">alzata | carta | mano | fototipo 6</annotation>
 		<annotation cp="✋🏿" type="tts">mano alzata: fototipo 6</annotation>
-		<annotation cp="👌🏻">OK | OK con la mano | mano | mano che fa OK | segno | segno di OK | fototipo 1–2</annotation>
+		<annotation cp="👌🏻">OK | mano | mano che fa OK | segno di OK | fototipo 1–2</annotation>
 		<annotation cp="👌🏻" type="tts">mano che fa OK: fototipo 1–2</annotation>
-		<annotation cp="👌🏼">OK | OK con la mano | mano | mano che fa OK | segno | segno di OK | fototipo 3</annotation>
+		<annotation cp="👌🏼">OK | mano | mano che fa OK | segno di OK | fototipo 3</annotation>
 		<annotation cp="👌🏼" type="tts">mano che fa OK: fototipo 3</annotation>
-		<annotation cp="👌🏽">OK | OK con la mano | mano | mano che fa OK | segno | segno di OK | fototipo 4</annotation>
+		<annotation cp="👌🏽">OK | mano | mano che fa OK | segno di OK | fototipo 4</annotation>
 		<annotation cp="👌🏽" type="tts">mano che fa OK: fototipo 4</annotation>
-		<annotation cp="👌🏾">OK | OK con la mano | mano | mano che fa OK | segno | segno di OK | fototipo 5</annotation>
+		<annotation cp="👌🏾">OK | mano | mano che fa OK | segno di OK | fototipo 5</annotation>
 		<annotation cp="👌🏾" type="tts">mano che fa OK: fototipo 5</annotation>
-		<annotation cp="👌🏿">OK | OK con la mano | mano | mano che fa OK | segno | segno di OK | fototipo 6</annotation>
+		<annotation cp="👌🏿">OK | mano | mano che fa OK | segno di OK | fototipo 6</annotation>
 		<annotation cp="👌🏿" type="tts">mano che fa OK: fototipo 6</annotation>
 		<annotation cp="👍🏻">mano | pollice | pollice in su | segno | su | fototipo 1–2</annotation>
 		<annotation cp="👍🏻" type="tts">pollice in su: fototipo 1–2</annotation>
@@ -2025,15 +2200,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👍🏾" type="tts">pollice in su: fototipo 5</annotation>
 		<annotation cp="👍🏿">mano | pollice | pollice in su | segno | su | fototipo 6</annotation>
 		<annotation cp="👍🏿" type="tts">pollice in su: fototipo 6</annotation>
-		<annotation cp="👎🏻">giù | mano | pollice | pollice in giù | pollice verso | segno | fototipo 1–2</annotation>
+		<annotation cp="👎🏻">giù | mano | pollice | pollice in giù | pollice verso | fototipo 1–2</annotation>
 		<annotation cp="👎🏻" type="tts">pollice verso: fototipo 1–2</annotation>
-		<annotation cp="👎🏼">giù | mano | pollice | pollice in giù | pollice verso | segno | fototipo 3</annotation>
+		<annotation cp="👎🏼">giù | mano | pollice | pollice in giù | pollice verso | fototipo 3</annotation>
 		<annotation cp="👎🏼" type="tts">pollice verso: fototipo 3</annotation>
-		<annotation cp="👎🏽">giù | mano | pollice | pollice in giù | pollice verso | segno | fototipo 4</annotation>
+		<annotation cp="👎🏽">giù | mano | pollice | pollice in giù | pollice verso | fototipo 4</annotation>
 		<annotation cp="👎🏽" type="tts">pollice verso: fototipo 4</annotation>
-		<annotation cp="👎🏾">giù | mano | pollice | pollice in giù | pollice verso | segno | fototipo 5</annotation>
+		<annotation cp="👎🏾">giù | mano | pollice | pollice in giù | pollice verso | fototipo 5</annotation>
 		<annotation cp="👎🏾" type="tts">pollice verso: fototipo 5</annotation>
-		<annotation cp="👎🏿">giù | mano | pollice | pollice in giù | pollice verso | segno | fototipo 6</annotation>
+		<annotation cp="👎🏿">giù | mano | pollice | pollice in giù | pollice verso | fototipo 6</annotation>
 		<annotation cp="👎🏿" type="tts">pollice verso: fototipo 6</annotation>
 		<annotation cp="✊🏻">alzato | pugno | sasso | fototipo 1–2</annotation>
 		<annotation cp="✊🏻" type="tts">sasso: fototipo 1–2</annotation>
@@ -2202,527 +2377,527 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟">tasto</annotation>
 		<annotation cp="🔟" type="tts">tasto: 10</annotation>
 		<annotation cp="🇦🇨">bandiera</annotation>
-		<annotation cp="🇦🇨" type="tts">Isola Ascensione</annotation>
+		<annotation cp="🇦🇨" type="tts">bandiera: Isola Ascensione</annotation>
 		<annotation cp="🇦🇩">bandiera</annotation>
-		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇩" type="tts">bandiera: Andorra</annotation>
 		<annotation cp="🇦🇪">bandiera</annotation>
-		<annotation cp="🇦🇪" type="tts">Emirati Arabi Uniti</annotation>
+		<annotation cp="🇦🇪" type="tts">bandiera: Emirati Arabi Uniti</annotation>
 		<annotation cp="🇦🇫">bandiera</annotation>
-		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇫" type="tts">bandiera: Afghanistan</annotation>
 		<annotation cp="🇦🇬">bandiera</annotation>
-		<annotation cp="🇦🇬" type="tts">Antigua e Barbuda</annotation>
+		<annotation cp="🇦🇬" type="tts">bandiera: Antigua e Barbuda</annotation>
 		<annotation cp="🇦🇮">bandiera</annotation>
-		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇮" type="tts">bandiera: Anguilla</annotation>
 		<annotation cp="🇦🇱">bandiera</annotation>
-		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇱" type="tts">bandiera: Albania</annotation>
 		<annotation cp="🇦🇲">bandiera</annotation>
-		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇲" type="tts">bandiera: Armenia</annotation>
 		<annotation cp="🇦🇴">bandiera</annotation>
-		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇴" type="tts">bandiera: Angola</annotation>
 		<annotation cp="🇦🇶">bandiera</annotation>
-		<annotation cp="🇦🇶" type="tts">Antartide</annotation>
+		<annotation cp="🇦🇶" type="tts">bandiera: Antartide</annotation>
 		<annotation cp="🇦🇷">bandiera</annotation>
-		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇷" type="tts">bandiera: Argentina</annotation>
 		<annotation cp="🇦🇸">bandiera</annotation>
-		<annotation cp="🇦🇸" type="tts">Samoa americane</annotation>
+		<annotation cp="🇦🇸" type="tts">bandiera: Samoa americane</annotation>
 		<annotation cp="🇦🇹">bandiera</annotation>
-		<annotation cp="🇦🇹" type="tts">Austria</annotation>
+		<annotation cp="🇦🇹" type="tts">bandiera: Austria</annotation>
 		<annotation cp="🇦🇺">bandiera</annotation>
-		<annotation cp="🇦🇺" type="tts">Australia</annotation>
+		<annotation cp="🇦🇺" type="tts">bandiera: Australia</annotation>
 		<annotation cp="🇦🇼">bandiera</annotation>
-		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇼" type="tts">bandiera: Aruba</annotation>
 		<annotation cp="🇦🇽">bandiera</annotation>
-		<annotation cp="🇦🇽" type="tts">Isole Åland</annotation>
+		<annotation cp="🇦🇽" type="tts">bandiera: Isole Åland</annotation>
 		<annotation cp="🇦🇿">bandiera</annotation>
-		<annotation cp="🇦🇿" type="tts">Azerbaigian</annotation>
+		<annotation cp="🇦🇿" type="tts">bandiera: Azerbaigian</annotation>
 		<annotation cp="🇧🇦">bandiera</annotation>
-		<annotation cp="🇧🇦" type="tts">Bosnia ed Erzegovina</annotation>
+		<annotation cp="🇧🇦" type="tts">bandiera: Bosnia ed Erzegovina</annotation>
 		<annotation cp="🇧🇧">bandiera</annotation>
-		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇧" type="tts">bandiera: Barbados</annotation>
 		<annotation cp="🇧🇩">bandiera</annotation>
-		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇩" type="tts">bandiera: Bangladesh</annotation>
 		<annotation cp="🇧🇪">bandiera</annotation>
-		<annotation cp="🇧🇪" type="tts">Belgio</annotation>
+		<annotation cp="🇧🇪" type="tts">bandiera: Belgio</annotation>
 		<annotation cp="🇧🇫">bandiera</annotation>
-		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇫" type="tts">bandiera: Burkina Faso</annotation>
 		<annotation cp="🇧🇬">bandiera</annotation>
-		<annotation cp="🇧🇬" type="tts">Bulgaria</annotation>
+		<annotation cp="🇧🇬" type="tts">bandiera: Bulgaria</annotation>
 		<annotation cp="🇧🇭">bandiera</annotation>
-		<annotation cp="🇧🇭" type="tts">Bahrein</annotation>
+		<annotation cp="🇧🇭" type="tts">bandiera: Bahrein</annotation>
 		<annotation cp="🇧🇮">bandiera</annotation>
-		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇮" type="tts">bandiera: Burundi</annotation>
 		<annotation cp="🇧🇯">bandiera</annotation>
-		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇯" type="tts">bandiera: Benin</annotation>
 		<annotation cp="🇧🇱">bandiera</annotation>
-		<annotation cp="🇧🇱" type="tts">Saint-Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">bandiera: Saint-Barthélemy</annotation>
 		<annotation cp="🇧🇲">bandiera</annotation>
-		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇲" type="tts">bandiera: Bermuda</annotation>
 		<annotation cp="🇧🇳">bandiera</annotation>
-		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇳" type="tts">bandiera: Brunei</annotation>
 		<annotation cp="🇧🇴">bandiera</annotation>
-		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇴" type="tts">bandiera: Bolivia</annotation>
 		<annotation cp="🇧🇶">bandiera</annotation>
-		<annotation cp="🇧🇶" type="tts">Caraibi olandesi</annotation>
+		<annotation cp="🇧🇶" type="tts">bandiera: Caraibi olandesi</annotation>
 		<annotation cp="🇧🇷">bandiera</annotation>
-		<annotation cp="🇧🇷" type="tts">Brasile</annotation>
+		<annotation cp="🇧🇷" type="tts">bandiera: Brasile</annotation>
 		<annotation cp="🇧🇸">bandiera</annotation>
-		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇸" type="tts">bandiera: Bahamas</annotation>
 		<annotation cp="🇧🇹">bandiera</annotation>
-		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇹" type="tts">bandiera: Bhutan</annotation>
 		<annotation cp="🇧🇻">bandiera</annotation>
-		<annotation cp="🇧🇻" type="tts">Isola Bouvet</annotation>
+		<annotation cp="🇧🇻" type="tts">bandiera: Isola Bouvet</annotation>
 		<annotation cp="🇧🇼">bandiera</annotation>
-		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇼" type="tts">bandiera: Botswana</annotation>
 		<annotation cp="🇧🇾">bandiera</annotation>
-		<annotation cp="🇧🇾" type="tts">Bielorussia</annotation>
+		<annotation cp="🇧🇾" type="tts">bandiera: Bielorussia</annotation>
 		<annotation cp="🇧🇿">bandiera</annotation>
-		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇧🇿" type="tts">bandiera: Belize</annotation>
 		<annotation cp="🇨🇦">bandiera</annotation>
-		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇦" type="tts">bandiera: Canada</annotation>
 		<annotation cp="🇨🇨">bandiera</annotation>
-		<annotation cp="🇨🇨" type="tts">Isole Cocos (Keeling)</annotation>
+		<annotation cp="🇨🇨" type="tts">bandiera: Isole Cocos (Keeling)</annotation>
 		<annotation cp="🇨🇩">bandiera</annotation>
-		<annotation cp="🇨🇩" type="tts">Congo - Kinshasa</annotation>
+		<annotation cp="🇨🇩" type="tts">bandiera: Congo - Kinshasa</annotation>
 		<annotation cp="🇨🇫">bandiera</annotation>
-		<annotation cp="🇨🇫" type="tts">Repubblica Centrafricana</annotation>
+		<annotation cp="🇨🇫" type="tts">bandiera: Repubblica Centrafricana</annotation>
 		<annotation cp="🇨🇬">bandiera</annotation>
-		<annotation cp="🇨🇬" type="tts">Congo-Brazzaville</annotation>
+		<annotation cp="🇨🇬" type="tts">bandiera: Congo-Brazzaville</annotation>
 		<annotation cp="🇨🇭">bandiera</annotation>
-		<annotation cp="🇨🇭" type="tts">Svizzera</annotation>
+		<annotation cp="🇨🇭" type="tts">bandiera: Svizzera</annotation>
 		<annotation cp="🇨🇮">bandiera</annotation>
-		<annotation cp="🇨🇮" type="tts">Costa d’Avorio</annotation>
+		<annotation cp="🇨🇮" type="tts">bandiera: Costa d’Avorio</annotation>
 		<annotation cp="🇨🇰">bandiera</annotation>
-		<annotation cp="🇨🇰" type="tts">Isole Cook</annotation>
+		<annotation cp="🇨🇰" type="tts">bandiera: Isole Cook</annotation>
 		<annotation cp="🇨🇱">bandiera</annotation>
-		<annotation cp="🇨🇱" type="tts">Cile</annotation>
+		<annotation cp="🇨🇱" type="tts">bandiera: Cile</annotation>
 		<annotation cp="🇨🇲">bandiera</annotation>
-		<annotation cp="🇨🇲" type="tts">Camerun</annotation>
+		<annotation cp="🇨🇲" type="tts">bandiera: Camerun</annotation>
 		<annotation cp="🇨🇳">bandiera</annotation>
-		<annotation cp="🇨🇳" type="tts">Cina</annotation>
+		<annotation cp="🇨🇳" type="tts">bandiera: Cina</annotation>
 		<annotation cp="🇨🇴">bandiera</annotation>
-		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇴" type="tts">bandiera: Colombia</annotation>
 		<annotation cp="🇨🇵">bandiera</annotation>
-		<annotation cp="🇨🇵" type="tts">Isola di Clipperton</annotation>
+		<annotation cp="🇨🇵" type="tts">bandiera: Isola di Clipperton</annotation>
 		<annotation cp="🇨🇷">bandiera</annotation>
-		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇷" type="tts">bandiera: Costa Rica</annotation>
 		<annotation cp="🇨🇺">bandiera</annotation>
-		<annotation cp="🇨🇺" type="tts">Cuba</annotation>
+		<annotation cp="🇨🇺" type="tts">bandiera: Cuba</annotation>
 		<annotation cp="🇨🇻">bandiera</annotation>
-		<annotation cp="🇨🇻" type="tts">Capo Verde</annotation>
+		<annotation cp="🇨🇻" type="tts">bandiera: Capo Verde</annotation>
 		<annotation cp="🇨🇼">bandiera</annotation>
-		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇼" type="tts">bandiera: Curaçao</annotation>
 		<annotation cp="🇨🇽">bandiera</annotation>
-		<annotation cp="🇨🇽" type="tts">Isola Christmas</annotation>
+		<annotation cp="🇨🇽" type="tts">bandiera: Isola Christmas</annotation>
 		<annotation cp="🇨🇾">bandiera</annotation>
-		<annotation cp="🇨🇾" type="tts">Cipro</annotation>
+		<annotation cp="🇨🇾" type="tts">bandiera: Cipro</annotation>
 		<annotation cp="🇨🇿">bandiera</annotation>
-		<annotation cp="🇨🇿" type="tts">Cechia</annotation>
+		<annotation cp="🇨🇿" type="tts">bandiera: Cechia</annotation>
 		<annotation cp="🇩🇪">bandiera</annotation>
-		<annotation cp="🇩🇪" type="tts">Germania</annotation>
+		<annotation cp="🇩🇪" type="tts">bandiera: Germania</annotation>
 		<annotation cp="🇩🇬">bandiera</annotation>
-		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇬" type="tts">bandiera: Diego Garcia</annotation>
 		<annotation cp="🇩🇯">bandiera</annotation>
-		<annotation cp="🇩🇯" type="tts">Gibuti</annotation>
+		<annotation cp="🇩🇯" type="tts">bandiera: Gibuti</annotation>
 		<annotation cp="🇩🇰">bandiera</annotation>
-		<annotation cp="🇩🇰" type="tts">Danimarca</annotation>
+		<annotation cp="🇩🇰" type="tts">bandiera: Danimarca</annotation>
 		<annotation cp="🇩🇲">bandiera</annotation>
-		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇲" type="tts">bandiera: Dominica</annotation>
 		<annotation cp="🇩🇴">bandiera</annotation>
-		<annotation cp="🇩🇴" type="tts">Repubblica Dominicana</annotation>
+		<annotation cp="🇩🇴" type="tts">bandiera: Repubblica Dominicana</annotation>
 		<annotation cp="🇩🇿">bandiera</annotation>
-		<annotation cp="🇩🇿" type="tts">Algeria</annotation>
+		<annotation cp="🇩🇿" type="tts">bandiera: Algeria</annotation>
 		<annotation cp="🇪🇦">bandiera</annotation>
-		<annotation cp="🇪🇦" type="tts">Ceuta e Melilla</annotation>
+		<annotation cp="🇪🇦" type="tts">bandiera: Ceuta e Melilla</annotation>
 		<annotation cp="🇪🇨">bandiera</annotation>
-		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇨" type="tts">bandiera: Ecuador</annotation>
 		<annotation cp="🇪🇪">bandiera</annotation>
-		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇪" type="tts">bandiera: Estonia</annotation>
 		<annotation cp="🇪🇬">bandiera</annotation>
-		<annotation cp="🇪🇬" type="tts">Egitto</annotation>
+		<annotation cp="🇪🇬" type="tts">bandiera: Egitto</annotation>
 		<annotation cp="🇪🇭">bandiera</annotation>
-		<annotation cp="🇪🇭" type="tts">Sahara occidentale</annotation>
+		<annotation cp="🇪🇭" type="tts">bandiera: Sahara occidentale</annotation>
 		<annotation cp="🇪🇷">bandiera</annotation>
-		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇷" type="tts">bandiera: Eritrea</annotation>
 		<annotation cp="🇪🇸">bandiera</annotation>
-		<annotation cp="🇪🇸" type="tts">Spagna</annotation>
+		<annotation cp="🇪🇸" type="tts">bandiera: Spagna</annotation>
 		<annotation cp="🇪🇹">bandiera</annotation>
-		<annotation cp="🇪🇹" type="tts">Etiopia</annotation>
+		<annotation cp="🇪🇹" type="tts">bandiera: Etiopia</annotation>
 		<annotation cp="🇪🇺">bandiera</annotation>
-		<annotation cp="🇪🇺" type="tts">Unione Europea</annotation>
+		<annotation cp="🇪🇺" type="tts">bandiera: Unione Europea</annotation>
 		<annotation cp="🇫🇮">bandiera</annotation>
-		<annotation cp="🇫🇮" type="tts">Finlandia</annotation>
+		<annotation cp="🇫🇮" type="tts">bandiera: Finlandia</annotation>
 		<annotation cp="🇫🇯">bandiera</annotation>
-		<annotation cp="🇫🇯" type="tts">Figi</annotation>
+		<annotation cp="🇫🇯" type="tts">bandiera: Figi</annotation>
 		<annotation cp="🇫🇰">bandiera</annotation>
-		<annotation cp="🇫🇰" type="tts">Isole Falkland</annotation>
+		<annotation cp="🇫🇰" type="tts">bandiera: Isole Falkland</annotation>
 		<annotation cp="🇫🇲">bandiera</annotation>
-		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
+		<annotation cp="🇫🇲" type="tts">bandiera: Micronesia</annotation>
 		<annotation cp="🇫🇴">bandiera</annotation>
-		<annotation cp="🇫🇴" type="tts">Isole Fær Øer</annotation>
+		<annotation cp="🇫🇴" type="tts">bandiera: Isole Fær Øer</annotation>
 		<annotation cp="🇫🇷">bandiera</annotation>
-		<annotation cp="🇫🇷" type="tts">Francia</annotation>
+		<annotation cp="🇫🇷" type="tts">bandiera: Francia</annotation>
 		<annotation cp="🇬🇦">bandiera</annotation>
-		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇦" type="tts">bandiera: Gabon</annotation>
 		<annotation cp="🇬🇧">bandiera</annotation>
-		<annotation cp="🇬🇧" type="tts">Regno Unito</annotation>
+		<annotation cp="🇬🇧" type="tts">bandiera: Regno Unito</annotation>
 		<annotation cp="🇬🇩">bandiera</annotation>
-		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇩" type="tts">bandiera: Grenada</annotation>
 		<annotation cp="🇬🇪">bandiera</annotation>
-		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇪" type="tts">bandiera: Georgia</annotation>
 		<annotation cp="🇬🇫">bandiera</annotation>
-		<annotation cp="🇬🇫" type="tts">Guyana francese</annotation>
+		<annotation cp="🇬🇫" type="tts">bandiera: Guyana francese</annotation>
 		<annotation cp="🇬🇬">bandiera</annotation>
-		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇬" type="tts">bandiera: Guernsey</annotation>
 		<annotation cp="🇬🇭">bandiera</annotation>
-		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇭" type="tts">bandiera: Ghana</annotation>
 		<annotation cp="🇬🇮">bandiera</annotation>
-		<annotation cp="🇬🇮" type="tts">Gibilterra</annotation>
+		<annotation cp="🇬🇮" type="tts">bandiera: Gibilterra</annotation>
 		<annotation cp="🇬🇱">bandiera</annotation>
-		<annotation cp="🇬🇱" type="tts">Groenlandia</annotation>
+		<annotation cp="🇬🇱" type="tts">bandiera: Groenlandia</annotation>
 		<annotation cp="🇬🇲">bandiera</annotation>
-		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇲" type="tts">bandiera: Gambia</annotation>
 		<annotation cp="🇬🇳">bandiera</annotation>
-		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇳" type="tts">bandiera: Guinea</annotation>
 		<annotation cp="🇬🇵">bandiera</annotation>
-		<annotation cp="🇬🇵" type="tts">Guadalupa</annotation>
+		<annotation cp="🇬🇵" type="tts">bandiera: Guadalupa</annotation>
 		<annotation cp="🇬🇶">bandiera</annotation>
-		<annotation cp="🇬🇶" type="tts">Guinea Equatoriale</annotation>
+		<annotation cp="🇬🇶" type="tts">bandiera: Guinea Equatoriale</annotation>
 		<annotation cp="🇬🇷">bandiera</annotation>
-		<annotation cp="🇬🇷" type="tts">Grecia</annotation>
+		<annotation cp="🇬🇷" type="tts">bandiera: Grecia</annotation>
 		<annotation cp="🇬🇸">bandiera</annotation>
-		<annotation cp="🇬🇸" type="tts">Georgia del Sud e Sandwich australi</annotation>
+		<annotation cp="🇬🇸" type="tts">bandiera: Georgia del Sud e Sandwich australi</annotation>
 		<annotation cp="🇬🇹">bandiera</annotation>
-		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇹" type="tts">bandiera: Guatemala</annotation>
 		<annotation cp="🇬🇺">bandiera</annotation>
-		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">bandiera: Guam</annotation>
 		<annotation cp="🇬🇼">bandiera</annotation>
-		<annotation cp="🇬🇼" type="tts">Guinea-Bissau</annotation>
+		<annotation cp="🇬🇼" type="tts">bandiera: Guinea-Bissau</annotation>
 		<annotation cp="🇬🇾">bandiera</annotation>
-		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇬🇾" type="tts">bandiera: Guyana</annotation>
 		<annotation cp="🇭🇰">bandiera</annotation>
-		<annotation cp="🇭🇰" type="tts">RAS di Hong Kong</annotation>
+		<annotation cp="🇭🇰" type="tts">bandiera: RAS di Hong Kong</annotation>
 		<annotation cp="🇭🇲">bandiera</annotation>
-		<annotation cp="🇭🇲" type="tts">Isole Heard e McDonald</annotation>
+		<annotation cp="🇭🇲" type="tts">bandiera: Isole Heard e McDonald</annotation>
 		<annotation cp="🇭🇳">bandiera</annotation>
-		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇳" type="tts">bandiera: Honduras</annotation>
 		<annotation cp="🇭🇷">bandiera</annotation>
-		<annotation cp="🇭🇷" type="tts">Croazia</annotation>
+		<annotation cp="🇭🇷" type="tts">bandiera: Croazia</annotation>
 		<annotation cp="🇭🇹">bandiera</annotation>
-		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇹" type="tts">bandiera: Haiti</annotation>
 		<annotation cp="🇭🇺">bandiera</annotation>
-		<annotation cp="🇭🇺" type="tts">Ungheria</annotation>
+		<annotation cp="🇭🇺" type="tts">bandiera: Ungheria</annotation>
 		<annotation cp="🇮🇨">bandiera</annotation>
-		<annotation cp="🇮🇨" type="tts">Isole Canarie</annotation>
+		<annotation cp="🇮🇨" type="tts">bandiera: Isole Canarie</annotation>
 		<annotation cp="🇮🇩">bandiera</annotation>
-		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇩" type="tts">bandiera: Indonesia</annotation>
 		<annotation cp="🇮🇪">bandiera</annotation>
-		<annotation cp="🇮🇪" type="tts">Irlanda</annotation>
+		<annotation cp="🇮🇪" type="tts">bandiera: Irlanda</annotation>
 		<annotation cp="🇮🇱">bandiera</annotation>
-		<annotation cp="🇮🇱" type="tts">Israele</annotation>
+		<annotation cp="🇮🇱" type="tts">bandiera: Israele</annotation>
 		<annotation cp="🇮🇲">bandiera</annotation>
-		<annotation cp="🇮🇲" type="tts">Isola di Man</annotation>
+		<annotation cp="🇮🇲" type="tts">bandiera: Isola di Man</annotation>
 		<annotation cp="🇮🇳">bandiera</annotation>
-		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇳" type="tts">bandiera: India</annotation>
 		<annotation cp="🇮🇴">bandiera</annotation>
-		<annotation cp="🇮🇴" type="tts">Territorio britannico dell’Oceano Indiano</annotation>
+		<annotation cp="🇮🇴" type="tts">bandiera: Territorio britannico dell’Oceano Indiano</annotation>
 		<annotation cp="🇮🇶">bandiera</annotation>
-		<annotation cp="🇮🇶" type="tts">Iraq</annotation>
+		<annotation cp="🇮🇶" type="tts">bandiera: Iraq</annotation>
 		<annotation cp="🇮🇷">bandiera</annotation>
-		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">bandiera: Iran</annotation>
 		<annotation cp="🇮🇸">bandiera</annotation>
-		<annotation cp="🇮🇸" type="tts">Islanda</annotation>
+		<annotation cp="🇮🇸" type="tts">bandiera: Islanda</annotation>
 		<annotation cp="🇮🇹">bandiera</annotation>
-		<annotation cp="🇮🇹" type="tts">Italia</annotation>
+		<annotation cp="🇮🇹" type="tts">bandiera: Italia</annotation>
 		<annotation cp="🇯🇪">bandiera</annotation>
-		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇪" type="tts">bandiera: Jersey</annotation>
 		<annotation cp="🇯🇲">bandiera</annotation>
-		<annotation cp="🇯🇲" type="tts">Giamaica</annotation>
+		<annotation cp="🇯🇲" type="tts">bandiera: Giamaica</annotation>
 		<annotation cp="🇯🇴">bandiera</annotation>
-		<annotation cp="🇯🇴" type="tts">Giordania</annotation>
+		<annotation cp="🇯🇴" type="tts">bandiera: Giordania</annotation>
 		<annotation cp="🇯🇵">bandiera</annotation>
-		<annotation cp="🇯🇵" type="tts">Giappone</annotation>
+		<annotation cp="🇯🇵" type="tts">bandiera: Giappone</annotation>
 		<annotation cp="🇰🇪">bandiera</annotation>
-		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇪" type="tts">bandiera: Kenya</annotation>
 		<annotation cp="🇰🇬">bandiera</annotation>
-		<annotation cp="🇰🇬" type="tts">Kirghizistan</annotation>
+		<annotation cp="🇰🇬" type="tts">bandiera: Kirghizistan</annotation>
 		<annotation cp="🇰🇭">bandiera</annotation>
-		<annotation cp="🇰🇭" type="tts">Cambogia</annotation>
+		<annotation cp="🇰🇭" type="tts">bandiera: Cambogia</annotation>
 		<annotation cp="🇰🇮">bandiera</annotation>
-		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇮" type="tts">bandiera: Kiribati</annotation>
 		<annotation cp="🇰🇲">bandiera</annotation>
-		<annotation cp="🇰🇲" type="tts">Comore</annotation>
+		<annotation cp="🇰🇲" type="tts">bandiera: Comore</annotation>
 		<annotation cp="🇰🇳">bandiera</annotation>
-		<annotation cp="🇰🇳" type="tts">Saint Kitts e Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">bandiera: Saint Kitts e Nevis</annotation>
 		<annotation cp="🇰🇵">bandiera</annotation>
-		<annotation cp="🇰🇵" type="tts">Corea del Nord</annotation>
+		<annotation cp="🇰🇵" type="tts">bandiera: Corea del Nord</annotation>
 		<annotation cp="🇰🇷">bandiera</annotation>
-		<annotation cp="🇰🇷" type="tts">Corea del Sud</annotation>
+		<annotation cp="🇰🇷" type="tts">bandiera: Corea del Sud</annotation>
 		<annotation cp="🇰🇼">bandiera</annotation>
-		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇼" type="tts">bandiera: Kuwait</annotation>
 		<annotation cp="🇰🇾">bandiera</annotation>
-		<annotation cp="🇰🇾" type="tts">Isole Cayman</annotation>
+		<annotation cp="🇰🇾" type="tts">bandiera: Isole Cayman</annotation>
 		<annotation cp="🇰🇿">bandiera</annotation>
-		<annotation cp="🇰🇿" type="tts">Kazakistan</annotation>
+		<annotation cp="🇰🇿" type="tts">bandiera: Kazakistan</annotation>
 		<annotation cp="🇱🇦">bandiera</annotation>
-		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">bandiera: Laos</annotation>
 		<annotation cp="🇱🇧">bandiera</annotation>
-		<annotation cp="🇱🇧" type="tts">Libano</annotation>
+		<annotation cp="🇱🇧" type="tts">bandiera: Libano</annotation>
 		<annotation cp="🇱🇨">bandiera</annotation>
-		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">bandiera: Saint Lucia</annotation>
 		<annotation cp="🇱🇮">bandiera</annotation>
-		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇮" type="tts">bandiera: Liechtenstein</annotation>
 		<annotation cp="🇱🇰">bandiera</annotation>
-		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇰" type="tts">bandiera: Sri Lanka</annotation>
 		<annotation cp="🇱🇷">bandiera</annotation>
-		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇷" type="tts">bandiera: Liberia</annotation>
 		<annotation cp="🇱🇸">bandiera</annotation>
-		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇸" type="tts">bandiera: Lesotho</annotation>
 		<annotation cp="🇱🇹">bandiera</annotation>
-		<annotation cp="🇱🇹" type="tts">Lituania</annotation>
+		<annotation cp="🇱🇹" type="tts">bandiera: Lituania</annotation>
 		<annotation cp="🇱🇺">bandiera</annotation>
-		<annotation cp="🇱🇺" type="tts">Lussemburgo</annotation>
+		<annotation cp="🇱🇺" type="tts">bandiera: Lussemburgo</annotation>
 		<annotation cp="🇱🇻">bandiera</annotation>
-		<annotation cp="🇱🇻" type="tts">Lettonia</annotation>
+		<annotation cp="🇱🇻" type="tts">bandiera: Lettonia</annotation>
 		<annotation cp="🇱🇾">bandiera</annotation>
-		<annotation cp="🇱🇾" type="tts">Libia</annotation>
+		<annotation cp="🇱🇾" type="tts">bandiera: Libia</annotation>
 		<annotation cp="🇲🇦">bandiera</annotation>
-		<annotation cp="🇲🇦" type="tts">Marocco</annotation>
+		<annotation cp="🇲🇦" type="tts">bandiera: Marocco</annotation>
 		<annotation cp="🇲🇨">bandiera</annotation>
-		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇨" type="tts">bandiera: Monaco</annotation>
 		<annotation cp="🇲🇩">bandiera</annotation>
-		<annotation cp="🇲🇩" type="tts">Moldavia</annotation>
+		<annotation cp="🇲🇩" type="tts">bandiera: Moldavia</annotation>
 		<annotation cp="🇲🇪">bandiera</annotation>
-		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇪" type="tts">bandiera: Montenegro</annotation>
 		<annotation cp="🇲🇫">bandiera</annotation>
-		<annotation cp="🇲🇫" type="tts">Saint Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">bandiera: Saint Martin</annotation>
 		<annotation cp="🇲🇬">bandiera</annotation>
-		<annotation cp="🇲🇬" type="tts">Madagascar</annotation>
+		<annotation cp="🇲🇬" type="tts">bandiera: Madagascar</annotation>
 		<annotation cp="🇲🇭">bandiera</annotation>
-		<annotation cp="🇲🇭" type="tts">Isole Marshall</annotation>
+		<annotation cp="🇲🇭" type="tts">bandiera: Isole Marshall</annotation>
 		<annotation cp="🇲🇰">bandiera</annotation>
-		<annotation cp="🇲🇰" type="tts">Repubblica di Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">bandiera: Repubblica di Macedonia</annotation>
 		<annotation cp="🇲🇱">bandiera</annotation>
-		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇱" type="tts">bandiera: Mali</annotation>
 		<annotation cp="🇲🇲">bandiera</annotation>
-		<annotation cp="🇲🇲" type="tts">Myanmar (Birmania)</annotation>
+		<annotation cp="🇲🇲" type="tts">bandiera: Myanmar (Birmania)</annotation>
 		<annotation cp="🇲🇳">bandiera</annotation>
-		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇳" type="tts">bandiera: Mongolia</annotation>
 		<annotation cp="🇲🇴">bandiera</annotation>
-		<annotation cp="🇲🇴" type="tts">RAS di Macao</annotation>
+		<annotation cp="🇲🇴" type="tts">bandiera: RAS di Macao</annotation>
 		<annotation cp="🇲🇵">bandiera</annotation>
-		<annotation cp="🇲🇵" type="tts">Isole Marianne settentrionali</annotation>
+		<annotation cp="🇲🇵" type="tts">bandiera: Isole Marianne settentrionali</annotation>
 		<annotation cp="🇲🇶">bandiera</annotation>
-		<annotation cp="🇲🇶" type="tts">Martinica</annotation>
+		<annotation cp="🇲🇶" type="tts">bandiera: Martinica</annotation>
 		<annotation cp="🇲🇷">bandiera</annotation>
-		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇷" type="tts">bandiera: Mauritania</annotation>
 		<annotation cp="🇲🇸">bandiera</annotation>
-		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇸" type="tts">bandiera: Montserrat</annotation>
 		<annotation cp="🇲🇹">bandiera</annotation>
-		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇹" type="tts">bandiera: Malta</annotation>
 		<annotation cp="🇲🇺">bandiera</annotation>
-		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">bandiera: Mauritius</annotation>
 		<annotation cp="🇲🇻">bandiera</annotation>
-		<annotation cp="🇲🇻" type="tts">Maldive</annotation>
+		<annotation cp="🇲🇻" type="tts">bandiera: Maldive</annotation>
 		<annotation cp="🇲🇼">bandiera</annotation>
-		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇼" type="tts">bandiera: Malawi</annotation>
 		<annotation cp="🇲🇽">bandiera</annotation>
-		<annotation cp="🇲🇽" type="tts">Messico</annotation>
+		<annotation cp="🇲🇽" type="tts">bandiera: Messico</annotation>
 		<annotation cp="🇲🇾">bandiera</annotation>
-		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇾" type="tts">bandiera: Malaysia</annotation>
 		<annotation cp="🇲🇿">bandiera</annotation>
-		<annotation cp="🇲🇿" type="tts">Mozambico</annotation>
+		<annotation cp="🇲🇿" type="tts">bandiera: Mozambico</annotation>
 		<annotation cp="🇳🇦">bandiera</annotation>
-		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇦" type="tts">bandiera: Namibia</annotation>
 		<annotation cp="🇳🇨">bandiera</annotation>
-		<annotation cp="🇳🇨" type="tts">Nuova Caledonia</annotation>
+		<annotation cp="🇳🇨" type="tts">bandiera: Nuova Caledonia</annotation>
 		<annotation cp="🇳🇪">bandiera</annotation>
-		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇪" type="tts">bandiera: Niger</annotation>
 		<annotation cp="🇳🇫">bandiera</annotation>
-		<annotation cp="🇳🇫" type="tts">Isola Norfolk</annotation>
+		<annotation cp="🇳🇫" type="tts">bandiera: Isola Norfolk</annotation>
 		<annotation cp="🇳🇬">bandiera</annotation>
-		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇬" type="tts">bandiera: Nigeria</annotation>
 		<annotation cp="🇳🇮">bandiera</annotation>
-		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇮" type="tts">bandiera: Nicaragua</annotation>
 		<annotation cp="🇳🇱">bandiera</annotation>
-		<annotation cp="🇳🇱" type="tts">Paesi Bassi</annotation>
+		<annotation cp="🇳🇱" type="tts">bandiera: Paesi Bassi</annotation>
 		<annotation cp="🇳🇴">bandiera</annotation>
-		<annotation cp="🇳🇴" type="tts">Norvegia</annotation>
+		<annotation cp="🇳🇴" type="tts">bandiera: Norvegia</annotation>
 		<annotation cp="🇳🇵">bandiera</annotation>
-		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇵" type="tts">bandiera: Nepal</annotation>
 		<annotation cp="🇳🇷">bandiera</annotation>
-		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇷" type="tts">bandiera: Nauru</annotation>
 		<annotation cp="🇳🇺">bandiera</annotation>
-		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇺" type="tts">bandiera: Niue</annotation>
 		<annotation cp="🇳🇿">bandiera</annotation>
-		<annotation cp="🇳🇿" type="tts">Nuova Zelanda</annotation>
+		<annotation cp="🇳🇿" type="tts">bandiera: Nuova Zelanda</annotation>
 		<annotation cp="🇴🇲">bandiera</annotation>
-		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">bandiera: Oman</annotation>
 		<annotation cp="🇵🇦">bandiera</annotation>
-		<annotation cp="🇵🇦" type="tts">Panamá</annotation>
+		<annotation cp="🇵🇦" type="tts">bandiera: Panamá</annotation>
 		<annotation cp="🇵🇪">bandiera</annotation>
-		<annotation cp="🇵🇪" type="tts">Perù</annotation>
+		<annotation cp="🇵🇪" type="tts">bandiera: Perù</annotation>
 		<annotation cp="🇵🇫">bandiera</annotation>
-		<annotation cp="🇵🇫" type="tts">Polinesia francese</annotation>
+		<annotation cp="🇵🇫" type="tts">bandiera: Polinesia francese</annotation>
 		<annotation cp="🇵🇬">bandiera</annotation>
-		<annotation cp="🇵🇬" type="tts">Papua Nuova Guinea</annotation>
+		<annotation cp="🇵🇬" type="tts">bandiera: Papua Nuova Guinea</annotation>
 		<annotation cp="🇵🇭">bandiera</annotation>
-		<annotation cp="🇵🇭" type="tts">Filippine</annotation>
+		<annotation cp="🇵🇭" type="tts">bandiera: Filippine</annotation>
 		<annotation cp="🇵🇰">bandiera</annotation>
-		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">bandiera: Pakistan</annotation>
 		<annotation cp="🇵🇱">bandiera</annotation>
-		<annotation cp="🇵🇱" type="tts">Polonia</annotation>
+		<annotation cp="🇵🇱" type="tts">bandiera: Polonia</annotation>
 		<annotation cp="🇵🇲">bandiera</annotation>
-		<annotation cp="🇵🇲" type="tts">Saint-Pierre e Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">bandiera: Saint-Pierre e Miquelon</annotation>
 		<annotation cp="🇵🇳">bandiera</annotation>
-		<annotation cp="🇵🇳" type="tts">Isole Pitcairn</annotation>
+		<annotation cp="🇵🇳" type="tts">bandiera: Isole Pitcairn</annotation>
 		<annotation cp="🇵🇷">bandiera</annotation>
-		<annotation cp="🇵🇷" type="tts">Portorico</annotation>
+		<annotation cp="🇵🇷" type="tts">bandiera: Portorico</annotation>
 		<annotation cp="🇵🇸">bandiera</annotation>
-		<annotation cp="🇵🇸" type="tts">Territori palestinesi</annotation>
+		<annotation cp="🇵🇸" type="tts">bandiera: Territori palestinesi</annotation>
 		<annotation cp="🇵🇹">bandiera</annotation>
-		<annotation cp="🇵🇹" type="tts">Portogallo</annotation>
+		<annotation cp="🇵🇹" type="tts">bandiera: Portogallo</annotation>
 		<annotation cp="🇵🇼">bandiera</annotation>
-		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">bandiera: Palau</annotation>
 		<annotation cp="🇵🇾">bandiera</annotation>
-		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇵🇾" type="tts">bandiera: Paraguay</annotation>
 		<annotation cp="🇶🇦">bandiera</annotation>
-		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇶🇦" type="tts">bandiera: Qatar</annotation>
 		<annotation cp="🇷🇪">bandiera</annotation>
-		<annotation cp="🇷🇪" type="tts">Riunione</annotation>
+		<annotation cp="🇷🇪" type="tts">bandiera: Riunione</annotation>
 		<annotation cp="🇷🇴">bandiera</annotation>
-		<annotation cp="🇷🇴" type="tts">Romania</annotation>
+		<annotation cp="🇷🇴" type="tts">bandiera: Romania</annotation>
 		<annotation cp="🇷🇸">bandiera</annotation>
-		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇸" type="tts">bandiera: Serbia</annotation>
 		<annotation cp="🇷🇺">bandiera</annotation>
-		<annotation cp="🇷🇺" type="tts">Russia</annotation>
+		<annotation cp="🇷🇺" type="tts">bandiera: Russia</annotation>
 		<annotation cp="🇷🇼">bandiera</annotation>
-		<annotation cp="🇷🇼" type="tts">Ruanda</annotation>
+		<annotation cp="🇷🇼" type="tts">bandiera: Ruanda</annotation>
 		<annotation cp="🇸🇦">bandiera</annotation>
-		<annotation cp="🇸🇦" type="tts">Arabia Saudita</annotation>
+		<annotation cp="🇸🇦" type="tts">bandiera: Arabia Saudita</annotation>
 		<annotation cp="🇸🇧">bandiera</annotation>
-		<annotation cp="🇸🇧" type="tts">Isole Salomone</annotation>
+		<annotation cp="🇸🇧" type="tts">bandiera: Isole Salomone</annotation>
 		<annotation cp="🇸🇨">bandiera</annotation>
-		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
+		<annotation cp="🇸🇨" type="tts">bandiera: Seychelles</annotation>
 		<annotation cp="🇸🇩">bandiera</annotation>
-		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇩" type="tts">bandiera: Sudan</annotation>
 		<annotation cp="🇸🇪">bandiera</annotation>
-		<annotation cp="🇸🇪" type="tts">Svezia</annotation>
+		<annotation cp="🇸🇪" type="tts">bandiera: Svezia</annotation>
 		<annotation cp="🇸🇬">bandiera</annotation>
-		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇬" type="tts">bandiera: Singapore</annotation>
 		<annotation cp="🇸🇭">bandiera</annotation>
-		<annotation cp="🇸🇭" type="tts">Sant’Elena</annotation>
+		<annotation cp="🇸🇭" type="tts">bandiera: Sant’Elena</annotation>
 		<annotation cp="🇸🇮">bandiera</annotation>
-		<annotation cp="🇸🇮" type="tts">Slovenia</annotation>
+		<annotation cp="🇸🇮" type="tts">bandiera: Slovenia</annotation>
 		<annotation cp="🇸🇯">bandiera</annotation>
-		<annotation cp="🇸🇯" type="tts">Svalbard e Jan Mayen</annotation>
+		<annotation cp="🇸🇯" type="tts">bandiera: Svalbard e Jan Mayen</annotation>
 		<annotation cp="🇸🇰">bandiera</annotation>
-		<annotation cp="🇸🇰" type="tts">Slovacchia</annotation>
+		<annotation cp="🇸🇰" type="tts">bandiera: Slovacchia</annotation>
 		<annotation cp="🇸🇱">bandiera</annotation>
-		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇱" type="tts">bandiera: Sierra Leone</annotation>
 		<annotation cp="🇸🇲">bandiera</annotation>
-		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇲" type="tts">bandiera: San Marino</annotation>
 		<annotation cp="🇸🇳">bandiera</annotation>
-		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇳" type="tts">bandiera: Senegal</annotation>
 		<annotation cp="🇸🇴">bandiera</annotation>
-		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇴" type="tts">bandiera: Somalia</annotation>
 		<annotation cp="🇸🇷">bandiera</annotation>
-		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇷" type="tts">bandiera: Suriname</annotation>
 		<annotation cp="🇸🇸">bandiera</annotation>
-		<annotation cp="🇸🇸" type="tts">Sud Sudan</annotation>
+		<annotation cp="🇸🇸" type="tts">bandiera: Sud Sudan</annotation>
 		<annotation cp="🇸🇹">bandiera</annotation>
-		<annotation cp="🇸🇹" type="tts">São Tomé e Príncipe</annotation>
+		<annotation cp="🇸🇹" type="tts">bandiera: São Tomé e Príncipe</annotation>
 		<annotation cp="🇸🇻">bandiera</annotation>
-		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇻" type="tts">bandiera: El Salvador</annotation>
 		<annotation cp="🇸🇽">bandiera</annotation>
-		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">bandiera: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">bandiera</annotation>
-		<annotation cp="🇸🇾" type="tts">Siria</annotation>
+		<annotation cp="🇸🇾" type="tts">bandiera: Siria</annotation>
 		<annotation cp="🇸🇿">bandiera</annotation>
-		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇸🇿" type="tts">bandiera: Swaziland</annotation>
 		<annotation cp="🇹🇦">bandiera</annotation>
-		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇦" type="tts">bandiera: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">bandiera</annotation>
-		<annotation cp="🇹🇨" type="tts">Isole Turks e Caicos</annotation>
+		<annotation cp="🇹🇨" type="tts">bandiera: Isole Turks e Caicos</annotation>
 		<annotation cp="🇹🇩">bandiera</annotation>
-		<annotation cp="🇹🇩" type="tts">Ciad</annotation>
+		<annotation cp="🇹🇩" type="tts">bandiera: Ciad</annotation>
 		<annotation cp="🇹🇫">bandiera</annotation>
-		<annotation cp="🇹🇫" type="tts">Terre australi francesi</annotation>
+		<annotation cp="🇹🇫" type="tts">bandiera: Terre australi francesi</annotation>
 		<annotation cp="🇹🇬">bandiera</annotation>
-		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇬" type="tts">bandiera: Togo</annotation>
 		<annotation cp="🇹🇭">bandiera</annotation>
-		<annotation cp="🇹🇭" type="tts">Thailandia</annotation>
+		<annotation cp="🇹🇭" type="tts">bandiera: Thailandia</annotation>
 		<annotation cp="🇹🇯">bandiera</annotation>
-		<annotation cp="🇹🇯" type="tts">Tagikistan</annotation>
+		<annotation cp="🇹🇯" type="tts">bandiera: Tagikistan</annotation>
 		<annotation cp="🇹🇰">bandiera</annotation>
-		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">bandiera: Tokelau</annotation>
 		<annotation cp="🇹🇱">bandiera</annotation>
-		<annotation cp="🇹🇱" type="tts">Timor Est</annotation>
+		<annotation cp="🇹🇱" type="tts">bandiera: Timor Est</annotation>
 		<annotation cp="🇹🇲">bandiera</annotation>
-		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇲" type="tts">bandiera: Turkmenistan</annotation>
 		<annotation cp="🇹🇳">bandiera</annotation>
-		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇳" type="tts">bandiera: Tunisia</annotation>
 		<annotation cp="🇹🇴">bandiera</annotation>
-		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇴" type="tts">bandiera: Tonga</annotation>
 		<annotation cp="🇹🇷">bandiera</annotation>
-		<annotation cp="🇹🇷" type="tts">Turchia</annotation>
+		<annotation cp="🇹🇷" type="tts">bandiera: Turchia</annotation>
 		<annotation cp="🇹🇹">bandiera</annotation>
-		<annotation cp="🇹🇹" type="tts">Trinidad e Tobago</annotation>
+		<annotation cp="🇹🇹" type="tts">bandiera: Trinidad e Tobago</annotation>
 		<annotation cp="🇹🇻">bandiera</annotation>
-		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇻" type="tts">bandiera: Tuvalu</annotation>
 		<annotation cp="🇹🇼">bandiera</annotation>
-		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">bandiera: Taiwan</annotation>
 		<annotation cp="🇹🇿">bandiera</annotation>
-		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇹🇿" type="tts">bandiera: Tanzania</annotation>
 		<annotation cp="🇺🇦">bandiera</annotation>
-		<annotation cp="🇺🇦" type="tts">Ucraina</annotation>
+		<annotation cp="🇺🇦" type="tts">bandiera: Ucraina</annotation>
 		<annotation cp="🇺🇬">bandiera</annotation>
-		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇬" type="tts">bandiera: Uganda</annotation>
 		<annotation cp="🇺🇲">bandiera</annotation>
-		<annotation cp="🇺🇲" type="tts">Altre isole americane del Pacifico</annotation>
+		<annotation cp="🇺🇲" type="tts">bandiera: Altre isole americane del Pacifico</annotation>
 		<annotation cp="🇺🇳">bandiera</annotation>
-		<annotation cp="🇺🇳" type="tts">Nazioni Unite</annotation>
+		<annotation cp="🇺🇳" type="tts">bandiera: Nazioni Unite</annotation>
 		<annotation cp="🇺🇸">bandiera</annotation>
-		<annotation cp="🇺🇸" type="tts">Stati Uniti</annotation>
+		<annotation cp="🇺🇸" type="tts">bandiera: Stati Uniti</annotation>
 		<annotation cp="🇺🇾">bandiera</annotation>
-		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇾" type="tts">bandiera: Uruguay</annotation>
 		<annotation cp="🇺🇿">bandiera</annotation>
-		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇺🇿" type="tts">bandiera: Uzbekistan</annotation>
 		<annotation cp="🇻🇦">bandiera</annotation>
-		<annotation cp="🇻🇦" type="tts">Città del Vaticano</annotation>
+		<annotation cp="🇻🇦" type="tts">bandiera: Città del Vaticano</annotation>
 		<annotation cp="🇻🇨">bandiera</annotation>
-		<annotation cp="🇻🇨" type="tts">Saint Vincent e Grenadine</annotation>
+		<annotation cp="🇻🇨" type="tts">bandiera: Saint Vincent e Grenadine</annotation>
 		<annotation cp="🇻🇪">bandiera</annotation>
-		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇪" type="tts">bandiera: Venezuela</annotation>
 		<annotation cp="🇻🇬">bandiera</annotation>
-		<annotation cp="🇻🇬" type="tts">Isole Vergini Britanniche</annotation>
+		<annotation cp="🇻🇬" type="tts">bandiera: Isole Vergini Britanniche</annotation>
 		<annotation cp="🇻🇮">bandiera</annotation>
-		<annotation cp="🇻🇮" type="tts">Isole Vergini Americane</annotation>
+		<annotation cp="🇻🇮" type="tts">bandiera: Isole Vergini Americane</annotation>
 		<annotation cp="🇻🇳">bandiera</annotation>
-		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇳" type="tts">bandiera: Vietnam</annotation>
 		<annotation cp="🇻🇺">bandiera</annotation>
-		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇻🇺" type="tts">bandiera: Vanuatu</annotation>
 		<annotation cp="🇼🇫">bandiera</annotation>
-		<annotation cp="🇼🇫" type="tts">Wallis e Futuna</annotation>
+		<annotation cp="🇼🇫" type="tts">bandiera: Wallis e Futuna</annotation>
 		<annotation cp="🇼🇸">bandiera</annotation>
-		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇼🇸" type="tts">bandiera: Samoa</annotation>
 		<annotation cp="🇽🇰">bandiera</annotation>
-		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇽🇰" type="tts">bandiera: Kosovo</annotation>
 		<annotation cp="🇾🇪">bandiera</annotation>
-		<annotation cp="🇾🇪" type="tts">Yemen</annotation>
+		<annotation cp="🇾🇪" type="tts">bandiera: Yemen</annotation>
 		<annotation cp="🇾🇹">bandiera</annotation>
-		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇾🇹" type="tts">bandiera: Mayotte</annotation>
 		<annotation cp="🇿🇦">bandiera</annotation>
-		<annotation cp="🇿🇦" type="tts">Sudafrica</annotation>
+		<annotation cp="🇿🇦" type="tts">bandiera: Sudafrica</annotation>
 		<annotation cp="🇿🇲">bandiera</annotation>
-		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇲" type="tts">bandiera: Zambia</annotation>
 		<annotation cp="🇿🇼">bandiera</annotation>
-		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🇿🇼" type="tts">bandiera: Zimbabwe</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">bandiera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Inghilterra</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">bandiera: Inghilterra</annotation>
 		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">bandiera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Scozia</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">bandiera: Scozia</annotation>
 		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">bandiera</annotation>
-		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Galles</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">bandiera: Galles</annotation>
 		<annotation cp="0⃣">tasto</annotation>
 		<annotation cp="0⃣" type="tts">tasto: 0</annotation>
 		<annotation cp="1⃣">tasto</annotation>

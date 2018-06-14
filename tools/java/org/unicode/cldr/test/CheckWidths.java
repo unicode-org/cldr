@@ -19,6 +19,8 @@ public class CheckWidths extends CheckCLDR {
     private static CoverageLevel2 coverageLevel;
     private Level requiredLevel;
 
+    public static final int MAX_COMPONENTS_PER_ANNOTATION = 16;
+    
     SupplementalDataInfo supplementalData;
 
     private static final double EM = ApproximateWidth.getWidth("月");
@@ -26,7 +28,7 @@ public class CheckWidths extends CheckCLDR {
     private static final boolean DEBUG = true;
 
     private enum Measure {
-        CODE_POINTS, DISPLAY_WIDTH
+        CODE_POINTS, DISPLAY_WIDTH, SET_ELEMENTS
     }
 
     private enum LimitType {
@@ -34,7 +36,7 @@ public class CheckWidths extends CheckCLDR {
     }
 
     private enum Special {
-        NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS, NUMBERFORMAT
+        NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS, NUMBERFORMAT, BARS
     }
 
     private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("\\{\\d\\}");
@@ -58,16 +60,35 @@ public class CheckWidths extends CheckCLDR {
             this.special = special;
             switch (limit) {
             case MINIMUM:
-                this.message = measure == Measure.CODE_POINTS
-                    ? "Expected no fewer than {0} character(s), but was {1}."
-                    : "Too narrow by about {2}% (with common fonts).";
                 this.subtype = Subtype.valueTooNarrow;
+                switch (measure) {
+                case CODE_POINTS:
+                    this.message = "Expected no fewer than {0} character(s), but was {1}.";
+                    break;
+                case DISPLAY_WIDTH:
+                    this.message = "Too narrow by about {2}% (with common fonts).";
+                    break;
+                default:
+                    throw new IllegalArgumentException();
+                }
                 break;
             case MAXIMUM:
-                this.message = measure == Measure.CODE_POINTS
-                    ? "Expected no more than {0} character(s), but was {1}."
-                    : "Too wide by about {2}% (with common fonts).";
-                this.subtype = Subtype.valueTooWide;
+                switch (measure) {
+                case CODE_POINTS:
+                    this.message = "Expected no more than {0} character(s), but was {1}.";
+                    this.subtype = Subtype.valueTooWide;
+                    break;
+                case DISPLAY_WIDTH:
+                    this.message = "Too wide by about {2}% (with common fonts).";
+                    this.subtype = Subtype.valueTooWide;
+                    break;
+                case SET_ELEMENTS: 
+                    this.message = "Expected no more than {0} items(s), but was {1}.";
+                    this.subtype = Subtype.tooManyValues;
+                    break;
+                default:
+                    throw new IllegalArgumentException();
+                }
                 break;
             default:
                 throw new IllegalArgumentException();
@@ -95,9 +116,13 @@ public class CheckWidths extends CheckCLDR {
             case NUMBERSYMBOLS:
                 value = value.replaceAll("[\u200E\u200F\u061C]", ""); // don't include LRM/RLM/ALM when checking length of number symbols
                 break;
+            case BARS:
+                value = value.replaceAll("[^|]", "")+"|"; // Check the number of items by counting separators. Bit of a hack...
+                break;
             default:
             }
-            double valueMeasure = measure == Measure.CODE_POINTS ? value.codePointCount(0, value.length()) : ApproximateWidth.getWidth(value);
+            double valueMeasure = measure == Measure.DISPLAY_WIDTH ? ApproximateWidth.getWidth(value)
+                : value.codePointCount(0, value.length()) ;
             CheckStatus.Type errorType = CheckStatus.warningType;
             switch (limit) {
             case MINIMUM:
@@ -113,7 +138,13 @@ public class CheckWidths extends CheckCLDR {
                     return false;
                 }
                 if (valueMeasure > errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive) {
-                    errorType = CheckStatus.errorType;
+                    // Workaround for ST submission phase only per TC discussion 2018-05-30
+                    // Make too many keywords be only a warning until we decide policy (JCE)
+                    if (cause.getPhase() == Phase.SUBMISSION && measure.equals(Measure.SET_ELEMENTS)) {
+                        errorType = CheckStatus.warningType;
+                    } else {
+                        errorType = CheckStatus.errorType;
+                    }
                 }
                 break;
             }
@@ -240,7 +271,7 @@ public class CheckWidths extends CheckCLDR {
         .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
             new Limit[] {
                 new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NUMBERFORMAT)
-            })
+        })
         // Catch -future/past Narrow units  and allow much wider values
         .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
             new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
@@ -270,8 +301,12 @@ public class CheckWidths extends CheckCLDR {
         // "grinning cat face with smiling eyes" should be normal max ~= 160 em
         // emoji names (not keywords)
         .add("//ldml/annotations/annotation[@cp=%A][@type=%A]", new Limit[] {
-            new Limit(20 * EM, 100 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
-        });
+            new Limit(20 * EM, 100 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE),
+        })
+        .add("//ldml/annotations/annotation[@cp=%A]", new Limit[] {
+            new Limit(5, MAX_COMPONENTS_PER_ANNOTATION, Measure.SET_ELEMENTS, LimitType.MAXIMUM, Special.BARS) // Allow up to 5 with no warning, up to 7 with no error.
+        })
+        ;
 
     static {
         System.out.println("EMs: " + ApproximateWidth.getWidth("grinning cat face with smiling eyes"));

@@ -2,9 +2,11 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -12,6 +14,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.EmojiSubdivisionNames;
 import org.unicode.cldr.tool.ChartAnnotations;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
@@ -27,6 +30,8 @@ import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSet.SpanCondition;
+import com.ibm.icu.text.UnicodeSetSpanner;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class Annotations {
@@ -43,6 +48,7 @@ public class Annotations {
     static final Map<String, Map<String, AnnotationSet>> cache = new ConcurrentHashMap<>();
     static final Set<String> LOCALES;
     static final String DIR;
+    private static final AnnotationSet ENGLISH_DATA;
 
     private final Set<String> annotations;
     private final String tts;
@@ -71,10 +77,11 @@ public class Annotations {
                 shortName.startsWith("#") || // skip other junk files
                 shortName.startsWith(".")
 //                || shortName.contains("001") // skip world english for now
-            ) continue; // skip dot files (backups, etc)
+                ) continue; // skip dot files (backups, etc)
             temp.add(dotSplitter.split(shortName).iterator().next());
         }
         LOCALES = temp.build();
+        ENGLISH_DATA = getDataSet("en");
     }
 
     static class MyHandler extends SimpleHandler {
@@ -191,95 +198,48 @@ public class Annotations {
         return LOCALES;
     }
 
-    static class EmojiConstants {
-        public static final String EMOJI_VARIANT_STRING = "\uFE0F";
-        static final int FIRST_REGIONAL = 0x1F1E6;
-        static final int LAST_REGIONAL = 0x1F1FF;
-        public static final UnicodeSet REGIONAL_INDICATORS = new UnicodeSet(FIRST_REGIONAL, LAST_REGIONAL).freeze();
-        public static final String KEYCAP_MARK_STRING = "\u20E3";
-        public static final UnicodeSet MODIFIERS = new UnicodeSet(0x1F3FB, 0x1F3FF).freeze();
-        public static final String JOINER_STRING = "\u200D";
-        public static final String KISS = "💋";
-        public static final String HEART = "❤";
-        public static final String MALE_SIGN = "♂";
-        public static final String FEMALE_SIGN = "♀";
-        public static final String MAN = "👨";
-        public static final String WOMAN = "👩";
-        public static final String JOINER_MALE_SIGN = JOINER_STRING + MALE_SIGN;
-        public static final String JOINER_FEMALE_SIGN = JOINER_STRING + FEMALE_SIGN;
-
-        //public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
-        public static String getFlagCode(String s) {
-            return String.valueOf((char) (s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
-        }
-
-        public static final UnicodeSet FAMILY_MARKERS = new UnicodeSet()
-            .add(0x1F466, 0x1F469).add(0x1F476)
-            .add(JOINER_STRING)
-            .freeze(); // boy, girl, man, woman, baby
-        public static final UnicodeSet REM_SKIP_SET = new UnicodeSet()
-            .add(JOINER_STRING)
-            .freeze();
-        public static final UnicodeSet REM_GROUP_SKIP_SET = new UnicodeSet(REM_SKIP_SET)
-            .add(EmojiConstants.HEART).add(EmojiConstants.KISS)
-            .add(MALE_SIGN).add(FEMALE_SIGN)
-            .freeze();
-        public static final String TAG_TERM = UTF16.valueOf(0xE007F);
-        public static final String BLACK_FLAG = UTF16.valueOf(0x1F3F4);
-
-        public static String getTagSpec(String code) {
-            StringBuilder b = new StringBuilder();
-            for (int codePoint : CharSequences.codePoints(code)) {
-                if (codePoint >= 0xE0020 && codePoint <= 0xE007E) {
-                    b.appendCodePoint(codePoint - 0xE0000);
-                }
-            }
-            return b.toString();
-        }
-    }
-
     public static final class AnnotationSet {
 
         private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 
         static final Factory factory = CONFIG.getCldrFactory();
         static final CLDRFile ENGLISH = CONFIG.getEnglish();
-        static final Factory SUBDIVISION_FACTORY = Factory.make(CLDRPaths.COMMON_DIRECTORY + "subdivisions/", ".*");
-        static final CLDRFile ENGLISH_SUBDIVISIONS = SUBDIVISION_FACTORY.make("en", true);
+        static final CLDRFile ENGLISH_ANNOTATIONS = null;
+        static final Map<String,String> englishSubdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName("en");
+        //CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
 
         private final String locale;
         private final UnicodeMap<Annotations> baseData;
         private final UnicodeMap<Annotations> unresolvedData;
         private final CLDRFile cldrFile;
-        private final CLDRFile cldrFileSubdivisions;
+        private final Map<String, String> subdivisionIdToName;
         private final SimpleFormatter initialPattern;
         private final Pattern initialRegexPattern;
-        private final SimpleFormatter listPattern;
+        private final XListFormatter listPattern;
         private final Set<String> flagLabelSet;
         private final Set<String> keycapLabelSet;
         private final String keycapLabel;
+        private final String flagLabel;
 //        private final String maleLabel;
 //        private final String femaleLabel;
         private final Map<String, Annotations> localeCache = new ConcurrentHashMap<>();
 
-        public AnnotationSet(String locale, UnicodeMap<Annotations> source, UnicodeMap<Annotations> resolvedSource) {
+        static UnicodeSetSpanner uss = new UnicodeSetSpanner(EmojiConstants.COMPONENTS); // must be sync'ed
+
+        private AnnotationSet(String locale, UnicodeMap<Annotations> source, UnicodeMap<Annotations> resolvedSource) {
             this.locale = locale;
             unresolvedData = source.freeze();
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
-            CLDRFile _cldrFileSubdivisions = null;
-            try {
-                _cldrFileSubdivisions = SUBDIVISION_FACTORY.make(locale, true);
-            } catch (Exception e) {
-            }
-            cldrFileSubdivisions = _cldrFileSubdivisions;
-            listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
+            subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(locale);
+            listPattern = new XListFormatter(cldrFile, EmojiConstants.COMPOSED_NAME_LIST);
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
             final String regexPattern = ("\\Q" + initialPatternString.replace("{0}", "\\E.*\\Q").replace("{1}", "\\E.*\\Q") + "\\E")
                 .replace("\\Q\\E", ""); // HACK to detect use of prefix pattern
             initialRegexPattern = Pattern.compile(regexPattern);
             flagLabelSet = getLabelSet("flag");
+            flagLabel = flagLabelSet.isEmpty() ? null : flagLabelSet.iterator().next();
             keycapLabelSet = getLabelSet("keycap");
             keycapLabel = keycapLabelSet.isEmpty() ? null : keycapLabelSet.iterator().next();
 //            maleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"male\"]");
@@ -309,7 +269,7 @@ public class Annotations {
             }
             String sourceLocale = cldrFile2.getSourceLocaleID(xpath, null);
             if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
-                return BAD_MARKER + result;
+                return MISSING_MARKER + result;
             }
             return result;
         }
@@ -365,6 +325,9 @@ public class Annotations {
         }
 
         private Annotations synthesize(String code, Transform<String, String> otherSource) {
+            if (code.equals("👱🏻‍♂")) {
+                int debug = 0;
+            }
             String shortName = null;
             int len = code.codePointCount(0, code.length());
             boolean isKeycap10 = code.equals("🔟");
@@ -388,12 +351,26 @@ public class Annotations {
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
-                return new Annotations(flagLabelSet, getStringValue(path));
+                String regionName = getStringValue(path);
+                if (regionName == null) {
+                    regionName = ENGLISH_MARKER + ENGLISH.getStringValue(path);
+                }
+                String flagName = flagLabel == null ? regionName : initialPattern.format(flagLabel, regionName);
+                return new Annotations(flagLabelSet, flagName);
             } else if (code.startsWith(EmojiConstants.BLACK_FLAG)
                 && code.endsWith(EmojiConstants.TAG_TERM)) {
                 String subdivisionCode = EmojiConstants.getTagSpec(code);
-                String path = CLDRFile.getKey(CLDRFile.SUBDIVISION_NAME, subdivisionCode);
-                return new Annotations(flagLabelSet, getStringValue(path, cldrFileSubdivisions, ENGLISH_SUBDIVISIONS));
+                String subdivisionName = subdivisionIdToName.get(subdivisionCode);
+                if (subdivisionName == null) {
+                    subdivisionName = englishSubdivisionIdToName.get(subdivisionCode);
+                    if (subdivisionName != null) {
+                        subdivisionName = ENGLISH_MARKER + subdivisionCode;
+                    } else {
+                        subdivisionName = MISSING_MARKER + subdivisionCode;
+                    }
+                }
+                String flagName = flagLabel == null ? subdivisionName : initialPattern.format(flagLabel, subdivisionName);
+                return new Annotations(flagLabelSet, flagName);
             } else if (isKeycap10 || code.contains(EmojiConstants.KEYCAP_MARK_STRING)) {
                 final String rem = code.equals("🔟") ? "10" : UTF16.valueOf(code.charAt(0));
                 shortName = initialPattern.format(keycapLabel, rem);
@@ -402,10 +379,11 @@ public class Annotations {
             UnicodeSet skipSet = EmojiConstants.REM_SKIP_SET;
             String rem = "";
             SimpleFormatter startPattern = initialPattern;
-
-            if (EmojiConstants.MODIFIERS.containsSome(code)) {
-                rem = EmojiConstants.MODIFIERS.stripFrom(code, false);
-                code = EmojiConstants.MODIFIERS.stripFrom(code, true);
+            if (EmojiConstants.COMPONENTS.containsSome(code)) {
+                synchronized (uss) {
+                    rem = uss.deleteFrom(code, SpanCondition.NOT_CONTAINED);
+                    code = uss.deleteFrom(code, SpanCondition.CONTAINED);
+                }
             }
             if (code.contains(EmojiConstants.JOINER_STRING)) {
 //                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
@@ -466,6 +444,10 @@ public class Annotations {
                     return null;
                 }
             }
+
+            boolean hackBlond = EmojiConstants.HAIR_EXPLICIT.contains(base.codePointAt(0));
+            List<String> arguments = new ArrayList<>();
+            
             for (int mod : CharSequences.codePoints(rem)) {
                 if (ignore.contains(mod)) {
                     continue;
@@ -479,13 +461,40 @@ public class Annotations {
                 }
                 if (modName == null) {
                     needMarker = true;
-                    continue;
+                    if (ENGLISH_DATA != null) {
+                        Annotations engName = ENGLISH_DATA.baseData.get(mod);
+                        if (engName != null) {
+                            modName = engName.getShortName();
+                        }
+                    }
+                    if (modName == null) {
+                        modName = Utility.hex(mod); // ultimate fallback
+                    }
                 }
-                shortName = shortName == null ? modName : pattern.format(shortName, modName);
-                if (modName != null) annotations.add(modName);
-                pattern = listPattern;
+                if (hackBlond && shortName != null) { 
+                    // HACK: make the blond names look like the other hair names
+                    // Split the short name into pieces, if possible, and insert the modName first
+                    String sep = initialPattern.format("", "");
+                    int splitPoint = shortName.indexOf(sep);
+                    if (splitPoint >= 0) {
+                        String modName0 = shortName.substring(splitPoint+sep.length());
+                        shortName = shortName.substring(0, splitPoint);
+                        if (modName != null) {
+                            arguments.add(modName);
+                            annotations.add(modName);
+                        }
+                        modName = modName0;
+                    }
+                    hackBlond = false;
+                }
+
+                if (modName != null) {
+                    arguments.add(modName);
+                    annotations.add(modName);
+                }
             }
-            Annotations result = new Annotations(annotations, (needMarker ? BAD_MARKER : "") + shortName);
+            shortName = pattern.format(shortName, listPattern.format(arguments));
+            Annotations result = new Annotations(annotations, (needMarker ? ENGLISH_MARKER : "") + shortName);
             return result;
         }
 

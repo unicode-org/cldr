@@ -23,7 +23,7 @@ public class Emoji {
     public static final UnicodeSet TAGS = new UnicodeSet(0xE0000, 0xE007F).freeze();
     public static final UnicodeSet FAMILY = new UnicodeSet("[\u200D 👦-👩 💋 ❤]").freeze();
     public static final UnicodeSet GENDER = new UnicodeSet().add(0x2640).add(0x2642).freeze();
-    public static final UnicodeSet SPECIALS = new UnicodeSet("[{🏳‍🌈}{👁‍🗨}]").freeze();
+    public static final UnicodeSet SPECIALS = new UnicodeSet("[{🏳‍🌈}{👁‍🗨}{🏴‍☠}]").freeze();
     public static final UnicodeSet MAN_WOMAN = new UnicodeSet("[👨 👩]").freeze();
     public static final UnicodeSet OBJECT = new UnicodeSet("[👩 🎓 🌾 🍳 🏫 🏭 🎨 🚒 ✈ 🚀 🎤 💻 🔬 💼 🔧 ⚖ ⚕]").freeze();
 
@@ -31,6 +31,7 @@ public class Emoji {
     static final UnicodeMap<String> emojiToMinorCategory = new UnicodeMap<>();
     static final Map<String, Integer> minorToOrder = new HashMap<>();
     static final UnicodeSet nonConstructed = new UnicodeSet();
+    static final UnicodeSet allRgi = new UnicodeSet();
 
     static {
         /*
@@ -60,11 +61,11 @@ public class Emoji {
             }
             Iterator<String> it = semi.split(line).iterator();
             String emojiHex = it.next();
-//            String type = it.next();
-//            if (!type.startsWith("fully-qualified")) {
-//                continue;
-//            }
             String original = Utility.fromHex(emojiHex, 4, " ");
+            String type = it.next();
+            if (type.startsWith("fully-qualified")) {
+                allRgi.add(original);
+            }
             emojiToMajorCategory.put(original, majorCategory);
             emojiToMinorCategory.put(original, minorCategory);
 
@@ -95,10 +96,20 @@ public class Emoji {
         emojiToMinorCategory.freeze();
         nonConstructed.add(MODIFIERS); // needed for names
         nonConstructed.freeze();
+        allRgi.freeze();
+    }
+
+    public static UnicodeSet getAllRgi() {
+        return allRgi;
     }
 
     public static String getMinorCategory(String emoji) {
-        return CldrUtility.ifNull(emojiToMinorCategory.get(emoji), "Component");
+        String minorCat = emojiToMinorCategory.get(emoji);
+        if (minorCat == null) {
+            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
+        }
+        return minorCat;
     }
 
     public static int getMinorToOrder(String minor) {
@@ -107,7 +118,12 @@ public class Emoji {
     }
 
     public static String getMajorCategory(String emoji) {
-        return CldrUtility.ifNull(emojiToMajorCategory.get(emoji), "Component");
+        String majorCat = emojiToMajorCategory.get(emoji);
+        if (majorCat == null) {
+            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"major\", ...");
+        }
+        return majorCat;
     }
 
     public static Set<String> getMajorCategories() {

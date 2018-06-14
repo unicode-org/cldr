@@ -131,14 +131,14 @@ public class ExampleGenerator {
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
-        calendar.set(1999, 8, 5, 13, 25, 59); // 1999-08-14 13:25:59
+        calendar.set(1999, 8, 5, 13, 25, 59); // 1999-08-05 13:25:59
         DATE_SAMPLE = calendar.getTime();
         calendar.set(1999, 9, 27, 13, 25, 59); // 1999-09-27 13:25:59
         DATE_SAMPLE2 = calendar.getTime();
 
-        calendar.set(1999, 8, 5, 7, 0, 0); // 1999-08-14 07:00:00
+        calendar.set(1999, 8, 5, 7, 0, 0); // 1999-08-5 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
-        calendar.set(1999, 8, 5, 23, 0, 0); // 1999-08-14 23:00:00
+        calendar.set(1999, 8, 5, 23, 0, 0); // 1999-08-5 23:00:00
         DATE_SAMPLE4 = calendar.getTime();
     }
 

@@ -14,6 +14,8 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
@@ -24,6 +26,8 @@ import com.ibm.icu.text.UnicodeSet;
 public class GenerateDerivedAnnotations {
     // Use EmojiData.getDerivableNames() to update this for each version of Unicode.
 
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    
     static final UnicodeSet SKIP = new UnicodeSet()
         .add(Annotations.ENGLISH_MARKER)
         .add(Annotations.BAD_MARKER)
@@ -31,9 +35,11 @@ public class GenerateDerivedAnnotations {
         .freeze();
 
     public static void main(String[] args) throws IOException {
+        boolean missingOnly = args.length > 0 & args[0].equals("missing");
+        
         Joiner BAR = Joiner.on(" | ");
         AnnotationSet enAnnotations = Annotations.getDataSet("en");
-        CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        CLDRFile english = CLDR_CONFIG.getEnglish();
 
         UnicodeSet derivables = new UnicodeSet(Emoji.getAllRgiNoES()).removeAll(enAnnotations.keySet()).freeze();
         Map<String, UnicodeSet> localeToFailures = new LinkedHashMap<>();
@@ -43,12 +49,13 @@ public class GenerateDerivedAnnotations {
             if ("root".equals(locale)) {
                 continue;
             }
-            UnicodeSet failures = new UnicodeSet();
+            UnicodeSet failures = new UnicodeSet(Emoji.getAllRgiNoES());
             localeToFailures.put(locale, failures);
             
             AnnotationSet annotations;
             try {
                 annotations = Annotations.getDataSet(locale);
+                failures.removeAll(annotations.getExplicitValues());
             } catch (Exception e) {
                 System.out.println("Can't create annotations for: " + locale);
                 continue;
@@ -63,7 +70,6 @@ public class GenerateDerivedAnnotations {
                 } catch (Exception e) {
                 }
                 if (shortName == null || SKIP.containsSome(shortName)) {
-                    failures.add(derivable);
                     continue; // missing
                 }
                 Set<String> keywords = annotations.getKeywordsMinus(derivable);
@@ -79,20 +85,25 @@ public class GenerateDerivedAnnotations {
                         target.add(path, BAR.join(keywordsFixed));
                     }
                 }
+                failures.remove(derivable);
                 target.add(path + "[@type=\"tts\"]", shortName);
             }
             failures.freeze();
-            if (!target.iterator().hasNext()) {
-                System.out.println(locale + " is empty!");
-            } else if (!failures.isEmpty()) {
+            if (!failures.isEmpty()) {
+                Level level = CLDR_CONFIG.getStandardCodes().getLocaleCoverageLevel(Organization.cldr, locale);
                 System.out.println("Failures\t" + locale 
+                    + "\t" + level
                     + "\t" + english.getName(locale)
                     + "\t" + failures.size() 
                     + "\t" + failures.toPattern(false));
+            }
+            if (missingOnly) {
+                continue;
             }
             try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY + "annotationsDerived", locale + ".xml")) {
                 target.write(pw);
             }
         }
+        System.out.println("Be sure to run CLDRModify passes afterwards, and generate transformed locales (like de-CH).");
     }
 }

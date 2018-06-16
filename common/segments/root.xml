@@ -26,13 +26,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$T">\p{Grapheme_Cluster_Break=T}</variable>
 				<variable id="$LV">\p{Grapheme_Cluster_Break=LV}</variable>
 				<variable id="$LVT">\p{Grapheme_Cluster_Break=LVT}</variable>
-				<variable id="$E_Base">\p{Grapheme_Cluster_Break=E_Base}</variable>
-				<variable id="$E_Modifier">\p{Grapheme_Cluster_Break=E_Modifier}</variable>
-				<variable id="$EBG">\p{Grapheme_Cluster_Break=E_Base_GAZ}</variable>
-				<!-- START Special CLDR extensions for Emoji -->
-				<variable id="$Extended_Pict">[\u2388\u2605\u2607-\u260D\u260F-\u2610\u2612\u2616-\u2617\u2619-\u261C\u261E-\u261F\u2621\u2624-\u2625\u2627-\u2629\u262B-\u262D\u2630-\u2637\u263B-\u2647\u2654-\u265F\u2661-\u2662\u2664\u2667\u2669-\u267A\u267C-\u267E\u2680-\u2691\u2695\u2698\u269A\u269D-\u269F\u26A2-\u26A9\u26AC-\u26AF\u26B2-\u26BC\u26BF-\u26C3\u26C6-\u26C7\u26C9-\u26CD\u26D0\u26D2\u26D5-\u26E8\u26EB-\u26EF\u26F6\u26FB-\u26FC\u26FE-\u2701\u2703-\u2704\u270E\u2710-\u2711\u2765-\u2767\U0001F000-\U0001F003\U0001F005-\U0001F0FF\U0001F10D-\U0001F10F\U0001F12F\U0001F16C-\U0001F16F\U0001F1AD-\U0001F1E5\U0001F203-\U0001F20F\U0001F23C-\U0001F23F\U0001F249-\U0001F24F\U0001F252-\U0001F2FF\U0001F322-\U0001F323\U0001F394-\U0001F395\U0001F398\U0001F39C-\U0001F39D\U0001F3F1-\U0001F3F2\U0001F3F6\U0001F4FE\U0001F53E-\U0001F548\U0001F54F\U0001F568-\U0001F56E\U0001F571-\U0001F572\U0001F57B-\U0001F586\U0001F588-\U0001F589\U0001F58E-\U0001F58F\U0001F591-\U0001F594\U0001F597-\U0001F5A3\U0001F5A6-\U0001F5A7\U0001F5A9-\U0001F5B0\U0001F5B3-\U0001F5BB\U0001F5BD-\U0001F5C1\U0001F5C5-\U0001F5D0\U0001F5D4-\U0001F5DB\U0001F5DF-\U0001F5E0\U0001F5E2\U0001F5E4-\U0001F5E7\U0001F5E9-\U0001F5EE\U0001F5F0-\U0001F5F2\U0001F5F4-\U0001F5F9\U0001F6C6-\U0001F6CA\U0001F6D3-\U0001F6DF\U0001F6E6-\U0001F6E8\U0001F6EA\U0001F6ED-\U0001F6EF\U0001F6F1-\U0001F6F2\U0001F6F7-\U0001F6FF\U0001F774-\U0001F77F\U0001F7D5-\U0001F7FF\U0001F80C-\U0001F80F\U0001F848-\U0001F84F\U0001F85A-\U0001F85F\U0001F888-\U0001F88F\U0001F8AE-\U0001F90F\U0001F91F\U0001F928-\U0001F92F\U0001F931-\U0001F932\U0001F93F\U0001F94C-\U0001F94F\U0001F95F-\U0001F97F\U0001F992-\U0001F9BF\U0001F9C1-\U0001FFFD]</variable>
-				<variable id="$EmojiNRK">[[\p{Emoji}] - [\p{Grapheme_Cluster_Break=Regional_Indicator}*\u00230-9©®™〰〽]]</variable>
-				<!-- END Special CLDR extensions for Emoji -->
+				<variable id="$ExtPict">\p{Extended_Pictographic}</variable>
+				<variable id="$ExtCccZwj">[[$Extend-\p{ccc=0}] $ZWJ]</variable>
 			</variables>
 			<segmentRules>
 				<!-- Rules -->
@@ -51,10 +46,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="9.1"> × $SpacingMark </rule>
 				<rule id="9.2"> $Prepend × </rule>
 				<!-- Do not break within emoji modifier sequences or emoji zwj sequences. -->
-				<rule id="10"> ($E_Base | $EBG) $Extend* × $E_Modifier </rule>
-				<!-- START Special CLDR extensions for Emoji -->
-				<rule id="11"> ($Extended_Pict | $EmojiNRK) $Extend* $ZWJ × ($Extended_Pict | $EmojiNRK) </rule>
-				<!-- END Special CLDR extensions for Emoji -->
+				<rule id="11"> $ExtPict $Extend* $ZWJ × $ExtPict </rule>
 				<!-- Do not break within emoji flag sequences. That is, do not break between regional indicator (RI) symbols if there is an odd number of RI characters before the break point. -->
 				<rule id="12"> ^ ($RI $RI)* $RI × $RI </rule>
 				<rule id="13"> [^$RI] ($RI $RI)* $RI × $RI </rule>
@@ -108,19 +100,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$EM">\p{Line_Break=E_Modifier}</variable>
 				<variable id="$ZWJ_O">\p{Line_Break=ZWJ}</variable>
 				<variable id="$ZWJ">\p{Line_Break=ZWJ}</variable>
-				<!-- START Special CLDR extensions for Emoji -->
-				<variable id="$EmojiNRK">[[\p{Emoji}] - [$RI \u002a\u00230-9©®™〰〽]]</variable>
-				<variable id="$Extended_Pict">[\u2388\u2605\u2607-\u260D\u260F-\u2610\u2612\u2616-\u2617\u2619-\u261C\u261E-\u261F\u2621\u2624-\u2625\u2627-\u2629\u262B-\u262D\u2630-\u2637\u263B-\u2647\u2654-\u265F\u2661-\u2662\u2664\u2667\u2669-\u267A\u267C-\u267E\u2680-\u2691\u2695\u2698\u269A\u269D-\u269F\u26A2-\u26A9\u26AC-\u26AF\u26B2-\u26BC\u26BF-\u26C3\u26C6-\u26C7\u26C9-\u26CD\u26D0\u26D2\u26D5-\u26E8\u26EB-\u26EF\u26F6\u26FB-\u26FC\u26FE-\u2701\u2703-\u2704\u270E\u2710-\u2711\u2765-\u2767\U0001F000-\U0001F003\U0001F005-\U0001F0FF\U0001F10D-\U0001F10F\U0001F12F\U0001F16C-\U0001F16F\U0001F1AD-\U0001F1E5\U0001F203-\U0001F20F\U0001F23C-\U0001F23F\U0001F249-\U0001F24F\U0001F252-\U0001F2FF\U0001F322-\U0001F323\U0001F394-\U0001F395\U0001F398\U0001F39C-\U0001F39D\U0001F3F1-\U0001F3F2\U0001F3F6\U0001F4FE\U0001F53E-\U0001F548\U0001F54F\U0001F568-\U0001F56E\U0001F571-\U0001F572\U0001F57B-\U0001F586\U0001F588-\U0001F589\U0001F58E-\U0001F58F\U0001F591-\U0001F594\U0001F597-\U0001F5A3\U0001F5A6-\U0001F5A7\U0001F5A9-\U0001F5B0\U0001F5B3-\U0001F5BB\U0001F5BD-\U0001F5C1\U0001F5C5-\U0001F5D0\U0001F5D4-\U0001F5DB\U0001F5DF-\U0001F5E0\U0001F5E2\U0001F5E4-\U0001F5E7\U0001F5E9-\U0001F5EE\U0001F5F0-\U0001F5F2\U0001F5F4-\U0001F5F9\U0001F6C6-\U0001F6CA\U0001F6D3-\U0001F6DF\U0001F6E6-\U0001F6E8\U0001F6EA\U0001F6ED-\U0001F6EF\U0001F6F1-\U0001F6F2\U0001F6F7-\U0001F6FF\U0001F774-\U0001F77F\U0001F7D5-\U0001F7FF\U0001F80C-\U0001F80F\U0001F848-\U0001F84F\U0001F85A-\U0001F85F\U0001F888-\U0001F88F\U0001F8AE-\U0001F90F\U0001F91F\U0001F928-\U0001F92F\U0001F931-\U0001F932\U0001F93F\U0001F94C-\U0001F94F\U0001F95F-\U0001F97F\U0001F992-\U0001F9BF\U0001F9C1-\U0001FFFD]</variable>
-				<!-- END Special CLDR extensions for Emoji -->
 				<!-- Macros -->
 				<variable id="$CM">[$CM1 $ZWJ]</variable>
 				<!-- LB 1  Assign a line breaking class to each code point of the input. -->
 				<!-- Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm. -->
 				<!-- NOTE: CB is ok to fall through, but must handle others here. -->
-				<!-- START Special CLDR extensions for CM -->
-				<variable id="$AL">[$AI $AL $SG $XX [$SA-[[:Mn:][:Mc:]]]]</variable>
-				<variable id="$CM">[$CM $ZWJ [$SA &amp; [[:Mn:][:Mc:]]]]</variable>
-				<!-- START Special CLDR extensions for CM -->
+				<variable id="$AL">[$AI $AL $SG $XX $SA]</variable>
 				<variable id="$NS">[$NS $CJ]</variable>
 				<!-- WARNING: Fixes for Rule 9 -->
 				<!-- Treat X (CM|ZWJ* as if it were X. -->
@@ -168,10 +153,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$EB">($EB $X)</variable>
 				<variable id="$EM">($EM $X)</variable>
 				<variable id="$ZWJ">($ZWJ $X)</variable>
-				<!-- START Special CLDR extensions for Emoji -->
-				<variable id="$EmojiNRK">($EmojiNRK $X)</variable>
-				<variable id="$Extended_Pict">($Extended_Pict $X)</variable>
-				<!-- END Special CLDR extensions for Emoji -->
 				<!-- OUT OF ORDER ON PURPOSE -->
 				<!-- LB 10  Treat any remaining combining mark as AL. -->
 				<variable id="$AL">($AL | ^ $CM | (?&lt;=$Spec1_) $CM)</variable>
@@ -193,9 +174,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 8  Break before any character following a zero-width space, even if one or more spaces intervene. -->
 				<rule id="8"> $ZW $SP* ÷ </rule>
 				<!-- LB 8a  Don't break between ZWJ and IDs (for use in Emoji ZWJ sequences) -->
-				<!-- START Special CLDR extensions for Emoji -->
-				<rule id="8.1"> $ZWJ_0 × ($ID | $Extended_Pict | $EmojiNRK) </rule>
-				<!-- END Special CLDR extensions for Emoji -->
+				<rule id="8.1"> $ZWJ_O × </rule>
 				<!-- LB 9  Do not break a combining character sequence; treat it as if it has the LB class of the base character -->
 				<!-- in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.) -->
 				<rule id="9"> $Spec2_ × $CM </rule>
@@ -369,14 +348,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Hebrew_Letter">\p{Word_Break=Hebrew_Letter}</variable>
 				<variable id="$Double_Quote">\p{Word_Break=Double_Quote}</variable>
 				<variable id="$Single_Quote">\p{Word_Break=Single_Quote}</variable>
-				<variable id="$E_Base">\p{Word_Break=E_Base}</variable>
-				<variable id="$E_Modifier">\p{Word_Break=E_Modifier}</variable>
 				<variable id="$ZWJ">\p{Word_Break=ZWJ}</variable>
-				<variable id="$EBG">\p{Word_Break=E_Base_GAZ}</variable>
-				<!-- START Special CLDR extensions for Emoji -->
-				<variable id="$Extended_Pict">[\u2388\u2605\u2607-\u260D\u260F-\u2610\u2612\u2616-\u2617\u2619-\u261C\u261E-\u261F\u2621\u2624-\u2625\u2627-\u2629\u262B-\u262D\u2630-\u2637\u263B-\u2647\u2654-\u265F\u2661-\u2662\u2664\u2667\u2669-\u267A\u267C-\u267E\u2680-\u2691\u2695\u2698\u269A\u269D-\u269F\u26A2-\u26A9\u26AC-\u26AF\u26B2-\u26BC\u26BF-\u26C3\u26C6-\u26C7\u26C9-\u26CD\u26D0\u26D2\u26D5-\u26E8\u26EB-\u26EF\u26F6\u26FB-\u26FC\u26FE-\u2701\u2703-\u2704\u270E\u2710-\u2711\u2765-\u2767\U0001F000-\U0001F003\U0001F005-\U0001F0FF\U0001F10D-\U0001F10F\U0001F12F\U0001F16C-\U0001F16F\U0001F1AD-\U0001F1E5\U0001F203-\U0001F20F\U0001F23C-\U0001F23F\U0001F249-\U0001F24F\U0001F252-\U0001F2FF\U0001F322-\U0001F323\U0001F394-\U0001F395\U0001F398\U0001F39C-\U0001F39D\U0001F3F1-\U0001F3F2\U0001F3F6\U0001F4FE\U0001F53E-\U0001F548\U0001F54F\U0001F568-\U0001F56E\U0001F571-\U0001F572\U0001F57B-\U0001F586\U0001F588-\U0001F589\U0001F58E-\U0001F58F\U0001F591-\U0001F594\U0001F597-\U0001F5A3\U0001F5A6-\U0001F5A7\U0001F5A9-\U0001F5B0\U0001F5B3-\U0001F5BB\U0001F5BD-\U0001F5C1\U0001F5C5-\U0001F5D0\U0001F5D4-\U0001F5DB\U0001F5DF-\U0001F5E0\U0001F5E2\U0001F5E4-\U0001F5E7\U0001F5E9-\U0001F5EE\U0001F5F0-\U0001F5F2\U0001F5F4-\U0001F5F9\U0001F6C6-\U0001F6CA\U0001F6D3-\U0001F6DF\U0001F6E6-\U0001F6E8\U0001F6EA\U0001F6ED-\U0001F6EF\U0001F6F1-\U0001F6F2\U0001F6F7-\U0001F6FF\U0001F774-\U0001F77F\U0001F7D5-\U0001F7FF\U0001F80C-\U0001F80F\U0001F848-\U0001F84F\U0001F85A-\U0001F85F\U0001F888-\U0001F88F\U0001F8AE-\U0001F90F\U0001F91F\U0001F928-\U0001F92F\U0001F931-\U0001F932\U0001F93F\U0001F94C-\U0001F94F\U0001F95F-\U0001F97F\U0001F992-\U0001F9BF\U0001F9C1-\U0001FFFD]</variable>
-				<variable id="$EmojiNRK">[[\p{Emoji}] - [\p{Word_Break=Regional_Indicator}\u002a\u00230-9©®™〰〽]]</variable>
-				<!-- END Special CLDR extensions for Emoji -->
+				<variable id="$ExtPict">\p{Extended_Pictographic}</variable>
+				<variable id="$WSegSpace">\p{Word_Break=WSegSpace}</variable>
 				<!-- Macros -->
 				<variable id="$AHLetter">($ALetter | $Hebrew_Letter)</variable>
 				<variable id="$MidNumLetQ">($MidNumLet | $Single_Quote)</variable>
@@ -396,7 +370,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Hebrew_Letter">($Hebrew_Letter $FE*)</variable>
 				<variable id="$Double_Quote">($Double_Quote $FE*)</variable>
 				<variable id="$Single_Quote">($Single_Quote $FE*)</variable>
-				<!-- REMOVAL for Special CLDR extensions for Emoji -->
 				<variable id="$AHLetter">($AHLetter $FE*)</variable>
 				<variable id="$MidNumLetQ">($MidNumLetQ $FE*)</variable>
 			</variables>
@@ -409,9 +382,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="3.1"> ($Newline | $CR | $LF) ÷ </rule>
 				<rule id="3.2"> ÷ ($Newline | $CR | $LF) </rule>
 				<!-- Do not break within emoji zwj sequences. -->
-				<!-- START Special CLDR extensions for Emoji -->
-				<rule id="3.3"> $ZWJ × ($Extended_Pict | $EmojiNRK) </rule>
-				<!-- END Special CLDR extensions for Emoji -->
+				<rule id="3.3"> $ZWJ × $ExtPict </rule>
+				<rule id="3.4"> $WSegSpace × $WSegSpace </rule>
 				<!-- Ignore Format and Extend characters, except after sot, CR, LF, and Newline. (See Section 6.2, Replacing Ignore Rules.) This also has the effect of: Any × (Format | Extend) -->
 				<!-- WARNING: Implemented as don't break before format (except after linebreaks), -->
 				<!-- AND add format and extend in all variables definitions that appear after this point! -->
@@ -437,10 +409,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- Do not break from extenders. -->
 				<rule id="13.1"> ($AHLetter | $Numeric | $Katakana | $ExtendNumLet) × $ExtendNumLet </rule>
 				<rule id="13.2"> $ExtendNumLet × ($AHLetter | $Numeric | $Katakana) </rule>
-				<!-- Do not break within emoji modifier sequences. -->
-				<!-- START Special CLDR extensions for Emoji -->
-				<rule id="14"> ($E_Base | $EBG) ($Format | $Extend | $ZWJ)* × $E_Modifier </rule>
-				<!-- END Special CLDR extensions for Emoji -->
 				<!-- Do not break within emoji flag sequences. That is, do not break between regional indicator (RI) symbols if there is an odd number of RI characters before the break point. -->
 				<rule id="15"> ^ ($RI $RI)* $RI × $RI </rule>
 				<rule id="16"> [^$RI] ($RI $RI)* $RI × $RI </rule>

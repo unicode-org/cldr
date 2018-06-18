@@ -57,20 +57,23 @@ public class TestCoverage extends TestFmwkPlus {
 
     public void TestSelected() {
         Object[][] tests = {
-            { "en", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", Level.MODERN, 20 },
-            { "en", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", Level.MODERN, 20 }
+            { "en", "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"gbeng\"]", Level.MODERN, 8 },
+            { "en", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", Level.MODERATE, 20 },
+            { "en", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", Level.MODERATE, 20 },
         };
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         for (Object[] test : tests) {
             String localeId = (String) test[0];
             String path = (String) test[1];
             Level expectedLevel = (Level) test[2];
+            int expectedVotes = (Integer) test[3];
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, localeId);
             Level level = coverageLevel.getLevel(path);
             PathHeader ph = phf.fromPath(path);
+            assertEquals(localeId + " : " + path + " : ", expectedLevel, level);
             CLDRLocale loc = CLDRLocale.getInstance(localeId);
-            int expectedVotes = sdi.getRequiredVotes(loc, ph);
-
+            int actualVotes = sdi.getRequiredVotes(loc, ph);
+            assertEquals(localeId + " : " + path + " : ", expectedVotes, actualVotes);
         }
     }
 

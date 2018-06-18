@@ -30,7 +30,8 @@ public class SubdivisionNames {
             + ".xml", data, true);
         for (Pair<String, String> pair : data) {
             // <subdivision type="AD-02">Canillo</subdivision>
-            XPathParts path = XPathParts.getFrozenInstance(pair.getFirst());
+            String rawPath = pair.getFirst();
+            XPathParts path = XPathParts.getFrozenInstance(rawPath);
             if (!"subdivision".equals(path.getElement(-1))) {
                 continue;
             }
@@ -62,6 +63,11 @@ public class SubdivisionNames {
 
     public Set<String> keySet() {
         return subdivisionToName.keySet();
+    }
+    
+    public static String getPathFromCode(String code) {
+        // <subdivision type="AD-02">Canillo</subdivision>
+        return "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"" + code + "\"]";
     }
 
     public static String getRegionFromSubdivision(String sdCode) {

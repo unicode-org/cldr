@@ -2186,6 +2186,13 @@ public class SurveyAjax extends HttpServlet {
             + ".value is not null)";
         Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, user.id);
 
+        int inheritCase0 = 0;
+        int inheritCase1 = 0;
+        int inheritCase2 = 0;
+        int inheritCase3 = 0;
+        int inheritCase4 = 0;
+        int inheritCase5 = 0;
+
         int confirmations = 0;
         Exception[] exceptionList = new Exception[1];
         for (Map<String, Object> m : rows) {
@@ -2199,8 +2206,23 @@ public class SurveyAjax extends HttpServlet {
             DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
             value = daip.processInput(xpathString, value, exceptionList);
             try {
+                if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                    ++inheritCase0;
+                }
                 String curValue = file.getStringValue(xpathString);
-                if (value.equals(curValue)) { // it's "winning" (uncontested).
+                if (curValue == null) {
+                    if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                        ++inheritCase1;
+                    }
+                    continue;
+                }
+                if (curValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                    ++inheritCase2;
+                }
+                if (value.equals(curValue) ||
+                        (value.equals(CldrUtility.INHERITANCE_MARKER) &&
+                            curValue.equals(file.getBaileyValue(xpathString, null, null)))) {
+                    // it's "winning" (uncontested).
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /* Only import the most recent vote for the given user and xpathString.
                      * Skip if user already has a vote for this xpathString (with ANY value).
@@ -2208,9 +2230,19 @@ public class SurveyAjax extends HttpServlet {
                      * "for a later version".
                      */
                     if (box.getVoteValue(user, xpathString) == null) {
+                        if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                            ++inheritCase4;
+                        }
                         box.voteForValue(user, xpathString, value);
                         confirmations++;
                     }
+                }
+                else {
+                    if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                        String b = file.getBaileyValue(xpathString, null, null);
+                        System.out.println("value ↑↑↑ is not winning, bailey = " + b + "; curValue = " + curValue);
+                        ++inheritCase5;
+                   }
                 }
             } catch (InvalidXPathException ix) {
                 SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
@@ -2220,7 +2252,9 @@ public class SurveyAjax extends HttpServlet {
                 SurveyLog.logException(ix, "Illegal by DTD: Trying to vote for " + xpathString);
             }
         }
-        // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
+        System.out.println("importAllOldWinningVotes: inheritCase0 = " + inheritCase0 + "; inheritCase1 = " + inheritCase1 + "; inheritCase2 = "
+            + inheritCase2 + "; inheritCase3 = " + inheritCase3 + "; inheritCase4 = " + inheritCase4 + "; inheritCase5 = " + inheritCase5 + "; in " + oldVotesTable);
+        System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
     }
 }

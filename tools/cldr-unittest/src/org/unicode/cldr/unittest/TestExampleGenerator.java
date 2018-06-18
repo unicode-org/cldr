@@ -114,7 +114,9 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
         "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"]",
         "//ldml/typographicNames/featureName[@type=\"([^\"]*+)\"]",
-        "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]");
+        "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]",
+        "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]"
+        );
 
     /**
         TEMPORARY EXCLUSIONS; TODO: add examples later 

@@ -4,13 +4,14 @@
 # ROOT descriptions (using special placeholders). Must occur first.
 
 ^//ldml/localeDisplayNames/territories/territory\[@type="(CD|DG|CG|003|021|ZA|018|FK|MK|MM|TW|HK|MO)"] ; ROOT territory; Warning - the region {0} requires special attention! Note: before translating, be sure to read http://cldr.org/translation/country-names.
-^//ldml/localeDisplayNames/scripts/script\[@type="(Z[^"]*)"] ; ROOT script; The name of the script (writing system) with BCP47 script code = {0}. Note: before translating, be sure to read http://cldr.org/translation/script-names.
+^//ldml/localeDisplayNames/scripts/script\[@type="(Z[^"]*)"] ; ROOT script; The name of the script (writing system) with Unicode script code = {0}. Note: before translating, be sure to read http://cldr.org/translation/script-names.
 
 ^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/exemplarCity ; ROOT timezone ; The name of {0}. For more information, see http://cldr.org/translation/cities.
 
-^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"] ; ROOT language; The name of the language with BCP47 language code = {0}. For more information, see http://cldr.org/translation/language-names.
-^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"] ; ROOT script; The name of the script (writing system) with BCP47 script code = {0}. For more information, see http://cldr.org/translation/script-names.
-^//ldml/localeDisplayNames/territories/territory\[@type="([^"]*)"] ; ROOT territory; The name of the country or region with BCP47 region code = {0}. For more information, see http://cldr.org/translation/country-names.
+^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"] ; ROOT language; The name of the language with Unicode language code = {0}. For more information, see http://cldr.org/translation/language-names.
+^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"] ; ROOT script; The name of the script (writing system) with Unicode script code = {0}. For more information, see http://cldr.org/translation/script-names.
+^//ldml/localeDisplayNames/territories/territory\[@type="([^"]*)"] ; ROOT territory; The name of the country or region with Unicode region code = {0}. For more information, see http://cldr.org/translation/country-names.
+^//ldml/localeDisplayNames/subdivisions/subdivision\[@type="([^"]*)"] ; ROOT territory; The name of the country subdivision with Unicode subdivision code = {0}. For more information, see http://cldr.org/translation/country-names.
 ^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/symbol$ ; ROOT currency; The symbol for the currency with the ISO currency code = {0}. For more information, see http://cldr.org/translation/currency-names.
 ^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/symbol\[@alt="narrow"] ; ROOT currency; The NARROW form of the symbol used for the currency with the ISO currency code = {0}, when the known context is already enough to distinguish the symbol from other currencies that may use the same symbol. Normally, this does not need to be changed from the inherited value. For more information, see http://cldr.org/translation/currency-names.
 ^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/symbol\[@alt="([^"]++)"] ; ROOT currency; An alternative form of the symbol used for the currency with the ISO currency code = {0}.  Usually occurs shortly after a new currency symbol is introduced. For more information, see http://cldr.org/translation/currency-names.

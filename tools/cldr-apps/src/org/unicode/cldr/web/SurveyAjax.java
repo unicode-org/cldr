@@ -1152,59 +1152,10 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                             break;
-                        case WHAT_USER_XFEROLDVOTES: {
-                            /* We get here when the user presses button "Transfer Old Votes" in the Users page
-                             * which may be reached by a URL such as .../cldr-apps/v#users///
-                             * 
-                             * users.js uses "user_xferoldvotes" as follows:
-                             * 
-                             * var xurl3 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
-                             * 
-                             * Message displayed in dialog in response to button press:
-                             * "First, pardon the modality.
-                             * Next, do you want to import votes to '#1921 u_1921@adlam.example.com' FROM another user's old votes? Enter their email address below:"
-                             */
-                           // // what=user_xferoldvotes&from_user_id=182&from_locale=de&to_user_id=105&to_locale=de_CH"
-                            Integer from_user_id = getIntParameter(request, "from_user_id");
-                            Integer to_user_id = getIntParameter(request, "to_user_id");
-                            String from_locale = request.getParameter("from_locale");
-                            String to_locale = request.getParameter("to_locale");
-                            if (from_user_id == null || to_user_id == null || from_locale == null || to_locale == null)
-                                throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter");
-                            final User toUser = sm.reg.getInfo(to_user_id);
-                            final User fromUser = sm.reg.getInfo(from_user_id);
-                            if (toUser == null || fromUser == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
-                            if (mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(to_user_id))) {
-                                final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
-                                Connection conn = null;
-                                PreparedStatement ps = null;
-                                try {
-                                    conn = DBUtils.getInstance().getDBConnection();
-                                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + lastVoteTable
-                                        + " (locale, xpath, submitter, value, last_mod) " +
-                                        " SELECT ? as locale, " + lastVoteTable + ".xpath as xpath, ? as submitter, " + lastVoteTable + ".value as value, "
-                                        + lastVoteTable + ".last_mod as last_mod " +
-                                        "FROM " + lastVoteTable + " WHERE ?=" + lastVoteTable + ".submitter AND " + lastVoteTable + ".locale=?",
-                                        to_locale, to_user_id, from_user_id, from_locale);
-                                    int rv = ps.executeUpdate();
-                                    conn.commit();
-                                    final JSONWriter r = newJSONStatusQuick(sm);
-                                    final JSONObject o = new JSONObject();
-                                    o.put("from_user_id", from_user_id);
-                                    o.put("from_locale", from_locale);
-                                    o.put("to_user_id", to_user_id);
-                                    o.put("to_locale", to_locale);
-                                    o.put("result_count", rv);
-                                    o.put("lastVoteTable", lastVoteTable);
-                                    r.put(WHAT_USER_XFEROLDVOTES, o);
-                                    send(r, out);
-                                } finally {
-                                    DBUtils.close(ps, conn);
-                                }
-                            } else {
-                                throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
-                            }
-                        }
+                        case WHAT_USER_XFEROLDVOTES:
+                            final JSONWriter r = newJSONStatusQuick(sm);
+                            TransferOldVotes(r, request, sm, mySession.user);
+                            send(r, out);
                             break;
                         default:
                             sendError(out, "Unknown User Session-based Request: " + what, ErrorCode.E_INTERNAL);
@@ -2222,5 +2173,72 @@ public class SurveyAjax extends HttpServlet {
         }
         // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
+    }
+
+    /**
+     * Transfer all the old votes from one user to another, for all old votes tables.
+     * 
+     * Called when the user presses button "Transfer Old Votes" in the Users page
+     * which may be reached by a URL such as .../cldr-apps/v#users///
+     * 
+     * users.js uses "user_xferoldvotes" as follows:
+     * 
+     * var xurl3 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
+     * 
+     * Message displayed in dialog in response to button press:
+     * "First, pardon the modality.
+     * Next, do you want to import votes to '#1921 u_1921@adlam.example.com' FROM another user's old votes? Enter their email address below:"
+     *
+     * @param request the HttpServletRequest, for parameters from_user_id, to_user_id, from_locale, to_locale
+     * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
+     * @param user the User
+     * @param r the JSONWriter to be written to
+     * @throws SurveyException 
+     * @throws SQLException 
+     * @throws JSONException 
+     * @throws IOException 
+     */
+    private void TransferOldVotes(JSONWriter r, HttpServletRequest request, SurveyMain sm, UserRegistry.User user)
+        throws SurveyException, SQLException, JSONException, IOException {
+        Integer from_user_id = getIntParameter(request, "from_user_id");
+        Integer to_user_id = getIntParameter(request, "to_user_id");
+        String from_locale = request.getParameter("from_locale");
+        String to_locale = request.getParameter("to_locale");
+        if (from_user_id == null || to_user_id == null || from_locale == null || to_locale == null) {
+            throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter");
+        }
+        final User toUser = sm.reg.getInfo(to_user_id);
+        final User fromUser = sm.reg.getInfo(from_user_id);
+        if (toUser == null || fromUser == null) {
+            throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
+        }
+        if (user.isAdminForOrg(user.org) && user.isAdminFor(sm.reg.getInfo(to_user_id))) {
+            final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
+            Connection conn = null;
+            PreparedStatement ps = null;
+            try {
+                conn = DBUtils.getInstance().getDBConnection();
+                ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + lastVoteTable
+                    + " (locale, xpath, submitter, value, last_mod) " +
+                    " SELECT ? as locale, " + lastVoteTable + ".xpath as xpath, ? as submitter, " + lastVoteTable + ".value as value, "
+                    + lastVoteTable + ".last_mod as last_mod " +
+                    "FROM " + lastVoteTable + " WHERE ?=" + lastVoteTable + ".submitter AND " + lastVoteTable + ".locale=?",
+                    to_locale, to_user_id, from_user_id, from_locale);
+                int rv = ps.executeUpdate();
+                conn.commit();
+                final JSONObject o = new JSONObject();
+                o.put("from_user_id", from_user_id);
+                o.put("from_locale", from_locale);
+                o.put("to_user_id", to_user_id);
+                o.put("to_locale", to_locale);
+                o.put("result_count", rv);
+                o.put("lastVoteTable", lastVoteTable);
+                r.put(WHAT_USER_XFEROLDVOTES, o);
+            } finally {
+                DBUtils.close(ps, conn);
+            }
+        } else {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
+        }       
     }
 }

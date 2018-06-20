@@ -2191,7 +2191,7 @@ public class SurveyAjax extends HttpServlet {
      *
      * @param request the HttpServletRequest, for parameters from_user_id, to_user_id, from_locale, to_locale
      * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
-     * @param user the User
+     * @param user the User, should be admin
      * @param r the JSONWriter to be written to
      * @throws SurveyException 
      * @throws SQLException 
@@ -2212,33 +2212,69 @@ public class SurveyAjax extends HttpServlet {
         if (toUser == null || fromUser == null) {
             throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
         }
-        if (user.isAdminForOrg(user.org) && user.isAdminFor(sm.reg.getInfo(to_user_id))) {
-            final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
-            Connection conn = null;
-            PreparedStatement ps = null;
-            try {
-                conn = DBUtils.getInstance().getDBConnection();
-                ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + lastVoteTable
-                    + " (locale, xpath, submitter, value, last_mod) " +
-                    " SELECT ? as locale, " + lastVoteTable + ".xpath as xpath, ? as submitter, " + lastVoteTable + ".value as value, "
-                    + lastVoteTable + ".last_mod as last_mod " +
-                    "FROM " + lastVoteTable + " WHERE ?=" + lastVoteTable + ".submitter AND " + lastVoteTable + ".locale=?",
-                    to_locale, to_user_id, from_user_id, from_locale);
-                int rv = ps.executeUpdate();
-                conn.commit();
-                final JSONObject o = new JSONObject();
-                o.put("from_user_id", from_user_id);
-                o.put("from_locale", from_locale);
-                o.put("to_user_id", to_user_id);
-                o.put("to_locale", to_locale);
-                o.put("result_count", rv);
-                o.put("lastVoteTable", lastVoteTable);
-                r.put(WHAT_USER_XFEROLDVOTES, o);
-            } finally {
-                DBUtils.close(ps, conn);
-            }
+        /* TODO: replace deprecated isAdminFor with ...? */ 
+        if (user.isAdminForOrg(user.org) && user.isAdminFor(toUser)) {
+            TransferOldVotesGivenUsersAndLocales(r, from_user_id, to_user_id, from_locale, to_locale);
         } else {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
         }       
+    }
+
+    /**
+     * Transfer all the old votes from one user to another, having validated the users and locales.
+     * 
+     * Loop thru multiple old votes tables in reverse chronological order.
+     *
+     * @param r the JSONWriter to be written to
+     * @param from_user_id the id of the user from which to transfer
+     * @param to_user_id the id of the user to which to transfer
+     * @param from_locale the locale from which to transfer
+     * @param to_locale the locale to which to transfer
+     * @throws SQLException
+     * @throws JSONException
+     */
+    private void TransferOldVotesGivenUsersAndLocales(JSONWriter r, Integer from_user_id, Integer to_user_id, String from_locale, String to_locale)
+        throws SQLException, JSONException {
+        int rv = 0;
+        String oldVotesTableList = "";
+        int ver = Integer.parseInt(SurveyMain.getNewVersion());
+        while (--ver >= oldestVersionForImportingVotes) {
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = DBUtils.getInstance().getDBConnection();
+                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + oldVotesTable
+                        + " (locale, xpath, submitter, value, last_mod) " +
+                        " SELECT ? as locale, " + oldVotesTable + ".xpath as xpath, ? as submitter, " + oldVotesTable + ".value as value, "
+                        + oldVotesTable + ".last_mod as last_mod " +
+                        "FROM " + oldVotesTable + " WHERE ?=" + oldVotesTable + ".submitter AND " + oldVotesTable + ".locale=?",
+                        to_locale, to_user_id, from_user_id, from_locale);
+                    int count = ps.executeUpdate();
+                    if (count > 0) {
+                        rv += count;
+                        if (!oldVotesTableList.isEmpty()) {
+                            oldVotesTableList += ", ";
+                        }
+                        oldVotesTableList += oldVotesTable;
+                    }
+                    conn.commit();
+                } catch (SQLException e) {
+                    // "Duplicate entry" may occur. Catch here rather than abort entire transfer.
+                    SurveyLog.logException(e, "SQL exception: transferring votes in " + oldVotesTable);
+                } finally {
+                    DBUtils.close(ps, conn);
+                }
+            }
+        }
+        final JSONObject o = new JSONObject();
+        o.put("from_user_id", from_user_id);
+        o.put("from_locale", from_locale);
+        o.put("to_user_id", to_user_id);
+        o.put("to_locale", to_locale);
+        o.put("result_count", rv);
+        o.put("lastVoteTable", oldVotesTableList);
+        r.put(WHAT_USER_XFEROLDVOTES, o);
     }
 }

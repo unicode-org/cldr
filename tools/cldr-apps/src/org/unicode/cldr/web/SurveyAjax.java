@@ -1126,31 +1126,10 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                             break;
-                        case WHAT_USER_OLDVOTES: {
-                            /* We get here when the user presses button "View Old Vote Stats" in the Users page
-                             * which may be reached by a URL such as .../cldr-apps/v#users///
-                             * 
-                             * users.js uses "user_oldvotes" as follows:
-                             * 
-                             * var xurl2 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
-                             */
-                            String u = request.getParameter("old_user_id");
-                            if (u == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
-                            Integer userid = Integer.parseInt(u);
-
-                            if (mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(userid))) {
-                                final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
-                                JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + lastVoteTable
-                                    + " where submitter=? group by locale order by locale", userid);
-                                final JSONWriter r = newJSONStatusQuick(sm);
-                                r.put("user_oldvotes", o); // WHAT_USER_OLDVOTES
-                                r.put("old_user_id", userid);
-                                r.put("lastVoteTable", lastVoteTable);
-                                send(r, out);
-                            } else {
-                                throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
-                            }
-                        }
+                        case WHAT_USER_OLDVOTES:
+                            final JSONWriter rr = newJSONStatusQuick(sm);
+                            ViewOldVotes(rr, request, sm, mySession.user);
+                            send(rr, out);
                             break;
                         case WHAT_USER_XFEROLDVOTES:
                             final JSONWriter r = newJSONStatusQuick(sm);
@@ -2191,7 +2170,7 @@ public class SurveyAjax extends HttpServlet {
      *
      * @param request the HttpServletRequest, for parameters from_user_id, to_user_id, from_locale, to_locale
      * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
-     * @param user the User, should be admin
+     * @param user the current User, who needs admin rights
      * @param r the JSONWriter to be written to
      * @throws SurveyException 
      * @throws SQLException 
@@ -2276,5 +2255,43 @@ public class SurveyAjax extends HttpServlet {
         o.put("result_count", rv);
         o.put("lastVoteTable", oldVotesTableList);
         r.put(WHAT_USER_XFEROLDVOTES, o);
+    }
+    
+    /**
+     * View stats for old votes for the user whose id is specified.
+     * 
+     * We get here when the user presses button "View Old Vote Stats" in the Users page
+     * which may be reached by a URL such as .../cldr-apps/v#users///
+     * 
+     *  users.js uses "user_oldvotes" as follows:
+     *  
+     *  var xurl2 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
+     *
+     * @param request the HttpServletRequest, for parameter old_user_id
+     * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
+     * @param user the current User, who needs admin rights
+     * @param r the JSONWriter to be written to
+     * @throws SQLException
+     * @throws JSONException
+     * @throws SurveyException 
+     * @throws IOException 
+     */
+    private void ViewOldVotes(JSONWriter r, HttpServletRequest request, SurveyMain sm, User user)
+        throws SQLException, JSONException, SurveyException, IOException {
+        String u = request.getParameter("old_user_id");
+        if (u == null) {
+            throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'old_user_id'");
+        }
+        Integer userid = Integer.parseInt(u);
+        if (user.isAdminForOrg(user.org) && user.isAdminFor(sm.reg.getInfo(userid))) {
+            final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
+            JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + lastVoteTable
+                + " where submitter=? group by locale order by locale", userid);
+            r.put("user_oldvotes", o); // WHAT_USER_OLDVOTES
+            r.put("old_user_id", userid);
+            r.put("lastVoteTable", lastVoteTable);
+        } else {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
+        }
     }
 }

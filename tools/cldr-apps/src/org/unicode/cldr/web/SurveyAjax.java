@@ -1126,85 +1126,19 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                             break;
-                        case WHAT_USER_OLDVOTES: {
-                            /* We get here when the user presses button "View Old Vote Stats" in the Users page
-                             * which may be reached by a URL such as .../cldr-apps/v#users///
-                             * 
-                             * users.js uses "user_oldvotes" as follows:
-                             * 
-                             * var xurl2 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
-                             */
-                            String u = request.getParameter("old_user_id");
-                            if (u == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
-                            Integer userid = Integer.parseInt(u);
-
-                            if (mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(userid))) {
-                                final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
-                                JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + lastVoteTable
-                                    + " where submitter=? group by locale order by locale", userid);
+                        case WHAT_USER_OLDVOTES:
+                            {
                                 final JSONWriter r = newJSONStatusQuick(sm);
-                                r.put("user_oldvotes", o); // WHAT_USER_OLDVOTES
-                                r.put("old_user_id", userid);
-                                r.put("lastVoteTable", lastVoteTable);
+                                ViewOldVoteStats(r, request, sm, mySession.user);
                                 send(r, out);
-                            } else {
-                                throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
                             }
-                        }
                             break;
-                        case WHAT_USER_XFEROLDVOTES: {
-                            /* We get here when the user presses button "Transfer Old Votes" in the Users page
-                             * which may be reached by a URL such as .../cldr-apps/v#users///
-                             * 
-                             * users.js uses "user_xferoldvotes" as follows:
-                             * 
-                             * var xurl3 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
-                             * 
-                             * Message displayed in dialog in response to button press:
-                             * "First, pardon the modality.
-                             * Next, do you want to import votes to '#1921 u_1921@adlam.example.com' FROM another user's old votes? Enter their email address below:"
-                             */
-                           // // what=user_xferoldvotes&from_user_id=182&from_locale=de&to_user_id=105&to_locale=de_CH"
-                            Integer from_user_id = getIntParameter(request, "from_user_id");
-                            Integer to_user_id = getIntParameter(request, "to_user_id");
-                            String from_locale = request.getParameter("from_locale");
-                            String to_locale = request.getParameter("to_locale");
-                            if (from_user_id == null || to_user_id == null || from_locale == null || to_locale == null)
-                                throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter");
-                            final User toUser = sm.reg.getInfo(to_user_id);
-                            final User fromUser = sm.reg.getInfo(from_user_id);
-                            if (toUser == null || fromUser == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
-                            if (mySession.user.isAdminForOrg(mySession.user.org) && mySession.user.isAdminFor(sm.reg.getInfo(to_user_id))) {
-                                final String lastVoteTable = sm.getSTFactory().getLastVoteTable();
-                                Connection conn = null;
-                                PreparedStatement ps = null;
-                                try {
-                                    conn = DBUtils.getInstance().getDBConnection();
-                                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + lastVoteTable
-                                        + " (locale, xpath, submitter, value, last_mod) " +
-                                        " SELECT ? as locale, " + lastVoteTable + ".xpath as xpath, ? as submitter, " + lastVoteTable + ".value as value, "
-                                        + lastVoteTable + ".last_mod as last_mod " +
-                                        "FROM " + lastVoteTable + " WHERE ?=" + lastVoteTable + ".submitter AND " + lastVoteTable + ".locale=?",
-                                        to_locale, to_user_id, from_user_id, from_locale);
-                                    int rv = ps.executeUpdate();
-                                    conn.commit();
-                                    final JSONWriter r = newJSONStatusQuick(sm);
-                                    final JSONObject o = new JSONObject();
-                                    o.put("from_user_id", from_user_id);
-                                    o.put("from_locale", from_locale);
-                                    o.put("to_user_id", to_user_id);
-                                    o.put("to_locale", to_locale);
-                                    o.put("result_count", rv);
-                                    o.put("lastVoteTable", lastVoteTable);
-                                    r.put(WHAT_USER_XFEROLDVOTES, o);
-                                    send(r, out);
-                                } finally {
-                                    DBUtils.close(ps, conn);
-                                }
-                            } else {
-                                throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
+                        case WHAT_USER_XFEROLDVOTES:
+                            {
+                                final JSONWriter r = newJSONStatusQuick(sm);
+                                TransferOldVotes(r, request, sm, mySession.user);
+                                send(r, out);
                             }
-                        }
                             break;
                         default:
                             sendError(out, "Unknown User Session-based Request: " + what, ErrorCode.E_INTERNAL);
@@ -2228,5 +2162,176 @@ public class SurveyAjax extends HttpServlet {
         }
         // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
+    }
+
+    /**
+     * Transfer all the old votes from one user to another, for all old votes tables.
+     * 
+     * Called when the user presses button "Transfer Old Votes" in the Users page
+     * which may be reached by a URL such as .../cldr-apps/v#users///
+     * 
+     * users.js uses "user_xferoldvotes" as follows:
+     * 
+     * var xurl3 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
+     * 
+     * Message displayed in dialog in response to button press:
+     * "First, pardon the modality.
+     * Next, do you want to import votes to '#1921 u_1921@adlam.example.com' FROM another user's old votes? Enter their email address below:"
+     *
+     * @param request the HttpServletRequest, for parameters from_user_id, to_user_id, from_locale, to_locale
+     * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
+     * @param user the current User, who needs admin rights
+     * @param r the JSONWriter to be written to
+     * @throws SurveyException 
+     * @throws SQLException 
+     * @throws JSONException 
+     * @throws IOException 
+     */
+    private void TransferOldVotes(JSONWriter r, HttpServletRequest request, SurveyMain sm, UserRegistry.User user)
+        throws SurveyException, SQLException, JSONException, IOException {
+        Integer from_user_id = getIntParameter(request, "from_user_id");
+        Integer to_user_id = getIntParameter(request, "to_user_id");
+        String from_locale = request.getParameter("from_locale");
+        String to_locale = request.getParameter("to_locale");
+        if (from_user_id == null || to_user_id == null || from_locale == null || to_locale == null) {
+            throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter");
+        }
+        final User toUser = sm.reg.getInfo(to_user_id);
+        final User fromUser = sm.reg.getInfo(from_user_id);
+        if (toUser == null || fromUser == null) {
+            throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
+        }
+        /* TODO: replace deprecated isAdminFor with ...? */ 
+        if (user.isAdminForOrg(user.org) && user.isAdminFor(toUser)) {
+            TransferOldVotesGivenUsersAndLocales(r, from_user_id, to_user_id, from_locale, to_locale);
+        } else {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
+        }       
+    }
+
+    /**
+     * Transfer all the old votes from one user to another, having validated the users and locales.
+     * 
+     * Loop thru multiple old votes tables in reverse chronological order.
+     *
+     * @param r the JSONWriter to be written to
+     * @param from_user_id the id of the user from which to transfer
+     * @param to_user_id the id of the user to which to transfer
+     * @param from_locale the locale from which to transfer
+     * @param to_locale the locale to which to transfer
+     * @throws SQLException
+     * @throws JSONException
+     */
+    private void TransferOldVotesGivenUsersAndLocales(JSONWriter r, Integer from_user_id, Integer to_user_id, String from_locale, String to_locale)
+        throws SQLException, JSONException {
+        int totalVotesTransferred = 0;
+        String oldVotesTableList = "";
+        int ver = Integer.parseInt(SurveyMain.getNewVersion());
+        while (--ver >= oldestVersionForImportingVotes) {
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = DBUtils.getInstance().getDBConnection();
+                    ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + oldVotesTable
+                        + " (locale, xpath, submitter, value, last_mod) " +
+                        " SELECT ? as locale, " + oldVotesTable + ".xpath as xpath, ? as submitter, " + oldVotesTable + ".value as value, "
+                        + oldVotesTable + ".last_mod as last_mod " +
+                        "FROM " + oldVotesTable + " WHERE ?=" + oldVotesTable + ".submitter AND " + oldVotesTable + ".locale=?",
+                        to_locale, to_user_id, from_user_id, from_locale);
+                    int count = ps.executeUpdate();
+                    if (count > 0) {
+                        totalVotesTransferred += count;
+                        if (!oldVotesTableList.isEmpty()) {
+                            oldVotesTableList += ", ";
+                        }
+                        oldVotesTableList += oldVotesTable;
+                    }
+                    conn.commit();
+                } catch (SQLException e) {
+                    // "Duplicate entry" may occur. Catch here rather than abort entire transfer.
+                    SurveyLog.logException(e, "SQL exception: transferring votes in " + oldVotesTable);
+                } finally {
+                    DBUtils.close(ps, conn);
+                }
+            }
+        }
+        final JSONObject o = new JSONObject();
+        o.put("from_user_id", from_user_id);
+        o.put("from_locale", from_locale);
+        o.put("to_user_id", to_user_id);
+        o.put("to_locale", to_locale);
+        o.put("result_count", totalVotesTransferred);
+        o.put("tables", oldVotesTableList);
+        r.put(WHAT_USER_XFEROLDVOTES, o);
+    }
+    
+    /**
+     * View stats for old votes for the user whose id is specified in the request.
+     * 
+     * We get here when the user presses button "View Old Vote Stats" in the Users page
+     * which may be reached by a URL such as .../cldr-apps/v#users///
+     * 
+     *  users.js uses "user_oldvotes" as follows:
+     *  
+     *  var xurl2 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
+     *
+     * @param request the HttpServletRequest, for parameter old_user_id
+     * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
+     * @param user the current User, who needs admin rights
+     * @param r the JSONWriter to be written to
+     * @throws SQLException
+     * @throws JSONException
+     * @throws SurveyException 
+     * @throws IOException 
+     */
+    private void ViewOldVoteStats(JSONWriter r, HttpServletRequest request, SurveyMain sm, User user)
+        throws SQLException, JSONException, SurveyException, IOException {
+
+        String u = request.getParameter("old_user_id");
+        if (u == null) {
+            throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'old_user_id'");
+        }
+        Integer old_user_id = Integer.parseInt(u);
+        if (user.isAdminForOrg(user.org) && user.isAdminFor(sm.reg.getInfo(old_user_id))) {
+            ViewOldVoteStatsForOldUserId(r, old_user_id);
+        } else {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
+        }
+    }
+
+    /**
+     * View stats for old votes for the user whose id is specified.
+     *
+     * Check multiple old votes tables.
+     *
+     * @param r the JSONWriter to be written to
+     * @throws SQLException
+     * @throws JSONException
+     * @throws IOException 
+     */
+    private void ViewOldVoteStatsForOldUserId(JSONWriter r, Integer old_user_id)
+        throws SQLException, JSONException, IOException {
+        
+        JSONObject tables = new JSONObject();
+        int ver = Integer.parseInt(SurveyMain.getNewVersion());
+        while (--ver >= oldestVersionForImportingVotes) {
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + oldVotesTable
+                    + " where submitter=? group by locale order by locale", old_user_id);
+                String d = o.getString("data");
+                if (!d.equals("[]")) {
+                    tables.put("v" + ver, d);
+                }
+            }
+        }
+        JSONObject data = new JSONObject();
+        if (tables.length() > 0) {
+            data.put("data", tables);            
+        }
+        r.put("user_oldvotes", data); // WHAT_USER_OLDVOTES
+        r.put("old_user_id", old_user_id);
     }
 }

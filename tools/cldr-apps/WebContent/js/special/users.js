@@ -1,6 +1,5 @@
 /**
- * Example special module that shows a users page. 
- * Modify 'js/special/users.js' below to reflect your special page's name.
+ * Special module that shows a users page. 
  * @module users
  */
 define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPage) {
@@ -106,10 +105,11 @@ define("js/special/users.js", ["js/special/SpecialPage.js"], function(SpecialPag
 							url: xurl2
 						})
 						.done(function(data2) {
-							if(data2.user_oldvotes.data.length == 0) {
+							if(!data2.user_oldvotes.data || data2.user_oldvotes.data.length == 0) {
 								$(u.infoSpan).text('no old votes.');
 							} else {
-								$(u.infoSpan).text('old votes: ' + 	JSON.stringify(data2.user_oldvotes.data));
+								// Crudely display the data. For now, just simplify slightly to make more legible.
+								$(u.infoSpan).text('old votes: ' + JSON.stringify(data2.user_oldvotes.data).replace(/[\\\"]/g, ''));
 							}
 						})
 						.fail(function(err) {

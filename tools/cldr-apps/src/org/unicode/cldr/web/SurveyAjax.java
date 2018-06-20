@@ -2134,7 +2134,13 @@ public class SurveyAjax extends HttpServlet {
             value = daip.processInput(xpathString, value, exceptionList);
             try {
                 String curValue = file.getStringValue(xpathString);
-                if (value.equals(curValue)) { // it's "winning" (uncontested).
+                if (curValue == null) {
+                    continue;
+                }
+                if (value.equals(curValue) ||
+                        (value.equals(CldrUtility.INHERITANCE_MARKER) &&
+                            curValue.equals(file.getBaileyValue(xpathString, null, null)))) {
+                    // it's "winning" (uncontested).
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /* Only import the most recent vote for the given user and xpathString.
                      * Skip if user already has a vote for this xpathString (with ANY value).

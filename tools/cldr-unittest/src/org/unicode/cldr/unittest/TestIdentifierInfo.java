@@ -43,7 +43,7 @@ public class TestIdentifierInfo extends TestFmwk {
             { "AᎪ", "MINIMALLY_RESTRICTIVE", "Cher Latn" },
             { "aА가一", "MINIMALLY_RESTRICTIVE", "Cyrl Hani Hang Latn" },
             { "AᎪА♥", "MINIMALLY_RESTRICTIVE", "Zyyy Cher Cyrl Latn" },
-            { "a1२", "UNRESTRICTIVE", "Zyyy Latn", "Deva Kthi Mahj", "[0०]" },
+            { "a1२", "UNRESTRICTIVE", "Zyyy Latn", "Deva Kthi Mahj Dogr", "[0०]" },
             { "a1٢", "UNRESTRICTIVE", "Zyyy Latn", "Arab Thaa", "[0٠]" }, };
         IdentifierInfo actualInfo = new IdentifierInfo();
 

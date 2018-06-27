@@ -254,20 +254,25 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         Set<String> allLanguages = f.getAvailableLanguages();
         for (String thisLanguage : allLanguages) {
             CLDRFile thisLanguageFile = f.make(thisLanguage, true);
-            if (usesModifierApostrophe(thisLanguageFile)) {
-                if (!DisplayAndInputProcessor.LANGUAGES_USING_MODIFIER_APOSTROPHE
-                    .contains(thisLanguage)) {
-                    errln("Language : "
-                        + thisLanguage
-                        + " uses MODIFIER_LETTER_APOSROPHE, but is not on the list in DAIP.LANGUAGES_USING_MODIFIER_APOSTROPHE");
+            try {
+                if (usesModifierApostrophe(thisLanguageFile)) {
+                    if (!DisplayAndInputProcessor.LANGUAGES_USING_MODIFIER_APOSTROPHE
+                        .contains(thisLanguage)) {
+                        errln("Language : "
+                            + thisLanguage
+                            + " uses MODIFIER_LETTER_APOSROPHE, but is not on the list in DAIP.LANGUAGES_USING_MODIFIER_APOSTROPHE");
+                    }
+                } else {
+                    if (DisplayAndInputProcessor.LANGUAGES_USING_MODIFIER_APOSTROPHE
+                        .contains(thisLanguage)) {
+                        errln("Language : "
+                            + thisLanguage
+                            + "is on the list in DAIP.LANGUAGES_USING_MODIFIER_APOSTROPHE, but the main exemplars don't use this character.");
+                    }
                 }
-            } else {
-                if (DisplayAndInputProcessor.LANGUAGES_USING_MODIFIER_APOSTROPHE
-                    .contains(thisLanguage)) {
-                    errln("Language : "
-                        + thisLanguage
-                        + "is on the list in DAIP.LANGUAGES_USING_MODIFIER_APOSTROPHE, but the main exemplars don't use this character.");
-                }
+            } catch(Throwable t) {
+                t.printStackTrace();
+                errln("Error in " + thisLanguage + " - " + t.getMessage());
             }
         }
     }

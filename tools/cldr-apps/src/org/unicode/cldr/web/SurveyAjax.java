@@ -1836,53 +1836,61 @@ public class SurveyAjax extends HttpServlet {
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         long viewableVoteCount = 0;
         for (Map<String, Object> m : rows) {
-            String value = m.get("value").toString();
-            if (value == null) {
-                continue; // ignore unvotes.
-            }
-            PathHeader pathHeader = (PathHeader) m.get("pathHeader");
-            if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
-                pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
-                continue; // skip these
-            }
-            int xp = (Integer) m.get("xpath");
-            String xpathString = sm.xpt.getById(xp);
-            if (!validPaths.contains(xpathString)) {
-                continue;
-            }
-            if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
-                continue; // out of coverage
-            }
-            String curValue = file.getStringValue(xpathString);
-            if (oldvotes != null) {
-                String xpathStringHash = sm.xpt.getStringIDString(xp);
-                JSONObject aRow = new JSONObject()
-                    .put("strid", xpathStringHash)
-                    .put("myValue", value)
-                    .put("winValue", curValue)
-                    .put("baseValue", baseF.getStringValue(xpathString))
-                    .put("pathHeader", pathHeader.toString());
-                if (value.equals(curValue)) {
-                    if (uncontested != null) {
-                        uncontested.put(aRow); // uncontested = winning
-                        ++viewableVoteCount;
-                    }
-                } else {
-                    if (contested != null) {
-                        contested.put(aRow); // contested = losing
-                        ++viewableVoteCount;
-                    }
+            // TODO: clarify which exceptions should be caught here, such as invalid xpathString.
+            // For now, catch all silently and skip old votes that generate exceptions -- they're
+            // invalid; neither winning nor losing, but invisible as far as import is concerned.
+            try {
+                String value = m.get("value").toString();
+                if (value == null) {
+                    continue; // ignore unvotes.
                 }
-           } else {
-               if (value.equals(curValue)) {
-                   if (useWinningVotes) {
+                PathHeader pathHeader = (PathHeader) m.get("pathHeader");
+                if (pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE &&
+                    pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.LTR_ALWAYS) {
+                    continue; // skip these
+                }
+                int xp = (Integer) m.get("xpath");
+                String xpathString = sm.xpt.getById(xp);
+                if (!validPaths.contains(xpathString)) {
+                    continue;
+                }
+                if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
+                    continue; // out of coverage
+                }
+                String curValue = file.getStringValue(xpathString);
+                boolean isWinning = EqualsOrInheritsCurrentValue(value, curValue, file, xpathString);
+                if (oldvotes != null) {
+                    String xpathStringHash = sm.xpt.getStringIDString(xp);
+                    JSONObject aRow = new JSONObject()
+                        .put("strid", xpathStringHash)
+                        .put("myValue", value)
+                        .put("winValue", curValue)
+                        .put("baseValue", baseF.getStringValue(xpathString))
+                        .put("pathHeader", pathHeader.toString());
+                    if (isWinning) {
+                        if (uncontested != null) {
+                            uncontested.put(aRow); // uncontested = winning
+                            ++viewableVoteCount;
+                        }
+                    } else {
+                        if (contested != null) {
+                            contested.put(aRow); // contested = losing
+                            ++viewableVoteCount;
+                        }
+                    }
+               } else {
+                   if (isWinning) {
+                       if (useWinningVotes) {
+                           ++viewableVoteCount;
+                       }
+                   }
+                   else { // always count losing votes
                        ++viewableVoteCount;
                    }
                }
-               else { // always count losing votes
-                   ++viewableVoteCount;
-               }
-           }
+            } catch (Exception e) {
+                continue;
+            }
         }
         if (oldvotes != null) {
             if (contested != null) {
@@ -2137,9 +2145,7 @@ public class SurveyAjax extends HttpServlet {
                 if (curValue == null) {
                     continue;
                 }
-                if (value.equals(curValue) ||
-                        (value.equals(CldrUtility.INHERITANCE_MARKER) &&
-                            curValue.equals(file.getBaileyValue(xpathString, null, null)))) {
+                if (EqualsOrInheritsCurrentValue(value, curValue, file, xpathString)) {
                     // it's "winning" (uncontested).
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /* Only import the most recent vote for the given user and xpathString.
@@ -2162,6 +2168,40 @@ public class SurveyAjax extends HttpServlet {
         }
         // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
+    }
+    
+    /**
+     * Does the value in question either match or inherent the current value?
+     * 
+     * To match, the value in question and the current value must be non-null and equal.
+     * 
+     * To inherit the current value, the value in question must be INHERITANCE_MARKER
+     * and the current value must equal the bailey value.
+     * 
+     * @param value the value in question
+     * @param curValue the current value, that is, file.getStringValue(xpathString)
+     * @param file the CLDRFile for getBaileyValue
+     * @param xpathString the path identifier
+     * @return true if it matches or inherits, else false
+     */
+    private boolean EqualsOrInheritsCurrentValue(String value, String curValue, CLDRFile file, String xpathString) {
+        if (value == null || curValue == null) {
+            return false;
+        }
+        if (value.equals(curValue)) {
+            return true;
+        }
+        if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+            String baileyValue = file.getBaileyValue(xpathString, null, null);
+            if (baileyValue == null) {
+                /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
+                return false;
+            }
+            if (curValue.equals(baileyValue)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

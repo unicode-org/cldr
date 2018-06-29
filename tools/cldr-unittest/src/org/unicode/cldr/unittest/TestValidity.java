@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -29,7 +30,7 @@ public class TestValidity extends TestFmwkPlus {
         new TestValidity().run(args);
     }
 
-    Validity validity = Validity.getInstance(CLDRPaths.COMMON_DIRECTORY);
+    Validity validity = Validity.getInstance();
 
     public void TestBasicValidity() {
         Object[][] tests = {
@@ -98,8 +99,9 @@ public class TestValidity extends TestFmwkPlus {
             return;
         }
 
-        final String oldCommon = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.PREVIOUS_CHART_VERSION + "/common/";
-        Validity oldValidity = Validity.getInstance(oldCommon);
+        final String oldValidity = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.PREVIOUS_CHART_VERSION +
+            File.separator + "common" + File.separator + "validity" + File.separator;
+        Validity validity = Validity.getInstance(oldValidity);
         for (LstrType type : LstrType.values()) {
             final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(type);
             if (statusToCodes == null) {
@@ -166,7 +168,7 @@ public class TestValidity extends TestFmwkPlus {
     public void TestUnits() {
         Splitter HYPHEN_SPLITTER = Splitter.on('-');
         UnicodeSet allowed = new UnicodeSet("[a-z0-9A-Z]").freeze();
-        Validity validity = Validity.getInstance(CLDRPaths.COMMON_DIRECTORY);
+        Validity validity = Validity.getInstance();
         Map<String, String> shortened = ImmutableMap.<String, String> builder()
             .put("acceleration", "accel")
             .put("revolution", "revol")

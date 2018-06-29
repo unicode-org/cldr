@@ -30,14 +30,14 @@ public class Validity {
     private final Map<LstrType, Map<String, Status>> typeToCodeToStatus;
 
     public static Validity getInstance() {
-        return getInstance(CLDRPaths.COMMON_DIRECTORY);
+        return getInstance(CLDRPaths.VALIDITY_DIRECTORY);
     }
 
-    public static Validity getInstance(String commonDirectory) {
-        Validity result = cache.get(commonDirectory);
+    public static Validity getInstance(String validityDirectory) {
+        Validity result = cache.get(validityDirectory);
         if (result == null) {
-            final Validity value = new Validity(commonDirectory);
-            result = cache.putIfAbsent(commonDirectory, value);
+            final Validity value = new Validity(validityDirectory);
+            result = cache.putIfAbsent(validityDirectory, value);
             if (result == null) {
                 result = value;
             }
@@ -45,11 +45,11 @@ public class Validity {
         return result;
     }
 
-    private Validity(String commonDirectory) {
+    private Validity(String validityDirectory) {
         Splitter space = Splitter.on(PatternCache.get("\\s+")).trimResults().omitEmptyStrings();
         Map<LstrType, Map<Status, Set<String>>> data = new EnumMap<>(LstrType.class);
         Map<LstrType, Map<String, Status>> codeToStatus = new EnumMap<>(LstrType.class);
-        final String basePath = commonDirectory + "validity/";
+        final String basePath = validityDirectory;
         for (String file : new File(basePath).list()) {
             if (!file.endsWith(".xml")) {
                 continue;

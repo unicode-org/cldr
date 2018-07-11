@@ -126,9 +126,7 @@ public class DataSection implements JSONString {
 
             public Set<UserRegistry.User> votes = null; // Set of Users who voted on this item
 
-            private String originalValueHash = null; // see getOriginalValueHash
-            private String adjustedValueHash = null; // see getAdjustedValueHash
-
+            private String valueHash = null;
             public boolean isOldValue = false;
             //private String dv = null;
             public boolean isBailey = false; // is this the fallback value?
@@ -148,46 +146,15 @@ public class DataSection implements JSONString {
                 this.value = value;
             }
 
-            /**
-             * Get the hash of the value of this candidate item.
-             *
-             * This item's value is assumed to have been set already.
-             *
-             * Here, "original" means "not adjusted"; compare getAdjustedValueHash.
-             *
-             * @return the hash of the original value 
-             */
-            public String getOriginalValueHash() {
-                if (originalValueHash == null) {
-                    originalValueHash = DataSection.getValueHash(value);
-                }
-                return originalValueHash;
-            }
-
-            /**
-             * Get the adjusted hash of the value of this candidate item.
-             *
-             * Here, "adjusted" means that under certain conditions this function may return the
-             * hash of CldrUtility.INHERITANCE_MARKER instead of the hash of this item's value.
-             * Compare getOriginalValueHash.
-             *
-             * The conditions are: isFallback && !locale.isLanguageLocale().
-             *
-             * TODO: Document the reasons for the adjustment. Does it still serve a purpose, or should
-             * all getAdjustedValueHash be changed to getOriginalValueHash? The adjustment lead in one
-             * context to the browser console error "there is no Bailey Target item".
-             *
-             * @return the adjusted hash
-             */
-            public String getAdjustedValueHash() {
-                if (adjustedValueHash == null) {
+            public String getValueHash() {
+                if (valueHash == null) {
                     if (isFallback && !locale.isLanguageLocale()) {
-                        adjustedValueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
+                        valueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
                     } else {
-                        adjustedValueHash = DataSection.getValueHash(value);
+                        valueHash = DataSection.getValueHash(value);
                     }
                 }
-                return adjustedValueHash;
+                return valueHash;
             }
 
             @Override
@@ -304,10 +271,9 @@ public class DataSection implements JSONString {
                         if (true /* !item.itemErrors */) { // exclude item from
                             // voting due to errors?
                             if (ctx.getCanModify()) {
-                                /* TODO: should getAdjustedValueHash here be getOriginalValueHash? */
                                 ctx.print("<button class='ichoice' title='#" + "x" + "' name='" + fieldHash + "'  value='"
-                                    + getAdjustedValueHash() + "' " + " onclick=\"do_change('" + fullFieldHash() + "','','"
-                                    + getAdjustedValueHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+                                    + getValueHash() + "' " + " onclick=\"do_change('" + fullFieldHash() + "','','"
+                                    + getValueHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
                                     + "')\"" + "  type='button'>"
                                     + ctx.iconHtml(checkThis(ourVote) ? "radx" : "rado", "Vote") + "</button>");
                             } // else, can't vote- no radio buttons.
@@ -613,8 +579,7 @@ public class DataSection implements JSONString {
                 // we may wish to use them in the future.  We don't pass them along in order to save resources.
                 // JCE: 2013-05-29
                 JSONObject j = new JSONObject()
-                    /* TODO: should this getAdjustedValueHash be getOriginalValueHash? */
-                    .put("valueHash", getAdjustedValueHash())
+                    .put("valueHash", getValueHash())
                     .put("rawValue", value)
                     .put("value", getProcessedValue())
                     .put("example", getExample())
@@ -1734,8 +1699,7 @@ public class DataSection implements JSONString {
                 String winningVhash = "";
                 CandidateItem winningItem = getWinningItem();
                 if (winningItem != null) {
-                    /* TODO: should getAdjustedValueHash here be getOriginalValueHash? */
-                    winningVhash = winningItem.getAdjustedValueHash();
+                    winningVhash = winningItem.getValueHash();
                 }
                 String voteVhash = "";
                 String ourVote = null;
@@ -1744,24 +1708,14 @@ public class DataSection implements JSONString {
                     if (ourVote != null) {
                         CandidateItem voteItem = items.get(ourVote);
                         if (voteItem != null) {
-                            /* TODO: should getAdjustedValueHash here be getOriginalValueHash? */
-                            voteVhash = voteItem.getAdjustedValueHash();
+                            voteVhash = voteItem.getValueHash();
                         }
                     }
                 }
 
                 JSONObject itemsJson = new JSONObject();
                 for (CandidateItem i : items.values()) {
-                    /* getOriginalValueHash, not getAdjustedValueHash, is required here.
-                     * items.values() may include an item with value ↑↑↑ INHERITANCE_MARKER and isBailey = false, and an item
-                     * with an inherited value and isBailey = true, isFallback = true, locale.isLanguageLocale() = false.
-                     * If getAdjustedValueHash were called here (as it was, under the old name getValueHash), both items would
-                     * get the same key DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER) = 4oaR4oaR4oaR, and only the
-                     * last one would remain in itemsJson, leading to the browser console error "there is no Bailey Target item".
-                     * See https://unicode.org/cldr/trac/ticket/10521
-                     * See http://www.ietf.org/rfc/rfc4627.txt - "the names within an object SHOULD be unique".
-                     */
-                    itemsJson.put(i.getOriginalValueHash(), i);
+                    itemsJson.put(i.getValueHash(), i);
                 }
 
                 String displayExample = null;

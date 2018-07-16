@@ -92,9 +92,14 @@ public class TestAnnotationVotes extends TestFmwk {
      * Note: the name of each function must begin with "Test", or it will be ignored! See TestFmwk.java.
      */
     public void TestAV05() {
-        String test = "adjustAnnotationVoteCounts for a=3, b|c=2, b|c|d=2 should make b|c, b|c|d, a";
+        /* An older version of this test ("a=3, b|c=2, b|c|d=2 should make b|c, b|c|d, a") would now
+         * fail due to rounding double (float) to long (integer) when calculating the geometric mean.
+         * Most actual votes are multiples of 4, and this test passes with the new vote counts
+         * simply being the old vote counts multiplied by 4.
+         */
+        String test = "adjustAnnotationVoteCounts for a=12, b|c=8, b|c|d=8 should make b|c, b|c|d, a";
         String[] valI = {"a", "b|c", "b|c|d"}; // input
-        long[] votesI = {3   , 2,     2     }; // input vote counts
+        long[] votesI = {12  , 8,     8     }; // input vote counts
         String[] valO = {"b|c", "b|c|d", "a"}; // expected/desired output
         runTest(test, valI, votesI, valO);
     }

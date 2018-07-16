@@ -986,8 +986,12 @@ public class VoteResolver<T> {
             for (T comp : comps) {
                 product *= compMap.get(comp);
             }
-            // multiply by ten to reduce problem with different doubles getting rounded to identical longs
-            Long newCount = Math.round(10.0 * Math.pow(product, 1.0 / comps.size())); // geometric mean
+            /* Rounding to long integer here loses precision. We tried multiplying by ten before rounding,
+             * to reduce problems with different doubles getting rounded to identical longs, but that had
+             * unfortunate side-effects involving thresholds (see getRequiredVotes). An eventual improvement
+             * may be to use doubles or floats for all vote counts.
+             */
+            Long newCount = Math.round(Math.pow(product, 1.0 / comps.size())); // geometric mean
             voteCount.put(value, newCount);
         }
     }

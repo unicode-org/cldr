@@ -4,8 +4,9 @@
 <!--  begin ajax_status.jsp -->
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" />
 
-<!-- Bootstrap core test CSS -->
-<link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<% // TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css  %>
+<%@include file="/WEB-INF/jspf/bootstrap_css.jspf" %>
 
 <!-- Custom styles for this template -->
 <link href="<%= request.getContextPath() %>/css/redesign.css" rel="stylesheet">
@@ -15,6 +16,7 @@
 dojoConfig = {
 		parseOnLoad: true,
 		};</script>
+<% // TODO: encapsulate dojo version in one place, cf. dojoheader.jspf  %>
 <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
 <script type='text/javascript'>
 require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContainer"]);

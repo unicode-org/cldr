@@ -29,7 +29,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
     <head>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/redesign.css" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.min.css" />
+    <%@include file="/WEB-INF/jspf/bootstrap_css.jspf" %>
     <title>Survey Tool | Starting</title>
 <% if(request.getParameter("_STARTINGUP")==null) { %>
                   <script type="application/javascript">
@@ -70,7 +70,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
 					<a href="http://cldr.unicode.org">CLDR</a> SurveyTool 
 				</p>
 				</div>
-				<div class="collapse navbar-collapse  navbar-right"">
+				<div class="collapse navbar-collapse  navbar-right">
 					<ul class="nav navbar-nav">
 						<li><a href="http://cldr.unicode.org/index/survey-tool">Help</a></li>
 					</ul>
@@ -188,6 +188,7 @@ if(false) { // if we need to redirect for some reason..
 <meta name="gigabot" content="noarchive">
 <meta name="gigabot" content="nofollow">
 <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
+<% // TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css  %>
 <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 <script type="text/javascript">
 // set from incoming session

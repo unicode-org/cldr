@@ -303,9 +303,13 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             		
             <% } %>
           </p>
+
+           	<p class='navbar-text navbar-right'><a href='https://www.unicode.org/policies/privacy_policy.htm'>This site uses cookies.</a>
+          	</p>
+ 
           	<p class='specialmessage navbar-text navbar-right'><%= sm.getSpecialHeaderText() %><%= SurveyMain.isUnofficial()?("<br/><span class='rolloverspan'>"+SurveyMain.getCurrev()+"</span>"):"" %>
           	</p>
-          
+    	
         </div>
       </div>
 </div>

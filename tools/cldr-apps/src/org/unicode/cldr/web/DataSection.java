@@ -126,7 +126,9 @@ public class DataSection implements JSONString {
 
             public Set<UserRegistry.User> votes = null; // Set of Users who voted on this item
 
-            private String valueHash = null;
+            private String originalValueHash = null; // see getOriginalValueHash
+            private String adjustedValueHash = null; // see getAdjustedValueHash
+
             public boolean isOldValue = false;
             //private String dv = null;
             public boolean isBailey = false; // is this the fallback value?
@@ -146,15 +148,46 @@ public class DataSection implements JSONString {
                 this.value = value;
             }
 
-            public String getValueHash() {
-                if (valueHash == null) {
+            /**
+             * Get the hash of the value of this candidate item.
+             *
+             * This item's value is assumed to have been set already.
+             *
+             * Here, "original" means "not adjusted"; compare getAdjustedValueHash.
+             *
+             * @return the hash of the original value 
+             */
+            public String getOriginalValueHash() {
+                if (originalValueHash == null) {
+                    originalValueHash = DataSection.getValueHash(value);
+                }
+                return originalValueHash;
+            }
+
+            /**
+             * Get the adjusted hash of the value of this candidate item.
+             *
+             * Here, "adjusted" means that under certain conditions this function may return the
+             * hash of CldrUtility.INHERITANCE_MARKER instead of the hash of this item's value.
+             * Compare getOriginalValueHash.
+             *
+             * The conditions are: isFallback && !locale.isLanguageLocale().
+             *
+             * TODO: Document the reasons for the adjustment. Does it still serve a purpose, or should
+             * all getAdjustedValueHash be changed to getOriginalValueHash? The adjustment lead in one
+             * context to the browser console error "there is no Bailey Target item".
+             *
+             * @return the adjusted hash
+             */
+            public String getAdjustedValueHash() {
+                if (adjustedValueHash == null) {
                     if (isFallback && !locale.isLanguageLocale()) {
-                        valueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
+                        adjustedValueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
                     } else {
-                        valueHash = DataSection.getValueHash(value);
+                        adjustedValueHash = DataSection.getValueHash(value);
                     }
                 }
-                return valueHash;
+                return adjustedValueHash;
             }
 
             @Override
@@ -271,9 +304,10 @@ public class DataSection implements JSONString {
                         if (true /* !item.itemErrors */) { // exclude item from
                             // voting due to errors?
                             if (ctx.getCanModify()) {
+                                /* TODO: should this be getAdjustedValueHash or getOriginalValueHash? */
                                 ctx.print("<button class='ichoice' title='#" + "x" + "' name='" + fieldHash + "'  value='"
-                                    + getValueHash() + "' " + " onclick=\"do_change('" + fullFieldHash() + "','','"
-                                    + getValueHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+                                    + getAdjustedValueHash() + "' " + " onclick=\"do_change('" + fullFieldHash() + "','','"
+                                    + getAdjustedValueHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
                                     + "')\"" + "  type='button'>"
                                     + ctx.iconHtml(checkThis(ourVote) ? "radx" : "rado", "Vote") + "</button>");
                             } // else, can't vote- no radio buttons.
@@ -579,7 +613,8 @@ public class DataSection implements JSONString {
                 // we may wish to use them in the future.  We don't pass them along in order to save resources.
                 // JCE: 2013-05-29
                 JSONObject j = new JSONObject()
-                    .put("valueHash", getValueHash())
+                    /* TODO: should this be getAdjustedValueHash or getOriginalValueHash? */
+                    .put("valueHash", getAdjustedValueHash())
                     .put("rawValue", value)
                     .put("value", getProcessedValue())
                     .put("example", getExample())
@@ -1699,7 +1734,10 @@ public class DataSection implements JSONString {
                 String winningVhash = "";
                 CandidateItem winningItem = getWinningItem();
                 if (winningItem != null) {
-                    winningVhash = winningItem.getValueHash();
+                    /* Use getOriginalValueHash here, not getAdjustedValueHash. This is to fix
+                     * a regression due to changeset 14263 as seen on smoketest, described as
+                     * "seemingly duplicate votes visible" at https://unicode.org/cldr/trac/ticket/10521 */
+                    winningVhash = winningItem.getOriginalValueHash();
                 }
                 String voteVhash = "";
                 String ourVote = null;
@@ -1708,14 +1746,28 @@ public class DataSection implements JSONString {
                     if (ourVote != null) {
                         CandidateItem voteItem = items.get(ourVote);
                         if (voteItem != null) {
-                            voteVhash = voteItem.getValueHash();
+                            /* TODO: should this be getAdjustedValueHash or getOriginalValueHash? */
+                            voteVhash = voteItem.getAdjustedValueHash();
                         }
                     }
                 }
 
                 JSONObject itemsJson = new JSONObject();
                 for (CandidateItem i : items.values()) {
-                    itemsJson.put(i.getValueHash(), i);
+                    /* getOriginalValueHash, not getAdjustedValueHash, is required here.
+                     * items.values() may include an item with value ↑↑↑ INHERITANCE_MARKER and isBailey = false, and an item
+                     * with an inherited value and isBailey = true, isFallback = true, locale.isLanguageLocale() = false.
+                     * If getAdjustedValueHash were called here (as it was, under the old name getValueHash), both items would
+                     * get the same key DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER) = 4oaR4oaR4oaR, and only the
+                     * last one would remain in itemsJson, leading to the browser console error "there is no Bailey Target item".
+                     * See https://unicode.org/cldr/trac/ticket/10521
+                     * See http://www.ietf.org/rfc/rfc4627.txt - "the names within an object SHOULD be unique".
+                     */
+                    String key = i.getOriginalValueHash();
+                    if (itemsJson.has(key)) {
+                        System.out.println("Warning: value hash key " + key + " is duplicate");
+                    }
+                    itemsJson.put(key, i);
                 }
 
                 String displayExample = null;

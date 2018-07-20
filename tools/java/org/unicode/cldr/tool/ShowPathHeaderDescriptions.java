@@ -8,20 +8,68 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 
+import com.google.common.collect.LinkedHashMultiset;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.text.UnicodeSet;
 
 public class ShowPathHeaderDescriptions {
     public static void main(String[] args) {
+        CLDRConfig config = CLDRConfig.getInstance();
+        Factory factory = config.getCommonAndSeedAndMainAndAnnotationsFactory();
+        CLDRFile english = factory.make("en", true);
+        PathHeader.Factory phf = PathHeader.getFactory(english);
+
+        String localeToTest = "cs";
+        
+        CLDRFile localeFile = factory.make(localeToTest, true);
+        Multiset<String> sectionPageHeader = LinkedHashMultiset.create();
+        Multiset<String> sectionPage = LinkedHashMultiset.create();
+        Set<PathHeader> pathHeaders = new TreeSet<>();
+        UnicodeSet emoji = new UnicodeSet("[:emoji:]");
+        
+        for (String path : localeFile.fullIterable()) {
+            if (emoji.containsSome(path)) {
+                
+            }
+            PathHeader pathHeader = phf.fromPath(path);
+            if (pathHeader.getSectionId() == SectionId.Characters) {
+                System.out.println(pathHeader);
+            }
+            Level level = config.getSupplementalDataInfo().getCoverageLevel(path, localeToTest);
+            if (level.compareTo(Level.MODERN) > 0) {
+                continue;
+            }
+            pathHeaders.add(pathHeader);
+        }
+        for (PathHeader pathHeader : pathHeaders) {
+            String base = pathHeader.getSectionId() + "\t" + pathHeader.getPageId();
+            sectionPage.add(base);
+            String item = base + "\t" + pathHeader.getHeader();
+            sectionPageHeader.add(item);
+        }
+        int i = 0;
+        for (Multiset.Entry<String> entry : sectionPage.entrySet()) {
+            System.out.println(++i + "\t" + entry.getElement() + "\t" + entry.getCount());
+        }
+        i = 0;
+        for (Multiset.Entry<String> entry : sectionPageHeader.entrySet()) {
+            System.out.println(++i + "\t" + entry.getElement() + "\t" + entry.getCount());
+        }
+    }
+    public static void showDescriptions(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
         CLDRFile english = config.getEnglish();
         PathHeader.Factory phf = PathHeader.getFactory(english);

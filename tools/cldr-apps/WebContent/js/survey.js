@@ -3592,6 +3592,10 @@ function updateRow(tr, theRow) {
 	//add the other vote info
 	for(k in theRow.items) {
 		if((k === theRow.winningVhash) // skip vote for winner
+			/*
+			 * TODO: the following "skip vote for ↑↑↑" is dubious,
+			 *  see https://unicode.org/cldr/trac/ticket/11299
+			 */ 				
 		   || (theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
 					continue;
 				}

@@ -79,5 +79,4 @@ if(items.size()>0) {
 			<% } 
 } %>
 	
-<% /* TODO: more from showDataRow needs to move here. */ %>
-
+<% /* Note: more from showDataRow (in DataSection.java prior to svn revision 14289) could move here? */ %>

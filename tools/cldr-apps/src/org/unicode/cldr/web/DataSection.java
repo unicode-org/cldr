@@ -1217,6 +1217,7 @@ public class DataSection implements JSONString {
                 }
 
                 JSONObject itemsJson = new JSONObject();
+                Boolean gotBailey = false;
                 for (CandidateItem i : items.values()) {
                     /* getOriginalValueHash, not getAdjustedValueHash, is required here.
                      * items.values() may include an item with value ↑↑↑ INHERITANCE_MARKER and isBailey = false, and an item
@@ -1232,6 +1233,12 @@ public class DataSection implements JSONString {
                         System.out.println("Warning: value hash key " + key + " is duplicate");
                     }
                     itemsJson.put(key, i);
+                    if (i.isBailey) {
+                        gotBailey = true;
+                    }
+                }
+                if (!gotBailey) {
+                    System.out.println("Warning: no isBailey value in DataSection.java!");
                 }
 
                 String displayExample = null;

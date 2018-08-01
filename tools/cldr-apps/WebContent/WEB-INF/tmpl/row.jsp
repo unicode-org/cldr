@@ -52,7 +52,6 @@
 </th>
 <th rowspan='<%= rowSpan %>' style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>
 	<%= p.getDisplayName()  
-	      // + " " + p.fullFieldHash()
 	%>
 <% if(false&&SurveyMain.isUnofficial()) { %>	       <br/>
 	X=<%= p.getXpath() %>

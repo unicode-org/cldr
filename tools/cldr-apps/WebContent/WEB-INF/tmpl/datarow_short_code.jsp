@@ -13,16 +13,16 @@ if(false){ // debug
  	ssrh=<%= ssrh %>, itemInfo=<%= itemInfo %>, vToShow=<%= vToShow %>
  </td>
 </tr>
-<% } %><tr class="tr_unknown" id="r_<%= dataRow.fullFieldHash() %>">
+<% } %><tr class="tr_unknown" id="r_<%= dataRow.fieldHash() %>">
 	<th><tt><%=dataRow.prettyPath%></tt></th>
   <th><%=
 	  dataRow.getDisplayName() %></th>
-  <td id="i_<%= dataRow.fullFieldHash() %>"> <input name="<%= dataRow.fullFieldHash() %>" value="<%= SurveyMain.CHANGETO %>" type='hidden'>
+  <td id="i_<%= dataRow.fieldHash() %>"> <input name="<%= dataRow.fieldHash() %>" value="<%= SurveyMain.CHANGETO %>" type='hidden'>
   <% if(ctx.canModify()) { %>
 	  <input dir="<%= htmlDirection %>" 
-	  			onchange="do_change('<%= dataRow.fullFieldHash() %>',this.value,<%= dataRow.getXpathId() %>,'<%= dataRow.getLocale() %>', '<%= ctx.session %>')"
-	  			class="inputbox" name="<%= dataRow.fullFieldHash() %>_v" value="<%= vToShow %>">
-	  <div id="e_<%= dataRow.fullFieldHash() %>" ><!--  errs for this item --></div>
+	  			onchange="do_change('<%= dataRow.fieldHash() %>',this.value,<%= dataRow.getXpathId() %>,'<%= dataRow.getLocale() %>', '<%= ctx.session %>')"
+	  			class="inputbox" name="<%= dataRow.fieldHash() %>_v" value="<%= vToShow %>">
+	  <div id="e_<%= dataRow.fieldHash() %>" ><!--  errs for this item --></div>
   <% } else { %>
   		<%= vToShow %>
   <% } %>	

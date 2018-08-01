@@ -126,17 +126,32 @@ public class DataSection implements JSONString {
             public boolean isOldValue = false;
             public boolean isBailey = false; // is this the fallback value?
 
-            public String getProcessedValue() {
-                if (value == null)
+            /**
+             * Get the value of this CandidateItem, processed for display.
+             * 
+             * @return the processed value
+             * 
+             * Called only by CandidateItem.toJSONString
+             */
+            private String getProcessedValue() {
+                if (value == null) {
                     return null;
+                }
                 try {
                     return getProcessor().processForDisplay(xpath, value);
                 } catch (Throwable t) {
-                    if (SurveyLog.DEBUG) SurveyLog.logException(t, "While processing " + xpath + ":" + value);
+                    if (SurveyLog.DEBUG) {
+                        SurveyLog.logException(t, "While processing " + xpath + ":" + value);
+                    }
                     return value;
                 }
             }
 
+            /**
+             * Create a new CandidateItem with the given value
+             * 
+             * @param value
+             */
             private CandidateItem(String value) {
                 this.value = value;
             }
@@ -183,6 +198,13 @@ public class DataSection implements JSONString {
                 return adjustedValueHash;
             }
 
+            /**
+             * Compare this CandidateItem with the given other CandidateItem.
+             * 
+             * @parm other the other item with which to compare this one
+             * @return 0 if they are the same item, else a positive or negative number
+             *           obtained by comparing the two values as strings
+             */
             @Override
             public int compareTo(CandidateItem other) {
                 if (other == this) {
@@ -193,16 +215,27 @@ public class DataSection implements JSONString {
                 return rv;
             }
 
+            /**
+             * Get the set of users who have voted for this CandidateItem
+             * 
+             *  @return the set
+             */
             @Override
             public Collection<UserInfo> getUsersVotingOn() {
                 Set<UserRegistry.User> uvotes = getVotes();
-                if (uvotes == null)
+                if (uvotes == null) {
                     return Collections.emptySet();
+                }
                 TreeSet<UserInfo> ts = new TreeSet<UserInfo>(uvotes);
                 // TODO: change return type for perf?
                 return ts;
             }
 
+            /**
+             * Get the set of votes for this CandidateItem
+             * 
+             * @return the set
+             */
             public Set<UserRegistry.User> getVotes() {
                 if (!checkedVotes) {
                     votes = ballotBox.getVotesForValue(xpath, value);
@@ -223,179 +256,10 @@ public class DataSection implements JSONString {
             }
 
             /**
-             * print the cells which have to do with the item this may be called
-             * with NULL if there isn't a proposed item for this slot. it will
-             * be called once in the 'main' row, and once for any extra rows
-             * needed for proposed items
-             *
-             * @param ctx
-             *            TODO
-             * @param ourVote
-             *            TODO
-             * @param canModify
-             *            TODO
-             * @param ourAlign
-             *            TODO
-             * @param uf
-             *            TODO
-             * @param zoomedIn
-             *            TODO
-             * @param numberedItemsList
-             *            All items are added here.
-             * @param exampleContext
-             *            TODO
-             */
-            void printCell(WebContext ctx, String ourVote, boolean canModify, String ourAlign, UserLocaleStuff uf,
-                boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext) {
-                printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext,
-                    EnumSet.allOf(EPrintCellSet.class));
-            }
-
-            /**
-             * print the cells which have to do with the item this may be called
-             * with NULL if there isn't a proposed item for this slot. it will
-             * be called once in the 'main' row, and once for any extra rows
-             * needed for proposed items
-             *
-             * @param ctx
-             *            TODO
-             * @param ourVote
-             *            TODO
-             * @param canModify
-             *            TODO
-             * @param ourAlign
-             *            TODO
-             * @param uf
-             *            TODO
-             * @param zoomedIn
-             *            TODO
-             * @param numberedItemsList
-             *            All items are added here.
-             * @param exampleContext
-             *            TODO
-             * @param options
-             *            TODO
-             */
-            void printCell(WebContext ctx, String ourVote, boolean canModify, String ourAlign, UserLocaleStuff uf,
-                boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext,
-                EnumSet<EPrintCellSet> options) {
-                String fieldHash = fieldHash();
-                // ##6.1 proposed - print the TOP item
-                int colspan = 1;
-                String itemExample = null;
-
-                if (options.contains(EPrintCellSet.doShowValue)) {
-                    ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
-                        + ctx.getDirectionForLocale() + "' valign='top'>");
-                    if (value != null) {
-                        String pClass = getPClass(ctx);
-
-                        if (ctx.getCanModify()) {
-                            /* TODO: should this be getAdjustedValueHash or getOriginalValueHash? */
-                            ctx.print("<button class='ichoice' title='#" + "x" + "' name='" + fieldHash + "'  value='"
-                                + getAdjustedValueHash() + "' " + " onclick=\"do_change('" + fullFieldHash() + "','','"
-                                + getAdjustedValueHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
-                                + "')\"" + "  type='button'>"
-                                + ctx.iconHtml(checkThis(ourVote) ? "radx" : "rado", "Vote") + "</button>");
-                        } // else, can't vote- no radio buttons.
-
-                        if (zoomedIn && (getVotes() != null)) {
-                            int n = getVotes().size();
-                            String title = "" + n + " vote" + ((n > 1) ? "s" : "");
-                            if (canModify && UserRegistry.userIsVetter(ctx.session.user)) {
-                                title = title + ": ";
-                                boolean first = true;
-                                for (User theU : getVotes()) {
-                                    if (theU != null) {
-                                        String add = theU.name + " of " + theU.org;
-                                        title = title + add.replaceAll("'", "\u2032"); // quote
-                                        // quotes
-                                        if (first) {
-                                            title = title + ", ";
-                                        } else {
-                                            first = false;
-                                        }
-                                    }
-                                }
-                            }
-                            /*
-                             * ballot box symbol
-                             */
-                            ctx.print("<span class='notselected' >" + ctx.iconHtml("vote", title) + "</span>");
-                        }
-
-                        ctx.print("<span " + pClass + ">");
-                        String processed = null;
-                        if (value.length() != 0) {
-                            processed = ctx.processor.processForDisplay(sm.xpt.getById(getXpathId()), value);
-                            ctx.print(processed);
-                        } else {
-                            ctx.print("<i dir='ltr'>(empty)</i>");
-                            processed = null;
-                        }
-                        ctx.print("</span>");
-                        if (this == previousItem) { // its xpath is the base xpath.
-                            ctx.print(ctx.iconHtml("star", "CLDR " + SurveyMain.getOldVersion() + " item"));
-                        }
-                        if (UserRegistry.userIsTC(ctx.session.user) && ctx.prefBool(SurveyMain.PREF_SHOWUNVOTE)
-                            && votesByMyOrg(ctx.session.user)) {
-                            ctx.println(" <label nowrap class='unvotebox' style='padding: 4px;'>"
-                                + "<input type='checkbox' title='#" + xpathId + "' value='" + altProposed + "' name='"
-                                + fieldHash + SurveyMain.ACTION_UNVOTE + "'>" + "Unvote&nbsp;item</label>");
-                        }
-                        if (zoomedIn) {
-                            if (processed != null && /*
-                                                     * direction.equals("rtl")&&
-                                                     */SurveyMain.CallOut.containsSome(processed)) {
-                                String altProcessed = processed.replaceAll("\u200F", "\u200F<b dir=rtl>RLM</b>\u200F")
-                                    .replaceAll("\u200E", "\u200E<b>LRM</b>\u200E");
-                                ctx.print("<br><span class=marks>" + altProcessed + "</span>");
-                            }
-                        }
-                    }
-                    ctx.println("</td>");
-                }
-                // 6.3 - If we are zoomed in, we WILL have an additional column
-                // withtests and/or references.
-                if (options.contains(EPrintCellSet.doShowRef) && zoomedIn) {
-                    ctx.println("<td nowrap class='warncell'>");
-                    ctx.println("<span class='warningReference'>");
-                    if (this != null) {
-                        numberedItemsList.add(this);
-                        // which number is this item?
-                        int mySuperscriptNumber = numberedItemsList.size();
-                        ctx.println("#" + mySuperscriptNumber + "</span>");
-                    }
-                    ctx.println("</td>");
-                }
-
-                // ##6.2 example column. always present
-                if (options.contains(EPrintCellSet.doShowExample) && hasExamples) {
-                    itemExample = uf.getExampleGenerator().getExampleHtml(xpath, value,
-                        exampleContext, ExampleType.NATIVE);
-                    if (itemExample != null) {
-                        ctx.print("<td class='generatedexample' valign='top' align='" + ourAlign + "' dir='"
-                            + ctx.getDirectionForLocale() + "' >");
-                        ctx.print(itemExample.replaceAll("\\\\", "\u200b\\\\")); // \u200bu
-                        ctx.println("</td>");
-                    } else {
-                        ctx.println("<td></td>");
-                    }
-                }
-            }
-
-            /**
-             * @param ourVote
-             * @return
-             */
-            public boolean checkThis(String ourVote) {
-                boolean checkThis = ((ourVote != null) && (xpath != null) && (ourVote.equals(value)));
-                return checkThis;
-            }
-
-            /**
-             * @param ctx
-             * @return
+             * Get some attributes, including the class, for this CandidateItem and the given WebContext
+             * 
+             * @param ctx the WebContext
+             * @return the attributes as a string, for example, "class='winner' title='Winning item.'"
              */
             public String getPClass(WebContext ctx) {
                 String pClass;
@@ -430,6 +294,11 @@ public class DataSection implements JSONString {
                 return pClass;
             }
 
+            /**
+             * Get the class for this CandidateItem
+             * 
+             * @return the class as a string, for example, "winner"
+             */
             public String getPClass() {
                 String pClass;
                 if (isWinner() && !isFallback && inheritFrom == null) {
@@ -453,7 +322,11 @@ public class DataSection implements JSONString {
                 return pClass;
             }
 
-            /* return true if any valid tests were found */
+            /**
+             * Set the tests for this CandidateItem
+             * 
+             * @return true if any valid tests were found, else false
+             */
             public boolean setTests(List<CheckStatus> testList) {
                 tests = testList;
                 // only consider non-example tests as notable.
@@ -504,6 +377,9 @@ public class DataSection implements JSONString {
                 return weHaveTests;
             }
 
+            /**
+             * Convert this CandidateItem to a string.
+             */
             @Override
             public String toString() {
                 return "{Item v='" + value + "', altProposed='" + altProposed + "', inheritFrom='" + inheritFrom + "'"
@@ -512,13 +388,14 @@ public class DataSection implements JSONString {
             }
 
             /**
-             * Did any voters in my org vote for it?
+             * Did any voters in my org vote for this CandidateItem?
              *
-             * @param me
+             * @param me the current User
              */
             public boolean votesByMyOrg(User me) {
-                if (me == null || getVotes() == null)
+                if (me == null || getVotes() == null) {
                     return false;
+                }
                 for (UserRegistry.User u : getVotes()) {
                     if (u.org.equals(me.org) && u.id != me.id) {
                         return true;
@@ -527,6 +404,9 @@ public class DataSection implements JSONString {
                 return false;
             }
 
+            /**
+             * Convert this CandidateItem to a JSON string
+             */
             @Override
             public String toJSONString() throws JSONException {
                 JSONObject j = new JSONObject()
@@ -570,6 +450,11 @@ public class DataSection implements JSONString {
                 return j.toString();
             }
 
+            /**
+             * Get the example for this CandidateItem
+             * 
+             * @return the example, as a string, or null if examplebuilder is null
+             */
             private String getExample() {
                 if (examplebuilder == null) {
                     return null;
@@ -578,11 +463,21 @@ public class DataSection implements JSONString {
                 }
             }
 
+            /**
+             * Get the value of this CandidateItem
+             * 
+             * @return the value, as a string
+             */
             @Override
             public String getValue() {
                 return value;
             }
 
+            /**
+             * Get the list of CheckStatus objects
+             * 
+             * @return the list
+             */
             @Override
             public List<CheckStatus> getCheckStatusList() {
                 if (tests == null) {
@@ -593,9 +488,6 @@ public class DataSection implements JSONString {
             }
         }
 
-        // Do some items alias to a different base xpath or locale?
-        String aliasFromLocale = null; // locale, if different
-        int aliasFromXpath = -1; // xpath, if different
         public int allVoteType = 0; // bitmask of all voting types included
 
         public String altType = null; // alt type (NOT to be confused with -proposedn)
@@ -666,6 +558,8 @@ public class DataSection implements JSONString {
         // the xpath id of the winner. If no winner or n/a, -1.
         /**
          * @deprecated - winner is a value
+         * 
+         * Although deprecated, still referenced in InterestSort.java
          */
         @Deprecated
         int winningXpathId = -1;
@@ -724,14 +618,6 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * @deprecated now the same as fieldHash.
-         * @return
-         */
-        public String fullFieldHash() {
-            return fieldHash();
-        }
-
-        /**
          * Returns the winning (current) item.
          *
          * @return
@@ -742,14 +628,6 @@ public class DataSection implements JSONString {
 
         public String getDisplayName() {
             return displayName;
-        }
-
-        /**
-         * @deprecated
-         */
-        @Deprecated
-        public boolean getErrorNoOutcome() {
-            return winningValue == null;
         }
 
         public String getIntgroup() {
@@ -873,33 +751,6 @@ public class DataSection implements JSONString {
             return NAME_TYPE_PATTERN.matcher(prettyPath).matches();
         }
 
-        /**
-         * Print empty cells. Not the equivalent of printCells(..., null), which
-         * will still print an example.
-         *
-         * @param ctx
-         * @param ourAlign
-         *            TODO
-         * @param zoomedIn
-         *            TODO
-         * @param section
-         * @deprecated HTML
-         */
-        @Deprecated
-        void printEmptyCells(WebContext ctx, String ourAlign, boolean zoomedIn) {
-            int colspan = zoomedIn ? 1 : 1;
-            ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
-                + ctx.getDirectionForLocale() + "' valign='top'>");
-            ctx.println("</td>");
-            if (zoomedIn) {
-                ctx.println("<td></td>"); // no tests, no references
-            }
-            if (hasExamples()) {
-                // ##6.2 example column
-                ctx.println("<td></td>");
-            }
-        }
-
         public String itemTypeName(WebContext ctx, boolean canModify, boolean zoomedIn, String specialUrl) {
             StringBuilder sb = new StringBuilder();
             String disputeIcon = "";
@@ -950,10 +801,6 @@ public class DataSection implements JSONString {
                         inheritedValue.isParentFallback = true;
                     }
                 }
-            } else {
-                // if(SurveyMain.isUnofficial)
-                // System.err.println("already have inherited @ " +
-                // base_xpath_string);
             }
         }
 
@@ -986,43 +833,44 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * @param ctx
-         * @return
+         * Get the status icon for this DataRow
+         * 
+         * @param ctx the WebContext
+         * @return the status icon, as a string
+         * 
+         * Called only by row.jsp
          */
         public String getStatusIcon(WebContext ctx) {
             String statusIcon = "";
             if (hasErrors) {
                 statusIcon = ctx.iconHtml("stop", "Errors - please zoom in");
-            } else if (hasWarnings /*
-                                   * && confirmStatus !=
-                                   * Vetting.Status.INDETERMINATE
-                                   */) {
+            } else if (hasWarnings) {
                 statusIcon = ctx.iconHtml("warn", "Warnings - please zoom in");
             }
             return statusIcon;
         }
 
         /**
-         * @param foundWarning
-         * @return
+         * Get the row class for this DataRow
+         * 
+         * @return "vother, "error", or "warning"
          */
         public String getRowClass() {
             // calculate the class of data items
             String rclass = "vother";
             if (hasErrors) {
                 rclass = "error";
-            } else if (hasWarnings /*
-                                   * && confirmStatus !=
-                                   * Vetting.Status.INDETERMINATE
-                                   */) {
+            } else if (hasWarnings) {
                 rclass = "warning";
             }
             return rclass;
         }
 
+ 
         /**
-         * @param ctx
-         * @return
+         * Get an icon indicating whether the user has voted for this DataRow
+         * 
+         * @return the html string
          */
         public String getVotedIcon(WebContext ctx) {
             String votedIcon = ctx.iconHtml("bar0", "You have not yet voted on this item.");
@@ -1033,8 +881,9 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * @param ctx
-         * @return
+         * Get an icon indicating the draft status for this DataRow
+         * 
+         * @return the html string
          */
         public String getDraftIcon(WebContext ctx) {
             String draftIcon = "";
@@ -1060,7 +909,7 @@ public class DataSection implements JSONString {
         /**
          * Show a row of limited data.
          *
-         * @param ctx
+         * @param ctx the WebContext
          */
         void showDataRowShort(WebContext ctx) {
             ctx.put(WebContext.DATA_ROW, this);
@@ -1072,16 +921,22 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * @param ctx
+         * Show the voting results for this DataRow
+         * 
+         * @param ctx the WebContext
+         * 
+         * Called by RefreshRow.jsp
          */
         public void showVotingResults(WebContext ctx) {
-
-            BallotBox<User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale());
+            BallotBox<User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
             ctx.put("ballotBox", ballotBox);
             ctx.put("resolver", ballotBox.getResolver(getXpath()));
             ctx.includeFragment("show_voting.jsp");
         }
 
+        /**
+         * Convert this DataRow to a string.
+         */
         @Override
         public String toString() {
             return "{DataRow n='" + getDisplayName() + "', x='" + xpath + "', item#='" + items.size() + "'}";
@@ -1144,8 +999,12 @@ public class DataSection implements JSONString {
                         if (TRACE_TIME)
                             System.err.println("@@5:" + (System.currentTimeMillis() - lastTime));
 
-                        aliasFromLocale = sourceLocale;
-                        aliasFromXpath = sm.xpt.xpathToBaseXpathId(pathWhereFound.value);
+                        /*
+                         * TODO: does xpathToBaseXpathId have any useful side-effect here? If not,
+                         * delete this call to it. Formerly the return value was assigned to
+                         * aliasFromXpath, whose value was unused.
+                         */
+                        sm.xpt.xpathToBaseXpathId(pathWhereFound.value);
                         if (TRACE_TIME)
                             System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
                     }
@@ -1178,18 +1037,18 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Returns true if a user has voted or not.
+         * Has the given user voted or not?
          *
          * @param userId
-         * @return true if user has voted at all, false otherwise. Will return
-         *         false if user changes their vote back to no opinion.
+         * @return true if user has voted at all, false otherwise. Return
+         *         false if user changes their vote back to no opinion (abstain).
          */
         public boolean userHasVoted(int userId) {
             return ballotBox.userDidVote(sm.reg.getInfo(userId), getXpath());
         }
 
         /**
-         * Per row
+         * Convert this DataRow to a JSON string.
          */
         @Override
         public String toJSONString() throws JSONException {
@@ -1291,9 +1150,23 @@ public class DataSection implements JSONString {
             }
         }
 
-        Map<String, String> nonDistinguishingAttributes = null;
-        boolean checkedNDA = false;
+        /*
+         * A Map used only in getNonDistinguishingAttributes
+         */
+        private Map<String, String> nonDistinguishingAttributes = null;
 
+        /*
+         * A boolean used only in getNonDistinguishingAttributes
+         */
+        private boolean checkedNDA = false;
+
+        /**
+         * Get the map of non-distinguishing attributes for this DataRow
+         * 
+         * @return the map
+         * 
+         * Called only by DataRow.toJSONString
+         */
         private Map<String, String> getNonDistinguishingAttributes() {
             if (checkedNDA == false) {
                 String fullDiskXPath = diskFile.getFullXPath(xpath);
@@ -1303,17 +1176,28 @@ public class DataSection implements JSONString {
             return nonDistinguishingAttributes;
         }
 
+        /**
+         * Get the StatusAction for this DataRow
+         * 
+         * @return the StatusAction
+         */
         public StatusAction getStatusAction() {
             // null because this is for display.
             return SurveyMain.phase().getCPhase()
                 .getShowRowAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
         }
 
+        /**
+         * Get the last release value for this DataRow
+         */
         @Override
         public String getLastReleaseValue() {
             return oldValue;
         }
 
+        /**
+         * Get the coverage level for this DataRow
+         */
         @Override
         public Level getCoverageLevel() {
             // access the private method of the enclosing class
@@ -1321,9 +1205,12 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * There was at least one vote at the end of DataSubmission, or there is
-         * a vote now. TODO: add check for whether there was a vote in data
-         * submission.
+         * Was there at least one vote for this DataRow at the end of data submission, or is
+         * there a vote now?
+         * 
+         * @return true if there was at least one vote
+         * 
+         * TODO: add check for whether there was a vote in data submission.
          */
         @Override
         public boolean hadVotesSometimeThisRelease() {
@@ -1336,30 +1223,41 @@ public class DataSection implements JSONString {
         }
     }
 
+    /*
+     * The user somehow related to this DataSection?
+     * TODO: clarify what userForVotelist means
+     */
     private User userForVotelist = null;
 
+    /**
+     * Set the user and the file for this DataSection
+     * 
+     * Somehow related to vote list?
+     * 
+     * @param u the User
+     * @param f the CLDRFile
+     */
     public void setUserAndFileForVotelist(User u, CLDRFile f) {
         userForVotelist = u;
         getExampleBuilder(f);
     }
 
     /**
-     * A class representing a list of rows, in sorted and divided order.
+     * A DisplaySet represents list of rows, in sorted and divided order.
      */
     public static class DisplaySet implements JSONString {
         public boolean canName = true; // can use the 'name' view?
         public boolean isCalendar = false;
         public boolean isMetazones = false;
+
         /**
          * Partitions divide up the rows into sets, such as 'proposed',
          * 'normal', etc. The 'limit' is one more than the index number of the
          * last item. In some cases, there is only one partition, and its name
          * is null.
-         */
-
-        /*
-         *  display group partitions. Might only contain one entry: {null, 0, <end>}.
-         *  Otherwise, contains a list of entries to be named separately 
+         * 
+         * Display group partitions. Might only contain one entry: {null, 0, <end>}.
+         * Otherwise, contains a list of entries to be named separately 
          */
         public Partition partitions[];
 
@@ -1367,7 +1265,8 @@ public class DataSection implements JSONString {
         SortMode sortMode = null;
 
         /**
-         *
+         * Create a DisplaySet object
+         * 
          * @param myRows
          *            the original rows
          * @param myDisplayRows
@@ -1381,7 +1280,19 @@ public class DataSection implements JSONString {
             rows = myRows;
         }
 
-        public int showSkipBox(WebContext ctx, int skip) {
+        /**
+         * Show a "skip box" for this DisplaySet
+         * 
+         * TODO: explain what a "skip box" is
+         * 
+         * @param ctx the WebContext
+         * @param skip an integer, meaning what?
+         * 
+         * @return an integer related to the "skip" parameter
+         * 
+         * Called only by DataSection.showSection
+         */
+        private int showSkipBox(WebContext ctx, int skip) {
             int total = size();
             DataRow displayList[] = null;
             if (this != null) {
@@ -1547,6 +1458,15 @@ public class DataSection implements JSONString {
             return skip;
         }
 
+        /**
+         * Show a "skip box menu" for this DisplaySet
+         * 
+         * @param ctx
+         * @param aMode
+         * @param aDesc
+         * 
+         * Called only by showSkipBox
+         */
         private void showSkipBox_menu(WebContext ctx, String aMode, String aDesc) {
             WebContext nuCtx = (WebContext) ctx.clone();
             nuCtx.addQuery(SurveyMain.PREF_SORTMODE, aMode);
@@ -1566,10 +1486,18 @@ public class DataSection implements JSONString {
             nuCtx.println(" ");
         }
 
+        /**
+         * Get the size of this DisplaySet
+         * 
+         * @return the number of rows
+         */
         public int size() {
             return rows.length;
         }
 
+        /**
+         * Convert this DisplaySet to a JSON string.
+         */
         @Override
         public String toJSONString() throws JSONException {
             JSONArray r = new JSONArray();
@@ -1589,7 +1517,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * This class represents an Example box, so that it can be stored and
+     * The ExampleEntry class represents an Example box, so that it can be stored and
      * restored.
      */
     public class ExampleEntry {
@@ -1601,9 +1529,17 @@ public class DataSection implements JSONString {
         public DataSection section;
         public CheckCLDR.CheckStatus status;
 
-        public ExampleEntry(DataSection section, DataRow p, DataRow.CandidateItem item, CheckCLDR.CheckStatus status) {
+        /**
+         * Create a new ExampleEntry
+         * 
+         * @param section the DataSection
+         * @param row the DataRow
+         * @param item the CandidateItem
+         * @param status the CheckStatus
+         */
+        public ExampleEntry(DataSection section, DataRow row, DataRow.CandidateItem item, CheckCLDR.CheckStatus status) {
             this.section = section;
-            this.dataRow = p;
+            this.dataRow = row;
             this.item = item;
             this.status = status;
 
@@ -1612,28 +1548,29 @@ public class DataSection implements JSONString {
              *
              * fieldHash ensures that we don't get the wrong field.
              */
-            hash = CookieSession.cheapEncode(DataSection.getN()) +
-                p.fullFieldHash();
+            hash = CookieSession.cheapEncode(DataSection.getN()) + row.fieldHash();
         }
     }
 
-    public static String CHANGES_DISPUTED = "Disputed";
+    /*
+     * A string used only in VETTING_PROBLEMS_LIST
+     */
+    private static String CHANGES_DISPUTED = "Disputed";
 
     /**
      * Divider denoting a specific Continent division.
      */
     public static final String CONTINENT_DIVIDER = "~";
 
-    public static final String DATASECTION_MISSING = "Inherited";
-
-    public static final String DATASECTION_NORMAL = "Normal";
-    public static final String DATASECTION_PRIORITY = "Priority";
-    public static final String DATASECTION_PROPOSED = "Proposed";
-    public static final String DATASECTION_VETPROB = "Vetting Issue";
     private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
+    
+    /*
+     * A Pattern matching paths that are always excluded
+     */
     private static Pattern excludeAlways;
 
     public static final String EXEMPLAR_PARENT = "//ldml/dates/timeZoneNames/zone";
+
     private static final String fromto[] = { "^days/(.*)/(sun)$", "days/1-$2/$1", "^days/(.*)/(mon)$", "days/2-$2/$1",
         "^days/(.*)/(tue)$", "days/3-$2/$1", "^days/(.*)/(wed)$", "days/4-$2/$1", "^days/(.*)/(thu)$", "days/5-$2/$1",
         "^days/(.*)/(fri)$", "days/6-$2/$1", "^days/(.*)/(sat)$", "days/7-$2/$1", "^months/(.*)/month/([0-9]*)$",
@@ -1649,32 +1586,40 @@ public class DataSection implements JSONString {
         // "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
     };
     private static Pattern fromto_p[] = new Pattern[fromto.length / 2];
-    private static boolean isInitted = false;
-    /**
-     * @deprecated only used in non-pageID use.
+    
+    /*
+     * Has this DataSection been initialized?
+     * Used only in the function init()
      */
-    private static Pattern mostPattern;
+    private static boolean isInitted = false;
 
-    private static int n = 0;
-    static final Pattern NAME_TYPE_PATTERN = PatternCache.get("[a-zA-Z0-9]+|.*exemplarCity.*");
+    /*
+     * A Pattern used only in the function isName()
+     */
+    private static final Pattern NAME_TYPE_PATTERN = PatternCache.get("[a-zA-Z0-9]+|.*exemplarCity.*");
 
-    public static String PARTITION_ERRORS = "Error Values";
-    public static String PARTITION_UNCONFIRMED = "Unconfirmed";
+    /*
+     * A string used only in VETTING_PROBLEMS_LIST
+     */
+    private static String PARTITION_ERRORS = "Error Values";
+
+    /*
+     * A string used only in VETTING_PROBLEMS_LIST
+     */
+    private static String PARTITION_UNCONFIRMED = "Unconfirmed";
+
+    /**
+     * Trace in detail time taken to populate?
+     */
+    private static final boolean TRACE_TIME = false;
 
     /**
      * Show time taken to populate?
      */
-    private static final boolean TRACE_TIME = false;
     private static final boolean SHOW_TIME = false || TRACE_TIME || DEBUG || CldrUtility.getProperty("TEST", false);
 
-    public static String STATUS_QUO = "Status Quo";
-
-    public static String TENTATIVELY_APPROVED = "Tentatively Approved";
     /**
-     * Trace in detail time taken to populate?
-     */
-    private static Pattern typeReplacementPattern;
-    /**
+     * An array of strings, used only in showSection()
      * @deprecated
      */
     @Deprecated
@@ -1689,6 +1634,7 @@ public class DataSection implements JSONString {
      * Synchronization Mutex used for accessing/setting the coverageInfo object
      */
     private static final Object GET_COVERAGEINFO_SYNC = new Object();
+
     /**
      * Warn user why these messages are showing up.
      */
@@ -1698,41 +1644,64 @@ public class DataSection implements JSONString {
         }
     }
 
+    /*
+     * A serial number, used only in the function getN()
+     */
+    private static int n = 0;
+
+    /**
+     * Get a unique serial number
+     * 
+     * @return the number
+     * 
+     * Called only by the ExampleEntry constructor
+     */
     protected static synchronized int getN() {
         return ++n;
-    } // serial number
+    }
 
+    /**
+     * Initialize this DataSection if it hasn't already been initialized
+     */
     private static synchronized void init() {
         if (!isInitted) {
-            typeReplacementPattern = PatternCache.get("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
+            /*
+             * TODO: Does this call to PatternCache.get("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]")
+             * have a useful side-effect? If not, delete the call.
+             * It was formerly assigned to typeReplacementPattern, no longer used.
+             * The call to PatternCache.get("([^/]*)/(.*)") was not assigned; presumably
+             * it has a useful side-effect?
+             */
+            PatternCache.get("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
             PatternCache.get("([^/]*)/(.*)");
-
+            
             /* This one is only used with non-pageID use. */
-            mostPattern = PatternCache.get("^//ldml/localeDisplayNames.*|"
-                + // these are excluded when 'misc' is chosen.
-                "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
-                + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
-                + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
+            PatternCache.get("^//ldml/localeDisplayNames.*|"
+               /* these are excluded when 'misc' is chosen. */
+               + "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
+               + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
+               + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
 
             /* Always excluded. Compare with PathHeader/Coverage. */
             excludeAlways = PatternCache.get("^//ldml/segmentations.*|" + "^//ldml/measurement.*|" + ".*week/minDays.*|"
                 + ".*week/firstDay.*|" + ".*/usesMetazone.*|" + ".*week/weekendEnd.*|" + ".*week/weekendStart.*|" +
                 "^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|"
-                + "^//ldml/dates/.*default");// no defaults
+                + "^//ldml/dates/.*default"); // no defaults
 
             int pn;
             for (pn = 0; pn < fromto.length / 2; pn++) {
                 fromto_p[pn] = PatternCache.get(fromto[pn * 2]);
             }
-
+            isInitted = true;
         }
-        isInitted = true;
     }
 
     /**
      * @return a new XPathMatcher that matches all paths in the hacky
      *         excludeAlways regex. For testing.
      * @deprecated
+     * 
+     * Referenced only in CLDR23Tool.jsp -- which is what??
      */
     public static XPathMatcher getHackyExcludeMatcher() {
         init();
@@ -1842,10 +1811,13 @@ public class DataSection implements JSONString {
     }
 
     /**
+     * Get the options for the given WebContext, or, if the context is null, get the
+     * options for the given CookieSession and CLDRLocale
+     * 
      * @param ctx
      * @param session
      * @param locale
-     * @return
+     * @return the CheckCLDR.Options object
      */
     public static CheckCLDR.Options getOptions(WebContext ctx, CookieSession session, CLDRLocale locale) {
         CheckCLDR.Options options;
@@ -1864,9 +1836,13 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Given a (cleaned, etc) xpath, this returns the podBase, i.e.
+     * Given a (cleaned, etc) xpath, return the podBase, i.e.,
      * context.getPod(base), that would be used to show that xpath. Keep this in
      * sync with SurveyMain.showLocale() where there is the list of menu items.
+     * 
+     * @param xpath the xpath string
+     * 
+     * @return a string, for example, "//ldml/units"
      */
     public static String xpathToSectionBase(String xpath) {
         int n;
@@ -1874,10 +1850,14 @@ public class DataSection implements JSONString {
 
         // is it one of the prefixes we can check statically?
         String staticBases[] = {
-            // LOCALEDISPLAYNAMES
+            /*
+             *  LOCALEDISPLAYNAMES
+             */
             "//ldml/" + PathUtilities.NUMBERSCURRENCIES, "//ldml/" + "dates/timeZoneNames/zone",
             "//ldml/" + "dates/timeZoneNames/metazone",
-            // OTHERROOTS
+            /*
+             *  OTHERROOTS
+             */
             SurveyMain.GREGO_XPATH, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, PathUtilities.OTHER_CALENDARS_XPATH,
             "//ldml/units" };
 
@@ -1919,25 +1899,16 @@ public class DataSection implements JSONString {
     Hashtable<String, ExampleEntry> exampleHash = new Hashtable<String, ExampleEntry>();
 
     public boolean hasExamples = false;
+    
+    /*
+     * Interest group
+     */
     public String intgroup;
+
     boolean isCalendar = false; // Is this a calendar section?
     boolean isMetazones = false; // Is this a metazones section?
 
-    /*
-     *  layout/inList/*  - from UTS35
-     */
-    public String[] LAYOUT_INLIST_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed" };
-
-    /*
-     * layout/inText/* - from UTS35
-     */
-    public String[] LAYOUT_INTEXT_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed" };
-
-    /*
-     * layout/inText/* - from UTS35
-     */
-    public String[] METAZONE_COMMONLYUSED_VALUES = { "true", "false" };
-
+    // TODO: myCollator unused? does createCollator have useful side-effect?
     final Collator myCollator = CodeSortMode.createCollator();
 
     private String ptype;
@@ -1962,6 +1933,16 @@ public class DataSection implements JSONString {
     private PageId pageId;
     private CLDRFile diskFile;
 
+    /**
+     * Create a DataSection
+     *  
+     * @param pageId
+     * @param sm
+     * @param loc
+     * @param prefix
+     * @param matcher
+     * @param ptype
+     */
     DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
         this.locale = loc;
         this.sm = sm;
@@ -1973,12 +1954,21 @@ public class DataSection implements JSONString {
         this.pageId = pageId;
     }
 
-    void addDataRow(DataRow p) {
-        rowsHash.put(p.xpath, p);
+    /**
+     * Add the given DataRow to this DataSection
+     * 
+     * @param row the DataRow
+     * 
+     * Called only by getDataRow
+     */
+    void addDataRow(DataRow row) {
+        rowsHash.put(row.xpath, row);
     }
 
     /**
      * Enregister an ExampleEntry
+     * 
+     * Called only by populateFrom
      */
     ExampleEntry addExampleEntry(ExampleEntry e) {
         synchronized (exampleHash) {
@@ -1987,14 +1977,28 @@ public class DataSection implements JSONString {
         return e; // for the hash.
     }
 
+    /**
+     * TODO: never called? Compare functions with same name in PathHeader, WebContext
+     * @return
+     */
     public PageId getPageId() {
         return pageId;
     }
 
+    /**
+     * TODO: never called?
+     */
     public long age() {
         return System.currentTimeMillis() - touchTime;
     }
 
+    /**
+     * Create a DisplaySet for this DataSection
+     * 
+     * @param sortMode
+     * @param matcher
+     * @return the DisplaySet
+     */
     public DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
         DisplaySet aDisplaySet = sortMode.createDisplaySet(matcher, rowsHash.values());
         aDisplaySet.canName = canName;
@@ -2007,6 +2011,8 @@ public class DataSection implements JSONString {
      * Makes sure this DataSection contains the rows we'd like to see.
      *
      * @obsolete not called anymore
+     * 
+     * TODO: Actually still called by DataSection.make, clarify whether "obsolete"
      */
     private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
         String workingCoverageLevel) {
@@ -2140,8 +2146,9 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Get the CoverageInfo object from CLDR
-     * @return
+     * Get the CoverageInfo object from CLDR for this DataSection
+     * 
+     * @return the CoverageInfo
      */
     private CoverageInfo getCoverageInfo() {
         synchronized (GET_COVERAGEINFO_SYNC) {
@@ -2153,26 +2160,43 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * get all rows.. unsorted.
+     * Get all rows for this DataSection, unsorted
+     * 
+     * @return the Collection of DataRow
      */
     public Collection<DataRow> getAll() {
         return rowsHash.values();
     }
 
+    /**
+     * Get the BallotBox for this DataSection
+     * 
+     * @return the BallotBox
+     */
     public BallotBox<User> getBallotBox() {
         return ballotBox;
     }
 
     /**
+     * Get the row for the given xpath in this DataSection
+     * 
      * Linear search for matching item.
      *
-     * @param xpath
-     * @return the matching DatRow
+     * @param xpath the integer...
+     * @return the matching DataRow
      */
     public DataRow getDataRow(int xpath) {
         return getDataRow(sm.xpt.getById(xpath));
     }
 
+    /**
+     * Get the row for the given xpath in this DataSection
+     * 
+     * Linear search for matching item.
+     *
+     * @param xpath the string...
+     * @return the matching DataRow
+     */
     public DataRow getDataRow(String xpath) {
         if (xpath == null) {
             throw new InternalError("type is null");
@@ -2198,14 +2222,36 @@ public class DataSection implements JSONString {
         }
     }
 
+    /**
+     * Get the ptype for this DataSection
+     * 
+     * @return the ptype string
+     */
     private String getPtype() {
         return ptype;
     }
 
+    /**
+     * Get the number of things that were skipped due to coverage
+     * 
+     * TODO: clarify what kind of things, and why it means for them to be "skipped due to coverage"
+     * 
+     * @return the number of things that were skipped
+     */
     public int getSkippedDueToCoverage() {
         return skippedDueToCoverage;
     }
 
+    /**
+     * Populate this DataSection
+     * 
+     * @param ourSrc the CLDRFile
+     * @param checkCldr the TestResultBundle
+     * @param options
+     * @param workingCoverageLevel
+     * 
+     * TODO: shorten this function, over 300 lines
+     */
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
         String workingCoverageLevel) {
         XPathParts xpp = new XPathParts(null, null);
@@ -2244,7 +2290,6 @@ public class DataSection implements JSONString {
                 canName = false;
             } else if (xpathPrefix.startsWith("//ldml/numbers")) {
                 canName = false;
-
             } else if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
                 int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
                 if (continentStart > 0) {
@@ -2252,8 +2297,8 @@ public class DataSection implements JSONString {
                 }
                 if (DEBUG)
                     System.err.println(xpathPrefix + ": -> continent " + continent);
-                if (!xpathPrefix.contains("@type")) { // if it's not a
-                    // zoom-in..
+                if (!xpathPrefix.contains("@type")) {
+                    // if it's not a zoom-in..
                     workPrefix = "//ldml/dates/timeZoneNames/metazone";
                 }
             } else if (xpathPrefix.equals("//ldml/references")) {
@@ -2514,9 +2559,6 @@ public class DataSection implements JSONString {
                 if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
                     && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
                     myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
-                    // set up DataSection alias-ness
-                    p.aliasFromLocale = sourceLocale;
-                    p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
                 }
                 myItem.inheritFrom = setInheritFrom;
                 if (setInheritFrom == null) {
@@ -2539,31 +2581,28 @@ public class DataSection implements JSONString {
         }
     }
 
-    void showSection(WebContext ctx, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
-        showSection(ctx, canModify, -1, only_prefix_xpath, zoomedIn);
-    }
-
     /**
      * Show a DataSection to the user. Caller must hold session sync.
-     *
+     * 
      * @param ctx
      *            the context to show
      * @param canModify
      *            user is allowed to modify
-     * @param only_base_xpath
-     *            TODO
      * @param only_prefix_xpath
      *            only show this prefix
      * @param zoomedIn
      *            show in zoomed-in mode
-     * @param only_base_path
-     *            only show this base xpath
-     *
-     * @deprecated use a custom XPathmatcher
+     *            
+     * There are two functions by this name. This one has a String for the 3rd param;
+     * the other has an XPathMatcher.
+     * 
+     * Called only by showXpath in SurveyForum.java, always with zoomedIn = true
      */
-    @Deprecated
-    void showSection(WebContext ctx, boolean canModify, int only_base_xpath, String only_prefix_xpath, boolean zoomedIn) {
-        showSection(ctx, canModify, BaseAndPrefixMatcher.getInstance(only_base_xpath, only_prefix_xpath), zoomedIn);
+    void showSection(WebContext ctx, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
+        XPathMatcher matcher = BaseAndPrefixMatcher.getInstance(-1, only_prefix_xpath);
+
+        // Call the method below that has the same name, different parameters
+        showSection(ctx, canModify, matcher, zoomedIn);
     }
 
     /**
@@ -2572,6 +2611,8 @@ public class DataSection implements JSONString {
      * @param ctx
      * @param item_xpath
      *            xpath of the one item to show
+     *            
+     *  Called only by showXpathShort in SurveyForum.java
      */
     public void showPeasShort(WebContext ctx, int item_xpath) {
         DataRow row = getDataRow(item_xpath);
@@ -2584,11 +2625,20 @@ public class DataSection implements JSONString {
         }
     }
 
+    /**
+     * Show a DataSection to the user.
+     * 
+     * @param ctx
+     * @param canModify
+     * @param matcher
+     * @param zoomedIn
+     * 
+     * Called by another function named showSection in this file, and also by showPathList in SurveyMain.java
+     */
     void showSection(WebContext ctx, boolean canModify, XPathMatcher matcher, boolean zoomedIn) {
         int skip = 0; // where the index points to
         int oskip = ctx.fieldInt("skip", 0); // original skip from user.
 
-        boolean partialPeas = false; // TODO: always nonpartial
         UserLocaleStuff uf = null;
         synchronized (ctx.session) {
             uf = ctx.getUserFile();
@@ -2620,7 +2670,7 @@ public class DataSection implements JSONString {
             boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null);
             int moveSkip = -1; // move the "skip" marker?
             int xfind = ctx.fieldInt(SurveyMain.QUERY_XFIND);
-            if ((xfind != -1) && !partialPeas) {
+            if (xfind != -1) {
                 // see if we can find this base_xpath somewhere..
                 int pn = 0;
                 for (int i = 0; i < dSet.rows.length && (moveSkip == -1); i++) {
@@ -2638,31 +2688,26 @@ public class DataSection implements JSONString {
                 }
             }
             // -----
-            if (!partialPeas && !(matcher != null && matcher.getXPath() != XPathTable.NO_XPATH)) {
+            if (!(matcher != null && matcher.getXPath() != XPathTable.NO_XPATH)) {
                 skip = dSet.showSkipBox(ctx, oskip);
             } else {
                 skip = 0;
             }
 
-            if (!partialPeas) {
-                ctx.printUrlAsHiddenFields();
-            }
+            ctx.printUrlAsHiddenFields();
 
             if (disputedOnly == true) {
                 ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
             }
 
-            if (!partialPeas) {
-                ctx.println("<input type='hidden' name='skip' value='" + ctx.field("skip") + "'>");
-                DataSection.printSectionTableOpen(ctx, this, zoomedIn, canModify);
-            }
+            ctx.println("<input type='hidden' name='skip' value='" + ctx.field("skip") + "'>");
+            DataSection.printSectionTableOpen(ctx, this, zoomedIn, canModify);
 
             int rowStart = skip; // where should it start?
             int rowCount = ctx.prefCodesPerPage(); // how many to show?
 
             if (disputedOnly) {
-                // we want to go from
-                // VETTING_PROBLEMS_LIST[0]..VETTING_PROBLEMS_LIST[n] in range.
+                // we want to go from VETTING_PROBLEMS_LIST[0]..VETTING_PROBLEMS_LIST[n] in range.
                 for (int j = 0; j < dSet.partitions.length; j++) {
                     for (String part : DataSection.VETTING_PROBLEMS_LIST) {
                         if (dSet.partitions[j].name.equals(part)) {
@@ -2671,7 +2716,6 @@ public class DataSection implements JSONString {
                             }
                             // keep setting this
                             rowCount = (dSet.partitions[j].limit - rowStart);
-
                         }
                     }
                 }
@@ -2682,7 +2726,7 @@ public class DataSection implements JSONString {
                 rowEnd = dSet.rows.length;
             }
             for (int i = rowStart; i < rowEnd; i++) {
-                if ((!partialPeas) && checkPartitions) {
+                if (checkPartitions) {
                     for (int j = 0; j < dSet.partitions.length; j++) {
                         if ((dSet.partitions[j].name != null)
                             && ((i == dSet.partitions[j].start) || ((i == rowStart) && (i >= dSet.partitions[j].start) && (i < dSet.partitions[j].limit)))) {
@@ -2698,16 +2742,14 @@ public class DataSection implements JSONString {
                     }
                 }
             }
-            if (!partialPeas) {
-                sm.printSectionTableClose(ctx, this, canModify);
+            sm.printSectionTableClose(ctx, this, canModify);
 
-                if (!(matcher != null && matcher.getXPath() != XPathTable.NO_XPATH)) {
-                    /* skip = */dSet.showSkipBox(ctx, oskip);
-                }
+            if (!(matcher != null && matcher.getXPath() != XPathTable.NO_XPATH)) {
+                dSet.showSkipBox(ctx, oskip);
+            }
 
-                if (!canModify) {
-                    ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
-                }
+            if (!canModify) {
+                ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
             }
         }
     }
@@ -2743,6 +2785,9 @@ public class DataSection implements JSONString {
         return sortMode;
     }
 
+    /**
+     * Convert this DataSection to a string.
+     */
     @Override
     public String toString() {
         return "{" + getClass().getSimpleName() + " " + locale + ":" + xpathPrefix + " #" + super.toString() + ", "
@@ -2753,27 +2798,7 @@ public class DataSection implements JSONString {
         touchTime = System.currentTimeMillis();
     }
 
-    /**
-     * @deprecated use p.xpath()
-     * @param p
-     * @see DataSection#xpath
-     */
-    @Deprecated
-    public String xpath(DataRow p) {
-        return p.getXpath();
-    }
-
-    /**
-     * @deprecated use getLocale
-     * @return
-     * @see #getLocale
-     */
-    public CLDRLocale locale() {
-        return locale;
-    }
-
     /** width, in columns, of the typical data table **/
-
     static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
         ctx.println("<a name='st_data'></a>");
         ctx.println("<table summary='Data Items for " + ctx.getLocale().toString() + " " + section.xpathPrefix
@@ -2844,6 +2869,9 @@ public class DataSection implements JSONString {
 
     public static final EnumSet<EShowDataRowSet> kAjaxRows = EnumSet.of(EShowDataRowSet.doShowValueRows);
 
+    /**
+     * Convert this DataSection to a JSON string.
+     */
     @Override
     public String toJSONString() throws JSONException {
         JSONObject itemList = new JSONObject();
@@ -2855,7 +2883,8 @@ public class DataSection implements JSONString {
                     JSONObject obj = new JSONObject(str);
                     itemList.put(d.fieldHash(), obj);
                 } catch (JSONException ex) {
-                    SurveyLog.logException(ex, "JSON serialization error for row: " + d.xpath + " : Full row is: " + d.toString());
+                    SurveyLog.logException(ex, "JSON serialization error for row: "
+                        + d.xpath + " : Full row is: " + d.toString());
                     throw new JSONException(ex);
                 }
             }
@@ -2872,7 +2901,11 @@ public class DataSection implements JSONString {
     }
 
     /**
+     * Get the DisplayAndInputProcessor for this DataSection; if there isn't one yet, create it
+     * 
      * @return the processor
+     * 
+     * Called by getProcessedValue
      */
     private DisplayAndInputProcessor getProcessor() {
         if (processor == null) {
@@ -2882,7 +2915,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * @return the processor
+     * @return the examplebuilder
      */
     private ExampleBuilder getExampleBuilder(CLDRFile file) {
         if (examplebuilder == null) {

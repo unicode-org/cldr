@@ -140,6 +140,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         Set<String> set2 = new HashSet<String>();
         set2.add("/unit[@type=\"energy-calorie\"]");
         set2.add("/unit[@type=\"energy-kilocalorie\"]");
+        set2.add("/unit[@type=\"length-inch\"]"); // #11292
         mapPathPartsToSets.put("/unit[@type=\"energy-foodcalorie\"]", set2);
 
         // Add OK collisions for /unit[@type=\"energy-kilocalorie\"]
@@ -169,6 +170,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         mapPathPartsToSets.put("/unit[@type=\"mass-metric-ton\"]", set7);
 
         // delete the exceptions allowing acceleration-g-force and mass-gram to have the same symbol, see #7561
+
+        // Add OK collisions for /unit[@type=\"length-inch\"]
+        Set<String> set9 = new HashSet<String>();
+        set9.add("/unit[@type=\"energy-foodcalorie\"]");
+        mapPathPartsToSets.put("/unit[@type=\"length-inch\"]", set9);
 
         // Add OK collisions for /unit[@type=\"length-foot\"]
         Set<String> set10 = new HashSet<String>();

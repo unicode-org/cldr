@@ -13,6 +13,12 @@ dojo.require("dojo.i18n");
 dojo.require("dojo.string");
 window.haveDialog = false;
 
+/*
+ * INHERITANCE_MARKER indicates that the value of a candidate item is inherited.
+ * Compare INHERITANCE_MARKER in CldrUtility.java.
+ */
+const INHERITANCE_MARKER = "↑↑↑";
+
 /**
  * @class Object
  * @method keys
@@ -2788,7 +2794,7 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		var isInherited = false;
 		var h3 = document.createElement("div");
 		var displayValue = item.value;
-		if (item.value == '\u2191\u2191\u2191') {
+		if (item.value == INHERITANCE_MARKER) {
 			displayValue = theRow.inheritedValue;
 			isInherited = true;
 		}
@@ -2874,7 +2880,7 @@ function addVitem(td, tr, theRow, item, newButton) {
 		return;
 	}
 	var displayValue = item.value;
-	if (item.value == "\u2191\u2191\u2191") {
+	if (item.value == INHERITANCE_MARKER) {
 		item.pClass = theRow.inheritedPClass == "winner" ? "fallback" : theRow.inheritedPClass;
 		displayValue = theRow.inheritedValue;
 	}
@@ -2962,7 +2968,7 @@ function updateRow(tr, theRow) {
 		if(item.value) {
 			tr.valueToItem[item.value] = item; // back link by value
 			tr.rawValueToItem[item.rawValue] = item; // back link by value
-			if(item.rawValue === '↑↑↑') { // This is a vote for Bailey.
+			if(item.rawValue === INHERITANCE_MARKER) { // This is a vote for Bailey.
 				item.isVoteForBailey = true;
 				tr.voteForBaileyItem = item;
 			}
@@ -2980,7 +2986,7 @@ function updateRow(tr, theRow) {
 		} else {
 			tr.baileyItem.votes = tr.baileyItem.votes || {};
 			for(var k in tr.voteForBaileyItem.votes) {
-				tr.baileyItem.votes[k] = tr.voteForBaileyItem.votes[k]; //  move vote from ↑↑↑ to explicit item
+				tr.baileyItem.votes[k] = tr.voteForBaileyItem.votes[k]; //  move vote from ↑↑↑ INHERITANCE_MARKER to explicit item
 				tr.baileyItem.votes[k].isVoteForBailey = true;
 				// no need to remove - will be handled specially below.
 			}
@@ -3079,7 +3085,7 @@ function updateRow(tr, theRow) {
 					***/
 
 					setLang(valdiv);
-					if (value == '\u2191\u2191\u2191') {
+					if (value == INHERITANCE_MARKER) {
 						appendItem(valdiv, stui.str("voteInfo_acceptInherited"), "fallback", tr);
 						valdiv.appendChild(createChunk(stui.str('voteInfo_baileyVoteList'), 'p'));
 					} else {
@@ -3513,7 +3519,7 @@ function updateRow(tr, theRow) {
 			if (theRow.items[theRow.winningVhash]) {
 				theValue = theRow.items[theRow.winningVhash].value;
 			}
-			if (theValue === '\u2191\u2191\u2191' || theValue === null) {
+			if (theValue === INHERITANCE_MARKER || theValue === null) {
 				theValue = theRow.inheritedValue;
 			}
 			input.value = theValue || null;
@@ -3593,7 +3599,7 @@ function updateRow(tr, theRow) {
 	for(k in theRow.items) {
 		if((k === theRow.winningVhash) // skip vote for winner
 			/*
-			 * TODO: the following "skip vote for ↑↑↑" is dubious,
+			 * TODO: the following "skip vote for ↑↑↑" (INHERITANCE_MARKER) is dubious,
 			 *  see https://unicode.org/cldr/trac/ticket/11299
 			 */ 				
 		   || (theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑

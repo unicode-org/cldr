@@ -3464,6 +3464,20 @@ function updateRow(tr, theRow) {
 	}
 	setLang(children[config.proposedcell]);
 	tr.proposedcell = children[config.proposedcell];
+	/*
+	 * TODO: this looks fishy.
+	 * 
+	 * When do we have theRow.winningVhash == "" and/or theRow.winningValue == ""?
+	 * If both those conditions are true, then regardless of whether isFallback is true or false,
+	 * theFallbackValue gets set to the LAST element of theRow.items ... and which element is the LAST
+	 * element is probably browser-dependent, see
+	 * https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
+	 * Typically (always?) expect winningVhash and winningValue both to be empty, or both to be non-empty;
+	 * if that's always true, then isFallback never makes any difference anywhere in survey.js.
+	 * 
+	 * There seems to be no reason for theFallbackValue; might as well directly
+	 * assign theRow.winningVhash = k -- but that's a relatively minor issue.
+	 */
 	if(theRow.items && theRow.winningVhash == "") {
 		// find the fallback value
 		var theFallbackValue = null;

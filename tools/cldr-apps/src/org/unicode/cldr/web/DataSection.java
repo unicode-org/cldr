@@ -789,7 +789,7 @@ public class DataSection implements JSONString {
 
             if (shimItem == null) {
                 shimItem = new CandidateItem(null);
-                shimItem.isFallback = false;
+                shimItem.isFallback = false; // TODO: delete, redundant since new CandidateItem(null) always sets isFallback = false
 
                 List<CheckStatus> iTests = new ArrayList<CheckStatus>();
                 checkCldr.check(base_xpath_string, iTests, null);
@@ -2255,7 +2255,7 @@ public class DataSection implements JSONString {
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
         String workingCoverageLevel) {
         XPathParts xpp = new XPathParts(null, null);
-        CLDRFile aFile = ourSrc;
+        CLDRFile aFile = ourSrc; // TODO: why not just use ourSrc directly? Having two variables ourSrc and aFile seems to serve no purpose.
         STFactory stf = sm.getSTFactory();
         CLDRFile oldFile = stf.getOldFile(locale);
         diskFile = stf.getDiskFile(locale);
@@ -2458,7 +2458,10 @@ public class DataSection implements JSONString {
 
             if (isExtraPath) {
                 // This is an 'extra' item- it doesn't exist in xml (including root).
-                // Set up 'shim' tests, to display coverage
+                // For example, isExtraPath may be true when xpath is:
+                // '//ldml/dates/timeZoneNames/metazone[@type="Mexico_Northwest"]/short/standard'
+                // and the URL ends with "v#/aa/NAmerica/".
+                // Set up 'shim' tests, to display coverage.
                 p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
             } else if (p.inheritedValue == null) {
                 // This item fell back from root. Make sure it has an Item, and that tests are run.
@@ -2562,7 +2565,7 @@ public class DataSection implements JSONString {
                 }
                 myItem.inheritFrom = setInheritFrom;
                 if (setInheritFrom == null) {
-                    myItem.isFallback = false;
+                    myItem.isFallback = false; // TODO: redundant?
                     myItem.isParentFallback = false;
                 }
                 // store who voted for what. [ this could be loaded at displaytime..]
